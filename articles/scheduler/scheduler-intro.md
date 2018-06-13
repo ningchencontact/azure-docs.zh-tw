@@ -1,11 +1,11 @@
 ---
-title: "何謂 Azure 排程器？ | Microsoft Docs"
-description: "Azure 排程器可讓您以宣告方式描述在雲端中執行的動作。 然後它會排程這些動作並且自動執行。"
+title: 何謂 Azure 排程器？ | Microsoft Docs
+description: Azure 排程器可讓您以宣告方式描述在雲端中執行的動作。 然後它會排程這些動作並且自動執行。
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 52aa6ae1-4c3d-43fb-81b0-6792c84bcfae
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22715109"
 ---
 # <a name="what-is-azure-scheduler"></a>何謂 Azure 排程器？
 Azure 排程器可讓您以宣告方式描述在雲端中執行的動作。 然後它會排程這些動作並且自動執行。  排程器會使用 [Azure 入口網站](scheduler-get-started-portal.md)、程式碼、[REST API](https://msdn.microsoft.com/library/mt629143.aspx) 或 Azure PowerShell 來完成這個動作。

@@ -1,11 +1,11 @@
 ---
-title: "如何設定 Azure AD 資源庫應用程式的使用者佈建 | Microsoft Docs"
-description: "如何為已經列於 Azure AD 應用程式庫中的應用程式快速設定豐富的使用者帳戶佈建和解除佈建"
+title: 如何設定 Azure AD 資源庫應用程式的使用者佈建 | Microsoft Docs
+description: 如何為已經列於 Azure AD 應用程式庫中的應用程式快速設定豐富的使用者帳戶佈建和解除佈建
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29464420"
 ---
 # <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>如何設定 Azure AD 資源庫應用程式的使用者佈建
 

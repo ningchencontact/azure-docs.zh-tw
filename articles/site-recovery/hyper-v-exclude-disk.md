@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure Site Recovery 排除磁碟不要保護 | Microsoft Docs"
-description: "說明為何及如何在從 Hyper-V 複寫到 Azure 時排除 VM 磁碟。"
+title: 使用 Azure Site Recovery 排除磁碟不要保護 | Microsoft Docs
+description: 說明為何及如何在從 Hyper-V 複寫到 Azure 時排除 VM 磁碟。
 services: site-recovery
 author: nsoneji
 manager: garavd
@@ -13,6 +13,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29466834"
 ---
 # <a name="exclude-disks-from-replication"></a>從複寫排除磁碟
 本文說明如何從複寫排除磁碟。 這種排除可以最佳化已使用的複寫頻寬，或最佳化此類磁碟使用的目標端資源。
