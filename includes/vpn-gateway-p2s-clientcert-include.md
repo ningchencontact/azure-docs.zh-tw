@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30197032"
 ---
 每個使用點對站連線至 VNet 的用戶端電腦都必須安裝用戶端憑證。 用戶端憑證是從根憑證產生，並安裝在每部用戶端電腦上。 如果未安裝有效的用戶端憑證，且用戶端嘗試連線至 VNet，驗證將會失敗。
 
@@ -25,7 +26,7 @@ ms.lasthandoff: 03/23/2018
   - 如果您使用企業憑證解決方案，請以一般的名稱值格式 'name@yourdomain.com' 產生用戶端憑證，而不要使用 'domain name\username' 格式。
   - 請確定用戶端憑證所根據的憑證範本，是以「用戶端驗證」(而不是「智慧卡登入」等) 作為使用清單中第一個項目的「使用者」憑證範本。您可以按兩下用戶端憑證，然後檢視 [詳細資料] > [增強金鑰使用方法]，來檢查憑證。
 
-- **自我簽署的根憑證：**您務必遵循以下其中一篇 P2S 憑證文章中的步驟。 否則，您所建立的用戶端憑證將無法與 P2S 連線相容，而且用戶端會在嘗試連線時收到錯誤訊息。 下列任一篇文章中的步驟都會產生相容的用戶端憑證： 
+- **自我簽署的根憑證：** 您務必遵循以下其中一篇 P2S 憑證文章中的步驟。 否則，您所建立的用戶端憑證將無法與 P2S 連線相容，而且用戶端會在嘗試連線時收到錯誤訊息。 下列任一篇文章中的步驟都會產生相容的用戶端憑證： 
 
   * [Windows 10 PowerShell 指示](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientcert)：這些指示需要 Windows 10 和 PowerShell，以產生憑證。 產生的憑證可以安裝在任何支援的 P2S 用戶端。
   * [MakeCert 指示](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md)：如果您無法存取 Windows 10 電腦來產生憑證，則可使用 MakeCert。 MakeCert 已被取代，但您仍可使用 MakeCert 來產生憑證。 產生的憑證可以安裝在任何支援的 P2S 用戶端。

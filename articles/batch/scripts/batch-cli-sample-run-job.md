@@ -1,12 +1,12 @@
 ---
-title: "Azure CLI 指令碼範例 - 執行 Batch 作業 | Microsoft Docs"
-description: "Azure CLI 指令碼範例 - 使用 Batch 執行作業"
+title: Azure CLI 指令碼範例 - 執行 Batch 作業 | Microsoft Docs
+description: Azure CLI 指令碼範例 - 使用 Batch 執行作業
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: sample
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29843607"
 ---
 # <a name="cli-example-run-a-job-and-tasks-with-azure-batch"></a>CLI 範例：使用 Azure Batch 執行作業和工作
 

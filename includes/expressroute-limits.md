@@ -13,6 +13,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30197613"
 ---
 #### <a name="expressroute-limits"></a>ExpressRoute 限制
 下列限制適用於每個訂用帳戶的 ExpressRoute 資源。

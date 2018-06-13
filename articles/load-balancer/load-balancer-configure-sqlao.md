@@ -18,6 +18,7 @@ ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/29/2018
+ms.locfileid: "30262512"
 ---
 # <a name="configure-a-load-balancer-for-sql-server-always-on"></a>設定負載平衡器使用 SQL Server Always On
 

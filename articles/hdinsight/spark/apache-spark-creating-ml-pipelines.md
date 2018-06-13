@@ -19,6 +19,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164545"
 ---
 # <a name="create-a-spark-machine-learning-pipeline"></a>建立 Spark 機器學習管線
 

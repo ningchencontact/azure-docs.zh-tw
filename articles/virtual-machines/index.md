@@ -1,11 +1,11 @@
 ---
-title: "Azure 虛擬機器文件 - 教學課程和 API 參考 | Microsoft Docs"
-description: "了解如何建立、部署和管理 Windows 或 Linux 虛擬機器。 教學課程、API 參考和其他文件。"
+title: Azure 虛擬機器文件 - 教學課程和 API 參考 | Microsoft Docs
+description: 了解如何建立、部署和管理 Windows 或 Linux 虛擬機器。 教學課程、API 參考和其他文件。
 services: virtual-machines
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23072855"
 ---
 # <a name="virtual-machines-documentation"></a>虛擬機器文件
 
