@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "27600141"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>能源需求預測之 Cortana Intelligence 解決方案範本的技術指南
 ## <a name="overview"></a>**概觀**
@@ -203,7 +204,7 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的 [串流分析查
 2. 更新冷路徑 Power BI 檔案的資料來源
 
    * 確定您已安裝最新版本的 [Power BI Desktop](https://powerbi.microsoft.com/desktop)。
-   * 在您下載的 **"DemandForecastingDataGeneratorv1.0"** 資料夾中，按兩下 **‘Power BI Template\DemandForecastPowerBI.pbix’** 檔案。 初始的視覺效果是根據虛擬資料所形成。 **注意：**如果您看到錯誤訊息，請確定您已安裝最新版本的 Power BI Desktop。
+   * 在您下載的 **"DemandForecastingDataGeneratorv1.0"** 資料夾中，按兩下 **‘Power BI Template\DemandForecastPowerBI.pbix’** 檔案。 初始的視覺效果是根據虛擬資料所形成。 **注意：** 如果您看到錯誤訊息，請確定您已安裝最新版本的 Power BI Desktop。
 
      一旦開啟，請在檔案的頂端按一下 [編輯查詢] 。 在快顯視窗中，按兩下右面板上的 [來源]。
      ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic1.png)
@@ -221,7 +222,7 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的 [串流分析查
 4. (選擇性) 排程資料來源的重新整理。
 
    * 若要排程資料的重新整理，請將滑鼠移到 **EnergyBPI-Final** 資料集，按一下 ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic3.png)，然後選擇 [排程重新整理]。
-     **附註：**如果您看到警告訊息，請按一下 [編輯認證]，並確定您的資料庫認證與步驟 1 中所述相同。
+     **附註：** 如果您看到警告訊息，請按一下 [編輯認證]，並確定您的資料庫認證與步驟 1 中所述相同。
 
      ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic4.png)
    * 展開 **排程重新整理** 一節。 開啟「將您的資料保持最新」。

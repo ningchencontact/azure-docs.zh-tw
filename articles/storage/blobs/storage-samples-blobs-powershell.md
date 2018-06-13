@@ -1,12 +1,12 @@
 ---
-title: "適用於 Azure Blob 儲存體的 Azure PowerShell 範例 | Microsoft Docs"
-description: "適用於搭配 Azure Blob 儲存體使用的 Azure PowerShell 範例"
+title: 適用於 Azure Blob 儲存體的 Azure PowerShell 範例 | Microsoft Docs
+description: 適用於搭配 Azure Blob 儲存體使用的 Azure PowerShell 範例
 services: storage
 documentationcenter: na
 author: tamram
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/23/2017
+ms.locfileid: "27535224"
 ---
 # <a name="azure-powershell-samples-for-azure-blob-storage"></a>適用於 Azure Blob 儲存體的 Azure PowerShell 範例
 

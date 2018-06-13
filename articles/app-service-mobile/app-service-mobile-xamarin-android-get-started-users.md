@@ -1,11 +1,11 @@
 ---
-title: "開始在 Xamarin Android 中使用行動應用程式的驗證"
-description: "了解如何使用行動應用程式透過眾多識別提供者驗證 Xamarin Android 應用程式使用者，包括 AAD、Google、Facebook、Twitter 和 Microsoft。"
+title: 開始在 Xamarin Android 中使用行動應用程式的驗證
+description: 了解如何使用行動應用程式透過眾多識別提供者驗證 Xamarin Android 應用程式使用者，包括 AAD、Google、Facebook、Twitter 和 Microsoft。
 services: app-service\mobile
 documentationcenter: xamarin
 author: conceptdev
 manager: panarasi
-editor: 
+editor: ''
 ms.assetid: 570fc12b-46a9-4722-b2e0-0d1c45fb2152
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27595290"
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>將驗證新增至 Xamarin.Android 應用程式
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]

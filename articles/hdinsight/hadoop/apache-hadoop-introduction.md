@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33771019"
 ---
 # <a name="what-is-azure-hdinsight-and-the-hadoop-technology-stack"></a>什麼是 Azure HDInsight 和 Hadoop 技術堆疊
 本文提供 Azure HDInsight 上的 Apache Hadoop 簡介。 Azure HDInsight 是供企業使用的完全受控、全方位的開放原始碼分析服務。 您可以使用開放原始碼架構，例如 Hadoop、Spark、Hive、LLAP、Kafka、Storm、R 等等。 

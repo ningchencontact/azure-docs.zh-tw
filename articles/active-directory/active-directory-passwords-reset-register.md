@@ -1,13 +1,13 @@
 ---
-title: "註冊自助式密碼重設 - Azure Active Directory"
-description: "註冊 Azure AD 自助式密碼重設的驗證資料"
+title: 註冊自助式密碼重設 - Azure Active Directory
+description: 註冊 Azure AD 自助式密碼重設的驗證資料
 services: active-directory
-keywords: 
-documentationcenter: 
+keywords: ''
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.reviewer: sahenry
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29460470"
 ---
 # <a name="register-for-self-service-password-reset"></a>註冊自助式密碼重設
 
