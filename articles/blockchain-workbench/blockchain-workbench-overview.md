@@ -10,11 +10,12 @@ ms.topic: overview
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 1f1aa6b5a81285f2f6b3a298917f3d7c48853e29
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9cd8ef3977d12364759838b46632ba32e0de6e70
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34075664"
 ---
 # <a name="what-is-azure-blockchain-workbench"></a>什麼是 Azure Blockchain Workbench？
 
@@ -22,7 +23,7 @@ Azure Blockchain Workbench 是 Azure 服務和功能的集合，目的是要協�
 
 ## <a name="create-blockchain-applications"></a>建立區塊鏈應用程式
 
-透過使用 Blockchain Workbench，您可以設定與撰寫智慧型合約程式碼來定義區塊鏈應用程式。 您可以啟動區塊鏈應用程式開發，並專注於定義合約與撰寫商務邏輯，而非建置 Scaffolding 和設定支援服務上。
+透過使用 Blockchain Workbench，您可以使用設定與撰寫智慧型合約程式碼，來定義區塊鏈應用程式。 您可以啟動區塊鏈應用程式開發，並專注於定義合約與撰寫商務邏輯，而非建置 Scaffolding 和設定支援服務上。
 
 ## <a name="manage-applications-and-users"></a>管理應用程式與使用者
 
@@ -50,4 +51,5 @@ Azure Blockchain Workbench 能透過將區塊鏈上的資料自動同步處理�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [部署 Azure Blockchain Workbench](blockchain-workbench-deploy.md)
+> [!div class="nextstepaction"]
+> [Azure Blockchain Workbench 架構](blockchain-workbench-architecture.md)

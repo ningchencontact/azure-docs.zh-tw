@@ -20,6 +20,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34204204"
 ---
 # <a name="manage-access-to-azure-resources-with-privileged-identity-management"></a>使用 Privileged Identity Management 來管理對 Azure 資源的存取
 

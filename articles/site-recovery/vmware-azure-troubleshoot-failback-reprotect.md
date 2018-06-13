@@ -14,6 +14,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29941019"
 ---
 # <a name="troubleshoot-failback-from-azure-to-vmware"></a>針對從 Azure 到 VMware 的容錯回復進行疑難排解
 

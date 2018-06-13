@@ -1,12 +1,12 @@
 ---
-title: "Azure 事件中樞是什麼及為何使用它 | Microsoft Docs"
-description: "Azure 事件中樞概觀和簡介 - 從網站、應用程式和裝置內嵌雲端級別的遙測"
+title: Azure 事件中樞是什麼及為何使用它 | Microsoft Docs
+description: Azure 事件中樞概觀和簡介 - 從網站、應用程式和裝置內嵌雲端級別的遙測
 services: event-hubs
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: get-started-article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29686900"
 ---
 # <a name="what-is-event-hubs"></a>何謂事件中樞？
 

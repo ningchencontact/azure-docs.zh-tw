@@ -1,6 +1,6 @@
 ---
-title: "包含檔案"
-description: "包含檔案"
+title: 包含檔案
+description: 包含檔案
 services: app-service
 author: cephalin
 ms.service: app-service
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29821040"
 ---
 回到「本機終端視窗」，將 Azure 遠端新增至本機 Git 存放庫。 將 _&lt;deploymentLocalGitUrl-from-create-step>_ 取代為您從[建立 Web 應用程式](#create)儲存之 Git 遠端的 URL。
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894897"
 ---
 # <a name="monitoring-requirements-for-pci-dss-compliant-environments"></a>符合 PCI DSS 規範之環境的監視需求 
 ## <a name="pci-dss-requirement-10"></a>PCI DSS 需求 10

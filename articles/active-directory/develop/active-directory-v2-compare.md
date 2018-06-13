@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156801"
 ---
 # <a name="whats-different-about-the-v20-endpoint"></a>V2.0 端點有哪些差異？
 如果您熟悉 Azure Active Directory 或過去已整合 app 與 Azure AD，v2.0 端點中可能會有一些您預期不到的差異。 本文件集結了這些差異，讓您得以瞭解。

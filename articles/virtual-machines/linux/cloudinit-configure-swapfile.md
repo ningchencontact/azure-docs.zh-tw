@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29952593"
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>使用 cloud-init 在 Linux 虛擬機器上設定分頁檔
 本文會示範如何使用 [cloud-init](https://cloudinit.readthedocs.io) 在各種 Linux 發行套件上設定分頁檔。 傳統上是由 Linux 代理程式 (WALA) 根據發行套件的需求來設定分頁檔。  本文將概述在佈建期間，使用 cloud-init 依需求建置分頁檔的流程。  如需深入了解 cloud-init 如何以原生方式在 Azure 和支援的 Linux 散發版本中運作，請參閱 [cloud-init 概觀](using-cloud-init.md)

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29936934"
 ---
 # <a name="test-your-vm-offer-for-the-azure-marketplace-in-staging"></a>在預備環境中測試您將發佈到 Azure Marketplace 的 VM 供應項目
 預備環境代表將您的 SKU 部署在私人的「沙箱」中，您可以在部署到 Marketplace 之前在沙箱中測試與驗證其功能。 SKU 會出現在預備環境中，就如同客戶已部署該項目一樣。 您的 VM 映像必須經過認證才能推送至預備環境。

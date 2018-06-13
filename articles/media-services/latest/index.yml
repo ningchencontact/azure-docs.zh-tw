@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: zh-TW
   ms.lasthandoff: 05/10/2018
+  ms.locfileid: "33940705"
 abstract:
   description: 了解如何使用媒體服務來串流隨選影片、即時廣播及分析您的影片。 教學課程、API 參考和其他文件會示範如何安全地提供可針對數百萬位使用者調整的隨選和即時視訊或音訊串流。
 sections:

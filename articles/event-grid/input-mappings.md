@@ -13,6 +13,7 @@ ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34301962"
 ---
 # <a name="map-custom-fields-to-event-grid-schema"></a>將自訂欄位對應到事件格線結構描述
 

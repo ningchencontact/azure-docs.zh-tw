@@ -1,6 +1,6 @@
 ---
-title: "在 Azure Site Recovery 中測試容錯移轉到 Azure | Microsoft Docs"
-description: "了解如何使用 Azure Site Recovery 服務執行從內部部署到 Azure 的測試容錯移轉。"
+title: 在 Azure Site Recovery 中測試容錯移轉到 Azure | Microsoft Docs
+description: 了解如何使用 Azure Site Recovery 服務執行從內部部署到 Azure 的測試容錯移轉。
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: raynew
-ms.openlocfilehash: bfc9df3c1190d9b94f5e8d726665acb7f999311f
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: bdbeee0e0caaa0e6db7249c2f4aeaa19d5d2ed0d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643646"
 ---
 # <a name="test-failover-to-azure-in-site-recovery"></a>在 Site Recovery 中測試容錯移轉到 Azure
 
@@ -40,7 +41,7 @@ ms.lasthandoff: 03/02/2018
 
     - Site Recovery 會嘗試在名稱相同的子網路中建立測試 VM，並使用 VM 的 [計算與網路] 設定中提供的 IP 位址。
     - 如果用於測試容錯移轉的 Azure 虛擬網路中無法使用名稱相同的子網路，則會在依字母順序的第一個子網路中建立測試 VM。
-    - 如果在子網路中無法使用相同的 IP 位址，則 VM 會接收子網路中另一個可用的 IP 位址。 [深入了解](#creating-a-network-for-test-failover)。
+    - 如果在子網路中無法使用相同的 IP 位址，則 VM 會接收子網路中另一個可用的 IP 位址。 [深入了解](#create-a-network-for-test-failover)。
 4. 如果您正在容錯移轉到 Azure 且已啟用資料加密，請在 [加密金鑰] 中，選取當您在提供者安裝期間啟用加密時所發出的憑證。 您可以忽略這個步驟加密未啟用的情況。
 5. 在 [工作]  索引標籤上追蹤容錯移轉進度。您應該可以在 Azure 入口網站中看到測試複本機器。
 6. 若要在 Azure VM 上初始化 RDP 連線，您必須在容錯移轉之 VM 的網路介面上[新增公用 IP 位址](https://aka.ms/addpublicip)。 

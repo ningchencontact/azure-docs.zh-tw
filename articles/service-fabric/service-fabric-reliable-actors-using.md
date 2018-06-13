@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212886"
 ---
 # <a name="implementing-service-level-features-in-your-actor-service"></a>在動作項目服務中實作服務層級功能
 如[服務分層](service-fabric-reliable-actors-platform.md#service-layering)所述，動作項目服務本身是可靠的服務。  您可以自行撰寫衍生自 `ActorService` 的服務，並以您在繼承 StatefulService 時所使用的相同方式來實作服務層級功能，例如︰

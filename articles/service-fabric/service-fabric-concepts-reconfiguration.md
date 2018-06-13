@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212801"
 ---
 # <a name="reconfiguration-in-azure-service-fabric"></a>在 Azure Service Fabric 中重新設定
 對於具狀態服務的分割區而言，*設定*定義為複本及其角色。
