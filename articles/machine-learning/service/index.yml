@@ -18,6 +18,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: zh-TW
   ms.lasthandoff: 05/07/2018
+  ms.locfileid: "33774902"
 abstract:
   description: Azure Machine Learning 服務 (預覽) 能夠使用任何 Python 工具和程式庫來建置、部署和管理機器學習服務和 AI 模型。 您可以在 Azure 中使用各種不同的資料和計算服務來儲存和處理資料。
 sections:

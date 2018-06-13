@@ -20,6 +20,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33203590"
 ---
 # <a name="why-is-my-azure-for-students-subscription-disabled-and-how-do-i-reactivate-it"></a>我的 Azure for Students 訂用帳戶為何停用，以及如何將它重新啟動？
 
@@ -42,9 +43,9 @@ Azure for Students 帳戶提供美金 100 元的點數，以及 12 個月數量�
 
 該表格包含下列資料行：
 
-* **服務名稱：**正在耗用 Azure 點數的服務。
-* **服務資源：**所耗用服務的度量單位。
-* **花費：**在服務上花費的點數量 (以美元 ($) 計)。
+* **服務名稱：** 正在耗用 Azure 點數的服務。
+* **服務資源：** 所耗用服務的度量單位。
+* **花費：** 在服務上花費的點數量 (以美元 ($) 計)。
 
 
 ## <a name="your-credit-has-expired"></a>您的點數已到期
