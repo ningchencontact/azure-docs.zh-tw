@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 網路監看員安全性群組檢視分析網路安全性 - Azure CLI 1.0 | Microsoft Docs"
-description: "本文會描述如何使用 Azure CLI 1.0，利用安全性群組檢視分析虛擬機器的安全性。"
+title: 使用 Azure 網路監看員安全性群組檢視分析網路安全性 - Azure CLI 1.0 | Microsoft Docs
+description: 本文會描述如何使用 Azure CLI 1.0，利用安全性群組檢視分析虛擬機器的安全性。
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a986ff4f-7e0c-4994-95e1-4ac824986500
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23034423"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli-10"></a>使用 Azure CLI 1.0，利用安全性群組檢視分析虛擬機器的安全性
 

@@ -1,11 +1,11 @@
 ---
-title: "使用 PowerShell 設定 ExpressRoute 的 VNet 閘道：傳統：Azure | Microsoft Docs"
-description: "針對 ExpressRoute 組態，使用 PowerShell 設定傳統部署模型 VNet 的 VNet 閘道。"
+title: 使用 PowerShell 設定 ExpressRoute 的 VNet 閘道：傳統：Azure | Microsoft Docs
+description: 針對 ExpressRoute 組態，使用 PowerShell 設定傳統部署模型 VNet 的 VNet 閘道。
 documentationcenter: na
 services: expressroute
 author: charwen
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 85ee0bc1-55be-4760-bfb4-34d9f2c96f30
 ms.service: expressroute
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23012903"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell-classic"></a>使用 PowerShell 設定 ExpressRoute 的虛擬網路閘道閘道 (傳統)
 > [!div class="op_single_selector"]

@@ -1,11 +1,11 @@
 ---
-title: "Azure 匯入/匯出中繼資料和屬性檔案格式 | Microsoft Docs"
-description: "了解如何針對匯入或匯出作業中的一或多個 blob 指定中繼資料和屬性。"
+title: Azure 匯入/匯出中繼資料和屬性檔案格式 | Microsoft Docs
+description: 了解如何針對匯入或匯出作業中的一或多個 blob 指定中繼資料和屬性。
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 840364c6-d9a8-4b43-a9f3-f7441c625069
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059303"
 ---
 # <a name="azure-importexport-service-metadata-and-properties-file-format"></a>Azure 匯入/匯出服務中繼資料和屬性檔案格式
 您可以針對匯入或匯出作業中的一或多個 blob 指定中繼資料和屬性。 若要針對建立為匯入作業一部分的 blob 設定中繼資料或屬性，您可在包含要匯入資料的硬碟上提供中繼資料或屬性檔案。 若為匯出作業，中繼資料和屬性會寫入至中繼資料或屬性檔案 (包含在傳回給您的硬碟上)。  
