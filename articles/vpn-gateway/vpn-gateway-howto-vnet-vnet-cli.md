@@ -1,11 +1,11 @@
 ---
-title: "使用 VNet 對 VNet 連線將虛擬網路連線至另一個 VNet︰Azure CLI | Microsoft Docs"
-description: "使用 VNet 對 VNet 連線和 Azure CLI，將虛擬網路連在一起。"
+title: 使用 VNet 對 VNet 連線將虛擬網路連線至另一個 VNet︰Azure CLI | Microsoft Docs
+description: 使用 VNet 對 VNet 連線和 Azure CLI，將虛擬網路連在一起。
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29400312"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>使用 Azure CLI 設定 VNet 對 VNet 的 VPN 閘道連線
 

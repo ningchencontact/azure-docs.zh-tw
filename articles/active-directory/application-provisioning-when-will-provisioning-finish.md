@@ -1,11 +1,11 @@
 ---
-title: "將使用者佈建至 Azure AD 資源庫應用程式花費數小時以上 | Microsoft Docs"
-description: "如何查明佈建至應用程式為什麼比您預期的更久"
+title: 將使用者佈建至 Azure AD 資源庫應用程式花費數小時以上 | Microsoft Docs
+description: 如何查明佈建至應用程式為什麼比您預期的更久
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26734047"
 ---
 # <a name="user-provisioning-to-an-azure-ad-gallery-application-is-taking-hours-or-more"></a>將使用者佈建至 Azure AD 資源庫應用程式花費數小時以上
 

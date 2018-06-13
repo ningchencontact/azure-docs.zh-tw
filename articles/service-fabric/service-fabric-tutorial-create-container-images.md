@@ -1,14 +1,14 @@
 ---
-title: "建立 Azure Service Fabric 的容器映像 | Microsoft Docs"
-description: "在本教學課程中，了解如何建立多容器 Service Fabric 應用程式的容器映像。"
+title: 建立 Azure Service Fabric 的容器映像 | Microsoft Docs
+description: 在本教學課程中，了解如何建立多容器 Service Fabric 應用程式的容器映像。
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: suhuruli
 manager: timlt
 editor: suhuruli
 tags: servicefabric
-keywords: "Docker、容器、微服務、Service Fabric、Azure"
-ms.assetid: 
+keywords: Docker、容器、微服務、Service Fabric、Azure
+ms.assetid: ''
 ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29558180"
 ---
 # <a name="tutorial-create-container-images-for-service-fabric"></a>教學課程：建立 Service Fabric 的容器映像
 

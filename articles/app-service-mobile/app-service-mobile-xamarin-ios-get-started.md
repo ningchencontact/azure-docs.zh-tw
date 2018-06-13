@@ -1,11 +1,11 @@
 ---
-title: "在 Xamarin.iOS 應用程式中開始使用 Azure App Service Mobile Apps | Microsoft Docs"
-description: "遵循本教學課程，開始使用 Mobile Apps 進行 Xamarin.iOS 開發。"
+title: 在 Xamarin.iOS 應用程式中開始使用 Azure App Service Mobile Apps | Microsoft Docs
+description: 遵循本教學課程，開始使用 Mobile Apps 進行 Xamarin.iOS 開發。
 services: app-service\mobile
 documentationcenter: xamarin
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 14428794-52ad-4b51-956c-deb296cafa34
 ms.service: app-service-mobile
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27592706"
 ---
 # <a name="create-a-xamarinios-app"></a>建立 Xamarin.iOS 應用程式
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]

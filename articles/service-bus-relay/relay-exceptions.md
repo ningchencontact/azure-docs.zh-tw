@@ -1,11 +1,11 @@
 ---
-title: "Azure 轉送例外狀況以及解決方式 | Microsoft Docs"
-description: "Azure 轉送例外狀況以及您可以採取來協助解決這些例外狀況之建議動作的清單。"
+title: Azure 轉送例外狀況以及解決方式 | Microsoft Docs
+description: Azure 轉送例外狀況以及您可以採取來協助解決這些例外狀況之建議動作的清單。
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5f9dd02c-cce0-43b3-8eb8-744f0c27f38c
 ms.service: service-bus-relay
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26855856"
 ---
 # <a name="azure-relay-exceptions"></a>Azure 轉送例外狀況
 

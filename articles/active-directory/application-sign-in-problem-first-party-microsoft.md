@@ -1,11 +1,11 @@
 ---
-title: "登入 Microsoft 應用程式的問題 | Microsoft Docs"
-description: "為使用 Azure AD 登入第一方 Microsoft 應用程式 (如 Office 365) 時遇到的問題疑難排解"
+title: 登入 Microsoft 應用程式的問題 | Microsoft Docs
+description: 為使用 Azure AD 登入第一方 Microsoft 應用程式 (如 Office 365) 時遇到的問題疑難排解
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29384205"
 ---
 ## <a name="problems-signing-in-to-a-microsoft-application"></a>登入 Microsoft 應用程式的問題
 

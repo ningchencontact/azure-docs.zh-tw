@@ -1,11 +1,11 @@
 ---
-title: "如何尋找自訂開發應用程式所需的特定 API | Microsoft Docs"
-description: "如何在您的自訂開發 Azure AD 應用程式中設定存取特定 API 所需的權限"
+title: 如何尋找自訂開發應用程式所需的特定 API | Microsoft Docs
+description: 如何在您的自訂開發 Azure AD 應用程式中設定存取特定 API 所需的權限
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26733972"
 ---
 # <a name="how-to-find-a-specific-api-needed-for-a-custom-developed-application"></a>如何尋找自訂開發應用程式所需的特定 API
 

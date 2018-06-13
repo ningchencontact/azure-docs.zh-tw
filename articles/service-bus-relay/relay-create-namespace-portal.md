@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 入口網站建立轉送命名空間 | Microsoft Docs"
-description: "如何使用 Azure 入口網站建立轉送命名空間。"
+title: 使用 Azure 入口網站建立轉送命名空間 | Microsoft Docs
+description: 如何使用 Azure 入口網站建立轉送命名空間。
 services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 78ab6753-877a-4426-92ec-a81675d62a57
 ms.service: service-bus-relay
 ms.devlang: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27159886"
 ---
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>使用 Azure 入口網站建立轉送命名空間
 

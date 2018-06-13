@@ -1,10 +1,10 @@
 ---
-title: "使用 Mobile Apps 將推播通知新增至 Android 應用程式 | Microsoft Docs"
-description: "了解如何使用 Mobile Apps 將推播通知傳送至 Android 應用程式。"
+title: 使用 Mobile Apps 將推播通知新增至 Android 應用程式 | Microsoft Docs
+description: 了解如何使用 Mobile Apps 將推播通知傳送至 Android 應用程式。
 services: app-service\mobile
 documentationcenter: android
 manager: crdun
-editor: 
+editor: ''
 author: conceptdev
 ms.assetid: 9058ed6d-e871-4179-86af-0092d0ca09d3
 ms.service: app-service-mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27593023"
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>將推播通知新增至 Android 應用程式
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]

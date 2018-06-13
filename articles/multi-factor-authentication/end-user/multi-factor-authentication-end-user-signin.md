@@ -1,9 +1,9 @@
 ---
-title: "使用雙步驟驗證的 Azure MFA 登入 | Microsoft Docs"
-description: "本頁面將指引您移至何處才能看到 Azure MFA 可用的各種登入方法。"
-keywords: "使用者驗證, 登入經驗, 使用行動電話登入, 使用辦公室電話登入"
+title: 使用雙步驟驗證的 Azure MFA 登入 | Microsoft Docs
+description: 本頁面將指引您移至何處才能看到 Azure MFA 可用的各種登入方法。
+keywords: 使用者驗證, 登入經驗, 使用行動電話登入, 使用辦公室電話登入
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: b310b762-471b-4b26-887a-a321c9e81d46
@@ -21,6 +21,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26736915"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 的登入體驗
 > [!NOTE]

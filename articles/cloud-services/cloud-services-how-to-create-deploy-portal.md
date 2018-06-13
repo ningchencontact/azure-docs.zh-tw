@@ -1,11 +1,11 @@
 ---
-title: "如何建立和部署雲端服務 | Microsoft Docs"
-description: "了解如何使用 Azure 入口網站建立和部署雲端服務。"
+title: 如何建立和部署雲端服務 | Microsoft Docs
+description: 了解如何使用 Azure 入口網站建立和部署雲端服務。
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 56ea2f14-34a2-4ed9-857c-82be4c9d0579
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29388079"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>如何建立和部署雲端服務
 Azure 入口網站提供兩種方法讓您建立和部署雲端服務：「快速建立」和「自訂建立」。

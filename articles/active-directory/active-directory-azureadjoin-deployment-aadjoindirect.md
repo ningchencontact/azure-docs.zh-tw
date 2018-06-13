@@ -1,11 +1,11 @@
 ---
-title: "適用於 Azure AD Join 的使用案例和部署考量| Microsoft Docs"
-description: "說明系統管理員如何為其使用者 (員工、學生、其他使用者) 設定 Azure AD Join。 其中也會討論使用 Azure AD Join 時出現的各種真實案例。"
+title: 適用於 Azure AD Join 的使用案例和部署考量| Microsoft Docs
+description: 說明系統管理員如何為其使用者 (員工、學生、其他使用者) 設定 Azure AD Join。 其中也會討論使用 Azure AD Join 時出現的各種真實案例。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: femila
 manager: mtillman
-editor: 
+editor: ''
 tags: azure-classic-portal
 ms.assetid: 81d4461e-21c8-4fdd-9076-0e4991979f62
 ms.service: active-directory
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26732268"
 ---
 # <a name="usage-scenarios-and-deployment-considerations-for-azure-ad-join"></a>適用於 Azure AD Join 的使用案例和部署考量
 ## <a name="usage-scenarios-for-azure-ad-join"></a>適用於 Azure AD Join 的使用案例

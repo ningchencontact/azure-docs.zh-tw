@@ -1,11 +1,11 @@
 ---
-title: "Azure BizTalk 服務的版本資訊 | Microsoft Docs"
-description: "列出 Azure BizTalk 服務的已知問題"
+title: Azure BizTalk 服務的版本資訊 | Microsoft Docs
+description: 列出 Azure BizTalk 服務的已知問題
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: msftman
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: f4906fdc-4cd9-4a57-a007-a88c2e51a18f
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26737554"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Azure BizTalk 服務的版本資訊
 
