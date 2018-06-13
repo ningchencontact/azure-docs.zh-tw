@@ -1,8 +1,8 @@
 ---
-title: "如何設定 Web 應用程式的 TLS 相互驗證"
-description: "了解如何設定 Web 應用程式在 TLS 上使用用戶端憑證驗證。"
+title: 如何設定 Web 應用程式的 TLS 相互驗證
+description: 了解如何設定 Web 應用程式在 TLS 上使用用戶端憑證驗證。
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: naziml
 manager: erikre
 editor: jimbe
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22985763"
 ---
 # <a name="how-to-configure-tls-mutual-authentication-for-web-app"></a>如何設定 Web 應用程式的 TLS 相互驗證
 ## <a name="overview"></a>概觀
@@ -50,7 +51,7 @@ ms.lasthandoff: 10/11/2017
 
 您也可以使用 https://resources.azure.com，將 `clientCertEnabled` 屬性翻轉為 `true`。
 
-> **附註︰**如果您從 Powershell 執行 ARMClient，您必須使用重音符 ` 為 JSON 檔案逸出 @ 符號。
+> **附註︰** 如果您從 Powershell 執行 ARMClient，您必須使用重音符 ` 為 JSON 檔案逸出 @ 符號。
 > 
 > 
 

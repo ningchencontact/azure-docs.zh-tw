@@ -1,13 +1,13 @@
 ---
-title: "Azure App Service 本機快取概觀 | Microsoft Docs"
-description: "本文說明如何啟用、調整大小並查詢 Azure App Service 本機快取功能的狀態"
+title: Azure App Service 本機快取概觀 | Microsoft Docs
+description: 本文說明如何啟用、調整大小並查詢 Azure App Service 本機快取功能的狀態
 services: app-service
 documentationcenter: app-service
 author: SyntaxC4
 manager: yochayk
-editor: 
+editor: ''
 tags: optional
-keywords: 
+keywords: ''
 ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.service: app-service
 ms.devlang: multiple
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22985943"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Azure App Service 本機快取概觀
 Azure Web 應用程式的內容儲存在 Azure 儲存體中，並且會持久顯示為內容共用。 這項設計的目的是為了要與各種應用程式搭配使用，而且其具有下列特性︰  

@@ -1,9 +1,9 @@
 ---
-title: "在 Azure 中建立從 GitHub 部署的函式 | Microsoft Docs"
-description: "建立函數應用程式，並使用 Azure Functions 從 GitHub 存放庫部署函式程式碼。"
+title: 在 Azure 中建立從 GitHub 部署的函式 | Microsoft Docs
+description: 建立函數應用程式，並使用 Azure Functions 從 GitHub 存放庫部署函式程式碼。
 services: functions
 ms.service: functions
-keywords: 
+keywords: ''
 ms.devlang: azurecli
 author: syntaxc4
 ms.author: cfowler
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29842723"
 ---
 # <a name="create-a-function-app-in-azure-that-is-deployed-from-github"></a>在 Azure 中建立從 GitHub 部署的函式應用程式
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 指令碼 - 還原適用於 PostgreSQL 的 Azure 資料庫伺服器"
-description: "此範例 Azure CLI 指令碼示範如何將「適用於 PostgreSQL 的 Azure 資料庫」伺服器及其資料庫還原至先前的時間點。"
+title: Azure CLI 指令碼 - 還原適用於 PostgreSQL 的 Azure 資料庫伺服器
+description: 此範例 Azure CLI 指令碼示範如何將「適用於 PostgreSQL 的 Azure 資料庫」伺服器及其資料庫還原至先前的時間點。
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29846259"
 ---
 # <a name="restore-an-azure-database-for-postgresql-server-using-azure-cli"></a>使用 Azure CLI 還原「適用於 PostgreSQL 的 Azure 資料庫」伺服器
 此範例 CLI 指令碼會將單一「適用於 PostgreSQL 的 Azure 資料庫」伺服器還原至先前的時間點。

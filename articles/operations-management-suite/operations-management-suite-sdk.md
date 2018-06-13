@@ -1,8 +1,8 @@
 ---
 title: Operations Management Suite (OMS) SDK | Microsoft Docs
-description: "本文列出可供存取 OMS 和 Azure 入口網站外部 OMS 服務的文件和其他可用的資源。  這包括從各種程式設計介面和 PowerShell 等指令碼引擎進行存取的 REST API"
+description: 本文列出可供存取 OMS 和 Azure 入口網站外部 OMS 服務的文件和其他可用的資源。  這包括從各種程式設計介面和 PowerShell 等指令碼引擎進行存取的 REST API
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23039013"
 ---
 # <a name="operations-management-suite-oms-sdk"></a>Operations Management Suite (OMS) SDK
 [Operations Management Suite (OMS)](operations-management-suite-overview.md) 是 Microsoft 的雲端型 IT 管理解決方案，可協助您管理並保護內部部署和雲端基礎結構。  本文列出可供存取 OMS 和 Azure 入口網站外部 OMS 服務的文件和其他可用的資源。  這包括從各種程式設計介面和 PowerShell 等指令碼引擎進行存取的 REST API。 

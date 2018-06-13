@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359487"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Azure 資源管理員範本函數
 本文描述您可以在Azure Resource Manager 範本中使用的所有函式。

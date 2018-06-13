@@ -13,6 +13,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33814470"
 ---
 > [!IMPORTANT]
 > 此功能僅適用於**透過 Verizon 提供的 Azure CDN 標準版**與**透過 Verizon 提供的 Azure CDN 進階版**產品。 此功能不支援 **透過 Akamai 提供的 Azure CDN**。 如需 CDN 功能的比較，請參閱 [Azure CDN 產品功能](../articles/cdn/cdn-features.md)。

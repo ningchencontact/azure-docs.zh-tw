@@ -20,6 +20,7 @@ ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29974112"
 ---
 # <a name="advanced-azure-stack-development-kit-evaluation-tasks"></a>進階 Azure Stack 開發套件評估工作
 在熟悉基本 Azure Stack 開發套件 (ASDK) 服務功能與能力後，您可以藉由測試更進階的案例來進一步加深您對 Azure Stack 的了解。 這些更進階的評估工作會完整記錄在 Azure Stack 操作員文件中。

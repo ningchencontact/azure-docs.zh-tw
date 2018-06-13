@@ -18,6 +18,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30176069"
 ---
 # <a name="automatically-scale-virtual-machines-in-azure"></a>在 Azure 中自動調整虛擬機器的規模
 
