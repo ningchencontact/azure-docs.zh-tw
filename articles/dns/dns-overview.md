@@ -1,11 +1,11 @@
 ---
-title: "Azure DNS 概觀 | Microsoft Docs"
-description: "在 Microsoft Azure 上裝載 Azure DNS 服務的概觀。 在 Microsoft Azure 上裝載您的網域。"
+title: Azure DNS 概觀 | Microsoft Docs
+description: 在 Microsoft Azure 上裝載 Azure DNS 服務的概觀。 在 Microsoft Azure 上裝載您的網域。
 services: dns
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 68747a0d-b358-4b8e-b5e2-e2570745ec3f
 ms.service: dns
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/19/2017
+ms.locfileid: "26761625"
 ---
 # <a name="azure-dns-overview"></a>Azure DNS 概觀
 

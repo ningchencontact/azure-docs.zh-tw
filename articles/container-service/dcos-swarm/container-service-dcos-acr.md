@@ -1,6 +1,6 @@
 ---
-title: "搭配 Azure DC/OS 叢集使用 ACR"
-description: "在 Azure Container Service 中搭配使用 Azure Container Registry 與 DC/OS 叢集"
+title: 搭配 Azure DC/OS 叢集使用 ACR
+description: 在 Azure Container Service 中搭配使用 Azure Container Registry 與 DC/OS 叢集
 services: container-service
 author: julienstroheker
 manager: dcaro
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28922887"
 ---
 # <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>搭配使用 ACR 與 Azure DC/OS 叢集以部署應用程式
 
