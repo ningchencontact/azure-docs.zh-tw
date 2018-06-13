@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31398113"
 ---
 # <a name="collect-heap-dumps-in-blob-storage-to-debug-and-analyze-hadoop-services"></a>收集 Blob 儲存體中的堆積傾印以偵錯和分析 Hadoop 服務
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]

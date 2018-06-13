@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30840505"
 ---
 # <a name="how-to-detach-a-disk-from-a-linux-virtual-machine"></a>如何從 Linux 虛擬機器卸離磁碟
 > [!IMPORTANT] 

@@ -21,6 +21,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30283002"
 ---
 # <a name="create-a-function-triggered-by-a-generic-webhook"></a>建立由泛型 Webhook 所觸發的函式
 

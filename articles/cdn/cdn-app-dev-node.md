@@ -1,11 +1,11 @@
 ---
-title: "開始使用適用於 Node.js 的 Azure CDN SDK | Microsoft Docs"
-description: "了解如何撰寫 Node.js 應用程式來管理 Azure CDN。"
+title: 開始使用適用於 Node.js 的 Azure CDN SDK | Microsoft Docs
+description: 了解如何撰寫 Node.js 應用程式來管理 Azure CDN。
 services: cdn
 documentationcenter: nodejs
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: c4bb6a61-de3d-4f0c-9dca-202554c43dfa
 ms.service: cdn
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "22998383"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>開始使用 Azure CDN 開發
 > [!div class="op_single_selector"]

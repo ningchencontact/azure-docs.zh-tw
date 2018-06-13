@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22986263"
 ---
 # <a name="securely-connecting-to-backend-resources-from-an-app-service-environment"></a>安全地從 App Service 環境連接到後端資源
 ## <a name="overview"></a>概觀

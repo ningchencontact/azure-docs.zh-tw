@@ -20,6 +20,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30171191"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>安裝 Azure Stack 開發套件 (ASDK)
 [準備 ASDK 主機電腦](asdk-prepare-host.md)後，可以使用本文中的下列步驟將 ASDK 部署到 CloudBuilder.vhdx 映像。

@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31406485"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>以累加方式將資料從 Azure SQL Database 載入到 Azure Blob 儲存體
 在本教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從 Azure SQL Database 中的資料表載入到 Azure Blob 儲存體。 
@@ -252,7 +253,7 @@ END
 19. 在 [活動] 工具箱中，展開 [資料流程]，並從 [活動] 工具箱中拖放 [複製] 活動，以及將名稱設定為 **IncrementalCopyActivity**。 
 
     ![複製活動 - 名稱](./media/tutorial-incremental-copy-portal/copy-activity-name.png)
-20. 透過將 [查閱] 活動所附加的**綠色按鈕**拖曳至 [複製] 活動**，即可將兩個 [查閱] 活動同時連線至 [複製] 活動**。 當您看到 [複製] 活動的框線顏色變為藍色時即鬆開滑鼠按鈕。 
+20. 透過將 [查閱] 活動所附加的**綠色按鈕**拖曳至 [複製] 活動 **，即可將兩個 [查閱] 活動同時連線至 [複製] 活動**。 當您看到 [複製] 活動的框線顏色變為藍色時即鬆開滑鼠按鈕。 
 
     ![將 [查閱] 活動連線至 [複製] 活動](./media/tutorial-incremental-copy-portal/connection-lookups-to-copy.png)
 21. 選取 [複製] 活動並確認您在 [屬性] 視窗中看到活動的屬性。 

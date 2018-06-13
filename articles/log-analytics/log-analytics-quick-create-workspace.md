@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30833127"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>在 Azure 入口網站中建立 Log Analytics 工作區
 您可以在 Azure 入口網站中設定 Log Analytics 工作區，這是一個唯一的 Log Analytics 環境，有其自己的資料存放庫、資料來源和解決方案。  如果您想要從下列來源收集資料，則需要本文中所述的步驟：

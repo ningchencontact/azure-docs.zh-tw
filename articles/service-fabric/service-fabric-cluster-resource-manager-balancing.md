@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213141"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>平衡 Service Fabric 叢集
 「Service Fabric 叢集資源管理員」支援動態負載變更、因應節點或服務的新增或移除。 它也會自動修正條件約束違規，以及主動重新平衡叢集。 但是這些動作執行的頻率，以及觸發它們的項目是什麼？

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30832093"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>設定 App Service 環境的 Web 應用程式防火牆 (WAF)
 ## <a name="overview"></a>概觀

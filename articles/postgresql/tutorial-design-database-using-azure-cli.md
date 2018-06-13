@@ -16,6 +16,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31417760"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>教學課程：使用 Azure CLI 來設計適用於 PostgreSQL 的 Azure 資料庫 
 在本教學課程中，您將使用 Azure CLI (命令列介面) 及其他公用程式來學習如何：

@@ -21,6 +21,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30905546"
 ---
 # <a name="how-to-create-a-linux-vm-using-the-azure-cli-10-an-azure-resource-manager-template"></a>如何使用 Azure CLI 1.0 和 Azure Resource Manager 範本建立 Linux VM
 本文示範如何使用 Azure CLI 1.0 和 Azure Resource Manager 範本快速部署 Linux 虛擬機器。 本文需要：

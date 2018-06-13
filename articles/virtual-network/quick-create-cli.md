@@ -22,6 +22,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30842283"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-cli"></a>快速入門：使用 Azure CLI 建立虛擬網路
 

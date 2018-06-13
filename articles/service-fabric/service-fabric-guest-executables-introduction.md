@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212835"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>將現有可執行檔部署至 Service Fabric
 您可以在 Azure Service Fabric 中將任何類型的程式碼 (例如 Node.js、Java 或 C++) 當作服務來執行。 Service Fabric 將這些類型的服務稱為客體可執行檔。

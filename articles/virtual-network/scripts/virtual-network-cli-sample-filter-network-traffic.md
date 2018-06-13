@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30840322"
 ---
 # <a name="filter-inbound-and-outbound-vm-network-traffic-script-sample"></a>篩選輸入和輸出 VM 網路流量的指令碼範例
 

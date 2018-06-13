@@ -1,11 +1,11 @@
 ---
-title: "如何將服務匯流排主題搭配 PHP 使用 | Microsoft Docs"
-description: "了解如何在 Azure 中搭配使用服務匯流排主題與 PHP。"
+title: 如何將服務匯流排主題搭配 PHP 使用 | Microsoft Docs
+description: 了解如何在 Azure 中搭配使用服務匯流排主題與 PHP。
 services: service-bus-messaging
 documentationcenter: php
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: faaa4bbd-f6ef-42ff-aca7-fc4353976449
 ms.service: service-bus-messaging
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23044583"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>如何透過 PHP 使用服務匯流排主題和訂用帳戶
 
