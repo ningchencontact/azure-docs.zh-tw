@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "26734197"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>對應用程式執行同意時出現非預期的錯誤
 
@@ -40,12 +41,12 @@ ms.lasthandoff: 04/05/2018
 當公司系統管理員關閉使用者同意應用程式的功能，接著非系統管理員使用者嘗試使用需要同意的應用程式時，會發生此錯誤。 可代表其組織授與應用程式存取權的系統管理員能夠解決此錯誤。
 
 ## <a name="intermittent-problem-error"></a>間歇性問題錯誤
-* **AADSTS90090：**要記錄您嘗試授與 &lt;clientAppDisplayName&gt; 的權限時似乎發生問題，此問題間歇性發生。 請稍後再試一次。
+* **AADSTS90090：** 要記錄您嘗試授與 &lt;clientAppDisplayName&gt; 的權限時似乎發生問題，此問題間歇性發生。 請稍後再試一次。
 
 此錯誤表示已發生間歇性服務端問題。 再次嘗試同意應用程式，可解決此問題。
 
 ## <a name="resource-not-available-error"></a>資源無法使用錯誤
-* **AADSTS65005：**應用程式 &lt;clientAppDisplayName&gt; 要求可存取資源 &lt;resourceAppDisplayName&gt; 的權限，但該資源無法使用。 
+* **AADSTS65005：** 應用程式 &lt;clientAppDisplayName&gt; 要求可存取資源 &lt;resourceAppDisplayName&gt; 的權限，但該資源無法使用。 
 
 請連絡應用程式開發人員。
 
@@ -55,7 +56,7 @@ ms.lasthandoff: 04/05/2018
 請確認此資源可以使用，或與 &lt;tenantDisplayName&gt; 的系統管理員連絡。
 
 ## <a name="permissions-mismatch-error"></a>權限不符合錯誤
-* **AADSTS65005：**應用程式要求同意存取 &lt;resourceAppDisplayName&gt; 資源。 此要求失敗，因為它不符合在應用程式註冊期間預先設定應用程式的方式。 請連絡應用程式廠商。**
+* **AADSTS65005：** 應用程式要求同意存取 &lt;resourceAppDisplayName&gt; 資源。 此要求失敗，因為它不符合在應用程式註冊期間預先設定應用程式的方式。 請連絡應用程式廠商。**
 
 當使用者嘗試同意的應用程式正在要求存取某個資源應用程式的權限，但在組織的目錄 (租用戶) 中找不到該應用程式時，這些錯誤全部發生。 發生的原因有數種：
 

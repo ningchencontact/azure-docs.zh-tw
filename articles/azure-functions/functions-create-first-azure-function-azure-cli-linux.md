@@ -1,8 +1,8 @@
 ---
-title: "在 Linux 上從 Azure CLI 建立您的第一個函式 (預覽) | Microsoft Docs"
-description: "了解如何使用 Azure CLI 來建立您的第一個在預設 Linux 映像上執行的 Azure 函式。"
+title: 在 Linux 上從 Azure CLI 建立您的第一個函式 (預覽) | Microsoft Docs
+description: 了解如何使用 Azure CLI 來建立您的第一個在預設 Linux 映像上執行的 Azure 函式。
 services: functions
-keywords: 
+keywords: ''
 author: ggailey777
 ms.author: glenga
 ms.date: 11/15/2017
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28919384"
 ---
 # <a name="create-your-first-function-running-on-linux-using-the-azure-cli-preview"></a>使用 Azure CLI 建立第一個在 Linux 上執行的函式 (預覽)
 

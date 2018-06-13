@@ -1,11 +1,11 @@
 ---
-title: "ClearDB MySQL 資料庫搭配 Azure App Service 的常見問題集 | Microsoft Docs"
-description: "使用 ClearDB MySQL 資料庫搭配 Azure App Service 常見問題的解答。"
+title: ClearDB MySQL 資料庫搭配 Azure App Service 的常見問題集 | Microsoft Docs
+description: 使用 ClearDB MySQL 資料庫搭配 Azure App Service 常見問題的解答。
 documentationcenter: php
-services: 
+services: ''
 author: sunbuild
 manager: yochayk
-editor: 
+editor: ''
 tags: mysql
 ms.assetid: c2ed5e78-6d7d-4d0c-b7ee-a52ae41ceab8
 ms.service: multiple
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28948031"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>ClearDB MySQL 資料庫搭配 Azure App Service 的常見問題集
 此常見問題集可回答為 Azure Web Apps 使用及購買 ClearDB MySQL 資料庫的常見問題。

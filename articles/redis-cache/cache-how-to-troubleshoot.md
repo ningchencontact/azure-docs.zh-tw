@@ -1,11 +1,11 @@
 ---
-title: "如何針對 Azure Redis 快取進行疑難排解 | Microsoft Docs"
-description: "了解如何解決 Azure Redis 快取的常見問題。"
+title: 如何針對 Azure Redis 快取進行疑難排解 | Microsoft Docs
+description: 了解如何解決 Azure Redis 快取的常見問題。
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 928b9b9c-d64f-4252-884f-af7ba8309af6
 ms.service: cache
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28984566"
 ---
 # <a name="how-to-troubleshoot-azure-redis-cache"></a>如何針對 Azure Redis 快取進行疑難排解
 本文提供以下類別的 Azure Redis 快取問題疑難排解指引。

@@ -13,6 +13,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28209534"
 ---
 # <a name="tools-for-using-ansible-with-azure"></a>適用於使用 Ansible 搭配 Azure 的工具
 
