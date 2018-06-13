@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure Application Insights 監視 ASP.NET Web 應用程式 | Microsoft Docs"
-description: "提供指示說明如何快速設定 ASP.NET Web 應用程式，以透過 Application Insights 來監視"
+title: 使用 Azure Application Insights 監視 ASP.NET Web 應用程式 | Microsoft Docs
+description: 提供指示說明如何快速設定 ASP.NET Web 應用程式，以透過 Application Insights 來監視
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/14/2017
@@ -15,6 +15,7 @@ ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/01/2017
+ms.locfileid: "23660546"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>開始監視 ASP.NET Web 應用程式
 

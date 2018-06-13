@@ -1,7 +1,7 @@
 ---
-title: "以 Terraform 和 HCL 建立 VM 叢集"
-description: "使用 Terraform 和 HashiCorp Configuration Language (HCL) 在 Azure 中建立具有負載平衡器的 Linux 虛擬機器叢集"
-keywords: "terraform, devops, 虛擬機器, 網路, 模組"
+title: 以 Terraform 和 HCL 建立 VM 叢集
+description: 使用 Terraform 和 HashiCorp Configuration Language (HCL) 在 Azure 中建立具有負載平衡器的 Linux 虛擬機器叢集
+keywords: terraform, devops, 虛擬機器, 網路, 模組
 author: tomarcher
 manager: routlaw
 ms.service: virtual-machines-linux
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/13/2017
+ms.locfileid: "24518795"
 ---
 # <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>以 Terraform 和 HCL 建立 VM 叢集
 
