@@ -1,12 +1,12 @@
 ---
-title: "Azure 函式錯誤處理指引 | Microsoft Docs"
-description: "提供當函式執行時所發生錯誤的處理之一般指引，以及繫結特定錯誤主題的連結。"
+title: Azure 函式錯誤處理指引 | Microsoft Docs
+description: 提供當函式執行時所發生錯誤的處理之一般指引，以及繫結特定錯誤主題的連結。
 services: functions
-cloud: 
-documentationcenter: 
+cloud: ''
+documentationcenter: ''
 author: ggailey777
 manager: cfowler
-ms.assetid: 
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: multiple
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29133695"
 ---
 # <a name="azure-functions-error-handling"></a>Azure 函式錯誤處理
 

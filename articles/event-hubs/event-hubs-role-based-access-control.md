@@ -1,12 +1,12 @@
 ---
-title: "Azure 事件中樞角色型存取控制 (RBAC) 預覽 | Microsoft Docs"
-description: "Azure 事件中樞角色型存取控制"
+title: Azure 事件中樞角色型存取控制 (RBAC) 預覽 | Microsoft Docs
+description: Azure 事件中樞角色型存取控制
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26783508"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Active Directory 角色型存取控制 (預覽)
 

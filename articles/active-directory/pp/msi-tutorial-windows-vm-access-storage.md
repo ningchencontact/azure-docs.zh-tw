@@ -1,8 +1,8 @@
 ---
-title: "使用 Windows VM MSI 存取 Azure 儲存體"
-description: "此教學課程引導您使用 Windows VM 受控服務識別 (MSI) 來存取 Azure 儲存體的程序。"
+title: 使用 Windows VM MSI 存取 Azure 儲存體
+description: 此教學課程引導您使用 Windows VM 受控服務識別 (MSI) 來存取 Azure 儲存體的程序。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28984828"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>使用 Windows VM 受控服務識別，透過存取金鑰存取 Azure 儲存體
 

@@ -1,12 +1,12 @@
 ---
-title: "在 Azure 資訊安全中心 (預覽) 自訂 OS 安全性設定 | Microsoft Docs"
-description: "本文示範如何自訂資訊安全中心評估"
+title: 在 Azure 資訊安全中心 (預覽) 自訂 OS 安全性設定 | Microsoft Docs
+description: 本文示範如何自訂資訊安全中心評估
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28200005"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>在 Azure 資訊安全中心 (預覽) 自訂 OS 安全性設定
 

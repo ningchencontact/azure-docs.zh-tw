@@ -1,12 +1,12 @@
 ---
-title: "管理 Azure 中的 App Service 方案 | Microsoft Docs"
-description: "了解如何執行不同的工作來管理 App Service 方案。"
-keywords: "App Service, Azure App Service, 級別, App Service方案, 變更, 建立, 管理, 管控"
+title: 管理 Azure 中的 App Service 方案 | Microsoft Docs
+description: 了解如何執行不同的工作來管理 App Service 方案。
+keywords: App Service, Azure App Service, 級別, App Service方案, 變更, 建立, 管理, 管控
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.service: app-service
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29117675"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>在 Azure 建立管理 App Service 方案
 

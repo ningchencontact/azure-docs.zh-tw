@@ -1,11 +1,11 @@
 ---
-title: "Azure 事件中樞地理災害復原 | Microsoft Docs"
-description: "如何使用地理區域，在 Azure 事件中樞中進行容錯移轉並執行災害復原"
+title: Azure 事件中樞地理災害復原 | Microsoft Docs
+description: 如何使用地理區域，在 Azure 事件中樞中進行容錯移轉並執行災害復原
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/16/2017
+ms.locfileid: "26745889"
 ---
 # <a name="azure-event-hubs-geo-disaster-recovery"></a>Azure 事件中樞地理災害復原
 

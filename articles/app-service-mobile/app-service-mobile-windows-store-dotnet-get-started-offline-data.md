@@ -1,10 +1,10 @@
 ---
-title: "使用 Mobile Apps 啟用通用 Windows 平台 (UWP) 應用程式的離線同步處理 | Microsoft Docs"
-description: "了解如何使用 Azure 行動應用程式快取及同步處理通用 Windows 平台 (UWP) 應用程式中的離線資料。"
+title: 使用 Mobile Apps 啟用通用 Windows 平台 (UWP) 應用程式的離線同步處理 | Microsoft Docs
+description: 了解如何使用 Azure 行動應用程式快取及同步處理通用 Windows 平台 (UWP) 應用程式中的離線資料。
 documentationcenter: windows
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 services: app-service\mobile
 ms.assetid: 8fe51773-90de-4014-8a38-41544446d9b5
 ms.service: app-service-mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27594474"
 ---
 # <a name="enable-offline-sync-for-your-windows-app"></a>啟用 Windows 應用程式離線同步處理
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]

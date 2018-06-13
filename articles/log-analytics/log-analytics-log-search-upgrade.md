@@ -1,11 +1,11 @@
 ---
-title: "將 Azure Log Analytics 升級為新的記錄搜尋 | Microsoft Docs"
-description: "新的 Log Analytics 查詢語言快要完成了，您可以參加公開預覽。  本文說明新語言的優點以及如何轉換您的工作區。"
+title: 將 Azure Log Analytics 升級為新的記錄搜尋 | Microsoft Docs
+description: 新的 Log Analytics 查詢語言快要完成了，您可以參加公開預覽。  本文說明新語言的優點以及如何轉換您的工作區。
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28983983"
 ---
 # <a name="azure-log-analytics-upgrade-to-new-log-search"></a>Azure Log Analytics 升級為新的記錄搜尋
 

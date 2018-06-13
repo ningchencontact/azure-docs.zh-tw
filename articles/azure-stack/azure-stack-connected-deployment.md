@@ -1,12 +1,12 @@
 ---
-title: "適用於 Azure Stack 整合式系統的 Azure 連線部署決策 | Microsoft Docs"
-description: "針對多節點 Azure Stack 的 Azure 連線部署，決定部署規劃決策。"
+title: 適用於 Azure Stack 整合式系統的 Azure 連線部署決策 | Microsoft Docs
+description: 針對多節點 Azure Stack 的 Azure 連線部署，決定部署規劃決策。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29120381"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>適用於 Azure Stack 整合式系統的 Azure 連線部署規劃決策
 在您決定[如何將 Azure Stack 整合到您的混合式雲端環境](azure-stack-connection-models.md)之後，即可接著完成您的 Azure Stack 部署決策。
