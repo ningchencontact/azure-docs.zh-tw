@@ -19,6 +19,7 @@ ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/12/2017
+ms.locfileid: "26739108"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>如何使用適用於 Azure Mobile Apps 的 iOS 用戶端程式庫
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]

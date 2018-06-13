@@ -1,12 +1,12 @@
 ---
-title: "Azure Stack 整合式系統連線模型 | Microsoft Docs"
-description: "決定多節點 Azure Stack 的部署規劃決策。"
+title: Azure Stack 整合式系統連線模型 | Microsoft Docs
+description: 決定多節點 Azure Stack 的部署規劃決策。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29118783"
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Azure Stack 整合式系統連線模型
 如果您對 Azure Stack 整合式系統有興趣，您將需要了解[數個資料中心整合考量](azure-stack-datacenter-integration.md)，如此 Azure Stack 部署才能判斷如何將系統融入您的資料中心。 此外，您必須確切地決定如何將 Azure Stack 整合到您的混合式雲端環境中。 本文提供這些主要決策 (包括 Azure 連線、身分識別儲存和計費模型決策) 的概觀。

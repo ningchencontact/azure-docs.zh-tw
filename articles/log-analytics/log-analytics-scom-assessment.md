@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure Log Analytics 最佳化 System Center Operations Manager 環境 | Microsoft Docs"
-description: "您可以使用 System Center Operations Manager 健康情況檢查解決方案，定期評估環境的風險和健康狀態。"
+title: 使用 Azure Log Analytics 最佳化 System Center Operations Manager 環境 | Microsoft Docs
+description: 您可以使用 System Center Operations Manager 健康情況檢查解決方案，定期評估環境的風險和健康狀態。
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
 editor: tysonn
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29180031"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>使用 System Center Operations Manager 健康情況檢查 (預覽) 解決方案進行環境最佳化
 

@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 技術規格 | Microsoft Docs"
-description: "說明適用於 StorSimple 硬體元件的技術規格與法規標準符合性資訊。"
+title: StorSimple 技術規格 | Microsoft Docs
+description: 說明適用於 StorSimple 硬體元件的技術規格與法規標準符合性資訊。
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27785521"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>適用於 StorSimple 裝置的技術規格和相容性
 

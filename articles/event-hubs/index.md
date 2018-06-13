@@ -1,11 +1,11 @@
 ---
-title: "Azure 事件中樞文件 - 教學課程和 API 參考 | Microsoft Docs"
-description: "了解如何使用事件中樞，從一組廣泛平台上連接的 IoT 裝置和應用程式，每秒擷取數百萬個事件。"
+title: Azure 事件中樞文件 - 教學課程和 API 參考 | Microsoft Docs
+description: 了解如何使用事件中樞，從一組廣泛平台上連接的 IoT 裝置和應用程式，每秒擷取數百萬個事件。
 services: event-hubs
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: event-hubs
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/28/2017
+ms.locfileid: "25945749"
 ---
 # <a name="event-hubs-documentation"></a>事件中樞文件
 
