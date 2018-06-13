@@ -1,11 +1,11 @@
 ---
-title: "排程器限制及預設值"
-description: "排程器限制及預設值"
+title: 排程器限制及預設值
+description: 排程器限制及預設值
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 88f4a3e9-6dbd-4943-8543-f0649d423061
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23043163"
 ---
 # <a name="scheduler-limits-and-defaults"></a>排程器限制及預設值
 ## <a name="scheduler-quotas-limits-defaults-and-throttles"></a>排程器配額、限制、預設值和節流

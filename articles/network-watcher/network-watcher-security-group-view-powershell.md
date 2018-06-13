@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 網路監看員安全性群組檢視分析網路安全性 - PowerShell | Microsoft Docs"
-description: "本文會說明如何使用 PowerShell，利用安全性群組檢視分析虛擬機器的安全性。"
+title: 使用 Azure 網路監看員安全性群組檢視分析網路安全性 - PowerShell | Microsoft Docs
+description: 本文會說明如何使用 PowerShell，利用安全性群組檢視分析虛擬機器的安全性。
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 04e76b49-6a1b-4d0f-9a9b-51cf2f4df5a2
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23036663"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-powershell"></a>使用 PowerShell，利用安全性群組檢視分析虛擬機器的安全性
 

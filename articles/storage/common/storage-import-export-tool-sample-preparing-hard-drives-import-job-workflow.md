@@ -1,12 +1,12 @@
 ---
-title: "針對 Azure 匯入/匯出匯入作業準備硬碟的範例工作流程 | Microsoft Docs"
-description: "請參閱在 Azure 匯入/匯出服務中為匯入作業準備硬碟之完整程序的逐步解說。"
+title: 針對 Azure 匯入/匯出匯入作業準備硬碟的範例工作流程 | Microsoft Docs
+description: 請參閱在 Azure 匯入/匯出服務中為匯入作業準備硬碟之完整程序的逐步解說。
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059533"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>針對匯入作業準備硬碟的範例工作流程
 
@@ -75,7 +76,7 @@ K:\Temp\FavoriteVideo.ISO,favorite/FavoriteVideo.ISO,BlockBlob,rename,None,H:\my
 
 除此之外，您可以針對所有檔案設定下列中繼資料：
 
-* **UploadMethod：**Windows Azure Import/Export service
+* **UploadMethod：** Windows Azure Import/Export service
 * **DataSetName:** SampleData
 * **CreationDate:** 10/1/2013
 
