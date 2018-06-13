@@ -1,8 +1,8 @@
 ---
-title: "Microsoft 監視產品中的警示管理 | Microsoft Docs"
-description: "警示表示有一些需要系統管理員注意的問題。  本文說明如何在 System Center Operations Manager (SCOM) 和 Log Analytics 中建立和管理警示的差異，並提供運用這兩項產品做為混合式警示管理策略的最佳作法。"
+title: Microsoft 監視產品中的警示管理 | Microsoft Docs
+description: 警示表示有一些需要系統管理員注意的問題。  本文說明如何在 System Center Operations Manager (SCOM) 和 Log Analytics 中建立和管理警示的差異，並提供運用這兩項產品做為混合式警示管理策略的最佳作法。
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23039283"
 ---
 # <a name="managing-alerts-with-microsoft-monitoring"></a>使用 Microsoft 監視管理警示
 警示表示有一些需要系統管理員注意的問題。  在如何建立警示、如何管理和分析警示以及在偵測到嚴重問題時如何通知您的方面，System Center Operations Manager (SCOM) 與 Operations Management Suite (OMS) 中的 Log Analytics 之間有一些顯著的差異。

@@ -1,9 +1,9 @@
 ---
-title: "能源需求預測的 Cortana Intelligence 解決方案範本架構 | Microsoft Docs"
-description: "Microsoft Cortana Intelligence 解決方案範本的架構可協助預測能源公用事業公司的需求。"
-keywords: "解決方案加速器;Cortana Analytics;能源預測"
+title: 能源需求預測的 Cortana Intelligence 解決方案範本架構 | Microsoft Docs
+description: Microsoft Cortana Intelligence 解決方案範本的架構可協助預測能源公用事業公司的需求。
+keywords: 解決方案加速器;Cortana Analytics;能源預測
 services: cortana-analytics
-documentationcenter: 
+documentationcenter: ''
 author: garyericson
 manager: jhubbard
 editor: cgronlun
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23002383"
 ---
 # <a name="cortana-intelligence-solution-template-architecture-for-demand-forecasting-of-energy"></a>能源需求預測的 Cortana Intelligence 解決方案範本架構
 下圖提供 [能源需求預測的 Cortana Intelligence 解決方案範本](cortana-analytics-playbook-demand-forecasting-energy.md)的架構概觀。

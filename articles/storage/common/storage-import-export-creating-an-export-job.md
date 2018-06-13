@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34363242"
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>建立 Azure 匯入/匯出服務的匯出作業
 使用 REST API 建立 Microsoft Azure 匯入/匯出服務的匯出作業包含下列步驟︰
