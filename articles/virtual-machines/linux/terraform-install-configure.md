@@ -1,13 +1,13 @@
 ---
-title: "安裝和設定 Terraform 以在 Azure 中佈建 VM 和的其他基礎結構 | Microsoft Docs"
-description: "了解如何安裝和設定 Terraform 以建立 Azure 資源"
+title: 安裝和設定 Terraform 以在 Azure 中佈建 VM 和的其他基礎結構 | Microsoft Docs
+description: 了解如何安裝和設定 Terraform 以建立 Azure 資源
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: echuvyrov
 manager: jtalkar
 editor: na
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29399163"
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>安裝和設定 Terraform 以在 Azure 中佈建 VM 和的其他基礎結構
  

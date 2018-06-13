@@ -20,6 +20,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30164962"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure Stack 部署規劃考量
 在部署 Azure Stack 開發套件 (ASDK) 前，請確定您的開發套件主機電腦符合本文中所述的需求。
@@ -38,7 +39,7 @@ ms.lasthandoff: 03/23/2018
 
 <sup>*</sup>如果您打算從 Azure 新增許多[市集項目](asdk-marketplace-item.md)，則您所需的容量會比這個建議的容量多。
 
-**資料磁碟機組態：**所有資料磁碟機都必須具有相同的類型 (全部都是 SAS、SATA 或 NVMe) 和容量。 如果使用 SAS 磁碟機，則該磁碟機必須透過單一路徑連結 (不支援 MPIO 多重路徑)。
+**資料磁碟機組態：** 所有資料磁碟機都必須具有相同的類型 (全部都是 SAS、SATA 或 NVMe) 和容量。 如果使用 SAS 磁碟機，則該磁碟機必須透過單一路徑連結 (不支援 MPIO 多重路徑)。
 
 **HBA 組態選項**
 

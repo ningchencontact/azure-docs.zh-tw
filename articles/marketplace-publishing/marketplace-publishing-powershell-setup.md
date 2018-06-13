@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29937394"
 ---
 # <a name="set-up-azure-powershell-to-create-an-offer-for-the-azure-marketplace"></a>設定 Azure PowerShell 以在 Azure Marketplace 上建立供應項目
 如需如何設定 Azure PowerShell 的詳細資訊，請參閱 [如何安裝及設定 Azure PowerShell](/powershell/azure/overview)。 簡單的方式就是使用憑證方法，該方法會下載並匯入驗證所需的憑證。 若要取得所需的憑證，請使用 **Get-AzurePublishSettingsFile** Cmdlet。 出現系統提示時儲存檔案。 若要將憑證匯入 PowerShell 工作階段，請使用 **Import-AzurePublishSettingsFile** Cmdlet。

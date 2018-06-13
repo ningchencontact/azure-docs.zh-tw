@@ -1,6 +1,6 @@
 ---
-title: "在 Azure 虛擬機器中建立 SQL Server 可用性群組接聽程式 | Microsoft Docs"
-description: "在 Azure 虛擬機器中建立 SQL Server 的 AlwaysOn 可用性群組接聽程式的逐步指示"
+title: 在 Azure 虛擬機器中建立 SQL Server 可用性群組接聽程式 | Microsoft Docs
+description: 在 Azure 虛擬機器中建立 SQL Server 的 AlwaysOn 可用性群組接聽程式的逐步指示
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29400625"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>在 Azure 中設定 Always On 可用性群組的負載平衡器
 本文說明如何在使用 Azure Resource Manager 執行的 Azure 虛擬機器中建立 SQL Server AlwaysOn 可用性群組的負載平衡器。 當 SQL Server 執行個體位於 Azure 虛擬機器時，可用性群組需要負載平衡器。 負載平衡器會儲存可用性群組接聽程式的 IP 位址。 如果可用性群組跨越多個區域，則每個區域都需要負載平衡器。

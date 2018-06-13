@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect 健康情況 - 健康情況服務的資料並非最新警示 | Microsoft Docs"
-description: "本文說明「健康情況服務的資料並非最新」警示的成因，以及如何進行疑難排解。"
+title: Azure AD Connect 健康情況 - 健康情況服務的資料並非最新警示 | Microsoft Docs
+description: 本文說明「健康情況服務的資料並非最新」警示的成因，以及如何進行疑難排解。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: zhiweiw
 manager: maheshu
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29715006"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>健康情況服務的資料並非最新警示
 
