@@ -1,11 +1,11 @@
 ---
-title: "Azure API 管理快取原則 | Microsoft Docs"
-description: "了解可在 Azure API 管理中使用的快取原則。"
+title: Azure API 管理快取原則 | Microsoft Docs
+description: 了解可在 Azure API 管理中使用的快取原則。
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8147199c-24d8-439f-b2a9-da28a70a890c
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26344817"
 ---
 # <a name="api-management-caching-policies"></a>API 管理快取原則
 本主題提供下列 API 管理原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -122,8 +123,8 @@ ms.lasthandoff: 12/06/2017
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
--   **原則區段︰**inbound  
--   **原則範圍︰**API、作業、產品  
+-   **原則區段︰** inbound  
+-   **原則範圍︰** API、作業、產品  
   
 ##  <a name="StoreToCache"></a>儲存至快取  
  `cache-store` 原則會根據指定的快取設定來快取回應。 此原則可於回應內容在一段期間維持靜態時套用。 回應快取可降低加諸於後端 Web 伺服器的頻寬和處理需求，並縮短 API 取用者所感受的延遲時間。  
@@ -194,8 +195,8 @@ ms.lasthandoff: 12/06/2017
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
--   **原則區段︰**輸出    
--   **原則範圍︰**API、作業、產品  
+-   **原則區段︰** 輸出    
+-   **原則範圍︰** API、作業、產品  
   
 ##  <a name="GetFromCacheByKey"></a>從快取取得值  
  使用 `cache-lookup-value` 原則以執行依索引鍵的快取查閱，並傳回快取的值。 金鑰可以具有任意字串值，而且通常會使用原則運算式來提供。  
@@ -238,8 +239,8 @@ ms.lasthandoff: 12/06/2017
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
--   **原則區段︰**輸入、輸出、後端、錯誤  
--   **原則範圍︰**全域、API、作業、產品  
+-   **原則區段︰** 輸入、輸出、後端、錯誤  
+-   **原則範圍︰** 全域、API、作業、產品  
   
 ##  <a name="StoreToCacheByKey"></a>儲存快取中的值  
  `cache-store-value` 會依索引鍵執行快取儲存。 金鑰可以具有任意字串值，而且通常會使用原則運算式來提供。  
@@ -280,8 +281,8 @@ ms.lasthandoff: 12/06/2017
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
--   **原則區段︰**輸入、輸出、後端、錯誤  
--   **原則範圍︰**全域、API、作業、產品  
+-   **原則區段︰** 輸入、輸出、後端、錯誤  
+-   **原則範圍︰** 全域、API、作業、產品  
   
 ###  <a name="RemoveCacheByKey"></a>移除快取中的值  
 `cache-remove-value` 會刪除依其索引鍵所識別的快取項目。 金鑰可以具有任意字串值，而且通常會使用原則運算式來提供。  
@@ -317,8 +318,8 @@ ms.lasthandoff: 12/06/2017
 #### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
--   **原則區段︰**輸入、輸出、後端、錯誤  
--   **原則範圍︰**全域、API、作業、產品  
+-   **原則區段︰** 輸入、輸出、後端、錯誤  
+-   **原則範圍︰** 全域、API、作業、產品  
 
 ## <a name="next-steps"></a>後續步驟
 

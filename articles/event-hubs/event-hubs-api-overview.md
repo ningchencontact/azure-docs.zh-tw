@@ -1,11 +1,11 @@
 ---
-title: "Azure 事件中樞 API 概觀 | Microsoft Docs"
-description: "可用的 Azure 事件中樞 API 概觀"
+title: Azure 事件中樞 API 概觀 | Microsoft Docs
+description: 可用的 Azure 事件中樞 API 概觀
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3f221a0c-182d-4e39-9f3d-3a3c16c5c6ed
 ms.service: event-hubs
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/28/2017
+ms.locfileid: "25957522"
 ---
 # <a name="available-event-hubs-apis"></a>可用的事件中樞 API
 
