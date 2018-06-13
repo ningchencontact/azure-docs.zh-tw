@@ -1,11 +1,11 @@
 ---
-title: "Azure 服務匯流排傳訊例外狀況 | Microsoft Docs"
-description: "服務匯流排傳訊例外狀況和建議的動作清單。"
+title: Azure 服務匯流排傳訊例外狀況 | Microsoft Docs
+description: 服務匯流排傳訊例外狀況和建議的動作清單。
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3d8526fe-6e47-4119-9f3e-c56d916a98f9
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28930145"
 ---
 # <a name="service-bus-messaging-exceptions"></a>服務匯流排傳訊例外狀況
 本文列出一些 Microsoft Azure 服務匯流排傳訊 API 產生的例外狀況。 此參考可能有所變更，請不定期查看更新。

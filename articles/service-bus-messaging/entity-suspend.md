@@ -1,11 +1,11 @@
 ---
-title: "Azure 服務匯流排暫止傳訊實體 | Microsoft 文件"
-description: "暫止及重新啟動 Azure 服務匯流排訊息實體。"
+title: Azure 服務匯流排暫止傳訊實體 | Microsoft 文件
+description: 暫止及重新啟動 Azure 服務匯流排訊息實體。
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28197021"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>暫止及重新啟動傳訊實體 (停用)
 

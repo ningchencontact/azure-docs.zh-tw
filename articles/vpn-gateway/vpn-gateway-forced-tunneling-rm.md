@@ -1,11 +1,11 @@
 ---
-title: "設定 Azure 站對站連線的強制通道：Resource Manager | Microsoft Docs"
-description: "如何重新導向或「強制」所有網際網路繫結流量回到內部部署位置。"
+title: 設定 Azure 站對站連線的強制通道：Resource Manager | Microsoft Docs
+description: 如何重新導向或「強制」所有網際網路繫結流量回到內部部署位置。
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: cbe58db8-b598-4c9f-ac88-62c865eb8721
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28984136"
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>使用 Azure Resource Manager 部署模型設定強制通道
 
@@ -51,9 +52,9 @@ Azure 中的強制通道處理會透過虛擬網路使用者定義的路由進�
 
 * 每個虛擬網路的子網路皆有內建的系統路由表。 系統路由表具有下列 3 個路由群組：
   
-  * **本機 VNet 路由：**直接連線到相同虛擬網路中的目的地 VM。
-  * **內部部署路由：**連線到 Azure VPN 閘道。
-  * **預設路由：**直接連線到網際網路。 系統將會捨棄尚未由前兩個路由涵蓋之私人 IP 位址目的地的封包。
+  * **本機 VNet 路由：** 直接連線到相同虛擬網路中的目的地 VM。
+  * **內部部署路由：** 連線到 Azure VPN 閘道。
+  * **預設路由：** 直接連線到網際網路。 系統將會捨棄尚未由前兩個路由涵蓋之私人 IP 位址目的地的封包。
 * 此程序使用「使用者定義的路由 (UDR)」建立路由表以新增預設路由，然後將路由表關聯至您的 VNet 子網路，以啟用那些子網路上的強制通道處理。
 * 強制通道必須與具有路由型 VPN 閘道的 VNet 相關聯。 您需要在連接到虛擬網路的內部部署本機網站間設定「預設網站」。 此外，內部部署 VPN 裝置必須使用 0.0.0.0/0 設定為流量選取器。 
 * ExpressRoute 強制通道不會透過這項機制進行設定，相反地，將由透過 ExpressRoute BGP 對等互連工作階段的廣告預設路由進行啟用。 如需詳細資訊，請參閱 [ExpressRoute 文件](https://azure.microsoft.com/documentation/services/expressroute/)。

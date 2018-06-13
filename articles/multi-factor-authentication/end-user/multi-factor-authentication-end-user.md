@@ -1,8 +1,8 @@
 ---
-title: "開始使用雙步驟驗證 |Microsoft Docs"
-description: "這是可協助使用者開始使用 Azure Multi-Factor Authentication 的 Azure Multi-Factor Authentication 頁面。"
+title: 開始使用雙步驟驗證 |Microsoft Docs
+description: 這是可協助使用者開始使用 Azure Multi-Factor Authentication 的 Azure Multi-Factor Authentication 頁面。
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: e02cc045-2ac0-41ff-b07f-e9255e320383
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28198100"
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>Azure Multi-Factor Authentication 對我有何意義？
 您從某個 IT 人員或老闆取得一封電子郵件，他們表示已對您的帳戶新增其他安全性驗證。  因此這代表什麼？

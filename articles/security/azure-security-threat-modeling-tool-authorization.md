@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28019512"
 ---
 # <a name="security-frame-authorization--mitigations"></a>安全框架︰授權 | 緩和措施 
 | 產品/服務 | 文章 |

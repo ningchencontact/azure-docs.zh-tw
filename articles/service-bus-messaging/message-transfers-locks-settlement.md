@@ -1,11 +1,11 @@
 ---
-title: "Azure 服務匯流排訊息傳輸、鎖定和安置 | Microsoft Docs"
-description: "服務匯流排訊息傳輸和安置作業概觀"
+title: Azure 服務匯流排訊息傳輸、鎖定和安置 | Microsoft Docs
+description: 服務匯流排訊息傳輸和安置作業概觀
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28199027"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>訊息傳輸、鎖定和安置
 

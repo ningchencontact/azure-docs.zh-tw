@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 資訊安全中心修復安全性設定 | Microsoft Docs"
-description: "本文件說明如何實作 Azure 資訊安全中心建議的「修復安全性設定」。"
+title: 在 Azure 資訊安全中心修復安全性設定 | Microsoft Docs
+description: 本文件說明如何實作 Azure 資訊安全中心建議的「修復安全性設定」。
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 991d41f5-1d17-468d-a66d-83ec1308ab79
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/25/2018
+ms.locfileid: "28103926"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>在 Azure 資訊安全中心修復安全性設定
 Azure 資訊安全中心會針對可能讓虛擬機器 (VM) 和電腦更容易遭受攻擊的設定，每天分析虛擬機器和電腦的作業系統。 當您的 OS 設定不符合建議的安全性設定規則時，資訊安全中心會建議您解決這些弱點，並建議變更設定以解決這些弱點。

@@ -1,11 +1,11 @@
 ---
-title: "更新 StorSimple 裝置 | Microsoft Docs"
-description: "說明如何使用 StorSimple 更新功能，來安裝一般和維護模式的更新和 Hotfix。"
+title: 更新 StorSimple 裝置 | Microsoft Docs
+description: 說明如何使用 StorSimple 更新功能，來安裝一般和維護模式的更新和 Hotfix。
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 786059f5-2a38-4105-941d-0860ce4ac515
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/25/2018
+ms.locfileid: "28103603"
 ---
 # <a name="update-your-storsimple-8000-series-device"></a>更新您的 StorSimple 8000 系列裝置
 > [!NOTE]

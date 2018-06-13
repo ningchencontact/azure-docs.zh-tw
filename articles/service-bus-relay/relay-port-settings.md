@@ -1,12 +1,12 @@
 ---
-title: "Azure 轉送連接埠設定 | Microsoft Docs"
-description: "Azure 轉送連接埠值的相關詳細資料。"
+title: Azure 轉送連接埠設定 | Microsoft Docs
+description: Azure 轉送連接埠值的相關詳細資料。
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-relay
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28017370"
 ---
 # <a name="azure-relay-port-settings"></a>Azure 轉送連接埠設定
 

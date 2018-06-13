@@ -1,6 +1,6 @@
 ---
-title: "將網域委派給 Azure DNS |Microsoft Docs"
-description: "了解如何變更網域委派及使用 Azure DNS 名稱伺服器提供網域主機代管。"
+title: 將網域委派給 Azure DNS |Microsoft Docs
+description: 了解如何變更網域委派及使用 Azure DNS 名稱伺服器提供網域主機代管。
 services: dns
 documentationcenter: na
 author: KumudD
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28030514"
 ---
 # <a name="delegate-a-domain-to-azure-dns"></a>將網域委派給 Azure DNS
 
@@ -40,7 +41,7 @@ ms.lasthandoff: 01/24/2018
    |---|---|---|
    |**名稱**|contoso.net|提供 DNS 區域的名稱。|
    |**訂用帳戶**|[您的訂用帳戶]|選取要在其中建立應用程式閘道的訂用帳戶。|
-   |**資源群組**|**建立新的︰**contosoRG|建立資源群組。 資源群組名稱在您選取的訂用帳戶中必須是唯一的。 若要深入了解資源群組，請閱讀 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) 概觀。|
+   |**資源群組**|**建立新的︰** contosoRG|建立資源群組。 資源群組名稱在您選取的訂用帳戶中必須是唯一的。 若要深入了解資源群組，請閱讀 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) 概觀。|
    |**位置**|美國西部||
 
 > [!NOTE]
@@ -171,7 +172,7 @@ default TTL = 300 (5 mins)
    |---|---|---|
    |**名稱**|partners.contoso.net|提供 DNS 區域的名稱。|
    |**訂用帳戶**|[您的訂用帳戶]|選取要在其中建立應用程式閘道的訂用帳戶。|
-   |**資源群組**|**使用現有的︰**contosoRG|建立資源群組。 資源群組名稱在您選取的訂用帳戶中必須是唯一的。 若要深入了解資源群組，請閱讀 [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) 概觀。|
+   |**資源群組**|**使用現有的︰** contosoRG|建立資源群組。 資源群組名稱在您選取的訂用帳戶中必須是唯一的。 若要深入了解資源群組，請閱讀 [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) 概觀。|
    |**位置**|美國西部||
 
 > [!NOTE]

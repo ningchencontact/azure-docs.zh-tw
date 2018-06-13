@@ -1,6 +1,6 @@
 ---
-title: "如何使用拼音的佇列儲存體 | Microsoft Docs"
-description: "了解如何使用 Azure 佇列服務來建立和刪除佇列，以及插入、取得和刪除訊息。 範例以 Ruby 撰寫。"
+title: 如何使用拼音的佇列儲存體 | Microsoft Docs
+description: 了解如何使用 Azure 佇列服務來建立和刪除佇列，以及插入、取得和刪除訊息。 範例以 Ruby 撰寫。
 services: storage
 documentationcenter: ruby
 author: tamram
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/22/2018
+ms.locfileid: "27993631"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>如何使用 Ruby 的佇列儲存體
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

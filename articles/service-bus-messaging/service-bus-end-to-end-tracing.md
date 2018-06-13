@@ -1,11 +1,11 @@
 ---
-title: "Azure 服務匯流排端對端追蹤與診斷 | Microsoft Docs"
-description: "服務匯流排用戶端診斷與端對端追蹤的概觀"
+title: Azure 服務匯流排端對端追蹤與診斷 | Microsoft Docs
+description: 服務匯流排用戶端診斷與端對端追蹤的概觀
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: lmolkova
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27741215"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>透過服務匯流排傳訊進行分散式追蹤與相互關聯
 

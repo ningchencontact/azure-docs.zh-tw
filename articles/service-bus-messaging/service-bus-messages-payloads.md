@@ -1,11 +1,11 @@
 ---
-title: "Azure 服務匯流排訊息、承載及序列化 | Microsoft Docs"
-description: "服務匯流排訊息承載概觀"
+title: Azure 服務匯流排訊息、承載及序列化 | Microsoft Docs
+description: 服務匯流排訊息承載概觀
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28200058"
 ---
 # <a name="messages-payloads-and-serialization"></a>訊息、承載和序列化
 

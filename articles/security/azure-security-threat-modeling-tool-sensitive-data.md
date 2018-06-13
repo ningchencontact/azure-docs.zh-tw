@@ -1,6 +1,6 @@
 ---
-title: "敏感性資料 - Microsoft 威脅模型化工具 - Azure | Microsoft Docs"
-description: "降低威脅模型化工具所暴露的威脅"
+title: 敏感性資料 - Microsoft 威脅模型化工具 - Azure | Microsoft Docs
+description: 降低威脅模型化工具所暴露的威脅
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28019410"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>安全性架構︰敏感性資料 | 風險降低 
 | 產品/服務 | 文章 |

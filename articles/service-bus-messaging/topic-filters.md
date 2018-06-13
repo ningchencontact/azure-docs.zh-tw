@@ -1,11 +1,11 @@
 ---
-title: "Azure 服務匯流排主題篩選 | Microsoft Docs"
-description: "篩選 Azure 服務匯流排主題"
+title: Azure 服務匯流排主題篩選 | Microsoft Docs
+description: 篩選 Azure 服務匯流排主題
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28198863"
 ---
 # <a name="topic-filters-and-actions"></a>主題篩選和動作
 
