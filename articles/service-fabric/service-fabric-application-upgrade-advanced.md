@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212318"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Service Fabric 應用程式升級：進階主題
 ## <a name="adding-or-removing-service-types-during-an-application-upgrade"></a>在應用程式升級期間新增或移除服務類型

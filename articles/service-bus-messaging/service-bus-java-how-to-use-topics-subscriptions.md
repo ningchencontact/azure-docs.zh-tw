@@ -19,6 +19,7 @@ ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30927664"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>如何透過 Java 使用服務匯流排主題和訂用帳戶
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "34010246"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Azure 中管理解決方案的資料收集詳細資料
 本文包含 Microsoft 所提供的[管理解決方案清單](monitoring-solutions.md)，以及其詳細文件的連結。  此外，還提供資料收集到 Log Analytics 中的方法和頻率相關資訊。  您可以使用本文中的資訊來識別不同的可用解決方案，以及了解不同管理解決方案的資料流程和連線需求。 

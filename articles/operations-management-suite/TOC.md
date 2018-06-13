@@ -18,7 +18,7 @@
 ## 自動化
 ### [Azure 自動化概觀](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
-## 備份
+## Backup 
 ### [備份概觀](../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Site Recovery 概觀](../site-recovery/site-recovery-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
@@ -45,7 +45,6 @@
 #### [Office 365](oms-solution-office-365.md)
 #### [Service Fabric 分析](../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### 服務對應
-##### [逐步介紹](../monitoring/monitoring-walkthrough-servicemap.md)
 ##### [使用](../monitoring/monitoring-service-map.md)
 ##### [設定](../monitoring/monitoring-service-map-configure.md)
 ##### [與 Operations Manager 整合](../monitoring/monitoring-service-map-scom.md)

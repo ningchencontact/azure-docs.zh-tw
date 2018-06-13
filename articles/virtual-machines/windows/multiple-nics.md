@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34367210"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>建立及管理具有多個 NIC 的 Windows 虛擬機器
 Azure 中的虛擬機器 (VM) 可以連結多個虛擬網路介面卡 (NIC)。 常見案例是有不同的子網路可用於前端和後端連線，或者專門用來監視或備份解決方案的網路。 本文詳述如何建立已連結多個 NIC 的 VM。 您也了解如何新增或移除現有 VM 中的 NIC。 不同的 [VM 大小](sizes.md) 支援不同數量的 NIC，因此可據以調整您的 VM。

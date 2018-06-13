@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208806"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>描述 Service Fabric 叢集
 Service Fabric 叢集資源管理員提供數種機制，來描述叢集。 在執行階段，叢集資源管理員會使用此資訊，以確保叢集中執行之服務的高可用性。 在強制執行這些重要規則時，它也會嘗試將叢集的資源消耗量最佳化。

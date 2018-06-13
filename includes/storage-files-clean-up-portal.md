@@ -13,6 +13,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31433323"
 ---
 當您完成時，您可以刪除資源群組。 刪除資源群組也會刪除儲存體帳戶、Azure 檔案共用，以及您在資源群組內部署的任何其他資源。
 

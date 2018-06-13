@@ -19,6 +19,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30323651"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>針對匯入/匯出作業開啟支援票證
 

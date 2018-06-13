@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31392726"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>從 Azure 入口網站建立函數應用程式
 

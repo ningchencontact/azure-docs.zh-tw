@@ -19,6 +19,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942406"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒體服務版本資訊
 Azure 媒體服務的這些版本資訊彙總了舊版發行後的變更和已知問題。

@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783077"
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>利用 Azure 媒體服務提供即時資料流
 

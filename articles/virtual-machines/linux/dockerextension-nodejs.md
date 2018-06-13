@@ -19,6 +19,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30906604"
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension-with-the-azure-cli-10"></a>在 Azure 中使用 Docker VM 延伸模組搭配 Azure CLI 1.0 建立 Docker 環境
 Docker 是常用的容器管理和映像處理平台，它能讓您在 Linux 上 (和 Windows 上) 快速地操作容器。 在 Azure 中，您可以根據您的需求使用幾個方式來部署 Docker。 本文著重於使用 Docker VM 延伸模組與 Azure Resource Manager 範本。 

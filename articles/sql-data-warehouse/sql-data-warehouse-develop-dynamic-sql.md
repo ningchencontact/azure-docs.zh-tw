@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31523161"
 ---
 # <a name="dynamic-sql-in-sql-data-warehouse"></a>SQL 資料倉儲中的動態 SQL
 使用 Azure SQL 資料倉儲中的動態 SQL 以開發解決方案的秘訣。

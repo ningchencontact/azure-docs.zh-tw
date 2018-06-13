@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30922768"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>快速入門：將 Windows 電腦上架到 Azure 資訊安全中心
 將 Azure 訂用帳戶上架之後，您可以透過佈建 Microsoft Monitoring Agent，為在 Azure 外 (例如，內部部署或其他雲端服務) 執行的資源啟用資訊安全中心。

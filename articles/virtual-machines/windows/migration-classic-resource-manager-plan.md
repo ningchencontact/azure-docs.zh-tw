@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "30917338"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>將 IaaS 資源從傳統移轉至 Azure Resource Manager 的規劃
 雖然 Azure Resource Manager 提供了許多令人讚嘆的功能，但請務必詳加規劃您的移轉作業，以確保一切順利進行。 詳細規劃可確保您在執行移轉活動期間不會遇到問題。
@@ -154,7 +155,7 @@ ms.lasthandoff: 04/20/2018
 
 - **佈建逾時 VM 狀態** - 如果任何 VM 的狀態為 `provisioning timed out`，這個問題必須在移轉前解決。 您只能利用停機時間解除佈建/重新佈 VM (刪除、保留磁碟，並重新建立 VM)。
 
-- **RoleStateUnknown VM 狀態** - 如果因為 `role state unknown` 錯誤訊息使得移轉中止，請使用入口網站檢查 VM，並確定它正在執行中。 此錯誤一般會在幾分鐘之後自行消失 (不需補救)，並且是虛擬機器 `start`、`stop`、`restart` 作業期間經常會看到的暫時性類型。 **建議做法：**幾分鐘後再重試移轉。
+- **RoleStateUnknown VM 狀態** - 如果因為 `role state unknown` 錯誤訊息使得移轉中止，請使用入口網站檢查 VM，並確定它正在執行中。 此錯誤一般會在幾分鐘之後自行消失 (不需補救)，並且是虛擬機器 `start`、`stop`、`restart` 作業期間經常會看到的暫時性類型。 **建議做法：** 幾分鐘後再重試移轉。
 
 - **Fabric 叢集不存在** - 在某些情況下，某些 VM 由於各種奇怪的原因而無法移轉。 其中一種已知的情況為，如果是最近才建立 VM (在過去一個星期內左右)，然後在尚無法因應 Azure Resource Manager 工作負載的 Azure 叢集登陸時會發生此情況。  您會收到錯誤，指出 `fabric cluster does not exist` 而無法移轉 VM。 通常等候幾天就可解決此特定問題，因為叢集很快就會啟用 Azure Resource Manager。 不過，有一個立即的解決方法是對 VM `stop-deallocate`，然後再繼續進行移轉，並且在移轉之後，於 Azure Resource Manager 中啟動 VM 備份。
 

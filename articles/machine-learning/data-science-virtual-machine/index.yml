@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: zh-TW
   ms.lasthandoff: 04/19/2018
+  ms.locfileid: "31590780"
 abstract:
   description: 資料科學和深入學習虛擬機器是 Azure 中自訂的 VM 映像，由用來建置智慧型應用程式以進行進階分析的資料科學工具載入。
 sections:

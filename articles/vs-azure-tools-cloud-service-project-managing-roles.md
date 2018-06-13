@@ -16,6 +16,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31793965"
 ---
 # <a name="managing-roles-in-azure-cloud-services-with-visual-studio"></a>使用 Visual Studio 在 Azure 雲端服務中管理角色
 當您建立 Azure 雲端服務之後，您可以在該服務中加入角色或從中移除現有角色。 您也可以匯入現有的專案，並將它轉換成角色。 例如，您可以匯入 ASP.NET Web 應用程式，並將它指定為 Web 角色。

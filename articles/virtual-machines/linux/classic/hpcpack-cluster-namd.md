@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30842008"
 ---
 # <a name="run-namd-with-microsoft-hpc-pack-on-linux-compute-nodes-in-azure"></a>在 Azure 中的 Linux 運算節點以 Microsoft HPC Pack 執行 NAMD
 本文將說明在 Azure 虛擬機器上執行 Linux 高效能運算 (HPC) 工作負載的方法。 在這裡，您會在 Azure 上使用多個 Linux 計算節點設定 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) 叢集以及執行 [NAMD](http://www.ks.uiuc.edu/Research/namd/) 模擬，以計算和視覺化大型生物分子系統的結構。  

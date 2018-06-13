@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33785937"
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Media Services SDK for .NET 中的重試邏輯
 當使用 Microsoft Azure 服務時，可能會發生暫時性錯誤。 如果發生暫時性錯誤，在大部分情況下，少數重試後作業會成功。 Media Services SDK for .NET 會實作重試邏輯來處理與例外狀況和錯誤 (Web 要求所造成) 相關聯的暫時性失敗、執行查詢、儲存變更，以及儲存體作業。  根據預設，Media Services SDK for .NET 在將例外狀況重新擲回您的應用程式之前，會執行四次重試。 然後您的應用程式中的程式碼必須適當地處理這個例外狀況。  
