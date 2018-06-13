@@ -1,12 +1,12 @@
 ---
-title: "使用 Azure VPN 閘道的高可用性組態概觀 | Microsoft Docs"
-description: "本文提供使用 Azure VPN 閘道的高可用性組態選項概觀。"
+title: 使用 Azure VPN 閘道的高可用性組態概觀 | Microsoft Docs
+description: 本文提供使用 Azure VPN 閘道的高可用性組態選項概觀。
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
 ms.service: vpn-gateway
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23126306"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>高可用性跨單位和 VNet 對 VNet 連線
 本文針對使用 Azure VPN 閘道的跨單位和 VNet 對 VNet 連線提供高可用性組態選項的概觀。

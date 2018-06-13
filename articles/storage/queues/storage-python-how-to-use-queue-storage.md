@@ -1,6 +1,6 @@
 ---
-title: "如何使用 Python 的佇列儲存體 | Microsoft Docs"
-description: "了解如何使用 Python 的 Azure 佇列服務來建立和刪除佇列，以及插入、取得和刪除訊息。"
+title: 如何使用 Python 的佇列儲存體 | Microsoft Docs
+description: 了解如何使用 Python 的 Azure 佇列服務來建立和刪除佇列，以及插入、取得和刪除訊息。
 services: storage
 documentationcenter: python
 author: tamram
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/29/2017
+ms.locfileid: "25986744"
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>如何使用 Python 的佇列儲存體
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

@@ -1,13 +1,13 @@
 ---
-title: "修改區域網路閘道 IP 位址首碼和 VPN 閘道 IP 位址| Azure| 入口網站| Microsoft Docs"
-description: "本文逐步解說如何使用 Azure 入口網站來變更區域網路閘道的 IP 位址首碼。"
+title: 修改區域網路閘道 IP 位址首碼和 VPN 閘道 IP 位址| Azure| 入口網站| Microsoft Docs
+description: 本文逐步解說如何使用 Azure 入口網站來變更區域網路閘道的 IP 位址首碼。
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23124386"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>使用 Azure 入口網站修改區域網路閘道設定
 

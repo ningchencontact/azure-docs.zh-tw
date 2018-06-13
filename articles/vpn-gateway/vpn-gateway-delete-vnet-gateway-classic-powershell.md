@@ -1,16 +1,16 @@
 ---
-title: "刪除虛擬網路閘道：PowerShell：Azure 傳統 | Microsoft Docs"
-description: "在傳統部署模型中使用 PowerShell 刪除虛擬網路閘道。"
+title: 刪除虛擬網路閘道：PowerShell：Azure 傳統 | Microsoft Docs
+description: 在傳統部署模型中使用 PowerShell 刪除虛擬網路閘道。
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: 
+ms.topic: ''
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "24994494"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>使用 PowerShell (傳統) 刪除虛擬網路閘道
 > [!div class="op_single_selector"]

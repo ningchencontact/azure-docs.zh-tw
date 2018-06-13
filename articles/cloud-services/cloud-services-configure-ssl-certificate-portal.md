@@ -1,11 +1,11 @@
 ---
-title: "設定雲端服務的 SSL | Microsoft Docs"
-description: "了解如何為 Web 角色指定 HTTPS 端點，以及如何上傳 SSL 憑證來保護應用程式的安全。 這些範例使用 Azure 入口網站。"
+title: 設定雲端服務的 SSL | Microsoft Docs
+description: 了解如何為 Web 角色指定 HTTPS 端點，以及如何上傳 SSL 憑證來保護應用程式的安全。 這些範例使用 Azure 入口網站。
 services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 371ba204-48b6-41af-ab9f-ed1d64efe704
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/16/2017
+ms.locfileid: "24859771"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>在 Azure 設定應用程式的 SSL
 

@@ -1,6 +1,6 @@
 ---
-title: "使用增量快照集備份和復原非受控 Azure Windows VM 磁碟 | Microsoft Docs"
-description: "使用增量快照，建立備份和復原 Azure Windows 虛擬機器磁碟的自訂解決方案。"
+title: 使用增量快照集備份和復原非受控 Azure Windows VM 磁碟 | Microsoft Docs
+description: 使用增量快照，建立備份和復原 Azure Windows 虛擬機器磁碟的自訂解決方案。
 services: virtual-machines-windows
 documentationcenter: na
 author: aungoo-msft
@@ -19,5 +19,6 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23116876"
 ---
 [!INCLUDE [virtual-machines-incremental-snapshots](../../../includes/virtual-machines-incremental-snapshots.md)]

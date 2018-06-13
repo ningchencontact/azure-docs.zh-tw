@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108716"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>使用 StorSimple 裝置管理員服務來管理儲存體帳戶認證
 

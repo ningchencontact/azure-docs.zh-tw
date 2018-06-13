@@ -1,11 +1,11 @@
 ---
-title: "什麼是流量管理員 | Microsoft Docs"
-description: "本文將協助您了解何謂流量管理員，以及它是否為您的應用程式的正確流量路由選擇"
+title: 什麼是流量管理員 | Microsoft Docs
+description: 本文將協助您了解何謂流量管理員，以及它是否為您的應用程式的正確流量路由選擇
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23111826"
 ---
 # <a name="overview-of-traffic-manager"></a>流量管理員概觀
 
