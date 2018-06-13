@@ -1,11 +1,11 @@
 ---
-title: "開始使用 Azure 服務匯流排佇列 | Microsoft Docs"
-description: "撰寫使用服務匯流排傳訊佇列的 C# 主控台應用程式。"
+title: 開始使用 Azure 服務匯流排佇列 | Microsoft Docs
+description: 撰寫使用服務匯流排傳訊佇列的 C# 主控台應用程式。
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 68a34c00-5600-43f6-bbcc-fea599d500da
 ms.service: service-bus-messaging
 ms.devlang: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26642455"
 ---
 # <a name="get-started-with-service-bus-queues"></a>開始使用服務匯流排佇列
 

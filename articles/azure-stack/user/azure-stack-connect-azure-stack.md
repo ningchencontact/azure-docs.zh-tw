@@ -1,11 +1,11 @@
 ---
-title: "連線到 Azure Stack | Microsoft Docs"
-description: "了解如何連線到 Azure Stack"
+title: 連線到 Azure Stack | Microsoft Docs
+description: 了解如何連線到 Azure Stack
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 3cebbfa6-819a-41e3-9f1b-14ca0a2aaba3
 ms.service: azure-stack
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26636172"
 ---
 # <a name="connect-to-azure-stack"></a>連線至 Azure Stack
 
