@@ -1,12 +1,12 @@
 ---
-title: "App Service 概觀：Azure Stack | Microsoft Docs"
-description: "Azure Stack 上的 App Service 概觀"
+title: App Service 概觀：Azure Stack | Microsoft Docs
+description: Azure Stack 上的 App Service 概觀
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29386070"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Azure Stack 概觀上的 App Service
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*

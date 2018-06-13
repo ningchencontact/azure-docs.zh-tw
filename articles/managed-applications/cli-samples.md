@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 範例 - Azure 受控應用程式 | Microsoft Docs"
-description: "Azure CLI 範例 - Azure 受控應用程式"
+title: Azure CLI 範例 - Azure 受控應用程式 | Microsoft Docs
+description: Azure CLI 範例 - Azure 受控應用程式
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/27/2017
+ms.locfileid: "23632549"
 ---
 # <a name="azure-cli-samples"></a>Azure CLI 範例
 

@@ -13,6 +13,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "29765912"
 ---
 | 資源 | 免費 (預覽) | 開發人員 | 基本 | 標準 | 高級 |
 | --- | --- | --- | --- | --- | --- |

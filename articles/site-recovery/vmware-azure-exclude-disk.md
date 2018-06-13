@@ -14,6 +14,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29811475"
 ---
 # <a name="exclude-disks-from-replication-for-vmware-to-azure-scenario"></a>排除磁碟不要從 VMware 複寫到 Azure 案例
 
