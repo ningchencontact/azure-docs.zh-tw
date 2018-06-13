@@ -1,11 +1,11 @@
 ---
-title: "在 Azure Stack 中針對每位使用者管理資源的權限 (服務系統管理員與租用戶) | Microsoft Docs"
-description: "您身為服務系統管理員或租用戶，應了解如何管理 RBAC 權限。"
+title: 在 Azure Stack 中針對每位使用者管理資源的權限 (服務系統管理員與租用戶) | Microsoft Docs
+description: 您身為服務系統管理員或租用戶，應了解如何管理 RBAC 權限。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: fenila
-editor: 
+editor: ''
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29385631"
 ---
 # <a name="manage-role-based-access-control"></a>管理角色型存取控制
 

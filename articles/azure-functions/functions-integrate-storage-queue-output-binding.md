@@ -1,12 +1,12 @@
 ---
-title: "使用 Functions 在 Azure 儲存體佇列中新增訊息 | Microsoft Docs"
-description: "使用 Azure Functions 來建立無伺服器函式，該函式是由 HTTP 要求叫用，並且在 Azure 儲存體佇列中建立訊息。"
+title: 使用 Functions 在 Azure 儲存體佇列中新增訊息 | Microsoft Docs
+description: 使用 Azure Functions 來建立無伺服器函式，該函式是由 HTTP 要求叫用，並且在 Azure 儲存體佇列中建立訊息。
 services: azure-functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
 ms.service: functions
 ms.devlang: multiple
@@ -21,6 +21,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29387059"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>使用 Functions 在 Azure 儲存體佇列中新增訊息
 

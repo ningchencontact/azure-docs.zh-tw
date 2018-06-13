@@ -13,6 +13,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30921379"
 ---
 在 Azure 入口網站中，您可以瀏覽至連線，以檢視傳統 VPN 閘道的連線狀態。 下列步驟顯示瀏覽至連線並進行驗證的其中一種方式。
 
