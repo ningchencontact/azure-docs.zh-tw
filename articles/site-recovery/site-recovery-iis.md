@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29809415"
 ---
 # <a name="replicate-a-multi-tier-iis-based-web-application"></a>複寫多層式 IIS 型 Web 應用程式
 

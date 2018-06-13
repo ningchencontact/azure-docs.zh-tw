@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29877274"
 ---
 # <a name="provider-resource-usage-api"></a>提供者資源使用狀況 API
 「提供者」一詞適用於服務管理員和任何委派的提供者。 Azure Stack 操作員和委派的提供者可使用提供者使用狀況 API，檢視其直接租用戶的使用狀況。 例如，如圖表所示，P0 可以呼叫提供者 API，以取得 P1 和 P2 直接使用的使用狀況資訊；而 P1 可呼叫以取得 P3 和 P4 的使用狀況資訊。

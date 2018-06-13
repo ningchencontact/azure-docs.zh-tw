@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29938639"
 ---
 # <a name="portals-you-will-need"></a>您需要的入口網站
 在您開始發行供應項目程序之前，讓我們簡介您所需的各種入口網站。 以下是有關入口網站的簡短摘要，包括：開發人員中心、Azure 發佈入口網站和 Azure 入口網站 (依您將與之互動的順序顯示)。                                                                            

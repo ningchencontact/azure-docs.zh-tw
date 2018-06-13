@@ -18,6 +18,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33934143"
 ---
 # <a name="route-the-request-based-on-the-size-of-its-body"></a>根據要求主體的大小進行要求的路由傳送
 

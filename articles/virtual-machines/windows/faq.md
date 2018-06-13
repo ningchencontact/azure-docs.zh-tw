@@ -20,6 +20,7 @@ ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34058058"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Windows 虛擬機器的常見問題
 本文可解決在 Azure 中使用 Resource Manager 部署模型建立之 Windows 虛擬機器的一些常見問題。 如需本主題的 Linux 版本，請參閱 [Linux 虛擬機器的常見問題](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

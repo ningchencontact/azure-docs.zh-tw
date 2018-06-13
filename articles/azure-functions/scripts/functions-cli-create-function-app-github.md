@@ -1,8 +1,8 @@
 ---
-title: "建立函式應用程式和從 GitHub 部署函式程式碼 | Microsoft Docs"
-description: "Azure CLI 指令碼範例 - 建立函式應用程式和從 GitHub 部署函式程式碼"
+title: 建立函式應用程式和從 GitHub 部署函式程式碼 | Microsoft Docs
+description: Azure CLI 指令碼範例 - 建立函式應用程式和從 GitHub 部署函式程式碼
 services: functions
-keywords: 
+keywords: ''
 author: syntaxc4
 ms.author: cfowler
 ms.date: 04/27/2017
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29842655"
 ---
 # <a name="create-a-function-app-and-deploy-function-code-from-github"></a>建立函式應用程式和從 GitHub 部署函式程式碼
 

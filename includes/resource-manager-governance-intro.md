@@ -1,6 +1,6 @@
 ---
-title: "包含檔案"
-description: "包含檔案"
+title: 包含檔案
+description: 包含檔案
 services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29816973"
 ---
 將資源部署至 Azure 時，您有極大的彈性可決定所要部署的資源類型、資源所在之處，以及如何設定資源。 不過，此種彈性可能會使得組織所擁有的選項超出您的規劃。 當您考慮將資源部署至 Azure 時，可能會思考下列問題：
 

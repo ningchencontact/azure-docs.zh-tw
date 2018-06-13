@@ -1,11 +1,11 @@
 ---
-title: "設定 Azure 匯入/匯出工具 v1 | Microsoft Docs"
-description: "了解如何設定 Azure 匯入/匯出服務的磁碟機準備及修復工具。 這是指 v1 的匯入/匯出工具。"
+title: 設定 Azure 匯入/匯出工具 v1 | Microsoft Docs
+description: 了解如何設定 Azure 匯入/匯出服務的磁碟機準備及修復工具。 這是指 v1 的匯入/匯出工具。
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: c312b1ab-5b9e-4d24-becd-790a88b3ba8d
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059783"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>設定 Azure 匯入/匯出工具
 Microsoft Azure 匯入/匯出工具是磁碟機準備及修復工具，可搭配 Microsoft Azure 匯入/匯出服務使用。 您可以使用此工具來執行下列功能︰  

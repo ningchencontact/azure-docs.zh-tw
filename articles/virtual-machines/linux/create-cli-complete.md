@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure CLI 2.0 建立 Linux 環境 | Microsoft Docs"
-description: "使用 Azure CLI 2.0，從頭開始建立儲存體、Linux VM、虛擬網路和子網路、負載平衡器、NIC、公用 IP 以及網路安全性群組。"
+title: 使用 Azure CLI 2.0 建立 Linux 環境 | Microsoft Docs
+description: 使用 Azure CLI 2.0，從頭開始建立儲存體、Linux VM、虛擬網路和子網路、負載平衡器、NIC、公用 IP 以及網路安全性群組。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 4ba4060b-ce95-4747-a735-1d7c68597a1a
 ms.service: virtual-machines-linux
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852127"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>使用 Azure CLI 來建立完整的 Linux 虛擬機器
 若要在 Azure 中快速建立虛擬機器 (VM)，您可以使用單一的 Azure CLI 命令，此命令會使用預設值來建立任何必要的支援資源。 系統會自動建立虛擬網路、公用 IP 位址及網路安全性群組規則等資源。 若要在生產環境使用案例中對您的環境進行更多控制，您可以預先建立這些資源，然後再將 VM 新增到這些資源中。 本文將引導您了解如何建立 VM 及逐一建立每個支援資源。

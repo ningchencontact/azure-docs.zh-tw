@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895498"
 ---
 # <a name="policy-requirements-for-pci-dss-compliant-environments"></a>符合 PCI DSS 規範之環境的原則需求  
 ## <a name="pci-dss-requirement-12"></a>PCI DSS 需求 12

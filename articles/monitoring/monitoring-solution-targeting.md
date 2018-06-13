@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33887398"
 ---
 # <a name="targeting-management-solutions-in-azure-preview"></a>在 Azure 中設定管理解決方案目標 (預覽)
 當您將管理解決方案新增至訂用帳戶時，預設會將該解決方案自動部署到與您 Log Analytics 工作區連線的所有 Windows 與 Linux 代理程式。  您可能會想要管理您的成本，並透過將解決方案限制在一組特定的代理程式，來限制針對該解決方案所收集的資料量。  本文說明如何使用**設定解決方案目標**，此功能可讓您將範圍套用至解決方案。

@@ -1,11 +1,11 @@
 ---
-title: "將 BizTalk Server EDI 解決方案移轉至 BizTalk 服務技術指南 | Microsoft Docs"
-description: "將 EDI 移轉到 MABS；Microsoft Azure BizTalk 服務"
+title: 將 BizTalk Server EDI 解決方案移轉至 BizTalk 服務技術指南 | Microsoft Docs
+description: 將 EDI 移轉到 MABS；Microsoft Azure BizTalk 服務
 services: biztalk-services
 documentationcenter: na
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 61c179fa-3f37-495b-8016-dee7474fd3a6
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22998843"
 ---
 # <a name="migrating-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>BizTalk Server EDI 解決方案移轉至 BizTalk 服務：技術指南
 

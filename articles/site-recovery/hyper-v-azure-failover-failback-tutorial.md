@@ -1,6 +1,6 @@
 ---
-title: "使用 Site Recovery 將複寫的 Hyper-V VM 容錯移轉及容錯回復至 Azure | Microsoft Docs"
-description: "了解如何使用 Site Recovery，將 Hyper-V VM 容錯移轉至 Azure，然後容錯回復至內部部署網站"
+title: 使用 Site Recovery 將複寫的 Hyper-V VM 容錯移轉及容錯回復至 Azure | Microsoft Docs
+description: 了解如何使用 Site Recovery，將 Hyper-V VM 容錯移轉至 Azure，然後容錯回復至內部部署網站
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
@@ -12,6 +12,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852892"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>將 Hyper-V VM 容錯移轉及容錯回復至 Azure
 

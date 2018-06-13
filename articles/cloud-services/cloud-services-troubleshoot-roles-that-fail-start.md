@@ -20,6 +20,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29875329"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>對無法啟動的雲端服務角色進行疑難排解
 以下是與無法啟動的 Azure 雲端服務角色相關的一些常見問題和解決方案。

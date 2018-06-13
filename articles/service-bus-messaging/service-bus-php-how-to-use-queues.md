@@ -1,11 +1,11 @@
 ---
-title: "如何將服務匯流排佇列搭配 PHP 使用 | Microsoft Docs"
-description: "了解如何使用 Azure 中的服務匯流排佇列。 程式碼範例以 PHP 撰寫。"
+title: 如何將服務匯流排佇列搭配 PHP 使用 | Microsoft Docs
+description: 了解如何使用 Azure 中的服務匯流排佇列。 程式碼範例以 PHP 撰寫。
 services: service-bus-messaging
 documentationcenter: php
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e29c829b-44c5-4350-8f2e-39e0c380a9f2
 ms.service: service-bus-messaging
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23044053"
 ---
 # <a name="how-to-use-service-bus-queues-with-php"></a>如何將服務匯流排佇列搭配 PHP 使用
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
