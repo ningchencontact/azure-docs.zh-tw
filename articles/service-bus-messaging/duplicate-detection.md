@@ -1,11 +1,11 @@
 ---
-title: "Azure 服務匯流排重複訊息偵測 | Microsoft 文件"
-description: "偵測重複的服務匯流排訊息"
+title: Azure 服務匯流排重複訊息偵測 | Microsoft 文件
+description: 偵測重複的服務匯流排訊息
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28198548"
 ---
 # <a name="duplicate-detection"></a>重複偵測
 

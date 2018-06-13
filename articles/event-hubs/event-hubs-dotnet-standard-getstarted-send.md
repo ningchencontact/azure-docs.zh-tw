@@ -1,12 +1,12 @@
 ---
-title: "使用 .NET Standard 傳送事件至 Azure 事件中樞 | Microsoft Docs"
-description: "開始在 .NET Standard 中傳送事件至事件中樞"
+title: 使用 .NET Standard 傳送事件至 Azure 事件中樞 | Microsoft Docs
+description: 開始在 .NET Standard 中傳送事件至事件中樞
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: get-started-article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28985199"
 ---
 # <a name="get-started-sending-messages-to-azure-event-hubs-in-net-standard"></a>開始在 .NET Standard 中傳送訊息至 Azure 事件中樞
 

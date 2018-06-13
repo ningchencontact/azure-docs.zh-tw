@@ -1,11 +1,11 @@
 ---
-title: "如何使用 Azure 入口網站設定 Azure VM 上的 MSI"
-description: "使用 Azure 入口網站在 Azure VM 上設定「受控服務身分識別 (MSI)」的逐步指示。"
+title: 如何使用 Azure 入口網站設定 Azure VM 上的 MSI
+description: 使用 Azure 入口網站在 Azure VM 上設定「受控服務身分識別 (MSI)」的逐步指示。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28979168"
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-the-azure-portal"></a>使用 Azure 入口網站設定「VM 受控服務身分識別 (MSI)」
 

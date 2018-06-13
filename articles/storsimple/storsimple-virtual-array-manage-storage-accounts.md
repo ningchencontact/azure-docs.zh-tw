@@ -1,11 +1,11 @@
 ---
-title: "管理 StorSimple Virtual Array 儲存體帳戶認證 | Microsoft Docs"
-description: "針對與 StorSimple Virtual Array 相關聯的儲存體帳戶認證，說明如何使用 StorSimple 裝置管理員的 [設定] 頁面來新增、編輯、刪除或替換安全性金鑰。"
+title: 管理 StorSimple Virtual Array 儲存體帳戶認證 | Microsoft Docs
+description: 針對與 StorSimple Virtual Array 相關聯的儲存體帳戶認證，說明如何使用 StorSimple 裝置管理員的 [設定] 頁面來新增、編輯、刪除或替換安全性金鑰。
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 234bf8bb-d5fe-40be-9d25-721d7482bc3b
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23111706"
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>使用 StorSimple 裝置管理員來管理 StorSimple Virtual Array 的儲存體帳戶認證
 

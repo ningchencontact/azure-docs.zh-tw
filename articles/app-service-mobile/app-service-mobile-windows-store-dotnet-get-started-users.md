@@ -1,11 +1,11 @@
 ---
-title: "將驗證新增至您的通用 Windows 平台 (UWP) 應用程式 | Microsoft Docs"
-description: "了解如何使用 Azure App Service Mobile Apps，透過眾多識別提供者驗證通用 Windows 平台 (UWP) 應用程式使用者，包括 AAD、Google、Facebook、Twitter 和 Microsoft。"
+title: 將驗證新增至您的通用 Windows 平台 (UWP) 應用程式 | Microsoft Docs
+description: 了解如何使用 Azure App Service Mobile Apps，透過眾多識別提供者驗證通用 Windows 平台 (UWP) 應用程式使用者，包括 AAD、Google、Facebook、Twitter 和 Microsoft。
 services: app-service\mobile
 documentationcenter: windows
 author: conceptdev
 manager: panarasi
-editor: 
+editor: ''
 ms.assetid: 6cffd951-893e-4ce5-97ac-86e3f5ad9466
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27592139"
 ---
 # <a name="add-authentication-to-your-windows-app"></a>將驗證新增至您的 Windows 應用程式
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]

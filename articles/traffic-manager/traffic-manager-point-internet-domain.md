@@ -1,11 +1,11 @@
 ---
-title: "將公司網際網路網域指向流量管理員網域名稱 | Microsoft Docs"
-description: "本文將協助您將公司網域名稱指向流量管理員網域名稱。"
+title: 將公司網際網路網域指向流量管理員網域名稱 | Microsoft Docs
+description: 本文將協助您將公司網域名稱指向流量管理員網域名稱。
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 29822946-2d45-4434-ba47-fc180a445cc3
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22719920"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>將公司網際網路網域指向 Azure 流量管理員網域
 

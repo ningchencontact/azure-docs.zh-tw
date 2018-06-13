@@ -1,12 +1,12 @@
 ---
-title: "使用 C 搭配真實感應器將 Raspberry Pi 連線到 Azure IoT 套件來支援韌體更新 | Microsoft Docs"
-description: "使用 Raspberry Pi 3 和 Azure IoT 套件的 Microsoft Azure IoT 入門套件。 使用 C 將 Raspberry Pi 連線到遠端監視解決方案、將遙測從感應器傳送到雲端，並回應解決方案儀表板所叫用的方法。"
-services: 
+title: 使用 C 搭配真實感應器將 Raspberry Pi 連線到 Azure IoT 套件來支援韌體更新 | Microsoft Docs
+description: 使用 Raspberry Pi 3 和 Azure IoT 套件的 Microsoft Azure IoT 入門套件。 使用 C 將 Raspberry Pi 連線到遠端監視解決方案、將遙測從感應器傳送到雲端，並回應解決方案儀表板所叫用的方法。
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-suite
 ms.devlang: c
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/06/2017
+ms.locfileid: "24010721"
 ---
 # <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-send-telemetry-from-a-real-sensor-using-c"></a>將 Raspberry Pi 3 連線到遠端監視解決方案，並且使用 C 從真實感應器傳送遙測
 
