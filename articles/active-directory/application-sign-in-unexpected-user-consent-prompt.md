@@ -1,11 +1,11 @@
 ---
-title: "登入應用程式時看到非預期的同意提示 | Microsoft Docs"
-description: "如何疑難排解使用者會看到已與 Azure AD 整合的應用程式顯示您未預期的同意提示"
+title: 登入應用程式時看到非預期的同意提示 | Microsoft Docs
+description: 如何疑難排解使用者會看到已與 Azure AD 整合的應用程式顯示您未預期的同意提示
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26733822"
 ---
 # <a name="unexpected-consent-prompt-when-signing-in-to-an-application"></a>登入應用程式時看到非預期的同意提示
 

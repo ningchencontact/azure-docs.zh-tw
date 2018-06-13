@@ -1,9 +1,9 @@
 ---
-title: "企業狀態漫遊概觀 | Microsoft Docs"
-description: "提供 Windows 裝置中企業狀態漫遊設定的相關資訊。 企業狀態漫遊提供使用者跨 Windows 裝置的一致體驗，並且減少設定新的裝置所需的時間。"
+title: 企業狀態漫遊概觀 | Microsoft Docs
+description: 提供 Windows 裝置中企業狀態漫遊設定的相關資訊。 企業狀態漫遊提供使用者跨 Windows 裝置的一致體驗，並且減少設定新的裝置所需的時間。
 services: active-directory
-keywords: "什麼是企業狀態漫遊, 企業同步處理, windows 雲端"
-documentationcenter: 
+keywords: 什麼是企業狀態漫遊, 企業同步處理, windows 雲端
+documentationcenter: ''
 author: tanning
 manager: mtillman
 editor: curtand
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26734080"
 ---
 # <a name="enterprise-state-roaming-overview"></a>企業狀態漫遊概觀
 使用 Windows 10， [Azure Active Directory (Azure AD)](active-directory-whatis.md) 使用者能夠安全地將其使用者設定和應用程式設定資料同步處理至雲端。 企業狀態漫遊提供使用者跨 Windows 裝置的一致體驗，並且減少設定新的裝置所需的時間。 企業狀態漫遊的運作類似於首先在 Windows 8 中引進的標準 [取用者設定同步處理](http://windows.microsoft.com/en-US/windows-8/sync-settings-pcs) 。 此外，企業狀態漫遊提供：

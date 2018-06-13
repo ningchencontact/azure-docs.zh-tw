@@ -1,11 +1,11 @@
 ---
-title: "要求使用者指派 - Azure AD | Microsoft Docs'"
-description: "如何要求 Azure 應用程式的使用者指派。"
+title: 要求使用者指派 - Azure AD | Microsoft Docs'
+description: 如何要求 Azure 應用程式的使用者指派。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 30b78cba-1e0f-472f-8314-f2250a9b91c3
 ms.service: active-directory
 ms.workload: identity
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26731161"
 ---
 # <a name="azure-ad-and-applications-require-user-assignment"></a>Azure AD 和應用程式：要求使用者指派
 ## <a name="requiring-user-assignment"></a>要求使用者指派

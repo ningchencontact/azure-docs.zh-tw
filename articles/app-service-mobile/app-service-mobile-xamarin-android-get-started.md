@@ -1,11 +1,11 @@
 ---
-title: "開始使用適用於 Xamarin.Android 應用程式的Azure 行動應用程式"
-description: "遵循此教學課程，可開始使用 Azure Mobile Apps 進行 Xamarin Android 開發。"
+title: 開始使用適用於 Xamarin.Android 應用程式的Azure 行動應用程式
+description: 遵循此教學課程，可開始使用 Azure Mobile Apps 進行 Xamarin Android 開發。
 services: app-service\mobile
 documentationcenter: xamarin
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 81649dd3-544f-40ff-b9b7-60c66d683e60
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27592774"
 ---
 # <a name="create-a-xamarinandroid-app"></a>建立 Xamarin.Android 應用程式
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
