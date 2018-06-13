@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34204629"
 ---
 # <a name="model-an-application-in-service-fabric"></a>在 Service Fabric 中模型化應用程式
 本文提供 Azure Service Fabric 應用程式模型的概觀，以及如何透過資訊清單檔案定義應用程式和服務。

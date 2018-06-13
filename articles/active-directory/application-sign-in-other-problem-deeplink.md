@@ -18,6 +18,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34069905"
 ---
 # <a name="problems-signing-in-to-an-application-using-a-deeplink"></a>使用深層連結登入應用程式的問題
 

@@ -1,12 +1,12 @@
 ---
-title: "Azure 匯入/匯出工具匯入作業命令的快速參考 | Microsoft Docs"
-description: "適用於常用匯入作業命令的 Azure 匯入/匯出工具命令參考。"
+title: Azure 匯入/匯出工具匯入作業命令的快速參考 | Microsoft Docs
+description: 適用於常用匯入作業命令的 Azure 匯入/匯出工具命令參考。
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059413"
 ---
 # <a name="quick-reference-for-frequently-used-commands-for-import-jobs"></a>匯入作業的常用命令快速參考
 

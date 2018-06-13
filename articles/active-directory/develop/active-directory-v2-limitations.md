@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156386"
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>我應該使用 v2.0 端點嗎？
 當您建立與 Azure Active Directory 整合的應用程式時，您必須判斷 v2.0 端點和驗證通訊協定是否符合您的需求。 Azure Active Directory 的原始端點仍受到完整的支援，而且在某些方面擁有比 v2.0 更豐富的功能。 不過，v2.0 端點為開發人員[帶來極大的好處](active-directory-v2-compare.md)。

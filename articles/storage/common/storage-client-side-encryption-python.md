@@ -1,6 +1,6 @@
 ---
-title: "Microsoft Azure 儲存體的用戶端 Python 加密 | Microsoft Docs"
-description: "適用於 Python 的 Azure 儲存體用戶端程式庫支援適用於您 Azure 儲存體應用程式的最高安全性用戶端加密。"
+title: Microsoft Azure 儲存體的用戶端 Python 加密 | Microsoft Docs
+description: 適用於 Python 的 Azure 儲存體用戶端程式庫支援適用於您 Azure 儲存體應用程式的最高安全性用戶端加密。
 services: storage
 documentationcenter: python
 author: lakasa
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29742637"
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Microsoft Azure 儲存體的用戶端 Python 加密
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]

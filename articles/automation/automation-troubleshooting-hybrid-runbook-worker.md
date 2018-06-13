@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34192613"
 ---
 # <a name="troubleshooting-tips-for-hybrid-runbook-worker"></a>混合式 Runbook 背景工作角色的疑難排解提示
 

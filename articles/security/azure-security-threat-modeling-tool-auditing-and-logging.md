@@ -1,6 +1,6 @@
 ---
-title: "稽核和記錄 - Microsoft Threat Modeling Tool - Azure | Microsoft Docs"
-description: "降低威脅模型化工具所暴露的威脅"
+title: 稽核和記錄 - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+description: 降低威脅模型化工具所暴露的威脅
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23044403"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>安全框架︰稽核和記錄 | 緩和措施 
 | 產品/服務 | 文章 |

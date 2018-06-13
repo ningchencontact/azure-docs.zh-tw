@@ -1,6 +1,6 @@
 ---
-title: "以最短停機時間移轉至適用於 PostgreSQL 的 Azure 資料庫"
-description: "本文說明如何將 PostgreSQL 資料庫擷取至傾印檔案，從使用適用於 PostgreSQL 的 Azure 資料庫透過 pg_dump 所建立的封存檔案來還原 PostgreSQL 資料庫，以最短停機時間完成移轉，以及使用 Attunity Replicate for Microsoft Migrations 來設定初始負載和從來源資料庫至目標資料庫的持續資料同步作業。"
+title: 以最短停機時間移轉至適用於 PostgreSQL 的 Azure 資料庫
+description: 本文說明如何將 PostgreSQL 資料庫擷取至傾印檔案，從使用適用於 PostgreSQL 的 Azure 資料庫透過 pg_dump 所建立的封存檔案來還原 PostgreSQL 資料庫，以最短停機時間完成移轉，以及使用 Attunity Replicate for Microsoft Migrations 來設定初始負載和從來源資料庫至目標資料庫的持續資料同步作業。
 services: postgresql
 author: HJToland3
 ms.author: jtoland
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29692084"
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-postgresql"></a>以最短停機時間移轉至適用於 PostgreSQL 的 Azure 資料庫
 您可以使用 Attunity Replicate for Microsoft Migrations，將現有的 PostgreSQL 資料庫移轉至適用於 PostgreSQL 的 Azure 資料庫。 Attunity Replicate 是 Attunity 與 Microsoft 共同提供的方案。 隨 Azure 資料庫移轉服務提供，Microsoft 客戶無需支付額外費用。 

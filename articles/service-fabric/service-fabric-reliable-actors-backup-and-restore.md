@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206861"
 ---
 # <a name="implement-reliable-actors-backup-and-restore"></a>實作 Reliable Actors 備份與還原
 在下列範例中，自訂動作項目服務會利用已經存在於 `ActorService` 中的遠端處理接聽程式，藉以公開用來備份動作項目資料的方法：

@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30197885"
 ---
 您可以使用 'Get-AzureVNetConnection' Cmdlet，驗證連線是否成功。
 

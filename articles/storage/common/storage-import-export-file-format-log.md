@@ -1,11 +1,11 @@
 ---
-title: "Azure 匯入/匯出記錄檔格式 | Microsoft Docs"
-description: "了解執行匯入/匯出服務作業的步驟時所建立的記錄檔格式。"
+title: Azure 匯入/匯出記錄檔格式 | Microsoft Docs
+description: 了解執行匯入/匯出服務作業的步驟時所建立的記錄檔格式。
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 38cc16bd-ad55-4625-9a85-e1726c35fd1b
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23060003"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Azure 匯入/匯出服務記錄檔格式
 當 Microsoft Azure 匯入/匯出服務於匯入工作或匯出工作期間在磁碟機上執行動作時，記錄檔會寫入至與該工作相關聯的儲存體帳戶中的區塊 Blob。  

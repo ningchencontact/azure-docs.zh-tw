@@ -11,15 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 05/11/18
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c9b647e8f731995537a8797ab28248a1c42b6460
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 982e2cb6780e5285dc5849d655efdf830f76cf13
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34347494"
 ---
 # <a name="what-is-the-access-panel"></a>什麼是存取面板？
 
@@ -50,9 +51,7 @@ ms.lasthandoff: 03/08/2018
 
 如果您已經為您的登入頁面設定自訂商標，就可將貴組織的網域附加到 URL (例如，`http://myapps.microsoft.com/<your domain>.com`)，以載入此商標。
 
-您可以使用已在 Azure 入口網站中設定的任何作用中或已驗證網域名稱，如下所示：
-
-![Wingtip Toys 網域名稱][2]  
+您可以使用已在 Azure 入口網站中設定的任何使用中或已驗證網域名稱，如下所示：![Wingtip Toys 網域名稱][2]  
 
 將 URL 散佈給要登入與 Azure AD 整合之應用程式的所有使用者。
 
@@ -62,7 +61,7 @@ ms.lasthandoff: 03/08/2018
 
 如果您具備 Azure 或 Office 365 的訂用帳戶，而且已在使用 Azure 入口網站或 Office 365 應用程式，就可以檢視應用程式清單，而不需再次登入。 如果您未經過驗證，系統會提示您在 Azure AD 中使用您帳戶的使用者名稱和密碼進行登入。 如果您的組織已設定同盟，則輸入使用者名稱已經足夠。
 
-經過驗證後，您就能夠與由系統管理員整合到目錄的應用程式互動。 若要了解如何整合應用程式與 Azure AD，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)。
+經過驗證後，您就能夠與由系統管理員整合到目錄的應用程式互動。 若要了解如何整合應用程式與 Azure AD，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)。
 
 ## <a name="web-browser-requirements"></a>網頁瀏覽器需求
 
@@ -75,7 +74,7 @@ ms.lasthandoff: 03/08/2018
 - **Edge**：在 Windows 10 Anniversary Edition 或更新版本上。 
 - **Chrome**：在 Windows 7 或更新版本，和在 MacOS X 或更新版本上。
 - **Firefox 26.0 或更新版本**：在 Windows XP SP2 或更新版本，和在 Mac OS X 10.6 或更新版本上。
-- **Internet Explorer 8、9、10、11**：在 Windows 7 或更新版本上 (支援有限)。
+- **Internet Explorer 11**：在 Windows 7 或更新版本上 (部分支援)。
 
 ## <a name="my-apps-secure-sign-in-extension"></a>我的應用程式安全登入延伸模組
 若要登入密碼型單一登入，您就必須使用擴充功能。 在安裝擴充功能之後，您可以選取 [登入以開始使用]，登入擴充功能來啟用其他功能。 
@@ -83,10 +82,15 @@ ms.lasthandoff: 03/08/2018
 - 您可以使用應用程式的 [登入 URL] 來直接登入應用程式。 當您使用應用程式的 URL 時，擴充功能會偵測動作，並讓您選擇從擴充功能登入。
 - 您可以從存取面板使用擴充功能的 [快速搜尋] 功能，來啟動其任何應用程式。 
 - 擴充功能會顯示您在 [最近使用過] 區段中啟動的最後三個應用程式。
+- 您可以在遠端透過[應用程式 Proxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-get-started) 時使用公司內部 URL
 
 > [!NOTE]
 > 其他功能僅適用於 Edge、Chrome 和 Firefox。
 >
+您也可以直接從下列網站下載延伸模組：
+- [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
+- [Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 如果您是使用 `https://myapps.microsoft.com` 以外的 My Apps URL，請執行下列作業來設定您的預設 URL：
 1. 在尚未登入擴充功能時，以滑鼠右鍵按一下擴充功能圖示。
@@ -94,6 +98,12 @@ ms.lasthandoff: 03/08/2018
 3. 選取預設 URL。
 4. 按一下擴充功能圖示。
 5. 選取 [登入以開始使用]。
+
+若要在遠端使用延伸模組時使用公司內部 URL，請執行下列作業：
+1. 在您的租用戶上[設定應用程式 Proxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable)。
+2. 透過應用程式 Proxy [發佈應用程式](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal)和 URL。
+3. 安裝延伸模組，然後藉由選取 [登入以開始使用] 來登入該延伸模組。
+4. 即使在遠端，您還是可以立即瀏覽至公司內部 URL。
 
 ## <a name="mobile-app-support"></a>行動應用程式支援
 
@@ -206,7 +216,7 @@ Intune Managed Browser 已在 [Apple App Store](https://itunes.apple.com/us/app/
  
 - 若要深入了解如何將 SaaS 應用程式與 Azure AD 整合，請參閱[有關如何整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)。
  
-- 若要深入了解如何使用 Azure AD 管理應用程式，請參閱[單一登入及使用 Azure Active Directory 管理應用程式存取的簡介](active-directory-appssoaccess-whatis.md)。
+- 若要深入了解如何使用 Azure AD 管理應用程式，請參閱[單一登入及使用 Azure Active Directory 管理應用程式存取的簡介](manage-apps/what-is-single-sign-on.md)。
  
 - 若要深入了解使用者佈建，請參閱 [SaaS 應用程式的自動化使用者佈建和解除佈建](active-directory-saas-app-provisioning.md)。
 

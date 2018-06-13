@@ -1,11 +1,11 @@
 ---
-title: "Azure Operations Management Suite (OMS) 文件 - 教學課程 | Microsoft Docs"
-description: "Microsoft Operations Management Suite (OMS) 是 Microsoft 的雲端型 IT 管理解決方案，可協助您管理並保護內部部署和雲端基礎結構。 本文會說明 OMS 中包含的各種服務，並提供其詳細內容的連結。"
+title: Azure Operations Management Suite (OMS) 文件 - 教學課程 | Microsoft Docs
+description: Microsoft Operations Management Suite (OMS) 是 Microsoft 的雲端型 IT 管理解決方案，可協助您管理並保護內部部署和雲端基礎結構。 本文會說明 OMS 中包含的各種服務，並提供其詳細內容的連結。
 services: operations-management-suite
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: operations-management-suite
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23071206"
 ---
 # <a name="what-is-operations-management-suite-oms"></a>Operations Management Suite (OMS) 是什麼？
 Microsoft Operations Management Suite (OMS) 是 Microsoft 的雲端型 IT 管理解決方案，可協助您管理並保護內部部署和雲端基礎結構。  因為 OMS 實作為雲端型服務，所以您對基礎結構服務進行最小的投資就可以快速啟動並執行它。  會自動提供新功能，以節省持續性維護和升級成本。

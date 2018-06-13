@@ -1,11 +1,11 @@
 ---
-title: "Azure 匯入/匯出資訊清單檔案格式 | Microsoft Docs"
-description: "了解磁碟機資訊清單檔案的格式，此檔案描述在 Azure Blob 儲存體中的 Blob 以及匯入/匯出服務內匯入或匯出作業中磁碟機上的檔案之間的對應。"
+title: Azure 匯入/匯出資訊清單檔案格式 | Microsoft Docs
+description: 了解磁碟機資訊清單檔案的格式，此檔案描述在 Azure Blob 儲存體中的 Blob 以及匯入/匯出服務內匯入或匯出作業中磁碟機上的檔案之間的對應。
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: f3119e1c-2c25-48ad-8752-a6ed4adadbb0
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059733"
 ---
 # <a name="azure-importexport-service-manifest-file-format"></a>Azure 匯入/匯出服務資訊清單檔案格式
 磁碟機資訊清單檔案描述 Azure Blob 儲存體中的 Blob 與包含匯入或匯出工作的磁碟機上的檔案之間的對應。 針對匯入作業，在磁碟機準備程序期間會建立資訊清單檔案，此檔案在磁碟機傳送至 Azure 資料中心之前會儲存在磁碟機上。 匯出作業期間，Azure 匯入/匯出服務會建立資訊清單，並將其儲存在磁碟機上。  

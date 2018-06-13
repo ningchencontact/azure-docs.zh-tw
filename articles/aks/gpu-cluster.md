@@ -9,11 +9,12 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: laevenso
 ms.custom: mvc
-ms.openlocfilehash: 1e07845591583c7159958d4e2eb7eeb2f126b75f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7ee5198b070fee6b6ce04d9fc2639ba23ae93296
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34070561"
 ---
 # <a name="using-gpus-on-aks"></a>在 AKS 上使用 GPU
 
@@ -168,9 +169,9 @@ spec:
             path: /usr/local/nvidia
 ```
 
-使用 [kubectl create][kubectl-create] 命令來執行作業。 此命令會剖析資訊清單檔，並建立已定義的 Kubernetes 物件。
+使用 [kubectl apply][kubectl-apply] 命令來執行作業。 此命令會剖析資訊清單檔，並建立已定義的 Kubernetes 物件。
 ```
-$ kubectl create -f samples-tf-mnist-demo.yaml
+$ kubectl apply -f samples-tf-mnist-demo.yaml
 job "samples-tf-mnist-demo" created
 ```
 
@@ -273,12 +274,12 @@ job "samples-tf-mnist-demo" deleted
 
 ## <a name="next-steps"></a>後續步驟
 
-對於在 Kubernetes 上執行機器學習工作負載感到興趣嗎？ 如需詳細資訊，請參閱 Kubeflow 文件。
+對於在 Kubernetes 上執行機器學習工作負載感到興趣嗎？ 如需詳細資訊，請參閱 Kubeflow labs。
 
 > [!div class="nextstepaction"]
-> [Kubeflow 使用者指南][kubeflow-docs]
+> [Kubeflow Labs][kubeflow-labs]
 
 <!-- LINKS - external -->
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[kubeflow-docs]: https://github.com/kubeflow/kubeflow/blob/master/user_guide.md
+[kubeflow-labs]: https://github.com/Azure/kubeflow-labs

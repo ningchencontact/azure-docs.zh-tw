@@ -1,11 +1,11 @@
 ---
-title: "備份 Azure 匯入/匯出磁碟機資訊清單 | Microsoft Docs"
-description: "了解如何自動備份 Microsoft Azure 匯入/匯出服務的磁碟機資訊清單。"
+title: 備份 Azure 匯入/匯出磁碟機資訊清單 | Microsoft Docs
+description: 了解如何自動備份 Microsoft Azure 匯入/匯出服務的磁碟機資訊清單。
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 594abd80-b834-4077-a474-d8a0f4b7928a
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059323"
 ---
 # <a name="backing-up-drive-manifests-for-azure-importexport-jobs"></a>備份 Azure 匯入/匯出作業的磁碟機資訊清單
 
