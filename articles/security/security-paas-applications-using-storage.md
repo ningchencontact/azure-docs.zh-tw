@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31418215"
 ---
 # <a name="securing-paas-web-and-mobile-applications-using-azure-storage"></a>使用 Azure 儲存體來保護 PaaS Web 與行動應用程式
 在本文中，我們將說明用來保護 PaaS Web 與行動應用程式的 Azure 儲存體安全性最佳做法。 這些最佳做法衍生自我們的 Azure 經驗和客戶 (例如您自己) 的經驗。

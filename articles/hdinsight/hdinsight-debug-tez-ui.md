@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31406502"
 ---
 # <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>在以 Windows 為基礎的 HDInsight 上使用 Tez UI 偵錯 Tez 作業
 Tez UI 可用來對使用 Tez 作為執行引擎的 Hive 作業進行偵錯。 Tez UI 把作業視覺化為已連接項目的圖表，可以深入每個項目、取得統計資料及記錄資訊。

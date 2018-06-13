@@ -18,6 +18,7 @@ ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34054592"
 ---
 # <a name="how-to-choose-which-application-type-to-use-when-adding-an-application"></a>新增應用程式時如何選擇要使用的應用程式類型
 

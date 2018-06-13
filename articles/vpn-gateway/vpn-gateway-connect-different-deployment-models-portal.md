@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31603372"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>使用入口網站從不同的部署模型連接虛擬網路
 
@@ -153,7 +154,7 @@ SKU = VpnGw1 <br>
 
 ### <a name="2-create-a-gateway-subnet"></a>2.建立閘道子網路
 
-**範例值：**GatewaySubnet = 192.168.0.0/26
+**範例值：** GatewaySubnet = 192.168.0.0/26
 
 建立虛擬網路閘道之前，您必須先建立閘道子網路。 以 /28 或更高的 CIDR 計數建立閘道子網路 (/27、/26 等)。 如果您要建立此項作為練習的一部分，可以使用範例值。
 

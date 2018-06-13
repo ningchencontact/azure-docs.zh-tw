@@ -14,6 +14,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34069335"
 ---
 # <a name="continuous-deployment-with-jenkins-and-azure-kubernetes-service"></a>透過 Jenkins 與 Azure Kubernetes Service 持續部署
 

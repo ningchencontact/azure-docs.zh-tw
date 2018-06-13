@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31399026"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Azure Stack 的身分識別概觀
 

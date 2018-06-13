@@ -21,6 +21,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30281989"
 ---
 # <a name="connect-a-web-app-to-cosmos-db"></a>將 Web 應用程式連線至 Cosmos DB
 

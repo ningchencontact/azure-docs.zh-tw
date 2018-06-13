@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156039"
 ---
 # <a name="integrating-with-azure-active-directory"></a>與 Azure Active Directory 整合
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
