@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31420716"
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>如何設定 Azure Redis 快取
 本主題說明適用於您 Azure Redis 快取執行個體的設定。 本主題也會涵蓋適用於 Azure Redis 快取執行個體的預設 Redis 伺服器設定。

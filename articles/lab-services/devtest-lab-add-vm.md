@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33781897"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中對實驗室新增 VM
 如果您已經[建立您的第一個 VM](devtest-lab-create-first-vm.md)，您很有可能是透過預先載入的 [Marketplace 映像](devtest-lab-configure-marketplace-images.md)來完成的。 現在，如果您想要將後續的 VM 新增至您的實驗室，您也可以選擇一個「基底」，它可以是[自訂映像](devtest-lab-create-template.md)或[公式](devtest-lab-manage-formulas.md)。 本教學課程會逐步引導您使用 Azure 入口網站，在 DevTest Labs 中對實驗室新增 VM。
@@ -43,7 +44,7 @@ ms.lasthandoff: 05/07/2018
 1. [虛擬機器磁碟類型] 會決定實驗室中的虛擬機器所允許的儲存磁碟類型。
 1. 選取 [虛擬機器大小]  ，然後選取其中一個預先定義的項目，這些項目可以指定處理器核心、RAM 大小，以及要建立的 VM 的硬碟大小。
 1. 選取 [構件]，然後從構件清單中，選取並設定您想要新增到基本映像中的構件。
-    **附註：**如果您對 DevTest Labs 或設定構件並不熟悉，請參閱[將現有的構件加入至 VM](#add-an-existing-artifact-to-a-vm) 一節，完成該節之後再返回此處。
+    **附註：** 如果您對 DevTest Labs 或設定構件並不熟悉，請參閱[將現有的構件加入至 VM](#add-an-existing-artifact-to-a-vm) 一節，完成該節之後再返回此處。
 1. 選取 [進階設定] 以設定 VM 的網路選項和到期日選項。 
 
    若要設定到期選項，選擇行事曆圖示，以指定 VM 將會自動刪除的日期。  根據預設，VM 永遠不會到期。 
@@ -84,7 +85,7 @@ ms.lasthandoff: 05/07/2018
 1. 在 [套用構件] 窗格頂端，選取會指出已新增至 VM 之構件數目的連結。
    
     ![新增至 VM 的構件數目](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
-1. 在 [選取的構件] 窗格中，將構件拖放到所需的順序。 **附註︰**如果您在拖曳構件時發生問題，請確定您是從構件左側進行拖曳。 
+1. 在 [選取的構件] 窗格中，將構件拖放到所需的順序。 **附註︰** 如果您在拖曳構件時發生問題，請確定您是從構件左側進行拖曳。 
 1. 完成時選取 [確定]  。  
 
 ## <a name="view-or-modify-an-artifact"></a>檢視或修改構件

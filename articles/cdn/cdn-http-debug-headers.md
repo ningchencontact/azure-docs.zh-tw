@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31516272"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Azure CDN 規則引擎的 X-EC-Debug HTTP 標頭
 偵錯快取要求標頭 `X-EC-Debug` 會提供與要求的資產所套用的快取原則有關的其他資訊。 這些標頭是**來自 Verizon 的 Azure CDN 進階**產品特有的標頭。

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31514280"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>在 Azure 中建立 Node.js Web 應用程式
 

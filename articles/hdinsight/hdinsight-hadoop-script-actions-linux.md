@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31406025"
 ---
 # <a name="script-action-development-with-hdinsight"></a>使用 HDInsight 開發指令碼動作
 

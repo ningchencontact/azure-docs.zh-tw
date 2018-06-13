@@ -21,6 +21,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34337753"
 ---
 # <a name="troubleshooting-the-access-panel-extension-for-internet-explorer"></a>疑難排解 Internet explorer 的存取面板延伸模組
 這篇文章可協助您疑難排解下列問題：

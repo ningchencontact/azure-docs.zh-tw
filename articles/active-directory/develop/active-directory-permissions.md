@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156886"
 ---
 # <a name="permissions-in-azure-ad"></a>Azure AD 中的權限
 Azure Active Directory (Azure AD) 廣泛使用 OAuth 和 OpenID Connect (OIDC) 流程的權限。 當應用程式收到來自 Azure AD 的存取權杖時，它會加入宣告來描述應用程式對特定資源的權限 (也稱為「範圍」)。 這種方法只需要確認權杖包含您所呼叫 API 的適當權限即可，因此會讓資源的授權變得輕鬆。 

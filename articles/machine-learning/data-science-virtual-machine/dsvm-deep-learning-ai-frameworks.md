@@ -20,6 +20,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34160745"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>深度學習和 AI 架構
 [資料科學虛擬機器](http://aka.ms/dsvm) \(英文\) (DSVM) 和[深度學習 VM](http://aka.ms/dsvm/deeplearning) \(英文\) 支援數種深度學習架構，可協助建置具備預測性分析及能了解影像及語言之辨識能力的人工智慧 (AI) 應用程式。 

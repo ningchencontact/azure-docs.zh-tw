@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34336971"
 ---
 # <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>教學課程︰設定 Dropbox for Business 來自動佈建使用者
 

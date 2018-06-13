@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33784487"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>使用 Azure Webhook 監視 .NET 的媒體服務作業通知
 執行作業時，您通常需要設法追蹤作業進度。 您可以使用 Azure Webhook 或 [Azure 佇列儲存體](media-services-dotnet-check-job-progress-with-queues.md)來監視媒體服務作業通知。 本文說明如何使用 Webhook。

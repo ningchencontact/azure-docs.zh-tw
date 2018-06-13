@@ -21,6 +21,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31792254"
 ---
 # <a name="get-help-with-two-step-verification"></a>取得雙步驟驗證的說明
 本文回答人們最常詢問有關雙步驟驗證的問題。

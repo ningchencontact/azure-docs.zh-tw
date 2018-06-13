@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195289"
 ---
 # <a name="starting-a-runbook-in-azure-automation"></a>在 Azure 自動化中啟動 Runbook
 下表可協助您判斷在 Azure 自動化中啟動 Runbook 的方法，最適合您的特定案例。 這篇文章包含有關使用 Azure 入口網站和 Windows PowerShell 啟動 Runbook 的詳細資料。 其他方法的詳細資訊在其他文件中提供，您可以從下列連結來存取。

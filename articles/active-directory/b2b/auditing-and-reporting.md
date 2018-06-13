@@ -15,6 +15,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34266997"
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>稽核和報告 B2B 共同作業使用者
 使用來賓使用者時，您具有與成員使用者相似的稽核功能。 以下範例是受邀者 Sam Oogle 的邀請與兌換記錄：

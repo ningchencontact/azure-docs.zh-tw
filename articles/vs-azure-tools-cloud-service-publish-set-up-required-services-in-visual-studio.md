@@ -16,6 +16,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31798976"
 ---
 # <a name="prepare-to-publish-or-deploy-a-cloud-service-from-visual-studio"></a>準備從 Visual Studio 發佈或部署雲端服務
 

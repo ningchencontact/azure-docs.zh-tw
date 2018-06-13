@@ -15,6 +15,7 @@ ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304965"
 ---
 # <a name="work-with-resources-in-the-managed-resource-group-for-azure-managed-application"></a>針對 Azure 受控應用程式使用受控資源群組中的資源
 

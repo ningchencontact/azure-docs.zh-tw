@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31603737"
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-windows-vm"></a>如何將 Windows VM 上的虛擬磁碟加密
 如需強化虛擬機器 (VM) 安全性與法規遵循，可以將 Azure 中的虛擬磁碟加密。 磁碟會使用 Azure 金鑰保存庫中受保護的密碼編譯金鑰進行加密。 您可控制這些密碼編譯金鑰，並可稽核其使用情況。 本文詳細說明如何使用 Azure PowerShell 將 Windows VM 上的虛擬磁碟加密。 您也可以[使用 Azure CLI 2.0 將 Linux VM 加密](../linux/encrypt-disks.md)。

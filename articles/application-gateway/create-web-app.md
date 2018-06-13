@@ -18,6 +18,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32770316"
 ---
 # <a name="configure-app-service-web-apps-with-application-gateway"></a>透過應用程式閘道設定 App Service Web Apps 
 

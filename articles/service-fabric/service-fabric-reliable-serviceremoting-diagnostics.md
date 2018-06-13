@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206414"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Reliable Service Remoting 的診斷和效能監視
 Reliable ServiceRemoting 執行階段會發出[效能計數器](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx)。 這些項目提供深入了解 ServiceRemoting 的運作方式，並有助於疑難排解及效能監視。

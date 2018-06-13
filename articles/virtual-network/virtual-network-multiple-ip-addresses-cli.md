@@ -20,6 +20,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31528285"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>使用 Azure CLI 對虛擬機器指派多個 IP 位址
 

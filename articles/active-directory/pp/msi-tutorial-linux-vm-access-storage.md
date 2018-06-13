@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31513919"
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-storage"></a>使用 Linux VM 上使用者指派的受控服務識別 (MSI) 來存取 Azure 儲存體
 

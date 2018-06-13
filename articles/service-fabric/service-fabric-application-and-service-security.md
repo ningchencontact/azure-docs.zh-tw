@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207905"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric 應用程式和服務安全性
 微服務架構可以帶來[許多優點](service-fabric-overview-microservices.md)。 不過，管理微服務的安全性是一種挑戰，而且與管理傳統的整合型應用程式安全性有所不同。 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165310"
 ---
 # <a name="create-high-availability-spark-streaming-jobs-with-yarn"></a>使用 YARN 建立高可用性 Spark 串流作業
 

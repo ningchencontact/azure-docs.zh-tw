@@ -10,11 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 79059fbd088d15ca62b39dacba766726119e6048
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d37913caa94dc4cf79aef9c2c12a7aacce7c03ce
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34076720"
 ---
 # <a name="azure-blockchain-workbench-architecture"></a>Azure Blockchain Workbench 架構
 
@@ -83,7 +84,7 @@ Blockchain Workbench 會自動部署兩種類型的事件消費者。 一種是�
 
 如果輸入訊息代理人上的訊息需要寫入至區塊鏈，將會由 DLT 取用者負責處理。 DLT 取用者是一項服務，其會擷取訊息 (其中包含所要執行交易的中繼資料)，然後將資訊傳送至「交易產生器和簽署者」。 「交易產生器和簽署者」會將以資料為基礎的區塊鏈交易與所需的 區塊鏈目的地組合在一起。 一經組合，便會簽署交易。 私密金鑰會儲存在 Azure Key Vault。
 
-目前，Azure Key Vault 不支援透過軟體簽署 Key Vault 內的區塊鏈交易。 相反地，Blockchain Workbench 會從 Key Vault 擷取適當的私密金鑰，並在 Key Vault 外簽署交易。 一經簽署，交易就會傳送至交易路由器和總帳。
+ Blockchain Workbench 會從 Key Vault 擷取適當的私密金鑰，並在 Key Vault 外簽署交易。 一經簽署，交易就會傳送至交易路由器和總帳。
 
 ## <a name="transaction-routers-and-ledgers"></a>交易路由器和總帳
 
@@ -118,4 +119,5 @@ Azure 監視器可提供有關區塊鏈網路健康情況的資訊。
 
 ## <a name="next-steps"></a>後續步驟
 
-[部署 Azure Blockchain Workbench](blockchain-workbench-deploy.md)
+> [!div class="nextstepaction"]
+> [部署 Azure Blockchain Workbench](blockchain-workbench-deploy.md)

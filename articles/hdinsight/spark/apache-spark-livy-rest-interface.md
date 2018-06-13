@@ -20,6 +20,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31517772"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>使用 Apache Spark REST API 將遠端作業提交至 HDInsight Spark 叢集
 
@@ -177,9 +178,9 @@ Livy 可為在叢集上執行的 Spark 作業提供高可用性。 以下是一�
 
 ### <a name="using-an-external-jar-from-the-additional-storage-is-not-supported"></a>不支援從其他儲存體使用外部 jar
 
-**問題︰**如果您的 Livy Spark 作業是參考與叢集相關聯的其他儲存體帳戶之外部 jar，則作業將會失敗。
+**問題︰** 如果您的 Livy Spark 作業是參考與叢集相關聯的其他儲存體帳戶之外部 jar，則作業將會失敗。
 
-**解決方式︰**請確定您想要使用的 jar 位於與 HDInsight 叢集相關聯的預設儲存體中。
+**解決方式︰** 請確定您想要使用的 jar 位於與 HDInsight 叢集相關聯的預設儲存體中。
 
 
 

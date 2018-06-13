@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32157385"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>將用於使用量與帳單的租用戶新增至 Azure Stack
 

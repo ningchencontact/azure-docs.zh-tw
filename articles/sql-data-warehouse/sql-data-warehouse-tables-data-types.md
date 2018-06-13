@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31523501"
 ---
 # <a name="table-data-types-in-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲中的資料表資料類型
 在 Azure SQL 資料倉儲中定義資料表資料類型的建議。 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33782697"
 ---
 # <a name="azure-media-services-community"></a>Azure 媒體服務社群
 Azure 媒體服務 (AMS) 社群頁面討論您可以取得 AMS 更新的不同方式。 您也可以檢視新的影片和播客、提出問題，以及提供意見反應。   

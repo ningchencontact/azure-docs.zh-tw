@@ -14,6 +14,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34067668"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>教學課程：執行 Azure Kubernetes Service (AKS) 中的應用程式
 

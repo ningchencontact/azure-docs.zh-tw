@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31513821"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>快速入門：使用 .NET API 執行您的第一個 Azure Batch 作業
 

@@ -14,6 +14,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31418449"
 ---
 # <a name="tutorial-stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>教學課程：串流分析及 Power BI：適用於串流資料的即時分析儀表板
 Azure 串流分析可讓您使用其中一個頂尖的商業智慧工具：[Microsoft Power BI](https://powerbi.com/)。 在本文中，您將了解如何使用 Power BI 作為 Azure 串流分析作業的輸出，以建立商業智慧工具。 您也將了解如何建立和使用即時儀表板。

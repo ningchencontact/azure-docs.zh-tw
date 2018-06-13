@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32776120"
 ---
 # <a name="security-policies-overview"></a>安全性原則概觀
 本文提供資訊安全中心的安全性原則概觀。

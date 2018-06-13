@@ -20,6 +20,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32774041"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>教學課程：回應安全性事件
 資訊安全中心會使用進階的分析和威脅情報，持續分析混合式雲端工作負載，提醒您發生惡意活動。 此外，您可以將警示從其他的安全性產品和服務整合到資訊安全中心，並以您自己的指標或情報來源作為基礎建立自訂警示。 一旦有警示產生，您便需要迅速採取行動來進行調查並加以修復。 在本教學課程中，您將了解如何：

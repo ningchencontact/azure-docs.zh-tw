@@ -21,6 +21,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32189542"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>教學課程：在 Azure 中使用 Key Vault 內儲存的 SSL 憑證，來保護 Windows 虛擬機器上的網頁伺服器
 

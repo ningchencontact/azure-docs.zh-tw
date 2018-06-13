@@ -18,6 +18,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34260913"
 ---
 # <a name="microsoftcommontextbox-ui-element"></a>Microsoft.Common.TextBox UI 元素
 可以用來編輯未格式化文字的控制項。

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31522215"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>如何設定高階 Azure Redis 快取的虛擬網路支援
 Azure Redis 快取有不同的快取供應項目，可讓您彈性選擇快取大小和功能，包括叢集、持續性和虛擬網路支援等進階層功能。 VNet 是雲端中的私人網路。 當 Azure Redis 快取執行個體是以 VNet 設定時，它不是公開定址，只能從 VNet 中的虛擬機器和應用程式存取。 本文說明如何設定進階 Azure Redis 快取執行個體的虛擬網路支援。

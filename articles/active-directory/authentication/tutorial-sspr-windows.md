@@ -15,6 +15,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33867488"
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>從登入畫面重設 Azure AD 密碼
 

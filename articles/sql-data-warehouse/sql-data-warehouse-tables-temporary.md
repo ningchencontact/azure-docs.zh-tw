@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31518394"
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>SQL 資料倉儲中的暫存資料表
 本文包含使用暫存資料表的基本指引，並強調說明工作階段層級暫存資料表的原則。 使用這份文件中的資訊可協助您將程式碼模組化，以提高程式碼的重複使用性，維護起來更簡單。

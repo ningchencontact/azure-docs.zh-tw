@@ -20,6 +20,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34069133"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>新增或變更 Azure 訂用帳戶系統管理員
 

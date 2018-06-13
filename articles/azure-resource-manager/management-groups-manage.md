@@ -17,6 +17,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195789"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>利用管理群組來管理您的資源 
 管理群組是可協助您跨多個訂用帳戶管理容器存取、原則及合規性的容器。 您可以變更、刪除及管理這些容器，來取得可與 [Azure 原則](../azure-policy/azure-policy-introduction.md)和 [Azure 角色型存取控制](../role-based-access-control/overview.md)搭配使用的階層。 如需了解有關管理群組的詳細資訊，請參閱[使用 Azure 管理群組來組織資源](management-groups-overview.md)。

@@ -19,6 +19,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072346"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>針對 Linux VM 裝置名稱變更進行疑難排解
 

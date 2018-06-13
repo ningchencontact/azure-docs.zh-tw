@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208255"
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>設定 Reliable Actors - KVSActorStateProvider
 您可以在指定之動作項目的 Config 資料夾下，變更 Microsoft Visual Studio 封裝根中所產生的 settings.xml，來修改 KVSActorStateProvider 的預設組態。

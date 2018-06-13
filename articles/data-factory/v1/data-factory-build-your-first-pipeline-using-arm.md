@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31594081"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>教學課程：使用 Azure Resource Manager 範本建置您的第一個 Azure Data Factory
 > [!div class="op_single_selector"]

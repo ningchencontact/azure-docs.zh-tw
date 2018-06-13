@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32774568"
 ---
 # <a name="threat-intelligence-in-azure-security-center"></a>Azure 資訊安全中心內的威脅情報
 這篇文章可協助您使用 Azure 資訊安全中心威脅情報來解決安全性相關問題。

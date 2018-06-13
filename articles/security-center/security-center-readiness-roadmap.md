@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32776596"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Azure 資訊安全中心整備藍圖
 本文件提供的整備藍圖將協助您開始使用 Azure 資訊安全中心。

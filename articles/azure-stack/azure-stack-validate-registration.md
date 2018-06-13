@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33937564"
 ---
 # <a name="validate-azure-registration"></a>驗證 Azure 註冊 
 使用 Azure Stack 整備檢查程式工具 (AzsReadinessChecker) 來驗證 Azure 訂用帳戶是否已準備好與 Azure Stack 搭配使用。 開始部署 Azure Stack 之前，請先驗證註冊。 整備檢查程式會驗證：

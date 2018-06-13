@@ -58,7 +58,7 @@ ms.locfileid: "32778830"
 New-AzureRmDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4") 
 ```
 
-若要在區域頂點 (在此案例中為 'contoso.com') 建立記錄集，請使用記錄集名稱 '@' (不包括引號)：
+若要在區域頂點 (在此案例中為 'contoso.com') 建立記錄集，請使用記錄集名稱 \'\@\' (不包括引號)：
 
 ```powershell
 New-AzureRmDnsRecordSet -Name "@" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4") 

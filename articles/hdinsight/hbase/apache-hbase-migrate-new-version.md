@@ -19,6 +19,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165089"
 ---
 # <a name="migrate-an-hbase-cluster-to-a-new-version"></a>將 HBase 叢集移轉至新的版本
 

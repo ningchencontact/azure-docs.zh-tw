@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212270"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric 中的反向 Proxy
 Azure Service Fabric 內建的反向 Proxy 可協助在 Service Fabric 叢集中執行的微服務進行探索，並與其他擁有 http 端點的服務通訊。

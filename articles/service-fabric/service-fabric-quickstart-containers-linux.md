@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31416365"
 ---
 # <a name="quickstart-deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>快速入門：在 Azure 上部署 Azure Service Fabric Linux 容器應用程式
 Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理可調整和可信賴的微服務與容器。 

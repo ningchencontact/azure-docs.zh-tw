@@ -18,6 +18,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: zh-TW
   ms.lasthandoff: 05/17/2018
+  ms.locfileid: "34259164"
 abstract:
   description: Chef 軟體是適用於 Linux 和 Windows 的 DevOps 自動化平台，而 Windows 同時啟用實體和虛擬伺服器組態的管理。 了解如何使用 Chef 軟體產品，以 Code (IaC) 配方的方式自動化基礎結構，並透過快速入門與教學課程在 Azure 上管理和部署的虛擬機器。
   aside:
