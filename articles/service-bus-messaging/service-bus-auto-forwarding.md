@@ -1,11 +1,11 @@
 ---
-title: "自動轉送 Azure 服務匯流排傳訊實體 | Microsoft Docs"
-description: "如何將服務匯流排佇列或訂用帳戶鏈結至另一個佇列或主題。"
+title: 自動轉送 Azure 服務匯流排傳訊實體 | Microsoft Docs
+description: 如何將服務匯流排佇列或訂用帳戶鏈結至另一個佇列或主題。
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f7060778-3421-402c-97c7-735dbf6a61e8
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29558087"
 ---
 # <a name="chaining-service-bus-entities-with-auto-forwarding"></a>使用自動轉寄鏈結服務匯流排實體
 

@@ -1,8 +1,8 @@
 ---
-title: "如何在 Azure MFA 中使用應用程式密碼？ | Microsoft Docs"
-description: "本頁面將協助使用者了解什麼是應用程式密碼，以及它們在 Azure MFA 方面的用途。"
+title: 如何在 Azure MFA 中使用應用程式密碼？ | Microsoft Docs
+description: 本頁面將協助使用者了解什麼是應用程式密碼，以及它們在 Azure MFA 方面的用途。
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.reviewer: richagi
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/08/2018
+ms.locfileid: "27700440"
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>什麼是 Azure Multi-Factor Authentication 中的應用程式密碼？
 有些非瀏覽器應用程式 (例如使用 Exchange Active Sync 的 Apple 原生電子郵件用戶端) 目前不支援 Multi-Factor Authentication。 Multi-Factor Authentication 會對每個使用者啟用。  這表示在下列情況下，使用者無法使用多重要素驗證：

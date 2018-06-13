@@ -1,12 +1,12 @@
 ---
-title: "針對 Azure Log Analytics VM 擴充功能進行疑難排解 | Microsoft Docs"
-description: "說明適用於 Windows 與 Linux Azure VM 的 Log Analytics VM 擴充功能最常見問題的徵兆、原因和解決方法。"
+title: 針對 Azure Log Analytics VM 擴充功能進行疑難排解 | Microsoft Docs
+description: 說明適用於 Windows 與 Linux Azure VM 的 Log Analytics VM 擴充功能最常見問題的徵兆、原因和解決方法。
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29394981"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension"></a>針對 Log Analytics VM 擴充功能進行疑難排解
 本文可協助您針對在使用執行 Microsoft Azure 之 Windows 與 Linux 虛擬機器的 Log Analytics VM 擴充功能時可能遇到的錯誤進行疑難排解，並建議可能的解決方法。

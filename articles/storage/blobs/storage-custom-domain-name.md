@@ -1,6 +1,6 @@
 ---
-title: "針對 Azure Blob 儲存體端點設定自訂網域名稱 | Microsoft Docs"
-description: "使用 Azure 入口網站，將您專屬的正式名稱 (CNAME) 對應至 Azure 儲存體帳戶中的 Blob 儲存體端點。"
+title: 針對 Azure Blob 儲存體端點設定自訂網域名稱 | Microsoft Docs
+description: 使用 Azure 入口網站，將您專屬的正式名稱 (CNAME) 對應至 Azure 儲存體帳戶中的 Blob 儲存體端點。
 services: storage
 author: tamram
 manager: jeconnoc
@@ -13,6 +13,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29559922"
 ---
 # <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>針對 Blob 儲存體端點設定自訂網域名稱
 

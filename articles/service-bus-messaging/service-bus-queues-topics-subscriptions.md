@@ -1,11 +1,11 @@
 ---
-title: "Azure 服務匯流排傳訊佇列、主題和訂用帳戶的概觀 | Microsoft Docs"
-description: "服務匯流排訊息實體的概觀。"
+title: Azure 服務匯流排傳訊佇列、主題和訂用帳戶的概觀 | Microsoft Docs
+description: 服務匯流排訊息實體的概觀。
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a306ced4-74e9-47c6-990a-d9c47efa31d5
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/07/2017
+ms.locfileid: "24029502"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>服務匯流排佇列、主題和訂用帳戶
 

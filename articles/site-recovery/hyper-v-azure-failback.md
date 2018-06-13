@@ -1,6 +1,6 @@
 ---
-title: "針對 Hyper-V 虛擬機器的內部部署網站執行容錯回復 | Microsoft Docs"
-description: "Azure Site Recovery 可協調虛擬機器和實體伺服器的複寫、容錯移轉及復原作業。 了解從 Azure 容錯回復至內部部署資料中心。"
+title: 針對 Hyper-V 虛擬機器的內部部署網站執行容錯回復 | Microsoft Docs
+description: Azure Site Recovery 可協調虛擬機器和實體伺服器的複寫、容錯移轉及復原作業。 了解從 Azure 容錯回復至內部部署資料中心。
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
@@ -13,6 +13,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29466744"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>執行 Hyper-V VM 的容錯回復
 

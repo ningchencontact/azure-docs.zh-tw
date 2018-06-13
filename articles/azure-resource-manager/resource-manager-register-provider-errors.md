@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358603"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>解決資源提供者註冊的錯誤
 
