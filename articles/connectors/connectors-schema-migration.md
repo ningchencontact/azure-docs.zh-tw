@@ -1,11 +1,11 @@
 ---
-title: "如何將邏輯應用程式移轉至結構描述版本 2015-08-01-preview | Microsoft Docs"
-description: "您可以輕鬆地將邏輯應用程式移轉至最新的結構描述版本。 請直接遵循下列步驟。"
+title: 如何將邏輯應用程式移轉至結構描述版本 2015-08-01-preview | Microsoft Docs
+description: 您可以輕鬆地將邏輯應用程式移轉至最新的結構描述版本。 請直接遵循下列步驟。
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: MSFTMAN
 manager: erikre
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 3e177e49-fd69-43e9-9b9b-218abb250c31
 ms.service: logic-apps
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22707119"
 ---
 # <a name="how-to-migrate-logic-apps-to-schema-version-2015-08-01-preview"></a>如何將邏輯應用程式移轉至結構描述版本 2015-08-01-preview
 若要將現有的邏輯應用程式移至新的結構描述，請執行下列作業︰  
