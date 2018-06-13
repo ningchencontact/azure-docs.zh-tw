@@ -20,6 +20,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30281693"
 ---
 # <a name="create-a-web-app-and-deploy-files-with-ftp"></a>建立 Web 應用程式並使用 FTP 部署檔案
 

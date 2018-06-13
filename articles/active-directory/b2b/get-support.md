@@ -15,6 +15,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34259520"
 ---
 # <a name="getting-support-for-b2b-collaboration"></a>取得 B2B 共同作業的支援
 

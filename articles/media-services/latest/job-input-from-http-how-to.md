@@ -16,6 +16,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34159922"
 ---
 # <a name="create-a-job-input-from-an-https-url"></a>從 HTTP(s) URL 建立工作輸入
 

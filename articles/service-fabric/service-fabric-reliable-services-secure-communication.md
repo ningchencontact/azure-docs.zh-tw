@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210268"
 ---
 # <a name="secure-service-remoting-communications-for-a-service"></a>保護服務的服務遠端作業通訊
 > [!div class="op_single_selector"]

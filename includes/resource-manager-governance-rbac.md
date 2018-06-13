@@ -13,6 +13,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31433244"
 ---
 您想要確定組織中的使用者具有這些資源的正確存取權等級。 您不想要授與不受限制的存取權給使用者，但是您又必須確定他們可以執行其工作。 角色型存取控制 (RBAC) 可讓您管理哪些使用者具有權限可以在一個範圍內完成特定動作。 角色會定義一組允許的動作。 您可將角色指派給某個範圍，並指定哪些使用者屬於此範圍的該角色。
 

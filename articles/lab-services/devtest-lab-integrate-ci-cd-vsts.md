@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33781997"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-vsts-continuous-integration-and-delivery-pipeline"></a>將 Azure DevTest Labs 整合到 VSTS 持續整合和傳遞管線
 您可以使用安裝在 Visual Studio Team Services (VSTS) 中的 *Azure DevTest Labs 工作*延伸模組，輕鬆地整合您的 CI/CD 建置和發行管線與 Azure DevTest Labs。 此延伸模組會安裝三項工作： 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30316465"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>在 Batch 中的使用者帳戶執行工作
 
@@ -57,8 +58,8 @@ Azure Batch 提供執行工作所需的兩種使用者帳戶類型︰
 
 使用者帳戶的提高權限層級會表示工作是否使用提高權限的存取權來執行。 自動使用者帳戶和具名的使用者帳戶都可以使用提高權限的存取權來執行。 提高權限層級的兩個選項如下︰
 
-- **NonAdmin：**工作是以標準使用者身分執行，沒有提高權限的存取權。 Batch 使用者帳戶的預設提高權限層級一律為 **NonAdmin**。
-- **系統管理員︰**工作是以具有提高權限存取權的使用者身分執行，並以完整系統管理員權限運作。 
+- **NonAdmin：** 工作是以標準使用者身分執行，沒有提高權限的存取權。 Batch 使用者帳戶的預設提高權限層級一律為 **NonAdmin**。
+- **系統管理員︰** 工作是以具有提高權限存取權的使用者身分執行，並以完整系統管理員權限運作。 
 
 ## <a name="auto-user-accounts"></a>自動使用者帳戶
 

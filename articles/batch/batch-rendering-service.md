@@ -13,6 +13,7 @@ ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/12/2018
+ms.locfileid: "34076966"
 ---
 # <a name="get-started-with-the-batch-rendering-service"></a>開始使用 Batch 轉譯服務
 

@@ -16,6 +16,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33204977"
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>使用 Azure 入口網站建立包含 SSL 終止的應用程式閘道
 

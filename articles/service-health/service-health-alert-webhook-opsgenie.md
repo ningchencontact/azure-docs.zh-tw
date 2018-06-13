@@ -19,6 +19,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30179339"
 ---
 # <a name="configure-service-health-alerts-with-opsgenie"></a>使用 OpsGenie 設定服務健康情況警示
 
@@ -53,7 +54,7 @@ ms.lasthandoff: 03/23/2018
 
     a. **動作類型：** *Webhook*
 
-    b. **詳細資料：**您先前儲存的 OpsGenie **整合 URL**。
+    b. **詳細資料：** 您先前儲存的 OpsGenie **整合 URL**。
 
     c. **名稱：** 的名稱、別名或識別項。
 
@@ -70,7 +71,7 @@ ms.lasthandoff: 03/23/2018
 
     a. **動作類型：** *Webhook*
 
-    b. **詳細資料：**您先前儲存的 OpsGenie **整合 URL**。
+    b. **詳細資料：** 您先前儲存的 OpsGenie **整合 URL**。
 
     c. **名稱：** 的名稱、別名或識別項。
 

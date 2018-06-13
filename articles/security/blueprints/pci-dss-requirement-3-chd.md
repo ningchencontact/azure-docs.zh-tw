@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895447"
 ---
 # <a name="chd-requirements-for-pci-dss-compliant-environments"></a>PCI DSS 相容環境的 CHD 需求
 ## <a name="pci-dss-requirement-3"></a>PCI DSS 需求 3

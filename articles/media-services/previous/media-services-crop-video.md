@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33782947"
 ---
 # <a name="crop-videos-with-media-encoder-standard"></a>以 Media Encoder Standard 裁剪影片
 若要裁剪輸入影片，您可以使用 Media Encoder Standard (MES)。 裁剪是指在視訊畫面內選取矩形視窗，並只編碼該視窗內之像素的程序。 下圖有助於說明此程序。
