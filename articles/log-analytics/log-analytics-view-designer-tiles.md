@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29947311"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Log Analytics 中的檢視設計工具圖格參考指南
 藉由使用 Azure Log Analytics 中的檢視設計工具，您可以在 Azure 入口網站中建立能顯示 Log Analytics 工作區中各種資料視覺效果的自訂檢視。 本文章是自訂檢視中可用的圖格設定的參考指南。

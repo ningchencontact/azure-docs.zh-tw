@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31401018"
 ---
 # <a name="install-published-application---streamsets-data-collector"></a>安裝已發佈的應用程式 - StreamSets Data Collector
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211220"
 ---
 # <a name="service-fabric-testability-scenarios-service-communication"></a>Service Fabric Testability 案例：服務通訊
 微服務及服務導向的架構樣式會在 Azure Service Fabric 中自然出現。 在這些類型的分散式架構中，元件化的微服務應用程式通常是由需要彼此通訊的多個服務所組成。 即使在最簡單的情況下，您通常至少會有一個無狀態網路服務及一個可設定狀態的資料儲存服務需要相互通訊。

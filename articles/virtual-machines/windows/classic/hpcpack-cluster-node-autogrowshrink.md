@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31603839"
 ---
 # <a name="automatically-grow-and-shrink-the-hpc-pack-cluster-resources-in-azure-according-to-the-cluster-workload"></a>在 Azure 中根據叢集工作負載自動擴增和縮減 HPC Pack 叢集資源
 如果您在 HPC Pack 叢集部署 Azure「高載」節點，或您在 Azure VM 中建立 HPC Pack 叢集，您可能會想要能夠根據叢集上的工作負載，自動增加或縮減叢集資源 (例如節點或核心)。 以這樣的方式調整叢集資源可讓您更有效率地使用您的 Azure 資源及控制其成本。

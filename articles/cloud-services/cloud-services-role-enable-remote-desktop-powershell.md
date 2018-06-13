@@ -1,11 +1,11 @@
 ---
-title: "使用 PowerShell 啟用 Azure 雲端服務中角色的遠端桌面連線"
-description: "如何使用 PowerShell 設定的 Azure 雲端服務應用程式以允許遠端桌面連線"
+title: 使用 PowerShell 啟用 Azure 雲端服務中角色的遠端桌面連線
+description: 如何使用 PowerShell 設定的 Azure 雲端服務應用程式以允許遠端桌面連線
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bf2f70a4-20dc-4302-a91a-38cd7a2baa62
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29874135"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>使用 PowerShell 啟用 Azure 雲端服務中角色的遠端桌面連線
 

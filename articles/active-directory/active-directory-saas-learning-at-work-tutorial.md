@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34341816"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-at-work"></a>教學課程：Azure Active Directory 與 Learning at Work 整合
 

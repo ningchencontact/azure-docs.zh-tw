@@ -19,6 +19,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30186228"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights Connector 管理解決方案 (預覽)
 
@@ -140,7 +141,7 @@ Applications Insights Connector 解決方案可協助您診斷效能問題，以
 
 ### <a name="sample-corrected-data"></a>取樣更正資料
 
-Application Insights 提供*[取樣更正](../application-insights/app-insights-sampling.md)*來協助減少遙測流量。 當您在 Application Insights 應用程式上啟用取樣功能時，您取得之 Application Insights 和 Log Analytics 中儲存的項目數會減少。 雖然資料一致性會保留在 [Application Insights Connector] 頁面和檢視方塊中，您應針對您的自訂查詢手動更正取樣的資料。
+Application Insights 提供*[取樣更正](../application-insights/app-insights-sampling.md)* 來協助減少遙測流量。 當您在 Application Insights 應用程式上啟用取樣功能時，您取得之 Application Insights 和 Log Analytics 中儲存的項目數會減少。 雖然資料一致性會保留在 [Application Insights Connector] 頁面和檢視方塊中，您應針對您的自訂查詢手動更正取樣的資料。
 
 在記錄搜尋查詢中取樣更正的範例如下：
 

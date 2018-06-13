@@ -1,11 +1,11 @@
 ---
-title: "開始使用 Azure CLI for Batch | Microsoft Docs"
-description: "取得 Azure CLI 中 Batch 命令的快速簡介，以便管理 Azure Batch 服務資源"
+title: 開始使用 Azure CLI for Batch | Microsoft Docs
+description: 取得 Azure CLI 中 Batch 命令的快速簡介，以便管理 Azure Batch 服務資源
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
 ms.service: batch
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29847612"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>使用 Azure CLI 管理 Batch 資源
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31525925"
 ---
 # <a name="storage-explorer-accessibility"></a>儲存體總管協助工具
 ## <a name="screen-readers"></a>螢幕助讀程式

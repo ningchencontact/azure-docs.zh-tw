@@ -19,6 +19,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30240219"
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>如何調整 Azure Redis 快取
 Azure Redis 快取都有不同的快取提供項目，以提供選擇快取大小和功能的彈性。 建立快取之後，如果您應用程式的需求改變，您可以調整快取的大小和定價層。 本文說明如何使用 Azure 入口網站和 Azure PowerShell 與 Azure CLI 之類的工具來調整快取。

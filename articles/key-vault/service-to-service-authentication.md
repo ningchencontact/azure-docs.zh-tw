@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31417570"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>使用 .NET 進行 Azure Key Vault 的服務對服務驗證
 
@@ -207,7 +208,7 @@ az account list
     RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}. 
     ```
 
-    使用步驟 1 產生的值取代 _{AppId}_、_{TenantId}_和 _{ClientSecret}_。
+    使用步驟 1 產生的值取代 _{AppId}_、_{TenantId}_ 和 _{ClientSecret}_。
 
 3. 執行應用程式。 
 

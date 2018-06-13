@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31409259"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>建立和共用 Log Analytics 資料的儀表板
 

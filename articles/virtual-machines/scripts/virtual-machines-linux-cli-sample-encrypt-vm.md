@@ -1,13 +1,13 @@
 ---
-title: "Azure CLI 指令碼範例 - 將 Linux VM 加密 | Microsoft Docs"
-description: "Azure CLI 指令碼範例 - 將 Linux VM 加密"
+title: Azure CLI 指令碼範例 - 將 Linux VM 加密 | Microsoft Docs
+description: Azure CLI 指令碼範例 - 將 Linux VM 加密
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29849074"
 ---
 # <a name="encrypt-a-linux-virtual-machine-in-azure"></a>如何在 Azure 中將 Linux 虛擬機器加密
 
