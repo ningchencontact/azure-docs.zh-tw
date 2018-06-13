@@ -12,7 +12,7 @@ ms.locfileid: "34307561"
 預付虛擬機器，並使用 Azure 保留的虛擬機器 (VM) 執行個體節省成本。 如需詳細資訊，請參閱 [Azure 保留執行個體供應項目](https://azure.microsoft.com/pricing/reserved-vm-instances/)。
 
 您可以在 [Azure 入口網站](https://portal.azure.com)購買 Azure 保留執行個體。 購買保留執行個體：
--   您必須至少為一個企業或預付型方案訂用帳戶的「擁有者」角色。
+-   您必須至少為一個企業或"隨用隨付"型方案訂用帳戶的「擁有者」角色。
 -   針對企業訂用帳戶，必須在 [EA 入口網站](https://ea.azure.com)中啟用保留執行個體購買。
 -   針對雲端解決方案提供者 (CSP) 程式，只有系統管理員代表或銷售代表可以購買保留執行個體。
 
