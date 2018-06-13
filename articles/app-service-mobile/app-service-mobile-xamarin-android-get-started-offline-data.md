@@ -1,10 +1,10 @@
 ---
-title: "啟用 Azure 行動應用程式 (Xamarin Android) 的離線同步處理"
-description: "了解如何在 Xamarin Android 應用程式中使用應用程式服務行動應用程式快取和同步處理離線資料"
+title: 啟用 Azure 行動應用程式 (Xamarin Android) 的離線同步處理
+description: 了解如何在 Xamarin Android 應用程式中使用應用程式服務行動應用程式快取和同步處理離線資料
 documentationcenter: xamarin
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 services: app-service\mobile
 ms.assetid: 91d59e4b-abaa-41f4-80cf-ee7933b32568
 ms.service: app-service-mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27593091"
 ---
 # <a name="enable-offline-sync-for-your-xamarinandroid-mobile-app"></a>啟用您 Xamarin.Android 行動應用程式的離線同步處理
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
