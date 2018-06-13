@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 8000 系列硬體元件和狀態 | Microsoft Docs"
-description: "了解如何透過 StorSimple 裝置管理員服務監視 StorSimple 裝置的硬體元件。"
+title: StorSimple 8000 系列硬體元件和狀態 | Microsoft Docs
+description: 了解如何透過 StorSimple 裝置管理員服務監視 StorSimple 裝置的硬體元件。
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23110056"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>使用 StorSimple 裝置管理員服務監視硬體元件和狀態
 ## <a name="overview"></a>概觀

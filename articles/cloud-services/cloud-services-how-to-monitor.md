@@ -1,12 +1,12 @@
 ---
-title: "監視 Azure 雲端服務 | Microsoft Docs"
-description: "描述監視 Azure 雲端服務所涉及的作業以及您的一些選項。"
+title: 監視 Azure 雲端服務 | Microsoft Docs
+description: 描述監視 Azure 雲端服務所涉及的作業以及您的一些選項。
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: thraka
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/11/2018
+ms.locfileid: "29149901"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>雲端服務監視簡介
 

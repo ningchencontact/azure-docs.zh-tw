@@ -1,11 +1,11 @@
 ---
-title: "讀取 NSG 流量記錄 | Microsoft Docs"
-description: "本文說明如何剖析 NSG 流量記錄"
+title: 讀取 NSG 流量記錄 | Microsoft Docs
+description: 本文說明如何剖析 NSG 流量記錄
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/11/2018
+ms.locfileid: "29149629"
 ---
 # <a name="read-nsg-flow-logs"></a>讀取 NSG 流量記錄
 

@@ -18,6 +18,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "25958166"
 ---
 # <a name="transitioning-to-azure-log-analytics-new-query-language"></a>轉換為 Azure Log Analytics 新的查詢語言
 Log Analytics 最近已實作新的查詢語言。  如果您雖熟悉舊版語言卻仍需要協助，本文會提供轉換為這個 Log Analytics 語言的協助。
