@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 指令碼 - 建立適用於 PostgreSQL 的 Azure 資料庫"
-description: "Azure CLI 指令碼範例 - 建立「適用於 PostgreSQL 的 Azure 資料庫」伺服器，並設定伺服器等級防火牆規則。"
+title: Azure CLI 指令碼 - 建立適用於 PostgreSQL 的 Azure 資料庫
+description: Azure CLI 指令碼範例 - 建立「適用於 PostgreSQL 的 Azure 資料庫」伺服器，並設定伺服器等級防火牆規則。
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29847955"
 ---
 # <a name="create-an-azure-database-for-postgresql-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>使用 Azure CLI 建立「適用於 PostgreSQL 的 Azure 資料庫」伺服器並設定防火牆規則
 此範例 CLI 指令碼會建立「適用於 PostgreSQL 的 Azure 資料庫」伺服器，並設定伺服器等級防火牆規則。 成功執行指令碼後，即可從所有 Azure 服務和已設定的 IP 位址存取 PostgreSQL 伺服器。

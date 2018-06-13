@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210897"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Service Fabric 叢集安全性案例
 Azure Service Fabric 叢集是您擁有的資源。 保護叢集是您的責任，從而協助避免未經授權的使用者與它們連線。 在叢集上執行生產工作負載時，安全的叢集尤其重要。 雖然可以建立不安全的叢集，但如果叢集向公用網際網路公開管理端點，匿名使用者就可以連線叢集。 不支援將不安全的叢集用作生產工作負載。 

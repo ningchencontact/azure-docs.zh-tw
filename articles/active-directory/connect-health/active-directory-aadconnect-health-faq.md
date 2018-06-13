@@ -19,6 +19,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30282193"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health 常見問題集
 本文會回答有關 Azure Active Directory (Azure AD) Connect Health 的常見問題 (FAQ)。 這些常見問題涵蓋如何使用服務的相關問題，包括計費模型、功能、限制及支援。

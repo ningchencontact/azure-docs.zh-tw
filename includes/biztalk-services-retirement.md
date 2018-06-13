@@ -1,6 +1,6 @@
 ---
-title: "包含檔案"
-description: "包含檔案"
+title: 包含檔案
+description: 包含檔案
 services: biztalk-services
 author: MandiOhlinger
 ms.service: biztalk-services
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/05/2018
+ms.locfileid: "29765929"
 ---
 > [!IMPORTANT]
 > Microsoft Azure BizTalk 服務 (MABS) 已屆汰換時間，將會由 Azure Logic Apps 來取代。

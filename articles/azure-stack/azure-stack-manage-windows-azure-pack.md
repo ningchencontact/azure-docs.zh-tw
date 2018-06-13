@@ -1,11 +1,11 @@
 ---
-title: "從 Azure Stack 管理 Windows Azure 套件虛擬機器 | Microsoft Docs"
-description: "了解如何從 Azure Stack 中的使用者入口網站管理 Windows Azure 套件 (WAP) VM。"
+title: 從 Azure Stack 管理 Windows Azure 套件虛擬機器 | Microsoft Docs
+description: 了解如何從 Azure Stack 中的使用者入口網站管理 Windows Azure 套件 (WAP) VM。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 213c2792-d404-4b44-8340-235adf3f8f0b
 ms.service: azure-stack
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29735819"
 ---
 # <a name="manage-windows-azure-pack-virtual-machines-from-azure-stack"></a>從 Azure Stack 管理 Windows Azure 套件虛擬機器
 
@@ -120,7 +121,7 @@ Windows Azure 套件租用戶 API 必須信任 Azure Stack 安全性權杖服務
 
  ```
 > [!NOTE]
-> 在目前的組建中有個問題，就是 Add-AzurePackConnector 指令碼結束後，會停留在輪詢迴圈中一段很長的時間 (數分鐘)，然後才會結束。 您看到 **VERBOSE：步驟「設定 Azure 套件連接器」狀態：「成功」**訊息後，就可以停止指令碼，或等到它自己停止。 由於已設定成功，因此兩者將不會有所差別。
+> 在目前的組建中有個問題，就是 Add-AzurePackConnector 指令碼結束後，會停留在輪詢迴圈中一段很長的時間 (數分鐘)，然後才會結束。 您看到 **VERBOSE：步驟「設定 Azure 套件連接器」狀態：「成功」** 訊息後，就可以停止指令碼，或等到它自己停止。 由於已設定成功，因此兩者將不會有所差別。
 
 2. 請針對您指定的每個 Windows Azure 套件環境，記下此指令碼所產生的輸出檔 (每個環境各一個)。 檔案位於：\\\su1fileserver\SU1_Infrastructure_1\AzurePackConnectorOutput。 這些檔案包含設定目標 Windows Azure 套件環境所需的資訊。 稍後在這些指示中，您會將這個檔案作為參數傳遞給指令碼。 這個檔案包含下列資訊：
 

@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "29805077"
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>在 Azure Log Analytics 中使用記錄搜尋入口網站來建立記錄搜尋
 

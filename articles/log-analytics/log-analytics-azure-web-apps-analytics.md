@@ -12,20 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2018
+ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 7b83b9de08d024b91ca7008a4f0bf970e8d00688
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c44546ffe65a0849b485fb0d2dd169e4216ae80a
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261363"
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>檢視所有 Azure Web 應用程式資源之間的計量分析資料
 
 ![Web Apps 符號](./media/log-analytics-azure-web-apps-analytics/azure-web-apps-analytics-symbol.png)  
 
 > [!NOTE]
-> Azure Web Apps 分析解決方案已被取代。  已安裝此解決方案的客戶可以繼續使用，但無法將 Azure Web Apps 分析加入至任何新的工作區。
+> Azure Web Apps 分析解決方案已被取代。  已安裝此解決方案的客戶可以繼續使用，但無法將 Azure Web Apps 分析加入至任何新的工作區。  若要監視 Web 應用程式，建議您使用 [Application Insights](../application-insights/app-insights-overview.md)。 
 
 Azure Web Apps 分析 (預覽) 解決方案會收集所有 Azure Web 應用程式資源之間的不同計量，以深入了解 [Azure Web Apps](../app-service/app-service-web-overview.md)。 透過此解決方案，您可以分析與搜尋 Web 應用程式資源計量資料。
 

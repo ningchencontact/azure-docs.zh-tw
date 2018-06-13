@@ -1,14 +1,14 @@
 ---
-title: "為 Azure Batch 集區選取 VM 大小 | Microsoft Docs"
-description: "如何為 Azure Batch 集區中的計算節點選取可用的 VM 大小"
+title: 為 Azure Batch 集區選取 VM 大小 | Microsoft Docs
+description: 如何為 Azure Batch 集區中的計算節點選取可用的 VM 大小
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: batch
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/05/2018
+ms.locfileid: "29763942"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>為 Azure Batch 集區中的運算節點選擇 VM 大小
 

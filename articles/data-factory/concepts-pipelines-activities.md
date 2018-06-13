@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/22/2018
+ms.date: 05/16/2018
 ms.author: shlo
-ms.openlocfilehash: e8dc12d41d3369bd95c2953607b8efce94f39d46
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 564ed357a838e5e0c3e6db869eefafb7925e155b
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261495"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure Data Factory 中的管道及活動 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -99,7 +100,7 @@ Azure Data Factory 支援下列可個別或與其他活動鏈結而新增至管�
 
 Tag | 說明 | 類型 | 必要
 --- | ----------- | ---- | --------
-name | 管線的名稱。 指定代表管線所執行之動作的名稱。 <br/><ul><li>字元數目上限︰260</li><li>開頭必須為字母、數字或底線 (_)</li><li>•   不允許使用下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\”</li></ul> | 字串 | yes
+name | 管線的名稱。 指定代表管線所執行之動作的名稱。 <br/><ul><li>字元數目上限︰140</li><li>開頭必須為字母、數字或底線 (_)</li><li>•   不允許使用下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\”</li></ul> | 字串 | yes
 說明 | 指定說明管線用途的文字。 | 字串 | 否
 活動 | [ **活動** ] 區段內可以有一或多個已定義的活動。 如需活動 JSON 元素的詳細資料，請參閱[活動 JSON](#activity-json) 一節。 | 陣列 | yes
 parameters | **parameters** 區段可以在管道內定義一或多個參數，讓管道變得更有彈性而可重複使用。 | 列出 | 否
@@ -132,7 +133,7 @@ parameters | **parameters** 區段可以在管道內定義一或多個參數，�
 
 Tag | 說明 | 必要
 --- | ----------- | ---------
-name | 活動的名稱。 指定代表活動所執行之動作的名稱。 <br/><ul><li>字元數目上限︰260</li><li>開頭必須為字母、數字或底線 (_)</li><li>不允許使用下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\” | yes</li></ul>
+name | 活動的名稱。 指定代表活動所執行之動作的名稱。 <br/><ul><li>字元數目上限︰55</li><li>開頭必須為字母、數字或底線 (_)</li><li>不允許使用下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\” | yes</li></ul>
 說明 | 說明活動用途的文字 | yes
 type | 活動的類型。 如需了解不同類型的活動，請參閱[資料移動活動](#data-movement-activities)、[資料轉換活動](#data-transformation-activities)和[控制活動](#control-activities)各節。 | yes
 預設容器 | 活動所使用的連結服務名稱。<br/><br/>活動可能會要求您指定可連結至所需計算環境的連結服務。 | 對於 HDInsight 活動、Azure Machine Learning 批次計分活動和預存程序活動而言為必要。 <br/><br/>否：所有其他
@@ -194,7 +195,7 @@ retryIntervalInSeconds | 重試嘗試之間的延遲 (秒) | 整數  | 編號 �
 
 Tag | 說明 | 必要
 --- | ----------- | --------
-name | 活動的名稱。 指定代表活動所執行之動作的名稱。<br/><ul><li>字元數目上限︰260</li><li>開頭必須為字母、數字或底線 (_)</li><li>不允許使用下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\” | yes</li><ul> 
+name | 活動的名稱。 指定代表活動所執行之動作的名稱。<br/><ul><li>字元數目上限︰55</li><li>開頭必須為字母、數字或底線 (_)</li><li>不允許使用下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\” | yes</li><ul> 
 說明 | 說明活動用途的文字 | yes
 type | 活動的類型。 如需了解不同類型的活動，請參閱[資料移動活動](#data-movement-activities)、[資料轉換活動](#data-transformation-activities)和[控制活動](#control-activities)各節。 | yes
 typeProperties | typeProperties 區段中的屬性視每一種活動而定。 若要查看活動的類型屬性，請按一下先前小節中的活動連結。 | 否

@@ -21,6 +21,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30246282"
 ---
 # <a name="create-a-basic-virtual-machine-scale-set-with-powershell"></a>使用 PowerShell 建立基本虛擬機器擴展集
 此指令碼會建立執行 Windows Server 2016 的虛擬機器擴展集。 執行指令碼之後，您可以透過 RDP 存取 VM 執行個體。
