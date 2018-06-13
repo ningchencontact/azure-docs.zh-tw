@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure DNS 搭配其他 Azure 服務 | Microsoft Docs"
-description: "了解如何使用 Azure DNS 來解析其他 Azure 服務的名稱"
+title: 使用 Azure DNS 搭配其他 Azure 服務 | Microsoft Docs
+description: 了解如何使用 Azure DNS 來解析其他 Azure 服務的名稱
 services: dns
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure dns
 ms.assetid: e9b5eb94-7984-4640-9930-564bb9e82b78
 ms.service: dns
@@ -21,6 +21,7 @@ ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/30/2017
+ms.locfileid: "25989838"
 ---
 # <a name="how-azure-dns-works-with-other-azure-services"></a>Azure DNS 如何與其他 Azure 服務搭配運作
 

@@ -1,11 +1,11 @@
 ---
-title: "最佳化 Visual Studio 中的 Azure 程式碼 | Microsoft Docs"
-description: "了解 Visual Studio 中的 Azure 程式碼最佳化工具如何協助讓程式碼更穩定且有更好的效能。"
+title: 最佳化 Visual Studio 中的 Azure 程式碼 | Microsoft Docs
+description: 了解 Visual Studio 中的 Azure 程式碼最佳化工具如何協助讓程式碼更穩定且有更好的效能。
 services: visual-studio-online
 documentationcenter: na
 author: cawa
 manager: paulyuk
-editor: 
+editor: ''
 ms.assetid: ed48ee06-e2d2-4322-af22-07200fb16987
 ms.service: multiple
 ms.devlang: dotnet
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/17/2017
+ms.locfileid: "23452397"
 ---
 # <a name="optimizing-your-azure-code"></a>最佳化您的 Azure 程式碼
 當您在撰寫使用 Microsoft Azure 的應用程式時，請遵循某些程式碼撰寫實務，以避免應用程式在雲端環境中發生延展性、行為和效能方面的問題。 Microsoft 有提供 Azure Code Analysis 工具，可辨識並找出許多常見問題，並幫助您解決這些問題。 您可以在 Visual Studio 中透過 NuGet 下載此工具。

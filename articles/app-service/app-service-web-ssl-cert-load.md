@@ -1,11 +1,11 @@
 ---
-title: "在 Azure App Service 中的應用程式程式碼中使用上傳的 SSL 憑證 | Microsoft Docs"
-description: 
+title: 在 Azure App Service 中的應用程式程式碼中使用上傳的 SSL 憑證 | Microsoft Docs
+description: ''
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/01/2017
+ms.locfileid: "26047599"
 ---
 # <a name="use-an-ssl-certificate-in-your-application-code-in-azure-app-service"></a>在 Azure App Service 中的應用程式程式碼中使用 SSL 憑證
 
