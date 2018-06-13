@@ -1,14 +1,14 @@
 ---
-title: "使用 Azure Cosmos DB 和 Functions 儲存非結構化資料 | Microsoft Docs"
-description: "使用 Azure Functions 和 Cosmos DB 儲存非結構化資料"
+title: 使用 Azure Cosmos DB 和 Functions 儲存非結構化資料 | Microsoft Docs
+description: 使用 Azure Functions 和 Cosmos DB 儲存非結構化資料
 services: functions
 documentationcenter: functions
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, 函式, 事件處理, Cosmos DB, 動態計算, 無伺服器架構"
-ms.assetid: 
+editor: ''
+tags: ''
+keywords: azure functions, 函式, 事件處理, Cosmos DB, 動態計算, 無伺服器架構
+ms.assetid: ''
 ms.service: functions
 ms.devlang: csharp
 ms.topic: quickstart
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/11/2018
+ms.locfileid: "27767548"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>使用 Azure Functions 和 Azure Cosmos DB 儲存非結構化資料
 

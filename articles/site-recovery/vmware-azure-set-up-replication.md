@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29811105"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-replication"></a>設定及管理 VMware 複寫的複寫原則
 本文說明使用 [Azure Site Recovery](site-recovery-overview.md) 將 VMware VM 複寫至 Azure 時，如何設定複寫原則。

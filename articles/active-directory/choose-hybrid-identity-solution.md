@@ -1,23 +1,24 @@
 ---
-title: "選擇 Azure 混合式身分識別解決方案 | Microsoft Docs"
-description: "取得可用身分識別解決方案和建議的基本了解，可讓您為貴組織做出最佳的身分識別控管決策。"
-keywords: 
+title: 選擇 Azure 混合式身分識別解決方案 | Microsoft Docs
+description: 取得可用身分識別解決方案和建議的基本了解，可讓您為貴組織做出最佳的身分識別控管決策。
+keywords: ''
 author: jeffgilb
 manager: mtillman
 ms.reviewer: jsnow
 ms.author: billmath
 ms.date: 03/02/2018
 ms.topic: article
-ms.prod: 
+ms.prod: ''
 ms.service: azure
-ms.technology: 
-ms.assetid: 
+ms.technology: ''
+ms.assetid: ''
 ms.custom: it-pro
 ms.openlocfilehash: 9f9099c0ebd65ba84e171314e6f04d858648a805
 ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29800732"
 ---
 # <a name="microsoft-hybrid-identity-solutions"></a>Microsoft 混合式身分識別解決方案
 [Microsoft Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) 混合式身分識別解決方案可讓您同步處理內部部署目錄物件與 Azure AD，仍同時在內部部署環境管理使用者。 在規劃同步處理內部部署 Windows Server Active Directory 與 Azure AD 時，首先要決定您要使用已同步處理的身分識別或同盟身分識別。 已同步處理的身分識別和密碼雜湊 (選擇性)，讓使用者能使用相同的密碼來存取內部部署和雲端式組織資源。 如需更進階的案例需求，例如單一登入 (SSO) 或內部部署 MFA，您必須將 Active Directory Federation Services (AD FS) 部署至同盟身分識別。 

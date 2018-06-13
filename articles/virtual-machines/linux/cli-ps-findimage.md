@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure CLI 選取 Linux VM 映像 | Microsoft Docs"
-description: "了解如何使用 Azure CLI 來判斷發行者、優惠、SKU 和 Marketplace VM 映像的版本。"
+title: 使用 Azure CLI 選取 Linux VM 映像 | Microsoft Docs
+description: 了解如何使用 Azure CLI 來判斷發行者、優惠、SKU 和 Marketplace VM 映像的版本。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 7a858e38-4f17-4e8e-a28a-c7f801101721
 ms.service: virtual-machines-linux
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29740878"
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>如何使用 Azure CLI 在 Azure Marketplace 中尋找 Linux VM 映像
 本主題描述如何在 Azure Marketplace 中使用 Azure CLI 2.0 尋找 Windows VM 映像。 當您使用 CLI、Resource Manager 範本或其他工具以程式設計方式建立 VM 時，使用此資訊來指定 Marketplace 映像。

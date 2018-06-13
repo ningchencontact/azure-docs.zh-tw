@@ -1,13 +1,13 @@
 ---
-title: "Azure CLI 指令碼範例：路由傳送流量以達到應用程式的高可用性 | Microsoft Docs"
-description: "Azure CLI 指令碼範例：路由傳送流量以達到應用程式的高可用性"
+title: Azure CLI 指令碼範例：路由傳送流量以達到應用程式的高可用性 | Microsoft Docs
+description: Azure CLI 指令碼範例：路由傳送流量以達到應用程式的高可用性
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
 manager: timlt
 editor: tysonn
 tags: azure-infrastructure
-ms.assetid: 
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: azurecli
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29847347"
 ---
 # <a name="route-traffic-for-high-availability-of-applications"></a>路由傳送流量以達到應用程式的高可用性
 

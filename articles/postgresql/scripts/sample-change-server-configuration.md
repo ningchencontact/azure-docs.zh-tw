@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 指令碼 - 變更伺服器組態"
-description: "這個範例 CLI 指令碼會列出所有可用的伺服器組態選項，並更新其中一個選項的值。"
+title: Azure CLI 指令碼 - 變更伺服器組態
+description: 這個範例 CLI 指令碼會列出所有可用的伺服器組態選項，並更新其中一個選項的值。
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29850832"
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-postgresql-server-using-azure-cli"></a>使用 Azure CLI 列出和更新適用於 PostgreSQL 的 Azure 資料庫伺服器組態
 這個範例 CLI 指令碼會列出所有可用的組態參數，以及其對於適用於 PostgreSQL 的 Azure 資料庫伺服器允許值，並將 log_retention_days 設定為預設值以外的值。

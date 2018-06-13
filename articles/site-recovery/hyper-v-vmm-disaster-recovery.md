@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure Site Recovery 設定內部部署網站間的 Hyper-V VM 災害復原 | Microsoft Docs"
-description: "了解如何使用 Azure Site Recovery 設定內部部署網站間的 Hyper-V VM 災害復原。"
+title: 使用 Azure Site Recovery 設定內部部署網站間的 Hyper-V VM 災害復原 | Microsoft Docs
+description: 了解如何使用 Azure Site Recovery 設定內部部署網站間的 Hyper-V VM 災害復原。
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29843454"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>設定從 Hyper-V VM 到次要內部部署網站的災害復原
 

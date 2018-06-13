@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 中使用 Docker Compose 連接至 Linux VM | Microsoft Docs"
-description: "如何透過 Azure CLI 在 Linux 虛擬機器上使用 Docker 和 Compose"
+title: 在 Azure 中使用 Docker Compose 連接至 Linux VM | Microsoft Docs
+description: 如何透過 Azure CLI 在 Linux 虛擬機器上使用 Docker 和 Compose
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 02ab8cf9-318d-4a28-9d0c-4a31dccc2a84
 ms.service: virtual-machines-linux
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29848401"
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>在 Azure 中開始使用 Docker 和 Compose 定義並執行多容器應用程式
 藉由 [Compose](http://github.com/docker/compose)，您將可以使用簡單的文字檔來定義由多個 Docker 容器所組成的應用程式。 接著，您可以透過單一命令來啟動應用程式，此命令會執行所需的一切準備工作，以部署您的已定義環境。 舉例來說，本文將說明如何藉由 Ubuntu VM 上的後端 MariaDB SQL 資料庫來快速設定 WordPress 部落格。 您也可以使用 Compose 來設定更複雜的應用程式。

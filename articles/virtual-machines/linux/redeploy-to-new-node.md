@@ -1,6 +1,6 @@
 ---
-title: "在 Azure 中重新部署 Linux 虛擬機器 | Microsoft Docs"
-description: "如何在 Azure 中重新部署 Linux 虛擬機器，以減輕 SSH 連線問題。"
+title: 在 Azure 中重新部署 Linux 虛擬機器 | Microsoft Docs
+description: 如何在 Azure 中重新部署 Linux 虛擬機器，以減輕 SSH 連線問題。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29849302"
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>將 Linux 虛擬機器重新部署至新的 Azure 節點
 如果您在 Azure 中進行對 Linux 虛擬機器 (VM) 的 SSH 或應用程式存取疑難排解時遇到問題，重新部署 VM 也許可以解決。 重新部署 VM 時會將 VM 移到 Azure 基礎結構內的新節點，然後重新開啟它的電源。 您所有組態選項和相關聯的資源都會加以保留。 本文將說明如何使用 Azure CLI 或 Azure 入口網站來重新部署 VM。

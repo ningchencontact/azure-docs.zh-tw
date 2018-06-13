@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211424"
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>叢集資源管理員架構概觀
 Service Fabric 叢集資源管理員是在叢集中執行的中央服務。 它會管理叢集中服務的所需狀態，特別是關於資源耗用和任何放置規則。 

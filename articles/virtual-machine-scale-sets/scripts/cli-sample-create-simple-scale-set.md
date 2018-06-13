@@ -21,6 +21,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30246452"
 ---
 # <a name="create-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>使用 Azure CLI 2.0 建立虛擬機器擴展集
 此指令碼會建立具有 Ubuntu 作業系統和相關網路資源 (包括負載平衡器) 的 Azure 虛擬機器擴展集。 執行指令碼之後，您可以透過 SSH 存取 VM 執行個體。

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852535"
 ---
 # <a name="set-up-a-windows-rdma-cluster-with-hpc-pack-to-run-mpi-applications"></a>使用 HPC Pack 設定 Windows RDMA 叢集以執行 MPI 應用程式
 使用 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) \(英文\) 和[支援 RDMA 的 HPC VM 大小](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#rdma-capable-instances)在 Azure 中設定 Windows RDMA 叢集，以執行平行訊息傳遞介面 (MPI) 應用程式。 當您在 HPC Pack 叢集中設定了支援 RDMA 的 Windows Server 型節點時，MPI 應用程式會在 Azure 中透過以遠端直接記憶體存取 (RDMA) 技術為基礎的低延遲、高輸送量網路，有效率地進行通訊。
