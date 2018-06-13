@@ -1,11 +1,11 @@
 ---
-title: "利用 Azure 入口網站開始使用 Azure DNS | Microsoft Docs"
-description: "了解如何在 Azure DNS 中建立 DNS 區域和記錄。 這份逐步指南將引導您使用 Azure 入口網站建立和管理第一個 DNS 區域和記錄。"
+title: 利用 Azure 入口網站開始使用 Azure DNS | Microsoft Docs
+description: 了解如何在 Azure DNS 中建立 DNS 區域和記錄。 這份逐步指南將引導您使用 Azure 入口網站建立和管理第一個 DNS 區域和記錄。
 services: dns
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: fb0aa0a6-d096-4d6a-b2f6-eda1c64f6182
 ms.service: dns
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29388623"
 ---
 # <a name="get-started-with-azure-dns-using-the-azure-portal"></a>利用 Azure 入口網站開始使用 Azure DNS
 
@@ -46,7 +47,7 @@ DNS 區域用來裝載特定網域的 DNS 記錄。 若要開始將網域裝載�
    |---|---|---|
    |**名稱**|contoso.com|DNS 區域的名稱|
    |**訂用帳戶**|[您的訂用帳戶]|選取要建立 DNS 區域的訂用帳戶。|
-   |**資源群組**|**建立新的︰**contosoDNSRG|建立資源群組。 資源群組名稱在您選取的訂用帳戶中必須是唯一的。 若要深入了解資源群組，請閱讀 [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) 概觀。|
+   |**資源群組**|**建立新的︰** contosoDNSRG|建立資源群組。 資源群組名稱在您選取的訂用帳戶中必須是唯一的。 若要深入了解資源群組，請閱讀 [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) 概觀。|
    |**位置**|美國西部||
 
 > [!NOTE]

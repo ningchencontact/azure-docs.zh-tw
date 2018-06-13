@@ -1,6 +1,6 @@
 ---
-title: "在 StorSimple Linux 主機上設定 MPIO | Microsoft Docs"
-description: "在連線到執行 CentOS 6.6 之 Linux 主機的 StorSimple 上設定 MPIO"
+title: 在 StorSimple Linux 主機上設定 MPIO | Microsoft Docs
+description: 在連線到執行 CentOS 6.6 之 Linux 主機的 StorSimple 上設定 MPIO
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27779086"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>在執行 CentOS 的 StorSimple 主機上設定 MPIO
 本文說明在 Centos 6.6 主機伺服器上設定多重路徑 IO (MPIO) 所需的步驟。 主機伺服器會連線到您的 Microsoft Azure StorSimple 裝置，以透過 iSCSI 啟動器取得高可用性。 文中詳細描述多重路徑裝置的自動探索，以及 StorSimple 磁碟區特有的設定。

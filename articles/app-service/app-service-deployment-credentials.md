@@ -1,8 +1,8 @@
 ---
-title: "Azure App Service 部署認證 | Microsoft Docs"
-description: "了解如何使用 Azure App Service 部署認證。"
+title: Azure App Service 部署認證 | Microsoft Docs
+description: 了解如何使用 Azure App Service 部署認證。
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: dariagrigoriu
 manager: erikre
 editor: mollybos
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "27778542"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>設定 Azure App Service 的部署認證
 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 支援兩種認證類，用於[本機 Git 部署](app-service-deploy-local-git.md)和 [FTP/S 部署](app-service-deploy-ftp.md)。 這些與您的 Azure Active Directory 認證不相同。

@@ -1,11 +1,11 @@
 ---
-title: "在使用流量管理員進行負載平衡的 Azure App Service 中設定 Web 應用程式的自訂網域名稱。"
-description: "在包含負載平衡的流量管理員的 Azure App Service 中使用 Web 應用程式的自訂網域名稱。"
+title: 在使用流量管理員進行負載平衡的 Azure App Service 中設定 Web 應用程式的自訂網域名稱。
+description: 在包含負載平衡的流量管理員的 Azure App Service 中使用 Web 應用程式的自訂網域名稱。
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
 ms.service: app-service-web
 ms.workload: web
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/09/2018
+ms.locfileid: "27713846"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>在使用流量管理員的 Azure App Service 中設定 Web 應用程式的自訂網域名稱
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]

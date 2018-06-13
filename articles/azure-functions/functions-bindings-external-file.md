@@ -1,12 +1,12 @@
 ---
-title: "Azure Functions 的外部檔案繫結 (實驗性)"
-description: "使用 Azure Functions 中的外部檔案繫結"
+title: Azure Functions 的外部檔案繫結 (實驗性)
+description: 使用 Azure Functions 中的外部檔案繫結
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: alexkarcher-msft
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/05/2018
+ms.locfileid: "27607916"
 ---
 # <a name="azure-functions-external-file-bindings-experimental"></a>Azure Functions 外部檔案繫結 (實驗性)
 本文示範如何在 Azure Functions 中操作不同 SaaS 提供者 (例如 Dropbox 或 Google Drive) 的檔案。 Azure Functions 支援適用於外部檔案的觸發程序、輸入和輸出繫結。 這些繫結會建立與 SaaS 提供者的 API 連線，或使用函式應用程式之資源群組的現有 API 連線。
