@@ -1,3 +1,20 @@
+---
+title: 包含檔案
+description: 包含檔案
+services: virtual-machines
+author: jpconnock
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 05/18/2018
+ms.author: jeconnoc
+ms.custom: include file
+ms.openlocfilehash: 8b007c4658d3ca168c4c1a86a72a737c75ca33db
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34371332"
+---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>平台支援的 IaaS 資源移轉 (從傳統移轉至 Azure Resource Manager)
 本文說明如何將基礎結構即服務 (IaaS) 資源從「傳統」部署模型移轉至 Resource Manager 部署模型。 您可以進一步了解 [Azure Resource Manager 功能和優點](../articles/azure-resource-manager/resource-group-overview.md)。 我們會詳細說明如何使用虛擬網路站對站閘道，將您訂用帳戶中並存之兩個部署模型的資源連接在一起。
 
@@ -93,7 +110,7 @@ Resource Manager 除了可讓您透過範本部署複雜的應用程式之外，
 | 計算 | 包含 Web 角色/背景工作角色的雲端服務 | 目前不支援。 |
 | 計算 | 包含一個以上可用性設定組或多個可用性設定組的雲端服務。 |目前不支援。 請先將虛擬機器移至相同可用性設定組，然後再移轉。 |
 | 計算 | 具 Azure 資訊安全中心擴充功能的 VM | 「Azure 資訊安全中心」會自動在「虛擬機器」上安裝擴充功能，以監視其安全性並引發警示。 如果已在訂用帳戶上啟用「Azure 資訊安全中心」原則，通常就會自動安裝這些擴充功能。 若要移轉虛擬機器，請停用訂用帳戶上的資訊安全中心原則，這將會從虛擬機器移除資訊安全中心監視擴充功能。 |
-| 計算 | 具備份或快照集擴充功能的 VM | 這些擴充功能都安裝在使用 Azure 備份功能設定的虛擬機器上。 若要移轉這些虛擬機器，請遵循[這裡](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq#vault)的指引。  |
+| 計算 | 具備份或快照集擴充功能的 VM | 這些擴充功能都安裝在使用 Azure 備份功能設定的虛擬機器上。 雖然不支援這些 VM 的移轉，但是可依照[這裡](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq#vault)的指引，保留在移轉之前所執行的備份。  |
 | 網路 |包含虛擬機器和 Web 角色/背景工作角色的虛擬網路 |目前不支援。 請先將 Web/背景工作角色移至他們自己的虛擬網路，然後再移轉。 在移轉傳統虛擬網路之後，移轉的 Azure Resource Manager 虛擬網路可以和傳統虛擬網路對等互連，達到類似之前的組態。|
 | 網路 | 傳統 ExpressRoute 線路 |目前不支援。 在開始 IaaS 移轉之前，需要將這些線路移轉至 Azure Resource Manager。 若要深入了解這部分，請參閱[將 ExpressRoute 線路從傳統部署模型移至 Resource Manager 部署模型](../articles/expressroute/expressroute-move.md)。|
 | Azure App Service |包含 App Service 環境的虛擬網路 |目前不支援。 |

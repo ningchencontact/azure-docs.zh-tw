@@ -13,6 +13,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31790503"
 ---
 # <a name="query-an-azure-search-index-using-search-explorer-in-the-azure-portal"></a>在 Azure 入口網站中使用搜尋總管查詢 Azure 搜尋服務索引
 > [!div class="op_single_selector"]

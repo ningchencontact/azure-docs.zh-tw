@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33782467"
 ---
 # <a name="use-azure-devtest-labs-for-training"></a>使用 Azure DevTest Labs 進行訓練
 除了進行開發/測試，Azure DevTest Labs 還可用來實作許多重要案例。 這些案例的其中之一便是設置訓練實驗室。 Azure DevTest Labs 可讓您建立實驗室，在其中提供自訂範本供每位受訓者建立相同且隔離的訓練環境。 您可以新增原則，以確保訓練環境只會在受訓者需要時才提供給他們使用，且包含足夠的訓練所需資源，例如虛擬機器。 最後，您可以輕易地與受訓者共用實驗室，讓他們只要按一下就能存取。

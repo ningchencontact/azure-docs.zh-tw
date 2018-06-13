@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783507"
 ---
 # <a name="diagnose-artifact-failures-in-the-lab"></a>針對實驗室中的構件失敗進行診斷 
 建立構件之後，您可以檢查以確認其成功或失敗。 Azure DevTest Labs 中的構件記錄會提供資訊供您用來診斷構件失敗。 有幾個選項可供您檢視 Windows VM 的構件記錄資訊：

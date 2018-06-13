@@ -21,6 +21,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30246503"
 ---
 # <a name="create-a-virtual-machine-scale-set-from-a-custom-vm-image-with-powershell"></a>使用 PowerShell 從自訂 VM 映像建立虛擬機器擴展集
 此指令碼會建立可使用自訂 VM 映像作為 VM 執行個體來源的虛擬機器擴展集。

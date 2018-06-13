@@ -19,6 +19,7 @@ ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30928157"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Azure 監視器中的 Azure 轉送計量 (預覽)
 

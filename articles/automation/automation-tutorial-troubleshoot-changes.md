@@ -16,6 +16,7 @@ ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34054684"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>針對您環境中的變更進行疑難排解
 

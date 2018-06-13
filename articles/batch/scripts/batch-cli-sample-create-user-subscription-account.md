@@ -1,12 +1,12 @@
 ---
-title: "Azure CLI 指令碼範例 - 建立 Batch 帳戶 - 使用者訂用帳戶 | Microsoft Docs"
-description: "Azure CLI 指令碼範例 - 在使用者訂用帳戶模式中建立 Batch 帳戶"
+title: Azure CLI 指令碼範例 - 建立 Batch 帳戶 - 使用者訂用帳戶 | Microsoft Docs
+description: Azure CLI 指令碼範例 - 在使用者訂用帳戶模式中建立 Batch 帳戶
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: sample
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29848819"
 ---
 # <a name="cli-example-create-a-batch-account-in-user-subscription-mode"></a>CLI 範例：在使用者訂用帳戶模式中建立 Batch 帳戶
 

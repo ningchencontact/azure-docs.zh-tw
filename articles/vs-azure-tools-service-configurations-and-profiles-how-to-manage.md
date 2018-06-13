@@ -16,6 +16,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31799051"
 ---
 # <a name="how-to-manage-service-configurations-and-profiles"></a>如何管理服務組態和設定檔
 ## <a name="overview"></a>概觀
@@ -93,7 +94,7 @@ ms.lasthandoff: 04/23/2018
 1. 開啟 Azure 專案的捷徑功能表，然後選取 [發佈] 。
 2. 在 [目標設定檔]  清單中，選取您要變更的設定檔。
 3. 選取 [上一步] 和 [下一步] 按鈕以顯示「發佈精靈」的每個頁面，然後變更您想要的設定。 如需相關資訊，請參閱 [發佈 Azure 應用程式精靈](http://go.microsoft.com/fwlink/p/?LinkID=623085) 。
-4. 變更完設定之後，選取 [下一步] 以返回**「設定」**頁面。
+4. 變更完設定之後，選取 [下一步] 以返回 **「設定」** 頁面。
 5. (選擇性) 選取 [發佈]  以使用新設定來發佈雲端服務。 如果您不想在此時發佈雲端服務，而關閉 [發佈精靈]，Visual Studio 會詢問您是否要將變更儲存至設定檔。
 
 ## <a name="next-steps"></a>後續步驟

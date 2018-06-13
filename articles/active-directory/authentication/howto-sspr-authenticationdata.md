@@ -2,25 +2,20 @@
 title: Azure AD SSPR 資料需求 | Microsoft Docs
 description: Azure AD 自助式密碼重設的資料需求和如何滿足這些需求
 services: active-directory
-keywords: ''
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: ''
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: 790ca2ccb2d365876e15ca57e1aa199ac519fd73
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 5409bf198d0e3f6537619ef4698d9f2e31bd27c5
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257582"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>部署密碼重設而不需要使用者註冊
 
@@ -39,16 +34,27 @@ ms.lasthandoff: 04/23/2018
 
 如果您使用 Azure AD Connect 的預設設定，將會建立下列對應：
 
-| 內部部署 Active Directory | Azure AD | Azure AD 驗證連絡資訊 |
-| --- | --- | --- |
-| telephoneNumber | 辦公室電話 | 備用手機 |
-| mobile | 行動電話 | 電話 |
+| 內部部署 Active Directory | Azure AD |
+| --- | --- |
+| telephoneNumber | 辦公室電話 |
+| mobile | 行動電話 |
 
-這些欄位可能會顯示為空白，直到使用者確認其驗證資料。
+一旦使用者確認其行動電話號碼，則在 Azure AD 驗證連絡資訊下方的 [電話] 欄位也會填入該號碼。
+
+## <a name="authentication-contact-info"></a>驗證聯絡資訊
 
 全域系統管理員可以為使用者手動設定驗證連絡人資訊，如下列螢幕擷取畫面所示。
 
 ![連絡人][Contact]
+
+如果 [電話] 欄位已填入，且 SSPR 原則中的行動電話已啟用，則使用者會在密碼重設註冊頁面上及密碼重設工作流程中看到此號碼。 
+
+[備用電話] 欄位不會用於密碼重設。
+
+如果 [電子郵件] 欄位已填入，且 SSPR 原則中的電子郵件已啟用，則使用者會在密碼重設註冊頁面上及密碼重設工作流程中看到此電子郵件。
+
+如果 [備用電子郵件] 欄位已填入，且 SSPR 原則中的電子郵件已啟用，則使用者**不會**在密碼重設註冊頁面上看到此電子郵件，但他們會在密碼重設工作流程中看到此電子郵件。 
+
 
 ## <a name="security-questions-and-answers"></a>安全性問題和答案
 

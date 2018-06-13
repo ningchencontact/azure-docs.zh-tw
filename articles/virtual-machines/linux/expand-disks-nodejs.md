@@ -19,6 +19,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30905328"
 ---
 # <a name="expand-os-disk-on-a-linux-vm-using-the-azure-cli-with-the-azure-cli-10"></a>透過 Azure CLI 1.0 使用 Azure CLI 擴充 Linux VM 上的 OS 磁碟
 在 Azure 中，Linux 虛擬機器 (VM) 上作業系統 (OS) 的預設虛擬硬碟大小通常是 30 GB。 您可以[新增資料磁碟](add-disk.md)，以提供更多儲存空間，但您也可能想要擴充 OS 磁碟。 本文將詳細說明如何搭配使用非受控磁碟與 Azure CLI 1.0，來擴充 Linux VM 的 OS 磁碟。

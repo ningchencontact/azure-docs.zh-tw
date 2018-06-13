@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30910759"
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-cli-10"></a>使用 Azure CLI 1.0 建立完整的 Linux 環境
 在這篇文章中，我們將建立一個簡單的網路，當中包含一個負載平衡器，以及一組對開發和簡單運算而言相當實用的 VM。 我們將以逐個命令的方式逐步完成程序命令，直到您具備兩個可供您透過網際網路從任何地方連線的有效、安全 Linux VM 為止。 然後您便可以繼續著手更複雜的網路和環境。
@@ -1079,7 +1080,7 @@ azure network nsg rule create --resource-group myResourceGroup \
 ```
 
 > [!NOTE]
-> 輸入規則是輸入網路連線的篩選器。 在此範例中，我們將 NSG 繫結至 VM 虛擬 NIC，這意謂著任何傳送給連接埠 22 的要求都會傳遞到 VM 上的 NIC。 這個輸入規則與網路連線相關，而不是與端點 (在傳統部署中會相關的對象) 相關。 若要開啟連接埠，您必須將 `--source-port-range` 保留設定為 '\*' (預設)，才能接受來自**「任何」**要求連接埠的輸入要求。 連接埠通常是動態的。
+> 輸入規則是輸入網路連線的篩選器。 在此範例中，我們將 NSG 繫結至 VM 虛擬 NIC，這意謂著任何傳送給連接埠 22 的要求都會傳遞到 VM 上的 NIC。 這個輸入規則與網路連線相關，而不是與端點 (在傳統部署中會相關的對象) 相關。 若要開啟連接埠，您必須將 `--source-port-range` 保留設定為 '\*' (預設)，才能接受來自 **「任何」** 要求連接埠的輸入要求。 連接埠通常是動態的。
 >
 >
 

@@ -13,6 +13,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31600894"
 ---
 # <a name="app-service-documentation"></a>App Service 文件
 Azure App Service 可讓您以選定的程式設計語言來建置並裝載 Web 應用程式，無需管理基礎結構或是語言或 Web Framework 執行階段。 它提供自動調整及高度可用性，支援 Windows 和 Linux，並可從 GitHub、Visual Studio Team Services 或任何 Git 存放庫啟用自動部署。 了解如何透過我們的快速入門、教學課程和範例使用 Azure App Service。

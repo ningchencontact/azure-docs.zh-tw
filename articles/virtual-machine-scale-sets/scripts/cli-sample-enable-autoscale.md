@@ -21,6 +21,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30246486"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>如何使用 Azure CLI 2.0 自動調整虛擬機器擴展集
 此指令碼會建立執行 Ubuntu 的虛擬機器擴展集，並在 CPU 負載變更時，使用主機型計量來進行自動調整。
