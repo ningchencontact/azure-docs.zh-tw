@@ -16,7 +16,7 @@
       href: storage-how-to-use-files-windows.md
     - name: Linux 上的掛接
       href: storage-how-to-use-files-linux.md
-    - name: Mac 上的掛接
+    - name: 裝載在 macOS 上
       href: storage-how-to-use-files-mac.md
     - name: 以 Azure 入口網站管理
       href: storage-how-to-use-files-portal.md
