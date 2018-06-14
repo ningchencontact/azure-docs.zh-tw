@@ -163,6 +163,13 @@
           href: service-fabric-application-model.md
         - name: 應用程式及服務資訊清單
           href: service-fabric-application-and-service-manifests.md
+        - name: 應用程式和服務資訊清單範例
+          href: service-fabric-manifest-examples.md
+          items:
+            - name: Reliable Services 應用程式和服務資訊清單範例
+              href: service-fabric-manifest-example-reliable-services-app.md
+            - name: 多容器應用程式和服務資訊清單範例
+              href: service-fabric-manifest-example-container-app.md
         - name: 裝載模型
           href: service-fabric-hosting-model.md
         - name: 應用程式安全性
@@ -399,6 +406,8 @@
               href: service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md
         - name: 建置 ASP.NET Core 服務
           href: service-fabric-add-a-web-frontend.md
+        - name: 在 Linux 上建置 Apache Tomcat 伺服器容器
+          href: service-fabric-get-started-tomcat.md
         - name: 設定安全性
           items:
             - name: 管理應用程式密碼

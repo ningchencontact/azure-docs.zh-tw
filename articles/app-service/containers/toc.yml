@@ -157,6 +157,8 @@
       href: /rest/api/appservice/
 - name: 資源
   items:
+    - name: Linux 上的 App Service 常見問題集
+      href: app-service-linux-faq.md
     - name: Azure 藍圖
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 價格

@@ -5,9 +5,19 @@
 - name: 角色型存取控制 (RBAC)
   href: overview.md
   items:
+    - name: 快速入門
+      items:
+        - name: 授與使用者存取權 - 入口網站
+          href: quickstart-assign-role-user-portal.md
+    - name: 教學課程
+      items:
+        - name: 授與使用者存取權 - PowerShell
+          href: tutorial-role-assignments-user-powershell.md
+        - name: 授與群組存取權 - PowerShell
+          href: tutorial-role-assignments-group-powershell.md
     - name: 管理角色指派
       items:
-        - name: User
+        - name: 使用者
           href: role-assignments-users.md
         - name: 資源
           href: role-assignments-portal.md?toc=%2fazure%2factive-directory%2ftoc.json
@@ -17,11 +27,13 @@
           href: role-assignments-powershell.md
         - name: REST
           href: role-assignments-rest.md
+    - name: 了解角色定義
+      href: role-definitions.md
     - name: 內建角色
       href: built-in-roles.md
     - name: 自訂角色
       href: custom-roles.md
-    - name: 為內部及外部使用者指派自訂角色
+    - name: 管理外部使用者的角色指派
       href: role-assignments-external-users.md
     - name: 活動記錄
       href: change-history-report.md

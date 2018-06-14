@@ -41,6 +41,12 @@
           href: billing-understand-reserved-instance-usage-ea.md
         - name: 管理保留執行個體
           href: billing-manage-reserved-vm-instance.md
+    - name: REST 範例
+      items:
+        - name: 檢閱企業成本
+          href: billing-review-enterprise-billing.md
+        - name: 檢閱訂用帳戶用途
+          href: billing-review-subscription-billing.md
 - name: 管理帳戶
   items:
     - name: 免費帳戶
@@ -81,7 +87,7 @@
       href: billing-how-to-change-credit-card.md
     - name: 變更管理員
       href: billing-add-change-azure-subscription-administrator.md
-    - name: 切換訂用帳戶優惠
+    - name: 切換訂用帳戶供應項目
       href: billing-how-to-switch-azure-offer.md
     - name: 按發票付款
       href: billing-how-to-pay-by-invoice.md

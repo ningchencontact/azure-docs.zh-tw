@@ -61,16 +61,14 @@
       href: access-api-cli-how-to.md
     - name: 作業狀態事件 - CLI
       href: job-state-events-cli-how-to.md
-    - name: 上傳內容 - .NET
+    - name: 上傳內容
       items:
-        - name: 起始 HTTP
+        - name: 從 HTTP(s) - .NET
           href: job-input-from-http-how-to.md
-        - name: 從本機檔案
+        - name: 從本機檔案 - .NET
           href: job-input-from-local-file-how-to.md
-    - name: 自訂轉換預設
-      items:
-        - name: 透過 .NET Core
-          href: customize-encoder-presets-how-to.md
+    - name: 自訂轉換預設 - .NET Core
+      href: customize-encoder-presets-how-to.md
 - name: 參考
   items:
     - name: OpenAPI 規格 (Swagger)

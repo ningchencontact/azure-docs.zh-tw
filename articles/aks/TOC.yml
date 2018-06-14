@@ -31,6 +31,8 @@
   items:
     - name: 配額和區域限制
       href: container-service-quotas.md
+    - name: 從 ACS 遷移至 AKS
+      href: acs-aks-migration.md
 - name: 使用說明指南
   items:
     - name: 叢集作業
@@ -43,6 +45,13 @@
           href: upgrade-cluster.md
         - name: 刪除 AKS 叢集
           href: delete-cluster.md
+        - name: 啟用 Azure AD 的 AKS
+          href: aad-integration.md
+        - name: 使用 Virtual Kubelet
+          href: virtual-kubelet.md
+        - name: 使用 Terraform 部署 AKS
+          href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
+          maintainContext: true
     - name: 設定資料磁碟區
       items:
         - name: Azure 磁碟 - 動態
@@ -77,18 +86,26 @@
       items:
         - name: 以 Helm 執行應用程式
           href: kubernetes-helm.md
+        - name: 使用 Dev Spaces 部署
+          href: ../dev-spaces/azure-dev-spaces.md
+          maintainContext: true
         - name: 以 Draft 開發應用程式
           href: kubernetes-draft.md
         - name: Open Service Broker for Azure
           href: integrate-azure.md
-        - name: Jenkins 持續部署
-          href: jenkins-continuous-deployment.md
         - name: 使用 OpenFaaS with AKS
           href: openfaas.md
         - name: 在 AKS 上執行 Spark 作業
           href: spark-job.md
         - name: 在 AKS 上使用 GPU
           href: gpu-cluster.md
+    - name: AKS 上的 DevOps
+      items:
+        - name: Jenkins 持續部署
+          href: jenkins-continuous-deployment.md
+        - name: 適用於 ASK 的 Azure DevOps 專案
+          href: 'https://docs.microsoft.com/en-us/vsts/pipelines/actions/azure-devops-project-aks'
+          maintainContext: true
     - name: Kubernetes 基本概念
       items:
         - name: 使用 Kubernetes 儀表板
@@ -105,6 +122,14 @@
       href: /cli/azure/aks
     - name: REST
       href: /rest/api/aks
+    - name: Python
+      href: /python/api/overview/azure/containerservice
+    - name: Java
+      href: /java/api/overview/azure/containerservice
+    - name: Node.js
+      href: /javascript/api/overview/azure/container-service
+    - name: Resource Manager 範本
+      href: /azure/templates/microsoft.containerservice/managedclusters
 - name: 資源
   items:
     - name: 區域可用性
