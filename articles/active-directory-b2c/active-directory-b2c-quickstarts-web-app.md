@@ -4,17 +4,18 @@ description: 執行範例 ASP.NET Web 應用程式，而該應用程式使用 Az
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 2/13/2018
 ms.author: davidmu
-ms.openlocfilehash: 4342e8c58c9bb20580d8428a6c9869f9a3b893cb
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: 4caa4dfcfdc468c69241c5cf61d3c520609a088a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34710256"
 ---
 # <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>快速入門：設定使用 Azure Active Directory B2C 登入 ASP.NET 應用程式
 
@@ -43,16 +44,16 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 範例方案中有兩個專案：
 
-**Web 應用程式範例應用程式 (TaskWebApp)：**用來建立和編輯工作清單的 Web 應用程式。 此 Web 應用程式會使用**註冊或登入**原則來註冊或登入使用者。
+**Web 應用程式範例應用程式 (TaskWebApp)：** 用來建立和編輯工作清單的 Web 應用程式。 此 Web 應用程式會使用**註冊或登入**原則來註冊或登入使用者。
 
-**Web API 範例應用程式 (TaskService)：**支援建立、讀取、更新和刪除工作清單功能的 Web API。 此 Web API 會受到 Azure AD B2C 的保護，且由 Web 應用程式呼叫。
+**Web API 範例應用程式 (TaskService)：** 支援建立、讀取、更新和刪除工作清單功能的 Web API。 此 Web API 會受到 Azure AD B2C 的保護，且由 Web 應用程式呼叫。
 
 在本快速入門中，您會同時執行 `TaskWebApp` 和 `TaskService` 專案。 
 
 1. 在方案總管中選取解決方案 `B2C-WebAPI-DotNet`。
 2. 在 Visual Studio 功能表中，選取 [專案] > [設定啟始專案...]。 
 3. 選取 [多個啟始專案] 選項按鈕。
-4. 將兩個專案的 [動作] 變更為 [啟動]。 按一下 [SERVICEPRINCIPAL] 。
+4. 將兩個專案的 [動作] 變更為 [啟動]。 按一下 [確定]。
 
 按 **F5** 鍵可進行兩個應用程式的偵錯。 每個應用程式會在自己的瀏覽器索引標籤中開啟：
 

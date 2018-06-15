@@ -2,18 +2,20 @@
 title: 教學課程 - 使用 Azure Active Directory B2C 授與從傳統型應用程式存取 Node.js Web API 的權限 | Microsoft Docs
 description: 關於如何使用 Active Directory B2C 來保護 Node.js Web API，以及如何從 .NET 傳統型應用程式加以呼叫的教學課程。
 services: active-directory-b2c
-author: PatAltimore
-ms.author: patricka
-ms.reviewer: parja
+author: davidmu1
+manager: mtillman
+ms.author: davidmu
 ms.date: 3/01/2018
 ms.custom: mvc
 ms.topic: tutorial
-ms.service: active-directory-b2c
-ms.openlocfilehash: ef92a7fbbc3b84195eff251b0224cb0fd51a6c88
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.service: active-directory
+ms.component: B2C
+ms.openlocfilehash: 01c13b214d40fba278ce788047e2b158adc20287
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711591"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>教學課程：使用 Azure Active Directory B2C 授與從傳統型應用程式存取 Node.js Web API 的權限
 
@@ -106,7 +108,7 @@ Web API 資源必須先在您的租用戶中註冊，才能接受及回應受到
 
     ![選取應用程式的範圍](media/active-directory-b2c-tutorials-web-api/selecting-scopes-for-app.png)
 
-5. 按一下 [SERVICEPRINCIPAL] 。
+5. 按一下 [確定]。
 
 您的 [我的範例 WPF 應用程式] 會進行註冊以呼叫受保護的 [我的範例 Node.js Web API]。 使用者會透過 Azure AD B2C 進行[驗證](../active-directory/develop/active-directory-dev-glossary.md#authentication)以使用 WPF 傳統型應用程式。 傳統型應用程式會取得 Azure AD B2C 的[授權授與](../active-directory/develop/active-directory-dev-glossary.md#authorization-grant)，以存取受保護的 Web API。
 

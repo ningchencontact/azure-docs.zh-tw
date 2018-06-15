@@ -14,23 +14,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 88505126389f51f59cf0538da8b72139f86e58d5
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d3e64cc232aa01a5619a55290f9b07421165a6d5
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34698725"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>教學課程︰以 Azure Active Directory 設定 ServiceNow 來自動佈建使用者
 
 本教學課程旨在說明您需要在 ServiceNow 和 Azure AD 中執行的步驟，以將使用者帳戶從 Azure AD 自動佈建和取消佈建至 ServiceNow。
 
+> [!NOTE]
+> 本教學課程會說明建置在 Azure AD 使用者佈建服務之上的連接器。 如需此服務的用途、運作方式和常見問題等重要詳細資訊，請參閱[使用 Azure Active Directory 對 SaaS 應用程式自動佈建和取消佈建使用者](./active-directory-saas-app-provisioning.md)。
+
 ## <a name="prerequisites"></a>先決條件
 
-本教學課程中說明的案例假設您已經具有下列項目：
+若要設定 Azure AD 與 ServiceNow 的整合作業，您需要下列項目：
 
-*   Azure Active Directory 租用戶。
-*   您必須擁有 ServiceNow for Work 或 ServiceNow for Education 的有效租用戶。 您可以使用免費試用帳戶來使用任何服務。
-*   具有小組系統管理員權限的 ServiceNow 使用者帳戶。
+- Azure AD 訂用帳戶
+- 若為 ServiceNow，ServiceNow 的執行個體或租用戶 (Calgary 版本或更新版本)
+- 若為 ServiceNow Express，ServiceNow Express 的執行個體 (Helsinki 版本或更新版本)
+
+> [!NOTE]
+> 若要測試本教學課程中的步驟，我們不建議使用生產環境。
+
+若要測試本教學課程中的步驟，您應該遵循這些建議：
+
+- 除非必要，否則請勿使用生產環境。
+- 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
+
 
 ## <a name="assigning-users-to-servicenow"></a>將使用者指派給 ServiceNow
 

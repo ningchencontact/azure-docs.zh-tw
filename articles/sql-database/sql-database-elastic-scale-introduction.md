@@ -6,14 +6,15 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 4944c1c017dbb59b7880a73bce7d0a9b0d972b3f
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: e8a07f1a1d172a96646a5c71a6267239e159c267
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646563"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>使用 Azure SQL Database 相應放大
 您可以使用 **彈性資料庫** 工具，輕鬆地向外擴充 Azure SQL 資料庫。 這些工具和功能可讓您使用 **Azure SQL Database** 中的資料庫資源，建立交易式工作負載的解決方案，尤其是軟體即服務 (SaaS) 應用程式。 彈性資料庫功能的組成如下：
