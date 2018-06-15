@@ -3,16 +3,17 @@ title: 建立 .odc 檔案以連線至 Azure Analysis Services 伺服器 | Micros
 description: 了解如何建立 Office 資料連線檔案 ，以在 Azure 連線至 Analysis Services 伺服器並從該伺服器中取得資料。
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4cf7257f5eb51f82bb129aa57231339a28991193
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8f3b6ae8cf0017a1695b4a01a2ae606f7b64c6aa
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598805"
 ---
 # <a name="create-an-office-data-connection-file"></a>建立 Office 資料連線檔案
 

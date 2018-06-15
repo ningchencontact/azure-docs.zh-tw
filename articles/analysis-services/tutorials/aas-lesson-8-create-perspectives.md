@@ -3,16 +3,17 @@ title: Azure Analysis Services 教學課程第 8 課：建立檢視方塊 | Micr
 description: 說明如何在 Azure Analysis Services 教學課程專案中建立檢視方塊。
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: bb6599fefaa03e2ca0fec2788dca27240dbad8c6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 865959a5595de7b5ac65a9915e484182a820b5b4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598703"
 ---
 # <a name="create-perspectives"></a>建立檢視方塊
 

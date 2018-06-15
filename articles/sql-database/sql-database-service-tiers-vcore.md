@@ -5,20 +5,21 @@ services: sql-database
 author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/14/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 9abe7743906064d182453fea403ff94a097c3558
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d37bf4fd131e700d4f4c3b07c84754b4014ca228
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212376"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34648348"
 ---
 # <a name="vcore-based-purchasing-model-for-azure-sql-database-preview"></a>Azure SQL Database 以虛擬核心為基礎的購買模型 (預覽)
 
-[Azure SQL Database](sql-database-technical-overview.md) 針對計算、儲存體和 IO 資源提供了兩種購買模型：以 DTU 為基礎的購買模型和以虛擬核心為基礎的購買模型 (預覽)。 下列資料表和圖表會比較和對照這兩種購買模型。
+
+  [Azure SQL Database](sql-database-technical-overview.md) 針對計算、儲存體和 IO 資源提供了兩種購買模型：以 DTU 為基礎的購買模型和以虛擬核心為基礎的購買模型 (預覽)。 下列資料表和圖表會比較和對照這兩種購買模型。
 
 > [!IMPORTANT]
 > 如需以 DTU 為基礎的購買模型，請參閱[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)。
@@ -34,7 +35,7 @@ ms.locfileid: "34212376"
 
 ## <a name="vcore-based-purchasing-model--preview"></a>以虛擬核心為基礎的購買模型 (預覽)
 
-虛擬核心代表提供了選項讓您在各硬體世代間進行選擇的邏輯 CPU。 以虛擬核心為基礎的購買模型 (預覽) 可讓您以彈性、可控制且透明的方式耗用個別資源，並讓您直接將內部部署工作負載需求平移到雲端。 此模型可讓您根據工作負載需求，進行計算、記憶體和儲存體調整。 在以虛擬核心為基礎的購買模型 (預覽) 中，客戶可以就[單一資料庫](sql-database-single-database-resources.md)與[彈性集區](sql-database-elastic-pool.md)選擇一般用途和商務關鍵性服務層 (預覽)。 
+虛擬核心代表可以選擇使用的邏輯 CPU，可在各硬體世代間進行選擇。 以虛擬核心為基礎的購買模型 (預覽) 可讓您以彈性、可控制且透明的方式耗用個別資源，並讓您直接將內部部署工作負載需求平移到雲端。 此模型可讓您根據工作負載需求，進行計算、記憶體和儲存體調整。 在以虛擬核心為基礎的購買模型 (預覽) 中，客戶可以就[單一資料庫](sql-database-single-database-resources.md)與[彈性集區](sql-database-elastic-pool.md)選擇一般用途和商務關鍵性服務層 (預覽)。 
 
 服務層是以一系列的效能等級、高可用性設計、錯誤隔離、儲存體類型和 IO 範圍來做區分。 客戶必須個別設定所需的儲存體和備份保留期。 在使用虛擬核心模型時，單一資料庫和彈性集區可透過[適用於 SQL Server 的 Azure Hybrid Use Benefit](../virtual-machines/windows/hybrid-use-benefit-licensing.md) 來節省成本，最多可省下 30%。
 
@@ -106,7 +107,8 @@ ms.locfileid: "34212376"
 為了支援 SQL Database 的還原時間點 (PITR) 和長期保留 (LTR) 功能，系統會配置儲存體供資料庫備份使用。 這個儲存體會分別配置給每個資料庫，並以兩個不同的每一資料庫費用來計費。 
 
 - **PITR**：個別的資料庫備份會自動複製到 RA-GRS 儲存體。 儲存體大小會隨著新備份的建立而動態地增加。  每週完整備份、每日差異備份以及每 5 分鐘複製一次的交易記錄備份都使用此儲存體。 儲存體耗用量取決於資料庫的變動率及保留期限。 您可以為每個資料庫設定 7 到 35 天的不同保留期限。 系統會提供等於資料大小 1 倍的最小儲存體數量，且無額外費用。 對於大多數資料庫來說，此數量就足以儲存 7 天份的備份。
-- **LTR**：SQL Database 提供選項讓您設定完整備份的長期保留期，最長可達 10 年之久。 如果啟用 LTR 原則，這些備份會自動儲存在 RA-GRS 儲存體中，但您可以控制備份的複製頻率。 為了符合不同的合規性需求，您可以針對每週、每月和/或每年備份選取不同的保留期限。 此設定會定義要將多少儲存體用於 LTR 備份。 您可以使用 LTR 定價計算機來估算 LTR 儲存體的成本。 如需詳細資訊，請參閱[長期保存](sql-database-long-term-retention.md)。
+- 
+  **LTR**：SQL Database 提供選項讓您設定完整備份的長期保留期，最長可達 10 年之久。 如果啟用 LTR 原則，這些備份會自動儲存在 RA-GRS 儲存體中，但您可以控制備份的複製頻率。 為了符合不同的合規性需求，您可以針對每週、每月和/或每年備份選取不同的保留期限。 此設定會定義要將多少儲存體用於 LTR 備份。 您可以使用 LTR 定價計算機來估算 LTR 儲存體的成本。 如需詳細資訊，請參閱[長期保存](sql-database-long-term-retention.md)。
 
 ## <a name="azure-hybrid-use-benefit"></a>Azure Hybrid Use Benefit
 
