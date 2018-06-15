@@ -1,20 +1,20 @@
 ---
 title: 部署和監視適用於 Azure IoT Edge 的模組 | Microsoft Docs
 description: 管理在 Edge 裝置上執行的模組
-services: iot-edge
 keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 12/07/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 6d024dfdd661d6bebe7d163b96659d6e169cc5cc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+services: iot-edge
+ms.openlocfilehash: 941568f697ca507ce190bab1b06eb0d426672fa1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33770601"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630709"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>大規模部署和監視 IoT Edge 模組 - 預覽
 

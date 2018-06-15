@@ -1,19 +1,19 @@
 ---
 title: 了解 Azure IoT 中心應用程式的裝置範本版本設定 | Microsoft Docs
 description: 藉由建立新版本來反覆使用裝置範本，而不會影響您的即時連線裝置
-services: iot-central
 author: sandeeppujar
 ms.author: sandeepu
 ms.date: 01/19/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 3a399b6b54f8da9c48b4bdfe7e98a527262bb174
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: b125d822596675b138560c14c76f9a3120ce3424
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201086"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628822"
 ---
 # <a name="create-a-new-device-template-version"></a>建立新的裝置範本版本
 

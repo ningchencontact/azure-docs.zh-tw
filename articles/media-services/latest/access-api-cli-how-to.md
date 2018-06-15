@@ -12,11 +12,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: a4a7c59e93b860245d67695de90fbae2becac3e9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9295c3f9dfabc8ef7749758e926df443843720a1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639770"
 ---
 # <a name="access-azure-media-services-api-with-cli-20"></a>使用 CLI 2.0 存取 Azure 媒體服務 API
  
@@ -47,3 +48,7 @@ ms.lasthandoff: 05/07/2018
 
 > [!div class="nextstepaction"]
 > [串流處理檔案](stream-files-dotnet-quickstart.md)
+
+## <a name="see-also"></a>另請參閱
+
+[CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)

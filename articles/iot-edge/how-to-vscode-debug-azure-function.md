@@ -1,20 +1,19 @@
 ---
 title: Azure IoT Edge 的偵錯函式模組 | Microsoft Docs
 description: 使用 Visual Studio Code 利用 Azure IoT Edge 進行 C# Azure Functions 偵錯
-services: iot-edge
-keywords: ''
 author: shizn
-manager: timlt
+manager: ''
 ms.author: xshi
-ms.date: 3/20/2018
-ms.topic: article
+ms.date: 03/20/2018
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: cd870d8f5c3fff87b121ab777a086f21df07cfbc
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+services: iot-edge
+ms.openlocfilehash: 52c5afbd37459267181cfc1d8d8d2620aff37913
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34165660"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630777"
 ---
 # <a name="use-visual-studio-code-to-debug-azure-functions-with-azure-iot-edge"></a>使用 Visual Studio Code 為 Azure IoT Edge 上的 Azure Functions 偵錯
 

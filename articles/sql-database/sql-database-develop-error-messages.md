@@ -7,15 +7,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: bf94e99d84b7f5b727b185209ba0288096b30607
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: af0cb98d679125d20b3f4b7819012bee70e04cd1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195323"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645492"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL Database 用戶端應用程式的 SQL 錯誤碼：資料庫連線錯誤和其他問題
 
@@ -47,7 +47,7 @@ Azure 基礎結構能夠在 SQL Database 服務出現繁重的工作負載時動
 ### <a name="transient-fault-error-codes"></a>暫時性錯誤錯誤碼
 下列錯誤為暫時性錯誤，並且應該在應用程式邏輯中重試： 
 
-| 錯誤碼 | 嚴重性 | 描述 |
+| 錯誤碼 | 嚴重性 | 說明 |
 | ---:| ---:|:--- |
 | 4060 |16 |無法開啟登入所要求的資料庫 "%.&#x2a;ls"。 登入失敗。 |
 | 40197 |17 |服務處理您的要求時發生錯誤。 請再試一次。 錯誤代碼 %d。<br/><br/>當服務因為軟體或硬體升級、硬體故障或任何其他容錯移轉問題而關閉時，您會收到這個錯誤。 內嵌在錯誤 40197 訊息中的錯誤代碼 (%d) 提供發生的失敗或容錯移轉種類的其他資訊。 錯誤代碼會內嵌在錯誤 40197 的訊息錯誤範例包括 40020、40143、40166 和 40540。<br/><br/>重新連線到您的 SQL Database 伺服器時，會自動連線至健康情況良好的資料庫複本。 您的應用程式必須攔截錯誤 40197、記錄訊息中內嵌的錯誤碼 (%d) 以進行疑難排解，並嘗試重新連接到 SQL Database 直到資源可供使用，並再次建立您的連線。 |
@@ -61,7 +61,7 @@ Azure 基礎結構能夠在 SQL Database 服務出現繁重的工作負載時動
 ## <a name="database-copy-errors"></a>資料庫複製錯誤
 在 Azure SQL Database 中複製資料庫時，可能會發生下列錯誤。 如需詳細資訊，請參閱 [複製 Azure SQL Database](sql-database-copy.md)。
 
-| 錯誤碼 | 嚴重性 | 描述 |
+| 錯誤碼 | 嚴重性 | 說明 |
 | ---:| ---:|:--- |
 | 40635 |16 |IP 位址 '%.&#x2a;ls' 的用戶端已暫時停用。 |
 | 40637 |16 |建立資料庫副本目前已停用。 |
@@ -89,7 +89,7 @@ Azure 基礎結構能夠在 SQL Database 服務出現繁重的工作負載時動
 
 * 以下可提供更詳細的資訊︰[Azure SQL Database 資源限制](sql-database-service-tiers-dtu.md)。
 
-| 錯誤碼 | 嚴重性 | 描述 |
+| 錯誤碼 | 嚴重性 | 說明 |
 | ---:| ---:|:--- |
 | 10928 |20 |資源識別碼：%d。 資料庫的 %s 限制是 %d，且已達到。 如需詳細資訊，請參閱 [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637)。<br/><br/>資源識別碼可指出已達到限制的資源。 對於背景工作執行緒，資源識別碼 = 1。 對於工作階段，資源識別碼 = 2。<br/><br/>如需有關此錯誤以及其解決方法的詳細資訊，請參閱：<br/>• [Azure SQL Database 資源限制](sql-database-service-tiers-dtu.md)。 |
 | 10929 |20 |資源識別碼：%d。 %s 最小保證是 %d，最大限制是 %d，而資料庫的目前使用量是 %d。 但伺服器目前太忙碌，無法針對此資料庫支援大於 %d 的要求。 如需詳細資訊，請參閱 [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637)。 或者，請稍後再試一次。<br/><br/>資源識別碼可指出已達到限制的資源。 對於背景工作執行緒，資源識別碼 = 1。 對於工作階段，資源識別碼 = 2。<br/><br/>如需有關此錯誤以及其解決方法的詳細資訊，請參閱：<br/>• [Azure SQL Database 資源限制](sql-database-service-tiers-dtu.md)。 |
@@ -136,7 +136,7 @@ Azure 基礎結構能夠在 SQL Database 服務出現繁重的工作負載時動
 ## <a name="general-errors"></a>一般錯誤
 下列錯誤不屬於任何先前的類別。
 
-| 錯誤碼 | 嚴重性 | 描述 |
+| 錯誤碼 | 嚴重性 | 說明 |
 | ---:| ---:|:--- |
 | 15006 |16 |(AdministratorLogin) 不是有效的名稱，因為它包含無效字元。 |
 | 18452 |14 |登入失敗。 登入是來自不受信任的網域並且無法用於 Windows 驗證。%.&#x2a;ls (這個版本的 SQL Server 中不支援 Windows 登入)。 |

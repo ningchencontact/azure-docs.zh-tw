@@ -1,26 +1,19 @@
 ---
 title: 連線的處理站解決方案的概觀 - Azure | Microsoft Docs
 description: 說明 Azure IoT 連線的處理站解決方案加速器。
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: dc55eacaec926d8a3776f231714ee34545ce1ad0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 1dbaf4978bd23058d37239ba97bfe8583dc1f2c9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366183"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627085"
 ---
 # <a name="get-started-with-the-connected-factory-solution-accelerator"></a>開始使用連線的處理站解決方案加速器
 
@@ -295,10 +288,10 @@ OEE 會使用重要生產相關作業參數來評比製造程序的效率。 OEE
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-preconfigured-solutions]:iot-accelerators-what-are-solution-accelerators.md
-[lnk-azureiotsuite]: https://www.azureiotsuite.com
+[lnk-azureiotsuite]: https://www.azureiotsolutions.com
 [lnk-portal]: http://portal.azure.com/
 [lnk-cfgithub]: https://github.com/Azure/azure-iot-connected-factory
 [lnk-rm-walkthrough]:iot-accelerators-connected-factory-sample-walkthrough.md
 [lnk-connect-cf]:iot-accelerators-connected-factory-gateway-deployment.md
-[lnk-permissions]: ../iot-suite/iot-suite-v1-permissions.md
-[lnk-faq]: ../iot-suite/iot-suite-v1-faq.md
+[lnk-permissions]: iot-accelerators-permissions.md
+[lnk-faq]: iot-accelerators-faq.md
