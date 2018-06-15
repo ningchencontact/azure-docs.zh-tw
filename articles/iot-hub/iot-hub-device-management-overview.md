@@ -1,24 +1,19 @@
 ---
 title: 透過 Azure IoT 中樞進行裝置管理 | Microsoft Docs
 description: Azure IoT 中樞的裝置管理概觀︰企業裝置生命週期及裝置管理模式，例如重新啟動、恢復出廠預設值、韌體更新、設定、裝置對應項、查詢、作業。
-services: iot-hub
-documentationcenter: ''
 author: bzurcher
-manager: timlt
-editor: ''
-ms.assetid: a367e715-55f6-4593-bd68-7863cbf0eb81
+manager: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: briz
-ms.openlocfilehash: 4fe4328314e23bbd1ace13e935f82336e1e602a9
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 82a3ebcf4d208b550a792deddba5ce214105af13
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34632742"
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>IoT 中樞的裝置管理概觀
 

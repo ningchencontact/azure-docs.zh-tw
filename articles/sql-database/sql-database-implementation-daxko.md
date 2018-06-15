@@ -6,14 +6,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: reference
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 3779b32aa1397b2ca0e05e2627241c0bfb7a8622
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: b7c1d4f1b8ca0f8899ebff8178a481c7dd1d5779
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34648882"
 ---
 # <a name="daxkocsi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko/CSI 使用 Azure 來加速其開發週期及提升其客戶服務和效能
 ![Daxko CSI/標誌](./media/sql-database-implementation-daxko/csidaxkologo25.png)
@@ -26,19 +27,19 @@ Daxko/CSI Software 面臨挑戰︰歸功於其全方位企業軟體解決方案�
 
 Molina 繼續說道：「我們的客戶立即感受到改變。 在使用彈性集區之前，他們在高載期間有時會遇到逾時和其他問題。 在使用 Azure 彈性集區之後，他們可以視需要激增用量，而且使用軟體也沒有任何問題。」
 
-除了改善客戶的效能之外，Azure 彈性集區也釋出了 CSI Software 資源，以專注於開發新的服務和功能，而不是處理作業和管理。 這些 IT 資源協助了 CSI Software 改進其企業軟體方案 SpectrumNG，以幫助吸引健身房會員參與互動、提升員工效率，以及讓員工和會員能夠透過行動裝置存取互動式工作和即時通知。
+除了改善客戶的效能之外，Azure 彈性集區也釋出了 CSI Software 資源，以專注於開發新的服務和功能，而不是處理作業和管理。 這些 IT 資源協助了 CSI Software 改進其企業軟體供應項目 SpectrumNG，以幫助吸引健身房會員參與互動、提升員工效率，以及讓員工和會員能夠透過行動裝置存取互動式工作和即時通知。
 
 此外，Azure 也透過啟用自動化選項，協助 CSI Software 加速及改進開發和品質保證 (QA) 週期。 透過該公司的 Azure 實作，建置管理員只要按一下按鈕，便能封裝元件。 如 Molina 所述：「QA 現在能夠於發行週期內，在 Azure 中部署到精確模擬生產環境堆疊的測試環境。 我們可以將組建立即部署到開發環境來檢查變更。 這對我們而言是一大優點，因為之前我們沒有類似的環境可供進行測試。」
 
 ## <a name="offloading-to-the-cloud"></a>移轉至雲端
 在移到雲端之前，CSI Software 已在其休士頓當地的資料中心成功建立自己的多租用戶基礎結構。 隨著公司的擴大，它在採購、佈建及維護用以支援其客戶所需的所有軟硬體方面，面臨了不斷增加難題。 增補 IT 人員來處理作業成為另一個瓶頸，導致拖慢佈建新資源及向客戶推出新服務的速度。
 
-為了消除該額外負荷，CSI Software 研究了雲端選項，以便能夠將焦點放在程式碼，而不是作業。 該公司發現許多頂尖的雲端提供者都只提供基礎結構即服務 (IaaS) 解決方案，而這種解決方案仍然需要大量 IT 人員來管理 IaaS 堆疊。 最後，CSI Software 判斷 Azure PaaS 解決方案是最符合其需求的選項。 Molina 解釋道：「Azure 為我們排除了硬體和系統軟體的障礙，讓我們可以專注於我們的軟體方案，同時也減少我們 IT 額外負荷。」
+為了消除該額外負荷，CSI Software 研究了雲端選項，以便能夠將焦點放在程式碼，而不是作業。 該公司發現許多頂尖的雲端提供者都只提供基礎結構即服務 (IaaS) 解決方案，而這種解決方案仍然需要大量 IT 人員來管理 IaaS 堆疊。 最後，CSI Software 判斷 Azure PaaS 解決方案是最符合其需求的選項。 Molina 解釋道：「Azure 為我們排除了硬體和系統軟體的障礙，讓我們可以專注於我們的軟體供應項目，同時也減少我們 IT 額外負荷。」
 
 ## <a name="making-the-transition-to-azure"></a>轉換至 Azure
 在選取 Azure 作為其 PaaS 解決方案之後，CSI Software 便開始將其後端基礎結構和資料庫移轉至雲端。 在使用 Azure 之前，SpectrumNG 客戶必須安裝用戶端應用程式，才能與位於後端的 Windows Communication Foundation (WCF) 服務進行通訊。 Molina 表示：「雖然有些客戶將所有項目都裝載在自己的資料中心內，但是我們是將產品建置成多租用戶產品。 我們使用 SQL Server 作為資料存放區，將所有項目都裝載在休士頓的資料中心內。」
 
-「我們的產品方案也包含一個成員面向入口網站 (以 ASP.net 撰寫)，其設計目的是要以白標籤方式對應客戶的網站空間；還包含一個 SOAP API，可用來支援線上頁面和任何協力廠商整合。」
+「我們的產品供應項目也包含一個成員面向入口網站 (以 ASP.net 撰寫)，其設計目的是要以白標籤方式對應客戶的網站空間；還包含一個 SOAP API，可用來支援線上頁面和任何協力廠商整合。」
 
 將架構移轉至雲端不需花費很長的時間。 Molina 表示：「大部分的心力是用在修改我們讀取組態檔資訊的方式、集中的連接字串修改，以及將發行版本的封裝、上傳和部署自動化。」
 

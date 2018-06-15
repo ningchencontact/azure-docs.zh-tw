@@ -1,21 +1,21 @@
 ---
-title: "如何將事件中樞的事件來源新增至 Azure Time Series Insights | Microsoft Docs"
-description: "本文說明如何將與事件中樞連線的事件來源新增至時間序列深入解析環境。"
-services: time-series-insights
+title: 如何將事件中樞的事件來源新增至 Azure Time Series Insights | Microsoft Docs
+description: 本文說明如何將與事件中樞連線的事件來源新增至時間序列深入解析環境。
 ms.service: time-series-insights
+services: time-series-insights
 author: sandshadow
 ms.author: edett
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/21/2017
-ms.openlocfilehash: c07c847784eb13c62e350e9c655e027e7df696a3
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: ed151160bd8bd0f0241e1a728fab53570e33a201
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656012"
 ---
 # <a name="how-to-add-an-event-hub-event-source-to-time-series-insights-environment"></a>如何將事件中樞事件來源新增至時間序列深入解析環境
 

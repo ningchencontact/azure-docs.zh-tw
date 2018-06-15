@@ -1,22 +1,22 @@
 ---
 title: 如何使用 Azure Resource Manager 範本管理 Azure 時間序列深入解析環境 | Microsoft Docs
 description: 本文說明如何使用 Azure Resource Manager 以程式設計方式管理 Azure 時間序列深入解析環境。
-services: time-series-insights
 ms.service: time-series-insights
+services: time-series-insights
 author: sandshadow
 ms.author: edett
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: anshan
 ms.devlang: csharp
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/08/2017
-ms.openlocfilehash: 8355248f28a019ef4712f542c8eac731362330ce
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 99aabc01132da60a1b09fcf65f439b8e084bbffa
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34651959"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本建立時間序列深入解析資源
 
@@ -92,7 +92,7 @@ Resource Manager 範本是一個 JSON 檔案，定義了資源群組中資源的
    | --- | --- |
    | eventHubNamespaceName | 來源事件中樞的命名空間。 |
    | eventHubName | 來源事件中樞的名稱。 |
-   | consumerGroupName | 「時間序列深入解析」服務將用來從事件中樞讀取資料的取用者群組名稱。 **注意：**為避免資源爭用，此取用者群組必須專用於「時間序列深入解析」服務，而不和其他讀取者共用。 |
+   | consumerGroupName | 「時間序列深入解析」服務將用來從事件中樞讀取資料的取用者群組名稱。 **注意：** 為避免資源爭用，此取用者群組必須專用於「時間序列深入解析」服務，而不和其他讀取者共用。 |
    | environmentName | 環境的名稱。 名稱不得包含：'<', '>', '%', '&', ':', '\\', '?', '/' 和任何控制字元。 允許所有其他字元。|
    | eventSourceName | 事件來源子系資源的名稱。 名稱不得包含：'<', '>', '%', '&', ':', '\\', '?', '/' 和任何控制字元。 允許所有其他字元。 |
 
@@ -100,7 +100,7 @@ Resource Manager 範本是一個 JSON 檔案，定義了資源群組中資源的
 
    | 參數 | 說明 |
    | --- | --- |
-   | existingEventHubResourceId | 現有事件中樞的選擇性資源識別碼，將透過事件來源連線至「時間序列深入解析」環境。 **注意：**部署範本的使用者必須擁有在事件中樞中執行 listkey 作業的權限。 如果沒有傳遞任何值，將會由範本建立新的事件中樞。 |
+   | existingEventHubResourceId | 現有事件中樞的選擇性資源識別碼，將透過事件來源連線至「時間序列深入解析」環境。 **注意：** 部署範本的使用者必須擁有在事件中樞中執行 listkey 作業的權限。 如果沒有傳遞任何值，將會由範本建立新的事件中樞。 |
    | environmentDisplayName | 要在工具或使用者介面中顯示的選擇性易記名稱，而不是環境名稱。 |
    | environmentSkuName | SKU 的名稱。 如需詳細資訊，請參閱[時間序列深入解析定價頁面](https://azure.microsoft.com/pricing/details/time-series-insights/)。  |
    | environmentSkuCapacity | SKU 的單位容量。 如需詳細資訊，請參閱[時間序列深入解析定價頁面](https://azure.microsoft.com/pricing/details/time-series-insights/)。|

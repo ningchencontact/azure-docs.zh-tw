@@ -6,17 +6,18 @@ author: joesackmsft
 manager: craigg
 ms.service: sql-database
 ms.custom: migrate
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: 96bc75e15c99897414fad8c138c8a34ef790af21
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e0c849efa402bdfcf3ed6091cccf47ca722f23d7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650106"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>雲端中的新 DBA - 在 Azure SQL Database 中管理您的資料庫
 
@@ -66,7 +67,8 @@ SQL Database 謹慎對待安全性和隱私權。 SQL Database 於資料庫層�
 - 保護實際資料 ([透明資料加密 [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)和 [Always Encrypted [AE]](/sql/relational-databases/security/encryption/always-encrypted-database-engine))。 
 - 控制對於敏感和特殊權限資料 ([資料列層級安全性](/sql/relational-databases/security/row-level-security)和[動態資料遮罩](/sql/relational-databases/security/dynamic-data-masking)) 的存取權。
 
-[Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)提供跨越在 Azure、內部部署和其他雲端中執行之工作負載的集中式安全性管理。 您可以檢視是否已在所有資源上設定必要的 SQL Database 保護 (例如[稽核](sql-database-auditing.md)和[透明資料加密 [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql))，並根據自己的需求建立原則。
+
+  [Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)提供跨越在 Azure、內部部署和其他雲端中執行之工作負載的集中式安全性管理。 您可以檢視是否已在所有資源上設定必要的 SQL Database 保護 (例如[稽核](sql-database-auditing.md)和[透明資料加密 [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql))，並根據自己的需求建立原則。
 
 ### <a name="what-user-authentication-methods-are-offered-in-sql-database"></a>SQL Database 提供哪些使用者驗證方法？
 SQL Database 提供[兩個驗證方法](sql-database-control-access.md#authentication)： 
