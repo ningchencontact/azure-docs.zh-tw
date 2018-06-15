@@ -1,24 +1,26 @@
 ---
-title: "比較 Azure AD Join 與 Azure Active Directory Domain Services | Microsoft Docs"
-description: "在 Azure AD Join 與 Azure AD Domain Services 之間做決定"
+title: 比較 Azure AD Join 與 Azure Active Directory Domain Services | Microsoft Docs
+description: 在 Azure AD Join 與 Azure AD Domain Services 之間做決定
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 31a71d36-58c1-4839-b958-80da0c6a77eb
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: fb28c7a66d26119444dd720c2e134f2818d46cfc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5f2d09e896a41647ef3211a754a4c7aa403d8cea
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34587848"
 ---
 # <a name="choose-between-azure-active-directory-join-and-azure-active-directory-domain-services"></a>Azure Active Directory 聯結和 Azure Active Directory Domain Services 之間的選擇
 本文將說明 Azure Active Directory (AD) 聯結和 Azure AD Domain Services 之間的差異，並協助您根據您的使用案例進行選擇。
@@ -58,7 +60,7 @@ Azure AD Domain Services 在 Azure 虛擬網路中提供受控 AD 網域。 您�
 | 在目錄中的表示法 | Azure AD 目錄中的裝置物件。 | AAD DS 受控網域中的電腦物件。 |
 | 驗證 | 以 OAuth/OpenID Connect 為基礎的通訊協定 | Kerberos、NTLM 通訊協定 |
 | 管理 | Intune 等行動裝置管理 (MDM) 軟體 | 群組原則 |
-| 網路 | 透過網際網路運作 | 機器需要在與受控網域相同的虛擬網路上。|
+| 網路功能 | 透過網際網路運作 | 機器需要在與受控網域相同的虛擬網路上。|
 | 適用於... | 使用者行動裝置或桌面裝置 | 已部署在 Azure 中的伺服器虛擬機器 |
 
 

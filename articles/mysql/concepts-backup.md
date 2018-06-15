@@ -1,19 +1,20 @@
 ---
-title: "在適用於 MySQL 的 Azure 資料庫中備份與還原"
-description: "了解自動備份和還原適用於 MySQL 的 Azure 資料庫資料庫。"
+title: 在適用於 MySQL 的 Azure 資料庫中備份與還原
+description: 了解自動備份和還原適用於 MySQL 的 Azure 資料庫資料庫。
 services: mysql
 author: kamathsun
 ms.author: sukamat
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 1cc2c6ccb4459c5c942297cab46378502b63c5bc
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: bdc9a0ef393b55563691d7a52f8fa074eacc4594
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264471"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>在適用於 MySQL 的 Azure 資料庫中備份與還原
 
@@ -52,7 +53,7 @@ ms.lasthandoff: 02/28/2018
 預估的復原時間取決於數個因素，包括資料庫大小、交易記錄大小、網路頻寬，以及在相同區域中同時進行復原的資料庫總數。 復原時間通常不到 12 小時。
 
 > [!IMPORTANT]
-> 如果您刪除伺服器，所有屬於該伺服器的資料庫也會一併刪除且無法復原。 您無法還原已刪除的伺服器。
+> 如果您刪除伺服器，所有屬於該伺服器的資料庫也會一併刪除，且無法復原。 您無法還原已刪除的伺服器。
 
 ### <a name="point-in-time-restore"></a>還原時間點
 

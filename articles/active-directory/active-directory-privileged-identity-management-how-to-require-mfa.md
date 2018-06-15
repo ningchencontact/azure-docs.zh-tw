@@ -3,26 +3,27 @@ title: 如何要求進行多重要素驗證 | Microsoft Docs
 description: 了解如何利用  Azure Active Directory Privileged Identity Management 擴充功能，為特殊權限的身分識別強制啟用 Multi-Factor Authentication (MFA)。
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: protection
 ms.date: 06/06/2017
-ms.author: curtand
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 45bff3064ba41588595b59e6f8db0520aac73d83
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d0a9abc145a4d108e48bc81cbb6a849c62e5862b
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234007"
 ---
 # <a name="how-to-require-mfa-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management：如何要求 MFA
 建議您針對所有系統管理員都要求進行多重要素驗證 (MFA)。 這可降低密碼遭入侵所導致的攻擊風險。
 
-您可以要求使用者在登入時完成 MFA 挑戰。 部落格文章 [MFA for Office 365 and MFA for Azure (MFA for Office 365 和 MFA for Azure)](https://blogs.technet.microsoft.com/ad/2014/02/11/mfa-for-office-365-and-mfa-for-azure/) 比較 Office 和 Azure 訂用帳戶所包含的內容，以及 Microsoft Azure Multi-Factor Authentication 優惠提供的功能。
+您可以要求使用者在登入時完成 MFA 挑戰。 部落格文章 [MFA for Office 365 and MFA for Azure (MFA for Office 365 和 MFA for Azure)](https://blogs.technet.microsoft.com/ad/2014/02/11/mfa-for-office-365-and-mfa-for-azure/) 比較 Office 和 Azure 訂用帳戶所包含的內容，以及 Microsoft Azure Multi-Factor Authentication 供應項目提供的功能。
 
 您也可以要求使用者在啟用 Azure AD PIM 中的角色時，完成 MFA 挑戰。 如此一來，如果使用者沒有在登入時完成 MFA 挑戰，PIM 就會提示他們執行這項作業。
 

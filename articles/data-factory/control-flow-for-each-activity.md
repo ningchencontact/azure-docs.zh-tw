@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 2eaa4f6bb49867e0f0f061116551794d6f1dd0ca
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2240ebc7fb4fd39ea063240987fec64f26608a8a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34619043"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Azure Data Factory 中的 ForEach 活動
 ForEach 活動定義管線中重複的控制流程。 這個活動用來反覆查詢集合，並在迴圈中執行指定的活動。 此活動的迴圈實作與程式設計語言中的 Foreach 迴圈結構相似。
@@ -87,7 +88,7 @@ isSequential | 指定應該循序或以平行方式執行迴圈。  以平行方
 在 ForEach 活動中，為屬性**項目**提供可反覆查詢的陣列。 使用 `@item()` 反覆查詢 ForEach 活動中的單一列舉。 例如，如果**項目**是陣列：[1, 2, 3]，`@item()` 在第一個反覆項目中會傳回 1，在第二個反覆項目中會傳回 2，在第三個反覆項目中會傳回 3。
 
 ## <a name="iterating-over-a-single-activity"></a>反覆查詢單一活動
-**案例：**從 Azure Blob 中相同的來源檔案複製到 Azure Blob 中的多個目的地檔案。
+**案例：** 從 Azure Blob 中相同的來源檔案複製到 Azure Blob 中的多個目的地檔案。
 
 ### <a name="pipeline-definition"></a>管線定義
 
@@ -238,7 +239,7 @@ isSequential | 指定應該循序或以平行方式執行迴圈。  以平行方
 
 ```
 ### <a name="example"></a>範例
-**案例：**使用執行管線活動反覆查詢 ForEach 活動內的 InnerPipeline。 內部管線使用參數化的結構描述定義複製。
+**案例：** 使用執行管線活動反覆查詢 ForEach 活動內的 InnerPipeline。 內部管線使用參數化的結構描述定義複製。
 
 #### <a name="master-pipeline-definition"></a>主要管線定義
 

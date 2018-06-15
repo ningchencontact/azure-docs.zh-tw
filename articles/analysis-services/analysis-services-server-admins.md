@@ -3,16 +3,17 @@ title: 管理 Azure Analysis Services 中的伺服器管理員 | Microsoft Docs
 description: 了解如何在 Azure 中管理 Analysis Services 伺服器的伺服器管理員。
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: def09f2853f761f3fefca80f341e6cc0557bac86
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 59aaf07edf387d40f47d7d82dcb116802a003dc1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596163"
 ---
 # <a name="manage-server-administrators"></a>管理伺服器管理員
 對於伺服器所在的租用戶，伺服器管理員必須是 Azure Active Directory (Azure AD) 中有效的使用者或群組。 在 Azure 入口網站，或 SSMS 的 [伺服器屬性] 中，您可以使用伺服器的 **Analysis Services 管理員**來管理伺服器管理員。 

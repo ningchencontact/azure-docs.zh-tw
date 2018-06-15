@@ -1,26 +1,28 @@
 ---
-title: "從 PowerApps 呼叫函式 | Microsoft Docs"
-description: "建立自訂連接器，然後使用該連接器來呼叫函式。"
+title: 從 PowerApps 呼叫函式 | Microsoft Docs
+description: 建立自訂連接器，然後使用該連接器來呼叫函式。
 services: functions
-keywords: "雲端應用程式, 雲端服務, PowerApps, 商務程序, 商務應用程式"
-documentationcenter: 
-author: mgblythe
+keywords: 雲端應用程式, 雲端服務, PowerApps, 商務程序, 商務應用程式
+documentationcenter: ''
+author: ggailey777
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
-ms.author: mblythe
-ms.custom: 
-ms.openlocfilehash: 28c2fc8246851807e1f65911d6a5d56322c5ea16
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: glenga
+ms.reviewer: sunayv
+ms.custom: ''
+ms.openlocfilehash: 02cd491be5336abe708cce0f6e268b38514d4e88
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234949"
 ---
 # <a name="call-a-function-from-powerapps"></a>從 PowerApps 呼叫函式
 [PowerApps](https://powerapps.microsoft.com) 平台的設計是為了讓商務專家不需要傳統應用程式程式碼，就能建置應用程式。 專業開發人員可以使用 Azure Functions 來擴充 PowerApps 的功能，同時透過技術詳細資料來防護 PowerApps 應用程式建立器。
