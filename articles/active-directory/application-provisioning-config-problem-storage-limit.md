@@ -1,11 +1,11 @@
 ---
-title: "在設定 Azure AD 資源庫應用程式之使用者佈建的情況下儲存系統管理員認證時發生問題 | Microsoft Docs"
-description: "如何對在為已經列於 Azure AD 應用程式庫中的應用程式設定使用者佈建時所面臨的常見問題進行疑難排解"
+title: 在設定 Azure AD 資源庫應用程式之使用者佈建的情況下儲存系統管理員認證時發生問題 | Microsoft Docs
+description: 如何對在為已經列於 Azure AD 應用程式庫中的應用程式設定使用者佈建時所面臨的常見問題進行疑難排解
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: asmalser
-ms.openlocfilehash: 6617345c8923b1fc8081b01ddfe8b4bedf10b6ea
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 8b23ea72a898dc5725c1c82ee2a5cbc06730b5aa
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292985"
 ---
 # <a name="problem-saving-administrator-credentials-while-configuring-user-provisioning-to-an-azure-active-directory-gallery-application"></a>在設定 Azure Active Directory 資源庫應用程式之使用者佈建的情況下儲存系統管理員認證時發生問題 
 
@@ -37,7 +38,7 @@ Azure AD 目前對於所有憑證、祕密權杖、認證以及與應用程式�
 
 目前有兩個可行的方法可以解決此問題：
 
-1. **使用兩個資源庫應用程式執行個體，一個用於單一登入，一個用於使用者佈建** - 以資源庫應用程式 [LinkedIn Elevate](active-directory-saas-linkedinelevate-tutorial.md) 為例，您可以從資源庫新增 LinkedIn Elevate 並為其設定單一登入。 針對佈建，從 Azure AD 應用程式資源庫新增另一個 LinkedIn Elevate 執行個體，並將它命名為 "LinkedIn Elevate (Provisioning)"。 針對此第二個執行個體，設定[佈建](active-directory-saas-linkedinelevate-provisioning-tutorial.md)而不是單一登入。 使用這個因應措施時，必須將相同的使用者和群組[指派](active-directory-coreapps-assign-user-azure-portal.md)給兩個應用程式。 
+1. **使用兩個資源庫應用程式執行個體，一個用於單一登入，一個用於使用者佈建** - 以資源庫應用程式 [LinkedIn Elevate](active-directory-saas-linkedinelevate-tutorial.md) 為例，您可以從資源庫新增 LinkedIn Elevate 並為其設定單一登入。 針對佈建，從 Azure AD 應用程式資源庫新增另一個 LinkedIn Elevate 執行個體，並將它命名為 "LinkedIn Elevate (Provisioning)"。 針對此第二個執行個體，設定[佈建](active-directory-saas-linkedinelevate-provisioning-tutorial.md)而不是單一登入。 使用這個因應措施時，必須將相同的使用者和群組[指派](manage-apps/assign-user-or-group-access-portal.md)給兩個應用程式。 
 
 2. **減少所儲存的設定資料量** - 在 [佈建] 索引標籤之 [[系統管理員認證](active-directory-saas-app-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application)] 區段中所輸入的所有資料，都會儲存在與 SAML 憑證相同的位置。 雖然可能無法減少整個資料的長度，但可移除某些選擇性設定欄位，例如 [通知電子郵件]。
 

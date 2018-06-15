@@ -1,24 +1,19 @@
 ---
-title: "開始使用 Azure IoT 中樞裝置管理 (Node) | Microsoft Docs"
-description: "如何使用 IoT 中樞裝置管理來起始遠端裝置重新開機。 您可以使用適用於 Node.js 的 Azure IoT SDK，實作模擬裝置應用程式 (包含直接方法) 和服務應用程式 (叫用直接方法)。"
-services: iot-hub
-documentationcenter: .net
+title: 開始使用 Azure IoT 中樞裝置管理 (Node) | Microsoft Docs
+description: 如何使用 IoT 中樞裝置管理來起始遠端裝置重新開機。 您可以使用適用於 Node.js 的 Azure IoT SDK，實作模擬裝置應用程式 (包含直接方法) 和服務應用程式 (叫用直接方法)。
 author: juanjperez
-manager: timlt
-editor: 
-ms.assetid: e044006d-ffd6-469b-bc63-c182ad066e31
+manager: cberlin
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: juanpere
-ms.openlocfilehash: 0aeba8560de46ae2032304f133b66ad0a70f1354
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 54658ea72ac8e32db45774e87e3ab177d68046fa
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635945"
 ---
 # <a name="get-started-with-device-management-node"></a>開始使用裝置管理 (Node)
 

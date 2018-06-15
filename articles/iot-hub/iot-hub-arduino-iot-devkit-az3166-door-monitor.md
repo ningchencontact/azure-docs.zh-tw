@@ -1,24 +1,20 @@
 ---
 title: 使用 SendGrid 服務和 Azure Functions 在門戶開啟時接收電子郵件 | Microsoft Docs
 description: 監視磁性感應器，以在門戶開啟時加以偵測並使用 Azure Functions 傳送電子郵件通知。
-services: iot-hub
-documentationcenter: ''
 author: liydu
-manager: timlt
-tags: ''
-keywords: ''
+manager: jeffya
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: 4eb13a588f0ffd1377caf3ce9bac4886f052a22f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 80537bb817baf20831ad5020f0db775f21836f92
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34632130"
 ---
 # <a name="door-monitor"></a>門戶監視          
 

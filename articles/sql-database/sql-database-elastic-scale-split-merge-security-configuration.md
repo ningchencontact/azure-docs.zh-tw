@@ -7,14 +7,15 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 694c1755b5263d48fdfa5cad3c0b13e42bfb8522
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: bb2090aba61f32e79fe3a9fd950e6e3688193d7d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647080"
 ---
 # <a name="split-merge-security-configuration"></a>分割合併安全性設定
 若要使用 Split/Merge 服務，您必須正確地設定安全性。 此服務是 Microsoft Azure SQL Database 的 Elastic Scale 功能的一部分。 如需詳細資訊，請參閱 [Elastic Scale 分割及合併服務教學課程](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
@@ -386,7 +387,7 @@ ms.lasthandoff: 04/06/2018
 4. 按一下 [新增] 。
 5. 選擇憑證存放區位置。
 6. 按一下 [完成] 。
-7. 按一下 [SERVICEPRINCIPAL] 。
+7. 按一下 [確定]。
 8. 展開 [ **憑證**]。
 9. 展開憑證存放區節點。
 10. 展開 [憑證] 子節點。
@@ -406,7 +407,7 @@ ms.lasthandoff: 04/06/2018
 9. 輸入或瀏覽至用來儲存憑證的檔案名稱 (使用 .PFX 副檔名)。
 10. 按一下 [下一步] 。
 11. 按一下 [完成] 。
-12. 按一下 [SERVICEPRINCIPAL] 。
+12. 按一下 [確定]。
 
 ## <a name="import-certificate"></a>匯入憑證
 在 [憑證匯入精靈] 中：
