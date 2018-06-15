@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 68d4c54b2648dc3b40e69dcde9828d18de318796
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: ea16a9828bfb989c49f3cc8d656122b3083ee66a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894452"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34702069"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>加入、變更或刪除虛擬網路子網路
 
@@ -35,7 +35,7 @@ ms.locfileid: "33894452"
 - 如果使用 PowerShell 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/powershell) \(英文\) 中執行命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 本教學課程需要 Azure PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
 - 如果使用命令列介面 (CLI) 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/bash) \(英文\) 中執行命令，或從您的電腦執行 CLI。 本教學課程需要 Azure CLI 2.0.31 版或更新版本。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。 如果您在本機執行 Azure CLI，則也需要執行 `az login` 以建立與 Azure 的連線。
 
-您登入或連線到 Azure 的帳戶必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色，或為已指派[權限](#permissions)所列適當動作的[自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+您登入或連線到 Azure 的帳戶必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色，或為已指派[權限](#permissions)中所列適當動作的[自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
 ## <a name="add-a-subnet"></a>新增子網路
 
@@ -52,7 +52,7 @@ ms.locfileid: "33894452"
 
     若要移除服務端點，請取消選取您想要移除其服務端點的服務。 若要深入了解服務端點，以及可以啟用服務端點的服務，請參閱[虛擬網路服務端點概觀](virtual-network-service-endpoints-overview.md)。 一旦您啟用服務的服務端點，您也必須為以服務建立的資源啟用子網路的網路存取權。 例如，如果您啟用 *Microsoft.Storage* 的服務端點，您也必須對想要授與網路存取權的所有 Azure 儲存體帳戶啟用網路存取權。 如需如何為已啟用服務端點的子網路啟用網路存取權的詳細資訊，請參閱您啟用其服務端點之個別服務的服務文件。
 
-    若要驗證是否已為子網路啟用服務端點，請查看子網路中任何網路介面的[有效路由](virtual-network-routes-troubleshoot-portal.md#view-effective-routes-for-a-virtual-machine)。 當端點已完成設定時，您會看到「預設」路由 (包含服務的位址首碼)，且 nextHopType 為 **VirtualNetworkServiceEndpoint**。 若要深入了解路由，請參閱[路由概觀](virtual-networks-udr-overview.md)。
+    若要驗證是否已為子網路啟用服務端點，請查看子網路中任何網路介面的[有效路由](diagnose-network-routing-problem.md)。 當端點已完成設定時，您會看到「預設」路由 (包含服務的位址首碼)，且 nextHopType 為 **VirtualNetworkServiceEndpoint**。 若要深入了解路由，請參閱[路由概觀](virtual-networks-udr-overview.md)。
 6. 若要在所選虛擬網路中新增子網路，請選取 [確定]。
 
 **命令**
