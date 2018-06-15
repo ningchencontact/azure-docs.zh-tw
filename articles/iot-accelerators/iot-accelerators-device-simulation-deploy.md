@@ -1,22 +1,19 @@
 ---
 title: 部署裝置模擬解決方案 - Azure | Microsoft Docs
 description: 本教學課程示範如何從 azureiotsuite.com 佈建裝置模擬解決方案。
-services: iot device simulation
-suite: iot-suite
 author: troyhopwood
-manager: timlt
+manager: ''
 ms.author: troyhop
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 12/18/2017
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 4d468c527c658707da2b5f35f43676626baf5ca2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: e96c0f16ca4b69d103674b7f895c52d197280ca5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627001"
 ---
 # <a name="deploy-the-azure-iot-device-simulation-solution"></a>部署 Azure IoT 裝置模擬解決方案
 
@@ -39,7 +36,7 @@ ms.lasthandoff: 05/20/2018
 
 您必須先選擇一些設定選項，才能將解決方案部署到 Azure 訂用帳戶：
 
-1. 使用 Azure 帳戶認證登入 [azureiotsuite.com](https://www.azureiotsuite.com)，然後按一下 **+** 以建立新的解決方案：
+1. 使用 Azure 帳戶認證登入 [azureiotsuite.com](https://www.azureiotsolutions.com)，然後按一下 **+** 以建立新的解決方案：
 
     ![建立新解決方案](./media/iot-accelerators-device-simulation-deploy/createnewsolution.png)
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 48253b68a329d17f213369e8e4ee2e06bdf17992
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4ac86be25ebe7d12190cce290603ce83037a7b47
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365819"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640365"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR 認知技能
 
@@ -61,7 +61,7 @@ ms.locfileid: "34365819"
 {
     "skills": [
       {
-        "description": "Extracts text (plain and structured) from image."
+        "description": "Extracts text (plain and structured) from image.",
         "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
         "context": "/document/normalized_images/*",
         "defaultLanguageCode": null,
@@ -198,7 +198,7 @@ ms.locfileid: "34365819"
 ```
 
 ## <a name="see-also"></a>另請參閱
-+ [預先定義的技能](cognitive-search-predefined-skills.md) (英文)
++ [預先定義的技能](cognitive-search-predefined-skills.md)
 + [TextMerger 技能](cognitive-search-skill-textmerger.md) (英文)
 + [如何定義技能集](cognitive-search-defining-skillset.md) (英文)
-+ [建立索引子 (REST)](ref-create-indexer.md)
++ [建立索引子 (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
