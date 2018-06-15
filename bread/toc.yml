@@ -104,7 +104,7 @@
     - name: 支援能力
       tocHref: /azure/azure-supportability/
       topicHref: /azure/azure-supportability/
-    - name: 備份
+    - name: 'Backup '
       tocHref: /azure/backup/
       topicHref: /azure/backup/
     - name: Batch
@@ -268,7 +268,7 @@
     - name: Data Factory
       tocHref: /azure/data-factory/
       topicHref: /azure/data-factory/
-    - name: Data Lake Analytics
+    - name: 資料湖分析
       tocHref: /azure/data-lake-analytics/
       topicHref: /azure/data-lake-analytics/
     - name: Data Lake Store
@@ -417,7 +417,7 @@
     - name: 網路監看員
       tocHref: /azure/network-watcher/
       topicHref: /azure/network-watcher/
-    - name: 網路
+    - name: 網路功能
       tocHref: /azure/networking/
       topicHref: /azure/networking/networking-overview
     - name: 通知中樞
@@ -469,6 +469,9 @@
     - name: 復原功能
       tocHref: /azure/resiliency/
       topicHref: /azure/resiliency/
+    - name: 角色型存取控制
+      tocHref: /azure/role-based-access-control/
+      topicHref: /azure/role-based-access-control/
     - name: 服務健康情況
       tocHref: /azure/service-health/
       topicHref: /azure/service-health/
