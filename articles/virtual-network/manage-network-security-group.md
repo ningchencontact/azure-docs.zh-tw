@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 7a244a5dbb86b076f99975ad477d4062699270b5
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 22cf62f201b21f3035687b7f0f2ff07dc94f1a29
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894223"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34658667"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>建立、變更或刪除網路安全性群組
 
@@ -66,7 +66,7 @@ ms.locfileid: "33894223"
 ### <a name="view-details-of-a-network-security-group"></a>檢視網路安全性群組的詳細資料
 
 1. 在入口網站頂端的搜尋方塊中，輸入「網路安全性群組」。 當**網路安全性群組**出現在搜尋結果中時，請選取它。
-2. 選取清單中您想要檢視其詳細資料的網路安全性群組。 在 [設定] 底下，您可以檢視網路安全性群組所關聯的 [輸入安全性規則] 和 [輸出安全性規則]、[網路介面] 和 [子網路]。 您也可以啟用或停用 [診斷記錄]，以及檢視 [有效的安全性規則]。 若要深入了解，請參閱[診斷記錄](virtual-network-nsg-manage-log.md)和[檢視有效的安全性規則](virtual-network-nsg-troubleshoot-portal.md)。
+2. 選取清單中您想要檢視其詳細資料的網路安全性群組。 在 [設定] 底下，您可以檢視網路安全性群組所關聯的 [輸入安全性規則] 和 [輸出安全性規則]、[網路介面] 和 [子網路]。 您也可以啟用或停用 [診斷記錄]，以及檢視 [有效的安全性規則]。 若要深入了解，請參閱[診斷記錄](virtual-network-nsg-manage-log.md)和[檢視有效的安全性規則](diagnose-network-traffic-filter-problem.md)。
 3. 若要深入了解列出的一般 Azure 設定，請參閱下列文章：
     *   [活動記錄檔](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
     *   [存取控制 (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)

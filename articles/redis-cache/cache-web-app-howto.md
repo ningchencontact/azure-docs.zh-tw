@@ -15,27 +15,23 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 7bf08849cd03a77095ffe717c8387d79d1961b06
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: baaa53b04f608e2cb3546fcac6a6eb4eda4d3c4b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640749"
 ---
 # <a name="quickstart-create-a-aspnet-web-app-with-redis-cache"></a>快速入門：使用 Redis 快取建立 ASP.NET Web 應用程式
 
-> [!div class="op_single_selector"]
-> * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
-> * [ASP.NET](cache-web-app-howto.md)
-> * [Node.js](cache-nodejs-get-started.md)
-> * [Java](cache-java-get-started.md)
-> * [Python](cache-python-get-started.md)
->
 
 ## <a name="introduction"></a>簡介
 
 本快速入門示範如何使用 Visual Studio 2017，在 Azure App Service 中建立和部署 ASP.NET Web 應用程式。 應用程式範例會連線至 Azure Redis 快取來儲存資料，以及從快取擷取資料。 完成本快速入門時，您將擁有執行中的 Web 應用程式，其裝載在 Azure 中，可對 Azure Redis 快取進行讀取和寫入。
 
 ![簡單的測試已完成 Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -44,8 +40,6 @@ ms.lasthandoff: 04/28/2018
 * 使用下列工作負載安裝 [Visual Studio 2017](https://www.visualstudio.com/downloads/)：
     * ASP.NET 和 Web 開發
     * Azure 開發
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-the-visual-studio-project"></a>建立 Visual Studio 專案
 
@@ -60,7 +54,7 @@ ms.lasthandoff: 04/28/2018
 1. 按一下 [ASP.NET Web 應用程式]
 1. 確定已選取 [.NET Framework 4.5.2] 或更新版本
 1. 在 [名稱] 文字方塊中為專案命名，針對此範例，我們使用的是 **ContosoTeamStats**
-1. 按一下 [SERVICEPRINCIPAL] 。
+1. 按一下 [確定]。
 
 您會看到 [新增 ASP.NET Web 應用程式] 畫面：
 
@@ -322,13 +316,13 @@ using StackExchange.Redis;
 
 登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [資源群組]。
 
-在 [依名稱篩選...] 文字方塊中，輸入您的資源群組名稱。 本主題的指示使用的是名為 TestResources 的資源群組。 在結果清單中的目標資源群組上方，按一下 **...**，然後按一下 [刪除資源群組]。
+在 [依名稱篩選...] 文字方塊中，輸入您的資源群組名稱。 本文的指示是使用名為 TestResources 的資源群組。 在結果清單中的目標資源群組上方，按一下 **...**，然後按一下 [刪除資源群組]。
 
 ![刪除](./media/cache-web-app-howto/cache-delete-resource-group.png)
 
 系統將會要求您確認是否刪除資源。 輸入您的資源群組名稱來確認，然後按一下 [刪除]。
 
-片刻過後，便會刪除資源群組及其所有內含的資源。
+片刻過後，系統便會刪除該資源群組及其所有內含的資源。
 
 ## <a name="next-steps"></a>後續步驟
 

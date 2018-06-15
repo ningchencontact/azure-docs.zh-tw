@@ -16,11 +16,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 9a590050acff814834dac85085d1a4dc5fc8190f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: ab101d78320819b9fb48f2c431fb0f6afdb895ec
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657820"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Azure 中 Windows VM 之遠端桌面連線問題的詳細疑難排解步驟
 本文章提供診斷和修正複雜的以 Windows 為基礎的 Azure 虛擬機器的遠端桌面錯誤的詳細疑難排解步驟。
@@ -112,7 +113,7 @@ ms.lasthandoff: 05/14/2018
 ## <a name="source-4-network-security-groups"></a>來源 4：網路安全性群組
 網路安全性群組能夠更精確地控制受允許的輸入和輸出流量。 您可以在 Azure 虛擬網路中建立跨越子網路和雲端服務的規則。
 
-使用 [IP 流量驗證](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md)來確認網路安全性群組中的規則是否會封鎖虛擬機器的輸入或輸出流量。 您也可以檢閱有效的安全性群組規則，以確保輸入「允許」NSG 規則存在並已針對 RDP 連接埠 (預設值 3389) 設定優先順序。 如需詳細資訊，請參閱[使用有效安全性規則對 VM 流量流程進行疑難排解](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow)。
+使用 [IP 流量驗證](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md)來確認網路安全性群組中的規則是否會封鎖虛擬機器的輸入或輸出流量。 您也可以檢閱有效的安全性群組規則，以確保輸入「允許」NSG 規則存在並已針對 RDP 連接埠 (預設值 3389) 設定優先順序。 如需詳細資訊，請參閱[使用有效安全性規則對 VM 流量流程進行疑難排解](../../virtual-network/diagnose-network-traffic-filter-problem.md)。
 
 ## <a name="source-5-windows-based-azure-vm"></a>來源 5：以 Windows 為基礎的 Azure VM
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)

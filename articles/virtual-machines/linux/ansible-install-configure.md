@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/04/2018
 ms.author: iainfou
-ms.openlocfilehash: e6fad548eda35d1832cb4ecc2fd9bdabf825f361
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c00ebcb771081f8e35c67bf384f5f6822e16f268
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33896124"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652986"
 ---
 # <a name="install-and-configure-ansible-to-manage-virtual-machines-in-azure"></a>安裝及設定 Ansible 來管理 Azure 中的虛擬機器
 
@@ -150,7 +150,7 @@ sudo pip uninstall -y cryptography
 
 Ansible 會使用使用者名稱與密碼或服務主體與 Azure 進行通訊。 Azure 服務主體是安全性識別，可供您與應用程式、服務及諸如 Ansible 等自動化工具搭配使用。 您可以控制和定義對於服務主體可以在 Azure 中執行哪些作業的權限。 為了提高只提供使用者名稱和密碼的安全性，此範例會建立基本的服務主體。
 
-在主機電腦上或在 Azure Cloud Shell 中，使用 [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) 建立服務主體。 Ansible 所需的認證會輸出到螢幕上：
+在主機電腦上或在 Azure Cloud Shell 中，使用 [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) 建立服務主體。 Ansible 所需的認證會輸出到螢幕上：
 
 ```azurecli-interactive
 az ad sp create-for-rbac --query '{"client_id": appId, "secret": password, "tenant": tenant}'
@@ -166,7 +166,7 @@ az ad sp create-for-rbac --query '{"client_id": appId, "secret": password, "tena
 }
 ```
 
-若要向 Azure 驗證，您也需要使用 [az account show](/cli/azure/account#az_account_show) 取得 Azure 訂用帳戶識別碼：
+若要向 Azure 驗證，您也需要使用 [az account show](/cli/azure/account#az-account-show) 取得 Azure 訂用帳戶識別碼：
 
 ```azurecli-interactive
 az account show --query "{ subscription_id: id }"

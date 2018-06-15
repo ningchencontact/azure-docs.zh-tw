@@ -1,9 +1,9 @@
 ---
-title: "Azure Active Directory 傳遞驗證安全性深入探討 | Microsoft Docs"
-description: "本文說明 Azure Active Directory (Azure AD) 傳遞驗證如何保護您的內部部署帳戶"
+title: Azure Active Directory 傳遞驗證安全性深入探討 | Microsoft Docs
+description: 本文說明 Azure Active Directory (Azure AD) 傳遞驗證如何保護您的內部部署帳戶
 services: active-directory
-keywords: "Azure AD Connect 傳遞驗證, 安裝 Active Directory, Azure AD 的必要元件, SSO, 單一登入"
-documentationcenter: 
+keywords: Azure AD Connect 傳遞驗證, 安裝 Active Directory, Azure AD 的必要元件, SSO, 單一登入
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.service: active-directory
@@ -12,12 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 84a5ef23739635ba4d2f0adc688c1b506f643a36
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cb8382a9801c3570a190259416d846fe518cc6ea
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595031"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory 傳遞驗證安全性深入探討
 

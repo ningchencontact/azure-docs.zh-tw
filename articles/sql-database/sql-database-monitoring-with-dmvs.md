@@ -6,14 +6,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 96255ed92e0dc05aa5a215a78a070f60f001e8bc
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: a1333680225923a4e27f96e61a5b6530f32a9329
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647879"
 ---
 # <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>使用動態管理檢視監視 Azure SQL Database
 Microsoft Azure SQL Database 可使用動態管理檢視的子集來診斷可能因為封鎖或長時間執行的查詢、資源瓶頸、不佳的查詢計畫等等所造成的效能問題。 本主題提供有關如何使用動態管理檢視來偵測常見效能問題的資訊。

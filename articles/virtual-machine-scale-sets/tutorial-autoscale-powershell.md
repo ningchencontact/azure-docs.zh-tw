@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 1b3cf423181eeee2fbc2b0909a5ccd27f8e5f538
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 61d64d9b2b87f8db335db5240cbece1bdc69b3bf
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364568"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652333"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>教學課程：使用 Azure PowerShell 自動調整虛擬機器擴展集
 當建立擴展集時，您會定義您想要執行的 VM 執行個體數目。 當您的應用程式需求變更時，您可以自動增加或減少 VM 執行個體數目。 自動調整的能力可讓您在整個應用程式的生命週期中，跟上客戶的需求或對應用程式效能變更做出回應。 在本教學課程中，您將了解如何：
@@ -145,7 +145,7 @@ Add-AzureRmAutoscaleSetting `
   -Name "autosetting" `
   -ResourceGroup $myResourceGroup `
   -TargetResourceId /subscriptions/$mySubscriptionId/resourceGroups/$myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/$myScaleSet `
-  -AutoscaleProfiles $myScaleProfile
+  -AutoscaleProfile $myScaleProfile
 ```
 
 

@@ -10,12 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: e288748d7433f4b3c7da7db1ab1ef2ee487318df
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ba779ebcbc791f9caa60948feeb38b88a23ef379
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786737"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640657"
 ---
 #    <a name="text-merge-cognitive-skill"></a>文字合併認知技能
 
@@ -129,20 +129,19 @@ Microsoft.Skills.Util.TextMerger
 上述範例假設存在正規化影像欄位。 若要產生正規化影像欄位，請將索引子定義中的 *imageAction* 設定設定為 *generateNormalizedImages*，如下所示：
 
 ```json
-{
-    "values": [
-      {
-        "recordId": "1",
-        "data":
-           {
-             "mergedText": "The quick brown fox jumps over the lazy dog" 
-           }
+{  
+   //...rest of your indexer definition goes here ... 
+  "parameters":{  
+      "configuration":{  
+         "dataToExtract":"contentAndMetadata",
+         "imageAction":"generateNormalizedImages"
       }
-    ]
+   }
 }
 ```
 
 ## <a name="see-also"></a>另請參閱
 
 + [預先定義的技能](cognitive-search-predefined-skills.md)
-+ [如何定義技能集](cognitive-search-defining-skillset.md)
++ [如何定義技能集](cognitive-search-defining-skillset.md) (英文)
++ [建立索引子 (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

@@ -1,24 +1,21 @@
 ---
 title: 模擬 Raspberry Pi 至 cloud (Node.js) - 將 Raspberry Pi Web 模擬器連線至 Azure IoT 中樞 | Microsoft Docs
 description: 將 Raspberry Pi Web 模擬器連線至 Azure IoT Hub，以便 Raspberry Pi 將資料傳送至 Azure 雲端。
-services: iot-hub
-documentationcenter: ''
 author: rangv
-manager: timtl
-tags: ''
+manager: ''
 keywords: raspberry pi 模擬器, azure iot raspberry pi, raspberry pi iot 中樞, raspberry pi 將資料傳送至雲端, raspberry pi 至 cloud
 ms.service: iot-hub
-ms.devlang: node
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 4/11/2018
+services: iot-hub
+ms.devlang: nodejs
+ms.topic: conceptual
+ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: fe953b56e0a4dbbf7aaaa81d5b8ac6e31bb6bc4d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: dc8216f6b0a610b556b94637970bfd3e721f38d2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636217"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>將 Raspberry Pi 線上模擬器連線至 Azure IoT Hub (Node.js)
 

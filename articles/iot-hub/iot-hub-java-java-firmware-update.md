@@ -1,24 +1,20 @@
 ---
 title: 使用 Azure IoT 中樞進行裝置韌體更新 (Java/Java) | Microsoft Docs
 description: 如何使用 Azure IoT 中樞上的裝置管理來起始裝置韌體更新。 您可以使用適用於 Java 的 Azure IoT 裝置 SDK，實作模擬裝置應用程式和服務應用程式，以觸發韌體更新。
-services: iot-hub
-documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 70b84258-bc9f-43b1-b7cf-de1bb715f2cf
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: java
+ms.topic: conceptual
 ms.date: 09/11/2017
-ms.author: v-masebo;dobett
-ms.openlocfilehash: ff8fc5cc1623c570f79a8acfa0afbcf95450c1d2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: dobett
+ms.openlocfilehash: 5991615bca26749e1f138b561260108f8bcf2646
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634602"
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-javajava"></a>使用裝置管理來起始裝置韌體更新 (Java/Java)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]

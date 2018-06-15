@@ -1,22 +1,19 @@
 ---
-title: "比較事件格線、IoT 中樞的路由 | Microsoft Docs"
-description: "「IoT 中樞」提供自己的訊息路由服務，但也與「事件格線」整合來發佈事件。 比較兩個功能。"
-services: iot-hub
-documentationcenter: 
+title: 比較事件格線、IoT 中樞的路由 | Microsoft Docs
+description: 「IoT 中樞」提供自己的訊息路由服務，但也與「事件格線」整合來發佈事件。 比較兩個功能。
 author: kgremban
 manager: timlt
-editor: 
 ms.service: iot-hub
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: 5a0a97ccf033b2981ba13be455482146ba212228
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 320320687e441a1296065eb9d0b7b12771036459
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636166"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>比較 IoT 中樞的訊息路由和事件格線
 
@@ -36,7 +33,7 @@ ms.lasthandoff: 02/01/2018
 | **排序** | 是，會維持事件的排序。  | 否，不保證維持事件的順序。 | 
 | **訊息大小上限** | 256 KB (裝置到雲端) | 64 KB |
 | **篩選** | 透過類似 SQL 的語言提供豐富的篩選，可支援依據訊息標頭和本文進行篩選。 例如，請參閱 [IoT 中樞查詢語言](iot-hub-devguide-query-language.md)。 | 根據裝置識別碼的尾碼/首碼進行的篩選，相當適用於階層式服務 (例如儲存體)。 |
-| **端點** | <ul><li>事件中樞</li> <li>儲存體 Blob</li> <li>服務匯流排佇列</li> <li>服務匯流排主題</li></ul><br>付費的「IoT 中樞」SKU (S1、S2 及 S3) 僅限有 10 個自訂端點。 可以為每個「IoT 中樞」建立 100 個路由。 | <ul><li>Azure Functions</li> <li>Azure 自動化</li> <li>事件中樞</li> <li>Logic Apps</li> <li>Microsoft Flow</li> <li>透過 WebHook 提供的協力廠商服務</li></ul><br>如需最新的端點清單，請參閱[事件格線處理常式](../event-grid/overview.md#event-handlers)。 |
+| **Endpoints** | <ul><li>事件中樞</li> <li>儲存體 Blob</li> <li>服務匯流排佇列</li> <li>服務匯流排主題</li></ul><br>付費的「IoT 中樞」SKU (S1、S2 及 S3) 僅限有 10 個自訂端點。 可以為每個「IoT 中樞」建立 100 個路由。 | <ul><li>Azure Functions</li> <li>Azure 自動化</li> <li>事件中樞</li> <li>Logic Apps</li> <li>Microsoft Flow</li> <li>透過 WebHook 提供的協力廠商服務</li></ul><br>如需最新的端點清單，請參閱[事件格線處理常式](../event-grid/overview.md#event-handlers)。 |
 | **成本** | 針對訊息路由並不另外收費。 僅針對將遙測資料輸入「IoT 中樞」收費。 例如，如果您將一則訊息路由傳送至三個不同的端點，將只需支付一則訊息的費用。 | 沒有任何來自「IoT 中樞」的收費。 「事件格線」的計費方式為每月前 100,000 個作業免費，之後每百萬個作業 $0.60 美元。 |
 
 「IoT 中樞訊息路由」與「事件格線」也有相似之處，下表詳細說明一些相似之處：
@@ -47,7 +44,7 @@ ms.lasthandoff: 02/01/2018
 | **延展性** | 高：已經過最佳化，可支援數百萬部同時連線的裝置傳送數十億則訊息。 | 高：能夠每個區域每秒路由傳送 10,000,000 個事件。 |
 | **延遲** | 低：近乎即時。 | 低：近乎即時。 |
 | **傳送至多個端點** | 是，將單一訊息傳送至多個端點。 | 是，將單一訊息傳送至多個端點。  | 
-| **安全性** | 「IoT 中樞」提供個別裝置身分識別與可撤銷的存取控制。 如需詳細資訊，請參閱 [IoT 中樞存取控制](iot-hub-devguide-security.md)。 | 「事件格線」提供三個時間點的驗證：事件訂閱、事件發佈，以及 Webhook 事件傳遞。 如需詳細資訊，請參閱[事件格線安全性和驗證](../event-grid/security-authentication.md)。 |
+| **Security** | 「IoT 中樞」提供個別裝置身分識別與可撤銷的存取控制。 如需詳細資訊，請參閱 [IoT 中樞存取控制](iot-hub-devguide-security.md)。 | 「事件格線」提供三個時間點的驗證：事件訂閱、事件發佈，以及 Webhook 事件傳遞。 如需詳細資訊，請參閱 [Event Grid 安全性和驗證](../event-grid/security-authentication.md)。 |
 
 ## <a name="how-to-choose"></a>如何選擇
 

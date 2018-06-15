@@ -1,13 +1,13 @@
 ---
-title: "測試 Microsoft Azure SUSE Linux VM 上的 SAP NetWeaver | Microsoft Docs"
-description: "在 Microsoft Azure SUSE Linux VM 上測試 SAP NetWeaver"
+title: 測試 Microsoft Azure SUSE Linux VM 上的 SAP NetWeaver | Microsoft Docs
+description: 在 Microsoft Azure SUSE Linux VM 上測試 SAP NetWeaver
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 645e358b-3ca1-4d3d-bf70-b0f287498d7a
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -16,11 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
 ms.author: hermannd
-ms.openlocfilehash: 072a70c1da74b3b50ad8c0a93ee3c079a724d81f
-ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
+ms.openlocfilehash: 9bb13cde07141c576a0ec78c3b48c5a20d6dbb67
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657650"
 ---
 # <a name="running-sap-netweaver-on-microsoft-azure-suse-linux-vms"></a>在 Microsoft Azure SUSE Linux VM 上執行 SAP NetWeaver
 這篇文章描述在 Microsoft Azure SUSE Linux 虛擬機器 (VM) 上執行 SAP NetWeaver 時應考量的各種事項。 自 2016 年 5 月 19 日起，在 Azure 的 SUSE Linux VM 上已正式支援 SAP NetWeaver。 如需有關 Linux 版本、SAP 核心版本的所有詳細資料及其他必要條件，請參閱 SAP 附註 1928533＜Azure 上的 SAP 應用程式︰支援的產品和 Azure VM 類型＞。

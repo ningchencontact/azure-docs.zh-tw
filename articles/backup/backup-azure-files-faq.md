@@ -7,13 +7,13 @@ ms.author: markgal
 ms.date: 2/21/2018
 ms.topic: tutorial
 ms.service: backup
-ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: c0261b4f89647a8db3b7bf452a8827d40fdc1911
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f6dcaee1ac328a9bafce0561f421b772b7e1d119
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605163"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>有關備份 Azure 檔案服務的問題
 本文提供有關備份 Azure 檔案服務的常見問題解答。 在某些答案中，有具有完整資訊的文章連結。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。
@@ -52,7 +52,7 @@ Azure 檔案共用的備份功能目前處於預覽狀態，僅適用於下列�
 - 日本西部 (JPW)
 -   印度中部 (INC) 
 - 印度南部 (INS)
-- 韓國中部 (KRC)
+- 南韓中部 (KRC)
 - 南韓 (KRS)
 -   美國中北部 (NCUS) 
 -   北歐 (NE) 

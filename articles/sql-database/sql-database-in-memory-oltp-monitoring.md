@@ -6,14 +6,15 @@ author: jodebrui
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: jodebrui
-ms.openlocfilehash: 0802a3b51847236efb64e628ed259dc7776bac4e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: aff0f82f07e9129c8f7c131f055447ad578ad15b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647335"
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>監視記憶體內部 OLTP 儲存體
 使用 [記憶體內部 OLTP](sql-database-in-memory.md)時，記憶體最佳化資料表中的資料和資料表變數位於記憶體內部 OLTP 儲存體中。 每個進階和業務關鍵服務層都有最大的記憶體內部 OLTP 儲存體大小，如 [DTU 架構的資源限制](sql-database-dtu-resource-limits.md)與 [vCore 架構的資源限制](sql-database-vcore-resource-limits.md)所述。 一旦超過此限制，插入和更新作業就可能會開始失敗，並出現錯誤 41823 (適用於獨立資料庫) 和錯誤 41840 (適用於彈性集區)。 屆時您需要將資料刪除以回收記憶體，或將資料庫的效能層級升級。
