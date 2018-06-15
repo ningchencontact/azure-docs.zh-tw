@@ -56,8 +56,6 @@
     - name: IaaS 安全性
       href: security-virtual-machines-overview.md
       items:
-        - name: 最佳做法 - Azure 虛擬機器
-          href: azure-security-best-practices-vms.md
         - name: 最佳做法 - IaaS 工作負載
           href: azure-security-iaas.md
         - name: Azure 市集映像
