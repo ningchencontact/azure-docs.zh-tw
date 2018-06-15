@@ -1,24 +1,19 @@
 ---
-title: 在 Azure 儲存體中儲存和檢視診斷資料 | Microsoft Docs
+title: 在 Azure 儲存體中儲存和檢視診斷資料
 description: 將 Azure 診斷資料放入 Azure 儲存體並加以檢視
-services: cloud-services
-documentationcenter: .net
+services: azure-monitor
 author: thraka
-manager: timlt
-editor: tysonn
-ms.assetid: 18e0780d-43e7-41e4-b8e9-f1fb9a36eb03
-ms.service: cloud-services
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 08/01/2016
 ms.author: adegeo
-ms.openlocfilehash: 248e1c87ec244649a296233bf2aaa323d3475a79
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.component: diagnostic-extension
+ms.openlocfilehash: 6590e6991f07b7315c09a995152879c991fafcef
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267657"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>在 Azure 儲存體中儲存和檢視診斷資料
 除非您將診斷資料傳輸至 Microsoft Azure 儲存體模擬器或 Azure 儲存體，否則不會永久儲存診斷資料。 一旦位於儲存體，即可利用其中一個可用的工具進行檢視。

@@ -3,16 +3,17 @@ title: Azure Analysis Services 伺服器名稱別名 | Microsoft Docs
 description: 說明如何建立及使用伺服器名稱的別名。
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e55438c629b861e8dc095892c6c519855cd5e632
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c563eb97e093924076684dcf40ac3a8fe5f96880
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596748"
 ---
 # <a name="alias-server-names"></a>伺服器名稱別名
 

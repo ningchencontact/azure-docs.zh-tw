@@ -4,20 +4,17 @@ description: 了解 Azure Cosmos DB 和 Azure Functions 如何一起使用以建
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 9b1ffe7e63157f86a1cfe643e297c0cb3eb5c235
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 26d5fe3cf96f7a63b725f1b46d85e453a8aa6ada
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34613960"
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB：使用 Azure Functions 的無伺服器資料庫計算
 
@@ -53,7 +50,7 @@ Azure Cosmos DB 觸發程序、輸入繫結及輸出繫結皆可用於下列組�
 
 在 IoT 實作中，您可以在檢查已連線汽車中顯示的引擎燈時，叫用函式。
 
-**實作：**使用 Azure Cosmos DB 觸發程序和輸出繫結
+**實作：** 使用 Azure Cosmos DB 觸發程序和輸出繫結
 
 1. **Azure Cosmos DB 觸發程序**用來觸發與汽車警示相關的事件，例如檢查已連線汽車亮起的引擎燈。
 2. 檢查引擎燈時，感應器資料會傳送到 Azure Cosmos DB。
@@ -71,7 +68,7 @@ Azure Cosmos DB 觸發程序、輸入繫結及輸出繫結皆可用於下列組�
 
 在財務實作中，當銀行帳戶餘額低於特定金額時，您可以叫用函式。
 
-**實作：**具有 Azure Cosmos DB 輸入繫結的計時器觸發程序
+**實作：** 具有 Azure Cosmos DB 輸入繫結的計時器觸發程序
 
 1. 使用[計時器觸發程序](../azure-functions/functions-bindings-timer.md)，您可以使用**輸入繫結**，以定時間隔擷取儲存在 Azure Cosmos DB 容器的銀行帳戶餘額資訊。
 2. 如果餘額低於使用者設定的低餘額閾值，則追蹤 Azure Function 中的動作。
@@ -87,7 +84,7 @@ Azure Cosmos DB 觸發程序、輸入繫結及輸出繫結皆可用於下列組�
 
 在遊戲中建立新的使用者時，您可以使用 [Azure Cosmos DB 圖形 API](graph-introduction.md) 搜尋可能知道的其他使用者。 然後，您可以將結果寫入 [Azure Cosmos DB SQL 資料庫] 以方便擷取。
 
-**實作：**使用 Azure Cosmos DB 觸發程序和輸出繫結
+**實作：** 使用 Azure Cosmos DB 觸發程序和輸出繫結
 
 1. 使用 Azure Cosmos DB [圖表資料庫](graph-introduction.md)來儲存所有使用者，您可以使用 Azure Cosmos DB 觸發程序來建立新的函式。 
 2. 每當插入新的使用者時，會叫用函式，然後使用**輸出繫結**來儲存結果。
@@ -98,7 +95,7 @@ Azure Cosmos DB 觸發程序、輸入繫結及輸出繫結皆可用於下列組�
 
 在零售實作中，當使用者將項目加入其購物籃中時，您可以靈活地為可選的業務管道元件建立和叫用函式。
 
-**實作：**接聽單一集合的多個 Azure Cosmos DB 觸發程序
+**實作：** 接聽單一集合的多個 Azure Cosmos DB 觸發程序
 
 1. 您可以藉由將 Azure Cosmos DB 觸發程序新增至每個函式，以建立多個 Azure Functions，所有函式皆會接聽購物車資料的相同變更摘要。 請注意，若有多個函式接聽相同的變更摘要，則每個函式皆需要新的租用集合。 如需有關租用集合的詳細資訊，請參閱[了解變更摘要處理器程式庫](change-feed.md#understand-cf)。
 2. 每當新的項目新增至使用者的購物車時，會根據購物車容器的變更摘要單獨叫用每個函式。

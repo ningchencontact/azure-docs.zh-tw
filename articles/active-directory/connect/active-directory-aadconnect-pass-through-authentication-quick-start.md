@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b592eb8ca43e5bf3eebe2b0c47d8f17dbec7b238
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: da3d78880a3d389c2a247f9940b708c026c96e03
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591325"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory 傳遞驗證：快速入門
 
@@ -139,7 +141,7 @@ Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true
 第二種，您可以建立並執行自動部署指令碼。 當您想要一次部署多個「驗證代理程式」，或是在未啟用使用者介面或您無法使用「遠端桌面」來存取的 Windows 伺服器上安裝「驗證代理程式」時，這會相當有用。 以下是有關如何使用此方法的指示：
 
 1. 執行下列命令來安裝「驗證代理程式」：`AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`。
-2. 您可以使用 Windows PowerShell 來向我們的服務註冊「驗證代理程式」。 建立 PowerShell 認證物件 `$cred`，其中含有租用戶的全域管理員使用者名稱和密碼。 執行下列命令，取代 *\<使用者名稱\>*和*\<密碼\>*：
+2. 您可以使用 Windows PowerShell 來向我們的服務註冊「驗證代理程式」。 建立 PowerShell 認證物件 `$cred`，其中含有租用戶的全域管理員使用者名稱和密碼。 執行下列命令，取代 *\<使用者名稱\>* 和*\<密碼\>*：
    
         $User = "<username>"
         $PlainPassword = '<password>'

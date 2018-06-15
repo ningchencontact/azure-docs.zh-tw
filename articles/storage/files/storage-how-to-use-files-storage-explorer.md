@@ -4,8 +4,8 @@ description: 了解如何使用 Azure 儲存體總管來管理 Azure 檔案服�
 services: storage
 documentationcenter: ''
 author: wmgries
-manager: jeconnoc
-editor: ''
+manager: aungoo
+editor: tamram
 ms.assetid: ''
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/27/2018
 ms.author: wgries
-ms.openlocfilehash: 1953ee18fe878c33a1a0965937f64056278875cf
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f628f393f1ff5922d9d2c82b30d4fdbf4b5caf23
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738168"
 ---
 # <a name="manage-azure-file-shares-with-azure-storage-explorer"></a>使用 Azure 儲存體總管來管理 Azure 檔案共用 
 [Azure 檔案服務](storage-files-introduction.md)是 Microsoft 中易於使用的雲端檔案系統。 本文會逐步說明透過 [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)來使用 Azure 檔案共用的基本概念。 儲存體總管是適用於 Windows、macOS 和 Linux 的熱門用戶端工具。 您可以使用儲存體總管來管理 Azure 檔案共用和其他儲存體資源。

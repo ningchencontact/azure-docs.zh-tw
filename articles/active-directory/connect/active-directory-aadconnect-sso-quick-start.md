@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d026009151f85a01f14ce4dd8a510f60ff407da1
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: e6bb32c20ca9bb6c514cab462e94018543c3a702
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592607"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory 無縫單一登入：快速入門
 
@@ -34,7 +36,7 @@ ms.lasthandoff: 03/29/2018
 
 * **設定 Azure AD Connect 伺服器**：如果您使用[傳遞驗證](active-directory-aadconnect-pass-through-authentication.md)作為登入方法，不需要進行額外的必要條件檢查。 如果您使用[密碼雜湊同步處理](active-directory-aadconnectsync-implement-password-hash-synchronization.md)作為登入方法，而且 Azure AD Connect 與 Azure AD 之間有防火牆，請確定︰
    - 您使用 Azure AD Connect 1.1.644.0 或更新版本。 
-   - 如果您的防火牆或 Proxy 允許建立 DNS 允許清單，便可將透過連接埠 443 進行的 **\*.msappproxy.net** URL 連線加入允許清單。 如果不允許建立，請允許存取每週更新的 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。 只有啟用此功能時，此必要條件才適用。 不需要實際的使用者登入。
+   - 如果您的防火牆或 Proxy 允許建立 DNS 白名單，便可將透過連接埠 443 進行的 **\*.msappproxy.net** URL 連線加入白名單。 如果不允許建立，請允許存取每週更新的 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。 只有啟用此功能時，此必要條件才適用。 不需要實際的使用者登入。
 
     >[!NOTE]
     >Azure AD Connect 版本 1.1.557.0、1.1.558.0、1.1.561.0 和 1.1.614.0 具有與密碼雜湊同步處理相關的問題。 如果您_不_想要使用密碼雜湊同步處理搭配傳遞驗證，請閱讀 [Azure AD Connect 版本資訊](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470)，以深入了解。

@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect：針對傳遞驗證進行疑難排解 | Microsoft Docs"
-description: "本文會說明如何針對 Azure Active Directory (Azure AD) 傳遞驗證進行疑難排解。"
+title: Azure AD Connect：針對傳遞驗證進行疑難排解 | Microsoft Docs
+description: 本文會說明如何針對 Azure Active Directory (Azure AD) 傳遞驗證進行疑難排解。
 services: active-directory
-keywords: "針對 Azure AD Connect 傳遞驗證進行疑難排解, 安裝 Active Directory, Azure AD, SSO, 單一登入的必要元件"
-documentationcenter: 
+keywords: 針對 Azure AD Connect 傳遞驗證進行疑難排解, 安裝 Active Directory, Azure AD, SSO, 單一登入的必要元件
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b842791be74094c87643528c0b4d3a65be6b3cb1
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 3296ee114d3e285e77070995156ef6a242c1fc87
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592192"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>針對 Azure Active Directory 傳遞驗證進行疑難排解
 

@@ -2,17 +2,18 @@
 title: 適用於 Azure Machine Learning 的 Python 套件
 description: 了解適用於 Azure Machine Learning 使用者的 Python 套件。
 ms.service: machine-learning
-ms.component: core
+ms.component: studio
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jmartens
 author: j-martens
 ms.date: 05/07/2018
-ms.openlocfilehash: 7ff80a812ebf704315524ffb5ea518704e472429
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7a8f9e9d757aaab04706dd3b7dc2b962b3a04130
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833258"
 ---
 # <a name="python-packages-for-azure-machine-learning"></a>適用於 Azure Machine Learning 的 Python 套件
 

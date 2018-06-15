@@ -3,16 +3,17 @@ title: Azure Analysis Services 教學課程第 1 課：建立新的表格式模�
 description: 說明如何建立新的 Azure Analysis Services 教學課程專案。
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 73764e7595d5b0bbc55ee9242e86ba19d5f80254
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 12e090996df4b8b1ee364e5dae9349cedd045c4a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596061"
 ---
 # <a name="create-a-tabular-model-project"></a>建立表格式模型專案
 
@@ -35,7 +36,7 @@ ms.lasthandoff: 04/16/2018
   
     根據預設，[解決方案名稱] 會與專案名稱相同。不過，您可以輸入不同的解決方案名稱。  
   
-4.  按一下 [SERVICEPRINCIPAL] 。  
+4.  按一下 [確定]。  
   
 5.  在 [表格式模型設計師] 對話方塊中，選取 [整合式工作區]。  
   
