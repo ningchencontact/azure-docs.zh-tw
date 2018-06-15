@@ -8,6 +8,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: protection
 ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
@@ -15,12 +16,12 @@ ms.workload: identity
 ms.date: 05/11/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 475b0229b9e627a56b02d2299ee2e5400aa0ede1
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 1501ca1c036a8db1d53b9b27170d9ae05d41f797
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156104"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724110"
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>快速入門：透過 Azure Active Directory 條件式存取來要求特定應用程式必須使用 MFA 
 
@@ -160,13 +161,13 @@ ms.locfileid: "34156104"
 
 **建立條件式存取原則：**
 
-1. 在 [條件式存取 - 原則][](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) 頁面頂端的功能表中，按一下 [What If]。  
+1. 在 [條件式存取 - 原則](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) 頁面頂端的功能表中，按一下 **What If**。  
  
     ![What If](./media/active-directory-conditional-access-app-based-mfa/14.png)
 
-2. 按一下 [使用者]，選取 [Isabella Simonsen]，然後按一下 [選取]。
+2. 按一下 **使用者**，選取 **Isabella Simonsen**，然後按一下 **選取**。
 
-    ![User](./media/active-directory-conditional-access-app-based-mfa/15.png)
+    ![使用者](./media/active-directory-conditional-access-app-based-mfa/15.png)
 
 2. 若要選取雲端應用程式，請執行下列步驟：
 
