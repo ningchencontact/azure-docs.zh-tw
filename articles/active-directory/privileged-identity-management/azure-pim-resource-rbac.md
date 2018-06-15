@@ -3,7 +3,7 @@ title: Azure PIM 資源 RBAC 概觀 |Microsoft Docs
 description: 取得 PIM 中 RBAC 功能的概觀，包括術語和通知
 services: active-directory
 documentationcenter: ''
-author: barclayn
+author: rolyon
 manager: mtillman
 editor: ''
 ms.assetid: ''
@@ -12,13 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: protection
 ms.date: 03/30/2018
-ms.author: billmath
-ms.openlocfilehash: edf22ea0cfe60cb734b4339363d50af050466000
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: rolyon
+ms.openlocfilehash: f8eb574a98294b2858edd2ae36293c2857a50403
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261027"
 ---
 # <a name="pim-for-azure-resources"></a>適用於 Azure 資源的 PIM
 
@@ -117,9 +119,9 @@ Azure AD PIM 可以管理內建 Azure 資源角色，以及自訂 (RBAC) 角色�
 
 從下拉式功能表中選擇適用的作業類型。 
 
-**及時指派：**為使用者或群組成員提供合資格但不持續的的角色存取，時間可在指定期間或無限期 (如在角色設定中設定)。 
+**及時指派：** 為使用者或群組成員提供合資格但不持續的的角色存取，時間可在指定期間或無限期 (如在角色設定中設定)。 
 
-**直接指派：**無須使用者或群組成員即可啟用角色指派 (稱為持續存取)。 Microsoft 建議在短期使用上使用直接指派 (例如待命移位或以時間區分的活動)，這些工作完成時皆不需要存取。
+**直接指派：** 無須使用者或群組成員即可啟用角色指派 (稱為持續存取)。 Microsoft 建議在短期使用上使用直接指派 (例如待命移位或以時間區分的活動)，這些工作完成時皆不需要存取。
 
 ![](media/azure-pim-resource-rbac/membership-settings.png)
 

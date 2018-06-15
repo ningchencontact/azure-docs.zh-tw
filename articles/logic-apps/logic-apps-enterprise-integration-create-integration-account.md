@@ -4,7 +4,7 @@ description: 建立、連結、移動和刪除企業整合及 B2B 解決方案�
 services: logic-apps
 documentationcenter: ''
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.assetid: d3ad9e99-a9ee-477b-81bf-0881e11e632f
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: estfan
-ms.openlocfilehash: e661920974c2b0d28200d4c3d82bd644a7a55395
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 2a1fe501386884e02657d4b6cbef58ffc533fa33
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34166230"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297983"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-solutions-with-logic-apps"></a>建立和管理 B2B 解決方案與 Logic Apps 的整合帳戶
 
@@ -58,7 +58,7 @@ ms.locfileid: "34166230"
    | 訂用帳戶 | yes | <*Azure-subscription-name*> | 要使用的 Azure 訂用帳戶的名稱 | 
    | 資源群組 | yes | test-integration-account-rg | 用來組織相關資源之 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)的名稱。 在此範例中，請使用指定的名稱建立新的資源群組。 | 
    | 定價層 | yes | 免費 | 您想要使用的定價層。 在此範例中，選取 [免費]，但如需詳細資訊，請參閱 [Logic Apps 限制和設定](../logic-apps/logic-apps-limits-and-config.md)和[Logic Apps 價格](https://azure.microsoft.com/pricing/details/logic-apps/)。 | 
-   | 位置 | yes | 美國西部 | 用來存放整合帳戶資訊的區域。 請選取與邏輯應用程式相同的位置，或在與整合帳戶相同的位置中建立邏輯應用程式。 在此範例中， | 
+   | 位置 | yes | 美國西部 | 用來存放整合帳戶資訊的區域。 請選取與邏輯應用程式相同的位置，或在與整合帳戶相同的位置中建立邏輯應用程式。 | 
    | Log Analytics | 否 | 關閉 | 保留診斷記錄的 [關閉] 設定。 | 
    ||||| 
 

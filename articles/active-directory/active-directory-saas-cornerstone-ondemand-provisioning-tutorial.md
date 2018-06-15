@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
-ms.openlocfilehash: 203bc0934b8db15478e78cbc64e463eafdf83fa9
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 8ad2baef4534c3457fc30bb9589c6fdd99fde8d9
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34338630"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292815"
 ---
 # <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>教學課程︰設定 Cornerstone OnDemand 來自動佈建使用者
 
@@ -75,7 +75,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 設定並啟用自動使用者佈建之前，您應先決定 Azure AD 中的哪些使用者和/或群組需要存取 Cornerstone OnDemand。 一旦決定後，您可以依照此處的指示，將這些使用者和/或群組指派給 Cornerstone OnDemand：
 
-*   [將使用者或群組指派給企業應用程式](active-directory-coreapps-assign-user-azure-portal.md)
+*   [將使用者或群組指派給企業應用程式](manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-cornerstone-ondemand"></a>將使用者指派給 Cornerstone OnDemand 的重要秘訣
 
@@ -156,7 +156,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
     
 ## <a name="additional-resources"></a>其他資源
 
-* [管理企業應用程式的使用者帳戶佈建](active-directory-enterprise-apps-manage-provisioning.md)
+* [管理企業應用程式的使用者帳戶佈建](manage-apps/configure-automatic-user-provisioning-portal.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)
 
 

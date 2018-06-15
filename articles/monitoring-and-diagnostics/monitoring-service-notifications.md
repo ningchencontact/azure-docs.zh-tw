@@ -1,24 +1,19 @@
 ---
-title: 什麼是 Azure 服務健康情況通知？ | Microsoft Docs
+title: 什麼是 Azure 服務健康情況通知？
 description: 藉由服務健康情況通知，您可以檢視由 Microsoft Azure 發佈的服務健康情況訊息。
 author: dkamstra
-manager: chrad
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 4/12/2017
 ms.author: dukek
-ms.openlocfilehash: 6821828d3e39a87b8c93f74e7e0583bf9fe1fe4a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.component: activitylog
+ms.openlocfilehash: d6a87b17041c4ce6cf41da863354ef5a2a37141c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264437"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>使用 Azure 入口網站檢視服務健康情況通知
 
@@ -27,11 +22,11 @@ Azure 會發佈服務健康情況通知，其中包含您訂用帳戶下資源�
 服務健康情況通知有多種類別：  
 
 - **需採取動作：** Azure 可能注意到您的帳戶中發生異常狀況，並協助您解決這個問題。 Azure 會傳送通知給您，其中會詳述您需要採取的動作，或 Azure 工程或支援的連絡方式。  
-- **協助復原︰**事件已發生，且工程師確認您仍受到影響。 Azure 工程人員需要直接與您一起將服務還原為徹底健康的狀態。  
-- **附帶事件 (Incident)︰**影響服務的事件 (event) 目前正在影響您訂用帳戶下一個或多個資源。  
-- **維護︰**可能會影響您訂用帳戶下一個或多個資源的計劃性維護活動。  
-- **資訊：**潛在的最佳化作業，可能有助於提升資源使用效率。 
-- **安全性︰**緊急的安全性相關資訊，關係到 Azure 上執行的解決方案。
+- **協助復原︰** 事件已發生，且工程師確認您仍受到影響。 Azure 工程人員需要直接與您一起將服務還原為徹底健康的狀態。  
+- **附帶事件 (Incident)︰** 影響服務的事件 (event) 目前正在影響您訂用帳戶下一個或多個資源。  
+- **維護︰** 可能會影響您訂用帳戶下一個或多個資源的計劃性維護活動。  
+- **資訊：** 潛在的最佳化作業，可能有助於提升資源使用效率。 
+- **安全性︰** 緊急的安全性相關資訊，關係到 Azure 上執行的解決方案。
 
 每個服務健康狀態通知皆會包含關於範圍以及資源所受影響的詳細資料。 詳細資料包括：
 

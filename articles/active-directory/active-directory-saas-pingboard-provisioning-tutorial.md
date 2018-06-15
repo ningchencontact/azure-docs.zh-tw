@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 8fa98ff4cee206894c35f84cca3f3b4c43e2e5ce
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4d483f045a8e778953ddb578dd7bb81fdb05fdf2
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292403"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>教學課程︰設定 Pingboard 來自動佈建使用者
 
@@ -42,7 +43,7 @@ Azure AD 會使用稱為「指派」的概念，來判斷哪些使用者應收�
 
 在您設定並啟用佈建服務之前，必須決定 Azure AD 中的哪些使用者需要存取 Pingboard 應用程式。 然後，您就可以遵循此處的指示，將這些使用者指派給 Pingboard 應用程式︰
 
-[將使用者指派給企業應用程式](active-directory-coreapps-assign-user-azure-portal.md)
+[將使用者指派給企業應用程式](manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-pingboard"></a>將使用者指派給 Pingboard 的重要秘訣
 
@@ -99,6 +100,6 @@ Azure AD 會使用稱為「指派」的概念，來判斷哪些使用者應收�
 
 ## <a name="additional-resources"></a>其他資源
 
-* [管理企業應用程式的使用者帳戶佈建](active-directory-enterprise-apps-manage-provisioning.md)
+* [管理企業應用程式的使用者帳戶佈建](manage-apps/configure-automatic-user-provisioning-portal.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)
 * [設定單一登入](active-directory-saas-pingboard-tutorial.md)

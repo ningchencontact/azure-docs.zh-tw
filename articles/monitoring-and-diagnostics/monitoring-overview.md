@@ -1,25 +1,19 @@
 ---
-title: 監視 Azure 應用程式和資源 | Microsoft Docs
+title: 監視 Azure 應用程式和資源
 description: 構成 Azure 服務和應用程式之完整監視策略的各種 Microsoft 服務和功能的概觀。
 author: rboucher
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 1b962c74-8d36-4778-b816-a893f738f92d
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: overview
 ms.date: 03/05/2018
 ms.author: robb,bwren
-ms.openlocfilehash: 27d3835b5574492fdb62df0131ca3a542dd21ec3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.component: ''
+ms.openlocfilehash: e6adcc136c273210cc40d23ed2cb177287654005
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777547"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265127"
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>監視 Azure 應用程式和資源
 
@@ -118,9 +112,9 @@ Application Insights 和 Azure 資訊安全中心會將其資料儲存在 Log An
 
 [網路監看員](../network-watcher/network-watcher-monitoring-overview.md)可針對 Azure 中的各種不同網路案例，提供案例型監視和診斷。 它會將資料儲存在 Azure 計量和診斷中，以供進一步分析。 它會使用下列解決方案來監視您網路的各個層面。
 
-[網路效能監控 (NPM)](https://blogs.msdn.microsoft.com/azuregov/2017/09/05/network-performance-monitor-general-availability/)是雲端式網路監視解決方案，可監視跨公用雲端、資料中心和內部部署環境的連線。
+[網路效能監控 (NPM)](../log-analytics/log-analytics-network-performance-monitor.md)是雲端式網路監視解決方案，可監視跨公用雲端、資料中心和內部部署環境的連線。
 
-[ExpressRoute 監視](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/)是可透過 Azure ExpressRoute 線路監視端對端連線能力和效能的 NPM 功能。
+[ExpressRoute 監視](../expressroute/how-to-npm.md)是可透過 Azure ExpressRoute 線路監視端對端連線能力和效能的 NPM 功能。
 
 [DNS 分析](../log-analytics/log-analytics-dns.md)是根據您的 DNS 伺服器來提供安全性、效能和作業相關深入解析的解決方案。
 

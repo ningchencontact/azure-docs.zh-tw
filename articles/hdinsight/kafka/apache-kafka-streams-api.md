@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/17/2018
 ms.author: larryfr
-ms.openlocfilehash: 8aff28079a0aaa7c02d8a187cb379ecdbedcd854
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5391d6ae101a97e9b62215621267e591b2a995f5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626389"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>教學課程：Apache Kafka 串流 API
 
@@ -252,7 +253,7 @@ public class Stream
         jumped  13641
    
     > [!NOTE]
-    > 參數 `--from-beggining` 會設定讓取用者從主題中儲存的記錄開頭處開始執行。 每遇到一個字，字數就會增加一個，因此主題中會包含每個字的多個項目，且計數會遞增。
+    > 參數 `--from-beginning` 會設定讓取用者從主題中儲存的記錄開頭處開始執行。 每遇到一個字，字數就會增加一個，因此主題中會包含每個字的多個項目，且計數會遞增。
 
 7. 使用 __Ctrl + C__ 來結束產生者。 繼續使用 __Ctrl + C__ 來結束應用程式和取用者。
 

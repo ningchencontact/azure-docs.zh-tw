@@ -1,19 +1,19 @@
 ---
 title: 將 DevKit 裝置連線到 Azure IoT 中心應用程式 | Microsoft Docs
 description: 如何以裝置開發人員身分，將 MXChip IoT DevKit 裝置連線到 Azure IoT 中心應用程式。
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 4c7074e5e7d3858919f3fc17005fea4f8dce1560
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: d7b92359e8875c281fd460f1f5307a7941c11c1f
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200736"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261571"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>將 MXChip IoT DevKit 裝置連線到您的 Azure IoT Central 應用程式
 
@@ -23,12 +23,14 @@ ms.locfileid: "34200736"
 
 若要完成這篇文章中的步驟，您需要下列項目︰
 
-1. Azure IoT 中心應用程式是從**範例 Devkits** 應用程式範本建立而來。 如需詳細資訊，請參閱[建立 Azure IoT Central 應用程式](howto-create-application.md)。
+1. Azure IoT Central 應用程式是從**範例 Devkits** 應用程式範本建立而來。 如需詳細資訊，請參閱[建立 Azure IoT Central 應用程式](howto-create-application.md)。
 1. DevKit 裝置。 若要購買 DevKit 裝置，請造訪 [MXChip IoT DevKit](http://mxchip.com/az3166)。
 
 從**範例 Devkits** 應用程式範本建立的應用程式包含具有下列特性的 **MXChip** 裝置範本：
 
-### <a name="telemetry-measurements"></a>遙測量值
+### <a name="measurements"></a>量測
+
+#### <a name="telemetry"></a>遙測 
 
 | 欄位名稱     | Units  | 最小值 | 最大值 | 小數位數 |
 | -------------- | ------ | ------- | ------- | -------------- |
@@ -45,6 +47,20 @@ ms.locfileid: "34200736"
 | gyroscopeY     | mdps   | -2000   | 2000    | 0              |
 | gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
 
+#### <a name="states"></a>狀態 
+
+| Name          | 顯示名稱   | 正常 | 警告 | 危險 | 
+| ------------- | -------------- | ------ | ------- | ------ | 
+| DeviceState   | 裝置狀態   | 綠色  | 橙色  | 紅色    | 
+
+#### <a name="events"></a>活動 
+
+| Name             | 顯示名稱      | 
+| ---------------- | ----------------- | 
+| ButtonBPressed   | 按下按鈕 B  | 
+
+
+
 ### <a name="settings"></a>設定
 
 數值設定
@@ -52,12 +68,12 @@ ms.locfileid: "34200736"
 | 顯示名稱 | 欄位名稱 | Units | 小數位數 | 最小值 | 最大值 | Initial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | 電壓      | setVoltage | 伏特 | 0              | 0       | 240     | 0       |
-| Current      | setCurrent | Amps  | 0              | 0       | 100     | 0       |
+| Current      | setCurrent | 安培  | 0              | 0       | 100     | 0       |
 | 風扇速度    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
 
-開關設定
+切換設定
 
-| 顯示名稱 | 欄位名稱 | 開文字 | 關文字 | Initial |
+| 顯示名稱 | 欄位名稱 | 開啟文字 | 關閉文字 | Initial |
 | ------------ | ---------- | ------- | -------- | ------- |
 | IR           | activateIR | 開啟      | 關      | 關閉     |
 
@@ -65,20 +81,9 @@ ms.locfileid: "34200736"
 
 | 類型            | 顯示名稱 | 欄位名稱 | 資料類型 |
 | --------------- | ------------ | ---------- | --------- |
-| 裝置屬性 | Die 數字   | dieNumber  | number    |
+| 裝置屬性 | 模具編號   | dieNumber  | number    |
 | 文字            | 位置     | location   | N/A       |
 
-### <a name="states"></a>狀態 
-
-| Name          | 顯示名稱   | 正常 | 警告 | 危險 | 
-| ------------- | -------------- | ------ | ------- | ------ | 
-| DeviceState   | 裝置狀態   | 綠色  | 橙色  | 紅色    | 
-
-### <a name="events"></a>活動 
-
-| Name             | 顯示名稱      | 
-| ---------------- | ----------------- | 
-| ButtonBPressed   | 按下按鈕 B  | 
 
 ### <a name="add-a-real-device"></a>新增真實裝置
 

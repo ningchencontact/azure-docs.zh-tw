@@ -7,18 +7,20 @@ author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: maheshu
-ms.openlocfilehash: eee20271c27f596ee6aefd0b7280c7862c53b289
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: ac3ea6d696eaf5ba4b2554f416118718271526a8
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292461"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>在 Azure Active Directory Domain Services 受控網域上部署 Azure AD 應用程式
 Azure Active Directory (AD) 應用程式 Proxy 可藉由發佈要透過網際網路存取的內部部署應用程式，協助您支援遠端背景工作角色。 使用 Azure AD 網域服務，您現在可以提升執行內部部署的舊版應用程式並隨即轉移至 Azure 基礎結構服務。 然後，您可以使用 Azure AD 應用程式 Proxy 發佈這些應用程式，為您組織中的使用者提供安全遠端存取。
@@ -75,7 +77,7 @@ Azure Active Directory (AD) 應用程式 Proxy 可藉由發佈要透過網際網
     * 提供您的 **Azure AD 全域管理員認證**。 您的全域管理員租用戶可能與您的 Microsoft Azure 認證不同。
     * 用於註冊連接器的系統管理員帳戶必須屬於與您啟用應用程式 Proxy 服務的位置相同的目錄。 例如，如果租用戶網域為 contoso.com，則系統管理員應該是 admin@contoso.com，或該網域上的其他有效別名。
     * 如果 [IE 增強式安全性設定] 在您要安裝連接器的伺服器上開啟，可能會封鎖註冊畫面。 若要允許存取，請依照錯誤訊息中的指示。 請確定已停用 [Internet Explorer 增強式安全性]。
-    * 如果連接器註冊不成功，請參閱 [針對應用程式 Proxy 進行疑難排解](../active-directory/active-directory-application-proxy-troubleshoot.md)。
+    * 如果連接器註冊不成功，請參閱 [針對應用程式 Proxy 進行疑難排解](../active-directory/manage-apps/application-proxy-troubleshoot.md)。
 
     ![安裝的連接器](./media/app-proxy/app-proxy-connector-installed.png)
 4. 若要確保連接器正確運作，請執行 Azure AD 應用程式 Proxy 連接器疑難排解。 執行疑難排解程式之後，您應該看到成功的報告。

@@ -3,21 +3,22 @@ title: Azure AD Privileged Identity Management 安全性精靈
 description: 第一次使用 Azure Active Directory Privileged Identity Management 擴充功能時，您將會看到安全性精靈。 本文說明使用精靈的步驟。
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: protection
 ms.date: 02/27/2017
-ms.author: curtand
+ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017
-ms.openlocfilehash: 4b3856d74b1109b20a1ff9f93b76ee36b66ee312
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: cb08e5143814db29a7bec8c46226f07a26e51d25
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233015"
 ---
 # <a name="using-the-security-wizard-in-azure-ad-privileged-identity-management"></a>在 Azure AD Privileged Identity Management 中使用安全性精靈 
 如果您是貴組織中執行 Azure Privileged Identity Management (PIM) 的第一個人，您就會看到精靈。 精靈會協助您了解特殊權限身分識別的安全性風險，以及如何使用 PIM 來降低這些風險。 如果您想要稍後再進行變更，就不需要在精靈中對現有的角色指派進行任何變更。

@@ -1,12 +1,12 @@
 ---
-title: "概觀 - 與 Azure Logic Apps 進行企業整合 | Microsoft Docs"
-description: "建立自動化工作流程和商務程序，以整合各企業與組織的資料、服務、應用程式和系統。 建立資料整合、系統整合、企業應用程式整合 (EAI) 和協調流程案例的解決方案。"
-keywords: "自動化, 工作流程, 企業應用程式整合, EAI, 系統整合, 資料整合, 協調流程, 整合服務, iPaaS"
+title: 概觀 - 與 Azure Logic Apps 進行企業整合 | Microsoft Docs
+description: 建立自動化工作流程和商務程序，以整合各企業與組織的資料、服務、應用程式和系統。 建立資料整合、系統整合、企業應用程式整合 (EAI) 和協調流程案例的解決方案。
+keywords: 自動化, 工作流程, 企業應用程式整合, EAI, 系統整合, 資料整合, 協調流程, 整合服務, iPaaS
 services: logic-apps
 author: ecfan
-manager: anneta
-editor: 
-documentationcenter: 
+manager: jeconnoc
+editor: ''
+documentationcenter: ''
 ms.assetid: 07765c05-72a6-4169-a8ab-f6420bfbaf07
 ms.service: logic-apps
 ms.workload: na
@@ -16,11 +16,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 6c88c51eb4def92164e221efa5c6293f9b2247e4
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: c575ae1f9c801072fb1f6f32a13f111b9edd18ce
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299234"
 ---
 # <a name="what-is-azure-logic-apps"></a>什麼是 Azure Logic Apps？
 

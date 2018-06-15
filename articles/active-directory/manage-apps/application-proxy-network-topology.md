@@ -15,11 +15,12 @@ ms.date: 07/28/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: c3f07aa0ef4fea773e214e3e161a61e9337dc617
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 673f41e368d54aeed903400179a818e534845860
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292733"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>使用 Azure Active Directory 應用程式 Proxy 時的網路拓撲考量
 
@@ -175,4 +176,4 @@ ms.lasthandoff: 05/14/2018
 - [啟用應用程式 Proxy](application-proxy-enable.md)
 - [啟用單一登入](application-proxy-configure-single-sign-on-with-kcd.md)
 - [啟用條件式存取](application-proxy-integrate-with-sharepoint-server.md)
-- [使用應用程式 Proxy 疑難排解您遇到的問題](../active-directory-application-proxy-troubleshoot.md)
+- [使用應用程式 Proxy 疑難排解您遇到的問題](application-proxy-troubleshoot.md)

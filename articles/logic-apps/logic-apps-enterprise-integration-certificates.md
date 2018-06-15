@@ -1,11 +1,11 @@
 ---
-title: "在 Azure Logic Apps 中使用憑證保護 B2B 訊息 | Microsoft Docs"
-description: "使用企業整合套件新增憑證以保護 B2B 訊息"
+title: 在 Azure Logic Apps 中使用憑證保護 B2B 訊息 | Microsoft Docs
+description: 使用企業整合套件新增憑證以保護 B2B 訊息
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 708bdcddede71186c48ae7d4034cc9df0bd61391
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 7ba76a15792fe40b2a628b030f06930641d197a3
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299329"
 ---
 # <a name="secure-b2b-messages-with-certificates"></a>使用憑證保護 B2B 訊息
 
@@ -108,7 +109,7 @@ ms.lasthandoff: 02/27/2018
    2. 選取 [憑證] 方塊右邊的資料夾圖示。 
    尋找和選取您想要上傳的憑證檔案。 
    此外，選取 [資源群組]、[金鑰保存庫] 以及 [金鑰名稱]。 
-   完成後，請選擇 [確定]。
+   完成時，選擇 [確定]。
 
       ![新增憑證](media/logic-apps-enterprise-integration-certificates/privatecertificate-1.png)
 

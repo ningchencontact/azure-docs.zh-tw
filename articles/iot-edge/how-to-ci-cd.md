@@ -1,20 +1,19 @@
 ---
 title: Azure IoT Edge 持續整合與持續部署 | Microsoft Docs
 description: Azure IoT Edge 的持續整合與持續部署概觀
-services: iot-Edge
-documentationcenter: ''
 author: shizn
-manager: timlt
+manager: ''
 ms.author: xshi
-ms.date: 4/30/2018
-ms.topic: article
+ms.date: 04/30/2018
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 2f635a4c02dd8fd2b58598e53662d1a4d82ea611
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+services: iot-edge
+ms.openlocfilehash: a8b58eae9aa08d8f6539370fa6e78a7a4813c18f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32311738"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631015"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge---preview"></a>Azure IoT Edge 的持續整合與持續部署 - 預覽
 本教學課程示範如何使用 Visual Studio Team Services (VSTS) 和 Microsoft Team Foundation Server (TFS) 的持續整合與持續部署功能，以快速且有效率地建置、測試應用程式，並且將其部署到您的 Azure IoT Edge。 
