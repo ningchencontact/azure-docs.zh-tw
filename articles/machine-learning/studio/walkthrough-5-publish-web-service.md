@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 3fca74a3-c44b-4583-a218-c14c46ee5338
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 6472b795c9b3651160af4d1520bfd1c90a500b5f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7a0dc7e92df342789d2c498479aa54b94070c9f4
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34835938"
 ---
 # <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>逐步解說步驟 5：部署 Azure Machine Learning Web 服務
 這是 [在 Azure Machine Learning 中為信用風險評估開發預測性分析解決方案](walkthrough-develop-predictive-solution.md)
@@ -106,17 +108,17 @@ Machine Learning Studio 已在移除[分割][split]模組時移除一個[執行 
 > 
 > 
 
-最後一次執行實驗 (按一下 [執行])。如果要確認模型仍然有效，請按一下 [評分模型][][score-model]模組的輸出結果，並選取 [檢視結果]。 您可以看到原始資料出現，也會看到信用風險值 ("Scored Labels") 和評分機率值 ("Scored Probabilities")。 
+最後一次執行實驗 (按一下 **執行**)。如果要確認模型仍然有效，請按一下 [評分模型][score-model]模組的輸出結果，並選取 **檢視結果**。 您可以看到原始資料出現，也會看到信用風險值 ("Scored Labels") 和評分機率值 ("Scored Probabilities")。 
 
 ## <a name="deploy-the-web-service"></a>部署 Web 服務
 您可以將實驗部署為傳統 Web 服務或架構在 Azure Resource Manager 上的新式 Web 服務。
 
 ### <a name="deploy-as-a-classic-web-service"></a>部署為傳統 Web 服務
-若要部署衍生自實驗的傳統 Web 服務，請按一下畫布下方的 [部署 Web 服務]，然後選取 [部署 Web 服務 [傳統]]。 Machine Learning Studio 會將實驗當做 Web 服務部署，並帶您前往 Web 服務的儀表板。 您可以從此頁面返回實驗 ([檢視快照] 或 [檢視最新])，並執行簡單的 Web 服務測試 (請參閱下面的**測試 Web 服務**)。 另外這裡還有建立可存取 Web 服務之應用程式的資訊 (此逐步說明的下一個步驟中有該資訊的詳細資料)。
+若要部署衍生自實驗的傳統 Web 服務，請按一下畫布下方的 [部署 Web 服務]，然後選取 [部署 Web 服務 [傳統]]。 Machine Learning Studio 會將實驗當做 Web 服務部署，並帶您前往 Web 服務的儀表板。 您可以從此頁面返回實驗 (**檢視快照** 或 **檢視最新**)，並執行簡單的 Web 服務測試 (請參閱下面的**測試 Web 服務**)。 另外這裡還有建立可存取 Web 服務之應用程式的資訊 (此逐步說明的下一個步驟中有該資訊的詳細資料)。
 
 ![Web 服務儀表板][6]
 
-您可以按一下 [設定]  索引標籤來設定服務。您可以在這裡修改服務名稱 (預設會指定實驗名稱) 並輸入描述。 您也可以為輸入和輸出資料指定更好記的標籤。  
+您可以按一下 **設定**  索引標籤來設定服務。您可以在這裡修改服務名稱 (預設會指定實驗名稱) 並輸入描述。 您也可以為輸入和輸出資料指定更好記的標籤。  
 
 ![設定 Web 服務][5]  
 
@@ -127,15 +129,15 @@ Machine Learning Studio 已在移除[分割][split]模組時移除一個[執行 
 
 部署衍生自實驗的新式 Web 服務：
 
-1. 按一下畫布底下的 [部署 Web 服務]，然後選取 [部署 Web 服務 [新式]]。 Machine Learning Studio 會帶您到 Azure Machine Learning Web 服務的 [部署實驗] 頁面。
+1. 按一下畫布底下的 **部署 Web 服務**，然後選取 **部署 Web 服務 [新式]**。 Machine Learning Studio 會帶您到 Azure Machine Learning Web 服務的 [部署實驗] 頁面。
 
 2. 輸入 Web 服務的名稱。 
 
-3. 在 [價格方案]，您可以選取現有的定價方案，或選取 [建立新的] 並指定新的方案的名稱，然後選取每月方案選項。 方案層預設為您預設區域的方案，而您的 Web 服務會部署到該區域。
+3. 在 **價格方案**，您可以選取現有的定價方案，或選取 [建立新的] 並指定新的方案的名稱，然後選取每月方案選項。 方案層預設為您預設區域的方案，而您的 Web 服務會部署到該區域。
 
 4. 按一下 [ **部署**]。
 
-幾分鐘後，Web 服務的 [快速入門] 頁面就會開啟。
+幾分鐘後，Web 服務的 **快速入門** 頁面就會開啟。
 
 您可以按一下 [設定] 索引標籤來設定服務。您可以在這裡修改服務標題並輸入描述。 
 
