@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: tomfitz
-ms.openlocfilehash: b97fdea36eab914926ff91e1f27bdab0fb8a3930
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d09aa46eabe705082edafe12da8442a79d1080b3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603191"
 ---
 # <a name="deploy-private-resource-manager-template-with-sas-token-and-azure-cli"></a>使用 SAS 權杖和 Azure CLI 部署私用 Resource Manager 範本
 
@@ -88,4 +89,3 @@ az group deployment create --resource-group ExampleGroup --template-uri $url?$to
 * 如需部署範本的簡介，請參閱[使用 Resource Manager 範本與 Azure PowerShell 來部署資源](resource-group-template-deploy-cli.md)。
 * 如需部署範本的完整範例指令碼，請參閱[部署 Resource Manager 範本指令碼](resource-manager-samples-cli-deploy.md)。
 * 若要在範本中定義參數，請參閱 [編寫範本](resource-group-authoring-templates.md#parameters)。
-* 如需關於企業如何使用 Resource Manager 有效地管理訂用帳戶的指引，請參閱 [Azure 企業 Scaffold - 規定的訂用帳戶治理](resource-manager-subscription-governance.md)。

@@ -1,25 +1,27 @@
 ---
-title: "疑難排解︰Azure Active Directory 活動記錄中的遺漏資料 | Microsoft Docs"
-description: "列出 Azure Active Directory 的各種可用報告"
+title: 疑難排解︰Azure Active Directory 活動記錄中的遺漏資料 | Microsoft Docs
+description: 列出 Azure Active Directory 的各種可用報告
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: rolyon
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 7cbe4337-bb77-4ee0-b254-3e368be06db7
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: compliance-reports
 ms.date: 01/15/2018
-ms.author: markvi
+ms.author: rolyon
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 55587fb4ff6d8a2130eb838782a65788fb2dd2b3
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 1568a7c508dbbb42143d8badf39833af90fcc376
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34589537"
 ---
 # <a name="i-cant-find-some-actions-that-i-performed-in-the-azure-active-directory-activity-log"></a>找不到我在 Azure Active Directory 活動記錄中執行的某些動作
 

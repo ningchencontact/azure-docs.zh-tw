@@ -7,18 +7,20 @@ author: eringreenlee
 manager: ''
 editor: ''
 ms.assetid: f168870c-b43a-4dd6-a13f-5cfadc5edf2c
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: 7cd16d64d18b4cdcb710f68c55a8251904acda86
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 18a09a22a5dfa4ed94627727cc844c6b7ffc11f6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34589439"
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>針對受控網域的無效服務主體組態進行疑難排解
 
@@ -48,7 +50,7 @@ ms.lasthandoff: 03/30/2018
 ## <a name="recreate-a-missing-service-principal-with-powershell"></a>使用 PowerShell 重新建立遺失的服務主體
 如果 Azure AD 目錄中遺漏識別碼為 ```2565bd9d-da50-47d4-8b85-4c97f669dc36``` 的服務主體，請執行下列步驟。
 
-**解決方案：**您需要 Azure AD PowerShell 才能完成這些步驟。 如需安裝 Azure AD PowerShell 的相關資訊，請參閱[這篇文章](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.)。
+**解決方案：** 您需要 Azure AD PowerShell 才能完成這些步驟。 如需安裝 Azure AD PowerShell 的相關資訊，請參閱[這篇文章](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.)。
 
 若要解決此問題，請在 PowerShell 視窗中輸入下列命令：
 1. 安裝 Azure AD PowerShell 模組，並加以匯入。
@@ -76,7 +78,7 @@ ms.lasthandoff: 03/30/2018
 ## <a name="re-register-to-the-microsoft-aad-namespace-using-the-azure-portal"></a>使用 Azure 入口網站重新註冊 Microsoft AAD 命名空間
 如果 Azure AD 目錄中遺漏識別碼為 ```443155a6-77f3-45e3-882b-22b3a8d431fb``` 或 ```abba844e-bc0e-44b0-947a-dc74e5d09022``` 的服務主體，請執行下列步驟。
 
-**解決方案：**使用下列步驟，在目錄上還原 Domain Services：
+**解決方案：** 使用下列步驟，在目錄上還原 Domain Services：
 
 1. 在 Azure 入口網站中，瀏覽至[訂用帳戶](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)頁面。
 2. 從與受控網域相關聯的資料表中選擇訂用帳戶
@@ -88,15 +90,15 @@ ms.lasthandoff: 03/30/2018
 ## <a name="service-principals-that-self-correct"></a>會自動更正的服務主體
 如果 Azure AD 目錄中遺漏識別碼為 ```d87dcbc6-a371-462e-88e3-28ad15ec4e64``` 的服務主體，請執行下列步驟。
 
-**解決方案：**Azure AD Domain Services 可在此服務主體遺失時、設定不正確或遭到刪除時偵測到。 服務會自動重新建立此服務主體。 不過，您將必須刪除應用程式，以及使用已刪除之應用程式的物件，因為當憑證變換時，新的服務主體將無法再修改應用程式和物件。 這將在您的在網域上導致新的錯誤。 請依照 [AADDS105 的區段](#alert-aadds105-password-synchronization-application-is-out-of-date)中說明的步驟來避免此問題。 接著，請在兩個小時之後檢查受控網域的健康情況，以確認新的服務主體已重新建立。
+**解決方案：** Azure AD Domain Services 可在此服務主體遺失時、設定不正確或遭到刪除時偵測到。 服務會自動重新建立此服務主體。 不過，您將必須刪除應用程式，以及使用已刪除之應用程式的物件，因為當憑證變換時，新的服務主體將無法再修改應用程式和物件。 這將在您的在網域上導致新的錯誤。 請依照 [AADDS105 的區段](#alert-aadds105-password-synchronization-application-is-out-of-date)中說明的步驟來避免此問題。 接著，請在兩個小時之後檢查受控網域的健康情況，以確認新的服務主體已重新建立。
 
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>警示 AADDS105：密碼同步處理應用程式已過期
 
-**警示訊息：**應用程式識別碼為 “d87dcbc6-a371-462e-88e3-28ad15ec4e64” 的服務主體已刪除，然後重新建立。 重新建立會在為您受控網域提供服務所需的 Azure AD Domain Services 資源上留下不一致的權限。 受控網域上的密碼同步處理可能會受到影響。
+**警示訊息：** 應用程式識別碼為 “d87dcbc6-a371-462e-88e3-28ad15ec4e64” 的服務主體已刪除，然後重新建立。 重新建立會在為您受控網域提供服務所需的 Azure AD Domain Services 資源上留下不一致的權限。 受控網域上的密碼同步處理可能會受到影響。
 
 
-**解決方案：**您需要 Azure AD PowerShell 才能完成這些步驟。 如需安裝 Azure AD PowerShell 的相關資訊，請參閱[這篇文章](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.)。
+**解決方案：** 您需要 Azure AD PowerShell 才能完成這些步驟。 如需安裝 Azure AD PowerShell 的相關資訊，請參閱[這篇文章](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.)。
 
 若要解決此問題，請在 PowerShell 視窗中輸入下列命令：
 1. 安裝 Azure AD PowerShell 模組，並加以匯入。

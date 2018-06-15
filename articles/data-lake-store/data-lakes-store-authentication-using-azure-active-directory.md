@@ -9,17 +9,18 @@ editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/09/2018
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 061a44540cb618074764ae02fecb3f43d47fe5dd
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: bee65fbdc65807ac33ae425ed9d87dbf0c246d9d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625282"
 ---
 # <a name="authentication-with-data-lake-store-using-azure-active-directory"></a>使用 Azure Active Directory 向 Data Lake Store 進行驗證
 
-Azure Data Lake Store 使用 Azure Active Directory 進行驗證。 撰寫搭配 Azure Data Lake Store 的應用程式之前，必須決定要如何向 Azure Active Directory (Azure AD) 驗證應用程式。 
+Azure Data Lake Store 使用 Azure Active Directory 進行驗證。 撰寫搭配 Azure Data Lake Store 的應用程式之前，必須決定要如何向 Azure Active Directory (Azure AD) 驗證應用程式。
 
 ## <a name="authentication-options"></a>驗證選項
 

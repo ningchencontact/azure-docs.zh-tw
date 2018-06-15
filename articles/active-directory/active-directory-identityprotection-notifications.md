@@ -1,14 +1,15 @@
 ---
-title: "Azure Active Directory Identity Protection 通知| Microsoft Docs"
-description: "了解通知如何支援您的調查活動。"
+title: Azure Active Directory Identity Protection 通知| Microsoft Docs
+description: 了解通知如何支援您的調查活動。
 services: active-directory
-keywords: "azure active directory identity protection, cloud app discovery, 管理應用程式, 安全性, 風險, 風險層級, 弱點, 安全性原則"
-documentationcenter: 
+keywords: azure active directory identity protection, cloud app discovery, 管理應用程式, 安全性, 風險, 風險層級, 弱點, 安全性原則
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 65ca79b9-4da1-4d5b-bebd-eda776cc32c7
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,11 +17,12 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: bea21439afef4fda453732edffc84c62667dfe38
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e72cfab8886f28982e5451362704d6a7a9fe59e4
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713808"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Azure Active Directory Identity Protection 通知
 
@@ -34,7 +36,7 @@ Azure AD Identity Protection 會傳送兩種自動化通知電子郵件，協助
 
 ## <a name="users-at-risk-detected-email"></a>「偵測到具有風險的使用者」電子郵件
 
-當偵測到具有風險的帳戶時，Azure AD Identity Protection 會產生主旨為**偵測到具有風險的使用者**的電子郵件警示來作為回應。 此電子郵件會包含**[標幟為有風險的使用者](active-directory-reporting-security-user-at-risk.md)**報告的連結。 最佳做法是應立即調查具有風險的使用者。
+當偵測到具有風險的帳戶時，Azure AD Identity Protection 會產生主旨為**偵測到具有風險的使用者**的電子郵件警示來作為回應。 此電子郵件會包含**[標幟為有風險的使用者](active-directory-reporting-security-user-at-risk.md)** 報告的連結。 最佳做法是應立即調查具有風險的使用者。
 
 ![「偵測到具有風險的使用者」電子郵件](./media/active-directory-identityprotection-notifications/01.png)
 

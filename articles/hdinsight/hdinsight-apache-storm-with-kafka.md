@@ -12,13 +12,14 @@ ms.devlang: java
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/06/2018
+ms.date: 05/21/2018
 ms.author: larryfr
-ms.openlocfilehash: 8baafd69e45210b74db8b0bf41b765067b1251a8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b973890caddf598d5ba4e96a04a18df46cdb5cf8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626285"
 ---
 # <a name="tutorial-use-apache-storm-with-kafka-on-hdinsight"></a>教學課程：在 HDInsight 上搭配使用 Apache Storm 與 Kafka
 
@@ -59,7 +60,7 @@ ms.lasthandoff: 05/07/2018
     * 已安裝 Maven 的目錄。
 
 > [!IMPORTANT]
-> 在本文件的步驟中，Azure 資源群組必須包含 HDInsight 上的 Storm 和 HDInsight 叢集上的 Kafka。 這兩個叢集都位於 Azure 虛擬網路中，可讓 Spark 叢集直接與 Kafka 叢集通訊。
+> 在本文件的步驟中，Azure 資源群組必須包含 HDInsight 上的 Storm 和 HDInsight 叢集上的 Kafka。 這兩個叢集都位於 Azure 虛擬網路中，可讓 Storm 叢集直接與 Kafka 叢集通訊。
 > 
 > 為了方便您使用，本文件會連結至可建立所有必要 Azure 資源的範本。 
 >

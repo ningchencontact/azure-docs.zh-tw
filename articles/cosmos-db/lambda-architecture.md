@@ -3,21 +3,20 @@ title: 具有 Azure Cosmos DB 和 HDInsight (Apache Spark) 的 Lambda 架構 | M
 description: 本文描述如何使用 Azure Cosmos DB、HDInsight 及 Spark 實作 Lambda 架構
 keywords: lambda-architecture
 services: cosmos-db
-documentationcenter: ''
 author: dennyglee
 manager: kfile
 editor: ''
-ms.assetid: 273aeae9-e31c-4a43-b216-5751c46f212e
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: denlee
-ms.openlocfilehash: 9c1a8c212fbacde9fbf69fdf9bf72ed2393786db
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a8cdee6e8e7c338be278449a31426824f6e805d6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34611852"
 ---
 # <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB：在 Azure 平台上實作 Lambda 架構 
 
@@ -270,7 +269,7 @@ var streamingQuery = streamingQueryWriter.start()
 ### <a name="resources"></a>資源
 
  * **新資料**：[從 Twitter 到 CosmosDB 的資料流摘要](https://github.com/tknandu/TwitterCosmosDBFeed)，這是將新資料推送至 Azure Cosmos DB 的機制。
- * **批次層：**批次層包括「主要資料集」 (固定、僅附加的原始資料集)，而且能夠對於推入至**服務層**的資料預先計算批次檢視。
+ * **批次層：** 批次層包括「主要資料集」 (固定、僅附加的原始資料集)，而且能夠對於推入至**服務層**的資料預先計算批次檢視。
     * **Lambda 架構重新架構 - 批次層**筆記本 [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.html) 會查詢批次檢視的「主要資料集」。
  * **服務層：****服務層**包括預先計算的資料，產生的批次檢視 (例如彙總、特定的交叉分析篩選器等) 有利於快速查詢。
     * **Lambda 架構重新架構 - 服務層的批次**筆記本 [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.html) 會將批次資料推送至服務層；也就是說，Spark 會查詢並處理推文的批次集合，然後將它儲存到另一個集合 (計算的批次)。

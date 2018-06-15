@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 709a178d99a34adb9c77086e55270fe41ed84551
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: df8fe611c762421f3a963340b24df74a80a20160
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621729"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>使用 Azure Data Factory 從 Azure SQL 資料倉儲來回複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -167,7 +168,7 @@ GO
 ## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>使用 PolyBase 將資料載入 Azure SQL 資料倉儲
 使用 [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) 是以高輸送量將大量資料載入 Azure SQL 資料倉儲的有效方法。 使用 PolyBase 而不是預設的 BULKINSERT 機制，即可看到輸送量大幅提升。 請參閱[複製效能參考編號](data-factory-copy-activity-performance.md#performance-reference)了解詳細的比較。 如需使用案例的逐步解說，請參閱[使用 Azure Data Factory 在 15 分鐘內將 1 TB 載入至 Azure SQL 資料倉儲](data-factory-load-sql-data-warehouse.md)。
 
-* 如果您的來源資料位在 Azure Blob 或 Azure Data Lake Store，且其格式與 PolyBase 相容，您就可以使用 PolyBase 直接複製到 Azure SQL 資料倉儲。 請參閱**[使用 PolyBase 直接複製](#direct-copy-using-polybase)**了解詳細資料。
+* 如果您的來源資料位在 Azure Blob 或 Azure Data Lake Store，且其格式與 PolyBase 相容，您就可以使用 PolyBase 直接複製到 Azure SQL 資料倉儲。 請參閱**[使用 PolyBase 直接複製](#direct-copy-using-polybase)** 了解詳細資料。
 * 如果您的來源資料存放區與格式不受 PolyBase 支援，您可以改為使用[使用 PolyBase 分段複製](#staged-copy-using-polybase)功能。 它也能透過將資料自動轉換為 PolyBase 相容的格式，並將資料儲存在 Azure Blob 儲存體中，來提供更佳的輸送量。 然後，它會將資料載入 SQL 資料倉儲。
 
 將 `allowPolyBase` 屬性設定為 **true** (如下列範例所示)，以便 Azure Data Factory 使用 PolyBase，將資料複製到 Azure SQL 資料倉儲。 當您將 allowPolyBase 設定為 true 時，您可以使用 `polyBaseSettings` 屬性群組來指定 PolyBase 特定屬性。 如需您可搭配 polyBaseSettings 使用之屬性的詳細資訊，請參閱 [SqlDWSink](#SqlDWSink) 一節。

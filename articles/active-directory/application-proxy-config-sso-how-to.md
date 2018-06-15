@@ -3,22 +3,24 @@ title: 如何針對應用程式 Proxy 應用程式設定單一登入 | Microsoft
 description: 如何快速針對應用程式 Proxy 應用程式設定單一登入
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: c090a3fc36c300a108f10f02d0b663dc1e29f986
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.date: 05/21/2018
+ms.author: barbkess
+ms.reviewer: harshja
+ms.openlocfilehash: 3d7711ac62ebc870b98e2f2696a74f236c2d6a88
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156022"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591475"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>如何針對應用程式 Proxy 應用程式設定單一登入
 

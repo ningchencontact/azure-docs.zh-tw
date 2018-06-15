@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ce5909bd522ab7af77846af598506ea69058bd5c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d83e71efa89746d7744893281ffe0ac1169fa08b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621467"
 ---
 # <a name="copy-data-to-and-from-data-lake-store-by-using-data-factory"></a>了解如何使用 Data Factory 從 Data Lake Store 來回複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -191,13 +192,13 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 
 ## <a name="troubleshooting-tips"></a>疑難排解秘訣
 
-**徵兆：**將資料複製**到** Azure Data Lake Store 時，如果複製活動因以下錯誤而發生失敗：
+**徵兆：** 將資料複製**到** Azure Data Lake Store 時，如果複製活動因以下錯誤而發生失敗：
 
   ```
   Failed to detect the region for Azure Data Lake account {your account name}. Please make sure that the Resource Group name: {resource group name} and subscription ID: {subscription ID} of this Azure Data Lake Store resource are correct.
   ```
 
-**根本原因：**有 2 個可能的原因：
+**根本原因：** 有 2 個可能的原因：
 
 1. Azure Data Lake Store 已連結服務中指定的 `resourceGroupName` 和/或 `subscriptionId` 不正確；
 2. 使用者或服務主體沒有所需的權限。

@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: abnarain
-ms.openlocfilehash: 7e55249ed187ad9fa74a39634bbb254c9b0b8b8e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1bf030d7eaba5c8aa608c504f65c5ebf291eab3d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34619689"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>在 Azure Data Lake Analytics 上執行 U-SQL 指令碼來轉換資料 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -132,7 +133,7 @@ Azure Data Lake Analytics 已連結的服務需要服務主體驗證，才能連
 | 優先順序            | 判斷應該選取排入佇列的哪些工作首先執行。 編號愈低，優先順序愈高。 | 否       |
 | parameters          | 要傳遞到 U-SQL 指令碼的參數。    | 否       |
 | runtimeVersion      | 所要使用之 U-SQL 引擎的執行階段版本。 | 否       |
-| compilationMode     | <p>U-SQL 的編譯模式。 必須是下列其中一個值：**Semantic：**僅執行語意檢查和必要的例行性檢查、**Full：**執行完整編譯，包括語法檢查、最佳化、程式碼產生等等，**SingleBox：**執行完整編譯，TargetType 設定為 SingleBox。 如果您沒有為此屬性指定值，伺服器將會判斷最佳的編譯模式。 | 否 |
+| compilationMode     | <p>U-SQL 的編譯模式。 必須是下列其中一個值：**Semantic：** 僅執行語意檢查和必要的例行性檢查、**Full：** 執行完整編譯，包括語法檢查、最佳化、程式碼產生等等，**SingleBox：** 執行完整編譯，TargetType 設定為 SingleBox。 如果您沒有為此屬性指定值，伺服器將會判斷最佳的編譯模式。 | 否 |
 
 Data Factory 針對指令碼定義提交「請參閱 [SearchLogProcessing.txt 指令碼定義](#sample-u-sql-script)」。 
 

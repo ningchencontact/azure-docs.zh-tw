@@ -1,24 +1,26 @@
 ---
-title: "Azure Active Directory Domain Services：管理受控網域 | Microsoft Docs"
-description: "管理 Azure Active Directory Domain Services 受控網域"
+title: Azure Active Directory Domain Services：管理受控網域 | Microsoft Docs
+description: 管理 Azure Active Directory Domain Services 受控網域
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: d4fdbc75-3e6b-4e20-8494-5dcc3bf2220a
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: maheshu
-ms.openlocfilehash: 7ffe3e54b891fd74e14666c136be49132d78590b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 68f963b7f3107bad58edb183ec104777903b20d1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34588517"
 ---
 # <a name="administer-an-azure-active-directory-domain-services-managed-domain"></a>管理 Azure Active Directory Domain Services 受控網域
 本文說明如何管理 Azure Active Directory (AD) 網域服務受控網域。
@@ -29,8 +31,7 @@ ms.lasthandoff: 12/11/2017
 1. 有效的 **Azure 訂用帳戶**。
 2. **Azure AD 目錄** - 與內部部署目錄或僅限雲端的目錄同步處理。
 3. **Azure AD 網域服務** 必須已針對 Azure AD 目錄啟用。 如果還沒有啟用，請按照 [入門指南](active-directory-ds-getting-started.md)所述的所有工作來進行。
-4. 
-            **已加入網域的虛擬機器** ，您可在其中管理 Azure AD 網域服務受控網域。 如果您沒有這類虛擬機器，請依照名為[將 Windows 虛擬機器加入受控網域](active-directory-ds-admin-guide-join-windows-vm.md)一文所述的所有工作進行操作。
+4. **已加入網域的虛擬機器** ，您可在其中管理 Azure AD 網域服務受控網域。 如果您沒有這類虛擬機器，請依照名為[將 Windows 虛擬機器加入受控網域](active-directory-ds-admin-guide-join-windows-vm.md)一文所述的所有工作進行操作。
 5. 您需要目錄中 **屬於「AAD DC 系統管理員」群組之使用者帳戶** 的認證，才能管理受控網域。
 
 <br>
@@ -118,6 +119,5 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="related-content"></a>相關內容
 * [Azure AD Domain Services - 入門指南](active-directory-ds-getting-started.md)
-* 
-            [將 Windows Server 虛擬機器加入 Azure Active Directory Domain Services 受控網域](active-directory-ds-admin-guide-join-windows-vm.md)
+* [將 Windows Server 虛擬機器加入 Azure Active Directory Domain Services 受控網域](active-directory-ds-admin-guide-join-windows-vm.md)
 * [部署遠端伺服器管理工具](https://technet.microsoft.com/library/hh831501.aspx)

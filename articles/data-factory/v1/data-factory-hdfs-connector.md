@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 62a1052c0b2674e3292d5f89c0b8863439dd3928
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b8a35e19628ebbe75d3f1890a6d64ab777519698
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621542"
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>使用 Azure Data Factory 從內部部署的 HDFS 移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -189,7 +190,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 HDFS�
 
 第一步是設定資料管理閘道。 如需相關指示，請參閱 [在內部部署位置和雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md) 。
 
-**HDFS 已連結的服務：**此範例使用 Windows 驗證。 請參閱 [HDFS 連結服務](#linked-service-properties) 章節以了解您可以使用的各種不同類型的驗證。
+**HDFS 已連結的服務：** 此範例使用 Windows 驗證。 請參閱 [HDFS 連結服務](#linked-service-properties) 章節以了解您可以使用的各種不同類型的驗證。
 
 ```JSON
 {
@@ -223,7 +224,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 HDFS�
 }
 ```
 
-**HDFS 輸入資料集：**此資料集係指 HDFS 資料夾 DataTransfer/UnitTest/。 管線會將此資料夾中的所有檔案複製到目的地。
+**HDFS 輸入資料集：** 此資料集係指 HDFS 資料夾 DataTransfer/UnitTest/。 管線會將此資料夾中的所有檔案複製到目的地。
 
 設定 “external”: ”true” 會通知 Data Factory 服務：這是 Data Factory 外部的資料集而且不是由 Data Factory 中的活動所產生。
 

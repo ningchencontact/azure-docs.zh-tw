@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 05/09/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 3368a8a14a3d1314e4c7ecae9256071f1fe646f9
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 6c93d995d7270a194bf654e69183807ba1422c10
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257864"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608029"
 ---
 # <a name="compare-azure-cdn-product-features"></a>比較 Azure CDN 產品功能
 
@@ -41,7 +41,6 @@ Azure 內容傳遞網路 (CDN) 包含四種產品：**來自 Microsoft 的標準
 | 快取/標頭設定 (使用[快取規則](cdn-caching-rules.md))  |  |**&#x2713;** |**&#x2713;** | |
 | 快取/標頭設定 (使用 [規則引擎](cdn-rules-engine.md))  |  | | |**&#x2713;** |
 | [查詢字串快取](cdn-query-string.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| 地區快取  |**&#x2713;** |  |  |  |
 | IPv4/IPv6 雙重堆疊 | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [HTTP/2 支援](cdn-http2.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 ||||

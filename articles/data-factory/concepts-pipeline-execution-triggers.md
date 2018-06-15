@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/03/2018
+ms.date: 05/29/2018
 ms.author: shlo
-ms.openlocfilehash: 08fcc2eec1914d9f7535ea66d33045240452e2a6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e9fb1088110212a0971ea1af7bbfbecb7d150e21
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715032"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory 中的管道執行和觸發程序
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -138,6 +139,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 觸發程序是執行管線執行的另一種方式。 觸發程序代表一個處理單位，用來決定何時需要啟動管道執行。 目前，Data Factory 支援兩種類型的觸發程序：
 
 - 排程觸發程序：可依時鐘排程來叫用管線的觸發程序。
+
 - 輪轉視窗觸發程序：依定期間隔運作且同時保有狀態的觸發程序。 Azure Data Factory 目前不支援以事件為基礎的觸發程序。 例如，不支援可回應檔案送達事件的管線執行觸發程序。
 
 管道和觸發程序具有多對多關聯性。 多個觸發程序可以啟動單一管線，或單一觸發程序可以啟動多個管線。 在下列觸發程序定義中，**pipelines** 屬性會參考由特定觸發程序所觸發的管線清單。 屬性定義包含管線參數的值。
@@ -175,7 +177,9 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 如需關於排程觸發程序的詳細資訊和範例，請參閱[建立排程觸發程序](how-to-create-schedule-trigger.md)。
 
 ## <a name="tumbling-window-trigger"></a>輪轉視窗觸發程序
-輪轉視窗觸發程序是可從指定的開始時間定期引發，同時還能保留狀態的一種觸發程序。 輪轉視窗是一系列大小固定、非重疊的連續時間間隔。 如需關於輪轉視窗觸發程序的詳細資訊和範例，請參閱[建立輪轉視窗觸發程序](how-to-create-tumbling-window-trigger.md)。
+輪轉視窗觸發程序是可從指定的開始時間定期引發，同時還能保留狀態的一種觸發程序。 輪轉視窗是一系列大小固定、非重疊的連續時間間隔。
+
+如需關於輪轉視窗觸發程序的詳細資訊和範例，請參閱[建立輪轉視窗觸發程序](how-to-create-tumbling-window-trigger.md)。
 
 ## <a name="schedule-trigger-definition"></a>排程觸發程序定義
 在建立排程觸發程序時，您必須使用 JSON 定義指定排程和週期。 

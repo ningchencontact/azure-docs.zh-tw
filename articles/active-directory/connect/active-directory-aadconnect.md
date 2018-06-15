@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/19/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 128a6bffe4e604eb4e02a10f13d561a336fc8c61
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 6d866a6b068e9f6b8a46e53d60653d55e35a2ffd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34354413"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594018"
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>整合您的內部部署目錄與 Azure Active Directory
 Azure AD Connect 會整合您的內部部署目錄與 Azure Active Directory。 這可讓您為與 Azure AD 整合之 Office 365、Azure 和 SaaS 應用程式的使用者提供通用身分識別。 本主題將引導您完成規劃、部署和作業步驟。 其中集結了與此領域相關的主題連結。

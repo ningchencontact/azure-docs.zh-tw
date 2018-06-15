@@ -2,22 +2,19 @@
 title: 使用 Xamarin 和 Azure Cosmos DB 建置行動應用程式 | Microsoft Docs
 description: 使用 Azure Cosmos DB 建立 Xamarin iOS、Android 或 Forms 應用程式的教學課程。 Azure Cosmos DB 是快速的全球級行動應用程式雲端資料庫。
 services: cosmos-db
-documentationcenter: .net
 author: SnehaGunda
 manager: kfile
-ms.assetid: ff97881a-b41a-499d-b7ab-4f394df0e153
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 03a66dbfc1df33ba8a91ba133a732dbf38f59262
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b70a16c2f4c17a8cee008bee342a9c3693d1eb4b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34614487"
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>使用 Xamarin 和 Azure Cosmos DB 建置行動應用程式
 

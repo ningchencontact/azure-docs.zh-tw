@@ -12,12 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/27/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 024736ed76e9b268e85db3ecc62b853d6c276fbf
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 2c1cad49314dfa051a5c4ddddba2dbe0fc8b93ce
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590618"
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>使用快速設定開始使用 Azure AD Connect
 當您有單一樹系拓撲和用於驗證的**密碼雜湊同步處理**時，便可使用 Azure AD Connect [快速設定](active-directory-aadconnectsync-implement-password-hash-synchronization.md)。 **快速設定** 是預設選項，並且會用在最常部署的案例。 只要簡短地按幾下即可將內部部署目錄擴充至雲端。

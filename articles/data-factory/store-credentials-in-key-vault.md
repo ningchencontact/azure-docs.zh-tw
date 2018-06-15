@@ -9,15 +9,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: jingwang
-ms.openlocfilehash: 4a8c96bf9124feede2e5a28beb791636784dcad7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f12c3a2a1193adc08c408292a4e0eca2e2458085
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32166271"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34620661"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>在 Azure Key Vault 中儲存認證
 
@@ -40,9 +40,9 @@ ms.locfileid: "32166271"
 若要參考儲存在 Azure Key Vault 中的認證，您需要：
 
 1. **擷取資料處理站服務識別**，做法是複製與資料處理站一起產生的 "SERVICE IDENTITY APPLICATION ID"。 如果您使用 ADF 編寫 UI，服務識別的識別碼將會顯示在 Azure Key Vault 連結服務建立視窗上；您也可以從 Azure 入口網站擷取它，請參閱[擷取資料處理站服務識別](data-factory-service-identity.md#retrieve-service-identity)。
-2. **將服務識別存取權授與您的 Azure Key Vault。** 在 Key Vault -> 存取原則 -> 新增 -> 搜尋此服務識別應用程式識別碼，以授與 [祕密] 權限下拉式清單中的 [取得] 權限。 這樣可以讓這個指定的處理站存取 Key Vault 中的密碼。
+2. **將服務識別存取權授與您的 Azure Key Vault。** 在金鑰保存庫 -> 存取原則 -> 新增 -> 搜尋此服務識別應用程式識別碼，以授與 [祕密] 權限下拉式清單中的 [取得] 權限。 這樣可以讓這個指定的處理站存取金鑰保存庫中的密碼。
 3. **建立指向您的 Azure Key Vault 的已連結服務。** 請參閱 [Azure Key Vault 已連結服務](#azure-key-vault-linked-service)。
-4. **建立資料存放區已連結服務，其中參考儲存在 Key Vault 的對應密碼。** 請參閱[參考儲存在 Key Vault 中的祕密](#reference-secret-stored-in-key-vault)。
+4. **建立資料存放區已連結服務，其中參考儲存在金鑰保存庫的對應密碼。** 請參閱[參考儲存在金鑰保存庫中的祕密](#reference-secret-stored-in-key-vault)。
 
 ## <a name="azure-key-vault-linked-service"></a>Azure Key Vault 已連結服務
 
@@ -77,9 +77,9 @@ ms.locfileid: "32166271"
 }
 ```
 
-## <a name="reference-secret-stored-in-key-vault"></a>參考儲存在 Key Vault 中的祕密
+## <a name="reference-secret-stored-in-key-vault"></a>參考儲存在金鑰保存庫中的祕密
 
-當您在參考 Key Vault 密碼的已連結服務中設定欄位時，支援下列屬性：
+當您在參考金鑰保存庫密碼的已連結服務中設定欄位時，支援下列屬性：
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |

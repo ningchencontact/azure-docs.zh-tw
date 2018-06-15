@@ -6,21 +6,16 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 05/31/2018
 ms.author: rajanaki
-ms.openlocfilehash: ccec4262297314bad261a852bb5db25c428ce0a0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 6a57226f81e626e620033750c58d5998d8e7e894
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716579"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>重新保護已容錯移轉到主要區域的 Azure VM
-
-
->[!NOTE]
->
-> Azure VM 的 Site Recovery 複寫目前為預覽狀態。
-
 
 
 當您使用 [Azure Site Recovery](site-recovery-overview.md) 來將 Azure VM 從一個區域[容錯移轉](site-recovery-failover.md)到另一個區域時，VM 會以未受保護狀態在次要區域中開機。 如果要將 VM 容錯回復到主要區域，您需要執行下列作業：

@@ -9,14 +9,14 @@ editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/09/2018
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 11aed2ee2af239b02375a2d90e2544b4b45b2d41
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7280cd971e9857c494dfd1cb77d528e4737ed9d2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34197132"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624143"
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-azure-active-directory"></a>使用 Azure Active Directory 以 Data Lake Store 進行使用者驗證
 > [!div class="op_single_selector"]
@@ -61,7 +61,7 @@ Azure Data Lake Store 使用 Azure Active Directory 進行驗證。 撰寫搭配
 > 
 
 ### <a name="directly-passing-in-user-credentials"></a>直接傳遞使用者認證
-您的應用程式可以直接提供對 Azure AD 的使用者認證。 這個方法僅適用於有組織識別碼的使用者帳戶；不適用於個人/「Live ID」使用者帳戶 (包括以 @outlook.com 或 @live.com 結尾的帳戶)。此外，這個方法與需要 Azure AD 雙因素驗證 (2FA) 的使用者帳戶不相容。
+您的應用程式可以直接提供對 Azure AD 的使用者認證。 這個方法僅適用於有組織識別碼的使用者帳戶；不適用於個人/「Live ID」使用者帳戶 (包括以 @outlook.com 或 @live.com 結尾的帳戶)。 此外，這個方法與需要 Azure AD 雙因素驗證 (2FA) 的使用者帳戶不相容。
 
 ### <a name="what-do-i-need-for-this-approach"></a>這個方法需要什麼？
 * Azure AD 網域名稱。 此需求已列在本文的先決條件中。

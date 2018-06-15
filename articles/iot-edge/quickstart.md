@@ -1,20 +1,20 @@
 ---
 title: 快速入門 Azure IoT Edge + Windows | Microsoft Docs
 description: 在模擬的 Edge 裝置上執行分析以試用 Azure IoT Edge
-services: iot-edge
-keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 05/03/2018
-ms.topic: article
+ms.topic: quickstart
 ms.service: iot-edge
-ms.openlocfilehash: 888f74d215956f4ad38605ca247f681da700a787
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+services: iot-edge
+ms.custom: mvc
+ms.openlocfilehash: 2fd16ab4ade61b1a08f93294051f4246e47839b1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34166211"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631729"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>快速入門：從 Azure 入口網站將您的第一個 IoT Edge 模組部署至 Windows 裝置 - 預覽
 

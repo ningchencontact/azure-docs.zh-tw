@@ -3,7 +3,7 @@ title: 在 Azure 入口網站中多重要素驗證報告的參考 | Microsoft Do
 description: 在 Azure 入口網站中多重要素驗證報告的參考資訊
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: rolyon
 manager: mtillman
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -12,14 +12,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: compliance-reports
 ms.date: 03/16/2018
-ms.author: markvi
+ms.author: rolyon
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e92d1383f3179f03194b460e0467314c137fd9e2
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ac24b5dcf1aa5b8c616e14bcbb696c9e99b6cecf
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34589061"
 ---
 # <a name="reference-for-multi-factor-authentication-reporting-in-the-azure-portal"></a>在 Azure 入口網站中多重要素驗證報告的參考
 
@@ -52,9 +54,9 @@ MFA 資料可讓您深入了解 MFA 如何在您的組織中運作。 它可讓�
 
 MFA 的登入活動報告可讓您存取下列資訊：
 
-**需要 MFA：**登入是否需要 MFA。 依據每個使用者的 MFA、條件式存取或其他原因，可能需要 MFA。 可能的值為 `Yes` 或 `No`。
+**需要 MFA：** 登入是否需要 MFA。 依據每個使用者的 MFA、條件式存取或其他原因，可能需要 MFA。 可能的值為 `Yes` 或 `No`。
 
-**MFA 驗證方法：**使用者用來完成 MFA 的驗證方法。 可能的值包括： 
+**MFA 驗證方法：** 使用者用來完成 MFA 的驗證方法。 可能的值包括： 
 
 - 簡訊 
 
@@ -68,9 +70,9 @@ MFA 的登入活動報告可讓您存取下列資訊：
 
 - 撥打電話 (替代驗證電話) 
 
-**MFA 驗證詳細資料：**電話號碼的清除版本，例如：+X XXXXXXXX64。 
+**MFA 驗證詳細資料：** 電話號碼的清除版本，例如：+X XXXXXXXX64。 
 
-**MFA 結果：**MFA 是否已滿足或拒絕的詳細資訊：
+**MFA 結果：** MFA 是否已滿足或拒絕的詳細資訊：
 
 - 如果已滿足 MFA，此資料行提供如何滿足 MFA 的詳細資訊。 
 

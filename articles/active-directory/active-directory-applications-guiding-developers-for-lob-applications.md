@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 01/14/2018
 ms.author: kgremban
 ms.custom: seohack1
-ms.openlocfilehash: 66102836b954bf4fafc4379cf573658d89e0d409
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 10517f5684774c47ccc96c773287476c2614613f
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292502"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>開發適用於 Azure Active Directory 的企業營運應用程式
 本指南提供開發適用於 Azure Active Directory (AD) 的企業營運 (LoB) 應用程式的概觀。適用對象為 Active Directory/Office 365 全域系統管理員。
@@ -79,5 +80,5 @@ ms.lasthandoff: 05/11/2018
 ## <a name="related-articles"></a>相關文章
 * [使用 Azure AD 應用程式 Proxy 啟用對內部部署應用程式的安全遠端存取](manage-apps/application-proxy.md)
 * [SaaS 應用程式的 Azure 條件式存取預覽](active-directory-conditional-access-azure-portal-get-started.md)
-* [使用 Azure AD 管理應用程式的存取](active-directory-managing-access-to-apps.md)
+* [使用 Azure AD 管理應用程式的存取](manage-apps/what-is-access-management.md)
 * [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)

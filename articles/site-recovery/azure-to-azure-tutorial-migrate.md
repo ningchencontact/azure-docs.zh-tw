@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/16/2018
+ms.date: 05/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 0460d595bc70ec09d492221485749ece32ec07df
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e9f186e682ef8f4606c50452f2e26b0d11580933
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209703"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715984"
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>將 Azure VM 移轉到另一個區域
 
@@ -28,9 +28,7 @@ ms.locfileid: "34209703"
 
 本教學課程假設您已有 Azure 訂用帳戶。 如果沒有，請在開始前建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
->[!NOTE]
->
-> Azure VM 的 Site Recovery 複寫目前為預覽狀態。
+
 
 
 

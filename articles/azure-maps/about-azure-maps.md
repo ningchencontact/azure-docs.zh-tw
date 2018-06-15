@@ -1,23 +1,20 @@
 ---
 title: Azure 地圖服務概觀 | Microsoft Docs
 description: Azure 地圖服務簡介
-services: azure-maps
-keywords: ''
 author: kgremban
 ms.author: kgremban
 ms.date: 05/07/2018
 ms.topic: overview
 ms.service: azure-maps
-documentationcenter: ''
+services: azure-maps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 4882eadb8db5137d6fcf75c6d80c34ae050d3a6d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9eb6039a10cbdac004ab25f8295f5659c246a743
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193946"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34600056"
 ---
 # <a name="an-introduction-to-azure-maps"></a>Azure 地圖服務簡介
 Azure 地圖服務是地理空間服務的組合，內含地圖、搜尋、路線規劃、路況和時區的服務 API。 此服務組合可讓您使用熟悉的工具，快速開發和調整解決方案，進而將位置資訊整合到 Azure 解決方案中。 Azure 地圖服務為來自各個產業的開發人員提供功能強大的地理空間功能，另納入重要的最新地圖資料，可提供網路和行動應用程式地理空間內容。 Azure 地圖服務是一組 REST API，可進行網頁型 JavaScript 控管並讓開發作業更加輕鬆、有彈性且可在多個媒介中轉移。 
@@ -81,7 +78,7 @@ Azure 地圖服務使用以金鑰為基礎的驗證配置，所以存取服務�
 * 南韓
 
 ## <a name="relationship-with-bing-maps"></a>與 Bing 地圖的關聯性
-本文件中描述的地圖服務與 Bing 地圖提供的服務有所不同。 雖然兩者共用許多相同的功能，但是這兩項服務不同而且也不相關。 此 Azure 服務不會影響 Bing 地圖產品的功能或藍圖。
+本文件中描述的地圖服務與 Bing 地圖提供的服務有所不同。 雖然兩者共用許多相同的功能，但是這兩項服務不同而且也不相關。 此 Azure 服務不會影響 Bing 地圖供應項目的功能或藍圖。
 
 Microsoft 的目標是為開發人員社群提供位置服務供應項目的選擇。 下表包含可供負責決定要使用哪一項服務的開發人員使用的指引： 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: daveba
-ms.openlocfilehash: faf526082a9a38d5d98443ff2b74eac4eef1ca08
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: a0e05543734ae0604149d18564ae1bc1eff1892b
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157442"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714624"
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-azure-cli"></a>使用 Azure CLI 設定虛擬機器擴展集的受控服務身分識別 (MSI)
 
@@ -120,14 +120,13 @@ az vmss update -n myVMSS -g myResourceGroup --set identity.type='UserAssigned'
 
 2. 使用 [az identity create](/cli/azure/identity#az-identity-create)，建立使用者指派的身分識別。  `-g` 參數會指定要在其中建立使用者指派身分識別的資源群組，而 `-n` 參數會指定其名稱。 請務必以您自己的值取代 `<RESOURCE GROUP>` 和 `<USER ASSIGNED IDENTITY NAME>` 參數的值：
 
-    > [!IMPORTANT]
-    > 建立使用者指派的身分識別時，僅支援使用英數字元和連字號 (0-9 或 a-z 或 A-Z 或 -) 字元。 此外，指派至 VM/VMSS 的名稱應該限制為 24 個字元長度，才能正常運作。 請隨時回來查看是否有更新內容。 如需詳細資訊，請參閱[常見問題集和已知問題](known-issues.md)
+[!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
     ```
-相關回應大致如下，其中包括已建立的使用者指派身分識別詳細資料。 下列步驟會使用指派給使用者指派身分識別的資源 `id` 值。
+回應類似下列，其中包括已建立的使用者指派身分識別詳細資料。 下列步驟會使用指派給使用者指派身分識別的資源 `id` 值。
 
    ```json
    {
@@ -150,7 +149,7 @@ az vmss update -n myVMSS -g myResourceGroup --set identity.type='UserAssigned'
    az vmss create --resource-group <RESOURCE GROUP> --name <VMSS NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY ID>
    ```
 
-### <a name="assign-a-user-assigned-identity-to-an-existing-azure-vm"></a>將使用者指派的身分識別指派給現有 Azure VM
+### <a name="assign-a-user-assigned-identity-to-an-existing-azure-vm"></a>將使用者指派的身分識別指派至現有 Azure VM
 
 1. 使用 [az identity create](/cli/azure/identity#az-identity-create)，建立使用者指派的身分識別。  `-g` 參數會指定要在其中建立使用者指派身分識別的資源群組，而 `-n` 參數會指定其名稱。 請務必以您自己的值取代 `<RESOURCE GROUP>` 和 `<USER ASSIGNED IDENTITY NAME>` 參數的值：
 
@@ -177,10 +176,10 @@ az vmss update -n myVMSS -g myResourceGroup --set identity.type='UserAssigned'
    }
    ```
 
-2. 使用 [az vmss identity assign](/cli/azure/vmss/identity#az_vm_assign_identity)，將使用者指派的身分識別指派給您的 VMSS。 請務必以您自己的值取代 `<RESOURCE GROUP>` 和 `<VM NAME>` 參數的值。 `<USER ASSIGNED IDENTITY ID>` 是使用者指派身分識別的資源 `id` 屬性 (於上個步驟中建立)：
+2. 使用 [az vmss identity assign](/cli/azure/vmss/identity#az_vm_assign_identity)，將使用者指派的身分識別指派給您的 VMSS。 請務必以您自己的值取代 `<RESOURCE GROUP>` 和 `<VMSS NAME>` 參數的值。 `<USER ASSIGNED IDENTITY ID>` 是使用者指派身分識別的資源 `id` 屬性 (於上個步驟中建立)：
 
     ```azurecli-interactive
-    az vmss identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY ID>
+    az vmss identity assign -g <RESOURCE GROUP> -n <VMSS NAME> --identities <USER ASSIGNED IDENTITY ID>
     ```
 
 ### <a name="remove-a-user-assigned-identity-from-an-azure-vmss"></a>從 Azure VMSS 移除使用者指派的身分識別
@@ -188,15 +187,15 @@ az vmss update -n myVMSS -g myResourceGroup --set identity.type='UserAssigned'
 > [!NOTE]
 >  目前不支援從虛擬機器擴展集移除所有使用者指派的身分識別，除非您具有系統指派的身分識別。 
 
-如果您的 VMSS 具有多個使用者指派的身分識別，您可以使用 [az vmss identity remove](/cli/azure/vmss/identity#az-vmss-identity-remove) 移除身分識別，但須留下最後一個。 請務必以您自己的值取代 `<RESOURCE GROUP>` 和 `<VM NAME>` 參數的值。 `<MSI NAME>` 是使用者指派身分識別的名稱屬性，您可以使用 `az vm show` 在 VM 的身分識別區段中找到此項目：
+如果您的 VMSS 具有多個使用者指派的身分識別，您可以使用 [az vmss identity remove](/cli/azure/vmss/identity#az-vmss-identity-remove) 移除身分識別，但須留下最後一個。 請務必以您自己的值取代 `<RESOURCE GROUP>` 和 `<VMSS NAME>` 參數的值。 `<MSI NAME>` 是使用者指派身分識別的名稱屬性，您可以使用 `az vm show` 在 VM 的身分識別區段中找到此項目：
 
 ```azurecli-interactive
-az vmss identity remove -g <RESOURCE GROUP> -n <VM NAME> --identities <MSI NAME>
+az vmss identity remove -g <RESOURCE GROUP> -n <VMSS NAME> --identities <MSI NAME>
 ```
 如果您的 VMSS 同時具有系統指派和使用者指派的身分識別，只要切換為僅使用系統指派的身分識別，即可移除所有使用者指派的身分識別。 使用下列命令： 
 
 ```azurecli-interactive
-az vmss update -n myVM -g myResourceGroup --set identity.type='SystemAssigned' identity.identityIds=null
+az vmss update -n <VMSS NAME> -g <RESOURCE GROUP> --set identity.type='SystemAssigned' identity.identityIds=null
 ```
 
 ## <a name="next-steps"></a>後續步驟

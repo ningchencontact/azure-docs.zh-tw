@@ -9,15 +9,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 7db5795132f5ca61c65a3cbd2caec1bccbf9a080
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4530b11db7691f631f636021634cc5e9c8be8c86
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34620556"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>資料管理閘道的版本資訊
 > [!NOTE]
@@ -40,14 +41,14 @@ ms.lasthandoff: 03/23/2018
 ## <a name="earlier-versions"></a>較早的版本
 ## <a name="21063477"></a>2.10.6347.7
 ### <a name="enhancements-"></a>增強功能
-- 您可以新增 DNS 項目來將「服務匯流排」加入允許清單，而不是將所有 Azure IP 位址都加入防火牆的允許清單 (如有需要)。 您可以在 Azure 入口網站上找到各自的 DNS 項目 (Data Factory-> [製作和部署] -> [閘道] -> [serviceUrls] \(在 JSON 中)
+- 您可以新增 DNS 項目來將「服務匯流排」加入白名單，而不是將所有 Azure IP 位址都加入防火牆的白名單 (如有需要)。 您可以在 Azure 入口網站上找到各自的 DNS 項目 (Data Factory-> [製作和部署] -> [閘道] -> [serviceUrls] \(在 JSON 中)
 - HDFS 連接器現在支援自我簽署的公開憑證，方法是讓您略過 SSL 驗證。
 - 已修正︰更新期間的閘道離線問題 (因為時鐘誤差)
 
 
 ## <a name="2963132"></a>2.9.6313.2
 ### <a name="enhancements-"></a>增強功能
--   您可以新增 DNS 項目來將「服務匯流排」加入允許清單，而不是將所有 Azure IP 位址都加入防火牆的允許清單 (如有需要)。 以下提供更多詳細資料。
+-   您可以新增 DNS 項目來將「服務匯流排」加入白名單，而不是將所有 Azure IP 位址都加入防火牆的白名單 (如有需要)。 以下提供更多詳細資料。
 -   您現在可以將資料複製到單一區塊 Blob 或從該 Blob 複製資料，Blob 最大可達 4.75 TB，這是區塊 Blob 的最大支援大小。 (之前的上限為 195 GB)。
 -   已修正：在進行複製活動期間將數個較小檔案解壓縮時發生的憶體不足問題。
 -   已修正：使用等冪功能從 Document DB 複製到內部部署 SQL Server 時發生的索引超出範圍問題。

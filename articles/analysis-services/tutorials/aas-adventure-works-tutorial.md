@@ -3,16 +3,17 @@ title: Azure Analysis Services Adventure Works 教學課程 | Microsoft Docs
 description: Azure Analysis Services 的 Adventure Works 教學課程簡介
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3c95e755c66cfd1bc0a4e4e55bf1d05f08214925
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bb0cd89cb90b78bc7d5a68a1f7249fb82528db11
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596146"
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services - Adventure Works 教學課程
 
@@ -45,7 +46,7 @@ ms.lasthandoff: 04/16/2018
 
 -   隨附**範例 AdventureWorksDW 資料庫**的 [Azure SQL 資料倉儲](../../sql-data-warehouse/create-data-warehouse-portal.md)，或隨附 [Adventure Works 範例資料庫](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks)的 SQL Server 資料倉儲。
 
-    **重要事項︰**如果您將範例資料庫安裝到內部部署 SQL Server 資料倉儲，且將模型部署到 Azure Analysis Services 伺服器，就需要[內部部署資料閘道](../analysis-services-gateway.md)。
+    **重要事項︰** 如果您將範例資料庫安裝到內部部署 SQL Server 資料倉儲，且將模型部署到 Azure Analysis Services 伺服器，就需要[內部部署資料閘道](../analysis-services-gateway.md)。
 
 -   適用於 Visual Studio 的最新版本 [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)。
 

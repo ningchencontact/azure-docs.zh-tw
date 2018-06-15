@@ -1,22 +1,19 @@
 ---
 title: 如何從 Azure IoT 中樞裝置佈建服務中取消註冊裝置
 description: 如何消註冊裝置以避免透過 Azure IoT 中樞裝置佈建服務進行佈建
-services: iot-dps
-keywords: ''
 author: bryanla
-ms.author: v-jamebr;bryanla
+ms.author: bryanla
 ms.date: 04/05/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
-ms.custom: mvc
-ms.openlocfilehash: 50074eaecacf603d2bc6170183fd632b4a1ab2d1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4b6c948765575c92c962999fe394ffaf1a0d22f3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628839"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>如何從 Azure IoT 中樞裝置佈建服務中取消註冊裝置
 
@@ -73,7 +70,7 @@ X.509 憑證通常會配置在信任的信任鏈結中。 如果憑證在鏈結�
 刪除憑證的註冊群組以將憑證永久列入封鎖清單：
 
 1. 登入 Azure 入口網站，然後在左側功能表中選取 [所有資源]。
-2. 在資源清單中，選取您要從中將裝置列入封鎖清單的佈建服務。
+2. 在資源清單中，選取您要從中將裝置列入黑名單的佈建服務。
 3. 在佈建服務中，選取 [管理註冊]，然後選取 [註冊群組] 索引標籤。
 4. 針對您想要列入封鎖清單的憑證，選取其註冊群組旁邊的核取方塊。 
 5. 選取視窗頂端的 [刪除]，然後選取 [是] 以確認您要移除該註冊群組。 

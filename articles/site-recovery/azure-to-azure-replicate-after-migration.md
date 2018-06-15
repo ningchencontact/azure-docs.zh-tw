@@ -5,18 +5,17 @@ services: site-recovery
 author: ponatara
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 05/31/2018
 ms.author: ponatara
-ms.openlocfilehash: f64d61134f61476bcdd803f92019830b7cecf867
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c42a997560ee40eb0a587b81a6f191f372e0dd26
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716001"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>移轉至 Azure 之後，設定 Azure VM 的災害復原 
 
->[!NOTE]
-> 使用 Azure Site Recovery 進行 Azure VM 的災害復原目前為預覽狀態。
 
 在您使用 [Site Recovery](site-recovery-overview.md) 服務[將內部部署機器移轉到 Azure VM](tutorial-migrate-on-premises-to-azure.md) 之後，請使用本文章。 本文可協助您使用 Site Recovery，準備將 Azure VM 的災害復原設定至 Azure 次要地區。
 

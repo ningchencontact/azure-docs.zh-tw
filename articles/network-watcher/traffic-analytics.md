@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: jdial
-ms.openlocfilehash: ba7589b0fcbb987ef4e7225ea5a4cceda9ad1179
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f7603d56a56e45771fa170c05ec62a0725ba367a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715817"
 ---
 # <a name="traffic-analytics"></a>流量分析
 
@@ -70,7 +71,7 @@ Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Network"
 
 ### <a name="select-a-network-security-group"></a>選取網路安全性群組 
 
-啟用 NSG 流量記錄之前，您必須具有要記錄流量的網路安全性群組。 如果您沒有網路安全性群組，請參閱[建立網路安全性群組](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)，以建立此群組。
+啟用 NSG 流量記錄之前，您必須具有要記錄流量的網路安全性群組。 如果您沒有網路安全性群組，請參閱[建立網路安全性群組](../virtual-network/manage-network-security-group.md#create-a-network-security-group)，以建立此群組。
 
 在 Azure 入口網站左半部，依序選取 [監視器]、[網路監看員] 和 [NSG 流量記錄]。 選取要啟用 NSG 流量記錄的網路安全性群組，如下圖所示：
 

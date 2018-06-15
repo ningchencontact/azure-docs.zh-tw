@@ -3,16 +3,17 @@ title: Azure Analysis Services 教學課程第 5 課：建立計算結果欄 | M
 description: 說明如何在 Azure Analysis Services 教學課程專案中建立計算結果欄。
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: fa4a092fd811572136bf355de3545a2c847a5ed9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 39e1da6a855ad88a02550a6c98b0fac61f3701d4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596697"
 ---
 # <a name="create-calculated-columns"></a>建立計算結果欄
 

@@ -6,23 +6,21 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 05/31/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: f6ade346305ee6f18fb41b93bc8a1dc8543fcdb7
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 67552b05d70e3ae44d75cbe1005743b6d17b2c2c
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209496"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716222"
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Azure 至 Azure 複寫架構
 
 
 本文說明使用 [Azure Site Recovery](site-recovery-overview.md) 服務，在 Azure 區域之間對 Azure 虛擬機器 (VM) 進行複寫、容錯移轉和復原時所使用的架構。
 
->[!NOTE]
->Site Recovery 服務的 Azure VM 複寫目前為預覽狀態。
 
 
 
