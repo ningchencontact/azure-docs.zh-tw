@@ -119,7 +119,7 @@ New-AzureRmDnsRecordSet -Name "test-cname" -RecordType CNAME -ZoneName "contoso.
 
 ### <a name="create-an-mx-record-set-with-a-single-record"></a>建立含有單一記錄的 MX 記錄集
 
-在此範例中，我們使用記錄集名稱 '@' 在區域頂點建立 MX 記錄 (在此案例中為 'contoso.com')。
+在此範例中，我們使用記錄集名稱 \'\@\' 在區域頂點建立 MX 記錄 (在此案例中為 'contoso.com')。
 
 
 ```powershell
