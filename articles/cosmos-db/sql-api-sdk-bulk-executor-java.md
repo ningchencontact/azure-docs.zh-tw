@@ -2,22 +2,21 @@
 title: Azure Cosmos DB：BulkExecutor Java API、SDK 和資源 | Microsoft Docs
 description: 了解所有 BulkExecutor Java API 和 SDK 相關資訊，包括發行日期、停用日期及 Azure Cosmos DB BulkExecutor Java SDK 每個版本之間所做的變更。
 services: cosmos-db
-documentationcenter: .net
 author: tknandu
 manager: kfile
 editor: cgronlun
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
-ms.topic: article
+ms.component: cosmosdb-sql
+ms.devlang: java
+ms.topic: reference
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: b9847ecb88f2cc35223e24a0ff13fcbcab1c9a9c
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: e1e43abd3d0cfceb1713be6cdd02642833283508
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34797646"
 ---
 # <a name="java-bulkexecutor-library-download-information"></a>Java BulkExecutor 程式庫：下載資訊
 

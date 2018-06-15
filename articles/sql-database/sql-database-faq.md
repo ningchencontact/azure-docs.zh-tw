@@ -6,15 +6,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: reference
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: carlrab
-ms.openlocfilehash: 5d77c2dc121d7f291fa755f66d7d9a5d7213bf9f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9bb79a2054a0e51ce435f51a52f964062427cea4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195425"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647991"
 ---
 # <a name="sql-database-faq"></a>SQL Database 常見問題集
 
@@ -29,7 +29,7 @@ ms.locfileid: "32195425"
 新的購買模型是在以 DTU 為基礎的現有模型以外新增的模型。 以虛擬核心為基礎的模型可為客戶提供彈性、可控制、透明且直接的方法，讓他們將內部部署工作負載需求移轉到雲端。 此模型可讓客戶根據工作負載需求，進行計算和儲存體的調整。 使用 vCore 模型的單一資料庫和彈性集區選項可透過[適用於 SQL Server 的 Azure Hybrid Use Benefit](../virtual-machines/windows/hybrid-use-benefit-licensing.md) 來節省成本，最多可省下 30%。 如需詳細資訊，請參閱[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)和[以虛擬核心為基礎的購買模型 (預覽)](sql-database-service-tiers-vcore.md)。 
 
 ## <a name="what-is-a-vcore"></a>什麼是 vCore？ 
-虛擬核心代表提供了選項讓您在各硬體世代間進行選擇的邏輯 CPU。 第 4 代邏輯 CPU 以 E5-2673 v3 (Haswell) 2.4 GHz 處理器為基礎，而第 5 代邏輯 CPU 則以 Intel E5-2673 v4 (Broadwell) 2.3 GHz 處理器為基礎。
+虛擬核心代表可以選擇使用的邏輯 CPU，可在各硬體世代間進行選擇。 第 4 代邏輯 CPU 以 E5-2673 v3 (Haswell) 2.4 GHz 處理器為基礎，而第 5 代邏輯 CPU 則以 Intel E5-2673 v4 (Broadwell) 2.3 GHz 處理器為基礎。
 
 ## <a name="is-moving-to-the-vcore-based-model-required"></a>一定要改用以 vCore 為基礎的模型嗎？
 不一定。在彈性集區和單一資料庫部署選項中加入以 vCore 為基礎的模型，反映了我們對客戶選擇和彈性的承諾。 如果客戶想要繼續使用 DTU 架構的模型，他們可以忽略此公告，其使用和計費方式都會和原來一樣。 

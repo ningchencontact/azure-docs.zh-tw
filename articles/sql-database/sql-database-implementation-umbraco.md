@@ -6,14 +6,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: reference
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 1079adb6ef8a206506823fdee6721aabbf857b4d
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: cd3952e92d09eef7c8b6fd8ec9352bd54dde0389
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34649970"
 ---
 # <a name="umbraco-uses-azure-sql-database-to-quickly-provision-and-scale-services-for-thousands-of-tenants-in-the-cloud"></a>Umbraco 使用 Azure SQL Database 為雲端中數千個租用戶快速佈建和調整服務
 ![Umbraco 標誌](./media/sql-database-implementation-umbraco/umbracologo.png)
@@ -28,7 +29,7 @@ Umbraco 是一個熱門的開放原始碼內容管理系統 (CMS)，從小型行
 > 
 > 
 
-為了簡化客戶部署，Umbraco 新增了 Umbraco 即服務 (UaaS)：這是一個軟體即服務 (SaaS) 方案，此方案既不需要內部部署又提供內建的調整功能，而且還透過讓開發人員能夠專注於產品創新而非解決方案管理，免除了管理上的額外負荷。 Umbraco 藉由倚賴 Microsoft Azure 所提供的彈性平台即服務 (PaaS) 模型而得以提供所有這些優點。
+為了簡化客戶部署，Umbraco 新增了 Umbraco 即服務 (UaaS)：這是一個軟體即服務 (SaaS) 供應項目，此供應項目既不需要內部部署又提供內建的調整功能，而且還透過讓開發人員能夠專注於產品創新而非解決方案管理，免除了管理上的額外負荷。 Umbraco 藉由倚賴 Microsoft Azure 所提供的彈性平台即服務 (PaaS) 模型而得以提供所有這些優點。
 
 UaaS 讓 SaaS 客戶能夠使用他們先前無法觸及的 Umbraco CMS 功能。 針對這些客戶，會佈建一個包含生產環境資料庫的可運作 CMS 環境。 客戶可以依其需求，最多新增兩個額外的資料庫來用於開發和預備環境。 發出新環境要求時，自動化程序會自動為該客戶指派一個資料庫。 新資料庫幾秒內就會準備就緒，因為 Umbraco 早就已經從 Azure 的可用資料庫彈性集區預先佈建資料庫 (請參閱圖 1)。
 
@@ -85,7 +86,7 @@ UaaS 讓 SaaS 客戶能夠使用他們先前無法觸及的 Umbraco CMS 功能�
 ## <a name="the-path-from-datacenter-to-cloud"></a>從資料中心到雲端的路徑
 當 Umbraco 開發人員一開始決定移至 SaaS 模型時，即已知道他們需要一個符合成本效益且可調整的方式來建置服務。
 
-> 「彈性集區是最適合我們 SaaS 方案的選項，因為我們可以視需要上下調整容量。 佈建相當簡單，再搭配上我們的設定，我們便可以做最充分的利用」。
+> 「彈性集區是最適合我們 SaaS 供應項目的選項，因為我們可以視需要上下調整容量。 佈建相當簡單，再搭配上我們的設定，我們便可以做最充分的利用」。
 > 
 > — Morten Christensen，Umbraco 技術主管
 > 
@@ -108,7 +109,7 @@ Morten Christensen 表示：「在考量我們的所有選項之後，我們選�
 
 Morten 繼續說道：「以前，我們必須手動佈建 Web 資料庫的伺服器。 現在，我們完全無須思考這項工作。 從佈建到清除的所有作業都是自動化完成。」
 
-Morten 也很滿意 Azure 所提供的調整功能。 「彈性集區是最適合我們 SaaS 方案的選項，因為我們可以視需要上下調整容量。 佈建相當簡單，再搭配上我們的設定，我們便可以做最充分的利用」。 Morten 表示：「彈性集區的簡單性，再加上以服務層為基礎之 DTU 的保證，使得我們能夠依需求佈建新的資源集區。 最近，我們一個較大客戶的即時環境尖峰達到了 100 個 DTU。 透過使用 Azure，我們的彈性集區為客戶的資料庫提供了它們所需的即時資源，而不需預測 DTU 需求。 簡單地說，我們的客戶達到了預期的周轉時間，而我們則符合了效能服務等級協定。」
+Morten 也很滿意 Azure 所提供的調整功能。 「彈性集區是最適合我們 SaaS 供應項目的選項，因為我們可以視需要上下調整容量。 佈建相當簡單，再搭配上我們的設定，我們便可以做最充分的利用」。 Morten 表示：「彈性集區的簡單性，再加上以服務層為基礎之 DTU 的保證，使得我們能夠依需求佈建新的資源集區。 最近，我們一個較大客戶的即時環境尖峰達到了 100 個 DTU。 透過使用 Azure，我們的彈性集區為客戶的資料庫提供了它們所需的即時資源，而不需預測 DTU 需求。 簡單地說，我們的客戶達到了預期的周轉時間，而我們則符合了效能服務等級協定。」
 
 Mikkel Madsen 總結：「除了將「Azure 服務匯流排」與 Azure SQL Database 搭配使用的基礎技術以外，我們也採用了強大的 Azure 演算法，將常見的 SaaS 案例 (讓新客戶即時大規模上線) 與我們的應用程式模式 (預先佈建開發資料庫和即時資料庫) 連接。」
 

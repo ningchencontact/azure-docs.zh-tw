@@ -2,28 +2,26 @@
 title: 使用 PowerShell 執行 Azure Cosmos DB 資料表 API 作業 | Microsoft Docs
 description: 如何使用 PowerShell 執行 Azure Cosmos DB 資料表 API 作業
 services: storage
-documentationcenter: storage
-author: robinsh
-manager: timlt
+author: SnehaGunda
+manager: kfile
 editor: tysonn
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: na
 ms.topic: how-to
 ms.date: 11/15/2017
-ms.author: robinsh
-ms.openlocfilehash: d40a56ca3c07bfadcf6e24d407b059a39522ca2b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: sngun
+ms.openlocfilehash: cce1cfc4cf883fcecab0e339177bc70c18e7af0b
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798639"
 ---
 # <a name="perform-azure-cosmos-db-table-api-operations-with-azure-powershell"></a>使用 Azure PowerShell 執行 Azure Cosmos DB 資料表 API 作業 
 
 >[!NOTE]
->Azure Cosmos DB 資料表 API 提供資料表儲存體的高階功能，例如周全的全域發佈、低延遲讀取和寫入、自動次要索引，以及專用的輸送量。 在大部分情況下，本文中的 PowerShell 命令同時適用於 Azure Cosmos DB 資料表 API 和 Azure 資料表儲存體，但本文旨在說明 Azure Cosmos DB 資料表 API。 如果您使用的是 Azure 資料表儲存體，請參閱[使用 Azure PowerShell 執行 Azure 資料表儲存體作業](table-storage-how-to-use-powershell.md)。
+>Azure Cosmos DB 資料表 API 提供資料表儲存體的高階功能，例如周全的全域發佈、低延遲讀取和寫入、自動次要索引，以及專用的輸送量。 在大部分情況下，本文中的 PowerShell 命令同時適用於 Azure Cosmos DB 資料表 API 和 Azure 資料表儲存體，但本文旨在說明 Azure Cosmos DB 資料表 API。 如果您使用的是 Azure 資料表儲存體，請參閱[使用 Azure PowerShell 執行 Azure 資料表儲存體作業](../storage/tables/table-storage-how-to-use-powershell.md)。
 >
 
 Azure Cosmos DB 資料表 API 可讓您儲存和查詢龐大的結構化、非關聯式資料集。 服務的主要元件是資料表、實體和屬性。 資料表是一組實體。 實體是一組屬性。 每個實體最多可有 252 個屬性，也就是所有的名稱/值組。 本文假設您已熟悉 Azure Cosmos DB 資料表 API 的概念。 如需詳細資訊，請參閱 [Azure Cosmos DB 資料表 API 的簡介](table-introduction.md)和[使用資料表 API 來建置 .NET 應用程式](create-table-dotnet.md)。

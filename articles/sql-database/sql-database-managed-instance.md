@@ -7,15 +7,15 @@ ms.reviewer: carlrab
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: 85a0157751a1c26fb7f37152d7c12f56b1c423d1
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0c4acf6e8e236d46a9db2b4ab730b8333e4f6ca6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193279"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34648120"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>什麼是受控執行個體 (預覽)？
 
@@ -122,7 +122,8 @@ Azure SQL Database 受控執行個體 (預覽) 是 Azure SQL Database 的新功�
 | 入口網站支援 | yes|
 |||
 
-\*虛擬核心代表可以選擇使用的邏輯 CPU，可在各硬體世代間進行選擇。 第四代邏輯 CPU 的基礎為 E5-2673 v3 (Haswell) 2.4 GHz 處理器，第五代邏輯 CPU 的基礎為 Intel E5-2673 v4 (Broadwell) 2.3 GHz 處理器。 
+
+  \*虛擬核心代表可以選擇使用的邏輯 CPU，可在各硬體世代間進行選擇。 第四代邏輯 CPU 的基礎為 E5-2673 v3 (Haswell) 2.4 GHz 處理器，第五代邏輯 CPU 的基礎為 Intel E5-2673 v4 (Broadwell) 2.3 GHz 處理器。 
 
 ## <a name="advanced-security-and-compliance"></a>進階安全性與合規性 
 

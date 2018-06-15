@@ -1,21 +1,21 @@
 ---
-title: "如何將 IoT 中樞的事件來源新增至 Azure Time Series Insights | Microsoft Docs"
-description: "本文說明如何將與 IoT 中樞連線的事件來源新增至時間序列深入解析環境"
-services: time-series-insights
+title: 如何將 IoT 中樞的事件來源新增至 Azure Time Series Insights | Microsoft Docs
+description: 本文說明如何將與 IoT 中樞連線的事件來源新增至時間序列深入解析環境
 ms.service: time-series-insights
+services: time-series-insights
 author: sandshadow
 ms.author: edett
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/21/2017
-ms.openlocfilehash: 0469c35056d1d02457c162b8540af472b84f1e92
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 01ab5017a5f16a0c46ea2bc600cef6bbf81de963
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652520"
 ---
 # <a name="how-to-add-an-iot-hub-event-source-to-time-series-insights-environment"></a>如何將 IoT 中樞事件來源新增至時間序列深入解析環境
 本文說明如何使用 Azure 入口網站，將從 IoT 中樞讀取資料的事件來源新增至時間序列深入解析環境。

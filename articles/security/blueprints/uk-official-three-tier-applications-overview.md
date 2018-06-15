@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: bb0a667c28e4ed0be3e67a7d89f10903be2c9d2a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: abacea02ee40cf899b58ab1fe4ac454784ff7d18
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757190"
 ---
 # <a name="azure-security-and-compliance-blueprint---uk-offical-three-tier-web-applications-automation"></a>Azure 安全性與合規性藍圖 - 英國官方三層式 Web 應用程式自動化
 
@@ -109,7 +110,7 @@ ms.lasthandoff: 04/16/2018
 - (1) 個商務層 VM 集合：2 部 VM
 - (1) 個資料層 VM 集合：2 部 VM
 
-負載平衡器
+Load Balancer
 - (1) 個網路層負載平衡器
 - (1) 個商務層負載平衡器
 - (1) 個 資料層負載平衡器
@@ -148,7 +149,7 @@ ms.lasthandoff: 04/16/2018
 
 **網際網路閘道和公用 IP 位址**：網際網路閘道會透過網際網路向使用者公開應用程式服務。 存取這些服務的流量會透過[應用程式閘道](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)來進行保護，應用程式閘道能提供第 7 層路由和負載平衡功能，並搭配 Web 應用程式防火牆 (WAF) 保護。
 
-**管理 VNet**：此 [VNet](https://docs.microsoft.com/azure/Virtual-Network/virtual-networks-overviewcontains) 所包含的資源能針對在生產環境 VNet 中執行的工作負載，實作管理與監視功能。
+**管理 VNet**：此 [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) 所包含的資源能針對在生產環境 VNet 中執行的工作負載，實作管理與監視功能。
 
 **Jumpbox**：也稱為[防禦主機](https://en.wikipedia.org/wiki/Bastion_host) \(英文\)，這個位於網路上的安全 VM，可供系統管理員用來連線到生產環境 VNet 中的 VM。 Jumpbox 具有 NSG，能夠儘允許來自安全清單上公用 IP 位址的遠端流量。 若要允許遠端桌面 (RDP) 流量，必須在 NSG 中定義該流量的來源。 生產環境資源的管理是使用安全的 Jumpbox VM 透過 RDP 進行。
 
