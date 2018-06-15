@@ -104,7 +104,7 @@
           href: disk-scalability-targets.md
         - name: 磁碟備份和災害復原
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-    - name: 網路
+    - name: 網路功能
       href: network-overview.md
     - name: 自動調整應用程式
       href: autoscale.md
@@ -439,7 +439,7 @@
     - name: 計算 REST
       href: /rest/api/compute
     - name: 受控磁碟 REST
-      href: /rest/api/manageddisks
+      href: /rest/api/disks
 - name: 資源
   items:
     - name: 作者範本
