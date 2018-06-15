@@ -5,20 +5,17 @@ keywords: 如何改善資料庫效能
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: dfe8f426-3c98-4edc-8094-092d41f2795e
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.devlang: java
+ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: sngun
-ms.openlocfilehash: 95f6e3d6d9db5a88b5b974daf6e36573b60878a5
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 867a48674fe2489629a887ff9626d8e10b41e653
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34613977"
 ---
 > [!div class="op_single_selector"]
 > * [非同步 Java](performance-tips-async-java.md)
@@ -32,7 +29,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
 
 如果您詢問「如何改善我的資料庫效能？ 」，請考慮下列選項：
 
-## <a name="networking"></a>網路
+## <a name="networking"></a>網路功能
    <a id="same-region"></a>
 1. **為了效能在相同 Azure 區域中共置用戶端**
 

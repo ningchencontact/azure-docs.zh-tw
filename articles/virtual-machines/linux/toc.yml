@@ -114,7 +114,7 @@
           href: disk-scalability-targets.md
         - name: 磁碟備份和災害復原
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-    - name: 網路
+    - name: 網路功能
       href: network-overview.md
     - name: 自動調整應用程式
       href: autoscale.md
@@ -222,6 +222,8 @@
           href: scheduled-events.md
         - name: 監視中繼資料
           href: instance-metadata-service.md
+        - name: 利用 REST 取得使用計量
+          href: metrics-vm-usage-rest.md
     - name: 使用映像
       items:
         - name: 尋找及使用映像

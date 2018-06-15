@@ -1,19 +1,20 @@
 ---
 title: 開始導覽 Azure IoT 中心 UI | Microsoft Docs
 description: 建置者需熟悉用來建立 IoT 解決方案之 Azure IoT 中心 UI 的主要區域。
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
-ms.date: 4/13/2018
+ms.date: 04/13/2018
 ms.topic: overview
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: aa0d496b073600bb976a639ea0039d2a5bbdbbcf
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
+manager: peterpr
+ms.openlocfilehash: 69898358026eab716c057f339d8594df43db136f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201470"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629366"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>開始導覽 Azure IoT 中心 UI
 

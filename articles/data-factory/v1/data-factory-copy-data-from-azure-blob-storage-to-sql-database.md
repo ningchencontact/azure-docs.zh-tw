@@ -1,25 +1,26 @@
 ---
-title: "將資料從 Blob 儲存體複製到 SQL Database - Azure | Microsoft Docs"
-description: "本教學課程向您說明如何使用 Azure Data Factory 管線中的複製活動，將資料從 Blob 儲存體複製到 SQL Database。"
+title: 將資料從 Blob 儲存體複製到 SQL Database - Azure | Microsoft Docs
+description: 本教學課程向您說明如何使用 Azure Data Factory 管線中的複製活動，將資料從 Blob 儲存體複製到 SQL Database。
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: e4035060-93bf-4e8d-bf35-35e2d15c51e0
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3135c8bf6316125a164c06630bc7607a92621b26
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 6575a68423df97d7727401b79ded44545a43afca
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621100"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>教學課程：使用 Data Factory 將資料從 Blob 儲存體複製到 SQL Database
 > [!div class="op_single_selector"]
@@ -110,7 +111,7 @@ ms.lasthandoff: 03/02/2018
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-    **如果您的電腦上已安裝 SQL Server 2012/2014：**請遵循[使用 SQL Server Management Studio 管理 Azure SQL Database](../../sql-database/sql-database-manage-azure-ssms.md) 中的指示，連線到您的 Azure SQL Server，並執行 SQL 指令碼。 
+    **如果您的電腦上已安裝 SQL Server 2012/2014：** 請遵循[使用 SQL Server Management Studio 管理 Azure SQL Database](../../sql-database/sql-database-manage-azure-ssms.md) 中的指示，連線到您的 Azure SQL Server，並執行 SQL 指令碼。 
 
     如果不允許您的用戶端存取 Azure SQL Server，則必須將 Azure SQL Server 的防火牆設定成允許從您的電腦 (IP 位址) 存取。 請參閱 [本文](../../sql-database/sql-database-configure-firewall-settings.md) 的步驟，為 Azure SQL Server 設定防火牆。
 

@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 469e72a70d23b3d23eeeb68b3aa2a9e3527d038e
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 85a79cbbe53393bc02178cd827453508b043692e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33940132"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34617887"
 ---
 # <a name="copy-data-from-netezza-using-azure-data-factory-beta"></a>使用 Azure Data Factory (搶鮮版 (Beta)) 從 Netezza 複製資料
 
@@ -57,7 +57,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |:--- |
 | SecurityLevel | 驅動程式用來連線到資料存放區的安全性 (SSL/TLS) 層級。 例如 `SecurityLevel=preferredSecured`。 支援的值包括：<br/>- 僅限未受保護連線 (**onlyUnSecured**)：驅動程式不會使用 SSL。<br/>- **偏好未受保護連線 (preferredUnSecured) (預設值)**：如果伺服器提供選擇，則驅動程式不使用 SSL。 <br/>- **偏好受保護連線 (preferredSecured)**：如果伺服器提供選擇，則驅動程式會使用 SSL。 <br/>- **僅限受保護連線 (onlySecured)**：除非有 SSL 連線，否則驅動程式不會連線 | 否 |
-| CaCertFile | 伺服器使用的 SSL 憑證完整路徑。 例如 `UseSystemTrustStore=<cert path>;`| 是，如果已啟用 SSL |
+| CaCertFile | 伺服器使用的 SSL 憑證完整路徑。 例如 `CaCertFile=<cert path>;`| 是，如果已啟用 SSL |
 
 **範例：**
 

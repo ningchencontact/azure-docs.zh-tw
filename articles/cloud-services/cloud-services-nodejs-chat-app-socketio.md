@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: adegeo
-ms.openlocfilehash: 0139c42334b53364aee8cfd29cfa771d47e2ccc8
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: b5d706f82dd41f0c271aa5f67676bba08cceb3b1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011310"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608588"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>在 Azure 雲端服務上使用 Socket.IO 建立 Node.js 交談應用程式
 
@@ -152,9 +152,9 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。 本教學
 ## <a name="next-steps"></a>後續步驟
 在本教學課程中，您學到如何建立裝載於 Azure 雲端服務的基本交談應用程式。 若要了解如何在 Azure 網站中裝載此應用程式，請參閱[在 Azure 網站上使用 Socket.IO 建立 Node.js 交談應用程式][chatwebsite]。
 
-如需詳細資訊，也請參閱 [Node.js 開發人員中心](/develop/nodejs/)。
+如需詳細資訊，也請參閱 [Node.js 開發人員中心](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest)。
 
-[chatwebsite]: /develop/nodejs/tutorials/website-using-socketio/
+[chatwebsite]: https://docs.microsoft.com/azure/cloud-services/cloud-services-nodejs-develop-deploy-app
 
 [Azure SLA]: http://www.windowsazure.com/support/sla/
 [Azure SDK for Node.js GitHub repository]: https://github.com/WindowsAzure/azure-sdk-for-node

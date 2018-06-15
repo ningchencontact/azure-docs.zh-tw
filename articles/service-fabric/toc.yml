@@ -632,6 +632,10 @@
           href: service-fabric-troubleshoot-local-cluster-setup.md
         - name: 診斷常見案例
           href: service-fabric-diagnostics-common-scenarios.md
+    - name: 最佳作法
+      items:
+        - name: 實際執行整備檢查清單
+          href: service-fabric-production-readiness-checklist.md
 - name: 參考
   items:
     - name: Azure PowerShell

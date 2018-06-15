@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: kasing
-ms.openlocfilehash: 7ec348bbd75bfce268d1e3d7a46b79397ee39f98
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: fc95b57c244e855f6788b7f21fc9abc0eba3d44d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34654703"
 ---
 # <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>使用 Azure Resource Manager 將原則套用至 Windows VM
 藉由使用原則，組織可以強制執行整個企業的各種慣例和規則。 強制執行所要的行為有助於降低風險，同時促進組織的成功。 我們會在本文中說明如何使用 Azure Resource Manager 原則來為組織的虛擬機器定義您所要的行為。
@@ -252,4 +253,4 @@ ms.lasthandoff: 04/06/2018
 ## <a name="next-steps"></a>後續步驟
 * 定義原則規則 (如上述範例所示) 之後，您必須建立原則定義，並將它指派到某個範圍。 範圍可以是訂用帳戶、資源群組或資源。 若要指派原則，請參閱[使用 Azure 入口網站來指派和管理資源原則](../../azure-policy/assign-policy-definition.md)、[使用 PowerShell 來指派原則](../../azure-policy/assign-policy-definition-ps.md)或[使用 Azure CLI 來指派原則](../../azure-policy/assign-policy-definition-cli.md)。
 * 如需資源原則簡介，請參閱[什麼是 Azure 原則？](../../azure-policy/azure-policy-introduction.md)。
-* 如需關於企業如何使用 Resource Manager 有效地管理訂用帳戶的指引，請參閱 [Azure 企業 Scaffold - 規定的訂用帳戶治理](../../azure-resource-manager/resource-manager-subscription-governance.md)。
+* 如需關於企業如何使用 Resource Manager 有效地管理訂用帳戶的指引，請參閱 [Azure 企業 Scaffold - 規定的訂用帳戶治理](/azure/architecture/cloud-adoption-guide/subscription-governance)。

@@ -9,15 +9,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 02a3ca373d88f0a553b48214b0d06ce1fad73cb8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 50204bac60a694779eafe15df7e8733007ba92a3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622256"
 ---
 # <a name="file-and-compression-formats-supported-by-azure-data-factory"></a>了解 Azure Data Factory 所支援的檔案和壓縮格式
 *此主題適用於下列連接器：[Amazon S3](data-factory-amazon-simple-storage-service-connector.md)、[Azure Blob](data-factory-azure-blob-connector.md), [Azure Data Lake Store](data-factory-azure-datalake-connector.md)、[檔案系統](data-factory-onprem-file-system-connector.md)、[FTP](data-factory-ftp-connector.md)、[HDFS](data-factory-hdfs-connector.md)、[HTTP](data-factory-http-connector.md) 與 [SFTP](data-factory-sftp-connector.md)。*
@@ -488,8 +489,8 @@ Azure Data Factory 支援下列檔案格式類型：
 
 [壓縮]  區段有兩個屬性：  
 
-* **類型：**壓縮轉碼器，可以是 **GZIP**、**Deflate**、**BZIP2** 或 **ZipDeflate**。  
-* **層級：**壓縮比，它可以是**最佳**或**最快**。
+* **類型：** 壓縮轉碼器，可以是 **GZIP**、**Deflate**、**BZIP2** 或 **ZipDeflate**。  
+* **層級：** 壓縮比，它可以是**最佳**或**最快**。
 
   * **最快：** 即使未以最佳方式壓縮所產生的檔案，壓縮作業也應儘速完成。
   * **最佳**：即使作業耗費較長的時間才能完成，壓縮作業也應以最佳方式壓縮。

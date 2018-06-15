@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0afdfb7b7d1f74d3df40b22bb97afc0f39bcc6d1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 301a1a9934f9d7e76399dfe46a65481351a61e22
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621440"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>使用 Azure Data Factory 從 MongoDB 移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -151,7 +152,7 @@ ms.lasthandoff: 04/16/2018
 }
 ```
 
-**MongoDB 輸入資料集：**設定 “external”: ”true” 可告知 Data Factory 服務該資料表是 Data Factory 外部的資料表，而不是由 Data Factory 中的活動所產生。
+**MongoDB 輸入資料集：** 設定 “external”: ”true” 可告知 Data Factory 服務該資料表是 Data Factory 外部的資料表，而不是由 Data Factory 中的活動所產生。
 
 ```json
 {

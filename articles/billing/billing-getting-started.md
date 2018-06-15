@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: tonguyen
-ms.openlocfilehash: 47a0f2e1cdb873dc907748ed2f3def29efccaa98
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 797421e40a5550e1897443f35089838a349ad85a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607390"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>使用 Azure 計費與成本管理避免非預期的費用
 
@@ -64,7 +65,7 @@ ms.lasthandoff: 05/03/2018
 
 ### <a name="spending-limit"></a> 檢查您是否開啟消費限制
 
-如果您有使用信用額度的訂用帳戶，那麼您的消費限制依預設是開啟的。 如此一來，當您花光您的信用額度時，就不會針對您的信用卡收費。 請參閱 [Azure 優惠完整清單及消費限制可用性](https://azure.microsoft.com/support/legal/offer-details/)。
+如果您有使用信用額度的訂用帳戶，那麼您的消費限制依預設是開啟的。 如此一來，當您花光您的信用額度時，就不會針對您的信用卡收費。 請參閱 [Azure 供應項目完整清單及消費限制可用性](https://azure.microsoft.com/support/legal/offer-details/)。
 
 不過，如果您達到消費限制，就會停用您的服務。 這表示您的 VM 會被解除配置。 若要避免服務停機，您必須關閉消費限制。 任何超額部分都會用您在檔案上的信用卡收費。 
 
@@ -92,7 +93,7 @@ ms.lasthandoff: 05/03/2018
 
 1. 檢視 [Azure 入口網站中的 [訂用帳戶] 刀鋒視窗](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)然後選取您的訂用帳戶。
 
-2. 您應該會在快顯刀鋒視窗中看到成本細分和完工速率。 您的優惠可能不受支援 (靠近頂端處會顯示警告)。
+2. 您應該會在快顯刀鋒視窗中看到成本細分和完工速率。 您的供應項目可能不受支援 (靠近頂端處會顯示警告)。
 
     ![Azure 入口網站中完工速率和成本細分的螢幕擷取畫面](./media/billing-getting-started/burn-rate.PNG)
 
@@ -143,13 +144,13 @@ ms.lasthandoff: 05/03/2018
 ### <a name="ea-csp-and-sponsorship-customers"></a>EA、CSP 和贊助客戶
 若要開始使用，請連絡帳戶管理員或 Azure 。
 
-| 提供項目 | 資源 |
+| 供應項目 | 資源 |
 |-------------------------------|-----------------------------------------------------------------------------------|
 | Enterprise 合約 (EA) | [EA 入口網站](https://ea.azure.com/)、[協助文件](https://ea.azure.com/helpdocs)和 [Power BI 報告](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-enterprise/) |
 | 雲端解決方案提供者 (CSP) | 與您的提供者討論 |
 | Azure 贊助 | [贊助入口網站 (英文)](https://www.microsoftazuresponsorships.com/) |
 
-如果您管理的是大型組織的 IT，我們建議您閱讀 [Azure 企業 Scaffold](../azure-resource-manager/resource-manager-subscription-governance.md) 和[企業 IT 技術白皮書](http://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (.pdf 下載，僅提供英文版)。
+如果您管理的是大型組織的 IT，我們建議您閱讀 [Azure 企業 Scaffold](/azure/architecture/cloud-adoption-guide/subscription-governance) 和[企業 IT 技術白皮書](http://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (.pdf 下載，僅提供英文版)。
 
 #### <a name="EA"></a> 預覽 Azure 入口網站中的 Enterprise 合約費用檢視 
 

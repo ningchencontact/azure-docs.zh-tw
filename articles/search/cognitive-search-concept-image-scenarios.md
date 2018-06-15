@@ -10,12 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 77fbd69aad6c78ecd5c933d8017c980afaa661a3
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 566b1e731f137863e9d4bc284d8868d408c7a575
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34367268"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640195"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>如何在認知搜尋案例中處理影像並從影像擷取資訊
 
@@ -45,7 +45,7 @@ ms.locfileid: "34367268"
 標準化影像的最大寬度與最大高度的預設值為 2000 像素，這是根據 [OCR 技術](cognitive-search-skill-ocr.md)和[影像分析技術](cognitive-search-skill-image-analysis.md)所支援的大小上限。 如果增加上限增加，對較大影像的處理可能會失敗。
 
 
-在[索引子定義](ref-create-indexer.md)中指定 imageAction，如下所示：
+在[索引子定義](https://docs.microsoft.com/rest/api/searchservice/create-indexer)中指定 imageAction，如下所示：
 
 ```json
 {
@@ -218,7 +218,7 @@ OCR 技術可讓您選取要用來偵測影像中文字的演算法。 目前支
 ```
 
 ## <a name="see-also"></a>另請參閱
-+ [建立索引子 (REST)](ref-create-indexer.md)(英文)
++ [建立索引子 (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)(英文)
 + [分析影像技術](cognitive-search-skill-image-analysis.md) (英文)
 + [OCR 技術](cognitive-search-skill-ocr.md) (英文)
 + [文字合併技術](cognitive-search-skill-textmerger.md) (英文)

@@ -9,11 +9,12 @@ ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 2438914449ff609d149fca20f2f3756576877752
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1268ed0f5c46e0f65e1bf5381f2baca95fa0b915
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34610594"
 ---
 # <a name="tutorial-deploy-a-container-to-azure-container-instances"></a>教學課程：將容器部署至 Azure Container Instances
 
@@ -55,7 +56,7 @@ az acr credential show --name <acrName> --query "passwords[0].value"
 現在使用 [az container create][az-container-create] 命令來部署容器。 以您從先前兩個命令取得的值取代 `<acrLoginServer>` 和 `<acrPassword>`。 以您的容器登錄名稱取代 `<acrName>`。
 
 ```azurecli
-az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
+az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
 ```
 
 在幾秒內，您應該會從 Azure 收到首次回應。 `--dns-name-label` 值在您建立容器執行個體所在的 Azure 區域中必須是唯一的。 如果您在執行命令時收到 **DNS 名稱標籤**錯誤訊息，請修改上方命令中的值。

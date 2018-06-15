@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
-ms.openlocfilehash: c43973a7e5070676fc0f32a4c8923d57a479f884
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 6b0f576538f159155dcf602fe39b0ea67254e4c7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34619247"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>複製活動的效能及微調指南
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -360,7 +361,7 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 
 ## <a name="sample-scenario-copy-from-an-on-premises-sql-server-to-blob-storage"></a>範例案例：從內部部署 SQL Server 複製到 Blob 儲存體
 
-**案例：**建置從內部部署 SQL Server 將資料以 CSV 格式複製到 Blob 儲存體的管線。 為了加快複製作業速度，CSV 檔案應該壓縮為 bzip2 格式。
+**案例：** 建置從內部部署 SQL Server 將資料以 CSV 格式複製到 Blob 儲存體的管線。 為了加快複製作業速度，CSV 檔案應該壓縮為 bzip2 格式。
 
 **測試和分析**：複製活動的輸送量小於 2 MBps，遠低於效能基準。
 

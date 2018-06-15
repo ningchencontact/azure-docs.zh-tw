@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 55fde1a1a61f8ec0479cd264b2ce4dd37789c5a4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b87ed8b9d9b43de81bfe4173d117d9f1e2bd7abd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622001"
 ---
 # <a name="move-data-from-a-odata-source-using-azure-data-factory"></a>使用 Azure Data Factory 來移動 OData 來源的資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -201,7 +202,7 @@ ms.lasthandoff: 03/23/2018
 
 範例會每隔一小時依照 OData 來源，把查詢來的資料複製到 Azure Blob 中。 範例後面的各節會說明這些範例中使用的 JSON 屬性。
 
-**OData 已連結的服務：**此範例會使用匿名驗證。 請參閱 [OData 連結服務](#linked-service-properties) 一節，來了解您可以使用的不同驗證類型。
+**OData 已連結的服務：** 此範例會使用匿名驗證。 請參閱 [OData 連結服務](#linked-service-properties) 一節，來了解您可以使用的不同驗證類型。
 
 ```json
 {

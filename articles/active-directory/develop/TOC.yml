@@ -259,6 +259,8 @@
               href: active-directory-v2-protocols-oauth-on-behalf-of.md
             - name: 憑證認證
               href: active-directory-certificate-credentials.md
+            - name: Oauth 2.0 範例程式碼
+              href: active-directory-protocols-oauth-get-jwt-token.md
         - name: 權杖
           href: active-directory-v2-tokens.md
         - name: 範圍與同意

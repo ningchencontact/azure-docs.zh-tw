@@ -27,7 +27,7 @@
       href: quickstart-create-data-factory-resource-manager-template.md
 - name: 教學課程
   items:
-    - name: 1 - 建立 Azure-SSIS 整合執行階段
+    - name: 1 - 佈建 Azure-SSIS 整合執行階段
       items:
         - name: 使用者介面 (UI)
           href: tutorial-deploy-ssis-packages-azure.md

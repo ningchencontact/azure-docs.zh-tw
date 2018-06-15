@@ -1,24 +1,19 @@
 ---
-title: 針對 Azure 備份代理程式進行疑難排解 | Microsoft Docs
+title: 針對 Azure 備份代理程式進行疑難排解
 description: 針對 Azure 備份代理程式的安裝和註冊進行疑難排解
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
 manager: shreeshd
-editor: ''
-ms.assetid: 778c6ccf-3e57-4103-a022-367cc60c411a
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/4/2017
-ms.author: saurse;markgal;
-ms.openlocfilehash: f7f4ac328c4e35f52bcc9708faf96d06189dd9ac
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: saurse
+ms.openlocfilehash: aee0a3044ea4d1b9b867e795e94a37f8835ad212
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605751"
 ---
 # <a name="troubleshoot-azure-backup-agent-configuration-and-registration-issues"></a>針對 Azure 備份代理程式的設定和註冊問題進行疑難排解
 ## <a name="recommended-steps"></a>建議的步驟

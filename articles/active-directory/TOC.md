@@ -2,13 +2,13 @@
 
 # 概觀
 ## [什麼是 Azure Active Directory？](active-directory-whatis.md)
-## [關於 Azure 身分識別管理](identity-fundamentals.md)
-## [了解 Azure 身分識別解決方案](understand-azure-identity-solutions.md)
+## [關於 Azure 身分識別管理](fundamentals/identity-fundamentals.md)
+## [了解 Azure 身分識別解決方案](fundamentals/understand-azure-identity-solutions.md)
 ## [選擇混合式身分識別解決方案](choose-hybrid-identity-solution.md)
 ## [關聯 Azure 訂用帳戶](active-directory-how-subscriptions-associated-directory.md)
-## [常駐和資料考量](active-directory-data-storage-eu.md)
-## [常見問題集](active-directory-faq.md)
-## [新功能](whats-new.md)
+## [常駐和資料考量](fundamentals/active-directory-data-storage-eu.md)
+## [常見問題集](fundamentals/active-directory-faq.md)
+## [新功能](fundamentals/whats-new.md)
 
 
 # 開始使用
@@ -17,14 +17,14 @@
 ## [新增自訂網域名稱](add-custom-domain.md)
 ## [設定公司商標](customize-branding.md)
 ## [在 Azure AD 中新增使用者](add-users-azure-active-directory.md)
-## [將授權指派給使用者](license-users-groups.md)
+## [將授權指派給使用者](fundamentals/license-users-groups.md)
 ## [啟用自助式密碼重設](authentication/quickstart-sspr.md)
 ## [在 Azure AD 中新增貴組織的隱私權資訊](active-directory-properties-area.md)
 
 
 # 作法
 ## 規劃和設計
-### [了解 Azure AD 架構](active-directory-architecture.md)
+### [了解 Azure AD 架構](fundamentals/active-directory-architecture.md)
 ### [Azure Active Directory 中的宣告對應](active-directory-claims-mapping.md)
 ### [部署混合式身分識別解決方案](active-directory-hybrid-identity-design-considerations-overview.md)
 #### 判斷需求
@@ -87,7 +87,7 @@
 #### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [管理群組成員](active-directory-groups-members-azure-portal.md)
 ### [管理群組擁有者](active-directory-accessmanagement-managing-group-owners.md)
-### [管理群組成員資格](active-directory-groups-membership-azure-portal.md)
+### [管理群組成員資格](fundamentals/active-directory-groups-membership-azure-portal.md)
 ### [使用群組指派授權](active-directory-licensing-whatis-azure-portal.md)
 #### [將授權指派給群組](active-directory-licensing-group-assignment-azure-portal.md)
 #### [識別並解決群組的授權問題](active-directory-licensing-group-problem-resolution-azure-portal.md)
@@ -100,7 +100,7 @@
 ### [為群組強制執行命名原則](groups-naming-policy.md)
 ### [檢視全部群組](active-directory-groups-view-azure-portal.md)
 ### [新增 SaaS 應用程式的群組存取權](active-directory-accessmanagement-group-saasapps.md)
-### [還原已刪除的 Office 365 群組](active-directory-groups-restore-azure-portal.md)
+### [還原已刪除的 Office 365 群組](fundamentals/active-directory-groups-restore-azure-portal.md)
 ### [管理群組設定](active-directory-groups-settings-azure-portal.md) 
 ### 建立進階規則
 #### [Azure 入口網站](active-directory-groups-dynamic-membership-azure-portal.md)
@@ -134,8 +134,6 @@
 #### [下載中缺少的資料](active-directory-reporting-troubleshoot-missing-data-download.md)
 #### [Azure Active Directory 活動記錄內容套件錯誤](active-directory-reporting-troubleshoot-content-pack.md)
 ### [程式設計存取](active-directory-reporting-api-getting-started-azure-portal.md)
-#### [稽核參考](active-directory-reporting-api-audit-reference.md)
-#### [登入參考](active-directory-reporting-api-sign-in-activity-reference.md)
 #### [先決條件](active-directory-reporting-api-prerequisites-azure-portal.md)
 #### [稽核範例](active-directory-reporting-api-audit-samples.md)
 #### [登入範例](active-directory-reporting-api-sign-in-activity-samples.md)
@@ -281,7 +279,8 @@
 ### 自訂網域名稱
 #### [快速入門](add-custom-domain.md)
 #### [新增自訂網域名稱](active-directory-domains-manage-azure-portal.md)
-### [管理目錄](active-directory-administer.md)
+### [管理目錄](fundamentals/active-directory-administer.md)
+### [刪除目錄](directory-delete-howto.md)
 ### [多個目錄](active-directory-licensing-directory-independence.md)
 ### [自助式註冊](active-directory-self-service-signup.md)
 ### [接管非受控目錄](domains-admin-takeover.md)
@@ -300,12 +299,12 @@
 ## 委派資源存取
 ### [管理員角色](active-directory-assign-admin-roles-azure-portal.md)
 #### [將管理員角色指派給使用者](active-directory-users-assign-role-azure-portal.md) 
-#### [比較成員和來賓使用者的權限](users-default-permissions.md) 
+#### [比較成員和來賓使用者的權限](fundamentals/users-default-permissions.md) 
 ### [保護特殊權限存取](admin-roles-best-practices.md)  
 ### [建立緊急存取管理帳戶](active-directory-admin-manage-emergency-access-accounts.md) 
 
 
-#### [預設使用者權限](users-default-permissions.md)
+#### [預設使用者權限](fundamentals/users-default-permissions.md)
 ### [管理單位](active-directory-administrative-units-management.md)
 ### [設定權杖存留期](active-directory-configurable-token-lifetimes.md)
 ### [保護特殊權限角色](admin-roles-best-practices.md)
@@ -323,27 +322,29 @@
 
 ## 保護您的身分識別
 ### [條件式存取](active-directory-conditional-access-azure-portal.md)
-#### [條件](active-directory-conditional-access-conditions.md)
-#### [位置條件](active-directory-conditional-access-locations.md)
-#### [控制項](active-directory-conditional-access-controls.md)
 #### [開始使用](active-directory-conditional-access-azure-portal-get-started.md)
-#### [最佳做法](active-directory-conditional-access-best-practices.md)
-#### [了解 Office 365 服務的裝置原則](active-directory-conditional-access-device-policies.md)
-#### [移轉傳統原則](active-directory-conditional-access-migration.md)
-#### [假設工具](active-directory-conditional-access-whatif.md)
 #### 快速入門
 ##### [設定每個雲端應用程式 MFA](active-directory-conditional-access-app-based-mfa.md)
-#### 工作
+#### 教學課程
 ##### [移轉傳統 MFA 原則](active-directory-conditional-access-migration-mfa.md)
+#### 概念
+##### [條件](active-directory-conditional-access-conditions.md)
+##### [位置條件](active-directory-conditional-access-locations.md)
+##### [控制項](active-directory-conditional-access-controls.md)
+##### [假設工具](active-directory-conditional-access-whatif.md)
+##### [了解 Office 365 服務的裝置原則](active-directory-conditional-access-device-policies.md)
+#### 使用說明指南
+##### [最佳做法](active-directory-conditional-access-best-practices.md)
+##### [為來自不信任的網路存取嘗試設定條件式存取原則](active-directory-conditional-access-untrusted-networks.md)
 ##### [設定裝置型條件式存取](active-directory-conditional-access-policy-connected-applications.md)
 ##### [設定應用程式型條件式存取](active-directory-conditional-access-mam.md)
 ##### [為使用者和應用程式提供使用規定](active-directory-tou.md)
+##### [移轉傳統原則](active-directory-conditional-access-migration.md)
 ##### [設定 VPN 連線能力](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
 ##### [設定 SharePoint 和 Exchange Online](active-directory-conditional-access-no-modern-authentication.md)
 ##### [補救](active-directory-conditional-access-device-remediation.md)
 #### [技術參考](active-directory-conditional-access-technical-reference.md)
 #### [常見問題集](active-directory-conditional-faqs.md)
-
 
 ### 憑證式驗證
 #### [Android](active-directory-certificate-based-authentication-android.md)

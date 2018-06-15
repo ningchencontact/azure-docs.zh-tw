@@ -7,18 +7,20 @@ author: eringreenlee
 manager: ''
 editor: ''
 ms.assetid: 81208c0b-8d41-4f65-be15-42119b1b5957
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: 38885caacfb98f76627854a782aa56d8a609aad9
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 29554230adc9d30f357c4e8d0082c0fe7d8d9035
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34588418"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Azure AD Domain Services - 針對安全 LDAP 設定進行疑難排解
 
@@ -44,7 +46,7 @@ ms.lasthandoff: 03/16/2018
    4. 輸入 "636" 作為目的地連接埠範圍。
    5. 通訊協定為 **TCP**。
    6. 為規則提供適當的名稱、描述和優先順序。 此規則的優先順序應高於「全部拒絕」規則的優先順序 (如果有的話)。
-   7. 按一下 [SERVICEPRINCIPAL] 。
+   7. 按一下 [確定]。
 5. 確認規則已建立。
 6. 請在兩個小時後檢查網域的健康情況，以確保您已正確完成所有步驟。
 

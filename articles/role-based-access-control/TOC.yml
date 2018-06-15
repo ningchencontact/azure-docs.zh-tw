@@ -15,11 +15,13 @@
           href: tutorial-role-assignments-user-powershell.md
         - name: 授與群組存取權 - PowerShell
           href: tutorial-role-assignments-group-powershell.md
+        - name: 建立自訂角色 - PowerShell
+          href: tutorial-custom-role-powershell.md
+        - name: 建立自訂角色 - CLI
+          href: tutorial-custom-role-cli.md
     - name: 管理角色指派
       items:
-        - name: 使用者
-          href: role-assignments-users.md
-        - name: 資源
+        - name: 入口網站
           href: role-assignments-portal.md?toc=%2fazure%2factive-directory%2ftoc.json
         - name: Azure CLI
           href: role-assignments-cli.md

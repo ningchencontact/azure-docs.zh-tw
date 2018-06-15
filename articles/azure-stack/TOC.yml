@@ -191,6 +191,8 @@
               href: azure-stack-enable-multitenancy.md
         - name: 旋轉祕密
           href: azure-stack-rotate-secrets.md
+        - name: 更新防毒軟體
+          href: azure-stack-security-av.md
     - name: 供應項目服務
       items:
         - name: 供應項目服務概觀

@@ -3,21 +3,19 @@ title: Azure Cosmos DB 圖形 API 簡介 | Microsoft Docs
 description: 了解如何使用 Azure Cosmos DB 並透過 Apache TinkerPop 的 Gremlin 圖形查詢語言，以低延遲的方式儲存、查詢和周遊巨大圖形。
 services: cosmos-db
 author: LuisBosquez
-documentationcenter: ''
 manager: kfile
-ms.assetid: b916644c-4f28-4964-95fe-681faa6d6e08
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
-ms.topic: article
+ms.component: cosmosdb-graph
+ms.devlang: na
+ms.topic: overview
 ms.date: 01/05/2017
 ms.author: lbosq
-ms.openlocfilehash: 6deaf57b6314ed4077369beb3195e97281d918e6
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 6fcd6389e3ff23c1cb2b2f0e5183ea43bae9f313
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796132"
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Azure Cosmos DB：圖形 API 簡介
 
@@ -99,7 +97,7 @@ Azure Cosmos DB 提供以下有別於市場上其他圖表資料庫的功能：
 
 * 可調式一致性層級
 
- 提供五個定義完善的一致性層級可選擇，讓您能在一致性與效能之間做出最好的取捨。 針對查詢和讀取作業，Azure Cosmos DB 提供五個不同的一致性層級：強式、限定過期、工作階段、一致的前置和最終。 這些細微且定義完善的一致性等級，可讓您在一致性、可用性與延遲三者間做出合理取捨。 深入了解 [Azure Cosmos DB 中的 Tunable 資料一致性層級](consistency-levels.md)。
+ 提供五個定義完善的一致性層級可選擇，讓您能在一致性與效能之間做出最好的取捨。 針對查詢和讀取作業，Azure Cosmos DB 提供五個不同的一致性等級：強式、限定過期、工作階段、一致的前置和最終。 這些細微且定義完善的一致性等級，可讓您在一致性、可用性與延遲三者間做出合理取捨。 深入了解 [Azure Cosmos DB 中的 Tunable 資料一致性層級](consistency-levels.md)。
 
 Azure Cosmos DB 也能在相同的容器/資料庫內使用多個模型，例如文件和圖表。 您可以使用文件集合來同時儲存圖表資料與文件。 您可以使用 JSON 的 SQL 查詢和 Gremlin 查詢，查詢與圖表相同的資料。
 
