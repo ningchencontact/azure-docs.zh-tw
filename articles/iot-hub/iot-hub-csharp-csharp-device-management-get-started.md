@@ -1,24 +1,20 @@
 ---
 title: 開始使用 Azure IoT 中樞裝置管理 (.NET/.NET) | Microsoft Docs
 description: 如何使用 Azure IoT 中樞裝置管理來起始遠端裝置重新開機。 您可以使用適用於 .NET 的 Azure IoT 裝置 SDK，實作模擬裝置應用程式 (包含直接方法)，也可以使用適用於 .NET 的 Azure IoT 服務 SDK，實作服務應用程式 (叫用直接方法)。
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 09/15/2017
-ms.author: v-jamebr;dobett
-ms.openlocfilehash: 44160eeb90f0f65c974b7188dd7c70cce382bf21
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: dobett
+ms.openlocfilehash: c1cee32e3ee60ce229308055cca7f0e9832ddc49
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633820"
 ---
 # <a name="get-started-with-device-management-netnet"></a>開始使用裝置管理 (.NET/.NET)
 

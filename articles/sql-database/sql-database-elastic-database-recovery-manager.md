@@ -6,14 +6,15 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 350ea0d4b744467849916f2d958cc49fd72d3e4b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 6257edbb567be3ebb3151724e7e50ca81905ad40
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646230"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>使用 RecoveryManager 類別來修正分區對應問題
 [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) 類別提供 ADO.Net 應用程式輕鬆偵測，並修正分區化資料庫環境中全域分區對應 (GSM) 和本機分區對應 (LSM) 中任何不一致的能力。 
@@ -27,7 +28,7 @@ RecoveryManager 類別是 [彈性資料庫用戶端程式庫](sql-database-elast
 關於詞彙定義，請參閱 [彈性資料庫工具字彙](sql-database-elastic-scale-glossary.md)。 若要了解 **ShardMapManager** 如何用來管理分區化解決方案中的資料，請參閱 [分區對應管理](sql-database-elastic-scale-shard-map-management.md)。
 
 ## <a name="why-use-the-recovery-manager"></a>為何使用復原管理員？
-在分區化資料庫環境中，每個資料庫有一個租用戶，而每個伺服器中有許多資料庫。 環境中也可能會有許多伺服器。 每個資料庫都會在分區對應中對應，以便呼叫可以路由至正確的伺服器和資料庫。 根據**分區化索引鍵**追蹤資料庫，而每個分區會被指派**某個範圍的索引鍵值**。 例如，分區化索引鍵可能代表客戶名稱從 "D" 到 "F"。 所有分區 (也稱為資料庫) 和其對應範圍的對應都包含在 **全域分區對應 (GSM)**中。 每個資料庫也包含分區上所包含之範圍的對應 (稱為**本機分區對應 (LSM)**)。 當應用程式連接到分區時，會隨著應用程式快取對應以供快速擷取。 LSM 用來驗證快取的資料。 
+在分區化資料庫環境中，每個資料庫有一個租用戶，而每個伺服器中有許多資料庫。 環境中也可能會有許多伺服器。 每個資料庫都會在分區對應中對應，以便呼叫可以路由至正確的伺服器和資料庫。 根據**分區化索引鍵**追蹤資料庫，而每個分區會被指派**某個範圍的索引鍵值**。 例如，分區化索引鍵可能代表客戶名稱從 "D" 到 "F"。 所有分區 (也稱為資料庫) 和其對應範圍的對應都包含在 **全域分區對應 (GSM)** 中。 每個資料庫也包含分區上所包含之範圍的對應 (稱為**本機分區對應 (LSM)**)。 當應用程式連接到分區時，會隨著應用程式快取對應以供快速擷取。 LSM 用來驗證快取的資料。 
 
 GSM 和 LSM 可能因為以下原因變成不同步：
 

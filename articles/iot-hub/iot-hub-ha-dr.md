@@ -1,24 +1,19 @@
 ---
-title: "Azure IoT 中樞高可用性和災害復原 | Microsoft Docs"
-description: "描述 Azure 和 IoT 中樞功能，協助您建立具有災害復原功能的高可用性 Azure IoT 解決方案。"
-services: iot-hub
-documentationcenter: 
+title: Azure IoT 中樞高可用性和災害復原 | Microsoft Docs
+description: 描述 Azure 和 IoT 中樞功能，協助您建立具有災害復原功能的高可用性 Azure IoT 解決方案。
 author: fsautomata
-manager: timlt
-editor: 
-ms.assetid: ae320e58-aa20-45b9-abdc-fa4faae8e6dd
+manager: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: elioda
-ms.openlocfilehash: ecc5da8daf0f5c93dffc93798f40507f8eac48be
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 428209defa554599c01789e6f2a8b62f155b0f2f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633701"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT 中樞高可用性和災害復原
 作為 Azure 服務，IoT 中心提供高可用性 (HA)，在 Azure 區域層級使用備援，且解決方案不需任何額外的工作。 Microsoft Azure 平台也包含各種功能，以協助您建置具有災害復原 (DR) 功能或跨區域可用性的解決方案。 若想要為裝置或使用者提供全域、跨區域的高可用性，可善用這類 Azure DR 功能。 [Azure 業務持續性技術指引](../resiliency/resiliency-technical-guidance.md) 一文描述業務持續性和 DR 的 Azure 內建功能。 [Azure 應用程式的災害復原與高可用性][Disaster recovery and high availability for Azure applications]一文針對 Azure 應用程式的策略提供架構指引以達到 HA 和 DR。

@@ -1,20 +1,19 @@
 ---
 title: 使用 Azure IoT Edge 來進行 C# 模組偵錯 | Microsoft Docs
 description: 在 Visual Studio Code 中透過 Azure IoT Edge 使用 Visual Studio Code 來進行 C# 模組偵錯。
-services: iot-edge
-keywords: ''
 author: shizn
-manager: timlt
+manager: ''
 ms.author: xshi
 ms.date: 03/18/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 035cb129bc3933c10f430b593226108f5d160972
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+services: iot-edge
+ms.openlocfilehash: 5d521a4e5b22222f0b0a5505f14684598d7d5b0a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34165718"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631389"
 ---
 # <a name="use-visual-studio-code-to-debug-a-c-module-with-azure-iot-edge"></a>使用 Visual Studio Code 搭配 Azure IoT Edge 進行 C# 模組偵錯
 本文提供詳細的指示，說明如何使用 [Visual Studio (VS) Code](https://code.visualstudio.com/) 作為主要開發工具來進行 Azure IoT Edge 模組偵錯。

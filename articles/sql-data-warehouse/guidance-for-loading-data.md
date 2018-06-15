@@ -10,11 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 48b0f0300ab563e8388c9e99f4f90cd24c56678d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5ccf0ce0cc94f0ae08213167ee54628a9d059859
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701513"
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>將資料載入 Azure SQL 資料倉儲的最佳做法
 將資料載入 Azure SQL 資料倉儲的建議和效能最佳化。 
@@ -68,7 +69,7 @@ PolyBase 無法載入具有超過 1 百萬個位元組之資料的資料列。 �
 ```sql
    DENY CONTROL ON SCHEMA :: schema_A TO user_B;
    DENY CONTROL ON SCHEMA :: schema_B TO user_A;
-```   
+```
 
 user_A 和 user_B 現在已從其他部門的結構描述加以鎖定。
 
@@ -121,15 +122,15 @@ create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 
 建立原始金鑰
 
-    ```sql
-    CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1'
-    ``` 
+```sql
+CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1'
+``` 
 
 將金鑰從 key 1 輪替為 key 2
 
-    ```sq;
-    ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
-    ```
+```sql
+ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
+```
 
 不需要對基礎外部資料來源進行其他變更。
 

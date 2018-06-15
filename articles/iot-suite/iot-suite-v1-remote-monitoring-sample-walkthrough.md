@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 3aa9bb9c785bb69c80d9bb33e595393a5a1d220a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 871098642f586a123d056e2da22d2fceae9bdfe5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638070"
 ---
 # <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>遠端監視預先設定解決方案逐步解說
 
@@ -35,7 +36,7 @@ IoT 套件遠端監視[預先設定解決方案][lnk-preconfigured-solutions]是
 
 下圖概述預先設定解決方案的邏輯元件：
 
-![邏輯架構](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture-updated.png)
+![邏輯架構](media/iot-suite-v1-remote-monitoring-sample-walkthrough/remote-monitoring-architecture-updated.png)
 
 ## <a name="microservices--docker-containers"></a>微服務和 Docker 容器
 遠端監視是我們第一項運用微服務架構的預先設定解決方案。 此解決方案在 [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) 和 [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java) 中均適用。
