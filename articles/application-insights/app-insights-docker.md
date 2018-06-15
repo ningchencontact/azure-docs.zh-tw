@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: a0476e2f0bf08f76b45e1342ec38137e46008cb1
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 53ade76b9dbdc27df90da1f7e197464816529d1d
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32153688"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295756"
 ---
 # <a name="monitor-docker-applications-in-application-insights"></a>在 Application Insights 中監視 Docker 應用程式
 [Docker](https://www.docker.com/) 容器的週期事件和效能計數器可以在 Application Insights 上繪製成圖表。 在您的主機的容器中安裝 [Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) 映像，它會顯示主機及其他映像的效能計數器。

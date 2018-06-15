@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 4f9354426ba584b26213f8a104c14122a831a453
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 026c686b1d5654aa50dd63b9addd619dd5322da0
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34075216"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808140"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>使用 Azure Stack 角色型存取控制來管理資源存取
 
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
-Azure Stack 支援角色型存取控制 (RBAC)，這是與 Microsoft Azure 所用的[存取管理安全性模型](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) \(機器翻譯\) 相同。 您可以使用 RBAC 來管理使用者、群組或應用程式對於訂用帳戶、資源和服務的存取。
+Azure Stack 支援角色型存取控制 (RBAC)，這是與 Microsoft Azure 所用的[存取管理安全性模型](https://docs.microsoft.com/azure/role-based-access-control/overview) \(機器翻譯\) 相同。 您可以使用 RBAC 來管理使用者、群組或應用程式對於訂用帳戶、資源和服務的存取。
 
 ## <a name="basics-of-access-management"></a>存取管理的基礎
 
-角色型存取控制可以提供更細緻的存取控制，以用於保護環境。 您可以在特定範圍中指派 RBAC 角色，以提供使用者所需的確實權限。 角色指派的範圍可以是訂用帳戶、資源群組或單一資源。 如需存取管理的詳細資訊，請參閱 [Azure 入口網站中的角色型存取控制](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) \(機器翻譯\) 文章。
+角色型存取控制可以提供更細緻的存取控制，以用於保護環境。 您可以在特定範圍中指派 RBAC 角色，以提供使用者所需的確實權限。 角色指派的範圍可以是訂用帳戶、資源群組或單一資源。 如需存取管理的詳細資訊，請參閱 [Azure 入口網站中的角色型存取控制](https://docs.microsoft.com/azure/role-based-access-control/overview) \(機器翻譯\) 文章。
 
 ### <a name="built-in-roles"></a>內建角色
 
@@ -60,7 +60,7 @@ Azure Stack 具有下列資源階層：
 * 您指派了 TestUser-A 讀者角色給 Subscription-1。
 * 您指派了 TestUser-A 擁有者角色給 TestVM-1。
 
-Azure [角色指派](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) \(機器翻譯\) 文章提供了檢視、指派與刪除角色的詳細資訊。
+Azure [角色指派](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) \(機器翻譯\) 文章提供了檢視、指派與刪除角色的詳細資訊。
 
 ### <a name="resource-hierarchy-and-inheritance"></a>資源階層和繼承
 
@@ -82,7 +82,7 @@ Azure Stack 具有下列資源階層：
 * 您指派了 TestUser-A 讀者角色給 Subscription-1。
 * 您指派了 TestUser-A 擁有者角色給 TestVM-1。
 
-Azure [角色指派](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) \(機器翻譯\) 文章提供了檢視、指派與刪除角色的詳細資訊。
+Azure [角色指派](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) \(機器翻譯\) 文章提供了檢視、指派與刪除角色的詳細資訊。
 
 ## <a name="set-access-permissions-for-a-user"></a>設定使用者的存取權限
 

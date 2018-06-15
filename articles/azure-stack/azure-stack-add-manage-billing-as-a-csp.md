@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 02/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: 23e3a675e6a464c92d26df220c8126c970f590a0
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 21a52af4943004789b0a9bdbe4695ab1a603c046
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796694"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>以雲端服務提供者身分管理 Azure Stack 的使用量和帳單 
 
@@ -47,7 +48,7 @@ ms.lasthandoff: 03/12/2018
 
 直接 CSP 或 CSP 散發者在營運 Azure Stack 時，會偏好使用雲端服務提供者共用服務 (CSPSS) 訂用帳戶來進行註冊。
 
-CSPSS 訂用帳戶與共用服務租用戶相關聯。 當您註冊 Azure Stack 時，必須提供屬於訂用帳戶擁有者之帳戶的認證。 您用來註冊 Azure Stack 的帳戶可以不同於您用於部署的系統管理員帳戶；這兩者「不必」屬於相同的網域。 換句話說，您可以使用您已使用的租用戶進行部署。 例如，您可以使用 ContosoCSP.onmicrosoft.com，然後使用不同的租用戶進行註冊，例如 IURContosoCSP.onmicrosoft.com。當您進行日常 Azure Stack 管理時，必須記住您要使用 ContosoCSP.onmicrosoft.com 來登入。 當您必須執行註冊作業時，請使用 IURContosoCSP.onmicrosoft.com 來登入 Azure。
+CSPSS 訂用帳戶與共用服務租用戶相關聯。 當您註冊 Azure Stack 時，必須提供屬於訂用帳戶擁有者之帳戶的認證。 您用來註冊 Azure Stack 的帳戶可以不同於您用於部署的系統管理員帳戶；這兩者「不必」屬於相同的網域。 換句話說，您可以使用您已使用的租用戶進行部署。 例如，您可以使用 ContosoCSP.onmicrosoft.com，然後使用不同的租用戶進行註冊，例如 IURContosoCSP.onmicrosoft.com。 當您進行日常 Azure Stack 管理時，必須記住您要使用 ContosoCSP.onmicrosoft.com 來登入。 當您必須執行註冊作業時，請使用 IURContosoCSP.onmicrosoft.com 來登入 Azure。
 
 請參考下列資訊以取得 CSPSS 訂用帳戶的說明，以及如何建立訂用帳戶的指示：[新增 Azure 合作夥伴共用服務](https://msdn.microsoft.com/partner-center/shared-services)。
 
@@ -84,4 +85,4 @@ Azure Stack 會使用稱為「註冊」的功能。 註冊是儲存在 Azure 中
 ## <a name="next-steps"></a>後續步驟
 
  - 若要深入了解 CSP 方案，請參閱[雲端解決方案提供者方案](https://partnercenter.microsoft.com/en-us/partner/programs)。
- - 若要深入了解如何取出 Azure Stack 的資源使用量資訊，請參閱 [Azure Stack 中的使用量與帳單](/azure-stack-billing-and-chargeback.md)。
+ - 若要深入了解如何取出 Azure Stack 的資源使用量資訊，請參閱 [Azure Stack 中的使用量與帳單](azure-stack-billing-and-chargeback.md)。

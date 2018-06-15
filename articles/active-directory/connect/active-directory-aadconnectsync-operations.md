@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect 同步：作業工作和考量 | Microsoft Docs"
-description: "本主題描述 Azure AD Connect 同步處理的作業工作以及如何準備操作此元件。"
+title: Azure AD Connect 同步：作業工作和考量 | Microsoft Docs
+description: 本主題描述 Azure AD Connect 同步處理的作業工作以及如何準備操作此元件。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: b29c1790-37a3-470f-ab69-3cee824d220d
 ms.service: active-directory
 ms.devlang: na
@@ -13,12 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0dfdae45ef7508337a1233c651d355d83b9f0430
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 6e35dc0ad8493d2f92b7e81fc66f444048482bd9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592937"
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Azure AD Connect 同步處理：作業工作和考量
 本主題的目標在於描述 Azure AD Connect 同步處理的操作工作。

@@ -1,22 +1,19 @@
 ---
 title: 開始使用裝置模擬解決方案 - Azure | Microsoft Docs
 description: IoT 解決方案加速器模擬解決方案是一種工具，可用來協助開發和測試 IoT 解決方案。 模擬服務是一個獨立的供應項目，可以與其他解決方案加速器一起使用，或搭配您自己的自訂解決方案使用。
-services: iot device simulation
-suite: iot-suite
 author: troyhopwood
-manager: timlt
+manager: ''
 ms.author: troyhop
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 12/15/2017
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 742998dce07f6ceef0ad906831c60f11a7d08bd9
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: c427f2640e605533324eb349579c6a40a2a6a47f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627120"
 ---
 # <a name="device-simulation-walkthrough"></a>裝置模擬逐步解說
 
@@ -39,7 +36,7 @@ Azure IoT 裝置模擬是一種工具，可用來協助開發和測試 IoT 解�
 
 ## <a name="configuring-device-simulation"></a>設定裝置模擬
 
-您可以從儀表板內完整設定並執行裝置模擬。 從 IoT 解決方案加速器的[已佈建的解決方案](https://www.azureiotsuite.com/) \(英文\) 頁面開啟儀表板。 按一下新「裝置模擬」部署底下的 [啟動]。
+您可以從儀表板內完整設定並執行裝置模擬。 從 IoT 解決方案加速器的[已佈建的解決方案](https://www.azureiotsolutions.com/) \(英文\) 頁面開啟儀表板。 按一下新「裝置模擬」部署底下的 [啟動]。
 
 ### <a name="target-iot-hub"></a>目標 IoT 中樞
 

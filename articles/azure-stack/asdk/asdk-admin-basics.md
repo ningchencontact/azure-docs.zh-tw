@@ -12,14 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 05dd42b049c75b9ea592ffe341f44e3b02b9757f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: fa2ee4df9a0a28c08237f30fcf6a4bac50c21100
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849503"
 ---
 # <a name="asdk-administration-basics"></a>ASDK 管理基本概念 
 若您還不熟悉 Azure Stack 開發套件(ASDK) 管理，有幾件事需要知道。 本指南提供您在評估環境中擔任 Azure Stack 操作員之角色的概觀，以及如何確定測試使用者可以快速上手。
@@ -48,7 +49,7 @@ Azure Stack 使用 Azure Resource Manager 作為其基礎的部署、管理及�
 您的使用者想要使用服務。 從其觀點看來，您的主要角色是將這些服務提供給他們。 您可以使用 ASDK 來了解該提供什麼服務，以及如何藉由[建立方案、供應項目及配額](asdk-offer-services.md)來提供這些服務。 您還需要將項目 (例如虛擬機器映像) 新增到 Marketplace 中。 最簡單的方式就是從 Azure [下載市集項目](asdk-marketplace-item.md)到 Azure Stack。
 
 > [!NOTE]
-> 如果您想要測試方案、產品和服務，您應該使用[使用者入口網站](https://portal.local.azurestack.external)，而非[系統管理員入口網站](https://adminportal.local.azurestack.external)。
+> 如果您想要測試方案、供應項目和服務，您應該使用[使用者入口網站](https://portal.local.azurestack.external)，而非[系統管理員入口網站](https://adminportal.local.azurestack.external)。
 
 除了提供服務外，您還必須執行 Azure Stack 操作員的所有一般職務，以保持 ASDK 正常運作。 這些職務包括以下項目：
 - 新增 Azure Active Directory (Azure AD) 或 Active Directory 同盟服務 (AD FS) 部署的使用者帳戶。
@@ -64,5 +65,5 @@ Azure Stack 使用 Azure Resource Manager 作為其基礎的部署、管理及�
 > 因為 ASDK 屬於評估環境，因此 Microsoft 客戶支援服務 (CSS) 不會提供官方支援。
 
 ## <a name="next-steps"></a>後續步驟
-[部署 ASDK](asdk-deploy.md)
+[部署 ASDK](asdk-install.md)
 

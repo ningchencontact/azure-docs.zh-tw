@@ -2,7 +2,7 @@
 title: 適用於 B2B 監視的自訂追蹤結構描述 - Azure Logic Apps | Microsoft Docs
 description: 建立自訂追蹤結構描述以監視來自 Azure 整合帳戶中交易的 B2B 訊息。
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 94de6afcf3f9f95a3cb45207ef43e1d33b728d99
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 431235370c52be4c6e1ad6cd1af6a412e9eac230
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299829"
 ---
 # <a name="enable-tracking-to-monitor-your-complete-workflow-end-to-end"></a>啟用追蹤來監視您的完整工作流程，端對端
 有內建的追蹤可供您啟用您不同部分的企業對企業工作流程，例如追蹤 AS2 或 X12 訊息。 當您建立包含邏輯應用程式、BizTalk Server、SQL Server 或任何其他層級的工作流程時，您可以啟用自訂追蹤，記錄從您工作流程開始到結尾的事件。 

@@ -12,15 +12,15 @@ ms.custom: scale out apps
 ms.workload: Inactive
 ms.tgt_pltfrm: ''
 ms.devlang: ''
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/08/2017
 ms.author: anjangsh
-ms.openlocfilehash: dd51480f30187456104a0f9d72ec17082dc1e39e
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: c7580e5481288695d3b5dea8fd0547f5f2c4c2b0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33208051"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643996"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>使用 Azure SQL Database、SQL 資料倉儲、Data Factory 及 Power BI 探索 SaaS 分析
 
@@ -142,7 +142,7 @@ Azure Data Factory 可用來協調擷取、載入及轉換資料。 在本教學
 
 ![adf_overview](media/saas-tenancy-tenant-analytics/adf-data-factory.PNG)
 
-在 [概觀] 頁面中，切換至左側面板的 [建立者] 索引標籤，並觀察有三個 [管線][](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) 和三個已建立的 [資料集][](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services)。
+在 [概觀] 頁面中，切換至左側面板的 **建立者** 索引標籤，並觀察有三個 [管線](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) 和三個已建立的 [資料集](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services)。
 ![adf_author](media/saas-tenancy-tenant-analytics/adf_author_tab.JPG)
 
 三個巢狀管道為：SQLDBToDW、DBCopy 及 TableCopy。

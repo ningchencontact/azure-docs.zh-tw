@@ -8,18 +8,19 @@ author: gopitk
 manager: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 6a755ef4d933046377a6a25be76655b44f4bf508
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: d2aa3c8582227363e9365f213cdf351b9f4a81af
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34361366"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830532"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>以資料科學虛擬機器為基礎的團隊分析和 AI 環境 
 [資料科學虛擬機器](overview.md) (DSVM) 在 Azure 雲端上提供豐富的環境，其中包含了適用於 AI 和資料分析的預先建立軟體。 傳統上，DSVM 都是用來當作個別的分析電腦，而個別的資料科學家可以藉由周知的預先建立分析環境來提升生產力。 當大型分析團隊在規劃其資料科學家和 AI 開發人員的分析環境時，其中一個重複出現的主題便是管理方式與企業 IT 原則一致的共用分析開發與實驗基礎結構，同時也要能輔助跨整個資料科學 / 分析團隊的共同作業和一致性。 共用的基礎結構也可讓 IT 能夠更充分地利用分析環境。 某些組織也將團隊資料科學 / 分析基礎結構稱為「分析沙箱」。分析沙箱可讓資料科學家以安全的方式快速了解資料、執行實驗、驗證假設、建立預測模型，而不會在存取各種資料資產時影響生產環境。 

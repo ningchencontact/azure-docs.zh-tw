@@ -1,24 +1,26 @@
 ---
-title: "Azure Active Directory Domain Services：啟用對 SharePoint User Profile Service 的支援 | Microsoft Docs"
-description: "設定 Azure Active Directory Domain Services 受控網域以支援 SharePoint Server 的設定檔同步處理"
+title: Azure Active Directory Domain Services：啟用對 SharePoint User Profile Service 的支援 | Microsoft Docs
+description: 設定 Azure Active Directory Domain Services 受控網域以支援 SharePoint Server 的設定檔同步處理
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-ms.openlocfilehash: d98fbe85f35932161476a800a2fd438f0bf2b9ef
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 936d760b05fcf48586739bd7538cac3dae2b6b77
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34587720"
 ---
 # <a name="configure-a-managed-domain-to-support-profile-synchronization-for-sharepoint-server"></a>設定受控網域以支援 SharePoint Server 的設定檔同步處理
 SharePoint Server 包含用來同步處理使用者設定檔的 User Profile Service。 若要設定 User Profile Service，必須在 Active Directory 網域授與適當的權限。 如需詳細資訊，請參閱[授與 Active Directory Domain Services 權限以供 SharePoint Server 2013 中的設定檔同步處理使用](https://technet.microsoft.com/library/hh296982.aspx)。

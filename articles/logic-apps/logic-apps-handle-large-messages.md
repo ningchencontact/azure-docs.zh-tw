@@ -4,7 +4,7 @@ description: 了解如何在 Logic Apps 中利用區塊化處理大型訊息大�
 services: logic-apps
 documentationcenter: ''
 author: shae-hurst
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.assetid: ''
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ''
 ms.topic: article
 ms.date: 4/27/2018
 ms.author: shhurst
-ms.openlocfilehash: a99fbdd7c9beb32f640d5ca623f8bcda3cb9aba4
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 6064db5455d92d15dca0e2a4a78285f0aeade904
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34166143"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299040"
 ---
 # <a name="handle-large-messages-with-chunking-in-logic-apps"></a>在 Logic Apps 中利用區塊化處理大型訊息大小
 

@@ -3,7 +3,7 @@ title: 工作流程定義語言結構描述 - Azure Logic Apps | Microsoft Docs
 description: 使用工作流程定義語言撰寫 Azure Logic Apps 的自訂工作流程定義
 services: logic-apps
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 04/30/2018
 ms.author: estfan
-ms.openlocfilehash: efbfffec10b665ebab230375e774e476199c4ad5
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 6a4e113c6816540e303210c3f1c96d81146cf5db
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "33886798"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300176"
 ---
 # <a name="logic-apps-workflow-definitions-with-the-workflow-definition-language-schema"></a>使用工作流程定義語言撰寫 Logic Apps 工作流程定義
 
@@ -154,8 +154,8 @@ ms.locfileid: "33886798"
 |------------|--------| 
 | "Sophia Owen" | 傳回這些字元：'Sophia Owen' |
 | "array[1]" | 傳回這些字元：'array[1]' |
-| "\@@\" | 以一個字元的字串形式傳回這些字元：'@' |   
-| \" \@\" | 以兩個字元的字串形式傳回這些字元：' @' |
+| "\@@\" | 以一個字元的字串形式傳回這些字元：\'\@\' |   
+| \" \@\" | 以兩個字元的字串形式傳回這些字元：\' \@\' |
 |||
 
 在這些範例中，假設您定義 "myBirthMonth" 等於 "January" 以及 "myAge" 等於數字 42：  
