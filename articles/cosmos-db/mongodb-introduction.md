@@ -3,22 +3,20 @@ title: Azure Cosmos DB：MongoDB API 簡介 | Microsoft Docs
 description: 了解如何透過常用的 OSS MongoDB API，使用 Azure Cosmos DB 來儲存及查詢大量 JSON 文件 (低延遲)。
 keywords: MongoDB 是什麼
 services: cosmos-db
-author: AndrewHoh
+author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: 4afaf40d-c560-42e0-83b4-a64d94671f0a
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 02/12/2018
-ms.author: anhoh
-ms.openlocfilehash: bebf8b8830255277b5ea492f06e130ee667affa5
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: sngun
+ms.openlocfilehash: c10f1fdc7e373633298b083d1317f17cff3aa2b8
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796626"
 ---
 # <a name="introduction-to-azure-cosmos-db-mongodb-api"></a>Azure Cosmos DB：MongoDB API 簡介
 
@@ -32,13 +30,13 @@ Azure Cosmos DB 資料庫可作為針對 [MongoDB](https://docs.mongodb.com/manu
 
 ## <a name="what-is-the-benefit-of-using-azure-cosmos-db-for-mongodb-applications"></a>於 MongoDB 應用程式使用 Azure Cosmos DB 有何好處？
 
-**可彈性調整的輸送量和儲存體：**透過輕鬆相應增加或相應減少 MongoDB 資料庫，來符合您應用程式的需求。 您的資料會儲存在固態硬碟 (SSD) 中以便獲得可預測的低延遲。 Azure Cosmos DB 支援的 MongoDB 集合可調整為幾乎不受限制的儲存體大小和佈建輸送量。 隨著應用程式的成長，您可以依據可預測的效能彈性且順暢地調整 Azure Cosmos DB。 
+**可彈性調整的輸送量和儲存體：** 透過輕鬆相應增加或相應減少 MongoDB 資料庫，來符合您應用程式的需求。 您的資料會儲存在固態硬碟 (SSD) 中以便獲得可預測的低延遲。 Azure Cosmos DB 支援的 MongoDB 集合可調整為幾乎不受限制的儲存體大小和佈建輸送量。 隨著應用程式的成長，您可以依據可預測的效能彈性且順暢地調整 Azure Cosmos DB。 
 
 **多重區域複寫**︰Azure Cosmos DB 會自動將您的資料複寫至與您 MongoDB 帳戶相關聯的所有區域，讓您開發需要全域存取資料的應用程式，也能在一致性、可用性與效能之間做出取捨，而且全都有相對應的保證。 Azure Cosmos DB 利用多重定址 API 提供自動的區域性容錯移轉，還能夠彈性調整世界各地的輸送量和儲存體。 請參閱[將資料分散到全球](distribute-data-globally.md)以深入了解。
 
 **不需要任何伺服器管理工作**︰您不需要管理和調整 MongoDB 資料庫。 Azure Cosmos DB 是完全受控的服務，這表示您不需要自己管理任何基礎結構或虛擬機器。 Azure Cosmos DB 可在 30 個以上的 [Azure 區域](https://azure.microsoft.com/regions/services/)中使用。
 
-**可調式一致性層級：**Azure Cosmos DB 目前實作 MongoDB 3.4 版，有強式與最終這兩種一致性設定。 因為 Azure Cosmos DB 是多 API，所以一致性設定適用於帳戶層級，而強制執行一致性則由各個 API 控制。 MongoDB 3.6 問世之前，並沒有工作階段一致性的概念，如果您將 MongoDB API 帳戶設定為使用工作階段一致性，使用 MongoDB API 時都會降級為最終一致性。 如果您需要 MongoDB API 帳戶的讀取自己的寫入保證，該帳戶的預設一致性層級應設定為強式或限定過期。 深入了解[使用一致性層級將可用性和效能最大化](consistency-levels.md)。
+**可調式一致性層級：** Azure Cosmos DB 目前實作 MongoDB 3.4 版，有強式與最終這兩種一致性設定。 因為 Azure Cosmos DB 是多 API，所以一致性設定適用於帳戶層級，而強制執行一致性則由各個 API 控制。 MongoDB 3.6 問世之前，並沒有工作階段一致性的概念，如果您將 MongoDB API 帳戶設定為使用工作階段一致性，使用 MongoDB API 時都會降級為最終一致性。 如果您需要 MongoDB API 帳戶的讀取自己的寫入保證，該帳戶的預設一致性層級應設定為強式或限定過期。 深入了解[使用一致性層級將可用性和效能最大化](consistency-levels.md)。
 
 | Azure Cosmos DB 預設一致性層級 |   Mongo API (3.4) |
 |---|---|

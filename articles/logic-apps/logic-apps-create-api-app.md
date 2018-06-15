@@ -1,12 +1,12 @@
 ---
-title: "為 Azure Logic Apps 建立 Web API 和 REST API | Microsoft Docs"
-description: "建立 Web API 和 REST API 以從邏輯應用程式工作流程呼叫您的 API、服務或系統來進行系統整合"
-keywords: "Web API, REST API, 工作流程, 系統整合"
+title: 為 Azure Logic Apps 建立 Web API 和 REST API | Microsoft Docs
+description: 建立 Web API 和 REST API 以從邏輯應用程式工作流程呼叫您的 API、服務或系統來進行系統整合
+keywords: Web API, REST API, 工作流程, 系統整合
 services: logic-apps
 author: jeffhollan
-manager: anneta
-editor: 
-documentationcenter: 
+manager: jeconnoc
+editor: ''
+documentationcenter: ''
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/26/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: ec7fe2adfb89edd635adcf247eea0b98f7007b1b
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 3ca55bb0a9f4719bd2229aca626d20c53af9fd1e
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299523"
 ---
 # <a name="create-custom-apis-that-you-can-call-from-logic-app-workflows"></a>建立您可以從邏輯應用程式工作流程呼叫的自訂 API
 

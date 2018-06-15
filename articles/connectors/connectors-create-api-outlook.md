@@ -4,7 +4,7 @@ description: 使用 Azure App Service 建立邏輯應用程式。 Outlook.com �
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: ecfan
-manager: anneta
+manager: jeconnoc
 editor: ''
 tags: connectors
 ms.assetid: 87113c85-d158-4dd5-9ed5-5748130003d6
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: estfan; ladocs
-ms.openlocfilehash: 9fc0cfd39197bcc834aca600238853a712ebf297
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1338b7ce8f72a57cb65f9389e630fd7ebd0417b1
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295579"
 ---
 # <a name="get-started-with-the-outlookcom-connector"></a>開始使用 Outlook.com 連接器
 Outlook.com 連接器可讓您管理您的郵件、行事曆和連絡人。 您可以執行各種動作，例如傳送郵件、排程會議、新增連絡人等等。
