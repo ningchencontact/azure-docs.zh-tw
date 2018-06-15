@@ -1,11 +1,11 @@
 ---
-title: "透過 Azure Functions 的適用於 Azure Logic Apps 的自訂程式碼 | Microsoft Docs"
-description: "使用 Azure Functions 建立並執行適用於 Azure Logic Apps 的自訂程式碼"
+title: 透過 Azure Functions 的適用於 Azure Logic Apps 的自訂程式碼 | Microsoft Docs
+description: 使用 Azure Functions 建立並執行適用於 Azure Logic Apps 的自訂程式碼
 services: logic-apps,functions
 documentationcenter: .net,nodejs,java
 author: jeffhollan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.service: logic-apps
 ms.devlang: multiple
@@ -15,16 +15,18 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 18442c87b049200fac5ed41cc7034ba7a848b8d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: befdd7af0a91623af4c5ea0fd957141cad84eb53
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297864"
 ---
 # <a name="add-and-run-custom-code-for-logic-apps-through-azure-functions"></a>透過 Azure Functions 新增並執行適用於 Logic Apps 的自訂程式碼
 
 若要在邏輯應用程式中執行 C# 或 node.js 的自訂程式碼片段，您可以透過 Azure Functions 建立自訂函式。 
-[Azure Functions](../azure-functions/functions-overview.md) 提供 Microsoft Azure 中無伺服器運算的功能，並有助於執行下列工作：
+
+  [Azure Functions](../azure-functions/functions-overview.md) 提供 Microsoft Azure 中無伺服器運算的功能，並有助於執行下列工作：
 
 * 邏輯應用程式中欄位的進階格式設定或計算
 * 在工作流程中執行計算。

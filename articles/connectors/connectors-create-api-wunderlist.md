@@ -4,7 +4,7 @@ description: 建立 Wunderlist 連線，並使用此連線在 Logic Apps 中建�
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: ecfan
-manager: anneta
+manager: jeconnoc
 editor: ''
 tags: connectors
 ms.assetid: e4773ecf-3ad3-44b4-a1b5-ee5f58baeadd
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: estfan; ladocs
-ms.openlocfilehash: 4d1ae30724faa59dcdeffd21be9c67d280d574f6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1ed9b19700157abca6e5ac4265f1e8c99a3d846d
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296368"
 ---
 # <a name="get-started-with-the-wunderlist-connector"></a>開始使用 Wunderlist 連接器
 Wunderlist 是可協助使用者完成其工作的待辦事項清單和工作管理員。  無論是與他人共用購物清單、處理專案，還是計劃假期，Wunderlist 都能讓您輕鬆擷取、共用及完成清單項目。 Wunderlist 立即同步處理您的電話、平板電腦及電腦，讓您可在任何地方存取工作。

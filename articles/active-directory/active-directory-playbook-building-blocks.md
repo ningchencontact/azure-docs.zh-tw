@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 97a77de2fe1111f0a65b5325a5db96ad30f40f15
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: ed64c9df6fcca8f85b200c5f738c2009ea7ae0a5
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157674"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293104"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 概念證明腳本：構成要素
 
@@ -141,7 +141,7 @@ ms.locfileid: "34157674"
 | --- | --- |
 | 可用的 SaaS 應用程式測試環境。 在本指南中，我們將使用 ServiceNow 作為範例。<br/>強烈建議您使用測試執行個體，以將瀏覽現有資料品質與對應的阻力降到最低。 | 請移至 https://developer.servicenow.com/app.do#!/home 以開始進行取得測試執行個體的程序 |
 | 對 ServiceNow 管理主控台的存取權 | [教學課程：Azure Active Directory 與 ServiceNow 整合](active-directory-saas-servicenow-tutorial.md) |
-| 一組要作為應用程式指派目標的使用者。 建議使用包含 PoC 使用者的安全性群組。 <br/>如果無法建立該群組，則請將使用者直接指派給 PoC 的應用程式 | [在 Azure Active Directory 中將使用者或群組指派給企業應用程式](active-directory-coreapps-assign-user-azure-portal.md) |
+| 一組要作為應用程式指派目標的使用者。 建議使用包含 PoC 使用者的安全性群組。 <br/>如果無法建立該群組，則請將使用者直接指派給 PoC 的應用程式 | [在 Azure Active Directory 中將使用者或群組指派給企業應用程式](manage-apps/assign-user-or-group-access-portal.md) |
 
 ### <a name="steps"></a>步驟
 
@@ -149,13 +149,13 @@ ms.locfileid: "34157674"
 | --- | --- |
 | 將來自「Microsoft 文件」的教學課程分享給所有執行者  | [教學課程：Azure Active Directory 與 ServiceNow 整合](active-directory-saas-servicenow-tutorial.md) |
 | 設定工作會議並與每個執行者一起依照教學課程步驟操作。 | [教學課程：Azure Active Directory 與 ServiceNow 整合](active-directory-saas-servicenow-tutorial.md) |
-| 將應用程式指派給「必要條件」中所識別的群組。 如果 POC 的範圍內具有條件式存取，您可以稍後再重新瀏覽該部分並新增 MFA 等。 <br/>請注意，這會開始佈建程序 (如果已設定) |  [在 Azure Active Directory 中將使用者或群組指派給企業應用程式](active-directory-coreapps-assign-user-azure-portal.md) <br/>[在 Azure Active Directory 中建立群組和新增使用者](active-directory-groups-create-azure-portal.md) |
+| 將應用程式指派給「必要條件」中所識別的群組。 如果 POC 的範圍內具有條件式存取，您可以稍後再重新瀏覽該部分並新增 MFA 等。 <br/>請注意，這會開始佈建程序 (如果已設定) |  [在 Azure Active Directory 中將使用者或群組指派給企業應用程式](manage-apps/assign-user-or-group-access-portal.md) <br/>[在 Azure Active Directory 中建立群組和新增使用者](active-directory-groups-create-azure-portal.md) |
 | 使用「Azure AD 管理入口網站」從資源庫新增 ServiceNow 應用程式| [Azure AD 管理入口網站：企業應用程式](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview) <br/>[Azure Active Directory 中企業應用程式管理的新功能](active-directory-enterprise-apps-whats-new-azure-portal.md) |
 | 在 ServiceNow 應用程式的 [單一登入] 刀鋒視窗中，啟用 [SAML 登入] |  |
 | 在 [單一登入 URL] 和 [識別碼] 欄位中填入您的 ServiceNow URL<br/>核取 [使新憑證為使用中] 方塊<br/>並 [儲存] 設定 |  |
 | 開啟面板下部的 [設定 ServiceNow] 刀鋒視窗，以檢視可供您設定 ServiceNow 的自訂指示 |  |
 | 依照指示操作來設定 ServiceNow |  |
-| 在 ServiceNow 應用程式的 [佈建] 刀鋒視窗中，啟用 [自動] 佈建 | [在新的 Azure 入口網站中管理企業應用程式的使用者帳戶佈建](active-directory-enterprise-apps-manage-provisioning.md) |
+| 在 ServiceNow 應用程式的 [佈建] 刀鋒視窗中，啟用 [自動] 佈建 | [在新的 Azure 入口網站中管理企業應用程式的使用者帳戶佈建](manage-apps/configure-automatic-user-provisioning-portal.md) |
 | 等候幾分鐘讓佈建完成。  此時，您可以查看佈建報告 |  |
 | 以擁有存取權限的測試使用者身分登入 https://myapps.microsoft.com/ | [何謂存取面板？](active-directory-saas-access-panel-introduction.md) |
 | 按一下剛建立之應用程式的圖格。 確認存取 |  |
@@ -176,7 +176,7 @@ ms.locfileid: "34157674"
 | --- | --- |
 | SaaS 應用程式的測試環境。 其中一個「密碼 SSO」範例就是 HipChat 和 Twitter。 針對任何其他應用程式，您需要含有 HTML 登入表單之頁面的確切 URL。 | [Microsoft Azure Marketplace 上的 Twitter](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[Microsoft Azure Marketplace 上的 HipChat](https://azuremarketplace.microsoft.com/marketplace/apps/aad.hipchat) |
 | 應用程式的測試帳戶。 | [註冊 Twitter](https://twitter.com/signup?lang=en)<br/>[免費註冊：HipChat](https://www.hipchat.com/sign_up) |
-| 一組要作為應用程式指派目標的使用者。 建議使用包含這些使用者的安全性群組。 | [在 Azure Active Directory 中將使用者或群組指派給企業應用程式](active-directory-coreapps-assign-user-azure-portal.md) |
+| 一組要作為應用程式指派目標的使用者。 建議使用包含這些使用者的安全性群組。 | [在 Azure Active Directory 中將使用者或群組指派給企業應用程式](manage-apps/assign-user-or-group-access-portal.md) |
 | 對電腦的本機系統管理員存取權，以部署適用於 Internet Explorer、Chrome 或 Firefox 的「存取面板擴充功能」 | [適用於 IE 的存取面板擴充功能](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[適用於 Chrome 的存取面板擴充功能](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[適用於 Firefox 的存取面板擴充功能](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
 ### <a name="steps"></a>步驟
@@ -185,8 +185,8 @@ ms.locfileid: "34157674"
 | --- | --- |
 | 安裝瀏覽器擴充功能 | [適用於 IE 的存取面板擴充功能](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[適用於 Chrome 的存取面板擴充功能](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[適用於 Firefox 的存取面板擴充功能](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | 從資源庫設定應用程式 | [Azure Active Directory 中企業應用程式管理的新功能：全新和改進的應用程式資源庫](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| 設定密碼 SSO | [在新的 Azure 入口網站中管理企業應用程式的單一登入：密碼型登入](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
-| 將應用程式指派給「必要條件」中所識別的群組 | [在 Azure Active Directory 中將使用者或群組指派給企業應用程式](active-directory-coreapps-assign-user-azure-portal.md) |
+| 設定密碼 SSO | [在新的 Azure 入口網站中管理企業應用程式的單一登入：密碼型登入](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| 將應用程式指派給「必要條件」中所識別的群組 | [在 Azure Active Directory 中將使用者或群組指派給企業應用程式](manage-apps/assign-user-or-group-access-portal.md) |
 | 以擁有存取權限的測試使用者身分登入 https://myapps.microsoft.com/ |  |
 | 按一下剛建立之應用程式的圖格。 | [何謂存取面板？：不含身分識別佈建的密碼型 SSO](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | 提供應用程式認證 | [何謂存取面板？：不含身分識別佈建的密碼型 SSO](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
@@ -211,7 +211,7 @@ ms.locfileid: "34157674"
 | --- | --- |
 | 事先備妥的目標應用程式清單和確切的登入 URL。 您可以使用 Twitter 作為範例。 | [Microsoft Azure Marketplace 上的 Twitter](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[註冊 Twitter](https://twitter.com/signup?lang=en) |
 | 此 SaaS 應用程式的共用認證。 | [使用 Azure AD 來共用帳戶](active-directory-sharing-accounts.md)<br/>[Azure AD 的 Facebook、Twitter 及 LinkedIn 自動密碼變換現已提供預覽版！ - Enterprise Mobility and Security 部落格] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/ ) |
-| 至少兩個將存取相同帳戶之小組成員的認證。 他們必須是安全性群組的成員。 | [在 Azure Active Directory 中將使用者或群組指派給企業應用程式](active-directory-coreapps-assign-user-azure-portal.md) |
+| 至少兩個將存取相同帳戶之小組成員的認證。 他們必須是安全性群組的成員。 | [在 Azure Active Directory 中將使用者或群組指派給企業應用程式](manage-apps/assign-user-or-group-access-portal.md) |
 | 對電腦的本機系統管理員存取權，以部署適用於 Internet Explorer、Chrome 或 Firefox 的「存取面板擴充功能」 | [適用於 IE 的存取面板擴充功能](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[適用於 Chrome 的存取面板擴充功能](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[適用於 Firefox 的存取面板擴充功能](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
 ### <a name="steps"></a>步驟
@@ -220,8 +220,8 @@ ms.locfileid: "34157674"
 | --- | --- |
 | 安裝瀏覽器擴充功能 | [適用於 IE 的存取面板擴充功能](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[適用於 Chrome 的存取面板擴充功能](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[適用於 Firefox 的存取面板擴充功能](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | 從資源庫設定應用程式 | [Azure Active Directory 中企業應用程式管理的新功能：全新和改進的應用程式資源庫](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| 設定密碼 SSO | [在新的 Azure 入口網站中管理企業應用程式的單一登入：密碼型登入](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
-| 為「必要條件」中所識別的群組指派認證時，將應用程式指派給他們 | [在 Azure Active Directory 中將使用者或群組指派給企業應用程式](active-directory-coreapps-assign-user-azure-portal.md) |
+| 設定密碼 SSO | [在新的 Azure 入口網站中管理企業應用程式的單一登入：密碼型登入](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| 為「必要條件」中所識別的群組指派認證時，將應用程式指派給他們 | [在 Azure Active Directory 中將使用者或群組指派給企業應用程式](manage-apps/assign-user-or-group-access-portal.md) |
 | 以不同的使用者身分登入來以「相同共用帳戶」身分存取應用程式  |  |
 | 您可以視需要查看應用程式使用情況報告。 請注意，會有一些延遲，因此您需要等候一些時間，才能在報告中看到流量。 | [Azure Active Directory 入口網站中的登入活動報告：受控應用程式的使用情況](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory 報告保留原則](active-directory-reporting-retention.md) |
 

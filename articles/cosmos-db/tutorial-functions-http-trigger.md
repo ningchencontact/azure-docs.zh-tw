@@ -2,29 +2,26 @@
 title: 使用 Azure Cosmos DB 輸入繫結建立 HTTP 觸發程序 | Microsoft Docs
 description: 了解如何使用 Azure Functions 搭配 HTTP 觸發程序來查詢 Azure Cosmos DB。
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 85a9e66491513b016380913617d8e78cf5d82f6d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3ea102d56df1e47fd1d1c35bd23a3e987fa45145
+ms.sourcegitcommit: 00e875607372517b4b93ca4b6baa915cbbad8064
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818894"
 ---
 # <a name="create-an-azure-functions-http-trigger-with-an-azure-cosmos-db-input-binding"></a>使用 Azure Cosmos DB 輸入繫結建立 Azure Functions HTTP 觸發程序
 
 Azure Cosmos DB 是無結構描述又無伺服器的全域散發多模型資料庫。 Azure Function 是無伺服器的計算服務，可讓您視需要執行程式碼。 這兩個 Azure 服務結合起來就形成無伺服器架構的基礎，可讓您專注於建立更好的應用程式，不必為了符合計算和資料庫需求而擔心佈建和維護伺服器。
 
-本教學課程以[適用於 .NET 的圖形 API 快速入門](create-graph-dotnet.md)中建立的程式碼為基礎。 本教學課程會新增包含 [HTTP 觸發程序](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-bindings-http-webhook.md#http-trigger)的 Azure Function。 此 HTTP 觸發程序會使用 Azure Cosmos DB [輸入繫結](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-triggers-bindings.md)，從快速入門中建立的圖形資料庫擷取資料。 這個特定 HTTP 觸發程序會查詢 Azure Cosmos DB 中的資料，但 Azure Cosmos DB 中的輸入繫結可用來擷取您的函式需要的任何資料輸入值。
+本教學課程以[適用於 .NET 的圖形 API 快速入門](create-graph-dotnet.md)中建立的程式碼為基礎。 本教學課程會新增包含 [HTTP 觸發程序](../azure-functions/functions-bindings-http-webhook.md)的 Azure Function。 此 HTTP 觸發程序會使用 Azure Cosmos DB [輸入繫結](../azure-functions/functions-triggers-bindings.md)，從快速入門中建立的圖形資料庫擷取資料。 這個特定 HTTP 觸發程序會查詢 Azure Cosmos DB 中的資料，但 Azure Cosmos DB 中的輸入繫結可用來擷取您的函式需要的任何資料輸入值。
 
 本教學課程涵蓋下列工作：
 
@@ -75,7 +72,7 @@ Azure Cosmos DB 是無結構描述又無伺服器的全域散發多模型資料�
 
 4. Azure Function 會回應 HTTP 要求，因此這裡適合使用 Http 觸發程序範本。
    
-   在 [新增 Azure Function] 方塊中，選取 [Http 觸發程序]。 我們也需要「公開」此 Azure Function，因此將 [存取權限] 設為 [匿名]，讓每個人都可以使用。 按一下 [SERVICEPRINCIPAL] 。
+   在 [新增 Azure Function] 方塊中，選取 [Http 觸發程序]。 我們也需要「公開」此 Azure Function，因此將 [存取權限] 設為 [匿名]，讓每個人都可以使用。 按一下 [確定]。
 
    ![將存取權限設為匿名](./media/tutorial-functions-http-trigger/06-http-trigger.png)
 

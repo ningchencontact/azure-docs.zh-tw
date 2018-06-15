@@ -2,7 +2,7 @@
 title: 使用 Log Analytics 監視邏輯應用程式執行並取得深入解析 - Azure Logic Apps | Microsoft Docs
 description: 透過 Log Analytics 監視邏輯應用程式執行，來取得深入解析和更豐富的偵錯詳細資料，以便進行疑難排解和診斷
 author: divyaswarnkar
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/9/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: d484aaf7d7582bd474d7437a7a62f41880690dbc
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 493d82f59600d83a083bb13cdd0a21b872d77a43
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299938"
 ---
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-log-analytics"></a>透過 Log Analytics 監視邏輯應用程式執行並取得深入解析
 
@@ -99,13 +100,13 @@ ms.lasthandoff: 04/05/2018
    ![檢視邏輯應用程式或狀態的執行](media/logic-apps-monitor-your-logic-apps-oms/logic-app-run-details.png)
 
    此頁面上有兩個進階選項：
-   * **追蹤屬性：**此欄顯示邏輯應用程式的追蹤屬性 (依動作分組)。 若要檢視追蹤屬性，請選擇 [檢視]。 您可以使用資料行篩選來搜尋追蹤屬性。
+   * **追蹤屬性：** 此欄顯示邏輯應用程式的追蹤屬性 (依動作分組)。 若要檢視追蹤屬性，請選擇 [檢視]。 您可以使用資料行篩選來搜尋追蹤屬性。
    
      ![檢視邏輯應用程式的追蹤屬性](media/logic-apps-monitor-your-logic-apps-oms/logic-app-tracked-properties.png)
 
      初次顯示任何新增的追蹤屬性可能需費時 10-15 分鐘。 深入了解[如何將追蹤屬性新增至應用程式邏輯](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details)。
 
-   * **重新提交：**您可以重新提交一個或多個已失敗、已成功或仍在執行的邏輯應用程式執行。 針對您要重新提交的執行選取核取方塊，然後選擇 [重新提交]。 
+   * **重新提交：** 您可以重新提交一個或多個已失敗、已成功或仍在執行的邏輯應用程式執行。 針對您要重新提交的執行選取核取方塊，然後選擇 [重新提交]。 
 
      ![重新提交邏輯應用程式執行](media/logic-apps-monitor-your-logic-apps-oms/logic-app-resubmit.png)
 

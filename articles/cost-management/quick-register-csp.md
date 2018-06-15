@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: ''
 ms.service: cost-management
 manager: dougeby
-ms.openlocfilehash: b9dc2064a4d90b924730e2615378892b17340baf
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: b71d737f99a82508f9769f89d8172aa02bec817b
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302527"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297177"
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>註冊 CSP 合作夥伴計劃並檢視成本資料
 
@@ -31,9 +31,9 @@ ms.locfileid: "34302527"
 >
 >CSP 間接轉售商向 Cloudyn 註冊其 CSP 間接提供者之後，即可取得 Cloudyn 的存取權。 CSP 間接轉售商可再將 Cloudyn 存取權提供給 Azure 客戶和訂用帳戶。
 
-## <a name="log-in-to-azure"></a>登入 Azure
+## <a name="sign-in-to-azure"></a>登入 Azure
 
-- 在 http://portal.azure.com 上登入 Azure 入口網站。
+- 在 http://portal.azure.com 登入 Azure 入口網站。
 
 ## <a name="register-with-azure-cost-management"></a>註冊 Azure 成本管理
 

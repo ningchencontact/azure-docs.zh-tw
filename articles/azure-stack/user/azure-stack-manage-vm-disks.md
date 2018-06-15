@@ -15,11 +15,12 @@ ms.topic: get-started-article
 ms.date: 05/11/2018
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: 8e91b4d83aa90a7e744fb8e73cda788dbf8c58ec
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 6364c0bec8437ba0dfa195c6532b26ec506a2e90
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807426"
 ---
 # <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>在 Azure Stack 中佈建虛擬器的磁碟儲存體
 
@@ -61,7 +62,7 @@ Azure Stack 支援在虛擬機器上使用[非受控磁碟](https://docs.microso
 您所新增的每個非授控磁碟都應該放在不同的容器中。
 
 >[!NOTE]
->Azure 所建立並管理的磁碟稱為[受控磁碟](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview)。
+>Azure 所建立並管理的磁碟稱為[受控磁碟](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview)。
 
 ### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>使用入口網站建立並連結新的資料磁碟
 

@@ -1,31 +1,33 @@
 ---
-title: 如何在 Azure Machine Learning Workbench 中使用 Jupyter 筆記本 | Microsoft Docs
-description: Azure Machine Learning Workbench 的 Jupyter 筆記本功能使用指南
+title: 如何在 Azure Machine Learning Workbench 中使用 Jupyter Notebook | Microsoft Docs
+description: Azure Machine Learning Workbench 的 Jupyter Notebook 功能使用指南
 services: machine-learning
 author: rastala
 ms.author: roastala
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/09/2017
-ms.openlocfilehash: 11d295734fd6d9180468709f0a25cca48b13df4d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 07076a1d551d4dfb513deabaedb650a3262bbeab
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830984"
 ---
 # <a name="use-jupyter-notebooks-in-azure-machine-learning-workbench"></a>在 Azure Machine Learning Workbench 中使用 Jupyter Notebook
 
-Azure Machine Learning Workbench 可透過與 Jupyter 筆記本的整合，支援互動式資料科學實驗。 本文說明如何有效運用此功能，來提升您互動式資料科學實驗的速率及品質。
+Azure Machine Learning Workbench 可透過與 Jupyter Notebook 的整合，支援互動式資料科學實驗。 本文說明如何有效運用此功能，來提升您互動式資料科學實驗的速率及品質。
 
 ## <a name="prerequisites"></a>先決條件
 - [建立 Azure Machine Learning 帳戶，並安裝 Azure Machine Learning Workbench](../service/quickstart-installation.md)。
-- 熟悉 [Jupyter 筆記本](http://jupyter.org/) \(英文\)。 本文不是關於學習如何使用 Jupyter。
+- 熟悉 [Jupyter Notebook](http://jupyter.org/) \(英文\)。 本文與學習如何使用 Jupyter 無關。
 
-## <a name="jupyter-notebook-architecture"></a>Jupyter 筆記本架構
-概括而言，Jupyter 筆記本架構包含三個元件。 每個元件均可在不同的計算環境中執行：
+## <a name="jupyter-notebook-architecture"></a>Jupyter Notebook 架構
+概括而言，Jupyter Notebook 架構包含三個元件。 每個元件均可在不同的計算環境中執行：
 
 - **用戶端**：接收使用者輸入並顯示轉譯的輸出。
 - **伺服器**：裝載筆記本檔案 (.ipynb 檔案) 的 Web 伺服器。
@@ -33,7 +35,7 @@ Azure Machine Learning Workbench 可透過與 Jupyter 筆記本的整合，支�
 
 如需詳細資訊，請參閱官方 [Jupyter 文件](http://jupyter.readthedocs.io/en/latest/architecture/how_jupyter_ipython_work.html) \(英文\)。 下圖說明此用戶端、伺服器及核心架構如何與 Azure Machine Learning 中的元件對應：
 
-![Jupyter 筆記本架構](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-architecture.png)
+![Jupyter Notebook 架構](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-architecture.png)
 
 ## <a name="kernels-in-azure-machine-learning-workbench-notebooks"></a>Azure Machine Learning Workbench 筆記本中的核心
 在專案的 `aml_config` 資料夾中定義回合組態和計算目標，即可存取 Azure Machine Learning Workbench 中的各種不同核心。 藉由發出 `az ml computetarget attach` 命令來新增計算目標，相當於新增核心。
@@ -42,7 +44,7 @@ Azure Machine Learning Workbench 可透過與 Jupyter 筆記本的整合，支�
 >如需有關回合組態和計算目標的更多詳細資料，請參閱[設定 Azure Machine Learning 測試服務](experimentation-service-configuration.md)。
 
 ### <a name="kernel-naming-convention"></a>核心命名慣例
-Azure Machine Learning Workbench 會產生自訂的 Jupyter 核心。 這些核心會命名為 *\<專案名稱> \<執行回合名稱>*。 例如，如果您在名為 _myIris_ 的專案中擁有名為 _docker-python_ 的回合組態，Azure Machine Learning 就會提供名為 *myIris docker-python* 的核心。 您需在 Jupyter 筆記本 [Kernel] \(核心\) 功能表的 [Change kernel] \(變更核心\) 子功能表中設定執行中的核心。 執行中核心的名稱會顯示在功能表列的最右邊。
+Azure Machine Learning Workbench 會產生自訂的 Jupyter 核心。 這些核心會命名為 *\<專案名稱> \<執行回合名稱>*。 例如，如果您在名為 _myIris_ 的專案中擁有名為 _docker-python_ 的回合組態，Azure Machine Learning 就會提供名為 *myIris docker-python* 的核心。 您需在 Jupyter Notebook [Kernel] \(核心\) 功能表的 [Change kernel] \(變更核心\) 子功能表中設定執行中的核心。 執行中核心的名稱會顯示在功能表列的最右邊。
  
 目前 Azure Machine Learning Workbench 支援下列類型的核心。
 
@@ -73,14 +75,14 @@ Azure Machine Learning Workbench 會產生自訂的 Jupyter 核心。 這些核�
 
 ![筆記本預覽](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-02.png)
 
-選取 [啟動筆記本伺服器] 按鈕，即會啟動 Jupyter 伺服器並將筆記本切換至**編輯模式**。 熟悉的 Jupyter 筆記本使用者介面會以內嵌方式顯示在 Workbench 中。 您現在可以從 [核心] 功能表設定核心，並啟動您的互動式筆記本工作階段。 
+選取 [啟動筆記本伺服器] 按鈕，即會啟動 Jupyter 伺服器並將筆記本切換至**編輯模式**。 熟悉的 Jupyter Notebook 使用者介面會以內嵌方式顯示在 Workbench 中。 您現在可以從 [核心] 功能表設定核心，並啟動您的互動式筆記本工作階段。 
 
 >[!NOTE]
 >使用非本機核心時，如果您是第一次使用它，可能需要一兩分鐘的時間才能啟動。 您可以從 CLI 視窗執行 `az ml experiment prepare` 命令來準備計算目標，以便讓核心在系統備妥計算目標之後更快速啟動。
 
 ![編輯模式](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-04.png)
 
-這是一個完全互動式的 Jupyter 筆記本體驗。 從此視窗可支援所有一般筆記本作業和鍵盤快速鍵，但一些可透過 Workbench [筆記本] 索引標籤和 [檔案] 索引標籤完成的檔案作業除外。
+這是一個完全互動式的 Jupyter Notebook 體驗。 從此視窗可支援所有一般筆記本作業和鍵盤快速鍵，但一些可透過 Workbench [筆記本] 索引標籤和 [檔案] 索引標籤完成的檔案作業除外。
 
 ## <a name="start-a-jupyter-server-from-the-command-line"></a>從命令列啟動 Jupyter 伺服器
 您也可以從命令列視窗發出 `az ml notebook start` 來啟動筆記本工作階段：
@@ -134,6 +136,6 @@ with open(modelpath,"wb") as f:
 >輸出必須儲存至名為 *outputs* 的資料夾中。
 
 ## <a name="next-steps"></a>後續步驟
-- 若要了解如何使用 Jupyter 筆記本，請參閱 [Jupyter 官方文件](http://jupyter-notebook.readthedocs.io/en/latest/) \(英文\)。    
+- 若要了解如何使用 Jupyter Notebook，請參閱 [Jupyter 官方文件](http://jupyter-notebook.readthedocs.io/en/latest/) \(英文\)。    
 - 若要更深入了解 Azure Machine Learning 測試執行環境，請參閱[設定 Azure Machine Learning 測試服務](experimentation-service-configuration.md)。
 

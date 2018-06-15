@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/02/2018
 ms.author: billmath
-ms.openlocfilehash: 93282f3d4a7ca84e59fa8831d5eb650a643d1e83
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 6c82ba9f5864da96ae008974b758058fc6d63cb1
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296706"
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>將 AD FS 內部部署應用程式移轉至 Azure AD 
 
@@ -201,7 +202,7 @@ SAML 2.0 應用程式可以透過 Marketplace 中的 Azure AD 應用程式資源
 
 ![[新增指派] 窗格](media/migrate-adfs-apps-to-azure/migrate7.png)
 
-為了確認存取權，使用者應該會在登入時於其[存取面板](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)中看到 SaaS 應用程式。 他們可以在 http://myapps.microsoft.com 找到存取面板。在此範例中，使用者已成功獲得 Salesforce 和 ServiceNow 的存取權。
+為了確認存取權，使用者應該會在登入時於其[存取面板](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)中看到 SaaS 應用程式。 他們可以在 http://myapps.microsoft.com 找到存取面板。 在此範例中，使用者已成功獲得 Salesforce 和 ServiceNow 的存取權。
 
 ![含有 Salesforce 與 ServiceNow 應用程式的存取面板範例](media/migrate-adfs-apps-to-azure/migrate8.png)
 
@@ -235,5 +236,5 @@ SAML 2.0 應用程式可以透過 Marketplace 中的 Azure AD 應用程式資源
 ## <a name="next-steps"></a>後續步驟
 
 - [使用 Azure Active Directory 來管理應用程式](manage-apps/what-is-application-management.md)
-- [管理應用程式的存取權](active-directory-managing-access-to-apps.md)
+- [管理應用程式的存取權](manage-apps/what-is-access-management.md)
 - [Azure AD Connect 同盟](active-directory-aadconnectfed-whatis.md)

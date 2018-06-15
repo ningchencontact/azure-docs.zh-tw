@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant-msft
-ms.openlocfilehash: 779fa09781b5ea6e13450d609703bec0c08e38e4
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5ee0d5248e3e53db8b7475dca1d51658ade25f81
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293257"
 ---
 # <a name="tutorial-configure-clarizen-for-automatic-user-provisioning"></a>教學課程︰設定 Clarizen 來自動佈建使用者
 
@@ -71,7 +72,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 設定並啟用自動使用者佈建之前，您應先決定 Azure AD 中的哪些使用者和/或群組需要存取 Clarizen。 一旦決定後，您可以依照此處的指示，將這些使用者和/或群組指派給 Clarizen：
 
-*   [將使用者或群組指派給企業應用程式](active-directory-coreapps-assign-user-azure-portal.md)
+*   [將使用者或群組指派給企業應用程式](manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-clarizen"></a>將使用者指派給 Clarizen 的重要秘訣
 
@@ -161,7 +162,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 ## <a name="additional-resources"></a>其他資源
 
-* [管理企業應用程式的使用者帳戶佈建](active-directory-enterprise-apps-manage-provisioning.md)
+* [管理企業應用程式的使用者帳戶佈建](manage-apps/configure-automatic-user-provisioning-portal.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>後續步驟
