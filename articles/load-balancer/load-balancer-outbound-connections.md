@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2018
 ms.author: kumud
-ms.openlocfilehash: 5cff443ac3bbd89a2245e7adb21458ecc62fd494
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2e6b8dd5e0ec0ae73fff4a25ad79045e3414e9cc
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33940219"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824994"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure 中的輸出連線
 
@@ -141,7 +141,7 @@ Azure 會使用演算法在使用連接埠偽裝 SNAT ([PAT](#pat)) 時，根據
 >[!IMPORTANT]
 >標準 SKU SNAT 程式設計是針對每個 IP 傳輸通訊協定，並且衍生自負載平衡規則。  如果只有 TCP 負載平衡規則存在，則 SNAT 只適用於 TCP。 如果您只有 TCP 負載平衡規則，而且需要 UDP 的輸出 SNAT，請從同一個前端將 UDP 負載平衡規則建立到相同的後端集區。  這會觸發 UDP 的 SNAT 程式設計。  不需要可運作的規則或健康情況探查。  不論是否已在負載平衡規則中指定傳輸通訊協定，基本 SKU SNAT 一律會針對這兩個 IP 傳輸通訊協定進行 SNAT 程式設計。
 
-Azure 會將 SNAT 連接埠預先配置到每個 VM 之 NIC 的 IP 設定。 當 IP 設定新增至集區時，會根據後端集區大小針對此 IP 設定預先配置 SNAT 連接埠。 建立輸出流程時，[PAT](#pat) 會動態取用 (最多可達預先配置的限制) 這些連接埠，並且在流程關閉或[閒置逾時](#ideltimeout)時釋出這些連接埠。
+Azure 會將 SNAT 連接埠預先配置到每個 VM 之 NIC 的 IP 設定。 當 IP 設定新增至集區時，會根據後端集區大小針對此 IP 設定預先配置 SNAT 連接埠。 建立輸出流程時，[PAT](#pat) 會動態取用 (最多可達預先配置的限制) 這些連接埠，並且在流程關閉或[閒置逾時](#idletimeout)時釋出這些連接埠。
 
 下表說明各個後端集區大小層級的 SNAT 連接埠預先配置：
 
@@ -236,9 +236,9 @@ SNAT 連接埠配置為 IP 傳輸通訊協定專屬 (TCP 和 UDP 會個別維護
     nslookup myip.opendns.com resolver1.opendns.com
 
 ## <a name="preventoutbound"></a>防止輸出連線
-有時，您會不想要允許 VM 建立輸出流程。 或是可能需要管理可使用輸出流程來連線到哪些目的地，或哪些目的地可以發起輸入流程。 在此情況下，您可以使用[網路安全性群組](../virtual-network/virtual-networks-nsg.md)來管理 VM 可到連線的目的地。 您也可以使用 NSG 來管理哪個公用目的地可以起始輸入流程。 
+有時，您會不想要允許 VM 建立輸出流程。 或是可能需要管理可使用輸出流程來連線到哪些目的地，或哪些目的地可以發起輸入流程。 在此情況下，您可以使用[網路安全性群組](../virtual-network/security-overview.md)來管理 VM 可到連線的目的地。 您也可以使用 NSG 來管理哪個公用目的地可以起始輸入流程。
 
-當您將 NSG 套用到負載平衡的 VM 時，請注意[預設標籤](../virtual-network/virtual-networks-nsg.md#default-tags)和[預設規則](../virtual-network/virtual-networks-nsg.md#default-rules)。 您必須確定 VM 可以從 Azure Load Balancer 接收健康情況探查要求。 
+當您將 NSG 套用到經過負載平衡的虛擬機器時，請注意[服務標記](../virtual-network/security-overview.md#service-tags)和[預設安全性規則](../virtual-network/security-overview.md#default-security-rules)。 您必須確定 VM 可以從 Azure Load Balancer 接收健康情況探查要求。 
 
 如果 NSG 封鎖來自 AZURE_LOADBALANCER 預設標籤的健全狀況探查要求，您的 VM 健全狀況探查會失敗，且會將 VM 標示為離線。 負載平衡器會停止將新的流程傳送到該 VM。
 
@@ -250,5 +250,5 @@ SNAT 連接埠配置為 IP 傳輸通訊協定專屬 (TCP 和 UDP 會個別維護
 
 - 深入了解 [Load Balancer](load-balancer-overview.md)。
 - 深入了解[標準負載平衡器](load-balancer-standard-overview.md)。
-- 深入了解[網路安全性群組](../virtual-network/virtual-networks-nsg.md)。
+- 深入了解[網路安全性群組](../virtual-network/security-overview.md)。
 - 了解 Azure 中的一些其他重要[網路功能](../networking/networking-overview.md)。

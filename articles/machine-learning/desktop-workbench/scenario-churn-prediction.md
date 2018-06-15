@@ -9,17 +9,19 @@ editor: miprasad
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: miprasad
-ms.openlocfilehash: 501735e1cf32359a34c01ad1c7990609a2bf4058
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: a4e3441e4b7512d60be8ce5433822a95732cd802
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34832385"
 ---
 # <a name="customer-churn-prediction-using-azure-machine-learning"></a>使用 Azure Machine Learning 進行客戶流失預測
 
@@ -51,7 +53,7 @@ ms.lasthandoff: 04/19/2018
 
 * 察覺到服務中斷頻繁
 * 在線上/零售商店的客戶服務體驗不佳
-* 其他競爭電訊廠商的優惠 (更好的家庭方案、行動數據方案等)。
+* 其他競爭電訊廠商的供應項目 (更好的家庭方案、行動數據方案等)。
 
 在此解決方案中，我們將使用具體範例來建立電信公司的預測客戶流失模型。
 

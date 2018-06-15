@@ -9,17 +9,19 @@ editor: cgronlun
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: bradsev
-ms.openlocfilehash: 48c88f541f650fac3bdec431f3164138fb0f3205
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3b1d2be46b2f142adff966991997891e44e850ec
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34832674"
 ---
 # <a name="income-classification-with-team-data-science-process-tdsp-project"></a>使用 Team Data Science Process (TDSP) 專案進行所得分類
 
@@ -35,7 +37,7 @@ ms.lasthandoff: 04/19/2018
 ### <a name="purpose"></a>目的
 此範例的主要目的在於示範如何在 Azure Machine Learning 中使用 [Team Data Science Process (TDSP)](https://github.com/Azure/Microsoft-TDSP) 結構和範本，具現化和執行機器學習專案。 基於此目的，我們使用[來自 UCI 機器學習存放庫的 1994 年美國人口普查資料](https://archive.ics.uci.edu/ml/datasets/adult)。 模型化工作可從美國人口普查資訊 (例如年齡、種族、教育程度、原屬國家等)，預測美國年度所得類別。
 
-### <a name="scope"></a>Scope
+### <a name="scope"></a>影響範圍
  * 機器學習模型的資料探勘、訓練和部署，可處理「使用案例概觀」中所述的預測問題。 
  * 使用 Azure Machine Learning 中此專案的 Team Data Science Process (TDSP) 範本，在 Azure Machine Learning 中執行專案。 對於專案執行和報告，我們將會使用 TDSP 生命週期。
  * 直接從 Azure Container Services 中的 Azure Machine Learning 將解決方案運算化。

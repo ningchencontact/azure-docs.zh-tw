@@ -8,15 +8,16 @@ ms.author: pabuehle
 manager: mwinkle
 ms.reviewer: marhamil, mldocs, garyericson, jasonwhowell
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 8bf5cd802198cba48a99c029d0c75c25dd5f6d84
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 5ff6502b0ed023f6fe8a9475a0e81991a9918cc5
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "31606517"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850166"
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>使用 Azure Machine Learning Workbench 進行影像分類
 
@@ -243,15 +244,20 @@ Azure Machine Learning Workbench 會儲存 Azure上每次執行的歷程記錄�
 
 
 ### <a name="parameter-tuning"></a>參數調整
+
 與大部分的機器學習專案一樣，若要為新資料集取得良好結果，則需要仔細調整參數，以及評估不同的設計決策。 為了協助完成這些作業，所有重要參數的指定及簡短說明的提供都在單一位置中進行：`PARAMETERS.py` 檔案。
 
 一些最有可能改善的途徑如下：
 
 - 資料品質：確保訓練和測試集具有高品質。 也就是說，影像已正確標註、移除了模稜兩可的影像 (例如，具有條紋和圓點的服裝項目)，而且屬性互斥 (即選擇的每個影像只屬於一個屬性)。
+
 - 如果影像中的相關物件很小，影像分類方法已知無法正常運作。 在這種情況下，請考慮使用物件偵測方法，如本[教學課程](https://github.com/Azure/ObjectDetectionUsingCntk)中所述。
 - DNN 調整：正常運行的最重要參數可以說是學習速率 `rf_lrPerMb`。 如果訓練集的精確度 (第 2 部分中的第一個圖形) 未接近於 0-5%，最有可能是因為學習速率錯誤。 其他以 `rf_` 為開頭的參數較不重要。 一般而言，訓練錯誤應該以指數方式遞減，而且在訓練之後接近於 0%。
+
 - 輸入解析度：預設的影像解析度為 224 x 224 像素。 使用較高的影像解析度 (參數：`rf_inputResoluton`)，例如 448 x 448 或 896 x 896 像素，通常會大幅提高精確度，但會使 DNN 調整變慢。 **使用較高的影像解析度近乎免費，而且幾乎可以一律提升精確度**。
+
 - DNN 過度調整：在 DNN 調整期間避免訓練和測試精確度之間有太大的間距 (第 2 部分的第一個圖形)。 此間距可以使用中輟速率 `rf_dropoutRate` 0.5 以上，並藉由增加正則化程式加權 `rf_l2RegWeight` 來降低。 如果 DNN 輸入影像解析度很高，則使用較高的中輟速率可能特別有用。
+
 - 請藉由將 `rf_pretrainedModelFilename` 從 `ResNet_18.model` 變更為 `ResNet_34.model` 或 `ResNet_50.model`，嘗試使用更深入的 DNN。 Resnet 50 模型不僅更深入，而且其倒數第二層的輸出大小為 2048 浮點數 (相對於ResNet 18 和 ResNet 34 模型的 512 浮點數)。 訓練 SVM 分類器時，這個增加的維度可能特別有用。
 
 ## <a name="part-3---custom-dataset"></a>第 3 部分 - 自訂資料集

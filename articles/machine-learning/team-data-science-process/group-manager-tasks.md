@@ -7,17 +7,19 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 9f9cdd52aff5445f64a4780d6e04590a06c21105
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: a6cf6627d18917a2102dc0537cd44dc7701b063f
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34837237"
 ---
 # <a name="group-manager-tasks"></a>群組管理員工作
 
@@ -87,10 +89,10 @@ VSTS 伺服器會裝載下列存放庫：
 使用下列值，針對您想要在 [建立您的帳戶] 精靈中建立的 VSTS 伺服器填入資訊： 
 
 - **伺服器 URL**：使用您自己的「伺服器名稱」取代 mysamplegroup。 伺服器的 URL 將會是：https://\<servername\>.visualstudio.com。 
-- **使用以下項目管理程式碼：**選取 [Git]。
-- **專案名稱：**輸入 *GroupCommon*。 
-- **工作的組織方式：**選擇 [Agile]。
-- **您專案的裝載位置：**選擇地理位置。 在此範例中，我們選擇 [美國中南部]。 
+- **使用以下項目管理程式碼：** 選取 [Git]。
+- **專案名稱：** 輸入 *GroupCommon*。 
+- **工作的組織方式：** 選擇 [Agile]。
+- **您專案的裝載位置：** 選擇地理位置。 在此範例中，我們選擇 [美國中南部]。 
         
 ![4](./media/group-manager-tasks/fill-in-account-information.png)
 

@@ -9,6 +9,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,11 +17,12 @@ ms.workload: identity
 ms.date: 01/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: b35aed3583307c34eadbed3dd13d1ffd51494927
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ef801b1ae2b1043e44c39f7df0d57fe4dc1aa341
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724056"
 ---
 # <a name="azure-active-directory-app-based-conditional-access"></a>Azure Active Directory 應用程式型條件式存取  
 
@@ -108,7 +110,7 @@ Azure Active Directory 應用程式型條件式存取，可讓您將雲端應用
 
 2. **使用者和群組**：每個條件式存取原則必須至少選取一個使用者或群組。
 
-3. **雲端應用程式：**您必須選取 [Office 365 Exchange Online] 做為雲端應用程式。
+3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online] 做為雲端應用程式。
 
     ![條件式存取](./media/active-directory-conditional-access-mam/07.png)
 
@@ -138,7 +140,7 @@ Azure Active Directory 應用程式型條件式存取，可讓您將雲端應用
 2. **使用者和群組**：每個條件式存取原則必須至少選取一個使用者或群組。
 
 
-3. **雲端應用程式：**您必須選取 [Office 365 Exchange Online] 做為雲端應用程式。
+3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online] 做為雲端應用程式。
 
     ![條件式存取](./media/active-directory-conditional-access-mam/07.png)
 
@@ -189,7 +191,7 @@ Azure Active Directory 應用程式型條件式存取，可讓您將雲端應用
 2. **使用者和群組**：每個條件式存取原則必須至少選取一個使用者或群組。
 
 
-3. **雲端應用程式：**您必須選取 [Office 365 Exchange Online] 和 [Office 365 SharePoint Online] 做為雲端應用程式。 
+3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online] 和 [Office 365 SharePoint Online] 做為雲端應用程式。 
 
     ![條件式存取](./media/active-directory-conditional-access-mam/02.png)
 
@@ -220,7 +222,7 @@ Azure Active Directory 應用程式型條件式存取，可讓您將雲端應用
 
 2. **使用者和群組**：每個條件式存取原則必須至少選取一個使用者或群組。
 
-3. **雲端應用程式：**您必須選取 [Office 365 Exchange Online] 做為雲端應用程式。 線上 
+3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online] 做為雲端應用程式。 線上 
 
     ![條件式存取](./media/active-directory-conditional-access-mam/07.png)
 
@@ -273,7 +275,7 @@ Azure Active Directory 應用程式型條件式存取，可讓您將雲端應用
 
 2. **使用者和群組**：每個條件式存取原則必須至少選取一個使用者或群組。
 
-3. **雲端應用程式：**您必須選取 [Office 365 Exchange Online] 和 [Office 365 SharePoint Online] 做為雲端應用程式。 
+3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online] 和 [Office 365 SharePoint Online] 做為雲端應用程式。 
 
      ![條件式存取](./media/active-directory-conditional-access-mam/02.png)
 
@@ -309,7 +311,7 @@ Azure Active Directory 應用程式型條件式存取，可讓您將雲端應用
 
 2. **使用者和群組**：每個條件式存取原則必須至少選取一個使用者或群組。
 
-3. **雲端應用程式：**您必須選取 [Office 365 Exchange Online] 做為雲端應用程式。 
+3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online] 做為雲端應用程式。 
 
     ![條件式存取](./media/active-directory-conditional-access-mam/07.png)
 
@@ -369,7 +371,7 @@ Azure Active Directory 應用程式型條件式存取，可讓您將雲端應用
 
 2. **使用者和群組**：每個條件式存取原則必須至少選取一個使用者或群組。
 
-3. **雲端應用程式：**您必須選取 [Office 365 Exchange Online] 和 [Office 365 SharePoint Online] 做為雲端應用程式。 
+3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online] 和 [Office 365 SharePoint Online] 做為雲端應用程式。 
 
      ![條件式存取](./media/active-directory-conditional-access-mam/02.png)
 
@@ -405,7 +407,7 @@ Azure Active Directory 應用程式型條件式存取，可讓您將雲端應用
 
 2. **使用者和群組**：每個條件式存取原則必須至少選取一個使用者或群組。
 
-3. **雲端應用程式：**您必須選取 [Office 365 Exchange Online] 做為雲端應用程式。 
+3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online] 做為雲端應用程式。 
 
     ![條件式存取](./media/active-directory-conditional-access-mam/07.png)
 

@@ -10,16 +10,18 @@ editor: cgronlun
 tags: ''
 ms.assetid: a3b23d7f-f083-49c4-b6b1-3911cd69f1b4
 ms.service: machine-learning
+ms.component: studio
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/18/2017
-ms.openlocfilehash: e1c7030a5f0c6e13653b302fcb48e7d4efa232c7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 79b2cc3951fa8a48282f42f7180ec831050508f8
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34834377"
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>如何選擇 Microsoft Azure Machine Learning 的演算法
 「我該使用何種機器學習演算法？ 」的答案永遠都是「視情況。 」 這可視資料的大小、品質和本質而定。 也可取決於您想用這個答案來做些什麼。 或是取決於演算法的數學運算如何針對您正在使用的電腦轉譯成指令。 而這又需視您有多少時間。 即使經驗最豐富的資料科學家，在沒有嘗試之前，也無法確認哪一個演算法效果會最好。
@@ -38,7 +40,7 @@ ms.lasthandoff: 04/20/2018
 這些建議是收集許多資料科學家與機器學習專家的意見反應和提示所編撰而成。 雖然我們的想法並不一致，但我已試著將我們的意見整理成粗略的共識。 而大部分的爭論其實都具有同一個考量：「視情況而定。」
 
 ### <a name="how-to-use-the-cheat-sheet"></a>如何使用小祕技
-請將圖表上的路徑和演算法標籤解讀為「如果需要*&lt;路徑標籤&gt;*則使用*&lt;演算法&gt;*。」 例如「如果需要 *speed* (速度)，則使用 *two class logistic regression* (雙類別羅吉斯迴歸)。」 有時候適用於多個分支。
+請將圖表上的路徑和演算法標籤解讀為「如果需要*&lt;路徑標籤&gt;* 則使用*&lt;演算法&gt;*。」 例如「如果需要 *speed* (速度)，則使用 *two class logistic regression* (雙類別羅吉斯迴歸)。」 有時候適用於多個分支。
 有時候則不完全適用。 這些建議通常是來自經驗法則，因此不必擔心是否準確。
 我和一些資料科學家討論過，他們都認為唯有全部試用一次，才能找出最佳的演算法。
 

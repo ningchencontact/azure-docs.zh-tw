@@ -7,17 +7,19 @@ author: AnupamMicrosoft
 manager: jhubbard
 editor: cgronlun
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: anupams
-ms.openlocfilehash: 3817d58cd61fb349d7815984420d0deb1ae0edd9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9f4e88be7b9b8e3ed7f6a2bbd299fd1e92f9c7af
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34836614"
 ---
 # <a name="cortana-intelligence-appsource-publishing-guide"></a>Cortana Intelligence AppSource 發佈指南
 
@@ -78,7 +80,7 @@ AppSource 是業務決策者 (BDM) 能探索及順利嘗試由合作夥伴所建
 ## <a name="provide-info-for-microsoft-sellers"></a>提供資訊給 Microsoft 銷售者
 AppSource 對於合作夥伴的其中一個重要價值主張，是能夠與 Microsoft 銷售者共同合作，將合作夥伴應用程式呈現給潛在客戶。
 
-填寫[提供給 Microsoft 銷售者的合作夥伴解決方案資訊](https://aka.ms/aapartnerappinfo) \(英文\) 並傳送至 [appsourcecissupport@microsoft.com](mailto:appsourcecissupport@microsoft.com?subject=Request%20publisher%20account%20creation%20for%20%3cPartner%20Name%3e%20and%20whitelist%20owner/contributer%20AAD/MSA%20email%20IDs)。這是讓 Cortana Intelligence 應用程式獲得發佈核准的必要步驟。
+填寫[提供給 Microsoft 銷售者的合作夥伴解決方案資訊](https://aka.ms/aapartnerappinfo) \(英文\) 並傳送至 [appsourcecissupport@microsoft.com](mailto:appsourcecissupport@microsoft.com?subject=Request%20publisher%20account%20creation%20for%20%3cPartner%20Name%3e%20and%20whitelist%20owner/contributer%20AAD/MSA%20email%20IDs)。 這是讓 Cortana Intelligence 應用程式獲得發佈核准的必要步驟。
 
 ## <a name="build-a-compelling-customer-walkthrough-on-appsource"></a>在 AppSource 上建置極具吸引力的客戶逐步解說
 首先，請先看看 AppSource 上的 [Neal Analytics Inventory Optimization](https://appsource.microsoft.com/en-us/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a?tab=Overview&tag=CISHome) \(英文\)。 除了試用體驗的進入點之外，AppSource 中的每個應用程式項目都有標題、摘要 (最多 100 個字元)、描述 (最多 1300 個字元)、影像、影片 (選擇性)、PDF 文件。 合作夥伴應充分利用這些項目，來建置極具吸引力的客戶體驗。
@@ -87,7 +89,7 @@ AppSource 對於合作夥伴的其中一個重要價值主張，是能夠與 Mic
 
 這一切都應讓客戶感到興趣並想深入了解。 想像這是一個優秀技術銷售人員逐步向新客戶展示內容的簡短簡報。 建議的描述格式是將文字根據價值主張細分為子章節，而每節都有醒目提示的子標題。 
 
-訪客通常會快速瀏覽 [產品摘要] 欄位和子標題，以快速了解該應用程式能處理之內容的重點，以及為何他們應考慮使用該應用程式。 因此，請務必夠抓住使用者的注意力，來使他們願意繼續閱讀以了解細節。
+訪客通常會快速瀏覽 [供應項目摘要] 欄位和子標題，以快速了解該應用程式能處理之內容的重點，以及為何他們應考慮使用該應用程式。 因此，請務必夠抓住使用者的注意力，來使他們願意繼續閱讀以了解細節。
 
 請查看下列合作夥伴的作法。
 - [Neal Analytics Inventory Optimization](https://appsource.microsoft.com/en-us/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a?tab=Overview) \(英文\)
@@ -104,10 +106,10 @@ AppSource 對於合作夥伴的其中一個重要價值主張，是能夠與 Mic
 - 合作夥伴的技術銷售人員應能針對銷售協調流程使用它。 若您的銷售小組也正在使用它，您便能預期 MS 銷售部門也同樣能這麼做。 這將會讓客戶連絡點能夠一致地對其小組組員和高層傳播相同案例，以在購買完成前取得預算和認同。
 - 自發性地造訪網站的客戶可以自行探索所有內容，並樂於回應合作夥伴通訊以進行後續步驟。
 
-這就是為何合作夥伴應該將要放上 AppSource 的內容，當成端對端銷售協調流程。 根據要在試用體驗中示範的案例流程和功能，即可決定產品的類型。
+這就是為何合作夥伴應該將要放上 AppSource 的內容，當成端對端銷售協調流程。 根據要在試用體驗中示範的案例流程和功能，即可決定供應項目類型。
 
 ## <a name="publish-your-app-on-the-publishing-portal"></a>在發佈入口網站上發佈應用程式
-一旦我們針對您的應用程式評估上述的步驟，您就可以存取發佈入口網站，並且能夠查看[如何透過雲端合作夥伴入口網站發佈 Cortana Intelligence 產品](https://cloudpartner.azure.com/#documentation/cloud-partner-portal-publish-cortana-intelligence-app) \(英文\) 以取得後續步驟的詳細指示。
+一旦我們針對您的應用程式評估上述的步驟，您就可以存取發佈入口網站，並且能夠查看[如何透過雲端合作夥伴入口網站發佈 Cortana Intelligence 供應項目](https://cloudpartner.azure.com/#documentation/cloud-partner-portal-publish-cortana-intelligence-app) \(英文\) 以取得後續步驟的詳細指示。
 
 如果您需要任何欄位的相關資訊，請傳送電子郵件到 <appsourcecissupport@microsoft.com>。
 ## <a name="my-app-is-published-on-appsource---now-what"></a>我的應用程式已發佈到 AppSource，接下來該怎麼辦？

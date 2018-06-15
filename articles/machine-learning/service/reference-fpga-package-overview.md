@@ -2,17 +2,18 @@
 title: 適用於 Azure Machine Learning 硬體加速的 FPGA 套件
 description: 了解適用於 Azure Machine Learning 使用者的 Python 套件。
 ms.service: machine-learning
-ms.component: core
+ms.component: studio
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: routlaw
 author: rloutlaw
 ms.date: 05/07/2018
-ms.openlocfilehash: 905f6943470acfd3051a33db6f6f3269470406d7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e680ef34be1d5dae2942c432de5e81fe620bbdc4
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34832973"
 ---
 # <a name="azure-machine-learning-hardware-acceleration-package"></a>Azure Machine Learning 硬體加速套件
 

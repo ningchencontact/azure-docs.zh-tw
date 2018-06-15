@@ -1,14 +1,15 @@
 ---
-title: "Azure Active Directory 條件式存取假設工具 - 預覽 | Microsoft Docs"
-description: "了解如何測試 Azure Active Directory 條件式存取原則的設定。"
+title: Azure Active Directory 條件式存取假設工具 - 預覽 | Microsoft Docs
+description: 了解如何測試 Azure Active Directory 條件式存取原則的設定。
 services: active-directory
-keywords: "應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則"
-documentationcenter: 
+keywords: 應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,11 +17,12 @@ ms.workload: identity
 ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 19ebb30164eee8e03a3cd8f18b6d575c6eee5438
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2c4ca3685d15ddd2446590e1ef297362f9aa52ee
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34723825"
 ---
 # <a name="azure-active-directory-conditional-access-what-if-tool---preview"></a>Azure Active Directory 條件式存取假設工具 - 預覽
 
@@ -67,7 +69,7 @@ ms.lasthandoff: 02/09/2018
 ![假設](./media/active-directory-conditional-access-whatif/02.png)
 
 
-### <a name="user"></a>User
+### <a name="user"></a>使用者
 
 您只能選取一個使用者。 這是唯一的必要欄位。
 
