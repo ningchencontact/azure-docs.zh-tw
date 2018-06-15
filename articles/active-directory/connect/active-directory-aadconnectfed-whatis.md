@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect 和同盟 | Microsoft Docs"
-description: "此頁面是使用 Azure AD Connect 之 AD FS 作業的所有相關文件的中心位置。"
+title: Azure AD Connect 和同盟 | Microsoft Docs
+description: 此頁面是使用 Azure AD Connect 之 AD FS 作業的所有相關文件的中心位置。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: anandyadavmsft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: f9107cf5-0131-499a-9edf-616bf3afef4d
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
+ms.component: hybrid
 ms.author: anandy
-ms.openlocfilehash: 04516e38e72405ca797a0d748d9ed825ae452966
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6c14b673bd9664aad54ea8002175999470661e34
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593848"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect 和同盟
 Azure Active Directory (Azure AD) Connect 可讓您使用內部部署 Active Directory 同盟服務 (AD FS) 與 Azure AD 來設定同盟。 使用同盟登入，您可以讓使用者使用他們的內部部署密碼登入 Azure AD 服務，並且在使用公司網路時，無須再次輸入密碼就可登入服務。 您可以藉由使用具備 AD FS 的同盟選項來部署新安裝的 AD FS，或者您可以在 Windows Server 2012 R2 伺服器陣列中指定現有的安裝。

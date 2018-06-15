@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: 90dd1b6b7e65178f6b339e4ac0bb781fb74a25a6
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4111d1d990f3e9efb78fae0476b027d5bae013af
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603241"
 ---
 # <a name="use-the-azure-cli-to-manage-azure-resources-and-resource-groups"></a>使用 Azure CLI 管理 Azure 資源和資源群組
 
@@ -227,4 +228,4 @@ az lock delete --name storagelock --resource-group TestRG1 --resource-type Micro
 * 若要了解如何建立 Resource Manager 範本，請參閱[編寫 Azure Resource Manager 範本](resource-group-authoring-templates.md)。
 * 若要了解部署範本的相關資訊，請參閱[使用 Azure Resource Manager 範本部署應用程式](resource-group-template-deploy-cli.md)。
 * 您可以將現有的資源移動到新的資源群組。 如需範例，請參閱 [將資源移至新的資源群組或訂用帳戶](resource-group-move-resources.md)。
-* 如需關於企業如何使用 Resource Manager 有效地管理訂用帳戶的指引，請參閱 [Azure 企業 Scaffold - 規定的訂用帳戶治理](resource-manager-subscription-governance.md)。
+* 如需關於企業如何使用 Resource Manager 有效地管理訂用帳戶的指引，請參閱 [Azure 企業 Scaffold - 規定的訂用帳戶治理](/azure/architecture/cloud-adoption-guide/subscription-governance)。

@@ -3,22 +3,24 @@ title: 頁面上的連結對 Application Proxy 應用程式沒有作用 | Micros
 description: 如何為已與 Azure AD 整合之 Application Proxy 應用程式上的中斷連結問題疑難排解
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 7c505080e6b6144ab3cf24ad89bb084efbb77c29
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.date: 05/18/2018
+ms.author: barbkess
+ms.reviewer: harshja
+ms.openlocfilehash: 3e356beda3e95748cbee64a180612dd183a7ce0e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34155458"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592291"
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>頁面上的連結對 Application Proxy 應用程式沒有作用
 

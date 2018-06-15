@@ -1,22 +1,19 @@
 ---
-title: "Azure IoT 中樞裝置佈建服務概觀 | Microsoft Docs"
-description: "描述在 Azure 中使用裝置佈建服務與 IoT 中樞佈建的裝置"
-services: iot-dps
-keywords: 
+title: Azure IoT 中樞裝置佈建服務概觀 | Microsoft Docs
+description: 描述在 Azure 中使用裝置佈建服務與 IoT 中樞佈建的裝置
 author: nberdy
 ms.author: nberdy
 ms.date: 12/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-dps
-documentationcenter: 
-manager: timlt
-ms.devlang: na
-ms.custom: mvc
-ms.openlocfilehash: 108ae4a66d2c13906cd0892b6c8ee5b20c3ca605
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+services: iot-dps
+manager: briz
+ms.openlocfilehash: 45f47a553f94da2759c4db2b79c8ef5a1b42b8e8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630235"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>使用 Azure IoT 中樞裝置佈建服務來佈建裝置
 Microsoft Azure 提供一組豐富的整合式公用雲端服務，可滿足所有的 IoT 方案需求。 IoT 中樞裝置佈建服務是 IoT 中樞的協助程式服務，無須人為介入，即可對正確的 IoT 中樞進行 Just-In-Time 自動佈建，讓客戶能以安全又可調整的方式佈建數百萬個裝置。
@@ -105,7 +102,7 @@ Microsoft Azure 提供一組豐富的整合式公用雲端服務，可滿足所�
 > [!NOTE]
 > 「裝置佈建服務」是全球性的，而非僅限於某個位置。 不過，您必須指定一個區域，與您「裝置佈建服務」設定檔相關聯的中繼資料會位在該區域。
 
-## <a name="availability"></a>Availability
+## <a name="availability"></a>可用性
 我們針對「裝置佈建服務」維護 99.9% 的服務等級協定，而且您可以[閱讀 SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/)。 完整 [Azure SLA](https://azure.microsoft.com/support/legal/sla/) 說明保證的 Azure 整體可用性。
 
 ## <a name="quotas"></a>配額

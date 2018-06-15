@@ -7,18 +7,20 @@ author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 804438c4-51a1-497d-8ccc-5be775980203
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: maheshu
-ms.openlocfilehash: d968548f9ac369f02f10a10d8f1ecc99c48bca60
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 51d32a1009e5fe2625bda80e4ab5ee7f5bf2a38d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34587652"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>在 Azure 中將 Ubuntu 虛擬機器加入受控網域
 本文說明如何將 Ubuntu Linux 虛擬機器加入 Azure AD Domain Services 受控網域。
@@ -121,7 +123,7 @@ sudo systemctl start ntp
     ```
 
    > [!NOTE] 
-   > **疑難排解：**如果 [領域探索] 找不到受控網域：
+   > **疑難排解：** 如果 [領域探索] 找不到受控網域：
      * 確定可從虛擬機器觸達網域 (請嘗試 ping)。
      * 檢查虛擬機器已確實部署到有提供受控網域的相同虛擬網路上。
      * 查看您是否已更新虛擬網路的 DNS 伺服器設定，以指向受控網域的網域控制站。
