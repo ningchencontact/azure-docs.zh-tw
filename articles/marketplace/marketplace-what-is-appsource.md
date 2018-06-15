@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/12/2018
 ms.author: ellacroi
 ms.openlocfilehash: 5f963e9ef6f0a19599f372b196dc75a327b92b5a
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
+ms.lasthandoff: 06/08/2018
 ms.locfileid: "32178231"
 ---
 # <a name="what-is-appsource"></a>什麼是 AppSource
@@ -39,7 +39,8 @@ AppSource 可讓 Microsoft 合作夥伴透過 Microsoft 支援的線上店面，
 *   **Dynamics NAV 受控服務**：Microsoft **Dynamics NAV** 是適用於中型組織的企業資源規劃 (ERP) 軟體套件。 此服務提供適用於製造業、通路業、政府、零售業及其他產業的特殊功能。
 *   **Power BI**：商務分析視覺化解決方案。
 *   **諮詢供應項目**：由 Microsoft 合作夥伴提供的服務，協助客戶了解、試用及實作特製化技術解決方案。
-*   **Cortana Intelligence**：Cortana Intelligence Suite 是由 Azure 提供的獨立，但完整整合的資料與分析平台工具集合。
+*   
+  **Cortana Intelligence**：Cortana Intelligence Suite 是由 Azure 提供的獨立，但完整整合的資料與分析平台工具集合。
 *   **Office 365**：位於雲端的現代化工作場所。 免費與 Microsoft Word、PowerPoint、Excel 和 OneNote 共同作業。
 
 ### <a name="office-365"></a>Office 365

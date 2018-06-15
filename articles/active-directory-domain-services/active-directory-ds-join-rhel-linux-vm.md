@@ -7,18 +7,20 @@ author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: d76ae997-2279-46dd-bfc5-c0ee29718096
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: maheshu
-ms.openlocfilehash: b278f5c4c8c87590205aca13a50a82fe8712d909
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b91ffb0965516a8e3f6678a6607ab0b26a0c2a67
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34586843"
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>將 Red Hat Enterprise Linux 7 虛擬機器加入受控網域
 本文說明如何將 Red Hat Enterprise Linux (RHEL) 7 虛擬機器加入 Azure AD 網域服務受控網域。
@@ -83,7 +85,7 @@ sudo vi /etc/hosts
     ```
 
      > [!NOTE] 
-     > **疑難排解：**如果 [領域探索] 找不到受控網域：
+     > **疑難排解：** 如果 [領域探索] 找不到受控網域：
      * 確定可從虛擬機器觸達網域 (請嘗試 ping)。
      * 檢查虛擬機器已確實部署到有提供受控網域的相同虛擬網路上。
      * 查看您是否已更新虛擬網路的 DNS 伺服器設定，以指向受控網域的網域控制站。

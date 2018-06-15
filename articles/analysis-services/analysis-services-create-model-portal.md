@@ -3,17 +3,17 @@ title: 使用 Azure Analysis Services Web 設計工具來建立表格式模型 |
 description: 了解如何在 Azure 入口網站中使用 Web 設計工具，建立 Azure Analysis Services 表格式模型。
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4b1d4cffc3571297f2b74674156cb7f3bad7c2c8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 443549b9456d8e7d29e807fb00a9f25be00e6faa
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32149889"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597836"
 ---
 # <a name="create-a-model-in-azure-portal"></a>在 Azure 入口網站中建立模型
 
