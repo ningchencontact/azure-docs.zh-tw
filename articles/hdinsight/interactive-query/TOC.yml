@@ -337,13 +337,10 @@
         - name: 將 HDInsight 與內部部署網路連線
           href: ../connect-on-premises-network.md
           maintainContext: true
-    - name: 使用 OMS 監控
+    - name: 使用 Log Analytics 監視
       items:
         - name: 使用 Azure Log Analytics
           href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-          maintainContext: true
-        - name: 叢集特定儀表板
-          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
           maintainContext: true
         - name: 透過 Log Analytics 使用查詢
           href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md

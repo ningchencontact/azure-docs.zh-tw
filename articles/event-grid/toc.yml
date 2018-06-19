@@ -69,6 +69,8 @@
       href: post-to-custom-topic.md
     - name: 接收 HTTP 端點的事件
       href: receive-events.md
+    - name: 管理事件傳遞
+      href: manage-event-delivery.md
     - name: 監視事件傳遞
       href: monitor-event-delivery.md
     - name: 查詢事件訂用帳戶

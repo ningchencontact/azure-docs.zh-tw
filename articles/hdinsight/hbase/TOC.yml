@@ -249,15 +249,10 @@
           href: apache-hbase-replication.md
         - name: 設定 HBase 和 Phoenix 的備份和複寫
           href: apache-hbase-backup-replication.md
-    - name: 使用 OMS 監控
+    - name: 使用 Log Analytics 監視
       items:
         - name: 使用 Azure Log Analytics
           href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-          maintainContext: true
-        - name: 使用 OMS 監視 HBase
-          href: apache-hbase-monitor-with-oms.md
-        - name: 叢集特定儀表板
-          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
           maintainContext: true
         - name: 透過 Log Analytics 使用查詢
           href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md

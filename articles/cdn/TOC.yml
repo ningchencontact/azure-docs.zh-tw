@@ -16,6 +16,8 @@
   items:
     - name: 將 Azure CDN 新增 Web 應用程式
       href: cdn-add-to-web-app.md
+    - name: 使用自訂網域，透過 HTTPS 存取 Blob
+      href: cdn-storage-custom-domain-https.md
     - name: 新增自訂網域
       href: cdn-map-content-to-custom-domain.md
     - name: 在自訂網域上設定 HTTPS

@@ -13,7 +13,7 @@
 
 # 開始使用
 ## [開始使用 Azure AD](fundamentals/get-started-azure-ad.md)
-## [註冊 Azure AD Premium](active-directory-get-started-premium.md)
+## [註冊 Azure AD Premium](fundamentals/active-directory-get-started-premium.md)
 ## [新增自訂網域名稱](fundamentals/add-custom-domain.md)
 ## [設定公司商標](fundamentals/customize-branding.md)
 ## [在 Azure AD 中新增使用者](fundamentals/add-users-azure-active-directory.md)
@@ -82,10 +82,10 @@
 
 ## [管理群組和成員](fundamentals/active-directory-manage-groups.md)
 ### 管理群組
-#### [Azure 入口網站](active-directory-groups-create-azure-portal.md)
+#### [Azure 入口網站](fundamentals/active-directory-groups-create-azure-portal.md)
 #### [Azure AD PowerShell for Graph (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 #### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
-### [管理群組成員](active-directory-groups-members-azure-portal.md)
+### [管理群組成員](fundamentals/active-directory-groups-members-azure-portal.md)
 ### [管理群組擁有者](fundamentals/active-directory-accessmanagement-managing-group-owners.md)
 ### [管理群組成員資格](fundamentals/active-directory-groups-membership-azure-portal.md)
 ### [使用群組指派授權](fundamentals/active-directory-licensing-whatis-azure-portal.md)
@@ -122,7 +122,6 @@
 ### 參考
 #### [保留](active-directory-reporting-retention.md)
 #### [延遲](active-directory-reporting-latencies-azure-portal.md)
-#### [通知](active-directory-reporting-notifications.md)
 #### [稽核活動參考](active-directory-reporting-activity-audit-reference.md)
 #### [登入活動的錯誤代碼](active-directory-reporting-activity-sign-ins-errors.md)
 #### [Multi-Factor Authentication](active-directory-reporting-activity-sign-ins-mfa.md)
@@ -152,6 +151,12 @@
 ### [SSPR 自訂](authentication/concept-sspr-customization.md)
 ### [SSPR 資料需求](authentication/howto-sspr-authenticationdata.md)
 ### [SQL 報告](authentication/howto-sspr-reporting.md)
+### [避免弱式密碼](authentication/concept-password-ban-bad.md)
+### [設定禁止的密碼清單](authentication/howto-password-ban-bad.md)
+### [內部部署整合](authentication/concept-password-ban-bad-on-premises.md)
+### [部署 Azure AD 密碼保護](authentication/howto-password-ban-bad-on-premises.md)
+### [設定 Azure AD 密碼保護](authentication/howto-password-ban-bad-on-premises-operations.md)
+### [監視 Azure AD 密碼保護](authentication/howto-password-ban-bad-on-premises-troubleshoot.md)
 ### IT 系統管理員︰重設密碼
 #### [Azure 入口網站](fundamentals/active-directory-users-reset-password-azure-portal.md)
 ### [授權 SSPR](authentication/concept-sspr-licensing.md)
@@ -178,14 +183,14 @@
 ## 管理應用程式
 ### [概觀](manage-apps/what-is-application-management.md)
 ### [開始使用](manage-apps/plan-an-application-integration.md)
-### [SaaS 應用程式整合教學課程](active-directory-saas-tutorial-list.md)
+### [SaaS 應用程式整合教學課程](saas-apps/tutorial-list.md)
 ### [Cloud App Discovery](manage-apps/cloud-app-discovery.md)
 #### [建立快照集報告](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
 #### [設定連續報告](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [使用自訂記錄剖析器](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
 
 ### [SaaS 應用程式使用者佈建和解除佈建](active-directory-saas-app-provisioning.md) 
-#### [應用程式整合教學課程](active-directory-saas-tutorial-list.md) 
+#### [應用程式整合教學課程](saas-apps/tutorial-list.md) 
 #### [啟用 SCIM 應用程式的自動化佈建](manage-apps/use-scim-to-provision-users-and-groups.md) 
 #### [自訂屬性對應](active-directory-saas-customizing-attribute-mappings.md) 
 #### [撰寫屬性對應的運算式](active-directory-saas-writing-expressions-for-attribute-mappings.md) 
