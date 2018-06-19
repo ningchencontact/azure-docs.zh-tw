@@ -1,23 +1,21 @@
 ---
 title: 將遙測傳送至 Azure IoT 中樞 (Java) | Microsoft Docs
 description: 本快速入門中，您會執行兩個範例 Java 應用程式，以傳送模擬遙測至 IoT 中樞以及從 IoT 中樞讀取遙測，以便在雲端中處理。
-services: iot-hub
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: ns
 ms.date: 04/30/2018
 ms.author: dobett
-ms.openlocfilehash: d887c690a5f0bc8120daa74d6076083634da08f6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: fd610af3d1b29b78ef89b8f523ef880696031bf2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637645"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-java"></a>快速入門：將遙測從裝置傳送至 IoT 中樞，並使用後端應用程式從中樞讀取遙測 (Java)
 
@@ -65,8 +63,10 @@ mvn --version
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name {YourIoTHubName}--device-id MyJavaDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyJavaDevice
     ```
+
+    如果您為裝置選擇不同的名稱，請先在範例應用程式中更新該裝置名稱，再執行應用程式。
 
 1. 執行下列命令，以針對您剛註冊的裝置取得_裝置連接字串_：
 
@@ -92,7 +92,7 @@ mvn --version
 
 模擬裝置應用程式會連線到 IoT 中樞上的裝置特定端點，並且傳送模擬的溫度和溼度遙測。
 
-1. 在終端機視窗中，瀏覽至範例 Java 專案的根資料夾。 然後瀏覽至 **Quickstarts\simulated-device** 資料夾。
+1. 在終端機視窗中，瀏覽至範例 Java 專案的根資料夾。 然後瀏覽至 **iot-hub\Quickstarts\simulated-device** 資料夾。
 
 1. 在您選擇的文字編輯器中開啟 **src/main/java/com/microsoft/docs/iothub/samples/SimulatedDevice.java** 檔案。
 
@@ -118,7 +118,7 @@ mvn --version
 
 後端應用程式會連線到 IoT 中樞上的服務端**事件**端點。 應用程式會接收模擬裝置所傳送的「裝置到雲端」訊息。 IoT 中樞後端應用程式通常在雲端中執行，以接收和處理「裝置到雲端」訊息。
 
-1. 在另一個終端機視窗中，瀏覽至範例 Java 專案的根資料夾。 然後瀏覽至 **Quickstarts\read-d2c-messages** 資料夾。
+1. 在另一個終端機視窗中，瀏覽至範例 Java 專案的根資料夾。 然後瀏覽至 **iot-hub\Quickstarts\read-d2c-messages** 資料夾。
 
 1. 在您選擇的文字編輯器中開啟 **src/main/java/com/microsoft/docs/iothub/samples/ReadDeviceToCloudMessages.java** 檔案。
 

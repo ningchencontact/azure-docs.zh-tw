@@ -12,14 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2017
+ms.date: 06/08/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 9024036c5340e9afb2369feedde140d84e880265
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 035deabd04b8b838e0009f2cae96b0761733897f
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248236"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-log-analytics"></a>教學課程：使用 Log Analytics 監視 Service Fabric 上的 Windows 容器
 
@@ -212,18 +213,14 @@ ms.lasthandoff: 05/10/2018
 
 ## <a name="configure-oms-agent-to-pick-up-performance-counters"></a>設定 OMS 代理程式以挑選效能計數器
 
-使用 OMS 代理程式的另一個優點是能夠變更您想要透過 OMS UI 體驗挑選的效能計數器，而不必每次設定 Azure 診斷代理程式並執行以 Resource Manager 範本為基礎的升級。 若要這樣做，在您容器監視 (或 Service Fabric) 解決方案的登陸頁面上按一下 [OMS 入口網站]。
+使用 OMS 代理程式的另一個優點是能夠變更您想要透過 OMS UI 體驗挑選的效能計數器，而不必每次設定 Azure 診斷代理程式並執行以 Resource Manager 範本為基礎的升級。 若要這樣做，在您容器監視 (或 Service Fabric) 解決方案的登陸頁面上按一下 [OMS 工作區]。
 
-![OMS 入口網站](./media/service-fabric-tutorial-monitoring-wincontainers/oms-portal.png)
-
-這將帶您前往您在 OMS 入口網站中的工作區，您可以在其中檢視解決方案、建立自訂儀表板，以及設定 OMS 代理程式。 
-* 按一下螢幕右上角的**齒輪滾輪**以開啟 [設定] 功能表。
+這將帶您前往 OMS 工作區，您可以在其中檢視解決方案、建立自訂儀表板，以及設定 OMS 代理程式。 
+* 若要 [開啟進階設定] 功能表，請按一下 [進階設定] 連結。
 * 按一下 [連接的來源] > [Windows 伺服器]，以確認您擁有「5 部已連接的 Windows 電腦」。
-* 按一下 [資料] > [Windows 效能計數器]，以搜尋並新增效能計數器。 您將在這裡看到一份 Log Analytics 針對您可收集之效能計數器提供的建議清單，以及用於搜尋其他計數器的選項。 按一下 [新增選定的效能計數器]，以開始收集建議的計量。
+* 按一下 [資料] > [Windows 效能計數器]，以搜尋並新增效能計數器。 您將在這裡看到可收集的效能計數器建議清單 (來自 Log Analytics)，以及用於搜尋其他計數器的選項。 請確認您已收集 **Processor(_Total)\% Processor Time** 和 **Memory(*)\Available MBytes** 計數器。
 
-    ![效能計數器](./media/service-fabric-tutorial-monitoring-wincontainers/perf-counters.png)
-
-在 Azure 入口網站中，於數分鐘內**重新整理**您的容器監視解決方案，而您應該開始查看傳入的「電腦效能」資料。 這將有助於您了解資源的使用方式。 您也可以使用這些計量作出調整叢集的適當決策，或確認叢集是否正如預期般平衡您的負載。
+請在數分鐘後**重新整理**您的容器監視解決方案，而您應該開始查看傳入的「電腦效能」資料。 這將有助於您了解資源的使用方式。 您也可以使用這些計量作出調整叢集的適當決策，或確認叢集是否正如預期般平衡您的負載。
 
 注意：請確定已正確設定時間篩選，讓您能夠取用這些計量。 
 

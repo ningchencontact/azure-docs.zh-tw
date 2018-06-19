@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: e78051c4eb0cd79d636a6af31db8ffb6cd7e6aef
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7d7fcaded1f088961fb139b1fba6b1944b383435
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34616506"
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>比較 Azure Data Factory V1 與 V2
 本文比較 Azure Data Factory 的 V1 與 V2。 如需 V1 簡介，請參閱 [Azure Data Factory 簡介](v1/data-factory-introduction.md)。 如需 V2 簡介，請參閱 [Data Factory (V2 - 預覽) 簡介](introduction.md)。
@@ -139,7 +140,7 @@ V2 支援建立隨選 Azure HDInsight Spark 叢集。 若要建立隨選 Spark �
 
 ## <a name="roles-and-permissions"></a>角色和權限
 
-第 1 版 Data Factory 參與者角色可用於建立及管理 Data Factory v2 資源。
+第 1 版 Data Factory 參與者角色可用於建立及管理 Data Factory v2 資源。 如需詳細資訊，請參閱 [Data Factory 參與者](../role-based-access-control/built-in-roles.md#data-factory-contributor)。
 
 ## <a name="monitoring-experience"></a>監視體驗
 在 V2 中，您可以使用 [Azure 監視器](monitor-using-azure-monitor.md)來監視資料處理站。 新的 PowerShell Cmdlet 支援[整合執行階段](monitor-integration-runtime.md)的監視。 V1 和 V2 都支援透過可從 Azure 入口網站啟動的監視應用程式進行視覺化監視。

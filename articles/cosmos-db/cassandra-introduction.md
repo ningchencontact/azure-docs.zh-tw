@@ -3,21 +3,19 @@ title: Azure Cosmos DB Cassandra API 簡介 | Microsoft Docs
 description: 了解如何透過您已熟悉的 Cassandra 驅動程式和 CQL 使用 Cassandra API，來利用 Azure Cosmos DB 「隨即轉移」現有應用程式和建立新的應用程式。
 services: cosmos-db
 author: govindk
-manager: ''
-documentationcenter: ''
-ms.assetid: 73839abf-5af5-4ae0-a852-0f4159bc00a0
+manager: kfile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-cassandra
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 11/20/2017
 ms.author: govindk
-ms.openlocfilehash: 65ab01031ed0fe554ef162f0115bdda39fd1c80b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: edc8ba7f8dd52a5facbfeb930a8660b082d72877
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34795266"
 ---
 # <a name="introduction-to-azure-cosmos-db-apache-cassandra-api"></a>Azure Cosmos DB：Apache Cassandra API 簡介
 
@@ -55,9 +53,9 @@ Azure Cosmos DB 提供的 Cassandra API (預覽) 適用於針對 Apache Cassandr
 
 **全域發佈及可用性**：Azure Cosmos DB 可讓您將資料發佈至所有 Azure 區域，讓使用者在擁有低延遲體驗的同時確保可用性。 Azure Cosmos DB 在區域內會提供 99.99% 的可用性，以及在區域間提供 99.999% 的讀取可用性，且不會有作業負擔。 Azure Cosmos DB 可在 30 個以上的 [Azure 區域](https://azure.microsoft.com/regions/services/)中使用。 請參閱[將資料分散到全球](distribute-data-globally.md)以深入了解。 
 
-**一致性選擇：**Azure Cosmos DB 提供五個定義完善的一致性層級可選擇，讓您能在一致性與效能之間做出最好的取捨。 一致性層級有強式、限定過期、工作階段、一致前置詞或最終。 這些細微且定義完善的一致性層級可讓開發人員在一致性、可用性與延遲三者間做出合理取捨。 深入了解[使用一致性層級將可用性和效能最大化](consistency-levels.md)。 
+**一致性選擇：** Azure Cosmos DB 提供五個定義完善的一致性層級可選擇，讓您能在一致性與效能之間做出最好的取捨。 一致性層級有強式、限定過期、工作階段、一致前置詞或最終。 這些細微且定義完善的一致性層級可讓開發人員在一致性、可用性與延遲三者間做出合理取捨。 深入了解[使用一致性層級將可用性和效能最大化](consistency-levels.md)。 
 
-**企業級**：安全且相容 (預設) – Azure cosmos DB 會提供[相容性認證](https://www.microsoft.com/trustcenter)以確保使用者可以使用平台，而不需擔心相容性問題。 Azure Cosmos DB 也會為控制層活動提供待用加密和移動中加密、IP 防火牆和稽核記錄。  
+**企業級**：Azure cosmos DB 會提供[相容性認證](https://www.microsoft.com/trustcenter)，確保使用者可以安全地使用平台。 Azure Cosmos DB 也會為控制層活動提供待用加密和移動中加密、IP 防火牆和稽核記錄。  
 
 <a id="sign-up-now"></a>
 ## <a name="sign-up-now"></a>立即註冊 

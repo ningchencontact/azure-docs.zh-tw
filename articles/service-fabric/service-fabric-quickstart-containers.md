@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 04/30/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: d78dbc9a32e804e37eb76047edcc050482df5761
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b868ac82951a831013d66fc0ca0a420cb94968d5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642058"
 ---
 # <a name="quickstart-deploy-a-service-fabric-windows-container-application-on-azure"></a>快速入門：在 Azure 上部署 Service Fabric Windows 容器應用程式
 Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理可調整和可信賴的微服務與容器。 
@@ -57,6 +58,26 @@ Service Fabric SDK 和工具會提供一個服務範本，協助您將容器部�
 將您的服務命名為 "MyContainerService"，然後按一下 [確定]。
 
 ![[新增服務] 對話方塊][new-service]
+
+## <a name="specify-the-os-build-for-your-container-image"></a>指定容器映像的作業系統組建
+使用特定 Windows Server 版本所建置的容器，不能在執行不同 Windows Server 版本的主機上執行。 例如，使用 Windows Server 1709 版本所建置的容器，無法在執行 Windows Server 2016 的主機上執行。 若要深入了解，請參閱 [Windows Server 容器作業系統和主機作業系統的相容性](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility)。 
+
+使用 6.1 版及更新版本的 Service Fabric 執行階段時，您可以為每個容器指定多個作業系統映像，並為每個映像標上其所要部署到的作業系統組建版本。 這有助於確保應用程式會在執行不同 Windows 作業系統版本的主機上執行。 若要深入了解，請參閱[指定作業系統組建專屬的容器映像](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)。 
+
+Microsoft 針對建置於不同 Windows Server 版本的 IIS 版本，發行了不同映像。 若要確定 Service Fabric 所部署的容器，會與應用程式部署所在叢集節點上所執行的 Windows Server 版本相容，請在 ApplicationManifest.xml 檔案中新增下列幾行。 Windows Server 2016 的組建版本為 14393，而 Windows Server 1709 版本的組建版本為 16299。 
+
+```xml
+    <ContainerHostPolicies CodePackageRef="Code"> 
+      <ImageOverrides> 
+        ...
+          <Image Name="microsoft/iis:nanoserverDefault" /> 
+          <Image Name= "microsoft/iis:nanoserver" Os="14393" /> 
+          <Image Name="microsoft/iis:windowsservercore-1709" Os="16299" /> 
+      </ImageOverrides> 
+    </ContainerHostPolicies> 
+```
+
+服務資訊清單會繼續只為 nanoserver `microsoft/iis:nanoserver` 指定一個映像。 
 
 ## <a name="create-a-cluster"></a>建立叢集
 若要將應用程式部署到 Azure 中的叢集，您可以加入合作對象叢集。 合作對象的叢集是免費的限時 Service Fabric 叢集，裝載於 Azure 上，並且由任何人都可以部署應用程式並了解平台的 Service Fabric 小組執行。  叢集會針對節點對節點和用戶端對節點安全性，使用單一的自我簽署憑證。 合作對象叢集支援容器。 如果您決定設定和使用您自己的叢集，叢集必須在支援容器的 SKU 上執行 (例如 Windows Server 2016 Datacenter with Containers)。

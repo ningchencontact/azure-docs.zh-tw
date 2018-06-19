@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: 434cbdca42e4287a0f3d7e3960bc0baa373bc358
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: d72d0823d78f47aed3d8690cee81f8bb00e7921d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636965"
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>跨訂用帳戶將 Azure 活動記錄收集到 Log Analytics
 
@@ -113,7 +114,7 @@ ms.lasthandoff: 03/30/2018
 - Log Analytics 工作區識別碼
 - Log Analytics 共用金鑰
 
-若要取得事件中樞名稱和連接字串，請遵循[檢查事件中樞命名空間權限並尋找連接字串](../connectors/connectors-create-api-azure-event-hubs.md#connect-to-azure-event-hubs)中的步驟。
+若要取得事件中樞名稱和連接字串，請遵循[檢查事件中樞命名空間權限並尋找連接字串](../connectors/connectors-create-api-azure-event-hubs.md#permissions-connection-string)中的步驟。
 
 
 ### <a name="create-a-new-blank-logic-app"></a>建立新的空白邏輯應用程式

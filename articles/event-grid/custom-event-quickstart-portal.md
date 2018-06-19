@@ -5,15 +5,15 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 04/05/2018
+ms.date: 06/04/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: a16a9bdb866803a65bf7204628b735bd9ac60aee
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: fa6a232c657d9d96943f241eb05221e42f0f599b
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302554"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763335"
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>使用 Azure 入口網站和事件格線建立和路由傳送自訂事件
 
@@ -71,7 +71,7 @@ Event Grid 主題會提供使用者定義的端點，作為您發佈事件的目
 
    ![建立函式](./media/custom-event-quickstart-portal/create-function.png)
 
-1. 請提供 Azure Function 的唯一名稱。 請勿使用圖片中顯示的名稱。 選取您在本文中建立的資源群組。 針對主控方案，請使用 [取用方案]。 使用建議的新儲存體帳戶。 提供值之後，選取 [建立]。
+1. 請提供 Azure Function 的唯一名稱。 請勿使用圖片中顯示的名稱。 選取您在本文中建立的資源群組。 針對主控方案，請使用 [取用方案]。 使用建議的新儲存體帳戶。 您可以關閉 Application Insights。 提供值之後，選取 [建立]。
 
    ![提供函式值](./media/custom-event-quickstart-portal/provide-function-values.png)
 

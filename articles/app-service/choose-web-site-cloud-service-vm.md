@@ -15,17 +15,18 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: f930cec984a8b92e00ec613ce3bba91a40518911
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1f7396ac761ce5eeb5a671d3b04aabf944c361b8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597921"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Azure App Service、虛擬機器、Service Fabric 及雲端服務的比較
 ## <a name="overview"></a>概觀
 Azure 提供數種託管網站的方式：[Azure App Service][Azure App Service]、[虛擬機器][Virtual Machines]、[Service Fabric][Service Fabric] 及[雲端服務][Cloud Services]。 本文協助您了解這些選項，為您的 Web 應用程式做出正確的選擇。
 
-Azure App Service 是大多數 Web 應用程式的最佳選擇。 部署和管理都已整合到平台，網站可以迅速調整規模以因應過高的流量負載，而內建的負載平衡和流量管理員提供高可用性。 您可以使用 [線上移轉工具](https://www.migratetoazure.net/)輕鬆地將現有網站移至 Azure App Service、使用 Web 應用程式庫中的開放原始碼應用程式，或使用您選擇的架構和工具來建立新網站。 [WebJobs][WebJobs] 功能可讓您輕鬆地將背景作業處理新增至 App Service Web 應用程式。
+Azure App Service 是大多數 Web 應用程式的最佳選擇。 部署和管理都已整合到平台，網站可以迅速調整規模以因應過高的流量負載，而內建的負載平衡和流量管理員提供高可用性。 您可以使用[線上移轉工具][migrate-tool]輕鬆地將現有網站移至 Azure App Service、使用 Web 應用程式庫中的開放原始碼應用程式，或使用您選擇的架構和工具來建立新網站。 [WebJobs][WebJobs] 功能可讓您輕鬆地將背景作業處理新增至 App Service Web 應用程式。
 
 如果您在建立新的應用程式或重新撰寫現有的應用程式以使用微服務架構，Service Fabric 是不錯的選擇。 在共用機器集區上執行的應用程式可以從小規模著手，然後擴充為包含成千上萬部機器的大規模服務。 具狀態服務可輕鬆地以一致且可靠的方式儲存應用程式狀態，而 Service Fabric 會自動為您管理服務資料分割、調整及可用性。  Service Fabric 也支援具有 Open Web Interface for .NET (OWIN) 和 ASP.NET Core 的 WebAPI。  相較於 App Service，Service Fabric 也能更充分掌控或直接存取基礎結構。 您可以從遠端進入您的伺服器，或設定伺服器啟動工作。 雲端服務的控制和易用程度類似於 Service Fabric，但是它現在是舊版服務，建議將 Service Fabric 用於新的開發。
 
@@ -67,7 +68,8 @@ Azure App Service 是大多數 Web 應用程式的最佳選擇。 部署和管�
 關於哪個 Azure Web 裝載選項最適合，以下是一些常見的應用程式案例與建議。
 
 * [我需要一個具有背景處理和資料庫後端的 Web 前端，以執行與內部部署資源整合的商業應用程式。](#onprem)
-* [我需要可靠的方法來裝載可靈活調整且可供全球存取的公司網站。](#corp)
+* 
+  [我需要可靠的方法來裝載可靈活調整且可供全球存取的公司網站。](#corp)
 * [我有一個在 Windows Server 2003 上執行的 IIS6 應用程式。](#iis6)
 * [我是小型企業業主，需要有便宜的方式來裝載網站，但又想顧及網站未來成長的可能性。](#smallbusiness)
 * [我是網頁或平面設計師，想要幫客戶設計及建立網站。](#designer)
@@ -86,7 +88,9 @@ Azure App Service 是複雜商業應用程式的絕佳解決方案。 您開發�
 * 符合 ISO、SOC2 和 PCI。
 * 與 Active Directory 整合
 
-### <a id="corp"></a> 我需要可靠的方法來裝載可靈活調整且可供全球存取的公司網站。
+### 
+  <a id="corp">
+  </a> 我需要可靠的方法來裝載可靈活調整且可供全球存取的公司網站。
 Azure App Service 是裝載公司網站的絕佳解決方案。 它可讓 Web 應用程式快速調整，輕鬆符合全球資料中心網路的需求。 它提供本機存取、容錯和智慧型流量管理。 一切盡在一個提供世界級管理工具的平台上，可讓您快速又輕鬆地深入了解網站健康情況和網路流量。 Azure App Service 為 Web 應用程式提供三個 9 的 SLA，可讓您：
 
 * 在自我修復、自動修補的雲端平台上可靠地執行網站。
@@ -97,7 +101,7 @@ Azure App Service 是裝載公司網站的絕佳解決方案。 它可讓 Web �
 * 與 Active Directory 整合
 
 ### <a id="iis6"></a> 我有一個在 Windows Server 2003 上執行的 IIS6 應用程式。
-Azure App Service 可讓您輕鬆地省去移轉舊版 IIS6 應用程式時相關的基礎結構成本。 Microsoft 建立 [簡單易用的移轉工具和詳細的移轉指引](https://www.migratetoazure.net/) ，可讓您檢查相容性和識別任何需要進行的變更。 與 Visual Studio、TFS 和一般 CMS 工具整合，讓您輕鬆地將 IIS6 應用程式直接部署到雲端。 部署之後，Azure 入口網站提供健全的管理工具，可讓您依需要相應減少來管理成本，或相應增加來符合需求。 移轉工具可讓您：
+Azure App Service 可讓您輕鬆地省去移轉舊版 IIS6 應用程式時相關的基礎結構成本。 Microsoft 建立[簡單易用的移轉工具和詳細的移轉指引][migrate-tool]，可讓您檢查相容性和識別任何需要進行的變更。 與 Visual Studio、TFS 和一般 CMS 工具整合，讓您輕鬆地將 IIS6 應用程式直接部署到雲端。 部署之後，Azure 入口網站提供健全的管理工具，可讓您依需要相應減少來管理成本，或相應增加來符合需求。 移轉工具可讓您：
 
 * 快速又輕鬆地將舊式的 Windows Server 2003 Web 應用程式移轉至雲端。
 * 選擇將連結的 SQL 資料庫留在內部部署，以建立混合式應用程式。
@@ -191,3 +195,4 @@ HTTP 型 Web 服務可讓您支援各種用戶端，包括行動用戶端。 ASP
 <!-- IMG List -->
 
 [ChoicesDiagram]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_3.png
+[migrate-tool]: https://www.movemetothecloud.net/

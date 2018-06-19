@@ -1,20 +1,20 @@
 ---
-title: 封存 Azure 監視資料 | Microsoft Docs
+title: 使用 Azure 儲存體封存 Azure 計量和記錄資料
 description: 將 Azure 內產生的記錄和計量資料封存至儲存體帳戶。
 author: johnkemnetz
-manager: orenr
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
+services: azure-monitor
+ms.service: azure-monitor
 ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: b44bbd9cb2f54107d2593b1ab7f07f07fcc41e57
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.component: metrics
+ms.openlocfilehash: 4d08c4c7a76d7ed16ec57590ee0fd4ee978e5258
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263145"
 ---
 # <a name="archive-azure-monitoring-data"></a>封存 Azure 監視資料
 
@@ -80,7 +80,7 @@ Azure 環境的許多層會產生記錄和計量資料，可封存至 Azure 儲�
 
    ![診斷設定區段](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-home.png)
 
-4. 按一下 [封存至儲存體帳戶] 下的 [設定] 按鈕，並選取您在上一節所建立的儲存體帳戶。 按一下 [SERVICEPRINCIPAL] 。
+4. 按一下 [封存至儲存體帳戶] 下的 [設定] 按鈕，並選取您在上一節所建立的儲存體帳戶。 按一下 [確定]。
 
    ![診斷設定儲存體帳戶](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-storage.png)
 
@@ -95,9 +95,9 @@ Azure 環境的許多層會產生記錄和計量資料，可封存至 Azure 儲�
 來自資源的監視資料現在開始流入儲存體帳戶。
 
 > [!NOTE]
-> 目前不支援透過診斷設定傳送多維度計量。 維度的計量資訊會匯出為扁平化單一維度計量，跨維度彙總的值。
+> 目前不支援透過診斷設定傳送多維度計量。 跨維度值所彙總的維度計量會匯出為扁平化單一維度計量。
 >
-> *例如*：您可以在個別佇列層級上瀏覽及繪製事件中樞上的「內送郵件」計量。 不過，當您透過診斷設定匯出時，此計量將會呈現為事件中樞內所有佇列的所有內送訊息。
+> 「例如」：可以在每個佇列層級瀏覽並繪製事件中樞上的「內送郵件」計量。 不過，當您透過診斷設定匯出時，計量將會呈現為事件中樞內所有佇列的所有內送郵件。
 >
 >
 

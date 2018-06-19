@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 02/06/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: e80fad4d0bddff89ff4dda7feed90fc622369ee9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 678ca45d12fd10a02d967cd32743b4d7b6ea26af
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642694"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster"></a>教學課程：調整 Service Fabric 叢集
 
@@ -85,7 +86,7 @@ sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.az
 --pem ./aztestcluster201709151446.pem --no-verify
 ```
 
-完成連線後，您可以使用命令取得叢集中每個節點的狀態。 對於 PowerShell，使用 `Get-ServiceFabricClusterHealth` 命令，對於 **sfctl** 請使用 `sfctl cluster select` 命令。
+完成連線後，您可以使用命令取得叢集中每個節點的狀態。 對於 **PowerShell**，使用 `Get-ServiceFabricClusterHealth` 命令，對於 **sfctl** 請使用 `sfctl cluster select` 命令。
 
 ## <a name="scale-out"></a>相應放大
 
@@ -131,15 +132,15 @@ Service Fabric 叢集必須知道將移除此節點。 您需要採取三個步�
 
 1. 停用節點，以免節點再成為資料的複本。  
 PowerShell：`Disable-ServiceFabricNode`  
-sfcli：`sfctl node disable`
+sfctl：`sfctl node disable`
 
 2. 停止節點，以便 Service Fabric 執行階段正常關閉，而且應用程式取得終止要求。  
 PowerShell：`Start-ServiceFabricNodeTransition -Stop`  
-sfcli：`sfctl node transition --node-transition-type Stop`
+sfctl：`sfctl node transition --node-transition-type Stop`
 
 2. 從叢集移除該節點。  
 PowerShell：`Remove-ServiceFabricNodeState`  
-sfcli：`sfctl node remove-state`
+sfctl：`sfctl node remove-state`
 
 這三個步驟套用至節點之後，即可從擴展集移除節點。 如果在 [bronze][durability] 之外使用任何持久性層，則移除擴展集執行個體時，將完成這些步驟。
 

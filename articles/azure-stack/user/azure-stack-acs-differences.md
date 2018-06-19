@@ -1,25 +1,25 @@
 ---
-title: Azure Stack 儲存體：差異與考量
+title: Azure Stack 儲存體差異與考量 | Microsoft Docs
 description: 了解「Azure Stack 儲存體」與「Azure 儲存體」之間的差異，以及 Azure Stack 部署考量。
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
 manager: femila
-ms.reviwer: xiaofmao
 ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/14/2018
+ms.date: 05/21/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 5a4d3312d6574f761da9a28bfb01a34acf11c9cc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.reviwer: xiaofmao
+ms.openlocfilehash: 2a6cb3f1a1f8009af411ba4d97a23194f6f089ae
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34197805"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604455"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack 儲存體：差異與考量
 
@@ -27,7 +27,7 @@ ms.locfileid: "34197805"
 
 「Azure Stack 儲存體」是 Microsoft Azure Stack 中的一組儲存體雲端服務。 「Azure Stack 儲存體」使用與 Azure 一致的語意來提供 Blob、資料表、佇列及帳戶管理功能。
 
-此文章摘要說明 Azure Stack 儲存體與 Azure 儲存體服務的已知差異。 也會列出部署 Azure Stack 時所要考量的事項。 若要深入了解 Azure Stack 與 Azure 之間的大致差異，請參閱[主要考量](azure-stack-considerations.md)主題。
+此文章摘要說明 Azure Stack 儲存體與 Azure 儲存體服務的已知差異。 也會列出部署 Azure Stack 時所要考量的事項。 若要了解全域 Azure 與 Azure Stack 之間的大致差異，請參閱[主要考量](azure-stack-considerations.md)主題。
 
 ## <a name="cheat-sheet-storage-differences"></a>速查表：儲存體差異
 

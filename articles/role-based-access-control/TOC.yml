@@ -1,5 +1,5 @@
-- name: 管理存取概觀
-  href: manage-access-to-azure-resources.md
+- name: 角色型存取控制文件
+  href: index.yml
   items: null
 - name: 概觀
   items:
@@ -36,6 +36,7 @@
     - name: Azure 管理的條件式存取
       href: conditional-access-azure-management.md
 - name: 使用說明指南
+  expanded: true
   items:
     - name: 管理存取權
       items:

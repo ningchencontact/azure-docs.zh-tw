@@ -1,25 +1,24 @@
 ---
-title: Azure Stack 儲存體適用的工具
+title: Azure Stack 儲存體適用的工具 | Microsoft Docs
 description: 了解 Azure Stack 儲存體資料傳輸工具
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/25/2018
+ms.date: 05/21/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: a148f8089dd104933e6ba95f573182e0c1a32ae5
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 3d9bd187a70e8b8292e9c47497c2c6b13764045d
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257949"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604721"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>使用 Azure Stack 儲存體的資料傳輸工具
 
@@ -151,7 +150,7 @@ Azure PowerShell 是一個模組，可提供管理 Azure 和 Azure Stack 上服�
    > [!NOTE]
    > 此指令碼必須在 **AzureStack_Tools** 的根目錄上執行。
 
-```PowerShell
+```PowerShell  
 # begin
 
 $ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environemnt name
@@ -214,7 +213,7 @@ New-Item -Path $DestinationFolder -ItemType Directory -Force
 $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
 
 # end
-```
+````
 
 ### <a name="powershell-known-issues"></a>PowerShell 的已知問題
 
@@ -223,12 +222,12 @@ Azure Stack 目前相容的 Azure PowerShell 模組版本是 1.3.0。 此版本�
 * `Get-AzureRmStorageAccountKey` 在 1.3.0 版的傳回值格式有兩個屬性：`Key1` 和 `Key2`，而目前的 Azure 版本則會傳回包含所有帳戶金鑰的陣列。
 
    ```
-   # This command gets a specific key for a Storage account, 
+   # This command gets a specific key for a storage account, 
    # and works for Azure PowerShell version 1.4, and later versions.
    (Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
    -AccountName "MyStorageAccount").Value[0]
 
-   # This command gets a specific key for a Storage account, 
+   # This command gets a specific key for a storage account, 
    # and works for Azure PowerShell version 1.3.2, and previous versions.
    (Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
    -AccountName "MyStorageAccount").Key1
@@ -264,7 +263,7 @@ Azure Stack 需要有 Azure CLI 2.0 版。 如需有關安裝和設定用於 Azu
 
 ```bash
 #!/bin/bash
-# A simple Azure Stack Storage example script
+# A simple Azure Stack storage example script
 
 export AZURESTACK_RESOURCE_GROUP=<resource_group_name>
 export AZURESTACK_RG_LOCATION="local"
@@ -293,7 +292,7 @@ echo "Downloading the file..."
 az storage blob download --container-name $AZURESTACK_STORAGE_CONTAINER_NAME --account-name $AZURESTACK_STORAGE_ACCOUNT_NAME --name $AZURESTACK_STORAGE_BLOB_NAME --file $DESTINATION_FILE --output table
 
 echo "Done"
-```
+````
 
 ## <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure 儲存體總管
 
@@ -303,6 +302,7 @@ Microsoft Azure 儲存體總管是 Windows 提供的獨立應用程式。 此工
 * 若要深入了解 Microsoft Azure 儲存體總管，請參閱[開始使用儲存體總管](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 
 ## <a name="next-steps"></a>後續步驟
+
 * [將儲存體總管連線到 Azure Stack 訂用帳戶](azure-stack-storage-connect-se.md)
 * [開始使用儲存體總管](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [與 Azure 一致的儲存體：差異與注意事項](azure-stack-acs-differences.md)

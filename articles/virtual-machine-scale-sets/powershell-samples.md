@@ -16,11 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 3508631336ac322268f12ff97e35827767ae1bb9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 27b8c9391de4014f45257e3808647b3e49c250b2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34651942"
 ---
 # <a name="azure-powershell-samples-for-virtual-machine-scale-sets"></a>虛擬機器擴展集的 Azure PowerShell 範例
 
@@ -29,7 +30,8 @@ ms.lasthandoff: 03/28/2018
 | | |
 |---|---|
 |**建立及管理擴展集**||
-| [建立虛擬機器擴展集](scripts/powershell-sample-create-simple-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | 以最低限度的組態建立虛擬機器擴展集。 |
+| [建立簡單虛擬機器擴展集](scripts/powershell-sample-create-simple-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | 以最低限度的組態建立虛擬機器擴展集。 |
+| [建立完整虛擬機器擴展集](scripts/powershell-sample-create-complete-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | 以組態檔案建立虛擬機器擴展集和相關聯的資源。 |
 | [從自訂 VM 映像建立擴展集](scripts/powershell-sample-create-scale-set-from-custom-image.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 建立可使用自訂 VM 映像的虛擬機器擴展集。 |
 | [將應用程式安裝到擴展集](scripts/powershell-sample-install-apps.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 使用 Azure 自訂指令碼擴充功能將基本 Web 應用程式安裝到擴展集。 |
 |**管理儲存體**||

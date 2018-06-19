@@ -11,14 +11,15 @@ ms.devlang: java
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/02/2018
+ms.date: 05/15/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 9cf1d485f32c861ac5b5720cd77a988eee624f4d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f9b8046e0fb730f55dbdacf567869ae88df2a524
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34600590"
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>使用 Java 和 Maven 建立您的第一個函式 (預覽)
 
@@ -43,23 +44,9 @@ ms.lasthandoff: 04/03/2018
 
 ## <a name="install-the-azure-functions-core-tools"></a>安裝 Azure Functions Core Tools
 
-[Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools) 提供撰寫、執行和偵錯 Azure Functions 的本機開發環境。 
+Azure Functions Core Tools 提供從終端機或命令提示字元撰寫、執行和偵錯 Azure Functions 的本機開發環境。 
 
-若要安裝，請瀏覽 Azure Functions Core Tools 專案的[安裝](https://github.com/azure/azure-functions-core-tools#installing)區段，尋找您作業系統的特定指示。
-
-您也可以在安裝下列需求後，使用 [npm](https://www.npmjs.com/) (隨附於 [Node.js](https://nodejs.org/)) 來手動安裝：
-
--  [.NET Core](https://www.microsoft.com/net/core) 最新版本。
--  [Node.js](https://nodejs.org/download/) 8.6 版或更高版本。
-
-若要繼續以 npm 為基礎的安裝，請執行：
-
-```
-npm install -g azure-functions-core-tools@core
-```
-
-> [!NOTE]
-> 如果您無法安裝 Azure Functions Core Tools 2.0 版，請參閱[版本 2.x 執行階段](/azure/azure-functions/functions-run-local#version-2x-runtime)。
+先在本機電腦上安裝 [Core Tools 第 2 版](functions-run-local.md#v2)，才能繼續。
 
 ## <a name="generate-a-new-functions-project"></a>產生新的 Functions 專案
 

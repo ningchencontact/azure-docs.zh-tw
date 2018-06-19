@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric CLI 範例
-description: Azure Service Fabric CLI 範例
+title: Azure CLI (az) 和 Azure Service Fabric CLI (sfctl) 範例
+description: Azure CLI (az) 和 Azure Service Fabric CLI (sfctl) 範例
 services: service-fabric
 documentationcenter: service-fabric
 author: Thraka
@@ -16,23 +16,24 @@ ms.workload: service-fabric
 ms.date: 04/09/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: c7f6ce7cea62bd4bf9baca6119f204fc43cf4d45
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e37bbd5e12608c5acbd19d5c57667d9e34c74b3c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641844"
 ---
-# <a name="azure-service-fabric-cli-samples"></a>Azure Service Fabric CLI 範例
+# <a name="azure-cli-az-and-azure-service-fabric-cli-sfctl-samples"></a>Azure CLI (az) 和 Azure Service Fabric CLI (sfctl) 範例
 
-下表包含 [Service Fabric CLI](service-fabric-cli.md) 指令碼範例的連結，這些範例可管理 Service Fabric 叢集、應用程式和服務。
+下表包含範例的連結，其中說明如何管理 Service Fabric 叢集、應用程式和服務。
 
 [!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
 | | |
 |-|-|
-| **建立叢集** ||
-| [建立安全的 Linux 叢集 (Azure)](./scripts/cli-create-cluster.md)| 建立 Azure Service Fabric 叢集。 |
-| **管理應用程式** ||
+| **建立叢集** (使用 Azure CLI)||
+| [建立安全的 Linux 叢集](./scripts/cli-create-cluster.md)| 建立 Azure Service Fabric 叢集。 |
+| **管理應用程式** (使用 Service Fabric CLI)||
 | [列出應用程式](./scripts/sfctl-list-applications.md)| 列出佈建到叢集的應用程式。|
 | [部署應用程式](./scripts/cli-deploy-application.md)| 將應用程式部署到叢集。|
 | [移除應用程式](./scripts/cli-remove-application.md)| 從叢集移除應用程式。|

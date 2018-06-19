@@ -14,20 +14,20 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: be4bde6bd320e8af7cd3119ff4ccdabd942963ca
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: cd623767c9627810afb64ca9185c991c5c9f3858
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361833"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638019"
 ---
-# <a name="tutorial-access-a-custom-lab-in-azure-devtest-labs"></a>教學課程：在 Azure DevTest Labs 中存取實驗室
-在本教學課程中，您會使用[教學課程：建立自訂實驗室](tutorial-create-custom-lab.md)中建立的自訂實驗室。
+# <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>教學課程：在 Azure DevTest Labs 中存取實驗室
+在本教學課程中，您會使用[教學課程：在 Azure DevTest Labs 中建立實驗室](tutorial-create-custom-lab.md)中建立的實驗室。
 
 在本教學課程中，您會執行下列動作：
 
 > [!div class="checklist"]
-> * 認領自訂實驗室中的虛擬機器 (VM)
+> * 宣告實驗室中的虛擬機器 (VM)
 > * 連接至 VM
 > * 取消認領 VM
 
@@ -70,8 +70,8 @@ ms.locfileid: "34361833"
 1. 取消認領作業完成之後，您會看到 VM 出現底部的 [可認領虛擬機器] 清單中。 
     
 ## <a name="next-steps"></a>後續步驟
-本教學課程會示範如何存取和使用透過 Azure DevTest Labs 建立的自訂實驗室。 若要深入了解如何存取和使用自訂實驗室中的 VM，請參閱 
+本教學課程會示範如何存取和使用透過 Azure DevTest Labs 建立的實驗室。 若要深入了解如何存取和使用實驗室中的 VM，請參閱 
 
 > [!div class="nextstepaction"]
-> [作法：在自訂實驗室中使用虛擬機器](devtest-lab-add-vm.md)
+> [作法：在實驗室中使用 VM](devtest-lab-add-vm.md)
 

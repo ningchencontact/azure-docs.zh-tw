@@ -14,11 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/28/2018
 ms.author: daveba
-ms.openlocfilehash: 3493c726b600c1fd70e0c6041ec57c8f0ba01c38
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 851f788adee46436bd4286c803427f49ce0ed89a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724093"
 ---
 #  <a name="what-is-managed-service-identity-msi-for-azure-resources"></a>何謂適用於 Azure 資源的受控服務識別 (MSI)？
 
@@ -26,12 +27,14 @@ ms.lasthandoff: 05/10/2018
 
 建置雲端應用程式常見的難題是如何管理程式碼中必須存在的認證，以向雲端服務進行驗證。 保護好這些認證是相當重要的工作。 在理想情況下，這些認證永不會出現在開發人員工作站或簽入原始程式碼控制。 Azure Key Vault 可安全地儲存認證和其他金鑰及密碼，但是您的程式碼必須向 Key Vault 進行驗證，才可取得這些項目。 受控服務身分識別 (MSI) 可以輕易地解決此問題，因為 MSI 可在 Azure Active Directory (Azure AD) 中提供自動受控身分識別給 Azure 服務。 您可以使用此身分識別來完成任何支援 Azure AD 驗證的服務驗證 (包括 Key Vault)，不需要任何您程式碼中的認證。
 
+「受控服務身分識別」隨附於 Azure Active Directory Free，這是 Azure 訂用帳戶的預設功能。 無須針對「受控服務身分識別」支付其他費用。
+
 ## <a name="how-does-it-work"></a>運作方式
 
 有兩種受控服務識別：「系統指派」和「使用者指派」。
 
 - **系統指派的身分識別**會直接在 Azure 服務執行個體上啟用。 啟用時，Azure 會在服務執行個體的訂用帳戶所信任的 Azure AD 租用戶中，建立服務執行個體的身分識別。 建立身分識別後就會將其認證佈建到服務執行個體。 系統指派的身分識別生命週期會直接繫結至已啟用該 MSI 的 Azure 服務執行個體。 如果服務執行個體已刪除，則 Azure 會自動清除 Azure AD 中的認證和身分識別。
-- **使用者指派的身分識別** (公開預覽) 會建立為獨立的 Azure 資源。 透過建立程序，Azure 會在所使用訂用帳戶信任的 Azure AD 租用戶中建立身分識別。 建立身分識別之後，即可將它指派給一個或多個 Azure 服務執行個體。 使用者指派的身分識別生命週期，會與其所指派前往的 Azure 服務執行個體生命週期分開管理。
+- [使用者指派的身分識別] 會建立為獨立的 Azure 資源。 透過建立程序，Azure 會在所使用訂用帳戶信任的 Azure AD 租用戶中建立身分識別。 建立身分識別之後，即可將它指派給一個或多個 Azure 服務執行個體。 使用者指派的身分識別生命週期，會與其所指派前往的 Azure 服務執行個體生命週期分開管理。
 
 因此，程式碼可以使用系統指派的或使用者指派的身分識別，向支援 Azure AD 驗證的服務要求存取權杖。 在此期間，Azure 會負責更新服務執行個體所使用的認證。
 
@@ -103,17 +106,6 @@ ms.lasthandoff: 05/10/2018
 
 受控身分識別可用來向支援 Azure AD 驗證的服務進行驗證。 如需支援受控服務識別的 Azure 服務清單，請參閱下列文章：
 - [支援受控服務識別的服務](services-support-msi.md)
-
-## <a name="how-much-does-managed-service-identity-cost"></a>「受控服務身分識別」的售價如何？
-
-「受控服務身分識別」隨附於 Azure Active Directory Free，這是 Azure 訂用帳戶的預設功能。 無須針對「受控服務身分識別」支付其他費用。
-
-## <a name="support-and-feedback"></a>支援與意見反應
-
-希望能夠聽到您的意見！
-
-* 請在有 [azure msi](http://stackoverflow.com/questions/tagged/azure-msi) 標記的 Stack Overflow 上詢問作法問題。
-* 請在[適用於開發人員的 Azure AD 意見反應論壇](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences)中索取功能或給予意見反應。
 
 ## <a name="next-steps"></a>後續步驟
 

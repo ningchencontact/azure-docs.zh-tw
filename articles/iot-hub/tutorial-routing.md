@@ -1,31 +1,26 @@
 ---
 title: 使用 Azure IoT 中樞設定訊息路由 (.NET) | Microsoft Docs
 description: 使用 Azure IoT 中樞設定訊息路由
-services: iot-hub
-documentationcenter: .net
 author: robinsh
 manager: timlt
-editor: tysonn
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: dotnet
+services: iot-hub
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/01/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 0674ed033f77d7d2eca319d0b1e82171dfa4256d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ab354410ba3b0b37ae630a2b68daec63a9051555
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700820"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>教學課程：使用 IoT 中樞設定訊息路由
 
 訊息路由可讓您將遙測資料從 IoT 裝置傳送至內建事件中樞相容端點或自訂端點 (例如 Blob 儲存體、服務匯流排佇列、服務匯流排主題和事件中樞)。 設定訊息路由時，您可以建立路由規則來自訂符合特定規則的路由。 設定好之後，IoT 中樞就會自動將內送資料路由至端點。 
 
-在本教學課程中，您將了解如何透過 IoT 中樞設定和使用路由規則。 您會將訊息從 IoT 裝置路由至多個服務的其中一個，包括 Blob 儲存體和服務匯流排佇列。 邏輯應用程式將會挑選傳送至服務匯流排佇列的訊息，並透過電子郵件傳送。 沒有特別設定路由的訊息會傳送至預設端點，並在 PowerBI 視覺效果中加以檢視。
+在本教學課程中，您將了解如何透過 IoT 中樞設定和使用路由規則。 您會將訊息從 IoT 裝置路由至多個服務的其中一個，包括 Blob 儲存體和服務匯流排佇列。 邏輯應用程式將會挑選傳送至服務匯流排佇列的訊息，並透過電子郵件傳送。 沒有特別設定路由的訊息會傳送至預設端點，並在 Power BI 視覺效果中加以檢視。
 
 在本教學課程中，您會執行下列工作：
 
@@ -34,11 +29,11 @@ ms.lasthandoff: 05/07/2018
 > * 在 IoT 中樞內設定儲存體帳戶和服務匯流排佇列的端點及路由。
 > * 建立邏輯應用程式，使其在訊息新增至服務匯流排佇列時觸發並傳送電子郵件。
 > * 下載並執行模擬 IoT 裝置的應用程式，針對不同路由選項將訊息傳送至中樞。
-> * 為傳送至預設端點的資料建立 PowerBI 視覺效果。
+> * 為傳送至預設端點的資料建立 Power BI 視覺效果。
 > * 檢視結果...
 > * ...在服務匯流排佇列和電子郵件中。
 > * ...在儲存體帳戶中。
-> * ...在 PowerBI 視覺效果中。
+> * ...在 Power BI 視覺效果中。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -46,7 +41,7 @@ ms.lasthandoff: 05/07/2018
 
 - 安裝 [Visual Studio for Windows](https://www.visualstudio.com/)。 
 
-- PowerBI 帳戶，用來分析預設端點的串流分析。 ([免費試用 PowerBI](https://app.powerbi.com/signupredirect?pbi_source=web))
+- PowerBI 帳戶，用來分析預設端點的串流分析。 ([免費試用 Power BI](https://app.powerbi.com/signupredirect?pbi_source=web)。)
 
 - 用來傳送通知電子郵件的 Office 365 帳戶。 
 
@@ -104,24 +99,24 @@ ms.lasthandoff: 05/07/2018
 # You need it to create the device identity. 
 az extension add --name azure-cli-iot-ext
 
-# Set the values for the resource names.
+# Set the values for the resource names that don't have to be globally unique.
+# The resources that have to have unique names are named in the script below
+#   with a random number concatenated to the name so you can probably just
+#   run this script, and it will work with no conflicts.
 location=westus
 resourceGroup=ContosoResources
 iotHubConsumerGroup=ContosoConsumers
 containerName=contosoresults
 iotDeviceName=Contoso-Test-Device 
 
-# These resource names must be globally unique.
-# You might need to change these if they are already in use by someone else.
-iotHubName=ContosoTestHub 
-storageAccountName=contosoresultsstorage 
-sbNameSpace=ContosoSBNamespace 
-sbQueueName=ContosoSBQueue
-
 # Create the resource group to be used
 #   for all the resources for this tutorial.
 az group create --name $resourceGroup \
     --location $location
+
+# The IoT hub name must be globally unique, so add a random number to the end.
+iotHubName=ContosoTestHub$RANDOM
+echo "IoT hub name = " $iotHubName
 
 # Create the IoT hub.
 az iot hub create --name $iotHubName \
@@ -131,6 +126,10 @@ az iot hub create --name $iotHubName \
 # Add a consumer group to the IoT hub.
 az iot hub consumer-group create --hub-name $iotHubName \
     --name $iotHubConsumerGroup
+
+# The storage account name must be globally unique, so add a random number to the end.
+storageAccountName=contosostorage$RANDOM
+echo "Storage account name = " $storageAccountName
 
 # Create the storage account to be used as a routing destination.
 az storage account create --name $storageAccountName \
@@ -154,11 +153,19 @@ az storage container create --name $containerName \
     --account-key $storageAccountKey \
     --public-access off 
 
+# The Service Bus namespace must be globally unique, so add a random number to the end.
+sbNameSpace=ContosoSBNamespace$RANDOM
+echo "Service Bus namespace = " $sbNameSpace
+
 # Create the Service Bus namespace.
 az servicebus namespace create --resource-group $resourceGroup \
     --name $sbNameSpace \
     --location $location
     
+# The Service Bus queue name must be globally unique, so add a random number to the end.
+sbQueueName=ContosoSBQueue$RANDOM
+echo "Service Bus queue name = " $sbQueueName
+
 # Create the Service Bus queue to be used as a routing destination.
 az servicebus queue create --name $sbQueueName \
     --namespace-name $sbNameSpace \
@@ -183,23 +190,23 @@ az iot hub device-identity show --device-id $iotDeviceName \
 # Log into Azure account.
 Login-AzureRMAccount
 
-# Set the values for the resource names.
+# Set the values for the resource names that don't have to be globally unique.
+# The resources that have to have unique names are named in the script below
+#   with a random number concatenated to the name so you can probably just
+#   run this script, and it will work with no conflicts.
 $location = "West US"
 $resourceGroup = "ContosoResources"
 $iotHubConsumerGroup = "ContosoConsumers"
 $containerName = "contosoresults"
 $iotDeviceName = "Contoso-Test-Device"
 
-# These resource names must be globally unique.
-# You might need to change these if they are already in use by someone else.
-$iotHubName = "ContosoTestHub"
-$storageAccountName = "contosoresultsstorage"
-$serviceBusNamespace = "ContosoSBNamespace"
-$serviceBusQueueName  = "ContosoSBQueue"
-
-# Create the resource group to be used  
+# Create the resource group to be used 
 #   for all resources for this tutorial.
 New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+
+# The IoT hub name must be globally unique, so add a random number to the end.
+$iotHubName = "ContosoTestHub$(Get-Random)"
+Write-Host "IoT hub name is " $iotHubName
 
 # Create the IoT hub.
 New-AzureRmIotHub -ResourceGroupName $resourceGroup `
@@ -213,6 +220,10 @@ Add-AzureRmIotHubEventHubConsumerGroup -ResourceGroupName $resourceGroup `
   -Name $iotHubName `
   -EventHubConsumerGroupName $iotHubConsumerGroup `
   -EventHubEndpointName "events"
+
+# The storage account name must be globally unique, so add a random number to the end.
+$storageAccountName = "contosostorage$(Get-Random)"
+Write-Host "storage account name is " $storageAccountName
 
 # Create the storage account to be used as a routing destination.
 # Save the context for the storage account 
@@ -228,10 +239,20 @@ $storageContext = $storageAccount.Context
 New-AzureStorageContainer -Name $containerName `
     -Context $storageContext
 
+# The Service Bus namespace must be globally unique,
+#   so add a random number to the end.
+$serviceBusNamespace = "ContosoSBNamespace$(Get-Random)"
+Write-Host "Service Bus namespace is " $serviceBusNamespace
+
 # Create the Service Bus namespace.
 New-AzureRmServiceBusNamespace -ResourceGroupName $resourceGroup `
     -Location $location `
     -Name $serviceBusNamespace 
+
+# The Service Bus queue name must be globally unique,
+#  so add a random number to the end.
+$serviceBusQueueName  = "ContosoSBQueue$(Get-Random)"
+Write-Host "Service Bus queue name is " $serviceBusQueueName 
 
 # Create the Service Bus queue to be used as a routing destination.
 New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
@@ -248,15 +269,13 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
 3. 在資源清單中，按一下您的 IoT 中樞。 本教學課程使用 **ContosoTestHub**。 在 [中樞] 窗格中選取 [IoT 裝置]。
 
-4. 按一下 [+ 新增]。 在 [新增裝置] 窗格中，填入裝置識別碼。 本教學課程使用 **Contoso-Test-Device**。 金鑰的部分保留空白，並勾選 [自動產生金鑰]。 請確定 [將裝置連線到 IoT 中樞] 已啟用。 按一下 [儲存] 。
+4. 按一下 [+ 新增]。 在 [新增裝置] 窗格中，填入裝置識別碼。 本教學課程使用 **Contoso-Test-Device**。 金鑰的部分保留空白，並勾選 [自動產生金鑰]。 請確定 [將裝置連線到 IoT 中樞] 已啟用。 按一下 [檔案] 。
 
    ![顯示新增裝置畫面的螢幕擷取畫面。](./media/tutorial-routing/add-device.png)
 
 5. 現在金鑰已建立，請按一下裝置來查看產生的金鑰。 按一下主要金鑰上的 [複製] 圖示，並將它儲存在「記事本」之類的位置中，以便在本教學課程的測試階段中使用。
 
    ![顯示裝置詳細資訊 (包括金鑰) 的螢幕擷取畫面。](./media/tutorial-routing/device-details.png)
-
-
 
 ## <a name="set-up-message-routing"></a>設定訊息路由
 
@@ -266,7 +285,7 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 |------|------|
 |level="storage" |寫入至 Azure 儲存體。|
 |level="critical" |寫入至服務匯流排佇列。 邏輯應用程式會從佇列擷取訊息，並使用 Office 365 以電子郵件傳送訊息。|
-|預設值 |使用 PowerBI 顯示此資料。|
+|預設值 |使用 Power BI 顯示此資料。|
 
 ### <a name="routing-to-a-storage-account"></a>路由至儲存體帳戶 
 
@@ -278,7 +297,7 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
    
    **端點類型**：從下拉式清單選取 [Azure 儲存體容器]。
 
-   按一下 [挑選容器] 以查看儲存體帳戶清單。 選取您的儲存體帳戶。 本教學課程使用 **contosoresultsstorage**。 然後選取容器。 本教學課程使用 **contosoresults**。 按一下 [選取]，回到 [新增端點] 窗格。 
+   按一下 [挑選容器] 以查看儲存體帳戶清單。 選取您的儲存體帳戶。 本教學課程使用 **contosostorage**。 然後選取容器。 本教學課程使用 **contosoresults**。 按一下 [選取]，回到 [新增端點] 窗格。 
    
    ![顯示新增端點的螢幕擷取畫面。](./media/tutorial-routing/add-endpoint-storage-account.png)
    
@@ -296,7 +315,7 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
    ![顯示建立儲存體帳戶路由規則的螢幕擷取畫面。](./media/tutorial-routing/create-a-new-routing-rule-storage.png)
    
-   按一下 [儲存]。 完成時會返回 [路由] 窗格，您可以在其中看到儲存體的新路由規則。 關閉 [路由] 窗格即會返回 [資源群組] 頁面。
+   按一下 [檔案] 。 完成時會返回 [路由] 窗格，您可以在其中看到儲存體的新路由規則。 關閉 [路由] 窗格即會返回 [資源群組] 頁面。
 
 ### <a name="routing-to-a-service-bus-queue"></a>路由至服務匯流排佇列 
 
@@ -328,7 +347,7 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
    ![顯示建立服務匯流排佇列路由規則的螢幕擷取畫面。](./media/tutorial-routing/create-a-new-routing-rule-sbqueue.png)
    
-   按一下 [儲存] 。 返回 [路由] 窗格中時，您會看到兩個新的路由規則顯示於此處。
+   按一下 [檔案] 。 返回 [路由] 窗格中時，您會看到兩個新的路由規則顯示於此處。
 
    ![顯示剛才設定的路由螢幕擷取畫面。](./media/tutorial-routing/show-routing-rules-for-hub.png)
 
@@ -386,11 +405,11 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
    ![顯示邏輯應用程式電子郵件選項的螢幕擷取畫面。](./media/tutorial-routing/logic-app-send-email.png)
 
-9. 按一下 [儲存] 。 然後關閉 Logic Apps 設計工具。
+9. 按一下 [檔案] 。 然後關閉 Logic Apps 設計工具。
 
 ## <a name="set-up-azure-stream-analytics"></a>設定 Azure 串流分析
 
-若要在 PowerBI 視覺效果中查看資料，請先設定串流分析作業來擷取資料。 請記住，只有 **level** 是 **normal** 的訊息會傳送至預設的端點，並由串流分析作業擷取該訊息以用於 PowerBI 視覺效果。
+若要在 Power BI 視覺效果中查看資料，請先設定串流分析作業來擷取資料。 請記住，只有 **level** 是 **normal** 的訊息會傳送至預設的端點，並由串流分析作業擷取該訊息以用於 Power BI 視覺效果。
 
 ### <a name="create-the-stream-analytics-job"></a>建立串流分析作業
 
@@ -405,6 +424,8 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
    **位置**：使用安裝指令碼中使用的相同位置。 本教學課程使用**美國西部**。 
 
    ![顯示如何建立串流分析作業的螢幕擷取畫面。](./media/tutorial-routing/stream-analytics-create-job.png)
+
+3. 按一下 [建立] 來建立作業。 若要回到作業，按一下 [資源群組]。 本教學課程使用 **ContosoResources**。 選取資源群組，然後按一下資源清單中的串流分析工作。 
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>將輸入新增至串流分析作業
 
@@ -428,19 +449,19 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
    ![顯示如何為串流分析作業設定輸入的螢幕擷取畫面。](./media/tutorial-routing/stream-analytics-job-inputs.png)
 
-5. 按一下 [儲存] 。
+5. 按一下 [檔案] 。
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>將輸出新增至串流分析作業
 
 1. 在 [作業拓撲] 之下，按一下 [輸出]。
 
-2. 在 [輸出] 窗格中，按一下 [新增]，然後選取 [PowerBI]。 在顯示的畫面上，填寫下列欄位：
+2. 在 [輸出] 窗格中，按一下 [新增]，然後選取 [Power BI]。 在顯示的畫面上，填寫下列欄位：
 
    **輸出別名**︰輸出的唯一別名。 本教學課程使用 **contosooutputs**。 
 
-   **資料集名稱**：PowerBI 中要使用的資料集名稱。 本教學課程使用 **contosodataset**。 
+   **資料集名稱**：Power BI 中要使用的資料集名稱。 本教學課程使用 **contosodataset**。 
 
-   **表格名稱**：PowerBI 中要使用的表格名稱。 本教學課程使用 **contosotable**。
+   **表格名稱**：Power BI 中要使用的表格名稱。 本教學課程使用 **contosotable**。
 
    對於其餘欄位，請採用預設值。
 
@@ -448,7 +469,7 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
    ![顯示如何為串流分析作業設定輸出的螢幕擷取畫面。](./media/tutorial-routing/stream-analytics-job-outputs.png)
 
-4. 按一下 [儲存] 。
+4. 按一下 [檔案] 。
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>設定串流分析作業的查詢
 
@@ -460,21 +481,21 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
    ![顯示如何為串流分析作業設定查詢的螢幕擷取畫面。](./media/tutorial-routing/stream-analytics-job-query.png)
 
-4. 按一下 [儲存] 。
+4. 按一下 [檔案] 。
 
-5. 關閉 [查詢] 窗格。
+5. 關閉 [查詢] 窗格。 您會回到資源群組中的資源檢視。 按一下串流分析作業。 本教學課程將它稱為 **contosoJob**。
 
 ### <a name="run-the-stream-analytics-job"></a>執行串流分析作業
 
 在串流分析作業中，按一下 [啟動] > [立即] > [啟動]。 成功啟動作業後，作業狀態會從 [已停止] 變更為 [執行中]。
 
-由於您需要資料來設定 PowerBI 報表，因此您要先建立裝置並執行裝置模擬應用程式，然後再設定 PowerBI。
+由於您需要資料來設定 Power BI 報表，因此您要先建立裝置並執行裝置模擬應用程式，然後再設定 Power BI。
 
 ## <a name="run-simulated-device-app"></a>執行模擬裝置應用程式
 
 在前面的指令碼設定一節中，您已設定裝置來模擬使用 IoT 裝置。 在本節中，您會下載模擬裝置的 .NET 主控台應用程式，來將裝置到雲端的訊息傳送至 IoT 中樞。 此應用程式會針對每個不同的路由方式傳送訊息。 
 
-下載 [IoT 裝置模擬](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)的解決方案。 這會下載包含數個應用程式的存放庫；您需要的解決方案位於 Tutorials/Routing/SimulatedDevice/。
+下載 [IoT 裝置模擬](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)的解決方案。 這會下載包含數個應用程式的存放庫；您需要的解決方案位於 iot-hub/Tutorials/Routing/SimulatedDevice/。
 
 按兩下解決方案檔案 (SimulatedDevice.sln)，從 Visual Studio 中開啟程式碼，然後開啟 Program.cs。 以 IoT 中樞的主機名稱取代 `{iot hub hostname}`。 IoT 中樞主機名稱的格式是 **{iot-hub-name}.azure-devices.net**。 在此教學課程中，中樞主機名稱是 **ContosoTestHub.azure-devices.net**。 接下來，以您稍早設定模擬裝置時儲存的裝置金鑰取代 `{device key}`。 
 
@@ -512,11 +533,11 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
    * 儲存體帳戶的路由可正確運作。
 
-趁著應用程式仍在執行時，現在請設定 PowerBI 視覺效果以查看來自預設路由的訊息。 
+趁著應用程式仍在執行時，現在請設定 Power BI 視覺效果以查看來自預設路由的訊息。 
 
-## <a name="set-up-the-powerbi-visualizations"></a>設定 PowerBI 視覺效果
+## <a name="set-up-the-power-bi-visualizations"></a>設定 Power BI 視覺效果
 
-1. 登入您的 [PowerBI](https://powerbi.microsoft.com/) 帳戶。
+1. 登入您的 [Power BI](https://powerbi.microsoft.com/) 帳戶。
 
 2. 請移至**工作區**，然後選取建立串流分析作業輸出時所設定的工作區。 本教學課程使用 **My Workspace**。 
 
@@ -526,7 +547,7 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
 4. 在 [動作] 之下，按一下第一個圖示以建立報告。
 
-   ![螢幕擷取畫面中顯示 PowerBI 工作區與動作，以及醒目提示的報表圖示。](./media/tutorial-routing/power-bi-actions.png)
+   ![螢幕擷取畫面中顯示 Power BI 工作區與動作，以及醒目提示的報表圖示。](./media/tutorial-routing/power-bi-actions.png)
 
 5. 建立折線圖以顯示一段時間的即時溫度。
 
@@ -544,7 +565,7 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
 7. 建立另一個折線圖以顯示一段時間的即時溼度。 若要設定第二個圖表，請遵循上述相同步驟，並將 **EventEnqueuedUtcTime** 放在 x 軸上，將 **humidity** 放在 y 軸上。
 
-   ![顯示最終 PowerBI 報表與兩個圖表的螢幕擷取畫面。](./media/tutorial-routing/power-bi-report.png)
+   ![顯示最終 Power BI 報表與兩個圖表的螢幕擷取畫面。](./media/tutorial-routing/power-bi-report.png)
 
 8. 按一下 [儲存] 以儲存報告。
 
@@ -552,17 +573,17 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
    * 預設端點的路由可正確運作。
    * Azure 串流分析作業工作可正確串流。
-   * PowerBI 視覺效果已正確設定。
+   * Power BI 視覺效果已正確設定。
 
-您可以按一下 PowerBI 視窗頂端的 [重新整理] 按鈕，以查看最新資料的圖表。 
+您可以按一下 Power BI 視窗頂端的 [重新整理] 按鈕，以查看最新資料的圖表。 
 
 ## <a name="clean-up-resources"></a>清除資源 
 
 如果您要移除所有已建立的資源，請刪除資源群組。 此動作會同時刪除群組內含的所有資源。 在此案例中，則會移除 IoT 中樞、服務匯流排命名空間和佇列、邏輯應用程式、儲存體帳戶和資源群組本身。 
 
-### <a name="clean-up-resources-in-the-powerbi-visualization"></a>清除 PowerBI 視覺效果中的資源
+### <a name="clean-up-resources-in-the-power-bi-visualization"></a>清除 Power BI 視覺效果中的資源
 
-登入您的 [PowerBI](https://powerbi.microsoft.com/) 帳戶。 移至工作區。 本教學課程使用 **My Workspace**。 若要移除 PowerBI 視覺效果，請移至 DataSets，然後按一下垃圾桶圖示來刪除資料集。 本教學課程使用 **contosodataset**。 當您移除資料集時，報表也會一併移除。
+登入您的 [Power BI](https://powerbi.microsoft.com/) 帳戶。 移至工作區。 本教學課程使用 **My Workspace**。 若要移除 Power BI 視覺效果，請移至 DataSets，然後按一下垃圾桶圖示來刪除資料集。 本教學課程使用 **contosodataset**。 當您移除資料集時，報表也會一併移除。
 
 ### <a name="clean-up-resources-using-azure-cli"></a>使用 Azure CLI 清除資源
 
@@ -589,15 +610,15 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 > * 在 IoT 中樞內設定儲存體帳戶和服務匯流排佇列的端點及路由。
 > * 建立邏輯應用程式，使其在訊息新增至服務匯流排佇列時觸發並傳送電子郵件。
 > * 下載並執行模擬 IoT 裝置的應用程式，針對不同路由選項將訊息傳送至中樞。
-> * 為傳送至預設端點的資料建立 PowerBI 視覺效果。
+> * 為傳送至預設端點的資料建立 Power BI 視覺效果。
 > * 檢視結果...
 > * ...在服務匯流排佇列和電子郵件中。
 > * ...在儲存體帳戶中。
-> * ...在 PowerBI 視覺效果中。
+> * ...在 Power BI 視覺效果中。
 
 前進至下一個教學課程，以了解如何管理 IoT 裝置的狀態。 
 
 > [!div class="nextstepaction"]
-[開始使用 Azure IoT 中樞裝置對應項](iot-hub-node-node-twin-getstarted.md)
+[從後端服務設定您的裝置](tutorial-device-twins.md)
 
  <!--  [Manage the state of a device](./tutorial-manage-state.md) -->

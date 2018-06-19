@@ -12,14 +12,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2018
+ms.date: 06/06/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: 001aadc3dee03a9868a2a78e8dfc280d504633e1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f612eb9647bf64a9435b1c667700bf717d445931
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824681"
 ---
 # <a name="virtual-network-service-endpoints"></a>虛擬網路服務端點
 
@@ -31,6 +32,7 @@ ms.lasthandoff: 05/07/2018
 - **Azure SQL Database**：已在所有 Azure 區域正式推出
 - **Azure Cosmos DB**：已在所有 Azure 公用雲端區域正式推出 
 - **Azure SQL 資料倉儲**：在所有 Azure 公用雲端區域為預覽狀態
+- **適用於 PostgreSQL 和 MySQL 的 Azure 資料庫服務**：在有提供資料庫服務的 Azure 區域中可供預覽。
 
 如需最新通知，請查看 [Azure 虛擬網路更新](https://azure.microsoft.com/updates/?product=virtual-network)頁面。
 
@@ -98,7 +100,7 @@ ms.lasthandoff: 05/07/2018
   - 指出服務的更直接連線已作用 (相較於任何強制通道路由)
 
 >[!NOTE]
-> 服務端點路由會覆寫 Azure 服務之位址前置詞相符項目的任何 BGP 或 UDR 路由。 深入了解[有效路由的疑難排解](virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow)
+> 服務端點路由會覆寫 Azure 服務之位址前置詞相符項目的任何 BGP 或 UDR 路由。 深入了解[有效路由的疑難排解](diagnose-network-routing-problem.md)
 
 ## <a name="provisioning"></a>佈建
 

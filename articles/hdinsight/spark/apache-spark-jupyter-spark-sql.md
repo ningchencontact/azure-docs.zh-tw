@@ -12,11 +12,12 @@ ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: jgao
 ms.custom: mvc
-ms.openlocfilehash: ca44354b6aa51cae9218594ba5120d9c4a6f5ece
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 06d711c99a6aaffe85adf740d2041c9fcc35ac23
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628091"
 ---
 # <a name="quickstart-create-a-spark-cluster-in-hdinsight-using-template"></a>快速入門：使用範本在 HDInsight 中建立 Spark 叢集
 
@@ -53,6 +54,12 @@ ms.lasthandoff: 05/07/2018
 3. 選取 [我同意上方所述的條款及條件]，選取 [釘選到儀表板]，然後選取 [購買]。 您可以看到標題為 [進行範本部署] 的新圖格。 大約需要 20 分鐘的時間來建立叢集。 您必須先建立叢集，才能繼續前往下一個工作階段。
 
 如果您在建立 HDInsight 叢集時遇到問題，可能是您沒有這麼做的適當權限。 如需詳細資訊，請參閱[存取控制需求](../hdinsight-administer-use-portal-linux.md#create-clusters)。
+
+## <a name="install-intellijeclipse-for-spark-application"></a>安裝 IntelliJ/Eclipse for Spark 應用程式
+使用適用於 IntelliJ/Eclipse 外掛程式的 Azure 工具組來開發以 Scala 撰寫的 Spark 應用程式，然後直接從 IntelliJ/Eclipse 整合式開發環境 (IDE) 將它們提交到 Azure HDInsight Spark 叢集。 如需詳細資訊，請參閱[使用 IntelliJ 撰寫/提交 Spark 應用程式](./apache-spark-intellij-tool-plugin.md)和[使用 Eclipse 撰寫/提交 Spark 應用程式](./apache-spark-eclipse-tool-plugin.md)。
+
+## <a name="install-vscode-for-pysparkhive-applications"></a>安裝 VSCode for PySpark/hive 應用程式
+了解如何使用適用於 Visual Studio Code (VS Code) 的 Azure HDInsight 工具來建立、提交 Hive 批次作業、互動式 Hive 查詢、PySpark 批次和 pySpark 互動式指令碼。 Azure HDInsight 工具可以安裝於 VSCode 所支援的平台上。 這些包括 Windows、Linux 及 MacOS。 如需詳細資訊，請參閱[使用 VSCode 撰寫/提交 PySpark 應用程式](../hdinsight-for-vscode.md)。
 
 ## <a name="create-a-jupyter-notebook"></a>建立 Jupyter Notebook
 

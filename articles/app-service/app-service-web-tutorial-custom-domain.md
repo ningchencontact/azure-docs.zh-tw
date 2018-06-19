@@ -16,11 +16,12 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 431268082b24d23289188f5422cd596dc5f37d30
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a9f1e66a4c55d866d9f174528eb4912c3b9391c0
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714510"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>教學課程：將現有的自訂 DNS 名稱對應至 Azure Web Apps
 
@@ -81,19 +82,19 @@ ms.lasthandoff: 04/06/2018
 
 ![相應增加功能表](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
-會以藍色框線醒目顯示應用程式目前的層。 請檢查以確定您的應用程式不是位於**免費**層。 **免費**層不支援自訂 DNS。 
+會以藍色框線醒目顯示應用程式目前的層。 請檢查以確定您的應用程式不是位於 **F1** 層。 **F1** 層不支援自訂 DNS。 
 
 ![檢查定價層](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
-如果 App Service 方案不是**免費**，請關閉 [選擇定價層] 分頁，然後跳至 [對應 CNAME 記錄](#cname)。
+如果 App Service 方案不是位於 **F1** 層，請關閉 [相應增加] 分頁，然後跳至 [對應 CNAME 記錄](#cname)。
 
 <a name="scaleup"></a>
 
 ### <a name="scale-up-the-app-service-plan"></a>相應增加 App Service 方案
 
-選取任一個非免費層 (**共用**、**基本**、**標準**或**進階**)。 
+選取任何非免費層 (**D1**、**B1****B2****B3**或「生產」類別中的任何一層)。 如需其他選項，按一下 [查看其他選項]。
 
-按一下 [選取] 。
+按一下 [套用]。
 
 ![檢查定價層](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 

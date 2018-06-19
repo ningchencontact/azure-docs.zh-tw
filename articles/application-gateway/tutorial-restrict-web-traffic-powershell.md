@@ -11,14 +11,14 @@ ms.workload: infrastructure-services
 ms.date: 3/22/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a3bd3e772c6c80bb86af7f6aac6a578e857a3f2d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 0ef9ad7705c240e1c06c80ba3b765fa7aad8c70a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356268"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598839"
 ---
-# <a name="restrict-web-traffic-with-a-web-application-firewall-using-azure-powershell"></a>使用 Azure PowerShell 以 Web 應用程式防火牆來限制網路流量
+# <a name="enable-web-application-firewall-using-azure-powershell"></a>使用 Azure PowerShell 啟用 Web 應用程式防火牆
 
 您可以使用 [Web 應用程式防火牆](waf-overview.md) (WAF)，限制[應用程式閘道](overview.md)上的流量。 WAF 會使用 [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 規則來保護您的應用程式。 這些規則包括防禦諸如 SQL 插入攻擊、跨網站指令碼攻擊，以及工作階段劫持等攻擊。 
 
@@ -31,6 +31,8 @@ ms.locfileid: "34356268"
 > * 建立儲存體帳戶並設定診斷
 
 ![Web 應用程式防火牆範例](./media/tutorial-restrict-web-traffic-powershell/scenario-waf.png)
+
+如果您想要，您可以使用 [Azure CLI](tutorial-restrict-web-traffic-cli.md) 完成本教學課程。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 

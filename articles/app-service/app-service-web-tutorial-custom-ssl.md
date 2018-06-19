@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: b9adae07bc95e385e9932250f7eb91115396f275
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ec58b5ef2b9095ba420a4518b84c4e2e6200abc3
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193449"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714573"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>教學課程：將現有的自訂 SSL 憑證繫結至 Azure Web Apps
 
@@ -84,17 +84,17 @@ Azure Web Apps 提供可高度擴充、自我修復的 Web 主機服務。 本�
 
 ![相應增加功能表](./media/app-service-web-tutorial-custom-ssl/scale-up-menu.png)
 
-請檢查以確定您的 web 應用程式不在**免費**或**共用** 層中。 系統會以深藍色方塊醒目顯示 Web 應用程式目前的層。
+請檢查以確定您的 Web 應用程式不在 **F1** 或 **D1** 層中。 系統會以深藍色方塊醒目顯示 Web 應用程式目前的層。
 
 ![檢查定價層](./media/app-service-web-tutorial-custom-ssl/check-pricing-tier.png)
 
-**免費**和**共用**層中不支援自訂 SSL。 如果您需要相應增加，請遵循下一節中的步驟來進行。 否則，請關閉 [選擇定價層] 頁面，然後跳至[上傳並繫結 SSL 憑證](#upload)。
+**F1** 或 **D1** 層中不支援自訂 SSL。 如果您需要相應增加，請遵循下一節中的步驟來進行。 否則，請關閉 [相應增加] 頁面，然後跳至[上傳並繫結 SSL 憑證](#upload)。
 
 ### <a name="scale-up-your-app-service-plan"></a>相應增加您的 App Service 方案
 
-選取**基本****標準**或**高階**層的其中一個。
+選取任何非免費層 (**B1**、**B2****B3**或「生產」類別中的任何一層)。 如需其他選項，按一下 [查看其他選項]。
 
-按一下 [選取] 。
+按一下 [套用]。
 
 ![選擇定價層](./media/app-service-web-tutorial-custom-ssl/choose-pricing-tier.png)
 

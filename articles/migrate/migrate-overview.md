@@ -4,15 +4,15 @@ description: 提供 Azure Migrate 服務的概觀。
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 05/15/2018
+ms.date: 06/08/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5c63d74158087d2011478d038d41fc1bae44190e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 68f335762e1fdd68296d7056ef5826f69c868d70
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202842"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236360"
 ---
 # <a name="about-azure-migrate"></a>關於 Azure Migrate
 
@@ -47,13 +47,13 @@ Azure Migrate 可協助您：
 
 **屬性** | **詳細資料**
 --- | ---
-**目標位置** | 要作為移轉目的地的 Azure 位置。<br/><br/>Azure Migrate 目前支援 30 個區域，包括澳大利亞東部、澳大利亞東南部、巴西南部、加拿大中部、加拿大東部、印度中部、美國中部、中國東部、中國北部、東亞、美國東部、德國中部、德國東北部、美國東部 2、日本東部、日本西部、韓國中部、韓國南部、美國中北部、北歐、美國中南部、東南亞、印度南部、英國南部、英國西部、US Gov 維吉尼亞州、US Gov 德克薩斯州、US Gov 維吉尼亞州、美國中西部、西歐、印度西部、美國西部和美國西部 2。 根據預設，目標位置會設定為美國西部 2。
-**儲存體備援** | Azure VM 會在移轉後使用的[儲存體備援](https://docs.microsoft.com/azure/storage/common/storage-redundancy)類型。 [本地備援儲存體 (LRS)] 是預設值。 請注意，Azure Migrate 只支援以受控磁碟為基礎的評估，而受控磁碟只支援 LRS，因此此屬性目前只有 LRS 選項。
-**調整大小準則** | Azure Migrate 用於為 Azure 設定適當 VM 大小的準則。 您可以根據內部部署 VM 的「效能歷程記錄」調整大小，或將 Azure 的 VM 大小調整為「內部部署」，而不需考量效能歷程記錄。 預設值是根據效能調整大小。
-**定價方案** | 計算成本時，評估會考量您是否具有軟體保證，以及是否享有 [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/)。 它也會考量您已註冊的 [Azure 優惠](https://azure.microsoft.com/support/legal/offer-details/)，並允許您指定該項優惠所能享有的任何訂用帳戶專屬折扣 (%)。
+**目標位置** | 要作為移轉目的地的 Azure 位置。<br/><br/>Azure Migrate 目前支援 30 個區域，包括澳大利亞東部、澳大利亞東南部、巴西南部、加拿大中部、加拿大東部、印度中部、美國中部、中國東部、中國北部、東亞、美國東部、德國中部、德國東北部、美國東部 2、日本東部、日本西部、南韓中部、南韓南部、美國中北部、北歐、美國中南部、東南亞、印度南部、英國南部、英國西部、US Gov 維吉尼亞州、US Gov 德克薩斯州、US Gov 維吉尼亞州、美國中西部、西歐、印度西部、美國西部和美國西部 2。 根據預設，目標位置會設定為美國西部 2。
+**儲存體類型** | 您可以指定要在 Azure 中配置的磁碟類型。 當調整大小準則為「作為內部部署調整大小」時，才適用此屬性。 您可以將目標磁碟類型指定為進階受控磁碟或標準受控磁碟。 預設值是進階受控磁碟。 若以效能為基礎調整大小，則會根據 VM 的效能資料自動建議磁碟。 請注意，Azure Migrate 只支援將受控磁碟用於進行移轉評估。
+**調整大小準則** | Azure Migrate 用於為 Azure 設定適當 VM 大小的準則。 您可以根據內部部署 VM 的「效能歷程記錄」調整大小，或將 Azure 的 VM 大小調整為「內部部署」，而不需考量效能歷程記錄。 預設值是「作為內部部署調整大小」。
+**定價方案** | 計算成本時，評估會考量您是否具有軟體保證，以及是否享有 [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/)。 它也會考量您已註冊的 [Azure 供應項目](https://azure.microsoft.com/support/legal/offer-details/)，並允許您指定該項供應項目所能享有的任何訂用帳戶專屬折扣 (%)。
 **定價層** | 您可以指定目標 Azure VM 的[定價層 (基本/標準)](../virtual-machines/windows/sizes-general.md)。 例如，如果您打算移轉到生產環境，則可考慮標準層，這會提供低延遲的 VM，但成本可能比較高。 另一方面，如果您具有開發測試環境，則可以考慮基本層，其中有較高延遲和較低成本的 VM。 預設會使用[標準](../virtual-machines/windows/sizes-general.md)層。
 **效能歷程記錄** | 根據預設，Azure Migrate 會使用最後一天的效能歷程記錄 (95% 百分位數值) 來評估內部部署機器的效能。 您可以在評估屬性中修改這些值。
-**虛擬機器系列** | 您可以指定考慮要正確調整大小的虛擬機器系列。 例如，如果您不打算將生產環境移轉至 Azure 中的 A 系列虛擬機器，您可以從清單或系列排除 A 系列，正確調整大小只會在選取的系列中完成。  
+**VM 系列** | 您可以指定考慮要正確調整大小的 VM 系列。 例如，如果您不打算將生產環境移轉至 Azure 中的 A 系列虛擬機器，則可以從清單或系列排除 A 系列，而正確調整大小只會在選取的系列中完成。  
 **緩和因數** | Azure Migrate 會在評估期間考量緩衝區 (緩和因數)。 此緩衝區適用於 VM 的機器使用量資料 (CPU、記憶體、磁碟和網路)。 緩和因數會考量各個問題，例如季節性使用量、簡短的效能歷程記錄，以及未來可能增加的使用量。<br/><br/> 例如，10 核心的 VM，如果使用率只達 20%，一般即相當於一個 2 核心的 VM。 但如果緩和因數為 2.0 x，則結果為 4 核心的 VM。 預設緩和設定為 1.3x。
 
 
@@ -62,7 +62,7 @@ Azure Migrate 可協助您：
 1.  您可建立 Azure Migrate 專案。
 2.  Azure Migrate 會使用稱為收集器設備的內部部署 VM，探索您的內部部署機器相關資訊。 若要建立設備，您可下載開放虛擬化設備 (.ova) 格式的安裝檔案，然後將它匯入為內部部署 vCenter Sever 上的 VM。
 3.  您在 vCenter Server 中使用主控台連線來連線到 VM，在連線時為 VM 指定新密碼，然後在 VM 中執行收集器應用程式來開始探索。
-4.  收集器會使用 VMware PowerCLI Cmdlet 來收集 VM 中繼資料。 探索是無代理程式的，而且不會在 VMware 主機或 VM 上安裝任何項目。 所收集的中繼資料包含 VM 資訊 (核心、記憶體、磁碟、磁碟大小和網路介面卡)。 它也會收集 VM 的效能資料，包括 CPU 和記憶體使用量、磁碟 IOPS、磁碟輸送量 (MBps) 以及網路輸出 (MBps)。
+4.  收集器會使用 VMware PowerCLI Cmdlet 來收集 VM 中繼資料。 探索是無代理程式的，而且不會在 VMware 主機或 VM 上安裝任何項目。 所收集的中繼資料包含 VM 資訊 (核心、記憶體、磁碟、磁碟大小和網路介面卡。 它也會收集 VM 的效能資料，包括 CPU 和記憶體使用量、磁碟 IOPS、磁碟輸送量 (MBps) 以及網路輸出 (MBps)。
 5.  中繼資料會推送至 Azure Migrate 專案。 您可以在 Azure 入口網站中檢視它。
 6.  基於評估目的，您會將探索到的 VM 集合成群組。 例如，您可將執行相同應用程式的 VM 群組在一起。 如需更精確的群組，您可以使用相依性視覺效果來檢視特定機器的相依性，或檢視群組中所有機器的相依性並調整群組。
 7.  在群組形成後，您可建立群組的評估。
@@ -100,4 +100,6 @@ Azure Migrate 可協助您：
 
 
 ## <a name="next-steps"></a>後續步驟
-[請遵循教學課程](tutorial-assessment-vmware.md)，以建立內部部署 VMware VM 的評估。
+
+- [請遵循教學課程](tutorial-assessment-vmware.md)，以建立內部部署 VMware VM 的評估。
+- [深入了解](resources-faq.md) Azure Migrate 常見問題集

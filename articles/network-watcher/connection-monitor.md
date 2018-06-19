@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: bfd9552a0d7c3b1e631fcc1a25d240608754c6a3
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 9b13b8ae0b64dc84e476f5fc5da59ea30702fd8d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639022"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站監視兩部虛擬機器之間的網路通訊
 
@@ -57,7 +58,7 @@ ms.lasthandoff: 05/03/2018
     |位置| 選取 [美國東部]|
 
 4. 選取 VM 的大小，然後選取 [選取]。
-5. 在 [設定] 底下，選取 [擴充功能]。 選取 [新增擴充功能]，然後選取 [適用於 Windows 的網路監看員代理程式]，如下圖所示：
+5. 在 [設定] 底下，選取 [延伸模組]。 選取 [新增擴充功能]，然後選取 [適用於 Windows 的網路監看員代理程式]，如下圖所示：
 
     ![網路監看員代理程式擴充功能](./media/connection-monitor/nw-agent-extension.png)
 
@@ -141,7 +142,7 @@ ms.lasthandoff: 05/03/2018
 
 5. 因為連線監視會每隔 60 秒進行探查，所以請稍候幾分鐘，然後在入口網站左側，依序選取 [網路監看員]、[連線監視]，然後再次選取 [myVm1-myVm2(22)] 監視。 現在結果會不同，如下圖所示：
 
-    ![監視詳細資料錯誤](./media/connection-monitor/vm-monitor-fault .png)
+    ![監視詳細資料錯誤](./media/connection-monitor/vm-monitor-fault.png)
 
     您可以在 **myvm2529** 網路介面的狀態資料行中看到紅色驚嘆號圖示。
 

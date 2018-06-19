@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 6b01a4c88f3dbb4d24566e514fd5989cda11005a
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 47b3ca20b32188f3cf102934c7f21d6418f3c2f6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639338"
 ---
 # <a name="what-is-azure-network-watcher"></a>什麼是 Azure 網路監看員？
 
@@ -48,11 +49,11 @@ Azure 網路監看員提供了相關工具，可對 Azure 虛擬網路中的資�
 
 ### <a name="diagnose-network-traffic-filtering-problems-to-or-from-a-vm"></a>診斷進出於 VM 的網路流量篩選問題
 
-當您部署 VM 時，Azure 會將數個預設安全性規則套用至 VM，以允許或拒絕進出於 VM 的流量。 您可以覆寫 Azure 的預設規則，或建立其他規則。 在某些時候，VM 可能會因為安全性規則而變得無法與其他資源通訊。 *IP 流量驗證*功能可讓您指定來源和目的地 IPv4 位址、連接埠、通訊協定 (TCP 或 UDP)，以及流量方向 (輸入或輸出)。 然後，IP 流量驗證會測試通訊，並在連線成功或失敗時通知您。 如果連線失敗，IP 流量驗證會指出允許或拒絕通訊的安全性規則，以便您解決問題。 深入了解 [IP 流程驗證](network-watcher-ip-flow-verify-overview.md)。
+當您部署 VM 時，Azure 會將數個預設安全性規則套用至 VM，以允許或拒絕進出於 VM 的流量。 您可以覆寫 Azure 的預設規則，或建立其他規則。 在某些時候，VM 可能會因為安全性規則而變得無法與其他資源通訊。 *IP 流量驗證*功能可讓您指定來源和目的地 IPv4 位址、連接埠、通訊協定 (TCP 或 UDP)，以及流量方向 (輸入或輸出)。 然後，IP 流量驗證會測試通訊，並在連線成功或失敗時通知您。 如果連線失敗，IP 流量驗證會指出允許或拒絕通訊的安全性規則，以便您解決問題。 透過完成[診斷虛擬機器網路流量篩選問題](diagnose-vm-network-traffic-filtering-problem.md)教學課程，來深入了解 IP 流量驗證。
 
 ### <a name="diagnose-network-routing-problems-from-a-vm"></a>診斷來自 VM 的網路路由問題
 
-當您建立虛擬網路時，Azure 會為網路流量建立數個預設輸出路由。 所有資源 (例如在虛擬網路中部署的 VM) 的輸出流量都會根據 Azure 的預設路由進行路由傳送。 您可以覆寫 Azure 的預設路由，或建立其他路由。 您可能會發現 VM 因特定的路徑而無法再與其他資源通訊。 *下一個躍點*功能可讓您指定來源和目的地 IPv4 位址。 接著，下一個躍點會測試通訊，並向您指出用來路由流量的何種類型的下一個躍點。 其後，您可以移除、變更或新增路由，以解決路由問題。 深入了解[下一個躍點](network-watcher-next-hop-overview.md?)功能。
+當您建立虛擬網路時，Azure 會為網路流量建立數個預設輸出路由。 所有資源 (例如在虛擬網路中部署的 VM) 的輸出流量都會根據 Azure 的預設路由進行路由傳送。 您可以覆寫 Azure 的預設路由，或建立其他路由。 您可能會發現 VM 因特定的路徑而無法再與其他資源通訊。 *下一個躍點*功能可讓您指定來源和目的地 IPv4 位址。 接著，下一個躍點會測試通訊，並向您指出用來路由流量的何種類型的下一個躍點。 其後，您可以移除、變更或新增路由，以解決路由問題。 深入了解[下一個躍點](diagnose-vm-network-routing-problem.md)功能。
 
 ### <a name="connection-troubleshoot"></a>診斷來自 VM 的輸出連線
 
@@ -64,7 +65,7 @@ Azure 網路監看員提供了相關工具，可對 Azure 虛擬網路中的資�
 
 ### <a name="diagnose-problems-with-an-azure-virtual-network-gateway-and-connections"></a>對 Azure 虛擬網路閘道和連線進行疑難排解
 
-虛擬網路閘道可提供內部部署資源與 Azure 虛擬網路之間的連線。 監視閘道器及其連線，對於確保通訊不中斷至關重要。 *VPN 診斷*功能可讓您診斷閘道與連線。 「VPN 診斷」可診斷閘道或閘道連線的健全狀況，並向您指出閘道和閘道連線是否可供使用。 如果閘道或連線無法使用，VPN 診斷將會為您說明其原因，以便解決問題。 深入了解 [VPN 診斷](network-watcher-troubleshoot-overview.md)。
+虛擬網路閘道可提供內部部署資源與 Azure 虛擬網路之間的連線。 監視閘道器及其連線，對於確保通訊不中斷至關重要。 *VPN 診斷*功能可讓您診斷閘道與連線。 「VPN 診斷」可診斷閘道或閘道連線的健全狀況，並向您指出閘道和閘道連線是否可供使用。 如果閘道或連線無法使用，VPN 診斷將會為您說明其原因，以便解決問題。 透過完成[診斷網路之間的通訊問題](diagnose-communication-problem-between-networks.md)教學課程，來深入了解 VPN。
 
 ### <a name="determine-relative-latencies-between-azure-regions-and-internet-service-providers"></a>判斷 Azure 區域和網際網路服務提供者之間的相對延遲
 
@@ -90,7 +91,7 @@ Azure 網路監看員提供了相關工具，可對 Azure 虛擬網路中的資�
 
 ![流量分析](./media/network-watcher-monitoring-overview/traffic-analytics.png)
 
-深入了解 [NSG 流量記錄](network-watcher-nsg-flow-logging-overview.md)和[流量分析](traffic-analytics.md)。
+透過完成[記錄來往虛擬機器的網路流量](network-watcher-nsg-flow-logging-portal.md)教學課程，以深入了解 NSG 流程記錄及如何實作[流量分析](traffic-analytics.md)。
 
 ### <a name="view-diagnostic-logs-for-network-resources"></a>檢視網路資源的診斷記錄
 

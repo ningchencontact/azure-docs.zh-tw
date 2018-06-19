@@ -2,24 +2,22 @@
 title: 適用於 Azure 的 MongoDB、Angular 及 Node 教學課程 - 第 2 部分 | Microsoft Docs
 description: 本教學課程系列的第 2 部分，有關使用您用於 MongoDB 的完全相同 API，以 Azure Cosmos DB 上的 Angular 和 Node 建立 MongoDB 應用程式。
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
 editor: ''
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: ''
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 9d3c3209807a201f11d4d0a4ddd905f332a3951f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b35f003c18e19eafd3dfa9988409ceacb44e3bc4
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798061"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-2-create-a-nodejs-express-app-with-the-angular-cli"></a>使用 Angular 和 Azure Cosmos DB 建立 MongoDB 應用程式 - 第 2 部分：使用 Angular CLI 建立 Node.js Expres 應用程式 
 
@@ -65,10 +63,10 @@ ms.lasthandoff: 04/16/2018
 
 ## <a name="use-the-angular-cli-to-create-a-new-project"></a>使用 Angular CLI 建立新的專案
 
-1. 在命令提示字元，變更為您要在其中建立新專案的資料夾，然後執行下列命令。 此命令會建立新的資料夾和名為 angular-cosmosdb 的專案，並安裝新應用程式所需的 Angular 元件。 它也會在 src/client 資料夾 (-sd src/client) 中安裝原始碼，使用最小安裝 (--minimal)，並指定專案使用 Sass (具有旗標 --style scss 的類似 CSS 語法)。
+1. 在命令提示字元，變更為您要在其中建立新專案的資料夾，然後執行下列命令。 此命令會建立新的資料夾和名為 angular-cosmosdb 的專案，並安裝新應用程式所需的 Angular 元件。 它會使用最小安裝 (--minimal)，並指定專案使用 Sass (具有旗標 --style scss 的類似 CSS 語法)。
 
     ```bash
-    ng new angular-cosmosdb -sd src/client --minimal --style scss
+    ng new angular-cosmosdb --minimal --style scss
     ```
 
 2. 一旦命令完成，將目錄變更為 src/client 資料夾。
@@ -151,11 +149,9 @@ ms.lasthandoff: 04/16/2018
 
 7. 儲存所有已修改的檔案。 
 
-8. 在 Visual Studio Code 中，按一下 [偵錯] 按鈕![Visual Studio Code 中的偵錯圖示](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png)，按一下齒輪按鈕![Visual Studio Code 中的齒輪按鈕](./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png)，然後選取 **Node.js** 以建立組態。
+8. 在 Visual Studio Code 中，按一下 [偵錯] 按鈕![Visual Studio Code 中的偵錯圖示](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png)，按一下齒輪按鈕![Visual Studio Code 中的齒輪按鈕](./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png)。 新的 launch.json 檔案隨即在 Visual Studio Code 中開啟。
 
-   新的 launch.json 檔案隨即在 Visual Studio Code 中開啟。
-
-8. 在 launch.json 檔案的第 11 行，將 `"program": "${file}"` 變更為 `"program": "${workspaceRoot}/src/server/index.js"` 並儲存檔案。
+8. 在 launch.json 檔案的第 11 行，將 `"${workspaceFolder}\\server"` 變更為 `"program": "${workspaceRoot}/src/server/index.js"` 並儲存檔案。
 
 9. 按一下 [開始偵錯] 按鈕![Visual Studio 程式碼中的偵錯圖示](./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png)以執行應用程式。
 

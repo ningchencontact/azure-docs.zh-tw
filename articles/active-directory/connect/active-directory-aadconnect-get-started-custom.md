@@ -12,13 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/02/2018
+ms.date: 06/07/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d7d1beff419ed2bf4c58f0646cd6c8aacf8e5e7b
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: f40f2102729cc317f74bd5a91b17a349a7824476
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849986"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>自訂 Azure AD Connect 安裝
 當您想要更多安裝選項時，可使用 Azure AD Connect **自訂設定** 。 如果您有多個樹系，或如果您想要設定未涵蓋在快速安裝中的選用功能，可使用它。 只要是[**快速安裝**](active-directory-aadconnect-get-started-express.md)選項不能滿足部署或拓撲的情況，就可使用它。
@@ -214,12 +216,11 @@ ms.lasthandoff: 05/11/2018
 1.  開啟 [群組原則管理工具]
 2.  編輯會套用至所有使用者的群組原則。 例如，預設網域原則。
 3.  瀏覽至 **User Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page**，並根據下圖選取 [指派網站到區域清單]。
-4.  啟用原則，並在對話方塊中輸入下列兩個項目。
+4.  啟用原則，並在對話方塊中輸入下列項目。
 
         Value: `https://autologon.microsoftazuread-sso.com`  
         Data: 1  
-        Value: `https://aadg.windows.net.nsatc.net`  
-        Data: 1
+    
 
 5.  看起來應該會像下面這樣：  
 ![內部網路區域](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
@@ -227,7 +228,7 @@ ms.lasthandoff: 05/11/2018
 6.  按兩次 [確定]。
 
 ## <a name="configuring-federation-with-ad-fs"></a>設定與 AD FS 同盟
-只要簡單按幾下，即可使用 Azure AD Connect 設定 AD FS。 進行設定之前必須先具備下列項目。
+使用 Azure AD Connect 設定 AD FS 的作業很簡單，只需要按幾下就能完成。 進行設定之前必須先具備下列項目。
 
 * 做為同盟伺服器的 Windows Server 2012 R2 或更新版本伺服器，且已啟用遠端管理
 * 做為 Web 應用程式 Proxy 伺服器的 Windows Server 2012 R2 或更新版本伺服器，且已啟用遠端管理
@@ -303,7 +304,7 @@ AD FS 服務需要網域服務帳戶來驗證使用者，以及在 Active Direct
 >
 
 ## <a name="configuring-federation-with-pingfederate"></a>設定與 PingFederate 的同盟
-只要簡單按幾下，即可使用 Azure AD Connect 設定 PingFederate。 進行設定之前必須先具備下列項目。  但您必須符合下列必要條件。
+使用 Azure AD Connect 設定 PingFederate 的作業很簡單，只需要按幾下就能完成。 但您必須符合下列必要條件。
 - PingFederate 8.4 或更新版本。  如需詳細資訊，請參閱 [PingFederate 與 Azure Active Directory 和 Office 365 的整合](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html)
 - 您想要使用的 Federation Service 名稱 (例如 sts.contoso.com) 的 SSL 憑證
 

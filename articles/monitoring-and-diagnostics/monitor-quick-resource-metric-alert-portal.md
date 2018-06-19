@@ -1,20 +1,20 @@
 ---
-title: 當計量值符合條件時收到通知 | Microsoft Docs
+title: 當計量值符合條件時收到通知
 description: 協助使用者為邏輯應用程式建立計量的快速入門指南
 author: anirudhcavale
-manager: orenr
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
+services: azure-monitor
+ms.service: azure-monitor
 ms.topic: quickstart
 ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 0bbb7d7036c18675a64171a8bbf5c7fa46d53336
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: alerts
+ms.openlocfilehash: 01955ba7a61b3eb46be6bad72c7243c4918add12
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263043"
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>當計量值符合條件時收到通知
 
@@ -69,7 +69,7 @@ Azure 監視器提供適用於許多 Azure 資源的計量。 這些計量可表
 
 2. 選取 [計量] 索引標籤，填入邏輯應用程式的 [訂用帳戶]、[資源群組]、[資源類型] 和 [資源]資訊。
 
-3. 從計量清單中，選擇 [已啟動執行]。
+3. 從計量清單中，選擇 [執行失敗]。
 
 4. 修改圖表的 [時間範圍] 以顯示過去一小時的資料。
 

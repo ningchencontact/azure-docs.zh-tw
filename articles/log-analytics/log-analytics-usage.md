@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/29/2018
+ms.date: 06/05/2018
 ms.author: magoedte
-ms.openlocfilehash: 7e141dcf69c1a173c60cb96907cae2ba9f119b03
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: ed2e77553cc72caa6a7b48fe6fa6baab0ffafec5
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802046"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>在 Log Analytics 中分析資料使用量
 Log Analytics 包含下列資訊：收集的資料量、傳送資料的來源，以及傳送的不同資料類型。  使用 [Log Analytics 使用量] 儀表板來檢閱和分析資料使用量。 此儀表板會顯示每個解決方案所收集的資料量，以及您的電腦正在傳送的資料量。
@@ -116,7 +117,7 @@ Log Analytics [警示](log-analytics-alerts-creating.md)會使用搜尋查詢。
 
 接下來，回到「使用量」儀表板並查看「依解決方案的資料磁碟區」圖表。 若要查看針對某個解決方案傳送最多資料的電腦，請按一下清單中的解決方案名稱。 按一下清單中第一個解決方案的名稱。 
 
-在下列螢幕擷取畫面中，它會確認 acmetomcat 電腦針對記錄管理解決方案傳送最多資料。<br><br> ![解決方案的資料量](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)<br><br>
+在下列螢幕擷取畫面中，它會確認 mycon 電腦針對記錄管理解決方案傳送最多資料。<br><br> ![解決方案的資料量](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)<br><br>
 
 如有需要，請執行其他分析，找出解決方案或資料類型中的大型磁碟區。 查詢範例包括：
 

@@ -3,26 +3,24 @@ title: 適用於圖形 API 的 Azure Cosmos DB 全域散發教學課程 | Micros
 description: 了解如何使用「圖形 API」來設定 Azure Cosmos DB 全域散發。
 services: cosmos-db
 keywords: 全域散發, 圖形, gremlin
-documentationcenter: ''
 author: luisbosquez
 manager: kfile
 editor: cgronlun
-ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-graph
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 273b5aeafbf67016259da787f4dfef078ec0a669
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 61004a735f731cfd1303cf40b6e60cba496e942a
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763675"
 ---
-# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-graph-api"></a>如何使用圖形 API 來設定 Azure Cosmos DB 全域散發
+# <a name="set-up-azure-cosmos-db-global-distribution-using-the-graph-api"></a>使用圖形 API 來設定 Azure Cosmos DB 全域散發
 
 在本文中，我們會說明如何使用 Azure 入口網站來設定 Azure Cosmos DB 全域散發，然後使用「圖形 API」來進行連線。
 

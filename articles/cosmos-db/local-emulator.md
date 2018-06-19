@@ -2,24 +2,21 @@
 title: 使用 Azure Cosmos DB 模擬器在本機開發 | Microsoft Docs
 description: 您也可以免費使用 Azure Cosmos DB 模擬器在本機開發及測試應用程式，不需建立 Azure 訂用帳戶。
 services: cosmos-db
-documentationcenter: ''
 keywords: Azure Cosmos DB 模擬器
 author: David-Noble-at-work
 manager: kfile
 editor: ''
-ms.assetid: 90b379a6-426b-4915-9635-822f1a138656
 ms.service: cosmos-db
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.devlang: na
+ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: danoble
-ms.openlocfilehash: 109bd61963b918f2a20c48a5bf7bd89dc353db96
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6869698f2e6dca321d371bb22ded316f32cdeb51
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824089"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>使用 Azure Cosmos DB 模擬器進行本機開發和測試
 
@@ -55,7 +52,7 @@ Azure Cosmos DB 模擬器提供一個模擬 Azure Cosmos DB 服務的本機環�
 > * 收集追蹤檔案
 > * 疑難排解
 
-我們建議從觀看下列影片開始，其中 Kirill Gavrylyuk 示範如何開始使用 Azure Cosmos DB 模擬器。 請注意，影片中將該模擬器稱為 DocumentDB 模擬器，但在錄製該影片之後，該工具本身已重新命名為 Azure Cosmos DB 模擬器。 影片中的所有資訊對 Azure Cosmos DB 模擬器而言仍然正確。 
+我們建議從觀看下列影片開始，其中 Kirill Gavrylyuk 示範如何開始使用 Azure Cosmos DB 模擬器。 影片中將該模擬器稱為 DocumentDB 模擬器，但在錄製該影片之後，該工具本身已重新命名為 Azure Cosmos DB 模擬器。 影片中的所有資訊對 Azure Cosmos DB 模擬器而言仍然正確。 
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/2016/192/player]
 > 
@@ -69,6 +66,7 @@ Azure Cosmos DB 模擬器提供 Azure Cosmos DB 服務的高逼真度模擬。 �
 ## <a name="differences-between-the-emulator-and-the-service"></a>模擬器和服務之間的差異 
 因為 Azure Cosmos DB 模擬器是在本機開發人員工作站上提供一個執行的模擬環境，所以模擬器和雲端 Azure Cosmos DB 帳戶之間會有一些功能上的差異：
 
+* 模擬器中的資料總管目前只支援 SQL API 集合和 MongoDB 集合。 尚未支援資料表、圖形和 Cassandra API。  
 * Azure Cosmos DB 模擬器僅支援單一固定帳戶及已知的主要金鑰。  在 Azure Cosmos DB 模擬器中無法重新產生金鑰。
 * Azure Cosmos DB 模擬器服務無法擴充，也不支援大量集合。
 * Azure Cosmos DB 模擬器不會模擬不同的 [Azure Cosmos DB 一致性層級](consistency-levels.md)。
@@ -82,8 +80,8 @@ Azure Cosmos DB 模擬器的硬體和軟體需求如下︰
 * 軟體需求
   * Windows Server 2012 R2、Windows Server 2016 或 Windows 10
 *   最低硬體需求
-  * 2 GB RAM
-  * 10 GB 可用硬碟空間
+  * 2-GB RAM
+  * 10-GB 可用硬碟空間
 
 ## <a name="installation"></a>安裝
 您可以從 [Microsoft 下載中心](https://aka.ms/cosmosdb-emulator)下載並安裝 Azure Cosmos DB 模擬器，或執行 Emulator on Docker for Windows。 如需有關使用 Emulator on Docker for Windows 的指示，請參閱[在 Docker 上執行](#running-on-docker)。 
@@ -509,7 +507,7 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 
    我們的修正方法是新增模擬器設定覆寫。 我們現在套用 1 的倍數。 配置來執行各種服務的工作數目現在等於主機上的核心數。
 
-   此版本已著重處理此問題。 我們發現裝載模擬器的許多開發/測試環境中有 1 或 2 個核心。
+   如果我們未針對此版本執行其他動作，那麼我們已著重處理此問題。 我們發現裝載模擬器的許多開發/測試環境中有 1 或 2 個核心。
 
 2. 模擬器不再需要 Microsoft Visual C++ 2015 可轉散發套件才能進行安裝。
 

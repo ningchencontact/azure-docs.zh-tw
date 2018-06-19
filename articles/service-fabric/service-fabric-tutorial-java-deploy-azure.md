@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 92445ffa7954d42ec1a864264fbfc7555986ad58
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 370cb367a90c8c1a4f8051e79d3858d78c8c3b75
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34644037"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>教學課程：將 Java 應用程式部署到 Azure 中的 Service Fabric 叢集
 本教學課程是系列中的第三部分，示範如何將 Service Fabric 應用程式部署到 Azure 中的叢集。
@@ -198,7 +199,7 @@ ms.lasthandoff: 03/23/2018
     </Certificates>
     ```
 
-2. 若要將您的應用程式部署至此叢集，您必須使用 SFCTL 建立叢集的連線。 SFCTL 需要同時具有公用與私密金鑰的 PEM 檔案才能連接到叢集，因此，請執行下列命令，以產生同時具有公用與私密金鑰 PEM 檔案。 
+2. 若要將您的應用程式部署至此叢集，您必須使用 SFCTL 建立叢集的連線。 SFCTL 需要同時具有公用和私密金鑰的 PEM 檔案，才能連線到叢集。 執行下列命令，以產生同時具有公用和私密金鑰的 PEM 檔案。 
 
     ```bash
     openssl pkcs12 -in testservicefabric.westus.cloudapp.azure.com.pfx -out sfctlconnection.pem -nodes -passin pass:<password>

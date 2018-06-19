@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 97c2f68356a6a589f48224d297493509786ceff1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 91225136926427fb22c80bc2e198c153c60614eb
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298129"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory 中的整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可跨不同網路環境提供下列資料整合功能：
@@ -91,7 +92,7 @@ Azure 整合執行階段提供原生計算，能夠以安全、可靠且高效�
 若要隨即轉移現有的 SSIS 工作負載，您可以建立 Azure-SSIS IR，以原生方式執行 SSIS 套件。
 
 ### <a name="network-environment"></a>網路環境
-Azure-SSIS IR 可以佈建在公用網路或私人網路中。  將 Azure-SSIS IR 加入已連線至內部網路的虛擬網路 (VNet)，即可支援內部部署資料存取。  
+Azure-SSIS IR 可以佈建在公用網路或私人網路中。  將 Azure-SSIS IR 加入已連線至內部網路的虛擬網路，即可支援內部部署資料存取。  
 
 ### <a name="compute-resource-and-scaling"></a>計算資源和調整規模
 Azure-SSIS IR 是一個完全受控的 Azure VM 叢集，專門用來執行您的 SSIS 套件。 您可以自備 Azure SQL Database 或受控執行個體 (預覽) 伺服器，以裝載要附加至伺服器的 SSIS 專案/套件 (SSISDB) 目錄。 指定節點大小可以相應增加計算能力，指定叢集的節點數目可以相應放大計算能力。 您可以依需求來停止和啟動 Azure-SSIS 整合執行階段，以掌控其執行成本。
@@ -101,10 +102,10 @@ Azure-SSIS IR 是一個完全受控的 Azure VM 叢集，專門用來執行您�
 如需 Azure-SSIS 執行階段的詳細資訊，請參閱下列文章： 
 
 - [教學課程：將 SSIS 套件部署至 Azure](tutorial-create-azure-ssis-runtime-portal.md)。 本文逐步說明如何建立 Azure-SSIS IR，並使用 Azure SQL Database 裝載 SSIS 目錄。 
-- [如何：建立 Azure-SSIS 整合執行階段](create-azure-ssis-integration-runtime.md)。 這篇文章會展開教學課程，並提供使用 Azure SQL 的受控執行個體 (預覽)，和將 IR 加入 VNet 的指示。 
+- [如何：建立 Azure-SSIS 整合執行階段](create-azure-ssis-integration-runtime.md)。 這篇文章會詳述教學課程，並提供使用 Azure SQL 受控執行個體 (預覽)，以及將 IR 加入虛擬網路的指示。 
 - [監視 Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). 本文示範如何在傳回的資訊中擷取 Azure-SSIS IR 的相關資訊和狀態描述。 
-- [管理 Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). 本文示範如何停止、啟動或移除 Azure-SSIS IR。 它也會告訴您如何將更多節點新增至 IR，藉此相應放大 Azure SSIS IR。 
-- [將 VNet 加入至 Azure SSIS IR](join-azure-ssis-integration-runtime-virtual-network.md)。 這篇文章提供將 Azure SSIS IR 加入至 Azure 虛擬網路 (VNet) 的概念資訊。 它也提供使用 Azure 入口網站來設定 VNet，好讓 Azure SSIS IR 可加入 VNet 的步驟。 
+- [管理 Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). 本文示範如何停止、啟動或移除 Azure-SSIS IR。 它也會示範如何將更多節點新增至 IR，藉此相應放大 Azure-SSIS IR。 
+- [將 Azure-SSIS IR 加入虛擬網路](join-azure-ssis-integration-runtime-virtual-network.md)。 這篇文章提供將 Azure SSIS IR 加入至 Azure 虛擬網路的概念資訊。 它也提供使用 Azure 入口網站來設定虛擬網路，好讓 Azure SSIS IR 可加入虛擬網路的步驟。 
 
 ## <a name="determining-which-ir-to-use"></a>決定使用哪一個 IR
 每個轉換活動都有一個指向整合執行階段的目標計算「連結服務」。 轉換活動就是從這個整合執行階段執行個體分派而來。
@@ -155,8 +156,8 @@ Data Factory 會使用相同地理位置中最接近接收之區域中的 Azure 
 &nbsp; | 澳大利亞東南部 | 澳大利亞東南部
 日本 | 日本東部 | 日本東部
 &nbsp; | 日本西部 | 日本東部
-韓國 | 韓國中部 | 韓國中部
-&nbsp; | 韓國南部 | 韓國中部
+南韓 | 南韓中部 | 南韓中部
+&nbsp; | 南韓南部 | 南韓中部
 印度 | 印度中部 | 印度中部
 &nbsp; | 印度西部 | 印度中部
 &nbsp; | 印度南部 | 印度中部
@@ -179,12 +180,12 @@ Data Factory 會使用相同地理位置中最接近接收之區域中的 Azure 
 為了在擷取、轉換和下載 (ETL) 工作流程中達到高效能，務必選取正確的 Azure-SSIS IR 位置。  共有六個地區一開始可供預覽 (美國東部、美國東部 2、美國中部、澳大利亞東部、北歐和西歐)。
 
 - Azure-SSIS IR 的位置並不需要與資料處理站的位置相同，但應該與您自己的 Azure SQL Database/受控執行個體 (預覽) 伺服器 (要裝載 SSISDB) 的位置相同。 如此一來，您的 Azure-SSIS 整合執行階段就可以輕易存取 SSISDB，而不會在不同的位置之間產生過多流量。
-- 如果您沒有現有的 Azure SQL Database/受控執行個體 (預覽) 伺服器來裝載 SSISDB，但有內部部署資料來源/目的地，您應該在已連線至內部部署網路之 VNet 的相同位置中，建立新的 Azure SQL Database/受控執行個體 (預覽) 伺服器。  如此一來，您就可以使用新的 Azure SQL Database/受控執行個體 (預覽) 伺服器並加入該 VNet，以建立 Azure-SSIS IR，全部都在相同的位置中，能儘量避免在不同位置之間移動資料。
-- 如果要裝載 SSISDB 的現有 Azure SQL Database/受控執行個體 (預覽) 伺服器的位置，與連線至內部部署網路的 VNet 的位置不相同，請先在相同位置使用現有的 Azure SQL Database/受控執行個體 (預覽) 伺服器並加入另一個 VNet，以建立您的 Azure-SSIS IR，然後設定不同位置之間的 VNet 對 VNet 連線。
+- 如果您沒有現有的 Azure SQL Database/受控執行個體 (預覽) 伺服器來裝載 SSISDB，但有內部部署資料來源/目的地，您應該在已連線至內部部署網路之虛擬網路的相同位置中，建立新的 Azure SQL Database/受控執行個體 (預覽) 伺服器。  如此一來，您就可以使用新的 Azure SQL Database/受控執行個體 (預覽) 伺服器並加入該虛擬網路，以建立 Azure-SSIS IR，全部都在相同的位置中，能儘量避免在不同位置之間移動資料。
+- 如果要裝載 SSISDB 的現有 Azure SQL Database/受控執行個體 (預覽) 伺服器的位置，與連線至內部部署網路的虛擬網路的位置不相同，請先在相同位置使用現有的 Azure SQL Database/受控執行個體 (預覽) 伺服器並加入另一個，以建立您的 Azure-SSIS IR，然後設定不同位置之間的虛擬網路對虛擬網路連線。
 
 
 ## <a name="next-steps"></a>後續步驟
 請參閱下列文章：
 
 - [建立自我裝載整合執行階段](create-self-hosted-integration-runtime.md)
-- [建立 Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md)。 這篇文章會展開教學課程，並提供使用 Azure SQL 的受控執行個體 (預覽)，和將 IR 加入 VNet 的指示。 
+- [建立 Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md)。 這篇文章會詳述教學課程，並提供使用 Azure SQL 受控執行個體 (預覽)，以及將 IR 加入虛擬網路的指示。 

@@ -7,11 +7,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 278fbd5d7f5925b802303910222c5a13379bfad6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c5b6036efa4fcd6b7b8d756fa20d63952482518e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640256"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>快速入門：使用技能和範例資料建立認知搜尋管線
 
@@ -42,7 +43,7 @@ Azure 服務僅限用於此案例中。 建立所需服務是準備工作的一�
 
 ### <a name="set-up-azure-search"></a>設定 Azure 搜尋服務
 
-首先，註冊 Azure 搜尋服務。 
+首先，請註冊 Azure 搜尋服務。 
 
 1. 使用您的 Azure 帳戶登入 [Azure 入口網站](https://portal.azure.com)。
 
@@ -54,14 +55,14 @@ Azure 服務僅限用於此案例中。 建立所需服務是準備工作的一�
 
 1. 針對位置，請選擇 [美國中南部] 或 [西歐]。 預覽版本目前只能在這些區域中使用。
 
-1. 針對定價層，您可以建立 [免費] 服務來完成教學課程和快速入門。 若要使用您自己的資料來進行深入調查，請建立[付費服務](https://azure.microsoft.com/pricing/details/search/)，例如**基本**或**標準**。 
+1. 針對 [定價層]，您可以建立 [免費] 服務以完成教學課程和快速入門。 若要使用您自己的資料進行深入調查，請建立[付費服務](https://azure.microsoft.com/pricing/details/search/)，例如**基本**或**標準**。 
 
   「免費」服務僅限使用 3 個索引、上限為 16 MB 的 Blob 大小，以及 2 分鐘的索引編製，這對執行完整認知搜尋功能而言是不夠的。 若要檢視不同層級的限制，請參閱[服務限制](search-limits-quotas-capacity.md)。
 
   > [!NOTE]
-  > 認知搜尋目前為公開預覽狀態。 目前，所有層級中都可執行技能集，包括免費層。 我們將在不久後宣布此功能的定價。
+  > 認知搜尋目前為公開預覽狀態。 目前，在所有層級中都可執行技能集，包括免費層。 我們將在不久後宣布此功能的定價。
 
-1. 釘選服務到儀表板以快速存取服務。
+1. 將服務釘選到儀表板，以快速存取服務資訊。
 
   ![入口網站中的服務定義頁面](./media/cognitive-search-tutorial-blob/create-search-service.png "入口網站中的服務定義頁面")
 
@@ -95,6 +96,8 @@ Azure 服務僅限用於此案例中。 建立所需服務是準備工作的一�
 ### <a name="step-2-add-cognitive-skills"></a>步驟 2：新增認知技能
 
 接著，將擴充步驟新增至管線。 入口網站會提供預先定義的認知技能來分析影像和文字。 在入口網站中，技能集會透過單一來源欄位來運作。 這聽起來像是小目標，但 Azure Blob 的 `content` 欄位包含大部分的 Blob 文件 (例如，Word 文件或 PowerPoint Deck)。 因此，此欄位是理想的輸入，因為其中有 Blob 的所有內容。
+
+有時候您想要從大部分掃描影像 (如掃描程式所產生的 PDF) 所組成的檔案中，擷取文字表示法。 Azure 搜尋服務可以自動從文件中的內嵌影像擷取內容。 若要這樣做，請選取 [啟用 OCR 並將所有文字合併到 merged_content 欄位中] 選項。 這會自動建立 `merged_content` 欄位，其中包含從文件擷取的文字，以及文件中內嵌影像的文字表示法。 當您選取此選項時，`Source data field` 會設定為 `merged_content`。
 
 在 [新增認知技能] 中，選擇執行自然語言處理的技能。 針對本快速入們，請選擇適用於人員、組織和位置的實體辨識。
 

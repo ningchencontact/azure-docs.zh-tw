@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
-ms.openlocfilehash: bde17a47e0e3e70daf52f4c460118c054b7c1152
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 29d843e2752046e8ab66a4f46fcbb212f6fb57c6
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824392"
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>加密 Azure 虛擬機器
 Azure 資訊安全中心會在您有未加密的虛擬機器時對您發出警示。 這些警示會顯示為高嚴重性，因此建議您加密這些虛擬機器。
@@ -61,7 +62,7 @@ Azure 磁碟加密先決條件組態指令碼會設定用來加密 Azure 虛擬�
 
 您已儲存了指令碼內容，接下來請在 PowerShell ISE 中開啟指令碼︰
 
-1. 在 [開始] 功能表中，按一下 [Cortana]。 在 Cortana 搜尋文字方塊中輸入 **PowerShell**，以向 **Cortana** 詢問 "PowerShell"。
+1. 啟動 - Windows PowerShell ISE
 2. 用滑鼠右鍵按一下 [Windows PowerShell ISE]，然後按一下 [以系統管理員身分執行]。
 3. 在 [系統管理員: Windows PowerShell ISE] 視窗中，依序按一下 [檢視] 和 [顯示指令碼窗格]。
 4. 如果您在視窗右側看到 [命令] 窗格，請按一下窗格右上角的 **“x”** 以將它關閉。 如果文字太小以致您看不清楚，請使用 **CTRL+加** (「加」是指「+」號)。 如果文字太大，請使用 **CTRL+減** (「減」是指「-」號)。
@@ -74,8 +75,8 @@ Azure 磁碟加密先決條件組態指令碼會設定用來加密 Azure 虛擬�
 
 上方窗格稱為「指令碼窗格」，下方窗格則稱為「主控台」。 本文稍後將會使用這些詞彙。
 
-## <a name="run-the-azure-disk-encryption-prerequisites-powershell-command"></a>執行 Azure 磁碟加密先決條件 PowerShell 命令
-在啟動 Azure 磁碟加密先決條件指令碼後，它會要求您提供下列資訊︰
+## <a name="run-the-azure-disk-encryption-prerequisites-powershell-script"></a>執行 Azure 磁碟加密先決條件 PowerShell 指令碼
+Azure 磁碟加密先決條件指令碼會接受下列參數︰ 
 
 * **資源群組名稱** - 您要用來放置金鑰保存庫的資源群組名稱。  如果還未建立具有所輸入名稱的資源群組，則會以該名稱建立新的資源群組。 如果此訂用帳戶中已有您想要使用的資源群組，則請輸入該資源群組的名稱。
 * **金鑰保存庫名稱** - 要用來放置加密金鑰的金鑰保存庫名稱。 如果您沒有此名稱的金鑰保存庫，則會以此名稱建立新的金鑰保存庫。 如果您已有想要使用的金鑰保存庫，請輸入現有金鑰保存庫的名稱。
@@ -92,18 +93,18 @@ Azure 磁碟加密先決條件組態指令碼會設定用來加密 Azure 虛擬�
 1. 如果您已關閉 PowerShell ISE，請開啟已提升權限的 PowerShell ISE 執行個體。 如果尚未開啟 PowerShell ISE，請遵循本文稍早的指示。 如果您已關閉指令碼，請開啟 **ADEPrereqScript.ps1**，方法是依序按一下 [檔案] 和 [開啟]，然後選取 **c:\AzureADEScript** 資料夾中的指令碼。 如果您從一開始就遵循本文的指示進行，請直接移至下一個步驟。
 2. 在 PowerShell ISE 的主控台 (PowerShell ISE 的下方窗格) 中，將焦點變更至指令碼的本機位置，方法是輸入 **cd c:\AzureADEScript**，然後按 **ENTER** 鍵。
 3. 設定機器的執行原則以便可以執行指令碼。 在主控台輸入 **Set-ExecutionPolicy Unrestricted** ，然後按 ENTER 鍵。 如果出現對話方塊指出執行原則變更所帶來的影響，請按一下 **[全部都是]** 或 **[是]** \(如果有看到 **[全部都是]**，請選取該選項；如果沒看到 **[全部都是]**，則請按一下 **[是]**)。
-4. 登入 Azure 帳戶。 在主控台中輸入 **Connect-AzureRmAccount**，然後按 **ENTER** 鍵。 隨即會出現對話方塊供您輸入認證 (請確定您有變更虛擬機器的權限；如果沒有權限，就無法將其加密。 如果不能確定，請詢問訂用帳戶擁有者或系統管理員)。 您應該會看到您 **Environment**、**Account**、**TenantId**、**SubscriptionId** 和 **CurrentStorageAccount** 的相關資訊。 請將 **SubscriptionId** 複製到 [記事本]。 步驟 6 會用到此資訊。
+4. 登入 Azure 帳戶。 在主控台中輸入 **Login-AzureRmAccount**，然後按 **ENTER** 鍵。 隨即會出現對話方塊供您輸入認證 (請確定您有變更虛擬機器的權限；如果沒有權限，就無法將其加密。 如果不能確定，請詢問訂用帳戶擁有者或系統管理員)。 您應該會看到您 **Environment**、**Account**、**TenantId**、**SubscriptionId** 和 **CurrentStorageAccount** 的相關資訊。 請將 **SubscriptionId** 複製到 [記事本]。 步驟 6 會用到此資訊。
 5. 尋找虛擬機器所隸屬的訂用帳戶以及虛擬機器的位置。 移至 [https://portal.azure.com](ttps://portal.azure.com) 並登入。  在頁面左側按一下 [虛擬機器] 。 您將會看到虛擬機器和其所屬訂用帳戶的清單。
 
    ![虛擬機器](./media/security-center-disk-encryption/security-center-disk-encryption-fig3.png)
 6. 返回 PowerShell ISE。 設定用來執行指令碼的訂用帳戶內容。 在主控台中，輸入 **Select-AzureRmSubscription –SubscriptionId <your_subscription_Id>** (使用您的實際訂用帳戶識別碼取代 **< your_subscription_Id >**) 然後按 **ENTER**鍵。 您會看到您 Environment、**Account**、**TenantId**、**SubscriptionId** 和 **CurrentStorageAccount** 的相關資訊。
-7. 您現在可以開始執行指令碼。 按一下 [執行指令碼] 按鈕或按鍵盤上的 **F5** 鍵。
+7. 在命令視窗中，傳遞下列項目作為參數來執行指令碼命令： 
 
    ![執行 PowerShell 指令碼](./media/security-center-disk-encryption/security-center-disk-encryption-fig4.png)
-8. 指令碼會要求輸入 [resourceGroupName:] - 輸入想要使用的資源群組名稱，然後按 **ENTER** 鍵。 如果您沒有資源群組，請輸入新的資源群組所要使用的名稱。 如果您已有想要使用的 *資源群組* (例如虛擬機器所在的資源群組)，請輸入現有資源群組的名稱。
-9. 指令碼會要求輸入 [keyVaultName:]  - 輸入想要使用的 *金鑰保存庫* 名稱，然後按 ENTER 鍵。 如果您沒有資源群組，請輸入新的資源群組所要使用的名稱。 如果您已有想要使用的金鑰保存庫，請輸入現有 *金鑰保存庫*的名稱。
+8. **-resourceGroupName:** - 輸入想要使用的資源群組名稱。 如果您沒有資源群組，請輸入新的資源群組所要使用的名稱。 如果您已有想要使用的 *資源群組* (例如虛擬機器所在的資源群組)，請輸入現有資源群組的名稱。
+9. **-keyVaultName:** - 輸入想要使用的金鑰保存庫名稱。 如果您沒有資源群組，請輸入新的資源群組所要使用的名稱。 如果您已有想要使用的金鑰保存庫，請輸入現有 *金鑰保存庫*的名稱。
 10. 指令碼會要求輸入 [位置:] - 輸入想要加密之 VM 所在位置的名稱，然後按 **ENTER** 鍵。 如果不記得位置，請返回步驟 5。
-11. 指令碼會要求輸入 [aadAppName:] - 輸入想要使用的 Azure Active Directory 應用程式名稱，然後按 **ENTER** 鍵。 如果您沒有資源群組，請輸入新的資源群組所要使用的名稱。 如果您已有想要使用的 Azure Active Directory 應用程式，請輸入現有 Azure Active Directory 應用程式的名稱。
+11. **-aadAppName:** - 輸入想要使用的 Azure Active Directory 應用程式名稱。 如果您沒有資源群組，請輸入新的資源群組所要使用的名稱。 如果您已有想要使用的 Azure Active Directory 應用程式，請輸入現有 Azure Active Directory 應用程式的名稱。
 12. 此時會出現登入對話方塊。 請提供您的認證 (沒錯，您已登入過一次，但現在您需要再做一次)。
 13. 指令碼隨即執行，並且會於完成時要求您複製 **aadClientID**、**aadClientSecret**、**diskEncryptionKeyVaultUrl** 和 **keyVaultResourceId** 的值。 將這些值各自複製到剪貼簿並貼入 [記事本]。
 14. 返回 PowerShell ISE 並將游標放在最後一行結尾，然後按 **ENTER**鍵。

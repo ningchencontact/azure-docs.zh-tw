@@ -6,21 +6,21 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 05/15/2018
+ms.date: 05/31/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: aec0d93cb9358e7654f8ee1a334b7529fbee604a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d52691dbec932a3515c90e757863be01ade086cc
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208833"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715950"
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region"></a>將 Azure VM 複寫到另一個 Azure 區域
 
 [Azure Site Recovery](site-recovery-overview.md) 服務藉由確保您的商務應用程式可在計劃性與非計劃性中斷期間持續啟動並執行，來提供商務持續性和災害復原 (BCDR) 策略。 Site Recovery 會管理並協調內部部署機器和 Azure 虛擬機器 (VM) 的災害復原，包括複寫、容錯移轉和復原。
 
-本快速入門說明如何將 Azure VM 複寫到不同的 Azure 區域。 Azure 至 Azure 複寫目前為預覽狀態
+本快速入門說明如何將 Azure VM 複寫到不同的 Azure 區域。 
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -47,7 +47,7 @@ ms.locfileid: "34208833"
 
 在複寫作業完成之後，您可以檢查複寫狀態、修改複寫設定，以及測試部署。
 
-1. 在 VM 功能表中，按一下 [災害復原 (預覽)]。
+1. 在 VM 功能表中，按一下 [災害復原]。
 2. 您可以確認複寫健康情況、已建立的復原點，以及地圖上的來源和目標區域。
 
    ![複寫狀態](media/azure-to-azure-quickstart/replication-status.png)

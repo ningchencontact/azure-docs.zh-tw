@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: negat
-ms.openlocfilehash: 1db4c7ae78320eb08b2aa0b9da701d9678baf798
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: abad57856db63c954f963a28b1dbd3c95395c9bd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652581"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Azure 虛擬機器擴展集的網路
 
@@ -212,7 +213,10 @@ GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG 
 擴展集中連接到 VM 的每個 NIC 皆有一或多個 IP 組態與其相關聯。 每個組態會獲派一個私人 IP 位址。 每個組態可能也會有一個關聯的公用 IP 位址資源。 若要了解多少個 IP 位址可以指派到 NIC，和您可以在 Azure 訂用帳戶中使用多少個公用 IP 位址，請參閱 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
 
 ## <a name="multiple-nics-per-virtual-machine"></a>每個虛擬機器的多個 NIC
-每個虛擬機器可擁有最多 8 個 NIC，根據機器大小而定。 每部電腦的 NIC 最大數目可在[VM 大小文章](../virtual-machines/windows/sizes.md)中找到。 下列範例是顯示多個 NIC 項目的擴展集網路設定檔，以及每個虛擬機器的多個公用 IP：
+每個虛擬機器可擁有最多 8 個 NIC，根據機器大小而定。 每部電腦的 NIC 最大數目可在[VM 大小文章](../virtual-machines/windows/sizes.md)中找到。 連線至 VM 執行個體的 NIC 全都必須連線至相同的虛擬網路。 NIC 可以連線至不同子網路，但子網路必須全都屬於相同的虛擬網路。
+
+下列範例是顯示多個 NIC 項目的擴展集網路設定檔，以及每個虛擬機器的多個公用 IP：
+
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [

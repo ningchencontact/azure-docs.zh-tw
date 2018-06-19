@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 04/19/2018
 ms.author: spelluru
-ms.openlocfilehash: b42183369b9ad88c77a05a91fdba8fe0efca2a8c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8f8de53f03cc1378e8aaafa9a2f486eadc23fe14
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637848"
 ---
-# <a name="an-introduction-to-azure-lab-services-formerly-azure-devtest-labs"></a>Azure 實驗室服務 (先前稱為 Azure DevTest Labs) 簡介
+# <a name="an-introduction-to-azure-lab-services"></a>Azure 實驗室服務簡介
 Azure 實驗室服務可讓您在雲端為團隊快速設定環境 (例如：開發環境、測試環境、教室實驗室環境)。 實驗室擁有者會建立實驗室，佈建 Windows 或 Linux 虛擬機器，安裝必要的軟體和工具，然後將它們提供給實驗室使用者使用。 實驗室使用者會連線至實驗室中的虛擬機器 (VM)，並使用它們來進行日常工作、短期專案，或是教室練習。 當使用者開始運用實驗室中的資源後，實驗室管理員便可以跨多個實驗室分析成本和使用情形，並設定整體性的原則來對組織或團隊的成本進行最佳化。
 
 > [!IMPORTANT]
-> 我們正在為 Azure DevTest Labs 擴展新的實驗室類型 (Azure 實驗室服務)！ 
+> 我們正在為 **Azure DevTest Labs** 擴展新的實驗室類型 (Azure 實驗室服務)！ 
 > 
 > Azure 實驗室服務可讓您建立受控實驗室，例如教室實驗室。 服務本身會處理受控實驗室的所有基礎結構管理，從啟動 VM 以處理錯誤，到調整基礎結構的規模。 受控實驗室目前為預覽狀態。 預覽結束之後，新的實驗室類型和現有的 DevTest Labs 都會被納入 Azure 實驗室服務底下，且所有實驗室類型都會在其中持續進化。 
 
@@ -31,7 +32,7 @@ Azure 實驗室服務可讓您在雲端為團隊快速設定環境 (例如：開
 Azure 實驗室服務支援下列主要能力/功能： 
 
 - **快速且彈的實驗室設定**。 透過使用 Azure 實驗室服務，實驗室擁有者可以快速地依需求設定實驗室。 該服務提供由系統處理受控實驗室所有 Azure 基礎結構工作的選項，也可以讓實驗室擁有者在實驗室擁有者的訂用帳戶中自行管理及自訂基礎結構。 該服務針對實驗室提供由服務為您管理的內建基礎結構規模調整及復原功能。 
-- **簡化的實驗室使用者體驗**。 在受控實驗室 (例如教室實驗室) 中，實驗室使用者可以使用註冊代碼來註冊至實驗室，並隨時存取該實驗室以使用實驗室的資源。 在於 DevTest Labs 中建立的自訂實驗室中，實驗室擁有者可以給予實驗室使用者建立及存取虛擬機器、管理及重新使用資料磁碟，以及設定可重複使用祕密的權限。  
+- **簡化的實驗室使用者體驗**。 在受控實驗室 (例如教室實驗室) 中，實驗室使用者可以使用註冊代碼來註冊至實驗室，並隨時存取該實驗室以使用實驗室的資源。 在於 DevTest Labs 中建立的實驗室中，實驗室擁有者可以給予實驗室使用者建立及存取虛擬機器、管理及重新使用資料磁碟，以及設定可重複使用祕密的權限。  
 - **成本最佳化和分析**。 實驗室擁有者可以設定實驗室排程，以自動關閉及啟動虛擬機器。 實驗室擁有者可以設定排程以指定實驗室虛擬機器可供使用者存取的時段、設定每個使用者或實驗室的使用原則來將成本最佳化，以及分析實驗室中的使用情況和活動趨勢。 針對如教室實驗室等的受控實驗室，目前有一些成本最佳化和分析選項子集可供使用。 
 - **內嵌安全性**。 實驗室使用者可以針對實驗室設定私人虛擬網路和子集，並提供共用的公用 IP 位址。 實驗室使用者可以使用已設定 ExpressRoute 或站對站 VPN 的虛擬網路，安全地存取資源。 (目前僅於 DevTest Labs 中提供)
 - **與您的工作流程和工具整合**。 Azure 實驗室服務可讓您將實驗室整合至您組織的網站和管理系統。 您可以從您的持續整合/持續部署 (CI/CD) 工具內自動佈建環境。 (目前僅於 DevTest Labs 中提供)
@@ -93,5 +94,5 @@ Azure DevTest Labs 可以用來實作許多重要案例，但是其中一個主�
 ## <a name="next-steps"></a>後續步驟
 使用 Azure 實驗室服務以設定實驗室的入門：
 
-- [設定教室實驗室](tutorial-setup-classroom-lab.md)
-- [設定自訂實驗室](tutorial-create-custom-lab.md)
+- [設定教室實驗室](classroom-labs/tutorial-setup-classroom-lab.md)
+- [設定實驗室](tutorial-create-custom-lab.md)

@@ -343,7 +343,7 @@
         - name: 使用 BCP 載入資料
           href: sql-database-load-from-csv-with-bcp.md
         - name: 使用 ADF 載入資料
-          href: ../data-factory/connector-azure-sql-database.md
+          href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
         - name: 同步資料
           href: sql-database-get-started-sql-data-sync.md
     - name: 監視與微調

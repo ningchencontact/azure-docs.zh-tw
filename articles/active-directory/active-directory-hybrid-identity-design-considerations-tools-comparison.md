@@ -11,13 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/27/2018
+ms.date: 05/31/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5d189af9b08f2b6e9ea194c15bfba683afc75a54
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 10774e7ca1168a58e8c8d47e6a7295ff727fa1cd
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801444"
 ---
 # <a name="hybrid-identity-directory-integration-tools-comparison"></a>混合式身分識別目錄整合工具比較
 目錄整合工具已經經過多年的成長和發展。  本文件是為了整合檢視這些工具，並比較各個工具中所提供的功能。
@@ -38,7 +40,7 @@ FR = 未來的版本
 PP = 公開預覽  
 
 ## <a name="on-premises-to-cloud-synchronization"></a>內部部署至雲端同步處理
-| 功能 | Azure Active Directory Connect | Azure Active Directory 同步處理服務 (AAD Sync) | Azure Active Directory 同步處理工具 (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
+| 功能 | Azure Active Directory Connect | Azure Active Directory 同步處理服務 (AAD Sync) - 不再支援 | Azure Active Directory 同步處理工具 (DirSync) - 不再支援 | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | 連接到單一內部部署 AD 樹系 |● |● |● |● |● |
 | 連接到多個內部部署 AD 樹系 |● |● | |● |● |
@@ -53,7 +55,7 @@ PP = 公開預覽
 
 
 ## <a name="cloud-to-on-premises-synchronization"></a>雲端至內部部署同步處理
-| 功能 | Azure Active Directory Connect | Azure Active Directory 同步處理服務 | Azure Active Directory 同步處理工具 (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
+| 功能 | Azure Active Directory Connect | Azure Active Directory 同步處理服務 - 不再支援  | Azure Active Directory 同步處理工具 (DirSync) - 不再支援  | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | 裝置的回寫 |● | |● | | |
 | 屬性回寫 (用於 Exchange 混合部署) |● |● |● |● |● |
@@ -61,15 +63,17 @@ PP = 公開預覽
 | 密碼的回寫 (從自助式密碼重設 (SSPR) 和密碼變更) |● |● | | | |
 
 ## <a name="authentication-feature-support"></a>驗證功能支援
-| 功能 | Azure Active Directory Connect | Azure Active Directory 同步處理服務 | Azure Active Directory 同步處理工具 (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
+| 功能 | Azure Active Directory Connect | Azure Active Directory 同步處理服務 - 不再支援  | Azure Active Directory 同步處理工具 (DirSync) - 不再支援  | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
-| 單一內部部署 AD 樹系的密碼同步處理 |● |● |● | | |
-| 多個內部部署 AD 樹系的密碼同步處理 |● |● | | | |
+| 單一內部部署 AD 樹系的密碼雜湊同步處理 |●|●|● | | |
+| 多個內部部署 AD 樹系的密碼雜湊同步處理 |●|● | | | |
+| 單一內部部署 AD 樹系的傳遞驗證 |●| | | | |
 | 使用同盟進行單一登入 |● |● |● |● |● |
+| 無縫單一登入|● |||||
 | 密碼的回寫 (從 SSPR 和密碼變更) |● |● | | | |
 
 ## <a name="set-up-and-installation"></a>設定與安裝
-| 功能 | Azure Active Directory Connect | Azure Active Directory 同步處理服務 | Azure Active Directory 同步處理工具 (DirSync) | Microsoft Identity Manager 2016 (MIM) |
+| 功能 | Azure Active Directory Connect | Azure Active Directory 同步處理服務 - 不再支援  | Azure Active Directory 同步處理工具 (DirSync) - 不再支援  | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|
 | 支援在網域控制站上安裝 |● |● |● | |
 | 支援使用 SQL Express 安裝 |● |● |● | |
@@ -80,7 +84,7 @@ PP = 公開預覽
 | Windows Server 2012 和 Windows Server 2012 R2 的支援 |● |● |● |● |
 
 ## <a name="filtering-and-configuration"></a>篩選和組態
-| 功能 | Azure Active Directory Connect | Azure Active Directory 同步處理服務 | Azure Active Directory 同步處理工具 (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
+| 功能 | Azure Active Directory Connect | Azure Active Directory 同步處理服務 - 不再支援  | Azure Active Directory 同步處理工具 (DirSync) - 不再支援  | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | 針對網域及組織單位篩選 |● |● |● |● |● |
 | 針對物件的屬性值篩選 |● |● |● |● |● |
