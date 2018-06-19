@@ -1,5 +1,5 @@
 ---
-title: 使用 .NET Core 和 VS Code 在雲端建立 Kubernetes 開發環境 | Microsoft Docs
+title: 使用 .NET Core 和 VS Code 在雲端建立 Kubernetes 開發人員空間 | Microsoft Docs
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
 manager: douge
-ms.openlocfilehash: a57118feb85a010e38d73b758ebfb84d1cc463fa
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: bd42268c36f44dc20b88d27d19cbf378e848b82f
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361245"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823141"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>在使用 .NET Core 的 Azure 開發人員空間上開始使用
 
@@ -24,15 +24,15 @@ ms.locfileid: "34361245"
 
 [!INCLUDE[](includes/see-troubleshooting.md)]
 
-您現在可以在 Azure 中建立以 Kubernetes 為基礎的開發環境。
+您現在可以在 Azure 中建立以 Kubernetes 為基礎的開發人員空間。
 
 [!INCLUDE[](includes/portal-aks-cluster.md)]
 
 ## <a name="install-the-azure-cli"></a>安裝 Azure CLI
-Azure 開發人員空間需要基本的本機電腦設定。 大部分開發環境的組態都會儲存在雲端，而且可與其他使用者共用。 從下載和執行 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 著手。 
+Azure 開發人員空間需要基本的本機電腦設定。 大部分開發人員空間的組態都會儲存在雲端，而且可與其他使用者共用。 從下載和執行 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 著手。 
 
 > [!IMPORTANT]
-> 如果您已安裝 Azure CLI，請確定您使用的是 2.0.32 版或更高版本。
+> 如果您已安裝 Azure CLI，請確定您使用的是 2.0.33 版或更高版本。
 
 [!INCLUDE[](includes/sign-into-azure.md)]
 
@@ -42,7 +42,11 @@ Azure 開發人員空間需要基本的本機電腦設定。 大部分開發環�
 
 在您等候建立叢集時，您可以開始開發程式碼。
 
-## <a name="create-an-aspnet-core-web-app"></a>建立 ASP.NET 核心 Web 應用程式
+## <a name="create-a-web-app-running-in-a-container"></a>建立在容器中執行的 Web 應用程式
+
+在本節中，您會建立 ASP.NET Core Web 應用程式，並使其在 Kubernetes 的容器中執行。
+
+### <a name="create-an-aspnet-core-web-app"></a>建立 ASP.NET 核心 Web 應用程式
 如果您已安裝 [.NET Core](https://www.microsoft.com/net)，您可以在名為 `webfrontend` 的資料夾中快速建立 ASP.NET Core Web 應用程式。
     
 ```cmd
@@ -55,7 +59,7 @@ dotnet new mvc --name webfrontend
 
 [!INCLUDE[](includes/build-run-k8s-cli.md)]
 
-## <a name="update-a-content-file"></a>更新內容檔案
+### <a name="update-a-content-file"></a>更新內容檔案
 Azure 開發人員空間不只讓程式碼中在 Kubernetes 中執行 - 還可讓您快速地反覆查看您的程式碼變更是否在雲端 Kubernetes 環境中生效。
 
 1. 找出檔案 `./Views/Home/Index.cshtml` 並進行 HTML 編輯。 例如，將第 70 行 `<h2>Application uses</h2>` 變更如下：`<h2>Hello k8s in Azure!</h2>`
@@ -64,7 +68,7 @@ Azure 開發人員空間不只讓程式碼中在 Kubernetes 中執行 - 還可�
 
 發生什麼情形？ 編輯內容檔案 (例如 HTML 和 CSS) 時，不需要在 .NET Core Web 應用程式中重新編譯，所以作用中 `azds up` 命令會自動將任何修改過的內容檔案，直接同步處理到 Azure 中的執行中容器，您即可立即查看內容編輯。
 
-## <a name="update-a-code-file"></a>更新程式碼檔案
+### <a name="update-a-code-file"></a>更新程式碼檔案
 更新程式碼檔案需要更多的工作，因為.NET Core 應用程式需要重建及產生更新後的應用程式二進位檔。
 
 1. 在終端機視窗中，按 `Ctrl+C` (以停止 `azds up`)。
@@ -97,7 +101,7 @@ Azure 開發人員空間不只讓程式碼中在 Kubernetes 中執行 - 還可�
 ### <a name="debug-the-container-in-kubernetes"></a>在 Kubernetes 中進行容器偵錯
 按 **F5** 可在 Kubernetes 中進行程式碼偵錯。
 
-至於 `up` 命令，程式碼會同步處理到開發環境，而且容器會建立並部署到 Kubernetes。 此時，偵錯工具當然會連結至遠端容器。
+與 `up` 命令相同，程式碼也會同步到開發人員空間，且容器會建置並部署到 Kubernetes。 此時，偵錯工具當然會連結至遠端容器。
 
 [!INCLUDE[](includes/tip-vscode-status-bar-url.md)]
 
@@ -138,7 +142,7 @@ Azure 開發人員空間會以累加方式重新編譯現有容器中的程式�
 ### <a name="run-mywebapi"></a>執行 *mywebapi*
 1. 在個別的 VS Code 視窗中開啟資料夾 `mywebapi`。
 1. 按 F5，並等候服務進行建置和部署。 當 VS Code 偵錯列出現時，表示已就緒。
-1. 記下端點 URL，它看起來會像是 http://localhost:\<portnumber\>。 **提示：VS Code 狀態列會顯示可點按的 URL。** 容器可能看起來像在本機執行，但實際是在 Azure 的開發環境中執行的。 localhost 位址的原因是因為 `mywebapi` 並未定義任何公用端點，而只能從 Kubernetes 執行個體中存取。 為了方便您操作以及與本機電腦上的私人服務互動，Azure 開發人員空間會建立暫存的 SSH 通道，連到在 Azure 中執行的容器。
+1. 記下端點 URL，它看起來會像是 http://localhost:\<portnumber\>。 **提示：VS Code 狀態列會顯示可點按的 URL。** 容器可能看起來像在本機執行，但實際是在 Azure 的開發人員空間中執行。 localhost 位址的原因是因為 `mywebapi` 並未定義任何公用端點，而只能從 Kubernetes 執行個體中存取。 為了方便您操作以及與本機電腦上的私人服務互動，Azure 開發人員空間會建立暫存的 SSH 通道，連到在 Azure 中執行的容器。
 1. 當 `mywebapi` 就緒時，請開啟瀏覽器並進入 localhost 位址。 請將 `/api/values` 附加至 URL，以叫用 `ValuesController` 的預設 GET API。 
 1. 如果所有步驟都已成功，您應該會看到 `mywebapi` 服務的回應。
 
@@ -152,23 +156,25 @@ Azure 開發人員空間會以累加方式重新編譯現有容器中的程式�
     {
         ViewData["Message"] = "Hello from webfrontend";
         
-        // Use HeaderPropagatingHttpClient instead of HttpClient so we can propagate
-        // headers in the incoming request to any outgoing requests
-        using (var client = new HeaderPropagatingHttpClient(this.Request))
-        {
-            // Call *mywebapi*, and display its response in the page
-            var response = await client.GetAsync("http://mywebapi/api/values/1");
-            ViewData["Message"] += " and " + await response.Content.ReadAsStringAsync();
-        }
+        using (var client = new System.Net.Http.HttpClient())
+            {
+                // Call *mywebapi*, and display its response in the page
+                var request = new System.Net.Http.HttpRequestMessage();
+                request.RequestUri = new Uri("http://mywebapi/api/values/1");
+                if (this.Request.Headers.ContainsKey("azds-route-as"))
+                {
+                    // Propagate the dev space routing header
+                    request.Headers.Add("azds-route-as", this.Request.Headers["azds-route-as"] as IEnumerable<string>);
+                }
+                var response = await client.SendAsync(request);
+                ViewData["Message"] += " and " + await response.Content.ReadAsStringAsync();
+            }
 
         return View();
     }
     ```
 
-請留意系統如何使用 Kubernetes 的 DNS 服務探索將服務參照為 `http://mywebapi`。 **開發環境中的程式碼會以後續在生產環境中執行的相同方式執行**。
-
-上述程式碼範例也會使用 `HeaderPropagatingHttpClient` 類別。 此協助程式類別已在您執行 `azds prep` 時新增至程式碼資料夾。 `HeaderPropagatingHttpClient` 衍生自已知的 `HttpClient` 類別，且會新增功能，將特定標頭從現有的 ASP.NET HttpRequest 物件傳播到傳出的 HttpRequestMessage 物件中。 我們後續會討論這個衍生的類別如何促進小組案例中的生產力開發體驗。
-
+上述程式碼範例會將傳入要求中的 `azds-route-as` 標頭轉送至傳出要求。 您稍後將了解這對小組的共同開發有何幫助。
 
 ### <a name="debug-across-multiple-services"></a>在多個服務間進行偵錯
 1. 此時，`mywebapi` 仍應使用附加的偵錯工具執行中。 如果不是，在 `mywebapi` 專案中按 F5。

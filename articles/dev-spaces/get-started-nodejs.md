@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
 manager: douge
-ms.openlocfilehash: deb651170b0fd58f8c89b591f3e42b5b629f4095
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 0507208e58323fd31bb7c6cdb3a293ec0179cabe
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361466"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823906"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>在使用 Node.js 的 Azure 開發人員空間上開始使用
 
@@ -32,7 +32,7 @@ ms.locfileid: "34361466"
 Azure 開發人員空間需要基本的本機電腦設定。 大部分開發環境的組態都會儲存在雲端，而且可與其他使用者共用。 從下載和執行 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 著手。
 
 > [!IMPORTANT]
-> 如果您已安裝 Azure CLI，請確定您使用的是 2.0.32 版或更高版本。
+> 如果您已安裝 Azure CLI，請確定您使用的是 2.0.33 版或更高版本。
 
 [!INCLUDE[](includes/sign-into-azure.md)]
 
@@ -185,25 +185,25 @@ Nodemon 是 Node.js 開發人員用來快速開發的工具。 開發人員通�
 1. 在 `server.js` 的最上方加入下列幾行程式碼：
     ```javascript
     var request = require('request');
-    var propagateHeaders = require('./propagateHeaders');
     ```
 
 3. 取代 `/api` 處理常式的程式碼。 在處理要求時，接著會呼叫 `mywebapi`，然後從這兩項服務傳回結果。
 
     ```javascript
     app.get('/api', function (req, res) {
-        request({
-            uri: 'http://mywebapi',
-            headers: propagateHeaders.from(req) // propagate headers to outgoing requests
-        }, function (error, response, body) {
-            res.send('Hello from webfrontend and ' + body);
-        });
+       request({
+          uri: 'http://mywebapi',
+          headers: {
+             /* propagate the dev space routing header */
+             'azds-route-as': req.headers['azds-route-as']
+          }
+       }, function (error, response, body) {
+           res.send('Hello from webfrontend and ' + body);
+       });
     });
     ```
 
-請留意系統如何使用 Kubernetes 的 DNS 服務探索將服務參照為 `http://mywebapi`。 **開發環境中的程式碼會以後續在生產環境中執行的相同方式執行**。
-
-上述程式碼範例會使用名為 `propagateHeaders` 的協助程式模組。 此協助程式已在您執行 `azds prep` 時新增至程式碼資料夾。 `propagateHeaders.from()` 函式會將特定標頭從現有的 http.IncomingMessage 物件傳播到傳出要求的標頭物件中。 您稍後將了解這對小組的共同開發有何幫助。
+上述程式碼範例會將傳入要求中的 `azds-route-as` 標頭轉送至傳出要求。 您稍後將了解這對小組的共同開發有何幫助。
 
 ### <a name="debug-across-multiple-services"></a>在多個服務間進行偵錯
 1. 此時，`mywebapi` 仍應使用附加的偵錯工具執行中。 如果不是，在 `mywebapi` 專案中按 F5。

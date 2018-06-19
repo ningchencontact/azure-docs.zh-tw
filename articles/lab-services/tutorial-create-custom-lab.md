@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure DevTest Labs 建立自訂實驗室 | Microsoft Docs
-description: 在本快速入門中，您將使用 Azure DevTest Labs 來建立自訂實驗室。
+title: 使用 Azure DevTest Labs 建立實驗室 | Microsoft Docs
+description: 在本快速入門中，您將使用 Azure DevTest Labs 建立實驗室。
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
 author: spelluru
@@ -14,26 +14,26 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 3a4f964fe4f103e970a6edb3e9ba716fd72b8c79
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5a93feec7996fc0ebf742b8d62b159dca5f1c1ed
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34362238"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636982"
 ---
-# <a name="tutorial-set-up-a-custom-lab-by-using-azure-devtest-labs"></a>教學課程：使用 Azure DevTest Labs 設定自訂實驗室
-在本教學課程中，您將使用 Azure 入口網站建立自訂實驗室。 實驗室管理員會在組織設定實驗室，並在實驗室中建立 VM，然後設定原則。 實驗室使用者 (例如：開發人員和測試人員) 會認領實驗室中的 VM、與之連線並加以使用。 
+# <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>教學課程：使用 Azure DevTest Labs 設定實驗室
+在本教學課程中，您會使用 Azure 入口網站建立實驗室。 實驗室管理員會在組織設定實驗室，並在實驗室中建立 VM，然後設定原則。 實驗室使用者 (例如：開發人員和測試人員) 會認領實驗室中的 VM、與之連線並加以使用。 
 
 在本教學課程中，您會執行下列動作：
 
 > [!div class="checklist"]
-> * 建立自訂實驗室
+> * 建立實驗室
 > * 將虛擬機器 (VM) 新增至實驗室
 > * 將使用者新增至實驗室使用者角色
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
 
-## <a name="create-a-custom-lab"></a>建立自訂實驗室
+## <a name="create-a-lab"></a>建立實驗室
 下列步驟說明如何使用 Azure 入口網站在 Azure DevTest Labs 中建立實驗室。 
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
@@ -97,8 +97,8 @@ ms.locfileid: "34362238"
 4. 請重複這些步驟來刪除以 `<your resource group name><random numbers>` 名稱建立的其他資源群組。 例如：`splab3988722144001`。 VM 會建立在此資源群組中，而不是實驗室所在的資源群組中。 
 
 ## <a name="next-steps"></a>後續步驟
-在本教學課程中，您已建立具有 VM 的自訂實驗室，並讓使用者可存取該實驗室。 若要了解如何以實驗室使用者的身分存取實驗室，請前進到下一個教學課程：
+在本教學課程中，您已建立具有 VM 的實驗室，並且讓使用者可存取該實驗室。 若要了解如何以實驗室使用者的身分存取實驗室，請前進到下一個教學課程：
 
 > [!div class="nextstepaction"]
-> [教學課程：存取自訂實驗室](tutorial-use-custom-lab.md)
+> [教學課程：存取實驗室](tutorial-use-custom-lab.md)
 
