@@ -17,6 +17,7 @@
 ### [範本區段](resource-group-authoring-templates.md)
 #### [參數](resource-manager-templates-parameters.md)
 #### [變數](resource-manager-templates-variables.md)
+#### [函式](resource-group-authoring-templates.md#functions)
 #### [資源](resource-manager-templates-resources.md)
 #### [輸出](resource-manager-templates-outputs.md)
 ### [連結和巢狀範本](resource-group-linked-templates.md)

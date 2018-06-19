@@ -53,7 +53,7 @@
     - name: 監視安全性健康狀態
       href: security-center-monitoring.md
       items:
-        - name: 計算安全性
+        - name: 計算和應用程式安全性
           href: security-center-virtual-machine-recommendations.md
           items:
             - name: 套用磁碟加密
@@ -74,6 +74,10 @@
               href: security-center-update-os-version.md
             - name: 未安裝弱點評估
               href: security-center-vulnerability-assessment-recommendations.md
+            - name: 新增 Web 應用程式防火牆
+              href: security-center-add-web-application-firewall.md
+            - name: 完成應用程式保護
+              href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
         - name: 網路安全性
           href: security-center-network-recommendations.md
           items:
@@ -94,13 +98,6 @@
               href: security-center-enable-auditing-on-sql-servers.md
             - name: 啟用透明資料加密
               href: security-center-enable-transparent-data-encryption.md
-        - name: 應用程式安全性
-          href: security-center-application-recommendations.md
-          items:
-            - name: 新增 Web 應用程式防火牆
-              href: security-center-add-web-application-firewall.md
-            - name: 完成應用程式保護
-              href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
         - name: 身分識別與存取
           href: security-center-identity-access.md
     - name: 套用雲端防禦

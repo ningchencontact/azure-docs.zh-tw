@@ -1,4 +1,4 @@
-# [Azure IoT 基礎](../iot-fundamentals/index.yml)
+# [Azure IoT 基礎](/azure/iot-fundamentals)
 # [IoT 解決方案加速器文件](index.md)
 
 # 概觀
@@ -94,10 +94,10 @@
 # 參考
 ## [開發人員參考指南](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 ## [開發人員疑難排解指南](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
-## [安全性架構](iot-security-architecture.md)
-## [安全性最佳做法](iot-security-best-practices.md)
-## [保護您的 IoT 部署](iot-accelerators-security-deployment.md)
-## [從頭建立安全性](securing-iot-ground-up.md)
+## [從頭建立安全性](/azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-accelerators/rc/rc)
+## [安全性最佳作法](/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-accelerators/rc/rc)
+## [安全性架構](/azure/iot-fundamentals/iot-security-architecture?context=azure/iot-accelerators/rc/rc)
+## [保護您的 IoT 部署](/azure/iot-fundamentals/iot-security-deployment?context=azure/iot-accelerators/rc/rc)
 
 # 相關參考
 ## 解決方案 

@@ -1,22 +1,22 @@
 # [Azure Active Directory 文件](index.md)
 
 # 概觀
-## [什麼是 Azure Active Directory？](active-directory-whatis.md)
+## [什麼是 Azure Active Directory？](fundamentals/active-directory-whatis.md)
 ## [關於 Azure 身分識別管理](fundamentals/identity-fundamentals.md)
 ## [了解 Azure 身分識別解決方案](fundamentals/understand-azure-identity-solutions.md)
 ## [選擇混合式身分識別解決方案](choose-hybrid-identity-solution.md)
-## [關聯 Azure 訂用帳戶](active-directory-how-subscriptions-associated-directory.md)
+## [關聯 Azure 訂用帳戶](fundamentals/active-directory-how-subscriptions-associated-directory.md)
 ## [常駐和資料考量](fundamentals/active-directory-data-storage-eu.md)
 ## [常見問題集](fundamentals/active-directory-faq.md)
 ## [新功能](fundamentals/whats-new.md)
 
 
 # 開始使用
-## [開始使用 Azure AD](get-started-azure-ad.md)
+## [開始使用 Azure AD](fundamentals/get-started-azure-ad.md)
 ## [註冊 Azure AD Premium](active-directory-get-started-premium.md)
-## [新增自訂網域名稱](add-custom-domain.md)
-## [設定公司商標](customize-branding.md)
-## [在 Azure AD 中新增使用者](add-users-azure-active-directory.md)
+## [新增自訂網域名稱](fundamentals/add-custom-domain.md)
+## [設定公司商標](fundamentals/customize-branding.md)
+## [在 Azure AD 中新增使用者](fundamentals/add-users-azure-active-directory.md)
 ## [將授權指派給使用者](fundamentals/license-users-groups.md)
 ## [啟用自助式密碼重設](authentication/quickstart-sspr.md)
 ## [在 Azure AD 中新增貴組織的隱私權資訊](active-directory-properties-area.md)
@@ -44,11 +44,11 @@
 #### [工具比較](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
 
 ## 管理使用者
-### [在 Azure AD 中新增使用者](add-users-azure-active-directory.md)
-### [管理使用者設定檔](active-directory-users-profile-azure-portal.md)
+### [在 Azure AD 中新增使用者](fundamentals/add-users-azure-active-directory.md)
+### [管理使用者設定檔](fundamentals/active-directory-users-profile-azure-portal.md)
 ### [共用帳戶](active-directory-sharing-accounts.md)
-### [將使用者指派為管理員角色](active-directory-users-assign-role-azure-portal.md)
-### [還原已刪除的使用者](active-directory-users-restore.md)
+### [將使用者指派為管理員角色](fundamentals/active-directory-users-assign-role-azure-portal.md)
+### [還原已刪除的使用者](fundamentals/active-directory-users-restore.md)
 ### [從另一個目錄 (B2B) 中新增來賓使用者](b2b/what-is-b2b.md)
 #### [管理員新增 B2B 使用者](b2b/add-users-administrator.md)
 #### [資訊背景工作新增 B2B 使用者](b2b/add-users-information-worker.md)
@@ -80,15 +80,15 @@
 #### [比較 B2B 共同作業與 B2C](b2b/compare-with-b2c.md)
 #### [取得 B2B 支援](b2b/get-support.md)
 
-## [管理群組和成員](active-directory-manage-groups.md)
+## [管理群組和成員](fundamentals/active-directory-manage-groups.md)
 ### 管理群組
 #### [Azure 入口網站](active-directory-groups-create-azure-portal.md)
 #### [Azure AD PowerShell for Graph (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 #### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [管理群組成員](active-directory-groups-members-azure-portal.md)
-### [管理群組擁有者](active-directory-accessmanagement-managing-group-owners.md)
+### [管理群組擁有者](fundamentals/active-directory-accessmanagement-managing-group-owners.md)
 ### [管理群組成員資格](fundamentals/active-directory-groups-membership-azure-portal.md)
-### [使用群組指派授權](active-directory-licensing-whatis-azure-portal.md)
+### [使用群組指派授權](fundamentals/active-directory-licensing-whatis-azure-portal.md)
 #### [將授權指派給群組](active-directory-licensing-group-assignment-azure-portal.md)
 #### [識別並解決群組的授權問題](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [將個別授權使用者移轉至群組型的授權](active-directory-licensing-group-migration-azure-portal.md)
@@ -98,10 +98,10 @@
 #### [Azure AD 中的產品與服務方案的參考](active-directory-licensing-product-and-service-plan-reference.md)
 ### [設定 Office 365 群組到期時間](active-directory-groups-lifecycle-azure-portal.md)
 ### [為群組強制執行命名原則](groups-naming-policy.md)
-### [檢視全部群組](active-directory-groups-view-azure-portal.md)
+### [檢視全部群組](fundamentals/active-directory-groups-view-azure-portal.md)
 ### [新增 SaaS 應用程式的群組存取權](active-directory-accessmanagement-group-saasapps.md)
 ### [還原已刪除的 Office 365 群組](fundamentals/active-directory-groups-restore-azure-portal.md)
-### [管理群組設定](active-directory-groups-settings-azure-portal.md) 
+### [管理群組設定](fundamentals/active-directory-groups-settings-azure-portal.md) 
 ### 建立進階規則
 #### [Azure 入口網站](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [設定自助式群組](active-directory-accessmanagement-self-service-group-management.md)
@@ -153,7 +153,7 @@
 ### [SSPR 資料需求](authentication/howto-sspr-authenticationdata.md)
 ### [SQL 報告](authentication/howto-sspr-reporting.md)
 ### IT 系統管理員︰重設密碼
-#### [Azure 入口網站](active-directory-users-reset-password-azure-portal.md)
+#### [Azure 入口網站](fundamentals/active-directory-users-reset-password-azure-portal.md)
 ### [授權 SSPR](authentication/concept-sspr-licensing.md)
 ### [密碼回寫](authentication/howto-sspr-writeback.md)
 ### [疑難排解](authentication/active-directory-passwords-troubleshoot.md)
@@ -277,7 +277,7 @@
 ## 管理您的目錄
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### 自訂網域名稱
-#### [快速入門](add-custom-domain.md)
+#### [快速入門](fundamentals/add-custom-domain.md)
 #### [新增自訂網域名稱](active-directory-domains-manage-azure-portal.md)
 ### [管理目錄](fundamentals/active-directory-administer.md)
 ### [刪除目錄](directory-delete-howto.md)
@@ -294,11 +294,9 @@
 
 ### [使用 Azure AD Connect 整合內部部署身分識別](./connect/active-directory-aadconnect.md)
 
-## [管理 Azure 的存取權](../role-based-access-control/toc.yml)
-
 ## 委派資源存取
 ### [管理員角色](active-directory-assign-admin-roles-azure-portal.md)
-#### [將管理員角色指派給使用者](active-directory-users-assign-role-azure-portal.md) 
+#### [將管理員角色指派給使用者](fundamentals/active-directory-users-assign-role-azure-portal.md) 
 #### [比較成員和來賓使用者的權限](fundamentals/users-default-permissions.md) 
 ### [保護特殊權限存取](admin-roles-best-practices.md)  
 ### [建立緊急存取管理帳戶](active-directory-admin-manage-emergency-access-accounts.md) 
@@ -325,6 +323,7 @@
 #### [開始使用](active-directory-conditional-access-azure-portal-get-started.md)
 #### 快速入門
 ##### [設定每個雲端應用程式 MFA](active-directory-conditional-access-app-based-mfa.md)
+##### [接受的使用條款](active-directory-conditional-access-tou.md)
 #### 教學課程
 ##### [移轉傳統 MFA 原則](active-directory-conditional-access-migration-mfa.md)
 #### 概念
@@ -371,7 +370,7 @@
 ### [高可用性](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [變更簽章雜湊演算法](active-directory-federation-sha256-guidance.md)
 
-## [疑難排解](active-directory-troubleshooting-support-howto.md)
+## [疑難排解](fundamentals/active-directory-troubleshooting-support-howto.md)
 
 ## 部署 Azure AD 概念證明 (PoC)
 ### [PoC 腳本：簡介](active-directory-playbook-intro.md)

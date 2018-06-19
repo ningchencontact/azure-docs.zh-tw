@@ -63,6 +63,8 @@
           href: sql-data-warehouse-overview-manage-security.md
         - name: 驗證
           href: sql-data-warehouse-authentication.md
+        - name: 資料行層級安全性
+          href: column-level-security.md
     - name: 移轉至 SQL 資料倉儲
       items:
         - name: 概觀

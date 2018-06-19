@@ -33,14 +33,6 @@
           href: log-analytics-oms-portal-transition.md
         - name: 常見問題
           href: log-analytics-oms-portal-faq.md
-    - name: 工作區升級
-      items:
-        - name: 升級概觀
-          href: log-analytics-log-search-upgrade.md
-        - name: 變更摘要
-          href: log-analytics-log-search-upgrade-changes.md
-        - name: 升級常見問題
-          href: log-analytics-log-search-faq.md
     - name: Log Analytics 常見問題集
       href: log-analytics-faq.md
     - name: 資料安全性

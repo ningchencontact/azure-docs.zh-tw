@@ -1,4 +1,4 @@
-# [Azure IoT 基礎](../iot-fundamentals/index.yml)
+# [Azure IoT 基礎](/azure/iot-fundamentals)
 # [IoT 中樞文件](index.yml)
 
 # 概觀
@@ -84,10 +84,10 @@
 ### [使用 IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 ### [使用序列化程式](iot-hub-device-sdk-c-serializer.md)
 
-## [從頭建立安全性](iot-hub-security-ground-up.md)
-## [安全性最佳做法](iot-hub-security-best-practices.md)
-## [安全性架構](iot-hub-security-architecture.md)
-## [保護您的 IoT 部署](iot-hub-security-deployment.md)
+## [從頭建立安全性](/azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-hub/rc/rc)
+## [安全性最佳作法](/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/rc/rc)
+## [安全性架構](/azure/iot-fundamentals/iot-security-architecture?context=azure/iot-hub/rc/rc)
+## [保護您的 IoT 部署](/azure/iot-fundamentals/iot-security-deployment?context=azure/iot-hub/rc/rc)
 ## 使用 X.509 CA 憑證提供保護
 ### [X.509 CA 憑證安全性概觀](iot-hub-x509ca-overview.md)
 #### [X.509 CA 憑證安全性概念](iot-hub-x509ca-concept.md)

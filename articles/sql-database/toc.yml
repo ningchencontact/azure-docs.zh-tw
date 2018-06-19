@@ -202,6 +202,30 @@
           href: sql-database-xevent-db-diff-from-svr.md
         - name: 監視記憶體內部
           href: sql-database-in-memory-oltp-monitoring.md
+    - name: 彈性資料庫工作
+      items:
+        - name: 概觀
+          href: elastic-jobs-overview.md
+        - name: 建立和管理 (PowerShell)
+          href: elastic-jobs-powershell.md
+        - name: 建立和管理 (T-SQL)
+          href: elastic-jobs-tsql.md
+        - name: 移轉 (從舊的彈性工作)
+          href: elastic-jobs-migrate.md
+        - name: 彈性工作 (取代)
+          items:
+            - name: 概觀 (取代)
+              href: sql-database-elastic-jobs-overview.md
+            - name: 安裝彈性工作 (取代)
+              href: sql-database-elastic-jobs-service-installation.md
+            - name: 建立工作 - 入口網站 (取代)
+              href: sql-database-elastic-jobs-create-and-manage.md
+            - name: 建立工作 - Azure PowerShell (取代)
+              href: sql-database-elastic-jobs-powershell.md
+            - name: 建立工作 - 範例應用程式 (取代)
+              href: sql-database-elastic-jobs-getting-started.md
+            - name: 解除安裝彈性工作 (取代)
+              href: sql-database-elastic-jobs-uninstall.md
     - name: 相應放大
       items:
         - name: 概觀
@@ -212,8 +236,6 @@
           href: sql-database-elastic-query-overview.md
         - name: 彈性交易
           href: sql-database-elastic-transactions-overview.md
-        - name: 彈性工作
-          href: sql-database-elastic-jobs-overview.md
         - name: 分區對應
           href: sql-database-elastic-scale-shard-map-management.md
         - name: 查詢路由
@@ -276,16 +298,6 @@
       items:
         - name: 升級彈性資料庫用戶端程式庫
           href: sql-database-elastic-scale-upgrade-client-library.md
-        - name: 安裝彈性作業
-          href: sql-database-elastic-jobs-service-installation.md
-        - name: 建立作業 - 入口網站
-          href: sql-database-elastic-jobs-create-and-manage.md
-        - name: 建立作業 - Azure PowerShell
-          href: sql-database-elastic-jobs-powershell.md
-        - name: 建立作業 - 範例應用程式
-          href: sql-database-elastic-jobs-getting-started.md
-        - name: 將彈性作業解除安裝
-          href: sql-database-elastic-jobs-uninstall.md
         - name: 查詢垂直分割的資料
           href: sql-database-elastic-query-getting-started-vertical.md
         - name: 跨相應放大的資料層報告
@@ -454,8 +466,6 @@
   items:
     - name: Azure PowerShell
       href: '/powershell/module/azurerm.sql/#sql'
-    - name: PowerShell (彈性資料庫)
-      href: '/powershell/module/elasticdatabasejobs/#elasticdatabasejobs'
     - name: Azure CLI 2.0
       href: /cli/azure/sql
     - name: .NET
