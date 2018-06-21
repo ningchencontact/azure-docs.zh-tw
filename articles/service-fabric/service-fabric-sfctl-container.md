@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric CLI- sfctl store | Microsoft Docs
-description: 描述 Service Fabric CLI sfctl store 命令。
+title: Azure Service Fabric CLI- sfctl container | Microsoft Docs
+description: 描述 Service Fabric CLI sfctl container 命令。
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
@@ -14,34 +14,39 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 05/23/2018
 ms.author: bikang
-ms.openlocfilehash: 39ecf568c5c41c0007b358670af755be1dd5d99e
+ms.openlocfilehash: cd3725ac547a1ed1fd9207dc48ba3b6227e85ef1
 ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763233"
+ms.locfileid: "34763934"
 ---
-# <a name="sfctl-store"></a>sfctl store
-在叢集映像存放區上執行基本檔案層級作業。
+# <a name="sfctl-container"></a>sfctl container
+在叢集節點上執行容器相關命令。
 
 ## <a name="commands"></a>命令
 
 |命令|說明|
 | --- | --- |
-| delete | 刪除現有映像存放區內容。 |
-| root-info | 取得映像存放區根的內容資訊。 |
-| stat | 取得映像存放區內容資訊。 |
+| invoke-api | 叫用容器 REST API。 |
+| logs | 擷取容器記錄。 |
 
-## <a name="sfctl-store-delete"></a>sfctl store delete
-刪除現有映像存放區內容。
-
-刪除在指定映像存放區相對路徑內找到的現有映像存放區內容。 此命令可以用來刪除已上傳且佈建的應用程式套件。
+## <a name="sfctl-container-invoke-api"></a>sfctl container invoke-api
+叫用容器 REST API。
 
 ### <a name="arguments"></a>引數
 
 |引數|說明|
 | --- | --- |
-| --content-path [必要] | 映像存放區中檔案或資料夾與其根的相對路徑。 |
+| --application-id           [必要] | 應用程式識別碼。 |
+| --code-package-instance-id [必要] | 程式碼套件執行個體識別碼，可由 'service code-package-list' 來擷取。 |
+| --code-package-name        [必要] | 程式碼套件名稱。 |
+| --container-api-uri-path   [必要] | 容器 REST API URI 路徑，請使用 '{ID}' 來取代容器名稱/識別碼。 |
+| --node-name [必要] | 節點的名稱。 |
+| --service-manifest-name    [必要] | 服務資訊清單名稱。 |
+| --container-api-body | 容器 REST API 的 HTTP 要求本文。 |
+| --container-api-content-type | 容器 REST API 的內容類型，預設為 'application/json'。 |
+| --container-api-http-verb | 容器 REST API 的 HTTP 動詞，預設為 GET。 |
 | --timeout -t | 伺服器逾時 (秒)。  預設值：60。 |
 
 ### <a name="global-arguments"></a>全域引數
@@ -54,37 +59,19 @@ ms.locfileid: "34763233"
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
 
-## <a name="sfctl-store-root-info"></a>sfctl store root-info
-取得映像存放區根的內容資訊。
-
-傳回位於映像存放區根目錄中映像存放區內容的相關資訊。
+## <a name="sfctl-container-logs"></a>sfctl container logs
+擷取容器記錄。
 
 ### <a name="arguments"></a>引數
 
 |引數|說明|
 | --- | --- |
-| --timeout -t | 伺服器逾時 (秒)。  預設值：60。 |
-
-### <a name="global-arguments"></a>全域引數
-
-|引數|說明|
-| --- | --- |
-| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
-| --help -h | 顯示此說明訊息並結束。 |
-| --output -o | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。 |
-| --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
-
-## <a name="sfctl-store-stat"></a>sfctl store stat
-取得映像存放區內容資訊。
-
-傳回位於所指定 contentPath 映像存放區內容的相關資訊。 contentPath 是相對於映像存放區根目錄的路徑。
-
-### <a name="arguments"></a>引數
-
-|引數|說明|
-| --- | --- |
-| --content-path [必要] | 映像存放區中檔案或資料夾與其根的相對路徑。 |
+| --application-id           [必要] | 應用程式識別碼。 |
+| --code-package-instance-id [必要] | 程式碼套件執行個體識別碼，可由 'service code-package-list' 來擷取。 |
+| --code-package-name        [必要] | 程式碼套件名稱。 |
+| --node-name [必要] | 節點的名稱。 |
+| --service-manifest-name    [必要] | 服務資訊清單名稱。 |
+| --tail | 只從記錄結尾傳回此數目的記錄行。 請以整數指定，或指定 all 來輸出所有記錄行。 預設為 'all'。 |
 | --timeout -t | 伺服器逾時 (秒)。  預設值：60。 |
 
 ### <a name="global-arguments"></a>全域引數

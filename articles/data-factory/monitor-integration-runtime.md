@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/23/2017
 ms.author: douglasl
-ms.openlocfilehash: 4c857af02e104940559cb86daa3ccd208d8e35a1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 956bd89a993a019d7a5a4dd28efec4116b174334
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297252"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>在 Azure Data Factory 中監視整合執行階段  
 **整合執行階段**是 Azure Data Factory 所使用的計算基礎結構，可提供跨不同網路環境的各種資料整合功能。 Data Factory 提供三種類型的整合執行階段：
@@ -166,7 +167,7 @@ Azure SSIS 整合執行階段是完全受控的 Azure 虛擬機器 (或節點) �
 | CatalogAdminUserName | 現有 Azure SQL Database/受控執行個體 (預覽) 伺服器的管理員使用者名稱。 Data Factory 服務會使用此資訊，代表您準備及管理 SSISDB。 |
 | CatalogAdminPassword | 現有 Azure SQL Database/受控執行個體 (預覽) 伺服器的管理員密碼。 |
 | CatalogPricingTier | 現有 Azure SQL Database 伺服器所裝載的 SSISDB 定價層。  不適用於裝載 SSISDB 的 Azure SQL 受控執行個體 (預覽)。 |
-| VNetId | Azure SSIS 整合執行階段要加入的虛擬網路 (VNet) 資源識別碼。 |
+| VNetId | Azure SSIS 整合執行階段要加入的虛擬網路資源識別碼。 |
 | 子網路 | Azure SSIS 整合執行階段要加入的子網路名稱。 |
 | ID | Azure SSIS 整合執行階段的資源識別碼。 |
 | 類型 | Azure SSIS 整合執行階段的 (受控/自我裝載) 類型。 |
@@ -199,9 +200,9 @@ Azure SSIS 整合執行階段是完全受控的 Azure 虛擬機器 (或節點) �
 
 - [Azure SSIS 整合執行階段](concepts-integration-runtime.md#azure-ssis-integration-runtime)。 本文提供整合執行階段的一般概念性資訊，包括 Azure-SSIS IR。 
 - [教學課程：將 SSIS 套件部署至 Azure](tutorial-create-azure-ssis-runtime-portal.md)。 本文逐步說明如何建立 Azure-SSIS IR，並使用 Azure SQL Database 裝載 SSIS 目錄。 
-- [如何：建立 Azure-SSIS 整合執行階段](create-azure-ssis-integration-runtime.md)。 這篇文章會詳述教學課程，並提供使用 Azure SQL 受控執行個體 (預覽)，以及將 IR 加入 VNet 的指示。 
-- [管理 Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). 本文示範如何停止、啟動或移除 Azure-SSIS IR。 它也會告訴您如何將更多節點新增至 IR，藉此相應放大 Azure SSIS IR。 
-- [將 VNet 加入至 Azure SSIS IR](join-azure-ssis-integration-runtime-virtual-network.md)。 這篇文章提供將 Azure SSIS IR 加入至 Azure 虛擬網路 (VNet) 的概念資訊。 它也提供使用 Azure 入口網站來設定 VNet，好讓 Azure SSIS IR 可加入 VNet 的步驟。 
+- [如何：建立 Azure-SSIS 整合執行階段](create-azure-ssis-integration-runtime.md)。 這篇文章會詳述教學課程，並提供使用 Azure SQL 受控執行個體 (預覽)，以及將 IR 加入虛擬網路的指示。 
+- [管理 Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). 本文示範如何停止、啟動或移除 Azure-SSIS IR。 它也會示範如何將更多節點新增至 IR，藉此相應放大 Azure-SSIS IR。 
+- [將 Azure-SSIS IR 加入虛擬網路](join-azure-ssis-integration-runtime-virtual-network.md)。 這篇文章提供將 Azure SSIS IR 加入至 Azure 虛擬網路的概念資訊。 它也提供使用 Azure 入口網站來設定虛擬網路，好讓 Azure SSIS IR 可加入虛擬網路的步驟。 
 
 ## <a name="next-steps"></a>後續步驟
 請參閱以下文章，以不同的方式監視管線： 

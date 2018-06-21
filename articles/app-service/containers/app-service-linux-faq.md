@@ -13,13 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
-ms.author: aelnably;wesmc
-ms.openlocfilehash: 8d25c70a0e5db92bca6f3970049a2e1325fe124b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 05/25/2018
+ms.author: msangapu
+ms.openlocfilehash: 162f9e4a6ad18cc95ccc0b14ce5d8c6318b86ba5
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294006"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux 上的 Azure App Service 常見問題集
 
@@ -35,7 +36,7 @@ ms.lasthandoff: 05/07/2018
 
 **設定執行階段堆疊時，在 [啟動檔案] 區段應該使用哪些值？**
 
-針對 Node.js，您需指定 PM2 組態檔或指令碼檔案。 針對 .Net Core，請指定已編譯的 DLL 名稱。 針對 Ruby，您可以指定要用來將應用程式初始化的 Ruby 指令碼。
+針對 Node.js，您需指定 PM2 組態檔或指令碼檔案。 針對 .Net Core，請將已編譯的 DLL 名稱指定為 `dotnet <myapp>.dll`。 針對 Ruby，您可以指定要用來將應用程式初始化的 Ruby 指令碼。
 
 ## <a name="management"></a>管理
 
@@ -47,7 +48,7 @@ ms.lasthandoff: 05/07/2018
 
 是的，您可以透過原始檔控制管理 (SCM) 網站執行該動作。
 
-> [!NOTE] 
+> [!NOTE]
 > 您也可以使用 SSH、SFTP 或 Visual Studio Code (適用於 Node.js 應用程式即時偵錯)，直接從本機開發電腦連線到應用程式容器。 如需詳細資訊，請參閱 [Linux 上 App Service 中的遠端偵錯和 SSH](https://aka.ms/linux-debug)。
 >
 
@@ -113,7 +114,7 @@ var io = require('socket.io')(server,{
 
 **我的自訂容器需要很長時間才能啟動，而平台會在它完成啟動之前將容器重新啟動。**
 
-您可以設定在重新啟動容器之前，平台所要等待的時間量。 若要這樣做，請將 `WEBSITES_CONTAINER_START_TIME_LIMIT` 應用程式設定設定成您要的值。 預設值為 230 秒，而最大值為 600 秒。
+您可以設定在重新啟動容器之前，平台所要等待的時間量。 若要這樣做，請將 `WEBSITES_CONTAINER_START_TIME_LIMIT` 應用程式設定設定成您要的值。 預設值為 230 秒，而最大值為 1800 秒。
 
 **私人登錄伺服器 URL 的格式為何？**
 

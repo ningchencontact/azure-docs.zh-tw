@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Data Factory 中使用預存程序活動執行 SSIS 套件 | Microsoft Docs
-description: 本文描述如何使用預存程序活動，從 Azure Data Factory 管線執行 SQL Server Integration Services (SSIS) 套件。
+title: 使用預存程序活動執行 SSIS 套件 - Azure | Microsoft Docs
+description: 本文描述如何使用預存程序活動，在 Azure Data Factory 管線執行 SQL Server Integration Services (SSIS) 套件。
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,17 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 283e1022abda083d73e8e4e5bca7872791cb4861
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: df4e5002d637c4d280686642156309c85bd89773
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297680"
 ---
-# <a name="run-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>在 Azure Data Factory 中使用預存程序活動執行 SSIS 套件
-本文描述如何使用預存程序活動，從 Azure Data Factory 管線執行 SSIS 套件。 
+# <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>在 Azure Data Factory 中使用預存程序活動執行 SSIS 套件
+本文描述如何使用預存程序活動，在 Azure Data Factory 管線執行 SSIS 套件。 
 
 > [!NOTE]
 > 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務，也就是正式推出 (GA) 的版本，請參閱[使用第 1 版的預存程序活動叫用 SSIS 封裝](v1/how-to-invoke-ssis-package-stored-procedure-activity.md)。

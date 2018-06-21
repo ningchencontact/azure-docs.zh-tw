@@ -1,19 +1,19 @@
 ---
 title: 探索 Azure 時間序列深入解析 JavaScript 用戶端程式庫
 description: 了解 Azure 時間序列深入解析 JavaScript 用戶端程式庫和相關的程式設計模型。
-author: BryanLa
+author: ashannon7
 manager: timlt
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: bryanla
-ms.openlocfilehash: 6bd8b10100f8cdabca5f87addfea1690dc5fac6c
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 70e29b1a6b8a4443ae6545ec7960f1d2370218e3
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809493"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295383"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>教學課程：探索 Azure 時間序列深入解析 JavaScript 用戶端程式庫
 
@@ -211,7 +211,7 @@ TSI 用戶端程式庫也會公開一些選擇性的進階功能以供您利用�
      - 包含 JavaScript ISO 時間戳記的字串索引鍵。
      - 包含狀態特性的陣列：色彩和描述。
 
-2. 然後，為「事件」定義 `events5` 結構，其中包含要追蹤之事件元素的陣列。陣列結構的圖形與針對 `events5` 所概述的結構相同。
+2. 然後，為「事件」定義 `events5` 結構，其中包含要追蹤之事件元素的陣列。陣列結構的圖形與針對 `events4` 所概述的結構相同。
 
 3. 最後轉譯折線圖，傳入兩個具有圖表選項參數的結構：`events:` 和 `states:`。 請留意其他用來指定 `tooltip:`、`theme:` 或 `grid:` 的選項參數。
 

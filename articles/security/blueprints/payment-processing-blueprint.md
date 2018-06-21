@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1b77aee3bceef13128ada34fb325240dda98bc41
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 03f13c0b1ae209cc3da211a252a9a735faad34d0
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895481"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301366"
 ---
 # <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Azure 安全性與合規性藍圖 - 符合 PCI DSS 規範的付款處理環境
 
@@ -44,7 +44,7 @@ ms.locfileid: "33895481"
 - **部署範本**。 在此部署中，透過在安裝期間指定設定參數，系統會使用 [Azure Resource Manager 範本](/azure/azure-resource-manager/resource-group-overview#template-deployment)來將架構的元件自動部署至 Microsoft Azure。
 - **自動化部署指令碼**。 這些指令碼可協助您部署端對端解決方案。 指令碼包括：
     - 模組安裝和[全域管理員](/azure/active-directory/active-directory-assign-admin-roles-azure-portal)安裝指令碼會用來進行安裝，以及確認必要的 PowerShell 模組和全域管理員角色已正確設定。
-    - 安裝 PowerShell 指令碼會用來部署端對端解決方案，並透過 .zip 檔案和 .bacpac 檔案提供，其中包含預先建置的示範 Web 應用程式與 [SQL 資料庫的範例](https://github.com/Microsoft/azure-sql-security-sample)。 內容。 您可以在 [藍圖程式碼存放庫][程式碼存放庫] 檢閱此解決方案的原始程式碼。 
+    - 安裝 PowerShell 指令碼會用來部署端對端解決方案，並透過 .zip 檔案和 .bacpac 檔案提供，其中包含預先建置的示範 Web 應用程式與 [SQL 資料庫的範例](https://github.com/Microsoft/azure-sql-security-sample)內容。 您可以在 [GitHub](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms) 檢閱此解決方案的原始程式碼。 
 
 ## <a name="architectural-diagram"></a>架構圖
 
@@ -169,8 +169,6 @@ Edna Benson 是接待員和業務經理。 她負責確保客戶資訊正確且�
 - 適用於防火牆和應用程式閘道 WAF 的 DMZ 網路安全性群組
 - 適用於管理 jumpbox 的 NSG (防禦主機)
 - 適用於應用程式環境的 NSG
-
-每個 NSG 都具有特定連接埠及通訊協定，開放給安全且正確的解決方案作業使用。 如需詳細資訊，請參閱 [PCI 指引 - 網路安全性群組](#network-security-groups)。
 
 每個 NSG 都具有特定連接埠及通訊協定，開放給安全且正確的解決方案工作使用。 此外，以下設定會針對每個 NSG 啟用：
 - 啟用的[診斷記錄和事件](/azure/virtual-network/virtual-network-nsg-manage-log)會儲存在儲存體帳戶 

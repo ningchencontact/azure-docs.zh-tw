@@ -1,19 +1,20 @@
 ---
-title: 設定 Azure-SSIS Integration Runtime 以獲得高效能 | Microsoft Docs
+title: 設定 Azure-SSIS Integration Runtime 效能 | Microsoft Docs
 description: 了解如何設定 Azure-SSIS Integration Runtime 的屬性，以獲得高效能
 services: data-factory
 ms.date: 01/10/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: data-factory
 ms.workload: data-services
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: ed5d1740f1d68db5ad42266c3fc2dcc983682774
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: dc61d9d5e1a2f2ccae09f77d80aca08ebfb59047
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299641"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>設定 Azure-SSIS Integration Runtime 以獲得高效能
 
