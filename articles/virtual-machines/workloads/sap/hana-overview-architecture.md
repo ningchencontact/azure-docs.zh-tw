@@ -4,22 +4,22 @@ description: SAP HANA on Azure (大型執行個體) 部署方式的架構概觀�
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/02/2018
+ms.date: 06/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e3342f3057917202d81359a27accf47ba288b128
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: bfcab5a84d9e8b0bf164c666162636ede2e1b06f
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077618"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763777"
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Azure 上的 SAP HANA (大型執行個體) 概觀和架構
 
@@ -62,14 +62,16 @@ HANA 大型執行個體指南的不同文件涵蓋下列領域：
 - **SAP 架構**︰意指您 IT 架構中的整個 SAP 資產。 SAP 環境包含所有生產和非生產環境。
 - **SAP 系統**︰DBMS 層與應用程式層的組合，例如 SAP ERP 開發系統、SAP BW 測試系統、SAP CRM 生產系統等。 Azure 部署不支援在內部部署與 Azure 之間分割這兩層。 SAP 系統可以在內部部署或在 Azure 中部署。 您可以將 SAP 環境的不同系統部署到 Azure 或內部部署中。 例如，您可以在 Azure 中部署 SAP CRM 開發和測試系統，而在內部部署 SAP CRM 生產系統。 就 SAP HANA on Azure (大型執行個體) 而言，您應在 VM 中裝載 SAP 系統的 SAP 應用程式層，並在 SAP HANA on Azure (大型執行個體) 戳記中的某個單位上裝載相關的 SAP HANA 執行個體。
 - **大型執行個體戳記**︰經 SAP HANA TDI 認證，並專門用來執行 Azure 內的 SAP HANA 執行個體的硬體基礎結構堆疊。
-- **SAP HANA on Azure (大型執行個體)**：Azure 中的提供項目的正式名稱；此提供項目可在經 SAP HANA TDI 認證並部署在不同 Azure 區域的「大型執行個體」戳記中的硬體上執行 HANA 執行個體。 相關詞彙 *HANA 大型執行個體*是 *SAP HANA on Azure (大型執行個體)* 的簡稱，廣泛使用於本技術部署指南中。
+- 
+  **SAP HANA on Azure (大型執行個體)**：Azure 中的供應項目的正式名稱；此供應項目可在經 SAP HANA TDI 認證並部署在不同 Azure 區域的「大型執行個體」戳記中的硬體上執行 HANA 執行個體。 相關詞彙 *HANA 大型執行個體*是 *SAP HANA on Azure (大型執行個體)* 的簡稱，廣泛使用於本技術部署指南中。
 - **跨單位**：說明將 VM 部署到在內部部署資料中心與 Azure 之間具有站對站、多網站或 Azure ExpressRoute 連線能力的 Azure 訂用帳戶的案例。 在一般 Azure 文件中，這類部署也會描述為跨單位案例。 之所以連線，是為了將內部部署網域、內部部署 Azure Active Directory/OpenLDAP 和內部部署 DNS 擴充到 Azure 中。 內部部署架構會擴充至 Azure 訂用帳戶的 Azure 資產。 透過此擴充，VM 可以是內部部署網域的一部分。 
 
    內部部署網域的網域使用者可以存取伺服器，並可在這些 VM 上執行服務 (例如 DBMS 服務)。 在內部部署的 VM 與 Azure 部署的 VM 之間可進行通訊和名稱解析。 這是部署大部分 SAP 資產時的典型案例。 如需詳細資訊，請參閱[規劃與設計 Azure VPN 閘道](../../../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)和[使用 Azure 入口網站建立具有站對站連線的虛擬網路](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 - **租用戶**：部署於 HANA 大型執行個體戳記的客戶會隔離到*租用戶*中。 每個租用戶的網路、儲存體和計算層會彼此區隔開來。 指派給不同租用戶的儲存體和計算單位無法看到彼此，也無法在 HANA 大型執行個體戳記層級上彼此通訊。 客戶可以選擇部署到不同的租用戶。 即使如此，租用戶彼此之間還是無法在 HANA 大型執行個體戳記層級上進行通訊。
-- **SKU 類別**：對於 HANA 大型執行個體，會提供下列兩種 SKU：
-    - **類型 I 類別**：S72、S72m、S144、S144m、S192 和 S192m
-    - **類型 II 類別**：S384、S384m、S384xm、S576m、S768m 和 S960m
+- 
+  **SKU 類別**：對於 HANA 大型執行個體，會提供下列兩種 SKU：
+    - **類型 I 類別**：S72、S72m、S144、S144m、S192、S192m 和 S192xm
+    - **類型 II 類別**：S384、S384m、S384xm、S384xxm、S576m、S576xm、S768m、S768xm 和 S960m
 
 
 您可以透過其他多項資源了解如何在雲端中部署 SAP 工作負載。 如果您想要在 Azure 中執行 SAP HANA 的部署，您必須熟悉並了解 Azure IaaS 的主體及 Azure IaaS 上的 SAP 工作負載部署。 在繼續作業之前，請參閱[在 Azure 虛擬機器上使用 SAP 解決方案](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)以取得詳細資訊。 
@@ -148,17 +150,20 @@ SAP HANA on Azure (大型執行個體) 的整體架構會提供一個經 SAP TDI
 |---| SAP HANA on Azure S576m<br /> – 12 x Intel® Xeon® Processor E7-8890 v4<br /> 288 個 CPU 核心和 576 個 CPU 執行緒 |  12.0 TB |  28 TB | 可用 |
 |---| SAP HANA on Azure S768m<br /> – 16 x Intel® Xeon® Processor E7-8890 v4<br /> 384 個 CPU 核心和 768 個 CPU 執行緒 |  16.0 TB |  36 TB | 可用 |
 |---| SAP HANA on Azure S960m<br /> – 20 x Intel® Xeon® Processor E7-8890 v4<br /> 480 個 CPU 核心和 960 個 CPU 執行緒 |  20.0 TB |  46 TB | 可用 |
-
+| 已針對 OLTP **TDIv5** 最佳化：SAP Business Suite<br /> on SAP HANA 或 S/4HANA (OLTP)<br /> (一般 OLTP) | SAP HANA on Azure S192xm<br /> – 4 x Intel® Xeon® Processor E7-8890 v4<br /> 96 個 CPU 核心和 192 個 CPU 執行緒 |  6.0 TB |  16 TB | 可用 |
+|---| SAP HANA on Azure S384xxm<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 個 CPU 核心和 384 個 CPU 執行緒 |  12.0 TB |  28 TB | 可用 |
+|---| SAP HANA on Azure S576xm<br /> – 12 x Intel® Xeon® Processor E7-8890 v4<br /> 288 個 CPU 核心和 576 個 CPU 執行緒 |  18.0 TB |  41 TB | 可用 |
+|---| SAP HANA on Azure S768xm<br /> – 16 x Intel® Xeon® Processor E7-8890 v4<br /> 384 個 CPU 核心和 768 個 CPU 執行緒 |  24.0 TB |  56 TB | 可用 |
 - CPU 核心 = 伺服器單位處理器總和的非超執行緒 CPU 核心總和。
 - CPU 執行緒 = 伺服器單位處理器總和的超執行緒 CPU 核心所提供之計算執行緒的總和。 依預設會將所有單位設定為使用超執行緒技術。
 
 
 選擇的特定組態取決於工作負載、CPU 資源及所需的記憶體。 OLTP 工作負載可以使用已針對 OLAP 工作負載最佳化的 SKU。 
 
-所有提供項目的硬體基礎皆經過 SAP HANA TDI 的認證。 兩種不同類別的硬體會將 SKU 分成：
+所有供應項目的硬體基礎皆經過 SAP HANA TDI 的認證。 兩種不同類別的硬體會將 SKU 分成：
 
-- S72、S72m、S144、S144m、S192 和 S192m，我們稱之為「類型 I 類別」的 SKU。
-- S384、S384m、S384xm、S576m、S768m 和 S960m，稱之為「類型 II 類別」的 SKU。
+- S72、S72m、S144、S144m、S192、S192m 和 S192xm，稱之為「類型 I 類別」的 SKU。
+- S384、S384m、S384xm、S384xxm、S576m、S576xm、S768m、S768xm 和 S960m，稱之為「類型 II 類別」的 SKU。
 
 完整的 HANA 大型執行個體戳記並非僅配置給單一客戶使用。 這項事實也適用於透過 Azure 中所部署的網路網狀架構連線的計算與儲存資源的機架。 「HANA 大型執行個體」基礎結構和 Azure 一樣，會在下列三個層面部署彼此隔離的不同客戶&quot;租用戶&quot;：
 
@@ -216,7 +221,7 @@ SAP HANA on Azure (大型執行個體) 提供的服務可與 Azure IaaS 服務�
 
 ![SAP HANA on Azure (大型執行個體) 的職責](./media/hana-overview-architecture/image2-responsibilities.png)
 
-如圖所示，SAP HANA on Azure (大型執行個體) 是一個多租用戶的 IaaS 提供項目。 大部分的職責劃分皆以 OS 基礎結構為界。 Microsoft 負責作業系統線以下的所有服務層面。 您則負責該線以上的各個服務層面。 作業系統是您的責任。 您可以繼續使用目前針對合規性、安全性、應用程式管理、基礎與 OS 管理可能採用的大多數內部部署方法。 這些系統在所有方面都會顯得它們彷彿就在您的網路中一樣。
+如圖所示，SAP HANA on Azure (大型執行個體) 是一個多租用戶的 IaaS 供應項目。 大部分的職責劃分皆以 OS 基礎結構為界。 Microsoft 負責作業系統線以下的所有服務層面。 您則負責該線以上的各個服務層面。 作業系統是您的責任。 您可以繼續使用目前針對合規性、安全性、應用程式管理、基礎與 OS 管理可能採用的大多數內部部署方法。 這些系統在所有方面都會顯得它們彷彿就在您的網路中一樣。
 
 這項服務已針對 SAP HANA 進行最佳化，因此有些部分您需要與 Microsoft 合作，才能使用根本基礎結構功能獲得最佳結果。
 
@@ -338,17 +343,21 @@ SAP HANA on Azure (大型執行個體) 的儲存體配置是由傳統部署模�
 
 關於儲存區配置，請參閱下表。 該表格列出了利用不同 HANA 大型執行個體單位提供之不同磁碟區的粗估容量。
 
-| HANA 大型執行個體 SKU | hana/data | hana/log | hana/shared | hana/log/backup |
+| HANA 大型執行個體 SKU | hana/data | hana/log | hana/shared | hana/logbackups |
 | --- | --- | --- | --- | --- |
 | S72 | 1,280 GB | 512 GB | 768 GB | 512 GB |
 | S72m | 3,328 GB | 768 GB |1,280 GB | 768 GB |
 | S192 | 4,608 GB | 1,024 GB | 1,536 GB | 1,024 GB |
 | S192m | 11,520 GB | 1,536 GB | 1,792 GB | 1,536 GB |
+| S192xm |  12,000 GB |  2,050 GB |  2,050 GB |  2.040 GB |
 | S384 | 11,520 GB | 1,536 GB | 1,792 GB | 1,536 GB |
 | S384m | 12,000 GB | 2,050 GB | 2,050 GB | 2,040 GB |
 | S384xm | 16,000 GB | 2,050 GB | 2,050 GB | 2,040 GB |
+| S384xxm |  20,000 GB | 3,100 GB | 2,050 GB | 3,100 GB |
 | S576m | 20,000 GB | 3,100 GB | 2,050 GB | 3,100 GB |
+| S576xm | 31,744 GB | 4,096 GB | 2,048 GB | 4,096 GB |
 | S768m | 28,000 GB | 3,100 GB | 2,050 GB | 3,100 GB |
+| S768xm | 40,960 GB | 6,144 GB | 4,096 GB | 6,144 GB |
 | S960m | 36,000 GB | 4,100 GB | 2,050 GB | 4,100 GB |
 
 
@@ -377,7 +386,7 @@ SAP HANA on Azure (大型執行個體) 的儲存體配置是由傳統部署模�
 利用類型 I 類別的 SKU，就會將儲存開機 LUN 的磁碟區加密。 對於類型 II 類別的 HANA 大型執行個體 SKU，您需要使用 OS 方法來將開機 LUN 加密。 如需詳細資訊，請連絡 Microsoft 服務管理小組。
 
 
-## <a name="networking"></a>網路
+## <a name="networking"></a>網路功能
 
 Azure 網路服務的架構是在 HANA 大型執行個體上成功部署 SAP 應用程式的關鍵元件。 一般而言，SAP HANA on Azure (大型執行個體) 部署具有較大的 SAP 架構，其中包含數個擁有不同資料庫大小、CPU 資源耗用量及記憶體使用量的不同 SAP 解決方案。 這些 SAP 系統可能並非全都以 SAP HANA 為基礎。 您的 SAP 環境可能會混用下列項目：
 

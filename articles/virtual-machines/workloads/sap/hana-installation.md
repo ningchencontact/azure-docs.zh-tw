@@ -4,35 +4,36 @@ description: 如何在 SAP HANA on Azure (大型執行個體) 上安裝 SAP HANA
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/01/2016
+ms.date: 06/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 768d9c31cdf019bf73a9d3b3a239c537c72725f6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0747bd5dc147639167f352dea46f7e4a1d43227d
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778591"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763439"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>如何安裝和設定 Azure 上的 SAP HANA (大型執行個體)
 
 以下是閱讀本指南之前要知道的重要定義。 我們在 [Azure 上 SAP HANA (大型執行個體) 的概觀和架構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)中引進了兩種不同類別的 HANA 大型執行個體單位：
 
-- S72、S72m、S144、S144m、S192 和 S192m，稱之為「類型 I 類別」的 SKU。
-- S384、S384m、S384xm、S576m、S768m 和 S960m，稱之為「類型 II 類別」的 SKU。
+- S72、S72m、S144、S144m、S192、S192m 和 S192xm，稱之為「類型 I 類別」的 SKU。
+- S384、S384m、S384xm、S384xxm、S576m、S576xm、S768m、S768xm 和 S960m，稱之為「類型 II 類別」的 SKU。
 
 在整個 HANA 大型執行個體文件中都會使用類別規範，最終以 HANA 大型執行個體 SKU 為基礎指向不同的功能和需求。
 
 其他常用定義包括：
 - **大型執行個體戳記︰** 經 SAP HANA TDI 認證並專門用來執行 Azure 內 SAP HANA 執行個體的硬體基礎結構堆疊。
-- **SAP HANA on Azure (大型執行個體)：** Azure 中產品方案的正式名稱，此產品方案可在經 SAP HANA TDI 認證並部署在不同 Azure 區域之「大型執行個體」戳記中的硬體上執行 HANA 執行個體。 **HANA 大型執行個體**是 SAP HANA on Azure (大型執行個體) 的相關詞彙簡稱，並在本技術部署指南中廣泛使用。
+- 
+  **SAP HANA on Azure (大型執行個體)：** Azure 中供應項目的正式名稱，此供應項目可在經 SAP HANA TDI 認證並部署在不同 Azure 區域之「大型執行個體」戳記中的硬體上執行 HANA 執行個體。 **HANA 大型執行個體**是 SAP HANA on Azure (大型執行個體) 的相關詞彙簡稱，並在本技術部署指南中廣泛使用。
 
 
 安裝 SAP HANA 是您的責任，您可以在遞交新的 SAP HANA on Azure (大型執行個體) 伺服器之後開始此活動。 在 Azure VNet 和 HANA 大型執行個體單位之間建立連線之後。 
@@ -72,7 +73,7 @@ ms.locfileid: "33778591"
 
 **第五步**是檢查 etc/hosts。 在移交刀鋒伺服器時，會針對不同的用途為它們指派不同的 IP 位址 (請參閱下一節)。 檢查 etc/hosts 檔案。 如果將單位新增到現有的租用戶，請勿期望系統會使用先前交付之系統的 IP 位址來正確維護新部署之系統的 etc/hosts。 因此，必須倚賴身為客戶的您來檢查設定是否正確，如此新部署的執行個體才能進行互動並解析您租用戶中先前所部署單位的名稱。 
 
-## <a name="networking"></a>網路
+## <a name="networking"></a>網路功能
 我們假設您已如下列文件所述，依照建議設計 Azure VNet，並將這些 VNet 連接到 HANA 大型執行個體：
 
 - [Azure 上 SAP HANA (大型執行個體) 的概觀和架構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)

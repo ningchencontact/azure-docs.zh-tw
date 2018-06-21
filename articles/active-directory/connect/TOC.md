@@ -18,6 +18,7 @@
 ### [從舊版升級](active-directory-aadconnect-upgrade-previous-version.md)
 ### [使用現有的 ADSync 資料庫安裝](active-directory-aadconnect-existing-database.md)
 ### [使用 SQL 委派的系統管理員權限安裝](active-directory-aadconnect-sql-delegation.md)
+### [將 Azure AD Connect 資料庫移動至遠端 SQL Server](active-directory-aadconnect-move-db.md)
 
 # 作法
 ## 規劃和設計

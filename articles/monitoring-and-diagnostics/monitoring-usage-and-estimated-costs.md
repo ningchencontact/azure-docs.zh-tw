@@ -1,24 +1,20 @@
 ---
-title: 在 Azure 監視器中監視使用量和估計成本 | Microsoft Docs
+title: 在 Azure 監視器中監視使用量和估計成本
 description: 使用 Azure 監視器的使用量和估計成本頁面的程序概觀
 author: dalekoetke
-manager: carmonmills
-editor: mrbullwinkle
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/09/2018
-ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: 6cc35697573ae2997f289f67c7867d9c522149be
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 05/31/2018
+ms.author: mbullwin
+ms.reviewer: Dale.Koetke
+ms.component: ''
+ms.openlocfilehash: edfcc244105403ae33251777c560d4cc21dfe5cb
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203772"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264277"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>監視使用量和估計成本
 
@@ -107,3 +103,146 @@ ms.locfileid: "34203772"
 ![定價模式選取螢幕擷取畫面](./media/monitoring-usage-and-estimated-costs/007.png)
 
 若要將訂用帳戶移轉至新的定價模式，請先選取方塊，再選取 [儲存] 即可。 您可以用相同方式重新移轉至舊的定價模式。 請注意，必須具備訂用帳戶擁有者或參與者權限，才能變更定價模式。
+
+## <a name="automate-moving-to-the-new-pricing-model"></a>自動移轉至新的定價模式
+
+下列指令碼需要 Azure PowerShell 模組。 若要檢查是否有最新版，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.1.0)。
+
+您有最新版的 Azure PowerShell 後，需要先執行 ``Connect-AzureRmAccount``。
+
+``` PowerShell
+# To check if your subscription is eligible to adjust pricing models.
+$ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
+Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action listmigrationdate `
+ -Force
+```
+
+您可在定價模型之間，移動 isGrandFatherableSubscription 下表示此訂用帳戶定價模型的 True 結果。 optedInDate 下缺少值表示此訂用帳戶目前已設定為舊的定價模型。
+
+```
+isGrandFatherableSubscription optedInDate
+----------------------------- -----------
+                         True            
+```
+
+若要將此訂用帳戶移轉至新的定價模型執行：
+
+```PowerShell
+$ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
+Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action migratetonewpricingmodel `
+ -Force
+```
+
+若要確認變更成功，請重新執行：
+
+```PowerShell
+$ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
+Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action listmigrationdate `
+ -Force
+```
+
+如果移轉成功，結果應該如下所示：
+
+```
+isGrandFatherableSubscription optedInDate                      
+----------------------------- -----------                      
+                         True 2018-05-31T13:52:43.3592081+00:00
+```
+
+optInDate 現在包含此訂用帳戶選擇加入新的定價模型時的時間戳記。
+
+如果您需要還原回舊的定價模型，您可以執行：
+
+```PowerShell
+ $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
+Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action rollbacktolegacypricingmodel `
+ -Force
+```
+
+如果您重新執行有 ``-Action listmigrationdate`` 的上述指令碼，您現在應該會看到空白 optedInDate 值，指出您的訂用帳戶已恢復舊版定價模型。
+
+如果您想要移轉裝載在相同租用戶的多個訂用帳戶，可使用下列指令碼的片段建立您自己的變體：
+
+```PowerShell
+#Query tenant and create an array comprised of all of your tenants subscription ids
+$TenantId = <Your-tenant-id>
+$Tenant =Get-AzureRMSubscription -TenantId $TenantId
+$Subscriptions = $Tenant.Id
+```
+
+若要檢查您租用戶中的所有訂用帳戶是否適合新的定價模型，您可以執行：
+
+```PowerShell
+Foreach ($id in $Subscriptions)
+{
+$ResourceID ="/subscriptions/$id/providers/microsoft.insights"
+Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action listmigrationdate `
+ -Force
+}
+```
+
+建立產生三個陣列的指令碼可以進一步重新調整指令碼。 一個陣列將包含 ```isGrandFatherableSubscription``` 是設為 True 的所有訂用帳戶識別碼，且 optedInDate 目前沒有值。 目前在新定價模型上的任何訂用帳戶第二陣列。 僅填入租用戶訂用帳戶識別碼 (不適合新的定價模型) 的第三陣列：
+
+```PowerShell
+[System.Collections.ArrayList]$Eligible= @{}
+[System.Collections.ArrayList]$NewPricingEnabled = @{}
+[System.Collections.ArrayList]$NotEligible = @{}
+
+Foreach ($id in $Subscriptions)
+{
+$ResourceID ="/subscriptions/$id/providers/microsoft.insights"
+$Result= Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action listmigrationdate `
+ -Force
+
+     if ($Result.isGrandFatherableSubscription -eq $True -and [bool]$Result.optedInDate -eq $False)
+     {
+     $Eligible.Add($id)
+     }
+
+     elseif ($Result.isGrandFatherableSubscription -eq $True -and [bool]$Result.optedInDate -eq $True)
+     {
+     $NewPricingEnabled.Add($id)
+     }
+
+     elseif ($Result.isGrandFatherableSubscription -eq $False)
+     {
+     $NotEligible.add($id)
+     }
+}
+```
+
+> [!NOTE]
+> 端視訂用帳戶數目而定，上述指令碼可能需要一些時間才能執行。 由於使用 .add() 方法，PowerShell 視窗將回應遞增值，因為項目會加入至每個陣列。
+
+由於您將訂用帳戶分為三個陣列，因此您應該仔細檢閱您的結果。 您會想要備份陣列的內容，以便未來有需要時還原變更。 如果您已決定，您會想要將目前在舊的定價模型上的所有合格訂用帳戶轉換為新的定價模型，此工作現在應該會完成：
+
+```PowerShell
+Foreach ($id in $Eligible)
+{
+$ResourceID ="/subscriptions/$id/providers/microsoft.insights"
+Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action migratetonewpricingmodel `
+ -Force
+}
+
+```

@@ -8,19 +8,19 @@ manager: mtillman
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: maheshu
-ms.openlocfilehash: 031e15c2eafdeb9aac660d85e7fab46ccb5a858d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 81986fdd9cbfbeb41c794e2364bf7bfea1069742
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34588789"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36211249"
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>針對 Azure AD 網域服務受控網域設定安全的 LDAP (LDAPS)
 
@@ -31,7 +31,7 @@ ms.locfileid: "34588789"
 ## <a name="task-3---enable-secure-ldap-for-the-managed-domain-using-the-azure-portal"></a>工作 3 - 使用 Azure 入口網站為受控網域啟用安全 LDAP
 若要啟用安全的 LDAP，請執行下列設定步驟：
 
-1. 瀏覽至 **[Azure 入口網站](https://portal.azure.com)**。
+1. 瀏覽至 **Azure 入口網站[](https://portal.azure.com)**。
 
 2. 在 [搜尋資源] 搜尋方塊中搜尋「網域服務」。 從搜尋結果選取 [Azure AD Domain Services]。 [Azure AD Domain Services] 頁面會列出受控網域。
 

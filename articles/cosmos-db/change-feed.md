@@ -5,20 +5,17 @@ keywords: 變更摘要
 services: cosmos-db
 author: rafats
 manager: kfile
-documentationcenter: ''
-ms.assetid: 2d7798db-857f-431a-b10f-3ccbc7d93b50
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: ''
-ms.topic: article
+ms.devlang: dotnet
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: be59f1a9dc19fffdb6a952c7db73756909036bf6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2600565493a334c7227e5c0d67a5808f30751108
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261061"
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的變更摘要支援
 
@@ -47,9 +44,9 @@ Azure Cosmos DB 中的變更摘要支援是靠接聽 Azure Cosmos DB 集合的�
 
 後文會說明，您可以三個不同的方式讀取變更摘要：
 
-1.  [使用 Azure Functions](#azure-functions)
-2.  [使用 Azure Cosmos DB SDK](#rest-apis)
-3.  [使用 Azure Cosmos DB 變更摘要處理器程式庫](#change-feed-processor)
+*   [使用 Azure Functions](#azure-functions)
+*   [使用 Azure Cosmos DB SDK](#sql-sdk)
+*   [使用 Azure Cosmos DB 變更摘要處理器程式庫](#change-feed-processor)
 
 文件集合內每個分割區索引鍵範圍都可使用變更摘要，因此可以配送給一或多個取用者以進行平行處理，如下圖所示。
 
@@ -92,7 +89,7 @@ Azure Cosmos DB 中的變更摘要支援是靠接聽 Azure Cosmos DB 集合的�
 
 您可以在 Azure Functions 入口網站中、在 Azure Cosmos DB 入口網站中建立觸發程序，或以程式設計方式建立。 如需詳細資訊，請參閱 [Azure Cosmos DB：使用 Azure Functions 的無伺服器資料庫計算](serverless-computing-database.md)。
 
-<a id="rest-apis"></a>
+<a id="sql-sdk"></a>
 ## <a name="using-the-sdk"></a>使用 SDK
 
 Azure Cosmos DB 使用的 [SQL SDK](sql-api-sdk-dotnet.md) 提供讀取和管理變更摘要的所有功能。 但是，能力愈強責任愈多。 如果您想要管理檢查點、處理文件序號，並能夠更精確地控制分割區索引鍵，那麼，使用 SDK 可能是正確的方法。
@@ -167,16 +164,16 @@ Azure Cosmos DB 使用的 [SQL SDK](sql-api-sdk-dotnet.md) 提供讀取和管理
 
 如果您有多個讀取器，可以使用 **ChangeFeedOptions** 將讀取負載分配至不同的執行緒或不同的用戶端。
 
-就這麼簡單，只要這幾行程式碼，您便可以開始讀取變更摘要。 您可以從 [GitHub 儲存機制](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)取得本文中使用的完整程式碼。
+就這麼簡單，只要這幾行程式碼，您便可以開始讀取變更摘要。 您可以從 [GitHub 儲存機制](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed)取得本文中使用的完整程式碼。
 
 在上述的步驟 4 程式碼中，最後一行的 **ResponseContinuation** 中有最後一個邏輯序號 (LSN)，下一次您讀取新文件時會用到這個序號 (新文件在這個序號之後)。 利用 **ChangeFeedOption** 的 **StartTime**，可以加大取得文件的範圍。 因此，如果您的 **ResponseContinuation** 是 null，但 **StartTime** 是過去的時間，則會取得自 **StartTime** 開始變更過的所有文件。 但是，如果 **ResponseContinuation** 有值，則系統會取得自 LSN 開始的所有文件。
 
-因此，您的檢查點陣列只保留每個分割區的 LSN。 但是，如果您不想處理分割區、檢查點、LSN、開始時間等等有的沒的，更簡單的做法是使用變更摘要處理器程式庫。
+因此，您的檢查點陣列只保留每個分割區的 LSN。 但是，如果您不想處理分割區、檢查點、LSN、開始時間等，更簡單的做法是使用變更摘要處理器程式庫。
 
 <a id="change-feed-processor"></a>
 ## <a name="using-the-change-feed-processor-library"></a>使用變更摘要處理器程式庫 
 
-[Azure Cosmos DB 變更摘要處理器程式庫](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet-changefeed) 可幫助您輕鬆地將事件處理分散給多個取用者。 此程式庫會簡化跨分割區和多個平行運作執行緒上的變更讀取。
+[Azure Cosmos DB 變更摘要處理器程式庫](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet-changefeed)可幫助您輕鬆地將事件處理分散給多個取用者。 此程式庫會簡化跨分割區和多個平行運作執行緒上的變更讀取。
 
 變更摘要處理器程式庫的主要優點是您不需要管理每個分割區和接續權杖，也不需要手動輪詢每個集合。
 
@@ -191,30 +188,30 @@ Azure Cosmos DB 使用的 [SQL SDK](sql-api-sdk-dotnet.md) 提供讀取和管理
 <a id="understand-cf"></a>
 ### <a name="understanding-the-change-feed-processor-library"></a>了解變更摘要處理器程式庫
 
-用來實作變更摘要處理器的主要元件有四個：受監視的集合、租用集合、處理器主機和取用者。 
+用來實作變更摘要處理器程式庫的主要元件有四個：受監視的集合、租用集合、處理器主機和取用者。 
 
 > [!WARNING]
 > 建立集合會牽涉到定價，因為您會將輸送量保留供應用程式與 Azure Cosmos DB 通訊使用。 如需詳細資訊，請瀏覽[定價頁面](https://azure.microsoft.com/pricing/details/cosmos-db/)
 > 
 > 
 
-**受監視的集合：**受監視的集合是將會產生變更摘要的資料。 對於受監視集合所進行的任何插入和變更都會反映在集合的變更摘要中。 
+**受監視的集合：** 受監視的集合是將會產生變更摘要的資料。 對於受監視集合所進行的任何插入和變更都會反映在集合的變更摘要中。 
 
-**租用集合：**租用集合會協調如何處理多個背景工作角色的變更摘要。 另外會有一個集合用來儲存租用 (每個分割區一個租用)。 在不同帳戶儲存此租用集合，並讓其寫入區域更靠近變更摘要處理器的執行所在位置會有好處。 租用物件包含下列屬性： 
+**租用集合：** 租用集合會協調如何處理多個背景工作角色的變更摘要。 另外會有一個集合用來儲存租用 (每個分割區一個租用)。 在不同帳戶儲存此租用集合，並讓其寫入區域更靠近變更摘要處理器的執行所在位置會有好處。 租用物件包含下列屬性： 
 * 擁有者：指定擁有租用的主機
 * 接續：指定特定分割區在變更摘要中的位置 (接續權杖)
 * 時間戳記：上次更新租用的時間；時間戳記可用來檢查是否將租用視為過期 
 
-**處理器主機：**每一部主機都會根據主機的其他執行個體中有多少個執行個體擁有作用中租用，來決定要處理的分割區數量。 
+**處理器主機：** 每一部主機都會根據主機的其他執行個體中有多少個執行個體擁有作用中租用，來決定要處理的分割區數量。 
 1.  主機在啟動時會取得租用，以平衡分配所有主機的工作負載。 主機會定期更新租用，以便讓租用保持作用中狀態。 
 2.  主機會對其每個讀取的租用設置最後一個接續權杖的檢查點。 為確保能夠安全地進行並行存取，主機會檢查每個租用更新的 ETag。 主機也支援其他檢查點策略。  
 3.  關機後，主機會將所有租用釋出，但會保留接續資訊，以便之後能夠繼續讀取預存的檢查點。 
 
 目前，主機數目不能大於分割區 (租用) 數目。
 
-**取用者：**取用者 (或背景工作角色) 是負責執行每個主機所起始之變更摘要處理活動的執行緒。 每個處理器主機都可以有多個取用者。 每個取用者會從其獲派到的分割區讀取變更摘要，並向其主機通知所發生的變更和已過期的租用。
+**取用者：** 取用者 (或背景工作角色) 是負責執行每個主機所起始之變更摘要處理活動的執行緒。 每個處理器主機都可以有多個取用者。 每個取用者會從其獲派到的分割區讀取變更摘要，並向其主機通知所發生的變更和已過期的租用。
 
-為了進一步了解變更摘要處理器的這四個元素是如何一起運作的，我們來看一下下圖中的範例。 受監視的集合會儲存文件，並使用 "city" 來作為分割區索引鍵。 我們可以看到，藍色的分割區包含 "city" 欄位為 "A 到 E" 的文件，依此類推。 主機有兩部，每一部都有兩個取用者從四個分割區進行平行讀取。 箭號顯示從變更摘要中的特定地點進行讀取的取用者。 在第一個分割區中，較深的藍色代表未讀取的變更，較淺的藍色則代表變更摘要上已讀取的變更。 主機會使用租用集合來儲存「接續」值，以追蹤每個取用者目前的讀取位置。 
+為了進一步了解變更摘要處理器的這四個元素是如何一起運作的，我們來看看下圖中的範例。 受監視的集合會儲存文件，並使用 "city" 來作為分割區索引鍵。 我們可以看到，藍色的分割區包含 "city" 欄位為 "A 到 E" 的文件，依此類推。 主機有兩部，每一部都有兩個取用者從四個分割區進行平行讀取。 箭號顯示從變更摘要中的特定地點進行讀取的取用者。 在第一個分割區中，較深的藍色代表未讀取的變更，較淺的藍色則代表變更摘要上已讀取的變更。 主機會使用租用集合來儲存「接續」值，以追蹤每個取用者目前的讀取位置。 
 
 ![使用 Azure Cosmos DB 變更摘要處理器主機](./media/change-feed/changefeedprocessornew.png)
 
@@ -279,13 +276,158 @@ using (DocumentClient destClient = new DocumentClient(destCollInfo.Uri, destColl
 }
 ```
 
-就這麼簡單！ 執行這幾個步驟之後，文件會開始進入 **DocumentFeedObserver ProcessChangesAsync** 方法。
+就這麼簡單！ 執行這幾個步驟之後，文件會開始進入 **DocumentFeedObserver ProcessChangesAsync** 方法。 在 [GitHub 存放庫](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)中找出上述程式碼
+
+## <a name="faq"></a>常見問題集
+
+### <a name="what-are-the-different-ways-you-can-read-change-feed-and-when-to-use-each-method"></a>有哪些不同的方法可以用來讀取變更摘要？各種方法的使用時機在什麼時候？
+
+若要讀取變更摘要，有三個選項可供選擇：
+
+* **[使用 Azure Cosmos DB SQL API .NET SDK](#sql-sdk)**
+   
+   使用此方法，可以對變更摘要進行較低層級的控制。 您可以管理檢查點，也可以存取特定磁碟分割區索引鍵等。如果您有多個讀取器，可以使用 [ChangeFeedOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.changefeedoptions?view=azure-dotnet) 將讀取負載分配至不同的執行緒或不同的用戶端。 .
+
+* **[使用 Azure Cosmos DB 變更摘要處理器程式庫](#change-feed-processor)**
+
+   如果您想外包更加複雜的變更摘要，則可使用變更摘要處理器程式庫。 此程式庫會將大量的複雜作業隱藏起來，但仍然可讓您完全控制變更摘要。 此程式庫依循的是[觀察者模式](https://en.wikipedia.org/wiki/Observer_pattern)，SDK 會呼叫您的處理函式。 
+
+   如果您有高輸送量的變更摘要，則可將多個用戶端具現化，以讀取變更摘要。 因為您正使用「變更摘要處理器程式庫」，它會自動將負載分散到不同用戶端。 您不需要執行任何動作。 SDK 會處理所有的複雜作業。 不過，如果您想要擁有自己的負載平衡器，您可以實作 IParitionLoadBalancingStrategy，自訂磁碟分割的策略。 實作 IPartitionProcessor - 用於分割區上的自訂處理變更。 不過，您可以使用 SDK 處理磁碟分割範圍，但是，如果您想要處理特定磁碟分割區索引鍵，則必須使用適用於 SQL API 的 SDK。
+
+* **[使用 Azure Functions](#azure-functions)** 
+   
+   最後一個選項 Azure Functions 是最簡單的， 建議您使用此選項。 當您在 Azure Functions 應用程式中建立 Azure Cosmos DB 觸發程序時，需選取要連線的 Azure Cosmos DB 集合，以及集合每次變更時要觸發的函式。 觀看使用 Azure 函式與變更摘要的[螢幕錄製影片](https://www.youtube.com/watch?v=Mnq0O91i-0s&t=14s)
+
+   您可以在 Azure Functions 入口網站中、在 Azure Cosmos DB 入口網站中建立觸發程序，或以程式設計方式建立。 Visual Studio 與 VS Code 對於撰寫 Azure Function 提供了良好的支援。 您可以在電腦上撰寫和偵錯程式碼，然後只需按一下即可部署該功能。 如需詳細資訊，請參閱 [Azure Cosmos DB：使用 Azure Functions 的無伺服器資料庫計算](serverless-computing-database.md)一文。
+
+### <a name="what-is-the-sort-order-of-documents-in-change-feed"></a>變更摘要中的文件排序順序為何？
+
+變更摘要文件是按修改時間順序排列。 僅在每個分割區內可保障會按此順序排列。
+
+### <a name="for-a-multi-region-account-what-happens-to-the-change-feed-when-the-write-region-fails-over-does-the-change-feed-also-failover-would-the-change-feed-still-appear-contiguous-or-would-the-fail-over-cause-change-feed-to-reset"></a>對於多區域帳戶，當寫入區域容錯移轉時，變更摘要會發生什麼事？ 變更摘要也會跟著容錯移轉嗎？ 變更摘要是否仍會顯示為連續的，還是容錯移轉會導致變更摘要重設？
+
+變更摘要會在手動容錯移轉作業時持續運作，而且保持連續。
+
+### <a name="how-long-change-feed-persist-the-changed-data-if-i-set-the-ttl-time-to-live-property-for-the-document-to--1"></a>如果我將文件的 TTL (存留時間) 設為 -1，變更摘要會存留變更資料多久時間？
+
+變更摘要會永久存留。 如果未刪除資料，即會一直保留在變更摘要中。
+
+### <a name="how-can-i-configure-azure-functions-to-read-from-a-particular-region-as-change-feed-is-available-in-all-the-read-regions-by-default"></a>按照預設，變更摘要在所有讀取區域中皆可使用，該如何設定 Azure 函式從特定區域讀取？
+
+目前無法將 Azure Functions 設定為從特定區域讀取。 設定任何 Azure Cosmos DB 繫結與觸發程序的慣用區域時，Azure Functions 存放庫中有個 GitHub 問題。
+
+Azure Functions 會使用預設的連線原則。 您可以在 Azure Functions 中設定連線模式，依預設會從寫入區域讀取，因此，最好將 Azure Functions 共置在相同區域中。
+
+### <a name="what-is-the-default-size-of-batches-in-azure-functions"></a>Azure Functions 中預設的批次大小是多少？
+
+每次引動 Azure Functions 時可有 100 個文件。 不過，此數量可在 function.json 檔案中設定。 以下是完整的[設定選項清單](../azure-functions/functions-run-local.md)。 如果是在本機開發，請更新 [local.settings.json](../azure-functions/functions-run-local.md) 檔案中的應用程式設定。
+
+### <a name="i-am-monitoring-a-collection-and-reading-its-change-feed-however-i-see-i-am-not-getting-all-the-inserted-document-some-documents-are-missing-what-is-going-on-here"></a>我正在監視一個集合，並讀取其變更摘要，但是我發現無法取得所有插入的文件，缺少某些文件。 發生了什麼狀況？
+
+請確定沒有其他函式使用相同的租用集合在讀取相同的集合。 我也碰過這種狀抗，後來我發現缺少的文件是由其他 Azure 函式處理的，這些函式也在使用相同的租用集合。
+
+因此，如果您要建立多個 Azure Functions 以讀取相同的變更摘要，這些函式必須使用不同的租用集合，或使用「leasePrefix」設定以共用相同的集合。 不過，在使用變更摘要處理器程式庫時，您可以啟動函式的多個執行個體，SDK 會自動把文件分配到不同的執行個體上。
+
+### <a name="my-document-is-updated-every-second-and-i-am-not-getting-all-the-changes-in-azure-functions-listening-to-change-feed"></a>我的文件每秒更新一次，而我沒有收到接聽變更摘要之 Azure Functions 中的所有變更。
+
+Azure Functions 每 5 秒輪詢變更摘要一次，因此，5 秒內所做的任何變更都將遺失。 Azure Cosmos DB 每 5 秒僅儲存一次單一版本，因此您會得到該文件第五次變更的版本。 不過，如果您想要時間少於於 5 秒，而且希望每秒輪詢變更摘要一次，則可設定輪詢時間「feedPollTime」，請參閱 [Azure Cosmos DB 繫結](../azure-functions/functions-bindings-cosmosdb.md#trigger---configuration)。 它以毫秒為單位定義，預設值為 5000。 低於 1 秒是可行的 (但不建議)，因為您會耗用更多 CPU。
+
+### <a name="i-inserted-a-document-in-the-mongo-api-collection-but-when-i-get-the-document-in-change-feed-it-shows-a-different-id-value-what-is-wrong-here"></a>我在 Mongo API 集合中已插入文件，但是當我在變更摘要中取得文件時，其顯示的是不同的 ID 值。 這其中發生什麼狀況？
+
+您的集合是 Mongo API 集合。 請記住，變更摘要是利用 SQL 用戶端來讀取，並可將項目序列化為 JSON 格式。 因為是 JSON 格式，MongoDB 用戶端會遇到 BSON 格式文件與 JSON 格式變更摘要互不相符的情況。 您會看見以 JSON 格式表示的 BSON 文件。 如果您使用 Mongo 帳戶中的二進位屬性，它們會轉換為 JSON。
+
+### <a name="is-there-a-way-to-control-change-feed-for-updates-only-and-not-inserts"></a>是否可僅針對更新項目 (而非針對插入項目) 控制變更摘要？
+
+現在無法，但已在規劃此功能。 目前，您可以為更新項目在文件上新增軟標記。
+
+### <a name="is-there-a-way-to-get-deletes-in-change-feed"></a>是否可取得變更摘要中的刪除項目？
+
+目前變更摘要不會記錄刪除項目。 變更摘要會不斷改善，已在規劃此功能。 目前，您可以為刪除項目在文件上新增軟標記。 在名為「已刪除」的文件上新增屬性，將其設定為「true」，並在文件上設定 TTL，以便可以自動刪除。
+
+### <a name="can-i-read-change-feed-for-historic-documentsfor-example-documents-that-were-added-5-years-back-"></a>我是否可以讀取歷史文件 (例如，5 年前新增的文件) 的變更摘要？
+
+可以，如果文件未刪除，您可以讀取至原始收集的變更摘要。
+
+### <a name="can-i-read-change-feed-using-javascript"></a>我是否可以使用 JavaScript 讀取變更摘要？
+
+可以，最近已新增對變更摘要的 Node.js SDK 初始支援。 它可以依照下列範例所示使用，請先將 documentdb 模組更新為目前版本，然後再執行程式碼：
+
+```js
+
+var DocumentDBClient = require('documentdb').DocumentClient;
+const host = "https://your_host:443/";
+const masterKey = "your_master_key==";
+const databaseId = "db";
+const collectionId = "c1";
+const dbLink = 'dbs/' + databaseId;
+const collLink = dbLink + '/colls/' + collectionId;
+var client = new DocumentDBClient(host, { masterKey: masterKey });
+let options = {
+    a_im: "Incremental feed",
+    accessCondition: {
+        type: "IfNoneMatch",        // Use: - empty condition (or remove accessCondition entirely) to start from beginning.
+        //      - '*' to start from current.
+        //      - specific etag value to start from specific continuation.
+        condition: ""
+    }
+};
+ 
+var query = client.readDocuments(collLink, options);
+query.executeNext((err, results, headers) =&gt; {
+    // Now we have headers.etag, which can be used in next readDocuments in accessCondition option.
+    console.log(results);
+    console.log(headers.etag);
+    console.log(results.length);
+    options.accessCondition = { type: "IfNoneMatch", condition: headers.etag };
+    var query = client.readDocuments(collLink, options);
+    query.executeNext((err, results, headers) =&gt; {
+        console.log("next one:", results[0]);
+    });
+});<span id="mce_SELREST_start" style="overflow:hidden;line-height:0;"></span>
+
+```
+
+### <a name="can-i-read-change-feed-using-java"></a>我是否可以使用 Java 讀取變更摘要？
+
+讀取變更摘要的 Java 程式庫可在 [Github 存放庫](https://github.com/Azure/azure-documentdb-changefeedprocessor-java)中找到。 但是，目前 Java 程式庫是 .NET 程式庫之後的幾個版本。 不久將會同步這兩個程式庫。
+
+### <a name="can-i-use-etag-lsn-or-ts-for-internal-bookkeeping-which-i-get-in-response"></a>我是否可以使用 _etag、_lsn 或 _ts 進行回應中取得的內部簿記？
+
+_etag 格式是作為內部之用，因為該格式可以隨時變更，請別以它為依歸 (請勿解析)。
+_ts 是用於修改或建立時間戳記。 您可以使用 _ts，依時間順序進行比較。
+_lsn 是僅為變更摘要新增的批次 ID，其代表存放區中的交易 ID。 許多文件可能有相同的 _lsn。
+還有一點需要注意，FeedResponse 上的 ETag 與您在文件中看到的 _etag 不同。 _etag 是內部識別碼，而且用於並行，其指示文件版本，以及已使用 ETag 來排序摘要。
+
+### <a name="does-reading-change-feed-add-any-additional-cost-"></a>讀取變更摘要是否會增加任何額外成本？
+
+您需要支付耗用 RU 的費用，也就是資料移入 Azure Cosmos DB 集合一律會耗用 RU。 將會向使用者收取租用集合的 RU 費用。
+
+### <a name="can-multiple-azure-functions-read-one-collections-change-feed"></a>多個 Azure Functions 是否可讀取一個集合變更摘要？
+
+是。 多個 Azure Functions 可讀取相同的集合變更摘要。 但是，Azure Functions 需要定義一個單獨的 leaseCollectionPrefix。
+
+### <a name="should-the-lease-collection-be-partitioned"></a>是否應該分割租用集合？
+
+不，租用集合可以是固定的。 不需要分割的租用集合，而且目前並未支援。
+
+### <a name="can-i-read-change-feed-from-spark"></a>我是否可以從 Spark 讀取變更摘要？
+
+是，您可以這麼做。 請參閱 [Azure Cosmos DB Spark 連接器](spark-connector.md)。 以下是[螢幕錄製影片](https://www.youtube.com/watch?v=P9Qz4pwKm_0&t=1519s)，示範了如何以結構化串流處理變更摘要。
+
+### <a name="if-i-am-processing-change-feed-by-using-azure-functions-say-a-batch-of-10-documents-and-i-get-an-error-at-7th-document-in-that-case-the-last-three-documents-are-not-processed-how-can-i-start-processing-from-the-failed-documentie-7th-document-in-my-next-feed"></a>如果我使用 Azure Functions 處理變更摘要，假設一個批次有 10 個文件，在第 7 個文件中出現錯誤。 在此情況下，不會處理最後三個文件，我要如何在後續的摘要中，從失敗的文件 (例如， 第 7 個文件) 啟動處理？
+
+若要處理錯誤，建議的模式是使用 try-catch 區塊包裝您的程式碼。 攔截錯誤並將該文件放在佇列中 (無效信件)，然後定義邏輯以處理產生錯誤的文件。 如果您有一個包含 200 個文件的批次，而且只有一個文件失敗，請使用此方法，不需要丟棄整個批次。
+
+如果出現錯誤，請勿將檢查點倒轉回開始位置，您才可以繼續從變更摘要中取得這些文件。 請記住，變更摘要會保留文件的最後一個快照集，因此，您可能會遺失文件中的上一個快照集。 變更摘要僅保留最後一個版本的文件，而且可在其他處理程序之間顯示，及變更文件。
+
+隨著不斷修正程式碼，不久之後，您在無效信件佇列中無法找到任何文件。
+變更摘要系統會自動呼叫 Azure Functions，而且 Azure Functions 會內部維護檢查點等。 如果您想復原檢查點並控制其每個層面，則應考慮使用變更摘要處理器 SDK。
 
 ## <a name="next-steps"></a>後續步驟
 
 如需有關使用 Azure Cosmos DB 與 Azure Functions 的詳細資訊，請參閱 [Azure Cosmos DB：使用 Azure Functions 的無伺服器資料庫計算](serverless-computing-database.md)。
 
-如需有關使用變更摘要處理器程式庫的詳細資訊，請看下列資源：
+如需有關使用變更摘要處理器程式庫的詳細資訊，請利用下列資源：
 
 * [資訊頁面](sql-api-sdk-dotnet-changefeed.md) 
 * [Nuget 套件](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)

@@ -1,22 +1,19 @@
 ---
-title: Azure 活動記錄事件結構描述 | Microsoft Docs
+title: Azure 活動記錄事件結構描述
 description: 了解發出至活動記錄之資料的事件結構描述
 author: johnkemnetz
-manager: robb
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
-ms.openlocfilehash: 4264bfd733f586dcdabdee8f29494bfffd9a7a76
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.component: activitylog
+ms.openlocfilehash: f6f6c59195fdc79959a1964c1f2770c3b6a68b22
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264546"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 活動記錄事件結構描述
 透過「Azure 活動記錄」，您可深入了解 Azure 中發生的任何訂用帳戶層級事件。 本文說明每個資料類別的事件結構描述。
@@ -482,6 +479,88 @@ ms.lasthandoff: 04/16/2018
 | eventTimestamp |處理與事件對應之要求的Azure 服務產生事件時的時間戳記。 |
 | submissionTimestamp |當事件變成可供查詢時的時間戳記。 |
 | subscriptionId |Azure 訂用帳戶識別碼。 |
+
+## <a name="recommendation"></a>建議
+這個類別包含為您的服務產生的任何新建議記錄。 建議的範例像是「使用可用性設定組改善容錯。」 可產生的 4 種建議事件：高可用性、效能、安全性和成本最佳化。 
+
+### <a name="sample-event"></a>範例事件
+```json
+{
+    "channels": "Operation",
+    "correlationId": "92481dfd-c5bf-4752-b0d6-0ecddaa64776",
+    "description": "The action was successful.",
+    "eventDataId": "06cb0e44-111b-47c7-a4f2-aa3ee320c9c5",
+    "eventName": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "category": {
+        "value": "Recommendation",
+        "localizedValue": "Recommendation"
+    },
+    "eventTimestamp": "2018-06-07T21:30:42.976919Z",
+    "id": "/SUBSCRIPTIONS/<Subscription ID>/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/MYVM/events/06cb0e44-111b-47c7-a4f2-aa3ee320c9c5/ticks/636640038429769190",
+    "level": "Informational",
+    "operationId": "",
+    "operationName": {
+        "value": "Microsoft.Advisor/generateRecommendations/action",
+        "localizedValue": "Microsoft.Advisor/generateRecommendations/action"
+    },
+    "resourceGroupName": "MYRESOURCEGROUP",
+    "resourceProviderName": {
+        "value": "MICROSOFT.COMPUTE",
+        "localizedValue": "MICROSOFT.COMPUTE"
+    },
+    "resourceType": {
+        "value": "MICROSOFT.COMPUTE/virtualmachines",
+        "localizedValue": "MICROSOFT.COMPUTE/virtualmachines"
+    },
+    "resourceId": "/SUBSCRIPTIONS/<Subscription ID>/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/MYVM",
+    "status": {
+        "value": "Active",
+        "localizedValue": "Active"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2018-06-07T21:30:42.976919Z",
+    "subscriptionId": "<Subscription ID>",
+    "properties": {
+        "recommendationSchemaVersion": "1.0",
+        "recommendationCategory": "Security",
+        "recommendationImpact": "High",
+        "recommendationRisk": "None"
+    },
+    "relatedEvents": []
+}
+
+```
+### <a name="property-descriptions"></a>屬性描述
+| 元素名稱 | 說明 |
+| --- | --- |
+| 通道 | 一律為 “Operation” |
+| correlationId | 字串格式的 GUID。 |
+| 說明 |建議事件的靜態文字描述 |
+| eventDataId | 建議事件的唯一識別碼。 |
+| category | 一律為 "Recommendation" |
+| id |建議事件的唯一資源識別碼。 |
+| 層級 |事件的層級。 下列其中一個值：“Critical”、“Error”、“Warning”、“Informational” 或 “Verbose” |
+| operationName |作業名稱。  一律為 "Microsoft.Advisor/generateRecommendations/action"|
+| resourceGroupName |資源的資源群組名稱。 |
+| resourceProviderName |此建議適用之資源的資源提供者名稱，例如 "MICROSOFT.COMPUTE" |
+| resourceType |此建議適用之資源的資源類型名稱，例如 "MICROSOFT.COMPUTE/virtualmachines" |
+| ResourceId |建議適用之資源的資源識別碼 |
+| status | 一律為 "Active" |
+| submissionTimestamp |當事件變成可供查詢時的時間戳記。 |
+| subscriptionId |Azure 訂用帳戶識別碼。 |
+| properties |描述建議詳細資料的一組 `<Key, Value>` 配對 (也就是字典)。|
+| properties.recommendationSchemaVersion| 活動記錄項目中發行的建議屬性結構描述版本 |
+| properties.recommendationCategory | 建議的分類。 可能的值為 "High Availability"、"Performance"、"Security" 和 "Cost" |
+| properties.recommendationImpact| 建議的影響。 可能的值為："High"、"Medium"、"Low" |
+| properties.recommendationRisk| 建議的風險。 可能的值為 "Error"、"Warning"、"None" |
+
+
 
 ## <a name="next-steps"></a>後續步驟
 * [深入了解活動記錄檔 (之前的稽核記錄檔)](monitoring-overview-activity-logs.md)

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 22da58df653b31c46145ebbbd1f6f6a26b0e9f29
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 33998d72ae2a57ae5226c2ec7a1d5dbcebef155e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637169"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics 常見問題集
 此 Microsoft 常見問題集是 Microsoft Azure 中 Log Analytics 常見問題的清單。 若您有任何關於 Log Analytics 的其他問題，請前往[討論論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)並張貼您的問題。 當問到常見問題時，我們會將其新增至此文章，以便其他人可以快速輕鬆地找到此問題。
@@ -96,7 +97,7 @@ A. 不可以，目前無法讀取 Azure 儲存體中的任意資料表或容器�
 
 A. Log Analytics 服務以 Azure 為建置基礎。 Log Analytics IP 位址位於 [Microsoft Azure 資料中心 IP 範圍](http://www.microsoft.com/download/details.aspx?id=41653)內。
 
-進行服務部署時，Log Analytics 服務的實際 IP 位址會變更。 允許通過防火牆的 DNS 名稱會記載於[系統需求](log-analytics-concept-hybrid.md#prerequisites)中。
+進行服務部署時，Log Analytics 服務的實際 IP 位址會變更。 允許通過防火牆的 DNS 名稱會記載於[網路需求](log-analytics-concept-hybrid.md#network-firewall-requirements)中。
 
 ### <a name="q-i-use-expressroute-for-connecting-to-azure-does-my-log-analytics-traffic-use-my-expressroute-connection"></a>問： 我可以使用 ExpressRoute 連接到 Azure。 我的 Log Analytics 流量是否會使用我的 ExpressRoute 連線？
 
@@ -158,7 +159,7 @@ A. 每個代理程式所傳送的資料量取決於：
 * 記錄檔和要收集之效能計數器的數目
 * 記錄檔中的資料量
 
-免費定價層是將數個伺服器上架和量測典型資料量的好方法。 [使用量](log-analytics-usage.md) 頁面會顯示整體使用方式。
+免費定價層是將數個伺服器上架和量測典型資料量的好方法。 [使用量] [](log-analytics-usage.md) 頁面會顯示整體使用方式。
 
 對於可執行 WireData 代理程式的電腦，請使用下列查詢查看正在傳送的資料量：
 

@@ -10,16 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: c1db81594f44f805cf50523b449af62d76099a08
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: abc542f79d722f24ff6a6e9d96d12364ed76894b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33771043"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621178"
 ---
 # <a name="data-management-gateway"></a>資料管理閘道
 > [!NOTE]
@@ -46,7 +46,7 @@ ms.locfileid: "33771043"
 * 安全地管理內部部署資料來源的存取權。
   * 不需要變更公司防火牆。 閘道器只會使輸出 HTTP 連線開啟網際網路。
   * 利用您的憑證加密內部部署資料存放區的認證。
-* 有效率地移動資料 – 資料會以平行方式傳輸，且系統會採用自動重試邏輯，修復間歇性網路問題。
+* 有效率地移動資料 � 資料會以平行方式傳輸，且系統會採用自動重試邏輯，修復間歇性網路問題。
 
 ### <a name="command-flow-and-data-flow"></a>命令流程和資料流程
 當您使用複製活動在內部部署與雲端之間複製資料時，該活動會使用閘道將資料從內部部署資料來源轉移到雲端，以及反向操作。
@@ -237,7 +237,7 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。 如果沒有，�
 如果發生類似以下的錯誤，有可能是因為防火牆或 Proxy 伺服器的組態不正確，使得閘道無法連線到 Data Factory 來進行自我驗證。 請參閱上一節，以確保您的防火牆和 Proxy 伺服器的設定皆正確。
 
 1. 當您嘗試註冊閘道器時，您會收到下列錯誤：「無法註冊閘道器金鑰。 再次嘗試註冊閘道器金鑰之前，請確認資料管理閘道已處於連線狀態，且已啟動資料管理閘道主機服務。」
-2. 當您開啟「組態管理員」時，您會看到「已中斷連線」或「正在連接」狀態。 檢視 Windows 事件記錄檔時，在 [事件檢視器] > [應用程式和服務記錄檔] > [資料管理閘道] 下，您會看到如以下的錯誤訊息：`Unable to connect to the remote server`
+2. 當您開啟組態管理員時，您會看見狀態為 [已中斷連線] 或 [連線中]。檢視 Windows 事件記錄時，在 [事件檢視器] > [應用程式和服務記錄] > [資料管理閘道] 下，您會看到如下的錯誤訊息：`Unable to connect to the remote server`
    `A component of Data Management Gateway has become unresponsive and restarts automatically. Component name: Gateway.`
 
 ### <a name="open-port-8050-for-credential-encryption"></a>開啟用於認證加密的連接埠 8050
@@ -490,12 +490,12 @@ CPU 使用率 | 閘道節點的 CPU 使用率。 這個值是近乎即時的快�
 3. 使用 **New-AzureRmDataFactoryGateway** Cmdlet 來建立邏輯閘道器，如下所示：
 
     ```PowerShell
-    $MyDMG = New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
+    $MyDMG = New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF �Description <desc>
     ```
     **範例命令和輸出**：
 
     ```
-    PS C:\> $MyDMG = New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
+    PS C:\> $MyDMG = New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF �Description �gateway for walkthrough�
 
     Name              : MyGateway
     Description       : gateway for walkthrough

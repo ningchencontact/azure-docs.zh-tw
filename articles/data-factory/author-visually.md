@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/01/2018
 ms.author: shlo
-ms.openlocfilehash: b588fd4b67dbed1e0dc3d4ad2cbd75b462ce311f
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: a7efe75507fad8e0391f9ad433ba416ed771063b
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725137"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265283"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Azure Data Factory 中的視覺化撰寫
 Azure Data Factory 使用者介面體驗 (UX) 可讓您透過視覺化方式撰寫及部署資料處理站的資源，而不必編寫任何程式碼。 您可以將活動拖放到管線畫布上、執行測試回合、反覆進行偵錯，以及部署和監視管線回合。 使用 UX 來執行視覺化撰寫的方法有兩種：
@@ -63,11 +63,11 @@ Azure Data Factory 使用者介面體驗 (UX) 可讓您透過視覺化方式撰�
 |:--- |:--- |:--- |
 | **存放庫類型** | VSTS 程式碼存放庫的類型。<br/>**注意**：目前不支援 GitHub。 | Visual Studio Team Services Git |
 | **Azure Active Directory** | 您的 Azure AD 租用戶名稱。 | <your tenant name> |
-| **Visual Studio Team Services 帳戶** | 您的 VSTS 帳戶名稱。 您可以在 `https://{account name}.visualstudio.com` 找到您的 VSTS 帳戶名稱。 您可以[登入您的 VSTS 帳戶](https://www.visualstudio.com/team-services/git/)，以存取 Visual Studio 設定檔和查看您的存放庫與專案。 | \<您的帳戶名稱> |
-| **ProjectName** | VSTS 專案名稱。 您可以在 `https://{account name}.visualstudio.com/{project name}` 找到您的 VSTS 專案名稱。 | \<您的 VSTS 專案名稱> |
-| **RepositoryName** | 您的 VSTS 程式碼存放庫名稱。 VSTS 專案包含 Git 存放庫，可隨著您的專案成長管理原始程式碼。 您可以建立新的存放庫，或使用專案中既有的存放庫。 | \<您的 VSTS 程式碼存放庫名稱> |
-| **共同作業分支** | 將會用於發行的 VSTS 共同作業分支。 根據預設，它是 `master`。 如果您想要從其他分支發行資源，請變更此選項。 | \<您的共同作業分支名稱> |
-| **根資料夾** | 在您 VSTS 共同作業分支中的根資料夾。 | \<您的根資料夾名稱> |
+| **Visual Studio Team Services 帳戶** | 您的 VSTS 帳戶名稱。 您可以在 `https://{account name}.visualstudio.com` 找到您的 VSTS 帳戶名稱。 您可以[登入您的 VSTS 帳戶](https://www.visualstudio.com/team-services/git/)，以存取 Visual Studio 設定檔和查看您的存放庫與專案。 | <your account name> |
+| **ProjectName** | VSTS 專案名稱。 您可以在 `https://{account name}.visualstudio.com/{project name}` 找到您的 VSTS 專案名稱。 | <your VSTS project name> |
+| **RepositoryName** | 您的 VSTS 程式碼存放庫名稱。 VSTS 專案包含 Git 存放庫，可隨著您的專案成長管理原始程式碼。 您可以建立新的存放庫，或使用專案中既有的存放庫。 | <your VSTS code repository name> |
+| **共同作業分支** | 將會用於發行的 VSTS 共同作業分支。 根據預設，它是 `master`。 如果您想要從其他分支發行資源，請變更此選項。 | <your collaboration branch name> |
+| **根資料夾** | 在您 VSTS 共同作業分支中的根資料夾。 | <your root folder name> |
 | **將現有的 Data Factory 資源匯入存放庫** | 指定是否要從 UX **撰寫畫布**將現有的資料處理站資源匯入到 VSTS Git 存放庫。 選取此方塊可將您的資料處理站資源以 JSON 格式匯入到相關聯的 Git 存放庫。 此動作會將每個資源個別匯出 (亦即，已連結的服務和資料集會匯出至個別的 JSON)。 若未選取此方塊，則不會匯入現有資源。 | 已選取 (預設值) |
 
 #### <a name="configuration-method-2-ux-authoring-canvas"></a>設定方法 2：UX 撰寫畫布

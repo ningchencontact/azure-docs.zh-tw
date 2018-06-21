@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: a3ce72e51477c1eda99461b3910bfeeac207be55
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 74a738f85a969e3c3451dc326de9b4284c0984c8
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809568"
 ---
 # <a name="performance-monitoring-with-log-analytics"></a>使用 Log Analytics 來監視效能
 
@@ -73,19 +74,27 @@ ms.lasthandoff: 05/16/2018
 
 現在您已新增 OMS 代理程式，請前往 Log Analytics 入口網站來選擇您要收集的效能計數器。 
 
-1. 在 Azure 入口網站中，移至您建立 Service Fabric 分析解決方案所在的資源群組。 選取 **ServiceFabric\<nameOfOMSWorkspace\>** 並移至其概觀頁面。 在頂端，按一下連結來移至 OMS 入口網站。
+1. 在 Azure 入口網站中，移至您建立 Service Fabric 分析解決方案所在的資源群組。 選取 [ServiceFabric \<nameOfOMSWorkspace\>]。
 
-2. 進入入口網站後，您會看到圖格並用圖形代表每一個啟用的解決方案，其中有一個是 Service Fabric 的解決方案。 按一下這個圖形來繼續 Service Fabric 分析解決方案。 
+2. 按一下 [OMS 工作區]。
 
-3. 現在您會在操作通道和 Reliable Services 事件上，看到一些圖格與圖形。 在右側按一下齒輪圖示來移至設定頁面。
+3. 按一下 [進階設定]。
 
-    ![OMS 設定](media/service-fabric-diagnostics-oms-agent/oms-solutions-settings.png)
+4. 按一下 [資料]，然後按一下 [Windows 效能計數器] 或 [Linux 效能計數器]。 有一個預設計數器清單，您可以從中選擇啟用，也可以設定收集間隔。 您也可以新增想收集的[其他效能計數器](service-fabric-diagnostics-event-generation-perf.md)。 [本文](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85).aspx)參照適當的格式。
 
-4. 在設定頁面中，按一下 [資料] 並選擇 Windows 或 Linux 效能計數器。 您可以選擇啟用預設的效能計數器，也可以設定收集的間隔。 您也可以新增想收集的[其他效能計數器](service-fabric-diagnostics-event-generation-perf.md)。 [本文](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85).aspx)參照適當的格式。
+5. 按一下 [儲存]，然後按一下 [確定]。
 
-設定好計數器後，返回解決方案頁面，然後您很快就會在 [節點計量] 下方的圖形中看到資料滾動顯示。 您也可以使用 Kusto 查詢語言來查詢效能計數器資料 (與節點上的叢集事件和篩選條件類似)、效能計數器名稱以及值。 
+6. 關閉 [進階設定] 刀鋒視窗。
 
-![OMS 效能計數器查詢](media/service-fabric-diagnostics-oms-agent/oms-perf-counter-query.png)
+7. 在 [一般] 標題底下，按一下 [概觀]。
+
+8. 您會看到每一個所啟用解決方案的圖格以圖形形式顯示，其中一個屬於 Service Fabric。 按一下 [Service Fabric] 圖形以繼續進行「Service Fabric 分析」解決方案。
+
+9. 您會在操作通道和 Reliable Services 事件上，看到一些含有圖形的圖格。 您所選計數器的流入資料圖形表示法會顯示在 [節點計量] 底下。 
+
+10. 按一下 [容器計量] 圖形以查看其他詳細資料。 您也可以使用 Kusto 查詢語言來查詢效能計數器資料 (與節點上的叢集事件和篩選條件類似)、效能計數器名稱以及值。
+
+![OMS 效能計數器查詢](media/service-fabric-diagnostics-event-analysis-oms/oms_node_metrics_table.PNG)
 
 ## <a name="next-steps"></a>後續步驟
 
