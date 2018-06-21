@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 4/03/2018
 ms.author: srrengar
-ms.openlocfilehash: af94e3270493f6967c4f8c484170751c098bf181
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 25db5075e2099dee354c4c5ef999b26c8e0c50c9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642660"
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>為叢集設定 Log Analytics
 
@@ -50,7 +51,7 @@ ms.lasthandoff: 05/16/2018
 
 ### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>將 Log Analytics 工作區連線至叢集 
 
-1. 工作區需要連線到來自叢集的診斷資料。 移至您建立 Service Fabric 分析解決方案所在的資源群組。 選取 **ServiceFabric\<nameOfWorkspace\>**，並移至其概觀頁面。 您可以從那裡變更解決方案設定、工作區設定，並存取 OMS 入口網站。
+1. 工作區需要連線到來自叢集的診斷資料。 移至您建立 Service Fabric 分析解決方案所在的資源群組。 選取 **ServiceFabric\<nameOfWorkspace\>**，並移至其概觀頁面。 您可以從那裡變更解決方案設定、工作區設定，並存取 OMS 工作區。
 
 2. 在左側導覽功能表，選取 [工作區資料來源] 底下的 [儲存體帳戶記錄]。
 

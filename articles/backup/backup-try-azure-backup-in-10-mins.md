@@ -1,25 +1,20 @@
 ---
-title: 將 Windows 檔案和資料夾備份至 Azure (Resource Manager) | Microsoft Docs
+title: 將 Windows 檔案和資料夾備份至 Azure (Resource Manager)
 description: 了解如何在 Resource Manager 部署中將 Windows 檔案和資料夾備份至 Azure 。
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: 如何備份; 如何備份; 備份檔案和資料夾
-ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 8/15/2017
-ms.author: markgal;
-ms.openlocfilehash: 55f83bda1a9de9274194ec220fa9a4a5c8b7f0fb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: markgal
+ms.openlocfilehash: 7abdf06d1b5a4361da9ddb75cec01d6fd1630d08
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606965"
 ---
 # <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>初步了解：在 Resource Manager 部署中備份檔案和資料夾
 本文說明如何使用 Resource Manager 部署將 Windows Server (或 Windows 用戶端) 檔案和資料夾備份至 Azure。 本文中的教學課程是要讓您逐步了解基本概念。 如果您想要開始使用 Azure 備份，請閱讀本文的內容。

@@ -3,22 +3,19 @@ title: 使用 Azure Cosmos DB 線上備份與還原 | Microsoft Docs
 description: 了解如何在 Azure Cosmos DB 資料庫上執行自動備份與還原。
 keywords: 備份與還原, 線上備份
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: 98eade4a-7ef4-4667-b167-6603ecd80b79
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: multiple
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 5f8ddc9c57df878137ee1ff1b6431e40acfd5eb4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: dddb3311ff5db964494697d76967f74c863d84e1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34615031"
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 進行自動線上備份及還原
 Azure Cosmos DB 可以定期自動備份您的所有資料。 自動備份的進行不會影響資料庫作業的效能或可用性。 所有備份會儲存在另一個儲存體服務中，而且這些備份會全域複寫用於為區域性災害提供復原功能。 假設您不小心刪除 Cosmos DB 容器，需要資料復原或災害復原解決方案，這正是自動備份適用的案例。  
@@ -57,7 +54,7 @@ Cosmos DB 設計為[全域分散](distribute-data-globally.md) – 可讓您調�
 
 
 ## <a name="restoring-a-database-from-an-online-backup"></a>從線上備份還原資料庫
-如果您不小心刪除資料庫或集合，您可以[提出支援票證](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)或[連絡 Azure 支援](https://azure.microsoft.com/support/options/)，要求從最新的自動備份還原資料。 如果您因為資料損毀問題而需要還原資料庫 (包含刪除了集合中的文件的情況下)，請參閱[處理資料損毀](#handling-data-corruption)，因為您需要採取額外步驟來防止損毀的資料覆寫現有的備份。 如果要還原特定的備份快照集，Cosmos DB 會需要該資料在該快照的備份週期持續時間內為可用狀態。
+如果您不小心刪除資料庫或集合，您可以[提出支援票證](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)或[連絡 Azure 支援](https://azure.microsoft.com/support/options/)，要求從最新的自動備份還原資料。 Azure 支援僅適用於所選的計劃 (例如標準、開發人員)，不適用於基本計劃。 若要深入了解不同的支援計劃，請參閱 [Azure 支援計劃](https://azure.microsoft.com/en-us/support/plans/)頁面。 如果您因為資料損毀問題而需要還原資料庫 (包含刪除了集合中的文件的情況下)，請參閱[處理資料損毀](#handling-data-corruption)，因為您需要採取額外步驟來防止損毀的資料覆寫現有的備份。 如果要還原特定的備份快照集，Cosmos DB 會需要該資料在該快照的備份週期持續時間內為可用狀態。
 
 ## <a name="handling-data-corruption"></a>處理資料損毀
 Azure Cosmos DB 會保留資料庫帳戶中每個分割區的最後兩個備份。 當容器 (文件、圖表、資料表的集合) 或資料庫意外遭到刪除時，此模型會有效，因為您可以還原最後兩個版本的其中一個。 不過，若使用者可能會造成資料損毀問題，則 Azure Cosmos DB 可能不會察覺資料損毀情形，進而讓損毀可能覆寫現有備份。 一旦偵測到損毀，使用者就應該刪除損毀的容器 (集合/圖表/資料表)，以免損毀的資料覆寫備份。

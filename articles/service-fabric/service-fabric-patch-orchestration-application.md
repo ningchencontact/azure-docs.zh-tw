@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/07/2018
+ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: d36fcac4cbbdf8127e60e23df4ff2d52e68b6689
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 69806520f3d57cb1d383999ba53fefb7e0bd56b4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642806"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>修補 Service Fabric 叢集中的 Windows 作業系統
 
@@ -316,6 +317,10 @@ A. 修補程式協調流程應用程式所花費的時間大部分是取決於�
 問： **為什麼我在 Windows Update 結果中看到某些更新已透過 REST API 取得，但未出現在電腦的 Windows Update 歷程記錄下？**
 
 A. 某些產品更新只會出現在其各自的更新/修補歷程記錄中。 例如，Windows Defender 更新不會顯示在 Windows Server 2016 上的 Windows Update 歷程記錄。
+
+問： **修補協調流程應用程式可用來更新我的開發叢集 (一個雙節點的叢集) 嗎？**
+
+A. 否，修補協調流程應用程式無法用來修補單一節點的叢集。 此限制的設計：因為 [Service Fabric 系統服務](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-technical-overview#system-services)或任何客戶應用程式將會面臨停機時間，所以修復管理員決不會核准以任何修復作業進行修補。
 
 ## <a name="disclaimers"></a>免責聲明
 

@@ -6,15 +6,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.topic: article
-ms.date: 04/04/2018
+ms.topic: conceptual
+ms.date: 05/22/2018
 ms.author: carlrab
-ms.openlocfilehash: fb5c2e16e696ba9eecf4346a0c4e7bc05aacf39f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9a6d347b707f9b58c5667c5d03d6374288e74267
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32194742"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645118"
 ---
 # <a name="azure-sql-database-dtu-based-resource-model-limits"></a>Azure SQL Database 以 DTU 為基礎的資源模型限制
 
@@ -73,9 +73,8 @@ ms.locfileid: "32194742"
 > [!IMPORTANT]
 > - 大於內含儲存體數量的儲存體大小為預覽版，而且會產生額外成本。 如需詳細資訊，請參閱 [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)。 
 >
-> - 在進階層，目前於下列區域中提供超過 1 TB 的儲存體：澳大利亞東部、澳大利亞東南部、巴西南部、加拿大中部、加拿大東部、美國中部、法國中部、德國中部、日本東部、日本西部、南韓中部、美國中北部、北歐、美國中南部、東南亞、英國南部、英國西部、美國東部 2、美國西部、US Gov 維吉尼亞州及西歐。 請參閱 [P11-P15 目前限制](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
-> 
-
+> - 所有區域均可取得進階層中超過 1 TB 的儲存體，下列區域除外：英國北部、美國中西部、英國南部2、中國東部、USDoDCentral、德國中部、USDoDEast、US Gov (西南部)、US Gov (中南部)、德國東北部、中國北部、US Gov (東部)。 我們已規劃在更多區域推出。 在其他區域，進階層中的儲存空間上限為 1 TB。 請參閱 [P11-P15 目前限制](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
+>
 
 ## <a name="single-database-change-storage-size"></a>單一資料庫：變更儲存體大小
 
@@ -104,12 +103,12 @@ ms.locfileid: "32194742"
 * 從**進階**降級至**標準**層時，如果發生下列情況，將會產生額外的儲存體成本：(1) 在目標效能層級中以資料庫的大小上限進行支援作業，而且 (2) 大小上限超過目標效能層級的內含儲存體數量。 例如，如果大小上限為 500 GB 的 P1 資料庫縮減為 S3，即會產生額外的儲存體成本，因為 S3 可支援 500 GB 的大小上限，而且其內含儲存體數量只有 250 GB。 因此，額外的儲存體數量為 500 GB – 250 GB = 250 GB。 如需額外儲存體的價格詳細資訊，請參閱 [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)。 如果實際的使用空間量小於內含的儲存體數量，則可將資料庫大小上限降低至內含量，以避免造成額外成本。 
 * 升級資料庫時，若已啟用[異地複寫](sql-database-geo-replication-portal.md)，您必須先將其次要資料庫升級為所需的效能層，然後再升級主要資料庫 (最佳效能的一般指引)。 升級至不同的版本時，必須先升級次要資料庫。
 * 當您在啟用[異地複寫](sql-database-geo-replication-portal.md)的情況下將資料庫降級時，必須先將其主要資料庫降級為所需的效能層級，然後再將次要資料庫降級 (最佳效能的一般指引)。 降級至不同的版本時，必須先降級主要資料庫。
-* 還原服務會針對各種服務層提供不同的選項。 如果降級至**基本**層，會有較短的備份保留期 - 請參閱 [Azure SQL Database 備份](sql-database-automated-backups.md)。
+* 還原服務會針對各種服務層提供不同的供應項目。 如果降級至**基本**層，會有較短的備份保留期 - 請參閱 [Azure SQL Database 備份](sql-database-automated-backups.md)。
 * 完成變更之前，不會將新屬性套用至資料庫。
 
 ## <a name="single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb"></a>單一資料庫：當大小上限大於 1 TB 時，P11 和 P15 的限制
 
-下列區域支援大小上限大於 1 TB 的 P11 和 P15 資料庫：澳大利亞東部、澳大利亞東南部、巴西南部、加拿大中部、加拿大東部、美國中部、法國中部、德國中部、日本東部、日本西部、韓國中部、美國中北部、北歐、美國中南部、東南亞、英國南部、英國西部、美國東部 2、美國西部、美國維吉尼亞州政府及西歐。 下列考量與限制適用於大小上限大於 1 TB 的 P11 和 P15 資料庫：
+下列區域支援大小上限大於 1 TB 的 P11 和 P15 資料庫：澳大利亞東部、澳大利亞東南部、巴西南部、加拿大中部、加拿大東部、美國中部、法國中部、德國中部、日本東部、日本西部、南韓中部、美國中北部、北歐、美國中南部、東南亞、英國南部、英國西部、美國東部 2、美國西部、美國維吉尼亞州政府及西歐。 下列考量與限制適用於大小上限大於 1 TB 的 P11 和 P15 資料庫：
 
 - 如果您在建立資料庫時選擇的大小上限大於 1 TB (使用的值為 4 TB 或 4096 GB)，但資料庫佈建在不受支援的區域，create 命令會失敗並產生錯誤。
 - 若現有的 P11 和 P15 資料庫位於其中一個受支援區域，則能以 256 GB 為單位，將儲存體上限提高到 1 TB 以上，最多可增加到 4 TB。 若要查看您所在的區域是否支援較大的大小，請使用 [DATABASEPROPERTYEX](/sql/t-sql/functions/databasepropertyex-transact-sql) 函數或在 Azure 入口網站中檢查資料庫大小。 只有伺服器層級的主要登入或 dbmanager 資料庫角色的成員，才能執行現有的 P11 或 P15 資料庫升級。 
@@ -204,9 +203,9 @@ ms.locfileid: "32194742"
 ||||||||
 
 > [!IMPORTANT]
-> -  大於內含儲存體數量的儲存體大小為預覽版，而且會產生額外成本。 如需詳細資訊，請參閱 [SQL Database 價格頁面](https://azure.microsoft.com/pricing/details/sql-database/)。 大於內含儲存體數量的儲存體大小為預覽版，而且會產生額外成本。 如需詳細資訊，請參閱 [SQL Database 價格頁面](https://azure.microsoft.com/pricing/details/sql-database/)。
+> - 大於內含儲存體數量的儲存體大小為預覽版，而且會產生額外成本。 如需詳細資訊，請參閱 [SQL Database 價格頁面](https://azure.microsoft.com/pricing/details/sql-database/)。 大於內含儲存體數量的儲存體大小為預覽版，而且會產生額外成本。 如需詳細資訊，請參閱 [SQL Database 價格頁面](https://azure.microsoft.com/pricing/details/sql-database/)。
 >
-> -  在進階層，目前於下列區域中提供超過 1 TB 的儲存體：澳大利亞東部、澳大利亞東南部、巴西南部、加拿大中部、加拿大東部、美國中部、法國中部、德國中部、日本東部、日本西部、南韓中部、美國中北部、北歐、美國中南部、東南亞、英國南部、英國西部、美國東部 2、美國西部、US Gov 維吉尼亞州及西歐。 請參閱 [P11-P15 目前限制](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
+> - 所有區域均可取得進階層中超過 1 TB 的儲存體，下列區域除外：英國北部、美國中西部、英國南部2、中國東部、USDoDCentral、德國中部、USDoDEast、US Gov (西南部)、US Gov (中南部)、德國東北部、中國北部、US Gov (東部)。 我們已規劃在更多區域推出。 在其他區域，進階層中的儲存空間上限為 1 TB。 請參閱 [P11-P15 目前限制](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
 >
 
 如果彈性集區的所有 DTU 均已使用，則集區中的每個資料庫會收到等量的資源以處理查詢。 SQL Database 服務藉由確保運算時間的均等配量，提供資料庫之間的資源共用公平性。 彈性集區資源共用公平性不包括任何資源數量，否則當每個資料庫的最小 DTU 數設為非零的值時，便會對每個資料庫保證資源數量。
@@ -215,7 +214,7 @@ ms.locfileid: "32194742"
 
 下表描述集區資料表的屬性。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--- |:--- |
 | 每資料庫的 eDTU 上限 |集區中任何資料庫可以使用的 eDTU 數目上限，是否可用則是根據集區中其他資料庫的使用量而定。 每個資料庫的 eDTU 數目上限不等於資料庫的資源保證。 這個設定是全域設定，會套用至集區中的所有資料庫。 將每個資料庫的 eDTU 設定為最上限，以處理資料庫使用率的尖峰。 某種程度的過量使用是可預期的情況，因為集區通常會假設資料庫的熱門和冷門使用模式；在這些模式中，所有資料庫不會同時處於尖峰期。 例如，假設每個資料庫的尖峰使用量是 20 個 DTU，且集區中的 100 個資料庫只有 20% 會同時暴增到尖峰。 如果每一資料庫的 eDTU 上限設為 20 個 eDTU，則以 5 倍的量過量使用集區，並將每集區 eDTU 設為 400 個是合理的作法。 |
 | 每資料庫的 eDTU 下限 |集區中單一資料庫能夠保證的最小 eDTU 數。 這個設定是全域設定，會套用至集區中的所有資料庫。 每個資料庫最小 eDTU 建議設定為 0，同時也是預設值。 此屬性會設為 0 到每一資料庫的 eDTU 使用量平均值之間的任意數。 集區中資料庫數目和每個資料庫 eDTU 數目下限的乘積不能超過每個集區的 eDTU。 例如，如果集區有 20 個資料庫，且每個資料庫的最小 eDTU 設定為 10 eDTU，則每個集區 eDTU 必須至少為 200 個 eDTU。 |

@@ -1,25 +1,20 @@
 ---
-title: 使用 DPM 將工作負載備份至 Azure 入口網站 | Microsoft Docs
+title: 使用 DPM 將工作負載備份至 Azure 入口網站
 description: 使用 Azure 備份服務來備份 DPM 伺服器的簡介
 services: backup
-documentationcenter: ''
 author: adigan
 manager: nkolli
-editor: ''
 keywords: System Center Data Protection Manager, Data Protection Manager, DPM 備份
-ms.assetid: c8c322cf-f5eb-422c-a34c-04a4801bfec7
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/15/2017
-ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: 05917705264965afda873fb32a28b70e4da87aa3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: adigan
+ms.openlocfilehash: ffb3a5a5729e97e1a9b00072624d7e51842f61f8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605044"
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>準備使用 DPM 將工作負載備份到 Azure
 > [!div class="op_single_selector"]

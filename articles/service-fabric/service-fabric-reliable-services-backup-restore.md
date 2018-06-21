@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/6/2017
 ms.author: mcoskun
-ms.openlocfilehash: c90231d58ca8eb562aadb916c8667e2bee700b3a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 46f9c6129ccf99fb72a285fa4089b7b3f01f7d7b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643027"
 ---
 # <a name="back-up-and-restore-reliable-services-and-reliable-actors"></a>備份與還原 Reliable Services 和 Reliable Actors
 Azure Service Fabric 是高可用性平台，跨多個節點之間複寫狀態以維護這個高可用性。  因此，即使叢集中的一個節點失敗，服務可以繼續。 雖然這個由平台提供的內建備援對於一些特定情況可能已經足夠，但是服務最好能夠備份資料 (到外部存放區)。
@@ -153,7 +154,7 @@ protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, C
 > 
 
 ## <a name="deleted-or-lost-service"></a>已刪除或遺失的服務
-如果服務已移除，您必須先重新建立該服務，才可以還原資料。  請務必以相同的組態建立服務 (例如分割配置)，如此才能順暢地還原資料。  一旦服務啟動後，就必須在此服務的每個分割區上叫用還原資料的 API (上述的 `OnDataLossAsync`)。 達到此動作的其中一種方式，是使用每個分割區上的 `[FabricClient.TestManagementClient.StartPartitionDataLossAsync](https://msdn.microsoft.com/library/mt693569.aspx)`。  
+如果服務已移除，您必須先重新建立該服務，才可以還原資料。  請務必以相同的組態建立服務 (例如分割配置)，如此才能順暢地還原資料。  一旦服務啟動後，就必須在此服務的每個分割區上叫用還原資料的 API (上述的 `OnDataLossAsync`)。 達到這個目標的其中一種方法是在每個分割區上使用 [FabricClient.TestManagementClient.StartPartitionDataLossAsync](https://msdn.microsoft.com/library/mt693569.aspx)。  
 
 從這裡開始，實作與上述案例相同。 每個資料分割都需要從外部存放區還原最新的相關備份。 有一點需要注意，分割識別碼現在可能已變更，因為執行階段會以動態方式建立分割識別碼。 因此，服務需要儲存適當的分割資訊和服務名稱，來識別要針對每個分割區還原的正確最新備份。
 
@@ -241,7 +242,7 @@ class MyCustomActorService : ActorService
 ## <a name="under-the-hood-more-details-on-backup-and-restore"></a>幕後：備份與還原的詳細資料
 以下是備份與還原的詳細資料。
 
-### <a name="backup"></a>備份
+### <a name="backup"></a>Backup 
 可靠的狀態管理員能夠建立一致的備份，而不會封鎖任何讀取或寫入作業。 為了達到這個目的，它會利用檢查點和記錄持續性機制。  可靠的狀態管理員會在特定時間點採用模糊 (輕量型) 檢查點，來減輕交易記錄檔的壓力和改善復原時間。  呼叫 `BackupAsync` 時，可靠的狀態管理員會指示所有可靠物件，將其最新檢查點檔案複製到本機備份資料夾。  然後，可靠的狀態管理員會從「開始指標」開始，將所有記錄檔記錄複製到備份資料夾中的最新記錄檔記錄。  因為記錄到最新記錄資料列的所有記錄資料列都會包含於備份中，而且可靠的狀態管理員會保留預寫記錄，所以，可靠的狀態管理員保證所有已認可的交易 (`CommitAsync` 已順利傳回) 都會包含於備份中。
 
 呼叫 `BackupAsync` 之後認可的任何交易，不一定會在備份中。  一旦由平台填入本機備份資料夾 (亦即執行階段完成的本機備份) 之後，即會叫用服務的備份回呼。  此回呼會負責將備份資料夾移到外部位置，例如 Azure 儲存體。

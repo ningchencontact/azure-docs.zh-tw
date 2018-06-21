@@ -1,12 +1,12 @@
 ---
-title: "Azure Functions 的持續部署 | Microsoft Docs"
-description: "使用 Azure App Service 的持續部署工具來發佈 Azure Functions。"
+title: Azure Functions 的持續部署 | Microsoft Docs
+description: 使用 Azure App Service 的持續部署工具來發佈 Azure Functions。
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.service: functions
 ms.devlang: multiple
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: 35a0b0faa61cf4b42ba1d8696c85f5724ff73f23
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db10cd957f4dc59f787e2ac625355a96c888356e
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34735698"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Azure Functions 的持續部署
 Azure Functions 可讓您使用 App Service 持續整合來輕鬆部署您的函數應用程式。 Functions 可與 BitBucket、Dropbox、GitHub 及 Visual Studio Team Services (VSTS) 整合。 這可讓使用這其中一項整合式服務進行函數程式碼更新的工作流程觸發以 Azure 為目的地的部署。 如果您不熟悉 Azure Functions，請從 [Azure Functions 概觀](functions-overview.md)來開始。
@@ -41,6 +42,8 @@ Azure Functions 可讓您使用 App Service 持續整合來輕鬆部署您的函
 您必須先設定部署來源，並將函數程式碼放入部署來源中，才能設定持續部署。 在指定的函數應用程式部署中，每個函式會存在於具名子目錄中，而其目錄名稱則為函式的名稱。  
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
+
+若要能夠從 VSTS 部署，您必須先將 VSTS 帳戶連結到 Azure 訂用帳戶。 如需詳細資訊，請參閱[設定適用於 VSTS 帳戶的帳單](https://docs.microsoft.com/vsts/billing/set-up-billing-for-your-account-vs?view=vsts#set-up-billing-via-the-azure-portal) \(英文\)。
 
 ## <a name="set-up-continuous-deployment"></a>設定連續部署
 您可以使用此程序來為現有的函數應用程式設定持續部署。 這些步驟會示範與 GitHub 存放庫的整合，但類似的步驟也適用於 Visual Studio Team Services 或其他部署服務。

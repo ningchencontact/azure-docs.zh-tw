@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: 170836fb4ef617e7bcbf2e15ebb644855a427b9b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 78cff3ba5bd2f8bc80f302a232e45864159ca88f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641878"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric 叢集容量規劃考量
 對於任何生產部署而言，容量規劃都是一個很重要的步驟。 以下是一些您在該程序中必須考量的項目。
@@ -38,59 +39,57 @@ ms.lasthandoff: 05/16/2018
 * 您 (構成應用程式) 的服務是否有不同的基礎結構需求，例如，更多的 RAM 或更高的 CPU 週期？ 例如，讓我們假設您想要部署的應用程式包含前端服務和後端服務。 前端服務可以在容量較小 (D2 之類的 VM 大小)，且擁有可連線至網際網路之連接埠的 VM 上執行。  不過，需要大量計算的後端服務必須在容量較大 (D4、D6、D15 的 VM 大小)，且不連線至網際網路的 VM 上執行。
   
   在此範例中，您可以決定將所有服務都放在一個節點類型上，但我們建議您將它們放在包含兩個節點類型的叢集上。  這可讓每個節點類型都有不同的屬性，例如，網際網路連線或 VM 大小。 VM 的數目也可以單獨調整。  
-* 您無法預測未來，因此請利用您所知道的事實，決定您的應用程式一開始所需的節點類型的數目。 您之後都可以新增或移除節點類型。 Service Fabric 叢集必須至少有一個節點類型。
+* 您無法預測未來，因此請利用您所知道的事實，選擇您的應用程式一開始所需的節點類型的數目。 您之後都可以新增或移除節點類型。 Service Fabric 叢集必須至少有一個節點類型。
 
 ## <a name="the-properties-of-each-node-type"></a>每個節點類型的屬性
-**節點類型**就像是雲端服務中的角色。 可用來定義定義 VM 的大小、VM 的數目，以及 VM 的屬性。 在 Service Fabric 叢集中定義的每個節點類型都會安裝為不同的虛擬機器擴展集。 虛擬機器擴展集是一個 Azure 計算資源，可用來將一組虛擬機器作為一個集合加以部署和管理。 每個節點類型都是獨特的擴展集，且可以獨立相應增加或相應減少，可以開啟不同組的連接埠，並有不同的容量計量。
+**節點類型**就像是雲端服務中的角色。 可用來定義定義 VM 的大小、VM 的數目，以及 VM 的屬性。 在 Service Fabric 叢集中定義的每個節點類型都會對應到一個[虛擬機器擴展集](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview)。  
+每個節點類型都是獨特的擴展集，且可以獨立相應增加或相應減少，可以開啟不同組的連接埠，並有不同的容量計量。 如需節點類型與虛擬機器擴展集之間關聯性、如何透過 RDP 連到其中一個執行個體、如何開啟新連接埠等等的詳細資訊，請參閱 [Service Fabric 叢集節點類型](service-fabric-cluster-nodetypes.md)。
 
-請參閱[這份文件](service-fabric-cluster-nodetypes.md)，以深入了解節點類型與虛擬機器擴展集的關聯性、如何 RDP 至其中一個執行個體、開啟新連接埠等。
-
-您的叢集可以多個節點類型，但主要節點類型 (您在入口網站定義的第一個節點類型) 必須至少有 5 個 VM 供叢集用於生產工作負載 (或至少有 3 個 VM 供測試叢集使用)。 如果您要使用 Resource Manager 範本建立叢集，請在節點類型定義下找到 **is Primary** 屬性。 主要節點類型就是放置 Service Fabric 系統服務所在的節點類型。  
+Service Fabric 叢集可以包含一個以上的節點類型。 在這種情況下，叢集包含一個主要節點類型和一或多個非主要節點類型。
 
 ### <a name="primary-node-type"></a>主要節點類型
-若是包含多個節點類型的叢集，您必須選擇其中一個作為主要節點類型。 以下是主要節點類型的特性︰
 
-* 主要節點類型的 **VM 大小下限**取決於您選擇的**持久性層級**。 持久性層級的預設值為 Bronze。 如需有關持久性層級的定義以及可採用的值，請向下捲動。  
-* 主要節點類型的 **VM 數目下限**取決於您選擇的**可靠性層級**。 可靠性層級的預設值為 Silver。 如需有關可靠性層級的定義以及可採用的值，請向下捲動。 
+Service Fabric 系統服務 (例如，叢集管理員服務或映像存放區服務) 會放在主要節點類型。 
 
+![有兩個節點類型的叢集螢幕擷取畫面][SystemServices]
 
-* Service Fabric 系統服務 (例如，叢集管理員服務或映像存放區服務) 會放在主要節點類型上，因此，叢集的可靠性和持久性取決於您為主要節點類型所選取的可靠性層級值與持久性層級值。
+* 主要節點類型的 **VM 大小下限**取決於您選擇的**持久性層級**。 預設持久性層級為 Bronze。 如需詳細資訊，請參閱[叢集的持久性特性](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster)。  
+* 主要節點類型的 **VM 數目下限**取決於您選擇的**可靠性層級**。 預設可靠性層級為 Silver。 如需詳細資訊，請參閱[叢集的可靠性特性](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster)。  
 
-![有兩個節點類型的叢集螢幕擷取畫面 ][SystemServices]
+在 Azure Resource Manager 範本中，主要節點類型會以 `isPrimary` 屬性設定於[節點類型定義](https://docs.microsoft.com/en-us/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object)之下。
 
 ### <a name="non-primary-node-type"></a>非主要節點類型
-如果是包含多個節點類型的叢集，則會有一個主要節點類型，其餘則是非主要節點類型。 以下是非主要節點類型的特性︰
 
-* 此節點類型的 VM 大小下限取決於您選擇的持久性層級。 持久性層級的預設值為 Bronze。 如需有關持久性層級的定義以及可採用的值，請向下捲動。  
-* 此節點類型的 VM 數目下限可以是 1。 不過，您應該根據您想要在這個節點類型中執行的應用程式/服務的複本數目，選擇這個數目。 部署叢集之後，節點類型中的 VM 數目可能會增加。
+在具有多個節點類型的叢集中，有一個主要節點類型，其餘則是非主要節點類型。
+
+* 非主要節點類型的 **VM 大小下限**取決於您選擇的**持久性層級**。 預設持久性層級為 Bronze。 如需詳細資訊，請參閱[叢集的持久性特性](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster)。  
+* 非主要節點類型的 **VM 數目下限**為 1。 不過，您應該根據您想要在這個節點類型中執行的應用程式/服務的複本數目，選擇這個數目。 部署叢集之後，節點類型中的 VM 數目可能會增加。
 
 ## <a name="the-durability-characteristics-of-the-cluster"></a>叢集的持久性特性
 持久性層級用來向系統指示您的 VM 對於基本 Azure 基礎結構所擁有的權限。 在主要節點類型中，此權限可讓 Service Fabric 暫停會影響系統服務及具狀態服務的仲裁需求的任何 VM 層級基礎結構要求 (例如，VM 重新開機、VM 重新安裝映像，或 VM 移轉)。 在非主要節點類型中，此權限可讓 Service Fabric 暫停會影響具狀態服務之仲裁需求的任何 VM 層級基礎結構要求 (例如，VM 重新開機、VM 重新安裝映像和 VM 移轉)。
 
-此權限會以下列值表示︰
-
-* Gold - 每個 UD 可持續暫停基礎結構作業兩小時。 Gold 持久性只能在完整節點 VM SKU (例如 L32s、GS5、G5、DS15_v2、D15_v2) 上啟用。 一般情況下，http://aka.ms/vmspecs 上所列的所有 VM 大小會在附註中標記為「執行個體會隔離至單一客戶專用的硬體」，皆為完整節點 VM。
-* Silver -每個 UD 可持續暫停基礎結構工作 10 分鐘，並於所有單核心 (或更多核心) 的標準 VM 上提供。
-* Bronze - 無權限。 這是預設值。 針對_僅_執行無狀態工作負載的節點類型，只能使用這個持久性等級。 
+| 耐久性層級  | 所需的 VM 數目下限 | 支援的 VM SKU                                                                  | 您對 VMSS 所做的更新                               | Azure 所起始的更新和維護                                                              | 
+| ---------------- |  ----------------------------  | ---------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| Gold             | 5                              | 單一客戶專用的完整節點 SKU (例如 L32s、GS5、G5、DS15_v2、D15_v2) | 可以延遲到 Service Fabric 叢集核准為止 | 每一 UD 可以暫停 2 小時，讓複本有額外時間從先前的失敗中復原 |
+| Silver           | 5                              | 單一核心或更多核心的 VM                                                        | 可以延遲到 Service Fabric 叢集核准為止 | 無法延遲很長的期間                                                    |
+| Bronze           | 1                              | 全部                                                                                | Service Fabric 叢集不會延遲           | 無法延遲很長的期間                                                    |
 
 > [!WARNING]
-> 執行 Bronze 持久性的節點類型_沒有權限_。 這表示不會停止或延遲對您的無狀態工作負載造成影響的基礎結構作業。 這類作業很可能仍會影響您的工作負載，導致停機時間或其他問題。 對於任何種類的生產工作負載，建議至少以 Silver 執行。 針對具有 Gold 或 Silver 持久性的節點類型，您必須維持至少五個節點。 
-> 
-
-您可以個別為節點類型選擇持久性層級。您可以為單一節點類型選擇 Gold 或 Silver 持久性層級，並為相同叢集中的其他節點類型選擇 Bronze 持久性層級。 **針對具有 Gold 或 Silver 持久性的節點類型，您必須維持至少五個節點**。 
+> 執行 Bronze 持久性的節點類型「沒有權限」。 這表示不會停止或延遲對您的無狀態工作負載造成影響的基礎結構作業 (可能會影響工作負載)。 針對僅執行無狀態工作負載的節點類型，只能使用 Bronze。 對於生產工作負載，建議執行 Silver 或以上的層級。 
+>
 
 **使用 Silver 或 Gold 持久性層級的優點**
  
-- 減少相應縮小作業的必要步驟數目 (也就是會自動呼叫節點停用及 Remove-ServiceFabricNodeState)
+- 減少相應縮小作業的必要步驟數目 (也就是會自動呼叫節點停用及 Remove-ServiceFabricNodeState)。
 - 降低因客戶起始的就地 VM SKU 變更作業或 Azure 基礎結構作業而導致的資料遺失風險。
-     
+
 **使用 Silver 或 Gold 持久性層級的缺點**
  
 - 將您的虛擬機器擴展集部署至其他相關 Azure 資源的速度，可能會因來自您叢集中或是基礎結構層級的問題，而造成延遲、逾時，或是完全封鎖。 
 - 因 Azure 基礎結構作業期間的自動化節點停用，而增加[複本生命週期事件](service-fabric-reliable-services-lifecycle.md) (例如主要交換) 的數目。
 - 當 Azure 平台軟體更新或硬體維護活動正在進行時，使節點停止服務一段期間。 您可能會在這些活動期間看到含有正在停用/已停用狀態的節點。 這會暫時減少叢集的容量，但應該不會影響叢集或應用程式的可用性。
 
-### <a name="recommendations-on-when-to-use-silver-or-gold-durability-levels"></a>使用 Silver 或 Gold 持久性層級的建議時機
+### <a name="recommendations-for-when-to-use-silver-or-gold-durability-levels"></a>使用 Silver 或 Gold 持久性層級的建議時機
 
 針對所有裝載您預期會經常進行相應縮小 (減少 VM 執行個體計數)，且偏好延遲部署作業並減少容量以簡化相應縮小作業之具狀態服務的節點類型，使用 Silver 或 Gold 持久性。 相應放大案例 (新增 VM 執行個體) 並不會影響您對耐久性層級的選擇，只有相應縮小才會。
 
@@ -110,10 +109,11 @@ ms.lasthandoff: 05/16/2018
     > 不建議對未至少執行 Silver 持久性的虛擬機器擴展集變更 VM SKU 大小。 變更 VM SKU 大小是資料破壞性就地基礎結構作業。 如果沒有至少延遲或監視此變更的某些能力，作業可能會導致具狀態服務的資料遺失，或者甚至對於無狀態工作負載導致其他未預期作業問題。 
     > 
     
-- 針對所有啟用 Gold 或 Silver 持久性的虛擬機器擴展集維持至少五個節點
+- 針對所有啟用 Gold 或 Silver 持久性的虛擬機器擴展集維持至少五個節點。
+- 持久性層級為 Silver 或 Gold 的每個 VM 擴展集，必須對應到 Service Fabric 叢集中其自有的節點類型。 將多個 VM 擴展集對應到單一節點類型，會使 Service Fabric 叢集與 Azure 基礎結構之間的協調無法正常運作。
 - 請勿隨機刪除 VM 執行個體，而一律使用虛擬機器擴展集的相應減少功能。 刪除隨機的 VM 執行個體可能會在 UD 和 FD 上的 VM 執行個體中產生不平衡。 此不平衡可能會嚴重影響系統對服務執行個體/服務複本正確進行負載平衡的能力。
 - 如果您使用自動調整功能，則請設定規則使系統一次只會針對一個節點進行相應縮小 (移除 VM 執行個體)。 一次相應減少超過一個執行個體並不安全。
-- 如果相應減少主要節點類型，您絕對不應將其相應減少超過可靠性層級允許的程度。
+- 如果刪除或取消配置主要節點類型上的 VM，絕對不能將已配置的 VM 計數減少至可靠性層級所需數量以下。 在持久性層級為 Silver 或 Gold 的擴展集中，這些作業將會無限期地遭到封鎖。
 
 ## <a name="the-reliability-characteristics-of-the-cluster"></a>叢集的可靠性特性
 可靠性層級用來設定您想要在此叢集中的主要節點類型上執行的系統服務複本數目。 複本數目越多，叢集中的系統服務越可靠。  

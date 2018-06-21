@@ -1,24 +1,19 @@
 ---
-title: 管理 Azure 復原服務保存庫與伺服器 | Microsoft Docs
+title: 管理 Azure 復原服務保存庫與伺服器
 description: 使用本文來管理 Azure 復原服務保存庫與伺服器。
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: tysonn
-ms.assetid: 4eea984b-7ed6-4600-ac60-99d2e9cb6d8a
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: markgal
-ms.openlocfilehash: 18ab960c3d86f4154f7cbbaa3dd4909b9b16b697
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3d0404654631520909e63853d47b7de2b6cb4361
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606523"
 ---
 # <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>監視和管理 Windows 電腦的 Azure 復原服務保存庫和伺服器
 
@@ -244,7 +239,7 @@ Azure 備份代理程式提供 [節流] 索引標籤，可讓您控制在資料�
     一旦啟用節流之後，請指定允許在 [工作時間] 和 [非工作時間] 進行備份資料傳輸的頻寬。
 
     頻寬值從每秒 512 KB (Kbps) 開始，並可高達每秒 1023 MB (Mbps)。 您也可以指定 [工作時間] 的開始和完成時間，以及一週中有哪幾天視為工作天。 指定工作時間以外的時間會視為非工作時間。
-3. 按一下 [SERVICEPRINCIPAL] 。
+3. 按一下 [確定]。
 
 ## <a name="manage-exclusion-settings"></a>管理排除設定
 1. 開啟 **Microsoft Azure 備份代理程式** (透過在電腦中搜尋「Microsoft Azure 備份」即可找到)。
@@ -299,7 +294,7 @@ A3. 以下是不傳送通知以便減少警示雜訊的案例︰
 * 第二個備份作業會失敗，因為原始的備份作業正在進行中。
 
 ## <a name="troubleshooting-monitoring-issues"></a>疑難排解監視問題
-**問題︰**來自 Azure 備份代理程式的作業與警示未出現在入口網站中。
+**問題︰** 來自 Azure 備份代理程式的作業與警示未出現在入口網站中。
 
 **疑難排解步驟︰**```OBRecoveryServicesManagementAgent``` 程序會將作業和警示資料傳送至 Azure 備份服務。 此程序可能偶爾會卡住或關閉。
 

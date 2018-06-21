@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 05/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 3aca66d6922273e78b5100948f1b868c6c9b56af
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: f7c82b3aa88e874328452aae46dc14972d63192f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34616938"
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>使用 Azure Data Factory 從 HTTP 端點複製資料 | Microsoft Docs
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +59,7 @@ ms.lasthandoff: 03/29/2018
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**HttpServer**。 | yes |
 | url | Web 伺服器的基本 URL | yes |
-| enableServerCertificateValidation | 指定是否在連線到 HTTP 端點時啟用伺服器 SSL 憑證驗證。 | 否，預設值是 True |
+| enableServerCertificateValidation | 指定是否在連線到 HTTP 端點時啟用伺服器 SSL 憑證驗證。 當 HTTPS 伺服器使用自我簽署的憑證時，請將此屬性設定為 false。 | 否，預設值是 True |
 | authenticationType | 指定驗證類型。 允許的值為︰**匿名**、**基本**、**摘要**、**Windows**、**ClientCertificate**。 <br><br> 請分別參閱此關於更多屬性的下列資料表各節以及這些驗證類型的 JSON 範例。 | yes |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 

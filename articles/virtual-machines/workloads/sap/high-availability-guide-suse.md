@@ -4,7 +4,7 @@ description: SAP NetWeaver 在適用於 SAP 應用程式之 SUSE Linux Enterpris
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -16,11 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: sedusch
-ms.openlocfilehash: f1d2725237d2cf059450ce7e2c1600b24d17f35c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 12efeba68f30aa8723acc32449ae05ffac4c1ac4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34658752"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>SAP NetWeaver 在適用於 SAP 應用程式之 SUSE Linux Enterprise Server 上的 Azure VM 高可用性
 
@@ -100,9 +101,9 @@ NFS 伺服器、SAP NetWeaver ASCS、SAP NetWeaver SCS、SAP NetWeaver ERS 和 S
   * 36**&lt;nr&gt;** TCP
   * 39**&lt;nr&gt;** TCP
   * 81**&lt;nr&gt;** TCP
-  * 5**&lt;nr&gt;**13 TCP
-  * 5**&lt;nr&gt;**14 TCP
-  * 5**&lt;nr&gt;**16 TCP
+  * 5**&lt;nr&gt;** 13 TCP
+  * 5**&lt;nr&gt;** 14 TCP
+  * 5**&lt;nr&gt;** 16 TCP
 
 ### <a name="ers"></a>ERS
 
@@ -114,9 +115,9 @@ NFS 伺服器、SAP NetWeaver ASCS、SAP NetWeaver SCS、SAP NetWeaver ERS 和 S
   * 連接埠 621**&lt;nr&gt;**
 * 負載平衡規則
   * 33**&lt;nr&gt;** TCP
-  * 5**&lt;nr&gt;**13 TCP
-  * 5**&lt;nr&gt;**14 TCP
-  * 5**&lt;nr&gt;**16 TCP
+  * 5**&lt;nr&gt;** 13 TCP
+  * 5**&lt;nr&gt;** 14 TCP
+  * 5**&lt;nr&gt;** 16 TCP
 
 ## <a name="setting-up-a-highly-available-nfs-server"></a>設定高可用性的 NFS 伺服器
 
@@ -264,9 +265,9 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
    # IP address of the load balancer frontend configuration for NFS
    <b>10.0.0.4 nw1-nfs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS
-   <b>10.0.0.11 nw1-ascs</b>
+   <b>10.0.0.7 nw1-ascs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS ERS
-   <b>10.0.0.12 nw1-aers</b>
+   <b>10.0.0.8 nw1-aers</b>
    # IP address of the load balancer frontend configuration for database
    <b>10.0.0.13 nw1-db</b>
    </code></pre>
@@ -349,7 +350,7 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
    sudo crm node standby <b>nw1-cl-1</b>
    
    sudo crm configure primitive vip_<b>NW1</b>_ASCS IPaddr2 \
-     params ip=<b>10.0.0.11</b> cidr_netmask=<b>24</b> \
+     params ip=<b>10.0.0.7</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
    
    sudo crm configure primitive nc_<b>NW1</b>_ASCS anything \
@@ -379,7 +380,7 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
 
 1. **[1]** 安裝 SAP NetWeaver ASCS  
 
-   以 root 身分使用虛擬主機名稱 (對應至 ASCS 負載平衡器前端組態的 IP 位址，例如 <b>nw1-ascs</b>、<b>10.0.0.11</b>) 和您用於負載平衡器探查的執行個體號碼 (例如 <b>00</b>)，在第一個節點上安裝 SAP NetWeaver ASCS。
+   以 root 身分使用虛擬主機名稱 (對應至 ASCS 負載平衡器前端組態的 IP 位址，例如 <b>nw1-ascs</b>、<b>10.0.0.7</b>) 和您用於負載平衡器探查的執行個體號碼 (例如 <b>00</b>)，在第一個節點上安裝 SAP NetWeaver ASCS。
 
    您可以使用 sapinst 參數 SAPINST_REMOTE_ACCESS_USER 來允許非 root 使用者連線到 sapinst。
 
@@ -401,7 +402,7 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
    sudo crm node standby <b>nw1-cl-0</b>
    
    sudo crm configure primitive vip_<b>NW1</b>_ERS IPaddr2 \
-     params ip=<b>10.0.0.12</b> cidr_netmask=<b>24</b> \
+     params ip=<b>10.0.0.8</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
    
    sudo crm configure primitive nc_<b>NW1</b>_ERS anything \
@@ -436,7 +437,7 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
 
 1. **[2]** 安裝 SAP NetWeaver ERS  
 
-   以 root 身分使用虛擬主機名稱 (對應至 ERS 負載平衡器前端組態的 IP 位址，例如 <b>nw1-aers</b>、<b>10.0.0.12</b>) 和您用於負載平衡器探查的執行個體號碼 (例如 <b>02</b>)，在第二個節點上安裝 SAP NetWeaver ERS。
+   以 root 身分使用虛擬主機名稱 (對應至 ERS 負載平衡器前端組態的 IP 位址，例如 <b>nw1-aers</b>、<b>10.0.0.8</b>) 和您用於負載平衡器探查的執行個體號碼 (例如 <b>02</b>)，在第二個節點上安裝 SAP NetWeaver ERS。
 
    您可以使用 sapinst 參數 SAPINST_REMOTE_ACCESS_USER 來允許非 root 使用者連線到 sapinst。
 
@@ -581,14 +582,14 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
    # IP address of the load balancer frontend configuration for NFS
    <b>10.0.0.4 nw1-nfs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS/SCS
-   <b>10.0.0.11 nw1-ascs</b>
+   <b>10.0.0.7 nw1-ascs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ERS
-   <b>10.0.0.12 nw1-aers</b>
+   <b>10.0.0.8 nw1-aers</b>
    # IP address of the load balancer frontend configuration for database
    <b>10.0.0.13 nw1-db</b>
    # IP address of all application servers
-   <b>10.0.0.8 nw1-di-0</b>
-   <b>10.0.0.7 nw1-di-1</b>
+   <b>10.0.0.20 nw1-di-0</b>
+   <b>10.0.0.21 nw1-di-1</b>
    </code></pre>
 
 1. 建立 sapmnt 目錄

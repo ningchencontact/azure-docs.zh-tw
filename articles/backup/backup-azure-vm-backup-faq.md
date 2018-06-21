@@ -1,26 +1,20 @@
 ---
-title: Azure VM 備份常見問題集 | Microsoft Docs
+title: Azure VM 備份常見問題集
 description: 有關以下常見問題的解答：Azure VM 備份的運作方式、限制，以及原則變更時會發生什麼情況
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: ''
 keywords: azure vm 備份, azure vm 還原, 備份原則
-ms.assetid: c4cd7ff6-8206-45a3-adf5-787f64dbd7e1
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 7/18/2017
-ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 785ba078669886cf16041752bd7af5a957899d28
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.author: trinadhk
+ms.openlocfilehash: d637a98029b33be890b31f32c3080650b251f7a8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33205766"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606370"
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Azure VM 備份服務的相關問題
 本文包含常見問題的解答，可協助您快速了解 Azure VM 備份元件。 在某些答案中，有具有完整資訊的文章連結。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。
@@ -37,7 +31,7 @@ ms.locfileid: "33205766"
   * 尚未保護 - 移至 VM 刀鋒視窗，並從 [設定] 功能表檢查備份狀態，即可驗證 VM 的備份狀態。 進一步了解如何[檢查 VM 的備份狀態](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-operations-menu)
   * 屬於與 VM 相同的區域
 
-## <a name="backup"></a>備份
+## <a name="backup"></a>Backup 
 ### <a name="will-on-demand-backup-job-follow-same-retention-schedule-as-scheduled-backups"></a>隨選備份作業是否會遵循與排定備份相同的保留排程？
 編號 您應該指定隨選備份作業的保留範圍。 根據預設，若從入口網站觸發，會保留 30 天。 
 

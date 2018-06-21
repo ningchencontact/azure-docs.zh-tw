@@ -9,15 +9,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/10/2018
+ms.topic: conceptual
+ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 9820ed9b4c0abbb79c6f92e62f294fb7fbd4c87e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 16b181631d8d91ad8137e57564792789903bccf2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621605"
 ---
 # <a name="move-data-from-an-http-source-using-azure-data-factory"></a>使用 Azure Data Factory 來移動 HTTP 來源的資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +53,7 @@ Data factory 目前只支援把 HTTP 來源的資料移動到其他資料存放�
 | type | 類型屬性必須設為：`Http`。 | yes |
 | url | Web 伺服器的基本 URL | yes |
 | authenticationType | 指定驗證類型。 允許的值為︰**匿名**、**基本**、**摘要**、**Windows**、**ClientCertificate**。 <br><br> 請分別參閱此關於更多屬性的下列資料表各節以及這些驗證類型的 JSON 範例。 | yes |
-| enableServerCertificateValidation | 如果來源是 HTTPS Web 伺服器，指定是否啟用伺服器 SSL 憑證驗證 | 否，預設值是 True |
+| enableServerCertificateValidation | 如果來源是 HTTPS Web 伺服器，指定是否啟用伺服器 SSL 憑證驗證。 當 HTTPS 伺服器使用自我簽署的憑證時，請將此屬性設定為 false。 | 否，預設值是 True |
 | gatewayName | 連接至內部部署 HTTP 來源的「資料管理閘道」閘道。 | 如果從內部部署 HTTP 來源複製資料，則為是。 |
 | encryptedCredential | 用來存取 HTTP 端點的加密認證。 當您在複製精靈或 ClickOnce 快顯對話方塊中設定驗證資訊時會自動產生。 | 編號 僅當從內部部署 HTTP 伺服器複製資料時才套用。 |
 

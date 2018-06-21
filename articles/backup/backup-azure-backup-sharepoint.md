@@ -1,24 +1,19 @@
 ---
-title: "SharePoint 伺服器陣列至 Azure 的 DPM/Azure 備份伺服器保護 | Microsoft Docs"
-description: "這篇文章概述 SharePoint 伺服器陣列至 Azure 的 DPM/Azure 備份伺服器保護"
+title: SharePoint 伺服器陣列至 Azure 的 DPM/Azure 備份伺服器保護
+description: 這篇文章概述 SharePoint 伺服器陣列至 Azure 的 DPM/Azure 備份伺服器保護
 services: backup
-documentationcenter: 
 author: adigan
 manager: Nkolli1
-editor: 
-ms.assetid: e0c0c252-dc1d-4072-b777-7222c13950b0
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/29/2016
-ms.author: adigan;giridham;jimpark;trinadhk;markgal
-ms.openlocfilehash: 1bbf3233169fa9966e3dd0fac18ee448f26caa6b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: adigan
+ms.openlocfilehash: 728850fe70fb3f9e64b0fa25b4ceebb1a1b51cd4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606648"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>將 SharePoint 伺服器陣列備份到 Azure
 您可以使用 System Center Data Protection Manager (DPM)，將 SharePoint 伺服器陣列備份到 Microsoft Azure，其方法與備份其他資料來源極為類似。 Azure 備份提供靈活的備份排程來建立每日、每週、每月或每年備份點，並可讓您針對各種備份點執行保留原則選項。 DPM 可讓您儲存本機磁碟複本來快速達成復原時間目標 (RTO)，也可以將複本儲存到 Azure 來進行經濟實惠的長期保留。

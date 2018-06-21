@@ -1,24 +1,19 @@
 ---
-title: 針對 Azure 虛擬機器的備份錯誤進行疑難排解 | Microsoft Docs
+title: 針對 Azure 虛擬機器的備份錯誤進行疑難排解
 description: Azure 虛擬機器備份與還原的疑難排解
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: ''
-ms.assetid: 73214212-57a4-4b57-a2e2-eaf9d7fde67f
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/21/2018
-ms.author: trinadhk;markgal;jpallavi;sogup
-ms.openlocfilehash: 25008736dbff87aafe2f2ef2d13bbaf746e95e4d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: trinadhk
+ms.openlocfilehash: d6e78d46f0886b06cb1cf3577c16c8bc4f842bab
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607254"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 虛擬機器備份的疑難排解
 您可以疑難排解將 Azure 備份使用於下表所列資訊時發生的錯誤。
@@ -30,7 +25,7 @@ ms.lasthandoff: 04/28/2018
 | VM 代理程式無法與 Azure 備份服務通訊。 - 請確認 VM 具有網路連線，且 VM 代理程式是最新版且正在執行。 如需詳細資訊，請參閱 http://go.microsoft.com/fwlink/?LinkId=800034 |如果 VM 代理程式發生問題，或以某種方式封鎖對 Azure 基礎結構的網路存取，則會擲回這個錯誤。 [深入了解](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vm-agent-unable-to-communicate-with-azure-backup)如何進行 VM 快照集問題偵錯。<br> 如果 VM 代理程式並未造成任何問題，請重新啟動 VM。 有時，不正確的 VM 狀態可能會造成問題，重新啟動 VM 就可清除此「錯誤狀態」。 |
 | VM 處於失敗佈建狀態 - 請將 VM 重新啟動，並確定 VM 為執行中，或關機狀態可進行備份 | 當其中一個延伸模組失敗而導致 VM 狀態變成失敗的佈建狀態時，就會發生這個情況。 請移至延伸模組清單，查看是否有失敗的延伸模組，將它移除並嘗試重新啟動虛擬機器。 如果所有延伸模組都是處於執行狀態，請檢查 VM 代理程式服務是否正在執行。 若否，請重新啟動 VM 代理程式服務。 | 
 | 受控磁碟的 VMSnapshot 延伸模組作業失敗 - 請重試備份作業。 如果問題重複出現，請依照 'http://go.microsoft.com/fwlink/?LinkId=800034' 的指示。 如果進一步失敗，請連絡 Microsoft 支援 | Azure 備份服務無法觸發快照集時，就會發生此錯誤。 [深入了解](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vmsnapshot-extension-operation-failed)如何進行 VM 快照集問題偵錯。 |
-| 無法複製虛擬機器的快照集，因為儲存體帳戶中的可用空間不足 - 請確定儲存體帳戶中的可用空間等於連結至虛擬機器的進階儲存體磁碟上所呈現的資料 | 若為進階 VM，我們會將快照集複製到儲存體帳戶。 這是為了確定快照集上運作的備份管理流量不會限制可供使用進階磁碟的應用程式使用的 IOPS 數目。 Microsoft 建議只配置 50% 的總儲存體帳戶空間，讓 Azure 備份服務可以將快照集複製到儲存體帳戶，並從儲存體帳戶中複製的這個位置，將資料傳送到到保存庫。 | 
+| 無法複製虛擬機器的快照集，因為儲存體帳戶中的可用空間不足 - 請確定儲存體帳戶中的可用空間等於連結至虛擬機器的進階儲存體磁碟上所呈現的資料 | 若為 VM 備份堆疊 V1 上的進階 VM，我們會將快照集複製到儲存體帳戶。 這是為了確定快照集上運作的備份管理流量不會限制可供使用進階磁碟的應用程式使用的 IOPS 數目。 Microsoft 建議只配置 50% (17.5 TB) 的總儲存體帳戶空間，讓 Azure 備份服務可以將快照集複製到儲存體帳戶，並從儲存體帳戶中複製的這個位置，將資料傳送到到保存庫。 | 
 | 無法執行操作，因為 VM 代理程式沒有回應 |如果 VM 代理程式發生問題，或以某種方式封鎖對 Azure 基礎結構的網路存取，則會擲回這個錯誤。 針對 Windows VM，請檢查服務中的VM 代理程式服務狀態，以及代理程式是否出現在 [控制台] 的 [程式集] 中。 請嘗試從 [控制台] 中刪除程式，然後以[下方](#vm-agent)所述的方式重新安裝代理程式。 重新安裝代理程式之後，請觸發臨機操作備份以確認。 |
 | 復原服務擴充作業失敗。 - 請確定虛擬機器上有最新的虛擬機器代理程式，且代理程式服務正在執行中。 請重試備份作業，如果失敗，請連絡 Microsoft 支援服務。 |VM 代理程式過期時會擲回這個錯誤。 請參閱下面的「更新 VM 代理程式」一節以更新 VM 代理程式。 |
 | 虛擬機器不存在。 - 請確定該虛擬機器存在，或選取不同的虛擬機器。 |當刪除主要 VM 但備份原則繼續尋找 VM 來執行備份時，就會發生這種情況。 若要修正此錯誤： <ol><li> 重新建立具有相同名稱和相同資源群組名稱 [雲端服務名稱] 的虛擬機器，<br>(或)<br></li><li>停止保護虛擬機器，但不刪除備份資料。 [更多詳細資料](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
@@ -131,7 +126,7 @@ VM 備份仰賴發給底層儲存體的快照命令。 無法存取儲存體，�
 
 <br>
 
-## <a name="networking"></a>網路
+## <a name="networking"></a>網路功能
 如同所有的延伸模組，備份延伸模組需要存取公用網際網路才能運作。 沒有公用網際網路的存取權，可能會以各種不同方式的資訊清單形式顯現：
 
 * 延伸模組安裝可能會失敗

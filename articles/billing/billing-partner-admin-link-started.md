@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: a5b6bb683538bd5359ebcbbe2640216e574b3e00
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: a48298668e2297cb95f2a2f16eac6387ff509781
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164613"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608707"
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>將合作夥伴識別碼連結至您的 Azure 帳戶
 
@@ -53,7 +53,7 @@ ms.locfileid: "34164613"
 
 ### <a name="use-powershell-to-link-new-partner-id"></a>使用 PowerShell 連結新的合作夥伴識別碼
 
-1. 安裝 [AzurePartnerRP](https://www.powershellgallery.com/packages/AzureRM.ManagementPartner/0.1.0-preview) PowerShell 模組。
+1. 安裝 [AzureRM.ManagementPartner](https://www.powershellgallery.com/packages/AzureRM.ManagementPartner) PowerShell 模組。
 
 2. 以使用者帳戶或服務主體登入客戶的租用戶。如需詳細資訊，請參閱[使用 Powershell 登入](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-5.2.0)。
  

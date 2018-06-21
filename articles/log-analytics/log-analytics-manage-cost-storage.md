@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2018
+ms.date: 05/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 0e4c4c9e950610526a29e02d70827a1279d9686a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 43f7f1160fa36745bcfd697d91d1b46615b99edc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637509"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>藉由控制 Log Analytics 中的資料量與保留期來管理成本
 Log Analytics 是為縮放及支援每日大量資料的收集、索引編製和儲存而設計，這些資料來源可能位於您企業內部或部署於 Azure 中。  雖然這可能是您組織的主要推動力，但成本效率終究是最基本的推動力。 為此，務必了解 Log Analytisc 工作區的成本不只是以收集的資料量為基礎，也取決於選取的方案，以及您為連線來源所產生的資料選擇多長儲存時間。  
@@ -36,7 +37,7 @@ Log Analytics 是為縮放及支援每日大量資料的收集、索引編製和
 > [!NOTE]
 > 請參閱每個解決方案的文件，因為它會提供所收集資料數量的預估值。   
 
-如果您使用的是 [免費] 方案，則資料的保留期僅限 7 天。 如果是 [獨立] 或 [付費] 層，則可提供過去 31 天收集的資料。 [免費] 方案有每日 500 MB 的擷取限制，如果發現一直超出所允許的數量，您可以將工作區變更成付費方案，以收集超出此限制的資料。 
+在 2018 年 7 月 1 日前簽署 Enterprise 合約的客戶，或已在訂用帳戶中建立 Log Analytics 工作區的客戶，仍然可以存取「免費」方案。 如果訂用帳戶未繫結至現有的 EA 註冊，當您在 2018 年 4 月 2 日之後於新的訂用帳戶中建立工作區時，不適用「免費」層。  「免費」層的資料保留期僅限 7 天。  如果是 [獨立] 或 [付費] 層，則可提供過去 31 天收集的資料。 「免費」層有每日 500 MB 的擷取限制，如果發現一直超出所允許的數量，您可以將工作區變更成付費方案，以收集超出此限制的資料。 
 
 > [!NOTE]
 > 如果您選擇為付費層選取一個較長的保留期，就需要支付費用。 您可以隨時變更方案類型，如需有關定價的詳細資訊，請參閱[定價詳細資料](https://azure.microsoft.com/pricing/details/log-analytics/)。 

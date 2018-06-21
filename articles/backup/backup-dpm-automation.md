@@ -1,24 +1,19 @@
 ---
-title: Azure 備份 - 使用 PowerShell 備份 DPM 工作負載 | Microsoft Docs
+title: Azure 備份 - 使用 PowerShell 備份 DPM 工作負載
 description: 了解如何使用 PowerShell 部署和管理 Data Protection Manager (DPM) 的 Azure 備份
 services: backup
-documentationcenter: ''
 author: NKolli1
 manager: shreeshd
-editor: ''
-ms.assetid: e9bd223c-2398-4eb1-9bf3-50e08970fea7
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 1/23/2017
-ms.author: adigan;anuragm;trinadhk;markgal
-ms.openlocfilehash: 89dd965208cd473e47de9e0c9bdbfa3ab986c3d5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: adigan
+ms.openlocfilehash: 4a74aa674bd80f3d1297e71873eb9d71e46fd4cb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606914"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>使用 PowerShell 部署和管理 Data Protection Manager (DPM) 伺服器的 Azure 備份
 本文說明如何使用 PowerShell 來設定 DPM 伺服器上的 Azure 備份以及管理備份和復原。
@@ -178,7 +173,7 @@ $setting = Get-DPMCloudSubscriptionSetting -DPMServerName "TestingServer"
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
 ```
 
-## <a name="networking"></a>網路
+## <a name="networking"></a>網路功能
 如果 DPM 機器對在網際網路上的 Azure 備份服務的連線是透過 Proxy 伺服器，則應該提供 Proxy 伺服器設定，備份才能成功。 這是使用 ```-ProxyServer```、```-ProxyPort```、```-ProxyUsername``` 及 ```ProxyPassword``` 參數搭配 [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) Cmdlet 來完成。 本範例未使用 Proxy 伺服器，因此會明確地清除任何 Proxy 相關資訊。
 
 ```

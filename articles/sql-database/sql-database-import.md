@@ -8,13 +8,13 @@ ms.service: sql-database
 ms.custom: load & move data
 ms.date: 04/10/2018
 ms.author: carlrab
-ms.topic: article
-ms.openlocfilehash: bd9554a18775cf98f4415ebd5d4b0d52edc53718
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.topic: conceptual
+ms.openlocfilehash: d22c9a05d1fe56d71eb901c0a4bf22c179dfe937
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894178"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646910"
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>將 BACPAC 檔案匯入到新的 Azure SQL Database
 
@@ -102,6 +102,9 @@ $importStatus
 
 > [!TIP]
 如需其他指令碼範例，請參閱[從 BACPAC 檔案匯入資料庫](scripts/sql-database-import-from-bacpac-powershell.md)。
+
+## <a name="limitations"></a>限制
+- 不支援將資料庫匯入彈性集區。 您可以將資料匯入單一資料庫，然後將資料庫移到集區。
 
 ## <a name="import-using-other-methods"></a>使用其他方法匯入
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6c0e9c96840995c7d5a067e60264c66ce987af93
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2326f37afcb845b8c484bdf57db0876026f8e8a1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360082"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34602715"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
@@ -30,7 +30,7 @@ ms.locfileid: "34360082"
 您無法變更資源的位置。 移動資源只會將它移動到新的資源群組。 新的資源群組可能會有不同的位置，但那樣不會變更資源的位置。
 
 > [!NOTE]
-> 本文說明如何在現有的 Azure 帳戶提供項目內移動資源。 如果您真的想要變更 Azure 帳戶提供項目 (例如，從隨用隨付升級為預付)，同時繼續使用現有的資源，請參閱 [切換至不同的 Azure 訂用帳戶優惠](../billing/billing-how-to-switch-azure-offer.md)。
+> 本文說明如何在現有的 Azure 帳戶供應項目內移動資源。 如果您真的想要變更 Azure 帳戶供應項目 (例如，從隨用隨付升級為預付)，同時繼續使用現有的資源，請參閱 [切換至不同的 Azure 訂用帳戶供應項目](../billing/billing-how-to-switch-azure-offer.md)。
 >
 >
 
@@ -93,6 +93,8 @@ ms.locfileid: "34360082"
    * 來源資源群組上的 **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action**。
    * 來源資源群組上的 **Microsoft.Resources/subscriptions/resourceGroups/write**。
 
+5. 可能的話，請將大型移動細分為個別的移動作業。 Resource Manager 在單一作業中嘗試移動超過 800 個資源會立即失敗。 不過，移動少於 800 個資源也可能因為逾時而失敗。
+
 ## <a name="when-to-call-support"></a>呼叫支援的時機
 
 您可以透過本文顯示的自助式作業，移動大部分資源。 使用自助式作業︰
@@ -124,7 +126,7 @@ ms.locfileid: "34360082"
 * 內容仲裁
 * 資料目錄
 * Data Factory - 可移動 V1，但不支援移動 V2 (預覽)
-* Data Lake Analytics
+* 資料湖分析
 * Data Lake Store
 * DNS
 * 事件中樞

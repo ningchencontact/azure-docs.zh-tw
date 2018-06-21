@@ -7,15 +7,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: saas apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: ayolubek
-ms.openlocfilehash: 8fd25e13f6796b8be99ad3efd425bcde7bca3905
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: fc28622ad6d2569d455f82a30a84c47647baa1e2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193966"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645329"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>使用異地還原從資料庫備份復原多租用戶 SaaS 應用程式
 
@@ -78,7 +78,7 @@ ms.locfileid: "32193966"
 ## <a name="review-the-healthy-state-of-the-application"></a>檢視應用程式的健康狀態
 在開始進行復原程序之前，請先查看應用程式的正常健康狀態。
 
-1. 在您的網頁瀏覽器中，開啟 Wingtip Tickets 事件中樞 (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net，請將 &lt;user&gt; 取代為部署的使用者值)。
+1. 在您的網頁瀏覽器中，開啟 Wingtip Tickets 事件中樞 (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net，將 &lt;user&gt; 取代為部署的使用者值)。
     
    捲動至頁面底部，並查看頁尾處的目錄伺服器名稱和位置。 此位置是您部署應用程式的區域。    
 

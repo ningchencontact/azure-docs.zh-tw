@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/22/2018
+ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: f5d9b39a91567dd04b4e8ca0cd580c58024bb2f2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ea999945ace53099eb9dec15397310c9b5d1b904
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643119"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>修補 Service Fabric 叢集中的 Linux 作業系統
 
@@ -61,9 +62,9 @@ ms.lasthandoff: 05/16/2018
 ### <a name="ensure-that-your-azure-vms-are-running-ubuntu-1604"></a>確定您的 Azure VM 執行 Ubuntu 16.04
 在撰寫本文時，Ubuntu 16.04 (`Xenial Xerus`) 是唯一支援的版本。
 
-### <a name="ensure-that-the-service-fabric-linux-cluster-is-version-61x-and-above"></a>確定 Service Fabric Linux 叢集的版本是 6.1.x 和更新版本
+### <a name="ensure-that-the-service-fabric-linux-cluster-is-version-62x-and-above"></a>確定 Service Fabric Linux 叢集的版本是 6.2.x 和更新版本
 
-修補程式協調流程應用程式 Linux 會使用只能在 Service Fabric 執行階段 6.1.x 版和更新版本中使用的特定執行階段功能。
+修補程式協調流程應用程式 Linux 會使用只能在 Service Fabric 執行階段 6.2.x 版和更新版本中使用的特定執行階段功能。
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>啟用修復管理器服務 (如果尚未執行中)
 
@@ -118,7 +119,9 @@ ms.lasthandoff: 05/16/2018
 
 ## <a name="download-the-app-package"></a>下載安裝套件
 
-從[下載連結](https://go.microsoft.com/fwlink/?linkid=867984)下載應用程式。
+應用程式和安裝指令碼可以從[封存連結](https://go.microsoft.com/fwlink/?linkid=867984)下載。
+
+Sfpkg 格式的應用程式可以從 [sfpkg 連結](https://go.microsoft.com/fwlink/?linkid=867984&pc=sfpkg)下載。 這對於 [Azure Resource Manager 型應用程式部署](service-fabric-application-arm-resource.md)非常有用。
 
 ## <a name="configure-the-app"></a>設定應用程式
 
@@ -319,6 +322,10 @@ A. 當您在叢集上安裝修補程式協調流程應用程式時，您的叢�
 
 A. 是，清理會在後續安裝步驟中執行。 
 
+問： **修補協調流程應用程式可用來更新我的開發叢集 (一個雙節點的叢集) 嗎？**
+
+A. 否，修補協調流程應用程式無法用來修補單一節點的叢集。 此限制的設計：因為 [Service Fabric 系統服務](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-technical-overview#system-services)或任何客戶應用程式將會面臨停機時間，所以修復管理員決不會核准以任何修復作業進行修補。
+
 ## <a name="troubleshooting"></a>疑難排解
 
 ### <a name="a-node-is-not-coming-back-to-up-state"></a>節點不會回到開啟狀態
@@ -360,5 +367,8 @@ A. 是，清理會在後續安裝步驟中執行。
 ### <a name="version-010"></a>0.1.0 版
 - 私人預覽版本
 
-### <a name="version-200-latest"></a>2.0.0 版 (最新版)
+### <a name="version-200"></a>版本 2.0.0
 - 公開版本
+
+### <a name="version-201-latest"></a>版本 2.0.1 (最新版)
+- 已使用最新 Service Fabric SDK 重新編譯應用程式

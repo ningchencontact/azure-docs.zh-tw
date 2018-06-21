@@ -1,25 +1,20 @@
 ---
-title: "使用 Azure 備份還原已加密 VM 的金鑰保存庫金鑰與密碼 | Microsoft Docs"
-description: "了解如何使用 PowerShell 以 Azure 備份還原金鑰保存庫金鑰與密碼"
+title: 使用 Azure 備份還原已加密 VM 的金鑰保存庫金鑰與密碼
+description: 了解如何使用 PowerShell 以 Azure 備份還原金鑰保存庫金鑰與密碼
 services: backup
-documentationcenter: 
 author: JPallavi
 manager: vijayts
-editor: 
-ms.assetid: 45214083-d5fc-4eb3-a367-0239dc59e0f6
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2db3449187d655248b13198b268841052570626
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b703b4511f9fefb48546b23feaa33ca7da34da1f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606098"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>使用 Azure 備份還原已加密 VM 的金鑰保存庫金鑰與密碼
 本文將討論如果您的金鑰和密碼不存在於金鑰保存庫中時，如何使用 Azure VM 備份還原已加密的 Azure VM。 這些步驟也可用於您想要為已還原的 VM 另外維護一份金鑰 (金鑰加密金鑰) 與密碼 (BitLocker 加密金鑰) 時。
@@ -116,7 +111,7 @@ PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secr
 ```
 
 > [!NOTE]
-> 1. 可透過參考 $rp1.KeyAndSecretDetails.SecretUrl 的輸出，並使用祕密之後的文字來取得 $secretname 的值/ 例如輸出秘密 URL 是 https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 且祕密名稱是 B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
+> 1. 可透過參考 $rp1.KeyAndSecretDetails.SecretUrl 的輸出，並根據祕密之後的文字來取得 $secretname 的值/ 例如輸出秘密 URL 是 https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 且祕密名稱就是 B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
 > 2. DiskEncryptionKeyFileName 標記的值與祕密名稱相同。
 > 3. 還原回金鑰並使用 [Get-AzureKeyVaultKey](https://msdn.microsoft.com/library/dn868053.aspx) Cmdlet 後，便可從金鑰保存庫取得 DiskEncryptionKeyEncryptionKeyURL 的值
 >

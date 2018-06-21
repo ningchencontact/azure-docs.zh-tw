@@ -1,25 +1,20 @@
 ---
-title: Azure 備份代理程式常見問題集 | Microsoft Docs
+title: Azure 備份代理程式常見問題集
 description: 有關以下常見問題的解答︰Azure 備份代理程式的運作方式、備份和保留限制。
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: ''
 keywords: 備份和災害復原; 備份服務
-ms.assetid: 778c6ccf-3e57-4103-a022-367cc60c411a
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 7/18/2017
-ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 8777b2265666a4505a3432aca6683e2510519cac
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: trinadhk
+ms.openlocfilehash: 4234b76c192ba3bbeaca9593250cc855c073e380
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605526"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>關於 Azure 備份代理程式的問題
 本文包含常見問題的解答，可協助您快速了解 Azure 備份代理程式元件。 在某些答案中，有具有完整資訊的文章連結。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 04c56b7b7726d9ca603f2ff38acfabc887ecaf34
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a34a4be75488aca46fe232331e4bac3e0ac414b0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637764"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>從 OMS Agent for Linux 在 Log Analytics 中收集來自 Nagios 和 Zabbix 的警示 
 [Nagios](https://www.nagios.org/) 和 [Zabbix](http://www.zabbix.com/) 是開放原始碼監視工具。 您可以將來自這些工具的警示收集到 Log Analytics，以搭配[其他來源的警示](log-analytics-alerts.md)一起分析。  本文說明如何設定 OMS Agent for Linux 以收集來自這些系統的警示。
@@ -56,7 +57,7 @@ ms.lasthandoff: 04/16/2018
     ```
 
 ### <a name="configuring-zabbix-alert-collection"></a>設定 Zabbix 警示收集
-若要收集來自 Zabbix 伺服器的警示，您需要以「純文字」指定使用者名稱和密碼。  雖然不理想，但建議您建立使用者，而且只授與監視權限。
+若要收集來自 Zabbix 伺服器的警示，您需要以「純文字」指定使用者名稱和密碼。  雖然不理想，但建議您建立具有唯讀權限的 Zabbix 使用者來擷取相關警示。
 
 若要在 Nagios 伺服器上收集警示，請執行下列步驟。
 
@@ -73,7 +74,7 @@ ms.lasthandoff: 04/16/2018
 
 2. 重新啟動 omsagent 精靈
 
-    sudo sh /opt/microsoft/omsagent/bin/service_control restart
+    `sudo sh /opt/microsoft/omsagent/bin/service_control restart`
 
 
 ## <a name="alert-records"></a>警示記錄

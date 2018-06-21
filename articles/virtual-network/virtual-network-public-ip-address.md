@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: c28d409bbdb7a4100f2bb9f00ff6f58a13855ea4
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 30b4a7ea0d3f68e48d02e5cb72e70de74dc2addf
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305050"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34658684"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>建立、變更或刪除公用 IP 位址
 
@@ -70,7 +70,7 @@ ms.locfileid: "34305050"
 
 |工具|命令|
 |---|---|
-|CLI|[az network public-ip create](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_create)|
+|CLI|[az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create)|
 |PowerShell|[New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress)|
 
 ## <a name="view-change-settings-for-or-delete-a-public-ip-address"></a>檢視、變更公用 IP 位址的設定，或刪除公用 IP 位址
@@ -89,7 +89,7 @@ ms.locfileid: "34305050"
 
 |工具|命令|
 |---|---|
-|CLI|[az network public-ip-list](/cli/azure/network/public-ip#az_network_public_ip_list) 可列出公用 IP 位址、[az network public-ip-show](/cli/azure/network/public-ip#az_network_public_ip_show) 可顯示設定；[az network public-ip update](/cli/azure/network/public-ip#az_network_public_ip_update) 可進行更新；[az network public-ip delete](/cli/azure/network/public-ip#az_network_public_ip_delete) 可進行刪除|
+|CLI|[az network public-ip list](/cli/azure/network/public-ip#az-network-public-ip-list) 可列出公用 IP 位址、[az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) 可顯示設定；[az network public-ip update](/cli/azure/network/public-ip#az-network-public-ip-update) 可進行更新；[az network public-ip delete](/cli/azure/network/public-ip#az-network-public-ip-delete) 可進行刪除|
 |PowerShell|[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) 可擷取公用 IP 位址物件並檢視其設定、[Set-AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/set-azurermpublicipaddress) 可更新設定；[Remove-AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress) 可進行刪除|
 
 ## <a name="permissions"></a>權限

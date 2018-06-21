@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 6adde6a76a7675ef4d8b63757fc9419500872dd9
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 66d3ee76308573bb5672ffa8eeedcc4aca4c0cc5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638342"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Log Analytics 中的容器監視解決方案
 
@@ -528,7 +529,7 @@ KEY:    88 bytes
 
 ## <a name="solution-components"></a>方案元件
 
-如果您是使用 Windows 代理程式，當您新增這個解決方案時，就會使用代理程式在每部電腦上安裝下列管理組件。 管理組件不需要任何設定或維護。
+從 OMS 入口網站，瀏覽至 [解決方案資源庫] 並新增 [容器監視解決方案]。 如果您是使用 Windows 代理程式，當您新增這個解決方案時，就會使用代理程式在每部電腦上安裝下列管理組件。 管理組件不需要任何設定或維護。
 
 - C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs 中所安裝的 ContainerManagement.xxx
 
@@ -563,6 +564,7 @@ KEY:    88 bytes
 
 ## <a name="monitor-containers"></a>監視容器
 在 Log Analytics 入口網站中啟用此解決方案之後，[容器] 圖格會顯示容器主機和主機中執行之容器的相關摘要資訊。
+
 
 ![容器圖格](./media/log-analytics-containers/containers-title.png)
 

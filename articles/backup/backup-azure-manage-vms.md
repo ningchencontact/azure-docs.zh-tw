@@ -1,24 +1,19 @@
 ---
-title: "管理 Resource Manager 部署的虛擬機器備份 | Microsoft Docs"
-description: "了解如何管理和監視 Resource Manager 部署的虛擬機器備份"
+title: 管理 Resource Manager 部署的虛擬機器備份
+description: 了解如何管理和監視 Resource Manager 部署的虛擬機器備份
 services: backup
-documentationcenter: 
 author: trinadhk
 manager: shreeshd
-editor: 
-ms.assetid: f3050283-d60f-472d-b464-cb844e70d67e
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2016
-ms.author: trinadhk;markgal
-ms.openlocfilehash: f4613746a427e6987366eeb46605524cd3aacbe2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: trinadhk
+ms.openlocfilehash: 4d45db6ba6354f85c3ed67561751720b6f6f4b77
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606336"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>管理 Azure 虛擬機器備份
 

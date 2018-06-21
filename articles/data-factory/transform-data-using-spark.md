@@ -9,14 +9,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/16/2018
+ms.topic: conceptual
+ms.date: 05/31/2018
 ms.author: douglasl
-ms.openlocfilehash: 52b6489d14c016ce2efdd06614102a40651b94c0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 525ad1c83a1982ae5b954b900c5a6c7086544c66
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700531"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Spark 活動轉換資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,7 +51,6 @@ Data Factory [管線](concepts-pipelines-activities.md)中的 Spark 活動會在
         },
         "rootPath": "adfspark\\pyFiles",
         "entryFilePath": "test.py",
-        "arguments": [ "arg1", "arg2" ],
         "sparkConfig": {
             "ConfigItem1": "Value"
         },
@@ -72,7 +72,7 @@ Data Factory [管線](concepts-pipelines-activities.md)中的 Spark 活動會在
 | 預設容器     | Spark 程式執行所在的 HDInsight Spark 連結服務名稱。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。 | yes      |
 | SparkJobLinkedService | 存放 Spark 作業檔案、相依性和記錄的 Azure 儲存體連結服務。  如果您未指定此屬性的值，則會使用與 HDInsight 叢集相關聯的儲存體。 這個屬性的值只能是 Azure 儲存體連結服務。 | 否       |
 | rootPath              | Spark 檔案所在的 Azure Blob 容器和資料夾。 檔案名稱有區分大小寫。 如需了解此資料夾結構的詳細資料，請參閱資料夾結構一節 (下一節)。 | yes      |
-| entryFilePath         | Spark 程式碼/套件之根資料夾的相對路徑。 | yes      |
+| entryFilePath         | Spark 程式碼/套件之根資料夾的相對路徑。 輸入檔案必須是 Python 檔案或 .jar 檔案。 | yes      |
 | className             | 應用程式的 Java/Spark 主要類別      | 否       |
 | arguments             | Spark 程式的命令列引數清單。 | 否       |
 | proxyUser             | 模擬來執行 Spark 程式的使用者帳戶 | 否       |

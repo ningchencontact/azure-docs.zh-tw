@@ -12,19 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2018
+ms.date: 05/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 4fa610f144277b73bb6d555d46e63a01c413e07e
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f7dfdc4319e50e7a6c1c6032c27de5c76397e8de
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603071"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>了解 Azure Resource Manager 範本的結構和語法
 本文說明 Azure Resource Manager 範本的結構。 它會呈現範本的不同區段，以及這些區段中可用的屬性。 範本由 JSON 與運算式所組成，可讓您用來為部署建構值。 如需建立範本的逐步教學課程，請參閱[建立第一個 Azure Resource Manager 範本](resource-manager-create-first-template.md)。
 
 ## <a name="template-format"></a>範本格式
-在最簡單的結構中，範本包含下列元素：
+在最簡單的結構中，範本具有下列元素：
 
 ```json
 {
@@ -41,14 +42,14 @@ ms.lasthandoff: 05/20/2018
 | 元素名稱 | 必要 | 說明 |
 |:--- |:--- |:--- |
 | $schema |yes |JSON 結構描述檔案的位置，說明範本語言的版本。 使用上述範例所示的 URL。 |
-| contentVersion |yes |範本版本 (例如 1.0.0.0)。 您可以為此元素提供任何值。 使用範本部署資源時，這個值可用來確定使用的是正確的範本。 |
+| contentVersion |yes |範本版本 (例如 1.0.0.0)。 您可以為此元素提供任何值。 使用此值在範本中記載重大變更。 使用範本部署資源時，這個值可用來確定使用的是正確的範本。 |
 | parameters |否 |執行部署以自訂資源部署時所提供的值。 |
 | variables |否 |範本中做為 JSON 片段以簡化範本語言運算式的值。 |
 | functions |否 |範本中可用的使用者定義函式。 |
 | resources |yes |在資源群組中部署或更新的資源類型。 |
 | outputs |否 |部署後傳回的值。 |
 
-每個元素都包含可以設定的屬性。 下列範例包含範本的完整語法：
+每個元素都有可以設定的屬性。 下列範例顯示範本的完整語法：
 
 ```json
 {

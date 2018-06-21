@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: magoedte
-ms.openlocfilehash: 778810001952daf9ac63a7f1f880b05234549965
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 342387edb3793358d041702eaa6d76b462aef527
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637407"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>將 Windows 電腦連接到 Azure 中的 Log Analytics 服務
 
@@ -33,7 +34,7 @@ ms.lasthandoff: 03/16/2018
 * PowerShell 指令碼。
 * 針對 Azure Stack 中執行內部部署 Windows 的虛擬機器，使用 Resource Manager 範本。  
 
-若要了解部署 Windows 代理程式的網路和系統需求，請檢閱 [Windows 電腦的必要條件](log-analytics-concept-hybrid.md#prerequisites)。
+若要了解支援的組態，請檢閱[支援的 Windows 作業系統](log-analytics-concept-hybrid.md#supported-windows-operating-systems)和[網路防火牆組態](log-analytics-concept-hybrid.md#network-firewall-requirements)。
 
 ## <a name="obtain-workspace-id-and-key"></a>取得工作區識別碼和金鑰
 安裝適用於 Windows 的 Microsoft Monitoring Agent 之前，您必須有 Log Analytics 工作區的工作區識別碼和金鑰。  每種安裝方法都需要這項資訊，才能正確設定代理程式，並確保它能與 Azure Commercial 和 US Government 雲端中的 Log Analytics 順利進行通訊。  

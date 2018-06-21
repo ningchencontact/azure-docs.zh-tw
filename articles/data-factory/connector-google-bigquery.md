@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 3492f73b4e376bfd6cc069a97e935442da99dcfb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d63cb26acdc0a8b6c8435167b1043428de9f0729
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807613"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Google BigQuery 複製資料
 
@@ -58,7 +59,7 @@ ms.lasthandoff: 03/23/2018
 |:--- |:--- |:--- |
 | clientId | 用來產生重新整理權杖之應用程式的識別碼。 | 否 |
 | clientSecret | 用來產生重新整理權杖之應用程式的祕密。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |
-| refreshToken | 從 Google 取得的重新整理權杖，用來授權存取 BigQuery。 了解如何從[取得 OAuth 2.0 存取權杖](https://developers.google.com/identity/protocols/OAuth2WebServer#obtainingaccesstokens)取得權杖。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |
+| refreshToken | 從 Google 取得的重新整理權杖，用來授權存取 BigQuery。 了解如何從[取得 OAuth 2.0 存取權杖](https://developers.google.com/identity/protocols/OAuth2WebServer#obtainingaccesstokens) \(英文\) 和[這個社群部落格](https://jpd.ms/getting-your-bigquery-refresh-token-for-azure-datafactory-f884ff815a59) \(英文\) 取得權杖。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |
 
 **範例：**
 

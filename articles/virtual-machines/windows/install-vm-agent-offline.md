@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: genli
-ms.openlocfilehash: 2d332ce0da8622441d31a16a0addb9c06058998c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: df1bb64d0d753ae1853a2212c7c89d2e1613b8bc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34363289"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657310"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>在離線模式安裝 Azure 虛擬機器代理程式 
 
@@ -109,7 +109,7 @@ Azure 虛擬機器代理程式 (VM 代理程式) 提供有用的功能，例如�
 
 如果您使用資源管理員部署模型建立 VM，則您已完成。
 
-### <a name="use-the-provisionguestagent-property-for-vms-created-with-azure-resource-manager"></a>使用 Azure Resource Manager 建立的 VM，請使用 ProvisionGuestAgent 屬性
+### <a name="use-the-provisionguestagent-property-for-classic-vms"></a>針對傳統 VM 使用 ProvisionGuestAgent 屬性
 
 如果您使用傳統模型建立 VM，請使用 Azure PowerShell 模組來更新 **ProvisionGuestAgent** 屬性。 屬性會通知 Azure VM 已安裝 VM 代理程式。
 

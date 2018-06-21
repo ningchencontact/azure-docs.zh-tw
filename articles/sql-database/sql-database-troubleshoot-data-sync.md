@@ -3,17 +3,18 @@ title: 針對 Azure SQL 資料同步 (預覽) 進行疑難排解 | Microsoft Doc
 description: 了解如何對使用 Azure SQL 資料同步 (預覽) 的常見問題進行疑難排解。
 services: sql-database
 ms.date: 04/01/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 6e29c93f37017a88aa4b6d69168e649f7397d56b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 8c3476a81c10c9e1754302da4ac5c703ce7375bc
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757531"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>針對 SQL 資料同步 (預覽) 的問題進行疑難排解
 
@@ -240,9 +241,8 @@ SQL 資料同步 (預覽) 用戶端代理程式不會儲存認證，因此發生
 
 -   SQL 資料同步 (預覽) Windows 服務正在執行。  
 -   SQL 資料同步 (預覽) Preview Windows 服務的服務帳戶具有網路存取權。    
--   用戶端代理程式能夠連絡 Locator Service。 請檢查下列登錄機碼是否具有 https://locator.sync.azure.com/LocatorServiceApi.svc: 值  
-    -   在 x86 電腦上：`HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`  
-    -   在 x64 電腦上：`HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`
+-   輸出 1433 連接埠已在您的本機防火牆規則中開啟。
+-   本機 IP 會加入同步中繼資料資料庫的伺服器或資料庫防火牆規則。
 
 #### <a name="cause"></a>原因
 

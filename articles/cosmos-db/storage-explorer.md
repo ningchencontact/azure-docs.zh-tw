@@ -3,25 +3,22 @@ title: 在 Azure 儲存體總管中管理 Azure Cosmos DB
 description: 學習如何在 Azure 儲存體總管中管理 Azure Cosmos DB。
 Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
 services: cosmos-db
-documentationcenter: ''
 author: Jejiang
 manager: omafnan
 editor: ''
 tags: Azure Cosmos DB
-ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: Azure Cosmos DB active
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: jejiang
-ms.openlocfilehash: ff4ee0a47129be5df03112006dcd45a62ad410af
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3b870ed638656ee3b1b0e46fe9bac44e4436f154
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34612838"
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>在 Azure 儲存體總管中管理 Azure Cosmos DB
 
@@ -222,7 +219,7 @@ SQL API <!--or MongoDB API--> 的 Azure Cosmos DB 帳戶。 若您還沒有帳�
 
 有幾個原因可能會導致此錯誤，最常見的兩個原因是：
 
-+ 您在「透明 Proxy」背景，這表示有人 (例如您的 IT 部門) 是使用自我簽署憑證攔截 HTTPS 流量、解密再加密。
++ 您在「透明 Proxy」背後，這表示有人 (例如您的 IT 部門) 正使用自我簽署憑證攔截 HTTPS 流量、解密再加密。
 
 + 您正在執行的軟體，例如防毒軟體，會將自我簽署的 SSL 憑證插入您收到的 HTTPS 訊息中。
 

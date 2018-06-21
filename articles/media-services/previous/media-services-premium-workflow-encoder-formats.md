@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 36d4e897952e7ecb0297cc8c0ba159f728fd1213
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 68ba76ee18b3acc1c2825a217641c21a799132c1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638583"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>媒體編碼器高階工作流程格式和轉碼器
 > [!NOTE]
@@ -53,6 +54,7 @@ ms.lasthandoff: 05/07/2018
 * AVC 8 位元/10 位元，高達 4:2:2，包括 AVCIntra
 * Avid DNxHD (使用 MXF)
 * DVCPro/DVCProHD (使用 MXF)
+* HEVC/H.265、主要和主要 10 設定檔
 * JPEG2000
 * MPEG-2 (高達 422 Profile 和 High Level，包括 XDCAM、XDCAM HD、XDCAM IMX、CableLabs ® 和 D10 等變種)
 * MPEG-1

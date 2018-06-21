@@ -1,22 +1,19 @@
 ---
 title: 使用 Azure IoT 中樞大規模設定和監視 IoT 裝置 | Microsoft Docs
 description: 使用 Azure IoT 中樞自動裝置設定來將設定指派給多個裝置
-services: iot-hub
-documentationcenter: ''
 author: ChrisGMsft
-manager: timlt
-editor: ''
+manager: bruz
 ms.service: iot-hub
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
-ms.openlocfilehash: 7146fba69857c3a612ce1b3dbb83387c1f3068d6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: fe5ce960663f39d4f2c87a7bbffa091d327e9559
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34632443"
 ---
 # <a name="configure-and-monitor-iot-devices-at-scale---preview"></a>大規模設定和監視 IoT 裝置 - 預覽
 
@@ -31,6 +28,9 @@ Azure IoT 中樞中的自動裝置管理，可將大批裝置在其生命週期�
 * **目標內容**會定義要在目標裝置對應項中新增或更新的所需屬性。 內容包含了一個路徑，連往所要變更屬性的區段。
 
 * **計量**會定義各種設定狀態 (例如 **Success**、**Progress** 及 **Error**) 的摘要計數。 自訂計量會以查詢的形式指定於裝置對應項報告屬性上。  系統計量是測量對應項更新狀態的預設計量，例如作為目標的裝置對應項數目，以及成功更新的對應項數目。 
+
+> [!Note]
+> 在預覽期間，這項功能不適用於美國東部、美國西部、北歐和西歐地區的 IoT 中樞。
 
 ## <a name="implement-device-twins-to-configure-devices"></a>實作裝置對應項來設定裝置
 
@@ -52,7 +52,7 @@ Azure IoT 中樞中的自動裝置管理，可將大批裝置在其生命週期�
 ## <a name="create-a-configuration"></a>建立設定
 
 1. 在 [Azure 入口網站][lnk-portal]中，移至您的 IoT 中樞。 
-1. 選取 [裝置設定 (預覽)]。
+1. 選取 [IoT 裝置組態 (預覽)]。
 1. 選取 [新增設定]。
 
 建立設定有五個步驟。 下列各節將逐步解說每一個步驟。 
@@ -86,7 +86,7 @@ Azure IoT 中樞中的自動裝置管理，可將大批裝置在其生命週期�
 
 例如：`SELECT deviceId FROM devices WHERE properties.reported.chillerWaterSettings.status='pending'`
 
-您可以加入已套用設定的子句，例如：`SELECT deviceId FROM devices WHERE configurations.yourconfigname.status='Applied'`
+您可以加入已套用設定的子句，例如：`SELECT deviceId FROM devices WHERE configurations.[[yourconfigname]].status='Applied'`，包括雙括號。
 
 
 ### <a name="step-4-target-devices"></a>步驟 4：目標裝置
@@ -108,7 +108,7 @@ Azure IoT 中樞中的自動裝置管理，可將大批裝置在其生命週期�
 若要檢視設定的詳細資料，並監視正在執行該設定的裝置，請使用下列步驟：
 
 1. 在 [Azure 入口網站][lnk-portal]中，移至您的 IoT 中樞。 
-1. 選取 [裝置設定 (預覽)]。
+1. 選取 [IoT 裝置組態 (預覽)]。
 1. 檢查設定清單。 針對每個設定，您可以檢視下列詳細資料：
    * **識別碼**：設定的名稱。
    * **目標條件**：用來定義目標裝置的查詢。
@@ -136,7 +136,7 @@ Azure IoT 中樞中的自動裝置管理，可將大批裝置在其生命週期�
 若要修改設定，請使用下列步驟： 
 
 1. 在 [Azure 入口網站][lnk-portal]中，移至您的 IoT 中樞。 
-1. 選取 [裝置設定 (預覽)]。 
+1. 選取 [IoT 裝置組態 (預覽)]。 
 1. 選取您想要修改的設定。 
 1. 對下列欄位進行更新： 
    * 目標條件 
@@ -151,7 +151,7 @@ Azure IoT 中樞中的自動裝置管理，可將大批裝置在其生命週期�
 當您刪除設定時，任何裝置對應項都會採用其優先順序次高的設定。 如果裝置對應項不符合任何其他設定的目標條件，則不會套用任何其他設定。 
 
 1. 在 [Azure 入口網站][lnk-portal]中，移至您的 IoT 中樞。 
-1. 選取 [裝置設定 (預覽)]。 
+1. 選取 [IoT 裝置組態 (預覽)]。 
 1. 使用核取方塊來選取您想要刪除的設定。 
 1. 選取 [刪除] 。
 1. 您會看到要求確認的提示。

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: aljo
-ms.openlocfilehash: 29afb683b579d6b59d9a8002351a57dc6e42fad0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 118a6d10eeba691fd0886967f90156a0ab8d9fae
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642643"
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>自訂 Service Fabric 叢集設定和網狀架構升級原則
 本文件將告訴您如何為 Service Fabric 叢集自訂各種網狀架構設定和網狀架構升級原則。 您可以透過 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本來進行自訂。
@@ -75,6 +76,15 @@ ms.lasthandoff: 05/16/2018
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap，預設值為 None|動態|  |
+
+## <a name="backuprestoreservice"></a>BackupRestoreService
+| **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
+| --- | --- | --- | --- |
+|MinReplicaSetSize|int，預設值為 0|靜態|BackupRestoreService 的 MinReplicaSetSize |
+|PlacementConstraints|wstring，預設值為 L""|靜態| BackupRestore 服務的 PlacementConstraints |
+|SecretEncryptionCertThumbprint|wstring，預設值為 L""|動態|祕密加密 X509 憑證的指紋 |
+|SecretEncryptionCertX509StoreName|wstring，預設值為 L"My"|  動態|    這表示要用於認證加密和解密的憑證。用於加密及解密備份還原服務所用存放區認證的 X.509 憑證存放區名稱 |
+|TargetReplicaSetSize|int，預設值為 0|靜態| BackupRestoreService 的 TargetReplicaSetSize |
 
 ## <a name="clustermanager"></a>ClusterManager
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
@@ -299,6 +309,7 @@ ms.lasthandoff: 05/16/2018
 |ActivationTimeout| 時間範圍，預設值為 Common::TimeSpan::FromSeconds(180)|動態| 以秒為單位指定時間範圍。 應用程式的啟用、停用和升級逾時。 |
 |ApplicationHostCloseTimeout| 時間範圍，預設值為 Common::TimeSpan::FromSeconds(120)|動態| 以秒為單位指定時間範圍。 在自我啟動的程序中偵測到網狀架構結束時，FabricRuntime 會關閉使用者主機 (applicationhost) 處理序中的所有複本。 這是關閉作業的逾時值。 |
 |ApplicationUpgradeTimeout| 時間範圍，預設值為 Common::TimeSpan::FromSeconds(360)|動態| 以秒為單位指定時間範圍。 應用程式升級的逾時。 如果逾時值小於「ActivationTimeout」，部署便會失敗。 |
+|ContainerServiceArguments|wstring，預設值為 L"-H localhost:2375 -H npipe://"|靜態|Service Fabric (SF) 會管理 Docker 精靈 (在 Win10 之類的 Windows 用戶端電腦上除外)。 此組態允許使用者指定自訂引數，而這些引數應該在啟動 Docker 精靈時傳遞至該精靈。 若指定了自訂引數，除了 '--pidfile' 引數外，Service Fabric 不會再將任何其他引數傳遞至 Docker 引擎。 因此使用者不得指定 '-pidfile' 引數作為其自訂引數的一部分。 此外，自訂引數也應該確保 Docker 精靈在 Windows 的預設名稱管道 (或在 Linux 上的 Unix 網域通訊端) 上接聽，Service Fabric 才能與它通訊。|
 |CreateFabricRuntimeTimeout|時間範圍，預設值為 Common::TimeSpan::FromSeconds(120)|動態| 以秒為單位指定時間範圍。 同步 FabricCreateRuntime 呼叫的逾時值 |
 |DeploymentMaxFailureCount|整數，預設值為 20| 動態|應用程式部署會先重試 DeploymentMaxFailureCount 次數，才讓節點上該應用程式的部署失敗。| 
 |DeploymentMaxRetryInterval| 時間範圍，預設值為 Common::TimeSpan::FromSeconds(3600)|動態| 以秒為單位指定時間範圍。 部署的重試間隔上限。 在每次連續失敗之後，重試間隔的計算方式為 Min( DeploymentMaxRetryInterval; Continuous Failure Count * DeploymentRetryBackoffInterval) |
@@ -311,6 +322,7 @@ ms.lasthandoff: 05/16/2018
 |FirewallPolicyEnabled|布林值，預設值為 FALSE|靜態| 能夠為端點資源開啟防火牆連接埠，並於 ServiceManifest 中明確指定連接埠 |
 |GetCodePackageActivationContextTimeout|時間範圍，預設值為 Common::TimeSpan::FromSeconds(120)|動態|以秒為單位指定時間範圍。 CodePackageActivationContext 呼叫的逾時值。 這不適用於特定服務。 |
 |IPProviderEnabled|布林值，預設值為 FALSE|靜態|能夠管理 IP 位址。 |
+|LinuxExternalExecutablePath|wstring，預設值為 L"/usr/bin/" |靜態|節點上外部可執行命令的主目錄。|
 |NTLMAuthenticationEnabled|布林值，預設值為 FALSE|靜態| 能夠支援執行身分為其他使用者的程式碼套件使用 NTLM，以便機器之間的處理序可以安全地通訊。 |
 |NTLMAuthenticationPasswordSecret|SecureString，預設值為 Common::SecureString(L"")|靜態|是加密的，用來產生 NTLM 使用者的密碼。 如果 NTLMAuthenticationEnabled 為 true，則必須加以設定。 由部署人員驗證。 |
 |NTLMSecurityUsersByX509CommonNamesRefreshInterval|時間範圍，預設值為 Common::TimeSpan::FromMinutes(3)|動態|以秒為單位指定時間範圍。 環境特有的設定。FileStoreService NTLM 設定所要使用的新憑證定期主控掃描間隔。 |
@@ -322,6 +334,7 @@ ms.lasthandoff: 05/16/2018
 |ServiceTypeDisableFailureThreshold |整數，預設值為 1 |動態|這是失敗次數的閾值，超過此值之後，就會通知 FailoverManager (FM) 停用該節點上的服務類型，並嘗試放置在另一個節點。 |
 |ServiceTypeDisableGraceInterval|時間範圍，預設值為 Common::TimeSpan::FromSeconds(30)|動態|以秒為單位指定時間範圍。 時間間隔，之後便可以停用服務類型 |
 |ServiceTypeRegistrationTimeout |時間 (秒)，預設值為 300 |動態|允許 ServiceType 向網狀架構註冊的最大時間 |
+|UseContainerServiceArguments|布林值，預設值為 TRUE|靜態|此組態會告知主機略過將引數 (在 ContainerServiceArguments 組態中指定) 傳遞至 Docker 精靈。|
 
 ## <a name="httpgateway"></a>HttpGateway
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
@@ -368,6 +381,7 @@ ms.lasthandoff: 05/16/2018
 |AzureStorageMaxConnections | 整數，預設值為 5000 |動態|Azure 儲存體的並行連線數目上限。 |
 |AzureStorageMaxWorkerThreads | 整數，預設值為 25 |動態|平行背景工作執行緒的數目上限。 |
 |AzureStorageOperationTimeout | 時間 (秒)，預設值為 6000 |動態|以秒為單位指定時間範圍。 可供 xstore 作業完成的逾時值。 |
+|CleanupApplicationPackageOnProvisionSuccess|布林值，預設值為 FALSE |動態|此組態會在成功佈建時，啟用或停用應用程式套件的自動清除。 |
 |DisableChecksumValidation | 布林值，預設值為 false |靜態| 此組態可讓我們在應用程式佈建期間啟用或停用總和檢查碼驗證。 |
 |DisableServerSideCopy | 布林值，預設值為 false |靜態|此組態會在應用程式佈建期間，啟用或停用 ImageStore 上應用程式套件的伺服器端複製作業。 |
 |ImageCachingEnabled | 布林值，預設值為 true |靜態|此組態可讓我們啟用或停用快取。 |
@@ -526,6 +540,11 @@ ms.lasthandoff: 05/16/2018
 |ReplicatorPublishAddress|字串，預設值為 L"localhost:0"|靜態|'IP:Port' 字串形式的端點，Windows Fabric 複寫器會使用此端點將作業傳送至其他複本。|
 |RetryInterval|時間範圍，預設值為 Common::TimeSpan::FromSeconds(5)|靜態|以秒為單位指定時間範圍。 當作業遺失或遭到拒絕，此計時器會決定複寫器重新試著傳送作業的頻率。|
 
+## <a name="resourcemonitorservice"></a>ResourceMonitorService
+| **參數** | **允許的值** | **升級原則**| **指引或簡短描述** |
+| --- | --- | --- | --- |
+|IsEnabled|布林值，預設值為 FALSE |靜態|控制服務是否在叢集中啟用。 |
+
 ## <a name="runas"></a>RunAs
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
@@ -586,6 +605,7 @@ ms.lasthandoff: 05/16/2018
 |ServerAuthCredentialType|字串，預設值為 L"None"|靜態|指出為了保護 FabricClient 和叢集間通訊而要使用的安全性認證類型。 有效值為"None/X509/Windows" |
 |ServerCertThumbprints|字串，預設值為 L""|動態|叢集用來與用戶端通訊的伺服器憑證指紋，用戶端會使用此指紋來驗證叢集。 這是以逗號分隔的名稱清單。 |
 |SettingsX509StoreName| 字串，預設值為 L"MY"| 動態|網狀架構用來保護組態的 X509 憑證存放區 |
+|UseClusterCertForIpcServerTlsSecurity|布林值，預設值為 FALSE|靜態|是否要使用叢集憑證來保護 IPC 伺服器 TLS 傳輸單位 |
 |X509Folder|字串，預設值為 /var/lib/waagent|靜態|X509 憑證和私密金鑰的所在資料夾 |
 
 ## <a name="securityadminclientx509names"></a>Security/AdminClientX509Names
@@ -632,6 +652,7 @@ ms.lasthandoff: 05/16/2018
 |GetUpgradesPendingApproval |字串，預設值為 "Admin" |動態| 在資料分割上引發 GetUpgradesPendingApproval。 |
 |GetUpgradeStatus |字串，預設值為 "Admin\|\|User" |動態| 用於輪詢應用程式升級狀態的安全性組態。 |
 |InternalList |字串，預設值為 "Admin" | 動態|映像存放區用戶端檔案列出作業 (內部) 的安全性組態。 |
+|InvokeContainerApi|wstring，預設值為 L"Admin"|動態|Invoke container API |
 |InvokeInfrastructureCommand |字串，預設值為 "Admin" |動態| 基礎結構工作管理命令的安全性組態。 |
 |InvokeInfrastructureQuery |字串，預設值為 "Admin\|\|User" | 動態|用於查詢基礎結構工作的安全性組態。 |
 |列出 |字串，預設值為 "Admin\|\|User" | 動態|映像存放區用戶端檔案列出作業的安全性組態。 |
@@ -741,25 +762,13 @@ ms.lasthandoff: 05/16/2018
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |BatchAcknowledgementInterval | 時間 (秒)，預設值為 0.015 | 靜態 | 以秒為單位指定時間範圍。 決定複寫器在收到作業後，要等待多久才回傳通知。 在此期間所收到的其他作業會透過同一則訊息回傳其通知，以降低網路流量，但可能也會降低複寫器的輸送量。 |
-|CheckpointThresholdInMB |整數，預設值為 50 |靜態|記錄使用量超過此值時，便會起始檢查點。 |
-|InitialPrimaryReplicationQueueSize |單位，預設值為 64 | 靜態 |此值會定義主要複寫器上保有複寫作業之佇列的初始大小。 請注意，此值必須是 2 的乘冪。|
-|InitialSecondaryReplicationQueueSize |單位，預設值為 64 | 靜態 |此值會定義次要複寫器上保有複寫作業之佇列的初始大小。 請注意，此值必須是 2 的乘冪。 |
-|MaxAccumulatedBackupLogSizeInMB |整數，預設值為 800 |靜態|指定備份記錄鏈中備份記錄檔的最大累積大小 (MB)。 如果增量備份會產生導致累積備份記錄檔的備份記錄檔，增量備份要求將會失敗，因為相關完整備份會大於此大小。 在這個情況下，使用者需要進行完整備份。 |
 |MaxCopyQueueSize |單位，預設值為 16384 | 靜態 |這是用來定義保有複寫作業之佇列初始大小的最大值。 請注意，此值必須是 2 的乘冪。 如果在執行階段期間，佇列增加到此大小，則會將主要和次要複寫器之間的作業節流。 |
-|MaxMetadataSizeInKB |整數，預設值為 4 |不允許|記錄資料流中繼資料的大小上限。 |
 |MaxPrimaryReplicationQueueMemorySize |單位，預設值為 0 | 靜態 |這是主要複寫佇列的最大值 (位元組)。 |
 |MaxPrimaryReplicationQueueSize |單位，預設值為 8192 | 靜態 |這是主要複寫佇列中可存在的作業數目上限。 請注意，此值必須是 2 的乘冪。 |
-|MaxRecordSizeInKB |單位，預設值為 1024 |不允許| 記錄資料流記錄的大小上限。 |
 |MaxReplicationMessageSize |單位，預設值為 52428800 | 靜態 | 複寫作業的訊息大小上限。 預設值為 50 MB。 |
 |MaxSecondaryReplicationQueueMemorySize |單位，預設值為 0 | 靜態 |這是次要複寫佇列的最大值 (位元組)。 |
 |MaxSecondaryReplicationQueueSize |單位，預設值為 16384 | 靜態 |這是次要複寫佇列中可存在的作業數目上限。 請注意，此值必須是 2 的乘冪。 |
-|MaxWriteQueueDepthInKB |整數，預設值為 0 |不允許| 核心記錄器可以針對與此複本相關聯之記錄使用的寫入佇列深度上限，此值為整數值，並且會以 KB 為單位來指定。 此值是核心記錄器更新期間可處於待處理狀態的位元組數上限。 此值可為 0 (讓核心記錄器計算出適當值) 或 4 的倍數。 |
-|MinLogSizeInMB |整數，預設值為 0 |靜態|交易記錄檔大小下限。 系統將不會允許把記錄檔截斷為低於此設定的大小。 0 表示複寫器將會根據其他設定決定記錄大小下限。 提高這個值會提高執行部分複本和增量備份的可能性，因為這會降低將相關記錄檔記錄截斷的可能性。 |
 |ReplicatorAddress |字串，預設值為 "localhost:0" | 靜態 | -'IP:Port' 字串形式的端點，Windows Fabric 複寫器使用此端點來建立與其他複本的連線，以便傳送/接收作業。 |
-|SecondaryClearAcknowledgedOperations |布林值，預設值為 false | 靜態 |布林值，用來控制當次要複寫器上的作業已認可至主要複寫器 (已排清至磁碟) 時是否要予以清除。 將此參數設為 TRUE，會導致在容錯移轉之後快取複本時，在新的主要複寫器上產生額外的磁碟讀取。 |
-|SharedLogId |字串 |不允許|共用記錄識別碼。 此參數是 GUID，每個共用記錄的這個參數都應該是唯一的。 |
-|SharedLogPath |字串 |不允許|共用記錄的路徑。 如果此值空白，則會使用預設共用記錄。 |
-|SlowApiMonitoringDuration |時間 (秒)，預設值為 300 |靜態| 指定 API 的持續時間，在此時間過後便會引發警告健康狀態事件。|
 
 ## <a name="transport"></a>傳輸
 | **參數** | **允許的值** |**升級原則** |**指引或簡短描述** |

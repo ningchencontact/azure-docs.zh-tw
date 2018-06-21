@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 06/06/2018
 ms.author: jingwang
-ms.openlocfilehash: d7dea9a3d9eabdc9e4cdf21e6e584b745d22a54e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4c9c97f30801ff901677156b0ea37c1eeb348502
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808718"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>使用 Azure Data Factory 從 MySQL 複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,7 +41,7 @@ ms.lasthandoff: 03/23/2018
 若要使用這個 MySQL 連接器，您必須：
 
 - 設定一個「自我裝載 Integration Runtime」。 如需詳細資料，請參閱[自我裝載 Integration Runtime](create-self-hosted-integration-runtime.md) 一文。
-- 在 Integration Runtime 電腦上安裝 [Microsoft Windows 的 MySQL Connector/Net](https://dev.mysql.com/downloads/connector/net/) 6.6.5 版或更新版本。 這個 32 位元驅動程式可與 64 位元 IR 相容。
+- 在 Integration Runtime 電腦上安裝介於 6.6.5 和 6.10.7 之間的 [Microsoft Windows 的 MySQL Connector/Net](https://dev.mysql.com/downloads/connector/net/) \(英文\) 版本。 這個 32 位元驅動程式可與 64 位元 IR 相容。
 
 > [!TIP]
 > 如果您遇到錯誤「驗證失敗，因為遠端合作對象已關閉傳輸串流」，請考慮將 MySQL 連接器/Net 更新為更高版本。

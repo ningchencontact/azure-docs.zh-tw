@@ -8,14 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 01/10/2018
+ms.topic: conceptual
+ms.date: 06/06/2018
 ms.author: douglasl
-ms.openlocfilehash: 6f9f0f9a9bab7e6865ae5a48552ac702ae2bf6fb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b4e8a2dba65973919d9716655c4fbb4d533b1c78
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824926"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory 支援的計算環境
 本文說明您可用來處理或轉換資料的各種計算環境。 其中還提供在設定將這些計算環境連結至 Azure Data Factory 的連結服務時，Data Factory 所支援的不同組態 (隨選與自備) 的詳細資料。
@@ -37,8 +38,6 @@ ms.lasthandoff: 04/28/2018
 
 > [!NOTE]
 > 目前僅支援 Azure HDInsight 叢集的隨選組態。
->
-> 
 
 ## <a name="azure-hdinsight-on-demand-linked-service"></a>Azure HDInsight 隨選連結服務
 Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料。 此叢集會建立在與叢集相關聯的儲存體帳戶 (JSON 中的 linkedServiceName 屬性) 相同的區域中。 儲存體帳戶必須是一般目的標準 Azure 儲存體帳戶。 
@@ -48,11 +47,14 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 * 您的 Azure 訂用帳戶下會建立隨選 HDInsight 叢集。 該叢集啟動並執行時，您能看到該叢集出現在您的 Azure 入口網站中。 
 * 在隨選 HDInsight 叢集上執行之工作的記錄檔會被複製到與 HDInsight 叢集相關聯的儲存體帳戶。 連結服務定義中定義的 clusterUserName、clusterPassword、clusterSshUserName、clusterSshPassword 可用來登入該叢集，以便在該叢集的生命週期中進行深入的疑難排解。 
 * 只會針對 HDInsight 叢集啟動並執行工作的時間來向您收取費用。
+* 您無法將指令碼動作與 Azure HDInsight 隨選連結服務搭配使用。 例如，如果您需要安裝其他相依性，請考慮使用 Azure 自動化，執行 PowerShell 指令碼來進行下列動作：  
+  a. 建立 HDInsight 叢集。  
+  b. 例如，執行指令碼動作來安裝其他相依性。  
+  c. 執行 Data Factory 管線。  
+  d. 刪除叢集。  
 
 > [!IMPORTANT]
 > 通常會花費 **20 分鐘**或更久的時間來佈建隨選 Azure HDInsight 叢集。
->
-> 
 
 ### <a name="example"></a>範例
 下列 JSON 會定義以 Linux 為基礎的隨選 HDInsight 連結服務。 Data Factory 服務會自動建立**以 Linux 為基礎的** HDInsight 叢集，以處理必要的活動。 

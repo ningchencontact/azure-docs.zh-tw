@@ -4,21 +4,22 @@ description: 建立高可用性並為 SAP HANA on Azure (大型執行個體) 的
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/01/2018
+ms.date: 05/30/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6c939e0fb59c7fce2c1c34aca1b77bd0b8cec0c5
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9c4c126663d34d65cc7e0aa641bf93b848a5dcae
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34658310"
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Azure 上 SAP Hana (大型執行個體) 的高可用性和災害復原 
 
@@ -32,11 +33,11 @@ ms.lasthandoff: 04/03/2018
 
 Microsoft 可透過 HANA 大型執行個體支援某些 SAP HANA 高可用性功能。 這些功能包括：
 
-- **儲存體複寫：**儲存體系統將所有資料複寫到另一個 Azure 區域中另一個 HANA 大型執行個體戳記的能力。 SAP HANA 獨立運作，不依賴此方法。 此功能是提供給 HANA 大型執行個體使用的預設災害復原機制。
+- **儲存體複寫：** 儲存體系統將所有資料複寫到另一個 Azure 區域中另一個 HANA 大型執行個體戳記的能力。 SAP HANA 獨立運作，不依賴此方法。 此功能是提供給 HANA 大型執行個體使用的預設災害復原機制。
 - **HANA 系統複寫**：[將 SAP HANA 中的所有資料複寫](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)到個別的 SAP HANA 系統。 復原時間目標是透過定期的資料複寫而最小化。 SAP HANA 支援非同步、記憶體內同步及同步模式。 同步模式僅用於相同資料中心內或距離 100 公里內的 SAP HANA 系統。 以 HANA 大型執行個體戳記目前的設計而言，HANA 系統複寫只可用於單一區域內的高可用性。 HANA 系統複寫需要第三方反向 Proxy 或路由元件，以便在另一個 Azure 區域中進行災害復原設定。 
 - **主機自動容錯移轉**︰SAP HANA 的本機錯誤復原解決方案，可作為 HANA 系統複寫的替代選項。 如果主要節點變得無法使用，您可以相應放大模式設定一或多個待命 SAP HANA 節點，而 SAP HANA 會自動容錯移轉到待命節點。
 
-SAP HANA on Azure (大型執行個體) 會在三個地緣政治區域 (美國、澳洲和歐洲) 中的兩個 Azure 區域提供。 地緣政治區域內裝載 HANA 大型執行個體戳記的兩個區域，會與個別的專用網路線路連線。 這會用來複寫儲存體快照集，以提供災害復原方法。 複寫不會在預設中建立，但會為訂購災害復原功能的客戶設定。 執行儲存體複寫需要使用 HANA 大型執行個體的儲存體快照集。 您無法選擇 Azure 區域作為 DR 區域，因為該區域位於不同的地緣政治地區。 
+SAP HANA on Azure (大型執行個體) 會在四個地緣政治區域 (美國、澳洲、歐洲和日本) 中的兩個 Azure 區域提供。 地緣政治區域內裝載 HANA 大型執行個體戳記的兩個區域，會與個別的專用網路線路連線。 這會用來複寫儲存體快照集，以提供災害復原方法。 複寫不會在預設中建立，但會為訂購災害復原功能的客戶設定。 執行儲存體複寫需要使用 HANA 大型執行個體的儲存體快照集。 您無法選擇 Azure 區域作為 DR 區域，因為該區域位於不同的地緣政治地區。 
 
 下表顯示目前支援的高可用性和災害復原方法以及兩者的組合：
 
@@ -81,6 +82,7 @@ SAP HANA on Azure (大型執行個體) 會在三個地緣政治區域 (美國、
 
 - 訂購與生產 SKU 大小相同的 SAP HANA on Azure (大型執行個體) SKU，並部署在災害復原區域中。 在目前的客戶部署中，這些執行個體會用來執行非生產 HANA 執行個體。 這些設定稱為*多用途 DR 設定*。   
 - 針對您在災害復原網站中想要復原的每個 SAP HANA on Azure (大型執行個體) SKU，在 DR 網站上為其訂購其他儲存體。 購買額外的儲存體，可讓您配置存放磁碟區。 您可以配置磁碟區，這些磁碟區是從生產 Azure 區域將儲存體複寫到災害復原 Azure 區域時的目標。
+- 如果您在主要節點上設定 HSR，而且設定 DR 網站的儲存體式複寫，則必須在 DR 網站購買額外的儲存體，以便將主要和次要節點資料會複寫至 DR 網站。
 
  
 
@@ -113,7 +115,7 @@ SAP HANA on Azure (大型執行個體) 提供兩個備份和還原選項：
 SAP HANA on Azure (大型執行個體) 底下的儲存體基礎結構支援磁碟區的儲存體快照集。 不論是備份還是還原磁碟區都受到支援，但有下列考量事項：
 
 - 系統會經常建立存放磁碟區快照，而不是進行完整的資料庫備份。
-- 針對 /hana/data 和 /hana/shared (包括 /usr/sap) 磁碟區來觸發快照集時，快照集技術會先起始 SAP HANA 快照集，再執行儲存體快照集。 在儲存體快照集復原之後，此 SAP HANA 快照集是最後記錄還原的設定點。
+- 針對 /hana/data 和 /hana/shared (包括 /usr/sap) 磁碟區來觸發快照集時，快照集技術會先起始 SAP HANA 快照集，再執行儲存體快照集。 在儲存體快照集復原之後，此 SAP HANA 快照集是最後記錄還原的設定點。 您需要作用中的 HANA 執行個體，HANA 快照集才會成功。  在 HSR 案例中，無法執行 HANA 快照集的目前次要節點上不支援儲存體快照集。
 - 在順利執行儲存體快照集後，系統會刪除 SAP HANA 快照集。
 - 系統會經常建立交易記錄備份並儲存在 /hana/logbackups 磁碟區或 Azure 中。 您可以觸發含有交易記錄備份的 /hana/logbackups 磁碟區，對它個別擷取快照集。 在此情況下，您不需要執行 HANA 快照集。
 - 如果您必須將資料庫還原到特定時間點，請要求「Microsoft Azure 支援服務」(適用於生產環境中斷) 或「SAP HANA on Azure 服務管理」將資料庫還原到特定的儲存體快照集。 例如，將沙箱系統還原到其原始狀態的計劃性還原。
@@ -126,6 +128,7 @@ SAP HANA on Azure (大型執行個體) 底下的儲存體基礎結構支援磁�
 - 針對 /hana/logbackups 的個別快照集。
 - 作業系統分割區。
 
+從 [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts) 取得最新快照集指令碼和文件。 
 
 ### <a name="storage-snapshot-considerations"></a>儲存體快照考量事項
 
@@ -144,7 +147,7 @@ SAP HANA on Azure (大型執行個體) 隨附固定的磁碟區大小供 SAP HAN
 
 下列各節提供執行這些快照集的資訊，包括一般建議事項：
 
-- 雖然硬體的每一磁碟區都可支援 255 個快照，但建議您讓快照數目保持遠低於這個數字。
+- 雖然硬體的每一磁碟區都可支援 255 個快照，但建議您讓快照數目保持遠低於這個數字。 建議為 250 或更少。
 - 執行儲存體快照集之前，請監視並追蹤可用空間。
 - 根據可用空間來降低儲存體快照的數目。 您可以降低保留的快照集數目，也可以擴充磁碟區。 您可以訂購額外的儲存空間，以 1 TB 為單位。
 - 在「使用 SAP 平台移轉工具 (R3load) 將資料移到 SAP HANA」或是「從備份還原 SAP HANA 資料庫」等活動進行期間，請在 /hana/data 磁碟區上停用儲存體快照集。 
@@ -171,6 +174,8 @@ SAP HANA on Azure (大型執行個體) 隨附固定的磁碟區大小供 SAP HAN
 6. 將指令碼和組態檔從 [ GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts) 複製到 SAP HANA 安裝中的 **hdbsql** 位置。
 7. 視需要修改 HANABackupDetails.txt 檔案以符合適當的客戶規格。
 
+從 [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts) 取得最新快照集指令碼和文件。 
+
 ### <a name="consideration-for-mcod-scenarios"></a>MCOD 案例的考量
 如果您在某個 HANA 大型執行個體單位上使用多個 SAP HANA 執行個體執行 [MCOD 案例](https://launchpad.support.sap.com/#/notes/1681092)，則會有為每個 SAP HANA 執行個體佈建的個別存放磁碟區。 在自助服務快照集自動化的目前版本中，您無法在每個 HANA 執行個體系統識別碼 (SID) 上起始個別快照集。 此功能會檢查組態檔中伺服器的已註冊 SAP HANA 執行個體 (請參閱本文後面的內容)，並對單位上註冊的所有執行個體磁碟區執行同步快照。
  
@@ -180,7 +185,7 @@ SAP HANA on Azure (大型執行個體) 隨附固定的磁碟區大小供 SAP HAN
 安裝在 SAP HANA on Azure (大型執行個體) 上的 Linux 作業系統包含針對備份和災害復原目的執行 SAP HANA 儲存體快照集時所需的資料夾與指令碼。 檢查 [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts) 中是否有更近期的版本。 最新的指令碼版本為 3.x。 不同的指令碼在相同的主要版本中可能有不同的次要版本。
 
 >[!IMPORTANT]
->將指令碼 2.1 版移至 3.0 版時，請注意組態檔的結構和某些語法也會一併變更。 請參閱特定章節中的圖說文字。 
+>將指令碼 2.1 版移至 3.x 版時，請注意組態檔的結構和某些語法也會一併變更。 請參閱特定章節中的圖說文字。 
 
 安裝 SAP HANA 時，是由您負責在 HANA 大型執行個體單位上安裝 SAP HANA HDB 用戶端。
 
@@ -234,7 +239,7 @@ MACs hmac-sha1
 
 ### <a name="step-4-create-an-sap-hana-user-account"></a>步驟 4：建立 SAP HANA 使用者帳戶
 
-若要開始建立 SAP HANA 快照集，您必須在 SAP HANA 中建立使用者帳戶，以供儲存體快照集指令碼使用。 為此目的，在 SAP HANA Studio 中建立 SAP HANA 使用者帳戶。 必須在 SYSTEMDB 之下 (而「非」在 SID 資料庫之下) 建立使用者。 此帳戶必須具備下列權限：「備份管理」和「目錄讀取」。 在此範例中，使用者名稱是 **SCADMIN**。 HANA Studio 中所建立的使用者帳戶名稱會區分大小寫。 請務必選取 [否]，要求使用者在下次登入時變更密碼。
+若要開始建立 SAP HANA 快照集，您必須在 SAP HANA 中建立使用者帳戶，以供儲存體快照集指令碼使用。 為此目的，在 SAP HANA Studio 中建立 SAP HANA 使用者帳戶。 必須在 SYSTEMDB 之下 (而「非」在 MDC 的 SID 資料庫之下) 建立使用者。 在單一容器環境中，使用者會設定於租用戶資料庫之下。 此帳戶必須具備下列權限：「備份管理」和「目錄讀取」。 在此範例中，使用者名稱是 **SCADMIN**。 HANA Studio 中所建立的使用者帳戶名稱會區分大小寫。 請務必選取 [否]，要求使用者在下次登入時變更密碼。
 
 ![在 HANA Studio 中建立使用者](./media/hana-overview-high-availability-disaster-recovery/image3-creating-user.png)
 
@@ -245,7 +250,7 @@ MACs hmac-sha1
 在此步驟中，您可針對您所建立的 SAP HANA 使用者帳戶進行授權，讓指令碼不必在執行階段提交密碼。 SAP HANA 命令 `hdbuserstore` 可讓您建立儲存在一或多個 SAP HANA 節點上的 SAP HANA 使用者金鑰。 使用者金鑰可讓使用者存取 SAP HANA，而不需要在指令碼程序內管理密碼。 本文稍後會討論指令碼處理。
 
 >[!IMPORTANT]
->以 `root` 身分執行下列命令。 否則，指令碼無法正常運作。
+>以使用者身分執行下列命令，則會打算執行指令碼。 否則，指令碼無法正常運作。
 
 輸入 `hdbuserstore` 命令，如下所示︰
 
@@ -285,7 +290,7 @@ testHANAConnection.pl
 testStorageSnapshotConnection.pl 
 removeTestStorageSnapshot.pl
 azure_hana_dr_failover.pl
-azure_hana_dr_failover.pl 
+azure_hana_test_dr_failover.pl 
 HANABackupCustomerDetails.txt 
 ``` 
 
@@ -319,12 +324,12 @@ HANABackupCustomerDetails.txt
 - **azure\_hana\_test\_dr\_failover.pl**：此指令碼可執行測試容錯移轉至 DR 網站。 不同於 azure_hana_dr_failover.pl script，此執行不會中斷從主要到次要的儲存體複寫。 而是複製在 DR 網站建立的複寫存放磁碟區，並提供複製磁碟區的掛接點。 
 - **HANABackupCustomerDetails.txt**：這個檔案是可修改的組態檔，請加以修改以適應您的 SAP HANA 組態。 HANABackupCustomerDetails.txt 檔案是執行儲存體快照集之指令碼的控制及組態檔。 調整該檔案以因應您的用途和設定。 當您的執行個體部署完成時，您會從「SAP HANA on Azure 服務管理」收到「儲存體備份名稱」和「儲存體 IP 位址」。 您不能修改此檔案中任何變數的順序、排序或間距。 如果這麼做，指令碼將無法正常執行。 此外，您會從「SAP HANA on Azure 服務管理」收到相應放大節點或主要節點 (如果相應放大) 的 IP 位址。 您也知道在 SAP HANA 安裝期間取得的 HANA 執行個體編號。 您現在必須將備份名稱新增至組態檔。
 
-若為相應增加或相應放大部署，在您填入 HANA 大型執行個體單位的伺服器名稱和伺服器 IP 位址之後，組態檔會如下列範例所示。 如果是使用 SAP HANA 系統複寫，請使用 HANA 系統複寫設定的虛擬 IP 位址。 為每個您想要備份或復原的 SAP HANA SID 填入所有必填欄位。
+若為相應增加或相應放大部署，在您填入 HANA 大型執行個體單位的伺服器名稱和伺服器 IP 位址之後，組態檔會如下列範例所示。 為每個您想要備份或復原的 SAP HANA SID 填入所有必填欄位。
 
 對於一段時間內不想備份的執行個體列，您也可以在必填欄位前面加上 "#" 加以註解。 如果不需要備份或復原特定執行個體，您也不需要輸入伺服器上包含的所有 SAP HANA 執行個體。 所有欄位必須保持格式，否則所有指令碼會擲回錯誤訊息，而且指令碼會終止。 使用最後一個 SAP HANA 執行個體之後，您可以刪除未使用之任何 SID 資訊詳細資料的其他必要列。 必須填入、加上註解或刪除所有列。
 
 >[!IMPORTANT]
->檔案結構會隨著從 2.1 版移至 3.0 版而變動。 如果您想要使用 3.0 版的指令碼，需要調整組態檔結構。 
+>檔案結構會隨著從 2.1 版移至 3.x 版而變動。 如果您想要使用 3.x 版的指令碼，需要調整組態檔結構。 
 
 
 ```
@@ -379,7 +384,7 @@ testHANAConnection.pl
 
 2. 執行測試指令碼：
    ```
-    ./testStorageSnapshotConnection.pl <HANA SID>
+    ./testStorageSnapshotConnection.pl
    ```
 
 指令碼會嘗試使用在先前設定步驟中提供的公開金鑰和 HANABackupCustomerDetails.txt 檔案中所設定的資料來登入儲存體。 如果登入成功，則會顯示下列內容：
@@ -447,7 +452,7 @@ Snapshot created successfully.
 
 
 >[!NOTE]
-> 這三種快照集類型的呼叫語法，隨著移至 3.0 版指令碼 (其支援 MCOD 部署) 而有所不同。 不需要再指定執行個體的 HANA SID。 您必須確認組態檔 HANABackupCustomerDetails.txt 中已設定單位的 SAP HANA 執行個體。
+> 這三種快照集類型的呼叫語法，隨著移至 3.x 版指令碼 (其支援 MCOD 部署) 而有所不同。 不需要再指定執行個體的 HANA SID。 您必須確認組態檔 HANABackupCustomerDetails.txt 中已設定單位的 SAP HANA 執行個體。
 
 >[!NOTE]
 > 當您第一次執行指令碼時，可能會在多個 SID 環境中顯示一些未預期的錯誤。 重新執行指令碼會修正此問題。
@@ -472,7 +477,7 @@ For snapshot of the volume storing the boot LUN
 
 - 第一個參數描繪快照集備份的類型。 允許的值為 **hana**、**logs** 和 **boot**。 
 - 只有開機磁碟區備份需要參數 **<HANA Large Instance Type>**。 取決於 HANA 大型執行個體單位而定，會有 "TypeI" 或 "TypeII" 兩個有效值。 若想了解您的單位類型，請參閱 [Azure 上的 SAP HANA (大型執行個體) 概觀和架構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)。  
-- 參數 **<snapshot_prefix>** 是快照集類型的快照集或備份標籤。 其有兩個目的：一個是為它命名，好讓您知道這些快照集的相關內容。 第二個的目的是要讓指令碼 azure\_hana\_backup.pl 判斷保留在該特定標籤之下的儲存體快照集數目。 如果您使用兩個不同的標籤來排定兩個相同類型的儲存體快照集備份 (例如**hana**)，並定義各自應該保留 30 個快照集，您最後會得到受影響磁碟區的 60 個儲存體快照集。 
+- 參數 **<snapshot_prefix>** 是快照集類型的快照集或備份標籤。 其有兩個目的：一個是為它命名，好讓您知道這些快照集的相關內容。 第二個的目的是要讓指令碼 azure\_hana\_backup.pl 判斷保留在該特定標籤之下的儲存體快照集數目。 如果您使用兩個不同的標籤來排定兩個相同類型的儲存體快照集備份 (例如**hana**)，並定義各自應該保留 30 個快照集，您最後會得到受影響磁碟區的 60 個儲存體快照集。 只允許使用英數 (“A-Z,a-z,0-9”)、底線 (“_”) 和破折線 (“-“) 字元。 
 - 參數 **<snapshot_frequency>** 保留供未來開發使用，沒有任何影響。 在執行**記錄**類型的備份時，將其設定為「3 分鐘」，執行其他備份類型時，將其設定為「15 分鐘」。
 - 參數 **<number of snapshots retained>** 會藉由定義具有相同快照集首碼 (標籤) 的快照集數目，來間接定義快照集的保留期。 對於透過 cron 來進行的已排程執行作業來說，這個參數很重要。 如果具有相同 snapshot_prefix 的快照集數目超過此參數給定的數目，則會先刪除最舊的快照集，然後再執行新的儲存體快照集。
 
@@ -500,7 +505,7 @@ For snapshot of the volume storing the boot LUN
 - 使用的空間。
 - 從災害潛在復原的復原點和復原時間目標。
 - 對磁碟執行的最終 HANA 完整資料庫備份。 每次對磁碟執行完整資料庫備份，或執行 **backint** 介面時，執行儲存體快照集都會失敗。 如果除了儲存體快照集之外，您還打算執行完整資料庫備份，請確定在此期間停用儲存體快照集的執行。
-- 每個磁碟區的快照集數目 (只能有 255 個)。
+- 每個磁碟區的快照集數目 (只能有 250 個)。
 
 
 對於不使用 HANA 大型執行個體災害復原功能的客戶，快照集期間較不頻繁。 在這種情況下，客戶會以 12 小時或 24 小時的期間來對 /hana/data 和 /hana/shared (包括 /usr/sap) 執行合併的快照集，並保留這些快照集一個月。 記錄備份磁碟區的快照集也是如此。 然而，記錄備份磁碟區的 SAP HANA 交易記錄備份，則會以 5 到 15 分鐘的期間來執行。
@@ -532,9 +537,7 @@ For snapshot of the volume storing the boot LUN
 
 SAP HANA 會定期對 /hana/log 磁碟區執行寫入作業，以將認可的變更記錄至資料庫。 SAP HANA 會定期將儲存點寫入 /hana/data 磁碟區。 SAP HANA 交易記錄備份會依照 crontab 的指定每 5 分鐘執行一次。 您也會看到系統會因為針對 /hana/data 和 /hana/shared 磁碟區觸發合併的儲存體快照集，而每小時執行一次 SAP HANA 快照集。 HANA 快照集成功之後，就會執行合併的儲存體快照集。 在 HANA 交易記錄備份完成大約 2 分鐘後，系統會依照 crontab 的指示，每隔 5 分鐘在 /hana/logbackup 磁碟區上執行一次儲存體快照集。
 
-> [!NOTE]
->如果您在 HANA 系統複寫設定的兩個節點上排程儲存體快照集備份，則需要確定在兩個節點之間執行快照集備份不會發生重疊。 SAP HANA 限制一次只能處理一個 HANA 快照集。 由於 HANA 快照集是成功儲存體快照集備份的基本元件，因此您需要確保主要節點和次要節點以及最終第三個節點上的儲存體快照集會彼此分開計時。
-
+> 
 
 >[!IMPORTANT]
 > 只有在快照集與 SAP HANA 交易記錄備份一起執行時，使用儲存體快照集來進行 SAP HANA 備份才有價值。 這些交易記錄備份必須要涵蓋儲存體快照集之間的時段。 
@@ -557,7 +560,7 @@ SAP HANA 會定期對 /hana/log 磁碟區執行寫入作業，以將認可的變
 
 在成功執行第一個儲存體快照集之後，您可以刪除步驟 6 所執行的測試快照集。 若要這樣做，請執行 `removeTestStorageSnapshot.pl` 指令碼：
 ```
-./removeTestStorageSnapshot.pl <hana instance>
+./removeTestStorageSnapshot.pl
 ```
 
 以下是指令碼輸出的範例：
@@ -636,7 +639,7 @@ HANA Backup ID:
 
 
 ### <a name="file-level-restore-from-a-storage-snapshot"></a>從儲存體快照集進行檔案層級還原
-針對快照集類型 **hana** 和 **logs**，您可以直接在 **.snapshot** 目錄中的磁碟區上存取快照集。 每個快照集都有一個子目錄。 您可以將處於快照集製作時間點狀態的每個檔案，從該子目錄複製到實際的目錄結構中。
+針對快照集類型 **hana** 和 **logs**，您可以直接在 **.snapshot** 目錄中的磁碟區上存取快照集。 每個快照集都有一個子目錄。 您可以將處於快照集製作時間點狀態的每個檔案，從該子目錄複製到實際的目錄結構中。 在指令碼的目前版本中，**沒有**針對快照集還原以自助形式提供的還原指令碼 (雖然可以在容錯移轉期間在 DR 網站上將快照集還原當作自助式 DR 指令碼的一部分執行)。 您必須藉由開啟服務要求來連絡 Microsoft 作業小組，以從現有可用的快照集還原所需的快照集。
 
 >[!NOTE]
 >單一檔案還原不適用於與 HANA 大型執行個體單位類型無關的開機 LUN 快照集。 **.snapshot** 目錄不會在開機 LUN 中顯示出來。 
@@ -830,11 +833,8 @@ HANA 大型執行個體提供了能在不同 Azure 區域的 HANA 大型執行�
 
 如果在單一 HANA 大型執行個體單位上使用多個獨立 SAP HANA 執行個體進行 MCOD 部署，則所有的 SAP HANA 執行個體皆會將儲存體複寫至 DR 網站。
 
-若您在生產環境中使用 HANA 系統複寫來作為高可用性功能，則只會複寫第 2 層 (或複本) 執行個體的磁碟區。 如果您在此單位中維護或關閉次要複本 (第 2 層) 伺服器單位或 SAP HANA 執行個體，此組態可能會導致儲存體複寫至 DR 網站的作業延遲。 
+如果您在生產網站中使用 HANA 系統複寫作為高可用性功能，並且對 DR 網站使用以儲存體為基礎的複寫，則兩個節點的磁碟區都會從主要網站複寫到 DR 執行個體。 您必須在 DR 網站購買額外的儲存體 (大小與主要節點相同)，以容納從主要和次要節點複寫到 DR 的資料。 
 
-
->[!IMPORTANT]
->和多層式 HANA 系統複寫一樣，當您使用 HANA 大型執行個體的災害復原功能時，關閉第 2 層 HANA 執行個體或伺服器單位會封鎖複寫到災害復原網站的作業。
 
 
 >[!NOTE]

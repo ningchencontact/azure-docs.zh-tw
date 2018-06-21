@@ -1,24 +1,20 @@
 ---
 title: 使用 Azure Function 和認知服務的 IoT DevKit 翻譯工具 | Microsoft Docs
 description: 使用 IoT DevKit 上的麥克風來接收語音訊息和 Azure 認知服務，以便將它處理為以英文表示的翻譯文字。
-services: iot-hub
-documentationcenter: ''
 author: liydu
-manager: timlt
-tags: ''
-keywords: ''
-ms.service: iot-hube
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+manager: jeffya
+ms.service: iot-hub
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 02/28/2018
 ms.author: liydu
-ms.openlocfilehash: 20e5a5f4fb381dedc42d698464819a6098c3579b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b65888ced67ba3c236c31678cf452d40489bf028
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631773"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-function-and-cognitive-services-to-make-a-language-translator"></a>使用 IoT DevKit AZ3166 搭配 Azure Function 和認知服務製作語言翻譯工具
 

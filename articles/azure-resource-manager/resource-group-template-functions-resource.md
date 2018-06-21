@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/22/2018
+ms.date: 06/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9ba4c9d9cd5f8a43be0f97053c02798e3b84a5f7
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f1271a6afba91cf75820f2e4b973b7cd42782449
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824331"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的資源函式
 
@@ -95,7 +96,7 @@ ms.lasthandoff: 05/20/2018
   az provider operation show --namespace Microsoft.Storage --query "resourceTypes[?name=='storageAccounts'].operations[].name | [?contains(@, 'list')]"
   ```
 
-使用 [resourceId 函式](#resourceid)或 `{providerNamespace}/{resourceType}/{resourceName}` 格式來指定資源。
+使用資源名稱或 [resourceId 函式](#resourceid)來指定資源。 在部署所參考資源的相同範本中使用這個函式時，請使用資源名稱。
 
 ### <a name="example"></a>範例
 
@@ -257,7 +258,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 reference 函數會從執行階段狀態衍生其值，因此不能用在 variables 區段中。 它可以用於範本或[連結範本](resource-group-linked-templates.md#link-or-nest-a-template)的輸出區段。 無法用於[巢狀範本](resource-group-linked-templates.md#link-or-nest-a-template)的輸出區段。 若要傳回巢狀範本中已部署資源的值，請將巢狀範本轉換成連結範本。 
 
-如果在相同的範本內佈建所參考的資源，則可使用 reference 函式來隱含宣告一個資源相依於另一個資源。 您不需要同時使用 dependsOn 屬性。 所參考的資源完成部署之前不會評估函式。
+如果在相同的範本內佈建所參考的資源且您會依其名稱 (而非資源識別碼) 來參考該資源，則可使用 reference 函式，隱含地宣告某一個資源相依於另一個資源。 您不需要同時使用 dependsOn 屬性。 所參考的資源完成部署之前不會評估函式。
 
 若要查看資源類型的屬性名稱和值，請建立一個會在 outputs 區段中傳回物件的範本。 如果您有一個該類型的現有資源，您的範本就會傳回物件，而不會部署任何新資源。 
 

@@ -7,14 +7,15 @@ author: MightyPen
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 84e6f2303bcfd6a2c91f29e9e9afdc2b84f990ca
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 95d4fc1886e16785b6de8f3a395b218b66d193ff
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645356"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>部署及探索搭配 SQL Database 使用每一租用戶一個資料庫模式的多租用戶 SaaS 應用程式
 

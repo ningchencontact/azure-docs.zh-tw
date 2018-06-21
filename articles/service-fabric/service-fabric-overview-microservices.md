@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
-ms.openlocfilehash: 16757af0bab7cfd43488118f62300fb167c193a3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: cd3f947bfc44055bfec4198a1e7c6a9bb2fab5d4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642619"
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>為何要用微服務方式建置應用程式？
 身為軟體開發人員，已熟悉思考如何將應用程式分解成元件部分。 它是物件導向、軟體抽象化和元件化的中心範型。 現在，這種分解經常以共用程式庫和技術層之間的類別與介面呈現。 通常是透過一種分層方法，有後端存放區、中間層商務邏輯和前端使用者介面 (UI)。 過去幾年來的變化  是身為開發人員的我們，開始為商業驅動和雲端建置分散式應用程式。

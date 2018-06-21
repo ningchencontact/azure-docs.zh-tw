@@ -11,17 +11,18 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 03/08/2018
+ms.date: 06/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: f5da2a74b3a399c60c518f386ccf2e60a617aeda
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 494526ae2084053f23bb3a096ac7d089c47a731a
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823430"
 ---
 # <a name="resolve-not-found-errors-for-azure-resources"></a>解決找不到 Azure 資源的錯誤
 
-本文描述在部署期間找不到資源時可能會遇到的錯誤。
+本文描述在部署期間找不到資源時可能會看到的錯誤。
 
 ## <a name="symptom"></a>徵狀
 
@@ -32,7 +33,7 @@ Code=NotFound;
 Message=Cannot find ServerFarm with name exampleplan.
 ```
 
-如果您嘗試對無法解析的資源使用 [reference](resource-group-template-functions-resource.md#reference) 或 [listKeys](resource-group-template-functions-resource.md#listkeys) 函式，您會收到下列錯誤：
+如果您對無法解析的資源使用 [reference](resource-group-template-functions-resource.md#reference) 或 [listKeys](resource-group-template-functions-resource.md#listkeys) 函式，便會收到下列錯誤：
 
 ```
 Code=ResourceNotFound;
@@ -59,9 +60,9 @@ Resource Manager 需要擷取資源的屬性，但是無法識別您訂用帳戶
 }
 ```
 
-但是，您要避免設定不需要的相依性。 當您有不必要的相依性時，您會阻止不互相相依的資源以平行方式部署，而延長部署的時間。 此外，您可以建立封鎖部署的循環相依性。 在同一個範本中部署參考的資源時，[reference](resource-group-template-functions-resource.md#reference) 函式會於該資源上建立隱含的相依性。 因此，您的相依性可能會比 **dependsOn** 屬性中指定的相依性還多。 [resourceId](resource-group-template-functions-resource.md#resourceid) 函式不會建立隱含的相依性或驗證資源存在。
+但是，您要避免設定不需要的相依性。 當您有不必要的相依性時，會阻止未彼此相依的資源以平行方式部署，因而延長部署的時間。 此外，您可以建立封鎖部署的循環相依性。 在同一個範本中部署所參考的資源且依其名稱 (而非資源識別碼) 加以參考時，[reference](resource-group-template-functions-resource.md#reference) 函式和 [list*](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list) 函式會在該資源上建立隱含的相依性。 因此，您的相依性可能會比 **dependsOn** 屬性中指定的相依性還多。 [resourceId](resource-group-template-functions-resource.md#resourceid) 函式不會建立隱含的相依性或驗證資源存在。 依資源的資源識別碼參考資源時，[reference](resource-group-template-functions-resource.md#reference) 函式和 [list*](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list) 函式不會建立隱含的相依性。 若要建立隱含的相依性，請針對部署於相同範本的資源，傳遞資源的名稱。
 
-當您遇到相依性問題時，您需要深入了解資源部署的順序。 若要檢視部署作業的順序︰
+當您看到相依性問題時，應深入了解資源部署的順序。 若要檢視部署作業的順序︰
 
 1. 選取資源群組的部署歷程記錄。
 
@@ -75,7 +76,7 @@ Resource Manager 需要擷取資源的屬性，但是無法識別您訂用帳戶
 
    ![平行部署](./media/resource-manager-not-found-errors/deployment-events-parallel.png)
 
-   下一個映像顯示非平行部署的三個儲存體帳戶。 第二個儲存體帳戶相依於第一個儲存體帳戶，而第三個儲存體帳戶相依於第二個儲存體帳戶。 第一個儲存體帳戶會在下一個儲存體帳戶啟動之前啟動、接受及完成。
+   下圖顯示非平行部署的三個儲存體帳戶。 第二個儲存體帳戶相依於第一個儲存體帳戶，而第三個儲存體帳戶相依於第二個儲存體帳戶。 第一個儲存體帳戶會在下一個儲存體帳戶啟動之前啟動、接受及完成。
 
    ![連續部署](./media/resource-manager-not-found-errors/deployment-events-sequence.png)
 
@@ -92,7 +93,7 @@ Resource Manager 需要擷取資源的屬性，但是無法識別您訂用帳戶
 
 ## <a name="solution-3---check-reference-function"></a>解決方案 3：檢查參考函式
 
-尋找包含 [reference](resource-group-template-functions-resource.md#reference) 函式的運算式。 您提供的值會根據資源是否位於相同範本、資源群組及訂用帳戶而有所不同。 再次確認您為案例提供必要的參數值。 如果資源位於不同資源群組中，請提供完整資源識別碼。 例如，若要參考另一個資源群組的儲存體帳戶，請使用：
+尋找包含 [reference](resource-group-template-functions-resource.md#reference) 函式的運算式。 您提供的值會根據資源是否位於相同範本、資源群組及訂用帳戶而有所不同。 再次確認您會為案例提供必要的參數值。 如果資源位於不同資源群組中，請提供完整資源識別碼。 例如，若要參考另一個資源群組的儲存體帳戶，請使用：
 
 ```json
 "[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"

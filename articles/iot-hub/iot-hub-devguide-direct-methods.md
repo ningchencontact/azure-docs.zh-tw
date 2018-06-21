@@ -1,25 +1,19 @@
 ---
 title: 了解 Azure IoT 中樞直接方法 | Microsoft Docs
 description: 開發人員指南 - 從服務應用程式使用直接方法叫用您裝置上的程式碼。
-services: iot-hub
-documentationcenter: .net
 author: nberdy
-manager: timlt
-editor: ''
-ms.assetid: 9f0535f1-02e6-467a-9fc4-c0950702102d
+manager: briz
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/29/2018
+services: iot-hub
+ms.topic: conceptual
+ms.date: 06/01/2018
 ms.author: nberdy
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a35c88ac053b43d4a95b5bef92f3ebfb03567e2b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: da9672c7a924411136928d8d04e54c2c62a014b9
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736672"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>了解 IoT 中樞的直接方法並從中樞叫用直接方法
 「IoT 中樞」能讓您從雲端在裝置上叫用直接方法。 直接方法代表與裝置的要求-回覆互動，類似於 HTTP 呼叫，因為會立即成功或失敗 (在使用者指定的逾時之後)。 針對立即動作的進展取決於裝置是否能夠回應的案例，此方法會相當有用。
@@ -85,6 +79,11 @@ IoT 中樞上具有**服務連線**權限的任何人都可以叫用裝置上的
     ```
 
     `status` 和 `body` 都是由裝置提供，用來回應裝置本身的狀態碼和/或描述。
+
+### <a name="method-invocation-for-iot-edge-modules"></a>適用於 IoT Edge 模組的方法引動過程
+C# 預覽 SDK (可在[這裡](https://www.nuget.org/packages/Microsoft.Azure.Devices/1.16.0-preview-004) \(英文\) 取得) 中支援使用模組識別碼叫用直接方法。
+
+基於此用途，請使用 `ServiceClient.InvokeDeviceMethodAsync()` 方法並傳入 `deviceId` 和 `moduleId` 作為參數。
 
 ## <a name="handle-a-direct-method-on-a-device"></a>在裝置上處理直接方法
 ### <a name="mqtt"></a>MQTT

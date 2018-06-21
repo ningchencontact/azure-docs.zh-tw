@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 3/29/2018
+ms.date: 5/21/2018
 ms.author: victorh
-ms.openlocfilehash: d5861df9dbfe554f966d19a8e3ed77b55f1f2cd2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: bf4e92636424e7d8f4a1bc2eb5ee9ba7e97667c6
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355843"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699898"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>應用程式閘道的常見問題集
 
@@ -83,6 +83,11 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 **問：應用程式閘道是否在閘道上支援多個公用 IP？**
 
 應用程式閘道只支援一個公用 IP 位址。
+
+**問：應用程式閘道的子網路應該要多大？**
+
+應用程式閘道會針對每個執行個體取用一個私人 IP 位址，如果已設定私人前端 IP 組態，則會再取用另一個私人 IP 位址。 此外，Azure 會保留每個子網路中的前四個和最後一個 IP 位址，以供內部使用。
+例如，如果應用程式閘道設定為三個執行個體，而且沒有私人前端 IP，則需要 /29 子網路大小或更大。 在本案例中，應用程式閘道使用 3 個 IP 位址。 如果您有三個執行個體和一個用於私人前端 IP 組態的 IP 位址，則需要 /28 子網路大小或更大，因為四個 IP 位址是必要的。
 
 **問：應用程式閘道是否支援 x-forwarded-for 標頭？**
 
@@ -184,6 +189,21 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 是。 您可以設定連線清空來變更後端集區內的成員而不會中斷運作。 這可讓現有的連線持續傳送到先前的目的地，直到該連線關閉或可設定的逾時過期。 請注意，連線清空只會等候目前執行中的連線完成。 應用程式閘道並不會知道應用程式的工作階段狀態。
 
+**問：應用程式閘道大小有哪些？**
+
+應用程式閘道目前提供三種大小：**小型**、**中型**和**大型**。 小型執行個體大小是針對開發和測試案例。
+
+每一訂用帳戶您可以建立最多 50 個應用程式閘道，而且每一應用程式閘道最多可以有 10 個執行個體。 每個應用程式閘道可以包含 20 個 http 接聽程式。 如需應用程式閘道限制的完整清單，請瀏覽[應用程式閘道服務限制](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)。
+
+下表顯示每個應用程式閘道執行個體，在啟用 SSL 卸載時的平均效能輸送量：
+
+| 平均後端頁面回應大小 | 小型 | 中 | 大型 |
+| --- | --- | --- | --- |
+| 6KB |7.5 Mbps |13 Mbps |50 Mbps |
+| 100KB |35 Mbps |100 Mbps |200 Mbps |
+
+> [!NOTE]
+> 這些值是應用程式閘道輸送量的近似值。 實際的輸送量會依據不同的環境詳細資料而有所不同，例如平均頁面大小、後端執行個體位置，以及提供一個頁面所需的處理時間。 如需實際效能數字，您需自行執行測試。 這些值僅供容量規劃指引使用。
 
 **問：是否可在中斷的情況下，將執行個體大小從中型變成大型？**
 

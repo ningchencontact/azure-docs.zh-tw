@@ -7,29 +7,29 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.topic: article
-ms.date: 04/27/2018
+ms.topic: conceptual
+ms.date: 05/25/2018
 ms.author: jingwang
-ms.openlocfilehash: b2f87c965a7c69614d476f0d931802587f0f1297
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 18276b5706caad854c0160044b7e0efff10bc280
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011234"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34616163"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>使用 Azure Data Factory 從 Amazon Simple Storage Service 複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [第 1 版 - 正式推出](v1/data-factory-amazon-simple-storage-service-connector.md)
 > * [第 2 版 - 預覽](connector-amazon-simple-storage-service.md)
 
-本文概述如何使用 Azure Data Factory 中的「複製活動」，將資料複製到「Azure Blob 儲存體」及從該處複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
+本文概述如何使用 Azure Data Factory 中的「複製活動」，從 Amazon S3 複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
 
 > [!NOTE]
 > 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (也就是正式推出版 (GA))，請參閱 [V1 中的 Amazon S3 連接器](v1/data-factory-amazon-simple-storage-service-connector.md)。
 
 ## <a name="supported-capabilities"></a>支援的功能
 
-您可以將資料從任何支援的來源資料存放區複製到 Azure Data Lake Store，或將資料從 Azure Data Lake Store 複製到任何支援的接收資料存放區。 如需複製活動所支援作為來源或接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
+您可以將資料從 Amazon S3 複製到任何支援的接收資料存放區。 如需複製活動所支援作為來源或接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
 
 具體而言，這個 Amazon S3 連接器支援依原樣複製檔案，或使用[支援的檔案格式和壓縮轉碼器](supported-file-formats-and-compression-codecs.md)來剖析檔案。
 
@@ -163,7 +163,7 @@ ms.locfileid: "34011234"
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 Azure Data Lake 來源和接收器所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 Amazon S3 來源所支援的屬性清單。
 
 ### <a name="amazon-s3-as-source"></a>Amazon S3 作為來源
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 6f2f5eae8a4512595457d92d17832cf462b4bec4
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 9ebe1f67c7c662af6d9e1888580149834a007200
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012592"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657466"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>將一般化 VHD 上傳，並使用它在 Azure 中建立新的 VM
 
@@ -37,7 +37,7 @@ ms.locfileid: "34012592"
 
 ## <a name="generalize-the-source-vm-using-sysprep"></a>使用 Sysprep 將來源 VM 一般化
 
-Sysprep 會移除您的所有個人帳戶資訊以及其他項目，並準備電腦以做為映像。 如需 Sysprep 的詳細資訊，請參閱 [如何使用 Sysprep：簡介](http://technet.microsoft.com/library/bb457073.aspx)。
+Sysprep 會移除您的所有個人帳戶資訊以及其他項目，並準備電腦以做為映像。 如需 Sysprep 的詳細資訊，請參閱 [Sysprep 概觀](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)。
 
 請確定 Sysprep 支援電腦上執行的伺服器角色。 如需詳細資訊，請參閱 [Sysprep Support for Server Roles (伺服器角色的 Sysprep 支援)](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 

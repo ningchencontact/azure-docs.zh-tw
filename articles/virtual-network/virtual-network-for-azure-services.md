@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: ecfe3fb6db6b0fb0561e31b3c8aa70b74785b807
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: eeb5fd765a6cad10be5706162566605feaa8af4c
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781158"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802556"
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Azure 服務的虛擬網路整合
 
@@ -67,11 +67,7 @@ ms.locfileid: "33781158"
 
 ## <a name="service-endpoints-for-azure-services"></a>Azure 服務的服務端點
 
-某些 Azure 服務無法部署在虛擬網路中。 您可以選擇將部分的服務資源只開放給特定虛擬網路子網路存取，只要啟用虛擬網路服務端點即可。 深入了解[虛擬網路服務端點](virtual-network-service-endpoints-overview.md)。
-
-服務端點目前支援以下服務： 
-- **Azure 儲存體**：[保護虛擬網路的 Azure 儲存體帳戶](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- **Azure SQL Database**：[保護虛擬網路的 Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+某些 Azure 服務無法部署在虛擬網路中。 您可以選擇將部分的服務資源只開放給特定虛擬網路子網路存取，只要啟用虛擬網路服務端點即可。 深入了解[虛擬網路服務端點](virtual-network-service-endpoints-overview.md)，以及可啟用端點的服務。
 
 ## <a name="virtual-network-integration-across-multiple-azure-services"></a>跨多個 Azure 服務的虛擬網路整合
 

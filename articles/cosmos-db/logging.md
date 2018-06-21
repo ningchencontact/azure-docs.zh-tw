@@ -2,23 +2,20 @@
 title: Azure Cosmos DB 診斷記錄 | Microsoft Docs
 description: 使用本教學課程來協助您開始使用 Azure Cosmos DB 記錄。
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 103d9d36ae1290f7af18be83f41bd9b83dbd3fbe
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 66ee0856851a301a6849b71b64cb904c925ad18d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34612209"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure Cosmos DB 診斷記錄
 
@@ -47,7 +44,7 @@ ms.lasthandoff: 04/28/2018
 
 活動記錄不同於診斷記錄。 活動記錄會提供關於外部資源 (_控制平面_) 之作業的資料。 在 Azure Cosmos DB 內容中，控制平面作業包括建立集合、列出金鑰、刪除金鑰、列出資料庫等。 診斷記錄是由資源所發出，會提供該資源作業的相關資訊 (_資料平面_)。 舉例來說，Delete、Insert 和 ReadFeed 都是診斷記錄中的資料平面作業。
 
-活動記錄 (控制平面作業) 在本質上可能更豐富，且可能會包含呼叫端的完整電子郵件地址、呼叫端 IP 位址、資源名稱、作業名稱和 TenantId 等等。 活動記錄包含數個資料[類別](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema)。 如需這些類別結構描述的完整詳細資料，請參閱 [Azure 活動記錄事件結構描述](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema)。 不過，診斷記錄在本質上有所限制，因為 PII 資料通常會從這些記錄中移除。 您可能會有呼叫端的 IP 位址，但最後一個 octent 會被移除。
+活動記錄 (控制平面作業) 在本質上可能更豐富，且可能會包含呼叫端的完整電子郵件地址、呼叫端 IP 位址、資源名稱、作業名稱和 TenantId 等等。 活動記錄包含數個資料[類別](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema)。 如需這些類別結構描述的完整詳細資料，請參閱 [Azure 活動記錄事件結構描述](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema)。 不過，診斷記錄在本質上有所限制，因為個人資料通常會從這些記錄中移除。 您可能會有呼叫端的 IP 位址，但最後一個 octent 會被移除。
 
 ### <a name="azure-metrics"></a>Azure 計量
 

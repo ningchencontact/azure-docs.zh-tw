@@ -5,21 +5,22 @@ services: sql-database
 author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.topic: article
-ms.date: 04/09/2018
+ms.topic: conceptual
+ms.date: 05/22/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 6e282291a6e6e219bb275dd4da91f3815590adc1
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 075e04db27006719ec7d6e08eb2696436d1010f4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32196001"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34648644"
 ---
 # <a name="dtu-based-purchasing-model-for-azure-sql-database"></a>適用於 Azure SQL Database 之以 DTU 為基礎的購買模型 
 
 
-[Azure SQL Database](sql-database-technical-overview.md) 針對計算、儲存體和 IO 資源提供了兩種購買模型：以 DTU 為基礎的購買模型和以虛擬核心為基礎的購買模型 (預覽)。 下列資料表和圖表會比較和對照這兩種購買模型。
+
+  [Azure SQL Database](sql-database-technical-overview.md) 針對計算、儲存體和 IO 資源提供了兩種購買模型：以 DTU 為基礎的購買模型和以虛擬核心為基礎的購買模型 (預覽)。 下列資料表和圖表會比較和對照這兩種購買模型。
 
 > [!IMPORTANT]
 > 針對以虛擬核心為基礎的購買模型 (預覽)，請參閱[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)。
@@ -81,9 +82,9 @@ ms.locfileid: "32196001"
 ||||||
 
 > [!IMPORTANT]
-> -  大於內含儲存體數量的儲存體大小為預覽版，而且會產生額外成本。 如需詳細資訊，請參閱 [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)。 
-> -  在進階層，目前於下列區域中提供超過 1 TB 的儲存體：澳大利亞東部、澳大利亞東南部、巴西南部、加拿大中部、加拿大東部、美國中部、法國中部、德國中部、日本東部、日本西部、南韓中部、美國中北部、北歐、美國中南部、東南亞、英國南部、英國西部、美國東部 2、美國西部、US Gov 維吉尼亞州及西歐。 請參閱 [P11-P15 目前限制](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
-
+> - 大於內含儲存體數量的儲存體大小為預覽版，而且會產生額外成本。 如需詳細資訊，請參閱 [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)。 
+> - 所有區域均可取得進階層中超過 1 TB 的儲存體，下列區域除外：英國北部、美國中西部、英國南部2、中國東部、USDoDCentral、德國中部、USDoDEast、US Gov (西南部)、US Gov (中南部)、德國東北部、中國北部、US Gov (東部)。 我們已規劃在更多區域推出。 在其他區域，進階層中的儲存空間上限為 1 TB。 請參閱 [P11-P15 目前限制](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
+> 
 如需特定效能等級的詳細資訊和彈性集區可用的儲存體大小選項，請參閱 [SQL Database 以 DTU 為基礎的資源限制](sql-database-dtu-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels)。
 
 

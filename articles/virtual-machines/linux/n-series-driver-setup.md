@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/27/2018
+ms.date: 05/29/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 20bcb822ff39b9587a479fd6cc43b7daa9b83627
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 807af10c0655d9d1728a80a47d1f8f9c2a16fb84
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190674"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34654278"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>在執行 Linux 的 N 系列 VM 上安裝 NVIDIA GPU 驅動程式
 
@@ -31,7 +31,7 @@ ms.locfileid: "32190674"
 
 [!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
 
-## <a name="install-cuda-drivers-for-nc-ncv2-ncv3-and-nd-series-vms"></a>安裝適用於 NC、NCv2、NCv3 和 ND 系列 VM 的 CUDA 驅動程式
+## <a name="install-cuda-drivers-on-n-series-vms"></a>在 N 系列 VM 上安裝 CUDA 驅動程式
 
 以下是從 N 系列 VM 上的 NVIDIA CUDA Toolkit 安裝 CUDA 驅動程式的步驟。 
 
@@ -156,7 +156,7 @@ sudo reboot
 
 ## <a name="rdma-network-connectivity"></a>RDMA 網路連線
 
-可以在支援 RDMA 的 N 系列 VM (例如部署在同一個可用性設定組或虛擬機器擴展集中的 NC24r) 上啟用 RDMA 連線能力。 RDMA 網路可針對搭配 Intel MPI 5.x 或更新版本執行的應用程式，支援訊息傳遞介面 (MPI) 流量。 其他需求如下：
+可以在支援 RDMA 的 N 系列 VM (例如部署在同一個可用性設定組或 VM 擴展集的單一放置群組中的 NC24r) 上啟用 RDMA 網路連線能力。 RDMA 網路可針對搭配 Intel MPI 5.x 或更新版本執行的應用程式，支援訊息傳遞介面 (MPI) 流量。 其他需求如下：
 
 ### <a name="distributions"></a>散發
 
@@ -168,7 +168,7 @@ sudo reboot
 
 * **CentOS 型 7.4 HPC** - 已在 VM 上安裝 RDMA 驅動程式和 Intel MPI 5.1。
 
-## <a name="install-grid-drivers-for-nv-series-vms"></a>安裝 NV 系列 VM 的 GRID 驅動程式
+## <a name="install-grid-drivers-on-nv-series-vms"></a>在 NV 系列 VM 上安裝 GRID 驅動程式
 
 若要在 NV 系列 VM 上安裝 NVIDIA GRID 驅動程式，請將 SSH 連線至每個 VM，並遵循您 Linux 散發套件的步驟。 
 
