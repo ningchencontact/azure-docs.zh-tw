@@ -290,6 +290,13 @@
           href: logic-apps-enterprise-integration-b2b.md
 - name: 參考
   items:
+    - name: 架構模式
+      href: logic-apps-architectures-simple-enterprise-integration.md
+      items:
+        - name: 簡單的企業整合
+          href: logic-apps-architectures-simple-enterprise-integration.md
+        - name: 搭配佇列和事件的的企業整合
+          href: logic-apps-architectures-enterprise-integration-with-queues-events.md
     - name: 連接器 - 完整詳細資料
       href: 'https://docs.microsoft.com/connectors/'
     - name: 限制和設定

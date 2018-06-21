@@ -2,22 +2,20 @@
 title: Azure 儲存體資料表設計指南 | Microsoft Docs
 description: 在 Azure 資料表儲存體中設計可擴充且高效能的資料表
 services: cosmos-db
-documentationcenter: na
 author: SnehaGunda
 manager: kfile
-ms.assetid: 8e228b0c-2998-4462-8101-9f16517393ca
 ms.service: cosmos-db
+ms.component: cosmosdb-table
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: sngun
-ms.openlocfilehash: 667fef855238b2524c05bbc2f137d466c0e56de8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4f3cafd80c713697a8b8fdde56c021be1c5319fb
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824582"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure 儲存體資料表設計指南：設計可調整且效用佳的資料表
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -525,7 +523,7 @@ EGT 也可能讓您必須評估並取捨您的設計：使用多個資料分割�
 #### <a name="context-and-problem"></a>內容和問題
 EGT 可讓您在共用相的資料分割索引鍵的多個實體之間執行不可部分完成的交易。 基於效能和擴充性的考量，您可能會決定在個別的磁碟分割或不同的儲存體系統中儲存有一致性需求的實體：在這種情況下，您無法使用 EGT 維護一致性。 例如，您可能必須在下列項目間維護最終一致性：  
 
-* 儲存在相同資料表的兩個不同資料分割中、不同的資料表中、不同儲存體帳戶中的實體。  
+* 儲存在相同資料表的兩個不同分割區中、不同的資料表中或不同儲存體帳戶中的實體。  
 * 儲存在資料表服務中的實體和儲存在 Blob 服務中的 Blob。  
 * 儲存在資料表服務中的實體和檔案系統中的檔案。  
 * 儲存在資料表服務中、但使用 Azure 搜尋服務編製索引的實體。  
@@ -720,7 +718,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 使用以反向的日期和時間順序排序的 *RowKey* 值，擷取最近加入資料分割的 **n** 個實體。  
 
 #### <a name="context-and-problem"></a>內容和問題
-常見的需求是要能夠擷取最近建立的實體，例如員工最近提交的費用請款。 資料表查詢支援 **$top** 查詢作業，以從某個集合中傳回前 *n* 個實體：沒有對等的查詢作業可傳回某個集合中的最後 n 個實體。  
+常見的需求是要能夠取出最近建立的實體，例如員工提交的最近 10 筆費用請款。 資料表查詢支援 **$top** 查詢作業，以從某個集合中傳回前 *n* 個實體：沒有對等的查詢作業可傳回某個集合中的最後 n 個實體。  
 
 #### <a name="solution"></a>解決方法
 儲存使用可自然以反向的日期/時間順序排序的 **RowKey** 的實體，使最新的項目一律排在資料表中的首位。  
@@ -1061,7 +1059,7 @@ employeeQuery.TakeCount = 50;
 ```
 
 #### <a name="server-side-projection"></a>伺服器端預測
-單一實體最多可以有 255 個屬性，且大小上限為 1 MB。 當您查詢資料表並擷取實體時，您可能不需要所有屬性，並可以避免不必要地傳送資料 (以利降低延遲和成本)。 您可以使用伺服器端預測，僅傳送您需要的屬性。 下列範例將只會從查詢選取的實體中擷取 **Email** 屬性 (連同 **PartitionKey**、**RowKey**、**Timestamp** 和 **ETag**)。  
+單一實體最多可以有 255 個屬性，且大小上限為 1 MB。 當您查詢資料表並擷取實體時，您可能不需要所有屬性，並可以避免不必要地傳送資料 (以利降低延遲和成本)。 您可以使用伺服器端預測，僅傳送您需要的屬性。 下列範例只會從查詢選取的實體中取出 **Email** 屬性 (連同 **PartitionKey**、**RowKey**、**Timestamp** 和 **ETag**)。  
 
 ```csharp
 string filter = TableQuery.GenerateFilterCondition(

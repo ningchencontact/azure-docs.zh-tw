@@ -2,23 +2,20 @@
 title: Azure Cosmos DB：.NET 變更摘要處理器 API、SDK 和資源 | Microsoft Docs
 description: 了解「變更摘要處理器 API 和 SDK」的所有相關資訊，包括發行日期、停用日期，以及「.NET 變更摘要處理器 SDK」每個版本之間的變更。
 services: cosmos-db
-documentationcenter: .net
 author: ealsur
 manager: kfile
-ms.assetid: f2dd9438-8879-4f74-bb6c-e1efc2cd0157
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: article
-ms.date: 04/19/2018
+ms.topic: reference
+ms.date: 05/21/2018
 ms.author: maquaran
-ms.openlocfilehash: 7ed5772df4d8677fe878d7ced831dc15bbe8cac0
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: a2770b9349dac8caa8e0611d77522ab56ca1bf07
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33885131"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798859"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 變更摘要處理器 SDK：下載和版本資訊
 > [!div class="op_single_selector"]
@@ -45,6 +42,10 @@ ms.locfileid: "33885131"
 ## <a name="release-notes"></a>版本資訊
 
 ### <a name="stable-builds"></a>穩定的組建
+
+### <a name="a-name133133"></a><a name="1.3.3"/>1.3.3
+* 已新增更多記錄。
+* 已修正在多次呼叫擱置中工作估計時的 DocumentClient 流失。
 
 ### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
 * 修正擱置的工作評估。
@@ -108,6 +109,7 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [1.3.3](#1.3.3) |2018 年 5 月 8 日 |--- |
 | [1.3.2](#1.3.2) |2018 年 4 月 18 日 |--- |
 | [1.3.1](#1.3.1) |2018 年 3 月 13 日 |--- |
 | [1.2.0](#1.2.0) |2017 年 10 月 31 日 |--- |

@@ -184,6 +184,8 @@
 ### [概觀](manage-apps/what-is-application-management.md)
 ### [開始使用](manage-apps/plan-an-application-integration.md)
 ### [SaaS 應用程式整合教學課程](saas-apps/tutorial-list.md)
+
+
 ### [Cloud App Discovery](manage-apps/cloud-app-discovery.md)
 #### [建立快照集報告](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
 #### [設定連續報告](https://docs.microsoft.com/cloud-app-security/discovery-docker)
@@ -255,27 +257,110 @@
 #### [租用戶限制](manage-apps/tenant-restrictions.md)
 #### [使用 SCIM 佈建使用者](manage-apps/use-scim-to-provision-users-and-groups.md)
 
-### [疑難排解](active-directory-application-troubleshoot-content-map.md)
-#### [應用程式開發](active-directory-application-dev-troubleshoot-content-map.md)
-##### [設定和註冊](active-directory-application-dev-config-content-map.md)
-##### [開發](active-directory-application-dev-development-content-map.md)
-#### [應用程式管理](active-directory-application-management-troubleshoot-content-map.md)
-##### [組態](active-directory-application-config-content-map.md)
-##### [登入](active-directory-application-sign-in-content-map.md)
-##### [佈建](active-directory-application-provisioning-content-map.md)
 
-###### [驗證是否已佈建使用者](application-provisioning-when-will-provisioning-finish-specific-user.md) 
-###### [佈建費時過長](application-provisioning-when-will-provisioning-finish.md) 
-###### [如何設定使用者佈建](application-provisioning-config-how-to.md) 
-###### [設定佈建的問題](application-provisioning-config-problem.md) 
-###### [儲存管理員認證的問題](application-provisioning-config-problem-storage-limit.md) 
-###### [未佈建使用者](application-provisioning-config-problem-no-users-provisioned.md) 
-###### [使用者佈建錯誤](application-provisioning-config-problem-wrong-users-provisioned.md) 
+### 疑難排解
 
-##### [管理存取](active-directory-application-access-content-map.md)
-##### [存取面板](active-directory-application-access-panel-content-map.md)
-##### [應用程式 Proxy](active-directory-application-proxy-content-map.md)
-##### [條件式存取](active-directory-application-conditional-access-content-map.md)
+
+
+#### 存取面板
+##### [未顯示的應用程式](application-access-panel-unexpected-application-not-appearing.md)
+##### [出現未預期的應用程式](application-access-panel-unexpected-application-appears.md)
+##### [無法登入](application-access-panel-web-sign-in-problem.md)
+##### [安裝瀏覽器擴充功能時發生錯誤](application-access-panel-extension-problem-installing.md)
+##### [如何使用自助應用程式存取](application-access-panel-self-service-applications-how-to.md)
+##### [使用自助應用程式存取時發生錯誤](application-access-panel-self-service-applications-problem.md)
+
+#### 新增應用程式
+##### [選擇應用程式類型](application-config-add-app-problem-how-to-choose-application-type.md)
+##### [常見問題 - 資源庫應用程式](application-config-add-app-problem-problem-adding-gallery-app.md)
+##### [常見問題 - 非資源庫應用程式](application-config-add-app-problem-problem-adding-non-gallery-app.md)
+
+#### 應用程式 Proxy
+##### [顯示應用程式頁面時發生問題](application-proxy-page-appearance-broken-problem.md)
+##### [應用程式載入時間過長](application-proxy-page-load-speed-problem.md)
+##### [應用程式頁面連結無效](application-proxy-page-links-broken-problem.md)
+##### [要開啟哪些適用於應用程式的連接埠](application-proxy-connectivity-ports-how-to.md)
+##### [適用於應用程式的連接器群組中沒有運作中的連接器](application-proxy-connectivity-no-working-connector.md)
+##### [在管理入口網站中設定](application-proxy-config-how-to.md)
+##### [在應用程式中設定單一登入](application-proxy-config-sso-how-to.md)
+##### [在管理入口網站中建立應用程式時發生問題](application-proxy-config-problem.md)
+##### [設定 Kerberos 限制委派](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
+##### [使用 PingAccess 設定](application-proxy-back-end-ping-access-how-to.md)
+##### [「無法存取此公司應用程式」錯誤](application-proxy-sign-in-bad-gateway-timeout-error.md)
+##### [安裝應用程式 Proxy 代理程式連接器時發生問題](application-proxy-connector-installation-problem.md)
+
+
+#### 應用程式註冊
+##### [應用程式物件的輸入欄位](application-dev-registration-config-specific-application-property-how-to.md)
+##### [變更權杖存留期預設值](application-dev-registration-config-change-token-lifetime-how-to.md)
+
+#### 驗證
+##### [設定端點](application-dev-registration-config-how-to.md)
+
+#### 條件式存取
+##### [客戶不符合裝置註冊預先要求](active-directory-conditional-access.md)
+##### [由於條件式存取原則設定不正確，因此封鎖租用戶。](active-directory-conditional-access-device-remediation.md)
+##### [離線的公司網路規則會在何時生效，以及如何生效？](https://aka.ms/calocation)
+##### [如何增加使用者允許在 Azure AD 中註冊的裝置數目？](active-directory-azureadjoin-setup.md)
+##### [如何設定 Exchange Online 的條件式存取？](https://aka.ms/csforexchange)
+##### [如何設定適用於 Windows 7 裝置的條件式存取？](active-directory-conditional-access.md#device-based-conditional-access)
+##### [哪些應用程式支援條件式存取？](active-directory-conditional-access-supported-apps.md)
+
+#### 尋找 API
+##### [尋找 API](application-dev-api-find-an-api-how-to.md)
+
+#### 管理存取
+##### [將使用者和群組指派至群組](application-access-assignment-how-to-add-assignment.md)
+##### [移除應用程式中的使用者存取](application-access-assignment-how-to-remove-assignment.md)
+##### [設定自助式應用程式指派](application-access-self-service-how-to.md)
+##### [指派未預期的使用者](application-access-unexpected-user-assignment.md)
+##### [應用程式清單中的未預期應用程式](application-access-unexpected-application.md)
+
+#### 多租用戶應用程式
+##### [設定新的應用程式](application-dev-setup-multi-tenant-app.md)
+##### [新增至應用程式資源庫](application-dev-registration-config-multi-tenant-application-add-to-gallery-how-to.md)
+
+#### 權限
+##### [選擇適用於 API 的使用權限](application-dev-perms-for-given-api.md)
+##### [將使用權限授與應用程式](application-dev-registration-config-grant-permissions-how-to.md)
+##### [委派與應用程式使用權限](application-dev-delegated-and-app-perms.md)
+##### [應用程式同意](application-dev-consent-framework.md)
+
+#### 佈建
+##### [所需時間](application-provisioning-when-will-provisioning-finish-specific-user.md)
+##### [所需時間 - 資源庫應用程式](application-provisioning-when-will-provisioning-finish.md)
+##### [設定使用者佈建 - 資源庫應用程式](application-provisioning-config-how-to.md)
+##### [設定使用者佈建時發生問題 - 資源庫應用程式](application-provisioning-config-problem.md)
+##### [在設定使用者佈建資源庫應用程式的情況下儲存管理員認證時發生問題](application-provisioning-config-problem-storage-limit.md)
+##### [未佈建使用者 - 資源庫應用程式](application-provisioning-config-problem-no-users-provisioned.md)
+##### [佈建錯誤的使用者 - 資源庫應用程式](application-provisioning-config-problem-wrong-users-provisioned.md)
+
+#### 單一登入
+##### [選擇方法](application-config-sso-how-to-choose-sign-on-method.md)
+##### [設定](application-dev-registration-config-sso-how-to.md)
+##### [設定同盟 - 資源庫應用程式](application-config-sso-how-to-configure-federated-sso-gallery.md)
+##### [設定同盟常見問題 - 資源庫應用程式](application-config-sso-problem-configure-federated-sso-gallery.md)
+##### [設定同盟 - 非資源庫應用程式](application-config-sso-how-to-configure-federated-sso-non-gallery.md)
+##### [設定同盟常見問題 - 非資源庫應用程式](application-config-sso-problem-configure-federated-sso-non-gallery.md)
+##### [設定密碼 - 資源庫應用程式](application-config-sso-how-to-configure-password-sso-gallery.md)
+##### [設定密碼常見問題 - 資源庫應用程式](application-config-sso-problem-configure-password-sso-gallery.md)
+##### [設定密碼 - 非資源庫應用程式](application-config-sso-how-to-configure-password-sso-non-gallery.md)
+##### [設定密碼常見問題 - 非資源庫應用程式](application-config-sso-problem-configure-password-sso-non-gallery.md)
+
+#### 使用者登入問題
+##### [未預期的同意提示](application-sign-in-unexpected-user-consent-prompt.md)
+##### [使用者同意錯誤](application-sign-in-unexpected-user-consent-error.md)
+##### [從自訂入口網站登入時發生問題](application-sign-in-other-problem-deeplink.md)
+##### [從存取面板登入時發生問題](application-sign-in-other-problem-access-panel.md)
+##### [應用程式登入頁面發生錯誤](application-sign-in-problem-application-error.md)
+##### [密碼單一登入問題 - 非資源庫應用程式](application-sign-in-problem-password-sso-non-gallery.md)
+##### [密碼單一登入問題 - 資源庫應用程式](application-sign-in-problem-password-sso-gallery.md)
+##### [登入 Microsoft 應用程式時發生問題](application-sign-in-problem-first-party-microsoft.md)
+##### [同盟單一登入問題 - 非資源庫應用程式](application-sign-in-problem-federated-sso-non-gallery.md)
+##### [同盟單一登入問題 - 資源庫應用程式](application-sign-in-problem-federated-sso-gallery.md)
+##### [自訂開發應用程式問題](application-sign-in-problem-custom-dev.md)
+##### [內部部署應用程式問題 - 應用程式 Proxy](application-sign-in-problem-on-premises-application-proxy.md)
+
 ### [開發應用程式](active-directory-applications-guiding-developers-for-lob-applications.md)
 ### [文件庫](active-directory-apps-index.md)
 
