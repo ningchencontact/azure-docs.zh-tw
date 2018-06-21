@@ -5,15 +5,16 @@ services: cosmos-db
 author: rimman
 manager: kfile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 12306b7868fa7fb2321f26657aab81beabb9db35
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: cc66b2f506d81a7ba10b26c3b24287472e890682
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724902"
 ---
 # <a name="multi-master-at-global-scale-with-azure-cosmos-db"></a>以全球規模使用 Azure Cosmos DB 的多重主機 
  
@@ -74,7 +75,8 @@ ms.lasthandoff: 05/10/2018
 
 * **改善使用者的寫入延遲** - 您所提供的資料愈接近使用者，其體驗會越好。 例如，如果您有在歐洲的使用者，但您的資料庫是位於美國或澳洲，則這兩個區域分別會增加約 140 毫秒和 300 毫秒的延遲。 延遲會使得許多受歡迎的遊戲、銀行需求或互動式應用程式 (Web 或行動裝置版) 無法啟動。 延遲也會嚴重影響到使用者對高品質體驗的認知，且經證實也會對使用者行為產生相當程度的影響。 隨著科技的演進，特別是 AR、VR 和 MR 的問世，沈浸式和實境體驗的需求更甚以往，開發人員現在設計的軟體系統都必須能滿足嚴苛的延遲需求。 因此，擁有可在本機上使用的應用程式和資料 (應用程式的內容)，是更加重要的。 透過 Azure Cosmos DB 中的多重主機，將可保有與一般本機讀取和寫入同等的快速效能，並且可藉由地理位置分散提升全域效能。  
 
-* **改善寫入延展性及寫入輸送量** - 多重主機可提供更大的輸送量，更高的使用率，同時透過正確性保證和 SLA 的支援提供多個一致性模型。 
+* 
+  **改善寫入延展性及寫入輸送量** - 多重主機可提供更大的輸送量，更高的使用率，同時透過正確性保證和 SLA 的支援提供多個一致性模型。 
 
   ![透過多重主機調整寫入輸送量](./media/multi-region-writers/scale-write-throughput.png)
 

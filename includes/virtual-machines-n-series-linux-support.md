@@ -5,34 +5,35 @@ services: virtual-machines-linux
 author: dlepow
 ms.service: virtual-machines-linux
 ms.topic: include
-ms.date: 05/01/2018
+ms.date: 05/29/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 7139ec67536a1c0e41c991db6d867b956f995c11
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 0264f92fa10bd503a2811ce40ee0b8d4edd5f3b1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34669827"
 ---
 ## <a name="supported-distributions-and-drivers"></a>支援的散發套件和驅動程式
 
-### <a name="nc-ncv2-ncv3-and-nd-series---nvidia-cuda-drivers"></a>NC、NCv2、NCv3 和 ND 系列 - NVIDIA CUDA 驅動程式
+### <a name="nvidia-cuda-drivers"></a>NVIDIA CUDA 驅動程式
 
-下表中 CUDA 驅動程式為本文章發行時的最新資訊。 如需最新的 CUDA 驅動程式，請瀏覽 [NVIDIA](https://developer.nvidia.com/cuda-zone) 網站。 請確定您已安裝或升級為散發套件所適用的最新 CUDA 驅動程式。 
+只有下表所列的 Linux 發佈才支援 NC、NCv2、NCv3 和 ND 系列虛擬機器 (對於 NV 系列為選擇性) 的 NVIDIA CUDA 驅動程式。 CUDA 驅動程式為本文章發行時的最新資訊。 如需最新的 CUDA 驅動程式，請瀏覽 [NVIDIA](https://developer.nvidia.com/cuda-zone) 網站。 請確定您已安裝或升級為散發套件所適用的最新 CUDA 驅動程式。 
 
 > [!TIP]
 > 在 Linux VM 上手動安裝 CUDA 驅動程式的替代方案，就是部署 Azure [資料科學虛擬機器](../articles/machine-learning/data-science-virtual-machine/overview.md)映像。 適用於 Ubuntu 16.04 LTS 或 CentOS 7.4 的 DSVM 版本會預先安裝 NVIDIA CUDA 驅動程式、CUDA 深度類神經網路程式庫和其他工具。
 
 | 配送映像 | 驅動程式 |
-| --- | --- | 
+| --- | -- | 
 | Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 或 7.4<br/><br/> CentOS 型 7.3 或 7.4、CentOS 型 7.4 HPC | NVIDIA CUDA 9.1，驅動程式分支 R390 |
 
-### <a name="nv-series---nvidia-grid-drivers"></a>NV 系列 - NVIDIA GRID 驅動程式
+### <a name="nvidia-grid-drivers"></a>NVIDIA GRID 驅動程式
 
-Microsoft 會為 NV 虛擬機器重新發佈 NVIDIA GRID 驅動程式安裝程式。 僅可在 Azure NV 虛擬機器上安裝上述 GRID 驅動程式。 這些驅動程式包含在 Azure 的 GRID 虛擬 GPU 軟體的授權中。
+Microsoft 會針對用來作為虛擬工作站的 NV 系列虛擬機器或虛擬應用程式，重新發佈 NVIDIA GRID 驅動程式安裝程式。 請僅將這些 GRID 驅動程式安裝在 Azure NV 虛擬機器上，且僅安裝在下表所列的發佈中。 這些驅動程式包含在 Azure 的 GRID 虛擬 GPU 軟體的授權中。
 
 | 配送映像 | 驅動程式 |
-| --- | --- | 
+| --- | -- |
 | Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3 或 7.4<br/><br/>CentOS 型 7.3 或 7.4 | NVIDIA GRID 6.0，驅動程式分支 R390|
 
 

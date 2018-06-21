@@ -1,39 +1,25 @@
 ---
-title: Microsoft Azure 中的計量概觀 | Microsoft Docs
+title: Microsoft Azure 中的度量概觀
 description: Microsoft Azure 中的度量及其用法概觀
 author: anirudhcavale
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 405ec51c-0946-4ec9-b535-60f65c4a5bd1
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/19/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 06/05/2018
 ms.author: ancav
-ms.openlocfilehash: 537213fdf106da1c07d549d65b1d8cf71887db9f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.component: metrics
+ms.openlocfilehash: 3501c8d35968ecf8e32c806dfb05ccfebc7f4386
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264213"
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Microsoft Azure 中的度量概觀
 本文章說明何謂 Microsoft Azure 中的度量、其優點，以及如何開始使用它們。  
 
 ## <a name="what-are-metrics"></a>何謂度量？
 Azure 監視器可讓您取用遙測來查看您 Azure 工作負載的效能與健全狀況。 Azure 遙測資料最重要的類型是由大多數 Azure 資源所發出的度量 (也稱為效能計數器)。 Azure 監視器提供數種方式可設定及取用這些度量進行監視與疑難排解。
-
-## <a name="what-can-you-do-with-metrics"></a>度量能讓您做什麼？
-度量是遙測的寶貴來源，可讓您執行下列工作：
-
-* **追蹤資源** (例如 VM、網站或邏輯應用程式) 的效能，方法是在入口網站圖表上繪製其度量，並將該圖表釘選到儀表板。
-* **取得問題的通知**，該問題在度量超出特定的閾值時會影響資源的效能。
-* **設定自動化動作**，例如自動調整資源，或在度量超出特定的閾值時觸發 Runbook。
-* **執行進階分析**或報告您資源的效能或使用量趨勢。
-* **封存**您資源的效能或健全狀況歷程記錄以用於**相容性或稽核**。
 
 ## <a name="what-are-the-characteristics-of-metrics"></a>度量有哪些特性？
 度量具有下列特性︰
@@ -43,19 +29,17 @@ Azure 監視器可讓您取用遙測來查看您 Azure 工作負載的效能與�
 * 您可以針對每個計量存取 **93 天的歷程記錄**。 您可以快速查看最近和每個月的資源效能或健全狀況趨勢。
 * 某些計量可能有成對的名稱和數值屬性，稱為**維度**。 這些可讓您以更有意義的方式進一步分類和探索計量。
 
-您也可以：
+## <a name="what-can-you-do-with-metrics"></a>度量能讓您做什麼？
+計量可讓您執行下列工作：
 
-* 設定當度量超出您設定的閾值時，**會傳送通知或採取自動化動作的度量警示規則**。 自動調整是一種特殊的自動化動作，可讓您相應放大資源來符合您網站或計算資源的連入要求或負載。 您可以設定自動調整設定規則，根據超出閾值的度量相應縮小或放大。
 
-* **路由**所有計量 Application Insights 或 Log Analytics，以啟用即時分析、搜尋及自訂來自您資源的計量資料警示。 您也可以串流度量到事件中樞，可讓您將它們路由至 Azure 串流分析或自訂應用程式，以進行近乎即時的分析。 您需要設定使用診斷設定的事件中樞串流。
-
-* **將度量封存至儲存體**來延長保留時間或將度量用於離線報告。 當您設定資源的診斷設定時，可以將度量路由至 Azure Blob 儲存體。
-
-* 當您選取資源並在圖表上繪製度量時，透過 Azure 入口網站輕鬆探索、存取及**檢視所有度量**。
-
-* 透過新的 Azure 監視器 REST API **取用**度量。
-
-* 使用 PowerShell Cmdlet 或跨平台 REST API **查詢**度量。
+- 設定當度量超出您設定的閾值時，**會傳送通知或採取自動化動作的度量警示規則**。 動作可透過[動作群組](monitoring-action-groups.md)來控制。 範例動作包括電子郵件、電話和 SMS 通知、呼叫 Webhook、啟動 Runbook 等等。 **自動調整**是一個特殊的自動化動作，可讓您相應增加和相應減少資源以處理負載，並在低負載時保持較低的成本。 您可以設定自動調整設定規則，根據超出閾值的度量相應縮小或放大。
+- 將所有計量**路由**至 *Application Insights* 或 *Log Analytics*，以啟用即時分析、搜尋及自訂來自您的資源的計量資料警示。 您也可以將計量串流至*事件中樞*，以便將其路由至 Azure 串流分析或自訂應用程式，以進行近乎即時的分析。 您需要設定使用診斷設定的事件中樞串流。
+- **封存**資源的效能或健全狀況歷程記錄，以用於相容性、稽核或離線報告。  當您設定資源的診斷設定時，可以將度量路由至 Azure Blob 儲存體。
+- 當您選取資源並在圖表上繪製計量時，可以使用 **Azure 入口網站**來探索、存取及檢視所有計量。 您可以追蹤資源 (例如 VM、網站或邏輯應用程式) 的效能，只要將該圖表釘選到儀表板即可。  
+- **執行進階分析**或報告您資源的效能或使用量趨勢。
+- 使用 PowerShell Cmdlet 或跨平台 REST API **查詢**度量。
+- 透過新的 Azure 監視器 REST API **取用**度量。
 
   ![Azure 監視器中的度量路由](./media/monitoring-overview-metrics/Metrics_Overview_v4.png)
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/18/2017
+ms.date: 05/30/2018
 ms.author: iainfou
-ms.openlocfilehash: 22b580e74ec412763b9c34a7fa2fea97c8a277d0
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: d3514b57b5dc3541dd0a3c0f584fd689749ada7c
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33896175"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716453"
 ---
 # <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>使用 Ansible 在 Azure 中建立完整的 Linux 虛擬機器環境
 Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使用 Ansible 在 Azure 中管理虛擬機器 (VM)，就像是任何其他資源一樣。 本文說明如何使用 Ansible 建立完整的 Linux 環境與支援的資源。 您也可以了解如何[使用 Ansible 建立基本 VM](ansible-create-vm.md)。
@@ -38,6 +38,8 @@ Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使�
 
 
 ## <a name="create-virtual-network"></a>建立虛擬網路
+讓我們看看 Ansible 腳本的每個區段，並建立個別的 Azure 資源。 如需完整腳本，請參閱[本文的這一節](#complete-ansible-playbook)。
+
 Ansible 腳本中的以下區段可在 *10.0.0.0/16* 位址空間中建立名為 *myVnet* 的虛擬網路：
 
 ```yaml
@@ -116,14 +118,14 @@ Ansible 腳本中的以下區段可在 *10.0.0.0/16* 位址空間中建立名為
     vm_size: Standard_DS1_v2
     admin_username: azureuser
     ssh_password_enabled: false
-    ssh_public_keys: 
+    ssh_public_keys:
       - path: /home/azureuser/.ssh/authorized_keys
         key_data: "ssh-rsa AAAAB3Nz{snip}hwhqT9h"
     network_interfaces: myNIC
     image:
       offer: CentOS
       publisher: OpenLogic
-      sku: '7.3'
+      sku: '7.5'
       version: latest
 ```
 
@@ -177,18 +179,18 @@ Ansible 腳本中的以下區段可在 *10.0.0.0/16* 位址空間中建立名為
       vm_size: Standard_DS1_v2
       admin_username: azureuser
       ssh_password_enabled: false
-      ssh_public_keys: 
+      ssh_public_keys:
         - path: /home/azureuser/.ssh/authorized_keys
           key_data: "ssh-rsa AAAAB3Nz{snip}hwhqT9h"
       network_interfaces: myNIC
       image:
         offer: CentOS
         publisher: OpenLogic
-        sku: '7.3'
+        sku: '7.5'
         version: latest
 ```
 
-Ansible 需要一個資源群組，以將所有的資源部署至該群組。 使用 [az group create](/cli/azure/vm#az_vm_create) 來建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
+Ansible 需要一個資源群組，以將所有的資源部署至該群組。 使用 [az group create](/cli/azure/group#az-group-create) 來建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
 
 ```azurecli
 az group create --name myResourceGroup --location eastus

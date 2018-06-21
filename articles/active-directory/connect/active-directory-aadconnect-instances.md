@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 06/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 158a0f6d948172ec7d986703e9fa95dd19bdde6a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 351f3e34f5050d922655a633ec89f51d191b946e
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592257"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36291963"
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect：執行個體的特殊考量
 Azure AD Connect 最常搭配 Azure AD 和 Office 365 的全球執行個體。 但還有其他執行個體，而它們有不同的 URL 需求和其他特殊考量。
@@ -38,8 +38,6 @@ Azure AD Connect 最常搭配 Azure AD 和 Office 365 的全球執行個體。 �
 
 Microsoft Cloud Germany 目前沒有的功能︰
 
-* 無法使用 **Azure AD Connect Health**。
-* 無法使用「自動更新」。
 * **密碼回寫**適用於 Azure AD Connect 1.1.570.0 預覽版本和更新的版本。
 * 無法使用其他 Azure AD Premium 服務。
 
@@ -61,8 +59,6 @@ Microsoft Cloud Germany 目前沒有的功能︰
 
 Microsoft Azure Government 雲端目前沒有的功能︰
 
-* 無法使用 **Azure AD Connect Health**。
-* 無法使用「自動更新」。
 * **密碼回寫**適用於 Azure AD Connect 1.1.570.0 預覽版本和更新的版本。
 * 無法使用其他 Azure AD Premium 服務。
 

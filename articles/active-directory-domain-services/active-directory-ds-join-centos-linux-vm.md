@@ -8,19 +8,19 @@ manager: mtillman
 editor: curtand
 ms.assetid: 16100caa-f209-4cb0-86d3-9e218aeb51c6
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: maheshu
-ms.openlocfilehash: 4bf0cfa1fdd1b48233fd4e7bdec0eb72e897b738
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d570428f3e3ea23302e3cecc6bfa759468419986
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34587053"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36216821"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>將 CentOS Linux 虛擬機器加入至受控網域
 本文說明如何將 Azure 中的 CentOS Linux 虛擬機器加入至 Azure AD Domain Services 受控網域。
