@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/27/2018
+ms.topic: conceptual
+ms.date: 06/01/2018
 ms.author: shlo
-ms.openlocfilehash: a226402f16f98c830c1e1cf34653b8f6513f06b4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b588fd4b67dbed1e0dc3d4ad2cbd75b462ce311f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725137"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Azure Data Factory 中的視覺化撰寫
 Azure Data Factory 使用者介面體驗 (UX) 可讓您透過視覺化方式撰寫及部署資料處理站的資源，而不必編寫任何程式碼。 您可以將活動拖放到管線畫布上、執行測試回合、反覆進行偵錯，以及部署和監視管線回合。 使用 UX 來執行視覺化撰寫的方法有兩種：
@@ -46,8 +47,8 @@ Azure Data Factory 使用者介面體驗 (UX) 可讓您透過視覺化方式撰�
 ### <a name="configure-a-vsts-git-repository-with-azure-data-factory"></a>設定搭配 Azure Data Factory 的 VSTS Git 存放庫
 您可以透過兩種方法設定搭配資料處理站的 VSTS GIT 存放庫。
 
-<a name="method1"></a>
-#### <a name="configuration-method-1-lets-get-started-page"></a>設定方法 1：[現在就開始吧] 頁面
+#### <a name="method1"></a>設定方法 1：[現在就開始吧] 頁面
+
 在 Azure Data Factory 中，移至 [現在就開始吧] 頁面。 選取 [設定程式碼存放庫]：
 
 ![設定 VSTS 程式碼存放庫](media/author-visually/configure-repo.png)
@@ -75,6 +76,14 @@ Azure Data Factory 使用者介面體驗 (UX) 可讓您透過視覺化方式撰�
 隨即會出現設定窗格。 如需有關組態設定的詳細資訊，請參閱<a href="#method1">設定方法 1</a> 中的說明。
 
 ![設定用於 UX 撰寫的程式碼存放庫設定](media/author-visually/configure-repo-2.png)
+
+#### <a name="switch-to-a-different-git-repo"></a>切換至不同的 Git 存放庫
+
+若要切換至不同的 Git 存放庫，請找出位於 [Data Factory 概觀] 頁面右上角的圖示，如下列螢幕擷取畫面所示。 如果看不到該圖示，請清除您的本機瀏覽器快取。 選取適當圖示以移除與目前存放庫的關聯。
+
+移除與目前存放庫的關聯之後，您可以設定 Git 設定以使用不同的存放庫。 接著，您可以將現有的 Data Factory 資源匯入至新的存放庫。
+
+![移除與目前 Git 存放庫的關聯。](media/author-visually/remove-repo.png)
 
 ### <a name="use-version-control"></a>使用版本控制
 版本控制系統 (也稱為_原始檔控制_) 可讓開發人員在程式碼上共同作業，並追蹤對程式碼基底所進行的變更。 來源控制是多開發人員專案的必要工具。

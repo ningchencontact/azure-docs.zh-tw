@@ -1,6 +1,23 @@
+---
+title: 包含檔案
+description: 包含檔案
+services: virtual-machines
+author: rogara
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 06/03/2018
+ms.author: rogarana
+ms.custom: include file
+ms.openlocfilehash: 812f11a1ced3bac765441bf66f402abb4da4bc3f
+ms.sourcegitcommit: caebf2bb2fc6574aeee1b46d694a61f8b9243198
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35414564"
+---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>關於 Azure IaaS VM 磁碟及受控和非受控進階磁碟的常見問題集
 
-此文章將回答有關 Azure 受控磁碟和 Azure 進階儲存體的一些常見問題。
+此文章將回答有關 Azure 受控磁碟和 Azure 進階 SSD 磁碟的一些常見問題。
 
 ## <a name="managed-disks"></a>受控磁碟
 
@@ -28,13 +45,9 @@
 
 是。 您可以使用 Azure 入口網站、PowerShell 或 Azure CLI 來變更受控磁碟的儲存體帳戶類型。
 
-**是否有方法可以將受控磁碟複製或匯出至私人儲存體帳戶？**
-
-是。 您可以使用 Azure 入口網站、PowerShell 或 Azure CLI 來匯出受控磁碟。
-
 **我是否可以使用 Azure 儲存體帳戶中的 VHD 檔案，透過不同的訂用帳戶來建立受控磁碟？**
 
-編號
+是。
 
 **我是否可以使用 Azure 儲存體帳戶中的 VHD 檔案在不同的區域中建立受控磁碟？**
 
@@ -42,11 +55,11 @@
 
 **客戶使用受控磁碟時是否有任何規模限制？**
 
-受控磁碟沒有儲存體帳戶方面的限制。 然而，上限 (也是預設限制) 為一個訂用帳戶每一區域和每一磁碟類型 10,000 個受控磁碟。
+受控磁碟沒有儲存體帳戶方面的限制。 然而，上限為一個訂用帳戶每一區域和每一磁碟類型 50,000 個受控磁碟。
 
 **我是否可以建立受控磁碟的增量快照集？**
 
-編號 目前的快照集功能會建立受控磁碟的完整複本。 不過，我們已規劃在未來支援增量快照集。
+編號 目前的快照集功能會建立受控磁碟的完整複本。
 
 **可用性設定組中的 VM 是否可以由受控和非受控磁碟混合組成？**
 
@@ -66,7 +79,7 @@
 
 **如何設定診斷的標準儲存體帳戶？**
 
-您需要為 VM 診斷設定私人儲存體帳戶。 在未來，我們規劃也將診斷切換至受控磁碟。
+您需要為 VM 診斷設定私人儲存體帳戶。
 
 **受控磁碟適用何種角色型存取控制支援？**
 
@@ -78,7 +91,7 @@
 
 **是否有方法可以將受控磁碟複製或匯出至私人儲存體帳戶？**
 
-您可以取得受控磁碟的唯讀共用存取簽章 URI，並使用它將內容複製到私人儲存體帳戶或內部部署儲存體。
+您可以產生受控磁碟的唯讀共用存取簽章 (SAS) URI，並使用它將內容複製到私人儲存體帳戶或內部部署儲存體。 您可以透過 Azure 入口網站、Azure PowerShell、Azure CLI 或 [AzCopy](../articles/storage/common/storage-use-azcopy.md) 來使用 SAS URI
 
 **我是否可以建立受控磁碟的複本？**
 
@@ -86,7 +99,7 @@
 
 **是否仍然支援非受控磁碟？**
 
-是。 我們支援受控磁碟和非受控磁碟。 我們建議您使用受控磁碟來處理新的工作負載，並將您目前的工作負載移轉至受控磁碟。
+是，受控磁碟和非受控磁碟都受到支援。 我們建議您使用受控磁碟來處理新的工作負載，並將您目前的工作負載移轉至受控磁碟。
 
 
 **如果我建立大小為 128 GB 的磁碟，然後將大小增加至 130 GB，我是否必須支付下一個磁碟大小 (512 GB) 的費用？**
@@ -113,6 +126,39 @@ Azure 受控磁碟目前只支援本地備援儲存體受控磁碟。
 * [使用受控磁碟的範本清單](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
 
+## <a name="standard-ssd-disks-preview"></a>標準 SSD 磁碟 (預覽)
+
+**Azure 標準 SSD 磁碟是什麼？**
+標準 SSD 磁碟是受固態媒體支援的標準磁碟，針對在較低 IOPS 層級中需要一致效能的工作負載，最佳化為符合成本效益的儲存體。 在預覽中，它們僅適用於有限的區域，具有有限的管理性 (可透過 Resource Manager 範本取得)。
+
+<a id="standard-ssds-azure-regions"></a>**目前支援標準 SSD 磁碟 (預覽) 的區域有哪些？**
+* 北歐
+
+**如何建立標準 SSD 磁碟？**
+目前，您可以使用 Azure Resource Manager 範本建立標準 SSD 磁碟。 以下是在 Resource Manager 範本中建立標準 SSD 磁碟所需的參數：
+
+* Microsoft.Compute 的 apiVersion 必須設定為 `2018-04-01` (或更新版本)
+* 將 *managedDisk.storageAccountType* 指定為 `StandardSSD_LRS`
+
+下列範例示範使用標準 SSD 磁碟的虛擬機器 properties.storageProfile.osDisk 區段：
+
+```json
+"osDisk": {
+    "osType": "Windows",
+    "name": "myOsDisk",
+    "caching": "ReadWrite",
+    "createOption": "FromImage",
+    "managedDisk": {
+        "storageAccountType": "StandardSSD_LRS"
+    }
+}
+```
+
+如需如何使用範本建立標準 SSD 磁碟的完整範本範例，請參閱[從具有標準 SSD 資料磁碟的 Windows 映像建立虛擬機器](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/)。
+
+**可以使用標準 SSD 作為非受控磁碟嗎？**
+否，標準 SSD 磁碟僅適用於受控磁碟。
+
 ## <a name="migrate-to-managed-disks"></a>移轉到受控磁碟 
 
 **在移轉至受控磁碟前/後，預先存在的 Azure 備份服務設定需要哪些變更？**
@@ -127,9 +173,9 @@ Azure 受控磁碟目前只支援本地備援儲存體受控磁碟。
 
 不需要任何變更。 
 
-**是否支援將現有 VM 擴展集 (VMSS) 從非受控磁碟自動移轉至受控磁碟？**
+**是否支援將現有虛擬機器擴展集從非受控磁碟自動移轉至受控磁碟？**
 
-編號 您可以使用您舊 VMSS 中的映像搭配非受控磁碟，建立包含受控磁碟的新 VMSS。 
+編號 您可以使用舊擴展集中的映像搭配非受控磁碟，建立包含受控磁碟的新擴展集。 
 
 **在移轉至受控磁碟之前，是否可以從頁面 blob 快照集建立受控磁碟？**
 
@@ -139,9 +185,9 @@ Azure 受控磁碟目前只支援本地備援儲存體受控磁碟。
 
 是，您可以選擇容錯移轉至具有受控磁碟的 VM。
 
-**在透過 Azure 受 Azure Site Recovery (ASR) 保護的 Azure VM 上移轉至 Azure 複寫是否有任何影響？**
+**在透過 Azure 受 Azure Site Recovery 保護的 Azure 虛擬機器上移轉至 Azure 複寫是否有任何影響？**
 
-是。 目前，適用於 VM 且使用受控磁碟的 ASR Azure 至 Azure 保護，只以公開預覽服務的型態提供。
+是。 目前，適用於虛擬機器使用受控磁碟的 Azure Site Recovery Azure 至 Azure 保護，只以公開預覽服務的型態提供。
 
 **我是否可以將具有非受控磁碟 (位於之前已加密的儲存體帳戶上) 的 VM 移轉至受控磁碟？**
 
@@ -190,19 +236,19 @@ yes
 
 ## <a name="premium-disks-managed-and-unmanaged"></a>進階磁碟：受控和非受控
 
-**如果 VM 使用的大小系列支援進階儲存體，例如 DSv2，我是否可以同時連結進階和標準資料磁碟？** 
+**如果虛擬機器使用的大小系列支援進階 SSD 磁碟，例如 DSv2，我是否可以同時連結進階和標準資料磁碟？** 
 
 是。
 
-**我是否可以同時將進階和標準資料磁碟連結至不支援進階儲存體的大小系列？例如 D、Dv2、G 或 F 系列？**
+**我是否可以同時將進階和標準資料磁碟連結至不支援進階 SSD 磁碟的大小系列，例如 D、Dv2、G 或 F 系列？**
 
-編號 只有當 VM 未使用支援進階儲存體的大小系列時，您才能將標準資料磁碟連結至 VM。
+編號 只有當虛擬機器未使用支援進階 SSD 磁碟的大小系列時，您才能將標準資料磁碟連結至虛擬機器。
 
 **如果我從現有的 VHD (大小為 80 GB) 建立進階資料磁碟，需要多少費用？**
 
 從 80 GB VHD 建立的進階資料磁碟會被視為下一個可用的進階磁碟大小 (P10 磁碟)。 將根據 P10 磁碟定價向您收費。
 
-**使用進階儲存體是否有交易成本？**
+**使用進階 SSD 磁碟是否有交易成本？**
 
 依 IOPS 和輸送量的特定限制而佈建的每個磁碟大小，都有固定成本。 其他成本包括輸出頻寬和快照集容量 (如果適用的話)。 如需詳細資訊，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/storage)。
 
@@ -226,7 +272,7 @@ Azure 針對作業系統磁碟所支援的磁碟分割類型是主開機記錄 (
 
 **支援的分頁 Blob 大小上限是多少？**
 
-Azure 支援的分頁 Blob 大小上限是 8 TB (8,191 GB)。 我們不支援將大於 4 TB (4,095 GB) 的分頁 Blob 連結到 VM 作為資料或作業系統磁碟。
+Azure 支援的分頁 Blob 大小上限是 8 TB (8,191 GB)。 連結至虛擬機器作為資料或作業系統磁碟時，頁面部落格大小最大值是 4 TB (4,095 GB)。
 
 **我是否需要使用新版 Azure 工具來建立磁碟、連結磁碟、調整磁碟大小及上傳大於 1 TB 的磁碟？**
 

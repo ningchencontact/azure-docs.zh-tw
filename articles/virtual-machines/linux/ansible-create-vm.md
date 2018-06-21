@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/18/2017
+ms.date: 05/30/2018
 ms.author: iainfou
-ms.openlocfilehash: a2bf047d5a08bfd3df6a6c76116d2b9b9ab81fad
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: e36bdbf84b275fb8a6a4e42496b3080bebf1b193
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33896158"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716630"
 ---
 # <a name="create-a-basic-virtual-machine-in-azure-with-ansible"></a>使用 Ansible 在 Azure 中建立基本虛擬機器
 Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使用 Ansible 在 Azure 中管理虛擬機器 (VM)，就像是任何其他資源一樣。 本文示範如何使用 Ansible 建立基本 VM。 您也可以了解如何[使用 Ansible 建立完整的 VM 環境](ansible-create-complete-vm.md)。
@@ -34,17 +34,17 @@ Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使�
 - Azure 認證，並設定 Ansible 使用這些認證。
     - [建立 Azure 認證和設定 Ansible](ansible-install-configure.md#create-azure-credentials)
 - Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 以尋找版本。 
-    - 如果您需要升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 您也可以在瀏覽器中使用 [Cloud Shell](/azure/cloud-shell/quickstart)。
+    - 如果您需要升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 您也可以在網頁瀏覽器中使用 [Azure Cloud Shell](/azure/cloud-shell/quickstart)。
 
 
 ## <a name="create-supporting-azure-resources"></a>建立支援用 Azure 資源
-在此範例中，您會建立一個 Runbook 來將 VM 部署到現有的基礎結構中。 首先，使用 [az group create](/cli/azure/vm#az_vm_create) 建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
+在此範例中，您會建立一個 Runbook 來將 VM 部署到現有的基礎結構中。 首先，使用 [az group create](/cli/azure/group#az-group-create) 建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-使用 [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) 為您的 VM 建立虛擬網路。 下列範例會建立名為 *myVnet* 的虛擬網路和名為 *mySubnet* 的子網路：
+使用 [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) 為您的 VM 建立虛擬網路。 下列範例會建立名為 *myVnet* 的虛擬網路和名為 *mySubnet* 的子網路：
 
 ```azurecli
 az network vnet create \
@@ -77,7 +77,7 @@ az network vnet create \
       image:
         offer: CentOS
         publisher: OpenLogic
-        sku: '7.3'
+        sku: '7.5'
         version: latest
 ```
 

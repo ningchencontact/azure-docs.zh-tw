@@ -10,16 +10,16 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 1c44b2738fb21450c5a37f715c995a3e7aecc4a6
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 164760355077e2b905aa0e0f03e1efaf28941e55
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33868820"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36296885"
 ---
 # <a name="password-writeback-overview"></a>密碼回寫概觀
 
-使用密碼回寫時，您可以將 Azure Active Directory (Azure AD) 設定為將密碼回寫到內部部署 Active Directory。 密碼回寫可讓您不需設定和管理複雜的內部部署自助式密碼重設 (SSPR) 解決方案，並且提供便利的雲端方式，可讓您的使用者不論身在何處，都能重設其內部部署密碼。 密碼回寫是 [Azure Active Directory Connect](./../connect/active-directory-aadconnect.md) 的元件，可供目前 Premium [Azure Active Directory 版本](../active-directory-whatis.md)的訂閱者啟用及使用。
+使用密碼回寫時，您可以將 Azure Active Directory (Azure AD) 設定為將密碼回寫到內部部署 Active Directory。 密碼回寫可讓您不需設定和管理複雜的內部部署自助式密碼重設 (SSPR) 解決方案，並且提供便利的雲端方式，可讓您的使用者不論身在何處，都能重設其內部部署密碼。 密碼回寫是 [Azure Active Directory Connect](./../connect/active-directory-aadconnect.md) 的元件，可供目前 Premium [Azure Active Directory 版本](../fundamentals/active-directory-whatis.md)的訂閱者啟用及使用。
 
 密碼回寫提供下列功能：
 
@@ -129,7 +129,7 @@ ms.locfileid: "33868820"
 
 ## <a name="licensing-requirements-for-password-writeback"></a>密碼回寫的授權需求
 
-如需有關授權的資訊，請參閱[密碼回寫所需的授權](concept-sspr-licensing.md#licenses-required-for-password-writeback)或下列網站：
+如需有關授權的資訊，請參閱[密碼回寫所需的授權](concept-sspr-licensing.md)或下列網站：
 
 * [Azure Active Directory 價格網站](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)

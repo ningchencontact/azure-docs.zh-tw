@@ -1,22 +1,19 @@
 ---
-title: 接收 Azure 服務通知的活動記錄警示 | Microsoft Docs
+title: 接收 Azure 服務通知的活動記錄警示
 description: 在 Azure 服務發生時透過 SMS、電子郵件或 Webhook 獲得通知。
 author: johnkemnetz
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/27/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 06/09/2018
 ms.author: johnkem
-ms.openlocfilehash: b4c4fdeb825bbcab54f074c5224140282a24d196
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.component: alerts
+ms.openlocfilehash: 01dc3a3c6489b694af26c78ae3b4756f3e8f00b7
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263111"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>建立服務通知的活動記錄警示
 ## <a name="overview"></a>概觀
@@ -51,17 +48,22 @@ ms.lasthandoff: 03/29/2018
 
     ![「建立服務健康情況警示」命令](./media/monitoring-activity-log-alerts-on-service-notifications/service-health-alert.png)
 
-4. 在 [活動記錄警示名稱] 方塊中輸入名稱，並提供 [描述]。
+4. 選取您想要警示的**訂用帳戶**、**服務**和**區域**。
 
-    ![「新增活動記錄警示」對話方塊](./media/monitoring-activity-log-alerts-on-service-notifications/activity-log-alert-service-notification-new-action-group-sh.png)
+    ![「新增活動記錄警示」對話方塊](./media/monitoring-activity-log-alerts-on-service-notifications/activity-log-alert-new-ux.png)
 
-5. [訂用帳戶] 方塊會自動填入您目前的訂用帳戶。 此訂用帳戶會用來儲存活動記錄警示。 警示資源會部署到此訂用帳戶，並從中監視活動記錄事件。
+> [!NOTE]
+> 此訂用帳戶會用來儲存活動記錄警示。 警示資源會部署到此訂用帳戶，並從中監視活動記錄事件。
 
-6. 選取將在其中建立警示資源的 [資源群組]。 這不是由警示所監視的資源群組， 而是警示資源所在的資源群組。
+5. 選擇您想要警示的**事件類型**：*服務問題*、*計劃性維護*和*健康情況諮詢* 
 
-7. [事件類別目錄] 方塊會自動設為 [服務健康情況]。 或是選擇您想要接收服務健康情況通知的 [服務]、[區域] 和 [類型]。
+6. 輸入**警示規則名稱**和**描述**，定義您的警示詳細資料。
 
-8. 在 [Alert via]\(警示媒介\) 下，選取 [新增] 動作群組按鈕。 在 [動作群組名稱] 方塊中輸入名稱，然後在 [簡短名稱] 方塊中，輸入名稱。 當此警示發動時，通知中會引用該簡短名稱。
+7. 選取要儲存警示的**資源群組**。
+
+8. 選取**新的動作群組**以建立新的動作群組。 在 [動作群組名稱] 方塊中輸入名稱，然後在 [簡短名稱] 方塊中，輸入名稱。 當此警示發動時，通知中會引用該簡短名稱。
+
+    ![建立新的動作群組](./media/monitoring-activity-log-alerts-on-service-notifications/action-group-creation.png)
 
 9. 請提供接收者的下列各項，以定義接收者的清單：
 
@@ -71,7 +73,7 @@ ms.lasthandoff: 03/29/2018
 
     c. **詳細資料**：根據選擇的動作類型，輸入電話號碼、電子郵件地址或 Webhook URI 等。
 
-10. 選取 [確定] 可建立警示。
+10. 選取 [確定] 建立動作群組，然後**建立警示規則**完成您的警示。
 
 在幾分鐘之內會啟用警示，開始根據建立時所指定的條件觸發警示。
 
@@ -86,9 +88,9 @@ ms.lasthandoff: 03/29/2018
 
 1. 請遵循上一節的步驟 1 到 7，以建立您的服務健康情況通知。 
 
-2. 在 [Alert via]\(警示媒介\) 下，選取 [現有] 動作群組按鈕。 選取適當的動作群組。
+2. 在 [定義動作群組] 下，按一下 [選取動作群組] 按鈕。 選取適當的動作群組。
 
-3. 選取 [確定] 可建立警示。
+3. 選取 [新增] 新增動作群組，然後**建立警示規則**完成您的警示。
 
 在幾分鐘之內會啟用警示，開始根據建立時所指定的條件觸發警示。
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: f4fe93078246bc25eb41a7f8e685d75f8dcb6b7c
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: bec02b3f3bde9f9cfab615d75cc6f05976ce981a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012619"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726215"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>建立虛擬網路對等互連 - 不同部署模型、相同訂用帳戶
 
@@ -90,7 +90,7 @@ ms.locfileid: "34012619"
     azure network vnet create --vnet myVnet2 --address-space 10.1.0.0 --cidr 16 --location "East US"
     ```
 
-5. 建立資源群組和虛擬網路 (Resource Manager)。 您可以使用 CLI 1.0 或 2.0 ([安裝](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json))。 本教學課程使用 CLI 2.0 來建立虛擬網路 (Resource Manager)，因為必須使用 2.0 來建立對等互連。 請從已安裝 CLI 2.0.4 或更新版本的本機電腦，執行下列 Bash CLI 指令碼。 如需在 Windows 用戶端上執行 Bash CLI 指令碼的選項，請參閱[在 Windows 中執行 Azure CLI](../virtual-machines/windows/cli-options.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 您也可以使用 Azure Cloud Shell 來執行此指令碼。 Azure Cloud Shell 是免費的 Bash Shell，您可以直接在 Azure 入口網站內執行。 它具有預先安裝和設定的 Azure CLI，可與您的帳戶搭配使用。 按一下以下指令碼中的 [試試看] 按鈕，這會叫用可讓您登入 Azure 帳戶的 Cloud Shell。 若要執行此指令碼，請按一下 [複製] 按鈕並將內容貼到您的 Cloud Shell 中，然後按 `Enter`。
+5. 建立資源群組和虛擬網路 (Resource Manager)。 您可以使用 CLI 1.0 或 2.0 ([安裝](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json))。 本教學課程使用 CLI 2.0 來建立虛擬網路 (Resource Manager)，因為必須使用 2.0 來建立對等互連。 請從已安裝 CLI 2.0.4 或更新版本的本機電腦，執行下列 Bash CLI 指令碼。 如需在 Windows 用戶端上執行 Bash CLI 指令碼的選項，請參閱[在 Windows 上安裝 Azure CLI](/cli/azure/install-azure-cli-windows)。 您也可以使用 Azure Cloud Shell 來執行此指令碼。 Azure Cloud Shell 是免費的 Bash Shell，您可以直接在 Azure 入口網站內執行。 它具有預先安裝和設定的 Azure CLI，可與您的帳戶搭配使用。 按一下以下指令碼中的 [試試看] 按鈕，這會叫用可讓您登入 Azure 帳戶的 Cloud Shell。 若要執行此指令碼，請按一下 [複製] 按鈕並將內容貼到您的 Cloud Shell 中，然後按 `Enter`。
 
     ```azurecli-interactive
     #!/bin/bash

@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: nisoneji
-ms.openlocfilehash: ae539f136578c6461ef7f680d553fbd76b10ae98
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 49243eaa4d3413509e569a88e1d7a2f6359d7876
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236224"
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>執行 Hyper-V 到 Azure 的 Azure Site Recovery 部署規劃工具
 
@@ -39,7 +40,7 @@ ASRDeploymentPlanner.exe -Operation GetVMList /?
 |---|---|
 | -Operation | GetVMList |
 | -User | 要連線到 Hyper-V 主機或 Hyper-V 叢集的使用者名稱。 使用者必須具有系統管理權限。|
-|-ServerListFile | 包含要分析之虛擬機器的伺服器清單檔案。 此檔案路徑可以是絕對或相對路徑。 此檔案應在每一行包含下列其中一項：<ul><li>Hyper-V 主機名稱或 IP 位址</li><li>Hyper-V 叢集名稱或 IP 位址</li></ul><br>**例如：**ServerList.txt 包含下列伺服器︰<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
+|-ServerListFile | 包含要分析之虛擬機器的伺服器清單檔案。 此檔案路徑可以是絕對或相對路徑。 此檔案應在每一行包含下列其中一項：<ul><li>Hyper-V 主機名稱或 IP 位址</li><li>Hyper-V 叢集名稱或 IP 位址</li></ul><br>**例如：** ServerList.txt 包含下列伺服器︰<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
 | -Directory|(選用) 用來儲存此作業期間所產生之資料的通用命名慣例 (UNC) 或本機目錄路徑。 如果未指定名稱，目前路徑下名為 'ProfiledData' 的目錄將會作為預設目錄。|
 |-OutputFile| (選用) 此檔案中儲存從 Hyper-V 伺服器擷取的虛擬機器清單。 如果未提及名稱，則詳細資料會儲存在 VMList.txt。  在移除不需要分析的 VM 之後，使用此檔案開始分析。|
 |-Password|(選用) 用於連線到 Hyper-V 主機的密碼。 如果您未將其指定為參數，您會在執行命令時收到提示。|
@@ -88,14 +89,14 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |---|---|
 | -Operation | StartProfiling |
 | -User | 要連線到 Hyper-V 主機或 Hyper-V 叢集的使用者名稱。 使用者必須具有系統管理權限。|
-| -VMListFile | 包含要剖析之 VM 清單的檔案。 此檔案路徑可以是絕對或相對路徑。 對於 Hyper-V，這個檔案是 GetVMList 作業的輸出檔。 如果以手動方式準備，此檔案應包含一個伺服器名稱或 IP 位址，並在後面接著虛擬機器名稱 (每一行以 \ 分隔)。 檔案中指定的虛擬機器名稱應該與 Hyper-V 主機上的虛擬機器名稱相同。<br><br>**例如：**VMList.txt 包含下列虛擬機器︰<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
+| -VMListFile | 包含要剖析之 VM 清單的檔案。 此檔案路徑可以是絕對或相對路徑。 對於 Hyper-V，這個檔案是 GetVMList 作業的輸出檔。 如果以手動方式準備，此檔案應包含一個伺服器名稱或 IP 位址，並在後面接著虛擬機器名稱 (每一行以 \ 分隔)。 檔案中指定的虛擬機器名稱應該與 Hyper-V 主機上的虛擬機器名稱相同。<br><br>**例如：** VMList.txt 包含下列虛擬機器︰<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-NoOfMinutesToProfile|執行分析的分鐘數。 最小值為 30 分鐘。|
 |-NoOfHoursToProfile|執行分析的時數。|
 |-NoOfDaysToProfile |執行分析的天數。 我們建議您執行分析長達 7 天以上。 該期間有助於確保觀察到指定期間內，您環境中的工作負載模式，並用來提供精確的建議。|
 |-Virtualization|虛擬化類型 (VMware 或 Hyper-V)。|
 |-Directory|(選用) 用來儲存分析期間所產生之分析資料的 UNC 或本機目錄路徑。 如果未指定名稱，目前路徑下名為 ProfiledData 的目錄將會作為預設目錄。|
 |-Password|(選用) 用於連線到 Hyper-V 主機的密碼。 如果您未將其指定為參數，您會在執行命令時收到提示。|
-|-StorageAccountName|(選用) 儲存體帳戶名稱，用於找出從內部部署至 Azure 的資料複寫可達成的輸送量。 此工具會將測試資料上傳到此儲存體帳戶，以計算輸送量。 儲存體帳戶必須是一般用途 v1 或一般用途 v2。|
+|-StorageAccountName|(選用) 儲存體帳戶名稱，用於找出從內部部署至 Azure 的資料複寫可達成的輸送量。 此工具會將測試資料上傳到此儲存體帳戶，以計算輸送量。 儲存體帳戶必須是一般用途 v1 (GPv1) 類型。|
 |-StorageAccountKey|(選用) 用來存取儲存體帳戶的金鑰。 移至 Azure 入口網站 > [儲存體帳戶] > 儲存體帳戶名稱 > [設定] > [存取金鑰] > [Key1] \(或傳統儲存體帳戶的主要存取金鑰)。|
 |-Environment|(選用) Azure 儲存體帳戶的目標環境。 可以是下列三個值之一：AzureCloud、AzureUSGovernment 或 AzureChinaCloud。 預設值為 AzureCloud。 當目標區域是 Azure US Government 或 Azure China 時，請使用此參數。|
 
@@ -168,7 +169,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport /?
 | 參數名稱 | 說明 |
 |---|---|
 | -Operation | GenerateReport |
-|-VMListFile | 包含已分析虛擬機器清單 (將為其產生報告) 的檔案。 此檔案路徑可以是絕對或相對路徑。 對於 Hyper-V，這個檔案是 GetVMList 作業的輸出檔。 如果以手動方式準備，此檔案應包含一個伺服器名稱或 IP 位址，並在後面接著虛擬機器名稱 (每一行以 \ 分隔)。 檔案中指定的虛擬機器名稱應該與 Hyper-V 主機上的虛擬機器名稱相同。<br><br>**例如：**VMList.txt 包含下列虛擬機器︰<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
+|-VMListFile | 包含已分析虛擬機器清單 (將為其產生報告) 的檔案。 此檔案路徑可以是絕對或相對路徑。 對於 Hyper-V，這個檔案是 GetVMList 作業的輸出檔。 如果以手動方式準備，此檔案應包含一個伺服器名稱或 IP 位址，並在後面接著虛擬機器名稱 (每一行以 \ 分隔)。 檔案中指定的虛擬機器名稱應該與 Hyper-V 主機上的虛擬機器名稱相同。<br><br>**例如：** VMList.txt 包含下列虛擬機器︰<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-Virtualization|虛擬化類型 (VMware 或 Hyper-V)。|
 |-Directory|(選用) 儲存分析資料 (分析期間產生的檔案) 的 UNC 或本機目錄路徑。 產生報告時需要這項資料。 如果未指定名稱，目前路徑下名為 ProfiledData 的目錄將會作為預設目錄。|
 | -User | (選用) 要連線到 Hyper-V 主機或 Hyper-V 叢集的使用者名稱。 使用者必須具有系統管理權限。 使用者名稱和密碼會用來擷取虛擬機器的最新設定資訊 (如磁碟數目、核心數目、NIC 數目等)，以使用於報告中。 如未提供此值，則會使用分析期間收集的設定資訊。|
@@ -179,9 +180,9 @@ ASRDeploymentPlanner.exe -Operation GenerateReport /?
 | -EndDate | (選用) 採用 MM-DD-YYYY:HH:MM (24 小時制) 格式的結束日期和時間。 EndDate 必須與 StartDate 一起指定。 若已指定 EndDate，則會針對在 StartDate 與 EndDate 之間收集的剖析資料產生報告。 |
 | -GrowthFactor | (選用) 以百分比表示的成長因子。 預設值為 30%。 |
 | -UseManagedDisks | (選擇性) UseManagedDisks：是/否。 預設值為 [是]。 計算可以放入單一儲存體帳戶的虛擬機器數目時，是依據是否可以在受控磁碟 (不是非受控磁碟) 上進行虛擬機器的容錯移轉/測試容錯移轉。 |
-|-SubscriptionId |(選用) 訂用帳戶 GUID。 使用這個參數來產生成本估計報告，其中包含以您訂用帳戶為基礎的最新價格 (以指定的貨幣計價)，與您的訂用帳戶相關聯的優惠，以及您特定目標 Azure 區域的優惠。|
+|-SubscriptionId |(選用) 訂用帳戶 GUID。 使用這個參數來產生成本估計報告，其中包含以您訂用帳戶為基礎的最新價格 (以指定的貨幣計價)，與您的訂用帳戶相關聯的供應項目，以及您特定目標 Azure 區域的供應項目。|
 |-TargetRegion|(選用) 複寫的目標 Azure 區域。 因為 Azure 在每個區域有不同的成本，若要產生特定目標 Azure 區域的報告，請使用此參數。 預設值是 WestUS2 或上次使用的目標區域。 請參閱[支援的目標區域](hyper-v-deployment-planner-cost-estimation.md#supported-target-regions)清單。|
-|-OfferId|(選用) 與訂用帳戶相關聯的優惠。 預設值為 MS-AZR-0003P (預付型方案)。|
+|-OfferId|(選用) 與訂用帳戶相關聯的供應項目。 預設值為 MS-AZR-0003P (預付型方案)。|
 |-Currency|(選用) 在所產生的報告中用於顯示成本的貨幣。 預設值是美元 ($) 或上次使用的貨幣。 請參閱[支援的貨幣](hyper-v-deployment-planner-cost-estimation.md#supported-currencies)清單。|
 
 根據預設，此工具設定為分析並產生最多 1000 個虛擬機器的報告。 您可以藉由變更 ASRDeploymentPlanner.exe.config 檔案中的 MaxVMsSupported 索引鍵值來變更限制。
@@ -223,7 +224,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -virtualization Hyper-V -Dire
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”  -DesiredRPO 5
 ```
 
-#### <a name="generate-a-report-for-the-south-india-azure-region-with-indian-rupee-and-a-specific-offer-id"></a>使用印度盧比和特定優惠識別碼，產生印度南部 Azure 區域的報告
+#### <a name="generate-a-report-for-the-south-india-azure-region-with-indian-rupee-and-a-specific-offer-id"></a>使用印度盧比和特定供應項目識別碼，產生印度南部 Azure 區域的報告
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
 ```
@@ -277,9 +278,9 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 | -Operation | GetThroughput |
 |-Virtualization|虛擬化類型 (VMware 或 Hyper-V)。|
 |-Directory|(選用) 儲存分析資料 (分析期間產生的檔案) 的 UNC 或本機目錄路徑。 產生報告時需要這項資料。 如果未指定名稱，目前路徑下名為 ProfiledData 的目錄將會作為預設目錄。|
-| -StorageAccountName | 儲存體帳戶名稱，用於找出從內部部署至 Azure 的資料複寫所耗用的頻寬。 此工具會將測試資料上傳到此儲存體帳戶，以找出所耗用的頻寬。 儲存體帳戶必須是一般用途 v1 或一般用途 v2。|
+| -StorageAccountName | 儲存體帳戶名稱，用於找出從內部部署至 Azure 的資料複寫所耗用的頻寬。 此工具會將測試資料上傳到此儲存體帳戶，以找出所耗用的頻寬。 儲存體帳戶必須是一般用途 v1 (GPv1) 類型。|
 | -StorageAccountKey | 用來存取儲存體帳戶的儲存體帳戶金鑰。 移至 [Azure 入口網站] > **儲存體帳戶** > *儲存體帳戶名稱* > **設定** > **存取金鑰** > **Key1** 。|
-| -VMListFile | 包含要剖析之 VM 清單的檔案，以便計算所耗用的頻寬。 此檔案路徑可以是絕對或相對路徑。 對於 Hyper-V，這個檔案是 GetVMList 作業的輸出檔。 如果以手動方式準備，此檔案應包含一個伺服器名稱或 IP 位址，並在後面接著虛擬機器名稱 (每一行以 \ 分隔)。 檔案中指定的虛擬機器名稱應該與 Hyper-V 主機上的虛擬機器名稱相同。<br><br>**例如：**VMList.txt 包含下列虛擬機器︰<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
+| -VMListFile | 包含要剖析之 VM 清單的檔案，以便計算所耗用的頻寬。 此檔案路徑可以是絕對或相對路徑。 對於 Hyper-V，這個檔案是 GetVMList 作業的輸出檔。 如果以手動方式準備，此檔案應包含一個伺服器名稱或 IP 位址，並在後面接著虛擬機器名稱 (每一行以 \ 分隔)。 檔案中指定的虛擬機器名稱應該與 Hyper-V 主機上的虛擬機器名稱相同。<br><br>**例如：** VMList.txt 包含下列虛擬機器︰<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-Environment|(選用) Azure 儲存體帳戶的目標環境。 可以是下列三個值之一：AzureCloud、AzureUSGovernment 或 AzureChinaCloud。 預設值為 AzureCloud。 當目標 Azure 區域是 Azure US Government 或 Azure China 時，請使用此參數。|
 
 ### <a name="example"></a>範例

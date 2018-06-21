@@ -13,13 +13,14 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/07/2018
+ms.date: 05/24/2018
 ms.author: tdykstra
-ms.openlocfilehash: 56b0f8e24dfc38b542f4bbfc7975f1704d70f22c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: c5211b43a85383c7c9f42a1d56271addae6d956e
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725338"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 觸發程序和繫結概念
 
@@ -45,38 +46,39 @@ ms.lasthandoff: 04/23/2018
 
 ## <a name="register-binding-extensions"></a>註冊繫結延伸模組
 
-在 2.x 版的 Azure Functions 執行階段中，您必須明確註冊您在函式應用程式中使用的[繫結延伸模組](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md)。 
+在 2.x 版的 Azure Functions 執行階段中，您必須明確註冊您在函式應用程式中使用的繫結延伸模組 (繫結類型)。 
 
-延伸模組會以 NuGet 套件的形式來傳遞，而套件名稱的開頭通常是 [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions)。  您安裝及註冊繫結延伸模組的方式取決於您如何開發您的函式： 
+Functions 執行階段 2.x 版目前為預覽狀態。 如需如何設定函式應用程式以使用 Functions 執行階段 2.x 版的相關資訊，請參閱[如何設定 Azure Functions 執行階段目標版本](set-runtime-version.md)。
+
+2.x 版中有一組自動註冊的核心繫結，因此您不需要明確加以註冊：HTTP、計時器和 Azure 儲存體 (Blob、佇列和資料表)。 
+
+延伸模組會以 NuGet 套件的形式來傳遞，而套件名稱的開頭通常是 [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions)。  您註冊繫結延伸模組的方式，取決於您開發函式的方式： 
 
 + [在本機 C# 中使用 Visual Studio 或 VS Code](#local-c-development-using-visual-studio-or-vs-code)
 + [在本機使用 Azure Functions Core Tools](#local-development-azure-functions-core-tools)
 + [在 Azure 入口網站中](#azure-portal-development) 
 
-2.x 版中有一組核心繫結並未提供來作為擴充功能。 您不需要註冊下列觸發程序和繫結的延伸模組：HTTP、計時器和 Azure 儲存體。 
+本節中顯示的套件版本僅提供作為範例。 請查看 [NuGet.org 網站](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions)，判斷函式應用程式中的其他相依性需要給定延伸模組的哪個版本。    
 
-如需如何設定函式應用程式以使用 Functions 執行階段 2.x 版的相關資訊，請參閱[如何設定 Azure Functions 執行階段目標版本](set-runtime-version.md)。 Functions 執行階段 2.x 版目前為預覽狀態。 
+### <a name="local-csharp"></a>使用 Visual Studio 或 VS Code 的本機 C# 開發
 
-本節中顯示的套件版本僅提供作為範例。 請查看 [NuGet.org 網站](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions)來判斷函式應用程式中的其他相依性需要所指定延伸模組的哪個版本。    
-
-###  <a name="local-c-development-using-visual-studio-or-vs-code"></a>使用 Visual Studio 或 VS Code 的本機 C# 開發 
-
-當您使用 Visual Studio 或 Visual Studio Code 透過 C# 在本機開發函式時，只需新增 NuGet 套件來取得延伸模組。 
+當您使用 Visual Studio 或 Visual Studio Code 透過 C# 在本機開發函式時，請安裝 NuGet 套件以取得延伸模組。 
 
 + **Visual Studio**：使用 NuGet 套件管理員工具。 下列 [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) 命令會從套件管理員主控台安裝 Azure Cosmos DB 延伸模組：
 
-    ```
+    ```powershell
     Install-Package Microsoft.Azure.WebJobs.Extensions.CosmosDB -Version 3.0.0-beta6 
     ```
+
 + **Visual Studio Code**：您可以在 .NET CLI 中使用 [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) 命令，從命令提示字元安裝套件，如下所示：
 
-    ```
+    ```terminal
     dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.0-beta6 
     ```
 
 ### <a name="local-development-azure-functions-core-tools"></a>本機開發 Azure Functions Core Tools
 
-[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 
 ### <a name="azure-portal-development"></a>Azure 入口網站開發
 

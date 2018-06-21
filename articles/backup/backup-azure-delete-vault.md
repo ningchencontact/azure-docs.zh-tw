@@ -1,24 +1,19 @@
 ---
-title: " 刪除 Azure 中的復原服務保存庫 | Microsoft Docs "
-description: "本文說明如何刪除復原服務保存庫。 本文包含當您嘗試刪除保存庫卻無法做到時的疑難排解步驟。"
+title: 刪除 Azure 中的復原服務保存庫
+description: 本文說明如何刪除復原服務保存庫。 本文包含當您嘗試刪除保存庫卻無法做到時的疑難排解步驟。
 services: service-name
-documentationcenter: dev-center-name
 author: markgalioto
 manager: carmonm
-editor: 
-ms.assetid: 5fa08157-2612-4020-bd90-f9e3c3bc1806
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 12/20/2017
-ms.author: markgal;trinadhk
-ms.openlocfilehash: 4f4a92159b01b197984130c15195419e1b166fd3
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: markgal
+ms.openlocfilehash: 844a70aa6fe003c6ad5816aaec9c32db9104c620
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605335"
 ---
 # <a name="delete-a-recovery-services-vault"></a>刪除復原服務保存庫
 本文說明如何在 Azure 入口網站中刪除復原服務保存庫。 您先前擁有的備份保存庫已轉換為復原服務保存庫。   

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2018
 ms.author: barclayn
-ms.openlocfilehash: 47ccf91a64653c928cc4da01bc98535c97440d37
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: aa2278e7d32147d75b8ca0241a39a9fed6df41c8
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187686"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36266877"
 ---
 # <a name="azure-disk-encryption-faq"></a>Azure 磁碟加密常見問題集
 
@@ -49,11 +49,13 @@ Azure 磁碟加密可用於標準層 VM，包括 [A、D、DS、G、GS 及 F](htt
 | --- | --- |--- |
 | Ubuntu | 16.04-DAILY-LTS | 作業系統和資料磁碟 |
 | Ubuntu | 14.04.5-DAILY-LTS | 作業系統和資料磁碟 |
+| RHEL | 7.5 | 資料磁碟* |
 | RHEL | 7.4 | 資料磁碟* |
 | RHEL | 7.3 | 資料磁碟* |
 | RHEL | 7.2 | 資料磁碟* |
 | RHEL | 6.8 | 資料磁碟* |
 | RHEL | 6.7 | 資料磁碟* |
+| CentOS | 7.4 | 作業系統和資料磁碟 |
 | CentOS | 7.3 | 作業系統和資料磁碟 |
 | CentOS | 7.2n | 作業系統和資料磁碟 |
 | CentOS | 6.8 | 作業系統和資料磁碟 |

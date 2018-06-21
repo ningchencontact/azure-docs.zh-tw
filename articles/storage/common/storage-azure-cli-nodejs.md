@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure CLI 1.0 搭配 Azure 儲存體 | Microsoft Docs"
-description: "了解如何使用「Azure 命令列介面」(Azure CLI) 1.0 搭配「Azure 儲存體」來建立和管理儲存體帳戶，以及處理 Azure Blob 和檔案。 Azure CLI 是一種跨平台工具"
+title: 使用 Azure CLI 1.0 搭配 Azure 儲存體 | Microsoft Docs
+description: 了解如何使用「Azure 命令列介面」(Azure CLI) 1.0 搭配「Azure 儲存體」來建立和管理儲存體帳戶，以及處理 Azure Blob 和檔案。 Azure CLI 是一種跨平台工具
 services: storage
 documentationcenter: na
 author: seguler
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
-ms.openlocfilehash: 772417012e4c6aa519e83177bd8e93778f6af3b5
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: a8866385c682e86e889ddf171cc640fe0bb8252d
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737464"
 ---
 # <a name="using-the-azure-cli-10-with-azure-storage"></a>使用 Azure CLI 1.0 搭配 Azure 儲存體
 
@@ -40,7 +41,7 @@ Azure CLI 提供您一組開放原始碼的跨平台命令集合，供您運用�
 ## <a name="get-started-with-azure-storage-and-the-azure-cli-in-5-minutes"></a>在 5 分鐘內開始使用 Azure 儲存體和 Azure CLI
 本指南使用 Ubuntu 作為範例，但其他作業系統平台也同樣能夠執行。
 
-**Azure 新手：** 取得 Microsoft Azure 訂用帳戶和與該訂用帳戶相關聯的 Microsoft 帳戶。 如需 Azure 購買選項的資訊，請參閱[免費試用](https://azure.microsoft.com/pricing/free-trial/)、[購買選項](https://azure.microsoft.com/pricing/purchase-options/)和[會員優惠](https://azure.microsoft.com/pricing/member-offers/) (適用於 MSDN、Microsoft 合作夥伴網路、BizSpark 和其他 Microsoft 方案的成員)。
+**Azure 新手：** 取得 Microsoft Azure 訂用帳戶和與該訂用帳戶相關聯的 Microsoft 帳戶。 如需 Azure 購買選項的資訊，請參閱[免費試用](https://azure.microsoft.com/pricing/free-trial/)、[購買選項](https://azure.microsoft.com/pricing/purchase-options/)和[會員供應項目](https://azure.microsoft.com/pricing/member-offers/) (適用於 MSDN、Microsoft 合作夥伴網路、BizSpark 和其他 Microsoft 方案的成員)。
 
 如需 Azure 訂用帳戶的詳細資訊，請參閱 [在 Azure Active Directory (Azure AD) 中指派系統管理員角色](https://msdn.microsoft.com/library/azure/hh531793.aspx) 。
 

@@ -1,24 +1,19 @@
 ---
-title: 建立 Azure 服務的警示 - 跨平台 CLI | Microsoft Docs
+title: 建立 Azure 服務的傳統警示 - 跨平台 CLI
 description: 當符合您指定的條件時，觸發電子郵件、通知、呼叫網站 URL (Webhook) 或自動化。
 author: rboucher
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 5c6a2d27-7dcc-4f89-8752-9bb31b05ff35
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 10/24/2016
 ms.author: robb
-ms.openlocfilehash: 9ea7da35acefc139625e71904c8aa1b01b87e4df
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.component: alerts
+ms.openlocfilehash: 35f87f140772be1777ddfb184e78b61446bb3bd6
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267742"
 ---
 # <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>在 Azure 監視器中為 Azure 服務建立傳統計量警示 - 跨平台 CLI
 > [!div class="op_single_selector"]

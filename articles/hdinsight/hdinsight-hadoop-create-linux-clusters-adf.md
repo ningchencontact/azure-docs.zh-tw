@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: nitinme
-ms.openlocfilehash: 53ff14e00b88f6d182579ba0d9df630fae9b3d78
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9d54d3481176b36a0d13a9b8af2fad03349b81be
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33771128"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36229248"
 ---
 # <a name="tutorial-create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>教學課程：使用 Azure Data Factory 在 HDInsight 中建立隨選 Hadoop 叢集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -80,12 +80,7 @@ $destContainerName = "adfgetstarted" # don't change this value.
 ####################################
 #region - Connect to Azure subscription
 Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-<<<<<<< HEAD
 Login-AzureRmAccount
-=======
-try{Get-AzureRmContext}
-catch{Connect-AzureRmAccount}
->>>>>>> refs/remotes/MicrosoftDocs/release-build-hdinsight-2018
 #endregion
 
 ####################################

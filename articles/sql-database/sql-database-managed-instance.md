@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: 0c4acf6e8e236d46a9db2b4ab730b8333e4f6ca6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f07ce542c176f4038378d54497d7114109ac5bd3
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648120"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36215519"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>什麼是受控執行個體 (預覽)？
 
@@ -39,7 +39,7 @@ Azure SQL Database 受控執行個體 (預覽) 是 Azure SQL Database 的新功�
 
 | | 使用方式情節 | 
 | --- | --- | 
-|SQL Database 受控執行個體 |若客戶想要盡可能輕鬆地遷移大量內部部署、IaaS、自行建置或 ISV 提供的應用程式，則建議使用受控執行個體。 利用 Azure 中完全自動化的[資料移轉服務 (DMS)](/sql/dma/dma-overview)，客戶可以將內部部署 SQL Server 隨即移轉至受控執行個體，受控執行個體可與 SQL Server 內部部署環境相容，並透過原生 VNET 支援來完全隔離客戶執行個體。  您可以透過軟體保證使用[適用於 SQL Server 的 Azure Hybrid Use Benefit](../virtual-machines/windows/hybrid-use-benefit-licensing.md)，以折扣優惠在 SQL Database 受控執行個體上交換執行個體的現有授權。  對於需要高度安全性和程式設計介面豐富的 SQL Server 執行個體而言，SQL Database 受控執行個體是雲端中最佳的移轉目的地。 |
+|SQL Database 受控執行個體 |若客戶想要盡可能輕鬆地遷移大量內部部署、IaaS、自行建置或 ISV 提供的應用程式，則建議使用受控執行個體。 利用 Azure 中完全自動化的[資料移轉服務 (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance)，客戶可以將內部部署 SQL Server 隨即移轉至受控執行個體，受控執行個體可與 SQL Server 內部部署環境相容，並透過原生 VNET 支援來完全隔離客戶執行個體。  您可以透過軟體保證使用[適用於 SQL Server 的 Azure Hybrid Use Benefit](../virtual-machines/windows/hybrid-use-benefit-licensing.md)，以折扣優惠在 SQL Database 受控執行個體上交換執行個體的現有授權。  對於需要高度安全性和程式設計介面豐富的 SQL Server 執行個體而言，SQL Database 受控執行個體是雲端中最佳的移轉目的地。 |
 |Azure SQL 資料庫 (單一或集區) |**彈性集區**：若客戶要開發新的 SaaS 多租用戶應用程式，或有意將其現有的內部部署應用程式移轉至 SaaS 多租用戶應用程式，則建議使用彈性集區。 此模型的優勢包括： <br><ul><li>從銷售授權轉換為銷售服務訂用帳戶的商務模型轉換 (適用於 ISV)</li></ul><ul><li>簡單且確實的租用戶隔離</li></ul><ul><li>以資料庫為中心的簡化程式設計模型</li></ul><ul><li>沒有硬限制的延展性</li></ul>**單一資料庫**：除了 SaaS 多租用戶，客戶若想開發其他工作負載穩定且可預測的新應用程式，則建議使用單一資料庫。 此模型的優勢包括：<ul><li>以資料庫為中心的簡化程式設計模型</li></ul>  <ul><li>每個資料庫的效能可預測性</li></ul>|
 |SQL IaaS 虛擬機器|若客戶需要自訂作業系統或資料庫伺服器，且客戶在執行可支援 SQL Server 的第三方應用程式時有特殊需求 (在相同的 VM 上)，建議您將 SQL VM / IaaS 作為最佳解決方案|
 |||
@@ -187,11 +187,10 @@ Azure 資料庫移轉服務是一個完全受控的服務，能夠從多個資�
 
 移轉方法會利用 Azure Blob 儲存體的 SQL 備份。 儲存在 Azure 儲存體 Blob 的備份可以直接用來還原到受控執行個體。 若要將現有的 SQL 資料庫還原至受控執行個體，您可以：
 
-- 使用[資料移轉服務 (DMS)](/sql/dma/dma-overview)。 如需教學課程，請參閱[使用 Azure Database Migration Service (DMS) 移轉至受控執行個體](../dms/tutorial-sql-server-to-managed-instance.md)從資料庫備份檔案還原
+- 使用[資料移轉服務 (DMS)](../dms/dms-overview.md)。 如需教學課程，請參閱[使用 Azure Database Migration Service (DMS) 移轉至受控執行個體](../dms/tutorial-sql-server-to-managed-instance.md)從資料庫備份檔案還原
 - 使用 [T-SQL RESTORE 命令](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql)。 
   - 如需示範如何還原 Wide World Importers - 標準資料庫備份檔案的教學課程，請參閱[還原備份檔案至受控執行個體](sql-database-managed-instance-restore-from-backup-tutorial.md)。 本教學課程顯示，您必須將備份檔案上傳到 Azure Blog 儲存體，並使用共用存取簽章 (SAS) 金鑰保護其安全。
   - 如需從 URL 還原的資訊，請參閱[從 URL 原生還原](sql-database-managed-instance-migrate.md#native-restore-from-url)。
-- [從 BACPAC 檔案匯入](sql-database-import.md)
 
 ## <a name="sql-features-supported"></a>SQL 功能支援 
 

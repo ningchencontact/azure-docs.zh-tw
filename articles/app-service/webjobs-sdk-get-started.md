@@ -1,5 +1,5 @@
 ---
-title: 開始使用 WebJobs SDK - Azure
+title: 開始使用 Azure WebJobs SDK
 description: 使用 WebJobs SDK 進行事件驅動幕後處理的簡介。 了解如何存取 Azure 服務和第三方服務中的資料。
 services: app-service\web, storage
 documentationcenter: .net
@@ -13,19 +13,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: b1de898ec4f661c54b5227367ad416a5edec80ed
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d0afc8b6f8e0b7ef73e5d1c3cbabf2e1542f47f4
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234509"
 ---
-# <a name="get-started-with-the-webjobs-sdk"></a>開始使用 WebJobs SDK
+# <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>開始使用 Azure WebJobs SDK 進行事件驅動幕後處理
 
-本文說明如何建立 WebJobs SDK 專案，在本機執行它，並將它部署至 Azure。
+本文說明如何建立 Azure WebJobs SDK 專案並於本機執行，再部署至 Azure App Service。
 
 這些指示適用於 [Visual Studio 2017](https://www.visualstudio.com/vs/)，但可使用其他工具完成相同的工作，例如 [Visual Studio Code](https://code.visualstudio.com/)。
 
-## <a name="what-is-the-webjobs-sdk"></a>什麼是 Azure WebJobs SDK
+## <a name="what-is-the-azure-webjobs-sdk"></a>什麼是 Azure WebJobs SDK
 
 WebJobs SDK 是一套架構，可簡化撰寫背景處理程式碼的工作，以便存取 Azure 服務中的資料。 SDK 的特色是宣告式語法，可供指定應觸發函式的事件，例如加入佇列的新訊息。 類似的宣告式語法可控制觸發函式後的資料讀取和寫入。 這個觸發程序與繫結系統會負責與存取 Azure 和第三方服務相關聯的大部分低階編碼工作。
 

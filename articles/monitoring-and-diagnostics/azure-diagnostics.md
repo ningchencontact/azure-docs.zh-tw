@@ -1,25 +1,20 @@
 ---
-title: Azure 診斷延伸模組的概觀 | Microsoft Docs
+title: Azure 診斷擴充功能的概觀
 description: 使用 Azure 診斷來在雲端服務、虛擬機器及 Service Fabric 中進行偵錯、測量效能、監視、流量分析等。
-services: multiple
-documentationcenter: .net
+services: azure-monitor
 author: rboucher
-manager: ''
-editor: ''
-ms.assetid: baad40d8-c915-4f93-b486-8b160bf33463
-ms.service: multiple
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: robb
-ms.openlocfilehash: daeaddefa461e71fcc62af4efc4fb7084b237cf9
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.component: diagnostic-extension
+ms.openlocfilehash: b4ec82112ea0defcea4f687abaad7d96627cb902
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33886390"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267674"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>什麼是 Azure 診斷延伸模組
 Azure 診斷延伸模組是 Azure 中的代理程式，可對部署的應用程式收集診斷資料。 您可以使用來自許多不同來源的診斷延伸模組。 目前支援 Azure 雲端服務 (傳統) Web 和背景工作角色、虛擬機器、虛擬機器擴展集和 Service Fabric。 其他 Azure 服務有不同的診斷方法。 請參閱 [Azure 中的監視概觀](monitoring-overview.md)。 

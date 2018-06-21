@@ -1,11 +1,11 @@
 ---
-title: "使用 C++ 開發 Azure 檔案服務 | Microsoft Docs"
-description: "了解如何開發 C++ 應用程式和服務，以使用 Azure 檔案服務來儲存檔案資料。"
+title: 使用 C++ 開發 Azure 檔案服務 | Microsoft Docs
+description: 了解如何開發 C++ 應用程式和服務，以使用 Azure 檔案服務來儲存檔案資料。
 services: storage
 documentationcenter: .net
 author: renashahmsft
 manager: aungoo
-editor: tysonn
+editor: tamram
 ms.assetid: a1e8c99e-47a6-43a9-9541-c9262eb00b38
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renashahmsft
-ms.openlocfilehash: d2f55b5ca6348ba8e190c65ec9a72c6f730d869e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0b5974780813eb4f3d67c42781db4d95829814d
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737566"
 ---
 # <a name="develop-for-azure-files-with-c"></a>使用 C++ 開發 Azure 檔案服務
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -26,9 +27,7 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
 ## <a name="about-this-tutorial"></a>關於本教學課程
-
 在本教學課程中，您將學習如何執行 Azure 檔案服務的基本作業。 透過以 C++ 撰寫的範例，您將學習如何建立共用和目錄、上傳、列出及刪除檔案。 如果您是 Azure 檔案服務的新手，閱讀下列各節中的概念對於了解範例會很有幫助。
-
 
 * 建立及刪除 Azure 檔案共用
 * 建立及刪除目錄
@@ -46,7 +45,7 @@ ms.lasthandoff: 10/11/2017
 若要安裝適用於 C++ 的 Azure 儲存體用戶端 2.4.0，您可以使用下列其中一個方法：
 
 * **Linux：** 遵循 [Azure Storage Client Library for C++ 讀我檔案](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) 頁面中提供的指示進行。
-* **Windows：**在 Visual Studio 中，按一下 [工具]&gt;[NuGet 套件管理員]&gt;[套件管理員主控台]。 在 [NuGet 套件管理員主控台](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) 中輸入下列命令，然後按下 **Enter**。
+* **Windows：** 在 Visual Studio 中，按一下 [工具]&gt;[NuGet 套件管理員]&gt;[套件管理員主控台]。 在 [NuGet 套件管理員主控台](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) 中輸入下列命令，然後按下 **Enter**。
   
 ```
 Install-Package wastorage
@@ -357,6 +356,6 @@ if (share.exists())
 如需深入了解 Azure 儲存體，請探索這些資源：
 
 * [Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp)
-* [Azure 儲存體檔案服務的 C++ 範例] (https://github.com/Azure-Samples/storage-file-cpp-getting-started)
+* [C++ 的 Azure 儲存體檔案服務範例] (https://github.com/Azure-Samples/storage-file-cpp-getting-started)
 * [Azure 儲存體總管](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
 * [Azure 儲存體文件](https://azure.microsoft.com/documentation/services/storage/)

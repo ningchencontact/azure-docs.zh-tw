@@ -2,18 +2,18 @@
 title: 使用 Azure Site Recovery 部署 VMware 災害復原的組態伺服器 | Microsoft Docs
 description: 本文說明如何使用 Azure Site Recovery 部署 VMware 災害復原的組態伺服器
 services: site-recovery
-author: AnoopVasudavan
-manager: gauravd
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
-ms.author: anoopkv
-ms.openlocfilehash: 2389ff6824a005db46c04bd1b45eabfd5ce50481
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 05/06/2018
+ms.author: raynew
+ms.openlocfilehash: 3e7a9196d928fb8a5d12647e1916b046ebedd261
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32188475"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267504"
 ---
 # <a name="deploy-a-configuration-server"></a>部署設定伺服器
 
@@ -21,11 +21,19 @@ ms.locfileid: "32188475"
 
 ## <a name="prerequisites"></a>先決條件
 
-我們建議您將組態伺服器部署為高可用性的 VMware VM。 下表彙總最低硬體需求。
+我們建議您將組態伺服器部署為高可用性的 VMware VM。 下表彙總設定伺服器需求。
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 
+
+### <a name="prepare-for-mysql-installation"></a>準備 MySQL 安裝
+
+必須在設定伺服器上安裝 MySQL。 您可以使用下列其中一種方法進行：
+
+- 設定伺服器管理精靈執行時，讓站台復原下載並安裝它。 您不需要採取任何特定動作。
+- 手動下載 MySQL，並將它放在資料夾 C:\Temp\ASRSetup 中。 然後執行安裝。 精靈執行時，站台復原會辨識它已安裝。
+- 手動下載 MySQL，並將它放在資料夾 C:\Temp\ASRSetup 中。 精靈執行時，它會尋找安裝檔案，並從這個位置進行安裝。 
 
 
 ## <a name="capacity-planning"></a>容量規劃
@@ -101,7 +109,7 @@ Site Recovery 提供了可下載的範本，供您將組態伺服器設定為高
 
 1. 在設定伺服器管理精靈中，選取 [設定連線]。 選取用來接收複寫流量的 NIC，然後選取 [儲存]。 您在設定後便無法變更此設定。
 2. 在 [選取復原服務保存庫] 中，選取您的 Azure 訂用帳戶及相關的資源群組和保存庫。
-3. 在 [安裝第三方軟體] 中，接受授權合約。 選取 [下載並安裝] 以安裝 MySQL Server。
+3. 在 [安裝第三方軟體] 中，接受授權合約。 按照[安裝 MySQL 所用的方法](#prepare-for-mysql-installation)安裝 MySQL。
 4. 選取 [安裝 VMware PowerLCI]。 在您執行這個步驟之前，確定所有瀏覽器視窗都已關閉。 然後選取 [繼續]。
 5. 在 [驗證設備設定] 中，必要條件會在您繼續之前進行驗證。
 6. 在 [設定 vCenter 伺服器/vSphere ESXi 伺服器] 中，輸入 vCenter 伺服器或 vSphere 主機 (您要複寫的 VM 位於其上) 的 FQDN 或 IP 位址。 輸入伺服器正在接聽的連接埠，以及保存庫中 VMware 伺服器的易記名稱。

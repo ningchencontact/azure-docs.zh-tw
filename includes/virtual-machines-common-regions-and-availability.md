@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: include file
-ms.openlocfilehash: 4a49c3db52e3cce37101836f7233ba8e3f5380c1
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: e54813896eee8a58ae456f14f76151318ac1b9fc
+ms.sourcegitcommit: ff1896b01bfcc26df3b202011bb8ec8cfdb014fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34826570"
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35620521"
 ---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Azure 中虛擬機器的區域和可用性
 Azure 在世界各地多個資料中心運作。 這些資料中心會依據地理區域分組，提供您彈性來選擇要建置應用程式的位置。 請務必了解虛擬機器 (VM) 在 Azure 中的運作方式和位置，以及可充分發揮效能、可用性和備援功能的選項。 本文提供 Azure 可用性和備援功能的概觀。
@@ -49,7 +49,7 @@ Azure 在世界各地多個資料中心運作。 這些資料中心會依據地�
 您可以 [在這裡看到完整的區域配對清單](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions)。
 
 ## <a name="feature-availability"></a>功能可用性
-有些服務或 VM 功能只有在特定區域提供，例如特定的 VM 大小或儲存體類型。 也有一些不會要求您選取特定區域的通用 Azure 服務，例如 [Azure Active Directory](../articles/active-directory/active-directory-whatis.md)、[流量管理員](../articles/traffic-manager/traffic-manager-overview.md)或 [Azure DNS](../articles/dns/dns-overview.md)。 為了協助您設計應用程式環境，您可以查看 [每個區域的 Azure 服務可用性](https://azure.microsoft.com/regions/#services)。 您也可以[透過程式設計來查詢每個地區支援的 VM 大小和限制](../articles/azure-resource-manager/resource-manager-sku-not-available-errors.md)。
+有些服務或 VM 功能只有在特定區域提供，例如特定的 VM 大小或儲存體類型。 也有一些不會要求您選取特定區域的通用 Azure 服務，例如 [Azure Active Directory](../articles/active-directory/fundamentals/active-directory-whatis.md)、[流量管理員](../articles/traffic-manager/traffic-manager-overview.md)或 [Azure DNS](../articles/dns/dns-overview.md)。 為了協助您設計應用程式環境，您可以查看 [每個區域的 Azure 服務可用性](https://azure.microsoft.com/regions/#services)。 您也可以[透過程式設計來查詢每個地區支援的 VM 大小和限制](../articles/azure-resource-manager/resource-manager-sku-not-available-errors.md)。
 
 ## <a name="storage-availability"></a>儲存體可用性
 在您考慮可用的儲存體複寫選項時，了解 Azure 區域和地理位置會變得相當重要。 根據儲存體類型，您會有不同的複寫選項。

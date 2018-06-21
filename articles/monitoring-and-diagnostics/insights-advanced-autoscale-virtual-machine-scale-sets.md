@@ -1,25 +1,19 @@
 ---
-title: 使用 Azure 虛擬機器的進階自動調整 | Microsoft Docs
+title: 使用 Azure 虛擬機器的進階自動調整
 description: 使用 Resource Manager 和 VM 擴展集，搭配多個規則與設定檔，以傳送電子郵件並使用調整動作來呼叫 Webhook URL。
 author: anirudhcavale
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 7e3576e2-4a2b-4736-b5ae-98c4689cdd2b
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 02/22/2016
 ms.author: ancav
-ms.openlocfilehash: c1ac5c4c44386fc05e3ee87ccdbbc4f652a94a1c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: autoscale
+ms.openlocfilehash: 9ff8c28a139d9a16d31a61b560ef7f5759d0a3f5
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32176709"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267725"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>針對 VM 擴展集使用 Resource Manager 範本的進階自動調整設定
 您可以根據效能標準臨界值、循環排程或特定日期，針對虛擬機器擴展集進行相應縮小和放大。 您也可以針對調整動作設定電子郵件和 webhook 通知。 本逐步解說會示範在 VM 擴展集上使用 Resource Manager 範本設定所有這些物件。
@@ -55,9 +49,9 @@ ms.locfileid: "32176709"
 4. 以下是我們用於此逐步解說的虛構調整案例。
 
     * **以負載為基礎** - 我想要根據裝載於擴展集的應用程式的負載來相應放大或縮小。*
-    * **訊息佇列大小** - 我使用服務匯流排佇列來存放傳入應用程式的訊息。 我使用佇列的訊息計數和 CPU%，並設定預設設定檔，在訊息計數或 CPU 達到臨界值時觸發調整動作。*
+    * **訊息佇列大小** - 我使用服務匯流排佇列來存放傳入應用程式的訊息。 我使用佇列的訊息計數和 CPU%，並設定預設設定檔，在訊息計數或 CPU 達到臨界值時觸發調整動作。
     * **每週和每日時間** - 我想要一個以每週一次「當天時間」為基礎的設定檔，稱為「工作日早上時間」。 根據歷史資料，我明白這段期間，最好要有一定數量的 VM 執行個體來處理應用程式的負載。*
-    * **特殊日期** - 我已新增「產品發行日」設定檔。 我提前針對特定日期做好規劃，讓應用程式能夠因應由於行銷發表或當我們將新產品置入應用程式時所引起的負載。*
+    * **特殊日期** - 我已新增「產品發行日」設定檔。 我提前針對特定日期做好規劃，讓應用程式能夠因應由於行銷發表或當我們將新產品置入應用程式時所引起的負載。
     * *最後兩個設定檔也可以具有以其他效能標準為基礎的規則。在此案例中，我決定不那麼做，而是依賴以預設效能標準為基礎的規則。針對週期性和日期式設定檔的規則為選擇性。*
 
     自動調整引擎針對設定檔和規則的優先順序，也已在[自動調整最佳做法](insights-autoscale-best-practices.md)一文中說明。

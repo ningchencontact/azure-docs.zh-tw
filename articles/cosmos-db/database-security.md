@@ -5,20 +5,17 @@ keywords: nosql 資料庫安全性, 資訊安全性, 資料安全性, 資料庫�
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: a02a6a82-3baf-405c-9355-7a00aaa1a816
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 2b0cb1ed92694a7859912dfe0339ef719c0d15ef
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: aa04ae8d5bdccb52e3f63fb2dfb3c75df83b7a54
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34611614"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB 資料庫安全性
 
@@ -73,10 +70,10 @@ ms.lasthandoff: 05/03/2018
 |區域複寫|即使在單一資料中心內，Azure Cosmos DB 也會自動複寫資料來達到高可用性，還可讓您選擇[一致性層級](consistency-levels.md)。 如此保證所有單一區域帳戶和所有多重區域帳戶具有鬆散的一致性，可達到 99.99% [可用性 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db)，而所有多重區域資料庫帳戶有 99.999% 的讀取可用性。|
 |自動化線上備份|Azure Cosmos DB 資料庫會定期備份，並儲存在異地備援存放區。 <br><br>請參閱[使用 Azure Cosmos DB 進行自動線上備份及還原](online-backup-and-restore.md)以深入了解。|
 |還原已刪除的資料|自動化線上備份可用來復原您不小心刪除的資料，最多可還原意外發生後 30 天內的資料。 <br><br>請參閱[使用 Azure Cosmos DB 進行自動線上備份及還原](online-backup-and-restore.md)以深入了解|
-|保護並隔離機密資料|在列於[新功能](#whats-new)的區域中，所有資料均已加密靜止。<br><br>PII 和其他機密資料可隔離至特定集合，而讀寫或唯讀存取權可以限制只給特定使用者。|
+|保護並隔離機密資料|在列於[新功能](#whats-new)的區域中，所有資料均已加密靜止。<br><br>個人資料和其他機密資料可隔離至特定集合來進行讀寫，或限制為只對特定使用者提供唯讀存取權。|
 |監視攻擊|您可以使用[稽核記錄和活動記錄](logging.md)，以監視帳戶的正常和異常活動。 您可以檢視資源上執行的作業、誰起始作業、作業何時發生、作業的狀態等等，如本表格之後的螢幕擷取畫面所示。|
 |回應攻擊|一旦您連絡 Azure 支援來報告潛在的攻擊，就會展開 5 步驟的事件回應程序。 5 步驟程序的目標是在偵測到問題並展開調查之後，儘快恢復正常的服務安全性和作業。<br><br>請參閱[雲端的 Microsoft Azure 安全性回應](https://aka.ms/securityresponsepaper)以深入了解。|
-|異地隔離|Azure Cosmos DB 可確保主權區域 (例如，德國、中國、US Gov) 的資料控管和合規性。|
+|異地隔離|Azure Cosmos DB 可確保主權區域 (例如，德國、中國、US Gov) 的資料控管。|
 |受保護的設施|Azure Cosmos DB 中的資料儲存在 Azure 受保護資料中心內的 SSD 上。<br><br>請參閱 [Microsoft 全球資料中心](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)以深入了解|
 |HTTPS/SSL/TLS 加密|用戶端對服務的所有 Azure Cosmos DB 互動都支援 SSL/TLS 1.2。 此外，資料中心內和跨資料中心的所有複寫也都強制使用 SSL/TLS 1.2。|
 |待用加密|所有儲存至 Azure Cosmos DB 的資料都會進行待用加密。 若要深入了解，請參閱 [Azure Cosmos DB 待用加密](.\database-encryption-at-rest.md)|

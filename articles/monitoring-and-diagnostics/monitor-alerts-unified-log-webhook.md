@@ -1,24 +1,19 @@
 ---
-title: Azure 警示中記錄警示的 Webhook 動作 | Microsoft Docs
+title: Azure 警示中各項記錄警示的 Webhook 動作
 description: 本文說明使用 Log Analytics 或 Application Insights 的記錄警示規則如何將資料作為 HTTP Webhook 推送以及不同可行自訂的詳細資料。
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: 28c8e6ab6a23a46bdea31c71b08b9c6a28d1be33
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.component: alerts
+ms.openlocfilehash: 304476e2d6862fbb6a859ae6fefe96d177b1111b
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264250"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhook 動作記錄警示規則
 [在 Azure 中建立警示](monitor-alerts-unified-usage.md)後，您可以選擇[使用動作群組設定](monitoring-action-groups.md)以執行一或多個動作。  本文說明各種可用的 Webhook 動作以及設定自訂 JSON 型 Webhook 的詳細資訊。
@@ -47,11 +42,11 @@ Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務�
 | 嚴重性 |#severity |為引發的記錄警示設定的嚴重性。 |
 | AlertThresholdOperator |#thresholdoperator |警示規則的臨界值運算子。  大於或等於。 |
 | AlertThresholdValue |#thresholdvalue |警示規則的臨界值。 |
-| LinkToSearchResults |#linktosearchresults |連結至 Log Analytics 記錄檔搜尋，而該搜尋會從建立警示的查詢傳回記錄。 |
+| LinkToSearchResults |#linktosearchresults |連結至 Analytics 入口網站；此入口網站會從建立警示的查詢傳回記錄。 |
 | ResultCount |#searchresultcount |搜尋結果中的記錄數目。 |
-| 搜尋間隔結束時間 |#searchintervalendtimeutc |查詢的結束時間 (UTC 格式)。 |
-| 搜尋間隔 |#searchinterval |警示規則的時間範圍。 |
-| 搜尋間隔開始時間 |#searchintervalstarttimeutc |查詢的開始時間 (UTC 格式)。 
+| 搜尋間隔結束時間 |#searchintervalendtimeutc |查詢的結束時間 (UTC)，格式 - mm/dd/yyyy HH:mm:ss AM/PM。 |
+| 搜尋間隔 |#searchinterval |警示規則的時間範圍，格式 - HH:mm:ss。 |
+| 搜尋間隔開始時間 |#searchintervalstarttimeutc |查詢的開始時間 (UTC)，格式 - mm/dd/yyyy HH:mm:ss AM/PM。 
 | SearchQuery |#searchquery |警示規則所使用的記錄檔搜尋查詢。 |
 | SearchResults |"IncludeSearchResults": true|查詢會將記錄傳回為 JSON 資料表，受限於前 1,000 筆記錄；如果在自訂 JSON Webhook 定義中將 "IncludeSearchResults": true 新增為最上層屬性的話。 |
 | WorkspaceID |#workspaceid |Log Analytics 工作區的識別碼。 |
@@ -74,6 +69,7 @@ Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務�
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
 ```
+正如自訂 Webhook 中的所有變數都必須指定於 JSON 括號內 (例如 "#searchinterval")，產生的 Webhook 也會將變數資料包含在括號內，例如 "00:05:00"。
 
 若要在自訂承載中包含搜尋結果，請務必將 **IncudeSearchResults** 設定為 json 承載中的最上層屬性。 
 

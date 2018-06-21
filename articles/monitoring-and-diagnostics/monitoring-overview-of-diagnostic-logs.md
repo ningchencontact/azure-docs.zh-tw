@@ -1,24 +1,19 @@
 ---
-title: Azure 診斷記錄檔概觀 | Microsoft Docs
+title: Azure 診斷記錄檔概觀
 description: 認識 Azure 診斷記錄，並了解如何利用它們來了解 Azure 資源內發生的事件。
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: fe8887df-b0e6-46f8-b2c0-11994d28e44f
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/04/2018
-ms.author: johnkem; magoedte
-ms.openlocfilehash: 00b990181e5bb96f122ff1ae530dd027a772b210
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 06/07/2018
+ms.author: johnkem
+ms.component: logs
+ms.openlocfilehash: e361259bc5ce2dd946d3ea8bc1e69f743a40c6df
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264396"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>收集並取用來自 Azure 資源的記錄資料
 
@@ -45,6 +40,9 @@ ms.lasthandoff: 04/18/2018
 
 您可以使用並非發出記錄的同一個訂用帳戶中的儲存體帳戶或事件中樞命名空間。 進行此設定的使用者必須具有這兩個訂用帳戶的適當 RBAC 存取權。
 
+> [!NOTE]
+>  您目前無法將資料封存到位在安全虛擬網路後面的儲存體帳戶。
+
 ## <a name="resource-diagnostic-settings"></a>資源診斷設定
 
 非計算資源的資源診斷記錄是使用資源診斷設定來設定的。 資源的**資源診斷設定**可控制：
@@ -54,7 +52,7 @@ ms.lasthandoff: 04/18/2018
 * 每個記錄類別應該在儲存體帳戶中保留多久
     - 保留期為 0 天表示會永遠保留記錄。 否則，此值可以是 1 到 2147483647 之間的任意天數。
     - 如果已設定保留原則，但將儲存體帳戶的記錄儲存停用 (例如，若只選取事件中樞或 Log Analytics 選項)，保留原則不會有任何作用。
-    - 保留原則是每天套用，因此在一天結束時 (UTC)，這一天超過保留原則的記錄會被刪除。 例如，如果您的保留原則為一天，在今天一開始，昨天之前的記錄檔會被刪除。
+    - 保留原則是每天套用，因此在一天結束時 (UTC)，這一天超過保留原則的記錄會被刪除。 例如，如果您的保留原則為一天，在今天一開始，昨天之前的記錄檔會被刪除。 刪除程序會從午夜 UTC 開始，但是請注意，記錄從您的儲存體帳戶刪除可能需要長達 24 小時的時間。
 
 透過 Azure 入口網站中資源的診斷設定、透過 Azure PowerShell 和 CLI 命令、或是透過 [Azure 監視器 REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx)，可以輕鬆地進行這些設定。
 

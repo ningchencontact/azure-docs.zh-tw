@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e63df0832431ddc1502ab7b07c60c8d4abf59ac4
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 4ac8e517e68f7cbba3019fa27065468b387c1b65
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801485"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284665"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Azure Active Directory 混合式身分識別設計考量 - 後續步驟
 現在您已經完成定義需求以及檢查行動裝置管理解決方案的所有選項，您已準備好採取後續步驟，來部署最適合您和您的組織的支援基礎結構。
@@ -42,7 +42,7 @@ ms.locfileid: "34801485"
 ## <a name="hybrid-identity-resources"></a>混合式身分識別資源
 監視下列資源，通常可提供關於行動裝置管理解決方案的最新消息和更新：
 
-* [Microsoft Enterprise Mobility 部落格](http://blogs.technet.com/b/enterprisemobility/)
+* [Microsoft Enterprise Mobility 部落格](https://cloudblogs.microsoft.com/ENTERPRISEMOBILITY/)
 * [Microsoft In The Cloud 部落格](http://blogs.technet.com/b/in_the_cloud/)
 * [Microsoft Intune 部落格](http://blogs.technet.com/b/microsoftintune/)
 * [Microsoft System Center Configuration Manager 部落格](http://blogs.technet.com/b/configurationmgr/)

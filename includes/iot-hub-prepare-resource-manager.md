@@ -33,7 +33,8 @@
    * **{Password}：** 您用來驗證應用程式的密碼。
      
      ```powershell
-     New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password {Password}
+     $SecurePassword=ConvertTo-SecureString {password} –asplaintext –force
+     New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password $SecurePassword
      ```
 4. 請記下建立之應用程式的 **ApplicationId** 。 您稍後需要此資訊。
 5. 使用下列命令，並將 **{MyApplicationId}** 取代為上一個步驟的 **ApplicationId**，藉此建立新的服務主體：

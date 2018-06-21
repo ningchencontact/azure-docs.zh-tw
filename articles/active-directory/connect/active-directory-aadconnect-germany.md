@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5771d3319194ff4952f4c93140594db2d93bb7f8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 46d4d095ef71870c7f5b3eabaf66e26797b7331e
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593549"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36286314"
 ---
 # <a name="azure-ad-connect-in-microsoft-cloud-germany---public-preview"></a>Microsoft Cloud Germany 中的 Azure AD Connect - 公開預覽
 ## <a name="introduction"></a>簡介
@@ -34,9 +34,7 @@ Azure AD Connect 可進行內部部署 Active Directory 與 Azure Active Directo
   * *.windows.net
   * * 憑證撤銷清單
 * 當您登入 Azure AD 目錄時，必須使用 onmicrosoft.de 網域中的帳戶。
-* 無法使用下列功能：
-  * Azure AD Connect Health
-  * 自動更新
+
  
 ## <a name="download"></a>下載
 您可以從入口網站中的 [Azure AD Connect] 刀鋒視窗下載 Azure AD Connect。  使用下列指示來尋找 Azure AD Connect 刀鋒視窗。

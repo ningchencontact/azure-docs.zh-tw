@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 58c27c0872978c3a6a4c47be37e6fa6078309286
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 0c1cea1646c71698318e94932248e08955359b9e
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234510"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>在 Azure App Service 中設定 Web 應用程式
 
@@ -67,6 +68,8 @@ ms.lasthandoff: 03/12/2018
 * 如果是 .NET 應用程式，這些設定就會在執行階段插入 .NET 設定 `AppSettings` ，並覆寫現有的設定。 
 * PHP、Python、Java 和 Node 應用程式可以在執行階段以環境變數的形式存取這些設定。 系統會為每個應用程式設定建立兩個環境變數，一個變數具有由應用程式設定項目指定的名稱，另一個則具有 APPSETTING_ 前置詞。 這兩個變數都包含相同的值。
 
+應用程式設定在儲存時一律加密 (待用加密)。
+
 ### <a name="connection-strings"></a>連接字串
 連結資源的連接字串。 
 
@@ -80,6 +83,8 @@ ms.lasthandoff: 03/12/2018
 * 自訂：`CUSTOMCONNSTR_`
 
 例如，如果 MySql 連接字串命名為 `connectionstring1`，則可透過環境變數 `MYSQLCONNSTR_connectionString1` 加以存取。
+
+連接字串在儲存時一律加密 (待用加密)。
 
 ### <a name="default-documents"></a>預設文件
 預設文件是顯示於網站根 URL 上的網頁。  系統會使用清單中第一個相符的檔案。 

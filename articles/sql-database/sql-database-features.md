@@ -1,35 +1,35 @@
 ---
 title: Azure SQL Database 功能比較 | Microsoft Docs
-description: 本文會將 Azure SQL Database 的功能與「受控執行個體」彼此及與 SQL Server 做比較。
+description: 本文會比較不同類型之 Azure SQL Database 中可用的 SQL Server 功能。
 services: sql-database
 author: jovanpop-msft
 ms.reviewer: bonova, carlrab
 ms.service: sql-database
-ms.topic: article
-ms.date: 05/15/2018
+ms.topic: conceptual
+ms.date: 06/08/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 8144f70737e5f78f568a8a6dd35ddc7d43ced0fd
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 09595c19622eaabe0838c52bc1226fcdfe60d4ba
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210050"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248804"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>功能比較：Azure SQL Database 與 SQL Server 
 
-Azure SQL Database 與 SQL Server 共用通用的程式碼基底。 Azure SQL Database 所支援的 SQL Server 功能取決於您所建立的 Azure SQL Database 類型。 使用 Azure SQL Database 時，您可以將資料庫建立成[受控執行個體](sql-database-managed-instance.md) (目前為公開預覽版) 的一部分，或是將資料庫建立成單一資料庫或彈性集區的成員資料庫。 
+Azure SQL Database 與 SQL Server 共用通用的程式碼基底。 Azure SQL Database 所支援的 SQL Server 功能取決於您所建立的 Azure SQL Database 類型。 使用 Azure SQL Database 時，您可以將資料庫建立成[受控執行個體](sql-database-managed-instance.md) (目前為公開預覽版) 的一部分，或是將資料庫建立成邏輯伺服器的一部分並選擇性地位於彈性集區的成員資料庫。 
 
 Microsoft 會持續為 Azure SQL Database 新增功能。 請使用下列篩選來瀏覽 Azure 的「服務更新」網頁，以尋找最新更新：
 
 * 篩選出 [SQL Database 服務](https://azure.microsoft.com/updates/?service=sql-database)。
 * 篩選出 SQL Database 功能的「正式運作 [(GA)」公告](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) 。
 
-## <a name="sql-server-and-sql-database-feature-support"></a>SQL Server 及 SQL Database 功能支援
+## <a name="sql-server-feature-support-in-azure-sql-database"></a>Azure SQL Database 中支援的 SQL Server 功能
 
 下表列出 SQL Server 的主要功能，並提供有關該功能是部分支援還是完整支援功能的資訊，以及該功能的相關詳細資訊連結。 
 
-| **SQL 功能** | **在 Azure SQL Database 中支援** | **受控執行個體 (預覽)** |
+| **SQL 功能** | **在 Azure SQL Database/邏輯伺服器中支援** | **在 Azure SQL Database/受控執行個體中支援 (預覽)** |
 | --- | --- | --- |
 | [一律加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | 是 - 請參閱[憑證存放區](sql-database-always-encrypted.md)和[金鑰保存庫](sql-database-always-encrypted-azure-key-vault.md) | 是 - 請參閱[憑證存放區](sql-database-always-encrypted.md)和[金鑰保存庫](sql-database-always-encrypted-azure-key-vault.md) |
 | [AlwaysOn 可用性群組](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | 每個資料庫皆隨附[高可用性](sql-database-high-availability.md)。 [Azure SQL Database 的業務連續性概觀](sql-database-business-continuity.md)會討論災害復原 | 每個資料庫皆隨附[高可用性](sql-database-high-availability.md)。 [Azure SQL Database 的業務連續性概觀](sql-database-business-continuity.md)會討論災害復原 |
@@ -40,7 +40,7 @@ Microsoft 會持續為 Azure SQL Database 新增功能。 請使用下列篩選�
 | [自動調整 (計劃強制)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning) \(機器翻譯\)| [是](sql-database-automatic-tuning.md)| [是](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning) |
 | [自動調整 (索引)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning) \(機器翻譯\)| [是](sql-database-automatic-tuning.md)| 否 |
 | [BACPAC 檔案 (匯出)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | 是 - 請參閱 [SQL Database 匯出](sql-database-export.md) | yes |
-| [BACPAC 檔案 (匯入)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | 是 - 請參閱 [SQL Database 匯入](sql-database-import.md) | yes |
+| [BACPAC 檔案 (匯入)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | 是 - 請參閱 [SQL Database 匯入](sql-database-import.md) | 否 |
 | [備份命令](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql) | 否，僅限系統起始的自動備份 - 請參閱[自動備份](sql-database-automated-backups.md) | 系統起始的自動備份和使用者起始的只複製備份 - 請參閱[備份差異](sql-database-managed-instance-transact-sql-information.md#backup) |
 | [內建函式](https://docs.microsoft.com/sql/t-sql/functions/functions) | 大部分 - 請參閱個別函式 | 是 - 請參閱[預存程序、函式、觸發程序差異](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
 | [變更資料擷取](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | 否 | yes |
@@ -137,7 +137,7 @@ Microsoft 會持續為 Azure SQL Database 新增功能。 請使用下列篩選�
 |威脅偵測|  [是](sql-database-threat-detection.md)|[是](sql-database-managed-instance-threat-detection.md)|
 | [追蹤旗標](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) \(機器翻譯\) | 否 | 否 |
 | [變數](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | yes | yes |
-| [透明資料加密 (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | yes | 否，在公開預覽版中不支援 |
+| [透明資料加密 (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | yes | 部分，僅限於服務管理加密 |
 [VNet](../virtual-network/virtual-networks-overview.md) | 部分 - 請參閱 [VNET 端點](sql-database-vnet-service-endpoint-rule-overview.md) | 是，僅限 Resource Manager 模型 |
 | [Windows Server 容錯移轉叢集](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | 每個資料庫皆隨附[高可用性](sql-database-high-availability.md)。 [Azure SQL Database 的業務連續性概觀](sql-database-business-continuity.md)會討論災害復原 | 每個資料庫皆隨附[高可用性](sql-database-high-availability.md)。 [Azure SQL Database 的業務連續性概觀](sql-database-business-continuity.md)會討論災害復原 |
 | [XML 索引](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql) | yes | yes |

@@ -1,4 +1,21 @@
-<a name="virtual-networking-limits-classic"></a>下列限制僅適用於透過每個訂用帳戶的傳統部署模型所管理的網路資源。
+---
+title: 包含檔案
+description: 包含檔案
+services: networking
+author: jimdial
+ms.service: networking
+ms.topic: include
+ms.date: 06/12/2018
+ms.author: jdial
+ms.custom: include file
+ms.openlocfilehash: ad76046a092a37a2dc1f59459ac3c3e48bc284e5
+ms.sourcegitcommit: 8659efc885be98f42edae0b516ca576e38940c97
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35568121"
+---
+<a name="virtual-networking-limits-classic"></a>下列限制僅適用於透過每個訂用帳戶的傳統部署模型所管理的網路資源。 深入了解如何[根據您的訂用帳戶限制檢視目前資源使用量](../articles/networking/check-usage-against-limits.md)。
 
 | 資源 | 預設限制 | 上限 |
 | --- | --- | --- |
@@ -18,7 +35,7 @@
 | 端點存取控制清單 (ACL) |50 |50 |
 
 #### <a name="azure-resource-manager-virtual-networking-limits"></a>網路限制 - Azure Resource Manager
-下列限制僅適用於透過每個訂用帳戶每一區域的 Azure Resource Manager 所管理的網路資源。
+下列限制僅適用於透過每個訂用帳戶每一區域的 Azure Resource Manager 所管理的網路資源。 深入了解如何[根據您的訂用帳戶限制檢視目前資源使用量](../articles/networking/check-usage-against-limits.md)。
 
 | 資源 | 預設限制 | 上限 |
 | --- | --- | --- |
@@ -58,7 +75,10 @@
 | 前端 IP 設定，標準 | 10 | 600 |
 | 後端集區，基本 | 100，單一可用性設定組 | 100，單一可用性設定組 |
 | 後端集區，標準 | 1000，單一 VNet | 1000，單一 VNet |
+| 每個 Load Balancer 的後端資源，標準 &ast; | 50 | 150 |
 | HA 連接埠，標準 | 每個內部前端 1 個 | 每個內部前端 1 個 |
+
+&ast; 最多 150 個資源，獨立虛擬機器、可用性設定組及虛擬機器擴展集的任意組合。
 
 如果您需要增加預設值以外的限制，請[連絡支援服務](../articles/azure-supportability/resource-manager-core-quotas-request.md )。
 

@@ -1,24 +1,20 @@
 ---
 title: 使用 Azure Functions 取出 Twitter 訊息 | Microsoft Docs
-description: 使用動作感應器來偵測搖動，並使用 Azure Functions 來尋找包含您指定之主題標籤的隨機推文。
-services: iot-hub
-documentationcenter: ''
+description: 使用動作感應器來偵測搖動，並使用 Azure Functions 來尋找包含所指定雜湊標記的隨機推文
 author: liydu
-manager: timlt
-tags: ''
-keywords: ''
+manager: jeffya
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: 50ce34cb3289e346e7b637d917730dac8e8a097b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0c3df0642d36aa1c4471c433fe9c1d3fa3b0880d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631756"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>搖一搖以獲取推文 -- 使用 Azure Functions 來取出 Twitter 訊息！
 

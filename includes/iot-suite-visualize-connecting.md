@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 5eca35141544e8ea451dfc7471a83e3e1e980360
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 5702c6e9c9d75c6cccb82f1c57684ef7b9898c34
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34307612"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34665995"
 ---
 ## <a name="view-device-telemetry"></a>檢視裝置遙測資料
 
@@ -33,7 +33,7 @@ ms.locfileid: "34307612"
 
 ## <a name="act-on-your-device"></a>在裝置上採取行動
 
-若要在您的裝置上叫用方法，請使用遠端監視解決方案中的 [裝置] 頁面。 例如，在遠端監視解決方案中，**Chiller** 裝置會實作 **FirmwareUpdate** 方法。
+若要在您的裝置上叫用方法，請使用遠端監視解決方案中的**裝置**頁面。 例如，在遠端監視解決方案中，**Chiller** 裝置會實作 **FirmwareUpdate** 方法。
 
 1. 選擇 [裝置] 以瀏覽至解決方案中的 [裝置] 頁面。
 
@@ -58,4 +58,4 @@ ms.locfileid: "34307612"
 
 ## <a name="next-steps"></a>後續步驟
 
-[自訂遠端監視解決方案加速器](../articles/iot-accelerators/iot-accelerators-remote-monitoring-customize.md)文章中說明一些自訂解決方案加速器的方法。
+[自訂遠端監視解決方案加速器](../articles/iot-accelerators/iot-accelerators-remote-monitoring-customize.md)一文中，說明了一些自訂解決方案加速器的方法。

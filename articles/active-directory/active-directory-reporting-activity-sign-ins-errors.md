@@ -3,25 +3,25 @@ title: Azure Active Directory 入口網站中的登入活動報告錯誤碼 | Mi
 description: 登入活動報告錯誤碼參考。
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 05/31/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: cb636db4e6e2097f494fcbc7a6584f0172514b95
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: dc01a775579455ae24c95ecc6f3858ce28149dea
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34698504"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231895"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Azure Active Directory 入口網站中的登入活動報告錯誤碼
 
@@ -65,13 +65,13 @@ ms.locfileid: "34698504"
 |40008|同盟識別提供者有問題。 請連絡 IDP 以解決此問題。|
 |40009|同盟識別提供者有問題。 請連絡 IDP 以解決此問題。|
 |40014|同盟識別提供者有問題。 請連絡 IDP 以解決此問題。|
-|50000|登入服務發生問題。 請[開啟支援票證](active-directory-troubleshooting-support-howto.md)以解決此問題。|
+|50000|登入服務發生問題。 請[開啟支援票證](fundamentals/active-directory-troubleshooting-support-howto.md)以解決此問題。|
 |50001|此租用戶中找不到服務主體名稱。 如果租用戶的系統管理員尚未安裝此應用程式，就會發生此錯誤。 或在目錄中找不到資源主體或為無效。|
 |50002|登入失敗，因為租用戶上的 Proxy 存取受限。 如果該租用戶原則是您自有的，您可以變更受限租用戶的設定以修正此問題|
 |50003|登入失敗，因為遺漏簽署金鑰或憑證。 這可能是因為應用程式中未設定任何簽署金鑰。 請參閱下列文件所述的解決方式：[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured)。 如果還是有問題，請連絡應用程式擁有者或應用程式管理員|
 |50005|使用者嘗試透過條件式存取原則從目前不受支援的平台登入裝置|
 |50006| 簽章驗證失敗，因為簽章無效。 請參閱下列文件所述的解決方式：[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery)。 如果還是有問題，請連絡應用程式擁有者或應用程式管理員|
-|50007|找不到此應用程式的夥伴加密憑證。 請向 Microsoft [開啟支援票證](active-directory-troubleshooting-support-howto.md)以修正此問題|
+|50007|找不到此應用程式的夥伴加密憑證。 請向 Microsoft [開啟支援票證](fundamentals/active-directory-troubleshooting-support-howto.md)以修正此問題|
 |50008|權杖中的 SAML 判斷提示遺漏或設定不正確。 請連絡同盟提供者。|
 |50010|應用程式的對象 URI 驗證失敗，因為未設定權杖對象。 請連絡應用程式擁有者|
 |50011|回覆地址遺漏、設定不正確或不符合針對應用程式所設定的回覆地址。 請嘗試使用下列文件所列出的解決方式：[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application)。 如果還是有問題，請連絡應用程式擁有者或應用程式管理員|
@@ -114,8 +114,8 @@ ms.locfileid: "34698504"
 |50133|工作階段因為到期或近期密碼變更而無效。|
 |50135|帳戶有風險，因此必須變更密碼|
 |50136|將 msa 工作階段重新導向至應用程式 - 偵測到單一 MSA 工作階段 |
-|50140|由於在使用者登入時出現「讓我保持登入」插斷，所以發生此錯誤。 請使用相互關聯識別碼、要求識別碼和錯誤碼[開啟支援票證](active-directory-troubleshooting-support-howto.md)，以取得更多詳細資料。 |
-|50143|工作階段不符 - 工作階段無效，原因是由於資源不同而導致使用者租用戶與網域提示不符。 請使用相互關聯識別碼、要求識別碼和錯誤碼[開啟支援票證](active-directory-troubleshooting-support-howto.md)，以取得更多詳細資料。|
+|50140|由於在使用者登入時出現「讓我保持登入」插斷，所以發生此錯誤。 請使用相互關聯識別碼、要求識別碼和錯誤碼[開啟支援票證](fundamentals/active-directory-troubleshooting-support-howto.md)，以取得更多詳細資料。 |
+|50143|工作階段不符 - 工作階段無效，原因是由於資源不同而導致使用者租用戶與網域提示不符。 請使用相互關聯識別碼、要求識別碼和錯誤碼[開啟支援票證](fundamentals/active-directory-troubleshooting-support-howto.md)，以取得更多詳細資料。|
 |50144|使用者的 Active Directory 密碼已到期。 為使用者產生新密碼，或讓終端使用者使用自助式重設工具|
 |50146|在設定此應用程式時，必須使用應用程式專屬的簽署金鑰。 在設定應用程式時未使用這樣的金鑰，或該金鑰已過期或尚未生效。 請連絡應用程式擁有者|
 |50148|code_verifier 與 PKCE 的授權要求中所提供的 code_challenge 不符。 請連絡應用程式開發人員。 |
@@ -150,7 +150,7 @@ ms.locfileid: "34698504"
 |70007|應用程式在要求權杖時傳回的 'response_mode' 值不受支援。 請連絡應用程式擁有者|
 |70008|所提供的授權碼或重新整理權杖已過期 - 已撤銷。 請讓使用者重試登入|
 |70011|應用程式所要求的範圍無效。 請連絡應用程式擁有者|
-|70012|在驗證 MSA (取用者) 使用者時，發生伺服器錯誤。 請再試一次。 如果持續失敗，請[開啟支援票證](active-directory-troubleshooting-support-howto.md) |
+|70012|在驗證 MSA (取用者) 使用者時，發生伺服器錯誤。 請再試一次。 如果持續失敗，請[開啟支援票證](fundamentals/active-directory-troubleshooting-support-howto.md) |
 |70018|驗證碼無效，因為使用者針對裝置碼流程所輸入的使用者代碼錯誤。 授權未獲核准|
 |70019|驗證碼過期。 請讓使用者重試登入|
 |70037|所提供的挑戰回應不正確。 已拒絕遠端驗證工作階段。|
@@ -161,15 +161,15 @@ ms.locfileid: "34698504"
 |75011|使用者用來向服務進行驗證的驗證方法，與所要求的驗證方法不符。 請連絡應用程式擁有者|
 |75016|SAML2 驗證要求所具有的 NameIdPolicy 無效。 請連絡應用程式擁有者|
 |80001|驗證代理程式無法連線至 Active Directory。 請確定能看到使用者登入要求處理 DC、且已加入網域的機器上，已安裝驗證代理程式。|
-|80002|內部錯誤。 密碼驗證要求逾時。我們無法將驗證要求傳送至內部的混合式識別服務。 請[開啟支援票證](active-directory-troubleshooting-support-howto.md)，以取得有關錯誤的詳細資料|
-|80003|驗證代理程式收到無效的回應。 嘗試對 Active Directory 內部部署進行驗證時，發生未知錯誤。 請[開啟支援票證](active-directory-troubleshooting-support-howto.md)，以取得有關錯誤的詳細資料。|
-|80005|驗證代理程式：處理驗證代理程式所傳來的回應時，發生未知錯誤。 請[開啟支援票證](active-directory-troubleshooting-support-howto.md)，以取得有關錯誤的詳細資料。|
+|80002|內部錯誤。 密碼驗證要求逾時。我們無法將驗證要求傳送至內部的混合式識別服務。 請[開啟支援票證](fundamentals/active-directory-troubleshooting-support-howto.md)，以取得有關錯誤的詳細資料|
+|80003|驗證代理程式收到無效的回應。 嘗試對 Active Directory 內部部署進行驗證時，發生未知錯誤。 請[開啟支援票證](fundamentals/active-directory-troubleshooting-support-howto.md)，以取得有關錯誤的詳細資料。|
+|80005|驗證代理程式：處理驗證代理程式所傳來的回應時，發生未知錯誤。 請[開啟支援票證](fundamentals/active-directory-troubleshooting-support-howto.md)，以取得有關錯誤的詳細資料。|
 |80007|驗證代理程式無法驗證使用者的密碼。|
 |80010|驗證代理程式無法連線將密碼解密。 |
 |80011|驗證代理程式無法擷取加密金鑰。|
 |80012|使用者在允許的時間外 (此值是在 AD 中指定的) 嘗試登入|
 |80013|無法完成驗證嘗試，因為執行驗證代理程式的機器和 AD 之間有時間差異。 請修正時間同步問題|
-|80014|驗證代理程式逾時。請使用錯誤碼、相互關聯識別碼和日期時間[開啟支援票證](active-directory-troubleshooting-support-howto.md)，以取得更多關於此錯誤的詳細資料|
+|80014|驗證代理程式逾時。請使用錯誤碼、相互關聯識別碼和日期時間[開啟支援票證](fundamentals/active-directory-troubleshooting-support-howto.md)，以取得更多關於此錯誤的詳細資料|
 |81001|使用者的 Kerberos 票證太大。 如果使用者位於過多群組，以致於 Kerberos 票證包含過多群組成員資格，便會發生此錯誤。 降低使用者的群組成員資格，並再試一次。|
 |81005|驗證套件不受支援|
 |81007|租用戶未啟用無縫 SSO|

@@ -1,24 +1,19 @@
 ---
-title: "針對 Azure 度量警示設定 Webhook | Microsoft Docs"
-description: "了解如何重設 Azure 警示的路徑到其他非 Azure 系統。"
+title: 設定傳統計量警示使用 Webhook 通知非 Azure 系統
+description: 了解如何重設 Azure 計量警示的路徑到其他非 Azure 系統。
 author: johnkemnetz
-manager: carmonm
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 8b3ae540-1d19-4f3d-a635-376042f8a5bb
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: johnkem
-ms.openlocfilehash: 049803e7701c68559103d9b1fa5dfacf820d0548
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.component: alerts
+ms.openlocfilehash: 9cc017aad7fbdc740ab3fa3af5603223e5b844ce
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262346"
 ---
 # <a name="configure-a-webhook-on-an-azure-metric-alert"></a>針對 Azure 度量警示設定 Webhook
 您可以使用 Webhook 將 Azure 警示通知路由到其他系統以進行後處理或自訂動作。 您可以針對警示使用 Webhook，以將警示路由到會傳送簡訊、記錄錯誤、透過聊天或傳訊服務通知小組，或進行其他許多動作的服務。 

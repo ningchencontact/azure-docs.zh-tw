@@ -1,24 +1,19 @@
 ---
-title: "Azure 監視器自動調整的常用度量 | Microsoft Docs"
-description: "了解哪些度量常用於自動調整您的雲端服務、虛擬機器和 Web Apps。"
+title: 自動調整常用計量
+description: 了解哪些度量常用於自動調整您的雲端服務、虛擬機器和 Web Apps。
 author: anirudhcavale
-manager: orenr
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 189b2a13-01c8-4aca-afd5-90711903ca59
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
-ms.openlocfilehash: 240a230d09680672ccd5316470a87d047fab9fd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: autoscale
+ms.openlocfilehash: 7b6f454a8d4c8794b8c56494fd9ed573f8b79852
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262234"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure 監視器自動調整的常用度量
 Azure 監視器的自動調整可讓您根據遙測資料 (度量) 增加或減少執行中執行個體的數目。 本文件說明您可能會使用的常用度量。 在 Azure 的雲端服務和伺服器陣列入口網站中，您可以選擇要作為調整依據的資源度量。 不過，您也可以選擇其他資源的任何度量來做為調整依據。

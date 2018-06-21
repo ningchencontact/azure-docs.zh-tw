@@ -1,24 +1,19 @@
 ---
-title: Azure 活動記錄檔概觀 | Microsoft Docs
+title: Azure 活動記錄檔概觀
 description: 認識 Azure 活動記錄檔，並了解如何使用它來了解您的 Azure 訂用帳戶內發生的事件。
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: c274782f-039d-4c28-9ddb-f89ce21052c7
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/04/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 05/30/2018
 ms.author: johnkem
-ms.openlocfilehash: 9768fd96b8023ac97d8c5711e0c02f2c147e28f6
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.component: activitylog
+ms.openlocfilehash: 6fc4fefe6eaaf48061ea05bdbc087288ada35838
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264563"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>使用 Azure 活動記錄監視訂用帳戶活動
 
@@ -38,7 +33,8 @@ ms.lasthandoff: 04/06/2018
 您可以使用 Azure 入口網站、CLI、PowerShell Cmdlet、Azure 監視器 REST API 從活動記錄檔擷取事件。
 
 > [!NOTE]
->  [新版警示](monitoring-overview-unified-alerts.md)在建立和管理活動記錄警示規則時，可提供增強的體驗。  [深入了解](monitoring-activity-log-alerts-new-experience.md)。
+>  
+  [新版警示](monitoring-overview-unified-alerts.md)在建立和管理活動記錄警示規則時，可提供增強的體驗。  [深入了解](monitoring-activity-log-alerts-new-experience.md)。
 
 檢視下列簡介活動記錄的影片。
 > [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
@@ -50,7 +46,7 @@ ms.lasthandoff: 04/06/2018
 * **服務健康情況** - 所有在 Azure 中發生的服務健康情況事件皆記錄在此類別中。 您可能會在此類別中看到的事件類型範例為「美國東部的 SQL Azure 發生停機事件」。 服務健康情況事件有五個種類：必要動作、協助復原、事件、維護、資訊或安全性，這些情況只會在事件可能影響訂用帳戶中的資源時顯示。
 * **警示** - 此類別包含所有 Azure 警示的啟用記錄。 您可能會在此類別中看到的事件類型範例為「myVM 上的 CPU 百分比在過去 5 分鐘內已超過 80」 各種 Azure 系統都有警示概念，您可以定義某種類型的規則，並在條件符合該規則時接收通知。 每次支援的 Azure 警示類型「啟動」時，或產生通知的條件符合時，該啟用記錄會也會推送至此類別的活動記錄。
 * **自動調整規模** - 所有與自動調整規模引擎 (以訂用帳戶中定義的自動調整規模設定為基礎) 作業相關的所有事件皆記錄在此類別。 您可能會在此類別中看到的事件類型範例為「自動調整規模的相應增加動作失敗」 自動調整可讓您使用自動調整設定，依據每日時間和/或負載 (計量) 資料，自動相應放大或縮小受支援資源類型中的執行個體數目。 符合相應增加或相應減少的條件時，啟動及成功或失敗事件會記錄在此類別中。
-* **建議** - 此類別包含來自特定資源類型 (如網站和 SQL 伺服器) 的建議事件。 這些事件會提供如何充分運用資源的建議。 只有擁有會發出建議的資源時，您才會收到此類型的事件。
+* **Recommendation** - 此類別包含來自 Azure Advisor 的建議事件。
 * **安全性** - 此類別包含「Azure 資訊安全中心」所產生之任何警示的記錄。 其中一個您會在此類別中看到的事件類型範例為「執行疑似雙重附檔名的檔案」。
 * **原則和資源健康狀態** - 這些類別不包含任何事件；僅保留以供未來使用。
 
@@ -103,9 +99,12 @@ ms.lasthandoff: 04/06/2018
 * 活動記錄應該在儲存體帳戶中保留多久。
     - 保留期為 0 天表示會永遠保留記錄。 否則，此值可以是 1 到 2147483647 之間的任意天數。
     - 如果已設定保留原則，但將儲存體帳戶的記錄儲存停用 (例如，若只選取事件中樞或 Log Analytics 選項)，保留原則不會有任何作用。
-    - 保留原則是每天套用，因此在一天結束時 (UTC)，這一天超過保留原則的記錄會被刪除。 例如，如果您的保留原則為一天，在今天一開始，昨天之前的記錄檔會被刪除。
+    - 保留原則是每天套用，因此在一天結束時 (UTC)，這一天超過保留原則的記錄會被刪除。 例如，如果您的保留原則為一天，在今天一開始，昨天之前的記錄檔會被刪除。 刪除程序會從午夜 UTC 開始，但是請注意，記錄從您的儲存體帳戶刪除可能需要長達 24 小時的時間。
 
 您可以使用並非發出記錄的同一個訂用帳戶中的儲存體帳戶或事件中樞命名空間。 進行此設定的使用者必須具有這兩個訂用帳戶的適當 RBAC 存取權。
+
+> [!NOTE]
+>  您目前無法將資料封存到位在安全虛擬網路後面的儲存體帳戶。
 
 這些設定可透過入口網站中 [活動記錄檔] 刀鋒視窗中的 [匯出] 選項來設定。 也可以[使用 Azure 監視器 REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx)、PowerShell Cmdlet 或 CLI 以程式設計方式設定。 一個訂用帳戶只能有一個記錄檔的設定檔。
 

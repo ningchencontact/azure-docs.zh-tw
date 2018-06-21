@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 065ac8b2e9cb48408c7922a1937e541521ccd8cf
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 93ecd0264413e0eb719c9d33f0a0b756bcee6552
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895590"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726443"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>建立、變更或刪除路由表
 
@@ -94,6 +94,8 @@ Azure 會自動路由傳送 Azure 子網路、虛擬網路及內部部署網路�
 3. 在 [設定] 底下，選取 [子網路]。
 4. 選取您要和路由表建立關聯的子網路。
 5. 選取 [路由表]，選取您要和子網路建立關聯的路由表，然後選取 [儲存]。
+
+如果虛擬網路連線至 Azure VPN 閘道，請勿將路由表關聯至所含路由的目的地為 0.0.0.0/0 的[閘道子網路](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub)。 這麼做會讓閘道無法正常運作。 如需關於在路由中使用 0.0.0.0/0 的詳細資訊，請參閱[虛擬網路流量路由](virtual-networks-udr-overview.md#default-route)。
 
 **命令**
 

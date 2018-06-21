@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/04/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 9522e1f56c7aa8ce8fbe2b5b7b04f5482738342c
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: f18e94b6f788609dc5a0466e9d8ffa0c02056b1e
+ms.sourcegitcommit: 5821eef990c26fa045e4beacce39f6b02b83156b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236675"
+ms.lasthandoff: 06/15/2018
+ms.locfileid: "35678050"
 ---
 ### <a name="supportedclientos"></a>可以使用哪些用戶端作業系統來搭配點對站？
 
@@ -21,7 +21,6 @@ ms.locfileid: "35236675"
 
 * Windows 7 (32 位元和 64 位元)
 * Windows Server 2008 R2 (僅限 64 位元)
-* Windows 8 (32 位元和 64 位元)
 * Windows 8.1 (32 位元和 64 位元)
 * Windows Server 2012 (僅限 64 位元)
 * Windows Server 2012 R2 (僅限 64 位元)

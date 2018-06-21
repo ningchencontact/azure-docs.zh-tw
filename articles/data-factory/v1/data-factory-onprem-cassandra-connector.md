@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/10/2018
+ms.topic: conceptual
+ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2d790b067630f15b96eba5e46ea12e1997a47c86
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 01ac558ec032d2da8026ce48923d839bd05e85c1
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235459"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>使用 Azure Data Factory 從內部部署的 Cassandra 資料庫移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +34,7 @@ ms.lasthandoff: 03/23/2018
 您可以將資料從內部部署的 Cassandra 資料存放區複製到任何支援的接收資料存放區。 如需複製活動所支援作為接收器的資料存放區清單，請參閱[支援的資料存放區](data-factory-data-movement-activities.md#supported-data-stores-and-formats)表格。 Data Factory 目前只支援將資料從 Cassandra 資料存放區移到其他資料存放區，而不支援將資料從其他資料存放區移到 Cassandra 資料存放區。 
 
 ## <a name="supported-versions"></a>支援的版本
-Cassandra 連接器支援下列 Cassandra 版本：2.X。
+Cassandra 連接器支援下列 Cassandra 版本：2.x 和 3.x。 針對在自我裝載 Integration Runtime 上執行的活動，從 IR 3.7 版及更新版本開始支援 Cassandra 3.x。
 
 ## <a name="prerequisites"></a>先決條件
 若要讓 Azure Data Factory 服務能夠連接到內部部署的 Cassandra 資料庫，您必須在裝載資料庫的同一部電腦上或在個別的電腦上安裝「資料管理閘道」，以避免發生與資料庫競用資源的情況。 「資料管理閘道」是一個元件，可透過既安全又受控方式，將內部部署的資料來源連接到雲端服務。 如需資料管理閘道的詳細資料，請參閱 [資料管理閘道](data-factory-data-management-gateway.md) 一文。 如需有關為閘道設定資料管線來移動資料的逐步指示，請參閱[將資料從內部部署移到雲端](data-factory-move-data-between-onprem-and-cloud.md)。
@@ -74,6 +75,9 @@ Cassandra 連接器支援下列 Cassandra 版本：2.X。
 | password |指定使用者帳戶的密碼。 |是，如果 authenticationType 設定為 [基本]。 |
 | gatewayName |用來連線到內部部署 Cassandra 資料庫的閘道器名稱。 |yes |
 | encryptedCredential |由閘道加密認證。 |否 |
+
+>[!NOTE]
+>目前不支援使用 SSL 與 Cassandra 連線。
 
 ## <a name="dataset-properties"></a>資料集屬性
 如需定義資料集的區段和屬性完整清單，請參閱[建立資料集](data-factory-create-datasets.md)一文。 資料集 JSON 的結構、可用性和原則等區段類似於所有的資料集類型 (SQL Azure、Azure Blob、Azure 資料表等)。

@@ -16,12 +16,12 @@ ms.date: 11/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: d65e4c76d6c9bc0b1f6a9f2827a0ae2d7dec5d93
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: f0def105997213ae5d356de89e6189b6441facbd
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824163"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36291913"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>定義混合式身分識別解決方案的資料保護策略
 在這項工作中，您將為混合式身分識別解決方案定義資料保護策略，以符合您已定義的商務需求：
@@ -57,7 +57,7 @@ ms.locfileid: "34824163"
 >
 
 ## <a name="define-content-management-options"></a>定義內容管理選項
-使用 Azure AD 來管理混合式身分識別基礎結構的優點之一，是整個程序對使用者而言是完全透明的。 使用者會嘗試存取共用資源，而資源需要驗證，因此使用者必須將驗證要求傳送至 Azure AD，才能夠取得權杖並存取資源。 整個程序都會在背景執行，使用者無須動作。 您也可授與權限給某個使用者 [群組](active-directory-manage-groups.md#getting-started-with-access-management) ，使其能夠執行某些常用的動作。
+使用 Azure AD 來管理混合式身分識別基礎結構的優點之一，是整個程序對使用者而言是完全透明的。 使用者會嘗試存取共用資源，而資源需要驗證，因此使用者必須將驗證要求傳送至 Azure AD，才能夠取得權杖並存取資源。 整個程序都會在背景執行，使用者無須動作。 您也可授與權限給某個使用者 [群組](fundamentals/active-directory-manage-groups.md#getting-started-with-access-management) ，使其能夠執行某些常用的動作。
 
 有資料隱私權顧慮的組織通常需要對其解決方案進行資料分類。 如果其目前的內部部署基礎結構已使用資料分類，就能夠利用 Azure AD 作為使用者身分識別的主要儲存機制。 在 Windows Server 2012 R2 中，內部部署中用於資料分類的常用工具稱為 [資料分類工具組](https://msdn.microsoft.com/library/Hh204743.aspx) 。 這項工具有助於您對私人雲端中的檔案伺服器進行資料的識別、分類及保護。 您也可利用 Windows Server 2012 中的[自動檔案分類](https://technet.microsoft.com/library/hh831672.aspx)來完成這項工作。
 
@@ -131,12 +131,12 @@ Azure Active Directory 可為數千個 SaaS 應用程式和內部部署 Web 應�
 
   3. 適用於包含 Microsoft Intune 的 Office 365 應用程式條件式存取 ：IT 管理員可以佈建條件式存取裝置原則來保護公司資源，同時允許符合規範之裝置上的資訊工作者存取服務。 如需詳細資訊，請參閱 [Office 365 服務的條件式存取裝置原則](active-directory-conditional-access-device-policies.md)。
 
-  4. Saas 應用程式的條件式存取：[此功能](http://blogs.technet.com/b/ad/archive/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work.aspx)可讓您設定每個應用程式的多重要素驗證存取規則，且能夠封鎖不在受信任網路上的使用者存取。 您可以將多因素驗證規則套用至所有已指派給應用程式的使用者，或只套用至指定的安全性群組內的使用者。 如果使用者是從組織網路內的 IP 位址存取應用程式，則可從多因素驗證需求中排除這些使用者。
+  4. Saas 應用程式的條件式存取：[此功能](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/)可讓您設定每個應用程式的多重要素驗證存取規則，且能夠封鎖不在受信任網路上的使用者存取。 您可以將多因素驗證規則套用至所有已指派給應用程式的使用者，或只套用至指定的安全性群組內的使用者。 如果使用者是從組織網路內的 IP 位址存取應用程式，則可從多因素驗證需求中排除這些使用者。
 
 由於存取控制的選項採用多層式方法，因此在執行這項工作時無法比較這些選項。 請確實針對每個要求您控制資源存取權的案例，使用所有適用的選項。
 
 ## <a name="define-incident-response-options"></a>定義事件回應選項
-Azure AD 可藉由監視使用者活動，協助 IT 人員識別環境中潛在的安全性風險。 IT 人員可以使用 Azure AD 的存取和使用情況報告來了解貴組織的目錄完整性和安全性。 利用此資訊，IT 管理員更能夠判斷可能發生安全性風險的位置，以便適當地規劃來減輕這些風險。  [Azure AD Premium 訂用帳戶](active-directory-get-started-premium.md) 有一組安全性報告可讓 IT 人員取得這項資訊。 [Azure AD 報告](active-directory-view-access-usage-reports.md) 歸類如下：
+Azure AD 可藉由監視使用者活動，協助 IT 人員識別環境中潛在的安全性風險。 IT 人員可以使用 Azure AD 的存取和使用情況報告來了解貴組織的目錄完整性和安全性。 利用此資訊，IT 管理員更能夠判斷可能發生安全性風險的位置，以便適當地規劃來減輕這些風險。  [Azure AD Premium 訂用帳戶](fundamentals/active-directory-get-started-premium.md) 有一組安全性報告可讓 IT 人員取得這項資訊。 [Azure AD 報告](active-directory-view-access-usage-reports.md) 歸類如下：
 
 * **異常報告**：包含發現異常的登入事件。 目標在於使您注意這類活動，並讓您能夠判斷事件是否可疑。
 * **整合式應用程式報告**：可供深入了解雲端應用程式在組織中的使用方式。 Azure Active Directory 提供與數千個雲端應用程式的整合。
@@ -145,9 +145,9 @@ Azure AD 可藉由監視使用者活動，協助 IT 人員識別環境中潛在�
 * **活動記錄檔**：包含過去 24 小時、過去 7 天或過去 30 天內所有稽核事件的記錄，以及群組活動變更、密碼重設和登錄活動。
 
 > [!TIP]
-> 也有助於事件回應小組處理案例的另一份報告，是 [認證外洩的使用者](http://blogs.technet.com/b/ad/archive/2015/06/15/azure-active-directory-premium-reporting-now-detects-leaked-credentials.aspx) 報告。 此報告會呈現外洩的認證清單與您的租用戶之間的任何相符項目。
+> 也有助於事件回應小組處理案例的另一份報告，是 [認證外洩的使用者](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/15/azure-active-directory-premium-reporting-now-detects-leaked-credentials/) 報告。 此報告會呈現外洩的認證清單與您的租用戶之間的任何相符項目。
 >
->
+
 
 Azure AD 中還有其他可在事件回應調查期間使用的重要內建報告，包括：
 

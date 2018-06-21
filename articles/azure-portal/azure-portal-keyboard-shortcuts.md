@@ -3,7 +3,7 @@ title: Azure 入口網站鍵盤快速鍵 | Microsoft Docs
 description: 深入了解在 Azure 入口網站中運作的鍵盤快速鍵。
 services: azure-portal
 documentationcenter: ''
-author: flanakin
+author: adamabmsft
 manager: lwelicki
 editor: ''
 ms.assetid: d9f58c69-9163-458d-a339-ab0855e342c6
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/24/2017
-ms.author: micflan
+ms.author: adamab
 ms.custom: accessibility
-ms.openlocfilehash: 17d6c5ecfa3964c03f62e981a4619e02f3d59543
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 4744a752230cfd1f6012d9fe0a502b2653ef8061
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34165412"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295222"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Azure 入口網站的鍵盤快速鍵
 本文示範在整個 Azure 入口網站中運作的鍵盤快速鍵。 個別的服務可能會擁有各自的鍵盤快速鍵。

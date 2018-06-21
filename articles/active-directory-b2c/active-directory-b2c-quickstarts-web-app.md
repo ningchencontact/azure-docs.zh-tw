@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.date: 2/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4caa4dfcfdc468c69241c5cf61d3c520609a088a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: e52674014a888913e288f7b0749d9b2e05bedf45
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34710256"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36292781"
 ---
 # <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>快速入門：設定使用 Azure Active Directory B2C 登入 ASP.NET 應用程式
 
@@ -124,4 +124,4 @@ Azure Active Directory B2C 提供讓使用者更新其設定檔的功能。 範�
 繼續進行本教學課程，以了解如何將範例 ASP.NET 設定為使用自己的 Azure AD B2C 租用戶。
 
 > [!div class="nextstepaction"]
-> [教學課程：在 ASP.NET Web 應用程式中使用 Azure Active Directory B2C 進行使用者驗證](active-directory-b2c-tutorials-web-app.md)
+> [在 Azure 入口網站中建立 Azure Active Directory B2C 租用戶](tutorial-create-tenant.md)

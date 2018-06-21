@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 06/07/2018
 ms.author: magoedte
-ms.openlocfilehash: 2597b434bc6db0d5639709a9ce869462c3e47f56
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 5bf1e12c958fef0cb20eaad8cece8cadb380c196
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235935"
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>使用 Log Analytics 從您的環境中的電腦收集資料
 
@@ -40,12 +41,9 @@ Azure Log Analytics 可以從位於下列位置的 Windows 或 Linux 電腦收�
 
 如果您已使用 System Center 2016 - Operations Manager 或 Operations Manager 2012 R2 來監視電腦，則該電腦可以具有多重主目錄，並使用 Log Analytics 服務來收集資料並轉送到該服務，且仍然受到 [Operations Manager](log-analytics-om-agents.md) 監視。 由與 Log Analytics 整合之 Operations Manager 管理群組監視的 Linux 電腦不會收到資料來源設定並透過管理群組轉送收集的資料。 Windows 代理程式可已回報到最多四個工作區，而 Linux 代理程式只支援回報到單一工作區。  
 
-適用於 Linux 與 Windows 的代理程式不僅可用於連線到 Log Analytics，也支援「Azure 自動化」以裝載「混合式 Runbook」背景工作角色與管理解決方案，例如「變更追蹤與更新管理」。  如需有關「混合式 Runbook」背景工作角色的詳細資訊，請參閱 [Azure 自動化混合式 Runbook 背景工作](../automation/automation-hybrid-runbook-worker.md)。
+適用於 Linux 與 Windows 的代理程式不僅可用於連線到 Log Analytics，也支援「Azure 自動化」以裝載「混合式 Runbook」背景工作角色與管理解決方案，例如「變更追蹤與更新管理」。  如需有關「混合式 Runbook」背景工作角色的詳細資訊，請參閱 [Azure 自動化混合式 Runbook 背景工作](../automation/automation-hybrid-runbook-worker.md)。  
 
-## <a name="prerequisites"></a>先決條件
-開始之前請檢閱下列詳細資料，以確認符合最低系統需求。
-
-### <a name="windows-operating-system"></a>Windows 作業系統
+## <a name="supported-windows-operating-systems"></a>支援的 Windows 作業系統
 Windows 代理程式正式支援下列 Windows 作業系統版本：
 
 * Windows Server 2008 Service Pack 1 (SP1) 或更新版本
@@ -54,17 +52,7 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 > [!NOTE]
 > 適用於 Windows 的代理程式只支援傳輸層安全性 (TLS) 1.0 與 1.1。  
 
-#### <a name="network-configuration"></a>網路組態
-下列資訊列出 Windows 代理程式與 Log Analytics 通訊所需的 Proxy 和防火牆設定資訊。 流量會從您的網路輸出至 Log Analytics 服務。 
-
-| 代理程式資源 | 連接埠 | 略過 HTTPS 檢查|
-|----------------|-------|------------------------|
-|*.ods.opinsights.azure.com |443 | yes |
-|*.oms.opinsights.azure.com | 443 | yes | 
-|*.blob.core.windows.net | 443 | yes | 
-|*.azure-automation.net | 443 | yes | 
-
-### <a name="linux-operating-systems"></a>Linux 作業系統
+## <a name="supported-linux-operating-systems"></a>支援的 Linux 作業系統
 以下為正式支援的 Linux 散發套件。  不過，Linux 代理程式也可能在未列出的其他散發套件上執行。  除非另有說明，列出的每個主要版本都支援所有次要版本。  
 
 * Amazon Linux 2012.09 至 2015.09 (x86/x64)
@@ -75,19 +63,22 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 * Ubuntu 12.04 LTS、14.04 LTS、16.04 LTS (x86/x64)
 * SUSE Linux Enterprise Server 11 和 12 (x86/x64)
 
-#### <a name="network-configuration"></a>網路組態
-下列資訊列出 Linux 代理程式與 Log Analytics 通訊所需的 Proxy 和防火牆設定資訊。  
+## <a name="network-firewall-requirements"></a>網路防火牆需求
+下列資訊列出 Linux 和 Windows 代理程式與 Log Analytics 通訊所需的 Proxy 和防火牆設定資訊。  
 
-|代理程式資源| 連接埠 | 方向 |  
-|------|---------|--------|  
-|*.ods.opinsights.azure.com | 連接埠 443 | 輸入和輸出|  
-|*.oms.opinsights.azure.com | 連接埠 443 | 輸入和輸出|  
-|*.blob.core.windows.net | 連接埠 443 | 輸入和輸出|  
-|*.azure-automation.net | 連接埠 443 | 輸入和輸出|  
+|代理程式資源|連接埠 |方向 |略過 HTTPS 檢查|
+|------|---------|--------|--------|   
+|*.ods.opinsights.azure.com |連接埠 443 |輸入和輸出|yes |  
+|*.oms.opinsights.azure.com |連接埠 443 |輸入和輸出|yes |  
+|*.blob.core.windows.net |連接埠 443 |輸入和輸出|yes |  
+|*.azure-automation.net |連接埠 443 |輸入和輸出|yes |  
 
-Linux 代理程式支援使用 HTTPS 通訊協定，透過 Proxy 伺服器或 OMS 閘道，與 Log Analytics 服務進行通訊。  不支援匿名和基本驗證 (使用者名稱/密碼)。  可在安裝期間指定或在安裝後透過修改 proxy.conf 組態檔案指定的 Proxy 伺服器。  
 
-Proxy 組態值的語法如下︰
+如果您打算使用 Azure 自動化混合式 Runbook 背景工作角色連線到自動化服務並向其註冊，以便在您的環境中使用 Runbook，它必須具有[設定適用於混合式 Runbook 背景工作角色的網路](../automation/automation-hybrid-runbook-worker.md#network-planning)中所述的連接埠號碼和 URL 存取權。 
+
+Windows 和 Linux 代理程式支援使用 HTTPS 通訊協定，透過 Proxy 伺服器或 OMS 閘道，與 Log Analytics 服務進行通訊。  不支援匿名和基本驗證 (使用者名稱/密碼)。  若是直接連線到服務的 Windows 代理程式，請在安裝期間或[部署後](log-analytics-agent-manage.md#update-proxy-settings)從控制台或使用 PowerShell 來指定 Proxy 設定。  
+
+若是 Linux 代理程式，請在安裝期間或[安裝後](/log-analytics-agent-manage.md#update-proxy-settings)透過修改 proxy.conf 設定檔來指定 Proxy 伺服器。  Linux 代理程式 Proxy 設定值的語法如下：
 
 `[protocol://][user:password@]proxyhost[:port]`
 

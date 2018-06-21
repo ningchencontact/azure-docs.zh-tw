@@ -8,19 +8,19 @@ manager: mtillman
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maheshu
-ms.openlocfilehash: d9c4e33ffdb95d81660a92e0f43bac36702882a3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3f49e4ac0073c81a6e55e6653acc7c6531989379
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34586999"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36212235"
 ---
 # <a name="administer-group-policy-on-an-azure-ad-domain-services-managed-domain"></a>管理 Azure AD Domain Services 受控網域上的群組原則
 Azure Active Directory Domain Services 有「AADDC 使用者」和「AADDC 電腦」容器專用的內建群組原則物件 (GPO)。 您可以自訂這些內建 GPO，來設定受控網域上的群組原則。 此外，「AAD DC 系統管理員」群組的成員可以在受控網域內建立自己的自定組織單位 (OU)。 他們也可以建立自訂 GPO，並將它們連結至這些自訂的 OU。 屬於「AAD DC 系統管理員」群組的使用者會獲得受控網域上的「群組原則」系統管理權限。

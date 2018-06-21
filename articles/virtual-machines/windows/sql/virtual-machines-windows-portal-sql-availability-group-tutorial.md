@@ -16,11 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 915f36678b8515c5f4a6bd367843255865f4b34d
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 8796cd3224670c6d1c8b1b3c6da8d1c096b01d03
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716715"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>在 Azure VM 中手動設定 Always On 可用性群組
 
@@ -57,7 +58,7 @@ ms.lasthandoff: 03/29/2018
 <a name="CreateCluster"></a>
 ## 建立叢集
 
-完成必要條件之後，第一個步驟是建立一個包含兩部 SQL Server 和一部見證伺服器的「Windows Server 容錯移轉叢集」。  
+完成必要條件之後，第一個步驟是建立一個包含兩部 SQL Server 和一部見證伺服器的「Windows Server 容錯移轉叢集」。
 
 1. 使用在兩部 SQL Server 和見證伺服器上都是系統管理員的網域帳戶，透過 RDP 連接到第一部 SQL Server。
 
@@ -73,7 +74,7 @@ ms.lasthandoff: 03/29/2018
    | --- | --- |
    | 開始之前 |使用預設值 |
    | 選取伺服器 |在 [輸入伺服器名稱] 中輸入第一部 SQL Server 名稱，然後按一下 [新增]。 |
-   | 驗證警告 |選取 [否。我不需要 Microsoft 提供此叢集的支援，也不需要執行驗證測試**。**請在我按 [下一步] 後，繼續建立叢集]。 |
+   | 驗證警告 |選取 [否。我不需要 Microsoft 提供此叢集的支援，也不需要執行驗證測試 **。** 請在我按 [下一步] 後，繼續建立叢集]。 |
    | 用於管理叢集的存取點 |在 [叢集名稱] 中輸入叢集名稱，例如 **SQLAGCluster1**。|
    | 確認 |除非您使用的是儲存空間，否則請使用預設值。 請詳閱此表之後的備註。 |
 
@@ -85,7 +86,8 @@ ms.lasthandoff: 03/29/2018
 
    ![叢集屬性](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/42_IPProperties.png)
 
-3. 選取 [靜態 IP 位址]，然後在 [位址] 文字方塊中，從 SQL Server 所在的子網路中指定一個可用的位址。 然後按 [下一步] 。
+3. 選取 [靜態 IP 位址]，並在位址文字方塊中，從自動私人 IP 位址 (APIPA) 範圍指定可用的位址：169.254.0.1 到 169.254.255.254。 在此範例中，您可以使用該範圍內的任何位址。 例如 `169.254.0.1`。 然後按 [下一步] 。
+
 4. 在 [叢集核心資源] 區段中，於叢集名稱上按一下滑鼠右鍵，然後按一下 [上線]。 然後等待兩個資源上線。 叢集名稱資源上線後，會以新的 AD 電腦帳戶更新 DC 伺服器。 稍後請使用此 AD 帳戶來執行「可用性群組」叢集服務。
 
 ### <a name="addNode"></a>將其他 SQL Server 新增到叢集
@@ -143,7 +145,7 @@ ms.lasthandoff: 03/29/2018
 
    ![新增共用](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/50-filesharepermissions.png)
 
-1. 按一下 [SERVICEPRINCIPAL] 。
+1. 按一下 [確定]。
 
 1. 在 [共用資料夾權限] 中，按一下 [完成]。 再次按一下 [完成]。  
 
@@ -245,7 +247,7 @@ Repeat these steps on the second SQL Server.
 
    ![新增共用](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/68-backupsharepermission.png)
 
-1. 按一下 [SERVICEPRINCIPAL] 。
+1. 按一下 [確定]。
 
 1. 在 [共用資料夾權限] 中，按一下 [完成]。 再次按一下 [完成]。  
 

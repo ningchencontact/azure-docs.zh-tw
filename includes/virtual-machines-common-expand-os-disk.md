@@ -1,3 +1,20 @@
+---
+title: 包含檔案
+description: 包含檔案
+services: virtual-machines
+author: sdwheeler
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 04/18/2018
+ms.author: kirpas;iainfou;sewhee
+ms.custom: include file
+ms.openlocfilehash: c8b48c9b3ebd6b40640a744f00673158c07cdc3a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35323794"
+---
 ## <a name="overview"></a>概觀
 當您在資源群組中，透過從 [Azure Marketplace](https://azure.microsoft.com/marketplace/) 部署映像來建立新的虛擬機器 (VM) 時，預設的作業系統磁碟機為 127 GB (根據預設，有些映像的作業系統磁碟大小比較小)。 即使可以將資料磁碟加入到 VM (數量取決於您所選擇的 SKU)，而且建議將應用程式和需要大量 CPU 的工作負載安裝在這些附加的磁碟上，但客戶有時候還是必須擴充作業系統磁碟機以支援特定的案例，例如︰
 
@@ -134,8 +151,8 @@ Update-AzureRmDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
 Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 ```
 
-## <a name="next-steps"></a>後續步驟
-在本文中，我們主要著重於擴充 VM 的非受控/受控作業系統磁碟，但是已開發的指令碼也可用於擴充連結至 VM 的資料磁碟。 例如，若要擴充連接至 VM 的第一個資料磁碟，請將 ```StorageProfile``` 的 ```OSDisk``` 物件取代成 ```DataDisks``` 陣列，並使用數值索引取得第一個連接的資料磁碟的參考，如下所示︰
+## <a name="for-resizing-data-disks"></a>針對調整資料磁碟大小
+在本文中，我們主要著重於擴充虛擬機器的非受控/受控作業系統磁碟，但是已開發的指令碼也可用於擴充連結至虛擬機器的資料磁碟。 例如，若要擴充連接至 VM 的第一個資料磁碟，請將 ```StorageProfile``` 的 ```OSDisk``` 物件取代成 ```DataDisks``` 陣列，並使用數值索引取得第一個連接的資料磁碟的參考，如下所示︰
 
 非受控磁碟：
 ```Powershell

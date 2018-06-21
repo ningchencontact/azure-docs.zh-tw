@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: bf01cf4fe5d7c7219fa7c53e54db60cd4bafb928
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b16bd5b93eda0fcb0c0c9ff96f86efc866abf798
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31393866"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294474"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>如何在 Azure API 管理中使用角色型存取控制
 Azure API 管理需要 Azure 角色型存取控制 (RBAC)，才能針對 API 管理服務及實體 (例如 API 和原則) 啟用更細緻的存取管理。 本文章將為您提供 API 管理中內建角色和自訂角色的概觀。 如需有關 Azure 入口網站中的存取管理的詳細資訊，請參閱[開始在 Azure 入口網站中使用存取管理](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/)。
@@ -54,6 +54,7 @@ $role.Id = $null
 $role.Name = 'Calculator API Contributor'
 $role.Description = 'Has read access to Contoso APIM instance and write access to the Calculator API.'
 $role.Actions.Add('Microsoft.ApiManagement/service/apis/write')
+$role.Actions.Add('Microsoft.ApiManagement/service/apis/*/write')
 $role.AssignableScopes.Clear()
 $role.AssignableScopes.Add('/subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.ApiManagement/service/<service name>/apis/<api ID>')
 New-AzureRmRoleDefinition -Role $role

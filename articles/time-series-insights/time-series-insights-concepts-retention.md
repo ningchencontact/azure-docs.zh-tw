@@ -3,19 +3,19 @@ title: 了解 Azure 時間序列深入解析環境中的資料保留 | Microsoft
 description: 本文說明「Azure 時間序列深入解析」環境中，控制資料保留的兩個設定。
 ms.service: time-series-insights
 services: time-series-insights
-author: anshan
+author: ashannon7
 ms.author: anshan
 manager: kfile
 ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/09/2018
-ms.openlocfilehash: ad0cbf38a1a32632869c490c5a46796eaa3884f4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c8fad0d626fc0b9754f7f04c8000f48976eb766b
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652445"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293090"
 ---
 # <a name="understand-data-retention-in-time-series-insights"></a>了解時間序列深入解析中的資料保留
 本文說明時間序列深入解析 (TSI) 環境中，影響資料保留的兩個設定。

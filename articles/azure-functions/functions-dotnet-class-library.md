@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: c1b04968f83271006240fc0e099175e9017574ae
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e521ef29a338d0c7d80493f92acff4758a091359
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261282"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# 開發人員參考
 
@@ -61,7 +62,7 @@ public static class SimpleExample
 } 
 ```
 
-`FunctionName` 屬性會將方法標記為函式進入點。 此名稱必須是專案中的唯一名稱。 專案範本通常會建立名為 `Run` 的方法，不過任何有效的 C# 方法名稱都能成為方法名稱。
+`FunctionName` 屬性會將方法標記為函式進入點。 名稱在專案中不可重複，需以字母開頭，而且只能包含字母、數字、`_` 和 `-`，長度不可超過 127 個字元。 專案範本通常會建立名為 `Run` 的方法，不過任何有效的 C# 方法名稱都能成為方法名稱。
 
 觸發程序屬性可指定觸發程序類型，並將輸入資料繫結至方法參數。 範例函式是由佇列訊息所觸發，該佇列訊息會接著傳遞給 `myQueueItem` 參數中的方法。
 
@@ -311,6 +312,10 @@ public static class EnvironmentVariablesExample
 }
 ```
 
+本機開發以及於 Azure 執行時，均可從環境變數讀取應用程式設定。 在本機開發時，應用程式設定來自 *local.settings.json* 檔案中的 `Values` 集合。 在本機和 Azure 這兩個環境中，`GetEnvironmentVariable("<app setting name>")` 會擷取具名應用程式設定的值。 例如在本機執行時，如果您的 *local.settings.json* 檔案包含 `{ "Values": { "WEBSITE_SITE_NAME": "My Site Name" } }`，則會傳回 "My Site Name"。
+
+[System.Configuration.ConfigurationManager.AppSettings](https://docs.microsoft.com/en-us/dotnet/api/system.configuration.configurationmanager.appsettings) 屬性是用於取得應用程式設定值的替代 API，但建議您使用 `GetEnvironmentVariable`，如下所示。
+
 ## <a name="binding-at-runtime"></a>執行階段的繫結
 
 在 C# 和其他 .NET 語言中，您可以使用相對於屬性中[宣告式](https://en.wikipedia.org/wiki/Declarative_programming)繫結的[命令式](https://en.wikipedia.org/wiki/Imperative_programming)繫結模式。 當繫結參數需要在執行階段而不是設計階段中計算時，命令式繫結非常有用。 利用此模式，您可以快速在您的函式程式碼中繫結至支援的輸入和輸出繫結。
@@ -384,23 +389,7 @@ public static class IBinderExampleMultipleAttributes
 
 ## <a name="triggers-and-bindings"></a>觸發和繫結 
 
-下表列出的觸發程序和繫結屬性可在 Azure Functions 類別庫專案中使用。 所有屬性都在 `Microsoft.Azure.WebJobs` 命名空間中。
-
-| 觸發程序 | 輸入 | 輸出|
-|------   | ------    | ------  |
-| [BlobTrigger](functions-bindings-storage-blob.md#trigger---attributes)| [Blob](functions-bindings-storage-blob.md#input---attributes)| [Blob](functions-bindings-storage-blob.md#output---attributes)|
-| [CosmosDBTrigger](functions-bindings-cosmosdb.md#trigger---attributes)| [DocumentDB](functions-bindings-cosmosdb.md#input---attributes)| [DocumentDB](functions-bindings-cosmosdb.md#output---attributes) |
-| [EventHubTrigger](functions-bindings-event-hubs.md#trigger---attributes)|| [EventHub](functions-bindings-event-hubs.md#output---attributes) |
-| [HTTPTrigger](functions-bindings-http-webhook.md#trigger---attributes)|||
-| [QueueTrigger](functions-bindings-storage-queue.md#trigger---attributes)|| [佇列](functions-bindings-storage-queue.md#output---attributes) |
-| [ServiceBusTrigger](functions-bindings-service-bus.md#trigger---attributes)|| [ServiceBus](functions-bindings-service-bus.md#output---attributes) |
-| [TimerTrigger](functions-bindings-timer.md#attributes) | ||
-| |[ApiHubFile](functions-bindings-external-file.md)| [ApiHubFile](functions-bindings-external-file.md)|
-| |[MobileTable](functions-bindings-mobile-apps.md#input---attributes)| [MobileTable](functions-bindings-mobile-apps.md#output---attributes) | 
-| |[資料表](functions-bindings-storage-table.md#input---attributes)| [資料表](functions-bindings-storage-table.md#output---attributes)  | 
-| ||[NotificationHub](functions-bindings-notification-hubs.md#attributes) |
-| ||[SendGrid](functions-bindings-sendgrid.md#attributes) |
-| ||[Twilio](functions-bindings-twilio.md#attributes)| 
+[!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

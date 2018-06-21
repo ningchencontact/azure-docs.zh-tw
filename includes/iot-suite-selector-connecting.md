@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 500e335d0b2eddc56cdfb9828236bc4676d9b6aa
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 28290718d15a893c5d676c887b9f810449075746
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34371162"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34665989"
 ---
 > [!div class="op_single_selector"]
 > * [Windows 上的 C](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -44,9 +44,9 @@ ms.locfileid: "34371162"
 
 ### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>部署遠端監視解決方案加速器
 
-您在本教學課程中建立的 **Chiller** 裝置會將資料傳送給[遠端監視](../articles/iot-suite/iot-suite-remote-monitoring-explore.md)解決方案加速器的執行個體。 如果您尚未在您的 Azure 帳戶中佈建遠端監視解決方案加速器，請參閱[部署遠端監視解決方案加速器](../articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy.md)
+您在本教學課程中建立的 **Chiller** 裝置會將資料傳送給[遠端監視](../articles/iot-accelerators/iot-accelerators-remote-monitoring-explore.md)解決方案加速器的執行個體。 如果您尚未在您的 Azure 帳戶中佈建遠端監視解決方案加速器，請參閱[部署遠端監視解決方案加速器](../articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy.md)
 
-當遠端監視解決方案的部署程序完成之後，請按一下 [啟動] ，以在瀏覽器中開啟解決方案儀表板。
+當遠端監視解決方案的部署程序完成之後，請按一下 [啟動]，以在瀏覽器中開啟解決方案儀表板。
 
 ![解決方案儀表板](media/iot-suite-selector-connecting/dashboard.png)
 

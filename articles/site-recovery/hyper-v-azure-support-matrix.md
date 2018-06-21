@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: raynew
-ms.openlocfilehash: f8149d2af5542fb311ff83160d674e4d525289dc
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: c818ff0df5cb1f1b3d20c726b20b30c418f53061
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011368"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266956"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Hyper-V 複寫至 Azure 的支援矩陣
 
@@ -45,7 +45,7 @@ Hyper-V (執行時含 Virtual Machine Manager) | Virtual Machine Manager 2016、
  **元件** | **詳細資料**
 --- | ---
 VM 設定 | 複寫到 Azure 的 VM 必須符合 [Azure 需求](#failed-over-azure-vm-requirements)。
-客體作業系統 | [Azure 支援的](https://technet.microsoft.com/library/cc794868.aspx) \(英文\) 的任何客體 OS。<br/><br/> 不支援 Windows Server 2016 Nano Server。
+客體作業系統 | Azure 支援的任何客體作業系統。<br/><br/> 不支援 Windows Server 2016 Nano Server。
 
 
 

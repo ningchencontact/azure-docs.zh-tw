@@ -1,39 +1,22 @@
 ---
-title: Azure 監視器所支援資源中的新版計量警示 | Microsoft Docs
+title: 新版 Azure 監視器計量警示所支援的資源
 description: 新版 Azure 近乎即時計量警示之支援計量和記錄的相關參考。
 author: snehithm
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/27/2018
-ms.author: snmuvva, vinagara
-ms.custom: ''
-ms.openlocfilehash: c4a4a82eedc41b7690af005faecc1505257183ab
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: snmuvva
+ms.component: alerts
+ms.openlocfilehash: d5eaa4dafc9c155d3e6f85bc67c578c8a12da7cf
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778108"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264505"
 ---
-# <a name="newer-metric-alerts-for-azure-services-in-the-azure-portal"></a>Azure 入口網站中 Azure 服務的新版計量警示
-Azure 監視器現在支援新的計量警示類型。 新版警示在幾個方面與[傳統計量警示](insights-alerts-portal.md)不同：
-
-- **改善延遲**：新版計量警示的執行頻率可以達到每分鐘一次。 舊版計量警示的執行頻率一律是每 5 分鐘一次。 記錄警示的延遲仍然超過 1 分鐘，因為會花費時間擷取記錄。 
-- **支援多維度計量**：您可以針對維度計量發出警示，這可讓您只監視計量中感興趣的某個區段。 
-- **對計量條件有更多的控制**：您可以定義更豐富的警示規則。 新版警示支援監視計量的最大值、最小值、平均及總計值。 
-- **可合併監視多個計量**：您可以使用單一規則來監視多個計量 (目前最多兩個計量)。 若兩個計量在指定的期間內都超出其個別閾值，就會觸發警示。 
-- **更好的通知系統**：所有新版警示都使用[動作群組](monitoring-action-groups.md)，這些是可在多個警示中重複使用的具名通知及動作群組。 警示計量警示及舊版 Log Analytics 警示並不使用動作群組。 
-- **來自記錄的計量** (有限公開預覽)：現在可將進入 Log Analytics 的記錄資料擷取並轉換成「Azure 監視器」計量，然後針對這些計量發出警示，就像任何其他計量一樣。 
-
-若要了解如何在 Azure 入口網站中建立新版計量警示，請參閱[在 Azure 入口網站中建立警示規則](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal)。 建立警示之後，您可以使用[在 Azure 入口網站中管理警示](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal)中所述的步驟來管理警示。
-
+# <a name="supported-metrics-and-creation-methods-for-new-metric-alerts"></a>新版計量警示支援的計量和建立方法
+Azure 監視器現已可支援[新的計量警示類型](monitoring-overview-unified-alerts.md)，此類型具有遠優於[傳統計量警示](insights-alerts-portal.md)的優點。 舊版警示支援[大型計量清單](monitoring-supported-metrics.md)。 新版警示則可支援該類大型清單 (不斷增長) 的子集。 本文將列出該子集。 
 
 ## <a name="portal-powershell-cli-rest-support"></a>入口網站、PowerShell、CLI、REST 支援
 目前，您只能在 Azure 入口網站、[REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate) 或 [Resource Manager 範本](monitoring-create-metric-alerts-with-templates.md)中建立新版計量警示。 即將支援使用 PowerShell 和 Azure 命令列介面 (Azure CLI 2.0) 來設定新版警示。

@@ -1,8 +1,8 @@
 ---
-title: "在 Azure 中相應增加應用程式的規模 | Microsoft Docs"
-description: "了解如何在 Azure App Service 中相應增加應用程式的規模，以增加容量和功能。"
+title: 在 Azure 中相應增加應用程式的規模 | Microsoft Docs
+description: 了解如何在 Azure App Service 中相應增加應用程式的規模，以增加容量和功能。
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: mollybos
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.openlocfilehash: f6244e3f739424be169f1ea117500159bd5e4254
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: c07105a34f6778fcd62f6f1bc1d3930f6a8bf173
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714930"
 ---
 # <a name="scale-up-an-app-in-azure"></a>在 Azure 中相應增加應用程式的規模
 
@@ -50,7 +51,7 @@ ms.lasthandoff: 02/14/2018
 2. 在 App Service 應用程式頁面中，按一下 [所有設定]，然後按一下 [Scale Up]\(相應增加\)。
    
     ![瀏覽以相應增加您的 Azure 應用程式規模。][ChooseWHP]
-3. 選擇您的定價層，然後按一下 [選取] 。
+3. 選擇您的定價層，然後按一下 [套用]。
    
     當操作完成時，[通知] 索引標籤會有綠色的「成功」字樣閃爍顯示。
 

@@ -8,19 +8,19 @@ manager: mtillman
 editor: curtand
 ms.assetid: 52602ad8-2b93-4082-8487-427bdcfa8126
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-ms.openlocfilehash: 49123a47d90970d1a99276521b5aa1d516f509ab
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1facce770ca2b106d2e3113bb6d1a754ecb9376b
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34587584"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36211708"
 ---
 # <a name="create-an-organizational-unit-ou-on-an-azure-ad-domain-services-managed-domain"></a>在 Azure AD 網域服務的受控網域上建立組織單位 (OU)
 Azure AD 網域服務的受控網域包含兩個內建的容器，分別稱為「AADDC 電腦」和「AADDC 使用者」。 「AADDC 電腦」容器有已加入受控網域中全部電腦的電腦物件。 「AADDC 使用者」容器包含 Azure AD 租用戶中的使用者和群組。 有時候，可能需要在受控網域上建立服務帳戶，才能部署工作負載。 為此目的，您可以在受控網域上建立自訂的組織單位 (OU)，並在此 OU 內建立服務帳戶。 本文將示範如何在受控網域中建立 OU。

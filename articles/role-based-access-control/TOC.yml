@@ -48,7 +48,7 @@
           href: role-assignments-powershell.md
         - name: REST
           href: role-assignments-rest.md
-    - name: 活動記錄
+    - name: 檢視活動記錄檔
       href: change-history-report.md
     - name: 提升全域管理員的存取權限
       href: elevate-access-global-admin.md

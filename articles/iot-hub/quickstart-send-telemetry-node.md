@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: node
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/30/2018
+ms.date: 06/19/2018
 ms.author: dobett
-ms.openlocfilehash: 572ecbfee6a3c361a2940d74b560910fd85b344b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 17afdd4c57f58770ae82093c5e23e469d1109f6a
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635860"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284647"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-nodejs"></a>快速入門：將遙測從裝置傳送至 IoT 中樞，並使用後端應用程式從中樞讀取遙測 (Node.js)
 
@@ -120,9 +120,7 @@ node --version
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您打算繼續完成下一個快速入門，請保留資源群組和 IoT 中樞，以供稍後重複使用。
-
-如果您不再需要 IoT 中樞，請在入口網站中刪除它和資源群組。 若要刪除，請選取包含 IoT 中樞的 **qs-iot-hub-rg** 資源群組，然後按一下 [刪除]。
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>後續步驟
 
