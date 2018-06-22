@@ -417,6 +417,7 @@
 #### 教學課程
 ##### [移轉傳統 MFA 原則](active-directory-conditional-access-migration-mfa.md)
 #### 概念
+##### [基準保護](active-directory-conditional-access-baseline-protection.md)
 ##### [條件](active-directory-conditional-access-conditions.md)
 ##### [位置條件](active-directory-conditional-access-locations.md)
 ##### [控制項](active-directory-conditional-access-controls.md)
