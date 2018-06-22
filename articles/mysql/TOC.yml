@@ -205,5 +205,7 @@
       href: 'https://azure.microsoft.com/support/options/'
     - name: 客戶案例
       href: 'https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20MySQL%20"'
+    - name: 合作夥伴
+      href: partners-migration-mysql.md
     - name: 資料庫移轉指南
       href: 'https://datamigration.microsoft.com/'

@@ -77,6 +77,8 @@
           href: edit-api.md
     - name: 佈建和調整
       items:
+        - name: 容量計量
+          href: api-management-capacity.md
         - name: 升級和調整規模
           href: upgrade-and-scale.md
         - name: 設定自訂網域

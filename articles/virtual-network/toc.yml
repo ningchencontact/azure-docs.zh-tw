@@ -161,12 +161,8 @@
               href: virtual-networks-dmz-nsg.md
     - name: 設定
       items:
-        - name: 虛擬機器
-          items:
-            - name: 新增或移除網路介面
-              href: virtual-network-network-interface-vm.md
-            - name: VM 與雲端服務的名稱解析
-              href: virtual-networks-name-resolution-for-vms-and-role-instances.md
+        - name: VM 與雲端服務的名稱解析
+          href: virtual-networks-name-resolution-for-vms-and-role-instances.md
         - name: 使用動態 DNS 搭配您自己的 DNS 伺服器
           href: virtual-networks-name-resolution-ddns.md
         - name: 最佳化網路輸送量
@@ -191,17 +187,16 @@
               href: virtual-network-nsg-manage-log.md
         - name: 路由表
           href: manage-route-table.md
-        - name: 網路介面
-          href: virtual-network-network-interface.md
+        - name: 虛擬機器網路
           items:
-            - name: IP 位址
+            - name: 建立或刪除網路介面
+              href: virtual-network-network-interface.md
+            - name: 新增或移除網路介面
+              href: virtual-network-network-interface-vm.md
+            - name: 新增或移除 IP 位址
               href: virtual-network-network-interface-addresses.md
         - name: 公用 IP 位址
           href: virtual-network-public-ip-address.md
-        - name: 虛擬機器
-          items:
-            - name: 將 VM 移至不同的子網路
-              href: virtual-networks-move-vm-role-to-subnet.md
     - name: 疑難排解
       items:
         - name: 網路安全性群組
@@ -277,6 +272,8 @@
                       href: ../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json
                     - name: Azure PowerShell
                       href: virtual-networks-acl-powershell.md
+                - name: 將 VM 移至不同的子網路
+                  href: virtual-networks-move-vm-role-to-subnet.md
         - name: 雲端服務和網路安全性
           href: ../best-practices-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json
           items:

@@ -25,14 +25,9 @@ ms.locfileid: "23632549"
 
 | | |
 |-|-|
-|
-            **建立受控應用程式**||
-| 
-            [建立受控應用程式定義](scripts/managed-application-cli-sample-create-definition.md) | 在服務類別目錄中建立受控應用程式定義。  |
-| 
-            [部署受控應用程式](scripts/managed-application-cli-sample-create-application.md) | 從服務類別目錄部署受控應用程式。  |
+|**建立受控應用程式**||
+| [建立受控應用程式定義](scripts/managed-application-cli-sample-create-definition.md) | 在服務類別目錄中建立受控應用程式定義。  |
+| [部署受控應用程式](scripts/managed-application-cli-sample-create-application.md) | 從服務類別目錄部署受控應用程式。  |
 | | |
-|
-            **更新受控資源群組**||
-| 
-            [取得受控資源群組中的資源，並且調整 VM 大小](scripts/managed-application-cli-sample-get-managed-group-resize-vm.md) | 從受控資源群組取得資源，並且調整 VM 大小。 |
+|**更新受控資源群組**||
+| [取得受控資源群組中的資源，並且調整 VM 大小](scripts/managed-application-cli-sample-get-managed-group-resize-vm.md) | 從受控資源群組取得資源，並且調整 VM 大小。 |

@@ -16,8 +16,8 @@
       href: active-directory-b2c-quickstarts-spa.md
 - name: 教學課程
   items:
-    - name: 1 - 登錄應用程式
-      href: tutorial-register-applications.md
+    - name: 1 - 建立 B2C 租用戶
+      href: tutorial-create-tenant.md
     - name: 2 - 驗證帳戶
       items:
         - name: ASP.NET
