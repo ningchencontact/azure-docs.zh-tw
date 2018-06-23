@@ -98,22 +98,22 @@
           href: sql-database-dtu-resource-limits-single-databases.md
         - name: 縮放單一資料庫資源
           href: sql-database-single-database-scale.md
-        - name: 彈性集區和集區資料庫
-          items:
-            - name: 彈性集區和集區資料庫
-              href: sql-database-elastic-pool.md
-            - name: 管理集區和集區資料庫
-              href: sql-database-elastic-pool-manage.md
-            - name: 以 vCore 為基礎的資源限制
-              href: sql-database-vcore-resource-limits-elastic-pools.md
-            - name: 以 DTU 為基礎的資源限制
-              href: sql-database-dtu-resource-limits-elastic-pools.md
-        - name: 縮放彈性集區資源
-          href: sql-database-elastic-pool-scale.md
         - name: 連線架構
           href: sql-database-connectivity-architecture.md
         - name: T-SQL 差異
           href: sql-database-transact-sql-information.md
+    - name: 彈性集區和集區資料庫
+      items:
+        - name: 彈性集區和集區資料庫
+          href: sql-database-elastic-pool.md
+        - name: 管理集區和集區資料庫
+          href: sql-database-elastic-pool-manage.md
+        - name: 以 vCore 為基礎的資源限制
+          href: sql-database-vcore-resource-limits-elastic-pools.md
+        - name: 以 DTU 為基礎的資源限制
+          href: sql-database-dtu-resource-limits-elastic-pools.md
+        - name: 縮放彈性集區資源
+          href: sql-database-elastic-pool-scale.md
     - name: 受控執行個體
       items:
         - name: 受控執行個體
