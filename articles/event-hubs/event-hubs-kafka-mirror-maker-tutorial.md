@@ -10,17 +10,17 @@ ms.topic: mirror-maker
 ms.custom: mvc
 ms.date: 05/07/2018
 ms.author: bahariri
-ms.openlocfilehash: 819071321d5609728e7c62abb5b25bf354107850
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 0693fc2fff5735fb2b3c0a9b8f1d3d256746f40d
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33941236"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298316"
 ---
 # <a name="using-kafka-mirrormaker-with-event-hubs-for-kafka-ecosystems"></a>使用 Kafka MirrorMaker 搭配適用於 Kafka 生態系統的事件中樞
 
 > [!NOTE]
-> 您可以在 [GitHub](https://github.com/Azure/azure-event-hubs) 上取得此範例
+> 您可在 [GitHub](https://github.com/Azure/azure-event-hubs) 上取得此範例
 
 新式雲端規模應用程式的一個主要考量在於能夠更新、改善，以及變更基礎結構，而不會中斷服務。 本教學課程示範啟用 Kafka 的事件中樞及 Kafka MirrorMaker 如何在事件中樞服務中「鏡像」Kafka 輸入資料流，以將現有的 Kafka 管線整合到 Azure 中。 
 
@@ -34,7 +34,7 @@ Azure 事件中樞 Kafka 端點可讓您使用 Kafka 通訊協定 (亦即 Kafka 
 
 若要完成本教學課程，請確定您具有下列項目︰
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立一個[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
 * [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
     * 在 Ubuntu 上，執行 `apt-get install default-jdk` 來安裝 JDK。
     * 務必設定 JAVA_HOME 環境變數，以指向 JDK 安裝所在的資料夾。
@@ -66,7 +66,7 @@ Kafka MirrorMaker 可以「鏡像」資料流。 假設有來源和目的地 Kaf
 
 如需有關 Kafka MirrorMaker 的詳細資訊，請參閱 [Kafka 鏡像/MirrorMaker 指南](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330)。
 
-### <a name="configuration"></a>設定
+### <a name="configuration"></a>組態
 
 若要設定 Kafka MirrorMaker，請為它提供一個 Kafka 叢集作為其取用者/來源，並提供一個啟用 Kafka 的事件中樞作為其生產者/目的地。
 
@@ -116,3 +116,4 @@ bin/kafka-mirror-maker.sh --consumer.config source-kafka.config --num.streams 1 
 * [了解事件中樞](event-hubs-what-is-event-hubs.md)
 * [了解適用於 Kafka 生態系統的事件中樞](event-hubs-for-kafka-ecosystem-overview.md)
 * 深入了解 [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330)，以便將事件從 Kafka 內部部署串流至雲端上啟用 Kafka 的事件中樞。
+* 了解如何使用[原生的 Kafka 應用程式](event-hubs-quickstart-kafka-enabled-event-hubs.md)、[Apache Flink](event-hubs-kafka-flink-tutorial.md) 或 [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md) 串流至已啟用 Kafka 的事件中樞。

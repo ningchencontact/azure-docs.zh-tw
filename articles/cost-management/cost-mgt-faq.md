@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 01d880a668140b5a7ffcff8947ccc6083bca7ea0
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 0742e1e96e03840f138dde2bca7b2bcda1e49dfe
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302734"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298404"
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Azure 成本管理的常見問題集
 
@@ -72,16 +72,20 @@ ms.locfileid: "34302734"
 
 ## <a name="how-do-i-enable-suspended-or-locked-out-users"></a>如何讓暫時停權或被鎖住的使用者恢復使用？
 
+首先，讓我們來看看造成使用者帳戶發生 initiallySuspended 的最常見案例。
+
+> Admin1 可能是 Microsoft 雲端解決方案提供者或 Enterprise 合約使用者。 他的組織已準備好開始使用成本管理。  他透過 Azure 入口網站註冊，並登入 Cloudyn 入口網站。 註冊成本管理服務並登入 Cloudyn 入口網站的人會成為「主要管理員」。 Admin1 不會建立任何使用者帳戶。 不過，他會使用 Cloudyn 入口網站建立 Azure 帳戶並設定實體階層。 Admin1 通知身為租用戶系統管理員的 Admin2，告訴他必須向「成本管理」註冊，並登入 Cloudyn 入口網站。
+
+> Admin2 透過 Azure 入口網站註冊。 不過，當他嘗試登入 Cloudyn 入口網站時，他收到錯誤訊息，其中顯示他的帳戶遭到**暫時停權**。 主要管理員 Admin1 會收到帳戶暫時停權的通知。 Admin1 必須啟用 Admin2 的帳戶，授與適當實體的「管理員實體存取權」，然後允許使用者管理存取權並啟用使用者帳戶。
+
+
 如果您收到要求允許使用者存取權的警示，則需要啟用使用者帳戶。
 
 啟用使用者帳戶：
 
 1. 使用您用來設定 Cloudyn 的 Azure 系統管理使用者帳戶，登入 Cloudyn。 或者，使用已被授與系統管理員存取權的使用者帳戶登入。
-
 2. 選取右上角的齒輪符號，選取 [使用者管理]。
-
 3. 尋找使用者，選取鉛筆符號，然後編輯使用者。
-
 4. 在 [User status] \(使用者狀態\) 下，將狀態從 [Suspended] \(已暫時停權\) 變更為 [Active] \(作用中\)。
 
 Cloudyn 使用者帳戶使用單一登入從 Azure 連線。 如果使用者輸入錯誤的密碼，可能會被鎖住而無法進入 Cloudyn，但可能還是可以存取 Azure。

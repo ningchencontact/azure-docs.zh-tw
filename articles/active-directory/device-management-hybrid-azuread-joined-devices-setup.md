@@ -8,6 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,18 +16,18 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: a74a16fa583ac3bc7ea2250f916e855a0bd9d1c1
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: fabe19a7348591b4a299868dfc3e618c049198c3
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258307"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261180"
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>如何設定混合式 Azure Active Directory 已加入的裝置
 
 使用 Azure Active Directory (Azure AD) 中的裝置管理，您可以確保使用者會從符合安全性與合規性之標準的裝置來存取您的資源。 如需詳細資訊，請參閱 [Azure Active Directory 中的裝置管理簡介](device-management-introduction.md)。
 
-如果您有內部部署 Active Directory 環境，而且您想要將加入網域的裝置加入 Azure AD，您可以藉由設定混合式 Azure AD 已加入裝置來完成。 本主題為您提供相關步驟。 
+如果您有內部部署 Active Directory 環境，而且您想要將加入網域的裝置加入 Azure AD，您可以藉由設定混合式 Azure AD 已加入裝置來完成。 本文為您提供相關步驟。 
 
 
 ## <a name="before-you-begin"></a>開始之前
@@ -37,7 +38,7 @@ ms.locfileid: "34258307"
 
 一旦以下所述的組態步驟完成，所有已加入網域且執行 Windows 10 年度更新版和 Windows Server 2016 的裝置會在裝置重新啟動或使用者登入時自動向 Azure AD 註冊。 **如果不喜歡這個自動註冊行為或想要控制導入**，請先依照下面＜步驟 4：控制部署與導入＞一節中的指示，選擇性地啟用或停用自動導入，再依照其他設定步驟進行操作。  
 
-為了改善說明的可讀性，本主題使用下列詞彙︰ 
+為了改善說明的可讀性，本文使用下列詞彙︰ 
 
 - **現行 Windows 裝置** - 這個詞彙是指執行 Windows 10 或 Windows Server 2016 之已加入網域的裝置。
 - **舊版 Windows 裝置** - 這個詞彙是指並非執行 Windows 10 或 Windows Server 2016 之所有**支援的**已加入網域 Windows 裝置。  
@@ -56,7 +57,8 @@ ms.locfileid: "34258307"
     - Windows Server 2012 R2
     - Windows Server 2012
     - Windows Server 2008 R2
-- 在非同盟環境中，**支援**透過無縫單一登入 [Azure Active Directory 無縫單一登入](https://aka.ms/hybrid/sso)來註冊舊版 Windows 裝置。
+- 在非同盟環境中，**支援**透過無縫單一登入 [Azure Active Directory 無縫單一登入](https://aka.ms/hybrid/sso)來註冊舊版 Windows 裝置。 
+- 使用 Azure AD 傳遞驗證時，**不**支援舊版 Windows 裝置的註冊。
 - 對於使用漫遊設定檔的裝置，**不支援**註冊舊版 Windows 裝置。 如果您倚賴設定檔或設定的漫遊，請使用 Windows 10。
 
 
@@ -80,8 +82,7 @@ Azure AD Connect：
 
 - https://enterpriseregistration.windows.net
 
-- https://login.microsoftonline.com
-
+- https://login.microsoftonline.com 允許
 - https://device.login.microsoftonline.com
 
 - 組織的 STS (同盟網域)

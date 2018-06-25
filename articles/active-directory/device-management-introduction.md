@@ -8,19 +8,20 @@ manager: mtillman
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 05/21/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 6b1edb9c4574afa77df43e4f017848acd3ae6d28
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 8bcc89f9ec7c73fd1f690e00e831fbd5b960eef9
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33202128"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850003"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Azure Active Directory 中的裝置管理簡介
 
@@ -31,9 +32,9 @@ ms.locfileid: "33202128"
 
 透過裝置，您的使用者可存取公司資產。 為了保護公司資產，身為 IT 管理員，您希望控制這些裝置。 這可讓您確保使用者會從符合安全性與合規性之標準的裝置來存取您的資源。 
 
-裝置管理也是[裝置型條件式存取](active-directory-conditional-access-policy-connected-applications.md)的基礎。 使用裝置型條件式存取，您就可以確保只能透過受信任的裝置來存取環境中的資源。   
+裝置管理也是[裝置型條件式存取](active-directory-conditional-access-policy-connected-applications.md)的基礎。 使用裝置型條件式存取時，您可以確保只能透過受控裝置存取環境中的資源。   
 
-本主題說明 Azure Active Directory 中的裝置管理運作方式。
+本文說明 Azure Active Directory 中的裝置管理運作方式。
 
 ## <a name="getting-devices-under-the-control-of-azure-ad"></a>取得 Azure AD 控制下的裝置
 
@@ -69,12 +70,16 @@ Azure AD 加入裝置的目標是簡化：
 
 - Windows 部署工作用的裝置 
 - 從任何 Windows 裝置存取組織應用程式與資源
+- 工作用裝置的雲端式管理
 
 ![Azure AD 註冊裝置](./media/device-management-introduction/02.png)
 
+您可以使用下列任何一種方法來部署 Azure AD Join： 
+ - [Windows Autopilot](https://docs.microsoft.com/en-us/windows/deployment/windows-autopilot/windows-10-autopilot)
+ - [大量部署](https://docs.microsoft.com/en-us/intune/windows-bulk-enroll)
+ - [自助體驗](device-management-azuread-joined-devices-frx.md) 
 
-這些目標可藉由提供使用者自助服務體驗，以取得 Azure AD 控制下的工作用裝置來完成。  
-**Azure AD Join** 適用於想要雲端優先或僅限雲端的組織。 對於可以部署 Azure AD Join 的組織來說，沒有任何大小或類型的限制。 Azure AD Join 即使在混合式環境中也可運作良好，而且可以啟用對內部部署應用程式及資源的存取。
+**Azure AD Join** 適用於想要採用雲端優先 (亦即，以使用雲端服務為主，目標是減少使用內部部署基礎結構) 或只使用雲端 (沒有內部部署基礎結構) 的組織。 針對哪些組織可以部署 Azure AD Join，並沒有任何大小或類型的限制。 Azure AD Join 即使在混合式環境中也可以良好運作，可讓您同時存取雲端及內部部署應用程式與資源。
 
 實作 Azure AD 加入裝置提供下列優點：
 
@@ -88,10 +93,12 @@ Azure AD 加入裝置的目標是簡化：
 
 - **限制**僅從符合合規性原則的裝置存取應用程式。
 
-- 當裝置可以看見內部部署網域控制站時，即可**順暢地存取內部部署資源**。
+- 當裝置可以看見內部部署網域控制站時，即可**順暢地存取內部部署資源**。 
 
 
-雖然 Azure AD Join 主要適用於沒有內部部署 Windows Server Active Directory 基礎結構的組織，您當然也可以在下列情況下使用之：
+雖然 Azure AD Join 主要適用於沒有內部部署 Windows Server Active Directory 基礎結構的組織，但您也可以在下列情況下使用它：
+
+- 您想要使用 Azure AD 和 MDM (例如 Intune) 來轉換成雲端式基礎結構。
 
 - 例如，如果您需要取得行動裝置 (例如控制下的平板電腦和電話)，您無法使用內部部署網域加入。
 
@@ -121,9 +128,9 @@ Azure AD 加入裝置的目標是簡化：
 
 您應該使用 Azure AD 混合式加入裝置，如果：
 
-- 您已將 Win32 應用程式部署至使用 NTLM/Kerberos 的裝置。
+- 您已將 Win32 應用程式部署至這些倚賴 Active Directory 電腦驗證的裝置。
 
-- 您需要 GP 或 SCCM/DCM 來管理裝置。
+- 您需要 GP 來管理裝置。
 
 - 您想要繼續使用映像處理解決方案來設定員工的裝置。
 

@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 306d0e57449de41080d5473034e585f772771d51
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: aea43eed0cb66b0e0d3bb7a393f569714feb475d
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850132"
 ---
 # <a name="network-monitoring-solutions"></a>網路監視解決方案 
 
@@ -56,12 +57,13 @@ Azure 提供許多可監視網路資產的解決方案。 Azure 擁有的解決�
 
 ## <a name="expressroute-monitor"></a>ExpressRoute 監視
 
-Expressroute 的 NPM 提供對於私用對等連線的全面性 ExpressRoute 監視。 您可以透過 ExpressRoute 監視分公司與 Azure 之間的 E2E 連線和效能。 主要功能有：
+Expressroute 的 NPM 提供對於 Azure 私用對等連線和 Microsoft 對等連線的全面性 ExpressRoute 監視。 您可以透過 ExpressRoute 監視分公司與 Azure 之間的 E2E 連線和效能。 主要功能有：
 
 * 自動偵測與您的訂用帳戶相關聯的 ER 線路
 * 偵測從內部部署至雲端應用程式的網路拓撲
-* 每個虛擬網路的容量規劃、使用率分析、頻寬使用率
+* 容量規劃、頻寬使用率分析
 * 監視主要和次要路徑並且提出警示
+* 透過 ExpressRoute 監視與 Azure 服務 (例如 Office 365、Dynamics 365 等) 的連線
 * 偵測 VNet 連線能力的降低
 
 ![顯示跨區域流量的地理資訊地圖](./media/network-monitoring-overview/expressroute-topology-map.png) 

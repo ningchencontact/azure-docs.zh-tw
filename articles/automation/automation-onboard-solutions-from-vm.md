@@ -4,21 +4,21 @@ description: 了解如何在 Azure 虛擬機器上登入屬於 Azure 自動化�
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
+ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 2fbfd733a57d0e2f91d119b614917abf172b8379
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 675aebf35a6bee6e4cc4fd884204edb5bae4b848
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193089"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830556"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>從 Azure 虛擬機器登入更新管理、變更追蹤和清查解決方案
 
-Azure 自動化提供的解決方案可管理作業系統安全性更新、追蹤變更，以及清查您的電腦上安裝的內容。 登入機器的方式有很多種，您可以從虛擬機器、[從您的自動化帳戶](automation-onboard-solutions-from-automation-account.md)，或透過 [Runbook](automation-onboard-solutions.md) 來登入解決方案。 本文說明如何從 Azure 虛擬機器登入這些解決方案。
+Azure 自動化提供的解決方案可管理作業系統安全性更新、追蹤變更，以及清查您的電腦上安裝的項目。 讓機器上架的方式有很多種，您可以從虛擬機器、[從您的自動化帳戶](automation-onboard-solutions-from-automation-account.md)、[從瀏覽多部機器](automation-onboard-solutions-from-browse.md)，或透過 [Runbook](automation-onboard-solutions.md) 來讓解決方案上架。 本文說明如何從 Azure 虛擬機器登入這些解決方案。
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 
@@ -28,13 +28,13 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 瀏覽至現有的虛擬機器，並選取 [作業] 下的 [更新管理]、[清查] 或 [變更追蹤]。
 
+若要啟用 VM 的解決方案，只須確認已選取 [對此 VM 啟用] 選項按鈕，若要將多部機器上架至解決方案，請選取 [對此訂用帳戶中的 VM 啟用]，然後按一下 [按一下以選取要啟用的機器]。 請參閱[上架更新管理、變更追蹤和清查解決方案](automation-onboard-solutions-from-automation-account.md)，以檢視一次上架多部機器的步驟。
+
 選擇 Log Analytics 工作區和自動化帳戶，然後按一下 [啟用] 以啟用解決方案。 啟用解決方案最多需要 15 分鐘。
 
 ![使更新解決方案上線](media/automation-onboard-solutions-from-vm/onboard-solution.png)
 
 瀏覽至其他解決方案，然後按一下 [啟用]，記錄分析和自動化帳戶下拉式方塊會停用，因為它們使用的工作區和自動化帳戶與先前啟用的解決方案相同。
-
-![使更新解決方案上線](media/automation-onboard-solutions-from-vm/onboard-solutions2.png)
 
 > [!NOTE]
 > [變更追蹤] 和 [清查] 使用相同的解決方案，因此啟用其中之一時，另一個也會啟用。

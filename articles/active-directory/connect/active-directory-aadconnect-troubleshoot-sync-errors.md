@@ -5,20 +5,21 @@ services: active-directory
 documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: curtand
 ms.assetid: 2209d5ce-0a64-447b-be3a-6f06d47995f8
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 05/31/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: aaa374d5a11ef5b5860f83a87386ff981319189f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c38187221e7cd4e3244199e713f41be0005eb024
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801876"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>針對同步處理期間的錯誤進行疑難排解
 將身分識別資料從 Windows Server Active Directory (AD DS) 同步處理至 Azure Active Directory (Azure AD) 時，可能會發生錯誤。 本文提供不同類型的同步處理錯誤概觀、某些可能導致這些錯誤的案例，以及修正錯誤的可能方式。 本文包含常見的錯誤類型，不一定涵蓋所有可能的錯誤。
@@ -29,7 +30,7 @@ ms.lasthandoff: 04/05/2018
 
 從 2016 年 9 月 1 日開始，預設會針對所有「新的」Azure Active Directory 租用戶啟用 [Azure Active Directory 重複屬性恢復](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)功能。 這項功能會針對未來幾個月內的現有租用戶自動啟用。
 
-Azure AD Connect 會從其保持同步的目錄執行 3 種作業︰匯入、同步處理及匯出。 錯誤可能會發生於所有作業中。 本文主要著重於在匯出至 Azure AD 期間的錯誤。
+Azure AD Connect 會從其保持同步的目錄執行三種類型的作業︰匯入、同步處理及匯出。 錯誤可能會發生於所有作業中。 本文主要著重於在匯出至 Azure AD 期間的錯誤。
 
 ## <a name="errors-during-export-to-azure-ad"></a>匯出至 Azure AD 期間的錯誤
 下一節說明使用 Azure AD 連接器匯出至 Azure AD 的作業期間內可能發生的各類型同步處理錯誤。 此連接器可經由 "contoso.onmicrosoft.com" 格式的名稱加以識別。
@@ -61,31 +62,31 @@ Azure Active Directory 結構描述不允許兩個或多個物件的下列屬性
 
 #### <a name="example-scenarios-for-invalidsoftmatch"></a>InvalidSoftMatch 的範例案例
 1. 內部部署 Active Directory 中存在兩個或多個具有相同 ProxyAddresses 屬性值的物件。 只有一個會在 Azure AD 中佈建。
-2. 內部部署 Active Directory 中存在兩個或多個具有相同 userPrincipalName 值的物件。 只有一個會在 Azure AD 中佈建。
+2. 內部部署 Active Directory 中存在兩個或多個具有相同 userPrincipalName 屬性值的物件。 只有一個會在 Azure AD 中佈建。
 3. 內部部署 Active Directory 中新增的物件具有與 Azure Active Directory 中現有物件相同的 ProxyAddresses 屬性值。 在內部部署新增的物件並未佈建於 Azure Active Directory 中。
 4. 內部部署 Active Directory 中新增的物件具有與 Azure Active Directory 中的帳戶相同的 userPrincipalName 屬性值。 此物件並未佈建於 Azure Active Directory 中。
 5. 同步處理的帳戶已從樹系 A 移到樹系 B。Azure AD Connect (同步處理引擎) 使用 ObjectGUID 屬性來計算 SourceAnchor。 在樹系移動之後，SourceAnchor 的值會不同。 新物件 (來自樹系 B) 與 Azure AD 中的現有物件同步處理失敗。
 6. 同步處理的物件會意外從內部部署 Active Directory 中刪除，而在 Active Directory 中針對相同的實體 (例如使用者) 建立新物件，而不需刪除 Azure Active Directory 中的帳戶。 新的帳戶與現有的 Azure AD 物件同步處理失敗。
-7. Azure AD Connect 解除安裝後再重新安裝。 在重新安裝期間，會選擇不同的屬性做為 SourceAnchor。 所有先前同步處理的物件都停止與 InvalidSoftMatch 錯誤同步處理。
+7. 已將 Azure AD Connect 解除安裝後再重新安裝。 在重新安裝期間，選擇了不同的屬性作為 SourceAnchor。 所有先前同步處理的物件都停止與 InvalidSoftMatch 錯誤同步處理。
 
 #### <a name="example-case"></a>範例案例︰
 1. **Bob Smith** 是 Azure Active Directory 中已從 *contoso.com* 的內部部署 Active Directory 同步處理的使用者
 2. Bob Smith 的 **UserPrincipalName** 已設定為 **bobs@contoso.com**。
 3. **"abcdefghijklmnopqrstuv=="** 是 Azure AD Connect 使用 Bob Smith 的 **objectGUID** 從內部部署 Active Directory 計算的 **SourceAnchor**，這是 Azure Active Directory 中 Bob Smith 的 **immutableId**。
 4. Bob 也具有 **proxyAddresses** 屬性的下列值︰
-   * smtp:bobs@contoso.com
-   * smtp:bob.smith@contoso.com
-   * **smtp:bob@contoso.com**
+   * smtp: bobs@contoso.com
+   * smtp: bob.smith@contoso.com
+   * **smtp: bob@contoso.com**
 5. 新使用者 **Bob Taylor** 已新增至內部部署 Active Directory。
 6. Bob Taylor 的 **UserPrincipalName** 已設為 **bobt@contoso.com**。
 7. **"abcdefghijkl0123456789==""** 是 Azure AD Connect 使用 Bob Taylor 的 **objectGUID** 從內部部署 Active Directory 計算的 **sourceAnchor**。 Bob Taylor 的物件尚未同步處理至 Azure Active Directory。
 8. Bob Taylor 具有 proxyAddresses 屬性的下列值︰
-   * smtp:bobt@contoso.com
-   * smtp:bob.taylor@contoso.com
-   * **smtp:bob@contoso.com**
+   * smtp: bobt@contoso.com
+   * smtp: bob.taylor@contoso.com
+   * **smtp: bob@contoso.com**
 9. 在同步處理期間，Azure AD Connect 會辨識內部部署 Active Directory 中的 Bob Taylor 新增，並要求 Azure AD 進行相同的變更。
 10. Azure AD 會先執行完全比對。 也就是說，它會搜尋是否有任何物件的 immutableId 等於 "abcdefghijkl0123456789=="。 完全比對會失敗，因為 Azure AD 中沒有其他物件具有該 immutableId。
-11. Azure AD 會接著嘗試大致比對 Bob Taylor。 也就是說，它會搜尋是否有任何物件的 proxyAddresses 等於上述三個值，包括 smtp:bob@contoso.com
+11. Azure AD 會接著嘗試大致比對 Bob Taylor。 也就是說，它將會搜尋是否有任何物件的 proxyAddresses 等於上述三個值，包括 smtp: bob@contoso.com
 12. Azure AD 會找到 Bob Smith 的物件以比對大致相符準則。 但此物件 immutableId 的值等於 "abcdefghijklmnopqrstuv=="。 這表示此物件已從內部部署 Active Directory 中的另一個物件同步處理。 因此，Azure AD 無法大致比對這些物件，並會導致 **InvalidSoftMatch** 同步處理錯誤。
 
 #### <a name="how-to-fix-invalidsoftmatch-error"></a>如何修正 InvalidSoftMatch 錯誤
@@ -93,10 +94,10 @@ InvalidSoftMatch 錯誤的最常見原因是兩個具有不同 SourceAnchor \(im
 
 1. 找出造成錯誤的重複 proxyAddresses、userPrincipalName 或其他屬性值。 同時找出哪兩個 \( 或多個\) 物件與衝突有關。 [Azure AD Connect Health for Sync](https://aka.ms/aadchsyncerrors) 所產生的報告可協助您找出這兩個物件。
 2. 找出哪個物件應該繼續擁有重複的值，以及哪個物件不該如此。
-3. 移除物件中不該具有該值的重複值。 請注意，您應該在物件源自的目錄中進行變更。 在某些情況下，您可能需要刪除其中一個衝突的物件。
+3. 移除物件中不該具有該值的重複值。 您應該在物件的來源目錄中進行變更。 在某些情況下，您可能需要刪除其中一個衝突的物件。
 4. 如果您在內部部署 AD 中進行變更，請讓 Azure AD Connect 同步處理變更。
 
-請注意，Azure AD Connect Health for Sync 內的同步處理錯誤報告會每隔 30 分鐘更新一次，包含最近同步處理嘗試的錯誤。
+Azure AD Connect Health 進行同步處理的同步處理錯誤報告每隔 30 分鐘就會更新一次，並包含最近同步處理嘗試的錯誤。
 
 > [!NOTE]
 > 根據定義，不得在物件的存留期間變更 ImmutableId 。 如果設定 Azure AD Connect 時未牢記上述清單中的一些案例，您最後可能會遇到以下情況：Azure AD Connect 針對 AD 物件計算不同的 SourceAnchor 值，其代表具有您要繼續使用之現有 Azure AD 物件的相同實體 (相同的使用者/群組/連絡人等)。
@@ -114,8 +115,8 @@ InvalidSoftMatch 錯誤的最常見原因是兩個具有不同 SourceAnchor \(im
 * 在 Office 365 中建立擁有郵件功能的安全性群組。 系統管理員會使用與 Office 365 群組相同的 ProxyAddresses 屬性值，在內部部署 AD (尚未同步處理至 Azure AD) 中新增使用者或連絡人。
 
 #### <a name="example-case"></a>範例案例
-1. 系統管理員在 Office 365 中針對稅務部門建立擁有郵件功能的新安全性群組，並為其提供電子郵件地址 tax@contoso.com。這會為此群組指派值為 **smtp:tax@contoso.com** 的 ProxyAddresses 屬性
-2. 新使用者會加入 Contoso.com，並針對 proxyAddress 為 **smtp:tax@contoso.com** 的內部部署使用者建立帳戶
+1. 系統管理員在 Office 365 中針對稅務部門建立擁有郵件功能的新安全性群組，並為其提供電子郵件地址 tax@contoso.com。 將 **smtp: tax@contoso.com** 的 ProxyAddresses 屬性值指派給這個群組
+2. 新使用者會加入 Contoso.com，並針對 proxyAddress 為 **smtp: tax@contoso.com** 的內部部署使用者建立帳戶
 3. 當 Azure AD Connect 將同步處理新的使用者帳戶時，它會收到 "ObjectTypeMismatch" 錯誤。
 
 #### <a name="how-to-fix-objecttypemismatch-error"></a>如何修正 ObjectTypeMismatch 錯誤
@@ -143,14 +144,14 @@ Azure Active Directory 結構描述不允許兩個或多個物件的下列屬性
 1. **Bob Smith** 是 Azure Active Directory 中已從 contoso.com 的內部部署 Active Directory 同步處理的使用者
 2. Bob Smith 的內部部署 **UserPrincipalName** 已設定為 **bobs@contoso.com**。
 3. Bob 也具有 **proxyAddresses** 屬性的下列值︰
-   * smtp:bobs@contoso.com
-   * smtp:bob.smith@contoso.com
-   * **smtp:bob@contoso.com**
+   * smtp: bobs@contoso.com
+   * smtp: bob.smith@contoso.com
+   * **smtp: bob@contoso.com**
 4. 新使用者 **Bob Taylor** 已新增至內部部署 Active Directory。
 5. Bob Taylor 的 **UserPrincipalName** 已設為 **bobt@contoso.com**。
-6. **Bob Taylor** 具有 **ProxyAddresses** 屬性的下列值。i. smtp:bobt@contoso.com ii. smtp:bob.taylor@contoso.com
+6. **Bob Taylor** 具有 **ProxyAddresses** 屬性的下列值。i. smtp: bobt@contoso.com ii. smtp: bob.taylor@contoso.com
 7. Bob Taylor 物件已成功與 Azure AD 同步處理。
-8. 系統管理員決定使用下列的值更新 Bob Taylor 的 **ProxyAddresses** 屬性︰i. **smtp:bob@contoso.com**
+8. 系統管理員決定使用下列的值更新 Bob Taylor 的 **ProxyAddresses** 屬性︰i. **smtp: bob@contoso.com**
 9. Azure AD 將嘗試使用上述的值更新 Bob Taylor 在 Azure AD 中的物件，但該作業將會失敗，因為該 ProxyAddresses 值已指派給 Bob Smith，因而導致 "AttributeValueMustBeUnique" 錯誤。
 
 #### <a name="how-to-fix-attributevaluemustbeunique-error"></a>如何修正 AttributeValueMustBeUnique 錯誤
@@ -167,7 +168,7 @@ AttributeValueMustBeUnique 錯誤的最常見原因是兩個具有不同 SourceA
 ## <a name="data-validation-failures"></a>資料驗證失敗
 ### <a name="identitydatavalidationfailed"></a>IdentityDataValidationFailed
 #### <a name="description"></a>說明
-Azure Active Directory 會先對資料本身強制執行各種限制，然後才允許該資料寫入目錄中。 這是為了確保使用者在使用相依於這項資料的應用程式時，能獲得最棒的體驗。
+Azure Active Directory 會先對資料本身強制執行各種限制，然後才允許該資料寫入目錄中。 這些限制是為了確保使用者在使用相依於這項資料的應用程式時，能獲得最棒的體驗。
 
 #### <a name="scenarios"></a>案例
 a. UserPrincipalName 屬性值具有無效/不支援的字元。
@@ -181,7 +182,7 @@ a. 確定 userPrincipalName 屬性具有支援的字元和所需的格式。
 
 ### <a name="federateddomainchangeerror"></a>FederatedDomainChangeError
 #### <a name="description"></a>說明
-這是一個特殊情況，會在使用者的 UserPrincipalName 尾碼從一個同盟網域變更為另一個同盟網域時，導致發生 **"FederatedDomainChangeError"** 同步處理錯誤。
+這種情況會在使用者的 UserPrincipalName 尾碼從一個同盟網域變更為另一個同盟網域時，導致發生 **"FederatedDomainChangeError"** 同步處理錯誤。
 
 #### <a name="scenarios"></a>案例
 對於已同步處理的使用者，UserPrincipalName 尾碼從一個同盟網域變更為另一個內部部署的同盟網域。 例如，UserPrincipalName = bob@contoso.com 已變更為 UserPrincipalName = bob@fabrikam.com。
@@ -195,7 +196,7 @@ a. 確定 userPrincipalName 屬性具有支援的字元和所需的格式。
 #### <a name="how-to-fix"></a>修正方式
 如果使用者的 UserPrincipalName 尾碼從 bob@**contoso.com** 更新為 bob@**fabrikam.com**，其中 **contoso.com** 與 **fabrikam.com** 都是**同盟網域**，則遵循這些步驟來修正同步處理錯誤
 
-1. 將 Azure AD 中使用者的 UserPrincipalName 從 bob@contoso.com 更新為 bob@contoso.onmicrosoft.com。您可以使用以下 PowerShell 命令搭配 Azure AD PowerShell 模組：`Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
+1. 將 Azure AD 中使用者的 UserPrincipalName 從 bob@contoso.com 更新為 bob@contoso.onmicrosoft.com。 您可以使用以下 PowerShell 命令搭配 Azure AD PowerShell 模組：`Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
 2. 允許下一個同步處理週期嘗試進行同步處理。 這次同步處理將會成功，而且 Bob 的 UserPrincipalName 會如預期般更新為 bob@fabrikam.com。
 
 #### <a name="related-articles"></a>相關文章
