@@ -1,6 +1,6 @@
 ---
 title: 部署 Azure Stack - PowerShell | Microsoft Docs
-description: 在本教學課程中，您要從命令列安裝 ASDK。
+description: 在本文中，您會使用 PowerShell 從命令列安裝 ASDK。
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -11,29 +11,20 @@ ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
-ms.custom: mvc
-ms.date: 03/16/2018
+ms.topic: article
+ms.custom: ''
+ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 48ccccaba6b7f5780f1d42dfbe5d9747c5e30292
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f0d7daa479f6e6ea345e010962488c1ecad5b7e2
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849952"
 ---
-# <a name="tutorial-deploy-the-asdk-from-the-command-line"></a>教學課程：從命令列部署 ASDK
-在本教學課程中，您要在非生產環境中，從命令列部署 Azure Stack 開發套件 (ASDK)。 
-
+# <a name="deploy-the-asdk-from-the-command-line"></a>從命令列部署 ASDK
 ASDK 是種測試和部署環境，可供您部署以評估及示範 Azure Stack 的功能和服務。 要讓其正常執行，您將需要準備環境硬體並執行一些指令碼 (這將需要數小時的時間)。 在那之後，您就可以登入系統管理員和使用者入口網站，開始使用 Azure Stack。
-
-在本教學課程中，您了解如何：
-
-> [!div class="checklist"]
-> * 下載部署套件並解壓縮
-> * 準備開發套件主機電腦 
-> * 執行部署後設定
-> * 向 Azure 註冊
 
 ## <a name="prerequisites"></a>先決條件 
 準備開發套件主機電腦。 規劃您的硬體、軟體及網路。 裝載開發套件的電腦 (開發套件主機) 必須符合硬體、軟體及網路需求。 此外，您還必須在使用 Azure Active Directory (Azure AD) 或「Active Directory 同盟服務 (AD FS)」之間選擇。 開始部署之前，請務必符合這些先決條件，如此安裝程序才能順暢執行。 
@@ -176,16 +167,5 @@ $aadcred = Get-Credential "<Azure AD global administrator account name>" #Exampl
 ## <a name="next-steps"></a>後續步驟
 恭喜！ 完成這些步驟之後，您將會擁有一個具備[系統管理員](https://adminportal.local.azurestack.external)和[使用者](https://portal.local.azurestack.external)入口網站的開發套件環境。 
 
-在本教學課程中，您已了解如何：
-
-> [!div class="checklist"]
-> * 下載部署套件並解壓縮
-> * 準備開發套件主機電腦 
-> * 執行部署後設定
-> * 向 Azure 註冊
-
-前進到下一個教學課程，以了解如何新增 Azure 市集項目。
-
-> [!div class="nextstepaction"]
-> [新增 Azure Stack 市集項目](asdk-marketplace-item.md)
+[ASDK 安裝後設定工作](asdk-post-deploy.md)
 

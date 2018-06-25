@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 718a7eb1e6457c669456d88e5c6e80157b28066c
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 29c7994485eeb2b3fdde52d1794704ecb51d65e5
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942351"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301060"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>流量管理員常見問題集 (FAQ)
 
@@ -86,10 +86,18 @@ DNS 查詢進入流量管理員時，它會在稱為存留時間 (TTL) 的回應
 
 您可以在每個設定檔層級將 DNS TTL 設定為最低 0 秒、最高 2,147,483,647 秒 (符合 [RFC-1035](https://www.ietf.org/rfc/rfc1035.txt ) 的最大範圍)。 當 TTL 為 0 時，表示下游 DNS 解析程式不會快取查詢回應，且所有查詢都預期觸達流量管理員 DNS 伺服器來進行解析。
 
+### <a name="how-can-i-understand-the-volume-of-queries-coming-to-my-profile"></a>如何了解傳給我的設定檔的查詢量？ 
+流量管理員提供的其中一個計量是某設定檔回應的查詢數量。 您可以在設定檔層級的彙總取得此資訊，或者也可以進一步分割此資料，以查看所傳回特定端點的查詢量。 此外，您可以設定警示，以在查詢回應量跨越設定的條件時通知您。 如需詳細資訊，請參閱[流量管理員的計量與警示](traffic-manager-metrics-alerts.md)。
+
 ## <a name="traffic-manager-geographic-traffic-routing-method"></a>流量管理員地理流量路由方法
 
 ### <a name="what-are-some-use-cases-where-geographic-routing-is-useful"></a>地理路由派上用場的使用案例有哪些？ 
 每當 Azure 客戶需要依據地理區域來區別他們的使用者位置時，就可以使用地理路由類型。 例如，使用地理流量路由方法，您可以為特定區域的使用者提供不同於其他區域的使用者體驗。 另一個例子是符合本機資料主權規定，要求特定區域的使用者只能由該區域中的端點提供服務。
+
+### <a name="how-do-i-decide-if-i-should-use-performance-routing-method-or-geographic-routing-method"></a>如何決定應該要使用效能路由方法或使用地理路由方法？ 
+這兩個常用路由方法的主要差異，在於效能路由的主要目標是將流量傳送至能提供呼叫者最低延遲的端點，而地理路由的主要目標則是對您的呼叫者強制使用地理柵欄，這樣就能特意將他們路由到特定端點。 因為地理位置相近度和低延遲有相互關聯，所以可能會發生重疊，但也並非總是如此。 可能有在其他地理位置的端點可以提供呼叫者更佳的延遲體驗，在此情況下，效能路由會將使用者傳送到該端點，但地理位置路由會一律將他們傳送到您為其地理位置所對應的端點。 為了進一步釐清，請考慮以下範例：您可以使用地理路由製造不尋常的對應，例如將來自亞洲的所有流量都傳送到在美國的端點，或將所有來自美國的流量傳送到在亞洲的端點。 在此情況下，地理路由會完全按照您的設定執行，而不會將效能最佳化列入考量。 
+>[!NOTE]
+>在某些情況下，您可能需要效能路由和地理路由功能兩者，對於這些情況，巢狀設定檔可能是最佳選擇。 例如，您可以設定使用地理路由的父設定檔，將所有來自北美洲的流量，傳送到所含端點在美國的巢狀設定檔，並使用效能路由將那些流量傳送到該集合中的最佳端點。 
 
 ### <a name="what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing"></a>流量管理員的地理路由支援哪些區域？ 
 [這裡](traffic-manager-geographic-regions.md)可以找到流量管理員所使用的國家/區域階層。 雖然此頁面一有變動就會隨時更新，但您也可以透過程式設計方式，利用 [Azure 流量管理員 REST API](https://docs.microsoft.com/rest/api/trafficmanager/) 擷取相同的資訊。 
@@ -331,6 +339,9 @@ Azure Resource Manager 需要所有資源群組指定位置，這會決定部署
 流量管理員對於您端點的健康情況檢查數目取決於下列項目：
 - 您為監視間隔所設定的值 (較小間隔表示在任何指定時間期間內有更多要求進入端點)。
 - 產生健康情況檢查的位置數目 (您可以預期這些檢查列在上述常見問題集的 IP 位址)。
+
+### <a name="how-can-i-get-notified-if-one-of-my-endpoints-goes-down"></a>如果我的其中一個端點關閉，我如何取得通知？ 
+流量管理員所提供的其中一個計量是設定檔中端點的健全狀態。 您可以將此視為設定檔中所有端點的彙總 (例如，您的端點中 75% 是健康的)，或是依端點層級的端點彙總。 流量管理員計量是透過 Azure 監視器公開，因此您可以使用它的[警示功能](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)，在端點的健全狀態變更時取得通知。 如需詳細資訊，請參閱[流量管理員的計量與警示](traffic-manager-metrics-alerts.md)。  
 
 ## <a name="traffic-manager-nested-profiles"></a>流量管理員巢狀設定檔
 

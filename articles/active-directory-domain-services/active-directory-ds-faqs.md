@@ -7,24 +7,26 @@ author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 48731820-9e8c-4ec2-95e8-83dba1e58775
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 05/30/2018
 ms.author: maheshu
-ms.openlocfilehash: 1cfd0570315d5a1c6587ade164edf0a837453406
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: aab6e893a6da1c5b877498f2bf6cbeaa6d0a5c2c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34587778"
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services：常見問題集 (FAQ)
 此頁面會回答有關 Azure Active Directory Domain Services 的常見問題。 請隨時回來查看最新消息。
 
 ## <a name="troubleshooting-guide"></a>疑難排解指南
-如需設定或管理「Azure AD 網域服務」時會發生之常見問題的解決方式，請參閱[疑難排解指南](active-directory-ds-troubleshooting.md) 。
+關於 Azure AD Domain Services 在設定或管理上常見問題的解決方案，請參閱[疑難排解指南](active-directory-ds-troubleshooting.md)。
 
 ## <a name="configuration"></a>組態
 ### <a name="can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory"></a>我可以針對單一 Azure AD 目錄建立多個受控網域嗎？
@@ -55,7 +57,7 @@ ms.lasthandoff: 03/09/2018
 編號 Azure Active Directory Domain Services 所提供的網域是受控網域。 您不需要佈建、設定或管理此網域的網域控制站 - Microsoft 會以服務形式提供這些管理活動。 因此，您無法為受控網域新增其他網域控制站 (讀寫或唯讀)。
 
 ### <a name="can-guest-users-invited-to-my-directory-use-azure-ad-domain-services"></a>受邀到我目錄的來賓使用者是否可以使用 Azure AD Domain Services？
-否。 透過使用 [Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) 邀請流程來邀請到您 Azure AD 目錄的來賓使用者會同步至您的 Azure AD Domain Services 受控網域。 不過，這些使用者的密碼不會儲存在您的 Azure AD 目錄中。 因此，Azure AD Domain Services 無法將這些使用者的 NTLM 和 Kerberos 雜湊同步至您的受控網域。 如此一來，這類使用者便無法登入受控網域，或將電腦加入到受控網域中。
+編號 以 [Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) 邀請流程受邀到您 Azure AD 目錄的來賓使用者會同步至您的 Azure AD Domain Services 受控網域。 不過，這些使用者的密碼不會儲存在您的 Azure AD 目錄中。 因此，Azure AD Domain Services 無法將這些使用者的 NTLM 和 Kerberos 雜湊同步至您的受控網域。 如此一來，這類使用者便無法登入受控網域，也無法將電腦加入到受控網域中。
 
 ## <a name="administration-and-operations"></a>管理和作業
 ### <a name="can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop"></a>我可以使用遠端桌面連線到我的受控網域的網域控制站嗎？
@@ -65,13 +67,13 @@ ms.lasthandoff: 03/09/2018
 系統管理群組「AAD DC 系統管理員」的成員都能將電腦加入網域。 此外，此群組的成員會被授與已加入網域之電腦的遠端桌面存取權限。
 
 ### <a name="do-i-have-domain-administrator-privileges-for-the-managed-domain-provided-by-azure-ad-domain-services"></a>我有 Azure AD Domain Services 所提供的受控網域的網域系統管理員權限嗎？
-編號 您不會取得受控網域的系統管理權限。 您無法在網域內使用「網域系統管理員」和「企業系統管理員」權限。 Azure AD 目錄內現有的網域系統管理員或企業系統管理員群組也不會被授與該網域的網域/企業系統管理員權限。
+編號 您不會取得受控網域的系統管理權限。 您無法在網域內使用「網域系統管理員」和「企業系統管理員」權限。 在內部部署 Active Directory 中，網域系統管理員或企業系統管理員群組的成員也不會獲得受控網域的網域/企業系統管理員權限。
 
 ### <a name="can-i-modify-group-memberships-using-ldap-or-other-ad-administrative-tools-on-managed-domains"></a>我可以在受控網域上使用 LDAP 或其他 AD 系統管理工具來修改群組成員資格嗎？
 編號 您無法在 Azure AD 網域服務所服務的網域上修改群組成員資格。 這同樣適用於使用者屬性。 但是，您可能會在 Azure AD 中或內部部署網域上變更群組成員資格或使用者屬性。 這類變更會自動同步處理到 Azure AD 網域服務。
 
 ### <a name="how-long-does-it-take-for-changes-i-make-to-my-azure-ad-directory-to-be-visible-in-my-managed-domain"></a>我對 Azure AD 目錄所做的變更要多久才會反映在我的受控網域中？
-使用 Azure AD UI 或 PowerShell 在您 Azure AD 目錄中進行的變更會同步至您的受控網域。 這個同步處理程序會在背景執行。 在您目錄的單次初始同步處理完成之後，通常需要 20 分鐘的時間，在 Azure AD 中所做的變更才會反映在您的受控網域中。
+使用 Azure AD UI 或 PowerShell 在您 Azure AD 目錄中進行的變更會同步至您的受控網域。 這個同步處理程序會在背景執行。 首次同步處理完成之後，通常需要 20 分鐘的時間，在 Azure AD 中所做的變更才會反映在您的受控網域中。
 
 ### <a name="can-i-extend-the-schema-of-the-managed-domain-provided-by-azure-ad-domain-services"></a>可以擴充 Azure AD Domain Services 所提供之受控網域的結構描述嗎？
 編號 結構描述是由 Microsoft 針對受控網域進行管理。 Azure AD 網域服務不支援結構描述延伸模組。
@@ -81,6 +83,9 @@ ms.lasthandoff: 03/09/2018
 
 ### <a name="what-is-the-password-lifetime-policy-on-a-managed-domain"></a>受控網域上的密碼存留期原則為何？
 Azure AD Domain Services 受控網域上的預設密碼存留期為 90 天。 此密碼存留期不會與 Azure AD 中設定的密碼存留期同步。 因此，您可能會遇到使用者的密碼在您的受控網域中到期，但在 Azure AD 中卻仍然有效的情況。 在這種情況下，使用者必須變更他們在 Azure AD 中的密碼，而新密碼將會同步至您的受控網域。 此外，使用者帳戶的 'password-does-not-expire' 和 'user-must-change-password-at-next-logon' 屬性也不會同步至您的受控網域。
+
+### <a name="does-azure-ad-domain-services-provide-ad-account-lockout-protection"></a>Azure Active Directory Domain Services 是否提供 AD 帳戶鎖定保護？
+是。 2 分鐘內在受控網域中輸入不正確的密碼五次，即會導致使用者帳戶鎖定 30 分鐘。 30 分鐘後，使用者帳戶會自動解除鎖定。 在受控網域上輸入不正確的密碼，並不會鎖定 Azure AD 的使用者帳戶。 Azure AD Domain Services 受控網域內的使用者帳戶才會遭到鎖定。
 
 ## <a name="billing-and-availability"></a>計費與可用性
 ### <a name="is-azure-ad-domain-services-a-paid-service"></a>Azure AD 網域服務是付費服務嗎？

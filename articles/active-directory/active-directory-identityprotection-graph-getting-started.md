@@ -1,13 +1,14 @@
 ---
-title: "使用 Microsoft Graph 來獲得 Azure Active Directory Identity Protection | Microsoft Docs"
-description: "了解如何查詢 Microsoft Graph，以從 Azure Active Directory 取得風險事件清單和相關聯的資訊。"
+title: 使用 Microsoft Graph 來獲得 Azure Active Directory Identity Protection | Microsoft Docs
+description: 了解如何查詢 Microsoft Graph，以從 Azure Active Directory 取得風險事件清單和相關聯的資訊。
 services: active-directory
-keywords: "azure active directory identity protection, 風險事件, 弱點, 安全性原則, Microsoft Graph"
-documentationcenter: 
+keywords: azure active directory identity protection, 風險事件, 弱點, 安全性原則, Microsoft Graph
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: fa109ba7-a914-437b-821d-2bd98e681386
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,11 +17,12 @@ ms.date: 12/08/2017
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
-ms.openlocfilehash: df0d89fc93f1b9c19d669c29306398a8b25ee425
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c6c59285fbb2c81e5e20d28171abfe806bd51122
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713196"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>開始使用 Azure Active Directory Identity Protection 和 Microsoft Graph
 Microsoft Graph 是 Microsoft 統一 API 端點，也是 [Azure Active Directory Identity Protection](active-directory-identityprotection.md) API 的寄居地。 第一個 API **identityRiskEvents** 可讓您查詢 Microsoft Graph，以取得[風險事件](active-directory-identityprotection-risk-events-types.md)清單和關聯的資訊。 本文可協助您開始查詢此 API。 如需深入的簡介、完整文件以及 Graph 總管的存取權，請參閱 [Microsoft Graph 網站](https://graph.microsoft.io/)。
@@ -156,7 +158,7 @@ Microsoft Graph 是 Microsoft 統一 API 端點，也是 [Azure Active Directory
 
 - grant_type: “**client_credentials**”
 
--  resource: “**https://graph.microsoft.com**”
+-  資源：“**https://graph.microsoft.com**”
 
 - client_id：\<您的用戶端識別碼\>
 

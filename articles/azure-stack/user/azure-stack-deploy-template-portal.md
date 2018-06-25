@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 05/24/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 278f15271d3a5443102f5e387d3db1adb53fe7db
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: eea4f568f21693764222c8fdbe3316bf6008cc05
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34357379"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604228"
 ---
 # <a name="deploy-templates-using-the-azure-stack-portal"></a>使用 Azure Stack 入口網站部署範本
 
@@ -28,7 +28,7 @@ ms.locfileid: "34357379"
 
 您可以使用入口網站將 Azure Resource Manager 範本部署到 Azure Stack。
 
-若要部署範本：
+## <a name="to-deploy-a-template"></a>部署範本
 
 1. 登入入口網站，選取 [新增]，然後選取 [自訂]。
 2. 選取 [範本部署]。
@@ -40,4 +40,4 @@ ms.locfileid: "34357379"
 
 ## <a name="next-steps"></a>後續步驟
 
-[使用 PowerShell 部署範本](azure-stack-deploy-template-powershell.md)
+* [使用 PowerShell 部署範本](azure-stack-deploy-template-powershell.md)

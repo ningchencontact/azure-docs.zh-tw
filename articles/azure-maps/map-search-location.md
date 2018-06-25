@@ -1,22 +1,20 @@
 ---
 title: 使用 Azure 地圖服務顯示搜尋結果 | Microsoft Docs
 description: 如何使用 Azure 地圖服務執行搜尋要求，然後在 JavaScrip 地圖上顯示結果
-services: azure-maps
-keywords: ''
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
+services: azure-maps
+manager: ''
 ms.custom: codepen
-ms.openlocfilehash: f66b1f93d7bc4c2e7c511c10d7091760e8f6d023
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b77737b16b23ed00c8f12f84e6a8558a665a7d15
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599876"
 ---
 # <a name="show-search-results-on-the-map"></a>在地圖上顯示搜尋結果
 
@@ -43,3 +41,7 @@ ms.lasthandoff: 05/07/2018
 * [Azure 地圖服務模糊搜尋 API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
 * [地圖](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
     * [addPins](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addpins)
+    
+如需更多可新增至地圖的程式碼範例，請參閱下列文章： 
+* [從座標取得資訊](./map-get-information-from-coordinate.md)
+* [顯示從甲地到乙地的指示](./map-route.md)

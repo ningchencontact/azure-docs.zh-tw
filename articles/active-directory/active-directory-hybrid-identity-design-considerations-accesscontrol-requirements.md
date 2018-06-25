@@ -1,25 +1,27 @@
 ---
-title: "混合式身分識別設計存取控制需求 Azure | Microsoft Docs"
-description: "說明身分識別的要件，以及針對混合式環境中的使用者識別資源的存取需求。"
-documentationcenter: 
+title: 混合式身分識別設計存取控制需求 Azure | Microsoft Docs
+description: 說明身分識別的要件，以及針對混合式環境中的使用者識別資源的存取需求。
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: e3b3b984-0d15-4654-93be-a396324b9f5e
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 161820e69b0c9d0dc376a62cecceb9cc5e83c8ce
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 3a61e7ab4c738f6cba17bcc74c3bfd335378ab83
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801213"
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>判斷混合式身分識別解決方案的存取控制需求
 當組織正在設計他們的混合式身分識別解決方案時，也可以利用這個機會，針對他們正規劃來讓使用者使用的資源檢閱存取需求。 您可以橫跨下列這四種身分識別要件來存取資料：
@@ -29,7 +31,7 @@ ms.lasthandoff: 01/18/2018
 * Authorization
 * 稽核
 
-後續小節將更詳細說明驗證與授權，系統管理和稽核則是混合式身分識別週期的一部分。 如需這些功能的詳細資訊，請參閱 [判斷混合式身分識別管理工作](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) 。
+後續小節將更詳細說明驗證與授權，系統管理和稽核則是混合式身分識別生命週期的一部分。 如需這些功能的詳細資訊，請參閱 [判斷混合式身分識別管理工作](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) 。
 
 > [!NOTE]
 > 如需每一個要件的詳細資訊，請參閱 [身分識別的四個要件 - 混合式 IT 使用期間的身分識別管理](http://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) 。
@@ -41,7 +43,7 @@ ms.lasthandoff: 01/18/2018
 
 * 您的組織只會驗證和授權位於其身分識別管理系統中的使用者嗎？
   * 是否有任何適用於 B2B 案例的方案？
-  * 如果有，您已經知道將使用哪些通訊協定 (SAML、OAuth、Kerberos、權杖或憑證) 來連接這兩個企業嗎？
+  * 如果有，您已經知道將使用哪些通訊協定 (SAML、OAuth、Kerberos、權杖或憑證) 來連線這兩個企業嗎？
 * 您即將採用的混合式身分識別解決方案支援這些通訊協定嗎？
 
 另一個要考量的重點是使用者和合作夥伴將使用的驗證儲存機制將位於何處以及要使用哪個系統管理模型。 請考量下列兩個核心選項：
@@ -58,7 +60,7 @@ ms.lasthandoff: 01/18/2018
   * 如果是，採用混合式身分識別模型會影響此程序嗎？
 
 ## <a name="access-control"></a>存取控制
-儘管驗證和授權是核心元素，可透過使用者的驗證來啟用對公司資料的存取權，但是控制這些使用者將具備的存取層級，以及系統管理員在其管理的資源上具備的存取層級，也同樣重要。 您的混合式身分識別解決方案必須能夠對資源、委派和角色型存取控制提供更細微的存取權。 請確定會回答下列有關存取控制的問題：
+儘管驗證和授權是核心元素，可透過使用者的驗證來啟用對公司資料的存取權，但是控制這些使用者將具備的存取層級，以及系統管理員在其管理的資源上具備的存取層級，也同樣重要。 您的混合式身分識別解決方案必須能夠對資源、委派和角色型存取控制提供更細微的存取權。 請確保您知道下列存取控制相關問題的答案：
 
 * 貴公司擁有多位已提高權限來管理您身分識別系統的使用者嗎？
   * 如果是，每位使用者都需要同一個存取層級嗎？

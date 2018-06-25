@@ -1,25 +1,19 @@
 ---
 title: Azure IoT 解決方案加速器的常見問題集 | Microsoft Docs
 description: IoT 解決方案加速器的常見問題集
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 6c8c87dc4f7bb91ce227bbfbaf1cabf0c44d2e0b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: decae2fee0d040d0857950bec507df173e2820b9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627154"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>IoT 解決方案加速器的常見問題集
 
@@ -54,7 +48,7 @@ ms.lasthandoff: 05/20/2018
 
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsuitecom"></a>在 Azure 入口網站中刪除資源群組，以及在 azureiotsuite.com 中對解決方案加速器按一下 [刪除]，兩者間有何差異？
 
-* 如果您在 [azureiotsuite.com](https://www.azureiotsuite.com/) 中刪除解決方案加速器，就會刪除您在建立該解決方案加速器時所佈建的所有資源。 將額外資源新增到資源群組時，也會一併刪除這些資源。
+* 如果您在 [azureiotsuite.com](https://www.azureiotsolutions.com/) 中刪除解決方案加速器，就會刪除您在建立該解決方案加速器時所佈建的所有資源。 將額外資源新增到資源群組時，也會一併刪除這些資源。
 * 如果您在 [Azure 入口網站](https://portal.azure.com)中刪除資源群組，則只會刪除該資源群組中的資源。 您還必須刪除與解決方案加速器相關聯的 Azure Active Directory 應用程式。
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-solution-accelerators"></a>可以繼續利用我在 Azure IoT 解決方案加速器中的現有投資嗎？
@@ -93,6 +87,6 @@ ms.lasthandoff: 05/20/2018
 您也可以探索 IoT 解決方案加速器的一些其他特性與功能：
 
 * [探索遠端監視解決方案加速器的功能](iot-accelerators-remote-monitoring-explore.md)
-* [預測性維護解決方案加速器概觀](../iot-suite/iot-suite-predictive-overview.md)
+* [預測性維護解決方案加速器概觀](iot-accelerators-predictive-overview.md)
 * [連線的處理站解決方案加速器概觀](iot-accelerators-connected-factory-overview.md)
-* [從頭建立 IoT 安全性](../iot-suite/securing-iot-ground-up.md)
+* [從頭建立 IoT 安全性](securing-iot-ground-up.md)

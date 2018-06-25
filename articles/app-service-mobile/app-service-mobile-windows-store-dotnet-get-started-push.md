@@ -1,11 +1,11 @@
 ---
-title: "將推播通知新增至您的通用 Windows 平台 (UWP) 應用程式 | Microsoft Docs"
-description: "了解如何使用 Azure App Service Mobile Apps 與 Azure 通知中樞，將推播通知傳送至通用 Windows 平台 (UWP) 應用程式。"
+title: 將推播通知新增至您的通用 Windows 平台 (UWP) 應用程式 | Microsoft Docs
+description: 了解如何使用 Azure App Service Mobile Apps 與 Azure 通知中樞，將推播通知傳送至通用 Windows 平台 (UWP) 應用程式。
 services: app-service\mobile,notification-hubs
 documentationcenter: windows
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 6de1b9d4-bd28-43e4-8db4-94cd3b187aa3
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -14,11 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: d51fa215ace8b33acb5d36b98e9a1a86e3296a65
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 9e3ed6d19b0f830923745ad0263c5c4f920c0f51
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597853"
 ---
 # <a name="add-push-notifications-to-your-windows-app"></a>將推播通知加入至 Windows 應用程式
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -32,18 +33,18 @@ ms.lasthandoff: 01/04/2018
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
 ## <a name="register-your-app-for-push-notifications"></a>針對推播通知註冊應用程式
-您需要將應用程式提交至 Windows 市集，然後設定您的伺服器專案，以與 Windows 通知服務 (WNS) 整合來傳送推播。
+您需要將應用程式提交至 Microsoft Store，然後設定您的伺服器專案，以與 Windows 通知服務 (WNS) 整合來傳送推播。
 
 1. 在 Visual Studio 方案總管中，以滑鼠右鍵按一下 UWP 應用程式專案，然後按一下 [市集]  >  [將應用程式與市集建立關聯...]。
 
-    ![建立應用程式與 Windows 市集的關聯](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-uwp-app.png)
+    ![將應用程式與 Microsoft Store 建立關聯](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-uwp-app.png)
 2. 在精靈中按 [下一步]，使用 Microsoft 帳戶登入，在 [保留新的應用程式名稱] 中輸入您應用程式的名稱，然後按一下 [保留]。
-3. 成功建立應用程式註冊之後，選取新的應用程式名稱，按 [下一步]，然後按一下 [關聯]。 這會將所需的 Windows 市集註冊資訊新增至應用程式資訊清單。  
+3. 成功建立應用程式註冊之後，選取新的應用程式名稱，按 [下一步]，然後按一下 [關聯]。 這會將所需的 Microsoft Store 註冊資訊新增至應用程式資訊清單。
 4. 瀏覽至 [Windows 開發人員中心](https://dev.windows.com/en-us/overview)、使用您的 Microsoft 帳戶登入、在 [我的應用程式] 中按一下 [新增應用程式註冊]，然後展開 [服務]  >  [推播通知]。
 5. 在 [推播通知] 頁面上，按一下 [Microsoft Azure 行動服務] 底下的 [線上服務網站]。
 6. 在註冊頁面中，記下 [應用程式祕密] 和 [套件 SID] 底下的值，以在接下來用來設定您的行動應用程式後端。
 
-    ![建立應用程式與 Windows 市集的關聯](./media/app-service-mobile-windows-store-dotnet-get-started-push/app-service-mobile-uwp-app-push-auth.png)
+    ![將應用程式與 Microsoft Store 建立關聯](./media/app-service-mobile-windows-store-dotnet-get-started-push/app-service-mobile-uwp-app-push-auth.png)
 
    > [!IMPORTANT]
    > 用戶端密碼和封裝 SID 是重要的安全性認證。 請勿與任何人共用這些值，或與您的應用程式一起散發密碼。 **應用程式識別碼** 會與密碼搭配用來設定 Microsoft 帳戶驗證。
@@ -185,18 +186,13 @@ ms.lasthandoff: 01/04/2018
 ## <a id="more"></a>接續步驟
 進一步了解推播通知︰
 
-* 
-              [如何針對 Azure Mobile Apps 使用受控用戶端](app-service-mobile-dotnet-how-to-use-client-library.md#pushnotifications)  
-：範本可讓您彈性地傳送跨平台推播和當地語系化推播。 了解如何註冊範本。
-* [診斷推播通知問題](../notification-hubs/notification-hubs-push-notification-fixer.md)  
-  通知遭到捨棄或未抵達裝置有各種原因。 本主題說明如何分析及找出推播通知失敗的根本原因。
+* [如何針對 Azure Mobile Apps 使用受控用戶端](app-service-mobile-dotnet-how-to-use-client-library.md#pushnotifications)：範本可讓您彈性地傳送跨平台推播和當地語系化推播。 了解如何註冊範本。
+* [診斷推播通知問題](../notification-hubs/notification-hubs-push-notification-fixer.md)：通知遭到捨棄或未抵達裝置有各種原因。 本主題說明如何分析及找出推播通知失敗的根本原因。
 
 請考慮繼續進行下列其中一個教學課程：
 
-* [將驗證加入應用程式中](app-service-mobile-windows-store-dotnet-get-started-users.md)  
-  ：了解如何使用識別提供者來驗證應用程式的使用者。
-* [啟用應用程式的離線同步處理](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
-  ：了解如何使用行動應用程式後端，將離線支援加入至應用程式。 離線同步處理可讓使用者與行動應用程式進行互動&mdash;檢視、新增或修改資料&mdash;即使沒有網路連線進也可行。
+* [將驗證新增至您的應用程式](app-service-mobile-windows-store-dotnet-get-started-users.md)：了解如何利用身分識別提供者來驗證您應用程式的使用者。
+* [啟用應用程式的離線同步處理](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)：了解如何使用行動應用程式後端，將離線支援新增至應用程式。 離線同步處理可讓使用者與行動應用程式進行互動&mdash;檢視、新增或修改資料&mdash;即使沒有網路連線進也可行。
 
 <!-- Anchors. -->
 

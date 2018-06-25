@@ -12,14 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 290c41e62080edcd9a2fad1b5045bac4328cc4cd
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9107464acefe75141950c0d07298c8ad946e0ddc
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260357"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>定義混合式身分識別採用策略
 在這項工作中，您將為混合式身分識別解決方案，定義混合式身分識別採用策略，以滿足下列幾節已討論的商務需求：
@@ -32,7 +34,7 @@ ms.lasthandoff: 04/19/2018
 第一項工作在於判斷組織商務需求。  這可能非常廣泛，一不小心就會發生範圍蔓延。  剛開始要保持簡單，但要時常記住所規劃的設計應該兼顧和推動未來的變更。  無論是簡單或極為複雜的設計，Azure Active Directory 都是支援 Office 365、Microsoft Online Services 和雲端感知應用程式的 Microsoft 身分識別平台。
 
 ## <a name="define-an-integration-strategy"></a>定義整合策略
-Microsoft 有三個主要的整合案例，分別為雲端身分識別、同步處理身分識別和同盟身分識別。  您應該規劃採用這些整合策略的其中一個。  您選擇的策略可能不同，決策的因素可能包括您想要提供何種使用者體驗、是否有某種現有的基礎結構已就緒，以及什麼最符合成本效益。  
+Microsoft 有三個主要的整合案例，分別為雲端身分識別、同步處理身分識別和同盟身分識別。  您應該規劃採用這些整合策略的其中一個。  您選擇的策略可能不同，決策的因素可能包括您想要提供何種使用者體驗、是否有現有的基礎結構，以及什麼最符合成本效益。  
 
 ![](./media/hybrid-id-design-considerations/integration-scenarios.png)
 
@@ -51,7 +53,7 @@ Microsoft 有三個主要的整合案例，分別為雲端身分識別、同步�
 
 | 策略 | 優點 | 缺點 |
 | --- | --- | --- |
-| **雲端身分識別** |在小型組織中易於管理。 <br> 不需要在內部部署安裝 - 不需要額外的硬體<br>使用者離職時輕易停用 |使用者存取雲端中的工作負載時必須登入 <br> 雲端和內部部署身分識別的密碼可能相同，也可能不相同 |
+| **雲端身分識別** |在小型組織中易於管理。 <br> 沒有項目可以在內部安裝或更新。 沒有其他硬體需求<br>使用者離職時輕易停用 |使用者存取雲端中的工作負載時必須登入 <br> 雲端和內部部署身分識別的密碼可能相同，也可能不相同 |
 | **已同步處理** |內部部署密碼會驗證內部部署和雲端目錄 <br>對小型、中型或大型組織來說易於管理 <br>使用者可以對一些資源進行單一登入 (SSO) <br> Microsoft 對於同步處理的慣用方法 <br> 易於管理 |基於公司的特定原則，有些客戶可能不願意將目錄與雲端同步 |
 | **同盟** |使用者可以有單一登入 (SSO)  <br>如果使用者終止或離開時，可以將帳戶立即停用並撤銷存取權。<br> 支援同步處理所無法解決的進階案例 |安裝和設定的詳細步驟 <br> 較高的維護 <br> STS 基礎結構可能需要額外的硬體 <br> 安裝同盟伺服器可能需要額外的硬體。 如果使用 AD FS，則需要額外的軟體 <br> 需要大量的設定才能使用 SSO <br> 重大失敗點是，同盟伺服器關閉時使用者會無法驗證 |
 
@@ -65,7 +67,7 @@ Microsoft 有三個主要的整合案例，分別為雲端身分識別、同步�
 | 網頁瀏覽器 |表單架構驗證 |單一登入，有時需要提供組織識別碼 |
 | Outlook |提示輸入認證 |提示輸入認證 |
 | 商務用 Skype (Lync) |提示輸入認證 |在 Lync 中需要單一登入，在 Exchange 中會提示輸入認證 |
-| Skydrive Pro |提示輸入認證 |單一登入 |
+| OneDrive for Business |提示輸入認證 |單一登入 |
 | Office Pro Plus 訂用帳戶 |提示輸入認證 |單一登入 |
 
 **外部或未受信任的來源**：
@@ -73,7 +75,7 @@ Microsoft 有三個主要的整合案例，分別為雲端身分識別、同步�
 |  | 同步處理身分識別 | 同盟身分識別 |
 | --- | --- | --- |
 | 網頁瀏覽器 |表單架構驗證 |表單架構驗證 |
-| Outlook、商務用 Skype (Lync)、Skydrive Pro、Office 訂用帳戶 |提示輸入認證 |提示輸入認證 |
+| Outlook、商務用 Skype (Lync)、商務用 OneDrive、Office 訂用帳戶 |提示輸入認證 |提示輸入認證 |
 | Exchange ActiveSync |提示輸入認證 |在 Lync 中需要單一登入，在 Exchange 中會提示輸入認證 |
 | 行動應用程式 |提示輸入認證 |提示輸入認證 |
 

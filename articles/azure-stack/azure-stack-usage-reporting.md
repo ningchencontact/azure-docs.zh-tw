@@ -3,7 +3,7 @@ title: 向 Azure 回報 Azure Stack 使用情況資料 | Microsoft Docs
 description: 了解如何在 Azure Stack 中設定使用情況資料報告。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,14 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
-ms.author: mabrigg
+ms.date: 05/30/2018
+ms.author: brenduns
 ms.reviewer: alfredop
-ms.openlocfilehash: 602cd6c3b2be8881bebbcebe30ec2520358b731f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: daaaf6c574c4b169c19ebec42ad68e2d818ca1cb
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603697"
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>向 Azure 回報 Azure Stack 使用情況資料 
 
@@ -42,7 +43,7 @@ ms.lasthandoff: 04/28/2018
 - **數量** – 資源使用量。
 - **位置**：目前 Azure Stack 資源部署所在位置。
 - **資源 URI**：將回報其使用狀況之資源的完整 URI。
-- **訂用帳戶識別碼**：Azure Stack 使用者的訂用帳戶識別碼。 這是本機 (Azure Stack) 訂用帳戶。
+- **訂用帳戶識別碼**：Azure Stack 使用者的訂用帳戶識別碼，這是本機 (Azure Stack) 訂用帳戶。
 - **時間**：使用情況資料的開始與結束時間。 在 Azure Stack 中取用這些資源與向商務系統回報使用情況資料的時間有一些延遲。 Azure Stack 每隔 24 小時會彙總一次使用情況資料，而向 Azure 中的商務管線回報使用情況資料則需要數小時。 因此，在午夜前短暫發生的使用情況可能會在隔天顯示在 Azure 中。
 
 ## <a name="generate-usage-data-reporting"></a>產生使用情況資料回報
@@ -68,7 +69,7 @@ ms.lasthandoff: 04/28/2018
 
    ![計費流程](media/azure-stack-usage-reporting/pricing-details.png)
 
-針對 Azure Stack 開發套件，我們不會就使用的 Azure Stack 資源收費，因此價格顯示為 $0.00。 當 Azure Stack 多節點公開推出時，您可以看到這些資源中每個資源的實際成本。
+針對 Azure Stack 開發套件，我們不會就使用的 Azure Stack 資源收費，因此價格顯示為 $0.00。
 
 ## <a name="which-azure-stack-deployments-are-charged"></a>哪些 Azure Stack 部署需要付費？
 
@@ -82,7 +83,7 @@ ms.lasthandoff: 04/28/2018
 
 ## <a name="i-have-a-windows-server-license-i-want-to-use-on-azure-stack-how-do-i-do-it"></a>我有 Windows Server 授權並想要用在 Azure Stack 上，我該怎麼做？
 
-使用現有授權可避免產生使用量計量。 如 [Azure Stack 授權指南](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409)的＜在 Azure Stack 使用現有軟體＞一節所述，現有的 Windows Server 授權可用在 Azure Stack 中。 客戶必須依照[適用於 Windows Server 授權的混合式權益](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing)主題中所述的方式部署其 Windows Server 虛擬機器，才能使用其現有授權。
+使用現有授權可避免產生使用量計量。 如 [Azure Stack 授權指南](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409)的＜在 Azure Stack 使用現有軟體＞一節所述，現有的 Windows Server 授權可用在 Azure Stack 中。 客戶必須依照[適用於 Windows Server 授權的混合式權益](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing)一文中所述的方式部署其 Windows Server 虛擬機器，才能使用其現有授權。
 
 ## <a name="which-subscription-is-charged-for-the-resources-consumed"></a>會針對哪個訂用帳戶就所取用的資源收費？
 我們會對[向 Azure 註冊 Azure Stack](azure-stack-register.md) 時提供的訂用帳戶收費。

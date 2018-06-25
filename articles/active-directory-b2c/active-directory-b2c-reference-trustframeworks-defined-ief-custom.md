@@ -1,21 +1,21 @@
 ---
-title: Azure Active Directory B2C：參考 - 信任架構 | Microsoft Docs
-description: 關於 Azure Active Directory B2C 自訂原則和識別體驗架構的主題
+title: Azure Active Directory B2C 中的參考 - 信任架構 | Microsoft Docs
+description: 關於 Azure Active Directory B2C 自訂原則和識別體驗架構的主題。
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 0cd64e90ac1b6c87008b2a16ca3afa273b9c9d56
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: b75efe7464c32863781353549f73048b4e127ddf
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34710214"
 ---
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>使用 Azure AD B2C 識別體驗架構定義信任架構
 
@@ -49,7 +49,8 @@ TF 是 Open Identity Exchange (OIX) 信任架構模型的關鍵，在此模型�
     - 參與者所提供/要求的保證等級 (LOA)，例如，一組有先後次序的信賴評等，用以表示數位身分識別資訊的真實性。
     - 參與者所提供/要求的保護等級 (LOP)，例如，一組有先後次序的信賴評等，用以表示相關社群參與者所處理之數位身分識別資訊的保護程度。
 
-- **參與者所提供/要求之數位身分識別資訊的說明**。
+- 
+  **參與者所提供/要求之數位身分識別資訊的說明**。
 
 - **相關技術原則，適用於生產和取用數位身分識別資訊，乃至於測量 LOA 和 LOP。這些書面原則通常包含以下幾類原則：**
     - 身分識別證明原則，例如︰個人的身分識別資訊受到多嚴格的審查？

@@ -1,22 +1,19 @@
 ---
 title: 遠端監視解決方案中的進階監視 - Azure | Microsoft Docs
 description: 本教學課程會示範如何使用遠端監視解決方案儀表板來監視裝置。
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 02/22/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 0456594a4a7776175781968779b4540a98070b78
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 4d2dabd348d7fda4fa7ca3aac9975fd4179400c5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627394"
 ---
 # <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>使用遠端監視解決方案執行進階監視
 
@@ -103,7 +100,7 @@ To view the device details, pan and zoom the map to locate the devices, then cli
 
 ## <a name="next-steps"></a>後續步驟
 
-本教學課程會示範如何使用 [儀表板] 頁面來篩選和監視遠端監視解決方案中佈建的模擬卡車：
+本教學課程會示範如何使用 [儀表板] 頁面，來篩選和監視遠端監視解決方案中佈建的模擬卡車：
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]

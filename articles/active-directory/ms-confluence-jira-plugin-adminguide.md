@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 05/30/2018
 ms.author: jeedes
-ms.openlocfilehash: d34ff6021816c73fb064a3ce73b7fcf3ae22dbd1
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 7cbe0d0ea3bbbd60b7cd2dc88ef249c4380083a7
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699405"
 ---
 # <a name="admin-guide-for-the-azure-active-directory-sso-plug-in"></a>Azure Active Directory SSO 外掛程式管理指南
 
@@ -67,7 +68,7 @@ Azure Active Directory (Azure AD) 單一登入 (SSO) 外掛程式可讓 Microsof
 
 此外掛程式支援下列 Jira 和 Confluence 版本：
 
-* Jira 核心和軟體：6.0 到 7.2.0
+* Jira 核心和軟體：6.0 到 7.8
 * Jira Service Desk：3.0 到 3.2
 * Confluence：5.0 到 5.10
 
@@ -76,51 +77,51 @@ Azure Active Directory (Azure AD) 單一登入 (SSO) 外掛程式可讓 Microsof
 若要安裝外掛程式，請遵循下列步驟：
 
 1. 以管理員身分登入 Jira 或 Confluence 執行個體。
-    
+
 2. 移至 Jira/Confluence 管理主控台，選取 [附加元件]。
-    
+
 3. 在 Atlassian Marketplace 中搜尋 **Microsoft SAML SSO 外掛程式**。
- 
+
    搜尋結果中會顯示適當的外掛程式版本。
- 
-5. 選取外掛程式，然後通用外掛程式管理員 (UPM) 會安裝它。
- 
+
+4. 選取外掛程式，然後通用外掛程式管理員 (UPM) 會安裝它。
+
 安裝外掛程式之後，它會出現在 [管理附加元件] 的 [使用者安裝的附加元件] 區段。
-    
+
 ## <a name="plug-in-configuration"></a>外掛程式設定
 
 您必須先設定外掛程式，才能開始使用。 選取外掛程式，選取 [設定] 按鈕，並提供組態詳細資料。
 
 下圖是 Jira 和 Confluence 中的設定畫面：
-    
+
 ![外掛程式設定畫面](./media/ms-confluence-jira-plugin-adminguide/jira.png)
 
 *   **中繼資料 URL**：用來從 Azure AD 取得同盟中繼資料的 URL。
- 
+
 *   **識別碼**：Azure AD 用來驗證要求來源的 URL。 此識別碼對應至 Azure AD 中的 **Identifier** 元素。 外掛程式會自動將此 URL 衍生為 https://*<domain:port>*/。
- 
+
 *   **回覆 URL**：識別提供者 (IdP) 中的回覆 URL，用於起始 SAML 登入。 此回覆 URL 對應至 Azure AD 中的 **Reply URL** 元素。 外掛程式會自動將此 URL 衍生為 https://*<domain:port>*/plugins/servlet/saml/auth。
- 
+
 *   **登入 URL**：識別提供者 (IdP) 中的登入 URL，用於起始 SAML 登入。 此登入 URL 對應至 Azure AD 中的 **Sign On** 元素。 外掛程式會自動將此 URL 衍生為 https://*<domain:port>*/plugins/servlet/saml/auth。
- 
+
 *   **IdP 實體識別碼**：IdP 所使用的實體識別碼。 系統解析中繼資料 URL 時就會填入這個方塊。
- 
+
 *   **登入 URL**：來自 IdP 的登入 URL。 系統解析中繼資料 URL 時，Azure AD 就會填入這個方塊。
- 
+
 *   **登出 URL**：來自 IdP 的登出 URL。 系統解析中繼資料 URL 時，Azure AD 就會填入這個方塊。
- 
+
 *   **X.509 憑證**：IdP 的 X.509 憑證。 系統解析中繼資料 URL 時，Azure AD 就會填入這個方塊。
- 
+
 *   **登入按鈕名稱**：輸入您組織要讓使用者在登入頁面上看到的登入按鈕名稱。
- 
+
 *   **SAML 使用者識別碼位置**：SAML 回應中預期的 Jira 或 Confluence 使用者識別碼位置。 可能是在 **NameID** 或自訂屬性名稱中。
- 
+
 *   **屬性名稱**：預期出現使用者識別碼的屬性名稱。
- 
+
 *   **啟用主領域探索**：如果公司使用 Active Directory 同盟服務 (AD FS) 式登入，就要選擇此選項。
- 
+
 *   **網域名稱**：採用 AD FS 式登入時的網域名稱。
- 
+
 *   **啟用單一登出**：如果您想要在使用者登出 Jira 或 Confluence 時登出 Azure AD，就要選擇此選項。
 
 ## <a name="troubleshooting"></a>疑難排解
@@ -130,15 +131,15 @@ Azure Active Directory (Azure AD) 單一登入 (SSO) 外掛程式可讓 Microsof
 * **Azure AD 中的憑證即將到期**：附加元件負責憑證的自動變換。 當憑證快到期時，應將新的憑證標示為使用中，並刪除未使用的憑證。 當使用者嘗試在此情況下登入 Jira 時，外掛程式會擷取並儲存新的憑證。
 
 * **您想要停用 WebSudo (停用安全的系統管理員工作階段)**：
-    
+
   * 針對 Jira，預設會啟用安全的系統管理員工作階段 (也就是確認密碼後才能存取管理功能)。 如果您想要在 Jira 執行個體中移除這個功能，在 jira-config.propertie 檔案中指定以下這一行：`ira.websudo.is.disabled = true`
-    
+
   * 針對 Confluence，請遵循 [Confluence支援網站](https://confluence.atlassian.com/doc/configuring-secure-administrator-sessions-218269595.html)上的步驟。
 
 * **中繼資料 URL 應該填入的欄位未填入資料**：
-    
+
   * 檢查 URL 是否正確。 檢查是否已對應正確的租用戶和應用程式識別碼。
-    
+
   * 在瀏覽器中輸入 URL，看看是否收到同盟中繼資料 XML。
 
 * **發生內部伺服器錯誤**：檢閱安裝記錄目錄中的記錄。 如果您是在使用者嘗試使用 Azure AD SSO 登入時遇到錯誤，您可以將記錄提供給支援小組。
@@ -148,5 +149,5 @@ Azure Active Directory (Azure AD) 單一登入 (SSO) 外掛程式可讓 Microsof
 * **Azure AD 中發生「找不到應用程式」錯誤**：檢查是否以正確 URL 對應至 Azure AD 中的應用程式。
 
 * **您需要支援**：請連繫 [Azure AD SSO 整合小組](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)。 小組會在營業時間 24-48 小時內回應。
-    
+
   您也可以透過 Azure 入口網站管道向 Microsoft 發出支援票證。

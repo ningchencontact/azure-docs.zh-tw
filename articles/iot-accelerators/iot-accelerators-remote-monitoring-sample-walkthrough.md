@@ -1,25 +1,19 @@
 ---
 title: 遠端監視解決方案架構 - Azure | Microsoft Docs
 description: 遠端監視解決方案加速器架構的逐步解說。
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 3effde81dfa48e9544d89153d40c160ff972d047
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: af7feb6c95a7de1d2211378c5eb71f09907221ff
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757428"
 ---
 # <a name="remote-monitoring-solution-accelerator-architecture"></a>遠端監視解決方案加速器架構
 
@@ -97,13 +91,13 @@ ms.lasthandoff: 05/20/2018
 
 [telemetry-agent](https://github.com/Azure/telemetry-agent-dotnet) 微服務：
 
-* 儲存 Cosmos DB 中的遙測。
+* 儲存 Azure Cosmos DB 中的遙測。
 * 分析來自裝置的遙測串流。
 * 會根據定義的規則產生警示。
 
-警示會儲存在 Cosmos DB 中。
+警示會儲存在 Azure Cosmos DB 中。
 
-`telemetry-agent` 微服務可讓解決方案入口網站讀取裝置所傳送的遙測。 解決方案入口網站也會使用此服務來：
+[telemetry-agent](https://github.com/Azure/telemetry-agent-dotnet) 微服務可讓解決方案入口網站讀取裝置所傳送的遙測。 解決方案入口網站也會使用此服務來：
 
 * 定義監視規則，例如可觸發警示的臨界值
 * 擷取過去警示的清單。
@@ -114,9 +108,9 @@ ms.lasthandoff: 05/20/2018
 
 [storage-adapter](https://github.com/Azure/pcs-storage-adapter-dotnet) \(英文\) 微服務是主要儲存體服務前面的配接器，可用於解決方案加速器。 它提供簡單的集合和機碼值儲存體。
 
-解決方案加速器的標準部署會使用 Cosmos DB 作為其主要的儲存體服務。
+解決方案加速器的標準部署會使用 Azure Cosmos DB 作為其主要的儲存體服務。
 
-Cosmos DB 資料庫會將資料儲存於解決方案加速器中。 **storage-adapter** 微服務在解決方案中是作為其他微服務的配接器，以存取儲存體服務。
+Azure Cosmos DB 資料庫會將資料儲存於解決方案加速器中。 **storage-adapter** 微服務在解決方案中是作為其他微服務的配接器，以存取儲存體服務。
 
 ## <a name="presentation"></a>展示
 
@@ -141,6 +135,8 @@ Cosmos DB 資料庫會將資料儲存於解決方案加速器中。 **storage-ad
 
 * [使用 Azure IoT 的遠端監視解決方案加速器 (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/) \(英文\)。
 * [使用 Azure IoT 的遠端監視解決方案加速器 (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java) \(英文\)。
+
+詳細的方案架構圖表：
 * [遠端監視架構的解決方案加速器](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture) \(英文\)。
 
 如需關於遠端監視解決方案加速器的詳細概念資訊，請參閱[自訂解決方案加速器](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md)。

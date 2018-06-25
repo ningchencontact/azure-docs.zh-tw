@@ -4,14 +4,14 @@ description: 概括介紹 Azure Migrate 服務中的評量計算。
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/02/2017
+ms.date: 05/28/2018
 ms.author: raynew
-ms.openlocfilehash: f3ac9c328db1130ea25ac63170ee7de35fb67d16
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: e815ff3340a9ef6c56e43d3276a28619d2f008a9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779340"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639141"
 ---
 # <a name="assessment-calculations"></a>評量計算
 
@@ -69,12 +69,12 @@ Linux | Azure 認同這些 [Linux 作業系統](../virtual-machines/linux/endors
 
 ## <a name="sizing"></a>調整大小
 
-將機器標示為可供 Azure 使用之後，Azure Migrate 會為 Azure 調整 VM 大小和其磁碟。 如果評量屬性中指定的大小調整準則是要執行以效能為基礎的大小調整，Azure Migrate 會考慮機器的效能歷程記錄以識別 Azure 中的 VM 大小。 在您超額配置了內部部署 VM 但使用率很低，而您想要讓 Azure 中的 VM 有適當的大小來節省成本，則此方法會很有幫助。
+將機器標示為可供 Azure 使用之後，Azure Migrate 會為 Azure 調整 VM 大小和其磁碟。 如果評估屬性中指定的大小調整準則是要執行以效能為基礎的大小調整，Azure Migrate 會考慮機器的效能歷程記錄以識別 Azure 中的 VM 大小和磁碟類型。 在您超額配置了內部部署 VM 但使用率很低，而您想要讓 Azure 中的 VM 有適當的大小來節省成本，則此方法會很有幫助。
 
 > [!NOTE]
 > Azure Migrate 會從 vCenter Server 收集內部部署 VM 的效能歷程記錄。 若要確保準確的調整大小，請確定 vCenter Server 中的統計資料設定設為等級 3，並等候至少一天再開始探索內部部署 VM。 如果 vCenter Server 中的統計資料設定低於等級 3，磁碟和網路的效能資料並未收集。
 
-如果不想要考慮 VM 調整大小的效能歷程記錄，並想要為將 VM 依原樣帶至 Azure，則可以將大小準則指定為*作為內部部署*，Azure Migrate 將會在不考慮使用量資料的情況下，以內部部署組態為基礎調整 VM 的大小。 在此情況下，仍會根據效能資料調整磁碟大小。
+如果不想要考慮 VM 調整大小的效能歷程記錄，並想要為將 VM 依原樣帶至 Azure，則可以將大小準則指定為*作為內部部署*，Azure Migrate 將會在不考慮使用量資料的情況下，以內部部署組態為基礎調整 VM 的大小。 在此情況下，將根據您在評估內容中指定的儲存類型 (標準磁碟或進階磁碟) 調整磁碟大小
 
 ### <a name="performance-based-sizing"></a>以效能為基礎調整大小
 
@@ -103,25 +103,13 @@ Linux | Azure 認同這些 [Linux 作業系統](../virtual-machines/linux/endors
     - 如果有多個符合資格的 Azure VM 大小，建議使用成本最低的那個。
 
 ### <a name="as-on-premises-sizing"></a>作為內部部署調整大小
-如果調整大小準則是*作為內部部署調整大小*，Azure Migrate 不會考慮 VM 的效能歷程記錄，並且會根據內部部署所配置的大小來配置 VM。 不過，調整磁碟大小時，會考慮磁碟的效能歷程記錄來建議標準磁碟或進階磁碟。  
-- **儲存體**：Azure Migrate 將連接至機器的每個磁碟對應至 Azure 中的磁碟。
-
-    > [!NOTE]
-    > Azure Migrate 僅支援受控磁碟的評量。
-
-    - 為了獲得有效的每秒磁碟 I/O (IOPS) 和輸送量 (MBps)，Azure Migrate 會將磁碟 IOPS 和輸送量乘上緩和因數。 根據有效的 IOPS 及輸送量值，Azure Migrate 會識別磁碟應該對應至 Azure 中的標準或進階磁碟。
-    - 如果 Azure Migrate 找不到 IOPS 及輸送量符合需求的磁碟，便會將該機器標示為不適合 Azure。 [進一步了解](../azure-subscription-service-limits.md#storage-limits)關於每個磁碟和 VM 的 Azure 限制。
-    - 如果找到多個適合的磁碟，Azure Migrate 會挑選可支援儲存體備援方法的磁碟，以及可支援評量設定的指定位置的磁碟。
-    - 如果有多個符合資格的磁碟，則會選取成本最低的磁碟。
-    - 如果磁碟的效能資料無法使用，則所有磁碟都會對應至 Azure 中的標準磁碟。
-- **網路**：對於每個網路介面卡，建議 Azure 中有一個網路介面卡。
-- **計算**：Azure Migrate 會查看內部部署 VM 的核心數目以及記憶體大小，並建議 Azure VM 採用相同的設定。 如果有多個符合資格的 Azure VM 大小，建議使用成本最低的那個。 調整內部部署大小時，不考慮使用 CPU 和記憶體的資料。
+如果調整大小準則是*作為內部部署調整大小*，Azure Migrate 不會考慮 VM 和磁碟的效能歷程記錄，並且會根據內部部署所配置的大小在 Azure 中配置 VM SKU。 與調整磁碟大小類似，這會查看評估內容中指定的儲存類型 (標準/進階)，並據此建議磁碟類型。 預設儲存體類型為進階磁碟。
 
 ### <a name="confidence-rating"></a>信賴評等
 
 Azure Migrate 中的每個評量會與信賴評等連結，信賴評等的範圍從 1 顆星到 5 顆星 (1 顆星最低，5 顆星最高)。 根據計算評量所需的資料點可用性，每個評量都會指派信賴評等。 評量的信賴評等可協助您評估 Azure Migrate 提供的大小建議之可靠性。
 
-對於以效能為基礎的 VM 大小調整，Azure Migrate 需要 CPU 和記憶體的使用量資料。 此外，對於調整連結至虛擬機器的每個磁碟大小，則都需要讀取/寫入 IOPS 及輸送量。 同樣地，對於連接至虛擬機器的每個網路介面卡，Azure Migrate 需要輸入/輸出網路以進行以效能為基礎的大小調整。 如果上述的任何使用量數字在 vCenter Server 中無法取得，則 Azure Migrate 所完成的大小建議可能不可靠。 根據可用資料點的百分比提供評量的信賴評等如下：
+對於調整大小準則為「以效能為基礎調整大小」的評估，評估的信賴評等更實用。 對於以效能為基礎的大小調整，Azure Migrate 需要 VM 的 CPU、記憶體使用量資料。 此外，對於連結至 VM 的每個磁碟，它都需要磁碟 IOPS 和輸送量資料。 同樣地，對於連接至虛擬機器的每個網路介面卡，Azure Migrate 需要輸入/輸出網路以進行以效能為基礎的大小調整。 如果上述的任何使用量數字在 vCenter Server 中無法取得，則 Azure Migrate 所完成的大小建議可能不可靠。 根據可用資料點的百分比提供評量的信賴評等如下：
 
    **資料點的可用性** | **信賴評等**
    --- | ---
@@ -145,7 +133,7 @@ Azure Migrate 中的每個評量會與信賴評等連結，信賴評等的範圍
 調整大小的建議完成之後，Azure Migrate 會計算移轉後的計算和儲存成本。
 
 - **計算成本**：使用建議的 Azure VM 大小時，Azure Migrate 會使用計費 API 來計算虛擬機器的每月成本。 計算時會將作業系統、軟體保證、位置和貨幣設定納入考量。 其會彙總所有機器的成本，以計算每月計算總成本。
-- **儲存成本**：將機器附加的所有磁碟的每月成本彙總起來，計算出機器的每月儲存成本。 Azure Migrate 會將所有機器的儲存成本彙總起來，計算出每月的總儲存成本。 目前在計算時不會將評量設定中指定的優惠列入考量。
+- **儲存成本**：將機器附加的所有磁碟的每月成本彙總起來，計算出機器的每月儲存成本。 Azure Migrate 會將所有機器的儲存成本彙總起來，計算出每月的總儲存成本。 目前在計算時不會將評量設定中指定的供應項目列入考量。
 
 成本會以評量設定中指定的貨幣顯示。
 

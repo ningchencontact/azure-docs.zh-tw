@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 506206d3e0a28f2ffc0e9e029ec27546bc332754
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 973b11cd7bcb46bfb113998ff4a4e0b9c6317042
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32160050"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261758"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect 同步處理：將屬性同步處理至 Azure Active Directory
 本主題列出 Azure AD Connect 同步處理所同步處理的屬性。  
@@ -49,7 +50,7 @@ ms.locfileid: "32160050"
 | userPrincipalName |X |UPN 是使用者的登入識別碼。 最常與 [mail] 值相同。 |
 
 ## <a name="exchange-online"></a>Exchange Online
-| 屬性名稱 | User | 連絡人 | 群組 | 註解 |
+| 屬性名稱 | 使用者 | 連絡人 | 群組 | 註解 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |定義是否啟用帳戶。 |
 | assistant |X |X | | |
@@ -173,7 +174,7 @@ ms.locfileid: "32160050"
 | wWWHomePage |X |X | | |
 
 ## <a name="sharepoint-online"></a>SharePoint Online
-| 屬性名稱 | User | 連絡人 | 群組 | 註解 |
+| 屬性名稱 | 使用者 | 連絡人 | 群組 | 註解 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |定義是否啟用帳戶。 |
 | authOrig |X |X |X | |
@@ -255,7 +256,7 @@ ms.locfileid: "32160050"
 | wWWHomePage |X |X | | |
 
 ## <a name="lync-online-subsequently-known-as-skype-for-business"></a>Lync Online (即後來的商務用 Skype)
-| 屬性名稱 | User | 連絡人 | 群組 | 註解 |
+| 屬性名稱 | 使用者 | 連絡人 | 群組 | 註解 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |定義是否啟用帳戶。 |
 | c |X |X | | |
@@ -304,7 +305,7 @@ ms.locfileid: "32160050"
 | wWWHomePage |X |X | | |
 
 ## <a name="azure-rms"></a>Azure RMS
-| 屬性名稱 | User | 連絡人 | 群組 | 註解 |
+| 屬性名稱 | 使用者 | 連絡人 | 群組 | 註解 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |定義是否啟用帳戶。 |
 | cn |X | |X |一般名稱或別名。 最常見的前置詞是 [mail] 值。 |
@@ -320,7 +321,7 @@ ms.locfileid: "32160050"
 | userPrincipalName |X | | |這個 UPN 是使用者的登入識別碼。 最常與 [mail] 值相同。 |
 
 ## <a name="intune"></a>Intune
-| 屬性名稱 | User | 連絡人 | 群組 | 註解 |
+| 屬性名稱 | 使用者 | 連絡人 | 群組 | 註解 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |定義是否啟用帳戶。 |
 | c |X |X | | |
@@ -339,7 +340,7 @@ ms.locfileid: "32160050"
 | userPrincipalName |X | | |UPN 是使用者的登入識別碼。 最常與 [mail] 值相同。 |
 
 ## <a name="dynamics-crm"></a>Dynamics CRM
-| 屬性名稱 | User | 連絡人 | 群組 | 註解 |
+| 屬性名稱 | 使用者 | 連絡人 | 群組 | 註解 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |定義是否啟用帳戶。 |
 | c |X |X | | |
@@ -375,11 +376,12 @@ ms.locfileid: "32160050"
 此群組是一組屬性，用來作為一般工作負載或應用程式所需的最基本屬性。 它可以用於另一節中未列出的工作負載或用於非 Microsoft 應用程式。 它會明確用於下列︰
 
 * Yammer (使用的只有 User)
-* [SharePoint 等資源所提供的混合式企業對企業 (B2B) 跨組織共同作業案例](http://go.microsoft.com/fwlink/?LinkId=747036)
+* 
+  [SharePoint 等資源所提供的混合式企業對企業 (B2B) 跨組織共同作業案例](http://go.microsoft.com/fwlink/?LinkId=747036)
 
 此群組是一組屬性，是未使用 Azure AD 目錄來支援 Office 365、Dynamics 或 Intune 時所能使用的屬性。 它包含一小組的核心屬性。
 
-| 屬性名稱 | User | 連絡人 | 群組 | 註解 |
+| 屬性名稱 | 使用者 | 連絡人 | 群組 | 註解 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |定義是否啟用帳戶。 |
 | cn |X | |X | |
@@ -418,11 +420,12 @@ ms.locfileid: "32160050"
 | --- |:---:| --- |
 | domainFQDN |X |也稱為 dnsDomainName。 例如 contoso.com。 |
 | domainNetBios |X |也稱為 netBiosName。 例如 CONTOSO。 |
+| msDS-KeyCredentialLink |X |一旦使用者在 Windows Hello 企業版中註冊後。 | 
 
 ## <a name="exchange-hybrid-writeback"></a>Exchange 混合回寫
 當您選擇啟用「Exchange 混合」 時，系統會將這些屬性從 Azure AD 寫回到內部部署 Active Directory。 根據您的 Exchange 版本有可能會同步處理較少的屬性。
 
-| 屬性名稱 (Connect UI) |屬性名稱 (內部部署 AD) | User | 連絡人 | 群組 | 註解 |
+| 屬性名稱 (Connect UI) |屬性名稱 (內部部署 AD) | 使用者 | 連絡人 | 群組 | 註解 |
 | --- |:---:|:---:|:---:| --- |---|
 | msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |衍生自 Azure AD 中的 cloudAnchor。 這個屬性是 Exchange 2016 和 Windows Server 2016 AD 中的新屬性。 |
 | msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |線上封存：可讓客戶封存郵件。 |

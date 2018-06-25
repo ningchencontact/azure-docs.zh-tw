@@ -1,21 +1,21 @@
 ---
-title: Azure Active Directory B2C：Amazon 設定 | Microsoft Docs
+title: Azure Active Directory B2C 中的 Amazon 組態 | Microsoft Docs
 description: 在受 Azure Active Directory B2C 保護的應用程式中，針對具有 Amazon 帳戶的取用者提供註冊和登入。
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: davidmu
-ms.openlocfilehash: a2989baa61e7b69534fe5703b2501d62a4f8aa94
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 9b3464e246a6b672362583ee4446a6146cc3b3d8
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34709745"
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-amazon-accounts"></a>Azure Active Directory B2C：針對具有 Amazon 帳戶的取用者提供註冊和登入
 ## <a name="create-an-amazon-application"></a>建立 Amazon 應用程式

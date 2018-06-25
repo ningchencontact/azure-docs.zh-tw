@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/20/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1f34255bdbcc8761f1c68adbb2f1828521f789e4
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 658686bec41fe1a6cfa8ca4ba6fe61d2e559297c
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194014"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833714"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>管理多部機器的更新
 
@@ -35,31 +35,16 @@ ms.locfileid: "34194014"
 
 ## <a name="supported-operating-systems"></a>受支援的作業系統
 
-下列作業系統支援更新管理。
+下列作業系統支援更新管理：
 
-### <a name="windows"></a>Windows
-
-- Windows Server 2008 及更新版本，以及依附 Windows Server 2008 R2 SP1 和更新版本的更新部署。 不支援 Nano Server。
-
-  支援將更新部署到 Windows Server 2008 R2 SP1 需要 .NET Framework 4.5 和 Windows Management Framework 5.0 或更新版本。
-
-- 不支援 Windows 用戶端作業系統。
-
-Windows 代理程式必須設定為可與 Windows Server Update Services (WSUS) 伺服器通訊，或必須能夠存取 Microsoft Update。
-
-> [!NOTE]
-> System Center Configuration Manager 不可由 Windows 代理程式並行管理。
->
-
-### <a name="linux"></a>Linux
-
-- CentOS 6 (x86/x64) 和 7 (x64)
-
-- Red Hat Enterprise 6 (x86/x64) 和 7 (x64)
-
-- SUSE Linux Enterprise Server 11 (x86/x64) 和 12 (x64)
-
-- Ubuntu 12.04 LTS 和更新版本 (x86/x64)
+|作業系統  |注意  |
+|---------|---------|
+|Windows Server 2008、Windows Server 2008 R2 RTM    | 僅支援更新評估         |
+|Windows Server 2008 R2 SP1 和更新版本     |需要 Windows PowerShell 4.0 或更新版本 ([下載 WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))。</br> 建議使用 Windows PowerShell 5.1 ([下載 WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) 以增加可靠性。         |
+|CentOS 6 (x86/x64) 和 7 (x64)      | Linux 代理程式必須能夠存取更新存放庫。        |
+|Red Hat Enterprise 6 (x86/x64) 和 7 (x64)     | Linux 代理程式必須能夠存取更新存放庫。        |
+|SUSE Linux Enterprise Server 11 (x86/x64) 和 12 (x64)     | Linux 代理程式必須能夠存取更新存放庫。        |
+|Ubuntu 12.04 LTS、14.04 LTS、16.04 LTS (x86/x64)      |Linux 代理程式必須能夠存取更新存放庫。         |
 
 > [!NOTE]
 > 若要避免在 Ubuntu 維護期間以外套用更新，請將自動安裝升級套件重新設定為停用自動更新。 如需詳細資訊，請參閱 [Ubuntu Server 指南中的自動更新主題](https://help.ubuntu.com/lts/serverguide/automatic-updates.html)。
@@ -152,6 +137,9 @@ Linux 代理程式必須能夠存取更新存放庫。
   - 定義更新
   - 工具
   - 更新
+
+- **要排除的更新** - 這會開啟 [排除] 頁面。 輸入要排除的 KB 或套件名稱。
+
 - **排程設定**：您可以接受預設的日期和時間 (目前時間之後的 30 分鐘)。 或是可以指定不同的時間。
    您也可以指定部署是否為發生一次，或為週期性排程。 若要設定週期性排程，請選取 [週期] 下的 [週期性] 選項。
 

@@ -1,25 +1,22 @@
 ---
-title: "在您的 Logic Apps 中新增 DB2 連接器 | Microsoft Docs"
-description: "搭配 REST API 參數來使用 DB2 連接器的概觀"
-services: 
-documentationcenter: 
+title: 連線到 DB2 - Azure Logic Apps | Microsoft Docs
+description: 使用 DB2 REST API 和 Azure Logic Apps 管理資源
 author: gplarsen
-manager: erikre
-editor: 
-tags: connectors
-ms.assetid: 1c6b010c-beee-496d-943a-a99e168c99aa
-ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+manager: jeconnoc
+ms.author: plarsen
 ms.date: 09/26/2016
-ms.author: plarsen; ladocs
-ms.openlocfilehash: 7ad246ede7e891de42235443c1bc6a90b88ad5ac
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, estfan
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: 507bc48b6b775d6a6fb5f855210d33520e187a74
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295086"
 ---
 # <a name="get-started-with-the-db2-connector"></a>開始使用 DB2 連接器
 Microsoft Connector for DB2 可將 Logic Apps 連接至 IBM DB2 資料庫中儲存的資源。 此連接器包含透過 TCP/IP 網路與遠端 DB2 伺服器電腦通訊的 Microsoft 用戶端。 其中包括雲端資料庫 (例如在 Azure 虛擬化中執行的 IBM Bluemix dashDB 或 IBM DB2 for Windows)，以及使用內部部署資料閘道的內部部署資料庫。 請參閱支援的 IBM DB2 平台和版本 [清單](connectors-create-api-db2.md#supported-db2-platforms-and-versions) (本主題結尾處)。

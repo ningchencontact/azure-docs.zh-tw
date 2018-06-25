@@ -14,14 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 57cc8a63773cda5b66856ba7d6b3215d9c52162c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4555bc85489f557cf6b6b744df7063fc14b0602a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590373"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health︰版本發行歷程記錄
 Azure Active Directory 團隊會定期以新的特性和功能更新 Azure AD Connect Health。 本文列出已發行的版本和功能。
+
+## <a name="may-2018"></a>2018 年 5 月
+**代理程式更新：**
+*   適用於 AD DS 的 Azure AD Connect Health 代理程式 (3.0.244.0 版)
+ 1. 代理程式隱私權改進  
+ 2. Bug 修正和一般改善
+
+*   適用於 AD FS 的 Azure AD Connect Health 代理程式 (3.0.244.0 版)
+ 1. 代理程式診斷服務和相關的 PowerShell 模組改進
+ 2. 代理程式隱私權改進  
+ 3. Bug 修正和一般改善
+
+* 適用於同步的 Azure AD Connect Health 代理程式 (3.0.244.0 版)
+ 1. 代理程式隱私權改進  
+ 2. Bug 修正和一般改善
+
 
 ## <a name="march-2018"></a>2018 年 3 月
 **新的預覽功能：**

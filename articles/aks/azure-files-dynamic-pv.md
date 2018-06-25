@@ -6,15 +6,15 @@ author: neilpeterson
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 05/21/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 991db1fc32ae89ab04ca040cfb6e8d59ffe5262f
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d3e92902e711ba2b1664c6497ecb66f035ea9308
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356438"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597496"
 ---
 # <a name="persistent-volumes-with-azure-files"></a>包含 Azure 檔案的永續性磁碟區
 
@@ -24,29 +24,20 @@ ms.locfileid: "34356438"
 
 ## <a name="create-storage-account"></a>建立儲存體帳戶
 
-在以動態方式將 Azure 檔案共用建立為 Kubernetes 磁碟區時，您可以使用任何儲存體帳戶，只要該帳戶位於與 AKS 叢集相同的資源群組中即可。 如有需要，請在與 AKS 叢集相同的資源群組中建立儲存體帳戶。
-
-若要找出適當的資源群組，請使用 [az group list][az-group-list] 命令。
+在以動態方式將 Azure 檔案共用建立為 Kubernetes 磁碟區時，您可以使用任何儲存體帳戶，只要該帳戶位於 AKS **節點**資源群組中即可。 使用 [az resource show][az-resource-show] 命令取得資源群組名稱。
 
 ```azurecli-interactive
-az group list --output table
-```
+$ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
 
-尋找其名稱類似 `MC_clustername_clustername_locaton` 的資源群組。
-
-```
-Name                                 Location    Status
------------------------------------  ----------  ---------
-MC_myAKSCluster_myAKSCluster_eastus  eastus      Succeeded
-myAKSCluster                         eastus      Succeeded
+MC_myResourceGroup_myAKSCluster_eastus
 ```
 
 請使用 [az storage account create][az-storage-account-create] 命令來建立儲存體帳戶。
 
-使用此範例時，請將 `--resource-group` 更新成資源群組的名稱，並將 `--name` 更新成您選擇的名稱。
+將 `--resource-group` 更新成上一個步驟中收集的資源群組名稱，並將 `--name` 更新成您選擇的名稱。
 
 ```azurecli-interactive
-az storage account create --resource-group MC_myAKSCluster_myAKSCluster_eastus --name mystorageaccount --location eastus --sku Standard_LRS
+az storage account create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name mystorageaccount --location eastus --sku Standard_LRS
 ```
 
 ## <a name="create-storage-class"></a>建立儲存體類別
@@ -77,7 +68,7 @@ kubectl apply -f azure-file-sc.yaml
 
 永續性磁碟區宣告 (PVC) 會使用儲存體類別物件，以動態方式佈建 Azure 檔案共用。
 
-下列 YAML 可用來建立具有 `ReadWriteOnce` 存取權，且大小為 `5GB` 的永續性磁碟區宣告。 如需有關存取模式的詳細資訊，請參閱 [Kubernetes 永續性磁碟區][access-modes]文件。
+下列 YAML 可用來建立具有 `ReadWriteMany` 存取權，且大小為 `5GB` 的永續性磁碟區宣告。 如需有關存取模式的詳細資訊，請參閱 [Kubernetes 永續性磁碟區][access-modes]文件。
 
 建立名為 `azure-file-pvc.yaml` 的檔案，然後將下列 YAML 複製進來。 請確定 `storageClassName` 與最後一個步驟中建立的儲存體類別相符。
 
@@ -88,7 +79,7 @@ metadata:
   name: azurefile
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   storageClassName: azurefile
   resources:
     requests:
@@ -210,6 +201,7 @@ spec:
 <!-- LINKS - internal -->
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-list]: /cli/azure/group#az_group_list
+[az-resource-show]: /cli/azure/resource#az-resource-show
 [az-storage-account-create]: /cli/azure/storage/account#az_storage_account_create
 [az-storage-create]: /cli/azure/storage/account#az_storage_account_create
 [az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list

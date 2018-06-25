@@ -4,16 +4,16 @@ description: 本文會逐步引導您以程式設計方式建立及管理 Azure 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/07/2018
+ms.date: 05/24/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 5405566b5254c553eac584acc1653449b51ddffc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a83402316854b23fe85bff813dc9f5665bccd1fb
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195874"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34794804"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>以程式設計方式建立原則並檢視合規性資料
 
@@ -113,15 +113,19 @@ ms.locfileid: "34195874"
   }
   ```
 
-2. 使用下列呼叫建立原則定義︰
+2. 使用下列其中一個呼叫來建立原則定義︰
 
   ```
-  armclient PUT "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
+  # For defining a policy in a subscription
+  armclient PUT "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
+
+  # For defining a policy in a management group
+  armclient PUT "/providers/Microsoft.Management/managementgroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
   ```
 
-  以您要用的訂用帳戶識別碼取代 preceding_ &lt;subscriptionId&gt;。
+  使用您訂用帳戶的 ID 來取代上述 {subscriptionId}，或使用[管理群組](../azure-resource-manager/management-groups-overview.md)的 ID 來取代 {managementGroupId}。
 
-如需查詢之結構的詳細資訊，請參閱[原則定義 – 建立或更新](/rest/api/resources/policydefinitions/createorupdate)。
+  如需查詢結構的詳細資訊，請參閱[原則定義 – 建立或更新](/rest/api/resources/policydefinitions/createorupdate)和[原則定義 – 在管理群組建立或更新](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
 
 使用下列程序來建立原則指派，並在資源群組層級指派原則定義。
 
@@ -200,99 +204,6 @@ az policy definition show --name 'Audit Storage Accounts with Open Public Networ
 
 如需有關如何使用 Azure CLI 來管理資源原則的詳細資訊，請參閱 [Azure CLI 資源原則](/cli/azure/policy?view=azure-cli-latest)。
 
-## <a name="identify-non-compliant-resources"></a>識別不相容的資源
-
-在指派中，如果資源沒有遵循原則或方案規則，則該資源不符合規範。 下表顯示不同的原則效果如何與結果合規性狀態的條件評估搭配使用：
-
-| 資源狀態 | 效果 | 原則評估 | 合規性狀態 |
-| --- | --- | --- | --- |
-| exists | 拒絕、稽核、附加\*、DeployIfNotExist\*、AuditIfNotExist\* | True | 不符合規範 |
-| exists | 拒絕、稽核、附加\*、DeployIfNotExist\*、AuditIfNotExist\* | False | 相容 |
-| 新增 | 稽核、AuditIfNotExist\* | True | 不符合規範 |
-| 新增 | 稽核、AuditIfNotExist\* | False | 相容 |
-
-\* Append、DeployIfNotExist 和 AuditIfNotExist 效果需要 IF 陳述式為 TRUE。 這些效果也需要存在條件為 FALSE，以呈現不符合規範。 若為 TRUE，IF 條件會觸發相關資源的存在條件評估。
-
-為了進一步了解資源如何標示為不符合規範，讓我們使用上面建立的原則指派範例。
-
-例如，假設您有資源群組 – ContosoRG，且部分的儲存體帳戶 (以紅色醒目提示) 會公開至公用網路。
-
-![公開至公用網路的儲存體帳戶](media/policy-insights/resource-group01.png)
-
-在此範例中，您必須注意安全性風險。 現在您已建立原則指派，其會針對 ContosoRG 資源群組中的所有儲存體帳戶來進行評估。 其會稽核三個不符合規範的儲存體帳戶，並因此將其狀態變更為**不符合規範**。
-
-![已稽核不符合規範的儲存體帳戶](media/policy-insights/resource-group03.png)
-
-使用下列程序來識別資源群組中不符合原則指派的資源。 在範例中，資源是 ContosoRG 資源群組中的儲存體帳戶。
-
-1. 執行下列命令以取得原則指派識別碼：
-
-  ```azurepowershell-interactive
-  $policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.displayName -eq 'Audit Storage Accounts with Open Public Networks' }
-  $policyAssignment.PolicyAssignmentId
-  ```
-
-  如需有關取得原則指派識別碼的詳細資訊，請參閱 [Get-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/Get-AzureRmPolicyAssignment)。
-
-2. 執行下列命令，以將不合規資源的資源識別碼複製到 JSON 檔案中：
-
-  ```
-  armclient POST "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2017-12-12-preview&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
-  ```
-
-3. 結果會類似下列範例：
-
-  ```json
-  {
-      "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest",
-      "@odata.count": 3,
-      "value": [{
-              "@odata.id": null,
-              "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-              "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.storage/storageaccounts/<storageaccount1Id>"
-          },
-          {
-              "@odata.id": null,
-              "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-              "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.storage/storageaccounts/<storageaccount2Id>"
-          },
-          {
-              "@odata.id": null,
-              "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-              "ResourceId": "/subscriptions/<subscriptionName>/resourcegroups/<rgname>/providers/microsoft.storage/storageaccounts/<storageaccount3ID>"
-          }
-      ]
-  }
-  ```
-
-結果同等於通常在 [Azure 入口網站檢視](assign-policy-definition.md#identify-non-compliant-resources)中看到列在 [不符合規範的資源] 之下的內容。
-
-目前，不符合規範的資源是只能使用 Azure 入口網站和 HTTP 要求來識別。 如需有關查詢原則狀態的詳細資訊，請參閱[原則狀態](/rest/api/policy-insights/policystates) API 參考文章。
-
-## <a name="view-policy-events"></a>檢視原則事件
-
-當建立或更新資源時，會產生原則評估結果。 結果稱為_原則事件_。 執行下列查詢來檢視與原則指派相關聯的所有原則事件。
-
-```
-armclient POST "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Storage Accounts Open to Public Networks/providers/Microsoft.PolicyInsights/policyEvents/default/queryResults?api-version=2017-12-12-preview"
-```
-
-您的結果類似下列範例：
-
-```json
-{
-    "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyEvents/$metadata#default",
-    "@odata.count": 1,
-    "value": [{
-        "@odata.id": null,
-        "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyEvents/$metadata#default/$entity",
-        "NumAuditEvents": 3
-    }]
-}
-```
-
-如同原則狀態，您只能使用 HTTP 要求檢視原則事件。 如需有關查詢原則事件的詳細資訊，請參閱[原則事件](/rest/api/policy-insights/policyevents)參考文章。
-
 ## <a name="next-steps"></a>後續步驟
 
 如需本文中查詢與命令的詳細資訊，請檢閱以下文章。
@@ -301,3 +212,4 @@ armclient POST "/subscriptions/<subscriptionId>/providers/Microsoft.Authorizatio
 - [Azure RM PowerShell 模組](/powershell/module/azurerm.resources/#policies)
 - [Azure CLI 原則命令](/cli/azure/policy?view=azure-cli-latest)
 - [資源提供者 REST API 參考](/rest/api/policy-insights)
+- [使用 Azure 管理群組來組織資源](../azure-resource-manager/management-groups-overview.md)

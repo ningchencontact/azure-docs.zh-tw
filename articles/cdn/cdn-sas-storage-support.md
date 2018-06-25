@@ -4,7 +4,7 @@ description: Azure CDN 支援使用「共用存取簽章」(SAS) 來授與有限
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: ''
+manager: cfowler
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -12,13 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 06/11/2018
 ms.author: v-deasim
-ms.openlocfilehash: dcae29c49035775cd9ff983bbc99bab06c7f16dc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ea779f4f809e51b57d36cd44f9c6674340d665a2
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261163"
 ---
 # <a name="using-azure-cdn-with-sas"></a>搭配 SAS 使用 Azure CDN
 
@@ -70,7 +71,7 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-04-17&
  
 此選項僅適用於**來自 Verizon 的 Azure 進階 CDN**設定檔。 使用此選項時，您可以保護原始伺服器的 Blob 儲存體。 如果您不需要特定的檔案存取限制，但想要防止使用者直接存取儲存體原始伺服器來縮短 Azure CDN 卸載時間，便可以使用此選項。 存取原始伺服器指定容器中檔案的任何人都必須有使用者未知的 SAS 權杖。 不過，由於 URL 重寫規則，CDN 端點上不需要 SAS 權杖。
  
-1. 使用[規則引擎](cdn-rules-engine.md)來建立 URL 重寫規則。 新規則大約需要 90 分鐘的時間來進行傳播。
+1. 使用[規則引擎](cdn-rules-engine.md)來建立 URL 重寫規則。 新規則大約需要 10 分鐘的時間來進行傳播。
 
    ![CDN [管理] 按鈕](./media/cdn-sas-storage-support/cdn-manage-btn.png)
 
@@ -112,7 +113,7 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-04-17&
        
    安全性權杖驗證的參數選項與 SAS 權杖的參數選項不同。 如果您在建立安全性權杖時選擇使用到期時間，請將其設定為與 SAS 權杖到期時間相同的值。 這麼做可確保到期時間是可預測的。 
  
-2. 使用[規則引擎](cdn-rules-engine.md)來建立 URL 重寫規則，以啟用對容器中所有 Blob 的 SAS 權杖存取權。 新規則大約需要 90 分鐘的時間來進行傳播。
+2. 使用[規則引擎](cdn-rules-engine.md)來建立 URL 重寫規則，以啟用對容器中所有 Blob 的 SAS 權杖存取權。 新規則大約需要 10 分鐘的時間來進行傳播。
 
    下列範例 URL 重寫規則使用了規則運算式模式，其中包含一個擷取群組和一個名為 *storagedemo* 的端點：
    

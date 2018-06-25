@@ -1,13 +1,14 @@
 ---
-title: "設定 Azure Active Directory 已註冊裝置 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 已註冊裝置。"
+title: 設定 Azure Active Directory 已註冊裝置 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 已註冊裝置。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,22 +16,23 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 2560e51d61506389e84288bf983b0ebcb5776ff2
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 541f37bb11c604567b356716db282d0e4e2f629b
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713519"
 ---
 # <a name="set-up-azure-active-directory-registered-windows-10-devices"></a>設定註冊 Azure Active Directory 的 Windows 10 裝置
 
 使用 Azure Active Directory (Azure AD) 中的裝置管理，您可以確保使用者會從符合安全性與合規性之標準的裝置來存取您的資源。 如需詳細資訊，請參閱 [Azure Active Directory 中的裝置管理簡介](device-management-introduction.md)。
 
-如果您需要啟用**自備裝置 (BYOD)** 情節，可以設定 Azure AD 註冊的裝置來完成這項作業。 在 Azure AD 中，您可以為 Windows 10、iOS、Android 和 macOS 設定 Azure AD 註冊裝置。 本主題為您提供 Windows 10 裝置的相關步驟。 
+如果您需要啟用**自備裝置 (BYOD)** 情節，可以設定 Azure AD 註冊的裝置來完成這項作業。 在 Azure AD 中，您可以為 Windows 10、iOS、Android 和 macOS 設定 Azure AD 註冊裝置。 本文為您提供 Windows 10 裝置的相關步驟。 
 
 
 ## <a name="before-you-begin"></a>開始之前
 
-若要註冊 Windows 10 裝置，必須設定裝置註冊服務，才能註冊裝置。 除了擁有在 Azure AD 租用戶中註冊裝置的權限之外，您所擁有的已註冊裝置必須少於已設定的最大值。 如需詳細資料，請參閱[設定裝置設定](device-management-azure-portal.md#configure-device-settings)。
+若要註冊 Windows 10 裝置，必須設定裝置註冊服務，才能註冊裝置。 此外，您所擁有的已註冊裝置必須少於已設定的最大值。 如需詳細資訊，請參閱[設定裝置設定](device-management-azure-portal.md#configure-device-settings)。
 
 ## <a name="what-you-should-know"></a>您應該知道的事情
 
@@ -49,7 +51,7 @@ ms.lasthandoff: 01/16/2018
 
 ## <a name="registering-a-device"></a>註冊裝置
 
-本節說明將 Windows 10 裝置註冊到 Azure AD 的步驟。 如果您已成功將裝置註冊到 Azure AD，您的 [存取工作或學校] 對話方塊會透過 [工作或學校帳戶] 項目來指出這一點。
+本節說明將 Windows 10 裝置註冊到 Azure AD 的步驟。 成功註冊的裝置會與 [工作或學校帳戶] 項目一同顯示。
 
 ![註冊](./media/device-management-azuread-registered-devices-windows10-setup/08.png)
 
@@ -74,7 +76,7 @@ ms.lasthandoff: 01/16/2018
     ![連線](./media/device-management-azuread-registered-devices-windows10-setup/04.png)
 
 
-5. 在 [設定工作或學校帳戶] 對話方塊中，輸入您的帳戶名稱 (例如：someone@example.com)，然後按 [下一步]。
+5. 在 [設定工作或學校帳戶] 對話方塊上，輸入您的帳戶名稱 (例如 someone@example.com)，然後按一下 [下一步]。
 
     ![連線](./media/device-management-azuread-registered-devices-windows10-setup/06.png)
 
@@ -94,7 +96,7 @@ ms.lasthandoff: 01/16/2018
 
 ![註冊](./media/device-management-azuread-registered-devices-windows10-setup/08.png)
 
-或者，您也可以在 Azure AD 入口網站上檢閱裝置設定。
+或者，您可以在 Azure AD 入口網站上檢閱裝置設定。
 
 ![註冊](./media/device-management-azuread-registered-devices-windows10-setup/09.png)
 
@@ -106,7 +108,7 @@ ms.lasthandoff: 01/16/2018
 
 - 如需詳細資訊，請參閱 [Azure Active Directory 中的裝置管理簡介](device-management-introduction.md)
 
-- 如需有關在 Azure AD 入口網站中管理裝置的詳細資訊，請參閱[使用 Azure 入口網站來管理裝置](device-management-azure-portal.md)。
+- 如需在 Azure AD 入口網站中管理裝置的詳細資訊，請參閱[使用 Azure 入口網站管理裝置](device-management-azure-portal.md)。
 
 
 

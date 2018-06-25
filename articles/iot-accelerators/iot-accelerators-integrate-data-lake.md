@@ -1,19 +1,19 @@
 ---
 title: 整合遠端監視解決方案與 Azure Data Lake Store | Microsoft Docs
 description: 了解如何使用 Azure 串流分析作業來整合遠端監視解決方案與 Azure Data Lake Store。
-+services: ''
-+suite: iot-suite
-+author: philmea
-+manager: timlt
-+ms.author: philmea
-+ms.date: 04/029/2018
-+ms.topic: article
-+ms.service: iot-suite
-ms.openlocfilehash: 426ded8079ba5d6de4c186a8d18dd284082b0c1c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+author: philmea
+manager: timlt
+ms.author: philmea
+ms.date: 04/29/2018
+ms.topic: conceptual
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.openlocfilehash: 3bd29e348fd067c12def8ca36fbdc1d7e35b2874
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627581"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>整合遠端監視解決方案與 Azure Data Lake Store
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 05/20/2018
 
 若要完成本操作說明，您需要下列各項：
 
-* [部署遠端監視預先設定解決方案](iot-accelerators-remote-monitoring-deploy.md)。
+* [部署遠端監視解決方案加速器](iot-accelerators-remote-monitoring-deploy.md)。
   * 遠端監視解決方案會將要在本文中使用的 IoT 中樞與 Azure 串流分析作業部署到您的 Azure 訂用帳戶。
 * [部署 Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md)
   * 您的 Data Lake Store 應該要部署到與您遠端監視解決方案相同的區域。

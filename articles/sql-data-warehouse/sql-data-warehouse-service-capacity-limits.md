@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: a2a6c78444cb385a2e74b108000555ff056fe9f0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b79d928f3c1c3d81fbca0b8d676d4a4cbf83369a
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32189678"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839634"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL 資料倉儲容量限制
 Azure SQL 資料倉儲各種元件的最大允許值。
@@ -24,7 +24,7 @@ Azure SQL 資料倉儲各種元件的最大允許值。
 | 類別 | 說明 | 最大值 |
 |:--- |:--- |:--- |
 | [資料倉儲單位 (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |單一 SQL 資料倉儲的最大 DWU | Gen1：DW6000<br></br>Gen2：DW30000c |
-| [資料倉儲單位 (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |每一部伺服器的預設 DTU |54,000<br></br>每個 SQL Server (例如 myserver.database.windows.net) 的 DTU 配額為 54,000，最多允許 DW6000c。 此配額僅是安全限制。 您可以藉由[建立支援票證](sql-data-warehouse-get-started-create-support-ticket.md)，並選取「配額」 做為要求類型來增加配額。  若要計算 DTU 需求，將所需的總 DWU 乘以 7.5，或將所需的總 cDWU 乘以 9.0。 例如︰<br></br>DW6000 x 7.5 = 45,000 DTU<br></br>DW600c x 9.0 = 54,000 DTU。<br></br>您可以在入口網站的 [SQL Server] 選項中檢視目前的 DTU 耗用量。 已暫停和未暫停的資料庫都會計入 DTU 配額。 |
+| [資料倉儲單位 (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |每一部伺服器的預設 DTU |54,000<br></br>每個 SQL Server (例如 myserver.database.windows.net) 的 DTU 配額為 54,000，最多允許 DW6000c。 此配額僅是安全限制。 您可以藉由[建立支援票證](sql-data-warehouse-get-started-create-support-ticket.md)，並選取「配額」 做為要求類型來增加配額。  若要計算 DTU 需求，將所需的總 DWU 乘以 7.5，或將所需的總 cDWU 乘以 9.0。 例如︰<br></br>DW6000 x 7.5 = 45,000 DTU<br></br>DW6000c x 9.0 = 54,000 DTU。<br></br>您可以在入口網站的 [SQL Server] 選項中檢視目前的 DTU 耗用量。 已暫停和未暫停的資料庫都會計入 DTU 配額。 |
 | 資料庫連接 |同時開啟的工作階段 |1024<br/><br/>每一個 1024 使用中工作階段都可以同時將要求提交至 SQL 資料倉儲資料庫。 請注意，可同時執行的查詢數目有所限制。 超過並行存取限制時，要求會進入內部佇列以等待處理。 |
 | 資料庫連接 |準備陳述式的最大記憶體 |20 MB |
 | [工作負載管理](resource-classes-for-workload-management.md) |並行查詢上限 |32<br/><br/> 根據預設，SQL 資料倉儲可以執行最多 32 並行查詢和佇列剩餘查詢。<br/><br/>將使用者指派給較高的資源類別，或在 SQL 資料倉儲的[資料倉儲單位](memory-and-concurrency-limits.md)設定較低時，並行查詢的數目會減少。 系統總是會允許某些查詢 (例如 DMV 查詢) 執行。 |
@@ -33,7 +33,7 @@ Azure SQL 資料倉儲各種元件的最大允許值。
 ## <a name="database-objects"></a>資料庫物件
 | 類別 | 說明 | 最大值 |
 |:--- |:--- |:--- |
-| 資料庫 |大小上限 |在磁碟上壓縮後 240 TB<br/><br/>此空間與 tempdb 或記錄檔空間無關，因此此空間為供永久資料表專用。  叢集資料行存放區壓縮估計為 5 X。  當所有資料表都是叢集資料行存放區 (預設的資料表類型) 時，這個壓縮可讓資料庫成長約 1 PB。 |
+| 資料庫 |大小上限 | Gen1：在磁碟上壓縮後 240 TB。 此空間與 tempdb 或記錄檔空間無關，因此此空間為供永久資料表專用。  叢集資料行存放區壓縮估計為 5 X。  當所有資料表都是叢集資料行存放區 (預設的資料表類型) 時，這個壓縮可讓資料庫成長約 1 PB。 <br/><br/> Gen2：資料列存放區的限制為 240 TB，資料行存放區資料表的儲存體則沒有限制 |
 | 資料表 |大小上限 |磁碟上壓縮後 60 TB |
 | 資料表 |每個資料庫的資料表 |10,000 |
 | 資料表 |每個資料表的資料行 |1024 個資料行 |

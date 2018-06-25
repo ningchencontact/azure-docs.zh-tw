@@ -13,14 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 06/06/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5a0574af04c118d466544d533561eb01639edfc6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 30763f88a7d78678411abd7fe7cc6375e00cb6f6
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32158983"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824263"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect：帳戶與權限
 Azure AD Connect 安裝精靈提供兩個不同的路徑：
@@ -186,9 +187,9 @@ VSA 適用於同步處理引擎和 SQL 位於相同伺服器的情況。 如果�
 ### <a name="azure-ad-service-account"></a>Azure AD 服務帳戶
 系統會在 Azure AD 中建立帳戶供同步服務使用。 此帳戶可以由其顯示名稱來識別。
 
-![AD 帳戶](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount.png)
+![AD 帳戶](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount2.png)
 
-使用帳戶所在伺服器的名稱可以透過使用者名稱的第二個部分來識別。 在圖中，伺服器名稱是 FABRIKAMCON。 如果您有預備伺服器，則每個伺服器會有自己的帳戶。
+使用帳戶所在伺服器的名稱可以透過使用者名稱的第二個部分來識別。 在圖中，伺服器名稱是 DC1。 如果您有預備伺服器，則每個伺服器會有自己的帳戶。
 
 系統會使用不會過期的長複雜密碼建立服務帳戶， 且該帳戶會獲得特殊角色**目錄同步處理帳戶**，其僅具有執行目錄同步處理工作的權限。 您無法透過 Azure AD Connect 精靈以外的方式授與特殊的內建角色。 Azure 入口網站會顯示此帳戶具備 [使用者] 角色。
 

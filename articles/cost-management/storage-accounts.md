@@ -5,22 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: carmonm
 ms.custom: ''
-ms.openlocfilehash: 76a9fc586a1932b8b5e664b6c964f0c7d3eac4d4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e37604e5cd36cfed016ef596060459011ec32d35
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297830"
 ---
 # <a name="configure-storage-accounts-for-cost-management"></a>為成本管理設定儲存體帳戶
 
 <!--- intent: As a Cost Management user, I want to configure Cost Management to use my cloud service provider storage account to store my reports. -->
 
-您可以將「成本管理」報表儲存在 Cloudyn 入口網站、Azure 儲存體或 AWS 儲存體貯體中。 將報表儲存至 Cloudyn 入口網站中是免費的。 不過，將報表儲存至雲端服務提供者的儲存體是選擇性的，而且會產生額外的費用。 本文將協助您設定 Azure 儲存體帳戶和 Amazon Web Services (AWS) 儲存體貯體，以儲存您的報表。
+您可以將「成本管理」報表儲存在 Cloudyn 入口網站、Azure 儲存體或 AWS 儲存體貯體中。 將報表儲存至 Cloudyn 入口網站中是免費的。 但您也可以選擇將報表儲存至雲端服務提供者的儲存體，只是那會產生額外費用。 本文將協助您設定 Azure 儲存體帳戶和 Amazon Web Services (AWS) 儲存體貯體，以儲存您的報表。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -34,7 +35,7 @@ ms.lasthandoff: 04/28/2018
 
 設定 Azure 儲存體以供「成本管理」使用相當簡單。 請收集儲存體帳戶的相關詳細資料，然後將它們複製到 Cloudyn 入口網站中。
 
-1. 在 http://portal.azure.com 上登入 Azure 入口網站。
+1. 在 http://portal.azure.com 登入 Azure 入口網站。
 2. 按一下 [所有服務]，選取 [儲存體帳戶]，捲動至您想要使用的儲存體帳戶，然後選取該帳戶。
 3. 在儲存體帳戶頁面上的 [設定] 底下，按一下 [存取金鑰]。
 4. 複製您的 [儲存體帳戶名稱] 和 key1 底下的 [連接字串]。  

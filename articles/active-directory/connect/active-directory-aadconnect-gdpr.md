@@ -11,14 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/21/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a1fa7f58040b420bf52d89a57b1234416c2fb939
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8e3f81a6480e9de55c8f803e2266c4ac6e33c316
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32149384"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590533"
 ---
 # <a name="user-privacy-and-azure-ad-connect"></a>使用者隱私權與 Azure AD Connect 
 
@@ -27,7 +28,7 @@ ms.locfileid: "32149384"
 >[!NOTE] 
 >本文會討論 Azure AD Connect 與使用者隱私權。  如需 Azure AD Connect Health 與使用者隱私權的相關資訊，請參閱[這裡](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md)的文章。
 
-Azure AD Connect 安裝的使用者隱私權合規性可以透過兩種方式來達成：
+使用以下兩種方式來改善 Azure AD Connect 安裝的使用者隱私權：
 
 1.  在接到要求時擷取使用者的資料，並從安裝中移除該使用者的資料
 2.  確保沒有資料會保留超過 48 小時。

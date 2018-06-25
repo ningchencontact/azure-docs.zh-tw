@@ -1,27 +1,26 @@
 ---
-title: 在 Azure AD B2C 中使用年齡管制 | Microsoft Docs
+title: 在 Azure Active Directory B2C 中使用年齡管制 | Microsoft Docs
 description: 了解如何使用應用程式識別未成年人。
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 04/29/2018
 ms.author: davidmu
-ms.openlocfilehash: 9186579126525cc269f7e3f9e778e06902b30eb4
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.component: B2C
+ms.openlocfilehash: bbf885fbcca22e42b2ec0ad7ff4e7a70aa5f5828
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34261277"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711965"
 ---
 #<a name="using-age-gating-in-azure-ad-b2c"></a>在 Azure AD B2C 中使用年齡管制
 
 >[!IMPORTANT]
->這項功能處於個人預覽版狀態。  請參閱我們已發佈的[服務部落格](https://blogs.msdn.microsoft.com/azureadb2c/)以取得詳細資訊，或連絡 AADB2CFeedback@microsoft.com。請「不要」在生產目錄上使用此功能，在公開上市之前使用這些新功能可能會導致資料遺失，且可能會產生非預期的行為變更。  
+>這項功能處於個人預覽版狀態。  請參閱我們已發佈的[服務部落格](https://blogs.msdn.microsoft.com/azureadb2c/)以取得詳細資訊，或連絡 AADB2CFeedback@microsoft.com。  請「不要」在生產目錄上使用此功能，在公開上市之前使用這些新功能可能會導致資料遺失，且可能會產生非預期的行為變更。  
 >
 
 ##<a name="age-gating"></a>年齡管制

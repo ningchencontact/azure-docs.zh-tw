@@ -1,26 +1,23 @@
 ---
 title: 部署遠端監視解決方案架構 - Azure | Microsoft Docs
-description: 本教學課程示範如何從 azureiotsuite.com 佈建遠端監視解決方案加速器。
-services: iot-suite
-suite: iot-suite
+description: 本教學課程會示範如何從 azureiotsuite.com 佈建遠端監視解決方案加速器。
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 8738fbfc29f6776a091cdc2b872eab88abd195cd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 42f6afcd3cb6880ba6c9cdd2a51e2a3e9ff2c2d4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626848"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator"></a>部署遠端監視解決方案加速器
 
-本教學課程示範如何佈建遠端監視解決方案加速器。 您要從 azureiotsuite.com 部署解決方案。您也可以使用 CLI 部署解決方案，若要了解此選項，請參閱[從命令列部署解決方案加速器](iot-accelerators-remote-monitoring-deploy-cli.md)。
+本教學課程示範如何佈建遠端監視解決方案加速器。 您要從 azureiotsuite.com 部署解決方案。 您也可以使用 CLI 部署解決方案，若要了解此選項，請參閱[從命令列部署解決方案加速器](iot-accelerators-remote-monitoring-deploy-cli.md)。
 
 在本教學課程中，您了解如何：
 
@@ -69,7 +66,7 @@ ms.lasthandoff: 05/20/2018
 
     ![選擇新的解決方案](./media/iot-accelerators-remote-monitoring-deploy/choosenew.png)
 
-1. 您可以檢視有關所出現之面板中的遠端監視解決方案的資訊。 選擇 [解決方案儀表板] 以連線到遠端監視解決方案。
+1. 您可以檢視所出現面板中遠端監視解決方案的相關資訊。 選擇 [解決方案儀表板] 以連線到遠端監視解決方案。
 
     > [!NOTE]
     > 當您完成時，可以從此面板刪除遠端監視解決方案。

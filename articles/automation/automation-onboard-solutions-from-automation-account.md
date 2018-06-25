@@ -5,20 +5,20 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 06/06/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 2f5d664b660d43e61dba46d13aff1ced796de884
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0174e2a3c0b14c52b5750e343932a5df39d18976
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193347"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833350"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>讓更新管理、變更追蹤和清查解決方案上線
 
-Azure 自動化提供的解決方案可管理作業系統安全性更新、追蹤變更，以及清查您的電腦上安裝的項目。 讓機器上線的方式有很多種，您可以[從虛擬機器](automation-onboard-solutions-from-vm.md)、從您的自動化帳戶，或透過 [Runbook](automation-onboard-solutions.md) 來讓解決方案上線。 此文章說明如何從您的自動化帳戶讓這些解決方案上線。
+Azure 自動化提供的解決方案可管理作業系統安全性更新、追蹤變更，以及清查您的電腦上安裝的項目。 讓機器上線的方式有很多種，您可以[從虛擬機器](automation-onboard-solutions-from-vm.md)、[瀏覽多部機器時](automation-onboard-solutions-from-browse.md)、從您的自動化帳戶，或透過 [Runbook](automation-onboard-solutions.md) 來讓解決方案上線。 此文章說明如何從您的自動化帳戶讓這些解決方案上線。
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 
@@ -69,29 +69,27 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 ![已儲存的搜尋](media/automation-onboard-solutions-from-automation-account/savedsearch.png)
 
-## <a name="onboard-an-azure-machine"></a>讓 Azure 機器上線
+## <a name="onboard-azure-vms"></a>使 Azure VM 上線
 
 從您的自動化帳戶中選取 [組態管理] 下的 [清查] 或 [變更追蹤]，或選取 [更新管理] 下的 [更新管理]。
 
-按一下 [+ 加入 Azure VM]，從清單中選取 VM。 在 [更新管理] 頁面上，按一下 [啟用]。 這會為解決方案將目前的 VM 加入至電腦群組儲存的搜尋。
+按一下 [+ 加入 Azure VM]，從清單中選取一或多個 VM。 無法啟用的虛擬機器會呈現灰色且無法選取。 在 [啟用更新管理] 頁面上，按一下 [啟用]。 這會為解決方案將選取的 VM 加入至電腦群組儲存的搜尋。
+
+![啟用 Azure VM](media/automation-onboard-solutions-from-automation-account/enable-azure-vms.png)
 
 ## <a name="onboard-a-non-azure-machine"></a>讓非 Azure 機器上線
 
-從您的自動化帳戶中選取 [組態管理] 下的 [清查] 或 [變更追蹤]，或選取 [更新管理] 下的 [更新管理]。
+您必須手動加入不在 Azure 中的機器。 從您的自動化帳戶中選取 [組態管理] 下的 [清查] 或 [變更追蹤]，或選取 [更新管理] 下的 [更新管理]。
 
-按一下 [加入非 Azure 電腦]。 這會開啟新的瀏覽器視窗，指示如何在電腦上安裝和設定 Microsoft Monitoring Agent ，讓電腦開始向解決方案回報。 如果您讓目前受 System Center Operations Manager 管理的機器上線，不需要新的代理程式，就會將工作區資訊輸入現有的代理程式。
+按一下 [加入非 Azure 電腦]。 這會開啟新的瀏覽器視窗，[指示如何在電腦上安裝和設定 Microsoft Monitoring Agent](../log-analytics/log-analytics-concept-hybrid.md)，讓電腦可以開始向解決方案回報。 如果您讓目前受 System Center Operations Manager 管理的機器上線，不需要新的代理程式，就會將工作區資訊輸入現有的代理程式。
 
 ## <a name="onboard-machines-in-the-workspace"></a>讓工作區中的機器上線
 
-從您的自動化帳戶中選取 [組態管理] 下的 [清查] 或 [變更追蹤]，或選取 [更新管理] 下的 [更新管理]。
+您必須將手動安裝的機器或已向您工作區回報的機器加入至 Azure 自動化，才能啟用解決方案。 從您的自動化帳戶中選取 [組態管理] 下的 [清查] 或 [變更追蹤]，或選取 [更新管理] 下的 [更新管理]。
 
 選取 [管理機器]。 這會開啟 [管理機器] 頁面。 此頁面可讓您啟用一組特定機器、所有可用機器上的解決方案，或啟用所有目前機器的解決方案，以及啟用未來所有機器的解決方案。
 
 ![已儲存的搜尋](media/automation-onboard-solutions-from-automation-account/managemachines.png)
-
-### <a name="selected-machines"></a>選取的機器
-
-若要啟用一或多部機器的解決方案，請選取 [在選取的機器上啟用]，然後按一下想要新增至解決方案的每部機器旁邊的 [新增]。 此工作會為解決方案將所選取機器的名稱加入至電腦群組儲存的搜尋查詢。
 
 ### <a name="all-available-machines"></a>所有可用的機器
 
@@ -100,6 +98,10 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 ### <a name="all-available-and-future-machines"></a>所有可用與未來的機器
 
 若要為所有可用的機器與所有未來的機器啟用解決方案，請選取 [在所有可用及未來的機器上啟用]。 此選項會從工作區中刪除已儲存搜尋和範圍設定。 這會開啟向工作區回報之所有 Azure 與非 Azure 機器的解決方案。
+
+### <a name="selected-machines"></a>選取的機器
+
+若要啟用一或多部機器的解決方案，請選取 [在選取的機器上啟用]，然後按一下想要新增至解決方案的每部機器旁邊的 [新增]。 此工作會為解決方案將所選取機器的名稱加入至電腦群組儲存的搜尋查詢。
 
 ## <a name="next-steps"></a>後續步驟
 

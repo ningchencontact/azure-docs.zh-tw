@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/4/2018
+ms.date: 6/1/2018
 ms.author: raiye
-ms.openlocfilehash: e97b5535ac635fb5982b4dc6fb384414e3a2cfc7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 73771aaff59c3db46907ffd9f74c03f0ac0830cb
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33765768"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736774"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure 客體 OS 版次與 SDK 相容性矩陣
 提供適用於雲端服務的最新 Azure 客體作業系統版次的最新資訊。 此資訊協助您在客體 OS停用之前規劃升級路徑。 如果您將角色設定成使用「自動」客體 OS 更新 (如 [Azure 客體 OS 更新設定][Azure Guest OS Update Settings]所述)，就不一定要閱讀此頁面。
@@ -40,9 +40,12 @@ ms.locfileid: "33765768"
 >
 >
 
-不確定客體 OS 為何或客體 OS 版次如何工作？ 請閱讀 [本節內容](#how-it-works) 。
+不確定如何更新客體作業系統嗎？ 請查看[這裡][cloud updates]。
 
 ## <a name="news-updates"></a>新聞更新
+###### <a name="june-1-2018"></a>**2018 年 6 月 1 日**
+5 月份客體作業系統已發行。
+
 ###### <a name="may-4-2018"></a>**2018 年 5 月 4 日**
 4 月客體 OS 已發行。
 
@@ -70,9 +73,6 @@ ms.locfileid: "33765768"
 ###### <a name="october-6-2017"></a>**2017 年 10 月 6 日**
 9 月客體 OS 已發行。 在 Windows Server 2016 年 9 月版本中，預設會啟用 netfx3。 如果客戶的工作流程要求他們使用 4.x 執行階段來執行 .NET 2.x 應用程式，或如果他們執行了 .NET 2.x 應用程式、處理了錯誤，然後執行了.NET 4.x 應用程式，就應該在客戶的 OnStart 中新增 ‘dism /online /disable-feature /featurename:netfx3’。
 
-###### <a name="september-14-2017"></a>**2017 年 9 月 14 日**
-9 月客體 OS 的首度發行期間從 9 月 14 日開始，預訂的正式發行日為 10 月 9 日。
-
 
 
 ## <a name="releases"></a>版次
@@ -89,8 +89,9 @@ ms.locfileid: "33765768"
 
 | 組態字串 | 發行日期 | 停用日期 | 到期日期 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.19_201805-01 |2018 年 6 月 1 日 |Post 5.21 |TBD |
 | WA-GUEST-OS-5.18_201804-01 |2018 年 5 月 4 日 |Post 5.20 |TBD |
-| WA-GUEST-OS-5.17_201803-01 |2018 年 4 月 6 日 |Post 5.19 |TBD |
+|~~WA-GUEST-OS-5.17_201803-01~~ |2018 年 4 月 6 日 |2018 年 6 月 1 日|TBD |
 |~~WA-GUEST-OS-5.16_201802-01~~ |2018 年 3 月 12 日 |2018 年 5 月 4 日 |TBD |
 |~~WA-GUEST-OS-5.15_201801-01~~ |2018 年 1 月 4 日 |2018 年 4 月 6 日 |TBD |
 |~~WA-GUEST-OS-5.14_201712-01~~ |2018 年 1 月 4 日 |2018 年 3 月 12 日 |TBD |
@@ -98,10 +99,6 @@ ms.locfileid: "33765768"
 |~~WA-GUEST-OS-5.12_201710-02~~ |2017 年 11 月 8 日 |2018 年 1 月 4 日 |TBD |
 |~~WA-GUEST-OS-5.11_201709-01~~ |2017 年 10 月 6 日 |2017 年 12 月 14 日 |TBD |
 |~~WA-GUEST-OS-5.10_201708-01~~ |2017 年 8 月 24 日 |2017 年 12 月 14 日 |TBD |
-|~~WA-GUEST-OS-5.9_201707-01~~ |2017 年 8 月 3 日 |2017 年 11 月 8 日 |TBD |
-|~~WA-GUEST-OS-5.8_201706-01~~ |2017 年 7 月 7 日 |2017 年 10 月 6 日 |TBD |
-|~~WA-GUEST-OS-5.7_201705-01~~ |2017 年 6 月 5 日 |2017 年 8 月 24 日 |TBD |
-|~~WA-GUEST-OS-5.6_201704-01~~ |2017 年 5 月 9 日 |2017 年 8 月 3 日 |TBD |
 
 
 ## <a name="family-4-releases"></a>系列 4 版次
@@ -116,8 +113,9 @@ ms.locfileid: "33765768"
 
 | 組態字串 | 發行日期 | 停用日期 | 到期日期 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.54_201805-01 |2018 年 6 月 1 日 |Post 4.56 |TBD |
 | WA-GUEST-OS-4.53_201804-01 |2018 年 5 月 4 日 |Post 4.55 |TBD |
-| WA-GUEST-OS-4.52_201803-01 |2018 年 4 月 6 日 |Post 4.54 |TBD |
+|~~WA-GUEST-OS-4.52_201803-01~~ |2018 年 4 月 6 日 |2018 年 6 月 1 日 |TBD |
 |~~WA-GUEST-OS-4.51_201802-01~~ |2018 年 3 月 12 日 |2018 年 5 月 4 日 |TBD |
 |~~WA-GUEST-OS-4.50_201801-01~~ |2018 年 1 月 4 日 |2018 年 4 月 6 日 |TBD |
 |~~WA-GUEST-OS-4.49_201712-01~~ |2018 年 1 月 4 日 |2018 年 3 月 12 日 |TBD |
@@ -125,10 +123,7 @@ ms.locfileid: "33765768"
 |~~WA-GUEST-OS-4.47_201710-02~~ |2017 年 11 月 8 日 |2018 年 1 月 4 日 |TBD |
 |~~WA-GUEST-OS-4.46_201709-01~~ |2017 年 10 月 6 日 |2017 年 12 月 14 日 |TBD |
 |~~WA-GUEST-OS-4.45_201708-01~~ |2017 年 8 月 24 日 |2017 年 12 月 14 日 |TBD |
-|~~WA-GUEST-OS-4.44_201707-01~~ |2017 年 8 月 3 日 |2017 年 11 月 8 日 |TBD |
-|~~WA-GUEST-OS-4.43_201706-01~~ |2017 年 7 月 7 日 |2017 年 10 月 6 日 |TBD |
-|~~WA-GUEST-OS-4.42_201705-01~~ |2017 年 6 月 5 日 |2017 年 8 月 24 日 |TBD |
-|~~WA-GUEST-OS-4.41_201704-01~~ |2017 年 5 月 9 日 |2017 年 8 月 3 日 |TBD |
+
 
 
 ## <a name="family-3-releases"></a>系列 3 版次
@@ -143,8 +138,9 @@ ms.locfileid: "33765768"
 
 | 組態字串 | 發行日期 | 停用日期 | 到期日期 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.61_201805-01 |2018 年 6 月 1 日 |Post 3.63 |TBD |
 | WA-GUEST-OS-3.60_201804-01 |2018 年 5 月 4 日 |Post 3.62 |TBD |
-| WA-GUEST-OS-3.59_201803-01 |2018 年 4 月 6 日 |Post 3.61 |TBD |
+|~~WA-GUEST-OS-3.59_201803-01~~ |2018 年 4 月 6 日 |2018 年 6 月 1 日 |TBD |
 |~~WA-GUEST-OS-3.58_201802-01~~ |2018 年 3 月 19 日 |2018 年 5 月 4 日 |TBD |
 |~~WA-GUEST-OS-3.57_201801-01~~ |2018 年 1 月 29 日 |2018 年 4 月 6 日 |TBD |
 |~~WA-GUEST-OS-3.56_201712-01~~ |2018 年 1 月 4 日 |2018 年 3 月 19 日 |TBD |
@@ -152,10 +148,6 @@ ms.locfileid: "33765768"
 |~~WA-GUEST-OS-3.54_201710-02~~ |2017 年 11 月 8 日 |2018 年 1 月 4 日 |TBD |
 |~~WA-GUEST-OS-3.53_201709-01~~ |2017 年 10 月 6 日 |2017 年 12 月 14 日 |TBD |
 |~~WA-GUEST-OS-3.52_201708-01~~ |2017 年 8 月 24 日 |2017 年 12 月 14 日 |TBD |
-|~~WA-GUEST-OS-3.51_201707-01~~ |2017 年 8 月 3 日 |2017 年 11 月 8 日 |TBD |
-|~~WA-GUEST-OS-3.50_201706-01~~ |2017 年 7 月 7 日 |2017 年 10 月 6 日 |TBD |
-|~~WA-GUEST-OS-3.49_201705-01~~ |2017 年 6 月 5 日 |2017 年 8 月 24 日 |TBD |
-|~~WA-GUEST-OS-3.48_201704-01~~ |2017 年 5 月 9 日 |2017 年 8 月 3 日 |TBD |
 
 
 ## <a name="family-2-releases"></a>系列 2 版次
@@ -170,8 +162,9 @@ ms.locfileid: "33765768"
 
 | 組態字串 | 發行日期 | 停用日期 | 到期日期 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.74_201805-01 |2018 年 6 月 1 日 |Post 2.76 |TBD |
 | WA-GUEST-OS-2.73_201804-01 |2018 年 5 月 4 日 |Post 2.75 |TBD |
-| WA-GUEST-OS-2.72_201803-01 |2018 年 4 月 6 日 |Post 2.74 |TBD |
+|~~WA-GUEST-OS-2.72_201803-01~~ |2018 年 4 月 6 日 |2018 年 6 月 1 日 |TBD |
 |~~WA-GUEST-OS-2.71_201802-01~~ |2018 年 3 月 12 日 |2018 年 5 月 4 日 |TBD |
 |~~WA-GUEST-OS-2.70_201801-01~~ |2018 年 1 月 29 日 |2018 年 4 月 6 日 |TBD |
 |~~WA-GUEST-OS-2.69_201712-01~~ |2018 年 1 月 4 日 |2018 年 3 月 12 日 |TBD |
@@ -179,11 +172,6 @@ ms.locfileid: "33765768"
 |~~WA-GUEST-OS-2.67_201710-02~~ |2017 年 11 月 8 日 |2018 年 1 月 4 日 |TBD |
 |~~WA-GUEST-OS-2.66_201709-01~~ |2017 年 10 月 6 日 |2017 年 12 月 14 日 |TBD |
 |~~WA-GUEST-OS-2.65_201708-01~~ |2017 年 8 月 24 日 |2017 年 12 月 14 日 |TBD |
-|~~WA-GUEST-OS-2.64_201707-01~~ |2017 年 8 月 3 日 |2017 年 11 月 8 日 |TBD |
-|~~WA-GUEST-OS-2.63_201706-01~~ |2017 年 7 月 7 日 |2017 年 10 月 6 日 |TBD |
-|~~WA-GUEST-OS-2.62_201705-01~~ |2017 年 6 月 5 日 |2017 年 8 月 24 日 |TBD |
-|~~WA-GUEST-OS-2.61_201704-01~~ |2017 年 5 月 9 日 |2017 年 8 月 3 日 |TBD |
-|~~WA-GUEST-OS-2.60_201703-01~~ |2017 年 4 月 10 日 |2017 年 7 月 7 日 |TBD |
 
 
 ## <a name="msrc-patch-updates"></a>MSRC 修補程式更新
@@ -241,6 +229,7 @@ Microsoft Azure 正持續發行更新。 客體作業系統只是這過程中的
 ## <a name="guest-os-supportability-and-retirement-policy"></a>客體作業系統可支援性和淘汰原則
 如需客體 OS 可支援性和淘汰原則的說明，請參閱[這裡][retirepolicy]。
 
+[cloud updates]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-update-azure-service
 [客體 OS 更新 RSS 摘要]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
 [Install .NET on a Cloud Service Role]: https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure-portal.md

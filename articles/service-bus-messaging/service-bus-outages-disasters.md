@@ -1,24 +1,19 @@
 ---
-title: "將 Azure 服務匯流排應用程式與服務匯流排中斷和災害隔絕 | Microsoft Docs"
-description: "用來保護應用程式，避免潛在服務匯流排中斷的技巧。"
+title: 將 Azure 服務匯流排應用程式與服務匯流排中斷和災害隔絕 | Microsoft Docs
+description: 用來保護應用程式，避免潛在服務匯流排中斷的技巧。
 services: service-bus-messaging
-documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: fd9fa8ab-f4c4-43f7-974f-c876df1614d4
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/30/2018
+ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: 7b01412202b5091ad3ae420089049bf456f9a30b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 38aaf6d7ddad1527e113efa502ae47b82165b079
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802301"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>將應用程式與服務匯流排中斷和災難隔絕的最佳做法
 
@@ -34,7 +29,9 @@ ms.lasthandoff: 02/01/2018
 所有服務匯流排訊息實體 (佇列、主題、轉送) 都位於附屬於資料中心的服務命名空間中。 服務匯流排現在支援命名空間層級的[地理災害復原和異地複寫](service-bus-geo-dr.md)。
 
 ## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>保護佇列和主題免於發生訊息存放區失敗
-非分割的佇列或主題會指派給一個訊息存放區。 如果此訊息存放區無法使用，該佇列或主題上的所有作業都會失敗。 另一方面，分割佇列包含多個片段。 每個片段都儲存在不同的訊息存放區。 當訊息傳送至分割的佇列或主題時，服務匯流排會指派訊息到其中一個片段。 如果對應的訊息存放區無法使用，服務匯流排會盡可能將訊息寫入至不同的片段。 如需有關已分割實體的詳細資訊，請參閱[分割的傳訊實體][Partitioned messaging entities]。
+非分割的佇列或主題會指派給一個訊息存放區。 如果此訊息存放區無法使用，該佇列或主題上的所有作業都會失敗。 另一方面，分割佇列包含多個片段。 每個片段都儲存在不同的訊息存放區。 當訊息傳送至分割的佇列或主題時，服務匯流排會指派訊息到其中一個片段。 如果對應的訊息存放區無法使用，服務匯流排會盡可能將訊息寫入至不同的片段。 [Premium SKU](service-bus-premium-messaging.md) 不再支援分割的實體。 
+
+如需分割實體的詳細資訊，請參閱[分割的傳訊實體][Partitioned messaging entities]。
 
 ## <a name="protecting-against-datacenter-outages-or-disasters"></a>保護資料中心免於中斷或災害
 若要允許兩個資料中心之間的容錯移轉，您可以在每個資料中心建立服務匯流排服務命名空間。 例如，服務匯流排服務命名空間 **contosoPrimary.servicebus.windows.net** 可能位於美國北部/中部區域，而 **contosoSecondary.servicebus.windows.net** 可能位於美國南部/中部區域。 如果服務匯流排訊息實體必須在資料中心發生中斷時保持可存取狀態，您可以在這兩個命名空間建立該實體。

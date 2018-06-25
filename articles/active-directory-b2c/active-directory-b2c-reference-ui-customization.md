@@ -1,21 +1,21 @@
 ---
-title: 使用者介面 (UI) 自訂 - Azure AD B2C | Microsoft Docs
-description: 有關 Azure Active Directory B2C 中的使用者介面 (UI) 自訂功能的主題
+title: Azure Active Directory B2C 中的使用者介面 (UI) 自訂 | Microsoft Docs
+description: 有關 Azure Active Directory B2C 中使用者介面 (UI) 自訂功能的主題。
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: b202f30e5fb47bcd16f25c5961f8345dd0324139
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.component: B2C
+ms.openlocfilehash: 84734b89aeb95745d237c062e5654afc4d49f966
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711139"
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C：自訂 Azure AD B2C 使用者介面 (UI)
 

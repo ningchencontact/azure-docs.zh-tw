@@ -1,25 +1,20 @@
 ---
 title: 什麼是 Azure IoT Edge | Microsoft Docs
 description: Azure IoT Edge 服務的概觀
-services: iot-Edge
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: chipalost
-ms.assetid: ''
-ms.service: iot-hub
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.reviewer: chipalost
+ms.service: iot-edge
+services: iot-edge
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: kgremban
-ms.custom: ''
-ms.openlocfilehash: b14dd7ca2c35f9d660b571436f1d7f1b5185c5c1
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 52956e9888d67e0502a9ea82657acb9728216111
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630692"
 ---
 # <a name="what-is-azure-iot-edge---preview"></a>什麼是 Azure IoT Edge - 預覽
 
@@ -69,7 +64,7 @@ Azure IoT Edge 執行階段可在大量 IoT 裝置上執行，以便用各種不
 
 為企業裝置管理軟體的生命週期已十分複雜， 要為數百萬部異質性的 IoT 裝置管理軟體的生命週期就更加困難了。 您必須針對特定類型的裝置建立和設定工作負載、將工作負載大規模部署到您解決方案中的數百萬個裝置，並且進行監控以攔截任何異常裝置。 這些活動無法逐一為裝置進行，而必須大規模進行。
 
-Azure IoT Edge 能夠與 Azure IoT 套件緊密整合，以針對您的解決方案需求提供一個控制平面。 雲端服務可讓使用者：
+Azure IoT Edge 能夠與 Azure IoT 解決方案加速器緊密整合，以針對您的解決方案需求提供一個控制平面。 雲端服務可讓使用者：
 
 * 建立並設定要在特定類型的裝置上執行的工作負載。
 * 將工作負載傳送到一組裝置。

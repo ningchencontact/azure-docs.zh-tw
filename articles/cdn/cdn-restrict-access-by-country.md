@@ -3,8 +3,8 @@ title: 依國家/地區限制 Azure CDN 內容 | Microsoft Docs
 description: 了解如何使用地區篩選功能限制您的 Azure CDN 內容存取。
 services: cdn
 documentationcenter: ''
-author: lichard
-manager: akucer
+author: dksimpson
+manager: cfowler
 editor: ''
 ms.assetid: 12c17cc5-28ee-4b0b-ba22-2266be2e786a
 ms.service: cdn
@@ -12,13 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: rli
-ms.openlocfilehash: bb757ab115d03ab04dac4468d23f446696a971a9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 06/11/2018
+ms.author: v-deasim
+ms.openlocfilehash: 93321c4c8a7f8d79835d702ca07132eed94f6493
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260747"
 ---
 # <a name="restrict-azure-cdn-content-by-country"></a>依國家/地區限制 Azure CDN 內容
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 05/07/2018
 當使用者要求您的內容時，預設會提供內容，不論使用者從哪裡提出這項要求。 在某些情況下，您可能想要依國家 (地區) 限制存取您的內容。 本文說明如何使用「地區篩選」功能設定服務，以依國家 (地區) 允許或封鎖存取。
 
 > [!IMPORTANT]
-> Azure CDN 產品全都提供相同地理篩選功能，不過兩者支援的國家 (地區) 代碼之間有些許差異。 有關這些差異的連結，請參閱步驟 3。
+> Azure CDN 產品全都提供相同地理篩選功能，不過兩者支援的國家 (地區) 代碼之間有些許差異。 如需詳細資訊，請參閱 [Azure CDN 國家/地區代碼](https://msdn.microsoft.com/library/mt761717.aspx)。
 
 
 如需適用於設定此類限制之考量的資訊，請參閱[考量](cdn-restrict-access-by-country.md#considerations)。  
@@ -69,10 +70,13 @@ ms.lasthandoff: 05/07/2018
 
 ## <a name="considerations"></a>考量
 * 您對國家/地區篩選組態的變更不會立即生效：
-   * 若為 **來自 Microsoft 的標準 Azure CDN** 設定檔，通常會在 10 分鐘內完成傳播。 
+   * 若為**來自 Microsoft 的標準 Azure CDN** 設定檔，通常會在 10 分鐘內完成傳播。 
    * 若為**來自 Akamai 的標準 Azure CDN** 設定檔，通常會在一分鐘內完成傳播。 
-   * 若為**來自 Verizon 的標準 Azure CDN** 和**來自 Verizon 的進階 Azure CDN** 設定檔，通常會在 90 分鐘內完成傳播。  
+   * 若為**來自 Verizon 的標準 Azure CDN** 和**來自 Verizon 的進階 Azure CDN** 設定檔，通常會在 10 分鐘內完成傳播。 
+ 
 * 這項功能不支援萬用字元 (例如，‘*’)。
+
 * 會將相對路徑相關聯的地區篩選組態，遞迴地套用到該路徑。
-* 只有一個規則可套用至相同的相對路徑，您無法建立指向相同之相對路徑的多個國家 (地區) 篩選。 不過，一個資料夾可有多個國家 (地區) 篩選。 這是因為國家 (地區) 篩選的遞迴本質。 換句話說，可以將不同的國家 (地區) 篩選指派給先前設定之資料夾的子資料夾。
+
+* 只能對相同的相對路徑套用一個規則。 也就是說，您無法建立多個指向相同相對路徑的國家 (地區) 篩選。 然而，由於國家 (地區) 篩選的遞迴本質，資料夾可以有多個國家 (地區) 篩選。 換句話說，可以將不同的國家 (地區) 篩選指派給先前設定之資料夾的子資料夾。
 

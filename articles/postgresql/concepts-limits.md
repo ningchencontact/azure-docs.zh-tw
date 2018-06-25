@@ -8,41 +8,33 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: 7e06cdba7c9c9f7e5c1d621e7421a18c342c0fdb
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 06/04/2018
+ms.openlocfilehash: 5cd829236d8d8a58e68f7bf766790aa3f0cb656e
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757411"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>適用於 PostgreSQL 的 Azure 資料庫中的限制
 下列各節說明資料庫服務中的容量和功能限制。
 
-## <a name="pricing-tier-maximums"></a>定價層上限
-適用於 PostgreSQL 的 Azure 資料庫具有多個您在建立伺服器時可從中選擇的定價層。 如需詳細資訊，請參閱[適用於 PostgreSQL 的 Azure 資料庫定價層](concepts-pricing-tiers.md)。  
+## <a name="maximum-connections"></a>最大連線數
+每個定價層和 vCores 的連線數目上限如下所示： 
 
-如下所示，在每個定價層中都有連線、計算單位及儲存體的數目上限： 
-
-|定價層| 計算世代| 虛擬核心| 連線數目上限 |
-|---|---|---|---|
-|基本| Gen 4| 1| 50 |
-|基本| Gen 4| 2| 100 |
-|基本| Gen 5| 1| 50 |
-|基本| Gen 5| 2| 100 |
-|一般用途| Gen 4| 2| 150|
-|一般用途| Gen 4| 4| 250|
-|一般用途| Gen 4| 8| 480|
-|一般用途| Gen 4| 16| 950|
-|一般用途| Gen 4| 32| 1500|
-|一般用途| Gen 5| 2| 150|
-|一般用途| Gen 5| 4| 250|
-|一般用途| Gen 5| 8| 480|
-|一般用途| Gen 5| 16| 950|
-|一般用途| Gen 5| 32| 1500|
-|記憶體最佳化| Gen 5| 2| 150|
-|記憶體最佳化| Gen 5| 4| 250|
-|記憶體最佳化| Gen 5| 8| 480|
-|記憶體最佳化| Gen 5| 16| 950|
+|定價層| **vCore(s)**| **連線數目上限** |
+|---|---|---|
+|基本| 1| 50 |
+|基本| 2| 100 |
+|一般用途| 2| 150|
+|一般用途| 4| 250|
+|一般用途| 8| 480|
+|一般用途| 16| 950|
+|一般用途| 32| 1500|
+|記憶體最佳化| 2| 150|
+|記憶體最佳化| 4| 250|
+|記憶體最佳化| 8| 480|
+|記憶體最佳化| 16| 950|
 
 當連線超過限制時，則可能會收到下列錯誤：
 > 嚴重錯誤︰很抱歉，已經有太多用戶端

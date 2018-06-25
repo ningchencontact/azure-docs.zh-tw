@@ -4,15 +4,15 @@ description: 提供收集器設備的概觀及其設定方式。
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 05/22/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: d0dd310a1f6dff389a4d3dd41dc389b7117272fe
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 32554b2f297c2079374a5edd7739af7320bc1234
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203667"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640222"
 ---
 # <a name="collector-appliance"></a>收集器設備
 
@@ -188,37 +188,37 @@ Azure Migrate 收集器服務應在機器上執行。 此服務會在機器開�
 
 您可以在不需再次下載 OVA 的情況下，將收集器升級為最新版本。
 
-1. 下載最新的[升級套件](https://aka.ms/migrate/col/latestupgrade)。
+1. 下載最新的[升級套件](https://aka.ms/migrate/col/upgrade_9_11) (1.0.9.11 版)。
 2. 若要確保下載的 Hotfix 是安全的，請開啟系統管理員命令視窗並執行下列命令來產生 ZIP 檔案的雜湊。 產生的雜湊應該符合針對特定版本所述的雜湊：
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
-    (使用範例：C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.5.zip SHA256)
+    (使用範例：C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.7.zip SHA256)
 3. 將 ZIP 檔案複製到 Azure Migrate 收集器虛擬機器 (收集器設備)。
 4. 以滑鼠右鍵按一下 ZIP 檔案並選取 [全部解壓縮]。
 5. 以滑鼠右鍵按一下 Setup.ps1 並選取 [使用 PowerShell 執行]，然後遵循螢幕上的指示安裝更新。
 
 ### <a name="list-of-updates"></a>更新清單
 
+#### <a name="upgrade-to-version-10911"></a>升級為 1.0.9.11 版
+
+升級[套件 1.0.9.11](https://aka.ms/migrate/col/upgrade_9_11) 的雜湊值
+
+**演算法** | **雜湊值**
+--- | ---
+MD5 | 0e36129ac5383b204720df7a56b95a60
+SHA1 | aa422ef6aa6b6f8bc88f27727e80272241de1bdf
+SHA256 | 5f76dbbe40c5ccab3502cc1c5f074e4b4bcbf356d3721fd52fb7ff583ff2b68f
+
 #### <a name="upgrade-to-version-1097"></a>升級為 1.0.9.7 版
 
-若要升級為 1.0.9.7 版，請下載[套件](https://aka.ms/migrate/col/upgrade_9_7)
+升級[套件 1.0.9.7](https://aka.ms/migrate/col/upgrade_9_7) 的雜湊值
 
 **演算法** | **雜湊值**
 --- | ---
 MD5 | 01ccd6bc0281f63f2a672952a2a25363
 SHA1 | 3e6c57523a30d5610acdaa14b833c070bffddbff
 SHA256 | e3ee031fb2d47b7881cc5b13750fc7df541028e0a1cc038c796789139aa8e1e6
-
-#### <a name="upgrade-to-version-1095"></a>升級為 1.0.9.5 版
-
-若要升級為 1.0.9.5 版，請下載[套件](https://aka.ms/migrate/col/upgrade_9_5)
-
-**演算法** | **雜湊值**
---- | ---
-MD5 | d969ebf3bdacc3952df0310d8891ffdf
-SHA1 | f96cc428eaa49d597eb77e51721dec600af19d53
-SHA256 | 07c03abaac686faca1e82aef8b80e8ad8eca39067f1f80b4038967be1dc86fa1
 
 ## <a name="next-steps"></a>後續步驟
 

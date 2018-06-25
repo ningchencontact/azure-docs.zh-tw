@@ -1,12 +1,13 @@
 ---
-title: "針對已加入混合式 Azure Active Directory 的 Windows 10 和 Windows Server 2016 裝置進行疑難排解 | Microsoft Docs"
-description: "針對已加入混合式 Azure Active Directory 的 Windows 10 和 Windows Server 2016 裝置進行疑難排解。"
+title: 針對已加入混合式 Azure Active Directory 的 Windows 10 和 Windows Server 2016 裝置進行疑難排解 | Microsoft Docs
+description: 針對已加入混合式 Azure Active Directory 的 Windows 10 和 Windows Server 2016 裝置進行疑難排解。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,22 +15,23 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 3b98d31efcdbd61cf12e2c905f200c1e54f68f69
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 40303d72f4facc6cd8c762f2542c48df3e370c0a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713723"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-windows-10-and-windows-server-2016-devices"></a>針對已加入混合式 Azure Active Directory 的 Windows 10 和 Windows Server 2016 裝置進行疑難排解 
 
-本主題適用於下列用戶端：
+本文適用於下列用戶端：
 
 -   Windows 10
 -   Windows Server 2016
 
 至於其他 Windows 用戶端，請參閱[針對已加入混合式 Azure Active Directory 的下層裝置進行疑難排解](device-management-troubleshoot-hybrid-join-windows-legacy.md)。
 
-本主題假設您[設定已加入混合式 Azure Active Directory 的裝置](device-management-hybrid-azuread-joined-devices-setup.md)來支援下列案例：
+本文章假設您[設定已加入混合式 Azure Active Directory 的裝置](device-management-hybrid-azuread-joined-devices-setup.md)來支援下列案例：
 
 - 裝置型條件式存取
 

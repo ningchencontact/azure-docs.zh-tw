@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 6f755754097336fc97678940ea1fa0aa28315fab
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 42471687e0a56ff0bacf5c9effecb0e2466b4690
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33868599"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593586"
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Azure AD 中的自助式密碼重設深入探討
 
@@ -153,6 +153,8 @@ ms.locfileid: "33868599"
 自訂安全性問題不會針對不同的地區設定進行當地語系化。 所有自訂問題會以您在系統管理使用者介面中輸入它們的語言顯示，即使使用者的瀏覽器地區設定不同。 如果您需要已當地語系化的問題，請使用預先定義的問題。
 
 自訂安全性問題的長度上限為 200 個字元。
+
+若要檢視不同當地語系化語言中的密碼重設入口網站和問題，請將 "?mkt=<Locale>" 附加至密碼重設 URL 的結尾；後續範例中是當地語系化為西班牙文 [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us)。
 
 ### <a name="security-question-requirements"></a>安全性問題需求
 

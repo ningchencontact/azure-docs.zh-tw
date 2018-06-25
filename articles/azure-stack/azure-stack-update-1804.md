@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 05/30/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: a7ba5f1947da09177e7d2d9d0e9e926d858dff7e
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 2c2813a7f2d909a23c8f5d4f5ac0280b3f932ba6
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302585"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700119"
 ---
 # <a name="azure-stack-1804-update"></a>Azure Stack 1804 更新
 
@@ -41,10 +41,19 @@ Azure Stack 1804 更新組建編號為 **20180513.1**。
  
 - <!-- 1779474, 1779458 - IS --> **Use Av2 and F series virtual machines**. Azure Stack can now use virtual machines based on the Av2-series and F-series virtual machine sizes. For more information see [Virtual machine sizes supported in Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes). 
 
-- <!-- 1759172 - IS, ASDK --> **More granular administrative subscriptions**. With version 1804 and later, the Default Provider subscription is now complemented with two additional subscriptions. The additions facilitate separating the management of core infrastructure, additional resource providers, and workloads. The following three subscriptions are available after the update installs:
-  - 預設的提供者訂用帳戶。 請僅針對核心基礎結構使用此訂用帳戶。 請勿在此訂用帳戶上部署資源或資源提供者。
-  - 計量訂用帳戶。 請針對資源提供者部署使用此訂用帳戶。 在此訂用帳戶上部署的資源不會計費。
-  - 耗用量訂用帳戶。 請針對您想要部署的其他任何工作負載使用此訂用帳戶。 在此部署的資源會收取正常使用價格。
+- <!-- 1759172 - IS, ASDK --> **New administrative subscriptions**. With 1804 there are two new subscription types available in the portal. These new subscription types are in addition to the Default Provider subscription and visible with new Azure Stack installations beginning with version 1804. *Do not use these new subscription types with this version of Azure Stack*. We will announce the availability to use these subscription types in with a future update. 
+
+  如果您將 Azure Stack 更新為 1804 版，則無法看見兩個新的訂用帳戶類型。 不過，新的 Azure Stack 整合系統部署和 Azure Stack 開發套件 1804 版或更新版本的安裝，則可以存取所有訂用帳戶類型 (共三個)。  
+
+  這些新的訂用帳戶類型是較大變更的一部分，目的是要保護預設提供者訂用帳戶，並讓您更輕鬆地部署共用資源，例如 SQL 主控伺服器。 當我們在 Azure Stack 中新增這較大變更的更多部分 (含有未來更新) 時，這些新的訂用帳戶類型下所部署的資源可能會遺失。 
+
+  現在可見的三個訂用帳戶類型如下：  
+  - 預設提供者訂用帳戶：繼續使用此訂用帳戶類型。 
+  - 計量訂用帳戶：請勿使用此訂用帳戶類型。
+  - 取用訂用帳戶：請勿使用此訂用帳戶類型
+
+  
+
 
 
 ## <a name="fixed-issues"></a>已修正的問題
@@ -57,9 +66,9 @@ Azure Stack 1804 更新組建編號為 **20180513.1**。
 
 - 針對效能、穩定性、安全性和 Azure Stack 所使用的作業系統提供了**多項修正**。
 
-## <a name="additional-releases-timed-with-this-update"></a>與此更新同時的額外版本  
+## <a name="additional-releases-timed-with-this-update"></a>與此更新同時發佈的其他項目  
 以下項目現在可用，但是不需要 Azure Stack 更新 1804。
-- **Microsoft Azure Stack System Center Operations Manager 監視組件的更新**。 適用於 Azure Stack 的新版本 (1.0.3.0) Microsoft System Center Operations Manager 監視套件，現在可供[下載](https://www.microsoft.com/download/details.aspx?id=55184)。 使用此版本，您可以在您新增已連線 Azure Stack 部署時使用服務主體。 此版本也提供更新管理體驗，可讓您直接從 Operations Manager 中採取補救措施。 也有新的儀表板，會顯示資源提供者、縮放單位以及縮放單位節點。
+- **Microsoft Azure Stack System Center Operations Manager 監視組件的更新**。 適用於 Azure Stack 的新版本 (1.0.3.0) Microsoft System Center Operations Manager 監視套件，現在可供[下載](https://www.microsoft.com/download/details.aspx?id=55184)。 使用此版本，您可以在您新增已連線的 Azure Stack 部署時使用服務主體。 此版本也提供更新管理體驗，可讓您直接從 Operations Manager 中採取補救措施。 也有新的儀表板，會顯示資源提供者、縮放單位以及縮放單位節點。
 
 - **新的 Azure Stack 管理員 PowerShell 1.3.0 版**。  Azure Stack PowerShell 1.3.0 現在可供安裝。 這個版本會為所有管理員資源提供者，提供用來管理 Azure Stack 的命令。  有了這個版本，我們就會從 Azure Stack Tools GitHub [存放庫](https://github.com/Azure/AzureStack-Tools)取代部分內容。 
 
@@ -77,6 +86,8 @@ Azure Stack 1804 更新組建編號為 **20180513.1**。
 - 在安裝 1804 更新期間，您可能會看到警示，標題為「錯誤 - FaultType UserAccounts.New 的範本已遺失」。  您可以放心地忽略這些警示。 在 1804 更新完成之後，這些警示會自動關閉。   
  
 - <!-- TBD - IS --> Do not attempt to create virtual machines during the installation of this update. For more information about managing updates, see [Manage updates in Azure Stack overview](azure-stack-updates.md#plan-for-updates).
+
+
 ### <a name="post-update-steps"></a>更新後步驟
 更新 1804 沒有任何更新後步驟。
 
@@ -86,6 +97,15 @@ Azure Stack 1804 更新組建編號為 **20180513.1**。
 以下是組建 **20180513.1**的安裝後已知問題。
 
 #### <a name="portal"></a>入口網站
+- <!-- 1272111 - IS --> After you install or update to this version of Azure Stack, you might not be able to view Azure Stack scale units in the Admin portal.  
+  因應措施：使用 PowerShell 來檢視縮放單位的相關資訊。 如需詳細資訊，請參閱 Azure Stack 模組 1.3.0 的[說明](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0)內容。 
+
+- <!-- 2332636 - IS -->  When you use AD FS for your Azure Stack identity system and update to this version of Azure Stack, the default owner of the default provider subscription is reset to the built-in **CloudAdmin** user.  
+  因應措施：若要在安裝此更新後解決此問題，請使用[觸發自動化以在 Azure Stack 中設定宣告提供者信任](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1)程序中的步驟 3，來重設預設提供者訂用帳戶的擁有者。   
+
+- <!-- TBD - IS ASDK --> Some administrative subscription types are not available.  When you upgrade Azure Stack to this version, the two subscription types that were [introduced with version 1804](#new-features) are not visible in the console. This is expected. The unavailable subscription types are *Metering subscription*, and *Consumption subscription*. These subscription types are visible in new Azure Stack environments beginning with version 1804 but are not yet ready for use. You should continue to use the *Default Provider* subscription type.  
+
+
 - <!-- TBD -  IS ASDK -->The ability [to open a new support request from the dropdown](azure-stack-manage-portals.md#quick-access-to-help-and-support) from within the administrator portal isn’t available. Instead, use the following link:     
     - 針對 Azure Stack 整合式系統，請使用 https://aka.ms/newsupportrequest。
 
@@ -105,6 +125,24 @@ Azure Stack 1804 更新組建編號為 **20180513.1**。
 
   您可以放心地忽略此警示。 
 
+
+#### <a name="health-and-monitoring"></a>健康情況和監視
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+
+   警示 #1：
+   - NAME：基礎結構角色狀況不良
+   - SEVERITY：警告
+   - COMPONENT：健康情況控制器
+   - DESCRIPTION：健康情況控制器活動訊號掃描器無法使用。 這可能會影響健康情況報告和計量。  
+
+  警示 #2：
+   - NAME：基礎結構角色狀況不良
+   - SEVERITY：警告
+   - COMPONENT：健康情況控制器
+   - DESCRIPTION：健康情況控制器錯誤掃描器無法使用。 這可能會影響健康情況報告和計量。
+
+  您可以放心地忽略這兩個警示。 這兩個警示會在一段時間過後自動關閉。  
+ 
 
 #### <a name="compute"></a>計算
 - <!-- TBD - IS --> When selecting a virtual machine size for a virtual machine deployment, some F-Series VM sizes are not visible as part of the size selector when you create a VM. The following VM sizes do not appear in the selector: *F8s_v2*, *F16s_v2*, *F32s_v2*, and *F64s_v2*.  
@@ -127,7 +165,7 @@ Azure Stack 1804 更新組建編號為 **20180513.1**。
 
 - <!-- TBD - IS --> When you create an availability set in the portal by going to **New** > **Compute** > **Availability set**, you can only create an availability set with a fault domain and update domain of 1. As a workaround, when creating a new virtual machine, create the availability set by using PowerShell, CLI, or from within the portal.
 
-- <!-- TBD - IS ASDK --> When you create virtual machines on the Azure Stack user portal, the portal displays an incorrect number of data disks that can attach to a DS series VM. DS series VMs can accommodate as many data disks as the Azure configuration.
+- <!-- TBD - IS ASDK --> When you create virtual machines on the Azure Stack user portal, the portal displays an incorrect number of data disks that can attach to a D series VM. All supported D series VMs can accommodate as many data disks as the Azure configuration.
 
 - <!-- TBD - IS ASDK --> When a VM image fails to be created, a failed item that you cannot delete might be added to the VM images compute blade.
 
@@ -140,7 +178,7 @@ Azure Stack 1804 更新組建編號為 **20180513.1**。
 - <!-- 1662991 IS ASDK --> Linux VM diagnostics is not supported in Azure Stack. When you deploy a Linux VM with VM diagnostics enabled, the deployment fails. The deployment also fails if you enable the Linux VM basic metrics through diagnostic settings.  
 
 
-#### <a name="networking"></a>網路
+#### <a name="networking"></a>網路功能
 - <!-- 1766332 - IS ASDK --> Under **Networking**, if you click **Create VPN Gateway** to set up a VPN connection, **Policy Based** is listed as a VPN type. Do not select this option. Only the **Route Based** option is supported in Azure Stack.
 
 - <!-- 2388980 - IS ASDK --> After a VM is created and associated with a public IP address, you can't disassociate that VM from that IP address. Disassociation appears to work, but the previously assigned public IP address remains associated with the original VM.
@@ -241,17 +279,17 @@ Azure Stack 1804 更新組建編號為 **20180513.1**。
 
 
 #### <a name="app-service"></a>App Service 方案
-- <!-- TBD - IS ASDK --> Users must register the storage resource provider before they create their first Azure Function in the subscription.
+- <!-- 2352906 - IS ASDK --> Users must register the storage resource provider before they create their first Azure Function in the subscription.
 
 - <!-- TBD - IS ASDK --> In order to scale out infrastructure (workers, management, front-end roles), you must use PowerShell as described in the release notes for Compute.
 
+- <!-- TBD - IS ASDK --> App Service can only be deployed into the **Default Provider Subscription** at this time.  In a future update App Service will deploy into the new Metering Subscription introduced in Azure Stack 1804 and all existing deployments will be migrated to this new subscription also.
 
 #### <a name="usage"></a>使用量  
 - <!-- TBD - IS ASDK --> Usage Public IP address usage meter data shows the same *EventDateTime* value for each record instead of the *TimeDate* stamp that shows when the record was created. Currently, you can’t use this data to perform accurate accounting of public IP address usage.
 
 
 <!-- #### Identity -->
-<!-- #### Health and monitoring --> 
 <!-- #### Marketplace --> 
 
 

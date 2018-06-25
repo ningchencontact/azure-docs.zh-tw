@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/24/2018
 ms.author: brenduns
-ms.openlocfilehash: e9c39c374d7dfa6759da9f9b9a12816d77c647b1
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: b4c5b53a46792e31316f752f8902d7a05554b57d
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604143"
 ---
 # <a name="azure-stack-1712-update"></a>Azure Stack 1712 更新
 
@@ -83,13 +84,13 @@ Azure Stack 1712 更新組建編號為 **180106.1**。 如果客戶先前已部�
 
 本節包含在 1712 更新安裝時可能遇到的已知問題。
 
-1. **徵兆：**Azure Stack 作業員在更新程序期間可能會看到下列錯誤：*"角色 'VirtualMachines' 的類型 'CheckHealth' 引發了例外狀況：\n\n-ACS01 的虛擬機器健康情況檢查產生下列錯誤。\n從主機取得 VM 資訊時發生錯誤。例外狀況詳細資料：\nGet-VM : 電腦上的 'Node03' 作業失敗：WS-Management 服務無法處理要求。WMI \nservice 或 WMI 提供者傳回未知的錯誤：HRESULT 0x8004106c"。*
-    1. **原因：**這個問題是因為 Windows Server 問題所造成，會在後續 Windows Server 更新中獲得解決。
-    2. **解決方式：**請連絡 Microsoft 客戶服務與支援中心 (CSS) 以尋求協助。
+1. **徵兆：** Azure Stack 作業員在更新程序期間可能會看到下列錯誤：*"角色 'VirtualMachines' 的類型 'CheckHealth' 引發了例外狀況：\n\n-ACS01 的虛擬機器健康情況檢查產生下列錯誤。\n從主機取得 VM 資訊時發生錯誤。例外狀況詳細資料：\nGet-VM : 電腦上的 'Node03' 作業失敗：WS-Management 服務無法處理要求。WMI \nservice 或 WMI 提供者傳回未知的錯誤：HRESULT 0x8004106c"。*
+    1. **原因：** 這個問題是因為 Windows Server 問題所造成，會在後續 Windows Server 更新中獲得解決。
+    2. **解決方式：** 請連絡 Microsoft 客戶服務與支援中心 (CSS) 以尋求協助。
 <br><br>
-2. **徵兆：**Azure Stack 作業員在更新程序期間可能會看到下列錯誤：*"在 Host-Node03 節點上啟用種子通道 VM 失敗，並產生下列錯誤：[Host-Node03] 連線至遠端伺服器 Host-Node03 失敗，並產生下列錯誤訊息：WinRM 用戶端收到 HTTP 伺服器錯誤狀態 (500)，但遠端服務並未包含關於失敗原因的任何其他資訊。"*
-    1. **原因：**這個問題是因為 Windows Server 問題所造成，會在後續 Windows Server 更新中獲得解決。 
-    2. **解決方式：**請連絡 Microsoft 客戶服務與支援中心 (CSS) 以尋求協助。
+2. **徵兆：** Azure Stack 作業員在更新程序期間可能會看到下列錯誤：*"在 Host-Node03 節點上啟用種子通道 VM 失敗，並產生下列錯誤：[Host-Node03] 連線至遠端伺服器 Host-Node03 失敗，並產生下列錯誤訊息：WinRM 用戶端收到 HTTP 伺服器錯誤狀態 (500)，但遠端服務並未包含關於失敗原因的任何其他資訊。"*
+    1. **原因：** 這個問題是因為 Windows Server 問題所造成，會在後續 Windows Server 更新中獲得解決。 
+    2. **解決方式：** 請連絡 Microsoft 客戶服務與支援中心 (CSS) 以尋求協助。
 <br><br>
 
 ### <a name="known-issues-post-installation"></a>已知問題 (安裝後)
@@ -116,7 +117,25 @@ Azure Stack 1712 更新組建編號為 **180106.1**。 如果客戶先前已部�
 
 #### <a name="health-and-monitoring"></a>健康情況和監視
 
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+
+   警示 #1：
+   - NAME：基礎結構角色狀況不良
+   - SEVERITY：警告
+   - COMPONENT：健康情況控制器
+   - DESCRIPTION：健康情況控制器活動訊號掃描器無法使用。 這可能會影響健康情況報告和計量。  
+
+  警示 #2：
+   - NAME：基礎結構角色狀況不良
+   - SEVERITY：警告
+   - COMPONENT：健康情況控制器
+   - DESCRIPTION：健康情況控制器錯誤掃描器無法使用。 這可能會影響健康情況報告和計量。
+
+  您可以放心地忽略這兩個警示。 這兩個警示會在一段時間過後自動關閉。  
+
 - 如果您重新啟動基礎結構角色執行個體，則可能會收到訊息，指出重新開機失敗。 不過，重新開機實際上是成功的。
+
+
 
 #### <a name="marketplace"></a>Marketplace
 - 基於相容性考量，將移除此版本中的某些市集項目。 在進一步驗證後，會重新啟用這些項目。

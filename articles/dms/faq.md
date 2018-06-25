@@ -10,12 +10,13 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/25/2018
-ms.openlocfilehash: 85052e1363ebbfe21cd7d6d5b3720f79cec7c417
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 06/08/2018
+ms.openlocfilehash: 0e10907ac3db2d792b73e0a37aa2d0f6a916d746
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850067"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>使用 Azure 資料庫移轉服務的相關常見問題集
 本文列出使用 Azure 資料庫移轉服務的相關常見問題集以及相關解答。
@@ -34,6 +35,9 @@ Azure 資料庫移轉服務是一個完全受控的服務，能夠從多個資�
 
 ### <a name="q-how-does-the-azure-database-migration-service-compare-to-the-azure-migrate-offering"></a>問： Azure 資料庫移轉服務和 Azure Migrate 供應項目相較之下，孰優孰劣？
 Azure 移轉服務可協助將內部部署虛擬機器移轉至 Azure IaaS。 此服務會評估移轉適用性，以及如何根據效能來調整大小，並估計在 Azure 中執行內部部署機器的成本。 Azure Migrate 可用來將內部部署的 VM 型工作負載隨即移轉到 Azure IaaS VM。 不過，與 Azure 資料庫移轉服務不同的是，Azure Migrate 並非特製化的資料庫移轉服務供應項目，因此不適用於 Azure PaaS 關聯式資料庫平台 (例如，Azure SQL Database、SQL Azure 或 Azure SQL Database 受控執行個體)。
+
+### <a name="q-what-versions-of-sql-server-does-the-azure-database-migration-service-support-as-a-source"></a>問： Azure 資料庫移轉服務支援使用哪些版本的 SQL Server 作為來源？
+從 SQL Server 移轉時，Azure 資料庫移轉服務支援 SQL Server 2005 到 SQL Server 2017。
 
 ### <a name="q-what-is-a-summary-of-the-steps-required-to-use-the-azure-database-migration-service-to-perform-a-database-migration"></a>問： 使用 Azure 資料庫移轉服務來執行資料庫移轉所需進行之步驟大致為何？
 在典型的簡單資料庫移轉期間，您必須：

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 05/24/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 20b289c16a73bd20ed020987116975c8abe893f0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8643e75a24ff7840b71dfaceae9934cdda566d30
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198570"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604415"
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>在 Microsoft Azure Stack 上使用 SQL 資料庫
 使用 Azure Stack SQL Server 資源提供者來公開 Azure Stack 的 SQL 資料庫即服務。 SQL 資源提供者服務在 SQL 資源提供者 VM (Windows Server Core 虛擬機器) 上執行。
@@ -30,10 +30,14 @@ ms.locfileid: "34198570"
 - 如果您尚未這麼做，請向 Azure [註冊 Azure Stack](.\azure-stack-registration.md)，以便下載 Azure Marketplace 項目。
 - 透過下載 **Windows Server 2016 Server Core** 映像，將必要的 Windows Server Core VM 新增到 Azure Stack Marketplace。 如果您需要安裝某個更新，您可以在本機相依性路徑中放置單一的 .MSU 套件。 如果找到的 .MSU 檔案超過一個，則 SQL 資源提供者的安裝會失敗。
 - 下載 SQL 資源提供者二進位檔，然後執行自我解壓縮程式，以將內容解壓縮到至目錄。 資源提供者會有最低限度的相對應 Azure Stack 組建。 請務必為您正在執行的 Azure Stack 下載正確版本的二進位檔：
-    - Azure Stack 1802 版 (1.0.180302.1)：[SQL RP 1.1.18.0 版](https://aka.ms/azurestacksqlrp1802)。
-    - Azure Stack 1712 版 (1.0.180102.3、1.0.180103.2 或 1.0.180106.1 (整合式系統))：[SQL RP 1.1.14.0 版](https://aka.ms/azurestacksqlrp1712)。
+
+    |Azure Stack 版本|SQL RP 版本|
+    |-----|-----|
+    |1804 版 (1.0.180513.1)|[SQL RP 1.1.24.0 版](https://aka.ms/azurestacksqlrp1804)
+    |1802 版 (1.0.180302.1)|[SQL RP 版本 1.1.18.0](https://aka.ms/azurestacksqlrp1802)|
+    |1712 版 (1.0.180102.3、1.0.180103.2 或 1.0.180106.1 (整合系統))|[SQL RP 版本 1.1.14.0](https://aka.ms/azurestacksqlrp1712)|
+    |     |     |
 - 僅適用於整合式系統安裝，您必須透過將 .pfx 檔案放置在 **DependencyFilesLocalPath** 參數指定的位置，來提供 SQL PaaS PKI 憑證，如 [Azure Stack 部署 PKI 需求](.\azure-stack-pki-certs.md#optional-paas-certificates)中的選擇性＜PaaS 憑證＞一節所述。
-- 請確定您已安裝[最新版的 Azure Stack PowerShell](.\azure-stack-powershell-install.md) (v1.2.11)。 
 
 ## <a name="deploy-the-sql-resource-provider"></a>部署 SQL 資源提供者
 當您符合所有先決條件，可以安裝 SQL 資源提供者之後，即可以執行 **DeploySqlProvider.ps1** 指令碼來部署 SQL 資源提供者。 DeploySqlProvider.ps1 指令碼是從 SQL 資源提供者二進位檔 (根據您的 Azure Stack 版本所下載) 的一部分擷取而來。 
@@ -82,10 +86,9 @@ SQL 資源提供者部署會開始，並建立 system.local.sqladapter 資源群
 若要在 DeploySqlProvider.ps1 指令碼執行期間避免手動輸入必要資訊，您可以視需要變更預設的帳戶資訊與密碼，以自訂以下指令碼範例：
 
 ```powershell
-# Install the AzureRM.Bootstrapper module, set the profile, and install the AzureRM and AzureStack modules.
+# Install the AzureRM.Bootstrapper module and set the profile.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
-Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"
@@ -114,12 +117,13 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 # Change directory to the folder where you extracted the installation files.
 # Then adjust the endpoints.
-. $tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds `
-  -VMLocalCredential $vmLocalAdminCreds `
-  -CloudAdminCredential $cloudAdminCreds `
-  -PrivilegedEndpoint $privilegedEndpoint `
-  -DefaultSSLCertificatePassword $PfxPass `
-  -DependencyFilesLocalPath $tempDir\cert
+$tempDir\DeploySQLProvider.ps1 `
+    -AzCredential $AdminCreds `
+    -VMLocalCredential $vmLocalAdminCreds `
+    -CloudAdminCredential $cloudAdminCreds `
+    -PrivilegedEndpoint $privilegedEndpoint `
+    -DefaultSSLCertificatePassword $PfxPass `
+    -DependencyFilesLocalPath $tempDir\cert
  ```
 
 ## <a name="verify-the-deployment-using-the-azure-stack-portal"></a>使用 Azure Stack 入口網站確認部署是否成功

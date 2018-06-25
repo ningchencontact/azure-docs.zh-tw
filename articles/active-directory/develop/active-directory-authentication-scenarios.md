@@ -17,12 +17,12 @@ ms.date: 04/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0c1390945848901dd71214e01469ab3bfa765ef4
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 0f535e8a74822319d472c62fe1b65e5145e58a74
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157566"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261639"
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Azure AD 的驗證案例
 
@@ -80,7 +80,7 @@ Azure AD 所簽發的安全性權杖 (存取權杖和識別碼權杖) 包含宣�
 | Name | 提供人類看得懂的值，用以識別權杖的主體。 |
 | 物件識別碼 | 包含主體在 Azure AD 中不可變的唯一識別碼。 |
 | 角色 | 包含已授與使用者的 Azure AD 應用程式角色的易記名稱。 |
-| Scope | 指出授與用戶端應用程式的權限。 |
+| 影響範圍 | 指出授與用戶端應用程式的權限。 |
 | 主體 | 指出權杖判斷提示相關資訊的主體。 |
 | 租用戶識別碼 | 包含發出權杖的目錄租用戶的不變唯一識別碼。 |
 | 權杖存留期 | 定義權杖有效的時間間隔。 |
@@ -105,7 +105,7 @@ Azure AD 所簽發的安全性權杖 (存取權杖和識別碼權杖) 包含宣�
 * **多租用戶應用程式** - 多租用戶應用程式可供許多組織使用，而不限單一組織。 這些通常是由獨立軟體廠商 (ISV) 撰寫的軟體即服務 (SaaS) 應用程式。 多租用戶應用程式需要佈建在將會用到它們的每個目錄中，而這需要使用者或系統管理員同意才能註冊。 當應用程式目錄中已在目錄中註冊並獲權存取 Graph API 或其他 Web API 時，此同意程序會啟動。 當不同組織的使用者或系統管理員註冊來使用應用程式時，他們會看到一個對話方塊顯示應用程式需要的權限。 使用者或系統管理員可以同意應用程式，讓應用程式存取所述的資料，最後將應用程式註冊在他們的目錄中。 如需詳細資訊，請參閱 [同意架構的概觀](active-directory-integrating-applications.md#overview-of-the-consent-framework)。
 
 ### <a name="additional-considerations-when-developing-single-tenant-or-multi-tenant-apps"></a>開發單一租用戶或多租用戶應用程式的其他考量
-開發多租用戶應用程式，而非單一租用戶應用程式時，有一些其他考量需要注意。 例如，如果要讓您的應用程式供多個目錄中的使用者使用，您需要有機制來判斷他們所在的租用戶。 單一租用戶應用程式只需要在它自己的目錄中查看使用者，但多租用戶應用程式需要從 Azure AD 的所有目錄中識別特定的使用者。 為了完成這項工作，Azure AD 提供一個共同驗證端點，供任何多租用戶應用程式引導登入要求，而非提供租用戶特定的端點。 針對所有 Azure AD 目錄，這個端點是 https://login.microsoftonline.com/common，而租用戶專用端點可能是 https://login.microsoftonline.com/contoso.onmicrosoft.com。開發您的應用程式時尤其必須考量共同端點，因為在登入、登出和權杖驗證期間，您需要必要的邏輯來處理多個租用戶。
+開發多租用戶應用程式，而非單一租用戶應用程式時，有一些其他考量需要注意。 例如，如果要讓您的應用程式供多個目錄中的使用者使用，您需要有機制來判斷他們所在的租用戶。 單一租用戶應用程式只需要在它自己的目錄中查看使用者，但多租用戶應用程式需要從 Azure AD 的所有目錄中識別特定的使用者。 為了完成這項工作，Azure AD 提供一個共同驗證端點，供任何多租用戶應用程式引導登入要求，而非提供租用戶特定的端點。 針對所有 Azure AD 目錄，這個端點是 https://login.microsoftonline.com/common，而租用戶專用端點可能是 https://login.microsoftonline.com/contoso.onmicrosoft.com。 開發您的應用程式時尤其必須考量共同端點，因為在登入、登出和權杖驗證期間，您需要必要的邏輯來處理多個租用戶。
 
 如果您目前正在開發單一租用戶應用程式，但想要提供給許多組織使用，您可以在 Azure AD 中輕鬆地變更應用程式及其組態，將它變成具備多租用戶功能。 此外，不論您是在單一租用戶或多租用戶應用程式中提供驗證，Azure AD 對所有目錄中的所有權杖都使用相同的簽署金鑰。
 
@@ -138,7 +138,7 @@ Azure AD 所簽發的安全性權杖 (存取權杖和識別碼權杖) 包含宣�
 1. 當使用者造訪應用程式且需要登入時，他們透過登入要求而重新導向 Azure AD 中的驗證端點。
 1. 使用者在登入頁面上登入。
 1. 如果驗證成功，Azure AD 會建立驗證權杖，並將登入回應傳回到 Azure 入口網站中所設的應用程式回覆 URL。 對於實際執行應用程式，此回覆 URL 應該為 HTTPS。 傳回的權杖包含應用程式驗證權杖所需的使用者與 Azure AD 宣告。
-1. 應用程式會使用 Azure AD 的同盟中繼資料文件可用的公開簽署金鑰和簽發者資訊來驗證權杖。 應用程式驗證權杖之後，Azure AD 會對使用者啟動新的工作階段。 此工作階段可讓使用者存取應用程式，直到過期為止。
+1. 應用程式會使用 Azure AD 的同盟中繼資料文件可用的公開簽署金鑰和簽發者資訊來驗證權杖。 應用程式會在驗證權杖之後，對使用者啟動新的工作階段。 此工作階段可讓使用者存取應用程式，直到過期為止。
 
 #### <a name="code-samples"></a>程式碼範例
 

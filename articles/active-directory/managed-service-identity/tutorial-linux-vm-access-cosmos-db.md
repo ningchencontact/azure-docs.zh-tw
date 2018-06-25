@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: skwan
-ms.openlocfilehash: b84426ad28dbc2264bd9b28fe0697a88390bb58d
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: c395851fbcc3e46357b390d9dfa20bd9ac944716
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304125"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594426"
 ---
 # <a name="tutorial-use-a-linux-vm-msi-to-access-azure-cosmos-db"></a>教學課程：使用 Linux VM MSI 存取 Azure Cosmos DB 
 
@@ -255,5 +255,8 @@ az cosmosdb collection show -c <COLLECTION ID> -d <DATABASE ID> --url-connection
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需 MSI 的概觀，請參閱[適用於 Azure 資源的受控服務識別 (MSI)](overview.md)。
+在本教學課程中，您已學習如何使用 Linux 虛擬機器的受控服務識別來存取 Cosmos DB。  若要深入了解 Cosmos DB，請參閱：
+
+> [!div class="nextstepaction"]
+>[Azure Cosmos DB 概觀](/azure/cosmos-db/introduction)
 

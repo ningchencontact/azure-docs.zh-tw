@@ -1,13 +1,14 @@
 ---
-title: "設定 Azure Active Directory 已加入裝置 | Microsoft Docs"
-description: "了解如何設定 Azure Active Directory 已加入裝置。"
+title: 設定 Azure Active Directory 已加入裝置 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 已加入裝置。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ac6c9224925e5bfd3cb056c6c8d9cf2a96b0eb2b
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 791181f11af38e4b78743ddb372207bd21893a6b
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260924"
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>設定 Azure Active Directory 已加入裝置
 
@@ -47,10 +49,14 @@ ms.lasthandoff: 01/16/2018
 
 - 如果您是同盟使用者，您必須使用自己的認證登入。
 
+- 如果您已同盟，則您的識別提供者「必須」支援 WS-Fed 和 WS-Trust 使用者名稱/密碼端點。 這可以是 1.3 或 2005 版。 將裝置加入 Azure AD 及使用密碼登入裝置時，都需要此通訊協定支援。 
+
+
+
 
 ## <a name="joining-a-device"></a>加入裝置
 
-本節說明將 Windows 10 裝置加入 Azure AD 的步驟。 如果您已成功將裝置加入 Azure AD，您的 [存取公司或學校資源] 對話方塊會透過 [已連線至 \<您的 Azure AD\>] 項目來指出這一點。
+本節說明將 Windows 10 裝置加入 Azure AD 的步驟。 已成功加入的裝置會顯示為**已連線到\<您的 Azure AD\>**。
 
 ![連線](./media/device-management-azuread-joined-devices-setup/13.png)
 

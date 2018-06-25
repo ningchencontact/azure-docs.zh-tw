@@ -4,7 +4,7 @@ description: Azure CDN 查詢字串快取可控制當 Web 要求包含查詢字�
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: 99db4a85-4f5f-431f-ac3a-69e05518c997
 ms.service: cdn
@@ -12,19 +12,19 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
-ms.author: mazha
-ms.openlocfilehash: a1ef5f3e502b5383343dbec2c427d36054a3edc4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 06/11/2018
+ms.author: v-deasim
+ms.openlocfilehash: 3777689af72f580645826a1ca4e31ca84bd65dab
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260829"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---premium-tier"></a>使用查詢字串來控制 Azure CDN 快取行為 - 進階層
 > [!div class="op_single_selector"]
 > * [標準層](cdn-query-string.md)
 > * [進階層](cdn-query-string-premium.md)
-> 
 > 
 
 ## <a name="overview"></a>概觀
@@ -63,6 +63,6 @@ ms.lasthandoff: 05/07/2018
 3. 選取查詢字串模式，然後按一下 [更新]。
 
 > [!IMPORTANT]
-> 因為註冊資訊需要一段時間才能傳遍 CDN，快取字串設定的變更可能無法立即看見。 若為**來自 Verizon 的進階 Azure CDN** 設定，通常會在 90 分鐘內完成傳播。
+> 因為註冊資訊需要一段時間才能傳遍 CDN，快取字串設定的變更可能無法立即看見。 傳播通常會在 10 分鐘內完成。
  
 

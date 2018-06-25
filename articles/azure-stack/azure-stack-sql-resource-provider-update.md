@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Stack 上使用 SQL 資料庫 | Microsoft Docs
-description: 了解如何在 Azure Stack 上部署 SQL 資料庫即服務，並了解部署 SQL Server 資源提供者配接器的快速步驟。
+title: 更新 Azure Stack SQL 資源提供者 | Microsoft Docs
+description: 了解如何更新 Azure Stack SQL 資源提供者。
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,18 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 06/11/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 9154f509f9019c28515970869678aa6633d16163
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 3a7656e54181c8e8e7b6b1bd39f80ce8ed01c807
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33206157"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294855"
 ---
-# <a name="update-the-sql-resource-provider-adapter"></a>更新 SQL 資源提供者配接器
-當 Azure Stack 組建更新時，可能會發行新的 SQL 資源提供者配接器。 建議您在現有配接器繼續運作的情況下，儘快更新至最新的組建。 更新必須依序安裝：您無法略過版本 (請參閱[部署資源提供者的必要條件](.\azure-stack-sql-resource-provider-deploy.md#prerequisites)中的版本清單)。
+# <a name="update-the-sql-resource-provider"></a>更新 SQL 資源提供者
+當 Azure Stack 組建更新時，可能會發行新的 SQL 資源提供者。 建議您在現有配接器繼續運作的情況下，儘快更新至最新的組建。 更新必須依序安裝：您無法略過版本 (請參閱[部署資源提供者的必要條件](.\azure-stack-sql-resource-provider-deploy.md#prerequisites)中的版本清單)。
 
 若要更新資源提供者，您需使用 *UpdateSQLProvider.ps1* 指令碼。 此流程與用來安裝資源提供者的流程類似，如[部署資源提供者](.\azure-stack-sql-resource-provider-deploy.md)文章中所述。 指令碼隨附於所下載的資源提供者中。
 
@@ -38,10 +38,9 @@ ms.locfileid: "33206157"
 > 此更新程序僅適用於整合式系統。
 
 ```powershell
-# Install the AzureRM.Bootstrapper module, set the profile, and install the AzureRM and AzureStack modules.
+# Install the AzureRM.Bootstrapper module and set the profile.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
-Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"

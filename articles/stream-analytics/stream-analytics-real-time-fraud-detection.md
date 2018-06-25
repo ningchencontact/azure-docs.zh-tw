@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 1ebbdb22698ec1eab76b6b6b504fe27a6f0b28bf
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 4da848b9d7765b11db67973226a056e73ca5cced
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824756"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>開始使用 Azure 串流分析：即時詐騙偵測
 
@@ -131,12 +132,12 @@ ms.lasthandoff: 04/06/2018
 1.  開啟命令視窗，切換至解壓縮 TelcoGenerator 應用程式的資料夾。
 2.  輸入下列命令：
 
-        telcodatagen.exe 1000 .2 2
+        telcodatagen.exe 1000 0.2 2
 
     參數如下： 
 
     * 每小時的 CDR 數目。 
-    * SIM 卡詐騙機率：應用程式模擬詐騙電話的頻率 (所有通話的百分比)。 值 .2 表示大約 20% 的通話記錄可能是詐騙。
+    * SIM 卡詐騙機率：應用程式模擬詐騙電話的頻率 (所有通話的百分比)。 值 0.2 表示大約 20% 的通話記錄可能是詐騙。
     * 持續時間 (小時)。 應用程式應該執行的時數。 您也可以隨時在命令列按下 Ctrl+C 來停止應用程式。
 
     幾秒之後，隨著應用程式將通話記錄傳送到事件中樞，它會開始在螢幕上顯示通話記錄。

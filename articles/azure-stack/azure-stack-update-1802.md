@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/30/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 5cf61ccaadc40a5f250dcf477de5b446052aba9a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: af65ffc088c2beadf415b72ec284ef77f3e4f6d4
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34196214"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757252"
 ---
 # <a name="azure-stack-1802-update"></a>Azure Stack 1802 更新
 
@@ -37,7 +37,7 @@ Azure Stack 1802 更新組建編號為 **20180302.1**。
 
 ## <a name="before-you-begin"></a>開始之前    
 > [!IMPORTANT]    
-> 在此更新安裝期間，請勿嘗試建立虛擬機器。 如需管理更新的詳細資訊，請參閱[在 Azure Stack 中管理更新概觀](/azure-stack-updates#plan-for-updates)。
+> 在此更新安裝期間，請勿嘗試建立虛擬機器。 如需管理更新的詳細資訊，請參閱[在 Azure Stack 中管理更新概觀](azure-stack-updates.md#plan-for-updates)。
 
 
 ### <a name="prerequisites"></a>先決條件
@@ -108,6 +108,9 @@ Azure Stack 1802 更新組建編號為 **20180302.1**。
 以下是組建 **20180302.1** 安裝後的已知問題
 
 #### <a name="portal"></a>入口網站
+- <!-- 2332636 - IS -->  When you use AD FS for your Azure Stack identity system and update to this version of Azure Stack, the default owner of the default provider subscription is reset to the built-in **CloudAdmin** user.  
+  因應措施：若要在安裝此更新後解決此問題，請使用[觸發自動化以在 Azure Stack 中設定宣告提供者信任](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1)程序中的步驟 3，來重設預設提供者訂用帳戶的擁有者。   
+
 - 無法從系統管理員入口網站內，[從下拉式清單開啟新支援要求](azure-stack-manage-portals.md#quick-access-to-help-and-support)。 請改用下列連結：     
     - 針對 Azure Stack 整合式系統，請使用 https://aka.ms/newsupportrequest。
 
@@ -138,7 +141,22 @@ Azure Stack 1802 更新組建編號為 **20180302.1**。
 
 
 #### <a name="health-and-monitoring"></a>健康情況和監視
-更新為 1802 之後沒有已知問題。
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+
+  警示 #1：
+   - NAME：基礎結構角色狀況不良
+   - SEVERITY：警告
+   - COMPONENT：健康情況控制器
+   - DESCRIPTION：健康情況控制器活動訊號掃描器無法使用。 這可能會影響健康情況報告和計量。  
+
+  警示 #2：
+   - NAME：基礎結構角色狀況不良
+   - SEVERITY：警告
+   - COMPONENT：健康情況控制器
+   - DESCRIPTION：健康情況控制器錯誤掃描器無法使用。 這可能會影響健康情況報告和計量。
+
+  您可以放心地忽略這兩個警示。 這兩個警示會在一段時間過後自動關閉。  
+
 
 #### <a name="marketplace"></a>Marketplace
 - 使用者不需訂用帳戶就能瀏覽完整的市集，而且將會看到如方案和供應項目的管理項目。 對使用者而言，這些都是非功能性項目。
@@ -156,7 +174,7 @@ Azure Stack 1802 更新組建編號為 **20180302.1**。
 
 - 當您移至 [新增] > [計算] > [可用性設定組] 在入口網站中建立可用性設定組時，您只能以一個容錯網域和一個更新網域建立可用性設定組。 因應措施是在建立新的虛擬機器時，使用 PowerShell、CLI 或從入口網站建立可用性設定組。
 
-- 當您在 Azure Stack 使用者入口網站上建立虛擬機器時，入口網站所顯示可連結至 DS 系列 VM 的資料磁碟數目會不正確。 DS 系列 VM 可容納與 Azure 設定數目一樣多的資料磁碟。
+- 當您在 Azure Stack 使用者入口網站上建立虛擬機器時，入口網站所顯示可連結至 D 系列 VM 的資料磁碟數目會不正確。 所有受支援的 D 系列 VM 均可容納與 Azure 設定數目一樣多的資料磁碟。
 
 - 當 VM 映像建立失敗時，可能會在 VM 映像計算刀鋒視窗上新增一個您無法刪除的失敗項目。
 
@@ -171,7 +189,7 @@ Azure Stack 1802 更新組建編號為 **20180302.1**。
 
 
 
-#### <a name="networking"></a>網路
+#### <a name="networking"></a>網路功能
 - 在建立 VM 並與公用 IP 位址建立關聯之後，您就無法將 VM 與該 IP 位址取消關聯。 取消關聯看似可以運作，但先前指派的公用 IP 位址會繼續與原始 VM 保持關聯。
 
   目前，您只能將新的公用 IP 位址用於新建立的 VM。
@@ -278,6 +296,8 @@ Azure Stack 1802 更新組建編號為 **20180302.1**。
 <!--
 #### Identity
 -->
+
+
 
 #### <a name="downloading-azure-stack-tools-from-github"></a>從 GitHub 下載 Azure Stack 工具
 - 使用 *invoke-webrequest* PowerShell Cmdlet 從 GitHub 下載 Azure Stack 工具時，您會收到下列錯誤：     

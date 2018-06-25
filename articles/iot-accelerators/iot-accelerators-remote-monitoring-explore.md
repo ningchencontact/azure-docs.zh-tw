@@ -1,28 +1,25 @@
 ---
 title: 開始使用遠端監視解決方案 - Azure | Microsoft Docs
 description: 本教學課程使用模擬的情節來介紹遠端監視解決方案加速器。 當您第一次部署遠端監視解決方案加速器時，即會建立這些情節。
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: c8a055dd0dc8e2d9a9a64b492fb134caaacda489
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: e354e110df8d168e153c50de6f7aad08dd416464
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627802"
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-solution-accelerator"></a>探索遠端監視解決方案加速器的功能
 
 本教學課程會示範遠端監視解決方案的主要功能。 為了介紹這些功能，本教學課程會示範常見的客戶情節，將模擬的 IoT 應用程式用於一間名為 Contoso 的公司。
 
-教學課程可協助您了解遠端監視解決方案所提供現成可用的典型 IoT 情節。
+教學課程可協助您了解遠端監視解決方案所提供現成可用的典型 IoT 案例。
 
 在本教學課程中，您了解如何：
 
@@ -45,12 +42,12 @@ ms.lasthandoff: 05/20/2018
 
 ## <a name="the-contoso-sample-iot-deployment"></a>Contoso 範例 IoT 部署
 
-您可以使用 Contoso 範例 IoT 部署來了解遠端監視解決方案所提供現成可用的基本情節。 這些情節會以實際 IoT 部署作為基礎。 您很有可能要選擇自訂遠端監視解決方案來符合特定需求，但是 Contoso 範例可協助您了解基本概念。
+您可以使用 Contoso 範例 IoT 部署，來了解遠端監視解決方案所提供現成可用的基本案例。 這些情節會以實際 IoT 部署作為基礎。 您很有可能會選擇自訂遠端監視解決方案來符合特定需求，但是 Contoso 範例可協助您了解基本概念。
 
 > [!NOTE]
 > 如果您已使用 CLI 來部署解決方案加速器，`deployment-{your deployment name}-output.json` 檔案就會包含部署的相關資訊，例如存取已部署範例的 URL。
 
-Contoso 範例中會佈建一組模擬的裝置和規則以便採取行動。 一旦您了解基本情節後，就可以在[使用遠端監視解決方案執行進階裝置監視](iot-accelerators-remote-monitoring-monitor.md)中，繼續探索更多解決方案功能。
+Contoso 範例中會佈建一組模擬的裝置和規則以便採取行動。 一旦您了解基本案例後，就可以在[使用遠端監視解決方案執行進階裝置監視](iot-accelerators-remote-monitoring-monitor.md)中，繼續探索更多解決方案功能。
 
 Contoso 是一間管理不同環境中各種資產的公司。 Contoso 計劃使用雲端式 IoT 應用程式的功能，從集中式應用程式遠端監視及管理多個資產。 下列各節提供 Contoso 範例的初始組態摘要：
 
@@ -136,7 +133,7 @@ Contoso 的操作員知道判斷裝置是否正常運作的臨界值。 例如�
 
 ## <a name="update-device-firmware"></a>更新裝置的軔體
 
-Contoso 會在現場測試裝置的新類型。 在測試週期內，您必須確定裝置的韌體更新正確運作。 下列步驟會示範如何使用遠端監視解決方案在多個裝置上更新韌體。
+Contoso 會在現場測試裝置的新類型。 在測試週期內，您必須確定裝置的韌體更新正確運作。 下列步驟會示範如何使用遠端監視解決方案，在多個裝置上更新韌體。
 
 若要執行必要的裝置管理工作，請使用 [裝置] 頁面。 開始篩選所有原型的裝置：
 
@@ -253,7 +250,7 @@ Contoso 有兩個不同的小組會提供現場服務活動：
 > * 組織資產
 > * 停止和啟動模擬的裝置
 
-既然您已探索遠端監視解決方案，建議的後續步驟是了解遠端監視解決方案的進階功能：
+現在您已經充分了解遠端監視解決方案，建議的後續步驟是了解遠端監視解決方案的進階功能：
 
 * [監視您的裝置](./iot-accelerators-remote-monitoring-monitor.md)。
 * [管理您的裝置](./iot-accelerators-remote-monitoring-manage.md)。

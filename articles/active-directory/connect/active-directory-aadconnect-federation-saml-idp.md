@@ -1,6 +1,6 @@
 ---
 title: Azure AD Connect：使用 SAML 2.0 識別提供者來進行單一登入 | Microsoft Docs
-description: 本主題描述如何使用 SAML 2.0 相容 Idp 來進行單一登入。
+description: 本文件描述如何使用符合 SAML 2.0 規範的 Idp 進行單一登入。
 services: active-directory
 author: billmath
 manager: mtillman
@@ -11,21 +11,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 46c65e0efdc91b70c5d0d2afdf83d7205efc8057
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 6933d9f9951925888c92e35f6b1e2962cc29b0ce
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801774"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>使用 SAML 2.0 識別提供者 (IdP) 來進行單一登入
 
-本主題所含的資訊是關於使用 SAML 2.0 相容 SP-Lite 設定檔型識別提供者來作為慣用的 Security Token Service (STS)/識別提供者。 在已有內部部署的使用者目錄和密碼存放區並可使用 SAML 2.0 來加以存取時，這種做法非常實用。 您可以使用這個現有的使用者目錄來登入 Office 365 和其他受到 Azure AD 保護的資源。 SAML 2.0 SP-Lite 設定檔是以廣為使用的安全性聲明標記語言 (SAML) 同盟身分識別標準作為基礎，以提供登入和屬性交換架構。
+本文件所含的資訊是關於使用符合 SAML 2.0 規範的 SP-Lite 設定檔型識別提供者，作為慣用的 Security Token Service (STS) / 識別提供者。 當您已具有內部部署的使用者目錄和密碼存放區且可使用 SAML 2.0 加以存取時，這個案例非常實用。 您可以使用這個現有的使用者目錄來登入 Office 365 和其他受到 Azure AD 保護的資源。 SAML 2.0 SP-Lite 設定檔是以廣為使用的安全性聲明標記語言 (SAML) 同盟身分識別標準作為基礎，以提供登入和屬性交換架構。
 
 >[!NOTE]
 >如需已通過測試可與 Azure AD 搭配使用的第 3 方 Idp 清單，請參閱 [Azure AD 同盟相容性清單](active-directory-aadconnect-federation-compatibility.md)
 
-Microsoft 藉由整合 Microsoft 雲端服務 (例如 Office 365) 和您已正確設定的 SAML 2.0 設定檔型 IdP，來支援此登入體驗。 SAML 2.0 識別提供者是第三方產品，因此 Microsoft 不支援與這些識別提供者有關的部署、設定和疑難排解最佳做法。 與 SAML 2.0 識別提供者的整合在完成適當設定後，您可以使用 Microsoft 連線分析程式工具對整合結果進行測試，以了解所做的設定是否適當，詳情請見下面說明。 如需 SAML 2.0 SP-Lite 設定檔型識別提供者的詳細資訊，請向提供此識別提供者的組織詢問。
+Microsoft 藉由整合 Microsoft 雲端服務 (例如 Office 365) 和您已正確設定的 SAML 2.0 設定檔型 IdP，來支援此登入體驗。 SAML 2.0 識別提供者是第三方產品，因此 Microsoft 不支援與這些識別提供者有關的部署、設定和疑難排解最佳做法。 適當地設定之後，就可以使用 Microsoft 連線分析程式工具，來測試與 SAML 2.0 識別提供者的整合是否已適當設定，詳情請見下面說明。 如需 SAML 2.0 SP-Lite 設定檔型識別提供者的詳細資訊，請詢問提供此識別提供者的組織。
 
 >[!IMPORTANT]
 >在此登入案例中，只有一小部分的用戶端可與 SAML 2.0 識別提供者搭配使用，這些用戶端包括：
@@ -38,10 +40,10 @@ Microsoft 藉由整合 Microsoft 雲端服務 (例如 Office 365) 和您已正�
     - Windows 8 郵件用戶端和 Windows 8.1 郵件用戶端
     - Windows 10 郵件用戶端
 
-在此登入案例中，其他所有用戶端則無法與 SAML 2.0 識別提供者搭配使用。 例如，若服務的設定是使用 SAML 2.0 識別提供者來進行單一登入，則 Lync 2010 桌面用戶端則無法登入該服務。
+在此登入案例中，其他所有用戶端則無法與 SAML 2.0 識別提供者搭配使用。 例如，在 SAML 2.0 識別提供者已針對單一登入設定的情況下，Lync 2010 桌面用戶端將無法登入該服務。
 
 ## <a name="azure-ad-saml-20-protocol-requirements"></a>Azure AD SAML 2.0 通訊協定需求
-本主題會詳述為了與 Azure AD 同盟以便能夠登入一或多個 Microsoft 雲端服務 (例如 Office 365)，您的 SAML 2.0 識別提供者所必須實作之通訊協定和訊息格式的需求。 此案例所使用之 Microsoft 雲端服務的 SAML 2.0 信賴憑證者 (SP-STS) 是 Azure AD。
+本文件詳述為了與 Azure AD 同盟以便能夠登入一或多個 Microsoft 雲端服務 (例如 Office 365)，您的 SAML 2.0 識別提供者必須實作的通訊協定和訊息格式需求。 此案例所使用之 Microsoft 雲端服務的 SAML 2.0 信賴憑證者 (SP-STS) 是 Azure AD。
 
 建議您務必要讓 SAML 2.0 識別提供者的輸出訊息盡可能地與所提供的追蹤範例類似。 此外，如有可能，也請使用來自所提供之 Azure AD 中繼資料的特定屬性值。 在對輸出訊息感到滿意後，您可以使用 Microsoft 連線分析程式來進行測試，方法如下所述。
 
@@ -54,7 +56,7 @@ Microsoft 藉由整合 Microsoft 雲端服務 (例如 Office 365) 和您已正�
 您可以對 Azure AD 進行設定，讓 Azure AD 與使用 SAML 2.0 SP Lite 設定檔 (具有如下所示的某些特定需求) 的識別提供者搭配運作。 透過使用 SAML 要求和回應訊息範例以及自動和手動的測試，您就可以實現與 Azure AD 的互通性。
 
 ## <a name="signature-block-requirements"></a>簽章區塊需求
-在 SAML 回應訊息內，簽章節點含有訊息本身的數位簽章相關資訊。 簽章區塊具有下列需求︰
+在 SAML 回應訊息內，簽章節點含有訊息本身數位簽章的相關資訊。 簽章區塊具有下列需求︰
 
 1. 判斷提示節點本身必須經過簽署
 2.  必須使用 RSA-sha1 演算法來作為 DigestMethod。 不接受其他數位簽章演算法。
@@ -76,23 +78,23 @@ Microsoft 藉由整合 Microsoft 雲端服務 (例如 Office 365) 和您已正�
  
 |屬性|說明|
 | ----- | ----- |
-|NameID|這個判斷提示的值必須與 Azure AD 使用者的 ImmutableID 相同。 此值最多可以有 64 個英數字元。 若為非 HTML 安全字元就必須編碼，例如，"+" 字元將會顯示為 ".2B"。|
-|IDPEmail|在 SAML 回應中，使用者主體名稱 (UPN) 會列示為名稱是 IDPEmail 的項目。這是使用者在 Azure AD/Office 365 中的 UserPrincipalName (UPN)。 此 UPN 會使用電子郵件地址格式。 Windows Office 365 (Azure Active Directory) 中的 UPN 值。|
-|簽發者|需要有此屬性來作為識別提供者的 URI。 請勿重複使用訊息範例中的 Issuer 屬性。 如果您的 Azure AD 租用戶有多個頂層網域，Issuer 必須符合針對每個網域所設定的指定 URI 設定。|
+|NameID|這個判斷提示的值必須與 Azure AD 使用者的 ImmutableID 相同。 此值最多可以有 64 個英數字元。 任何非 html 的安全字元都必須編碼，例如，"+" 字元會顯示為 ".2B"。|
+|IDPEmail|在 SAML 回應中，系統會將使用者主體名稱 (UPN) 列為名稱是 IDPEmail 的元素，其為使用者在 Azure AD/Office 365 中的 UserPrincipalName (UPN)。 此 UPN 會使用電子郵件地址格式。 Windows Office 365 (Azure Active Directory) 中的 UPN 值。|
+|簽發者|必須是識別提供者的 URI。 請勿重複使用範例訊息中的簽發者。 如果您的 Azure AD 租用戶有多個頂層網域，Issuer 必須符合針對每個網域所設定的指定 URI 設定。|
 
 >[!IMPORTANT]
 >針對 SAML 2.0，Azure AD 目前支援下列 NameID 格式的 URI：urn:oasis:names:tc:SAML:2.0:nameid-format:persistent。
 
 ## <a name="sample-saml-request-and-response-messages"></a>SAML 要求和回應訊息範例
 下面顯示了一對用來交換登入訊息的要求和回應訊息。
-這個要求訊息範例會從 Azure AD 傳送到 SAML 2.0 識別提供者範例。 SAML 2.0 識別提供者範例是設定為使用 SAML-P 通訊協定的 Active Directory 同盟服務 (AD FS)。 此範例也已經對其他 SAML 2.0 識別提供者完成互通性測試。
+以下是從 Azure AD 傳送到範例 SAML 2.0 識別提供者的範例要求訊息。 SAML 2.0 識別提供者範例是設定為使用 SAML-P 通訊協定的 Active Directory 同盟服務 (AD FS)。 此範例也已經對其他 SAML 2.0 識別提供者完成互通性測試。
 
     `<samlp:AuthnRequest xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ID="_7171b0b2-19f2-4ba2-8f94-24b5e56b7f1e" IssueInstant="2014-01-30T16:18:35Z" Version="2.0" AssertionConsumerServiceIndex="0" >
     <saml:Issuer>urn:federation:MicrosoftOnline</saml:Issuer>
     <samlp:NameIDPolicy Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"/>
     </samlp:AuthnRequest>`
 
-這個回應訊息範例會從 SAML 2.0 相容識別提供者範例傳送到 Azure AD/Office 365。
+以下是從符合 SAML 2.0 規範的範例識別提供者傳送到 Azure AD / Office 365 的範例回應訊息。
 
     `<samlp:Response ID="_592c022f-e85e-4d23-b55b-9141c95cd2a5" Version="2.0" IssueInstant="2014-01-31T15:36:31.357Z" Destination="https://login.microsoftonline.com/login.srf" Consent="urn:oasis:names:tc:SAML:2.0:consent:unspecified" InResponseTo="_049917a6-1183-42fd-a190-1d2cbaf9b144" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
     <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">http://WS2012R2-0.contoso.com/adfs/services/trust</Issuer>
@@ -146,15 +148,18 @@ Microsoft 藉由整合 Microsoft 雲端服務 (例如 Office 365) 和您已正�
     </samlp:Response>`
 
 ## <a name="configure-your-saml-20-compliant-identity-provider"></a>設定 SAML 2.0 相容識別提供者
-本主題含有相關指導方針，可指出該如何設定 SAML 2.0 識別提供者，讓它與 Azure AD 建立同盟關係，以便能夠使用 SAML 2.0 通訊協定，以單一登入的方式存取一或多個 Microsoft 雲端服務 (例如 Office 365)。 此案例所使用之 Microsoft 雲端服務的 SAML 2.0 信賴憑證者是 Azure AD。
+本節所含的指導方針會指出如何設定 SAML 2.0 識別提供者來與 Azure AD 同盟，以便能夠使用 SAML 2.0 通訊協定，以單一登入的方式存取一或多個 Microsoft 雲端服務 (例如 Office 365)。 此案例所使用之 Microsoft 雲端服務的 SAML 2.0 信賴憑證者是 Azure AD。
 
 ## <a name="add-azure-ad-metadata"></a>新增 Azure AD 中繼資料
 您的 SAML 2.0 識別提供者需要遵守 Azure AD 信賴憑證者的相關資訊。 Azure AD 會在 https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml 發佈中繼資料。
 
-當您在設定 SAML 2.0 識別提供者時，建議您一律匯入最新的 Azure AD 中繼資料。 請注意，Azure AD 不會從識別提供者讀取中繼資料。
+當您在設定 SAML 2.0 識別提供者時，建議您一律匯入最新的 Azure AD 中繼資料。
+
+>[!NOTE]
+>Azure AD 不會從識別提供者讀取中繼資料。
 
 ## <a name="add-azure-ad-as-a-relying-party"></a>將 Azure AD 新增為信賴憑證者
-您必須讓 SAML 2.0 識別提供者能夠與 Azure AD 通訊。 這項設定會根據您使用的特定識別提供者而有所不同，因此請參閱其相關文件。 一般來說，您會將信賴憑證者識別碼設定為和來自 Azure AD 中繼資料的 entityID 相同。
+您必須啟用 SAML 2.0 識別提供者與 Azure AD 之間的通訊。 這項設定會根據您使用的特定識別提供者而有所不同，因此請參閱其相關文件。 一般來說，您會將信賴憑證者識別碼設定為和來自 Azure AD 中繼資料的 entityID 相同。
 
 >[!NOTE]
 >請確認 SAML 2.0 識別提供者伺服器上的時鐘已和正確的時間來源同步。 時鐘時間不正確將可能導致同盟登入失敗。
@@ -170,7 +175,10 @@ Microsoft 藉由整合 Microsoft 雲端服務 (例如 Office 365) 和您已正�
 
 每個您想要使用 SAML 2.0 識別提供者來建立同盟的 Azure Active Directory 網域，都必須新增為單一登入網域，或從標準網域轉換為單一登入網域。 新增或轉換網域會設定 SAML 2.0 識別提供者和 Azure AD 之間的信任關係。
 
-下列程序可逐步引導您將現有的標準網域轉換為使用 SAML 2.0 SP-Lite 的同盟網域。 請注意，在您執行此步驟之後，您的網域可能會發生中斷從而影響使用者，時間可能長達 2 小時。
+下列程序可逐步引導您將現有的標準網域轉換為使用 SAML 2.0 SP-Lite 的同盟網域。 
+
+>[!NOTE]
+>在採取此步驟之後，您的網域可能會發生可能影響使用者長達 2 小時的中斷。
 
 ## <a name="configuring-a-domain-in-your-azure-ad-directory-for-federation"></a>在 Azure AD 目錄中設定用於同盟的網域
 
@@ -187,14 +195,14 @@ Microsoft 藉由整合 Microsoft 雲端服務 (例如 Office 365) 和您已正�
 >[!NOTE]
 >只有在已經為識別提供者設定 ECP 延伸模組時，才必須使用 “$ecpUrl = “https://WS2012R2-0.contoso.com/PAOS“” 來執行。 Exchange Online 用戶端 (Outlook Web App (OWA) 除外) 仰賴以 POST 為基礎的作用中端點。 如果您的 SAML 2.0 STS 所實作的作用中端點，類似於 Shibboleth 以 ECP 實作的作用中端點，則這些豐富型用戶端可能可以和 Exchange Online 服務互動。
 
-設定好同盟之後，您可以切換回「非同盟」(或「受控」) 模式，不過，系統最多需要兩個小時才能完成這項變更，而且您必須對每位使用者指派新的隨機密碼以便用於雲端式登入。 在某些情況下，您可能需要切換回「受控」模式，以將設定中的錯誤重設。 如需有關網域轉換的詳細資訊，請參閱[http://msdn.microsoft.com/library/windowsazure/dn194122.aspx](http://msdn.microsoft.com/library/windowsazure/dn194122.aspx)。
+已設定同盟之後，您可以切換回「非同盟」(或「受控」) 模式，不過，系統最多需要兩個小時才能完成這項變更，而且您必須對每個使用者指派新的隨機密碼以用於雲端式登入。 在某些情況下，您可能需要切換回「受控」模式，以將設定中的錯誤重設。 如需有關網域轉換的詳細資訊，請參閱[http://msdn.microsoft.com/library/windowsazure/dn194122.aspx](http://msdn.microsoft.com/library/windowsazure/dn194122.aspx)。
 
 ## <a name="provision-user-principals-to-azure-ad--office-365"></a>將使用者主體佈建到 Azure AD/Office 365
-您必須先以使用者主體 (對應到 SAML 2.0 宣告中的判斷提示) 佈建 Azure AD，然後才能向 Office 365 驗證您的使用者。 如果 Azure AD 事先不知道這些使用者主體，您就無法使用這些主體來進行同盟登入。 Azure AD Connect 或 Windows PowerShell 均可用來佈建使用者主體。
+您必須先以使用者主體 (對應到 SAML 2.0 宣告中的判斷提示) 佈建 Azure AD，然後才能向 Office 365 驗證您的使用者。 如果 Azure AD 事先不知道這些使用者主體，則無法使用它們進行同盟登入。 Azure AD Connect 或 Windows PowerShell 均可用來佈建使用者主體。
 
 您可以使用 Azure AD Connect 將主體從內部部署 Active Directory 佈建到您在 Azure AD 目錄中的網域。 如需詳細資訊，請參閱[整合您的內部部署目錄與 Azure Active Directory](active-directory-aadconnect.md)。
 
-您也可以使用 Windows PowerShell 來自動將新的使用者新增至 Azure AD，並從內部部署目錄同步處理變更。 若要使用 Windows PowerShell Cmdlet，您必須下載 [Azure Active Directory 模組](https://docs.microsoft.com/powershell/azure/install-adv2?view=azureadps-2.0)。
+您也可以使用 Windows PowerShell 來自動將新的使用者新增至 Azure AD，並從內部部署目錄同步處理變更。 若要使用 Windows PowerShell Cmdlet，您必須下載 [Azure Active Directory 模組](https://docs.microsoft.com/powershell/azure/install-adv2?view=azureadps-2.0) \(英文\)。
 
 此程序示範如何將單一使用者新增至 Azure AD。
 
@@ -210,7 +218,7 @@ Microsoft 藉由整合 Microsoft 雲端服務 (例如 Office 365) 和您已正�
         -LicenseAssignment "samlp2test:ENTERPRISEPACK" 
         -UsageLocation "US" ` 
 
-如需有關 “New-MsolUser” 簽出的詳細資訊，請參閱：[http://technet.microsoft.com/library/dn194096.aspx](http://technet.microsoft.com/library/dn194096.aspx)
+如需有關 “New-MsolUser” 的詳細資訊，請參閱 [http://technet.microsoft.com/library/dn194096.aspx](http://technet.microsoft.com/library/dn194096.aspx)
 
 >[!NOTE]
 >「UserPrinciplName」值必須符合您會為 SAML 2.0 宣告中的「IDPEmail」傳送的值，而「ImmutableID」值則必須符合「NameID」判斷提示中所傳送的值。
@@ -233,9 +241,9 @@ Microsoft 藉由整合 Microsoft 雲端服務 (例如 Office 365) 和您已正�
 在驗證單一登入之前，請先完成 Active Directory 同步作業的設定、對目錄進行同步處理，並啟用已同步處理的使用者。
 
 ### <a name="use-the-tool-to-verify-that-single-sign-on-has-been-set-up-correctly"></a>使用工具來驗證系統是否已正確設定單一登入
-若要驗證系統是否已正確設定單一登入，您可以執行下列程序來確認您能夠使用公司認證來登入雲端服務。
+若要驗證已正確設定單一登入，您可以執行下列程序來確認您能夠使用公司認證來登入雲端服務。
 
-Microsoft 已提供一項工具供您用來測試 SAML 2.0 型識別提供者。 在執行這項測試工具之前，您必須已將 Azure AD 租用戶設定為與您的識別提供者建立同盟。
+Microsoft 已提供一項工具供您用來測試 SAML 2.0 型識別提供者。 執行此測試工具之前，您必須已將 Azure AD 租用戶設定為與您的識別提供者同盟。
 
 >[!NOTE]
 >連線分析程式需要使用 Internet Explorer 10 或更新版本。
@@ -246,8 +254,8 @@ Microsoft 已提供一項工具供您用來測試 SAML 2.0 型識別提供者。
 2.  按一下 [立即安裝] 以開始下載及安裝此工具。
 3.  選取 [我無法設定與 Office 365、Azure 或其他使用 Azure Active Directory 之服務的同盟]。
 4.  工具開始下載並執行後，您會看到 [連線診斷] 視窗。 此工具會逐步引導您完成同盟連線的測試。
-5.  連線分析程式會開啟您的 SAML 2.0 IDP 以供您登入，請輸入您要測試之使用者主體的認證：![SAML](media/active-directory-aadconnect-federation-saml-idp/saml1.png)
-6.  請在 [同盟測試登入] 視窗中，輸入所設定來與 SAML 2.0 識別提供者同盟之 Azure AD 租用戶的帳戶名稱和密碼。 此工具會嘗試使用這些認證來進行登入，而系統則會在輸出中提供登入嘗試期間所執行之測試的詳細結果。
+5.  連線分析程式將開啟 SAML 2.0 IDP 以供您登入。請輸入所要測試使用者主體的認證：![SAML](media/active-directory-aadconnect-federation-saml-idp/saml1.png)
+6.  在同盟測試登入視窗中，您應該針對設定來與 SAML 2.0 識別提供者進行同盟的 Azure AD 租用戶，輸入租用戶的帳戶名稱和密碼。 此工具會嘗試使用這些認證來進行登入，而系統則會在輸出中提供登入嘗試期間所執行之測試的詳細結果。
 ![SAML](media/active-directory-aadconnect-federation-saml-idp/saml2.png)
 7. 此視窗顯示失敗的測試結果。 按一下 [檢閱詳細結果] 將會顯示所執行之每項測試結果的相關資訊。 您也可以將結果儲存至磁碟中以便共用。
  
@@ -260,8 +268,8 @@ Microsoft 已提供一項工具供您用來測試 SAML 2.0 型識別提供者。
 
 
 1. 在已加入網域的電腦上，使用和您用於公司認證相同的登入名稱來登入雲端服務。
-2.  在密碼方塊內按一下。 如果您已設定單一登入，密碼方塊將呈陰影狀，而且您會看到下列訊息：「您現在必須在 <your company> 登入。」
-3.  在 <your company> 連結按一下 [登入]。 如果您能夠登入，則表示您已設定好單一登入。
+2.  在密碼方塊內按一下。 如果已設定單一登入，密碼方塊將呈陰影狀，而您將會看到下列訊息：「現在您必須在 &lt;您的公司&gt; 登入。」
+3.  按一下 [在 &lt;您的公司&gt; 登入] 連結。 如果您能夠登入，便代表單一登入已設定完成。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -9,19 +9,20 @@ manager: mtillman
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/23/2018
+ms.date: 06/08/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 19878b7fa023ecf0d9c2a62001a5ea93ca3eb6db
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 0730fbd2df6c2a0a8b8d0930c86709c0e3012002
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257728"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248715"
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Azure Active Directory 中的條件式存取
 
@@ -31,6 +32,7 @@ ms.locfileid: "34257728"
 ![控制](./media/active-directory-conditional-access-azure-portal/81.png)
 
 本文提供您 Azure AD 中條件式存取的概念性概觀。
+
 
 
 ## <a name="common-scenarios"></a>常見案例
@@ -82,32 +84,8 @@ ms.locfileid: "34257728"
 
 使用以原則為基礎的方法來為您的雲端應用程式提供存取保護有一個優點，就是您可以使用本文簡述的結構來開始草擬您環境的原則需求，而無須擔心技術方面的實作。 
 
-## <a name="what-you-need-to-know"></a>您所需了解的事情
 
-### <a name="general-requirements-for-using-conditional-access"></a>使用條件式存取的一般需求
-
-您可以使用 Azure AD 條件式存取來保護雲端應用程式，因應來自以下來源的驗證嘗試：
-
-- 網頁瀏覽器
-
-- 使用新式驗證的用戶端應用程式
-
-- Exchange ActiveSync
-
-如需詳細資訊，請參閱[用戶端應用程式](active-directory-conditional-access-conditions.md#client-apps)。
-
-有些[雲端應用程式](active-directory-conditional-access-conditions.md#cloud-apps)也支援舊版驗證通訊協定。 SharePoint Online 和 Exchange Online 即是一例。 當用戶端應用程式可以使用舊版驗證通訊協定來存取雲端應用程式時，Azure AD 無法針對該存取嘗試強制執行條件式存取原則。 若要預防用戶端應用程式略過強制執行的原則，您應該確認是否可以只針對受影響的雲端應用程式啟用新式驗證。
-
-不適用用戶端應用程式條件式存取的範例包括：
-
-- Office 2010 和先前版本
-
-- Office 2013 (未啟用新式驗證時)
-
-如需詳細資訊，請參閱[設定 SharePoint Online 和 Exchange Online，以便採用 Azure Active Directory 條件式存取](active-directory-conditional-access-no-modern-authentication.md)。
-
-
-### <a name="license-requirements-for-using-conditional-access"></a>使用條件式存取的授權需求
+## <a name="license-requirements-for-using-conditional-access"></a>使用條件式存取的授權需求
 
 使用條件式存取需要 Azure AD Premium 授權。 若要尋找適用於您需求的正確授權，請參閱[比較 Free、Basic 及 Premium 版本的正式運作功能](https://azure.microsoft.com/pricing/details/active-directory/)。
 

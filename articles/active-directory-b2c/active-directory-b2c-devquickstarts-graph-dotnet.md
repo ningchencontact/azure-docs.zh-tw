@@ -1,22 +1,21 @@
 ---
-title: 使用圖形 API - Azure AD B2C | Microsoft Docs
+title: 在 Azure Active Directory B2C 中使用圖形 API | Microsoft Docs
 description: 如何使用應用程式身分識別對 B2C 租用戶呼叫圖形 API，以將程序自動化。
 services: active-directory-b2c
-documentationcenter: .net
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: davidmu
-ms.openlocfilehash: 731ff24fe9cc1b5dbf0c597139a96ae80b863cc2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: B2C
+ms.openlocfilehash: 9bd50d454bf298e7965c5d2f9bcc82061685df46
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32140026"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34710452"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C：使用 Azure AD 圖形 API
 

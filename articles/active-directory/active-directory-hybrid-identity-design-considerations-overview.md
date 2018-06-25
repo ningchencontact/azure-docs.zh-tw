@@ -1,29 +1,31 @@
 ---
-title: "Azure Active Directory 混合式身分識別設計考量 - 概觀 | Microsoft Docs"
-description: "混合式身分識別設計考量指南的概觀和內容對應"
-documentationcenter: 
+title: Azure Active Directory 混合式身分識別設計考量 - 概觀 | Microsoft Docs
+description: 混合式身分識別設計考量指南的概觀和內容對應
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 100509c4-0b83-4207-90c8-549ba8372cf7
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 94e67c5ea0028419e9bf74420e2bb46709b3df01
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e81908e3fd77b8fde706b27c3bed305ad0436677
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801631"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Azure Active Directory 混合式身分識別設計考量
 以取用者為基礎的裝置正廣為公司組織採用，而且雲端架構的軟體即服務 (SaaS) 應用程式是很易於採用的。 因此，要持續掌控使用者在內部資料中心與雲端平台間的應用程式存取，是很不容易的。  
 
-Microsoft 的身分識別解決方案可跨越內部部署和雲端架構功能，建立單一使用者身分識別以用於所有資源的驗證和授權，不論位於何處。 我們稱之為混合式身分識別。 使用 Microsoft 解決方案時，混合式身分識別有不同的設計和組態可供選擇，且在某些情況下，可能會難以判斷哪些組合最符合組織的需求。 
+Microsoft 的身分識別解決方案可跨越內部部署和雲端架構功能，建立單一使用者身分識別以用於所有資源的驗證和授權，不論位於何處。 這個概念稱為混合式身分識別。 使用 Microsoft 解決方案時，混合式身分識別有不同的設計和組態可供選擇，且在某些情況下，可能會難以判斷哪些組合最符合組織的需求。 
 
 此混合式身分識別設計考量指南將協助您了解如何設計與組織的商務和技術需求最相符的混合式身分識別解決方案。  本指南詳細說明一系列您可以依循的步驟和工作，以協助您設計符合組織獨特需求的混合式身分識別解決方案。 在這些步驟和工作中，本指南將提供相關的技術和功能選項，讓組織能夠因應其功能和服務品質 (例如可用性、延展性、效能、管理性和安全性) 層級需求。 
 
@@ -34,7 +36,7 @@ Microsoft 的身分識別解決方案可跨越內部部署和雲端架構功能�
 * 哪些混合式身分識別技術和組態選項可協助我達到自身的需求？ 應如何取捨這些選項，以選擇出適用於我的企業的最佳選項？
 
 ## <a name="who-is-this-guide-intended-for"></a>本指南的適用對象為何？
- 負責為中型或大型組織設計混合式身分識別解決方案的 CIO、CITO、首席身分識別架構設計人員、企業架構設計人員和 IT 架構設計人員。
+ 負責為中型或大型組織設計混合式身分識別解決方案的資訊長、資訊技術長、首席身分識別架構設計人員、企業架構設計人員和 IT 架構設計人員。
 
 ## <a name="how-can-this-guide-help-you"></a>本指南對您有何幫助？
 您可以使用本指南來了解如何設計能夠將雲端架構身分識別管理系統與您目前的內部部署身分識別解決方案整合的混合式身分識別解決方案。 
@@ -43,11 +45,11 @@ Microsoft 的身分識別解決方案可跨越內部部署和雲端架構功能�
 
 ![](./media/hybrid-id-design-considerations/hybridID-example.png)
 
-上方的圖例說明使用雲端服務與內部部署功能進行整合，為使用者提供以單一程序完成驗證的體驗，及協助 IT 人員管理這些資源的混合式身分識別解決方案。 雖然這可能是很常見的案例，但每個組織的混合式身分識別設計都可能會因不同的需求而與圖 1 所示的範例不同。 
+上方的圖例說明使用雲端服務與內部部署功能進行整合，為終端使用者提供以單一程序完成驗證的體驗，以及協助 IT 人員管理這些資源的混合式身分識別解決方案。 雖然此範例可能是常見的案例，但每個組織的混合式身分識別設計都可能會因不同的需求而與圖 1 所示的範例不同。 
 
 本指南將提供一系列您可以依循的步驟和工作，用以設計符合組織獨特需求的混合式身分識別解決方案。 在下列步驟和工作中，本指南將提供相關的技術和功能選項，讓您能夠因應組織的功能和服務品質層級需求。
 
-**假設**：您有 Windows Server、Active Directory 網域服務與 Azure Active Directory 的相關經驗。 在本文件中，我們假設您想要了解這些解決方案本身或在整合式解決方案中如何滿足您的商務需求。
+**假設**：您有 Windows Server、Active Directory 網域服務與 Azure Active Directory 的相關體驗。 在本文件中，假設您想要了解這些解決方案本身或在整合式解決方案中如何滿足您的商務需求。
 
 ## <a name="design-considerations-overview"></a>設計考量概觀
 本文件將提供一組您可以依循的步驟和工作，用以設計最能符合您需求的混合式身分識別解決方案。 步驟會依序呈現。 不過，您在後續步驟中學習的設計考量，可能會因為設計選擇的衝突，而需要變更您在先前步驟中所做的決策。 在本文件中會持續嘗試警告您潛在的設計衝突。 

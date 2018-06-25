@@ -1,22 +1,19 @@
 ---
 title: 使用 Power BI 將遠端監視資料視覺化 - Azure | Microsoft Docs
 description: 本教學課程使用 Power BI Desktop 和 Cosmos DB，將來自遠端監視解決方案的資料整合為自訂的視覺效果。 如此能讓使用者建置自己的自訂儀表板，並與不在解決方案上的使用者共用它們。
-services: iot-suite
-suite: iot-suite
 author: asdonald
 manager: hegate
 ms.author: asdonald
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 55feb56008a54676bd0af332e251da94a9653aaf
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: e396d69a61679a85fdfbd3e8fd43216635dec51d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627785"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>使用 Power BI 將遠端監視資料視覺化
 

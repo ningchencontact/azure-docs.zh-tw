@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/08/2017
+ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: b1919037e3a112659a81e9207c842c279734fb48
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0b9a79919a63056bbc17e44ef0da3697001d227f
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802348"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>儲存體佇列和服務匯流排佇列 - 異同比較
 本文將分析 Microsoft Azure 目前所提供之兩種佇列類型之間的差異和相似性：儲存體佇列和服務匯流排佇列。 透過使用這項資訊，您可以比較和比對個別的技術，而且對於哪一種方案最符合您的需求，也能夠做出更旁徵博引的決定。
@@ -47,7 +48,6 @@ Azure 支援兩種佇列機制：**儲存體佇列**和**服務匯流排佇列**
 
 * 您的方案必須能夠接收訊息，而不需要輪詢佇列。 使用服務匯流排時，您可以使用服務匯流排支援的 TCP 通訊協定，進行長期輪詢接收作業來達成這個目的。
 * 您的方案需要使用佇列來提供保證的先進先出 (FIFO) 排序傳遞。
-* 您想要在 Azure 中和在 Windows Server (私人雲端) 上有相稱體驗。 如需詳細資訊，請參閱 [Windows Server 的服務匯流排](https://msdn.microsoft.com/library/dn282144.aspx)。
 * 您的方案必須能夠支援自動重複偵測。
 * 您想要讓應用程式將訊息當成長時間執行的平行資料流來處理 (訊息是透過訊息上的 [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) 屬性與資料流相關聯)。 在這個模型中，取用端應用程式中的每個節點都會競爭取得資料流而不是訊息。 將資料流提供給取用端節點時，節點可以檢查應用程式資料流使用交易的狀態。
 * 從佇列傳送或接收多個訊息時，您的方案需要交易行為和不可部分完成性。
@@ -138,7 +138,7 @@ Azure 支援兩種佇列機制：**儲存體佇列**和**服務匯流排佇列**
 
 ### <a name="additional-information"></a>其他資訊
 * 服務匯流排會強制執行佇列大小限制。 佇列大小上限是在建立佇列時指定的，而且可以具有 1 到 80 GB 之間的值。 如果達到在建立佇列時所設定的佇列大小值，其他內送訊息將會遭到拒絕，而且呼叫端程式碼將會收到例外狀況。 如需服務匯流排中配額的詳細資訊，請參閱[服務匯流排配額](service-bus-quotas.md)。
-* 在[標準層](service-bus-premium-messaging.md)中，您可以建立 1、2、3、4 或 5 GB 大小的服務匯流排佇列 (預設值為 1 GB)。 在進階層中，您可以建立最多 80 GB 大小的佇列。 在標準層中，啟用分割時 (這是預設值)，服務匯流排會為您指定的每 GB 建立 16 個資料分割。 因此，如果您建立 5 GB 大小的佇列，每 GB 有 16 個資料分割，則佇列大小上限會變成 (5 * 16) = 80 GB。 您可以在 [Azure 入口網站][Azure portal]上檢視分割的佇列或主題項目，藉此查看其大小上限。 在進階層中，每個佇列只會建立 2 個資料分割。
+* [進階](service-bus-premium-messaging.md)層中不支援資料分割。 在標準層中，您可以建立 1、2、3、4 或 5 GB 大小的服務匯流排佇列 (預設值為 1 GB)。 在標準層中，啟用分割時 (這是預設值)，服務匯流排會為您指定的每 GB 建立 16 個資料分割。 因此，如果您建立 5 GB 大小的佇列，每 GB 有 16 個資料分割，則佇列大小上限會變成 (5 * 16) = 80 GB。 您可以在 [Azure 入口網站][Azure portal]上檢視分割的佇列或主題項目，藉此查看其大小上限。
 * 使用儲存體佇列時，如果訊息內容不是 XML 安全內容，則必須經過 **Base64** 編碼。 如果您對訊息進行 **Base64** 編碼，使用者承載最多可為 48 KB，而非 64 KB。
 * 使用服務匯流排佇列時，儲存在佇列中的每個訊息都包含兩個部分：標頭和主體。 訊息大小總計不能超過服務層所支援的訊息大小上限。
 * 當用戶端透過 TCP 通訊協定與服務匯流排佇列通訊時，單一服務匯流排佇列的並行連接數目上限會限制為 100。 這個數目是在傳送者和接收者之間共用的。 如果達到這個配額，其他連接的後續要求將會遭到拒絕，而且呼叫端程式碼將會收到例外狀況。 這項限制不會加諸於使用 REST API 連接至佇列的用戶端。

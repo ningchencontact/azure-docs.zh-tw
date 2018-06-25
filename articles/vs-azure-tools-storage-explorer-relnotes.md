@@ -14,18 +14,103 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 7e290b3bbe3fa70522533f23febe587fbb873e35
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 2878fb737f5daa875b91aefc77c6b8bc495f917e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779000"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657565"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure 儲存體總管版本資訊
 
 本文包含 Microsoft Azure 儲存體總管 1.0.0 版和先前版本的版本資訊。
 
 [Microsoft Azure 儲存體總管](./vs-azure-tools-storage-manage-with-storage-explorer.md) 是一個獨立應用程式，可讓您在 Windows、macOS 和 Linux 上輕鬆使用 Azure 儲存體資料。
+
+## <a name="version-110"></a>1.1.0 版
+05/09/2018
+
+### <a name="download-azure-storage-explorer-110"></a>下載 Azure 儲存體總管 1.1.0
+- [適用於 Windows 的 Azure 儲存體總管 1.1.0](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [適用於 Mac 的 Azure 儲存體總管 1.1.0](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [適用於 Linux 的 Azure 儲存體總管 1.1.0](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>新增
+* 儲存體總管現在支援使用 Azurite。 注意：Azurite 的連線是硬式編碼至預設開發端點。
+* 儲存體總管現在支援僅限 Blob 和 GPV2 儲存體帳戶的存取層。 在[此處](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers)深入了解存取層。
+* 產生 SAS 時，不再需要開始時間。
+
+### <a name="fixes"></a>修正
+* 美國政府帳戶的訂用帳戶擷取已中斷。 已修正此問題。 [#61](https://github.com/Microsoft/AzureStorageExplorer/issues/61)
+* 未正確儲存存取原則的到期時間。 已修正此問題。 [#50](https://github.com/Microsoft/AzureStorageExplorer/issues/50)
+* 在容器中產生項目的 SAS URL 時，項目的名稱不會附加至 URL。 已修正此問題。 [#44](https://github.com/Microsoft/AzureStorageExplorer/issues/44)
+* 建立 SAS 時，過去的到期時間有時會成為預設值。 這是因為儲存體總管使用上次使用的開始和到期時間作為預設值。 現在，每當您開啟 SAS 對話方塊時，都會產生一組新的預設值。 [#35](https://github.com/Microsoft/AzureStorageExplorer/issues/35)
+* 在儲存體帳戶之間進行複製時，則會產生 24 小時制 SAS。 如果複製持續 24 小時以上，複製會失敗。 我們已增加 SAS 持續 1 星期，以減少複製由於過期的 SAS 而失敗的機會。 [#62](https://github.com/Microsoft/AzureStorageExplorer/issues/62)
+* 對於某些活動，按一下 [取消] 不一定有作用。 已修正此問題。 [#125](https://github.com/Microsoft/AzureStorageExplorer/issues/125)
+* 對於某些活動，傳輸速度不正確。 已修正此問題。 [#124](https://github.com/Microsoft/AzureStorageExplorer/issues/124)
+* [檢視] 功能表中的 [上一步] 拼字不正確。 現在拼字正確無誤。 [#71](https://github.com/Microsoft/AzureStorageExplorer/issues/71)
+* Windows 安裝程式的最後一頁有 [下一步] 按鈕。 已變更為 [完成] 按鈕。 [#70](https://github.com/Microsoft/AzureStorageExplorer/issues/70)
+* 使用 HC 黑色佈景主題時，對話方塊的按鈕不會出現索引標籤焦點。 現在會出現。[#64](https://github.com/Microsoft/AzureStorageExplorer/issues/64)
+* 活動記錄檔中的動作 [自動解決] 大小寫不正確。 現在正確。 [#51](https://github.com/Microsoft/AzureStorageExplorer/issues/51)
+* 從資料表刪除實體時，要求確認的對話方塊會顯示錯誤圖示。 對話方塊現在使用警告圖示。 [#148](https://github.com/Microsoft/AzureStorageExplorer/issues/148)
+
+### <a name="known-issues"></a>已知問題
+* 如果您使用 VS for Mac，而且曾建立自訂 AAD 設定，則您可能無法登入。 若要解決此問題，請刪除 ~/.IdentityService/AadConfigurations 的內容。 如果這麼做無法將您解除封鎖，請對[此問題](https://github.com/Microsoft/AzureStorageExplorer/issues/97)加上註解。
+* Azurite 尚未完全實作所有的儲存體 API。 因此，對於開發儲存體使用 Azurite 時，可能出現未預期的錯誤或行為。
+* 在少數情況下，樹狀焦點可能會固定在快速存取上。 若要取消固定焦點，您可以 [全部重新整理]。
+* 由於 NodeJS 中的錯誤，造成無法從您的 OneDrive 資料夾上傳。 已修正該 Bug，但是尚未整合至 Electron。
+* 當目標為 Azure Stack，以附加 Blob 方式上傳特定檔案會失敗。
+* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用[此處](https://github.com/Azure/azure-storage-node/issues/317)所述的取消篩選器因應措施。 
+* 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
+* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案和實體的所有其他屬性和中繼資料都會在重新命名期間保留。
+* 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。
+* 儲存體總管使用的 Electron 殼層具有一些 GPU (圖形處理單元) 硬體加速的問題。 如果儲存體總管顯示空白 (空的) 主視窗，您可以嘗試從命令列啟動儲存體總管並透過新增 `--disable-gpu` 切換停用 GPU 加速：
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* 對於 Linux 使用者，您必須安裝 [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)。
+* 使用 Ubuntu 14.04 的使用者必須確定 GCC 編譯器集合是最新版本，這可以透過執行下列命令並重新啟動電腦來完成：
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* 使用 Ubuntu 17.04 的使用者必須安裝 GConf，這可以透過執行下列命令並重新啟動電腦來完成：
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>舊版
+
+* [1.0.0 版](#version-100)
+* [0.9.6 版](#version-096)
+* [0.9.5 版](#version-095)
+* [0.9.4 和 0.9.3 版](#version-094-and-093)
+* [0.9.2 版](#version-092)
+* [0.9.1 和 0.9.0 版](#version-091-and-090)
+* [0.8.16 版](#version-0816)
+* [版本 0.8.14](#version-0814)
+* [0.8.13 版](#version-0813)
+* [0.8.12、0.8.11 和 0.8.10 版](#version-0812-and-0811-and-0810)
+* [0.8.9 和 0.8.8 版](#version-089-and-088)
+* [0.8.7 版](#version-087)
+* [0.8.6 版](#version-086)
+* [0.8.5 版](#version-085)
+* [0.8.4 版](#version-084)
+* [0.8.3 版](#version-083)
+* [0.8.2 版](#version-082)
+* [0.8.0 版](#version-080)
+* [0.7.20160509.0 版](#version-07201605090)
+* [0.7.20160325.0 版](#version-07201603250)
+* [0.7.20160129.1 版](#version-07201601291)
+* [0.7.20160105.0 版](#version-07201601050)
+* [0.7.20151116.0 版](#version-07201511160)
 
 ## <a name="version-100"></a>1.0.0 版
 04/16/2018
@@ -96,31 +181,6 @@ ms.locfileid: "32779000"
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>舊版
-
-* [0.9.6 版](#version-096)
-* [0.9.5 版](#version-095)
-* [0.9.4 和 0.9.3 版](#version-094-and-093)
-* [0.9.2 版](#version-092)
-* [0.9.1 和 0.9.0 版](#version-091-and-090)
-* [0.8.16 版](#version-0816)
-* [版本 0.8.14](#version-0814)
-* [0.8.13 版](#version-0813)
-* [0.8.12、0.8.11 和 0.8.10 版](#version-0812-and-0811-and-0810)
-* [0.8.9 和 0.8.8 版](#version-089-and-088)
-* [0.8.7 版](#version-087)
-* [0.8.6 版](#version-086)
-* [0.8.5 版](#version-085)
-* [0.8.4 版](#version-084)
-* [0.8.3 版](#version-083)
-* [0.8.2 版](#version-082)
-* [0.8.0 版](#version-080)
-* [0.7.20160509.0 版](#version-07201605090)
-* [0.7.20160325.0 版](#version-07201603250)
-* [0.7.20160129.1 版](#version-07201601291)
-* [0.7.20160105.0 版](#version-07201601050)
-* [0.7.20151116.0 版](#version-07201511160)
 
 ## <a name="version-096"></a>0.9.6 版
 02/28/2018

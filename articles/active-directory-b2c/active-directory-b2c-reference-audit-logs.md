@@ -1,20 +1,21 @@
 ---
-title: Azure Active Directory B2C：稽核記錄範例和定義
-description: 存取 Azure AD B2C 稽核記錄的指南和範例
+title: Azure Active Directory B2C 中的稽核記錄範例和定義 | Microsoft Docs
+description: 存取 Azure AD B2C 稽核記錄的指南和範例。
 services: active-directory-b2c
-author: sromeroz
-manager: sasubram
-ms.author: sezambra
-ms.service: active-directory-b2c
+author: davidmu1
+manager: mtillman
+ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.date: 08/04/2017
-ms.openlocfilehash: 8cc48853b0677230c4e19df4f0ecd93ce88b119d
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.author: davidmu
+ms.component: B2C
+ms.openlocfilehash: 4828bf2f0faa596c8222c3a36dc3d38ec1b3bd1a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33206256"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34709813"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>存取 Azure AD B2C 稽核記錄
 

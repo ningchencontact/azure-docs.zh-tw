@@ -8,6 +8,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 43681ce665bec088472b5c33f64d52d3d9fda5a1
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 424ea1eca637653c5e7cfed9dc4b970d5afd91ad
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164198"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713403"
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>使用 Azure AD Identity Protection 時的登入體驗
 透過 Azure Active Directory Identity Protection，您可以：
@@ -28,9 +29,9 @@ ms.locfileid: "34164198"
 * 要求使用者進行註冊，以進行 Multi-Factor Authentication
 * 處理高風險的登入和遭到入侵的使用者
 
-系統對這些問題的回應會影響使用者的登入體驗，因為只藉由提供使用者名稱和密碼直接登入已不再可行。 需要有其他步驟，才能讓使用者安全返回工作。
+系統對這些問題的回應會影響使用者的登入體驗，因為藉由提供使用者名稱和密碼直接登入已不再可行。 需要有其他步驟，才能讓使用者安全返回工作。
 
-本主題會針對可能發生的所有案例，為您提供使用者的登入體驗概觀。
+本文會針對可能發生的所有案例，為您提供使用者的登入體驗概觀。
 
 **Multi-Factor Authentication**
 
@@ -72,7 +73,7 @@ ms.locfileid: "34164198"
 1. 使用者獲知偵測到不尋常的登入，例如從新的位置、裝置或 app 登入。 
    
     ![補救](./media/active-directory-identityprotection-flows/120.png "補救")
-2. 使用者必須解決安全性挑戰以證明其身分識別。 如果使用者已註冊 Multi-Factor Authentication，他們必須回傳送至其電話號碼的安全碼。 由於這只是有風險的登入，並不是遭到入侵的帳戶，所以使用者不必在此流程中變更密碼。 
+2. 使用者必須解決安全性挑戰以證明其身分識別。 如果使用者已註冊 Multi-Factor Authentication，他們必須回傳送至其電話號碼的安全密碼。 由於這只是有風險的登入，並不是遭到入侵的帳戶，所以使用者不必在此流程中變更密碼。 
    
     ![補救](./media/active-directory-identityprotection-flows/121.png "補救")
 
@@ -89,7 +90,7 @@ ms.locfileid: "34164198"
 1. 使用者獲知其帳戶安全性因為可疑活動或認證外洩而有風險。
    
     ![補救](./media/active-directory-identityprotection-flows/101.png "補救")
-2. 使用者必須解決安全性挑戰以證明其身分識別。 如果使用者已註冊 Multi-Factor Authentication，他們可以從損害中自行復原。 他們必須回傳送至其電話號碼的安全碼。 
+2. 使用者必須解決安全性挑戰以證明其身分識別。 如果使用者已註冊 Multi-Factor Authentication，他們可以從損害中自行復原。 他們必須回傳送至其電話號碼的安全密碼。 
    
    ![補救](./media/active-directory-identityprotection-flows/110.png "補救")
 3. 最後，使用者會被迫變更其密碼，因為其他人可能有其帳戶的存取權。 

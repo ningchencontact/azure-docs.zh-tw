@@ -1,19 +1,19 @@
 ---
 title: 在 Azure IoT Central 應用程式中管理裝置 | Microsoft Docs
 description: 了解如何以操作員的身分在 Azure IoT Central 應用程式中管理裝置。
-services: iot-central
 author: ellenfosborne
 ms.author: elfarber
 ms.date: 01/21/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 75472d701160e7cfd331d01efcdc1a19ae20fb2d
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: 8a1b88621feaaaff3f787cca8c4b4e45d4974931
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303574"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807470"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>在 Azure IoT Central 應用程式中管理裝置
 
@@ -77,8 +77,33 @@ CSV 檔案需求：
 
     [![大量匯入成功](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
 
-如果裝置匯入作業失敗，裝置方格上將會顯示錯誤。 系統會產生擷取所有錯誤的記錄檔，使用者可以透過按一下錯誤訊息來下載該記錄檔。
+如果裝置匯入作業失敗，您會在裝置方格上看到錯誤訊息。 系統會產生擷取所有錯誤的記錄檔，使用者可以透過按一下錯誤訊息來下載該記錄檔。
 
+## <a name="export-devices"></a>匯出裝置
+
+如需佈建裝置來連線到 IoT Central，您將需要 IoT Central 所產生的裝置連接字串。 您可以使用「匯出」功能，從您的應用程式大量取得連接字串和裝置的其他屬性。 「匯出」可針對所有選取的裝置建立包含裝置身分識別、裝置名稱及主要連接字串的 CSV 檔案。
+
+若要從您的應用程式大量匯出裝置：
+1. 在左側導覽功能表上選取 [總管]。
+
+1. 請在左側窗格上，選擇您要用來匯出裝置的裝置範本。
+
+1. 選取您想要匯出的裝置，然後按一下 [匯出] 動作。
+
+    [![匯出](./media/howto-manage-devices/Export1.png)](./media/howto-manage-devices/Export1.png#lightbox)
+
+1. 匯出程序將會啟動，且您可以在方格頂端追蹤狀態。 
+
+1. 匯出完成之後，隨即顯示成功訊息，以及下載所產生檔案的連結。
+
+1. 按一下 [成功訊息] 將檔案下載到磁碟上的本機資料夾。
+
+    [![匯出成功](./media/howto-manage-devices/Export2.png)](./media/howto-manage-devices/Export2.png#lightbox)
+
+1. 匯出的 CSV 檔案將會擁有下列資訊：
+    1. Name
+    1. 裝置識別碼
+    1. 主要連接字串
 
 
 ## <a name="delete-a-device"></a>刪除裝置

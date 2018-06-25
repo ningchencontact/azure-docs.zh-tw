@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/31/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c8b972978743fee33c7b7080cdf9d290bdbb619e
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 968636848b9cba9c0976aa366952e56838623cc4
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34055081"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34698810"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect 使用者登入選項
 Azure Active Directory (Azure AD) Connect 可讓您的使用者使用相同的密碼來登入雲端和內部部署資源。 本文說明每個身分識別模型的主要概念，以協助您選擇要用於登入 Azure AD 的身分識別。
@@ -48,6 +49,8 @@ Azure Active Directory (Azure AD) Connect 可讓您的使用者使用相同的�
 啟用內部部署多重要素驗證解決方案。|||x|
 
 *透過輕量型代理程式。
+
+如需選擇驗證方法的詳細資訊，請參閱[針對 Azure Active Directory 混合式身分識別解決方案選擇正確的驗證方法](../../security/azure-ad-choose-authn.md)
 
 ### <a name="password-hash-synchronization"></a>密碼雜湊同步處理
 使用密碼雜湊同步處理時，可以將使用者密碼的雜湊從內部部署 Active Directory 同步至 Azure AD。 在內部部署環境中變更或重設密碼之後，新的密碼雜湊會立即同步至 Azure AD，讓使用者能夠一律使用相同的密碼來存取雲端資源和內部部署資源。 這些密碼一律不會傳送至 Azure AD，也不會以純文字的形式儲存在 Azure AD 中。 您可以將密碼雜湊同步處理與密碼回寫功能搭配使用，以在 Azure AD 中啟用自助式密碼重設功能。

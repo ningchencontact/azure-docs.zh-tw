@@ -11,18 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 06/11/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 2808847642639069e60102b195ac97957c8593f0
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: b9f92b4d85e17bc848d82be413df1d0dad7c8548
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33203454"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294933"
 ---
 # <a name="create-sql-databases"></a>建立 SQL 資料庫
-自助服務資料庫是透過使用者入口網站體驗所提供的。 使用者需要供應項目中包含資料庫服務的訂用帳戶。
+自助服務資料庫是透過使用者入口網站來提供的。 Azure Stack 使用者需要供應項目中包含 SQL 資料庫服務的訂用帳戶。
 
 1. 登入 [Azure Stack ](azure-stack-poc.md) 使用者入口網站 (服務管理員也可以使用管理入口網站)。
 

@@ -1,26 +1,23 @@
 ---
 title: 部署 Java 遠端監視解決方案架構 - Azure | Microsoft Docs
-description: 本教學課程示範如何使用 CLI 來佈建遠端監視解決方案加速器。
-services: iot-suite
-suite: iot-suite
+description: 本教學課程會示範如何使用 CLI 來佈建遠端監視解決方案加速器。
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/29/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 3178d51cd2c04f3be8d4a6284a4f1635845def8c
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.topic: conceptual
+ms.openlocfilehash: 603ce00a036822fd0c7411b47cf3fe630671cc5a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628118"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>使用 CLI 部署遠端監視解決方案加速器
 
-本教學課程示範如何佈建遠端監視解決方案加速器。 您將使用 CLI 來部署解決方案。 您也可以使用 azureiotsuite.com 的 Web 型 UI 來部署解決方案，若要了解此選項，請參閱[部署遠端監視解決方案加速器](iot-accelerators-remote-monitoring-deploy.md)。
+本教學課程示範如何佈建遠端監視解決方案加速器。 您將使用 CLI 來部署解決方案。 您也可以使用 azureiotsuite.com 的 Web 型 UI 來部署解決方案；若要了解此選項，請參閱[部署遠端監視解決方案加速器](iot-accelerators-remote-monitoring-deploy.md)。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -57,7 +54,7 @@ pcs login
 | SKU    | `basic`、`standard`, `local` | _basic_ 部署適用於測試和示範環境，它會將所有微服務部署至單一虛擬機器。 _standard_ 部署適用於生產環境，它會將微服務部署至多部虛擬機器。 _local_ 部署會將 Docker 容器設定為在本機電腦上執行微服務，並且使用雲端中的 Azure 服務 (例如儲存體和 Cosmos DB)。 |
 | 執行階段 | `dotnet`、`java` | 選取微服務的語言實作。 |
 
-若要了解如何使用本機部署，請參閱[在本機執行遠端監視解決方案](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Running-the-Remote-Monitoring-Solution-Locally#deploy-azure-services-and-set-environment-variables) \(英文\)。
+若要了解如何使用本機部署，請參閱[在本機執行遠端監視解決方案](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Running-the-Remote-Monitoring-Solution-Locally#deploy-azure-services-and-set-environment-variables)。
 
 ## <a name="basic-vs-standard-deployments"></a>基本與標準部署
 
@@ -96,7 +93,7 @@ pcs login
 
 ### <a name="example-deploy-net-version"></a>範例：部署 .NET 版本
 
-以下範例說明如何部署基本 .NET 版的遠端監視解決方案加速器：
+下列範例會示範如何部署基本 .NET 版的遠端監視解決方案加速器：
 
 ```cmd/sh
 pcs -t remotemonitoring -s basic -r dotnet
@@ -104,7 +101,7 @@ pcs -t remotemonitoring -s basic -r dotnet
 
 ### <a name="example-deploy-java-version"></a>範例：部署 Java 版本
 
-以下範例說明如何部署標準 Java 版的遠端監視解決方案加速器：
+下列範例會示範如何部署標準 Java 版的遠端監視解決方案加速器：
 
 ```cmd/sh
 pcs -t remotemonitoring -s standard -r java

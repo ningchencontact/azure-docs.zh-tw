@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/26/2018
+ms.date: 05/21/2018
 ms.author: vidarmsft
-ms.openlocfilehash: 429f1edae15a98b3c38ae4980a630f23b3a85d23
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: d57229ad79909aa0334cc623d727b733a1ec73f9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271899"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652003"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>StorSimple 資料管理員解決方案概觀
 
@@ -82,10 +82,9 @@ StorSimple 資料管理員必須有服務資料加密金鑰，才能從 StorSimp
 
 ![位於不同區域的服務和作業定義](./media/storsimple-data-manager-overview/data-manager-job-different-regions.png)
 
-## <a name="gdpr-compliance"></a>GDPR 合規性
+## <a name="managing-personal-information"></a>管理個人資訊
 
-[一般資料保護規定 (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) 是歐盟 (EU) 所制定的資料保護和隱私權法律。 GDPR 包含許多有關如何收集、儲存和使用個人資訊的需求。 GDPR 規則強制實行於 EU 內營運，並且收集、分析 EU 居民相關之資料的公司、政府機關和其他組織。 StorSimple 資料管理員符合 GDPR。 資料管理員服務不會收集個人資料。
-如需詳細資訊，請在[信任中心](https://www.microsoft.com/trustcenter)檢閱 Microsoft 隱私權原則。
+StorSimple 資料管理員不會收集或顯示任何個人資訊。 如需詳細資訊，請在[信任中心](https://www.microsoft.com/trustcenter)檢閱 Microsoft 隱私權原則。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,26 +1,23 @@
 ---
 title: 偵測遠端監視解決方案中的裝置問題 - Azure | Microsoft Docs
-description: 本教學課程將說明如何使用規則和動作，來自動偵測遠端監視解決方案中的臨界值型裝置問題。
-services: iot-suite
-suite: iot-suite
+description: 本教學課程會示範如何使用規則和動作，來自動偵測遠端監視解決方案中的閾值型裝置問題。
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-suite
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: f3583b27b2fb9959e65a9c66a75c1174ebf3e238
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: df1ba7909c64e8ccc24bcf3584bd28b2629f49ff
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627308"
 ---
 # <a name="detect-issues-using-threshold-based-rules"></a>使用臨界值型規則來偵測問題
 
-本教學課程將說明遠端監視解決方案中的規則引擎功能。 為了介紹這些功能，本教學課程會使用 Contoso IoT 應用程式中的情節。
+本教學課程會示範遠端監視解決方案中的規則引擎功能。 為了介紹這些功能，本教學課程會使用 Contoso IoT 應用程式中的情節。
 
 Contoso 有一個會在 **Chiller** 裝置回報的壓力超出 250 PSI 時產生重大警示的規則。 身為操作員，您會想要尋找初始壓力尖峰，以識別可能有感應器發生故障的 **Chiller** 裝置。 為了識別這些裝置，您會建立一個在壓力超出 150 PSI 時產生警告的規則。
 

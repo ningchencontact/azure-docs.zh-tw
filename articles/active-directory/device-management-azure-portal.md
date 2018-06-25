@@ -8,25 +8,27 @@ manager: mtillman
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 06/01/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 6947358c6c845ff2c2a35cb218c11294a2841dc8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: ddce312d6299a7749f1a40a83f67ce3c26876591
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713995"
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>使用 Azure 入口網站管理裝置
 
 
 使用 Azure Active Directory (Azure AD) 中的裝置管理，您可以確保使用者會從符合安全性與合規性之標準的裝置來存取您的資源。 
 
-本主題內容：
+本文：
 
 - 假設您熟悉 [Azure Active Directory 中的裝置管理簡介](device-management-introduction.md)
 
@@ -185,10 +187,17 @@ Azure 入口網站可提供您一個集中管理裝置的位置。 您可以使�
 
 ### <a name="view-or-copy-bitlocker-keys"></a>檢視或複製 BitLocker 金鑰
 
-如果您是管理員，您可以檢視和複製 BitLocker 金鑰，以協助使用者復原他們所加密的磁碟機。 這些金鑰只適用於已加密並將其金鑰儲存在 Azure AD 中的 Windows 裝置。 您可以在存取裝置的詳細資料時複製這些金鑰。
+您可以檢視和複製 BitLocker 金鑰，以協助使用者復原他們所加密的磁碟機。 這些金鑰只適用於已加密並將其金鑰儲存在 Azure AD 中的 Windows 裝置。 您可以在存取裝置的詳細資料時複製這些金鑰。
  
 ![檢視 BitLocker 金鑰](./media/device-management-azure-portal/36.png)
 
+若要檢視或複製 BitLocker 金鑰，您必須是裝置的擁有者，或是至少已獲指派下列其中一個角色的使用者：
+
+- 全域管理員
+- 技術服務管理員
+- 安全性系統管理員
+- 安全性讀取者
+- Intune 服務管理員
 
 
 ## <a name="audit-logs"></a>稽核記錄

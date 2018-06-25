@@ -1,20 +1,21 @@
 ---
-title: Azure Stack 網路服務：差異與注意事項
+title: Azure Stack 網路服務差異與注意事項 | Microsoft Docs
 description: 使用 Azure Stack 中的網路服務時，瞭解有關差異和注意事項。
 services: azure-stack
 keywords: ''
 author: mattbriggs
 manager: femila
 ms.author: mabrigg
-ms.date: 05/14/2018
+ms.date: 05/21/2018
 ms.topic: article
 ms.service: azure-stack
-ms.openlocfilehash: 2a4c5bce072970f158a89763ebdf4132eafe9cbe
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.reviewer: scottnap
+ms.openlocfilehash: faff52ba5b5e2f0d573a67633d3a8411b2d7de74
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34196248"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606421"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Azure Stack 網路服務的注意事項
 

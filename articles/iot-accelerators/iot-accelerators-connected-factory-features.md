@@ -1,29 +1,23 @@
 ---
 title: 連線處理站解決方案功能 - Azure | Microsoft Docs
 description: 概述連線處理站的預先設定解決方案功能。
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: dobett
-ms.openlocfilehash: 7ee86a59e7c47406ea1a890f1a9d1eb2ed4ad772
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3478217771418ab31772d6a42a7ed8d8a2e8069a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626491"
 ---
-# <a name="what-is-azure-iot-suite-connected-factory"></a>什麼是 Azure IoT 套件的連線處理站？
+# <a name="what-is-connected-factory-iot-solution-accelerator"></a>連線處理站 IoT 解決方案加速器是什麼？
 
-連線處理站是 Microsoft 的 Azure 產業 IoT 參考架構實作，封裝為開放原始碼解決方案。 您可以用它來當作商業產品的起點。 您可以將連線處理站解決方案的預先建立版本，部署到 [Azure IoT 套件](https://www.azureiotsuite.com/#solutions/types/CF)中的 Azure 訂用帳戶。
+連線處理站是 Microsoft 的 Azure 產業 IoT 參考架構實作，封裝為開放原始碼解決方案。 您可以用它來當作商業產品的起點。 您可以將連線處理站解決方案的預先建立版本，從 [Azure IoT 解決方案加速器](https://www.azureiotsolutions.com/#solutions/types/CF)部署到 Azure 訂用帳戶。
 
 ![連線處理站解決方案的概觀](./media/iot-accelerators-connected-factory-features/dashboard.png)
 
@@ -64,7 +58,7 @@ ms.lasthandoff: 05/20/2018
 
 ## <a name="customizability"></a>自訂能力
 
-- [自訂](../iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md)解決方案以滿足特定的業務需求。
+- 自訂解決方案以滿足特定的業務需求。
 - 完整的解決方案原始程式碼可在 GitHub 上取得。 請參閱[連線處理站預先設定的解決方案](https://github.com/Azure/azure-iot-connected-factory) \(英文\) 存放庫。
 
 ## <a name="next-steps"></a>後續步驟

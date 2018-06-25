@@ -9,11 +9,12 @@ ms.topic: article
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: cdb406c5a0a314562ae886c797c5ebd9dc5f8796
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 66843a5dda9f7b31b2b4c79df895eaff904513e6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595575"
 ---
 # <a name="kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Kubernetes 儀表板與 Azure Kubernetes Service (AKS)
 
@@ -37,7 +38,7 @@ az aks browse --resource-group myResourceGroup --name myAKSCluster
 
 ## <a name="run-an-application"></a>執行應用程式
 
-在 Kubernetes 儀表板中，按一下右上方視窗中的 [建立] 按鈕。 將部署命名為 `nginx`，並針對映像名稱輸入 `nginx:latest`。 在 [服務] 下選取 [外部]，針對連接埠和目標連接埠輸入 `80`。
+在 Kubernetes 儀表板中，按一下右上方視窗中的 [建立] 按鈕。 將部署命名為 `nginx`，並針對容器映像名稱輸入 `nginx:latest`。 在 [服務] 下選取 [外部]，針對連接埠和目標連接埠輸入 `80`。
 
 準備就緒時，按一下 [部署] 建立部署。
 

@@ -1,22 +1,19 @@
 ---
 title: 針對遠端監視解決方案中的裝置進行疑難排解 - Azure | Microsoft Docs
 description: 本教學課程會示範如何針對遠端監視解決方案中的裝置問題進行疑難排解及加以補救。
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 1e6c74b5c952d5a387dbdac4d6e81d691758fb36
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 9a620d91238393ba0bde89f521f790b58ab35baf
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628067"
 ---
 # <a name="troubleshoot-and-remediate-device-issues"></a>針對裝置問題進行疑難排解和補救
 

@@ -1,20 +1,19 @@
 ---
 title: 部署適用於 Azure IoT Edge 的模組 | Microsoft Docs
 description: 了解如何將模組部署到 Edge 裝置
-services: iot-edge
-keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 10/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: ffd3a8e6bde7310f6bdbed0e0f87419c73fcd6fc
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+services: iot-edge
+ms.openlocfilehash: 880a17b6029dafec9ed41e3a32802dc42b872e77
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34166330"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725321"
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>了解針對單一裝置或大規模部署 IoT Edge - 預覽
 
@@ -26,7 +25,7 @@ Azure IoT Edge 裝置會遵循類似其他 IoT 裝置類型的[裝置生命週�
 
 Azure IoT Edge 提供兩種方式來設定要在 IoT Edge 裝置上執行的模組：一個用於單一裝置 (您在 Azure IoT Edge 教學課程中所使用) 上的開發和快速反覆項目，另一個則用於管理大群 IoT Edge 裝置。 這兩種方法均可在 Azure 入口網站中以及利用程式設計方式來使用。
 
-本文著重於多群裝置的設定和監視階段，統稱為 IoT Edge 部署。 整體部署步驟如下所示：   
+本文著重於多群裝置的設定和監視階段，統稱為 IoT Edge 自動部署。 整體部署步驟如下所示：   
 
 1. 操作員會定義部署，其中描述一組模組以及目標裝置。 每個部署都含有反映此資訊的部署資訊清單。 
 1. IoT 中樞服務會與所有目標裝置通訊，利用所需模組來設定它們。 
@@ -37,7 +36,7 @@ Azure IoT Edge 提供兩種方式來設定要在 IoT Edge 裝置上執行的模�
 
 ## <a name="deployment"></a>部署
 
-部署會指派 IoT Edge 模組映像，在一組目標的 IoT Edge 裝置上當成執行個體來執行。 其運作方式是設定 IoT Edge 部署資訊清單，以包含具有對應初始化參數的模組清單。 您可以將部署指派到單一裝置 (通常會以裝置識別碼為根據) 或裝置群組 (以標記為根據)。 一旦 IoT Edge 裝置接收到部署資訊清單之後，就會從各自的容器存放庫下載並安裝模組容器映像，並據以設定它們。 建立部署之後，操作員就能監視部署狀態，以查看是否已正確設定目標裝置。   
+IoT Edge 自動部署會指派 IoT Edge 模組映像，在一組目標 IoT Edge 裝置上當成執行個體來執行。 其運作方式是設定 IoT Edge 部署資訊清單，以包含具有對應初始化參數的模組清單。 您可以將部署指派到單一裝置 (通常會以裝置識別碼為根據) 或裝置群組 (以標記為根據)。 一旦 IoT Edge 裝置接收到部署資訊清單之後，就會從各自的容器存放庫下載並安裝模組容器映像，並據以設定它們。 建立部署之後，操作員就能監視部署狀態，以查看是否已正確設定目標裝置。   
 
 裝置需要佈建為要使用部署來設定的 IoT Edge 裝置。 以下為必要條件，且不會包含於部署中：
 * 基本作業系統

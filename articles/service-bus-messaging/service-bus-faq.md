@@ -1,26 +1,22 @@
 ---
-title: "Azure 服務匯流排常見問題集 (FAQ) | Microsoft Docs"
-description: "回答一些有關 Azure 服務匯流排的常見問題。"
+title: Azure 服務匯流排常見問題集 (FAQ) | Microsoft Docs
+description: 回答一些有關 Azure 服務匯流排的常見問題。
 services: service-bus-messaging
-documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: cc75786d-3448-4f79-9fec-eef56c0027ba
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/14/2017
+ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: ba34938883ee342936b5c7a4568dae5e02684bb2
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: df60862b6a835340534be4ed43a27267c33b64f5
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802260"
 ---
 # <a name="service-bus-faq"></a>服務匯流排常見問題集
+
 本文討論 Microsoft Azure 服務匯流排的一些常見問題解集。 您也可以造訪 [Azure 支援常見問題集](http://go.microsoft.com/fwlink/?LinkID=185083)，以取得一般的 Azure 價格和支援資訊。
 
 ## <a name="general-questions-about-azure-service-bus"></a>關於 Azure 服務匯流排的一般問題
@@ -37,9 +33,11 @@ ms.lasthandoff: 01/19/2018
 主題可視覺化為佇列，而且在使用多個訂用帳戶時，主題會變成更豐富的訊息模型；基本上是一對多的通訊工具。 此發佈/訂閱模型 (或「pub/sub」) 可讓應用程式將訊息傳送至具有多個訂用帳戶的主題，以便讓多個應用程式接收該訊息。
 
 ### <a name="what-is-a-partitioned-entity"></a>什麼是分割的實體？
-傳統的佇列或主題由單一訊息代理程式處理並儲存在一個訊息存放區中。 [分割的佇列或主題](service-bus-partitioning.md)會由多個訊息代理程式處理，並儲存在多個訊息存放區。 這表示分割佇列或主題的整體輸送量不會再受到單一訊息代理程式或訊息存放區的效能所限制。 此外，即使訊息存放區暫時中斷也不會讓分割的佇列或主題無法使用。
+傳統的佇列或主題由單一訊息代理程式處理並儲存在一個訊息存放區中。 只有基本和標準通訊層才支援，[分割的佇列或主題](service-bus-partitioning.md)會由多個訊息代理程式處理，並儲存在多個訊息存放區。 這項功能表示分割佇列或主題的整體輸送量不會再受到單一訊息代理程式或訊息存放區的效能所限制。 此外，即使訊息存放區暫時中斷也不會讓分割的佇列或主題無法使用。
 
-請注意，使用分割實體時無法確保順序。 若分割無法使用，您仍可從其他分割傳送及接收訊息。
+使用分割實體時無法確保順序。 若分割無法使用，您仍可從其他分割傳送及接收訊息。
+
+ [進階 SKU](service-bus-premium-messaging.md) 中不再支援分割的實體。 
 
 ## <a name="best-practices"></a>最佳作法
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Azure 服務匯流排的最佳做法有哪些？
@@ -74,9 +72,9 @@ ms.lasthandoff: 01/19/2018
 如需服務匯流排限制和配額的清單，請參閱[服務匯流排配額概觀][Quotas overview]。
 
 ### <a name="does-service-bus-have-any-usage-quotas"></a>服務匯流排是否有任何使用量配額？
-根據預設，對於所有雲端服務，Microsoft 會設定針對所有客戶的訂用帳戶計算的彙總每月使用量配額。 因為我們了解您的需求可能超過這些限制，您可以隨時連絡客戶服務部門，讓我們能夠了解您的需求並適當地調整這些限制。 針對服務匯流排，彙總使用量配額為每個月 50 億則訊息。
+根據預設，對於所有雲端服務，Microsoft 會設定針對所有客戶的訂用帳戶計算的彙總每月使用量配額。 若您需要的配額比這些限制來得多，您可以隨時與客戶服務部門連絡，以了解您的需求並適當地調整這些限制。 針對服務匯流排，彙總使用量配額為每個月 50 億則訊息。
 
-雖然我們有權停用在指定的月份內超出其使用量配額的客戶帳戶，但我們會提供電子郵件通知並且在採取任何動作之前多次嘗試連絡客戶。 超出這些配額的客戶仍需負責支付超出配額的費用。
+雖然 Microsoft 有權停用在指定的月份內超出其使用量配額的客戶帳戶，但會傳送電子郵件通知並且在採取任何動作之前多次嘗試連絡客戶。 超出這些配額的客戶仍需負責支付超出配額的費用。
 
 如同 Azure 上的其他服務，服務匯流排會強制執行一組特定的配額，以確保公平的資源使用量。 您可以在[服務匯流排配額概觀][Quotas overview]中找到更多關於這些配額的詳細資料。
 

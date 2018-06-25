@@ -9,17 +9,18 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9bf5a3a1dc67752e3f911d07f23c7b408e6d38c3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c1ac698a1774a7a6242506ec65193434bb81cc25
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598764"
 ---
 # <a name="test-azure-automation-run-as-account-authentication"></a>測試 Azure 自動化執行身分帳戶驗證
 成功建立自動化帳戶之後，您可以執行簡單的測試，確認您能夠在 Azure Resource Manager 或 Azure 傳統部署中使用新建立或已更新的自動化執行身分帳戶成功進行驗證。    
 
 ## <a name="automation-run-as-authentication"></a>自動化執行身分驗證
-使用下面範例程式碼來[建立 PowerShell Runbook](automation-creating-importing-runbook.md)，以使用執行身分帳戶進行驗證，並且同時在自訂 Runbook 中使用您的自動化帳戶驗證及管理 Resource Manage 資源。   
+使用下面範例程式碼來[建立 PowerShell Runbook](automation-creating-importing-runbook.md)，以使用執行身分帳戶進行驗證，並且同時在自訂 Runbook 中使用您的自動化帳戶驗證及管理 Resource Manage 資源。
 
     $connectionName = "AzureRunAsConnection"
     try
@@ -60,6 +61,9 @@ ms.lasthandoff: 05/16/2018
     } 
 
 請注意，Runbook 中用來驗證的 Cmdlet (**Connect-AzureRmAccount**) 會使用 ServicePrincipalCertificate 參數集。  它藉由使用服務主體憑證 (而非認證) 進行驗證。  
+
+> [!IMPORTANT]
+> **Add-AzureRmAccount** 現在是 **Connect-AzureRMAccount** 的別名。 若未看到 **Connect-AzureRMAccount**，可以使用 **Add-AzureRmAccount**，或是在自動化帳戶中更新模組。
 
 當您[執行 Runbook](automation-runbook-execution.md) 來驗證您的執行身分帳戶時，系統會建立 [Runbook 作業](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal)、顯示作業頁面，而作業狀態會顯示在 [作業摘要] 圖格中。 作業狀態一開始會顯示為 [已排入佇列]  ，表示其正在等候雲端中的 Runbook 背景工作變為可用狀態。 然後當背景工作宣告該工作時，狀態將變更為 [正在開始]，然後 Runbook 實際開始執行時再變更為 [執行中]。  Runbook 作業完成時，我們應該會看到 [完成] 狀態。
 

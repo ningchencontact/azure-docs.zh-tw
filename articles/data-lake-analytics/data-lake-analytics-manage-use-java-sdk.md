@@ -1,28 +1,26 @@
 ---
-title: "使用 Azure Java SDK 管理 Azure Data Lake Analytics | Microsoft Docs"
-description: "使用 Azure Data Lake Analytics Java SDK 來開發應用程式"
+title: 使用 Azure Java SDK 來管理 Azure Data Lake Analytics
+description: 本文說明如何使用 Azure Java SDK 來撰寫應用程式，以管理 Data Lake Analytics 作業、資料來源和使用者。
 services: data-lake-analytics
-documentationcenter: 
-author: matt1883
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/18/2017
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: 8a0c1c7aab89f3bb62d0eb9f42e8ac65309d617e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: kfile
+editor: jasonwhowell
+ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
+ms.topic: conceptual
+ms.date: 06/18/2017
+ms.openlocfilehash: 4cf8390f55beeb65c1bd99594e885ed9db551d9e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624228"
 ---
-# <a name="manage--azure-data-lake-analytics-using-java-sdk"></a>使用 Java SDK 管理 Azure Data Lake Analytics
+# <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>使用 Java 應用程式來管理 Azure Data Lake Analytics
+[!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-在本教學課程中，您會開發一個 Java 主控台應用程式，以執行 Azure Data Lake 的一般作業。
+本文說明如何使用以 Azure Java SDK 所撰寫的應用程式，來管理 Azure Data Lake Analytics 帳戶、資料來源、使用者和作業。 
 
 ## <a name="prerequisites"></a>先決條件
 * **Java Development Kit (JDK) 8** (使用 Java 1.8 版)。

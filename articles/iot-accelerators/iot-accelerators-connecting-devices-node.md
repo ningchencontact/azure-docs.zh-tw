@@ -1,25 +1,19 @@
 ---
 title: 以 Node.js 將裝置佈建到遠端監視 - Azure | Microsoft Docs
 description: 描述如何使用以 Node.js 編寫的應用程式，將裝置連線到遠端監視解決方案加速器。
-services: iot-suite
-suite: iot-suite
-documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: fc50a33f-9fb9-42d7-b1b8-eb5cff19335e
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
-ms.openlocfilehash: e0edc2d71d5f2ceac9c631fedaa160ca7291e9d6
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 8bd614fd7aad248612d65717fe50e04a3fc3a9e1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627325"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>將裝置連線到遠端監視解決方案加速器 (Node.js)
 
@@ -52,7 +46,7 @@ ms.lasthandoff: 05/20/2018
     var async = require('async');
     ```
 
-1. 在 `require` 陳述式之後新增下列變數宣告。 使用您在遠端監視解決方案中，為您佈建之裝置記下的值來取代 `{device connection string}` 預留位置值：
+1. 在 `require` 陳述式之後新增下列變數宣告。 針對您在遠端監視解決方案中所佈建的裝置，使用您記下的值來取代 `{device connection string}` 預留位置值：
 
     ```nodejs
     var connectionString = '{device connection string}';

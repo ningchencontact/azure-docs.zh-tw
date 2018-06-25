@@ -1,5 +1,5 @@
 ---
-title: Azure Blockchain Workbench 訊息概觀
+title: Azure Blockchain Workbench 訊息整合概觀
 description: 在 Azure Blockchain Workbench 中使用訊息的概觀。
 services: azure-blockchain
 keywords: ''
@@ -10,23 +10,22 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 4a2e85cc619d17745be9d8f72af5f99049ce7c6b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: f45396c3af285026e16ce641bd37bf0eadcee56d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302087"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607595"
 ---
-# <a name="azure-blockchain-workbench-messages-overview"></a>Azure Blockchain Workbench 訊息概觀
+# <a name="azure-blockchain-workbench-messaging-integration"></a>Azure Blockchain Workbench 訊息整合
 
 Azure Blockchain Workbench 除了提供 REST API，也會提供以傳訊為基礎的整合。 Workbench 會透過 Azure 事件方格發佈以總帳為中心的事件，讓下游取用者能夠根據這些事件來擷取資料或採取動作。 對於需要可靠傳訊功能的用戶端，Azure Blockchain Workbench 也會將訊息傳遞至 Azure 服務匯流排端點。
 
 開發人員也已經表現出，他們非常想要能夠讓外部系統通訊起始交易，以建立使用者、建立合約和更新總帳上的合約。 雖然這項功能目前尚未在公開預覽中出現，但您可以在 [http://aka.ms/blockchain-workbench-integration-sample](http://aka.ms/blockchain-workbench-integration-sample) 找到提供該功能的範例。
 
-
 ## <a name="event-notifications"></a>事件通知
 
-事件通知可用來通知使用者和下游系統，讓其知道 Workbench 中所發生的事件以及 Workbench 所連線到的區塊鏈網路。 事件通知可直接在程式碼中取用，或與 Logic Apps 和 Flow 等工具搭配使用，以觸發將資料傳送到下游系統的流程。
+事件通知可用來通知使用者和下游系統，讓其知道 Blockchain Workbench 中所發生的事件以及 Blockchain Workbench 所連線到的區塊鏈網路。 事件通知可直接在程式碼中取用，或與 Logic Apps 和 Flow 等工具搭配使用，以觸發將資料傳送到下游系統的流程。
 
 如需各種可收到訊息的詳細資料，請參閱[通知訊息參考](#notification-message-reference)。
 
@@ -61,14 +60,14 @@ Azure Blockchain Workbench 除了提供 REST API，也會提供以傳訊為基�
 ### <a name="consuming-service-bus-messages-with-logic-apps"></a>使用 Logic Apps 取用服務匯流排訊息
 
 1. 在 Azure 入口網站中建立新的 **Azure 邏輯應用程式**。
-2.  在入口網站中開啟 Azure 邏輯應用程式時，系統會提示您選取觸發程序。 在搜尋方塊中輸入**服務匯流排**，然後針對在與服務匯流排互動時所要使用的類型，選取適當的觸發程序。 例如，**服務匯流排 - 主題訂用帳戶中收到訊息時 (自動完成)**。
+2. 在入口網站中開啟 Azure 邏輯應用程式時，系統會提示您選取觸發程序。 在搜尋方塊中輸入**服務匯流排**，然後針對在與服務匯流排互動時所要使用的類型，選取適當的觸發程序。 例如，**服務匯流排 - 主題訂用帳戶中收到訊息時 (自動完成)**。
 3. 當工作流程設計工具顯示時，指定服務匯流排的連線資訊。
 4. 選取訂用帳戶，並指定 **workbench-external** 的主題。
 5. 開發應用程式邏輯來利用這個觸發程序所傳來的訊息。
 
 ## <a name="notification-message-reference"></a>通知訊息參考
 
-根據 OperationName，通知訊息具有下列其中一種訊息類型。
+根據 **OperationName**，通知訊息具有下列其中一種訊息類型。
 
 ### <a name="accountcreated"></a>AccountCreated
 
@@ -76,8 +75,8 @@ Azure Blockchain Workbench 除了提供 REST API，也會提供以傳訊為基�
 
 | Name    | 說明  |
 |----------|--------------|
-| UserId  | 所建立使用者的識別碼 |
-| ChainIdentifier | 區塊鏈網路上所建立使用者的位址。 在 Ethereum 中，這會是使用者的「鏈結」位址。 |
+| UserId  | 所建立使用者的識別碼。 |
+| ChainIdentifier | 區塊鏈網路上所建立使用者的位址。 在 Ethereum 中，這會是使用者的**鏈結**位址。 |
 
 ``` csharp
 public class NewAccountRequest : MessageModelBase
@@ -94,15 +93,15 @@ public class NewAccountRequest : MessageModelBase
 | Name | 說明 |
 |-----|--------------|
 | ChainID | 要求的相關聯鏈結唯一識別碼。|
-  BlockId | 總帳上區塊的唯一識別碼。|
-  ContractId | 合約的唯一識別碼。|
-  ContractAddress |       總帳上合約的位址。|
-  TransactionHash  |     總帳上交易的雜湊。|
-  OriginatingAddress |   交易建立者的位址。|
-  ActionName       |     動作的名稱。|
-  IsUpdate        |      識別這是否為更新。|
-  參數       |     物件清單，這些物件可識別傳送至動作的參數名稱、值和資料類型。|
-  TopLevelInputParams |  在合約連線至一或多個其他合約的情況下，這些是來自最上層合約的參數。 |
+| BlockId | 總帳上區塊的唯一識別碼。|
+| ContractId | 合約的唯一識別碼。|
+| ContractAddress |       總帳上合約的位址。|
+| TransactionHash  |     總帳上交易的雜湊。|
+| OriginatingAddress |   交易建立者的位址。|
+| ActionName       |     動作的名稱。|
+| IsUpdate        |      識別這是否為更新。|
+| 參數       |     物件清單，這些物件可識別傳送至動作的參數名稱、值和資料類型。|
+| TopLevelInputParams |  在合約連線至一或多個其他合約的情況下，這些是來自最上層合約的參數。 |
 
 ``` csharp
 public class ContractInsertOrUpdateRequest : MessageModelBase
@@ -242,6 +241,65 @@ public class AssignContractChainIdentifierRequest : MessageModelBase
 {
     public int ContractId { get; set; }
     public string ChainIdentifier { get; set; }
+}
+```
+
+## <a name="classes-used-by-message-types"></a>訊息類型所使用的類別
+
+### <a name="messagemodelbase"></a>MessageModelBase
+
+所有訊息的基本模型。
+
+| Name          | 說明                          |
+|---------------|--------------------------------------|
+| OperationName | 作業的名稱。           |
+| RequestId     | 要求的唯一識別碼。 |
+
+``` csharp
+public class MessageModelBase
+{
+    public string OperationName { get; set; }
+    public string RequestId { get; set; }
+}
+```
+
+### <a name="contractinputparameter"></a>ContractInputParameter
+
+包含參數的名稱、值和類型。
+
+| Name  | 說明                 |
+|-------|-----------------------------|
+| Name  | 參數名稱。  |
+| 值 | 參數的值。 |
+| 類型  | 參數的類型。  |
+
+``` csharp
+public class ContractInputParameter
+{
+    public string Name { get; set; }
+    public string Value { get; set; }
+    public string Type { get; set; }
+}
+```
+
+#### <a name="contractproperty"></a>ContractProperty
+
+包含屬性的識別碼、名稱、值和類型。
+
+| Name  | 說明                |
+|-------|----------------------------|
+| id    | 屬性的識別碼。    |
+| Name  | 屬性的名稱。  |
+| 值 | 屬性的值。 |
+| 類型  | 屬性的類型。  |
+
+``` csharp
+public class ContractProperty
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Value { get; set; }
+    public string DataType { get; set; }
 }
 ```
 

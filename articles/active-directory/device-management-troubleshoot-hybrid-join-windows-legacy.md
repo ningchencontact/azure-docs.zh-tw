@@ -7,6 +7,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,12 +15,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 2fd3d2cb403e3889c5faa538a49fa129496ae6e8
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: d41e83c11f33b0bcbe4ea632332f2cd8bb12313f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32770735"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714107"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>針對已加入混合式 Azure Active Directory 的下層裝置進行疑難排解 
 
@@ -50,11 +51,11 @@ ms.locfileid: "32770735"
 
 **您應該知道的事情：** 
 
-- 每位使用者的裝置數目上限是以裝置為主。 舉例來說：如果 *jdoe* 和 *jharnett* 登入裝置，在 [使用者] 資訊索引標籤中就會為每位使用者建立個別的註冊 (DeviceID)。  
+- 每位使用者的裝置數目上限是以裝置為主。 例如，如果 *jdoe* 和 *jharnett* 登入至裝置，在 [使用者] 資訊索引標籤中就會為每位使用者建立個別的註冊 (DeviceID)。  
 
 - 您可以將裝置的初始註冊/加入設定為在登入或鎖定/解除鎖定時嘗試執行。 工作排程器工作可能會觸發 5 分鐘的延遲。 
 
-- 重新安裝作業系統或手動重新註冊時，可能會在 Azure AD 上新建註冊，而導致在 Azure 入口網站中 [使用者] 資訊索引標籤底下有多個項目。 
+- 重新安裝作業系統或手動重新註冊時，可能會在 Azure AD 中建立新的註冊，而導致在 Azure 入口網站中 [使用者] 資訊索引標籤底下有多個項目。 
 
 ## <a name="step-1-retrieve-the-registration-status"></a>步驟 1：擷取註冊狀態 
 
@@ -89,7 +90,7 @@ ms.locfileid: "32770735"
     
     - 登入的使用者不是網域使用者 (例如本機使用者)。 對下層裝置的混合式 Azure AD 聯結僅支援網域使用者。
     
-    - Autoworkplace.exe 無法以無訊息方式使用 Azure AD 或 AD FS 進行驗證。 這可能是因為 Azure AD URL 傳出的網路連線問題 (請查必要條件)。 也可能是已針對使用者啟用/設定多重要素驗證 (MFA)，而且未在同盟伺服器中設定 WIAORMUTLIAUTHN (請檢查組態步驟)。 另一個可能的原因是，主領域探索 (HRD) 頁面正在等候使用者互動，導致 **autoworkplace.exe** 無法以無訊息方式取得權杖。
+    - Autoworkplace.exe 無法以無訊息方式使用 Azure AD 或 AD FS 進行驗證。 這可能是因為 Azure AD URL 的輸出網路連線問題。 也可能是已針對使用者啟用/設定 Multi-Factor Authentication (MFA)，而且未在同盟伺服器中設定 WIAORMUTLIAUTHN。 另一個可能的原因是，主領域探索 (HRD) 頁面正在等候使用者互動，導致 **autoworkplace.exe** 無法以無訊息方式取得權杖。
     
     - 貴組織使用的是 Azure AD 無縫單一登入，`https://autologon.microsoftazuread-sso.com` 或 `https://aadg.windows.net.nsatc.net` 不在裝置的 IE 內部網路設定中，並且未針對內部網路區域啟用 [允許透過指令碼更新至狀態列]。
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: byvinyal
-ms.openlocfilehash: 8a8482fa93ca902746e4fc8ef6d67b274a926bdc
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9e4ea16193824e63298b19d4401c110385fa7feb
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33939955"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700187"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 訂用帳戶和服務限制、配額與限制
 本文件列出一些最常見的 Microsoft Azure 限制，有時也稱為配額。 本文件目前未涵蓋所有 Azure 服務。 清單將隨著時間擴展並更新以涵蓋更多平台。
@@ -72,8 +72,9 @@ ms.locfileid: "33939955"
 * [事件中樞](#event-hubs-limits)
 * [IoT 中心](#iot-hub-limits)
 * [IoT 中樞裝置佈建服務](#iot-hub-device-provisioning-service-limits)
-* [Key Vault](#key-vault-limits)
+* [金鑰保存庫](#key-vault-limits)
 * [Log Analytics](#log-analytics-limits)
+* [受控身分識別](#managed-identity-limits)
 * [媒體服務](#media-services-limits)
 * [Mobile Engagement](#mobile-engagement-limits)
 * [行動服務](#mobile-services-limits)
@@ -83,6 +84,7 @@ ms.locfileid: "33939955"
 * [網路監看員](#network-watcher-limits)
 * [通知中樞服務](#notification-hub-service-limits)
 * [資源群組](#resource-group-limits)
+* [角色型存取控制](#role-based-access-control-limits)
 * [排程器](#scheduler-limits)
 * [Search](#search-limits)
 * [服務匯流排](#service-bus-limits)
@@ -307,7 +309,7 @@ Azure Cosmos DB 是一個全域調整資料庫，可以調整輸送量和儲存�
 ### <a name="azure-redis-cache-limits"></a>Azure Redis 快取限制
 [!INCLUDE [redis-cache-service-limits](../includes/redis-cache-service-limits.md)]
 
-### <a name="key-vault-limits"></a>Key Vault 限制
+### <a name="key-vault-limits"></a>金鑰保存庫限制
 [!INCLUDE [key-vault-limits](../includes/key-vault-limits.md)]
 
 ### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
@@ -315,6 +317,12 @@ Azure Cosmos DB 是一個全域調整資料庫，可以調整輸送量和儲存�
 
 ### <a name="automation-limits"></a>自動化限制
 [!INCLUDE [automation-limits](../includes/azure-automation-service-limits.md)]
+
+### <a name="managed-identity-limits"></a>受控身分識別限制
+[!INCLUDE [automation-limits](~/includes/managed-identity-limits.md)]
+
+### <a name="role-based-access-control-limits"></a>角色型存取控制限制
+[!INCLUDE [role-based-access-control-limits](../includes/role-based-access-control-limits.md)]
 
 ### <a name="sql-database-limits"></a>SQL Database 限制
 如需 SQL Database 的限制，請參閱 [SQL Database 資源限制](sql-database/sql-database-resource-limits.md)。

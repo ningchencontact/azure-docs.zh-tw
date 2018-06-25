@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2018
+ms.date: 05/21/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 910eb5bdd1b9d4a2a27a27c89812584bb068bec0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3343cebb85124f19fe773822e296312abad53d96
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32150618"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591169"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>使用者隱私權與 Azure Active Directory 傳遞驗證
 
@@ -29,13 +30,13 @@ ms.locfileid: "32150618"
 
 ## <a name="overview"></a>概觀
 
-Azure AD 傳遞驗證會建立下列記錄類型，其中可以包含 EUII：
+Azure AD 傳遞驗證會建立下列記錄類型，其中可能會包含「個人資料」：
 
 - Azure AD Connect 追蹤記錄檔。
 - 驗證代理程式追蹤記錄檔。
 - Windows 事件記錄檔。
 
-適用於傳遞驗證的使用者隱私權可使用兩種方式來達成：
+使用以下兩種方式來改善傳遞驗證的使用者隱私權：
 
 1.  在接到要求時擷取使用者的資料，並從安裝中移除該使用者的資料。
 2.  確保沒有資料會保留超過 48 小時。
