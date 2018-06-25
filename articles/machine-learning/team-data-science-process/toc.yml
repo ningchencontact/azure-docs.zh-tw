@@ -54,15 +54,17 @@
     - name: Azure Machine Learning
       href: walkthroughs-aml-with-tdsp.md
       items:
-        - name: 情感分類
+        - name: 使用 Keras & Scikit Learn 學習人氣分類
           href: predict-twitter-sentiment.md
+        - name: 使用 AML 文字分析套件進行人氣分類
+          href: predict-twitter-sentiment-amltextpackage.md
         - name: 美國收入分類
           href: ../desktop-workbench/scenario-tdsp-classifying-us-incomes.md
           maintainContext: true
         - name: 生物醫學實體辨識
           href: ../desktop-workbench/scenario-tdsp-biomedical-recognition.md
           maintainContext: true
-        - name: 皮膚癌影像分類
+        - name: 使用 AML 辨識套件進行皮膚癌影像分類
           href: isic-image-classification.md
           maintainContext: true
     - name: Spark 與 PySpark 和 Scala
@@ -92,8 +94,7 @@
       href: team-data-science-process-for-data-scientists.md
     - name: 適用於 DevOps
       href: team-data-science-process-for-devops.md
-- name: |
-    作法
+- name: 作法
   items:
     - name: 在 Azure ML 中使用 TDSP
       href: ../desktop-workbench/how-to-use-tdsp-in-azure-ml.md
