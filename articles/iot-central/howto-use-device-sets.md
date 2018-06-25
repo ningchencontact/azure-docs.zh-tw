@@ -1,19 +1,19 @@
 ---
 title: 在 Azure IoT Central 應用程式中使用裝置集合 | Microsoft Docs
 description: 如何以操作員的身分在 Azure IoT Central 應用程式中使用裝置集合。
-services: iot-central
 author: ellenfosborne
 ms.author: elfarber
 ms.date: 01/21/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 932c8315b5af22c3adf18de50cf03deaf6b2a53e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpfr
+ms.openlocfilehash: ef1fa64a276926a35dbf98646317bfe29200bb22
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201144"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261673"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>在 Azure IoT Central 應用程式中使用裝置集合
 
@@ -86,10 +86,40 @@ ms.locfileid: "34201144"
 
     > [!NOTE]
     > 您可以新增多個影像、連結和格線。
-
-1. 關閉 [設計模式]。
+  
+    1. 關閉 [設計模式]。
 
     ![設計模式關閉](media/howto-use-device-sets/image10.png)
+
+
+### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>在裝置集合儀表板中設定位置圖 
+您可以在地圖中新增位置圖，以將裝置集合位置視覺化。 
+
+若要將位置圖新增到裝置集合儀表板，您必須先在 [裝置範本] 中設定好位置屬性，請參閱[建立位置屬性 (採用 Azure 地圖服務)](howto-set-up-template.md)。
+
+
+1. 在 [裝置集合儀表板] 上，從資源庫選取 [地圖]。 
+
+    ![裝置集合儀表板地圖](media/howto-use-device-sets/LocationMaps1.png)
+
+
+2. 提供標題，然後選擇您先前在 [裝置屬性] 中設定的位置屬性。
+
+    ![設定儀表板地圖](media/howto-use-device-sets/LocationMaps2.png)
+
+3. 儲存之後，就會在 [裝置集合] 中看到顯示您裝置位置的地圖磚。
+
+    ![儲存儀表板地圖](media/howto-use-device-sets/LocationMaps3.png)
+
+
+5. 現在，當操作員檢視裝置集合儀表板時，就可以看到您設定的所有磚 (包括位置圖格)，一眼就能看到以視覺化方式呈現的所有裝置位置！
+
+    ![儀表板地圖操作員檢視](media/howto-use-device-sets/LocationMaps4.png)
+
+    您可以將地圖調整為需要的大小。
+
+
+
 
 ## <a name="configure-the-list-for-your-device-set"></a>設定裝置集合的清單
 
