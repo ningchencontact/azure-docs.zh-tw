@@ -1,22 +1,21 @@
 ---
-title: Azure Active Directory B2C：使用者移轉方法
+title: Azure Active Directory B2C 中的使用者移轉方法 | Microsoft Docs
 description: 討論有關使用圖形 API (以及選擇性地使用 Azure AD B2C 自訂原則) 來進行使用者移轉的核心概念和進階概念。
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 47f813839a5495591356e5ecd461902fa8745c65
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: B2C
+ms.openlocfilehash: 7c78cb13f9028b2be527794751d5f8ced9bff171
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32140320"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711336"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C：使用者移轉
 當您將識別提供者移轉到 Azure Active Directory B2C (Azure AD B2C) 時，可能也需要移轉使用者帳戶。 本文說明如何將任何識別提供者的現有使用者帳戶移轉至 Azure AD B2C。 本文章並非是為了做出規定，而是要說明數個案例。 每種方法是否適合則屬開發人員的責任。
@@ -273,8 +272,8 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
 
 ### <a name="step-43-add-a-technical-profile-and-technical-profile-validation-to-your-policy"></a>步驟 4.3：新增技術設定檔和技術設定檔驗證到您的原則中
 1. 在 [方案總管] 中，展開 [方案項目]，並開啟 *TrustFrameworkExtensions.xml* 原則檔。
-2. 從 `yourtenant.onmicrosoft.com` 將 `TenantId`、`PublicPolicyUri` 和 `<TenantId>` 欄位變更成您的租用戶名稱。
-3. 在 `<TechnicalProfile Id="login-NonInteractive">` 項目之下，使用在 [開始使用自訂原則][][B2C-GetStartedCustom] 中設定的應用程式識別碼取代 `ProxyIdentityExperienceFrameworkAppId` 和 `IdentityExperienceFrameworkAppId` 的所有執行個體。
+2. 從 `TenantId` 將 `PublicPolicyUri`、`<TenantId>` 和 `yourtenant.onmicrosoft.com` 欄位變更成您的租用戶名稱。
+3. 在 `<TechnicalProfile Id="login-NonInteractive">` 項目之下`ProxyIdentityExperienceFrameworkAppId`，`IdentityExperienceFrameworkAppId` 使用在 [開始使用自訂原則][B2C-GetStartedCustom] 中設定的應用程式識別碼取代  和  的所有執行個體。
 4. 在 `<ClaimsProviders>` 節點下，尋找下列 XML 程式碼片段。 變更 `ServiceUrl` 的值，使其指向您的 Azure App Service URL。
 
     ```XML

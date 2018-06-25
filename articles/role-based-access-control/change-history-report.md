@@ -11,37 +11,45 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/23/2017
+ms.date: 05/23/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
+ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e48ea2293c186bbc337f9d70464df374d64b5e61
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 03961de233861baf923402cc96ab8174b3233bd0
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203898"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266643"
 ---
 # <a name="view-activity-logs-for-role-based-access-control-changes"></a>檢視活動記錄是否有角色型存取控制的變更
 
-每當有人在您的訂用帳戶內變更角色定義或角色指派，這些變更都會記錄在 [Azure 活動記錄](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)的 [管理] 類別中。 您可以檢視活動記錄，查看過去 90 天內所有的角色型存取控制 (RBAC) 變更。
+有時，您會需要角色型存取控制 (RBAC) 變更的相關資訊，例如用來進行稽核或疑難排解。 每當有人對您訂用帳戶內的角色指派或角色定義進行變更時，這些變更都會記錄在 [Azure 活動記錄](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)中。 您可以檢視活動記錄來查看過去 90 天的所有 RBAC 變更。
 
 ## <a name="operations-that-are-logged"></a>記錄的作業
 
 以下是在活動記錄中記錄的 RBAC 相關作業：
 
-- 建立或更新自訂角色定義
-- 刪除自訂角色定義
 - 建立角色指派
 - 刪除角色指派
+- 建立或更新自訂角色定義
+- 刪除自訂角色定義
 
 ## <a name="azure-portal"></a>Azure 入口網站
 
-開始使用最簡單的方式是使用 Azure 入口網站檢視活動記錄。 下列螢幕擷取畫面顯示已篩選顯示 [管理] 類別，以及角色定義和角色指派作業的活動記錄範例。 它也包含將記錄下載為 CSV 檔案的連結。
+開始使用最簡單的方式是使用 Azure 入口網站檢視活動記錄。 下列螢幕擷取畫面顯示已篩選成顯示角色指派和角色定義作業的活動記錄範例。 它也包含將記錄下載為 CSV 檔案的連結。
 
 ![使用入口網站的活動記錄 - 螢幕擷取畫面](./media/change-history-report/activity-log-portal.png)
 
-如需詳細資訊，請參閱[檢視活動記錄中的事件](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)。
+入口網站中的活動記錄有數個篩選條件。 以下是 RBAC 相關的篩選條件：
+
+|篩選條件  |值  |
+|---------|---------|
+|事件類別目錄     | <ul><li>管理</li></ul>         |
+|作業     | <ul><li>建立角色指派</li> <li>刪除角色指派</li> <li>建立或更新自訂角色定義</li> <li>刪除自訂角色定義</li></ul>      |
+
+
+如需有關活動記錄的詳細資訊，請參閱[檢視活動記錄中的事件](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)。
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -100,7 +108,7 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
 ## <a name="azure-log-analytics"></a>Azure Log Analytics
 
-[Azure Log Analytics](../log-analytics/log-analytics-overview.md) 是另一個您可以用來收集並分析所有 Azure 資源的角色型存取控制變更的工具。 Log Analytics 具有下列優點：
+[Azure Log Analytics](../log-analytics/log-analytics-overview.md) 是另一個您可以用來收集並分析所有 Azure 資源之 RBAC 變更的工具。 Log Analytics 具有下列優點：
 
 - 撰寫複雜的查詢和邏輯
 - 整合警示、Power BI 和其他工具

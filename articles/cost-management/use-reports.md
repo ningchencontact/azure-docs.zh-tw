@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: db7663623ada5d7799c46018be9e3b66afd004ca
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1a2067228629b04f1ef2cc407a28f379acc75f60
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297510"
 ---
 # <a name="use-cost-management-reports"></a>使用成本管理報告
 
@@ -23,6 +24,8 @@ ms.lasthandoff: 04/28/2018
 ## <a name="cost-analysis-reports"></a>成本分析報告
 
 成本分析報告會顯示您雲端提供者的帳單資料。 您可以使用報告來群組並鑽研計費檔案中的各種資料區段。 報告可跨雲端廠商的未經處理帳單資料進行更細微的成本瀏覽。
+
+以圖形方式檢視時，分析報告的 Y 軸代表*成本*，X 軸代表*類別或您選擇的標籤*。 儘管圖形顯示的是某範圍 (例如過去 30 天)，但該範圍僅為篩選條件。 分析報告非常適合用來比較類別。 例如，過去 30 天內每個訂用帳戶的成本； 或是指定期間內的儲存體或運算等服務的成本。
 
 成本分析報告不會依標記來群組成本。 以標記作為基礎的報告只能在您使用「成本配置 360」建立成本模型之後所設定的成本配置報告中使用。
 
@@ -50,6 +53,8 @@ ms.lasthandoff: 04/28/2018
 ### <a name="actual-cost-over-time"></a>隨時間變化的實際成本
 
 隨時間變化的實際成本報告是透過定義的時間解析，將成本分佈的標準成本分析報告。 此報告會顯示隨時間變化的花費，讓您能夠觀察趨勢，並偵測花費的審查。 此報告會顯示主要成本參與者，包括持續成本和在所選時間範圍內耗費的一次性保留執行個體之費用。
+
+以圖形方式檢視時，一段時間的成本報告 Y 軸代表*成本*，X 軸代表*時間週期*。 這些報告會顯示經過一段時間的成本變化。
 
 使用隨時間變化的實際成本報告進行：
 

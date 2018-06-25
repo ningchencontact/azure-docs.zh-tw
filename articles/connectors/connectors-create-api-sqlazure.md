@@ -1,32 +1,28 @@
 ---
 title: 連線至 SQL Server 或 Azure SQL Database - Azure Logic Apps | Microsoft Docs
-description: 建立從 Azure Logic Apps 到內部部署 SQL Server 與雲端 Azure SQL Database 的連線
-services: logic-apps
-documentationcenter: ''
+description: 如何使用 Azure Logic Apps 自動化工作流程，以存取和管理內部部署或雲端的 SQL 資料庫
 author: ecfan
-manager: cfowler
-editor: ''
-tags: connectors
-ms.assetid: d8a319d0-e4df-40cf-88f0-29a6158c898c
-ms.service: logic-apps
-ms.workload: logic-apps
-ms.devlang: ''
-ms.tgt_pltfrm: ''
-ms.topic: article
-ms.date: 05/15/2018
+manager: jeconnoc
 ms.author: estfan
-ms.openlocfilehash: 4917f784c07919155e006711026899ce7712fecb
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.date: 05/15/2018
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: dccb91c782408a5fed5c3ef1b68f9918823ce402
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164793"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296283"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>從 Azure Logic Apps 連線至 SQL Server 或 Azure SQL Database
 
-本文說明如何使用 SQL Server 連接器，從邏輯應用程式內部存取 SQL 資料庫中的資料。 這樣一來，您就可以建立邏輯應用程式，來自動執行資料管理工作和工作流程。 該連接器同時適用於[內部部署 SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation) 和[雲端 Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview)。 
+本文說明如何使用 SQL Server 連接器，從邏輯應用程式內部存取 SQL 資料庫中的資料。 如此您即可建立邏輯應用程式，以自動化用來管理 SQL 資料和資源的工作、流程和工作流程。 該連接器同時適用於[內部部署 SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation) 和[雲端 Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview)。 
 
-您可以建置會在 SQL 資料庫或其他系統 (例如，Dynamics CRM Online) 中的事件所觸發時執行的邏輯應用程式。 邏輯應用程式也可以取得、插入或刪除資料，還可執行 SQL 查詢或預存程序。 例如，您可以建置邏輯應用程式，以自動檢查 Dynamics CRM Online 中是否有新記錄、將新記錄的項目新增至 SQL 資料庫，然後傳送電子郵件警示。
+您可以建立會由 SQL 資料庫或其他系統 (例如，Dynamics CRM Online) 中的事件所觸發而執行的邏輯應用程式。 邏輯應用程式也可以取得、插入及刪除資料，還可執行 SQL 查詢或已儲存的程序。 例如，您可以建置邏輯應用程式，以自動檢查 Dynamics CRM Online 中是否有新記錄、將新記錄的項目新增至 SQL 資料庫，然後傳送電子郵件警示。
 
 如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。 如果您還不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)和[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 如需連接器專屬的技術資訊，請參閱 <a href="https://docs.microsoft.com/connectors/sql/" target="blank">SQL Server 連接器參考</a>。
 

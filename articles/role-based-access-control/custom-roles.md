@@ -13,22 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/12/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
+ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e2ea46ea1a6b5bd3f50d4d4c15492c16c5241c0
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 3baf616e448f1f6d5292161ae125502d72141940
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161051"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266589"
 ---
 # <a name="create-custom-roles-in-azure"></a>建立 Azure 的自訂角色
 
-如果[內建角色](built-in-roles.md)不符合您特定的存取需求，您可以建立自己的自訂角色。 就像內建角色一樣，您可以將自訂角色指派給訂用帳戶、資源群組和資源範圍的使用者、群組和服務主體。 自訂角色會儲存在 Azure Active Directory (Azure AD) 租用戶中，而且可在訂用帳戶之間共用。 可以使用 Azure PowerShell、Azure CLI 和 REST API 建立自訂角色。 本文章會舉例說明，如何使用 PowerShell 及 Azure CLI 開始建立自訂角色。
+如果[內建角色](built-in-roles.md)不符合您特定的存取需求，您可以建立自己的自訂角色。 就像內建角色一樣，您可以將自訂角色指派給訂用帳戶、資源群組和資源範圍的使用者、群組和服務主體。 自訂角色會儲存在 Azure Active Directory (Azure AD) 租用戶中，而且可在訂用帳戶之間共用。 每個租用戶可以有最多 2000 個自訂角色。 可以使用 Azure PowerShell、Azure CLI 和 REST API 建立自訂角色。
+
+本文章會舉例說明，如何使用 PowerShell 及 Azure CLI 開始建立自訂角色。
 
 ## <a name="create-a-custom-role-to-open-support-requests-using-powershell"></a>建立自訂角色以使用 PowerShell 開啟支援要求
 
-若要建立自訂角色，您可以從內建角色著手，加以編輯，然後建立新的角色。 在本範例中，會對內建的 [讀者][](built-in-roles.md#reader) 角色進行修改，建立了名為「讀者支援票證存取層級」的自訂角色。 它可讓使用者檢視訂用帳戶中的一切，也可開啟支援要求。
+若要建立自訂角色，您可以從內建角色著手，加以編輯，然後建立新的角色。 在本範例中，會對內建的 [讀者](built-in-roles.md#reader) 角色進行修改，建立了名為「讀者支援票證存取層級」的自訂角色。 它可讓使用者檢視訂用帳戶中的一切，也可開啟支援要求。
 
 > [!NOTE]
 > 可讓使用者開啟支援要求的唯獨兩個內建角色動作是[擁有者](built-in-roles.md#owner)和[參與者](built-in-roles.md#contributor)。 使用者若要開啟支援要求，必須獲指派訂用帳戶範圍內的角色，因為所有支援要求都會以 Azure 訂用帳戶作為基礎加以建立。
@@ -39,7 +41,7 @@ ms.locfileid: "34161051"
 Get-AzureRmRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\rbacrole2.json
 ```
 
-下圖顯示了 [讀者] [](built-in-roles.md#reader)角色的 JSON 輸出。 一般角色是由三個主要區段組成：`Actions`、`NotActions` 和 `AssignableScopes`。 `Actions` 區段會列出此角色所有允許的作業。 若要從 `Actions` 中排除作業，請將作業加入 `NotActions`。 有效使用權限的計算方式是將 `NotActions` 作業從 `Actions` 作業中扣除。
+下圖顯示了 [讀者](built-in-roles.md#reader)角色的 JSON 輸出。 一般角色是由三個主要區段組成：`Actions`、`NotActions` 和 `AssignableScopes`。 `Actions` 區段會列出此角色所有允許的作業。 若要從 `Actions` 中排除作業，請將作業加入 `NotActions`。 有效使用權限的計算方式是將 `NotActions` 作業從 `Actions` 作業中扣除。
 
 ```json
 {
@@ -59,7 +61,7 @@ Get-AzureRmRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\rbacrole
 }
 ```
 
-接下來，您可以編輯 JSON 輸出以建立自訂角色。 在此情況下，若要建立支援票證，必須新增 `Microsoft.Support/*` 作業。 每個作業都可由資源提供者提供。 若要取得資源提供者的作業清單，您可以使用 [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) 命令，或請參閱 [Azure Resource Manager 資源提供者作業][](resource-provider-operations.md)。
+接下來，您可以編輯 JSON 輸出以建立自訂角色。 在此情況下，若要建立支援票證，必須新增 `Microsoft.Support/*` 作業。 每個作業都可由資源提供者提供。 若要取得資源提供者的作業清單，您可以使用 [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) 命令，或請參閱 [Azure Resource Manager 資源提供者作業](resource-provider-operations.md)。
 
 使用角色的位置必須包含明確的訂用帳戶識別碼。 訂用帳戶識別碼需列在 `AssignableScopes` 之下，否則不允許您將角色匯入您的訂用帳戶。
 
@@ -111,7 +113,7 @@ New-AzureRmRoleDefinition -InputFile "C:\rbacrole2.json"
 
 使用 Azure CLI 與 PowerShell 建立自訂角色的步驟類似，除了 JSON 輸出有所不同以外。
 
-在此範例中，您可以從內建[讀者](built-in-roles.md#reader)角色著手。 若要列出 [讀者][](built-in-roles.md#reader) 角色的動作，請使用 [az role definition list](/cli/azure/role/definition#az_role_definition_list) 命令。
+在此範例中，您可以從內建[讀者](built-in-roles.md#reader)角色著手。 若要列出 [讀者](built-in-roles.md#reader) 角色的動作，請使用 [az role definition list](/cli/azure/role/definition#az_role_definition_list) 命令。
 
 ```azurecli
 az role definition list --name "Reader" --output json

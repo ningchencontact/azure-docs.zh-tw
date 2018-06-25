@@ -1,19 +1,19 @@
 ---
 title: 在 Azure IoT Central 應用程式中設定裝置範本 | Microsoft Docs
 description: 了解如何使用量測、設定、屬性、規則和儀表板來設定裝置範本。
-services: iot-central
 author: viv-liu
 ms.author: viviali
 ms.date: 04/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 52c6c8fe4375354d650f92b73bffc288c9a2ccfe
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: bda056a75ae9d696dab389b85fe1bfb2935ee1a8
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201504"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261979"
 ---
 # <a name="set-up-a-device-template"></a>設定裝置範本
 
@@ -161,6 +161,59 @@ ms.locfileid: "34201504"
 > [!NOTE]
 > 在建立新的圖格之後，就可以變更屬性值。 首先，請到螢幕右上方關閉設計模式。
 
+### <a name="create-a-location-property-powered-by-azure-maps"></a>建立位置屬性 (採用 Azure 地圖服務)
+您可以在 Azure IoT Central 中提供地理內容給位置資料，並顯示任意街道地址的經緯度座標地圖 (或只顯示經緯度座標地圖)。 Azure IoT Central 中的這個功能是由 Azure 地圖服務提供支援。
+
+您可以新增的位置屬性有兩種：
+- **將位置新增為應用程式屬性**：只會單純地儲存在應用程式中。 裝置不認得應用程式屬性。
+- **將位置新增為裝置屬性**：將會由裝置回報。
+
+####<a name="adding-location-as-an-application-property"></a>將位置新增為應用程式屬性 
+您可以在 Azure IoT Central 應用程式中使用 Azure 地圖服務建立位置屬性作為應用程式屬性。 例如，您可以新增裝置安裝地址。 
+
+1. 瀏覽至 [裝置屬性] 索引標籤，確定已開啟 [設計模式]。
+
+![位置屬性](./media/howto-set-up-template/locationcloudproperty1.png)
+
+2. 在 [屬性] 索引標籤上，按一下 [位置]。
+3. 選擇性地設定 [顯示名稱]、[欄位名稱] 和位置的初始值。 
+
+![位置屬性表單](./media/howto-set-up-template/locationcloudproperty2.png)
+
+新增位置有兩種支援的格式：
+- **以地址新增位置**
+- **以座標新增位置** 
+
+4. 按一下 [儲存]。 
+
+![位置屬性欄位](./media/howto-set-up-template/locationcloudproperty3.png)
+
+現在，操作員可更新位置欄位表單中的位置值。 
+
+####<a name="adding-location-as-a-device-property"></a>將位置新增為裝置屬性 
+
+您可以將位置屬性建立為裝置屬性，該屬性會由裝置回報。
+例如，您想要追蹤裝置位置的時候。
+
+1.  瀏覽至 [裝置屬性] 索引標籤，確定已開啟 [設計模式]。
+2.  按一下 [資源庫] 中的 [裝置屬性]。
+
+![位置屬性欄位](./media/howto-set-up-template/locationdeviceproperty1.png)
+
+3.  設定顯示名稱、欄位名稱，然後選擇 [位置] 作為資料類型。 
+
+> [!NOTE]
+欄位名稱必須與裝置回報的屬性名稱完全相符。 
+
+![位置屬性欄位](./media/howto-set-up-template/locationdeviceproperty2.png)
+
+![位置屬性操作員檢視](./media/howto-set-up-template/locationdeviceproperty2.png)
+
+現在，設定好位置屬性之後，接著可以在 [裝置儀表板] 中新增地圖來將位置視覺化。 請參閱如何[在儀表板中新增位置 Azure 地圖](howto-set-up-template.md)。
+
+
+
+
 ## <a name="rules"></a>規則
 
 規則可讓操作員近乎即時地監視裝置。 規則會在觸發規則時自動叫用**動作**，例如傳送電子郵件。 目前可用的規則只有一種：
@@ -178,6 +231,31 @@ ms.locfileid: "34201504"
 現在，當操作員檢視儀表板時，就會看到這個可顯示裝置屬性和設定的圖格：
 
 ![儀表板圖格](./media/howto-set-up-template/dashboardtile.png)
+
+### <a name="add-location-azure-map-in-dashboard"></a>在儀表板中新增位置 Azure 地圖
+
+如果您已依[藉由 Azure 地圖服務來建立位置屬性](howto-set-up-template.md)中的步驟設定了位置屬性，就可以直接在裝置儀表板中使用地圖來將位置視覺化。
+
+1.  瀏覽至 [裝置儀表板] 索引標籤，確定已開啟 [設計模式]。
+2.  在 [裝置儀表板] 上，從資源庫選取 [地圖]。 
+
+![選取儀表板位置 Azure 地圖](./media/howto-set-up-template/locationcloudproperty4map.png)
+
+3.  提供標題，然後選擇您先前在 [裝置屬性] 中設定的位置屬性。
+
+![設定儀表板位置 Azure 地圖](./media/howto-set-up-template/locationcloudproperty5map.png)
+
+4.  儲存之後，就會看到地圖磚顯示您已選取的位置。 
+
+![將儀表板位置 Azure 地圖視覺化](./media/howto-set-up-template/locationcloudproperty6map.png) 
+
+您可以將地圖調整為需要的大小。
+
+現在，當操作員檢視儀表板時，他們可以看到您已設定所有儀表板磚 (包括位置圖)！
+
+![儀表板位置 Azure 地圖儀表板](./media/howto-set-up-template/locationcloudproperty7map.png) 
+
+
 
 ## <a name="next-steps"></a>後續步驟
 

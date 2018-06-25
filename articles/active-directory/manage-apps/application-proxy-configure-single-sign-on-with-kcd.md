@@ -11,15 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: 506ff0bce0b68b1477f27f913bd3fe119e36cca1
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 8e3cc261576e38cc304dc740f89582f7fd857e1a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293029"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>可供使用應用程式 Proxy 單一登入應用程式的 Kerberos 限制委派
 
@@ -77,14 +78,30 @@ Sharepointserviceaccount 可以是 SPS 電腦帳戶，或是用來執行 SPS 應
 1. 根據 [使用應用程式 Proxy 發佈應用程式](application-proxy-publish-azure-portal.md)中的所述指示來發佈您的應用程式。 請務必選取 [Azure Active Directory] 作為 [預先驗證方法]。
 2. 應用程式出現於企業應用程式清單後，將其選取並按一下 [單一登入]。
 3. 將單一登入模式設定為 [整合式 Windows 驗證]。  
-4. 輸入應用程式伺服器的 [內部應用程式 SPN]  。 在此範例中，已發佈應用程式的 SPN 為 http/www.contoso.com。此 SPN 必須在連接器可以呈送委派認證的服務清單中。 
+4. 輸入應用程式伺服器的 [內部應用程式 SPN]  。 在此範例中，已發佈應用程式的 SPN 為 http/www.contoso.com。 此 SPN 必須在連接器可以呈送委派認證的服務清單中。 
 5. 針對要代表使用者使用的連接器選擇 [委派的登入身分識別]。 如需詳細資訊，請參閱[使用不同的內部部署和雲端身分識別](#Working-with-different-on-premises-and-cloud-identities)
 
    ![進階應用程式組態](./media/application-proxy-configure-single-sign-on-with-kcd/cwap_auth2.png)  
 
 
 ## <a name="sso-for-non-windows-apps"></a>非 Windows 應用程式的 SSO
-Azure AD 應用程式 Proxy 的 Kerberos 委派流程會在 Azure AD 在雲端驗證使用者開始。 一旦要求到達內部部署，Azure AD 應用程式 Proxy 連接器會利用與本機 Active Directory 互動，代表使用者發出 Kerberos 票證。 此程序稱為「Kerberos 限制委派 (KCD)」。 在下一個階段中，要求會傳送至具有此 Kerberos 票證的後端應用程式。 有許多定義如何傳送這類要求的通訊協定。 大部分的非 Windows 伺服器會預期 Azure AD 應用程式 Proxy 現在支援的交涉/SPNego。
+
+Azure AD 應用程式 Proxy 的 Kerberos 委派流程會在 Azure AD 在雲端驗證使用者開始。 一旦要求到達內部部署，Azure AD 應用程式 Proxy 連接器會利用與本機 Active Directory 互動，代表使用者發出 Kerberos 票證。 此程序稱為「Kerberos 限制委派 (KCD)」。 在下一個階段中，要求會傳送至具有此 Kerberos 票證的後端應用程式。 
+
+有許多定義如何傳送這類要求的通訊協定。 預期大部分的非 Windows 伺服器都會與 SPNEGO 進行交涉。 Azure AD 應用程式 Proxy 支援此通訊協定，但預設為停用。 您可將伺服器設定為 SPNEGO 或標準 KCD ，但無法同時設定為兩者。
+
+如果您為 SPNEGO 設定連接器電腦，請確定該連接器群組中的所有其他連接器也都已採用 SPNEGO 進行設定。 預定採用標準 KCD 的應用程式則應透過其他並非針對 SPNEGO 進行設定的連接器路由傳送。
+ 
+
+若要啟用 SPNEGO：
+
+1. 開啟以系統管理員身分執行的命令提示字元。
+2. 透過命令提示字元，在需要 SPNEGO 的連接器伺服器中執行下列命令。
+
+    ```
+    REG ADD "HKLM\SOFTWARE\Microsoft\Microsoft AAD App Proxy Connector" /v UseSpnegoAuthentication /t REG_DWORD /d 1
+    net stop WAPCSvc & net start WAPCSvc
+    ```
 
 如需有關 Kerberos 的詳細資訊，請參閱[有關 Kerberos 限制委派 (KCD) 您想要知道的一切](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd)。
 
@@ -124,7 +141,7 @@ Azure AD 應用程式 Proxy 的 Kerberos 委派流程會在 Azure AD 在雲端�
 ## <a name="next-steps"></a>後續步驟
 
 * [如何設定應用程式 Proxy 應用程式以使用 Kerberos 限制委派](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
-* [使用應用程式 Proxy 疑難排解您遇到的問題](../active-directory-application-proxy-troubleshoot.md)
+* [使用應用程式 Proxy 疑難排解您遇到的問題](application-proxy-troubleshoot.md)
 
 
 如需最新消息，請查閱 [應用程式 Proxy 部落格](http://blogs.technet.com/b/applicationproxyblog/)
