@@ -268,14 +268,14 @@
       items:
         - name: 監視邏輯應用程式狀態
           href: logic-apps-monitor-your-logic-apps.md
-        - name: 透過 Log Analytics 監視 OMS 中的邏輯應用程式狀態
+        - name: 透過 Azure Log Analytics 監視邏輯應用程式狀態
           href: logic-apps-monitor-your-logic-apps-oms.md
         - name: 監視 B2B 訊息
           href: logic-apps-monitor-b2b-message.md
           items:
-            - name: 在 OMS 中追蹤 B2B 訊息
+            - name: 追蹤 Azure Log Analytics 中的 B2B 訊息
               href: logic-apps-track-b2b-messages-omsportal.md
-            - name: B2B 訊息的查詢 OMS
+            - name: 查詢 Azure Log Analytics 的 B2B 訊息
               href: logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md
     - name: 範例、案例和逐步解說
       href: logic-apps-examples-and-scenarios.md

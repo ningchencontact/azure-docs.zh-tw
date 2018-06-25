@@ -3,15 +3,15 @@ title: 使用 Azure Migrate 進行規模探索和評定 | Microsoft Docs
 description: 說明如何使用 Azure Migrate 服務評定大量的內部部署機器。
 author: rayne-wiselman
 ms.service: azure-migrate
-ms.topic: article
-ms.date: 06/04/2018
+ms.topic: conceptual
+ms.date: 06/19/2018
 ms.author: raynew
-ms.openlocfilehash: 89c9cfd4bdc1c483764983c886ba9f96cc75c69e
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: dd7524c0114589e0c145cb4c03b0f531d58ce950
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736825"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36214686"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>探索及評定大型 VMware 環境
 

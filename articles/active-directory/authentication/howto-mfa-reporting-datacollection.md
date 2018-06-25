@@ -10,12 +10,12 @@ ms.service: multi-factor-authentication
 ms.workload: identity
 ms.topic: article
 ms.date: 05/01/2018
-ms.openlocfilehash: d28bb4b8e171ef6189f81acc337088b3c5499ccf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2281a35d1616aa88b0c646fb96cb9f95c3272536
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608184"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36264363"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Azure Multi-Factor Authentication 使用者資料收集
 
@@ -151,39 +151,39 @@ MFA Server、NPS 擴充功能和 Windows Server 2016 Azure MFA AD FS Adapter 會
 
 ## <a name="gather-data-from-nps-extension"></a>從 NPS 延伸模組收集資料
 
-使用 [Microsoft 隱私權入口網站](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.)提出匯出要求。
+使用 [Microsoft 隱私權入口網站](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview)提出匯出要求。
 
 - MFA 資訊會包含在匯出中，可能需要數小時或數天才能完成。
 - AzureMfa/AuthN/AuthNOptCh、AzureMfa/AuthZ/AuthZAdminCh 和 AzureMfa/AuthZ/AuthZOptCh 事件記錄中出現的使用者名稱可視為仍在使用中，而且與匯出中提供的資訊相重複。
 
 ## <a name="delete-data-from-nps-extension"></a>刪除 NPS 擴充功能中的資料
 
-使用 [Microsoft 隱私權入口網站](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.)提出帳戶關閉的要求，刪除為該位使用者收集的所有 MFA 雲端服務資訊。
+使用 [Microsoft 隱私權入口網站](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview)提出帳戶關閉的要求，刪除為該位使用者收集的所有 MFA 雲端服務資訊。
 
 - 可能需要 30 天才能完全移除資料。
 
 ## <a name="gather-data-from-windows-server-2016-azure-mfa-ad-fs-adapter"></a>從 Windows Server 2016 Azure MFA AD FS Adapter 收集資料
 
-使用 [Microsoft 隱私權入口網站](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.)提出匯出要求。 
+使用 [Microsoft 隱私權入口網站](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview)提出匯出要求。 
 
 - MFA 資訊會包含在匯出中，可能需要數小時或數天才能完成。
 - AD FS 追蹤/偵錯事件記錄檔 (如果已啟用) 中出現的使用者名稱會視為仍在使域中，而且與匯出中提供的資訊相重複。
 
 ## <a name="delete-data-from-windows-server-2016-azure-mfa-ad-fs-adapter"></a>刪除 Windows Server 2016 Azure MFA AD FS Adapter 中的資料
 
-使用 [Microsoft 隱私權入口網站](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.)提出帳戶關閉的要求，刪除為該位使用者收集的所有 MFA 雲端服務資訊。
+使用 [Microsoft 隱私權入口網站](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview)提出帳戶關閉的要求，刪除為該位使用者收集的所有 MFA 雲端服務資訊。
 
 - 可能需要 30 天才能完全移除資料。
 
 ## <a name="gather-data-for-azure-mfa"></a>收集 Azure MFA 的資料
 
-使用 [Microsoft 隱私權入口網站](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.)提出匯出要求。
+使用 [Microsoft 隱私權入口網站](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview)提出匯出要求。
 
 - MFA 資訊會包含在匯出中，可能需要數小時或數天才能完成。
 
 ## <a name="delete-data-for-azure-mfa"></a>刪除 Azure MFA 的資料
 
-使用 [Microsoft 隱私權入口網站](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.)提出帳戶關閉的要求，刪除為該位使用者收集的所有 MFA 雲端服務資訊。
+使用 [Microsoft 隱私權入口網站](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview)提出帳戶關閉的要求，刪除為該位使用者收集的所有 MFA 雲端服務資訊。
 
 - 可能需要 30 天才能完全移除資料。
 

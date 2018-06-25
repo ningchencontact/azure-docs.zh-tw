@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: apimpm
-ms.openlocfilehash: cce2376c440c233d81198d903709867c5fdca7ec
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7d172a40f2aad65b595026fc656634060a1f7193
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34840488"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284867"
 ---
 # <a name="authorize-requests-using-external-authorizer"></a>使用外部授權者授權要求
 
@@ -28,7 +28,7 @@ ms.locfileid: "34840488"
 
 將程式碼貼至 [輸入] 區塊。
 
-[!code-xml[Main](../../../api-management-policy-samples/Snippets/Authorize requests using external authorizer.policy.xml)]
+[!code-xml[Main](../../../api-management-policy-samples/examples/Authorize requests using external authorizer.policy.xml)]
 
 ## <a name="next-steps"></a>後續步驟
 
