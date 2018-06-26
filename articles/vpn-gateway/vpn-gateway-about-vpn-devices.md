@@ -146,18 +146,14 @@ ms.locfileid: "34726232"
 | **屬性**                  |**原則式**| **路由式**                              |
 | ---                           | ---           | ---                                         |
 | IKE 版本                   |IKEv1          |IKEv2                                        |
-| 加密與雜湊演算法 |1.AES256、SHA256<br>2.AES256、SHA1<br>3.AES128、SHA1<br>4. 3DES、SHA1 |
-  [RouteBased QM SA 供應項目](#RouteBasedOffers) |
+| 加密與雜湊演算法 |1.AES256、SHA256<br>2.AES256、SHA1<br>3.AES128、SHA1<br>4. 3DES、SHA1 |[RouteBased QM SA 供應項目](#RouteBasedOffers) |
 | SA 存留期 (時間)            |3,600 秒  |27,000 秒                                |
 | SA 存留期 (位元組)           |102,400,000 KB | -                                           |
-| 完整轉寄密碼 (PFS) |否             |
-  [RouteBased QM SA 供應項目](#RouteBasedOffers) |
+| 完整轉寄密碼 (PFS) |否             |[RouteBased QM SA 供應項目](#RouteBasedOffers) |
 | 停用的對等偵測 (DPD)     |不支援  |支援                                    |
 
 
-### 
-  <a name ="RouteBasedOffers">
-  </a>RouteBased VPN IPsec 安全性關聯 (IKE 快速模式 SA) 供應項目
+### <a name ="RouteBasedOffers"></a>RouteBased VPN IPsec 安全性關聯 (IKE 快速模式 SA) 供應項目
 
 下表列出 IPsec SA (IKE 快速模式) 供應項目。 供應項目是依其呈現或被接受的喜好設定順序而列出。
 
