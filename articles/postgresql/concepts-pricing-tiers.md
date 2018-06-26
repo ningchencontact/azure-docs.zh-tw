@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: 2a16e346e508b96338bb1c216ad6a64c013895f2
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.date: 05/18/2018
+ms.openlocfilehash: 9e01d3a69fe8814d4864bccf94c0d65ea573ada8
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312316"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34756631"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>適用於 PostgreSQL 的 Azure 資料庫定價層
 
@@ -24,7 +24,7 @@ ms.locfileid: "32312316"
 |:---|:----------|:--------------------|:---------------------|
 | 計算世代 | Gen 4、Gen 5 | Gen 4、Gen 5 | Gen 5 |
 | 虛擬核心 | 1、2 | 2、4、8、16、32 |2、4、8、16 |
-| 每個虛擬核心的記憶體 | 基準 | 基本的 2 倍 | 一般用途的 2 倍 |
+| 每個虛擬核心的記憶體 | 2 GB | 5 GB | 10 GB |
 | 儲存體大小 | 5 GB 至 1 TB | 5 GB 至 2 TB | 5 GB 至 2 TB |
 | 儲存體類型 | Azure 標準儲存體 | Azure 進階儲存體 | Azure 進階儲存體 |
 | 資料庫備份的保留期限 | 7 至 35 天 | 7 至 35 天 | 7 至 35 天 |
@@ -40,7 +40,7 @@ ms.locfileid: "32312316"
 建立伺服器之後，虛擬核心數目可在幾秒內增加或減少 (在同一個定價層內)。 您可以也單獨調高儲存體的數量及延長或縮短備份保留期限，而無須中斷應用程式。 但您無法在建立伺服器之後，變更定價層或備份儲存體類型。 如需詳細資訊，請參閱[調整資源](#scale-resources)一節。
 
 
-## <a name="compute-generations-vcores-and-memory"></a>計算世代、虛擬機器和記憶體
+## <a name="compute-generations-and-vcores"></a>計算世代和虛擬核心
 
 計算資源會以 vCore 的形式提供，vCore 代表了基礎硬體的邏輯 CPU。 目前，有兩個計算世代可供您選擇，即「第 4 代」和「第 5 代」。 「第 4 代」邏輯 CPU 是以 Intel E5-2673 v3 (Haswell) 2.4-GHz 處理器為基礎。 「第 5 代」邏輯 CPU 是以 Intel E5-2673 v4 (Broadwell) 2.3-GHz 處理器為基礎。 「第 4 代」和「第 5 代」在下列區域中可供使用 ("X" 代表可用)。 
 
@@ -64,14 +64,12 @@ ms.locfileid: "32312316"
 | 東南亞 | X | X |
 | 澳洲東部 |  | X |
 | 澳大利亞東南部 |  | X |
-| 印度中部 | X |  |
-| 印度西部 | X |  |
+| 印度中部 | X | X |
+| 印度西部 | X | X |
 | 印度南部 |  | X |
 | 日本東部 | X | X |
 | 日本西部 | X | X |
-| 韓國南部 |  | X |
-
-根據定價層，每個虛擬核心都以特定數量的記憶體來佈建。 當您為伺服器增加或減少虛擬核心數目時，記憶體就會按比例增加或減少。 一般用途層提供給每個虛擬核心的記憶體數量是基本層的兩倍。 記憶體最佳化層提供的記憶體數量是一般用途層的兩倍。
+| 南韓南部 |  | X |
 
 ## <a name="storage"></a>儲存體
 
@@ -88,7 +86,15 @@ ms.locfileid: "32312316"
 
 您可以在 Azure 入口網站或使用 Azure CLI 命令來監視 I/O 耗用量。 要監視的相關計量包括[儲存體限制、儲存體百分比、已使用的儲存體和 IO 百分比](concepts-monitoring.md)。
 
-## <a name="backup"></a>備份
+### <a name="reaching-the-store-limit"></a>到達存放區限制
+
+當可用的儲存體數量低於 5 GB 或 5% 的佈建儲存體時 (以較低者為準)，伺服器會標記為唯讀狀態。 例如，如果您已佈建 100 GB 的儲存體，並且實際的使用率超過 95 GB，伺服器會標示為唯讀。 或者，如果您已佈建 5 GB 的儲存體，則當可用儲存體小於 250 MB時，伺服器會標示為唯讀。  
+
+當伺服器設定為唯讀時，所有現有的工作階段都將中斷連接，並且回復未認可的交易。 任何後續的寫入作業和交易認可均失敗。 所有後續的讀取查詢將不會中斷。  
+
+您可以增加伺服器的已佈建儲存體數量，也可以讀寫模式啟動新的工作階段，並刪除資料以回收可用的儲存體。 執行 `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;` 會將目前工作階段設定為讀取寫入模式。 為了避免資料損毀，請勿在伺服器仍處於唯讀狀態時執行任何寫入作業。
+
+## <a name="backup"></a>Backup 
 
 服務會自動採用伺服器的備份。 備份的最小保留期限是七天。 您可以設定的保留期限最多為 35 天。 在伺服器的存留期期間，您可以在任何時間點調整保留期限。 您可以選擇本地備援和異地備援備份。 異地備援備份也會儲存在您伺服器所在建立區域的[地理配對區域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)中。 此備援能力可在發生災害時提供一層保護。 您也可讓伺服器還原到其他任何 Azure 區域，只要其中的服務可使用異地備援備份。 建立伺服器之後，便無法在兩個備份儲存體選項之間做變更。
 

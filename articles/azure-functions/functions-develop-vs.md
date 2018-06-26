@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: glenga
-ms.openlocfilehash: a38729c266a4dd214c3de97c6b9d92df6ed2dd96
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 93d5883071a012842106bdd946e4f09a0d7aa751
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34735114"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260449"
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions Tools for Visual Studio  
 
@@ -89,9 +89,7 @@ Azure Functions Tools 提供下列優點：
 
 ## <a name="configure-the-project-for-local-development"></a>設定專案以進行本機開發
 
-函數執行階段會在內部使用 Azure 儲存體帳戶。 針對 HTTP 和 Webhook 以外的所有觸發程序類型，您必須將 **Values.AzureWebJobsStorage** 機碼設定為有效的 Azure 儲存體帳戶連接字串。 
-
-[!INCLUDE [Note on local storage](../../includes/functions-local-settings-note.md)]
+函數執行階段會在內部使用 Azure 儲存體帳戶。 針對 HTTP 和 Webhook 以外的所有觸發程序類型，您必須將 **Values.AzureWebJobsStorage** 機碼設定為有效的 Azure 儲存體帳戶連接字串。 函式應用程式也可以針對專案所需的 **AzureWebJobsStorage** 連線設定，使用 [Azure 儲存體模擬器](../storage/common/storage-use-emulator.md)。 若要使用模擬器，將 **AzureWebJobsStorage** 的值設定為 `UseDevelopmentStorage=true`。 您必須在部署前將此設定變更為實際的儲存體連線。
 
 設定儲存體帳戶連接字串：
 
@@ -111,7 +109,7 @@ Azure Functions Tools 提供下列優點：
 
     ![建立由佇列觸發的函式](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
 
-    這個觸發程序範例會使用連接字串，具有名為 **QueueStorage** 的索引鍵。 此連接字串設定必須在 local.settings.json 檔案中定義。
+    這個觸發程序範例會使用連接字串，具有名為 **QueueStorage** 的索引鍵。 此連接字串設定必須在 [local.settings.json 檔案](functions-run-local.md#local-settings-file)中定義。
 
 3. 檢查新加入的類別。 您會看到靜態 [執行] 方法，它是使用 **FunctionName** 屬性來屬性化。 這個屬性指出該方法是函數的進入點。
 

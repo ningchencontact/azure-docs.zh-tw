@@ -1,21 +1,21 @@
 ---
-title: Azure AD B2C 的 Twitter 設定 | Microsoft Docs
+title: Azure Active Directory B2C 的 Twitter 設定 | Microsoft Docs
 description: 在受 Azure Active Directory B2C 保護的應用程式中，針對具有 Twitter 帳戶的客戶提供註冊和登入。
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 4/17/2018
 ms.author: davidmu
-ms.openlocfilehash: 40e4c5549414765dabc6f37c5ffb5aea519ae673
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: 68b9e9edbacda08bc98b6b7af5d944d3df9edca1
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34709575"
 ---
 # <a name="provide-sign-up-and-sign-in-to-consumers-with-twitter-accounts-using-azure-ad-b2c"></a>使用 Azure AD B2C 對具有 Twitter 帳戶的取用者提供註冊和登入
 
@@ -27,8 +27,10 @@ ms.lasthandoff: 04/18/2018
 3. 在表單中，提供**名稱**、**描述**和**網站**值。
 4. 在 [回呼 URL] 中輸入 `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`。 務必要使用您的租用戶名稱 (例如 contosob2c.onmicrosoft.com) 來取代 **{tenant}**。
 5. 勾選方塊以同意 [開發人員合約]，然後按一下 [建立 Twitter 應用程式]。
-6. 應用程式建立完成後，按一下 [金鑰和存取權杖]。
-7. 複製 [取用者金鑰] 和 [取用者祕密] 的值。 您必須使用這兩個值，將 Twitter 設為租用戶中的身分識別提供者。
+6. 建立應用程式之後，在清單中加以選取，然後選取 [設定] 索引標籤。
+7. 清除 [啟用回呼鎖定] 方塊，然後按一下 [更新設定]。
+8. 選取 [ **金鑰和存取權杖** ] 索引標籤。
+9. 複製 [取用者金鑰] 和 [取用者祕密] 的值。 您必須使用這兩個值，將 Twitter 設為租用戶中的身分識別提供者。
 
 ## <a name="configure-twitter-as-an-identity-provider-in-your-tenant"></a>在租用戶中將 Twitter 設為識別提供者
 1. 以 Azure AD B2C 租用戶的全域管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。 

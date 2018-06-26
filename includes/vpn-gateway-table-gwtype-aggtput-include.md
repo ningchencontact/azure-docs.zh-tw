@@ -8,20 +8,21 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c9457e51858d4a073d8baffdd435c8100d95d566
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: bc42697f756ec75d9a8f2c20c99b28b2f7886ca1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34670270"
 ---
 |**SKU**   | **S2S/VNet-to-VNet<br>通道** | **P2S<br>連線** | **彙總<br>輸送量基準測試** |
 |---       | ---                             | ---                    | ---                         |
-|**VpnGw1**| 最大 30                         | 最大 128               | 650 Mbps                    |
-|**VpnGw2**| 最大 30                         | 最大 128               | 1 Gbps                      |
-|**VpnGw3**| 最大 30                         | 最大 128               | 1.25 Gbps                   |
+|**VpnGw1**| 最大 30                         | 最大 128*              | 650 Mbps                    |
+|**VpnGw2**| 最大 30                         | 最大 128*              | 1 Gbps                      |
+|**VpnGw3**| 最大 30                         | 最大 128*              | 1.25 Gbps                   |
 |**基本** | 最大 10                         | 最大 128               | 100 Mbps                    | 
-|          |                                 |                        |                             | 
 
+*如果需要額外連線，請連絡支援人員
 - 「彙總輸送量基準測試」是以透過單一閘道彙總之多個通道的量值為基礎。 由於網際網路流量條件和您的應用程式行為，這不是保證的輸送量。
 
 - 在 [價格](https://azure.microsoft.com/pricing/details/vpn-gateway) 頁面上可以找到價格資訊。
