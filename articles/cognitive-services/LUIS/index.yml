@@ -1,0 +1,63 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Language Understanding (LUIS) 文件
+metadata:
+  document_id: 
+  title: Language Understanding (LUIS) - 教學課程、快速入門、API 參考
+  description: 了解如何使用 Language Understanding 服務，讓應用程式了解人在文字中所表達的意思。
+  author: Kaiqb
+  manager: carolz
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/25/2018
+  ms.author: kamrani
+  ms.openlocfilehash: 7d529825733025335f27ce0fe477c117aeaf5c41
+  ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+  ms.translationtype: HT
+  ms.contentlocale: zh-TW
+  ms.lasthandoff: 06/08/2018
+  ms.locfileid: "35356991"
+abstract:
+  description: Language Understanding 服務 (LUIS) 可讓應用程式了解人在文字中所表達的意思。 LUIS 使用機器學習，讓開發人員建置應用程式，來可接收使用者的自然語言輸入，並從其中擷取意義。
+sections:
+- title: 5 分鐘快速入門
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="luis-get-started-create-app.md">為預先建立的網域建立應用程式</a>
+    - html: <a href="luis-quickstart-intents-only.md">為自訂網域建立應用程式</a>
+- title: 逐步教學課程
+  items:
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="luis-quickstart-primary-and-secondary-data">使用簡單的實體從談話擷取訊息資料</a>
+    - html: <a href="luis-quickstart-intents-regex-entity">使用規則運算式實體從談話擷取 KB 文章編號</a>
+    - html: <a href="luis-quickstart-intent-and-list-entity">使用清單實體從談話擷取飲料訂單資訊</a>
+    - html: <a href="luis-tutorial-pattern">透過模式改善意圖和實體預測精確度</a>
+    - html: <a href="luis-tutorial-interchangeable-phrase-list">透過片語清單改善字組精確度</a>
+    - html: <a href="luis-get-started-cs-get-intent">將談話傳送至 LUIS 並接收端點預測回應 - C#</a>
+    - html: <a href="luis-get-started-cs-add-utterance">將談話範例新增至意圖並訓練 LUIS 應用程式 - C#</a>
+- title: 影片
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player" >組建 2018 的 Azure Friday - 認知服務 - 語言 (LUIS)</a>
+    - html: <a href="https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player" >組建 2018 AI 顯示 - Language Understanding 服務 (LUIS) 的最新消息</a>
+    - html: <a href="https://channel9.msdn.com/events/Build/2018/BRK3208" >組建 2018 工作階段 - Bot 智慧、語音功能和 NLU 最佳做法</a>
+- title: 參考
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST API v2
+      html: <p><a href="https://aka.ms/luis-endpoint-apis">端點 API</a></p><p><a href="https://aka.ms/luis-authoring-apis">編寫 API</a></p>
+    - title: SDK
+      html: <p><a href="https://aka.ms/luis-endpoint-sdk">.NET 端點 SDK</a></p><p><a href="https://aka.ms/luis-authoring-sdk">.NET 編寫 SDK</a></p>
+    - title: 程式碼範例
+      html: <p><a href="https://aka.ms/luis-code-samples">程式碼範例</a></p>

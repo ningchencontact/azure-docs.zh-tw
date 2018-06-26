@@ -1,0 +1,99 @@
+- name: 語音服務 API 文件
+  href: index.yml
+- name: 概觀
+  items:
+    - name: 什麼是語音服務？
+      href: overview.md
+      expanded: true
+- name: 快速入門
+  items:
+    - name: 免費試用語音服務
+      href: get-started.md
+    - name: '辨識 C# 中的語音'
+      href: quickstart-csharp-windows.md
+    - name: 辨識適用於 Windows 的 C++ 語音
+      href: cpp-windows.md
+    - name: 辨識適用於 Linux 的 C++ 語音
+      href: cpp-linux.md
+    - name: 開始使用語音裝置 SDK
+      href: speech-devices-sdk-qsg.md
+- name: 使用說明指南
+  items:
+    - name: 辨識語音
+      href: how-to-speech-to-text.md
+    - name: 自訂語音模型
+      href: how-to-customize-speech-models.md
+    - name: 合成語音
+      href: how-to-text-to-speech.md
+    - name: 自訂語音字型
+      href: how-to-customize-voice-font.md
+    - name: 轉譯語音
+      href: how-to-translate-speech.md
+    - name: 準備文字記錄
+      href: prepare-transcription.md
+    - name: 使用自訂的音訊串流
+      href: how-to-use-audio-input-streams.md
+    - name: 取得語音裝置 SDK
+      href: get-speech-devices-sdk.md
+    - name: 自訂裝置喚醒字組
+      href: speech-devices-sdk-create-kws.md
+    - name: 批次轉譯 (呼叫中心)
+      href: batch-transcription.md
+- name: 範例
+  items:
+    - name: 下載範例
+      href: samples.md
+    - name: 語音辨識
+      href: speech-to-text-sample.md
+    - name: 意圖辨識
+      href: intent.md
+    - name: 翻譯
+      href: translation.md
+- name: 概念
+  items:
+    - name: 語音轉換文字
+      href: speech-to-text.md
+    - name: 文字轉語音
+      href: text-to-speech.md
+    - name: 語音翻譯
+      href: speech-translation.md
+    - name: 語音 SDK
+      href: speech-sdk.md
+    - name: 語音裝置 SDK
+      href: speech-devices-sdk.md
+- name: 參考
+  items:
+    - name: 支援的語言
+      href: supported-languages.md
+    - name: REST API
+      href: rest-apis.md
+    - name: 語音 SDK API
+      href: speech-sdk-reference.md
+    - name: 語音合成標記
+      href: speech-synthesis-markup.md
+- name: 資源
+  items:
+    - name: 語音轉換文字常見問題集
+      href: faq-stt.md
+    - name: 價格
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/912208-speech-service'
+    - name: 堆疊溢位
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
+    - name: Azure 藍圖
+      href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
+    - name: 隱私權與 Cookie
+      href: 'https://privacy.microsoft.com/privacystatement'
+    - name: 疑難排解
+      href: troubleshooting.md
+    - name: 傳送您的應用程式
+      href: ship-application.md
+    - name: 版本資訊
+      href: releasenotes.md
+    - name: 語音 SDK 授權
+      href: license.md
+    - name: 語音裝置 SDK 授權
+      href: speech-devices-sdk-license.md
+    - name: 協力廠商通知
+      href: third-party-notices.md

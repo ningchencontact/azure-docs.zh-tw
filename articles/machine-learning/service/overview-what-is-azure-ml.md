@@ -6,14 +6,16 @@ author: mwinkle
 ms.author: mwinkle
 manager: cgronlun
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 09/21/2017
-ms.openlocfilehash: 868647780bafe9117a15891264a38535edff7250
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3e744b0e4a7ccebcdedac5a822ff717bed6b1f72
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36268411"
 ---
 # <a name="what-is-machine-learning"></a>什麼是機器學習服務？
 
@@ -94,7 +96,7 @@ Azure Machine Learning Workbench 是桌面應用程式加上命令列工具，�
 - [資料準備使用者指南](../desktop-workbench/data-prep-user-guide.md)
 - [使用 Git 搭配 Azure Machine Learning](../desktop-workbench/using-git-ml-project.md)
 - [在 Azure Machine Learning 中使用 Jupyter Notebook](../desktop-workbench/how-to-use-jupyter-notebooks.md)
-- 漫遊和共用
+- [漫遊及共用](../desktop-workbench/roaming-and-collaboration.md)
 - [執行歷程記錄指南](../desktop-workbench/how-to-use-run-history-model-metrics.md)
 - [IDE 整合](../desktop-workbench/how-to-configure-your-ide.md)
 

@@ -8,12 +8,12 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: f6dcaee1ac328a9bafce0561f421b772b7e1d119
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7429516538c892bea04d38a98abcfb13ba960d22
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605163"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36286394"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>有關備份 Azure 檔案服務的問題
 本文提供有關備份 Azure 檔案服務的常見問題解答。 在某些答案中，有具有完整資訊的文章連結。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。
@@ -23,7 +23,7 @@ ms.locfileid: "34605163"
 ## <a name="configuring-the-backup-job-for-azure-files"></a>設定 Azure 檔案服務的備份作業
 
 ### <a name="why-cant-i-see-some-of-my-storage-accounts-i-want-to-protect-that-contain-valid-azure-file-shares-br"></a>為何看不到某些我想要保護且包含有效 Azure 檔案共用的儲存體帳戶？ <br/>
-在預覽期間，Azure 檔案共用的備份不支援所有的儲存體帳戶類型。 請參閱[這裡](troubleshoot-azure-files.md#preview-boundaries)的清單，以查看支援的儲存體帳戶清單。 您所尋找的儲存體帳戶也可能已經受保護或向另一個保存庫註冊。 從保存庫[取消註冊](troubleshoot-azure-files.md#configuring-backup)，以探索其他保存庫中用於保護的儲存體帳戶。
+在預覽期間，Azure 檔案共用的備份不支援所有的儲存體帳戶類型。 請參閱[這裡](troubleshoot-azure-files.md#limitations-for-azure-file-share-backup-during-preview)的清單，以查看支援的儲存體帳戶清單。 您所尋找的儲存體帳戶也可能已經受保護或向另一個保存庫註冊。 從保存庫[取消註冊](troubleshoot-azure-files.md#configuring-backup)，以探索其他保存庫中用於保護的儲存體帳戶。
 
 ### <a name="why-cant-i-see-some-of-my-azure-file-shares-in-the-storage-account-when-im-trying-to-configure-backup-br"></a>為何我在嘗試設定備份時，在儲存體帳戶中看不到某些 Azure 檔案共用？ <br/>
 請確認 Azure 檔案共用是否已在相同的復原服務保存庫中受到保護，或是否已於近期刪除。
@@ -39,13 +39,13 @@ ms.locfileid: "34605163"
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>我可以在哪些地區備份 Azure 檔案共用 <br/>
 Azure 檔案共用的備份功能目前處於預覽狀態，僅適用於下列地區： 
--   澳大利亞東南部 (ASE) 
+-   澳洲東部 (AE) 
+- 澳大利亞東南部 (ASE) 
 - 巴西南部 (BRS)
 - 加拿大中部 (CNC)
 -   加拿大東部 (CE)
 -   美國中部 (CUS)
 -   東亞 (EA)
--   澳大利亞東部 (AE) 
 -   美國東部 (EUS)
 -   美國東部 2 (EUS2)
 - 日本東部 (JPE)

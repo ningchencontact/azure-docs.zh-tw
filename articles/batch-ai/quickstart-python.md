@@ -13,14 +13,14 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: Python
 ms.topic: quickstart
-ms.date: 10/06/2017
-ms.author: lili
-ms.openlocfilehash: da5c1181f9c4d311bdeabe837435ae4e0eb3dc1a
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.date: 06/18/2018
+ms.author: danlep
+ms.openlocfilehash: 6e80996cb0359e88d2a6d5fae231523a5c69c8ca
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31513243"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295256"
 ---
 # <a name="run-a-cntk-training-job-using-the-azure-python-sdk"></a>使用 Azure Python SDK 執行 CNTK 訓練作業
 
@@ -32,7 +32,7 @@ ms.locfileid: "31513243"
 
 * Azure 訂用帳戶 - 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-* Azure Python SDK - 請參閱[安裝指示](/python/azure/python-sdk-azure-install)
+* Azure Python SDK - 請參閱[安裝指示](/python/azure/python-sdk-azure-install)。 閱讀本文時，至少須具備 azure-mgmt-batchai 套件 2.0.0 版。
 
 * Azure 儲存體帳戶 - 請參閱[如何建立 Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md)
 
@@ -61,6 +61,9 @@ storage_account_key = 'FILL-IN-HERE'
 # specify the credentials used to remote login your GPU node
 admin_user_name = 'FILL-IN-HERE'
 admin_user_password = 'FILL-IN-HERE'
+
+# specify the location in which to create Batch AI resources
+mylocation = 'eastus'
 ```
 
 請注意，將認證放入原始程式碼中並非適當做法，在此處之所以這麼做，是為了簡化快速入門。
@@ -93,14 +96,14 @@ resource_group_name = 'myresourcegroup'
 resource_management_client = ResourceManagementClient(
         credentials=creds, subscription_id=subscription_id)
 resource = resource_management_client.resource_groups.create_or_update(
-        resource_group_name, {'location': 'eastus'})
+        resource_group_name, {'location': mylocation})
 ```
 
 
 ## <a name="prepare-azure-file-share"></a>準備 Azure 檔案共用
 為了方便說明，本快速入門會使用 Azure 檔案共用來裝載訓練作業的訓練資料和指令碼。
 
-1. 建立名為 `batchaiquickstart` 的檔案共用。
+建立名為 `batchaiquickstart` 的檔案共用。
 
 ```Python
 from azure.storage.file import FileService
@@ -109,20 +112,28 @@ service = FileService(storage_account_name, storage_account_key)
 service.create_share(azure_file_share_name, fail_on_exist=False)
 ```
 
-2. 在此共用中建立名為 `mnistcntksample` 的目錄
+在此共用中建立名為 `mnistcntksample` 的目錄。
 
 ```Python
 mnist_dataset_directory = 'mnistcntksample'
-service.create_directory(azure_file_share_name, mnist_dataset_directory,
-                         fail_on_exist=False)
+service.create_directory(azure_file_share_name, mnist_dataset_directory, fail_on_exist=False)
 ```
-3. 下載[範例套件](https://batchaisamples.blob.core.windows.net/samples/BatchAIQuickStart.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=b&sig=hrAZfbZC%2BQ%2FKccFQZ7OC4b%2FXSzCF5Myi4Cj%2BW3sVZDo%3D)，並解壓縮至現行目錄中。 下列程式碼會將必要的檔案上傳到 Azure 檔案共用中：
+下載[範例套件](https://batchaisamples.blob.core.windows.net/samples/BatchAIQuickStart.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=b&sig=hrAZfbZC%2BQ%2FKccFQZ7OC4b%2FXSzCF5Myi4Cj%2BW3sVZDo%3D)，並解壓縮至現行目錄中。 下列程式碼會將必要的檔案上傳到 Azure 檔案共用中：
 
 ```Python
 for f in ['Train-28x28_cntk_text.txt', 'Test-28x28_cntk_text.txt',
           'ConvNet_MNIST.py']:
      service.create_file_from_path(
              azure_file_share_name, mnist_dataset_directory, f, f)
+```
+
+## <a name="create-batch-ai-workspace"></a>建立 Batch AI 工作區
+
+工作區是所有 Batch AI 資源類型的最上層集合。 您可以在工作區中建立您的 Batch AI 叢集和實驗。
+
+```Python
+workspace_name='myworkspace'
+batchai_client.workspaces.create(resource_group_name, workspace_name, mylocation)
 ```
 
 ## <a name="create-gpu-cluster"></a>建立 GPU 叢集
@@ -135,9 +146,7 @@ cluster_name = 'mycluster'
 relative_mount_point = 'azurefileshare'
 
 parameters = models.ClusterCreateParameters(
-    # Location where the cluster will physically be deployed
-    location='eastus',
-    # VM size. Use NC or NV series for GPU
+    # VM size. Use N-series for GPU
     vm_size='STANDARD_NC6',
     # Configure the ssh users
     user_account_settings=models.UserAccountSettings(
@@ -171,7 +180,7 @@ batchai_client.clusters.create(resource_group_name, cluster_name,
 使用下列命令監視叢集狀態：
 
 ```Python
-cluster = batchai_client.clusters.get(resource_group_name, cluster_name)
+cluster = batchai_client.clusters.get(resource_group_name, workspace_name, cluster_name)
 print('Cluster state: {0} Target: {1}; Allocated: {2}; Idle: {3}; '
       'Unusable: {4}; Running: {5}; Preparing: {6}; Leaving: {7}'.format(
     cluster.allocation_state,
@@ -192,16 +201,18 @@ Cluster state: AllocationState.steady Target: 1; Allocated: 1; Idle: 0; Unusable
 
 此叢集會在節點都已配置並完成準備時就緒 (請參閱 `nodeStateCounts` 屬性)。 如果發生錯誤，`errors` 屬性會包含錯誤描述。
 
-## <a name="create-training-job"></a>建立訓練作業
+## <a name="create-experiment-and-training-job"></a>建立實驗和訓練作業
 
-在叢集建立之後，請設定並提交學習作業：
+建立叢集之後，請建立實驗 (相關作業群組的邏輯容器)。 然後，請在實驗中設定並提交學習作業：
 
 ```Python
+experiment_name='myexperiment'
+
+batchai_client.experiments.create(resource_group_name, workspace_name, experiment_name)
+
 job_name = 'myjob'
 
-parameters = models.job_create_parameters.JobCreateParameters(
-    # The job and cluster must be created in the same location
-    location=cluster.location,
+parameters = models.JobCreateParameters(
     # The cluster this job will run on
     cluster=models.ResourceId(id=cluster.id),
     # The number of VMs in the cluster to use
@@ -230,16 +241,16 @@ parameters = models.job_create_parameters.JobCreateParameters(
 )
 
 # Create the job
-batchai_client.jobs.create(resource_group_name, job_name, parameters).result()
+batchai_client.jobs.create(resource_group_name, workspace_name, experiment_name, job_name, parameters).result()
 ```
 
 ## <a name="monitor-job"></a>監視作業
 您可以使用下列程式碼檢查作業的狀態：
 
 ```Python
-job = batchai_client.jobs.get(resource_group_name, job_name)
+job = batchai_client.jobs.get(resource_group_name, workspace_name, experiment_name, job_name)
 
-print('Job state: {0} '.format(job.execution_state.name))
+print('Job state: {0} '.format(job.execution_state))
 ```
 
 輸出如下：`Job state: running`。
@@ -254,7 +265,7 @@ print('Job state: {0} '.format(job.execution_state.name))
 
 ```Python
 files = batchai_client.jobs.list_output_files(
-    resource_group_name, job_name,
+    resource_group_name, workspace_name, experiment_name, job_name,
     models.JobsListOutputFilesOptions(outputdirectoryid="stdouterr"))
 
 for file in (f for f in files if f.download_url):
@@ -265,7 +276,7 @@ for file in (f for f in files if f.download_url):
 使用下列程式碼列出產生的模型檔案：
 ```Python
 files = batchai_client.jobs.list_output_files(
-    resource_group_name, job_name,
+    resource_group_name, workspace_name, experiment_name,job_name,
     models.JobsListOutputFilesOptions(outputdirectoryid="MODEL"))
 
 for file in (f for f in files if f.download_url):
@@ -276,12 +287,12 @@ for file in (f for f in files if f.download_url):
 
 使用下列程式碼刪除作業：
 ```Python
-batchai_client.jobs.delete(resource_group_name, job_name)
+batchai_client.jobs.delete(resource_group_name, workspace_name, experiment_name, job_name)
 ```
 
 使用下列程式碼刪除叢集：
 ```Python
-batchai_client.clusters.delete(resource_group_name, cluster_name)
+batchai_client.clusters.delete(resource_group_name, workspace_name, cluster_name)
 ```
 
 使用下列程式碼刪除所有已配置的資源：

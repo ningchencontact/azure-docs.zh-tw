@@ -8,31 +8,29 @@ ms.author: markgal
 ms.date: 2/21/2018
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: bdb35cf47b339ff2089b3849283a71aa9d8fbc3d
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 797637fbaaeb0577d0437f32d4ce244a738be84b
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807409"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287319"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>針對備份 Azure 檔案共用的問題進行疑難排解
 您可以使用下列表格中所列的資訊，針對使用 Azure 檔案共用備份時所發生的問題和錯誤進行疑難排解。
 
-## <a name="preview-boundaries"></a>預覽界限
+## <a name="limitations-for-azure-file-share-backup-during-preview"></a>預覽期間的 Azure 檔案共用備份限制
 Azure 檔案共用的備份處於預覽狀態。 Azure 檔案共用不支援下列備份案例︰
-- 使用[讀取權限異地備援儲存體](../storage/common/storage-redundancy-grs.md) (RA-GRS) 複寫功能，保護儲存體帳戶中的 Azure 檔案共用*。
-- 在已啟用虛擬網路或防火牆的儲存體帳戶中保護 Azure 檔案共用。
-- 使用 PowerShell 或 CLI 備份 Azure 檔案共用。
+- 您無法使用[讀取權限異地備援儲存體](../storage/common/storage-redundancy-grs.md) (RA-GRS) 複寫功能，保護儲存體帳戶中的 Azure 檔案共用*。
+- 您無法在已啟用虛擬網路或防火牆的儲存體帳戶中保護 Azure 檔案共用。
+- 無法透過 PowerShell 或 CLI 使用 Azure 備份來保護 Azure 檔案。
+- 每天的排程備份次數上限為 1 次。
+- 每天的隨選備份次數上限為 4 次。
+- 在儲存體帳戶上使用[資源鎖定](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest)，以防止在您的復原服務保存庫中意外刪除備份。
+- 請勿刪除 Azure 備份所建立的快照集。 刪除快照集可能會導致遺失復原點和/或還原失敗。
 
 \*儲存體帳戶中的 Azure 檔案共用以[讀取權限異地備援儲存體](../storage/common/storage-redundancy-grs.md) (RA-GRS) 複寫功能作為 GRS，並以 GRS 價格計費
 
 在儲存體帳戶中使用[區域備援儲存體](../storage/common/storage-redundancy-zrs.md) (ZRS) 複寫功能備份 Azure 檔案共用，目前僅適用於美國中部 (CUS) 和美國東部 2 (EUS2)
-
-### <a name="limitations"></a>限制
-- 每日排定備份上限為 1。
-- 每日隨選備份上限為 4。
-- 在儲存體帳戶上使用資源鎖定，以防止在您的復原服務保存庫中意外刪除備份。
-- 請勿刪除 Azure 備份所建立的快照集。 刪除快照集可能會導致遺失復原點和/或還原失敗
 
 ## <a name="configuring-backup"></a>設定備份
 下表適用於設定備份：

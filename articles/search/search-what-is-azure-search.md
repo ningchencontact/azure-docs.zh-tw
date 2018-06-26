@@ -6,14 +6,14 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 11/10/2017
+ms.date: 06/19/2018
 ms.author: heidist
-ms.openlocfilehash: 0957ca2b6ce58249531ca0b8e3f26bc16cabb5d5
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: ad5831309ff9e4cc420e777dc06815a5e6b79f91
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802420"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36217648"
 ---
 # <a name="what-is-azure-search"></a>何謂 Azure 搜尋服務？
 Azure 搜尋服務是搜尋即服務雲端解決方案，可為開發人員提供 API 和工具，透過 Web、行動和企業應用程式中的私用和異質內容來增添豐富的搜尋體驗。
@@ -26,7 +26,8 @@ Azure 搜尋服務是搜尋即服務雲端解決方案，可為開發人員提�
 
 | 類別 | 特性 |
 |----------|----------|
-|全文檢索搜尋和文字分析 | [全文檢索搜尋](search-lucene-query-architecture.md)是大多數以搜尋為基礎之應用程式的主要使用案例。 您可以使用 Azure 搜尋服務支援的語法制訂查詢。 <br/><br/>[**簡單查詢語法**](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)可提供邏輯運算子、片語搜尋運算子、後置運算子、優先順序運算子。<br/><br/>[**Lucene 查詢語法**](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)包含簡單語法中的所有作業，並具有諸如模糊搜尋、鄰近搜尋、詞彙提升和規則運算式等擴充功能。| 
+|全文檢索搜尋和文字分析 | [全文檢索搜尋](search-lucene-query-architecture.md)是大多數以搜尋為基礎之應用程式的主要使用案例。 您可以使用 Azure 搜尋服務支援的語法制訂查詢。 <br/><br/>[**簡單查詢語法**](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)可提供邏輯運算子、片語搜尋運算子、後置運算子、優先順序運算子。<br/><br/>[**Lucene 查詢語法**](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)包含簡單語法中的所有作業，並具有諸如模糊搜尋、鄰近搜尋、詞彙提升和規則運算式等擴充功能。|
+|認知搜尋 (預覽) | 用於影像和文字分析的 [AI 演算法](cognitive-search-concept-intro.md)可以套用至索引管線，以從原始內容擷取文字資訊。 [內建技巧](cognitive-search-predefined-skills.md)的範例包括光學字元辨識 (讓掃描過的 JPEG 可搜尋)、實體辨識 (識別組織、名稱或位置)，以及關鍵片語辨識。 您也可以[將自訂技巧編碼](cognitive-search-create-custom-skill-example.md)，以附加至管線。 |
 | 資料整合 | Azure 搜尋服務索引接受以 JSON 資料結構格式提交的任何來源。 <br/><br/> 對於在 Azure 中支援的資料來源，您可以選擇使用[**索引子**](search-indexer-overview.md)自動搜耙 [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)、[Azure Cosmos DB](search-howto-index-cosmosdb.md) 或 [Azure Blob 儲存體](search-howto-indexing-azure-blob-storage.md)，讓搜尋索引的內容與主要資料存放區同步。 Azure Blob 索引子可執行文件破解以[檢索主要檔案格式](search-howto-indexing-azure-blob-storage.md)，包括 Microsoft Office、PDF 和 HTML 文件。 |
 | 語言分析 | 分析器是在編製索引和搜尋作業期間用於文字處理的元件。 有兩種類型。 <br/><br/>[**自訂語彙分析器**](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) (英文) 用於使用語音比對和規則運算式的複雜搜尋查詢。 <br/><br/>Lucene 或 Microsoft 的[**語言分析器**](https://docs.microsoft.com/rest/api/searchservice/language-support) (英文) 可用來以智慧方式處理特定語言的語言學，包括動詞時態、性別、不規則複數名詞 (例如 ' mouse' 與 'mice')、拆解複合字、斷字 (針對沒有空格的語言) 等。 |
 | 地區搜尋 | Azure 搜尋服務可處理、篩選和顯示地理位置。 可讓使用者根據搜尋結果與實體位置的鄰近程度來瀏覽資料。 如需詳細資訊，請[觀看此影片](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data) (英文) 或[檢閱此範例](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) (英文)。 |

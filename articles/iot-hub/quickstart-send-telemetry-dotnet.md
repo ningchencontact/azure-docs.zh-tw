@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/30/2018
+ms.date: 06/20/2018
 ms.author: dobett
-ms.openlocfilehash: 3fe783f8b5a7955ebe117df02edcdc6aafeff4f8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dbb4ce971e6504f33de82e31cf289a42a1640952
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636846"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293164"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-c"></a>快速入門：將遙測從裝置傳送至 IoT 中樞，並使用後端應用程式從中樞讀取遙測 (C#)
 
@@ -60,7 +60,7 @@ dotnet --version
 
     如果您為裝置選擇不同的名稱，請先在範例應用程式中更新該裝置名稱，再執行應用程式。
 
-1. 執行下列命令，以針對您剛註冊的裝置取得_裝置連接字串_：
+2. 執行下列命令，以針對您剛註冊的裝置取得_裝置連接字串_：
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDotnetDevice --output table
@@ -68,7 +68,7 @@ dotnet --version
 
     記下裝置連接字串，它看似 `Hostname=...=`。 您稍後會在快速入門中使用此值。
 
-1. 您還需要 IoT 中樞的「事件中樞相容端點」、「事件中樞相容路徑」和「iothubowner 主要金鑰」，以便讓後端應用程式連線到 IoT 中樞並擷取訊息。 下列命令會針對您的 IoT 中樞擷取這些值：
+3. 您還需要 IoT 中樞的「事件中樞相容端點」、「事件中樞相容路徑」和「iothubowner 主要金鑰」，以便讓後端應用程式連線到 IoT 中樞並擷取訊息。 下列命令會針對您的 IoT 中樞擷取這些值：
 
     ```azurecli-interactive
     az iot hub show --query properties.eventHubEndpoints.events.endpoint --name {YourIoTHubName}
@@ -86,17 +86,17 @@ dotnet --version
 
 1. 在終端機視窗中，瀏覽至範例 C# 專案的根資料夾。 然後瀏覽至 **iot-hub\Quickstarts\simulated-device** 資料夾。
 
-1. 在您選擇的文字編輯器中開啟 **SimulatedDevice.cs** 檔案。
+2. 在您選擇的文字編輯器中開啟 **SimulatedDevice.cs** 檔案。
 
     使用先前所記錄的裝置連接字串來取代 `connectionString` 變數的值。 然後將變更儲存到 **SimulatedDevice.cs** 檔案。
 
-1. 在終端機視窗中，執行下列命令以安裝模擬裝置應用程式所需的套件：
+3. 在終端機視窗中，執行下列命令以安裝模擬裝置應用程式所需的套件：
 
     ```cmd/sh
     dotnet restore
     ```
 
-1. 在終端機視窗中，執行下列命令以建置並執行模擬裝置應用程式：
+4. 在終端機視窗中，執行下列命令以建置並執行模擬裝置應用程式：
 
     ```cmd/sh
     dotnet run
@@ -112,21 +112,21 @@ dotnet --version
 
 1. 在另一個終端機視窗中，瀏覽至範例 C# 專案的根資料夾。 然後瀏覽至 **iot-hub\Quickstarts\read-d2c-messages** 資料夾。
 
-1. 在您選擇的文字編輯器中開啟 **ReadDeviceToCloudMessages.cs** 檔案。
+2. 在您選擇的文字編輯器中開啟 **ReadDeviceToCloudMessages.cs** 檔案。 更新下列變數，並將您的變更儲存至檔案。
 
-    使用先前所記錄的事件中樞相容端點來取代 `eventHubsCompatibleEndpoint` 變數的值。
+    | 變數 | 值 |
+    | -------- | ----------- |
+    | `eventHubsCompatibleEndpoint` | 使用先前所記錄的事件中樞相容端點來取代變數的值。 |
+    | `eventHubsCompatiblePath`     | 使用先前所記錄的事件中樞相容路徑來取代變數的值。 |
+    | `iotHubSasKey`                | 使用先前所記錄的 iothubowner 主要金鑰來取代變數的值。 |
 
-    使用先前所記錄的事件中樞相容路徑來取代 `eventHubsCompatiblePath` 變數的值。
-
-    使用先前所記錄的 iothubowner 主要金鑰來取代 `iotHubSasKey` 變數的值。 然後將您的變更儲存到 **ReadDeviceToCloudMessages.cs** 檔案。
-
-1. 在終端機視窗中，執行下列命令以安裝後端應用程式所需的程式庫：
+3. 在終端機視窗中，執行下列命令以安裝後端應用程式所需的程式庫：
 
     ```cmd/sh
     dotnet restore
     ```
 
-1. 在終端機視窗中，執行下列命令以建置並執行後端應用程式：
+4. 在終端機視窗中，執行下列命令以建置並執行後端應用程式：
 
     ```cmd/sh
     dotnet run
@@ -138,9 +138,7 @@ dotnet --version
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您打算繼續完成下一個快速入門，請保留資源群組和 IoT 中樞，以供稍後重複使用。
-
-如果您不再需要 IoT 中樞，請在入口網站中刪除它和資源群組。 若要刪除，請選取包含 IoT 中樞的 **qs-iot-hub-rg** 資源群組，然後按一下 [刪除]。
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

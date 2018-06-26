@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/05/2018
+ms.date: 06/19/2018
 ms.author: magoedte
-ms.openlocfilehash: ed2e77553cc72caa6a7b48fe6fa6baab0ffafec5
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 2ceb350883bc6f2b40d88d5cf595b06b074013d1
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802046"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36209811"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>在 Log Analytics 中分析資料使用量
 Log Analytics 包含下列資訊：收集的資料量、傳送資料的來源，以及傳送的不同資料類型。  使用 [Log Analytics 使用量] 儀表板來檢閱和分析資料使用量。 此儀表板會顯示每個解決方案所收集的資料量，以及您的電腦正在傳送的資料量。
@@ -59,7 +59,9 @@ Log Analytics 包含下列資訊：收集的資料量、傳送資料的來源，
 - 資料量超出指定的數量。
 - 資料量預計會超出指定的數量。
 
-Log Analytics [警示](log-analytics-alerts-creating.md)會使用搜尋查詢。 在過去 24 小時收集超過 100GB 的資料時，下列查詢的結果：
+Azure 警示支援使用搜尋查詢的[記錄警示](../monitoring-and-diagnostics/monitor-alerts-unified-log.md)。 
+
+在過去 24 小時收集超過 100GB 的資料時，下列查詢的結果：
 
 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
 
@@ -69,27 +71,35 @@ Log Analytics [警示](log-analytics-alerts-creating.md)會使用搜尋查詢。
 
 若要針對不同的資料量顯示警示，請將查詢中的 100 變更為您要顯示警示的 GB 數。
 
-使用[建立警示規則](log-analytics-alerts-creating.md#create-an-alert-rule)中所述的步驟，可在資料收集高於預期時收到通知。
+使用[建立新記錄警示](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)中所述的步驟，可在資料收集高於預期時收到通知。
 
 建立第一個查詢的警示時 - 在 24 小時內有超過 100GB 的資料時，請：  
-- 將 [名稱] 設定為「在 24 小時內大於 100GB 的資料量」  
-- 將 [嚴重性] 設定為「警告」  
-- 將 [搜尋查詢] 設定為 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`   
-- 將 [時間範圍] 設定為「24 小時」。
-- 將 [警示頻率] 設定為一小時，因為使用量資料每小時只會更新一次。
-- 將 [產生警示的依據] 設定為「結果數目」
-- 將 [結果數目] 設定為「大於 0」
 
-使用[將動作新增到警示規則](log-analytics-alerts-actions.md)中所述的步驟來設定警示規則的電子郵件、Webhook 或 Runbook 動作。
+- **定義警示條件**：將您的 Log Analytics 工作區指定為資源目標。
+- **警示準則**：指定下列項目：
+   - **訊號名稱**：選取 [自訂記錄搜尋]
+   - 將 [搜尋查詢] 設定為 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
+   - [警示邏輯] 為 [根據結果數目]，而 [條件] 為 [大於臨界值 0]
+   - [時間週期] 為 1440 分鐘，而 [警示頻率] 設定為 60 分鐘，因為使用量資料每小時只會更新一次。
+- **定義警示詳細資料**：指定下列項目：
+   - 將 [名稱] 設定為「在 24 小時內大於 100GB 的資料量」
+   - 將 [嚴重性] 設定為「警告」
+
+指定現有或建立新的[動作群組](../monitoring-and-diagnostics/monitoring-action-groups.md)，以便在記錄警示符合準則時收到通知。
 
 建立第二個查詢的警示時 - 預計在 24 小時內會有超過 100GB 的資料時，請：
-- 將 [名稱] 設定為「預計在 24 小時內大於 100GB 的資料量」
-- 將 [嚴重性] 設定為「警告」
-- 將 [搜尋查詢] 設定為 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
-- 將 [時間範圍] 設定為「3 小時」。
-- 將 [警示頻率] 設定為一小時，因為使用量資料每小時只會更新一次。
-- 將 [產生警示的依據] 設定為「結果數目」
-- 將 [結果數目] 設定為「大於 0」
+
+- **定義警示條件**：將您的 Log Analytics 工作區指定為資源目標。
+- **警示準則**：指定下列項目：
+   - **訊號名稱**：選取 [自訂記錄搜尋]
+   - 將 [搜尋查詢] 設定為 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
+   - [警示邏輯] 為 [根據結果數目]，而 [條件] 為 [大於臨界值 0]
+   - [時間週期] 為 180 分鐘，而 [警示頻率] 設定為 60 分鐘，因為使用量資料每小時只會更新一次。
+- **定義警示詳細資料**：指定下列項目：
+   - 將 [名稱] 設定為「預計在 24 小時內大於 100GB 的資料量」
+   - 將 [嚴重性] 設定為「警告」
+
+指定現有或建立新的[動作群組](../monitoring-and-diagnostics/monitoring-action-groups.md)，以便在記錄警示符合準則時收到通知。
 
 當您收到警示時，請使用下一節中的步驟，針對使用量高於預期的原因進行疑難排解。
 
@@ -155,12 +165,11 @@ Log Analytics [警示](log-analytics-alerts-creating.md)會使用搜尋查詢。
 
 使用[方案目標](../operations-management-suite/operations-management-suite-solution-targeting.md)，只從必要的電腦群組收集資料。
 
-
 ## <a name="next-steps"></a>後續步驟
 * 請參閱 [Log Analytics 中的記錄搜尋](log-analytics-log-searches.md)，以了解如何使用搜尋語言。 您可以使用搜尋查詢，對使用量資料執行額外的分析。
-* 使用[建立警示規則](log-analytics-alerts-creating.md#create-an-alert-rule)中所述的步驟，可在符合搜尋條件時收到通知
-* 使用[解決方案目標](../operations-management-suite/operations-management-suite-solution-targeting.md)，只從必要的電腦群組收集資料
-* 若要設定有效的安全性事件收集原則，請檢閱 [Azure 資訊安全中心篩選原則](../security-center/security-center-enable-data-collection.md)
-* 變更[效能計數器組態](log-analytics-data-sources-performance-counters.md)
-* 若要修改事件收集設定，請檢閱[事件記錄組態](log-analytics-data-sources-windows-events.md)
-* 若要修改 syslog 收集設定，請檢閱 [Syslog 組態](log-analytics-data-sources-syslog.md)
+* 使用[建立新的記錄警示](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)中所述的步驟，可在符合搜尋條件時收到通知。
+* 使用[方案目標](../operations-management-suite/operations-management-suite-solution-targeting.md)，只從必要的電腦群組收集資料。
+* 若要設定有效的安全性事件收集原則，請檢閱 [Azure 資訊安全中心篩選原則](../security-center/security-center-enable-data-collection.md)。
+* 變更[效能計數器組態](log-analytics-data-sources-performance-counters.md)。
+* 若要修改事件收集設定，請檢閱[事件記錄組態](log-analytics-data-sources-windows-events.md)。
+* 若要修改 syslog 收集設定，請檢閱 [Syslog 組態](log-analytics-data-sources-syslog.md)。

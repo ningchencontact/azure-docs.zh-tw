@@ -1,0 +1,111 @@
+- name: Translator Text API 文件
+  href: index.yml
+- name: 概觀
+  items:
+    - name: 什麼是 Translator Text API？
+      href: translator-info-overview.md
+- name: 快速入門
+  expanded: true
+  items:
+    - name: 'C#'
+      items:
+        - name: 翻譯文字
+          href: quickstart-csharp-translate.md
+        - name: 轉換文字指令碼
+          href: quickstart-csharp-transliterate.md
+        - name: 從文字識別語言
+          href: quickstart-csharp-detect.md
+        - name: 取得替代的翻譯
+          href: quickstart-csharp-dictionary.md
+        - name: 取得支援的語言
+          href: quickstart-csharp-languages.md
+        - name: 取得文字中的句子長度
+          href: quickstart-csharp-sentences.md
+    - name: Java
+      items:
+        - name: 翻譯文字
+          href: quickstart-java-translate.md
+        - name: 轉換文字指令碼
+          href: quickstart-java-transliterate.md
+        - name: 從文字識別語言
+          href: quickstart-java-detect.md
+        - name: 取得替代的翻譯
+          href: quickstart-java-dictionary.md
+        - name: 取得支援的語言
+          href: quickstart-java-languages.md
+        - name: 取得文字中的句子長度
+          href: quickstart-java-sentences.md
+- name: 概念
+  items:
+    - name: 支援的語言
+      href: languages.md
+    - name: 自訂及改善文字翻譯
+      href: customization.md
+    - name: API 如何計算字元
+      href: character-counts.md
+- name: 使用說明指南
+  items:
+    - name: 註冊 Translator Text API
+      href: translator-text-how-to-signup.md
+    - name: 移轉至 V3 文字 API
+      href: migrate-to-v3.md
+    - name: 新增不雅內容篩選
+      href: profanity-filtering.md
+    - name: 接收字組對齊方式的資訊
+      href: word-alignment.md
+    - name: 使用動態字典功能
+      href: dynamic-dictionary.md
+    - name: 使用 Translator Text API
+      items:
+        - name: Node.js
+          href: quickstarts/nodejs.md
+        - name: PHP
+          href: quickstarts/php.md
+        - name: Python
+          href: quickstarts/python.md
+        - name: Ruby
+          href: quickstarts/ruby.md
+        - name: 使用 WPF 建立 Translator Text 應用程式
+          href: tutorial-wpf-translation-csharp.md
+- name: 參考
+  items:
+    - name: v3 Translator Text API 參考
+      href: reference/v3-0-reference.md
+      items:
+        - name: 語言
+          href: reference/v3-0-languages.md
+        - name: 翻譯
+          href: reference/v3-0-translate.md
+        - name: 音譯
+          href: reference/v3-0-transliterate.md
+        - name: 偵測
+          href: reference/v3-0-detect.md
+        - name: BreakSentence
+          href: reference/v3-0-break-sentence.md
+        - name: 字典查閱
+          href: reference/v3-0-dictionary-lookup.md
+        - name: 字典範例
+          href: reference/v3-0-dictionary-examples.md
+    - name: v2 Translator Text API 參考 (已過時)
+      href: reference/v2-0-reference.md
+      items:
+        - name: 轉換文字
+          href: transform-text.md
+        - name: 如何使用共同作業翻譯架構 (CTF) 報告
+          href: ctf-reporting.md
+        - name: 傳回 N 最佳翻譯
+          href: return-n-best-translations.md
+- name: 資源
+  items:
+    - name: 常見問題集
+      href: 'https://www.microsoft.com/translator/faq.aspx'
+    - name: 價格
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/558796-translator'
+    - name: 堆疊溢位
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'
+    - name: 知識庫
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/132647-translator'
+    - name: GitHub 上的程式碼範例
+      href: 'https://aka.ms/TranslatorGitHub'

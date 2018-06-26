@@ -2,17 +2,17 @@
 title: 建立 Azure 時間序列深入解析環境
 description: 了解如何建立已從模擬裝置填入資料的時間序列深入解析環境。
 services: time-series-insights
-author: BryanLa
+author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 06/04/2018
 ms.author: bryanla
-ms.openlocfilehash: 434f9f7890b909746fd1a0f72a2dea5d7bb27e92
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: b57e688b5f830c8c7d34315a68be94e4e4c99466
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301349"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295842"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>教學課程：建立 Azure 時間序列深入解析環境
 
@@ -230,9 +230,9 @@ IoT 中樞提供多種可讓您與其他執行者共用功能的端點。 「事
 > * 執行裝置模擬以將資料串流處理至 TSI 環境中
 > * 驗證模擬的遙測資料
 
-現在您以了解如何建立自己的 TSI 環境，接下來請繼續閱讀下一篇文章，以深入了解如何規劃程序：
+您現在已了解如何建立您自己的 TSI 環境，並了解如何建置從 TSI 環境中取用資料的 Web 應用程式：
 
 > [!div class="nextstepaction"]
-> [規劃 Azure 時間序列深入解析環境](time-series-insights-environment-planning.md)
+> [建立 Azure 時間序列深入解析單一頁面 Web 應用程式](tutorial-create-tsi-sample-spa.md)
 
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 7987ee8c9a127c7a41ec2cd1f726450c771d527f
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: ddecf2f75e80f95291b12d9c139a8da85f45ac94
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34666955"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36288041"
 ---
 第一個步驟是使用 Azure 入口網站在您的訂用帳戶中建立 IoT 中樞。 IoT 中樞可讓您從許多裝置將大量的遙測擷取到雲端。 然後中樞會啟用在雲端執行的一或多項後端服務，以讀取和處理該遙測。
 
@@ -27,7 +27,7 @@ ms.locfileid: "34666955"
 
    * **訂用帳戶**：選擇您要用於建立此 IoT 中樞的訂用帳戶。
 
-   * **資源群組**：建立用以裝載 IoT 中樞的資源群組，或使用現有資源群組。 如需詳細資訊，請參閱[使用資源群組管理您的 Azure 資源][lnk-resource-groups]。
+   * **資源群組**：建立用以裝載 IoT 中樞的資源群組，或使用現有資源群組。 您可以將所有相關資源放在群組中，而一併加以管理。 例如，刪除資源群組時，將會刪除該群組中包含的所有資源。 如需詳細資訊，請參閱[使用資源群組管理您的 Azure 資源][lnk-resource-groups]。
 
    * **區域**：選取最接近您的位置。
 

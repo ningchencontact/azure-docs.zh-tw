@@ -1,6 +1,6 @@
 ---
-title: Azure 入口網站中的角色型存取控制 | Microsoft Docs
-description: 在 Azure 入口網站中使用角色型存取控制開始進行存取管理。 使用角色指派將權限指派給您的資源。
+title: 使用 RBAC 和 Azure 入口網站來管理存取權 | Microsoft Docs
+description: 了解如何使用角色型存取控制 (RBAC) 和 Azure 入口網站來管理使用者、群組和應用程式的存取權。 這包括列出存取權、授與存取權以及移除存取權。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,73 +11,167 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2017
+ms.date: 06/13/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
-ms.openlocfilehash: 4ac7fda78f456a233c8dba90a6a50e19774991df
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.reviewer: bagovind
+ms.openlocfilehash: 8f2c77a366c96455016894c042868d080551bc6a
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203644"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295859"
 ---
-# <a name="use-role-based-access-control-to-manage-access-to-your-azure-subscription-resources"></a>使用角色型存取控制來管理 Azure 訂用帳戶資源的存取
-> [!div class="op_single_selector"]
-> * [使用者或群組管理存取](role-assignments-users.md)
-> * [資源管理存取](role-assignments-portal.md)
+# <a name="manage-access-using-rbac-and-the-azure-portal"></a>使用 RBAC 和 Azure 入口網站來管理存取權
 
-Azure 角色型存取控制 (RBAC) 可以對 Azure 進行更細緻的存取權管理。 使用 RBAC，您可以僅授與使用者執行其作業所需的存取權。 本文將協助您在 Azure 入口網站中啟動並執行 RBAC。 如果您需要有關 RBAC 如何協助您管理存取權的詳細資訊，請參閱 [什麼是角色型存取控制](overview.md)。
+[角色型存取控制 (RBAC)](overview.md) 是您對 Azure 中的資源存取進行管理的機制。 本文說明如何使用 RBAC 和 Azure 入口網站來管理使用者、群組和應用程式的存取權。
 
-在每個訂用帳戶內，您可以授與最多 2000 個角色指派。 
+## <a name="list-roles"></a>列出角色
 
-## <a name="view-access"></a>檢視存取權
-您可以從 [Azure 入口網站](https://portal.azure.com)的主要刀鋒視窗中查看有誰可以存取資源、資源群組或訂用帳戶。 例如，我們要查看有誰可以存取我們的其中一個資源群組︰
+角色定義是您用於角色指派的權限集合。 Azure 有超過 60 個[內建角色](built-in-roles.md)。
 
-1. 選取左側導覽列中的 [資源群組]  圖示。  
-    ![資源群組 - 圖示](./media/role-assignments-portal/resourcegroups_icon.png)
-2. 從 [資源群組]  刀鋒視窗選取資源群組的名稱。
-3. 從左側功能表中選取 [存取控制 (IAM)]。  
-4. [存取控制] 刀鋒視窗會列出已獲得資源群組存取權的所有使用者、群組和應用程式。  
-   
-    ![使用者刀鋒視窗 - 繼承的存取權和指派的存取權螢幕擷取畫面](./media/role-assignments-portal/view-access.png)
+1. 在 Azure 入口網站中，選擇 [所有服務]，然後選擇 [訂用帳戶]。
 
-請注意，某些角色的範圍限於**此資源**，而有些角色則是**繼承**自另一個範圍。 存取權不是特別指派給資源群組，就是繼承自父訂用帳戶的指派。
+1. 選擇您的訂用帳戶。
 
-> [!NOTE]
-> 傳統訂用帳戶管理員和共同管理員可被視為新 RBAC 模型中訂用帳戶的擁有者。
+1. 選擇 [存取控制 (IAM)]。
 
-## <a name="add-access"></a>新增存取權
-您可從角色指派範圍內的資源、資源群組或訂用帳戶授與存取權。
+   ![角色選項](./media/role-assignments-portal/list-subscription-access-control.png)
 
-1. 在 [存取控制] 刀鋒視窗上選取 [新增]。  
-2. 從 [選取角色]  刀鋒視窗選取您要指派的角色。
-3. 選取目錄中您要授與存取權的使用者、群組或應用程式。 您可以使用顯示名稱、電子郵件地址和物件識別碼來搜尋目錄。  
-   
-    ![新增使用者刀鋒視窗 - 搜尋螢幕擷取畫面](./media/role-assignments-portal/grant-access2.png)
-4. 選取 [確定]  以建立指派。 [新增使用者]  快顯視窗會追蹤進度。  
-    ![新增使用者進度列 - 螢幕擷取畫面](./media/role-assignments-portal/addinguser_popup.png)
+1. 選擇 [角色] 以查看所有內建和自訂角色的清單。
 
-成功新增角色指派之後，該指派會出現在 [使用者]  刀鋒視窗上。
+   ![角色選項](./media/role-assignments-portal/roles-option.png)
 
-## <a name="remove-access"></a>移除存取權
-1. 將游標移到您想要移除的指派名稱上。 名稱旁邊會出現一個核取方塊。
-2. 使用核取方塊來選取一或多個角色指派。
-2. 選取 [移除]。  
-3. 選取 [是] 以確認移除。
+   您可以查看指派給每個角色的使用者和群組數目。
 
-無法移除已繼承的指派。 如果您需要移除繼承的指派，將需要在建立角色指派的範圍進行移除。 在 [範圍] 資料行中 [繼承] 的旁邊有一個連結，會將您帶往已指派該角色的資源。 移至該處所列的資源來移除角色指派。
+   ![角色清單](./media/role-assignments-portal/roles-list.png)
 
-![使用者刀鋒視窗 - 繼承的存取存停用 [移除] 按鈕螢幕擷取畫面](./media/role-assignments-portal/remove-access2.png)
+## <a name="list-access"></a>列出存取權
+
+在管理存取權時，您想要知道誰具有存取權、其權限為何，以及在何種層級上。 若要列出存取權，您可以列出角色指派。
+
+### <a name="list-role-assignments-for-a-subscription"></a>列出訂用帳戶的角色指派
+
+1. 在 Azure 入口網站中，選擇 [所有服務]，然後選擇 [訂用帳戶]。
+
+1. 選擇您的訂用帳戶。
+
+1. 選擇 [存取控制 (IAM)]。
+
+    在 [存取控制 (IAM)] 刀鋒視窗上 (也稱為身分識別和存取管理)，您可以查看誰可以存取此訂用帳戶及其角色。
+
+    ![存取控制 (IAM) 刀鋒視窗](./media/role-assignments-portal/subscription-access-control.png)
+
+    傳統訂用帳戶管理員和共同管理員被視為 RBAC 模型中訂用帳戶的擁有者。
+
+
+### <a name="list-role-assignments-for-a-resource-group"></a>列出資源群組的角色指派
+
+1. 在導覽清單中，選擇 [資源群組]。
+
+1. 選擇資源群組，然後選擇 [存取控制 (IAM)]。
+
+   在 [存取控制 (IAM)] 刀鋒視窗上，您可以查看誰可以存取此資源群組。 請注意，某些角色的範圍限於**此資源**，而有些角色則是來自 **(繼承自)** 另一個範圍。 存取權不是特別指派給資源群組，就是繼承自父訂用帳戶的指派。
+
+   ![資源群組](./media/role-assignments-portal/resource-group-access-control.png)
+
+### <a name="list-role-assignments-for-a-user"></a>列出使用者的角色指派
+
+1. 在導覽清單中，選擇 [Azure Active Directory]。
+
+1. 選擇 [使用者] 以開啟 [所有使用者]。
+
+   ![Azure Active Directory 的所有使用者刀鋒視窗](./media/role-assignments-portal/aad-all-users.png)
+
+1. 在清單中選擇個別使用者。
+
+1. 在 [管理] 區段中，選擇 [Azure 資源]。
+
+   ![Azure Active Directory 使用者的 Azure 資源](./media/role-assignments-portal/aad-user-azure-resources.png)
+
+   在 [Azure 資源] 刀鋒視窗上，您可以查看所選使用者的角色指派。 此清單只會針對您有權讀取的資源列出其角色指派。 例如，如果使用者在您無法讀取的不同訂用帳戶中也有角色指派，這些角色指派將不會出現在清單中。
+
+## <a name="grant-access"></a>授與存取權
+
+在 RBAC 中，若要授與存取權，您可以建立角色指派。
+
+### <a name="create-a-role-assignment-at-a-subscription-scope"></a>建立訂用帳戶範圍的角色指派
+
+1. 在 Azure 入口網站中，選擇 [所有服務]，然後選擇 [訂用帳戶]。
+
+1. 選擇您的訂用帳戶。
+
+1. 選擇 [存取控制 (IAM)]，以查看訂用帳戶範圍中目前的角色指派清單。
+
+   ![資源群組的存取控制 (IAM) 刀鋒視窗](./media/role-assignments-portal/grant-subscription-access-control.png)
+
+1. 選擇 [新增] 以開啟 [新增權限] 窗格。
+
+   如果您沒有指派角色的權限，就不會看到 [新增] 選項。
+
+   ![新增權限窗格](./media/role-assignments-portal/add-permissions.png)
+
+1. 在 [角色] 下拉式清單中選取角色，例如 [虛擬機器參與者]。
+
+1. 在 [選取] 清單中，選取使用者、群組或應用程式。 如果在清單中未看到安全性主體，您可以在 [選取] 方塊中輸入，以在目錄中搜尋顯示名稱、電子郵件地址和物件識別碼。
+
+1. 選擇 [儲存] 以建立角色指派。
+
+   在幾分鐘之後，即會在訂用帳戶範圍中指派安全性主體的角色。
+
+### <a name="create-a-role-assignment-at-a-resource-group-scope"></a>建立資源群組範圍的角色指派
+
+1. 在導覽清單中，選擇 [資源群組]。
+
+1. 選擇資源群組。
+
+1. 選擇 [存取控制 (IAM)]，以查看資源群組範圍中目前的角色指派清單。
+
+   ![資源群組的存取控制 (IAM) 刀鋒視窗](./media/role-assignments-portal/grant-resource-group-access-control.png)
+
+1. 選擇 [新增] 以開啟 [新增權限] 窗格。
+
+   如果您沒有指派角色的權限，就不會看到 [新增] 選項。
+
+   ![新增權限窗格](./media/role-assignments-portal/add-permissions.png)
+
+1. 在 [角色] 下拉式清單中選取角色，例如 [虛擬機器參與者]。
+
+1. 在 [選取] 清單中，選取使用者、群組或應用程式。 如果在清單中未看到安全性主體，您可以在 [選取] 方塊中輸入，以在目錄中搜尋顯示名稱、電子郵件地址和物件識別碼。
+
+1. 選擇 [儲存] 以建立角色指派。
+
+   在幾分鐘之後，即會在資源群組範圍中指派安全性主體的角色。
+
+## <a name="remove-access"></a>移除存取
+
+在 RBAC 中，若要移除存取權，您可以移除角色指派。
+
+### <a name="remove-a-role-assignment"></a>移除角色指派
+
+1. 確認您要移除的角色指派，然後開啟具有這些指派的訂用帳戶、資源群組或資源的 [存取控制 (IAM)] 刀鋒視窗。
+
+1. 在角色指派清單中，在具有您要移除的角色指派安全性主體旁加上核取記號。
+
+   ![移除角色指派訊息](./media/role-assignments-portal/remove-role-assignment-select.png)
+
+1. 選擇 [移除]。
+
+   ![移除角色指派訊息](./media/role-assignments-portal/remove-role-assignment.png)
+
+1. 在顯示的移除角色指派訊息中，選擇 [是]。
+
+繼承的角色指派無法移除。 如果您需要移除繼承的角色指派，您必須在建立角色指派的範圍中進行移除。 在 [範圍] 資料行中 [繼承] 的旁邊有一個連結，會將您帶往已指派該角色的資源。 移至該處所列的範圍來移除角色指派。
 
 ## <a name="other-tools-to-manage-access"></a>其他用來管理存取權的工具
-除了 Azure 入口網站以外，您可以使用工具中的 Azure RBAC 命令來指派角色及管理存取權。  遵循下列連結，以深入了解 Azure RBAC 命令的先決條件並開始使用。
+
+除了 Azure 入口網站以外，您可以使用工具中的 Azure RBAC 命令來指派角色及管理存取權。 如需詳細資訊，請參閱下列連結：
 
 * [Azure PowerShell](role-assignments-powershell.md)
-* [Azure 命令列介面](role-assignments-cli.md)
+* [Azure CLI](role-assignments-cli.md)
 * [REST API](role-assignments-rest.md)
 
 ## <a name="next-steps"></a>後續步驟
-* [建立存取權變更歷程記錄報告](change-history-report.md)
-* 請參閱 [RBAC 內建角色](built-in-roles.md)
-* 定義您自己的 [Azure RBAC 中的自訂角色](custom-roles.md)
 
+* [快速入門 - 使用 RBAC 與 Azure 入口網站為使用者授與存取權](quickstart-assign-role-user-portal.md)
+* [教學課程 - 使用 RBAC 與 Azure PowerShell 為使用者授與存取權](tutorial-role-assignments-user-powershell.md)
+* [內建角色](built-in-roles.md)

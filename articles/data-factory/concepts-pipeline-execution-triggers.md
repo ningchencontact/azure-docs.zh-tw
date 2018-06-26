@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/29/2018
+ms.date: 06/20/2018
 ms.author: shlo
-ms.openlocfilehash: e9fb1088110212a0971ea1af7bbfbecb7d150e21
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 8fda0eaa3c92fd750a84db345a91590163c20446
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715032"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293474"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory 中的管道執行和觸發程序
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -142,6 +142,8 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 
 - 輪轉視窗觸發程序：依定期間隔運作且同時保有狀態的觸發程序。 Azure Data Factory 目前不支援以事件為基礎的觸發程序。 例如，不支援可回應檔案送達事件的管線執行觸發程序。
 
+- 事件型觸發程序：會回應事件的觸發程序。
+
 管道和觸發程序具有多對多關聯性。 多個觸發程序可以啟動單一管線，或單一觸發程序可以啟動多個管線。 在下列觸發程序定義中，**pipelines** 屬性會參考由特定觸發程序所觸發的管線清單。 屬性定義包含管線參數的值。
 
 ### <a name="basic-trigger-definition"></a>基本觸發程序定義
@@ -175,11 +177,6 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 排程觸發程序會依時鐘排程來執行管線。 此觸發程序支援定期和進階行事曆選項。 例如，此觸發程序支援「每週」、「星期一下午 5 點和星期四晚上 9 點」之類的間隔。 排程觸發程序很有彈性，因為它不受限於特定資料集模式，也不會區別時間序列和非時間序列的資料。
 
 如需關於排程觸發程序的詳細資訊和範例，請參閱[建立排程觸發程序](how-to-create-schedule-trigger.md)。
-
-## <a name="tumbling-window-trigger"></a>輪轉視窗觸發程序
-輪轉視窗觸發程序是可從指定的開始時間定期引發，同時還能保留狀態的一種觸發程序。 輪轉視窗是一系列大小固定、非重疊的連續時間間隔。
-
-如需關於輪轉視窗觸發程序的詳細資訊和範例，請參閱[建立輪轉視窗觸發程序](how-to-create-tumbling-window-trigger.md)。
 
 ## <a name="schedule-trigger-definition"></a>排程觸發程序定義
 在建立排程觸發程序時，您必須使用 JSON 定義指定排程和週期。 
@@ -322,6 +319,17 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 | **weekDays** | 觸發程序執行的星期幾。 此值只能搭配 weekly 頻率指定。|<br />- 星期一<br />- 星期二<br />- 星期三<br />- 星期四<br />- 星期五<br />- 星期六<br />- 星期六<br />- 日期值陣列 (最大陣列大小為 7)<br /><br />日值不區分大小寫|
 | **monthlyOccurrences** | 觸發程序在一個月中的執行日。 此值只能與 monthly 頻率搭配指定。 |- **monthlyOccurence** 物件的陣列︰`{ "day": day,  "occurrence": occurence }`<br />- **day** 屬性是觸發程序在一週中的執行日。 例如，**day** 值為 `{Sunday}` 的 **monthlyOccurrences** 屬性意謂著月份中的每個星期日。 **day** 屬性為必要屬性。<br />- **occurrence** 屬性係指所指定的 **day** 在月份中出現的位置。 例如，**day** 和 **occurrence** 值為 `{Sunday, -1}` 的 **monthlyOccurrences** 屬性意謂著月份中的最後一個星期日。 **occurrence** 屬性為選用屬性。|
 | **monthDays** | 觸發程序在一個月中的執行日。 此值只能與 monthly 頻率搭配指定。 |- <= -1 且 >= -31 的任何值<br />- >= 1 且 <= 31 的任何值<br />- 值的陣列|
+
+## <a name="tumbling-window-trigger"></a>輪轉視窗觸發程序
+輪轉視窗觸發程序是可從指定的開始時間定期引發，同時還能保留狀態的一種觸發程序。 輪轉視窗是一系列大小固定、非重疊的連續時間間隔。
+
+如需關於輪轉視窗觸發程序的詳細資訊和範例，請參閱[建立輪轉視窗觸發程序](how-to-create-tumbling-window-trigger.md)。
+
+## <a name="event-based-trigger"></a>事件型觸發程序
+
+事件型觸發程序會執行管線以回應 Azure Blob 儲存體中的事件，例如檔案送達或檔案刪除。
+
+如需事件型觸發程序的詳細資訊，請參閱[建立會執行管線以回應事件的觸發程序](how-to-create-event-trigger.md)。
 
 ## <a name="examples-of-trigger-recurrence-schedules"></a>觸發程序週期排程的範例
 本節提供週期排程的範例。 其焦點放在 **schedule** 物件及其元素。
