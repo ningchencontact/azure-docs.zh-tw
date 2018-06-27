@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 05/22/2018
+ms.date: 06/12/2018
 ms.author: juliako
-ms.openlocfilehash: 4e644db12a74d6ef132a0c8d64ef517a0c2253cc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a382af644d30f9f0ebb586273c982ef1766f50b0
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659120"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36292043"
 ---
 # <a name="migrate-from-media-services-v2-to-v3"></a>從媒體服務 v2 遷移至 v3
 
@@ -50,6 +50,10 @@ ms.locfileid: "34659120"
 
 ## <a name="changes-from-v2"></a>從 v2 的變更
 
+* 在媒體服務 v3 中，如果您的資產是以媒體服務 v2 建立，則儲存體加密 (AES-256 加密) 只對回溯相容性有所支援。 這表示 v3 可用於現有的儲存體加密資產，但不允許建立新的。
+
+    對於以 v3 建立的資產，媒體服務可支援 [Azure 儲存體](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)伺服器端儲存體加密。
+    
 * 媒體服務 SDK 已與儲存體 SDK 分離，其掌控力勝過所使用的儲存體 SDK，並可避免版本控制問題。 
 * 在 v3 中，所有的編碼位元速率單位都是「位元/秒」。 這不同於 REST v2 媒體編碼器標準預設。 例如，v2 中的位元速率會指定為 128，但在 v3 中，則會是 128000。 
 * AssetFiles、AccessPolicies、IngestManifests 不存在於 v3 中。
@@ -141,7 +145,7 @@ new Job {Input = jobInput, Outputs = jobOutputs});
 1. 建立內容金鑰原則
 2. 建立資產
 3. 上傳內容或將資產作為 JobOutput
-4. 建立定位器
+4. 建立 StreamingLocator
 
 ## <a name="next-steps"></a>後續步驟
 

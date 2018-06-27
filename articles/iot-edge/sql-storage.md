@@ -9,12 +9,12 @@ ms.date: 02/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9c90cc28956e4dd7730cc7ba09a173f505f056fc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 30dc833edabfe3d13769bafc9fa0eb6bdd51bb23
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632395"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287202"
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>使用 SQL Server 資料庫在邊緣儲存資料
 
@@ -33,7 +33,7 @@ ms.locfileid: "34632395"
 * [使用 Visual Studio Code 開發 Azure Functions 並部署至 Azure IoT Edge](how-to-vscode-develop-azure-function.md)
 
 完成所需的教學課程之後，請在您的機器上備妥所有所需的先決條件： 
-* 使用中的 Azure IoT 中樞。
+* 至少具有一部 IoT Edge 裝置的作用中 Azure IoT 中樞。
 * 具有至少 2 GB RAM 和 2 GB 磁碟機的 IoT Edge 裝置。
 * [Visual Studio Code](https://code.visualstudio.com/)。 
 * [Visual Studio Code 的 Azure IoT Edge 擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)。 
@@ -43,7 +43,6 @@ ms.locfileid: "34632395"
 * [Python 2.7](https://www.python.org/downloads/)
 * [IoT Edge 控制指令碼](https://pypi.python.org/pypi/azure-iot-edge-runtime-ctl) \(英文\)
 * AzureIoTEdgeFunction 範本 (`dotnet new -i Microsoft.Azure.IoT.Edge.Function`)
-* 至少具有一個 IoT Edge 裝置的作用中 IoT 中樞。
 
 採用 x64 處理器架構的 Windows 和 Linux 容器皆適用於本教學課程。 SQL Server 不支援 ARM 處理器。
 

@@ -8,22 +8,22 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: a7e828aa79d3a7fba53c0ef9f683ed16afc9a3e6
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 0e87243b4b6e8362cb840a6510c175d2712b8a1a
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267450"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285751"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>使用執行命令在 Linux VM 中執行殼層指令碼
 
-執行命令會使用 VM 代理程式在 Azure Linux VM 中執行殼層指令碼。 這些指令碼可用於一般機器或應用程式管理，而且可用來快速診斷和修復 VM 存取和網路問題，並且使 VM 恢復正常狀態。
+執行命令會使用 VM 代理程式在 Azure Linux VM 中執行殼層指令碼。 這些指令碼可用於一般機器或應用程式管理，且可用來快速診斷和修復虛擬機器存取和網路問題，並使虛擬機器恢復正常狀態。
 
 ## <a name="benefits"></a>優點
 
-有多個選項可以用來存取您的虛擬機器。 執行命令可以使用 VM 代理程式從遠端在虛擬機器上執行指令碼。 可以透過 Azure 入口網站、[REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand)、[Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) 或 [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) 使用執行命令。
+有多個選項可以用來存取您的虛擬機器。 執行命令可以使用虛擬機器代理程式，從遠端在虛擬機器上執行指令碼。 可以透過 Azure 入口網站、[REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand)、[Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) 或 [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) 使用執行命令。
 
-對於您要在虛擬機器中執行指令碼的所有情況，都可以使用此功能，而且，對於由於網路或系統管理使用者設定不適當而未開啟 RDP 或 SSH 連接埠的虛擬機器，只有使用此功能才能進行疑難排解和修復。
+對於您要在虛擬機器中執行指令碼的所有情況，都可以使用此功能，且針對因網路或系統管理使用者設定不適當而未開啟 RDP 或 SSH 連接埠的虛擬機器，只有使用此功能才能進行疑難排解和修復。
 
 ## <a name="restrictions"></a>限制
 
@@ -33,6 +33,7 @@ ms.locfileid: "35267450"
 * 執行指令碼的最短時間大約 20 秒
 * 指令碼依預設會以提高權限的使用者身分在 Linux 上執行
 * 一次可執行一個指令碼
+* 不支援提示資訊 (互動模式) 的指令碼。
 * 您無法取消執行中的指令碼
 * 指令碼可以執行的最長時間是 90 分鐘，經過這段時間後會逾時
 
@@ -49,11 +50,11 @@ az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript 
 
 ## <a name="azure-portal"></a>Azure 入口網站
 
-瀏覽至 [Azure](https://portal.azure.com) 中的 VM，並選取 [作業] 下的 [執行命令]。 畫面上會列出將可在 VM 上執行的命令。
+瀏覽至 [Azure](https://portal.azure.com) 中的 VM，並選取 [作業] 下的 [執行命令]。 您會看到將可在虛擬機器上執行之命令的清單。
 
 ![執行命令清單](./media/run-command/run-command-list.png)
 
-選擇要執行的命令。 有些命令可能會有選擇性或必要的輸入參數。 對於這些命令，參數會顯示為可供您輸入值的文字欄位。 對於每個命令，您可以展開 [檢視指令碼] 檢視執行中的指令碼。 **RunShellScript** 不同於其他命令，因為它可讓您提供您自己的自訂指令碼。 
+選擇要執行的命令。 有些命令可能會有選擇性或必要的輸入參數。 對於這些命令，參數會顯示為可讓您提供輸入值的文字欄位。 對於每個命令，您可以展開 [檢視指令碼] 檢視執行中的指令碼。 **RunShellScript** 不同於其他命令，因為它可讓您提供您自己的自訂指令碼。 
 
 > [!NOTE]
 > 內建命令是無法編輯的。
