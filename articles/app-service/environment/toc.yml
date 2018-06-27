@@ -64,8 +64,6 @@
           href: app-service-app-service-environment-network-architecture-overview.md
         - name: 在 ASEv1 建立 Web 應用程式
           href: app-service-web-how-to-create-a-web-app-in-an-ase.md
-        - name: 高密度託管
-          href: app-service-high-density-hosting.md
         - name: 連線到後端
           href: app-service-app-service-environment-securely-connecting-to-backend-resources.md
         - name: 設定 ExpressRoute

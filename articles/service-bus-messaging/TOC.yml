@@ -6,6 +6,7 @@
       href: service-bus-messaging-overview.md
     - name: 比較訊息服務
       href: ../event-grid/compare-messaging-services.md
+      maintainContext: true
 - name: 快速入門
   items:
     - name: 傳送訊息 - PowerShell

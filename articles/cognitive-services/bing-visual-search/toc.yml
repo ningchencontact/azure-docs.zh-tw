@@ -15,12 +15,23 @@
       href: quickstarts/nodejs.md
     - name: Python 的第一個查詢
       href: quickstarts/python.md
+- name: SDK
+  expanded: true
+  items:
+    - name: SDK 範例概觀
+      href: sdk.md
+    - name: Python 中的 SDK
+      href: visual-search-sdk-python.md
 - name: 教學課程
   items:
     - name: 單一頁面 Web 應用程式
       href: tutorial-bing-visual-search-single-page-app.md
     - name: 單一頁面 Web 應用程式 (原始程式碼)
       href: tutorial-bing-visual-search-single-page-app-source.md
+    - name: Bing 視覺搜尋 SDK 影像裁剪區域和結果
+      href: tutorial-visual-search-crop-area-results.md
+    - name: Bing 視覺搜尋 SDK ImageInsightsToken 和結果
+      href: tutorial-visual-search-insights-token.md
 - name: 範例
   items:
     - name: 程式碼範例

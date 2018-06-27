@@ -3,7 +3,7 @@ documentType: LandingData
 title: 語音服務文件 (預覽)
 metadata:
   title: 語音服務文件 - 教學課程、快速入門、API 參考 - 認知服務 | Microsoft Docs
-  meta.description: Speech SDK provides developers an easy way to create powerful speech-enabled features in their applications, such as voice command control and dialog, using natural speech conversation, speech transcription and dictation, and speech translation.
+  meta.description: The Speech Service provides developers an easy way to add powerful speech-enabled features to their applications, such as voice command control and dialog, natural speech conversation, speech transcription and dictation, and speech translation.
   services: cognitive-services
   author: noellelacharite
   manager: nolachar
@@ -15,19 +15,19 @@ metadata:
   ms.topic: landing-page
   ms.date: 05/01/2018
   ms.author: nolachar
-  ms.openlocfilehash: ae9c5a62dd4f1b83f4d1317b54e5766b80d14245
-  ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+  ms.openlocfilehash: 98e254d3a993c5d02091be9535eb685ecd987a09
+  ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 06/11/2018
-  ms.locfileid: "35357007"
+  ms.lasthandoff: 06/25/2018
+  ms.locfileid: "36937851"
 abstract:
-  description: Microsoft 語音服務和 SDK 可讓開發人員輕鬆地在其應用程式中建立啟用語音的強大功能，如語音命令控制、轉譯及聽寫。 Cortana、Microsoft Office 和其他使用相同的技術。 Microsoft 語音服務的關鍵差異在於能夠自訂<a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-speech-models">語音轉文字</a>的原音和語言模型，以便容納特殊詞彙、吵雜環境及不同的說話方式。 事實上，自訂的<a href="http://aka.ms/customvoice">文字轉語音</a>和<a href="http://aka.ms/customtranslator">語音翻譯</a>也可供使用。<br/><br/>我們的語音 SDK 適用於多個平台及數種程式設計語言，您可以根據應用程式需求來處理即時麥克風管理、即時串流，或以批次為基礎的檔案通訊。
+  description: Microsoft 語音服務可讓開發人員輕鬆地在其應用程式中使用 <a href="rest-apis">REST API</a> 或 <a href="speech-sdk">C#、C++、或 Java SDK</a> 新增啟用語音的強大功能，包括語音命令控制、轉譯、聽寫及翻譯。<p>語音服務可讓您自訂<a href="how-to-customize-speech-models">語音轉換文字</a>模型，以便容納特殊詞彙、吵雜環境及不同的說話方式。 自訂的<a href="https://cris.ai/Home/customvoice">文字轉換語音</a>和 <a href="https://www.microsoft.com/translator/customization.aspx">語音翻譯</a>也可供使用。<p>如需詳細資訊，請參閱<a href="overview">語音服務是什麼？</a>
 sections:
-- title: 10 分鐘快速入門 - 新 SDK
+- title: 10 分鐘快速入門
   items:
   - type: paragraph
-    text: 了解如何使用快速入門安裝及使用語音 SDK：
+    text: 了解如何安裝語音 SDK 及開始使用：
   - type: table
     style: dataMatrix
     columns:
@@ -41,12 +41,12 @@ sections:
     - title: Windows
       values:
       - href: quickstart-csharp-windows
-      - href: cpp-windows
+      - href: quickstart-cpp-windows
       - href: 
     - title: Linux
       values:
       - href: 
-      - href: cpp-linux
+      - href: quickstart-cpp-linux
       - href: 
     - title: 裝置 SDK (Android)
       values:
@@ -62,128 +62,10 @@ sections:
     - title: 範例
       html: <ul><li><a href="speech-to-text-sample.md">語音辨識</a></li><li><a href="intent.md">意圖辨識</a></li><li><a href="translation.md">翻譯</a></li></ul>
     - title: API 參考
-      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">C# API</a></li><li><a href="https://aka.ms/csspeech/cppref">C++ API</a></li><li><a href="https://aka.ms/csspeech/javaref">JAVA API (裝置 SDK)</a></li></ul>
-- title: 語音轉文字
-  items:
-  - type: paragraph
-    text: 我們的語音 SDK 支援<b>語音轉文字</b> (STT)，或語音辨識。  語音 SDK 可將音訊串流轉譯為文字，以便應用程式接受作為輸入。 例如，您的應用程式可以將文字輸入文件，或作為命令執行它。
-  - type: paragraph
-    text: 以下是透過語音 SDK&#58; 的<b>語音轉文字</b>常見使用案例
-  - type: list
-    style: unordered
-    items:
-    - text: 識別簡短的談話，如命令，而無暫時結果。
-    - text: 轉譯先前記錄的長篇談話，如語音郵件訊息。
-    - text: 即時轉譯串流語音，將部分結果用於聽寫。
-    - text: 根據口語的自然語言要求，判斷使用者想要做什麼。
-  - type: paragraph
-    text: 語音 SDK 支援互動式語音轉譯以及即時的連續<a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-speech-models">語音轉文字</a>和暫時結果。 它也支援語音結束偵測、選用自動大小寫和標點符號、粗話遮罩和文字正規化。
-  - type: paragraph
-    text: Microsoft 語音服務的關鍵差異在於能夠自訂<a href="http://aka.ms/customspeech">語音轉文字</a>的原音和語言模型，以便容納特殊詞彙、吵雜環境及不同的說話方式。
-- title: 語音翻譯
-  items:
-  - type: paragraph
-    text: 語音 SDK 也可用於<a href="https://azure.microsoft.com/services/cognitive-services/speech-translation">語音翻譯</a>。  透過語音 SDK 的串流<b>語音翻譯</b>，服務會傳回暫時結果，可向使用者顯示以指出翻譯進度。 結果可能會以文字或語音傳回。
-  - type: paragraph
-    text: 透過語音 SDK 的<b>語音翻譯</b>使用案例包含下列&#58;
-  - type: list
-    style: unordered
-    items:
-    - text: 實作出差者的對話翻譯行動應用程式或裝置。
-    - text: 為音訊和視訊錄製的字幕提供自動翻譯。
-  - type: paragraph
-    text: <b>語音翻譯</b>模型也可以<a href="http://aka.ms/customtranslator">自訂</a>。
-- title: 文字轉語音
-  items:
-  - type: paragraph
-    text: 目前透過 REST API 支援<a href="https://azure.microsoft.com/services/cognitive-services/text-to-speech">文字轉語音</a> (TTS) 或語音合成，其可將純文字轉換成自然發音語音，並以音訊檔案傳送到您的應用程式中。 可提供多種語言的多種聲音、不同性別或腔調。
-  - type: paragraph
-    text: 我們的語音 SDK 可供存取語音轉文字和語音翻譯。 文字轉語音採用 HTTP 的 REST POST 呼叫。
-  - type: paragraph
-    text: <b>文字轉語音</b> REST API 支援<b>語音合成標記語言</b> (SSML) 標記，因此您可以為麻煩的單字指定確切的語音發音。 SSML 也可以在文字中表示語音特性 (包含強調、速率、音量、性別及音高)。
-  - type: paragraph
-    text: 如果希望應用程式能夠辨識不支援的方言或獨特的語音，您可以從自己的語音範例建立<a href="http://aka.ms/customvoice">自訂語音字型</a>。
-  - type: paragraph
-    text: 以下是<b>文字轉語音</b> REST API 的常見使用案例：
-  - type: list
-    style: unordered
-    items:
-    - text: 為視覺障礙使用者以語音輸出代替畫面輸出。
-    - text: 車內應用程式的語音提示，例如導航。
-    - text: 對話使用者介面搭配<b>語音轉文字</b> API。
+      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">C# API</a></li><li><a href="https://aka.ms/csspeech/cppref">C++ API</a></li><li><a href="https://aka.ms/csspeech/javaref">Java API (語音裝置 SDK)</a></li></ul>
 - title: 語音裝置 SDK
   items:
   - type: paragraph
     text: 在推出統一語音服務後，Microsoft 和合作夥伴現在提供整合式硬體/軟體平台，此平台經過最佳化以用於開發啟用語音的裝置：<b>語音裝置 SDK</b>。 此 SDK 適用於開發所有類型應用程式的智慧型語音裝置。
   - type: paragraph
     text: <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk">語音裝置 SDK</a> 可讓您建置自己的環境裝置，其具備品牌獨有的自訂喚醒單字，用以觸發音訊擷取。 它也提供多聲道來源的上層音訊處理，以進行更精確的語音辨識，包括噪音抑制、遠場語音和波束成形。
-- title: 舊版 SDK
-  items:
-  - type: table
-    style: dataMatrix
-    columns:
-    - image:
-        src: media/index/uwp.jpg
-    - image:
-        src: media/index/logo_java.jpg
-    - image:
-        src: media/index/logo_objc.jpg
-    - image:
-        src: media/index/logo_js.svg
-    - image:
-        src: media/index/logo_rest_sr.svg
-    - image:
-        src: media/index/logo_rest_tts.svg
-    rows:
-    - title: Windows
-      values:
-      - href: https://docs.microsoft.com/windows/uwp/design/input/speech-recognition
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-    - title: Android
-      values:
-      - href: 
-      - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedjavaandroid
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-    - title: iOS
-      values:
-      - href: 
-      - href: 
-      - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/get-started-objectivec-ios
-      - href: 
-      - href: 
-      - href: 
-    - title: Web
-      values:
-      - href: 
-      - href: 
-      - href: 
-      - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedjswebsockets
-      - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest?tabs=Powershell
-      - href: https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput
-- title: SDK 的考量
-  items:
-  - type: table
-    style: dataMatrix
-    columns:
-    - image:
-        src: media/index/logo_python.svg
-    - image:
-        src: media/index/logo_swift.jpg
-    - image:
-        src: media/index/logo_gopher.svg
-    - image:
-        src: media/index/c.jpg
-    rows:
-    - title: SDK
-      values:
-      - href: 
-      - href: 
-      - href: 
-      - href: 

@@ -250,7 +250,7 @@
 #### [適用於 SAML 應用程式的進階憑證](manage-apps/certificate-signing-options.md)
 #### [將應用程式排除在使用者體驗之外](manage-apps/hide-application-from-user-portal.md)
 ### [使用 HRD 原則設定登入時自動加速](manage-apps/configure-authentication-for-federated-users-portal.md)
-### [將 AD FS 應用程式移轉至 Azure AD](migrate-adfs-apps-to-azure.md) 
+### [將 AD FS 應用程式移轉至 Azure AD](manage-apps/migrate-adfs-apps-to-azure.md) 
 ### [管理應用程式的存取權](manage-apps/what-is-access-management.md)
 #### [SSO 存取](manage-apps/what-is-single-sign-on.md)
 #### [SSO 憑證](manage-apps/manage-certificates-for-federated-single-sign-on.md)
@@ -386,13 +386,10 @@
 
 ## 委派資源存取
 ### [管理員角色](active-directory-assign-admin-roles-azure-portal.md)
-#### [將管理員角色指派給使用者](fundamentals/active-directory-users-assign-role-azure-portal.md) 
-#### [比較成員和來賓使用者的權限](fundamentals/users-default-permissions.md) 
-### [保護特殊權限存取](admin-roles-best-practices.md)  
-### [建立緊急存取管理帳戶](active-directory-admin-manage-emergency-access-accounts.md) 
-
-
-#### [預設使用者權限](fundamentals/users-default-permissions.md)
+#### [將管理員角色指派給使用者](fundamentals/active-directory-users-assign-role-azure-portal.md)
+#### [比較成員和來賓使用者的權限](fundamentals/users-default-permissions.md)
+### [保障管理員角色](admin-roles-best-practices.md)  
+#### [建立緊急存取管理帳戶](active-directory-admin-manage-emergency-access-accounts.md)
 ### [管理單位](active-directory-administrative-units-management.md)
 ### [設定權杖存留期](active-directory-configurable-token-lifetimes.md)
 ### [保護特殊權限角色](admin-roles-best-practices.md)

@@ -3,6 +3,7 @@
 ## [認證](sap-certifications.md)
 # SAP HANA on Azure (大型執行個體)
 ## [概觀和架構](hana-overview-architecture.md)
+### [HLI 支援案例](hana-supported-scenario.md)
 ## [基礎結構和連線能力](hana-overview-infrastructure-connectivity.md)
 ## [安裝 SAP HANA](hana-installation.md)
 ## [高可用性和災害復原](hana-overview-high-availability-disaster-recovery.md)
