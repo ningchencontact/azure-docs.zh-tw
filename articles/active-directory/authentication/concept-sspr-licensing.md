@@ -10,30 +10,32 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 78d4d721f2821a8365185c0bad6d795c67a75292
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: b1cfb76c7e196441ebad3bcfcd1d788bd544ab74
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33864649"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36292554"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Azure AD 自助式密碼重設的授權需求
 
-為了讓 Azure Active Directory (Azure AD) 密碼重設為函式，您必須至少在組織中被指派一個授權。 我們不會對密碼重設體驗強制執行每個使用者的授權。 必須有適當的授權，使用者才能直接或間接從該授權所涵蓋的任何功能獲益。
+若要讓 Azure Active Directory (Azure AD) 密碼重設為函式，您必須在組織中為該使用者至少指派一個授權。 必須有適當的授權，使用者才能直接或間接從該授權所涵蓋的任何功能獲益。
 
 * **僅限雲端使用者**：Office 365 任何付費的 SKU，或 Azure AD Basic
 * **雲端**或**內部部署使用者**：Azure AD Premium P1 或 P2、Enterprise Mobility + Security (EMS) 或 Microsoft 365
 
-## <a name="licenses-required-for-password-writeback"></a>密碼回寫所需的授權
+## <a name="licensing-requirements-for-password-writeback"></a>密碼回寫的授權需求
+
+**自助式密碼重設/變更/使用內部部署回寫來解除鎖定是 Azure AD 的進階功能**。 如需授權的詳細資訊，請參閱 [Azure Active Directory 價格網站](https://azure.microsoft.com/pricing/details/active-directory/)。
 
 若要使用密碼回寫，您的租用戶中必須已指派下列其中一項授權：
 
 * Azure AD Premium P1
 * Azure AD Premium P2
-* Enterprise Mobility + Security E3
-* Enterprise Mobility + Security E5
-* Microsoft 365 E3
-* Microsoft 365 E5
+* Enterprise Mobility + Security E3 或 A3
+* Enterprise Mobility + Security E5 或 A5
+* Microsoft 365 E3 或 A3
+* Microsoft 365 E5 或 A5
 * Microsoft 365 F1
 
 > [!WARNING]

@@ -20,6 +20,10 @@
   items:
     - name: SDK 範例概觀
       href: sdk.md
+    - name: 'C# 中的 SDK'
+      href: visual-search-sdk-c-sharp.md
+    - name: Node 中的 SDK
+      href: visual-search-sdk-node.md
     - name: Python 中的 SDK
       href: visual-search-sdk-python.md
 - name: 教學課程

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 8796cd3224670c6d1c8b1b3c6da8d1c096b01d03
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 40a8cd256164bb66e82c651e58d37b1afbb4a652
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716715"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287798"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>在 Azure VM 中手動設定 Always On 可用性群組
 
@@ -56,7 +56,7 @@ ms.locfileid: "34716715"
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
 
 <a name="CreateCluster"></a>
-## 建立叢集
+## <a name="create-the-cluster"></a>建立叢集
 
 完成必要條件之後，第一個步驟是建立一個包含兩部 SQL Server 和一部見證伺服器的「Windows Server 容錯移轉叢集」。
 
@@ -413,8 +413,8 @@ Repeat these steps on the second SQL Server.
    | **名稱** | 文字 | SQLAlwaysOnEndPointListener |
    | **前端 IP 位址** | 選擇一個位址 |使用您建立負載平衡器時所建立的位址。 |
    | **通訊協定** | 選擇 [TCP] |TCP |
-   | **連接埠** | 使用 SQL Server 執行個體的連接埠 | 1433 |
-   | **後端連接埠** | 如果已為伺服器直接回傳設定「浮動 IP」，便不會使用此欄位。 | 1433 |
+   | **連接埠** | 使用可用性群組接聽程式的連接埠 | 1435 |
+   | **後端連接埠** | 如果已為伺服器直接回傳設定「浮動 IP」，便不會使用此欄位。 | 1435 |
    | **探查** |您為探查指定的名稱 | SQLAlwaysOnEndPointProbe |
    | **工作階段持續性** | 下拉式清單 | **None** |
    | **閒置逾時** | 讓 TCP 連線保持開啟的分鐘數 | 4 |

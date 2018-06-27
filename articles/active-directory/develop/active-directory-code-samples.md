@@ -17,12 +17,12 @@ ms.date: 04/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 299e0d4fa53f9b8a2aef2fc881b136aa41aacfe4
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 5d7f0d1fc32f18991be6614bb7661b63570a8700
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157770"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36264917"
 ---
 # <a name="azure-active-directory-code-samples-v1-endpoint"></a>Azure Active Directory 程式碼範例 (V1 端點)
 
@@ -109,9 +109,11 @@ ASP.NET 4.5 | [dotnet-webapi-onbehalfof-ca](https://github.com/azure-samples/act
 
 這個範例示範如何撰寫使用 Azure AD 保護的單一頁面應用程式。
 
- 平台 |  呼叫 Microsoft Graph | 呼叫它自己的 API
- -------- |  --------------------- | -------------------------
-JavaScript (Angular)/ASP.NET 4.x |  | [angularjs-singlepageapp](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp)
+ 平台 |  呼叫 Microsoft Graph | 呼叫它自己的 API | 呼叫其他 Web API
+ -------- |  --------------------- | ------------------ | ----------------
+JavaScript / ASP.NET 4.x |  | [javascript-singlepageapp](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |
+JavaScript (AngularJS) / ASP.NET 4.x |  | [angularjs-singlepageapp](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) |
+JavaScript (AngularJS) / ASP.NET 4.x |  |  | [angularjs-singlepageapp-cors](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp-dotnet-webapi)
 
 ## <a name="other-microsoft-graph-samples"></a>其他 Microsoft Graph 範例
 

@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 3/27/2017
+ms.date: 06/12/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 7b3cb869f3c220c20db53216c96449d01c16eaf6
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 97eca81a8ddc2726bf5de0f4ad7ba0bdf1df1d05
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263172"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36220079"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>取用來自 Azure 的監視資料
 
@@ -40,7 +40,7 @@ ms.locfileid: "35263172"
 | Azure 監視器計量警示 | 通知 | [請參閱此處的清單](monitoring-supported-metrics.md) | <ul><li>**Webhook：**[Azure 計量警示](insights-webhooks-alerts.md)</li></ul> |
 | Azure 監視器活動記錄警示 | 通知 | 所有 Azure 服務 | <ul><li>**Webhook：** Azure 活動記錄警示</li></ul> |
 | 自動調整規模通知 | 通知 | [請參閱此處的清單](monitoring-overview-autoscale.md#supported-services-for-autoscale) | <ul><li>**Webhook：**[自動調整規模通知 Webhook 承載結構描述](insights-autoscale-to-webhook-email.md#autoscale-notification-webhook-payload-schema)</li></ul> |
-| 記錄搜尋查詢警示 | 通知 | Log Analytics | <ul><li>**Webhook：**[Log Analytics 警示](../log-analytics/log-analytics-alerts-actions.md#webhook-actions)</li></ul> |
+| 記錄搜尋查詢警示 | 通知 | Log Analytics | <ul><li>**Webhook：**[Webhook 動作記錄警示規則](../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md)</li></ul> |
 | Application Insights 計量警示 | 通知 | Application Insights | <ul><li>**Webhook：**[Application Insights 警示](../application-insights/app-insights-alerts.md)</li></ul> |
 | Application Insights Web 測試 | 通知 | Application Insights | <ul><li>**Webhook：**[Application Insights 警示](../application-insights/app-insights-alerts.md)</li></ul> |
 

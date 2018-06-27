@@ -1,24 +1,22 @@
 ---
 title: Hyper-V 到 Azure 的 Azure Site Recovery 部署規劃工具 | Microsoft Docs
-description: 本文說明當您從 Hyper-V 移至 Azure 時，執行 Azure Site Recovery 部署規劃工具的模式。
-services: site-recovery
+description: 本文指示如何執行 Site Recovery 部署規劃工具以進行 Hyper-V 到 Azure 的複寫。
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 06/20/2018
 ms.author: nisoneji
-ms.openlocfilehash: 49243eaa4d3413509e569a88e1d7a2f6359d7876
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 0293ace13dbcd30988ce571c60f2d7c6a338e779
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236224"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287485"
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>執行 Hyper-V 到 Azure 的 Azure Site Recovery 部署規劃工具
 
-## <a name="modes-of-running-the-deployment-planner"></a>執行部署規劃工具的模式
-您可以在下列任何模式中執行命令列工具 (ASRDeploymentPlanner.exe)： 
+您可以在下列四種模式中執行 Site Recovery 部署規劃工具命令列工具 (ASRDeploymentPlanner.exe)： 
 -   [取得虛擬機器 (VM) 清單](#get-vm-list-for-profiling-hyper-v-vms)
 -   [設定檔](#profile-hyper-v-vms)
 -   [產生報告](#generate-report)
@@ -40,14 +38,14 @@ ASRDeploymentPlanner.exe -Operation GetVMList /?
 |---|---|
 | -Operation | GetVMList |
 | -User | 要連線到 Hyper-V 主機或 Hyper-V 叢集的使用者名稱。 使用者必須具有系統管理權限。|
-|-ServerListFile | 包含要分析之虛擬機器的伺服器清單檔案。 此檔案路徑可以是絕對或相對路徑。 此檔案應在每一行包含下列其中一項：<ul><li>Hyper-V 主機名稱或 IP 位址</li><li>Hyper-V 叢集名稱或 IP 位址</li></ul><br>**例如：** ServerList.txt 包含下列伺服器︰<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
+| -ServerListFile | 包含要分析之虛擬機器的伺服器清單檔案。 此檔案路徑可以是絕對或相對路徑。 此檔案應在每一行包含下列其中一項：<ul><li>Hyper-V 主機名稱或 IP 位址</li><li>Hyper-V 叢集名稱或 IP 位址</li></ul><br>**例如：** ServerList.txt 包含下列伺服器︰<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
 | -Directory|(選用) 用來儲存此作業期間所產生之資料的通用命名慣例 (UNC) 或本機目錄路徑。 如果未指定名稱，目前路徑下名為 'ProfiledData' 的目錄將會作為預設目錄。|
-|-OutputFile| (選用) 此檔案中儲存從 Hyper-V 伺服器擷取的虛擬機器清單。 如果未提及名稱，則詳細資料會儲存在 VMList.txt。  在移除不需要分析的 VM 之後，使用此檔案開始分析。|
+|-OutputFile| (選用) 從 Hyper-V 伺服器擷取的 VM 清單儲存所在的檔案。 如果未提及名稱，則詳細資料會儲存在 VMList.txt。  在移除不需要分析的 VM 之後，使用此檔案開始分析。|
 |-Password|(選用) 用於連線到 Hyper-V 主機的密碼。 如果您未將其指定為參數，您會在執行命令時收到提示。|
 
 ### <a name="getvmlist-discovery"></a>GetVMList 探索
-**Hyper-V 叢集**：在伺服器清單檔案中指定 Hyper-V 叢集名稱後，此工具會尋找叢集的所有 Hyper-V 節點，並取得每部 Hyper-V 主機上存在的虛擬機器。
 
+- **Hyper-V 叢集**：在伺服器清單檔案中指定 Hyper-V 叢集名稱後，此工具會尋找叢集的所有 Hyper-V 節點，並取得每部 Hyper-V 主機上存在的虛擬機器。
 **Hyper-V 主機**：指定 Hyper-V 主機名稱後，此工具會先檢查它是否屬於叢集。 如果是，此工具會擷取屬於叢集的節點。 然後，它會從每部Hyper-V 主機取得 VM。 
 
 您也可以選擇在檔案中列出您想要以手動方式剖析的好記 VM 名稱 / IP 位址。
@@ -154,7 +152,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Dire
 
 傳遞儲存體帳戶名稱和金鑰時，此工具會在分析的最後一個步驟測量輸送量。 如果此工具在分析完成前關閉，則不會計算輸送量。 若要在產生報告之前找到輸送量，您可以從命令列主控台執行 GetThroughput 作業。 否則，產生的報告不會包含輸送量資訊。
 
-Azure Site Recovery 不支援具有 iSCSI 和傳遞磁碟的 VM。 不過，此工具也無法偵測及分析虛擬機器所連結的 iSCSI 和傳遞磁碟。
+Azure Site Recovery 不支援具有 iSCSI 和傳遞磁碟的 VM。 此工具也無法偵測及分析虛擬機器所連結的 iSCSI 和傳遞磁碟。
 
 ## <a name="generate-a-report"></a>產生報告
 此工具會產生啟用巨集的 Microsoft Excel 檔案 (XLSM 檔) 作為報告輸出。 其中會摘要說明所有的部署建議。 此報告的名稱為 DeploymentPlannerReport_唯一數值識別碼.xlsm 且置於指定的目錄中。

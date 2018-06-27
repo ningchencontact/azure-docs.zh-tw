@@ -48,6 +48,8 @@
           href: security-center-customize-os-security-config.md
         - name: 使用 Azure 原則的安全性原則
           href: security-center-azure-policy.md
+        - name: 跨租用戶可見性
+          href: security-center-management-groups.md
     - name: 實作安全性建議
       href: security-center-recommendations.md
     - name: 監視安全性健康狀態

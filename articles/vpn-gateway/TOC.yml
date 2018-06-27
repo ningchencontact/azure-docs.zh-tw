@@ -106,6 +106,8 @@
       items:
         - name: Azure PowerShell
           href: vpn-gateway-activeactive-rm-powershell.md
+    - name: 在 Azure 可用性區域中建立區域備援的 VNet 閘道
+      href: create-zone-redundant-vnet-gateway.md
     - name: 路由、BGP 及 VNet 對等互連
       items:
         - name: 設定適用於 VPN 閘道的 BGP

@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 11/16/2017
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 12c1a4b2b1f3e433721b9c8a335c6b55de746643
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: ab053e9b132630c19b6966286035d38c71c6b4d9
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34158144"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36267880"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory 開發人員詞彙
 本文包含某些核心 Azure Active Directory (AD) 開發人員概念的定義，以協助您了解 Azure AD 的應用程式開發。
@@ -45,7 +45,7 @@ ms.locfileid: "34158144"
 ## <a name="application-object"></a>應用程式物件
 當您在 [Azure 入口網站][AZURE-portal]註冊/更新應用程式時，入口網站會為租用戶同時建立/更新應用程式物件和對應的[服務主體物件](#service-principal-object)。 應用程式物件可全域 (在其能夠存取的所有租用戶中)「定義」應用程式的身分識別組態，並提供範本來「衍生」出其對應的服務主體物件，以在執行階段於本機 (在特定租用戶) 使用。
 
-如需詳細資訊，請參閱[應用程式物件和服務主體物件][AAD-App-SP-Objects]。
+如需詳細資訊，請參閱[應用程式和服務主體物件][AAD-App-SP-Objects]。
 
 ## <a name="application-registration"></a>應用程式註冊
 為了讓應用程式能夠整合身分識別和存取管理功能，並將這些功能委派給 Azure AD，您必須向 Azure AD [租用戶](#tenant)註冊應用程式。 當您向 Azure AD 註冊應用程式時，您必須提供應用程式的身分識別組態，以允許它與 Azure AD 整合，並使用如下功能︰
@@ -132,7 +132,7 @@ ms.locfileid: "34158144"
 
 角色是資源所定義的字串 (例如「經費支出核准者」、"Directory.ReadWrite.All")，可在 [Azure 入口網站][AZURE-portal]中透過資源的[應用程式資訊清單](#application-manifest)進行管理，並且會儲存在資源的 [appRoles 屬性][AAD-Graph-Sp-Entity]。 Azure 入口網站也可用來將使用者指派給「使用者」角色，並設定用戶端[應用程式權限](#permissions)以存取「應用程式」角色。
 
-如需 Azure AD 圖形 API 所公開之應用程式角色的詳細討論，請參閱[圖形 API 權限範圍][AAD-Graph-Perm-Scopes]。 如需逐步實作範例，請參閱[雲端應用程式中使用 Azure AD 的角色型存取控制][Duyshant-Role-Blog]。
+如需 Azure AD 圖形 API 所公開之應用程式角色的詳細討論，請參閱[圖形 API 權限範圍][AAD-Graph-Perm-Scopes]。 如需逐步實作範例，請參閱[使用 RBAC 和 Azure 入口網站來管理存取權][AAD-RBAC]。
 
 ## <a name="scopes"></a>範圍
 和[角色](#roles)一樣，範圍會提供方法讓[資源伺服器](#resource-server)控管其受保護資源的存取權。 針對已獲得資源擁有者委派資源存取權的[用戶端應用程式](#client-application)，範圍可用來實作[範圍型][OAuth2-Access-Token-Scopes]存取控制。
@@ -147,7 +147,7 @@ ms.locfileid: "34158144"
 ## <a name="service-principal-object"></a>服務主體物件
 當您在 [Azure 入口網站][AZURE-portal]註冊/更新應用程式時，入口網站會為租用戶同時建立/更新[應用程式物件](#application-object)和對應的服務主體物件。 應用程式物件可全域 (在相關聯的應用程式已獲授與存取權的所有租用戶中)「定義」應用程式的身分識別組態，並可做為範本來「衍生」出其對應的服務主體物件，以在執行階段於本機 (在特定租用戶) 使用。
 
-如需詳細資訊，請參閱[應用程式物件和服務主體物件][AAD-App-SP-Objects]。
+如需詳細資訊，請參閱[應用程式和服務主體物件][AAD-App-SP-Objects]。
 
 ## <a name="sign-in"></a>登入
 [用戶端應用程式](#client-application)會透過此程序起始使用者驗證並擷取相關狀態，以便取得[安全性權杖](#security-token)並將應用程式工作階段侷限在該狀態。 狀態中可包含使用者設定檔資訊之類的構件，以及衍生自權杖宣告的資訊。
@@ -155,7 +155,7 @@ ms.locfileid: "34158144"
 應用程式的登入功能通常會用來實作單一登入 (SSO)。 也可能會在這之前加上「註冊」功能，以做為進入點來讓使用者取得應用程式的存取權 (在第一次登入時)。 註冊功能可用來收集並保存使用者專屬的其他狀態，而且可能需要 [使用者同意](#consent)。
 
 ## <a name="sign-out"></a>登出
-讓使用者變成未驗證狀態的程序，以便解除使用者在[登入](#sign-in)期間與[用戶端應用程式](#client-application)工作階段相關聯的狀態
+讓使用者變成未驗證狀態的程序，以便解除使用者在[登入](#sign-in)期間與[用戶端應用程式](#client-application)工作階段相關聯的狀態。
 
 ## <a name="tenant"></a>tenant
 Azure AD 目錄的執行個體會稱為 Azure AD 租用戶。 它提供數個功能，包括︰
@@ -181,7 +181,7 @@ Azure AD 租用戶會在註冊期間建立/與 Azure 和 Office 365 訂用帳戶
 ## <a name="next-steps"></a>後續步驟
 [Azure AD 開發人員指南][AAD-Dev-Guide]是適用於所有 Azure AD 開發相關主題的登陸頁面，內容包括[應用程式整合][AAD-How-To-Integrate]的概觀和 [Azure AD 驗證與支援的驗證案例][AAD-Auth-Scenarios]的基本概念。 您也可以在 [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=) 上找到如何快速啟動及執行的程式碼範例和教學課程。
 
-請使用下列留言區段提供意見反應，並協助我們改善與設計內容，包括要求新定義或更新現有定義！
+使用下列留言區段提供意見反應，並協助改善與設計此內容，包括要求新定義或更新現有定義！
 
 <!--Image references-->
 
@@ -194,7 +194,7 @@ Azure AD 租用戶會在註冊期間建立/與 Azure 和 Office 365 訂用帳戶
 [AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
 [AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity
-[AAD-How-Subscriptions-Assoc]: ../active-directory-how-subscriptions-associated-directory.md
+[AAD-How-Subscriptions-Assoc]:../fundamentals/active-directory-how-subscriptions-associated-directory.md
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
 [AAD-How-To-Tenant]: active-directory-howto-tenant.md
 [AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
@@ -202,7 +202,7 @@ Azure AD 租用戶會在註冊期間建立/與 Azure 和 Office 365 訂用帳戶
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]: ./active-directory-token-and-claims.md
 [AZURE-portal]: https://portal.azure.com
-[Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
+[AAD-RBAC]: ../../role-based-access-control/role-assignments-portal.md
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [Microsoft-Graph]: https://graph.microsoft.io
 [O365-Perm-Ref]: https://msdn.microsoft.com/office/office365/howto/application-manifest
