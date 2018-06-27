@@ -12,14 +12,14 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 06/19/2018
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 30e6adfe2a15598acceccc56160622f234af163a
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 82d1fbc4167d1df4cb2c976395c181e4abd1ba3c
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299972"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293195"
 ---
 # <a name="track-b2b-communication-with-azure-log-analytics"></a>使用 Azure Log Analytics 追蹤 B2B 通訊
 
@@ -56,39 +56,31 @@ ms.locfileid: "35299972"
 
    ![選取 Log Analytics 工作區](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
 
-3. 在 [管理] 下，選擇 [OMS 入口網站]。
+3. 在 [管理] 下，選擇 [概觀]。
 
-   ![選擇 OMS 入口網站](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
+   ![選擇 Log Analytics 入口網站](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
 
-4. 開啟首頁之後，請選擇 [方案庫]。    
+4. 首頁開啟後，選擇 [新增] 以安裝 Logic Apps B2B 解決方案。    
+   ![選擇方案庫](media/logic-apps-track-b2b-messages-omsportal/add-b2b-solution.png)
 
-   ![選取方案庫](media/logic-apps-track-b2b-messages-omsportal/omshomepage1.png)
-
-5. 在 [所有解決方案] 下，尋找並選擇 [Logic Apps B2B]。     
-
-   ![選擇 Logic Apps B2B](media/logic-apps-track-b2b-messages-omsportal/omshomepage2.png)
-
-6. 在 [Logic Apps B2B] 下，選擇 [新增]。
-
-   ![選擇 [新增]](media/logic-apps-track-b2b-messages-omsportal/omshomepage3.png)
+5. 在 [管理解決方案] 下，尋找和建立 [Logic Apps B2B] 解決方案。     
+   ![選擇 Logic Apps B2B](media/logic-apps-track-b2b-messages-omsportal/create-b2b-solution.png)
 
    在首頁上，現在會顯示 [Logic Apps B2B 訊息] 的圖格。 
    處理 B2B 訊息時，此磚會更新訊息計數。
-
-   ![首頁、[Logic Apps B2B 訊息] 圖格](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
 
 <a name="message-status-details"></a>
 
 ## <a name="track-message-status-and-details-in-log-analytics"></a>在 Log Analytics 中追蹤訊息狀態和詳細資料
 
-1. 處理 B2B 訊息之後，即可檢視這些訊息的狀態和詳細資料。 在首頁上，選擇 [Logic Apps B2B 訊息] 圖格。
+1. 處理 B2B 訊息之後，即可檢視這些訊息的狀態和詳細資料。 在 [概觀] 頁面上，選擇 [Logic Apps B2B 訊息] 圖格。
 
-   ![更新的訊息計數](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png)
+   ![更新的訊息計數](media/logic-apps-track-b2b-messages-omsportal/b2b-overview-tile.png)
 
    > [!NOTE]
    > [Logic Apps B2B 訊息] 磚預設會顯示以一天為基礎的資料。 若要將資料範圍變更為不同的間隔，請選擇頁面頂端的範圍控制項：
    > 
-   > ![變更資料範圍](media/logic-apps-track-b2b-messages-omsportal/change-interval.png)
+   > ![變更資料範圍](media/logic-apps-track-b2b-messages-omsportal/server-filter.png)
    >
 
 2. 訊息狀態儀表板出現之後，即可檢視特定訊息類型的其他詳細資料，這會顯示以一天為基礎的資料。 選擇 [AS2]、[X12] 或 [EDIFACT] 的磚。

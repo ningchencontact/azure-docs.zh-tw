@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 061269050ad598e1877c3b7bc6745d4095816020
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: f11db2009328118dda036057918ba853f5032200
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301213"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293518"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>監視狀態、設定診斷記錄，以及開啟 Azure Logic Apps 的警示
 
@@ -118,19 +118,11 @@ ms.locfileid: "35301213"
 
    ![選取 Log Analytics 工作區](media/logic-apps-monitor-your-logic-apps/selectla.png)
 
-3. 在 [管理] 下，選擇 [OMS 入口網站]。
+3. 在 [管理] 下，選擇 [記錄搜尋]。
 
-   ![選擇 [OMS 入口網站]](media/logic-apps-monitor-your-logic-apps/omsportalpage.png)
+   ![選擇 [記錄搜尋]](media/logic-apps-monitor-your-logic-apps/log-search.png)
 
-4. 在首頁上，選擇 [記錄搜尋]。
-
-   ![在首頁上選擇記錄搜尋](media/logic-apps-monitor-your-logic-apps/logsearch.png)
-
-   -或-
-
-   ![選擇功能表上的記錄搜尋](media/logic-apps-monitor-your-logic-apps/logsearch-2.png)
-
-5. 在搜尋方塊中，指定您想要尋找的欄位，然後按 **Enter**。 當您開始輸入時，會看到您可以使用的可能相符項目和作業。 
+4. 在搜尋方塊中，指定您想要尋找的欄位，然後按 **Enter**。 當您開始輸入時，會看到您可以使用的可能相符項目和作業。 
 
    例如，若要尋找所發生的前 10 個事件，請輸入並選取此搜尋查詢：**search Category == "WorkflowRuntime" | limit 10**
 
@@ -138,27 +130,27 @@ ms.locfileid: "35301213"
 
    深入了解[如何在 Log Analytics 中尋找資料](../log-analytics/log-analytics-log-searches.md)。
 
-6. 在結果頁面上，於左列中選擇您想要檢視的時間範圍。
+5. 在結果頁面上，於左列中選擇您想要檢視的時間範圍。
 若要新增篩選來調整您的查詢，請選擇 [+新增]。
 
    ![選擇查詢結果的時間範圍](media/logic-apps-monitor-your-logic-apps/query-results.png)
 
-7. 在 [新增篩選] 下，輸入篩選名稱，以找到您想要的篩選。 選取篩選，然後選擇 [+新增]。
+6. 在 [新增篩選] 下，輸入篩選名稱，以找到您想要的篩選。 選取篩選，然後選擇 [+新增]。
 
    此範例使用 "status" 這個字，在 **AzureDiagnostics** 下尋找失敗事件。
    在這裡，已選取 **status_s** 的篩選。
 
    ![選取篩選](media/logic-apps-monitor-your-logic-apps/log-search-add-filter.png)
 
-8. 在左列中，選取您想要使用的篩選值，然後選擇 [套用]。
+7. 在左列中，選取您想要使用的篩選值，然後選擇 [套用]。
 
    ![選取篩選值，然後選擇 [套用]](media/logic-apps-monitor-your-logic-apps/log-search-apply-filter.png)
 
-9. 現在，回到您要建置的查詢。 使用您所選取的篩選和值來更新您的查詢。 現在也會篩選您的先前結果。
+8. 現在，回到您要建置的查詢。 使用您所選取的篩選和值來更新您的查詢。 現在也會篩選您的先前結果。
 
    ![回到具有已篩選結果的查詢](media/logic-apps-monitor-your-logic-apps/log-search-query-filtered-results.png)
 
-10. 若要儲存查詢供日後使用，請選擇 [儲存]。 了解[如何儲存查詢](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md#save-oms-query)。
+9. 若要儲存查詢供日後使用，請選擇 [儲存]。 了解[如何儲存查詢](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md#save-oms-query)。
 
 <a name="extend-diagnostic-data"></a>
 

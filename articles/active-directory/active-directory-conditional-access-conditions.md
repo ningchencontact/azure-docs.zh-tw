@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory 條件式存取中的條件 | Microsoft Docs
-description: 了解如何在 Azure Active Directory 條件式存取中使用指派來觸發原則。
+title: 什麼是 Azure Active Directory 條件式存取中的條件？ | Microsoft Docs
+description: 了解如何在 Azure Active Directory 條件式存取中使用條件來觸發原則。
 services: active-directory
 keywords: 應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則
 documentationcenter: ''
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/01/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 5f0ff092a7535448d48642e972d1d36652f1b83f
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 42792170593dbd94d0eae9b408c70f326891508a
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34735136"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231916"
 ---
-# <a name="conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory 條件式存取中的條件 
+# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的條件？ 
 
 透過 [Azure Active Directory (Azure AD) 條件式存取](active-directory-conditional-access-azure-portal.md)，您可以控制授權使用者如何存取您的雲端應用程式。 在條件式存取原則中，您會定義對觸發原則之原因 ("when this happens") 做出的回應 ("do this")。 
 
@@ -140,7 +140,7 @@ ms.locfileid: "34735136"
 
 - 針對從特定國家或地區存取服務的使用者，封鎖存取權。 
 
-如需詳細資訊，請參閱 [Azure Active Directory 條件式存取中的位置條件](active-directory-conditional-access-locations.md)。
+如需詳細資訊，請參閱[什麼是 Azure Active Directory 條件式存取中的位置條件](active-directory-conditional-access-locations.md)。
 
 
 ## <a name="client-apps"></a>用戶端應用程式
@@ -241,7 +241,7 @@ ms.locfileid: "34735136"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如果您想要知道如何設定條件式存取原則，請參閱[開始使用 Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal-get-started.md)。
+- 如果您想要知道如何設定條件式存取原則，請參閱[利用 Azure Active Directory 條件式存取來取得特定應用程式的 MFA](active-directory-conditional-access-app-based-mfa.md)。
 
 - 如果您已準備好設定您環境的條件式存取原則，請參閱 [Azure Active Directory 中條件式存取的最佳做法](active-directory-conditional-access-best-practices.md)。 
 

@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: sngun
-ms.openlocfilehash: 777655d8976990396b2c78a5b6d977a92b1a2335
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d8b7ed593fcd307e6709c17bafbcb5a22661dc83
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34614072"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285768"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>設定及取得 Azure Cosmos DB 容器和資料庫的輸送量
 
@@ -177,7 +177,7 @@ await client.CreateDocumentCollectionAsync(database.SelfLink, dedicatedCollectio
 
 Azure Cosmos DB 針對輸送量會以保留模型的方式運作。 也就是說，您需要針對所「保留」的輸送量支付費用，而不論該輸送量中有多少數量是主動「使用」的。 當您應用程式的負載、資料及使用方式模式變更時，您可以透過 SDK 或使用 [Azure 入口網站](https://portal.azure.com)，輕鬆地相應增加和減少保留 RU 的數量。
 
-每個容器或一組容器會對應至 Azure Cosmos DB 中的一個 `Offer` 資源，其中有所佈建輸送量的相關中繼資料。 藉由查閱容器的對應 offer 資源，然後使用新的輸送量值加以更新，即可變更已配置的輸送量。 以下程式碼片段會使用 .NET SDK 將容器的輸送量變更為每秒 5,000 個要求單位：
+每個容器或一組容器會對應至 Azure Cosmos DB 中的一個 `Offer` 資源，其中有所佈建輸送量的相關中繼資料。 藉由查閱容器的對應 offer 資源，然後使用新的輸送量值加以更新，即可變更已配置的輸送量。 以下程式碼片段會使用 .NET SDK，將容器的輸送量變更為每秒 5,000 個要求單位。 在變更輸送量之後，您應重新整理任何現有的 Azure 入口網站視窗，以顯示變更的輸送量。 
 
 ```csharp
 // Fetch the resource to be updated

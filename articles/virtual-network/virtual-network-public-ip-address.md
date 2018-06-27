@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 30b4a7ea0d3f68e48d02e5cb72e70de74dc2addf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4345199ed952b6d0e044d4ac99c29c47c477780d
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658684"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287063"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>建立、變更或刪除公用 IP 位址
 
@@ -90,7 +90,17 @@ ms.locfileid: "34658684"
 |工具|命令|
 |---|---|
 |CLI|[az network public-ip list](/cli/azure/network/public-ip#az-network-public-ip-list) 可列出公用 IP 位址、[az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) 可顯示設定；[az network public-ip update](/cli/azure/network/public-ip#az-network-public-ip-update) 可進行更新；[az network public-ip delete](/cli/azure/network/public-ip#az-network-public-ip-delete) 可進行刪除|
-|PowerShell|[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) 可擷取公用 IP 位址物件並檢視其設定、[Set-AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/set-azurermpublicipaddress) 可更新設定；[Remove-AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress) 可進行刪除|
+|PowerShell|[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) 可擷取公用 IP 位址物件並檢視其設定、[Set-AzureRmPublicIpAddress](/powershell/module/azurerm.network/set-azurermpublicipaddress) 可更新設定；[Remove-AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress) 可進行刪除|
+
+## <a name="assign-a-public-ip-address"></a>指派公用 IP 位址
+
+了解如何將公用 IP 位址指派給下列資源：
+
+- [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM (建立期間)，或指派給[現有的 VM](virtual-network-network-interface-addresses.md#add-ip-addresses)
+- [網際網路對應負載平衡器](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Azure 應用程式閘道](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [使用 Azure VPN 閘道的站對站連線](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Azure 虛擬機器擴展集](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ## <a name="permissions"></a>權限
 
@@ -107,4 +117,3 @@ ms.locfileid: "34658684"
 
 - 使用 [PowerShell](powershell-samples.md) 或 [Azure CLI](cli-samples.md) 範例指令碼，或使用 Azure [Resource Manager 範本](template-samples.md)建立公用 IP 位址
 - 為公用 IP 位址建立及套用 [Azure 原則](policy-samples.md)
-- 建立 [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure 虛擬機器、[Azure 網際網路對應 Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)、[Azure 應用程式閘道](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)、[使用 Azure VPN 閘道的站對站連線](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)或 [Azure 虛擬機器擴展集](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json)時，會指派公用 IP 位址

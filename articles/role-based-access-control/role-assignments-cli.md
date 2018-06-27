@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure CLI 管理角色型存取控制 (RBAC) | Microsoft Docs
-description: 了解如何使用 Azure 命令列介面，藉由列出角色和角色動作，以及藉由將角色指派給訂用帳戶和應用程式範圍，來管理「角色型存取控制」(RBAC)。
+title: 使用 RBAC 和 Azure CLI 來管理存取權 | Microsoft Docs
+description: 了解如何使用角色型存取控制 (RBAC) 和 Azure CLI 來管理使用者、群組和應用程式的存取權。 這包括列出存取權、授與存取權以及移除存取權。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,30 +14,24 @@ ms.workload: identity
 ms.date: 04/03/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 8b50d04bcbd067059bf4816468585e5d56a63d41
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 15ff519f5af7471d6adaae44e2af19422ad44fea
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266732"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294399"
 ---
-# <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>使用 Azure 命令列介面管理角色型存取控制
+# <a name="manage-access-using-rbac-and-azure-cli"></a>使用 RBAC 和 Azure CLI 來管理存取權
 
-> [!div class="op_single_selector"]
-> * [PowerShell](role-assignments-powershell.md)
-> * [Azure CLI](role-assignments-cli.md)
-> * [REST API](role-assignments-rest.md)
-
-
-使用角色型存取控制 (RBAC)，您會藉由在特定範圍指派角色，來定義使用者、群組和服務主體的存取權。 本文說明如何使用 Azure 命令列介面 (CLI) 管理角色指派。
+[角色型存取控制 (RBAC)](overview.md) 是您管理 Azure 資源存取權的手段。 本文將描述如何使用 RBAC 和 Azure CLI 來管理使用者、群組和應用程式的存取權。
 
 ## <a name="prerequisites"></a>先決條件
 
 您必須具備以下先決條件，才能使用 Azure CLI 來管理角色指派：
 
-* [Azure CLI 2.0](/cli/azure). 您可以透過 [Azure Cloud Shell](../cloud-shell/overview.md) 在瀏覽器中使用，或者在 macOS、Linux 和 Windows 中[安裝](/cli/azure/install-azure-cli)並從命令列中執行。
+* [Azure CLI](/cli/azure)。 您可以透過 [Azure Cloud Shell](../cloud-shell/overview.md) 在瀏覽器中使用，或者在 macOS、Linux 和 Windows 中[安裝](/cli/azure/install-azure-cli)並從命令列中執行。
 
-## <a name="list-role-definitions"></a>列出角色定義
+## <a name="list-roles"></a>列出角色
 
 若要列出所有可用的角色定義，請使用 [az role definition list](/cli/azure/role/definition#az-role-definition-list):
 
@@ -94,7 +88,7 @@ az role definition list --custom-role-only false --output json | jq '.[] | {"rol
 ...
 ```
 
-### <a name="list-actions-of-a-role-definition"></a>列出角色定義的動作
+### <a name="list-actions-of-a-role"></a>列出角色的動作
 
 若要列出角色定義的動作，請使用 [az role definition list](/cli/azure/role/definition#az-role-definition-list):
 
@@ -182,7 +176,9 @@ az role definition list --name "Virtual Machine Contributor" --output json | jq 
 ]
 ```
 
-## <a name="list-role-assignments"></a>列出角色指派
+## <a name="list-access"></a>列出存取權
+
+在 RBAC 中，若要列出存取權，您可以列出角色指派。
 
 ### <a name="list-role-assignments-for-a-user"></a>列出使用者的角色指派
 
@@ -240,7 +236,9 @@ az role assignment list --resource-group pharma-sales-projectforecast --output j
 ...
 ```
 
-## <a name="create-role-assignments"></a>建立角色指派
+## <a name="grant-access"></a>授與存取權
+
+在 RBAC 中，若要授與存取權，您可以建立角色指派。
 
 ### <a name="create-a-role-assignment-for-a-user"></a>建立使用者的角色指派
 
@@ -290,9 +288,9 @@ az role assignment create --role <role> --assignee-object-id <assignee_object_id
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 44444444-4444-4444-4444-444444444444 --resource-group pharma-sales-projectforecast
 ```
 
-## <a name="remove-a-role-assignment"></a>移除角色指派
+## <a name="remove-access"></a>移除存取
 
-若要移除角色指派，請使用 [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete)：
+在 RBAC 中，若要移除存取權，您可以使用 [az 角色指派刪除](/cli/azure/role/assignment#az-role-assignment-delete)來移除角色指派:
 
 ```azurecli
 az role assignment delete --assignee <assignee> --role <role> --resource-group <resource_group>

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 1febadbbf7821988600d6feddc94fce25d15e989
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 70762b720dcd55679d02de8e5064dc99353e06cb
+ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31434053"
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "36206093"
 ---
 ## <a name="os-config"></a>將 IP 位址新增至 VM 作業系統
 
@@ -110,7 +110,7 @@ ping -S 10.0.0.5 hotmail.com
 
     您應該會在清單中看到您加入的 IP 位址。
 
-### <a name="linux-redhat-centos-and-others"></a>Linux (Redhat、CentOS 以及其他)
+### <a name="linux-red-hat-centos-and-others"></a>Linux (Red Hat、CentOS 以及其他)
 
 1. 開啟終端機視窗。
 2. 請確定您是 root 使用者。 如果不是，請輸入下列命令：

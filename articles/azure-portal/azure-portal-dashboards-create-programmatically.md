@@ -3,7 +3,7 @@ title: 以程式設計方式建立 Azure 儀表板 | Microsoft Docs
 description: 本文說明如何以程式設計方式建立 Azure 儀表板。
 services: azure-portal
 documentationcenter: ''
-author: adamab
+author: adamabmsft
 manager: dougeby
 editor: tysonn
 ms.service: azure-portal
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 8670d25e10b58c40b9d0807de1db88c3296b193d
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: dafada5cecbc6345da46bc3a32fc3b91eb72313a
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164378"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295506"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>以程式設計方式建立 Azure Dashboards
 
@@ -89,11 +89,11 @@ Azure 可讓您協調多個資源的部署。 您可建立部署範本表示要�
 如果您採用此方式，則應該使用範本的參數語法執行參數化。  您可取代我們先前找到全部出現的資源識別碼，如下所示。
 
 ### <a name="example-json-property-with-hard-coded-resource-id"></a>使用硬式編碼資源識別碼的 JSON 屬性範例
-`id: “/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1”`
+`id: "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1"`
 
 ### <a name="example-json-property-converted-to-a-parameterized-version-based-on-template-parameters"></a>按照範本參數轉換為參數化版本的 JSON 屬性範例
 
-`id: "[resourceId(parameters('virtualMachineResourceGroup'), ‘Microsoft.Compute/virtualMachines’, parameters('virtualMachineName'))]"`
+`id: "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"`
 
 在 json 範本的頂端，您也需要宣告一些所需的範本中繼資料和參數，如下所示：
 

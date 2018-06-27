@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 5/21/2018
+ms.date: 6/20/2018
 ms.author: victorh
-ms.openlocfilehash: bf4e92636424e7d8f4a1bc2eb5ee9ba7e97667c6
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 989ecf209dc5093b5e4c73f01f9e382fc1ad21e8
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34699898"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295523"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>應用程式閘道的常見問題集
 
@@ -115,7 +115,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 應用程式閘道子網路支援網路安全性群組，但有下列限制：
 
-* 必須放入連接埠 65503-65534 上傳入流量的例外狀況，後端健康情況才能正常運作。
+* 必須放入連接埠 65503-65534 上傳入流量的例外狀況。 Azure 基礎結構通訊需要此連接埠範圍。 它們受到 Azure 憑證的保護 (鎖定)。 若沒有適當的憑證，外部實體 (包括這些閘道的客戶) 將無法對這些端點起始任何變更。
 
 * 無法封鎖輸出網際網路連線。
 
@@ -159,13 +159,17 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 * 允許來源 IP/IP 範圍的傳入流量。
 
-* 允許從所有來源至連接埠 65503-65534 的傳入要求以便進行[後端健康情況通訊](application-gateway-diagnostics.md)。
+* 允許從所有來源至連接埠 65503-65534 的傳入要求以便進行[後端健康情況通訊](application-gateway-diagnostics.md)。 Azure 基礎結構通訊需要此連接埠範圍。 它們受到 Azure 憑證的保護 (鎖定)。 若沒有適當的憑證，外部實體 (包括這些閘道的客戶) 將無法對這些端點起始任何變更。
 
 * 允許 [NSG](../virtual-network/security-overview.md) 上傳入的 Azure 負載平衡器探查 (AzureLoadBalancer 標籤) 和輸入虛擬網路流量 (VirtualNetwork 標籤)。
 
 * 使用「全部拒絕」規則封鎖所有其他傳入流量。
 
 * 允許所有目的地對網際網路的輸出流量。
+
+**問：是否可以在面對公眾和面對私人的接聽程式使用同一個連接埠？**
+
+不行，不支援此方式。
 
 ## <a name="performance"></a>效能
 

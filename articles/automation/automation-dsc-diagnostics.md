@@ -6,14 +6,15 @@ ms.service: automation
 ms.component: dsc
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d01042a02f2339f039f23d4f6e021de503dc3815
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 822d0e285e6f1cc9907625d7928dff3d9bf66921
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36218950"
 ---
 # <a name="forward-azure-automation-dsc-reporting-data-to-log-analytics"></a>將 Azure 自動化 DSC 報告資料轉送到 Log Analytics
 
@@ -32,7 +33,7 @@ ms.lasthandoff: 05/16/2018
 
 * 2016 年 11 月或更新版本的 [Azure PowerShell](/powershell/azure/overview) (v2.3.0)。
 * Azure 自動化帳戶。 如需詳細資訊，請參閱[開始使用 Azure 自動化](automation-offering-get-started.md)。
-* 提供 [自動化與控制] 服務的 Log Analytics 工作區。 如需詳細資訊，請參閱[開始使用 Log Analytics](../log-analytics/log-analytics-get-started.md)。
+* 提供 [自動化與控制] 服務供應項目的 Log Analytics 工作區。 如需詳細資訊，請參閱[開始使用 Log Analytics](../log-analytics/log-analytics-get-started.md)。
 * 至少一個 Azure Automation DSC 節點。 如需詳細資訊，請參閱[將機器上架交由 Azure Automation DSC 管理](automation-dsc-onboarding.md)。
 
 ## <a name="set-up-integration-with-log-analytics"></a>設定與 Log Analytics 整合
@@ -85,14 +86,14 @@ Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Wo
 
 我們最常從客戶收到的其中一個問題，便是希望系統能在 DSC 設定發生問題時，傳送電子郵件或簡訊通知他們。   
 
-若要建立警示規則，首先針對應叫用警示的 DSC 報表記錄，建立記錄檔搜尋。  按一下 [警示] 按鈕，以建立並設定警示規則。
+若要建立警示規則，首先針對應叫用警示的 DSC 報表記錄，建立記錄檔搜尋。  按一下 [+ 新增警示規則] 按鈕，以建立並設定警示規則。
 
 1. 從 [Log Analytics 概觀] 頁面，按一下 [記錄搜尋]。
 1. 在查詢欄位中鍵入下列搜尋內容來為您的警示建立記錄搜尋查詢：`Type=AzureDiagnostics Category=DscNodeStatus NodeName_s=DSCTEST1 OperationName=DscNodeStatusData ResultType=Failed`。
 
   如果您已將來自多個自動化帳戶或訂用帳戶的記錄設定到您的工作區，就能依訂用帳戶或自動化帳戶來將警示分組。  
   自動化帳戶名稱可以衍生自 DscNodeStatusData 搜尋的 [資源] 欄位。  
-1. 若要開啟 [新增警示規則] 畫面，按一下頁面頂端的 [警示]。 如需設定警示選項的詳細資訊，請參閱 [Log Analytics 中的警示](../log-analytics/log-analytics-alerts.md#alert-rules)。
+1. 若要開啟 [建立規則] 畫面，按一下頁面頂端的 [+ 新增警示規則]。 如需設定警示選項的詳細資訊，請參閱[建立警示規則](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)。
 
 ### <a name="find-failed-dsc-resources-across-all-nodes"></a>在所有節點間尋找失敗的 DSC 資源
 

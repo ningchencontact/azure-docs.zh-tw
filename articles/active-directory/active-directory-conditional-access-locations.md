@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 條件式存取中的位置條件 | Microsoft Docs
+title: 什麼是 Azure Active Directory 條件式存取中的位置條件？ | Microsoft Docs
 description: 了解如何使用位置條件，以根據使用者的網路位置來控制雲端應用程式的存取。
 services: active-directory
 keywords: 應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則
@@ -9,20 +9,22 @@ manager: mtillman
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 842fe8c194f1c88c7dabb073e0fa7b7806d92d44
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e5924262d9965c4e6732f8c23031cd575dc7958d
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231920"
 ---
-# <a name="location-conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory 條件式存取中的位置條件 
+# <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的位置條件？ 
 
 透過 [Azure Active Directory (Azure AD) 條件式存取](active-directory-conditional-access-azure-portal.md)，您可以控制授權使用者如何存取您的雲端應用程式。 條件式存取原則的位置條件可讓您將存取控制設定和使用者的網路位置結合。
 
@@ -164,6 +166,6 @@ API 和 PowerShell 尚未支援具名位置或條件式存取原則。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如果您想要知道如何設定條件式存取原則，請參閱[開始使用 Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal-get-started.md)。
+- 如果您想要知道如何設定條件式存取原則，請參閱[利用 Azure Active Directory 條件式存取來取得特定應用程式的 MFA](active-directory-conditional-access-app-based-mfa.md)。
 
 - 如果您已準備好設定您環境的條件式存取原則，請參閱 [Azure Active Directory 中條件式存取的最佳做法](active-directory-conditional-access-best-practices.md)。 

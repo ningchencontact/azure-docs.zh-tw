@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/15/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: c155e18ddc4f1713aa9c62a991f4e849e024c5da
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 88e6b1a64d4ceff64c1ee74a297e7af0c5a27379
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34723655"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232046"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory 中條件式存取的最佳做法
 
@@ -31,7 +31,7 @@ ms.locfileid: "34723655"
 - 您應該知道的事情 
 - 您在設定條件式存取原則時應該應避免的動作。 
 
-本文假定您熟悉 [Azure Active Directory 中條件式存取](active-directory-conditional-access-azure-portal.md)中所述的概念與術語
+本文假設您熟悉[什麼是Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal.md)中所述的概念與術語
 
 
 
@@ -154,4 +154,4 @@ Azure Active Directory 會強制執行這兩個原則，而且只有在符合所
 
 ## <a name="next-steps"></a>後續步驟
 
-如果您想要知道如何設定條件式存取原則，請參閱[開始使用 Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal-get-started.md)。
+如果您想要知道如何設定條件式存取原則，請參閱[利用 Azure Active Directory 條件式存取來取得特定應用程式的 MFA](active-directory-conditional-access-app-based-mfa.md)。

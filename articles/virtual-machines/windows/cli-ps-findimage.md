@@ -15,23 +15,25 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/28/2018
 ms.author: danlep
-ms.openlocfilehash: 885ee10bc63b65d936f5b433a18c4435b2503720
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 269d1392e00d02a79a360e3528fdde174563f2cf
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32313438"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295205"
 ---
 # <a name="how-to-find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>如何使用 Azure PowerShell 在 Azure Marketplace 中尋找 Windows VM 映像
 
 本文描述如何使用 Azure PowerShell 在 Azure Marketplace 中尋找 Windows VM 映像。 當您使用 PowerShell、Resource Manager 範本或其他工具以程式設計方式建立 VM 時，使用此資訊來指定 Marketplace 映像。
+
+也請透過 [Azure Marketplace](https://azuremarketplace.microsoft.com/) 店面、[Azure 入口網站](https://portal.azure.com)或 [Azure CLI](../linux/cli-ps-findimage.md) 瀏覽可用的映像和供應項目。 
 
 確定您已安裝並設定最新的 [Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
 ## <a name="table-of-commonly-used-windows-images"></a>常用 Windows 映像表
-| 發行者 | 提供項目 | SKU |
+| 發行者 | 供應項目 | SKU |
 |:--- |:--- |:--- |:--- |
 | MicrosoftWindowsServer |WindowsServer |2016-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2016-Datacenter-Server-Core |
@@ -50,8 +52,8 @@ ms.locfileid: "32313438"
 在位置中找到映像的另一個方法是依序執行 [Get-AzureRMVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher)、[Get-AzureRMVMImageOffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer) 和 [Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) Cmdlet。 您可以使用這些命令來判斷下列的值：
 
 1. 列出映像發行者。
-2. 針對指定的發行者，列出其提供項目。
-3. 針對指定的提供項目，列出其 SKU。
+2. 針對指定的發行者，列出其供應項目。
+3. 針對指定的供應項目，列出其 SKU。
 
 然後，針對選取的 SKU 執行 [Get-AzureRMVMImage](/powershell/module/azurerm.compute/get-azurermvmimage) 以列出要部署的版本。
 
@@ -69,7 +71,7 @@ $pubName="<publisher>"
 Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
 ```
 
-填入您選擇的提供項目名稱，然後執行以下命令：
+填入您選擇的供應項目名稱，然後執行以下命令：
 
 ```powershell
 $offerName="<offer>"

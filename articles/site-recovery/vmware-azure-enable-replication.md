@@ -3,17 +3,16 @@ title: 使用 Azure Site Recovery 讓 VMware VM 能夠複寫至 Azure | Microsof
 description: 本文說明如何設定使用 Azure Site Recovery 將 VMware VM 複寫至 Azure 的作業。
 services: site-recovery
 author: asgang
-manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/05/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: asgang
-ms.openlocfilehash: 48d84f59a80ea14c2b40821d886fc410c7e3f2c3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5a4f184d0edf42732f1671d123f885749ae188d9
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30243330"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287377"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>讓 VMware VM 能夠複寫至 Azure
 

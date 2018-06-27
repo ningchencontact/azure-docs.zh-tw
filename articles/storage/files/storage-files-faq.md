@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 05/31/2018
 ms.author: renash
-ms.openlocfilehash: e93e55161d965210e260e1664b330f2d77ff75c6
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 9121726cc8500da87cf71cb1ca3035e6cc5a303b
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737804"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294085"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>關於 Azure 檔案服務的常見問題集 (FAQ)
 [Azure 檔案](storage-files-introduction.md)提供雲端中完全受控的檔案共用，可透過業界標準[伺服器訊息區 (SMB) 通訊協定](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)來存取。 您可以同時在 Windows、Linux 和 macOS 的雲端或內部部署上掛接 Azure 檔案共用。 您也可以使用 Azure 檔案同步 (預覽)，在接近使用資料之處進行快速存取，藉以在 Windows Server 電腦上快取 Azure 檔案共用。
@@ -91,7 +91,7 @@ ms.locfileid: "34737804"
 
 * <a id="afs-region-availability"></a>
 **哪些區域支援 Azure 檔案同步 (預覽)？**  
-    Azure 檔案同步目前適用於澳大利亞東部、加拿大中部、美國東部、東南亞、英國南部、西歐和美國西部。 未來將新增對更多區域的支援，因為我們正朝著正式運作的目標努力。 如需詳細資訊，請參閱 [區域可用性](storage-sync-files-planning.md#region-availability)。
+    Azure 檔案同步目前適用於澳大利亞東部、澳大利亞東南部、加拿大中部、加拿大東部、美國中部、東亞、美國東部、美國東部 2、北歐、東南亞、英國南部、英國西部、西歐和美國西部。 未來將新增對更多區域的支援，因為我們正朝著正式運作的目標努力。 如需詳細資訊，請參閱 [區域可用性](storage-sync-files-planning.md#region-availability)。
 
 * <a id="cross-domain-sync"></a>
 **相同的同步群組中是否可以同時有已加入網域和未加入網域的伺服器？**  

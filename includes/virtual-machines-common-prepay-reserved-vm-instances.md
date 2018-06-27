@@ -1,11 +1,11 @@
 ---
 ms.topic: include
-ms.openlocfilehash: 8e710bebf979b60f61552593ae550e95a8340d2b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 99eaa667e4c6a9d63b4cc43ada8c6e36f7365610
+ms.sourcegitcommit: 39f4911b5933f7062dcf5d57af94eab8a0740b2b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34307561"
+ms.lasthandoff: 06/16/2018
+ms.locfileid: "35683044"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>預付具有 Azure 保留 VM 執行個體的虛擬機器
 
@@ -16,7 +16,14 @@ ms.locfileid: "34307561"
 -   針對企業訂用帳戶，必須在 [EA 入口網站](https://ea.azure.com)中啟用保留執行個體購買。
 -   針對雲端解決方案提供者 (CSP) 程式，只有系統管理員代表或銷售代表可以購買保留執行個體。
 
-## <a name="buy-a-reserved-instance"></a>購買保留執行個體
+[!IMPORTANT]
+您必須使用下列描述的其中一個方法，識別保留購買的正確 VM 大小。
+
+## <a name="determine-the-right-vm-size-before-purchase"></a>購買之前，決定正確的 VM 大小
+1. 參閱使用量檔案或使用量 API 中的 AdditionalInfo 欄位，判斷保留購買的正確 VM 大小。 請勿使用 [計量子類別目錄] 或 [產品] 欄位中的值，因為這些欄位不會區分 VM 的 S 和非 S 版本。
+2. 您也可以使用 PowerShell、Azure Resource Manager，或從 Azure 入口網站的 VM 詳細資料，取得正確的 VM 大小資訊。
+
+## <a name="buy-a-reserved-virtual-machine-instance"></a>購買保留的虛擬機器執行個體
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 選取 [所有服務] > [保留]。
 3. 選取 [新增] 以購買新的保留執行個體。
@@ -26,7 +33,7 @@ ms.locfileid: "34307561"
     |:------------|:--------------|
     |Name        |此保留執行個體的名稱。| 
     |訂用帳戶|用來支付保留執行個體的訂用帳戶。 保留執行個體的預付費用會透過訂用帳戶的付款方式收取。 訂用帳戶類型必須是 Enterprise 合約 (供應項目號碼：MS-AZR-0017P) 或預付型方案 (供應項目號碼：MS-AZR-0003P)。 針對企業訂用帳戶，費用會從註冊的承諾用量金額餘額扣除或作為超額部分收費。 針對預付型方案訂用帳戶，費用是透過訂用帳戶的信用卡或發票付款方式收取。|    
-    |Scope       |保留執行個體範圍可以涵蓋一個訂用帳戶或多個訂用帳戶 (共用範圍)。 如果您選取： <ul><li>單一訂用帳戶 - 保留執行個體折扣會套用至此訂用帳戶中的 VM。 </li><li>共用 - 保留執行個體折扣會套用至計費內容內任何訂用帳戶中執行的 VM。 針對企業客戶，共用範圍是註冊，並包含註冊中的所有訂用帳戶 (開發/測試訂用帳戶除外)。 針對預付型方案客戶，共用範圍是帳戶系統管理員所建立的所有預付型方案訂用帳戶。</li></ul>|
+    |影響範圍       |保留執行個體範圍可以涵蓋一個訂用帳戶或多個訂用帳戶 (共用範圍)。 如果您選取： <ul><li>單一訂用帳戶 - 保留執行個體折扣會套用至此訂用帳戶中的 VM。 </li><li>共用 - 保留執行個體折扣會套用至計費內容內任何訂用帳戶中執行的 VM。 針對企業客戶，共用範圍是註冊，並包含註冊中的所有訂用帳戶 (開發/測試訂用帳戶除外)。 針對預付型方案客戶，共用範圍是帳戶系統管理員所建立的所有預付型方案訂用帳戶。</li></ul>|
     |位置    |保留執行個體所涵蓋的 Azure 區域。|    
     |VM 大小     |VM 執行個體的大小。|
     |詞彙        |一年或三年。|

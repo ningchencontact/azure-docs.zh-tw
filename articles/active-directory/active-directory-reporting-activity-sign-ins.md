@@ -3,25 +3,25 @@ title: Azure Active Directory 入口網站中的登入活動報告 | Microsoft D
 description: 介紹 Azure Active Directory 入口網站中的登入活動報告
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 05/17/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6414be82e57741bf2af1de3650a3d9a28c4d6427
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d9c2f210204122947c24eb42f643450537f3b9a8
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34588602"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231896"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 入口網站中的登入活動報告
 
@@ -153,7 +153,7 @@ Azure Active Directory 中的報告架構包含下列元件：
 
 ![下載](./media/active-directory-reporting-activity-sign-ins/71.png "下載")
 
-按一下 [下載]，以建立最近 5000 筆記錄的 CSV 檔案。 如果您需要更多彈性，您可以使用指令碼解決方案。 按一下 [指令碼]，將會建立包含您已設定的所有篩選條件的指令碼。 除了技術實作以外，您可以下載的記錄數目也會受限於 [Azure Active Directory 報告保留原則](active-directory-reporting-retention.md)。  
+按一下 [下載]，以建立最近 5000 筆記錄的 CSV 檔案。 如果您需要更多彈性，您可以使用指令碼解決方案。 按一下 [指令碼]，這樣會建立一個 PowerShell 指令碼，而且它包含所有您已設定的篩選條件。 下載此指令碼並在**系統管理員模式**中執行來產生 CSV 檔案。 除了技術實作以外，您可以下載的記錄數目也會受限於 [Azure Active Directory 報告保留原則](active-directory-reporting-retention.md)。  
 
 
 

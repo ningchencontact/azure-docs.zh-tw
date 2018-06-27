@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 8511af935eb2427724ace1f39ec9948e3b0b5537
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f52861411a34d1fbff577fbbc37cf926151a97d8
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643204"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294807"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>在 Windows 建立第一個 Service Fabric 容器應用程式
 > [!div class="op_single_selector"]
@@ -40,17 +40,17 @@ ms.locfileid: "34643204"
   
   若要判斷具有您叢集所需容器的 Windows Server 版本，請在開發電腦上從 Windows 命令提示字元執行 `ver` 命令：
 
-  * 如果版本包含 *x.x.14323.x*，則[建立叢集](service-fabric-cluster-creation-via-portal.md)時務必針對作業系統選取 *WindowsServer 2016-Datacenter-with-Containers*，或[免費試用 Service Fabric](https://aka.ms/tryservicefabric) 搭配合作對象叢集。
-  * 如果版本包含 *x.x.16299.x*，則[建立叢集](service-fabric-cluster-creation-via-portal.md)時務必針對作業系統選取 *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers*。 您無法使用合作對象叢集。
+  * 如果版本包含 x.x.14323.x，則請在[建立叢集](service-fabric-cluster-creation-via-portal.md)時選取 [WindowsServer 2016-Datacenter-with-Containers] 作為作業系統。 您也可以對合作對象叢集[免費試用 Service Fabric](https://aka.ms/tryservicefabric)。
+  * 如果版本包含 x.x.16299.x，則請在[建立叢集](service-fabric-cluster-creation-via-portal.md)時選取 [WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers] 作為作業系統。 不過，您無法使用合作對象叢集。
 
 * Azure Container Registry 中的登錄 - 在 Azure 訂用帳戶中[建立容器登錄](../container-registry/container-registry-get-started-portal.md)。
 
 > [!NOTE]
-> 在 Windows 10 中或具有 Docker CE 的叢集上，尚未支援將容器部署到 Service Fabric 叢集。 本逐步解說會在 Windows 10 上使用 Docker 引擎進行本機測試，最後在執行 Docker EE 的 Azure 中，將容器服務部署到 Windows Server 叢集。 
+> 系統支援將容器部署到在 Windows 10 上執行的 Service Fabric 叢集。  如需如何設定 Windows 10 以執行 Windows 容器的資訊，請參閱[本文](service-fabric-how-to-debug-windows-containers.md)。
 >   
 
 > [!NOTE]
-> Service Fabric 6.1 版有 Windows Server 1709 版本的預覽支援。 開放網路和 Service Fabric DNS 服務無法與 Windows Server 1709 版本搭配使用。 
+> Service Fabric 6.2 版和更新版本支援將容器部署到在 Windows Server 1709 版上執行的叢集。  
 > 
 
 ## <a name="define-the-docker-container"></a>定義 Docker 容器

@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: a2a1c916543da07f25b2b9727e309709632afe00
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 3feed9c1c8903db66a0506f09161982dadaa79ba
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267266"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284959"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>使用執行命令在 Windows 虛擬機器中執行 PowerShell 指令碼
 
@@ -33,6 +33,7 @@ ms.locfileid: "35267266"
 * 執行指令碼的最短時間是大約 20 秒
 * 在 Windows 上以系統身分執行指令碼
 * 一次可執行一個指令碼
+* 不支援提示資訊 (互動模式) 的指令碼。
 * 您無法取消執行中的指令碼
 * 指令碼可以執行的最長時間是 90 分鐘，經過這段時間後會逾時
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: 57c0030ac613167dc3ed567c2876b8e2e110d47a
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 97107bb5ca1a598906cac9adbf508b2d15668e7d
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836370"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36227234"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning"></a>Azure Machine Learning 之 R 程式設計語言的快速入門教學課程
 
@@ -41,7 +41,7 @@ Microsoft Azure Machine Learning 包含許多功能強大的機器學習和資�
 
 在本快速入門指南中，我們將使用加州乳製品產量和訂價資料。 此資料包含數項乳製品之產量及奶油 (基準商品) 價格的每月相關資訊。
 
-本文中使用的資料以及 R 指令碼可[在此下載][download]。 此資料原先是綜合自可從威斯康辛大學取得的資訊，網址為 http://future.aae.wisc.edu/tab/production.html。
+本文中使用的資料以及 R 指令碼可[在此下載](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/blob/master/studio-samples/cadairydata.csv)。 此資料原先是綜合自可從威斯康辛大學取得的資訊，網址為 https://dairymarkets.com。
 
 ### <a name="organization"></a>組織
 我們將循序進行數個步驟，讓您了解如何在 Azure Machine Learning 環境中建立、測試及執行分析和資料操作 R 程式碼。  

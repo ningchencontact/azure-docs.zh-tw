@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure PowerShell 管理角色型存取控制 (RBAC) | Microsoft Docs
-description: 如何使用 Azure PowerShell 管理 RBAC，包括列出角色、指派角色，以及刪除角色指派。
+title: 使用 RBAC 和 Azure PowerShell 來管理存取權 | Microsoft Docs
+description: 了解如何使用角色型存取控制 (RBAC) 和 Azure PowerShell 來管理使用者、群組和應用程式的存取權。 這包括列出存取權、授與存取權以及移除存取權。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,27 +14,23 @@ ms.workload: identity
 ms.date: 04/17/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 00646187da1f93c01c3a57b50905239afd5e2bc8
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 231f7b915c324a5af91564c80d17bbad335d658d
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266793"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294764"
 ---
-# <a name="manage-role-based-access-control-with-azure-powershell"></a>使用 Azure PowerShell 管理角色型存取控制
-> [!div class="op_single_selector"]
-> * [PowerShell](role-assignments-powershell.md)
-> * [Azure CLI](role-assignments-cli.md)
-> * [REST API](role-assignments-rest.md)
+# <a name="manage-access-using-rbac-and-azure-powershell"></a>使用 RBAC 和 Azure PowerShell 來管理存取權
 
-使用角色型存取控制 (RBAC)，您會藉由在特定範圍指派角色，來定義使用者、群組和服務主體的存取權。 本文說明如何使用 Azure PowerShell 管理存取權。
+[角色型存取控制 (RBAC)](overview.md) 是您對 Azure 中的資源存取進行管理的機制。 本文將描述如何使用 RBAC 和 Azure PowerShell 來管理使用者、群組和應用程式的存取權。
 
 ## <a name="prerequisites"></a>先決條件
 
 使用 PowerShell 管理 RBAC 之前，您必須具備下列其中一項：
 
 * [Azure Cloud Shell 中的 PowerShell](/azure/cloud-shell/overview)
-* [Azure PowerShell 5.1.0 或更新版本](/powershell/azure/install-azurerm-ps)
+* [Azure PowerShell](/powershell/azure/install-azurerm-ps)
 
 ## <a name="list-roles"></a>列出角色
 
@@ -146,9 +142,9 @@ Microsoft.Network/loadBalancers/backendAddressPools/join/action
 ...
 ```
 
-## <a name="see-who-has-access"></a>查看誰具有存取權
+## <a name="list-access"></a>列出存取權
 
-若要列出 RBAC 存取指派，使用 [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment)。
+在 RBAC 中，若要列出存取權，您可以列出角色指派。
 
 ### <a name="list-role-assignments-at-a-specific-scope"></a>列出特定範圍的角色指派
 
@@ -174,7 +170,7 @@ RoleDefinitionName : Virtual Machine Contributor
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales-projectforecast
 ```
 
-### <a name="list-roles-assigned-to-a-user"></a>列出指派給使用者的角色
+### <a name="list-role-assignments-for-a-user"></a>列出使用者的角色指派
 
 若要列出指派給指定使用者的所有角色，使用 [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment)。
 
@@ -200,15 +196,17 @@ Get-AzureRmRoleAssignment -SignInName <user email> -ExpandPrincipalGroups
 Get-AzureRmRoleAssignment -SignInName isabella@example.com -ExpandPrincipalGroups | FL DisplayName, RoleDefinitionName, Scope
 ```
 
-### <a name="list-classic-service-administrator-and-coadmin-role-assignments"></a>列出傳統服務管理員和共同管理員角色指派
+### <a name="list-role-assignments-for-classic-service-administrator-and-co-administrators"></a>列出傳統服務管理員和共同管理員的角色指派
 
-若要列出傳統訂用帳戶管理員和共同管理員的存取指派，使用 [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment)：
+若要列出傳統訂用帳戶管理員和共同管理員的角色指派，使用 [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment)：
 
 ```azurepowershell
 Get-AzureRmRoleAssignment -IncludeClassicAdministrators
 ```
 
 ## <a name="grant-access"></a>授與存取權
+
+在 RBAC 中，若要授與存取權，您可以建立角色指派。
 
 ### <a name="search-for-object-ids"></a>搜尋物件識別碼
 
@@ -228,7 +226,7 @@ Get-AzureRmADGroup -SearchString <group name in quotes>
 Get-AzureRmADServicePrincipal -SearchString <service name in quotes>
 ```
 
-### <a name="assign-a-role-to-an-application-at-the-subscription-scope"></a>將角色指派給訂用帳戶範圍中的應用程式
+### <a name="create-a-role-assignment-for-an-application-at-a-subscription-scope"></a>為訂用帳戶範圍的應用程式建立角色指派
 
 若要為訂用帳戶範圍中的應用程式授與存取，使用 [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment)：
 
@@ -250,7 +248,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-### <a name="assign-a-role-to-a-user-at-the-resource-group-scope"></a>將角色指派給資源群組範圍中的使用者
+### <a name="create-a-role-assignment-for-a-user-at-a-resource-group-scope"></a>為資源群組範圍的使用者建立角色指派
 
 若要為資源群組範圍中的使用者授與存取，使用 [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment)：
 
@@ -274,7 +272,7 @@ ObjectType         : User
 CanDelegate        : False
 ```
 
-### <a name="assign-a-role-to-a-group-at-the-resource-scope"></a>將角色指派給資源範圍中的群組
+### <a name="create-a-role-assignment-for-a-group-at-a-resource-scope"></a>為資源範圍的群組建立角色指派
 
 若要為資源範圍中的群組授與存取，使用 [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment)：
 
@@ -307,7 +305,7 @@ CanDelegate        : False
 
 ## <a name="remove-access"></a>移除存取
 
-若要移除使用者、群組和應用程式的存取，使用 [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment)：
+在 RBAC 中，若要移除存取權，您可以使用 [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) 來移除角色指派：
 
 ```azurepowershell
 Remove-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name> -Scope <scope such as subscription id>
@@ -581,7 +579,7 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 ```
 
-## <a name="see-also"></a>另請參閱
+## <a name="next-steps"></a>後續步驟
 
 * [搭配使用 Azure PowerShell 與 Azure 資源管理員](../azure-resource-manager/powershell-azure-resource-manager.md)
 

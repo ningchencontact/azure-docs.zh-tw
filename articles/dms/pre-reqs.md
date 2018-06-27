@@ -10,13 +10,13 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 04/22/2018
-ms.openlocfilehash: b3fe97343d844eb5c030cf0aaa9da2a6f54a2472
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 06/19/2018
+ms.openlocfilehash: 3dc449724e405f83ce976b9f8b01a89c25d693fe
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32168202"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36221245"
 ---
 # <a name="overview-of-prerequisites-for-using-the-azure-database-migration-service"></a>使用 Azure 資料庫移轉服務的必要條件概觀
 您必須注意數個必要條件，以確保在執行資料庫移轉時，Azure 資料庫移轉服務能順利執行。 某些必要條件會套用到服務所支援的所有案例 (來源目標配對)，而有些必要條件則是特定案例獨有的。
@@ -63,4 +63,4 @@ Azure 資料庫移轉服務必要條件在所有支援的移轉案例中都是�
    > 如需使用 Azure 資料庫移轉服務執行從 SQL Server 移轉到 Azure SQL Database 受控執行個體所需的先決條件完整清單，請參閱[將 SQL Server 移轉到 Azure SQL Database 受控執行個體](https://aka.ms/migratetomiusingdms) \(英文\) 教學課程。
 
 ## <a name="next-steps"></a>後續步驟
-如需 Azure 資料庫移轉服務和公開預覽期間區域可用性的概觀，請參閱[什麼是 Azure 資料庫移轉服務預覽](dms-overview.md)一文。 
+如需 Azure 資料庫移轉服務和區域可用性的概觀，請參閱[什麼是 Azure 資料庫移轉服務](dms-overview.md)一文。 

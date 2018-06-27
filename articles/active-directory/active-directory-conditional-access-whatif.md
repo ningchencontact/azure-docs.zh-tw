@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory 條件式存取假設工具 - 預覽 | Microsoft Docs
-description: 了解如何測試 Azure Active Directory 條件式存取原則的設定。
+title: 什麼是 Azure Active Directory 條件式存取假設工具？ - 預覽 | Microsoft Docs
+description: 了解環境中的條件式存取原則會產生什麼影響。
 services: active-directory
 keywords: 應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則
 documentationcenter: ''
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 2c4ca3685d15ddd2446590e1ef297362f9aa52ee
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 661ada8de8821d489732e1f36dc2406eaa0ee4a7
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34723825"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231881"
 ---
-# <a name="azure-active-directory-conditional-access-what-if-tool---preview"></a>Azure Active Directory 條件式存取假設工具 - 預覽
+# <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access---preview"></a>什麼是 Azure Active Directory 條件式存取假設工具？ - 預覽
 
 [條件式存取](active-directory-conditional-access-azure-portal.md)是 Azure Active Directory (Azure AD) 的功能，可讓您控制授權使用者存取雲端應用程式的方式。 要如何知道環境中的條件式存取原則會有什麼影響？ 若要回答這個問題，您可以使用**條件式存取假設工具**。
 
@@ -121,7 +121,7 @@ IP 位址是用來模擬[位置條件](active-directory-conditional-access-locat
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如果您想要知道如何設定條件式存取原則，請參閱[開始使用 Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal-get-started.md)。
+- 如果您想要知道如何設定條件式存取原則，請參閱[利用 Azure Active Directory 條件式存取來取得特定應用程式的 MFA](active-directory-conditional-access-app-based-mfa.md)。
 
 - 如果您已準備好設定您環境的條件式存取原則，請參閱 [Azure Active Directory 中條件式存取的最佳做法](active-directory-conditional-access-best-practices.md)。 
 

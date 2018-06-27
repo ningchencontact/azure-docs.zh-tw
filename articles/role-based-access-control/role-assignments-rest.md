@@ -1,6 +1,6 @@
 ---
-title: 角色型存取控制與 REST | Microsoft Docs
-description: 使用 REST API 管理角色型存取控制
+title: 使用 RBAC 和 REST API 來管理存取權 - Azure | Microsoft Docs
+description: 了解如何使用角色型存取控制 (RBAC) 和 REST API 來管理使用者、群組和應用程式的存取權。 這包括列出存取權、授與存取權以及移除存取權。
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,20 +15,16 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f81c84f5db4b595acf851a315c03cd4189514afa
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: fdf246ede9fd030c03a70a90b35d4dd1fb645df1
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267470"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294457"
 ---
-# <a name="manage-role-based-access-control-with-the-rest-api"></a>使用 REST API 管理角色型存取控制
-> [!div class="op_single_selector"]
-> * [PowerShell](role-assignments-powershell.md)
-> * [Azure CLI](role-assignments-cli.md)
-> * [REST API](role-assignments-rest.md)
+# <a name="manage-access-using-rbac-and-the-rest-api"></a>使用 RBAC 和 REST API 來管理存取權
 
-使用角色型存取控制 (RBAC)，您會藉由在特定範圍指派角色，來定義使用者、群組和服務主體的存取權。 本文說明如何使用 REST API 管理存取權。
+[角色型存取控制 (RBAC)](overview.md) 是您管理 Azure 資源存取權的手段。 本文將描述如何使用 RBAC 和 REST API 來管理使用者、群組和應用程式的存取權。
 
 ## <a name="list-all-role-assignments"></a>列出所有角色指派
 列出在指定的範圍和子範圍內的所有角色指派。

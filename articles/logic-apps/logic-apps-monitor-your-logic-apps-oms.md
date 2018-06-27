@@ -12,20 +12,20 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/9/2017
+ms.date: 06/19/2018
 ms.author: LADocs; divswa
-ms.openlocfilehash: 493d82f59600d83a083bb13cdd0a21b872d77a43
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 0dc7f28ebe3816ba317eb3a4e28fc640c8a12a4e
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299938"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294569"
 ---
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-log-analytics"></a>透過 Log Analytics 監視邏輯應用程式執行並取得深入解析
 
 如需監視和更豐富的偵錯資訊，您可以在建立邏輯應用程式時，同時開啟 Log Analytics。 Log Analytics 會透過 Azure 入口網站，為邏輯應用程式執行提供診斷記錄和監視功能。 當您新增 Logic Apps 管理解決方案時，您會取得邏輯應用程式執行的彙總狀態，以及狀態、執行時間、重新提交狀態和相互關聯識別碼等特定詳細資料。
 
-本主題說明如何開啟 Log Analytics，讓您能夠檢視邏輯應用程式執行的執行階段事件和資料。
+本文說明如何開啟 Log Analytics，讓您能夠檢視邏輯應用程式執行的執行階段事件和資料。
 
  > [!TIP]
  > 若要監視現有的 Logic Apps，請遵循下列步驟以[開啟診斷記錄，並將邏輯應用程式執行階段資料傳送至 Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics)。
@@ -67,17 +67,17 @@ ms.locfileid: "35299938"
 
    ![選取 Log Analytics 工作區](media/logic-apps-monitor-your-logic-apps-oms/select-logic-app.png)
 
-3. 在 [管理] 下，選擇 [OMS 入口網站]。
+3. 在 [管理] 下，選擇 [概觀]。
 
-   ![選擇 [OMS 入口網站]](media/logic-apps-monitor-your-logic-apps-oms/oms-portal-page.png)
+   ![選擇 [OMS 入口網站]](media/logic-apps-monitor-your-logic-apps-oms/ibiza-portal-page.png)
 
-4. 在 [所有解決方案] 下，找到並選擇 [Logic Apps Management] \(Logic Apps 管理) 解決方案的磚。
+4. 在 [概觀] 頁面上，選擇 [新增] 以開啟 [管理解決方案] 圖格。 
 
-   ![選擇 [Logic Apps Management] \(Logic Apps 管理)](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-management-tile2.png)
+   ![選擇 [Logic Apps Management] \(Logic Apps 管理)](media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
 
-5. 若要在您的 Log Analytics 工作區中安裝解決方案，請選擇 [新增]。
+5. 在 [管理解決方案] 的清單中捲動，選擇 [Logic Apps 管理] 解決方案，然後選擇 [建立] 將其安裝到 [概觀] 頁面。
 
-   ![針對 [Logic Apps Management] \(Logic Apps 管理) 選擇 [新增]](media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
+   ![針對 [Logic Apps Management] \(Logic Apps 管理) 選擇 [新增]](media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
 
 <a name="view-logic-app-runs-oms"></a>
 

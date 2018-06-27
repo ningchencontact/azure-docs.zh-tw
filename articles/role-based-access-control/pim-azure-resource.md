@@ -1,6 +1,6 @@
 ---
 title: 使用 Privileged Identity Management (PIM) 管理 Azure 資源的存取權
-description: 了解如何使用 PIM 中的角色型存取管理來存取 Azure 資源。
+description: 了解如何使用 Privileged Identity Management (PIM) 和角色型存取控制 (RBAC) 管理 Azure 資源的存取權。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 03/30/2018
 ms.author: rolyon
 ms.reviewer: skwan
-ms.openlocfilehash: fb0a1ff3821efd7114b509b72e143d5240b61b4c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 838c889f2dc099b4a4c5d84521871c64eb989163
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204204"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293745"
 ---
 # <a name="manage-access-to-azure-resources-with-privileged-identity-management"></a>使用 Privileged Identity Management 來管理對 Azure 資源的存取
 
@@ -31,6 +31,6 @@ ms.locfileid: "34204204"
 - 視需要啟用 Just-In-Time 存取 Azure 資源。
 - 讓已指派使用者和群組的資源存取權自動過期。
 - 針對快速工作和值勤排程指派暫時的 Azure 資源存取權。
-- 在新使用者或群組獲指派資源存取權，以及啟動適用指派時，取得警示。
+- 在新使用者或群組獲指派資源存取，以及啟用符合資格的指派時取得警示
 
 如需詳細資訊，請參閱 [Azure PIM 中的角色型存取控制概觀](../active-directory/privileged-identity-management/azure-pim-resource-rbac.md)。

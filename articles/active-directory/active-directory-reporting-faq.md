@@ -3,24 +3,24 @@ title: Azure Active Directory 報告常見問題集 | Microsoft Docs
 description: Azure Active Directory 報告常見問題集。
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.component: compliance-reports
 ms.date: 05/10/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: bf253e0b8451b3798360a657485289f089239c70
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2ceaf4ecf7da78377c52135b7de5191c1dc3dd28
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34588585"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231900"
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Azure Active Directory 報告常見問題集
 
@@ -72,7 +72,7 @@ ms.locfileid: "34588585"
 
 **問：我可以從 Azure 入口網站下載多少記錄？**
 
-**答：** 您可以從 Azure 入口網站最多下載 12 萬筆記錄。 這些記錄會依「時間上最近」方式來排序，而根據預設，您會取得最近的 12 萬筆記錄。 
+**答：** 您可以從 Azure 入口網站最多下載 5000 筆記錄。 這些記錄會依「時間上最近」方式來排序，而根據預設，您會取得最近的 5000 筆記錄。 至於大小超過 5000 的記錄，可以選擇篩選條件，然後按一下 Azure 入口網站上的 [指令碼] 按鈕。 這樣就會下載 PowerShell 指令碼，您可以執行這個指令碼來產生一個 CSV 檔案，裡面會列出所有符合篩選條件的記錄。 您需要在*系統管理員模式*中執行 PowerShell 指令碼。 如需詳細資訊，請參閱[下載登入活動](active-directory-reporting-activity-sign-ins.md#download-sign-in-activities)。
 
 ---
 
@@ -84,7 +84,7 @@ ms.locfileid: "34588585"
 
 **問：我要如何取得進階授權？**
 
-**答：** 如需此問題的解答，請參閱[開始使用 Azure Active Directory Premium](active-directory-get-started-premium.md)。
+**答：** 如需此問題的解答，請參閱[開始使用 Azure Active Directory Premium](fundamentals/active-directory-get-started-premium.md)。
 
 ---
 

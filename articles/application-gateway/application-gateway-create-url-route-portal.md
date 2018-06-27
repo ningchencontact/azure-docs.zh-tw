@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/26/2018
 ms.author: victorh
-ms.openlocfilehash: 4ffaeedf125b6f74aeb88e22248040c6c3ef001c
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 3fcbcbe5d5f8dab956f40cde112f3536e1ae668c
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34356166"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36263987"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>使用 Azure 入口網站建立包含 URL 路徑型路由規則的應用程式閘道
 
@@ -141,8 +141,8 @@ ms.locfileid: "34356166"
 
 1. 按一下 [規則]，然後按一下 [路徑型]。
 2. 輸入 rule2 作為名稱。
-3. 輸入 Images 作為第一個路徑的名稱。 輸入 /images/* 作為路徑。 選取 **imagesBackendPool** 作為後端集區。
-4. 輸入 Video 作為第二個路徑的名稱。 輸入 /video/* 作為路徑。 選取 **videoBackendPool** 作為後端集區。
+3. 輸入 Images 作為第一個路徑的名稱。 輸入 */images/*\* 作為路徑。 選取 **imagesBackendPool** 作為後端集區。
+4. 輸入 Video 作為第二個路徑的名稱。 輸入 */video/*\* 作為路徑。 選取 **videoBackendPool** 作為後端集區。
 
     ![建立路徑型規則](./media/application-gateway-create-url-route-portal/application-gateway-route-rule.png)
 

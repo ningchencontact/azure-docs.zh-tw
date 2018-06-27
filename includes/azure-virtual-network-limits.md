@@ -5,15 +5,15 @@ services: networking
 author: jimdial
 ms.service: networking
 ms.topic: include
-ms.date: 06/12/2018
+ms.date: 06/20/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: ad76046a092a37a2dc1f59459ac3c3e48bc284e5
-ms.sourcegitcommit: 8659efc885be98f42edae0b516ca576e38940c97
+ms.openlocfilehash: b9e06865b4a401cd925cce564b9c30594c912bae
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35568121"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36297961"
 ---
 <a name="virtual-networking-limits-classic"></a>下列限制僅適用於透過每個訂用帳戶的傳統部署模型所管理的網路資源。 深入了解如何[根據您的訂用帳戶限制檢視目前資源使用量](../articles/networking/check-usage-against-limits.md)。
 
@@ -25,7 +25,7 @@ ms.locfileid: "35568121"
 | 每個虛擬網路的私人 IP 位址 |4096 |4096 |
 | 虛擬機器或角色執行個體之每個 NIC 的並行 TCP 或 UDP 流程 |500K |500K |
 | 網路安全性群組 (NSG) |100 |200 |
-| 每一 NSG 的 NSG 規則 |200 |400 |
+| 每一 NSG 的 NSG 規則 |200 |1000 |
 | 使用者定義的路由表 |100 |200 |
 | 每個路由表的使用者定義路由 |100 |400 |
 | 公用 IP 位址 (動態) |5 |連絡支援人員 |
@@ -50,7 +50,7 @@ ms.locfileid: "35568121"
 | 網路安全性群組 (NSG) |100 |5000 |
 | 每一 NSG 的 NSG 規則 |1000** |1000 |
 | 針對安全性群組中的來源或目的地所指定的 IP 位址和範圍 |2000 |4000 |
-| 應用程式安全性群組 |200 |500 |
+| 應用程式安全性群組 |500 |3000 |
 | 每個 NIC、每個 IP 組態的應用程式安全性群組 |10 |20 |
 | 每個應用程式安全性群組的 IP 組態 |1000 |4000 |
 | 可在網路安全性群組的所有安全性規則內指定的應用程式安全性群組 |50 |100 |
@@ -64,6 +64,7 @@ ms.locfileid: "35568121"
 **這些預設限制適用於先前未透過支援增加這些限制的訂用帳戶
 
 #### <a name="load-balancer"></a>負載平衡器限制
+下列限制僅適用於透過每個訂用帳戶每一區域的 Azure Resource Manager 所管理的網路資源。 深入了解如何[根據您的訂用帳戶限制檢視目前資源使用量](../articles/networking/check-usage-against-limits.md)
 
 | 資源 | 預設限制 | 上限 |
 | --- | --- | --- |
