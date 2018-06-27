@@ -452,7 +452,7 @@ ms.locfileid: "34631015"
 本教學課程會示範如何使用 VSTS 或 TFS 的持續整合與持續部署功能。 
 
 * 在[了解單一裝置或大規模的 IoT Edge 部署](module-deployment-monitoring.md)中，了解 IoT Edge 部署。
-* 逐步解說 [大規模部署和監視 IoT Edge 模組] 中用來建立、更新或刪除部署的步驟。[how-to-deploy-monitor.md]
+* 逐步解說 [大規模部署和監視 IoT Edge 模組](how-to-deploy-monitor.md) 中用來建立、更新或刪除部署的步驟。
 
 
 
