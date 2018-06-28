@@ -1,24 +1,19 @@
 ---
 title: 使用 Azure IoT 中樞進行裝置韌體更新 | Microsoft Docs
 description: 如何使用 Azure IoT 中樞上的裝置管理來起始裝置韌體更新。 您可以使用適用於 Node.js 的 Azure IoT SDK，實作模擬裝置應用程式和服務應用程式，以觸發韌體更新。
-services: iot-hub
-documentationcenter: .net
 author: juanjperez
-manager: timlt
-editor: ''
-ms.assetid: 70b84258-bc9f-43b1-b7cf-de1bb715f2cf
+manager: cberlin
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 09/07/2017
 ms.author: juanpere
-ms.openlocfilehash: e8ef556793534c9eb8300ee262a4b134960f862a
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 0cd8c019cf9a65e0e72227ba99c1995a45ed4067
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34634959"
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-nodenode"></a>使用裝置管理來起始裝置韌體更新 (節點/節點)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
