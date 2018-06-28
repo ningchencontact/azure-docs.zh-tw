@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 04/09/2018
 ms.author: tdykstra
 ms.custom: mvc
-ms.openlocfilehash: 6df97a40be7bf1c437c5228006d114ace768f8ca
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9b9ef150a86a754d4ed328184eb02c1937008b7b
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32157368"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028858"
 ---
 # <a name="compare-flow-logic-apps-functions-and-webjobs"></a>比較 Flow、Logic Apps、Functions 和 WebJob
 
@@ -50,7 +50,7 @@ Flow 可讓任何辦公室工作人員有能力執行簡單的整合 (例如，S
 | 設計工具 |瀏覽器內及行動裝置應用程式，僅限 UI |有瀏覽器內和 [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md)、[程式碼檢視](../logic-apps/logic-apps-author-definitions.md)可用 |
 | 應用程式生命週期管理 (ALM) |在非生產環境中設計及測試，在就緒時升級到生產環境。 |DevOps：在 [Azure 資源管理](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md)中的原始檔控制、測試支援、自動化及管理性 |
 | 管理員體驗 |管理流量環境和資料外洩防護 (DLP) 原則，追蹤授權 [https://admin.flow.microsoft.com](https://admin.flow.microsoft.com) |管理資源群組、連線、存取管理和記錄 [https://portal.azure.com](https://portal.azure.com) |
-| 安全性 |Office 365 安全性與相容性稽核記錄、資料外洩防護 (DLP)、敏感性資料[靜止時加密](https://wikipedia.org/wiki/Data_at_rest#Encryption)等等。 |Azure 的安全性保證︰[Azure 安全性](https://www.microsoft.com/trustcenter/Security/AzureSecurity)、[資訊安全中心](https://azure.microsoft.com/services/security-center/)、[稽核記錄檔](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/)等。 |
+| 安全性 |Office 365 安全性與相容性稽核記錄、資料外洩防護 (DLP)、敏感性資料[靜止時加密](https://wikipedia.org/wiki/Data_at_rest#Encryption)等等。 |Azure 的安全性保證︰[Azure 安全性](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity)、[資訊安全中心](https://azure.microsoft.com/services/security-center/)、[稽核記錄檔](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/)等。 |
 
 ## <a name="compare-azure-functions-and-azure-logic-apps"></a>比較 Azure Functions 和 Azure Logic Apps
 
@@ -66,7 +66,7 @@ Functions 和 Logic Apps 都是可啟用無伺服器工作負載的 Azure 服務
 | 連線能力 | [約有十幾個內建繫結類型](functions-triggers-bindings.md#supported-bindings)、撰寫自訂繫結的程式碼 | [連接器的大型集合](../connectors/apis-list.md)、[適用於 B2B 的企業整合套件案例](../logic-apps/logic-apps-enterprise-integration-overview.md)、[建置自訂連接器](../logic-apps/custom-connector-overview.md) |
 | 動作 | 每個活動都是 Azure 函式；撰寫活動函式的程式碼 |[現成動作的大型集合](../logic-apps/logic-apps-workflow-actions-triggers.md)|
 | 監視 | [Azure Application Insights](../application-insights/app-insights-overview.md) | [Azure 入口網站](../logic-apps/quickstart-create-first-logic-app-workflow.md)、[Operations Management Suite](../logic-apps/logic-apps-monitor-your-logic-apps-oms.md)、[Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
-| 管理 | [REST API](durable-functions-http-api.md)、[Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Azure 入口網站](../logic-apps/quickstart-create-first-logic-app-workflow.md)、[REST API](https://docs.microsoft.com/rest/api/logic/)[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/?view=azurermps-5.6.0)[Visual Studio](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-visual-studio) |
+| 管理性 | [REST API](durable-functions-http-api.md)、[Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Azure 入口網站](../logic-apps/quickstart-create-first-logic-app-workflow.md)、[REST API](https://docs.microsoft.com/rest/api/logic/)[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/?view=azurermps-5.6.0)[Visual Studio](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-visual-studio) |
 | 執行內容 | 可以在[本機](functions-runtime-overview.md)或雲端中執行。 | 只可在雲端中執行。|
 
 <a name="function"></a>

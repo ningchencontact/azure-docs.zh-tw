@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: a16e9ad5b72d87614f5d3630e24e6aa36def8c51
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 7902b5ad2d680a22a2d132187cdad5f96a334447
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779520"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061840"
 ---
 # <a name="tutorial-load-balance-internal-traffic-with-basic-load-balancer-to-vms-using-the-azure-portal"></a>教學課程：在 Azure 入口網站中使用基本負載平衡器，將內部流量負載平衡到 VM
 
@@ -43,6 +43,8 @@ ms.locfileid: "32779520"
     - myBackendSubnet - 作為子網路名稱。
 2. 按一下 [建立] 以建立虛擬網路。
 
+![建立負載平衡器](./media/tutorial-load-balancer-basic-internal-portal/1-load-balancer.png)
+
 ## <a name="create-a-basic-load-balancer"></a>建立基本負載平衡器
 使用入口網站建立內部基本負載平衡器。
 
@@ -57,10 +59,7 @@ ms.locfileid: "32779520"
     - myResourceGroupILB - 作為您新建立的資源群組名稱。
 3. 按一下 [建立] 以建立負載平衡器。
    
-    ![建立負載平衡器](./media/tutorial-load-balancer-basic-internal-portal/1-load-balancer.png)
-
-
-## <a name="create-backend-servers"></a>建立後端伺服器
+    ## <a name="create-backend-servers"></a>建立後端伺服器
 
 本節中，您會針對基本負載平衡器的後端集區建立兩部虛擬機器，然後在虛擬機器上安裝 IIS，協助測試負載平衡器。
 

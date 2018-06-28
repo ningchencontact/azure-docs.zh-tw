@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/20/2018
 ms.author: dobett
-ms.openlocfilehash: dbb4ce971e6504f33de82e31cf289a42a1640952
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 501a8f2dad0537f0288dfd6a6d7bedcac054ab86
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293164"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332281"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-c"></a>快速入門：將遙測從裝置傳送至 IoT 中樞，並使用後端應用程式從中樞讀取遙測 (C#)
 
@@ -88,7 +88,7 @@ dotnet --version
 
 2. 在您選擇的文字編輯器中開啟 **SimulatedDevice.cs** 檔案。
 
-    使用先前所記錄的裝置連接字串來取代 `connectionString` 變數的值。 然後將變更儲存到 **SimulatedDevice.cs** 檔案。
+    使用先前所記錄的裝置連接字串來取代 `s_connectionString` 變數的值。 然後將變更儲存到 **SimulatedDevice.cs** 檔案。
 
 3. 在終端機視窗中，執行下列命令以安裝模擬裝置應用程式所需的套件：
 
@@ -116,9 +116,9 @@ dotnet --version
 
     | 變數 | 值 |
     | -------- | ----------- |
-    | `eventHubsCompatibleEndpoint` | 使用先前所記錄的事件中樞相容端點來取代變數的值。 |
-    | `eventHubsCompatiblePath`     | 使用先前所記錄的事件中樞相容路徑來取代變數的值。 |
-    | `iotHubSasKey`                | 使用先前所記錄的 iothubowner 主要金鑰來取代變數的值。 |
+    | `s_eventHubsCompatibleEndpoint` | 使用先前所記錄的事件中樞相容端點來取代變數的值。 |
+    | `s_eventHubsCompatiblePath`     | 使用先前所記錄的事件中樞相容路徑來取代變數的值。 |
+    | `s_iotHubSasKey`                | 使用先前所記錄的 iothubowner 主要金鑰來取代變數的值。 |
 
 3. 在終端機視窗中，執行下列命令以安裝後端應用程式所需的程式庫：
 
