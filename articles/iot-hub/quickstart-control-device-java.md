@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/30/2018
+ms.date: 06/22/2018
 ms.author: dobett
-ms.openlocfilehash: 5025eeda46f36982266a0bc3357b3d1e9249884a
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 5da4248f0b0a72c3614b4c3e5ea042c4341f4e03
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808201"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36330538"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>快速入門：控制連線到 IoT 中樞的裝置 (Java)
 
@@ -75,7 +75,7 @@ mvn --version
 
     如果您為裝置選擇不同的名稱，請先在範例應用程式中更新該裝置名稱，再執行應用程式。
 
-1. 執行下列命令，以針對您剛註冊的裝置取得_裝置連接字串_：
+2. 執行下列命令，以針對您剛註冊的裝置取得_裝置連接字串_：
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyJavaDevice --output table
@@ -99,17 +99,17 @@ az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
 
 1. 在終端機視窗中，瀏覽至範例 Java 專案的根資料夾。 然後瀏覽至 **iot-hub\Quickstarts\simulated-device-2** 資料夾。
 
-1. 在您選擇的文字編輯器中開啟 **src/main/java/com/microsoft/docs/iothub/samples/SimulatedDevice.java** 檔案。
+2. 在您選擇的文字編輯器中開啟 **src/main/java/com/microsoft/docs/iothub/samples/SimulatedDevice.java** 檔案。
 
     使用先前所記錄的裝置連接字串來取代 `connString` 變數的值。 然後將變更儲存到 **SimulatedDevice.java** 檔案。
 
-1. 在終端機視窗中，執行下列命令以安裝模擬裝置應用程式所需的程式庫並建置模擬裝置應用程式：
+3. 在終端機視窗中，執行下列命令以安裝模擬裝置應用程式所需的程式庫並建置模擬裝置應用程式：
 
     ```cmd/sh
     mvn clean package
     ```
 
-1. 在終端機視窗中，執行下列命令以執行模擬裝置應用程式：
+4. 在終端機視窗中，執行下列命令以執行模擬裝置應用程式：
 
     ```cmd/sh
     java -jar target/simulated-device-2-1.0.0-with-deps.jar
@@ -125,17 +125,17 @@ az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
 
 1. 在另一個終端機視窗中，瀏覽至範例 Java 專案的根資料夾。 然後瀏覽至 **iot-hub\Quickstarts\back-end-application** 資料夾。
 
-1. 在您選擇的文字編輯器中開啟 **src/main/java/com/microsoft/docs/iothub/samples/BackEndApplication.java** 檔案。
+2. 在您選擇的文字編輯器中開啟 **src/main/java/com/microsoft/docs/iothub/samples/BackEndApplication.java** 檔案。
 
     使用先前所記錄的服務連接字串來取代 `iotHubConnectionString` 變數的值。 然後將您的變更儲存到 **BackEndApplication.java** 檔案。
 
-1. 在終端機視窗中，執行下列命令以安裝所需的程式庫並建置後端應用程式：
+3. 在終端機視窗中，執行下列命令以安裝所需的程式庫並建置後端應用程式：
 
     ```cmd/sh
     mvn clean package
     ```
 
-1. 在終端機視窗中，執行下列命令以執行後端應用程式：
+4. 在終端機視窗中，執行下列命令以執行後端應用程式：
 
     ```cmd/sh
     java -jar target/back-end-application-1.0.0-with-deps.jar
@@ -151,9 +151,7 @@ az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您打算繼續進行教學課程，請保留資源群組和 IoT 中樞，以供稍後重複使用。
-
-如果您不再需要 IoT 中樞，請在入口網站中刪除它和資源群組。 若要這樣做，請選取包含 IoT 中樞的資源群組，然後按一下 [刪除]。
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

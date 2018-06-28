@@ -9,17 +9,17 @@ ms.topic: include
 ms.date: 05/23/2018
 ms.author: tdykstra
 ms.custom: include file
-ms.openlocfilehash: a709c5716a861f6b8dca5a365b9ef51e1252f644
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 75be516dc3f23ee02638a6ca9981a6732b00e27a
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726731"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063710"
 ---
 下表說明如何在每個開發環境中為此繫結新增支援。
 
 | 開發環境               | 若要新增支援 <br>Functions 1.x  |
 |----------------------|----------------|---------------|
-|本機開發 - C# 類別庫       | [安裝套件](../articles/azure-functions/functions-triggers-bindings.md#local-csharp) | 
+|本機開發 - C# 類別庫       | [安裝套件](../articles/azure-functions/functions-triggers-bindings.md#c-class-library-with-visual-studio-2017) | 
 |本機開發 - C# 指令碼、JavaScript、F# |自動         |
 |入口網站開發|  自動    |

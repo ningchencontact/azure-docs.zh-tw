@@ -12,19 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 659005bb01672ea6e63d965f89af23024ba53544
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6daa9288da20c7def04242419fab20efeca52f09
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619485"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052523"
 ---
 # <a name="azure-powershell-samples-for-azure-data-factory"></a>適用於 Azure Data Factory 的 Azure PowerShell 範例
 
 下表包含適用於 Azure Data Factory 之範例 Azure PowerShell 指令碼的連結。
-
-> [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您是使用第 1 版的 Data Factory 服務 (正式運作版本 (GA))，請參閱 [Data Factory 第 1 版的範例](v1/data-factory-samples.md)。
 
 | |  |
 |---|---|

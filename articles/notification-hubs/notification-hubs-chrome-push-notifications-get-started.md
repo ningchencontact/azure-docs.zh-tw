@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 5754a537b8a0bf0a93d6d54ba0ba78e5957ac87f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7bdc692104194bff4a25e6974ba72971af543cbf
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777469"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028994"
 ---
 # <a name="tutorial-push-notifications-to-chrome-apps-with-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知推送至 Chrome 應用程式
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -400,7 +400,7 @@ Chrome 應用程式是透過 JavaScript 建立的，您可以使用任何慣用�
    
         Install-Package Microsoft.Azure.NotificationHubs
    
-   具有 <a href="http://nuget.org/packages/  WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet 套件</a>的 Azure 服務匯流排 SDK 的參考會自動新增至專案。
+   具有 <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet 套件</a>的 Azure 服務匯流排 SDK 的參考會自動新增至專案。
 4. 開啟 `Program.cs` 並新增下列 `using` 陳述式：
    
         using Microsoft.Azure.NotificationHubs;

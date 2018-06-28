@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 1ccd0048eb2f1ab32e9fbf403b65f68b07ada480
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4fbb0e5512511842e020e5670f1290c6b6359305
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227372"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308725"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>教學課程：Azure Active Directory 與 Zscaler ZSCloud 整合
 
@@ -116,7 +116,7 @@ ms.locfileid: "36227372"
      在 [登入 URL] 文字方塊中，鍵入使用者用來登入您 ZScaler ZSCloud 的 URL。
     
     > [!NOTE] 
-    > 您必須使用實際的「登入 URL」來更新此值。 請連絡 [Zscaler ZSCloud 用戶端支援小組](https://support.zscaler.com/hc/articles/210172606-Zscaler-is-Expanding-Its-Zscloud-Global-Footprint)以取得此值。 
+    > 您必須使用實際的「登入 URL」來更新此值。 請連絡 [Zscaler ZSCloud 用戶端支援小組](https://help.zscaler.com/zia)以取得此值。 
  
 4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 

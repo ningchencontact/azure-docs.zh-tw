@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 4e92d1ba948626c05e7b66d2c0d469ac6c6571a2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4813c492ba25b0d6dd524e2c0b4b5b6e8c2a2bfa
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228181"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308236"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-timeoffmanager"></a>教學課程：Azure Active Directory 與 TimeOffManager 整合
 
@@ -112,7 +112,7 @@ TimeOffManager 與 Azure AD 整合提供下列優點：
     在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://www.timeoffmanager.com/cpanel/sso/consume.aspx?company_id=<companyid>`
 
     > [!NOTE] 
-    > 這不是真實的值。 請使用實際的「回覆 URL」來更新此值。 您可以從 [單一登入設定] 頁面取得此值，稍後會在本教學課程中加以說明，或連絡 [TimeOffManager 支援小組](http://www.timeoffmanager.com/contact-us.aspx)。
+    > 這不是真實的值。 請使用實際的「回覆 URL」來更新此值。 您可以從 [單一登入設定] 頁面取得此值，稍後會在本教學課程中加以說明，或連絡 [TimeOffManager 支援小組](https://www.purelyhr.com/contact-us)。
  
 4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 

@@ -10,18 +10,18 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 22a3c5b2c7c4676c9c05c7cc67f30108a5dfbe5b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 75431715b5948525e92c99b778842d26a684da82
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644676"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753436"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>監視及管理多租用戶 SaaS 應用程式中分區化多租用戶 Azure SQL Database 的效能
 
 本教學課程會探索 SaaS 應用程式中使用的數個關鍵效能管理案例。 使用負載產生器來跨分區化多租用戶資料庫模擬活動，而且示範 SQL Database 的內建監視和警示功能。
 
-Wingtip Tickets SaaS 多租用戶資料庫應用程式會使用分區化多租用戶資料模型，場地 (租用戶) 資料會在當中依租用戶識別碼跨可能為多個的資料庫進行分散。 與許多 SaaS 應用程式類似，預期的租用戶工作負載模式無法預測且偶爾發生。 換句話說，票證銷售可能會在任何時間發生。 若要利用這個一般資料庫使用模式，可以將資料庫調相應增加及相應減少，從而最佳化解決方案的成本。 使用這種類型的模式，請務必監視資料庫資源使用量，以確保合理地跨可能為多個的資料庫集區平衡負載。 您也必須確定個別的資料庫擁有足夠的資源，且未達到其 [DTU](sql-database-what-is-a-dtu.md) 限制。 本教學課程將探討監視及管理資料庫的方式，以及如何採取矯正措施以回應工作負載的變化。
+Wingtip Tickets SaaS 多租用戶資料庫應用程式會使用分區化多租用戶資料模型，場地 (租用戶) 資料會在當中依租用戶識別碼跨可能為多個的資料庫進行分散。 與許多 SaaS 應用程式類似，預期的租用戶工作負載模式無法預測且偶爾發生。 換句話說，票證銷售可能會在任何時間發生。 若要利用這個一般資料庫使用模式，可以將資料庫調相應增加及相應減少，從而最佳化解決方案的成本。 使用這種類型的模式，請務必監視資料庫資源使用量，以確保合理地跨可能為多個的資料庫集區平衡負載。 您也必須確定個別的資料庫擁有足夠的資源，且未達到其 [DTU](sql-database-service-tiers.md#what-are-database-transaction-units-dtus) 限制。 本教學課程將探討監視及管理資料庫的方式，以及如何採取矯正措施以回應工作負載的變化。
 
 在本教學課程中，您將了解如何：
 
