@@ -25,7 +25,7 @@ ms.locfileid: "34600624"
 
 在這兩個耗用模型中，要明確指定一些參數必須同時指定其他參數。 這些相依性如下：
 
-* 所有參數都需要由使用者指定 **constantSpeedConsumption**。 如果未指定 **constantSpeedConsumption***，指定任何其他耗用模型參數會發生錯誤，除了 **vehicleWeight**。
+* 所有參數都需要由使用者指定 **constantSpeedConsumption**。 如果未指定 **constantSpeedConsumption**\*，指定任何其他耗用模型參數會發生錯誤，除了 **vehicleWeight**。
 * **accelerationEfficiency** 和 **decelerationEfficiency** 一律必須指定為一對 (也就是兩個並存或無)。
 * 如果指定 **accelerationEfficiency** 和 **decelerationEfficiency**，其值的產品必不能大於 1 (以防永恆運動)。
 * **uphillEfficiency** 和 **downhillEfficiency** 一律必須指定為一對 (也就是兩個並存或無)。
