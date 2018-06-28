@@ -13,18 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 5cbed14553462d8aff16304e52b66da7ad2652e3
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d9f4dc0883ced599dd13d0c5d52ff865e03b73ed
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36217226"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332906"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>在 Azure 中將 Ubuntu 虛擬機器加入受控網域
 本文說明如何將 Ubuntu Linux 虛擬機器加入 Azure AD Domain Services 受控網域。
 
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>開始之前
 若要執行本文中所列的工作，您需要︰  
@@ -122,17 +123,17 @@ sudo systemctl start ntp
     sudo realm discover CONTOSO100.COM
     ```
 
-   > [!NOTE] 
+   > [!NOTE]
    > **疑難排解：** 如果 [領域探索] 找不到受控網域：
      * 確定可從虛擬機器觸達網域 (請嘗試 ping)。
      * 檢查虛擬機器已確實部署到有提供受控網域的相同虛擬網路上。
      * 查看您是否已更新虛擬網路的 DNS 伺服器設定，以指向受控網域的網域控制站。
    >
 
-2. 初始化 Kerberos。 在 SSH 終端機中輸入下列命令： 
+2. 初始化 Kerberos。 在 SSH 終端機中輸入下列命令：
 
-    > [!TIP] 
-    > * 請確定您是指定屬於 'AAD DC Administrators' 群組的使用者。 
+    > [!TIP]
+    > * 請確定您是指定屬於 'AAD DC Administrators' 群組的使用者。
     > * 以大寫字母指定網域名稱，否則 kinit 會失敗。
     >
 
@@ -140,9 +141,9 @@ sudo systemctl start ntp
     kinit bob@CONTOSO100.COM
     ```
 
-3. 將電腦加入網域。 在 SSH 終端機中輸入下列命令： 
+3. 將電腦加入網域。 在 SSH 終端機中輸入下列命令：
 
-    > [!TIP] 
+    > [!TIP]
     > 使用您在前面步驟中指定的相同使用者帳戶 ('kinit')。
     >
 
@@ -175,7 +176,7 @@ sudo systemctl start ntp
 ```
 sudo vi /etc/pam.d/common-session
 ```
-    
+
 在此檔案的 'session optional pam_sss.so' 下新增以下這行，並儲存檔案：
 ```
 session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
