@@ -3,7 +3,7 @@ title: 在 Azure Active Directory 中使用 SCIM 自動佈建應用程式 | Micr
 description: Azure Active Directory 會利用 SCIM 通訊協定規格中定義的介面，自動佈建使用者和群組到 Web 服務前端的任何應用程式或身分識別存放區
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
+author: barbkess
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
-ms.author: asmalser
+ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 2bbea8f082e482ec5f5a08ce9978940e05c2325b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 40fa7959fc27692489a6317df0eddb9208c57bd6
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35302296"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337326"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>使用 System for Cross-Domain Identity Management (SCIM) 自動將使用者和群組從 Azure Active Directory 佈建到應用程式
 
@@ -697,7 +697,7 @@ Azure Active Directory 可以佈建兩種類型的資源至 SCIM Web 服務。  
 * [撰寫屬性對應的運算式](../active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [適用於使用者佈建的範圍篩選器](../active-directory-saas-scoping-filters.md)
 * [帳戶佈建通知](../active-directory-saas-app-provisioning.md)
-* [如何整合 SaaS 應用程式的教學課程清單](../active-directory-saas-tutorial-list.md)
+* [如何整合 SaaS 應用程式的教學課程清單](../saas-apps/tutorial-list.md)
 
 <!--Image references-->
 [0]: ./media/use-scim-to-provision-users-and-groups/scim-figure-1.png

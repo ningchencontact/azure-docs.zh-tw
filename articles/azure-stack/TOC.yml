@@ -294,15 +294,15 @@
             - name: 提供 Kubernetes 叢集
               href: azure-stack-solution-template-kubernetes-cluster-add.md
         - name: 使用量與計費
+          href: azure-stack-billing-and-chargeback.md
           items:
-            - name: 概觀
-              href: azure-stack-billing-and-chargeback.md
             - name: 透過 CSP 管理使用量和帳單
               href: azure-stack-add-manage-billing-as-a-csp.md
-            - name: 新增租用戶使用方式與帳單
-              href: azure-stack-csp-howto-register-tenants.md
-            - name: 管理租用戶註冊
-              href: azure-stack-csp-ref-operations.md
+              items:
+                - name: 新增租用戶使用方式與帳單
+                  href: azure-stack-csp-howto-register-tenants.md
+                - name: 管理租用戶註冊
+                  href: azure-stack-csp-ref-operations.md
             - name: 使用方式與帳單參考
               items:
                 - name: 使用量資料報告

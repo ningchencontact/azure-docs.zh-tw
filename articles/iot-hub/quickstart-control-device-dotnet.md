@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/20/2018
 ms.author: dobett
-ms.openlocfilehash: c24c311f6ee446122fea7fd7699b34ab2ae8510c
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 0bb27c23850384501afec733d24f824346b8416b
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36292835"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335470"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>快速入門：控制連線到 IoT 中樞的裝置 (.NET)
 
@@ -67,7 +67,7 @@ dotnet --version
 
     如果您為裝置選擇不同的名稱，請先在範例應用程式中更新該裝置名稱，再執行應用程式。
 
-1. 執行下列命令，以針對您剛註冊的裝置取得_裝置連接字串_：
+2. 執行下列命令，以針對您剛註冊的裝置取得_裝置連接字串_：
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDotnetDevice --output table
@@ -91,17 +91,17 @@ az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
 
 1. 在終端機視窗中，瀏覽至範例 C# 專案的根資料夾。 然後瀏覽至 **iot-hub\Quickstarts\simulated-device-2** 資料夾。
 
-1. 在您選擇的文字編輯器中開啟 **SimulatedDevice.cs** 檔案。
+2. 在您選擇的文字編輯器中開啟 **SimulatedDevice.cs** 檔案。
 
-    使用先前所記錄的裝置連接字串來取代 `connectionString` 變數的值。 然後將變更儲存到 **SimulatedDevice.cs** 檔案。
+    使用先前所記錄的裝置連接字串來取代 `s_connectionString` 變數的值。 然後將變更儲存到 **SimulatedDevice.cs** 檔案。
 
-1. 在終端機視窗中，執行下列命令以安裝模擬裝置應用程式所需的套件：
+3. 在終端機視窗中，執行下列命令以安裝模擬裝置應用程式所需的套件：
 
     ```cmd/sh
     dotnet restore
     ```
 
-1. 在終端機視窗中，執行下列命令以建置並執行模擬裝置應用程式：
+4. 在終端機視窗中，執行下列命令以建置並執行模擬裝置應用程式：
 
     ```cmd/sh
     dotnet run
@@ -117,17 +117,17 @@ az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
 
 1. 在另一個終端機視窗中，瀏覽至範例 C# 專案的根資料夾。 然後瀏覽至 **iot-hub\Quickstarts\back-end-application** 資料夾。
 
-1. 在您選擇的文字編輯器中開啟 **BackEndApplication.cs** 檔案。
+2. 在您選擇的文字編輯器中開啟 **BackEndApplication.cs** 檔案。
 
-    使用先前所記錄的服務連接字串來取代 `connectionString` 變數的值。 然後將您的變更儲存到 **BackEndApplication.cs** 檔案。
+    使用先前所記錄的服務連接字串來取代 `s_connectionString` 變數的值。 然後將您的變更儲存到 **BackEndApplication.cs** 檔案。
 
-1. 在終端機視窗中，執行下列命令以安裝後端應用程式所需的程式庫：
+3. 在終端機視窗中，執行下列命令以安裝後端應用程式所需的程式庫：
 
     ```cmd/sh
     dotnet restore
     ```
 
-1. 在終端機視窗中，執行下列命令以建置並執行後端應用程式：
+4. 在終端機視窗中，執行下列命令以建置並執行後端應用程式：
 
     ```cmd/sh
     dotnet run

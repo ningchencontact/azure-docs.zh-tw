@@ -1,24 +1,23 @@
 ---
-title: "REST API：Azure Data Lake Store 的帳戶管理作業 | Microsoft Docs"
-description: "使用 Azure Data Lake Store 和 WebHDFS REST API 在 Data Lake Store 中執行帳戶管理作業"
+title: REST API：Azure Data Lake Store 的帳戶管理作業 | Microsoft Docs
+description: 使用 Azure Data Lake Store 和 WebHDFS REST API 在 Data Lake Store 中執行帳戶管理作業
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 57ac6501-cb71-4f75-82c2-acc07c562889
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/09/2018
+ms.topic: conceptual
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 5fafde870a01a6ceb5e86f7b00b0ca11b748c68a
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 5b31188eb5618d0ec5ac1f89c590913e4e284d9f
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337146"
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-rest-api"></a>使用 REST API 在 Data Lake Store 上進行帳戶管理作業
 > [!div class="op_single_selector"]
@@ -43,7 +42,7 @@ ms.lasthandoff: 01/10/2018
 
 
 ## <a name="create-a-data-lake-store-account"></a>建立 Data Lake Store 帳戶
-這項作業以在 [這裡](https://msdn.microsoft.com/library/mt694078.aspx)定義的 REST API 呼叫為基礎。
+這項作業以在 [這裡](https://docs.microsoft.com/en-us/rest/api/datalakestore/accounts/create)定義的 REST API 呼叫為基礎。
 
 使用下列 cURL 命令。 以 Data Lake Store 名稱取代 **\<yourstorename>**。
 
@@ -60,7 +59,7 @@ ms.lasthandoff: 01/10/2018
     }    
 
 ## <a name="delete-a-data-lake-store-account"></a>刪除 Data Lake Store 帳戶
-這項作業以在 [這裡](https://msdn.microsoft.com/library/mt694075.aspx)定義的 REST API 呼叫為基礎。
+這項作業以在 [這裡](https://docs.microsoft.com/en-us/rest/api/datalakestore/accounts/delete)定義的 REST API 呼叫為基礎。
 
 使用下列 cURL 命令刪除 Data Lake Store 帳戶。 以 Data Lake Store 名稱取代 **\<yourstorename>**。
 

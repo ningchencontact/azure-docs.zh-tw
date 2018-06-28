@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: c479298187cfc4af6d9b33d9bd3839e8fa579566
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: eeda0fa6ad8faa05baf0a9344e958d298fb80d8e
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294154"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936678"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>疑難排解 Application Insights 中的分析
 有關於 [Application Insights 分析](app-insights-analytics.md)的問題嗎？ 從這裡開始。 「分析」是強大的 Azure Application Insights 搜尋工具。
@@ -57,7 +57,7 @@ ms.locfileid: "35294154"
 4. 開啟另一個 (一般) 瀏覽器視窗並前往 [Azure](https://portal.azure.com)。 登出。然後開啟您的連結並使用正確的認證登入。
 5. Edge 和 Internet Explorer 的使用者也會在不支援信任的區域設定時收到此錯誤。
    
-    確認[分析入口網站](https://analytics.applicationinsights.io)和 [Azure Active Directory 入口網站](https://portal.azure.com)位於相同的安全性區域：
+    確認[分析入口網站](https://portal.azure.com)和 [Azure Active Directory 入口網站](https://portal.azure.com)位於相同的安全性區域：
    
    * 在 Internet Explorer 中，開啟 [網際網路選項]、[安全性]、[信任的網站]、[網站]：
      

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: ed64c9df6fcca8f85b200c5f738c2009ea7ae0a5
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 056821bd26e9c6c110b23a048df4aa13bc4ab8fa
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293104"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754168"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 概念證明腳本：構成要素
 
@@ -100,10 +100,10 @@ ms.locfileid: "35293104"
 | 步驟 | 資源 |
 | --- | --- |
 | 移至「Azure AD 管理入口網站」 | [Azure AD 管理入口網站 - 公司商標](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding) |
-| 上傳登入頁面的資產 (大型標誌、小型標誌、標籤等)。 如果您有 AD FS，可視需要，與 ADFS 登入頁面採用相同的資產 | [在登入和存取面板頁面新增公司商標：可自訂元素](customize-branding.md) |
+| 上傳登入頁面的資產 (大型標誌、小型標誌、標籤等)。 如果您有 AD FS，可視需要，與 ADFS 登入頁面採用相同的資產 | [在登入和存取面板頁面新增公司商標：可自訂元素](fundamentals/customize-branding.md) |
 | 等候幾分鐘讓變更完全生效 |  |
 | 以 POC 使用者認證登入 https://myapps.microsoft.com |  |
-| 在瀏覽器中確認外觀及操作 | [在登入和存取面板頁面新增公司商標](customize-branding.md) |
+| 在瀏覽器中確認外觀及操作 | [在登入和存取面板頁面新增公司商標](fundamentals/customize-branding.md) |
 | (選擇性) 在其他裝置中確認外觀及操作 |  |
 
 ### <a name="considerations"></a>考量
@@ -118,7 +118,7 @@ ms.locfileid: "35293104"
 
 | 必要條件 | 資源 |
 | --- | --- |
-| 所有 POC 使用者都是安全性群組 (不論是雲端還是內部部署) 的成員 | [在 Azure Active Directory 中建立群組和新增使用者](active-directory-groups-create-azure-portal.md) |
+| 所有 POC 使用者都是安全性群組 (不論是雲端還是內部部署) 的成員 | [在 Azure Active Directory 中建立群組和新增使用者](fundamentals/active-directory-groups-create-azure-portal.md) |
 
 ### <a name="steps"></a>步驟
 
@@ -140,16 +140,16 @@ ms.locfileid: "35293104"
 | 必要條件 | 資源 |
 | --- | --- |
 | 可用的 SaaS 應用程式測試環境。 在本指南中，我們將使用 ServiceNow 作為範例。<br/>強烈建議您使用測試執行個體，以將瀏覽現有資料品質與對應的阻力降到最低。 | 請移至 https://developer.servicenow.com/app.do#!/home 以開始進行取得測試執行個體的程序 |
-| 對 ServiceNow 管理主控台的存取權 | [教學課程：Azure Active Directory 與 ServiceNow 整合](active-directory-saas-servicenow-tutorial.md) |
+| 對 ServiceNow 管理主控台的存取權 | [教學課程：Azure Active Directory 與 ServiceNow 整合](saas-apps/servicenow-tutorial.md) |
 | 一組要作為應用程式指派目標的使用者。 建議使用包含 PoC 使用者的安全性群組。 <br/>如果無法建立該群組，則請將使用者直接指派給 PoC 的應用程式 | [在 Azure Active Directory 中將使用者或群組指派給企業應用程式](manage-apps/assign-user-or-group-access-portal.md) |
 
 ### <a name="steps"></a>步驟
 
 | 步驟 | 資源 |
 | --- | --- |
-| 將來自「Microsoft 文件」的教學課程分享給所有執行者  | [教學課程：Azure Active Directory 與 ServiceNow 整合](active-directory-saas-servicenow-tutorial.md) |
-| 設定工作會議並與每個執行者一起依照教學課程步驟操作。 | [教學課程：Azure Active Directory 與 ServiceNow 整合](active-directory-saas-servicenow-tutorial.md) |
-| 將應用程式指派給「必要條件」中所識別的群組。 如果 POC 的範圍內具有條件式存取，您可以稍後再重新瀏覽該部分並新增 MFA 等。 <br/>請注意，這會開始佈建程序 (如果已設定) |  [在 Azure Active Directory 中將使用者或群組指派給企業應用程式](manage-apps/assign-user-or-group-access-portal.md) <br/>[在 Azure Active Directory 中建立群組和新增使用者](active-directory-groups-create-azure-portal.md) |
+| 將來自「Microsoft 文件」的教學課程分享給所有執行者  | [教學課程：Azure Active Directory 與 ServiceNow 整合](saas-apps/servicenow-tutorial.md) |
+| 設定工作會議並與每個執行者一起依照教學課程步驟操作。 | [教學課程：Azure Active Directory 與 ServiceNow 整合](saas-apps/servicenow-tutorial.md) |
+| 將應用程式指派給「必要條件」中所識別的群組。 如果 POC 的範圍內具有條件式存取，您可以稍後再重新瀏覽該部分並新增 MFA 等。 <br/>請注意，這會開始佈建程序 (如果已設定) |  [在 Azure Active Directory 中將使用者或群組指派給企業應用程式](manage-apps/assign-user-or-group-access-portal.md) <br/>[在 Azure Active Directory 中建立群組和新增使用者](fundamentals/active-directory-groups-create-azure-portal.md) |
 | 使用「Azure AD 管理入口網站」從資源庫新增 ServiceNow 應用程式| [Azure AD 管理入口網站：企業應用程式](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview) <br/>[Azure Active Directory 中企業應用程式管理的新功能](active-directory-enterprise-apps-whats-new-azure-portal.md) |
 | 在 ServiceNow 應用程式的 [單一登入] 刀鋒視窗中，啟用 [SAML 登入] |  |
 | 在 [單一登入 URL] 和 [識別碼] 欄位中填入您的 ServiceNow URL<br/>核取 [使新憑證為使用中] 方塊<br/>並 [儲存] 設定 |  |
@@ -163,7 +163,7 @@ ms.locfileid: "35293104"
 
 ### <a name="considerations"></a>考量
 
-1. 上述[教學課程](active-directory-saas-servicenow-tutorial.md)是參考舊的 Azure AD 管理體驗。 但 PoC 是根據[快速入門](active-directory-enterprise-apps-whats-new-azure-portal.md#quickstart-get-going-with-your-new-application-right-away)體驗。
+1. 上述[教學課程](saas-apps/servicenow-tutorial.md)是參考舊的 Azure AD 管理體驗。 但 PoC 是根據[快速入門](active-directory-enterprise-apps-whats-new-azure-portal.md#quickstart-get-going-with-your-new-application-right-away)體驗。
 2. 如果資源庫中沒有目標應用程式，則您可以使用「自備應用程式」。 深入了解：[Azure Active Directory 中企業應用程式管理的新功能：從一個位置新增自訂應用程式](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
 
 ## <a name="saas-password-sso-configuration"></a>SaaS 密碼 SSO 組態
@@ -242,7 +242,7 @@ ms.locfileid: "35293104"
 
 | 必要條件 | 資源 |
 | --- | --- |
-| Microsoft Azure AD 基本或進階訂用帳戶，以及您是全域管理員的 Azure AD 目錄 | [Azure Active Directory 版本](active-directory-whatis.md) |
+| Microsoft Azure AD 基本或進階訂用帳戶，以及您是全域管理員的 Azure AD 目錄 | [Azure Active Directory 版本](fundamentals/active-directory-whatis.md) |
 | 一個裝載於內部部署環境而您想要設定以供遠端存取的 Web 應用程式 |  |
 | 執行 Windows Server 2012 R2 或 Windows 8.1 或更新版本的伺服器，您可以在該伺服器上安裝「應用程式 Proxy 連接器」 | [了解 Azure AD 應用程式 Proxy 連接器](manage-apps/application-proxy-connectors.md) |
 | 如果路徑中有防火牆，請確定防火牆已開啟，如此連接器才能對「應用程式 Proxy」提出 HTTPS (TCP) 要求 | [在 Azure 入口網站中啟用應用程式 Proxy：應用程式 Proxy 先決條件](manage-apps/application-proxy-enable.md#application-proxy-prerequisites) |
@@ -306,8 +306,8 @@ ms.locfileid: "35293104"
 | 必要條件 | 資源 |
 | --- | --- |
 | 已設定 SaaS 應用程式 (同盟 SSO 或密碼 SSO) | 構成要素：[SaaS 同盟 SSO 組態](#saas-federated-sso-configuration) |
-| 已識別在 #1 中獲指派應用程式存取權的「雲端群組」 | 構成要素：[SaaS 同盟 SSO 組態](#saas-federated-sso-configuration) <br/>[在 Azure Active Directory 中建立群組和新增使用者](active-directory-groups-create-azure-portal.md) |
-| 有群組擁有者的認證可用 | [使用 Azure Active Directory 群組來管理資源的存取權](active-directory-manage-groups.md) |
+| 已識別在 #1 中獲指派應用程式存取權的「雲端群組」 | 構成要素：[SaaS 同盟 SSO 組態](#saas-federated-sso-configuration) <br/>[在 Azure Active Directory 中建立群組和新增使用者](fundamentals/active-directory-groups-create-azure-portal.md) |
+| 有群組擁有者的認證可用 | [使用 Azure Active Directory 群組來管理資源的存取權](fundamentals/active-directory-manage-groups.md) |
 | 已識別存取應用程式之資訊工作者的認證 | [何謂存取面板？](active-directory-saas-access-panel-introduction.md) |
 
 
@@ -315,8 +315,8 @@ ms.locfileid: "35293104"
 
 | 步驟 | 資源 |
 | --- | --- |
-| 識別已獲授與應用程式存取權的群組，並設定所指定群組的擁有者| [在 Azure Active Directory 中管理群組的設定](active-directory-groups-settings-azure-portal.md) |
-| 以群組擁有者身分登入，在存取面板的 [群組] 索引標籤中查看群組成員資格 | [Azure Active Directory 群組管理頁面](https://account.activedirectory.windowsazure.com/r/#/groups) |
+| 識別已獲授與應用程式存取權的群組，並設定所指定群組的擁有者| [在 Azure Active Directory 中管理群組的設定](fundamentals/active-directory-groups-settings-azure-portal.md) |
+| 以群組擁有者身分登入，在存取面板的 [群組] 索引標籤中查看群組成員資格 | [Azure Active Directory 群組管理頁面](https://account.activedirectory.windowsazure.com/r#/groups) |
 | 新增您想要測試的資訊工作者 |  |
 | 以資訊工作者身分登入，確認該圖格可用 | [何謂存取面板？](active-directory-saas-access-panel-introduction.md) |
 
@@ -331,7 +331,7 @@ ms.locfileid: "35293104"
 | 必要條件 | 資源 |
 | --- | --- |
 | 已設定 SaaS 應用程式 (同盟 SSO 或密碼 SSO) | 構成要素：[SaaS 同盟 SSO 組態](#saas-federated-sso-configuration) |
-| 已識別在 #1 中獲指派應用程式存取權的「雲端群組」 | 構成要素：[SaaS 同盟 SSO 組態](#saas-federated-sso-configuration) <br/>[在 Azure Active Directory 中建立群組和新增使用者](active-directory-groups-create-azure-portal.md) |
+| 已識別在 #1 中獲指派應用程式存取權的「雲端群組」 | 構成要素：[SaaS 同盟 SSO 組態](#saas-federated-sso-configuration) <br/>[在 Azure Active Directory 中建立群組和新增使用者](fundamentals/active-directory-groups-create-azure-portal.md) |
 | 已識別存取應用程式之資訊工作者的認證 | [何謂存取面板？](active-directory-saas-access-panel-introduction.md) |
 
 
@@ -339,7 +339,7 @@ ms.locfileid: "35293104"
 
 | 步驟 | 資源 |
 | --- | --- |
-| 從應用程式所屬的群組中移除使用者 | [管理 Azure Active Directory 租用戶中使用者的群組成員資格](active-directory-groups-members-azure-portal.md) |
+| 從應用程式所屬的群組中移除使用者 | [管理 Azure Active Directory 租用戶中使用者的群組成員資格](fundamentals/active-directory-groups-members-azure-portal.md) |
 | 等候幾分鐘來執行取消佈建 | [Azure AD 中的自動化 SaaS 應用程式使用者佈建：自動化佈建如何運作？](active-directory-saas-app-provisioning.md#how-does-automatic-provisioning-work) |
 | 在個別的瀏覽器工作階段上，以資訊工作者身分登入「我的應用程式」入口網站，並確認該圖格已經消失 | http://myapps.microsoft.com |
 

@@ -3,7 +3,7 @@ title: 在 Azure AD 中管理同盟憑證 | Microsoft Docs
 description: 了解如何自訂同盟憑證的到期日期，以及如何更新即將到期的憑證。
 services: active-directory
 documentationcenter: ''
-author: jeevansd
+author: barbkess
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2017
-ms.author: jeedes
-ms.openlocfilehash: c4d812db6371a4cd1fcc701f7eae2c913c29fb6b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.author: barbkess
+ms.reviewer: jeedes
+ms.openlocfilehash: 5b4e2694a9b7e67643cb1e3b3cbc99fab940bd9d
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35302208"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337096"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>在 Azure Active Directory 中管理同盟單一登入的憑證
 本文涵蓋各種與 Azure Active Directory (Azure AD) 建立憑證，以對 SaaS 應用程式建立同盟單一登入 (SSO) 相關的常見問題和相關資訊。 從 Azure AD 應用程式資源庫，或使用非資源庫的應用程式範本新增應用程式。 使用同盟 SSO 選項以設定應用程式。
@@ -84,7 +85,7 @@ Azure AD 會在 SAML 憑證到期前 60 天、30 天及 7 天各傳送一封電�
     ![產生新的憑證](./media/manage-certificates-for-federated-single-sign-on/new_certificate_download.png)
 
 ## <a name="related-articles"></a>相關文章
-* [如何整合 SaaS 應用程式與 Azure Active Directory 的教學課程清單](../active-directory-saas-tutorial-list.md)
+* [如何整合 SaaS 應用程式與 Azure Active Directory 的教學課程清單](../saas-apps/tutorial-list.md)
 * [Azure Active Directory 中應用程式管理的文件索引](../active-directory-apps-index.md)
 * [搭配 Azure Active Directory 的應用程式存取和單一登入](what-is-single-sign-on.md)
 * [針對 SAML 型單一登入進行疑難排解](../develop/active-directory-saml-debugging.md)

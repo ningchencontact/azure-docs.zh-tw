@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: sample
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: 927a734b288f5bb0082e77be15ae540702fe4e8b
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: d0c587b3d43f7511775a4a114bead96348372bc5
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808276"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959962"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>以 .NET 開始使用 Azure 資料表儲存體和 Azure Cosmos DB 資料表 API
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -95,7 +95,7 @@ ms.locfileid: "34808276"
 > 
 
 > [!TIP]
-> 已經熟悉 Azure 資料表儲存體的開發人員以往可能會使用 [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) 套件。 建議所有新的資料表應用程式使用 [Azure 儲存體通用程式庫](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)和 [Azure Cosmos DB 表格文件庫](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)，但是 WindowsAzure.Storage 套件仍然受到支援。 如果您使用 WindowsAzure.Storage 程式庫，在您使用的陳述式中包含 Microsoft.WindowsAzure.Storage.Table。
+> 已經熟悉 Azure 資料表儲存體的開發人員以往可能會使用 [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) 套件。 建議所有新的資料表應用程式使用 [Azure 儲存體通用程式庫](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common)和 [Azure Cosmos DB 表格文件庫](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)，但是 WindowsAzure.Storage 套件仍然受到支援。 如果您使用 WindowsAzure.Storage 程式庫，在您使用的陳述式中包含 Microsoft.WindowsAzure.Storage.Table。
 >
 >
 

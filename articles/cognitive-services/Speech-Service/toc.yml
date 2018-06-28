@@ -67,6 +67,8 @@
   items:
     - name: 支援的語言
       href: supported-languages.md
+    - name: 區域
+      href: regions.md
     - name: REST API
       href: rest-apis.md
     - name: 語音 SDK API

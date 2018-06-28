@@ -195,10 +195,16 @@
           href: automation-migrate-account-subscription.md
     - name: 疑難排解
       items:
-        - name: 常見問題疑難排解
-          href: automation-troubleshooting-automation-errors.md
-        - name: 混合式 Runbook 背景工作的疑難排解
-          href: automation-troubleshooting-hybrid-runbook-worker.md
+        - name: 登入
+          href: troubleshoot/onboarding.md
+        - name: Runbook
+          href: troubleshoot/runbooks.md
+        - name: 期望狀態設定 (DSC)
+          href: troubleshoot/desired-state-configuration.md
+        - name: Hybrid Runbook Worker
+          href: troubleshoot/hybrid-runbook-worker.md
+        - name: 更新管理
+          href: troubleshoot/update-management.md
 - name: 參考
   items:
     - name: Azure PowerShell

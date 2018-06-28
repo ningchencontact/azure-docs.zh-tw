@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 45183e51e9071647e07cfd0738522f0dfa28bd7b
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: efdef681dd94cdb97d84de657668c49022b72d95
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "33868997"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751491"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD 密碼管理的報告選項
 
@@ -54,25 +54,6 @@ ms.locfileid: "33868997"
 6. 若要篩選此檢視以只查看密碼重設的相關事件，請按一下窗格頂端的 [篩選] 按鈕。
 7. 從 [篩選] 功能表中，選取 [類別] 下拉式清單，然後將它變更為 [自助式密碼管理] 類別類型。
 8. 另可選擇您有興趣的特定 [活動]，以進一步篩選清單。
-
-## <a name="how-to-retrieve-password-management-events-from-the-azure-ad-reports-and-events-api"></a>如何從 Azure AD 報告和事件 API 擷取密碼管理事件
-
-Azure AD 報告和事件 API 支援擷取密碼重設和密碼重設註冊報告中包含的所有資訊。 您可以使用此 API 下載個別的密碼重設和密碼重設註冊事件，並將它們與您選擇的報告技術整合。
-
-> [!IMPORTANT]
-> 目前，Azure AD 報告和事件 API 會擷取 [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) 和 [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent) 類型最多 *75,000 個個別事件*。 API 範圍為過去 30 天。
-> 
-> 如果您需要擷取或儲存比這個期間更早的資料，建議將資料保存在外部資料庫，並利用 API 來查詢產生的差異。 我們建議您當您開始在組織中使用 SSPR 時即開始擷取這項資料。 將它保存在外部，之後從該點繼續追蹤差異。
->
-
-### <a name="how-to-get-started-with-the-reporting-api"></a>如何開始使用報告 API
-
-若要存取此資料，您必須撰寫小型的應用程式或指令碼，以從我們的伺服器擷取資料。 如需詳細資訊，請參閱[開始使用 Azure AD 報告 API](../active-directory-reporting-api-getting-started-azure-portal.md)。
-
-擁有有效指令碼之後，您接下來要檢查您可以擷取密碼重設和註冊事件以滿足您的情節：
-
-* [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent)：列出密碼重設事件可用的資料行。
-* [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent)：列出密碼重設註冊事件可用的資料行。
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Azure 入口網站中報告資料行的說明
 

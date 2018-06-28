@@ -10,12 +10,12 @@ ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: v-daljep
-ms.openlocfilehash: 68ccf6f64f90200359322f35ca081aa6b53493f9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bcc33eb7e5050c991c89b7f0998eec3707f62ebb
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648263"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751338"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>使用 Intelligent Insights 針對 Azure SQL Database 效能問題進行疑難排解
 
@@ -235,7 +235,7 @@ SQL Database 上有多種可用的閂鎖。 為了簡單起見，系統會使用
 
 這個偵測的效能模式表示與過去七天的基準相比，目前的資料庫工作負載效能降低。 原因是訂用帳戶彈性集區中的可用 DTU 不足。 
 
-SQL Database 上的資源通常稱為 [DTU 資源](sql-database-what-is-a-dtu.md)，是由 CPU 與 IO (資料和交易記錄 IO) 資源的混合量值所組成。 [Azure 彈性集區資源](sql-database-elastic-pool.md)可用來作為多個資料庫間共用的可用 eDTU 資源集區，以供進行調整之用。 當您彈性集區中的可用 eDTU 資源並未大到足以支援集區中的所有資料庫時，系統就會偵測到彈性集區 DTU 不足的效能問題。
+SQL Database 上的資源通常稱為 [DTU 資源](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)，是由 CPU 與 IO (資料和交易記錄 IO) 資源的混合量值所組成。 [Azure 彈性集區資源](sql-database-elastic-pool.md)可用來作為多個資料庫間共用的可用 eDTU 資源集區，以供進行調整之用。 當您彈性集區中的可用 eDTU 資源並未大到足以支援集區中的所有資料庫時，系統就會偵測到彈性集區 DTU 不足的效能問題。
 
 ### <a name="troubleshooting"></a>疑難排解
 
