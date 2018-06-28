@@ -9,10 +9,10 @@ ms.date: 05/11/2018
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 32a438d393077cfe4cb7f6ee62f3a01edfce0571
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
+ms.lasthandoff: 06/27/2018
 ms.locfileid: "34152218"
 ---
 組織有大規模的運算需求。 這些 Big Compute 工作負載包括工程設計和分析、財務風險計算、影像轉譯、複雜模型、Monte Carlo 模擬等等。 
@@ -171,7 +171,7 @@ Azure 虛擬機器、虛擬機器擴展集、Batch 和相關的運算服務是�
 * [Batch AI](../articles/batch-ai/overview.md)
 * [Genomics](../articles/genomics/overview-what-is-genomics.md)
 
-### <a name="networking"></a>網路
+### <a name="networking"></a>網路功能
 * [虛擬網路](../articles/virtual-network/virtual-networks-overview.md)
 * [ExpressRoute](../articles/expressroute/expressroute-introduction.md)
 
