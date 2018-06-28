@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 135f934cd6b352dad9e4cea5a14406804f31b66b
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 4da6f5c4513477d1adbf4d7645a66de112eeab23
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825880"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36307480"
 ---
 # <a name="guidelines"></a>指導方針  
 
@@ -35,7 +35,7 @@ ms.locfileid: "34825880"
 
 >[!IMPORTANT]
 >若要授權多位使用者存取您的 Microsoft 開發人員中心 (Dev Center) 帳戶，Microsoft 建議您使用 Azure Active Directory (Azure AD) 將角色指派給個別使用者。 每位使用者都必須使用個別 Azure AD 認證進行登入，以存取該帳戶。 請使用註冊至貴公司網域中的電子郵件地址，來建立您的 Microsoft ID；Microsoft 建議不要將電子郵件指派給個人。 例如 `windowsapps@fabrikam.com`。  
->*   如需詳細資訊，請造訪[問題：Azure AD 同盟網域中的 Microsoft ID](#issue:-microsoft-id-in-an-azure-ad-federated-domain) 一節。  
+>*   如需詳細資訊，請造訪[問題：Azure AD 同盟網域中的 Microsoft ID](#issue-microsoft-id-in-an-azure-ad-federated-domain) 一節。  
 
 *   請盡可能只讓最少數的開發人員能夠存取 Microsoft ID。 
 *   設定公司電子郵件通訊群組清單 (DL)，其中包含每一位必須存取您開發人員中心帳戶的使用者。 將 DL 電子郵件地址新增至您的安全性資訊。 DL 可讓清單上的所有員工在要求時接收安全碼，以及管理您 Microsoft ID 的安全性資訊。 如果設定通訊群組清單不可行，則個人電子郵件帳戶的擁有者必須能在出現提示時，存取及共用安全碼。  
@@ -73,6 +73,6 @@ Microsoft 建議的因應措施。 請遵循下列步驟，在 `outlook.com` 網
 1.  轉送規則會將 Outlook 電子郵件帳戶中接收到的所有電子郵件及通訊，傳送到註冊至貴公司網域中的電子郵件地址。 您的 `outlook.com` 電子郵件地址必須用來在開發人員中心和 Cloud Partner 入口網站進行驗證。  
 
 ## <a name="next-steps"></a>後續步驟
-*   請瀏覽 [Azure Marketplace 和 AppSource 發行者指南](./marketplace-publishers-guide.md)頁面。  
+*   請瀏覽 [Azure Marketplace 和 AppSource 發行者指南](./marketplace-publishers-guide.md)網頁。  
  
 ---  

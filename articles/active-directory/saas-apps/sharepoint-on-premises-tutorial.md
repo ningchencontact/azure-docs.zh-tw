@@ -8,19 +8,18 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 85b8d4d0-3f6a-4913-b9d3-8cc327d8280d
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2018
+ms.date: 06/14/2018
 ms.author: jeedes
-ms.openlocfilehash: 8cae1e2670ba449c0db28209c54b740e927bbb73
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 02421ace226f42da58eb9864fe0ef2e1ca550391
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36210372"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319277"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>教學課程：Azure Active Directory 與 SharePoint 內部部署整合
 
@@ -74,7 +73,7 @@ ms.locfileid: "36210372"
 
 4. 在搜尋方塊中，輸入 **SharePoint 內部部署**，從結果面板中選取 [SharePoint 內部部署]，然後按一下 [新增] 按鈕以新增應用程式。
 
-    ![結果清單中的 SharePoint 內部部署](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_addfromgallery.png)
+    ![結果清單中的 SharePoint 內部部署](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
@@ -102,11 +101,11 @@ ms.locfileid: "36210372"
 
 2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
 
-    ![單一登入對話方塊](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_samlbase.png)
+    ![單一登入對話方塊](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_samlbase.png)
 
 3. 在 [SharePoint 內部部署網域及 URL] 區段上，執行下列步驟：
 
-    ![[SharePoint 內部部署網域及 URL] 單一登入資訊](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_url1.png)
+    ![[SharePoint 內部部署網域及 URL] 單一登入資訊](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_url1.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<YourSharePointServerURL>/_trust/default.aspx`
 
@@ -117,15 +116,15 @@ ms.locfileid: "36210372"
 
 4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上，副檔名為 .cer。 將所下載中繼資料檔案的完整路徑複製並貼到「記事本」中。
 
-    ![憑證下載連結](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_certificate.png)
+    ![憑證下載連結](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_certificate.png)
 
 5. 按一下 [儲存]  按鈕。
 
-    ![設定單一登入儲存按鈕](./media/sharepoint-on-premises-tutorial/tutorial_general_400.png)
+    ![設定單一登入儲存按鈕](./media\sharepoint-on-premises-tutorial/tutorial_general_400.png)
 
 6. 在 [SharePoint 內部部署設定] 區段上，按一下 [設定 SharePoint 內部部署] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製**單一登入服務 URL**。
 
-    ![SharePoint 內部部署設定](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_configure.png)
+    ![SharePoint 內部部署設定](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_configure.png)
 
     > [!NOTE]
     > SharePoint 內部部署應用程式使用 SAML 1.1 權杖，因此 Azure AD 會預期有來自 SharePoint 伺服器的 WS Fed 要求，然後會在驗證後發出 SAML 1.1 權杖。
@@ -148,6 +147,7 @@ ms.locfileid: "36210372"
     $map = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" -IncomingClaimTypeDisplayName "name" -LocalClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn"
     $map2 = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname" -IncomingClaimTypeDisplayName "GivenName" -SameAsIncoming
     $map3 = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname" -IncomingClaimTypeDisplayName "SurName" -SameAsIncoming
+    $map4 = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress" -IncomingClaimTypeDisplayName "Email" -SameAsIncoming
     $ap = New-SPTrustedIdentityTokenIssuer -Name "AzureAD" -Description "SharePoint secured by Azure AD" -realm $realm -ImportTrustCertificate $cert -ClaimsMappings $map,$map2,$map3 -SignInUrl $wsfedurl -IdentifierClaim "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"
     ```
 
@@ -163,7 +163,7 @@ ms.locfileid: "36210372"
 
     e. 按一下 [確定]。
 
-    ![設定您的驗證提供者](./media/sharepoint-on-premises-tutorial/fig10-configauthprovider.png)
+    ![設定您的驗證提供者](./media\sharepoint-on-premises-tutorial/fig10-configauthprovider.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -175,19 +175,19 @@ ms.locfileid: "36210372"
 
 1. 在 Azure 入口網站的左窗格中，按一下 [Azure Active Directory] 按鈕。
 
-    ![Azure Active Directory 按鈕](./media/sharepoint-on-premises-tutorial/create_aaduser_01.png)
+    ![Azure Active Directory 按鈕](./media\sharepoint-on-premises-tutorial/create_aaduser_01.png)
 
 2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
 
-    ![[使用者和群組] 與 [所有使用者] 連結](./media/sharepoint-on-premises-tutorial/create_aaduser_02.png)
+    ![[使用者和群組] 與 [所有使用者] 連結](./media\sharepoint-on-premises-tutorial/create_aaduser_02.png)
 
 3. 若要開啟 [使用者] 對話方塊，按一下 [所有使用者] 對話方塊頂端的 [新增]。
 
-    ![[新增] 按鈕](./media/sharepoint-on-premises-tutorial/create_aaduser_03.png)
+    ![[新增] 按鈕](./media\sharepoint-on-premises-tutorial/create_aaduser_03.png)
 
 4. 在 [使用者] 對話方塊中，執行下列步驟：
 
-    ![[使用者] 對話方塊](./media/sharepoint-on-premises-tutorial/create_aaduser_04.png)
+    ![[使用者] 對話方塊](./media\sharepoint-on-premises-tutorial/create_aaduser_04.png)
 
     a. 在 [名稱] 方塊中，輸入 **BrittaSimon**。
 
@@ -207,7 +207,7 @@ ms.locfileid: "36210372"
 
 4. 在 [Web 應用程式的原則] 中，按一下 [新增使用者]。
 
-    ![依使用者的名稱宣告來搜尋使用者](./media/sharepoint-on-premises-tutorial/fig11-searchbynameclaim.png)
+    ![依使用者的名稱宣告來搜尋使用者](./media\sharepoint-on-premises-tutorial/fig11-searchbynameclaim.png)
 
 5. 在 [新增使用者] 對話方塊中，按一下 [區域] 中的適當區域，然後按 [下一步]。
 
@@ -219,7 +219,7 @@ ms.locfileid: "36210372"
 
 9. 在 [權限] 中，按一下 [完全控制]。
 
-    ![對宣告使用者授與完全控制](./media/sharepoint-on-premises-tutorial/fig12-grantfullcontrol.png)
+    ![對宣告使用者授與完全控制](./media\sharepoint-on-premises-tutorial/fig12-grantfullcontrol.png)
 
 10. 按一下 [完成]，然後按一下 [確定]。
 
@@ -227,7 +227,7 @@ ms.locfileid: "36210372"
 
 使用者現在可以使用來自 Azure AD 的身分識別登入 SharePoint 2016，但此使用者體驗還有改善的機會。 例如，搜尋使用者會在人員選擇器中呈現多個搜尋結果。 在宣告對應中建立之 3 種宣告類型的每種類型都有一個搜尋結果。 若要使用人員選擇器來選擇使用者，您必須精確輸入使用者名稱，然後選擇 [name] 宣告結果。
 
-![宣告搜尋結果](./media/sharepoint-on-premises-tutorial/fig16-claimssearchresults.png)
+![宣告搜尋結果](./media\sharepoint-on-premises-tutorial/fig16-claimssearchresults.png)
 
 由於不會驗證您搜尋的值，因此可能會導致拼字錯誤或使用者不小心選擇錯誤的宣告類型 (例如 **SurName** 宣告) 來進行指派。 這可能會導致使用者無法成功存取資源。
 
@@ -237,7 +237,7 @@ ms.locfileid: "36210372"
 
 在本節中，您會將 SharePoint 內部部署的存取權授與 Britta Simon，使其能夠使用 Azure 單一登入。
 
-![指派使用者角色][200] 
+![指派使用者角色][200]
 
 **若要將 Britta Simon 指派給 SharePoint 內部部署，請執行下列步驟：**
 
@@ -247,7 +247,7 @@ ms.locfileid: "36210372"
 
 2. 在應用程式清單中，選取 [SharePoint 內部部署]。
 
-    ![應用程式清單中的 SharePoint 連結](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_app.png)
+    ![應用程式清單中的 SharePoint 連結](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_app.png)
 
 3. 在左側功能表中，按一下 [使用者和群組]。
 
@@ -275,17 +275,18 @@ ms.locfileid: "36210372"
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](tutorial-list.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../manage-apps/what-is-single-sign-on.md)
 
+
 <!--Image references-->
 
-[1]: ./media/sharepoint-on-premises-tutorial/tutorial_general_01.png
-[2]: ./media/sharepoint-on-premises-tutorial/tutorial_general_02.png
-[3]: ./media/sharepoint-on-premises-tutorial/tutorial_general_03.png
-[4]: ./media/sharepoint-on-premises-tutorial/tutorial_general_04.png
+[1]: ./media\sharepoint-on-premises-tutorial/tutorial_general_01.png
+[2]: ./media\sharepoint-on-premises-tutorial/tutorial_general_02.png
+[3]: ./media\sharepoint-on-premises-tutorial/tutorial_general_03.png
+[4]: ./media\sharepoint-on-premises-tutorial/tutorial_general_04.png
 
-[100]: ./media/sharepoint-on-premises-tutorial/tutorial_general_100.png
+[100]: ./media\sharepoint-on-premises-tutorial/tutorial_general_100.png
 
-[200]: ./media/sharepoint-on-premises-tutorial/tutorial_general_200.png
-[201]: ./media/sharepoint-on-premises-tutorial/tutorial_general_201.png
-[202]: ./media/sharepoint-on-premises-tutorial/tutorial_general_202.png
-[203]: ./media/sharepoint-on-premises-tutorial/tutorial_general_203.png
+[200]: ./media\sharepoint-on-premises-tutorial/tutorial_general_200.png
+[201]: ./media\sharepoint-on-premises-tutorial/tutorial_general_201.png
+[202]: ./media\sharepoint-on-premises-tutorial/tutorial_general_202.png
+[203]: ./media\sharepoint-on-premises-tutorial/tutorial_general_203.png
 

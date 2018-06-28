@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: af2619a403046bd4f064b958df225e4d42a205f4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 41319ba446994da1669e58e33008a943e74ab417
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776826"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331385"
 ---
 # <a name="get-started-with-notification-hubs-for-kindle-apps"></a>開始使用適用於 Kindle 應用程式的通知中樞
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -42,7 +42,7 @@ ms.locfileid: "33776826"
 ## <a name="prerequisites"></a>先決條件
 
 * 從 <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android 網站</a>取得 Android SDK (我們假設您使用 Eclipse)。
-* 依照<a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">設定開發環境</a>中的步驟，為 Kindle 設定您的開發環境。
+* 依照<a href="https://developer.amazon.com/docs/fire-tablets/ft-set-up-your-development-environment.html">設定開發環境</a>中的步驟，為 Kindle 設定您的開發環境。
 
 ## <a name="add-a-new-app-to-the-developer-portal"></a>將新的應用程式新增至開發人員入口網站
 1. 首先，在 [Amazon 開發人員入口網站]中建立 app。

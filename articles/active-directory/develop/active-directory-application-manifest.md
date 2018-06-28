@@ -16,13 +16,13 @@ ms.workload: identity
 ms.date: 07/20/2017
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: elisol
-ms.openlocfilehash: 9f73f31c7afd7ca13107653d097e1ac11ef94f0d
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: elisol, sureshja
+ms.openlocfilehash: 7448a6c37df2c0bbffbebf23d211e3ace8d12edc
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157070"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317390"
 ---
 # <a name="azure-active-directory-application-manifest"></a>Azure Active Directory 應用程式資訊清單
 與 Azure AD 整合的應用程式必須使用 Azure AD 租用戶來註冊。 此應用程式可以在 [Azure 入口網站](https://portal.azure.com)中使用 Azure AD 刀鋒視窗下的 應用程式資訊清單來設定。

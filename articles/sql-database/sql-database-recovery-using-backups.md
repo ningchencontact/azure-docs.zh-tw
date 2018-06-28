@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 06/20/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 027a10e687673bdeedf2858b4c23ff459df61b70
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ad4725ff6871ef489c6a10656af9a76e588edfa1
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649103"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308416"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>使用自動資料庫備份復原 Azure SQL Database
 SQL Database 針對使用[自動資料庫備份](sql-database-automated-backups.md)和[長期保留備份](sql-database-long-term-retention.md)進行資料庫復原，提供以下選項。 您可從資料庫備份還原至︰
@@ -32,7 +32,7 @@ SQL Database 針對使用[自動資料庫備份](sql-database-automated-backups.
 - 如果資料庫大小上限大於 500 GB，會將 P11–P15 還原至 S4-S12 或 P1–P6。
 - 如果資料庫大小上限大於 250 GB，會將 P1–P6 還原至 S4-S12。
 
-額外成本是因為還原的資料庫大小上限大於該效能層級所含的儲存體數量，而佈建的任何額外儲存體若大於內含量則會產生額外費用。  如需有關額外儲存體的價格詳細資訊，請參閱 [SQL Database 價格頁面](https://azure.microsoft.com/pricing/details/sql-database/)。  如果實際的使用空間量小於內含的儲存體數量，則可將資料庫大小上限降低至內含量，以避免造成額外成本。 如需有關資料庫儲存體大小和變更資料庫大小上限的詳細資訊，請參閱[單一資料庫 DTU 架構的資源限制](sql-database-dtu-resource-limits.md#single-database-storage-sizes-and-performance-levels)和[單一資料庫 vCore 架構的資源限制](sql-database-vcore-resource-limits.md#single-database-storage-sizes-and-performance-levels)。  
+額外成本是因為還原的資料庫大小上限大於該效能層級所含的儲存體數量，而佈建的任何額外儲存體若大於內含量則會產生額外費用。  如需有關額外儲存體的價格詳細資訊，請參閱 [SQL Database 價格頁面](https://azure.microsoft.com/pricing/details/sql-database/)。  如果實際的使用空間量小於內含的儲存體數量，則可將資料庫大小上限降低至內含量，以避免造成額外成本。  
 
 > [!NOTE]
 > 當您建立[資料庫複本](sql-database-copy.md)時，會使用[自動資料庫備份](sql-database-automated-backups.md)。 
