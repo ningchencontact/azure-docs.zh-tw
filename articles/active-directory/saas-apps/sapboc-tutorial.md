@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 4848132254736aca12be5e31325d98a936754af2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 42eb1c8332a29ff07c83b962aaa8f8e2f04fd07b
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220629"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308294"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>教學課程：Azure Active Directory 與 SAP Business Object Cloud 整合
 
@@ -129,7 +129,7 @@ ms.locfileid: "36220629"
     ![SAP Business Object Cloud 網域和 URL 頁面的 URL](./media/sapboc-tutorial/tutorial_sapboc_url.png)
  
     > [!NOTE] 
-    > 這些 URL 中的值僅供示範。 使用實際的「登入 URL」及「識別碼 URL」來更新這些值。 若要取得登入 URL，請連絡 [SAP Business Object Cloud 用戶端支援小組](https://www.sap.com/product/analytics/cloud-analytics.support.html)。 您可以從系統管理員主控台下載 SAP Business Object Cloud 中繼資料，以取得識別項 URL。 稍後在本教學課程中會加以說明。 
+    > 這些 URL 中的值僅供示範。 使用實際的「登入 URL」及「識別碼 URL」來更新這些值。 若要取得登入 URL，請連絡 [SAP Business Object Cloud 用戶端支援小組](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/en-US)。 您可以從系統管理員主控台下載 SAP Business Object Cloud 中繼資料，以取得識別項 URL。 稍後在本教學課程中會加以說明。 
 
 4. 在 [SAML 簽章憑證] 下，選取 [中繼資料 XML]。 然後，將中繼資料檔案儲存在您的電腦上。
 

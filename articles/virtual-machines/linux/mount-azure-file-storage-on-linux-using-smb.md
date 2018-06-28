@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 01e18103f9e94615357ff3b9c4be7f2473763a57
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2255c8fd7cd873ae9b6511e1a7b9e2ac13f9fb66
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31423233"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936763"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>使用 SMB 在 Linux VM 上掛接 Azure 檔案儲存體
 
-本文說明如何使用 Azure CLI 2.0 ，利用 SMB 掛接在 Linux VM 上使用「Azure 檔案儲存體」服務。 Azure 檔案儲存體可在雲端中使用標準的 SMB 通訊協定提供檔案共用。 您也可以使用 [Azure CLI 1.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md) 來執行這些步驟。 這些需求包括：
+本文說明如何使用 Azure CLI 2.0 ，利用 SMB 掛接在 Linux VM 上使用「Azure 檔案儲存體」服務。 Azure 檔案儲存體可在雲端中使用標準的 SMB 通訊協定提供檔案共用。 這些需求包括：
 
 - [一個 Azure 帳戶](https://azure.microsoft.com/pricing/free-trial/)
 - [SSH 公開金鑰和私密金鑰檔案](mac-create-ssh-keys.md)

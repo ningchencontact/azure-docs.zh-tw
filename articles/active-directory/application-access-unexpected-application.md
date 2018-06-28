@@ -3,22 +3,23 @@ title: 我的應用程式清單中有未預期的應用程式 | Microsoft Docs
 description: 如何檢視租用戶中的所有應用程式，並了解應用程式如何出現在 [企業應用程式] 下的 [所有應用程式] 清單中。
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 75fb5fcb98605a080efa2c9232d186c9a81acf2b
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.author: barbkess
+ms.openlocfilehash: 6d8c1a251bcc4a7c0bb736df64c4c701a2fc748a
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34055335"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333870"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>我的應用程式清單中有未預期的應用程式
 

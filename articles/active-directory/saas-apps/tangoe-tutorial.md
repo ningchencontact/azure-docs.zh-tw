@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: c87b90e82b1300e147533256e3286421a73f08d2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 42d1b40e01653e8fb5fa5bf118c65de758832f4d
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218889"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308603"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tangoe-command-premium-mobile"></a>教學課程：Azure Active Directory 整合 Tangoe 命令高階行動裝置
 
@@ -114,7 +114,7 @@ Tangoe 命令高階行動裝置與 Azure AD 整合提供下列優點：
     b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://sso.tangoe.com/sp/ACS.saml2`
 
     > [!NOTE] 
-    > 這些都不是真正的值。 使用實際的回覆 URL 與登入 URL 更新這些值。 請連絡 [Tangoe 命令高階行動裝置客戶支援小組](https://www.tangoe.com/contact-2/)以取得這些值。 
+    > 這些都不是真正的值。 使用實際的回覆 URL 與登入 URL 更新這些值。 請連絡 [Tangoe 命令高階行動裝置客戶支援小組](https://www.tangoe.com/contact-us/)以取得這些值。 
 
 4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
@@ -128,7 +128,7 @@ Tangoe 命令高階行動裝置與 Azure AD 整合提供下列優點：
 
     ![[Tangoe 命令高階行動裝置設定] 區段](./media/tangoe-tutorial/tutorial_tangoe_configure.png) 
 
-7. 若要為應用程式設定 SSO，請連絡 [Tangoe 命令高階行動裝置客戶支援小組](https://www.tangoe.com/contact-2/)，並提供下列資訊：
+7. 若要為應用程式設定 SSO，請連絡 [Tangoe 命令高階行動裝置客戶支援小組](https://www.tangoe.com/contact-us/)，並提供下列資訊：
 
    - 下載的中繼資料檔案
    - **SAML 實體識別碼**
@@ -174,7 +174,7 @@ Tangoe 命令高階行動裝置與 Azure AD 整合提供下列優點：
 
 在本節中，您要在 Tangoe 命令高階行動裝置中建立名為 Britta Simon 的使用者。 
 
-Tangoe 命令高階行動裝置應用程式需要在應用程式中佈建所有使用者才能執行單一登入。 因此，請與 [Tangoe 命令高階行動裝置客戶支援小組](https://www.tangoe.com/contact-2/)合作，將所有使用者佈建到應用程式。 
+Tangoe 命令高階行動裝置應用程式需要在應用程式中佈建所有使用者才能執行單一登入。 因此，請與 [Tangoe 命令高階行動裝置客戶支援小組](https://www.tangoe.com/contact-us/)合作，將所有使用者佈建到應用程式。 
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 

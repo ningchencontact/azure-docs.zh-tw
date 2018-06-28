@@ -16,18 +16,16 @@ ms.workload: web
 ms.date: 10/22/2018
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: d2c346424c5bcec7ec91b309799a1bf9fe3cab02
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 744c5310e08066dcbbfbde55b8e6ecb6c9361855
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29842777"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937293"
 ---
 # <a name="create-a-function-app-in-an-app-service-plan"></a>在 App Service 方案中建立函式應用程式
 
 這個 Azure Functions 範例指令碼會建立函式應用程式，這是您的函式容器。 系統會使用專用的 App Service 方案建立函式應用程式，這表示您的伺服器資源會永遠啟用。
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -51,7 +49,7 @@ ms.locfileid: "29842777"
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
 | [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_create) | 建立 Azure 儲存體帳戶。 |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appserviceplan#az_appserviceplan_create) | 建立 App Service 方案。 |
+| [az appservice plan create](https://docs.microsoft.com/en-us/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | 建立 App Service 方案。 |
 | [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_delete) | 建立 Azure 函式應用程式。 |
 
 ## <a name="next-steps"></a>後續步驟

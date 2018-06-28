@@ -13,19 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: fc4e738e95799838c5761e8b1ee5973aefea7dc6
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4c6e25972b47edf67dac8557e1925bb44463f4d6
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213833"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331024"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-on-a-managed-domain"></a>在受控網域上設定 Kerberos 限制委派 (KCD)
 許多應用程式都需要以使用者的登入身分存取資源。 Active Directory 支援稱為 Kerberos 委派的機制，可用於此使用案例。 再者，您可以限制委派，讓使用者的登入身分只能用來存取特定資源。 Azure AD Domain Services 受控網域與傳統Active Directory 網域不同，因為前者的權限更為嚴格且更為安全。
 
 本文說明如何在 Azure AD Domain Services 受控網域上設定 Krberos 限制委派。
+
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="kerberos-constrained-delegation-kcd"></a>Kerberos 限制委派 (KCD)
 Kerberos 委派可讓帳戶模擬另一個安全性主體 (例如使用者) 以存取資源。 考慮一個可以使用者登入身分存取後端 Wb API 的 Web 應用程式。 在此案例中，Web 應用程式 (以服務帳戶身分或電腦/機器帳戶身分執行) 在存取資源 (後端 Web API) 時會模擬使用者。 Kerberos 委派不安全，因為它不會限制使用者登入身分中的模擬帳戶可存取的資源。

@@ -14,18 +14,18 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: dbb14854f00fb133c3604a1dd529d42120371fd2
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 07a62dfa2d7e1c71daf547c5aa7c8c7d15830bfd
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825908"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309311"
 ---
 # <a name="requirements-by-listing-type"></a>依清單類型別需求  
 技術與行銷內容需求會因店面、供應項目類型和清單類型而異。 請檢閱以下規格，檢查您的合規性。  
 1. 店面需求：  
-    *   [AppSource](#storefront-requirements:-appSource)  
-    *   [Azure Marketplace](#storefront-requirements:-azure-marketplace)  
+    *   [AppSource](#storefront-requirements-appSource)  
+    *   [Azure Marketplace](#storefront-requirements-azure-marketplace)  
 2. 清單類型及供應項目類型需求：  
     *   如需有關清單類型和供應項目類型的詳細資訊，請瀏覽 [判斷您解決方案的清單類型] 網頁：[docs.microsoft.com/azure/marketplace/determine-your-listing-type](./determine-your-listing-type.md)。  
 
@@ -58,28 +58,28 @@ ms.locfileid: "34825908"
 本章節說明所有不使用交易清單類型的供應項目類型。 
 
 ### <a name="list"></a>列出  
-[清單] 清單類型包括以下在 Marketplace 店面的供應項目類型。  
+「清單」清單類型包括下列在市集店面上的「供應項目」類型。  
 
 | 供應項目類型 | 店面 | 詳細資料 |  
 |:---        |:---        |:---     |  
-| 諮詢服務 | AppSource | [需求：AppSource：清單：諮詢服務](#requirements:-appsource:-list:-consulting-services) |  
-| 諮詢服務 | Azure Marketplace | [需求：Azure Marketplace：清單：諮詢服務](#requirements:-azure-marketplace:-list:-consulting-services) |  
+| 諮詢服務 | AppSource | [需求：AppSource：清單：諮詢服務](#requirements-appsource-list-consulting-services) |  
+| 諮詢服務 | Azure Marketplace | [需求：Azure Marketplace：清單：諮詢服務](#requirements-azure-marketplace-list-consulting-services) |  
 | 與我連絡 | AppSource | [](#) |  
-| 與我連絡 | Azure Marketplace | [需求：AppSource：清單：與我連絡](#requirements:-azure-marketplace:-list:-contact-me) |  
+| 與我連絡 | Azure Marketplace | [需求：AppSource：清單：與我連絡](#requirements-azure-marketplace-list-contact-me) |  
 
 #### <a name="requirements-appsource-list-consulting-service"></a>需求：AppSource：清單：諮詢服務  
 
 | 需求 | 詳細資料 |  
 |:--- |:--- |  
 | 服務供應項目特性 | 您的諮詢服務必須符合下列準則。<ul> <li>以固定範圍、固定期間、固定價格 (或免費) 的形式提供。</li> <li>主要為售前導向。</li> <li>以單一客戶為限。</li> <li>在現場進行。</li> </ul> |  
-| 諮詢服務的合作夥伴需求 | 您的服務符合相關區域的準則。<table><tr><th>解決方案領域</th><th>準則</th></tr><tr><td>Dynamics 365 for Customer Engagement</td><td>具備銀級或金級雲端客戶關係管理專長認證。</td></tr><tr><td>Dynamics 365 for Finance and Operations，Enterprise Edition</td><td>具備銀級或金級企業資源規劃專長認證，且從雲端作業在過去 12 個月內收益 $25,000 以上。</td></tr><tr><td>Dynamics 365 for Finance and Operations，Business 版</td><td>為一位或多位客戶以雲端服務提供者 (CSP) 或數位合作夥伴記錄 (DPOR) 身分提供服務。</td></tr><tr><td>Power BI</td><td>符合解決方案合作夥伴準則。</td></tr><tr><td>PowerApps</td><td>具有合作夥伴展示工具解決方案。</td></tr></table><ul> <li>如需有關客戶關係管理的詳細資訊，請瀏覽雲端客戶關係管理網頁：[partner.microsoft.com/membership/cloud-customer-relationship-management-competency](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency)。</li> <li>如需有關資源規劃的詳細資訊，請瀏覽企業資源規劃網頁：[partner.microsoft.com/membership/enterprise-resource-planning-competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency)。</li> <li>如需 CSP 的詳細資訊，請瀏覽雲端服務提供者網頁：[partner.microsoft.com/cloud-solution-provider](https://partner.microsoft.com/cloud-solution-provider)。</li> <li>如需 DPOR 的詳細資訊，請瀏覽數位合作夥伴記錄和經銷夥伴網頁：[partner.microsoft.com/membership/digital-partner-of-record](https://partner.microsoft.com/membership/digital-partner-of-record)。</li> <li>如需解決方案夥伴準則的詳細資訊，請瀏覽解決方案合作夥伴概觀和獎勵文件：[www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf)。</li> <li>如需合作夥伴展示工具的詳細資訊，請瀏覽合作夥伴展示工具網頁：[powerapps.microsoft.com/partner-showcase](https://powerapps.microsoft.com/partner-showcase)。</li> </ul> |  
+| 諮詢服務的合作夥伴需求 | 您的服務符合相關領域的準則。<table><tr><th>解決方案領域</th><th>準則</th></tr><tr><td>Dynamics 365 for Customer Engagement</td><td>具備銀級或金級「雲端客戶關係管理」專長認證。</td></tr><tr><td>Dynamics 365 for Finance and Operations，Enterprise edition</td><td>具備銀級或金級「企業資源規劃」專長認證，且過去 12 個月的雲端作業收益達 $25,000 以上。</td></tr><tr><td>Dynamics 365 for Finance and Operations，Business edition</td><td>以「雲端服務提供者」(CSP) 或「數位記錄合作夥伴」(DPOR) 的身分為一或多位客戶提供服務。</td></tr><tr><td>Power BI</td><td>符合「解決方案合作夥伴」準則。</td></tr><tr><td>PowerApps</td><td>具有「合作夥伴展示工具」解決方案。</td></tr></table><ul> <li>如需有關客戶關係管理的詳細資訊，請瀏覽「雲端客戶關係管理」頁面：[partner.microsoft.com/membership/cloud-customer-relationship-management-competency](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency)。</li> <li>如需有關資源規劃的詳細資訊，請瀏覽「企業資源規劃」頁面：[partner.microsoft.com/membership/enterprise-resource-planning-competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency)。</li> <li>如需有關 CSP 的詳細資訊，請瀏覽「雲端服務提供者」頁面：[partner.microsoft.com/cloud-solution-provider](https://partner.microsoft.com/cloud-solution-provider)。</li> <li>如需有關 DPOR 的詳細資訊，請瀏覽「數位記錄合作夥伴和合作夥伴關聯」頁面：[partner.microsoft.com/membership/digital-partner-of-record](https://partner.microsoft.com/membership/digital-partner-of-record)。</li> <li>如需有關解決方案合作夥伴準則的詳細資訊，請瀏覽「解決方案合作夥伴概觀和獎勵」文件：[www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf) \(英文\)。</li> <li>如需有關合作夥伴展示工具的詳細資訊，請瀏覽「合作夥伴展示工具」頁面：[powerapps.microsoft.com/partner-showcase](https://powerapps.microsoft.com/partner-showcase)。</li> </ul> |  
 
 #### <a name="requirements-azure-marketplace-list-consulting-service"></a>需求：Azure Marketplace：清單：諮詢服務  
 
 | 需求 | 詳細資料 |  
 |:--- |:--- |  
 | 服務供應項目特性 | 您的諮詢服務必須符合下列準則。<ul> <li>以固定範圍、固定期間、固定價格 (或免費) 的形式提供。</li> <li>主要為售前導向。</li> <li>以單一客戶為限。</li> <li>在現場進行。</li> </ul> |  
-| 諮詢服務的合作夥伴需求 | 您必須具備以下其中一項您服務相關區域的銀級或金級專長認證。 <table><tr><th>解決方案領域</th><th>專長認證</th></tr><td>雲端平台與基礎結構</td><td>雲端平台<br />資料中心</td><tr><td>應用程式開發與 ISV</td><td>影片應用程式開發<br />應用程式整合<br />DevOps</td></tr><tr><td>資料管理與分析</td><td>資料分析<br />資料平台</td></tr></table><ul> <li>如需專長認證的詳細資訊，請瀏覽 [透過 Microsoft 合作夥伴網路取得專長認證]：[partner.microsoft.com/membership/competencies](https://partner.microsoft.com/membership/competencies)。</li> <li>如需清單的詳細資訊，請瀏覽 Azure Marketplace 諮詢服務網頁：[docs.microsoft.com/azure/marketplace/consulting-services](https://docs.microsoft.com/azure/marketplace/consulting-services)。</li></ul> |  
+| 諮詢服務的合作夥伴需求 | 您必須具備以下其中一項您服務相關領域的銀級或金級專長認證。 <table><tr><th>解決方案領域</th><th>專長認證</th></tr><td>雲端平台與基礎結構</td><td>雲端平台<br />資料中心</td><tr><td>應用程式開發與 ISV</td><td>影片應用程式開發<br />應用程式整合<br />DevOps</td></tr><tr><td>資料管理與分析</td><td>資料分析<br />資料平台</td></tr></table><ul> <li>如需有關專長認證的詳細資訊，請瀏覽「透過 Microsoft 合作夥伴網路取得專長認證」頁面：[partner.microsoft.com/membership/competencies](https://partner.microsoft.com/membership/competencies)。</li> <li>如需有關清單的詳細資訊，請瀏覽「Azure Marketplace 諮詢服務」頁面：[docs.microsoft.com/azure/marketplace/consulting-services](https://docs.microsoft.com/azure/marketplace/consulting-services)。</li></ul> |  
 
 <!-- #### Requirements: Azure Marketplace: List: Contact Me -->
 
@@ -89,12 +89,12 @@ ms.locfileid: "34825908"
 
 | 供應項目類型 | 店面 | 詳細資料 |  
 |:---        |:---        |:---     |  
-| 免費 / SaaS 試用版 | AppSource | [清單類型需求：試用版](#listing-type-requirements:-trial) |  
-| 免費 / SaaS 試用版 | Azure Marketplace | [需求：Azure Marketplace：試用版：免費試用版 / SaaS 試用版](#requirements:-azure-marketplace:-trial:-free-trial-/-saas-trial) |  
-| 互動式示範 | AppSource | [清單類型需求：試用版](#listing-type-requirements:-trial) |  
-| 互動式示範 | Azure Marketplace | [需求：Azure Marketplace：試用版：互動式示範](#requirements:-azure-marketplace:-trial:-interactive-demo) |  
-| 試用產品 | AppSource | [清單類型需求：試用版](#listing-type-requirements:-trial) |  
-| 試用產品 | Azure Marketplace | [需求：Azure Marketplace：試用版：試用產品](#requirements:-azure-marketplace:-trial:-test-drive) |  
+| 免費 / SaaS 試用版 | AppSource | [清單類型需求：試用版](#listing-type-requirements-trial) |  
+| 免費 / SaaS 試用版 | Azure Marketplace | [需求：Azure Marketplace：試用版：免費試用 / SaaS 試用版](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) |  
+| 互動式示範 | AppSource | [清單類型需求：試用版](#listing-type-requirements-trial) |  
+| 互動式示範 | Azure Marketplace | [需求：Azure Marketplace：試用版：互動式示範](#requirements-azure-marketplace-trial-interactive-demo) |  
+| 試用產品 | AppSource | [清單類型需求：試用版](#listing-type-requirements-trial) |  
+| 試用產品 | Azure Marketplace | [需求：Azure Marketplace：試用版：試用產品](#requirements-azure-marketplace-trial-test-drive) |  
 
 #### <a name="requirements-azure-marketplace-trial"></a>需求：Azure Marketplace：試用版  
 
@@ -103,9 +103,9 @@ ms.locfileid: "34825908"
 | 免費試用期與試用版體驗 | 客戶可以在限時內免費使用您的應用程式。<br /><br />客戶不需要支付任何供應項目或應用程式的授權或訂閱費用。 客戶不需要支付基本 Microsoft 第一方產品或服務的費用。 所有試用版選項都會部署到您的 Azure 訂用帳戶。 您可完全控制成本最佳化和管理。<br /><br />您可以選擇免費試用版、互動式示範或試用產品。 無論您的選擇為何，免費試用版都必須讓客戶能在預先設定的期間內試用應用程式，無須支付額外費用。<ul> <li>若要開始建立試用產品的程序，請傳送電子郵件與 [amp-testdrive@microsoft.com](mailto:amp-testdrive@microsoft.com) 聯繫。</li> </ul>注意：Azure Marketplace SaaS 試用版體驗必須允許客戶以其工作認證來登入。<ul> <li>如需詳細資訊，請瀏覽 AppSource 試用體驗章節：[docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences)。</li> </ul> |  
 | 輕鬆設定、立即可用的解決方案 | 應用程式的設定和安全必須既簡單又快速。 |  
 | 可用性 / 執行時間 | SaaS 應用程式或平台的執行時間必須至少達到 99.9%。 |  
-| Azure Active Directory | 供應項目必須允許 Azure Active Directory (Azure AD) 同盟單一登入 (SSO) (Azure AD 同盟 SSO) 並同意啟用。 |  
+| Azure Active Directory | 您的供應項目必須允許 Azure Active Directory (Azure AD) 同盟單一登入 (SSO) (Azure AD 同盟 SSO) 並啟用同意功能。 |  
 
-#### <a name="requirements-azure-marketplace-trial-free-trial--saas-trial"></a>需求：Azure Marketplace：試用版：免費試用版 / SaaS 試用版  
+#### <a name="requirements-azure-marketplace-trial-free-trial--saas-trial"></a>需求：Azure Marketplace：試用版：免費試用 / SaaS 試用版  
 
 | 優點 | 需求 |  
 |:--- |:--- |  
@@ -115,27 +115,27 @@ ms.locfileid: "34825908"
 
 | 優點 | 需求 |  
 |:--- |:--- |  
-| 可讓客戶透過簡單的設定查看運作中的解決方案。 | 您的解決方案所需的設定難以在試用期間完成。 |  
+| 無須進行複雜的設定，即可讓客戶了解您解決方案的實際運作情況。 | 您的解決方案需要複雜的設定而難以在試用期間內完成。 |  
 
 #### <a name="requirements-azure-marketplace-trial-test-drive"></a>需求：Azure Marketplace：試用版：試用產品  
 
 | 優點 | 需求 |  
 |:--- |:--- |  
-| 可讓客戶先試用產品再購買。<br /><br />使用預先設定的設定來提供引導式解決方案體驗。<br /><br />以下是試用產品時可享的其他權益。<ul> <li>使用者縮小搜尋範圍在 Marketplace 上的搜尋有 27% 只顯示提供試用產品的供應項目。</li> <li>提供試用產品的供應項目可比未提供的供應項目多產生 38% 的潛在客戶。</li> <li>在 Marketplace 上取得的新客戶有 36% 來自試用產品。</li> <li>試用產品可讓 Microsoft 現場銷售人員更了解您的產品，而協力共同銷售。</li> </ul> | 您的解決方案是使用單一租用戶的虛擬機器、解決方案範本或 SaaS 應用程式，或很複雜而難以佈建。 <br /><br />您無法將試用版轉換成付費供應項目。 |  
+| 可讓客戶先試用產品再購買。<br /><br />使用預先設定的設定來提供引導式解決方案體驗。<br /><br />以下是使用試用產品時可享有的額外優點。<ul> <li>使用者縮小搜尋範圍在 Marketplace 上的搜尋有 27% 只顯示提供試用產品的供應項目。</li> <li>提供試用產品的供應項目可比未提供的供應項目多產生 38% 的潛在客戶。</li> <li>在 Marketplace 上取得的新客戶有 36% 來自試用產品。</li> <li>試用產品可讓 Microsoft 現場銷售人員更了解您的產品，而協力共同銷售。</li> </ul> | 您的解決方案是使用單一租用戶的虛擬機器、解決方案範本或 SaaS 應用程式，或很複雜而難以佈建。 <br /><br />您無法將試用版轉換成付費供應項目。 |  
 
 ---
 
-## <a name="transact-specific-listings"></a>特定交易清單
+## <a name="transact-specific-listings"></a>交易特定清單
 
 ### <a name="transact"></a>交易  
 
 | 供應項目類型 | 店面 | 詳細資料 |   
 |:---        |:---        | :--- |  
-| Azure 應用程式：受控應用程式 | Azure Marketplace | [需求：Azure Marketplace：交易：Azure 應用程式：受控應用程式](#requirements:-azure-marketplace:-transact:-azure-apps:-managed-app) |  
-| Azure 應用程式：解決方案範本 | Azure Marketplace | [需求：Azure Marketplace：交易：Azure 應用程式：解決方案範本](#requirements:-azure-marketplace:-transact:-azure-apps:-solution-template) |  
-| 容器 | Azure Marketplace | [需求：Azure Marketplace：交易：容器](#requirements:-azure-marketplace:-transact:-container) |  
-| SaaS 應用程式  | Azure Marketplace | [需求：Azure Marketplace：交易：SaaS 應用程式](#requirements:-azure-marketplace:-transact:-saas-app) |  
-| 虛擬機器 | Azure Marketplace | [需求：Azure Marketplace：交易：虛擬機器](#requirements:-azure-marketplace:-transact:-virtual-machine) |  
+| Azure 應用程式：受控應用程式 | Azure Marketplace | [需求：Azure Marketplace：交易：Azure 應用程式：受控應用程式](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  
+| Azure 應用程式：解決方案範本 | Azure Marketplace | [需求：Azure Marketplace：交易：Azure 應用程式：解決方案範本](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  
+| 容器 | Azure Marketplace | [需求：Azure Marketplace：交易：容器](#requirements-azure-marketplace-transact-container) |  
+| SaaS 應用程式  | Azure Marketplace | [需求：Azure Marketplace：交易：SaaS 應用程式](#requirements-azure-marketplace-transact-saas-app) |  
+| 虛擬機器 | Azure Marketplace | [需求：Azure Marketplace：交易：虛擬機器](#requirements-azure-marketplace-transact-virtual-machine) |  
 
 <!-- #### Requirements: Azure Marketplace: Transact: Azure apps: Managed app  
 
@@ -161,8 +161,8 @@ ms.locfileid: "34825908"
 
 | 需求 | 詳細資料 |  
 |:--- |:--- | 
-| 計費和計量 | 您的虛擬機器必須支援 BYOL 或每月計費預付型方案。 |  
-| Azure 相容的虛擬硬碟 (VHD) | 虛擬機器必須內建在 Windows 或 Linux 上。<ul> <li>如需建立 Linux VHD 的詳細資訊，請瀏覽建立與 Azure 相容的 VHD (以 Linux 為基礎) 章節：[docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based)。</li> <li>如需建立 Windows VHD 的詳細資訊，請瀏覽建立與 Azure 相容的 VHD (以 Windows 為基礎) 章節：[docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based)。</li> </ul> |  
+| 計費和計量 | 您的 VM 必須支援 BYOL 或每月計費「預付型方案」。 |  
+| Azure 相容的虛擬硬碟 (VHD) | VM 必須建置在 Windows 或 Linux 上。<ul> <li>如需有關建立 Linux VHD 的詳細資訊，請瀏覽＜建立與 Azure 相容的 VHD (以 Linux 為基礎)＞一節：[docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based)。</li> <li>如需有關建立 Windows VHD 的詳細資訊，請瀏覽＜建立與 Azure 相容的 VHD (以 Windows 為基礎)＞一節：[docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based)。</li> </ul> |  
 
 ## <a name="next-steps"></a>後續步驟
 *   請瀏覽 [Azure Marketplace 和 AppSource 發行者指南](./marketplace-publishers-guide.md)網頁。  

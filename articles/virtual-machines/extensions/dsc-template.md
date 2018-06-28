@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: dacoulte
-ms.openlocfilehash: d19d33d7d8d19923e814b8685c3e56553f85850d
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 8d1e8b4d529936a2401c734b2eff1f0c02dae352
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012473"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36307861"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>採用 Azure Resource Manager 範本的預期狀態設定延伸模組
 
@@ -65,7 +65,7 @@ DSC 延伸模組會繼承預設的延伸模組屬性。
                         }
                     },
                     {
-                        "RegistrationUrl": "registrationUrl",
+                        "RegistrationUrl": "registrationUrl"
                     },
                     {
                         "NodeConfigurationName": "nodeConfigurationName"
@@ -115,7 +115,7 @@ DSC 延伸模組會繼承預設的延伸模組屬性。
                             },
                         },
                         {
-                            "RegistrationUrl": "registrationUrl",
+                            "RegistrationUrl": "registrationUrl"
                         },
                         {
                             "NodeConfigurationName": "nodeConfigurationName"
@@ -336,7 +336,7 @@ DSC 延伸模組會繼承預設的延伸模組屬性。
 ### <a name="invalid-values"></a>無效的值
 
 「Privacy.dataCollection 為 '{0}'。
-僅有的可能值為 ''、'Enable' 和 'Disable'」。
+僅有的可能值為 ''、'Enable' 和 'Disable'"。
 「WmfVersion 為 '{0}'。
 可能的值為 … 和 'latest'"。
 

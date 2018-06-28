@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 5c5cc1fdbe48fb93eea204e4619038052e685f1f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4e745a5de8000e0f26491c9f4f236f7f8a735ae9
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31411493"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319636"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>如何使用 Azure CLI 在適用於 PostgreSQL 的 Azure 資料庫中備份和還原伺服器
 
@@ -32,32 +32,6 @@ ms.locfileid: "31411493"
 
 > [!IMPORTANT]
 > 本操作說明指南會要求您使用 Azure CLI 2.0 版或更新版本。 若要確認版本，請在 Azure CLI 命令提示字元中輸入 `az --version`。 若要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
-
-## <a name="add-the-extension"></a>新增延伸模組
-使用下列命令，新增已更新的適用於 PostgreSQL 的 Azure 資料庫管理擴充功能：
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-檢查您是否已安裝正確的擴充功能版本。 
-```azurecli-interactive
-az extension list
-```
-
-傳回 JSON 應該包括下列項目： 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.5"
-}
-```
-
-如果未傳回 0.0.5 版，請執行下列命令來更新延伸模組： 
-```azurecli-interactive
-az extension update --name rdbms
-```
-
 
 ## <a name="set-backup-configuration"></a>設定備份組態
 

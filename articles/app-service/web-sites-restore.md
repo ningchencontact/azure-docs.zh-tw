@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 152cf0c8504205e09b075714a58811d240ab431c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d4b84904db703d1e8e78240cb971250672ef9615
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598295"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753280"
 ---
 # <a name="restore-an-app-in-azure"></a>在 Azure 中還原應用程式
 本文說明如何在 [Azure App Service](../app-service/app-service-web-overview.md) 中還原您先前備份的應用程式 (請參閱[在 Azure 中備份應用程式](web-sites-backup.md))。 您可以依需求將應用程式及其連結的資料庫還原到先前的狀態，或是根據您的其中一個原始應用程式備份來建立新的應用程式。 Azure App Service 支援使用下列資料庫來進行備份與還原︰
 - [SQL Database](https://azure.microsoft.com/services/sql-database/)
 - [適用於 MySQL 的 Azure 資料庫](https://azure.microsoft.com/services/mysql)
-- [適用於 PostgreSQL 的 Azure 資料庫](https://azure.microsoft.com/services/postgres)
+- [適用於 PostgreSQL 的 Azure 資料庫](https://azure.microsoft.com/services/postgresql)
 - [應用程式內 MySQL](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
 
 從備份還原是提供給在**標準**和**進階**層中執行的應用程式使用。 如需有關相應增加應用程式的詳細資訊，請參閱 [在 Azure 中調整應用程式規模](web-sites-scale.md)。 **進階**層所允許執行的每日備份數量比**標準**層多。

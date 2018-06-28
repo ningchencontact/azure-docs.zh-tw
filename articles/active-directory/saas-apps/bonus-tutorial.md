@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: adde08f7981e6e23ba5bf2601d2f019702d1d33c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d06f8e148e382c44b8858cc2f149f5851198d0d5
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231639"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308103"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>教學課程：Azure Active Directory 與 Bonusly 整合
 
@@ -112,7 +112,7 @@ ms.locfileid: "36231639"
     在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://Bonus.ly/saml/<tenant-name>`
 
     > [!NOTE] 
-    > 這不是真正的值。 請使用實際的「回覆 URL」來更新此值。 請連絡 [Bonusly 支援小組](https://Bonusly/contact)以取得該值。
+    > 這不是真正的值。 請使用實際的「回覆 URL」來更新此值。 請連絡 [Bonusly 支援小組](https://bonus.ly/contact)以取得該值。
  
 4. 在 [SAML 簽署憑證] 區段上，複製憑證的 [指紋] 值。
 

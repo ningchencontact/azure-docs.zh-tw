@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2017
 ms.author: kumud
-ms.openlocfilehash: d90a4e74b6ad3bb95e91ad3a5327c887a87784bd
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: a4093926ea2ea2bb0e477372a1ceb2dfbf22e8f0
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30264467"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36330963"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>使用 Azure CLI 2.0 建立內部負載平衡器以平衡 VM 的負載
 
@@ -47,7 +47,7 @@ ms.locfileid: "30264467"
 
 ```azurecli-interactive
   az network vnet create \
-    --name myVnet
+    --name myVnet \
     --resource-group myResourceGroupILB \
     --location eastus \
     --subnet-name mySubnet
@@ -57,7 +57,7 @@ ms.locfileid: "30264467"
 本節將詳細說明如何建立及設定下列負載平衡器元件：
   - 前端 IP 組態，可接收負載平衡器上的連入網路流量。
   - 後端 IP 集區，前端集區在其中傳送負載平衡網路流量。
-  - 健康情況探查，可判斷後端 VM 執行個體的健康情況。
+  - 健康狀態探查，可判斷後端 VM 執行個體的健康狀態。
   - 負載平衡器規則，可定義如何將流量分散至 VM。
 
 ### <a name="create-the-load-balancer"></a>建立負載平衡器
@@ -76,7 +76,7 @@ ms.locfileid: "30264467"
   ```
 ### <a name="create-the-health-probe"></a>建立健康情況探查
 
-健全狀況探查會檢查所有虛擬機器執行個體，確認它們可以接收網路流量。 探查檢查失敗的虛擬機器執行個體會從負載平衡器上移除，直到其恢復正常運作且探查判斷其健全狀況良好為止。 使用 [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#create) 建立健康情況探查，以檢視虛擬機器的健康情況。 
+健全狀況探查會檢查所有虛擬機器執行個體，確認它們可以接收網路流量。 探查檢查失敗的虛擬機器執行個體會從負載平衡器上移除，直到其恢復正常運作且探查判斷其健全狀況良好為止。 使用 [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#create) 建立健康狀態探查，以檢視虛擬機器的健康狀態。 
 
 ```azurecli-interactive
   az network lb probe create \
@@ -131,7 +131,7 @@ ms.locfileid: "30264467"
     --source-address-prefix '*' \
     --source-port-range '*' \
     --destination-address-prefix '*' \
-    --destination-port-range 22 \
+    --destination-port-range 80 \
     --access allow \
     --priority 300
 ```
@@ -249,7 +249,7 @@ for i in `seq 1 2`; do
 
 ```azurecli-interactive
   az network lb show \
-    --name myLoadBalancer
+    --name myLoadBalancer \
     --resource-group myResourceGroupILB
 ``` 
 ![測試負載平衡器](./media/load-balancer-get-started-ilb-arm-cli/load-balancer-test.png)

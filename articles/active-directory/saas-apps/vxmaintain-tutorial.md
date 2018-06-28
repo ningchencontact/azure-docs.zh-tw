@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 6d43e446d1ee1ed4dafc63481b4c874d994896d3
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: fc8918ed2901d2f443b94bac8587e24c3f04eeec
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230262"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308742"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>教學課程：Azure Active Directory 與 vxMaintain 整合
 
@@ -111,7 +111,7 @@ ms.locfileid: "36230262"
     b. 在 [回覆 URL] 方塊中，輸入具有下列語法的 URL：`https://<company name>.verisae.com/DataNett/action/ssoConsume/mobile?_log=true`
 
     > [!NOTE] 
-    > 上述值並非真正的值。 請使用實際的識別碼和回覆 URL 來更新這些值。 若要取得這些值，請連絡 [vxMaintain 支援小組](http://www.verisae.com/contact-us)。
+    > 上述值並非真正的值。 請使用實際的識別碼和回覆 URL 來更新這些值。 若要取得這些值，請連絡 [vxMaintain 支援小組](https://www.hubspot.com/company/contact)。
  
 4. 在 [SAML 簽署憑證] 下，選取 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
@@ -121,7 +121,7 @@ ms.locfileid: "36230262"
 
     ![[儲存] 按鈕](./media/vxmaintain-tutorial/tutorial_general_400.png)
 
-6. 若要設定 **vxMaintain** SSO，將下載的**中繼資料 XML** 檔案傳送至 [vxMaintain 支援小組](http://www.verisae.com/contact-us)。
+6. 若要設定 **vxMaintain** SSO，將下載的**中繼資料 XML** 檔案傳送至 [vxMaintain 支援小組](https://www.hubspot.com/company/contact)。
 
 > [!TIP]
 > 當您設定應用程式時，您可以在 [Azure 入口網站](https://portal.azure.com)中閱讀精簡版的先前說明。 當您從 [Active Directory] > [企業應用程式] 區段新增應用程式之後，選取 [單一登入] 索引標籤，即可從 [設定] 區段存取內嵌的文件。 
@@ -161,7 +161,7 @@ ms.locfileid: "36230262"
  
 ### <a name="create-a-vxmaintain-test-user"></a>建立 vxMaintain 測試使用者
 
-在本節中，您會在 vxMaintain 中建立測試使用者 Britta Simon。 若要在 vxMaintain 平台中新增使用者，請與 [vxMaintain 支援小組](http://www.verisae.com/contact-us) 合作。 使用 SSO 之前，請先建立並啟用使用者。
+在本節中，您會在 vxMaintain 中建立測試使用者 Britta Simon。 若要在 vxMaintain 平台中新增使用者，請與 [vxMaintain 支援小組](https://www.hubspot.com/company/contact) 合作。 使用 SSO 之前，請先建立並啟用使用者。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
