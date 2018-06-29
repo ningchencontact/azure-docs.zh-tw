@@ -62,7 +62,7 @@ App Service 網域 (預覽) 是直接在 Azure 中管理的頂層網域。 它�
 
 ![檢查定價層](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
-如果 App Service 方案不是位於 **F1** 層，請關閉 [相應增加] 頁面，然後跳至 [購買網域][](#buy-the-domain)。
+如果 App Service 方案不是位於 **F1** 層，請關閉 [相應增加] 頁面，然後跳至 [[購買網域]](#buy-the-domain)。
 
 ### <a name="scale-up-the-app-service-plan"></a>相應增加 App Service 方案
 
