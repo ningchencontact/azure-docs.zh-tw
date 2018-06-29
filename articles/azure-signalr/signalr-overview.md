@@ -61,7 +61,7 @@ ASP.NET Core SignalR 是前一個版本重新撰寫的版本。 因此，ASP.NET
 
 ## <a name="how-does-it-scale"></a>它如何調整？
 
-SignalR 通常隨 SQL Server、Azure Service Bus 或 Redis Cahce 調整。 Azure SignalR 服務會為您處理調整方式。 效能和成本與這些方法相當，但沒有處理這些其他服務的複雜性。 您只需要更新服務的單位計數即可。 每個服務單位最高支援 1000 個用戶端連線。
+SignalR 通常隨 SQL Server、Azure Service Bus 或 Redis Cache 調整。 Azure SignalR 服務會為您處理調整方式。 效能和成本與這些方法相當，但沒有處理這些其他服務的複雜性。 您只需要更新服務的單位計數即可。 每個服務單位最高支援 1000 個用戶端連線。
 
 ## <a name="next-steps"></a>後續步驟
 * [快速入門：使用 Azure SignalR 建立聊天室](signalr-quickstart-dotnet-core.md)  
