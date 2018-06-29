@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: bb69c217c1038a66333e65629023357e5854d242
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: a91120e2592e6fdaa38334f36bfd9b67c0f1b50d
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265036"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300990"
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Azure AD 網域服務的網路考量
 ## <a name="how-to-select-an-azure-virtual-network"></a>如何選取 Azure 虛擬網路
@@ -107,7 +107,7 @@ ms.locfileid: "36265036"
 
 ![透過網際網路之安全 LDAP 存取的範例 NSG](.\media\active-directory-domain-services-alerts\default-nsg.png)
 
-**更多資訊** - [建立網路安全性群組](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)。
+**更多資訊** - [建立網路安全性群組](../virtual-network/manage-network-security-group.md)。
 
 
 ## <a name="network-connectivity"></a>網路連線
@@ -145,4 +145,4 @@ Azure AD Domain Services 受控網域只可在 Azure 的單一虛擬網路中啟
 * [Azure 虛擬網路對等互連](../virtual-network/virtual-network-peering-overview.md)
 * [設定傳統部署模型的 VNet 對 VNet 連接](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 * [Azure 網路安全性群組](../virtual-network/security-overview.md)
-* [建立網路安全性群組](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+* [建立網路安全性群組](../virtual-network/manage-network-security-group.md)

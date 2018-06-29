@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 1ac614156755b9b29db7c968c708a5cff706f7a8
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: d53ade1e5c31ca25636b95d4f8b9e0fe29f9d081
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019665"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031102"
 ---
 # <a name="security-frame-authentication--mitigations"></a>安全框架︰驗證 | 緩和措施 
 | 產品/服務 | 文章 |
@@ -175,7 +175,7 @@ ms.locfileid: "28019665"
 | 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Azure 信任邊界 | 
-| **SDL 階段**               | Deployment |  
+| **SDL 階段**               | 部署 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | [什麼是 Azure Multi-Factor Authentication？](https://azure.microsoft.com/documentation/articles/multi-factor-authentication/) |
@@ -186,7 +186,7 @@ ms.locfileid: "28019665"
 | 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Service Fabric 信任邊界 | 
-| **SDL 階段**               | Deployment |  
+| **SDL 階段**               | 部署 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | 環境 - Azure  |
 | **參考**              | [Service Fabric 叢集安全性案例](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security) |
@@ -197,7 +197,7 @@ ms.locfileid: "28019665"
 | 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Service Fabric 信任邊界 | 
-| **SDL 階段**               | Deployment |  
+| **SDL 階段**               | 部署 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | 環境 - Azure、環境 - 獨立 |
 | **參考**              | [Service Fabric 用戶端對節點憑證安全性](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/#_client-to-node-certificate-security)、[使用用戶端憑證連線到安全的叢集](https://azure.microsoft.com/documentation/articles/service-fabric-connect-to-secure-cluster/) |
@@ -208,7 +208,7 @@ ms.locfileid: "28019665"
 | 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Service Fabric 信任邊界 | 
-| **SDL 階段**               | Deployment |  
+| **SDL 階段**               | 部署 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | 環境 - Azure |
 | **參考**              | [叢集安全性案例 - 安全性建議](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/#security-recommendations) |
@@ -219,7 +219,7 @@ ms.locfileid: "28019665"
 | 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Service Fabric 信任邊界 | 
-| **SDL 階段**               | Deployment |  
+| **SDL 階段**               | 部署 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | 環境 - Azure |
 | **參考**              | [X.509 憑證和 Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/#x509-certificates-and-service-fabric) |
@@ -241,7 +241,7 @@ ms.locfileid: "28019665"
 | 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Identity Server | 
-| **SDL 階段**               | Deployment |  
+| **SDL 階段**               | 部署 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | [Identity Server 部署 - 快取](https://identityserver.github.io/Documentation/docsv2/advanced/deployment.html) |
@@ -252,7 +252,7 @@ ms.locfileid: "28019665"
 | 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | 電腦信任邊界 | 
-| **SDL 階段**               | Deployment |  
+| **SDL 階段**               | 部署 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
@@ -306,7 +306,7 @@ ms.locfileid: "28019665"
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | .NET Framework 3 |
 | **屬性**              | 用戶端認證類型 - None |
-| **參考**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx)、[Fortify](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **參考**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx)、[Fortify](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_message_client) |
 | **步驟** | 缺少驗證表示每個人都能夠存取此服務。 不會驗證其用戶端的服務可允許所有使用者進行存取。 設定應用程式以針對用戶端認證進行驗證。 將訊息 clientCredentialType 設定為 Windows 或 [憑證] 即可完成此作業。 |
 
 ### <a name="example"></a>範例
@@ -322,7 +322,7 @@ ms.locfileid: "28019665"
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | 泛型、.NET Framework 3 |
 | **屬性**              | 用戶端認證類型 - None |
-| **參考**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx)、[Fortify](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **參考**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx)、[Fortify](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_transport_client) |
 | **步驟** | 缺少驗證表示每個人都能夠存取此服務。 不會驗證其用戶端的服務可允許所有使用者存取其功能。 設定應用程式以針對用戶端認證進行驗證。 將傳輸 clientCredentialType 設定為 Windows 或 [憑證] 即可完成此作業。 |
 
 ### <a name="example"></a>範例

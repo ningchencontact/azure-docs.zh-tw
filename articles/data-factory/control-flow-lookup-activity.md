@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/22/2018
+ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: 032b14051c5c2b06fa23ee67858706fada545967
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 25ed439674fcf7136e29034eb97e0652ae9ba111
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618652"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055444"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure Data Factory 中的查閱活動
 
@@ -26,9 +26,6 @@ ms.locfileid: "34618652"
 - 動態判斷在後續活動中要處理哪些物件 (檔案、資料表等)，而不是將物件名稱寫入程式碼
 
 查閱活動可讀取並傳回組態檔內容、組態資料表或執行查詢或預存程序的結果。  查閱活動的輸出可用於後續的複製或轉換活動中 (如果輸出是單一值)，或用於 ForEach 活動中 (如果輸出是屬性陣列)。
-
-> [!NOTE]
-> 本文適用於第 2 版的 Azure Data Fatory (目前為預覽版)。 如果您使用 Data Factory 服務的 1 版 (正式推出版本 (GA))，請參閱 [Data Factory 第 1 版文件](v1/data-factory-introduction.md)。
 
 ## <a name="supported-capabilities"></a>支援的功能
 
@@ -61,7 +58,7 @@ Name | 說明 | 類型 | 必要？
 ---- | ----------- | ---- | --------
 資料集 | 提供查閱的資料集參考。 如需詳細資料，請參閱每個對應連接器文章中的＜資料集屬性＞一節。 | 索引鍵/值組 | yes
 來源 | 包含資料集特定的來源屬性，與複製活動來源相同。 如需詳細資料，請參閱每個對應連接器文章中的＜複製活動屬性＞一節。 | 索引鍵/值組 | yes
-firstRowOnly | 指出是否只傳回第一個資料列或傳回所有資料列。 | BOOLEAN | 編號 預設值為 `true`。
+firstRowOnly | 指出是否只傳回第一個資料列或傳回所有資料列。 | BOOLEAN | 否。 預設值為 `true`。
 
 **請注意下列幾點**：
 

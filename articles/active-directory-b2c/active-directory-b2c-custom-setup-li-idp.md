@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 10/23/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 0544daf310d40ea419cb6a46cbbf308ebc924715
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 889264dc06d1a6f10713ff5fcd7ff644c113bb45
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34709320"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752311"
 ---
 # <a name="azure-active-directory-b2c-add-linkedin-as-an-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C：使用自訂原則新增 LinkedIn 作為識別提供者
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "34709320"
 完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)一文中的步驟。
 
 ## <a name="step-1-create-a-linkedin-account-application"></a>步驟 1：建立 LinkedIn 帳戶應用程式
-如果要在 Azure Active Directory B2C (Azure AD B2C) 中將 LinkedIn 作為識別提供者，您必須建立 LinkedIn 應用程式，然後為其提供正確的參數。 您可以前往 [LinkedIn 註冊頁面](https://LinkedIn.com/signup)，註冊 LinkedIn 應用程式。
+如果要在 Azure Active Directory B2C (Azure AD B2C) 中將 LinkedIn 作為識別提供者，您必須建立 LinkedIn 應用程式，然後為其提供正確的參數。 您可以前往 [LinkedIn 註冊頁面](https://www.linkedin.com/start/join)，註冊 LinkedIn 應用程式。
 
 1. 前往 [LinkedIn 應用程式管理](https://www.linkedin.com/secure/developer?newapp=)網站，使用您的 LinkedIn 帳戶認證登入，然後選取 [建立應用程式]。
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 7b60c086896506e5883607db48a64d2a2efbd967
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 28561f5f94044d19cfd07e99d7f7a736ec470cf1
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659071"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960350"
 ---
 # <a name="hyperledger-fabric-single-member-network"></a>Hyperledger Fabric 單一成員網路
 
@@ -77,7 +77,7 @@ ms.locfileid: "34659071"
 **依 IP 位址限制存取**|此設定可判斷是否要對該類型限制用戶端端點存取。|是/否| 否
 **允許的 IP 位址或子網路 (依 IP 位址 = Yes 來限制存取)**|當存取控制啟用時，允許存取用戶端端點的單一 IP 位址或一組 IP 位址。||NA
 **訂用帳戶** |要作為部署目的地的訂用帳戶。
-**資源群組** |要作為聯盟網路部署目的地的資源群組。||NA
+**資源群組** |要對其部署聯盟網路的資源群組。||NA
 **位置** |要作為第一個成員網路使用量部署目的地的 Azure 區域。
 
 ### <a name="network-size-and-performance"></a>網路大小和效能
@@ -89,7 +89,7 @@ ms.locfileid: "34659071"
 參數名稱| 說明| 允許的值|預設值
 ---|---|---|---
 **成員資格節點數目**|執行成員資格服務的節點數目。 如需成員資格服務的其他詳細資料，請查看 Hyperledger [文件](https://media.readthedocs.org/pdf/hyperledger-fabric/latest/hyperledger-fabric.pdf)下的＜安全性和成員資格服務＞。<br /><br />此值目前限制為 1 個節點，但我們計劃在下一個修訂版本支援透過叢集進行相應放大。|1| 1
-**排序者節點數目** |將交易排序 (組織) 到區塊的節點數目。--> 此陳述過於冗長且容易混淆。 如需排序服務的其他詳細資料，請瀏覽 Hyperledger [文件](http://hyperledger-fabric.readthedocs.io/en/latest/orderingservice.html)。<br /><br />此值目前限制為 1 個節點。 |1 |1
+**排序者節點數目** |將交易排序 (組織) 到區塊的節點數目。--> 此陳述過於冗長且容易混淆。 如需排序服務的其他詳細資料，請瀏覽 Hyperledger [文件](https://hyperledger-fabric.readthedocs.io/en/release-1.1/ordering-service-faq.html)。<br /><br />此值目前限制為 1 個節點。 |1 |1
 **對等節點的數目**| 執行交易並維持狀態和總帳複本的聯盟成員所擁有的節點。<br /><br />如需排序服務的其他詳細資料，請瀏覽 Hyperledger [文件](https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html)。|3| 3 - 9
 **儲存體效能**|支援每個所部署節點的儲存體類型。 若要深入了解儲存體，請瀏覽 [Microsoft Azure 儲存體簡介](https://docs.microsoft.com/azure/storage/common/storage-introduction)和[進階儲存體](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)。|標準或進階|標準
 **虛擬機器大小** |網路中所有節點所使用的虛擬機器大小|標準 A、<br />標準 D、<br />標準 D-v2、<br />標準 F 系列、<br />標準 DS <br />及標準 FS|標準 D1_v2

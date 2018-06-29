@@ -7,17 +7,17 @@ manager: craigg
 ms.service: sql-database
 ms.custom: migrate
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 06/20/2018
 ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: e0c849efa402bdfcf3ed6091cccf47ca722f23d7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d97e0bf94b911936cacf04f7f26c172b9975c56f
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650106"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061639"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>雲端中的新 DBA - 在 Azure SQL Database 中管理您的資料庫
 
@@ -31,7 +31,6 @@ ms.locfileid: "34650106"
 - 安全性與合規性
 - 智慧型資料庫監視和維護
 - 資料移動
-
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr"></a>業務持續性和災害復原 (BCDR)
 業務持續性和災害復原功能可讓您在發生災害時如往常一樣持續您的業務。 災害可以是資料庫層級事件 (例如，某人不小心卸除重要資料表) 或資料中心層級事件 (區域性災難，例如海嘯)。 
@@ -172,7 +171,7 @@ Express Route 也可讓您高載至所購買的頻寬限制最多 2 倍，不額
 - [工作流程](../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>SQL Database 是否符合任何法規需求，以及這對於自己組織的合規性有何幫助？
-SQL Database 符合各種法規規範。 若要檢視已符合的最新一組規範，請瀏覽 [Microsoft 信任中心](https://www.microsoft.com/trustcenter/compliance/complianceofferings)，並向下切入至對您的組織而言很重要的規範，以查看 SQL Database 是否包含在合規的 Azure 服務之下。 請務必注意，雖然 SQL Database 可能被公認為合規的服務，這有助於您組織的服務合規性，但不自動保證這點。
+SQL Database 符合各種法規規範。 若要檢視已符合的最新一組規範，請瀏覽 [Microsoft 信任中心](https://microsoft.com/en-us/trustcenter/compliance/complianceofferings)，並向下切入至對您的組織而言很重要的規範，以查看 SQL Database 是否包含在合規的 Azure 服務之下。 請務必注意，雖然 SQL Database 可能被公認為合規的服務，這有助於您組織的服務合規性，但不自動保證這點。
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>移轉之後的智慧型資料庫監視及維護
 
@@ -236,7 +235,7 @@ SQL Database 提供三個服務層：基本、標準和進階。 在每個服務
 
 若要確定您已採用正確的效能層級，您可以透過上述的「如何在 SQL Database 中監視效能和資源使用率？」中的其中一個方式來監視您的查詢和資料庫資源耗用量。 如果您發現您的查詢/資料庫持續耗用 CPU/記憶體等，可以考慮向上增加至更高的效能層級。 同樣地，如果您發現，即使在尖峰時刻也沒有使用一樣多的資源，請考慮從目前的效能層級向下縮減。 
 
-如果您有 SaaS 應用程式模式或資料庫彙總案例，為了成本最佳化，請考慮使用彈性集區。 彈性集區是達到資料庫合併和成本最佳化的好方法。 若要閱讀使用彈性集區管理多個資料庫的相關資訊，請參閱：[管理集區和資料庫](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal)。 
+如果您有 SaaS 應用程式模式或資料庫彙總案例，為了成本最佳化，請考慮使用彈性集區。 彈性集區是達到資料庫合併和成本最佳化的好方法。 若要閱讀使用彈性集區管理多個資料庫的相關資訊，請參閱：[管理集區和資料庫](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases)。 
 
 ### <a name="how-often-do-i-need-to-run-database-integrity-checks-for-my-database"></a>我必須為我的資料庫執行資料庫完整性檢查的頻率為何？
 SQL Database 會使用的一些智慧技術可讓它自動處理特定類別的資料損毀，並且不會遺失任何資料。 服務中內建了這些技術，並且可在需求出現時由服務加以利用。 系統會定期將您在服務間的資料庫備份，藉由還原它們並對其執行 DBCC CHECKDB 來進行測試。 如果有問題，SQL Database 會主動解決它們。 運用[自動頁面修復](/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring)來修正損毀或有資料完整性問題的頁面。 系統一律會使用可驗證頁面完整性的預設總和檢查碼設定驗證資料庫頁面。 SQL Database 會主動監視並檢閱資料庫的資料完整性，並且，如果發生問題，便以最高優先順序來加以解決。 除了這些，您可以選擇視需要選擇性地執行完整性檢查。  如需詳細資訊，請參閱 [SQL Database 中的資料完整性](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/)

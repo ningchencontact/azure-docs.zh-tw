@@ -13,19 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: d63cb26acdc0a8b6c8435167b1043428de9f0729
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 51cacb385f28cf70a65b9c0e1c14d48e22be0a4d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807613"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051105"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Google BigQuery 複製資料
 
 本文概述如何使用 Azure Data Factory 中的「複製活動」，從 Google BigQuery 複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
-
-> [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用已正式運作的第 1 版 Data Factory 服務，請參閱[第 1 版中的複製活動](v1/data-factory-data-movement-activities.md)。
 
 ## <a name="supported-capabilities"></a>支援的功能
 
@@ -35,7 +32,7 @@ ms.locfileid: "34807613"
 
 ## <a name="get-started"></a>開始使用
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 下列各節提供屬性的相關詳細資料，這些屬性是用來定義 Google BigQuery 連接器專屬的 Data Factory 實體。
 

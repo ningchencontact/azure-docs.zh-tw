@@ -16,12 +16,12 @@ ms.date: 04/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c4670a7e957970acea54ff69d56edcd45092c8fe
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: ffd774477881be6b7f46dd38bbc88c8d019223aa
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157226"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317199"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Azure AD 中的選擇性宣告 (預覽)
 

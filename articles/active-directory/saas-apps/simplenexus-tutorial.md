@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: a29ef6535d1d4e64df7b97fc7519e55f511df222
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 759052a073103304f89096a43f0cbef88e0a1624
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212167"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308253"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-simplenexus"></a>教學課程：Azure Active Directory 與 SimpleNexus 整合
 
@@ -117,7 +117,7 @@ SimpleNexus 與 Azure AD 整合提供下列優點：
     b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://simplenexus.com/<companyname>`
 
     > [!NOTE] 
-    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [SimpleNexus 客戶支援小組](https://simplenexus.com/site/contact)以取得這些值。 
+    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [SimpleNexus 客戶支援小組](https://simplenexus.com/sn/contact-us/)以取得這些值。 
  
 4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
@@ -127,7 +127,7 @@ SimpleNexus 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/simplenexus-tutorial/tutorial_general_400.png)
 
-6. 若要在 **SimpleNexus** 端設定單一登入，您必須將已下載的**中繼資料 XML** 傳送給 [SimpleNexus 支援小組](https://simplenexus.com/site/contact)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+6. 若要在 **SimpleNexus** 端設定單一登入，您必須將已下載的**中繼資料 XML** 傳送給 [SimpleNexus 支援小組](https://simplenexus.com/sn/contact-us/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)

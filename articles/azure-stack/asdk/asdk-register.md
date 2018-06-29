@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/26/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: bc17045106b2656cdeb5f51037b3138aeac9ee0f
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 08a300d0e2d1565428f282a2073d91b5dd08c060
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757462"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37016994"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack 註冊
 您可以向 Azure 註冊 Azure Stack 開發套件 (ASDK) 安裝，以便從 Azure 下載市集項目，以及設定向 Microsoft 回報商務資料的功能。 必須註冊才能支援完整的 Azure Stack 功能，包括 Marketplace 摘要整合。 我們建議您註冊，因為它可讓您測試重要的 Azure Stack 功能，例如市集摘要整合和使用方式報告。 註冊 Azure Stack 之後，使用方式會回報給 Azure 商務。 您可以在註冊時所使用的訂用帳戶下看到這項資訊。 然而，ASDK 使用者將不需針對回報的任何使用方式支付費用。
@@ -83,4 +83,4 @@ $ExecutionContext.SessionState.LanguageMode
     ![](media/asdk-register/3.PNG)
 
 ## <a name="next-steps"></a>後續步驟
-[新增 Azure Stack 市集項目](asdk-marketplace-item.md)
+[新增 Azure Stack 市集項目](.\.\azure-stack-marketplace.md)

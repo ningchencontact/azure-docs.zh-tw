@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: magoedte
-ms.openlocfilehash: f14b96b88a96f4bef24602bb9338a77352fbf375
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 8558b3b1f5a9036f1134ddce3302211b41f57c05
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31521138"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025282"
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics 資料安全性
 本文件旨在提供 Azure Log Analytics 的特定資訊，以補充 [Azure 信任中心](../security/security-microsoft-trust-center.md)上的資訊。  
@@ -68,7 +68,7 @@ Log Analytics 服務會使用下列方法安全地管理您以雲端為基礎的
 | State |StateChangeEventId、StateId、NewHealthState、OldHealthState、Context、TimeGenerated、TimeAdded、StateId2、BaseManagedEntityId、MonitorId、HealthState、LastModified、LastGreenAlertGenerated、DatabaseTimeModified |
 
 ## <a name="physical-security"></a>實體安全性
-Log Analytics 服務是由 Microsoft 人員所管理，所有活動都有記錄並且可供稽核。 Log Analytics 會作為 Azure 服務操作，並符合所有 Azure 合規性與安全性需求。 您可以在 [Microsoft Azure 安全性概觀](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf)的第 18 頁上檢視 Azure 資產之實體安全性的詳細資料。 不再負責管理 OMS 服務的人員，其用來確保區域安全的實體存取權限 (包括傳輸和終止) 將會在一個工作天內變更。 若要了解我們使用的全域實體基礎結構，請參閱 [Microsoft 資料中心](https://www.microsoft.com/server-cloud/cloud-os/global-datacenters.aspx)。
+Log Analytics 服務是由 Microsoft 人員所管理，所有活動都有記錄並且可供稽核。 Log Analytics 會作為 Azure 服務操作，並符合所有 Azure 合規性與安全性需求。 您可以在 [Microsoft Azure 安全性概觀](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf)的第 18 頁上檢視 Azure 資產之實體安全性的詳細資料。 不再負責管理 OMS 服務的人員，其用來確保區域安全的實體存取權限 (包括傳輸和終止) 將會在一個工作天內變更。 若要了解我們使用的全域實體基礎結構，請參閱 [Microsoft 資料中心](https://azure.microsoft.com/en-us/global-infrastructure/)。
 
 ## <a name="incident-management"></a>事件管理
 OMS 具備所有 Microsoft 服務都會遵守的事件管理程序。 總結來說，我們：
@@ -92,10 +92,10 @@ OMS 具備所有 Microsoft 服務都會遵守的事件管理程序。 總結來�
 
 如果發生客戶資料遺失事件，我們會在一天內通知每位客戶。 不過，服務從未發生過客戶資料遺失。 
 
-如需 Microsoft 如何回應安全性事件的詳細資訊，請參閱[雲端中的 Microsoft Azure 安全性回應](https://gallery.technet.microsoft.com/Azure-Security-Response-in-dd18c678/file/150826/1/Microsoft Azure Security Response in the cloud.pdf)。
+如需 Microsoft 如何回應安全性事件的詳細資訊，請參閱[雲端中的 Microsoft Azure 安全性回應](https://gallery.technet.microsoft.com/Azure-Security-Response-in-dd18c678/file/150826/4/Microsoft%20Azure%20Security%20Response%20in%20the%20cloud.pdf)。
 
 ## <a name="compliance"></a>法規遵循
-Log Analytics 軟體開發和服務小組的資訊安全性及治理程式可支援其商務需求，並且會遵守 [Microsoft Azure 信任中心](https://azure.microsoft.com/support/trust-center/)和 [Microsoft 信任中心合規性所述的法律與法規](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)。 上述位置也會描述 Log Analytics 建立安全性需求、識別安全性控制，以及管理和監視風險的方式。 每年我們都會檢閱原則、標準、程序和指導方針。
+Log Analytics 軟體開發和服務小組的資訊安全性及治理程式可支援其商務需求，並且會遵守 [Microsoft Azure 信任中心](https://azure.microsoft.com/support/trust-center/)和 [Microsoft 信任中心合規性所述的法律與法規](https://www.microsoft.com/en-us/trustcenter/compliance/default.aspx)。 上述位置也會描述 Log Analytics 建立安全性需求、識別安全性控制，以及管理和監視風險的方式。 每年我們都會檢閱原則、標準、程序和指導方針。
 
 每個開發小組成員都會獲得正式的應用程式安全性訓練。 在內部，我們使用版本控制系統來開發軟體。 每個軟體專案都受到版本控制系統的保護。
 
@@ -113,10 +113,10 @@ Azure Log Analytics 符合下列需求︰
 * [ISO 22301](https://azure.microsoft.com/blog/iso22301/)
 * PCI 安全標準委員會的[支付卡產業 (PCI 相容) 資料安全標準 (PCI DSS)](https://www.microsoft.com/en-us/TrustCenter/Compliance/PCI)。
 * [服務組織控制 (SOC) 1 類型 1 和 SOC 2 類型 1](https://www.microsoft.com/en-us/TrustCenter/Compliance/SOC1-and-2) 相容
-* 擁有 HIPAA 商業夥伴合約之公司的 [HIPAA 和 HITECH](https://www.microsoft.com/TrustCenter/Compliance/HIPAA)
+* 擁有 HIPAA 商業夥伴合約之公司的 [HIPAA 和 HITECH](https://www.microsoft.com/en-us/TrustCenter/Compliance/hipaa)
 * Windows 通用工程準則
 * Microsoft 高可信度電腦運算 (英文)
-* 作為 Azure 服務，Log Analytics 使用的元件會遵守 Azure 的合規性需求。 若要深入了解，請前往 [Microsoft 信任中心法規遵循](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)。
+* 作為 Azure 服務，Log Analytics 使用的元件會遵守 Azure 的合規性需求。 若要深入了解，請前往 [Microsoft 信任中心法規遵循](https://www.microsoft.com/en-us/trustcenter/compliance/default.aspx)。
 
 > [!NOTE]
 > 在某些認證/證明中，Log Analytics 會以舊名稱 *Operational Insights* 列出。
@@ -131,8 +131,8 @@ Azure Log Analytics 符合下列需求︰
 ## <a name="1-sign-up-for-log-analytics-and-collect-data"></a>1.註冊使用 Log Analytics 並收集資料
 若貴組織要將資料傳送至 Log Analytics，您要設定 Azure 虛擬機器上執行的 Windows 或 Linux 代理程式，或是在您的環境或其他雲端提供者中的虛擬或實體電腦上。  如果您是使用 Operations Manager，則您要從管理群組設定 Operations Manager 代理程式。 使用者 (可能是您、其他個別使用者或一群人) 會建立一或多個 Log Analytics 工作區，並使用下列其中一個帳戶來註冊代理程式：
 
-* [組織識別碼](../active-directory/sign-up-organization.md)
-* [Microsoft 帳戶 - Outlook、Office Live、MSN](http://www.microsoft.com/account/default.aspx)
+* [組織識別碼](../active-directory/fundamentals/sign-up-organization.md)
+* [Microsoft 帳戶 - Outlook、Office Live、MSN](https://account.microsoft.com/account)
 
 Log Analytics 工作區是收集、彙總、分析以及呈現資料的位置。 工作區主要是做為資料分割資料，每個工作區都是唯一的。 例如，您可能需要使用一個工作區管理實際執行資料，及使用另一個工作區管理測試資料。 工作區也會協助系統管理員控制資料的使用者存取。 每個工作區可以有多個與其關聯的使用者帳戶，每個使用者帳戶可以存取多個 Log Analytics 工作區。 您必須根據資料中心區域建立工作區。 每個工作區都會複寫到區域中的其他資料中心，這主要是為了確保 Log Analytics 服務可用性。
 

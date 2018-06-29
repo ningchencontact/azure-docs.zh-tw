@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/07/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: f0c86f121fd65a06fb4d1a193f3e3bf724af505e
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 9a43179998e8377dfbbb1a41ba7d46936d63aedd
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234836"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030150"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack 公開金鑰基礎結構憑證需求
 
@@ -76,20 +76,6 @@ Azure Stack 有一個公共基礎結構網路，其使用已指派給一小組 A
 | ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(萬用字元 SSL 憑證) | 佇列儲存體 | queue.&lt;region>.&lt;fqdn> |
 | KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(萬用字元 SSL 憑證) | Key Vault | vault.&lt;region>.&lt;fqdn> |
 | KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(萬用字元 SSL 憑證) |  內部金鑰保存庫 |  adminvault.&lt;region>.&lt;fqdn> |
-
-### <a name="for-azure-stack-environment-on-pre-1803-versions"></a>供 Pre-1803 版本上的 Azure Stack 環境使用
-
-|部署資料夾|必要的憑證主體和主體別名 (SAN)|範圍 (每個區域)|子網域命名空間|
-|-----|-----|-----|-----|
-|公用入口網站|portal.*&lt;region>.&lt;fqdn>*|入口網站|*&lt;region>.&lt;fqdn>*|
-|管理入口網站|adminportal.*&lt;region>.&lt;fqdn>*|入口網站|*&lt;region>.&lt;fqdn>*|
-|Azure Resource Manager (公用)|management.*&lt;region>.&lt;fqdn>*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
-|Azure Resource Manager (管理員)|adminmanagement.*&lt;region>.&lt;fqdn>*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
-|ACS<sup>1</sup>|具有主體別名的一個多重子網域萬用字元憑證：<br>&#42;.blob.*&lt;region>.&lt;fqdn>*<br>&#42;.queue.*&lt;region>.&lt;fqdn>*<br>&#42;.table.*&lt;region>.&lt;fqdn>*|儲存體|blob.*&lt;region>.&lt;fqdn>*<br>table.*&lt;region>.&lt;fqdn>*<br>queue.*&lt;region>.&lt;fqdn>*|
-|KeyVault|&#42;.vault.*&lt;region>.&lt;fqdn>*<br>(萬用字元 SSL 憑證)|Key Vault|vault.*&lt;region>.&lt;fqdn>*|
-|KeyVaultInternal|&#42;.adminvault.*&lt;region>.&lt;fqdn>*<br>(萬用字元 SSL 憑證)|內部金鑰保存庫|adminvault.*&lt;region>.&lt;fqdn>*|
-|
-<sup>1</sup> ACS 憑證要求單一憑證上有三個萬用字元 SAN。 並非所有公用憑證授權單位都支援單一憑證上有多個萬用字元 SAN。 
 
 如果您使用 Azure AD 部署模式來部署 Azure Stack，您只需要求上表中所列的憑證。 不過，如果您使用 AD FS 部署模式來部署 Azure Stack，您也必須要求下表中所述的憑證：
 

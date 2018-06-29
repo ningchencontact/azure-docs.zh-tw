@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2018
 ms.author: terrylan
-ms.openlocfilehash: 7cb6927b8de07566428050e06a981c8f3afabb05
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d6117b5b071e780841f4450a205287d005e11801
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227518"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752175"
 ---
 # <a name="azure-security-overview"></a>Azure 安全性概觀
 
-Azure.com 上的 Microsoft Azure 安全性資訊網站是您 Azure 安全性問題的技術答案的位置。 如果您對 Azure 法規遵循以及 Azure 如何保護其專屬基礎結構感興趣，請瀏覽 [Microsoft 信任中心](https://www.microsoft.com/en-us/TrustCenter/)。
+Azure.com 上的 Microsoft Azure 安全性資訊網站是您 Azure 安全性問題的技術答案的位置。 如果您對 Azure 法規遵循以及 Azure 如何保護其專屬基礎結構感興趣，請瀏覽 [Microsoft 信任中心](https://microsoft.com/en-us/trustcenter/default.aspx)。
 
 我們知道安全性是雲端中的首要工作和其重要性，因為您可在其中找到精確且及時的 Azure 安全性資訊。 針對您的應用程式和服務使用 Azure 的其中一個最佳原因是可以利用各種可用的安全性工具和功能。 這些工具和功能可協助您在安全的 Azure 平台上建立安全的解決方案。
 

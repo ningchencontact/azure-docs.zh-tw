@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 8d7189ea4b01d43cea709e3300d8ed71d266f5c9
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: bfc1e8dd6acf2cba5b4622785aa3714a7ff037c9
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019410"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031799"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>安全性架構︰敏感性資料 | 風險降低 
 | 產品/服務 | 文章 |
@@ -41,7 +41,7 @@ ms.locfileid: "28019410"
 | 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | 電腦信任邊界 | 
-| **SDL 階段**               | Deployment |  
+| **SDL 階段**               | 部署 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
@@ -63,7 +63,7 @@ ms.locfileid: "28019410"
 | 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | 電腦信任邊界 | 
-| **SDL 階段**               | Deployment |  
+| **SDL 階段**               | 部署 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
@@ -258,7 +258,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Azure IaaS VM 信任邊界 | 
-| **SDL 階段**               | Deployment |  
+| **SDL 階段**               | 部署 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | [使用 Azure 磁碟加密來加密虛擬機器所使用的磁碟](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) |
@@ -291,7 +291,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Dynamics CRM | 
-| **SDL 階段**               | Deployment |  
+| **SDL 階段**               | 部署 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
@@ -302,7 +302,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Dynamics CRM | 
-| **SDL 階段**               | Deployment |  
+| **SDL 階段**               | 部署 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
@@ -313,7 +313,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Dynamics CRM | 
-| **SDL 階段**               | Deployment |  
+| **SDL 階段**               | 部署 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
@@ -410,7 +410,7 @@ Allow screen capture
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | .NET Framework 3 |
 | **屬性**              | N/A  |
-| **參考**              | [Fortify](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **參考**              | [Fortify](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_token) |
 | **步驟** | 在未加密的通道上搭配使用 UsernameToken 與純文字密碼會將密碼洩漏給攻擊者，而讓其竊取到 SOAP 訊息。 使用 UsernameToken 的服務提供者可能會接受以純文字傳送的密碼。 透過未加密通道傳送純文字密碼，會將認證洩漏給攻擊者，而讓其竊取到 SOAP 訊息。 | 
 
 ### <a name="example"></a>範例
@@ -429,7 +429,7 @@ Allow screen capture
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | 泛型、.NET Framework 3 |
 | **屬性**              | 安全性模式 - 傳輸、安全性模式 - 訊息 |
-| **參考**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx)、[Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html)、[WCF 安全性基礎概念 CoDe Magazine](http://www.codemag.com/article/0611051) |
+| **參考**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx)、[Fortify Kingdom](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_security_not_enabled)、[WCF 安全性基礎概念 CoDe Magazine](http://www.codemag.com/article/0611051) |
 | **步驟** | 尚未定義任何傳輸或訊息安全性。 傳輸訊息的應用程式若沒有傳輸或訊息安全性，就無法保證訊息的完整性或機密性。 當 WCF 安全性繫結設定為 [無] 時，會同時停用傳輸和訊息安全性。 |
 
 ### <a name="example"></a>範例

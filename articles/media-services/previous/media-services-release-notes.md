@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 62f5ae4a9152d3f1b1641cc69136bf472527ba2a
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e2512a2af05ee7101713886c3ae1b5c6c74dd3db
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942406"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018533"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒體服務版本資訊
 Azure 媒體服務的這些版本資訊彙總了舊版發行後的變更和已知問題。
@@ -170,7 +170,6 @@ Azure SDK 小組已發佈新版的 [Azure SDK for PHP](http://github.com/Azure/a
 
 如需詳細資訊，請參閱
 
-* [Media Services SDK for PHP](http://southworks.com/blog/2015/12/09/new-microsoft-azure-media-services-sdk-for-php-release-available-with-new-features-and-samples/) 部落格。
 * 以下[程式碼範例](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)可協助您快速上手：
   * **vodworkflow_aes.php**：此 PHP 檔案說明如何使用 AES-128 動態加密和金鑰傳遞服務。 其內容以[使用 AES-128 動態加密和金鑰傳遞服務](media-services-protect-with-aes128.md)中說明的 .NET 範例為基礎。
   * **vodworkflow_aes.php**：此 PHP 檔案說明如何使用 PlayReady 動態加密和授權傳遞服務。 其內容以[使用 PlayReady 和/或 Widevine 動態一般加密](media-services-protect-with-playready-widevine.md)中說明的 .NET 範例為基礎。
@@ -209,9 +208,7 @@ Azure SDK 小組已發佈新版的 [Azure SDK for PHP](http://github.com/Azure/a
 
 ## <a id="august_changes_15"></a>2015 年 8 月版本
 * 現在已有適用於 Java 0.8.0 版本的媒體服務 SDK 和新範例可供使用。 如需詳細資訊，請參閱
-  
-  * [這篇部落格文章](http://southworks.com/blog/2015/08/25/microsoft-azure-media-services-sdk-for-java-v0-8-0-released-and-new-samples-available/)
-  * [Java 範例存放庫](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+    
 * Azure 媒體播放器已更新而具有多重音訊串流支援。 如需詳細資訊，請參閱 [此部落格文章](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/)。
 
 ## <a id="july_changes_15"></a>2015 年 7 月版本

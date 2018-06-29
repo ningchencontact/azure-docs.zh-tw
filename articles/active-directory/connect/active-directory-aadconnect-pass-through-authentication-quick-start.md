@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: da3d78880a3d389c2a247f9940b708c026c96e03
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 365d9cde29292b40847ec2a0ac6f7d4011222f2c
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34591325"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028926"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory 傳遞驗證：快速入門
 
@@ -152,7 +152,7 @@ Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 
 ## <a name="next-steps"></a>後續步驟
-- [智慧鎖定](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)：了解如何在租用戶中設定智慧鎖定功能以保護使用者帳戶。
+- [智慧鎖定](../authentication/howto-password-smart-lockout.md)：了解如何在租用戶中設定智慧鎖定功能以保護使用者帳戶。
 - [目前的限制](active-directory-aadconnect-pass-through-authentication-current-limitations.md)：了解傳遞驗證支援的情節和不支援的情節。
 - [技術深入探討](active-directory-aadconnect-pass-through-authentication-how-it-works.md)：了解傳遞驗證功能的運作方式。
 - [常見問題集](active-directory-aadconnect-pass-through-authentication-faq.md)：常見問題集的答案。

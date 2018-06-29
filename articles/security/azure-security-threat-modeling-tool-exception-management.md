@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 9a8e0154faccca356c7fb8ce93e43ce67cc0aae2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 3fae9390b41d12361b820e2c37601283b37bc302
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019580"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031707"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>安全性架構︰例外狀況管理 | 風險降低 
 | 產品/服務 | 文章 |
@@ -36,7 +36,7 @@ ms.locfileid: "28019580"
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | 泛型、NET Framework 3 |
 | **屬性**              | N/A  |
-| **參考**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx)、[Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **參考**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx)、[Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_debug_information) |
 | **步驟** | Windows Communication Framework (WCF) 服務可以設定為公開偵錯資訊。 偵錯資訊不應用於生產環境。 `<serviceDebug>` 標籤可定義是否啟用 WCF 服務的偵錯資訊功能。 如果屬性 includeExceptionDetailInFaults 設為 true，來自應用程式的例外狀況資訊會傳回給用戶端。 攻擊者可以利用他們從偵錯輸出取得的其他資訊，裝載以架構、資料庫或應用程式所用其他資源做為目標的攻擊。 |
 
 ### <a name="example"></a>範例
@@ -60,7 +60,7 @@ ms.locfileid: "28019580"
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | 泛型、NET Framework 3 |
-| **參考**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx)、[Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **參考**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx)、[Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_service_enumeration) |
 | **步驟** | 對外公開的服務相關資訊可提供重要見解給攻擊者，讓其了解如何利用服務。 `<serviceMetadata>` 標籤會啟用中繼資料發佈功能。 服務中繼資料可能包含不應開放存取的敏感性資訊。 至少，請只允許受信任使用者存取中繼資料，並確定不會公開不必要的資訊。 最好是完全停用發佈中繼資料的功能。 安全的 WCF 組態不會包含 `<serviceMetadata>` 標籤。 |
 
 ## <a id="exception"></a>確定有在 ASP.NET Web API 中正確處理例外狀況
@@ -208,7 +208,7 @@ public HttpResponseMessage PostProduct(Product item)
 | 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Web 應用程式 | 
-| **SDL 階段**               | Deployment |  
+| **SDL 階段**               | 部署 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | [部署元素 (ASP.NET 設定結構描述)](https://msdn.microsoft.com/library/ms228298(VS.80).aspx) |

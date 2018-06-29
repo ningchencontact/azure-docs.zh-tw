@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/21/2018
+ms.date: 06/26/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: f3c767da249d10896ef1792ce4a5ed72ba3fa418
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 8740557471d1cc528e8b7440984c7a3c624ee693
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35302215"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017659"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>針對應用程式 Proxy 問題和錯誤訊息進行疑難排解
 如果在存取已發佈的應用程式或發佈應用程式時發生錯誤，請檢查下列選項以查看 Microsoft Azure AD 應用程式 Proxy 是否運作正常︰
@@ -40,8 +40,6 @@ ms.locfileid: "35302215"
 如果您變更路徑以包含參考的內容，但仍需要使用者登入該路徑中更深層的連結，請參閱部落格文章 [在 Azure AD 存取面板和 Office 365 應用程式啟動程式中為應用程式 Proxy 應用程式設定正確的連結](https://blogs.technet.microsoft.com/applicationproxyblog/2016/04/06/setting-the-right-link-for-application-proxy-applications-in-the-azure-ad-access-panel-and-office-365-app-launcher/)。
 
 ## <a name="connector-errors"></a>連接器錯誤
-
-請使用 [Azure AD 應用程式 Proxy 連接器連接埠測試工具](https://aadap-portcheck.connectorporttest.msappproxy.net/)，來確認您的連接器是否能夠連線到「應用程式 Proxy」服務。 至少，請確定「美國中部」區域及離您最近的區域都具有綠色勾選記號。 除此之外，綠色勾選記號越多代表恢復能力越佳。 
 
 如果在連接器精靈安裝期間註冊失敗，有兩種方式可以檢視失敗的原因。 在事件記錄檔中的 **Applications and Services Logs\Microsoft\AadApplicationProxy\Connector\Admin** 底下尋找，或執行下列 Windows PowerShell 命令：
 

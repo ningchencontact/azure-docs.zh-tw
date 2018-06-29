@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.openlocfilehash: c07105a34f6778fcd62f6f1bc1d3930f6a8bf173
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: f8478a0aef52f8e573fa300a0b1328ea9ce5129f
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714930"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030993"
 ---
 # <a name="scale-up-an-app-in-azure"></a>在 Azure 中相應增加應用程式的規模
 
@@ -98,7 +98,7 @@ ms.locfileid: "34714930"
   
     [Microsoft Azure 的虛擬機器和雲端服務大小][vmsizes]
   
-* 如需 Azure App Service 最佳作法 (包括建置可調整且具彈性的架構) 的詳細資訊，請參閱 [最佳作法：Azure App Service Web Apps](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx)。
+* 如需 Azure App Service 最佳作法 (包括建置可調整且具彈性的架構) 的詳細資訊，請參閱 [最佳作法：Azure App Service Web Apps](https://azure.microsoft.com/blog/best-practices-windows-azure-websites-waws/)。
 * 如需調整 App Service 應用程式的相關影片，請參閱下列資源：
   
   * [何時該調整 Azure 網站 - Stefan Schackow](https://azure.microsoft.com/resources/videos/azure-web-sites-free-vs-standard-scaling/)

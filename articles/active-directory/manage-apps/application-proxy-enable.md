@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 06/26/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 58bcb3cbdf389393beb58a9f50b3e77aa2b3aae8
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 0ac14f792c63ea06a484eb5b522c4d33958538ed
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34158416"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025274"
 ---
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>開始使用應用程式 Proxy 並安裝連接器
 本文將逐步引導您完成為 Azure AD 中的雲端目錄啟用 Microsoft Azure AD 應用程式 Proxy 的步驟。
@@ -30,7 +30,7 @@ ms.locfileid: "34158416"
 ## <a name="application-proxy-prerequisites"></a>應用程式 Proxy 先決條件
 您可以啟用並使用應用程式 Proxy 服務之前，必須具備：
 
-* Microsoft Azure AD [基本或進階訂用帳戶](../active-directory-whatis.md) 以及您是全域管理員的 Azure AD 目錄。
+* Microsoft Azure AD [基本或進階訂用帳戶](../fundamentals/active-directory-whatis.md) 以及您是全域管理員的 Azure AD 目錄。
 * 您可以在執行 Windows Server 2012 R2 或 2016 的伺服器上，安裝應用程式 Proxy 連接器。 伺服器必須能夠連線至雲端中的應用程式 Proxy 服務，以及您所發佈的內部部署應用程式。
   * 如需使用 Kerberos 限制委派單一登入已發佈的應用程式，這部電腦應該會加入與您要發佈的應用程式相同的 AD 網域中。 如需詳細資訊，請參閱[使用應用程式 Proxy 進行單一登入的 KCD](application-proxy-configure-single-sign-on-with-kcd.md)。
 
@@ -64,7 +64,6 @@ ms.locfileid: "34158416"
 
 4. 您的連接器必須存取 login.windows.net 和 login.microsoftonline.com 來進行註冊程序。
 
-5. 請使用 [Azure AD 應用程式 Proxy 連接器連接埠測試工具](https://aadap-portcheck.connectorporttest.msappproxy.net/)，來確認您的連接器是否能夠連線到「應用程式 Proxy」服務。 至少，請確定「美國中部」區域及離您最近的區域都具有綠色勾選記號。 除此之外，綠色勾選記號越多代表恢復能力越佳。
 
 ## <a name="install-and-register-a-connector"></a>安裝並註冊連接器
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，以系統管理員身分登入。

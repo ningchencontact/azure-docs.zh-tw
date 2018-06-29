@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 05/31/2018
 ms.author: renash
-ms.openlocfilehash: 9121726cc8500da87cf71cb1ca3035e6cc5a303b
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: c78138fa06da4d83774f9a2270263a48d404b17a
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294085"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751850"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>關於 Azure 檔案服務的常見問題集 (FAQ)
 [Azure 檔案](storage-files-introduction.md)提供雲端中完全受控的檔案共用，可透過業界標準[伺服器訊息區 (SMB) 通訊協定](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)來存取。 您可以同時在 Windows、Linux 和 macOS 的雲端或內部部署上掛接 Azure 檔案共用。 您也可以使用 Azure 檔案同步 (預覽)，在接近使用資料之處進行快速存取，藉以在 Windows Server 電腦上快取 Azure 檔案共用。
@@ -227,12 +227,12 @@ ms.locfileid: "36294085"
 
 * <a id="data-compliance-policies"></a>
 **Azure 檔案服務支援哪些資料合規性原則？**  
-   Azure 檔案服務和 Azure 儲存體的其他儲存體中所使用的服務都是在相同的儲存體架構上運作。 Azure 檔案服務會套用其他 Azure 儲存體服務中所使用的相同資料合規性原則。 如需 Azure 儲存體資料合規性的詳細資訊，您可以下載並參考 [Microsoft Azure 資料保護文件](http://go.microsoft.com/fwlink/?LinkID=398382&clcid=0x409) \(英文\)，並前往 [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx) \(英文\)。
+   Azure 檔案服務和 Azure 儲存體的其他儲存體中所使用的服務都是在相同的儲存體架構上運作。 Azure 檔案服務會套用其他 Azure 儲存體服務中所使用的相同資料合規性原則。 如需 Azure 儲存體資料合規性的詳細資訊，您可以下載並參考 [Microsoft Azure 資料保護文件](http://go.microsoft.com/fwlink/?LinkID=398382&clcid=0x409) \(英文\)，並前往 [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx) \(英文\)。
 
 ## <a name="on-premises-access"></a>內部部署存取
 * <a id="expressroute-not-required"></a>
 **我必須使用 Azure ExpressRoute 來連線到 Azure 檔案服務，還是必須在內部部署中使用 Azure 檔案同步？**  
-    編號 不需要 ExpressRoute 就能存取 Azure 檔案共用。 如果您要直接在內部部署掛接 Azure 檔案共用，只需開啟連接埠 445 (TCP 輸出) 以進行網際網路存取 (這是 SMB 用來進行通訊的連接埠)。 如果您使用 Azure 檔案同步，只需連接埠 443 (TCP 輸出) 以進行 HTTPS 存取 (不需要 SMB)。 不過，您可以將 ExpressRoute 與這些其中一個選項搭配使用。
+    否。 不需要 ExpressRoute 就能存取 Azure 檔案共用。 如果您要直接在內部部署掛接 Azure 檔案共用，只需開啟連接埠 445 (TCP 輸出) 以進行網際網路存取 (這是 SMB 用來進行通訊的連接埠)。 如果您使用 Azure 檔案同步，只需連接埠 443 (TCP 輸出) 以進行 HTTPS 存取 (不需要 SMB)。 不過，您可以將 ExpressRoute 與這些其中一個選項搭配使用。
 
 * <a id="mount-locally"></a>
 **如何在本機電腦上掛接 Azure 檔案共用？**  
@@ -333,7 +333,7 @@ ms.locfileid: "36294085"
   
 
   **我需要的檔案共用比 Azure 檔案服務目前所提供的更大。我可以提高 Azure 檔案共用的大小嗎？**  
-  編號 Azure 檔案共用的大小上限是 5 TiB。 這是目前的固定限制，我們無法調整。 我們正在研究將共用大小提高到 100 TiB 的解決方案，但目前沒有時間表。
+  否。 Azure 檔案共用的大小上限是 5 TiB。 這是目前的固定限制，我們無法調整。 我們正在研究將共用大小提高到 100 TiB 的解決方案，但目前沒有時間表。
 
 * <a id="open-handles-quota"></a>
 **多少個用戶端可以同時存取相同的檔案？**   
@@ -362,7 +362,7 @@ ms.locfileid: "36294085"
 
 * <a id="nested-shares"></a>
 **我可以設定巢狀共用嗎？也就是說，共用下的共用？**  
-    編號 檔案共用是您可以掛接的虛擬驅動程式，因此不支援巢狀共用。
+    否。 檔案共用是您可以掛接的虛擬驅動程式，因此不支援巢狀共用。
 
 * <a id="ibm-mq"></a>
 **如何將 Azure 檔案服務與 IBM MQ 搭配使用？**  

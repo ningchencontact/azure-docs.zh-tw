@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: cherylmc
-ms.openlocfilehash: 604af54d034b6b51a96ff098827e2352a163be18
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 693996595f1a1b963c96e5f59e72fe4c9ca80ff0
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23125816"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753035"
 ---
 # <a name="reset-a-vpn-gateway"></a>重設 VPN 閘道
 
@@ -75,7 +75,7 @@ Reset-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw
 
 ### <a name="resetclassic"></a>傳統部署模型
 
-**Reset-AzureVNetGateway** 是可用來重設閘道的 Cmdlet。 執行重設之前，請確認您已安裝最新版的 [Service Management (SM) PowerShell Cmdlet](https://docs.microsoft.com/powershell/azure/install-azure-ps?view=azuresmps-3.7.0)。 下列範例會重設名為 "ContosoVNet" 的虛擬網路閘道：
+**Reset-AzureVNetGateway** 是可用來重設閘道的 Cmdlet。 執行重設之前，請確認您已安裝最新版的 [Service Management (SM) PowerShell Cmdlet](https://docs.microsoft.com/en-us/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets)。 下列範例會重設名為 "ContosoVNet" 的虛擬網路閘道：
 
 ```powershell
 Reset-AzureVNetGateway –VnetName “ContosoVNet”

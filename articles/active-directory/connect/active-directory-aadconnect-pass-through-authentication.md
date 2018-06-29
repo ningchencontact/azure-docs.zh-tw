@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/29/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 37239a45cffe18478b8302ccf1ee95c8edd0423a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9b36014057eb1713b2b056cd203a099c59d9b5d4
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592155"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031765"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>使用 Azure Active Directory 傳遞驗證來進行使用者登入
 
@@ -49,7 +49,7 @@ Azure Active Directory (Azure AD) 傳遞驗證可讓您的使用者以相同密�
 - *安全*
   - 內部部署密碼絕對不會以任何形式儲存在雲端。
   - 代理程式只會從您的網路內進行輸出連線。 因此，不需要將代理程式安裝在周邊網路 (又稱做 DMZ) 中。
-  - 與 [Azure AD 條件式存取原則](../active-directory-conditional-access-azure-portal.md) (包括 Multi-Factor Authentication (MFA)) 緊密配合，並[篩除暴力密碼破解攻擊](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)，藉此保護您的使用者帳戶。
+  - 與 [Azure AD 條件式存取原則](../active-directory-conditional-access-azure-portal.md) (包括 Multi-Factor Authentication (MFA)) 緊密配合，並[篩除暴力密碼破解攻擊](../authentication/howto-password-smart-lockout.md)，藉此保護您的使用者帳戶。
 - *高可用性*
   - 可以在多部內部部署伺服器上安裝其他代理程式，以提供高可用性的登入要求。
 
@@ -64,12 +64,12 @@ Azure Active Directory (Azure AD) 傳遞驗證可讓您的使用者以相同密�
 - 您可以透過 [Azure AD Connect](active-directory-aadconnect.md) 啟用它。
 - 它會使用輕量型內部部署代理程式來接聽並回應密碼驗證要求。
 - 安裝多個代理程式就能提供高可用性的登入要求。
-- 它能[保護](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)您的內部部署帳戶，不讓其遭到雲端暴力密碼破解攻擊的威脅。
+- 它能[保護](../authentication/howto-password-smart-lockout.md)您的內部部署帳戶，不讓其遭到雲端暴力密碼破解攻擊的威脅。
 
 ## <a name="next-steps"></a>後續步驟
 
 - [**快速入門**](active-directory-aadconnect-pass-through-authentication-quick-start.md) - 開始使用 Azure AD 傳遞驗證。
-- [**智慧鎖定**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) - 在租用戶中設定智慧鎖定功能來保護使用者帳戶。
+- [**智慧鎖定**](../authentication/howto-password-smart-lockout.md) - 在租用戶中設定智慧鎖定功能來保護使用者帳戶。
 - [**目前的限制**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - 了解支援的情節和不支援的情節。
 - [**技術性深入探討**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) - 了解這項功能的運作方式。
 - [**常見問題集**](active-directory-aadconnect-pass-through-authentication-faq.md) - 常見問題集的答案。

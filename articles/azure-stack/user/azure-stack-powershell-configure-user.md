@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 5/15/2018
 ms.author: mabrigg
 ms.reviewer: Balsu.G
-ms.openlocfilehash: 2655b682d35dd1879c649ed58d524ecd80808896
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: bcd1c53221028a852550fa429abcb9f8e9523ed4
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258017"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752416"
 ---
 # <a name="configure-the-azure-stack-users-powershell-environment"></a>設定 Azure Stack 使用者的 PowerShell 環境
 
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 使用本文中的指示，為 Azure Stack 使用者設定 PowerShell 環境。
-設定環境之後，您可以使用 PowerShell 來管理 Azure Stack 資源。 例如，您可以使用 PowerShell 來訂閱產品、建立虛擬機器及部署 Azure Resource Manager 範本。
+設定環境之後，您可以使用 PowerShell 來管理 Azure Stack 資源。 例如，您可以使用 PowerShell 來訂閱供應項目、建立虛擬機器及部署 Azure Resource Manager 範本。
 
 >[!NOTE]
 >本文的適用範圍為 Azure Stack 使用者環境。 如果想要針對雲端操作員環境設定 PowerShell，請參閱[設定 Azure Stack 操作員的 PowerShell 環境](../azure-stack-powershell-configure-admin.md)一文。
@@ -46,7 +46,6 @@ ms.locfileid: "34258017"
 務必使用 Azure Stack 組態中的值取代下列指令碼變數：
 
 * AAD 租用戶名稱
-* GraphAudience 端點
 * ArmEndpoint
 
 ### <a name="azure-active-directory-aad-based-deployments"></a>以 Azure Active Directory (AAD) 為基礎的驗證
@@ -59,18 +58,10 @@ ms.locfileid: "34258017"
   # For Azure Stack development kit, this value is set to https://management.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
-  # For Azure Stack development kit, this value is set to https://graph.windows.net/. To get this value for Azure Stack integrated systems, contact your service provider.
-  $GraphAudience = "<GraphAudience endpoint for your environment>"
-
   # Register an AzureRM environment that targets your Azure Stack instance
   Add-AzureRMEnvironment `
     -Name "AzureStackUser" `
     -ArmEndpoint $ArmEndpoint
-
-  # Set the GraphEndpointResourceId value
-  Set-AzureRmEnvironment `
-    -Name "AzureStackUser" `
-    -GraphAudience $GraphAudience
 
   # Get the Active Directory tenantId that is used to deploy Azure Stack
   $TenantID = Get-AzsDirectoryTenantId `
@@ -93,19 +84,10 @@ ms.locfileid: "34258017"
   # For Azure Stack development kit, this value is set to https://management.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
-  # For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
-  $GraphAudience = "<GraphAudience endpoint for your environment>"
-
   # Register an AzureRM environment that targets your Azure Stack instance
   Add-AzureRMEnvironment `
     -Name "AzureStackUser" `
     -ArmEndpoint $ArmEndpoint
-
-  # Set the GraphEndpointResourceId value
-  Set-AzureRmEnvironment `
-    -Name "AzureStackUser" `
-    -GraphAudience $GraphAudience `
-    -EnableAdfsAuthentication:$true
 
   # Get the Active Directory tenantId that is used to deploy Azure Stack
   $TenantID = Get-AzsDirectoryTenantId `

@@ -13,19 +13,15 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 91887bad9c3ca976612522c161663fb0b35f587c
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 248967f736fcd10cf398917d3cd1e2760537df7c
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266918"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051979"
 ---
 # <a name="reconfigure-the-azure-ssis-integration-runtime"></a>重新設定 Azure-SSIS 整合執行階段
 本文說明如何重新設定現有的 Azure-SSIS 整合執行階段。 若要了解如何在 Azure Data Factory 建立 Azure-SSIS 整合執行階段 (IR)，請瀏覽[建立 Azure SSIS 整合執行階段](create-azure-ssis-integration-runtime.md)，。  
-
-> [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用 Data Factory 服務的 1 版 (正式推出版本 (GA))，請參閱 [Data Factory 第 1 版文件](v1/data-factory-introduction.md)。
-
 
 ## <a name="data-factory-ui"></a>Data Factory UI 
 您可以使用 Data Factory UI 來停止、編輯/重新設定或刪除 Azure-SSIS IR。 

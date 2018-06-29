@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: alkohli
-ms.openlocfilehash: ed928452946b871ee9192bda82fcbf205b96e6e0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d324025a50346415de8232af4adc487a5d907331
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659230"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031391"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure 匯入/匯出服務：常見問題集 
 以下是當您使用 Azure 匯入/匯出服務將資料轉送至 Azure 儲存體時可能會遇到的問題與解答。 問題和解答可分為下列幾個類別：
@@ -44,18 +44,18 @@ ms.locfileid: "34659230"
 
 ### <a name="can-i-purchase-drives-for-importexport-jobs-from-microsoft"></a>我可以為了匯入/匯出作業向 Microsoft 購買磁碟機嗎？
 
-不行。 您必須寄送自己的磁碟機來進行匯入和匯出作業。
+否。 您必須寄送自己的磁碟機來進行匯入和匯出作業。
 
 
 ## <a name="preparing-disks-for-importexport"></a>準備匯入/匯出要用的磁碟
 
 ### <a name="can-i-skip-the-drive-preparation-step-for-an-import-job-can-i-prepare-a-drive-without-copying"></a>我可以略過匯入作業的磁碟機準備步驟嗎？ 我可以在不進行複製的情況下準備磁碟機嗎？
 
-不行。 用來匯入資料的任何磁碟機，都必須使用 Azure WAImportExport 工具備妥。 並使用此工具將資料複製到磁碟機。
+否。 用來匯入資料的任何磁碟機，都必須使用 Azure WAImportExport 工具備妥。 並使用此工具將資料複製到磁碟機。
 
 ### <a name="do-i-need-to-perform-any-disk-preparation-when-creating-an-export-job"></a>我需要在建立匯出作業時執行任何磁碟準備工作嗎？
 
-不用。 但建議先執行一些前置檢查。 若要確認所需的磁碟數目，請使用 WAImportExport 工具的 PreviewExport 命令。 如需詳細資訊，請參閱 [Previewing Drive Usage for an Export Job (預覽匯出作業的磁碟機使用量)](https://msdn.microsoft.com/library/azure/dn722414.aspx)。 此命令可根據您要使用的磁碟機大小，協助您預覽所選 Blob 的磁碟機使用情況。 也請確認您可以對為了匯出作業而寄送的硬碟進行讀取和寫入。
+否。 但建議先執行一些前置檢查。 若要確認所需的磁碟數目，請使用 WAImportExport 工具的 PreviewExport 命令。 如需詳細資訊，請參閱 [Previewing Drive Usage for an Export Job (預覽匯出作業的磁碟機使用量)](https://msdn.microsoft.com/library/azure/dn722414.aspx)。 此命令可根據您要使用的磁碟機大小，協助您預覽所選 Blob 的磁碟機使用情況。 也請確認您可以對為了匯出作業而寄送的硬碟進行讀取和寫入。
 
 ## <a name="importexport-jobs"></a>匯入/匯出作業
 
@@ -104,7 +104,7 @@ Azure 資料中心會將不符支援需求的磁碟機退回給您。 如果包�
 
 ### <a name="does-the-service-format-the-drives-before-returning-them"></a>服務會在退回磁碟機前進行格式化嗎？
 
-不會。 所有磁碟機都使用 BitLocker 加密。
+否。 所有磁碟機都使用 BitLocker 加密。
 
 ### <a name="how-can-i-access-data-that-is-imported-by-this-service"></a>如何存取這個服務所匯入的資料？
 
@@ -119,7 +119,7 @@ Azure 資料中心會將不符支援需求的磁碟機退回給您。 如果包�
 視情況而定。 準備磁碟機時，您可以使用資料集 CSV 檔案中名為 /Disposition:<rename|no-overwrite|overwrite> 的欄位，指定是否應該覆寫目的地檔案還是予以忽略。 根據預設，服務將為新檔案重新命名，而不會覆寫現有的 Blob 或檔案。
 
 ### <a name="is-the-waimportexport-tool-compatible-with-32-bit-operating-systems"></a>WAImportExport 工具與 32 位元作業系統相容嗎？
-編號 WAImportExport 工具只與 64 位元 Windows 作業系統相容。 如需可支援作業系統的完整清單，請移至[支援的作業系統]()。 
+否。 WAImportExport 工具只與 64 位元 Windows 作業系統相容。 如需可支援作業系統的完整清單，請移至[支援的作業系統]()。 
 
 
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>Azure 匯入/匯出所支援的最大區塊 Blob 和分頁 Blob 大小是多少？
@@ -135,7 +135,7 @@ Azure 資料中心會將不符支援需求的磁碟機退回給您。 如果包�
     ```
     WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
     ```
-- 如果使用 [WAImportExport V2](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip)，請指定 "AlreadyEncrypted" 並提供磁碟機集 CSV 中的金鑰。
+- 如果使用 [WAImportExport V2](https://www.microsoft.com/en-us/download/details.aspx?id=55280)，請指定 "AlreadyEncrypted" 並提供磁碟機集 CSV 中的金鑰。
     ```
     DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
     G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |

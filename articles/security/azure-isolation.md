@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 6f01c2938462f3912928e183fcec215a52a3ee48
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: b112eee0e33654657bc6a57eec528c8a93bb077a
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010875"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018402"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 公用雲端中的隔離
 ##  <a name="introduction"></a>簡介
@@ -121,7 +121,7 @@ Microsoft 與公認的稽核公司只會基於合法商業用途，定期驗證�
 
 如果您刪除任何資料，Microsoft Azure 即會刪除該資料，包括任何快取或備份的複本。 針對範圍內的服務，將在保留期間結束後 90 天內執行該項刪除 (範圍內的服務定義於 [Online Services 條款 (英文)](http://aka.ms/Online-Services-Terms) 的＜資料處理條款＞一節中)。
 
-如果用於儲存的磁碟機發生硬體故障，在 Microsoft 將它送回給製造商進行替換或修復之前，會先安全地[清除或終結 (英文)](https://www.microsoft.com/trustcenter/Privacy/You-own-your-data) 它。 磁碟機上的資料會加以覆寫，以確保無法透過任何方式復原資料。
+如果用於儲存的磁碟機發生硬體故障，在 Microsoft 將它送回給製造商進行替換或修復之前，會先安全地[清除或終結 (英文)](https://microsoft.com/en-us/trustcenter/privacy/you-own-your-data) 它。 磁碟機上的資料會加以覆寫，以確保無法透過任何方式復原資料。
 
 ## <a name="compute-isolation"></a>計算隔離
 Microsoft Azure 提供各種雲端式計算服務，其中包含各式各樣的計算執行個體和服務，可自動相應增加或縮小以符合您應用程式或企業的需求。 這些計算執行個體與服務會在多個層級上提供隔離，以保護資料而不會犧牲客戶所要求之組態中的彈性。
@@ -346,7 +346,8 @@ Azure 部署具有多層網路隔離。 下圖顯示 Azure 提供給客戶的各
 
 **流量隔離**：[虛擬網路](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)是 Azure 平台上的流量隔離界限。 一個虛擬網路中的虛擬機器 (VM) 無法與不同虛擬網路中的 VM 直接通訊，即使兩個虛擬網路是由同一位客戶所建立也一樣。 隔離是很重要的屬性，可確保客戶 VM 和通訊仍然隱蔽於虛擬網路內。
 
-[子網路](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#subnets)使用以 IP 範圍為基礎的虛擬網路，來提供額外的隔離層級。 虛擬網路中的 IP 位址，您可以將虛擬網路分成多個子網路以便進行組織和獲得安全性。 部署至 VNet 內 (相同或不同) 子網路的 VM 和 PaaS 角色執行個體不需要進行額外設定就可以彼此通訊。 您也可以設定[網路安全性群組 (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#network-security-groups-nsg)，根據 NSG 之存取控制清單 (ACL) 中設定的規則，來允許或拒絕移至 VM 執行個體的網路流量。 NSG 可與子網路或該子網路內的個別 VM 執行個體相關聯。 當 NSG 與子網路相關聯時，ACL 規則便會套用至該子網路中的所有 VM 執行個體。
+
+  [子網路](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#subnets)使用以 IP 範圍為基礎的虛擬網路，來提供額外的隔離層級。 虛擬網路中的 IP 位址，您可以將虛擬網路分成多個子網路以便進行組織和獲得安全性。 部署至 VNet 內 (相同或不同) 子網路的 VM 和 PaaS 角色執行個體不需要進行額外設定就可以彼此通訊。 您也可以設定[網路安全性群組 (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#network-security-groups-nsg)，根據 NSG 之存取控制清單 (ACL) 中設定的規則，來允許或拒絕移至 VM 執行個體的網路流量。 NSG 可與子網路或該子網路內的個別 VM 執行個體相關聯。 當 NSG 與子網路相關聯時，ACL 規則便會套用至該子網路中的所有 VM 執行個體。
 
 ## <a name="next-steps"></a>後續步驟
 
