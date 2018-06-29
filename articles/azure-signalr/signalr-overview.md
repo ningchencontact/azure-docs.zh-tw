@@ -21,7 +21,7 @@ ms.locfileid: "33868104"
 ---
 # <a name="what-is-azure-signalr-service"></a>什麼是 Azure SignalR 服務
 
-Microsoft Azure SignalR 服務目前處於[公用預覽](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)狀態。
+Microsoft Azure SignalR 服務目前處於[公開預覽](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)狀態。
 
 Azure SignalR 服務是以 [ASP.NET Core SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction) 為基礎的 Azure 服務。 ASP.NET Core SignalR 是一個[開放原始碼程式庫](https://github.com/aspnet/signalr)，可以簡化透過 HTTP 將即時 Web 功能新增到應用程式的流程。 此即時功能可讓 Web 伺服器將內容更新推送至已連線的用戶端。 因此，用戶端可以更新而不需要輪詢伺服器或送出新的 HTTP 更新要求。
 
@@ -61,7 +61,7 @@ ASP.NET Core SignalR 是前一個版本重新撰寫的版本。 因此，ASP.NET
 
 ## <a name="how-does-it-scale"></a>它如何調整？
 
-SignalR 通常隨 SQL Server、Azure 服務匯流排或 Redis 快取調整。 Azure SignalR 服務會為您處理調整方式。 效能和成本與這些方法相當，但沒有處理這些其他服務的複雜性。 您只需要更新服務的單位計數即可。 每個服務單位最高支援 1000 個用戶端連線。
+SignalR 通常隨 SQL Server、Azure Service Bus 或 Redis Cahce 調整。 Azure SignalR 服務會為您處理調整方式。 效能和成本與這些方法相當，但沒有處理這些其他服務的複雜性。 您只需要更新服務的單位計數即可。 每個服務單位最高支援 1000 個用戶端連線。
 
 ## <a name="next-steps"></a>後續步驟
 * [快速入門：使用 Azure SignalR 建立聊天室](signalr-quickstart-dotnet-core.md)  
