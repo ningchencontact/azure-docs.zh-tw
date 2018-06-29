@@ -15,12 +15,12 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: befdd7af0a91623af4c5ea0fd957141cad84eb53
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d8d07e2ba58b7067d59baf5f0a4ea3228d6aabbc
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297864"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331167"
 ---
 # <a name="add-and-run-custom-code-for-logic-apps-through-azure-functions"></a>透過 Azure Functions 新增並執行適用於 Logic Apps 的自訂程式碼
 
@@ -63,7 +63,7 @@ function start(req, res){
 
 ### <a name="create-a-function-from-logic-app-designer"></a>從邏輯應用程式設計工具建立函式
 
-您也可以從設計工具中建立 node.js webhook 函式。 首先，選取 [我的區域中的 Azure Functions]  ，然後選擇適用於您的函數的容器。 如果您還沒有容器，就必須從 [Azure Functions 入口網站](https://functions.azure.com/signin)建立一個。 然後選取 建立新的) 。  
+您也可以從設計工具中建立 node.js webhook 函式。 首先，選取 [我的區域中的 Azure Functions]  ，然後選擇適用於您的函數的容器。 如果您還沒有容器，就必須從 [Azure Functions 入口網站](https://functions.azure.com/)建立一個。 然後選取 建立新的) 。  
 
 若要根據您想要計算的資料來產生範本，請指定您打算傳入函數的內容物件。 這個物件必須是 JSON 物件。 例如，如果您從 FTP 動作傳入檔案內容，內容承載可能看起來如下範例：
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 774d678c00b830f3932455c5b79fb44bde284d91
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: b1485ff933df7991e1c112981ae10d93bf5613da
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895626"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061536"
 ---
 # <a name="azure-network-security"></a>Azure 網路安全性
 
@@ -27,7 +27,7 @@ ms.locfileid: "33895626"
 
 Microsoft Azure 提供客戶資料的機密性、完整性和可用性，同時也能釐清責任。 為了協助您從客戶的觀點深入了解如何在 Microsoft Azure 內實作一組網路安全性控制，因而編寫了本文＜Azure 網路安全性＞來提供可透過 Microsoft Azure 取得之網路安全性控制的完整介紹。
 
-這份文件旨在說明您可以設定的各種網路控制，以增強您在 Azure 中部署之解決方案的安全性。 如果您對於 Microsoft 如何保護 Azure 平台本身的網路網狀架構有興趣，請參閱 [Microsoft 信任中心](https://www.microsoft.com/trustcenter/security/azure-security)的 Azure 安全性一節。
+這份文件旨在說明您可以設定的各種網路控制，以增強您在 Azure 中部署之解決方案的安全性。 如果您對於 Microsoft 如何保護 Azure 平台本身的網路網狀架構有興趣，請參閱 [Microsoft 信任中心](https://microsoft.com/en-us/trustcenter/cloudservices/azure)的 Azure 安全性一節。
 
 ## <a name="azure-platform"></a>Azure 平台
 

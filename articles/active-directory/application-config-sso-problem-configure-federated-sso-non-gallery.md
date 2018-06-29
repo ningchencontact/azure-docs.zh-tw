@@ -3,22 +3,23 @@ title: 為不在資源庫內的應用程式設定同盟單一登入時遇到的�
 description: 解決您可能會在為未列於 Azure AD 應用程式庫中的自訂 SAML 應用程式設定同盟單一登入時遇到的一些常見問題
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 1990f6595be86d7f3a50f6c764a855aedf2cbcbf
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.author: barbkess
+ms.openlocfilehash: 36262320a5a8457b22cbe9fe9d902fda26b6609c
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34052553"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331099"
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-a-non-gallery-application"></a>為不在資源庫內的應用程式設定同盟單一登入時遇到的問題
 

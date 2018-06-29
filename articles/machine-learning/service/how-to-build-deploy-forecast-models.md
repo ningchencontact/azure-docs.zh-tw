@@ -3,18 +3,18 @@ title: 使用適用於預測的 Azure Machine Learning 套件，建置和部署�
 description: 了解如何使用適用於預測的 Azure Machine Learning 套件，建置、定型、測試和部署預測模型。
 services: machine-learning
 ms.service: machine-learning
-ms.component: service
+ms.component: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: mattcon
 author: matthewconners
 ms.date: 05/07/2018
-ms.openlocfilehash: 0891f49da479b4209c305ebb532b053d85a7b2a6
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 320a7cf4a34657138c9096cdc4b573170be376e9
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833524"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37034602"
 ---
 # <a name="build-and-deploy-forecasting-models-with-azure-machine-learning"></a>使用 Azure Machine Learning 建置和部署預測模型
 
@@ -336,7 +336,7 @@ print('{} time series in the data frame.'.format(nseries))
 
 此資料在資料框架中包含大約 250 種不同的 store 及 brand 組合。 每個組合都會定義其本身的銷售時間序列。 
 
-您可以使用 [TimeSeriesDataFrame](https://docs.microsoft.com/python/api/ftk.dataframets.timeseriesdataframe) 類別，以方便在單一資料結構中使用「粒紋」建立多個序列的模型。 粒紋是由 `store` 和 `brand` 欄所指定。
+您可以使用 [TimeSeriesDataFrame](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest) 類別，以方便在單一資料結構中使用「粒紋」建立多個序列的模型。 粒紋是由 `store` 和 `brand` 欄所指定。
 
 「粒紋」和「群組」之間的差異是，粒紋在真實世界中永遠具有實質上的意義，但群組則不一定。 如果使用者認為此群組可協助改善模型效能，內部套件函式就會使用群組，從多個時間序列建置單一模型。 根據預設，群組設定為等於粒紋，而且系統會為每個粒紋建置單一模型。 
 
@@ -498,7 +498,7 @@ whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
 
 
 
-[TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/en-us/python/api/ftk.dataframets.timeseriesdataframe#ts-report) 函式會產生時間序列資料框架的完整報告。 此報告同時包含一般資料描述，以及時間序列資料專用的統計資料。 
+[TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#ts-report) 函式會產生時間序列資料框架的完整報告。 此報告同時包含一般資料描述，以及時間序列資料專用的統計資料。 
 
 
 ```python
@@ -887,14 +887,14 @@ whole_tsdf.head()
 
 ## <a name="preprocess-data-and-impute-missing-values"></a>預先處理資料，並插補遺漏的值
 
-從使用 [ftk.tsutils.last_n_periods_split](https://docs.microsoft.com/python/api/ftk.tsutils) 公用程式函式將資料分割成定型集和測試集開始。 產生的測試集包含每個時間序列的最後 40 個觀察值。 
+從使用 [ftk.tsutils.last_n_periods_split](https://docs.microsoft.com/en-us/python/api/ftk.ts_utils?view=azure-ml-py-latest) 公用程式函式將資料分割成定型集和測試集開始。 產生的測試集包含每個時間序列的最後 40 個觀察值。 
 
 
 ```python
 train_tsdf, test_tsdf = last_n_periods_split(whole_tsdf, 40)
 ```
 
-基本時間序列模型需要連續的時間序列。 請檢查序列是否規則，也就是說，它們是否使用 [check_regularity_by_grain](https://docs.microsoft.compython/api/ftk.dataframets.timeseriesdataframe) 函式，在固定間隔針對時間索引進行取樣。
+基本時間序列模型需要連續的時間序列。 請檢查序列是否規則，也就是說，它們是否使用 [check_regularity_by_grain](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#check-regularity-by-grain) 函式，在固定間隔針對時間索引進行取樣。
 
 
 ```python
@@ -969,7 +969,7 @@ print(ts_regularity[ts_regularity['regular'] == False])
     [213 rows x 2 columns]
     
 
-您可以看到大部分的序列 (249 個序列中有 213 個序列) 都不規則。 需要[插補轉換](https://docs.microsoft.com/python/api/ftk.transforms.tsimputer.timeseriesimputer)才能填入遺漏的銷售數量值。 雖然有許多插補選項，但下列範例程式碼會使用線性插補。
+您可以看到大部分的序列 (249 個序列中有 213 個序列) 都不規則。 需要[插補轉換](https://docs.microsoft.com/en-us/python/api/ftk.transforms.ts_imputer?view=azure-ml-py-latest)才能填入遺漏的銷售數量值。 雖然有許多插補選項，但下列範例程式碼會使用線性插補。
 
 
 ```python
@@ -1035,7 +1035,7 @@ arima_model = Arima(oj_series_freq, arima_order)
 
 ### <a name="combine-multiple-models"></a>結合多個模型
 
-[ForecasterUnion](https://docs.microsoft.com/python/api/ftk.models.forecasterunion.forecasterunion) 估算器可讓您結合多個估算器，並對其使用一行程式碼進行調整/預測。
+[ForecasterUnion](https://docs.microsoft.com/en-us/python/api/ftk.models.forecaster_union.forecasterunion?view=azure-ml-py-latest) 估算器可讓您結合多個估算器，並對其使用一行程式碼進行調整/預測。
 
 
 ```python
@@ -1249,7 +1249,7 @@ print(train_feature_tsdf.head())
 
  **RegressionForecaster**
 
-[RegressionForecaster](https://docs.microsoft.com/python/api/ftk.models.regressionforecaster.regressionforecaster) 函式會包裝 sklearn 迴歸估算器，以便針對 TimeSeriesDataFrame 進行定型。 已包裝的預測器還可以將每個群組 (在此案例中為 store) 放入相同的模型。 預測器可以針對被視為類似，而且可以集中在一起的一組序列，學習一種模型。 適用於一組序列的一個模型通常會使用較長序列中的資料來改善短序列的預測。 您可以將這些模型取代為程式庫中支援迴歸的其他任何模型。 
+[RegressionForecaster](https://docs.microsoft.com/en-us/python/api/ftk.models.regression_forecaster.regressionforecaster?view=azure-ml-py-latest) 函式會包裝 sklearn 迴歸估算器，以便針對 TimeSeriesDataFrame 進行定型。 已包裝的預測器還可以將每個群組 (在此案例中為 store) 放入相同的模型。 預測器可以針對被視為類似，而且可以集中在一起的一組序列，學習一種模型。 適用於一組序列的一個模型通常會使用較長序列中的資料來改善短序列的預測。 您可以將這些模型取代為程式庫中支援迴歸的其他任何模型。 
 
 
 ```python

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a70f02fca5ebf575bc009623c3af648a5a80fd70
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 358827722e8d77cd91410fae842ad2ba99967d98
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32153739"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028892"
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>使用 Linux VM 受控服務識別 (MSI) 來存取 Azure Data Lake Store
 
@@ -190,7 +190,7 @@ Azure Data Lake Store 原生支援 Azure AD 驗證，因此可以直接接受使
 - 如需 MSI 的概觀，請參閱[受控服務識別概觀](msi-overview.md)。
 - Data Lake Store 使用 Azure Resource Manager 執行管理作業。  如需有關使用 VM MSI 向 Resource Manager 驗證的詳細資訊，請閱讀[使用 Linux VM 受控服務識別 (MSI) 存取 Resource Manager](../managed-service-identity/msi-tutorial-linux-vm-access-arm.md)。
 - 深入了解[使用 Azure Active Directory 向 Data Lake Store 進行驗證](~/articles/data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)。
-- 深入了解[使用 REST API 在 Azure Data Lake Store 上進行檔案系統作業](~/articles/data-lake-store/data-lake-store-data-operations-rest-api.md)或 [WebHDFS 檔案系統 API](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis.md) \(英文\)。
+- 深入了解[使用 REST API 在 Azure Data Lake Store 上進行檔案系統作業](~/articles/data-lake-store/data-lake-store-data-operations-rest-api.md)或 [WebHDFS 檔案系統 API](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis) \(英文\)。
 - 深入了解 [Data Lake Store 中的存取控制](~/articles/data-lake-store/data-lake-store-access-control.md)。
 
 使用下列意見區段來提供意見反應，並協助我們改善及設計我們的內容。

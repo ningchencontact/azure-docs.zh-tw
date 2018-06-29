@@ -25,7 +25,7 @@ ms.locfileid: "34724253"
 
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
-iDNS 是 Azure Stack 網路功能，可讓您解析外部 DNS 名稱 (例如，http://www.bing.com.))，也可讓您註冊內部虛擬網路名稱。 如此一來，您就可以依名稱 (而非 IP 位址) 解析相同虛擬網路上的 VM。 此方法不需要提供自訂 DNS 伺服器項目。 如需 DNS 的詳細資訊，請參閱 [Azure DNS 概觀](https://docs.microsoft.com/en-us/azure/dns/dns-overview)。
+iDNS 是 Azure Stack 網路功能，可讓您解析外部 DNS 名稱 (例如，http://www.bing.com.) ，也可讓您註冊內部虛擬網路名稱。 如此一來，您就可以依名稱 (而非 IP 位址) 解析相同虛擬網路上的 VM。 此方法不需要提供自訂 DNS 伺服器項目。 如需 DNS 的詳細資訊，請參閱 [Azure DNS 概觀](https://docs.microsoft.com/en-us/azure/dns/dns-overview)。
 
 ## <a name="what-does-idns-do"></a>iDNS 的用途為何？
 

@@ -21,7 +21,7 @@ ms.locfileid: "34663998"
 
 3. 在搜尋方塊中，輸入 **Mobile Apps**。
 
-    [![已醒目提示 [Mobile Apps 快速入門] 的 Azure 入口網站][quickstart]](./media/app-service-mobile-dotnet-backend-create-new-service/search-mobile-apps-quickstart-zoom.png#lightbox)
+    [![Azure portal with Mobile Apps Quickstart highlighted][quickstart]](./media/app-service-mobile-dotnet-backend-create-new-service/search-mobile-apps-quickstart-zoom.png#lightbox)
 
 4. 在結果清單中，選取 [Mobile Apps 快速入門]，然後選取 [建立]。
 
@@ -29,7 +29,7 @@ ms.locfileid: "34663998"
 
 6. 在 [資源群組] 下，選取現有的資源群組或建立新的資源群組 (使用與應用程式相同的名稱)。
 
-7. 按一下頁面底部的 [新增] 。 等候幾分鐘的時間來成功地部署服務，然後再繼續進行。 監看狀態更新入口網站標頭中的 [通知] (鈴鐺) 圖示。
+7. 按一下頁面底部的 [新增] 。 等候幾分鐘的時間來成功地部署服務，然後再繼續進行。 監看狀態更新入口網站標頭中的 [通知] \(鈴鐺) 圖示。
 
 <!-- Images. -->
 [quickstart]: ./media/app-service-mobile-dotnet-backend-create-new-service/search-mobile-apps-quickstart.png

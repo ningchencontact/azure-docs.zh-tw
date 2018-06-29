@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/23/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 89fcd88643bd793935e7476ef32641ffa5ff4713
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 6bc845e4ec329d308ed87770d0dec6a7d5e447c7
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299788"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030944"
 ---
 # <a name="scenario-trigger-a-logic-app-with-azure-functions-and-azure-service-bus"></a>案例：使用 Azure Functions 和 Azure 服務匯流排觸發邏輯應用程式
 
@@ -39,7 +39,7 @@ ms.locfileid: "35299788"
 ## <a name="build-the-function"></a>建置函數
 接著，您必須建立一個函數，以做為觸發程序並接聽佇列。
 
-1. 在 [Azure Functions 入口網站](https://functions.azure.com/signin)中，依序選取 [新增函數] 與 [ServiceBusQueueTrigger - C#] 範本。
+1. 在 [Azure Functions 入口網站](https://functions.azure.com/)中，依序選取 [新增函數] 與 [ServiceBusQueueTrigger - C#] 範本。
    
     ![Azure Functions 入口網站][2]
 2. 設定服務匯流排佇列的連接，其可使用服務匯流排 SDK `OnMessageReceive()` 接聽程式。
