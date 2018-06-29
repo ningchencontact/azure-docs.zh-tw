@@ -23,6 +23,8 @@
       href: monitoring-data-sources.md
     - name: Azure 監視器
       href: monitoring-overview-azure-monitor.md
+    - name: 代理程式
+      href: ../monitoring/monitoring-overview-azure-agents.md
     - name: 度量
       href: monitoring-overview-metrics.md
     - name: Autoscale
