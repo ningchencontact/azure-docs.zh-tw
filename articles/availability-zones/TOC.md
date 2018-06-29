@@ -22,7 +22,7 @@
 ### 虛擬機器擴展集
 #### [在可用性區域中建立擴展集](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 
-### 負載平衡器
+### Load Balancer
 #### [何謂負載平衡器？](../load-balancer/load-balancer-standard-overview.md)
 #### [Load Balancer 標準和可用性區域](../load-balancer/load-balancer-standard-availability-zones.md)
 
@@ -42,6 +42,18 @@
 
 ### 儲存體
 #### [區域備援儲存體](../storage/common/storage-redundancy-zrs.md)
+
+### 事件中樞
+#### [事件中樞地理災害復原](../event-hubs/event-hubs-geo-dr.md#availability-zones-preview)
+
+### 服務匯流排
+#### [服務匯流排地理災害復原](../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview)
+
+### VPN 閘道
+#### [建立區域備援虛擬網路閘道](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
+
+### ExpressRoute
+#### [建立區域備援虛擬網路閘道](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
 
 # 災害復原
 ## [使用 Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/)

@@ -1,4 +1,4 @@
-- name: Data Factory V2 文件
+- name: Data Factory 文件
   href: index.yml
 - name: 切換至版本 1 的文件
   href: v1/data-factory-introduction.md
@@ -6,7 +6,7 @@
   items:
     - name: Data Factory 簡介
       href: introduction.md
-    - name: 比較版本 1 和 2
+    - name: 比較目前版本與版本 1
       href: compare-versions.md
 - name: 快速入門
   expanded: true
@@ -138,6 +138,8 @@
           href: connector-azure-blob-storage.md
         - name: Azure Cosmos DB
           href: connector-azure-cosmos-db.md
+        - name: Azure Data Lake 儲存體
+          href: connector-azure-data-lake-storage.md
         - name: Azure Data Lake Store
           href: connector-azure-data-lake-store.md
         - name: 適用於 MySQL 的 Azure 資料庫
@@ -275,6 +277,8 @@
         - name: 複製資料工具
           href: copy-data-tool.md
           items: null
+        - name: 載入 Data Lake Store
+          href: load-azure-data-lake-storage-gen2.md
         - name: 載入 Azure SQL 資料倉儲
           href: load-azure-sql-data-warehouse.md
         - name: 載入 Data Lake Store

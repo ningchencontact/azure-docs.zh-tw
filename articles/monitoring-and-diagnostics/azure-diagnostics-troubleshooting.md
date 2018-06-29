@@ -118,7 +118,7 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 #### <a name="is-the-host-generating-data"></a>主機是否正在產生資料？
 - **效能計數器**：開啟 Perfmon 並檢查計數器。
 
-- **追蹤記錄檔**：從遠端存取 VM，並將 TextWriterTraceListener 新增至應用程式的組態檔。  請參閱http://msdn.microsoft.com/library/sk36c28t.aspx設定文字接聽程式。  確定 `<trace>` 元素具有 `<trace autoflush="true">`。<br />
+- **追蹤記錄檔**：從遠端存取 VM，並將 TextWriterTraceListener 新增至應用程式的組態檔。  請參閱 http://msdn.microsoft.com/library/sk36c28t.aspx 設定文字接聽程式。  確定 `<trace>` 元素具有 `<trace autoflush="true">`。<br />
 如果未看見正在產生追蹤記錄檔，請參閱[關於遺漏追蹤記錄檔的詳細資訊](#more-about-trace-logs-missing)。
 
 - **ETW 追蹤**：從遠端存取 VM 並安裝 PerfView。  在 PerfView 中執行 [File] \(檔案\) > [User Command] \(使用者命令\) > [Listen etwprovder1] \(接聽 etwprovder1\) > [etwprovider2]，依此類推。 **Listen** 命令會區分大小寫，而且在以逗號區隔的 ETW 提供者清單之間不能有空格。 如果命令執行失敗，您可以選取 Perfview 工具右下方的 [Log] \(記錄\) 按鈕，即可查看已嘗試執行的動作與執行結果。  如果輸入正確，就會跳出新的視窗。 在幾秒鐘內，就會開始看到 ETW 追蹤。

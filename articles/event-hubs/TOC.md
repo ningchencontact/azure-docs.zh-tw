@@ -36,6 +36,8 @@
 ### [使用 Apache Flink 搭配適用於 Kafka 生態系統的事件中樞](event-hubs-kafka-flink-tutorial.md)
 ### [使用 Akka Streams 搭配適用於 Kafka 生態系統的事件中樞](event-hubs-kafka-akka-streams-tutorial.md)
 ## 開發
+### [IP 連線篩選](event-hubs-ip-filtering.md)
+### [虛擬網路服務端點](event-hubs-service-endpoints.md)
 ### [使用 .NET Framework 傳送事件](event-hubs-dotnet-framework-getstarted-send.md)
 ### [使用 .NET Framework 接收事件](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [可用的 API](event-hubs-api-overview.md)

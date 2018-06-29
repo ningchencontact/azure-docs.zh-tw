@@ -6,12 +6,12 @@ description: 了解如何使用 Microsoft Azure 雲端服務建置和管理功�
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 572de9156b11f69f4b668ef5483538b70963b433
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 59c4a6144e704b5cd8b29f66b88d563957b1a8f3
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937630"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031493"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -990,9 +990,15 @@ Visual Studio Team Services </a>
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/storage/data-lake-storage/introduction">
+                                                <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
+                                                <p>Data Lake Storage Gen2</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/data-lake-store/">
                                                 <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
-                                                <p>Data Lake Store</p>
+                                                <p>Data Lake Storage Gen1</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2156,6 +2162,25 @@ s" alt="" />
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/storage/data-lake-storage/introduction">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Data Lake Storage Gen2</h3>
+                                                    <p>超高擴充性、安全的 Data Lake Storage</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/data-lake-store/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -2166,7 +2191,7 @@ s" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data Lake Store</h3>
+                                                    <h3>Data Lake Storage Gen1</h3>
                                                     <p>可容納巨量資料分析工作負載的超大規模儲存機制</p>
                                                 </div>
                                             </div>

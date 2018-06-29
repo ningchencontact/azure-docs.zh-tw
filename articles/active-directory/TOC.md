@@ -151,6 +151,7 @@
 ### [SSPR 自訂](authentication/concept-sspr-customization.md)
 ### [SSPR 資料需求](authentication/howto-sspr-authenticationdata.md)
 ### [SQL 報告](authentication/howto-sspr-reporting.md)
+### [智慧鎖定](authentication/howto-password-smart-lockout.md)
 ### [避免弱式密碼](authentication/concept-password-ban-bad.md)
 ### [設定禁止的密碼清單](authentication/howto-password-ban-bad.md)
 ### [內部部署整合](authentication/concept-password-ban-bad-on-premises.md)

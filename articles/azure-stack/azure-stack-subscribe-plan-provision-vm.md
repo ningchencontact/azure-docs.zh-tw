@@ -75,7 +75,7 @@ ms.locfileid: "35295205"
 
 ### <a name="to-subscribe-to-an-offer"></a>訂閱供應項目
 
-1. [登入](azure-stack-connect-azure-stack.md) Azure Stack 使用者入口網站 (https://portal.local.azurestack.external)，然後選取 [取得訂用帳戶]。
+1. [登入](azure-stack-connect-azure-stack.md) Azure Stack 使用者入口網站 ( https://portal.local.azurestack.external) ，然後選取 [取得訂用帳戶]。
 
    ![取得訂用帳戶](media/azure-stack-subscribe-plan-provision-vm/image01.png)
   

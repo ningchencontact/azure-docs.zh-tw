@@ -25,7 +25,7 @@ ms.locfileid: "35247512"
 
 [供應項目](azure-stack-key-features.md)是一組提供者供使用者購買或訂閱的一或多個方案。 此文件將說明如何建立一個包含[所建立方案](azure-stack-create-plan.md)的供應項目。 此供應項目可讓訂閱者設定虛擬機器。
 
-1. 登入 Azure Stack 系統管理員入口網站 (https://adminportal.local.azurestack.external)，然後選取 [新增] > [租用戶供應項目 + 方案] > [供應項目]。
+1. 登入 Azure Stack 系統管理員入口網站 (https://adminportal.local.azurestack.external) ，然後選取 [新增] > [租用戶供應項目 + 方案] > [供應項目]。
 
    ![建立供應項目](media/azure-stack-create-offer/image01.png)
   

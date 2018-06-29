@@ -1,6 +1,6 @@
 ---
-title: Azure 管理 - 監視 | Microsoft Docs
-description: Azure 具備多項服務和工具，可共同運作以完整管理在 Azure 中執行的應用程式，也能顧及其他雲端和內部部署中執行的應用程式。  本文提供不同管理範圍的高階說明，以及 Azure 工具內容的連結，讓您能夠管理雲端應用程式和資源。
+title: Azure 管理和 Operations Management Suite (OMS) | Microsoft Docs
+description: 管理 Azure 應用程式和資源的區域概觀，具有 Azure 管理工具內容的連結，該工具先前配套為 Operations Management Suite (OMS)。
 documentationcenter: ''
 author: bwren
 manager: carmonm
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2018
 ms.author: bwren
-ms.openlocfilehash: 36dd04be167d9e8e63ab38e4af80c5766ba55370
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8598e3528aa0a9fb171853e5f6554346ace937ef
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31410289"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059945"
 ---
 # <a name="azure-management---monitoring"></a>Azure 管理 - 監視
 
