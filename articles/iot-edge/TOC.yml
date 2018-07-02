@@ -68,14 +68,18 @@
           href: how-to-register-device-vscode.md
     - name: 安裝 IoT Edge 執行階段
       items:
-        - name: 在 Linux X64 裝置上
+        - name: Linux X64
           href: how-to-install-iot-edge-linux.md
-        - name: 在 Linux ARM32 裝置上
+        - name: Linux ARM32
           href: how-to-install-iot-edge-linux-arm.md
-        - name: 在具有 Windows 容器的 Windows 上
+        - name: 搭配 Windows 容器的 Windows
           href: how-to-install-iot-edge-windows-with-windows.md
-        - name: 在具有 Linux 容器的 Windows 上
+        - name: 搭配 Linux 容器的 Windows
           href: how-to-install-iot-edge-windows-with-linux.md
+        - name: IoT Core
+          href: how-to-install-iot-core.md
+    - name: 使用 DPS 自動佈建
+      href: how-to-auto-provision-simulated-device-windows.md
     - name: 開發模組並對其進行偵錯
       items:
         - name: 'C#'
@@ -110,8 +114,6 @@
           href: how-to-create-transparent-gateway-windows.md
         - name: Modbus 通訊協定閘道
           href: deploy-modbus-gateway.md
-    - name: 佈建 IoT Core 裝置
-      href: how-to-install-iot-core.md
     - name: VSTS 中的 CI/CD
       href: how-to-ci-cd.md
     - name: 疑難排解

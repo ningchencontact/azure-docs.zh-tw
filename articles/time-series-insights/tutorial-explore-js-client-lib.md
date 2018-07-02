@@ -100,7 +100,7 @@ ms.locfileid: "36295383"
 
 1. 使用 ADAL 進行驗證時，用戶端應用程式必須在 Azure Active Directory (Azure AD) 應用程式登錄中註冊其本身。 作為 SPA，此應用程式會註冊為使用「隱含」的 OAuth 2.0 授權授與流程。 作為對應，應用程式會在執行階段指定一些註冊屬性 (例如，用戶端識別碼 GUID (`clientId`) 和重新導向 URI (`postLogoutRedirectUri`))，以參與該流程。
 
-2. 之後，應用程式會從 Azure AD 要求「存取權杖」。 系統會對特定服務/API 識別碼發出一組有限權限的存取權杖 (https://api.timeseries.azure.com)。 此服務/API 識別碼也稱為權杖「對象」。 這些權杖權限是由系統代表所登入的使用者來發出。 服務/API 的識別碼仍是應用程式的 Azure AD 註冊中所包含的另一個屬性。 ADAL 將存取權杖傳回給應用程式後，系統在存取 TSI 服務 API 時就會以「持有人權杖」的形式來傳遞存取權杖。
+2. 之後，應用程式會從 Azure AD 要求「存取權杖」。 系統會對特定服務/API 識別碼發出一組有限權限的存取權杖 ( https://api.timeseries.azure.com )。 此服務/API 識別碼也稱為權杖「對象」。 這些權杖權限是由系統代表所登入的使用者來發出。 服務/API 的識別碼仍是應用程式的 Azure AD 註冊中所包含的另一個屬性。 ADAL 將存取權杖傳回給應用程式後，系統在存取 TSI 服務 API 時就會以「持有人權杖」的形式來傳遞存取權杖。
 
    [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=145-204&highlight=4-9,36-39)]
 
@@ -211,7 +211,7 @@ TSI 用戶端程式庫也會公開一些選擇性的進階功能以供您利用�
      - 包含 JavaScript ISO 時間戳記的字串索引鍵。
      - 包含狀態特性的陣列：色彩和描述。
 
-2. 然後，為「事件」定義 `events5` 結構，其中包含要追蹤之事件元素的陣列。陣列結構的圖形與針對  所概述的結構相同。
+2. 然後，為「事件」定義 `events5` 結構，其中包含要追蹤之事件元素的陣列。陣列結構的圖形與針對 `events4` 所概述的結構相同。
 
 3. 最後轉譯折線圖，傳入兩個具有圖表選項參數的結構：`events:` 和 `states:`。 請留意其他用來指定 `tooltip:`、`theme:` 或 `grid:` 的選項參數。
 

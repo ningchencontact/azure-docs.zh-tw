@@ -35,6 +35,10 @@
   items:
     - name: Assets
       href: assets-concept.md
+    - name: 內容保護
+      items:
+        - name: 概觀
+          href: content-protection-overview.md
     - name: 編碼
       items:
         - name: 概觀
@@ -69,6 +73,10 @@
           href: job-input-from-http-how-to.md
         - name: 從本機檔案 - .NET
           href: job-input-from-local-file-how-to.md
+    - name: 保護內容
+      items:
+        - name: 使用 AES-128 - .NET
+          href: protect-with-aes128.md
 - name: 參考
   items:
     - name: OpenAPI 規格 (Swagger)
@@ -87,6 +95,12 @@
       href: 'https://docs.microsoft.com/en-us/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest'
     - name: 事件結構描述
       href: media-services-event-schemas.md
+    - name: DRM 授權結構描述
+      items:
+        - name: PlayReady 授權範本
+          href: playready-license-template-overview.md
+        - name: Widevine 授權範本
+          href: widevine-license-template-overview.md
 - name: 資源
   items:
     - name: Azure 藍圖

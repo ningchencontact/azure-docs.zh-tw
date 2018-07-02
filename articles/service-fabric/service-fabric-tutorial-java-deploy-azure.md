@@ -217,7 +217,7 @@ ms.locfileid: "34644037"
     ./install.sh
     ```
 
-5. 若要存取 Service Fabric 總管，請開啟您慣用的瀏覽器並輸入 https://testlinuxcluster.westus.cloudapp.azure.com:19080。 從憑證存放區選擇您要用來連線到此端點的憑證。 如果您使用 Linux 機器，new-service-fabric-cluster-certificate.sh 指令碼所產生的憑證必須匯入 Chrome 中，才能檢視 Service Fabric 總管。 如果您使用 Mac，則必須將 PFX 檔案安裝到您的金鑰鏈。 您會注意您的應用程式已安裝於叢集上。 
+5. 若要存取 Service Fabric 總管，請開啟您慣用的瀏覽器並輸入 https://testlinuxcluster.westus.cloudapp.azure.com:19080 。 從憑證存放區選擇您要用來連線到此端點的憑證。 如果您使用 Linux 機器，new-service-fabric-cluster-certificate.sh 指令碼所產生的憑證必須匯入 Chrome 中，才能檢視 Service Fabric 總管。 如果您使用 Mac，則必須將 PFX 檔案安裝到您的金鑰鏈。 您會注意您的應用程式已安裝於叢集上。 
 
     ![SFX Java Azure](./media/service-fabric-tutorial-java-deploy-azure/sfxjavaonazure.png)
 

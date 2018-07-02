@@ -7,6 +7,7 @@
 #### [使用 AppSource 拓展您的業務](./grow-your-business-with-appsource.md)  
 ##### [建置登陸頁面](./build-your-landing-page.md)  
 ##### [啟用潛在客戶共用](./enable-lead-sharing.md)  
+##### [慣用的解決方案](./preferred-solutions.md)
 ##### [市集中的 GTM 優點](./gtm-benefits.md)  
 ##### [透過 Microsoft 拓展您的業務](./promote-your-business-with-microsoft.md)  
 #### [使用 Azure Marketplace 拓展業務](./grow-your-business-with-azure-marketplace.md)  

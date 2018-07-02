@@ -460,6 +460,13 @@
           href: service-fabric-debugging-your-application-java.md
         - name: 在本機上監視及診斷
           href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md
+    - name: 在 VS 環境中工作
+      href: service-fabric-get-started-vs-code.md
+      items:
+        - name: '使用 VS Code 開發 C# Service Fabric 應用程式'
+          href: service-fabric-develop-csharp-applications-with-vs-code.md
+        - name: 使用 VS Code 開發 Java Service Fabric 應用程式
+          href: service-fabric-develop-java-applications-with-vs-code.md
     - name: 從雲端服務移轉
       items:
         - name: 比較雲端服務與 Service Fabric
@@ -534,10 +541,6 @@
                   href: service-fabric-cluster-creation-via-arm.md
                 - name: 使用憑證一般名稱的叢集
                   href: service-fabric-create-cluster-using-cert-cn.md
-                - name: 啟用適用於 Windows 的磁碟加密
-                  href: service-fabric-enable-azure-disk-encryption-windows.md
-                - name: 啟用適用於 Linux 的磁碟加密
-                  href: service-fabric-enable-azure-disk-encryption-linux.md
             - name: 調整
               items:
                 - name: 手動相應放大

@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 05/29/2018
   ms.author: cgronlun
-  ms.openlocfilehash: 90f677fae4cf741e99ba6bdf488b33c57aae61a3
-  ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+  ms.openlocfilehash: 69e3643f132cbc6c428608cb1c92c22f51765b81
+  ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 06/27/2018
-  ms.locfileid: "37020118"
+  ms.lasthandoff: 06/29/2018
+  ms.locfileid: "37130806"
 abstract:
   description: 了解如何在應用程式、網站和 Bot 中融入智慧型演算法，透過自然的溝通方式，來查看、聆聽、述說及了解您的使用者需求。 教學課程、快速入門和 API 參考和範例示範。
 sections:
@@ -52,13 +52,6 @@ sections:
       - href: /azure/cognitive-services/Computer-vision/Quickstarts/node-analyze
       - href: /azure/cognitive-services/Computer-vision/Quickstarts/python-analyze
       - href: 
-    - title: 電腦視覺 - 建置影像分類器
-      values:
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-      - href: /azure/cognitive-services/Custom-Vision-Service/getting-started-build-a-classifier
     - title: 語音服務 - 辨識語音
       values:
       - href: /azure/cognitive-services/speech-service/quickstart-csharp-windows
@@ -66,13 +59,6 @@ sections:
       - href: 
       - href: 
       - href: /azure/cognitive-services/speech-service/get-started
-    - title: Translator Speech (翻譯語音) - 翻譯說出口的話
-      values:
-      - href: /azure/cognitive-services/translator-speech/quickstarts/csharp
-      - href: /azure/cognitive-services/translator-speech/quickstarts/java
-      - href: /azure/cognitive-services/translator-speech/quickstarts/nodejs
-      - href: /azure/cognitive-services/translator-speech/quickstarts/python
-      - href: 
     - title: LUIS - 使用預先建置的家庭自動化功能
       values:
       - href: 
@@ -80,12 +66,12 @@ sections:
       - href: 
       - href: 
       - href: /azure/cognitive-services/luis/luis-get-started-create-app
-    - title: 翻譯文字 - 將文字從一種語言翻譯成另一種語言
+    - title: 文字分析 - 偵測語言、分析情感
       values:
-      - href: Translator/quickstart-csharp-translate
-      - href: Translator/quickstart-java-translate
-      - href: Translator/quickstart-nodejs-translate
-      - href: Translator/quickstart-python-translate
+      - href: /azure/cognitive-services/Text-Analytics/quickstarts/csharp
+      - href: /azure/cognitive-services/Text-Analytics/quickstarts/java
+      - href: /azure/cognitive-services/Text-Analytics/quickstarts/nodejs
+      - href: /azure/cognitive-services/Text-Analytics/quickstarts/python
       - href: 
     - title: Bing 網路搜尋 - 取得相關的網路查詢
       values:
