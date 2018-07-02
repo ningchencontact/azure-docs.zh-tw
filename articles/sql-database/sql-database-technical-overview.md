@@ -156,7 +156,7 @@ SQL Database 支援在 MacOS、Linux 和 Windows 上使用 Python、Java、Node.
 ## <a name="engage-with-the-sql-server-engineering-team"></a>洽詢 SQL Server 工程團隊
 
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server)：詢問資料庫管理問題
-- [堆疊溢位](http://stackoverflow.com/questions/tagged/sql-server)：詢問開發問題
+- [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server)：詢問開發問題
 - [MSDN 論壇](https://social.msdn.microsoft.com/Forums/home?category=sqlserver)：詢問技術問題
 - [意見反應](http://aka.ms/sqlfeedback)：回報錯誤 (bug) 及要求加入新功能
 - [Reddit](https://www.reddit.com/r/SQLServer/)：討論 SQL Server
