@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
 manager: douge
-ms.openlocfilehash: 3802e67503fd546ef71b9c26daddc8ef63cf4bd2
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 21b94544105f55cbb8cb77c28d8c546ffcf7f8c0
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823221"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36945851"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-vs-code"></a>快速入門：使用 Azure Dev Spaces 建立 Kubernetes 開發人員空間 (.NET Core 和 VS Code)
 
@@ -40,7 +40,7 @@ ms.locfileid: "34823221"
 
 ## <a name="set-up-azure-dev-spaces"></a>設定 Azure Dev Spaces
 
-1. 安裝 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (2.0.33 版或更新版本)。
+1. 安裝 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (2.0.38 版或更新版本)。
 1. 在您的 AKS 叢集上設定 Dev Spaces：`az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
 1. 下載 VS Code 的 [Azure Dev Spaces 擴充功能](https://aka.ms/get-azds-code)。
 1. 安裝擴充功能：`code --install-extension path-to-downloaded-extension/azds-0.1.1.vsix`
@@ -50,12 +50,15 @@ ms.locfileid: "34823221"
 1. 從 GitHub 下載範例程式碼：[https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) 
 1. 將目錄切換至 webfrontend 資料夾：`cd dev-spaces/samples/dotnetcore/getting-started/webfrontend`
 1. 產生 Docker 和 Helm 圖表資產：`azds prep --public`
-1. 在 AKS 中建置和執行程式碼。 在終端機視窗中，從**根程式碼資料夾** webfrontend 執行此命令：`azds up`
+1. 在 AKS 中建置和執行程式碼。 在終端機視窗中，從 **webfrontend 資料夾**執行此命令：`azds up`
 1. 掃描主控台輸出，以取得 `up` 命令所建立之 URL 的相關資訊。 它會在表單中： 
 
    `Service 'webfrontend' port 'http' is available at <url>` 
 
    在瀏覽器視窗中開啟此 URL，您應該會看到 Web 應用程式載入。 
+   
+   > [!Note]
+   > 第一次執行時，可能需要數分鐘的時間才能備妥公用 DNS。 如果無法解析公用 URL，您可以使用主控台輸出中顯示的替代 http://localhost:<portnumber> URL。 如果您使用 localhost URL，容器可能看起來像在本機執行，但實際是在 AKS 中執行。 為了方便您操作以及與本機電腦上的服務互動，Azure 開發人員空間會建立暫存的 SSH 通道，連到在 Azure 中執行的容器。 當 DNS 記錄備妥時，您可以返回且稍後嘗試公用 URL。
 
 ### <a name="update-a-content-file"></a>更新內容檔案
 

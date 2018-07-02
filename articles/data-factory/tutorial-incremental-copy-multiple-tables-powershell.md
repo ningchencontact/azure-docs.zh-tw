@@ -3,7 +3,7 @@ title: 使用 Azure Data Factory 以累加方式複製多個資料表 | Microsof
 description: 在本教學課程中，您會建立 Azure Data Factory 管線，透過累加方式將差異資料從內部部署 SQL Server 資料庫中的多個資料表，複製到 Azure SQL Database。
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
-ms.author: jingwang
-ms.openlocfilehash: 8f59ffb2011ad43173881d4ced231e4820fcf5f8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: yexu
+ms.openlocfilehash: 73d6039624a52ae06d8cf74c386bf0d12d9b65d9
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30184493"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046301"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>以累加方式將 SQL Server 中多個資料表的資料載入到 Azure SQL Database
 在本教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從內部部署 SQL Server 中的多個資料表，載入到 Azure SQL Database。    
@@ -37,9 +37,6 @@ ms.locfileid: "30184493"
 > * 新增或更新來源資料表中的資料。
 > * 重新執行，並監視管線。
 > * 檢閱最終結果。
-
-> [!NOTE]
-> 本文適用於第 2 版的 Azure Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (正式推出版本)，請參閱 [Data Factory 第 1 版文件](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
 ## <a name="overview"></a>概觀
 以下是建立此解決方案的重要步驟： 
@@ -235,7 +232,7 @@ END
     $resourceGroupName = "ADFTutorialResourceGroup";
     ```
 
-    如果資源群組已經存在，您可能不想覆寫它。 將不同的值指派給 `$resourceGroupName` 變數，然後執行一次命令。
+    不建議您覆寫已經存在的資源群組。 將不同的值指派給 `$resourceGroupName` 變數，然後再執行一次命令。
 
 2. 定義資料處理站位置的變數。 
 
@@ -247,12 +244,12 @@ END
     ```powershell
     New-AzureRmResourceGroup $resourceGroupName $location
     ``` 
-    如果資源群組已經存在，您可能不想覆寫它。 將不同的值指派給 `$resourceGroupName` 變數，然後執行一次命令。
+    不建議您覆寫已經存在的資源群組。 將不同的值指派給 `$resourceGroupName` 變數，然後再執行一次命令。
 
 4. 定義 Data Factory 名稱的變數。 
 
     > [!IMPORTANT]
-    >  更新資料處理站名稱，使其成為全域唯一的。 例如，ADFIncMultiCopyTutorialFactorySP1127。 
+    >  更新資料處理站名稱，使其成為全域唯一的資料處理站。 例如，ADFIncMultiCopyTutorialFactorySP1127。 
 
     ```powershell
     $dataFactoryName = "ADFIncMultiCopyTutorialFactory";
@@ -271,7 +268,7 @@ END
     The specified Data Factory name 'ADFIncMultiCopyTutorialFactory' is already in use. Data Factory names must be globally unique.
     ```
 * 若要建立 Data Factory 執行個體，您用來登入 Azure 的使用者帳戶必須為參與者或擁有者角色，或是 Azure 訂用帳戶的管理員。
-* 目前，Data Factory 第 2 版只允許您在美國東部、美國東部 2 和西歐區域中建立資料處理站。 資料處理站所使用的資料存放區 (Azure 儲存體、SQL Database 等) 和計算 (Azure HDInsight 等) 可位於其他區域。
+* 目前，Data Factory 只允許您在美國東部、美國東部 2 和西歐區域建立資料處理站。 資料處理站所使用的資料存放區 (Azure 儲存體、SQL Database 等) 和計算 (Azure HDInsight 等) 可位於其他區域。
 
 [!INCLUDE [data-factory-create-install-integration-runtime](../../includes/data-factory-create-install-integration-runtime.md)]
 

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 06/05/2018
+ms.date: 06/21/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 52695ba495b088d30a5ee039d3e24eb274957bff
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 07768dbc8beb7a851d442e9e0c3e7538bf12b766
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234551"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937932"
 ---
 # <a name="what-is-azure-analysis-services"></a>什麼是 Azure Analysis Services？
 
@@ -31,7 +31,7 @@ Azure Analysis Services 是完全受控的平台即服務 (PaaS)，可在雲端�
 
 **影片：** 請觀看[讓部署自動進行](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation)，以深入了解如何使用 Azure 自動化來加快伺服器建立速度。
 
-Azure Analysis Services 與許多 Azure 服務整合，讓您能建置複雜的分析解決方案。 與 [Azure Active Directory](../active-directory/active-directory-whatis.md) 整合可對重要資料提供安全的角色型存取。 納入可將資料載入模型中的活動，進而與 [Azure Data Factory](../data-factory/introduction.md) 管線整合。 [Azure 自動化](../automation/automation-intro.md)和 [Azure Functions](../azure-functions/functions-overview.md) 可用於使用自訂程式碼之模型的輕量型協調流程。 
+Azure Analysis Services 與許多 Azure 服務整合，讓您能建置複雜的分析解決方案。 與 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) 整合可對重要資料提供安全的角色型存取。 納入可將資料載入模型中的活動，進而與 [Azure Data Factory](../data-factory/introduction.md) 管線整合。 [Azure 自動化](../automation/automation-intro.md)和 [Azure Functions](../azure-functions/functions-overview.md) 可用於使用自訂程式碼之模型的輕量型協調流程。 
 
 ## <a name="the-right-tier-when-you-need-it"></a>當您需要時在右層
 
@@ -72,39 +72,41 @@ Azure Analysis Services 會以**開發人員**、**基本**及**標準**層提�
 
 ## <a name="availability-by-region"></a>依區域的可用性
 
-世界各地的區域皆支援 Azure Analysis Services。 在數個區域中的備援伺服器上部署您的模型，以確保[高可用性](analysis-services-bcdr.md)。 所支援的服務層和查詢複本取決於您所選擇的區域。 
+世界各地的區域皆支援 Azure Analysis Services。 所支援的方案和查詢複本可用性取決於您所選擇的區域。 視每個區域的需求和可用資源而定，可以變更方案和查詢複本可用性。 
 
 ### <a name="americas"></a>美洲
 
-|區域  | 所支援的服務層 | 查詢複本 |
+|區域  | 支援的方案 | 查詢複本 (僅限標準方案) |
 |---------|---------|:---------:|
 |巴西南部     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |加拿大中部    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |美國東部     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
-|美國東部 2     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |    7     |
+|美國東部 2     |     B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    7     |
 |美國中北部     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
-|美國中部     |    B1, B2, S0, S1, S2, S4, D1     |    3     |
+|美國中部     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |美國中南部     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
-|美國中西部   |     B1, B2, S0, S1, S2, S4, D1    |    7     |
-|美國西部     |    B1, B2, S0, S1, S2, S4, S8, S9, D1     |    7     |
-|美國西部 2    |    B1, B2, S0, S1, S2, S4, S8, S9, D1     |    1     |
+|美國中西部   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
+|美國西部     |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    7     |
+|美國西部 2    |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    3     |
 
 ### <a name="europe"></a>歐洲
 
-|區域  | 所支援的服務層 | 查詢複本 |
+|區域  | 支援的方案 | 查詢複本 (僅限標準方案) |
 |---------|---------|:---------:|
-|北歐     |    B1, B2, S0, S1, S2, S4, D1      |    1     |
+|北歐     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
 |英國南部   |    B1, B2, S0, S1, S2, S4, D1      |     1    |
-|西歐     |    B1, B2, S0, S1, S2, S4, S8, S9, D1      |    7     |
+|西歐     |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1      |    7     |
 
 ### <a name="asia-pacific"></a>亞太地區 
 
-|區域  | 所支援的服務層 | 查詢複本 |
+|區域  | 支援的方案 | 查詢複本 (僅限標準方案) |
 |---------|---------|:---------:|
 |澳大利亞東南部     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |日本東部  |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|東南亞     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   3      |
+|東南亞     |     B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |   1      |
 |印度西部     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+
+\* 標準層中的 S8、S9 方案支援一個查詢複本。
 
 ## <a name="scale-to-your-needs"></a>調整您的需求
 
@@ -116,7 +118,7 @@ Azure Analysis Services 會以**開發人員**、**基本**及**標準**層提�
 
 透相應放大，用戶端查詢會在查詢集區中分散到多個查詢複本。 查詢複本已同步處理您表格式模型的副本。 透過分配查詢工作負載，可以降低在高度查詢工作負載期間的回應時間。 模型處理作業可與查詢集區分開處理，確保用戶端查詢不會受到處理作業的不良影響。 
 
-您可以建立一個多達七個額外查詢複本的查詢集區 (總共八個，包含您的伺服器)。 您可以在集區中擁有的查詢複本數目取決於您所選擇的區域。 查詢複本無法分散到伺服器所在區域之外。 查詢複本會以相同的伺服器費率計費。
+您可以建立一個多達七個額外查詢複本的查詢集區 (總共八個，包含您的伺服器)。 您可以在集區中擁有的查詢複本數目取決於您所選擇的方案和區域。 查詢複本無法分散到伺服器所在區域之外。 查詢複本會以相同的伺服器費率計費。
 
 如同變更層級，您也可以根據您的需求將查詢複本相應放大。 在入口網站或使用 REST API 來設定相應放大。 若要深入了解，請參閱 [Azure Analysis Services 相應放大](analysis-services-scale-out.md)。
 
@@ -148,7 +150,7 @@ Azure Analysis Services 防火牆會封鎖規則中所指定 IP 位址以外的�
 
 ### <a name="authentication"></a>驗證
 
-使用者驗證是由 [Azure Active Directory (AAD)](../active-directory/active-directory-whatis.md) 負責處理的。 使用者在登入時會使用具有資料庫角色型存取權的組織帳戶身分識別。 使用者身分識別必須是伺服器所在訂用帳戶的預設 Azure Active Directory 成員。 若要深入了解，請參閱[驗證和使用者權限](analysis-services-manage-users.md)。
+使用者驗證是由 [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) 負責處理的。 使用者在登入時會使用具有資料庫角色型存取權的組織帳戶身分識別。 使用者身分識別必須是伺服器所在訂用帳戶的預設 Azure Active Directory 成員。 若要深入了解，請參閱[驗證和使用者權限](analysis-services-manage-users.md)。
 
 ### <a name="data-security"></a>資料安全性
 

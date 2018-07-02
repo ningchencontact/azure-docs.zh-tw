@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
 manager: douge
-ms.openlocfilehash: 0507208e58323fd31bb7c6cdb3a293ec0179cabe
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: efd19393a661a48a566e85a058dad071c3bdb63c
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823906"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36945984"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>在使用 Node.js 的 Azure 開發人員空間上開始使用
 
@@ -32,7 +32,7 @@ ms.locfileid: "34823906"
 Azure 開發人員空間需要基本的本機電腦設定。 大部分開發環境的組態都會儲存在雲端，而且可與其他使用者共用。 從下載和執行 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 著手。
 
 > [!IMPORTANT]
-> 如果您已安裝 Azure CLI，請確定您使用的是 2.0.33 版或更高版本。
+> 如果您已安裝 Azure CLI，請確定您使用的是 2.0.38 版或更高版本。
 
 [!INCLUDE[](includes/sign-into-azure.md)]
 
@@ -68,7 +68,7 @@ Azure 開發人員空間不只讓程式碼中在 Kubernetes 中執行 - 還可�
 發生什麼情形？ 編輯內容檔案 (例如 HTML 和 CSS) 時，不需要重新啟動 Node.js 程序，所以作用中 `azds up` 命令會自動將任何修改過的內容檔案，直接同步處理到 Azure 中的執行中容器，進而提供查看內容編輯的快速方法。
 
 ### <a name="test-from-a-mobile-device"></a>從行動裝置測試
-如果您在行動裝置上開啟 Web 應用程式，您會發現 UI 無法正確顯示在小型裝置上。
+在行動裝置上，使用 webfrontend 的公用 URL 開啟 Web 應用程式。 您可能想要從您的桌面複製 URL 並將它傳送到您的裝置，讓您免於輸入冗長的位址。 您在行動裝置中載入 Web 應用程式時，您會發現 UI 無法正確顯示在小型裝置上。
 
 為了修正此問題，您會新增 `viewport` 中繼標記：
 1. 開啟 `./public/index.html` 檔案
@@ -113,7 +113,7 @@ Azure 開發人員空間不只讓程式碼中在 Kubernetes 中執行 - 還可�
 1. 若要開啟 [偵錯] 檢視，請按一下 VS Code 側邊的 [活動列] 中的 [偵錯] 圖示。
 1. 選取 [啟動程式 (AZDS)] 作為作用中偵錯組態。
 
-![](media/get-started-node/debug-configuration-nodejs.png)
+![](media/get-started-node/debug-configuration-nodejs2.png)
 
 > [!Note]
 > 如果您未在 [命令選擇區] 中看到任何 Azure 開發人員空間命令，請確定您已安裝適用於 [Azure 開發人員空間的 VS Code ](get-started-nodejs.md#get-kubernetes-debugging-for-vs-code)擴充功能。

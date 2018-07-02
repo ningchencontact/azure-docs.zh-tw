@@ -15,16 +15,18 @@ ms.topic: overview
 ms.date: 05/09/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 6c93d995d7270a194bf654e69183807ba1422c10
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dee6a77fb85b2ac882103ba58a19ac4fce59c188
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608029"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301439"
 ---
 # <a name="compare-azure-cdn-product-features"></a>比較 Azure CDN 產品功能
 
 Azure 內容傳遞網路 (CDN) 包含四種產品：**來自 Microsoft 的標準 Azure CDN** (預覽狀態)、**來自 Akamai 的 Azure CDN 標準**、**來自 Verizon 的 Azure CDN 標準**和**來自 Verizon 的 Azure CDN 進階**。 
+
+如需將 [來自 Verizon 的標準 Azure CDN] 設定檔移轉至 [來自 Verizon 的進階 Azure CDN] 的相關資訊，請參閱[將 Azure CDN 設定檔從標準 Verizon 移轉至高階 Verizon](cdn-migrate.md)。
 
 下表將比較各項產品的可用功能。
 

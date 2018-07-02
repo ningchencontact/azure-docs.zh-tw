@@ -1,6 +1,6 @@
 ---
 title: 使用 RBAC 和 Azure 入口網站來管理存取權 | Microsoft Docs
-description: 了解如何使用角色型存取控制 (RBAC) 和 Azure 入口網站來管理使用者、群組和應用程式的存取權。 這包括列出存取權、授與存取權以及移除存取權。
+description: 了解如何使用角色型存取控制 (RBAC) 和 Azure 入口網站來管理使用者、群組和應用程式的存取權。 這包括如何列出存取權、授與存取權以及移除存取權。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 8f2c77a366c96455016894c042868d080551bc6a
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 0aec1f50225bea25d5f68289c22ccc7b69703f7a
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295859"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317941"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>使用 RBAC 和 Azure 入口網站來管理存取權
 

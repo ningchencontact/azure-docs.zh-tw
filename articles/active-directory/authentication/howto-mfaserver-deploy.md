@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: bd1b0f21162978496750886d32e7166c3a90922d
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 130e9956702515574da47dc872b03598ca19ff29
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33868291"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031675"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>開始使用 Azure Multi-Factor Authentication Server
 
@@ -103,8 +103,8 @@ ms.locfileid: "33868291"
 
 1. 按兩下可執行檔。
 2. 在 [選取安裝資料夾] 畫面中，請確認資料夾正確，然後按一下 [下一步]。
-3. 當安裝完成時，請按一下 [完成]。  組態精靈就會啟動。
-4. 在組態精靈歡迎畫面上，核取 [略過使用驗證設定精靈]，然後按 [下一步]。  精靈關閉然後伺服器啟動。
+3. 當安裝完成時，請按一下 [完成]。 組態精靈就會啟動。
+4. 在組態精靈歡迎畫面上，核取 [略過使用驗證設定精靈]，然後按 [下一步]。 精靈關閉然後伺服器啟動。
 
    ![雲端](./media/howto-mfaserver-deploy/skip2.png)
 
@@ -116,7 +116,7 @@ ms.locfileid: "33868291"
 
 要傳送什麼電子郵件應取決於您如何為使用者設定雙步驟驗證。 比方說，假設您可以從公司目錄匯入電話號碼，則電子郵件中應該包含預設電話號碼，讓使用者知道應該會有什麼。 如果您未匯入電話號碼，或使用者將使用行動裝置應用程式，請對他們傳送可引導他們完成帳戶註冊的電子郵件。 在電子郵件中包含 Azure Multi-factor Authentication 使用者入口網站的超連結。
 
-電子郵件的內容也會隨著已為使用者設定的驗證方法而不同 (電話、簡訊或行動應用程式)。  例如，如果使用者驗證時需要使用 PIN，電子郵件會告訴他們已設定的初始 PIN。  使用者必須在第一次驗證時變更他們的 PIN。
+電子郵件的內容也會隨著已為使用者設定的驗證方法而不同 (電話、簡訊或行動應用程式)。 例如，如果使用者驗證時需要使用 PIN，電子郵件會告訴他們已設定的初始 PIN。 使用者必須在第一次驗證時變更他們的 PIN。
 
 ### <a name="configure-email-and-email-templates"></a>設定電子郵件和電子郵件範本
 
@@ -136,8 +136,8 @@ ms.locfileid: "33868291"
 
 1. 在 Azure MFA Server 的左側選取 [ **使用者**]。
 2. 在底部選取 [ **從 Active Directory 匯入**]。
-3. 現在您可以搜尋個別使用者，或在 AD 中搜尋含使用者的 OU。  在此情況下，我們會指定使用者的 OU。
-4. 反白顯示右側的所有使用者，然後按一下 [匯入]。  您應該會看到指出成功完成作業的快顯視窗。  關閉匯入視窗。
+3. 現在您可以搜尋個別使用者，或在 AD 中搜尋含使用者的 OU。 在此情況下，我們會指定使用者的 OU。
+4. 反白顯示右側的所有使用者，然後按一下 [匯入]。 您應該會看到指出成功完成作業的快顯視窗。 關閉匯入視窗。
 
    ![MFA Server 使用者匯入](./media/howto-mfaserver-deploy/import2.png)
 
@@ -181,6 +181,10 @@ ms.locfileid: "33868291"
 5. 啟動 **MultiFactorAuth** 服務。
 
 新的伺服器現已啟動並以原始備份組態和使用者資料進行執行。
+
+## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>管理的 TLS/SSL 通訊協定和加密套件
+
+在您已安裝或升級至 MFA Server 8.x 版 或更高版本後，除非您的組織需要較舊的和較弱的加密套件，否則建議您加以停用或移除。 如需如何完成這項工作的相關資訊，請參閱[管理 AD FS 的 SSL/TLS 通訊協定和加密套件](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)一文
 
 ## <a name="next-steps"></a>後續步驟
 

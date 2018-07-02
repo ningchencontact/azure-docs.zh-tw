@@ -3,7 +3,7 @@ title: 使用 Azure Data Factory 以累加方式複製資料表 | Microsoft Docs
 description: 在本教學課程中，您會建立 Azure Data Factory 管線，以累加方式將資料從 Azure SQL Database 複製到 Azure Blob 儲存體。
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -12,21 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
-ms.author: shlo
-ms.openlocfilehash: 75d291c10f732f2d18fb78b0262c42052acc713e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: yexu
+ms.openlocfilehash: 6d63a443da0fd331d02039ed3a3715dbc59f273b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31406485"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051462"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>以累加方式將資料從 Azure SQL Database 載入到 Azure Blob 儲存體
 在本教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從 Azure SQL Database 中的資料表載入到 Azure Blob 儲存體。 
-
-
-> [!NOTE]
-> 本文適用於第 2 版的 Azure Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (正式推出版本)，請參閱 [Data Factory 第 1 版文件](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
-
 
 您會在本教學課程中執行下列步驟：
 
@@ -173,7 +168,7 @@ END
       - 選取 [建立新的] ，然後輸入資源群組的名稱。   
          
         若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。  
-4. 對 [版本] 選取 [V2 (預覽)]。
+4. 針對 [版本] 選取 [V2]。
 5. 選取 Data Factory 的 [位置]  。 只有受到支援的位置會顯示在下拉式清單中。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
 6. 選取 [釘選到儀表板]。     
 7. 按一下頁面底部的 [新增] 。      
@@ -250,7 +245,7 @@ END
     ```
 
     ![第二個查閱活動 - 查詢](./media/tutorial-incremental-copy-portal/query-for-new-watermark.png)
-19. 在 [活動] 工具箱中，展開 [資料流程]，並從 [活動] 工具箱中拖放 [複製] 活動，以及將名稱設定為 **IncrementalCopyActivity**。 
+19. 在 活動 工具箱中，展開 資料流程，並從 活動 工具箱中拖放 複製 活動，以及將名稱設定為 **IncrementalCopyActivity**。 
 
     ![複製活動 - 名稱](./media/tutorial-incremental-copy-portal/copy-activity-name.png)
 20. 透過將 [查閱] 活動所附加的**綠色按鈕**拖曳至 [複製] 活動 **，即可將兩個 [查閱] 活動同時連線至 [複製] 活動**。 當您看到 [複製] 活動的框線顏色變為藍色時即鬆開滑鼠按鈕。 

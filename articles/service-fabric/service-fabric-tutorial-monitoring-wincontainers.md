@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 06/08/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 035deabd04b8b838e0009f2cae96b0761733897f
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: f839b05a1d97ce78601697469c982839358d6b06
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248236"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300851"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-log-analytics"></a>教學課程：使用 Log Analytics 監視 Service Fabric 上的 Windows 容器
 
@@ -31,7 +31,7 @@ ms.locfileid: "35248236"
 > [!div class="checklist"]
 > * 設定適用於 Service Fabric 叢集的 Log Analytics
 > * 使用 Log Analytics 工作區，檢視和查詢來自您容器和節點的記錄
-> * 設定 OMS 代理程式以挑選容器和節點計量
+> * 設定 Log Analytics 代理程式以挑選容器和節點計量
 
 ## <a name="prerequisites"></a>先決條件
 開始進行本教學課程之前，您必須：
@@ -81,7 +81,7 @@ ms.locfileid: "35248236"
     "omsSolution": "ServiceFabric"
     ```
 
-3. 新增 OMS Microsoft Monitoring Agent 作為虛擬機器擴充功能。 尋找虛擬機器擴展集資源：*resources* > *"apiVersion": "[variables('vmssApiVersion')]"*。 在 *properties* > *virtualMachineProfile* > *extensionProfile* > *extension* 下方，於 *ServiceFabricNode* 擴充功能下方新增下列擴充功能描述： 
+3. 新增 Microsoft Monitoring Agent 作為虛擬機器擴充功能。 尋找虛擬機器擴展集資源：*resources* > *"apiVersion": "[variables('vmssApiVersion')]"*。 在 *properties* > *virtualMachineProfile* > *extensionProfile* > *extension* 下方，於 *ServiceFabricNode* 擴充功能下方新增下列擴充功能描述： 
     
     ```json
     {
@@ -181,7 +181,7 @@ ms.locfileid: "35248236"
     },
     ```
 
-[這裡](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json)是一個範例範本 (用於本教學課程的第一部分)，其中包含所有您可視需要參考的變更。 這些變更會將 Log Analytics 工作區新增至您的資源群組。 工作區將設定為從使用 [Windows Azure 診斷](service-fabric-diagnostics-event-aggregation-wad.md)代理程式設定的儲存體資料表挑選 Service Fabric 平台事件。 OMS 代理程式 (Microsoft Monitoring Agent) 也已新增至您叢集中的每個節點以作為虛擬機器擴充功能，這表示當您調整叢集時，會在每部機器上自動設定此代理程式，並連接相同的工作區。
+[這裡](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json)是一個範例範本 (用於本教學課程的第一部分)，其中包含所有您可視需要參考的變更。 這些變更會將 Log Analytics 工作區新增至您的資源群組。 工作區將設定為從使用 [Windows Azure 診斷](service-fabric-diagnostics-event-aggregation-wad.md)代理程式設定的儲存體資料表挑選 Service Fabric 平台事件。 Log Analytics 代理程式 (Microsoft Monitoring Agent) 也已新增至您叢集中的每個節點作為虛擬機器擴充功能；這表示當您調整叢集時，會在每部機器上自動設定此代理程式，並連接相同的工作區。
 
 使用您的新變更來部署範本，以升級目前的叢集。 一旦完成此作業後，您應該會在資源群組中看到 Log Analytics 資源。 當叢集已就緒時，將您的容器化應用程式部署到其中。 在下一個步驟中，我們將設定監視容器。
 
@@ -191,7 +191,7 @@ ms.locfileid: "35248236"
 
 ![新增容器解決方案](./media/service-fabric-tutorial-monitoring-wincontainers/containers-solution.png)
 
-當系統提示您提供 Log Analytics 工作區時，選取已在您資源群組中建立的工作區，然後按一下 [建立]。 這樣即會在您的工作區中新增一個「容器監視解決方案」，將自動導致範本所部署的 OMS 代理程式開始收集 Docker 記錄和統計資料。 
+當系統提示您提供 Log Analytics 工作區時，選取已在您資源群組中建立的工作區，然後按一下 [建立]。 這樣即會在您的工作區中新增一個「容器監視解決方案」，將自動導致範本所部署的 Log Analytics 代理程式開始收集 Docker 記錄和統計資料。 
 
 瀏覽回到您的「資源群組」，您現在應該會在其中看到剛新增的監視解決方案。 如果您按一下該解決方案，登陸頁面應該會顯示已在執行中的容器映像數目。 
 
@@ -211,11 +211,11 @@ ms.locfileid: "35248236"
 
 ![容器查詢](./media/service-fabric-tutorial-monitoring-wincontainers/query-sample.png)
 
-## <a name="configure-oms-agent-to-pick-up-performance-counters"></a>設定 OMS 代理程式以挑選效能計數器
+## <a name="configure-log-analytics-agent-to-pick-up-performance-counters"></a>設定 Log Analytics 代理程式以挑選效能計數器
 
-使用 OMS 代理程式的另一個優點是能夠變更您想要透過 OMS UI 體驗挑選的效能計數器，而不必每次設定 Azure 診斷代理程式並執行以 Resource Manager 範本為基礎的升級。 若要這樣做，在您容器監視 (或 Service Fabric) 解決方案的登陸頁面上按一下 [OMS 工作區]。
+使用 Log Analytics 代理程式的另一個優點是能夠變更您想要透過 Log Analytics UI 體驗挑選的效能計數器，而不必每次設定 Azure 診斷代理程式並執行以 Resource Manager 範本為基礎的升級。 若要這樣做，在您容器監視 (或 Service Fabric) 解決方案的登陸頁面上按一下 [OMS 工作區]。
 
-這將帶您前往 OMS 工作區，您可以在其中檢視解決方案、建立自訂儀表板，以及設定 OMS 代理程式。 
+這將帶您前往 Log Analytics 工作區，您可以在其中檢視解決方案、建立自訂儀表板，以及設定 Log Analytics 代理程式。 
 * 若要 [開啟進階設定] 功能表，請按一下 [進階設定] 連結。
 * 按一下 [連接的來源] > [Windows 伺服器]，以確認您擁有「5 部已連接的 Windows 電腦」。
 * 按一下 [資料] > [Windows 效能計數器]，以搜尋並新增效能計數器。 您將在這裡看到可收集的效能計數器建議清單 (來自 Log Analytics)，以及用於搜尋其他計數器的選項。 請確認您已收集 **Processor(_Total)\% Processor Time** 和 **Memory(*)\Available MBytes** 計數器。

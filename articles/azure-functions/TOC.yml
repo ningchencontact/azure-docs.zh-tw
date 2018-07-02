@@ -138,9 +138,11 @@
         - name: 測試函式
           href: functions-test-a-function.md
         - name: 在本機開發及偵錯
-          href: functions-run-local.md
+          href: functions-develop-local.md
         - name: Visual Studio 開發
           href: functions-develop-vs.md
+        - name: 核心工具開發
+          href: functions-run-local.md
         - name: 管理連線
           href: manage-connections.md
         - name: 錯誤處理

@@ -1,8 +1,8 @@
 ---
-title: "在雲端中監視內部部署身分識別基礎結構。"
-description: "這是 Azure AD Connect Health 頁面，其中說明它的功能，以及您可能會使用它的原因。"
+title: 在雲端中監視內部部署身分識別基礎結構。
+description: 這是 Azure AD Connect Health 頁面，其中說明它的功能，以及您可能會使用它的原因。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 editor: curtand
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: f8082b632e9fef4aa5d46deb35e415f2b1c55dda
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: aef9a923932b3794e32275bacd2f880d0b8b7b73
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36939570"
 ---
 # <a name="monitor-your-on-premises-identity-infrastructure-and-synchronization-services-in-the-cloud"></a>在雲端中監視內部部署身分識別基礎結構和同步處理服務。
 Azure Active Directory (Azure AD) Connect Health 可協助您監視和了解內部部署身分識別基礎結構和同步處理服務。 它提供重要身分識別元件 (例如 Active Directory Federation Services (AD FS) 伺服器、Azure AD Connect 伺服器 (也稱為同步處理引擎)、Active Directory 網域控制站等) 的監視功能，讓您維護可靠的 Office 365 或 Microsoft Online Services 連線。它也使這些元件的相關重要資料點變得容易存取，讓您取得使用情況和其他重要情資，以做出明智的決策。
@@ -33,13 +34,14 @@ Azure Active Directory (Azure AD) Connect Health 可協助您監視和了解內�
 將內部部署目錄與 Azure AD 整合時，使用者會更具生產力，因為只要一個通用身分識別，即可存取雲端和內部部署資源。 然而，此整合也會帶來挑戰，必須確保此環境良好健全，才能讓使用者從任何裝置可靠地存取內部部署和雲端中的資源。 Azure AD Connect Health 協助您監視及深入了解用來存取 Office 365 或其他 Azure AD 應用程式的內部部署身分識別基本結構。 使用方式相當簡單，您只需將代理程式安裝在各個內部部署身分識別伺服器中即可。
 
 ## <a name="azure-ad-connect-health-for-ad-fsactive-directory-aadconnect-health-adfsmd"></a>[適用於 AD FS 的 Azure AD Connect Health](active-directory-aadconnect-health-adfs.md)
-在 Windows Server 2008 R2、Windows Server 2012 和 Windows Server 2012 R2 上，適用於 AD FS 的 Azure AD Connect Health 支援 AD FS 2.0。 它也支援監視可驗證外部網路存取的 AD FS Proxy 或 Web 應用程式 Proxy 伺服器。 透過容易安裝且成本低廉的健康情況代理程式，適用於 AD FS 的 Azure AD Connect Health 提供下列一組主要功能：
+在 Windows Server 2008 R2、Windows Server 2012、Windows Server 2012 R2 和 Windows Server 2016 上，適用於 AD FS 的 Azure AD Connect Health 支援 AD FS 2.0。 它也支援監視可驗證外部網路存取的 AD FS Proxy 或 Web 應用程式 Proxy 伺服器。 透過容易安裝且成本低廉的健康情況代理程式，適用於 AD FS 的 Azure AD Connect Health 提供下列一組主要功能：
 
 * 利用警示進行監視，以了解 AD FS 與 AD FS Proxy 伺服器何時健康狀態不良
 * 重大警示的電子郵件通知
 * 效能資料的趨勢，適合用於 AD FS 的容量規劃
 * 透過樞紐 (應用程式、使用者、網路位置等) 提供 AD FS 登入的使用情況分析，有助於了解 AD FS 的使用情況
 * AD FS 報告，例如嘗試使用錯誤使用者名稱/密碼的前 50 名使用者及其最後一個 IP 位址
+* 失敗 AD FS 登入的高風險 IP 報告
   
 如需深入了解，請參閱[搭配 AD FS 使用 Azure AD Connect Health](active-directory-aadconnect-health-adfs.md)
 
@@ -47,7 +49,6 @@ Azure Active Directory (Azure AD) Connect Health 可協助您監視和了解內�
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-AD-Connect-Health--Monitor-you-identity-bridge/player]
 >
-
 >
 
 ## <a name="azure-ad-connect-health-for-syncactive-directory-aadconnect-health-syncmd"></a>[適用於同步處理的 Azure AD Connect Health](active-directory-aadconnect-health-sync.md)
@@ -86,7 +87,7 @@ Azure Active Directory (Azure AD) Connect Health 可協助您監視和了解內�
 ## <a name="get-started-with-azure-ad-connect-health"></a>開始使用 Azure AD Connect Health
 若要開始使用 Azure AD Connect Health，請使用下列步驟：
 
-1. [取得 Azure AD Premium](../active-directory-get-started-premium.md) 或[開始試用](https://azure.microsoft.com/trial/get-started-active-directory/)。
+1. [取得 Azure AD Premium](../fundamentals/active-directory-get-started-premium.md) 或[開始試用](https://azure.microsoft.com/trial/get-started-active-directory/)。
 2. 在身分識別伺服器上[下載和安裝 Azure AD Connect Health 代理程式](#download-and-install-azure-ad-connect-health-agent)。
 3. 在 [https://aka.ms/aadconnecthealth](https://aka.ms/aadconnecthealth) 檢視 Azure AD Connect Health 儀表板。
 
@@ -112,16 +113,16 @@ Azure AD Connect Health 入口網站會顯示警示、效能監視和使用情�
 > [!NOTE]
 > 如需授權資訊，請參閱 [Azure AD Connect Health 常見問題集](active-directory-aadconnect-health-faq.md)或 [Azure AD 定價頁面](https://aka.ms/aadpricing)。
     
-![Azure AD Connect Health 入口網站](./media/active-directory-aadconnect-health/portal4.png)
+![Azure AD Connect Health 入口網站](./media/active-directory-aadconnect-health/portalsidebar.png)
 
 * **快速入門**︰當您選取此選項時，[快速入門] 刀鋒視窗隨即開啟。 您可以選取 [取得工具] 下載 Azure AD Connect Health 代理程式。 您也可以存取文件，並提供意見反應。
+* **Azure Active Directory Connect (同步處理)**：此選項會顯示 Azure AD Connect Health 目前正在監視的 Azure AD Connect 伺服器。 [同步錯誤] 項目會依照類別顯示第一個上線同步處理服務的基本同步錯誤。 當您選取 [同步處理服務] 時，開啟的刀鋒視窗會顯示 Azure AD Connect 伺服器的相關資訊。 如需深入了解這些功能，請參閱[使用 Azure AD Connect Health 進行同步處理](active-directory-aadconnect-health-sync.md)。
 * **Active Directory Federation Services**：此選項會顯示 Azure AD Connect Health 目前正在監視的所有 AD FS 服務。 當您選取執行個體時，開啟的刀鋒視窗會顯示該服務執行個體的相關資訊。 這項資訊包括概觀、屬性、警示、監視和使用情況分析。 如需深入了解這些功能，請參閱[搭配 AD FS 使用 Azure AD Connect Health](active-directory-aadconnect-health-adfs.md)。
-* **Azure Active Directory Connect (同步處理)**：此選項會顯示 Azure AD Connect Health 目前正在監視的 Azure AD Connect 伺服器。 當您選取項目時，開啟的刀鋒視窗會顯示 Azure AD Connect 伺服器的相關資訊。 如需深入了解這些功能，請參閱[使用 Azure AD Connect Health 進行同步處理](active-directory-aadconnect-health-sync.md)。
 * **Active Directory Domain Services**：此選項會顯示 Azure AD Connect Health 目前正在監視的所有 AD DS 樹系。 當您選取樹系時，開啟的刀鋒視窗會顯示該樹系的相關資訊。 這項資訊包括基本資訊概觀、網域控制站儀表板、複寫狀態儀表板、警示和監視。 如需深入了解這些功能，請參閱[在 AD DS 使用 Azure AD Connect Health](active-directory-aadconnect-health-adds.md)。
 * **設定**︰本節包含開啟或關閉下列功能的選項︰
 
-  - 自動更新可將 Azure AD Connect Health 代理程式自動更新為最新版本：您將會在發佈最新版的 Azure AD Connect Health 代理程式時，自動更新為最新版本。 此選項預設為啟用狀態。
-  - 僅允許 Microsoft 存取您的 Azure AD 目錄的健康狀況資料供疑難排解之用：如果啟用此選項，Microsoft 可以看到您所看到的相同資料。 這項資訊可能有助於進行問題的疑難排解和協助。 此選項預設為停用狀態。
+  - [設定]  項目包含代理程式的基本組態。 自動升級設定可將 Azure AD Connect Health 代理程式自動更新為最新版本：您將會在發佈最新版的 Azure AD Connect Health 代理程式時，自動更新為最新版本。 此選項預設為啟用狀態。 僅允許 Microsoft 存取您的 Azure AD 目錄的健康狀況資料供疑難排解之用：如果啟用此選項，Microsoft 可以看到您所看到的相同資料。 這項資訊可能有助於進行問題的疑難排解和協助。 此選項預設為停用狀態。
+* **角色型存取控制 (IAM)** 是用來管理角色基底中 Connect Health 資料存取權的區段。 
 
 ## <a name="related-links"></a>相關連結
 * [Azure AD Connect Health 代理程式安裝](active-directory-aadconnect-health-agent-install.md)

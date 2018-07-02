@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 1e7245afe36d348b1cbd955900e34876b8e34511
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1059a401382820b4e5d3fd4b010d400bb6113926
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651721"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031425"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立串流分析作業
 
@@ -40,7 +40,7 @@ ms.locfileid: "34651721"
      "hmdt": 44
    }
    ```
-2. 登入 Azure 入口網站。  
+2. 登入 [Azure 入口網站](https://portal.azure.com/)。  
 
 3. 從 Azure 入口網站的左上角，選取 [建立資源] > [儲存體] > [儲存體帳戶]。 填寫儲存體帳戶作業頁面，將 [名稱] 設為 "asaquickstartstorage"、[位置] 設為 [美國西部 2]、[資源群組] 設為 "asaquickstart-resourcegroup" (將儲存體帳戶裝載在與串流作業相同的資源群組中可增加效能)。 其餘設定可以保留預設值。  
 
@@ -116,7 +116,7 @@ ms.locfileid: "34651721"
    |---------|---------|---------|
    |輸出別名 |   BlobOutput   |   輸入名稱以識別作業的輸出。 |
    |訂用帳戶  |  \<您的訂用帳戶\>  |  選取您在其中建立儲存體帳戶的 Azure 訂用帳戶。 儲存體帳戶可以位在相同或不同的訂用帳戶中。 此範例假設您已在相同的訂用帳戶中建立儲存體帳戶。 |
-   |儲存體帳戶 |  myasastorageaccount |   選擇或輸入儲存體帳戶的名稱。 系統會自動偵測建立在相同訂用帳戶中的儲存體帳戶名稱。       |
+   |儲存體帳戶 |  asaquickstartstorage |   選擇或輸入儲存體帳戶的名稱。 系統會自動偵測建立在相同訂用帳戶中的儲存體帳戶名稱。       |
    |容器 |   container1  |  選取您在儲存體帳戶中建立的現有容器。   |
    |路徑模式 |   output  |  輸入名稱以作為您現有容器內的輸出路徑。   |
 

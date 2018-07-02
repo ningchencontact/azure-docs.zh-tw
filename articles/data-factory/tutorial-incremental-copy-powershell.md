@@ -3,7 +3,7 @@ title: 使用 Azure Data Factory 以累加方式複製資料表 | Microsoft Docs
 description: 在本教學課程中，您會建立 Azure Data Factory 管線，以累加方式將資料從 Azure SQL Database 複製到 Azure Blob 儲存體。
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -12,21 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
-ms.author: shlo
-ms.openlocfilehash: a543bb1ceb14bb8f618e1cf644cc269a99719c28
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: yexu
+ms.openlocfilehash: d9b1666c1543e16fe5433e05645c232d01e7260c
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30182891"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054563"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>以累加方式將資料從 Azure SQL Database 載入到 Azure Blob 儲存體
 在本教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從 Azure SQL Database 中的資料表載入到 Azure Blob 儲存體。 
-
-
-> [!NOTE]
-> 本文適用於第 2 版的 Azure Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (正式推出版本)，請參閱 [Data Factory 第 1 版文件](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
-
 
 您會在本教學課程中執行下列步驟：
 
@@ -63,7 +58,7 @@ ms.locfileid: "30182891"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * **Azure SQL Database**。 您需要使用資料庫作為來源資料存放區。 如果您沒有 SQL 資料庫，請參閱[建立 Azure SQL Database](../sql-database/sql-database-get-started-portal.md)，按照步驟來建立 SQL 資料庫。
 * **Azure 儲存體**。 您需要使用 Blob 儲存體作為接收資料存放區。 如果您沒有儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)，按照步驟來建立儲存體帳戶。 建立名為 adftutorial 的容器。 
 * **Azure PowerShell**(英文)。 遵循[安裝和設定 Azure PowerShell](/powershell/azure/install-azurerm-ps) 中的指示。
@@ -156,7 +151,7 @@ END
     $resourceGroupName = "ADFTutorialResourceGroup";
     ```
 
-    如果資源群組已經存在，您可能不想覆寫它。 將不同的值指派給 `$resourceGroupName` 變數，然後執行一次命令。
+    不建議您覆寫已經存在的資源群組。 將不同的值指派給 `$resourceGroupName` 變數，然後再執行一次命令。
 
 2. 定義資料處理站位置的變數。 
 
@@ -168,12 +163,12 @@ END
     ```powershell
     New-AzureRmResourceGroup $resourceGroupName $location
     ``` 
-    如果資源群組已經存在，您可能不想覆寫它。 將不同的值指派給 `$resourceGroupName` 變數，然後執行一次命令。
+    不建議您覆寫已經存在的資源群組。 將不同的值指派給 `$resourceGroupName` 變數，然後再執行一次命令。
 
 4. 定義 Data Factory 名稱的變數。 
 
     > [!IMPORTANT]
-    >  更新資料處理站名稱，使其成為全域唯一的。 例如，ADFTutorialFactorySP1127。 
+    >  更新資料處理站名稱，使其成為全域唯一的資料處理站。 例如，ADFTutorialFactorySP1127。 
 
     ```powershell
     $dataFactoryName = "ADFIncCopyTutorialFactory";
@@ -193,7 +188,7 @@ END
     ```
 
 * 若要建立 Data Factory 執行個體，您用來登入 Azure 的使用者帳戶必須為參與者或擁有者角色，或是 Azure 訂用帳戶的管理員。
-* 目前，Data Factory 第 2 版只允許您在美國東部、美國東部 2 和西歐區域中建立資料處理站。 資料處理站所使用的資料存放區 (儲存體、SQL Database 等) 和計算 (Azure HDInsight 等) 可位於其他區域。
+* 目前，Data Factory 只允許您在美國東部、美國東部 2 和西歐區域建立資料處理站。 資料處理站所使用的資料存放區 (儲存體、SQL Database 等) 和計算 (Azure HDInsight 等) 可位於其他區域。
 
 
 ## <a name="create-linked-services"></a>建立連結的服務

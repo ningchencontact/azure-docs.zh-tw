@@ -7,14 +7,14 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 03/27/2018
+ms.date: 06/22/2018
 ms.author: v-geberr
-ms.openlocfilehash: 2547407126943161ba604fa2f5e80b9186cae57e
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 5fb93ebbd2da02df0c2cdf0d19ed282aeafe9473
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266493"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335555"
 ---
 # <a name="tutorial-create-app-that-uses-hierarchical-entity"></a>教學課程：建立會使用階層式實體的應用程式
 在本教學課程中，您將建立應用程式，示範如何根據內容尋找相關資料片段。 
@@ -22,140 +22,111 @@ ms.locfileid: "36266493"
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * 了解階層式實體和透過內容學習的子系 
-> * 以 Bookflight 意圖建立旅行網域的新 LUIS 應用程式
-> * 新增 [無] 意圖和新增範例語句
+> * 在人力資源 (HR) 網域中使用 LUIS 應用程式 
 > * 新增具有出發地和目的地子系的位置階層式實體
 > * 訓練和發佈應用程式
 > * 查詢的應用程式的端點，以查看包括階層式子系的 LUIS JSON 回應 
 
 在本文中，您需要免費 [LUIS][LUIS] 帳戶才能撰寫 LUIS 應用程式。
 
+## <a name="before-you-begin"></a>開始之前
+如果您沒有[清單實體](luis-quickstart-intent-and-list-entity.md)教學課程中的人力資源應用程式，請將 JSON [匯入](create-new-app.md#import-new-app) [LUIS](luis-reference-regions.md#luis-website) 網站中的新應用程式。 在 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-list-HumanResources.json) Github 存放庫中可找到要匯入的應用程式。
+
+如果您想要保留原本的人力資源應用程式，在[[設定]](luis-how-to-manage-versions.md#clone-a-version)頁面上複製該版本，並將其命名為 `hier`。 複製是使用各種 LUIS 功能的好方法，因為不會影響原始版本。 
+
 ## <a name="purpose-of-the-app-with-this-entity"></a>使用此實體的應用程式用途
-此應用程式會決定使用者是否要預訂班機。 它會使用階層式實體從使用者的文字中判斷位置 (出發城市和目的地城市)。 
+此應用程式會判斷員工是否要從原點位置 (建築物和辦公室) 移到目的地位置 (建築物和辦公室)。 它會使用階層式實體來判斷語句中的位置。 
 
-階層式實體適用於此類型資料，因為這兩個資料片段是：
+階層式實體適用於此類型資料，因為這兩個資料片段：
 
-* 兩個位置，通常表示城市或機場代碼。
-* 對於可用來決定出發地和目的地位置的字組，通常會有獨有的字組選擇。 這些字組包括：到、前往、從、離開。
+* 在語句的內容中彼此相關。
+* 使用特定文字來表示每個位置。 這些字的範例包括：from/to、leaving/headed to、away from/toward。
 * 這兩個位置通常會在相同的語句中。 
 
 **階層式**實體的目的是根據內容尋找語句內的相關資料。 請考慮使用下列語句：
 
 ```JSON
-1 ticket from Seattle to Cairo`
+mv Jill Jones from a-2349 to b-1298
 ```
-
-語句有兩個指定的位置。 其中一個是出發城市「西雅圖」，另一個是目的地城市「開羅」。 對於這些城市而言，預訂班機是很重要的。 而這些城市可以使用簡單的實體來找到，這些城市彼此相關，並且常會在相同語句中出現。 因此，很適合將這些城市同時群組為階層式實體的子系 **「位置」**。 
-
-如同機器學習的實體，應用程式需要有標示出發和目的地城市的範例語句。 這會告訴 LUIS 實體位於語句中的何處、實體有多長，以及其周圍的字組。 
-
-## <a name="app-intents"></a>應用程式意圖
-意圖是使用者想要的類別。 此應用程式有兩個意圖：BookFlight 和 None。 [[無]](luis-concept-intent.md#none-intent-is-fallback-for-app) 意圖是有目的的，用以指出應用程式外的任何項目。  
-
-## <a name="hierarchical-entity-is-contextually-learned"></a>階層式實體會從內容中學習 
-實體的用途在於尋找及分類語句中文字的某些部分。 [階層式](luis-concept-entity-types.md)實體是以使用內容為基礎的父系-子系實體。 使用者可以根據 `to` 和 `from` 的使用，判斷語句中的出發和目的地城市。 以下是內容相關的使用方式範例。  
-
-對於此旅遊應用程式，LUIS 以此方式擷取出發和目的地位置，可以建立和填滿標準預訂。 LUIS 允許語句有變化、縮寫和俚語。 
-
-使用者的簡單範例語句包括：
-
-```
-Book a flight to London for next Monday
-2 tickets from Dallas to Dublin this weekend
-Researve a seat from New York to Paris on the first of April
-```
-
-語句的縮寫或俚語版本包括：
-
-```
-LHR tomorrow
-SEA to NYC next Monday
-LA to MCO spring break
-```
+此語句已指定兩個位置：`a-2349` 和 `b-1298`。 假設字母會對應至建築物名稱，而數字則表示該建築物內的辦公室。 兩者都群組為階層式實體 (`Locations`) 的子系是合理的，因為必須從語句中擷取這兩個資料片段，而且兩者彼此相關。 
  
-階層式實體會比對出發和目的地位置。 如果只有一個階層式實體的子系 (出發或目的地位置) 存在，仍然會進行擷取。 只要擷取一個或部分子系時，不需要找到所有子系。 
+如果只有一個階層式實體的子系 (出發或目的地位置) 存在，仍然會進行擷取。 只要擷取一個或部分子系時，不需要找到所有子系。 
 
-## <a name="what-luis-does"></a>LUIS 用途
-在[端點](https://aka.ms/luis-endpoint-apis)的 JSON 中找出、[擷取](luis-concept-data-extraction.md#list-entity-data)及傳回語句的意圖和實體時，LUIS 便已完成。 呼叫應用程式或聊天機器人會採用該 JSON 回應並可滿足要求 -- 不論應用程式或聊天機器人的設計用途為何。 
+## <a name="remove-prebuilt-number-entity-from-app"></a>從應用程式中移除預先建立的數字實體
+若要查看整個語句並標記階層式子系，請暫時移除預先建立的數字實體。
 
-## <a name="create-a-new-app"></a>建立新的應用程式
-1. 登入 [LUIS][LUIS] 網站。 務必登入您需要發佈 LUIS 端點的[區域][LUIS-regions]。
+1. 請確定您人力資源應用程式位於 LUIS 的 [建置] 區段。 選取右上方功能表列中的 [建置]，即可變更至此區段。 
 
-2. 在 [LUIS][LUIS] 網站上選取 [建立新的應用程式]。  
+    [ ![在右上方導覽列中醒目提示 [建置] 的 LUIS 應用程式螢幕擷取畫面](./media/luis-quickstart-intent-and-hier-entity/hr-first-image.png)](./media/luis-quickstart-intent-and-hier-entity/hr-first-image.png#lightbox)
 
-    [![](media/luis-quickstart-intent-and-hier-entity/app-list.png "[應用程式] 清單頁面的螢幕擷取畫面")](media/luis-quickstart-intent-and-hier-entity/app-list.png#lightbox)
+2. 從左側功能表中選取 [實體]。
 
-3. 在快顯對話方塊中，輸入名稱 `MyTravelApp`。 
+    [ ![在左功能表中醒目提示 [實體] 按鈕的 LUIS 應用程式螢幕擷取畫面](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png#lightbox)
 
-    [![](media/luis-quickstart-intent-and-hier-entity/create-new-app.png "建立新應用程式快顯對話方塊的螢幕擷取畫面")](media/luis-quickstart-intent-and-hier-entity/create-new-app.png#lightbox)
 
-4. 當該程序完成時，應用程式會顯示意圖為 [無] 的 [意圖] 頁面。 
+3. 選取清單中數字實體右邊的三個點 (...)。 選取 [刪除] 。 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/intents-page-none-only.png "只有 [無] 意圖的意圖清單螢幕擷取畫面")](media/luis-quickstart-intent-and-hier-entity/intents-page-none-only.png#lightbox)
+    [ ![實體清單頁面上 LUIS 應用程式的螢幕擷取畫面，其中預先建立的數字實體已醒目提示 [刪除] 按鈕](./media/luis-quickstart-intent-and-hier-entity/hr-delete-number-prebuilt.png)](./media/luis-quickstart-intent-and-hier-entity/hr-delete-number-prebuilt.png#lightbox)
 
-## <a name="create-a-new-intent"></a>建立新意圖
 
-1. 在 [意圖] 頁面上，選取 [建立新意圖]。 
+## <a name="add-utterances-to-findform-intent"></a>將語句新增至 FindForm 意圖
 
-    [![](media/luis-quickstart-intent-and-hier-entity/create-new-intent-button.png "已醒目提示 [建立新意圖] 按鈕的 [意圖] 清單螢幕擷取畫面")](media/luis-quickstart-intent-and-hier-entity/create-new-intent-button.png#lightbox)
+1. 選取左功能表中的 [意圖]。
 
-2. 輸入新的意圖名稱 `BookFlight`。 每當使用者想要預訂班機時，應選取此意圖。
+    [ ![在左功能表中醒目提示 [意圖] 的 LUIS 應用程式螢幕擷取畫面](./media/luis-quickstart-intent-and-hier-entity/hr-select-intents-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-intents-button.png#lightbox)
 
-    藉由建立意圖，您可建立您想要識別的主要資訊類別。 替類別命名可讓使用 LUIS 查詢結果的任何其他應用程式，使用該類別名稱來尋找適當的答案或採取適當的動作。 LUIS 不會回答這些問題，只會在自然語言中識別所要求的是哪一類資訊。 
+2. 從意圖清單中選取 [MoveEmployee]。
 
-    [![](media/luis-quickstart-intent-and-hier-entity/create-new-intent.png "建立新意圖快顯對話方塊的螢幕擷取畫面")](media/luis-quickstart-intent-and-hier-entity/create-new-intent.png#lightbox)
+    [ ![在左功能表中醒目提示 MoveEmployee 意圖的 LUIS 應用程式螢幕擷取畫面](./media/luis-quickstart-intent-and-hier-entity/hr-intents-list-moveemployee.png)](./media/luis-quickstart-intent-and-hier-entity/hr-intents-list-moveemployee.png#lightbox)
 
-3. 將您預期使用者會要求的數個語句新增至 `BookFlight` 意圖，例如：
+3. 新增下列範例語句：
 
-    | 範例語句|
+    |範例語句|
     |--|
-    |預訂下星期一從西雅圖到開羅的兩個航班|
-    |預訂明天到倫敦的機票|
-    |安排 4 月 1 日從巴黎到倫敦的 4 個機位|
+    |Move John W. Smith **to** a-2345|
+    |Direct Jill Jones **to** b-3499|
+    |Organize the move of x23456 **from** hh-2345 **to** e-0234|
+    |Begin paperwork to set x12345 **leaving** a-3459 **headed to** f-34567|
+    |Displace 425-555-0000 **away from** g-2323 **toward** hh-2345|
 
-    [![](media/luis-quickstart-intent-and-hier-entity/enter-utterances-on-intent.png "在 BookFlight 意圖頁面上輸入語句的螢幕擷取畫面")](media/luis-quickstart-intent-and-hier-entity/enter-utterances-on-intent.png#lightbox)
+    在[清單實體](luis-quickstart-intent-and-list-entity.md)教學課程中，無法依照名稱、電子郵件地址、電話分機、行動電話號碼或美國聯邦社會安全號碼指定員工。 這些員工編號會使用於語句中。 先前的範例語句包含不同的方式可記下原點和目的地位置 (以粗體顯示標記)。 有些語句特意只有目的地。 這有助於 LUIS 了解如何在未指定原點時將這些位置放在語句中。
 
-## <a name="add-utterances-to-none-intent"></a>將語句新增至 [無] 意圖
+    [ ![MoveEmployee 意圖中有新語句的 LUIS 螢幕擷取畫面](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
+     
 
-LUIS 應用程式目前沒有任何針對 [無] 意圖的語句。 它需要您不希望應用程式回答的語句，因此 [無] 意圖中必須具有語句。 請勿將它空白。 
+## <a name="create-a-location-entity"></a>建立位置實體
+LUIS 必須藉由在語句中標記原點和目的地，進而了解位置為何。 如果您需要在語彙基元 (原始) 檢視中查看語句，請在導覽列中選取標示為 [實體檢視] 的語句上方的切換鍵。 切換參數之後，控制項會標示為 [語彙基元檢視]。
 
-1. 選取左面板中的 [意圖]。 
+1. 在 `Displace 425-555-0000 away from g-2323 toward hh-2345` 語句中，選取 `g-2323` 這個字。 隨即出現頂端有文字方塊的下拉式功能表。 在文字方塊中輸入實體名稱 `Locations`，然後在下拉式功能表中選取 [建立新的實體]。 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/select-intents-from-bookflight-intent.png "醒目提示意按鈕的 BookFlight 意圖頁面螢幕擷取畫面")](media/luis-quickstart-intent-and-hier-entity/select-intents-from-bookflight-intent.png#lightbox)
+    [![](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png "在意圖頁面上建立新實體的螢幕擷取畫面")](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png#lightbox)
 
-2. 選取 [無] 意圖。 新增您的使用者可能輸入但與您的應用程式無關的三個語句：
+2. 在快顯視窗中，選取 [階層式] 實體類型，並使用 `Origin` 和 `Destination` 作為子實體。 選取 [完成] 。
 
-    | 範例語句|
-    |--|
-    |取消！|
-    |再見|
-    |發生了什麼狀況？|
+    ![](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-2.png "新位置實體的實體建立快顯對話方塊螢幕擷取畫面")
 
-## <a name="when-the-utterance-is-predicted-for-the-none-intent"></a>針對 [無] 意圖預測語句時
-在 LUIS 呼叫應用程式 (例如聊天機器人) 中，當 LUIS 針對語句傳回 [無] 意圖時，您的 Bot 可以詢問使用者是否想要結束交談。 如果使用者不想要結束交談，聊天機器人也可以提供更多指示，以便繼續交談。 
+3. `g-2323` 的標籤標示為 `Locations`，因為 LUIS 不知道該字詞是出發或目的地位置，或兩者皆非。 選取 `g-2323`，然後選取 [位置]，接著遵循右側功能表並選取 `Origin`。
 
-實體會以 [無] 意圖的方式運作。 如果最高評分意圖為 [無]，但所擷取的實體對您的聊天機器人很有意義，您的聊天機器人可以進一步提出著重客戶意圖的問題。 
+    [![](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png "用以變更位置實體子系的實體標記快顯對話方塊螢幕擷取畫面")](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png#lightbox)
 
-## <a name="create-a-location-entity-from-the-intent-page"></a>從意圖頁面建立位置實體
-現在兩個意圖都有語句，LUIS 必須了解位置是哪裡。 依照下列步驟，瀏覽回到 `BookFlight` 意圖並且標示 (標記) 語句中的城市名稱：
+5. 選取語句中的建築物和辦公室，然後選取 [位置]，並遵循右側功能表來選取 `Origin` 或 `Destination`以標示所有其他語句中的其他位置。 標示所有位置後，[語彙基元檢視] 中的語句就開始看起來像是一個模式。 
 
-1. 選取左面板中的 [意圖]，以返回 `BookFlight` 意圖。
+    [![](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png "語句中已標記位置實體的螢幕擷取畫面")](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png#lightbox)
 
-2. 從意圖清單中選取 `BookFlight`。
+## <a name="add-prebuilt-number-entity-to-app"></a>將預先建立的數字實體新增至應用程式
+將預先建立的數字實體新增回應用程式。
 
-3. 在 `Book 2 flights from Seattle to Cairo next Monday` 語句中，選取 `Seattle` 這個字。 隨即出現下拉式清單功能表，頂端有文字方塊可建立新實體。 在文字方塊中輸入實體名稱 `Location`，然後在下拉式功能表中選取 [建立新的實體]。 
+1. 從左側導覽功能表中選取 [實體]。
 
-    [![](media/luis-quickstart-intent-and-hier-entity/label-seattle-in-utterance.png "從選取文字建立新實體的 BookFlight 意圖頁面螢幕擷取畫面")](media/luis-quickstart-intent-and-hier-entity/label-seattle-in-utterance.png#lightbox)
+    [![左導覽列中已醒目提示 [實體] 按鈕的螢幕擷取畫面](./media/luis-quickstart-intent-and-hier-entity/hr-select-entity-button-from-intent-page.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-entity-button-from-intent-page.png#lightbox)
 
-4. 在快顯視窗中，選取 [階層式] 實體類型，並使用 `Origin` 和 `Destination` 作為子實體。 選取 [完成] 。
+2. 選取 [管理預先建立的實體] 按鈕。
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hier-entity-ddl.png "新位置實體的實體建立快顯對話方塊螢幕擷取畫面")](media/luis-quickstart-intent-and-hier-entity/hier-entity-ddl.png#lightbox)
+    [ ![已醒目提示 [管理預先建立的實體] 的 [實體] 清單螢幕擷取畫面](./media/luis-quickstart-intent-and-hier-entity/hr-manage-prebuilt-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-manage-prebuilt-button.png#lightbox)
 
-    `Seattle` 的標籤標示為 `Location`，因為 LUIS 不知道該字詞是出發或目的地位置，或兩者皆非。 選取 `Seattle`，然後選取位置，接著遵循右側功能表，選取 `Origin`。
+3. 從預先建立的實體清單中選取 [數字]，然後選取 [完成]。
 
-5. 現在，實體已建立，並標示了一個語句，選取城市名稱可標示其他城市，然後選取位置，並遵循右側功能表來選取 `Origin` 或 `Destination`。
-
-    [![](media/luis-quickstart-intent-and-hier-entity/label-destination-in-utterance.png "Bookflight 實體的螢幕擷取畫面，其中包含選取為實體選取項目的話語文字")](media/luis-quickstart-intent-and-hier-entity/label-destination-in-utterance.png#lightbox)
+    ![預先建立的實體對話方塊中已選取數字的螢幕擷取畫面](./media/luis-quickstart-intent-and-hier-entity/hr-add-number-back-ddl.png)
 
 ## <a name="train-the-luis-app"></a>訓練 LUIS 應用程式
 LUIS 在經過訓練前，並不知道意圖和實體 (模型) 的變更。 
@@ -173,8 +144,6 @@ LUIS 在經過訓練前，並不知道意圖和實體 (模型) 的變更。
 
 1. 在 LUIS 網站的右上方，選取 [發佈] 按鈕。 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/publish.png "醒目提示發佈按鈕的 Bookflight 意圖螢幕擷取畫面")](media/luis-quickstart-intent-and-hier-entity/publish.png#lightbox)
-
 2. 選取 [生產] 位置和 [發佈] 按鈕。
 
     [![](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png "已醒目提示發佈至生產位置按鈕的 [發佈] 頁面螢幕擷取畫面")](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png#lightbox)
@@ -186,41 +155,114 @@ LUIS 在經過訓練前，並不知道意圖和實體 (模型) 的變更。
 
     [![](media/luis-quickstart-intent-and-hier-entity/publish-select-endpoint.png "已醒目提示端點 URL 的 [發佈] 頁面螢幕擷取畫面")](media/luis-quickstart-intent-and-hier-entity/publish-select-endpoint.png#lightbox)
 
-2. 移至位址中的 URL 尾端並輸入 `1 ticket to Portland on Friday`。 最後一個 querystring 參數是 `q`，也就是 **q**uery 語句。 此語句與任何標示的語句都不同，因此這是很好的測試，且應該傳回具有所擷取階層式實體的 `BookFlight` 意圖。
+2. 移至位址中的 URL 尾端並輸入 `Please relocation jill-jones@mycompany.com from x-2345 to g-23456`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 此語句與任何標示的語句都不同，因此這是很好的測試，且應該傳回具有所擷取階層式實體的 `MoveEmployee` 意圖。
 
-```
+```JSON
 {
-  "query": "1 ticket to Portland on Friday",
+  "query": "Please relocation jill-jones@mycompany.com from x-2345 to g-23456",
   "topScoringIntent": {
-    "intent": "BookFlight",
-    "score": 0.9998226
+    "intent": "MoveEmployee",
+    "score": 0.9966052
   },
   "intents": [
     {
-      "intent": "BookFlight",
-      "score": 0.9998226
+      "intent": "MoveEmployee",
+      "score": 0.9966052
+    },
+    {
+      "intent": "Utilities.Stop",
+      "score": 0.0325253047
+    },
+    {
+      "intent": "FindForm",
+      "score": 0.006137873
+    },
+    {
+      "intent": "GetJobInformation",
+      "score": 0.00462633232
+    },
+    {
+      "intent": "Utilities.StartOver",
+      "score": 0.00415637763
+    },
+    {
+      "intent": "ApplyForJob",
+      "score": 0.00382325822
+    },
+    {
+      "intent": "Utilities.Help",
+      "score": 0.00249120337
     },
     {
       "intent": "None",
-      "score": 0.221926212
+      "score": 0.00130756292
+    },
+    {
+      "intent": "Utilities.Cancel",
+      "score": 0.00119622645
+    },
+    {
+      "intent": "Utilities.Confirm",
+      "score": 1.26910036E-05
     }
   ],
   "entities": [
     {
-      "entity": "portland",
-      "type": "Location::Destination",
-      "startIndex": 12,
-      "endIndex": 19,
-      "score": 0.564448953
+      "entity": "jill - jones @ mycompany . com",
+      "type": "Employee",
+      "startIndex": 18,
+      "endIndex": 41,
+      "resolution": {
+        "values": [
+          "Employee-45612"
+        ]
+      }
+    },
+    {
+      "entity": "x - 2345",
+      "type": "Locations::Origin",
+      "startIndex": 48,
+      "endIndex": 53,
+      "score": 0.8520272
+    },
+    {
+      "entity": "g - 23456",
+      "type": "Locations::Destination",
+      "startIndex": 58,
+      "endIndex": 64,
+      "score": 0.974032
+    },
+    {
+      "entity": "-2345",
+      "type": "builtin.number",
+      "startIndex": 49,
+      "endIndex": 53,
+      "resolution": {
+        "value": "-2345"
+      }
+    },
+    {
+      "entity": "-23456",
+      "type": "builtin.number",
+      "startIndex": 59,
+      "endIndex": 64,
+      "resolution": {
+        "value": "-23456"
+      }
     }
   ]
 }
 ```
 
-## <a name="what-has-this-luis-app-accomplished"></a>此 LUIS 應用程式有何成就？
-此應用程式 (只有兩個意圖和一個階層式實體) 已識別出自然語言查詢意圖並傳回所擷取的資料。 
+## <a name="could-you-have-used-a-regular-expression-for-each-location"></a>是否已針對每個位置使用規則運算式？
+是，使用原點和目的地角色建立規則運算式，並在模式中使用它。
 
-您的聊天機器人現在有足夠資訊可判斷主要動作 `BookFlight` 和話語中找到的資訊。 
+此範例中的位置 (例如 `a-1234`) 會遵循特定格式：一或兩個子母加上破折號，後面接著一系列 4 或 5 個數字。 此資料的描述為每個位置各有一個角色的規則運算式實體。 這些角色適用於模式。 您可以根據這些語句建立模式，然後建立位置格式的規則運算式，並將它新增至模式。 <!-- Go to this tutorial to see how that is done -->
+
+## <a name="what-has-this-luis-app-accomplished"></a>此 LUIS 應用程式有何成就？
+此應用程式 (只有一些意圖和一個階層式實體) 已識別出自然語言查詢意圖並傳回所擷取的資料。 
+
+您的聊天機器人現在有足夠資訊可判斷主要動作 `MoveEmployee` 和話語中找到的資訊。 
 
 ## <a name="where-is-this-luis-data-used"></a>此 LUIS 資料用於何處？ 
 LUIS 是利用此要求來完成。 呼叫應用程式 (例如聊天機器人) 可以採用 topScoringIntent 結果和實體中的資料，進而採取下一個步驟。 LUIS 不會為聊天機器人或呼叫應用程式進行該程式設計工作。 LUIS 只會判斷使用者的用意為何。 
@@ -231,11 +273,6 @@ LUIS 是利用此要求來完成。 呼叫應用程式 (例如聊天機器人) �
 ## <a name="next-steps"></a>後續步驟
 > [!div class="nextstepaction"] 
 > [了解如何新增清單實體](luis-quickstart-intent-and-list-entity.md) 
-
-新增[預先建立的數字實體](luis-how-to-add-entities.md#add-prebuilt-entity)以擷取數字。 
-
-新增[預先建立的 datetimeV2 實體](luis-how-to-add-entities.md#add-prebuilt-entity)來擷取日期資訊。
-
 
 <!--References-->
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

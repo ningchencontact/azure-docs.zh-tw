@@ -1,5 +1,5 @@
 ---
-title: 使用適用於容器的 Azure Web 應用程式建立多容器 (預覽) 應用程式
+title: 在用於容器的 Web App 中建立多容器 (預覽) 應用程式
 description: 了解如何透過 Docker Compose 和 Kubernetes 組態檔以及 WordPress 與 MySQL 應用程式在 Azure 上使用多個容器。
 keywords: azure app service, web 應用程式, linux, docker, compose, 多個容器, 容器, kubernetes
 services: app-service
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 05/02/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 61158af0bc978665c3d914c8de3376b8f5d5c69f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 43a3fa271a1958c99bd3dd597c73de2d77bb1bfd
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651275"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751909"
 ---
-# <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>教學課程：在適用於容器的 Web 應用程式中建立多容器 (預覽) 應用程式
+# <a name="tutorial-create-a-multicontainer-preview-app-in-web-app-for-containers"></a>教學課程：在用於容器的 Web App 中建立多容器 (預覽) 應用程式
 
 [適用於容器的 Web 應用程式](app-service-linux-intro.md)提供彈性的 Docker 映像使用方式。 在本教學課程中，您將了解如何使用 WordPress 和 MySQL 建立多容器應用程式。
 
@@ -172,9 +172,9 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 
 瀏覽至已部署的應用程式 (位於 `http://<app_name>.azurewebsites.net`)。 此應用程式可能需要數分鐘才能載入。 如果發生錯誤，請再等待數分鐘，然後重新整理瀏覽器。 如果您在到問題而想要進行疑難排解，請檢閱[容器記錄](#find-docker-container-logs)。
 
-![適用於容器的 Web 應用程式上的範例多容器應用程式][1]
+![用於容器的 Web App 上的範例多容器應用程式][1]
 
-**恭喜**，您已在適用於容器的 Web 應用程式中建立多容器應用程式。 接下來，您必須設定應用程式以使用適用於 MySQL 的 Azure 資料庫。 請勿在此時安裝 WordPress。
+**恭喜**，您已在用於容器的 Web App 中建立多容器應用程式。 接下來，您必須設定應用程式以使用適用於 MySQL 的 Azure 資料庫。 請勿在此時安裝 WordPress。
 
 ## <a name="connect-to-production-database"></a>連線至生產資料庫
 
@@ -332,11 +332,11 @@ az webapp config container set --resource-group myResourceGroup --name <app_name
 
 瀏覽至已部署的應用程式 (位於 `http://<app_name>.azurewebsites.net`)。 應用程式現在會使用適用於 MySQL 的 Azure 資料庫。
 
-![適用於容器的 Web 應用程式上的範例多容器應用程式][1]
+![用於容器的 Web App 上的範例多容器應用程式][1]
 
 ## <a name="add-persistent-storage"></a>新增永續性儲存體
 
-您的多個容器現在會在適用於容器的 Web 應用程式中執行。 不過，如果您此時安裝 WordPress，並於稍後重新啟動應用程式，您會發現 WordPress 安裝已消失。 之所以發生此狀況，是因為您的 Docker Compose 組態目前指向容器內的儲存位置。 安裝到容器中的檔案在應用程式重新啟動後將不會保存。 在本節中，您會將永續性儲存體新增至 WordPress 容器。
+您的多個容器現在會在用於容器的 Web App 中執行。 不過，如果您此時安裝 WordPress，並於稍後重新啟動應用程式，您會發現 WordPress 安裝已消失。 之所以發生此狀況，是因為您的 Docker Compose 組態目前指向容器內的儲存位置。 安裝到容器中的檔案在應用程式重新啟動後將不會保存。 在本節中，您會將永續性儲存體新增至 WordPress 容器。
 
 ### <a name="configure-environment-variables"></a>設定環境變數
 
@@ -511,7 +511,7 @@ WordPress 會連線至 Redis 伺服器。 連線**狀態**會顯示在相同頁�
 
 在本節中，您將了解如何使用 Kubernetes 組態來部署多個容器。 請確實依照先前步驟建立[資源群組](#create-a-resource-group)和 [App Service 方案](#create-an-azure-app-service-plan)。 由於大部分的步驟都與 Compose 區段的步驟類似，因此系統已為您合併組態檔。
 
-### <a name="supported-kubernetes-options-for-multi-container"></a>多個容器支援的 Kubernetes 選項
+### <a name="supported-kubernetes-options-for-multicontainer"></a>多個容器支援的 Kubernetes 選項
 
 * args
 * 命令
@@ -627,7 +627,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
 
 ### <a name="add-persistent-storage"></a>新增永續性儲存體
 
-您的多個容器現在會在適用於容器的 Web 應用程式中執行。 資料將在重新啟動後清除，因為檔案不會持續保存。 在本節中，您會將永續性儲存體新增至 WordPress 容器。
+您的多個容器現在會在用於容器的 Web App 中執行。 資料將在重新啟動後清除，因為檔案不會持續保存。 在本節中，您會將永續性儲存體新增至 WordPress 容器。
 
 ### <a name="configure-environment-variables"></a>設定環境變數
 
@@ -649,7 +649,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
 ]
 ```
 
-### <a name="create-a-multi-container-app-kubernetes"></a>建立多容器應用程式 (Kubernetes)
+### <a name="create-a-multicontainer-app-kubernetes"></a>建立多容器應用程式 (Kubernetes)
 
 在本機命令提示字元終端機中，使用 [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) 命令在 `myResourceGroup` 群組和 `myAppServicePlan` App Service 方案中建立多容器 [Web 應用程式](app-service-linux-intro.md)。 別忘了將 _\<app_name>_ 取代為唯一的應用程式名稱。
 
@@ -679,9 +679,9 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 
 應用程式現在會在適用於容器的 Web 應用程式中執行多個容器。
 
-![適用於容器的 Web 應用程式上的範例多容器應用程式][1]
+![用於容器的 Web App 上的範例多容器應用程式][1]
 
-**恭喜**，您已在適用於容器的 Web 應用程式中建立多容器應用程式。
+**恭喜**，您已在用於容器的 Web App 中建立多容器應用程式。
 
 若要使用 Redis，請遵循[將 WordPress 連線至 Redis](#connect-wordpress-to-redis) 中的步驟。
 

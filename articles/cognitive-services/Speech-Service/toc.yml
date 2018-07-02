@@ -17,18 +17,6 @@
       href: quickstart-cpp-linux.md
     - name: 開始使用語音裝置 SDK
       href: speech-devices-sdk-qsg.md
-- name: 自訂
-  items:
-    - name: 自訂語音模型
-      href: how-to-customize-speech-models.md
-    - name: 自訂語音字型
-      href: how-to-customize-voice-font.md
-    - name: 準備文字記錄
-      href: prepare-transcription.md
-    - name: 使用自訂的音訊串流
-      href: how-to-use-audio-input-streams.md
-    - name: 自訂裝置喚醒字組 (Devices SDK)
-      href: speech-devices-sdk-create-kws.md
 - name: 使用說明指南
   items:
     - name: 辨識語音
@@ -39,8 +27,22 @@
       href: how-to-translate-speech.md
     - name: 取得語音裝置 SDK
       href: get-speech-devices-sdk.md
-    - name: 批次轉譯 (呼叫中心)
+    - name: 批次轉譯
       href: batch-transcription.md
+- name: 自訂
+  items:
+    - name: 自訂原音模型
+      href: how-to-customize-acoustic-models.md
+    - name: 自訂語言模型
+      href: how-to-customize-language-model.md
+    - name: 自訂語音字型 (Bot 品牌聲音)
+      href: how-to-customize-voice-font.md
+    - name: 準備文字記錄
+      href: prepare-transcription.md
+    - name: 使用自訂的音訊串流
+      href: how-to-use-audio-input-streams.md
+    - name: 自訂裝置喚醒字組 (Devices SDK)
+      href: speech-devices-sdk-create-kws.md
 - name: 範例
   items:
     - name: 下載範例

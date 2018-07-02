@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 125561d61afe0fb7f704144efa1c8c20ecf03db1
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9f865897ee478f25a44fe876d44aec253e84eb62
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29821040"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319704"
 ---
 回到「本機終端視窗」，將 Azure 遠端新增至本機 Git 存放庫。 將 _&lt;deploymentLocalGitUrl-from-create-step>_ 取代為您從[建立 Web 應用程式](#create)儲存之 Git 遠端的 URL。
 

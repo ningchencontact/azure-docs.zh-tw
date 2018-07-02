@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: v-geberr
-ms.openlocfilehash: c31e7d130d02ab6b0fad7577026e557692c2b60e
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 317d5b37b90f6c436e3cecf0486d587f54960598
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285945"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316537"
 ---
 # <a name="tutorial-use-regular-expression-entity"></a>教學課程：使用規則運算式實體
 在本教學課程中，您可以使用**規則運算式**實體來建立應用程式，讓其示範如何從語句中擷取格式一致的資料。
@@ -28,10 +28,10 @@ ms.locfileid: "36285945"
 > * 訓練和發佈應用程式
 > * 查詢應用程式端點來查看 LUIS JSON 回應
 
-在本文中，您需要免費 [LUIS][LUIS] 帳戶才能撰寫 LUIS 應用程式。
+在本文中，您需要免費 [LUIS](luis-reference-regions.md#luis-website) 帳戶才能撰寫 LUIS 應用程式。
 
 ## <a name="before-you-begin"></a>開始之前
-如果您沒有預先建立[自訂網域](luis-tutorial-prebuilt-intents-entities.md)實體教學課程中的人力資源應用程式，請從 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json) Github 存放庫，將 JSON [匯入](create-new-app.md#import-new-app)到 [LUIS][LUIS] 網站中的新應用程式。
+如果您沒有預先建立[自訂網域](luis-tutorial-prebuilt-intents-entities.md)實體教學課程中的人力資源應用程式，請從 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json) Github 存放庫，將 JSON [匯入](create-new-app.md#import-new-app)到 [LUIS](luis-reference-regions.md#luis-website) 網站中的新應用程式。
 
 如果您想要保留原本的人力資源應用程式，在[[設定]](luis-how-to-manage-versions.md#clone-a-version)頁面上複製該版本，並將其命名為 `regex`。 複製是使用各種 LUIS 功能的好方法，因為不會影響原始版本。 
 
@@ -244,6 +244,3 @@ LUIS 是利用此要求來完成。 呼叫應用程式 (例如聊天機器人) �
 > [!div class="nextstepaction"]
 > [深入了解 KeyPhrase 實體](luis-quickstart-intent-and-key-phrase.md)
 
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions

@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 05/14/2018
 ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: b1e7fa441dc52a647828c7d3785f09533af06fd0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 42be14569215af7ee98a540c2a86cef2b2a028e4
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651318"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37033554"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -76,7 +76,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku S1
 
 # Make a note of the service connection string, you need it later:
-az iot hub show-connection-string --hub-name $hub-name -o table
+az iot hub show-connection-string --hub-name $hubname -o table
 
 ```
 
@@ -260,14 +260,7 @@ az group delete --name tutorial-iot-hub-rg
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何執行下列工作，以同步處理您的裝置與 IoT 中樞之間的狀態資訊：
-
-> [!div class="checklist"]
-> * 建立 IoT 中樞，並將測試裝置新增至身分識別登錄。
-> * 使用所需屬性將狀態資訊傳送至您的模擬裝置。
-> * 使用報告屬性從您的模擬裝置接收狀態資訊。
-
-繼續進行下一個教學課程，以了解如何使用裝置對應項實作韌體更新程序。
+在本教學課程中，您已了解如何同步處理您的裝置與 IoT 中樞之間的狀態資訊。 繼續進行下一個教學課程，以了解如何使用裝置對應項實作韌體更新程序。
 
 > [!div class="nextstepaction"]
-[使用模擬裝置來測試與您 IoT 中樞的連線能力](tutorial-connectivity.md)
+[實作裝置韌體更新程序](tutorial-firmware-update.md)

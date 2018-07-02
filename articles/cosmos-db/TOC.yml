@@ -118,8 +118,6 @@ items:
                         href: sql-api-java-get-started.md
                       - name: Node.js
                         href: sql-api-nodejs-get-started.md
-                      - name: C++
-                        href: sql-api-cpp-get-started.md
                   - name: 建置 Web 應用程式
                     items:
                       - name: .NET
@@ -144,10 +142,6 @@ items:
                     href: local-emulator.md
                   - name: 匯出憑證
                     href: local-emulator-export-ssl-certificates.md
-              - name: 6 - 與 Functions 整合
-                items:
-                  - name: HTTP 觸發程序
-                    href: tutorial-functions-http-trigger.md
           - name: 範例
             items:
               - name: Azure CLI
@@ -350,26 +344,14 @@ items:
                 href: gremlin-support.md
           - name: 教學課程
             items:
-              - name: 1 - 建立
-                href: tutorial-develop-graph-dotnet.md
-              - name: 2 - 查詢
+              - name: 1 - 查詢
                 href: tutorial-query-graph.md
-              - name: 3 - 全域散發
-                href: tutorial-global-distribution-graph.md
           - name: 使用說明指南
             items:
               - name: 圖表分割
                 href: graph-partitioning.md
               - name: 使用儲存體總管進行管理
                 href: storage-explorer.md
-              - name: 整合
-                items:
-                  - name: 連線至 Spark GraphX
-                    href: spark-connector-graph.md
-          - name: 參考
-            items:
-              - name: .NET
-                href: graph-sdk-dotnet.md
           - name: 資源
             items:
               - name: 使用儲存體總管進行管理

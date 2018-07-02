@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 93698df0e1684b469b6e2a03e6681499949aab6d
-ms.sourcegitcommit: caebf2bb2fc6574aeee1b46d694a61f8b9243198
+ms.openlocfilehash: c6c67f6f1500ee90a1e0e4a04309f3f7aa2f6d05
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35414598"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36338317"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>所有的 Azure VPN 閘道 SKU 上是否都支援 BGP？
 否，Azure **VpnGw1****VpnGw2****VpnGw3****Standard** 和 **HighPerformance** VPN 閘道支援 BGP。 **基本** SKU。
@@ -23,6 +23,9 @@ ms.locfileid: "35414598"
 
 ### <a name="can-i-use-private-asns-autonomous-system-numbers"></a>可以使用私人 ASN (自發系統編號) 嗎？
 是，針對您的內部部署網路和 Azure 虛擬網路，您可以使用您自己的公用 ASN 或私人 ASN。
+
+### <a name="can-i-use-32-bit-asns-autonomous-system-numbers"></a>可以使用 32 位元的 ASN (自發系統編號) 嗎？
+否，Azure VPN 閘道目前支援 16 位元的 ASN。
 
 ### <a name="are-there-asns-reserved-by-azure"></a>是否有 Azure 所保留的 ASN 嗎？
 是，下列是 Azure 針對內部和外部對等互連所保留的 ASN︰

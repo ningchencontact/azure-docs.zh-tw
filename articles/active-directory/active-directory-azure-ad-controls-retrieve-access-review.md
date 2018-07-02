@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.component: compliance-reports
-ms.date: 05/16/2018
+ms.date: 06/21/2018
 ms.author: rolyon
-ms.openlocfilehash: c30d166335e31cdbf03283371da42fa6b7cda162
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: a2d356afd33ddd2e641c6f9bc028f235623b448b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233109"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37024663"
 ---
 # <a name="retrieve-access-review-results"></a>擷取存取權檢閱結果
 
-系統管理員可以使用 Azure Active Directory (Azure AD) 為群組成員或指派給應用程式的或使用者[建立存取權檢閱](active-directory-azure-ad-controls-create-access-review.md)。  具有 [全域管理員]、[安全性系統管理員] 或 [安全性讀取者] 角色的使用者，也可以讀取存取權檢閱的結果。  若要將使用者指派給其中一個角色，特殊權限角色管理員可以使用 Azure AD PIM 讓使用者能夠啟用角色，或全域管理員可以永久[將使用者指派給角色](active-directory-users-assign-role-azure-portal.md)。
+系統管理員可以使用 Azure Active Directory (Azure AD) 為群組成員或指派給應用程式的或使用者[建立存取權檢閱](active-directory-azure-ad-controls-create-access-review.md)。  具有 [全域管理員]、[使用者帳戶管理員]、[安全性系統管理員] 或 [安全性讀取者] 角色的使用者，也可以讀取存取權檢閱的結果。  若要將使用者指派給其中一個角色，特殊權限角色管理員可以使用 Azure AD PIM 讓使用者能夠啟用角色，或全域管理員可以永久[將使用者指派給角色](fundamentals/active-directory-users-assign-role-azure-portal.md)。
 
-[!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="locating-an-access-review"></a>找出存取權檢閱
 
@@ -46,7 +46,7 @@ ms.locfileid: "35233109"
 
 ## <a name="removing-users-from-an-access-review"></a>從存取權檢閱中移除使用者
 
-根據預設，已刪除的使用者會在 Azure AD 中以已刪除的狀態保留 30 天，在這段期間內，系統管理員可以視需要加以還原。  經過 30 天後，該使用者將永久刪除。  此外，全域管理員可以使用 Azure Active Directory 入口網站，在該時段結束之前明確地[永久刪除最近刪除的使用者](active-directory-users-restore.md)。  使用者永久刪除後，關於該使用者的資料將會從作用中的存取權檢閱中移除。  與已刪除的使用者有關的稽核資訊仍會保留在稽核記錄中。
+根據預設，已刪除的使用者會在 Azure AD 中以已刪除的狀態保留 30 天，在這段期間內，系統管理員可以視需要加以還原。  經過 30 天後，該使用者將永久刪除。  此外，全域管理員可以使用 Azure Active Directory 入口網站，在該時段結束之前明確地[永久刪除最近刪除的使用者](fundamentals/active-directory-users-restore.md)。  使用者永久刪除後，關於該使用者的資料將會從作用中的存取權檢閱中移除。  與已刪除的使用者有關的稽核資訊仍會保留在稽核記錄中。
 
 ## <a name="next-steps"></a>後續步驟
 

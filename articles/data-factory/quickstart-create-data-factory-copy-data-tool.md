@@ -11,25 +11,22 @@ ms.workload: data-services
 ms.topic: hero-article
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 23d4afffbe108d439dd53d95ed81f7d9fc4246ef
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 4df392ec7e100ef0efcbb3876079710a6b9ca4fb
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284567"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048021"
 ---
 # <a name="use-the-copy-data-tool-to-copy-data"></a>使用複製資料工具複製資料 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
-> * [第 1 版 - 正式推出](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [第 2 版 - 預覽](quickstart-create-data-factory-copy-data-tool.md)
+> * [第 1 版](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [目前的版本](quickstart-create-data-factory-copy-data-tool.md)
 
 在此快速入門中，您會使用 Azure 入口網站建立資料處理站。 接著，您會使用「複製資料」工具建立管線，將資料從 Azure Blob 儲存體的一個資料夾複製到另一個資料夾。 
 
 > [!NOTE]
 > 如果您不熟悉 Azure Data Factory，在執行此快速入門之前，請先參閱 [Azure Data Factory 簡介](data-factory-introduction.md)。 
->
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的服務 (也就是公開上市版 (GA))，請參閱[開始使用 Data Factory 第 1 版](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
-
 
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
@@ -52,7 +49,7 @@ ms.locfileid: "36284567"
    - 選取 [建立新的] ，然後輸入資源群組的名稱。   
          
    若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。  
-4. 針對 [版本]，選取 [V2 (預覽版)]。
+4. 針對 [版本]，選取 [V2]。
 5. 針對 [位置]，選取資料處理站的位置。 
 
    清單只會顯示支援的位置。 Data Factory 所使用的資料存放區 (如 Azure 儲存體和 Azure SQL Database) 和計算 (如 Azure HDInsight) 可位於其他位置/區域。
@@ -85,7 +82,7 @@ ms.locfileid: "36284567"
 
     ![從資源庫選取 Blob 儲存體](./media/quickstart-create-data-factory-copy-data-tool/select-blob-source.png)
 
-    c. 在 [指定 Azure Blob 儲存體帳戶] 頁面上，從 [儲存體帳戶名稱] 清單中選取您的儲存體帳戶，然後選取 [下一步]。 
+    c. 在 [指定 Azure Blob 儲存體帳戶] 頁面上，從 [儲存體帳戶名稱] 清單中選取您的儲存體帳戶，然後選取 [完成]。 
 
    ![設定 Azure Blob 儲存體帳戶](./media/quickstart-create-data-factory-copy-data-tool/configure-blob-storage.png)
 

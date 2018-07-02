@@ -13,18 +13,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: eec2b5f84d11c946c5cae1d7d90d0b96dacc9d8c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2f39b2b54509efabcab3a818c9f1b02645f5b099
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30173112"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055133"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>在 Data Factory 管道中將活動分支和鏈結
 在本教學課程中，您會建立 Data Factory 管道來展示部分的控制流程功能。 這個管道只是簡單地從 Azure Blob 儲存體中的一個容器複製到相同儲存體帳戶中的另一個容器。 如果複製活動成功，您希望透過成功電子郵件傳送成功複製作業的詳細資料 (例如寫入的資料量)。 如果複製活動失敗，您希望透過失敗電子郵件傳送複製失敗的詳細資料 (例如錯誤訊息)。 在整個教學課程中，您會看到如何傳遞參數。
-
-> [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (正式推出版本 (GA))，請參閱 [Data Factory 第 1 版文件](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
 情節的高階概觀：![概觀](media/tutorial-control-flow/overview.png)
 
@@ -489,7 +486,7 @@ Parameters = new Dictionary<string, ParameterSpecification>
 - 訊息 – 傳遞 `@{activity('CopyBlobtoBlob').output.dataWritten` 的值。 存取先前複製活動的屬性，並傳遞 dataWritten 的值。 對於失敗案例，請傳遞錯誤輸出，而不是 `@{activity('CopyBlobtoBlob').error.message`。
 - 資料處理站名稱 – 傳遞 `@{pipeline().DataFactory}` 的值。這是系統變數，可讓您存取對應的資料處理站名稱。 如需系統變數的清單，請參閱[系統變數](control-flow-system-variables.md)一文。
 - 管道名稱 - 傳遞 `@{pipeline().Pipeline}` 的值。 這也是系統變數，可讓您存取對應的管道名稱。 
-- 接收者 – 傳遞 "@pipeline().parameters.receiver") 的值。 存取管道參數。
+- 接收者 – 傳遞 "\@pipeline().parameters.receiver") 的值。 存取管道參數。
  
 此程式碼會建立新的活動相依性，取決於它接替的前一個複製活動而定。
 

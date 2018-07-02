@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 484567dd9d9c3d050e7be25bd685a5b8d3de0687
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: fbbd66dea73747acaf1c267f7d3ba7b1bb17baa2
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825493"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36939148"
 ---
 ## <a name="build-and-run-code-in-kubernetes"></a>在 Kubernetes 中建置及執行程式碼
 讓我們來執行程式碼！ 在終端機視窗中，從**根程式碼資料夾**中執行 webfrontend 這個命令：
@@ -37,6 +37,9 @@ azds up
 ### <a name="test-the-web-app"></a>測試 Web 應用程式
 請掃描主控台輸出以取得 `up` 命令所建立的公用 URL 相關資訊。 它會在表單中： 
 
-`Running at public URL: http://<servicename>-<cluster-name>.<guid>.<region>.aksapp.io` 
+`Service 'webfrontend' port 'http' is available at <url>` 
 
 在瀏覽器視窗中開啟此 URL，您應該會看到 Web 應用程式載入。 當容器執行時，`stdout` 和 `stderr` 輸出會串流至終端機視窗。
+
+> [!Note]
+> 第一次執行時，可能需要數分鐘的時間才能備妥公用 DNS。 如果無法解析公用 URL，您可以使用主控台輸出中顯示的替代 http://localhost:<portnumber> URL。 如果您使用 localhost URL，容器可能看起來像在本機執行，但實際是在 AKS 中執行。 為了方便您操作以及與本機電腦上的服務互動，Azure 開發人員空間會建立暫存的 SSH 通道，連到在 Azure 中執行的容器。 當 DNS 記錄備妥時，您可以返回且稍後嘗試公用 URL。

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 05/07/2018
 ms.author: jgao
-ms.openlocfilehash: 7e01915a63e0e260dc85893bdf65cf7b86000cef
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a18777694677ab4958c88b5610844726f80868cb
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33771213"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053995"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>什麼是 Azure HDInsight 中的 Apache Spark
 
@@ -43,8 +43,8 @@ HDInsight 中的 Spark 叢集可提供完全受控的 Spark 服務。 以下列�
 | REST API |HDInsight 中的 Spark 叢集包含 [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)，它是 REST-API 型 Spark 作業伺服器，可用來遠端提交及監視作業。 |
 | 支援 Azure Data Lake Store | HDInsight 中的 Spark 叢集可以使用 Azure Data Lake Store 作為主要儲存體或額外的儲存體。 如需有關 Data Lake Store 的詳細資訊，請參閱 [Azure Data Lake Store 概觀](../../data-lake-store/data-lake-store-overview.md)。 |
 | Azure 服務整合 |HDInsight 中的 Spark 叢集隨附連至 Azure 事件中樞的連接器。 除了 Spark 所提供的 [Kafka](http://kafka.apache.org/) \(英文\) 之外，您還可以使用事件中樞來建置串流應用程式。 |
-| 支援 R 伺服器 | 您可以在 HDInsight Spark 叢集中設定 R 伺服器，以 Spark 叢集所承諾的速度來執行分散式 R 運算。 如需詳細資訊，請參閱[開始使用 HDInsight 中的 R 伺服器](../r-server/r-server-get-started.md)。 |
-| 第三方 IDE 整合 | HDInsight 提供數個 IDE 外掛程式，以用來建立應用程式，並將應用程式提交至 HDInsight Spark 叢集。 如需詳細資訊，請參閱[使用 Azure Toolkit for IntelliJ](apache-spark-intellij-tool-plugin.md) 和[使用 Azure Toolkit for Eclipse](apache-spark-eclipse-tool-plugin.md)。|
+| ML Server 的支援 | 在 HDInsight 中會以 **ML 服務**叢集類型的形式提供 ML Server 的支援。 您可以設定 ML 服務叢集，以 Spark 叢集所承諾的速度來執行分散式 R 運算。 如需詳細資訊，請參閱[開始使用 HDInsight 中的 ML Server](../r-server/r-server-get-started.md)。 |
+| 第三方 IDE 整合 | HDInsight 提供數個 IDE 外掛程式，以用來建立應用程式，並將應用程式提交至 HDInsight Spark 叢集。 如需詳細資訊，請參閱[使用 Azure Toolkit for IntelliJ IDEA](apache-spark-intellij-tool-plugin.md)、[使用 HDInsight for VSCode](../hdinsight-for-vscode.md) 和[Use Azure Toolkit for Eclipse](apache-spark-eclipse-tool-plugin.md)。|
 | 並行查詢 |HDInsight 中的 Spark 叢集支援並行查詢。 此功能可讓來自單一使用者的多個查詢或來自不同使用者與應用程式的多個查詢，一起共用相同的叢集資源。 |
 | SSD 快取 |您可以選擇將資料快取在記憶體中，或快取在連接叢集節點的 SSD 中。 記憶體快取能提供最高的查詢效能，但可能所費不貲。 SSD 快取提供改善查詢效能的絕佳選項，而且您不需要建立大小可讓整個資料集納入記憶體的叢集。 |
 | BI 工具整合 |HDInsight 中的 Spark 叢集會為資料分析提供 BI 工具 (例如 [Power BI](http://www.powerbi.com/)) 的連接器。 |
@@ -109,3 +109,4 @@ HDInsight 中的 Spark 叢集適用於下列重要案例：
 在本概觀中，您已對 Azure HDInsight 中的 Apache Spark 有了一些基本了解。 請前往下一篇文章，以了解如何建立 HDInsight Spark 叢集以及執行某些 Spark SQL 查詢：
 
 - [在 HDInsight 中建立 Spark 叢集](./apache-spark-jupyter-spark-sql.md)
+

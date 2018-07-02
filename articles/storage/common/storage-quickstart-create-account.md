@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: tamram
-ms.openlocfilehash: 1dffceb629df5d0197bfc8ac66120df3912d70b1
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7f6357c5b0be12c18797e82b73bd05af42888aa0
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31603771"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752328"
 ---
 # <a name="create-a-storage-account"></a>建立儲存體帳戶
 
@@ -165,7 +165,7 @@ Azure 儲存體提供兩種類型的一般用途儲存體帳戶：
 1. 在 Azure 入口網站中，展開左側功能表以開啟服務的功能表，然後選擇 [所有服務]。 然後，向下捲動至 [儲存體]，然後選擇 [儲存體帳戶]。 在出現的 [儲存體帳戶] 視窗上，選擇 [新增]。
 2. 輸入儲存體帳戶的名稱。
 3. 將 [帳戶類型] 欄位設定為 [StorageV2 (一般用途 v2)]。
-4. 將 [複寫] 欄位的設定保留為 [本地備援儲存體 (LRS)]。 或者，您可以選擇 [區域備援儲存體 (ZRS 預覽版)]、[異地備援儲存體 (GRS)] 或 [讀取權限異地備援儲存體 (RA-GRS)]。
+4. 將 [複寫] 欄位的設定保留為 [本地備援儲存體 (LRS)]。 或者，您可以選擇 [區域備援儲存體 (ZRS) (預覽)]、[異地備援儲存體 (GRS)] 或 [讀取權限異地備援儲存體 (RA-GRS)]。
 5. 將以下欄位的設定保留為預設值：**部署模型**、**效能**、**需要安全傳輸**。
 6. 選擇您要在其中建立儲存體帳戶的訂用帳戶。
 7. 在 [資源群組] 區段中，選取 [使用現有]，然後選擇您在上一節中建立的資源群組。
@@ -186,7 +186,7 @@ New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Kind StorageV2 
 ```
 
-若要建立具有區域備援儲存體 (ZRS 預覽版)、異地備援儲存體 (GRS) 或讀取權限異地備援儲存體 (RA-GRS) 的一般用途 v2 儲存體帳戶，請在下表中將 **SkuName** 參數取代為適當值。 
+若要建立具有區域備援儲存體 (ZRS) (預覽)、異地備援儲存體 (GRS) 或讀取權限異地備援儲存體 (RA-GRS) 的一般用途 v2 儲存體帳戶，請在下表中將 **SkuName** 參數取代為適當值。 
 
 |複寫選項  |SkuName 參數  |
 |---------|---------|
@@ -219,13 +219,7 @@ az storage account create \
 
 ---
 
-> [!NOTE]
-> [區域備援儲存體](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-zone-redundant-storage/preview/)目前為預覽狀態，且僅適用於下列位置：
->    - 美國東部 2
->    - 美國中部
->    - 法國中部 (此區域目前為預覽狀態。 請參閱[具有 Azure 可用性區域的 Microsoft Azure 預覽版現在已在法國開放使用](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france)，以要求使用。)
-    
-如需關於各類可用複寫的詳細資訊，請參閱[儲存體複寫選項](storage-redundancy.md)。
+如需可用複寫選項的詳細資訊，請參閱[儲存體複寫選項](storage-redundancy.md)。
 
 ## <a name="clean-up-resources"></a>清除資源
 

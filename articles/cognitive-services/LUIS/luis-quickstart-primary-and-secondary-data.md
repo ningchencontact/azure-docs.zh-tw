@@ -7,14 +7,14 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 03/29/2018
+ms.date: 06/26/2018
 ms.author: v-geberr
-ms.openlocfilehash: 1e8647e34da3d34946a4f6ac298017f6d4c99de6
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: b718ed505babd2df6487aecd3a87f17590aef2b9
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265355"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061242"
 ---
 # <a name="tutorial-create-app-that-uses-simple-entity"></a>教學課程：建立會使用簡單實體的應用程式
 在本教學課程中，您可以使用**簡單**實體來建立應用程式，讓其示範如何從語句中擷取機器學習資料。
@@ -22,128 +22,113 @@ ms.locfileid: "36265355"
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * 了解簡單實體 
-> * 針對具有 SendMessage 意圖的通訊領域，建立新的 LUIS 應用程式
-> * 新增 [無] 意圖和新增範例語句
-> * 新增要從語句中擷取訊息內容的簡單實體
+> * 為人力資源 (HR) 領域建立新的 LUIS 應用程式 
+> * 新增會從應用程式擷取職位的簡單實體
 > * 訓練和發佈應用程式
 > * 查詢應用程式端點來查看 LUIS JSON 回應
+> * 新增可提升職位字組訊號的片語清單
+> * 訓練、發行應用程式和重新查詢端點
 
-在本文中，您需要免費 [LUIS][LUIS] 帳戶才能撰寫 LUIS 應用程式。
+在本文中，您需要免費 [LUIS](luis-reference-regions.md#luis-website) 帳戶才能撰寫 LUIS 應用程式。
+
+## <a name="before-you-begin"></a>開始之前
+如果您沒有[階層式實體](luis-quickstart-intent-and-hier-entity.md)教學課程中的人力資源應用程式，請將 JSON [匯入](create-new-app.md#import-new-app) [LUIS](luis-reference-regions.md#luis-website) 網站中的新應用程式。 在 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json) Github 存放庫中可找到要匯入的應用程式。
+
+如果您想要保留原本的人力資源應用程式，在[[設定]](luis-how-to-manage-versions.md#clone-a-version)頁面上複製該版本，並將其命名為 `simple`。 複製是使用各種 LUIS 功能的好方法，因為不會影響原始版本。  
 
 ## <a name="purpose-of-the-app"></a>應用程式的用途
 此應用程式可示範如何從語句中提取出資料。 請考慮下列來自聊天機器人的語句：
 
-```JSON
-Send a message telling them to stop
-```
+|語句|可擷取的職位名稱|
+|:--|:--|
+|我想要應徵新的會計職位。|會計|
+|請投遞我的履歷以應徵工程師職缺。|工程師|
+|填寫職位 123456 的應徵文件|123456|
 
-其意圖是要傳送訊息。 語句的重要資料是訊息本身，也就是 `telling them to stop`。  
+本教學課程會新增用來擷取職位名稱的實體。 規則運算式[教學課程](luis-quickstart-intents-regex-entity.md)中會顯示用來擷取特定職位編號的功能。 
 
 ## <a name="purpose-of-the-simple-entity"></a>簡單實體的用途
-簡單實體的用途是要教導 LUIS 何謂訊息，以及訊息位於語句何處。 視字組選擇與語句長度而定，每個語句中屬於訊息的部分各不相同。 LUIS 需要任何語句在所有意圖中的訊息範例。  
+在這個 LUIS 應用程式中，簡單實體的用途是要教導 LUIS 何謂職位名稱，以及職位名稱位於語句何處。 視字組選擇與語句長度而定，每個語句中屬於職位的部分各不相同。 LUIS 需要任何語句在所有意圖中的職位範例。  
 
-在這個簡單應用程式中，訊息會在語句結尾處。 
+職位名稱可能是名詞、動詞或由幾個字組所形成的片語，因此職位名稱很難判斷。 例如︰
 
-## <a name="create-a-new-app"></a>建立新的應用程式
-1. 登入 [LUIS][LUIS] 網站。 務必登入您需要發佈 LUIS 端點的區域。
+|工作|
+|--|
+|工程師|
+|軟體工程師|
+|資深軟體工程師|
+|工程師團隊主管 |
+|航空管制官|
+|汽車司機|
+|救護車司機|
+|交通船|
+|擠出機|
+|裝配工|
 
-2. 在 [LUIS][LUIS] 網站上選取 [建立新的應用程式]。  
+此 LUIS 應用程式在數種意圖中具有職位名稱。 藉由對所有意圖語句中的這些字組加上標籤，LUIS 會更加了解何謂職位，以及職位位於語句何處。
 
-    ![LUIS 應用程式清單](./media/luis-quickstart-primary-and-secondary-data/app-list.png)
+## <a name="create-job-simple-entity"></a>建立職位的簡單實體
 
-3. 在快顯對話方塊中，輸入名稱 `MyCommunicator`。 
+1. 請確定您人力資源應用程式位於 LUIS 的 [建置] 區段。 選取右上方功能表列中的 [建置]，即可變更至此區段。 
 
-    ![LUIS 應用程式清單](./media/luis-quickstart-primary-and-secondary-data/create-new-app-dialog.png)
+    [ ![在右上方導覽列中醒目提示 [建置] 的 LUIS 應用程式螢幕擷取畫面](./media/luis-quickstart-primary-and-secondary-data/hr-first-image.png)](./media/luis-quickstart-primary-and-secondary-data/hr-first-image.png#lightbox)
 
-4. 當該程序完成時，應用程式會顯示意圖為 [無] 的 [意圖] 頁面。 
+2. 在 [意圖] 頁面上，選取 [ApplyForJob] 意圖。 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/intents-list.png "具有 [無] 意圖的 LUIS [意圖] 頁面螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/intents-list.png#lightbox)
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-select-applyforjob.png "已醒目提示 [ApplyForJob] 意圖的 LUIS 螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/hr-select-applyforjob.png#lightbox)
 
-## <a name="create-a-new-intent"></a>建立新意圖
+3. 在語句 `I want to apply for the new accounting job` 中選取 [`accounting`]，於快顯功能表最上面的欄位中輸入 `Job`，然後選取快顯功能表中的 [建立新實體]。 
 
-1. 在 [意圖] 頁面上，選取 [建立新意圖]。 
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "已醒目提示 [ApplyForJob] 意圖與建立實體步驟的 LUIS 螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
 
-    [![](media/luis-quickstart-primary-and-secondary-data/create-new-intent-button.png "已醒目提示 [建立新意圖] 按鈕的 LUIS 螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/create-new-intent-button.png#lightbox)
+4. 在快顯視窗中，確認實體名稱和類型，然後選取 [完成]。
 
-2. 輸入新的意圖名稱 `SendMessage`。 每當使用者想要傳送訊息時，應選取此意圖。
+    ![建立簡單實體快顯強制回應對話方塊與職位名稱和簡單類型](media/luis-quickstart-primary-and-secondary-data/hr-create-simple-entity-popup.png)
 
-    藉由建立意圖，您可建立您想要識別的主要資訊類別。 替類別命名可讓使用 LUIS 查詢結果的任何其他應用程式，使用該類別名稱來尋找適當的答案或採取適當的動作。 LUIS 不會回答這些問題，只會在自然語言中識別所要求的是哪一類資訊。 
+5. 在語句 `Submit resume for engineering position` 中，將 engineering 這個字組標記為 [職位] 實體。 選取 engineering 字組，然後從快顯功能表中選取職位。 
 
-    ![輸入意圖名稱 SendMessage](./media/luis-quickstart-primary-and-secondary-data/create-new-intent-popup-dialog.png)
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "已醒目提示並標記職位實體的 LUIS 螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
-3. 將您預期使用者會要求的七個語句新增至 `SendMessage` 意圖，例如：
+    所有語句都會加上標籤，但只有五個語句不足以讓 LUIS 認識職位相關字組和片語。 使用編號值的職位會使用規則運算式實體，因此不需要更多範例。 屬於字組或片語的職位需要至少 15 個以上的範例。 
 
-    | 範例語句|
-    |--|
-    |回覆說我已收到訊息，明天會回覆|
-    |傳送訊息問說你何時會在家？|
-    |傳簡訊表示我正在忙|
-    |告訴他們今天必須完成|
-    |回訊說我正在開車，晚點會回覆|
-    |撰寫訊息給 David 問說什麼時候的事？|
-    |說出「嗨！Greg」|
+6. 新增更多語句，並將職位字組或片語標記為**職位**實體。 職位是就業服務的通用就業類型。 如果您想讓職位與特定產業相關聯，職位字組就應該反映這一點。 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/enter-utterances-on-intent-page.png "已輸入語句的 LUIS 螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/enter-utterances-on-intent-page.png#lightbox)
+    |語句|職位實體|
+    |:--|:--|
+    |我要應徵研發部門的項目經理職位|項目經理|
+    |以下是我的幫廚應用程式。|幫廚|
+    |隨附我的夏令營輔導員履歷。|夏令營輔導員|
+    |這是我的行政助理簡歷。 for administrative assistant.|行政助理|
+    |我想要應徵銷售部門的管理職位。|管理、銷售部門|
+    |這是我的新會計職位履歷。|會計|
+    |內附我的吧檯助理應徵文件。|吧檯助理|
+    |我要提交屋頂工和創作者的應徵文件。|屋頂工、創作者|
+    |這是我的公車司機簡歷。 for bus driver is here.|公車司機|
+    |我是合格護士。 這是我的履歷。|合格護士|
+    |我想要提交我在報上看到的教學職位文件。|教書|
+    |這是我的蔬果裝料工簡歷。 for the stocker post in fruits and vegetables.|裝料工|
+    |應徵貼瓷磚工作。|圖格|
+    |已隨附景觀設計師履歷。|景觀設計師|
+    |已隨附我的生物學教授履歷。|生物學教授|
+    |我想要應徵攝影方面的職位。|攝影|git 
 
-## <a name="add-utterances-to-none-intent"></a>將語句新增至 [無] 意圖
-
-LUIS 應用程式目前沒有任何針對 [無] 意圖的語句。 它需要您不希望應用程式回答的語句，因此 [無] 意圖中必須具有語句。 請勿將它空白。 
-    
-1. 選取左面板中的 [意圖]。 
-
-    [![](media/luis-quickstart-primary-and-secondary-data/select-intent-link.png "已醒目提示 [意圖] 按鈕的 LUIS 螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/select-intent-link.png#lightbox)
-
-2. 選取 [無] 意圖。 
-
-    [![](media/luis-quickstart-primary-and-secondary-data/select-none-intent.png "選取 [無] 意圖的螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/select-none-intent.png#lightbox)
-
-3. 新增您的使用者可能輸入但與您的應用程式無關的三個語句。 一些不錯的 [無] 語句如下：
-
-    | 範例語句|
-    |--|
-    |取消！|
-    |再見|
-    |怎麼了？|
-    
-    在 LUIS 呼叫應用程式 (例如聊天機器人) 中，如果 LUIS 針對語句傳回 [無] 意圖時，您的聊天機器人可以詢問使用者是否想要結束交談。 如果使用者不想要結束交談，聊天機器人也可以提供更多指示，以便繼續交談。 
-
-    [![](media/luis-quickstart-primary-and-secondary-data/utterances-for-none-intent.png "具有 [無] 意圖語句的 LUIS 螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/utterances-for-none-intent.png#lightbox)
-
-## <a name="create-a-simple-entity-to-extract-message"></a>建立要擷取訊息的簡單實體 
+## <a name="label-entity-in-example-utterances-for-getjobinformation-intent"></a>將 GetJobInformation 意圖語句範例中的實體加上標籤
 1. 選取左功能表中的 [意圖]。
 
-    ![選取 [意圖] 連結](./media/luis-quickstart-primary-and-secondary-data/select-intents-from-none-intent.png)
+2. 從意圖清單中選取 [GetJobInformation]。 
 
-2. 從意圖清單中選取 `SendMessage`。
+3. 將語句範例中的職位加上標籤：
 
-    ![選取 SendMessage 意圖](./media/luis-quickstart-primary-and-secondary-data/select-sendmessage-intent.png)
+    |語句|職位實體|
+    |:--|:--|
+    |資料庫中是否有任何工作？|資料庫|
+    |尋找會計職責方面的新局面|會計|
+    |有哪些適合資深工程師的職位？|資深工程師|
 
-3. 在 `Reply with I got your message, I will have the answer tomorrow` 語句中，選取訊息內文的第一個字組 `I`，和訊息內文的最後一個字組 `tomorrow`。 訊息中的這些字組全都會選取起來，而且會出現頂端有文字方塊的下拉式功能表。
-
-    [![](media/luis-quickstart-primary-and-secondary-data/select-words-in-utterance.png "選取訊息語句字組的螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/select-words-in-utterance.png#lightbox)
-
-4. 在文字方塊中輸入實體名稱 `Message`。
-
-    [![](media/luis-quickstart-primary-and-secondary-data/enter-entity-name-in-box.png "在方塊中輸入實體名稱的螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/enter-entity-name-in-box.png#lightbox)
-
-5. 在下拉式功能表中選取 [建立新實體]。 實體的用途是要提取出屬於訊息內文的文字。 在此 LUIS 應用程式中，文字訊息位於語句結尾，但語句可以是任何長度，而且訊息也可以是任何長度。 
-
-    [![](media/luis-quickstart-primary-and-secondary-data/create-message-entity.png "從語句建立新實體的螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/create-message-entity.png#lightbox)
-
-6. 在快顯視窗中，預設實體類型是 [簡單]，實體名稱則是 `Message`。 保留這些設定，然後選取 [完成]。
-
-    ![確認實體類型](./media/luis-quickstart-primary-and-secondary-data/entity-type.png)
-
-7. 我們已建立好實體，並已標示一個語句，接下來請使用該實體為語句的其餘部分加上標籤。 選取語句，然後選取訊息的第一個和最後一個字組。 在下拉式功能表中，選取 `Message` 實體。 實體中的訊息現在會加上標籤。 繼續在其餘語句中為所有訊息片語加上標籤。
-
-    [![](media/luis-quickstart-primary-and-secondary-data/all-labeled-utterances.png "所有訊息語句都已加上標籤的螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/all-labeled-utterances.png#lightbox)
-
-    語句的預設檢視是 [實體檢視]。 選取語句上方的 [實體檢視] 控制項。 [權杖檢視] 會顯示語句文字。 
-
-    [![](media/luis-quickstart-primary-and-secondary-data/tokens-view-of-utterances.png "權杖檢視中語句的螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/tokens-view-of-utterances.png#lightbox)
+    尚有其他語句範例，但這些語句未包含職位字組。
 
 ## <a name="train-the-luis-app"></a>訓練 LUIS 應用程式
-在意圖和實體 (模型) 的變更定型前，LUIS 並不知道這些變更。 
+LUIS 在經過訓練前，並不知道意圖和實體 (模型) 的變更。 
 
 1. 在 LUIS 網站的右上方，選取 [訓練] 按鈕。
 
@@ -160,7 +145,7 @@ LUIS 應用程式目前沒有任何針對 [無] 意圖的語句。 它需要您�
 
 2. 選取 [生產] 位置和 [發佈] 按鈕。
 
-    [![](media/luis-quickstart-primary-and-secondary-data/publish-to-production.png "已醒目提示 [發佈] 至 [生產] 位置按鈕的 [發佈] 頁面螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/publish-to-production.png#lightbox)
+    [![](media/luis-quickstart-primary-and-secondary-data/publish-to-production.png "已醒目提示發佈至生產位置按鈕的 [發佈] 頁面螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/publish-to-production.png#lightbox)
 
 3. 當您在網站頂端看到確認成功的綠色狀態列時，就表示發佈完成。
 
@@ -169,48 +154,227 @@ LUIS 應用程式目前沒有任何針對 [無] 意圖的語句。 它需要您�
 
 [![](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png "已醒目提示端點的 [發佈] 頁面螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png#lightbox)
 
-這個動作會開啟另一個瀏覽器視窗，其中的網址列會顯示此端點 URL。 移至位址中的 URL 尾端並輸入 `text I'm driving and will be 30 minutes late to the meeting`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 此語句與任何標示的語句都不同，因此這是很好的測試，且應該傳回 `SendMessage` 語句。
+這個動作會開啟另一個瀏覽器視窗，其中的網址列會顯示此端點 URL。 移至位址中的 URL 尾端並輸入 `Here is my c.v. for the programmer job`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 此語句與任何標示的語句都不同，因此這是很好的測試，且應該傳回 `ApplyForJob` 語句。
 
-```
+```JSON
 {
-  "query": "text I'm driving and will be 30 minutes late to the meeting",
+  "query": "Here is my c.v. for the programmer job",
   "topScoringIntent": {
-    "intent": "SendMessage",
-    "score": 0.987501
+    "intent": "ApplyForJob",
+    "score": 0.9826467
   },
   "intents": [
     {
-      "intent": "SendMessage",
-      "score": 0.987501
+      "intent": "ApplyForJob",
+      "score": 0.9826467
+    },
+    {
+      "intent": "GetJobInformation",
+      "score": 0.0218927357
+    },
+    {
+      "intent": "MoveEmployee",
+      "score": 0.007849265
+    },
+    {
+      "intent": "Utilities.StartOver",
+      "score": 0.00349470088
+    },
+    {
+      "intent": "Utilities.Confirm",
+      "score": 0.00348804821
     },
     {
       "intent": "None",
-      "score": 0.111048922
+      "score": 0.00319909188
+    },
+    {
+      "intent": "FindForm",
+      "score": 0.00222647213
+    },
+    {
+      "intent": "Utilities.Help",
+      "score": 0.00211193133
+    },
+    {
+      "intent": "Utilities.Stop",
+      "score": 0.00172086991
+    },
+    {
+      "intent": "Utilities.Cancel",
+      "score": 0.00138010911
     }
   ],
   "entities": [
     {
-      "entity": "i ' m driving and will be 30 minutes late to the meeting",
-      "type": "Message",
-      "startIndex": 5,
-      "endIndex": 58,
-      "score": 0.162995353
+      "entity": "programmer",
+      "type": "Job",
+      "startIndex": 24,
+      "endIndex": 33,
+      "score": 0.5230502
     }
   ]
 }
 ```
 
+## <a name="names-are-tricky"></a>名稱很棘手
+LUIS 應用程式深信它找到了正確的意圖，並擷取出職位名稱，但這些名稱很棘手。 請試試語句 `This is the lead welder paperwork`。  
+
+在下列 JSON 中，LUIS 會回應正確意圖 `ApplyForJob`，但未擷取 `lead welder` 職位名稱。 
+
+```JSON
+{
+  "query": "This is the lead welder paperwork.",
+  "topScoringIntent": {
+    "intent": "ApplyForJob",
+    "score": 0.468558252
+  },
+  "intents": [
+    {
+      "intent": "ApplyForJob",
+      "score": 0.468558252
+    },
+    {
+      "intent": "GetJobInformation",
+      "score": 0.0102701457
+    },
+    {
+      "intent": "MoveEmployee",
+      "score": 0.009442534
+    },
+    {
+      "intent": "Utilities.StartOver",
+      "score": 0.00639619166
+    },
+    {
+      "intent": "None",
+      "score": 0.005859333
+    },
+    {
+      "intent": "Utilities.Cancel",
+      "score": 0.005087704
+    },
+    {
+      "intent": "Utilities.Stop",
+      "score": 0.00315379258
+    },
+    {
+      "intent": "Utilities.Help",
+      "score": 0.00259344373
+    },
+    {
+      "intent": "FindForm",
+      "score": 0.00193389168
+    },
+    {
+      "intent": "Utilities.Confirm",
+      "score": 0.000420796918
+    }
+  ],
+  "entities": []
+}
+```
+
+由於名稱可以是任何字組，LUIS 若有可提升訊號的字組片語清單，就能更正確地預測實體。
+
+## <a name="to-boost-signal-add-jobs-phrase-list"></a>若要提升訊號，請新增職位片語清單
+從 LUIS-Samples Github 存放庫開啟 [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/job-phrase-list.csv)。 此清單有超過一千個職位字組和片語。 請看一下清單以找出對您有意義的職位字組清單。 如果清單中沒有您的字組或片語，請自行新增。
+
+1. 在 LUIS 應用程式的 [建置] 區段中，選取 [提升應用程式效能] 功能表底下的 [片語清單]。
+
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-select-phrase-list-left-nav.png "已醒目提示 [片語清單] 左側導覽按鈕的螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/hr-select-phrase-list-left-nav.png#lightbox)
+
+2. 選取 [建立新的片語清單]。 
+
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-new-phrase-list.png "已醒目提示 [建立新的片語清單] 按鈕的螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/hr-create-new-phrase-list.png#lightbox)
+
+3. 將新的片語清單命名為 `Jobs`，然後將 jobs-phrase-list.csv 中的清單複製到 [值] 文字方塊。 選取 Enter 鍵。 
+
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "[建立新的片語清單] 對話方塊快顯的螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
+
+    如果您想在片語清單中新增更多字組，請檢閱建議的字組，並新增相關字組。 
+
+4. 選取 [儲存] 以啟動該片語清單。
+
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "[建立新的片語清單] 對話方塊快顯與片語清單值方塊中字組的螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
+
+5. 重新[訓練](#train-the-luis-app)並[發行](#publish-the-app-to-get-the-endpoint-URL)應用程式以使用片語清單。
+
+6. 在端點使用相同語句重新查詢：`This is the lead welder paperwork.`
+
+    JSON 回應包含所擷取的實體：
+
+    ```JSON
+    {
+        "query": "This is the lead welder paperwork.",
+        "topScoringIntent": {
+            "intent": "ApplyForJob",
+            "score": 0.920025647
+        },
+        "intents": [
+            {
+            "intent": "ApplyForJob",
+            "score": 0.920025647
+            },
+            {
+            "intent": "GetJobInformation",
+            "score": 0.003800706
+            },
+            {
+            "intent": "Utilities.StartOver",
+            "score": 0.00299335527
+            },
+            {
+            "intent": "MoveEmployee",
+            "score": 0.0027167045
+            },
+            {
+            "intent": "None",
+            "score": 0.00259556063
+            },
+            {
+            "intent": "FindForm",
+            "score": 0.00224019377
+            },
+            {
+            "intent": "Utilities.Stop",
+            "score": 0.00200693542
+            },
+            {
+            "intent": "Utilities.Cancel",
+            "score": 0.00195913855
+            },
+            {
+            "intent": "Utilities.Help",
+            "score": 0.00162656687
+            },
+            {
+            "intent": "Utilities.Confirm",
+            "score": 0.0002851904
+            }
+        ],
+        "entities": [
+            {
+            "entity": "lead welder",
+            "type": "Job",
+            "startIndex": 12,
+            "endIndex": 22,
+            "score": 0.8295959
+            }
+        ]
+    }
+    ```
+
+## <a name="phrase-lists"></a>片語清單
+新增片語清單已提升清單中的字組訊號，但這項新增**並未**作為完全相符項。 片語清單中有數個職位的第一個字組是 `lead`，也有職位 `welder` 但沒有職位 `lead welder`。 此職位片語清單可能並不完整。 當您定期[檢閱端點語句](label-suggested-utterances.md)並找到其他職位字組時，請將這些字組新增至片語清單中。 然後重新訓練並重新發行。
+
 ## <a name="what-has-this-luis-app-accomplished"></a>此 LUIS 應用程式有何成就？
-此應用程式 (只有兩個意圖和一個實體) 已識別出自然語言查詢意圖並傳回訊息資料。 
+此應用程式 (具有簡單實體和字組片語清單) 已識別出自然語言查詢意圖並傳回訊息資料。 
 
-JSON 結果找出 `SendMessage` 意圖評分最高者的分數為 0.987501。 所有分數都介於 1 到 0，分數越好者越接近 1。 `None` 意圖的分數是 0.111048922，相當接近 0。 
-
-訊息資料的類型為 `Message`，值為 `i ' m driving and will be 30 minutes late to the meeting`。 
-
-聊天機器人現在有足夠資訊可判斷主要動作 `SendMessage` 和該動作的參數 (也就是訊息文字)。 
+聊天機器人現在有足夠資訊可判斷主要的應徵職位動作和該動作的參數 (供職位參考)。 
 
 ## <a name="where-is-this-luis-data-used"></a>此 LUIS 資料用於何處？ 
-LUIS 是利用此要求來完成。 呼叫應用程式 (例如聊天機器人) 可以採用 topScoringIntent 結果和實體中的資料，進而透過第三方 API 傳送訊息。 如果聊天機器人或呼叫應用程式有其他程式設計選項，LUIS 就不會進行該工作。 LUIS 只會判斷使用者的用意為何。 
+LUIS 是利用此要求來完成。 呼叫應用程式 (例如聊天機器人) 可以採用 topScoringIntent 結果和實體中的資料，來使用第三方 API 傳送職位訊息給人力資源代表。 如果聊天機器人或呼叫應用程式有其他程式設計選項，LUIS 就不會進行該工作。 LUIS 只會判斷使用者的用意為何。 
 
 ## <a name="clean-up-resources"></a>清除資源
 若不再需要，請刪除 LUIS 應用程式。 若要這麼做，請選取應用程式清單中應用程式名稱右邊的三個點功能表 (...)，然後選取 [刪除]。 在 [刪除應用程式?] 快顯對話方塊中選取 [確定]。
@@ -218,8 +382,4 @@ LUIS 是利用此要求來完成。 呼叫應用程式 (例如聊天機器人) �
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [了解如何新增階層式實體](luis-quickstart-intent-and-hier-entity.md)
-
-
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
+> [了解如何新增預先建置的 keyPhrase 實體](luis-quickstart-intent-and-key-phrase.md)

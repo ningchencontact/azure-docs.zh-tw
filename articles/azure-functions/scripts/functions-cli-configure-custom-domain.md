@@ -13,19 +13,19 @@ ms.workload: na
 ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
-ms.date: 06/01/2017
+ms.date: 06/26/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: d2efd0891cb0010aac6135ce190ad77667f78efd
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 7d3fc71bc53e85fa7555dbee5ee79b3f06f27fe8
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29843981"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960333"
 ---
 # <a name="map-a-custom-domain-to-a-function-app"></a>將自訂網域對應至函式應用程式
 
-此範例指令碼會建立函式應用程式及相關資源，然後將 `www.<yourdomain>` 與其對應。 若要對應至自訂網域，必須在 App Service 方案中建立函式應用程式，而不是在取用方案中建立。 Azure Functions 只支援使用 A 記錄對應自訂網域。
+此範例指令碼會建立函式應用程式及相關資源，然後將 `www.<yourdomain>` 與其對應。 當您的函式應用程式裝載於 [App Service 方案](../functions-scale.md#app-service-plan)時，您可以使用 CNAME 或 A 記錄對應自訂網域。 若為[取用方案](../functions-scale.md#consumption-plan)中的函式應用程式，則只支援 CNAME 選項。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

@@ -11,21 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/10/2018
+ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 440b07b494b34db7ff3fcdf5d5ac830b165c339d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c42f7257b4b4077cc719c57e3136505f766e654c
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30173278"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046828"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>使用 Azure Data Factory 大量複製多個資料表
 本教學課程示範**從 Azure SQL Database 複製一些資料表到 Azure SQL 資料倉儲**。 您也可以在其他複製案例中套用相同模式。 例如，將資料表從 SQL Server/Oracle 複製到 Azure SQL Database/資料倉儲/Azure Blob，將不同的路徑從 Blob 複製到 Azure SQL Database 資料表。
 
 > [!NOTE]
 > - 如果您不熟悉 Azure Data Factory，請參閱 [Azure Data Factory 簡介](introduction.md)。
-> - 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (正式推出版本 (GA))，請參閱 [Data Factory 第 1 版文件](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
 概括而言，本教學課程包含下列步驟：
 
@@ -93,7 +92,7 @@ ms.locfileid: "30173278"
       - 選取 [建立新的] ，然後輸入資源群組的名稱。   
          
       若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。  
-4. 對 [版本] 選取 [V2 (預覽)]。
+4. 針對 [版本] 選取 [V2]。
 5. 選取 Data Factory 的 [位置]  。 目前，Data Factory V2 只允許您在美國東部、美國東部 2 和西歐區域中建立資料處理站。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
 6. 選取 [釘選到儀表板]。     
 7. 按一下頁面底部的 [新增] 。
@@ -163,9 +162,9 @@ ms.locfileid: "30173278"
 ## <a name="create-datasets"></a>建立資料集
 在本教學課程中，您會建立來源和接收資料集，其指定儲存資料的位置。 
 
-輸入資料集 AzureSqlDatabaseDataset 會參照 AzureSqlDatabaseLinkedService。 連結服務會指定連接字串以連線至資料庫。 資料集會指定資料庫的名稱，以及包含來源資料的資料表。 
+輸入資料集 **AzureSqlDatabaseDataset** 會參照 **AzureSqlDatabaseLinkedService**。 連結服務會指定連接字串以連線至資料庫。 資料集會指定資料庫的名稱，以及包含來源資料的資料表。 
 
-輸出資料集 AzureSqlDWDataset 會參照 AzureSqlDWLinkedService。 連結服務會指定連接字串以連線至資料倉儲。 資料集會指定資料庫，以及作為資料複製目的地的資料表。 
+輸出資料集 **AzureSqlDWDataset** 會參照 **AzureSqlDWLinkedService**。 連結服務會指定連接字串以連線至資料倉儲。 資料集會指定資料庫，以及作為資料複製目的地的資料表。 
 
 在本教學課程中，並沒有在資料集定義中對來源和目的地 SQL 資料表執行硬式編碼。 而是在執行階段由 ForEach 活動將資料表名稱傳遞給複製活動。 
 
@@ -179,8 +178,7 @@ ms.locfileid: "30173278"
     ![選取 Azure SQL Database](./media/tutorial-bulk-copy-portal/select-azure-sql-database-dataset.png)
 3. 在屬性視窗底部，輸入 **AzureSqlDatabaseDataset** 作為 [名稱]。
 
-    ![來源資料集名稱](./media/tutorial-bulk-copy-portal/source-dataset-general.png)
-4. 切換至 [連線] 索引標籤，執行下列步驟： 
+4. 切換至 [連線] 索引標籤，然後執行下列步驟： 
 
     1. 選取 [AzureSqlDatabaseLinkedService] 作為 [連結服務]。
     2. 選取任何資料表作為 [資料表]。 此資料表是空的資料表。 建立管線時，您可以指定來源資料集的查詢。 查詢是用來從 Azure SQL 資料庫擷取資料。 或者，您可以按一下 [編輯] 核取方塊，然後輸入 **dummyName** 作為資料表名稱。 
@@ -193,14 +191,21 @@ ms.locfileid: "30173278"
 1. 按一下左窗格中的 [+] (加號)，然後按一下 [資料集]。 
 2. 在 [新增資料集] 視窗中，選取 [Azure SQL 資料倉儲]，然後按一下 [完成]。 您應該會看到標題為 **AzureSqlDWTable1** 的新索引標籤。 
 3. 在屬性視窗底部，輸入 **AzureSqlDWDataset** 作為 [名稱]。
-4. 切換至 [連線] 索引標籤，然後選取 [AzureSqlDatabaseLinkedService] 作為 [連結服務]。
-5. 切換至 [參數] 索引標籤，然後按一下 [+ 新增]。
+5. 切換至 [參數] 索引標籤，按一下 [+ 新增]，並輸入 **DWTableName** 作為參數名稱。 如果您從頁面複製/貼上此名稱，請確定 **DWTableName** 的結尾處沒有**尾端空白字元**。 
 
-    ![來源資料集連線頁面](./media/tutorial-bulk-copy-portal/sink-dataset-new-parameter-button.png)
-6. 輸入 **DWTableName** 作為參數名稱。 如果您從頁面複製/貼上此名稱，請確定 **DWTableName** 的結尾處沒有**尾端空白字元**。 
-7. 在 [參數化屬性] 區段中，為 **tableName** 屬性輸入 `@{dataset().DWTableName}`。 為資料集的 **tableName** 屬性設定的這個值，會作為引數傳遞給 **DWTableName** 參數。 ForEach 活動會逐一查看資料表清單，並逐一傳遞給複製活動。 
-   
-    ![參數名稱](./media/tutorial-bulk-copy-portal/dwtablename-tablename.png)
+    ![來源資料集連線頁面](./media/tutorial-bulk-copy-portal/sink-dataset-new-parameter.png)
+
+6. 切換至 [連線] 索引標籤， 
+
+    a. 選取 [AzureSqlDatabaseLinkedService] 作為 [連結服務]。
+
+    b. 針對 [資料表]，勾選 [編輯] 選項，按一下資料表名稱輸入方塊，然後按一下下方的 [新增動態內容] 連結。 
+    
+    ![參數名稱](./media/tutorial-bulk-copy-portal/table-name-parameter.png)
+
+    c. 在 [新增動態內容] 頁面中，在 [參數] 下方按一下將會自動填入 Top 運算式文字方塊 `@dataset().DWTableName` 的 **DWTAbleName**，然後按一下 [完成]。 為資料集的 **tableName** 屬性設定的這個值，會作為引數傳遞給 **DWTableName** 參數。 ForEach 活動會逐一查看資料表清單，並逐一傳遞給複製活動。 
+
+    ![資料集參數產生器](./media/tutorial-bulk-copy-portal/dataset-parameter-builder.png)
 
 ## <a name="create-pipelines"></a>建立管線
 在此教學課程中，您會建立兩個管線：**IterateAndCopySQLTables** 和 **GetTableListAndTriggerCopyData**。 
@@ -217,63 +222,65 @@ ms.locfileid: "30173278"
 1. 按一下左窗格中的 [+] (加號)，然後按一下 [管線]。
 
     ![新增管線功能表](./media/tutorial-bulk-copy-portal/new-pipeline-menu.png)
-2. 在 [屬性] 視窗中，將管線的名稱變更為 **IterateAndCopySQLTables**。 
+2. 在 [一般] 索引標籤中，指定 **IterateAndCopySQLTables** 作為名稱。 
 
-    ![管線名稱](./media/tutorial-bulk-copy-portal/first-pipeline-name.png)
 3. 切換至 [參數] 索引標籤，執行下列動作： 
 
     1. 按一下 [+ 新增]。 
     2. 輸入 **tableList** 作為參數的 [名稱]。
-    3. 選取 [物件] 作為 [類型]。
+    3. 針對 [類型] 選取 [陣列]。
 
         ![管線參數](./media/tutorial-bulk-copy-portal/first-pipeline-parameter.png)
-4. 在 [活動] 工具箱中，展開 [反覆項目與條件]，並將 **ForEach** 活動拖放至管線設計工具介面。 您也可以在 [活動] 工具箱中搜尋活動。 在 [屬性] 視窗底部，輸入 **IterateSQLTables** 作為 [名稱]。 
+4. 在 [活動] 工具箱中，展開 [反覆項目與條件]，並將 **ForEach** 活動拖放至管線設計工具介面。 您也可以在 [活動] 工具箱中搜尋活動。 
 
-    ![ForEach 活動名稱](./media/tutorial-bulk-copy-portal/for-each-activity-name.png)
-5. 切換到 [設定] 索引標籤，然後為 [項目] 輸入 `@pipeline().parameters.tableList`。
+    a. 在 [一般] 索引標籤底部，輸入 **IterateSQLTables** 作為 [名稱]。 
+
+    b. 切換至 [設定] 索引標籤，按一下 [項目] 的輸入方塊，然後按一下下方的 [新增動態內容] 連結。 
 
     ![ForEach 活動設定](./media/tutorial-bulk-copy-portal/for-each-activity-settings.png)
-6. 若要為 **ForEach** 活動新增子活動，**按兩下** ForEach 活動，或是按一下[編輯] (鉛筆圖示)。 只有當您選取活動時，才會看到活動的動作連結。 
 
-    ![ForEach 活動名稱](./media/tutorial-bulk-copy-portal/edit-for-each-activity.png)
-7. 在 [活動] 工具箱中，展開 [資料流程]，將 [複製] 活動拖放至管線設計工具介面，並將 [屬性]視窗中的名稱變更為 **CopyData**。 請注意頂端的階層連結功能表。 IterateAndCopySQLTable 是管線名稱，IterateSQLTables 是 ForEach 活動名稱。 設計工具是在活動範圍內。 若要從 ForEach 編輯器切換回「管線」編輯器，按一下階層連結功能表中的連結。 
+    c. 在 [新增動態內容] 頁面中，摺疊 [系統變數和函式] 區段，在 [參數] 下方按一下將會在 Top 運算式文字方塊中自動填入 `@pipeline().parameter.tableList` 的 **tableList**，然後按一下 [完成]。 
+
+    ![Foreach 參數產生器](./media/tutorial-bulk-copy-portal/for-each-parameter-builder.png)
+    
+    d. 切換至 [活動] 索引標籤，按一下 [新增活動]，將子活動新增至 [ForEach] 活動。
+
+5. 在 [活動] 工具箱中展開 [資料流程]，並將 [複製] 活動拖放到管線設計工具介面中。 請注意頂端的階層連結功能表。 IterateAndCopySQLTable 是管線名稱，IterateSQLTables 是 ForEach 活動名稱。 設計工具是在活動範圍內。 若要從 ForEach 編輯器切換回「管線」編輯器，按一下階層連結功能表中的連結。 
 
     ![ForEach 中的複製](./media/tutorial-bulk-copy-portal/copy-in-for-each.png)
-8. 切換至 [來源] 索引標籤，執行下列步驟：
+6. 切換至 [來源] 索引標籤，執行下列步驟：
 
     1. 選取 [AzureSqlDatabaseDataset] 作為 [來源資料集]。 
     2. 為 [使用者查詢] 選取 [查詢] 選項。 
-    3. 輸入下列 SQL 查詢作為 [查詢]。
+    3. 按一下 [查詢] 輸入方塊 -> 選取下方的 [新增動態內容] -> 針對 [查詢] 輸入下列運算式 -> 選取 [完成]。
 
         ```sql
         SELECT * FROM [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
         ``` 
 
         ![複製來源設定](./media/tutorial-bulk-copy-portal/copy-source-settings.png)
-9. 切換至 [接收] 索引標籤，執行下列步驟： 
+7. 切換至 [接收] 索引標籤，執行下列步驟： 
 
     1. 選取 [AzureSqlDWDataset] 作為 [接收資料集]。
+    2. 按一下 DWTableName 參數的 [值] 輸入方塊 -> 選取下方的 [新增動態內容]，輸入 `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` 運算式作為指令碼 -> 選取 [完成]。
     2. 展開 [Polybase 設定]，然後選取 [允許 Polybase]。 
     3. 清除 [使用類型預設值] 選項。 
-    4. 輸入下列 SQL 指令碼作為 [清除指令碼]： 
+    4. 按一下 [清除指令碼] 輸入方塊 -> 選取下方的 [新增動態內容] -> 輸入下列運算式作為指令碼 -> 選取 [完成]。 
 
         ```sql
         TRUNCATE TABLE [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
         ```
 
         ![複製接收設定](./media/tutorial-bulk-copy-portal/copy-sink-settings.png)
-10. 切換至 [參數] 索引標籤，查看 [接收資料集] 區段中的 **DWTableName** 參數 (如有需要向下捲動)。 將此參數的值設為 `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]`。
 
-    ![複製接收參數](./media/tutorial-bulk-copy-portal/copy-sink-parameters.png)
-11. 切換至 [設定] 索引標籤，執行下列步驟： 
+8. 切換至 [設定] 索引標籤，並執行下列步驟： 
 
     1. 為 [啟用暫存] 選取 [True]。
     2. 選取 [AzureStorageLinkedService] 作為 [存放區帳戶連結服務]。
 
         ![啟用暫存](./media/tutorial-bulk-copy-portal/copy-sink-staging-settings.png)
-12. 若要驗證管線設定，按一下 [驗證]。 確認沒有任何驗證錯誤。 若要關閉 [管線驗證報告]，按一下 **>>**。
 
-    ![管線驗證報告](./media/tutorial-bulk-copy-portal/first-pipeline-validation-report.png)
+9. 若要驗證管線設定，請按一下頂層管線工具列上的 [驗證]。 確認沒有任何驗證錯誤。 若要關閉 [管線驗證報告]，按一下 **>>**。
 
 ### <a name="create-the-pipeline-gettablelistandtriggercopydata"></a>建立 GetTableListAndTriggerCopyData 管線
 
@@ -287,7 +294,6 @@ ms.locfileid: "30173278"
     ![新增管線功能表](./media/tutorial-bulk-copy-portal/new-pipeline-menu.png)
 2. 在 [屬性] 視窗中，將管線的名稱變更為 **GetTableListAndTriggerCopyData**。 
 
-    ![管線名稱](./media/tutorial-bulk-copy-portal/second-pipeline-name.png)
 3. 在 [活動] 工具箱中展開 [一般]，並將 [查閱] 活動拖放至管線設計工具介面，然後執行下列步驟：
 
     1. 輸入 [LookupTableList] 作為 [名稱]。 
@@ -315,7 +321,7 @@ ms.locfileid: "30173278"
     2. 展開 [進階] 區段。 
     3. 按一下 [參數] 區段中的 [+ 新增]。 
     4. 輸入 **tableList** 作為參數的 [名稱]。
-    5. 輸入 `@activity('LookupTableList').output.value` 作為參數的 [值]。 您正在將查閱活動的結果清單設定為第二個管線的輸入。 結果清單包含資料表清單，這些資料表中的資料必須複製到目的地。 
+    5. 按一下 [值] 輸入方塊 -> 選取下方的 [新增動態內容] -> 輸入 `@activity('LookupTableList').output.value` 作為資料表名稱值 -> 選取 [完成]。 您正在將查閱活動的結果清單設定為第二個管線的輸入。 結果清單包含資料表清單，這些資料表中的資料必須複製到目的地。 
 
         ![執行管線活動 - 設定頁面](./media/tutorial-bulk-copy-portal/execute-pipeline-settings-page.png)
 7. 將**查閱**活動**連線**至**執行管線**活動，做法是將連結查閱活動的**綠色方塊**拖曳至「執行管線」活動的左邊。
@@ -323,17 +329,13 @@ ms.locfileid: "30173278"
     ![將查閱和執行管線活動連線](./media/tutorial-bulk-copy-portal/connect-lookup-execute-pipeline.png)
 8. 若要驗證管線，按一下工具列上的 [驗證]。 確認沒有任何驗證錯誤。 若要關閉 [管線驗證報告]，按一下 **>>**。
 
-    ![第二個管線 - 驗證報告](./media/tutorial-bulk-copy-portal/second-pipeline-validation-report.png)
-9. 若要將實體 (資料集、管線等等) 發佈至 Data Factory 服務，請按一下 [全部發佈]。 等待發佈成功。 
-
-    ![發佈按鈕](./media/tutorial-bulk-copy-portal/publish.png)
+9. 若要將實體 (資料集、管線等等) 發佈至 Data Factory 服務，請按一下位於視窗頂端的 [全部發佈]。 等待發佈成功。 
 
 ## <a name="trigger-a-pipeline-run"></a>觸發管線執行
 
-1. 確認 **GetTableListAndTriggerCopyData** 索引標籤為作用中狀態。 
-2. 按一下 [觸發]，然後按一下 [立即觸發]。 
+移至管線 **GetTableListAndTriggerCopyData**，按一下 [觸發程序]，然後按一下 [立即觸發]。 
 
-    ![立即觸發](./media/tutorial-bulk-copy-portal/trigger-now.png)
+![立即觸發](./media/tutorial-bulk-copy-portal/trigger-now.png)
 
 ## <a name="monitor-the-pipeline-run"></a>監視管道執行
 

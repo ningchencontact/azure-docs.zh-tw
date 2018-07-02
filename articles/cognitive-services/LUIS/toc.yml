@@ -9,36 +9,8 @@
 - name: 快速入門
   expanded: true
   items:
-    - name: 建置應用程式模型
-      items:
-        - name: 使用預先建置的網域
-          href: luis-get-started-create-app.md
-        - name: 使用自訂網域
-          href: luis-quickstart-intents-only.md
-- name: 教學課程
-  items:
-    - name: 新增預先建置的意圖和實體
-      href: luis-tutorial-prebuilt-intents-entities.md
-    - name: 從實體取得資料
-      items:
-        - name: 簡單的實體
-          href: luis-quickstart-primary-and-secondary-data.md
-        - name: 階層式實體
-          href: luis-quickstart-intent-and-hier-entity.md
-        - name: 規則運算式實體
-          href: luis-quickstart-intents-regex-entity.md
-        - name: 列出實體
-          href: luis-quickstart-intent-and-list-entity.md
-        - name: KeyPhrase 實體
-          href: luis-quickstart-intent-and-key-phrase.md
-        - name: 情感分析
-          href: luis-quickstart-intent-and-sentiment-analysis.md
-    - name: 改善預測
-      items:
-        - name: 具有模式
-          href: luis-tutorial-pattern.md
-        - name: 具有片語清單
-          href: luis-tutorial-interchangeable-phrase-list.md
+    - name: 建置預先建置的網域應用程式
+      href: luis-get-started-create-app.md
     - name: 使用 API
       items:
         - name: 使用端點查詢取得談話預測
@@ -73,6 +45,32 @@
               href: luis-get-started-php-add-utterance.md
             - name: Ruby
               href: luis-get-started-ruby-add-utterance.md
+- name: 教學課程
+  items:
+    - name: 建置應用程式
+      items:
+        - name: 1. 使用自訂網域
+          href: luis-quickstart-intents-only.md
+        - name: 2. 新增預先建置的意圖和實體
+          href: luis-tutorial-prebuilt-intents-entities.md
+        - name: 3. 新增規則運算式實體
+          href: luis-quickstart-intents-regex-entity.md
+        - name: 4. 新增清單實體
+          href: luis-quickstart-intent-and-list-entity.md
+        - name: 5. 新增階層式實體
+          href: luis-quickstart-intent-and-hier-entity.md
+        - name: 6. 新增簡單實體和片語清單
+          href: luis-quickstart-primary-and-secondary-data.md
+        - name: 7. 新增 KeyPhrase 實體
+          href: luis-quickstart-intent-and-key-phrase.md
+        - name: 8. 新增情感分析
+          href: luis-quickstart-intent-and-sentiment-analysis.md
+    - name: 改善預測
+      items:
+        - name: 具有模式
+          href: luis-tutorial-pattern.md
+        - name: 具有片語清單
+          href: luis-tutorial-interchangeable-phrase-list.md
 - name: 範例
   items:
     - name: 程式碼範例
@@ -83,7 +81,7 @@
       href: luis-concept-best-practices.md
     - name: 編寫應用程式
       items:
-        - name: 編寫循環
+        - name: 編寫週期
           href: luis-concept-app-iteration.md
         - name: 共同作業
           href: luis-concept-collaborator.md

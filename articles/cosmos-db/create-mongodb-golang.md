@@ -2,7 +2,7 @@
 title: Azure CosmosDB︰使用 Golang 和 Azure 入口網站建置 MongoDB API 主控台應用程式 | Microsoft Docs
 description: 提供可用來連線及查詢 Azure Cosmos DB 的 Golang 程式碼範例
 services: cosmos-db
-author: Durgaprasad-Budhwani
+author: SnehaGunda
 manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: c02d85546a50b197639929158dc97b3d9bf7ff90
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: d1a45389e95dbd7f5f762b6dee0edc3897d0c3b8
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795766"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029841"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure CosmosDB︰使用 Golang 和 Azure 入口網站建置 MongoDB API 主控台應用程式
 
@@ -210,7 +210,7 @@ if err != nil {
 ## <a name="run-the-app"></a>執行應用程式
 
 1. 在 Goglang 中，確定您的 GOPATH (可在 [檔案]、[設定]、[Go]、[GOPATH] 之下取得) 包含 gopkg 的安裝位置，預設為 USERPROFILE\go。 
-2. 將可刪除文件的程式碼行 (行 91-96) 註解化，以便在執行應用程式後查看文件。
+2. 將可刪除文件的程式碼行 (行 103-107) 註解化，以便在執行應用程式後查看文件。
 3. 在 Goglang 中，按一下 [執行]，然後按一下 [執行 [建置 main.go 並執行]]。
 
     應用程式會完成並顯示在[建立文件](#create-document)中建立之文件的說明。

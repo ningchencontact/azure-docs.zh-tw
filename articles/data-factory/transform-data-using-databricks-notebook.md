@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 78954e2dd00e425d2dfdd81d2c3e386f199f4f8f
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 438aeda39c6ba9246f75f96214bb0ffa1d4d31e9
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32311041"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047803"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>在 Azure Data Factory 中使用 Databricks Notebook 活動執行 Databricks Notebook
 
@@ -68,7 +68,7 @@ ms.locfileid: "32311041"
 
     本快速入門的某些步驟是假設您使用 **ADFTutorialResourceGroup** 作為資源群組名稱。 若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)。
 
-1.  針對 [版本]，選取 [V2 (預覽版)]。
+1.  針對 [版本]，選取 [V2]。
 
 2.  針對 [位置]，選取資料處理站的位置。
 

@@ -13,24 +13,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/20/2018
 ms.author: shlo
-ms.openlocfilehash: 8fda0eaa3c92fd750a84db345a91590163c20446
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: ceff54b15ef70c9654142566bb1d54b6a7990833
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293474"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048633"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory 中的管道執行和觸發程序
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
-> * [第 1 版 - 正式運作](v1/data-factory-scheduling-and-execution.md)
-> * [第 2 版 - 預覽](concepts-pipeline-execution-triggers.md)
+> * [第 1 版](v1/data-factory-scheduling-and-execution.md)
+> * [目前的版本](concepts-pipeline-execution-triggers.md)
 
-在 Azure Data Factory 第 2 版中，「管線執行」可定義管線執行的執行個體。 例如，假設您的管線會在上午 8 點、9 點和 10 點執行。 在此情況下，管線會有三個個別的執行 (或管線執行)。 每個管線執行都有唯一的管線執行識別碼。 執行識別碼是一組 GUID，可唯一定義特定的管線執行。 
+在 Azure Data Factory 中，「管線執行」可定義管線執行的執行個體。 例如，假設您的管線會在上午 8 點、9 點和 10 點執行。 在此情況下，管線會有三個個別的執行 (或管線執行)。 每個管線執行都有唯一的管線執行識別碼。 執行識別碼是一組 GUID，可唯一定義特定的管線執行。 
 
 將引數傳遞給管線中定義的參數，通常可將管線執行具現化。 您可以用手動方式或使用「觸發程序」來執行管線。 本文提供兩種管線執行方式的詳細資料。
-
-> [!NOTE]
-> 本文適用於第 2 版 Azure Data Fatory (目前為預覽版)。 如果您使用第 1 版 Azure Data Factory (也就是正式運作版 (GA))，請參閱 [Azure Data Factory 第 1 版中的排程和執行](v1/data-factory-scheduling-and-execution.md)。
 
 ## <a name="manual-execution-on-demand"></a>手動執行 (依需求)
 管線的手動執行也稱為_依需求_執行。
@@ -136,7 +133,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 > 您可以使用 .NET SDK 從 Azure Functions、您自己的 Web 服務等途徑叫用 Data Factory 管線。
 
 <h2 id="triggers">觸發程序執行</h2>
-觸發程序是執行管線執行的另一種方式。 觸發程序代表一個處理單位，用來決定何時需要啟動管道執行。 目前，Data Factory 支援兩種類型的觸發程序：
+觸發程序是執行管線執行的另一種方式。 觸發程序代表一個處理單位，用來決定何時需要啟動管道執行。 目前，Data Factory 支援三種類型的觸發程序：
 
 - 排程觸發程序：可依時鐘排程來叫用管線的觸發程序。
 

@@ -8,12 +8,12 @@ ms.author: markgal
 ms.date: 2/21/2018
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 797637fbaaeb0577d0437f32d4ce244a738be84b
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 334cea710d185a6774e28ea3459b3ca1ad9f846f
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287319"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959792"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>針對備份 Azure 檔案共用的問題進行疑難排解
 您可以使用下列表格中所列的資訊，針對使用 Azure 檔案共用備份時所發生的問題和錯誤進行疑難排解。
@@ -28,9 +28,9 @@ Azure 檔案共用的備份處於預覽狀態。 Azure 檔案共用不支援下�
 - 在儲存體帳戶上使用[資源鎖定](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest)，以防止在您的復原服務保存庫中意外刪除備份。
 - 請勿刪除 Azure 備份所建立的快照集。 刪除快照集可能會導致遺失復原點和/或還原失敗。
 
-\*儲存體帳戶中的 Azure 檔案共用以[讀取權限異地備援儲存體](../storage/common/storage-redundancy-grs.md) (RA-GRS) 複寫功能作為 GRS，並以 GRS 價格計費
+\*儲存體帳戶中的 Azure 檔案共用以[讀取權限異地備援儲存體](../storage/common/storage-redundancy-grs.md) (RA-GRS) 複寫功能作為 GRS，並以 GRS 價格計費。
 
-在儲存體帳戶中使用[區域備援儲存體](../storage/common/storage-redundancy-zrs.md) (ZRS) 複寫功能備份 Azure 檔案共用，目前僅適用於美國中部 (CUS) 和美國東部 2 (EUS2)
+在儲存體帳戶中使用[區域備援儲存體](../storage/common/storage-redundancy-zrs.md) (ZRS) 複寫功能備份 Azure 檔案共用，目前僅適用於美國中部 (CUS)、美國東部 2 (EUS2)、北歐 (NE)、東南亞 (SEA) 和西歐 (WE)。
 
 ## <a name="configuring-backup"></a>設定備份
 下表適用於設定備份：

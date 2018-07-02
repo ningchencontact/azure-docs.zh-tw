@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/23/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 70698dc233dac60a2fa2d1444930d21d3fba8773
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6fa090a5277b1feb3e1b6ea0114ce90035197076
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637118"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753263"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>使用 Azure 監視器警示來回應事件
 Azure 監視器中的警示可識別您 Log Analytics 存放庫中的重要資訊。 它們是由自動定期執行記錄搜尋的警示規則所建立，如果記錄搜尋的結果符合特定準則，則會建立一個警示記錄，而它可以設定為執行自動化的回應。  本教學課程是[建立和共用 Log Analytics 資料的儀表板](log-analytics-tutorial-dashboards.md)教學課程的延續。   
@@ -41,7 +41,7 @@ Azure 監視器中的警示可識別您 Log Analytics 存放庫中的重要資�
 
 在下列範例中，您將根據在[視覺化資料教學課程](log-analytics-tutorial-dashboards.md)中儲存的「Azure VM - 處理器使用率」查詢，來建立計量測量警示規則。  為每個超過閾值 (90%) 的虛擬機器建立警示。  
 
-1. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。
+1. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中輸入 [監視器]。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [監視器]。
 2. 在左側窗格中選取 [警示]，然後按一下頁面頂端的 [新增警示規則]，即可建立新的警示。<br><br> ![建立新的警示規則](./media/log-analytics-tutorial-response/alert-rule-02.png)<br>
 3. 第一步驟，在 [建立警示] 區段下選取您的 Log Analytics 工作區作為資源，因為這是以記錄為基礎的警示訊號。  從下拉式清單中選擇特定**訂用帳戶**可篩選結果 (如果您有多個訂用帳戶)，其中包含稍早建立的 VM 和 Log Analytics 工作區。  從下拉式清單選取 **Log Analytics** 可篩選**資源類型**。  最後，選取**資源** **DefaultLAWorkspace**，然後按一下 [完成]。<br><br> ![建立警示步驟 1 的工作](./media/log-analytics-tutorial-response/alert-rule-03.png)<br>
 4. 在 [警示準則] 區段下按一下 [新增準則]，可選取我們已儲存的查詢，然後指定警示規則所遵循的邏輯。  從 [設定訊號邏輯] 窗格中，選取清單中的 [Azure VM - 處理器使用率]。  窗格會隨即更新，以顯示警示的組態設定。  最上方會顯示所選訊號過去 30 分鐘內的結果及搜尋查詢本身。  

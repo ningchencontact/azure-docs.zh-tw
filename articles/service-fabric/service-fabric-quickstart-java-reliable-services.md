@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 13d350950e91d771b7b4b2310a788537c4c36bd7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5ae6ba28ba448591d58cc3963f5df9a563997ab0
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642388"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959540"
 ---
 # <a name="quickstart-deploy-a-java-service-fabric-reliable-services-application-to-azure"></a>快速入門：將 Java Service Fabric 可靠服務應用程式部署至 Azure
 Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理微服務與容器。 
@@ -120,13 +120,13 @@ Service Fabric 提供了數項可用來管理叢集及其應用程式的工具�
 
 您必須將憑證指紋新增至應用程式，因為應用程式使用的是 Service Fabric 程式設計模型。 
 
-1. 在安全的叢集上執行時，您需要 ```Voting/VotingApplication/ApplicationManiest.xml``` 檔案中的憑證指紋。 執行下列命令以擷取憑證的指紋。
+1. 在安全的叢集上執行時，您需要 `Voting/VotingApplication/ApplicationManifest.xml` 檔案中的憑證指紋。 執行下列命令以擷取憑證的指紋。
 
     ```bash
     openssl x509 -in [CERTIFICATE_PEM_FILE] -fingerprint -noout
     ```
 
-2. 在 ```Voting/VotingApplication/ApplicationManiest.xml``` 中的 **Secretscertificate** 標記下，新增下列程式碼片段。 **X509FindValue** 應該是上一個步驟的指紋 (沒有分號)。 
+2. 在 `Voting/VotingApplication/ApplicationManifest.xml` 檔案的 **Secretscertificate** 標記下，新增下列程式碼片段。 **X509FindValue** 應該是上一個步驟的指紋 (沒有分號)。 
 
     ```xml
     <Certificates>

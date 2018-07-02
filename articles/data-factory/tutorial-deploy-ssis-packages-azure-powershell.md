@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: hero-article
-ms.date: 06/11/2018
+ms.date: 06/27/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 65df472665e5f7e50ee495674889c8048824d5d3
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 8db6cf93405ce1d7049c6b4165732d59d65b2d62
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36267586"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063170"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory-with-powershell"></a>使用 PowerShell 在 Azure Data Factory 中佈建 Azure-SSIS 整合執行階段
 本教學課程提供在 Azure Data Factory 中佈建 Azure-SSIS Integration Runtime (IR) 的步驟。 接著，您可以使用 SQL Server Data Tools (SSDT) 或 SQL Server Management Studio (SSMS)，將 SQL Server Integration Services (SSIS) 套件部署到 Azure 中的此執行階段並執行。 在本教學課程中，您會執行下列步驟：
@@ -33,21 +33,18 @@ ms.locfileid: "36267586"
 > * 部署 SSIS 套件
 > * 檢閱完整的指令碼
 
-> [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (正式推出版本 (GA))，請參閱 [Data Factory 第 1 版文件](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
-
 ## <a name="prerequisites"></a>先決條件
-- **Azure 訂用帳戶**。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。 如需 Azure-SSIS IR 的概念資訊，請參閱 [Azure-SSIS Integration Runtime 概觀](concepts-integration-runtime.md#azure-ssis-integration-runtime)。
+- **Azure 訂用帳戶**。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。 如需 Azure-SSIS IR 的概念資訊，請參閱 [Azure-SSIS Integration Runtime 概觀](concepts-integration-runtime.md#azure-ssis-integration-runtime)。 
 - **Azure SQL Database 伺服器**。 如果您還沒有資料庫伺服器，請在 Azure 入口網站中建立一個，然後再開始。 此伺服器裝載 SSIS 目錄資料庫 (SSISDB)。 建議於整合執行階段所在的相同 Azure 區域中建立資料庫伺服器。 此設定可讓整合執行階段將執行記錄寫入 SSISDB，而不需要跨 Azure 區域。 
-    - 根據選取的資料庫伺服器，SSISDB 可建立為代表您的獨立資料庫、彈性集區的一部份，或建立在受控執行個體中 (預覽)，並且可在公用網路中或透過加入虛擬網路來加以存取。 如果您使用具有虛擬網路服務端點/受控執行個體 (預覽) 的 Azure SQL Database 來裝載 SSISDB，或要求存取內部部署資料，則須將 Azure-SSIS IR 加入虛擬網路，請參閱[在虛擬網路中建立 Azure-SSIS IR](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime)。
-    - 確認資料庫伺服器的 [允許存取 Azure 服務] 設定為 [開啟]。 如果您使用具有虛擬網路服務端點/受控執行個體 (預覽) 來裝載 SSISDB，則不適用此設定。 如需詳細資訊，請參閱[保護 Azure SQL Database 資料庫](../sql-database/sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal)。 若要使用 PowerShell 來啟用此設定，請參閱 [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1)。
+    - 根據選取的資料庫伺服器，SSISDB 可建立為代表您的單一資料庫、彈性集區的一部分，或建立在受控執行個體中 (預覽)，並且可在公用網路中或透過加入虛擬網路來加以存取。 如需選擇適當資料庫伺服器類型來裝載 SSISDB 的指引，請參閱[比較 SQL 資料庫和受控執行個體 (預覽)](create-azure-ssis-integration-runtime.md#compare-sql-database-and-managed-instance-preview)。 如果您使用具有虛擬網路服務端點/受控執行個體 (預覽) 的 Azure SQL Database 來裝載 SSISDB，或要求存取內部部署資料，則須將 Azure-SSIS IR 加入虛擬網路，請參閱[在虛擬網路中建立 Azure-SSIS IR](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime)。 
+    - 確認資料庫伺服器的 [允許存取 Azure 服務] 設定為 [開啟]。 如果您使用具有虛擬網路服務端點/受控執行個體 (預覽) 來裝載 SSISDB，則不適用此設定。 如需詳細資訊，請參閱[保護 Azure SQL Database 資料庫](../sql-database/sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal)。 若要使用 PowerShell 來啟用此設定，請參閱 [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1)。 
     - 新增用戶端電腦的 IP 位址或 IP 位址範圍，其中包含資料庫伺服器之防火牆設定中用戶端電腦 IP 位址到用戶端 IP 位址清單。 如需詳細資訊，請參閱 [Azure SQL Database 伺服器層級和資料庫層級防火牆規則](../sql-database/sql-database-firewall-configure.md) 
-    - 若要連線至資料庫伺服器，您可以使用伺服器管理員認證來執行 SQL 驗證，或使用 Azure Data Factory 受控服務識別 (MSI) 來執行 Azure Active Directory (AAD) 驗證。  對於後者，您需要將 Data Factory MSI 加入具有資料庫伺服器存取權的 AAD 群組，請參閱[使用 AAD 驗證建立 Azure SSIS IR](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime)。
+    - 若要連線至資料庫伺服器，您可以使用伺服器管理員認證來執行 SQL 驗證，或使用 Azure Data Factory 受控服務識別 (MSI) 來執行 Azure Active Directory (AAD) 驗證。  對於後者，您需要將 Data Factory MSI 加入具有資料庫伺服器存取權的 AAD 群組，請參閱[使用 AAD 驗證建立 Azure SSIS IR](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime)。 
     - 確認您的 Azure SQL Database 伺服器沒有 SSIS 目錄 (SSISDB 資料庫)。 Azure-SSIS IR 的佈建不支援使用現有的 SSIS 目錄。 
 - **Azure PowerShell**(英文)。 遵循[如何安裝並設定 Azure PowerShell](/powershell/azure/install-azurerm-ps) 中的指示。 您需要使用 PowerShell 來執行指令碼，以佈建在雲端中執行 SSIS 套件的 Azure-SSIS 整合執行階段。 
 
 > [!NOTE]
-> - 您可以在下列區域中建立第 2 版的資料處理站：美國東部、美國東部 2、東南亞和西歐。 
+> - 您可以在下列區域建立資料處理站：美國東部、美國東部 2、東南亞和西歐。 
 > - 您可以在下列區域中建立 Azure-SSIS IR：美國東部、美國東部 2、美國中部、美國西部 2、北歐、西歐、英國南部和澳大利亞東部。
 
 ## <a name="launch-windows-powershell-ise"></a>啟動 Windows PowerShell ISE
@@ -57,13 +54,13 @@ ms.locfileid: "36267586"
 複製並貼上下列指令碼：指定變數的值。 如需 Azure SQL Database 支援的**定價層**清單，請參閱 [SQL Database 資源限制](../sql-database/sql-database-resource-limits.md)。
 
 ```powershell
-# Azure Data Factory version 2 information 
+# Azure Data Factory information 
 # If your input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
 $SubscriptionName = "[Azure subscription name]"
 $ResourceGroupName = "[Azure resource group name]"
 # Data factory name. Must be globally unique
 $DataFactoryName = "[Data factory name]"
-# You can create a data factory of version 2 in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
+# You can create a data factory in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
 $DataFactoryLocation = "EastUS"
 
 # Azure-SSIS integration runtime information. This is a Data Factory compute resource for running SSIS packages
@@ -85,7 +82,7 @@ $AzureSSISMaxParallelExecutionsPerNode = 8
 $SetupScriptContainerSasUri = "" # OPTIONAL to provide SAS URI of blob container where your custom setup script and its associated files are stored
 
 # SSISDB info
-$SSISDBServerEndpoint = “[your Azure SQL Database server name].database.windows.net" # WARNING: Please ensure that there is no existing SSISDB, so we can prepare and manage one on your behalf
+$SSISDBServerEndpoint = "[your Azure SQL Database server name].database.windows.net" # WARNING: Please ensure that there is no existing SSISDB, so we can prepare and manage one on your behalf    
 $SSISDBServerAdminUserName = "[your server admin username for SQL authentication]"
 $SSISDBServerAdminPassword = "[your server admin password for SQL authentication]"
 # For the basic pricing tier, specify "Basic", not "B". For standard/premium/Elastic Pool tiers, specify "S0", "S1", "S2", "S3", etc.
@@ -96,7 +93,7 @@ $SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…
 新增下列指令碼來驗證您的 Azure SQL Database 伺服器 (`<servername>.database.windows.net`)。 
 
 ```powershell
-$SSISDBConnectionString = "Data Source=" + $SSISDBServerEndpoint + ";User ID=" + $SSISDBServerAdminUserName + ";Password=“ + $SSISDBServerAdminPassword
+$SSISDBConnectionString = "Data Source=" + $SSISDBServerEndpoint + ";User ID=" + $SSISDBServerAdminUserName + ";Password=" + $SSISDBServerAdminPassword    
 $sqlConnection = New-Object System.Data.SqlClient.SqlConnection $SSISDBConnectionString;
 Try
 {
@@ -104,7 +101,7 @@ Try
 }
 Catch [System.Data.SqlClient.SqlException]
 {
-    Write-Warning "Cannot connect to your Azure SQL Database server, exception: $_"  ;
+    Write-Warning "Cannot connect to your Azure SQL Database server, exception: $_";
     Write-Warning "Please make sure the server you specified has already been created. Do you want to proceed? [Y/N]"
     $yn = Read-Host
     if(!($yn -ieq "Y"))
@@ -122,7 +119,7 @@ Catch [System.Data.SqlClient.SqlException]
 New-AzureRmSqlServer -ResourceGroupName $ResourceGroupName `
     -ServerName $SSISDBServerName `
     -Location $DataFactoryLocation `
-    -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $SSISDBServerAdminUserName, $(ConvertTo-SecureString -String $SSISDBServerAdminPassword -AsPlainText -Force))
+    -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $SSISDBServerAdminUserName, $(ConvertTo-SecureString -String $SSISDBServerAdminPassword -AsPlainText -Force))    
 
 New-AzureRmSqlServerFirewallRule -ResourceGroupName $ResourceGroupName `
     -ServerName $SSISDBServerName `
@@ -228,13 +225,13 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 如需 Azure Data Factory V2 和 Azure SSIS Integration Runtime 所支援的區域清單，請參閱[依區域提供的產品](https://azure.microsoft.com/regions/services/)。 展開 [資料及分析] 以查看 [Data Factory V2] 和 [SSIS Integration Runtime]。
 
 ```powershell
-# Azure Data Factory version 2 information 
+# Azure Data Factory information 
 # If your input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
 $SubscriptionName = "[Azure subscription name]"
 $ResourceGroupName = "[Azure resource group name]"
 # Data factory name. Must be globally unique
 $DataFactoryName = "[Data factory name]"
-# You can create a data factory of version 2 in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
+# You can create a data factory of in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
 $DataFactoryLocation = "EastUS"
 
 # Azure-SSIS integration runtime information. This is a Data Factory compute resource for running SSIS packages
@@ -256,13 +253,13 @@ $AzureSSISMaxParallelExecutionsPerNode = 8
 $SetupScriptContainerSasUri = "" # OPTIONAL to provide SAS URI of blob container where your custom setup script and its associated files are stored
 
 # SSISDB info
-$SSISDBServerEndpoint = “[your Azure SQL Database server name].database.windows.net" # WARNING: Please ensure that there is no existing SSISDB, so we can prepare and manage one on your behalf
+$SSISDBServerEndpoint = "[your Azure SQL Database server name].database.windows.net" # WARNING: Please ensure that there is no existing SSISDB, so we can prepare and manage one on your behalf    
 $SSISDBServerAdminUserName = "[your server admin username for SQL authentication]"
 $SSISDBServerAdminPassword = "[your server admin password for SQL authentication]"
 # For the basic pricing tier, specify "Basic", not "B". For standard/premium/Elastic Pool tiers, specify "S0", "S1", "S2", "S3", etc.
 $SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…|ELASTIC_POOL(name = <elastic_pool_name>)]"
 
-$SSISDBConnectionString = "Data Source=" + $SSISDBServerEndpoint + ";User ID=" + $SSISDBServerAdminUserName + ";Password=“ + $SSISDBServerAdminPassword
+$SSISDBConnectionString = "Data Source=" + $SSISDBServerEndpoint + ";User ID=" + $SSISDBServerAdminUserName + ";Password=" + $SSISDBServerAdminPassword    
 $sqlConnection = New-Object System.Data.SqlClient.SqlConnection $SSISDBConnectionString;
 Try
 {
@@ -270,7 +267,7 @@ Try
 }
 Catch [System.Data.SqlClient.SqlException]
 {
-    Write-Warning "Cannot connect to your Azure SQL Database server, exception: $_"  ;
+    Write-Warning "Cannot connect to your Azure SQL Database server, exception: $_";
     Write-Warning "Please make sure the server you specified has already been created. Do you want to proceed? [Y/N]"
     $yn = Read-Host
     if(!($yn -ieq "Y"))
@@ -316,7 +313,7 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 ```
 
 ## <a name="join-azure-ssis-ir-to-a-virtual-network"></a>將 Azure-SSIS IR 加入虛擬網路
-針對您使用的 Azure SQL Database，如果其中的網路服務端點/受控執行個體 (預覽) 已加入虛擬網路來裝載 SSISDB，您也必須將 Azure-SSIS 整合執行階段加入相同的虛擬網路。 Azure Data Factory 第 2 版 (預覽版) 可讓您將 Azure-SSIS 整合執行階段加入虛擬網路。 如需詳細資訊，請參閱[將 Azure-SSIS 整合執行階段加入虛擬網路](join-azure-ssis-integration-runtime-virtual-network.md)。
+針對您使用的 Azure SQL Database，如果其中的網路服務端點/受控執行個體 (預覽) 已加入虛擬網路來裝載 SSISDB，您也必須將 Azure-SSIS 整合執行階段加入相同的虛擬網路。 Azure Data Factory 可讓您將 Azure-SSIS 整合執行階段加入虛擬網路。 如需詳細資訊，請參閱[將 Azure-SSIS 整合執行階段加入虛擬網路](join-azure-ssis-integration-runtime-virtual-network.md)。
 
 如需完整指令碼來建立可加入虛擬網路的 Azure-SSIS 整合執行階段，請參閱[建立 Azure-SSIS 整合執行階段](create-azure-ssis-integration-runtime.md)。
 

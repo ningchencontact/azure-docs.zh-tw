@@ -7,104 +7,98 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 06/25/2018
 ms.author: v-geberr
-ms.openlocfilehash: d000637312619fc493e2f7bad8e8edf0d8d0d94b
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: ac959989dbe64460025bfba84df7b6f22c3c1c04
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265329"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36958424"
 ---
 # <a name="tutorial-create-app-that-returns-sentiment-along-with-intent-prediction"></a>教學課程：建立可傳回情感及意圖預測的應用程式
 在本教學課程中，建立一個應用程式，示範如何從語句中擷取正面、負面和中性人氣。
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * 了解階層式實體和透過內容學習的子系 
-> * 以 Bookflight 意圖建立旅行網域的新 LUIS 應用程式
-> * 新增 [無] 意圖和新增範例語句
-> * 新增具有出發地和目的地子系的位置階層式實體
+> * 了解情感分析
+> * 在人力資源 (HR) 網域中使用 LUIS 應用程式 
+> * 新增情感分析
 > * 訓練和發佈應用程式
-> * 查詢的應用程式的端點，以查看包括階層式子系的 LUIS JSON 回應 
+> * 查詢應用程式端點來查看 LUIS JSON 回應 
 
 在本文中，您需要免費 [LUIS][LUIS] 帳戶才能撰寫 LUIS 應用程式。
+
+## <a name="before-you-begin"></a>開始之前
+如果您沒有 [keyPhrase 實體](luis-quickstart-intent-and-key-phrase.md)教學課程中的人力資源應用程式，請將 JSON [匯入](create-new-app.md#import-new-app) [LUIS](luis-reference-regions.md#luis-website) 網站中的新應用程式。 在 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-keyphrase-HumanResources.json) Github 存放庫中可找到要匯入的應用程式。
+
+如果您想要保留原本的人力資源應用程式，在[[設定]](luis-how-to-manage-versions.md#clone-a-version)頁面上複製該版本，並將其命名為 `sentiment`。 複製是使用各種 LUIS 功能的好方法，因為不會影響原始版本。 
 
 ## <a name="sentiment-analysis"></a>情感分析
 情感分析可判斷使用者的語句屬於正面、負面還是中性語句。 
 
 下列語句會顯示情感範例：
 
-|情感和分數|語句|
-|:--|--|
-|正面 - 0.89 |湯和沙拉的組合很不錯。|
-|負面 - 0.07 |我不喜歡晚餐吃的開胃菜。|
+|情感|分數|語句|
+|:--|:--|:--|
+|正面|0.91 |John W. Smith did a great job on the presentation in Paris.|
+|正面|0.84 |jill-jones@mycompany.com did fabulous work on the Parker sales pitch.|
 
-情感分析會作為適用於每個語句的應用程式設定。 您不必尋找語句中指出情感的字組並為其加上標籤。 LUIS 會幫您完成。
+情感分析會作為適用於每個語句的應用程式設定。 您不必尋找語句中指出情感的字組並為其加上標籤，因為感情分析適用於整個語句。 
 
-## <a name="create-a-new-app"></a>建立新的應用程式
-1. 登入 [LUIS][LUIS] 網站。 務必登入您需要發佈 LUIS 端點的[區域][LUIS-regions]。
+## <a name="add-employeefeedback-intent"></a>新增 EmployeeFeedback 意圖 
+新增意圖，以擷取公司成員的員工意見。 
 
-2. 在 [LUIS][LUIS] 網站上選取 [建立新的應用程式]。 
+1. 請確定您人力資源應用程式位於 LUIS 的 [建置] 區段。 選取右上方功能表列中的 [建置]，即可變更至此區段。 
 
-    [![](media/luis-quickstart-intent-and-sentiment-analysis/app-list.png "[應用程式] 清單頁面的螢幕擷取畫面")](media/luis-quickstart-intent-and-sentiment-analysis/app-list.png#lightbox)
+    [ ![在右上方導覽列中醒目提示 [建置] 的 LUIS 應用程式螢幕擷取畫面](./media/luis-quickstart-intent-and-sentiment-analysis/hr-first-image.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-first-image.png#lightbox)
 
-3. 在 [建立新的應用程式] 對話方塊上，將應用程式命名為 `Restaurant Reservations With Sentiment`，然後選取 [完成]。 
+2. 選取 [建立新意圖]。
 
-    ![建立新應用程式對話方塊的影像](./media/luis-quickstart-intent-and-sentiment-analysis/create-app-ddl.png)
+    [ ![在右上方導覽列中醒目提示 [建置] 的 LUIS 應用程式螢幕擷取畫面](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent.png#lightbox)
 
-    當應用程式建立程序完成時，LUIS 會顯示含有 [無] 意圖的意圖清單。
+3. 將新的意圖命名為 `EmployeeFeedback`。
 
-    [![](media/luis-quickstart-intent-and-sentiment-analysis/intents-list.png "[意圖] 清單頁面的螢幕擷取畫面")](media/luis-quickstart-intent-and-sentiment-analysis/intents-list.png#lightbox)
+    ![以 EmployeeFeedback 作為名稱來建立新的意圖對話方塊](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent-ddl.png)
 
-## <a name="add-a-prebuilt-domain"></a>新增預先建置的網域
-新增預先建置的網域，以快速新增意圖、實體和加上標籤的語句。
+4. 新增數個語句，以指出員工表現良好或需要改進的地方：
 
-1. 選取左功能表中的 [預先建置網域]。
+    請記住在此人力資源應用程式中，員工會依照名稱、電子郵件、電話分機號碼、行動電話號碼及其美國聯邦社會安全號碼，定義於清單實體 `Employee` 中。 
 
-    [ ![[預先建置網域] 按鈕的螢幕擷取畫面](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-button-inline.png)](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-button-expanded.png#lightbox)
+    |語句|
+    |--|
+    |425-555-1212 did a nice job of welcoming back a co-worker from maternity leave|
+    |234-56-7891 did a great job of comforting a co-worker in their time of grief.|
+    |jill-jones@mycompany.com didn't have all the required invoices for the paperwork.|
+    |john.w.smith@mycompany.com turned in the required forms a month late with no signatures|
+    |x23456 didn't make it to the important marketing off-site meeting.|
+    |x12345 missed the meeting for June reviews.|
+    |Jill Jones rocked the sales pitch at Harvard|
+    |John W. Smith did a great job on the presentation at Stanford|
 
-2. 選取 [新增網域] 以獲得 **RestaurantReservation** 預先建置網域。 等候網域完成新增。
-
-    [ ![[預先建置的網域] 清單的螢幕擷取畫面](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-list-inline.png)](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-list-expanded.png#lightbox)
-
-3. 在左側導覽中，選取 [意圖]。 這個預先建置的網域有一個意圖。
-
-    [ ![左側導覽中已醒目提示意圖的 [預先建置的網域] 清單螢幕擷取畫面](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-list-domain-added-expanded.png)](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-list-domain-added-expanded.png#lightbox)
-
-4.  選取 [RestaurantReservation.Reserve] 意圖。 
-
-    [ ![已醒目提示 RestaurantReservation.Reserve 的 [意圖] 清單螢幕擷取畫面](./media/luis-quickstart-intent-and-sentiment-analysis/select-intent.png)](./media/luis-quickstart-intent-and-sentiment-analysis/select-intent.png#lightbox)
-
-5. 切換 [實體檢視] 以查看所提供的眾多語句 (並已為網域特定實體加上標籤)。
-
-    [ ![醒目提示了「從實體檢視切換至權杖檢視」的 RestaurantReservation.Reserve 意圖螢幕擷取畫面](./media/luis-quickstart-intent-and-sentiment-analysis/utterance-list-inline.png)](./media/luis-quickstart-intent-and-sentiment-analysis/utterance-list-expanded.png#lightbox)
+    [ ![在 EmployeeFeedback 意圖中有範例語句的 LUIS 應用程式螢幕擷取畫面](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
 
 ## <a name="train-the-luis-app"></a>訓練 LUIS 應用程式
-在意圖和實體 (模型) 的變更定型前，LUIS 並不知道這些變更。 
+LUIS 在定型前，並不知道新的意圖及其範例語句。 
 
 1. 在 LUIS 網站的右上方，選取 [訓練] 按鈕。
 
-    ![已醒目提示 [訓練] 按鈕的螢幕擷取畫面](./media/luis-quickstart-intent-and-sentiment-analysis/train-button-expanded.png)
+    ![已醒目提示 [訓練] 按鈕的螢幕擷取畫面](./media/luis-quickstart-intent-and-sentiment-analysis/train-button.png)
 
 2. 當您在網站頂端看到確認成功的綠色狀態列時，就表示訓練完成。
 
-    ![訓練成功通知列的螢幕擷取畫面 ](./media/luis-quickstart-intent-and-sentiment-analysis/trained-expanded.png)
+    ![訓練成功通知列的螢幕擷取畫面 ](./media/luis-quickstart-intent-and-sentiment-analysis/hr-trained-inline.png)
 
 ## <a name="configure-app-to-include-sentiment-analysis"></a>設定應用程式以納入情感分析
-[發佈] 頁面上會啟用情感分析。 
+在 [發佈] 頁面上設定情感分析。 
 
 1. 選取右上方導覽列中的 [發佈]。
 
-    ![已展開 [發佈] 按鈕的 [意圖] 頁面螢幕擷取畫面 ](./media/luis-quickstart-intent-and-sentiment-analysis/publish-expanded.png)
+    ![已展開 [發佈] 按鈕的 [意圖] 頁面螢幕擷取畫面 ](./media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-button-in-top-nav-highlighted.png)
 
-2. 選取 [啟用情感分析]。
+2. 選取 [啟用情感分析]。 選取 [生產] 位置和 [發佈] 按鈕。
 
-    ![已醒目提示 [啟用情感分析] 的 [發佈] 頁面螢幕擷取畫面 ](./media/luis-quickstart-intent-and-sentiment-analysis/enable-sentiment-expanded.png)
-
-3. 選取 [生產] 位置和 [發佈] 按鈕。
-
-    [![](media/luis-quickstart-intent-and-sentiment-analysis/publish-to-production-inline.png "已醒目提示 [發佈至生產位置] 按鈕的 [發佈] 頁面螢幕擷取畫面")](media/luis-quickstart-intent-and-sentiment-analysis/publish-to-production-expanded.png#lightbox)
+    [![](media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-to-production-expanded.png "已醒目提示發佈至生產位置按鈕的 [發佈] 頁面螢幕擷取畫面")](media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-to-production-expanded.png#lightbox)
 
 4. 當您在網站頂端看到確認成功的綠色狀態列時，就表示發佈完成。
 
@@ -112,34 +106,102 @@ ms.locfileid: "36265329"
 
 1. 在 [發佈] 頁面上，選取位於頁面底部的 [端點] 連結。 這個動作會開啟另一個瀏覽器視窗，其中的網址列會顯示此端點 URL。 
 
-    ![已醒目提示端點 URL 的 [發佈] 頁面螢幕擷取畫面](media/luis-quickstart-intent-and-sentiment-analysis/endpoint-url-inline.png)
+    ![已醒目提示端點 URL 的 [發佈] 頁面螢幕擷取畫面](media/luis-quickstart-intent-and-sentiment-analysis/hr-endpoint-url-inline.png)
 
-2. 移至位址中的 URL 尾端並輸入 `Reserve table for  10 on upper level away from kitchen`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 此語句與任何標示的語句都不同，因此這是很好的測試，且應該傳回具有所擷取情感分析的 `RestaurantReservation.Reserve` 意圖。
+2. 移至位址中的 URL 尾端並輸入 `Jill Jones work with the media team on the public portal was amazing`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 此語句與任何標示的語句都不同，因此這是很好的測試，且應該傳回具有所擷取情感分析的 `EmployeeFeedback` 意圖。
 
 ```
 {
-  "query": "Reserve table for 10 on upper level away from kitchen",
+  "query": "Jill Jones work with the media team on the public portal was amazing",
   "topScoringIntent": {
-    "intent": "RestaurantReservation.Reserve",
-    "score": 0.9926384
+    "intent": "EmployeeFeedback",
+    "score": 0.4983256
   },
   "intents": [
     {
-      "intent": "RestaurantReservation.Reserve",
-      "score": 0.9926384
+      "intent": "EmployeeFeedback",
+      "score": 0.4983256
+    },
+    {
+      "intent": "MoveEmployee",
+      "score": 0.06617523
+    },
+    {
+      "intent": "GetJobInformation",
+      "score": 0.04631853
+    },
+    {
+      "intent": "ApplyForJob",
+      "score": 0.0103248553
+    },
+    {
+      "intent": "Utilities.StartOver",
+      "score": 0.007531875
+    },
+    {
+      "intent": "FindForm",
+      "score": 0.00344597152
+    },
+    {
+      "intent": "Utilities.Help",
+      "score": 0.00337914471
+    },
+    {
+      "intent": "Utilities.Cancel",
+      "score": 0.0026357458
     },
     {
       "intent": "None",
-      "score": 0.00961109251
+      "score": 0.00214573368
+    },
+    {
+      "intent": "Utilities.Stop",
+      "score": 0.00157622492
+    },
+    {
+      "intent": "Utilities.Confirm",
+      "score": 7.379545E-05
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "entity": "jill jones",
+      "type": "Employee",
+      "startIndex": 0,
+      "endIndex": 9,
+      "resolution": {
+        "values": [
+          "Employee-45612"
+        ]
+      }
+    },
+    {
+      "entity": "media team",
+      "type": "builtin.keyPhrase",
+      "startIndex": 25,
+      "endIndex": 34
+    },
+    {
+      "entity": "public portal",
+      "type": "builtin.keyPhrase",
+      "startIndex": 43,
+      "endIndex": 55
+    },
+    {
+      "entity": "jill jones",
+      "type": "builtin.keyPhrase",
+      "startIndex": 0,
+      "endIndex": 9
+    }
+  ],
   "sentimentAnalysis": {
-    "label": "neutral",
-    "score": 0.5
+    "label": "positive",
+    "score": 0.8694164
   }
 }
 ```
+
+sentimentAnalysis 為正面且分數為 0.86。 
 
 ## <a name="what-has-this-luis-app-accomplished"></a>此 LUIS 應用程式有何成就？
 此應用程式 (已啟用情感分析) 已識別出自然語言查詢意圖並傳回所擷取的資料，包括整體情感分數。 

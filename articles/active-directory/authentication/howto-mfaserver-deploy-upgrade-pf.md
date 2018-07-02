@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: e1a216a8bf524d22af815d077b16ab29c817e9e4
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: e3e0855d2ac54643a6dc6128eea974d952bb56d5
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866228"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335623"
 ---
 # <a name="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>將 PhoneFactor Agent 升級為 Azure Multi-Factor Authentication Server
 
@@ -66,11 +66,8 @@ ms.locfileid: "33866228"
 
   3. 移至使用者入口網站安裝位置 (例如，C:\inetpub\wwwroot\MultiFactorAuth)，然後編輯 web.config 檔案。 在將 web.config 檔案升級為新 web.config 檔案之前備份的原始檔案中，複製 appSettings 和 applicationSettings 區段中的值。 在安裝 Web 服務 SDK 時，如果新的預設虛擬目錄名稱已保留，請變更 applicationSettings 區段中的 URL，以指向正確位置。 如果先前 web.config 檔案中有其他任何經過變更的預設值，請將這些相同變更套用到新的 web.config 檔案。
 
-  4. 若要將 Mobile App Web 服務安裝在 Web 伺服器上，請以系統管理員身分開啟命令提示字元，然後執行 MultiFactorAuthenticationMobileAppWebServiceSetupXX.msi。
-
-    預設虛擬目錄名稱現在是 **MultiFactorAuthMobileAppWebService**，而非 **PhoneFactorPhoneAppWebService**。 如果您想要使用先前的名稱，必須在安裝期間變更虛擬目錄的名稱。 您也許會想要選擇較短的名稱，以便使用者在行動裝置上輸入。 否則，如果您允許安裝使用新預設名稱，應該要在 Multi-Factor Authentication Server 中按一下 [行動應用程式] 圖示，然後更新 Mobile App Web 服務 URL。
-
-  5. 移至 Mobile App Web 服務安裝位置 (例如，C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService)，然後編輯 web.config 檔案。 在將 web.config 檔案升級為新 web.config 檔案之前備份的原始檔案中，複製 appSettings 和 applicationSettings 區段中的值。 在安裝 Web 服務 SDK 時，如果新的預設虛擬目錄名稱已保留，請變更 applicationSettings 區段中的 URL，以指向正確位置。 如果先前 web.config 檔案中有其他任何經過變更的預設值，請將這些相同變更套用到新的 web.config 檔案。
+> [!NOTE]
+> 從 Azure MFA Server 8.0 至 8.0+ 以前的版本升級時，可以在升級之後解除安裝行動裝置應用程式 Web 服務
 
 ## <a name="next-steps"></a>後續步驟
 

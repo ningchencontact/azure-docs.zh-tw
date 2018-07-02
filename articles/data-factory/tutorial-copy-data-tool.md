@@ -9,27 +9,24 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: hero-article
-ms.date: 01/09/2018
+ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: d2f1d089c6a08a1dc90f82fd9d1c3cb2b6f6dc0a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 504f025edef79b310249c29665198438a326881a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30171792"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051996"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>使用複製資料工具將資料從 Azure Blob 儲存體複製到 SQL 資料庫
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
-> * [第 1 版 - 正式運作](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [第 2 版 - 預覽](tutorial-copy-data-tool.md)
+> * [第 1 版](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [目前的版本](tutorial-copy-data-tool.md)
 
 在這個教學課程中，您會使用 Azure 入口網站來建立資料處理站。 接著，您會使用複製資料工具來建立管線，以將資料從 Azure Blob 儲存體複製到 SQL 資料庫。 
 
 > [!NOTE]
 > 如果您不熟悉 Azure Data Factory，請參閱 [Azure Data Factory 簡介](introduction.md)。
->
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory (正式推出版本)，請參閱[開始使用 Data Factory 第 1 版](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
-
 
 在本教學課程中，您會執行下列步驟：
 
@@ -106,7 +103,7 @@ ms.locfileid: "30171792"
          
     若要了解資源群組，請參閱[使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。
 
-5. 在 [版本] 下，選取 [V2 (預覽)] 作為版本。
+5. 在 [版本] 下，選取 [V2] 作為版本。
 6. 在 [位置] 下，選取資料處理站的位置。 只有受到支援的位置會顯示在下拉式清單中。 資料處理站所使用的資料存放區 (例如 Azure 儲存體和 SQL Database) 和計算 (例如 Azure HDInsight) 可位於其他地區和區域。
 7. 選取 [釘選到儀表板]。 
 8. 選取 [建立] 。
@@ -126,84 +123,80 @@ ms.locfileid: "30171792"
 2. 在 [屬性] 頁面的 [工作名稱] 下，輸入 **CopyFromBlobToSqlPipeline**。 然後，選取 [下一步]。 Data Factory 使用者介面會使用指定的工作名稱建立管線。 
 
     ![屬性頁面](./media/tutorial-copy-data-tool/copy-data-tool-properties-page.png)
-3. 在 [來源資料存放區] 頁面上選取 [Azure Blob 儲存體]，然後選取 [下一步]。 來源資料位於 Blob 儲存體中。 
+3. 在 [來源資料存放區]  頁面上，完成下列步驟：
 
-    ![來源資料存放區頁面](./media/tutorial-copy-data-tool/source-data-store-page.png)
-4. 在 [指定 Azure Blob 儲存體帳戶] 頁面上，採取以下步驟︰
+    a. 按一下 [+ 建立新連線] 以新增連線
 
-    a. 在 [連線名稱] 下輸入 **AzureStorageLinkedService**。
+    ![新增來源連結服務](./media/tutorial-copy-data-tool/new-source-linked-service.png)
 
-    b. 從 [儲存體帳戶名稱] 下拉式清單中選取您的儲存體帳戶名稱。
+    b. 從資源庫選取 [Azure Blob 儲存體]，然後選取 [下一步]。
 
-    c. 選取 [下一步] 。 
+    ![選取 Blob 來源](./media/tutorial-copy-data-tool/select-blob-source.png)
 
-    ![指定儲存帳號](./media/tutorial-copy-data-tool/specify-blob-storage-account.png)
+    c. 在 [新增連結服務] 頁面上，從 [儲存體帳戶名稱] 清單中選取您的儲存體帳戶，然後選取 [完成]。
 
-    已連結的服務會將資料存放區或計算連結到資料處理站。 在此案例中，您會建立儲存體連結服務，將儲存體帳戶連結到資料存放區。 連結服務具有連線資訊，可供 Data Factory 在執行階段中用來連線到 Blob 儲存體。 資料集會指定包含來源資料的容器、資料夾和檔案 (選擇性)。 
+    ![設定 Azure 儲存體](./media/tutorial-copy-data-tool/configure-azure-storage.png)
 
-5. 在 [選擇輸入檔案或資料夾] 頁面上，執行以下步驟︰
+    d. 選取新建立的連結服務作為來源，然後按 [下一步]。
+
+    ![選取來源連結服務](./media/tutorial-copy-data-tool/select-source-linked-service.png)
+
+4. 在 [選擇輸入檔案或資料夾] 頁面上，完成下列步驟︰
     
-    a. 瀏覽至 **adfv2tutorial/input** 資料夾。
+    a. 按一下 [瀏覽] 以瀏覽至 **adfv2tutorial/input** 資料夾，選取 **inputEmp.txt** 檔案，然後按一下 [選擇]。
 
-    b. 選取 **inputEmp.txt** 檔案。
+    ![選擇輸入檔案或資料夾](./media/tutorial-copy-data-tool/specify-source-path.png)
 
-    c. 選取 [選擇]。 或者，您可以按兩下 **inputEmp.txt** 檔案。
+    b. 按 [下一步] 移至下一個步驟。
 
-    d. 選取 [下一步] 。 
-
-    ![選擇輸入檔案或資料夾](./media/tutorial-copy-data-tool/choose-input-file-folder.png)
-
-6. 在 [檔案格式設定] 頁面上，留意到此工具會自動偵測資料行和資料列分隔符號。 選取 [下一步] 。 您也可以預覽資料，並檢視這個頁面上的輸入資料結構描述。 
+5. 在 [檔案格式設定] 頁面上，留意到此工具會自動偵測資料行和資料列分隔符號。 選取 [下一步] 。 您也可以預覽資料，並檢視這個頁面上的輸入資料結構描述。 
 
     ![檔案格式設定](./media/tutorial-copy-data-tool/file-format-settings-page.png)
-7. 在 [目的地資料存放區] 頁面上，選取 [Azure SQL Database]，然後選取 [下一步]。
+6. 在 [目的地資料存放區] 頁面上，完成下列步驟：
 
-    ![目的地資料存放區](./media/tutorial-copy-data-tool/destination-data-storage-page.png)
-8. 在 [指定 Azure SQL 資料庫] 頁面上，採取以下步驟︰ 
+    a. 按一下 [+ 建立新連線] 以新增連線
 
-    a. 在 [連線名稱] 下輸入 **AzureSqlDatabaseLinkedService**。
+    ![新增接收連結服務](./media/tutorial-copy-data-tool/new-sink-linked-service.png)
 
-    b. 在 [伺服器名稱] 下，選取您的 SQL Server 執行個體。
+    b. 從資源庫選取 [Azure Blob 儲存體]，然後選取 [下一步]。
 
-    c. 在 [資料庫名稱] 下，選取您的 SQL 資料庫。
+    ![選取 Azure SQL DB](./media/tutorial-copy-data-tool/select-azure-sql-db.png)
 
-    d. 在 [使用者名稱] 下，輸入使用者名稱。
+    c. 在 [新增連結服務] 頁面上，從下拉式清單中選取您的伺服器名稱和資料庫名稱，並指定使用者名稱和密碼，然後選取 [完成]。    
 
-    e. 在 [密碼] 下，輸入使用者的密碼。
+    ![設定 Azure SQL DB](./media/tutorial-copy-data-tool/config-azure-sql-db.png)
 
-    f. 選取 [下一步] 。 
+    d. 選取新建立的連結服務作為接收端，然後按 [下一步]。
 
-    ![指定 SQL 資料庫](./media/tutorial-copy-data-tool/specify-azure-sql-database.png)
+    ![選取接收連結服務](./media/tutorial-copy-data-tool/select-sink-linked-service.png)
 
-    資料集必須與連結的服務相關聯。 連結服務具有連接字串，可供 Data Factory 在執行階段中用來連線到 SQL 資料庫。 資料集會指定要作為資料複製目的地的容器、資料夾和檔案 (選擇性)。
+7. 在 [資料表對應] 頁面上，選取 **[dbo].[emp]** 資料表，然後選取 [下一步]。 
 
-9. 在 [資料表對應] 頁面上，選取 **[dbo].[emp]** 資料表，然後選取 [下一步]。 
+    ![資料表對應](./media/tutorial-copy-data-tool/table-mapping.png)
+8. 在 [結構描述對應] 頁面上，請注意系統會將輸入檔案中的第一個和第二個資料行對應至 **emp** 資料表的 **FirstName** 和 **LastName** 資料行。 選取 [下一步] 。
 
-    ![資料表對應](./media/tutorial-copy-data-tool/table-mapping-page.png)
-10. 在 [結構描述對應] 頁面上，請注意系統會將輸入檔案中的第一個和第二個資料行對應至 **emp** 資料表的 **FirstName** 和 **LastName** 資料行。
-
-    ![結構描述對應頁面](./media/tutorial-copy-data-tool/schema-mapping-page.png)
-11. 在 [設定] 頁面上，選取 [下一步]。 
-
-    ![設定頁面](./media/tutorial-copy-data-tool/settings-page.png)
-12. 在 [摘要] 頁面上檢閱設定，然後選取 [下一步]。
+    ![結構描述對應頁面](./media/tutorial-copy-data-tool/schema-mapping.png)
+9. 在 [設定] 頁面上，選取 [下一步]。 
+10. 在 [摘要] 頁面上檢閱設定，然後選取 [下一步]。
 
     ![摘要頁面](./media/tutorial-copy-data-tool/summary-page.png)
-13. 在**部署頁面**上選取 [監視] 來監視管線 (工作)。
+11. 在**部署頁面**上選取 [監視] 來監視管線 (工作)。
 
     ![部署頁面](./media/tutorial-copy-data-tool/deployment-page.png)
-14. 請注意，系統會自動選取左側的 [監視] 索引標籤。 [動作] 資料行中會有連結可供檢視活動執行詳細資料，以及重新執行管線。 選取 [重新整理] 即可重新整理清單。 
+12. 請注意，系統會自動選取左側的 [監視] 索引標籤。 [動作] 資料行中會有連結可供檢視活動執行詳細資料，以及重新執行管線。 選取 [重新整理] 即可重新整理清單。 
 
-    ![監視管線回合](./media/tutorial-copy-data-tool/monitor-pipeline-runs.png)
-15. 若要檢視與此管線執行相關聯的活動執行，請選取 [動作] 資料行中的 [檢視活動執行] 連結。 管線中只有一個活動 (複製活動)，所以您只會看到一個項目。 如需關於複製作業的詳細資料，請選取 [動作] 資料行中的 [詳細資料] 連結 (眼鏡圖示)。 若要回到 [管線執行] 檢視，請選取頂端的 [管線] 連結。 若要重新整理檢視，請選取 [重新整理]。 
+    ![監視管線回合](./media/tutorial-copy-data-tool/pipeline-monitoring.png)
+13. 若要檢視與此管線執行相關聯的活動執行，請選取 [動作] 資料行中的 [檢視活動執行] 連結。 如需關於複製作業的詳細資料，請選取 [動作] 資料行中的 [詳細資料] 連結 (眼鏡圖示)。 若要回到 [管線執行] 檢視，請選取頂端的 [管線] 連結。 若要重新整理檢視，請選取 [重新整理]。 
 
-    ![監視活動回合](./media/tutorial-copy-data-tool/monitor-activity-runs.png)
-16. 選取左側的 [編輯] 索引標籤以切換至編輯器模式。 您可以使用編輯器更新透過此工具建立的連結服務、資料集和管線。 選取 [程式碼] 以檢視目前編輯器中開啟的實體 JSON 程式碼。 如需在 Data Factory 使用者介面中編輯這些實體的詳細資訊，請參閱[本教學課程的 Azure 入口網站版本](tutorial-copy-data-portal.md)。
+    ![監視活動回合](./media/tutorial-copy-data-tool/activity-monitoring.png)
 
-    ![[編輯器] 索引標籤](./media/tutorial-copy-data-tool/edit-tab.png)
-17. 確認資料有插入 SQL 資料庫中的 **emp** 資料表。
+    ![複製活動詳細資料](./media/tutorial-copy-data-tool/copy-execution-details.png)
+
+14. 確認資料有插入 SQL 資料庫中的 **emp** 資料表。
 
     ![確認 SQL 輸出](./media/tutorial-copy-data-tool/verify-sql-output.png)
+
+15. 選取左側的 [作者] 索引標籤以切換至編輯器模式。 您可以使用編輯器更新透過此工具建立的連結服務、資料集和管線。 如需在 Data Factory 使用者介面中編輯這些實體的詳細資訊，請參閱[本教學課程的 Azure 入口網站版本](tutorial-copy-data-portal.md)。
 
 ## <a name="next-steps"></a>後續步驟
 在此範例中，管線會將資料從 Blob 儲存體複製到 SQL 資料庫。 您已了解如何︰ 
