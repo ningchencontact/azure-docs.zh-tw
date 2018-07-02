@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
+ms.date: 06/26/2018
 ms.author: terrylan
-ms.openlocfilehash: 0004db332ec13e23ed49f2c19e3454a516ca6a40
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: d10cef33ef0c325d41c9539107b9a4cab5e916d8
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2018
-ms.locfileid: "29531667"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059849"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>快速入門：將 Azure 訂用帳戶上架到資訊安全中心的標準層
 Azure 資訊安全中心為混合式雲端工作負載提供統一的安全性管理和威脅防護。 免費層只為 Azure 資源提供有限的安全性，而標準層會將這些功能延伸至內部部署與其他雲端。 資訊安全中心的標準層可協助您尋找和修正安全性弱點、套用存取和應用程式控制項以封鎖惡意活動、使用分析和情報來偵測威脅，以及在遭受攻擊時迅速回應。 前 60 天可以免費試用資訊安全中心標準定價層。
@@ -46,7 +46,7 @@ Azure 資訊安全中心為混合式雲端工作負載提供統一的安全性�
 在第一次啟動資訊安全中心的數分鐘內，您可能看到：
 
 - 改善 Azure 訂用帳戶安全性的 [建議]。 按一下 [建議] 圖格會啟動已設定優先順序的清單。
-- 資訊安全中心正在評估的 [計算]、[網路]、[儲存體和資料] 和 [應用程式] 資源詳細目錄，以及每項資源的安全性狀態。
+- 資訊安全中心正在評估的 [計算和應用程式]、[網路]、[資料安全性] 和 [身分識別與存取權] 資源的詳細目錄，以及每項資源的安全性狀態。
 
 若要充分利用資訊安全中心，您需要完成下列步驟，才能升級到標準層並安裝 Microsoft Monitoring Agent。
 

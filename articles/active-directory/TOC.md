@@ -186,12 +186,6 @@
 ### [開始使用](manage-apps/plan-an-application-integration.md)
 ### [SaaS 應用程式整合教學課程](saas-apps/tutorial-list.md)
 
-
-### [Cloud App Discovery](manage-apps/cloud-app-discovery.md)
-#### [建立快照集報告](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
-#### [設定連續報告](https://docs.microsoft.com/cloud-app-security/discovery-docker)
-#### [使用自訂記錄剖析器](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
-
 ### [SaaS 應用程式使用者佈建和解除佈建](active-directory-saas-app-provisioning.md) 
 #### [應用程式整合教學課程](saas-apps/tutorial-list.md) 
 #### [啟用 SCIM 應用程式的自動化佈建](manage-apps/use-scim-to-provision-users-and-groups.md) 

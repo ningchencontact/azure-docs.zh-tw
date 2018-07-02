@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop databases
 ms.topic: tutorial
-ms.date: 05/22/2018
+ms.date: 6/20/2018
 ms.author: carlrab
-ms.openlocfilehash: 90e351992e08459040012a4d53f7e793ea35a8b5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c89b03baccc7e20ae945da154fbd78d5d0dac376
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645152"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36311026"
 ---
 # <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>教學課程：使用 SSMS 設計您的第一個 Azure SQL 資料庫
 
@@ -86,9 +86,7 @@ Azure SQL Database 會使用一組定義的[計算和儲存體資源](sql-databa
 8. 若要使用 [附加元件儲存體] 選項，請接受預覽條款。 
 
    > [!IMPORTANT]
-   > - 大於內含儲存體數量的儲存體大小為預覽版，而且會產生額外成本。 如需詳細資訊，請參閱 [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)。 
-   > - 所有區域均可取得進階層中超過 1 TB 的儲存體，下列區域除外：英國北部、美國中西部、英國南部2、中國東部、USDoDCentral、德國中部、USDoDEast、US Gov (西南部)、US Gov (中南部)、德國東北部、中國北部、US Gov (東部)。 我們已規劃在更多區域推出。 在其他區域，進階層中的儲存空間上限為 1 TB。 請參閱 [P11-P15 目前限制](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
-   >
+   > 所有區域目前均可取得進階層中超過 1 TB 的儲存體，下列區域除外：英國北部、美國中西部、英國南部2、中國東部、USDoDCentral、德國中部、USDoDEast、US Gov (西南部)、US Gov (中南部)、德國東北部、中國北部、US Gov (東部)。 在其他區域，進階層中的儲存空間上限為 1 TB。 請參閱 [P11-P15 目前限制]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。
 
 9. 在選取伺服器層、DTU 數目和儲存體數量之後，按一下 [套用]。  
 
@@ -179,7 +177,7 @@ SQL Database 服務會在伺服器層級建立防火牆，防止外部應用程�
 下圖顯示這些資料表是如何彼此相互關聯。 在這當中有部分資料表會參考其他資料表的資料欄。 例如，[Student (學生)] 資料表會參考 [Person (人員)] 資料表的 [PersonId] 資料欄。 研究圖表，以了解在本教學課程中資料表彼此關連的方式。 如需深入了解建立有效資料庫資料表的方式，請參閱[建立有效資料庫資料表 ](https://msdn.microsoft.com/library/cc505842.aspx)。 如需選擇資料類型的相關資訊，請參閱[資料類型 (英文)](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql)。
 
 > [!NOTE]
-> 您亦可使用 [SQL Server Management Studio 中的資料表設計工具](https://msdn.microsoft.com/library/hh272695.aspx)，建立和設計您的資料表。 
+> 您亦可使用 [SQL Server Management Studio 中的資料表設計工具](https://docs.microsoft.com/sql/ssms/visual-db-tools/design-database-diagrams-visual-database-tools)，建立和設計您的資料表。 
 
 ![資料表關聯性](./media/sql-database-design-first-database/tutorial-database-tables.png)
 

@@ -1,11 +1,11 @@
 - name: 電腦視覺文件
   href: index.yml
 - name: 概觀
+  expanded: true
   items:
     - name: 什麼是電腦視覺？
       href: Home.md
-- name: 快速入門
-  expanded: true
+- name: API 快速入門
   items:
     - name: 總結
       href: QuickStarts/quickstart-summary.md
@@ -97,6 +97,16 @@
           href: QuickStarts/ruby-thumb.md
         - name: 擷取列印的文字
           href: QuickStarts/ruby-print-text.md
+- name: SDK 快速入門
+  items:
+    - name: 'C#'
+      items:
+        - name: 分析影像
+          href: quickstarts-sdk/csharp-analyze-sdk.md
+        - name: 產生縮圖
+          href: quickstarts-sdk/csharp-thumb-sdk.md
+        - name: 擷取手寫的文字
+          href: quickstarts-sdk/csharp-hand-text-sdk.md
 - name: 使用說明指南
   items:
     - name: 第一個電腦視覺應用程式

@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 41418cb908f2bf149a3d0087728652b44cd6b19e
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 2a6118bd23c6e8319ad4fa26a266948a4dad1b9f
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825496"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36939147"
 ---
 目前為止，您已如同您是應用程式唯一的開發人員一般，執行您的應用程式程式碼。 在本節中，您將會了解 Azure Dev Spaces 如何簡化小組開發：
 * 讓開發人員小組能夠依需求在共用的開發人員空間中或相異的開發人員空間中工作，而在相同的環境中工作。
@@ -54,15 +54,17 @@ mywebapi     default  mywebapi-0.1.0     80/TCP  2m ago     <not attached>
 webfrontend  default  webfrontend-0.1.0  80/TCP  1m ago     http://webfrontend-contosodev.1234abcdef.eastus.aksapp.io
 ```
 
-「空間」資料行會顯示在名為 `default` 的空間中所執行的兩個服務。 開啟公用 URL 並瀏覽至 Web 應用程式的任何人，都會叫用您先前撰寫、透過兩個服務執行的程式碼路徑。 現在假設您想要繼續開發 `mywebapi`。 您要如何使用開發環境進行程式碼變更及測試，又不會打斷其他開發人員？ 若要這樣做，您要設定您自己的空間。
+「空間」資料行會顯示在名為 `default` 的空間中所執行的兩個服務。 開啟公用 URL 並瀏覽至 Web 應用程式的任何人，都會叫用您先前撰寫、透過兩個服務執行的程式碼路徑。 現在假設您想要繼續開發 `mywebapi`。 您要如何使用開發環境進行程式碼變更及測試，又不會打斷其他開發人員？ 為此，您應設定自己的空間。
 
-### <a name="create-a-space"></a>建立空間
+### <a name="create-a-dev-space"></a>建立開發人員空間
 若要在 `default` 以外的空間執行您自己的 `mywebapi` 版本，您可以使用下列命令建立您自己的空間：
 
 ``` 
-azds space create --name scott
+azds space select --name scott
 ```
+
+出現提示時，選取 `default` 作為 **父開發人員空間**。 這表示我們的新空間 (`default/scott`) 會衍生自 `default` 空間。 我們很快就會看到這如何協助我們進行測試。 
 
 在上述範例中，我已對新空間使用我的名稱，以便讓我的同儕識別那是我工作的空間，但是您可以使用您喜歡的任何名稱來稱呼它，而且它的意義也很有彈性，例如 'sprint4' 或 'demo'。
 
-請執行 `azds space list` 命令以查看開發環境中所有空間的清單。 目前選取的空間旁邊會出現星號 (*)。 在您的案例中，建立名為 'scott' 的空間時會自動加以選取。 您隨時可以使用 `azds space select` 命令選取其他空間。
+請執行 `azds space list` 命令以查看開發環境中所有空間的清單。 目前選取的空間旁邊會出現星號 (*)。 在您的案例中，建立名為 'default/scott' 的空間時會自動加以選取。 您隨時可以使用 `azds space select` 命令選取其他空間。

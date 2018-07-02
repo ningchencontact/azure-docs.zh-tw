@@ -61,13 +61,13 @@
           href: backup-mabs-protection-matrix.md
         - name: 安裝或升級
           items:
-            - name: 在 Azure 入口網站中準備 Azure 備份伺服器工作負載
+            - name: 安裝 Azure 備份伺服器
               href: backup-azure-microsoft-azure-backup.md
-            - name: 在 Azure 備份伺服器中新儲存體
+            - name: 新增儲存體
               href: backup-mabs-add-storage.md
-            - name: 將 Azure 備份伺服器升級至 V.2
+            - name: 升級至 V.2
               href: backup-mabs-upgrade-to-v2.md
-            - name: Azure 備份伺服器自動安裝
+            - name: 自動安裝
               href: backup-mabs-unattended-install.md
         - name: 保護工作負載
           items:

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 05/10/2018
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: fcedba0a5b8a9684216f181a6d16f86044edb961
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 10b2e77a89e2b8d7481559396d102177cf70161c
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651273"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36307358"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>教學課程：設定伺服器管理員和使用者角色
 
@@ -67,7 +67,7 @@ ms.locfileid: "34651273"
 
 ## <a name="add-a-user-account-to-the-server-administrator-role"></a>將使用者帳戶新增至伺服器管理員角色
 
-在此工作中，您會將使用者或群組帳戶從您的 Azure AD 新增至伺服器管理員角色。
+在此工作中，您會將使用者或群組帳戶從您的 Azure AD 新增至伺服器管理員角色。 如果您要新增安全性群組，則必須先將 `MailEnabled` 屬性設定為 `True`。
 
 1. 在 [物件總管] 中，以滑鼠右鍵按一下您的伺服器名稱，然後按一下 [屬性]。 
 2. 在 [Analysis Server 屬性] 視窗中，按一下 [安全性] > [新增]。
