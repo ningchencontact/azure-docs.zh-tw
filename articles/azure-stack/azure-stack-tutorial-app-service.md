@@ -62,7 +62,7 @@ ms.locfileid: "35247393"
 
 ### <a name="subscribe-to-the-offer"></a>訂閱該供應項目
 
-1. 以租用戶身分登入 Azure Stack 入口網站 (https://portal.local.azurestack.external)。
+1. 以租用戶身分登入 Azure Stack 入口網站 (https://portal.local.azurestack.external) 。
 2. 選取 [取得訂用帳戶] > 在 [顯示名稱] 下輸入 **TestAppServiceSubscription** > [選取供應項目] > [TestAppServiceOffer] > [建立]。
 
 ### <a name="create-a-sql-database"></a>建立 SQL 資料庫
