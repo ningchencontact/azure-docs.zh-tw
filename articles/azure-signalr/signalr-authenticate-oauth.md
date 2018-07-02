@@ -22,7 +22,7 @@ ms.lasthandoff: 05/08/2018
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>教學課程：Azure SignalR 服務驗證
 
-Microsoft Azure SignalR 服務目前處於[公用預覽](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)狀態。
+Microsoft Azure SignalR 服務目前處於[公開預覽](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)狀態。
 
 本教學課程會以快速入門中所介紹的聊天室應用程式為基礎。 如果您尚未完成[使用 SignalR 服務建立聊天室](signalr-quickstart-dotnet-core.md)，請先完成該項練習。 
 
@@ -34,7 +34,7 @@ Microsoft Azure SignalR 服務目前處於[公用預覽](https://azure.microsoft
 
 若要深入了解透過 GitHub 所提供的 OAuth 驗證 API，請參閱[驗證的基本概念](https://developer.github.com/v3/guides/basics-of-authentication/)。
 
-您可以使用任何程式碼編輯器來完成本快速入門中的步驟。 不過，於 Windows、macOS 和 Linux 平台上所提供的 [Visual Studio Code](https://code.visualstudio.com/) \(英文\) 是項不錯的選擇。
+您可以使用任何程式碼編輯器來完成本快速入門中的步驟。 不過，於 Windows、macOS 和 Linux 平台上所提供的 [Visual Studio Code](https://code.visualstudio.com/) 是項不錯的選擇。
 
 本教學課程的程式碼可於 [AzureSignalR-samples GitHub 存放庫](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/GitHubChat)下載。
 
