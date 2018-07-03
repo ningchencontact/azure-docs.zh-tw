@@ -21,6 +21,20 @@
           href: quickstart-csharp-languages.md
         - name: 取得文字中的句子長度
           href: quickstart-csharp-sentences.md
+    - name: Go
+      items:
+        - name: 翻譯文字
+          href: quickstart-go-translate.md
+        - name: 轉換文字指令碼
+          href: quickstart-go-transliterate.md
+        - name: 從文字識別語言
+          href: quickstart-go-detect.md
+        - name: 取得替代的翻譯
+          href: quickstart-go-dictionary.md
+        - name: 取得支援的語言
+          href: quickstart-go-languages.md
+        - name: 取得文字中的句子長度
+          href: quickstart-go-sentences.md
     - name: Java
       items:
         - name: 翻譯文字

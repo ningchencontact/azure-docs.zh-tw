@@ -89,6 +89,12 @@
       href: /powershell/module/azurerm.eventgrid
     - name: REST
       href: /rest/api/eventgrid
+    - name: 範本資源
+      items:
+        - name: 事件訂閱
+          href: /azure/templates/microsoft.eventgrid/eventsubscriptions
+        - name: 主題
+          href: /azure/templates/microsoft.eventgrid/topics
     - name: SDK
       href: sdk-overview.md
     - name: 訂用帳戶結構描述

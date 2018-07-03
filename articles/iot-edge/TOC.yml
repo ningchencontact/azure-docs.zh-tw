@@ -79,7 +79,11 @@
         - name: IoT Core
           href: how-to-install-iot-core.md
     - name: 使用 DPS 自動佈建
-      href: how-to-auto-provision-simulated-device-windows.md
+      items:
+        - name: Linux
+          href: how-to-auto-provision-simulated-device-linux.md
+        - name: Windows
+          href: how-to-auto-provision-simulated-device-windows.md
     - name: 開發模組並對其進行偵錯
       items:
         - name: 'C#'
