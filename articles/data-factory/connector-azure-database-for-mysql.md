@@ -46,7 +46,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | connectionString | 指定連線到適用於 MySQL 的 Azure 資料庫執行個體所需的資訊。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | yes |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
-一般的連接字串為 `Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`.。 您可以根據您的案例設定更多屬性：
+一般的連接字串為 `Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`。 您可以根據您的案例設定更多屬性：
 
 | 屬性 | 說明 | 選項 | 必要 |
 |:--- |:--- |:--- |:--- |:--- |
