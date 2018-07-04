@@ -60,6 +60,20 @@
       href: event-hubs-dotnet-framework-getstarted-send.md
     - name: 使用 .NET Framework 接收事件
       href: event-hubs-dotnet-framework-getstarted-receive-eph.md
+    - name: 適用於 Kafka 的事件中樞
+      items:
+        - name: 適用於 Kafka 生態系統的事件中樞概觀
+          href: event-hubs-for-kafka-ecosystem-overview.md
+        - name: 建立啟用 kafka 的事件中樞
+          href: event-hubs-create-kafka-enabled.md
+        - name: 串流至適用於 Kafka 生態系統的事件中樞
+          href: event-hubs-quickstart-kafka-enabled-event-hubs.md
+        - name: 具有事件中樞的 Kafka MirrorMaker 教學課程
+          href: event-hubs-kafka-mirror-maker-tutorial.md
+        - name: 具有事件中樞的 Apache Flink 教學課程
+          href: event-hubs-kafka-flink-tutorial.md
+        - name: 具有事件中樞的 Apache 串流教學課程
+          href: event-hubs-kafka-akka-streams-tutorial.md
     - name: 可用的 API
       href: event-hubs-api-overview.md
       items:

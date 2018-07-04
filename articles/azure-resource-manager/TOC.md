@@ -2,15 +2,17 @@
 
 # 概觀
 ## [什麼是 Resource Manager？](resource-group-overview.md)
-## [資源提供者和類型](resource-manager-supported-services.md)
 ## [資源管理員與傳統部署](resource-manager-deployment-model.md)
-## [訂用帳戶治理](/azure/architecture/cloud-adoption-guide/subscription-governance)
-## [利用管理群組組織資源](management-groups-overview.md)
 
 # 開始使用
 ## [建立和部署範本](resource-manager-create-first-template.md)
 ## [適用於範本的 VS Code 延伸模組](resource-manager-vscode-extension.md)
 ## [搭配 Resource Manager 使用 Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
+
+# 概念
+## [資源提供者和類型](resource-manager-supported-services.md)
+## [管理群組](management-groups-overview.md)
+## [訂用帳戶治理](/azure/architecture/cloud-adoption-guide/subscription-governance?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 # 作法
 ## 建立範本

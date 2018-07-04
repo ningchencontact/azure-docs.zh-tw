@@ -118,6 +118,8 @@
       href: glossary.md
 - name: 資源
   items:
+    - name: 區域可用性
+      href: 'https://azure.microsoft.com/en-us/global-infrastructure/services/'
     - name: Azure 藍圖
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 價格

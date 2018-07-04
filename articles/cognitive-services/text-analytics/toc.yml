@@ -51,19 +51,21 @@
       href: 'https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7'
 - name: 資源
   items:
+    - name: 外部及社群內容
+      href: text-analytics-resource-external-community.md
     - name: 常見問題集
       href: text-analytics-resource-faq.md
     - name: 價格
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/555922-text-analytics'
+    - name: 區域可用性
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: 堆疊溢位
       href: 'https://stackoverflow.com/questions/tagged/text-analytics-api'
-    - name: 支援的語言
-      href: text-analytics-supported-languages.md
     - name: 訂用帳戶金鑰
       href: 'https://azure.microsoft.com/try/cognitive-services/?api=text-analytics'
-    - name: 外部及社群內容
-      href: text-analytics-resource-external-community.md
+    - name: 支援的語言
+      href: text-analytics-supported-languages.md
     - name: 試試看！
       href: 'https://azure.microsoft.com/services/cognitive-services/text-analytics/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/555922-text-analytics'

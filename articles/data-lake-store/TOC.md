@@ -1,4 +1,5 @@
 # [Data Lake Storage Gen1 文件](index.md)
+# [切換為第二代 Data Lake Storage (預覽) 文件](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction)
 
 # 概觀
 ## [Data Lake Storage Gen1 概觀](data-lake-store-overview.md)

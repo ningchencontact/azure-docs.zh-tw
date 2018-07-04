@@ -423,6 +423,10 @@
     - name: 版本資訊
       href: ../hdinsight-release-notes.md
       maintainContext: true
+      items:
+        - name: 封存的版本資訊
+          href: ../hdinsight-release-notes-archive.md
+          maintainContext: true
     - name: Azure 藍圖
       href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
     - name: 在論壇上取得協助

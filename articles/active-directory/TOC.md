@@ -83,8 +83,8 @@
 ## [管理群組和成員](fundamentals/active-directory-manage-groups.md)
 ### 管理群組
 #### [Azure 入口網站](fundamentals/active-directory-groups-create-azure-portal.md)
-#### [Azure AD PowerShell for Graph (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
-#### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
+#### [Azure AD PowerShell for Graph (v2)](users-groups-roles/groups-settings-v2-cmdlets.md)
+#### [Azure AD PowerShell MSOnline](users-groups-roles/groups-settings-cmdlets.md)
 ### [管理群組成員](fundamentals/active-directory-groups-members-azure-portal.md)
 ### [管理群組擁有者](fundamentals/active-directory-accessmanagement-managing-group-owners.md)
 ### [管理群組成員資格](fundamentals/active-directory-groups-membership-azure-portal.md)
@@ -99,13 +99,13 @@
 ### [設定 Office 365 群組到期時間](active-directory-groups-lifecycle-azure-portal.md)
 ### [為群組強制執行命名原則](groups-naming-policy.md)
 ### [檢視全部群組](fundamentals/active-directory-groups-view-azure-portal.md)
-### [新增 SaaS 應用程式的群組存取權](active-directory-accessmanagement-group-saasapps.md)
+### [新增 SaaS 應用程式的群組存取權](users-groups-roles/groups-saasapps.md)
 ### [還原已刪除的 Office 365 群組](fundamentals/active-directory-groups-restore-azure-portal.md)
 ### [管理群組設定](fundamentals/active-directory-groups-settings-azure-portal.md) 
 ### 建立進階規則
 #### [Azure 入口網站](active-directory-groups-dynamic-membership-azure-portal.md)
-### [設定自助式群組](active-directory-accessmanagement-self-service-group-management.md)
-### [疑難排解](active-directory-accessmanagement-troubleshooting.md)
+### [設定自助式群組](users-groups-roles/groups-self-service-management.md)
+### [疑難排解](users-groups-roles/groups-troubleshooting.md)
 
 ## [管理報告](active-directory-reporting-azure-portal.md)
 ### [登入活動](active-directory-reporting-activity-sign-ins.md)
@@ -363,7 +363,7 @@
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### 自訂網域名稱
 #### [快速入門](fundamentals/add-custom-domain.md)
-#### [新增自訂網域名稱](active-directory-domains-manage-azure-portal.md)
+#### [新增自訂網域名稱](users-groups-roles/domains-manage.md)
 ### [管理目錄](fundamentals/active-directory-administer.md)
 ### [刪除目錄](directory-delete-howto.md)
 ### [多個目錄](active-directory-licensing-directory-independence.md)
@@ -381,12 +381,12 @@
 
 ## 委派資源存取
 ### [檢視管理員角色成員](directory-manage-roles-portal.md)
-### [管理員角色](active-directory-assign-admin-roles-azure-portal.md)
+### [管理員角色](users-groups-roles/directory-assign-admin-roles.md)
 #### [將管理員角色指派給使用者](fundamentals/active-directory-users-assign-role-azure-portal.md)
 #### [比較成員和來賓使用者的權限](fundamentals/users-default-permissions.md)
 ### [加強管理員角色安全性](admin-roles-best-practices.md)  
-#### [建立緊急存取管理帳戶](active-directory-admin-manage-emergency-access-accounts.md)
-### [管理單位](active-directory-administrative-units-management.md)
+#### [建立緊急存取管理帳戶](users-groups-roles/directory-emergency-access.md)
+### [管理單位](users-groups-roles/directory-administrative-units.md)
 ### [設定權杖存留期](active-directory-configurable-token-lifetimes.md)
 
 ## 存取權檢閱
@@ -406,6 +406,7 @@
 #### 快速入門
 ##### [設定每個雲端應用程式 MFA](active-directory-conditional-access-app-based-mfa.md)
 ##### [接受的使用條款](active-directory-conditional-access-tou.md)
+##### [偵測到工作階段風險時封鎖存取](active-directory-conditional-access-app-sign-in-risk.md)
 #### 教學課程
 ##### [移轉傳統 MFA 原則](active-directory-conditional-access-migration-mfa.md)
 #### 概念

@@ -157,15 +157,17 @@
           href: return-n-best-translations.md
 - name: 資源
   items:
-    - name: 常見問題集
-      href: 'https://www.microsoft.com/translator/faq.aspx'
-    - name: 價格
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/558796-translator'
-    - name: 堆疊溢位
-      href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'
-    - name: 知識庫
-      href: 'https://cognitive.uservoice.com/knowledgebase/topics/132647-translator'
     - name: GitHub 上的程式碼範例
       href: 'https://aka.ms/TranslatorGitHub'
+    - name: 常見問題集
+      href: 'https://www.microsoft.com/translator/faq.aspx'
+    - name: 知識庫
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/132647-translator'
+    - name: 價格
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
+    - name: 區域可用性
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: 堆疊溢位
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/558796-translator'
