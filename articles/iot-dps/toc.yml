@@ -114,8 +114,13 @@
         - name: 控制佈建服務 API 的存取
           href: how-to-control-access.md
     - name: 佈建 IoT Edge 裝置
-      href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
-      maintainContext: true
+      items:
+        - name: Linux
+          href: ../iot-edge/how-to-auto-provision-simulated-device-linux.md
+          maintainContext: true
+        - name: Windows
+          href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
+          maintainContext: true
     - name: 透過 SDK 使用證明機制
       href: use-hsm-with-sdk.md
     - name: 使用 SDK 工具進行開發

@@ -278,3 +278,11 @@
               href: app-service-web-open-source-technologies-faq.md
             - name: 設定和管理常見問題
               href: app-service-web-configuration-and-management-faq.md
+    - name: IP 位址變更
+      items:
+        - name: 輸入 IP 位址
+          href: ip-address-change-inbound.md
+        - name: 輸出 IP 位址
+          href: ip-address-change-outbound.md
+        - name: SSL 位址
+          href: ip-address-change-ssl.md
