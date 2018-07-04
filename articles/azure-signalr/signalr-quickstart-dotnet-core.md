@@ -47,7 +47,7 @@ Azure SignalR 服務是可以協助開發人員使用即時功能輕鬆地建置
 
 [!INCLUDE [azure-signalr-create](../../includes/signalr-create.md)]
 
-## <a name="create-an-aspnet-core-web-app"></a>建立 ASP.NET 核心 Web 應用程式
+## <a name="create-an-aspnet-core-web-app"></a>建立 ASP.NET Core Web 應用程式
 
 在本節中，您會使用 [.NET Core 命令列介面 (CLI)](https://docs.microsoft.com/dotnet/core/tools/) 來建立新的 ASP.NET Core MVC Web 應用程式專案。 使用 .NET Core CLI 而非 Visual Studio 的好處，在於 .NET Core CLI 可同時於 Windows、macOS 及 Linux 平台上取得。 
 

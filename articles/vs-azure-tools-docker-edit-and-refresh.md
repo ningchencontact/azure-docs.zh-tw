@@ -36,7 +36,7 @@ Visual Studio Tools for Docker 提供一致的方式，在 Linux Docker 容器�
 您的電腦必須安裝下列工具。
 
 * [最新版本的 Visual Studio](https://www.visualstudio.com/downloads/)
-* [Microsoft ASP.NET 核心 1.0 SDK](https://go.microsoft.com/fwlink/?LinkID=809122)
+* [Microsoft ASP.NET Core 1.0 SDK](https://go.microsoft.com/fwlink/?LinkID=809122)
 
 若要在本機執行 Docker 容器，您需要本機 Docker 用戶端。
 您可以使用需要停用 Hyper-V 的 [Docker 工具箱](https://www.docker.com/products/docker-toolbox)，或是使用利用 Hyper-V 並需要 Windows 10 的 [Docker for Windows](https://www.docker.com/get-docker)。
