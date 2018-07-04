@@ -42,7 +42,7 @@ Azure 開發人員空間需要基本的本機電腦設定。 大部分開發環�
 
 在您等候建立叢集時，您可以開始開發程式碼。
 
-## <a name="create-an-aspnet-core-web-app"></a>建立 ASP.NET 核心 Web 應用程式
+## <a name="create-an-aspnet-core-web-app"></a>建立 ASP.NET Core Web 應用程式
 如果您已安裝 [.NET Core](https://www.microsoft.com/net)，您可以在名為 `webfrontend` 的資料夾中快速建立 ASP.NET Core Web 應用程式。
     
 ```cmd

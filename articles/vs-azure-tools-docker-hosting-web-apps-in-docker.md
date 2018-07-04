@@ -33,7 +33,7 @@ Docker 是輕量級容器引擎，與虛擬機器在某些方面類似，您可�
 * 下載 [Microsoft ASP.NET Core 1.0 SDK](https://go.microsoft.com/fwlink/?LinkID=809122)
 * 安裝 [Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
 
-## <a name="1-create-an-aspnet-core-web-app"></a>1.建立 ASP.NET 核心 Web 應用程式
+## <a name="1-create-an-aspnet-core-web-app"></a>1.建立 ASP.NET Core Web 應用程式
 下列步驟會逐步引導您建立將在本教學課程中使用的基本 ASP.NET Core 應用程式。
 
 [!INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
