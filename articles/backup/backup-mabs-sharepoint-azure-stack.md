@@ -1,5 +1,5 @@
 ---
-title: 將 Azure Stack 上的 SharePoint 伺服器陣列備份到 Azure
+title: 備份 Azure Stack 上的 SharePoint 伺服器陣列
 description: 使用 Azure 備份伺服器來備份和還原 Azure Stack 上的 SharePoint 資料。 本文提供設定 SharePoint 伺服器陣列，讓所需的資料可以儲存在 Azure 中的相關資訊。 您可以從磁碟或 Azure 還原受保護的 SharePoint 資料。
 services: backup
 author: pvrk
@@ -8,18 +8,18 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: pullabhk
-ms.openlocfilehash: da8421441863c8d7f840630614f4f35c16f184d5
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 309e817426fff1eb877ab02ae9aa16ddc8f5cf16
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248924"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751892"
 ---
-# <a name="back-up-a-sharepoint-farm-on-azure-stack-to-azure"></a>將 Azure Stack 上的 SharePoint 伺服器陣列備份到 Azure
+# <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>備份 Azure Stack 上的 SharePoint 伺服器陣列
 您可以使用 Microsoft Azure 備份伺服器 (MABS)，將 Azure Stack 上的 SharePoint 伺服器陣列備份到 Microsoft Azure，其方法與備份其他資料來源極為類似。 Azure 備份提供靈活的備份排程來建立每日、每週、每月或每年備份點，並可讓您針對各種備份點執行保留原則選項。 它也可以讓您儲存本機磁碟複本來快速達成復原時間目標 (RTO)，以及將複本儲存到 Azure 來進行經濟實惠的長期保留。
 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>SharePoint 支援的版本與相關保護案例
-DPM 的 Azure 備份支援下列案例：
+MABS 的 Azure 備份支援下列案例：
 
 | 工作負載 | 版本 | SharePoint 部署 | 保護和復原 |
 | --- | --- | --- | --- | --- | --- |
@@ -41,9 +41,6 @@ Azure 備份代理程式必須安裝在執行 SharePoint 的伺服器、執行 S
 Azure 備份伺服器會以 LocalSystem 帳戶執行。 若要備份 SQL Server 資料庫，MABS 需要執行 SQL Server 之伺服器上該帳戶的 sysadmin 權限。 備份之前，將執行 SQL Server 之伺服器上的 NT AUTHORITY\SYSTEM 設定為 *sysadmin*。
 
 如果 SharePoint 伺服器陣列具有使用 SQL Server 別名設定的 SQL Server 資料庫，請在 MABS 將保護的前端 Web 伺服器上安裝 SQL Server 用戶端元件。
-
-### <a name="sharepoint-server"></a>SharePoint Server
-雖然效能取決於許多因素，例如 SharePoint 伺服器陣列的大小，但一般做法是一部 MABS 可以保護一個 25 TB 的 SharePoint 伺服器陣列。
 
 ### <a name="whats-not-supported"></a>不支援的內容
 * 保護 SharePoint 伺服器陣列的 MABS 不會保護搜尋索引或應用程式服務資料庫。 您必須個別設定這些資料庫的保護。

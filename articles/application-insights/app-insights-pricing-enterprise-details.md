@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 04/02/2018
+ms.topic: conceptual
+ms.date: 06/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6df013506e4541fee7850850776d26e5c69a799d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 65307eab0bf1b5f502f11c14c369826cd12e0966
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36311082"
 ---
 # <a name="enterprise-plan-details"></a>企業方案詳細資料
 
@@ -26,6 +27,9 @@ Azure Application Insights 有兩種定價方案：「基本」和「企業」�
 「企業」方案會針對每個節點計費，而每個節點會收到每日資料額度。 在「企業」定價方案中，您要對超過內含資料額度的內嵌資料付費。 如果您使用 Operations Management Suite，您應該選擇「企業」方案。 
 
 如需屬於您貨幣與區域的目前定價，請參閱 [Application Insights 定價](http://azure.microsoft.com/pricing/details/application-insights/)。
+
+> [!NOTE]
+> 我們在 2018 年 4 月[推出](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/)新的 Azure 監視定價模型。 這個模型在完整的監視服務組合之間採用簡單的「隨用隨付」模型。 深入了解[新的定價模型](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs)、如何根據您的使用模式[評估移到這個模型的影響](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model)，以及[如何加入新的模型](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model)
 
 ## <a name="how-the-enterprise-plan-works"></a>「企業」方案的運作方式
 

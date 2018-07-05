@@ -1,5 +1,5 @@
 ---
-title: 監視和追蹤免費服務的使用量 - Azure| Microsoft Docs
+title: 監視和追蹤 Azure 免費服務的使用量 | Microsoft Docs
 description: 了解如何檢查免費服務的使用量 使用 Azure 入口網站和使用量 csv。
 services: ''
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-ms.openlocfilehash: 560137d92491da46fda950dec84a0a7caa3ed720
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 7fa0196b7a44ef20ecd63797869dffea55f92c3d
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33205885"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061311"
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>檢查 Azure 免費帳戶隨附的免費服務使用量 
 
@@ -37,7 +37,7 @@ ms.locfileid: "33205885"
 
     ![顯示全部訂用帳戶的螢幕擷取畫面](./media/billing-check-usage-of-free-services/select-free-account-subscription.png)
 
-5.  概觀區段會顯示與您的訂用帳戶有關的基本資訊，例如訂用帳戶識別碼、優惠類型和訂用帳戶名稱。 您也可以找到免費帳戶信用額度到期的資訊。
+5.  概觀區段會顯示與您的訂用帳戶有關的基本資訊，例如訂用帳戶識別碼、供應項目類型和訂用帳戶名稱。 您也可以找到免費帳戶信用額度到期的資訊。
 
     ![顯示訂用帳戶基本資訊的螢幕擷取畫面](./media/billing-check-usage-of-free-services/subscription-essential-information.png)
 

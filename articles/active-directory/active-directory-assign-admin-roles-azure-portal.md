@@ -14,12 +14,12 @@ ms.date: 06/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 0bb4a57bcc31cffba3c0e7dc50d0e2b214c50838
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 1de2482b7795bbed82874b6eea29f89f1ff52560
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260408"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36939743"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>在 Azure Active Directory 中指派系統管理員角色
 
@@ -29,14 +29,20 @@ ms.locfileid: "35260408"
 全域管理員可以存取所有系統管理功能。 註冊 Azure 訂用帳戶的人員預設會獲指派目錄的全域管理員角色。 只有全域管理員才能指派其他系統管理員角色。
 
 ## <a name="assign-or-remove-administrator-roles"></a>指派或移除系統管理員角色
-若要了解如何將系統管理角色指派給 Azure Active Directory 中的使用者，請參閱[在 Azure Active Directory 中將使用者指派給系統管理員角色](active-directory-users-assign-role-azure-portal.md)。
+若要了解如何將系統管理角色指派給 Azure Active Directory 中的使用者，請參閱[在 Azure Active Directory 中將使用者指派給系統管理員角色](fundamentals/active-directory-users-assign-role-azure-portal.md)。
 
 ## <a name="available-roles"></a>可用的角色
 可用的系統管理員角色如下：
 
+* **應用程式系統管理員**：此角色中的使用者可以建立和管理企業應用程式、應用程式註冊和應用程式 Proxy 設定的所有層面。 此角色也會授與能力來同意委派的權限以及 Microsoft Graph 和 Azure AD Graph 以外的應用程式權限。 建立新的應用程式註冊或企業應用程式時，不會加入此角色的成員作為擁有者。
+
+* **應用程式開發人員**：將 [使用者可以註冊應用程式] 設定設為 [否] 時，此角色中的使用者可以建立應用程式註冊。 將 [使用者可同意應用程式代表自己存取公司資料] 設定設為 [否] 時，此角色也允許成員代表他們自己同意。 建立新的應用程式註冊或企業應用程式時，不會加入此角色的成員作為擁有者。
+
 * **計費管理員**：進行採購、管理訂用帳戶、管理支援票證，以及監控服務健全狀況。
 
-* **規範管理員**：此角色的使用者擁有 Office 365 安全性與規範中心和 Exchange 系統管理中心。 如需詳細資訊，請參閱[關於 Office 365 管理員角色](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)。
+* **雲端應用程式系統管理員**：此角色中的使用者具有與應用程式系統管理員角色相同的權限，但不包括管理應用程式 Proxy 的能力。 此角色會授與能力來建立和管理企業應用程式和應用程式註冊的所有層面。 此角色也會授與能力來同意委派的權限以及 Microsoft Graph 和 Azure AD Graph 以外的應用程式權限。 建立新的應用程式註冊或企業應用程式時，不會加入此角色的成員作為擁有者。
+
+* **合規性管理員**：此角色的使用者擁有 Office 365 安全性與合規性中心和 Exchange 系統管理中心的管理權限。 如需詳細資訊，請參閱[關於 Office 365 管理員角色](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)。
 
 * **條件式存取系統管理員**：具有此角色的使用者能夠管理 Azure Active Directory 條件式存取設定。
   > [!NOTE]
@@ -107,11 +113,29 @@ ms.locfileid: "35260408"
 
 ## <a name="administrator-permissions"></a>系統管理員權限
 
+### <a name="application-administrator"></a>應用程式系統管理員
+
+| 可以執行 | 無法執行 |
+| --- | --- |
+| 讀取所有目錄資訊<br>建立應用程式註冊<br>更新應用程式註冊屬性<br>擷取企業應用程式<br>管理應用程式註冊權限<br>刪除應用程式註冊<br>管理企業應用程式單一登入設定<br>管理企業應用程式佈建設定<br>管理企業應用程式自助設定<br>管理企業應用程式權限設定<br>管理應用程式存取<br>管理佈建設定<br>刪除企業應用程式<br>代表所有人同意所有委派的權限要求<br>代表所有人同意 Azure AD Graph 或 Microsoft Graph 以外的所有應用程式權限要求<br>管理應用程式 Proxy 設定<br>存取服務設定<br>監視服務健康情況<br>管理支援票證<br>讀取隱藏的群組成員資格 | 建立、編輯及刪除群組<br>管理使用者授權<br>使用目錄同步作業<br>檢視登入報告與稽核記錄 | 
+
+### <a name="application-developer"></a>應用程式開發人員
+
+| 可以執行 | 無法執行 |
+| --- | --- |
+| 讀取所有目錄資訊<br>建立應用程式註冊<br>代表自己同意 | 檢視登入與稽核記錄<br>讀取隱藏的群組成員資格 |
+
 ### <a name="billing-administrator"></a>計費管理員
 
 | 可以執行 | 無法執行 |
 | --- | --- |
-|<p>檢視公司與使用者資訊</p><p>建立 Office 支援票證</p><p>執行 Office 產品的計費和購買作業</p> |<p>重設使用者密碼</p><p>建立和管理使用者檢視</p><p>建立、編輯和刪除使用者與群組，以及管理使用者授權</p><p>管理網域</p><p>管理公司資訊</p><p>將系統管理角色委派給其他人</p><p>使用目錄同步作業</p><p>檢視稽核記錄檔</p>|
+|<p>檢視公司與使用者資訊</p><p>建立 Office 支援票證</p><p>執行 Office 產品的計費和購買作業</p> |<p>重設使用者密碼</p><p>建立和管理使用者檢視</p><p>建立、編輯和刪除使用者與群組，以及管理使用者授權</p><p>管理網域</p><p>管理公司資訊</p><p>將系統管理角色委派給其他人</p><p>使用目錄同步作業</p><p>檢視稽核記錄檔</p> |
+
+### <a name="cloud-application-administrator"></a>雲端應用程式系統管理員
+
+| 可以執行 | 無法執行 |
+| --- | --- |
+| 讀取所有目錄資訊<br>建立應用程式註冊<br>更新應用程式註冊屬性<br>擷取企業應用程式<br>管理應用程式註冊權限<br>刪除應用程式註冊<br>管理企業應用程式單一登入設定<br>管理企業應用程式佈建設定<br>管理企業應用程式自助設定<br>管理企業應用程式權限設定<br>管理應用程式存取<br>管理佈建設定<br>刪除企業應用程式<br>代表所有人同意所有委派的權限要求<br>代表所有人同意 Azure AD Graph 或 Microsoft Graph 以外的所有應用程式權限要求<br>存取服務設定<br>監視服務健康情況<br>管理支援票證<br>讀取隱藏的群組成員資格 | 管理應用程式 Proxy 設定<br>建立、編輯及刪除群組<br>管理使用者授權<br>使用目錄同步作業<br>檢視登入報告與稽核記錄 |
 
 ### <a name="conditional-access-administrator"></a>條件式存取系統管理員
 
@@ -169,17 +193,19 @@ Azure 資訊保護 | <li>在全域和有範圍的原則中設定標籤和設定<
 
    ![開啟 Azure AD 系統管理中心](./media/active-directory-assign-admin-roles-azure-portal/active-directory-admin-center.png)
 
-2. 選取 [使用者和群組] &gt; [所有使用者]
+2. 選取 [使用者] > [所有使用者]。
 
-3. 尋找您要將其指定為全域管理員的使用者，然後開啟該使用者的刀鋒視窗。
+3. 開啟您要指定為全域管理員之使用者的頁面。
 
-4. 在該使用者的刀鋒視窗上，選取 [目錄角色]。
- 
-5. 在該目錄角色的刀鋒視窗上，選取 [全域管理員] 角色，然後儲存。
+4. 在命令列上選取 [目錄角色]。
 
-## <a name="deprecated-roles"></a>已被取代的角色
+5. 選取 [加入角色]。
 
-以下是不應使用的角色。 它們已被取代，而且未來將從 Azure AD 中移除。
+6. 在目錄角色頁面上，選取 [全域管理員] 角色，然後按一下 [選取] 來儲存。
+
+## <a name="deprecated-roles"></a>已過時的角色
+
+以下是不應使用的角色。 它們已過時，而且未來將從 Azure AD 中移除。
 
 * AdHoc 授權管理員
 * 傳送電子郵件給經過驗證的使用者建立者
@@ -190,9 +216,9 @@ Azure 資訊保護 | <li>在全域和有範圍的原則中設定標籤和設定<
 
 ## <a name="next-steps"></a>後續步驟
 
-* 若要深入了解如何變更 Azure 訂用帳戶的系統管理員，請參閱 [如何新增或變更 Azure 系統管理員角色](../billing-add-change-azure-subscription-administrator.md)
+* 若要深入了解如何變更 Azure 訂用帳戶的系統管理員，請參閱[新增或變更 Azure 訂用帳戶系統管理員](../billing-add-change-azure-subscription-administrator.md)
 * 若要深入了解如何在 Microsoft Azure 中控制資源存取，請參閱 [了解 Azure 中的資源存取](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* 如需 Azure Active Directory 如何與您 Azure 訂用帳戶產生關聯的詳細資訊，請參閱 [Azure 訂用帳戶如何與 Azure Active Directory 產生關聯](active-directory-how-subscriptions-associated-directory.md)
+* 如需有關 Azure Active Directory 與您的 Azure 訂用帳戶產生關聯之方式的詳細資訊，請參閱 [Azure 訂用帳戶如何與 Azure Active Directory 產生關聯](fundamentals/active-directory-how-subscriptions-associated-directory.md)
 * [管理使用者](active-directory-create-users.md)
 * [管理密碼](active-directory-manage-passwords.md)
-* [管理群組](active-directory-manage-groups.md)
+* [管理群組](fundamentals/active-directory-manage-groups.md)

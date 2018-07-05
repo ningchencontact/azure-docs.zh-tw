@@ -10,21 +10,21 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 84734b89aeb95745d237c062e5654afc4d49f966
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 00f1dc8c9cffbff240f96fed3d2f09888c041301
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711139"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754129"
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C：自訂 Azure AD B2C 使用者介面 (UI)
 
 使用者經驗是客戶面向應用程式中最重要的。  運用品牌外觀及風格來打造使用者經驗，從而擴大您的客戶群。 Azure Active Directory B2C (Azure AD B2C) 可讓您以精準的像素控制來自訂註冊、登入、設定檔編輯和密碼重設頁面。
 
 > [!NOTE]
-> 本文中所述的網頁 UI 自訂功能並不適用於唯登入原則、其伴隨的密碼重設頁面，以及驗證電子郵件。  反之，這些功能會使用[公司品牌功能](../active-directory/customize-branding.md)。
+> 本文中所述的網頁 UI 自訂功能並不適用於唯登入原則、其伴隨的密碼重設頁面，以及驗證電子郵件。  反之，這些功能會使用[公司品牌功能](../active-directory/fundamentals/customize-branding.md)。
 >
-> 同樣地，如果使用者在登入*之前*起始編輯設定檔原則，使用者會被重新導向至可使用[公司品牌特色](../active-directory/customize-branding.md)自訂的頁面。
+> 同樣地，如果使用者在登入*之前*起始編輯設定檔原則，使用者會被重新導向至可使用[公司品牌特色](../active-directory/fundamentals/customize-branding.md)自訂的頁面。
 
 本文章涵蓋下列主題：
 

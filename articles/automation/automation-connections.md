@@ -9,11 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ee866248ae7f0c1f1c49c449b777c2b68d884c5b
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 88baa1385bfd64cab08299bc31a6f003f6b87e48
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019294"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure 自動化中的連接資產
 
@@ -79,7 +80,7 @@ $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "Tenant
 New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues 
 ```
 
-您也可以使用此指令碼來建立連接資產，因為當您建立您的自動化帳戶時，它預設會自動包含數個全域模組以及 **AzurServicePrincipal** 連線類型，以建立**AzureRunAsConnection** 連線資產。  這很重要要牢記在心，因為如果您嘗試建立新的連接資產來連接到採用不同驗證方法的服務或應用程式，它會失敗，因為在您的自動化帳戶未定義該連接類型。  有關如何從 [PowerShell 資源庫](https://www.powershellgallery.com)為您的自訂或模組建立您自己的連線類型，詳細資訊請參閱[整合模組](automation-integration-modules.md)
+您可以使用此指令碼來建立連線資產，因為建立「自動化」帳戶時，預設會自動包含數個全域模組以及 **AzureServicePrincipal** 連線類型，以建立**AzureRunAsConnection** 連線資產。  這很重要要牢記在心，因為如果您嘗試建立新的連接資產來連接到採用不同驗證方法的服務或應用程式，它會失敗，因為在您的自動化帳戶未定義該連接類型。  有關如何從 [PowerShell 資源庫](https://www.powershellgallery.com)為您的自訂或模組建立您自己的連線類型，詳細資訊請參閱[整合模組](automation-integration-modules.md)
   
 ## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>在 Runbook 或 DSC 設定中使用連接
 

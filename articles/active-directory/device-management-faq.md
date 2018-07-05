@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: c8b0529b0ae45d7bcee5574991551a424c13ba70
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 60b77f5956cb627905eb955995652098337c4dea
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34713859"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36311112"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 裝置管理常見問題集
 
@@ -44,7 +44,7 @@ ms.locfileid: "34713859"
 **問：我最近註冊了裝置。為什麼在 Azure 入口網站中我的使用者資訊底下看不到該裝置？**
 
 **答：** 已加入混合式 Azure AD 的 Windows 10 裝置不會顯示在 [使用者裝置] 底下。
-您必須使用 PowerShell，才能看到所有裝置。 
+您需要在 Azure 入口網站中使用 [所有裝置] 檢視。 您也可以使用 PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) Cmdlet。
 
 只有下列裝置會在 [使用者裝置] 底下列出：
 
@@ -52,25 +52,24 @@ ms.locfileid: "34713859"
 - 所有非 Windows 10/Windows Server 2016 裝置。
 - 所有非 Windows 裝置 
 
----
-
-**問：為什麼我在 Azure 入口網站中看不到在 Azure Active Directory 中註冊的所有裝置？** 
-
-**答：** 您現在可以在 [Azure AD 目錄] -> [所有裝置] 功能表下看到它們。 您也可以使用 Azure PowerShell 來尋找所有裝置。 如需更多詳細資料，請參閱 [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) Cmdlet。
-
 --- 
 
 **問：我要如何知道用戶端的裝置註冊狀態為何？**
 
-**答：** Windows 10 和 Windows Server 2016 或更新版本的裝置，請執行 dsregcmd.exe /status。
+**答：** 您可以使用 Azure 入口網站，移至 [所有裝置]，然後使用裝置識別碼來搜尋裝置。 檢查加入類型資料行中的值。
 
-舊版作業系統版本請執行 "%programFiles%\Microsoft Workplace Join\autoworkplace.exe"。
+如果您想要從已註冊的裝置檢查本機裝置註冊狀態：
+
+- 針對 Windows 10 和 Windows Server 2016 或更新的裝置，請執行 dsregcmd.exe /status。
+- 針對舊版作業系統版本，請執行 "%programFiles%\Microsoft Workplace Join\autoworkplace.exe"。
 
 ---
 
-**問：為什麼我已在 Azure 入口網站中或使用 Windows PowerShell 刪除的裝置仍列為已註冊？**
+**問：我已在 Azure 入口網站中刪除或使用 Windows PowerShell 刪除，但為什麼裝置上的本機狀態指出其仍處於註冊狀態？**
 
-**答：** 原先的設計就是如此。 該裝置將無法存取雲端中的資源。 如果您想要重新註冊，就必須對該裝置採取手動動作。 
+**答：** 原先的設計就是如此。 該裝置將無法存取雲端中的資源。 
+
+如果您想要重新註冊，就必須對該裝置採取手動動作。 
 
 若要清除加入狀態，針對已加入內部部署 AD 網域的 Windows 10 與 Windows Server 2016，做法是：
 
@@ -85,6 +84,13 @@ ms.locfileid: "34713859"
 1.  以系統管理員身分開啟命令提示字元。
 2.  輸入 `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`。
 3.  輸入 `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`。
+
+---
+**問：如何在本機裝置上退出已加入 Azure AD 的裝置？
+**答：** 
+- 針對已加入 Azure AD 的混合式裝置，請務必關閉自動註冊，這樣的話，已排定的工作就不會再次註冊裝置。 接著，以系統管理員身分開啟命令提示字元，然後輸入 `dsregcmd.exe /debug /leave`。 或者，可跨多個裝置以指令碼方式執行此命令，以進行大量退出。
+
+- 針對純粹已加入 Azure AD 的裝置，確定您具有離線的本機系統管理員帳戶 (若無帳戶則請建立)，因為您將無法使用任何 Azure AD 使用者認證進行登入。 接下來，移至 [設定] > [帳戶] > [存取公司或學校資源]。 選取您的帳戶，然後按一下 [中斷連線]。 遵循提示，然後在系統提示您時提供本機系統管理員認證。 重新啟動裝置以完成退出程序。
 
 ---
 
@@ -119,7 +125,7 @@ ms.locfileid: "34713859"
 ---
 
 
-**問：我在 Azure 入口網站中的 [使用者資訊] 底下看到裝置記錄，並且可以看到狀態為已在用戶端上註冊。我是否已針對使用條件式存取進行正確設定？**
+**問：我在 Azure 入口網站中的 [使用者資訊] 底下看到裝置記錄，而且可以看到狀態為已在裝置上註冊。我是否已針對使用條件式存取進行正確設定？**
 
 **答：** deviceID 反映出來的裝置加入狀態必須與 Azure AD 上的狀態相符，並滿足所有條件式存取的評估準則。 如需更多詳細資料，請參閱[開始使用 Azure Active Directory 裝置註冊](active-directory-device-registration.md)。
 
@@ -137,6 +143,8 @@ ms.locfileid: "34713859"
 
 - 同盟登入會要求您的同盟伺服器必須支援 WS-Trust 作用中端點。 
 
+- 您已啟用傳遞驗證，而且使用者必須在登入時變更暫時密碼。
+
 ---
 
 **問：當我嘗試將電腦加入 Azure AD 時，為什麼會看到「糟糕，發生錯誤!」？**
@@ -147,7 +155,7 @@ ms.locfileid: "34713859"
 
 **問：為什麼當我嘗試將電腦加入時，雖然沒有收到任何錯誤資訊，但卻發生失敗？**
 
-**答：** 可能是因為使用者使用內建的系統管理員帳戶來登入裝置。 在使用 Azure Active Directory Join 來完成設定之前，請先建立一個不同的本機帳戶。 
+**答：** 可能是因為使用者使用本機內建的系統管理員帳戶來登入裝置。 在使用 Azure Active Directory Join 來完成設定之前，請先建立一個不同的本機帳戶。 
 
 ---
 

@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 924c41b060f56b4a21e4d29e059eb2968fa19330
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: dc1e3fd3984d0ccbfb0565a3216ec907894e88ea
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231917"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028943"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的存取控制？ 
 
@@ -77,7 +77,7 @@ ms.locfileid: "36231917"
 
 ### <a name="compliant-device"></a>符合規範的裝置
 
-您可以設定以裝置作為基礎的條件式存取原則。 裝置型條件式存取原則的目標是，只從[受控裝置](active-directory-conditional-access-policy-connected-applications.md#managed-devices)授與已設定資源的存取權。 定義受控裝置的必要選項之一，是要求符合規範裝置。 如果選取此選項，使用已向您的 Azure Active Directory [註冊](device-management-introduction.md)且經 MDM 解決方案標示為符合規範的裝置進行存取嘗試時，您的條件式存取原則就會對其授與存取權。
+您可以設定以裝置作為基礎的條件式存取原則。 裝置型條件式存取原則的目標是，只從[受控裝置](active-directory-conditional-access-policy-connected-applications.md#managed-devices)授與已設定資源的存取權。 定義受控裝置的必要選項之一，是要求符合規範裝置。 如果選取此選項，使用已向您的 Azure Active Directory [註冊](device-management-introduction.md)且經 Intune (適用於任何裝置 OS) 或您的協力廠商 MDM 系統 (適用於 Windows 10 裝置) 標示為符合規範的裝置進行存取嘗試時，您的條件式存取原則就會對其授與存取權。 不支援針對 Windows 10 以外的裝置 OS 類型使用的協力廠商 MDM 系統。
 
 如需詳細資訊，請參閱[設定 Azure Active Directory 裝置型條件式存取原則](active-directory-conditional-access-policy-connected-applications.md)。
 

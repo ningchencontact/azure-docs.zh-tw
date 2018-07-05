@@ -7,14 +7,14 @@ manager: cshepard
 keywords: Azure 備份; VM 代理程式; 網路連線;
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 01/09/2018
+ms.date: 06/25/2018
 ms.author: genli
-ms.openlocfilehash: 63cded007af499455e7bb4fc23d26d56caf96678
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 09cfda3c2c790297b0961ecac92cba61c9e6de6f
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606353"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754132"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>針對 Azure 備份失敗進行疑難排解：與代理程式或延伸模組相關的問題
 
@@ -84,15 +84,15 @@ ms.locfileid: "34606353"
 ### <a name="the-vm-has-no-internet-access"></a>VM 沒有網際網路存取
 根據部署需求，VM 無法存取網際網路。 或者，它可能會有防止存取 Azure 基礎結構的限制。
 
-備份延伸模組需要連線到 Azure 公用 IP 位址，才能正確運作。 延伸模組會將命令傳送至 Azure 儲存體端點 (HTTP URL) 來管理 VM 的快照集。 如果延伸模組無法存取公用網際網路，則備份最終會失敗。
+備份延伸模組需要連線到 Azure 公用 IP 位址，才能正確運作。 延伸模組會將命令傳送至 Azure 儲存體端點 (HTTPS URL) 來管理 VM 的快照集。 如果延伸模組無法存取公用網際網路，則備份最終會失敗。
 
 您可以部署 Proxy 伺服器來路由傳送 VM 流量。
-##### <a name="create-a-path-for-http-traffic"></a>建立 HTTP 流量的路徑
+##### <a name="create-a-path-for-https-traffic"></a>建立 HTTPS 流量的路徑
 
-1. 如果您已有網路限制 (例如，網路安全性群組)，請部署 HTTP Proxy 伺服器來路由傳送流量。
-2. 若要允許從 HTTP Proxy 存取網際網路，可將規則新增到網路安全性群組 (如果您有一個)。
+1. 如果您已有網路限制 (例如，網路安全性群組)，請部署 HTTPS Proxy 伺服器來路由傳送流量。
+2. 若要允許從 HTTPS Proxy 伺服器存取網際網路，可將規則新增到網路安全性群組 (如果您有一個)。
 
-若要了解如何設定 VM 備份的 HTTP Proxy，請參閱[準備環境以備份 Azure 虛擬機器](backup-azure-arm-vms-prepare.md#establish-network-connectivity)。
+若要了解如何設定 VM 備份的 HTTPS Proxy，請參閱[準備環境以備份 Azure 虛擬機器](backup-azure-arm-vms-prepare.md#establish-network-connectivity)。
 
 已備份的 VM，抑或用於路由傳送流量的 Proxy 伺服器需要存取 Azure 公用 IP 位址
 

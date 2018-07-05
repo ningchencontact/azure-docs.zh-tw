@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 06/21/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8a98f2ed2ce55f74ea3967dbb23a762fce566a2f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 60b6769dd3c15bbe628f60318cc08fcac78357ea
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595626"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36307954"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支援的資料來源
 
@@ -63,7 +63,8 @@ ms.locfileid: "34595626"
 |Dynamics CRM*     |  
 |Excel 活頁簿     |  
 |Exchange*     |  
-|資料夾*     | 
+|資料夾*     |
+|IBM Informix* (搶鮮版 (Beta)) |
 |JSON 文件*     |  
 |Lines from binary*     | 
 |MySQL Database     | 
@@ -71,6 +72,8 @@ ms.locfileid: "34595626"
 |ODBC 查詢     | 
 |OLE DB     |   
 |Postgre SQL 資料庫*    | 
+|Salesforce 物件* |  
+|Salesforce 報表* |
 |SAP HANA*    |  
 |SAP Business Warehouse*    |  
 |SharePoint*     |   

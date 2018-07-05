@@ -7,19 +7,18 @@ author: jeevansd
 manager: mtillman
 ms.assetid: e15206ac-74b0-46e4-9329-892c7d242ec0
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2017
+ms.date: 06/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 6fe7cad2910bed2dc08180d28fdf1af1d6cffd9a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 7267f8fa1ed900d1bac58b4fa61f076e5949d712
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36223411"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319100"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hightail"></a>教學課程：Azure Active Directory 與 Hightail 整合
 
@@ -35,7 +34,7 @@ Hightail 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>先決條件
 
-若要設定與 Hightail 的 Azure AD 整合，您需要下列項目：
+若要設定 Azure AD 與 Hightail 整合，您需要下列項目：
 
 - Azure AD 訂用帳戶
 - 已啟用 Hightail 單一登入的訂用帳戶
@@ -51,13 +50,13 @@ Hightail 與 Azure AD 整合提供下列優點：
 ## <a name="scenario-description"></a>案例描述
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
-1. 從資源庫加入 Hightail
+1. 從資源庫新增 Hightail
 2. 設定並測試 Azure AD 單一登入
 
-## <a name="adding-hightail-from-the-gallery"></a>從資源庫加入 Hightail
-若要設定 Hightail 與 Azure AD 整合，您需要從資源庫將 Hightail 加入受控 SaaS 應用程式清單中。
+## <a name="adding-hightail-from-the-gallery"></a>從資源庫新增 Hightail
+若要設定將 Hightail 整合到 Azure AD 中，您需要從資源庫將 Hightail 新增到受控 SaaS 應用程式清單中。
 
-**若要從資源庫加入 Hightail，請執行下列步驟：**
+**若要從資源庫新增 Hightail，請執行下列步驟：**
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
@@ -80,17 +79,17 @@ Hightail 與 Azure AD 整合提供下列優點：
     ![建立 Azure AD 測試使用者](./media/hightail-tutorial/tutorial_hightail_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>設定並測試 Azure AD 單一登入
-在本節中，您會以名為 "Britta Simon" 的測試使用者身分，使用 Hightail 設定及測試 Azure AD 單一登入。
+在本節中，您會以名為 "Britta Simon" 的測試使用者為基礎，設定及測試與 Hightail 搭配運作的 Azure AD 單一登入。
 
-若要讓單一登入運作，Azure AD 必須知道 Hightail 與 Azure AD 中互相對應的使用者。 換句話說，必須在 Azure AD 使用者和 Hightail 中的相關使用者之間建立連結關聯性。
+若要讓單一登入能夠運作，Azure AD 必須知道 Hightail 與 Azure AD 中互相對應的使用者。 換句話說，必須在 Azure AD 使用者和 Hightail 中的相關使用者之間建立連結關聯性。
 
 在 Hightail 中，將 Azure AD 中**使用者名稱**的值，指派為 **Username** 的值，以建立連結關聯性。
 
-若要設定及測試對 Hightail 的 Azure AD 單一登入，您需要完成下列建置組塊：
+若要設定及測試與 Hightail 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 Hightail 測試使用者](#creating-a-hightail-test-user)** - 在 Hightail 中建立 Britta Simon 的對應項目，且該項目與 Azure AD 中代表使用者的項目連結。
+3. **[建立 Hightail 測試使用者](#creating-a-hightail-test-user)** - 在 Hightail 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
 4. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
 
@@ -105,31 +104,29 @@ Hightail 與 Azure AD 整合提供下列優點：
     ![設定單一登入][4]
 
 2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
- 
+
     ![設定單一登入](./media/hightail-tutorial/tutorial_hightail_samlbase.png)
 
-3. 在 [Hightail 網域與 URL] 區段上，執行下列步驟：
+3. 如果您想要以 **IDP** 起始模式設定應用程式，請在 [Hightail 網域及 URL] 區段上執行下列步驟：
 
     ![設定單一登入](./media/hightail-tutorial/tutorial_hightail_url.png)
 
-     在 [回覆 URL] 文字方塊中，輸入 URL：`https://www.hightail.com/samlLogin?phi_action=app/samlLogin&subAction=handleSamlResponse`
+    在 [回覆 URL] 文字方塊中，輸入 URL：`https://www.hightail.com/samlLogin?phi_action=app/samlLogin&subAction=handleSamlResponse`
 
-    > [!NOTE] 
-    > 上述值並非真正的值。 您將會使用實際的「回覆 URL」來更新值，稍後會在本教學課程中說明。
- 
-4. 在 [Hightail 網域和 URL] 區段中，如果您想要在 [SP 起始模式] 中設定應用程式，請執行下列步驟：
-    
+    > [!NOTE]
+    > [回覆 URL] 值不是真正的值。 您將會使用實際的「回覆 URL」來更新 [回覆 URL] 值，本教學課程稍後會說明。
+
+4. 如果您想要以 **SP** 起始模式設定應用程式，請勾選 [顯示進階 URL 設定]，然後執行下列步驟：
+
     ![設定單一登入](./media/hightail-tutorial/tutorial_hightail_url1.png)
 
-    a. 按一下 [顯示進階 URL 設定]。
-
-    b. 在 [登入 URL] 文字方塊中，輸入 URL：`https://www.hightail.com/loginSSO`
+    在 [登入 URL] 文字方塊中，輸入 URL：`https://www.hightail.com/loginSSO`
 
 4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
     ![設定單一登入](./media/hightail-tutorial/tutorial_hightail_certificate.png) 
 
-5. Hightail 應用程式需要特定格式的 SAML 判斷提示。 請設定此應用程式的下列宣告。 您可以從應用程式的 [屬性]  索引標籤來管理這些屬性的值。 以下螢幕擷取畫面顯示上述的範例。 
+5. Hightail 應用程式會預期要有特定格式的 SAML 判斷提示。 請設定此應用程式的下列宣告。 您可以從應用程式的 [屬性] 索引標籤管理這些屬性的值。 以下螢幕擷取畫面顯示上述的範例。 
 
     ![設定單一登入](./media/hightail-tutorial/tutorial_hightail_attribute.png) 
 
@@ -153,7 +150,7 @@ Hightail 與 Azure AD 整合提供下列優點：
     c. 在 [值] 清單中，選取該列所顯示的值。
 
     d. 讓 [命名空間] 保持空白。
-    
+
     e. 按一下 [確定] 。
 
 7. 按一下 [儲存]  按鈕。
@@ -162,41 +159,32 @@ Hightail 與 Azure AD 整合提供下列優點：
 
 8. 在 [Hightail 組態] 區段上，按一下 [設定 Hightail] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [SAML 單一登入服務 URL]。
 
-    ![設定單一登入](./media/hightail-tutorial/tutorial_hightail_configure.png) 
+    ![設定單一登入](./media/hightail-tutorial/tutorial_hightail_configure.png)
 
-    >[!NOTE] 
-    >在 Hightail 應用程式設定單一登入之前，請透過 Hightail 小組將您的電子郵件網域列入白名單，以便使用此網域的所有使用者都可以使用單一登入功能。
+    >[!NOTE]
+    >在 Hightail 應用程式設定單一登入之前，請透過 Hightail 小組將您的電子郵件網域列入允許清單，以便使用此網域的所有使用者都可以使用單一登入功能。
 
+9. 在另一個瀏覽器視窗中，開啟 **Hightail** 管理入口網站。
 
-9. 若要取得為應用程式設定的 SSO，您必須以系統管理員身分登入 Hightail 租用戶。
-   
-    a. 在頂端功能表中，按一下 [帳戶] 索引標籤並選取 [設定 SAML]。
- 
-    ![設定單一登入](./media/hightail-tutorial/tutorial_hightail_001.png) 
+10. 按一下頁面右上角的**使用者圖示**。 
 
-    b. 選取 [啟用 SAML 驗證] 的核取方塊。
+    ![設定單一登入](./media/hightail-tutorial/configure1.png)
 
-    ![設定單一登入](./media/hightail-tutorial/tutorial_hightail_002.png) 
+11. 按一下 [View Admin Console] \(檢視管理主控台\) 索引標籤。
 
-    c. 在從 Azure 入口網站下載的記事本中開啟您的 base-64 編碼的憑證，將它的內容複製到您的剪貼簿，然後在 [SAML 權杖簽署憑證] 文字方塊貼上。
+    ![設定單一登入](./media/hightail-tutorial/configure2.png)
 
-    ![設定單一登入](./media/hightail-tutorial/tutorial_hightail_003.png) 
+12. 在頂端功能表中，按一下 [SAML] 索引標籤，然後執行下列步驟：
 
-    d. 在 [SAML 授權單位 (識別提供者)/] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 單一登入服務 URL] 值。
+    ![設定單一登入](./media/hightail-tutorial/configure3.png)
 
-    ![設定單一登入](./media/hightail-tutorial/tutorial_hightail_004.png)
+    a. 在 [Login URL] \(登入 URL\) 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 單一登入服務 URL] 值。
 
-    e. 如果您想要以 **IDP 起始模式**設定應用程式，請選取 [識別提供者 (IdP) 起始登入]。 若為 **SP 起始模式**，請選取 [服務提供者 (SP) 起始登入]。
+    b. 在記事本中開啟從 Azure 入口網站下載的 Base-64 編碼憑證，將憑證內容複製到剪貼簿，然後貼到 [SAML Certificate] \(SAML 憑證\) 文字方塊中。
 
-    ![設定單一登入](./media/hightail-tutorial/tutorial_hightail_006.png)
+    c. 按一下 [COPY] \(複製\) 以複製執行個體的 SAML 取用者 URL，然後將其貼在 Azure 入口網站上 [Hightail 網域及 URL] 區段的 [回覆 URL] 文字方塊中。
 
-    f. 複製執行個體的 SAML 取用者 URL，並將其貼在 Azure 入口網站上 [Hightail 網域與 URL] 區段的 [回覆 URL] 文字方塊中。
-    
-    g. 按一下 [檔案] 。
-
-> [!TIP]
-> 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    d. 按一下 [Save Configurations] \(儲存設定\)。
 
 ### <a name="creating-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
@@ -244,7 +232,7 @@ Hightail 與 Azure AD 整合提供下列優點：
 
 ![指派使用者][200] 
 
-**若要將 Britta Simon 指派給 Hightail，請執行以下步驟：**
+**若要將 Britta Simon 指派給 Hightail，請執行下列步驟：**
 
 1. 在 Azure 入口網站中，開啟應用程式檢視，接著瀏覽至目錄檢視並移至 [企業應用程式]，然後按一下 [所有應用程式]。
 
@@ -256,7 +244,7 @@ Hightail 與 Azure AD 整合提供下列優點：
 
 3. 在左側功能表中，按一下 [使用者和群組]。
 
-    ![指派使用者][202] 
+    ![指派使用者][202]
 
 4. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
 
@@ -267,7 +255,7 @@ Hightail 與 Azure AD 整合提供下列優點：
 6. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
 
 7. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
-    
+
 ### <a name="testing-single-sign-on"></a>測試單一登入
 
 本節的目標是要使用存取面板來測試您的 Azure AD 單一登入組態。
@@ -279,8 +267,6 @@ Hightail 與 Azure AD 整合提供下列優點：
 
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](tutorial-list.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../manage-apps/what-is-single-sign-on.md)
-
-
 
 <!--Image references-->
 

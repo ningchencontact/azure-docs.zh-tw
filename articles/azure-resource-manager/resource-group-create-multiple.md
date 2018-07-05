@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2017
+ms.date: 06/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: ce442793a9917320b6b2b0a7014a20f885c3720c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ee32f6459cf7673f6bb633e12776ec3c40eb13e1
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359252"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753416"
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>在 Azure Resource Manager 範本中部署資源或屬性的多個執行個體
 本文說明如何有條件地部署資源以及如何逐一查看您的 Azure Resource Manager 範本，以建立資源的多個執行個體。
@@ -130,7 +130,7 @@ ms.locfileid: "34359252"
 
 根據預設，Resource Manager 會以平行方式建立資源。 因此，不保證資源會循序建立。 不過，建議您指定將資源部署在序列中。 例如，在更新生產環境時，您可以錯開更新，因此任何一次就只會更新特定數目。
 
-若要以序列方式部署資源的多個執行個體，請將 `mode` 設定為 **serial** 並將 `batchSize` 設為一次要部署的執行個體數目。 透過序列模式，Resource Manager 會在迴圈先前的執行個體上建立相依性，因此前一批次完成之前，它不會啟動一個批次。
+若要以序列方式部署資源的多個執行個體，請將 `mode` 設定為 **serial** 並將 `batchSize` 設為一次要部署的執行個體數目。 透過序列模式，Resource Manager 會在迴圈中較早的執行個體上建立相依性，因此在前一批次完成之前，它不會啟動一個批次。
 
 例如，若要以序列方式一次部署兩個儲存體帳戶，請使用：
 
@@ -223,13 +223,41 @@ Resource Manager 會在部署期間展開 `copy` 陣列。 陣列名稱會變成
       ...
 ```
 
+copy 元素為一個陣列，因此，您可以針對資源指定一個以上的屬性。 針對每個要建立的屬性新增物件。
+
+```json
+{
+    "name": "string",
+    "type": "Microsoft.Network/loadBalancers",
+    "apiVersion": "2017-10-01",
+    "properties": {
+        "copy": [
+          {
+              "name": "loadBalancingRules",
+              "count": "[length(parameters('loadBalancingRules'))]",
+              "input": {
+                ...
+              }
+          },
+          {
+              "name": "probes",
+              "count": "[length(parameters('loadBalancingRules'))]",
+              "input": {
+                ...
+              }
+          }
+        ]
+    }
+}
+```
+
 您可以一起使用資源和屬性反覆運算。 依名稱參考屬性反覆運算。
 
 ```json
 {
     "type": "Microsoft.Network/virtualNetworks",
     "name": "[concat(parameters('vnetname'), copyIndex())]",
-    "apiVersion": "2016-06-01",
+    "apiVersion": "2018-04-01",
     "copy":{
         "count": 2,
         "name": "vnetloop"
@@ -310,6 +338,27 @@ Resource Manager 會在部署期間展開 `copy` 陣列。 陣列名稱會變成
 }
 ```
 
+使用任一種方法時，copy 元素為一個陣列，因此，您可以指定一個以上的變數。 針對每個要建立的變數新增物件。
+
+```json
+"copy": [
+  {
+    "name": "first-variable",
+    "count": 5,
+    "input": {
+      "demoProperty": "[concat('myProperty', copyIndex('first-variable'))]",
+    }
+  },
+  {
+    "name": "second-variable",
+    "count": 3,
+    "input": {
+      "demoProperty": "[concat('myProperty', copyIndex('second-variable'))]",
+    }
+  },
+]
+```
+
 ## <a name="depend-on-resources-in-a-loop"></a>依迴圈中的資源而定
 您可以透過使用 `dependsOn` 元素，讓某個資源在另一個資源之後才部署。 若要部署相依於迴圈中資源集合的資源時，請在 dependsOn 元素中提供複製迴圈的名稱。 下列範例示範如何在部署虛擬機器之前部署三個儲存體帳戶。 不會顯示完整的虛擬機器定義。 請注意，複製元素將名稱設定為 `storagecopy`，並將虛擬機器的 dependsOn 元素設定為 `storagecopy`。
 
@@ -371,7 +420,7 @@ Resource Manager 會在部署期間展開 `copy` 陣列。 陣列名稱會變成
 }]
 ```
 
-若要為資料集建立多個執行個體，請在其移至 Data Factory 外。 資料集必須位於和 Data Factory 相同的層級，但它仍是 Data Factory 的子資源。 您可以透過類型和名稱屬性保留資料集與資料處理站之間的關聯性。 由於無法再從類型位於範本中的位置來推斷類型，您必須以此格式提供完整的類型︰`{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`。
+若要為資料集建立多個執行個體，請在其移至 Data Factory 外。 資料集必須位於與資料處理站相同的等級，但它仍是資料處理站的子資源。 您可以透過類型和名稱屬性保留資料集與資料處理站之間的關聯性。 由於無法再從類型位於範本中的位置來推斷類型，您必須以此格式提供完整的類型︰`{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`。
 
 若要建立與 Data Factory 執行個體的父/子關聯性，請提供包含父資源名稱之資料集的名稱。 使用格式︰`{parent-resource-name}/{child-resource-name}`。  
 
@@ -410,7 +459,7 @@ Resource Manager 會在部署期間展開 `copy` 陣列。 陣列名稱會變成
 |[使用 新的或現有虛擬網路、儲存體及公用 IP 的 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) |使用虛擬機器有條件地將部署新的或現有資源。 |
 |[以可變的資料磁碟數目部署 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |利用虛擬機器部署多個資料磁碟。 |
 |[複製變數](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |示範逐一查看變數的不同方式。 |
-|[多個安全性規則](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |將多個安全性規則部署至網路安全性群組。 從參數建構安全性規則。 |
+|[多個安全性規則](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |將多個安全性規則部署至網路安全性群組。 從參數建構安全性規則。 如需參數，請參閱[多個 NSG 參數檔案](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json)。 |
 
 ## <a name="next-steps"></a>後續步驟
 * 若要了解範本區段的相關資訊，請參閱[編寫 Azure Resource Manager 範本](resource-group-authoring-templates.md)。

@@ -8,19 +8,18 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 8e521099-bf7d-43ab-a0e0-86aa1c9e577e
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 44b34c20c8b21b58ef67beedc1074f0664048b90
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f4ef40ea5e3d68ed8c04dc2a67042abd74df42aa
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212365"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317803"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-manabi-pocket"></a>教學課程：Azure Active Directory 與 Manabi Pocket 整合
 
@@ -36,7 +35,7 @@ Manabi Pocket 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>先決條件
 
-若要設定與 Manabi Pocket 的 Azure AD 整合，您需要下列項目：
+若要設定 Azure AD 與 Manabi Pocket 整合，您需要下列項目：
 
 - Azure AD 訂用帳戶
 - 已啟用 Manabi Pocket 單一登入的訂用帳戶
@@ -56,7 +55,7 @@ Manabi Pocket 與 Azure AD 整合提供下列優點：
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-manabi-pocket-from-the-gallery"></a>從資源庫新增 Manabi Pocket
-若要設定 Manabi Pocket 與 Azure AD 整合，您需要從資源庫將 Manabi Pocket 新增到受控 SaaS 應用程式清單。
+若要設定將 Manabi Pocket 整合到 Azure AD 中，您需要從資源庫將 Manabi Pocket 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Manabi Pocket，請執行下列步驟：**
 
@@ -76,17 +75,17 @@ Manabi Pocket 與 Azure AD 整合提供下列優點：
 
     ![結果清單中的 Manabi Pocket](./media/manabipocket-tutorial/tutorial_manabipocket_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定及測試 Azure AD 單一登入
 
-在本節中，您會以名為 "Britta Simon" 的測試使用者身分，搭配 Manabi Pocket 設定及測試 Azure AD 單一登入。
+在本節中，您會以名為 "Britta Simon" 的測試使用者為基礎，設定及測試與 Manabi Pocket 搭配運作的 Azure AD 單一登入。
 
-若要讓單一登入運作，Azure AD 必須知道 Manabi Pocket 與 Azure AD 中互相對應的使用者。 換句話說，必須在 Azure AD 使用者與 Manabi Pocket 中的相關使用者之間建立連結關聯性。
+若要讓單一登入能夠運作，Azure AD 必須知道 Manabi Pocket 與 Azure AD 中互相對應的使用者。 換句話說，必須在 Azure AD 使用者與 Manabi Pocket 中的相關使用者之間建立連結關聯性。
 
-若要搭配 Manabi Pocket 設定及測試 Azure AD 單一登入，您需要完成下列建置組塊：
+若要設定及測試與 Manabi Pocket 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 Manabi Pocket 測試使用者](#create-a-manabi-pocket-test-user)** - 使 Manabi Pocket 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
+3. **[建立 Manabi Pocket 測試使用者](#create-a-manabi-pocket-test-user)** - 在 Manabi Pocket 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 5. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
@@ -101,35 +100,29 @@ Manabi Pocket 與 Azure AD 整合提供下列優點：
     ![設定單一登入連結][4]
 
 2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
- 
+
     ![單一登入對話方塊](./media/manabipocket-tutorial/tutorial_manabipocket_samlbase.png)
 
-3. 如果您想要以 **IDP** 起始模式設定應用程式，請在 [Manabi Pocket 網域及 URL] 區段上執行下列步驟：
+3. 在 [Manabi Pocket 網域及 URL] 區段上，執行下列步驟：
 
     ![Manabi Pocket 網域及 URL 單一登入資訊](./media/manabipocket-tutorial/tutorial_manabipocket_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/provider`
-    
-    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/assertion_post`
+    a. 在 [登入 URL] 文字方塊中，輸入 URL：`https://ed-cl.com/`
+
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/provider`
 
     > [!NOTE]
-    > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [Manabi Pocket 用戶端支援小組](mailto:info-ed-cl@ntt.com)以取得這些值。
+    > 識別碼值不是實際值。 請使用實際的「識別碼」來更新此值。 請連絡 [Manabi Pocket 用戶端支援小組](mailto:info-ed-cl@ntt.com)以取得此值。
 
-4. 如果您想要以 **SP** 起始模式設定應用程式，請勾選 [顯示進階 URL 設定]，然後執行下列步驟：
-
-    ![Manabi Pocket 網域及 URL 單一登入資訊](./media/manabipocket-tutorial/tutorial_manabipocket_url1.png)
-
-    在 [登入 URL] 文字方塊中，輸入 URL：`https://ed-cl.com/`
-
-5. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
+4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
     ![憑證下載連結](./media/manabipocket-tutorial/tutorial_manabipocket_certificate.png) 
 
-6. 按一下 [儲存]  按鈕。
+5. 按一下 [儲存]  按鈕。
 
     ![設定單一登入儲存按鈕](./media/manabipocket-tutorial/tutorial_general_400.png)
 
-7. 若要在 **Manabi Pocket** 端設定單一登入，您必須將下載的**中繼資料 XML** 傳送給 [Manabi Pocket 支援小組](mailto:info-ed-cl@ntt.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+6. 若要在 **Manabi Pocket** 端設定單一登入，您必須將下載的**中繼資料 XML** 傳送給 [Manabi Pocket 支援小組](mailto:info-ed-cl@ntt.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -165,7 +158,7 @@ Manabi Pocket 與 Azure AD 整合提供下列優點：
  
 ### <a name="create-a-manabi-pocket-test-user"></a>建立 Manabi Pocket 測試使用者
 
-在本節中，您會在 Manabi Pocket 中建立名為 Britta Simon 的使用者。 與 [Manabi Pocket 支援小組](mailto:info-ed-cl@ntt.com)合作，在 Manabi Pocket 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 Manabi Pocket 中建立名為 Britta Simon 的使用者。 請與 [Manabi Pocket 支援小組](mailto:info-ed-cl@ntt.com)合作，在 Manabi Pocket 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -196,7 +189,7 @@ Manabi Pocket 與 Azure AD 整合提供下列優點：
 6. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
 
 7. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
-    
+
 ### <a name="test-single-sign-on"></a>測試單一登入
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
@@ -222,4 +215,3 @@ Manabi Pocket 與 Azure AD 整合提供下列優點：
 [201]: ./media/manabipocket-tutorial/tutorial_general_201.png
 [202]: ./media/manabipocket-tutorial/tutorial_general_202.png
 [203]: ./media/manabipocket-tutorial/tutorial_general_203.png
-

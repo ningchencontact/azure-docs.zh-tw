@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: asmalser
-ms.openlocfilehash: df1981443d8c55f07f86394967e357a599a7b3a3
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 262c864a9e580ab5e2ebb0d4fc1e6ec16adeacb3
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213136"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334321"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>教學課程︰設定 Workday 來自動佈建使用者
 
@@ -60,6 +60,8 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 * 需要僅根據在 Workday HCM 模組中偵測到的變更資訊聯結、移動及保留使用者，使其同步至一或多個 Active Directory 樹系、網域和 OU 的組織 (請參閱 [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html))
 
 * 使用 Office 365 處理電子郵件的組織
+
+[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]
 
 ## <a name="planning-your-solution"></a>規劃您的解決方案
 
@@ -543,14 +545,13 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
    * 如果連線測試成功，請按一下頂端的 [儲存] 按鈕。 如果失敗，請仔細檢查 Workday URL 和認證在 Workday 中是否有效。
 
-
 ### <a name="part-2-configure-attribute-mappings"></a>第 2 部分：設定屬性對應 
 
 在本節中，您會針對僅限雲端使用者設定使用者資料從 Workday 流動至 Azure Active Directory 的方式。
 
-1.  在 [佈建] 索引標籤的 [對應] 下，按一下 [將人員同步至 Azure AD]。
+1. 在 [佈建] 索引標籤的 [對應] 下，按一下 [將人員同步至 Azure AD]。
 
-2.   在 [來源物件範圍] 欄位中，您可以透過定義一組屬性型篩選，選取應該佈建至 Azure AD 的 Workday 使用者集合範圍。 預設範圍是「Workday 中的所有使用者」。 範例篩選：
+2. 在 [來源物件範圍] 欄位中，您可以透過定義一組屬性型篩選，選取應該佈建至 Azure AD 的 Workday 使用者集合範圍。 預設範圍是「Workday 中的所有使用者」。 範例篩選：
 
    * 範例：人員識別碼介於 1000000 到 2000000 之間的使用者範圍
 
@@ -566,9 +567,9 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
       * 運算子：IS NOT NULL
 
-3.  在 [目標物件動作] 欄位中，您可以全域篩選允許在 Azure AD 上執行哪些動作。 最常見的動作是 [建立] 和 [更新]。
+3. 在 [目標物件動作] 欄位中，您可以全域篩選允許在 Azure AD 上執行哪些動作。 最常見的動作是 [建立] 和 [更新]。
 
-4.  在 [屬性對應] 區段中，您可以定義個別 Workday 屬性如何對應至 Active Directory 屬性。
+4. 在 [屬性對應] 區段中，您可以定義個別 Workday 屬性如何對應至 Active Directory 屬性。
 
 5. 按一下現有的屬性對應以進行更新，或按一下畫面底端的 [新增新對應] 以新增新對應。 個別屬性對應支援下列屬性：
 
@@ -602,7 +603,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 ### <a name="part-3-start-the-service"></a>第 3 部分：啟動服務
 完成第 1-2 部分之後，您可以啟動佈建服務。
 
-1.  在 [佈建] 索引標籤中，將 [佈建狀態] 設定為 [開啟]。
+1. 在 [佈建] 索引標籤中，將 [佈建狀態] 設定為 [開啟]。
 
 2. 按一下 [檔案] 。
 
@@ -612,7 +613,6 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 5. 完成之後，其會寫入 [佈建] 索引標籤中的稽核摘要報告內，如下所示。
 
-
 ## <a name="configuring-writeback-of-email-addresses-to-workday"></a>設定將電子郵件地址回寫至 Workday
 請遵循下列指示來設定將使用者電子郵件地址從 Azure Active Directory 回寫至 Workday。
 
@@ -620,21 +620,21 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 **若要設定 Workday 至 Active Directory 佈建：**
 
-1.  移至 <https://portal.azure.com>。
+1. 移至 <https://portal.azure.com>。
 
-2.  在左側導覽列中，選取 [Azure Active Directory]
+2. 在左側導覽列中，選取 [Azure Active Directory]
 
-3.  依序選取 [企業應用程式] 和 [所有應用程式]。
+3. 依序選取 [企業應用程式] 和 [所有應用程式]。
 
-4.  選取 [新增應用程式]，然後選取 [全部] 類別。
+4. 選取 [新增應用程式]，然後選取 [全部] 類別。
 
-5.  搜尋 **Workday Writeback**，並從資源庫新增該應用程式。
+5. 搜尋 **Workday Writeback**，並從資源庫新增該應用程式。
 
-6.  新增應用程式並顯示應用程式詳細資料畫面之後，請選取 [佈建]
+6. 新增應用程式並顯示應用程式詳細資料畫面之後，請選取 [佈建]
 
-7.  將 [佈建模式] 變更為 [自動]
+7. 將 [佈建模式] 變更為 [自動]
 
-8.  完成 [系統管理員認證] 區段，如下所示：
+8. 完成 [系統管理員認證] 區段，如下所示：
 
    * **系統管理員使用者名稱** – 輸入 Workday 整合系統帳戶的使用者名稱，並附加租用戶網域名稱。 其應該類似於：username@contoso4
 
@@ -646,24 +646,22 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
    * 按一下 [測試連線] 按鈕。 如果連線測試成功，請按一下頂端的 [儲存] 按鈕。 如果失敗，請仔細檢查 Workday URL 和認證在 Workday 中是否有效。
 
-
 ### <a name="part-2-configure-attribute-mappings"></a>第 2 部分：設定屬性對應 
-
 
 在本節中，您會設定使用者資料從 Workday 流動至 Active Directory 的方式。
 
-1.  在 [佈建] 索引標籤的 [對應] 下，按一下 [將 Azure AD 使用者同步至 Workday]。
+1. 在 [佈建] 索引標籤的 [對應] 下，按一下 [將 Azure AD 使用者同步至 Workday]。
 
-2.  在 [來源物件範圍] 欄位中，您可以選擇性地篩選應該將電子郵件地址寫回至 Workday 的 Azure Active Directory 使用者集合。 預設範圍是「Azure AD 中的所有使用者」。 
+2. 在 [來源物件範圍] 欄位中，您可以選擇性地篩選應該將電子郵件地址寫回至 Workday 的 Azure Active Directory 使用者集合。 預設範圍是「Azure AD 中的所有使用者」。 
 
-3.  在 [屬性對應] 區段中，您可以定義個別 Workday 屬性如何對應至 Active Directory 屬性。 根據預設，存在電子郵件地址的對應。 不過，您必須更新比對識別碼以在 Azure AD 中比對使用者及其在 Workday 中的對應項目。 常用的比對方法是將 Workday 人員識別碼或員工識別碼同步至 Azure AD 中的 extensionAttribute1-15，然後在 Azure AD 中使用此屬性再次比對 Workday 的使用者。
+3. 在 [屬性對應] 區段中，您可以定義個別 Workday 屬性如何對應至 Active Directory 屬性。 根據預設，存在電子郵件地址的對應。 不過，您必須更新比對識別碼以在 Azure AD 中比對使用者及其在 Workday 中的對應項目。 常用的比對方法是將 Workday 人員識別碼或員工識別碼同步至 Azure AD 中的 extensionAttribute1-15，然後在 Azure AD 中使用此屬性再次比對 Workday 的使用者。
 
-4.  若要儲存您的對應，請按一下 [屬性對應] 區段頂端的 [儲存]。
+4. 若要儲存您的對應，請按一下 [屬性對應] 區段頂端的 [儲存]。
 
 ### <a name="part-3-start-the-service"></a>第 3 部分：啟動服務
 完成第 1-2 部分之後，您可以啟動佈建服務。
 
-1.  在 [佈建] 索引標籤中，將 [佈建狀態] 設定為 [開啟]。
+1. 在 [佈建] 索引標籤中，將 [佈建狀態] 設定為 [開啟]。
 
 2. 按一下 [檔案] 。
 
@@ -672,7 +670,6 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 4. 您可以在 [稽核記錄] 索引標籤中檢視個別同步事件。**[請參閱佈建報告指南，瞭解有關如何讀取稽核記錄的詳細指示](../active-directory-saas-provisioning-reporting.md)**
 
 5. 完成之後，其會寫入 [佈建] 索引標籤中的稽核摘要報告內，如下所示。
-
 
 ## <a name="customizing-the-list-of-workday-user-attributes"></a>自訂 Workday 使用者屬性的清單
 Active Directory 和 Azure AD 的 Workday 佈建應用程式都包含您可以從中選取的預設 Workday 使用者屬性清單。 不過，這些清單並不完整。 Workday 支援數百個可能的使用者屬性，這些屬性可以是 Workday 租用戶的標準或唯一屬性。 
@@ -799,15 +796,9 @@ Azure AD 佈建服務支援自訂清單或 Workday 屬性的功能，以包含�
 
 * 已解決之前位於歐盟的 Azure AD 租用戶上並未出現稽核記錄的問題。 不過，位於歐盟的 Azure AD 租用戶需要進行其他代理程式設定。 欲知詳情，請參閱[第 3 部分：設定內部部署同步代理程式](#Part 3: Configure the on-premises synchronization agent)
 
-
 ## <a name="managing-personal-data"></a>管理個人資料
 
 適用於 Active Directory 的 Workday 佈建解決方案會要求在已加入網域的伺服器上安裝同步處理代理程式，而此代理程式會在 Windows 事件記錄中建立可包含個人識別資訊的記錄。
-
-[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]，其中的  ../ references 會符合您文章的階層結構
-
-> [!NOTE]
-> 如果您想要檢視或刪除個人資料，請檢閱 [GDPR 的 Windows 資料主體要求](https://review.docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-windows)網站中的 Microsoft 指引。 如果您要尋找有關 GDPR 的一般資訊，請參閱[服務信任入口網站的 GDPR 區段](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted) \(英文\)。
 
 ## <a name="next-steps"></a>後續步驟
 

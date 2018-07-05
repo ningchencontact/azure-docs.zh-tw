@@ -8,23 +8,22 @@ manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 0410456a-76f7-42a7-9bb5-f767de75a0e0
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 37409ee72591d943a834ff38f077a002a1724ab9
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 18c3dbdcf85c5b06b4f0f20c85b9fe751a3719fe
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215387"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317977"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagerduty"></a>教學課程：Azure Active Directory 與 PagerDuty 整合
 
-在本教學課程中，您會了解如何整合 PagerDuty 與 Azure Active Directory (Azure AD)。
+在本教學課程中，您將了解如何整合 PagerDuty 與 Azure Active Directory (Azure AD)。
 
 將 PagerDuty 與 Azure AD 整合提供下列優點：
 
@@ -60,14 +59,14 @@ ms.locfileid: "36215387"
 
 **若要從資源庫新增 PagerDuty，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
     ![Azure Active Directory 按鈕][1]
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![企業應用程式刀鋒視窗][2]
-    
+
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![新增應用程式按鈕][3]
@@ -76,19 +75,19 @@ ms.locfileid: "36215387"
 
     ![建立 Azure AD 測試使用者](./media/pagerduty-tutorial/tutorial_pagerduty_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定及測試 Azure AD 單一登入
 
-在本節中，您會以名為 "Britta Simon" 的測試使用者身分，使用 PagerDuty 設定及測試 Azure AD 單一登入。
+在本節中，您會以名為 "Britta Simon" 的測試使用者為基礎，設定及測試與 PagerDuty 搭配運作的 Azure AD 單一登入。
 
-若要讓單一登入運作，Azure AD 必須知道 PagerDuty 與 Azure AD 中互相對應的使用者。 換句話說，必須要建立某位 Azure AD 使用者與 PagerDuty 中相關使用者之間的連結關聯性。
+若要讓單一登入能夠運作，Azure AD 必須知道 PagerDuty 與 Azure AD 中互相對應的使用者。 換句話說，必須要建立某位 Azure AD 使用者與 PagerDuty 中相關使用者之間的連結關聯性。
 
 在 PagerDuty 中，將 Azure AD 中**使用者名稱**的值，指派為 **Username** 的值，以建立連結關聯性。
 
-若要使用 PagerDuty 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
+若要設定及測試與 PagerDuty 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 PagerDuty 測試使用者](#create-a-pagerduty-test-user)** - 使 PagerDuty 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
+3. **[建立 PagerDuty 測試使用者](#create-a-pagerduty-test-user)** - 在 PagerDuty 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 5. **[測試單一登入](#test-single-sign-on)** - 驗證組態是否能運作。
 
@@ -102,11 +101,11 @@ ms.locfileid: "36215387"
 
     ![設定單一登入連結][4]
 
-2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
- 
+1. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
+
     ![單一登入對話方塊](./media/pagerduty-tutorial/tutorial_pagerduty_samlbase.png)
 
-3. 在 [PagerDuty 網域與 URL] 區段上，執行下列步驟：
+3. 在 [PagerDuty 網域及 URL] 區段上，執行下列步驟：
 
     ![PagerDuty 網域及 URL 單一登入資訊](./media/pagerduty-tutorial/tutorial_pagerduty_url.png)
 
@@ -114,12 +113,12 @@ ms.locfileid: "36215387"
 
     b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<tenant-name>.pagerduty.com`
 
-    > [!NOTE] 
-    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [PagerDuty 用戶端支援小組](https://www.pagerduty.com/support/)以取得這些值。 
+    > [!NOTE]
+    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [PagerDuty 用戶端支援小組](https://www.pagerduty.com/support/)以取得這些值。
 
 4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
-    ![憑證下載連結](./media/pagerduty-tutorial/tutorial_pagerduty_certificate.png) 
+    ![憑證下載連結](./media/pagerduty-tutorial/tutorial_pagerduty_certificate.png)
 
 5. 按一下 [儲存]  按鈕。
 
@@ -127,34 +126,33 @@ ms.locfileid: "36215387"
 
 6. 在 [PagerDuty 設定] 區段上，按一下 [設定 PagerDuty] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL 和 SAML 單一登入服務 URL]。
 
-    ![PagerDuty 設定](./media/pagerduty-tutorial/tutorial_pagerduty_configure.png) 
+    ![PagerDuty 設定](./media/pagerduty-tutorial/tutorial_pagerduty_configure.png)
 
 7. 在不同的 Web 瀏覽器視窗中，以系統管理員身分登入您的 Pagerduty 公司網站。
 
 8. 在頂端的功能表中，按一下 [帳戶設定] 。
-   
+
     ![帳戶設定](./media/pagerduty-tutorial/ic778535.png "帳戶設定")
 
 9. 按一下 [單一登入] 。
-   
+
     ![單一登入](./media/pagerduty-tutorial/ic778536.png "單一登入")
 
 10. 在 [啟用單一登入 (SSO)] 頁面上執行下列步驟：
-   
+
     ![啟用單一登入](./media/pagerduty-tutorial/ic778537.png "啟用單一登入")
-   
+
     a. 在記事本中開啟從 Azure 入口網站下載的 Base-64 編碼憑證，將其內容複製到您的剪貼簿，然後貼到 [X.509 憑證] 文字方塊中
   
     b. 在 [登入 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 **SAML 單一登入服務 URL**。
   
     c. 在 [登出 URL] 文字方塊中，貼上您從 Azure 入口網站複製的**登出 URL**。
- 
-    d. 選取 [開啟單一登入] 。
- 
-    e. 按一下 [儲存變更] 。
 
-> [!TIP]
-> 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
+    d. 選取 [Allow username/password login] \(允許使用者名稱/密碼登入\)。
+
+    e. 選取 [Require EXACT authentication context comparison] \(要求完全相符的驗證內容比較\) 核取方塊。
+
+    f. 按一下 [儲存變更] 。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -225,7 +223,7 @@ PagerDuty 需以手動方式佈建。
 
 ![指派使用者角色][200]
 
-**若要將 Britta Simon 指派到 PagerDuty，請執行以下步驟：**
+**若要將 Britta Simon 指派給 PagerDuty，請執行下列步驟：**
 
 1. 在 Azure 入口網站中，開啟應用程式檢視，接著瀏覽至目錄檢視並移至 [企業應用程式]，然後按一下 [所有應用程式]。
 
@@ -262,8 +260,6 @@ PagerDuty 需以手動方式佈建。
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](tutorial-list.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../manage-apps/what-is-single-sign-on.md)
 
-
-
 <!--Image references-->
 
 [1]: ./media/pagerduty-tutorial/tutorial_general_01.png
@@ -277,4 +273,3 @@ PagerDuty 需以手動方式佈建。
 [201]: ./media/pagerduty-tutorial/tutorial_general_201.png
 [202]: ./media/pagerduty-tutorial/tutorial_general_202.png
 [203]: ./media/pagerduty-tutorial/tutorial_general_203.png
-
