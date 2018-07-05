@@ -13,20 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: 5df6633d40a3a361e551d1bea6caa2606a661a52
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: eee68481f4396f8a09241b664d4c3d7d4a4f6567
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618917"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054345"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>建立依排程執行管線的觸發程序
 本文提供有關排程觸發程序的資訊，以及建立、啟動和監視排程觸發程序的步驟。 如需了解其他類型的觸發程序，請參閱[管線執行和觸發程序](concepts-pipeline-execution-triggers.md)。
 
 建立排程觸發程序時，您需為觸發程序指定排程 (開始日期、週期、結束日期等)，然後與管線建立關聯。 管道和觸發程序具有多對多關聯性。 多個觸發程序可以啟動單一管道。 單一觸發程序可以啟動多個管道。
-
-> [!NOTE]
-> 本文適用於第 2 版 Azure Data Fatory (目前為預覽版)。 如果您使用第 1 版 Azure Data Factory (也就是正式運作版 (GA))，請參閱[開始使用 Azure Data Factory 第 1 版](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
 下列各節提供以各種不同方式建立排程觸發程序的步驟。 
 
@@ -249,7 +246,7 @@ ms.locfileid: "34618917"
 您可以使用 Azure Resource Manager 範本來建立觸發程序。 如需逐步指示，請參閱[使用 Azure Resource Manager 範本建立 Azure Data Factory](quickstart-create-data-factory-resource-manager-template.md)。  
 
 ## <a name="pass-the-trigger-start-time-to-a-pipeline"></a>將觸發程序開始時間傳遞給管線
-第 1 版 Azure Data Factory 支援使用下列系統變數來讀取或寫入分割的資料：**SliceStart****SliceEnd****WindowStart** 及 **WindowEnd**。 在第 2 版 Azure Data Factory 中，您可以使用管線參數來產生此行為。 觸發程序的開始時間和排程時間會設定為管線參數的值。 在以下範例中，會將觸發程序的排程時間傳遞給管線的 **scheduledRunTime** 參數來作為值：
+第 1 版 Azure Data Factory 支援使用下列系統變數來讀取或寫入分割的資料：**SliceStart****SliceEnd****WindowStart** 及 **WindowEnd**。 在目前版本的 Azure Data Factory 中，您可以使用管線參數來實現此行為。 觸發程序的開始時間和排程時間會設定為管線參數的值。 在以下範例中，會將觸發程序的排程時間傳遞給管線的 **scheduledRunTime** 參數來作為值：
 
 ```json
 "parameters": {

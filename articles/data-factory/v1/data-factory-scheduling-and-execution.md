@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f18d6817d3a04ad787888ba058e1251303e575a7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bd8b682e073e86bb824d31d6ebab20a80f807730
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622402"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054597"
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Data Factory 排程和執行
 > [!NOTE]
-> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用第 2 版 Data Factory 服務 (預覽版)，請參閱[管線執行和觸發程序](../concepts-pipeline-execution-triggers.md)一文。
+> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[管線執行和觸發程序](../concepts-pipeline-execution-triggers.md)一文。
 
 本文說明 Azure Data Factory 應用程式模型的排程和執行層面。 本文假設您已了解 Data Factory 應用程式模型的基本概念，包括活動、管線、連結的服務和資料集。 請看下列文章，了解 Azure Data Factory 的基本概念：
 

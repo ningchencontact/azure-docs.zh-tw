@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: dddb29d2a796449d6a2c9b68e01e94f32d3022e4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 98f7494c87683eda858da5970e12073ce2204303
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621984"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048282"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Salesforce 移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [第 1 版 - 正式推出](data-factory-salesforce-connector.md)
-> * [第 2 版 - 預覽](../connector-salesforce.md)
+> * [第 1 版](data-factory-salesforce-connector.md)
+> * [第 2 版 (目前的版本)](../connector-salesforce.md)
 
 > [!NOTE]
-> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用處於預覽狀態的第 2 版 Data Factory 服務，請參閱[第 2 版的 Salesforce 連接器](../connector-salesforce.md)。
+> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[第 2 版中的 Salesforce 連接器](../connector-salesforce.md)。
 
 
 本文概述如何在 Azure Data Factory 使用複製活動，將資料從 Salesforce 複製到 [支援的來源與接收](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 資料表的 [接收] 欄底下列出的任何資料存放區。 本文是根據 [資料移動活動](data-factory-data-movement-activities.md) 一文，該文呈現使用複製活動移動資料的一般概觀以及支援的資料存放區組合。

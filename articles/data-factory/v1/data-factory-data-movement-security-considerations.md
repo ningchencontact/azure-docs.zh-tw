@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: cad363309b6086197ced1a5d1c1793995db11228
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 222558a6596c676034e52812d3b2dd0c77e1466b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621606"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046896"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - 資料移動的安全性考量
 
 > [!NOTE]
-> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用處於預覽狀態的 Data Factory 服務第 2 版，請參閱 [Data Factory 第 2 版的資料移動安全性考量](../data-movement-security-considerations.md)。
+> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱 [Data Factory 的資料移動安全性考量](../data-movement-security-considerations.md)。
 
 ## <a name="introduction"></a>簡介
 本文說明 Azure Data Factory 中資料移動服務用來保護您資料的基本安全性基礎結構。 Azure Data Factory 管理資源建置在 Azure 安全性基礎結構上，並使用 Azure 提供的所有可能安全性措施。
@@ -40,7 +40,7 @@ Azure Data Factory 本身除了用於雲端資料存放區的已連結服務認�
 -   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018) 
 -   [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
      
-如果您對 Azure 法規遵循以及 Azure 如何保護其專屬基礎結構感興趣，請瀏覽 [Microsoft 信任中心](https://www.microsoft.com/TrustCenter/default.aspx)。 
+如果您對 Azure 法規遵循以及 Azure 如何保護其專屬基礎結構感興趣，請瀏覽 [Microsoft 信任中心](https://microsoft.com/en-us/trustcenter/default.aspx)。 
 
 在本文中，我們會檢閱下列兩個資料移動案例中的安全性考量︰ 
 

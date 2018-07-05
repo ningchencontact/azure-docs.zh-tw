@@ -10,19 +10,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: d04500e770bf43278b88c2f980a10693590c7d16
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2d636eb381710c5e8341e24af8cd157a627348ef
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053831"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>資料管理閘道 - 高可用性和延展性 (預覽)
 > [!NOTE]
-> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用第 2 版 Data Factory 服務 (預覽版)，請參閱[第 2 版中的自我裝載整合執行階段](../create-self-hosted-integration-runtime.md)。 
+> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱 [自我裝載整合執行階段](../create-self-hosted-integration-runtime.md)。 
 
 
 本文可協助您使用資料管理閘道/整合來設定高可用性和延展性解決方案。    

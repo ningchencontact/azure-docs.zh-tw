@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 3a0d6998671df7f05d7077da6fffc20a5bf27e8a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b10fbd953eb9ca904043973ebc1f7c6adb9f9abc
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622494"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047382"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQL Server 預存程序活動
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -35,7 +35,7 @@ ms.locfileid: "34622494"
 > * [.NET 自訂活動](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> 本文適用於第 1 版 Azure Data Factory (正式運作版)。 如果您使用第 2 版 Data Factory 服務 (預覽版)，請參閱[使用 Data Factory 第 2 版中的預存程序活動來轉換資料](../transform-data-using-stored-procedure.md)。
+> 本文適用於 Azure Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[在 Data Factory 中使用預存程序活動來轉換資料](../transform-data-using-stored-procedure.md)。
 
 ## <a name="overview"></a>概觀
 您在 Data Factory [管線](data-factory-create-pipelines.md)中使用資料轉換活動，以轉換和處理您的原始資料以進行預測和深入了解。 預存程序活動是 Data Factory 支援的其中一個轉換活動。 本文是以[資料轉換活動](data-factory-data-transformation-activities.md)一文為基礎，提供 Data Factory 中資料轉換及所支援轉換活動的一般概觀。

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: b2f33a8dce441312e74688ca766ab65c028451d9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 75709e099c6126997d91bf4b679de473fc75a485
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32167882"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064407"
 ---
 # <a name="understanding-cost-management-reports"></a>了解成本管理報告
 
@@ -176,6 +176,10 @@ ms.locfileid: "32167882"
 
     使用動作儲存、匯出或排定報告。
 
+15. **原則**
+
+    有些報告雖然未說明，但仍包含預計成本計算原則。 在這些報告中，**彙總**原則會顯示目前實體 (如 Microsoft 註冊或 AWS 付款人) 下的所有帳戶和訂用帳戶的建議。 而**獨立**原則會以如同沒有其他訂用帳戶的方式，顯示單一帳戶或訂用帳戶的建議。 選取的原則會因組織使用的最佳化策略而異。 預計成本是以過去 30 天的使用狀況為基準。
+
 ## <a name="save-and-schedule-reports"></a>儲存和排程報表
 
 建立報告之後，您可加以儲存供日後使用。 在 [我的工具] > [我的報告] 中可取得已儲存的報告。 如果您變更現有的報告並加以儲存，該報告就會儲存為新版本。 或者，您可以將它儲存為新報告。
@@ -199,4 +203,5 @@ ms.locfileid: "32167882"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如果您尚未完成成本管理的第一個教學課程，請在[檢閱使用量和成本](tutorial-review-usage.md)中閱讀。
+- 在 [使用成本管理報告][](use-reports.md) 中了解 Cloudyn 所含的報告。
+- 了解如何使用報告建立 [儀表板][](dashboards.md)。

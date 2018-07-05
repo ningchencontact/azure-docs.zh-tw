@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: fdfb35b0e1c52ad2aad164a38ae308f9142880a6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 25df96664f6b5fe9da26bee43bc726e05504e5b8
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619621"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055296"
 ---
 # <a name="load-data-into-azure-data-lake-store-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料載入 Azure Data Lake Store 中
 
@@ -35,9 +35,6 @@ Azure Data Factory 可針對將資料載入 Azure Data Lake Store 的作業提�
 
 > [!NOTE]
 > 如需詳細資訊，請參閱[使用 Azure Data Factory 將資料複製到 Azure Data Lake Store 或從該處複製資料](connector-azure-data-lake-store.md)。
->
-> 本文適用於第 2 版的 Azure Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (也就是正式推出版 (GA))，請參閱 [Azure Data Factory 第 1 版中的複製活動](v1/data-factory-data-movement-activities.md)。
-
 ## <a name="prerequisites"></a>先決條件
 
 * Azure 訂用帳戶：如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
@@ -56,7 +53,7 @@ Azure Data Factory 可針對將資料載入 Azure Data Lake Store 的作業提�
     * **名稱**：輸入 Azure 資料處理站的全域唯一名稱。 如果您收到「資料處理站名稱 \"LoadADLSDemo\" 無法使用」的錯誤，請為資料處理站輸入其他名稱。 例如，您可以使用**您的名稱****ADFTutorialDataFactory**。 請嘗試再次建立資料處理站。 如需 Data Factory 成品的命名規則，請參閱 [Data Factory 命名規則](naming-rules.md)。
     * **訂用帳戶**：選取用來在其中建立資料處理站的 Azure 訂用帳戶。 
     * **資源群組**：從下拉式清單中選取現有資源群組，或選取 [新建] 選項，然後輸入資源群組的名稱。 若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。  
-    * **版本**：選取 [V2 (預覽)]。
+    * **版本**：選取 [V2]。
     * **位置**：選取資料處理站的位置。 只有受到支援的位置會顯示在下拉式清單中。 資料處理站所使用的資料存放區可位於其他位置和區域。 這些資料存放區包含 Azure Data Lake Store、Azure 儲存體、Azure SQL Database 等等。
 
 3. 選取 [建立] 。
@@ -74,35 +71,45 @@ Azure Data Factory 可針對將資料載入 Azure Data Lake Store 的作業提�
 2. 在 [屬性] 頁面中，對 [工作名稱] 欄位指定 [CopyFromAmazonS3ToADLS]，然後選取 [下一步]：
 
     ![屬性頁面](./media/load-data-into-azure-data-lake-store/copy-data-tool-properties-page.png)
-3. 在 [來源資料存放區] 頁面中，選取 [Amazon S3]，然後選取 [下一步]：
+3. 在 [來源資料存放區] 頁面中，按一下 [+ Create new connection] \(+ 建立新連線\)：
 
     ![來源資料存放區頁面](./media/load-data-into-azure-data-lake-store/source-data-store-page.png)
+    
+    選取 [Amazon S3]，然後選取 [繼續]
+    
+    ![來源資料存放區 s3 頁面](./media/load-data-into-azure-data-lake-store/source-data-store-page-s3.png)
+    
 4. 在 [指定 Amazon S3 連線] 頁面中，執行下列步驟： 
    1. 指定 [存取金鑰識別碼] 值。
    2. 指定 [祕密存取金鑰] 值。
-   3. 選取 [下一步] 。
+   3. 選取 [完成]。
    
    ![指定 Amazon S3 帳戶](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
+   
+   4. 您會看到新的連線。 選取 [下一步] 。
+   
+   ![指定 Amazon S3 帳戶](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account-created.png)
+   
 5. 在 [選擇輸入檔案或資料夾] 頁面中，瀏覽至您要複製過去的資料夾和檔案。 選取資料夾/檔案，選取 [選擇]，然後選取 [下一步]：
 
     ![選擇輸入檔案或資料夾](./media/load-data-into-azure-data-lake-store/choose-input-folder.png)
 
-6. 在 [目的地資料存放區] 頁面上，選取 [Azure Data Lake Store]，然後選取 [下一步]：
-
-    ![目的地資料存放區頁面](./media/load-data-into-azure-data-lake-store/destination-data-storage-page.png)
-
-7. 選取 [以遞迴方式複製檔案] 和 [二進位複製] (依原樣複製檔案) 選項來選擇複製行為。 選取 [下一步]：
+6. 選取 [以遞迴方式複製檔案] 和 [二進位複製] (依原樣複製檔案) 選項來選擇複製行為。 選取 [下一步]：
 
     ![指定輸出資料夾](./media/load-data-into-azure-data-lake-store/specify-binary-copy.png)
+    
+7. 在 [目的地資料存放區] 頁面中，按一下 [+ Create new connection] \(+ 建立新連線\)，然後選取 [Azure Data Lake Store]，並選取 [繼續]：
+
+    ![目的地資料存放區頁面](./media/load-data-into-azure-data-lake-store/destination-data-storage-page.png)
 
 8. 在 [指定 Data Lake Store 連線] 頁面中，執行下列步驟： 
 
    1. 選取您的 Data Lake Store 作為 [Data Lake Store 帳戶名稱]。
-   2. 指定服務主體資訊：[租用戶]、[服務主體識別碼] 和 [服務主體金鑰]。
+   2. 指定 [租用戶]，然後選取 [完成]。
    3. 選取 [下一步] 。
    
    > [!IMPORTANT]
-   > 在本逐步解說中，您會使用_服務主體_來驗證 Data Lake Store。 請務必遵循[這些指示](connector-azure-data-lake-store.md#using-service-principal-authentication)，以對服務主體授與 Azure Data Lake Store 中的適當權限。
+   > 在本逐步解說中，您會使用_受控服務識別_來驗證 Data Lake Store。 請務必遵循[這些指示](connector-azure-data-lake-store.md#using-managed-service-identity-authentication)，以對服務主體授與 Azure Data Lake Store 中的適當權限。
    
    ![指定 Azure Data Lake Store 帳戶](./media/load-data-into-azure-data-lake-store/specify-adls.png)
 9. 在 [選擇輸出檔案或資料夾] 頁面中，輸入 [copyfroms3] 作為輸出資料夾名稱，然後選取 [下一步]： 

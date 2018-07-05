@@ -11,21 +11,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: dbfbafccc1bc735927535a5ee0f8d232be355dca
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 338df0e258f66b6639e59a4fe31b6cfb6c283dd3
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618618"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045522"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>複製活動中的結構描述對應
 本文說明 Azure Data Factory 複製活動在執行資料複製時，如何將來源資料中的結構描述和資料類型對應到接收資料。
-
-> [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用 Data Factory 服務的 1 版 (正式推出版本 (GA))，請參閱 [Data Factory 第 1 版文件](v1/data-factory-introduction.md)。
-
 
 ## <a name="column-mapping"></a>資料行對應
 
@@ -128,11 +124,18 @@ ms.locfileid: "34618618"
         "translator":
         {
             "type": "TabularTranslator",
-            "ColumnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"
+            "columnMappings": 
+            {
+                "UserId": "MyUserId",
+                "Group": "MyGroup",
+                "Name": "MyName"
+            }
         }
     }
 }
 ```
+
+如果您正在使用 `"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"` 的語法指定資料行對應，則仍會依原狀支援該對應。
 
 **資料行對應流程：**
 

@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: cdea020ad4c9c9e828d62fff8639acec2e3d6c74
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6b13c70d86af195e50190083aa562811236cdd4b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621916"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054253"
 ---
 # <a name="move-data-by-using-copy-activity"></a>使用複製活動來移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [第 1 版 - 正式推出](data-factory-data-movement-activities.md)
-> * [第 2 版 - 預覽](../copy-activity-overview.md)
+> * [第 1 版](data-factory-data-movement-activities.md)
+> * [第 2 版 (目前的版本)](../copy-activity-overview.md)
 
 > [!NOTE]
-> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用處於預覽狀態的第 2 版 Data Factory 服務，請參閱[第 2 版中的複製活動](../copy-activity-overview.md)。
+> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[第 2 版中的複製活動](../copy-activity-overview.md)。
 
 ## <a name="overview"></a>概觀
 在 Azure Data Factory 中，您可以使用「複製活動」在內部部署與雲端資料存放區之間複製資料。 複製資料之後，可以將它進一步轉換及進行分析。 您也可以使用「複製活動」來發佈商業智慧 (BI) 及應用程式使用情況的轉換和分析結果。
