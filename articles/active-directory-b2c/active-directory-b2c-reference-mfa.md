@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/06/2016
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 85592275c13719fec0f40eb76a9bce48890a59d2
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 3d18e1b2e45aba4e83989e29c533cfc7bf5033fc
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34710187"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442703"
 ---
 # <a name="azure-active-directory-b2c-enable-multi-factor-authentication-in-your-consumer-facing-applications"></a>Azure Active Directory B2C：在取用者導向應用程式中啟用 Multi-Factor Authentication
 Azure Active Directory (Azure AD) B2C 直接整合 [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) ，讓您能夠針對取用者導向應用程式的註冊與登入使用體驗，增添第二層安全性。 您連一行程式碼都不用寫，即可達成此目標。 目前我們支援撥打電話與簡訊驗證。 如果您已經建立註冊和登入原則，您仍然可以啟用 Multi-Factor Authentication。

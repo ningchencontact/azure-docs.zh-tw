@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.component: protection
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: b5c2f13386a996a6c7895bd4755b6cf609a5df72
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: f963e63aa92e15205f20ecb3e502065b8dd2c58c
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233249"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37443064"
 ---
 # <a name="perform-access-reviews-in-azure-resources-by-using-privileged-identity-management"></a>使用 Privileged Identity Management 在 Azure 資源中執行存取權檢閱
 當使用者擁有不再需要的特殊存取權時，角色指派就會變成「過時」。 若要降低與這些過時角色指派相關聯的風險，特殊權限角色管理員應該定期檢閱角色。 本文件涵蓋在適用於 Azure 資源的 Privileged Identity Management (PIM) 中開始進行存取權檢閱的步驟。

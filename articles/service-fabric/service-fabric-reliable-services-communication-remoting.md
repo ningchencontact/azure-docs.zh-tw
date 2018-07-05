@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: ad56580e73c06acff95b3146f6dc2d83ab2ba3ae
-ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
+ms.openlocfilehash: 7afa50484c3ebf258bbdd2b7f16c9cd051710d28
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36945967"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437887"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>使用 Reliable Services 在 C# 中進行服務遠端處理
 > [!div class="op_single_selector"]
@@ -89,7 +89,7 @@ string message = await helloWorldClient.HelloWorldAsync();
 遠端架構會將服務擲回的例外狀況傳播給用戶端。 因此，使用 `ServiceProxy` 時，用戶端會負責處理由服務擲回的例外狀況。
 
 ## <a name="service-proxy-lifetime"></a>服務 Proxy 存留期
-建立 ServiceProxy 是輕量型作業，因此您可以建立的數目沒有限制。 只要有需要，可以重複使用服務 Proxy 執行個體。 如果遠端程序呼叫擲回例外狀況，您仍然可以重複使用相同的 Proxy 執行個體。 每個 ServiceProxy 都包含用來透過網路傳送訊息的通訊用戶端。 叫用遠端呼叫時，系統會執行內部檢查來判斷通訊用戶端是否有效。 根據這些檢查的結果，如有必要，通訊用戶端會重建。 因此，如果發生例外狀況，您無須重建 `ServiceProxy`。
+建立 ServiceProxy 是輕量型作業，因此您可以建立的數目沒有限制。 只要有需要，可以重複使用服務 Proxy 執行個體。 如果遠端程序呼叫擲回例外狀況，您仍然可以重複使用相同的 Proxy 執行個體。 每個 ServiceProxy 都包含用來透過網路傳送訊息的通訊用戶端。 叫用遠端呼叫時，系統會執行內部檢查來判斷通訊用戶端是否有效。 根據這些檢查的結果，系統會在必要情況下重建通訊用戶端。 因此，如果發生例外狀況，您無須重建 `ServiceProxy`。
 
 ### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory 存留期
 [ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) 是建立不同遠端介面 Proxy 執行個體的處理站。 如果您使用 api `ServiceProxy.Create` 建立 Proxy，那麼架構將建立單一 ServiceProxy。

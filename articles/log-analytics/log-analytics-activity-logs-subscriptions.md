@@ -3,22 +3,23 @@ title: 跨訂用帳戶將 Azure 活動記錄收集到 Log Analytics | Microsoft 
 description: 使用事件中樞和 Logic Apps 收集來自 Azure 活動記錄的資料，並將它傳送至不同租用戶中的 Azure Log Analytics 工作區。
 services: log-analytics, logic-apps, event-hubs
 documentationcenter: ''
-author: richrundmsft
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: d72d0823d78f47aed3d8690cee81f8bb00e7921d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: na
+ms.openlocfilehash: c2bb802213d903290a0168623d7e6a302ba0e324
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636965"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127436"
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>跨訂用帳戶將 Azure 活動記錄收集到 Log Analytics
 

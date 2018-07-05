@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: 67710115-c861-40f8-a377-57c7fa6909b4
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: e0366e6a2403f7cea83efde35c7b3b42565a1cf2
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.component: na
+ms.openlocfilehash: 9a43774a5327536ae4fa1346ae933739ea629771
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062774"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130079"
 ---
 # <a name="data-sources-in-log-analytics"></a>Log Analytics 中的資料來源
 Log Analytics 會從 [連接的來源] 收集資料，並將它儲存在 Log Analytics 工作區中。  而您設定的資料來源可定義要從每個來源收集哪些資料。  Log Analytics 中的資料會儲存為一組記錄。  每個資料來源都會建立特定類型的記錄，每種類型各有自己的一組屬性。
@@ -50,7 +51,7 @@ Log Analytics 會從 [連接的來源] 收集資料，並將它儲存在 Log Ana
 ![設定 Windows 事件](./media/log-analytics-data-sources/configure-events.png)
 
 1. 在 Azure 入口網站中，選取 [Log Analytics] > 您的工作區 > [進階設定]。
-2. 選取 [資料]。
+2. 選取 [資料] 。
 3. 按一下要設定的資料來源。
 4. 參閱上表中每個資料來源的文件連結，即可取得其組態的詳細資訊。
 

@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: sujayt
-ms.openlocfilehash: 7f0011172185f13f51bcea8061b36012aa5da33b
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 125d521d840d2b06687d818ae7b31a2610886dfe
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36324213"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342526"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>從一個 Azure 區域複寫至另一個區域的支援矩陣
 
@@ -170,8 +170,8 @@ Azure 資源庫映像 - 第三方發行 | 支援 | 只要 VM 在 Site Recovery �
 磁碟上的資料變更率 | 進階儲存體的上限為每個磁碟 10 MBps，標準儲存體的上限為每個磁碟 2 MBps | 如果磁碟的平均資料變更率持續超過 10 MBps (適用於進階儲存體) 和 2 MBps (適用於標準儲存體)，複寫將會趕不上進度。 不過，如果是偶發性的資料高載，資料變更率超過 10 MBps (適用於進階儲存體) 和 2 MBps (適用於標準儲存體) 的情況只持續一段時間便下降，複寫便可趕上進度。 在此情況下，您可能會發現復原點稍微延遲。
 標準儲存體帳戶上的磁碟 | 支援 |
 進階儲存體帳戶上的磁碟 | 支援 | 如果 VM 的磁碟分散於進階和標準儲存體帳戶，您可以對於各個磁碟選取不同的目標儲存體帳戶，以確保目標區域有相同的儲存體設定
-標準受控磁碟 | 在支援 Azure Site Recovery 的 Azure 區域中會支援。 目前不支援政府雲端。  |  
-進階受控磁碟 | 在支援 Azure Site Recovery 的 Azure 區域中會支援。 目前不支援政府雲端。 |
+標準受控磁碟 | 在支援 Azure Site Recovery 的 Azure 區域中會支援。 |  
+進階受控磁碟 | 在支援 Azure Site Recovery 的 Azure 區域中會支援。 |
 儲存體空間 | 支援 |         
 待用加密 (SSE) | 支援 | SSE 是儲存體帳戶上的預設設定。   
 Azure 磁碟加密 (ADE) | 不支援 |

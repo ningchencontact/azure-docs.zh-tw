@@ -2,19 +2,19 @@
 title: 為 Azure Kubernetes Service (AKS) 叢集設定輸入
 description: 在 Azure Kubernetes Service (AKS) 叢集中安裝及設定 NGINX 輸入控制器。
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 06/25/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: fcf0b6f3b7f6d75006d8c10aab041c25fc0d8c39
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 9bee80ebbaf0568706428d673d584819b1daa143
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751280"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096983"
 ---
 # <a name="https-ingress-on-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 上的 HTTPS 輸入
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: 665365e06ef02698c10259628f6bf2442ab8d612
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f1a1a2fa083dd1bf02132e08981d736a17a2c58f
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333508"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109479"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>開始使用 Key Vault 憑證
 下列情節概述 Key Vault 憑證管理服務的數個主要用法 (包括在金鑰保存庫中建立第一個憑證所需的其他步驟)。
@@ -121,5 +121,5 @@ ms.locfileid: "36333508"
   (5) - 應用程式合併 CA 的 X509 憑證，來完成新憑證建立。
 
 ## <a name="see-also"></a>另請參閱
-- [憑證作業](/rest/api/keyvault/certificate-operations.md)
+- [憑證作業](/rest/api/keyvault/certificate-operations)
 - [關於金鑰、密碼與憑證](about-keys-secrets-and-certificates.md)

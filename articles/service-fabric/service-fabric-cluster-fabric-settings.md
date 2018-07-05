@@ -14,25 +14,25 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/27/2018
 ms.author: aljo
-ms.openlocfilehash: 6783c2b3b431e99050bc6762c1855b22e0701686
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 84f8827a58d7f3c5dcc32943d2ba891b02c1e1ab
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062274"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083187"
 ---
-# <a name="description-of-the-different-upgrade-policies"></a>不同升級原則說明
-
-- **動態** – 更改動態設定不會導致 Service Fabric 處理序或服務主機處理序出現任何處理序重新啟動的情形。 
-- **靜態** – 更改靜態設定將導致 Service Fabric 節點重新啟動以因應更改。 節點上的服務會重新啟動。
-- **不允許** – 無法修改這些設定。 變更這些設定需要終結叢集並建立新叢集。 
-
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>自訂 Service Fabric 叢集設定和網狀架構升級原則
 本文件將告訴您如何為 Service Fabric 叢集自訂各種網狀架構設定和網狀架構升級原則。 您可以透過 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本來進行自訂。
 
 > [!NOTE]
 > 並非所有設定都可以在入口網站中使用。 若下列設定無法透過入口網站使用，請使用 Azure Resource Manager 範本自訂它。
 > 
+
+## <a name="description-of-the-different-upgrade-policies"></a>不同升級原則說明
+
+- **動態** – 更改動態設定不會導致 Service Fabric 處理序或服務主機處理序出現任何處理序重新啟動的情形。 
+- **靜態** – 更改靜態設定將導致 Service Fabric 節點重新啟動以因應更改。 節點上的服務會重新啟動。
+- **不允許** – 無法修改這些設定。 變更這些設定需要終結叢集並建立新叢集。 
 
 ## <a name="customize-cluster-settings-using-resource-manager-templates"></a>使用 Resource Manager 範本自訂叢集設定
 下列步驟說明如何將新設定 *MaxDiskQuotaInMB* 新增至 *Diagnostics* 區段。

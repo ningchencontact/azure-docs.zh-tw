@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
-ms.openlocfilehash: 2916252c08c599d2e528595a8cdf2abca8ea89a3
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 3715dcceb4330f6eaab01f49aee9d4d19663b62e
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939742"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099651"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>航太與其他業務中預測性維護的 Cortana Intelligence 解決方案範本的技術指南
 
@@ -54,7 +54,7 @@ ms.locfileid: "36939742"
 ### <a name="synthetic-data-source"></a>綜合資料來源
 針對此範本，使用的資料來源是從桌面應用程式產生，您將會下載應用程式並於部署成功後在本機執行。
 
-若要找到下載及安裝此應用程式的指示，請在解決方案範本圖表上選取第一個節點，也就是「預測性維護資料產生器」。 相關指示可在屬性列中找到。 此應用程式會將在解決方案流程的其餘部分使用的資料點或事件送入 [Azure 事件中樞](#azure-event-hub)服務。 此資料來源使用 [Turbofan 引擎降低模擬資料集](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan) \(英文\)，其衍生自 [NASA 資料存放庫](https://c3.nasa.gov/dashlink/resources/139/) \(英文\) 可公開使用的資料。
+若要找到下載及安裝此應用程式的指示，請在解決方案範本圖表上選取第一個節點，也就是「預測性維護資料產生器」。 相關指示可在屬性列中找到。 此應用程式會將在解決方案流程的其餘部分使用的資料點或事件送入 [Azure 事件中樞](#azure-event-hub)服務。 此資料來源使用 [Turbofan 引擎降低模擬資料集](http://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan) \(英文\)，其衍生自 [NASA 資料存放庫](https://c3.nasa.gov/dashlink/resources/139/) \(英文\) 可公開使用的資料。
 
 只有當它在您的電腦上執行時，事件產生應用程式才會填入 Azure 事件中樞。  
 
@@ -82,7 +82,7 @@ ms.locfileid: "36939742"
 ## <a name="how-to-bring-in-your-own-data"></a>如何帶入您自己的資料
 本節說明如何將您自己的資料帶入 Azure，以及對於您放入這個架構的資料，需要變更哪些區域。
 
-您的資料集不太可能會符合用於這個解決方案範本的 [Turbofan 引擎降低模擬資料集](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan) (英文) 所用的資料集。 了解您的資料與需求對於如何修改此範本以搭配您自己的資料而言非常重要。 
+您的資料集不太可能會符合用於這個解決方案範本的 [Turbofan 引擎降低模擬資料集](http://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan) (英文) 所用的資料集。 了解您的資料與需求對於如何修改此範本以搭配您自己的資料而言非常重要。 
 
 下列各節將討論引進新資料集時將需要修改的範本部分。
 

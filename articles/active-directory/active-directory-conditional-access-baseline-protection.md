@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/21/2018
+ms.date: 07/02/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 86b57a82573760ac73975e851b2bb4caf769845b
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 1e7eb3a0098dc27b6f3c47d8d4848b2b9b5f7e61
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308555"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447535"
 ---
 # <a name="what-is-baseline-protection---preview"></a>何謂基準保護？ - 預覽  
 
@@ -51,7 +51,7 @@ ms.locfileid: "36308555"
 
 ![Azure Active Directory](./media/active-directory-conditional-access-baseline-protection/01.png)
 
-此基準原則會提供給您排除使用者和群組的選項。 您可以排除一個*[緊急存取系統管理帳戶](active-directory-admin-manage-emergency-access-accounts.md)* 以確保系統不會將您鎖定而讓您無法使用租用戶。
+此基準原則會提供給您排除使用者和群組的選項。 您可以排除一個*[緊急存取系統管理帳戶](users-groups-roles/directory-emergency-access.md)* 以確保系統不會將您鎖定而讓您無法使用租用戶。
 
 
 ## <a name="enable-a-baseline-policy"></a>啟用基準原則 
@@ -67,9 +67,9 @@ ms.locfileid: "36308555"
 
     ![Azure Active Directory](./media/active-directory-conditional-access-baseline-protection/02.png)
 
-3. 在 [Azure Active Directory] 頁面的 [管理] 區段中，按一下 [條件式存取]。
+3. 在 [Azure Active Directory] 頁面的 [安全性] 區段中，按一下 [條件式存取]。
 
-    ![條件式存取](./media/active-directory-conditional-access-baseline-protection/03.png)
+    ![條件式存取](./media/active-directory-conditional-access-baseline-protection/05.png)
 
 4. 在原則清單中，按一下以 [基準原則:] 開頭的原則。 
 
