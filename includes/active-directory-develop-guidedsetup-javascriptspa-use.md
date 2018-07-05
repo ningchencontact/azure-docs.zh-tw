@@ -1,4 +1,4 @@
-## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>使用 Microsoft Authentication Library (MSAL) 以登入使用者
+## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>使用 Microsoft Authentication Library (MSAL) 登入使用者
 
 1.  建立名為 `app.js` 的檔案。 如果您使用 Visual Studio，請選取專案 (專案根資料夾)，以滑鼠右鍵按一下並選取：`Add` > `New Item` > `JavaScript File`：
 2.  將下列程式碼新增至 `app.js` 檔案：
@@ -50,7 +50,7 @@ function callGraphApi() {
         userInfoElement.parentElement.classList.remove("hidden");
         userInfoElement.innerHTML = JSON.stringify(user, null, 4);
 
-        // Show Sign-Out button
+        // Show sign-out button
         document.getElementById("signOutButton").classList.remove("hidden");
 
         // Now Call Graph API to show the user profile information:
@@ -81,7 +81,7 @@ function callGraphApi() {
 /**
  * Callback method from sign-in: if no errors, call callGraphApi() to show results.
  * @param {string} errorDesc - If error occur, the error message
- * @param {object} token - The token received from login
+ * @param {object} token - The token received from sign-in
  * @param {object} error - The error string
  * @param {string} tokenType - The token type: For loginRedirect, tokenType = "id_token". For acquireTokenRedirect, tokenType:"access_token".
  */
@@ -119,12 +119,12 @@ function showError(endpoint, error, errorDesc) {
 
 #### <a name="getting-a-user-token-interactively"></a>以互動方式取得使用者權杖
 
-初始登入之後，您不希望在使用者每次必須要求權杖來存取資源時，都要求使用者重新驗證 – 因此通常應該使用 acquireTokenSilent 以取得權杖。 然而，在某些情況下您需要強制使用者與 Azure Active Directory v2 端點互動 – 範例包括：
--   使用者可能需要重新輸入其認證，因為密碼已過期
--   您的應用程式要求的資源存取權，需要使用者同意
--   需要雙因素驗證
+初始登入之後，您不希望在使用者每次必須要求權杖來存取資源時，都要求使用者重新驗證，因此，通常應該使用 *acquireTokenSilent* 以取得權杖。 然而，在某些情況下您需要強制使用者來與 Azure Active Directory v2 端點互動，部分範例包括：
+- 使用者可能需要重新輸入其認證，因為密碼已過期
+- 您的應用程式要求的資源存取權，需要使用者同意
+- 需要雙因素驗證
 
-呼叫 acquireTokenRedirect(scope) 會導致將使用者重新導向至 Azure Active Directory v2 端點 (或者呼叫 acquireTokenPopup(scope) 會導致快顯視窗)，使用者必須藉由確認其認證、同意必要的資源，或完成雙因素驗證來進行互動。
+呼叫 *acquireTokenRedirect(scope)* 會導致將使用者重新導向至 Azure Active Directory v2 端點 (或者呼叫 *acquireTokenPopup(scope)* 會導致快顯視窗)，使用者必須藉由確認其認證、同意必要的資源，或完成雙因素驗證來進行互動。
 
 #### <a name="getting-a-user-token-silently"></a>以無訊息方式取得使用者權杖
 ` acquireTokenSilent` 方法會處理權杖取得和更新作業，不需要與使用者進行任何互動。 `loginRedirect` (或 `loginPopup`) 在第一次執行之後，`acquireTokenSilent` 就會成為用來取得權杖的常用方法，以在後續呼叫中使用那些權杖存取受保護的資源，並且會以無訊息方式進行要求或更新權杖的呼叫。
@@ -204,7 +204,7 @@ function callWebApiWithToken(endpoint, token, responseElement, showTokenElement)
 
 ```javascript
 /**
- * Sign-out the user
+ * Sign out the user
  */
 function signOut() {
     userAgentApplication.logout();

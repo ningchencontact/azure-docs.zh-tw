@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 16c99c2c5524a321616ac9f0975f0c9b4255ca94
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 07f739243b80230fbf4914535ea65183c3590937
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215849"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020436"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>在 Linux 上建立第一個 Java Service Fabric Reliable Actors 應用程式
 > [!div class="op_single_selector"]
@@ -219,6 +219,10 @@ Service Fabric Yeoman 範本包含 [Gradle](https://gradle.org/) 的建置指令
 部署應用程式後，開啟瀏覽器並瀏覽至 [http://localhost:19080/Explorer](http://localhost:19080/Explorer) 的 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)。
 接著展開 [應用程式] 節點，請注意，您的應用程式類型現在有一個項目，而另一個項目則在該類型的第一個執行個體。
 
+> [!IMPORTANT]
+> 若要將應用程式部署到 Azure 中的安全 Linux 叢集，您需要設定憑證來向 Service Fabric 執行階段驗證您的應用程式。 這樣做讓您的 Reliable Actors 服務能夠與基礎 Service Fabric 執行階段 API 進行通訊。 若要深入了解，請參閱[將 Reliable Services 應用程式設定為在 Linux 叢集上執行](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters)。  
+>
+
 ## <a name="start-the-test-client-and-perform-a-failover"></a>啟動測試用戶端並執行容錯移轉
 動作項目不會自行執行任何動作，它們需要其他服務或用戶端傳送訊息給它們。 動作項目範本包含簡單的測試指令碼，您可以用來與動作項目服務互動。
 
@@ -226,6 +230,14 @@ Service Fabric Yeoman 範本包含 [Gradle](https://gradle.org/) 的建置指令
 > 測試用戶端會使用 ActorProxy 類別來與動作項目通訊，但這些動作項目必須在與動作項目服務相同的叢集內執行，或共用相同的 IP 位址空間。  您可以在本機開發叢集所在的相同電腦上執行測試用戶端。  不過，若要與遠端叢集中的動作項目進行通訊，您必須在叢集上部署一個閘道來處理與動作項目進行的外部通訊。
 
 1. 使用監看式公用程式執行指令碼，以查看動作項目服務的輸出。  測試指令碼會在動作項目上呼叫 `setCountAsync()` 方法來遞增計數器，在動作項目上呼叫 `getCountAsync()` 方法以取得新的計數器值，並對主控台顯示該值。
+
+   如果是 MAC OS X，您需要藉由執行下列其他命令，將 HelloWorldTestClient 資料夾複製到容器內的某些位置。    
+    
+    ```bash
+     docker cp HelloWorldTestClient [first-four-digits-of-container-ID]:/home
+     docker exec -it [first-four-digits-of-container-ID] /bin/bash
+     cd /home
+     ```
 
     ```bash
     cd HelloWorldActorTestClient
@@ -257,8 +269,8 @@ Service Fabric Java 程式庫已裝載於 Maven 中。 您可以在專案的 ``p
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-actors-preview</artifactId>
-      <version>0.12.0</version>
+      <artifactId>sf-actors</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -267,7 +279,7 @@ Service Fabric Java 程式庫已裝載於 Maven 中。 您可以在專案的 ``p
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-actors-preview:0.12.0'
+      compile 'com.microsoft.servicefabric:sf-actors:1.0.0'
   }
   ```
 
@@ -278,8 +290,8 @@ Service Fabric Java 程式庫已裝載於 Maven 中。 您可以在專案的 ``p
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-services-preview</artifactId>
-      <version>0.12.0</version>
+      <artifactId>sf-services</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -288,7 +300,7 @@ Service Fabric Java 程式庫已裝載於 Maven 中。 您可以在專案的 ``p
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-services-preview:0.12.0'
+      compile 'com.microsoft.servicefabric:sf-services:1.0.0'
   }
   ```
 
@@ -300,8 +312,8 @@ Service Fabric Java 應用程式的傳輸層支援。 除非您在傳輸層進�
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-transport-preview</artifactId>
-      <version>0.12.0</version>
+      <artifactId>sf-transport</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -310,7 +322,7 @@ Service Fabric Java 應用程式的傳輸層支援。 除非您在傳輸層進�
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-transport-preview:0.12.0'
+      compile 'com.microsoft.servicefabric:sf-transport:1.0.0'
   }
   ```
 
@@ -321,8 +333,8 @@ Service Fabric 的系統層級支援，其可與原生 Service Fabric 執行階�
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-preview</artifactId>
-      <version>0.12.0</version>
+      <artifactId>sf</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -331,7 +343,7 @@ Service Fabric 的系統層級支援，其可與原生 Service Fabric 執行階�
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-preview:0.12.0'
+      compile 'com.microsoft.servicefabric:sf:1.0.0'
   }
   ```
 

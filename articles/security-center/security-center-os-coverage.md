@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2018
+ms.date: 06/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 86e8c1c8f0d8654c86b851e3ae7296476f38b94e
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 1bb0b61fe8a74edd35bb096fd295aedc67f6efb3
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34756896"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335885"
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Azure 資訊安全中心支援的平台
 針對使用傳統與 Resource Manager 部署模型建立的虛擬機器 (VM) 與電腦，提供安全性狀態監視和建議。
@@ -42,12 +42,14 @@ ms.locfileid: "34756896"
 ## <a name="supported-platforms-for-linux-computers-and-vms"></a>Linux 電腦和 VM 支援的平台
 支援的 Linux 作業系統：
 
-* Ubuntu 版本 12.04、14.04、16.04、16.10
-* Debian 版本 7、8
-* CentOS 版本 6.\*、7.*
-* Red Hat Enterprise Linux (RHEL) 版本 6.\*、7.*
-* SUSE Linux Enterprise Server (SLES) 版本 11 SP4+、12.*
-* Oracle Linux 版本 6.\*、7.*
+* Ubuntu 版本 12.04 LTS、14.04 LTS、16.04 LTS
+* Debian 版本 6、7、8、9
+* CentOS 版本 5、6、7
+* Red Hat Enterprise Linux (RHEL) 版本 5、6、7
+* SUSE Linux Enterprise Server (SLES) 版本 11、12
+* Oracle Linux 版本 5、6、7
+* Amazon Linux 2012.09 到 2017
+* 只有 x86_64 平台 (64 位元) 支援 Openssl 1.1.0
 
 > [!NOTE]
 > 尚未提供 Linux 作業系統的虛擬機器行為分析。

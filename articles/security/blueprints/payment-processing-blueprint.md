@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: jomolesk
-ms.openlocfilehash: 03f13c0b1ae209cc3da211a252a9a735faad34d0
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 223829df11bb1c9add811b40b55e47ee1fbb1fe4
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301366"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751833"
 ---
 # <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Azure 安全性與合規性藍圖 - 符合 PCI DSS 規範的付款處理環境
 
@@ -298,7 +298,7 @@ ASE 已經過隔離，可執行只有單一客戶的應用程式，且一律會�
 
 ## <a name="deploy-the-solution"></a>部署解決方案
 
-部署此解決方案的元件可在 [PCI 藍圖程式碼存放庫][程式碼存放庫] 中取得。 基本架構的部署需要透過 Microsoft PowerShell v5 執行多個步驟。 若要連線至網站，您必須提供自訂網域名稱 (例如 contoso.com)。 這會使用步驟 2 中的 `-customHostName`參數來指定。 如需詳細資訊，請參閱[針對 Azure Web Apps 購買自訂網域名稱](/azure/app-service-web/custom-dns-web-site-buydomains-web-app)。 自訂網域名稱並不是成功部署和執行解決方案的必要項目，但是您會無法連線至用於示範的網站。
+用於部署此解決方案的元件可在 [PCI 藍圖程式碼存放庫](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms) \(英文\) 中找到。 基本架構的部署需要透過 Microsoft PowerShell v5 執行多個步驟。 若要連線至網站，您必須提供自訂網域名稱 (例如 contoso.com)。 這會透過步驟 2 的主要部署指令碼中的引導式使用者提示來指定。 如需詳細資訊，請參閱[針對 Azure Web Apps 購買自訂網域名稱](/azure/app-service-web/custom-dns-web-site-buydomains-web-app)。 自訂網域名稱並不是成功部署和執行解決方案的必要項目，但是您會無法連線至用於示範的網站。
 
 指令碼會將網域使用者新增至您指定的 Azure AD 租用戶。 我們建議您建立新的 Azure AD 租用戶，以作為測試使用。
 
@@ -323,19 +323,17 @@ ASE 已經過隔離，可執行只有單一客戶的應用程式，且一律會�
  
     ```powershell
     .\1-DeployAndConfigureAzureResources.ps1 
-        -resourceGroupName contosowebstore
-        -globalAdminUserName adminXX@contosowebstore.com 
-        -globalAdminPassword **************
-        -azureADDomainName contosowebstore.com 
-        -subscriptionID XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
-        -suffix PCIcontosowebstore
-        -customHostName contosowebstore.com
-        -sqlTDAlertEmailAddress edna@contosowebstore.com 
-        -enableSSL
-        -enableADDomainPasswordPolicy 
     ```
     
-    如需詳細的使用方式指示，請參閱[指令碼指示 - 部署和設定 Azure 資源](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md)。
+    如需詳細的使用方式指示，請參閱[指令碼指示 - 部署和設定 Azure 資源](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md)。 這個指令碼可用來支援 Contoso Web Store 示範，或試驗部署環境的初始步驟，以支援 PCI 合規性。 
+    
+    ```PowerShell
+    .\1A-ContosoWebStoreDemoAzureResources.ps1
+    ```
+    
+    如需支援 Contoso Web Store 示範部署的詳細使用方式指示，請參閱[指令碼指示 - Contoso Web Store 示範 Azure 資源](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1A-ContosoWebStoreDemoAzureResources.md) \(英文\)。 這個指令碼可用來部署 Contoso Web Store 示範基礎結構。 
+    
+    這些指令碼預計要彼此獨立使用。 若要以最佳方式了解此解決方案，建議您完成示範部署，以識別支援解決方案所需的必要 Azure 資源。 
     
 3. 記錄和監視。 一旦部署方案後，Log Analytics 工作區即可開啟，並可使用解決方案存放庫中的範例範本來說明如何設定監視儀表板。 如需範例範本，請參考 [omsDashboards 資料夾](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md)。 請注意必須在 Log Analytics 中收集資料，範本才能正確部署。 根據網站活動，這可能需要花費一小時以上。
  

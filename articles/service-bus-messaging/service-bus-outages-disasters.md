@@ -6,18 +6,18 @@ author: sethmanheim
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/14/2018
 ms.author: sethm
-ms.openlocfilehash: 38aaf6d7ddad1527e113efa502ae47b82165b079
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 1d960349b50e2618365fd085cba7b3e55fa53874
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802301"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301711"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>將應用程式與服務匯流排中斷和災難隔絕的最佳做法
 
-關鍵任務應用程式必須持續作業，即使發生非預期的中斷或災害亦然。 本主題說明您可用來保護服務匯流排應用程式，避免潛在的服務中斷或災害的技巧。
+關鍵任務應用程式必須持續作業，即使發生非預期的中斷或災害亦然。 本文說明您可用來保護服務匯流排應用程式，避免潛在服務中斷或災害發生的技巧。
 
 中斷的定義是暫時無法使用 Azure 服務匯流排。 中斷可能會影響服務匯流排的否些元件，例如訊息存放區或甚至整個資料中心。 修正問題之後，服務匯流排可再次使用。 中斷通常不會導致訊息或其他資料遺失。 元件失敗的範例是特定的訊息存放區無法使用。 資料中心全面中斷的範例是資料中心電源中斷、或錯誤的資料中心網路交換器。 中斷可能持續數分鐘到數天。
 
@@ -78,6 +78,17 @@ ms.locfileid: "34802301"
 
 服務匯流排支援命名空間層級的地理災害復原和異地複寫。 如需詳細資訊，請參閱 [Azure 服務匯流排地理災害復原](service-bus-geo-dr.md)。 災害復原功能僅適用於[進階 SKU](service-bus-premium-messaging.md)，其會實作中繼資料災害復原，並依賴主要和次要災害復原命名空間。
 
+## <a name="availability-zones-preview"></a>可用性區域 (預覽)
+
+服務匯流排進階 SKU 支援[可用性區域](../availability-zones/az-overview.md)，在 Azure 區域內提供錯誤隔離位置。 
+
+> [!NOTE]
+> 只有在**美國中部**、**美國東部 2** 和**法國中部**區域才支援可用性區域預覽。
+
+使用 Azure 入口網站時，只能在新的命名空間上啟用可用性區域。 服務匯流排不支援移轉現有的命名空間。 在命名空間上啟用區域備援之後，便無法停用。
+
+![1][]
+
 ## <a name="next-steps"></a>後續步驟
 若要深入了解災害復原，請參閱這些文章：
 
@@ -93,3 +104,5 @@ ms.locfileid: "34802301"
 [Geo-replication with Service Bus Brokered Messages]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoReplication
 [Azure SQL Database Business Continuity]: ../sql-database/sql-database-business-continuity.md
 [Azure resiliency technical guidance]: /azure/architecture/resiliency
+
+[1]: ./media/service-bus-outages-disasters/az.png

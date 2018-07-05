@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5f963e9ef6f0a19599f372b196dc75a327b92b5a
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 7da3ae1ca0fc59b0d606a22e9c00b8e7b58674ba
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "32178231"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335086"
 ---
 # <a name="what-is-appsource"></a>什麼是 AppSource
 AppSource 可讓 Microsoft 合作夥伴透過 Microsoft 支援的線上店面，讓客戶找到他們的技術與服務。 身為 AppSource 發行者，您可讓商務使用者參與 AppSource 以尋找、嘗試及取得企業營運 SaaS 應用程式與實作服務，以協助推動商務成果並縮短創造價值的時程： 
@@ -77,7 +77,7 @@ AppSource 可讓 Microsoft 合作夥伴透過 Microsoft 支援的線上店面，
 | SaaS 應用程式 (前身為 Web Apps) | 慣用 | Azure AD 是確保無縫式客戶經驗及促進最高品質潛在客戶的最佳做法 |
 ###### <a name="table-appsource-offerings-that-require-azure-active-directory-integration"></a>表格：需要 Azure Active Directory 整合的 AppSource 供應項目
 
-一開始，我們建議**您設定專用於 Azure Marketplace 發行的訂用帳戶***，以便讓您的工作與其他計劃分開進行。 此外，如果尚未安裝下列工具，那麼建議您將下列工具新增到您的開發環境： 
+一開始，我們建議**您設定專用於 Azure Marketplace 發行的訂用帳戶**\*，以便讓您的工作與其他計劃分開進行。 此外，如果尚未安裝下列工具，那麼建議您將下列工具新增到您的開發環境： 
 *   [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest "Azure - CLI")
 *   [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0 "PowerShell - Azure")
 *   在 [Azure 開發人員工具](https://azure.microsoft.com/tools/ "Azure - 開發人員工具")頁面中檢閱可用工具

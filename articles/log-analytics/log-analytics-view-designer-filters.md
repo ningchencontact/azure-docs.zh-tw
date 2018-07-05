@@ -12,25 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2017
+ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 5c2201292eb085dcc043e4257580c7971dbaffbd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 21b54f60286e25c410b9d51de8be122c450080d3
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "23655410"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752770"
 ---
 # <a name="filters-in-log-analytics-views"></a>Log Analytics 檢視中的篩選
 [Log Analytics 檢視](log-analytics-view-designer.md)中的**篩選**可讓使用者依特定屬性的值篩選檢視中的資料，而不需修改檢視本身。  例如，您可以允許檢視的使用者篩選檢視，只顯示來自某個特定電腦或一組電腦的資料。  您可以在單一檢視上建立多個篩選，以允許使用者依多個屬性進行篩選。  本文說明如何使用篩選，以及如何在自訂檢視中新增篩選。
 
 ## <a name="using-a-filter"></a>使用篩選
-按一下 [篩選] 以開啟檢視的篩選窗格。  這可讓您針對該檢視可用的任何篩選，選取時間範圍和值。  當您選取篩選時，它會顯示可用值的清單。  您可以選取一或多個值，或是輸入值。 檢視會自動更新來依據您指定的值進行篩選。 
+按一下檢視頂端的資料時間範圍，以開啟下拉式清單，您可以在其中變更檢視的資料時間範圍。
 
-如果未針對篩選選取任何值，該篩選就不會套用至檢視。  如果您移除篩選的所有值，系統就不會再套用該篩選。
+![篩選範例](media/log-analytics-view-designer/filters-example-time.png)
+
+按一下 **+** 以使用為檢視定義的自訂篩選器來新增篩選條件。 從下拉式清單中選取篩選條件的值或輸入一個值。 按一下 **+**，繼續新增篩選條件。 
 
 
-![篩選範例](media/log-analytics-view-designer/filters-example.png)
+![篩選範例](media/log-analytics-view-designer/filters-example-custom.png)
+
+如果您移除篩選的所有值，系統就不會再套用該篩選。
 
 
 ## <a name="creating-a-filter"></a>建立篩選

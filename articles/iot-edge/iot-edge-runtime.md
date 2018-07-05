@@ -4,18 +4,18 @@ description: 了解 Azure IoT Edge 執行階段，以及如何有效運用 Edge 
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 02/15/2018
+ms.date: 06/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4c44713d6b58edd3a18b0d20992d31dec7377fa7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b7418947c44c62883ef13c4be130458bb9f9ce6c
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632069"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030374"
 ---
-# <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>了解 Azure IoT Edge 執行階段和架構 - 預覽
+# <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>了解 Azure IoT Edge 執行階段和架構
 
 IoT Edge 執行階段是一個程式集合，需安裝於要被視為 IoT Edge 裝置的裝置上。 整體而言，IoT Edge 執行階段的元件讓 IoT Edge 裝置能夠接收要在 Edge 上執行的程式碼並傳達結果。 
 
@@ -90,13 +90,13 @@ IoT Edge 代理程式是另一個組成 Azure IoT Edge 執行階段的模組。 
 
 模組字典中的每個項目都包含關於模組的特定資訊，而 Edge 代理程式可用其來控制模組的生命週期。 以下提供一些更令人感興趣的屬性： 
 
-* **settings.image**：Edge 代理程式用來啟動模組的容器映像。 如果映像受到密碼保護，Edge 代理程式就必須使用適用於容器登錄的認證來設定。 若要設定 Edge 代理程式，請使用下列命令：`azure-iot-edge-runtime-ctl.py –configure`
+* **settings.image**：Edge 代理程式用來啟動模組的容器映像。 如果映像受到密碼保護，Edge 代理程式就必須使用適用於容器登錄的認證來設定。 若要設定 Edge 代理程式，請更新 `config.yaml` 檔案。 在 Linux 上使用下列命令： `sudo nano /etc/iotedge/config.yaml`
 * **settings.createOptions**：啟動容器模組時直接傳遞至 Docker 精靈的字串。 在這個屬性中新增 Docker 選項，可允許使用連接埠轉送或將磁碟區掛接到模組容器等進階選項。  
-* **status**：Edge 代理程式放置模組的狀態。 這個值通常會設定為 *running*，因為大多數人都想要 Edge 代理程式在裝置上立即啟動所有模組。 不過，您可以指定要停止之模組的初始狀態，並等候一段時間，以告知 Edge 代理程式啟動模組。 Edge 代理程式會在回報的屬性中，將每個模組的狀態回報至雲端。 所需屬性和回報的屬性之間的差異在於指標或異常裝置。 支援的狀態如下：
+* **status**：Edge 代理程式放置模組的狀態。 這個值通常會設定為 *running*，因為大多數人都想要 Edge 代理程式在裝置上立即啟動所有模組。 不過，您可以指定要停止之模組的初始狀態，並等候一段時間，以告知 Edge 代理程式啟動模組。 Edge 代理程式會在回報的屬性中，將每個模組的狀態回報至雲端。 所需屬性和回報的屬性之間的差異可能表示裝置異常。 支援的狀態如下：
    * 正在下載
    * 執行中
    * 狀況不良
-   * Failed
+   * 失敗
    * 已停止
 * **restartPolicy**：Edge 代理程式重新啟動模組的方式。 可能的值包括：
    * Never：Edge 代理程式絕對不會重新啟動模組。
@@ -114,7 +114,7 @@ IoT Edge 代理程式會將執行階段回應傳送到 IoT 中樞。 以下是�
 
 ### <a name="security"></a>安全性
 
-IoT Edge 代理程式在 IoT Edge 裝置的安全性中扮演了關鍵角色。 例如，它會執行像是啟動前先驗證模組映像的動作。 這些功能都將新增至正式運作的 V2 功能。 
+IoT Edge 代理程式在 IoT Edge 裝置的安全性中扮演了關鍵角色。 例如，它會執行像是啟動前先驗證模組映像的動作。 這些功能都會在正式推出時新增。 
 
 <!-- For more information about the Azure IoT Edge security framework, see []. -->
 

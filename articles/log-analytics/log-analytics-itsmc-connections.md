@@ -11,13 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: fdf3c7d1a6621437c414e2c1fe0628f2f585d98a
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 1c1c294a877a996dc0e6cb916b038dc0ca27ed5c
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061704"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>將 ITSM 產品/服務與 IT Service Management Connector 連線
 本文提供如何設定 ITSM 產品/服務與 Log Analytics 中 IT Service Management Connector (ITSMC) 之間的連線，以集中管理工作項目的相關資訊。 如需 ITSMC 的詳細資訊，請參閱[概觀](log-analytics-itsmc-overview.md)。
@@ -85,7 +86,7 @@ ms.lasthandoff: 05/03/2018
 - 您可以在這個 Service Manager 執行個體中建立來自 Log Analytics 警示、記錄檔記錄或 Azure 警示的事件。
 
 
-深入了解︰[建立 Log Analytics 警示的 ITSM工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts)、[建立 Log Analytics 記錄的 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records)及[建立 Azure 警示的 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)。
+深入了解： [從 Azure 警示建立 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)。
 
 ### <a name="create-and-deploy-service-manager-web-app-service"></a>建立及部署 Service Manager Web 應用程式服務
 
@@ -190,7 +191,7 @@ ms.lasthandoff: 05/03/2018
 **ServiceNow 管理員必須在 ServiceNow 執行個體中執行下列動作**：
 - 產生 ServiceNow 產品的用戶端識別碼和用戶端密碼。 如需如何產生用戶端識別碼和祕密的相關資訊，請視需要參閱下列資訊：
 
-    - [針對 Kingston 設定 OAuth](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/concept/OAuth-setup.html)
+    - [針對 Kingston 設定 OAuth](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [針對 Jakarta 設定 OAuth](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [針對 Istanbul 設定 OAuth](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [針對 Helsinki 設定 OAuth](https://docs.servicenow.com/bundle/helsinki-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
@@ -238,7 +239,7 @@ ms.lasthandoff: 05/03/2018
 
 - 您可以在這個 ServiceNow 執行個體中建立來自 Log Analytics 警示、記錄檔記錄或 Azure 警示的事件。
 
-深入了解︰[建立 Log Analytics 警示的 ITSM工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts)、[建立 Log Analytics 記錄的 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records)及[建立 Azure 警示的 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)。
+深入了解： [從 Azure 警示建立 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)。
 
 ### <a name="create-integration-user-role-in-servicenow-app"></a>在 ServiceNow 應用程式中建立整合使用者角色
 
@@ -290,7 +291,7 @@ ms.lasthandoff: 05/03/2018
 - 已安裝 ITSMC。 更多資訊：[新增 IT 服務管理連接器解決方案](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution)。
 - 應該向 Azure AD 註冊 Provance 應用程式 - 並將用戶端識別碼設為可用。 如需詳細資訊，請參閱[如何設定 Active Directory 驗證](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)。
 
-- 使用者角色：管理員。
+- 使用者角色：系統管理員。
 
 ### <a name="connection-procedure"></a>連線程序
 
@@ -329,7 +330,7 @@ ms.lasthandoff: 05/03/2018
 
 - 您可以在這個 Provance 執行個體中建立來自 Log Analytics 警示、記錄檔記錄或 Azure 警示的事件。
 
-深入了解︰[建立 Log Analytics 警示的 ITSM工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts)、[建立 Log Analytics 記錄的 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records)及[建立 Azure 警示的 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)。
+深入了解： [從 Azure 警示建立 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)。
 
 ## <a name="connect-cherwell-to-it-service-management-connector-in-azure"></a>將 Cherwell 連線到 Azure 中的 IT Service Management Connector
 
@@ -381,7 +382,7 @@ ms.lasthandoff: 05/03/2018
 
 - 您可以在這個 Cherwell 執行個體中建立來自 Log Analytics 警示、記錄檔記錄或 Azure 警示的事件。
 
-深入了解︰[建立 Log Analytics 警示的 ITSM工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts)、[建立 Log Analytics 記錄的 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records)及[建立 Azure 警示的 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)。
+深入了解： [從 Azure 警示建立 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)。
 
 ### <a name="generate-client-id-for-cherwell"></a>產生 Cherwell 的用戶端識別碼
 
@@ -395,6 +396,4 @@ ms.lasthandoff: 05/03/2018
 
 
 ## <a name="next-steps"></a>後續步驟
- - [建立 Log Analytics 警示的 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts)
- - [建立 Log Analytics 記錄檔記錄的 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records)
  - [建立 Azure 警示的 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)

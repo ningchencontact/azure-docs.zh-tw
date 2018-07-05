@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: cfb1e6810285886da13aa0bf69faee9c65e2b222
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: af113ae76d81c82ff6c4ced1569aa16f3a9ee27c
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738222"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064251"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Azure 檔案的共用快照集概觀 
 Azure 檔案提供為檔案共用拍攝共用快照集的功能。 共用快照集能擷取該時間點的共用狀態。 在本文中，我們說明共用快照集提供哪些功能，以及如何在您的自訂使用案例中運用這些功能。
@@ -46,12 +46,12 @@ Azure 檔案提供為檔案共用拍攝共用快照集的功能。 共用快照�
 
 檔案共用的共用快照集和其基底檔案共用相同。 唯一的差別在於，**DateTime** 值會附加至共用 URI，以表示建立共用快照集的時間。 例如，如果檔案共用 URI 為 http://storagesample.core.file.windows.net/myshare，則共用快照集 URI 會類似於：
 ```
-http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
+http://storagesample.file.core.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
 
 系統會保存共用快照集，直到您將它們明確刪除為止。 共用快照集必須有其基底檔案共用才能存在。 您可以列舉與基底檔案共用相關聯的快照集，以追蹤目前的快照集。 
 
-當您建立檔案共用的共用快照集時，系統會將位於共用之系統屬性中的檔案複製到值相同的共用快照集。 基底檔案和檔案共用的中繼資料也會複製到共用快照集，除非您在建立共用快照集時為其指定個別的中繼資料。
+當您建立檔案共用的共用快照集時，系統會將位於共用系統屬性中的檔案複製到值相同的共用快照集。 除非您在建立共用快照集時為其指定個別的中繼資料，否則，基底檔案和檔案共用的中繼資料也會複製到共用快照集。
 
 您無法刪除具有共用快照集的共用，除非先刪除所有共用快照集。
 

@@ -6,15 +6,16 @@ author: jovanpop-msft
 ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
-ms.topic: article
-ms.date: 04/10/2018
+ms.topic: conceptual
+ms.date: 06/22/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: b36099c6fd2deb6b627c8ccd7cc9e13c328f54e3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 95eca05d695e039f59b71caa4d730f4e1f84fc97
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337296"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database 受控執行個體的 T-SQL 差異 
 
@@ -207,6 +208,10 @@ WITH PRIVATE KEY ( <private_key_options> )
 - 不支援 `DBCC TRACEOFF`。 請參閱 [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql)。
 - 不支援 `DBCC TRACEON`。 請參閱 [DBCC TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql)。
 
+### <a name="distributed-transactions"></a>分散式交易
+
+受控執行個體中目前不支援 MSDTC 和[彈性交易](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-transactions-overview)。
+
 ### <a name="extended-events"></a>擴充事件 
 
 不支援 XEvent 的某些 Windows 特定目標：
@@ -375,12 +380,10 @@ WITH PRIVATE KEY ( <private_key_options> )
  
 下列變數、函式和檢視會傳回不同的結果：  
 - `SERVERPROPERTY('EngineEdition')` 傳回值「8」。 此屬性只會識別出受控執行個體。 請參閱 [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql)。
-- `SERVERPROPERTY('InstanceName')` 會傳回簡短的執行個體名稱，例如 'myserver'。 請參閱 [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql)。
+- `SERVERPROPERTY('InstanceName')` 會傳回 NULL，因為執行個體基於 SQL Server 而存在的概念不適用於受控執行個體。 請參閱 [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql)。
 - `@@SERVERNAME` 會傳回完整的 DNS「可連線」名稱，例如 my-managed-instance.wcus17662feb9ce98.database.windows.net。 請參閱 [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql)。  
 - `SYS.SERVERS` - 傳回完整的 DNS「可連線」名稱，例如 'name' 和 'data_source' 屬性的 `myinstance.domain.database.windows.net`。 請參閱 [SYS.SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql)。 
-- `@@SERVERNAME` 會傳回完整 DNS「可連線」名稱，例如 `my-managed-instance.wcus17662feb9ce98.database.windows.net`。 請參閱 [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql)。  
-- `SYS.SERVERS` - 傳回完整的 DNS「可連線」名稱，例如 'name' 和 'data_source' 屬性的 `myinstance.domain.database.windows.net`。 請參閱 [SYS.SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql)。 
-- `@@SERVICENAME` 會傳回 NULL，因為其在受控執行個體環境中沒有意義。 請參閱 [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql)。   
+- `@@SERVICENAME` 會傳回 NULL，因為服務基於 SQL Server 而存在的概念不適用於受控執行個體。 請參閱 [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql)。   
 - 支援 `SUSER_ID`。 如果 AAD 登入不是 sys.syslogins，則傳回 NULL。 請參閱 [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql)。  
 - 不支援 `SUSER_SID`。 傳回錯誤資料 (暫時的已知問題)。 請參閱 [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql)。 
 - `GETDATE()` 和其他內建的日期/時間函式一律會傳回時間 (UTC 時區)。 請參閱 [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql)。

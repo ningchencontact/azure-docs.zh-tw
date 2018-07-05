@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 02/05/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 84facb99b2264b48ede7306ae87a79605e6e8bed
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f5a8c33f2bd3c89b1049435f15d7bf2020248afa
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31597083"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019305"
 ---
 # <a name="use-maven-to-build-java-applications-that-use-hbase-with-windows-based-hdinsight-hadoop"></a>使用 Maven 建置搭配使用 HBase 和以 Window 為基礎的 HDInsight (Hadoop) 的 Java 應用程式
 了解如何使用 Apache Maven 以 Java 建立和建置 [Apache HBase](http://hbase.apache.org/) 應用程式。 然後在 Azure HDInsight (Hadoop) 中使用此應用程式。
@@ -27,7 +27,7 @@ ms.locfileid: "31597083"
 [Maven](http://maven.apache.org/) 是軟體專案管理和理解工具，可讓您建置 Java 專案的軟體、文件及報告。 在本文中，您會了解如何用它來建立基本的 Java 應用程式，以便在 Azure HDInsight 叢集上建立、查詢和刪除 HBase 資料表。
 
 > [!IMPORTANT]
-> 此文件中的步驟需要使用 Windows 的 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+> 本文件中的步驟需要一個使用 Windows 的 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="requirements"></a>需求
 * [Java platform JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 或更新版本
@@ -58,7 +58,7 @@ ms.locfileid: "31597083"
           <version>1.1.2</version>
         </dependency>
 
-    此區段會告知 Maven，表示專案需要 **hbase-client** 版本 **1.1.2**。 編譯時，將會從預設 Maven 儲存機制下載此相依性。 您可以使用 [Maven 中央儲存機制搜尋](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) ，進一步了解此相依性的詳細資訊。
+    此區段會告知 Maven，表示專案需要 **hbase-client** 版本 **1.1.2**。 編譯時，將會從預設 Maven 存放庫下載此相依性。 您可以使用 [Maven 中央存放庫搜尋](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) ，進一步了解此相依性的詳細資訊。
 
    > [!IMPORTANT]
    > 版本號碼必須符合隨附於 HDInsight 叢集的 HBase 版本。 您可以使用下表來尋找正確的版本號碼。
@@ -595,7 +595,7 @@ ms.locfileid: "31597083"
 
     將 **hdinsightclustername** 換成您的 HDInsight 叢集名稱。
 
-    此命令會使用 **SearchByEmail** 類別來搜尋資料行系列 **contactinformation**、資料行 **email** 包含字串 **contoso.com** 的任何資料列。您應該會得到下列結果：
+    此命令會使用 **SearchByEmail** 類別來搜尋資料行系列 **contactinformation**、資料行 **email** 包含字串 **contoso.com** 的任何資料列。 您應該會得到下列結果：
 
           Franklin Holtz - ID: 2
           Franklin Holtz - franklin@contoso.com - ID: 2

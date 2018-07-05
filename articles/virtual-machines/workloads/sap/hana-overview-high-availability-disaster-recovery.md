@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/30/2018
+ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9c4c126663d34d65cc7e0aa641bf93b848a5dcae
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d2445713aa5d6a839950ca0fe9567133c06d1ffa
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658310"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062236"
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Azure 上 SAP Hana (大型執行個體) 的高可用性和災害復原 
 
@@ -44,10 +44,12 @@ SAP HANA on Azure (大型執行個體) 會在四個地緣政治區域 (美國、
 | HANA 大型執行個體所支援的案例 | 高可用性選項 | 災害復原選項 | 註解 |
 | --- | --- | --- | --- |
 | 單一節點 | 無法使用。 | 專用 DR 設定。<br /> 多用途 DR 設定。 | |
-| 主機自動容錯移轉：N+m<br /> 包括 1 + 1 | 可透過擔任作用中角色的待命節點來實現。<br /> HANA 會控制角色的切換。 | 專用 DR 設定。<br /> 多用途 DR 設定。<br /> 使用儲存體複寫進行的 DR 同步處理。 | HANA 磁碟區組會連結至所有節點 (n+m)。<br /> DR 網站必須具有相同數目的節點。 |
+| 主機自動容錯移轉：向外延展 (不一定有待命)<br /> 包括 1 + 1 | 可透過擔任作用中角色的待命節點來實現。<br /> HANA 會控制角色的切換。 | 專用 DR 設定。<br /> 多用途 DR 設定。<br /> 使用儲存體複寫進行的 DR 同步處理。 | HANA 磁碟區組會連接到所有節點。<br /> DR 網站必須具有相同數目的節點。 |
 | HANA 系統複寫 | 可透過主要或次要設定來實現。<br /> 在容錯移轉的情況下，次要節點會轉而成為主要節點。<br /> HANA 系統複寫和 OS 控制容錯移轉。 | 專用 DR 設定。<br /> 多用途 DR 設定。<br /> 使用儲存體複寫進行的 DR 同步處理。<br /> 若沒有第三方元件，則還無法實現使用 HANA 系統複寫來進行的 DR。 | 另一組不同的磁碟區會連結至每個節點。<br /> 只有生產網站中次要複本的磁碟區會複寫到 DR 位置。<br /> DR 網站需要一組磁碟區。 | 
 
 作為專用 DR 設定時，DR 網站中的 HANA 大型執行個體單位不會用於執行任何其他工作負載或非生產系統。 該單位是被動的，只會在災害容錯移轉執行時部署。 然而，此設定不是許多客戶偏好的選擇。
+
+若要了解適用於您的架構的儲存配置和乙太網路詳細資料，請參閱 [HLI 支援案例](hana-supported-scenario.md)。
 
 > [!NOTE]
 > [SAP HANA MCOD 部署](https://launchpad.support.sap.com/#/notes/1681092) (一個單位上有多個 HANA 執行個體) 如表格中列出之 HA 與 DR 方法搭配使用的重疊情況所示。 根據 Pacemaker 將 HANA 系統複寫與自動容錯移轉叢集搭配使用的情況例外。 這種情況僅支援每個單位一個 HANA 執行個體。 對於 [SAP HANA MDC](https://launchpad.support.sap.com/#/notes/2096000) 部署，如果已部署多個租用戶，只有以非儲存體為基礎的 HA 和 DR 方法才會產生效用。 如果已部署一個租用戶，則所有列出的方法皆有效。  
@@ -60,7 +62,7 @@ SAP HANA on Azure (大型執行個體) 會在四個地緣政治區域 (美國、
 - [SAP HANA 高可用性白皮書](http://go.sap.com/documents/2016/05/f8e5eeba-737c-0010-82c7-eda71af511fa.html)
 - [SAP HANA 管理指南](http://help.sap.com/hana/SAP_HANA_Administration_Guide_en.pdf)
 - [SAP HANA Academy 的 SAP HANA 系統複寫影片](http://scn.sap.com/community/hana-in-memory/blog/2015/05/19/sap-hana-system-replication)
-- [SAP 支援附註 #1999880 - SAP HANA 系統複寫常見問題集](https://bcs.wdf.sap.corp/sap/support/notes/1999880)
+- [SAP 支援附註 #1999880 - SAP HANA 系統複寫常見問題集](https://apps.support.sap.com/sap/support/knowledge/preview/en/1999880)
 - [SAP 支援附註 #2165547 - SAP HANA 系統複寫環境內的 SAP HANA 備份與還原](https://websmp230.sap-ag.de/sap(bD1lbiZjPTAwMQ==)/bc/bsp/sno/ui_entry/entry.htm?param=69765F6D6F64653D3030312669765F7361706E6F7465735F6E756D6265723D3231363535343726)
 - [SAP 支援附註 #1984882 - 使用 SAP HANA 系統複寫以最短/零停機時間的方式進行硬體交換](https://websmp230.sap-ag.de/sap(bD1lbiZjPTAwMQ==)/bc/bsp/sno/ui_entry/entry.htm?param=69765F6D6F64653D3030312669765F7361706E6F7465735F6E756D6265723D3139383438383226)
 

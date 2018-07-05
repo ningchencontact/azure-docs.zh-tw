@@ -10,24 +10,21 @@ ms.assetid: 7dc6847d-10d4-4b5c-9c83-cc513cf91965
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/30/2018
+ms.date: 06/26/2018
 ms.author: omidm
-ms.openlocfilehash: 6c5e32f0ed39ce2e8c1e412dcfc6c04fb0f8bd7a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 3fd3a4b8982fe2170726df03bdc884e658d0b0c2
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715253"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019483"
 ---
 # <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters"></a>已加入網域之 HDInsight 叢集的 Hadoop 安全性簡介
 
 到目前為止，Azure HDInsight 僅支援單一使用者本機系統管理員。這很適合用於比較小型的應用程式團隊或部門。 Hadoop 型工作負載在企業間越來越受青睞，而 Active Directory 型驗證、多使用者支援和角色型存取控制等企業級功能的需求日益重要。 使用已加入網域的 HDInsight 叢集時，您可以建立已加入 Active Directory 網域的 HDInsight 叢集、設定企業中可以透過 Azure Active Directory 進行驗證來登入 HDInsight 叢集的員工清單。 企業外部的任何人都無法登入或存取此 HDInsight 叢集。 企業系統管理員可以使用 [Apache Ranger](http://hortonworks.com/apache/ranger/)，針對 Hive 安全性設定角色型存取控制，進而將資料存取限制為僅限有需要時。 最後，系統管理員可以依照員工稽核資料存取，以及對存取控制原則所做的任何變更，因而達到高度的公司資源控管。
 
 > [!NOTE]
-> 本文所說明的新功能 (預覽版) 僅適用於下列叢集類型：Hadoop、Spark 及互動式查詢。
-
-> [!IMPORTANT]
-> Oozie 未在已加入網域的 HDInsight 上啟用。
+> 本文所說明的新功能 (預覽版) 僅適用於下列叢集類型：Hadoop、Spark 及互動式查詢。 已加入網域的叢集現已啟用 Oozie。 為了存取 Oozie Web UI，使用者應該啟用[通道](../hdinsight-linux-ambari-ssh-tunnel.md)
 
 ## <a name="benefits"></a>優點
 企業安全性包含四大要件 – 周邊安全性、驗證、授權和加密。

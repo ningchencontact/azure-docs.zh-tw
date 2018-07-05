@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 06/04/2018
+ms.date: 06/21/2018
 ms.author: douglasl
-ms.openlocfilehash: 5fce1a3b8370ce49a522f41749795362e1bf1f9b
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 93d3e25957fb1f04400fa78423a5658d32f7d5fd
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757272"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36749713"
 ---
 # <a name="enable-azure-active-directory-authentication-for-the-azure-ssis-integration-runtime"></a>啟用適用於 Azure-SSIS 整合執行階段的 Azure Active Directory 驗證
 
@@ -53,7 +53,7 @@ ms.locfileid: "34757272"
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  將 Data Factory MSI 新增至群組。 您可以依照 [Azure Data Factory 服務識別](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-service-identity)取得服務識別的識別碼 (例如 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc)。
+3.  將 Data Factory MSI 新增至群組。 您可以依照 [Azure Data Factory 服務識別](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-service-identity)來取得主體服務識別的識別碼 (例如 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc，但是不要將服務識別應用程式識別碼用於此用途)。
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -119,7 +119,7 @@ Azure SQL Database 支援由 Azure AD 使用者建立資料庫。 因此，您�
 
     命令應該會順利完成，將建立資料庫的能力授與內含的使用者。
 
-## <a name="enable-azure-ad-on-azure-sql-database-managed-instance"></a>為 Azure SQL Database 受控執行個體啟用 Azure AD
+## <a name="enable-azure-ad-on-azure-sql-database-managed-instance"></a>在 Azure SQL Database 受控執行個體上啟用 Azure AD
 
 Azure SQL Database 受控執行個體不支援由 AD 管理員以外的任何 Azure AD 使用者建立資料庫。因此，您必須將 Azure AD 群組設定為 Active Directory 管理員。您不需要建立內含的使用者。
 

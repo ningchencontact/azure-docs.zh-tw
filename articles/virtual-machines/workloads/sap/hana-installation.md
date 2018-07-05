@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/04/2018
+ms.date: 06/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0747bd5dc147639167f352dea46f7e4a1d43227d
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 178102990462235b9b39f2ed1ad0e43395118daf
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763439"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064263"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>如何安裝和設定 Azure 上的 SAP HANA (大型執行個體)
 
@@ -45,7 +45,7 @@ ms.locfileid: "34763439"
 
 ## <a name="first-steps-after-receiving-the-hana-large-instance-units"></a>收到 HANA 大型執行個體單位之後的前幾個步驟
 
-在收到 HANA 大型執行個體並建立對執行個體的存取和連線之後，**第一步**是向您的作業系統提供者註冊執行個體的 OS。 這個步驟會包括需要在已部署的 SUSE SMT 執行個體的 Azure VM 中註冊 SUSE Linux OS。 HANA 大型執行個體單位可以連接到這個 SMT 執行個體 (請參閱本文件後文)。 或是必須向您必須連接的 Red Hat Subscription Manager 註冊 RedHat OS。 另請參閱這份[文件](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)中的備註。 此步驟也是能否修補作業系統的必要項目。 這是一項屬於客戶職責的工作。 有關 SUSE，請在[這裡](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html)尋找安裝和設定 SMT 的文件。
+在收到 HANA 大型執行個體並建立對執行個體的存取和連線之後，**第一步**是向您的作業系統提供者註冊執行個體的 OS。 這個步驟會包括需要在已部署的 SUSE SMT 執行個體的 Azure VM 中註冊 SUSE Linux OS。 HANA 大型執行個體單位可以連接到這個 SMT 執行個體 (請參閱本文件後文)。 或是需要向您必須連線的 Red Hat Subscription Manager 註冊 Red Hat OS。 另請參閱這份[文件](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)中的備註。 此步驟也是能否修補作業系統的必要項目。 這是一項屬於客戶職責的工作。 有關 SUSE，請在[這裡](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html)尋找安裝和設定 SMT 的文件。
 
 **第二步**是檢查是否有特定 OS 版次/版本的新修補程式和修正。 請檢查「HANA 大型執行個體」的修補程式等級是否為最新狀態。 根據作業系統修補程式/版次和 Microsoft 可部署對映像所做之變更的時機，可能會有未包含最新修補程式的情況。 因此，在接管 HANA 大型執行個體單位之後，必須檢查特定 Linux 廠商是否已在這期間發行與安全性、功能、可用性及效能相關的修補程式而需要套用。
 
@@ -81,18 +81,7 @@ ms.locfileid: "34763439"
 
 關於單一單位的網路功能，有一些值得一提的細節。 每個「HANA 大型執行個體」單位都隨附兩個或三個 IP 位址，這些位址會指派給該單位的兩個或三個 NIC 連接埠。 在 HANA 向外延展組態與「HANA 系統複寫」案例中會使用三個 IP 位址。 其中一個指派給單位之 NIC 的 IP 位址是來自 [Azure 上 SAP HANA (大型執行個體) 的概觀和架構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)中所述的伺服器 IP 集區。
 
-在獲指派兩個 IP 位址的情況下，單位的分配應該會看起來如下：
-
-- 指派給 eth0.xx 的 IP 位址應該來自您向 Microsoft 提交的「伺服器 IP 集區」位址範圍。 此 IP 位址將用來在 OS 的 /etc/hosts 中進行維護。
-- 指派給 eth1.xx 的 IP 位址應該用於對 NFS 的通訊。 因此，「不」需要在 etc/hosts 中維護這些位址，即可允許租用戶內的執行個體對執行個體流量。
-
-就 HANA 系統複寫或 HANA 向外延展部署案例而言，並不適合使用有兩個指派之 IP 位址的刀鋒伺服器組態。 如果僅指派兩個 IP 位址且想要部署這類組態，請連絡 Azure 服務管理的 SAP HANA 在第三個 VLAN 中指派第三個 IP 位址。 在三個 NIC 連接埠上指派三個 IP 位址的 HANA 大型執行個體單位，適用下列使用規則：
-
-- 指派給 eth0.xx 的 IP 位址應該來自您向 Microsoft 提交的「伺服器 IP 集區」位址範圍。 因此，此 IP 位址將不用來在 OS 的 /etc/hosts 中進行維護。
-- 指派給 eth1.xx 的 IP 位址應該用於對 NFS 儲存體的通訊。 因此，不應該在 etc/hosts 中維護此類型的位址。
-- eth2.xx 應該專門用來在 etc/hosts 中維護，以供不同執行個體之間的通訊使用。 這些位址也會是需要在向外延展 HANA 組態中維護的 IP 位址，以作為 HANA 用於節點間組態的 IP 位址。
-
-
+若要了解適用於您的架構的乙太網路詳細資料，請參閱 [HLI 支援案例](hana-supported-scenario.md)。
 
 ## <a name="storage"></a>儲存體
 
@@ -112,7 +101,7 @@ SAP HANA on Azure (大型執行個體) 的儲存體配置是由 SAP HANA on Azur
 
 tenant = 部署租用戶時的內部作業列舉。
 
-如您所見，HANA 共用和 usr/sap 共用相同的磁碟區。 掛接點的專門用語確實包含 HANA 執行個體的系統識別碼及掛接編號。 在相應增加部署中，只有一個掛接，像是 mnt00001。 而在向外延展部署中，您會看到許多掛接，因為有背景工作角色和主要節點。 在向外延展環境中，資料、記錄檔和記錄備份磁碟區是共用的，且會附加至向外延展組態中的每個節點上。 若是執行多個 SAP 執行個體的組態，會建立一組不同的磁碟區，並附加到 HANA 大型執行個體單位。
+如您所見，HANA 共用和 usr/sap 共用相同的磁碟區。 掛接點的專門用語確實包含 HANA 執行個體的系統識別碼及掛接編號。 在相應增加部署中，只有一個掛接，像是 mnt00001。 而在向外延展部署中，您會看到許多掛接，因為有背景工作角色和主要節點。 在向外延展環境中，資料、記錄檔和記錄備份磁碟區是共用的，且會附加至向外延展組態中的每個節點上。 若是執行多個 SAP 執行個體的組態，會建立一組不同的磁碟區，並附加到 HANA 大型執行個體單位。 如需適用於您的案例的儲存配置詳細資料，請參閱 [HLI 支援案例](hana-supported-scenario.md)。
 
 當您閱讀文件及了解 HANA 大型執行個體單位後，您會發現這些單位有著相當大的 HANA/data 磁碟區，而且還有一個 HANA/log/backup 磁碟區。 我們之所以將 HANA/data 的大小設定成如此大，是因為我們為身為客戶的您提供的儲存體快照集就是使用同一個磁碟區。 這表示您執行的儲存體快照集愈多，您在指派存放磁碟區中的快照集所使用的空間也愈多。 HANA/log/backup 磁碟區不視為放入資料庫備份的磁碟區。 它會調整大小以用為 HANA 交易記錄備份的備份磁碟區。 在未來的儲存體快照集自助服務版本中，我們會讓這個特定的磁碟區以提高快照集頻率為目標。 而如果您想要加入 HANA 大型執行個體基礎結構所提供的災害復原功能，也可將複寫到災害復原站台的頻率提高。 詳細資訊請參閱 [Azure 上 SAP Hana (大型執行個體) 的高可用性和災害復原](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 
 
@@ -151,6 +140,7 @@ S72m HANA 大型執行個體單元的 df -h 命令輸出應該像這樣：
 
 在 SAP HANA 2.0，hdbparam 架構已被取代。 因此，必須使用 SQL 命令來設定參數。 如需詳細資料，請參閱 [SAP 附註 #2399079：在 HANA 2 中已刪除 hdbparam (英文)](https://launchpad.support.sap.com/#/notes/2399079)。
 
+若要了解適用於您的架構的儲存配置，請參閱 [HLI 支援案例](hana-supported-scenario.md)。
 
 ## <a name="operating-system"></a>作業系統
 

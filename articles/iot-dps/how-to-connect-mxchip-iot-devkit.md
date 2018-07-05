@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: jeffya
-ms.openlocfilehash: 331e589aadf783fc40ab6efbfb554469c27e48d8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a5030c7363d02fe9600183e058f2ff3cc23e9475
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629672"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750361"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>使用 Azure IoT 中樞裝置佈建服務的自動佈建向 IoT 中樞註冊 MXChip IoT DevKit
 
@@ -115,6 +115,17 @@ ms.locfileid: "34629672"
    - 將其他項目保留為預設值，然後按一下 [儲存]
 
    ![Upload certificate](./media/how-to-connect-mxchip-iot-devkit/upload-cert.png)
+
+  > [!NOTE]
+  > 如果您遇到錯誤並看到這個訊息：
+  >
+  > `{"message":"BadRequest:{\r\n \"errorCode\": 400004,\r\n \"trackingId\": \"1b82d826-ccb4-4e54-91d3-0b25daee8974\",\r\n \"message\": \"The certificate is not a valid base64 string value\",\r\n \"timestampUtc\": \"2018-05-09T13:52:42.7122256Z\"\r\n}"}`
+  >
+  > 以純文字方式開啟憑證檔案 **.pem** (使用記事本或任何文字編輯器來開啟)，然後刪除以下這幾行：
+  >
+  > `"-----BEGIN CERTIFICATE-----"` 和 `"-----END CERTIFICATE-----"`。
+  >
+
 
 ## <a name="start-the-devkit"></a>啟動 DevKit
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: sedusch
-ms.openlocfilehash: 12efeba68f30aa8723acc32449ae05ffac4c1ac4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9d6c56f96c085de60b7cc05e4cc16b57867f6a7d
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658752"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308355"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>SAP NetWeaver 在適用於 SAP 應用程式之 SUSE Linux Enterprise Server 上的 Azure VM 高可用性
 
@@ -42,7 +42,7 @@ ms.locfileid: "34658752"
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
 
-[suse-hana-ha-guide]:https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf
+[suse-ha-guide]:https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/
 [suse-drbd-guide]:https://www.suse.com/documentation/sle-ha-12/singlehtml/book_sleha_techguides/book_sleha_techguides.html
 
 [template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
@@ -75,8 +75,7 @@ ms.locfileid: "34658752"
 * [適用於 SAP on Linux 的 Azure 虛擬機器規劃和實作][planning-guide]
 * [適用於 SAP on Linux 的 Azure 虛擬機器部署 (本文)][deployment-guide]
 * [適用於 SAP on Linux 的 Azure 虛擬機器 DBMS 部署][dbms-guide]
-* [SAP HANA SR 效能最佳化案例 (英文)][suse-hana-ha-guide]  
-  此指南包含設定內部部署 SAP HANA 系統複寫的所有必要資訊。 請使用此指南做為基礎。
+* [SUSE SAP HA 最佳做法指南][suse-ha-guide] 此指南包含設定內部部署 Netweaver HA 和 SAP HANA 系統複寫的所有必要資訊。 請使用此指南作為一般基準。 它們提供更詳細的資訊。
 * [高可用性的 NFS 儲存體搭配 DRBD 與 Pacemaker][suse-drbd-guide] 此指南包含設定高可用性的 NFS 伺服器所需的所有必要資訊。 請使用此指南做為基礎。
 
 

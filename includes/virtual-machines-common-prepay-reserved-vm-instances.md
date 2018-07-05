@@ -1,20 +1,20 @@
 ---
 ms.topic: include
-ms.openlocfilehash: 99eaa667e4c6a9d63b4cc43ada8c6e36f7365610
-ms.sourcegitcommit: 39f4911b5933f7062dcf5d57af94eab8a0740b2b
+ms.openlocfilehash: 509d2bc3f58c57a3e2e15eed2ea2c70ed17856f3
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/16/2018
-ms.locfileid: "35683044"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063692"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>預付具有 Azure 保留 VM 執行個體的虛擬機器
 
-預付虛擬機器，並使用 Azure 保留的虛擬機器 (VM) 執行個體節省成本。 如需詳細資訊，請參閱 [Azure 保留執行個體供應項目](https://azure.microsoft.com/pricing/reserved-vm-instances/)。
+預付虛擬機器，並使用 Azure 保留的虛擬機器 (VM) 執行個體節省成本。 如需詳細資訊，請參閱 [Azure 保留的 VM 執行個體供應項目](https://azure.microsoft.com/pricing/reserved-vm-instances/)。
 
 您可以在 [Azure 入口網站](https://portal.azure.com)購買 Azure 保留執行個體。 購買保留執行個體：
 -   您必須至少為一個企業或"隨用隨付"型方案訂用帳戶的「擁有者」角色。
 -   針對企業訂用帳戶，必須在 [EA 入口網站](https://ea.azure.com)中啟用保留執行個體購買。
--   針對雲端解決方案提供者 (CSP) 程式，只有系統管理員代表或銷售代表可以購買保留執行個體。
+-   針對雲端解決方案提供者 (CSP) 計畫，只有系統管理代理人或銷售人員可以購買保留執行個體。
 
 [!IMPORTANT]
 您必須使用下列描述的其中一個方法，識別保留購買的正確 VM 大小。
@@ -50,17 +50,17 @@ ms.locfileid: "35683044"
 ## <a name="next-steps"></a>後續步驟 
 保留執行個體折扣會自動套用到符合保留執行個體範圍和屬性之執行中虛擬機器的數目。 您可以透過 [Azure 入口網站](https://portal.azure.com)、PowerShell、CLI 或 API 來更新保留執行個體的範圍。 
 
-若要了解如何管理保留執行個體，請參閱[管理 Azure 保留執行個體](../articles/billing/billing-manage-reserved-vm-instance.md)。
+若要了解如何管理保留執行個體，請參閱[管理 Azure 中的保留執行個體](../articles/billing/billing-manage-reserved-vm-instance.md)。
 
 若要深入了解 Azure 保留執行個體，請參閱下列文章：
 
-- [使用保留執行個體以節省虛擬機器的成本](../articles/billing/billing-save-compute-costs-reservations.md)
-- [管理 Azure 保留執行個體](../articles/billing/billing-manage-reserved-vm-instance.md)
-- [了解保留執行個體折扣如何套用](../articles/billing/billing-understand-vm-reservation-charges.md)
+- [什麼是 Azure 保留的 VM 執行個體？](../articles/billing/billing-save-compute-costs-reservations.md)
+- [管理 Azure 中的保留執行個體](../articles/billing/billing-manage-reserved-vm-instance.md)
+- [了解如何套用保留執行個體折扣](../articles/billing/billing-understand-vm-reservation-charges.md)
 - [了解預付型方案的保留執行個體使用量](../articles/billing/billing-understand-reserved-instance-usage.md)
-- [了解 Enterprise 註冊之保留執行個體的使用方式](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
-- [Windows 軟體的成本不包括在保留的執行個體內](../articles/billing/billing-reserved-instance-windows-software-costs.md)
-- [合作夥伴中心雲端解決方案提供者 (CSP) 程式中的保留執行個體](https://docs.microsoft.com/partner-center/azure-reservations)
+- [了解 Enterprise 註冊的保留執行個體使用量](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
+- [Windows 軟體的成本不包括在保留執行個體內](../articles/billing/billing-reserved-instance-windows-software-costs.md)
+- [合作夥伴中心雲端解決方案提供者 (CSP) 計畫中的保留執行個體](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員
 

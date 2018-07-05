@@ -3,8 +3,8 @@ title: 在 Azure 中設定服務對應 | Microsoft Docs
 description: 服務對應是 Azure 中的一個解決方案，可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 本文會詳細說明如何在環境中部署服務對應並將它用於各種案例。
 services: monitoring
 documentationcenter: ''
-author: daveirwin1
-manager: jwhit
+author: mgoedtel
+manager: carmonm
 editor: tysonn
 ms.assetid: d3d66b45-9874-4aad-9c00-124734944b2e
 ms.service: monitoring
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/18/2016
-ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: aa85f06355ad5afc8e67ff4bace3b0ed471dc703
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.date: 06/22/2018
+ms.author: daseidma;bwren
+ms.openlocfilehash: 872d5f05e4d607c9445d1af5cc9b9cb984c19e11
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204187"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752569"
 ---
 # <a name="configure-service-map-in-azure"></a>在 Azure 中設定服務對應
 服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 您可以使用服務對應，將伺服器視為提供重要服務的互連系統，藉此來檢視伺服器。 不需要進行任何設定，只要安裝了代理程式，服務對應就會顯示橫跨任何 TCP 連線架構的伺服器、處理序和連接埠之間的連線。
@@ -49,7 +49,7 @@ ms.locfileid: "34204187"
 
 在 Linux 上，適用於 Linux 的 OMS 代理程式會收集監視資料並傳送給 Log Analytics。 您可以在具有 OMS 直接代理程式的伺服器上，或在透過 System Center Operations Manager 管理群組連結至 Log Analytics 的伺服器上使用服務對應。  
 
-在本文中，我們對將所有代理程式 (無論 Linux 或 Windows、無論是連線到 System Center Operations Manager 管理群組或直接連線到 Log Analytics) 稱為「OMS 代理程式」。 只有在內容需要時，我們才會使用代理程式特定的部署名稱。
+在本文中，我們會將所有代理程式 (無論 Linux 或 Windows、無論是連線到 System Center Operations Manager 管理群組或直接連線到 Log Analytics) 都稱為「OMS 代理程式」。 只有在內容需要時，我們才會使用代理程式特定的部署名稱。
 
 服務對應代理程式本身不會傳輸任何資料，因此不需要變更防火牆或連接埠。 服務對應中的資料一律會由 OMS 代理程式 (直接或透過 OMS 閘道) 傳輸給 Log Analytics。
 
@@ -60,7 +60,7 @@ ms.locfileid: "34204187"
 - 當您的 System Center Operations Manager 代理程式可透過網際網路連線到 Log Analytics 時，就不需要額外的設定。  
 - 如果您的 System Center Operations Manager 代理程式無法透過網際網路存取 Log Analytics 時，就必須設定 OMS 閘道以搭配 System Center Operations Manager 使用。
   
-如果您使用 OMS 直接代理程式，您需要將 OMS 代理程式本身設定為連線到 Log Analytics 或 OMS 閘道。 您可以從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=52666)下載 OMS 閘道。
+如果您使用 OMS 直接代理程式，您需要將 OMS 代理程式本身設定為連線到 Log Analytics 或 OMS 閘道。 您可以從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=52666)下載 OMS 閘道。 如需如何部署和設定 OMS 閘道的進一步資源，請參閱[在無網際網路存取下使用 OMS 閘道連線電腦](../log-analytics/log-analytics-oms-gateway.md)。  
 
 ### <a name="management-packs"></a>管理組件
 在 Log Analytics 工作區中啟動服務對應時，會將 300 KB 的管理組件傳送至該工作區中的所有 Windows 伺服器。 如果您是在[連線的管理群組](../log-analytics/log-analytics-om-agents.md)中使用 System Center Operations Manager 代理程式，則會從 System Center Operations Manager 來部署服務對應管理組件。 如果代理程式是直接連線，Log Analytics 會提供管理組件。
@@ -75,7 +75,7 @@ ms.locfileid: "34204187"
 
 請使用下列步驟在每一部 Windows 電腦上安裝相依性代理程式：
 
-1.  依照[將 Windows 電腦連線到 Azure 中的 Log Analytics 服務](../log-analytics/log-analytics-windows-agent.md)的指示來安裝 OMS 代理程式。
+1.  遵循[使用 Log Analytics 從您的環境中的電腦收集資料](../log-analytics/log-analytics-concept-hybrid.md)中所述的其中一種方法來安裝 OMS 代理程式。
 2.  下載 Windows 代理程式，並以下列命令來執行： <br>`InstallDependencyAgent-Windows.exe`
 3.  遵循精靈來安裝代理程式。
 4.  如果相依性代理程式無法啟動，請檢查記錄檔以取得詳細的錯誤資訊。 在 Windows 代理程式上，記錄檔的目錄是 %Programfiles%\Microsoft Dependency Agent\logs。 
@@ -99,7 +99,7 @@ Windows 相依性代理程式的檔案預設位於 C:\Program Files\Microsoft De
  
 請使用下列步驟在每一部 Linux 電腦上安裝相依性代理程式：
 
-1.  依照[收集並管理來自 Linux 電腦的資料](https://technet.microsoft.com/library/mt622052.aspx)的指示來安裝 OMS 代理程式。
+1.  遵循[使用 Log Analytics 從您的環境中的電腦收集資料](../log-analytics/log-analytics-concept-hybrid.md)中所述的其中一種方法來安裝 OMS 代理程式。
 2.  使用下列命令，以 root 身分安裝 Linux 相依性代理程式：<br>`sh InstallDependencyAgent-Linux64.bin`
 3.  如果相依性代理程式無法啟動，請檢查記錄檔以取得詳細的錯誤資訊。 在 Linux 代理程式上，記錄檔的目錄是 /var/opt/microsoft/dependency-agent/log。
 
@@ -143,6 +143,7 @@ sudo sh InstallDependencyAgent-Linux64.bin -s
 您可以使用 [Azure VM 擴充功能](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features)，將相依性代理程式輕鬆部署到您的 Azure VM。  利用 Azure VM 擴充功能，您可以透過 PowerShell 指令碼，或直接在 VM 的 Azure Resource Manager 範本中，將相依性代理程式部署到您的 VM。  有一個可供 Windows (DependencyAgentWindows) 和 Linux (DependencyAgentLinux) 使用的擴充功能。  如果您透過 Azure VM 擴充功能部署，您的代理程式就可自動更新為最新版本。
 
 若要透過 PowerShell 部署 Azure VM 擴充功能，您可以使用下列範例：
+
 ```PowerShell
 #
 # Deploy the Dependency Agent to every VM in a Resource Group
@@ -169,7 +170,8 @@ ForEach-Object {
 }
 ```
 
-確保相依性代理程式在您每個 VM 上的更簡單方法是，在您的 Azure Resource Manager 範本中納入該代理程式。  請注意，相依性代理程式仍取決於 OMS 代理程式，所以必須先部署 [OMS 代理程式 VM 擴充功能](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-vm-extension)。  您可以將下列 JSON 程式碼片段新增到範本的「資源」區段。
+確保相依性代理程式在您每個 VM 上的更簡單方法是，在您的 Azure Resource Manager 範本中納入該代理程式。  請注意，相依性代理程式仍取決於 OMS 代理程式，所以必須先部署 [OMS 代理程式 VM 擴充功能](../virtual-machines/extensions/oms-linux.md)。  您可以將下列 JSON 程式碼片段新增到範本的「資源」區段。
+
 ```JSON
 "type": "Microsoft.Compute/virtualMachines/extensions",
 "name": "[concat(parameters('vmName'), '/DependencyAgent')]",
@@ -190,6 +192,7 @@ ForEach-Object {
 
 ## <a name="desired-state-configuration"></a>期望的狀態設定
 若要透過 Desired State Configuration 部署相依性代理程式，您可以使用 xPSDesiredStateConfiguration 模組和如下的程式碼：
+
 ```
 configuration ServiceMap {
 
@@ -231,10 +234,13 @@ Node localhost
 ### <a name="uninstall-the-dependency-agent-on-linux"></a>在 Linux 上解除安裝相依性代理程式
 您可以使用下列命令來將「相依性代理程式」從 Linux 解除安裝。
 <br>RHEL、CentOs 或 Oracle：
+
 ```
 sudo rpm -e dependency-agent
 ```
+
 Ubuntu：
+
 ```
 sudo apt -y purge dependency-agent
 ```
@@ -242,7 +248,7 @@ sudo apt -y purge dependency-agent
 如果您在安裝或執行服務對應時遇到任何問題，本節內容可以提供協助。 如果您仍然無法解決問題，請連絡 Microsoft 支援服務。
 
 ### <a name="dependency-agent-installation-problems"></a>相依性代理程式安裝問題
-#### <a name="installer-asks-for-a-reboot"></a>安裝程式會要求重新開機
+#### <a name="installer-prompts-for-a-reboot"></a>安裝程式提示重新開機
 相依性代理程式*通常*不需要在安裝或解除安裝之後重新開機。 不過，在某些罕見情況下，Windows Server 需要重新開機，才能繼續進行安裝。 這會在相依性 (通常是 Microsoft Visual C++ 可轉散發套件) 因為鎖定的檔案而需要重新開機時發生。
 
 #### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--codenumber-appears"></a>顯示「無法安裝相依性代理程式︰無法安裝 Visual Studio 執行階段程式庫 (程式碼 = [code_number])」訊息
@@ -272,7 +278,7 @@ Microsoft 相依性代理程式建置於 Microsoft Visual Studio 執行階段程
 
         * Computer="<your computer name here>" | measure count() by Type
         
-  您是否在結果中取得各種事件？ 是否為最新的資料？ 如果是，OMS 代理程式運作正常，並且與 Log Analytics 進行通訊。 如果不是，請檢查您伺服器上的 OMS 代理程式︰[適用於 Windows 的 OMS 代理程式疑難排解](https://support.microsoft.com/help/3126513/how-to-troubleshoot- monitoring-onboarding-issues)或[適用於 Linux 的 OMS 代理程式疑難排解](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md) \(英文\)。
+  您是否在結果中取得各種事件？ 是否為最新的資料？ 如果是，OMS 代理程式運作正常，並且與 Log Analytics 進行通訊。 如果不是，請檢查您伺服器上的 OMS 代理程式︰[適用於 Windows 的 OMS 代理程式疑難排解](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues)或[適用於 Linux 的 OMS 代理程式疑難排解](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md) \(英文\)。
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>伺服器顯示在服務對應中，但是沒有任何處理序
 如果在服務對應中看到您的伺服器，但是沒有處理序或連線資料，則表示相依性代理程式已安裝且正在執行，但未載入核心驅動程式。 

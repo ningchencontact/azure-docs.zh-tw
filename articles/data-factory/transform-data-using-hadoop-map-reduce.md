@@ -12,24 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: be925521178bba0ae4ae9820e78042509b2f1741
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cb7009d0e7f31b2f503ac51d378fd117fff9f9b2
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620998"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049946"
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Hadoop MapReduce 活動轉換資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [第 1 版 - 正式推出](v1/data-factory-map-reduce.md)
-> * [第 2 版 - 預覽](transform-data-using-hadoop-map-reduce.md)
+> * [第 1 版](v1/data-factory-map-reduce.md)
+> * [目前的版本](transform-data-using-hadoop-map-reduce.md)
 
-
-Data Factory [管線](concepts-pipelines-activities.md) 中的 HDInsight MapReduce 活動會在[您自己](compute-linked-services.md#azure-hdinsight-linked-service)或[隨選](compute-linked-services.md#azure-hdinsight-on-demand-linked-service)的 HDInsight 叢集上叫用 MapReduce 程式。 本文是根據 [資料轉換活動](transform-data.md) 一文，它呈現資料轉換和支援的轉換活動的一般概觀。
-
-> [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務，也就是正式推出 (GA) 的版本，請參閱[第 1 版的 MapReduce 活動](v1/data-factory-map-reduce.md)。
-
+Data Factory [管線](concepts-pipelines-activities.md) 中的 HDInsight MapReduce 活動會在[您自己](compute-linked-services.md#azure-hdinsight-linked-service)或[隨選](compute-linked-services.md#azure-hdinsight-on-demand-linked-service)的 HDInsight 叢集上叫用 MapReduce 程式。 本文是以[資料轉換活動](transform-data.md)一文為基礎而建置，它呈現資料轉換和支援的轉換活動的一般概觀。
 
 如果您是 Azure Data Factory 的新手，請在閱讀本文之前先閱讀 [Azure Data Factory 簡介](introduction.md)，以及研習教學課程：[教學課程：轉換資料](tutorial-transform-data-spark-powershell.md)。 
 

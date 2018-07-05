@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/28/2018
 ms.author: liydu
-ms.openlocfilehash: b65888ced67ba3c236c31678cf452d40489bf028
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ba2325272552a13d6e464797b1fb523415393100
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631773"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36945933"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-function-and-cognitive-services-to-make-a-language-translator"></a>使用 IoT DevKit AZ3166 搭配 Azure Function 和認知服務製作語言翻譯工具
 
@@ -38,13 +38,16 @@ ms.locfileid: "34631773"
 
 ### <a name="a-start-vs-code"></a>A. 啟動 VS Code
 
-- 確定 DevKit 未連線至您的電腦。
+- 確定 DevKit 已連接到電腦。
 - 啟動 VS Code
 - 將 DevKit 連接到您的電腦。
 
 ### <a name="b-open-the-arduino-examples-folder"></a>B. 開啟 Arduino 範例資料夾
 
-展開左邊的 [ARDUINO 範例 > MXCHIP AZ3166 的範例 > AzureIoT]，然後選取 [DevKitTranslator]。 這會開啟一個內含 DEVKITTRANSLATOR 專案資料夾的新 VS Code 視窗。
+展開左邊的 [ARDUINO 範例 > MXCHIP AZ3166 的範例 > AzureIoT]，然後選取 [DevKitTranslator]。 這會開啟一個內含 DEVKITTRANSLATOR 專案資料夾的新 VS Code 視窗。  
+
+> [!NOTE]
+> 如果您看不到 Examples for MXCHIP AZ3166 區段，請確定裝置已正確連接並重新啟動 Visual Studio Code。  
 
 ![IoT DevKit 範例](media/iot-hub-arduino-iot-devkit-az3166-translator/vscode_examples.png)
 
@@ -72,7 +75,7 @@ Azure Function 部署成功之後，在 azure_config.h 檔案中填入函式應�
 > [!NOTE]
 > 如果 Azure Function 未正常運作，請參閱此[常見問題集](https://microsoft.github.io/azure-iot-developer-kit/docs/faq#compilation-error-for-azure-function)區段來解決問題。
 
-## <a name="step-4-build-and-upload-the-device-code"></a>步驟 4. 組建並上傳裝置程式碼
+## <a name="step-4-build-and-upload-the-device-code"></a>步驟 4. 建置並上傳裝置程式碼
 
 1. 使用 `Ctrl+P` (macOS: `Cmd+P`) 來執行 `task config-device-connection`。
 

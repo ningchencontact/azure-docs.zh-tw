@@ -12,35 +12,35 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: f9793156b3728f617b92624651ff89ab2665c061
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 1c7fd3ac1a4cf62dd8f909acc26615ea5f96f32c
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235802"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309093"
 ---
 # <a name="determine-the-listing-type-for-your-solution"></a>決定您解決方案的清單類型  
 店面支援許多發佈選項：清單類型和供應項目類型。 請選取最能代表您解決方案與服務詳細資料的供應項目類型。 所有發佈選項都可讓您接觸到分享的潛在客戶。   
 
 | 店面 | 清單類型 | 應用程式類型 | 技術指導方針 |  
 |:--- |:--- |:--- |:--- |  
-| AppSource | [清單](#list) | [諮詢服務](#requirements:-appSource:-list:-consulting-service) | [smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) |  
-| Azure Marketplace | [清單](#list) | [諮詢服務](#requirements:-azure-marketplace:-list:-consulting-service) | [](#) |  
-| Azure Marketplace | [清單](#list) | [與我連絡](#requirements:-azure-marketplace:-list:-contact-me) | [](#) |  
-| Azure Marketplace | [試用版](#trial) | [免費試用 / SaaS 試用版](#requirements:-azure-marketplace:-trial:-free-trial-/-saas-trial) | [](#) |  
+| AppSource | [清單](#list) | [諮詢服務](#requirements-appSource-list-consulting-service) | [smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) |  
+| Azure Marketplace | [清單](#list) | [諮詢服務](#requirements-azure-marketplace-list-consulting-service) | [](#) |  
+| Azure Marketplace | [清單](#list) | [與我連絡](#requirements-azure-marketplace-list-contact-me) | [](#) |  
+| Azure Marketplace | [試用版](#trial) | [免費試用 / SaaS 試用版](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) | [](#) |  
 | AppSource |  | Cortana Intelligence | [docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide) |  
 | AppSource |  |Dynamics 365 for Customer Engagement | [docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource) |  
 | AppSource |  | Dynamics 365 for Finance and Operations | [docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source) |  
-| Azure Marketplace | [試用版](#trial) | [互動式示範](#requirements:-azure-marketplace:-trial:-interactive-demo) | [](#) |  
-| Azure Marketplace | [試用版](#trial) | [試用產品](#requirements:-azure-marketplace:-trial:-test-drive) | [](#) |  
+| Azure Marketplace | [試用版](#trial) | [互動式示範](#requirements-azure-marketplace-trial-interactive-demo) | [](#) |  
+| Azure Marketplace | [試用版](#trial) | [試用產品](#requirements-azure-marketplace-trial-test-drive) | [](#) |  
 | AppSource |  | Office 365 | [docs.microsoft.com/office/dev/store/submit-to-the-office-store](https://docs.microsoft.com/office/dev/store/submit-to-the-office-store) |  
-| AppSource |  | Power BI | [docs.microsoft.com/power-bi/developer/office-store](https://docs.microsoft.com/power-bi/developer/office-store) | | Azure Marketplace | [交易](#transact) | [Azure 應用程式：受控應用程式](#requirements:-azure-marketplace:-transact:-azure-apps:-managed-app) |  [docs.microsoft.com/azure/managed-applications/overview](https://docs.microsoft.com/azure/managed-applications/overview) |  
-| Azure Marketplace | [交易](#transact) | [Azure 應用程式：解決方案範本](#requirements:-azure-marketplace:-transact:-azure-apps:-solution-template) |  [](#) |  
-| Azure Marketplace | [交易](#transact) | [容器](#requirements:-azure-marketplace:-transact:-container) |  [](#) |  
-| Azure Marketplace | [交易](#transact) | [SaaS 應用程式](#requirements:-azure-marketplace:-transact:-saas-app) |  [](#) |  
-| Azure Marketplace | [交易](#transact) | [虛擬機器](#requirements:-azure-marketplace:-transact:-virtual-machine) |  [](#) |   
+| AppSource |  | Power BI | [docs.microsoft.com/power-bi/developer/office-store](https://docs.microsoft.com/power-bi/developer/office-store) | | Azure Marketplace | [交易](#transact) | [Azure 應用程式：受控應用程式](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  [docs.microsoft.com/azure/managed-applications/overview](https://docs.microsoft.com/azure/managed-applications/overview) |  
+| Azure Marketplace | [交易](#transact) | [Azure 應用程式：解決方案範本](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  [](#) |  
+| Azure Marketplace | [交易](#transact) | [容器](#requirements-azure-marketplace-transact-container) |  [](#) |  
+| Azure Marketplace | [交易](#transact) | [SaaS 應用程式](#requirements-azure-marketplace-transact-saas-app) |  [](#) |  
+| Azure Marketplace | [交易](#transact) | [虛擬機器](#requirements-azure-marketplace-transact-virtual-machine) |  [](#) |   
 
 ## <a name="azure-certified-program"></a>Azure 認證方案  
 在 Azure Marketplace 中發佈的所有虛擬機器 (VM) 均經過「Azure 認證」方案的測試。  
@@ -58,7 +58,7 @@ ms.locfileid: "35235802"
 
 | 清單類型 | 應用程式類型 | 技術指導方針 |  
 |:--- |:--- |:--- |  
-| [清單](#list) | [諮詢服務](#requirements:-appSource:-list:-consulting-service) | [smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) |  
+| [清單](#list) | [諮詢服務](#requirements-appSource-list-consulting-service) | [smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) |  
 |  | Cortana Intelligence | [docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide) |  
 |  |Dynamics 365 for Customer Engagement | [docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource) |  
 |  | Dynamics 365 for Finance and Operations | [docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source) |  
@@ -68,20 +68,23 @@ ms.locfileid: "35235802"
 ---   
 
 ## <a name="azure-marketplace-publishing-by-product"></a>依產品區分的 Azure Marketplace 發佈  
+
+![](./media/marketplace-publishers-guide/workflow-azure-marketplace.png)  
+
 下表針對 Azure Marketplace 供應項目的特定需求，提供相關的詳細資訊。  
 
 | 清單類型 | 供應項目類型 |  技術指導方針 |  
 |:--- |:--- |:--- |  
-| [清單](#list) | [諮詢服務](#requirements:-azure-marketplace:-list:-consulting-service) | [](#) |  
-| [清單](#list) | [與我連絡](#requirements:-azure-marketplace:-list:-contact-me) | [](#) |  
-| [試用版](#trial) | [免費試用 / SaaS 試用版](#requirements:-azure-marketplace:-trial:-free-trial-/-saas-trial) | [](#) |  
-| [試用版](#trial) | [互動式示範](#requirements:-azure-marketplace:-trial:-interactive-demo) | [](#) |  
-| [試用版](#trial) | [試用產品](#requirements:-azure-marketplace:-trial:-test-drive) | [](#) |  
-| [交易](#transact) | [Azure 應用程式：受控應用程式](#requirements:-azure-marketplace:-transact:-azure-apps:-managed-app) |  [docs.microsoft.com/azure/managed-applications/overview](https://docs.microsoft.com/azure/managed-applications/overview) |  
-| [交易](#transact) | [Azure 應用程式：解決方案範本](#requirements:-azure-marketplace:-transact:-azure-apps:-solution-template) |  [](#) |  
-| [交易](#transact) | [容器](#requirements:-azure-marketplace:-transact:-container) |  [](#) |  
-| [交易](#transact) | [SaaS 應用程式](#requirements:-azure-marketplace:-transact:-saas-app) |  [](#) |  
-| [交易](#transact) | [虛擬機器](#requirements:-azure-marketplace:-transact:-virtual-machine) |  [](#) |  
+| [清單](#list) | [諮詢服務](#requirements-azure-marketplace-list-consulting-service) | [](#) |  
+| [清單](#list) | [與我連絡](#requirements-azure-marketplace-list-contact-me) | [](#) |  
+| [試用版](#trial) | [免費試用 / SaaS 試用版](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) | [](#) |  
+| [試用版](#trial) | [互動式示範](#requirements-azure-marketplace-trial-interactive-demo) | [](#) |  
+| [試用版](#trial) | [試用產品](#requirements-azure-marketplace-trial-test-drive) | [](#) |  
+| [交易](#transact) | [Azure 應用程式：受控應用程式](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  [docs.microsoft.com/azure/managed-applications/overview](https://docs.microsoft.com/azure/managed-applications/overview) |  
+| [交易](#transact) | [Azure 應用程式：解決方案範本](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  [](#) |  
+| [交易](#transact) | [容器](#requirements-azure-marketplace-transact-container) |  [](#) |  
+| [交易](#transact) | [SaaS 應用程式](#requirements-azure-marketplace-transact-saas-app) |  [](#) |  
+| [交易](#transact) | [虛擬機器](#requirements-azure-marketplace-transact-virtual-machine) |  [](#) |  
 
 ---   
 
@@ -93,10 +96,10 @@ ms.locfileid: "35235802"
 
 | 供應項目類型 | 店面 | 詳細資料 |  
 |:---        |:---        |:---     |  
-| 諮詢服務 | AppSource | [需求：AppSource：清單：諮詢服務](#requirements:-appsource:-list:-consulting-service) |  
-| 諮詢服務 | Azure Marketplace | [需求：Azure Marketplace：清單：諮詢服務](#requirements:-azure-marketplace:-list:-consulting-service) |  
+| 諮詢服務 | AppSource | [需求：AppSource：清單：諮詢服務](#requirements-appsource-list-consulting-service) |  
+| 諮詢服務 | Azure Marketplace | [需求：Azure Marketplace：清單：諮詢服務](#requirements-azure-marketplace-list-consulting-service) |  
 | 與我連絡 | AppSource | [](#) |  
-| 與我連絡 | Azure Marketplace | [需求：AppSource：清單：與我連絡](#requirements:-azure-marketplace:-list:-contact-me) |  
+| 與我連絡 | Azure Marketplace | [需求：AppSource：清單：與我連絡](#requirements-azure-marketplace-list-contact-me) |  
 
 #### <a name="requirements-appsource-list-consulting-service"></a>需求：AppSource：清單：諮詢服務  
 當供應項目主要由專業服務 (例如評量、實作、研討會) 組成時，請使用「諮詢服務」供應項目類型。  
@@ -130,12 +133,12 @@ ms.locfileid: "35235802"
 
 | 供應項目類型 | 店面 | 詳細資料 |  
 |:---        |:---        |:---     |  
-| 免費 / SaaS 試用版 | AppSource | [清單類型需求：試用版](#Listing-Type-Requirements:-trial) |  
-| 免費 / SaaS 試用版 | Azure Marketplace | [需求：Azure Marketplace：試用版：免費試用 / SaaS 試用版](#requirements:-azure-marketplace:-trial:-free-trial-/-saas-trial) |  
-| 互動式示範 | AppSource | [清單類型需求：試用版](#Listing-Type-Requirements:-trial) |  
-| 互動式示範 | Azure Marketplace | [需求：Azure Marketplace：試用版：互動式示範](#requirements:-azure-marketplace:-trial:-interactive-demo) |  
-| 試用產品 | AppSource | [清單類型需求：試用版](#Listing-Type-Requirements:-trial) |  
-| 試用產品 | Azure Marketplace | [需求：Azure Marketplace：試用版：試用產品](#requirements:-azure-marketplace:-trial:-test-drive) |  
+| 免費 / SaaS 試用版 | AppSource | [清單類型需求：試用版](#listing-type-requirements-trial) |  
+| 免費 / SaaS 試用版 | Azure Marketplace | [需求：Azure Marketplace：試用版：免費試用 / SaaS 試用版](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) |  
+| 互動式示範 | AppSource | [清單類型需求：試用版](#listing-type-requirements-trial) |  
+| 互動式示範 | Azure Marketplace | [需求：Azure Marketplace：試用版：互動式示範](#requirements-azure-marketplace-trial-interactive-demo) |  
+| 試用產品 | AppSource | [清單類型需求：試用版](#listing-type-requirements-trial) |  
+| 試用產品 | Azure Marketplace | [需求：Azure Marketplace：試用版：試用產品](#requirements-azure-marketplace-trial-test-drive) |  
 
 #### <a name="requirements-azure-marketplace-trial"></a>需求：Azure Marketplace：試用版  
 
@@ -177,11 +180,11 @@ ms.locfileid: "35235802"
 
 | 供應項目類型 | 店面 | 詳細資料 |   
 |:---        |:---        | :--- |  
-| Azure 應用程式：受控應用程式 | Azure Marketplace | [需求：Azure Marketplace：交易：Azure 應用程式：受控應用程式](#requirements:-azure-marketplace:-transact:-Azure-apps:-Managed-app) |  
-| Azure 應用程式：解決方案範本 | Azure Marketplace | [需求：Azure Marketplace：交易：Azure 應用程式：解決方案範本](#requirements:-azure-marketplace:-transact:-Azure-apps:-Solution-template) |  
-| 容器 | Azure Marketplace | [需求：Azure Marketplace：交易：容器](#requirements:-azure-marketplace:-transact:-Container) |  
-| SaaS 應用程式  | Azure Marketplace | [需求：Azure Marketplace：交易：SaaS 應用程式](#requirements:-azure-marketplace:-transact:-SaaS-app) |  
-| 虛擬機器 | Azure Marketplace | [需求：Azure Marketplace：交易：虛擬機器](#requirements:-azure-marketplace:-transact:-Virtual-Machine) |  
+| Azure 應用程式：受控應用程式 | Azure Marketplace | [需求：Azure Marketplace：交易：Azure 應用程式：受控應用程式](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  
+| Azure 應用程式：解決方案範本 | Azure Marketplace | [需求：Azure Marketplace：交易：Azure 應用程式：解決方案範本](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  
+| 容器 | Azure Marketplace | [需求：Azure Marketplace：交易：容器](#requirements-azure-marketplace-transact-container) |  
+| SaaS 應用程式  | Azure Marketplace | [需求：Azure Marketplace：交易：SaaS 應用程式](#requirements-azure-marketplace-transact-saas-app) |  
+| 虛擬機器 | Azure Marketplace | [需求：Azure Marketplace：交易：虛擬機器](#requirements-azure-marketplace-transact-virtual-machine) |  
 
 #### <a name="requirements-azure-marketplace-transact-azure-apps-managed-app"></a>需求：Azure Marketplace：交易：Azure 應用程式：受控應用程式  
 必須符合下列條件時，請使用「Azure 應用程式：受控應用程式」供應項目類型。  
@@ -209,11 +212,10 @@ Microsoft 目前支援免費和自備授權 (BYOL) 授權模型。 未來幾個�
 
 | 需求 | 詳細資料 |  
 |:--- |:--- |  
-|計費和計量  |  您的容器必須支援免費或自備授權的計費模式。       |  
-|從 Dockerfile 建置的映像   |   容器映像必須以 Docker 映像規格為基礎，而必須從 Dockerfile 建置。 在 [這裡] (https://docs.docker.com/engine/reference/builder/#usage) 深入了解建置 Docker 映像。
-|裝載於 ACR 中   |   容器映像必須裝載於 Azure Container Registry (ACR) 存放庫中。 深入了解 ACR 的使用方式 [這裡] (https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal)。     
-|映像標記   |   容器映像必須包含至少 1 個標籤 (最多可容納 16 個標籤)。 深入了解映像標記 [這裡] (https://docs.docker.com/engine/reference/commandline/tag/)。     | 
-
+| 計費和計量 | 支援免費或 BYOL 計費模型。 |  
+| 從 Dockerfile 建置的映像 | 容器映像必須以 Docker 映像規格為基礎，而必須從 Dockerfile 建置。<ul> <li>如需建置 Docker 映像的詳細資訊，請瀏覽＜使用方式＞一節 (網址為 [docs.docker.com/engine/reference/builder/#usage](https://docs.docker.com/engine/reference/builder/#usage))。</li> </ul> |  
+| 裝載於 ACR 中 | 容器映像必須裝載於 Azure Container Registry (ACR) 存放庫中。<ul> <li>如需使用 ACR 的詳細資訊，請瀏覽＜快速入門：使用 Azure 入口網站建立容器登錄＞頁面 (網址為 [docs.microsoft.com/azure/container-registry/container-registry-get-started-portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal))。</li> </ul> |  
+| 映像標記 | 容器映像必須包含至少 1 個標籤 (最多可容納 16 個標籤)。<ul> <li>如需標記映像的詳細資訊，請瀏覽＜Docker 標籤＞頁面 (網址為 [docs.docker.com/engine/reference/commandline/tag](https://docs.docker.com/engine/reference/commandline/tag))。</li> </ul> |  
 
 
 #### <a name="requirements-azure-marketplace-transact-saas-app"></a>需求：Azure Marketplace：交易：SaaS 應用程式  
@@ -225,12 +227,10 @@ Microsoft 主控商務交易。 Microsoft 代表您向客戶收費。 若要將 
 
 | 需求 | 詳細資料 |  
 |:--- |:--- |  
-|計費和計量   |   您供應項目的定價為每月均一價。 目前不支援以用量計價及根據用量調整的功能。      |  
-|取消  |   客戶可隨時取消您的供應項目。      |  
-|交易登陸頁面   |   您裝載 Azure 共同品牌的交易登陸頁面，使用者能夠在頁面上建立並管理其 SaaS 服務帳戶。      |   
-|訂用帳戶 API    |   您公開一項服務，能與 SaaS 訂用帳戶互動，以建立、更新及刪除使用者帳戶與服務方案。 必須在 24 小時內支援重大的 API 變更。 需定期發行非重大的 API 變更。      | 
-
-
+|計費和計量 | 您供應項目的定價為每月均一價。 目前不支援以用量計價及根據用量調整的功能。 |  
+|取消 | 客戶可隨時取消您的供應項目。 |  
+|交易登陸頁面 | 您裝載 Azure 共同品牌的交易登陸頁面，使用者能夠在頁面上建立並管理其 SaaS 服務帳戶。 |   
+| 訂用帳戶 API | 您公開一項服務，能與 SaaS 訂用帳戶互動，以建立、更新及刪除使用者帳戶與服務方案。 必須在 24 小時內支援重大的 API 變更。 需定期發行非重大的 API 變更。 |  
 
 #### <a name="requirements-azure-marketplace-transact-virtual-machine"></a>需求：Azure Marketplace：交易：虛擬機器  
 當您要將虛擬設備部署到與客戶相關的訂用帳戶時，請使用「虛擬機器」供應項目類型。 藉由使用「預付型方案」或「自備授權」(BYOL) 授權模型，即可完全啟用 VM 的商務功能。 Microsoft 會主控商務交易，並代表您向客戶收費。 您獲得的好處是，可以使用客戶與 Microsoft 之間慣用的付款關係，包括任何 Enterprise 合約。  
@@ -248,6 +248,6 @@ Microsoft 主控商務交易。 Microsoft 代表您向客戶收費。 若要將 
 | Azure 相容的虛擬硬碟 (VHD) | VM 必須建置在 Windows 或 Linux 上。<ul> <li>如需有關建立 Linux VHD 的詳細資訊，請瀏覽＜建立與 Azure 相容的 VHD (以 Linux 為基礎)＞一節：[docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based)。</li> <li>如需有關建立 Windows VHD 的詳細資訊，請瀏覽＜建立與 Azure 相容的 VHD (以 Windows 為基礎)＞一節：[docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based)。</li> </ul> |  
 
 ## <a name="next-steps"></a>後續步驟
-*   請瀏覽 [Azure Marketplace 和 AppSource 發行者指南](./marketplace-publishers-guide.md)頁面。  
+*   請瀏覽 [Azure Marketplace 和 AppSource 發行者指南](./marketplace-publishers-guide.md)網頁。  
  
 ---  

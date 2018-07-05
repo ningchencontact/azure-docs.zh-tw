@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cshoe
-ms.openlocfilehash: ac301daca769f9cec0d3395e7bde32494dd8e3d1
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: ba008a86f76a526967bb9dab6ba37043a85f5cf3
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34735322"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36304129"
 ---
 # <a name="azure-storage-security-guide"></a>Azure 儲存體安全性指南
 
@@ -22,7 +22,7 @@ ms.locfileid: "34735322"
 - 所有寫入至「Azure 儲存體」的資料都會使用[儲存體服務加密 (SSE)](storage-service-encryption.md)來自動加密。 如需詳細資訊，請參閱[宣佈 Azure Blob、檔案、資料表及佇列儲存體的預設加密](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/) \(英文\)。
 - Azure Active Directory (Azure AD) 和角色型存取控制 (RBAC) 可支援 Azure 儲存體，以便進行資源管理作業和資料作業，如下所示：   
     - 您可以將儲存體帳戶範圍內的 RBAC 角色指派給安全性主體，以及使用 Azure AD 來授權資源管理作業，例如金鑰管理。
-    - Blob 和佇列服務的資料作業預覽版支援 Azure AD 整合。 您可以將訂用帳戶、資源群組、儲存體帳戶或個別的容器或佇列範圍內的 RBAC 角色，指派給安全性主體或受控服務識別。 如需詳細資訊，請參閱[使用 Azure Active Directory 來驗證 Azure 儲存體的存取 (預覽)](storage-auth-aad.md)。   
+    - Blob 和佇列服務的資料作業預覽版支援 Azure AD 整合。 您可以將訂用帳戶、資源群組、儲存體帳戶或個別的容器或佇列範圍內的 RBAC 角色，指派給安全性主體或受控服務識別。 如需詳細資訊，請參閱[使用 Azure Active Directory 來驗證 Azure 儲存體的存取權 (預覽)](storage-auth-aad.md)。   
 - 您可以使用[用戶端加密](../storage-client-side-encryption.md)、HTTPS 或 SMB 3.0，在應用程式和 Azure 之間進行傳輸時保護資料的安全。  
 - 您可以使用 [Azure 磁碟加密](../../security/azure-security-disk-encryption.md)來加密 Azure 虛擬機器所使用的 OS 和資料磁碟。 
 - Azure 儲存體中資料物件的委派存取權可以使用 [共用存取簽章](../storage-dotnet-shared-access-signature-part-1.md)來授與。
@@ -101,7 +101,7 @@ ms.locfileid: "34735322"
 * [Azure 儲存體資源提供者 REST API 參考](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 
   此 API 參考說明您可用來以程式設計方式管理儲存體帳戶的 API。
-* [Developer’s guide to auth with Azure Resource Manager API (利用 Azure Resource Manager 進行驗證的開發人員指南)](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/)
+* [使用 Resource Manager 驗證 API 來存取訂用帳戶](../../azure-resource-manager/resource-manager-api-authentication.md)
 
   本文示範如何使用 Resource Manager API 進行驗證。
 * [來自Ignite 且適用於 Microsoft Azure 的角色型存取控制](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
@@ -209,7 +209,7 @@ http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
 &sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D (signature used for the authentication of the SAS)
 ```
 
-#### <a name="how-the-shared-access-signature-is-authenticated-by-the-azure-storage-service"></a>Azure 儲存體服務驗證共用存取簽章的方式
+#### <a name="how-the-shared-access-signature-is-authorized-by-the-azure-storage-service"></a>Azure 儲存體服務授權共用存取簽章的方式
 當儲存體服務收到要求時，它會取得輸入查詢參數，並使用與呼叫程式相同的方法來建立簽章。 然後比較這兩個簽章。 如果它們同意，儲存體服務接著可以檢查儲存體服務版本，以確定它是有效的、檢查目前的日期和時間是在指定時段內、確定所要求的存取權會對應至所提出的要求，依此類推。
 
 例如，利用上述的 URL，如果 URL 指向檔案而不是 Blob，此要求便會失敗，因為它指定共用存取簽章適用於 Blob。 如果呼叫的 REST 命令會更新 Blob，則該命令會失敗，因為共用存取簽章指定只准許讀取權限。
@@ -404,11 +404,11 @@ SSE 是由 Azure 儲存體所管理。 SSE 並不針對傳輸中資料提供安�
 
 ![記錄檔中欄位的快照](./media/storage-security-guide/image3.png)
 
-我們對於 GetBlob 的項目及其驗證方法很感興趣，所以必須尋找 operation-type 為 "Get-Blob" 的項目，然後檢查 request-status (第 4</sup> 欄) 和 authorization-type (第 8</sup> 欄)。
+我們對於 GetBlob 的項目及其授權方法很感興趣，所以必須尋找 operation-type 為 "Get-Blob" 的項目，然後檢查 request-status (第 4</sup> 欄) 和 authorization-type (第 8</sup> 欄)。
 
-例如，在上述清單的前幾個列中，要求狀態為 "Success" 且驗證類型為 "authenticated"。 這表示已使用儲存體帳戶金鑰驗證要求。
+例如，在上述清單的前幾個列中，要求狀態為 "Success" 且驗證類型為 "authenticated"。 這表示已使用儲存體帳戶金鑰授權要求。
 
-#### <a name="how-are-my-blobs-being-authenticated"></a>如何驗證我的 Blob？
+#### <a name="how-is-access-to-my-blobs-being-authorized"></a>如何授權存取我的 Blob？
 以下提供三個我們感興趣的案例。
 
 1. Blob 是公用的且可使用 URL (而不需共用存取簽章) 來存取。 在此案例中，要求狀態為 "AnonymousSuccess" 且驗證類型為 "anonymous"。
