@@ -5,27 +5,22 @@ services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-ms.assetid: e756c15d-31fc-45c0-8df4-0bca0da10bb2
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 06/05/2018
+ms.date: 06/14/2018
 ms.author: sethm
-ms.openlocfilehash: e6762d988da7d34893852505d8ce0fd30622eaaf
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: e168dcab182f9eb30291b58bdde252ec66d18e8c
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802539"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301796"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>使用服務匯流排傳訊的效能改進最佳作法
 
 本文描述如何使用 Azure 服務匯流排來在交換代理的訊息時將效能最佳化。 本文的第一個部分說明提供協助提高效能的不同機制。 第二個部分針對如何在特定案例中利用可提供最佳效能的方式來使用服務匯流排提供指引。
 
-在本主題中，「用戶端」一詞是指任何存取服務匯流排的實體。 用戶端可以擔任傳送者或接收者的角色。 「傳送者」一詞用於將訊息傳送至服務匯流排佇列或主題訂用帳戶的服務匯流排佇列或主題用戶端。 「接收者」一詞指的是從服務匯流排佇列或訂用帳戶接收訊息的服務匯流排佇列或訂用帳戶用戶端。
+在本文中，「用戶端」一詞是指任何存取服務匯流排的實體。 用戶端可以擔任傳送者或接收者的角色。 「傳送者」一詞用於將訊息傳送至服務匯流排佇列或主題訂用帳戶的服務匯流排佇列或主題用戶端。 「接收者」一詞指的是從服務匯流排佇列或訂用帳戶接收訊息的服務匯流排佇列或訂用帳戶用戶端。
 
 這些章節介紹幾個服務匯流排用來協助提升效能的概念。
 
@@ -37,7 +32,7 @@ ms.locfileid: "34802539"
 2. 服務匯流排傳訊通訊協定 (SBMP)
 3. HTTP
 
-AMQP 和 SBMP 會更有效率，因為只要傳訊處理站存在，它們就會維護服務匯流排連線。 它也會實作批次處理和預先擷取作業。 除非明確提到，否則本主題中的所有內容都假設為使用 AMQP 和 SBMP。
+AMQP 和 SBMP 會更有效率，因為只要傳訊處理站存在，它們就會維護服務匯流排連線。 它也會實作批次處理和預先擷取作業。 除非明確提到，否則本文中的所有內容都假設為使用 AMQP 和 SBMP。
 
 ## <a name="reusing-factories-and-clients"></a>重複使用處理站和用戶端
 
@@ -45,13 +40,13 @@ AMQP 和 SBMP 會更有效率，因為只要傳訊處理站存在，它們就會
 
 ## <a name="concurrent-operations"></a>並行作業
 
-執行作業 (傳送、接收、刪除等等) 需要一點時間。 這個時間包括服務匯流排服務處理作業的時間加上要求和回覆的延遲時間。 若要增加每次的作業數目，就必須並行執行作業。 您可以通過幾種不同的方式來達成此並行作業：
+執行作業 (傳送、接收、刪除等等) 需要一點時間。 這個時間包括服務匯流排服務處理作業的時間加上要求和回覆的延遲時間。 若要增加每次的作業數目，就必須並行執行作業。 
 
-* **非同步作業**：用戶端會透過執行非同步作業來排程作業。 下一個要求會在前一個要求完成之前啟動。 非同步傳送作業的程式碼片段範例如下：
+用戶端會透過執行非同步作業來排程並行作業。 下一個要求會在前一個要求完成之前啟動。 非同步傳送作業的程式碼片段範例如下：
   
  ```csharp
-  BrokeredMessage m1 = new BrokeredMessage(body);
-  BrokeredMessage m2 = new BrokeredMessage(body);
+  Message m1 = new BrokeredMessage(body);
+  Message m2 = new BrokeredMessage(body);
   
   Task send1 = queueClient.SendAsync(m1).ContinueWith((t) => 
     {
@@ -65,25 +60,14 @@ AMQP 和 SBMP 會更有效率，因為只要傳訊處理站存在，它們就會
   Console.WriteLine("All messages sent");
   ```
   
-  非同步接收作業的程式碼範例如下：
+  非同步接收作業的程式碼範例如下。 請參閱[此處](https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.Azure.ServiceBus/SendersReceiversWithQueues)的完整程式：
   
   ```csharp
-  Task receive1 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
-  Task receive2 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
-  
-  Task.WaitAll(receive1, receive2);
-  Console.WriteLine("All messages received");
-  
-  async void ProcessReceivedMessage(Task<BrokeredMessage> t)
-  {
-    BrokeredMessage m = t.Result;
-    Console.WriteLine("{0} received", m.Label);
-    await m.CompleteAsync();
-    Console.WriteLine("{0} complete", m.Label);
-  }
-  ```
+  var receiver = new MessageReceiver(connectionString, queueName, ReceiveMode.PeekLock);
+  var doneReceiving = new TaskCompletionSource<bool>();
 
-* **多個處理站**：由相同處理站建立的所有用戶端 (除了接收者之外還有傳送者) 共用一個 TCP 連線。 最大訊息輸送量受限於可通過此 TCP 連線的作業數目。 透過單一處理站取得的輸送量與 TCP 來回時間和訊息大小有顯著的差異。 若要取得更高的輸送量速率，請使用多個傳訊處理站。
+  receiver.RegisterMessageHandler(
+  ```
 
 ## <a name="receive-mode"></a>接收模式
 
@@ -108,7 +92,7 @@ mfs.NetMessagingTransportSettings.BatchFlushInterval = TimeSpan.FromSeconds(0.05
 MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 ```
 
-批次處理並不會影響可計費的傳訊作業數目，而且僅適用於服務匯流排用戶端通訊協定。 HTTP 通訊協定不支援批次處理。
+批次處理並不會影響可計費的傳訊作業數目，而且僅適用於使用 [Microsoft.ServiceBus.Messaging](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) 程式庫的服務匯流排用戶端通訊協定。 HTTP 通訊協定不支援批次處理。
 
 ## <a name="batching-store-access"></a>批次處理存放區存取
 
@@ -135,7 +119,7 @@ Queue q = namespaceManager.CreateQueue(qd);
 
 預先擷取訊息時，服務會鎖定預先擷取的訊息。 藉由鎖定，其他接收者就無法接收預先擷取的訊息。 如果接收者無法在鎖定到期之前完成訊息，訊息就會變成可供其他接收者接收。 訊息的預先擷取副本會保留在快取中。 當取用過其快取複本的接收者嘗試完成該訊息時，他會收到例外狀況。 根據預設，訊息鎖定會在 60 秒之後到期。 此值可延長為 5 分鐘。 若要避免過期訊息遭到取用，快取大小應該一律小於用戶端在鎖定逾時間隔內可取用的訊息數目。
 
-使用 60 秒的預設鎖定到期時間時，[SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount] 的良好值為處理站中所有接收者最高處理速率的 20 倍。 例如，處理站建立三個接收者，而每個接收者每秒可以處理最多 10 則訊息。 預先擷取計數不應該超過 20 X 3 X 10 = 600。 根據預設，[QueueClient.PrefetchCount][QueueClient.PrefetchCount] 設為 0，表示沒有其他訊息從服務擷取。
+使用 60 秒的預設鎖定到期時間時，[PrefetchCount][SubscriptionClient.PrefetchCount] 的良好值為處理站中所有接收者最高處理速率的 20 倍。 例如，處理站建立三個接收者，而每個接收者每秒可以處理最多 10 則訊息。 預先擷取計數不應該超過 20 X 3 X 10 = 600。 根據預設，[PrefetchCount][QueueClient.PrefetchCount] 設為 0，表示沒有其他訊息從服務擷取。
 
 預先擷取訊息會增加佇列或訂用帳戶的整體輸送量，因為此舉可減少訊息作業的整體數目或來回次數。 然而，擷取第一個訊息需要較長的時間 (因為訊息大小增加)。 接收預先擷取的訊息比較快速，因為用戶端已經下載這些訊息。
 
@@ -158,12 +142,12 @@ namespaceManager.CreateTopic(td);
 > [!NOTE]
 > 快速實體並不支援交易。
 
-## <a name="use-of-partitioned-queues-or-topics"></a>使用分割的佇列或主題
+## <a name="partitioned-queues-or-topics"></a>分割的佇列或主題
 
 服務匯流排會在內部使用相同的節點和訊息存放區來處理和儲存傳訊實體 (佇列或主題) 的所有訊息。 另一方面，[分割的佇列或主題](service-bus-partitioning.md)會在多個節點和訊息存放區中散佈。 分割的佇列和主題不僅會產生比一般佇列和主題更高的輸送量，也會展現較優異的可用性。 若要建立分割的實體，請將 [EnablePartitioning][EnablePartitioning] 屬性設為 **true**，如下列範例所示。 如需分割實體的詳細資訊，請參閱[分割的傳訊實體][Partitioned messaging entities]。
 
 > [!NOTE]
-> [Premium SKU](service-bus-premium-messaging.md) 不再支援分割的實體。 
+> [Premium SKU](service-bus-premium-messaging.md) 不支援分割的實體。 
 
 ```csharp
 // Create partitioned queue.
@@ -172,7 +156,7 @@ qd.EnablePartitioning = true;
 namespaceManager.CreateQueue(qd);
 ```
 
-## <a name="use-of-multiple-queues"></a>使用多個佇列
+## <a name="multiple-queues"></a>多個佇列
 
 如果您不能使用分割的佇列或主題，或無法由單一分割佇列或主題處理預期的負載，您必須使用多個傳訊實體。 使用多個實體時，請針對每個實體建立專屬用戶端，而不是讓所有實體使用相同的用戶端。
 

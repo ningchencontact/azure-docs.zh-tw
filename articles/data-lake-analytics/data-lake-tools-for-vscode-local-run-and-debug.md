@@ -10,21 +10,21 @@ editor: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: conceptual
 ms.date: 07/14/2017
-ms.openlocfilehash: de41120a3a9d399dafecde4225d56767efcd9f38
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 850b13becb2137c9e881b2d6a657bbd06216e96e
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624824"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317141"
 ---
 # <a name="run-u-sql-and-debug-locally-in-visual-studio-code"></a>以 Visual Studio Code 在本機執行 U-SQL 及偵錯
 本文說明如何在本機開發電腦上執行 U-SQL 作業，以便加速早期的編碼階段，或以 Visual Studio Code 在本機對程式碼進行偵錯。 如需如何使用 Azure Data Lake Tools for Visual Studio Code 的指示，請參閱[使用 Azure Data Lake Tools for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)。 
 
 ## <a name="set-up-the-u-sql-local-run-environment"></a>設定 U-SQL 本機執行環境
 
-1. 按 Ctrl+Shift+P 開啟命令選擇區，然後輸入 **ADL: Download Local Run Dependency** 下載套件。  
+1. 按 Ctrl+Shift+P 開啟命令選擇區，然後輸入 **ADL: Download Local Run Package** 下載套件。  
 
-   ![下載 ADL LocalRun 相依性套件](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/DownloadLocalRun.png)
+   ![下載 ADL LocalRun 相依性套件](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/downloadtheadllocalrunpackage.png)
 
 2. 從 [輸出] 窗格中顯示的路徑找出相依性套件，然後安裝 BuildTools 和 Win10SDK 10240。 路徑範例如下：  
 `C:\Users\xxx\AppData\Roaming\LocalRunDependency` 
@@ -44,7 +44,7 @@ ms.locfileid: "34624824"
 
 
 ## <a name="start-the-local-run-service-and-submit-the-u-sql-job-to-a-local-account"></a>啟動本機執行服務並將 U-SQL 作業提交給本機帳戶 
-如果您是初次使用，還沒[設定 U-SQL 本機執行環境](#set-up-the-u-sql-local-run-environment)，請使用 **ADL: Download Local Run Dependency** 下載本機執行套件。
+如果您是初次使用，還沒[設定 U-SQL 本機執行環境](#set-up-the-u-sql-local-run-environment)，請使用 **ADL: Download Local Run Package** 下載本機執行套件。
 
 1. 選取 Ctrl+Shift+P 來開啟命令選擇區，然後輸入 **ADL: Start Local Run Service**。   
 2. 選取 [接受] 來首次接受 Microsoft 軟體授權條款。 
@@ -65,7 +65,7 @@ ms.locfileid: "34624824"
 ## <a name="start-a-local-debug-for-the-u-sql-job"></a>開始 U-SQL 作業的本機偵錯  
 初次使用者：
 
-1. 如果您還沒[設定 U-SQL 本機執行環境](#set-up-the-u-sql-local-run-environment)，使用 **ADL: Download Local Run Dependency** 下載本機執行套件。
+1. 如果您還沒[設定 U-SQL 本機執行環境](#set-up-the-u-sql-local-run-environment)，使用 **ADL: Download Local Run Package** 下載本機執行套件。
 2. 如訊息方塊中的建議安裝 .NET Core SDK 2.0 (如果尚未安裝)。
  
   ![提醒安裝 Dotnet](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/remind-install-dotnet.png)

@@ -1,110 +1,106 @@
 ---
-title: 如何針對 Azure Active Directory 中的 SAML 型應用程式單一登入進行偵錯 | Microsoft Docs
-description: '了解如何偵錯 SAML 型單一登入 Azure Active Directory 中的應用程式  '
+title: 針對 SAML 型單一登入進行偵錯 - Azure Active Directory | Microsoft Docs
+description: 針對 Azure Active Directory 中應用程式的 SAML 型單一登入進行偵錯。
 services: active-directory
 author: CelesteDG
 documentationcenter: na
 manager: mtillman
-ms.assetid: edbe492b-1050-4fca-a48a-d1fa97d47815
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/20/2017
+ms.date: 06/15/2018
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: dastrock; smalser
-ms.openlocfilehash: 1a33b5ab9e26ed497e3be2d430f66ef41402733d
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: hirsin, dastrock, smalser
+ms.openlocfilehash: 8bb0df567fbac6e8f8a2e2f64f868b4f219e05ac
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157889"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751389"
 ---
-# <a name="how-to-debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>如何偵錯 SAML 型單一登入 Azure Active Directory 中的應用程式
+# <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>針對 Azure Active Directory 中應用程式的 SAML 型單一登入進行偵錯
 
-在對 SAML 型應用程式整合進行偵錯時，使用 [Fiddler](http://www.telerik.com/fiddler) 之類的工具來查看 SAML 要求和 SAML 回應 (包含已發行給應用程式的 SAML 權杖) 通常很有幫助。 
+了解如何在 Azure Active Directory (Azure AD) 中支援[安全性聲明標記語言 (SAML) 2.0](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) 的應用程式內尋找[單一登入](../manage-apps/what-is-single-sign-on.md)問題，並加以修正。 
 
-![Fiddler][1]
+## <a name="before-you-begin"></a>開始之前
+建議您安裝 [My Apps 安全登入擴充功能](../active-directory-saas-access-panel-user-help.md#i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension)。 此瀏覽器擴充功能可輕鬆地收集 SAML 要求和 SAML 回應資訊，以供您解決單一登入問題。 如果您無法安裝此擴充功能，本文會說明如何在已安裝/未安裝此擴充功能的情況下解決問題。
 
-您所遭遇的問題經常會與在 Azure Active Directory 上或應用程式端設定錯誤有關。 根據您是在哪裡看到錯誤的，您必須檢閱 SAML 要求或回應：
+若要下載並安裝 My Apps 安全登入擴充功能，請使用下列其中一個連結。
 
-- 我在公司的登入頁面看到錯誤 [連結到相關章節]
-- 我在登入後於應用程式的頁面上看到錯誤 [連結到相關章節]
-
-## <a name="i-see-an-error-in-my-company-sign-in-page"></a>我在公司的登入頁面看到錯誤。
-
-您可以在[登入針對同盟單一登入設定之資源庫應用程式的問題](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DOC_AAD_How_to_Debug_SAML)找到錯誤碼和解決步驟的一對一對應。
-
-如果您在公司的登入頁面看到錯誤，則需要錯誤訊息和 SAML 要求才能針對問題進行偵錯。
-
-### <a name="how-can-i-get-the-error--message"></a>要如何取得錯誤訊息？
-
-若要取得錯誤訊息，請查看頁面右下角。 您會看到包含下列資訊的錯誤：
-
-- 相互關聯識別碼
-- 時間戳記
-- 訊息
-
-![Error][2] 
-
- 
-相互關聯識別碼和時間戳記會構成唯一識別碼，以供您尋找與登入失敗相關聯的後端記錄。 在向 Microsoft 建立支援案例時務必要有這些值，因為這些值可協助工程師更快速地解決您的問題。
-
-此訊息是登入問題的根本原因。 
+- [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
+- [Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 
-### <a name="how-can-i-review-the-saml-request"></a>要如何檢閱 SAML 要求？
+## <a name="test-saml-based-single-sign-on"></a>測試 SAML 型單一登入
 
-應用程式對 Azure Active Directory 所傳送的 SAML 要求通常是 [https://login.microsoftonline.com](https://login.microsoftonline.com) 中的最後一個 HTTP 200 回應。
- 
-若使用 Fiddler，您可以選取這一行，然後在右面板中選取 [偵測器] > [WebForms]，以檢視 SAML 要求。 以滑鼠右鍵按一下 [SAMLRequest] 值，然後選取 [傳送至 TextWizard]。 然後選取 [轉換] 功能表的 [從 Base64]，解碼權杖並查看其內容。 
+若要在 AAD 與目標應用程式之間測試 SAML 型單一登入：
 
-此外，您也可以複製 SAMLrequest 中的值，然後使用其他 Base64 解碼器。
+1.  以全域系統管理員或其他已獲得授權可管理應用程式的系統管理員身分，登入 [Azure 入口網站](https://portal.azure.com)。
+2.  在左側的刀鋒視窗中，按一下 [Azure Active Directory]，然後按一下 [企業應用程式]。 
+3.  從企業應用程式清單中，按一下要測試單一登入的應用程式，然後在左邊的選項中按一下 [單一登入]。
+4.  若要開啟 SAML 型單一登入測試體驗，請在 [網域和 URL] 區段中，按一下 [測試 SAML 設定]。 如果 [測試 SAML 設定] 按鈕呈現灰色，則表示您需要先填妥並儲存所需的屬性。
+5.  在 [測試單一登入] 刀鋒視窗中，使用公司的認證來登入目標應用程式。 您可以使用目前使用者或不同使用者的身分來登入。 如果您使用不同使用者的身分登入，會有提示要求您進行驗證。
 
-    <samlp:AuthnRequest
-    xmlns="urn:oasis:names:tc:SAML:2.0:metadata"
-    ID="id6c1c178c166d486687be4aaf5e482730"
-    Version="2.0" IssueInstant="2013-03-18T03:28:54.1839884Z"
-    Destination=https://login.microsoftonline.com/<Tenant-ID>/saml2
-    AssertionConsumerServiceURL="https://contoso.applicationname.com/acs"
-    xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
-    <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">https://www.contoso.com</Issuer>
-    </samlp:AuthnRequest>
-
-SAML 要求解碼後，檢閱下列各項：
-
-1. SAML 要求中的**目的地**，會對應從 Azure Active Directory 中取得的 SAML 單一登入服務 URL。
- 
-2. SAML 要求中的**簽發者**，此值就是您在 Azure Active Directory 中為應用程式設定的同一個**識別碼**。 Azure AD 會使用簽發者尋找您目錄中的應用程式。
-
-3. **AssertionConsumerServiceURL**，這是應用程式預期要從 Azure Active Directory 收到的 SAML 權杖。 您可以在 Azure Active Directory 中設定這個值，但如果它是 SAML 要求的一部分則不一定要設定。
+    ![測試 SAML 頁面](media/active-directory-saml-debugging/testing.png)
 
 
-## <a name="i-see-an-error-on-the-applications-page-after-signing-in"></a>我在登入後於應用程式的頁面上看到錯誤
+如果您成功登入，就表示您已通過測試。 在此情況下，Azure AD 會向應用程式發出 SAML 回應權杖。 應用程式使用 SAML 權杖成功地將您登入。
 
-在此案例中，應用程式不接受由 Azure AD 發出的回應。 請務必確認來自 Azure AD 且包含 SAML 權杖的回應，應用程式廠商必須知道此回應才能了解遺漏或錯誤項目為何。 
-
-### <a name="how-can-i-get-and-review-the-saml-response"></a>要如何取得及檢閱 SAML 回應？
-
-包含 SAML 權杖的 Azure AD 回應，通常是 HTTP 302 從 https://login.microsoftonline.com 重新導向並傳送至已設定的應用程式**回覆 URL** 後，發生的那一個。 
-
-您可以選取這一行，然後在右窗格中選取 [偵測器] > [WebForms]，檢視 SAML 權杖。 在這裡以滑鼠右鍵按一下 [SAMLResponse] 值並選取 [傳送至 TextWizard]。 然後選取 [轉換] 功能表的 [從 Base64]，以使用其他 Base64 解碼器將權杖解碼並查看其內容。 
-
-您也可以複製 **SAMLrequest** 中的值，然後使用其他 Base64 解碼器。
-
-請瀏覽[登入後應用程式頁面上的錯誤](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DOC_AAD_How_to_Debug_SAML)疑難排解指引，以深入了解 SAML 回應中可能遺失或錯誤的項目。
-
-如需如何檢閱 SAML 回應的相關資訊，請瀏覽[單一登入 SAML 通訊協定](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference?/?WT.mc_id=DOC_AAD_How_to_Debug_SAML#response)一文。
+如果您在公司的登入頁面或應用程式的頁面上遇到錯誤，請使用下列其中一節來解決錯誤。
 
 
-## <a name="related-articles"></a>相關文章
-* [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](../active-directory-apps-index.md)
-* [設定對不在 Azure Active Directory 應用程式庫中的應用程式的單一登入](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)
-* [如何為預先整合的應用程式自訂在 SAML 權杖中發出的宣告](active-directory-saml-claims-customization.md)
+## <a name="resolve-a-sign-in-error-on-your-company-sign-in-page"></a>解決公司登入頁面上的登入錯誤
 
-<!--Image references-->
-[1]: ../media/active-directory-saml-debugging/fiddler.png
-[2]: ../media/active-directory-saml-debugging/error.png
+當您嘗試登入時，可能會在公司的登入頁面上看到錯誤。 
+
+![登入錯誤](media/active-directory-saml-debugging/error.png)
+
+若要對這個錯誤進行偵錯，您需要錯誤訊息和 SAML 要求。 My Apps 安全登入擴充功能會自動收集此資訊，並在 Azure AD 上顯示解決指導方針。 
+
+若要在已安裝 My Apps 安全登入擴充功能的情況下解決登入錯誤：
+
+1.  在發生錯誤時，此擴充功能會將您重新導向回到 Azure AD 的 [測試單一登入] 刀鋒視窗。 
+2.  在 [測試單一登入] 刀鋒視窗中，按一下 [下載 SAML 要求]。 
+3.  根據錯誤和 SAML 要求中的值，您應該會看到特定的解決指導方針。 請檢閱該指導方針。
+
+若要在未安裝 My Apps 安全登入擴充功能的情況下解決錯誤：
+
+1. 複製頁面右下角的錯誤訊息。 錯誤訊息包括：
+    - 相互關聯識別碼和時間戳記。 在向 Microsoft 建立支援案例時務必要有這些值，原因是這些值可協助工程師識別問題並提供正確的問題解決方式。
+    - 可識別問題根本原因的陳述。
+2.  返回 Azure AD，並尋找 [測試單一登入] 刀鋒視窗。
+3.  在 [取得解決指導方針] 上方的文字方塊中，貼上錯誤訊息。
+3.  按一下 [取得解決指導方針] 以顯示問題的解決步驟。 此指導方針可能需要來自 SAML 要求或 SAML 回應的資訊。 如果您未使用 My Apps 安全登入擴充功能，則可能需要 [Fiddler](http://www.telerik.com/fiddler) 之類的工具來擷取 SAML 要求和回應。
+4.  確認 SAML 要求中的目的地，會對應到從 Azure Active Directory 中取得的 SAML 單一登入服務 URL
+5.  確認 SAML 要求中的簽發者，就是您在 Azure Active Directory 中為應用程式設定的同一個識別碼。 Azure AD 會使用簽發者尋找您目錄中的應用程式。
+6.  確認 AssertionConsumerServiceURL 是應用程式預期會從 Azure Active Directory 收到 SAML 權杖的位置。 您可以在 Azure Active Directory 中設定這個值，但如果它是 SAML 要求的一部分則不一定要設定。
+
+
+## <a name="resolve-a-sign-in-error-on-the-application-page"></a>解決應用程式頁面上的登入錯誤
+
+您可能會先成功登入，之後才在應用程式的頁面上看到錯誤。 當 Azure AD 核發權杖給應用程式，但應用程式不接受該回應時，就會發生這種情況。   
+
+若要解決此錯誤：
+
+1. 如果應用程式在 Azure AD 資源庫中，請確認您已遵循用於整合應用程式與 Azure AD 的所有步驟。 若要尋找應用程式的整合指示，請參閱 [SaaS 應用程式整合教學課程清單](../saas-apps/tutorial-list.md)。
+2. 擷取 SAML 回應。
+    - 如果您已安裝 My Apps 安全登入擴充功能，請從 [測試單一登入] 刀鋒視窗中，按一下 [下載 SAML 回應]。
+    - 如果未安裝此擴充功能，則請使用 [Fiddler](http://www.telerik.com/fiddler) 之類的工具來擷取 SAML 回應。 
+3. 請注意 SAML 回應權杖中的這些元素：
+    - NameID 值和格式的使用者唯一識別碼
+    - 在權杖中所發出的宣告
+    - 用來簽署權杖的憑證。 如需如何檢閱 SAML 回應的相關資訊，請參閱[單一登入 SAML 通訊協定](active-directory-single-sign-on-protocol-reference.md)。
+4. 如需 SAML 回應的詳細資訊，請參閱[單一登入 SAML 通訊協定](active-directory-single-sign-on-protocol-reference.md)。
+5. 既然您已檢閱 SAML 回應，請參閱[登入後應用程式頁面的錯誤](../application-sign-in-problem-application-error.md)，以取得解決問題的指導方針。 
+6. 如果您仍無法成功登入，則可以詢問應用程式廠商 SAML 回應中遺漏了什麼。
+
+
+## <a name="next-steps"></a>後續步驟
+既然應用程式已可使用單一登入，您可以[將 SaaS 應用程式的使用者佈建和解除佈建自動化](../active-directory-saas-app-provisioning.md)，也可以[開始使用條件式存取](../active-directory-conditional-access-azure-portal-get-started.md)。
+
+

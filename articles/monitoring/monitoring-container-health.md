@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/19/2018
+ms.date: 06/22/2018
 ms.author: magoedte
-ms.openlocfilehash: 7c4294947cba72b1638e77c2dd8de1f5ee37b62a
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 23109a74fa707759cc3300896392dcc129f3e28c
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285981"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335749"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>監視 Azure Kubernetes Service (AKS) 容器健康情況 (預覽)
 
@@ -37,7 +37,7 @@ ms.locfileid: "36285981"
 ## <a name="requirements"></a>需求 
 開始之前，請檢閱下列詳細資料，以了解支援的必要條件。
 
-- 支援下列 AKS 叢集版本：1.7.7 至 1.9.6。
+- 新的或現有的 AKS 叢集
 - 適用於 Linux 的 OMS 代理程式容器化版本 microsoft/oms:ciprod04202018 與更新版本。 此代理程式會在容器健康情況上線期間自動安裝。  
 - Log Analytics 工作區。  它可在您啟用新 AKS 叢集的監視功能時建立，或您可以透過 [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md)、[PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json) 或從 [Azure 入口網站](../log-analytics/log-analytics-quick-create-workspace.md)來建立。
 - 用於啟用容器監視的 Log Analytics 參與者角色成員。  如需有關如何控制 Log Analytics 工作區存取的詳細資訊，請參閱[管理工作區](../log-analytics/log-analytics-manage-access.md)。
@@ -244,7 +244,7 @@ Log Analytics 工作區必須手動建立。  您可以從 [Azure 入口網站](
 啟用監視之後，大約需要 15 分鐘的時間，您才能看到該叢集的作業資料。  
 
 ## <a name="verify-agent-deployed-successfully"></a>請確認已成功部署代理程式
-若要確認已正確部署 OMS 代理程式，請執行下列命令：` kubectl get ds omsagent --namespace=kube-system`。
+若要確認已正確部署 OMS 代理程式，請執行下列命令：`kubectl get ds omsagent --namespace=kube-system`。
 
 輸出應像下面這樣，才表示確實正確部署：
 

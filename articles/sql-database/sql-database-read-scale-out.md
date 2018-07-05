@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 04/23/2018
+ms.date: 06/27/2018
 ms.author: sashan
-ms.openlocfilehash: 8de70c01f4c04d6df85c2f5acfe9efe18ff59c0b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7b504306e32f97a0392239f9e6adc6c460848580
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649681"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060003"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>使用唯讀複本對唯讀查詢工作負載進行負載平衡 (預覽)
 
@@ -22,7 +22,7 @@ ms.locfileid: "34649681"
 
 ## <a name="overview-of-read-scale-out"></a>讀取相應放大概觀
 
-進階層 ([以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)) 或業務關鍵層 ([以虛擬核心為基礎的購買模型 (預覽)](sql-database-service-tiers-vcore.md)) 中的每個資料庫，都會自動佈建數個 AlwaysOn 複本以支援可用性 SLA。 這些複本會使用與一般資料庫連線所使用的讀寫複本相同的效能等級進行佈建。 **讀取相應放大**功能可讓您使用唯讀複本功能對 SQL Database 的唯讀工作負載進行負載平衡，而不共用讀寫複本。 這種方式的唯讀工作負載將會與主要讀寫工作負載隔離，而且不會影響其效能。 此功能適用於包含邏輯上分隔唯讀工作負載 (例如分析) 的應用程式，因此可在不需額外費用的情況下使用這個額外容量獲得效能優勢。
+進階層 ([以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)) 或業務關鍵層 ([以虛擬核心為基礎的購買模型 (預覽)](sql-database-service-tiers-vcore.md)) 中的每個資料庫，都會自動佈建數個 AlwaysOn 複本以支援可用性 SLA。 這些複本會使用與一般資料庫連線所使用的讀寫複本相同的效能等級進行佈建。 **讀取相應放大**功能可讓您使用其中一個唯讀複本功能對 SQL Database 的唯讀工作負載進行負載平衡，而不共用讀寫複本。 這種方式的唯讀工作負載將會與主要讀寫工作負載隔離，而且不會影響其效能。 此功能適用於包含邏輯上分隔唯讀工作負載 (例如分析) 的應用程式，因此可在不需額外費用的情況下使用這個額外容量獲得效能優勢。
 
 若要對特定資料庫使用讀取相應放大功能，您必須在建立資料庫時或者以後明確地啟用它，方法是藉由使用 PowerShell 叫用 [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) 或 [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) Cmdlet，或者透過 Azure Resource Manager REST API 使用[資料庫 - 建立或更新](/rest/api/sql/databases/createorupdate)方法來改變它的組態。 
 
@@ -61,9 +61,12 @@ Server=tcp:<server>.database.windows.net;Database=<mydatabase>;User ID=<myLogin>
 
 您可以執行下列查詢，確認是否已連線到唯讀複本。 它會在連線到唯讀複本時傳回 READ_ONLY。
 
+
 ```SQL
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 ```
+> [!NOTE]
+> 在任何指定時間，ReadOnly 工作階段只能存取其中一個 AlwaysON 複本。
 
 ## <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>使用 Azure PowerShell 啟用和停用讀取相應放大
 
@@ -106,6 +109,14 @@ Body:
 ```
 
 如需詳細資訊，請參閱[資料庫 - 建立或更新](/rest/api/sql/databases/createorupdate)。
+
+## <a name="using-read-scale-out-with-geo-replicated-databases"></a>對異地複寫的資料庫使用讀取縮放
+
+如果您要使用讀取縮放對異地複寫資料庫上的唯讀工作負載進行負載平衡 (例如作為容錯移轉群組的成員)，請確定主要與異地複寫的次要資料庫上都已啟用讀取縮放。 這可確保當您的應用程式在容錯移轉後連線到新的主要時，會有相同的負載平衡效果。 如果您要連線到啟用讀取縮放的異地複寫次要資料庫，則會使用與路由傳送主要資料庫上連線的相同方式，將設定 `ApplicationIntent=ReadOnly` 的工作階段路由傳送至其中一個複本。  未設定 `ApplicationIntent=ReadOnly` 的工作階段會路由傳送至異地複寫次要的主要複本，這也是唯讀狀態。 由於異地複寫的次要資料庫具有與主要資料庫不同的端點，因此在過去若要存取次要，不需要設定 `ApplicationIntent=ReadOnly`。 為了確保回溯相容性，`sys.geo_replication_links` DMV 會顯示 `secondary_allow_connections=2` (允許所有用戶端連線)。
+
+> [!NOTE]
+> 在預覽期間，我們不會在次要資料庫的本機複本之間執行循環配置資源或任何其他負載平衡路由。 
+
 
 ## <a name="next-steps"></a>後續步驟
 

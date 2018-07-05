@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/5/2018
 ms.author: markgal
-ms.openlocfilehash: f39f8571d4256a14f64ee2a66788cac8fa524eec
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: c9dd6a1818b0afeb5e577724568a8254a70c8228
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248889"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753348"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>在 Azure Stack 上安裝 Azure 備份伺服器
 
@@ -42,18 +42,9 @@ Azure 備份伺服器會保護下列 Azure Stack 虛擬機器工作負載。
 | SQL Server 2016 | 資料庫 |
 | SQL Server 2014 | 資料庫 |
 | SQL Server 2012 SP1 | 資料庫 |
+| SharePoint 2016 | 伺服器陣列、資料庫、前端、網路伺服器 |
 | SharePoint 2013 | 伺服器陣列、資料庫、前端、網路伺服器 |
 | SharePoint 2010 | 伺服器陣列、資料庫、前端、網路伺服器 |
-
-
-### <a name="host-vs-guest-backup"></a>主機備份與客體備份
-
-Azure 備份伺服器可執行虛擬機器的主機或客體層級的備份。 在主機層級中，Azure 備份代理程式會安裝在虛擬機器或叢集上，並保護整部虛擬機器和主機上執行的資料檔案。 在客體層級中，Azure 備份代理程式會安裝在每部虛擬機器上，並保護該機器上的工作負載。
-
-這兩種方法各有其優缺點：
-
-   * 無論客體機器上執行的作業系統為何，主機層級備份皆可正常運作，而且不需要在每個虛擬機器上安裝 Azure 備份代理程式。 如果您部署的是主機層級備份，可以復原整個虛擬機器或是檔案和資料夾 (項目層級復原)。
-   * 客體層級備份則有利於保護在虛擬機器上執行的特定工作負載。 在主機層級中，您可以復原整個虛擬機器或特定檔案，但無法復原特定應用程式內容中的資料。 舉例而言，若要從受保護的虛擬機器復原特定的 SharePoint 檔案，您必須以客體層級保護虛擬機器。 如果您想保護儲存在傳遞磁碟上的資料，就須使用客體層級備份。 傳遞允許虛擬機器直接存取存放裝置，不會將虛擬磁碟區資料儲存在 VHD 檔案中。
 
 ## <a name="prerequisites-for-the-azure-backup-server-environment"></a>Azure 備份伺服器環境的必要條件
 
@@ -84,13 +75,10 @@ Azure 備份伺服器會將備份資料儲存在連結至虛擬機器的 Azure �
 
 若要將備份資料儲存在 Azure 中，請建立或使用復原服務保存庫。 在準備 Azure 備份伺服器工作負載的備份作業時，需[設定復原服務保存庫](backup-azure-microsoft-azure-backup.md#create-a-recovery-services-vault)。 設定完成後，每次執行備份作業時，系統就會在保存庫中建立復原點。 每個復原服務保存庫可保留最多 9999 個復原點。 您可以保留備份資料多年，視復原點建立的數目及保留的天數而定。 例如，您可以建立每月復原點，並保留復原點五年。
  
-### <a name="using-sql-server"></a>使用 SQL Server
-如果您想要使用遠端 SQL Server 作為 Azure 備份伺服器資料庫，僅需選取執行 SQL Server 的 Azure Stack VM。
-
 ### <a name="scaling-deployment"></a>調整部署
 如果您想要調整部署，您有以下幾種選擇：
   - 縱向擴展：將 Azure 備份伺服器虛擬機器的大小從 A 系列增加到 D 系列，並[遵照 Azure Stack 虛擬機器指示](../azure-stack/user/azure-stack-manage-vm-disks.md)增加本機存放區。
-  - 卸載資料：將較舊的資料傳送至 Azure 備份伺服器，只將最新資料保留在與 Azure 備份伺服器連結的存放區。
+  - 卸載資料：將較舊的資料傳送至 Azure，只將最新資料保留在與 Azure 備份伺服器連結的存放區。
   - 橫向擴展：新增更多的 Azure 備份伺服器來保護工作負載。
 
 ### <a name="net-framework"></a>.NET Framework
@@ -216,7 +204,7 @@ Azure 備份伺服器一律加入網域。 如果您需要將 Azure 備份伺服
 
 ![Microsoft Azure 備份安裝精靈](./media/backup-mabs-install-azure-stack/mabs-install-wizard-local-5.png)
 
-Azure 備份伺服器與 Data Protection Manager 共用程式碼。 您會在 Azure 備份伺服器安裝程式中發現對 Data Protection Manager 和 DPM 的參考。 雖然 Azure 備份伺服器與 Data Protection Manager 是個別產品，但是這些產品息息相關。 在 Azure 備份伺服器文件中，所有對 Data Protection Manager 和 DPM 的參考均適用於 Azure 備份伺服器。
+Azure 備份伺服器與 Data Protection Manager 共用程式碼。 您會在 Azure 備份伺服器安裝程式中發現對 Data Protection Manager 和 DPM 的參考。 雖然 Azure 備份伺服器與 Data Protection Manager 是個別產品，但是這些產品息息相關。
 
 1. 若要啟動安裝精靈，請按一下 [Microsoft Azure 備份伺服器]。
 
@@ -322,7 +310,7 @@ Azure 備份伺服器與 Data Protection Manager 共用程式碼。 您會在 Az
 
 ## <a name="add-backup-storage"></a>新增備份儲存體
 
-第一個備份複本會保存在連接至 Azure 備份伺服器機器的儲存體上。 如需有關新增磁碟的詳細資訊，請參閱 [設定存放集區和磁碟儲存體](https://technet.microsoft.com/library/hh758075.aspx)。
+第一個備份複本會保存在連接至 Azure 備份伺服器機器的儲存體上。 如需新增磁碟的詳細資訊，請參閱[新增新式備份儲存體](https://docs.microsoft.com/en-us/system-center/dpm/add-storage?view=sc-dpm-1801)。
 
 > [!NOTE]
 > 即使您打算將資料傳送至 Azure，也必須新增備份儲存體。 在「Azure 備份伺服器」架構中，復原服務保存庫會保存資料的*第二個*資料複本，而本機儲存體則是保存第一個 (必要的) 備份複本。
@@ -356,7 +344,7 @@ Azure 備份伺服器需要連線至 Azure 備份服務，產品才能順利運�
 - \*.microsoftonline.com
 - \*.windows.net
 
-在 Azure 的連線還原至 Azure 備份伺服器之後，Azure 訂用帳戶狀態決定可以執行的操作。 當伺服器為 [已連線] 之後，請使用 [網路連線][](backup-mabs-install-azure-stack.md#network-connectivity) 中的表格以查看可用操作。
+在 Azure 的連線還原至 Azure 備份伺服器之後，Azure 訂用帳戶狀態決定可以執行的操作。 當伺服器為 [已連線] 之後，請使用 [[網路連線]](backup-mabs-install-azure-stack.md#network-connectivity) 中的表格以查看可用操作。
 
 ### <a name="handling-subscription-states"></a>處理訂用帳戶狀態
 
@@ -372,10 +360,10 @@ Azure 備份伺服器需要連線至 Azure 備份服務，產品才能順利運�
 
 ## <a name="next-steps"></a>後續步驟
 
-[準備您的 DPM 環境](https://technet.microsoft.com/library/hh758176.aspx)一文，包含關於支援之 Azure 備份伺服器組態的資訊。
+[準備您的 DPM 環境](https://docs.microsoft.com/en-us/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801)一文，包含關於支援之 Azure 備份伺服器組態的資訊。
 
 請參閱下列文章，以深入了解使用 Microsoft Azure 備份伺服器來保護工作負載。
 
-- [SQL Server 備份](backup-azure-backup-sql.md)
-- [SharePoint 伺服器備份](backup-azure-backup-sharepoint.md)
+- [SQL Server 備份](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)
+- [SharePoint 伺服器備份](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
 - [替代伺服器備份](backup-azure-alternate-dpm-server.md)

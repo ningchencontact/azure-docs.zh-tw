@@ -1,6 +1,6 @@
 ---
-title: 何謂 Azure Active Directory 條件式存取中的基準保護 | Microsoft Docs
-description: 了解基準保護如何確保您的環境中至少會啟用基準層級的安全性。
+title: 何謂 Azure Active Directory 條件式存取中的基準保護？ - 預覽 | Microsoft Docs
+description: 了解基準保護如何確保您的 Azure Active Directory 環境中至少會啟用基準層級的安全性。
 services: active-directory
 keywords: 應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則
 documentationcenter: ''
@@ -14,23 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/08/2018
+ms.date: 06/21/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 25ae4db2cd4f2a2cea74c428a272c6868acaa5c5
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 86b57a82573760ac73975e851b2bb4caf769845b
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248918"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308555"
 ---
-# <a name="what-is-baseline-protection"></a>何謂基準保護？  
+# <a name="what-is-baseline-protection---preview"></a>何謂基準保護？ - 預覽  
 
-去年一年，身分識別攻擊增加了 300%。 為了讓您的環境免於遭受數量持續增加的攻擊，Azure Active Directory (Azure AD) 導入了稱為基準保護的新功能。 基準保護是一組預先定義的條件式存取原則。 這些原則的目標是要確保您的環境中至少會啟用基準層級的安全性。 
+去年一年，身分識別攻擊增加了 300%。 為了讓您的環境免於遭受數量持續增加的攻擊，Azure Active Directory (Azure AD) 導入了稱為基準保護的新功能。 基準保護是一組預先定義的[條件式存取原則](active-directory-conditional-access-azure-portal.md)。 這些原則的目的是要確保所有 Azure AD 版本中至少會啟用基準層級的安全性。 
 
-在預覽期間，如果您想要啟動基準原則，則需要自行啟用。 正式推出後，則會預設啟用這些原則。 
+本文提供 Azure Active Directory 中基準保護的概念性概觀。
 
-第一個基準保護原則需要對特殊權限帳戶進行 MFA。 攻擊者若掌控了特殊權限帳戶，將會造成極大的破壞，因此請務必先保護這些帳戶。 下列特殊權限角色在此原則的適用範圍內： 
+
+ 
+## <a name="require-mfa-for-admins"></a>管理員需要進行 MFA
+
+有權存取特殊權限帳戶的使用者可以自由存取您的環境。 這些帳戶具有強大權力，您應特別小心處理。 改善特殊權限帳戶保護的常見方法之一，就是在帳戶用於登入時要求更強大的帳戶驗證形式。 在 Azure Active Directory 中，要求多重要素驗證 (MFA)，即可取得比較強大的帳戶驗證。  
+
+[管理員需要進行 MFA] 是一項基準原則，該原則要求下列目錄角色進行 MFA： 
 
 - 全域管理員  
 
@@ -45,9 +51,15 @@ ms.locfileid: "35248918"
 
 ![Azure Active Directory](./media/active-directory-conditional-access-baseline-protection/01.png)
 
-## <a name="how-to-get-started"></a>如何開始使用 
+此基準原則會提供給您排除使用者和群組的選項。 您可以排除一個*[緊急存取系統管理帳戶](active-directory-admin-manage-emergency-access-accounts.md)* 以確保系統不會將您鎖定而讓您無法使用租用戶。
 
-若要啟用基準原則：  
+
+## <a name="enable-a-baseline-policy"></a>啟用基準原則 
+
+雖然基準原則處於預覽狀態，但預設不會啟用。 如果您想要啟用原則，則必須手動啟用。 這項功能一達到一般可用性，預設就會啟用原則。 計劃性行為變更就是您為何必須另外啟用和停用第三個選項才能設定原則狀態的原因：**未來自動啟用原則**。 選取這個選項，讓 Microsoft 決定何時啟用原則。      
+
+
+**若要啟用基準原則：**  
 
 1. 以全域管理員、安全性系統管理員或條件式存取系統管理員的身分，登入 [Azure 入口網站](https://portal.azure.com)。
 
@@ -59,24 +71,29 @@ ms.locfileid: "35248918"
 
     ![條件式存取](./media/active-directory-conditional-access-baseline-protection/03.png)
 
-4. 在原則清單中，按一下 [基準原則: 需要對系統管理員進行 MFA (預覽)]。 
+4. 在原則清單中，按一下以 [基準原則:] 開頭的原則。 
 
 5. 若要啟用原則，請按一下 [立即使用原則]。
 
 6. 按一下 [檔案] 。 
  
 
-基準原則會提供選項供您排除使用者和群組。 您可以排除一個*[緊急存取系統管理帳戶](active-directory-admin-manage-emergency-access-accounts.md)* 以確保系統不會將您鎖定而讓您無法使用租用戶。
+
   
  
 
 ## <a name="what-you-should-know"></a>您應該知道的事情 
 
-基準原則中包含的目錄角色是具有最高特殊權限的 Azure AD 角色。 您也可以根據反饋在日後包含其他人。 
+雖然管理自訂條件式存取原則需要 Azure AD Premium 授權，但基準原則適用於所有的 Azure AD 版本。     
 
-如果指令碼中的帳戶具有系統管理員特殊權限，則應該改為使用[受控服務識別 (MSI)](managed-service-identity/overview.md) 或[服務主體 (具有憑證)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal)。 您暫時可以在基準原則中排除特定使用者帳戶，來解決此問題。 
+基準原則中包含的目錄角色是具有最高特殊權限的 Azure AD 角色。 
 
-此原則適用於舊有驗證流程，例如 POP、IMAP、舊版 Office 桌面用戶端。 
+如果您有在指令碼中使用的特殊權限帳戶，則應以[受控服務識別 (MSI)](./managed-service-identity/overview.md) 或[服務主體 (具有憑證)](../azure-resource-manager/resource-group-authenticate-service-principal.md) 取代這些帳戶。 您暫時可以在基準原則中排除特定使用者帳戶，來解決此問題。 
+
+基準原則適用於舊有驗證流程，例如 POP、IMAP、舊版 Office 桌面用戶端。 
+
+
+
 
 ## <a name="next-steps"></a>後續步驟
 

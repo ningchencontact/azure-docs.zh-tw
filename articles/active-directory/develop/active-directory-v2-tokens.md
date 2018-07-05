@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/22/2018
+ms.date: 06/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: d7b9ad5c76b0e20a3c58bddcc4947482b237fb8f
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 93d551bcc6e517702c064ec0bdf6be61d3230cb3
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164453"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316663"
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Azure Active Directory v2.0 權杖參考
 Azure Active Directory (Azure AD) v2.0 端點會在每個[驗證流程](active-directory-v2-flows.md)中發出數種安全性權杖。 本參考文件說明每種權杖的格式、安全性特性及內容。
@@ -95,8 +95,7 @@ v2.0 端點可允許已向 Azure AD 註冊的第三方應用程式，針對受�
 ## <a name="validating-tokens"></a>驗證權杖
 目前，您應用程式應需要執行的唯一權杖驗證就是驗證識別碼權杖。 若要驗證識別碼權杖，您的應用程式應該同時驗證識別碼權杖的簽章和識別碼權杖中的宣告。
 
-<!-- TODO: Link -->
-Microsoft 提供示範如何輕鬆處理權杖驗證的程式庫和程式碼範例。 在後續小節中，我們將說明基礎程序。 此外，也有數個協力廠商開放原始碼程式庫可用於 JWT 驗證。 幾乎每個平台和語言都有至少一個程式庫選項。
+<!-- TODO: Link --> Microsoft 提供示範如何輕鬆處理權杖驗證的程式庫和程式碼範例。 在後續小節中，我們將說明基礎程序。 此外，也有數個協力廠商開放原始碼程式庫可用於 JWT 驗證。 幾乎每個平台和語言都有至少一個程式庫選項。
 
 ### <a name="validate-the-signature"></a>驗證簽章
 JWT 包含三個區段 (以 `.` 字元分隔)。 第一個區段稱為「標頭」、第二個區段稱為「主體」，而第三個區段則稱為「簽章」。 簽章區段可用來驗證 ID 權杖的真實性，以便獲得應用程式的信任。
@@ -113,7 +112,7 @@ ID 權杖是經由業界標準非對稱式加密演算法 (例如 RSA 256) 進�
 
 `alg` 宣告指出用來簽署權杖的演算法。 `kid` 宣告指出用來簽署權杖的公開金鑰。
 
-v2.0 端點隨時都可能使用一組特定的公開/私密金鑰組的其中一個金鑰組來簽署識別碼權杖。 v2.0 端點會定期替換一組可能的金鑰，因此應將您的應用程式撰寫成自動處理這些金鑰變更。 若要檢查對 v2.0 端點所用公開金鑰的更新，合理的頻率為每隔 24 小時。
+v2.0 端點可使用任何一組特定的公開/私密金鑰組來簽署識別碼及存取權杖。 v2.0 端點會定期替換一組可能的金鑰，因此應將您的應用程式撰寫成自動處理這些金鑰變更。 若要檢查對 v2.0 端點所用公開金鑰的更新，合理的頻率為每隔 24 小時。
 
 您可以使用位於下列位置的 OpenID Connect 中繼資料文件，來取得驗證簽章所需的簽署金鑰資料：
 
@@ -123,10 +122,11 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 
 > [!TIP]
 > 請在瀏覽器中嘗試該 URL！
->
->
 
 此中繼資料文件是 JSON 物件，內含幾項實用的資訊，例如執行 OpenID Connect 驗證所需的各種端點的位置。 此文件也包含 *jwks_uri*，此 URI 提供用來簽署權杖的公用金鑰組的位置。 位於 jwks_uri 的 JSON 文件包含目前使用中的所有公開金鑰資訊。 您的應用程式可以使用 JWT 標頭中的 `kid` 宣告，來選取本文件中已用來簽署權杖的公開金鑰。 它可接著使用正確的公開金鑰和所指出的演算法，來執行簽章驗證。
+
+> [!NOTE]
+> `x5t` 宣告已在 V2.0 端點中被取代。 我們建議使用 `kid` 宣告來驗證您的權杖。
 
 執行簽章驗證已超出本文的範圍。 有許多開放原始碼程式庫可協助您進行這方面的操作。
 

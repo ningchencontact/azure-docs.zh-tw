@@ -2,19 +2,19 @@
 title: 「適用於 MySQL 的 Azure 資料庫」中的限制
 description: 本文說明適用於 MySQL 的 Azure 資料庫中的限制，例如連線數量和儲存引擎選項。
 services: mysql
-author: kamathsun
-ms.author: sukamat
+author: ajlam
+ms.author: andrela
 manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/04/2018
-ms.openlocfilehash: 3ec78b9aad45500a92a8f46f4bb2e654f97da8cb
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 06/21/2018
+ms.openlocfilehash: 2fc224445f89a0b0b4afdc0ef1d0eb1b25b45f36
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264879"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36311192"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>「適用於 MySQL 的 Azure 資料庫」中的限制
 下列各節說明資料庫服務中的容量、儲存引擎支援、權限支援、資料操作陳述式支援，以及功能限制。 另請參閱適用於 MySQL 資料庫引擎的[一般限制](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) \(英文\)。
@@ -60,29 +60,29 @@ ms.locfileid: "35264879"
 ## <a name="data-manipulation-statement-support"></a>資料操作陳述式支援
 
 ### <a name="supported"></a>支援
-- LOAD DATA INFILE：支援，但必須指定導向 UNC 路徑 (透過 XSMB 裝載的 Azure 儲存體) 的 [LOCAL] 參數。
+- 支援 `LOAD DATA INFILE`，但必須指定 `[LOCAL]` 參數並導向至 UNC 路徑 (透過 SMB 掛接的 Azure 儲存體)。
 
 ### <a name="unsupported"></a>不支援
-- SELECT ...INTO OUTFILE
+- `SELECT ... INTO OUTFILE`
 
 ## <a name="functional-limitations"></a>功能限制：
 
 ### <a name="scale-operations"></a>調整作業
-- 目前不支援跨定價層動態調整伺服器。 亦即在「基本」、「一般用途」或「記憶體最佳化」定價層之間切換。
+- 目前不支援基本定價層的雙向動態調整。
 - 不支援減少伺服器儲存體大小。
 
 ### <a name="server-version-upgrades"></a>伺服器版本升級
 - 目前不支援在主要資料庫引擎版本之間進行自動轉換。
 
 ### <a name="point-in-time-restore"></a>還原時間點
-- 不允許還原到不同服務層和/或計算單位與儲存體大小。
+- 使用 PITR 功能時，所建立新伺服器的設定會與作為新伺服器基礎的伺服器設定相同。
 - 不支援還原已刪除的伺服器。
 
 ### <a name="subscription-management"></a>訂用帳戶管理
 - 目前不支援跨訂用帳戶和資源群組動態移動預先建立的伺服器。
 
 ## <a name="current-known-issues"></a>目前已知問題
-- MySQL 伺服器執行個體於建立連線後會顯示錯誤的伺服器版本。 若要取得正確的伺服器執行個體版本，請在 MySQL 命令提示字元中使用 select version(); 命令。
+- MySQL 伺服器執行個體於建立連線後會顯示錯誤的伺服器版本。 若要取得正確的伺服器執行個體引擎版本，請使用 `select version();` 命令。
 
 ## <a name="next-steps"></a>後續步驟
 - [每個服務層中可用的項目](concepts-pricing-tiers.md)

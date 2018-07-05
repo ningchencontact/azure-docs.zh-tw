@@ -1,25 +1,24 @@
 ---
-title: "Azure 資料目錄的新功能 | Microsoft Docs"
-description: "本文提供新增至 Azure 資料目錄之新功能的概觀。"
+title: Azure 資料目錄的新功能 | Microsoft Docs
+description: 本文提供新增至 Azure 資料目錄之新功能的概觀。
 services: data-catalog
-documentationcenter: 
+documentationcenter: ''
 author: steelanddata
 manager: NA
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 1201f8d4-6f26-4182-af3f-91e758a12303
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
 ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 9fb7814a8412200f6d31cfb9dcaee4663d7cea97
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 780ab56df19e8d6761fcf88fa7fbed3e8002fbe8
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025197"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Azure 資料目錄的新功能
 **Azure 資料目錄** 的更新會定期發行。 並非所有發行版本都會包含新的使用者對應功能，某些版本會著重在後端服務功能。 本頁特別強調已加入 Azure 資料目錄服務的新使用者對應功能。
@@ -99,7 +98,7 @@ Azure 資料目錄於 2017 年 9 月新增了下列功能：
 
 ## <a name="whats-new-for-december-2016"></a>2016 年 12 月的新功能
 自 2016 年 12 月起，Azure 資料目錄已新增下列功能：
-*   Azure 資料目錄現在符合 [HIPAA](https://www.microsoft.com/trustcenter/Compliance/HIPAA) 和[歐盟示範條款](https://www.microsoft.com/TrustCenter/Compliance/EU-Model-Clauses)標準。
+*   Azure 資料目錄現在符合 [HIPAA](https://www.microsoft.com/en-us/TrustCenter/Compliance/hipaa) 和[歐盟示範條款](https://www.microsoft.com/en-us/TrustCenter/Compliance/EU-Model-Clauses)標準。
 *   支援編輯資料來源連線資訊。 資料資產擁有者和資料目錄管理員現在可以編輯已註冊之資料來源的連線資訊，而無需重新註冊資料來源。
 *   支援 Salesforce.com 資料來源。 使用者現在可以註冊及探索 Salesforce 物件。
 
@@ -246,7 +245,7 @@ Azure 資料目錄於 2017 年 9 月新增了下列功能：
 * 在 Azure 資料目錄入口網站中新的「入門」資料來源探索體驗。 當使用者進入 Azure 資料目錄入口網站的「探索」頁面而未輸入搜尋字詞時，他們會看見目錄內容的概觀，包括最常使用的標記、專家、資料來源類型及物件類型。
 * 支援註冊與探索 Azure SQL 資料倉儲物件和資料庫。 如需 Azure SQL 資料倉儲的詳細資訊，請參閱 [SQL 資料倉儲](https://azure.microsoft.com/services/sql-data-warehouse/)。
 * 支援將 SQL Server Analysis Services 模型和 SQL Server Reporting Services 伺服器做為容器來進行註冊與探索。 註冊 SSAS 和 SSRS 物件時，Azure 資料目錄會針對 SSAS 模型和 SSRS 伺服器，以及報告和其他物件建立項目。 您可以使用 Azure 資料目錄入口網站來探索容器，並為其加上註解。 除了搜尋和篩選目錄的內容之外，使用者也可以搜尋和篩選模型或伺服器的內容。
-* 支援透過 HTTP/HTTPS 註冊和探索 SQL Server Analysis Servics 物件。 使用者現在可以使用 URL (例如 https://servername/olap/msmdpump.dll) 連接至 SSAS 伺服器，而無需使用伺服器名稱，而且可使用 Windows 驗證以外的基本驗證與匿名連線。 如需 HTTP/HTTPS 連線至 SSAS 的其他資訊，請參閱 [設定 Analysis Services 的 HTTP 存取](https://msdn.microsoft.com/library/gg492140.aspx)。
+* 支援透過 HTTP/HTTPS 註冊和探索 SQL Server Analysis Servics 物件。 使用者現在可以使用 URL (例如 https://servername/olap/msmdpump.dll)) 連線至 SSAS 伺服器，而無需使用伺服器名稱，而且可使用 Windows 驗證以外的基本驗證與匿名連線。 如需 HTTP/HTTPS 連線至 SSAS 的其他資訊，請參閱 [設定 Analysis Services 的 HTTP 存取](https://msdn.microsoft.com/library/gg492140.aspx)。
 * 針對 HDInsight 提供 Hive 資料來源支援。 使用者現可在 HDInsight 資料來源的 Hadoop 中，註冊並探索適用於 Apache Hive 的 Hive 資料表。 如需 HDInsight 上 Hive 的其他資訊，請參閱 [HDInsight 文件中心](../hdinsight/hadoop/hdinsight-use-hive.md)。
 * 支援註冊與探索 Oracle 資料庫及 HDFS 叢集以做為容器。 註冊 Oracle 資料表和檢視或 HDFS 時，Azure 資料目錄會建立資料庫、資料表及檢視的項目。 您可以使用 Azure 資料目錄入口網站來探索資料庫，並為其加上註解。 除了搜尋和篩選目錄內容之外，使用者亦可搜尋和篩選資料庫或叢集的內容。
 * 支援手動註冊未知的資料來源類型。 使用者可透過 Azure 資料目錄入口網站手動輸入資料來源資訊，如此即可為資料來源註冊工具未明確支援的資料來源加上註解並加以探索。

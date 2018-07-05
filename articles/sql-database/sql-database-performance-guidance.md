@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 06/20/2018
 ms.author: carlrab
-ms.openlocfilehash: 613fc4d914635f46d09552858706975006fcbff6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2956dfab3b9c1e6e8de54648dae9d2be99788ac2
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650463"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309209"
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>微調 Azure SQL Database 中的資料庫效能
 
@@ -25,7 +25,7 @@ Azure SQL Database 提供您可以用來改善資料庫效能的[建議](sql-dat
 - 微調您的應用程式，並套用一些可以改善效能的最佳做法。 
 - 變更索引和查詢來微調資料庫，更有效率地使用資料。
 
-這些是手動方法，因為您需要決定哪些[以 DTU 為基礎的模型資源限制](sql-database-dtu-resource-limits.md)和[以虛擬核心為基礎的模型資源限制 (預覽)](sql-database-vcore-resource-limits.md) 符合您的需求。 否則，您需要重寫應用程式或資料庫程式碼，並部署變更。
+這些是手動方法，因為您必須決定符合您需求的數量資源。 否則，您需要重寫應用程式或資料庫程式碼，並部署變更。
 
 ## <a name="increasing-performance-tier-of-your-database"></a>增加資料庫的效能層級
 
@@ -273,8 +273,8 @@ SQL Server 使用者通常會在單一資料庫內結合許多功能。 例如�
 某些資料庫應用程式具有大量讀取工作負載。 對應用程式層進行快取可能會減少資料庫上的負載，並可能使用 Azure SQL Database 而有機會降低支援資料庫所需的效能等級。 使用 [Azure Redis 快取](https://azure.microsoft.com/services/cache/)時，如果您具有大量讀取工作負載，您可以讀取資料一次 (或可能每個應用程式層電腦讀取一次，取決於設定方式)，然後將該資料儲存在 SQL Database 之外。 此方式可減少資料庫負載 (CPU 和讀取 IO)，但會對交易一致性造成影響，因為從快取讀取的資料可能不會與資料庫中的資料同步。 雖然許多應用程式可接受一定程度的不一致性，但並非所有工作負載都是如此。 您應該充分了解應用程式的任何需求，然後再實作應用程式層快取策略。
 
 ## <a name="next-steps"></a>後續步驟
-* 如需以 DTU 為基礎之服務層的詳細資訊，請參閱[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)和[以 DTU 為基礎的模型資源限制](sql-database-dtu-resource-limits.md)
-* 如需以虛擬核心為基礎之服務層的詳細資訊，請參閱[以虛擬核心為基礎的購買模型 (預覽)](sql-database-service-tiers-vcore.md)和[以虛擬核心為基礎的資源限制 (預覽)](sql-database-vcore-resource-limits.md)
+* 如需以 DTU 為基礎的服務層詳細資訊，請參閱[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)。
+* 如需以虛擬核心為基礎的服務層詳細資訊，請參閱[以虛擬核心為基礎的購買模型 (預覽)](sql-database-service-tiers-vcore.md)。
 * 如需彈性集區的詳細資訊，請參閱[什麼是 Azure 彈性集區？](sql-database-elastic-pool.md)
 * 如需效能和彈性集區的相關資訊，請參閱 [考慮使用彈性集區的時機](sql-database-elastic-pool-guidance.md)
 

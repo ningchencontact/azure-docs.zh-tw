@@ -6,20 +6,19 @@ documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 5f5ca940-eef8-4125-b6a0-f44ba04ab5ab
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/23/2018
+ms.date: 06/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 14aa54277cac3369df739a1d84580624f2d3b401
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3e1dd8ad49ceb126a14070ed641146d91419640a
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359470"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025186"
 ---
 # <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>從現有資源匯出 Azure Resource Manager 範本
 在本文中，您將了解如何從您訂用帳戶中的現有資源匯出 Resource Manager 範本。 您可以使用這個產生的範本，來深入了解範本語法。
@@ -65,8 +64,7 @@ ms.locfileid: "34359470"
    
    1. **範本** - 用於定義解決方案之基礎結構的範本。 當您透過入口網站建立儲存體帳戶時，Resource Manager 會使用範本來部署它，並且儲存該範本供日後參考。
    2. **參數** - 您可以在部署期間用來傳入值的參數檔案。 它會包含您在第一次部署期間所提供的值。 當您重新部署範本時，即可變更所有這些值。
-   3. **CLI** - 您可以為了部署範本而使用的 Azure 令列介面 (CLI) 指令碼檔案。
-   3. **CLI 2.0** - 您可以為了部署範本而使用的 Azure 令列介面 (CLI) 指令碼檔案。
+   3. **CLI** - 您可以為部署範本而使用的 Azure CLI 指令碼檔案。
    4. **PowerShell** - 您可以為了部署範本而使用的 Azure PowerShell 指令碼檔案。
    5. **.NET** - 您可以為了部署範本而使用的 .NET 類別。
    6. **Ruby** - 您可以為了部署範本而使用的 Ruby 類別。
@@ -121,7 +119,7 @@ ms.locfileid: "34359470"
 2. 選取範本。
    
      ![編輯範本](./media/resource-manager-export-template/select-added-template.png)
-3. 為了能夠傳遞您可能想要在部署期間指定的值，請將下列兩個參數新增至範本中的 **parameters** 區段：
+3. 為了傳遞您可能想要在部署期間指定的值，請將下列兩個參數新增至範本中的 **parameters** 區段：
 
    ```json
    "administratorLogin": {
@@ -163,12 +161,11 @@ ms.locfileid: "34359470"
 
 
 ## <a name="fix-export-issues"></a>修正匯出問題
-並非所有的資源類型都支援匯出範本功能。 若要解決此問題，請手動將遺漏的資源新增回您的範本。 此錯誤訊息包含無法匯出的資源類型。 在[範本參考](/azure/templates/)中尋找該資源類型。 例如，若要手動新增虛擬網路閘道，請參閱 [Microsoft.Network/virtualNetworkGateways 範本參考](/azure/templates/microsoft.network/virtualnetworkgateways)。
+並非所有的資源類型都支援匯出範本功能。 從資源群組 (而非部署歷程記錄) 匯出時，您只會看到匯出問題。 如果上一次部署精確地表示資源群組的目前狀態，您應該從部署歷程記錄 (而非資源群組) 匯出範本。 只有在變更未定義於單一範本中的資源群組時，才能從資源群組匯出。
 
-> [!NOTE]
-> 從資源群組 (而非部署歷程記錄) 匯出時，您只會遇到匯出問題。 如果上一次部署精確地表示資源群組的目前狀態，您應該從部署歷程記錄 (而非資源群組) 匯出範本。 只有在變更未定義於單一範本中的資源群組時，才能從資源群組匯出。
-> 
-> 
+若要解決匯出問題，請手動將遺漏的資源新增回您的範本。 此錯誤訊息包含無法匯出的資源類型。 在[範本參考](/azure/templates/)中尋找該資源類型。 例如，若要手動新增虛擬網路閘道，請參閱 [Microsoft.Network/virtualNetworkGateways 範本參考](/azure/templates/microsoft.network/virtualnetworkgateways)。 範本參考會提供用來將資源新增至範本的 JSON 給您。
+
+取得 JSON 格式的資源後，您必須取得資源值。 在資源類型的 REST API 中使用 GET 作業，即可看到資源的值。 例如，若要取得虛擬網路閘道的值，請參閱[虛擬網路閘道 - Get](/rest/api/network-gateway/virtualnetworkgateways/get)。
 
 ## <a name="next-steps"></a>後續步驟
 

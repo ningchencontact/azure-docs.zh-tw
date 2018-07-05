@@ -17,12 +17,12 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 276e53784b30c2196ad7455cf9fd801a103fdc30
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 719506e35e6abe5ac573c7ceedc1668fd2704bd4
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34590849"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961684"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>使用 Azure AD Connect 管理和自訂 Active Directory Federation Services
 本文說明如何使用 Azure Active Directory (Azure AD) Connect 管理及自訂 Active Directory Federation Services (AD FS)。 它也包含您可能需要進行以完整設定 AD FS 伺服器陣列的其他常見 AD FS 工作。
@@ -246,31 +246,8 @@ Azure AD Connect 可在將物件同步處理至 Azure AD 時，讓您指定要�
 > 這些規則的順序很重要。
 
 ### <a name="sso-with-a-subdomain-upn"></a>使用子網域 UPN 的 SSO
-您可以使用 Azure AD Connect 新增多個要同盟的網域，如 [新增新的同盟網域](active-directory-aadconnect-federation-management.md#addfeddomain)所述。 您必須修改使用者主要名稱 (UPN) 宣告，讓簽發者識別碼對應至根網域，而不是子網域，因為同盟根網域也涵蓋子系。
 
-根據預設，簽發者識別碼的宣告規則會設定為︰
-
-    c:[Type
-    == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
-
-![預設簽發者識別碼宣告](media/active-directory-aadconnect-federation-management/issuer_id_default.png)
-
-預設規則只是取得 UPN 尾碼，並用在簽發者識別碼宣告中。 比方說，John 是 sub.contoso.com 中的使用者，而 contoso.com 與 Azure AD 同盟。 John 在登入 Azure AD 時輸入 john@sub.contoso.com 做為使用者名稱。 AD FS 中的預設簽發者識別碼宣告規則依下列方法處理︰
-
-    c:[Type
-    == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(john@sub.contoso.com, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
-
-**宣告值：**http://sub.contoso.com/adfs/services/trust/
-
-為了讓簽發者宣告值中只有根網域，請變更宣告規則以符合下列內容︰
-
-    c:[Type == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “^((.*)([.|@]))?(?<domain>[^.]*[.].*)$”, “http://${domain}/adfs/services/trust/“));
+您可以使用 Azure AD Connect 新增多個要同盟的網域，如 [新增新的同盟網域](active-directory-aadconnect-federation-management.md#addfeddomain)所述。 Azure AD Connect 1.1.553.0 版和最新版本會為 issuerID 自動建立正確的宣告規則。 如果您無法使用 Azure AD Connect 1.1.553.0 版或最新版本，建議您使用 [Azure AD RPT 宣告規則](https://aka.ms/aadrptclaimrules)工具，針對 Azure AD 信賴憑證者的信任產生和設定正確的宣告規則。
 
 ## <a name="next-steps"></a>後續步驟
 深入了解 [使用者登入選項](active-directory-aadconnect-user-signin.md)。

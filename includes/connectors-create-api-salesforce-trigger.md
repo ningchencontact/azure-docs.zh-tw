@@ -1,7 +1,7 @@
 在此逐步解說中，您將了解如何使用「Salesforce - 當建立物件時」  觸發程序，在於 Salesforce 中建立新潛在客戶時，起始邏輯應用程式工作流程。
 
 > [!NOTE]
-> 如果您尚未建立與 Salesforce 的「連線」，系統將會提示您登入您的 Salesforce 帳戶。  
+> 如果您尚未建立與 Salesforce 的「連線」，系統將會提示您登入 Salesforce 帳戶。  
 > 
 > 
 

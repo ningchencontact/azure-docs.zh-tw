@@ -8,19 +8,18 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: d8fac770-bb57-4e1f-b50b-9ffeae239d07
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2018
+ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 2d22720e71788493d3663524f2b70783ba26b84d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0b5fb84f8d8fbed7e1d4112e96b00af3e460661a
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218158"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317097"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fluxx-labs"></a>教學課程：Azure Active Directory 與 Fluxx Labs 的整合
 
@@ -67,7 +66,7 @@ Fluxx Labs 與 Azure AD 的整合可提供下列優點：
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![企業應用程式刀鋒視窗][2]
-    
+
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![新增應用程式按鈕][3]
@@ -103,7 +102,7 @@ Fluxx Labs 與 Azure AD 的整合可提供下列優點：
     ![設定單一登入連結][4]
 
 2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
- 
+
     ![單一登入對話方塊](./media/fluxxlabs-tutorial/tutorial_fluxxlabs_samlbase.png)
 
 3. 在 [Fluxx Labs 網域與 URL] 區段上，執行下列步驟：
@@ -123,8 +122,8 @@ Fluxx Labs 與 Azure AD 的整合可提供下列優點：
     |-------------|------------|
     | Production | `https://<subdomain>.fluxx.io/auth/saml/callback` |
     | 生產前 | `https://<subdomain>.preprod.fluxxlabs.com/auth/saml/callback`|
-        
-    > [!NOTE] 
+
+    > [!NOTE]
     > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [Fluxx Labs 支援小組](mailto:travis@fluxxlabs.com)以取得這些值。
 
 4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
@@ -135,7 +134,7 @@ Fluxx Labs 與 Azure AD 的整合可提供下列優點：
 
     ![設定單一登入儲存按鈕](./media/fluxxlabs-tutorial/tutorial_general_400.png)
 
-6. 在 [Fluxx Labs 組態] 區段上，按一下 [設定 Fluxx Labs] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [SAML 實體 ID 和 SAML 單一登入服務 URL]。
+6. 在 [Fluxx Labs 組態] 區段上，按一下 [設定 Fluxx Labs] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [SAML 單一登入服務 URL]。
 
     ![Fluxx Labs 組態](./media/fluxxlabs-tutorial/tutorial_fluxxlabs_configure.png)
 
@@ -148,9 +147,9 @@ Fluxx Labs 與 Azure AD 的整合可提供下列優點：
 9. 在管理面板中選取 [外掛程式] > [整合]，然後選取 [SAML SSO - (已停用)]
 
     ![Fluxx Labs 組態](./media/fluxxlabs-tutorial/config2.png)
-    
+
 10. 在 [屬性] 區段中，執行下列步驟：
-    
+
     ![Fluxx Labs 組態](./media/fluxxlabs-tutorial/config3.png)
 
     a. 選取 [SAML SSO] 核取方塊。
@@ -159,15 +158,17 @@ Fluxx Labs 與 Azure AD 的整合可提供下列優點：
 
     c. 在 [回呼路徑] 文字方塊中，輸入 **/auth/saml/callback**。
 
-    d. 在 [判斷提示取用者服務 URL (單一登入 URL)] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 單一登入服務 URL] 值。
+    d. 在 [判斷提示取用者服務 Url (單一登入 URL)] 文字方塊中，輸入您在 Azure 入口網站中輸入的 [回覆 URL] 值。
 
-    e. 在 [對象 (SP 實體識別碼)] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 實體識別碼] 值。
+    e. 在 [對象 (SP 實體識別碼)] 文字方塊中，輸入您在 Azure 入口網站中輸入的 [識別碼] 值。
 
-    f. 在記事本中開啟您的 base-64 編碼的憑證，將它的內容複製到您的剪貼簿，然後貼入 [識別提供者憑證] 文字方塊。
+    f. 在 [識別提供者 SSO 目標 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 單一登入服務 URL] 值。
 
-    g. 在 [名稱識別碼格式] 文字方塊中，輸入 `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress` 值。
+    g. 在記事本中開啟您的 base-64 編碼的憑證，將它的內容複製到您的剪貼簿，然後貼入 [識別提供者憑證] 文字方塊。
 
-    h. 按一下 [檔案] 。
+    h. 在 [名稱識別碼格式] 文字方塊中，輸入 `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress` 值。
+
+    i. 按一下 [檔案] 。
 
     > [!NOTE]
     > 在儲存內容後，欄位基於安全考量會呈現為空白，但實際上其值已儲存到組態中。
@@ -221,7 +222,7 @@ Fluxx Labs 與 Azure AD 的整合可提供下列優點：
     ![Fluxx Labs 組態](./media/fluxxlabs-tutorial/config4.png)
 
 4. 在 [新增人員] 區段上，執行下列步驟：
-    
+
     ![Fluxx Labs 組態](./media/fluxxlabs-tutorial/config5.png)
 
     a. Fluxx Labs 會使用電子郵件作為 SSO 登入的唯一識別碼。 在 [SSO UID] 欄位中，填入與使用者用作 SSO 登入的電子郵件地址相符的使用者電子郵件地址。
@@ -232,7 +233,7 @@ Fluxx Labs 與 Azure AD 的整合可提供下列優點：
 
 在本節中，您會將 Fluxx Labs 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
-![指派使用者角色][200] 
+![指派使用者角色][200]
 
 **若要將 Britta Simon 指派給 Fluxx Labs，請執行下列步驟：**
 
@@ -257,7 +258,7 @@ Fluxx Labs 與 Azure AD 的整合可提供下列優點：
 6. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
 
 7. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
-    
+
 ### <a name="test-single-sign-on"></a>測試單一登入
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。

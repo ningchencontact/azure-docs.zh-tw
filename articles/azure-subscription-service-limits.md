@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: byvinyal
-ms.openlocfilehash: 9e4ea16193824e63298b19d4401c110385fa7feb
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 1d67266bf599a4dc57fc2e9e0d1c5f9f2562346c
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34700187"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318957"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 訂用帳戶和服務限制、配額與限制
 本文件列出一些最常見的 Microsoft Azure 限制，有時也稱為配額。 本文件目前未涵蓋所有 Azure 服務。 清單將隨著時間擴展並更新以涵蓋更多平台。
@@ -40,8 +40,7 @@ ms.locfileid: "34700187"
 
 > [!NOTE]
 > 請務必強調 Azure 資源群組中資源的配額是基於您的訂閱可以存取的每一區域，而不是每一訂閱 (服務管理配額則是)。 讓我們以 vCPU 配額為例。 如果您需要要求增加配額以支援 vCPU，您必須決定您想要在哪些區域中使用多少個 vCPU，然後提出 Azure 資源群組 vCPU 配額的特定要求，以取得您想要的數量和區域。 因此，如果您需要在西歐使用 30 個 vCPU 以在該處執行應用程式，您應該在西歐特別要求 30 個 vCPU。 但是您在任何其他區域中的 vCPU 配額將不會增加 -- 僅西歐會有 30 個 vCPU 配額。
-> <!-- -->
-> 因此，考慮決定每個區域中您的工作負載所需的 Azure 資源群組配額，並在要考慮部署的每個區域中要求該數量可能會有所幫助。 請參閱 [移難排解部署問題](resource-manager-common-deployment-errors.md) ，以取得探索您特定區域目前的配額的其他說明。
+> <!-- --> 因此，您可能會發現，考慮決定任一區域中您工作負載所需的「Azure 資源群組」配額，並在所考慮部署的每個區域中要求配置該數量的配額，會相當有用。 請參閱 [移難排解部署問題](resource-manager-common-deployment-errors.md) ，以取得探索您特定區域目前的配額的其他說明。
 >
 >
 
@@ -325,7 +324,7 @@ Azure Cosmos DB 是一個全域調整資料庫，可以調整輸送量和儲存�
 [!INCLUDE [role-based-access-control-limits](../includes/role-based-access-control-limits.md)]
 
 ### <a name="sql-database-limits"></a>SQL Database 限制
-如需 SQL Database 的限制，請參閱 [SQL Database 資源限制](sql-database/sql-database-resource-limits.md)。
+如需了解 SQL Database 限制，請參閱 [單一資料庫的 SQL Database 資源限制](sql-database/sql-database-vcore-resource-limits-single-databases.md)和[彈性集區與集區資料庫的 SQL Database 資源限制](sql-database/sql-database-vcore-resource-limits-elastic-pools.md)。
 
 ### <a name="sql-data-warehouse-limits"></a>SQL 資料倉儲限制
 如需了解 SQL 資料倉儲限制，請參閱 [SQL 資料倉儲資源限制](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md)。

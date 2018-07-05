@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 603ce00a036822fd0c7411b47cf3fe630671cc5a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 736d0394b61bd2830a155d6ad714a2a8d19af82b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628118"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017504"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>使用 CLI 部署遠端監視解決方案加速器
 
@@ -68,7 +68,7 @@ pcs login
 | Count | 資源                       | 類型         | 用於 |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Linux 虛擬機器](https://azure.microsoft.com/services/virtual-machines/) | 標準 D1 V2  | 裝載微服務 |
-| 1     | [Azure IoT 中心](https://azure.microsoft.com/services/iot-hub/)                  | S1：基本層 | 裝置管理與通訊 |
+| 1     | [Azure IoT 中心](https://azure.microsoft.com/services/iot-hub/)                  | S1 – 標準層 | 裝置管理與通訊 |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | 標準        | 儲存設定資料，以及規則、警示和訊息等裝置遙測 |  
 | 1     | [Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | 標準        | 適用於 VM 和串流檢查點的儲存體 |
 | 1     | [Web 應用程式](https://azure.microsoft.com/services/app-service/web/)        |                 | 裝載前端 Web 應用程式 |
@@ -82,7 +82,7 @@ pcs login
 |-------|----------------------------------------------|-----------------|----------|
 | 4     | [Linux 虛擬機器](https://azure.microsoft.com/services/virtual-machines/)   | 標準 D2 V2  | 1 部主機和 3 個代理程式，以用於裝載含有備援的微服務 |
 | 1     | [Azure Container Service](https://azure.microsoft.com/services/container-service/) |                 | [Kubernetes](https://kubernetes.io) \(英文\) 協調器 |
-| 1     | [Azure IoT 中樞][https://azure.microsoft.com/services/iot-hub/]                     | S1：基本層 | 裝置管理、命令和控制 |
+| 1     | [Azure IoT 中樞][https://azure.microsoft.com/services/iot-hub/]                     | S2 – 標準層 | 裝置管理、命令和控制 |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | 標準        | 儲存設定資料，以及規則、警示和訊息等裝置遙測 |
 | 5     | [Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | 標準        | 4 個用於 VM 儲存體，1 個用於串流檢查點 |
 | 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | S1 標準     | 透過 SSL 的應用程式閘道 |

@@ -8,21 +8,21 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: pullabhk
-ms.openlocfilehash: 5541a2fff6bb54f5d62518e7edf54fb9150e3109
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: ca7da7ab048b6f7bfdba81aac9bc7702b20ff967
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248920"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751792"
 ---
-# <a name="back-up-sql-server-on-azure-stack"></a>備份 Azure Stack 中的 SQL Server
+# <a name="back-up-sql-server-on-stack"></a>備份 Stack 上的 SQL Server
 運用本文資訊來設定 Microsoft Azure 備份伺服器 (MABS)，以保護 Azure Stack 中的 SQL Server 資料庫。
 
 將 SQL Server 資料庫備份至 Azure 及從 Azure 復原的管理作業包含三個步驟：
 
-1. 建立備份原則以在 Azure 保護 SQL Server 資料庫。
-2. 在 Azure 建立隨選備份複本。
-3. 從 Azure 復原資料庫。
+1. 建立備份原則以保護 SQL Server 資料庫
+2. 建立隨選備份複本
+3. 從磁碟和從 Azure 中復原資料庫
 
 ## <a name="before-you-start"></a>開始之前
 
@@ -63,12 +63,6 @@ ms.locfileid: "35248920"
    >
 
 7. 在 [檢閱磁碟配置] 畫面中，確認可用的整體儲存空間和潛在的磁碟空間。 按 [下一步] 。
-
-    ![磁碟配置](./media/backup-azure-backup-sql/pg-storage.png)
-
-    依預設，Azure 備份伺服器會為每個資料來源 (SQL Server 資料庫) 建立一個磁碟區，以供初始備份複本之用。 透過這個方法，邏輯磁碟管理員 (LDM) 會將 Azure 備份保護限制為 300 個資料來源 (SQL Server 資料庫)。 若要因應這項限制，請選取 [將資料共置在 DPM 存放集區中]。 透過共置，Azure 備份伺服器會使用單一磁碟區來存放多個資料來源，並且可保護多達 2000 個 SQL Server 資料庫。
-
-    如果您選取 [自動擴大磁碟區]，Azure 備份伺服器將會隨著生產資料成長而增加備份磁碟區。 如果您未選取此選項，Azure 備份伺服器會限制用於保護群組中資料來源的備份儲存體。
 
 8. 在 [選擇複本的建立方式] 中，選擇建立第一個復原點的方式。 您可以手動 (關閉網路) 傳輸此初始備份，以避免頻寬壅塞，或透過網路進行傳輸。 如果您選擇等候以傳送第一個備份，您可以指定初始傳輸的時間。 按 [下一步] 。
 
@@ -111,12 +105,7 @@ ms.locfileid: "35248920"
     * 星期六下午 12:00 的備份 會保留 104 週
     * 上星期六下午 12:00 的備份 會保留 60 週
     * 三月份最後一個星期六下午 12:00 的備份 會保留 10 年
-13. 按一下 [下一步]  並選取適當的選項，以便將初始備份複本傳輸至 Azure。 您可以選擇 [自動透過網路] 或 [離線備份]。
-
-    * **自動透過網路** 會依據選擇的備份排程，將備份資料傳輸至 Azure。
-    * [在 Azure 備份中離線備份工作流程](backup-azure-backup-import-export.md)一文說明了**離線備份**的方式。
-
-    選擇相關的傳輸機制以將初始備份複本傳送至 Azure，然後按一下 [下一步] 。
+13. 按一下 [下一步]  並選取適當的選項，以便將初始備份複本傳輸至 Azure。 您可以選擇 [自動透過網路]
 
 14. 在 [摘要] 畫面中檢閱原則詳細資料後，按一下 [建立群組] 以完成工作流程。 您可以按一下 [關閉]，並在 [監視] 工作區中監視工作進度。
 
@@ -147,11 +136,11 @@ ms.locfileid: "35248920"
 2. 以滑鼠右鍵按一下資料庫名稱，然後按一下 [復原]。
 
     ![從 Azure 復原](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-3. DPM 會顯示復原點的詳細資料。 按 [下一步] 。 若要覆寫資料庫，請選取復原類型 [復原到原始的 SQL Server 執行個體] 。 按 [下一步] 。
+3. MABS 會顯示復原點的詳細資料。 按 [下一步] 。 若要覆寫資料庫，請選取復原類型 [復原到原始的 SQL Server 執行個體] 。 按 [下一步] 。
 
     ![復原到原始位置](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
-    在本例中，DPM 會將資料庫復原至另一個 SQL server 執行個體或獨立的網路資料夾。
+    在本例中，MABS 會將資料庫復原至另一個 SQL Server 執行個體或獨立的網路資料夾。
 
 4. 在 [指定復原選項]  畫面上，您可以選取 [網路頻寬使用節流設定] 等復原選項來進行復原所用頻寬的節流。 按 [下一步] 。
 

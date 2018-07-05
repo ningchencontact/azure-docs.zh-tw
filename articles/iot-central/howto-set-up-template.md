@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: bda056a75ae9d696dab389b85fe1bfb2935ee1a8
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f71d4c7dc94fedfd598ab87c51366ba9fb1f184a
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261979"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063030"
 ---
 # <a name="set-up-a-device-template"></a>設定裝置範本
 
 裝置範本是一份藍圖，可為連線至 Microsoft Azure IoT Central 應用程式的某種裝置，定義其所具有的特性和行為。
 
-例如，建置者可為具有下列項目的 IoT 連網風扇建立裝置範本：
+例如，建置者可為 IoT 連線風扇建立包含下列項目的裝置範本：
 
 - 溫度遙測量測
 
@@ -33,95 +33,95 @@ ms.locfileid: "35261979"
 
 - 可傳送警示的規則
 
-- 可讓您對裝置有全面了解的儀表板
+- 可讓您檢視裝置整體的儀表板
 
-透過此裝置範本，操作員可以使用 **fan-1** 和 **fan-2** 等名稱，建立真實的風扇裝置並將其連網。 這些風扇全都會有量測、設定、屬性、規則和儀表板，可供應用程式使用者監視和管理。
+透過此裝置範本，操作員可以使用 **fan-1** 和 **fan-2** 等名稱，建立真實的風扇裝置並將其連網。 所有這些風扇都有量測、設定、屬性、規則和儀表板，可供應用程式使用者監視和管理。
 
 > [!NOTE]
-只有建置者和系統管理員可以建立、編輯和刪除裝置範本。 任何使用者都可以在 [Device Explorer] 頁面，透過現有裝置範本來建立裝置。
+> 只有建置者和系統管理員可以建立、編輯和刪除裝置範本。 任何使用者都可以在 [Device Explorer] 頁面，透過現有裝置範本來建立裝置。
 
-## <a name="create-a-new-device-template"></a>建立新的裝置範本
+## <a name="create-a-device-template"></a>建立裝置範本
 
-1. 瀏覽至 [應用程式建置者] 頁面。
+1. 移至 [應用程式建置者] 頁面。
 
-1. 若要建立空白範本，請選擇 [建立裝置範本]，然後選擇 [自訂]。
+2. 若要建立空白範本，請選取 [建立裝置範本]，然後選取 [自訂]。
 
-1. 輸入新裝置範本的名稱，然後選擇 [建立]。
+3. 輸入新裝置範本的名稱，然後選取 [建立]。
 
-    ![裝置詳細資料頁面](./media/howto-set-up-template/devicedetailspage.png)
+   ![範本名稱為 "Refrigerator" 的裝置詳細資料頁面](./media/howto-set-up-template/devicedetailspage.png)
 
-1. 現在您位於新模擬裝置的 [裝置詳細資料] 頁面。 當您建立新的裝置範本時，系統會自動為您建立模擬裝置。 模擬裝置會報告資料，並可透過和真實裝置一樣的方式來加以控制。
+4. 現在您位於新模擬裝置的 [裝置詳細資料] 頁面。 當您建立裝置範本時，系統會自動為您建立模擬裝置。 模擬裝置會報告資料，並可透過和真實裝置一樣的方式來加以控制。
 
 現在，請看看 [裝置詳細資料] 頁面上的每個索引標籤。
 
 ## <a name="measurements"></a>量測
 
-量測是來自裝置的資料。 您可以在裝置範本中新增多個量測，以符合裝置的功能。 目前支援的量測類型有遙測和事件。
+量測是來自裝置的資料。 您可以在裝置範本中新增多個量測，以符合裝置的功能。
 
-- **遙測**量測是數值資料點，裝置會收集一段時間的資料點，而且資料點會以連續資料流的形式呈現。 例如，溫度。
-- **事件**量測是時間點資料，會代表裝置上某個重要的事物。 事件會有相關聯的嚴重性來表示事件的重要性。 例如，風扇馬達錯誤
-- **狀態**量測代表裝置或其元件在一段時間內的狀態。 例如，風扇模式可定義為具有運轉中和已停止這兩種可能的狀態。
+- **遙測**量測是您裝置隨著時間收集的資料點。 這些資料點會以連續資料流的形式呈現。 例如，溫度。
+- **事件**量測是時間點資料，代表裝置上某個重要的事物。 嚴重性層級代表事件的重要性。 例如，風扇馬達錯誤。
+- **狀態**量測代表裝置或其元件在一段時間內的狀態。 例如，風扇模式可定義為具有 [運轉中] 和 [已停止] 這兩種可能的狀態。
 
 ### <a name="create-a-telemetry-measurement"></a>建立遙測量測
-若要新增遙測量測，請按一下 [+ 新增量測] 按鈕來開啟表單，從中選取量測類型選項。 選取 [遙測]，然後在 [建立遙測] 表單上輸入詳細資料。
+若要新增遙測量測，請選取 [+ 新增量測] 按鈕。 選取 [遙測] 作為量測類型，然後在 [建立遙測] 表單上輸入詳細資料。
 
 > [!NOTE]
-> 真實裝置連網時，請注意裝置所報告量測的名稱。 該名稱必須與量測的 [欄位名稱] 完全相符。
+> 將真實裝置連線時，請注意裝置所回報的量測名稱。 該名稱必須與量測的 [欄位名稱] 項目完全相符。
 
 例如，您可以新增溫度遙測量測：
 
-![量測表單](./media/howto-set-up-template/measurementsform.png)
+![含溫度量測詳細資料的 [建立遙測] 表單](./media/howto-set-up-template/measurementsform.png)
 
-選擇 [儲存] 後，[溫度] 量測就會出現在量測清單中，而且操作員會看到裝置所收集溫度資料的視覺效果。
+選取 [儲存] 之後，[溫度] 量測就會出現在量測清單中。 操作員可以看到裝置正在收集的溫度資料以視覺化方式呈現。
 
 ![量測圖表](./media/howto-set-up-template/measurementsgraph.png)
 
 ### <a name="create-an-event-measurement"></a>建立事件量測
-若要新增事件量測，請按一下 [+ 新增量測] 按鈕來開啟表單，從中選取量測類型選項。 選取 [事件]，然後在 [建立事件] 表單上輸入詳細資料。
+若要新增事件量測，請選取 [+ 新增量測] 按鈕。 選取 [事件] 作為量測類型，然後在 [建立事件] 表單上輸入詳細資料。
 
-在這張表單上提供事件的 [顯示名稱]、[欄位名稱] 和 [嚴重性]。 可供選擇的嚴重性層級有三個 - **錯誤**、**警告**和**資訊**。  
+提供事件的 [顯示名稱]、[欄位名稱] 及 [嚴重性]。 可供選擇的嚴重性層級有三個 - [錯誤]、[警告] 及 [資訊]。  
 
-例如，您可以新增「風扇馬達錯誤」事件。
+例如，您可以新增 [風扇馬達錯誤] 事件。
 
-![事件量測表單](./media/howto-set-up-template/eventmeasurementsform.png)
+![含風扇馬達事件詳細資料的 [建立事件] 表單](./media/howto-set-up-template/eventmeasurementsform.png)
 
-選擇 [儲存] 後，[風扇馬達錯誤] 量測就會出現在量測清單中，而且操作員會看到裝置所傳送事件資料的視覺效果。
+選取 [儲存] 之後，[風扇馬達錯誤] 量測就會出現在量測清單中。 操作員可以看到裝置正在傳送的事件資料以視覺化方式呈現。
 
-![事件量測圖表](./media/howto-set-up-template/eventmeasurementschart.png)
+![事件測量圖表](./media/howto-set-up-template/eventmeasurementschart.png)
 
-若要檢視關於事件的其他詳細資料，請按一下圖表上的 [事件] 圖示：
+若要檢視事件的更多相關詳細資料，請選取圖表上的 [事件] 圖示：
 
-![事件量測詳細資料](./media/howto-set-up-template/eventmeasurementsdetail.png)
+![[風扇馬達錯誤] 事件的詳細資料](./media/howto-set-up-template/eventmeasurementsdetail.png)
 
 
 ### <a name="create-a-state-measurement"></a>建立狀態量測
-若要新增狀態量測，請按一下 [+ 新增量測] 按鈕來開啟表單，從中選取量測類型選項。 選取 [狀態]，然後在 [建立狀態] 表單上輸入詳細資料。
+若要新增狀態量測，請選取 [+ 新增量測] 按鈕。 選取 [狀態] 作為量測類型，然後在 [建立事件] 表單上輸入詳細資料。
 
-在這張表單上提供狀態的 [顯示名稱]、[欄位名稱] 和可能的**值**。 每個**值**也可以具有顯示名稱，以便用於在圖表和資料表上顯示值。
+提供狀態之 [顯示名稱]、[欄位名稱] 及 [值] 的詳細資料。 每個值也可以有顯示名稱，當值顯示在圖表和資料表上時，便會使用該顯示名稱。
 
-例如，您可以新增「風扇模式」狀態，讓其具有兩個可由裝置傳送的可能值，分別是**運轉中**和**已停止**。
+例如，您可以新增 [風扇模式] 狀態，使其包含兩個可由裝置傳送的可能值，分別是 [運轉中] 和 [已停止]。
 
-![狀態量測表單](./media/howto-set-up-template/statemeasurementsform.png)
+![含風扇模式詳細資料的 [編輯狀態] 表單](./media/howto-set-up-template/statemeasurementsform.png)
 
-選擇 [儲存] 後，[風扇模式] 狀態量測就會出現在量測清單中，而且操作員會看到裝置所傳送狀態資料的視覺效果。
+選取 [儲存] 之後，[風扇模式] 狀態量測就會出現在量測清單中。 操作員可以看到裝置正在傳送的狀態資料以視覺化方式呈現。
 
-![狀態量測圖表](./media/howto-set-up-template/statemeasurementschart.png)
+![狀態測量圖表](./media/howto-set-up-template/statemeasurementschart.png)
 
-如果裝置在一小段時間內傳送太多資料點，狀態量測在顯示時就會使用不同的視覺效果，如下所示。 如果您按一下圖表，則該時段內的所有資料點會依時間先後順序顯示。 您也可以縮小時間範圍，以查看圖表上所繪製的量測。
+如果裝置在一小段時間內傳送太多資料點，狀態測量就會以不同的視覺效果顯示，如以下螢幕擷取畫面所示。 如果您按一下圖表，則該時段內的所有資料點將會依時間先後順序顯示。 您也可以縮小時間範圍，以查看圖表上所繪製的量測。
 
-![狀態量測詳細資料](./media/howto-set-up-template/statemeasurementsdetail.png)
+![[靜態風扇模式] 狀態量測的詳細資料](./media/howto-set-up-template/statemeasurementsdetail.png)
 
 
 ## <a name="settings"></a>設定
 
-設定可控制裝置。 設定可讓應用程式操作員對裝置提供輸入。 您可以在裝置範本中新增多個設定，這些設定會在 [設定] 索引標籤上顯示為圖格供操作員使用。 可新增的設定有六種：數字、文字、日期、切換、挑選清單和區段標籤。
+設定可控制裝置。 設定可讓應用程式操作員對裝置提供輸入。 您可以在裝置範本中新增多個設定，這些設定會在 [設定] 索引標籤上顯示為圖格供操作員使用。 您可以新增六種類型的設定：數字、文字、日期、切換、挑選清單及區段標籤。
 
 > [!NOTE]
-> 真實裝置連網時，請注意裝置所報告設定的名稱。 該名稱必須與設定的 [欄位名稱] 完全相符。
+> 當真實裝置連線時，請注意裝置所回報的設定名稱。 該名稱必須與設定的 [欄位名稱] 項目完全相符。
 
-設定的狀態可為三者其中之一。 裝置會報告這些狀態。
+設定的狀態可為三者其中之一。 裝置會回報下列狀態。
 
-- **已同步處理**：裝置已變更而能反映設定值。
+- **已同步處理**：裝置已變更來反映設定值。
 
 - **擱置**：裝置目前正在變更為設定值。
 
@@ -129,137 +129,147 @@ ms.locfileid: "35261979"
 
 例如，您可以新增風扇速度設定：
 
-![設定表單](./media/howto-set-up-template/settingsform.png)
+![含速度設定詳細資料的 [設定數字] 表單](./media/howto-set-up-template/settingsform.png)
 
-選擇 [儲存] 後，**風扇速度**設定就會顯示為圖格，並已準備好可供用來變更裝置的風扇速度。
+選取 [儲存] 之後，[風扇速度] 設定就會顯示為圖格，並已可供用來變更裝置的風扇速度。
+
+在建立新圖格之後，您便可以試用新的設定。 首先，請到螢幕右上方關閉設計模式。
+
+![含圖格 [設計模式] 切換的 [設定] 索引標籤](./media/howto-set-up-template/settingstile.png)
+
+## <a name="properties"></a>屬性
+
+屬性是與裝置相關聯的裝置中繼資料，例如裝置位置和序號。 您可以在裝置範本中新增多個屬性，這些屬性會在 [屬性] 索引標籤上顯示為圖格。操作員可以在建立裝置時指定屬性值，並可隨時編輯這些值。 您可以新增六種類型的屬性：數字、文字、日期、切換、裝置屬性及標籤。
+
+屬性分為兩種類別：
+
+- 裝置回報的「裝置」屬性。
+- 僅儲存在應用程式中的「應用程式」屬性。 裝置無法辨識應用程式屬性。
 
 > [!NOTE]
-> 在建立新的圖格之後，就可以試用新的設定。 首先，請到螢幕右上方關閉設計模式：
-
-![設定圖格](./media/howto-set-up-template/settingstile.png)
-
-## <a name="properties"></a>properties
-
-屬性為與裝置相關聯的裝置中繼資料，例如裝置位置和序號。 您可以在裝置範本中新增多個屬性，這些屬性會在 [屬性] 索引標籤上顯示為圖格。操作員可以在建立新裝置時指定屬性值，並可隨時編輯這些值。 可新增的屬性有六種：數字、文字、日期、切換、裝置屬性和標籤。
-
-屬性分為兩種：
-
-- **裝置屬性**是裝置所報告的屬性。
-- **應用程式屬性**是僅儲存在應用程式中的屬性。 裝置不認得應用程式屬性。
-
-> [!NOTE]
-> 若為裝置屬性，當真實裝置連網時，請注意裝置所報告屬性的名稱。 該名稱必須與屬性的 [欄位名稱] 完全相符。 若為應用程式屬性，欄位名稱可為所需的任意值，只要該名稱是裝置範本中的唯一名稱即可。
+> 若為裝置屬性，當真實裝置連線時，請注意裝置所回報的屬性名稱。 該名稱必須與屬性的 [欄位名稱] 項目完全相符。 若為應用程式屬性，欄位名稱可為所需的任意值，只要該名稱是裝置範本中的唯一名稱即可。
 
 例如，您可以將裝置位置新增為新的屬性：
 
-![屬性表單](./media/howto-set-up-template/propertiesform.png)
+![[屬性] 索引標籤上的 [設定文字] 表單](./media/howto-set-up-template/propertiesform.png)
 
-選擇 [儲存] 後，裝置位置會顯示為圖格：
+選取 [儲存] 之後，裝置位置就會顯示為圖格：
 
-![屬性圖格](./media/howto-set-up-template/propertiestile.png)
+![[位置] 圖格](./media/howto-set-up-template/propertiestile.png)
 
-> [!NOTE]
-> 在建立新的圖格之後，就可以變更屬性值。 首先，請到螢幕右上方關閉設計模式。
+建立圖格之後，您可以變更屬性值。 首先，請到螢幕右上方關閉設計模式。
 
-### <a name="create-a-location-property-powered-by-azure-maps"></a>建立位置屬性 (採用 Azure 地圖服務)
-您可以在 Azure IoT Central 中提供地理內容給位置資料，並顯示任意街道地址的經緯度座標地圖 (或只顯示經緯度座標地圖)。 Azure IoT Central 中的這個功能是由 Azure 地圖服務提供支援。
+### <a name="create-a-location-property-through-azure-maps"></a>透過 Azure 地圖服務建立位置屬性
+您可以在 Azure IoT Central 中將地理內容提供給位置資料，然後繪製街道地址的任何經緯度座標地圖。 或是只繪製經緯度座標地圖。 「Azure 地圖服務」會在 IoT Central 中啟用這項功能。
 
-您可以新增的位置屬性有兩種：
-- **將位置新增為應用程式屬性**：只會單純地儲存在應用程式中。 裝置不認得應用程式屬性。
-- **將位置新增為裝置屬性**：將會由裝置回報。
+您可以新增兩種類型的位置屬性：
+- **將位置新增為應用程式屬性**：此屬性只儲存在應用程式中。 裝置無法辨識應用程式屬性。
+- **將位置新增為裝置屬性**：裝置將會回報此屬性。
 
-####<a name="adding-location-as-an-application-property"></a>將位置新增為應用程式屬性 
-您可以在 Azure IoT Central 應用程式中使用 Azure 地圖服務建立位置屬性作為應用程式屬性。 例如，您可以新增裝置安裝地址。 
+#### <a name="add-location-as-an-application-property"></a>將位置新增為應用程式屬性 
+您可以在 IoT Central 應用程式中使用「Azure 地圖服務」來建立位置屬性作為應用程式屬性。 例如，您可以新增裝置安裝地址。 
 
-1. 瀏覽至 [裝置屬性] 索引標籤，確定已開啟 [設計模式]。
+1. 在 [屬性] 索引標籤上，確定 [設計模式] 為 [開啟]。
 
-![位置屬性](./media/howto-set-up-template/locationcloudproperty1.png)
+   ![已開啟設計模式的 [屬性] 索引標籤](./media/howto-set-up-template/locationcloudproperty1.png)
 
-2. 在 [屬性] 索引標籤上，按一下 [位置]。
-3. 選擇性地設定 [顯示名稱]、[欄位名稱] 和位置的初始值。 
+2. 在資源庫中，選取 [位置]。
+3. 設定位置的 [顯示名稱]、[欄位名稱] 及 (選擇性) [初始值]。 
 
-![位置屬性表單](./media/howto-set-up-template/locationcloudproperty2.png)
+   ![含位置詳細資料的 [設定位置] 表單](./media/howto-set-up-template/locationcloudproperty2.png)
 
-新增位置有兩種支援的格式：
-- **以地址新增位置**
-- **以座標新增位置** 
+   新增位置有兩種支援的格式：
+   - **以地址新增位置**
+   - **以座標新增位置** 
 
-4. 按一下 [儲存]。 
+4. 選取 [ **儲存**]。 
 
-![位置屬性欄位](./media/howto-set-up-template/locationcloudproperty3.png)
+   ![已新增安裝地址的 [位置] 屬性](./media/howto-set-up-template/locationcloudproperty3.png)
 
 現在，操作員可更新位置欄位表單中的位置值。 
 
-####<a name="adding-location-as-a-device-property"></a>將位置新增為裝置屬性 
+#### <a name="add-location-as-a-device-property"></a>將位置新增為裝置屬性 
 
-您可以將位置屬性建立為裝置屬性，該屬性會由裝置回報。
-例如，您想要追蹤裝置位置的時候。
+您可以將位置屬性建立成裝置會回報的裝置屬性。 例如，如果您想要追蹤裝置位置：
 
-1.  瀏覽至 [裝置屬性] 索引標籤，確定已開啟 [設計模式]。
-2.  按一下 [資源庫] 中的 [裝置屬性]。
+1. 在 [屬性] 索引標籤上，確定 [設計模式] 為 [開啟]。
 
-![位置屬性欄位](./media/howto-set-up-template/locationdeviceproperty1.png)
+   ![已開啟設計模式的 [屬性] 索引標籤](./media/howto-set-up-template/locationdeviceproperty1.png)
 
-3.  設定顯示名稱、欄位名稱，然後選擇 [位置] 作為資料類型。 
+2. 從資源庫中選取 [裝置屬性]。
+3. 設定顯示名稱和欄位名稱，然後選取 [位置] 作為資料類型。 
 
-> [!NOTE]
-欄位名稱必須與裝置回報的屬性名稱完全相符。 
+   > [!NOTE]
+   > 欄位名稱必須與裝置所回報的屬性名稱完全相符。 
 
-![位置屬性欄位](./media/howto-set-up-template/locationdeviceproperty2.png)
+   ![含位置詳細資料的 [設定裝置屬性] 表單](./media/howto-set-up-template/locationdeviceproperty2.png)
 
-![位置屬性操作員檢視](./media/howto-set-up-template/locationdeviceproperty2.png)
+既然您已設定位置屬性，現在即可[在裝置儀表板中新增地圖來以視覺化方式呈現位置](#add-an-azure-maps-location-in-the-dashboard)。
 
-現在，設定好位置屬性之後，接著可以在 [裝置儀表板] 中新增地圖來將位置視覺化。 請參閱如何[在儀表板中新增位置 Azure 地圖](howto-set-up-template.md)。
+## <a name="commands"></a>命令
 
+命令可用來從遠端管理裝置。 它們可讓應用程式操作員在裝置上立即執行命令。 您可以在裝置範本中新增多個命令，這些命令會在 [命令] 索引標籤上顯示為圖格，以供操作員使用。 身為裝置建置者，您可以有彈性地根據需求定義命令。
 
+命令與設定有何不同？ 
 
+* **設定**：設定是您想要在裝置套用的設定，並且會希望裝置保存該設定，直到您變更該設定為止。 例如，您想要設定冰箱的溫度，並且希望即使冰箱重新啟動也保有該設定。 
+
+* **命令**：您會使用命令從 IoT Central 以遠端方式在裝置上立即執行命令。 如果裝置未連線，命令就會逾時並失敗。 例如，您想要重新啟動某個裝置。  
+
+當您執行命令時，視裝置是否收到該命令而定，可為三種狀態其中之一。 
+
+例如，您可以新增 [回應] 命令：
+
+![含回應詳細資料的 [設定命令] 表單](./media/howto-set-up-template/commandsecho.png)
+
+選取 [儲存] 之後，[回應] 命令就會顯示為圖格，並已可供用來回應裝置。
+
+在建立圖格之後，您便可以試用新的命令。
 
 ## <a name="rules"></a>規則
 
-規則可讓操作員近乎即時地監視裝置。 規則會在觸發規則時自動叫用**動作**，例如傳送電子郵件。 目前可用的規則只有一種：
+規則可讓操作員近乎即時地監視裝置。 規則會在觸發規則時自動叫用動作，例如傳送電子郵件。 目前有一種類型的規則可供使用：
 
-- **遙測規則：** 當所選裝置的遙測超出指定閾值時，便會觸發遙測規則。 深入了解[遙測規則](howto-create-telemetry-rules.md)。
+- **遙測規則**：當所選裝置的遙測超出指定閾值時，便會觸發此規則。 [深入了解遙測規則](howto-create-telemetry-rules.md)。
 
 ## <a name="dashboard"></a>儀表板
 
-儀表板可供操作員查看裝置的相關資訊。 身為建置者，您可以在此頁面新增圖格，以協助操作員了解裝置的運作情形。 您可以在裝置範本中新增多個儀表板圖格。 可新增的儀表板圖格有六種：影像、折線圖、橫條圖、KPI、設定和屬性，以及標籤。
+儀表板可供操作員查看裝置的相關資訊。 身為建置者，您可以在此頁面新增圖格，以協助操作員了解裝置的運作情形。 您可以在裝置範本中新增多個儀表板圖格。 您可以新增六種類型的儀表板圖格：影像、折線圖、橫條圖、KPI、設定和屬性，以及標籤。
 
 例如，您可以新增 [設定和屬性] 圖格，以顯示目前選取的設定和屬性值：
 
-![儀表板裝置詳細資料表單](./media/howto-set-up-template/dashboardsettingsandpropertiesform.png)
+![含設定和屬性詳細資料的 [設定裝置詳細資料] 表單](./media/howto-set-up-template/dashboardsettingsandpropertiesform.png)
 
 現在，當操作員檢視儀表板時，就會看到這個可顯示裝置屬性和設定的圖格：
 
-![儀表板圖格](./media/howto-set-up-template/dashboardtile.png)
+![含針對圖格顯示之設定和屬性的 [儀表板] 索引標籤](./media/howto-set-up-template/dashboardtile.png)
 
-### <a name="add-location-azure-map-in-dashboard"></a>在儀表板中新增位置 Azure 地圖
+### <a name="add-an-azure-maps-location-in-the-dashboard"></a>在儀表板中新增 Auzre 地圖服務位置
 
-如果您已依[藉由 Azure 地圖服務來建立位置屬性](howto-set-up-template.md)中的步驟設定了位置屬性，就可以直接在裝置儀表板中使用地圖來將位置視覺化。
+如果您稍早已在[透過 Azure 地圖服務建立位置屬性](#create-a-location-property-through-azure-maps)中設定位置屬性，就可以在裝置儀表板中使用地圖，以視覺化方式呈現位置。
 
-1.  瀏覽至 [裝置儀表板] 索引標籤，確定已開啟 [設計模式]。
-2.  在 [裝置儀表板] 上，從資源庫選取 [地圖]。 
+1. 在 [儀表板] 索引標籤上，確定 [設計模式] 為 [開啟]。
 
-![選取儀表板位置 Azure 地圖](./media/howto-set-up-template/locationcloudproperty4map.png)
+   ![已開啟設計模式的 [儀表板] 索引標籤](./media/howto-set-up-template/locationcloudproperty4map.png)
 
-3.  提供標題，然後選擇您先前在 [裝置屬性] 中設定的位置屬性。
+2. 在 [裝置儀表板] 上，從資源庫中選取 [地圖]。 
+3. 提供標題，然後選擇您先前在裝置屬性中設定的位置屬性。
 
-![設定儀表板位置 Azure 地圖](./media/howto-set-up-template/locationcloudproperty5map.png)
+   ![含標題和屬性詳細資料的 [設定地圖] 表單](./media/howto-set-up-template/locationcloudproperty5map.png)
 
-4.  儲存之後，就會看到地圖磚顯示您已選取的位置。 
+4. 選取 [儲存]。 地圖圖格現在會顯示您選取的位置。 
 
-![將儀表板位置 Azure 地圖視覺化](./media/howto-set-up-template/locationcloudproperty6map.png) 
+   ![含所選位置的 [地圖] 圖格](./media/howto-set-up-template/locationcloudproperty6map.png) 
 
-您可以將地圖調整為需要的大小。
+您可以將地圖調整為所需的大小。
 
-現在，當操作員檢視儀表板時，他們可以看到您已設定所有儀表板磚 (包括位置圖)！
+現在，當操作員檢視儀表板時，他們可以看到您已設定的所有儀表板圖格，包括位置地圖。
 
-![儀表板位置 Azure 地圖儀表板](./media/howto-set-up-template/locationcloudproperty7map.png) 
-
-
+![儀表板上的圖格](./media/howto-set-up-template/locationcloudproperty7map.png) 
 
 ## <a name="next-steps"></a>後續步驟
 
-您現在已了解如何在 Azure IoT Central 應用程式中設定裝置範本，以下是建議的後續步驟：
+了解如何在 Azure IoT Central 應用程式中設定裝置範本之後，現在就可以：
 
 > [!div class="nextstepaction"]
 > [建立新的裝置範本版本](howto-version-devicetemplate.md)

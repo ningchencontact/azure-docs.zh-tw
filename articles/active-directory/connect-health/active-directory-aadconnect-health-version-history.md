@@ -3,7 +3,7 @@ title: Azure AD Connect Health 版本歷程記錄
 description: 本文件說明 Azure AD Connect Health 的版本和已包含在這些版本中的功能。
 services: active-directory
 documentationcenter: ''
-author: karavar
+author: zhiweiw
 manager: mtillman
 editor: curtand
 ms.assetid: 8dd4e998-747b-4c52-b8d3-3900fe77d88f
@@ -14,15 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 4555bc85489f557cf6b6b744df7063fc14b0602a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3e3cebd47a259c7c297d6df0eaf76a350111f2e3
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34590373"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319260"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health︰版本發行歷程記錄
 Azure Active Directory 團隊會定期以新的特性和功能更新 Azure AD Connect Health。 本文列出已發行的版本和功能。
+
+## <a name="june-2018"></a>2018 年 6 月 
+**新的預覽功能：** 
+* Azure AD Connect Health for Sync - 診斷及修復入口網站中重複的屬性同步處理錯誤 
+
+**代理程式更新：** 
+*   適用於 AD FS 的 Azure AD Connect Health 代理程式 (3.1.2.0 版)  
+   1. 專用於 3.0.244.0 版之憶體管理和相關警示的 Hotfix
+
 
 ## <a name="may-2018"></a>2018 年 5 月
 **代理程式更新：**
@@ -35,7 +44,7 @@ Azure Active Directory 團隊會定期以新的特性和功能更新 Azure AD Co
  2. 代理程式隱私權改進  
  3. Bug 修正和一般改善
 
-* 適用於同步的 Azure AD Connect Health 代理程式 (3.0.244.0 版)
+* 隨著 Azure AD Connect 1.1.819.0 版發行的 Azure AD Connect Health Agent for Sync (3.0.164.0 版)
  1. 代理程式隱私權改進  
  2. Bug 修正和一般改善
 
@@ -98,7 +107,7 @@ Azure Active Directory 團隊會定期以新的特性和功能更新 Azure AD Co
 ## <a name="october-2016"></a>2016 年 10 月
 **代理程式更新：**
 
-* 適用於 AD FS 的 Azure AD Connect Health 代理程式 \(2.6.408.0 版\)
+* 適用於 AD FS 的 Azure AD Connect Health 代理程式 (2.6.408.0 版)
 1. 改進在驗證要求中偵測用戶端 IP 位址
 2. 與警示相關的錯誤修正
 * 適用於 AD FS 的 Azure AD Connect Health 代理程式 (2.6.408.0 版)

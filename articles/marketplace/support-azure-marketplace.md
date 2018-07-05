@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/07/2018
 ms.author: ellacroi
-ms.openlocfilehash: 6ad1c226246bc1523daca84235591afc27a3b132
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: a2962f50258bb3f65f574882ce2ea46ff006aac3
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825892"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309345"
 ---
 # <a name="support-for-azure-marketplace"></a>適用於 Azure Marketplace 的支援  
 適用於 Azure Marketplace 的支援選項。  
@@ -50,7 +50,7 @@ ms.locfileid: "34825892"
 |:--- |:--- |  
 | Slack：[join.marketplace.azure.com](https://join.marketplace.azure.com) | 此 Slack 環境可支援有技術問題的合作夥伴。 目前有超過 350 個合作夥伴在此環境中工作。 |  
 | MSDN 論壇：Marketplace：[social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Microsoft Developer Network 論壇。 |  
-| Stack Overflow：Azure：[stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure) | 可供取得解決方案及詢問 Azure Marketplace 所有相關問題的 Stack Overflow 環境。<ul> <li>Stack Overflow：Azure Marketplace：[stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Stack Overflow：Azure Resource Manager：[stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Stack Overflow：Azure 虛擬機器：[stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li><li>[Azure 上的容器](https://stackoverflow.com/search?q=azure+container)</li></ul> |
+| Stack Overflow：Azure：[stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure) | 可供取得解決方案及詢問 Azure Marketplace 所有相關問題的 Stack Overflow 環境。<ul> <li>Stack Overflow：Azure Marketplace：[stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Stack Overflow：Azure Resource Manager：[stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Stack Overflow：Azure 上位於 [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine) 的虛擬機器</li> <li>Stack Overflow：Azure 上位於 [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container) 的容器</li> </ul> |
 
 ## <a name="marketing-resources"></a>行銷資源  
 
@@ -61,6 +61,6 @@ ms.locfileid: "34825892"
 | 電子郵件：[cebrand@microsoft.com](mailto:cebrand@microsoft.com) | 回答和 Azure 標誌與商標的使用方式有關的問題。 |  |  
 
 ## <a name="next-steps"></a>後續步驟
-*   請瀏覽 [Azure Marketplace 和 AppSource 發行者指南](./marketplace-publishers-guide.md)頁面。  
+*   請瀏覽 [Azure Marketplace 和 AppSource 發行者指南](./marketplace-publishers-guide.md)網頁。  
  
 ---  

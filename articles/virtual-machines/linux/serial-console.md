@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: 69f5e29be77f25d649ce357dae6e3905ab2bf6b8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 99d09455ed73b366fb3acfb414b9bd095df6319b
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31425328"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36962363"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>虛擬機器序列主控台 (預覽) 
 
@@ -32,6 +32,7 @@ Azure 上的虛擬機器序列主控台可讓您存取 Linux 和 Windows 虛擬�
 
 ## <a name="prerequisites"></a>先決條件 
 
+* 您必須使用資源管理部署模型。 不支援傳統部署。 
 * 虛擬機器必須啟用[開機診斷](boot-diagnostics.md)功能 
 * 使用序列主控台的帳戶必須具有 VM 的[參與者角色](../../role-based-access-control/built-in-roles.md)和[開機診斷](boot-diagnostics.md)儲存體帳戶。 
 * 如需了解 Linux 發行版本的特定設定，請參閱[存取 Linux 的序列主控台](#accessing-serial-console-for-linux)
@@ -90,7 +91,7 @@ SSH/RDP 設定問題 | 存取序列主控台並變更設定 | Linux/Windows
 ## <a name="accessing-serial-console-for-linux"></a>存取 Linux 的序列主控台
 為了讓序列主控台正確運作，必須設定讓客體作業系統將主控台訊息讀取並寫入至序列連接埠。 大多數[已背書的 Azure Linux 發行版本](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)都已預設設定序列主控台。 只要在入口網站中按一下 [序列主控台] 區段，即可存取該主控台。 
 
-### <a name="access-for-redhat"></a>RedHat 的存取 
+### <a name="access-for-red-hat"></a>存取 Red Hat 
 Azure 上提供的 RedHat 映像已預設啟用主控台存取。 Red Hat 中的單一使用者模式會要求啟用根使用者 (預設為停用)。 如果您需要啟用單一使用者模式，請依下列指示進行操作：
 
 1. 透過 SSH 登入 Red Hat 系統

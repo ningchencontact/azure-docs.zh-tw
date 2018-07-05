@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 03/09/2018
 ms.author: ponatara
-ms.openlocfilehash: 5c94e26c4639284f7e4c53d924f16040118d996c
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 838eac510fc17d56f808f541f4e205a279f63c56
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29874354"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318886"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>針對將虛擬機器容錯移轉至 Azure 時的錯誤進行疑難排解
-將虛擬機器容錯移轉至 Azure 時，您可能會收到下列錯誤。 若要進行疑難排解，請使用針對每種錯誤狀況所述的步驟。
 
+將虛擬機器容錯移轉至 Azure 時，您可能會收到下列錯誤。 若要進行疑難排解，請使用針對每種錯誤狀況所述的步驟。
 
 ## <a name="failover-failed-with-error-id-28031"></a>容錯移轉失敗，錯誤識別碼為 28031
 
@@ -45,6 +45,35 @@ Site Recovery 無法在 Azure 中建立已容錯移轉的傳統虛擬機器。 �
 
 * 其中一個資源 (例如建立虛擬機器所需的虛擬網路) 不存在。 建立如虛擬機器的 [計算] 和 [網路] 設定之下提供的虛擬網路，或將此設定修改為已經存在的虛擬網路，然後重試容錯移轉。
 
+## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>因虛擬機器上的 [連線] 按鈕變成灰色，而無法對容錯移轉的虛擬機器進行連線/RDP/SSH
+
+如果 [連線] 按鈕變成灰色，而您不是透過 Express Route 或網站間 VPN 連線能力來連線到 Azure，則請：
+
+1. 移至 [虛擬機器] > [網路]，按一下所需網路介面的名稱。  ![network-interface](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
+2. 瀏覽至 [IP 組態]，然後按一下所需 IP 組態的名稱欄位。 ![IPConfigurations](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
+3. 若要啟用公用 IP 位址，請按一下 [啟用]。 ![啟用 IP](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
+4. 按一下 [設定必要設定] > [建立新項目]。 ![建立新項目](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
+5. 輸入公用位址的名稱，選擇 [SKU] 和 [指派] 的預設選項，然後按一下 [確定]。
+6. 現在，為了儲存所做的變更，請按一下 [儲存]。
+7. 關閉面板，然後瀏覽至虛擬機器的 [概觀] 區段來進行連線/RDP。
+
+## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-even-though-connect-button-is-available-not-grayed-out-on-the-virtual-machine"></a>雖然虛擬機器上的 [連線] 按鈕可用 (沒有變成灰色)，但無法對容錯移轉的虛擬機器進行連線/RDP/SSH
+
+請查看您虛擬機器上的**開機診斷**中是否有本文所列的錯誤。
+
+1. 如果虛擬機器尚未啟動，請嘗試容錯移轉至較舊的復原點。
+2. 如果虛擬機器內的應用程式未啟動，請嘗試容錯移轉至與應用程式一致的復原點。
+3. 如果虛擬機器已加入網域，請確定網域控制站正確運作。 做法是依照以下提供的步驟進行操作。
+    a. 在相同的網路中建立新的虛擬機器
+
+    b.  確定它能夠加入預期啟動已容錯移轉之虛擬機器的相同網域。
+
+    c. 如果網域控制站**未**正確運作，請使用本機系統管理員帳戶來嘗試登入已容錯移轉的虛擬機器
+4. 如果您使用自訂的 DNS 伺服器，則請確定其可供連線。 做法是依照以下提供的步驟進行操作。
+    a. 在相同的網路中建立新的虛擬機器，以及 b. 檢查虛擬機器是否能夠使用自訂 DNS 伺服器進行名稱解析
+
+>[!Note]
+>若要啟用「開機診斷」以外的任何設定，將必須於容錯移轉之前，在虛擬機器中安裝「Azure VM 代理程式」
 
 ## <a name="next-steps"></a>後續步驟
 

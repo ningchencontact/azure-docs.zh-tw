@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: bwren
-ms.openlocfilehash: cb48d6f61991fd16112b3507a413946ec01b4871
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 1e0fd56b6e420103b4f786985f71a84737db642d
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34851078"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333627"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Log Analytics 使用者從 OMS 入口網站轉換到 Azure 入口網站的常見問題
 Log Analytics 一開始會使用其本身的入口網站 (稱為 OMS 入口網站) 來管理其設定和分析收集到的資料。  這個入口網站中的所有功能都已移至 Azure 入口網站，並將繼續進行開發。
@@ -39,7 +39,7 @@ Log Analytics 一開始會使用其本身的入口網站 (稱為 OMS 入口網�
 ![概觀分頁](media/log-analytics-new-portal/new-workspace.png)
 
 ## <a name="where-is-my-overview-page"></a>概觀頁面在何處？
-OMS 入口網站的主畫面會顯示下列磚：工作區中已安裝的所有管理解決方案，以及任何您已建立的自訂檢視。 在 Azure 入口網站，這稱為 [概觀] 頁面。 從 Azure 入口網站的工作區中，請選取功能表中的 [概觀]，或按一下主頁面上的 [概觀] 按鈕。
+OMS 入口網站的主畫面會顯示下列磚：工作區中已安裝的所有管理解決方案，以及任何您已建立的自訂檢視。 Azure 入口網站中也會有相同的檢視。 從工作區中選取 [工作區摘要]。
 
 ![概觀分頁](media/log-analytics-new-portal/overview.png)
 

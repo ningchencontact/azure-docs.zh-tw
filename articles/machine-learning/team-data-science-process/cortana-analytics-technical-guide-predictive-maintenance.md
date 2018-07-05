@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
-ms.openlocfilehash: c3e9b27784a1c0671ca3c87f9a7c55a288362299
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 2916252c08c599d2e528595a8cdf2abca8ea89a3
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248379"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36939742"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>航太與其他業務中預測性維護的 Cortana Intelligence 解決方案範本的技術指南
 
@@ -54,14 +54,14 @@ ms.locfileid: "35248379"
 ### <a name="synthetic-data-source"></a>綜合資料來源
 針對此範本，使用的資料來源是從桌面應用程式產生，您將會下載應用程式並於部署成功後在本機執行。
 
-若要找到下載及安裝此應用程式的指示，請在解決方案範本圖表上選取第一個節點，也就是「預測性維護資料產生器」。 相關指示可在屬性列中找到。 此應用程式會將在解決方案流程的其餘部分使用的資料點或事件送入 [Azure 事件中樞](#azure-event-hub)服務。 此資料來源使用 [Turbofan 引擎降低模擬資料集](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan) \(英文\)，其衍生自 [NASA 資料存放庫](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/) \(英文\) 可公開使用的資料。
+若要找到下載及安裝此應用程式的指示，請在解決方案範本圖表上選取第一個節點，也就是「預測性維護資料產生器」。 相關指示可在屬性列中找到。 此應用程式會將在解決方案流程的其餘部分使用的資料點或事件送入 [Azure 事件中樞](#azure-event-hub)服務。 此資料來源使用 [Turbofan 引擎降低模擬資料集](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan) \(英文\)，其衍生自 [NASA 資料存放庫](https://c3.nasa.gov/dashlink/resources/139/) \(英文\) 可公開使用的資料。
 
-只有當它在您的電腦上執行時，事件產生應用程式才會填入 Azure 事件中樞。
+只有當它在您的電腦上執行時，事件產生應用程式才會填入 Azure 事件中樞。  
 
-### <a name="azure-event-hub"></a>Azure 事件中樞
+### <a name="azure-event-hub"></a>Azure 事件中樞  
 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)服務是綜合資料來源所提供之輸入的收件者。
 
-## <a name="data-preparation-and-analysis"></a>資料準備和分析
+## <a name="data-preparation-and-analysis"></a>資料準備和分析  
 ### <a name="azure-stream-analytics"></a>Azure 串流分析
 使用 [Azure 串流分析](https://azure.microsoft.com/services/stream-analytics/)提供有關 [Azure 事件中樞](#azure-event-hub)服務之輸入串心的近乎即時分析。 接著將結果發佈到 [Power BI](https://powerbi.microsoft.com) 儀表板，以及將所有未經處理的內送事件封存至 [Azure 儲存體](https://azure.microsoft.com/services/storage/)服務，供 [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) 服務後續處理。
 
@@ -113,11 +113,11 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的 [串流分析查
 第二個串流分析作業 **maintenancesa02asablob** 中的查詢只是將所有[事件中樞](https://azure.microsoft.com/services/event-hubs/)事件輸出至 [Azure 儲存體](https://azure.microsoft.com/services/storage/)，不論資料格式為何，都不需進行修改，因為完整的事件資訊會串流至儲存體。
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
-[Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) 服務會協調資料的移動和處理。 在航太解決方案的預測性維護範本中，Data Factory 包含三個 [管線](../../data-factory/v1/data-factory-create-pipelines.md) ，會使用各種技術移動和處理資料。  請開啟隨解決方案部署所建立的解決方案範本圖表底端的 Data Factory 節點，以存取您的 Data Factory。 如果在資料集底下看到錯誤，這是因為在啟動資料產生器之前即已部署 Data Factory。 您可以忽略這些錯誤，且這些錯誤不會阻礙 Data Factory 運作
+[Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) 服務會協調資料的移動和處理。 在航太解決方案的預測性維護範本中，Data Factory 包含三個 [管線](../../data-factory/concepts-pipelines-activities.md) ，會使用各種技術移動和處理資料。  請開啟隨解決方案部署所建立的解決方案範本圖表底端的 Data Factory 節點，以存取您的 Data Factory。 如果在資料集底下看到錯誤，這是因為在啟動資料產生器之前即已部署 Data Factory。 您可以忽略這些錯誤，且這些錯誤不會阻礙 Data Factory 運作
 
 ![Data Factory 資料集錯誤](./media/cortana-analytics-technical-guide-predictive-maintenance/data-factory-dataset-error.png)
 
-本節將討論 [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) 中包含的必要[管線](../../data-factory/v1/data-factory-create-pipelines.md)和[活動](../../data-factory/v1/data-factory-create-pipelines.md)。 以下是解決方案的圖表檢視。
+本節將討論 [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) 中包含的必要[管線和活動](../../data-factory/concepts-pipelines-activities.md)。 以下是解決方案的圖表檢視。
 
 ![Azure Data Factory](./media/cortana-analytics-technical-guide-predictive-maintenance/azure-data-factory.png)
 
@@ -126,22 +126,22 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的 [串流分析查
 類似於 [Azure 串流分析](#azure-stream-analytics-1)查詢，[Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼對於內送資料格式具有隱含知識，因此必須根據您的資料格式進行變更。
 
 #### <a name="aggregateflightinfopipeline"></a><bpt id="p1">*</bpt>AggregateFlightInfoPipeline<ept id="p1">*</ept>
-這個[管線](../../data-factory/v1/data-factory-create-pipelines.md)包含單一活動 - 使用 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) 的 [HDInsightHive](../../data-factory/v1/data-factory-hive-activity.md) 活動，會在 [Azure 串流分析](https://azure.microsoft.com/services/stream-analytics/)作業期間，執行 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼來分割放在 [Azure 儲存體](https://azure.microsoft.com/services/storage/)中的資料。
+這個[管線](../../data-factory/concepts-pipelines-activities.md)包含單一活動 - 使用 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) 的 [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) 活動，會在 [Azure 串流分析](https://azure.microsoft.com/services/stream-analytics/)作業期間，執行 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼來分割放在 [Azure 儲存體](https://azure.microsoft.com/services/storage/)中的資料。
 
 此資料分割工作的 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼為 ***AggregateFlightInfo.hql***
 
 #### <a name="mlscoringpipeline"></a><bpt id="p1">*</bpt>MLScoringPipeline<ept id="p1">*</ept>
-這個[管線](../../data-factory/v1/data-factory-create-pipelines.md)包含數個活動，而其最終結果為來自與這個解決方案範本相關聯的 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 實驗評分的預測。
+這個[管線](../../data-factory/concepts-pipelines-activities.md)包含數個活動，而其最終結果為來自與這個解決方案範本相關聯的 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 實驗評分的預測。
 
 包含的活動為：
 
-* 使用 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) 的 [HDInsightHive](../../data-factory/v1/data-factory-hive-activity.md) 活動會執行 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼來執行 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 實驗所需的彙總及特徵工程設計。
+* 使用 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) 的 [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) 活動會執行 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼來執行 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 實驗所需的彙總及特徵工程設計。
   此資料分割工作的 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼是 ***PrepareMLInput.hql***。
-* [複製](https://msdn.microsoft.com/library/azure/dn835035.aspx)活動，它會將來自 [HDInsightHive](../../data-factory/v1/data-factory-hive-activity.md) 活動的結果移至 [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) 活動所存取的單一 [Azure 儲存體](https://azure.microsoft.com/services/storage/) Blob。
+* [複製](https://msdn.microsoft.com/library/azure/dn835035.aspx)活動，它會將來自 [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) 活動的結果移至 [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) 活動所存取的單一 [Azure 儲存體](https://azure.microsoft.com/services/storage/) Blob。
 * 呼叫 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 實驗的 [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) 活動，會導致將結果放入單一 [Azure 儲存體](https://azure.microsoft.com/services/storage/) Blob。
 
 #### <a name="copyscoredresultpipeline"></a><bpt id="p1">*</bpt>CopyScoredResultPipeline<ept id="p1">*</ept>
-這個[管線](../../data-factory/v1/data-factory-create-pipelines.md)包含單一活動 - [複製](https://msdn.microsoft.com/library/azure/dn835035.aspx)活動，會將 [Azure Machine Learning](#azure-machine-learning) 實驗的結果從 ***MLScoringPipeline*** 移至隨解決方案範本安裝佈建的 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)。
+這個[管線](../../data-factory/concepts-pipelines-activities.md)包含單一活動 - [複製](https://msdn.microsoft.com/library/azure/dn835035.aspx)活動，會將 [Azure Machine Learning](#azure-machine-learning) 實驗的結果從 ***MLScoringPipeline*** 移至隨解決方案範本安裝佈建的 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)。
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 用於此解決方案範本的 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 實驗會提供飛機引擎的剩餘使用年限 (RUL)。 實驗會因取用的資料集而不同，因而需要特別針對帶入的資料進行修改或取代。

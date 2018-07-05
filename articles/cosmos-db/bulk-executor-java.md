@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Cosmos DB 中使用 BulkExecutor Java 程式庫執行大量作業 | Microsoft Docs
-description: 使用 Azure Cosmos DB 的 BulkExecutor Java 程式庫將文件大量匯入和更新至 Azure Cosmos DB 集合。
+title: 在 Azure Cosmos DB 中使用大量執行程式 Java 程式庫執行大量作業 | Microsoft Docs
+description: 使用 Azure Cosmos DB 的大量執行程式 Java 程式庫將文件大量匯入和更新至 Azure Cosmos DB 集合。
 keywords: Java 大量執行程式
 services: cosmos-db
 author: tknandu
@@ -10,16 +10,16 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 77135ec5f62636d1dd634361da345b00d98ad918
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f241a98cdcc847ddb579b86b51034d1438ee1395
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34610237"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300708"
 ---
-# <a name="use-bulkexecutor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>在 Azure Cosmos DB 資料上使用 BulkExecutor Java 程式庫執行大量作業
+# <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>在 Azure Cosmos DB 資料上使用大量執行程式 Java 程式庫執行大量作業
 
-本教學課程說明如何使用 Azure Cosmos DB 大量執行程式的 Java 程式庫來匯入和更新 Azure Cosmos DB 文件。 若要深入了解 BulkExecutor 程式庫，以及它如何協助您利用大量輸送量與儲存體，請參閱 [BulkExecutor 程式庫概觀](bulk-executor-overview.md)一文。 在本教學課程中，您將建置會產生隨機文件的 Java 應用程式，而這些文件會大量匯入至 Azure Cosmos DB 集合。 匯入之後，您會大量更新文件的某些屬性。 
+本教學課程說明如何使用 Azure Cosmos DB 大量執行程式的 Java 程式庫來匯入和更新 Azure Cosmos DB 文件。 若要深入了解大量執行程式程式庫，以及它如何協助您利用大量輸送量與儲存體，請參閱[大量執行程式程式庫概觀](bulk-executor-overview.md)一文。 在本教學課程中，您將建置會產生隨機文件的 Java 應用程式，而這些文件會大量匯入至 Azure Cosmos DB 集合。 匯入之後，您會大量更新文件的某些屬性。 
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -197,7 +197,7 @@ ms.locfileid: "34610237"
 
 ## <a name="performance-tips"></a>效能秘訣 
 
-使用 BulkExecutor 程式庫時，請考量下列各點以提升效能：
+使用大量執行程式程式庫時，請考量下列各點以提升效能：
 
 * 為達到最佳效能，請從位於與 Cosmos DB 帳戶寫入區域相同區域的 Azure VM 中執行應用程式。  
 * 為達到更高的輸送量：  
@@ -211,6 +211,6 @@ ms.locfileid: "34610237"
 
     
 ## <a name="next-steps"></a>後續步驟
-* 若要深入了解 maven 套件及 BulkExecutor Java 程式庫的版本資訊，請參閱 [BulkExecutor SDK 詳細資料](sql-api-sdk-bulk-executor-java.md)。
+* 若要深入了解 maven 套件及大量執行程式 Java 程式庫的版本資訊，請參閱[大量執行程式 SDK 詳細資料](sql-api-sdk-bulk-executor-java.md)。
 
 

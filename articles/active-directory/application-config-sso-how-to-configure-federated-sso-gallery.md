@@ -3,21 +3,23 @@ title: 如何為 Azure AD 資源庫應用程式設定同盟單一登入 | Micros
 description: 如何為現有的 Azure AD 資源庫應用程式設定同盟單一登入，並使用教學課程快速開始使用
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 47aab24702be966beeb41371201c6966497dc35a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: barbkess
+ms.openlocfilehash: f74e614cd8709503afcbae8714732bbacf7c2ae2
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331645"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>如何為 Azure AD 資源庫應用程式設定同盟單一登入
 
@@ -165,7 +167,7 @@ Azure AD 資源庫中所有透過企業單一登入功能啟用的應用程式�
 
 8.  移至 [SAML 簽署憑證] 區段，然後按一下 [下載] 資料行值。 根據應用程式設定單一登入時所需的項目，您會看到下載中繼資料 XML 或憑證的選項。
 
-Azure AD 不提供取得中繼資料的 URL。 只能將中繼資料擷取為 XML 檔案。
+Azure AD 也會提供用來取得中繼資料的 URL。 請遵循此模式來取得應用程式特有的中繼資料 URL：https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>。
 
 ## <a name="assign-users-to-the-application"></a>將使用者指派給應用程式
 

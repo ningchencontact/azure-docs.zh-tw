@@ -3,16 +3,17 @@ title: Azure Analysis Services 擴充 | Microsoft Docs
 description: 使用擴充功能複寫 Azure Analysis Services 伺服器
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/16/2018
+ms.date: 05/24/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ee9210953306fbe317e9ed63c02fb90452ffbd15
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 5d1d55a1cf29d6dc3574099cd468c42ccfc72f5b
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34597122"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services 擴充
 
@@ -33,6 +34,22 @@ ms.lasthandoff: 04/18/2018
 
 > [!NOTE]
 > 擴充不會增加您伺服器的可用記憶體量。 若要增加記憶體則需升級方案。
+
+## <a name="region-limits"></a>區域限制
+
+您可以設定的查詢複本數目受限於您伺服器所在的區域。 適用下列限制：
+
+|區域  |複本的最大數目  |
+|---------|---------|
+|美國東部 2    |    7     |
+|美國中西部     |    7     |
+|西歐     |    7     |
+|美國西部     |     7    |
+|美國中部     |     3    |
+|東南亞    |     3    |
+|所有其他區域  |   1    |
+
+
 
 ## <a name="monitor-qpu-usage"></a>監視 QPU 使用量
 

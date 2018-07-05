@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 3ef20cdb0f6a7b5afd624a7910495ee784140c48
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: b61465e9f38a5a461802d4ab46a7221c557b4595
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36219977"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308137"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>教學課程：Azure Active Directory 與 Keeper Password Manager & Digital Vault 整合
 
@@ -133,7 +133,7 @@ Keeper Password Manager & Digital Vault 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/keeperpasswordmanager-tutorial/tutorial_keeper_configure.png) 
 
-7. 若要設定 **Keeper Password Manager & Digital Vault Configuration** 端的單一登入，請依照 [＜Keeper 支援指南＞(英文)](https://keepersecurity.com/assets/pdf/SettingupAzurewithKeeperSSOConnect.pdf) 的說明操作
+7. 若要設定單一登入 [Keeper Password Manager & Digital Vault 設定] 端，請依照 [Keeper 支援指南](https://keepersecurity.com/assets/pdf/KeeperSSOConnect_v11.pdf) (英文) 的指導方針操作。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)

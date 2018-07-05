@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 23bbbe9cf86268f93ae1f8fcec9303efa8a673de
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 1566cf2b61749121c4eaff5a32b0a940f3341f7e
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796711"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751773"
 ---
 # <a name="understanding-policy-effects"></a>了解原則效果
 
@@ -90,7 +90,7 @@ Append 效果只有一個 **details** 陣列且為必要。 由於 **details** �
 "then": {
     "effect": "append",
     "details": [{
-        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]",
+        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
         "value": [{
             "action": "Allow",
             "value": "134.5.0.0/21"
@@ -99,7 +99,7 @@ Append 效果只有一個 **details** 陣列且為必要。 由於 **details** �
 }
 ```
 
-## <a name="deny"></a>Deny
+## <a name="deny"></a>拒絕
 
 Deny 可用來透過原則定義防止不符合所需標準的資源要求，並讓該要求失敗。
 
@@ -123,7 +123,7 @@ Deny 效果沒有任何額外的屬性可供在原則定義的 **then** 條件�
 }
 ```
 
-## <a name="audit"></a>Audit
+## <a name="audit"></a>稽核
 
 Audit 效果可用來在評估到不符合規範的資源時，在稽核記錄中建立警告事件。
 
@@ -304,7 +304,7 @@ DeployIfNotExists 效果的 **details** 屬性含有定義所要比對相關資�
 
 ## <a name="layering-policies"></a>分層原則
 
-一個資源可能會受到多項指派影響。 這些指派可能在相同範圍 (特定資源、資源群組、訂用帳戶或管理群組)，也可能在不同範圍。 這些指派中的每項指派也可能定義了不同的效果。 無論如何，每個原則的條件和效果 (直接指派或作為初始指派的一部分) 都會以獨立方式評估。 例如，如果原則 1 的條件以 Deny 效果限制在 'westus' 中建立訂用帳戶 A 的位置， 而原則 2 以 Audit 效果限制在 'eastus' 中建立資源群組 B (在訂用帳戶 A 中) 中的資源，當同時指派這兩個原則時，產生的結果會是：
+一個資源可能會受到多項指派影響。 這些指派可能在相同範圍 (特定資源、資源群組、訂用帳戶或管理群組)，也可能在不同範圍。 這些指派中的每項指派也可能定義了不同的效果。 無論如何，每個原則的條件和效果 (直接指派或作為初始指派的一部分) 都會以獨立方式評估。 例如，如果原則 1 的條件以 Deny 效果限制在 'westus' 中建立訂用帳戶 A 的資源位置，而原則 2 的條件以 Audit 效果限制在 'eastus' 中建立資源群組 B (在訂用帳戶 A 中) 的資源位置，當同時指派這兩個原則時，產生的結果會是：
 
 - 任何已經在資源群組 B 且在 'eastus' 中的資源都符合原則 2 的規範，但會標示為不符合原則 1 的規範。
 - 任何已經在資源群組 B 但不在 'eastus' 中的資源都會標示為不符合原則 2 的規範，且如果不在 'westus' 中，也會標示為不符合原則 1 的規範。

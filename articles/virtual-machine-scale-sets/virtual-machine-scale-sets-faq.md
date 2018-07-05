@@ -16,21 +16,22 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: 2b0f463c009d13440f6d3eb2bbbe2315ba7b13f2
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: bf73f9419732e93c1f32f2fb39d3acee02f49b64
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895313"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34656436"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 虛擬機器擴展集常見問題集
 
 取得關於 Azure 中虛擬機器擴展集常見問題集的解答。
 
 ## <a name="top-frequently-asked-questions-for-scale-sets"></a>擴展集的主要常見問題集
+
 **問：** 擴展集內可以有多少部 VM？
 
-**答：** 擴展集可以有 0 到 1,000 部以平台映像為基礎的 VM，或 0-300 部以自訂映像為基礎的 VM。 
+**答：** 擴展集可以有 0 到 1,000 部以平台映像為基礎的 VM，或 0-300 部以自訂映像為基礎的 VM。
 
 **問：** 在擴展集內是否支援資料磁碟？
 
@@ -48,7 +49,7 @@ ms.locfileid: "33895313"
 
 **問：** 如何使用自訂映像建立擴展集？
 
-**答：** 根據自訂映像 VHD 建立受控磁碟，並在擴展集範本中參考它。 [以下是範例](https://github.com/chagarw/MDPP/tree/master/101-vmss-custom-os)。
+**答：** 建立及擷取 VM 映像，然後使用該映像作為擴展集的來源。 如需有關如何建立和使用自訂 VM 映像的教學課程，您可以使用 [Azure CLI 2.0](tutorial-use-custom-image-cli.md) 或 [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
 **問：** 如果我將擴展集容量從 20 減少為 15，哪些 VM 會被移除？
 
@@ -120,7 +121,7 @@ ms.locfileid: "33895313"
 
 您可以透過 PowerShell 或 Azure CLI，建立虛擬機器擴展集計量的警示。 如需詳細資訊，請參閱 [Azure 監視器 PowerShell 快速入門範例](https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules)和 [Azure 監視器跨平台 CLI 快速入門範例](https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts)。
 
-虛擬機器擴展集的 TargetResourceId 如下所示： 
+虛擬機器擴展集的 TargetResourceId 如下所示：
 
 /subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroup/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmssname
 
@@ -128,8 +129,12 @@ ms.locfileid: "33895313"
 
 ### <a name="how-do-i-set-up-autoscale-on-a-virtual-machine-scale-set-by-using-powershell"></a>如何使用 PowerShell 在虛擬機器擴展集上設定自動調整？
 
-若要使用 PowerShell 在虛擬機器擴展集上設定自動調整，請參閱部落格文章[如何將自動調整新增至 Azure 虛擬機器擴展集](https://msftstack.wordpress.com/2017/03/05/how-to-add-autoscale-to-an-azure-vm-scale-set/)。
+若要使用 PowerShell 在虛擬機器擴展集上設定自動調整，請參閱[自動調整虛擬機器擴展集](tutorial-autoscale-powershell.md)。 您也可以透過 [Azure CLI 2.0](tutorial-autoscale-cli.md) 和 [Azure 範本](tutorial-autoscale-template.md)設定自動調整
 
+
+### <a name="if-i-have-stopped-deallocated-a-vm-is-that-vm-started-as-part-of-an-autoscale-operation"></a>如果我已停止 (已取消配置) VM，該 VM 是否在自動調整作業中啟動？
+
+否。 如果自動調整規則需有額外的 VM 執行個體作為擴展集的一部分，則會建立新的 VM 執行個體。 已停止 (已取消配置) 的 VM 執行個體不會在自動調整事件中啟動。 不過，這些已停止 (已取消配置) 的 VM 可能會在執行個體數目相應縮小的自動調整事件中遭到刪除，同樣地系統可以根據 VM 執行個體識別碼的順序刪除任何 VM 執行個體。
 
 
 
@@ -510,7 +515,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 若要執行裝載於私人儲存體帳戶的自訂指令碼，請使用儲存體帳戶金鑰和名稱來進行受保護的設定。 如需詳細資訊，請參閱[適用於 Windows 的自訂指令碼擴充功能](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings)。
 
 
-## <a name="networking"></a>網路
+## <a name="networking"></a>網路功能
  
 ### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-applies-to-all-the-vm-nics-in-the-set"></a>是否可以將「網路安全性群組」(NSG) 指派給擴展集，以便將它套用至擴展集中的所有 VM NIC？
 

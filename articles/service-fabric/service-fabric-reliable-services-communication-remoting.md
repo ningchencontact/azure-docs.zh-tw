@@ -1,6 +1,6 @@
 ---
-title: Service Fabric 的服務遠端處理 | Microsoft Docs
-description: Service Fabric 遠端處理可讓用戶端和服務使用遠端程序呼叫與服務進行通訊。
+title: Service Fabric 中使用 C# 的服務遠端處理 | Microsoft Docs
+description: Service Fabric 遠端處理可讓用戶端和服務使用遠端程序呼叫與 C# 服務進行通訊。
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,15 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 672bdd3ddb5b32b82d83322eadce2a594b13ce5b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ad56580e73c06acff95b3146f6dc2d83ab2ba3ae
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643527"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36945967"
 ---
-# <a name="service-remoting-with-reliable-services"></a>使用 Reliable Services 的服務遠端處理
-對於未繫結至特定通訊協定或堆疊 (例如 WebAPI、Windows Communication Foundation (WCF) 或其他項目) 的服務，Reliable Services 架構會提供遠端機制，以便快速且輕鬆設定服務遠端程序呼叫。
+# <a name="service-remoting-in-c-with-reliable-services"></a>使用 Reliable Services 在 C# 中進行服務遠端處理
+> [!div class="op_single_selector"]
+> * [Windows 上的 C# ](service-fabric-reliable-services-communication-remoting.md)
+> * [在 Linux 上使用 Java](service-fabric-reliable-services-communication-remoting-java.md)
+>
+>
+
+對於未繫結至特定通訊協定或堆疊 (例如 WebAPI、Windows Communication Foundation (WCF) 或其他項目) 的服務，Reliable Services 架構會提供遠端機制，以便快速且輕鬆設定服務遠端程序呼叫。 本文會討論如何為以 C# 撰寫的服務設定遠端程序呼叫。
 
 ## <a name="set-up-remoting-on-a-service"></a>設定服務的遠端處理
 只要兩個簡單步驟，就能設定服務的遠端處理：
@@ -83,7 +89,7 @@ string message = await helloWorldClient.HelloWorldAsync();
 遠端架構會將服務擲回的例外狀況傳播給用戶端。 因此，使用 `ServiceProxy` 時，用戶端會負責處理由服務擲回的例外狀況。
 
 ## <a name="service-proxy-lifetime"></a>服務 Proxy 存留期
-建立 ServiceProxy 是輕量型作業，因此使用者可以建立的數目沒有限制。 只要有需要，使用者可以重複使用服務 Proxy 執行個體。 如果遠端程序呼叫擲回例外狀況，則使用者仍然可以重複使用相同的 Proxy 執行個體。 每個 ServiceProxy 都包含用來透過網路傳送訊息的通訊用戶端。 叫用遠端呼叫時，我們會在內部檢查通訊用戶端是否有效。 根據結果，我們會重新建立通訊用戶端 (如有需要的話)。 因此，如果發生例外狀況，使用者不需要重新建立 `ServiceProxy`，因為此程序會以透明方式完成。
+建立 ServiceProxy 是輕量型作業，因此您可以建立的數目沒有限制。 只要有需要，可以重複使用服務 Proxy 執行個體。 如果遠端程序呼叫擲回例外狀況，您仍然可以重複使用相同的 Proxy 執行個體。 每個 ServiceProxy 都包含用來透過網路傳送訊息的通訊用戶端。 叫用遠端呼叫時，系統會執行內部檢查來判斷通訊用戶端是否有效。 根據這些檢查的結果，如有必要，通訊用戶端會重建。 因此，如果發生例外狀況，您無須重建 `ServiceProxy`。
 
 ### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory 存留期
 [ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) 是建立不同遠端介面 Proxy 執行個體的處理站。 如果您使用 api `ServiceProxy.Create` 建立 Proxy，那麼架構將建立單一 ServiceProxy。
@@ -98,27 +104,32 @@ ServiceProxy 會處理它為其建立之服務分割區的所有容錯移轉列�
 如果發生暫時性例外狀況，Proxy 會重試呼叫。
 
 預設的重試參數是由 [OperationRetrySettings](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings) \(英文\) 提供。
-使用者可以將 OperationRetrySettings 物件傳遞至 ServiceProxyFactory 建構函式，來設定這些值。
-## <a name="how-to-use-remoting-v2-stack"></a>如何使用 Remoting V2 堆疊
-使用 2.8 NuGet Remoting 封裝時，您可以選擇使用 Remoting V2 堆疊。 Remoting V2 堆疊的效能更好，並提供像是自訂可序列化 Api 和更容易插入的 Api 等功能。
-根據預設，如果您沒有進行下列變更，則會繼續使用 Remoting V1 堆疊。
-Remoting V2 與 V1 (上一版的 Remoting 堆疊) 不相容，因此請依照下列文章了解如何從 V1 升級為 V2 而不會影響服務可用性。
 
-### <a name="using-assembly-attribute-to-use-v2-stack"></a>使用組件屬性以使用 V2 堆疊。
+您可以將 OperationRetrySettings 物件傳遞至 ServiceProxyFactory 建構函式，來設定這些值。
 
-以下是要變更為 V2 堆疊所遵循的步驟。
+## <a name="how-to-use-the-remoting-v2-stack"></a>如何使用 Remoting V2 堆疊
 
-1. 在服務資訊清單中新增名稱為 "ServiceEndpointV2" 的端點資源。
+從 NuGet Remoting 套件 2.8 版開始，您可以選擇使用 Remoting V2 堆疊。 Remoting V2 堆疊的效能更好，並提供像是自訂序列化和更容易插入的 API 等功能。
+程式碼範本會繼續使用 Remoting V1 堆疊。
+Remoting V2 與 V1 (上一版的 Remoting 堆疊) 不相容，因此請依照下列指示了解[如何從 V1 升級為 V2](#how-to-upgrade-from-remoting-v1-to-remoting-v2) 而不會影響服務可用性。
+
+下列方法可用來啟用 V2 堆疊。
+
+### <a name="using-an-assembly-attribute-to-use-the-v2-stack"></a>使用組件屬性以使用 V2 堆疊
+
+下列步驟會使用組件屬性將程式碼範本變更為使用 V2 堆疊。
+
+1. 將服務資訊清單中的端點資源從 `"ServiceEndpoint"` 變更為 `"ServiceEndpointV2"`。
 
   ```xml
   <Resources>
     <Endpoints>
-      <Endpoint Name="ServiceEndpointV2" />  
+      <Endpoint Name="ServiceEndpointV2" />
     </Endpoints>
   </Resources>
   ```
 
-2.  使用 Remoting 擴充方法建立 Remoting 接聽程式。
+2. 使用 `Microsoft.ServiceFabric.Services.Remoting.Runtime.CreateServiceRemotingInstanceListeners` 擴充方法建立遠端接聽程式 (V1 和 V2 皆相同)。
 
   ```csharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -127,27 +138,32 @@ Remoting V2 與 V1 (上一版的 Remoting 堆疊) 不相容，因此請依照下
     }
   ```
 
-3.  在 Remoting 介面上新增組件屬性。
+3. `FabricTransportServiceRemotingProvider` 屬性標記包含遠端處理介面的組件。
 
   ```csharp
   [assembly: FabricTransportServiceRemotingProvider(RemotingListener = RemotingListener.V2Listener, RemotingClient = RemotingClient.V2Client)]
   ```
-用戶端專案中不需要進行任何變更。
-使用介面組件建置用戶端組件，以確保使用上面的組件屬性。
 
-### <a name="using-explicit-v2-classes-to-create-listener-clientfactory"></a>使用明確的 V2 類別建立接聽程式/ ClientFactory
-以下是要遵循的步驟。
-1.  在服務資訊清單中新增名稱為 "ServiceEndpointV2" 的端點資源。
+用戶端專案中不需要變更任何程式碼。
+使用介面組件建置用戶端組件，以確保使用上面所示的組件屬性。
+
+### <a name="using-explicit-v2-classes-to-use-the-v2-stack"></a>使用明確的 V2 類別以使用 V2 堆疊
+
+除了使用組件屬性，V2 堆疊也可以透過使用明確的 V2 類別來啟用。
+
+下列步驟會使用明確的 V2 類別，將程式碼範本變更為使用 V2 堆疊。
+
+1. 將服務資訊清單中的端點資源從 `"ServiceEndpoint"` 變更為 `"ServiceEndpointV2"`。
 
   ```xml
   <Resources>
     <Endpoints>
-      <Endpoint Name="ServiceEndpointV2" />  
+      <Endpoint Name="ServiceEndpointV2" />
     </Endpoints>
   </Resources>
   ```
 
-2. 使用[遠端 V2Listener](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingListener?view=azure-dotnet)。 預設使用的服務端點資源名稱是 "ServiceEndpointV2"，必須定義在服務資訊清單中。
+2. 從 `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Runtime` 命名空間使用 [FabricTransportServiceRemotingListener](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingListener?view=azure-dotnet)。
 
   ```csharp
   protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -163,7 +179,8 @@ Remoting V2 與 V1 (上一版的 Remoting 堆疊) 不相容，因此請依照下
     }
   ```
 
-3. 使用 V2 [Client Factory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet)。
+3. 從 `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client` 命名空間使用 [FabricTransportServiceRemotingClientFactory ](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet) 來建立用戶端。
+
   ```csharp
   var proxyFactory = new ServiceProxyFactory((c) =>
           {

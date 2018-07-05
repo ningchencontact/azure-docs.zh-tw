@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/21/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bffa5a3aa57c5b01e3361bc6fc6b284348707800
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a4fc779cdfb177a9817049fd7b62b0014e141ce0
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32149522"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34592403"
 ---
 # <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>使用者隱私權與 Azure AD 無縫單一登入
 
@@ -28,11 +29,11 @@ ms.locfileid: "32149522"
 ## <a name="overview"></a>概觀
 
 
-Azure AD 無縫 SSO會建立下列記錄類型，其中可以包含 EUII：
+Azure AD 無縫 SSO 會建立下列記錄類型，其中可以包含個人資料： 
 
 - Azure AD Connect 追蹤記錄檔。
 
-適用於無縫 SSO 的使用者隱私權合規性可透過兩種方式來達成：
+有兩種方式可改善無縫 SSO 的使用者隱私權：
 
 1.  在接到要求時擷取使用者的資料，並從安裝中移除該使用者的資料。
 2.  確保沒有資料會保留超過 48 小時。

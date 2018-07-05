@@ -15,12 +15,12 @@ ms.component: protection
 ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 2f96f9c70d6a12aeddd51602bccd7f03f89ec7d1
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: b53ae66d927dfacd1048a6bd0fa9abdb6f2a7862
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260863"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751147"
 ---
 # <a name="use-a-resource-dashboard-to-perform-an-access-review"></a>使用資源儀表板來執行存取權檢閱
 

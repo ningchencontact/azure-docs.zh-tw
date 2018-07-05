@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 05/30/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 4224575644e754724d2129f101aed6b9e4b54b65
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 04081a514d9b96a5289594a730ec0519e6ee0b01
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34670161"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36329785"
 ---
 ## <a name="provision-the-solution"></a>佈建解決方案
 
 如果您尚未在您的帳戶中佈建遠端監視預先設定的解決方案：
 
-1. 使用 Azure 帳戶認證登入 [azureiotsuite.com][lnk-azureiotsuite]，然後按一下 **+** 建立新的解決方案。
+1. 使用 Azure 帳戶認證登入 [azureiotsuite.com][lnk-azureiotsuite]，然後按一下 [+] 以建立解決方案。
 2. 按一下 [遠端監視] 圖格上的 [選取]。
 3. 輸入遠端監視預先設定的解決方案的 [解決方案名稱]  。
 4. 選取您想要用來佈建解決方案的 [區域] 和 [訂用帳戶]。

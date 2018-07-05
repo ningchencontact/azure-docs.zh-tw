@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/27/2017
+ms.date: 06/25/2018
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86484ca2bc7dc14035f48b8f7b1514a4fc471b74
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 493fb0295c1d760bb7de13ae1b703b3636750612
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29180031"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018707"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>使用 System Center Operations Manager 健康情況檢查 (預覽) 解決方案進行環境最佳化
 
@@ -212,14 +212,14 @@ System Center Operations Manager 健康情況檢查解決方案的管理套件�
 
 ## <a name="use-health-check-focus-area-recommendations"></a>使用健康情況檢查焦點區域建議
 
-在使用 Log Analytics 中的健康情況檢查解決方案之前，您必須先安裝解決方案。 如需閱讀安裝方案的更多資訊，請參閱 [從方案庫加入 Log Analytics 方案](log-analytics-add-solutions.md)。 安裝之後，您可以在 OMS 入口網站的 [概觀] 頁面上，使用 [System Center Operations Manager 健康情況檢查] 圖格來檢視建議摘要。
+在使用 Log Analytics 中的健康情況檢查解決方案之前，您必須先安裝解決方案。 若要深入了解如何安裝解決方案，請參閱[安裝管理解決方案](log-analytics-add-solutions.md)。 安裝之後，您可以在 Azure 入口網站中的工作區 [概觀] 頁面上，使用 [System Center Operations Manager 健全狀況檢查] 圖格來檢視建議摘要。
 
 檢視基礎結構的總結法務遵循評估結果，然後再深入鑽研建議事項。
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>檢視的焦點區域的建議並採取更正措施
-1. 登入 Azure 入口網站，網址為 [https://portal.azure.com](https://portal.azure.com)。
+1. 在 [https://portal.azure.com](https://portal.azure.com) 上登入 Azure 入口網站。
 2. 在 Azure 入口網站中，按一下左下角的 [更多服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。
-3. 在 [Log Analytics 訂用帳戶] 窗格中，選取工作區，然後按一下 [OMS 入口網站] 圖格。  
+3. 在 [Log Analytics 訂用帳戶] 窗格中，選取工作區，然後按一下 [工作區摘要] 功能表項目。  
 4. 在 [概觀] 頁面上，按一下 [System Center Operations Manager 健康情況檢查] 圖格。
 5. 在 [System Center Operations Manager 健康情況檢查] 頁面上，檢閱其中一個焦點區域刀鋒視窗中的摘要資訊，然後按一下一個刀鋒視窗來檢視該焦點區域的建議。
 6. 在任一焦點區域頁面中，您可以檢視針對環境且按照優先順序排列的建議。 按一下 [受影響的物件]  下方的建議，可檢視建議提出原因的詳細資料。<br><br> ![focus area](./media/log-analytics-scom-assessment/log-analytics-scom-healthcheck-dashboard-02.png)<br>
@@ -232,7 +232,7 @@ System Center Operations Manager 健康情況檢查解決方案的管理套件�
 [!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-want-to-ignore"></a>若要識別您想要忽略的建議
-1. 在 Azure 入口網站中的 Log Analytics 工作區頁面上，針對您選取的工作區，按一下 [記錄搜尋] 圖格。
+1. 在 Azure 入口網站中的 Log Analytics 工作區頁面上，針對您選取的工作區，按一下 [記錄搜尋] 功能表項目。
 2. 使用下列查詢來列出您環境中電腦的失敗建議。
 
     ```

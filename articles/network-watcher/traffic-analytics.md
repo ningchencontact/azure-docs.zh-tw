@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: badd2d63ffaf8e88ff672087783f2bce150bc7c3
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: ad26772650cf052926a2534d343f64765f47b78f
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264985"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333389"
 ---
 # <a name="traffic-analytics"></a>流量分析
 
@@ -280,7 +280,7 @@ New-AzureRmStorageAccount `
 每個應用程式閘道和負載平衡器的網路流量分佈、拓撲、最常見的流量來源、最常與應用程式閘道和負載平衡器交談的 Rogue 網路，以及最常用的交談應用程式通訊協定。 
     
  - 了解哪一個子網路與哪一個應用程式閘道或負載平衡器正在交談中。 如果您注意到非預期的交談，便可以更正設定。
- - 如果有 Rouge 網路正與應用程式閘道或負載平衡器交談中，您可以透過設定 NSG 規則來封鎖 Rogue 網路將其更正。 
+ - 如果有 Rogue 網路與子網路交談，您可以設定 NSG 規則來封鎖 Rogue 網路，將其予以更正。 
 
     ![subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
 

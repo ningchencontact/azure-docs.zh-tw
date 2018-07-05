@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/11/2018
 ms.author: ellacroi
-ms.openlocfilehash: 4b7d861ee0207c6a16c83e23d259411f7e874354
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: e40b3a9f1454e892e07f7749ba900cd74c42c339
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823379"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309226"
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Azure Marketplace 和 AppSource 發行者指南  
 
@@ -113,12 +113,12 @@ Microsoft 在市集上提供了兩個不同的店面。 店面可讓您列出供
 | 建置採用或要擴充 | Azure<br />Dynamics 365<br />Office 365<br />Power BI<br />PowerApps | Azure |  
 | 解決方案和服務類型 | 已完成的企業營運雲端應用程式<br />Office 365 增益集 | 基礎結構解決方案<br />專業服務 |  
 | 供應項目類型 | 諮詢服務<br />與我連絡<br />免費試用<br />立即取得<br />試用產品 | Azure 應用程式：受控應用程式<br />Azure 應用程式：解決方案範本<br />諮詢服務<br />與我連絡<br />試用版<br />虛擬機器 |  
-| 讓使用者可存取應用程式以及應用程式內容中服務的應用程式內體驗<br />to apps and services in the context of<br />your app | Dynamics 365<br />Office 365<br />Office 用戶端應用程式<br />Power BI | Azure 入口網站<br />Azure Resource Manager CLI |  
+| 應用程式內體驗，可供使用者<br />在您的應用程式內容中存取<br />應用程式和服務 | Dynamics 365<br />Office 365<br />Office 用戶端應用程式<br />Power BI | Azure 入口網站<br />Azure Resource Manager CLI |  
 
 ---   
 
 ## <a name="how-to-publish-in-the-storefronts-on-the-marketplace"></a>如何在市集中的店面發行項目  
-下列各節可協助您瀏覽 AppSource 及 Azure Marketplace 中的發行選項。  
+下列各頁可協助您瀏覽 AppSource 及 Azure Marketplace 中的發行選項。  
 
 透過三個簡單步驟成為市集店面發行者。  
 1.  瀏覽[決定適合您解決方案的清單類型](./determine-your-listing-type.md)頁面。  
@@ -135,7 +135,6 @@ Microsoft 在市集上提供了兩個不同的店面。 店面可讓您列出供
 ---  
 
 ## <a name="support"></a>支援  
-
 *   瀏覽[適用於 AppSource 的支援](./support-appsource.md)頁面。  
 *   瀏覽[適用於 Azure Marketplace的支援](./support-azure-marketplace.md)頁面。  
 
@@ -147,6 +146,7 @@ Microsoft 在市集上提供了兩個不同的店面。 店面可讓您列出供
 
 ## <a name="guidelines"></a>指導方針  
 *   瀏覽[指導方針](./guidelines.md)頁面。  
+    *   請瀏覽[建立 Microsoft ID 以管理 Marketplace 帳戶的指導方針](./guidelines.md#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account)一節。  
 *   瀏覽[在開發人員中心註冊](./register-dev-center.md)頁面。  
 *   瀏覽[新增銀行和稅務資訊](./add-bank-tax-info.md)頁面。  
 *   瀏覽[使用 Azure AD 啟用試用版](./enable-trial-using-azure-ad.md)頁面。  

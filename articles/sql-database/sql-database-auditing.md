@@ -2,19 +2,19 @@
 title: 開始使用 Azure SQL 資料庫稽核 | Microsoft Docs
 description: 使用 Azure SQL Database 稽核來將資料庫事件追蹤至稽核記錄。
 services: sql-database
-author: giladm
+author: giladmit
 manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 06/24/2018
 ms.author: giladm
-ms.openlocfilehash: 62c6e576a5ef7fa953618dcba4ddd158df131148
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0646667caab594556cc3c2043bc36905acef6e54
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644584"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751038"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>開始使用 SQL Database 稽核
 Azure SQL 資料庫稽核會追蹤資料庫事件，並將事件寫入您 Azure 儲存體帳戶中的稽核記錄。 稽核也具備下列功能：
@@ -200,12 +200,17 @@ Blob 稽核記錄是以 Blob 檔案集合的方式儲存在名為 **sqldbauditlo
 
 **REST API - Blob 稽核**：
 
-* [建立或更新資料庫 Blob 稽核原則](https://msdn.microsoft.com/library/azure/mt695939.aspx)
-* [建立或更新伺服器 Blob 稽核原則](https://msdn.microsoft.com/library/azure/mt771861.aspx)
-* [取得資料庫 Blob 稽核原則](https://msdn.microsoft.com/library/azure/mt695938.aspx)
-* [取得伺服器 Blob 稽核原則](https://msdn.microsoft.com/library/azure/mt771860.aspx)
+* [建立或更新資料庫 Blob 稽核原則](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/createorupdate)
+* [建立或更新伺服器 Blob 稽核原則](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/createorupdate)
+* [取得資料庫 Blob 稽核原則](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/get)
+* [取得伺服器 Blob 稽核原則](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/get)
 * [取得伺服器 Blob 稽核操作結果](https://msdn.microsoft.com/library/azure/mt771862.aspx)
 
+具有 WHERE 子句而可支援其他篩選的擴充原則：
+* [建立或更新資料庫「擴充的」Blob 稽核原則](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
+* [建立或更新伺服器「擴充的」Blob 稽核原則](https://docs.microsoft.com/en-us/rest/api/sql/server%20extended%20auditing%20settings/createorupdate)
+* [取得資料庫「擴充的」Blob 稽核原則](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/get)
+* [取得伺服器「擴充的」Blob 稽核原則](https://docs.microsoft.com/en-us/rest/api/sql/server%20extended%20auditing%20settings/get)
 
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1

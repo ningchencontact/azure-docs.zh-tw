@@ -1,5 +1,5 @@
 ---
-title: 備份 Azure Stack 檔案與應用程式
+title: 在 Azure Stack VM 中備份檔案
 description: 使用 Azure 備份可備份 Azure Stack 檔案和應用程式，並復原到 Azure Stack 環境。
 services: backup
 author: adiganmsft
@@ -8,26 +8,26 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/5/2018
 ms.author: adigan
-ms.openlocfilehash: 7baaa29d205c09daaeeebf44a4bad338913dcad9
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 2fb3bad56de781dd81d4c5f82b734c9420c75dee
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248855"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751699"
 ---
-# <a name="back-up-files-and-applications-on-azure-stack"></a>備份 Azure Stack 上的檔案和應用程式
-您可以使用 Azure 備份在 Azure Stack 上保護 (或備份) 檔案和應用程式。 若要備份檔案和應用程式，請將 Microsoft Azure 備份伺服器安裝成為在 Azure Stack 上執行的虛擬機器。 您可以保護在相同虛擬網路中任何 Azure Stack 伺服器上執行的應用程式。 在您安裝 Azure 備份伺服器後，請新增 Azure 磁碟，以增加可保存短期備份資料的本機存放區。 Azure 備份伺服器會使用 Azure 存放區進行長期保存。
+# <a name="back-up-files-on-azure-stack"></a>在 Azure Stack 上備份檔案
+您可以使用 Azure 備份在 Azure Stack 上保護 (或備份) 檔案和應用程式。 若要備份檔案和應用程式，請將 Microsoft Azure 備份伺服器安裝成為在 Azure Stack 上執行的虛擬機器。 您可以保護在相同虛擬網路中任何 Azure Stack 伺服器上的檔案。 在您安裝 Azure 備份伺服器後，請新增 Azure 磁碟，以增加可保存短期備份資料的本機存放區。 Azure 備份伺服器會使用 Azure 存放區進行長期保存。
 
 > [!NOTE]
 > 雖然 Azure 備份伺服器和 System Center Data Protection Manager (DPM) 類似，但不支援將 DPM 搭配 Azure Stack 使用。
 >
 
-本文未涵蓋在 Azure Stack 環境中安裝 Azure 備份伺服器的資訊。 若要將 Azure 備份伺服器安裝在 Azure Stack 上，請參閱[準備使用 Azure 備份伺服器來備份工作負載](backup-mabs-install-azure-stack.md)。
+本文未涵蓋在 Azure Stack 環境中安裝 Azure 備份伺服器的資訊。 若要將 Azure 備份伺服器安裝在 Azure Stack 上，請參閱[安裝 Azure 備份伺服器](backup-mabs-install-azure-stack.md)。
 
 
-## <a name="back-up-azure-stack-vm-file-data-to-azure"></a>將 Azure Stack VM 檔案資料備份至 Azure
+## <a name="back-up-files-and-folders-in-azure-stack-vms-to-azure"></a>將 Azure Stack VM 中的檔案和資料夾備份至 Azure
 
-若要設定 Azure 備份伺服器來保護 IaaS 虛擬機器，請開啟 Azure 備份伺服器主控台。 您將使用主控台來設定保護群組，以及保護虛擬機器上的資料。
+若要設定 Azure 備份伺服器來保護 Azure Stack VM 虛擬機器中的檔案，請開啟 Azure 備份伺服器主控台。 您將使用主控台來設定保護群組，以及保護虛擬機器上的資料。
 
 1. 在 Azure 備份伺服器主控台中，按一下 [保護]，然後按一下工具列中的 [新增]，以開啟 [建立新保護群組精靈]。
 
@@ -49,13 +49,13 @@ ms.locfileid: "35248855"
 
     ![開啟新的保護群組精靈](./media/backup-mabs-files-applications-azure-stack/5-select-group-members.png)
 
-    Microsoft 建議將所有共用保護原則的虛擬機器置於一個保護群組中。 如需規劃和部署保護群組的完整資訊，請參閱 System Center DPM 文章：[部署保護群組](https://docs.microsoft.com/en-us/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801)。
+    Microsoft 建議將所有共用保護原則的資料置於一個保護群組中。 如需規劃和部署保護群組的完整資訊，請參閱 System Center DPM 文章：[部署保護群組](https://docs.microsoft.com/en-us/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801)。
 
 4. 在 [選取資料保護方式] 畫面中，鍵入保護群組的名稱。 選取 [我想要使用下列項目進行短期保護：] 和 [我想要線上保護] 的核取方塊。 按 [下一步] 。
 
     ![開啟新的保護群組精靈](./media/backup-mabs-files-applications-azure-stack/6-select-data-protection-method.png)
 
-    若要選取 [我想要線上保護]，您必須先選取 [我想要使用下列項目進行短期保護：磁碟]。 Azure 備份伺服器無法保護至磁帶，因此磁碟是進行短期保護的唯一選擇。
+    若要選取 [我想要線上保護]，您必須先選取 [我想要使用下列項目進行短期保護：磁碟]。 Azure 備份伺服器不會保護至磁帶，因此磁碟是進行短期保護的唯一選擇。
 
 5. 在 [指定短期目標] 畫面上，選擇保留儲存至磁碟之復原點的時間長度，以及儲存增量備份的時機。 按 [下一步] 。
 
@@ -73,7 +73,7 @@ ms.locfileid: "35248855"
 
     [資料大小總計] 是您想要備份的資料大小，而 [要在 Azure 備份伺服器上佈建的磁碟空間] 是建議的保護群組空間。 Azure 備份伺服器會根據這些設定選擇理想的備份磁碟區。 不過，您也可以在 [磁碟配置詳細資料] 中編輯備份磁碟區選項。 針對工作負載，請在下拉式功能表中選取您偏好的儲存體。 您的編輯內容會變更 [可用磁碟儲存體] 窗格中 [儲存體總計] 和 [可用儲存體] 的值。 佈建不足的空間是 Azure 備份伺服器為了能夠在將來繼續順利備份，而建議您在磁碟區中新增的儲存體數量。
 
-7. 在 [選擇複本的建立方式] 中，選取您要如何處理首次的完整資料複寫。 如果您決定透過網路進行複寫，Azure 建議您選擇離峰時間。 對於大量資料或較差的網路狀況，請考慮使用卸除式媒體來離線複寫資料。
+7. 在 [選擇複本的建立方式] 中，選取您要如何處理首次的完整資料複寫。 如果您決定透過網路進行複寫，Azure 建議您選擇離峰時間。 對於大量資料或較差的網路狀況，請考慮使用卸除式媒體來複寫資料。
 
 8. 在 [選擇一致性檢查選項] 中，選取要如何自動執行一致性檢查。 啟用一致性檢查，使其只在資料複寫變得不一致時執行，或是根據排程執行。 如果您不想要設定自動一致性檢查，請透過下列方式隨時執行手動檢查：
     * 在 Azure 備份伺服器主控台的 [保護] 區域中，以滑鼠右鍵按一下保護群組，然後選取 [執行一致性檢查]。
@@ -87,8 +87,6 @@ ms.locfileid: "35248855"
 11. 在 [Specify online retention policy] \(指定線上保留原則\) 中，指定如何在 Azure 中保留透過每日、每週、每月、每年備份所建立的復原點。
 
 12. 在 [選擇線上複寫] 中，指定如何進行首次的資料完整複寫。 
-
-    您可以透過網路進行複寫，也可以執行離線備份 (離線植入)。 離線備份會使用 [Azure 匯入功能](./backup-azure-backup-import-export.md)。
 
 13. 在 [摘要] 上檢閱您的設定。 當您按一下 [建立群組] 時，就會進行首次的資料複寫。 當資料複寫完成時，[狀態] 頁面上的保護群組狀態會顯示為 [正常]。 初始備份作業會根據保護群組設定進行。
 
@@ -116,7 +114,6 @@ ms.locfileid: "35248855"
     * 對於 [現有的版本復原行為]，選取 [建立複本]、[略過] 或 [覆寫]。 覆寫只有在復原到原始位置時才可用。
     * 對於 [還原安全性]，選擇 [套用目的地電腦的設定] 或 [套用復原點版本的安全性設定]。
     * 對於 [網路頻寬使用節流設定]，按一下 [修改] 啟用網路頻寬使用節流設定。
-    * 選取 [使用硬體快照集啟用 SAN 型復原]，以使用 SAN 型硬體快照集進行較快速的復原。 只有當您具有已啟用硬體快照集功能的 SAN 時，此選項才有效。 若要讓復原點變成可寫入，SAN 必須能夠建立複本並分割複本。 受保護的 VM 和 Azure 備份伺服器必須連線到相同的 SAN。
     * **通知**：按一下 [Send an e-mail when the recovery completes] \(當復原完成時傳送電子郵件\)，並指定將接收通知的收件者。 請以逗號分隔電子郵件地址。
     * 在進行選擇之後，按一下 [下一步]
 
@@ -132,16 +129,13 @@ ms.locfileid: "35248855"
 
 2. 在 [內容] 功能表上，按一下 [舊版]，並選擇您想要復原的版本。
 
-
-
-## <a name="register-azure-backup-server-with-a-vault"></a>向保存庫註冊 Azure 備份伺服器
-提供顯示下列作法的步驟：
-
+## <a name="view-azure-backup-server-with-a-vault"></a>使用保存庫來檢視 Azure 備份伺服器
+若要在 Azure 入口網站中檢視 Azure 備份伺服器，您可以遵循下列步驟：
 1. 開啟復原服務保存庫。
 2. 按一下備份基礎結構。
 3. 檢視備份管理伺服器。
 
 ## <a name="see-also"></a>另請參閱
 如需使用 Azure 備份伺服器保護其他工作負載的資訊，請參閱下列文章：
-- [備份 SharePoint 伺服器陣列](backup-azure-backup-sharepoint-mabs.md)
-- [備份 SQL Server](backup-azure-sql-mabs.md)
+- [備份 SharePoint 伺服器陣列](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
+- [備份 SQL Server](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)

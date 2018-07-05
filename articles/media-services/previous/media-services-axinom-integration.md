@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: willzhan;Mingfeiy;rajputam;Juliako
-ms.openlocfilehash: 0aaf0eea0414d234c9a24f707df5eed491a61c08
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 81247863eb86752113989f6e48e79f5c8bc75505
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783607"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061149"
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>使用 Axinom 將 Widevine 授權傳遞到 Azure 媒體服務
 > [!div class="op_single_selector"]
@@ -59,7 +59,7 @@ Azure 媒體服務 (AMS) 已新增Google Widevine 動態保護 (如需詳細資�
 
 ## <a name="azure-media-player-preparation"></a>準備 Azure 媒體播放器
 AMP 1.4.0 版支援同時使用 PlayReady 和 Widevine DRM 動態封裝的 AMS 內容進行播放。
-如果 Widevine 授權伺服器不需要權杖驗證，則不需要執行任何其他動作即可測試受到 Widevine 保護的 DASH 內容。 例如，AMP 團隊提供簡單的 [範例](http://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevine_notoken.html)，在此您可以看到在 Edge 和 IE11 中搭配 PlayReady 以及在 Chrome 中搭配 Widevine 皆順利運作。
+如果 Widevine 授權伺服器不需要權杖驗證，則不需要執行任何其他動作即可測試受到 Widevine 保護的 DASH 內容。 例如，AMP 團隊提供簡單的 [範例](https://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevineFairPlay_notoken.html)，在此您可以看到在 Edge 和 IE11 中搭配 PlayReady 以及在 Chrome 中搭配 Widevine 皆順利運作。
 Axinom 提供的 Widevine 授權伺服器需要 JWT 權杖驗證。 JWT 權杖必須使用透過 HTTP 標頭 “X-AxDRM-Message” 發出的授權要求來提交。 為此，您必須在設定來源之前，在裝載 AMP 的網頁中新增下列 Javascript：
 
     <script>AzureHtml5JS.KeySystem.WidevineCustomAuthorizationHeader = "X-AxDRM-Message"</script>
@@ -200,5 +200,5 @@ Axinom Widevine 授權伺服器
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ### <a name="acknowledgments"></a>通知
-我們想要向下列為建立此文件貢獻心力的人員致謝：Kristjan Jõgi of Axinom、Mingfei Yan 及 Amit Rajput。
+我們想要向下列為建立此文件貢獻心力的人員致謝：Axinom 的 Kristjan Jõgi、Mingfei Yan 和 Amit Rajput。
 

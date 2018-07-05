@@ -8,21 +8,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/03/2018
+ms.date: 06/21/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: d724de8d5252318b37ae539ba2513faaf2313a76
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 76308bbb06d6bf1cdc9147258f7c26babae371a9
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36267870"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750480"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>自訂 Azure-SSIS 整合執行階段的安裝
 
-Azure-SSIS 整合執行階段的自訂安裝介面所提供的介面，可讓您自行新增在佈建或重新設定 Azure-SSIS IR 期間的安裝步驟。 自訂安裝可讓您變更預設作業組態或環境 (例如，用以啟動其他 Windows 服務)，或是在 Azure-SSIS IR 的每個節點上安裝其他元件 (例如組件、驅動程式或擴充功能)。
+Azure-SSIS 整合執行階段的自訂安裝介面所提供的介面，可讓您自行新增在佈建或重新設定 Azure-SSIS IR 期間的安裝步驟。 自訂安裝可讓您變更預設作業組態或環境 (例如，用以啟動其他 Windows 服務或保存檔案共用的存取認證)，或是在 Azure-SSIS IR 的每個節點上安裝其他元件 (例如組件、驅動程式或擴充功能)。
 
 您可以準備指令碼及其相關聯的檔案，並將其上傳至您 Azure 儲存體帳戶中的 Blob 容器中，以設定您的自訂安裝。 當您佈建或重新設定 Azure-SSIS IR 時，您可以提供容器的共用存取簽章 (SAS) 統一資源識別項 (URI)。 隨後，Azure-SSIS IR 的每個節點會從您的容器下載指令碼及其相關聯的檔案，並使用提高的權限執行您的自訂安裝。 自訂安裝完成後，每個節點會將執行的標準輸出和其他記錄上傳到您的容器中。
 
@@ -87,7 +87,10 @@ Azure-SSIS 整合執行階段的自訂安裝介面所提供的介面，可讓您
 
        ![取得容器的共用存取簽章](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image6.png)
 
-    7.  為您的容器建立具有夠長的到期時間和讀取 + 寫入 + 列出權限的 SAS URI。 您必須具有 SAS URI，才能在 Azure-SSIS IR 的任何節點重新安裝映像時下載並執行您的自訂安裝指令碼及其相關聯的檔案。 您必須具備寫入權限才能上傳安裝執行記錄。
+    7.  為您的容器建立具有夠長的到期時間和讀取 + 寫入 + 列出權限的 SAS URI。 您必須具有 SAS URI，才能在 Azure-SSIS IR 的任何節點重新安裝映像/重新啟動時，下載並執行您的自訂安裝指令碼，及其相關聯的檔案。 您必須具備寫入權限才能上傳安裝執行記錄。
+
+        > [!IMPORTANT]
+        > 如果您會在這段時間內定期停止和啟動 Azure-SSIS IR，請確定在 Azure-SSIS IR 的整個生命週期內 (從建立到刪除)，SAS URI 不會到期，且自訂安裝資源永遠可供使用。
 
        ![產生容器的共用存取簽章](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image7.png)
 
@@ -124,7 +127,7 @@ Azure-SSIS 整合執行階段的自訂安裝介面所提供的介面，可讓您
 
     c. 選取已連線的公用預覽容器，然後按兩下 `CustomSetupScript` 資料夾。 此資料夾中包含下列項目：
 
-       1. 一個 `Sample` 資料夾，其中包含自訂安裝程式，用以在 Azure-SSIS IR 的每個節點上安裝基本工作。 此工作不會執行任何動作，而會休眠數秒鐘。 資料夾還包含 `gacutil` 資料夾，其中包含 `gacutil.exe`。
+       1. 一個 `Sample` 資料夾，其中包含自訂安裝程式，用以在 Azure-SSIS IR 的每個節點上安裝基本工作。 此工作不會執行任何動作，而會休眠數秒鐘。 資料夾還包含 `gacutil` 資料夾，其中包含 `gacutil.exe`。 此外，`main.cmd` 還會包含註解以供保存檔案共用的存取認證。
 
        2. 一個 `UserScenarios` 資料夾，其中包含實際使用者案例的數個自訂安裝。
 
@@ -138,7 +141,7 @@ Azure-SSIS 整合執行階段的自訂安裝介面所提供的介面，可讓您
 
        3. 一個 `EXCEL` 資料夾，其中包含自訂安裝程式，用以在 Azure-SSIS IR 的每個節點上安裝開放原始碼組件 (`DocumentFormat.OpenXml.dll`、`ExcelDataReader.DataSet.dll` 和 `ExcelDataReader.dll`)。
 
-       4. 一個 `MSDTC` 資料夾，其中包含自訂安裝，可修改 Azure-SSIS IR 每個節點上 Microsoft Distributed Transaction Coordinator (MSDTC) 執行個體的網路與安全性組態。
+       4. 一個 `MSDTC` 資料夾，其中包含自訂安裝，可修改 Azure-SSIS IR 每個節點上 Microsoft Distributed Transaction Coordinator (MSDTC) 服務的網路與安全性組態。 若要確保 MSDTC 會啟動，請在套件的控制流程起點新增「執行程序工作」，以執行下列命令：`%SystemRoot%\system32\cmd.exe /c powershell -Command "Start-Service MSDTC"` 
 
        5. 一個 `ORACLE ENTERPRISE` 資料夾，其中包含自訂安裝指令碼 (`main.cmd`) 和無訊息安裝組態檔 (`client.rsp`)，用以在 Azure-SSIS IR Enterprise Edition 的每個節點上安裝 Oracle OCI 驅動程式。 此安裝可讓您使用 Oracle 連線管理員、來源和目的地。 首先，請從 [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html) 下載最新的 Oracle 用戶端，例如 `winx64_12102_client.zip`，然後與 `main.cmd` 和 `client.rsp` 一起將其上傳至您的容器。 如果您使用 TNS 連線至 Oracle，則也必須下載 `tnsnames.ora`、加以編輯，然後將其上傳到您的容器中，使其能夠在安裝期間複製到 Oracle 安裝資料夾中。
 

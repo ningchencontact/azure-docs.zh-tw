@@ -11,14 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2018
+ms.date: 06/21/2018
 ms.author: mabrigg
-ms.openlocfilehash: de5712fd7b48a759b366f5b9808bbbefc6e305cd
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.reviewer: thoroet
+ms.openlocfilehash: 3c9f114c2844021d515765888aa19f18a0adc10b
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010489"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36322637"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>建立服務主體以將應用程式存取權提供給 Azure Stack 資源
 
@@ -94,54 +95,7 @@ ms.locfileid: "34010489"
 * 將服務主體指派給角色。
 * 使用服務主體的身分識別進行登入。
 
-### <a name="before-you-begin"></a>開始之前
-
-[將必要的 Azure Stack 工具下載到您的本機電腦。](azure-stack-powershell-download.md)
-
-### <a name="import-the-identity-powershell-module"></a>匯入身分識別 PowerShell 模組
-
-瀏覽至 Azure Stack 工具的下載資料夾，然後使用下列命令來匯入身分識別 PowerShell 模組：
-
-```PowerShell
-Import-Module .\Identity\AzureStack.Identity.psm1
-```
-
-匯入身分識別模組時，您可能會收到此錯誤訊息：「AzureStack.Connect.psm1 未經過數位簽署。 這個指令碼將不會在系統上執行」。
-
-若要修正此問題，您必須設定執行原則以允許執行指令碼。 若要設定執行原則，請在提高權限的 PowerShell 工作階段中執行下列命令︰
-
-```PowerShell
-Set-ExecutionPolicy Unrestricted
-```
-
-### <a name="create-the-service-principal"></a>建立服務主體
-
-您可藉由執行下列命令來建立服務主體，請務必更新 **DisplayName** 參數：
-
-```powershell
-$servicePrincipal = New-AzSADGraphServicePrincipal `
- -DisplayName "<YourServicePrincipalName>" `
- -AdminCredential $(Get-Credential) `
- -AdfsMachineName "AZS-ADFS01" `
- -Verbose
-
-```
-
-### <a name="assign-a-role"></a>指派角色
-
-建立服務主體之後，您必須[將它指派給角色](azure-stack-create-service-principals.md#assign-role-to-service-principal)。
-
-### <a name="sign-in-using-powershell"></a>使用 PowerShell 登入
-
-您可以藉由執行下列命令登入 Azure Stack，請務必以您的應用程式名稱更新 **EnvironmentName** 參數：
-
-```powershell
-Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
- -ServicePrincipal `
- -CertificateThumbprint $servicePrincipal.Thumbprint `
- -ApplicationId $servicePrincipal.ApplicationId `
- -TenantId $directoryTenantId
-```
+如需如何建立服務主體的詳細資訊，請參閱[為 AD FS 建立服務主體](../azure-stack-create-service-principals.md#create-service-principal-for-ad-fs)。
 
 ## <a name="assign-the-service-principal-to-a-role"></a>將服務主體指派給角色
 

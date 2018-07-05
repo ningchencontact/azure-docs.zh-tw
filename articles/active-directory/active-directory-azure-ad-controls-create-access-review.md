@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.component: compliance-reports
-ms.date: 05/14/2018
+ms.date: 06/21/2018
 ms.author: rolyon
-ms.openlocfilehash: 6a1d4a55074630cc20c98202d2e94ec682c323f4
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 2c4e26bb6f2cd144d00d9e4ada92d756fe68418b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234068"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020401"
 ---
 # <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>使用 Azure AD 建立群組成員或應用程式存取的存取權檢閱
 
@@ -26,7 +26,7 @@ ms.locfileid: "35234068"
 
 ## <a name="create-an-access-review"></a>建立存取權檢閱
 
-1. 身為全域系統管理員，請移至[存取權檢閱頁面](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)，並選取 [程式集]。
+1. 以全域管理員或使用者帳戶管理員身分，移至[存取權檢閱頁面](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)，然後選取 [程式]。
 
 2. 選取包含您想建立之存取權檢閱控制項的程式。 一律會出現一個「預設程式」程式，您也可以建立不同的程式。 比方說，您可以針對每個合規性方案或業務目標建立一個程式。
 
@@ -38,7 +38,7 @@ ms.locfileid: "35234068"
 
 6. 若要讓存取權檢閱定期發生，請將頻率從 [一次] 變更為 [每週]、[每月]、[每季] 或 [每年]，並使用滑桿或文字方塊來定義週期性系列的每個檢閱會開啟多少天，以便檢閱者輸入資料。 例如，您可以為每月檢閱設定的最長持續期間為 27 天，以避免重疊的檢閱。 
 
-7.  週期性存取權檢閱系列的結束方式有 3 種：它會持續執行而無限期地啟動檢閱、直到特定日期為止，或是在完成所定義的發生次數之後。 您或其他全域系統管理員可以變更 [設定] 中的日期，以在系列建立之後予以停止，讓它於該日期結束。
+7.  週期性存取權檢閱系列的結束方式有 3 種：它會持續執行而無限期地啟動檢閱、直到特定日期為止，或是在完成所定義的發生次數之後。 您、其他使用者帳戶管理員或其他全域系統管理員皆可以變更 [設定] 中的日期，以在系列建立之後予以停止，讓它於該日期結束。
 
 8. 存取權檢閱可針對群組成員或指派給應用程式的使用者執行。 您可以進一步將存取權檢閱限縮成僅檢閱身為成員 (或指派給應用程式) 的來賓使用者，而非檢閱身為成員或可存取應用程式的所有使用者。
 

@@ -10,29 +10,25 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 05/10/2018
+ms.topic: conceptual
+ms.date: 06/22/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0be54c47965c6a27c3506fd37a7bf67e4b2b7924
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4a639b51fd930c5c74ee78b37fbe8e97e39dbc32
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356081"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36336766"
 ---
-# <a name="application-insights-overview-dashboard-preview"></a>Azure Application Insights 概觀儀表板 (預覽)
+# <a name="application-insights-overview-dashboard"></a>Azure Application Insights 概觀儀表板
 
-Application Insights 一直以來都在提供摘要概覽窗格，以便一眼便能快速評量應用程式的健康情況和效能。 全新的預覽概觀儀表板可提供更快、更有彈性的體驗。
+Application Insights 一直以來都在提供摘要概覽窗格，以便一眼便能快速評量應用程式的健康情況和效能。 全新的概觀儀表板可提供更快、更有彈性的體驗。
 
 ## <a name="how-do-i-test-out-the-new-experience"></a>如何嘗試新的體驗？
 
- 在 Application Insights 的 [概觀] 底下，選取 [請在變成預設體驗之前嘗試新的概觀]。
+新的概觀儀表板目前會依預設啟動：
 
-![概觀預覽](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-01.png)
-
-如此便會啟動新的預設概觀儀表板：
-
-![概觀預覽窗格](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-02.png)
+![概觀預覽窗格](.\media\app-insights-overview-dashboard\overview-0001.png)
 
 ## <a name="better-performance"></a>效能更佳
 
@@ -40,7 +36,7 @@ Application Insights 一直以來都在提供摘要概覽窗格，以便一眼�
 
 ![時間範圍](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-03.png)
 
-整體效能已大幅提升。 預設的每個動態更新 KPI 磚皆連結至對應的 Application Insights 功能。 例如，選取失敗的要求將會啟動 [失敗] 窗格：
+整體效能已大幅提升。 只要按一下，就能存取常用功能，例如**搜尋**和**分析**。 預設的每個動態更新 KPI 圖格均可讓您了解對應的 Application Insights 功能。 若要深入了解失敗的要求，請選取 [調查] 標題下的 [失敗]：
 
 ![失敗](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-04.png)
 
@@ -56,7 +52,7 @@ Application Insights 一直以來都在提供摘要概覽窗格，以便一眼�
 
 ![儀表板檢視](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-06.png)
 
-如果您喜歡預設檢視，即可保持原狀繼續使用，但也可以在儀錶板上新增和刪除項目，盡可能滿足您小組的需求。
+如果您喜歡預設檢視，即可保持原狀繼續使用。 您也可以在儀表板上新增和刪除項目，盡可能滿足小組的需求。
 
 > [!NOTE]
 > 具有 Application Insights 資源存取權的所有使用者，都會共用相同的應用程式儀表板體驗。 一位使用者所做的變更將會修改所有使用者的檢視。
@@ -64,6 +60,12 @@ Application Insights 一直以來都在提供摘要概覽窗格，以便一眼�
 若要回到概觀的畫面，只需選取：
 
 ![[概觀] 按鈕](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-07.png)
+
+## <a name="access-the-classic-overview-dashboard"></a>存取 [傳統概觀] 儀表板
+
+如果您遺失舊概觀，請選擇 [傳統概觀]。
+
+![傳統概觀](.\media\app-insights-overview-dashboard\overview-classic.png)
 
 ## <a name="next-steps"></a>後續步驟
 

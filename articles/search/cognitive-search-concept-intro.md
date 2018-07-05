@@ -3,17 +3,18 @@ title: Azure 搜尋服務中的資料擷取和自然語言處理的認知搜尋 
 description: 可透過認知技能在 Azure 搜尋服務索引中建立可搜尋內容的資料擷取、自然語言處理 (NLP) 和影像處理。
 manager: cgronlun
 author: HeidiSteen
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: heidist
-ms.openlocfilehash: ca6c285348208a7ad24faf966073d641810039fc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 64b4c0a315e206cd260f2f1108362e92f55d1843
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641106"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36304279"
 ---
 # <a name="what-is-cognitive-search"></a>什麼是認知搜尋？
 

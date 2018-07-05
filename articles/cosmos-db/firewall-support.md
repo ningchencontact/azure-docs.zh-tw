@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: sngun
-ms.openlocfilehash: 0407d3c58fa63a11c8391f069039f7c35a15ceb7
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: c55f90b944038a0e4ca216a357fc30f4cf6a6ddc
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294732"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317281"
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Azure Cosmos DB 防火牆支援
 為了保護 Azure Cosmos DB 資料庫帳戶中所儲存的資料，Azure Cosmos DB 已支援利用強式雜湊式訊息驗證碼 (HMAC) 的密碼型[授權模型](https://msdn.microsoft.com/library/azure/dn783368.aspx)。 現在，除了密碼型授權模型之外，Azure Cosmos DB 還支援使用原則驅動的 IP 型存取控制來進行輸入防火牆支援。 此模型與傳統資料庫系統的防火牆規則相類似，且可為 Azure Cosmos DB 資料庫帳戶提供額外的安全性層級。 您現在可以使用這個模型，設定只能從一組核准的電腦和 (或) 雲端服務存取 Azure Cosmos DB 資料庫帳戶。 透過這些核准的電腦和服務組合來存取 Azure Cosmos DB 資源，仍然需要呼叫者呈現有效的授權權杖。
@@ -56,10 +56,10 @@ ms.locfileid: "36294732"
 
 ![顯示如何允許存取 Azure 入口網站的螢幕擷取畫面](./media/firewall-support/enable-azure-portal.png)
 
-## <a name="connections-from-public-azure-datacenters-or-azure-paas-services"></a>來自公用 Azure 資料中心或 Azure PaaS 服務的連線
+## <a name="connections-from-global-azure-datacenters-or-azure-paas-services"></a>來自全域 Azure 資料中心或 Azure PaaS 服務的連線
 在 Azure 中，Azure 串流分析、Azure Functions 和 Azure App Service 之類的 PaaS 服務會與 Azure Cosmos DB 搭配使用。 若要能夠從 IP 位址尚無法使用的這些服務存取 Azure Cosmos DB 資料庫帳戶，請以程式設計方式將 IP 位址 0.0.0.0 新增到與您的 Azure Cosmos DB 資料庫帳戶相關聯的允許 IP 位址清單中。 
 
-當您在 Azure 入口網站中將防火牆設定變更為 [選取的網路] 時，預設會啟用從公用 Azure 資料中心內存取連線的功能。 
+當您在 Azure 入口網站中將防火牆設定變更為 [選取的網路] 時，預設會啟用從全域 Azure 資料中心內存取連線的功能。 
 
 ![顯示如何在 Azure 入口網站中開啟 [防火牆] 頁面的螢幕擷取畫面](./media/firewall-support/enable-azure-services.png)
 
@@ -87,6 +87,25 @@ ms.locfileid: "36294732"
 
 ## <a name="connections-from-the-internet"></a>從網際網路的連接
 從網際網路上的電腦存取 Azure Cosmos DB 資料庫帳戶時，必須將電腦的用戶端 IP 位址或 IP 位址範圍新增至 Azure Cosmos DB 資料庫帳戶的允許 IP 位址清單。 
+
+## <a name="using-azure-resource-manager-template-to-set-up-the-ip-access-control"></a>使用 Azure Resource Manager 範本設定 IP 存取控制
+
+將下列 JSON 新增至您的範本，以設定 IP 存取控制。 帳戶的 Resource Manager 範本將具有 ipRangeFilter 屬性，而該屬性為應列入白名單的 IP 範圍清單。
+
+```json
+   {
+     "apiVersion": "2015-04-08",
+     "type": "Microsoft.DocumentDB/databaseAccounts",
+     "kind": "GlobalDocumentDB",
+     "name": "[parameters('databaseAccountName')]",
+     "location": "[resourceGroup().location]",
+     "properties": {
+     "databaseAccountOfferType": "Standard",
+     "name": "[parameters('databaseAccountName')]",
+     "ipRangeFilter":"10.0.0.1,10.0.0.2,183.240.196.255"
+   }
+   }
+```
 
 ## <a name="troubleshooting-the-ip-access-control-policy"></a>針對 IP 存取控制原則進行疑難排解
 ### <a name="portal-operations"></a>入口網站作業

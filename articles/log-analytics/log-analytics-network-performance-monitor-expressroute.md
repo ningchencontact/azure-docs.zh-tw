@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 9610a8b37ead976cfdfa2fed81d4d3932055ddcc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d97e380f83cc4e5e5a2d9686a7ac8426967f4b93
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30237778"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36302194"
 ---
 # <a name="expressroute-manager"></a>ExpressRoute 管理員
 
@@ -37,7 +37,7 @@ ms.locfileid: "30237778"
 ### <a name="configure-network-security-group-rules"></a>設定網路安全性群組規則 
 針對 Azure 中用來透過網路效能監控進行監視的伺服器，設定網路安全性群組 (NSG) 規則，以在網路效能監控用來進行綜合交易的連接埠上允許 TCP 流量。 預設連接部是 8084。 此組態允許安裝在 Azure 虛擬機器上的 Operations Management Suite 代理程式與內部部署監視代理程式通訊。 
 
-如需有關 NSG 的詳細資訊，請參閱 [網路安全性群組](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)。 
+如需有關 NSG 的詳細資訊，請參閱 [網路安全性群組](../virtual-network/manage-network-security-group.md)。 
 
 >[!NOTE]
 > 在您繼續此步驟之前，請安裝內部部署伺服器代理程式和 Azure 伺服器代理程式，並且執行 EnableRules.ps1 PowerShell 指令碼。 
