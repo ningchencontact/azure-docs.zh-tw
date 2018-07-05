@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: iainfou
-ms.openlocfilehash: bbbe677b0a0d47147ace41ff5a229282f80bbf1b
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: ed43dc21c8b7c585abc0a2734a541f760ab3c487
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839510"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111558"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>在虛擬機器擴展集上部署您的應用程式
 若要在擴展集的虛擬機器 (VM) 執行個體上執行應用程式，您需要先安裝應用程式元件和必要的檔案。 本文介紹如何在擴展集中建置執行個體的自訂 VM 映像，或在現有的 VM 執行個體上自動執行安裝指令碼。 您也將了解如何跨擴展集管理應用程式或作業系統更新。
@@ -91,7 +91,7 @@ Update-AzureRmVmss `
 
 
 ## <a name="install-an-app-to-a-linux-vm-with-cloud-init"></a>使用 cloud-init 將應用程式安裝到 Linux VM
-[Cloud-init (英文)](https://cloudinit.readthedocs.io/latest/) 是在 Linux VM 初次開機時，廣泛用來自訂它們的方法。 您可以使用 cloud-init 來安裝封裝和寫入檔案，或者設定使用者和安全性。 當 cloud-init 在初次開機程序期間執行時，不需要使用任何額外的步驟或必要的代理程式來套用您的組態。
+[Cloud-init (英文)](https://cloudinit.readthedocs.io/en/latest/index.html) 是在 Linux VM 初次開機時，廣泛用來自訂它們的方法。 您可以使用 cloud-init 來安裝封裝和寫入檔案，或者設定使用者和安全性。 當 cloud-init 在初次開機程序期間執行時，不需要使用任何額外的步驟或必要的代理程式來套用您的組態。
 
 Cloud-init 也適用於散發套件。 例如，您不使用 **apt-get install** 或 **yum install** 來安裝套件。 您可以改為定義要安裝的套件清單。 Cloud-init 會針對您選取的散發套件自動使用原生的套件管理工具。
 

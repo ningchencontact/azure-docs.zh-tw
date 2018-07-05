@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: b01e4498e63ab989b0b78246636cba50ed4f82d6
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d08ac9f2cbdf98493b3132fa9dd3a3e973576451
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33943207"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098812"
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>使用會建立多位元速率串流的內部部署編碼器執行即時串流
 
@@ -146,7 +146,7 @@ ms.locfileid: "33943207"
 
 當您建立通道時，您可以取得預覽 URL。 若您要取得此 URL，通道不一定要在 **執行** 狀態。 通道開始內嵌資料後，您就可以預覽您的資料流。
 
-無論指定的輸入類型為何，目前預覽串流都只能以分散式 MP4 (Smooth Streaming) 格式傳遞。 您可以使用 [Smooth Streaming 健全狀況監視](http://smf.cloudapp.net/healthmonitor)播放器測試 Smooth Stream。 您也可以使用裝載於 Azure 入口網站中的播放器來檢視您的串流。
+無論指定的輸入類型為何，目前預覽串流都只能以分散式 MP4 (Smooth Streaming) 格式傳遞。 您可以使用 [Smooth Streaming 健全狀況監視](http://playready.directtaps.net/smoothstreaming/)播放器測試 Smooth Stream。 您也可以使用裝載於 Azure 入口網站中的播放器來檢視您的串流。
 
 #### <a name="allowed-ip-addresses"></a>允許的 IP 位址
 您可以定義允許連接到預覽端點的 IP 位址。 如果沒有指定 IP 位址，將會允許任何 IP 位址。 可以將允許的 IP 位址指定為下列其中一項︰

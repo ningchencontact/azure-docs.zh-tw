@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a7b8c480291360cb50af1ce4ae36cd406f0ddc21
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: bda8f72de16d1d8d95823de98aab8ec209908e63
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895246"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437785"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 安全性簡介
 ## <a name="overview"></a>概觀
@@ -92,7 +92,8 @@ Application Insights 會建立圖表和資料表為您顯示多種資訊，例�
 如果有當機、失敗或效能問題，您可以搜尋詳細的遙測資料，以診斷原因。 此外，如果應用程式的可用性和效能有任何變更，服務會傳送電子郵件給您。 Application Insight 因而成為一個非常實用的安全性工具，因為它有助於提供機密性、完整性和可用性安全性三部曲中的「可用性」。
 
 ### <a name="azure-monitor"></a>Azure 監視器
-[Azure 監視器](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)針對來自 Azure 基礎結構 ([活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)) 及每個個別的 Azure 資源 ([診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)) 的資料，提供視覺效果、查詢、路由、警示、自動調整及自動化功能。 您可以使用 Azure 監視器，在 Azure 記錄中產生安全性相關事件時接收警示通知。
+
+  [Azure 監視器](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)針對來自 Azure 基礎結構 ([活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)) 及每個個別的 Azure 資源 ([診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)) 的資料，提供視覺效果、查詢、路由、警示、自動調整及自動化功能。 您可以使用 Azure 監視器，在 Azure 記錄中產生安全性相關事件時接收警示通知。
 
 ### <a name="log-analytics"></a>Log Analytics
 [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite) 中的 [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/)：為內部部署和協力廠商雲端式基礎結構 (如 AWS) 提供 Azure 資源之外的 IT 管理解決方案。 Azure 監視器中的資料可以直接路由至 Log Analytics，以便您可以在同一個地方看到整個環境的度量與記錄。
@@ -113,7 +114,7 @@ Log Analytics 在鑑識和其他安全性分析方面是一個非常實用的工
 開始測試您 [App Service 應用程式](https://docs.microsoft.com/azure/app-service/app-service-web-overview)上是否有弱點的最簡單方式之一是使用[與 Tinfoil Security 的整合 (英文)](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/)，以在您的應用程式上執行單鍵弱點掃描。 您可以在容易了解的報告中檢視測試結果，並且了解如何以逐步指示修正每個弱點。
 
 ### <a name="penetration-testing"></a>滲透測試
-如果您想要執行專屬的滲透測試，或想要使用另一個掃描器套件或提供者，您必須依照 [Azure 滲透測試核准程序](https://security-forms.azure.com/penetration-testing/terms) 並取得先前核准，才能執行所需的滲透測試。
+如果您想要執行專屬的滲透測試，或想要使用另一個掃描器套件或提供者，您必須依照 [Azure 滲透測試核准程序](https://docs.microsoft.com/en-us/azure/security/azure-security-pen-testing ) 並取得先前核准，才能執行所需的滲透測試。
 
 ### <a name="web-application-firewall"></a>Web 應用程式防火牆
 [Azure 應用程式閘道](https://azure.microsoft.com/services/application-gateway/)中的 Web 應用程式防火牆 (WAF) 可協助保護 Web 應用程式，以免於常見的 Web 型攻擊，例如 SQL 插入式攻擊、跨網站指令碼攻擊和工作階段攔截。 其已預先設定 [Open Web Application Security Project (OWASP) 認定為前 10 大常見漏洞](https://msdn.microsoft.com/library/)的威脅防護。
@@ -189,7 +190,7 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 [跨原始來源資源共用 (CORS)](https://docs.microsoft.com/rest/api/storageservices/fileservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) 這個機制可讓網域能夠為彼此提供權限來存取彼此的資源。 使用者代理程式會傳送額外的標頭，以確保允許從特定網域載入的 JavaScript 程式碼存取位於另一個網域的資源。 第二個網域接著會利用額外的標頭回覆，以允許或拒絕對其資源的原始網域存取。
 
 Azure 儲存體服務目前支援 CORS，因此，一旦您設定服務的 CORS 規則之後，即會評估從不同網域對服務所提出的適當驗證要求，以判斷是否可根據您指定的規則來允許它。
-## <a name="networking"></a>網路
+## <a name="networking"></a>網路功能
 本節提供關於 Azure 網路安全性中主要功能的其他資訊，以及這些功能的摘要資訊。
 
 ### <a name="network-layer-controls"></a>網路層控制

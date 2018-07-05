@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: f42526430599e47e673d359433e91b4687cbeb9e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0af61ec3b22692402697df5331df80ca044759b5
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33763745"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340656"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 中的永久性協調流程
 
@@ -61,32 +61,6 @@ public static async Task Run(
 ```
 
 此範例與計時器觸發函式之間的差異在於，此處的清理觸發程序時間不是根據排程。 例如，每小時執行函式的 CRON 排程會在 1:00、2:00、3:00 等時間執行它，很可能會陷入重疊問題。 不過，在此範例中，如果清除需要 30 分鐘，則會排程在 1:00、2:30、4:00 等時間，不會有機會重疊。
-
-## <a name="counter-example"></a>計數器範例
-
-以下是「計數器」函式的簡單例子，它會永遠接聽「遞增」和「遞減」事件。
-
-```csharp
-[FunctionName("SimpleCounter")]
-public static async Task Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
-{
-    int counterState = context.GetInput<int>();
-
-    string operation = await context.WaitForExternalEvent<string>("operation");
-
-    if (operation == "incr")
-    {
-        counterState++;
-    }
-    else if (operation == "decr")
-    {
-        counterState--;
-    }
-    
-    context.ContinueAsNew(counterState);
-}
-```
 
 ## <a name="exit-from-an-eternal-orchestration"></a>從永久協調流程離開
 

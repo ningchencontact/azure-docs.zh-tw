@@ -8,16 +8,16 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: df60862b6a835340534be4ed43a27267c33b64f5
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: b3171ca264afdbdbddeb26eff8744ee67f336dfe
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802260"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109514"
 ---
 # <a name="service-bus-faq"></a>服務匯流排常見問題集
 
-本文討論 Microsoft Azure 服務匯流排的一些常見問題解集。 您也可以造訪 [Azure 支援常見問題集](http://go.microsoft.com/fwlink/?LinkID=185083)，以取得一般的 Azure 價格和支援資訊。
+本文討論 Microsoft Azure 服務匯流排的一些常見問題解集。 您也可以造訪 [Azure 支援常見問題集](https://azure.microsoft.com/en-us/support/faq/)，以取得一般的 Azure 價格和支援資訊。
 
 ## <a name="general-questions-about-azure-service-bus"></a>關於 Azure 服務匯流排的一般問題
 ### <a name="what-is-azure-service-bus"></a>什麼是 Azure 服務匯流排？
@@ -37,7 +37,7 @@ ms.locfileid: "34802260"
 
 使用分割實體時無法確保順序。 若分割無法使用，您仍可從其他分割傳送及接收訊息。
 
- [進階 SKU](service-bus-premium-messaging.md) 中不再支援分割的實體。 
+ [Premium SKU](service-bus-premium-messaging.md) 不再支援分割的實體。 
 
 ## <a name="best-practices"></a>最佳作法
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Azure 服務匯流排的最佳做法有哪些？
@@ -56,7 +56,7 @@ ms.locfileid: "34802260"
 
 [服務匯流排定價與計費](service-bus-pricing-billing.md)一文說明服務匯流排中的計費計量。 如需服務匯流排價格選項的特定資訊，請參閱[服務匯流排價格詳細資料](https://azure.microsoft.com/pricing/details/service-bus/)。
 
-您也可以造訪 [Azure 支援常見問題集](http://go.microsoft.com/fwlink/?LinkID=185083)，以取得一般 Azure 價格資訊。 
+您也可以造訪 [Azure 支援常見問題集](https://azure.microsoft.com/en-us/support/faq/)，以取得一般 Azure 價格資訊。 
 
 ### <a name="how-do-you-charge-for-service-bus"></a>服務匯流排的收費方式為何？
 如需服務匯流排價格的完整資訊，請參閱[服務匯流排價格詳細資料][Pricing overview]。 除了註明的價格，您還需支付您的應用程式佈建所在資料中心外部的輸出相關資料傳輸費用。

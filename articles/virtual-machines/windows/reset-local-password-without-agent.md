@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
 ms.author: iainfou
-ms.openlocfilehash: ad892aee646b1a5f8c96d5bdeca24b7a0d88f38e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 6745d5f7c31ca00c7915874b038488f4487959a9
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30915600"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37343149"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>重設離線 Azure VM 的本機 Windows 密碼
 您可以使用 [Azure 入口網站或 Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 在 Azure 中重設 VM 的本機 Windows 密碼 (假設已安裝 Azure 客體代理程式)。 這個方法是為 Azure VM 重設密碼的主要方式。 如果您遇到 Azure 客體代理程式沒有回應，或無法在上傳自訂映像後進行安裝等問題，您可以手動重設 Windows 密碼。 本文將詳細說明如何將來源 OS 虛擬磁碟連接至另一部 VM，以重設本機帳戶密碼。 本文中所述的步驟不適用於 Windows 網域控制站。 
@@ -94,7 +94,7 @@ ms.locfileid: "30915600"
      ```
      
      ![建立 gpt.ini](./media/reset-local-password-without-agent/create_gpt_ini.png)
-5. 在 `\Windows\System32\GroupPolicy\Machine\Scripts` 中建立 `scripts.ini`。 確定已顯示隱藏的資料夾。 如有需要，請建立 `Machine` 或 `Scripts` 資料夾。
+5. 在 `\Windows\System32\GroupPolicy\Machine\Scripts\Startup` 中建立 `scripts.ini`。 確定已顯示隱藏的資料夾。 如有需要，請建立 `Machine` 或 `Scripts` 資料夾。
    
    * 將下列幾行新增至您建立的 `scripts.ini` 檔案：
      
@@ -134,7 +134,7 @@ ms.locfileid: "30915600"
      ![複製磁碟 URI](./media/reset-local-password-without-agent/copy_source_vhd_uri.png)
 9. 從來源 VM 的 OS 磁碟建立 VM：
    
-   * 使用[此 Azure Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd)，從特定的 VHD 建立 VM。 按一下 `Deploy to Azure` 按鈕開啟 Azure 入口網站，其中包含為您填入的樣板化詳細資料。
+   * 使用[此 Azure Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet)，從特定的 VHD 建立 VM。 按一下 `Deploy to Azure` 按鈕開啟 Azure 入口網站，其中包含為您填入的樣板化詳細資料。
    * 如果您想要保留 VM 的所有先前設定，請選取 [編輯範本] 以提供現有的 VNet、子網路、網路介面卡或公用 IP。
    * 在 `OSDISKVHDURI` 參數文字方塊中，貼上您在前一個步驟中取得的來源 VHD URI︰
      

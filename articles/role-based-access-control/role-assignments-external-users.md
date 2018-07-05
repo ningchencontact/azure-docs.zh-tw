@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: ''
 ms.service: role-based-access-control
 ms.devlang: ''
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 98eb104981051bd5e7440954470960977b38286d
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 58108bd2851050e96df1b5453ce96856374b7163
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36296965"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437030"
 ---
 # <a name="manage-access-for-external-users-using-rbac"></a>使用 RBAC 管理外部使用者的存取權
 

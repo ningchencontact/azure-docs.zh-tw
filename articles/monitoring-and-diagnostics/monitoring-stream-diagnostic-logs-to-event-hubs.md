@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 806ebe80ad49f2f908bf46549bb4abc533a6d516
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: c59b9982f5ba5a4fa52ab36df5ebb6995b2d45b0
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936695"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085084"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>將 Azure 診斷記錄串流至事件中樞
 您可以使用入口網站中內建的「匯出至事件中樞」選項，或透過 Azure PowerShell Cmdlet 或 Azure CLI 2.0 來啟用診斷設定中事件中樞授權規則識別碼的方式，以近乎即時的速度將 **[Azure 診斷記錄](monitoring-overview-of-diagnostic-logs.md)** 串流至任何應用程式。
@@ -41,7 +41,7 @@ ms.locfileid: "36936695"
 
 ## <a name="enable-streaming-of-diagnostic-logs"></a>啟用診斷記錄的串流
 
-您可以透過入口網站或使用 [Azure 監視器 REST API](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings)，啟用以程式控制方式對診斷記錄進行串流的功能。 無論如何，您所建立的診斷設定可讓您指定事件中樞命名空間，以及記錄類別和您需要傳送至命名空間的計量。 針對您所啟用的每個記錄類別，會在命名空間中建立事件中樞。 診斷**記錄類別**是一種資源可以收集的記錄類型。
+您可以透過入口網站或使用 [Azure 監視器 REST API](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings)，啟用以程式控制方式對診斷記錄進行串流的功能。 無論如何，您所建立的診斷設定可讓您指定事件中樞命名空間，以及記錄類別和您需要傳送至命名空間的計量。 針對您所啟用的每個記錄類別，會在命名空間中建立事件中樞。 診斷**記錄類別**是一種資源可以收集的記錄類型。
 
 > [!WARNING]
 > 啟用和串流來自計算資源 (例如，VM 或 Service Fabric) 的診斷記錄 [需要一組不同的步驟](../event-hubs/event-hubs-streaming-azure-diags-data.md)。

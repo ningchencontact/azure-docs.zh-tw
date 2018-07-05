@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: cfdb89ae833dc2450a4670a84af305f1caa10591
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: dfd28c5abea668e704fb5ee8b02d85d552e9ae77
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869507"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098867"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>使用 Azure 的網路原則伺服器擴充功能來整合您的 VPN 基礎結構與 Azure MFA
 
@@ -305,7 +305,7 @@ NPS 擴充功能需要 Windows Server 2008 R2 SP1 或更新版本，並安裝網
  
 ## <a name="configure-multi-factor-authentication"></a>設定 Multi-Factor Authentication
 
-如需設定 Multi-Factor Authentication 之使用者的協助，請參閱[如何要求使用者或群組使用雙步驟驗證](howto-mfa-userstates.md)和[對我的帳戶進行雙步驟驗證設定](../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md)文章
+如需設定 Multi-Factor Authentication 之使用者的協助，請參閱[如何要求使用者或群組使用雙步驟驗證](howto-mfa-userstates.md)和[對我的帳戶進行雙步驟驗證設定](end-user/current/multi-factor-authentication-end-user-first-time.md)文章
 
 ## <a name="install-and-configure-the-nps-extension"></a>安裝和設定 NPS 擴充功能
 

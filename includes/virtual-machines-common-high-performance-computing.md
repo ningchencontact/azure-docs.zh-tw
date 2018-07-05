@@ -5,15 +5,15 @@ services: virtual-machines-linux, virtual-machines-windows
 author: dlepow
 ms.service: multiple
 ms.topic: include
-ms.date: 05/11/2018
+ms.date: 07/02/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 32a438d393077cfe4cb7f6ee62f3a01edfce0571
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 496c32e70ad58f64b31c1f6fcf913884fcd4abc1
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34152218"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37348230"
 ---
 組織有大規模的運算需求。 這些 Big Compute 工作負載包括工程設計和分析、財務風險計算、影像轉譯、複雜模型、Monte Carlo 模擬等等。 
 
@@ -40,7 +40,7 @@ ms.locfileid: "34152218"
     * 執行來自 [Altair](http://www.altair.com/)、[Rescale](https://www.rescale.com/azure/) 和[Cycle Computing](https://cyclecomputing.com/) (現在[與 Microsoft 聯手](https://blogs.microsoft.com/blog/2017/08/15/microsoft-acquires-cycle-computing-accelerate-big-computing-cloud/)) 等廠商之已啟用 Azure 的工程和模擬解決方案。
     * 使用 [Cray 超級電腦](https://www.cray.com/solutions/supercomputing-as-a-service/cray-in-azure)作為 Azure 中裝載的服務。
 * **Marketplace 解決方案**
-    * 使用 [Azure Marketplace](https://azuremarketplace.microsoft.com/) 中提供的 [HPC 應用程式](#hpc-applications)和[解決方案](#marketplace-solutions)。 
+    * 使用 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) 中提供的 [HPC 應用程式](#hpc-applications)和[解決方案](#marketplace-solutions)。 
     
 
 
@@ -64,7 +64,7 @@ ms.locfileid: "34152218"
  
 ## <a name="hpc-applications"></a>HPC 應用程式
 
-在 Azure 中執行自訂或商業 HPC 應用程式。 本節中的數個範例會經過基準測試，以使用其他 VM 或運算核心有效地進行擴充。 請瀏覽 [Azure Marketplace](https://marketplace.azure.com) 以取得可立即部署的解決方案。
+在 Azure 中執行自訂或商業 HPC 應用程式。 本節中的數個範例會經過基準測試，以使用其他 VM 或運算核心有效地進行擴充。 請瀏覽 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) 以取得可立即部署的解決方案。
 
 > [!NOTE]
 > 請向廠商確認任何商業應用程式在雲端中的執行授權或其他限制。 並非所有廠商都提供隨用隨付授權。 您可能需要視您的解決方案，在雲端中授權伺服器，或連線至內部部署授權伺服器。
@@ -196,6 +196,7 @@ Azure 虛擬機器、虛擬機器擴展集、Batch 和相關的運算服務是�
 * [Microsoft Research](https://customers.microsoft.com/doclink/fast-lmm-and-windows-azure-put-genetics-research-on-fa)
 * [明德精算顧問有限公司](https://customers.microsoft.com/story/actuarial-firm-works-to-transform-insurance-industry-w)
 * [Mitsubishi UFJ Securities International](https://customers.microsoft.com/story/powering-risk-compute-grids-in-the-cloud)
+* [NeuroInitiative](https://customers.microsoft.com/en-us/story/neuroinitiative-health-provider-azure)
 * [Schlumberger](http://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
 * [Towers Watson](https://customers.microsoft.com/story/insurance-tech-provider-delivers-disruptive-solutions)
 

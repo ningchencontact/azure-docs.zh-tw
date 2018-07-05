@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: 8ff7b88a3086488ab669288687c274237ca30b47
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: ea46039583681bd89e254d153997e3a300041d4e
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30284552"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341349"
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>使用 Visual Studio 分析工具，在 Azure 計算模擬器中本機測試雲端服務的效能
 各種工具和技術可用於測試雲端服務的效能。
@@ -167,7 +167,7 @@ public static string Concatenate(int number)
 ## <a name="next-steps"></a>後續步驟
 在 Visual Studio 分析工具中，不支援在模擬器中檢測 Azure 二進位，但是，如果您想要測試記憶體配置，則可以在分析時選擇該選項。 您也可以選擇並行分析來協助您判斷執行緒是否浪費時間來競爭鎖定，或選擇階層互動分析來協助您追蹤在應用程式階層之間互動時的效能問題 (最常發生在資料層與背景工作角色之間)。  您可以檢視應用程式所產生的資料庫查詢，以及使用分析資料來提高資料庫的使用。 如需階層互動分析的詳細資訊，請參閱部落格文章[逐步介紹：在 Visual Studio Team System 2010 中使用階層互動分析][3]。
 
-[1]: http://msdn.microsoft.com/library/azure/hh369930.aspx
+[1]: https://docs.microsoft.com/azure/application-insights/app-insights-profiler
 [2]: http://msdn.microsoft.com/library/azure/hh411542.aspx
 [3]: http://blogs.msdn.com/b/habibh/archive/2009/06/30/walkthrough-using-the-tier-interaction-profiler-in-visual-studio-team-system-2010.aspx
 [4]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally09.png

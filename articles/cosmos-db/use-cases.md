@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/7/2017
 ms.author: sngun
-ms.openlocfilehash: ab24dc98ef4c767f04dc083ac6208e2c9d831935
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 15a4e2fa981617c538edf3731bf9457bf172213c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34616799"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113114"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>常見的 Azure Cosmos DB 使用案例
 本文提供數個常見的 Azure Cosmos DB 使用案例概觀。  本文中的建議可作為使用 Cosmos DB 來開發應用程式時的起點。   
@@ -51,7 +51,7 @@ Azure 事件中樞可以擷取暴增的資料量，因為它提供高輸送量�
 
 如需使用 Azure Cosmos DB、EventHubs 和 Storm 的範例 IoT 解決方案，請參閱 [GitHub 上的 hdinsight-storm-examples 存放庫 (英文)](https://github.com/hdinsight/hdinsight-storm-examples/)。
 
-如需有關適用於 IoT 的 Azure 供應項目詳細資訊，請參閱 [建立您的物聯網](http://www.microsoft.com/server-cloud/internet-of-things.aspx)。 
+如需有關適用於 IoT 的 Azure 供應項目詳細資訊，請參閱 [建立您的物聯網](https://www.microsoft.com/en-us/internet-of-things)。 
 
 ## <a name="retail-and-marketing"></a>零售和行銷
 Azure Cosmos DB 廣泛用於 Microsoft 自己的電子商務平台，這些平台執行了 Windows 市集和 XBox Live。 Azure Cosmos DB 也在零售業用於儲存目錄資料，並用於訂單處理管線中事件來源。

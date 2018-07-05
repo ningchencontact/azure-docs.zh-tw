@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: brenduns
-ms.openlocfilehash: b84744a52426123f2f3e7dd4c14419fef8b779cc
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 52ab831dfaca337cdf803f410d3824b514fd0e8a
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258625"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437149"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Azure Stack 中支援的虛擬機器大小
 
@@ -38,7 +38,7 @@ ms.locfileid: "34258625"
 |**A1\Basic_A1**  |1    |1.75 GB  | 40 GB   |300  | 300  |2 / 2x300  |1   |
 |**A2\Basic_A2**  |2    |3.5 GB   | 60 GB   |300  | 300  |4 / 4x300  |1   |
 |**A3\Basic_A3**  |4    |7 GB     | 120 GB  |300  | 300  |8 / 8x300  |1   |
-|**A4\Basic_A4**  |8    |14 GB    | 240 GB  |300  | 300  |6 / 16X300 |1   |
+|**A4\Basic_A4**  |8    |14 GB    | 240 GB  |300  | 300  |16 / 16X300 |1   |
 
 ### <a name="standard-a"></a>標準 A 
 |大小     |vCPU     |記憶體 (GiB) | 暫存儲存體 (GiB)  | 最大 OS 磁碟輸送量 (IOPS) | 最大暫存儲存體輸送量 (IOPS) | 最大資料磁碟/輸送量 (IOPS) | 最大 NIC/預期的網路頻寬 (Mbps) |    

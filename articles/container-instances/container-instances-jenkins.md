@@ -2,18 +2,18 @@
 title: 使用 Azure 容器執行個體作為 Jenkins 建置代理程式
 description: 了解如何使用 Azure 容器執行個體作為 Jenkins 建置代理程式。
 services: container-instances
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/20/2018
-ms.author: nepeters
-ms.openlocfilehash: 4df230c8306a3876e94a5e9ada5e7408f134ba26
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.author: iainfou
+ms.openlocfilehash: 7d1fa80b6d9b76a37ff29db42c5119389b3aad2a
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359538"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096429"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>使用 Azure 容器執行個體作為 Jenkins 建置代理程式
 

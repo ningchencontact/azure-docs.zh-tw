@@ -8,12 +8,12 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: ed1a55c26ab1ef2aadb4906757205df0ca09d866
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7a0a5d4f1fbba5d7bd2813e8b9c300a37853e06c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659088"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111471"
 ---
 # <a name="visualize-remote-monitoring-data-with-time-series-insights"></a>使用時間序列深入解析將遠端監視資料視覺化
 
@@ -145,4 +145,4 @@ Azure 時間序列深入解析是完全受管理的分析、儲存及視覺化�
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入了解如何在時間序列深入解析中探索和查詢資料，請參閱 [Azure 時間序列深入解析總管](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-dashboard.png)。
+若要深入了解如何在時間序列深入解析中探索和查詢資料，請參閱 [Azure 時間序列深入解析總管](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer)。

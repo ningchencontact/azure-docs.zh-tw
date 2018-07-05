@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: b809097e50a17178da12fdb424eba08dc8e0c4cb
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 204910ff6e02eafd62eeb56bf82b77b91b3cb5ad
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866886"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099604"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>如何要求使用者或群組使用雙步驟驗證
 
@@ -39,7 +39,7 @@ Azure Multi-Factor Authentication 中的使用者帳戶具有下列三種不同�
 | 狀態 | 說明 | 受影響的非瀏覽器應用程式 | 受影響的瀏覽器應用程式 | 受影響的新式驗證 |
 |:---:|:---:|:---:|:--:|:--:|
 | 已停用 |未註冊 Azure MFA 之新使用者的預設狀態。 |否 |否 |否 |
-| 已啟用 |已在 Azure MFA 中註冊使用者，但使用者尚未註冊。 系統將在他們下一次登入時提示他們註冊。 |編號  它們會繼續運作，直到註冊程序完成為止。 | 是。 工作階段到期之後，必須進行 Azure MFA 註冊。| 是。 存取權杖到期之後，必須進行 Azure MFA 註冊。 |
+| 已啟用 |已在 Azure MFA 中註冊使用者，但使用者尚未註冊。 系統將在他們下一次登入時提示他們註冊。 |否。  它們會繼續運作，直到註冊程序完成為止。 | 是。 工作階段到期之後，必須進行 Azure MFA 註冊。| 是。 存取權杖到期之後，必須進行 Azure MFA 註冊。 |
 | 已強制 |已註冊使用者，而且使用者已完成 Azure MFA 的註冊程序。 |是。  應用程式需要應用程式密碼。 |是。 在登入時需要使用 Azure MFA。 | 是。 在登入時需要使用 Azure MFA。 |
 
 使用者的狀態會反映系統管理員是否已在 Azure MFA 中註冊他們，以及他們是否已完成註冊程序。
@@ -71,7 +71,7 @@ Azure Multi-Factor Authentication 中的使用者帳戶具有下列三種不同�
 
 5. 在開啟的快顯視窗中確認您的選取項目。 
 
-當您啟用使用者之後，請透過電子郵件通知他們。 告訴他們系統會在他們下一次登入時要求其進行註冊。 此外，如果您的組織使用不支援新式驗證的非瀏覽器應用程式，他們就需要建立應用程式密碼。 您也可以納入 [Azure MFA 使用者指南](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user.md)的連結，以協助他們開始使用。
+當您啟用使用者之後，請透過電子郵件通知他們。 告訴他們系統會在他們下一次登入時要求其進行註冊。 此外，如果您的組織使用不支援新式驗證的非瀏覽器應用程式，他們就需要建立應用程式密碼。 您也可以納入 [Azure MFA 使用者指南](end-user/current/multi-factor-authentication-end-user.md)的連結，以協助他們開始使用。
 
 ### <a name="use-powershell"></a>使用 PowerShell
 若要使用 [Azure AD PowerShell](/powershell/azure/overview) 來變更使用者狀態，請變更 `$st.State`。 有三個可能的狀態︰

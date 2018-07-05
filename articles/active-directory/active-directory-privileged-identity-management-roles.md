@@ -7,18 +7,18 @@ author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.component: protection
 ms.date: 03/04/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: 3d1027a2fe53a45b089fbae29a831d9e23df059e
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: cbb0e6c4f72e53938ba8ee838a1db9cab5357fc2
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233317"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441017"
 ---
 # <a name="different-administrative-role-in-azure-active-directory-pim"></a>Azure Active Directory PIM 中不同的系統管理角色
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -28,7 +28,7 @@ ms.locfileid: "35233317"
 > [!IMPORTANT]
 > Microsoft 建議您使用 Azure 入口網站中的 [Azure AD 系統管理中心](https://aad.portal.azure.com)來管理 Azure AD。
 
-全域管理員可以使用 PowerShell Cmdlet (例如 `Add-MsolRoleMember` 和 `Remove-MsolRoleMember`) 或如[在 Azure Active Directory 中指派系統管理員角色](active-directory-assign-admin-roles-azure-portal.md)中所述透過入口網站，更新要將哪些使用者「永久」指派給 Azure AD 中的角色。
+全域管理員可以使用 PowerShell Cmdlet (例如 `Add-MsolRoleMember` 和 `Remove-MsolRoleMember`) 或如[在 Azure Active Directory 中指派系統管理員角色](users-groups-roles/directory-assign-admin-roles.md)中所述透過入口網站，更新要將哪些使用者「永久」指派給 Azure AD 中的角色。
 
 Azure AD Privileged Identity Management (PIM) 可管理以特殊權限存取 Azure AD 中之使用者的原則。 PIM 會將使用者指派給 Azure AD 中的一或多個角色，您可以指派某位使用者永久擔任該角色，或是將其指派成符合該角色資格。 將使用者永久指派給某個角色或是啟用合格角色指派時，他們便可以使用指派給他們角色的權限來管理 Azure Active Directory、Office 365 及其他應用程式。
 
@@ -52,7 +52,7 @@ Privileged Identity Management 可讓您將使用者指派給常見的系統管�
 * **SharePoint 管理員 (預覽)** 具有可透過 SharePoint Online 系統管理中心存取 SharePoint Online 的系統管理存取權，並可在 SharePoint Online 中執行幾乎任何工作。 此角色目前為預覽版。 在 PIM 中啟用此角色之後，合格的使用者在 SharePoint 內使用此角色時可能會有延遲。
 *  具有透過「商務用 Skype」系統管理中心存取「商務用 Skype」的系統管理權限，並可在「商務用 Skype Online」執行幾乎所有工作。
 
-如需有關[在 Azure AD 中指派系統管理員角色](active-directory-assign-admin-roles-azure-portal.md)和[在 Office 365 中指派管理員角色](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504)的更多詳細資料，請閱讀這些文章。
+如需有關[在 Azure AD 中指派系統管理員角色](users-groups-roles/directory-assign-admin-roles.md)和[在 Office 365 中指派管理員角色](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504)的更多詳細資料，請閱讀這些文章。
 
 <!--**PLACEHOLDER: The above article may not be the one we want since PIM gets roles from places other that Office 365**-->
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: eb1bf9f6465a8a94fd2de75f581817887c333289
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 0813e0f6b51c747d033ca2c44aed21cf94c32000
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895317"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113022"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure 進階威脅偵測
 ## <a name="introduction"></a>簡介
@@ -420,7 +420,7 @@ Web 應用程式防火牆會檢查輸入的 Web 流量和並封鎖 SQL 插入、
 
 以下是 Azure Market Place 中可用的 Web 應用程式防火牆範例：
 
-[Barracuda Web 應用程式防火牆、Brocade 虛擬 Web 應用程式防火牆 (Brocade vWAF)、Imperva SecureSphere 和 ThreatSTOP IP 防火牆 (英文)](https://azure.microsoft.com/marketplace/partners/brocade_communications/brocade-virtual-web-application-firewall-templatevtmcluster/)。
+[Barracuda Web 應用程式防火牆、Brocade 虛擬 Web 應用程式防火牆 (Brocade vWAF)、Imperva SecureSphere 和 ThreatSTOP IP 防火牆 (英文)](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf)。
 
 ## <a name="next-steps"></a>後續步驟
 

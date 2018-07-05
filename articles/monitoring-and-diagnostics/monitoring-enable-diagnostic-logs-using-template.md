@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/26/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 6c202afaca893609d41384ee8302b0c4c6c4a6f6
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: a69cefc3c9363c0e8378a90c44d6a466780402b1
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263383"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434482"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>使用 Resource Manager 範本在建立資源時自動啟用診斷設定
 在本文中，我們示範如何在建立資源時使用 [Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md) 設定診斷設定。 這可讓您在建立資源時，自動開始將您的診斷記錄檔和度量串流至事件中樞、將它們封存在儲存體帳戶中，或將它們傳送至 Log Analytics。
@@ -75,7 +75,7 @@ ms.locfileid: "35263383"
     "resources": [
       {
         "type": "providers/diagnosticSettings",
-        "name": "Microsoft.Insights/[parameters('settingName')]",
+        "name": "[concat('Microsoft.Insights/', parameters('settingName'))]",
         "dependsOn": [
           "[/*resource Id for which Diagnostic Logs will be enabled>*/]"
         ],
@@ -205,7 +205,7 @@ ms.locfileid: "35263383"
       "resources": [
         {
           "type": "providers/diagnosticSettings",
-          "name": "Microsoft.Insights/[parameters('settingName')]",
+          "name": "[concat('Microsoft.Insights/', parameters('settingName'))]",
           "dependsOn": [
             "[resourceId('Microsoft.Logic/workflows', parameters('logicAppName'))]"
           ],

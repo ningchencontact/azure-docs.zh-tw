@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9e9f3cc89dfc6dda18d40950207ea4523f5212c0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4b48400920176055e7eb166c7502c06e67b29185
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195245"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436356"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>了解適用於自動化 Runbook 的重要 Windows PowerShell 工作流程概念
 
@@ -285,6 +285,9 @@ workflow CreateTestVms
         }
 }
 ```
+
+> [!IMPORTANT]
+> **Add-AzureRmAccount** 現在是 **Connect-AzureRMAccount** 的別名。 搜尋您的程式庫項目時，如果沒有看到 **Connect-AzureRMAccount**，便可以使用 **Add-AzureRmAccount**，或是在自動化帳戶中更新模組。
 
 如果您使用以服務主體設定的執行身分帳戶進行驗證，則不必這麼做。
 

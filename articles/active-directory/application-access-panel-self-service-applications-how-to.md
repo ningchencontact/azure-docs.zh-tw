@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: japere,asteen
-ms.openlocfilehash: da44fb2982c76b849181683f308e414c3d3f0b7a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8eb12764cf5df539f61842ba3602c6265c1e2b86
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331201"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441204"
 ---
 # <a name="how-to-use-self-service-application-access"></a>如何使用自助應用程式存取
 
@@ -85,4 +85,4 @@ ms.locfileid: "36331201"
 這些核准只支援單一核准工作流程，這表示若您指定多個核准者，任何核准者都可以核准應用程式存取。
 
 ## <a name="next-steps"></a>後續步驟
-[設定 Azure Active Directory 進行自助服務群組管理](active-directory-accessmanagement-self-service-group-management.md)
+[設定 Azure Active Directory 進行自助服務群組管理](users-groups-roles/groups-self-service-management.md)

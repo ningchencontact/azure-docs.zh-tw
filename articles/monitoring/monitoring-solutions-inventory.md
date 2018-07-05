@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: ab07a11883b3462c4b9d0f9adab6c55e4fe49d78
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 887611f1293e276070df51ac06df51a994161ec1
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010246"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112182"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Azure 中管理解決方案的資料收集詳細資料
 本文包含 Microsoft 所提供的[管理解決方案清單](monitoring-solutions.md)，以及其詳細文件的連結。  此外，還提供資料收集到 Log Analytics 中的方法和頻率相關資訊。  您可以使用本文中的資訊來識別不同的可用解決方案，以及了解不同管理解決方案的資料流程和連線需求。 
@@ -65,9 +65,6 @@ ms.locfileid: "34010246"
 | [網路效能監視器](../log-analytics/log-analytics-network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | TCP 會每 5 秒交握一次，而資料會每 3 分鐘傳送一次 |
 | [Office 365 分析 (預覽)](../operations-management-suite/oms-solution-office-365.md) |Windows | | | | | |與通知同時 |
 | **管理解決方案** | **平台** | **Microsoft Monitoring Agent** | **Operations Manager 代理程式** | **Azure 儲存體** | **是否需要 Operations Manager？** | **透過管理群組傳送的 Operations Manager 代理程式資料** | **收集頻率** |
-| [安全性與稽核](../operations-management-suite/oms-security-getting-started.md) (Syslog) | Linux | &#8226; | | |  |  | 與抵達同時 |
-| [安全性與稽核](../operations-management-suite/oms-security-getting-started.md) (安全性事件記錄) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | 與抵達同時 |
-| [安全性與稽核](../operations-management-suite/oms-security-getting-started.md) (防火牆記錄) |Windows |&#8226; |&#8226; |  |  |  |與抵達同時 |
 | [Service Fabric Analytics (Service Fabric 分析) (預覽)](../log-analytics/log-analytics-service-fabric.md) |Windows | | |&#8226; | | |5 分鐘 |
 | [服務對應](../operations-management-suite/operations-management-suite-service-map.md) | Windows 和 Linux | &#8226; | &#8226; |  |  |  | 15 秒 |
 | [SQL 評估](../log-analytics/log-analytics-sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 天 |
