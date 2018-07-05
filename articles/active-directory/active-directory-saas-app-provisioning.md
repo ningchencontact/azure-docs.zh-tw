@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/07/2018
+ms.date: 06/26/2018
 ms.author: asmalser
-ms.openlocfilehash: fce7ea66f5e10aae4f1a0a3f0ed92ca57e6112c7
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c7a18132a797bd7411487c233fc41647cc20dfb4
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293291"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025237"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和取消佈建
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>SaaS 應用程式的自動化使用者佈建是什麼？
@@ -50,7 +50,6 @@ Azure Active Directory (Azure AD) 可讓您自動化在雲端 ([SaaS](https://az
 * 為了輕鬆將大量使用者匯入至特定的 SaaS 應用程式或系統中。
 * 為了享有使用一組原則來判斷已佈建之使用者及能登入應用程式之使用者的便利。
 
-
 ## <a name="how-does-automatic-provisioning-work"></a>自動化佈建如何運作？
     
 **Azure AD 佈建服務**會藉由連接到每個應用程式廠商所提供的使用者管理 API 端點，將使用者佈建至 SaaS 應用程式和其他系統。 這些使用者管理 API 端點可以讓 Azure AD 以程式設計方式建立、更新和移除使用者。 針對所選應用程式，佈建服務也可以建立、更新和移除其他與身分識別相關的物件，例如群組和角色。 
@@ -69,15 +68,17 @@ Azure Active Directory (Azure AD) 可讓您自動化在雲端 ([SaaS](https://az
 
 Azure AD 的特色是為各種熱門 SaaS 應用程式和人力資源系統提供預先整合的支援，以及為實作 SCIM 2.0 標準之特定部分的應用程式提供一般支援。
 
-如需 Azure AD 支援預先整合之佈建連接器的所有應用程式清單，請參閱[適用於使用者佈建的應用程式教學課程清單](active-directory-saas-tutorial-list.md)。
+### <a name="pre-integrated-applications"></a>預先整合的應用程式
+如需 Azure AD 支援預先整合之佈建連接器的所有應用程式清單，請參閱[適用於使用者佈建的應用程式教學課程清單](saas-apps/tutorial-list.md)。
 
-如需有關如何為應用程式新增 Azure AD 使用者佈建支援，請參閱[使用 SCIM 自動將使用者和群組從 Azure Active Directory 佈建到應用程式](manage-apps/use-scim-to-provision-users-and-groups.md)。
-
-若要連絡 Azure AD 工程小組以要求對於其他應用程式的佈建支援，請透過 [Azure Active Directory 意見反應論壇](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035)提交訊息。    
+若要連絡 Azure AD 工程小組以要求對於其他應用程式的佈建支援，請透過 [Azure Active Directory 意見反應論壇](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035)提交訊息。
 
 > [!NOTE]
 > 若要讓應用程式支援自動化使用者佈建，它必須先提供必要的使用者管理 API，以允許外部程式自動建立、維護及移除使用者。 因此，並非所有 SaaS 應用程式都與此功能相容。 針對支援使用者管理 API 的應用程式，Azure AD 工程小組則是能夠建置與這些應用程式的佈建連接器，這項工作是以目前和潛在客戶的需求來排定優先順序。 
-    
+
+### <a name="connecting-applications-that-support-scim-20"></a>連線支援 SCIM 2.0 的應用程式
+如需一般如何連線應用程式以實作 SCIM 2.0 型使用者管理 API 的相關資訊，請參閱[使用 SCIM 自動將使用者和群組從 Azure Active Directory 佈建到應用程式](manage-apps/use-scim-to-provision-users-and-groups.md)。
+
     
 ## <a name="how-do-i-set-up-automatic-provisioning-to-an-application"></a>如何對應用程式設定自動佈建？
 
@@ -85,7 +86,7 @@ Azure AD 的特色是為各種熱門 SaaS 應用程式和人力資源系統提�
 
 對於所選應用程式的 Azure AD 佈建服務設定會從 **[Azure 入口網站](https://portal.azure.com)** 開始。 在 [Azure Active Directory] > [企業應用程式] 區段中，選取 [新增]，然後選取 [所有]，並根據您的情況新增下列其中一項：
 
-* [精選應用程式] 區段中的所有應用程式皆支援自動佈建。 如需額外的應用程式，請參閱[適用於使用者佈建的應用程式教學課程清單](active-directory-saas-tutorial-list.md)。
+* [精選應用程式] 區段中的所有應用程式皆支援自動佈建。 如需額外的應用程式，請參閱[適用於使用者佈建的應用程式教學課程清單](saas-apps/tutorial-list.md)。
 
 * 對於自訂開發的 SCIM 整合使用「非資源庫應用程式」選項
 
@@ -152,7 +153,7 @@ Azure AD 的特色是為各種熱門 SaaS 應用程式和人力資源系統提�
 >[!NOTE]
 > 您可以使用 [屬性對應](active-directory-saas-customizing-attribute-mappings.md) 區段中的 [目標物件動作] 核取方塊，視需要停用建立、更新或刪除作業。 在更新期間停用使用者的邏輯也是透過來自 "accountEnabled" 這類欄位的屬性對應來控制。
 
-佈建服務將會依據[每個應用程式特定的教學課程](active-directory-saas-tutorial-list.md)中所定義的間隔，繼續無限期執行背對背增量同步處理，直到發生下列其中一個事件為止：
+佈建服務將會依據[每個應用程式特定的教學課程](saas-apps/tutorial-list.md)中所定義的間隔，繼續無限期執行背對背增量同步處理，直到發生下列其中一個事件為止：
 
 * 使用 Azure 入口網站或使用適當的「圖形 API」來手動停止服務 
 * 使用 Azure 入口網站中的 [清除狀態並重新啟動] 選項，或使用適當的「圖形 API」命令來觸發新的初始同步處理。 這會清除所有已儲存的浮水印，並導致重新評估所有來源物件。
@@ -216,33 +217,31 @@ Azure AD 的特色是為各種熱門 SaaS 應用程式和人力資源系統提�
 * 目標系統實作的要求速率限制和節流設定。 某些目標系統會實作要求速率限制和節流設定，這可能會影響大型同步作業的效能。 在這樣的情況下，太快收到太多要求的應用程式，可能會因此降低其回應速率或關閉連線。 若要改善效能，連接器必須進行調整，傳送應用程式要求的速度不可比應用程式處理這些要求的速度快。 由 Microsoft 所建置的佈建連接器會進行這項調整。 
 
 * 指派群組的數目和大小。 同步指派群組所花的時間可能比同步使用者的時間長。 指派群組的數目和大小會影響效能。 如果應用程式[啟用群組物件同步處理的對應](active-directory-saas-customizing-attribute-mappings.md#editing-group-attribute-mappings)，則除了使用者外，群組屬性 (例如群組名稱和成員資格) 也會一起同步。 比起只同步使用者物件，這些額外的同步處理將會花費更長時間。
- 
 
-## <a name="frequently-asked-questions"></a>常見問題集
 
-**我要如何追蹤目前佈建作業的進度？**
+##<a name="how-can-i-tell-if-users-are-being-provisioned-properly"></a>如何判斷是否已正確佈建使用者？
 
-請參閱[佈建報告指南](active-directory-saas-provisioning-reporting.md)。
+使用者佈建服務所執行的所有作業都會記錄於 Azure AD 稽核記錄中。 這會包含對來源和目標系統所做的所有讀取和寫入作業，以及每次作業期間所讀取或寫入的使用者資料。
 
-**如何得知使用者無法正確佈建？**
+如需如何在 Azure 入口網站上讀取稽核記錄的相關資訊，請參閱[佈建報告指南](active-directory-saas-provisioning-reporting.md)。
 
-所有失敗都會記錄在 Azure AD 稽核記錄中。 如需詳細資訊，請參閱[佈建報告指南](active-directory-saas-provisioning-reporting.md)。
 
-**如何組建可與佈建服務搭配運作的應用程式？**
+##<a name="how-do-i-troubleshoot-issues-with-user-provisioning"></a>如何針對使用者佈建的問題進行疑難排解？
 
-請參閱[使用 SCIM 自動將使用者和群組從 Azure Active Directory 佈建到應用程式](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning)。
+如需透過案例來獲得如何針對自動使用者佈建進行疑難排解的指引，請參閱[為應用程式設定和佈建使用者時發生問題](active-directory-application-provisioning-content-map.md)。
 
-**我要如何提交意見反應給工程小組？**
 
-請透過 [Azure Active Directory 意見反應論壇](https://feedback.azure.com/forums/169401-azure-active-directory/)與我們連絡。
+##<a name="what-are-the-best-practices-for-rolling-out-automatic-user-provisioning"></a>推出自動使用者佈建的最佳做法有哪些？
+
+> [!VIDEO https://www.youtube.com/embed/MAy8s5WSe3A]
+
+如需將使用者佈建輸出到應用程式的範例逐步部署方案，請參閱[適用於使用者佈建的身分識別部署指南](https://aka.ms/userprovisioningdeploymentplan)/
 
 
 ## <a name="related-articles"></a>相關文章
-* [如何整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
+* [如何整合 SaaS 應用程式的教學課程清單](saas-apps/tutorial-list.md)
 * [自訂使用者佈建的屬性對應](active-directory-saas-customizing-attribute-mappings.md)
 * [撰寫屬性對應的運算式](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [適用於使用者佈建的範圍篩選器](active-directory-saas-scoping-filters.md)
 * [使用 SCIM 以啟用從 Azure Active Directory 到應用程式的使用者和群組自動佈建](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Azure AD 同步處理 API 概觀](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
-* [適用於應用程式輸出使用者佈建的逐步部署方案](https://aka.ms/userprovisioningdeploymentplan)
-
