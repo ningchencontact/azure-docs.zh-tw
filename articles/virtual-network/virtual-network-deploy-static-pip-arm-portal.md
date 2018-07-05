@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 50ae4d6e8c275db16f811a2a1a063eda441f150b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 524293f9a1ded73ee7cb6ba4f53208a9f9c54ffa
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525534"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048221"
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-portal"></a>使用 Azure 入口網站建立具有靜態公用 IP 位址的 VM
 
@@ -51,7 +51,7 @@ ms.locfileid: "31525534"
 5. 在 [選擇大小] 窗格中，按一下如下所示的 [A1 標準]，然後按一下 [選取]。
    
     ![Azure 入口網站 - 選擇大小](./media/virtual-network-deploy-static-pip-arm-portal/figure2.png)
-6. 在 [設定] 窗格中，按一下 [公用 IP 位址]，接著在 [建立公用 IP 位址] 窗格的 [指派] 底下，按一下如下所示的 [靜態]。 然後按一下 [確定] 。
+6. 在 [設定] 窗格中，按一下 [公用 IP 位址]，接著在 [建立公用 IP 位址] 窗格的 [指派] 底下，按一下 [靜態]，如下所示。 然後按一下 [確定] 。
    
     ![Azure 入口網站 - 建立公用 IP 位址](./media/virtual-network-deploy-static-pip-arm-portal/figure3.png)
 7. 在 [設定] 窗格中，按一下 [確定]。

@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: 2868ebd459f937f8621086b16c63f89842f376be
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 61ee84ccfccfa49ff2e106e7036d072c1b21ca03
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "34652537"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>調整 Azure 串流分析作業以增加輸送量
 本文示範如何調整串流分析查詢，以增加串流分析作業的輸送量。 您可以使用以下指南來調整作業，進而處理更高的負載及利用更多系統資源 (如更多頻寬、更多 CPU 資源、更多記憶體)。
@@ -76,72 +77,6 @@ ms.lasthandoff: 05/04/2018
 > 這個查詢模式通常擁有大量的子查詢，造成非常龐大而複雜的拓撲。 作業的控制器可能無法應付這麼龐大的拓撲。 根據經驗法則，1 SU 作業的租用戶應保持低於 40 個，3 SU 和 6 SU 作業的租用戶則應低於 60 個。 當您超過控制器的容量時，作業將無法順利啟動。
 
 
-## <a name="an-example-of-stream-analytics-throughput-at-scale"></a>大規模串流分析輸送量的範例
-為了協助您了解串流分析作業如何調整，我們已根據來自 Raspberry Pi 裝置的輸入完成一項實驗。 此實驗讓我們看到對多個串流單位和分割區的輸送量造成的影響。
-
-在此情節中，裝置會將感應器資料 (用戶端) 傳送到事件中樞。 串流分析會處理資料，並將警示或統計資料當作輸出傳送到另一個事件中樞。 
-
-用戶端會以 JSON 格式傳送感應器資料。 資料輸出也是 JSON 格式。 資料如下所示：
-
-    {"devicetime":"2014-12-11T02:24:56.8850110Z","hmdt":42.7,"temp":72.6,"prss":98187.75,"lght":0.38,"dspl":"R-PI Olivier's Office"}
-
-下列查詢用於關閉燈光開關時傳送警示：
-
-    SELECT AVG(lght), "LightOff" as AlertText
-    FROM input TIMESTAMP BY devicetime 
-    PARTITION BY PartitionID
-    WHERE lght< 0.05 GROUP BY TumblingWindow(second, 1)
-
-### <a name="measure-throughput"></a>測量輸送量
-
-在此案例中，輸送量是串流分析在固定時間內處理的輸入資料量。 (我們測量 10 分鐘。)為了以最佳方式處理輸入資料的輸送量，資料流輸入和查詢都必須分割。 我們在查詢中包含 **COUNT()** 來測量已處理的輸入事件數目。 為了確保作業不會單純地等待輸入事件到來，輸入事件中樞的每個分割區都已預先載入大約 300 MB 的輸入資料。
-
-下表顯示我們在增加串流單位數目時所看到的結果，以及事件中樞裡對應的分割區計數。  
-
-<table border="1">
-<tr><th>輸入資料分割</th><th>輸出資料分割</th><th>串流處理單位</th><th>持續的輸送量
-</th></td>
-
-<tr><td>12</td>
-<td>12</td>
-<td>6</td>
-<td>4.06 MB/秒</td>
-</tr>
-
-<tr><td>12</td>
-<td>12</td>
-<td>12</td>
-<td>8.06 MB/秒</td>
-</tr>
-
-<tr><td>48</td>
-<td>48</td>
-<td>48</td>
-<td>38.32 MB/秒</td>
-</tr>
-
-<tr><td>192</td>
-<td>192</td>
-<td>192</td>
-<td>172.67 MB/秒</td>
-</tr>
-
-<tr><td>480</td>
-<td>480</td>
-<td>480</td>
-<td>454.27 MB/秒</td>
-</tr>
-
-<tr><td>720</td>
-<td>720</td>
-<td>720</td>
-<td>609.69 MB/秒</td>
-</tr>
-</table>
-
-下圖顯示 SU 和輸送量之間的關聯性視覺效果。
-
-![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## <a name="get-help"></a>取得說明
 如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。

@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 4530b11db7691f631f636021634cc5e9c8be8c86
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ac0e1945e75ee7aea346c103a671b4a47b9e5994
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620556"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048609"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>資料管理閘道的版本資訊
 > [!NOTE]
-> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用第 2 版 Data Factory 服務 (預覽版)，請參閱 [V2 中的自我裝載整合執行階段](../create-self-hosted-integration-runtime.md)。
+> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱 [第 2 版中的自我裝載整合執行階段](../create-self-hosted-integration-runtime.md)。
 
 現代資料整合的挑戰之一就是在內部部署和雲端之間來回移動資料。 Data Factory 會透過「資料管理閘道」進行此整合；「資料管理閘道」是一個您可以在內部部署環境安裝來啟用混合式資料移動功能的代理程式。
 
@@ -127,12 +127,12 @@ ms.locfileid: "34620556"
 
     *  重新組織並簡化控制項。
 
-    *  您可以使用 [無程式碼複製預覽工具](data-factory-copy-data-wizard-tutorial.md)從儲存體複製資料。 如需此功能的一般詳細資料，請參閱 [分段複製](data-factory-copy-activity-performance.md#staged-copy) 。
+    *  您可以使用[無程式碼複製工具](data-factory-copy-data-wizard-tutorial.md)儲存體中的資料。 如需此功能的一般詳細資料，請參閱 [分段複製](data-factory-copy-activity-performance.md#staged-copy) 。
 *  您可以使用「資料管理閘道」，將資料從內部部署 SQL Server 資料庫直接輸入到 Azure Machine Learning 中。
 
 *  效能改進
 
-    * 在無程式碼複製預覽工具中，改進對於 SQL Server 檢視結構描述或預覽的效能。
+    * 在無程式碼複製工具中，改進 SQL Server 檢視結構描述或預覽的效能。
 
 ## <a name="11259531"></a>1.12.5953.1
 

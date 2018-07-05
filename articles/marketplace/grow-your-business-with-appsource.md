@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/07/2018
 ms.author: ellacroi
-ms.openlocfilehash: d93f66282e3f735565389904c65436ed2ad79480
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: f39392518f89ac51afd9a18fe59bcef46840478d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825909"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054168"
 ---
 # <a name="grow-your-business-with-appsource"></a>使用 AppSource 拓展您的業務  
 使用 AppSource 讓商務客戶參與尋找、嘗試及取得企業營運軟體即服務 (SaaS) 應用程式和實作服務，藉以協助推動商務成果並縮短創造價值的時程。  
@@ -32,8 +32,7 @@ ms.locfileid: "34825909"
 | ***應用程式以協助改善生產力、效率與企業洞察力*** | 提供企業營運的應用程式，包括客戶服務、人力資源、作業等等 |  
 | ***有經驗的實作合作夥伴，可協助調整應用程式以適應不同客戶獨特的情況*** | 提供以 Dynamics 365、Power BI、PowerApps 與合作夥伴應用程式為基礎的解決方案諮詢服務供應項目目錄，以協助商務使用者達成可預測的成果 |  
 
-<!-- # Grow your business with AppSource  -->
-Azure Marketplace 和 AppSource 是與 Microsoft 共同進行上市活動的跳板，也是業務成長的推動力。 利用上市推廣、創造需求及聯合銷售與行銷，您的市集供應項目可成為雲端商務引擎的中心。 參與無需任何費用。 Microsoft 客戶每天都會瀏覽市集上的店面，尋找合適的應用程式和服務以協助客戶提升業績。 Microsoft 的目標是要連結組織與 Microsoft 及其合作夥伴所提供的解決方案和服務。  
+<!-- # Grow your business with AppSource  --> Azure Marketplace 和 AppSource 是與 Microsoft 共同進行上市活動的跳板，也是業務成長的推動力。 利用上市推廣、創造需求及聯合銷售與行銷，您的市集供應項目可成為雲端商務引擎的中心。 參與無需任何費用。 Microsoft 客戶每天都會瀏覽市集上的店面，尋找合適的應用程式和服務以協助客戶提升業績。 Microsoft 的目標是要連結組織與 Microsoft 及其合作夥伴所提供的解決方案和服務。  
 
 ## <a name="business-benefits-of-joining-a-cloud-marketplace"></a>加入雲端市集的商業優勢  
 有諸多充分的理由可說明為何您應該加入市集店面。 以下是在 AppSource 列出您的供應項目以協助您拓展業務的優勢：  
@@ -53,7 +52,7 @@ Azure Marketplace 和 AppSource 是與 Microsoft 共同進行上市活動的跳�
 *   **列出諮詢服務供應項目**  
     商務使用者會尋找經驗豐富的合作夥伴合作，藉由提供可預測結果的優質諮詢服務，協助客戶安心地開始使用。 列出您的諮詢服務供應項目，方便商務使用者找到供應項目，以協助客戶迅速開始使用。  
 *   **安心地開始使用**  
-    Microsoft AppSource 小組在此提供流暢的上線體驗。 AppSource 小組會在此協助您完成每一個步驟，不論是針對試用或測試產品體驗，都可幫助您符合所列的條件等。  
+    Microsoft AppSource 小組在此提供流暢的上線體驗。 AppSource 小組會在此協助您完成每個步驟，不論是針對試用或測試產品體驗，都可幫助您符合所列的條件，以及提供其他協助。  
 *   **自訂應用程式清單頁面**  
     您可以自行決定如何在 AppSource 上行銷您的應用程式。 您可以提供影片、資料工作表、文件和詳細描述。 Microsoft 會與您合作，以吸引人的方式在 AppSource 上呈現您的應用程式。  
 *   **獲得可執行的深入見解**  
@@ -68,7 +67,7 @@ Azure Marketplace 和 AppSource 是與 Microsoft 共同進行上市活動的跳�
 下列檢查清單提供行銷最佳做法和資源，可供您在建立要在 AppSource 上發佈的供應項目時加以考量：  
 *   **請注意 Microsoft 商標和品牌指導方針。**  
     當為您的應用程式命名及參考 Microsoft 商標與 Microsoft 軟體、產品和服務的名稱時，請遵循 Microsoft 商標和品牌指導方針以及相關的特定產品指導方針。  
-    *   如需 Microsoft 商標與品牌的詳細資訊，請瀏覽 Microsoft 商標和品牌指導方針網頁：[www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx)。  
+    *   如需 Microsoft 商標與品牌的詳細資訊，請瀏覽 Microsoft 商標和品牌指導方針網頁：[www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx)。  
 *   **為您的應用程式啟用立即取得體驗、免費試用供應項目，或是試用產品體驗。**  
     商務使用者希望親身體驗您的應用程式。  
 *   **建立強大的價值主張。**  
@@ -105,14 +104,14 @@ Azure Marketplace 和 AppSource 是與 Microsoft 共同進行上市活動的跳�
 
 | 供應項目設定 | 最佳作法 | 
 |:---------------------------------------- |:----------------------------------------------------- |
-| **名稱** | **為您的供應項目命名**<br />為您的應用程式選擇名稱是至關重要的決定。 凸顯優點的名稱，比描述性名稱更有效果。 您的應用程式名稱應該傳達客戶收到的核心價值。 在您的應用程式標題中包含搜尋關鍵字，也可協助您的應用程式在搜尋引擎結果中獲得更高的順位。 參考 Microsoft 商標與 Microsoft 軟體、產品和服務的名稱時，請遵循 Microsoft 商標和品牌指導方針以及相關的特定產品指導方針。<ul> <li>如需 Microsoft 商標與品牌的詳細資訊，請瀏覽 Microsoft 商標和品牌指導方針網頁：[www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx)。</li> </ul> |
+| **名稱** | **為您的供應項目命名**<br />為您的應用程式選擇名稱是至關重要的決定。 凸顯優點的名稱，比描述性名稱更有效果。 您的應用程式名稱應該傳達客戶收到的核心價值。 在您的應用程式標題中包含搜尋關鍵字，也可協助您的應用程式在搜尋引擎結果中獲得更高的順位。 參考 Microsoft 商標與 Microsoft 軟體、產品和服務的名稱時，請遵循 Microsoft 商標和品牌指導方針以及相關的特定產品指導方針。<ul> <li>如需 Microsoft 商標與品牌的詳細資訊，請瀏覽 Microsoft 商標和品牌指導方針網頁：[www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx)。</li> </ul> |
 
 **店面詳細資料 - 供應項目詳細資料**  
 
 | 店面設定 | 最佳作法 | 
 |:---------------------------------------- |:----------------------------------------------------- |
 | **供應項目名稱** | 供應項目摘要會出現在 AppSource 首頁和應用程式庫的供應項目搜尋頁面上。 在您的供應項目摘要中包含搜尋關鍵字，可協助提升您的應用程式在搜尋引擎結果中的順位。 |
-| **供應項目描述** | **提供良好的供應項目描述**<br />在您的描述中的前幾個句子清楚描述您供應項目的價值主張。 請記住，前幾個句子可能會顯示在搜尋引擎結果中。<br />請勿依賴特色與功能來銷售您的產品。 反之，要鎖定在您所提供的價值。 請盡可能使用業界特定詞彙或凸顯優點的字眼。<br />您的價值主張的核心部分應該包含以下資訊：<br />• 產品是什麼<br />• 誰能從中獲取最大利益<br />• 它能解決什麼需求或難題。<br />告訴客戶在使用您的解決方案之後，他們的業務或工作生活會有何不同。<br />在您的供應項目描述中包含搜尋關鍵字與關鍵字變化，可協助提升您的供應項目在搜尋引擎結果中的順位。<br />使用簡單的 HTML 提供供應項目描述。<br />以下是簡單的供應項目清單頁面 (如上面所示的清單範例所示) 的範例，其中提供供應項目摘要，接著是重要功能清單。 字元數目上限為 3,000 個。<br />_範例 HTML_<br /><p>Dynamics 365 的 Organization Insights (線上) 為您的 Dynamics 365 組織提供重要的採用及使用方式計量，以及協助您在效能與支援問題上保持領先的工具。</p> <ul><li><strong>自訂儀表板</strong><br /> 設定儀表板以提供豐富的使用者體驗，以及重要資料的快照。<ul> <li><strong>監視採用及使用方式：</strong>找出最活躍的使用者、頁面要求數目、最常用的實體、工作流程等。</li> </ul><p>支援的最低平台版本：8.1.1</p> |
+| **供應項目描述** | **提供良好的供應項目描述**<br />在您的描述中的前幾個句子清楚描述您供應項目的價值主張。 請記住，前幾個句子可能會顯示在搜尋引擎結果中。<br />請勿依賴特色與功能來銷售您的產品。 反之，要鎖定在您所提供的價值。 請盡可能使用業界特定詞彙或凸顯優點的字眼。<br />您的價值主張的核心部分應該包含以下資訊：<ul> <li>產品是什麼</li>  <li>誰能從中獲取最大利益</li> <li>它能解決什麼需求或難題。</li> </ul>告訴客戶在使用您的解決方案之後，他們的業務或工作生活會有何不同。<br />在您的供應項目描述中包含搜尋關鍵字與關鍵字變化，可協助提升您的供應項目在搜尋引擎結果中的順位。<br />使用簡單的 HTML 提供供應項目描述。<br />以下是簡單的供應項目清單頁面 (如上面所示的清單範例所示) 的範例，其中提供供應項目摘要，接著是重要功能清單。 字元數目上限為 3,000 個。<br />*範例 HTML*<br />Dynamics 365 的 Organization Insights (線上) 為您的 Dynamics 365 組織提供重要的採用及使用方式計量，以及協助您在效能與支援問題上保持領先的工具。 <ul> <li>**自訂儀表板**<br />設定儀表板以提供豐富的使用者體驗，以及重要資料的快照。<ul> <li>**監視採用及使用方式**<br />找出最活躍的使用者、網頁要求數目、最常用的實體、工作流程等。</li> </ul></li> </ul>支援的最低平台版本：`8.1.1` |
 
 **店面詳細資料 - 清單詳細資料**  
 
@@ -134,7 +133,7 @@ Azure Marketplace 和 AppSource 是與 Microsoft 共同進行上市活動的跳�
 | **螢幕擷取畫面** | 最多可新增五個螢幕擷取畫面，請在名稱中包含搜尋關鍵字。 |
 
 ### <a name="promote-the-availability-of-your-offer-on-appsource"></a>在 AppSource 上宣傳您供應項目的可用性  
-當您的供應項目列在 AppSource 上時，您便獲得在網頁上顯示「可在 AppSource 上取得」徽章的權限。 
+您的供應項目列在 AppSource 上後，您便獲得在網頁上顯示***可在 AppSource 上取得***徽章的權限。 
 
  ![AppSource 徽章](./media/marketplace-appsource/appsourcebadge.png)
     

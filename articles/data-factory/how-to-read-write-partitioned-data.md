@@ -1,6 +1,6 @@
 ---
 title: 如何讀取或寫入 Azure Data Factory 中分割的資料 | Microsoft Docs
-description: 了解如何讀取或寫入第 2 版 Azure Data Factory 中分割的資料。
+description: 了解如何讀取或寫入 Azure Data Factory 中的分割資料。
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: shlo
-ms.openlocfilehash: cdf305e3607d7483186185a014883cff5458b89f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 59644f3318e2bf9c4f0ea6c3f5699fe1d19f2089
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619077"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053705"
 ---
-# <a name="how-to-read-or-write-partitioned-data-in-azure-data-factory-version-2"></a>如何讀取或寫入第 2 版 Azure Data Factory 中分割的資料
-在第 1 版中，Azure Data Factory 支援使用 SliceStart/SliceEnd/WindowStart/WindowEnd 系統變數讀取或寫入分割的資料。 在第 2 版中，您可以透過使用管線參數，以觸發程序的開始時間/已排程的時間作為參數的值來達成此行為。 
+# <a name="how-to-read-or-write-partitioned-data-in-azure-data-factory"></a>如何讀取或寫入 Azure Data Factory 中的分割資料
+在第 1 版中，Azure Data Factory 支援使用 SliceStart/SliceEnd/WindowStart/WindowEnd 系統變數讀取或寫入分割的資料。 在目前版本的 Data Factory 中，您可以透過使用管線參數，以及觸發程序的開始時間/已排程的時間作為參數值來達成此行為。 
 
 ## <a name="use-a-pipeline-parameter"></a>使用管線參數 
 在第 1 版中，您可以使用 partitionedBy 屬性和 SliceStart 系統變數，如下列範例所示： 
@@ -37,7 +37,7 @@ ms.locfileid: "34619077"
 
 如需 partitonedBy 屬性的詳細資訊，請參閱[第 1 版的 Azure Blob 連接器](v1/data-factory-azure-blob-connector.md#dataset-properties)一文。 
 
-在第 2 版中，要達成此行為的方式是執行下列動作： 
+在目前版本的 Data Factory 中，達成此行為的方式是執行下列動作： 
 
 1. 定義類型字串的**管線參數**。 在下列範例中，管線參數的名稱是 **windowStartTime**。 
 2. 將資料集定義中的 **folderPath** 設定為參考管線參數的值。 

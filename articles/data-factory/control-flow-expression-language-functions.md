@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: ea612f0c58b92e37d405f9a57611610fa187f7db
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 81392cc8b6225302d6835cdb3d23e9bab7d9c930
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619315"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055466"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure Data Factory 中的運算式和函式
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [第 1 版 - 正式推出](v1/data-factory-functions-variables.md)
-> * [第 2 版 - 預覽](control-flow-expression-language-functions.md)
+> * [第 1 版](v1/data-factory-functions-variables.md)
+> * [目前的版本](control-flow-expression-language-functions.md)
 
-本文提供 Azure Data Factory (第 2 版) 支援的運算式和函式的詳細資料。 
+本文提供 Azure Data Factory 支援之運算式和函式的詳細資料。 
 
 ## <a name="introduction"></a>簡介
 定義中的 JSON 值可以是常值，或是在執行階段評估的運算式。 例如︰  
@@ -40,20 +40,15 @@ ms.locfileid: "34619315"
 "name": "@pipeline().parameters.password"
 ```
 
-
-> [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (也就是正式推出版 (GA))，請參閱 [Data Factory V1 中的函式與變數](v1/data-factory-functions-variables.md)。
-
-
 ## <a name="expressions"></a>運算式  
-運算式可以出現在 JSON 字串值中的任何一處，並一律產生另一個 JSON 值。 當 JSON 值為運算式時，藉由移除 @ 符號來擷取運算式的主體。 如果需要的常值字串開頭為 \@\，它必須使用 \@@ 逸出。 下列範例顯示如何評估運算式。  
+運算式可以出現在 JSON 字串值中的任何一處，並一律產生另一個 JSON 值。 當 JSON 值為運算式時，可透過移除 \@ 符號來擷取運算式的主體。 如果需要的常值字串開頭為 \@\，它必須使用 \@@ 逸出。 下列範例顯示如何評估運算式。  
   
 |JSON 值|結果|  
 |----------------|------------|  
 |"parameters"|傳回字元 'parameters'。|  
 |"parameters[1]"|傳回字元 'parameters[1]'。|  
-|"@@"|傳回包含 \'\@\' 的 1 個字元字串。|  
-|\" \@\"|傳回包含 '\@\' 的 2 個字元字串。|  
+|"\@@"|傳回包含 \'\@\' 的 1 個字元字串。|  
+|" \@"|傳回包含 '\@\' 的 2 個字元字串。|  
   
  使用稱為「字串插補」的功能，運算式也可以出現在字串內，其中運算式會包含在 `@{ ... }` 內。 例如：`"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
   
@@ -61,13 +56,13 @@ ms.locfileid: "34619315"
   
 |JSON 值|結果|  
 |----------------|------------|  
-|"@pipeline().parameters.myString"| 傳回 `foo` 做為字串。|  
-|"@{pipeline().parameters.myString}"| 傳回 `foo` 做為字串。|  
-|"@pipeline().parameters.myNumber"| 傳回 `42` 做為「編號」。|  
-|"@{pipeline().parameters.myNumber}"| 傳回 `42` 做為「字串」。|  
+|"\@pipeline().parameters.myString"| 傳回 `foo` 做為字串。|  
+|"\@{pipeline().parameters.myString}"| 傳回 `foo` 做為字串。|  
+|"\@pipeline().parameters.myNumber"| 傳回 `42` 做為「編號」。|  
+|"\@{pipeline().parameters.myNumber}"| 傳回 `42` 做為「字串」。|  
 |"Answer is: @{pipeline().parameters.myNumber}"| 傳回字串 `Answer is: 42`。|  
-|"@concat('Answer is: ', string(pipeline().parameters.myNumber))"| 傳回字串 `Answer is: 42`|  
-|"Answer is: @@{pipeline().parameters.myNumber}"| 傳回字串 `Answer is: @{pipeline().parameters.myNumber}`。|  
+|"\@concat('Answer is: ', string(pipeline().parameters.myNumber))"| 傳回字串 `Answer is: 42`|  
+|"Answer is: \@@{pipeline().parameters.myNumber}"| 傳回字串 `Answer is: @{pipeline().parameters.myNumber}`。|  
   
 ### <a name="examples"></a>範例
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: nitinme
-ms.openlocfilehash: 17ba4af006587dd1d34f61a0f5f77cbcd768fcf8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a53bc6459e431d855ba09cda59680c5d8698c488
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31410085"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063252"
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Azure HDInsight 上 Hadoop 元件的版本資訊
 
@@ -27,6 +27,17 @@ ms.locfileid: "31410085"
 
 > [!IMPORTANT]
 > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [HDInsight 版本控制文件](hdinsight-component-versioning.md)。
+
+## <a name="notes-for-06272018---release-of-new-open-source-versions-adls-gen2-etc-on-hdinsight-36"></a>2018 年 06 月 27 日備註 - 在 HDInsight 3.6 上發布新的開放原始碼版本、ADLS Gen2 等
+2018 年 6 月發布的 HDInsight 即將成為一個重要版本，為我們的客戶提供許多新的更新和功能，說明如下。 如需詳細資料，請閱讀這篇[文章](https://azure.microsoft.com/en-us/blog/enterprises-get-deeper-insights-with-hadoop-and-spark-updates-on-azure-hdinsight/)。
+
+以下為重點整理。 有關詳細的發布說明、已修復的錯誤 (bug)、已知問題等，請閱讀此[文件](https://aka.ms/hdirelnotes)。
+
+- **更新 Hadoop 和其他開放原始碼專案** – 除了 20 多個開放原始碼專案中的 1000 多個錯誤 (bug) 修復程式外，此更新還包含新版 Spark (2.3) 和 Kafka (1.0)。
+- **將 R Server 9.1 更新為機器學習服務 9.3** – 在此版本中，我們為資料科學家和工程師提供最佳的增強式開放原始碼及演算法創新，而且作業方便，這些全部都以他們的偏好語言和 Apache Spark 的速度提供。 此版本擴展 R Server 中提供的功能，並進一步支援 Python，因而將叢集名稱從 R Server 改為 ML 服務。 
+- **支援 Azure Data Lake Storage Gen2** – HDInsight 將支援 Azure Data Lake Storage Gen2 的預覽版本。 在可用區域中，客戶能夠選擇 ADLS Gen2 帳戶作為其 HDInsight 叢集的存放區。
+- **HDInsight 企業安全性套件更新 (預覽)** – (預覽) 虛擬網路服務端點支援 Azure blob 儲存體、ADLS Gen1、Cosmos DB 及 Azure DB。 
+
 
 ## <a name="notes-for-03202018---release-of-spark-22-on-hdinsight-36"></a>2018/03/20 相關資訊 - HDInsight 3.6 上的 Spark 2.2 版本
 
