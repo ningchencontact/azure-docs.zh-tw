@@ -8,17 +8,17 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 05/18/2018
-ms.openlocfilehash: f9517cb552130e340310abc4affdad8bdadc26fe
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 06/20/2018
+ms.openlocfilehash: e099597eae419653a2a40c7f01ee7abbbc4657f0
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265746"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294416"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>如何為適用於 MySQL 的 Azure 資料庫設定複寫中的資料
 
-在本文中，您將了解如何透過設定主要和複本伺服器，在適用於 MySQL 的 Azure 資料庫服務中設定複寫中的資料。
+在本文中，您將了解如何透過設定主要和複本伺服器，在適用於 MySQL 的 Azure 資料庫服務中設定複寫中的資料。 資料帶入複寫可讓您將來自在內部部署執行的主要 MySQL 伺服器、虛擬機器中或由其他雲端提供者所代管的資料庫服務的資料，同步處理到適用於 MySQL 的 Azure 資料庫服務中的複本。 
 
 本文假設您先前已具備一些使用 MySQL 伺服器和資料庫的經驗。
 
@@ -29,7 +29,7 @@ ms.locfileid: "35265746"
    建立新的 MySQL 伺服器 (例如 "replica.mysql.database.azure.com")。 若要了解如何建立伺服器，請參閱[使用 Azure 入口網站建立適用於 MySQL 伺服器的 Azure 資料庫](quickstart-create-mysql-server-database-using-azure-portal.md)。 此伺服器是複寫中資料的「複本」伺服器。
 
    > [!IMPORTANT]
-   > 此伺服器必須建立於一般用途或記憶體最佳化定價層。
+   > 適用於 MySQL 的 Azure 資料庫伺服器必須建立於一般用途或記憶體最佳化定價層。
    > 
 
 2. 建立相同的使用者帳戶和對應權限
@@ -37,6 +37,7 @@ ms.locfileid: "35265746"
    使用者帳戶不會從主要伺服器複寫到複本伺服器。 如果您預計提供複本伺服器存取權給使用者，則必須在此新建的適用於 MySQL 伺服器的 Azure資料庫中，手動建立所有帳戶及對應權限。
 
 ## <a name="configure-the-primary-server"></a>設定主要伺服器
+下列步驟會針對裝載在內部部署的 MySQL 伺服器、虛擬機器中的 MySQL 伺服器或由其他雲端提供者所代管的資料庫服務，準備及設定資料帶入複寫。 此伺服器是資料帶入複寫中的「主要」伺服器。 
 
 1. 開啟二進位記錄
 
@@ -226,3 +227,6 @@ CALL mysql.az_replication_remove_primary;
 ```sql
 CALL mysql.az_replication_skip_counter;
 ```
+
+## <a name="next-steps"></a>後續步驟
+- 深入了解「適用於 MySQL 的 Azure 資料庫」的[資料帶入複寫](concepts-data-in-replication.md)。 

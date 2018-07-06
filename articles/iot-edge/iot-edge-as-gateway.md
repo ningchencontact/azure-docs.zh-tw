@@ -8,14 +8,14 @@ ms.date: 11/27/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ff5e50df1f7a9059bf37fe99d89050a48aa6e64e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0e085d6c2962ec2a2324bfc134b0e201df04a336
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631593"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028960"
 ---
-# <a name="how-an-iot-edge-device-can-be-used-as-a-gateway---preview"></a>如何使用 IoT Edge 裝置作為閘道 - 預覽
+# <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>如何使用 IoT Edge 裝置作為閘道
 
 IoT 解決方案中的閘道用途為解決方案所特有，結合了裝置連線能力與邊緣分析。 不論 Azure IoT Edge 是與連線能力、身分識別或邊緣分析相關，都可用來滿足 IoT 閘道的所有需求。 本文中的閘道模式只是指下游裝置連線能力和裝置身分識別的特性，而非在閘道上處理裝置資料的方式。
 
@@ -54,7 +54,7 @@ IoT 解決方案中的閘道用途為解決方案所特有，結合了裝置連�
 ## <a name="next-steps"></a>後續步驟
 使用 IoT Edge 裝置作為[透明閘道][lnk-iot-edge-as-transparent-gateway] 
 
-[lnk-iot-edge-as-transparent-gateway]: ./how-to-create-transparent-gateway.md
+[lnk-iot-edge-as-transparent-gateway]: ./how-to-create-transparent-gateway-linux.md
 [lnk-iothub-throttles-quotas]: ../iot-hub/iot-hub-devguide-quotas-throttling.md
 
 [1]: ./media/iot-edge-as-gateway/edge-as-gateway.png

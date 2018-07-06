@@ -8,14 +8,14 @@ ms.date: 02/15/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 60c2c17d7a5cca66a6323f43e1ab2662afff54ee
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9c196ec92fc7997617fa464d676dc93ca9fe84f0
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34630831"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029082"
 ---
-# <a name="understand-azure-iot-edge-modules---preview"></a>了解 Azure IoT Edge 模組 - 預覽
+# <a name="understand-azure-iot-edge-modules"></a>了解 Azure IoT Edge 模組
 
 Azure IoT Edge 可讓您在模組表單的邊緣上部署和管理商務邏輯。 Azure IoT Edge 模組是 IoT Edge 管理的最小計算單位，可以包含 Azure 服務 (例如 Azure 串流分析) 或您自己的解決方案特定程式碼。 若要了解模組如何開發、部署和維護，考慮組成模組的四個概念片段會有幫助：
 
@@ -60,6 +60,17 @@ await client.OpenAsync();
 // Get the model twin 
 Twin twin = await client.GetTwinAsync(); 
 ```
+
+## <a name="offline-capabilities"></a>離線功能
+
+Azure IoT Edge 支援 IoT Edge 裝置的離線作業。 這些功能目前受到限制，而其他案例正在開發中。 
+
+只要符合下列需求，即可延長 IoT Edge 模組的離線使用期間： 
+
+* **訊息存留時間 (TTL) 尚未到期**。 訊息 TTL 的預設值為兩小時，但可在 IoT Edge 中樞設定的儲存和轉送組態中調高或調低。 
+* **模組在離線時不需要對 IoT Edge 中樞進行重新驗證**。 模組只能對與 IoT 中樞連線中的 Edge 中樞進行驗證。 模組因任何原因而重新啟動後，則必須重新驗證。 模組在其 SAS 權杖到期後仍可傳送訊息至 Edge 中樞。 連線能力恢復後，Edge 中樞會要求模組提供新權杖，並且對 IoT 中樞驗證該權杖。 如果成功，Edge 中樞將會轉送它所儲存的模組訊息，即使是模組的權杖過期後所傳送的訊息，仍會轉送。 
+* **在離線期間傳送訊息的模組，在連線能力恢復後仍可運作**。 重新連線至 IoT 中樞時，Edge 中樞必須驗證新的模組權杖 (如果舊的已過期)，才能轉送模組訊息。 如果模組無法提供新權杖，Edge 中樞就無法對模組已儲存的訊息執行動作。 
+* **Edge 中樞具有可儲存訊息的磁碟空間**。 根據預設，訊息會儲存在 Edge 中樞容器的檔案系統中。 您也可以透過組態選項指定用來儲存訊息的已掛接磁碟區。 無論如何，都必須要有空間可用來儲存要延遲傳遞至 IoT 中樞的訊息。  
 
 ## <a name="next-steps"></a>後續步驟
  - [了解 Azure IoT Edge 執行階段和架構][lnk-runtime]

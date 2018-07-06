@@ -3,15 +3,15 @@ title: Azure Migrate - 常見問題集 (FAQ) | Microsoft Docs
 description: 解說 Azure Migrate 的常見問題
 author: snehaamicrosoft
 ms.service: azure-migrate
-ms.topic: article
-ms.date: 06/06/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: snehaa
-ms.openlocfilehash: b18d2cecfd7556ad3f05d0f63435d16bc29ebab1
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: db47f774dd4f73692d0b6ab2c4a511f687864e37
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825925"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285700"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - 常見問題集 (FAQ)
 
@@ -21,7 +21,7 @@ ms.locfileid: "34825925"
 
 ### <a name="how-is-azure-migrate-different-from-azure-site-recovery"></a>Azure Migrate 和 Azure Site Recovery 有何不同？
 
-Azure Migrate 是一項評估服務，可協助您探索內部部署工作負載，並規劃移轉至 Azure 的作業。 搭配 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure) 作為災難復原解決方案，可協助您將內部部署工作負載移轉至 Azure 中的 IaaS 虛擬機器。 
+Azure Migrate 是一項評估服務，可協助您探索內部部署工作負載，並規劃移轉至 Azure 的作業。 搭配 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure) 作為災難復原解決方案，可協助您將內部部署工作負載移轉至 Azure 中的 IaaS 虛擬機器。
 
 ### <a name="how-is-azure-migrate-different-from-azure-site-recovery-deployment-planner"></a>Azure Migrate 和 Azure Site Recovery 部署規劃工具有何不同？
 
@@ -36,6 +36,10 @@ Azure Migrate 是移轉規劃工具，而 Azure Site Recovery 部署規劃工具
 ### <a name="does-azure-migrate-need-vcenter-server-to-discover-a-vmware-environment"></a>Azure Migrate 是否需要 vCenter Server 才能探索 VMware 環境？
 
 是，Azure Migrate 需要 vCenter Server 才能探索 VMware 環境， 且不支援探索非由 vCenter Server 管理的 ESXi 主機。
+
+### <a name="which-azure-regions-are-supported-by-azure-migrate"></a>Azure Migrate 支援哪些 Azure 區域？
+
+Azure Migrate 目前支援以美國東部和美國中西部作為專案位置。 請注意，即使您只能在美國中西部和美國東部建立移轉專案，您還是可以針對[多個目標位置](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties)來評估機器。 專案位置只會用來儲存探索到的資料。
 
 ## <a name="discovery"></a>探索
 

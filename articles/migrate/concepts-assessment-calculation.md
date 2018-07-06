@@ -4,14 +4,14 @@ description: 概括介紹 Azure Migrate 服務中的評量計算。
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/28/2018
+ms.date: 06/20/2018
 ms.author: raynew
-ms.openlocfilehash: e815ff3340a9ef6c56e43d3276a28619d2f008a9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6fd0af65e63e9fc1c09232cd1e002da105a9d086
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639141"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287883"
 ---
 # <a name="assessment-calculations"></a>評量計算
 
@@ -132,7 +132,7 @@ Azure Migrate 中的每個評量會與信賴評等連結，信賴評等的範圍
 
 調整大小的建議完成之後，Azure Migrate 會計算移轉後的計算和儲存成本。
 
-- **計算成本**：使用建議的 Azure VM 大小時，Azure Migrate 會使用計費 API 來計算虛擬機器的每月成本。 計算時會將作業系統、軟體保證、位置和貨幣設定納入考量。 其會彙總所有機器的成本，以計算每月計算總成本。
+- **計算成本**：使用建議的 Azure VM 大小時，Azure Migrate 會使用計費 API 來計算虛擬機器的每月成本。 計算時會將作業系統、軟體保證、保留執行個體、VM 運作時間、位置和貨幣設定納入考量。 其會彙總所有機器的成本，以計算每月計算總成本。
 - **儲存成本**：將機器附加的所有磁碟的每月成本彙總起來，計算出機器的每月儲存成本。 Azure Migrate 會將所有機器的儲存成本彙總起來，計算出每月的總儲存成本。 目前在計算時不會將評量設定中指定的供應項目列入考量。
 
 成本會以評量設定中指定的貨幣顯示。

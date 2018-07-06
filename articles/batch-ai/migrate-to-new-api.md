@@ -15,18 +15,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: danlep
-ms.openlocfilehash: b59173259aa86a429b9f926a8e5ffbfd046451a1
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c5e4c1569464d2e204edf13fe7534d80780524e8
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294872"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294953"
 ---
 # <a name="migrate-to-the-updated-batch-ai-api"></a>遷移至更新的批次 Batch AI API
 
-在即將發行的 Batch AI REST API 2018-05-01 版和相關的 Batch AI SDK 與工具中，將引入重大變更和新功能。
+Batch AI REST API 2018-05-01 版和相關的 Batch AI SDK 與工具已引入重大變更和新功能。
 
-如果您已使用舊版的 Batch AI API，本文會說明如何修改程式碼和指令碼以使用新的 API。 請在可使用新 API 之後，再進行這些變更。
+如果您已使用舊版的 Batch AI API，本文會說明如何修改程式碼和指令碼以使用新的 API。 
 
 ## <a name="whats-changing"></a>有哪些變更項目？
 
