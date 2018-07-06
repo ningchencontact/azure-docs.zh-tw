@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: c505f5c737b0e37e74bf136211aa0baca006658c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 62c2ebcdd3c40fd5204e20e4e15b0af784804ff0
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32166135"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100465"
 ---
 # <a name="deploy-kubernetes-cluster-for-linux-containers"></a>部署適用於 Linux 容器的 Kubernetes 叢集
 
@@ -83,7 +83,7 @@ az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --
 az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sCluster
 ```
 
-若要驗證叢集的連線，請使用 [kubectl get](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) 命令來傳回叢集節點的清單。
+若要驗證叢集的連線，請使用 [kubectl get](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) 命令來傳回叢集節點的清單。
 
 ```azurecli-interactive
 kubectl get nodes
@@ -166,7 +166,7 @@ spec:
     app: azure-vote-front
 ```
 
-使用 [kubectl create](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create) 命令來執行應用程式。
+使用 [kubectl create](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create) 命令來執行應用程式。
 
 ```azurecli-interactive
 kubectl create -f azure-vote.yml
@@ -185,7 +185,7 @@ service "azure-vote-front" created
 
 執行應用程式時會建立 [Kubernetes 服務](https://kubernetes.io/docs/concepts/services-networking/service/)，此服務會向網際網路公開前端應用程式。 此程序需要數分鐘的時間完成。 
 
-若要監視進度，請使用 [kubectl get service](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) 命令搭配 `--watch` 引數。
+若要監視進度，請使用 [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) 命令搭配 `--watch` 引數。
 
 ```azurecli-interactive
 kubectl get service azure-vote-front --watch

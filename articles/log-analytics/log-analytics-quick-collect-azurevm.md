@@ -3,7 +3,7 @@ title: 收集關於 Azure 虛擬機器的資料 | Microsoft Docs
 description: 了解如何使用 Log Analytics，啟用 OMS 代理程式 VM 延伸模組和啟用 Azure VM 的資料收集。
 services: log-analytics
 documentationcenter: log-analytics
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -15,12 +15,13 @@ ms.topic: quickstart
 ms.date: 06/26/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 8c8e5dd04e74f0d2fa51f33089c5fc7b5f7726db
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.component: na
+ms.openlocfilehash: a79679068b03103bd8ca63455dd2d1758751aa6f
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37017380"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131223"
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>收集關於 Azure 虛擬機器的資料
 [Azure Log Analytics](log-analytics-overview.md) 可將環境中 Azure 虛擬機器和其他資源的資料直接收集到單一存放庫，以供詳細分析和相互關聯。  本快速入門向您示範如何以幾個簡單步驟來設定和收集 Azure Linux 或 Windows VM 的資料。  

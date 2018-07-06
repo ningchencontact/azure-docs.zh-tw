@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: sample
 ms.date: 03/23/2018
 ms.author: sngun
-ms.openlocfilehash: bd31656404f11c9676b321e2e40454c33f61e3f5
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 188b192cf9b86a2d28a578bbcec0d6b19a8cc5d0
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795188"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084897"
 ---
 # <a name="build-an-azure-cosmos-db-api-for-mongodb-app-using-nodejs"></a>使用 Node.js 建置 Azure Cosmos DB：適用於 MongoDB 的 API 應用程式
 > [!div class="op_single_selector"]
@@ -26,8 +26,6 @@ ms.locfileid: "34795188"
 > * [Java](sql-api-java-get-started.md)
 > * [Node.js for MongoDB](mongodb-samples.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
-> * [C++](sql-api-cpp-get-started.md)
->  
 >
 
 此範例將示範如何使用 Node.js 建置 Azure Cosmos DB：適用於 MongoDB 的 API 主控台應用程式。

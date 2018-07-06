@@ -1,6 +1,6 @@
 ---
 title: 在 Azure 中檢視活動記錄是否有 RBAC 變更 | Microsoft Docs
-description: 檢視活動記錄在過去 90 天是否有角色型存取控制的變更。
+description: 檢視活動記錄在過去 90 天是否有角色型存取控制 (RBAC) 的變更。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.date: 05/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 03961de233861baf923402cc96ab8174b3233bd0
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: c82c24c6d652a65f5ba851de66a1f2fe595a46a5
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266643"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293382"
 ---
-# <a name="view-activity-logs-for-role-based-access-control-changes"></a>檢視活動記錄是否有角色型存取控制的變更
+# <a name="view-activity-logs-for-rbac-changes"></a>檢視活動記錄檔中的各種 RBAC 變更
 
 有時，您會需要角色型存取控制 (RBAC) 變更的相關資訊，例如用來進行稽核或疑難排解。 每當有人對您訂用帳戶內的角色指派或角色定義進行變更時，這些變更都會記錄在 [Azure 活動記錄](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)中。 您可以檢視活動記錄來查看過去 90 天的所有 RBAC 變更。
 
@@ -43,7 +43,7 @@ ms.locfileid: "35266643"
 
 入口網站中的活動記錄有數個篩選條件。 以下是 RBAC 相關的篩選條件：
 
-|篩選條件  |值  |
+|Filter  |值  |
 |---------|---------|
 |事件類別目錄     | <ul><li>管理</li></ul>         |
 |作業     | <ul><li>建立角色指派</li> <li>刪除角色指派</li> <li>建立或更新自訂角色定義</li> <li>刪除自訂角色定義</li></ul>      |
@@ -125,7 +125,7 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
    ![入口網站中的 [Log Analytics] 選項](./media/change-history-report/azure-log-analytics-option.png)
 
-1. 選擇性使用 [記錄搜尋](../log-analytics/log-analytics-log-search.md) 頁面或[進階分析入口網站](https://docs.loganalytics.io/docs/Learn)來查詢和檢視記錄。 如需有關這兩個選項的詳細資訊，請參閱[記錄搜尋頁面或進階分析入口網站](../log-analytics/log-analytics-log-search-portals.md)。
+1. 選擇性使用 [記錄搜尋][](../log-analytics/log-analytics-log-search.md) 頁面或[進階分析入口網站](https://docs.loganalytics.io/docs/Learn)來查詢和檢視記錄。 如需有關這兩個選項的詳細資訊，請參閱[記錄搜尋頁面或進階分析入口網站](../log-analytics/log-analytics-log-search-portals.md)。
 
 以下查詢會傳回由目標資源提供者所組織的新角色指派：
 

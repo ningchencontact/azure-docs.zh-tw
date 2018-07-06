@@ -3,7 +3,7 @@ title: Azure PowerShell 指令碼範例 - Docker | Microsoft Docs
 description: Azure PowerShell 指令碼範例 - Docker
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -14,18 +14,18 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/02/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 87b87734ebf2eaa266447cab0083c24399844f55
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cfa42180d0cc25b3ee4da3f79b51775e8e62db81
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653387"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096657"
 ---
 # <a name="create-a-docker-host-with-powershell"></a>用 PowerShell 建立 Docker 主機
 
-這個指令碼會建立啟用 Docker 功能的虛擬機器，並啟動執行 NGINX 的容器。 執行這個指令碼之後，您可以透過 Azure 虛擬機器的 FQDN 存取 NGINX Web 伺服器。 
+這個指令碼會建立啟用 Docker 功能的虛擬機器，並啟動執行 NGINX 的容器。 執行這個指令碼之後，您可以透過 Azure 虛擬機器的 FQDN 存取 NGINX Web 伺服器。
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
@@ -35,7 +35,7 @@ ms.locfileid: "34653387"
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-docker-host/create-docker-host.ps1 "Create Docker host")]
 
-## <a name="clean-up-deployment"></a>清除部署 
+## <a name="clean-up-deployment"></a>清除部署
 
 執行下列命令來移除資源群組、VM 和所有相關資源。
 

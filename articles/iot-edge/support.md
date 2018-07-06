@@ -8,17 +8,17 @@ ms.date: 6/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a6bf918428312c511505304bd23b68cd19e46471
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 05a571c4491122ec5c7c35f6bccc4b8c332a4be2
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034619"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130704"
 ---
 # <a name="azure-iot-edge-support"></a>Azure IoT Edge 支援
 有許多方式可尋求 Azure IoT Edge 產品的支援。
 
-**報告 Bug** – Azure IoT Edge 產品大部分的開發都是在 IoT Edge 開放原始碼專案中進行。 您可以在專案的[問題頁面](https://github.com/azure/iot-edge/issues)上報告錯誤。 我們也會快速地從專案中找出修正方式，並加入產品更新中。
+**報告 Bug** – Azure IoT Edge 產品大部分的開發都是在 IoT Edge 開放原始碼專案中進行。 您可以在專案的[問題頁面](https://github.com/azure/iotedge/issues)上報告錯誤。 我們也會快速地從專案中找出修正方式，並加入產品更新中。
 
 **Microsoft 客戶支援小組** – 具有[支援方案](https://azure.microsoft.com/support/plans/)的任何使用者都可以接從 [Azure 入口網站]( https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac)建立支援票證，與 Microsoft 客戶支援小組互動。
 
@@ -33,8 +33,8 @@ Azure IoT Edge 可以在能夠執行容器的大部分作業系統上執行，�
 * 有為它們提供安裝套件
 
 正式推出
-* Ubuntu 18.04
-* Ubuntu 16.04
+* Ubuntu Server 18.04
+* Ubuntu Server 16.04
 * Raspbian-stretch
 
 公開預覽
@@ -47,9 +47,9 @@ Azure IoT Edge 可以在能夠執行容器的大部分作業系統上執行，�
 * Microsoft 已在平台上完成臨機操作測試，或者知道合作夥伴已在平台上成功執行過 Azure IoT Edge
 * 其他平台的安裝套件或許能在這些平台上運作
 
-Ubuntu Server 18.04
+Ubuntu 18.04
 
-Ubuntu Server 16.04
+Ubuntu 16.04
 
 Wind River 8
 

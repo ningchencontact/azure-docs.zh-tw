@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 6707610fc3410eab6eb2985c7d8a0ef821354689
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 9c037b35af19b94b6655cf7d1d45ba6b6182879c
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062074"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346581"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>快速入門：在 HDInsight 中設定叢集
 
@@ -55,7 +55,7 @@ Hadoop 叢集由數個虛擬機器 (節點) 組成，可用於分散處理作業
 
 * [資源群組名稱](#resource-group-name)
 * [叢集類型和設定](#cluster-types) 
-* [叢集登入和 SSH 使用者名稱](#cluster-login-and-ssh-username)
+* [叢集登入和 SSH 使用者名稱](#cluster-login-and-ssh-user-name)
 * [位置](#location)
 
 > [!IMPORTANT]
@@ -117,7 +117,7 @@ Azure HDInsight 目前提供下列的叢集類型，每種都有一組提供特�
 
 在設定期間，您要針對預設儲存體端點指定 Data Lake Storage。 預設儲存體包含應用程式與系統記錄檔。 您也可以選擇指定叢集可存取的其他已連結 Azure Data Lake Storage 帳戶。 HDInsight 叢集與相依的儲存體帳戶必須位於相同的 Azure 位置。
 
-![叢集儲存體設定：HDFS 相容的儲存體端點](media/quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage-TEMP.png)
+![叢集儲存體設定：HDFS 相容的儲存體端點](media/quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage2.png)
 
 > [!IMPORTANT]
 > 請務必**停用 Data Lake Store 存取**。 此設定是指舊的 Data Lake Store 功能，且必須加以停用，Data Lake Storage 功能才可正常運作。

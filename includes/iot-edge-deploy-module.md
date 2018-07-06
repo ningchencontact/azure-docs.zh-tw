@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/27/2018
 ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: 9c562f1ce938e5f5d9371cbccf032c0eb1d67125
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3e7fcde204966e5a6a8154ab307807652cfa0419
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055025"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37086206"
 ---
 Azure IoT Edge 的主要功能之一，是能夠從雲端將模組部署到您的 IoT Edge 裝置。 IoT Edge 模組是實作為容器的可執行檔套件。 在本節中，您部署的模組會產生模擬裝置的遙測。 
 
@@ -21,7 +21,7 @@ Azure IoT Edge 的主要功能之一，是能夠從雲端將模組部署到您�
 1. 移至 [IoT Edge] 並選取您的 IoT Edge 裝置。
 1. 選取 [設定模組]。
 1. 在頁面的 [部署模組] 區段中按一下 [新增]，然後選取 [IoT Edge 模組]。
-1. 在 [名稱] 欄位中，輸入 `tempsensor`。 
+1. 在 [名稱] 欄位中，輸入 `tempSensor`。 
 1. 在 [映像 URI] 欄位中，輸入 `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`。 
 1. 其他設定保留不變，然後選取 [儲存]。
 

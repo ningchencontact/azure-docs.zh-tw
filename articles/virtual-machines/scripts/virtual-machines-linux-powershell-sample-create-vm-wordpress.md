@@ -3,7 +3,7 @@ title: Azure PowerShell 指令碼範例 - WordPress | Microsoft Docs
 description: Azure PowerShell 指令碼範例 - WordPress
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -14,18 +14,18 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: ba1138d4c26b7fbcdda50b2f4ba45745a018e855
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b19c03fea7f376a5a16a2eb77e3ebf1cc8189bb6
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655849"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098357"
 ---
 # <a name="create-a-wordpress-vm-with-powershell"></a>使用 PowerShell 建立 WordPress VM
 
-此指令碼會建立虛擬機器，並使用 Azure 虛擬機器自訂指令碼擴充功能來安裝 WordPress。 執行指令碼之後，您可以在 `http://<public IP of VM>/wordpress` 上存取 WordPress 設定站台。 
+此指令碼會建立虛擬機器，並使用 Azure 虛擬機器自訂指令碼擴充功能來安裝 WordPress。 執行指令碼之後，您可以在 `http://<public IP of VM>/wordpress` 上存取 WordPress 設定站台。
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
@@ -35,7 +35,7 @@ ms.locfileid: "34655849"
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-wordpress-mysql/create-wordpress-mysql.ps1 "Create VM WordPress")]
 
-## <a name="clean-up-deployment"></a>清除部署 
+## <a name="clean-up-deployment"></a>清除部署
 
 執行下列命令來移除資源群組、VM 和所有相關資源。
 

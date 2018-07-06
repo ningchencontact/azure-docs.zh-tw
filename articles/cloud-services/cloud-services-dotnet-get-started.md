@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.openlocfilehash: 16d35a6b36f4dd85db430e05abdff898affbfd67
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7860af5dea41ce00739b592c5409fe5a1a05383b
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32160016"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342288"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>開始使用 Azure 雲端服務和 ASP.NET
 
@@ -291,7 +291,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
     ![Settings step](./media/cloud-services-dotnet-get-started/pubsettings.png)
 
-    [ **進階** ] 索引標籤中的預設設定適用於本教學課程。 如需進階索引標籤的詳細資訊，請參閱 [發行 Azure 應用程式精靈](http://msdn.microsoft.com/library/hh535756.aspx)。
+    [ **進階** ] 索引標籤中的預設設定適用於本教學課程。 如需進階索引標籤的詳細資訊，請參閱 [發行 Azure 應用程式精靈](https://docs.microsoft.com/azure/vs-azure-tools-publish-azure-application-wizard)。
 4. 在 [摘要] 步驟中，按一下 [發佈]。
 
     ![Summary step](./media/cloud-services-dotnet-get-started/pubsummary.png)

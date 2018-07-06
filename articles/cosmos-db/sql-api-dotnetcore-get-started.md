@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: sngun
 ms.custom: devcenter
-ms.openlocfilehash: 2d1f93e839d4ad2d7c857916996f2ad5d09626c5
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: be8b99f8cf291d2e09187344aa458420db92364e
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796582"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082320"
 ---
 # <a name="azure-cosmos-db-getting-started-with-the-sql-api-and-net-core"></a>Azure Cosmos DB︰開始使用 SQL API 與 .NET Core
 > [!div class="op_single_selector"]
@@ -25,9 +25,7 @@ ms.locfileid: "34796582"
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
 > * [Node.js for MongoDB](mongodb-samples.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
-> * [Java](sql-api-java-get-started.md)
-> * [C++](sql-api-cpp-get-started.md)
->  
+> * [Java](sql-api-java-get-started.md)  
 > 
 
 歡迎使用 .NET Core 入門之適用於 Azure Cosmos DB 的 SQL API 教學課程！ 完成本教學課程之後，您將會有一個主控台應用程式，可用來建立和查詢 Azure Cosmos DB 資源。

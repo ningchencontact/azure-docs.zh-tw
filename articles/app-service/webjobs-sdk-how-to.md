@@ -454,7 +454,7 @@ WebJobs SDK 使用 [Azure 二進位大型物件租用](../storage/common/storage
     
 ## <a name="filters"></a>篩選器 
 
-函式篩選條件 (預覽) 讓您能夠使用自己的邏輯自訂 WebJobs 執行管線。 篩選條件與 [ASP.NET 核心篩選條件](https://docs.microsoft.com/aspnet/core/mvc/controllers/filters) 類似。 它們可以實作為套用到函式或類別上的宣告屬性。 如需詳細資訊，請參閱[函式篩選條件](https://github.com/Azure/azure-webjobs-sdk/wiki/Function-Filters) (英文)。
+函式篩選條件 (預覽) 讓您能夠使用自己的邏輯自訂 WebJobs 執行管線。 篩選條件與 [ASP.NET Core 篩選條件](https://docs.microsoft.com/aspnet/core/mvc/controllers/filters) 類似。 它們可以實作為套用到函式或類別上的宣告屬性。 如需詳細資訊，請參閱[函式篩選條件](https://github.com/Azure/azure-webjobs-sdk/wiki/Function-Filters) (英文)。
 
 ## <a name="logging-and-monitoring"></a>記錄和監視
 

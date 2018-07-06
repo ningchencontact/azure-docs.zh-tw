@@ -3,7 +3,7 @@ title: Azure CLI 指令碼範例 - 使用 WordPress 建立 Linux VM | Microsoft 
 description: Azure CLI 指令碼範例 - 使用 WordPress 建立 Linux VM
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -14,18 +14,18 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/27/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 76b113167690d04af73cce9ffc208090b9c2328f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3427f53293cb23ec4596c32456d5f156d7065b44
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653360"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096105"
 ---
 # <a name="create-a-vm-with-wordpress"></a>建立含 WordPress 的 VM
 
-此指令碼會建立虛擬機器，然後使用 Azure 虛擬機器自訂指令碼擴充功能來安裝 WordPress。 執行指令碼之後，您可以在 `http://<public IP of VM>/wordpress` 上存取 WordPress 設定站台。 
+此指令碼會建立虛擬機器，然後使用 Azure 虛擬機器自訂指令碼擴充功能來安裝 WordPress。 執行指令碼之後，您可以在 `http://<public IP of VM>/wordpress` 上存取 WordPress 設定站台。
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -35,11 +35,11 @@ ms.locfileid: "34653360"
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-wordpress-mysql/create-wordpress-mysql.sh "Quick Create VM")]
 
-## <a name="clean-up-deployment"></a>清除部署 
+## <a name="clean-up-deployment"></a>清除部署
 
 執行下列命令來移除資源群組、VM 和所有相關資源。
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 

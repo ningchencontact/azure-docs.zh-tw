@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30838361"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>在 Azure 中建立 ASP.NET Core Web 應用程式
 
@@ -47,7 +48,7 @@ ms.lasthandoff: 04/05/2018
 
 如果您已安裝 Visual Studio，請按一下 [工具] > [取得工具和功能] 在 Visual Studio 中新增工作負載。
 
-## <a name="create-an-aspnet-core-web-app"></a>建立 ASP.NET 核心 Web 應用程式
+## <a name="create-an-aspnet-core-web-app"></a>建立 ASP.NET Core Web 應用程式
 
 在 Visual Studio 中，選取 [檔案] > [新增] > [專案] 以建立專案。 
 

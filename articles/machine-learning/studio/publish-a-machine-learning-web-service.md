@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: 86e018a3f8eedecbb60614b0f1226b088ebb18fc
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 0f22f22d40410b258b3945d9e78938384ce64767
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837927"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128387"
 ---
 # <a name="deploy-an-azure-machine-learning-web-service"></a>部署 Azure Machine Learning Web 服務
 Azure Machine Learning 可讓您建置、測試以及部署預測性分析解決方案。
@@ -187,8 +187,8 @@ For more information on how to manage Azure Machine Learning web service endpoin
 [建立訓練實驗]: #create-a-training-experiment
 [將其轉換為預測實驗]: #convert-the-training-experiment-to-a-predictive-experiment
 [將其部署為 Web 服務]: #deploy-it-as-a-web-service
-[新式]: #deploy-the-predictive-experiment-as-a-new-Web-service
-[傳統]: #deploy-the-predictive-experiment-as-a-new-Web-service
+[新式]: #deploy-the-predictive-experiment-as-a-new-web-service
+[傳統]: #deploy-the-predictive-experiment-as-a-classic-web-service
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal
 [Update]: #update-the-Web-service

@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 01/29/2018
 ms.author: lizross
 ms.reviewer: vincesm
-ms.openlocfilehash: 991feaa61a73d5ac96159fbd6a7dd1fdd420fd3c
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: e2571a6854d2c3de2425547b69c5435286182ef7
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36291407"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448147"
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Azure Active Directory 中的預設使用者權限
 
@@ -50,8 +50,8 @@ ms.locfileid: "36291407"
 
 權限 | 設定說明
 ---------- | ------------
-建立安全性群組的能力 | 將此選項設定為 [否] 可防止使用者建立安全性群組。 全域管理員和使用者帳戶管理員仍可建立安全性群組。 請參閱[用於進行群組設定的 Azure Active Directory Cmdlet](../active-directory-accessmanagement-groups-settings-cmdlets.md) 以了解詳情。
-建立 Office 365 群組的能力 | 將此選項設定為 [否] 可防止使用者建立 Office 365 群組。 將此選項設定為 [部分] 可允許一組特定使用者建立 Office 365 群組。 全域管理員和使用者帳戶管理員仍可建立 Office 365 群組。 請參閱[用於進行群組設定的 Azure Active Directory Cmdlet](../active-directory-accessmanagement-groups-settings-cmdlets.md) 以了解詳情。
+建立安全性群組的能力 | 將此選項設定為 [否] 可防止使用者建立安全性群組。 全域管理員和使用者帳戶管理員仍可建立安全性群組。 請參閱[用於進行群組設定的 Azure Active Directory Cmdlet](../users-groups-roles/groups-settings-cmdlets.md) 以了解詳情。
+建立 Office 365 群組的能力 | 將此選項設定為 [否] 可防止使用者建立 Office 365 群組。 將此選項設定為 [部分] 可允許一組特定使用者建立 Office 365 群組。 全域管理員和使用者帳戶管理員仍可建立 Office 365 群組。 請參閱[用於進行群組設定的 Azure Active Directory Cmdlet](../users-groups-roles/groups-settings-cmdlets.md) 以了解詳情。
 限制 Azure AD 系統管理入口網站的存取 | 將此選項設定為 [否] 可防止使用者存取 Azure Active Directory 入口網站。
 讀取其他使用者的能力 | 此設定僅在 PowerShell 中可用。 將此項目設為 $false，可防止所有不是管理員的人員從目錄讀取使用者資訊。 但這樣做無法防止讀取其他 Microsoft 服務 (例如 Exchange Online) 中的使用者資訊。 這項設定適用於特殊情況，並不建議將此項目設定為 $false。
 

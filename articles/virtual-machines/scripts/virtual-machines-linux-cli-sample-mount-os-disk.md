@@ -3,7 +3,7 @@ title: Azure CLI 指令碼範例 - 掛接作業系統磁碟 | Microsoft Docs
 description: Azure CLI 指令碼範例 - 掛接作業系統磁碟
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -14,18 +14,18 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/27/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 996fd1be24abea240d2c2a1a53769b663fef6bde
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c550e1366397fc08b2dc5f5132375a1ad874d103
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656036"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096057"
 ---
 # <a name="troubleshoot-a-vms-operating-system-disk"></a>針對 VM 作業系統磁碟進行疑難排解
 
-此指令碼會將已失敗或有問題之虛擬機器的作業系統磁碟當做資料磁碟，掛接到第二部虛擬機器。 在進行磁碟問題或復原資料的疑難排解時，這非常有用。 
+此指令碼會將已失敗或有問題之虛擬機器的作業系統磁碟當做資料磁碟，掛接到第二部虛擬機器。 在進行磁碟問題或復原資料的疑難排解時，這非常有用。
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 

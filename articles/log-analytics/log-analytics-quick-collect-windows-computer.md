@@ -3,7 +3,7 @@ title: 使用 Azure Log Analytics 從內部部署 Windows 電腦收集資料 | M
 description: 了解如何針對在 Azure 外部電腦上執行的 Windows 部署 Log Analytics 代理程式，並使用 Log Analytics 來啟用資料收集。
 services: log-analytics
 documentationcenter: log-analytics
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -15,12 +15,13 @@ ms.topic: quickstart
 ms.date: 04/02/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: ec85f2c473fa0c4ac4d69599a24b878278309577
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: na
+ms.openlocfilehash: b3c3e020a685147411fc784c41d9eca8b7dd8db0
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637223"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130988"
 ---
 # <a name="collect-data-from-windows-computers-hosted-in-your-environment"></a>從您環境中裝載的 Windows 電腦收集資料
 [Azure Log Analytics](log-analytics-overview.md) 可直接從您的實體或虛擬 Windows 電腦及您環境中的其他資源，將資料收集到單一儲存機制，來進行詳細的分析和相互關聯。  本快速入門向您示範如何以幾個簡單步驟來設定和收集 Windows 電腦的資料。  針對 Azure Windows VM，請參閱下列主題：[收集關於 Azure 虛擬機器的資料](log-analytics-quick-collect-azurevm.md)。  

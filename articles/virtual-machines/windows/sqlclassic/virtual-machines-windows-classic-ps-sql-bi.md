@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: maghan
-ms.openlocfilehash: 6f1a95e52def9154253192ab9d43d1e7d621cee7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e9d43d46f1979e985a5da96fda608eec55ad7830
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31425607"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031051"
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Azure 虛擬機器中的 SQL Server Business Intelligence
 > [!IMPORTANT] 
@@ -34,7 +34,7 @@ Microsoft Azure 虛擬機器資源庫含有包含 SQL Server 安裝的映像。 
 1. 屬於軟體保證的授權機動性優點。 如需詳細資訊，請參閱 [Azure 上透過軟體保證的授權機動性](https://azure.microsoft.com/pricing/license-mobility/)。
 2. 支付安裝了 SQL Server 的 Azure 虛擬機器每小時的費用。 請參閱 [虛擬機器定價](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql)中的＜SQL Server＞一節。
 
-如需有關授權和目前費率的詳細資訊，請參閱 [虛擬機器授權常見問題集](https://azure.microsoft.com/pricing/licensing-faq/%20/)。
+如需有關授權和目前費率的詳細資訊，請參閱 [虛擬機器授權常見問題集](https://azure.microsoft.com/pricing/licensing-faq/)。
 
 ## <a name="sql-server-images-available-in-azure-virtual-machine-gallery"></a>Azure 虛擬機器資源庫中提供 SQL Server 映像
 Microsoft Azure 虛擬機器資源庫涵蓋數個包含 Microsoft SQL Server 的映像。 虛擬機器映像上安裝的軟體因作業系統版本與 SQL Server 版本而異。 Azure 虛擬機器資源庫中提供的映像清單經常變更。
@@ -351,5 +351,5 @@ Analysis Services 的**預設執行個體**會接聽 TCP 連接埠 **2383**。 �
 > [透過 Microsoft SQL Server Connect 提交意見和連絡資訊](https://connect.microsoft.com/SQLServer/Feedback)
 
 ### <a name="community-content"></a>社群內容
-* [使用 PowerShell 管理 Azure SQL Database](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
+* [使用 PowerShell 管理 Azure SQL Database](https://azure.microsoft.com/blog/windows-azure-sql-database-management-with-powershell/)
 

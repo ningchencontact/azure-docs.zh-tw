@@ -2,19 +2,19 @@
 title: 介紹 Azure Kubernetes Service
 description: Azure Kubernetes Service 可讓您輕鬆地部署和管理 Azure 上的容器型應用程式。
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: overview
 ms.date: 06/13/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: fdff52a1fa34fa2033db19690d20a1c2f417e646
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: cb38285a009d8dfba175de6e3037970e6111d929
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36307786"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096122"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 

@@ -3,7 +3,7 @@ title: Azure CLI 指令碼範例 - 建立兩個分別具有內部和外部 NSG �
 description: Azure CLI 指令碼範例 - 建立兩個分別具有內部和外部 NSG 的 VM
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -14,18 +14,18 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/27/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4f7ac411fcde0ee83c306f8fcedb7b38d5d08aaf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 05c1540f303bde4982039dfa7349fc4e7fc233e2
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34654492"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099197"
 ---
 # <a name="secure-network-traffic-between-virtual-machines"></a>保護虛擬機器之間的網路流量
 
-此指令碼會建立兩部虛擬機器，並保護兩者的傳入流量。 一部虛擬機器可在網際網路上存取，並已將網路安全性群組 (NSG) 設定為允許連接埠 22 和連接埠 80 上的流量。 第二部虛擬機器則無法在網際網路上存取，並已將 NSG 設定為只允許來自第一部虛擬機器的流量。 
+此指令碼會建立兩部虛擬機器，並保護兩者的傳入流量。 一部虛擬機器可在網際網路上存取，並已將網路安全性群組 (NSG) 設定為允許連接埠 22 和連接埠 80 上的流量。 第二部虛擬機器則無法在網際網路上存取，並已將 NSG 設定為只允許來自第一部虛擬機器的流量。
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -35,11 +35,11 @@ ms.locfileid: "34654492"
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-nsg/create-vm-nsg.sh "Create VM with NSG")]
 
-## <a name="clean-up-deployment"></a>清除部署 
+## <a name="clean-up-deployment"></a>清除部署
 
 執行下列命令來移除資源群組、VM 和所有相關資源。
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 

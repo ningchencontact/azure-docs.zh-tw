@@ -55,7 +55,7 @@ Windows Server 2016 提供兩種不同的容器，所提供的隔離程度有所
 ## <a name="scenarios-for-using-containers"></a>容器使用案例
 以下是典型範例，容器是很好的選擇︰
 
-* **IIS 提起然後平移**︰如果您有想要繼續使用的現有 [ASP.NET MVC](https://www.asp.net/mvc) 應用程式，將它們放在一個容器，而不是移轉到 ASP.NET 核心。 這些 ASP.NET MVC 應用程式相依於網際網路資訊服務 (IIS)。 您可以從預先建立的 IIS 映像將這些應用程式封裝成容器映像，然後與 Service Fabric 一起部署。 請參閱 [Windows Server 上的容器映像](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) (英文)，以取得 Windows 容器的相關資訊。
+* **IIS 提起然後平移**︰如果您有想要繼續使用的現有 [ASP.NET MVC](https://www.asp.net/mvc) 應用程式，將它們放在一個容器，而不是移轉到 ASP.NET Core。 這些 ASP.NET MVC 應用程式相依於網際網路資訊服務 (IIS)。 您可以從預先建立的 IIS 映像將這些應用程式封裝成容器映像，然後與 Service Fabric 一起部署。 請參閱 [Windows Server 上的容器映像](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) (英文)，以取得 Windows 容器的相關資訊。
 * **混合容器和 Service Fabric 微服務**︰針對您的應用程式的一部分使用現有的容器映像。 例如，對於應用程式的 Web 前端系統，您可以使用 [NGINX 容器](https://hub.docker.com/_/nginx/)，而對於更密集的後端運算，則可以使用具狀態服務。
 * **減少「壟斷」服務的影響**︰您可以使用容器的資源控管能力來限制服務在主機上使用的資源。 如果服務可能會耗用大量資源，因而影響其他服務的效能 (例如，像作業一樣長時間執行的查詢)，請考慮將這些服務放到可控管資源的容器中。
 

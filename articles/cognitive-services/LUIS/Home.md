@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: v-geberr
-ms.openlocfilehash: bbd0a532e54f9b221739c8ae9ff097fe44fdc4df
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: da8ea6dead6b22d97e7338b2aa57a892be475417
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751590"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344826"
 ---
 # <a name="what-is-language-understanding-luis"></a>何謂 Language Understanding Intelligent Service (LUIS)？
 Language Understanding Intelligent Service (LUIS) 是一種雲端式服務，可將自訂機器學習套用至使用者的對話、自然語言文字中，以預測整體意義，並找出相關的詳細資訊。 
@@ -82,7 +82,7 @@ JSON 端點回應至少包含查詢語句和評分最高的意圖。
 
 LUIS 提供數種方式找出實體並加以分類。
 
-* **預先建立的實體** LUIS 有許多預先建立的領域模型，包括意圖、語句和[預先建立的實體](pre-builtentities.md)。 您可以使用預先建立的實體，而不需要使用預先建立模型的意圖和語句。 預先建立的實體可為您節省時間。
+* **預先建立的實體** LUIS 有許多預先建立的領域模型，包括意圖、語句和[預先建立的實體](luis-prebuilt-entities.md)。 您可以使用預先建立的實體，而不需要使用預先建立模型的意圖和語句。 預先建立的實體可為您節省時間。
 
 * **自訂實體** LUIS 提供數種方式來識別您自己的自訂[實體](luis-concept-entity-types.md)，包括機器學習實體、特定或常值實體，以及機器學習和常值的組合。
 
