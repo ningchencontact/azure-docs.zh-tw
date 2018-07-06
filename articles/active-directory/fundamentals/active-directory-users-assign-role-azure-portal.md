@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 06/25/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.openlocfilehash: 7ed564d5954841f96109568b33183908d25bb8be
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: ec30f1507bfa45c29709a7f4b7dc1e91aa25ca57
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939505"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37440743"
 ---
 # <a name="assign-a-user-to-administrator-roles-in-azure-active-directory"></a>在 Azure Active Directory 中將使用者指派給系統管理員角色
 本文說明如何在 Azure Active Directory (Azure AD) 中將系統管理角色指派給使用者。 如需有關在您組織中新增新使用者的資訊，請參閱[將新的使用者新增到 Azure Active Directory](../add-users-azure-active-directory.md)。 新增的使用者預設不會有系統管理員權限，但是您可以隨時指派角色給他們。
@@ -30,7 +30,7 @@ ms.locfileid: "36939505"
 
     ![開啟使用者管理](./media/active-directory-users-assign-role-azure-portal/create-users-user-management.png)
 
-3. 針對所選的使用者，選取 [目錄角色]、選取 [新增角色]，然後從 [目錄角色] 清單中挑選適當的系統管理角色，例如 [條件式存取管理員]。 如需有關系統管理角色的詳細資訊，請參閱[在 Azure AD 中指派系統管理員角色](../active-directory-assign-admin-roles-azure-portal.md)。 
+3. 針對所選的使用者，選取 [目錄角色]、選取 [新增角色]，然後從 [目錄角色] 清單中挑選適當的系統管理角色，例如 [條件式存取管理員]。 如需有關系統管理角色的詳細資訊，請參閱[在 Azure AD 中指派系統管理員角色](../users-groups-roles/directory-assign-admin-roles.md)。 
 
     ![將使用者指派給角色](./media/active-directory-users-assign-role-azure-portal/create-users-assign-role.png)
 

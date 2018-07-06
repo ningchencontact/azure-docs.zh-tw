@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6b63c10a8c092d6568f8caf9842f007a5dc9c027
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 0e0d22b3363b00c81be5091fd12773f9e486c09e
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049157"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099180"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>快速入門：將您的第一個 IoT Edge 模組部署至 Linux x64 裝置
 
@@ -134,8 +134,9 @@ IoT Edge 執行階段是一組容器，而部署至 IoT Edge 裝置的邏輯會�
 6. 檢視在您的裝置上執行的模組： 
 
    ```bash
-   iotedge list
+   sudo iotedge list
    ```
+登出再登入後，上述命令就不需要 *sudo*。
 
    ![檢視裝置上的一個模組](./media/quickstart-linux/iotedge-list-1.png)
 
@@ -154,16 +155,19 @@ IoT Edge 執行階段是一組容器，而部署至 IoT Edge 裝置的邏輯會�
 在執行模擬裝置的電腦上再次開啟命令提示字元。 確認從雲端部署的模組正在 IoT Edge 裝置上執行：
 
    ```bash
-   iotedge list
+   sudo iotedge list
    ```
+登出再登入後，上述命令就不需要 *sudo*。
 
    ![在您的裝置上檢視三個模組](./media/quickstart-linux/iotedge-list-2.png)
 
 檢視從 tempSensor 模組送出的訊息：
 
-   ```bash
-   iotedge logs tempSensor -f 
+  ```bash
+   sudo iotedge logs tempSensor -f 
    ```
+
+登出再登入後，上述命令就不需要 *sudo*。
 
 ![從您的模組中檢視資料](./media/quickstart-linux/iotedge-logs.png)
 

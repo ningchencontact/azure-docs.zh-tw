@@ -19,7 +19,7 @@ ms.locfileid: "36284976"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>針對 Azure 搜尋服務建立及管理 API 金鑰
 
-搜尋服務的所有要求需要專為您服務而產生的唯讀 API 金鑰。 此 API 金鑰是驗證存取您搜尋服務端點的唯一機制，必須包含在每個要求上。 在[REST 解決方案](search-get-started-nodejs.md#update-the-configjs-with-your-search-service-url-and-api-key)中，API 金鑰通常會要求標頭中指定。 在 [.NET 解決方案](search-howto-dotnet-sdk.md#core-scenarios)中，金鑰通常會指定為組態設定，然後作為 [](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.credentials) (管理金鑰) 或 [SearchCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.searchcredentials) (查詢金鑰) 在 [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient) 上傳遞。
+搜尋服務的所有要求需要專為您服務而產生的唯讀 API 金鑰。 此 API 金鑰是驗證存取您搜尋服務端點的唯一機制，必須包含在每個要求上。 在[REST 解決方案](search-get-started-nodejs.md#update-the-configjs-with-your-search-service-url-and-api-key)中，API 金鑰通常會要求標頭中指定。 在 [.NET 解決方案](search-howto-dotnet-sdk.md#core-scenarios)中，金鑰通常會指定為組態設定，然後作為 [管理金鑰](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.credentials) 或 [SearchCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.searchcredentials) (查詢金鑰) 在 [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient) 上傳遞。
 
 金鑰會在服務佈建期間與您的搜尋服務一起建立。 您可以在 [Azure 入口網站](https://portal.azure.com)中檢視及取得金鑰值。
 

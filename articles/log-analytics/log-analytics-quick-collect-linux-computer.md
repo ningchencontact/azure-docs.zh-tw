@@ -3,7 +3,7 @@ title: 使用 Azure Log Analytics 從內部部署 Linux 電腦收集資料 | Mic
 description: 了解如何部署適用於 Linux 的 Log Analytics 代理程式，並啟用使用 Log Analytics 從該作業系統的資料收集。
 services: log-analytics
 documentationcenter: log-analytics
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -15,12 +15,13 @@ ms.topic: quickstart
 ms.date: 04/02/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: af385a7cbf97ff15156cc78c77f8b54e2f79badb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: na
+ms.openlocfilehash: aca8ee7305f919068733dfa3cb636a0f9bad7b05
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637628"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127164"
 ---
 # <a name="collect-data-from-linux-computer-hosted-in-your-environment"></a>從您的環境中裝載的 Linux 電腦收集資料
 [Azure Log Analytics](log-analytics-overview.md) 可將來自環境中的實體或虛擬 Linux 電腦和其他資源的資料直接收集到單一存放庫，以供詳細分析和相互關聯之用。  本快速入門向您示範如何以幾個簡單步驟來設定和收集 Linux 電腦的資料。  針對 Azure Linux VM，請參閱下列主題[收集關於 Azure 虛擬機器的資料](log-analytics-quick-collect-azurevm.md)。  

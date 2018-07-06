@@ -3,7 +3,7 @@ title: 建立和共用 Azure Log Analytics 資料的儀表板 | Microsoft Docs
 description: 本教學課程可幫助您了解 Log Analytics 儀表板如何以視覺化方式呈現所有儲存的記錄搜尋，讓您以單一方式檢視您的環境。
 services: log-analytics
 documentationcenter: log-analytics
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
@@ -15,12 +15,13 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: f6a70f33b143a5b9354411af9717d2a21e24af0c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.component: na
+ms.openlocfilehash: a4b1e59ff9ac4d7f455c87e821fb014ba238d3c9
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409259"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127470"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>建立和共用 Log Analytics 資料的儀表板
 

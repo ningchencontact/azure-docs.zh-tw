@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/26/2018
 ms.author: terrylan
-ms.openlocfilehash: dc362306e20b4d39aa73a552e47cbcbd3037edbd
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 434b73d4625f86fab195dbda1fed9c841791f5b6
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063386"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099454"
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Azure 資訊安全中心的安全性健康情況監視
 本文可協助您使用 Azure 資訊安全中心內的監視功能，監視是否符合原則。
@@ -84,7 +84,7 @@ ms.locfileid: "37063386"
 * 橘色︰中等優先順序，應儘速處理
 * 綠色 (最後一個)︰健康狀態
 
-在此拓撲檢視中，第一層有[虛擬網路](../virtual-network/virtual-networks-overview.md)、[虛擬網路閘道](/vpn-gateway/vpn-gateway-site-to-site-create.md)和[虛擬網路 (傳統)](/virtual-network/virtual-networks-create-vnet-classic-pportal.md)。 第二層有子網路，第三層有屬於這些子網路的虛擬機器。 右側資料行有這些資源的網路安全性群組的目前狀態，如以下範例所示：
+在此拓撲檢視中，第一層有[虛擬網路](../virtual-network/virtual-networks-overview.md)、[虛擬網路閘道](../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md)和[虛擬網路 (傳統)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)。 第二層有子網路，第三層有屬於這些子網路的虛擬機器。 右側資料行有這些資源的網路安全性群組的目前狀態，如以下範例所示：
 
 ![網路拓撲區段中網路安全性群組的狀態](./media/security-center-monitoring/security-center-monitoring-fig12-ga.png)
 

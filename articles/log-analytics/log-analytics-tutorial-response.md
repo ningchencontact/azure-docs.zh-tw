@@ -3,7 +3,7 @@ title: 使用 Azure Log Analytics 警示來回應事件 | Microsoft Docs
 description: 本教學課程可幫助您了解 Log Analytics 的警示，以識別您工作區中的重要資訊，並可主動通知您相關問題或叫用動作以嘗試更正問題。
 services: log-analytics
 documentationcenter: log-analytics
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
@@ -15,12 +15,13 @@ ms.topic: tutorial
 ms.date: 05/23/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 6fa090a5277b1feb3e1b6ea0114ce90035197076
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.component: na
+ms.openlocfilehash: 635c1589fcfd71d39439ab4f7df2d26c50c3212c
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753263"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127249"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>使用 Azure 監視器警示來回應事件
 Azure 監視器中的警示可識別您 Log Analytics 存放庫中的重要資訊。 它們是由自動定期執行記錄搜尋的警示規則所建立，如果記錄搜尋的結果符合特定準則，則會建立一個警示記錄，而它可以設定為執行自動化的回應。  本教學課程是[建立和共用 Log Analytics 資料的儀表板](log-analytics-tutorial-dashboards.md)教學課程的延續。   
