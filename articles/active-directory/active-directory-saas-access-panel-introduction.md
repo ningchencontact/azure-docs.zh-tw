@@ -15,12 +15,12 @@ ms.date: 05/11/18
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 982e2cb6780e5285dc5849d655efdf830f76cf13
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: bc05ff8c6961cd9389a12ff9c082867eecb79bca
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34347494"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448868"
 ---
 # <a name="what-is-the-access-panel"></a>什麼是存取面板？
 
@@ -40,7 +40,7 @@ ms.locfileid: "34347494"
 
 - 檢視和啟動 Azure AD 系統管理員已授權您存取的雲端式應用程式。 
 
-- 自我管理群組。 系統管理員可以在 Azure AD 中建立及管理安全性群組，並要求安全性群組成員資格。 如需詳細資訊，請參閱 [Azure AD 中使用者的自助群組管理](active-directory-accessmanagement-self-service-group-management.md)與[管理群組](active-directory-manage-groups.md)。
+- 自我管理群組。 系統管理員可以在 Azure AD 中建立及管理安全性群組，並要求安全性群組成員資格。 如需詳細資訊，請參閱 [Azure AD 中使用者的自助群組管理](users-groups-roles/groups-self-service-management.md)與[管理群組](fundamentals/active-directory-manage-groups.md)。
 
 
 
@@ -214,7 +214,7 @@ Intune Managed Browser 已在 [Apple App Store](https://itunes.apple.com/us/app/
 
 - 若要檢視與應用程式管理相關的所有主題清單，請參閱 [Azure Active Directory 中的應用程式管理文章索引](active-directory-apps-index.md)。
  
-- 若要深入了解如何將 SaaS 應用程式與 Azure AD 整合，請參閱[有關如何整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)。
+- 若要深入了解如何將 SaaS 應用程式與 Azure AD 整合，請參閱[有關如何整合 SaaS 應用程式的教學課程清單](saas-apps/tutorial-list.md)。
  
 - 若要深入了解如何使用 Azure AD 管理應用程式，請參閱[單一登入及使用 Azure Active Directory 管理應用程式存取的簡介](manage-apps/what-is-single-sign-on.md)。
  

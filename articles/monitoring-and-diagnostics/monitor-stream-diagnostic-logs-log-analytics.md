@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 634cecb247686afd8c5c749d6e28b301d7e07c4f
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: d8966edb6061ed07f5aecb9682fca081ed589040
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263502"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083969"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>將 Azure 診斷記錄檔串流至 Log Analytics
 
@@ -30,7 +30,7 @@ Azure Log Analytics 是一個彈性的記錄搜尋和分析工具，可讓您深
 
 ## <a name="enable-streaming-of-diagnostic-logs-to-log-analytics"></a>啟用將診斷記錄串流至 Log Analytics 的功能
 
-您可以透過入口網站或使用 [Azure 監視器 REST API](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings)，啟用以程式控制方式對診斷記錄進行串流的功能。 無論使用哪一種方式，您都需建立一個診斷設定，在其中指定 Log Analytics 工作區，以及要傳送至該工作區的記錄類別和計量。 診斷**記錄類別**是一種資源可以提供的記錄類型。
+您可以透過入口網站或使用 [Azure 監視器 REST API](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings)，啟用以程式控制方式對診斷記錄進行串流的功能。 無論使用哪一種方式，您都需建立一個診斷設定，在其中指定 Log Analytics 工作區，以及要傳送至該工作區的記錄類別和計量。 診斷**記錄類別**是一種資源可以提供的記錄類型。
 
 Log Analytics 工作區並不一定要與發出記錄檔的資源位於相同的訂用帳戶中，只要設定該設定的使用者對兩個訂用帳戶都具備適當的 RBAC 存取權即可。
 

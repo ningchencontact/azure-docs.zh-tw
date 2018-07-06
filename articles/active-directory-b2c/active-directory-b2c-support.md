@@ -6,22 +6,22 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/06/2016
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 84a2c6bd513fffa562b31070bebfbf2ee8e2d55d
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 4ceef533145bea75247eb26998b998552293ef63
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34712329"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448879"
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C：提出支援要求
 您可使用下列步驟，在 Azure 入口網站上提出 Azure Active Directory (Azure AD) B2C 的支援要求：
 
 1. 遵循下列步驟以[瀏覽至 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) (位於 Azure 入口網站上)。
-2. 從 B2C 租用戶切換至另一個擁有相關聯 Azure 訂用帳戶的租用戶。 後者通常為員工租用戶，或是您註冊 Azure 訂用帳戶時所建立的預設租用戶。 若要深入了解，請參閱 [Azure 訂用帳戶如何與 Azure AD 有關](../active-directory/active-directory-how-subscriptions-associated-directory.md)。
+2. 從 B2C 租用戶切換至另一個擁有相關聯 Azure 訂用帳戶的租用戶。 後者通常為員工租用戶，或是您註冊 Azure 訂用帳戶時所建立的預設租用戶。 若要深入了解，請參閱 [Azure 訂用帳戶如何與 Azure AD 有關](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)。
    
     ![支援 - 切換租用戶](./media/active-directory-b2c-support/support-switch-dir.png)
 3. 切換租用戶之後，請按一下 [說明 + 支援] 。
