@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2af093e4ce6284f4cee75543720d109fa71a9b66
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ec3c87c39cd8b8d1dafa8ad062776171c602135b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621389"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047055"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>使用 Azure Data Factory 在 Azure Blob 儲存體來回複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [第 1 版 - 正式推出](data-factory-azure-blob-connector.md)
-> * [第 2 版 - 預覽](../connector-azure-blob-storage.md)
+> * [第 1 版](data-factory-azure-blob-connector.md)
+> * [第 2 版 (目前的版本)](../connector-azure-blob-storage.md)
 
 > [!NOTE]
-> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用處於預覽狀態的 Data Factory 第 2 版，請參閱[第 2 版中的 Azure Blob 儲存體連接器](../connector-azure-blob-storage.md)。
+> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[第 2 版中的 Azure Blob 儲存體連接器](../connector-azure-blob-storage.md)。
 
 
 本文說明如何使用 Azure Data Factory 中的「複製活動」，在 Azure Blob 儲存體來回複製資料。 本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文，該文提供使用複製活動來移動資料的一般概觀。
@@ -195,7 +195,7 @@ Data Factory 支援使用下列符合 CLS 規範的 .NET 型類型值，在 “s
 3. 建立完成之後，您會看到 [Data Factory] 刀鋒視窗，如下圖所示：![Data Factory 首頁](./media/data-factory-azure-blob-connector/data-factory-home-page.png)
 
 ### <a name="copy-wizard"></a>複製精靈
-1. 在 Data Factory 首頁上，按一下 [資料複製 (預覽)] 圖格，以在個別索引標籤中啟動 [複製精靈]。    
+1. 在 Data Factory 首頁上，按一下 [資料複製] 圖格，以在個別索引標籤中啟動 [複製資料精靈]。    
     
     > [!NOTE]
     >    如果您看到網頁瀏覽器停留在「授權中...」，請停用/取消核取 [封鎖第三方 Cookie 和站台資料] 設定 (或) 將它保持啟用並為 **login.microsoftonline.com** 建立例外狀況，然後再次嘗試啟動精靈。

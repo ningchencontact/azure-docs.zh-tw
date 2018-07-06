@@ -9,23 +9,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: 4749e79b79cec7172ddd764593939d6f82f5f5ab
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 3fdece082401ca57beabe6334a0ea0ca292ba298
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36291943"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052345"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure Blob 儲存體或從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [第 1 版 - 正式運作](v1/data-factory-azure-blob-connector.md)
-> * [第 2 版 - 預覽](connector-azure-blob-storage.md)
+> * [第 1 版](v1/data-factory-azure-blob-connector.md)
+> * [目前的版本](connector-azure-blob-storage.md)
 
 本文概述如何使用 Azure Data Factory 中的「複製活動」，將資料複製到「Azure Blob 儲存體」及從該處複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
-
-> [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用已正式運作的第 1 版 Data Factory，請參閱[第 1 版中的 Blob 儲存體連接器](v1/data-factory-azure-blob-connector.md)。
-
 
 ## <a name="supported-capabilities"></a>支援的功能
 

@@ -12,22 +12,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 12402ea30e44534734e0429f850772cbef2f7381
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: cf1ac441f695e5427e57f1a85bafd095777eed80
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287458"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049293"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure Data Lake Store 或從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [第 1 版 - 正式推出](v1/data-factory-azure-datalake-connector.md)
-> * [第 2 版 - 預覽](connector-azure-data-lake-store.md)
+> * [第 1 版](v1/data-factory-azure-datalake-connector.md)
+> * [目前的版本](connector-azure-data-lake-store.md)
 
 本文概述如何使用 Azure Data Factory 中的「複製活動」，將資料複製到 Azure Data Lake Store 及從該處複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
-
-> [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (也就是正式推出版 (GA))，請參閱 [V1 中的 Azure Data Lake Store 連接器](v1/data-factory-azure-datalake-connector.md)。
 
 ## <a name="supported-capabilities"></a>支援的功能
 
@@ -42,6 +39,9 @@ ms.locfileid: "36287458"
 > 如果您使用自我裝載整合執行階段來複製資料，請設定公司防火牆以允許連接埠 443 上對 `<ADLS account name>.azuredatalakestore.net` 和 `login.microsoftonline.com/<tenant>/oauth2/token` 的輸出流量。 後者是 Azure Security Token Service (STS)，IR 需要與其通訊以取得存取權杖。
 
 ## <a name="get-started"></a>開始使用
+
+> [!TIP]
+> 如需使用 Azure Data Lake Store 連接器的逐步解說，請參閱[將資料載入 Azure Data Lake Store 中](load-azure-data-lake-store.md)。
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 

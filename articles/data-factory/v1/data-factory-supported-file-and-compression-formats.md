@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 50204bac60a694779eafe15df7e8733007ba92a3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5afc89e774595952adf860fc6bcdc0e2403c617a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622256"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047089"
 ---
 # <a name="file-and-compression-formats-supported-by-azure-data-factory"></a>了解 Azure Data Factory 所支援的檔案和壓縮格式
 *此主題適用於下列連接器：[Amazon S3](data-factory-amazon-simple-storage-service-connector.md)、[Azure Blob](data-factory-azure-blob-connector.md), [Azure Data Lake Store](data-factory-azure-datalake-connector.md)、[檔案系統](data-factory-onprem-file-system-connector.md)、[FTP](data-factory-ftp-connector.md)、[HDFS](data-factory-hdfs-connector.md)、[HTTP](data-factory-http-connector.md) 與 [SFTP](data-factory-sftp-connector.md)。*
 
 > [!NOTE]
-> 本文適用於第 1 版 Azure Data Factory (正式運作版)。 如果您使用第 2 版 Data Factory 服務 (預覽版)，請參閱 [Data Factory 第 2 版中支援的檔案格式和壓縮轉碼器](../supported-file-formats-and-compression-codecs.md)。
+> 本文適用於 Azure Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱 [Data Factory 中支援的檔案格式和壓縮轉碼器](../supported-file-formats-and-compression-codecs.md)。
 
 Azure Data Factory 支援下列檔案格式類型：
 

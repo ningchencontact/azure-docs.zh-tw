@@ -11,22 +11,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/16/2018
+ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 234dacca152dca6e8e212a86f3921c9355f640e4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1d1b21897975717db7b733e33b7700bc76e3e065
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620335"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046542"
 ---
-# <a name="monitor-data-factories-using-azure-monitor"></a>使用 Azure 監視器來監視 Data Factory  
+# <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>使用 Azure 監視器提出警示及監視 Data Factory
 雲端應用程式相當複雜，且具有許多移動組件。 監視會提供資料，以確保應用程式持續運作並以健全的狀態執行。 它也可協助您預防潛在問題，或是針對過去所發生的問題進行疑難排解。 除此之外，您還可以使用監視資料來取得應用程式的深入解析。 這項知識可協助您提升應用程式效能或維護性，或是將原本需要手動介入的動作自動化。
 
-Azure 監視器可針對 Microsoft Azure 中的大多數服務提供基本等級的基礎結構計量與記錄。 如需詳細資訊，請參閱[監視概觀](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor)。 Azure 診斷記錄是資源所發出的記錄，會經常提供有關該資源之作業的豐富資料。 Data Factory 會在 Azure 監視器中輸出診斷記錄。 
+Azure 監視器可針對 Microsoft Azure 中的大多數服務提供基本等級的基礎結構計量與記錄。 如需詳細資訊，請參閱[監視概觀](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor)。 Azure 診斷記錄是資源所發出的記錄，會經常提供有關該資源之作業的豐富資料。 Data Factory 會在 Azure 監視器中輸出診斷記錄。
 
-> [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版 Data Factory 服務 (正式運作版 (GA))，請參閱[在 Data Factory 第 1 版中監視和管理管線](v1/data-factory-monitor-manage-pipelines.md)。
+## <a name="persist-data-factory-data"></a>保存 Data Factory 資料
+Data Factory 只會儲存管線執行資料 45 天。 如果您想要保存管線執行資料 45 天以上，使用 Azure 監視器的話，您不僅可以路由診斷記錄以進行分析，還可以將其保存在儲存體帳戶，您便擁有所選擇持續時間的處理站資訊。
 
 ## <a name="diagnostic-logs"></a>診斷記錄檔
 
@@ -101,15 +101,15 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
             ]
     },
     "location": ""
-} 
+}
 ```
 
 | 屬性 | 類型 | 說明 |
 | --- | --- | --- |
 | storageAccountId |字串 | 要作為診斷記錄傳送目的地之儲存體帳戶的資源識別碼 |
-| serviceBusRuleId |字串 | 您為了串流診斷記錄而想要在其中建立事件中樞之服務匯流排命名空間的服務匯流排規則識別碼。 規則識別碼的格式為：�{服務匯流排資源識別碼}/authorizationrules/{金鑰名稱}�。|
+| serviceBusRuleId |字串 | 您為了串流診斷記錄而想要在其中建立事件中樞之服務匯流排命名空間的服務匯流排規則識別碼。 規則識別碼的格式為："{服務匯流排資源識別碼}/authorizationrules/{金鑰名稱}"。|
 | workspaceId | 複雜類型 | 計量時間粒紋和其保留原則的陣列。 此屬性目前是空的。 |
-|metrics| 要傳遞給已叫用之管線的管線執行參數值| 將參數名稱對應到引數值的 JSON 物件 | 
+|metrics| 要傳遞給已叫用之管線的管線執行參數值| 將參數名稱對應到引數值的 JSON 物件 |
 | logs| 複雜類型| 資源類型之診斷記錄類別的名稱。 若要取得資源之診斷記錄類別的清單，請先執行 GET 診斷設定作業。 |
 | category| 字串| 記錄類別和其保留原則的陣列 |
 | timeGrain | 字串 | 以 ISO 8601 持續時間格式擷取的計量細微性。 必須是 PT1M (一分鐘)|
@@ -231,14 +231,14 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "identity": null
 }
 ```
-[更多資訊](https://msdn.microsoft.com/library/azure/dn931932.aspx)
+[更多資訊](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings)
 
 ## <a name="schema-of-logs--events"></a>記錄和事件的結構描述
 
 ### <a name="activity-run-logs-attributes"></a>活動執行記錄屬性
 
 ```json
-{  
+{
    "Level": "",
    "correlationId":"",
    "time":"",
@@ -252,7 +252,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
    "activityName":"",
    "start":"",
    "end":"",
-   "properties:" 
+   "properties:"
        {
           "Input": "{
               "source": {
@@ -294,7 +294,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ### <a name="pipeline-run-logs-attributes"></a>管線執行記錄屬性
 
 ```json
-{  
+{
    "Level": "",
    "correlationId":"",
    "time":"",
@@ -307,7 +307,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
    "start":"",
    "end":"",
    "status":"",
-   "properties": 
+   "properties":
     {
       "Parameters": {
         "<parameter1Name>": "<parameter1Value>"
@@ -340,7 +340,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ### <a name="trigger-run-logs-attributes"></a>觸發程序執行記錄屬性
 
 ```json
-{ 
+{
    "Level": "",
    "correlationId":"",
    "time":"",
@@ -362,7 +362,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
       },
       "SystemParameters": {}
     }
-} 
+}
 
 ```
 
@@ -397,7 +397,7 @@ ADFV2 會發出下列計量
 | TriggerSucceededRuns | 成功的觸發程序執行計量  | Count    | 總計                | 為期一分鐘的時間內成功的觸發程序執行總計   |
 | TriggerFailedRuns    | 失敗的觸發程序執行計量     | Count    | 總計                | 為期一分鐘的時間內失敗的觸發程序執行總計      |
 
-若要存取計量，請遵循文章中的指示操作 - https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
+若要存取計量，請遵循文章中的指示操作 - https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics
 
 ## <a name="alerts"></a>警示
 
@@ -445,4 +445,4 @@ ADFV2 會發出下列計量
     ![動作群組畫面 4 之 4](media/monitor-using-azure-monitor/alerts_image12.png)
 
 ## <a name="next-steps"></a>後續步驟
-請參閱[以程式設計方式監視和管理管線](monitor-programmatically.md)文章，以了解如何藉由執行來監視和管理管線。 
+請參閱[以程式設計方式監視和管理管線](monitor-programmatically.md)文章，以了解如何藉由執行來監視和管理管線。

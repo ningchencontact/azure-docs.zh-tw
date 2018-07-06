@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: e982fa2bec3cbc4845ecebb45db76f019e2178ff
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 27473ce4057fdb06ab9faf0f46dede62b4ee2246
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32157385"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048834"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>將用於使用量與帳單的租用戶新增至 Azure Stack
 
@@ -64,7 +64,7 @@ CSP 通常會為其 Azure Stack 部署上的多個客戶 (租用戶) 提供服�
 3. 在 PowerShell 工作階段中，執行：
 
 ```powershell
-    New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
+    New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties <PSObject>
 ```
 ### <a name="new-azurermresource-powershell-parameters"></a>New-AzureRmResource PowerShell 參數
 | 參數 | 說明 |
@@ -73,6 +73,7 @@ CSP 通常會為其 Azure Stack 部署上的多個客戶 (租用戶) 提供服�
 | customerSubscriptionID | 屬於要註冊之客戶的 Azure 訂用帳戶 (非 Azure Stack)。 必須建立在 CSP 供應項目中；實務上，這表示要透過合作夥伴中心。 如果客戶有多個 Azure Active Directory 租用戶，則必須將此訂用帳戶建立在要用來登入 Azure Stack 的租用戶中。
 | resourceGroup | Azure 中用來儲存註冊的資源群組。 
 | registrationName | 您 Azure Stack 註冊的名稱。 它是儲存在 Azure 中的物件。 | 
+| properties | 指定資源的屬性。 使用此參數來指定資源類型特有的屬性值。
 
 
 > [!Note]  

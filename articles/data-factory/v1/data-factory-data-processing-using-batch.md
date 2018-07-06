@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: ad883248097fd84e2fa064515b6c7a5232aaa3d3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f6b2be357ad53a1852973d40e221da3d41b09ffb
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621933"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050568"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>使用 Data Factory 和 Batch 來處理大型資料集
 > [!NOTE]
-> 本文適用於第 1 版 Azure Data Factory (正式運作版)。 如果您使用第 2 版 Data Factory 服務 (預覽版)，請參閱 [Data Factory 第 2 版中的自訂活動](../transform-data-using-dotnet-custom-activity.md)。
+> 本文適用於第 1 版 Azure Data Factory (正式運作版)。 如果您使用目前版本的 Data Factory 服務，請參閱 [Data Factory 中的自訂活動](../transform-data-using-dotnet-custom-activity.md)。
 
 本文說明範例解決方案的架構，此解決方案能以自動且排程的方式移動和處理大型資料集。 本文也提供如何使用 Data Factory 和 Azure Batch 來實作解決方案的端對端逐步解說。
 

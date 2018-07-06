@@ -2,19 +2,19 @@
 title: 要求單位和估計輸送量 - Azure Cosmos DB | Microsoft Docs
 description: 了解如何在 Azure Cosmos DB 中了解、指定及預估要求單位需求。
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 06/26/2018
 ms.author: rimman
-ms.openlocfilehash: 16ccda120aef0aa892bf365403f3f0bdc1209ca3
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 160ff4e09f70036fd261c07fa59e13772bc00660
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823718"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053322"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB 中的要求單位
 
@@ -41,7 +41,7 @@ Azure Cosmos DB 可保留資源來滿足應用程式的輸送量需求，以提�
 
 有了 Azure Cosmos DB，就可根據每秒處理的要求單位來指定保留的輸送量。 您可以將要求單位視為輸送量貨幣。 您會以每秒為基礎，保留一些保證可供應用程式使用的要求單位。 Azure Cosmos DB 中的每個作業 (包括寫入文件、執行查詢，以及更新文件) 都會耗用 CPU、記憶體和 IOPS。 也就是說，每個作業都會產生要求費用，這會以要求單位來表示。 當您了解影響要求單位費用的因素，以及應用程式的輸送量需求時，就可儘量以最符合經濟效益的方式來執行應用程式。 
 
-為了協助您開始使用，Azure Cosmos DB 專案經理 Andrew Liu 會在下列影片中探討要求單位： <br /><br />
+為了協助您開始使用，Azure Cosmos DB 方案經理 Andrew Liu 會在下列影片中探討要求單位 (影片的要求單位範例中有一點錯字。 使用包含 100,000 筆記錄的 1 KB 資料時，儲存體總計為 100 MB，而非 100 GB)： <br /><br />
 
 > [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]
 > 
@@ -111,7 +111,7 @@ Azure Cosmos DB 可保留資源來滿足應用程式的輸送量需求，以提�
 > 
 
 ### <a name="use-the-azure-cosmos-db-request-charge-response-header"></a>使用 Azure Cosmos DB 要求費用回應標頭
-Azure Cosmos DB 服務的每個回應都會包括自訂標頭 (`x-ms-request-charge`)，其中包含指定要求所耗用的要求單位。 您也可以透過 Azure Cosmos DB SDK 存取此標頭。 在 .NET SDK 中，**RequestCharge** 是 **ResourceResponse** 物件的屬性。 針對查詢，Azure 入口網站中的 Azure Cosmos DB 資料總管會提供已執行查詢的要求費用資訊。
+Azure Cosmos DB 服務的每個回應都會包括自訂標頭 (`x-ms-request-charge`)，其中包含指定要求所耗用的要求單位。 您也可以透過 Azure Cosmos DB SDK 存取此標頭。 在 .NET SDK 中，**RequestCharge** 是 **ResourceResponse** 物件的屬性。 針對查詢，Azure 入口網站中的 Azure Cosmos DB 資料總管會提供已執行查詢的要求費用資訊。 若要了解如何使用不同的多模型 API 來取得及設定輸送量，請參閱[設定及取得 Azure Cosmos DB 的輸送量](set-throughput.md)一文。
 
 若要估計應用程式所需的保留輸送量，其中一個方法為對照應用程式所使用的代表性項目，以記錄執行一般作業的相關要求單位費用。 然後，估計您預期每秒會執行的作業數目。 此外，務必要測量並包含一般查詢和 Azure Cosmos DB 指令碼使用量。
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d22829217209b7d0b1b5690d6a864b58bf102e3c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e775798dbaaf93d5a9b497323a3b2fa365820550
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622273"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046457"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>從 Azure Data Factory 叫用 Spark 程式管線
 
@@ -37,7 +37,7 @@ ms.locfileid: "34622273"
 > * [.NET 自訂活動](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> 本文適用於第 1 版 Azure Data Factory (正式運作版)。 如果您使用第 2 版 Data Factory 服務 (預覽版)，請參閱[使用 Data Factory 第 2 版中的 Apache Spark 活動來轉換資料](../transform-data-using-spark.md)。
+> 本文適用於第 1 版 Azure Data Factory (正式運作版)。 如果您使用目前版本的 Data Factory 服務，請參閱[在 Data Factory 中使用 Apache Spark 活動來轉換資料](../transform-data-using-spark.md)。
 
 ## <a name="introduction"></a>簡介
 Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-factory-data-transformation-activities.md)。 此活動會在 Azure HDInsight 中 Spark 叢集上執行指定的 Spark 程式。 
@@ -268,8 +268,7 @@ Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-f
 
     ![Jupyter 查詢結果](media/data-factory-spark/jupyter-notebook-results.png)
 
-<!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
-如需詳細指示，請參閱[執行 Spark SQL 查詢](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)一節。 
+<!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->如需詳細指示，請參閱[執行 Spark SQL 查詢](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)一節。 
 
 ### <a name="troubleshooting"></a>疑難排解
 由於您將 getDebugInfo 設定為 **Always**，因此您會在 Blob 容器的 [pyFiles] 資料夾中看到一個 [log] 子資料夾。 [log] 資料夾中的記錄檔會提供額外的資訊。 發生錯誤時，此記錄檔特別有用。 在生產環境中，您可以將它設定為 **Failure**。

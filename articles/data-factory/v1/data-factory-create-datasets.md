@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6a3401f620f7dfe8b42bad9ed1a3981325b2ce1e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f33ff3f588dac49e295a5aa96d71557d32407e46
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620474"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046981"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Azure Data Factory 中的資料集
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [第 1 版 - 正式推出](data-factory-create-datasets.md)
-> * [第 2 版 - 預覽](../concepts-datasets-linked-services.md)
+> * [第 1 版](data-factory-create-datasets.md)
+> * [第 2 版 (目前的版本)](../concepts-datasets-linked-services.md)
 
 > [!NOTE]
-> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用處於預覽狀態的第 2 版 Data Factory 服務，請參閱[第 2 版中的資料集](../concepts-datasets-linked-services.md)。
+> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[第 2 版中的資料集](../concepts-datasets-linked-services.md)。
 
 本文說明什麼是資料集、如何以 JSON 格式定義它們，以及如何在 Azure Data Factory 管線中使用它們。 它提供有關資料集 JSON 定義中每個區段 (例如 structure、availability 及 policy) 的詳細資料。 本文也提供在資料集 JSON 定義中使用 **offset**、**anchorDateTime** 及 **style** 屬性的範例。
 

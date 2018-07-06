@@ -1,6 +1,6 @@
 ---
-title: 適用於 HDInsight 上 R 伺服器的計算內容選項 - Azure | Microsoft Docs
-description: 了解 HDInsight 上 R 伺服器之使用者可用的不同計算內容選項
+title: 適用於 HDInsight 上 ML 服務的計算內容選項 - Azure | Microsoft Docs
+description: 了解 HDInsight 上 ML 服務使用者可用的不同計算內容選項
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -11,26 +11,26 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: R
 ms.topic: conceptual
-ms.date: 03/22/2018
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 2aa10e1eab6cabe058062519ecc023b88361d742
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 57480cef48182a56b315d7d6932883c485f5a7c8
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409064"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050103"
 ---
-# <a name="compute-context-options-for-r-server-on-hdinsight"></a>適用於 HDInsight 上 R 伺服器的計算內容選項
+# <a name="compute-context-options-for-ml-services-on-hdinsight"></a>在 HDInsight 上計算 ML 服務的內容選項
 
-Azure HDInsight 上的 Microsoft R 伺服器控制如何透過設定計算內容來執行呼叫。 此文章概述可用於指定是否以及如何跨邊緣節點核心或 HDInsight 叢集將執行作業平行化的選項。
+Azure HDInsight 上的 ML 服務控制如何透過設定計算內容來執行呼叫。 此文章概述可用於指定是否以及如何跨邊緣節點核心或 HDInsight 叢集將執行作業平行化的選項。
 
 叢集的邊緣節點提供便利的地方，以便連線到叢集以及執行 R 指令碼。 有了邊緣節點之後，即可選擇跨邊緣節點伺服器的核心，執行 RevoScaleR 的平行分散式函式。 您也可以使用 RevoScaleR 的 Hadoop Map Reduce 或 Spark 計算內容，跨越叢集的節點來執行這些函式。
 
-## <a name="microsoft-r-server-on-azure-hdinsight"></a>Azure HDInsight 上的 Microsoft R 伺服器
-[Azure HDInsight 上的 Microsoft R 伺服器](r-server-overview.md)可提供最新的 R 型分析功能。 它可以使用儲存在 [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob 儲存體") 儲存體帳戶、Data Lake Store 或本機 Linux 檔案系統上之 HDFS 容器中的資料。 R 伺服器是根據開放原始碼 R 所建置，因此您建置的 R 型應用程式可以套用 8000 多個開放原始碼 R 套件中的任何一個。 它們也可以使用 [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler) (R 伺服器隨附的 Microsoft 巨量資料分析套件) 中的常式。  
+## <a name="ml-services-on-azure-hdinsight"></a>Azure HDInsight 上的 ML 服務
+[Azure HDInsight 上的 ML 服務](r-server-overview.md)可提供最新的 R 型分析功能。 它可以使用儲存在 [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob 儲存體") 儲存體帳戶、Data Lake Store 或本機 Linux 檔案系統上之 HDFS 容器中的資料。 ML 服務是根據開放原始碼 R 所建置，因此您建置的 R 型應用程式可以套用 8000 多個開放原始碼 R 套件中的任何一個。 它們也可以使用 [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler) (ML 服務隨附的 Microsoft 巨量資料分析套件) 中的常式。  
 
 ## <a name="compute-contexts-for-an-edge-node"></a>邊緣節點的計算內容
-一般而言，在邊緣節點上 R 伺服器中執行的 R 指令碼會在該節點上的 R 解譯器內執行。 但呼叫 RevoScaleR 函式的步驟則屬例外狀況。 RevoScaleR 呼叫會在計算環境中執行，該環境是由您設定 RevoScaleR 計算內容的方式所決定。  當您從邊緣節點執行 R 指令碼時，可能的計算內容值為：
+一般而言，在邊緣節點上 ML 服務叢集中執行的 R 指令碼會在該節點上的 R 解譯器內執行。 但呼叫 RevoScaleR 函式的步驟則屬例外狀況。 RevoScaleR 呼叫會在計算環境中執行，該環境是由您設定 RevoScaleR 計算內容的方式所決定。  當您從邊緣節點執行 R 指令碼時，可能的計算內容值為：
 
 - 本機循序 (local)
 - 本機平行 (localpar)
@@ -78,9 +78,9 @@ local 和 localpar 選項的差別只在於執行 **rxExec** 呼叫的方式。 
 您也可以參考 [Machine Learning Server 文件](https://docs.microsoft.com/machine-learning-server/)中的[分散式計算概觀](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing)。
 
 ## <a name="next-steps"></a>後續步驟
-在此文章中，您可以了解可用於指定是否以及如何跨邊緣節點核心或 HDInsight 叢集將執行作業平行化的選項。 若要深入了解如何搭配 HDInsight 叢集使用 R 伺服器，請參閱下列主題：
+在此文章中，您可以了解可用於指定是否以及如何跨邊緣節點核心或 HDInsight 叢集將執行作業平行化的選項。 若要深入了解如何使用 HDInsight 叢集上的 ML 服務，請參閱下列主題：
 
-* [適用於 Hadoop 的 R 伺服器概觀](r-server-overview.md)
-* [開始使用適用於 Hadoop 的 R 伺服器](r-server-get-started.md)
-* [適用於 HDInsight R 伺服器的 Azure 儲存體選項](r-server-storage.md)
+* [適用於 Hadoop 的 ML 服務概觀](r-server-overview.md)
+* [開始使用適用於 Hadoop 的 ML 服務](r-server-get-started.md)
+* [HDInsight 上適用於 ML 服務的 Azure 儲存體選項](r-server-storage.md)
 

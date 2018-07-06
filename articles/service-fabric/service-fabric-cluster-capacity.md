@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2018
+ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: 78cff3ba5bd2f8bc80f302a232e45864159ca88f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: aca03452ff5655d3a7180009f42df14c9459a9ff
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641878"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061553"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric 叢集容量規劃考量
 對於任何生產部署而言，容量規劃都是一個很重要的步驟。 以下是一些您在該程序中必須考量的項目。
@@ -27,6 +27,10 @@ ms.locfileid: "34641878"
 * 您的叢集一開始所需的節點類型的數目
 * 每個節點類型 (大小、主要、網際網路對向、VM 數目等) 的屬性
 * 叢集的可靠性和持久性的特性
+
+> [!NOTE]
+> 您在規劃期間至少應該檢閱所有「不允許」升級的原則值。 這可確保您適當地設定值，並將稍後因無法變更系統組態設定所造成的叢集減弱情況降低。 
+> 
 
 讓我們簡短地檢閱各個項目。
 
@@ -46,6 +50,8 @@ ms.locfileid: "34641878"
 每個節點類型都是獨特的擴展集，且可以獨立相應增加或相應減少，可以開啟不同組的連接埠，並有不同的容量計量。 如需節點類型與虛擬機器擴展集之間關聯性、如何透過 RDP 連到其中一個執行個體、如何開啟新連接埠等等的詳細資訊，請參閱 [Service Fabric 叢集節點類型](service-fabric-cluster-nodetypes.md)。
 
 Service Fabric 叢集可以包含一個以上的節點類型。 在這種情況下，叢集包含一個主要節點類型和一或多個非主要節點類型。
+
+單一節點類型不能只是每個虛擬機器擴展集超過 100 個節點。 您可能必須新增虛擬機器擴展集來達成目標的縮放，且自動縮放比例無法自動新增虛擬機器擴展集。 就地將虛擬機器擴展集新增至即時叢集是富有挑戰性的工作，而通常這會導致使用者利用建立時所佈建的適當節點類型來佈建新叢集。 
 
 ### <a name="primary-node-type"></a>主要節點類型
 
@@ -188,7 +194,7 @@ Service Fabric 系統服務 (例如，叢集管理員服務或映像存放區服
 
 **VM 執行個體數目︰** 對於無狀態的生產工作負載，支援的最小非主要節點類型大小為 2。 這可讓您執行應用程式的兩個無狀態執行個體，在遺失 VM 執行個體的情況下，您的服務仍可繼續運作。 
 
-**VM SKU：** 這是執行應用程式服務的節點類型，因此，您為此而選擇的 VM SKU，必須考量您打算投入每個節點的尖峰負載。 Nodetype 的容量需求取決於您打算在叢集中執行的工作負載，因此，我們無法為您特定的工作負載提供確切的指引，但以下是概括性的指引，可協助您開始進行
+**VM SKU：** 這是執行應用程式服務的節點類型，因此，您為此而選擇的 VM SKU，必須考量您打算投入每個節點的尖峰負載。 節點類型的容量需求取決於您打算在叢集中執行的工作負載，因此，我們無法為您特定的工作負載提供確切的指引，但以下是概括性的指引，可協助您開始進行
 
 生產工作負載 
 

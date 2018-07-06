@@ -12,22 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/31/2018
 ms.author: douglasl
-ms.openlocfilehash: 525ad1c83a1982ae5b954b900c5a6c7086544c66
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: abe2fabc505f94f19d4b15a406fc59bf6d6e7ac1
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34700531"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050330"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Spark 活動轉換資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [第 1 版 - 正式推出](v1/data-factory-spark.md)
-> * [第 2 版 - 預覽](transform-data-using-spark.md)
+> * [第 1 版](v1/data-factory-spark.md)
+> * [目前的版本](transform-data-using-spark.md)
 
 Data Factory [管線](concepts-pipelines-activities.md)中的 Spark 活動會在[您自己的](compute-linked-services.md#azure-hdinsight-linked-service) HDInsight 叢集上或[隨選](compute-linked-services.md#azure-hdinsight-on-demand-linked-service)執行 Spark 程式。 本文是根據 [資料轉換活動](transform-data.md) 一文，它呈現資料轉換和支援的轉換活動的一般概觀。 當您使用隨選 Spark 連結的服務時，Data Factory 會自動為您建立 Spark 叢集 Just-In-Time 以處理資料，一旦處理完成之後就會刪除叢集。 
-
-> [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務，也就是正式推出 (GA) 的版本，請參閱[第 1 版的 Spark 活動](v1/data-factory-spark.md)。
 
 > [!IMPORTANT]
 > Spark 活動不支援 Azure Data Lake Store 作為主要儲存體的 HDInsight Spark 叢集。

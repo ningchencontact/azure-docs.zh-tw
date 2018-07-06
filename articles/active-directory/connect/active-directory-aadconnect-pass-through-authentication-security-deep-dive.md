@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cb8382a9801c3570a190259416d846fe518cc6ea
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 967184d9a7590dc0b8c88a49cf178bbd9eb83267
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595031"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063590"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory 傳遞驗證安全性深入探討
 
@@ -132,20 +132,21 @@ ms.locfileid: "34595031"
 1. 使用者嘗試存取應用程式，例如 [Outlook Web App](https://outlook.office365.com/owa)。
 2. 如果使用者還未登入，應用程式將瀏覽器重新導向至 Azure AD 登入頁面。
 3. Azure AD STS 服務會透過 [使用者登入] 頁面回應。
-4. 使用者將其使用者名稱和密碼輸入 [使用者登入] 頁面中，然後選取 [登入] 按鈕。
-5. 使用者名稱與密碼會在 HTTPS POST 要求中提交至 Azure AD STS。
-6. Azure AD STS 會針對您的租用戶上註冊的所有驗證代理程式，擷取 Azure SQL Database 中的公開金鑰，並使用這些金鑰為其密碼加密。 
+4. 使用者將其使用者名稱輸入 [使用者登入] 頁面中，然後選取 [下一步] 按鈕。
+5. 使用者將其密碼輸入 [使用者登入] 頁面中，然後選取 [登入] 按鈕。
+6. 使用者名稱與密碼會在 HTTPS POST 要求中提交至 Azure AD STS。
+7. Azure AD STS 會針對您的租用戶上註冊的所有驗證代理程式，擷取 Azure SQL Database 中的公開金鑰，並使用這些金鑰為其密碼加密。 
     - Azure AD STS 會針對您的租用戶上註冊的 "N" 個驗證代理程式，產生 "N" 個加密密碼值。
-7. Azure AD STS 會將密碼驗證要求 (其中包含使用者名稱和加密的密碼值) 放到您的租用戶專用的服務匯流排佇列上。
-8. 初始化的驗證代理程式會持續連線至服務匯流排佇列，因此其中一個可用的驗證代理程式會擷取密碼驗證要求。
-9. 驗證代理程式會找出其公開金鑰專屬的加密密碼值 (使用識別碼)，並使用其私密金鑰加以解密。
-10. 驗證代理程式會嘗試使用 [Win32 LogonUser API](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx) (其 **dwLogonType** 參數設定為 **LOGON32_LOGON_NETWORK**)，對內部部署 Active Directory 驗證使用者名稱和密碼。 
+8. Azure AD STS 會將密碼驗證要求 (其中包含使用者名稱和加密的密碼值) 放到您的租用戶專用的服務匯流排佇列上。
+9. 初始化的驗證代理程式會持續連線至服務匯流排佇列，因此其中一個可用的驗證代理程式會擷取密碼驗證要求。
+10. 驗證代理程式會找出其公開金鑰專屬的加密密碼值 (使用識別碼)，並使用其私密金鑰加以解密。
+11. 驗證代理程式會嘗試使用 [Win32 LogonUser API](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx) (其 **dwLogonType** 參數設定為 **LOGON32_LOGON_NETWORK**)，對內部部署 Active Directory 驗證使用者名稱和密碼。 
     - 此 API 是 Active Directory 同盟服務 (AD FS) 在同盟登入案例中登入使用者所使用的相同 API。
     - 此 API 依賴 Windows Server 中的標準解析程序來尋找網域控制站。
-11. 驗證代理程式會從 Active Directory 接收結果，例如成功、使用者名稱或密碼不正確、密碼過期等。
-12. 驗證代理程式會透過連接埠 443 上，輸出相互驗證的 HTTPS 通道，將結果轉送回 Azure AD STS。 相互驗證會使用先前在註冊期間發給驗證代理程式的憑證。
-13. Azure AD STS 會驗證此結果是否與您租用戶上的特定登入要求相互關聯。
-14. Azure AD STS 會依照設定的方式，繼續進行登入程序。 例如，如果密碼驗證成功，使用者可能要經過 Multi-Factor Authentication，或重新導向回應用程式。
+12. 驗證代理程式會從 Active Directory 接收結果，例如成功、使用者名稱或密碼不正確、密碼過期等。
+13. 驗證代理程式會透過連接埠 443 上，輸出相互驗證的 HTTPS 通道，將結果轉送回 Azure AD STS。 相互驗證會使用先前在註冊期間發給驗證代理程式的憑證。
+14. Azure AD STS 會驗證此結果是否與您租用戶上的特定登入要求相互關聯。
+15. Azure AD STS 會依照設定的方式，繼續進行登入程序。 例如，如果密碼驗證成功，使用者可能要經過 Multi-Factor Authentication，或重新導向回應用程式。
 
 ## <a name="operational-security-of-the-authentication-agents"></a>驗證代理程式的作業安全性
 
@@ -208,7 +209,7 @@ Azure AD 會將新版的軟體當作已簽署的 **Windows Installer 套件 (MSI
 ## <a name="next-steps"></a>後續步驟
 - [目前的限制](active-directory-aadconnect-pass-through-authentication-current-limitations.md)：了解支援的情節和不支援的情節。
 - [快速入門](active-directory-aadconnect-pass-through-authentication-quick-start.md)：開始使用 Azure AD 傳遞驗證。
-- [智慧鎖定](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)：在租用戶中設定智慧鎖定功能以保護使用者帳戶。
+- [智慧鎖定](../authentication/howto-password-smart-lockout.md)：在租用戶中設定智慧鎖定功能以保護使用者帳戶。
 - [運作方式](active-directory-aadconnect-pass-through-authentication-how-it-works.md)：了解 Azure AD 傳遞驗證運作方式的基本概念。
 - [常見問題集](active-directory-aadconnect-pass-through-authentication-faq.md)：常見問題集的答案。
 - [疑難排解](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)：了解如何解決傳遞驗證功能的常見問題。

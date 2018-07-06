@@ -1,6 +1,6 @@
 ---
-title: Hadoop、Spark、Kafka、HBase 或 R Server 的叢集設定 - Azure HDInsight | Microsoft Docs
-description: 從瀏覽器、Azure CLI、Azure PowerShell、REST 或 SDK 設定 HDInsight 的 Hadoop、Kafka、Spark、HBase、R 伺服器或 Storm 叢集。
+title: Hadoop、Spark、Kafka、HBase 或 ML 服務的叢集設定 - Azure HDInsight | Microsoft Docs
+description: 從瀏覽器、Azure CLI、Azure PowerShell、REST 或 SDK 設定 HDInsight 的 Hadoop、Kafka、Spark、HBase、ML 服務或 Storm 叢集。
 keywords: hadoop 叢集設定、kafka 叢集設定、spark 叢集設定、什麼是 hadoop 中的叢集
 services: hdinsight
 documentationcenter: ''
@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jgao
-ms.openlocfilehash: 2afe1e91465c92c6f6cba00c4383456ef78d225c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: eddbd3f171cee9df9ff306368df47501ff9dcfca
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200192"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051588"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>使用 Hadoop、Spark 及 Kafka 等在 HDInsight 中設定叢集
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-了解如何在 HDInsight 中使用 Hadoop、Spark、Kafka、互動式查詢、HBase、R 伺服器或 Storm 安裝並設定叢集。 此外，了解如何自訂叢集，並將叢集加入網域以提升安全性。
+了解如何在 HDInsight 中使用 Hadoop、Spark、Kafka、互動式查詢、HBase、ML 服務或 Storm 安裝並設定叢集。 此外，了解如何自訂叢集，並將叢集加入網域以提升安全性。
 
 Hadoop 叢集由數個虛擬機器 (節點) 組成，可用於分散處理作業。 Azure HDInsight 會處理個別節點所安裝和設定的實作細節，您只需要提供一般設定資訊即可。 
 
@@ -81,7 +81,7 @@ Azure HDInsight 目前提供下列的叢集類型，每種都有一組提供特�
 | [HBase](hbase/apache-hbase-overview.md) |處理大量無綱要的 NoSQL 資料 |
 | [互動式查詢](./interactive-query/apache-interactive-query-get-started.md) |更快速之互動式 Hive 查詢的記憶體內快取 |
 | [Kafka](kafka/apache-kafka-introduction.md) | 可用來建置即時串流資料管線和應用程式的分散式串流平台 |
-| [R 伺服器](r-server/r-server-overview.md) |各種巨量資料統計資料、預測模型和機器學習功能 |
+| [ML 服務](r-server/r-server-overview.md) |各種巨量資料統計資料、預測模型和機器學習功能 |
 | [Spark](spark/apache-spark-overview.md) |記憶體內處理、互動式查詢、微批次串流處理 |
 | [Storm](storm/apache-storm-overview.md) |即時事件處理 |
 

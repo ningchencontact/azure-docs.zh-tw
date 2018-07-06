@@ -9,24 +9,22 @@ ms.service: app-service
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/12/2018
+ms.date: 06/25/2018
 ms.author: mahender
-ms.openlocfilehash: ed2db5fd48c60601b90fc7ffb1094b8d89573b1f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8305a447ac75cf4c72a332910c9c4c90c1d8eac6
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32153654"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061432"
 ---
-# <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>如何在 App Service 和 Azure Functions 中使用 Azure 受控服務身分識別 (公開預覽)
+# <a name="how-to-use-azure-managed-service-identity-in-app-service-and-azure-functions"></a>如何在 App Service 和 Azure Functions 中使用 Azure 受控服務識別
 
 > [!NOTE] 
-> 適用於 App Service 和 Azure Functions 的受控服務識別目前為預覽版本。 目前在 Linux 和適用於容器的 Web 應用程式上不支援 App Service。
-
+> 在 Linux 和用於容器的 Web App 上，App Service 目前不支援受控服務識別。
 
 > [!Important] 
-> 如果您跨越訂用帳戶/租用戶遷移應用程式，App Service 和 Azure Functions 的受控服務識別將無法正常運作。 應用程式將需要取得新的身分識別，而若不刪除網站本身，就無法正確刪除現有的身分識別。 您將需要重新建立具有新身分識別的應用程式，也需要更新下游資源的存取原則，才能使用新身分識別。
-
+> 如果您跨越訂用帳戶/租用戶遷移應用程式，App Service 和 Azure Functions 的受控服務識別將無法正常運作。 應用程式將必須取得新的身分識別，這可透過停用並重新啟用功能來實現。 請參閱下方的[移除身分識別](#remove)。 下游資源也必須更新存取原則，才能使用新的身分識別。
 
 本主題示範如何為 App Service 和 Azure Functions 應用程式建立受控應用程式身分識別，以及如何使用它來存取其他資源。 Azure Active Directory 的受控服務識別，可讓應用程式輕鬆存取其他受到 AAD 保護的資源 (如 Azure Key Vault)。 身分識別由 Azure 平台負責管理，因此您不需要佈建或輪替任何密碼。 如需受控服務識別的詳細資訊，請參閱[受控服務識別概觀](../active-directory/managed-service-identity/overview.md)。
 
@@ -77,6 +75,31 @@ ms.locfileid: "32153654"
     az webapp identity assign --name myApp --resource-group myResourceGroup
     ```
 
+### <a name="using-azure-powershell"></a>使用 Azure PowerShell
+
+下列步驟將逐步引導您建立 Web 應用程式，並使用 Azure PowerShell 指派身分識別給它：
+
+1. 您可以視需要使用 [Azure PowerShell 指南](/powershell/azure/overview) \(英文\) 中的指示來安裝 Azure PowerShell，然後執行 `Login-AzureRmAccount` 來建立與 Azure 的連線。
+
+2. 使用 Azure PowerShell 建立 Web 應用程式。 如需更多如何使用 Azure PowerShell 搭配 App Service 的相關範例，請參閱 [App Service PowerShell 範例](../app-service/app-service-powershell-samples.md)：
+
+    ```azurepowershell-interactive
+    # Create a resource group.
+    New-AzureRmResourceGroup -Name myResourceGroup -Location $location
+    
+    # Create an App Service plan in Free tier.
+    New-AzureRmAppServicePlan -Name $webappname -Location $location -ResourceGroupName myResourceGroup -Tier Free
+    
+    # Create a web app.
+    New-AzureRmWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName myResourceGroup
+    ```
+
+3. 執行 `identity assign` 命令來建立此應用程式的身分識別：
+
+    ```azurepowershell-interactive
+    Set-AzureRmWebApp -AssignIdentity $true -Name $webappname -ResourceGroupName myResourceGroup 
+    ```
+
 ### <a name="using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本
 
 您可以使用 Azure Resource Manager 範本來將 Azure 資源的部署自動化。 若要深入了解如何部署到 App Service 和 Functions，請參閱[在 App Service 中將資源部署自動化](../app-service/app-service-deploy-complex-application-predictably.md)和[在 Azure Functions 中將資源部署自動化](../azure-functions/functions-infrastructure-as-code.md)。
@@ -121,7 +144,7 @@ ms.locfileid: "32153654"
 }
 ```
 
-其中，`<TENANTID>` 和 `<PRINCIPALID>` 會取代為 GUID。 tenantId 屬性能辨識應用程式隸屬的 AAD 租用戶。 principalId 是應用程式新身分識別的唯一識別碼。 在 AAD 內，應用程式的名稱與您提供給 App Service 或 Azure Functions 執行個體的名稱相同。
+其中，`<TENANTID>` 和 `<PRINCIPALID>` 會取代為 GUID。 tenantId 屬性能辨識身分識別所隸屬的 AAD 租用戶。 principalId 是應用程式新身分識別的唯一識別碼。 在 AAD 內，服務主體的名稱與您提供給 App Service 或 Azure Functions 執行個體的名稱相同。
 
 ## <a name="obtaining-tokens-for-azure-resources"></a>取得 Azure 資源的權杖
 
@@ -205,7 +228,7 @@ Content-Type: application/json
 ```
 
 ### <a name="code-examples"></a>程式碼範例
-若要以 C# 提出這項要求：
+<a name="token-csharp"></a>若要以 C# 提出這項要求：
 ```csharp
 public static async Task<HttpResponseMessage> GetToken(string resource, string apiversion)  {
     HttpClient client = new HttpClient();
@@ -216,7 +239,7 @@ public static async Task<HttpResponseMessage> GetToken(string resource, string a
 > [!TIP]
 > 對於 .NET 語言，您也可以使用 [Microsoft.Azure.Services.AppAuthentication](#asal) 而不需要自行製作要求。
 
-以 Node.JS 表示：
+<a name="token-js"></a>以 Node.JS 提出：
 ```javascript
 const rp = require('request-promise');
 const getToken = function(resource, apiver, cb) {
@@ -231,7 +254,7 @@ const getToken = function(resource, apiver, cb) {
 }
 ```
 
-在 PowerShell 中：
+<a name="token-powershell"></a>以 PowerShell 提出：
 ```powershell
 $apiVersion = "2017-09-01"
 $resourceURI = "https://<AAD-resource-URI-for-resource-to-obtain-token>"
@@ -239,6 +262,21 @@ $tokenAuthURI = $env:MSI_ENDPOINT + "?resource=$resourceURI&api-version=$apiVers
 $tokenResponse = Invoke-RestMethod -Method Get -Headers @{"Secret"="$env:MSI_SECRET"} -Uri $tokenAuthURI
 $accessToken = $tokenResponse.access_token
 ```
+
+## <a name="remove"></a>移除身分識別
+
+您可用建立身分識別的相同方式，使用入口網站、PowerShell 或 CLI 停用功能，來將身分識別移除。 在 REST/ARM 範本通訊協定中，做法是將類型設定為「無」：
+
+```json
+"identity": {
+    "type": "None"
+}    
+```
+
+以這種方式將身分識別移除也會從 AAD 刪除主體。 當您刪除應用程式資源時，系統指派的身分識別會自動從 AAD 移除。
+
+> [!NOTE] 
+> 還可以設定另一個應用程式設定：WEBSITE_DISABLE_MSI，這只會停用本機權杖服務。 不過，系統會將身分識別留在原地，且工具仍會將 MSI 顯示為「開啟」或「已啟用」。 因此，不建議使用這個設定。
 
 ## <a name="next-steps"></a>後續步驟
 

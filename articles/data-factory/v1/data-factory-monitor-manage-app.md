@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b71ad5701cfd1f8a274318c69d3464cf4fa34708
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3f234e49f1a28fd0881e47ede13ae72483ed31f3
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621083"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053111"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>使用監視及管理應用程式，以監視和管理 Azure Data Factory 管線
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "34621083"
 >
 
 > [!NOTE]
-> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用第 2 版 Data Factory 服務 (預覽版)，請參閱[在第 2 版中監視和管理 Data Factory 管線](../monitor-visually.md)。
+> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[監視和管理 Data Factory 管線](../monitor-visually.md)。
 
 本文說明如何使用監視及管理應用程式來監視、管理與偵錯您的 Data Factory 管線。 您可以藉由觀賞下列影片開始使用應用程式：
 

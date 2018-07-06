@@ -6,14 +6,15 @@ author: neilpeterson
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 05/21/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b790213e19b9f2aaef74a3f670c89246f54fd6d7
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 4af4620ff7a17cae76c4d5f2cf1a30ce4a3dccd8
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34597062"
 ---
 # <a name="volumes-with-azure-disks"></a>包含 Azure 磁碟的磁碟區
 
@@ -23,34 +24,27 @@ ms.lasthandoff: 05/10/2018
 
 ## <a name="create-an-azure-disk"></a>建立 Azure 磁碟
 
-在掛接 Azure 受控磁碟作為 Kubernetes 磁碟區之前，磁碟必須存在於與 AKS 叢集資源相同的資源群組中。 若要尋找此資源群組，請使用 [az group list][az-group-list] 命令。
+在掛接 Azure 受控磁碟作為 Kubernetes 磁碟區之前，磁碟必須存在於 AKS **節點**資源群組中。 使用 [az resource show][az-resource-show] 命令取得資源群組名稱。
 
 ```azurecli-interactive
-az group list --output table
-```
+$ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
 
-您正在尋找名稱類似 `MC_clustername_clustername_locaton` 的資源群組，其中 clustername 是您的 AKS 叢集名稱，而 location 是已佈建叢集的 Azure 區域。
-
-```console
-Name                                 Location    Status
------------------------------------  ----------  ---------
-MC_myAKSCluster_myAKSCluster_eastus  eastus      Succeeded
-myAKSCluster                         eastus      Succeeded
+MC_myResourceGroup_myAKSCluster_eastus
 ```
 
 使用 [az disk create][az-disk-create] 命令來建立 Azure 磁碟。
 
-使用此範例時，請將 `--resource-group` 更新成資源群組的名稱，並將 `--name` 更新成您選擇的名稱。
+將 `--resource-group` 更新成上一個步驟中收集的資源群組名稱，並將 `--name` 更新成您選擇的名稱。
 
 ```azurecli-interactive
 az disk create \
-  --resource-group MC_myAKSCluster_myAKSCluster_eastus \
+  --resource-group MC_myResourceGroup_myAKSCluster_eastus \
   --name myAKSDisk  \
   --size-gb 20 \
   --query id --output tsv
 ```
 
-一旦建立磁碟，您應該會看到類似下列的輸出。 這個值是磁碟識別碼，將磁碟掛接至 Kubernetes Pod 時會使用此識別碼。
+一旦建立磁碟，您應該會看到類似下列的輸出。 這個值是磁碟識別碼，掛接磁碟時會使用此識別碼。
 
 ```console
 /subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
@@ -105,3 +99,4 @@ kubectl apply -f azure-disk-pod.yaml
 [az-disk-list]: /cli/azure/disk#az_disk_list
 [az-disk-create]: /cli/azure/disk#az_disk_create
 [az-group-list]: /cli/azure/group#az_group_list
+[az-resource-show]: /cli/azure/resource#az-resource-show

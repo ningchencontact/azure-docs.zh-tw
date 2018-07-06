@@ -10,19 +10,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: a9a4f7b19d6ef08562d17474e252ce72fd0977dc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: cbd51c48ec5b1801062e7aaf0b77e7b347018b31
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051860"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>資料處理站的疑難排解
 > [!NOTE]
-> 本文適用於第 1 版 Azure Data Factory (正式運作版)。 
+> 本文適用於 Azure Data Factory 的第 1 版。 
 
 這篇文章提供使用 Azure Data Factory 時的問題疑難排解提示。 這篇文章並未列出使用服務時的所有可能問題，但是涵蓋部分問題和一般疑難排解提示。   
 

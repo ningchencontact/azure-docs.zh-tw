@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: kakampf
-ms.openlocfilehash: 3d98ed2be7a040ad889d1d504f303569c265360b
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 3ac3df7f7861b8a12778190072e5554927706e08
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271586"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061414"
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>可以搭配 HDInsight 使用的 Hadoop 元件和版本有哪些？
 
@@ -29,7 +29,7 @@ ms.locfileid: "34271586"
 每個 HDInsight 版本都是 Hortonworks Data Platform (HDP) 版本的雲端發佈。
 
 ## <a name="hadoop-components-available-with-different-hdinsight-versions"></a>可以搭配不同 HDInsight 版本使用的 Hadoop 元件
-Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個版本選擇都會建立特定版本的 HDP 發佈，以及該發佈內包含的一組元件。 截至 2017 年 2 月 17 日為止，Azure HDInsight 預設使用的叢集版本為 3.5 版，且以 HDP 2.5 為基礎。
+Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個版本選擇都會建立特定版本的 HDP 發佈，以及該發佈內包含的一組元件。 截至 2017 年 4 月 4 日為止，Azure HDInsight 預設使用的叢集版本為 3.6 版，且以 HDP 2.6 為基礎。
 
 下表列出與 HDInsight 叢集版本相關聯的元件版本： 
 
@@ -53,12 +53,13 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 | Apache Storm |1.1.0 |1.0.1 |0.10.0 |0.10.0 |0.9.3 |0.9.1 |-|
 | Apache Mahout |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0 |0.9.0 |-|
 | Apache Phoenix |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
-| Apache Spark |2.1.0、2.2.0 |1.6.2、2.0 |1.6.0 |1.5.2 |1.3.1 (僅限 Windows) |-|-|
+| Apache Spark |2.3.0, 2.2.0, 2.1.0 |1.6.2、2.0 |1.6.0 |1.5.2 |1.3.1 (僅限 Windows) |-|-|
 | Apache Livy |0.4 |0.3 |0.3 |0.2 |-|-|-|
-| Apache Kafka | 0.10.1 | 0.10.0 | 0.9.0 |-|-|-|-|
+| Apache Kafka | 1.0, 0.10.1 | 0.10.0 | 0.9.0 |-|-|-|-|
 | Apache Ambari | 2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
 | Apache Zeppelin | 0.7.0 |-|-|-|-|-|-|
 | Mono |4.2.1 |4.2.1 |3.2.8 |-|-|-|
+| Apache 滑桿 | 0.92.0 |-|-|-|-|-|-|
 
 ## <a name="check-for-current-hadoop-component-version-information"></a>檢查目前的 Hadoop 元件版本資訊
 
@@ -234,7 +235,7 @@ HDInsight Windows 叢集會依原樣執行，但您無法建立新的 HDInsight 
 
 * 所有支援的區域，巴西南部和日本西部除外︰
 
-  | 叢集類型 | Hadoop | hbase | 互動式查詢 | Storm | Spark | R 伺服器 |
+  | 叢集類型 | Hadoop | hbase | 互動式查詢 | Storm | Spark | ML Server |
   | --- | --- | --- | --- | --- | --- | --- |
   | 前端：預設 VM 大小 |D3 v2 |D3 v2 | D13, D14 |A3 |D12 v2 |D12 v2 |
   | 前端：建議的 VM 大小 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2  | D13, D14 |A3、A4、A5 |D12 v2、D13 v2、D14 v2 |D12 v2、D13 v2、D14 v2 |
@@ -246,7 +247,7 @@ HDInsight Windows 叢集會依原樣執行，但您無法建立新的 HDInsight 
   | 邊緣：建議的 VM 大小 | | | | | |Windows：D12 v2、D13 v2、D14 v2；Linux：D4 v2、D12 v2、D13 v2、D14 v2 |
 * 僅限巴西南部和日本西部 (沒有 v2 大小)：
 
-  | 叢集類型 | Hadoop | hbase | 互動式查詢 |Storm | Spark | R 伺服器 |
+  | 叢集類型 | Hadoop | hbase | 互動式查詢 |Storm | Spark | ML Server |
   | --- | --- | --- | --- | --- | --- | --- |
   | 前端：預設 VM 大小 |D3 |D3  | D13, D14 |A3 |D12 |D12 |
   | 前端：建議的 VM 大小 |D3、D4、D12 |D3、D4、D12  | D13, D14 |A3、A4、A5 |D12、D13、D14 |D12、D13、D14 |

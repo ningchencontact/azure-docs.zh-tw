@@ -13,18 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: e9d2140edc64daca4df0463dbfdcd5b06f072012
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cca9befb65abed3b6d07a52aa286c43725577121
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620403"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051741"
 ---
 # <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - 命名規則
 下表提供 Data Factory 購件命名規則。
-
-> [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版 Data Factory 服務 (正式運作版 (GA))，請參閱 [Data Factory 第 1 版中的命名規則](v1/data-factory-naming-rules.md)。
 
 | Name | 名稱唯一性 | 驗證檢查 |
 |:--- |:--- |:--- |
@@ -33,4 +30,4 @@ ms.locfileid: "34620403"
 | 資源群組 |在 Microsoft Azure 中是唯一的。 名稱不區分大小寫。 | 如需詳細資訊，請參閱 [Azure 命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions)。 |
 
 ## <a name="next-steps"></a>後續步驟
-遵循[快速入門：建立 Data Factory](quickstart-create-data-factory-powershell.md) 一文中的逐步指示，以了解如何建立 Data Factory。 
+遵循[快速入門：建立資料處理站](quickstart-create-data-factory-powershell.md)一文中的逐步指示，以了解如何建立資料處理站。 

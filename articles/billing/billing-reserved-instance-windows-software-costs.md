@@ -1,5 +1,5 @@
 ---
-title: Azure 保留執行個體的 Windows 軟體成本 - Azure 計費 | Microsoft Docs
+title: Azure 保留執行個體的 Windows 軟體成本 | Microsoft Docs
 description: 了解哪些 Windows 軟體計量不包含在 Azure 保留的 VM 執行個體成本中。
 services: billing
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: manshuk
-ms.openlocfilehash: b526ca578a72d7d35fb4198affeb02db4d308b20
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 6602424e2b2e4a4c2c3c51b5cb4bb1024a39d2e0
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303346"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064248"
 ---
 # <a name="windows-software-costs-not-included-with-azure-reserved-instances"></a>Windows 軟體的成本不包括在 Azure 保留執行個體內
 
-如果您的保留執行個體虛擬機器上沒有 Azure Hybrid Use Benefit，則您須為下列區段所列的 Windows 軟體計量支付費用。
+如果您的保留執行個體虛擬機器上沒有 Azure Hybrid Use Benefit，則必須為下列區段所列的 Windows 軟體計量支付費用。
 
 ## <a name="windows-software-meters-not-included-in-reserved-instance-cost"></a>Windows 軟體計量不包括在保留執行個體成本中
 
@@ -55,12 +55,12 @@ ms.locfileid: "34303346"
 ## <a name="next-steps"></a>後續步驟
 若要深入了解 Azure 保留執行個體，請參閱下列文章：
 
-- [使用 Azure 保留執行個體以節省虛擬機器的成本](billing-save-compute-costs-reservations.md)
-- [預付具有保留執行個體的虛擬機器](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [管理保留執行個體](billing-manage-reserved-vm-instance.md)
-- [了解保留執行個體折扣如何套用](billing-understand-vm-reservation-charges.md)
-- [了解預付型方案的保留執行個體使用量](billing-understand-reserved-instance-usage.md)
-- [了解 Enterprise 註冊之保留執行個體的使用方式](billing-understand-reserved-instance-usage-ea.md)
+- [什麼是 Azure 保留的 VM 執行個體？](billing-save-compute-costs-reservations.md)
+- [預付具有 Azure 保留 VM 執行個體的虛擬機器](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [管理 Azure 中的保留執行個體](billing-manage-reserved-vm-instance.md)
+- [了解如何套用保留執行個體折扣](billing-understand-vm-reservation-charges.md)
+- [了解預付型方案訂用帳戶的保留執行個體使用量](billing-understand-reserved-instance-usage.md)
+- [了解 Enterprise 註冊保留執行個體的使用方式](billing-understand-reserved-instance-usage-ea.md)
 
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員
 

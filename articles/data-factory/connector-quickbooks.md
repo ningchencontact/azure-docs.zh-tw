@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory (搶鮮版 (Beta)) 從 QuickBooks 複製資料 | Microsoft Docs
+title: 使用 Azure Data Factory 從 QuickBooks 複製資料 | Microsoft Docs
 description: 了解如何使用 Azure Data Factory 管線中的複製活動，將資料從 QuickBooks 複製到支援的接收資料存放區。
 services: data-factory
 documentationcenter: ''
@@ -11,24 +11,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: db9b57ed64485882a9b0e0bb020392131f4c5d62
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4e73b444335fe0e96ff453570ee0092f38ab9a4d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619172"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053792"
 ---
-# <a name="copy-data-from-quickbooks-using-azure-data-factory-beta"></a>使用 Azure Data Factory (搶鮮版 (Beta)) 從 QuickBooks 複製資料
+# <a name="copy-data-from-quickbooks-using-azure-data-factory"></a>使用 Azure Data Factory 從 QuickBooks 複製資料
 
 本文概述如何使用 Azure Data Factory 中的「複製活動」，從 QuickBooks 複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
 
-> [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務，也就是正式推出 (GA) 的版本，請參閱[第 1 版的複製活動](v1/data-factory-data-movement-activities.md)。
-
 > [!IMPORTANT]
-> 此連接器目前為搶鮮版 (Beta)。 您可以親身體驗並提供意見反應。 請勿在生產環境中使用它。
+> 此連接器目前為預覽狀態。 您可以親身體驗並提供意見反應。 如果您需要依賴解決方案中的預覽連接器，請連絡 [Azure 支援](https://azure.microsoft.com/support/)。
 
 ## <a name="supported-capabilities"></a>支援的功能
 
@@ -40,7 +37,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 ## <a name="getting-started"></a>開始使用
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 下列各節提供屬性的相關詳細資料，這些屬性是用來定義 QuickBooks 連接器專屬的 Data Factory 實體。
 
@@ -53,6 +50,8 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | type | Type 屬性必須設定為：**QuickBooks** | yes |
 | endpoint | QuickBooks 伺服器的端點。 (也就是 quickbooks.api.intuit.com)  | yes |
 | companyId | 要授權之 QuickBooks 公司的公司識別碼。  | yes |
+| consumerKey | 用於 OAuth 1.0 驗證的取用者金鑰。 | yes |
+| consumerSecret | 用於 OAuth 1.0 驗證的取用者祕密。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | yes |
 | accessToken | 用於 OAuth 1.0 驗證的存取權杖。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | yes |
 | accessTokenSecret | 用於 OAuth 1.0 驗證的存取權杖祕密。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | yes |
 | useEncryptedEndpoints | 指定是否使用 HTTPS 來加密資料來源端點。 預設值為 true。  | 否 |
@@ -67,6 +66,11 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
         "typeProperties": {
             "endpoint" : "quickbooks.api.intuit.com",
             "companyId" : "<companyId>",
+            "consumerKey": "<consumerKey>",
+            "consumerSecret": {
+                "type": "SecureString",
+                "value": "<consumerSecret>"
+            },
             "accessToken": {
                  "type": "SecureString",
                  "value": "<accessToken>"

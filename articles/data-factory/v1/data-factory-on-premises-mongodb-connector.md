@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 301a1a9934f9d7e76399dfe46a65481351a61e22
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7c6751a0432d66aee0ff3056b212dc1b348e333f
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621440"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045821"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>使用 Azure Data Factory 從 MongoDB 移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [第 1 版 - 正式推出](data-factory-on-premises-mongodb-connector.md)
-> * [第 2 版 - 預覽](../connector-mongodb.md)
+> * [第 1 版](data-factory-on-premises-mongodb-connector.md)
+> * [第 2 版 (目前的版本)](../connector-mongodb.md)
 
 > [!NOTE]
-> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用處於預覽狀態的第 2 版 Data Factory 服務，請參閱[第 2 版的 MongoDB 連接器](../connector-mongodb.md)。
+> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[第 2 版中的 MongoDB 連接器](../connector-mongodb.md)。
 
 
 本文說明如何使用 Azure Data Factory 中的「複製活動」，從內部部署的 MongoDB 資料庫移動資料。 本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文，該文提供使用複製活動來移動資料的一般概觀。

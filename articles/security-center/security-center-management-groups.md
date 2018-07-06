@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 2c95b06ce34b850d1bfaf60e47d6e5fede148a38
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 05504f94d72f39762672d0e79669dd50d8e6435e
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025185"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441483"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>取得 Azure 資訊安全中心的全租用戶可見性
 本文可協助您先執行數個可充分發揮 Azure Security Center 效用的動作，以著手使用。 執行這些動作可讓您檢視所有連結至 Azure Active Directory 租用戶的 Azure 訂用帳戶，並以彙總的方式跨多個訂用帳戶套用安全性原則，以有效而大規模地管理組織的安全性狀態。
@@ -86,7 +86,7 @@ Azure Active Directory 租用戶管理員並沒有 Azure 訂用帳戶的直接�
 5. 執行您需要以更高存取權完成的工作。 當您完成時，請將開關設回 [否]。
 
 ### <a name="assign-rbac-roles-to-users"></a>將 RBAC 角色指派給使用者
-在租用戶管理員提升存取權後，他們即可在根管理群組層級將 RBAC 角色指派給相關使用者。 建議指派的角色為[**讀者**](../role-based-access-control/built-in-roles.md#reader)。 必須具有此角色，才能提供租用戶層級可見性。 指派的角色將會自動傳播至根管理群組下的所有管理群組和訂用帳戶。 如需 RBAC 角色的詳細資訊，請參閱[可用的角色](../active-directory/active-directory-assign-admin-roles-azure-portal.md#available-roles)。
+在租用戶管理員提升存取權後，他們即可在根管理群組層級將 RBAC 角色指派給相關使用者。 建議指派的角色為[**讀者**](../role-based-access-control/built-in-roles.md#reader)。 必須具有此角色，才能提供租用戶層級可見性。 指派的角色將會自動傳播至根管理群組下的所有管理群組和訂用帳戶。 如需 RBAC 角色的詳細資訊，請參閱[可用的角色](../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles)。
 
 1. 安裝 [Azure PowerShell](/powershell/azure/install-azurerm-ps)。
 2. 執行下列命令： 

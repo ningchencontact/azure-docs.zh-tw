@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 62ee13c4e756e41558adcb5b98081e24d683e01a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 62712a201e8f9717f3e0215c4c29130d3bddcdf2
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620369"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050206"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>使用 Azure Machine Learning 和 Azure Data Factory 來建立預測管線
 
@@ -37,7 +37,7 @@ ms.locfileid: "34620369"
 
 ## <a name="introduction"></a>簡介
 > [!NOTE]
-> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用第 2 版 Data Factory 服務 (預覽版)，請參閱[使用 Data Factory 第 2 版中的機器學習服務來轉換資料](../transform-data-using-machine-learning.md)。
+> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[在 Data Factory 中使用機器學習來轉換資料](../transform-data-using-machine-learning.md)。
 
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning

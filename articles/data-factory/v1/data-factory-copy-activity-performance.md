@@ -14,21 +14,21 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 27d74ce2cf8fdc4434c48c36dd0c0751dbbab232
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 505f7345af6224b767d6d3719c123d91f54e48f5
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622307"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054287"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>複製活動的效能及微調指南
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [第 1 版 - 正式推出](data-factory-copy-activity-performance.md)
-> * [第 2 版 - 預覽](../copy-activity-performance.md)
+> * [第 1 版](data-factory-copy-activity-performance.md)
+> * [第 2 版 (目前的版本)](../copy-activity-performance.md)
 
 > [!NOTE]
-> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用第 2 版 Data Factory 服務 (預覽版)，請參閱 [Data Factory 第 2 版的複製活動效能及微調指南](../copy-activity-performance.md)。
+> 本文適用於第 1 版的 Data Factory。 如果您使用目前版本的 Data Factory 服務，請參閱 [Data Factory 的複製活動效能及微調指南](../copy-activity-performance.md)。
 
 Azure Data Factory 複製活動會提供安全、可靠、高效能的頂級資料載入解決方案。 它可讓您複製每天在各式各樣雲端和內部部署資料存放區上數十 TB 的資料。 超快的資料載入效能是可確保您能夠專注於核心「巨量資料」問題的關鍵︰建置進階的分析解決方案，並從該所有資料獲得深入解析。
 

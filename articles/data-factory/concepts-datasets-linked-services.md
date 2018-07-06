@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 93729646cf1a501b5502e2666ed68944fe474f72
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d5cf4005ad50c9c75f22b2fa2719925afbe69f26
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34616000"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37044971"
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Azure Data Factory 中的資料集和已連結的服務 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [第 1 版 - 正式推出](v1/data-factory-create-datasets.md)
-> * [第 2 版 - 預覽](concepts-datasets-linked-services.md)
+> * [第 1 版](v1/data-factory-create-datasets.md)
+> * [目前的版本](concepts-datasets-linked-services.md)
 
-本文說明什麼是資料集、如何以 JSON 格式定義它們，以及如何在 Azure Data Factory V2 管線中使用它們。 
-
-> [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (也就是正式推出版 (GA))，請參閱 [Data Factory V1 中的資料集](v1/data-factory-create-datasets.md)。
+本文說明什麼是資料集、如何以 JSON 格式定義它們，以及如何在 Azure Data Factory 管線中使用它們。 
 
 如果您不熟悉 Data Factory，請參閱 [Azure Data Factory 簡介](introduction.md)來概略了解。 
 
@@ -220,13 +217,13 @@ format | 當類型為 .NET 類型 (`Datetime` 或 `Datetimeoffset`) 時，所要
 ## <a name="create-datasets"></a>建立資料集
 您可以使用下列其中一個工具或 SDK 來建立資料集：[.NET API](quickstart-create-data-factory-dot-net.md)、[PowerShell](quickstart-create-data-factory-powershell.md)、[REST API](quickstart-create-data-factory-rest-api.md)、Azure Resource Manager 範本及 Azure 入口網站
 
-## <a name="v1-vs-v2-datasets"></a>V1 與V2 資料集之比較
+## <a name="current-version-vs-version-1-datasets"></a>目前版本與版本 1 資料集
 
-以下是 Data Factory V1 與 V2 資料集之間的一些差異： 
+以下是 Data Factory 與 Data Factory 版本 1 資料集之間的一些差異： 
 
-- V2 中不支援外部屬性。 已由[觸發程序](concepts-pipeline-execution-triggers.md)取代它。
-- V2 中不支援原則和可用性屬性。 管線的開始時間取決於[觸發程序](concepts-pipeline-execution-triggers.md)。
-- V2 中不支援範圍資料集 (管線中定義的資料集)。 
+- 目前版本中不支援外部屬性。 已由[觸發程序](concepts-pipeline-execution-triggers.md)取代它。
+- 目前版本中不支援原則和可用性屬性。 管線的開始時間取決於[觸發程序](concepts-pipeline-execution-triggers.md)。
+- 目前版本中不支援範圍資料集 (管線中定義的資料集)。 
 
 ## <a name="next-steps"></a>後續步驟
 如需使用上述其中一個工具或 SDK 來建立管線和資料集的逐步指示，請參閱下列教學課程。 
