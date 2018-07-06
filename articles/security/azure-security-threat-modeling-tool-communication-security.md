@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 71bbe53595f2afab50d6220f335d615ada957a85
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: c361f74147862585074f3c4475209ba6eb0c1e0c
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019478"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029793"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>安全性架構︰通訊安全性 | 風險降低 
 | 產品/服務 | 文章 |
@@ -65,7 +65,7 @@ ms.locfileid: "28019478"
 | 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Azure Data Factory | 
-| **SDL 階段**               | Deployment |  
+| **SDL 階段**               | 部署 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | 連結服務類型 - Azure 和內部部署 |
 | **參考**              |[在內部部署與 Azure Data Factory 之間移動資料](https://azure.microsoft.com/documentation/articles/data-factory-move-data-between-onprem-and-cloud/#create-gateway)、[資料管理閘道](https://azure.microsoft.com/documentation/articles/data-factory-data-management-gateway/) |
@@ -76,7 +76,7 @@ ms.locfileid: "28019478"
 | 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Identity Server | 
-| **SDL 階段**               | Deployment |  
+| **SDL 階段**               | 部署 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | [IdentityServer3 - 金鑰、簽章和密碼編譯](https://identityserver.github.io/Documentation/docsv2/configuration/crypto.html)、[IdentityServer3 - 部署](https://identityserver.github.io/Documentation/docsv2/advanced/deployment.html) |
@@ -135,7 +135,7 @@ ms.locfileid: "28019478"
   </system.webServer>
 </configuration>
 ```
-此規則的運作方式是當使用者使用 HTTP 要求頁面時，便傳回 HTTP 狀態碼 301 (永久重新導向)。 301 會將要求重新導向至與訪客要求相同的 URL，但使用 HTTPS 來取代要求的 HTTP 部分。 例如，HTTP://contoso.com 會被重新導向至 HTTPS://contoso.com。 
+此規則的運作方式是當使用者使用 HTTP 要求頁面時，便傳回 HTTP 狀態碼 301 (永久重新導向)。 301 會將要求重新導向至與訪客要求相同的 URL，但使用 HTTPS 來取代要求的 HTTP 部分。 例如，HTTP://contoso.com 會重新導向至 HTTPS://contoso.com。 
 
 ## <a id="http-hsts"></a>啟用 HTTP Strict Transport Security (HSTS)
 
@@ -175,7 +175,7 @@ ms.locfileid: "28019478"
 | 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
 | **元件**               | Azure 儲存體 | 
-| **SDL 階段**               | Deployment |  
+| **SDL 階段**               | 部署 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | [Azure 儲存體傳輸層級加密 – 使用 HTTPS](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_encryption-in-transit) |
@@ -288,7 +288,7 @@ namespace CertificatePinningExample
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | NET Framework 3 |
 | **屬性**              | N/A  |
-| **參考**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx)、[Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **參考**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx)、[Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_transport_security_enabled) |
 | **步驟** | 應用程式組態應確定敏感性資訊的所有存取都會使用 HTTPS。<ul><li>**說明︰** 如果某應用程式負責處理敏感性資訊，卻未使用訊息層級加密，則只應允許其透過加密的傳輸通道進行通訊。</li><li>**建議︰** 確定已停用 HTTP 傳輸，並改為啟用 HTTPS 傳輸。 例如，以 `<httpsTransport/>` 標籤取代 `<httpTransport/>`。 請勿依賴網路組態 (防火牆) 來保證應用程式只能透過安全通道加以存取。 從哲學觀點來看，應用程式不該仰賴網路來確保其安全性。</li></ul><p>但從現實觀點來看，負責保護網路的人員不一定能跟隨應用程式安全性需求的演變腳步。</p>|
 
 ## <a id="message-protection"></a>WCF︰將訊息安全性保護層級設定為 EncryptAndSign

@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 05abd943d85fcdd709143bf7fce221dcdfb86011
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f6196c1403ded7bb8a72ee5483c2c2056b0e8020
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215094"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030704"
 ---
-# <a name="service-endpoint-monitor"></a>服務端點監視
+# <a name="service-connectivity-monitor"></a>服務連線能力監視
 
-您可以使用[網路效能監控](log-analytics-network-performance-monitor.md)中的服務端點監視功能，對任何具有已開啟 TCP 通訊埠的端點進行網路連線監視。 這類端點包括網站、SaaS 應用程式、PaaS 應用程式和 SQL 資料庫。 
+您可以使用[網路效能監控](log-analytics-network-performance-monitor.md)中的服務連線能力監視功能，對任何具有已開啟 TCP 連接埠的端點進行網路連線監視。 這類端點包括網站、SaaS 應用程式、PaaS 應用程式和 SQL 資料庫。 
 
-您可以使用服務端點監視來執行下列功能： 
+您可以使用服務連線能力監視來執行下列功能： 
 
 - 監視多個分公司或位置與您的應用程式和網路服務的網路連線。 應用程式和網路服務包括 Office 365、Dynamics CRM、內部企業營運系統應用程式及 SQL 資料庫。
 - 使用內建測試來監視 Office365 和 Dynamics365 端點的網路連線。 
@@ -34,7 +34,7 @@ ms.locfileid: "36215094"
 - 檢視拓撲地圖上每個躍點所提供的延遲，識別可能導致應用程式效能低落的作用點。
 
 
-![服務端點監視](media/log-analytics-network-performance-monitor/service-endpoint-intro.png)
+![服務連線能力監視](media/log-analytics-network-performance-monitor/service-endpoint-intro.png)
 
 
 ## <a name="configuration"></a>組態 
@@ -55,11 +55,11 @@ netsh advfirewall firewall add rule name="NPMDICMPV4TimeExceeded" protocol="icmp
 netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmpv6:3,any" dir=in action=allow 
 ```
 
-### <a name="create-service-endpoint-monitor-tests"></a>建立服務端點監視測試 
+### <a name="create-service-connectivity-monitor-tests"></a>建立服務連線能力監視測試 
 
 開始建立您的測試，來監視服務端點的網路連線。
 
-1. 選取 [服務端點監視] 索引標籤。
+1. 選取 [服務連線能力監視] 索引標籤。
 2. 選取 [新增測試] 並輸入測試名稱和描述。 
 3. 選取測試類型：<br>
 
@@ -84,7 +84,7 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 
 ## <a name="walkthrough"></a>逐步介紹 
 
-移至 [網路效能監控] 儀表板檢視。 若要取得您建立之不同測試的健康情況摘要，請查閱 [服務端點監視] 頁面。 
+移至 [網路效能監控] 儀表板檢視。 若要對您所建立的不同測試取得健康情況摘要，請查看 [服務連線能力監視] 頁面。 
 
 ![服務端點監視頁面](media/log-analytics-network-performance-monitor/service-endpoint-blade.png)
 

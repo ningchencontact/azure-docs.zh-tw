@@ -4,18 +4,18 @@ description: 了解如何將模組部署到 Edge 裝置
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 880a17b6029dafec9ed41e3a32802dc42b872e77
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: f64e6db576b7b1605cc070948a021184fc6ee8ad
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725321"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029255"
 ---
-# <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>了解針對單一裝置或大規模部署 IoT Edge - 預覽
+# <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale"></a>了解單一裝置或大規模的 IoT Edge 部署
 
 Azure IoT Edge 裝置會遵循類似其他 IoT 裝置類型的[裝置生命週期][ lnk-lifecycle]：
 
@@ -23,7 +23,7 @@ Azure IoT Edge 裝置會遵循類似其他 IoT 裝置類型的[裝置生命週�
 1. 裝置會設定來執行 [IoT Edge 模組][lnk-modules]，然後監視其健康情況。 
 1. 最後，當裝置被取代時可能就會被淘汰或變成過時。  
 
-Azure IoT Edge 提供兩種方式來設定要在 IoT Edge 裝置上執行的模組：一個用於單一裝置 (您在 Azure IoT Edge 教學課程中所使用) 上的開發和快速反覆項目，另一個則用於管理大群 IoT Edge 裝置。 這兩種方法均可在 Azure 入口網站中以及利用程式設計方式來使用。
+Azure IoT Edge 提供兩種方式來設定要在 IoT Edge 裝置上執行的模組：一個用於單一裝置上的開發和快速反覆運算 (您在 Azure IoT Edge 教學課程中使用過此方法)，另一個則用來管理大量 IoT Edge 裝置機群。 這兩種方法均可在 Azure 入口網站中以及利用程式設計方式來使用。
 
 本文著重於多群裝置的設定和監視階段，統稱為 IoT Edge 自動部署。 整體部署步驟如下所示：   
 
@@ -32,15 +32,15 @@ Azure IoT Edge 提供兩種方式來設定要在 IoT Edge 裝置上執行的模�
 1. IoT 中樞服務會從 IoT Edge 裝置擷取狀態，並向要監視的操作員呈現那些狀態。  例如，操作員可在未成功設定 Edge 裝置時看見，或是查看模組在執行階段期間是否失敗。 
 1. 隨時都可針對部署設定符合目標條件的新 IoT Edge 裝置。 例如，若部署的目標是在華盛頓州的所有 IoT Edge 裝置，一旦將其佈建並新增至「華盛頓州」裝置群組之後，就會自動設定新的 IoT Edge 裝置。 
  
-本文將逐步解說用以設定及監視部署的每個元件。 如需建立和更新部署的逐步解說，請參閱[大規模部署和監視 IoT Edge 模組][lnk-howto]。
+本文說明用來設定及監視部署的每個相關元件。 如需建立和更新部署的逐步解說，請參閱[大規模部署和監視 IoT Edge 模組][lnk-howto]。
 
 ## <a name="deployment"></a>部署
 
-IoT Edge 自動部署會指派 IoT Edge 模組映像，在一組目標 IoT Edge 裝置上當成執行個體來執行。 其運作方式是設定 IoT Edge 部署資訊清單，以包含具有對應初始化參數的模組清單。 您可以將部署指派到單一裝置 (通常會以裝置識別碼為根據) 或裝置群組 (以標記為根據)。 一旦 IoT Edge 裝置接收到部署資訊清單之後，就會從各自的容器存放庫下載並安裝模組容器映像，並據以設定它們。 建立部署之後，操作員就能監視部署狀態，以查看是否已正確設定目標裝置。   
+IoT Edge 自動部署會指派 IoT Edge 模組映像，在一組目標 IoT Edge 裝置上當成執行個體來執行。 其運作方式是設定 IoT Edge 部署資訊清單，以包含具有對應初始化參數的模組清單。 您可以將部署指派到單一裝置 (根據裝置識別碼) 或裝置群組 (根據標記)。 一旦 IoT Edge 裝置接收到部署資訊清單之後，就會從各自的容器存放庫下載並安裝模組容器映像，並據以設定它們。 建立部署之後，操作員就能監視部署狀態，以查看是否已正確設定目標裝置。   
 
-裝置需要佈建為要使用部署來設定的 IoT Edge 裝置。 以下為必要條件，且不會包含於部署中：
+裝置需要佈建為要使用部署來設定的 IoT Edge 裝置。 裝置必須具備下列必要項目，才能接收部署：
 * 基本作業系統
-* Docker 
+* 容器管理系統，例如 Moby 或 Docker
 * 佈建 IoT Edge 執行階段 
 
 ### <a name="deployment-manifest"></a>部署資訊清單
@@ -52,12 +52,16 @@ IoT Edge 自動部署會指派 IoT Edge 模組映像，在一組目標 IoT Edge 
 * 類型 
 * 狀態 (例如，執行中或已停止) 
 * 重新啟動原則 
-* 映像和容器存放庫 
+* 映像和容器登錄
 * 資料輸入和輸出的路由 
+
+如果模組映像儲存在私人容器登錄中，則 IoT Edge 代理程式會保存登錄憑證。 
 
 ### <a name="target-condition"></a>目標條件
 
-系統會持續評估目標條件以納入任何符合需求的新裝置，或是移除任何在部署的生命週期中不再符合需求的裝置。 如果服務偵測到任何目標條件變更，部署將會重新啟動。 比方說，您的部署 A 具有目標條件 tags.environment = 'prod'。 開始進行部署時，有 10 個生產裝置。 模組已成功安裝在這 10 個裝置中。 IoT Edge 代理程式狀態會顯示為共 10 個裝置、10 項成功回應、0 項失敗回應，以及 0 項擱置回應。 現在您再新增 5 個具有 tags.environment = 'prod' 的裝置。 服務偵測到變更，在嘗試部署到五個新裝置時，IoT Edge 代理程式狀態會變成共 15 個裝置、10 項成功回應、0 項失敗回應，以及 5 項擱置回應。
+系統會持續評估目標條件以納入任何符合需求的新裝置，或是移除任何在部署的生命週期中不再符合需求的裝置。 如果服務偵測到任何目標條件變更，部署將會重新啟動。 
+
+比方說，您的部署 A 具有目標條件 tags.environment = 'prod'。 當您開始進行部署時，有十個生產裝置。 模組已成功安裝在這十個裝置中。 IoT Edge 代理程式狀態會顯示為共 10 個裝置、10 項成功回應、0 項失敗回應，以及 0 項擱置回應。 現在，您再新增五個具有 tags.environment = 'prod' 的裝置。 服務偵測到變更，在嘗試部署到五個新裝置時，IoT Edge 代理程式狀態會變成共 15 個裝置、10 項成功回應、0 項失敗回應，以及 5 項擱置回應。
 
 使用裝置對應項標籤上的任何布林值條件或 deviceId 來選取目標裝置。 如果想要使用具標籤的條件，您需要在與屬性相同的層級下，在裝置對應項中新增 "標籤":{} 區段。 [深入了解裝置對應項中的標籤](../iot-hub/iot-hub-devguide-device-twins.md)
 
@@ -73,7 +77,7 @@ IoT Edge 自動部署會指派 IoT Edge 模組映像，在一組目標 IoT Edge 
 * 在裝置對應項中，您只能使用標籤或 deviceId 來建置目標條件。
 * 目標條件的任何部分皆不允許雙引號。 請使用單引號。
 * 單引號代表目標條件的值。 因此，如果單引號是裝置名稱的一部分，您必須使用另一個單引號來避開使用單引號。 例如，operator'sDevice 的目標條件必須寫成 deviceId='operator''sDevice'。
-* 目標條件值中可允許使用數字、字母和下列字元：-:.+%_#*?!(),=@;$
+* 在目標條件值中允許使用數字、字母和下列字元：`-:.+%_#*?!(),=@;$`。
 
 ### <a name="priority"></a>優先順序
 
