@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: d2350d8021925278d6362c8227d408476a569319
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 2d70aff4cc569a194740fdab9373b7e11a1fcb15
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776901"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084343"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>使用 PowerShell 來部署和管理通知中樞
 ## <a name="overview"></a>概觀
@@ -34,7 +34,7 @@ Azure PowerShell 隨附的 Cmdlet 無法直接支援「管理通知中樞」。 
 
 ## <a name="prerequisites"></a>先決條件
 
-* Azure 訂用帳戶。 Azure 是訂閱型平台。 如需取得訂用帳戶的詳細資訊，請參閱[購買選項]、[成員優惠]或[免費試用版]。
+* Azure 訂用帳戶。 Azure 是訂閱型平台。 如需取得訂用帳戶的詳細資訊，請參閱[購買選項]、[成員供應項目]或[免費試用版]。
 * 具備 Azure PowerShell 的電腦。 如需指示，請參閱 [安裝並設定 Azure PowerShell]。
 * 大致了解 PowerShell 指令碼、NuGet 封裝和 .NET Framework。
 
@@ -155,10 +155,11 @@ else
 * [服務匯流排 PowerShell 指令碼](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059)
 
 [購買選項]: http://azure.microsoft.com/pricing/purchase-options/
-[成員優惠]: http://azure.microsoft.com/pricing/member-offers/
+
+  [成員供應項目]: http://azure.microsoft.com/pricing/member-offers/
 [免費試用版]: http://azure.microsoft.com/pricing/free-trial/
 [安裝並設定 Azure PowerShell]: /powershell/azureps-cmdlets-docs
-[通知中樞的 .NET API]: https://msdn.microsoft.com/library/azure/mt414893.aspx
+[通知中樞的 .NET API]: https://docs.microsoft.com/en-us/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx

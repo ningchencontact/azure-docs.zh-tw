@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: aa4e1d1f78549a8d1955def7a1c57e61d405e347
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 676d5e553e2929ae09d447141ca315fd1cc448e3
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297133"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448820"
 ---
 # <a name="permissions-on-the-azureiotsolutionscom-site"></a>azureiotsolutions.com 網站的權限
 
@@ -68,7 +68,7 @@ Azure 管理員角色可控制將 Azure 訂用帳戶對應至 AAD 租用戶的�
 
 ### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-aad-tenant-how-do-i-complete-this-task"></a>我是服務管理員，我想要變更我的訂用帳戶與特定 AAD 租用戶之間的目錄對應。 如何完成這項工作？
 
-請參閱[將現有的訂用帳戶新增至您的 Azure AD 目錄](../active-directory/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory)
+請參閱[將現有的訂用帳戶新增至您的 Azure AD 目錄](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory)
 
 ### <a name="i-want-to-change-a-service-administrator-or-co-administrator-when-logged-in-with-an-organizational-account"></a>我想要在使用組織帳戶登入時變更服務管理員或共同管理員
 
@@ -96,9 +96,9 @@ Azure 管理員角色可控制將 Azure 訂用帳戶對應至 AAD 租用戶的�
 [lnk-rm-github-repo]: https://github.com/Azure/azure-iot-remote-monitoring
 [lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
 [lnk-cf-github-repo]: https://github.com/Azure/azure-iot-connected-factory
-[lnk-aad-admin]: ../active-directory/active-directory-assign-admin-roles-azure-portal.md
+[lnk-aad-admin]:../active-directory/users-groups-roles/directory-assign-admin-roles.md
 [lnk-portal]: https://portal.azure.com
-[lnk-create-edit-users]: ../active-directory/active-directory-users-profile-azure-portal.md
+[lnk-create-edit-users]:../active-directory/fundamentals/active-directory-users-profile-azure-portal.md
 [lnk-assign-app-roles]:../active-directory/manage-apps/assign-user-or-group-access-portal.md
 [lnk-service-admins]: https://azure.microsoft.com/support/changing-service-admin-and-co-admin
 [lnk-admin-roles]: ../billing/billing-add-change-azure-subscription-administrator.md

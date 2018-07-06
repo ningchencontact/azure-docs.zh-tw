@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: tamram
-ms.openlocfilehash: cb77bd4418e105c877202f0f1725350380ea2308
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 241808e0a7bde1d2c53cd0af1de677275c169214
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659222"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082205"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>使用 RBAC 來管理 Azure 儲存體資料的存取權限 (預覽)
 
@@ -61,7 +61,7 @@ Azure 儲存體支援內建和自訂 RBAC 角色。 Azure 儲存體提供下列�
 
 在 Azure 入口網站中指派內建角色，以授與儲存體帳戶中所有容器或佇列的存取權：
 
-1. 在 [Azure 入口網站](https://azure.portal.com/)中，瀏覽至您的儲存體帳戶。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至您的儲存體帳戶。
 2. 選取儲存體帳戶，然後選取 [存取控制 (IAM)]，以顯示帳戶的存取控制設定。 按一下 [新增] 按鈕即可新增角色。
 
     ![顯示儲存體存取控制設定的螢幕擷取畫面](media/storage-auth-aad-rbac/portal-access-control.png)
@@ -78,7 +78,7 @@ Azure 儲存體支援內建和自訂 RBAC 角色。 Azure 儲存體提供下列�
 
 對容器或佇列範圍指派內建角色的步驟很類似。 這裡顯示的程序會對容器範圍指派角色，但是您可以依照相同的步驟，對佇列範圍指派角色： 
 
-1. 在 [Azure 入口網站](https://azure.portal.com/)中，瀏覽至您的儲存體帳戶，並顯示帳戶的**概觀**。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至您的儲存體帳戶，並顯示帳戶的**概觀**。
 2. 選取 [Blob 服務] 下方的 [瀏覽 Blob]。 
 3. 找出您要為其指派角色的容器，並顯示容器的設定。 
 4. 選取 [存取控制 (IAM)]，以顯示容器的存取控制設定。

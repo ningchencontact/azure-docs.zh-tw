@@ -3,23 +3,24 @@ title: 擷取 Azure AD 存取權檢閱結果| Microsoft Docs
 description: 如何擷取 Azure Active Directory 存取權檢閱的結果。
 services: active-directory
 documentationcenter: ''
-author: markwahl-msft
+author: rolyon
 manager: mtillman
-editor: ''
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.component: compliance-reports
 ms.date: 06/21/2018
 ms.author: rolyon
-ms.openlocfilehash: a2d356afd33ddd2e641c6f9bc028f235623b448b
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.reviewer: mwahl
+ms.openlocfilehash: 1c1488b2744c25e9b7a191d208cb3f81d336bd3a
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37024663"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446685"
 ---
 # <a name="retrieve-access-review-results"></a>擷取存取權檢閱結果
 

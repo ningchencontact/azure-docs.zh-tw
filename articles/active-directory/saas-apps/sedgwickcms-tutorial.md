@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: jeedes
-ms.openlocfilehash: d4832807bb8ce3a854bee16eae5d0ced37fedcd8
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 547c3785fa307838e9a86d38280b90fb31b040b3
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215070"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082616"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sedgwick-cms"></a>教學課程：Azure Active Directory 與 Sedgwick CMS 整合
 
@@ -123,7 +123,7 @@ ms.locfileid: "36215070"
     | `https://claimlookup.com/Voe/sso` |
 
     > [!NOTE] 
-    > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [Sedgwick CMS 支援小組](https://www.sedgwick.com/contact/Pages/contactform.aspx) \(英文\) 以取得這些值。
+    > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [Sedgwick CMS 支援小組](https://www.sedgwick.com/help) \(英文\) 以取得這些值。
  
 
 4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。

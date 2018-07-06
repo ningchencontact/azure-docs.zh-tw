@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 056821bd26e9c6c110b23a048df4aa13bc4ab8fa
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: c5f3904621dcc4fe992b2c2f8293ad706b01f713
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36754168"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446770"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 概念證明腳本：構成要素
 
@@ -45,7 +45,7 @@ ms.locfileid: "36754168"
 | 已定義並確認的網域 | [將自訂網域名稱新增到 Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**注意：** 有些工作負載 (例如 Power BI) 可能已在幕後佈建 Azure AD 租用戶。 若要檢查指定網域是否與租用戶相關聯，請瀏覽至 https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration。 如果您獲得成功的回應，即表示網域已指派給租用戶，而可能需要接管。 如果是這種情況，請連絡 Microsoft 以獲得進一步的指導。 深入了解接管選項：[什麼是 Azure 的自助式註冊？](active-directory-self-service-signup.md) |
 | 已啟用 Azure AD Premium 或 EMS 試用版 | [Azure Active Directory Premium 可免費使用一個月](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | 您已將 Azure AD Premium 或 EMS 授權指派給 PoC 使用者 | [在 Azure Active Directory 中進行自身和使用者的授權](active-directory-licensing-get-started-azure-portal.md) |
-| Azure AD 全域管理員認證 | [在 Azure Active Directory 中指派系統管理員角色](active-directory-assign-admin-roles-azure-portal.md) |
+| Azure AD 全域管理員認證 | [在 Azure Active Directory 中指派系統管理員角色](users-groups-roles/directory-assign-admin-roles.md) |
 | 選擇性但強烈建議使用：作為後援的平行實驗室環境 | [Azure AD Connect 的必要條件](./connect/active-directory-aadconnect-prerequisites.md) |
 
 ## <a name="directory-synchronization---password-hash-sync-phs---new-installation"></a>目錄同步作業 - 密碼雜湊同步處理 (PHS) - 全新安裝
@@ -428,7 +428,7 @@ ms.locfileid: "36754168"
 ### <a name="considerations"></a>考量
 
 1. 此構成要素中的 PoC 步驟會明確地為使用者的所有登入設定 MFA。 此外，還有「條件式存取」和 Identity Protection 之類的其他工具，可在更具目標性的案例中進行 MFA。 這將是從 POC 移到生產環境時需要考量的事項。
-2. 為了方便起見，此構成要素中的 PoC 步驟會明確地使用「通話」作為 MFA 方法。 當您從 POC 轉換到生產環境時，建議您儘可能使用 [Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) 之類的應用程式作為第二要素。
+2. 為了方便起見，此構成要素中的 PoC 步驟會明確地使用「通話」作為 MFA 方法。 當您從 POC 轉換到生產環境時，建議您儘可能使用 [Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) 之類的應用程式作為第二要素。
 深入了解：[DRAFT NIST 特殊出版品 800-63B (英文)](https://pages.nist.gov/800-63-3/sp800-63b.html)
 
 ## <a name="mfa-conditional-access-for-saas-applications"></a>SaaS 應用程式的 MFA 條件式存取
@@ -553,7 +553,7 @@ ms.locfileid: "36754168"
 | --- | --- |
 | 具有從「企業 PKI」佈建之使用者憑證的裝置 (Windows、iOS 或 Android) | [部署使用者憑證](https://msdn.microsoft.com/library/cc770857.aspx) |
 | 與 ADFS 同盟的 Azure AD 網域 | [Azure AD Connect 和同盟](./connect/active-directory-aadconnectfed-whatis.md)<br/>[Active Directory 憑證服務概觀](https://technet.microsoft.com/library/hh831740.aspx)|
-| 針對 iOS 裝置，安裝 Microsoft Authenticator 應用程式 | [開始使用 Microsoft Authenticator 應用程式](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
+| 針對 iOS 裝置，安裝 Microsoft Authenticator 應用程式 | [開始使用 Microsoft Authenticator 應用程式](authentication/end-user/current/microsoft-authenticator-app-how-to.md) |
 
 ### <a name="steps"></a>步驟
 

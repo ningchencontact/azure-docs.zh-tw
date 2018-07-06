@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 5f2a6de9737569c75e0350e2aceec19b149d9549
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 105c10423a9688300ba74874769b162e29572185
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418487"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128600"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>在 Java 中建立 Apache Storm 拓撲
 
@@ -600,7 +600,7 @@ YAML 檔案會定義要用於拓撲的元件以及其間的資料流程。 您�
 如需有關 Flux 的詳細資訊，請參閱 [Flux 架構 (https://storm.apache.org/releases/0.10.0/flux.html)](https://storm.apache.org/releases/0.10.0/flux.html)。
 
 > [!WARNING]
-> 由於發生與 Storm 1.0.1 有關的 [Bug (https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055)，因此，您可能需要安裝 [Storm 開發環境](https://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html)，以便在本機執行 Flux 拓撲。
+> 由於發生與 Storm 1.0.1 有關的 [Bug (https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055)，因此，您可能需要安裝 [Storm 開發環境](http://storm.apache.org/releases/current/Setting-up-development-environment.html)，以便在本機執行 Flux 拓撲。
 
 1. 將 `WordCountTopology.java` 檔案移出專案。 以前，此檔案會定義拓撲，但在 Flux 中則不需要此檔案。
 
@@ -719,9 +719,9 @@ YAML 檔案會定義要用於拓撲的元件以及其間的資料流程。 您�
     ```
 
     > [!WARNING]
-    > 如果您的拓撲使用 Storm 1.0.1 位元，此命令就會失敗。 此失敗是由 [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055) 所造成。 請改為[在開發環境中安裝 Storm](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html)，並使用下列步驟：
+    > 如果您的拓撲使用 Storm 1.0.1 位元，此命令就會失敗。 此失敗是由 [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055) 所造成。 請改為[在開發環境中安裝 Storm](http://storm.apache.org/releases/current/Setting-up-development-environment.html)，並使用下列步驟：
     >
-    > 如果您已[在開發環境中安裝 Storm](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html)，您可以改用下列命令：
+    > 如果您已[在開發環境中安裝 Storm](http://storm.apache.org/releases/current/Setting-up-development-environment.html)，您可以改用下列命令：
     >
     > ```bash
     > mvn compile package

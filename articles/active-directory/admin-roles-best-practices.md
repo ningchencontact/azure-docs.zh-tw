@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 729cb89fbe63dbecb65c6f948052b920bf6e70fe
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 4facc88aad5338362f2220148f1b1870ade5fe7e
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937447"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445478"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>在 Azure AD 中保護混合式部署和雲端部署的特殊權限存取
 
@@ -117,7 +117,7 @@ Azure AD Privileged Identity Management 隨附於 Azure AD Premium P2 或 EMS E5
 
 緊急存取帳戶可協助組織限制現有 Azure Active Directory 環境內的特殊權限存取。 這些帳戶具有高特殊權限，不會指派給特定個人。 緊急存取帳戶僅限用於無法使用一般系統管理帳戶的「急用」狀況。 組織必須控制並減少使用緊急帳戶，並明訂只有在必要時才能使用。 
 
-請評估已指派或適用於全域管理員角色的帳戶。 如果您未看到任何僅限雲端帳戶使用 *.onmicrosoft.com 網域 (供「急用」緊急存取使用)，請加以建立。 如需詳細資訊，請參閱[在 Azure AD 中管理緊急存取系統管理帳戶](active-directory-admin-manage-emergency-access-accounts.md)。
+請評估已指派或適用於全域管理員角色的帳戶。 如果您未看到任何僅限雲端帳戶使用 *.onmicrosoft.com 網域 (供「急用」緊急存取使用)，請加以建立。 如需詳細資訊，請參閱[在 Azure AD 中管理緊急存取系統管理帳戶](users-groups-roles/directory-emergency-access.md)。
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>開啟多重要素驗證，並註冊所有其他高特殊權限的單一使用者非同盟管理員帳戶 
 
@@ -345,7 +345,7 @@ Cloud App Security SIEM 代理程式可整合 Cloud App Security 與您的 SIEM 
 
 #### <a name="review-admin-roles-in-azure-active-directory"></a>檢閱 Azure Active Directory 中的管理員角色 
 
-確認目前的內建 Azure AD 管理員角色是否仍保持最新狀態，並確定使用者是否僅具備其對應權限所需的角色和委派。 透過 Azure AD，您可以指定個別的系統管理員來執行不同的功能。 如需詳細資訊，請參閱[在 Azure Active Directory 中指派系統管理員角色](active-directory-assign-admin-roles-azure-portal.md)。
+確認目前的內建 Azure AD 管理員角色是否仍保持最新狀態，並確定使用者是否僅具備其對應權限所需的角色和委派。 透過 Azure AD，您可以指定個別的系統管理員來執行不同的功能。 如需詳細資訊，請參閱[在 Azure Active Directory 中指派系統管理員角色](users-groups-roles/directory-assign-admin-roles.md)。
 
 #### <a name="review-users-who-have-administration-of-azure-ad-joined-devices"></a>檢閱有哪些使用者可管理已加入 Azure AD 的裝置
 

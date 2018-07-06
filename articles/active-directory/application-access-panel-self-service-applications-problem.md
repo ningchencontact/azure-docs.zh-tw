@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: japere,asteen
-ms.openlocfilehash: 35abd97072f2156424bb910d68923be18f917792
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: cdd554b71cc17019d7818e2b509433df621da84f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331252"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446821"
 ---
 # <a name="problem-using-self-service-application-access"></a>使用自助應用程式存取時遇到問題
 
@@ -98,4 +98,4 @@ ms.locfileid: "36331252"
 -   Fiddler 追蹤
 
 ## <a name="next-steps"></a>後續步驟
-[設定 Azure Active Directory 進行自助服務群組管理](active-directory-accessmanagement-self-service-group-management.md)
+[設定 Azure Active Directory 進行自助服務群組管理](users-groups-roles/groups-self-service-management.md)

@@ -14,12 +14,12 @@ ms.date: 05/21/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: fb4f43dd85f887fa051aaa8050ddf6b37313e376
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 71367737a1364925f49c79f5c9562989752d26bc
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34594545"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448881"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>在 Azure Active Directory 中對 Office 365 群組強制執行命名原則 (預覽)
 
@@ -102,7 +102,7 @@ ms.locfileid: "34594545"
   ````
   在所開啟的 [登入帳戶] 畫面中，輸入系統管理員帳戶和密碼以連線到服務，然後選取 [登入]。
 
-3. 請遵循[用於進行群組設定的 Azure Active Directory Cmdlet](active-directory-accessmanagement-groups-settings-cmdlets.md) 中的步驟，建立此租用戶的群組設定。
+3. 請遵循[用於進行群組設定的 Azure Active Directory Cmdlet](users-groups-roles/groups-settings-cmdlets.md) 中的步驟，建立此租用戶的群組設定。
 
 ### <a name="view-the-current-settings"></a>檢視目前的設定
 
@@ -142,7 +142,7 @@ ms.locfileid: "34594545"
 
 ## <a name="export-or-import-the-list-of-custom-blocked-words"></a>匯出或匯入自訂封鎖字組清單
 
-如需詳細資訊，請參閱[用於進行群組設定的 Azure Active Directory Cmdlet](active-directory-accessmanagement-groups-settings-cmdlets.md) 一文。
+如需詳細資訊，請參閱[用於進行群組設定的 Azure Active Directory Cmdlet](users-groups-roles/groups-settings-cmdlets.md) 一文。
 
 以下 PowerShell 指令碼範例可匯出多個封鎖字組：
 
@@ -200,9 +200,9 @@ Office 365 系統管理中心 | Office 365 系統管理中心會遵守命名原�
 ## <a name="next-steps"></a>後續步驟
 這些文章提供有關 Azure AD 群組的其他資訊。
 
-* [查看現有的群組](active-directory-groups-view-azure-portal.md)
+* [查看現有的群組](fundamentals/active-directory-groups-view-azure-portal.md)
 * [Office 365 群組的到期原則](active-directory-groups-lifecycle-azure-portal.md)
-* [管理群組的設定](active-directory-groups-settings-azure-portal.md)
-* [管理群組的成員](active-directory-groups-members-azure-portal.md)
-* [管理群組的成員資格](active-directory-groups-membership-azure-portal.md)
+* [管理群組的設定](fundamentals/active-directory-groups-settings-azure-portal.md)
+* [管理群組的成員](fundamentals/active-directory-groups-members-azure-portal.md)
+* [管理群組的成員資格](fundamentals/active-directory-groups-membership-azure-portal.md)
 * [管理群組中使用者的動態規則](active-directory-groups-dynamic-membership-azure-portal.md)

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
 ms.openlocfilehash: cadd771a516270faf23f18a36f54fa9a1541e6d5
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/29/2018
 ms.locfileid: "34364894"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>如何使用 SendGrid 透過 Java 傳送電子郵件
@@ -28,7 +28,7 @@ ms.locfileid: "34364894"
 SendGrid 是 [雲端架構電子郵件服務]，能提供可靠的 [交易式電子郵件傳遞]、擴充性和即時分析，以及有彈性的 API 來輕鬆進行自訂整合。 常見的 SendGrid 使用案例包括：
 
 * 自動傳送回條給客戶
-* 管理通訊群組清單，以便將每月電子傳單和特別優惠傳送給客戶
+* 管理通訊群組清單，以便將每月電子傳單和特別供應項目傳送給客戶
 * 收集封鎖的電子郵件、客戶的回應情形等項目的即時度量
 * 產生報表，協助找出趨勢
 * 轉寄客戶查詢
@@ -183,7 +183,7 @@ SendGrid 提供的網頁式 API 可供從 Azure 應用程式運用其他 SendGri
 * 示範在 Azure 部署中使用 SendGrid 的範例：[如何在 Azure 部署中使用 SendGrid 透過 Java 傳送電子郵件](store-sendgrid-java-how-to-send-email-example.md)
 * SendGrid Java SDK: <https://sendgrid.com/docs/Code_Examples/java.html>
 * SendGrid API 文件：<https://sendgrid.com/docs/API_Reference/index.html>
-* Azure 客戶的 SendGrid 特別優惠：<https://sendgrid.com/windowsazure.html>
+* Azure 客戶的 SendGrid 特別供應項目：<https://sendgrid.com/windowsazure.html>
 
 [http://sendgrid.com]: https://sendgrid.com
 [http://sendgrid.com/pricing.html]: http://sendgrid.com/pricing.html

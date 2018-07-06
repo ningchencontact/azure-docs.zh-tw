@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: b3b9228c0733d34ea909a501e8ca6f9e11948381
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 58e3646588e500c4dd5334966d559aaed333b689
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825901"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083156"
 ---
 # <a name="become-a-publisher-in-the-storefronts-on-the-marketplace"></a>成為市集中店面的發行者  
 下列步驟可協助您註冊為市集中店面的發行者。 根據您與 Microsoft 間的現有約定及您選取的清單類型，可能不需要下列某些步驟。  
@@ -30,7 +30,6 @@ ms.locfileid: "34825901"
 | 2 | 建立 Microsoft ID | 15 分鐘 | [建立 Microsoft ID](#create-a-microsoft-id) |  
 | 3 | 提交 Marketplace 提名表單 | 1-3 天 | [提交市集提名表單](#submit-the-marketplace-nomination-form) |  
 | 4 | 在 Microsoft 開發人員中心 (Dev Center) 註冊 | 5-10 天 | [在開發人員中心註冊](#register-in-dev-center) |  
-| 5 | 登入 AppSource | 15 分鐘 | [登入 AppSource](#sign-into-appSource) |  
 | 5 |  登入 Cloud Partner 入口網站 | 15 分鐘 | [登入 Cloud Partner 入口網站](#sign-into-cloud-partner-portal) |  
 
 ## <a name="register-in-microsoft-partner-network"></a>在 Microsoft 合作夥伴網路中註冊  
@@ -81,18 +80,6 @@ ms.locfileid: "34825901"
 >[!Important]
 >在您嘗試建立開發人員中心帳戶之前，請確認您公司尚未有開發人員中心帳戶。 
 >*   如需詳細資訊，請瀏覽[如何在開發人員中心註冊](#how-to-register-in-dev-center)一節。  
-
----  
-
-## <a name="sign-into-appsource"></a>登入 AppSource  
-| 15 分鐘 |  
-當您的提名已核准，而且您已在 MPN 和開發人員中心註冊之後，系統就會為您建立具有 AppSource 存取權的市集帳戶。 提名核准電子郵件中會包含初次登入認證。 
-*   若要存取 MPN，請瀏覽成員資格頁面：[partner.microsoft.com/membership](https://partner.microsoft.com/membership)。  
-*   若要存取開發人員中心，請瀏覽開發人員中心頁面：[dev.windows.com](https://dev.windows.com)。  
-*   若要存取 AppSource，請瀏覽 AppSource 頁面：[appsource.microsoft.com](https://appsource.microsoft.com)。  
-*   若要存取 Microsoft Cloud Partner 入口網站，請瀏覽 Cloud Partner 入口網站頁面：[cloudpartner.azure.com](https://cloudpartner.azure.com)。  
-*   如需使用 Cloud Partner 入口網站的詳細資訊，請瀏覽學習區段：[cloudpartner.azure.com/#Learn](https://cloudpartner.azure.com/#Learn)。  
-*   如需有關 Cloud Partner 入口網站的文件，請瀏覽文件區段：[cloudpartner.azure.com/#documentation](https://cloudpartner.azure.com/#documentation)。  
 
 ---  
 

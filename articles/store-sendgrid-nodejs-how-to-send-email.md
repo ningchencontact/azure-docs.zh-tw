@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
 ms.openlocfilehash: 327cea3a24cc47a9cc463b37cc2346ebc475ef7f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/29/2018
 ms.locfileid: "23059883"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>如何使用 SendGrid 透過 Node.js 傳送電子郵件
@@ -28,7 +28,7 @@ ms.locfileid: "23059883"
 SendGrid 是 [雲端架構電子郵件服務]，能提供可靠的 [交易式電子郵件傳遞]、擴充性和即時分析，以及有彈性的 API 來輕鬆進行自訂整合。 常見的 SendGrid 使用案例包括：
 
 * 自動傳送回條給客戶
-* 管理通訊群組清單，以便將每月電子傳單和特別優惠傳送給客戶
+* 管理通訊群組清單，以便將每月電子傳單和特別供應項目傳送給客戶
 * 收集封鎖的電子郵件、客戶的回應情形等項目的即時度量
 * 產生報表，協助找出趨勢
 * 轉寄客戶查詢
@@ -181,7 +181,7 @@ SendGrid 提供的網頁式 API 可供從 Azure 應用程式運用其他 SendGri
 
 * SendGrid Node.js 模組存放機制：[sendgrid-nodejs][sendgrid-nodejs]
 * SendGrid API 文件：<https://sendgrid.com/docs>
-* Azure 客戶的 SendGrid 特別優惠：[http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
+* Azure 客戶的 SendGrid 特別供應項目：[http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
 
 [special offer]: https://sendgrid.com/windowsazure.html
 [sendgrid-nodejs]: https://github.com/sendgrid/sendgrid-nodejs

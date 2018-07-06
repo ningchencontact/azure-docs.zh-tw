@@ -3,7 +3,7 @@ title: Azure Log Analytics 中所儲存個人資料的指引 | Microsoft Docs
 description: 本文說明如何管理 Azure Log Analytics 中所儲存的個人資料，以及用以識別和移除個人資料的方法。
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 056779943d05ca743db63f1bc91be058cfae7b30
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: na
+ms.openlocfilehash: 3692c83a4991fc67ec176687bd076ab14e4c640d
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659107"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129365"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics"></a>Log Analytics 中所儲存個人資料的指引
 
@@ -29,7 +30,7 @@ Log Analytics 是有望找到個人資料的資料存放區。 本文會討論�
 
 ## <a name="strategy-for-personal-data-handling"></a>個人資料處理策略
 
-雖然用來處理私人資料 (如果有的話) 的策略，最終是由您和貴公司來決定的，但下面有一些可行的方法。 這些方法是從技術觀點，依照推薦順序由高至低來列出：
+雖然您和您的公司對於處理私人資料 (如果有的話) 的策略擁有最終決定權，以下提供一些可採行的方法。 這些方法是從技術觀點，依照推薦順序由高至低來列出：
 
 * 如果可以，請停止收集、模糊處理、匿名處理或調整所收集的資料，讓資料不致於成為「私人」資料。 這是截至目前為止最推薦的方法，可讓您不必建立成本極高、影響層面極大的資料處理策略。
 * 不行的話，請嘗試將資料標準化，以減少對資料平台和效能所造成的影響。 例如，不是記錄明確的使用者識別碼，而是建立查閱資料，將使用者名稱和其詳細資料關聯到某個可於隨後記錄到別處的內部識別碼。 這樣一來，如果某位使用者要求您刪除其個人資訊，您只要刪除查閱表中與該使用者對應的資料列可能便已足夠。 
@@ -56,7 +57,7 @@ Log Analytics 是彈性的存放區，在指定資料結構描述的同時，允
 
 ## <a name="how-to-export-and-delete-private-data"></a>如何匯出及刪除私人資料
 
-如先前的[個人資料處理策略](#strategy-for-personal-data-handling)一節所述，如果可以，__強烈__建議您重新制定資料收集政策以停止收集私人資料，或者模糊、匿名處理或修改私人資料，以免資料成為「私人」資料。 處理資料起先會導致您和團隊需要花費心力來定義並自動執行策略，建置介面供客戶與其資料互動，並產生長期維護成本。 此外，Log Analytics 的計算成本很高，而且大量的並行查詢或清除 API 呼叫可能會對 Log Analytics 功能的所有其他互動產生負面影響。 話雖如此，但在某些合理情況下，確實有必要收集私人資料。 在這些情況下，就應該如本節所述地處理資料。
+如先前的[個人資料處理策略](#strategy-for-personal-data-handling)一節所述，如果可以，__強烈__建議您重新制定資料收集政策以停止收集私人資料，或者模糊、匿名處理或修改私人資料，以免資料成為「私人」資料。 處理資料起先會導致您和團隊需要花費心力來定義並自動執行策略，建置介面供客戶與其資料互動，並產生長期維護成本。 此外，Log Analytics 的計算成本很高，而且大量的並行查詢或清除 API 呼叫可能會對 Log Analytics 功能的所有其他互動產生負面影響。 話雖如此，但在某些合理情況下，確實有必要收集私人資料。 在這些情況下，就應該採用本節所述的方式來處理資料。
 
 [!INCLUDE [gdpr-intro-sentence](../../includes/gdpr-intro-sentence.md)]
 

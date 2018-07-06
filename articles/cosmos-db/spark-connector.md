@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: ramkris
-ms.openlocfilehash: 47abd2f3534a0f3418bc09e19a61e222093e7099
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: e115c7e18b32630b7331e22a6bdc33338d753fde
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960469"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083289"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>使用「Spark 至 Azure Cosmos DB」連接器來加速即時巨量資料分析
 
@@ -24,8 +24,6 @@ ms.locfileid: "36960469"
 深入了解 Azure Cosmos DB 首席程式總監 Denny Lee 的這部影片。 
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T135/player] 
-
-如需使用 Azure Cosmos DB 的 Spark GraphX 和 Gremlin 圖形 API，請參閱[使用 Spark 和 Apache TinkerPop Gremlin 執行圖形分析](spark-connector-graph.md)。
 
 ## <a name="download"></a>下載
 

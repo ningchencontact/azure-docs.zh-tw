@@ -8,16 +8,16 @@ ms.author: pabuehle
 manager: mwinkle
 ms.reviewer: marhamil, mldocs, garyericson, jasonwhowell
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 5ff6502b0ed023f6fe8a9475a0e81991a9918cc5
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 48c21638fe5756e6527288ed0fdc73dd9e331afd
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850166"
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "35633288"
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>使用 Azure Machine Learning Workbench 進行影像分類
 
@@ -236,7 +236,8 @@ Azure Machine Learning Workbench 會儲存 Azure上每次執行的歷程記錄�
 在第一個螢幕擷取畫面中，DNN 調整會針對所有類別，產生比 SVM 訓練更佳的精確度。 第二個螢幕擷取畫面會顯示所要追蹤的所有度量，包括分類器為何。 這項追蹤會藉由呼叫 Azure Machine Learning Workbench 記錄器，在指令碼 `5_evaluate.py` 中完成。 此外，指令碼也會將 ROC 曲線和混淆矩陣儲存到 *outputs* 資料夾。 這個 *outputs* 資料夾的特殊之處，在於其內容也是由 Workbench 歷程記錄功能進行追蹤，因此不論本機複本是否已被覆寫，都可以隨時存取輸出檔案。
 
 <p align="center">
-<img src="media/scenario-image-classification-using-cntk/run_comparison1.jpg" alt="alt text" width="700"/> </p>
+<img src="media/scenario-image-classification-using-cntk/run_comparison1.jpg" alt="alt text" width="700"/>
+</p>
 
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/run_comparison2b.jpg" alt="alt text" width="700"/>
