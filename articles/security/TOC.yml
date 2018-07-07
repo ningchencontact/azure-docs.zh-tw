@@ -164,8 +164,16 @@
           href: azure-operational-security-checklist.md
 - name: 治理和合規性
   items:
-    - name: 適用於已規範工作負載的金融服務
-      href: ./blueprints/financial-services-regulated-workloads.md
+    - name: FFIEC
+      items:
+        - name: 資料分析
+          href: ./blueprints/ffiec-analytics-overview.md
+        - name: 資料倉儲
+          href: ./blueprints/ffiec-dw-overview.md
+        - name: IaaS Web 應用程式
+          href: ./blueprints/ffiec-iaaswa-overview.md
+        - name: PaaS Web 應用程式
+          href: ./blueprints/ffiec-paaswa-overview.md
     - name: GDPR
       items:
         - name: 資料分析
@@ -187,34 +195,15 @@
         - name: PaaS Web 應用程式
           href: ./blueprints/fedramp-paaswa-overview.md
     - name: PCI DSS
-      href: ./blueprints/payment-processing-blueprint.md
       items:
-        - name: 需求概觀
-          href: ./blueprints/pci-dss-requirements-overview.md
-        - name: 需求 1 - 防火牆
-          href: ./blueprints/pci-dss-requirement-1-firewall.md
-        - name: 需求 2 - 密碼
-          href: ./blueprints/pci-dss-requirement-2-password.md
-        - name: 需求 3 - CHD
-          href: ./blueprints/pci-dss-requirement-3-chd.md
-        - name: 需求 4 - 加密
-          href: ./blueprints/pci-dss-requirement-4-encryption.md
-        - name: 需求 5 - 惡意程式碼
-          href: ./blueprints/pci-dss-requirement-5-malware.md
-        - name: 需求 6 - 保護系統安全
-          href: ./blueprints/pci-dss-requirement-6-secure-system.md
-        - name: 需求 7 - 存取
-          href: ./blueprints/pci-dss-requirement-7-access.md
-        - name: 需求 8 - 身分識別
-          href: ./blueprints/pci-dss-requirement-8-identity.md
-        - name: 需求 9 - 實體存取
-          href: ./blueprints/pci-dss-requirement-9-physical-access.md
-        - name: 需求 10 - 監視
-          href: ./blueprints/pci-dss-requirement-10-monitoring.md
-        - name: 需求 11 - 測試
-          href: ./blueprints/pci-dss-requirement-11-testing.md
-        - name: 需求 12 - 原則
-          href: ./blueprints/pci-dss-requirement-12-policy.md
+        - name: 資料分析
+          href: ./blueprints/pcidss-analytics-overview.md
+        - name: 資料倉儲
+          href: ./blueprints/pcidss-dw-overview.md
+        - name: IaaS Web 應用程式
+          href: ./blueprints/pcidss-iaaswa-overview.md
+        - name: PaaS Web 應用程式
+          href: ./blueprints/pcidss-paaswa-overview.md
     - name: UK NHS
       items:
         - name: 資料分析

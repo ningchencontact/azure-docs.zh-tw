@@ -69,10 +69,10 @@
       items:
         - name: 網路安全性群組
           items:
+            - name: Azure PowerShell
+              href: tutorial-filter-network-traffic-powershell.md
             - name: Azure CLI
               href: tutorial-filter-network-traffic-cli.md
-            - name: Azure 入口網站
-              href: virtual-networks-create-nsg-arm-pportal.md
         - name: 路由表
           items:
             - name: Azure PowerShell
