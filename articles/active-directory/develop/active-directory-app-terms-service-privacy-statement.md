@@ -63,9 +63,9 @@ ms.locfileid: "36316445"
 如果您之前在 Azure 入口網站中註冊應用程式，請遵循下列步驟。
 
 1. 登入  [Azure 入口網站](https://portal.azure.com/)。
-2. 瀏覽至 [應用程式註冊] ****  區段，然後選取應用程式。
-3. 開啟應用程式的 [屬性] ****  區段。
-4. 填寫 [服務條款 URL] ****  和 [隱私權聲明 URL] ****  欄位。
+2. 瀏覽至  **[應用程式註冊]**  區段，然後選取應用程式。
+3. 開啟應用程式的  **[屬性]**  區段。
+4. 填寫  **[服務條款 URL]**  和  **[隱私權聲明 URL]**  欄位。
 5. 儲存您的變更。
 
 ![具有服務條款和隱私權聲明 URL 的應用程式屬性區段](./media/active-directory-integrating-applications/azure-portal-terms-service-privacy-statement-urls.png)
@@ -74,8 +74,8 @@ ms.locfileid: "36316445"
 如果您之前在應用程式註冊入口網站或開發人員中心註冊應用程式，請遵循下列步驟。
 
 1. 登入 [應用程式註冊入口網站](https://apps.dev.microsoft.com/)。
-2. 選取應用程式，然後捲動至 [設定檔] ****  區段。
-3. 填寫 [服務條款 URL] ****  和 [隱私權聲明 URL] ****  欄位。
+2. 選取應用程式，然後捲動至  **[設定檔]**  區段。
+3. 填寫  **[服務條款 URL]**  和  **[隱私權聲明 URL]**  欄位。
 4. 儲存您的變更。
 
 ![具有服務條款和隱私權聲明 URL 的應用程式設定檔區段](./media/active-directory-integrating-applications/app-registration-portal-profile-terms-service-privacy-statement-urls.png)

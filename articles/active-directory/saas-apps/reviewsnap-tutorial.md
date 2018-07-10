@@ -110,7 +110,7 @@ ms.locfileid: "36225291"
 
     a. 在 [識別碼] 文字方塊中，輸入 URL：`https://app.reviewsnap.com`
 
-    b. 在 [回覆 URL]**** 文字方塊中，以下列模式輸入 URL：`https://app.reviewsnap.com/auth/saml/callback?namespace=<CUSTOMER_NAMESPACE>
+    b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://app.reviewsnap.com/auth/saml/callback?namespace=<CUSTOMER_NAMESPACE>
 `
 
 4. 如果您想要以 **SP** 起始模式設定應用程式，請勾選 [顯示進階 URL 設定]，然後執行下列步驟：
