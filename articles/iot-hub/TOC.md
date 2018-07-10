@@ -98,7 +98,7 @@
 
 ### 擴充的 IoT 案例
 #### [透過 iothub-explorer 管理雲端裝置傳訊](iot-hub-explorer-cloud-device-messaging.md)
-#### [將 IoT 中樞IoT 中樞儲存至 Azure 資料儲存體](iot-hub-store-data-in-azure-table-storage.md)
+#### [將 IoT 中樞訊息儲存至 Azure Blob 儲存體](iot-hub-store-data-in-azure-table-storage.md)
 #### [Power BI 中的資料視覺效果](iot-hub-live-data-visualization-in-power-bi.md)
 #### [Web Apps 的資料視覺效果](iot-hub-live-data-visualization-in-web-apps.md)
 #### [使用 Azure Machine Learning 進行天氣預測](iot-hub-weather-forecast-machine-learning.md)

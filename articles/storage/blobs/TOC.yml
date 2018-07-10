@@ -20,7 +20,9 @@
       href: storage-quickstart-blobs-cli.md
     - name: 使用 Blob - .NET
       href: storage-quickstart-blobs-dotnet.md
-    - name: 使用 Blob - Java
+    - name: 使用 Blob - Java (儲存體 SDK V10)
+      href: storage-quickstart-blobs-java-v10.md
+    - name: 使用 Blob - Java (儲存體 SDK V7)
       href: storage-quickstart-blobs-java.md
     - name: 使用 Blob - Python
       href: storage-quickstart-blobs-python.md
@@ -190,8 +192,10 @@
           href: storage-https-custom-domain-cdn.md
         - name: Azure Blob 儲存體的固定儲存體功能 (預覽)
           href: storage-blob-immutable-storage.md
-        - name: 針對 Azure 儲存體用戶端啟用安全的 TLS
+        - name: 為 Azure 儲存體用戶端啟用安全的 TLS
           href: ../common/storage-security-tls.md
+        - name: 合規性供應項目
+          href: ../common/storage-compliance-offerings.md
     - name: 監視及疑難排解
       items:
         - name: 疑難排解教學課程

@@ -47,6 +47,8 @@
       items:
         - name: 變更追蹤概觀
           href: automation-change-tracking.md
+        - name: 檢視追蹤檔案的檔案內容
+          href: change-tracking-file-contents.md
     - name: 清查
       items:
         - name: 使用清查集合來管理虛擬機器
