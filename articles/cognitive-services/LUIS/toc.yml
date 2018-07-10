@@ -71,8 +71,6 @@
           href: luis-tutorial-review-endpoint-utterances.md
         - name: 具有模式
           href: luis-tutorial-pattern.md
-        - name: 具有片語清單
-          href: luis-tutorial-interchangeable-phrase-list.md
 - name: 範例
   items:
     - name: 程式碼範例
