@@ -9,14 +9,14 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: v-geberr
-ms.openlocfilehash: 9acdfdde667d37bac5b96e4497b3e86d2cdeccb8
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: f3808620c4527f2971d8eb6d53a09c893b162b59
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063403"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340945"
 ---
-# <a name="tutorial-learn-how-to-return-data-from-keyphrase-entity"></a>教學課程：了解如何從 KeyPhrase 實體傳回資料 
+# <a name="tutorial-7-add-keyphrase-entity"></a>教學課程：7. 新增 KeyPhrase 實體 
 在本教學課程中，使用應用程式來示範如何從語句中擷取重要主題。
 
 <!-- green checkmark -->
@@ -201,10 +201,10 @@ ms.locfileid: "37063403"
 LUIS 是利用此要求來完成。 呼叫應用程式 (例如聊天機器人) 可以採用 topScoringIntent 結果和語句中的 keyPhrase 資料，進而採取下一個步驟。 LUIS 不會為 bot 或呼叫應用程式進行該程式設計工作。 LUIS 只會判斷使用者的用意為何。 
 
 ## <a name="clean-up-resources"></a>清除資源
-若不再需要，請刪除 LUIS 應用程式。 若要這麼做，請選取應用程式清單中應用程式名稱右邊的三個點功能表 (...)，然後選取 [刪除]。 在 [刪除應用程式?] 快顯對話方塊中選取 [確定]。
+若不再需要，請刪除 LUIS 應用程式。 選取左上方功能表中的 [我的應用程式]。 選取應用程式清單中應用程式名稱右邊的三個點功能表 (...)，然後選取 [刪除]。 在 [刪除應用程式?] 快顯對話方塊中選取 [確定]。
 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [建立可傳回情感及意圖預測的應用程式](luis-quickstart-intent-and-sentiment-analysis.md)
+> [在應用程式中新增情感分析](luis-quickstart-intent-and-sentiment-analysis.md)
 

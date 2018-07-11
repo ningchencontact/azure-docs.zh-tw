@@ -9,14 +9,14 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/22/2018
 ms.author: v-geberr
-ms.openlocfilehash: 5fb93ebbd2da02df0c2cdf0d19ed282aeafe9473
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6ba45de8ef41c8a57ca9c042a304e323a4fac263
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335555"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081688"
 ---
-# <a name="tutorial-create-app-that-uses-hierarchical-entity"></a>教學課程：建立會使用階層式實體的應用程式
+# <a name="tutorial-5-add-hierarchical-entity"></a>教學課程：5. 新增階層式實體
 在本教學課程中，您將建立應用程式，示範如何根據內容尋找相關資料片段。 
 
 <!-- green checkmark -->
@@ -37,7 +37,7 @@ ms.locfileid: "36335555"
 ## <a name="purpose-of-the-app-with-this-entity"></a>使用此實體的應用程式用途
 此應用程式會判斷員工是否要從原點位置 (建築物和辦公室) 移到目的地位置 (建築物和辦公室)。 它會使用階層式實體來判斷語句中的位置。 
 
-階層式實體適用於此類型資料，因為這兩個資料片段：
+階層式實體適用於此類型資料，因為這兩個資料片段是：
 
 * 在語句的內容中彼此相關。
 * 使用特定文字來表示每個位置。 這些字的範例包括：from/to、leaving/headed to、away from/toward。

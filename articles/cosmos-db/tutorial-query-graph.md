@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: dfaf3fe1427c9069939f5421c6a87efb584ebe48
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: ad38976f439c399d839d6c5ee9dcd6ade7726c71
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763199"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081902"
 ---
 # <a name="tutorial-query-azure-cosmos-db-graph-api-by-using-gremlin"></a>教學課程：使用 Gremlin 查詢 Azure Cosmos DB 圖形 API
 
@@ -31,7 +31,7 @@ Azure Cosmos DB [圖形 API](graph-introduction.md) 支援 [Gremlin](https://git
 
 ## <a name="prerequisites"></a>先決條件
 
-若要讓這些查詢能夠運作，您必須具備 Azure Cosmos DB 帳戶，並且在容器中有圖形資料。 不符合上述其中任何一項條件嗎？ 請完成 [5 分鐘快速入門](create-graph-dotnet.md)或[開發人員教學課程](tutorial-query-graph.md)，以建立帳戶並在資料庫中填入資料。 您可以使用 [Azure Cosmos DB .NET 圖形程式庫](graph-sdk-dotnet.md)、[Gremlin 主控台](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console)或慣用的 Gremlin 驅動程式，來執行下列查詢。
+若要讓這些查詢能夠運作，您必須具備 Azure Cosmos DB 帳戶，並且在容器中有圖形資料。 不符合上述其中任何一項條件嗎？ 請完成 [5 分鐘快速入門](create-graph-dotnet.md)或[開發人員教學課程](tutorial-query-graph.md)，以建立帳戶並在資料庫中填入資料。 您可以使用 [Gremlin 主控台](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console)或慣用的 Gremlin 驅動程式，執行下列查詢。
 
 ## <a name="count-vertices-in-the-graph"></a>計算圖形中的頂點
 
@@ -80,7 +80,8 @@ g.V('thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabe
 > [!div class="checklist"]
 > * 了解如何使用「圖形」來進行查詢 
 
-您現在可以繼續進行到下一個教學課程，以了解如何全域散發您的資料。
+您現在可以繼續進行＜概念＞一節了解有關 Cosmos DB 的詳細資訊。
 
 > [!div class="nextstepaction"]
-> [全域散發您的資料](tutorial-global-distribution-graph.md)
+> [全球發佈](distribute-data-globally.md) 
+

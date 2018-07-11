@@ -1,7 +1,7 @@
 ---
 title: 使用 Docker Compose 組態在適用於容器的 Azure Web 應用程式中建立多容器 (預覽) 應用程式
-description: 只要幾分鐘在適用於容器的 Azure Web 應用程式中部署您的第一個 .NET Core Hello World 應用程式
-keywords: azure app service, web 應用程式, linux, docker, compose, 多個容器, 容器, kubernetes
+description: 利用幾分鐘的時間在適用於容器的 Azure Web 應用程式中部署第一個多容器應用程式
+keywords: azure 應用程式服務, web 應用程式, linux, docker, compose, 多容器, 多重容器, 適用於容器的 web 應用程式, 多個容器, 容器, kubernetes, wordpress, 適用於 mysql 的 azure db, 具有容器的生產資料庫
 services: app-service\web
 documentationcenter: ''
 author: msangapu
@@ -15,20 +15,20 @@ ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: ec5c92415668c925fe360c0c8887fd792a121842
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: bf567402a66f9152c7eb9b97925fec2a159ffe56
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753706"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127415"
 ---
-# <a name="create-a-multicontainer-preview-app-using-web-app-for-containers"></a>透過用於容器的 Web App 建立多容器 (預覽) 應用程式
+# <a name="create-a-multi-container-preview-app-using-web-app-for-containers"></a>透過用於容器的 Web App 建立多容器 (預覽) 應用程式
 
-[適用於容器的 Web 應用程式](app-service-linux-intro.md)提供彈性的 Docker 映像使用方式。 本快速入門說明如何使用 Docker Compose 組態，在 [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) 中將多容器應用程式部署至用於容器的 Web App。 若為 Kubernetes，依照[多容器教學課程](tutorial-multi-container-app.md)中的 Kubernetes 步驟操作。
+[適用於容器的 Web 應用程式](app-service-linux-intro.md)提供彈性的 Docker 映像使用方式。 本快速入門說明如何使用 Docker Compose 組態，在 [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) 中將多容器應用程式部署至用於容器的 Web App。 至於 Kubernetes 和使用「適用於 MySQL 的 Azure DB」的完整端對端解決方案，請遵循[多容器教學課程](tutorial-multi-container-app.md)。
 
-您將會在 Cloud Shell 中完成本快速入門，但您也可以在本機使用 [Azure CLI](/cli/azure/install-azure-cli) (2.0.32 或更新版本) 來執行這些命令。 本快速入門將會使用 Docker Compose 組態檔。
+您將會在 Cloud Shell 中完成本快速入門，但您也可以在本機使用 [Azure CLI](/cli/azure/install-azure-cli) (2.0.32 或更新版本) 來執行這些命令。 
 
-![用於容器的 Web App 上的範例多容器應用程式][1]
+![適用於容器的 Web 應用程式上的範例多容器應用程式][1]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -36,7 +36,7 @@ ms.locfileid: "36753706"
 
 ## <a name="download-the-sample"></a>下載範例
 
-在本快速入門中，您會使用 [Docker](https://docs.docker.com/compose/wordpress/#define-the-project) 中的 Compose 檔案，但您會加以修改，使其包含適用於 MySQL 的 Azure 資料庫、永續性儲存體和 Redis。 組態檔位於 [Azure 範例](https://github.com/Azure-Samples/multicontainerwordpress)中。
+在本快速入門中，您會使用從 [Docker](https://docs.docker.com/compose/wordpress/#define-the-project) 取得的 Compose 檔案。 組態檔位於 [Azure 範例](https://github.com/Azure-Samples/multicontainerwordpress)中。
 
 [!code-yml[Main](../../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
 
@@ -48,10 +48,12 @@ mkdir quickstart
 cd quickstart
 ```
 
-下一步，執行下列命令，將範例應用程式存放庫複製到您的快速入門目錄。
+下一步，執行下列命令，將範例應用程式存放庫複製到您的快速入門目錄。 然後，變更為 `multicontainerwordpress` 目錄。
 
 ```bash
 git clone https://github.com/Azure-Samples/multicontainerwordpress
+
+cd multicontainerwordpress
 ```
 
 ## <a name="create-a-resource-group"></a>建立資源群組
@@ -100,11 +102,9 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 ## <a name="create-a-docker-compose-app"></a>建立 Docker Compose 應用程式
 
-在 Cloud Shell 終端機中，切換到 `multicontainerwordpress` 目錄。 使用 [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) 命令，在 `myAppServicePlan` App Service 方案中建立多容器 [Web 應用程式](app-service-linux-intro.md)。 別忘了將 _\<app_name>_ 取代為唯一的應用程式名稱。
+在 Cloud Shell 終端機中，使用 [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) 命令，在 `myAppServicePlan` App Service 方案中建立多容器 [Web 應用程式](app-service-linux-intro.md)。 別忘了將 _\<app_name>_ 取代為唯一的應用程式名稱。
 
 ```bash
-cd multicontainerwordpress
-
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
 ```
 
@@ -129,9 +129,9 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 
 瀏覽至已部署的應用程式 (位於 `http://<app_name>.azurewebsites.net`)。 此應用程式可能需要數分鐘才能載入。 如果發生錯誤，請再等待數分鐘，然後重新整理瀏覽器。
 
-![用於容器的 Web App 上的範例多容器應用程式][1]
+![適用於容器的 Web 應用程式上的範例多容器應用程式][1]
 
-**恭喜**，您已在用於容器的 Web App 中建立多容器應用程式。
+**恭喜**，您已在適用於容器的 Web 應用程式中建立多容器應用程式。
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 

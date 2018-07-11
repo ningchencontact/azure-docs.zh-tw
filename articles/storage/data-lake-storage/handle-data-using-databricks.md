@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: d9720377beb1973b8ae4e9423fc991aa82646924
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 10aad06d4ac8d76dc023648e8d6c0366bff859e6
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061591"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344689"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>教學課程：使用 Azure Databrick 擷取、轉換和載入資料
 
@@ -117,7 +117,7 @@ ms.locfileid: "37061591"
 
 4. 在第一個資料格中輸入下列程式碼，然後執行程式碼：
 
-    ```python
+    ```scala
     spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_KEY>") 
     spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
     dbutils.fs.ls("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/")
@@ -132,11 +132,14 @@ ms.locfileid: "37061591"
 
 下一個步驟是將範例資料檔案上傳至儲存體帳戶中，以便稍候在 Azure Databricks 中進行轉換。 
 
-1. 如果您尚未針對 Data Lake Storage Gen2 建立帳戶，請遵循快速入門來建立 Data Lake Storage Gen2 帳戶。
-2. 範例資料 (**small_radio_json.json**) 可於 [U-SQL 範例與問題追蹤](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json)存放庫中取得。 下載 JSON 檔案，並記下檔案的儲存路徑。
-3. 將資料上傳至儲存體帳戶。 用來將資料上傳到儲存體帳戶的方法，會因為您是否已啟用階層式命名空間服務 (HNS) 而有所不同。
+> [!NOTE]
+> 如果您還沒有具 Azure Data Lake Storage Gen2 功能的帳戶，請遵循[快速入門以建立帳戶](./quickstart-create-account.md)。
 
-    如果 ADLS Gen2 帳戶上已啟用階層式命名空間服務，您可以使用 Azure Data Factory、distp 或 AzCopy (第 10 版) 來處理上傳。 AzCopy 第 10 版僅供預覽版客戶使用。 若要從 Cloud Shell 使用 AzCopy：
+1. 從 [U-SQL 範例和問題追蹤](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json)存放庫下載 (**small_radio_json.json**)，並記下檔案的儲存路徑。
+
+2. 接著，將資料範例上傳到儲存體帳戶。 用來將資料上傳到儲存體帳戶的方法，會因為您是否已啟用階層命名空間而有所不同。
+
+    如果針對 Gen2 帳戶所建立的 Azure 儲存體帳戶上已啟用階層命名空間，您便可以使用 Azure Data Factory、distp 或 AzCopy (第 10 版) 來處理上傳。 AzCopy 第 10 版僅供預覽版客戶使用。 若要使用 AzCopy，請將下列程式碼傳入命令視窗：
 
     ```bash
     set ACCOUNT_NAME=<ACCOUNT_NAME>
@@ -150,7 +153,7 @@ ms.locfileid: "37061591"
 
 1. 在空白程式碼資料格中新增下列程式碼片段，並以您稍早從儲存體帳戶儲存的值取代預留位置值。
 
-    ```python
+    ```scala
     dbutils.widgets.text("storage_account_name", "STORAGE_ACCOUNT_NAME", "<YOUR_STORAGE_ACCOUNT_NAME>")
     dbutils.widgets.text("storage_account_access_key", "YOUR_ACCESS_KEY", "<YOUR_STORAGE_ACCOUNT_SHARED_KEY>")
     ```
@@ -159,13 +162,13 @@ ms.locfileid: "37061591"
 
 2. 您現在可以將 json 檔案範例以資料框架的形式載入 Azure Databricks。 在新的資料格中貼上下列程式碼，然後按 **SHIFT + ENTER** (務必要取代預留位置值)：
 
-    ```python
+    ```scala
     val df = spark.read.json("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/data/small_radio_json.json")
     ```
 
 3. 執行下列程式碼，以查看資料框架的內容。
 
-    ```python
+    ```scala
     df.show()
     ```
 
@@ -190,7 +193,7 @@ ms.locfileid: "37061591"
 
 1. 一開始，僅在已建立的資料框架中擷取 *firstName*、*lastName**gender**location* 和 *level* 資料行。
 
-    ```python
+    ```scala
     val specificColumnsDf = df.select("firstname", "lastname", "gender", "location", "level")
     ```
 
@@ -225,7 +228,7 @@ ms.locfileid: "37061591"
 
 2.  您可以進一步轉換此資料，將 **level** 資料行重新命名為 **subscription_type**。
 
-    ```python
+    ```scala
     val renamedColumnsDF = specificColumnsDf.withColumnRenamed("level", "subscription_type")
     renamedColumnsDF.show()
     ```
@@ -267,28 +270,28 @@ ms.locfileid: "37061591"
 
 1. 提供可從 Azure Databricks 存取 Azure 儲存體帳戶的組態。
 
-    ```python
+    ```scala
     val storageURI = "<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net"
-    val fileSystemName = "<FILE_SYSTEM_NJAME>"
+    val fileSystemName = "<FILE_SYSTEM_NAME>"
     val accessKey =  "<ACCESS_KEY>"
     ```
 
 2. 指定在 Azure Databricks 與 Azure SQL 資料倉儲之間移動資料所用的暫存資料夾。
 
-    ```python
+    ```scala
     val tempDir = "abfs://" + fileSystemName + "@" + storageURI +"/tempDirs"
     ```
 
 3. 執行下列程式碼片段，儲存組態中的 Azure Blob 儲存體存取金鑰。 這可確保您不必在 Notebook 中以純文字保留存取金鑰。
 
-    ```python
+    ```scala
     val acntInfo = "fs.azure.account.key."+ storageURI
     sc.hadoopConfiguration.set(acntInfo, accessKey)
     ```
 
 4. 提供用來連線至 Azure SQL 資料倉儲執行個體的值。 您必須已建立屬於必要條件的 SQL 資料倉儲。
 
-    ```python
+    ```scala
     //SQL Data Warehouse related settings
     val dwDatabase = "<DATABASE NAME>"
     val dwServer = "<DATABASE SERVER NAME>" 
@@ -302,7 +305,7 @@ ms.locfileid: "37061591"
 
 5. 執行下列程式碼片段，將已轉換的資料框架 **renamedColumnsDF** 以表格形式載入 SQL 資料倉儲。 此程式碼片段會在 SQL 資料庫中建立名為 **SampleTable** 的資料表。
 
-    ```python
+    ```scala
     spark.conf.set(
         "spark.sql.parquet.writeLegacyFormat",
         "true")

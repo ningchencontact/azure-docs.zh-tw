@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/09/2018
+ms.date: 07/03/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c28686c3b6494a0cf8938d39ab9b8338de7aa0c1
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: d5f44c634b953194ad4f112722d82f282d8c8f1a
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012575"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444604"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立 Windows 虛擬機器
 
@@ -29,9 +29,9 @@ ms.locfileid: "34012575"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="log-in-to-azure"></a>登入 Azure
+## <a name="sign-in-to-azure"></a>登入 Azure
 
-在 https://portal.azure.com 上登入 Azure 入口網站。
+在 https://portal.azure.com 登入 Azure 入口網站。
 
 ## <a name="create-virtual-machine"></a>建立虛擬機器
 
@@ -43,13 +43,13 @@ ms.locfileid: "34012575"
 
     ![在入口網站刀鋒視窗中輸入 VM 的基本資訊](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)
 
-5. 選擇 [新建] 資源群組，然後提供名稱 (例如 *myResourceGroup*)。 輸入您所需的 [位置]，然後選取 [確定]。
+5. 選擇 [新建] 資源群組，然後提供名稱 (例如 *myResourceGroup*)。 選擇您的 [位置]，然後選取 [確定]。
 
-4. 選取 VM 的大小。 您可以依 [計算類型] 或 [磁碟類型] 進行篩選 (舉例而言)。 建議的 VM 大小為 *D2s_v3*。
+4. 選取 VM 的大小。 您可以依 [計算類型] 或 [磁碟類型] 進行篩選 (舉例而言)。 建議的 VM 大小為 *D2s_v3*。 在您選擇大小之後，按一下 [選取]。
 
     ![顯示 VM 大小的螢幕擷取畫面](./media/quick-create-portal/create-windows-vm-portal-sizes.png)
 
-5. 在 [設定] 下保留預設值，然後選取 [確定]。
+5. 在 [設定] 頁面的 [網路] > [網路安全性群組] > [選取公用輸入連接埠] 中，選取下拉式清單中的 [HTTP] 和 [RDP (3389)]。 保留其餘的預設值，然後選取 [確定]。
 
 6. 在 [摘要] 頁面上選取 [建立]，以開始進行 VM 部署。
 
@@ -69,7 +69,7 @@ ms.locfileid: "34012575"
 
 3. 在 [Windows 安全性] 視窗中，選取 [更多選擇]，然後選取 [使用不同的帳戶]。 輸入使用者名稱 *vmname*\*username*，輸入您為虛擬機器建立的密碼，然後按一下 [確定]。
 
-4. 您可能會在登入過程中收到憑證警告。 按一下 [是] 或 [繼續] 以繼續進行連線。
+4. 您可能會在登入過程中收到憑證警告。 按一下 [是] 或 [繼續] 以建立連線。
 
 ## <a name="install-web-server"></a>安裝 Web 伺服器
 
@@ -81,18 +81,10 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 完成時，關閉與 VM 的 RDP 連線。
 
-## <a name="open-port-80-for-web-traffic"></a>針對 Web 流量開啟連接埠 80
-
-網路安全性群組 (NSG) 可保護輸入和輸出流量。 從 Azure 入口網站建立 VM 時，會在連接埠 3389 上建立 RDP 連線的輸入規則。 由於此 VM 主控 Web 伺服器，因此必須針對連接埠 80 建立 NSG 規則。
-
-1. 在 VM 概觀頁面上，選取 [網路]。
-2. 此時會顯示現有輸入和輸出規則的清單。 選擇 [新增輸入連接埠規則]。
-3. 選取位於頂端的 [基本] 選項，然後從可用服務清單中選擇 [HTTP]。 系統會為您提供連接埠 80、優先順序和名稱。
-4. 若要建立規則，請選取 [新增]。
 
 ## <a name="view-the-iis-welcome-page"></a>檢視 IIS 歡迎使用頁面
 
-安裝 IIS 後，現在經由網際網路在您的 VM 上開啟連接埠 80，請使用所選的網頁瀏覽器來檢視預設 IIS 歡迎使用畫面。 使用上一個步驟所取得 VM 的公用 IP 位址。 下列範例示範預設的 IIS 網站：
+在入口網站中，選取 VM，然後在 VM 的概觀中，使用 IP 位址右邊的 [按一下以複製] 按鈕，將它複製並貼到瀏覽器索引標籤中。預設的 IIS 歡迎使用頁面將會開啟，而且應如下所示：
 
 ![IIS 預設網站](./media/quick-create-powershell/default-iis-website.png)
 

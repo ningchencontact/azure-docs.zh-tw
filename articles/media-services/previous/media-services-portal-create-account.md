@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/03/2017
+ms.date: 07/01/2018
 ms.author: juliako
-ms.openlocfilehash: fcf02e39a305281501773db51383dff66c485493
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: da190bf2418f1cfb8ea952b69d3bf1d76258da5f
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33780614"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342322"
 ---
 # <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>使用 Azure 入口網站建立 Azure 媒體服務帳戶
 > [!div class="op_single_selector"]
@@ -31,7 +31,9 @@ ms.locfileid: "33780614"
 > 
 > 
 
-Azure 入口網站提供一種方法來快速建立 Azure 媒體服務 (AMS) 帳戶。 您可以使用自己的帳戶，來存取讓您在 Azure 中儲存、加密、編碼、管理和串流播放媒體內容的媒體服務。 當您建立媒體服務帳戶時，您也會在與媒體服務帳戶相同的地理區域中建立相關聯的儲存體帳戶 (或使用現有儲存體帳戶)。
+Azure 入口網站提供一種方法來快速建立 Azure 媒體服務 (AMS) 帳戶。 您可以使用自己的帳戶，來存取讓您在 Azure 中儲存、加密、編碼、管理和串流播放媒體內容的媒體服務。 當您建立媒體服務帳戶時，您也會在與媒體服務帳戶相同的地理區域中建立相關聯的儲存體帳戶 (或使用現有儲存體帳戶)。 
+
+您的主要儲存體帳戶可以是一般用途 v1 或一般用途 v2。 目前，Azure 入口網站只允許挑選 v1，但是您可以在使用 API 或 Powershell 建立帳戶時新增 v2。 如需儲存體類型的詳細資訊，請參閱[關於 Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)。
 
 本文說明一些常見的概念，並示範如何使用 Azure 入口網站建立媒體服務帳戶。
 
@@ -41,12 +43,9 @@ Azure 入口網站提供一種方法來快速建立 Azure 媒體服務 (AMS) 帳
 ## <a name="concepts"></a>概念
 存取媒體服務時需要有兩個相關聯的帳戶：
 
-* 媒體服務帳戶。 您的帳戶可讓您存取 Azure 中提供的一組雲端型媒體服務。 媒體服務帳戶並不會儲存實際媒體內容。 而是在您的帳戶中儲存媒體內容和媒體處理工作的中繼資料。 當您建立帳戶時，您會選取一個可用的媒體服務區域。 所選取的區域會是儲存您帳戶之中繼資料記錄的資料中心。
+* 媒體服務帳戶。 您的帳戶可讓您存取 Azure 中提供的一組雲端式媒體服務資源。 媒體服務帳戶並不會儲存實際媒體內容。 而是在您的帳戶中儲存媒體內容和媒體處理工作的中繼資料。 當您建立帳戶時，您會選取一個可用的媒體服務區域。 所選取的區域會是儲存您帳戶之中繼資料記錄的資料中心。
   
 * 一個 Azure 儲存體帳戶。 儲存體帳戶必須與媒體服務帳戶位於相同的地理區域中。 建立媒體服務帳戶時，可以選擇相同區域中的現有儲存體帳戶，也可以在相同區域中建立新的儲存體帳戶。 如果您刪除媒體服務帳戶，並不會刪除相關儲存體帳戶中的 Blob。
-
-  > [!NOTE]
-  > 媒體服務將主要儲存體帳戶限制為具有資料表、佇列的 [一般用途儲存體] 帳戶。 如需儲存體類型的詳細資訊，請參閱[關於 Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)。
 
 ## <a name="create-an-ams-account"></a>建立 AMS 帳戶
 本節中的步驟示範如何建立 AMS 帳戶。

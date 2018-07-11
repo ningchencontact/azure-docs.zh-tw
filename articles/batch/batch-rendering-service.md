@@ -1,5 +1,5 @@
 ---
-title: Azure Batch 轉譯服務 - 雲端規模轉譯 | Microsoft Docs
+title: Azure Batch 轉譯 - 雲端規模轉譯 | Microsoft Docs
 description: Azure 虛擬機器上的轉譯作業直接由 Maya 提供且按使用次數付費。
 services: batch
 author: dlepow
@@ -8,23 +8,23 @@ ms.service: batch
 ms.topic: hero-article
 ms.date: 05/10/2018
 ms.author: danlep
-ms.openlocfilehash: df1b2da7628e6c3f9f4bcbb02a936c33aad49698
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 954a67ed126b505c9ba0da81b3ace0d25e840adb
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34076966"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128583"
 ---
-# <a name="get-started-with-the-batch-rendering-service"></a>開始使用 Batch 轉譯服務
+# <a name="get-started-with-batch-rendering"></a>開始使用 Batch 轉譯 
 
-Azure Batch 轉譯服務提供了按使用次數付費的雲端規模轉譯功能。 Batch 轉譯服務會處理作業排程和佇列、管理失敗和重試，以及針對轉譯作業進行自動調整。 Batch 轉譯服務可支援 [Autodesk Maya](https://www.autodesk.com/products/maya/overview)、[3ds Max](https://www.autodesk.com/products/3ds-max/overview)、[Arnold](https://www.autodesk.com/products/arnold/overview) 和 [V-Ray](https://www.chaosgroup.com/vray/maya) 等應用程式的轉譯。 適用於 Maya 2017 的 Batch 外掛程式可直接從您的桌面輕鬆地在 Azure 上啟動轉譯作業。
+Azure Batch 轉譯提供了按使用次數付費的雲端規模轉譯功能。 Batch 轉譯會處理作業排程和佇列、管理失敗和重試，以及針對轉譯作業進行自動調整。 Batch 轉譯可支援 [Autodesk Maya](https://www.autodesk.com/products/maya/overview)、[3ds Max](https://www.autodesk.com/products/3ds-max/overview)、[Arnold](https://www.autodesk.com/products/arnold/overview) 和 [V-Ray](https://www.chaosgroup.com/vray/maya) 等應用程式的轉譯。 適用於 Maya 2017 的 Batch 外掛程式可直接從您的桌面輕鬆地在 Azure 上啟動轉譯作業。
 
 有了 Maya 和 3ds Max，您可以使用 [Batch Labs](https://github.com/Azure/BatchLabs) 桌面應用程式或 [Batch 範本 CLI](batch-cli-templates.md) 執行作業。 使用 Azure Batch CLI，您可以直接執行 Batch 作業而不需要撰寫程式碼。 相反地，您可以使用範本檔案來建立 Batch 集區、作業和工作。 如需詳細資訊，請參閱[使用 Azure Batch CLI 範本和檔案傳輸](batch-cli-templates.md)。
 
 
 ## <a name="supported-applications"></a>支援的應用程式
 
-Batch 轉譯服務目前支援下列應用程式：
+Batch 轉譯目前支援下列應用程式：
 
 在轉譯節點的 CentOS 7 上：
 - Autodesk Maya I/O 2017 Update 5 (201708032230 版)
@@ -49,7 +49,7 @@ Batch 轉譯服務目前支援下列應用程式：
 
 ## <a name="prerequisites"></a>先決條件
 
-若要使用 Batch 轉譯服務，您需要：
+若要使用 Batch 轉譯，您需要：
 
 - [Azure 帳戶](https://azure.microsoft.com/free/)。
 - **Azure Batch 帳戶** 如需在 Azure 入口網站中建立 Batch 帳戶的指引，請參閱[使用 Azure 入口網站建立 Batch 帳戶](batch-account-create-portal.md)。
@@ -64,7 +64,7 @@ Batch 轉譯服務目前支援下列應用程式：
 
 ## <a name="basic-batch-concepts"></a>基本 Batch 概念
 
-開始使用 Batch 轉譯服務之前，最好先熟悉一些 Batch 概念，包括計算節點、集區和作業。 若要深入了解 Azure Batch，請參閱[使用 Batch 執行本質平行的工作負載](batch-technical-overview.md)。
+開始使用 Batch 轉譯之前，最好先熟悉一些 Batch 概念，包括計算節點、集區和作業。 若要深入了解 Azure Batch，請參閱[使用 Batch 執行本質平行的工作負載](batch-technical-overview.md)。
 
 ### <a name="pools"></a>集區
 
@@ -104,7 +104,7 @@ Azure Batch 可讓您提供您自己的自訂映像。 使用此選項，可以�
 
 ## <a name="options-for-submitting-a-render-job"></a>用於提交轉譯作業的選項
 
-根據您使用的 3D 應用程式，有各種選項可用來將轉譯作業提交至服務：
+根據您使用的 3D 應用程式，有各種選項可用來提交轉譯作業：
 
 ### <a name="maya"></a>Maya
 
@@ -121,14 +121,14 @@ Azure Batch 可讓您提供您自己的自訂映像。 使用此選項，可以�
 - [BatchLabs](https://azure.github.io/BatchLabs) 桌面應用程式 (如需使用 3ds Max Batch Labs 範本的指引，請參閱[ Batch Labs 資料](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax))
 - [Batch 範本 CLI](batch-cli-templates.md)
 
-3ds Max Batch Labs 範本可讓您使用 Azure Batch 轉譯服務來轉譯 VRay 和 Arnold 場景。 VRay 和 Arnold 的範本有兩種變化，一個用於標準場景，一個用於需要資產和紋理的 3ds Max 路徑檔案 (.mxp 檔案) 的更複雜場景。 如需有關 3ds Max Batch Labs 範本的詳細資訊，請參閱 GitHub 上的 [BatchLabs 資料](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax)存放庫。
+3ds Max Batch Labs 範本可讓您使用 Batch 轉譯來轉譯 VRay 和 Arnold 場景。 VRay 和 Arnold 的範本有兩種變化，一個用於標準場景，一個用於需要資產和紋理的 3ds Max 路徑檔案 (.mxp 檔案) 的更複雜場景。 如需有關 3ds Max Batch Labs 範本的詳細資訊，請參閱 GitHub 上的 [BatchLabs 資料](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax)存放庫。
 
-此外，您可以使用 [Batch Python SDK](https://docs.microsoft.com/azure/batch/batch-python-tutorial) 來將轉譯服務與您現有的管線整合。
+此外，您可以使用 [Batch Python SDK](https://docs.microsoft.com/azure/batch/batch-python-tutorial) 將轉譯與您現有的管線整合。
 
 
 ## <a name="use-the-batch-plug-in-for-maya-to-submit-a-render-job"></a>使用適用於 Maya 的 Batch 外掛程式提交轉譯作業
 
-透過適用於 Maya 的 Batch 外掛程式，您可以直接從 Maya 將作業提交至 Batch 轉譯服務。 下列各節說明如何從外掛程式設定作業，然後加以提交。 
+透過適用於 Maya 的 Batch 外掛程式，您可以直接從 Maya 將作業提交至 Batch 轉譯。 下列各節說明如何從外掛程式設定作業，然後加以提交。 
 
 ### <a name="load-the-batch-plug-in-for-maya"></a>載入 Maya 適用的 Batch 外掛程式
 

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/14/2018
 ms.author: jgao
-ms.openlocfilehash: 0d0fb9bad8c6120100ae3ee766aea7620dd6105f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 362a9ae9cb1a1ebc30193b76929f0a683414e5fd
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201752"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435292"
 ---
 # <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>使用 Data Lake Store 搭配 Azure HDInsight 叢集
 
@@ -100,10 +100,10 @@ HDInsight 叢集可透過兩種方式來使用 Data Lake Store︰
 
 ## <a name="configure-data-lake-store-access"></a>設定 Data Lake Store 存取
 
-若要從 HDInsight 叢集設定 Data Lake Store 存取，您必須擁有 Azure Active Directory (Azure AD) 服務主體。 只有 Azure AD 系統管理員才可以建立服務主體。 必須使用憑證來建立服務主體。 如需詳細資訊，請參閱[設定 Data Lake Store 存取](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md#configure-data-lake-store-access)，和[使用自我簽署憑證來建立服務主體](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate)。
+若要從 HDInsight 叢集設定 Data Lake Store 存取，您必須擁有 Azure Active Directory (Azure AD) 服務主體。 只有 Azure AD 系統管理員才可以建立服務主體。 必須使用憑證來建立服務主體。 如需詳細資訊，請參閱[快速入門：在 HDInsight 中設定叢集](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)以及[使用自我簽署憑證來建立服務主體](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate)。
 
 > [!NOTE]
-> 如果您即將使用 Azure Data Lake Store 作為 HDInsight 叢集的額外儲存體，強烈建議您如本文所述建立叢集時執行此作業。 將 Azure Data Lake Store 新增為現有 HDInsight 叢集的額外儲存體是很複雜的程序，很容易出錯。
+> 如果您即將使用 Azure Data Lake Store 作為 HDInsight 叢集的額外儲存體，強烈建議您如本文所述建立叢集時執行此作業。 將 Azure Data Lake Store 新增為現有 HDInsight 叢集的額外儲存體不是支援的案例。
 >
 
 ## <a name="access-files-from-the-cluster"></a>從叢集存取檔案
@@ -130,7 +130,7 @@ HDInsight 叢集可透過兩種方式來使用 Data Lake Store︰
 
 如需建立可存取 Data Lake Store 的 HDInsight 叢集詳細指示，請使用下列連結。
 
-* [使用入口網站](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
+* [使用入口網站](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * [使用 PowerShell (搭配 Data Lake Store 做為預設儲存體)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
 * [使用 PowerShell (搭配 Data Lake Store 做為其他儲存體)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
 * [使用 Azure 範本](../data-lake-store/data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
@@ -142,8 +142,7 @@ HDInsight 叢集可透過兩種方式來使用 Data Lake Store︰
 如需詳細資訊，請參閱
 
 * [開始使用 Azure HDInsight][hdinsight-get-started]
-* [開始使用 Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md)
-* [使用 Azure 入口網站建立 HDInsight 叢集以使用 Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
+* [快速入門：在 HDInsight 中設定叢集](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * [使用 Azure PowerShell 建立 HDInsight 叢集以使用 Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
 * [將資料上傳至 HDInsight][hdinsight-upload-data]
 * [搭配 HDInsight 使用 Hivet][hdinsight-use-hive]

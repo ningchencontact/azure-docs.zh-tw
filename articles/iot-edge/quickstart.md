@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: df22040de398810fd9250ef46da2f95b6915c4a9
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 11b2fccf3c02555f50f48252f2cd9968c9ec90d7
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030653"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436084"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>快速入門：從 Azure 入口網站將您的第一個 IoT Edge 模組部署至 Windows 裝置 - 預覽
 
@@ -185,24 +185,31 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 它有三個元件
 
 5. 建立名為 **IOTEDGE_HOST** 的環境變數，並將 *\<ip_address\>* 取代為 IoT Edge 裝置的 IP 位址。 
 
-   ```powershell
-   [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
-   ```
+  ```powershell
+  [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
+  ```
+  
+  在重新啟動時保存環境變數。
 
-6. 在 `config.yaml` 檔案中，尋找 [連接設定] 區段。 以您的 IP 位址和您在上一節中開啟的連接埠更新 **management_uri** 和 **workload_uri** 的值。 
+  ```powershell
+  SETX /M IOTEDGE_HOST "http://<ip_address>:15580"
+  ```
+
+
+6. 在 `config.yaml` 檔案中，尋找 [連接設定] 區段。 以您的 IP 位址和您在上一節中開啟的連接埠更新 **management_uri** 和 **workload_uri** 的值。 取代 **\<GATEWAY_ADDRESS\>** 與您的 IP 位址。 
 
    ```yaml
    connect: 
-     management_uri: "http://<ip_address>:15580"
-     workload_uri: "http://<ip_address>:15581"
+     management_uri: "http://<GATEWAY_ADDRESS>:15580"
+     workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
 7. 尋找 [接聽設定] 區段，並為 **management_uri** 和 **workload_uri** 新增相同的值。 
 
    ```yaml
    listen:
-     management_uri: "http://<ip_address>:15580"
-     workload_uri: "http://<ip_address:15581"
+     management_uri: "http://<GATEWAY_ADDRESS>:15580"
+     workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
 8. 尋找 [Moby 容器執行階段設定] 區段，並確認 [網路] 的值設定為 `nat`。

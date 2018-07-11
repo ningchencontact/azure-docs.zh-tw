@@ -10,12 +10,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: aafb86e7ebc99ea48e09b34b58682c983fe9f293
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: cf98d3097128a0f8934fc114bc37a517df118234
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063100"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085383"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-preview-storage-account"></a>快速入門：建立 Azure Data Lake Storage Gen2 預覽版儲存體帳戶
 
@@ -50,7 +50,7 @@ Azure Cloud Shell 是免費的 Bash Shell，您可以直接在 Azure 入口網�
 
 ### <a name="install-the-cli-locally"></a>在本機安裝 CLI
 
-您也可以在本機安裝及使用 Azure CLI。 本快速入門需要您執行 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。
+您也可以在本機安裝及使用 Azure CLI。 此快速入門需要您執行 Azure CLI 2.0.38 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。
 
 ## <a name="overview-of-creating-an-azure-data-lake-storage-gen2-account"></a>Azure Data Lake Storage Gen2 帳戶的建立概觀
 
@@ -115,6 +115,15 @@ Azure Cloud Shell 是免費的 Bash Shell，您可以直接在 Azure 入口網�
 2. 找出要刪除的資源群組，以滑鼠右鍵按一下清單右側的 [更多] 按鈕 (**...**)。
 3. 選取 [刪除資源群組] 並且確認。
 
+
+## <a name="upgrade-your-powershell-module"></a>升級 PowerShell 模組
+
+若要透過 PowerShell 與 Data Lake Storage Gen2 互動，您必須將模組升級為預覽版本。
+
+若要這樣做，請開啟提升權限的 PowerShell 並輸入下列命令：`Install-Module AzureRM.Storage –Repository PSGallery -RequiredVersion 5.0.4-preview –AllowPrerelease –AllowClobber –Force `
+
+然後重新啟動殼層。
+
 ## <a name="create-an-account-using-powershell"></a>使用 PowerShell 建立帳戶
 
 使用 `Login-AzureRmAccount` 命令登入 Azure 訂用帳戶，並遵循畫面上的指示以進行驗證。
@@ -151,7 +160,7 @@ New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Location $location `
   -SkuName Standard_LRS `
   -Kind StorageV2 
-  -HierarchialNamespace $True
+  -EnableHierarchicalNamespace $True
 ```
 
 ### <a name="clean-up-resources"></a>清除資源
@@ -162,6 +171,12 @@ New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
+## <a name="upgrade-your-cli-module"></a>升級 CLI 模組
+
+若要透過 CLI 與 Data Lake Storage Gen2 互動，您必須在殼層中新增擴充功能。
+
+若要這樣做：請使用 Cloud Shell 或本機殼層，輸入下列命令來這麼做：`az extension add --name storage-preview`
+
 ## <a name="create-an-account-using-azure-cli"></a>使用 Azure CLI 建立帳戶 
 
 若要啟動 Azure Cloud Shell，請登入 [Azure 入口網站](https://portal.azure.com)。
@@ -171,6 +186,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 ```cli
 az login
 ```
+
 ### <a name="create-a-resource-group"></a>建立資源群組
 
 若要使用 Azure CLI 建立新的資源群組，請使用 [az group create](/cli/azure/group#az_group_create) 命令。 
@@ -195,7 +211,7 @@ az storage account create \
     --location westus2 \
     --sku Standard_LRS \
     --kind StorageV2 \
-    --hierarchical-namespace true
+    --Enable-hierarchical-namespace true
 ```
 
 ### <a name="clean-up-resources"></a>清除資源

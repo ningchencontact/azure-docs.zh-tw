@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: afc9e7c0635f9920aa3ec7c9e6012aa4e41edb9d
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 8e6873f45beac281adbc7a9669504f1703a9eaf5
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062036"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345486"
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>將 Azure Machine Learning 部署為 IoT Edge 模組 - 預覽
 
@@ -60,7 +60,7 @@ Azure Machine Learning 模組不支援 ARM 處理器。
 sudo nano /etc/iotedge/config.yaml
 ```
 
-更新該設定的 [連線] 區段。 例如︰
+以您的 IP 位址更新設定的 [連線] 區段。 例如︰
 ```yaml
 connect:
   management_uri: "http://172.17.0.1.1:15580"
@@ -114,7 +114,7 @@ az ml service create realtime --model-file model.pkl -f iot_score.py -n machinel
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至您的 IoT 中樞。
 
-1. 移至 [IoT Edge] 並選取 IoT Edge 裝置。
+1. 移至 [IoT Edge] 並選取您的 IoT Edge 裝置。
 
 1. 選取 [設定模組]。
 
@@ -125,7 +125,7 @@ az ml service create realtime --model-file model.pkl -f iot_score.py -n machinel
 1. 如果您先前在 IoT Edge 裝置上部署過 tempSensor 模組，可能會自動填入。 如果尚未在模組清單中，請新增它。
 
     1. 按一下 [新增]，然後選取 [IoT Edge 模組]。
-    2. 在 [名稱] 欄位中，輸入 `tempsensor`。
+    2. 在 [名稱] 欄位中，輸入 `tempSensor`。
     3. 在 [映像 URI] 欄位中，輸入 `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`。
     4. 選取 [ **儲存**]。
 
@@ -203,7 +203,7 @@ az ml service create realtime --model-file model.pkl -f iot_score.py -n machinel
 
 如果您將繼續閱讀下一篇建議的文章，則可以保留您已建立的資源和設定，並加以重複使用。
 
-否則，您可以刪除在本文中建立的本機設定和 Azure 資源，以避免產生費用。 
+否則，您可以刪除在本文中建立的本機組態和 Azure 資源，以避免產生費用。 
 
 > [!IMPORTANT]
 > 刪除 Azure 資源和資源群組是無法回復的動作。 一旦刪除，資源群組和其中包含的所有資源都將永久刪除。 請確定您不會不小心刪除錯誤的資源群組或資源。 如果您在現有的資源群組內建立了 IoT 中樞，而該群組中包含您想要保留的資源，則您只需刪除 IoT 中樞本身即可，而不要刪除資源群組。

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 39683c89db57dbeefd190a51415c783d012785e0
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 163763bf1203a045326c7163b5f6da9aa417d8cf
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36303770"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081851"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>教學課程：設定教室實驗室 
 您將在本教學課程中設定教室實驗室，且其中包含教室中學生所使用的虛擬機器。  
@@ -96,8 +96,8 @@ ms.locfileid: "36303770"
 2. 現在，選取 [發佈] 按鈕。 視要建立多少 VM (這與實驗室中允許的使用者數目相同) 而定，此程序可能需要一些時間。
     
     > [!IMPORTANT]
-    > 一旦範本以公用方式提供之後，其存取權限就無法變更為私用。 
-4. 切換到 [虛擬機器] 頁面，確認您看到有五部虛擬機器處於 [未指派] 狀態。 這些虛擬機器尚未指派給任何學生。 
+    > 範本發行後就無法取消發行。 
+4. 切換到 [虛擬機器] 頁面，確認您看到虛擬機器處於 [未指派] 狀態。 這些虛擬機器尚未指派給任何學生。 
 
     ![虛擬機器](../media/tutorial-setup-classroom-lab/virtual-machines.png)
 5. 請等候 VM 建立。 它們應處於 [已停止] 狀態。 您可以在此頁面上啟動學生 VM、連線到 VM、停止 VM，以及刪除 VM。 您可以在此頁面啟動 VM，或是讓學生啟動 VM。 

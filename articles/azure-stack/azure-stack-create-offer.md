@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/07/2018
+ms.date: 07/2/2018
 ms.author: brenduns
-ms.openlocfilehash: e5b96a9464bf4d0e3b69d2f635da32c6648ce793
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: eed715a7c2cb967f6c9ea0b7d4442a4f9976bd17
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35247512"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345884"
 ---
-# <a name="create-an-offer-in-azure-stack"></a>在 Azure Stack 中建立供應項目
+# <a name="create-an-offer-in-azure-stack"></a>在 Azure Stack 中建立優惠
 
 [供應項目](azure-stack-key-features.md)是一組提供者供使用者購買或訂閱的一或多個方案。 此文件將說明如何建立一個包含[所建立方案](azure-stack-create-plan.md)的供應項目。 此供應項目可讓訂閱者設定虛擬機器。
 
@@ -59,7 +59,7 @@ ms.locfileid: "35247512"
      選取 [所有資源]，搜尋您的新供應項目，然後選取新的供應項目。 選取 [變更狀態]，然後選取 [公開]。
 
    > [!NOTE]
-   > 您也可以使用 PowerShell 來建立預設供應項目、方案和配額。 如需詳細資訊，請參閱 [Azure Stack 服務管理員讀我檔案](https://github.com/Azure/AzureStack-Tools/tree/master/ServiceAdmin)。
+   > 您也可以使用 PowerShell 來建立預設供應項目、方案和配額。 如需詳細資訊，請參閱 [Azure Stack PowerShell Module 1.3.0](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0)。
 
 ## <a name="next-steps"></a>後續步驟
 

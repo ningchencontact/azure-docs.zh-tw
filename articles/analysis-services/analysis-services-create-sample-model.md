@@ -5,19 +5,19 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 05/23/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f44e33d2b735b6743b2b74760f816442c2cd17fe
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c63995a461cee6bc39603a43604b8080942bd88b
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34596782"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442802"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>教學課程：從入口網站新增範例模型
 
-在本教學課程中，您會將範例 Adventure Works 表格式模型資料庫新增至您的伺服器。 此範例模型是 Adventure Works Internet Sales (1200) 範例資料模型的完整版本。 範例模型有助於測試模型管理、與工具和用戶端應用程式連線，以及查詢模型資料。 本教學課程是使用 [Azure 入口網站](https://portal.azure.com)和 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS)： 
+在本教學課程中，您會將範例 Adventure Works 表格式模型資料庫新增至您的伺服器。 此範例模型是 Adventure Works Internet Sales (1200) 範例資料模型的完整版本。 範例模型有助於測試模型管理、與工具和用戶端應用程式連線，以及查詢模型資料。 本教學課程是使用 [Azure 入口網站](https://portal.azure.com)和 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)： 
 
 > [!div class="checklist"]
 > * 將完整的範例表格式資料模型新增至伺服器 

@@ -127,11 +127,13 @@
 #### [Multi-Factor Authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 
 
-
 ### 疑難排解
 #### [缺少稽核資料](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [下載中缺少的資料](active-directory-reporting-troubleshoot-missing-data-download.md)
 #### [Azure Active Directory 活動記錄內容套件錯誤](active-directory-reporting-troubleshoot-content-pack.md)
+#### [Azure Active Directory 報告 API 發生錯誤](active-directory-reporting-troubleshoot-graph-api.md)
+
+
 ### [程式設計存取](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [先決條件](active-directory-reporting-api-prerequisites-azure-portal.md)
 #### [稽核範例](active-directory-reporting-api-audit-samples.md)

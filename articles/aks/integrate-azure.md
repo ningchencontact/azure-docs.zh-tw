@@ -8,11 +8,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: a881b08874a157b0d6781ec3859b05eeaeba6676
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 471b53be4200ff728214876dd187c3c4e427c947
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342869"
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>使用 Open Service Broker for Azure (OSBA) 與 Azure 受控服務整合
 
@@ -21,7 +22,7 @@ Open Service Broker for Azure (OSBA) 可以與 [Kubernetes 服務類別目錄][k
 ## <a name="prerequisites"></a>先決條件
 * Azure 訂用帳戶
 
-* Azure CLI 2.0：[在本機進行安裝][azure-cli-install]，或用於 [Azure Cloud Shell][azure-cloud-shell]。
+* Azure CLI：[在本機進行安裝][azure-cli-install]，或用於 [Azure Cloud Shell][azure-cloud-shell]。
 
 * Helm CLI 2.7+：[在本機進行安裝][helm-cli-install]，或用於 [Azure Cloud Shell][azure-cloud-shell]。
 
@@ -43,10 +44,16 @@ helm init --upgrade
 helm repo add svc-cat https://svc-catalog-charts.storage.googleapis.com
 ```
 
-最後，安裝包含 Helm 圖表的服務類別目錄：
+最後，安裝包含 Helm 圖表的服務類別目錄。 如果您的叢集已啟用 RBAC，請執行此命令。
 
 ```azurecli-interactive
-helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false
+helm install svc-cat/catalog --name catalog --namespace catalog --set controllerManager.healthcheck.enabled=false
+```
+
+如果您的叢集未啟用 RBAC，請執行此命令。
+
+```azurecli-interactive
+helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false --set apiserver.auth.enabled=false --set controllerManager.healthcheck.enabled=false
 ```
 
 執行 Helm 圖表之後，請確認 `servicecatalog` 出現在下列命令的輸出中：
@@ -68,7 +75,7 @@ v1beta1.storage.k8s.io               10
 
 ## <a name="install-open-service-broker-for-azure"></a>安裝 Open Service Broker for Azure
 
-下一步是安裝 [Open Service Broker for Azure][open-service-broker-azure]，其中包含用於 Azure 受控服務的類別目錄。 可用 Azure 服務的範例包括適用於 PostgreSQL 的 Azure 資料庫、Azure Redis Cache、適用於 MySQL 的 Azure 資料庫、Azure Cosmos DB、Azure SQL Database 等等。
+下一步是安裝 [Open Service Broker for Azure][open-service-broker-azure]，其中包含用於 Azure 受控服務的類別目錄。 可用 Azure 服務的範例包括適用於 PostgreSQL 的 Azure 資料庫、適用於 MySQL 的 Azure 資料庫和 Azure SQL Database。
 
 從新增 Open Service Broker for Azure Helm 存放庫開始：
 

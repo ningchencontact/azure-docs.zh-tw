@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/01/2018
+ms.date: 06/29/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 3f0ba3034c1ba9e68f83caaaf9aacb96134ca74b
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 5d13c565302ae16b6fb2894f6a5a3843f47f9547
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235493"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342220"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>教學課程：在 Azure CDN 自訂網域上設定 HTTPS
 
@@ -177,7 +177,7 @@ Azure CDN 預設支援 CDN 端點主機名稱上的 HTTPS。 舉例來說，當�
 
 如需有關 CNAME 記錄的詳細資訊，請參閱[建立 CNAME DNS 記錄](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain#create-the-cname-dns-records)。
 
-如果您的 CNAME 記錄格式正確，DigiCert 就會自動驗證您的自訂網域名稱，並將其新增至「主體別名」(SAN) 憑證。 DigitCert 不會傳送驗證電子郵件給您，因此您不需要核准您的要求。 憑證有效期限為一年，並且會在到期之前自動更新。 請繼續進行[等待傳播](#wait-for-propagation)。 
+如果您的 CNAME 記錄格式正確，DigiCert 就會自動驗證您的自訂網域名稱，並且為您的網域名稱建立專用憑證。 DigitCert 不會傳送驗證電子郵件給您，因此您不需要核准您的要求。 憑證有效期限為一年，並且會在到期之前自動更新。 請繼續進行[等待傳播](#wait-for-propagation)。 
 
 自動驗證通常只需要幾分鐘。 如果您沒有看到您的網域在一小時內進行驗證，請開啟支援票證。
 
@@ -214,7 +214,7 @@ postmaster@&lt;your-domain-name.com&gt;
 
 - 您可以只核准這次要求使用的特定主機名稱。 後續的要求需要另外核准。
 
-核准之後，DigiCert 會將您的自訂網域名稱新增至 SAN 憑證。 憑證有效期限為一年，並且會在到期之前自動更新。
+核准之後，DigiCert 會針對您的自訂網域名稱完成憑證建立。 憑證有效期限為一年，並且會在到期之前自動更新。
 
 ## <a name="wait-for-propagation"></a>等待傳播
 
@@ -288,11 +288,11 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 1. *憑證提供者是誰？使用的是哪一種憑證？*
 
-    若為**來自 Verizon 的 Azure CDN**，則會使用 DigiCert 所提供的主體別名 (SAN) 憑證。 SAN 憑證可以使用一個憑證來保護多個完整網域名稱。 若為**來自 Microsoft 的標準 Azure CDN**，則會使用 DigiCert 所提供的單一憑證。
+    對於**來自 Verizon 的 Azure CDN** 與**來自 Microsoft 的 Azure CDN**，Digicert 均為您的自訂網域提供專用/單一憑證。 
 
-2. 您使用 IP 型或 SNI TLS/SSL？
+2. *您使用 IP 型或 SNI TLS/SSL？*
 
-    **來自 Verizon 的 Azure CDN** 會使用 IP 型 TLS/SSL。 **來自 Microsoft 的標準 Azure CDN** 會使用 SNI TLS/SSL。
+    **來自 Verizon 的 Azure CDN** 與**來自 Microsoft 的標準 Azure CDN** 都會使用 SNI TLS/SSL。
 
 3. *如果沒有收到 DigiCert 的驗證電子郵件該怎麼辦？*
 
@@ -309,6 +309,10 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 6. *是否需要我的 DNS 提供者的憑證授權單位授權記錄？*
 
     否，目前不需要憑證授權單位授權記錄。 不過，如果您的確有一個授權記錄，它必須包含 DigiCert 作為有效的 CA。
+
+7. *在 2018 年 6 月 20 日，來自 Verizon 的 Azure CDN 預設開始使用專用憑證搭配 SNI TLS/SSL。如果使用主體別名 (SAN) 憑證和以 IP 為基礎的 TLS/SSL ，我的現有自訂網域會發生什麼狀況？*
+
+    如果 Microsoft 分析只有對您的應用程式進行 SNI 用戶端要求，則您現有的網域將在未來幾個月中逐漸移轉至單一憑證。 如果 Microsoft 偵測到有一些對您的應用程式進行的非 SNI 用戶端要求，您的網域會保持使用 SAN 憑證搭配以 IP 為基礎的 TLS/SSL。 在任何情況下，不論您的用戶端要求是 SNI 還是非 SNI，您對於這些要求的服務或支援都不會中斷。
 
 
 ## <a name="next-steps"></a>後續步驟

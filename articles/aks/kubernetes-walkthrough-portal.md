@@ -2,19 +2,19 @@
 title: 快速入門 - Azure Kubernetes 叢集入口網站快速入門
 description: 快速了解如何在 AKS 中使用 Azure 入口網站建立適用於 Linux 容器的 Kubernetes 叢集。
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 04/29/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 90d01ed7cc2483c8467d646ebf9ad056ea1a4baf
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: aa8a1cccd4eeb45e829cd8df73f128dd6cca416d
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36286591"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344469"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>快速入門：部署 Azure Kubernetes Service (AKS) 叢集
 
@@ -28,11 +28,9 @@ ms.locfileid: "36286591"
 
 在 http://portal.azure.com 登入 Azure 入口網站。
 
-
-
 ## <a name="create-aks-cluster"></a>建立 AKS 叢集
 
-選擇 [建立資源] > 選取 [Kubernetes Service] > [建立]。
+選擇 [建立資源] > 選取 [Kubernetes Service]。
 
 完成建立 AKS 叢集表單中每個標題底下的下列步驟。
 

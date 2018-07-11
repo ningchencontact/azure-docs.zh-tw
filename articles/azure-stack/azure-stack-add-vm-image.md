@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 05/24/2018
+ms.date: 06/27/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 714afa1da5d2c8c5695dfe33edd0257f69af149d
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 5c2088ab39e32c049ce867698e84efba759c9a87
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287699"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447331"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>在 Azure Stack 中提供虛擬機器映像
 
@@ -54,7 +54,7 @@ ms.locfileid: "36287699"
 
    ![將 Blob 存取權設定為公用](./media/azure-stack-add-vm-image/image2.png)
 
-2. 以操作員身分登入 Azure Stack。 在功能表中，選取 [更多服務] > [資源提供者]。 然後，選取 [計算] > [VM 映像] > [新增]。
+2. 以操作員身分登入 Azure Stack。 在功能表中選取 [更多服務]。 然後，選取 [計算] > [VM 映像] > [新增]。
 
 3. 在 [新增 VM 映像] 底下，輸入虛擬機器映像的發行者、供應項目、SKU 及版本。 這些名稱區段指的是 Resource Manager 範本中的 VM 映像。 請務必正確選取 **osType** 值。 針對 [OS 磁碟 Blob URI]，輸入上傳映像所在的 Blob URI。 然後，選取 [建立] 以開始建立 VM 映像。
 
@@ -73,6 +73,9 @@ ms.locfileid: "36287699"
 3. 按一下 [刪除] 。
 
 ## <a name="add-a-vm-image-to-the-marketplace-by-using-powershell"></a>使用 PowerShell 將 VM 映像新增到 Marketplace
+
+> [!Note]  
+> 當您新增映像時，它只適用於以 Azure Resource Manger 為基礎的範本和 PowerShell 部署。 若要將映像當作 Marketplace 項目提供給使用者，請使用[建立及發佈 Marketplace 項目](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-and-publish-marketplace-item)一文中的步驟發佈 Marketplace 項目。
 
 1. [安裝適用於 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。  
 

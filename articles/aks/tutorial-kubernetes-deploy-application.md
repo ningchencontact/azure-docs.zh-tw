@@ -2,30 +2,30 @@
 title: Azure 上的 Kubernertes 教學課程 - 部署應用程式
 description: AKS 教學課程 - 部署應用程式
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/22/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e992d7ca455ad4d95d0f10a94c6c9ce8055f8286
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: e0e349361afaac9aec816d7f5d158322d6f4e691
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067668"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100939"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>教學課程：執行 Azure Kubernetes Service (AKS) 中的應用程式
 
-在本教學課程 (八個章節的第四部分) 中，已在 Kubernetes 叢集中部署一個應用程式範例。 完成的步驟包括：
+在本教學課程 (七個章節的第四部分) 中，已在 Kubernetes 叢集中部署一個應用程式範例。 完成的步驟包括：
 
 > [!div class="checklist"]
 > * 更新 Kubernetes 資訊清單檔
 > * 在 Kubernetes 中執行應用程式
 > * 測試應用程式
 
-在後續的教學課程中，此應用程式會相應放大、更新，且會將 Log Analytics 設定為監視 Kubernetes 叢集。
+在後續的教學課程中，此應用程式會相應放大並且更新。
 
 本教學課程假設讀者已了解 Kubernetes 的基本概念，如需 Kubernetes 的詳細資訊，請參閱 [Kubernetes 文件][kubernetes-documentation]。
 

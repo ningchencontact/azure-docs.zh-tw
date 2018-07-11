@@ -9,23 +9,23 @@ editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: protection
-ms.topic: article
+ms.topic: overview
 ms.date: 03/07/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: fc7f7323f0c5c5975b74d3d30194ed0711b12eb4
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 927d2ccef6a250d489273a17b070a4a0aa820bee
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233871"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37767376"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>什麼是 Azure AD Privileged Identity Management？
 
 您可以利用 Azure Active Directory (AD) Privileged Identity Management 來管理、控制和監視組織內的存取行為。 這包括存取 Azure AD、Azure 資源 (預覽) 和其他 Microsoft 線上服務 (如 Office 365 或 Microsoft Intune) 中的資源。
 
 > [!NOTE]
-> 當您為租用戶啟用 Privileged Identity Management 時，每個與此服務互動或從此服務受益的使用者都必須具備有效 Azure AD Premium P2 或 Enterprise Mobility + Security E5 的付費或試用授權。 範例包括在符合下列條件之群組中的使用者：
+> 當您為租用戶啟用 Privileged Identity Management 時，每個與此服務互動或從此服務受益的使用者都必須具備有效 Azure AD Premium P2 或 Enterprise Mobility + Security E5 的付費或試用授權。 範例包括群組中符合下列條件的使用者：
 >
 >- 指派給「特殊權限角色管理員」角色 
 >- 指派成符合可透過 PIM 管理的其他目錄角色資格 
@@ -33,7 +33,7 @@ ms.locfileid: "35233871"
 >- 指派給具有「及時」或「直接」(時間型) 指派的 Azure 資源角色  
 >- 指派給存取檢閱
 >
->如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-whatis.md)。
+>如需詳細資訊，請參閱 [Azure Active Directory 版本](fundamentals/active-directory-whatis.md)。
 
 組織想要將能夠存取安全資訊或資源的人數降到最低，因為這樣可以降低惡意使用者取得該存取權，或者授權使用者無意中影響到敏感資源的機率。  不過，使用者仍然需要在 Azure AD、Azure、Office 365 或 SaaS 應用程式中執行特殊權限作業。 組織可以提供使用者特殊權限以存取 Azure 資源，如訂用帳戶和 Azure AD。 需要針對這些使用者使用其系統管理權限的方式進行監督。 Azure AD Privileged Identity Management 可協助減少過多、不必要或誤用的存取權限風險。
 

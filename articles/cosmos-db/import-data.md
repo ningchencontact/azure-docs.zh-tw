@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/30/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 7f8e8d920884c611965ff760bb0369e08163356e
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 52d5977b2a454dec803ad1233fcb12cc9573521c
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029599"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100346"
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB：資料移轉工具
 
@@ -450,7 +450,7 @@ Azure Cosmos DB 連接字串的格式如下：
 
 Azure Cosmos DB 循序記錄匯入工具含有下列其他進階選項：
 
-1. 平行要求數目：此工具會預設為兩個平行要求。 如果要匯入很小的文件，請考慮提高平行要求數目。 如果這個數字提高太多，則匯入可能會發生節流。
+1. 平行要求數目：此工具會預設為兩個平行要求。 如果要匯入很小的文件，請考慮提高平行要求數目。 如果這個數字提高太多，則匯入可能會遭遇速率限制。
 2. 停用自動化識別碼產生作業：如果要匯入的每個文件都包含識別碼欄位，則選取此選項可以提升效能。 遺漏唯一識別碼欄位的文件不會被匯入。
 3. 更新現有的文件：此工具預設在發生識別碼衝突時不會取代現有的文件。 選取此選項會允許在識別碼相符時覆寫現有的文件。 對於會更新現有文件的已排定資料移轉來說，這項功能相當有用。
 4. 失敗時的重試次數：指定與 Azure Cosmos DB 的連接發生暫時性失敗 (例如網路連接中斷) 時的重試次數。

@@ -7,14 +7,14 @@ manager: jwillis
 ms.service: storage
 ms.workload: storage
 ms.topic: get-started-article
-ms.date: 06/22/2018
+ms.date: 07/03/2018
 ms.author: hux
-ms.openlocfilehash: 3f1dfa09c0f123d20a7be043aa8d0033a5b6bd72
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6efc50bfee54c38511fb3346f1341f81741d14eb
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335766"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445414"
 ---
 # <a name="azure-storage-account-options"></a>Azure 儲存體帳戶選項
 
@@ -46,7 +46,10 @@ GPv2 儲存體帳戶會在帳戶層級公開 [存取層] 屬性，以將預設�
 
 ### <a name="upgrade-a-storage-account-to-gpv2"></a>將儲存體帳戶升級至 GPv2
 
-使用者可隨時使用 PowerShell 或 Azure CLI 將 GPv1 或 Blob 儲存體帳戶升級至 GPv2 帳戶。 這項變更無法反轉，且不允許任何其他變更。
+使用者可隨時使用 Azure 入口網站、PowerShell 或 Azure CLI 將 GPv1 或 Blob 儲存體帳戶升級至 GPv2 帳戶。 這項變更無法反轉，且不允許任何其他變更。
+
+#### <a name="upgrade-with-azure-portal"></a>使用 Azure 入口網站升級
+若要使用 Azure 入口網站將 GPv1 或 Blob 儲存體帳戶升級至 GPv2 帳戶，請先登入 [Azure 入口網站](https://portal.azure.com)並選取您的儲存體帳戶。 選取 [設定] > [組態]。 您會看到 [升級] 按鈕以及升級程序的相關附註。
 
 #### <a name="upgrade-with-powershell"></a>使用 PowerShell 升級
 
@@ -262,9 +265,9 @@ Blob 儲存體帳戶支援與 GPv2 完全相同的區塊 Blob 功能，但僅限
 
 ## <a name="migrating-existing-data"></a>移轉現有的資料
 
-GPv1 帳戶可以輕易升級至 GPv2，不需停機或進行 API 變更，而且不需要移轉資料。 因此，強烈建議您將 GPv1 帳戶移轉至 GPv2 帳戶，而不要移轉至 Blob 儲存體帳戶。
+GPv1 或 Blob 儲存體帳戶可以輕易升級至 GPv2，不需停機或進行 API 變更，而且不需要移轉資料。 因此，強烈建議您將 GPv1 帳戶移轉至 GPv2 帳戶，而不要移轉至 Blob 儲存體帳戶。 如需有關如何升級至 GPv2 的詳細資訊，請參閱[將儲存體帳戶升級至 GPv2](#upgrade-a-storage-account-to-gpv2)。
 
-不過，如果您需要移轉至 Blob 儲存體帳戶且無法使用 GPv2 帳戶，您可以使用下列指示。 
+不過，如果您需要從 GPv1 移轉至 Blob 儲存體帳戶且無法使用 GPv2 帳戶，您可以使用下列指示。 
 
 Blob 儲存體帳戶專門用於儲存區塊和附加 Blob。 現有的一般用途儲存體帳戶 (允許您儲存資料表、佇列、檔案、磁碟以及 Blob) 無法轉換為 Blob 儲存體帳戶。 若要使用儲存層，您必須建立新的 Blob 儲存體帳戶，並將現有的資料移轉至新建立的帳戶。 
 

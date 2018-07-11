@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 01/05/2017
 ms.author: lbosq
-ms.openlocfilehash: 6fcd6389e3ff23c1cb2b2f0e5183ea43bae9f313
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: ee6e3adc3300178164b83ee1f8dc2ab307eec45b
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796132"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081207"
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Azure Cosmos DB：圖形 API 簡介
 
@@ -45,7 +45,7 @@ Azure Cosmos DB 圖形 API 提供：
 - 可調式一致性層級。
 - 全面性的 SLA，包括對使用寬鬆一致性的所有單一區域帳戶和所有多重區域帳戶提供 99.99% 可用性 SLA ，對所有多區域資料庫帳戶提供 99.999% 的讀取可用性。
 
-若要查詢 Azure Cosmos DB，您可以使用 [Apache TinkerPop](http://tinkerpop.apache.org) 圖形周遊語言 [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)，或是其他 TinkerPop 相容的圖形系統 (如 [Apache Spark GraphX](spark-connector-graph.md))。
+若要查詢 Azure Cosmos DB，您可以使用 [Apache TinkerPop](http://tinkerpop.apache.org) 圖形周遊語言，或 [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)。
 
 本文章提供 Azure Cosmos DB 圖形 API 的概觀，並說明如何使用它來儲存包含數十億個頂點和邊緣的巨大圖形。 您可以在幾毫秒延遲的情況下查詢圖形，並輕鬆地發展圖形結構和結構描述。
 
@@ -93,7 +93,7 @@ Azure Cosmos DB 提供以下有別於市場上其他圖表資料庫的功能：
 
 * Apache TinkerPop 相容性
 
- Azure Cosmos DB 原生支援開放原始碼 Apache TinkerPop 標準，並可與其他支援 TinkerPop 的圖表系統整合。 因此，您可以輕鬆地從另一個圖表資料庫移轉，例如 Titan 或 Neo4j，或搭配圖表分析架構一起使用 Azure Cosmos DB，例如 [Apache Spark GraphX](spark-connector-graph.md)。
+ Azure Cosmos DB 原生支援開放原始碼 Apache TinkerPop 標準，並可與其他支援 TinkerPop 的圖表系統整合。 因此，您可以輕鬆地從另一個圖表資料庫移轉，例如 Titan 或 Neo4j；或搭配圖表分析架構一起使用 Azure Cosmos DB，例如 Apache Spark GraphX。
 
 * 可調式一致性層級
 

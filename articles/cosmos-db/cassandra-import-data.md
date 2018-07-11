@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: govindk
 ms.custom: mvc
-ms.openlocfilehash: 26731d80f5917f9d21aacafb5f8a79cfb02855af
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 73c9f1fc26f5cb36cc475a66b67705c6177bebf8
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795069"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37095667"
 ---
 # <a name="azure-cosmos-db-import-cassandra-data"></a>Azure Cosmos DB：匯入 Cassandra 資料
 
@@ -57,7 +57,7 @@ ms.locfileid: "34795069"
 1. 預先建立並調整您的資料表：
     * 依預設，Azure Cosmos DB 會佈建每秒 1,000 個要求單位 (RU/s) 的新 Cassandra API 資料表 (CQL 式的建立則會以 400 RU/s 佈建)。 使用 cqlsh 開始移轉之前，請先從 [Azure 入口網站](https://portal.azure.com)或從 cqlsh 預先建立所有資料表。 
 
-    * 從 [Azure 入口網站](https://portal.azure.com)中，針對移轉時間，將資料表的輸送量從預設輸送量 (400 或 1000 RU/s) 增加至 10,000 RU/s。 藉由較高的輸送量，您可以避免節流，並花費較少的時間進行移轉。 由於 Azure Cosmos DB 是以每小時計費，所以您可以在移轉之後立即減少輸送量以節省成本。
+    * 從 [Azure 入口網站](https://portal.azure.com)中，針對移轉時間，將資料表的輸送量從預設輸送量 (400 或 1000 RU/s) 增加至 10,000 RU/s。 藉由較高的輸送量，您可以避免速率限制，並花費較少的時間進行移轉。 由於 Azure Cosmos DB 是以每小時計費，所以您可以在移轉之後立即減少輸送量以節省成本。
 
 2. 判斷作業的 RU 費用。 您可以選擇使用 Azure Cosmos DB Cassandra API SDK 來執行此項目。 此範例會示範取得 RU 費用的 .NET 版本。 
 

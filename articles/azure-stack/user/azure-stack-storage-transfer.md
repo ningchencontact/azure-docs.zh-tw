@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/21/2018
+ms.date: 07/03/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 3d9bd187a70e8b8292e9c47497c2c6b13764045d
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 1adfd5dc21a7cab207fa14eeecc21d02507277f8
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604721"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444131"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>使用 Azure Stack 儲存體的資料傳輸工具
 
@@ -43,6 +43,10 @@ Microsoft Azure Stack 提供磁碟、Blob、資料表、佇列和帳戶管理功
 * [Microsoft 儲存體總管](#microsoft-azure-storage-explorer)
 
     具有使用者介面且易於使用的獨立應用程式。
+
+* [Blobfuse ](#blobfuse)
+
+    Azure Blob 儲存體的虛擬檔案系統驅動程式，能讓您透過 Linux 檔案系統存取儲存體帳戶中現有的區塊 Blob 資料。 
 
 由於 Azure 和 Azure Stack 的儲存體服務有所不同，因此下列各節所述的各項工具可能會有一些特定的需求。 如需 Azure Stack 儲存體和 Azure 儲存體之間的比較，請參閱 [Azure Stack 儲存體：差異與注意事項](azure-stack-acs-differences.md)。
 
@@ -300,6 +304,34 @@ Microsoft Azure 儲存體總管是 Windows 提供的獨立應用程式。 此工
 
 * 若要深入了解如何設定 Azure 儲存體總管來搭配 Azure Stack 運作，請參閱[將儲存體總管連線到 Azure Stack 訂用帳戶](azure-stack-storage-connect-se.md)。
 * 若要深入了解 Microsoft Azure 儲存體總管，請參閱[開始使用儲存體總管](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+
+## <a name="blobfuse"></a>Blobfuse 
+
+[Blobfuse](https://github.com/Azure/azure-storage-fuse) 是 Azure Blob 儲存體的虛擬檔案系統驅動程式，能讓您透過 Linux 檔案系統存取儲存體帳戶中現有的區塊 Blob 資料。 Azure Blob 儲存體是物件儲存體服務，因此沒有階層式的命名空間。 透過使用虛擬目錄配置，再將正斜線 `/` 當做分隔符號，Blobfuse 遂能提供此種命名空間。 Blobfuse 可在 Azure 與 Azure Stack 上運作。 
+
+若要深入了解如何使用 Blobfuse 在 Linux 上將 Blob 儲存體掛接為檔案系統，請參閱[使用 Blobfuse 將 Blob 儲存體掛接為檔案系統](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux)。 
+
+對於 Azure Stack，在準備掛接的步驟中設定儲存體帳戶認證時，除了 accountName、accountKey/sasToken、containerName，還必須指定 **blobEndpoint**。 
+
+在 Azure Stack 開發套件中，blobEndpoint 應該是 `myaccount.blob.local.azurestack.external`。 在 Azure Stack 整合系統中，如果不確定您的端點，請連絡您的雲端系統管理員。 
+
+請注意 accountKey 和 sasToken 一次只能設定一個。 指定儲存體帳戶金鑰時，認證組態檔採用下列格式： 
+
+```text  
+    accountName myaccount 
+    accountKey myaccesskey== 
+    containerName mycontainer 
+    blobEndpoint myaccount.blob.local.azurestack.external
+```
+
+指定共用存取權杖時，認證組態檔採用下列格式：
+
+```text  
+    accountName myaccount 
+    sasToken ?mysastoken 
+    containerName mycontainer 
+    blobEndpoint myaccount.blob.local.azurestack.external
+```
 
 ## <a name="next-steps"></a>後續步驟
 

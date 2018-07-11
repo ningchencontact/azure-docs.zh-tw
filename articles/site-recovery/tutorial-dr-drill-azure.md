@@ -1,29 +1,28 @@
 ---
 title: 深入了解如何使用 Azure Site Recovery 為內部部署電腦及 Azure 執行災害復原演練 | Microsoft 文件
 description: 深入了解如何使用 Azure Site Recovery 為內部部署電腦及 Azure 執行災害復原演練
-services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 06/20/2018
+ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: c706474018bd0751872381c6d28f0ad579ba772b
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: fa66e47715940584259e5cf555f3f6cd6f07e267
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36286574"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437207"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>執行 Azure 的災害復原演練
 
 在本文中，我們會示範如何使用測試容錯移轉執行內部部署機器至 Azure 的災害復原演練。 此演練可驗證您複寫策略未遺失資料。
 
-這是一系列中的第四個教學課程，說明如何為內部部署 VMware VM 設定 Azure 的災害復原。
+這是一系列中的第四個教學課程，說明如何為內部部署 VMware VM 或 Hyper-V VM 設定 Azure 的災害復原。
 
 此教學課程假設您已完成前三個教學課程： 
-    - 在[第一個教學課程](tutorial-prepare-azure.md)中，我們針對 VMware 災害復原需求設定 Azure 元件。
-    - 在[第二個教學課程](vmware-azure-tutorial-prepare-on-premises.md)中，我們為災害復原準備了內部部署元件，並檢閱必要條件。
-    - 在[第三個教學課程](vmware-azure-tutorial.md)中，我們為內部部署 VMware VM 設定和啟用複寫。
+    - 在[第一個教學課程](tutorial-prepare-azure.md)中，我們已針對 VMware 或 Hyper-V 災害復原[準備 Azure 元件](tutorial-prepare-azure.md)。
+    - 在第二個教學課程中，我們為 [VMware](vmware-azure-tutorial-prepare-on-premises.md) 或 [Hyper-V](hyper-v-prepare-on-premises-tutorial.md) 災害復原準備了內部部署元件。
+    - 在第三個教學課程中，我們為內部部署 [VMware VM](vmware-azure-tutorial.md)、[具有 System Center VMM 的 Hyper-V VM](hyper-v-vmm-azure-tutorial.md) 或 [沒有 VMM 的 Hyper-V VM](hyper-v-azure-tutorial.md) 設定和啟用了複寫。
 - 這些教學課程皆設計成顯示案例的最簡單部署路徑。 可能的話，會使用預設選項，而不會顯示所有可能的設定與路徑。 所有教學課程皆利用最簡單的設定來設定 Site Recovery，若合適的話請使用預設值。 如果您想要深入了解測試容錯移轉的步驟，請參閱[作法指南](site-recovery-test-failover-to-azure.md)。
 
 在本教學課程中，您將了解如何：
@@ -37,7 +36,7 @@ ms.locfileid: "36286574"
 
 ## <a name="verify-vm-properties"></a>驗證 VM 屬性
 
-執行測試容錯移轉之前，請先驗證 VMware VM 屬性，並確定 [Hyper-V VM](hyper-v-azure-support-matrix.md#replicated-vms)、[VMware VM/實體伺服器](vmware-physical-azure-support-matrix.md#replicated-machines)符合 Azure 需求。
+執行測試容錯移轉之前，請先驗證 VM 屬性，並確定 [Hyper-V VM](hyper-v-azure-support-matrix.md#replicated-vms) 或 [VMware VM](vmware-physical-azure-support-matrix.md#replicated-machines) 遵守 Azure 需求。
 
 1. 在 [受保護的項目] 中，按一下 [複寫的項目] 然後按一下 [VM]。
 2. 在 [複寫的項目] 窗格中，將會呈現 VM 資訊、健康情況狀態，以及最新可用復原點的摘要。 如需檢視詳細資訊，請按一下 [屬性]。
@@ -70,3 +69,4 @@ ms.locfileid: "36286574"
 
 > [!div class="nextstepaction"]
 > [在內部部署 VMware VM 執行容錯移轉和容錯回復](vmware-azure-tutorial-failover-failback.md)。
+> [在內部部署 Hyper-V VM 執行容錯移轉和容錯回復](hyper-v-azure-failover-failback-tutorial.md)。

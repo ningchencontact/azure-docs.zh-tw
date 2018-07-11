@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
 manager: douge
-ms.openlocfilehash: 93c1c9cb27e5eb2d56583dccaffe92e9d50ecc2d
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: c2d92f26bec2045e7f1e8afff189d58d8c29f25a
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36959269"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099471"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>在使用 .NET Core 和 Visual Studio 的 Azure 開發人員空間上開始使用
 
@@ -35,7 +35,7 @@ ms.locfileid: "36959269"
 1. 安裝最新版的 [Visual Studio 2017](https://www.visualstudio.com/vs/)
 1. 在 Visual Studio 安裝程式中，確定已選取以下的工作負載：
     * ASP.NET 和 Web 開發
-1. 安裝[適用於 Azure 開發人員空間的 Visual Studio 擴充功能](https://aka.ms/get-azds-visualstudio)。
+1. 安裝[適用於 Kubernetes 的 Visual Studio Tools](https://aka.ms/get-azds-visualstudio)
 
 ## <a name="create-a-web-app-running-in-a-container"></a>建立在容器中執行的 Web 應用程式
 

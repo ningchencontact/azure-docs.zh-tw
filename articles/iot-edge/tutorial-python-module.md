@@ -9,12 +9,12 @@ ms.date: 06/26/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 884237a851461fe3d7a48708d221909804760ceb
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 42af2b5ec6b591929f37afebe6546d61b8a3a02a
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063117"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082843"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>教學課程：開發 Python IoT Edge 模組並部署到您的模擬裝置
 
@@ -29,16 +29,20 @@ ms.locfileid: "37063117"
 
 您於此教學課程中建立的 IoT Edge 模組，能夠篩選由您的裝置所產生的溫度資料。 它只有在溫度超過指定的閾值時，才會將訊息往上游傳送。 這類於邊緣所進行的分析，對於減少針對雲端所傳輸及儲存的資料量相當有幫助。 
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free)。
 
 
 ## <a name="prerequisites"></a>先決條件
 
-* 您在 [Linux](quickstart-linux.md) 或 [Windows 裝置](quickstart.md)的快速入門中所建立的 Azure IoT Edge 裝置。
+* 您在 [Linux](quickstart-linux.md) 或 Windows 裝置的快速入門中建立的 Azure IoT Edge 裝置。
+
+   >[!Note]
+   >適用於 Azure IoT Edge Python 模組不支援 Windows 或 ARM 裝置。 
+
 * [Visual Studio Code](https://code.visualstudio.com/)。 
-* [適用於 Visual Studio Code 的 Azure IoT Edge 延伸模組](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) \(英文\) 
-* [適用於 Visual Studio Code 的 Python 擴充功能](https://marketplace.visualstudio.com/items?itemName=ms-python.python) \(英文\)。 
-* 在具有 Visual Studio Code 的電腦上也已安裝 [Docker](https://docs.docker.com/engine/installation/) \(英文\)。 針對本教學課程，使用 Community Edition (CE) 便已足夠。 
+* [適用於 Visual Studio Code 的 Azure IoT Edge 擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
+* [適用於 Visual Studio Code 的 Python 擴充功能](https://marketplace.visualstudio.com/items?itemName=ms-python.python)。 
+* 在具有 Visual Studio Code 的電腦上也已安裝 [Docker](https://docs.docker.com/engine/installation/)。 針對本教學課程，使用 Community Edition (CE) 便已足夠。 
 * [Python](https://www.python.org/downloads/)。
 * [Pip](https://pip.pypa.io/en/stable/installing/#installation) 用於安裝 Python 套件 (通常包含在您的 Python 安裝中)。
 
@@ -71,11 +75,11 @@ ms.locfileid: "37063117"
 
 3. 選取 [檢視] > [命令選擇區] 來開啟 VS Code 命令選擇區。 
 
-4. 在命令選擇區中，輸入並執行命令 **Azure: Sign in**，然後遵循指示來登入 Azure 帳戶。 如果您已經登入，則可以略過此步驟。
+4. 在命令選擇區中，輸入並執行命令 **Azure: Sign in**，然後依照指示登入您的 Azure 帳戶。 如果您已登入，則可以略過此步驟。
 
-5. 在命令選擇區中，輸入並執行命令 **Azure IoT Edge: New IoT Edge solution**。 在命令選擇區中，提供下列資訊來建立解決方案： 
+5. 在命令選擇區中，輸入並執行命令 **Azure IoT Edge: New IoT Edge solution**。 在命令選擇區中提供下列資訊，以建立解決方案： 
 
-   1. 選取要將解決方案建立在哪個資料夾。 
+   1. 選取要用來建立解決方案的資料夾。 
    2. 為解決方案提供名稱，或是接受預設值 **EdgeSolution**。
    3. 選擇 [Python 模組] 作為模組範本。 
    4. 將模組命名為 **PythonModule**。 
@@ -179,7 +183,7 @@ VS Code 視窗會載入您的 IoT Edge 方案工作區。 裡面會有 **modules
 
    此檔案也包含登錄的認證。 範本檔案會在使用者名稱和密碼中填入預留位置。 當您產生部署資訊清單時，系統就會使用您新增至 **.env** 的值來更新這兩個欄位。 
 
-3. 在部署資訊清單中新增 PythonModule 模組對應項。 在 `moduleContent` 區段底部，於 `$edgeHub` 模組對應項之後插入下列 JSON 內容： 
+3. 在部署資訊清單中新增 PythonModule 模組對應項。 在 `moduleContent` 區段底部，於 `$edgeHub` 模組對應項後面插入下列 JSON 內容： 
     ```json
         "PythonModule": {
             "properties.desired":{
@@ -198,15 +202,15 @@ VS Code 視窗會載入您的 IoT Edge 方案工作區。 裡面會有 **modules
 
 ## <a name="deploy-and-run-the-solution"></a>部署並執行解決方案
 
-您可以利用和快速入門相同的方式，使用 Azure 入口網站將 Python 模組部署到 IoT Edge 裝置，但您也可以從 Visual Studio Code 部署和監視模組。 下列幾節會使用先決條件中所列的「適用於 VS Code 的 Azure IoT Edge 擴充功能」。 如果還未安裝該擴充功能，請立即安裝。 
+您可以利用和快速入門相同的方式，使用 Azure 入口網站將 Python 模組部署到 IoT Edge 裝置，但您也可以從 Visual Studio Code 部署和監視模組。 下列幾節會使用先決條件中所列的「適用於 VS Code 的 Azure IoT Edge 擴充功能」。 如果尚未安裝該擴充功能，請立即安裝。 
 
-1. 選取 [檢視] > [命令選擇區] 來開啟 VS Code 命令選擇區。
+1. 選取 [檢視] > [命令選擇區]，以開啟 VS Code 命令選擇區。
 
-2. 搜尋和執行命令 **Azure: Sign in**。 遵循指示來登入 Azure 帳戶。 
+2. 搜尋並執行命令 **Azure: Sign in**。 依照指示登入 Azure 帳戶。 
 
 3. 在命令選擇區中，搜尋並執行命令 **Azure IoT Hub: Select IoT Hub**。 
 
-4. 選取 IoT 中樞所在的訂用帳戶，然後選取您想要存取的 IoT 中樞。
+4. 選取 IoT 中樞所在的訂用帳戶，然後選取您要存取的 IoT 中樞。
 
 5. 在 VS Code 總管中，展開 [Azure IoT 中樞裝置] 區段。 
 
@@ -230,7 +234,7 @@ VS Code 視窗會載入您的 IoT Edge 方案工作區。 裡面會有 **modules
 
 如果您將繼續閱讀下一篇建議的文章，則可以保留您已建立的資源和設定，並加以重複使用。
 
-否則，您可以刪除在本文中建立的本機設定和 Azure 資源，以避免產生費用。 
+否則，您可以刪除在本文中建立的本機組態和 Azure 資源，以避免產生費用。 
 
 > [!IMPORTANT]
 > 刪除 Azure 資源和資源群組是無法回復的動作。 一旦刪除，資源群組和其中包含的所有資源都將永久刪除。 請確定您不會不小心刪除錯誤的資源群組或資源。 如果您在現有的資源群組內建立了 IoT 中樞，而該群組中包含您想要保留的資源，則您只需刪除 IoT 中樞本身即可，而不要刪除資源群組。

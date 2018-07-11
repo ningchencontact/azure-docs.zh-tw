@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/20/2018
+ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 904641a433d55cc5f1d04b17ed067cd560c6b33c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 082275e2acd81e34c057f863651528eb46e8501e
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114950"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>設定 App Service Environment 搭配強制通道
 
@@ -37,6 +38,7 @@ ASE 有一些外部相依性，[App Service Environment 網路架構][network]�
 如果您想要將 ASE 輸出流量路由傳送至某處，而非直接傳送至網際網路，您有下列選項：
 
 * 讓 ASE 可以直接存取網際網路
+* 將您的 ASE 子網路設定為略過 BGP 路由
 * 將您的 ASE 子網路設定為使用 Azure SQL 和 Azure 儲存體的服務端點
 * 將您自己的 IP 新增至 ASE Azure SQL 防火牆
 
@@ -58,8 +60,22 @@ ASE 有一些外部相依性，[App Service Environment 網路架構][network]�
 
 ![直接存取網際網路][1]
 
+## <a name="configure-your-ase-subnet-to-ignore-bgp-routes"></a>將您的 ASE 子網路設定為略過 BGP 路由 ## 
+
+您可以將您的 ASE 子網路設定為略過所有 BGP 路由。  若已經設定此項目，ASE 將能夠存取其相依性，而不發生任何問題。  不過，您必須建立 UDR，才能讓您的應用程式存取內部部署資源。
+
+若要將您的 ASE 子網路設定為略過 BGP 路由：
+
+* 如果您還沒有 UDR，請加以建立並將它指派給您的 ASE 子網路。
+* 在 Azure 入口網站中，開啟指派給 ASE 子網路的路由表 UI。  選取組態。  將 BCP 路由傳播設定為 [停用]。  按一下 [儲存]。 將它關閉的相關文件位於[建立路由表][routetable]文件中。
+
+執行這項操作之後，您的應用程式就不再能夠觸達內部部署環境。 若要解決此問題，請編輯指派給 ASE 子網路的 UDR，並新增內部部署位址範圍的路由。 下一個躍點類型應該設定為虛擬網路閘道。 
+
 
 ## <a name="configure-your-ase-with-service-endpoints"></a>使用服務端點設定您的 ASE ##
+
+ > [!NOTE]
+   > 使用 SQL 的服務端點不適用於美國政府區域中的 ASE。  下列資訊僅適用於 Azure 公用區域。  
 
 若要從您的 ASE 路由傳送所有輸出流量 (移至 Azure SQL 和 Azure 儲存體的流量除外)，請執行下列步驟：
 
@@ -89,7 +105,7 @@ ASE 有一些外部相依性，[App Service Environment 網路架構][network]�
 
 3. 取得位址，該位址將使用於從您的 App Service Environment 至網際網路的所有輸出流量。 如果您將流量路由傳送至內部部署網路，則這些位址就是您的 NAT 或閘道 IP。 如果您想要透過 NVA 路由傳送 App Service Environment 連出流量，則輸出位址為 NVA 的公用 IP。
 
-4. _若要設定現有 App Service Environment 中的輸出位址：_移至 resource.azure.com，而後移至 Subscription/<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name>。 接著，您就可以看到描述您 App Service Environment 的 JSON。 確定最上方寫的是「讀取/寫入」。 選取 [編輯]。 向下捲動至底部。 將 **userWhitelistedIpRanges** 值從 **null** 變更為類似以下這樣。 使用您要設為輸出位址範圍的位址。 
+4. _若要設定現有 App Service Environment 中的輸出位址：_ 移至 resource.azure.com，而後移至 Subscription/<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name>。 接著，您就可以看到描述您 App Service Environment 的 JSON。 確定最上方寫的是「讀取/寫入」。 選取 [編輯]。 向下捲動至底部。 將 **userWhitelistedIpRanges** 值從 **null** 變更為類似以下這樣。 使用您要設為輸出位址範圍的位址。 
 
         "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"] 
 
@@ -141,3 +157,4 @@ _若要以輸出位址建立您的 ASE_ ：請依照[使用範本建立 App Serv
 [routes]: ../../virtual-network/virtual-networks-udr-overview.md
 [template]: ./create-from-template.md
 [serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md
+[routetable]: ../../virtual-network/manage-route-table.md#create-a-route-table
