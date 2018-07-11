@@ -40,6 +40,8 @@
           href: contoso-migration-refactor-web-app-sql.md
         - name: 10. Contoso 重構 Azure Web Apps 和 Azure MySQL 上的 Linux 應用程式
           href: contoso-migration-refactor-linux-app-service-mysql.md
+        - name: 11. Contoso 移轉 TFS 至 VSTS
+          href: contoso-migration-tfs-vsts.md
     - name: 探索及評定大型環境
       href: how-to-scale-assessment.md
     - name: 群組機器

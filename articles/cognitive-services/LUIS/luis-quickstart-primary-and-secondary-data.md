@@ -7,16 +7,16 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/26/2018
+ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: b718ed505babd2df6487aecd3a87f17590aef2b9
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: e6ab9d1db0144ffa68fe9dc3381ba31d57aa0cae
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061242"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130886"
 ---
-# <a name="tutorial-create-app-that-uses-simple-entity"></a>教學課程：建立會使用簡單實體的應用程式
+# <a name="tutorial-6-add-simple-entity-and-phrase-list"></a>教學課程：6. 新增簡單實體和片語清單
 在本教學課程中，您可以使用**簡單**實體來建立應用程式，讓其示範如何從語句中擷取機器學習資料。
 
 <!-- green checkmark -->
@@ -45,7 +45,7 @@ ms.locfileid: "37061242"
 |請投遞我的履歷以應徵工程師職缺。|工程師|
 |填寫職位 123456 的應徵文件|123456|
 
-本教學課程會新增用來擷取職位名稱的實體。 規則運算式[教學課程](luis-quickstart-intents-regex-entity.md)中會顯示用來擷取特定職位編號的功能。 
+本教學課程會新增用來擷取職位名稱的實體。 
 
 ## <a name="purpose-of-the-simple-entity"></a>簡單實體的用途
 在這個 LUIS 應用程式中，簡單實體的用途是要教導 LUIS 何謂職位名稱，以及職位名稱位於語句何處。 視字組選擇與語句長度而定，每個語句中屬於職位的部分各不相同。 LUIS 需要任何語句在所有意圖中的職位範例。  
@@ -85,7 +85,7 @@ ms.locfileid: "37061242"
 
     ![建立簡單實體快顯強制回應對話方塊與職位名稱和簡單類型](media/luis-quickstart-primary-and-secondary-data/hr-create-simple-entity-popup.png)
 
-5. 在語句 `Submit resume for engineering position` 中，將 engineering 這個字組標記為 [職位] 實體。 選取 engineering 字組，然後從快顯功能表中選取職位。 
+5. 在語句 `Submit resume for engineering position` 中，將 `engineering` 這個字組標記為 [職位] 實體。 選取 `engineering` 字組，然後從快顯功能表中選取 [職位]。 
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "已醒目提示並標記職位實體的 LUIS 螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
@@ -292,7 +292,7 @@ LUIS 應用程式深信它找到了正確的意圖，並擷取出職位名稱，
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "[建立新的片語清單] 對話方塊快顯的螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
-    如果您想在片語清單中新增更多字組，請檢閱建議的字組，並新增相關字組。 
+    如果您想在片語清單中新增更多字組，請檢閱**相關值**，並新增相關字組。 
 
 4. 選取 [儲存] 以啟動該片語清單。
 
@@ -369,7 +369,7 @@ LUIS 應用程式深信它找到了正確的意圖，並擷取出職位名稱，
 新增片語清單已提升清單中的字組訊號，但這項新增**並未**作為完全相符項。 片語清單中有數個職位的第一個字組是 `lead`，也有職位 `welder` 但沒有職位 `lead welder`。 此職位片語清單可能並不完整。 當您定期[檢閱端點語句](label-suggested-utterances.md)並找到其他職位字組時，請將這些字組新增至片語清單中。 然後重新訓練並重新發行。
 
 ## <a name="what-has-this-luis-app-accomplished"></a>此 LUIS 應用程式有何成就？
-此應用程式 (具有簡單實體和字組片語清單) 已識別出自然語言查詢意圖並傳回訊息資料。 
+此應用程式 (具有簡單實體和字組片語清單) 已識別出自然語言查詢意圖並傳回職位資料。 
 
 聊天機器人現在有足夠資訊可判斷主要的應徵職位動作和該動作的參數 (供職位參考)。 
 
@@ -377,9 +377,9 @@ LUIS 應用程式深信它找到了正確的意圖，並擷取出職位名稱，
 LUIS 是利用此要求來完成。 呼叫應用程式 (例如聊天機器人) 可以採用 topScoringIntent 結果和實體中的資料，來使用第三方 API 傳送職位訊息給人力資源代表。 如果聊天機器人或呼叫應用程式有其他程式設計選項，LUIS 就不會進行該工作。 LUIS 只會判斷使用者的用意為何。 
 
 ## <a name="clean-up-resources"></a>清除資源
-若不再需要，請刪除 LUIS 應用程式。 若要這麼做，請選取應用程式清單中應用程式名稱右邊的三個點功能表 (...)，然後選取 [刪除]。 在 [刪除應用程式?] 快顯對話方塊中選取 [確定]。
+若不再需要，請刪除 LUIS 應用程式。 選取左上方功能表中的 [我的應用程式]。 選取應用程式清單中應用程式名稱右邊的三個點功能表 (...)，然後選取 [刪除]。 在 [刪除應用程式?] 快顯對話方塊中選取 [確定]。
 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [了解如何新增預先建置的 keyPhrase 實體](luis-quickstart-intent-and-key-phrase.md)
+> [新增預先建置的 keyPhrase 實體](luis-quickstart-intent-and-key-phrase.md)

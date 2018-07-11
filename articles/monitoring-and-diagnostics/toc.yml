@@ -103,6 +103,8 @@
           href: monitoring-stream-diagnostic-logs-to-event-hubs.md
         - name: 使用 Resource Manager 範本啟用診斷設定
           href: monitoring-enable-diagnostic-logs-using-template.md
+        - name: 準備使用 JSON Lines 診斷記錄格式
+          href: monitor-diagnostic-logs-append-blobs.md
     - name: 使用活動記錄
       items:
         - name: 檢視活動記錄中的事件

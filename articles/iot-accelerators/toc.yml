@@ -10,6 +10,8 @@
   items:
     - name: 部署遠端監視解決方案
       href: quickstart-remote-monitoring-deploy.md
+    - name: 部署裝置模擬解決方案
+      href: quickstart-device-simulation-deploy.md
 - name: 教學課程
   items:
     - name: 監視 IoT 裝置
@@ -149,10 +151,10 @@
           href: iot-accelerators-connected-factory-customize.md
     - name: 裝置模擬
       items:
-        - name: 部署解決方案加速器
-          href: iot-accelerators-device-simulation-deploy.md
-        - name: 執行模擬
-          href: iot-accelerators-device-simulation-explore.md
+        - name: 使用現有的 IoT 中樞
+          href: iot-accelerators-device-simulation-choose-hub.md
+        - name: 使用自訂裝置型號
+          href: iot-accelerators-device-simulation-custom-model.md
 - name: 參考
   items:
     - name: 開發人員參考指南
