@@ -33,7 +33,7 @@ ms.locfileid: "33835750"
    
       ![Azure 入口網站 - 設定通知中樞屬性](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
 
-4. 選取 [通知] (鈴鐺圖示)，然後選取 [前往資源]。 
+4. 選取 [通知] \(鈴鐺圖示)，然後選取 [前往資源]。 
 
       ![Azure 入口網站 - 通知 -> 前往資源](./media/notification-hubs-portal-create-new-hub/notification-go-to-resource.png)    
 5. 從清單中選取 [存取原則]。 請記下您可使用的兩個連接字串。 您稍後需要用到這些連接字串來處理推播通知。

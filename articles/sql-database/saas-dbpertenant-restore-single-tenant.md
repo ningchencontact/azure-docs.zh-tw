@@ -65,7 +65,7 @@ ms.locfileid: "34644343"
 
 ### <a name="open-the-events-app-to-review-the-current-events"></a>開啟事件應用程式以檢閱目前的事件
 
-1. 開啟 [事件中樞] (http://events.wtp.&lt;user&gt;.trafficmanager.net)，然後選取 [Contoso Concert Hall]。
+1. 開啟 [事件中樞] \(http://events.wtp.&lt;user&gt;.trafficmanager.net)，然後選取 [Contoso Concert Hall]。
 
    ![事件中樞](media/saas-dbpertenant-restore-single-tenant/events-hub.png)
 

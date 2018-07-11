@@ -55,10 +55,6 @@
           href: tutorial-autoscale-powershell.md
         - name: 範本
           href: tutorial-autoscale-template.md
-    - name: 使用自訂 Packer 映像將應用程式部署至 Azure 虛擬機器擴展集
-      items:
-        - name: Azure CLI 2.0
-          href: 'https://docs.microsoft.com/learn/deploy-custom-vmss-app/index'
 - name: 範例
   items:
     - name: Azure CLI 2.0
@@ -141,7 +137,7 @@
         - name: 磁碟備份和災害復原
           href: ../virtual-machines/windows/backup-and-disaster-recovery-for-azure-iaas-disks.md
           maintainContext: true
-    - name: 網路
+    - name: 網路功能
       href: ../virtual-machines/windows/network-overview.md
       maintainContext: true
     - name: 基礎結構自動化
@@ -161,8 +157,7 @@
         - name: vCPU 配額
           href: ../virtual-machines/windows/quotas.md
           maintainContext: true
-- name: |
-    作法
+- name: 作法
   items:
     - name: 規劃和設計
       items:

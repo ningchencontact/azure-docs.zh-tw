@@ -25,12 +25,14 @@
       href: QuickStarts/Python.md
     - name: Ruby
       href: QuickStarts/Ruby.md
+- name: 教學課程
+  items:
+    - name: 'C#'
+      href: Tutorials/FaceAPIinCSharpTutorial.md
 - name: 使用說明指南
   items:
     - name: 第一個臉部 API 應用程式
       items:
-        - name: 'C#'
-          href: Tutorials/FaceAPIinCSharpTutorial.md
         - name: 適用於 Android 的 Java
           href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
         - name: Python

@@ -14,12 +14,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/26/2018
   ms.author: mimig
-  ms.openlocfilehash: 0feb26c11ad0a231067fc7b91b83df94e75febe4
-  ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+  ms.openlocfilehash: 6b922aa90000fa574c010902c2365e4ddb7035a3
+  ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 06/29/2018
-  ms.locfileid: "37111658"
+  ms.lasthandoff: 07/10/2018
+  ms.locfileid: "37952567"
 abstract:
   description: Azure Cosmos DB 是全域散發的多模型資料庫服務。 透過這些快速入門、教學課程及範例，使用常用的 API 及程式設計模型來開發文件、金鑰值、整個資料行和圖形資料庫。 接著，了解如何跨數個 Azure 區域複製資料並調整儲存體以外的輸送量，同時享受完整的 SLA 優點。
   aside:
@@ -155,7 +155,6 @@ sections:
     - html: 透過 Azure Cosmos DB 複寫全域資料庫：<a href="/azure/cosmos-db/tutorial-global-distribution-sql-api">SQL</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-table">Table</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-graph">Gremlin</a>
     - html: <a href="local-emulator">使用模擬器在本機開發應用程式</a>
     - html: <a href="/azure/cosmos-db/tutorial-functions-http-trigger">使用 Azure Cosmos DB 輸入繫結建立 HTTP 觸發程序</a>
-    - html: <a href="https://docs.microsoft.com/learn/build-serverless-app/index">建置基本的 Web 應用程式以託管 Cosmos DB 中的靜態檔案</a>
 - title: 參考
   items:
   - type: list
