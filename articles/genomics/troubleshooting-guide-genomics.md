@@ -12,11 +12,12 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: article
 ms.date: 04/13/2018
-ms.openlocfilehash: 18761c02cc423affe7b1050700e560b1f0b0594d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d3991bdbcd9c3dcd08572dc92cc75aaebb02b133
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "34627359"
 ---
 # <a name="troubleshooting-guide"></a>疑難排解指南
 本概觀描述解決使用 Microsoft Genomics 服務時常見問題的策略。 如需一般常見問題集，請參閱[常見問題](frequently-asked-questions-genomics.md)。 
@@ -72,9 +73,7 @@ Fastq 檔案之間的差異應該只有位於範例識別碼尾端的 /1 或 /2�
 * `Error locating input files on worker machine`
 * `Process management failure`
 
-請嘗試重新提交您的工作流程。 如果持續發生作業失敗，或是有任何其他問題，請從 Azure 入口網站連絡 Microsoft Genomics 支援服務。
-
-![在 Azure 入口網站上連絡支援服務](./media/troubleshooting-guide/genomics-contact-support.png "在 Azure 入口網站上連絡支援服務")
+請嘗試重新提交您的工作流程。 如果持續發生作業失敗，或是有任何其他問題，請從 Azure 入口網站連絡 Microsoft Genomics 支援服務。 您可以在[此處](file-support-ticket-genomics.md)找到如何提交支援要求的其他資訊。
 
 ## <a name="next-steps"></a>後續步驟
 在本文中，您已學會如何對 Microsoft Genomics 服務的常見問題進行疑難排解並嘗試解決。 如需詳細資訊和更多一般常見問題集，請參閱[常見問題](frequently-asked-questions-genomics.md)。 

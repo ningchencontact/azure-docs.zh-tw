@@ -54,6 +54,7 @@
 #### [還原遺失的服務主體](active-directory-ds-troubleshoot-service-principals.md)
 #### [安全 LDAP 錯誤](active-directory-ds-troubleshoot-ldaps.md)
 ### [解析不相符的租用戶錯誤](active-directory-ds-mismatched-tenant-error.md)
+### [暫時停權的網域](active-directory-ds-suspension.md)
 
 
 # 參考

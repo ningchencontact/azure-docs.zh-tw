@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: dx@sendgrid.com
 ms.openlocfilehash: a5f07d02bfe4032d77a17e5972b88f6530125f28
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 06/29/2018
 ms.locfileid: "27534850"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>如何在 Azure 上使用 SendGrid 傳送電子郵件
@@ -34,7 +34,7 @@ SendGrid 是 [雲端架構電子郵件服務]，能提供可靠的 [交易式電
 * 轉寄客戶查詢。
 * 處理內送電子郵件。
 
-如需詳細資訊，請造訪 [https://sendgrid.com](https://sendgrid.com) 或 SendGrid 的 [C# 程式庫][sendgrid-csharp] GitHub 儲存機制。
+如需詳細資訊，請造訪 [https://sendgrid.com](https://sendgrid.com) 或 SendGrid 的 [C# 程式庫][sendgrid-csharp] GitHub 存放庫。
 
 ## <a name="create-a-sendgrid-account"></a>建立 SendGrid 帳戶
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
@@ -43,7 +43,7 @@ SendGrid 是 [雲端架構電子郵件服務]，能提供可靠的 [交易式電
 [SendGrid NuGet 封裝](https://www.nuget.org/packages/Sendgrid) 是取得 SendGrid API 及透過所有相依性設定應用程式的最簡單方式。 NuGet 是 Microsoft Visual Studio 2015 和更新版本隨附的 Visual Studio 擴充，能輕鬆地安裝及更新程式庫和工具。
 
 > [!NOTE]
-> 如果您是執行 Visual Studio 2015 之前的 Visual Studio 版本，若要安裝 NuGet，請造訪 [http://www.nuget.org](http://www.nuget.org)，然後按一下 **安裝 NuGet** 按鈕。
+> 如果您是執行 Visual Studio 2015 之前的 Visual Studio 版本，若要安裝 NuGet，請造訪 [http://www.nuget.org](http://www.nuget.org)，然後按一下 [安裝 NuGet] 按鈕。
 >
 >
 
@@ -254,7 +254,7 @@ SendGrid 提供多個 API 與 Webhook，可供您在 Azure 應用程式中運用
 了解 SendGrid 電子郵件服務的基本概念後，請參考下列連結以取得更多資訊。
 
 * SendGrid C\# 程式庫儲存機制：[sendgrid-csharp][sendgrid-csharp]
-* SendGrid API 文件︰<https://sendgrid.com/docs>
+* SendGrid API 文件：<https://sendgrid.com/docs>
 
 [Next steps]: #next-steps
 [What is the SendGrid Email Service?]: #whatis

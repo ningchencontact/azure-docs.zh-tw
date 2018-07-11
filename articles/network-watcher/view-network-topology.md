@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: jdial
-ms.openlocfilehash: 6ef165ddc481bf84c6189635e36b97eb9518261e
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 1725a3d6a4eb82ca57078f648efa14866d2fe390
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077803"
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "35771126"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>檢視 Azure 虛擬網路的拓撲
 
@@ -37,10 +37,12 @@ ms.locfileid: "34077803"
 
     ![檢視拓撲](./media/view-network-topology/view-topology.png)
 
-    您可以在上圖中看到，虛擬網路包含三個子網路。 一個子網路中部署了 VM。 VM 有一個連結的網路介面，和一個相關聯的公用 IP 位址。 其他兩個子網路各有一個相關聯的路由表。 每個路由表分別包含兩個路由。 一個子網路具有相關聯的網路安全性群組。 只有符合下列條件的資源會顯示拓撲資訊：- 與 *myVnet* 虛擬網路位於相同的資源群組和區域內。 例如，存在於 *MyResourceGroup* 以外的資源群組中的網路安全性群組並不會顯示，即使該網路安全性群組與 *MyVnet* 虛擬網路中的子網路相關聯，仍是如此。
-        - 位於 *myVnet* 虛擬網路內，或與該網路內的資源相關聯。 例如，未與 *MyVnet* 虛擬網路中的子網路或網路介面相關聯的網路安全性群組並不會顯示，即使該網路安全性群組位於 *MyResourceGroup* 資源群組中，仍是如此。
+    您可以在上圖中看到，虛擬網路包含三個子網路。 一個子網路中部署了 VM。 VM 有一個連結的網路介面，和一個相關聯的公用 IP 位址。 其他兩個子網路各有一個相關聯的路由表。 每個路由表分別包含兩個路由。 一個子網路具有相關聯的網路安全性群組。 系統只會顯示以下資源的拓撲資訊：
+    
+    - 位於與 *myVent* 虛擬網路相同的資源群組和區域中。 例如，存在於 *MyResourceGroup* 以外的資源群組中的網路安全性群組並不會顯示，即使該網路安全性群組與 *MyVnet* 虛擬網路中的子網路相關聯，仍是如此。
+    - 位於 *myVnet* 虛擬網路內，或與該網路內的資源相關聯。 例如，未與 *MyVnet* 虛擬網路中的子網路或網路介面相關聯的網路安全性群組並不會顯示，即使該網路安全性群組位於 *MyResourceGroup* 資源群組中，仍是如此。
 
-    圖中顯示的拓撲屬於部署**透過網路虛擬設備路由流量的指令碼範例**後所建立的虛擬網路；您可以使用 [Azure CLI](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 或 [PowerShell](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 部署該指令碼範例。
+  圖中顯示的拓撲屬於部署**透過網路虛擬設備路由流量的指令碼範例**後所建立的虛擬網路；您可以使用 [Azure CLI](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 或 [PowerShell](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 部署該指令碼範例。
 
 6. 選取 [下載拓撲]，以下載 svg 格式的影像作為可編輯的檔案。
 

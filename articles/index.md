@@ -6,12 +6,12 @@ description: 了解如何使用 Microsoft Azure 雲端服務建置和管理功�
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: fdce9dc733f8c1a389a44374641eb27ba40d6b37
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 557717b6fbb93bf3e0ca007fcc8b793441a13283
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446006"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920901"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -177,6 +177,7 @@ Go</a>
                                                     <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
                                                     <li><a class="barLink" href="/azure/azure-functions/">無伺服器#</a></li>
                                                     <li><a class="barLink" href="/azure/containers/">容器</a></li>
+                                                    <li><a class="barLink" href="/azure/aks/">使用 Kubernetes 的微服務</a></li>
                                                     <li><a class="barLink" href="/azure/service-fabric/">搭配 Service Fabric 的微服務</a></li>
                                                 </ul>
                                             </div>
@@ -495,6 +496,11 @@ Visual Studio Team Services </a>
                                                 <p>適用於容器的 Web 應用程式</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/dev-spaces/">
+                                                <img src="media/index/AzureDevSpaceController_50x.svg" alt=""/>
+                                                <p>Azure 開發人員空間</p>
+                                        </li>
                                     </ul>
                                     <h3>整合</h3>
                                     <ul>
@@ -653,7 +659,7 @@ Visual Studio Team Services </a>
                                         <li>
                                             <a href="/azure/load-balancer/">
                                                 <img src="media/index/LoadBalancer.svg" alt="" />
-                                                <p>Load Balancer</p>
+                                                <p>負載平衡器</p>
                                             </a>
                                         </li>
                                         <li>
@@ -883,7 +889,7 @@ Visual Studio Team Services </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/labs/anomaly-finder/overview">
-                                                <img src="media/index/API_Anomaly_Finder.svg" alt="" /> 
+                                                <img src="media/index/API_Anomaly_Finder.svg" alt="" />
                                                 <p>異常搜尋工具</p>
                                             </a>
                                         </li>
@@ -2034,7 +2040,7 @@ s" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Load Balancer</h3>
+                                                    <h3>負載平衡器</h3>
                                                     <p>為您的應用程式提供高可用性和網路效能</p>
                                                 </div>
                                             </div>
@@ -2702,6 +2708,25 @@ s" alt="" />
                                                 <div class="cardText">
                                                     <h3>適用於容器的 Web 應用程式</h3>
                                                     <p>輕鬆部署及執行可隨業務調整的容器化 Web 應用程式</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/dev-spaces/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/AzureDevSpaceController_50x.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure 開發人員空間</h3>
+                                                    <p>使用容器和微服務快速進行 Kubernetes 開發</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5772,6 +5797,34 @@ Service Fabric SDK 和工具 </h3>
                                                 </p>
                                                 <p>
                                                     <a href="https://aka.ms/dea-tool">資料庫測試助理 (DEA)</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li> <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="media/index/AzureDevSpaceController_50x.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+Azure 開發人員空間 </h3>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/azure/dev-spaces/azure-dev-spaces">開始使用</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/azure/dev-spaces/quickstart-netcore">適用於 .NET Core 和 VS Code 的下載</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/azure/dev-spaces/quickstart-netcore-visualstudio">適用於 .NET Core 和 Visual Studio 的下載</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/azure/dev-spaces/quickstart-nodejs">適用於 Node.js 的下載</a>
                                                 </p>
                                             </div>
                                         </div>
