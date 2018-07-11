@@ -382,8 +382,8 @@
 ### [使用 Azure AD Connect 整合內部部署身分識別](./connect/active-directory-aadconnect.md)
 
 ## 委派資源存取
-### [檢視管理員角色成員](users-groups-roles//directory-manage-roles-portal.md)
 ### [管理員角色](users-groups-roles/directory-assign-admin-roles.md)
+#### [檢視管理員角色成員](users-groups-roles//directory-manage-roles-portal.md)
 #### [將管理員角色指派給使用者](fundamentals/active-directory-users-assign-role-azure-portal.md)
 #### [比較成員和來賓使用者的權限](fundamentals/users-default-permissions.md)
 ### [管理員角色安全性](users-groups-roles/directory-admin-roles-secure.md)  
