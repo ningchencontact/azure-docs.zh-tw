@@ -13,12 +13,12 @@ ms.component: protection
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8d52469e11ac508ee8b353311f6040ac9d6f2e4e
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 85bea1b042eb9b882022118d36e5a55a802a1bdc
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447144"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950558"
 ---
 # <a name="giving-access-to-manage-azure-ad-privileged-identity-management"></a>授與存取權以管理 Azure AD Privileged Identity Management
 為組織啟用 Azure AD Privileged Identity Management (PIM) 的全域系統管理員會自動取得角色指派及 PIM 的存取權。 不過，預設不會有任何其他人取得寫入存取權，包括其他全域系統管理員。 其他全域系統管理員、安全性管理員及安全性讀取者具有 Azure AD PIM 的唯讀存取權。 若要授與對 PIM 的存取權，第一位使用者可以將其他使用者指派給「特殊權限角色管理員」  角色。
@@ -34,10 +34,10 @@ ms.locfileid: "37447144"
 1. 登入 [Azure 入口網站](https://portal.azure.com/)，然後在儀表板上選取 **Azure AD Privileged Identity Management** 應用程式。
 2. 選取 [管理特殊權限角色]  >  [特殊權限角色管理員]  >  [新增]。
    
-    ![新增特殊權限角色管理員 - 螢幕擷取畫面][1]
+    ![新增特殊權限角色管理員 - 螢幕擷取畫面](./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_add_PRA.png)
 3. 在 [新增受控使用者] 刀鋒視窗上，步驟 1 已經完成。 請選取步驟 2 [選取使用者]  ，然後搜尋您想要新增的使用者。
    
-    ![選取使用者 - 螢幕擷取畫面][2]
+    ![選取使用者 - 螢幕擷取畫面](./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_select_users.png)
 4. 從搜尋結果中選取使用者，然後按一下 [完成] 。
 5. 按一下 [確定]  以儲存您的選取項目。 您選取的使用者將會出現在特殊權限角色管理員清單中。
    
@@ -55,8 +55,3 @@ ms.locfileid: "37447144"
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>後續步驟
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_add_PRA.png
-[2]: ./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_select_users.png

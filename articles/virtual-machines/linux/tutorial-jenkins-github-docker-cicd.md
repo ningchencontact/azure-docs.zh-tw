@@ -3,7 +3,7 @@ title: 教學課程 - 在 Azure 中使用 Jenkins 建立開發管線 | Microsoft
 description: 教學課程 - 在本教學課程中，您會了解如何在 Azure 中建立 Jenkins 虛擬機器，用於在每次程式碼認可時從 GitHub 提取資料，並建立新的 Docker 容器來執行應用程式。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/27/2017
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f50555775d369da7cf9321d5493bf4e1d84a7bf2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b19d02e7d2bcbd696a7256c06b067f976fd36161
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211186"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931723"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>教學課程：在 Azure 中的 Linux VM 上以 Jenkins、GitHub 及 Docker 建立開發基礎結構
 
@@ -148,8 +148,8 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 在您的 Jenkins 網站中，選取首頁中的 [建立新作業]︰
 
 - 輸入 HelloWorld 作為作業名稱。 選擇 [自由樣式專案]，然後選取 [確定]。
-- 在 [一般] 區段下，選取 [GitHub 專案]，然後輸入您的分支存放庫 URL，例如 *https://github.com/iainfoulds/nodejs-docs-hello-world*
-- 在 [原始碼管理] 區段中，選取 [Git]，輸入您的分支存放庫 *.git* URL，例如 *https://github.com/iainfoulds/nodejs-docs-hello-world.git*
+- 在 [一般] 區段下，選取 [GitHub 專案]，然後輸入您的分支存放庫 URL，例如 *https://github.com/cynthn/nodejs-docs-hello-world*
+- 在 [原始碼管理] 區段中，選取 [Git]，輸入您的分支存放庫 *.git* URL，例如 *https://github.com/cynthn/nodejs-docs-hello-world.git*
 - 在 [組建觸發程序] 下，選取 [GITScm 輪詢的 GitHub 勾點觸發程序]。
 - 在 [組建] 區段中，選擇 [新增組建步驟]。 選取 [執行殼層]，然後在命令視窗中輸入 `echo "Testing"`。
 - 選取作業視窗底部的 [儲存]。

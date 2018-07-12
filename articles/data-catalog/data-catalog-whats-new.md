@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 780ab56df19e8d6761fcf88fa7fbed3e8002fbe8
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 18673186e80b4d1784fa5b42e622d90dd4c889d4
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025197"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859998"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Azure 資料目錄的新功能
 **Azure 資料目錄** 的更新會定期發行。 並非所有發行版本都會包含新的使用者對應功能，某些版本會著重在後端服務功能。 本頁特別強調已加入 Azure 資料目錄服務的新使用者對應功能。
@@ -93,7 +93,7 @@ Azure 資料目錄於 2017 年 9 月新增了下列功能：
 
 ## <a name="whats-new-for-january-2017"></a>2017 年 1 月的新功能 
 自 2017 年 1 月起，Azure 資料目錄已新增下列功能：
-*   Azure 資料目錄現在符合 [CSA STAR](https://www.microsoft.com/trustcenter/compliance/csa-star-certification) 標準。
+*   Azure 資料目錄現在符合 [CSA STAR](https://www.microsoft.com/en-us/trustcenter/compliance/csa-star-certification) 標準。
 *   與 [Excel 2016 和 Power Query for Excel 中的取得及轉換](https://support.office.com/article/Introduction-to-Microsoft-Power-Query-for-Excel-6E92E2F4-2079-4E1F-BAD5-89F6269CD605)整合。 Excel 使用者可以從 Excel 內部使用 Azure 資料目錄來共用查詢及探索查詢。 這項功能可供具有 Power BI Pro 授權的使用者使用。
 
 ## <a name="whats-new-for-december-2016"></a>2016 年 12 月的新功能
@@ -105,7 +105,7 @@ Azure 資料目錄於 2017 年 9 月新增了下列功能：
 
 ## <a name="whats-new-for-november-2016"></a>2016 年 11 月的新功能
 自 2016 年 11 月起，Azure 資料目錄已新增下列功能：
-*   Azure 資料目錄現在符合 [ISO/IEC 27001](https://www.microsoft.com/trustcenter/compliance/iso-iec-27001) 和 [ISO/IEC 27018](https://www.microsoft.com/TrustCenter/Compliance/iso-iec-27018) 標準。
+*   Azure 資料目錄現在符合 [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/compliance/iso-iec-27001) 和 [ISO/IEC 27018](https://www.microsoft.com/en-us/TrustCenter/Compliance/iso-iec-27018) 標準。
 *   支援使用資料目錄入口網站和 REST API 手動註冊 ODBC 資料來源。
 
 ## <a name="whats-new-for-september-2016"></a>2016 年 9 月的新功能

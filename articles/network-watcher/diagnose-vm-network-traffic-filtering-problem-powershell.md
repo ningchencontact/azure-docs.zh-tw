@@ -18,11 +18,11 @@ ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: mvc
 ms.openlocfilehash: d98a804961defc80bebe3e3a838dd229c23044bc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32180448"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38704182"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-powershell"></a>快速入門：診斷虛擬機器網路流量篩選問題 - Azure PowerShell
 
@@ -59,7 +59,7 @@ $vM = New-AzureRmVm `
 
 ### <a name="enable-network-watcher"></a>啟用網路監看員
 
-如果您已經在美國東部地區啟用網路監看員，請使用 [New-AzureRmNetworkWatcher](/powershell/module/azurerm.network/get-azurermnetworkwatcher) 來擷取網路監看員。 下列範例會擷取名為 NetworkWatcher_eastus 的現有網路監看員，其位於 NetworkWatcherRG 資源群組中：
+如果您已經在美國東部區域啟用網路監看員，請使用 [New-AzureRmNetworkWatcher](/powershell/module/azurerm.network/get-azurermnetworkwatcher) 來擷取網路監看員。 下列範例會擷取名為 *NetworkWatcher_eastus* 的現有網路監看員，其位於 *NetworkWatcherRG* 資源群組中：
 
 ```azurepowershell-interactive
 $networkWatcher = Get-AzureRmNetworkWatcher `

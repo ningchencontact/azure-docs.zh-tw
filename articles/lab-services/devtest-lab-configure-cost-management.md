@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
 ms.openlocfilehash: 13535dae82ef2c8896dad7d6221553d15e4e6a95
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781947"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38573806"
 ---
 # <a name="view-the-monthly-estimated-lab-cost-trend-in-azure-devtest-labs"></a>檢視 Azure DevTest Labs 中的每月估計實驗室成本趨勢
 研測實驗室的成本管理功能可協助您追蹤實驗室成本。 本文會示範如何使用「每月估計成本趨勢」  圖表，來檢視目前日曆月份的到目前為止的估計成本，以及目前日曆月份的預計月底成本。 本文也會說明如何設定費用目標和閾值，並在觸達時觸發 DevTest Labs 向您報告結果，從而更輕鬆管理實驗室成本。
@@ -45,12 +45,12 @@ ms.locfileid: "33781947"
 * 5.50 會無條件進位到 6
 * 5.99 會無條件進位到 6
 
-如圖表上方所述，您在圖表中看到的成本預設是使用[預付型方案](https://azure.microsoft.com/offers/ms-azr-0003p/)優惠費率的估計成本。 您也可以[管理實驗室的成本目標](#managing-cost-targets-for-your-lab)，來設定在圖表中顯示您自己的費用目標。
+如圖表上方所述，您在圖表中看到的成本預設是使用[預付型方案](https://azure.microsoft.com/offers/ms-azr-0003p/)供應項目費率的估計成本。 您也可以[管理實驗室的成本目標](#managing-cost-targets-for-your-lab)，來設定在圖表中顯示您自己的費用目標。
 
 此外，以下「未」  併入成本計算︰
 
 * 目前不支援 CSP 和 Dreamspark 訂用帳戶，因為 Azure DevTest Labs 使用 [Azure 計費 API](../billing/billing-usage-rate-card-overview.md) 來計算實驗室成本，而 Azure 計費 API 並不支援 CSP 或 Dreamspark 訂用帳戶。
-* 您的優惠費率。 目前，您無法使用您與 Microsoft 或 Microsoft 合作夥伴協議的優惠費率 (顯示於您的訂用帳戶下方)。 只會使用預付型方案費率。
+* 您的供應項目費率。 目前，您無法使用您與 Microsoft 或 Microsoft 合作夥伴協議的供應項目費率 (顯示於您的訂用帳戶下方)。 只會使用預付型方案費率。
 * 您的稅率
 * 您的折扣
 * 您的帳單貨幣。 目前，實驗室成本只會以美元貨幣顯示。

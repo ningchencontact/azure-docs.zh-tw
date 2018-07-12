@@ -1,6 +1,6 @@
 ---
 title: 使用範本在 Azure 虛擬機器擴展集上設定 MSI
-description: 使用 Azure Resource Manager 範本在 Azure VMSS 上設定「受控服務識別 (MSI)」的逐步指示。
+description: 使用 Azure Resource Manager 範本在 Azure VMSS 上設定「受控服務身分識別 (MSI)」的逐步指示。
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -9,27 +9,27 @@ editor: ''
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: f7c5d063bfb287de9afe808395b951ecb161da69
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9f550af869ccfc44ba4d840f54503ad017cdaf95
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33930607"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901206"
 ---
 # <a name="configure-a-vmss-managed-service-identity-by-using-a-template"></a>使用範本設定 VMSS 受控服務識別
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-在 Azure Active Directory 中，「受控服務識別」會提供自動受控身分給 Azure 服務。 您可以使用此身分識別來向任何支援 Azure AD 驗證的服務進行驗證，不需要任何您程式碼中的認證。 
+在 Azure Active Directory 中，「受控服務身分識別」會提供自動受控身分給 Azure 服務。 您可以使用此身分識別來向任何支援 Azure AD 驗證的服務進行驗證，不需要任何您程式碼中的認證。 
 
 在本文中，您將了解如何使用 Azure Resource Manager 部署範本，在 Azure VMSS 上執行以下受控服務識別作業：
 - 在 Azure VMSS 上啟用和停用系統指派身分識別
-- 在 Azure VMSS 上新增和移除使用者指派身分識別
+- 在 Azure VMSS 上新增和移除使用者指派的身分識別
 
 ## <a name="prerequisites"></a>先決條件
 

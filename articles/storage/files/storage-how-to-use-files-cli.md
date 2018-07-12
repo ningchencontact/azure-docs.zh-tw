@@ -14,11 +14,11 @@ ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
 ms.openlocfilehash: 00fd984a6bed8691712df0d4c335d2b9d4fd3ffa
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029385"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38701813"
 ---
 # <a name="manage-azure-file-shares-using-azure-cli"></a>使用 Azure CLI 管理 Azure 檔案共用
 [Azure 檔案服務](storage-files-introduction.md)是 Microsoft 中易於使用的雲端檔案系統。 Azure 檔案共用可在 Windows、Linux 和 macOS 中掛接。 本文會逐步說明透過 Azure CLI 來使用 Azure 檔案共用的基本概念。 了解如何： 
@@ -49,7 +49,7 @@ az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-a-storage-account"></a>建立儲存體帳戶
-儲存體帳戶是您可在其中部署 Azure 檔案共用或其他儲存體資源 (例如 blob 或佇列) 的共用儲存體集區。 儲存體帳戶可以包含無限多個檔案共用。 共用可儲存無限制數目的檔案，最多可達儲存體帳戶的容量限制。
+儲存體帳戶是一種儲存體共用集區，可以在其中部署 Azure 檔案共用或其他儲存體資源 (例如 Blob 或佇列)。 儲存體帳戶可以包含無限多個檔案共用。 共用可儲存無限制數目的檔案，最多可達儲存體帳戶的容量限制。
 
 下列範例會使用 [az storage account create](/cli/azure/storage/account#create) 命令建立名為 mystorageaccount\<隨機數字\> 的儲存體帳戶，然後在變數 `$STORAGEACCT` 中放入該儲存體帳戶的名稱。 儲存體帳戶名稱必須是唯一的。 使用 `$RANDOM` 將數字附加至儲存體帳戶名稱，讓其成為唯一名稱。 
 
@@ -86,7 +86,7 @@ az storage share create \
 > 共用名稱只能包含小寫字母、數字和單一連字號 (但開頭不可以是連字號)。 如需有關為檔案共用與檔案命名的完整詳細資料，請參閱[命名和參考共用、目錄、檔案及中繼資料](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata)。
 
 ## <a name="work-with-the-contents-of-an-azure-file-share"></a>使用 Azure 檔案共用的內容
-您現在已建立 Azure 檔案共用，並且可使用 SMB 將檔案共用掛接在 [Windows](storage-how-to-use-files-windows.md)、[Linux](storage-how-to-use-files-linux.md) 或 [macOS](storage-how-to-use-files-mac.md) 上。 或者，您可以使用 Azure CLI 來處理 Azure 檔案共用。 不使用 SMB 來掛接檔案共用，而是使用 Azure CLI 的優點是，使用 Azure CLI 提出的所有要求都是透過使用檔案 REST API 來執行。 您可以使用檔案 REST API 在以下位置中建立、修改及刪除檔案共用中的檔案與目錄：
+您現在已建立 Azure 檔案共用，並且可使用 SMB 將檔案共用掛接在 [Windows](storage-how-to-use-files-windows.md)、[Linux](storage-how-to-use-files-linux.md) 或 [macOS](storage-how-to-use-files-mac.md) 上。 或者，您也可以使用 Azure CLI 來處理 Azure 檔案共用。 不使用 SMB 來掛接檔案共用而改用 Azure CLI 的優點是，以 Azure CLI 提出的所有要求都會用檔案 REST API 來執行。 您可以使用檔案 REST API 在以下位置中建立、修改及刪除檔案共用中的檔案與目錄：
 
 - Bash Azure Cloud Shell (無法透過 SMB 掛接檔案共用)
 - 無法掛接 SMB 共用的用戶端，例如，未將連接埠 445 解除封鎖的內部部署用戶端
@@ -146,7 +146,7 @@ az storage file download \
 ```
 
 ### <a name="copy-files"></a>複製檔案
-常見工作是在不同的檔案共用之間複製檔案，或是對 (從) Azure Blob 儲存體容器複製檔案。 若要示範這項功能，請建立新的共用。 請使用 [az storage file copy](/cli/azure/storage/file/copy) 命令，將已上傳的檔案複製到這個新的共用： 
+在不同的檔案共用間複製檔案，或者將檔案在共用與 Azure Blob 儲存體容器間來回複製，都是很常見的工作。 若要示範這項功能，請建立新的共用。 請使用 [az storage file copy](/cli/azure/storage/file/copy) 命令，將已上傳的檔案複製到這個新的共用： 
 
 ```azurecli-interactive
 az storage share create \
@@ -179,7 +179,7 @@ az storage file list \
     --output table
 ```
 
-雖然 `az storage file copy start` 命令方便用來進行 Azure 檔案共用與 Azure Blob 儲存體容器之間的檔案移動，但我們建議您針對較大型的移動使用 AzCopy。 (即指移動的檔案數目和大小較大。)深入了解 [適用於 Linux 的 AzCopy](../common/storage-use-azcopy-linux.md) 和[適用於 Windows 的 AzCopy](../common/storage-use-azcopy.md)。 AzCopy 必須安裝在本機上。 AzCopy 無法在 Cloud Shell 中使用。 
+雖然在 Azure 檔案共用與 Azure Blob 儲存體容器間的移動檔案時使用 `az storage file copy start` 命令很方便，但建議您只在移動的檔案較大時才使用 AzCopy。 (即指移動的檔案數目和大小較大。)深入了解 [適用於 Linux 的 AzCopy](../common/storage-use-azcopy-linux.md) 和[適用於 Windows 的 AzCopy](../common/storage-use-azcopy.md)。 AzCopy 必須安裝在本機上。 AzCopy 無法在 Cloud Shell 中使用。 
 
 ## <a name="create-and-modify-share-snapshots"></a>建立及修改共用快照集
 可使用 Azure 檔案共用來執行的另一項實用工作是建立共用快照集。 快照集會保留 Azure 檔案共用的時間點複本。 共用快照集類似於您可能已經很熟悉的一些作業系統技術：
@@ -266,7 +266,7 @@ az storage share delete \
 az group delete --name "myResourceGroup"
 ```
 
-或者，您可以個別移除資源。
+或者，您也可以個別移除資源。
 - 移除您為本文建立的 Azure 檔案共用：
 
     ```azurecli-interactive
