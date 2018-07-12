@@ -9,11 +9,11 @@ ms.date: 03/13/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: 69c67f437d2f0b7bd6c1f5311eb5ba1d962d889a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29957307"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38738874"
 ---
 您可將標籤套用至 Azure 資源，以便以邏輯方式依照類別組織這些資源。 每個標記都是由一個名稱和一個值所組成。 例如，您可以將「環境」名稱和「生產」值套用至生產環境中的所有資源。
 

@@ -14,11 +14,11 @@ ms.topic: hero-article
 ms.date: 05/25/2018
 ms.author: crdun
 ms.openlocfilehash: b2dafbcf0e41e7387157590e145f74430686321c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34597666"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38307114"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>使用 Azure 建立 Xamarin.Forms 應用程式
 
@@ -185,7 +185,7 @@ ms.locfileid: "34597666"
 
 ## <a name="next-steps"></a>後續步驟
 
-* [在應用程式中新增驗證](app-service-mobile-xamarin-forms-get-started-users.md) 了解如何利用身分識別提供者來驗證您應用程式的使用者。
+* [將驗證新增至您的應用程式](app-service-mobile-xamarin-forms-get-started-users.md)：了解如何利用身分識別提供者來驗證您應用程式的使用者。
 
 * [在應用程式中新增推播通知](app-service-mobile-xamarin-forms-get-started-push.md) 了解如何將推播通知支援新增至應用程式，並設定 Mobile Apps 後端以使用 Azure 通知中樞傳送推播通知。
 

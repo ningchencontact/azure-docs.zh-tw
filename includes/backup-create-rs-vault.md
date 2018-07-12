@@ -9,11 +9,11 @@ ms.date: 5/14/2018
 ms.author: markgal
 ms.custom: include file
 ms.openlocfilehash: 5590da80a1c217e7902e8e010688e40f5624898c
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34664909"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38730493"
 ---
 ## <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫
 復原服務保存庫是一個實體，會儲存歷來建立的備份和復原點。 復原服務保存庫也包含與受保護虛擬機器相關聯的備份原則。
@@ -25,9 +25,9 @@ ms.locfileid: "34664909"
 
     ![在主功能表中選擇 [所有服務] 選項](./media/backup-create-rs-vault/click-all-services.png) <br/>
 
-3. 在 [所有服務] 對話方塊中，鍵入「復原服務」。 當您開始輸入時，您的輸入會篩選資源清單。 當您看到 [復原服務保存庫] 時，請加以選取。
+3. 在 [所有服務] 對話方塊中，鍵入「復原服務」。 當您開始輸入時，您的輸入會篩選資源清單。 當您看到 [復原服務保存庫] 時，請選取該選項。
 
-    ![在 [所有服務] 對話方塊中，輸入復原服務](./media/backup-create-rs-vault/all-services.png) <br/>
+    ![在 [所有服務] 對話方塊中，輸入 Recovery Services](./media/backup-create-rs-vault/all-services.png) <br/>
 
     隨即會在訂用帳戶中出現 [復原服務保存庫] 清單。
 4. 在 [復原服務保存庫] 功能表上，選取 [新增]。

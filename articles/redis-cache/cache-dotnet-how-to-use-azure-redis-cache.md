@@ -16,17 +16,17 @@ ms.date: 05/18/2018
 ms.author: wesmc
 ms.custom: mvc
 ms.openlocfilehash: 31d93fc8b2034152e61d24a789bba62bfd3b7892
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639804"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38635433"
 ---
 # <a name="quickstart-use-azure-redis-cache-with-a-net-application"></a>快速入門：搭配使用 Azure Redis 快取與 .NET 應用程式
 
 
 
-本快速入門說明如何開始搭配使用 Microsoft Azure Redis 快取與 .NET。 Microsoft Azure Redis 快取是基於受歡迎的開放原始碼 Redis 快取。 它可讓您存取由 Microsoft 管理的安全、專用 Redis 快取。 使用 Azure Redis 快取建立的快取，可透過 Microsoft Azure 內的任何應用程式加以存取。
+本快速入門說明如何開始搭配使用 Microsoft Azure Redis 快取與 .NET。 Microsoft Azure Redis 快取以廣受使用的開放原始碼 Redis 快取為基礎。 它可讓您存取由 Microsoft 管理的安全、專用 Redis 快取。 使用 Azure Redis 快取建立的快取，可透過 Microsoft Azure 內的任何應用程式加以存取。
 
 在這個快速入門中，您會在主控台應用程式中搭配使用 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) 用戶端與 C\# 程式碼。 您會建立快取，並設定 .NET 用戶端應用程式。 然後，您會在快取中新增並更新物件。 
 
@@ -37,7 +37,7 @@ ms.locfileid: "34639804"
 ## <a name="prerequisites"></a>先決條件
 
 * [Visual Studio](https://www.visualstudio.com/downloads/)
-* StackExchange.Redis 用戶端需要 [.NET Framework 4 或更高版本](https://www.microsoft.com/net/download/dotnet-framework-runtime)。
+* StackExchange.Redis 用戶端需要 [.NET Framework 4 或更新版本](https://www.microsoft.com/net/download/dotnet-framework-runtime)。
 
 ## <a name="create-a-cache"></a>建立快取
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -78,7 +78,7 @@ ms.locfileid: "34639804"
 Install-Package StackExchange.Redis
 ```
 
-安裝完成後，StackExchange.Redis 快取用戶端即可與專案搭配使用。
+安裝完成後，*StackExchange.Redis* 快取用戶端即可與專案搭配使用。
 
 
 ## <a name="connect-to-the-cache"></a>連接到快取

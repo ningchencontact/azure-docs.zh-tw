@@ -9,11 +9,11 @@ ms.date: 06/26/2018
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: c0b9f9e9808de90df84edf2d3c409a921629baee
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055042"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38728300"
 ---
 如果您將繼續閱讀下一篇建議的文章，則可以保留您已建立的資源和設定，並加以重複使用。
 

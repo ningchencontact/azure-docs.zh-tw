@@ -1,7 +1,7 @@
 ## <a name="prerequisites"></a>先決條件
 
-### <a name="azure-subscription"></a>Azure 訂閱
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
+### <a name="azure-subscription"></a>Azure 訂用帳戶
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/)。
 
 ### <a name="azure-roles"></a>Azure 角色
 若要建立 Data Factory 執行個體，您用來登入 Azure 的使用者帳戶必須為「參與者」或「擁有者」角色，或是 Azure 訂用帳戶的「管理員」。 在 Azure 入口網站中，選取右上角的使用者名稱，然後選取 [權限]，以檢視您在訂用帳戶中擁有的權限。 如果您有多個訂用帳戶的存取權，請選取適當的訂用帳戶。 如需將使用者新增至角色的範例指示，請參閱[新增角色](../articles/billing/billing-add-change-azure-subscription-administrator.md)文章。

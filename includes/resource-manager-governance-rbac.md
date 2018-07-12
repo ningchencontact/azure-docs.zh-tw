@@ -9,17 +9,17 @@ ms.date: 02/16/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: b4b06119b9d46781b967fc8d98808c60d2b41ccb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31433244"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38753632"
 ---
 您想要確定組織中的使用者具有這些資源的正確存取權等級。 您不想要授與不受限制的存取權給使用者，但是您又必須確定他們可以執行其工作。 角色型存取控制 (RBAC) 可讓您管理哪些使用者具有權限可以在一個範圍內完成特定動作。 角色會定義一組允許的動作。 您可將角色指派給某個範圍，並指定哪些使用者屬於此範圍的該角色。
 
 在規劃存取控制策略時，授與使用者完成其工作的最低權限。 下圖顯示指派 RBAC 的建議模式。
 
-![Scope](./media/resource-manager-governance-rbac/role-examples.png)
+![影響範圍](./media/resource-manager-governance-rbac/role-examples.png)
 
 以下三個角色適用於所有的資源：擁有者、參與者和讀者。 任何獲得「擁有者」角色指派的帳戶都應該受到緊密控制，且鮮少使用。 只需要觀察解決方案狀態的使用者應被授與「讀者」角色。
 

@@ -9,11 +9,11 @@ ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: 37d7b1d44c2a4b2f3cd2fd3ac881b106d5056279
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31429468"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38726091"
 ---
 您現在可以在 Azure 入口網站中使用 [資料總管] 工具，建立資料庫和資料表。 
 
@@ -31,7 +31,7 @@ ms.locfileid: "31429468"
     儲存體容量| 固定 (10 GB)|使用預設值 [固定 (10 GB)]。 此值是資料庫的儲存體容量。
     Throughput|400 RU|將輸送量變更為每秒 400 個要求單位 (RU/秒)。 如果您想要降低延遲，稍後可以相應增加輸送量。
 
-    按一下 [SERVICEPRINCIPAL] 。
+    按一下 [確定]。
 
     [資料總管] 會顯示新的資料庫和資料表。
 

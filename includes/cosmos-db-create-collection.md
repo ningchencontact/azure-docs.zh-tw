@@ -9,11 +9,11 @@ ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: cf77eaa07d45222cecf0450fb33fe62e556bcd9e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31429290"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38728982"
 ---
 您現在可以在 Azure 入口網站中使用 [資料總管] 工具，建立資料庫和集合。 
 
@@ -34,7 +34,7 @@ ms.locfileid: "31429290"
     
     除了上述的設定，您可以選擇性地為集合新增 [唯一索引鍵]。 在此範例中，讓我們將欄位保留空白。 唯一索引鍵可讓開發人員在資料庫中新增一層資料完整性。 您可在建立集合時建立唯一索引鍵原則，以確保每個資料分割索引鍵一或多個值的唯一性。 若要深入了解，請參閱 [Azure Cosmos DB 中的唯一索引鍵](../articles/cosmos-db/unique-keys.md)一文。
     
-    按一下 [SERVICEPRINCIPAL] 。
+    按一下 [確定]。
 
     [資料總管] 會顯示新的資料庫和集合。
 

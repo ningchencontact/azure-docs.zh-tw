@@ -11,11 +11,11 @@ ms.custom: mvc
 ms.date: 06/20/2018
 ms.author: dobett
 ms.openlocfilehash: 0bb27c23850384501afec733d24f824346b8416b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335470"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38635371"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>快速入門：控制連線到 IoT 中樞的裝置 (.NET)
 

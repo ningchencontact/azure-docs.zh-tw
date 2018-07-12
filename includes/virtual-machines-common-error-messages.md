@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: db241c1a3c8bfd15e13ae0bd9f1cdf4c92c7081d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 00cb6cb59f8144782fdacd8c2f9763c2f7036880
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34013931"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37906831"
 ---
 >[!NOTE]
 > 您可以在此頁面上，或透過 [Azure 意見反應](https://feedback.azure.com/forums/216843-virtual-machines) 並利用 #azerrormessage 標記，發表對於錯誤訊息的意見反應。
@@ -164,7 +164,7 @@ Azure VM 使用下列 JSON 格式來產生錯誤回應：
 |  OperationNotAllowed  |  無法調整 VM 大小，因為目前已配置 VM 的叢集中沒有所要求的大小 {0} 可用。 若要將 VM 大小調整為 {1}，請解除配置 (這是 Azure 入口網站中的 [停止] 作業)，然後再試一次調整大小作業。 請前往 https://aka.ms/azure-resizevm，深入了解 VM 的大小調整策略。  |
 |  OSProvisioningClientError  |  因為正在佈建客體 OS，所以 VM '{0}' 的 OS 佈建失敗。  |
 |  OSProvisioningClientError  |  VM '{0}' 的 OS 佈建失敗。 錯誤詳細資料：{1} 請確認已正確備妥 (一般化) 映像。 <ul><li>適用於 Windows 的指示：https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/  </li></ul> |
-|  OSProvisioningClientError  |  產生 SSH 主機金鑰失敗。 錯誤詳細資料：{0}。 若要解決此問題，請確認 Linux 代理程式是否已正確設定。 <ul><li>您可以於此查看指示：https://azure.microsoft.com/documentation/articles/virtual-machines-linux-agent-user-guide/ </li></ul> |
+|  OSProvisioningClientError  |  產生 SSH 主機金鑰失敗。 錯誤詳細資料：{0}。 若要解決此問題，請確認 Linux 代理程式是否已正確設定。 <ul><li>您可以於此查看指示：https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux/ </li></ul> |
 |  OSProvisioningClientError  |  對 VM 指定的使用者名稱不適用於此 Linux 散發套件。 錯誤詳細資料：{0}。  |
 |  OSProvisioningInternalError  |  由於發生內部錯誤，VM '{0}' 的 OS 佈建失敗。  |
 |  OSProvisioningTimedOut  |  VM '{0}'的 OS 佈建未於配置的時間內完成。 VM 仍可能成功完成佈建。 請稍後再查看佈建狀態。  |
