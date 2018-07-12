@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: studio
 ms.topic: conceptual
 ms.date: 05/25/2018
-ms.openlocfilehash: 6317d4baba5775c1e5a4fda66de80dd8299d8fed
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2ebd777a9723732de6ebbdf07020802190cb4b61
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659113"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969277"
 ---
 # <a name="export-and-delete-in-product-user-data-from-machine-learning-studio"></a>從 Machine Learning Studio 匯出和刪除產品中使用者資料
 
@@ -74,4 +74,4 @@ Machine Learning Studio 中有三種帳戶。 您擁有的帳戶種類可決定�
 
 ## <a name="next-steps"></a>後續步驟
 
-如需涵蓋 Web 服務和承諾計劃計費的文件，請參閱 [Azure Machine Learning REST API 參考](https://docs.microsoft.com/en-us/rest/api/machinelearning/)。 
+如需涵蓋 Web 服務和承諾計劃計費的文件，請參閱 [Azure Machine Learning REST API 參考](https://docs.microsoft.com/rest/api/machinelearning/)。 

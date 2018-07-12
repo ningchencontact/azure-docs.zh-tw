@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
-ms.openlocfilehash: 50e0e9f5edc18aac42ee80e232f70e09736124bc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7ad205c75a02b496abe2cb910c7eb459cdb16c97
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33761882"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969233"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Azure App Service 診斷概觀 
 
@@ -27,7 +27,7 @@ ms.locfileid: "33761882"
  
 這項體驗對於過去 24 小時內發生問題的 Web 應用程式最有幫助，但所有診斷圖形隨時都可供您分析。 其他的疑難排解工具及有用的文件和論壇的連結則位於右邊資料行。
 
-App Service 診斷不僅適用於 Windows 上您的應用程式，也適用於 [Linux/容器](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-intro)、[App Service Environment](https://docs.microsoft.com/en-us/azure/app-service/environment/intro) 和 [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview) 上的應用程式。 
+App Service 診斷不僅適用於 Windows 上您的應用程式，也適用於 [Linux/容器](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro)、[App Service Environment](https://docs.microsoft.com/azure/app-service/environment/intro) 和 [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) 上的應用程式。 
 
 ## <a name="open-app-service-diagnostics"></a>開啟 App Service 診斷
 

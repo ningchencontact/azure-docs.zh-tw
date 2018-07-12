@@ -8,27 +8,27 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: tamram
-ms.openlocfilehash: 241808e0a7bde1d2c53cd0af1de677275c169214
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: cee319c4fb158e95b4a6d996f846038f0654dd32
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082205"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969148"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>使用 RBAC 來管理 Azure 儲存體資料的存取權限 (預覽)
 
 Azure Active Directory (Azure AD) 會透過[角色型存取控制 (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)，來授與存取受保護資源的權限。 Azure 儲存體會定義一組內建的 RBAC 角色，其中包含一般用來存取容器或佇列的權限集合。 當 RBAC 角色指派給 Azure AD 身分識別時，該身分識別會根據指定的範圍，獲得存取這些資源的權限。 存取權的範圍可以包括訂用帳戶、資源群組、儲存體帳戶或個別的容器或佇列層級。 您可以使用 Azure 入口網站、Azure 命令列工具或 Azure 管理 API 來指派 Azure 儲存體資源的存取權限。 
 
-Azure AD 身分識別可以是使用者、群組或應用程式服務主體，也可以是「受控服務識別」。 安全性主體可以是使用者、群組或應用程式服務主體。 [受控服務識別](../../active-directory/managed-service-identity/overview.md)是自動的受控身分識別，用來在 Azure 虛擬機器中執行的應用程式、函式應用程式和虛擬機器擴展集等之中執行驗證。 如需 Azure AD 中的身分識別概觀，請參閱[了解 Azure 身分識別解決方案](https://docs.microsoft.com/en-us/azure/active-directory/understand-azure-identity-solutions)。
+Azure AD 身分識別可以是使用者、群組或應用程式服務主體，也可以是「受控服務識別」。 安全性主體可以是使用者、群組或應用程式服務主體。 [受控服務識別](../../active-directory/managed-service-identity/overview.md)是自動的受控身分識別，用來在 Azure 虛擬機器中執行的應用程式、函式應用程式和虛擬機器擴展集等之中執行驗證。 如需 Azure AD 中的身分識別概觀，請參閱[了解 Azure 身分識別解決方案](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions)。
 
 ## <a name="rbac-roles-for-azure-storage"></a>Azure 儲存體的 RBAC 角色
 
 Azure 儲存體支援內建和自訂 RBAC 角色。 Azure 儲存體提供下列可與 Azure AD 搭配使用的內建 RBAC 角色：
 
-- [儲存體 Blob 資料參與者 (預覽)](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview)
-- [儲存體 Blob 資料讀者 (預覽)](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#storage-blob-data-reader-preview)
-- [儲存體佇列資料參與者 (預覽)](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor-preview)
-- [儲存體佇列資料讀者 (預覽)](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#storage-queue-data-reader-preview)
+- [儲存體 Blob 資料參與者 (預覽)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview)
+- [儲存體 Blob 資料讀者 (預覽)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader-preview)
+- [儲存體佇列資料參與者 (預覽)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor-preview)
+- [儲存體佇列資料讀者 (預覽)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-reader-preview)
 
 如需有關如何為 Azure 儲存體定義內建角色的詳細資訊，請參閱[了解角色定義](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#management-and-data-operations-preview)。
 

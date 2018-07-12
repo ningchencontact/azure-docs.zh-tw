@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: mattbriggs
 ms.reviewer: shnatara
-ms.openlocfilehash: a88d8dd2af94ac796a3b2e3c667fd40a308f02a1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: acf850bdc56e55d13b13a40ef343f2f20c4a77ca
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33877158"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969107"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>在 Azure Stack 中部署 Service Fabric 叢集
 
@@ -192,7 +192,7 @@ ms.locfileid: "33877158"
 
 ## <a name="use-service-fabric-powershell"></a>使用 Service Fabric PowerShell
 
-1. 從 Azure Service Fabric 文件中的[在 Windows 上準備開發環境](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started#install-the-sdk-and-tools)，安裝 Microsoft Azure Service Fabric SDK。  
+1. 從 Azure Service Fabric 文件中的[在 Windows 上準備開發環境](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started#install-the-sdk-and-tools)，安裝 Microsoft Azure Service Fabric SDK。  
 
 2. 完成安裝之後，設定系統環境變數，以確保可從 PowerShell 存取 Service Fabric Cmdlet。  
     

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2018
 ms.author: weig
-ms.openlocfilehash: de1ed0b85957413a254503fc72375866dfd1bea1
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7d9d63d6c3d5c8ccf1777a46832457670d307d4a
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837152"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970854"
 ---
 # <a name="data-science-code-testing-with-the-uci-adult-income-prediction-dataset"></a>使用 UCI 成人收入預測資料集進行資料科學程式碼測試
 本文提供在資料科學工作流程中測試程式碼的初步指導方針。 這類測試可提供資料科學家一個系統化且有效率的方式，來檢查其程式碼的品質和預期的結果。 我們會使用 Team Data Science Process (TDSP) [專案 (使用先前發佈的 UCI 成人收入資料集)](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) 來示範如何進行程式碼測試。 
@@ -128,7 +128,7 @@ ms.locfileid: "34837152"
 
        ![範本清單和 [空的處理序] 按鈕](./media/code-test/start_empty_process_template.PNG)
 
-    d. 為組建命名並選取代理程式。 如果您想要使用 DSVM 來完成建置流程，可以在此處選擇預設值。 如需有關設定代理程式的詳細資訊，請參閱[建置及發行代理程式](https://docs.microsoft.com/en-us/vsts/build-release/concepts/agents/agents?view=vsts) \(英文\)。
+    d. 為組建命名並選取代理程式。 如果您想要使用 DSVM 來完成建置流程，可以在此處選擇預設值。 如需有關設定代理程式的詳細資訊，請參閱[建置及發行代理程式](https://docs.microsoft.com/vsts/build-release/concepts/agents/agents?view=vsts) \(英文\)。
     
        ![建置和代理程式選項](./media/code-test/select_agent.PNG)
 

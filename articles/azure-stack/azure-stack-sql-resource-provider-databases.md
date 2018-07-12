@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 56d21b76268f94f4254985a6924c4ca2d778a9cd
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 2f286c48822956c82f99808092c26f6637be5cb1
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300810"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968821"
 ---
 # <a name="create-sql-databases"></a>建立 SQL 資料庫
 
@@ -41,7 +41,7 @@ ms.locfileid: "36300810"
    ![建立 Database](./media/azure-stack-sql-rp-deploy/newsqldb.png)
 
    >[!NOTE]
-   >當新主控伺服器新增至 Azure Stack 時，系統會指派一個 SKU 給它們。 並會在 SKU 的主控伺服器集區中建立資料庫。
+   >將主控伺服器新增至 Azure Stack 時，系統會指派一個 SKU 給它們。 並會在 SKU 的主控伺服器集區中建立資料庫。
 
 5. 選取 [登入]。
 6. 在 [選取登入] 底下選擇現有的登入，或選取 [+ 建立新的登入]。
@@ -60,7 +60,7 @@ ms.locfileid: "36300810"
 
 ## <a name="sql-always-on-databases"></a>SQL AlwaysOn 資料庫
 
-根據設計，AlwaysOn 資料庫的處理方式不同於獨立伺服器環境中的處理方式。 如需詳細資訊，請參閱[Azure 虛擬機器上的 SQL Server AlwaysOn 可用性群組簡介](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)。
+根據設計，AlwaysOn 資料庫的處理方式不同於獨立伺服器環境中的處理方式。 如需詳細資訊，請參閱[Azure 虛擬機器上的 SQL Server AlwaysOn 可用性群組簡介](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)。
 
 ### <a name="verify-sql-always-on-databases"></a>驗證 SQL AlwaysOn 資料庫
 

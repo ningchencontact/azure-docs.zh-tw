@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: 4b90d1b9b2ee64722d3c92bcbd8fa205c9b59ebd
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: d46c55f809d24529ea5deeb4d84de44dae876a4b
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809602"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968981"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Azure 虛擬機器中的 SQL Server 備份和還原
 
@@ -84,8 +84,8 @@ SQL Server 2016 和更新版本的 VM，會透過自動備份 v2 提供更多自
 
 如果您想要在 SQL VM 上手動管理備份和還原作業，根據使用的 SQL Server 版本而定，會有數個選項可供您使用。 如需備份和還原的概觀，請根據您的 SQL Server 版本參閱下列其中一篇文章：
 
-- [SQL Server 2016 和更新版本的備份與還原](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases)
-- [SQL Server 2014 的備份與還原](https://msdn.microsoft.com/en-us/library/ms187048%28v=sql.120%29.aspx)
+- [SQL Server 2016 和更新版本的備份與還原](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases)
+- [SQL Server 2014 的備份與還原](https://msdn.microsoft.com/library/ms187048%28v=sql.120%29.aspx)
 - [SQL Server 2012 的備份與還原](https://msdn.microsoft.com/library/ms187048%28v=sql.110%29.aspx)
 - [SQL Server 2008 R2的備份與還原 ](https://msdn.microsoft.com/library/ms187048%28v=sql.105%29.aspx)
 - [SQL Server 2008 的備份和還原](https://msdn.microsoft.com/library/ms187048%28v=sql.100%29.aspx)
@@ -105,7 +105,7 @@ SQL Server 2016 和更新版本的 VM，會透過自動備份 v2 提供更多自
 | 2016 增強功能 | 詳細資料 |
 | --- | --- |
 | **串接** |當備份至 Microsoft Azure Blob 儲存體時，SQL Server 2016 支援備份至多個 Blob，以啟用可高達 12.8 TB 之大型資料庫的備份。 |
-| **快照集備份** |藉由 Azure 快照集，SQL Server 檔案快照集備份對使用 Azure Blob 儲存體服務儲存的資料庫檔案，提供幾乎即時的備份及快速還原。 這項功能可簡化備份和還原原則。 檔案快照集備份也支援還原時間點。 如需詳細資訊，請參閱 [適用於在 Azure 中的資料庫檔案的快照集備份](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure)。 |
+| **快照集備份** |藉由 Azure 快照集，SQL Server 檔案快照集備份對使用 Azure Blob 儲存體服務儲存的資料庫檔案，提供幾乎即時的備份及快速還原。 這項功能可簡化備份和還原原則。 檔案快照集備份也支援還原時間點。 如需詳細資訊，請參閱 [適用於在 Azure 中的資料庫檔案的快照集備份](https://docs.microsoft.com/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure)。 |
 
 如需詳細資訊，請根據您的 SQL Server 版本參閱下列其中一篇文章：
 
