@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
 ms.openlocfilehash: 17b4df83b141d5365a8d6244c4ab73b0eba5ed73
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944581"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972344"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>非背書散發套件的資訊
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -44,7 +44,7 @@ ms.locfileid: "33944581"
 本文接下來會將重點放在於 Azure 上執行 Linux 散發套件時的一般指導方針。
 
 ## <a name="general-linux-installation-notes"></a>一般 Linux 安裝注意事項
-* Azure 不支援 VHDX 格式，只支援**固定 VHD**。  您可以使用 Hyper-V 管理員或 convert-vhd Cmdlet，將磁碟轉換為 VHD 格式。 如果您是使用 VirtualBox，即會在建立磁碟時選取 [固定大小]  而不是預設的動態配置。
+* Azure 不支援 VHDX 格式，只支援 **固定 VHD**。  您可以使用 Hyper-V 管理員或 convert-vhd Cmdlet，將磁碟轉換為 VHD 格式。 如果您是使用 VirtualBox，即會在建立磁碟時選取 [固定大小]  而不是預設的動態配置。
 * Azure 僅支援第 1 代虛擬機器。 您可以將第 1 代虛擬機器從 VHDX 轉換為 VHD 檔案格式，並從動態擴充轉換為固定大小的磁碟。 但您無法變更虛擬機器的世代。 如需詳細資訊，請參閱[應該在 Hyper-V 中建立第 1 代還是第 2 代的虛擬機器？](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
 * 允許的 VHD 大小上限為 1023 GB。
 * 安裝 Linux 系統時，*建議*您使用標準磁碟分割而不是 LVM (常是許多安裝的預設設定)。 這可避免 LVM 與複製之 VM 的名稱衝突，特別是為了疑難排解而需要將作業系統磁碟連接至另一個相同的 VM 時。 如果願意，您可以在資料磁碟上使用 [LVM](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 或 [RAID](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
@@ -69,14 +69,14 @@ Azure 在 Hyper-V Hypervisor 上執行，因此 Linux 會要求必須安裝某�
 
 
 ### <a name="resizing-vhds"></a>調整 VHD 的大小
-Azure 上的 VHD 映像必須具有與 1 MB 對齊的虛擬大小。  一般而言，使用 Hyper-V 建立的 VHD 應已正確對齊。  如果未正確對齊 VHD，當您嘗試從 VHD 建立「映像」時，可能會收到類似下面的錯誤訊息：
+Azure 上的 VHD 映像必須具有與 1 MB 對齊的虛擬大小。  一般而言，使用 Hyper-V 建立的 VHD 應已正確對應。  如果未正確對齊 VHD，當您嘗試從 VHD 建立「映像」時，可能會收到類似下面的錯誤訊息：
 
     "The VHD http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd has an unsupported virtual size of 21475270656 bytes. The size must be a whole number (in MBs).”
 
 若要補救這種行為，您可以使用 Hyper-V 管理員主控台或 [Resize-VHD](http://technet.microsoft.com/library/hh848535.aspx) Powershell Cmdlet 調整 VM 的大小。  如果您不是在 Windows 環境中執行，建議使用 qemu-img 來轉換 VHD (如果需要) 並調整其大小。
 
 > [!NOTE]
-> qemu-img >=2.2.1 的版本中已知有錯誤 (Bug) 會導致 VHD 的格式不正確。 此問題已在 QEMU 2.6 中修正。 建議使用 qemu-img 2.2.0 或更舊版本，或更新至 2.6 或更新版本。 參考：https://bugs.launchpad.net/qemu/+bug/1490611。
+> qemu-img >=2.2.1 的版本中已知有 Bug 會導致 VHD 的格式不正確。 此問題已在 QEMU 2.6 中修正。 建議使用 qemu-img 2.2.0 或更舊版本，或更新至 2.6 或更新版本。 參考：https://bugs.launchpad.net/qemu/+bug/1490611。
 > 
 > 
 
@@ -111,9 +111,9 @@ Azure 上的 VHD 映像必須具有與 1 MB 對齊的虛擬大小。  一般而�
 ## <a name="linux-kernel-requirements"></a>Linux Kernel 需求
 適用於 Hyper-V 和 Azure 的 Linux Integration Services (LIS) 驅動程式會直接提供給上游 Linux Kernel。 許多包括最新 Linux 核心版本 (亦即 3.x) 的散發套件已經有這些驅動程式，或以其核心 提供這些驅動程式的向後移植 (Backport) 版本。  上游核心會透過新的修正和功能來不斷更新這些驅動程式，因此如果可能的話，建議您執行包含這些修正與更新的[背書散發套件](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
-如果您要執行 Red Hat Enterprise Linux 版本 **6.0-6.3** 的變體，便必須安裝 Hyper-V 的最新 LIS 驅動程式。 您可以在[這裡](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409)找到驅動程式。 從 RHEL **6.4+** (及衍生項) 開始，核心已隨附 LIS 驅動程式，因此無需額外的安裝套件，即可在 Azure 上執行這些系統。
+如果您要執行 Red Hat Enterprise Linux 版本 **6.0-6.3** 的變體，便必須安裝 Hyper-V 的最新 LIS 驅動程式。 您可以在 [這裡](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409)找到驅動程式。 從 RHEL **6.4+** (及衍生物件) 開始，核心已隨附 LIS 驅動程式，因此無需額外的安裝套件，即可在 Azure 上執行這些系統。
 
-如果需要自訂核心，建議您使用最新的核心版本 (例如 **3.8+**)。 針對那些散發套件或自行維護核心的廠商，需要花費一點心力，定期將 LIS 驅動程式從上游核心向後移植 (Backport) 到您的自訂核心。  即使您已經在執行相對較新的核心版本，還是強烈建議您持續追蹤任何 LIS 驅動程式的上游修正，並視需要向後移植 (Backport) 這些修正。 您可以在 Linux Kernel 來源樹狀目錄中的 [MAINTAINERS](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS) 檔案找到 LIS 驅動程式原始程式檔的位置。
+如果需要自訂核心，建議您使用最新的核心版本 (例如 **3.8+**)。 針對那些散發套件或自行維護核心的廠商，需要花費一點心力，定期將 LIS 驅動程式從上游核心向後移植 (Backport) 到您的自訂核心。  即使您已經在執行相對較新的核心版本，還是強烈建議您持續追蹤任何 LIS 驅動程式的上游修正，並視需要 Backport 這些修正。 您可以在 Linux Kernel 來源樹狀目錄中的 [MAINTAINERS](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS) 檔案找到 LIS 驅動程式原始程式檔的位置。
 
     F:    arch/x86/include/asm/mshyperv.h
     F:    arch/x86/include/uapi/asm/hyperv.h
@@ -154,7 +154,7 @@ Azure 上的 VHD 映像必須具有與 1 MB 對齊的虛擬大小。  一般而�
   
     這也會確保所有主控台訊息都會傳送到第一個序列埠，以協助 Azure 支援團隊進行問題偵錯程序。
   
-    除了上述以外，我們還建議您「移除」下列參數 (如果存在的話)：
+    除了上述以外，我們還建議您 *移除* 下列參數 (如果存在的話)：
   
         rhgb quiet crashkernel=auto
   

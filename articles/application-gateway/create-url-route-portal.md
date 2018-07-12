@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: ecb8a46c57d31c8a19f3a7b75306e42a7d3981bd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: feb9b0c3d90aea9d5e0351b6691e93186dbfb9f6
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335732"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902073"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>使用 Azure 入口網站建立包含 URL 路徑型路由規則的應用程式閘道
 
@@ -159,9 +159,9 @@ ms.locfileid: "36335732"
 
     ![在應用程式閘道中測試基底 URL](./media/create-url-route-portal/application-gateway-iistest.png)
 
-3. 將 URL 變更為 http://&lt;ip-address&gt;:8080/video/test.htm，將 &lt;ip-address&gt; 取代為您的 IP 位址，然後您會看到類似下列的範例：
+3. 將 URL 變更為 http://&lt;ip-address&gt;:8080/images/test.htm，將 &lt;ip-address&gt; 取代為您的 IP 位址，然後您會看到類似下列的範例：
 
-    ![在應用程式閘道中測試映像 URL](./media/create-url-route-portal/application-gateway-iistest-images.png)
+    ![在應用程式閘道中測試影像 URL](./media/create-url-route-portal/application-gateway-iistest-images.png)
 
 4. 將 URL 變更為 http://&lt;ip-address&gt;:8080/video/test.htm，將 &lt;ip-address&gt; 取代為您的 IP 位址，然後您會看到類似下列的範例：
 

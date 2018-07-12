@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: sangsinh
-ms.openlocfilehash: 4a83ebbcf045ac2b74957effceadfe80609e960c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 195537b271c442b954d6d6e6fa8d1491c07822e8
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36237371"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970239"
 ---
 # <a name="immutable-storage-feature-of-azure-blob-storage-preview"></a>Azure Blob 儲存體的固定儲存體功能 (預覽)
 
@@ -42,7 +42,7 @@ ms.locfileid: "36237371"
 
 - **容器層級組態：** 固定儲存體功能可讓使用者在容器層級設定以時間為基礎的保留原則和合法保存標記。  使用者可以透過簡單的容器層級設定，建立及鎖定以時間為基礎的保留原則、延長保留間隔、集合和清除合法保存等。  這些原則會套用到現有和新容器中的所有 Blob。
 
-- **稽核記錄支援：** 每個容器都包含一個稽核記錄，其針對以時間為基礎的鎖定保留原則，最多顯示五個以時間為基礎的保留命令，而保留間隔延長最多三個記錄。  針對以時間為基礎的保留，此記錄包含使用者 ID、命令類型、時間戳記及保留間隔。 針對合法保存，此記錄包含使用者識別碼、命令類型、時間戳記及合法保存標記。 依據 SEC 17a-4(f) 法規指導方針，在容器的存留時間內會保留此記錄。 在 [Azure 活動記錄](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)中可找到所有控制平面活動的更詳盡記錄。 基於法規需求或其他目的，使用者有責任持續不斷地儲存這些記錄。
+- **稽核記錄支援：** 每個容器都包含一個稽核記錄，其針對以時間為基礎的鎖定保留原則，最多顯示五個以時間為基礎的保留命令，而保留間隔延長最多三個記錄。  針對以時間為基礎的保留，此記錄包含使用者 ID、命令類型、時間戳記及保留間隔。 針對合法保存，此記錄包含使用者識別碼、命令類型、時間戳記及合法保存標記。 依據 SEC 17a-4(f) 法規指導方針，在容器的存留時間內會保留此記錄。 在 [Azure 活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)中可找到所有控制平面活動的更詳盡記錄。 基於法規需求或其他目的，使用者有責任持續不斷地儲存這些記錄。
 
  此功能已在所有 Azure 公用區域中啟用。
 
@@ -68,7 +68,7 @@ ms.locfileid: "36237371"
 
 一個容器可以同時具有合法保存和以時間為基礎的保留原則。 該容器中的所有 Blob 會都保持固定狀態，直到所有合法保存都遭到清除為止 (即使其有效保留期限已過期)。 相反地，Blob 會保持固定狀態，直到有效保留週期到期為止 (即使已清除所有合法保存)。
 下表顯示會針對不同固定案例停用的 Blob 作業類型。
-如需 Blob REST API 詳細資料，請參閱 [Azure Blob 服務 API](https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api) 文件。
+如需 Blob REST API 詳細資料，請參閱 [Azure Blob 服務 API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api) 文件。
 
 |案例  |Blob 狀態  |不允許 Blob 作業  |
 |---------|---------|---------|
@@ -79,7 +79,7 @@ ms.locfileid: "36237371"
 
 > [!NOTE]
 > 上表的前兩個案例允許第一個放置 Blob，以及建立 Blob 所需的放置區塊清單和放置區塊作業，但不允許所有後續的作業。
-> 固定儲存體功能僅適用於 GPv2 和 Blob 儲存體帳戶，且必須透過 [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) 建立。
+> 固定儲存體功能僅適用於 GPv2 和 Blob 儲存體帳戶，且必須透過 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 建立。
 
 ## <a name="pricing"></a>價格
 
@@ -94,7 +94,7 @@ ms.locfileid: "36237371"
 
 ## <a name="getting-started"></a>開始使用
 
-最新的 [Azure 入口網站](http://portal.azure.com)、Azure [CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) 和 Azure [PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018) 都支援適用於 Azure Blob 的 Azure 固定儲存體
+最新的 [Azure 入口網站](http://portal.azure.com)、Azure [CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 和 Azure [PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018) 都支援適用於 Azure Blob 的 Azure 固定儲存體
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
@@ -130,7 +130,7 @@ ms.locfileid: "36237371"
 
 ### <a name="cli-20"></a>CLI 2.0
 
-使用 `az extension add -n storage-preview` 安裝 [CLI 擴充功能](http://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+使用 `az extension add -n storage-preview` 安裝 [CLI 擴充功能](http://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 如果您已安裝此擴充功能，請使用下列命令來啟用固定儲存體功能：`az extension update -n storage-preview`
 

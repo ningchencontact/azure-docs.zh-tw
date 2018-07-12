@@ -35,6 +35,8 @@
           href: log-analytics-oms-portal-faq.md
     - name: Log Analytics 常見問題集
       href: log-analytics-faq.md
+    - name: 資料擷取時間
+      href: log-analytics-data-ingestion-time.md
     - name: 資料安全性
       href: log-analytics-data-security.md
     - name: 管理存取權

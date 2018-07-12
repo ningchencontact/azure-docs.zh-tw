@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 80cdd2bdad5962a9d5f6a0e20f34ac3db1942741
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 578fb3f8bfe68ccd9bbade0ad04f3a811a249c08
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650932"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37906384"
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple 安全性和資料保護
 
@@ -43,7 +43,7 @@ Microsoft Azure StorSimple 解決方案包含四個彼此互動的主要元件�
 
 StorSimple 裝置管理員服務是裝載於 Microsoft Azure 的管理服務，可用來管理您組織所採購的所有 StorSimple 裝置。 您可以使用您的組織認證，透過網頁瀏覽器登入 Azure 入口網站來存取 StorSimple 裝置管理員服務。
 
-若要存取 StorSimple 裝置管理員服務，您的組織需有內含 StorSimple 的 Azure 訂用帳戶。 您的訂用帳戶控管您在 Azure 入口網站中可存取的功能。 如果您的組織沒有 Azure 訂用帳戶，但您想要了解更多相關資訊，請參閱 [以組織身分註冊 Azure](../active-directory/sign-up-organization.md)。
+若要存取 StorSimple 裝置管理員服務，您的組織需有內含 StorSimple 的 Azure 訂用帳戶。 您的訂用帳戶控管您在 Azure 入口網站中可存取的功能。 如果您的組織沒有 Azure 訂用帳戶，但您想要了解更多相關資訊，請參閱 [以組織身分註冊 Azure](../active-directory/fundamentals/sign-up-organization.md)。
 
 因為 StorSimple 裝置管理員服務裝載於 Azure 中，所以會受到 Azure 安全性功能的保護。 如需有關 Microsoft Azure 所提供的安全性功能的詳細資訊，請移至 [Microsoft Azure 信任中心](https://azure.microsoft.com/support/trust-center/security/)。
 
@@ -267,7 +267,7 @@ StorSimple 會使用下列加密演算法，來保護儲存在 StorSimple 解決
 
 **答：** 您可以從 StorSimple 裝置管理員服務下載新的憑證，然後將它安裝在遠端存取用戶端的憑證存放區。 如需相關指示，請移至：
 
-* [Import-Certificate cmdlet](https://technet.microsoft.com/library/hh848630.aspx)
+* [Import-Certificate cmdlet](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate)
 
 **問：** 如果 StorSimple 裝置管理員服務遭到入侵，我的資料是否仍受保護？
 

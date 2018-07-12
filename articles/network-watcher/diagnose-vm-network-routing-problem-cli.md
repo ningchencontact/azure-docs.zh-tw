@@ -18,11 +18,11 @@ ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: ''
 ms.openlocfilehash: fcb7ec2e40b5c0e8794d2f4d70395dcbecca019c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182158"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38618945"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>診斷虛擬機器網路路由問題 - Azure CLI
 
@@ -56,7 +56,7 @@ az vm create \
 
 ## <a name="test-network-communication"></a>測試網路通訊
 
-若要測試網路監看員的網路通訊，您必須先在欲測試的 VM 所在地區啟用網路監看員，然後使用網路監看員的下一個躍點功能來測試通訊。
+若要測試網路監看員的網路通訊，您必須先在欲測試的 VM 所在區域啟用網路監看員，然後使用網路監看員的下一個躍點功能來測試通訊。
 
 ### <a name="enable-network-watcher"></a>啟用網路監看員
 
@@ -149,7 +149,7 @@ az network nic show-effective-route-table \
 },
 ```
 
-如同來自 `az network watcher nic show-effective-route-table` 命令的輸出中所示，雖然有通往 172.16.0.0/12 前置詞的預設路由，且其中包含 172.31.0.100 位址，但 [nextHopType] 是 [無]。 Azure 會建立通往 172.16.0.0/12 的預設路由，但不會指定下一個躍點類型，除非有理由這麼做。 例如，如果您將 172.16.0.0/12 位址範圍新增至虛擬網路的位址空間，則 Azure 會將此路由的 [nextHopType] 變更為 [虛擬網路]。 執行檢查後就會將 [虛擬網路] 顯示為 [nextHopType]。
+如同來自 `az network watcher nic show-effective-route-table` 命令的輸出中所示，雖然有通往 172.16.0.0/12 前置詞的預設路由，且其中包含 172.31.0.100 位址，但 [nextHopType] 是 [無]。 Azure 會建立通往 172.16.0.0/12 的預設路由，但不會指定下一個躍點類型，除非有理由這麼做。 例如，如果您將 172.16.0.0/12 位址範圍新增至虛擬網路的位址空間，則 Azure 會將此路由的 **nextHopType** 變更為 **Virtual network**。 執行檢查就會看到 **Virtual network** 顯示為 **nextHopType**。
 
 ## <a name="clean-up-resources"></a>清除資源
 
@@ -161,6 +161,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文章中，您已建立 VM 並診斷來自 VM 的網路路由。 您已了解 Azure 會建立數個預設路由及測試通往兩個不同目的地的路由。 深入了解 [Azure 中的路由](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)以及如何[建立自訂路由](../virtual-network/manage-route-table.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-route)。
+在本文章中，您已建立 VM 並診斷來自 VM 的網路路由。 您已了解 Azure 會建立數個預設路由，並測試通往兩個不同目的地的路由。 深入了解 [Azure 中的路由](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)以及如何[建立自訂路由](../virtual-network/manage-route-table.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-route)。
 
-針對輸出 VM 連線，您也可以使用網路監看員的[連線疑難排解](network-watcher-connectivity-cli.md)功能，來決定延遲以及 VM 與端點之間所允許和拒絕的網路流量。 您可以使用網路監看員的連線監視功能，來監視一段時間中 VM 與端點 (例如 IP 位址或 URL) 之間的通訊情形。 若要了解方法，請[監視網路連線](connection-monitor.md)。
+針對輸出 VM 連線，您也可以使用網路監看員的[連線疑難排解](network-watcher-connectivity-cli.md)功能，以判斷 VM 與端點之間的延遲，以及所允許和拒絕的網路流量。 您可以使用網路監看員的連線監視功能，以監視某段時間內 VM 與端點 (例如 IP 位址或 URL) 之間的通訊情形。 若要了解方法，請參閱[監視網路連線](connection-monitor.md)。

@@ -12,14 +12,14 @@ ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 07/11/2018
 ms.author: jeffgilb
-ms.openlocfilehash: ce5fd2feaa30948042cc0570a4b0ea7f0ab7ad77
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: fba04490aca4c7123ca478ae07a5f0c865d9a826
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302251"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968692"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>從系統管理入口網站啟用 Azure Stack 的備份
 透過系統管理入口網站啟用基礎結構備份服務，以便 Azure Stack 產生備份。 發生[嚴重失敗](.\azure-stack-backup-recover-data.md)情況時，您可以透過雲端復原使用這些備份來還原環境。 雲端復原的目的在於確保您的操作員和使用者在復原完成後，可以重新登入入口網站。 使用者將會還原其訂用帳戶，包括角色型存取權限和角色、原始方案、供應項目，以及先前定義的計算、儲存體和網路配額。
@@ -49,7 +49,7 @@ ms.locfileid: "34302251"
 4. 使用有足夠存取權可讀取和寫入檔案的網域和使用者名稱來輸入**使用者名稱**。 例如： `Contoso\backupshareuser`。
 5. 輸入使用者的**密碼**。
 5. 再次輸入密碼以**確認密碼**。
-6. 在 [加密金鑰] 方塊中提供預先共用的金鑰。 備份檔案會使用此金鑰來加密。 請務必將此金鑰儲存在安全的位置。 您第一次設定此金鑰後或在未來更換金鑰時，都無法再從這個介面檢視此金鑰。 如需產生預先共用的詳細指示，請遵照[使用 PowerShell 來啟用 Azure Stack 的備份](azure-stack-backup-enable-backup-powershell.md#generate-a-new-encryption-key)中的指令碼。 
+6. 在 [加密金鑰] 方塊中提供預先共用的金鑰。 備份檔案會使用此金鑰來加密。 請務必將此金鑰儲存在安全的位置。 您第一次設定此金鑰後或在未來更換金鑰時，都無法再從這個介面檢視此金鑰。 如需產生預先共用的詳細指示，請遵照[使用 PowerShell 來啟用 Azure Stack 的備份](azure-stack-backup-enable-backup-powershell.md)中的指令碼。
 7. 選取 [確定] 以儲存備份控制器設定。
 
 若要執行備份，您必須下載 Azure Stack 工具，然後在系統管理節點上執行 PowerShell Cmdlet **Start-AzSBackup**。 如需詳細資訊，請參閱[備份 Azure Stack](azure-stack-backup-back-up-azure-stack.md )。

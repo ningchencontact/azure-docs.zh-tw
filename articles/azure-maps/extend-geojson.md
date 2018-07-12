@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 2cc0e29615ad4fc19040055d847435a9dffa9c95
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 319f9cba23d088553f361b6a0d648bbde94e0743
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659056"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968556"
 ---
 # <a name="extending-geojson-geometries"></a>擴充 GeoJSON 幾何
 
@@ -30,7 +30,7 @@ Azure 提供許多強大的 API，能夠在地理特徵之內/依循地理特徵
 * Point
 * Polygon
 
-某些 Azure 地圖服務 API (例如：[幾何內搜尋](https://docs.microsoft.com/en-us/rest/api/maps/search/postsearchinsidegeometry)) 接受不屬於 [GeoJSON 規格][1]的幾何，例如「Circle」。
+某些 Azure 地圖服務 API (例如：[幾何內搜尋](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)) 接受不屬於 [GeoJSON 規格][1]的幾何，例如「Circle」。
 
 本文詳細說明 Azure 地圖服務如何延伸 [GeoJSON 規格][1]來代表特定的幾何。
 

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: e396d69a61679a85fdfbd3e8fd43216635dec51d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ae039573cf202059114f23cca86207c117a35ead
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627785"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970394"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>使用 Power BI 將遠端監視資料視覺化
 
@@ -94,9 +94,9 @@ ms.locfileid: "34627785"
 
 ## <a name="publishing-the-dashboard-and-refreshing-the-data"></a>發行儀表板並重新整理資料
 
-成功建立儀表板之後，建議您[發行 Power BI 儀表板](https://docs.microsoft.com/en-us/power-bi/desktop-upload-desktop-files)以與其他人共用。
+成功建立儀表板之後，建議您[發行 Power BI 儀表板](https://docs.microsoft.com/power-bi/desktop-upload-desktop-files)以與其他人共用。
 
-您也會想要在發行的儀表板上[重新整理資料](https://docs.microsoft.com/en-us/power-bi/refresh-data)，以確定您具有最新的資料集。
+您也會想要在發行的儀表板上[重新整理資料](https://docs.microsoft.com/power-bi/refresh-data)，以確定您具有最新的資料集。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 01/11/2018
 ms.author: maghan
-ms.openlocfilehash: 7a860742192227e92a14d9bb5622dc9b61f6cb99
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 33d948ee283ff3ee873e2f17ee07a7a889889925
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716018"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969488"
 ---
 # <a name="get-started-with-microsoft-power-bi-embedded"></a>開始使用 Microsoft Power BI Embedded
 
@@ -50,7 +50,7 @@ Azure Active Directory (AAD) 內必須有已註冊的應用程式，才能在自
 請在 Microsoft Azure 內建立 Power BI Embedded 容量，以將應用程式移至生產環境。 如需如何建立容量的相關資訊，請參閱[在 Azure 入口網站中建立 Power BI Embedded 容量](create-capacity.md)。
 
 > [!IMPORTANT]
-> 內嵌權杖僅適用於開發人員測試，因此 Power BI 主要帳戶可以產生的內嵌權杖數目有所限制。 生產環境內嵌案例的[容量必須經由購買取得](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical)。 若購買專用容量，便不會限制所產生的內嵌權杖。 移至[取得可用功能](https://msdn.microsoft.com/en-us/library/mt846473.aspx)，檢查目前內嵌的使用量百分比。
+> 內嵌權杖僅適用於開發人員測試，因此 Power BI 主要帳戶可以產生的內嵌權杖數目有所限制。 生產環境內嵌案例的[容量必須經由購買取得](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical)。 若購買專用容量，便不會限制所產生的內嵌權杖。 移至[取得可用功能](https://msdn.microsoft.com/library/mt846473.aspx)，檢查目前內嵌的使用量百分比。
 
 在 Power BI 管理入口網站中管理您的容量。 指派工作區管理員來協助管理應用程式工作區。 如需詳細資訊，請參閱[管理 Power BI Premium 和 Power BI Embedded 內的容量](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/)。
 

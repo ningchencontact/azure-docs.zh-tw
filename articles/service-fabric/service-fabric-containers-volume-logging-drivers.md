@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
 ms.author: subramar
-ms.openlocfilehash: d6195eda43dfd6ad249e82dabd0b314fc162b8c6
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: a5b75a7069375f503cbe25554eb7c04cba868413
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301077"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969600"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Service Fabric Azure 檔案服務磁碟區驅動程式 (預覽)
 Azure 檔案服務磁碟區外掛程式為 [Docker 磁碟區外掛程式](https://docs.docker.com/engine/extend/plugins_volume/) \(英文\)，針對 Docker 容器提供以 [Azure 檔案服務](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)為基礎的磁碟區。 此 Docker 磁碟區外掛程式會封裝為可部署至 Service Fabric 叢集的 Service Fabric 應用程式。 其目的是為部署至叢集的其他 Service Fabric 容器應用程式，提供以 Azure 檔案服務為基礎的磁碟區。
@@ -29,17 +29,17 @@ Azure 檔案服務磁碟區外掛程式為 [Docker 磁碟區外掛程式](https:
 >
 
 ## <a name="prerequisites"></a>先決條件
-* Azure 檔案服務磁碟區外掛程式的 Windows 版本只能在 [Windows Server 1709 版](https://docs.microsoft.com/en-us/windows-server/get-started/whats-new-in-windows-server-1709)、[Windows 10 1709 版](https://docs.microsoft.com/en-us/windows/whats-new/whats-new-windows-10-version-1709)或更新版本的作業系統上運作。 Azure 檔案服務磁碟區外掛程式的 Linux 版本可在 Service Fabric 所支援的所有作業系統版本上運作。
+* Azure 檔案服務磁碟區外掛程式的 Windows 版本只能在 [Windows Server 1709 版](https://docs.microsoft.com/windows-server/get-started/whats-new-in-windows-server-1709)、[Windows 10 1709 版](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709)或更新版本的作業系統上運作。 Azure 檔案服務磁碟區外掛程式的 Linux 版本可在 Service Fabric 所支援的所有作業系統版本上運作。
 
 * Azure 檔案磁碟區外掛程式只適用於 Service Fabric 6.2 版及更新版本。
 
-* 請依照 [Azure 檔案服務文件](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-create-file-share) \(英文\) 中的指示，為 Service Fabric 容器應用程式建立一個檔案共用作為磁碟區使用。
+* 請依照 [Azure 檔案服務文件](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share) \(英文\) 中的指示，為 Service Fabric 容器應用程式建立一個檔案共用作為磁碟區使用。
 
-* 您將會需要安裝[包含 Service Fabric 模組的 Powershell](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started) 或 [SFCTL](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cli)。
+* 您將會需要安裝[包含 Service Fabric 模組的 Powershell](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started) 或 [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)。
 
 ## <a name="deploy-the-service-fabric-azure-files-application"></a>部署 Service Fabric Azure 檔案服務應用程式
 
-為您的容器提供磁碟區的 Service Fabric 應用程式，可從此[連結](https://aka.ms/sfvolume)下載。 您可以透過 [PowerShell](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-deploy-remove-applications)、[CLI](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-lifecycle-sfctl) 或 [FabricClient API](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient) 將應用程式部署到叢集。
+為您的容器提供磁碟區的 Service Fabric 應用程式，可從此[連結](https://aka.ms/sfvolume)下載。 您可以透過 [PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications)、[CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle-sfctl) 或 [FabricClient API](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient) 將應用程式部署到叢集。
 
 1. 使用命令列將目錄變更至已下載應用程式套件的根目錄。
 

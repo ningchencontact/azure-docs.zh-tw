@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/21/2018
-ms.openlocfilehash: 6f078823d8b911bc5ce6a36ab27b11a9c0117b80
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.date: 07/21/2018
+ms.openlocfilehash: 3637ee63c94ea54145d99b9d5632f0a77c95d2f4
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018334"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970256"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>適用於 PostgreSQL 的 Azure 資料庫定價層
 
@@ -64,6 +64,8 @@ ms.locfileid: "37018334"
 | 東亞 | X | X |
 | 東南亞 | X | X |
 | 澳洲東部 |  | X |
+| 澳大利亞中部 |  | X |
+| 澳大利亞中部 2 |  | X |
 | 澳大利亞東南部 |  | X |
 | 印度中部 | X | X |
 | 印度西部 | X | X |

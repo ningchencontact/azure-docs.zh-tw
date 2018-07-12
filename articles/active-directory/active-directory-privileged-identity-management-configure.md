@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 03/07/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 927d2ccef6a250d489273a17b070a4a0aa820bee
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 9e5039623b1f9b53c636ebaeb1e956d852185577
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767376"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952047"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>什麼是 Azure AD Privileged Identity Management？
 
@@ -101,13 +101,13 @@ Azure AD Privileged Identity Manager 有一個管理員儀表板可提供重要�
 *   過去 30 天內具有新角色指派的使用者和群組 (Azure 資源角色)
 
 
-![PIM 儀表板 - 螢幕擷取畫面][2]
+![PIM 儀表板 - 螢幕擷取畫面](./media/active-directory-privileged-identity-management-configure/PIM_Admin_Overview.png)
 
 ## <a name="privileged-role-management"></a>特殊權限角色管理
 
 使用 Azure AD Privileged Identity Management，您便可透過新增或移除 Azure AD 目錄角色中每個角色的永久或合格系統管理員來管理這些系統管理員。 有了適用於 Azure 資源 (預覽) 的 PIM，擁有者、使用者存取系統管理員，和啟用其租用戶中訂用帳戶管理的全域管理員便可以將使用者或群組指派為合格的 (Just-In-Time 存取)，或具開始和結束日期/時間的時間繫結 (不需啟用) 存取，或永久的 (如果在角色設定中已啟用) Azure 資源角色。
 
-![PIM 新增/移除系統管理員 - 螢幕擷取畫面][3]
+![PIM 新增/移除系統管理員 - 螢幕擷取畫面](./media/active-directory-privileged-identity-management-configure/PIM_AddRemove.png)
 
 ## <a name="configure-the-role-activation-settings"></a>設定角色啟用設定
 
@@ -119,7 +119,7 @@ Azure AD Privileged Identity Manager 有一個管理員儀表板可提供重要�
 * 服務票證或事件數目
 * [核准工作流程需求 - 預覽](./privileged-identity-management/azure-ad-pim-approval-workflow.md)
 
-![PIM 設定 - 系統管理員啟動 - 螢幕擷取畫面][4]
+![PIM 設定 - 系統管理員啟動 - 螢幕擷取畫面](./media/active-directory-privileged-identity-management-configure/PIM_Settings_w_Approval_Disabled.png)
 
 請注意，此影像中已停用 [Multi-Factor Authentication]  的按鈕。 針對某些高特殊權限的角色，我們會要求使用 MFA 來增強防護。
 
@@ -140,13 +140,13 @@ Azure 資源角色 (預覽) 的角色設定允許系統管理員設定 Just-In-T
 
 角色啟用是可自訂的。 在 [PIM] 設定中，您可以決定啟用的長度，以及管理員必須提供才能啟用角色的資訊。
 
-![PIM 系統管理員要求角色啟用 - 螢幕擷取畫面][5]
+![PIM 系統管理員要求角色啟用 - 螢幕擷取畫面](./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png)
 
 ## <a name="review-role-activity"></a>檢閱角色活動
 
 有兩種方式可以追蹤您的員工和系統管理員使用特殊權限角色的情況。 第一個選項是使用[目錄角色稽核歷程](active-directory-privileged-identity-management-how-to-use-audit-log.md)。 稽核歷程記錄會追蹤特殊權限角色指派、角色啟用記錄的變更，以及 Azure 資源角色 (預覽) 設定的變更。 
 
-![PIM 啟動歷程記錄 - 螢幕擷取畫面][6]
+![PIM 啟動歷程記錄 - 螢幕擷取畫面](./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png)
 
 第二個選項是設定標準 [存取檢閱](active-directory-privileged-identity-management-how-to-start-security-review.md)。 這些存取檢閱可以由指派的檢閱者 (例如團隊經理) 來執行或者員工可以檢閱自己。 如此來監視誰仍需要或不再需要存取是最佳的方式。
 
@@ -158,12 +158,3 @@ Azure 資源角色 (預覽) 的角色設定允許系統管理員設定 Just-In-T
 ## <a name="next-steps"></a>後續步驟
 
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
-[2]: ./media/active-directory-privileged-identity-management-configure/PIM_Admin_Overview.png
-[3]: ./media/active-directory-privileged-identity-management-configure/PIM_AddRemove.png
-[4]: ./media/active-directory-privileged-identity-management-configure/PIM_Settings_w_Approval_Disabled.png
-[5]: ./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png
-[6]: ./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png

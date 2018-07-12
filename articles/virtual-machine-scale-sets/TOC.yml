@@ -224,6 +224,8 @@
           href: virtual-machine-scale-sets-networking.md
         - name: 將範本轉換為受控磁碟
           href: virtual-machine-scale-sets-convert-template-to-md.md
+        - name: 預定的維修
+          href: virtual-machine-scale-sets-maintenance-notifications.md
     - name: 疑難排解
       items:
         - name: Autoscale

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
 ms.author: saysa
-ms.openlocfilehash: 047b3d00da4f192febeeab79c9c87b67a8a0489b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: efdbfa9664e180031926982adedfcf94a4184081
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207956"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972243"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>使用 Jenkins 建置和部署您的 Linux 應用程式
 Jenkins 是連續整合和部署應用程式的熱門工具。 以下是使用 Jenkins 建置和部署 Azure Service Fabric 應用程式的方式。
@@ -298,12 +298,12 @@ Jenkins 是連續整合和部署應用程式的熱門工具。 以下是使用 J
 
 對於部署和測試環境，您可以設定 Azure 認證或叢集管理端點以部署應用程式。 如需有關如何設定叢集管理端點的詳細資料，請參閱[使用叢集管理端點設定部署](#configure-deployment-using-cluster-management-endpoint)。   
 
-1. 若要建立 Azure Active Directory 服務主體，並在 Azure 訂用帳戶中指派權限給它，請依照[使用入口網站建立 Azure Active Directory 應用程式和服務主體](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal)中的步驟進行。 請注意以下事項：
+1. 若要建立 Azure Active Directory 服務主體，並在 Azure 訂用帳戶中指派權限給它，請依照[使用入口網站建立 Azure Active Directory 應用程式和服務主體](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)中的步驟進行。 請注意以下事項：
 
    * 依照主題中的步驟進行時，請務必複製並儲存下列值：*應用程式 ID*、*應用程式金鑰*、*目錄 ID (租用戶 ID)*，和*訂用帳戶 ID*。 您需要它們才能在 Jenkins 中設定 Azure 認證。
-   * 如果您沒有目錄的[必要權限](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) \(英文\)，將需要要求系統管理員授予權限，或為您建立服務主體，或者您需要針對 Jenkins 中的工作，在 [建置後動作] 中為叢集設定管理端點。
-   * 在[建立 Azure Active Directory 應用程式](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal#create-an-azure-active-directory-application)[登入 URL] 輸入任何格式正確的 URL。
-   * 在[指派應用程式給角色](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) 一節中，您可以將叢集資源群組的 *Reader* 角色指派給應用程式。
+   * 如果您沒有目錄的[必要權限](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) \(英文\)，將需要要求系統管理員授予權限，或為您建立服務主體，或者您需要針對 Jenkins 中的工作，在 [建置後動作] 中為叢集設定管理端點。
+   * 在[建立 Azure Active Directory 應用程式](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#create-an-azure-active-directory-application)[登入 URL] 輸入任何格式正確的 URL。
+   * 在[指派應用程式給角色](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) 一節中，您可以將叢集資源群組的 *Reader* 角色指派給應用程式。
 
 2. 回到 Jenkins 作業，按一下 [建置後動作] 索引標籤。
 3. 從 [建置後動作] 下拉式清單，選取 [部署 Service Fabric 專案]。 
@@ -321,7 +321,7 @@ Jenkins 是連續整合和部署應用程式的熱門工具。 以下是使用 J
 7. 回到 [Service Fabric 叢集組態] 底下，確認您已經針對 [Azure 認證] 選取新的認證。 
 8. 從 [資源群組] 下拉式清單中，針對您要部署應用程式的叢集，選取叢集的資源群組。
 9. 從 [Service Fabric] 下拉式清單，選取您要部署應用程式的叢集。
-10. 對於 [用戶端金鑰] 和 [用戶端憑證]，請輸入您 Jenkins 容器中 PEM 檔案的位置。 例如 `/var/jenkins_home/clustercert.pem`。 
+10. 對於 [用戶端金鑰] 和 [用戶端憑證]，請輸入您 Jenkins 容器中 PEM 檔案的位置。 例如 `/var/jenkins_home/clustercert.pem` 。 
 11. 在 [應用程式組態] 底下，設定 [應用程式名稱]、[應用程式類型]，和 (相關) [應用程式資訊清單路徑] 欄位。
     ![Service Fabric Jenkins 建置後動作設定 Azure 認證](./media/service-fabric-cicd-your-linux-application-with-jenkins/post-build-credentials.png)
 12. 按一下 [驗證組態 ]。 在驗證成功之後，按一下 [儲存]。 您的 Jenkins 作業管線現在已完整設定。 繼續至 [後續步驟](#next-steps) 以測試部署。

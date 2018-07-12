@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: aab3c843493048291583bea111a52fe3356dc0f0
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f36f05789424cfd3213525dd501333f852a0d9c2
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264369"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971715"
 ---
 # <a name="log-alerts-in-azure-monitor---alerts"></a>Azure 監視器中的記錄警示 - 警示 
 本文提供記錄警示的詳細資料，記錄警示是新的 [Azure 警示](monitoring-overview-unified-alerts.md) 內所支援的其中一種警示類型，可讓使用者使用 Azure 的分析平台來作為基礎警示。 如需計量警示使用記錄的詳細資訊，請參閱[近乎即時的度量警示](monitoring-near-real-time-metric-alerts.md)。
@@ -120,7 +120,7 @@ Azure 警示會建立記錄搜尋規則，以自動定期執行指定的記錄�
 
 如需詳細資訊以及 REST API 的使用範例，請參閱：
 - [Log Analytics 警示 REST API](../log-analytics/log-analytics-api-alerts.md) - 以建立和管理 Azure Log Analytics 的記錄搜尋警示規則
-- [Azure 監視器排程的查詢規則 REST API](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) - 以建立和管理 Azure Application Insights 的記錄搜尋警示規則
+- [Azure 監視器排程的查詢規則 REST API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) - 以建立和管理 Azure Application Insights 的記錄搜尋警示規則
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager 範本
 使用者也可以使用 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 所提供的彈性來建立和更新資源 - 用於建立或更新記錄警示。

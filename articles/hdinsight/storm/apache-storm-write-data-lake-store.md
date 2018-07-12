@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 149f91f3091f08da2e54458d708a17da928c1972
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 7a314ada1c25b57b6d1701bf414a42a58397e1f0
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131730"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903127"
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>從 Apache Storm on HDInsight 寫入 HDFS
 
@@ -69,7 +69,7 @@ HdfsBolt 會使用您提供的檔案配置來了解如何寫入 HDFS。 利用 H
 
 ### <a name="example-configuration"></a>設定範例
 
-下列 YAML 是摘錄自範例中隨附的 `resources/writetohdfs.yaml` 檔案。 此檔案會使用 Apache Storm 的 [Flux](https://storm.apache.org/releases/1.1.0/flux.html) 架構定義 Storm 拓撲。
+下列 YAML 是摘錄自範例中隨附的 `resources/writetohdfs.yaml` 檔案。 此檔案會使用 Apache Storm 的 [Flux](https://storm.apache.org/releases/1.1.2/flux.html) 架構定義 Storm 拓撲。
 
 ```yaml
 components:
@@ -133,7 +133,7 @@ bolts:
 * `rotationPolicy`：定義何時輪替檔案。 在此範例中，不會執行輪替。
 * `hdfs-bolt`：使用舊版元件作為 `HdfsBolt` 類別的設定參數。
 
-如需有關 Flux 架構的詳細資訊，請參閱 [https://storm.apache.org/releases/1.1.0/flux.html](https://storm.apache.org/releases/1.1.0/flux.html)。
+如需有關 Flux 架構的詳細資訊，請參閱 [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html)。
 
 ## <a name="configure-the-cluster"></a>設定叢集
 

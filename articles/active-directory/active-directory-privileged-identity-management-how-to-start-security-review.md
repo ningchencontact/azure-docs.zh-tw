@@ -13,12 +13,12 @@ ms.component: protection
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 28a998647dacdf57390638b8ce1629a76077b450
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 38386de86c83733e3539048de9e263ed6225eee5
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446889"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952155"
 ---
 # <a name="how-to-start-an-access-review-in-azure-ad-privileged-identity-management"></a>如何在 Azure AD Privileged Identity Management 中開始存取權檢閱
 當使用者擁有不再需要的特殊存取權時，角色指派就會變成「過時」。 為了降低與這些過時角色指派相關聯的風險，特殊權限角色管理員或全域管理員應該定期建立存取檢閱，要求管理員檢閱使用者獲派的角色。 本文件涵蓋在 Azure AD Privileged Identity Management (PIM) 中開始存取權檢閱的步驟。
@@ -37,12 +37,12 @@ ms.locfileid: "37446889"
 
 按一下 [檢閱] 按鈕時，隨即會顯示 [開始存取檢閱] 刀鋒視窗。 您將在此刀鋒視窗上為檢閱設定名稱和時間限制、選擇要檢閱的角色，以及決定將由誰執行檢閱。
 
-![開始存取權檢閱 - 螢幕擷取畫面][1]
+![開始存取權檢閱 - 螢幕擷取畫面](./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_start_review.png)
 
 ### <a name="configure-the-review"></a>設定檢閱
 若要建立存取權檢閱，您需要為它命名並設定開始和結束日期。
 
-![設定檢閱 - 螢幕擷取畫面][2]
+![設定檢閱 - 螢幕擷取畫面](./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_configure.png)
 
 為檢閱設定足夠的時間長度，以便讓使用者能夠完成檢閱。 如果您在結束日期之前即完成檢閱，您一律可以提早停止檢閱。
 
@@ -51,7 +51,7 @@ ms.locfileid: "37446889"
 
 1. 瀏覽至 [檢閱角色成員資格] 
    
-    ![檢閱角色成員資格 - 螢幕擷取畫面][3]
+    ![檢閱角色成員資格 - 螢幕擷取畫面](./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_role.png)
 2. 從清單中選擇一個角色。
 
 ### <a name="decide-who-will-perform-the-review"></a>決定將由誰執行檢閱
@@ -59,7 +59,7 @@ ms.locfileid: "37446889"
 
 1. 瀏覽至 [選取檢閱者] 
    
-    ![選取檢閱者 - 螢幕擷取畫面][4]
+    ![選取檢閱者 - 螢幕擷取畫面](./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_reviewers.png)
 2. 選擇其中一個選項：
    
    * **選取檢閱者**︰如果您不知道誰需要存取權，請使用此選項。 使用此選項，您可以指派資源擁有者或群組管理員完成檢閱。
@@ -79,10 +79,3 @@ ms.locfileid: "37446889"
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="pim-table-of-contents"></a>PIM 目錄
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_start_review.png
-[2]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_configure.png
-[3]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_role.png
-[4]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_reviewers.png

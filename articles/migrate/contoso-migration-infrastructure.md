@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/19/2018
 ms.author: raynew
-ms.openlocfilehash: bf861dc6317a8cc3a3ed862dfd6c133a1dcbe685
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: bf1406c8e361e0a1433b0e26c477c3c34e987fcf
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231905"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38562753"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - 部署移轉基礎結構
 
@@ -556,7 +556,7 @@ CUS | CONTOSODC6 | VNET-PROD-CUS | PROD-DC-CUS | 10.255.42.4
 1. 在 Azure 入口網站中，他們可以將新的 Windows Server VM 部署至適當的 VNet。
 2. 他們可以在每個位置中建立 VM 的可用性設定組。 可用性設定組有下列功用：
     - 確保 Azure 網狀架構會將 VM 分隔至 Azure 區域的不同基礎結構中。 
-    -  可讓 Contoso 針對 Azure 中的 VM 達到 99.95% SLA 的標準。  [深入了解](https://docs.microsoftcom/azure/virtual-machines/windows/regions-and-availability#availability-sets)。
+    -  可讓 Contoso 針對 Azure 中的 VM 達到 99.95% SLA 的標準。  [深入了解](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets)。
 
     ![可用性群組](./media/contoso-migration-infrastructure/availability-group.png) 
 3. 部署 VM 之後，他們會為 VM 設定網路介面。 在此，他們將私人 IP 位址設定為靜態，並指定有效位址。

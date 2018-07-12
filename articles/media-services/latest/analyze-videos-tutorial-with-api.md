@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/28/2018
 ms.author: juliako
-ms.openlocfilehash: e5b8cc9285d9637a04c4bec47b0185652aa7c84e
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 314ffce8a9f8dde62cac670099afbc2223df37e4
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114219"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971993"
 ---
 # <a name="tutorial-analyze-videos-with-azure-media-services"></a>教學課程：使用 Azure 媒體服務分析影片 
 
@@ -112,7 +112,7 @@ ms.locfileid: "37114219"
 
 #### <a name="job"></a>工作 (Job)
 
-如同前面所述，[轉換](https://docs.microsoft.com/rest/api/media/transforms)物件是配方，而[作業](https://docs.microsoft.com/en-us/rest/api/media/jobs)則是實際要求媒體服務，將**轉換**套用至指定的輸入影片或音訊內容。 **作業**會指定輸入影片的位置、輸出的位置等資訊。 您可以使用下列項目指定影片的位置：HTTPS URL、SAS URL 或媒體服務帳戶的資產。 
+如同前面所述，[轉換](https://docs.microsoft.com/rest/api/media/transforms)物件是配方，而[作業](https://docs.microsoft.com/rest/api/media/jobs)則是實際要求媒體服務，將**轉換**套用至指定的輸入影片或音訊內容。 **作業**會指定輸入影片的位置、輸出的位置等資訊。 您可以使用下列項目指定影片的位置：HTTPS URL、SAS URL 或媒體服務帳戶的資產。 
 
 在此範例中，工作輸入是本機影片。  
 
@@ -120,7 +120,7 @@ ms.locfileid: "37114219"
 
 ### <a name="wait-for-the-job-to-complete"></a>請等待作業完成
 
-此作業需要一些時間來完成，而您可以選擇在完成時收到通知。 取得[作業](https://docs.microsoft.com/en-us/rest/api/media/jobs)完成通知的選項有很多種。 最簡單的選項 (如此處所示) 是使用輪詢。 
+此作業需要一些時間來完成，而您可以選擇在完成時收到通知。 取得[作業](https://docs.microsoft.com/rest/api/media/jobs)完成通知的選項有很多種。 最簡單的選項 (如此處所示) 是使用輪詢。 
 
 對生產應用程式而言，輪詢不是建議的最佳做法，因為可能會發生延遲。 如果過度使用帳戶，輪詢可能會進行節流處理。 開發人員應改為使用事件方格。
 

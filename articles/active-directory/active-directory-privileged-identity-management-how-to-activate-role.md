@@ -13,12 +13,12 @@ ms.component: protection
 ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: e0e9e01baccd71804b26282f288d19abff8ff8fa
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: bc4280d6e0ac362712d3b406e2e32c42cf4a9be2
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444917"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952676"
 ---
 # <a name="how-to-activate-or-deactivate-roles-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management：如何啟用或停用角色
 Azure Active Directory (AD) Privileged Identity Management 簡化了企業管理以特殊權限身分存取 Azure AD 中的資源和其他 Microsoft 線上服務 (如 Office 365 或 Microsoft Intune) 的方式。  
@@ -44,11 +44,11 @@ Azure Active Directory (AD) Privileged Identity Management 簡化了企業管理
 4. 選取 [ **啟用**]。 [要求啟用角色]  刀鋒視窗隨即出現。
 5. 有些角色會要求必須先執行 Multi-Factor Authentication (MFA) 才能啟用。 您只需在每個工作階段驗證一次。
    
-    ![在啟用角色之前先以 MFA 驗證 - 螢幕擷取畫面][2]
+    ![在啟用角色之前先以 MFA 驗證 - 螢幕擷取畫面](./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_activation_MFA.png)
 6. 在啟用要求的文字欄位中輸入啟用原因。  有些角色會要求您提供問題票證號碼。
 7. 選取 [確定] 。  如果角色不需要核准，它現在就會啟用，角色會出現在使用中角色的清單中 (符合角色指派資格清單正下方)。 如果[角色需要核准](./privileged-identity-management/azure-ad-pim-approval-workflow.md)才能啟用，快顯通知會短暫出現在瀏覽器右上角，通知您要求正在等待核准。
 
-    ![要求擱置通知 - 螢幕擷取畫面][3]
+    ![要求擱置通知 - 螢幕擷取畫面](./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_Request_Pending_Toast2.png)
 
 ## <a name="deactivate-a-role"></a>停用角色
 角色一經啟用，就會在達到時間限制 (合格的持續時間) 時自動停用。
@@ -64,16 +64,9 @@ Azure Active Directory (AD) Privileged Identity Management 簡化了企業管理
 4. 選取角色啟用詳細資料刀鋒視窗上的 [啟用正在等待核准] 橫幅。
 5. 選取 [等待核准] 刀鋒視窗頂端的 [取消]。
 
-   ![取消擱置要求螢幕擷取畫面][4]
+   ![取消擱置要求螢幕擷取畫面](./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_Request_Pending_Banner_Cancel.png)
 
 ## <a name="next-steps"></a>後續步驟
 如果您有興趣進一步了解 Azure AD Privileged Identity Management，下列連結會提供詳細資訊。
 
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
-[2]: ./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_activation_MFA.png
-[3]: ./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_Request_Pending_Toast2.png
-[4]: ./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_Request_Pending_Banner_Cancel.png

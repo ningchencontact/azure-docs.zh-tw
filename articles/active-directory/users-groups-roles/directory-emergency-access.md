@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
-ms.openlocfilehash: 185f6730babe077332be9f054ba338ff48295eca
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 4f3772abc1cdbd3b35b8b1f16e7a47c0f1a17783
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448823"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38595649"
 ---
 # <a name="manage-emergency-access-administrative-accounts-in-azure-ad"></a>在 Azure AD 中管理緊急存取系統管理帳戶 
 
@@ -82,6 +82,6 @@ ms.locfileid: "37448823"
 - 請[註冊 Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) (如果您尚未註冊)。
 - [要求指派為管理員的個別使用者使用 Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states)。
 - 如果您使用 Office 365，[在 Office 365 中為全域管理員設定額外保護](https://support.office.com/article/Protect-your-Office-365-global-administrator-accounts-6b4ded77-ac8d-42ed-8606-c014fd947560)。
-- [執行全域管理員的存取權檢閱](../active-directory-privileged-identity-management-how-to-start-security-review.md)並[將現有的全域管理員轉換為更具體的管理員角色](directory-assign-admin-roles.md)。
+- [執行全域管理員的存取權檢閱](../privileged-identity-management/pim-how-to-start-security-review.md)並[將現有的全域管理員轉換為更具體的管理員角色](directory-assign-admin-roles.md)。
 
 

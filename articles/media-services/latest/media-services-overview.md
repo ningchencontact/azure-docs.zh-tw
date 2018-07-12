@@ -16,12 +16,12 @@ ms.workload: media
 ms.date: 06/14/2018
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 489801852202163ef40d57da0082e39793196d85
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 5205a6746f6a698768a60375e2e77db9cb535a71
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264089"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971902"
 ---
 # <a name="what-is-azure-media-services-v3"></a>什麼是 Azure 媒體服務 v3？
 
@@ -45,7 +45,7 @@ Azure 媒體服務是雲端式平台，可讓您建置的解決方案擁有廣�
 * 建立訂閱影片服務，並在客戶需要限制對著作權所有作品的存取及使用時，串流受 DRM 保護的內容。
 * 傳遞離線內容，以在飛機、火車和汽車上播放。 當客戶預期會從網路中斷連線時，他們可能需要將內容下載到手機或平板電腦上播放。
 * 在影片加入標題和字幕，以建立更廣大的觀眾 (例如聽障人士或想要以其他語言閱讀的人)。 
-* 使用 Azure 媒體服務和 [Azure 認知服務 API](https://docs.microsoft.com/en-us/azure/#pivot=products&panel=ai) 的語音文字轉換、翻譯成多語言等功能，實作教育電子化學習影片平台。
+* 使用 Azure 媒體服務和 [Azure 認知服務 API](https://docs.microsoft.com/azure/#pivot=products&panel=ai) 的語音文字轉換、翻譯成多語言等功能，實作教育電子化學習影片平台。
 * 啟用 Azure CDN 來達成大規模調整，以更妥善處理瞬間高負載 (例如，在產品上市活動開始時。) 
 
 ## <a name="v3-capabilities"></a>v3 功能

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: aa309abecdf0fb0c0acaf18e53bde4600c101a44
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: b2bb5e0f9b138af5ff69599b7ba35457788c8a65
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "34659058"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968442"
 ---
 # <a name="azure-maps-supported-categories"></a>Azure 地圖服務支援的類別
 
-執行興趣點的[類別搜尋](https://docs.microsoft.com/en-us/rest/api/maps/search/getsearchpoicategory)時，有超過一百個支援的類別。 以下是支援類別名稱的類別代碼清單。 對於上層類別會產生類別代碼。 所有子類別均共用相同的類別代碼。 請注意，新資料版本的類別清單都可能會變更。
+執行興趣點的[類別搜尋](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory)時，有超過一百個支援的類別。 以下是支援類別名稱的類別代碼清單。 對於上層類別會產生類別代碼。 所有子類別均共用相同的類別代碼。 請注意，新資料版本的類別清單都可能會變更。
 
 <br/>
 

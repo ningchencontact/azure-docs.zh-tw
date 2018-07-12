@@ -4,7 +4,7 @@ description: 本文說明 Azure Active Directory (Azure AD) 傳遞驗證和 GDPR
 services: active-directory
 keywords: Azure AD Connect 傳遞驗證、GDPR、Azure AD 的必要元件、SSO、單一登入
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 3343cebb85124f19fe773822e296312abad53d96
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f53f8ffcf8354d35fa552f099302456fa5226ca8
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34591169"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915872"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>使用者隱私權與 Azure Active Directory 傳遞驗證
 

@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2018
+ms.date: 07/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4a639b51fd930c5c74ee78b37fbe8e97e39dbc32
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: cf7c151121ddf8b2dc57d5db66a62f4d46e463de
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36336766"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970967"
 ---
 # <a name="application-insights-overview-dashboard"></a>Azure Application Insights 概觀儀表板
 
@@ -28,7 +28,7 @@ Application Insights 一直以來都在提供摘要概覽窗格，以便一眼�
 
 新的概觀儀表板目前會依預設啟動：
 
-![概觀預覽窗格](.\media\app-insights-overview-dashboard\overview-0001.png)
+![概觀預覽窗格](.\media\app-insights-overview-dashboard\overview.png)
 
 ## <a name="better-performance"></a>效能更佳
 
@@ -60,12 +60,6 @@ Application Insights 一直以來都在提供摘要概覽窗格，以便一眼�
 若要回到概觀的畫面，只需選取：
 
 ![[概觀] 按鈕](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-07.png)
-
-## <a name="access-the-classic-overview-dashboard"></a>存取 [傳統概觀] 儀表板
-
-如果您遺失舊概觀，請選擇 [傳統概觀]。
-
-![傳統概觀](.\media\app-insights-overview-dashboard\overview-classic.png)
 
 ## <a name="next-steps"></a>後續步驟
 

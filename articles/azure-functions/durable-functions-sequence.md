@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e53b38bf336816ca670fad3ab70a43e5cc8b3437
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a5b337e5318154e299f82b1102ca832303d752f7
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33763555"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970049"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Durable Functions 中的函式鏈結- Hello 序列範例
 
@@ -71,7 +71,7 @@ ms.locfileid: "33763555"
 
 所有 JavaScript 協調流程函式都必須包含 `durable-functions` 模組。 這是 JavaScript 程式庫，可針對程序外語言，將協調流程函式的動作轉譯成 Durable 的執行通訊協定。 協調流程函式與其他 JavaScript 函式之間有三項重大差異：
 
-1. 此函式是[產生器函式。](https://docs.microsoft.com/en-us/scripting/javascript/advanced/iterators-and-generators-javascript)
+1. 此函式是[產生器函式。](https://docs.microsoft.com/scripting/javascript/advanced/iterators-and-generators-javascript)
 2. 此函式會包裝在對 `durable-functions` 模組的呼叫中 (在此是 `df`)。
 3. 呼叫 `return` 而非 `context.done`，藉此結束函式。
 

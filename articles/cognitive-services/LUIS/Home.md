@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: v-geberr
-ms.openlocfilehash: da8ea6dead6b22d97e7338b2aa57a892be475417
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1c68c586fb799a540f70804d181aa66b2bda9e97
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344826"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952533"
 ---
 # <a name="what-is-language-understanding-luis"></a>何謂 Language Understanding Intelligent Service (LUIS)？
 Language Understanding Intelligent Service (LUIS) 是一種雲端式服務，可將自訂機器學習套用至使用者的對話、自然語言文字中，以預測整體意義，並找出相關的詳細資訊。 
@@ -99,7 +99,7 @@ LUIS 提供數種方式找出實體並加以分類。
 在發佈 LUIS 應用程式且收到真正的使用者語句後，LUIS 提供數種方法來提高預測準確度：端點語句的[主動學習](#active-learning)、包含領域字組的[片語清單](#phrase-lists)，以及[模式](#patterns)來減少所需的語句數。
 
 ### <a name="active-learning"></a>主動學習
-在[主動學習](label-suggested-utterances.md)流程中，LUIS 可讓您以真實世界的語句調整 LUIS 應用程式，方法是選取它在端點接收的語句，以供您檢閱。 您可以接受或更正端點預測、重新訓練及重新發佈。 LUIS 可透過這個反覆程序快速學習，花費最少的時間及心力。 
+在[主動學習](luis-how-to-review-endoint-utt.md)流程中，LUIS 可讓您以真實世界的語句調整 LUIS 應用程式，方法是選取它在端點接收的語句，以供您檢閱。 您可以接受或更正端點預測、重新訓練及重新發佈。 LUIS 可透過這個反覆程序快速學習，花費最少的時間及心力。 
 
 ### <a name="phrase-lists"></a>片語清單 
 LUIS 提供[片語清單](luis-concept-feature.md)，您可以指出模型領域中重要的字組或片語。 LUIS 會使用這些清單將額外的精確度新增到這些字組與片語中，否則無法在模型中找到。

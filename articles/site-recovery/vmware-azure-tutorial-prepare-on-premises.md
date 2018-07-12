@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 06/04/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 8a9b33469a439c9f99c80391bfeb1fb4040dbbc2
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: facf8895770f890bfbbef946a32cc681f685e998
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737590"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915197"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>準備內部部署 VMware 伺服器以進行 Azure 的災害復原
 
@@ -101,7 +101,7 @@ Site Recovery 需要存取 VMware 伺服器才能：
 - [新增 VM 的公用 IP 位址](site-recovery-monitoring-and-troubleshooting.md)。
 - 您可以勾選 [開機診斷] 以檢視 VM 的螢幕擷取畫面。
 
-## <a name="useful-links"></a>有用連結
+## <a name="useful-links"></a>實用的連結
 
 如果您要複寫多個 VM，您應該在開始前規劃容量和部署。 [深入了解](site-recovery-deployment-planner.md)。
 

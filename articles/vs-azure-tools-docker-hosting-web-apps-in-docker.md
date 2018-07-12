@@ -14,24 +14,24 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/21/2018
 ms.author: mlearned
-ms.openlocfilehash: 4442c1d763f4ed21a5efeedbe957727254e2a0b8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 58df17b17de1d93683875b68dd7c6c087bc6d16d
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658466"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972303"
 ---
 # <a name="deploy-an-aspnet-container-to-a-container-registry-using-visual-studio"></a>使用 Visual Studio 將 ASP.NET 容器部署到容器登錄
 ## <a name="overview"></a>概觀
 Docker 是輕量級容器引擎，與虛擬機器在某些方面類似，您可以用它來裝載應用程式和服務。
-本教學課程會引導您使用 Visual Studio，將容器化應用程式發佈至 [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry)。
+本教學課程會引導您使用 Visual Studio，將容器化應用程式發佈至 [Azure Container Registry](https://azure.microsoft.com/services/container-registry)。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/dotnet/?utm_source=acr-publish-doc&utm_medium=docs&utm_campaign=docs) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/dotnet/?utm_source=acr-publish-doc&utm_medium=docs&utm_campaign=docs)。
 
 ## <a name="prerequisites"></a>先決條件
 若要完成本教學課程：
 
-* 安裝包含 "ASP.NET 和 Web 開發" 工作負載的 [Visual Studio 2017](https://azure.microsoft.com/en-us/downloads/) 最新版本
+* 安裝包含 "ASP.NET 和 Web 開發" 工作負載的 [Visual Studio 2017](https://azure.microsoft.com/downloads/) 最新版本
 * 安裝 [Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
 
 ## <a name="1-create-an-aspnet-core-web-app"></a>1.建立 ASP.NET Core Web 應用程式
@@ -50,7 +50,7 @@ Docker 是輕量級容器引擎，與虛擬機器在某些方面類似，您可�
     | **DNS 首碼** | 全域唯一的名稱 | 用以唯一識別容器登錄的名稱。 |
     | **訂用帳戶** | 選擇您的訂用帳戶 | 要使用的 Azure 訂用帳戶。 |
     | **[資源群組](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  要在其中建立容器登錄的資源群組名稱。 選擇 [新增] 以建立新的資源群組。|
-    | **[SKU](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-skus)** | 標準 | 容器登錄的服務層  |
+    | **[SKU](https://docs.microsoft.com/azure/container-registry/container-registry-skus)** | 標準 | 容器登錄的服務層  |
     | **登錄位置** | 接近您的位置 | 在[區域](https://azure.microsoft.com/regions/)中選擇您附近的 [位置]，或選擇將會使用容器登錄的其他服務所接近的位置。 |
     ![Visual Studio 的 [建立 Azure Container Registry] 對話方塊][0]
 5. 按一下 [建立] 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: 0959617185694d48c593996d5cd8c836098dd1cd
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 0aac3eab8a60dc1e1e15b4656fad9ffea062c08e
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062201"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968614"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>整合 Cloud Foundry 與 Azure
 
@@ -77,7 +77,7 @@ Azure Log Analytics Nozzle 是一個 Cloud Foundry 元件，可將計量從 [Clo
 ## <a name="7-cost-saving"></a>7.節省成本
 ### <a name="cost-saving-for-devtest-environments"></a>節省開發/測試環境成本
 #### <a name="b-series-"></a>B 系列：*
-雖然通常針對 Pivotal Cloud Foundry 生產環境建議使用 F 和 D VM 系列，但新的「高載」[B 系列](https://azure.microsoft.com/blog/introducing-b-series-our-new-burstable-vm-size/)帶來了新選項。 B 系列高載的 VM 非常適合不需要持續性完整 CPU 效能的工作負載，例如 Web 伺服器、小型資料庫和開發與測試環境。 這些工作負載通常具有高載的效能需求。 相較於 $0.05/小時 (F1)，它是 $0.012/小時 (B1)，如需詳細資料，請參閱 [VM 大小](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-general)和[價格](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)。 
+雖然通常針對 Pivotal Cloud Foundry 生產環境建議使用 F 和 D VM 系列，但新的「高載」[B 系列](https://azure.microsoft.com/blog/introducing-b-series-our-new-burstable-vm-size/)帶來了新選項。 B 系列高載的 VM 非常適合不需要持續性完整 CPU 效能的工作負載，例如 Web 伺服器、小型資料庫和開發與測試環境。 這些工作負載通常具有高載的效能需求。 相較於 $0.05/小時 (F1)，它是 $0.012/小時 (B1)，如需詳細資料，請參閱 [VM 大小](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general)和[價格](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)。 
 #### <a name="managed-standard-disk"></a>受控標準磁碟： 
 若要確保在生產環境中獲得可靠的效能，建議使用進階磁碟。  使用[受控磁碟](https://azure.microsoft.com/services/managed-disks/)時，標準儲存體也可以提供類似的可靠性，但效能不同。 對於對效能不敏感的工作負載 (例如開發/測試或非重要環境)，受控標準磁碟提供成本較低的替代選項。  
 ### <a name="cost-saving-in-general"></a>節省一般成本 

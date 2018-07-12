@@ -263,6 +263,11 @@
 ### [IoT 裝置 SDK](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks) 
 
 # 資源
+## [適用於 C# 的 Azure IoT 範例 (.NET)](https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/)
+## [適用於 Node.js 的 Azure IoT 範例](https://azure.microsoft.com/resources/samples/azure-iot-samples-node/)
+## [適用於 Java 的 Azure IoT 範例](https://azure.microsoft.com/resources/samples/azure-iot-samples-java/)
+## [適用於 Python 的 Azure IoT 範例](https://azure.microsoft.com/resources/samples/azure-iot-samples-python/)
+## [適用於 iOS 平台的 Azure IoT 範例](https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/)
 ## [Azure IoT 認證裝置目錄](https://catalog.azureiotsuite.com/)
 ## [Azure IoT 開發人員中心](https://azure.microsoft.com/develop/iot/)
 ## [客戶資料要求](iot-hub-customer-data-requests.md)

@@ -13,18 +13,18 @@ ms.component: protection
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: d054ca015fd97b3ec45f18b2d3a795eccf606993
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: fee4344be2875140a2e9c35bd83eb668bd1efa3f
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447552"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952451"
 ---
 # <a name="how-to-configure-security-alerts-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management：如何設定安全性警示
 ## <a name="security-alerts"></a>安全性警示
 當您環境中有可疑或不安全的活動時，Azure Privileged Identity Management (PIM) 會產生警示。 觸發警示時，會顯示在 PIM 儀表板上。 選取警示，以查看詳列觸發警示之使用者或角色的報告。
 
-![PIM 儀表板安全性警示 - 螢幕擷取畫面][1]
+![PIM 儀表板安全性警示 - 螢幕擷取畫面](./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_dash.png)
 
 | 警示 | 嚴重性 | 觸發程序 | 建議 |
 | --- | --- | --- | --- |
@@ -45,7 +45,7 @@ ms.locfileid: "37447552"
 1. 登入 [Azure 入口網站](https://portal.azure.com/)，然後從儀表板中選取 [Azure AD Privileged Identity Management] 磚。
 2. 選取 [受控的特殊權限角色] > [設定] > [警示設定]。
    
-    ![瀏覽至安全性警示設定][2]
+    ![瀏覽至安全性警示設定](./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_settings.png)
 
 ### <a name="roles-are-being-activated-too-frequently-alert"></a>「啟用角色的次數太頻繁」警示
 當使用者在指定期間內多次啟用相同的特殊權限角色時，就會觸發此警示。 您可以同時設定時段和啟用次數。
@@ -66,8 +66,3 @@ ms.locfileid: "37447552"
 
 ## <a name="next-steps"></a>後續步驟
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_dash.png
-[2]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_settings.png

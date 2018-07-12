@@ -4,7 +4,7 @@ description: 本文說明 Azure Active Directory (Azure AD) 無縫 SSO 和 GDPR 
 services: active-directory
 keywords: 何謂 Azure AD Connect、GDPR、Azure AD 的必要元件、SSO、單一登入
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a4fc779cdfb177a9817049fd7b62b0014e141ce0
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 50c97ce7a492c934e15634622d86bf587ffb3fb7
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34592403"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915719"
 ---
 # <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>使用者隱私權與 Azure AD 無縫單一登入
 

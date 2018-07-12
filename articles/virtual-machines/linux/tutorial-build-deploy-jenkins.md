@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 10/19/2017
 ms.author: ahomer
 ms.custom: mvc
-ms.openlocfilehash: fc301edf13f8e6874f0b77440e2b0dc01b2a55fc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6b74ab4d97df7e1e6b9bec8e3bcb150c99bd5b5c
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32189926"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903446"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-visual-studio-team-services"></a>教學課程：使用 Jenkins 和 Visual Studio Team Services 在 Azure 中將應用程式部署至 Linux 虛擬機器
 
@@ -49,7 +49,7 @@ ms.locfileid: "32189926"
 
 *  若是部署目標，您需要 Linux 虛擬機器。  如需詳細資訊，請參閱[使用 Azure CLI 來建立和管理 Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)。
 
-*  開啟虛擬機器的輸入連接埠 80。 如需詳細資訊，請參閱[使用 Azure 入口網站建立網路安全性群組](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal)。
+*  開啟虛擬機器的輸入連接埠 80。 如需詳細資訊，請參閱[使用 Azure 入口網站建立網路安全性群組](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)。
 
 ## <a name="get-the-sample-app"></a>取得範例應用程式
 

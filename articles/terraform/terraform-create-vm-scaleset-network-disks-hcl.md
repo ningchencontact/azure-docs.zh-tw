@@ -7,14 +7,14 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 06/04/2018
 ms.topic: article
-ms.openlocfilehash: b7cd9ad90198ead7c68d838547232429dbd1289f
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 5922bad24c50a9d315aae42ce11a33801b9dbcaf
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757315"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971828"
 ---
-# <a name="use-terraform-to-create-an-azure-virtual-machine-scale"></a>使用 Terraform 來建立 Azure 虛擬機器擴展集
+# <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>使用 Terraform 來建立 Azure 虛擬機器擴展集
 
 [Azure 虛擬機器擴展集](/azure/virtual-machine-scale-sets)可讓您建立和管理一組完全相同、經過負載平衡的虛擬機器，其中的虛擬機器執行個體數目可以自動增加，或回應要求或定義的排程而減少。 
 

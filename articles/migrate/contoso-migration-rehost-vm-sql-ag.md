@@ -8,18 +8,18 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: raynew
-ms.openlocfilehash: 03e3aaad810f6ccd5fb376765ddbada072dedb06
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 33ab56003f2d9428816ea0f32cfd6381ea857df3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301298"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611283"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms-and-sql-server-alwayson-availability-group"></a>Contoso 移轉：將內部部署應用程式重新裝載至 Azure VM 和 SQL Server AlwaysOn 可用性群組
 
 本文說明 Contoso 如何在 Azure 中重新裝載其 SmartHotel 應用程式。 他們會將應用程式前端 VM 移轉至 Azure VM，並將應用程式資料庫移轉至 Azure SQL Server VM，在具有 SQL Server AlwaysOn 可用性群組的 Windows Server 容錯移轉叢集中執行。
 
-這份文件是系列文章中的其中一篇，說明 Contoso 這家虛構的公司如何將其內部部署資源移轉至 Microsoft Azure 雲端。 本系列的文章包含背景資訊和案例，說明如何設定移轉基礎結構、評估要移轉的內部部署資源，以及執行不同類型的移轉。 案例會變得越來越複雜，而我們也將不定期增加其他文章。
+這份文件是系列文章中的其中一篇，說明 Contoso 這家虛構的公司如何將其內部部署資源移轉至 Microsoft Azure 雲端。 整個系列文章中包含背景資訊和說明如何設定移轉基礎結構的案例、評估內部部署資源的移轉，以及執行不同類型的移轉。 案例會變得越來越複雜，而我們也將不定期增加其他文章。
 
 **文章** | **詳細資料** | **狀態**
 --- | --- | ---
@@ -61,7 +61,7 @@ Contoso 雲端小組已針對此次移轉擬定好各項目標。 這些目標�
 
 - 應用程式分層至兩個 VM (WEBVM 和 SQLVM)。
 - 這些 VM 位於 VMware ESXi 主機 **contosohost1.contoso.com** (6.5 版)
-- VMware 環境由 VM 上執行的 VCenter Server 6.5 (**vcenter.contoso.com**) 所管理。
+- VMware 環境是由 VM 上執行的 vCenter Server 6.5 (**vcenter.contoso.com**) 進行管理。
 - Contoso 有內部部署資料中心 (contoso-datacenter) 以及內部部署網域控制站 (**contosodc1**)。
 - 移轉完成之後，將會解除委任 Contoso 資料中心的內部部署 VM。
 
@@ -96,7 +96,7 @@ Contoso 雲端小組已針對此次移轉擬定好各項目標。 這些目標�
 
 **需求** | **詳細資料**
 --- | ---
-**Azure 訂用帳戶** | 當您在此系列的第一篇文章中執行評估時，您應該已經建立訂用帳戶。 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。<br/><br/> 如果您建立免費帳戶，您就是訂用帳戶的管理員，並可執行所有動作。<br/><br/> 如果您使用現有訂用帳戶，而且您不是系統管理員，則需要與系統管理員合作，讓其指派擁有者或參與者權限給您。<br/><br/> 如果您需要更細微的權限，請檢閱[此文章](../site-recovery/site-recovery-role-based-linked-access-control.md)。 
+**Azure 訂用帳戶** | 當您在這系列的第一篇文章中執行評量時，您應該已經建立訂用帳戶。 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。<br/><br/> 如果您建立免費帳戶，您就是訂用帳戶的管理員，並可執行所有動作。<br/><br/> 如果您使用現有訂用帳戶，而且您不是系統管理員，則需要與系統管理員合作，讓其指派擁有者或參與者權限給您。<br/><br/> 如果您需要更細微的權限，請檢閱[此文章](../site-recovery/site-recovery-role-based-linked-access-control.md)。 
 **Azure 基礎結構** | [了解](contoso-migration-infrastructure.md) Contoso 如何設定 Azure 基礎結構。<br/><br/> 深入了解 Site Recovery 具體的[網路](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#network)和[儲存體](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#storage)需求。
 **站台復原 (內部部署)** | 內部部署 vCenter 伺服器應執行 5.5、6.0 或 6.5 版<br/><br/> 執行 5.5、6.0 或 6.5 版的 ESXi 主機<br/><br/> 一或多部在 ESXi 主機上執行的 VMware VM。<br/><br/> VM 必須符合 [Azure 需求](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#azure-vm-requirements)。<br/><br/> 支援的[網路](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#network)和[儲存體](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#storage)組態。<br/><br/> 您要複寫的 VM 必須符合 [Azure 需求](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#azure-vm-requirements)。
 **DMS** | 針對 DMS，您需要[相容的內部部署 VPN 裝置](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices)。<br/><br/> 您必須能夠設定內部部署 VPN 裝置。 此裝置必須有一個對外開放的公用 IPv4 位址，而且此位址不得位於 NAT 裝置後面。<br/><br/> 請確定您可以存取內部部署 SQL Server 資料庫。<br/><br/> Windows 防火牆應該要能存取來源資料庫引擎。 [深入了解](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)。<br/><br/> 如果資料庫機器前面有防火牆，請新增規則以允許存取資料庫，以及允許透過 SMB 連接埠 445 存取檔案。<br/><br/> 用來連線至來源 SQL Server 和目標受控執行個體的認證，必須是 sysadmin 伺服器角色的成員。<br/><br/> 內部部署資料庫中必須有可供 DMS 用來備份來源資料庫的網路共用。<br/><br/> 請確定執行來源 SQL Server 執行個體的服務帳戶擁有網路共用的寫入權限。<br/><br/> 請記下擁有網路共用完整控制權限的 Windows 使用者 (和密碼)。 Azure 資料庫移轉服務會模擬這些使用者認證，以便將備份檔案上傳至 Azure 儲存體容器。<br/><br/> SQL Server Express 安裝程序預設會將 TCP/IP 通訊協定設定為**停用**。 請務必將其啟用。
@@ -297,7 +297,7 @@ Contoso 建立了健康情況探查，讓負載平衡器能夠監視應用程式
 
 - 在容錯移轉時建立 VM 時，這些 VM 所在的 VNet。
 - 一個 Azure 儲存體帳戶，用來保存複寫的資料。 
-- Azure 中的一個復原服務保存庫。
+- Azure 中的復原服務保存庫。
 
 他們依照下列方式進行其設定：
 
@@ -398,11 +398,11 @@ Contoso 必須先設定並啟用複寫，才能執行移轉至 Azure 的作業�
 
 ### <a name="confirm-deployment-planning"></a>確認部署規劃
 
-若要繼續，他們必須選取 [是，我已經完成]，確認自己已經完成部署計劃。 在此案例中，Contoso 僅移轉一個 VM，不需要部署計劃。
+若要繼續，他們必須選取 [是，我已經完成]，確認自己已經完成部署規劃。 在此案例中，Contoso 僅移轉一個 VM，不需要部署計劃。
 
 ### <a name="set-up-the-source-environment"></a>設定來源環境
 
-Contoso 必須設定其來源環境。 為此，他們下載 OVF 範本，然後用它將 Site Recovery 組態伺服器部署為高可用性、內部部署的 VMware VM。 當組態伺服器已啟動並執行之後，他們將其註冊到保存庫中。
+Contoso 必須設定其來源環境。 為此，他們下載 OVF 範本，然後用它將 Site Recovery 組態伺服器部署為高可用性、內部部署的 VMware VM。 當組態伺服器開始執行之後，他們將它註冊到保存庫。
 
 組態伺服器會執行多項元件：
 
@@ -576,7 +576,7 @@ DMS 會透過 Contoso 資料中心與 Azure 之間的站對站 VPN 連線來連�
 **需要其他協助？**
 - 了解如何建立[可用性群組](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-tutorial#create-the-availability-group)和[接聽程式](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-tutorial#configure-listener)。
 - 手動[設定叢集以使用負載平衡器 IP 位址](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener#configure-the-cluster-to-use-the-load-balancer-ip-address)。
-- [深入了解](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-2)如何建立和使用 SAS。
+- [深入了解](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)如何建立和使用 SAS。
 
 
 ## <a name="step-8-migrate-the-vm-with-site-recovery"></a>步驟 8：使用 Site Recovery 移轉 VM

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: tamram
-ms.openlocfilehash: 83d3a2d973604e3b8a709b24cabcb3abba1e304c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 080cb3ee536227e5ddce3fac856de79b2b061dcf
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659211"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970763"
 ---
 # <a name="authenticate-with-azure-ad-from-an-azure-managed-service-identity-preview"></a>從 Azure 受控服務識別使用 Azure AD 進行驗證 (預覽)
 
@@ -32,7 +32,7 @@ Azure 儲存體支援使用[受控服務識別](../../active-directory/managed-s
 
 您必須先在 VM 上啟用 MSI，才可以使用 MSI 從 VM 向 Azure 儲存體進行驗證。 若要了解如何啟用 MSI，請參閱以下其中一篇文章：
 
-- [Azure 入口網站](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
+- [Azure 入口網站](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
 - [Azure PowerShell](../../active-directory/managed-service-identity/qs-configure-powershell-windows-vm.md)
 - [Azure CLI](../../active-directory/managed-service-identity/qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager 範本](../../active-directory/managed-service-identity/qs-configure-template-windows-vm.md)

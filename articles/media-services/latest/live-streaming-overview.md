@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: juliako
-ms.openlocfilehash: b8c9375d8ad915200cbc8b2e1a62979fd1b7d179
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: e9ecf1ba3022ca057fa09bad2413aa19d902ae23
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35237059"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972174"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>使用 Azure 媒體服務 v3 進行即時串流
 
@@ -32,7 +32,7 @@ ms.locfileid: "35237059"
 
 ## <a name="overview-of-main-components"></a>主要元件概觀
 
-在媒體服務中，[LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) 會負責處理即時串流內容。 LiveEvent 會提供輸入端點 (內嵌 URL)，接著您再提供給內部部署即時編碼器。 LiveEvent 會從即時編碼器接收 RTMP 或 Smooth Streaming 格式的即時輸入資料流，並透過一或多個 [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) 進行串流處理。 [LiveOutput](https://docs.microsoft.com/en-us/rest/api/media/liveoutputs) 可讓您控制即時資料流的發佈、記錄和 DVR 時間設定。 LiveEvent 也會提供預覽端點 (預覽 URL)，您可以先用來預覽和驗證資料流，再進一步處理和傳遞。 
+在媒體服務中，[LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) 會負責處理即時串流內容。 LiveEvent 會提供輸入端點 (內嵌 URL)，接著您再提供給內部部署即時編碼器。 LiveEvent 會從即時編碼器接收 RTMP 或 Smooth Streaming 格式的即時輸入資料流，並透過一或多個 [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) 進行串流處理。 [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) 可讓您控制即時資料流的發佈、記錄和 DVR 時間設定。 LiveEvent 也會提供預覽端點 (預覽 URL)，您可以先用來預覽和驗證資料流，再進一步處理和傳遞。 
 
 媒體服務提供**動態封裝**，可讓您預覽及廣播 MPEG DASH、HLS、Smooth Streaming 串流格式的內容，而不必手動重新封裝成這些串流格式。 您可以使用任何 HLS、DASH 或 Smooth 相容的播放程式進行播放。 您也可以使用 [Azure 媒體播放器](http://amp.azure.net/libs/amp/latest/docs/index.html)來測試您的資料流。
 
@@ -101,7 +101,7 @@ LiveEvent 的目前狀態。 可能的值包括：
 
 ## <a name="liveoutput"></a>LiveOutput
 
-[LiveOutput](https://docs.microsoft.com/en-us/rest/api/media/liveoutputs) 可讓您控制即時資料流的發佈、記錄和 DVR 時間設定。 LiveEvent 和 LiveOutput 的關聯性類似於傳統媒體，此處的頻道 (LiveEvent) 有常數內容資料流，而節目 (LiveOutput) 的範圍是該 LiveEvent 上的某些計時事件。
+[LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) 可讓您控制即時資料流的發佈、記錄和 DVR 時間設定。 LiveEvent 和 LiveOutput 的關聯性類似於傳統媒體，此處的頻道 (LiveEvent) 有常數內容資料流，而節目 (LiveOutput) 的範圍是該 LiveEvent 上的某些計時事件。
 您可以透過設定 **ArchiveWindowLength** 屬性，指定您想要保留已記錄 LiveOutput 內容的時數。 **ArchiveWindowLength** 是 ISO 8601 時間範圍內的持續封存時間長度 (數位影像錄影機或 DVR)。 此值最小可以設定為 5 分鐘，最大可以設定為 25 個小時。 
 
 **ArchiveWindowLength** 也指定用戶端可從目前即時位置往回搜尋的最大次數。 LiveOutput 在超過指定的時間量後還是可以執行，但是會持續捨棄落後時間範圍長度的內容。 此屬性值也會決定用戶端資訊清單可以擴充的時間。

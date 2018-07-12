@@ -13,6 +13,7 @@
 ## [資源提供者和類型](resource-manager-supported-services.md)
 ## [管理群組](management-groups-overview.md)
 ## [訂用帳戶治理](/azure/architecture/cloud-adoption-guide/subscription-governance?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [雲端一致性的範本](templates-cloud-consistency.md)
 
 # 作法
 ## 建立範本
