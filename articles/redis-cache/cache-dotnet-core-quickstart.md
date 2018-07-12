@@ -16,11 +16,11 @@ ms.date: 05/18/2018
 ms.author: wesmc
 ms.custom: mvc
 ms.openlocfilehash: 63bab0e5c77204ea1e122c32a508e31ed9bcd114
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660500"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38696954"
 ---
 # <a name="quickstart-use-azure-redis-cache-with-a-net-core-app"></a>快速入門：搭配使用 Azure Redis 快取與 .NET Core 應用程式
 
@@ -30,7 +30,7 @@ ms.locfileid: "34660500"
 
 在本快速入門中，您會在 .NET Core 主控台應用程式中搭配使用 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) 用戶端與 C\# 程式碼。 您會建立快取，並設定 .NET Core 用戶端應用程式。 然後，您會在快取中新增並更新物件。 
 
-您可以使用任何程式碼編輯器來完成本快速入門中的步驟。 不過，於 Windows、macOS 和 Linux 平台上所提供的 [Visual Studio Code](https://code.visualstudio.com/) \(英文\) 是項不錯的選擇。
+您可以使用任何程式碼編輯器來完成本快速入門中的步驟。 不過，於 Windows、macOS 和 Linux 平台上所提供的 [Visual Studio Code](https://code.visualstudio.com/) 是項不錯的選擇。
 
 ![主控台應用程式已完成](./media/cache-dotnet-core-quickstart/cache-console-app-complete.png)
 
@@ -252,7 +252,7 @@ dotnet add package Newtonsoft.json
 using Newtonsoft.Json;
 ```
 
-將下列 `Employee` 類別定義新增至 *Program.cs*：
+將下列 `Employee` 類別定義新增至 Program.cs：
 
 ```csharp
         class Employee

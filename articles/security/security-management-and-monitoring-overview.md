@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: terrylan
-ms.openlocfilehash: 9e538ac39af5b6df44860a4a70b0fd1e058c060c
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 10c2ed359fa77ad00945ddcfbc55dc0901ba8bff
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752283"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38697100"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure 安全性管理和監視概觀
 Azure 提供安全性機制來協助管理和監視 Azure 雲端服務和虛擬機器 (VM)。 本文概述這些核心安全性功能和服務。 所提供的文章連結將提供每個項目的詳細資料，以讓您深入了解。
@@ -100,8 +100,8 @@ Privileged Identity Management 引進了角色的臨時系統管理員或「即�
 
 深入了解：
 
-* [Azure AD 特殊權限身分識別管理](../active-directory/active-directory-privileged-identity-management-configure.md)
-* [開始使用 Azure AD Privileged Identity Management](../active-directory/active-directory-privileged-identity-management-getting-started.md)
+* [Azure AD 特殊權限身分識別管理](../active-directory/privileged-identity-management/pim-configure.md)
+* [開始使用 Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-getting-started.md)
 
 ## <a name="identity-protection"></a>身分識別保護
 Azure AD Identity Protection 提供可疑登入活動和潛在弱點的合併檢視，以協助保護您的企業。 Identity Protection 會根據如下的訊號，來偵測使用者和具特殊權限 (系統管理員) 身分識別的可疑活動：

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: 66598bda7ca1fcf5c6e05ab47232236b740177a6
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 70c1fd72df437ade3bc12cd23db923f6d449e7fb
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34075233"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38465738"
 ---
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>在 Azure Stack 使用 PowerShell 啟動和執行
 
@@ -100,7 +100,7 @@ Import-Module .\Connect\AzureStack.Connect.psm1
 
 ## <a name="set-up-powershell-for-ad-fs-based-deployments"></a>設定 PowerShell 進行以 AD FS 為基礎的部署
 
-如果您在連線至網際網路時執行 Azure Stack，您可以使用下列指令碼。 如果您在未連線至網際網路時執行 Azure Stack，請使用[離線安裝 PowerShell 的方法](azure-stack-powershell-install.md#install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity)，設定 PowerShell 的 Cmdlet 一樣如同此指令碼中所示。 如果您透過 VPN 連線，登入到 Azure Stack 開發套件或以 Windows 為基礎的外部用戶端。 開啟提升權限的 PowerShell ISE 工作階段，然後執行下列指令碼。 確定視需要更新環境設定的 **ArmEndpoint** 和 **GraphAudience** 變數：
+如果您在連線至網際網路時執行 Azure Stack，您可以使用下列指令碼。 如果您在未連線至網際網路時執行 Azure Stack，請使用[離線安裝 PowerShell 的方法](azure-stack-powershell-install.md)，設定 PowerShell 的 Cmdlet 一樣如同此指令碼中所示。 如果您透過 VPN 連線，登入到 Azure Stack 開發套件或以 Windows 為基礎的外部用戶端。 開啟提升權限的 PowerShell ISE 工作階段，然後執行下列指令碼。 確定視需要更新環境設定的 **ArmEndpoint** 和 **GraphAudience** 變數：
 
 ```powershell
 
@@ -173,7 +173,7 @@ New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 ```
 
 > [!note]  
-> 若要指定資源群組，您的訂用帳戶必須有資源群組。 如需訂用帳戶的詳細資訊，請參閱[方案、優惠、配額和訂用帳戶概觀](azure-stack-plan-offer-quota-overview.md)
+> 若要指定資源群組，您的訂用帳戶必須有資源群組。 如需訂用帳戶的詳細資訊，請參閱[方案、供應項目、配額和訂用帳戶概觀](azure-stack-plan-offer-quota-overview.md)
 
 建立資源群組後，會將 [佈建狀態] 屬性設為 [成功]。
 
