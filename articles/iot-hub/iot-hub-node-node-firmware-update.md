@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 09/07/2017
 ms.author: juanpere
 ms.openlocfilehash: 0cd8c019cf9a65e0e72227ba99c1995a45ed4067
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34634959"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38452425"
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-nodenode"></a>使用裝置管理來起始裝置韌體更新 (節點/節點)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]

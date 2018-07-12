@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 871098642f586a123d056e2da22d2fceae9bdfe5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d35052087899925e0e8119ce104345f718cc12bd
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638070"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858508"
 ---
 # <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>遠端監視預先設定解決方案逐步解說
 
@@ -275,8 +275,8 @@ Web 應用程式中的此頁面會使用 PowerBI javascript 控制項 (請參閱
 
 下列 TechNet 部落格文章提供有關遠端監視預先設定之解決方案更多的詳細資料︰
 
-* [IoT 套件 - 幕後 - 遠端監視](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-v1-under-the-hood-remote-monitoring.aspx)
-* [IoT 套件 - 遠端監視 - 新增即時與模擬裝置](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-v1-remote-monitoring-adding-live-and-simulated-devices.aspx)
+* [IoT 套件 - 幕後 - 遠端監視](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
+* [IoT 套件 - 遠端監視 - 新增即時與模擬裝置](https://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx)
 
 您可以繼續閱讀下列文章，了解如何開始使用 IoT 套件︰
 

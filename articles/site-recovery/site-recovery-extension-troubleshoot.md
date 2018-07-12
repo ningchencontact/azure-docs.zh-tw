@@ -7,14 +7,14 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 07/06/2018
 ms.author: asgang
-ms.openlocfilehash: 9bfe181b2271f4e8af6f43e1728167712dade8ee
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c0429e87f6c58ef2b9c7a268bee596d769e95910
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777589"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919799"
 ---
 # <a name="troubleshoot-azure-site-recovery-extension-failures-issues-with-the-agent-or-extension"></a>針對 Azure Site Recovery 延伸模組失敗進行疑難排解：代理程式或延伸模組的問題
 

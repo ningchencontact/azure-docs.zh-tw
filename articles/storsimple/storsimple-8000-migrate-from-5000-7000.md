@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/11/2017
 ms.author: alkohli
-ms.openlocfilehash: 36df62c4b01c623702707d39c6af59f4752ee6e0
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 378eaea4c0cf19c48f47067e4f548f2d7f530377
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26738379"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856683"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>將 StorSimple 5000-7000 系列的資料移轉到 8000 系列裝置
 
@@ -56,7 +56,7 @@ ms.locfileid: "26738379"
 | 3.   | 成功移轉之後，所有資料都會在設備本機上。 存取資料時不會有任何延遲。 | Azure 儲存體耗用量會增加，直到從 5000/7000 裝置刪除資料為止。                                                                                                        |
 | 4.   |                                                                                                                           | 如果 7000/5000 系列裝置有大量的資料，在移轉期間必須將資料從 Azure 下載，因此會產生與 Azure 下載資料有關的費用，並會出現延遲情況 |
 
-本文僅著重在從 5000/7000 到 8000 系列裝置的移轉功能。 如需有關主機端移轉的詳細資訊，請移至[從其他儲存體裝置移轉](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)。
+本文僅著重在從 5000/7000 到 8000 系列裝置的移轉功能。 如需有關主機端移轉的詳細資訊，請移至[從其他儲存體裝置移轉](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating%20Data%20to%20StorSimple%20Volumes_09-02-15.pdf)。
 
 ## <a name="migration-prerequisites"></a>移轉必要條件
 

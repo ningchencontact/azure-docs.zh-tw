@@ -510,7 +510,7 @@ _**圖 11：** 設定 SAP 高可用性 Azure Resource Manager 參數_
 
 下列各節有更多關於您需要在範本中提供之範本和參數的詳細資料。
 
-#### <a name="ASCS-SCS-template">ASCS/SCS 範本</a>
+#### <a name="ASCS-SCS-template"></a> ASCS/SCS 範本
 
 ASCS/SCS 範本會部署兩部虛擬機器，可讓您用來建立裝載多個 ASCS/SCS 執行個體的 Windows Server 容錯移轉叢集。
 

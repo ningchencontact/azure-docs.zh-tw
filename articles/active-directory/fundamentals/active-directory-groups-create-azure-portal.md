@@ -14,12 +14,12 @@ ms.date: 08/04/2017
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 82d475e5adadb4e7670f24a6193348c9e1b37a16
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 3c71c9c49413045e3a730c10e90ea3c12648b4cb
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767368"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857716"
 ---
 # <a name="create-a-group-and-add-members-in-azure-active-directory"></a>在 Azure Active Directory 中建立群組和新增使用者
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ ms.locfileid: "37767368"
 
    ![選取 [新增] 命令](./media/active-directory-groups-create-azure-portal/add-group-command.png)
 5. 在 [群組]  刀鋒視窗上，輸入群組的名稱和描述。
-6. 若要選取要新增到群組中的成員，請在 [成員資格類型] 方塊中選取 [已指派]，然後選取 [成員]。 如需有關如何動態管理群組成員資格的詳細資訊，請參閱 [使用屬性來建立群組成員資格的進階規則](../active-directory-groups-dynamic-membership-azure-portal.md)。
+6. 若要選取要新增到群組中的成員，請在 [成員資格類型] 方塊中選取 [已指派]，然後選取 [成員]。 如需有關如何動態管理群組成員資格的詳細資訊，請參閱 [使用屬性來建立群組成員資格的進階規則](../users-groups-roles/groups-dynamic-membership.md)。
 
    ![選取要新增的成員](./media/active-directory-groups-create-azure-portal/select-members.png)
 7. 在 [成員] 刀鋒視窗上，選取一或多個要新增到群組中的使用者或裝置，然後選取刀鋒視窗底部的 [選取] 按鈕來將它們新增到群組中。 [使用者]  方塊會根據將您的輸入內容與使用者或裝置名稱的任何部分進行比對來篩選顯示。 該方塊中不接受任何萬用字元。
@@ -56,4 +56,4 @@ ms.locfileid: "37767368"
 * [管理群組的設定](active-directory-groups-settings-azure-portal.md)
 * [管理群組的成員](active-directory-groups-members-azure-portal.md)
 * [管理群組的成員資格](active-directory-groups-membership-azure-portal.md)
-* [管理群組中使用者的動態規則](../active-directory-groups-dynamic-membership-azure-portal.md)
+* [管理群組中使用者的動態規則](../users-groups-roles/groups-dynamic-membership.md)

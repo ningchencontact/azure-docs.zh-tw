@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: masoucou
 ms.openlocfilehash: 42e2a7f57cbe40dbef8469e4e9ca020f4346a897
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114953"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38309890"
 ---
 # <a name="quickstart-build-a-mongodb-api-xamarinforms-app-with-net-and-the-azure-portal"></a>快速入門︰使用 .NET 和 Azure 入口網站建置 MongoDB API Xamarin.Forms 應用程式
 

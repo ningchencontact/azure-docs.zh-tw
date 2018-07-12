@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 87381a27a59d6719f4bfff9ed367598932c1985c
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: b2cdb88ba71b4a3d3005ec9d64b6e94cdb1d1c55
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436398"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857526"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>如何使用 Git 儲存和設定 API 管理服務組態
 
@@ -227,7 +227,7 @@ git push
 `groups` 資料夾包含服務執行個體中定義的每個群組的資料夾。
 
 * `groups\<group name>\configuration.json` - 這是群組的組態。 此資訊與當您呼叫 [取得特定群組](https://docs.microsoft.com/en-us/rest/api/apimanagement/group/get) 作業時傳回的資訊相同。
-* `groups\<group name>\description.html` - 這是群組的說明，並會對應至[群組實體](https://msdn.microsoft.com/library/azure/dn776329.aspx#EntityProperties)的 `description` 屬性。
+* `groups\<group name>\description.html` - 這是群組的說明，並會對應至[群組實體](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity)的 `description` 屬性。
 
 ### <a name="policies-folder"></a>原則資料夾
 `policies` 資料夾包含您的服務執行個體的原則陳述式。

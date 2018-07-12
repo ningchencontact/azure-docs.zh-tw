@@ -16,11 +16,11 @@ ms.custom: mvc
 ms.date: 04/04/2018
 ms.author: dimazaid
 ms.openlocfilehash: ee0e78402515a733731e6faf21b09886674cda51
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778237"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38452408"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知傳送給特定使用者
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
@@ -335,7 +335,7 @@ ms.locfileid: "33778237"
     ![][15]
 
 ## <a name="next-steps"></a>後續步驟
-在本教學課程中，您已了解如何將通知推送至具有與其註冊相關聯之標記的特定使用者。 若要了解如何推送以位置為基礎的通知，請繼續進行下列教學課程： 
+在本教學課程中，您已學會如何針對具有與其註冊相關聯標記的使用者，將通知推送至這些特定使用者。 若要了解如何推送以位置為基礎的通知，請繼續進行下列教學課程： 
 
 > [!div class="nextstepaction"]
 >[推送以位置為基礎的通知](notification-hubs-push-bing-spartial-data-geofencing-notification.md)

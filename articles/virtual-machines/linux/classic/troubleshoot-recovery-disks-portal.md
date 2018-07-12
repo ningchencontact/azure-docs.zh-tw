@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 05/11/2018
 ms.author: genli
 ms.openlocfilehash: f3f575b8b689ce97b202385e42b3f7854e883e36
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072210"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38681005"
 ---
 # <a name="troubleshoot-a-linux-classic-vm-by-attaching-the-os-disk-to-a-recovery-vm"></a>將 OS 磁碟連結至復原 VM，以針對 Linux 傳統 VM 進行疑難排解
 

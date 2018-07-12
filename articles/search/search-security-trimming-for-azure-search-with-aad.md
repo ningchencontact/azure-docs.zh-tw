@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: 7c1723e01c78132169d8975473a0e9f5466a066c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 75017a1a3a400ca5390210225f26a6c5f3bb7c47
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31796528"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856159"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>使用 Active Directory 身分識別進行安全性篩選以調整 Azure 搜尋服務結果
 
@@ -138,7 +138,7 @@ _indexClient.Documents.Index(batch);
 
 ### <a name="step-1-retrieve-users-group-identifiers"></a>步驟 1：擷取使用者的群組識別碼
 
-如果使用者的群組尚快取或是快取已過期，請發出[群組](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/directoryobject_getmembergroups)要求
+如果使用者的群組尚快取或是快取已過期，請發出[群組](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/directoryobject_getmembergroups)要求
 ```csharp
 private static void RefreshCacheIfRequired(string user)
 {

@@ -17,12 +17,12 @@ ms.date: 08/22/2017
 ms.author: lizross
 ms.reviewer: jeffgilb
 custom: it-pro
-ms.openlocfilehash: 738e96bf631833b8d35847114ee08fc3f5bec2a4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6fc1d808fb712f7acb60e490663cb7301e22153c
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767352"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856084"
 ---
 # <a name="quickstart-license-users-in-azure-active-directory"></a>快速入門：在 Azure Active Directory 中授權使用者
 以授權為基礎的 Azure AD 服務的運作方式，是在您的 Azure 租用戶中啟用 Azure Active Directory (Azure AD) 訂用帳戶。 在訂用帳戶啟用後，服務的功能便會由 Azure AD 系統管理員管理並供授權使用者使用。 當您購買 Enterprise Mobility + Security、Azure AD Premium 或 Azure AD Basic 時，您的租用戶會隨著訂用帳戶更新，包括其有效期間和預付授權。 您的訂用帳戶資訊，包括已指派或可使用的授權數目，可在 Azure 入口網站中 **Azure Active Directory** 底下藉由開啟 [授權] 圖格來取得。 [授權] 刀鋒視窗也是最適合用來管理授權指派的位置。
@@ -35,7 +35,7 @@ ms.locfileid: "37767352"
 * 您可以將決定權委派給組織中的其他管理員 (方法是使用[自助服務群組](../users-groups-roles/groups-self-service-management.md))
 
 > [!TIP]
-> 如需指派授權給群組的詳細討論，包括進階案例和 Office 365 授權案例，請參閱[在 Azure Active Directory 中透過群組成員資格對使用者指派授權](../active-directory-licensing-group-assignment-azure-portal.md)。
+> 如需指派授權給群組的詳細討論，包括進階案例和 Office 365 授權案例，請參閱[在 Azure Active Directory 中透過群組成員資格對使用者指派授權](../users-groups-roles/licensing-groups-assign.md)。
 
 ## <a name="assign-licenses-to-users-and-groups"></a>將授權指派給使用者和群組
 使用有效的訂用帳戶，應該先將授權指派給自己並且重新整理瀏覽器，以確保您看到訂用帳戶所含的所有預期功能。 下一個步驟是將授權指派給需要存取 Azure AD 功能的使用者。 指派授權的簡單方法是將授權指派給使用者群組，而不是指派給個人。 當您對群組指派授權時，所有群組成員都會獲得授權。 如果在群組中新增或移除使用者，則系統也會自動指派或移除適當的授權。 

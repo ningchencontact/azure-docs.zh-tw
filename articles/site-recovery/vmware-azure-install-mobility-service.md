@@ -1,17 +1,17 @@
 ---
 title: 安裝行動服務 (VMware 或實體至 Azure) | Microsoft Docs
 description: 了解如何安裝行動服務代理程式，以使用 Azure Site Recovery 保護您的內部部署 VMware VM 和實體伺服器。
-author: AnoopVasudavan
+author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 06/20/2018
-ms.author: anoopkv
-ms.openlocfilehash: 7c292af91fea7f0e0d3b32412cfa9907560d68d9
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.topic: article
+ms.date: 07/06/2018
+ms.author: ramamill
+ms.openlocfilehash: bc0ec09e28c5540eb919ac4e5f970f877ae27e44
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287774"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37919082"
 ---
 # <a name="install-the-mobility-service"></a>安裝行動服務 
 

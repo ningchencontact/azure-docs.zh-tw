@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 02/27/2018
 ms.author: wgries
 ms.openlocfilehash: ea401099ce90248be0ecb99109b845ff9a91f70d
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029317"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308492"
 ---
 # <a name="manage-azure-file-shares-with-azure-storage-explorer"></a>使用 Azure 儲存體總管來管理 Azure 檔案共用 
 [Azure 檔案服務](storage-files-introduction.md)是 Microsoft 中易於使用的雲端檔案系統。 本文會逐步說明透過 [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)來使用 Azure 檔案共用的基本概念。 儲存體總管是適用於 Windows、macOS 和 Linux 的熱門用戶端工具。 您可以使用儲存體總管來管理 Azure 檔案共用和其他儲存體資源。
@@ -69,7 +69,7 @@ ms.locfileid: "37029317"
 建立檔案共用後，檔案共用索引標籤會在右側窗格中開啟。 
 
 ## <a name="work-with-the-contents-of-an-azure-file-share"></a>使用 Azure 檔案共用的內容
-您現在已建立 Azure 檔案共用，並且可使用 SMB 將檔案共用掛接在 [Windows](storage-how-to-use-files-windows.md)、[Linux](storage-how-to-use-files-linux.md) 或 [macOS](storage-how-to-use-files-mac.md) 上。 或者，您可以使用 Azure CLI 來處理 Azure 檔案共用。 不使用 SMB 來掛接檔案共用，而是使用 Azure CLI 的優點是，使用 Azure CLI 提出的所有要求都是透過使用檔案 REST API 來執行。 您可以使用檔案 REST API 在沒有 SMB 存取權的用戶端上建立、修改及刪除檔案與目錄。
+您現在已建立 Azure 檔案共用，並且可使用 SMB 將檔案共用掛接在 [Windows](storage-how-to-use-files-windows.md)、[Linux](storage-how-to-use-files-linux.md) 或 [macOS](storage-how-to-use-files-mac.md) 上。 或者，您也可以使用 Azure CLI 來處理 Azure 檔案共用。 不使用 SMB 來掛接檔案共用，而是使用 Azure CLI 的優點是，使用 Azure CLI 提出的所有要求都是透過使用檔案 REST API 來執行。 您可以使用檔案 REST API 在沒有 SMB 存取權的用戶端上建立、修改及刪除檔案與目錄。
 
 ### <a name="create-a-directory"></a>建立目錄
 新增目錄可提供一個階層式結構，以便 Azure 檔案共用。 您可以在您的目錄中建立多個層級。 不過，您必須先確定父目錄存在，才能建立子目錄。 例如，對於 myDirectory/mySubDirectory 路徑，您必須先建立 myDirectory 目錄。 然後，您才能建立 mySubDirectory。 

@@ -18,10 +18,10 @@ ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
 ms.openlocfilehash: 42792170593dbd94d0eae9b408c70f326891508a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "36231916"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的條件？ 
@@ -223,7 +223,7 @@ ms.locfileid: "36231916"
 
 **Exchange ActiveSync 是否支援所有條件和控制項？**
 
-編號 以下是 Exchange ActiveSync (EAS) 支援的摘要：
+否。 以下是 Exchange ActiveSync (EAS) 支援的摘要：
 
 - EAS 僅支援使用者和群組目標。 它不支援來賓、角色。 如果設定了來賓/角色條件，由於我們無法判斷是否應將原則套用至使用者，所以會封鎖所有使用者。
 
@@ -235,7 +235,7 @@ ms.locfileid: "36231916"
 
 **原則之後是否會預設適用於所有用戶端應用程式？**
 
-編號 預設原則行為不會有任何變更。 原則預設會繼續適用於瀏覽器和行動應用程式/桌面用戶端。
+否。 預設原則行為不會有任何變更。 原則預設會繼續適用於瀏覽器和行動應用程式/桌面用戶端。
 
 
 

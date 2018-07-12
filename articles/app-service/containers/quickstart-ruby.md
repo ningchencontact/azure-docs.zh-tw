@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 0707835cf4d6891397579cc41de49fc0462b4521
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 57442cdb28dfce07ec653e2f0a69d19f5bb6c919
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34158603"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38674779"
 ---
 # <a name="create-a-ruby-app-in-app-service-on-linux"></a>在 Linux 上的 App Service 中建立 Ruby 應用程式
 
@@ -129,4 +129,4 @@ http://<app name>.azurewebsites.net
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [Ruby on Rails with MySQL](tutorial-ruby-mysql-app.md)
+> [Ruby on Rails with MySQL](tutorial-ruby-postgres-app.md)

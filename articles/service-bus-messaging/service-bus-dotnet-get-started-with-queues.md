@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 12/7/2017
 ms.author: sethm
 ms.openlocfilehash: 6af7e4d238c10c0fed3443db58644e3557525993
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26642455"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308360"
 ---
 # <a name="get-started-with-service-bus-queues"></a>開始使用服務匯流排佇列
 

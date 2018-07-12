@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 03/09/2018
+ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: 838eac510fc17d56f808f541f4e205a279f63c56
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: ad8b69bfe6f3261f00cd33846efc86ce3b198954
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318886"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919687"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>針對將虛擬機器容錯移轉至 Azure 時的錯誤進行疑難排解
 

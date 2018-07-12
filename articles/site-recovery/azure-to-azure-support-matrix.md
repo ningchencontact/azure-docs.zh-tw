@@ -7,14 +7,14 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2018
+ms.date: 07/06/2018
 ms.author: sujayt
-ms.openlocfilehash: 125d521d840d2b06687d818ae7b31a2610886dfe
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: bac4c1d02df644eedbccb38872a6b0f3e7d11c91
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342526"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919782"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>從一個 Azure 區域複寫至另一個區域的支援矩陣
 

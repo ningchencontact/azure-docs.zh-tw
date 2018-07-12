@@ -15,12 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 7256e2f798fbc32c098f19f60b62e577300868c7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 09a0de1efc909b72192f9d8584edd0fda5e6217d
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31414087"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856346"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Power BI 工作區集合的資料列層級安全性
 
@@ -93,7 +93,7 @@ RLS 是在 Power BI Desktop 中撰寫。 當開啟資料集和報告時，我們
 1. [檔案]  ->  [選項和設定]  ->  [預覽功能]  ->  [針對 DirectQuery 啟用兩個方向的交叉篩選]。
 2. [檔案]  ->  [選項和設定]  ->  [DirectQuery]  ->  [允許 DirectQuery 模式中的不受限制量值]。
 
-若要深入了解雙向交叉篩選，下載 [SQL Server Analysis Services 2016 和 Power BI Desktop 中的雙向交叉篩選] [(](http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional cross-filtering in Analysis Services 2016 and Power BI.docx)) 白皮書。
+若要深入了解雙向交叉篩選，下載 [SQL Server Analysis Services 2016 和 Power BI Desktop 中的雙向交叉篩選] [(](http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional%20cross-filtering%20in%20Analysis%20Services%202016%20and%20Power%20BI.docx)) 白皮書。
 
 這會包裝 Power BI Desktop 中需要完成的所有工作，但還有一件工作需要完成，讓我們定義的 RLS 規則在 Power BI Embedded 中運作。 使用者是由您的應用程式和應用程式權杖驗證和授權，應用程式和應用程式權杖是用來授與使用者對於特定 Power BI Embedded 報告的存取權。 Power BI Embedded 對於您的使用者是誰，並沒有任何特定資訊。 如果要讓 RLS 運作，您需要將一些額外的內容傳遞做為您的應用程式權杖的一部分︰
 

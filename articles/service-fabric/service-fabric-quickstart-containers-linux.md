@@ -16,11 +16,11 @@ ms.date: 04/11/2018
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: b0ded0fb274f6b64935ddaba75abf23a94063120
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109547"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38452646"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>快速入門：將 Linux 容器部署至 Service Fabric
 
@@ -30,7 +30,7 @@ Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理�
 
 ![投票應用程式網頁][quickstartpic]
 
-在此快速入門中，您會在 Azure Cloud Shell 中使用 Bash 環境執行 Service Fabric CLI 命令。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
+在此快速入門中，您會在 Azure Cloud Shell 中使用 Bash 環境執行 Service Fabric CLI 命令。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/)。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
