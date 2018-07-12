@@ -8,7 +8,7 @@
 
 輸入原則 [名稱]，以供您的應用程式參考。 例如，輸入 `SSPR`。
 
-選取 [識別提供者]，並勾選 [使用電子郵件地址重設密碼]。 按一下 [SERVICEPRINCIPAL] 。
+選取 [識別提供者]，並勾選 [使用電子郵件地址重設密碼]。 按一下 [確定]。
 
 ![以電子郵件地址作為識別提供者來選取重設密碼，然後按一下 [確定] 按鈕](media/active-directory-b2c-create-password-reset-policy/add-b2c-password-reset-identity-providers.png)
 

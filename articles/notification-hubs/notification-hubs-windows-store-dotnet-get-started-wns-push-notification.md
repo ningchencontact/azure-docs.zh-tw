@@ -16,11 +16,11 @@ ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
 ms.openlocfilehash: c3bb170800508d5a546573850f445b2a8991ea8c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777057"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38597739"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-by-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知傳送至通用 Windows 平台應用程式
 
@@ -57,7 +57,7 @@ ms.locfileid: "33777057"
 1. 輸入您的應用程式名稱，然後選取 [保留產品名稱]。 這麼做會為您的應用程式建立新的 Windows 市集註冊。
 
     ![儲存應用程式名稱](./media/notification-hubs-windows-store-dotnet-get-started/store-app-name.png)
-1. 展開 [應用程式管理]，然後依序選取 [WNS/MPNS]、[WNS/MPNS] 和 [線上服務網站]。 登入您的 Microsoft 帳戶。 [應用程式註冊入口網站] 會在新的索引標籤中開啟。或者，您可以直接瀏覽至 [應用程式註冊入口網站][](http://apps.dev.microsoft.com) 並選取您的應用程式名稱，以取得此頁面。
+1. 展開 [應用程式管理]，然後依序選取 [WNS/MPNS]、[WNS/MPNS] 和 [線上服務網站]。 登入您的 Microsoft 帳戶。 **[應用程式註冊入口網站]** 會在新的索引標籤中開啟。或者，您可以直接瀏覽至 [[應用程式註冊入口網站]](http://apps.dev.microsoft.com) 並選取您的應用程式名稱，以取得此頁面。
 
     ![WNS MPNS 頁面](./media/notification-hubs-windows-store-dotnet-get-started/wns-mpns-page.png)
 1.   請記下 [應用程式密碼] 和 [套件安全性識別碼] \(SID\)。

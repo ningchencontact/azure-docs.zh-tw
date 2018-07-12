@@ -9,11 +9,11 @@ ms.date: 05/29/2018
 ms.author: daveba
 ms.custom: include file
 ms.openlocfilehash: 082a4fafe76631435b5969298b0a806565666956
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753756"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38943269"
 ---
 > [!IMPORTANT]
-> 建立使用者指派的身分識別時，僅支援英數字元 (0-9、a-z、A-Z) 和連字號 (-)。 此外，指派至 VM/VMSS 的名稱長度應該限制為 24 個字元，才能正常運作。 請隨時回來查看是否有更新內容。 如需詳細資訊，請參閱[常見問題集和已知問題](/azure/active-directory/managed-service-identity/known-issues)。
+> 建立使用者指派的身分識別時，僅支援英數字元 (0-9、a-z、A-Z) 和連字號 (-)。 此外，指派至 VM/VMSS 的名稱應該限制為 24 個字元長度，才能正常運作。 請隨時回來查看是否有更新內容。 如需詳細資訊，請參閱[常見問題集和已知問題](/azure/active-directory/managed-service-identity/known-issues)。
