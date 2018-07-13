@@ -337,7 +337,7 @@ Modify the *SetCertAccess.ps1* file properties to set **Copy to Output Directory
 
 ## <a name="run-the-application-locally"></a>在本機執行應用程式
 
-在 [方案總管] 中，選取 [投票] 應用程式，並將 [應用程式 URL] 屬性設定為 "https://localhost:443"。
+在 [方案總管] 中，選取 [投票] 應用程式，並將 [應用程式 URL] 屬性設定為 " https://localhost:443 " 。
 
 儲存所有檔案，然後按 F5 在本機執行應用程式。  在應用程式部署之後，Web 瀏覽器會開啟至 [https://localhost:443](https://localhost:443)。 如果您使用自我簽署的憑證，您會看到您的電腦不信任此網站安全性的警告。  繼續在網頁上執行。
 

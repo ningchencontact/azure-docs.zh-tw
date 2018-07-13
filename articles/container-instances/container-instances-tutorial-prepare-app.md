@@ -117,7 +117,7 @@ $ docker run -d -p 8080:80 aci-tutorial-app
 a2e3e4435db58ab0c664ce521854c2e1a1bda88c9cf2fcff46aedf48df86cccf
 ```
 
-現在，在瀏覽器中瀏覽至 http://localhost:8080，以確認容器正在執行。 您應該會看到如下所示的網面：
+現在，在瀏覽器中瀏覽至 http://localhost:8080 ，以確認容器正在執行。 您應該會看到如下所示的網面：
 
 ![在本機瀏覽器中執行應用程式][aci-tutorial-app-local]
 
