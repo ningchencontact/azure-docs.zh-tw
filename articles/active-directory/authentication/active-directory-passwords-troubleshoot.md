@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 30409794807618f082cf98de14e374d97a9b4519
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7a23702b40ea46edd6dd139ebdb0a3742193429e
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592872"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857213"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>針對自助式密碼重設進行疑難排解
 
@@ -39,7 +39,7 @@ ms.locfileid: "34592872"
 
 | Error | 解決方法 |
 | --- | --- |
-| 我在 Azure 入口網站中的 Azure AD 之下看不到 [密碼重設] 區段。 | 如果您未將 Azure AD Premium 或 Basic 授權指派給執行此作業的系統管理員，就會發生這種情況。 <br> <br> 將授權指派給所提及的系統管理員帳戶。 您可以遵循[指派、驗證授權及解決其問題](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses)一文中的步驟。|
+| 我在 Azure 入口網站中的 Azure AD 之下看不到 [密碼重設] 區段。 | 如果您未將 Azure AD Premium 或 Basic 授權指派給執行此作業的系統管理員，就會發生這種情況。 <br> <br> 將授權指派給所提及的系統管理員帳戶。 您可以遵循[指派、驗證授權及解決其問題](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses)一文中的步驟。|
 | 我看不到特定的設定選項。 | 許多 UI 元素只會在需要時出現。 如果您想要看到這些元素，請嘗試啟用所有選項。 |
 | 我看不到 [內部部署整合] 索引標籤。 | 只有在您下載 Azure AD Connect 並設定密碼回寫後，這個選項才會出現。 如需詳細資訊，請參閱[利用快速設定開始使用 Azure AD Connect](./../connect/active-directory-aadconnect-get-started-express.md)。 |
 
@@ -47,7 +47,7 @@ ms.locfileid: "34592872"
 
 | Error | 解決方法 |
 | --- | --- |
-| 我在 [自助式密碼管理] 稽核事件類別中看不到任何密碼管理活動類型。 | 如果您未將 Azure AD Premium 或 Basic 授權指派給執行此作業的系統管理員，就會發生這種情況。 <br> <br> 您可以將授權指派給所提及的系統管理員帳戶，以解決這個問題。 如需詳細資訊，請參閱[指派、驗證授權及解決其問題](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses)。 |
+| 我在 [自助式密碼管理] 稽核事件類別中看不到任何密碼管理活動類型。 | 如果您未將 Azure AD Premium 或 Basic 授權指派給執行此作業的系統管理員，就會發生這種情況。 <br> <br> 您可以將授權指派給所提及的系統管理員帳戶，以解決這個問題。 如需詳細資訊，請參閱[指派、驗證授權及解決其問題](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses)。 |
 | 使用者註冊顯示多個時間。 | 目前當使用者註冊時，我們會將所註冊的每一筆個別資料記錄為個別事件。 <br> <br> 如果您需要彙總此資料並以更有彈性的方式檢視，可以下載報告，並在 Excel 中以樞紐分析表開啟資料。
 
 ## <a name="troubleshoot-the-password-reset-registration-portal"></a>疑難排解密碼重設註冊入口網站
@@ -55,7 +55,7 @@ ms.locfileid: "34592872"
 | Error | 解決方法 |
 | --- | --- |
 | 目錄未啟用密碼重設功能。 **您的系統管理員尚未為您啟用這項功能。** | 將 [已啟用自助式密碼重設] 旗標切換為 [選取項目] 或 [全部]，然後選取 [儲存]。 |
-| 使用者尚未獲得 Azure AD Premium 或 Basic 授權。 **您的系統管理員尚未為您啟用這項功能。** | 如果您未將 Azure AD Premium 或 Basic 授權指派給執行此作業的系統管理員，就會發生這種情況。 <br> <br> 您可以將授權指派給所提及的系統管理員帳戶，以解決這個問題。 如需詳細資訊，請參閱[指派、驗證授權及解決其問題](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses)。|
+| 使用者尚未獲得 Azure AD Premium 或 Basic 授權。 **您的系統管理員尚未為您啟用這項功能。** | 如果您未將 Azure AD Premium 或 Basic 授權指派給執行此作業的系統管理員，就會發生這種情況。 <br> <br> 您可以將授權指派給所提及的系統管理員帳戶，以解決這個問題。 如需詳細資訊，請參閱[指派、驗證授權及解決其問題](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses)。|
 | 處理要求時發生錯誤。 | 許多問題都會造成此情形，但這個錯誤通常是因為服務中斷或設定問題所導致。 如果您看到這個錯誤，而且它會影響您的業務，請連絡 Microsoft 支援服務人員以尋求其他協助。 |
 
 ## <a name="troubleshoot-the-password-reset-portal"></a>疑難排解密碼重設入口網站
@@ -63,7 +63,7 @@ ms.locfileid: "34592872"
 | Error | 解決方法 |
 | --- | --- |
 | 目錄未啟用密碼重設功能。 | 將 [已啟用自助式密碼重設] 旗標切換為 [選取項目] 或 [全部]，然後選取 [儲存]。 |
-| 使用者尚未獲得 Azure AD Premium 或 Basic 授權。 | 如果您未將 Azure AD Premium 或 Basic 授權指派給執行此作業的系統管理員，就會發生這種情況。 <br> <br> 如果您將授權指派給所提及的系統管理員帳戶，就可以解決這個問題。 如需詳細資訊，請參閱[指派、驗證授權及解決其問題](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses)。 |
+| 使用者尚未獲得 Azure AD Premium 或 Basic 授權。 | 如果您未將 Azure AD Premium 或 Basic 授權指派給執行此作業的系統管理員，就會發生這種情況。 <br> <br> 如果您將授權指派給所提及的系統管理員帳戶，就可以解決這個問題。 如需詳細資訊，請參閱[指派、驗證授權及解決其問題](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses)。 |
 | 目錄已啟用密碼重設，但使用者的驗證資訊遺失或格式不正確。 | 在繼續之前，請確定使用者已在目錄中登記格式正確的連絡資料。 如需詳細資訊，請參閱 [Azure AD 自助式密碼重設所用的資料](howto-sspr-authenticationdata.md)。 |
 | 目錄已啟用密碼重設，原則設定為需要兩個驗證方法，但使用者只登記一個連絡資料。 | 在繼續之前，請確定使用者有至少兩個已正確設定的連絡方法。 例如，擁有行動電話號碼和辦公室電話號碼。 |
 | 目錄已啟用密碼重設，並已正確設定使用者，但無法連絡到使用者。 | 原因可能是暫時性的服務錯誤，或如果連絡資料不正確，而無法正確偵測到。 <br> <br> 如果使用者等候 10 秒，就會出現「再試一次」和「連絡您的系統管理員」連結。 如果使用者選取「再試一次」，就會重試該呼叫。 如果使用者選取「連絡您的系統管理員」，就會傳送表單電子郵件給其全域系統管理員，要求對該使用者帳戶執行密碼重設。 |

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 02/21/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 4ce2b133ed4266028f1d99151939538fb8ce60f5
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: aeb94a430e633299637d4e9b96ef6b2c0309b163
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190763"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38722910"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli-20"></a>教學課程：了解如何使用 Azure CLI 2.0 來控管 Linux 虛擬機器
 
@@ -55,7 +55,7 @@ az group create --name myResourceGroup --location "East US"
 * [網路參與者](../../role-based-access-control/built-in-roles.md#network-contributor)
 * [儲存體帳戶參與者](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-相較於將角色指派給個別使用者，為需要執行類似動作的使用者[建立 Azure Active Directory 群組](../../active-directory/active-directory-groups-create-azure-portal.md)通常會更加容易。 然後，將該群組指派給適當的角色。 一言以蔽之，您要建立沒有成員的 Azure Active Directory 群組。 您仍然可以指派此群組給某個範圍內的角色。 
+相較於將角色指派給個別使用者，為需要執行類似動作的使用者[建立 Azure Active Directory 群組](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)通常會更加容易。 然後，將該群組指派給適當的角色。 一言以蔽之，您要建立沒有成員的 Azure Active Directory 群組。 您仍然可以指派此群組給某個範圍內的角色。 
 
 下列範例會建立名為 VMDemoContributors、郵件暱稱為 vmDemoGroup 的 Azure Active Directory 群組。 郵件暱稱可作為群組的別名。
 

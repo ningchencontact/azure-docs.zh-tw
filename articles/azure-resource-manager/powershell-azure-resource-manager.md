@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 02616ef566dd576c3f406d4b9f3059dab27bf3e0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5f7c569eabcf6e4b743f1b6616161787764e8f84
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603408"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723490"
 ---
 # <a name="manage-resources-with-azure-powershell"></a>使用 Azure PowerShell 管理資源
 
@@ -56,7 +56,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 * [網路參與者](../role-based-access-control/built-in-roles.md#network-contributor)
 * [儲存體帳戶參與者](../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-相較於將角色指派給個別使用者，為需要執行類似動作的使用者[建立 Azure Active Directory 群組](../active-directory/active-directory-groups-create-azure-portal.md)通常會更加容易。 然後，將該群組指派給適當的角色。 一言以蔽之，您要建立沒有成員的 Azure Active Directory 群組。 您仍然可以指派此群組給範圍內的角色。 
+相較於將角色指派給個別使用者，為需要執行類似動作的使用者[建立 Azure Active Directory 群組](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)通常會更加容易。 然後，將該群組指派給適當的角色。 一言以蔽之，您要建立沒有成員的 Azure Active Directory 群組。 您仍然可以指派此群組給範圍內的角色。 
 
 下列範例會建立群組，並將其指派給資源群組中的「虛擬機器參與者」角色。 若要執行 `New-AzureAdGroup` 命令，您必須使用 [Azure Cloud Shell](/azure/cloud-shell/overview) 或[下載 Azure AD PowerShell 模組](https://www.powershellgallery.com/packages/AzureAD/)。
 

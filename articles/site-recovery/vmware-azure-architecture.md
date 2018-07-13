@@ -3,15 +3,14 @@ title: Azure Site Recovery 中的 VMware 至 Azure 複寫架構 | Microsoft Docs
 description: 本文概述使用 Azure Site Recovery 將內部部署 VMware VM 複寫至 Azure 時，所使用的元件和架構
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 61c283c178936c98a9a18509c1b46035e48f8f24
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 48adf61dc0f1796b820e1e14ca509d4618c6256b
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285265"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920561"
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>VMware 至 Azure 複寫架構
 

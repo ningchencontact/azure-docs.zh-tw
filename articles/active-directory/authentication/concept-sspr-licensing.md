@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: b1cfb76c7e196441ebad3bcfcd1d788bd544ab74
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 64c12177e5cf6c82018731b493c0da22e1895b7f
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36292554"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37855519"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Azure AD 自助式密碼重設的授權需求
 
@@ -51,7 +51,7 @@ ms.locfileid: "36292554"
 
 ## <a name="enable-group-or-user-based-licensing"></a>啟用以群組或使用者為基礎的授權
 
-Azure AD 現在支援以群組為基礎的授權。 系統管理員可以將大量授權指派給一群使用者，而不是一次指派一個授權。 如需詳細資訊，請參閱[指派、驗證授權及解決其問題](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses)。
+Azure AD 現在支援以群組為基礎的授權。 系統管理員可以將大量授權指派給一群使用者，而不是一次指派一個授權。 如需詳細資訊，請參閱[指派、驗證授權及解決其問題](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses)。
 
 並非所有位置都可使用某些 Microsoft 服務。 系統管理員必須先指定使用者的 [使用位置] 屬性，才能將授權指派給使用者。 可以在 Azure 入口網站中的 [使用者]  >  [設定檔]  >  [設定] 區段之下進行授權指派。 使用群組授權指派時，未指定使用位置的任何使用者在指派期間會繼承目錄的位置。
 

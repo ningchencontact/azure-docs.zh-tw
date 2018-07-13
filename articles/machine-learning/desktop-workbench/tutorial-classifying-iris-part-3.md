@@ -7,15 +7,17 @@ ms.author: aashishb
 manager: mwinkle
 ms.reviewer: jmartens, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/13/2018
-ms.openlocfilehash: 8eb6470afb44ba1b41e0077a890a36601db5387e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5b751546320ca6728573954290bd2258e837775f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723216"
 ---
 # <a name="tutorial-3-classify-iris-deploy-a-model"></a>教學課程 3：分類鳶尾花：部署模型
 Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進階分析解決方案，可供專業資料科學家使用。 資料科學家可用來以雲端規模準備資料、開發測試及部署模型。
@@ -274,7 +276,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
    若要建立資訊清單，請使用下列命令，並提供來自前一個步驟的模型識別碼輸出：
 
    ```azurecli
-   az ml manifest create --manifest-name <new manifest name> -f score_iris.py -r python -i <model ID> -s service_schema.json
+   az ml manifest create --manifest-name <new manifest name> -f score_iris.py -r python -i <model ID> -s service_schema.json -c aml_config\conda_dependencies.yml
    ```
    此命令會產生資訊清單識別碼。
 
@@ -283,7 +285,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
    若要建立 Docker 映像，請使用下列命令，並提供來自前一個步驟的資訊清單識別碼值輸出。 您也可以使用 `-c` 參數，選擇性地包含 conda 相依性。
 
    ```azurecli
-   az ml image create -n irisimage --manifest-id <manifest ID> -c aml_config\conda_dependencies.yml
+   az ml image create -n irisimage --manifest-id <manifest ID> 
    ```
    此命令會產生 Docker 映像識別碼。
    

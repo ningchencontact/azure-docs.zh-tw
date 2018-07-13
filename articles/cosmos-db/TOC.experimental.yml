@@ -71,7 +71,7 @@ items:
     items:
       - name: 全球發佈
         href: distribute-data-globally.md
-      - name: 多主機設定
+      - name: 多重主機
         href: multi-region-writers.md
       - name: 分割
         href: partition-data.md
@@ -168,8 +168,6 @@ items:
                 href: bulk-executor-dot-net.md
               - name: BulkExecutor - Java
                 href: bulk-executor-java.md
-              - name: 使用儲存體總管進行管理
-                href: storage-explorer.md
               - name: 查詢
                 items:
                   - name: 執行 SQL 查詢
@@ -258,8 +256,6 @@ items:
                 href: sql-api-sql-query-reference.md
           - name: 資源
             items:
-              - name: 使用儲存體總管進行管理
-                href: storage-explorer.md
               - name: Visual Studio Code 擴充功能
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
               - name: SQL 園地
@@ -322,12 +318,8 @@ items:
                 href: mongodb-indexing.md
               - name: 使用 Power BI 將資料視覺化
                 href: powerbi-visualize.md
-              - name: 使用儲存體總管進行管理
-                href: storage-explorer.md
           - name: 資源
             items:
-              - name: 使用儲存體總管進行管理
-                href: storage-explorer.md
               - name: Visual Studio Code 擴充功能
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
       - name: 圖形 API 文件
@@ -346,12 +338,8 @@ items:
             items:
               - name: 圖表分割
                 href: graph-partitioning.md
-              - name: 使用儲存體總管進行管理
-                href: storage-explorer.md
           - name: 資源
             items:
-              - name: 使用儲存體總管進行管理
-                href: storage-explorer.md
               - name: Visual Studio Code 擴充功能
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
       - name: 資料表 API 文件
@@ -404,8 +392,6 @@ items:
                 href: table-sdk-python.md
           - name: 資源
             items:
-              - name: 使用儲存體總管進行管理
-                href: storage-explorer.md
               - name: 表格儲存體概觀
                 href: table-storage-overview.md
               - name: 表格儲存體設計指南
@@ -458,8 +444,6 @@ items:
     items:
       - name: 查詢速查表
         href: query-cheat-sheet.md
-      - name: 使用儲存體總管進行管理
-        href: storage-explorer.md
       - name: 20 天的秘訣
         href: 20-days-of-tips.md
       - name: 影片

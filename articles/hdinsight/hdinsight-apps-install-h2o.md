@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 9a03588b3327c3ab231f5c2cae17488f4d63bde7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e3c80fe824d87c15a710b133c8e6cddf4ee0e096
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31402102"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856550"
 ---
 # <a name="install-published-application---h2o-sparkling-water"></a>安裝已發佈的應用程式 - H2O Sparkling Water
 
@@ -38,7 +38,7 @@ H2O Sparkling Water 提供：
 
 ### <a name="resource-links"></a>資源連結
 
-* [H2O.ai 工程藍圖](https://jira.h2o.ai/)
+* [H2O.ai 工程藍圖](http://jira.h2o.ai/)
 * [H2O.ai 首頁](http://www.h2o.ai/)
 * [H2O.ai 文件](http://docs.h2o.ai/)
 * [H2O.ai 支援](https://support.h2o.ai/)

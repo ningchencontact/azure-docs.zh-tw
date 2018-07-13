@@ -16,11 +16,11 @@ ms.workload: integration
 ms.date: 10/05/2016
 ms.author: estfan; ladocs
 ms.openlocfilehash: 4278837bb5653b66223374aa728bdc81b279fff7
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295790"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38237296"
 ---
 # <a name="get-started-with-the-salesforce-connector"></a>開始使用 Salesforce 連接器
 Salesforce 連接器提供搭配 Salesforce 物件使用的 API。
