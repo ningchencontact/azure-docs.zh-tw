@@ -4,7 +4,7 @@ description: 本文描述 Azure Active Directory 傳遞驗證運作方式
 services: active-directory
 keywords: Azure AD Connect 傳遞驗證, 安裝 Active Directory, Azure AD 的必要元件, SSO, 單一登入
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/24/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5fde0ea00aacbb791836fc1076b88dafd3728454
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 4a98b971367c9f83826e85bdc24bbcfe48483f57
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063471"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916260"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Azure Active Directory 傳遞驗證：技術深入探討
 本文概述 Azure Active Directory (Azure AD)傳遞驗證的運作方式。 如需深層技術和安全性資訊，請參閱[安全性深入探討](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md)一文。

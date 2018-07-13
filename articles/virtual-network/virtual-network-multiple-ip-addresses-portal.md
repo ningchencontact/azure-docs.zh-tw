@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: annahar
 ms.openlocfilehash: ff6f3444847d9c78836a44ca95f9b00160c29ef4
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31527241"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38630723"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>使用 Azure 入口網站將多個 IP 位址指派給虛擬機器
 

@@ -4,7 +4,7 @@ description: 如何針對執行 Linux 的 Azure 虛擬機器進行「SSH 連線�
 keywords: ssh 連線被拒, ssh 錯誤, azure ssh, ssh 連線失敗
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
-ms.author: iainfou
-ms.openlocfilehash: 9db1252ffdb705308c6bdaf77f394a0e57145fb5
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.author: cynthn
+ms.openlocfilehash: 5d2544ec9ef758cf34a846562fa659b28044c52d
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34701916"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932682"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>針對 SSH 連線至 Azure Linux VM 失敗、發生錯誤或被拒進行疑難排解
 當您嘗試連接到 Linux 虛擬機器 (VM) 時，有許多原因可能會導致您遇到安全殼層 (SSH) 錯誤、SSH 連線失敗或 SSH 被拒。 本文可協助您找出原因並加以更正。 您可以使用 Azure 入口網站、Azure CLI 或適用於 Linux 的 VM 存取擴充功能，針對連線問題進行疑難排解並予以解決。

@@ -3,7 +3,7 @@ title: 教學課程 - 使用 Azure PowerShell 建立和管理 Windows VM | Micro
 description: 在本教學課程中，您將了解如何使用 Azure PowerShell 在 Azure 中建立和管理 Windows VM
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/23/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2a1d89b1e1b7c398ae05fef5577bb1631409631b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d47981042fc13a96bdf5cb9690e4dc83a6aa0162
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211101"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932546"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>教學課程：使用 Azure PowerShell 建立和管理 Windows VM
 
@@ -36,7 +36,7 @@ Azure 虛擬機器提供完全可設定且彈性的計算環境。 本教學課�
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-如果您選擇在本機安裝和使用 PowerShell，則在執行本教學課程時，您必須使用 Azure PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
+如果您選擇在本機安裝和使用 PowerShell，則在執行本教學課程時，必須使用 Azure PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
 
 ## <a name="create-resource-group"></a>建立資源群組
 
@@ -94,7 +94,7 @@ mstsc /v:<publicIpAddress>
 
 ## <a name="understand-vm-images"></a>了解 VM 映像
 
-Azure Marketplace 包含許多可用來建立新虛擬機器的虛擬機器映像。 在先前步驟中，已使用 Windows Server 2016 Datacenter 映像建立虛擬機器。 在此步驟中，PowerShell 模組用來搜尋 Marketplace 中的其他 Windows 映像，其也可用來作為新 VM 的基底。 這個程序包含尋找發行者、提供者、SKU 和版本號碼 (選擇性) 來[識別](cli-ps-findimage.md#terminology)映像。 
+Azure Marketplace 包含許多可用來建立新虛擬機器的虛擬機器映像。 在先前步驟中，已使用 Windows Server 2016 Datacenter 映像建立虛擬機器。 在此步驟中，PowerShell 模組用來搜尋 Marketplace 中的其他 Windows 映像，其也可用來作為新 VM 的基底。 這個程序包含尋找發行者、供應項目、SKU 和版本號碼 (選擇性) 來[識別](cli-ps-findimage.md#terminology)映像。 
 
 使用 [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) 命令傳回映像發行者清單：
 
@@ -102,7 +102,7 @@ Azure Marketplace 包含許多可用來建立新虛擬機器的虛擬機器映�
 Get-AzureRmVMImagePublisher -Location "EastUS"
 ```
 
-使用 [Get-AzureRmVMImageOffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer) 傳回映像提供者清單。 使用此命令，根據指定的發行者篩選傳回的清單：
+使用 [Get-AzureRmVMImageOffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer) 傳回映像提供清單。 使用此命令，根據指定的發行者篩選傳回的清單：
 
 ```azurepowershell-interactive
 Get-AzureRmVMImageOffer -Location "EastUS" -PublisherName "MicrosoftWindowsServer"
@@ -116,7 +116,8 @@ WindowsServer     MicrosoftWindowsServer EastUS
 WindowsServer-HUB MicrosoftWindowsServer EastUS   
 ```
 
-[Get-AzureRmVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) 命令會接著根據發行者和提供項目名稱篩選，以傳回映像名稱清單。
+
+  [Get-AzureRmVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) 命令會接著根據發行者和供應項目名稱篩選，以傳回映像名稱清單。
 
 ```azurepowershell-interactive
 Get-AzureRmVMImageSku -Location "EastUS" -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer"
@@ -147,7 +148,7 @@ Skus                                      Offer         PublisherName          L
 New-AzureRmVm `
     -ResourceGroupName "myResourceGroupVM" `
     -Name "myVM2" `
-    -Location "East US" `
+    -Location "EastUS" `
     -VirtualNetworkName "myVnet" `
     -SubnetName "mySubnet" `
     -SecurityGroupName "myNetworkSecurityGroup" `

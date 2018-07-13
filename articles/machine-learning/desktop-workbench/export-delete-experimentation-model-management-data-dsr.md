@@ -1,21 +1,21 @@
 ---
 title: 探索或刪除實驗或模型管理資料 - Azure Machine Learning | Microsoft Docs
-description: 在 Azure Machine Learning 中，您可以使用 Azure 入口網站、CLI、SDK 及已驗證的 REST API 來探索或刪除與實驗或模型管理相關的帳戶資料。 本文會說明做法。
+description: 在 Azure Machine Learning 中，您可以使用 Azure 入口網站、CLI、SDK 及已驗證的 REST API 來探索或刪除與實驗或模型管理相關的帳戶資料。 本文將說明如何做到。
 services: machine-learning
 author: cjgronlund
 ms.author: cgronlun
 manager: haining
 ms.reviewer: jmartens, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.topic: conceptual
 ms.date: 05/22/2018
-ms.openlocfilehash: 7db37865c99908e0fd44be3ec04a8493d190e941
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 5475ce3be24321b15ab78a078b758c25843f0ed3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833507"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723680"
 ---
 # <a name="export-or-delete-your-experimentation-or-model-management-data-in-machine-learning"></a>在機器學習服務中探索或刪除實驗或模型管理資料
 
@@ -214,7 +214,7 @@ ms.locfileid: "34833507"
 
     https://{location}.experiments.azureml.net/history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningExperimentation/accounts/{accountName}/workspaces/{workspaceName}/projects/{projectName}/runs/{runId}/artifacts
         
-### <a name="assets"></a>資產
+### <a name="assets"></a>Assets
 
     https://{location}.experiments.azureml.net/artifact/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningExperimentation/accounts/{accountName}/workspaces/{workspaceName}/projects/{projectName}/assets/name/{name}
 

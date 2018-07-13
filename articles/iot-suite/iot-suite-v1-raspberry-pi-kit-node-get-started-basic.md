@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
 ms.openlocfilehash: 9bb4f62b1a3de68ce8796b60fe76cd97b9ab9ade
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
-ms.locfileid: "24010661"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38299284"
 ---
 # <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-send-telemetry-from-a-real-sensor-using-nodejs"></a>將 Raspberry Pi 3 連線到遠端監視解決方案，並且使用 Node.js 從真實感應器傳送遙測
 

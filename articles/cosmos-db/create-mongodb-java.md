@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: sngun
 ms.openlocfilehash: 3c92834085a95ea86dbe5d0c7458f8bef78a34bb
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797092"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38299786"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-java-and-the-azure-portal"></a>Azure CosmosDB︰使用 Java 和 Azure 入口網站建置 MongoDB API 主控台應用程式
 

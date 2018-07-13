@@ -1,12 +1,12 @@
 ---
-title: "使用動態遙測 | Microsoft Docs"
-description: "遵循本教學課程以了解如何使用動態遙測搭配遠 Azure IoT 套件端監視預先設定解決方案。"
-services: 
+title: 使用動態遙測 | Microsoft Docs
+description: 遵循本教學課程以了解如何使用動態遙測搭配遠 Azure IoT 套件端監視預先設定解決方案。
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 562799dc-06ea-4cdd-b822-80d1f70d2f09
 ms.service: iot-suite
 ms.devlang: na
@@ -16,10 +16,11 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
 ms.openlocfilehash: 60e9ee00fabf15a62e782c70bca251b1a8e617c3
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723650"
 ---
 # <a name="use-dynamic-telemetry-with-the-remote-monitoring-preconfigured-solution"></a>搭配使用動態遙測與遠端監視預先設定解決方案
 

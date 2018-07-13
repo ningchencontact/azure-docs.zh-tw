@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2c12630deb45fd057537c42157d88fdeef22d18b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d30006fae8a0d495909b9a53cf0bffb5cc824433
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593008"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38295391"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>對 Azure AD Connect 的連線問題進行疑難排解
 這篇文章說明 Azure AD Connect 與 Azure AD 之間的連線的運作方式，以及如何疑難排解連線問題。 這些問題最有可能出現在具有 Proxy 伺服器的環境中。
@@ -174,7 +174,7 @@ Azure AD 目錄找不到或無法解析。 可能是您嘗試以未驗證網域�
 驗證成功。 您不是全域管理員。
 
 ### <a name="privilegedidentitymanagement"></a>PrivilegedIdentityManagement
-驗證成功。 已啟用 Privileged Identity Management，而且您目前不是全域管理員。 如需詳細資訊，請參閱 [Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md)。
+驗證成功。 已啟用 Privileged Identity Management，而且您目前不是全域管理員。 如需詳細資訊，請參閱 [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md)。
 
 ### <a name="companyinfounavailable"></a>CompanyInfoUnavailable
 驗證成功。 無法從 Azure AD 擷取公司資訊。

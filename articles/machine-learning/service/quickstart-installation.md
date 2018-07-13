@@ -7,15 +7,17 @@ ms.author: haining
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 3/7/2018
-ms.openlocfilehash: 12a34bc98db396482d9fde8da778db0f0ef7de4b
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 30795f542bca52159f2ff0fe052a94de3743f0e8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38767148"
 ---
 # <a name="quickstart-install-and-get-started-with-azure-machine-learning-services"></a>快速入門：安裝並開始使用 Azure Machine Learning 服務
 Azure Machine Learning 服務 (預覽) 是整合式端對端的資料科學和進階分析解決方案。 它可以協助專業資料科學家以雲端規模準備資料、開發測試及部署模型。
@@ -145,7 +147,7 @@ Azure Machine Learning Workbench 適用於 Windows 或 macOS。 請查看[支援
    專案名稱 | myIris |輸入可識別您帳戶的唯一名稱。 您可以使用您自己的名稱，或最能識別測試的部門或專案名稱。 這個名稱長度應介於 2 到 32 個字元之間。 應該只包含英數字元及虛線 (-) 字元。 
    專案目錄 | c:\Temp\ | 指定要在其中建立專案的目錄。
    專案描述 | _保留空白_ | 適合用於描述專案的選擇性欄位。
-   Visualstudio.com GIT 存放庫 URL |_保留空白_ | 選擇性標題。 專案可在 Visual Studio Team Services 上選擇性地與 Git 存放庫相關聯，以便進行原始檔控制和共同作業。 [了解如何進行設定](/desktop-workbench/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo)。 
+   Visualstudio.com GIT 存放庫 URL |_保留空白_ | 選擇性標題。 專案可在 Visual Studio Team Services 上選擇性地與 Git 存放庫相關聯，以便進行原始檔控制和共同作業。 [了解如何進行設定](../desktop-workbench/using-git-ml-project.md#step-3-set-up-a-machine-learning-project-and-git-repo)。 
    選取的工作區 | IrisGarden (如果存在的話) | 選擇您在 Azure 入口網站中針對測試帳戶建立的工作區。 <br/>如果您已遵循快速入門，您應該有名稱為 IrisGarden 的工作區。 如果沒有，請選取您建立測試帳戶時所建立的工作區，或任何您想使用的其他工作區。
    專案範本 | 分類鳶尾花 | 範本包含您可用來瀏覽產品的指令碼和資料。 此範本包含您在本快速入門及此文件網站中的其他教學課程中需要使用的指令碼和資料。 
 
