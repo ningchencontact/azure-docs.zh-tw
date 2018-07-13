@@ -318,8 +318,6 @@ items:
                 href: mongodb-readpreference.md
               - name: 編製索引
                 href: mongodb-indexing.md
-              - name: MongoDB 中的 TTL
-                href: mongodb-ttl.md
               - name: 使用 Power BI 將資料視覺化
                 href: powerbi-visualize.md
           - name: 資源

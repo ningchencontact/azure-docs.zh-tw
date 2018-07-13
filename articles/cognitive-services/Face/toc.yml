@@ -29,12 +29,12 @@
   items:
     - name: 'C#'
       href: Tutorials/FaceAPIinCSharpTutorial.md
+    - name: Android
+      href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
 - name: 使用說明指南
   items:
     - name: 第一個臉部 API 應用程式
       items:
-        - name: 適用於 Android 的 Java
-          href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
         - name: Python
           href: Tutorials/FaceAPIinPythonTutorial.md
     - name: 偵測影像中的人臉

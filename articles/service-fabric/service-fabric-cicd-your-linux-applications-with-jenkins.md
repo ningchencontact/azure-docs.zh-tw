@@ -327,7 +327,7 @@ Jenkins 是連續整合和部署應用程式的熱門工具。 以下是使用 J
 12. 按一下 [驗證組態 ]。 在驗證成功之後，按一下 [儲存]。 您的 Jenkins 作業管線現在已完整設定。 繼續至 [後續步驟](#next-steps) 以測試部署。
 
 ## <a name="next-steps"></a>後續步驟
-現在已設定 GitHub 和 Jenkins。 請考慮在您儲存機制分支中的 `reliable-services-actor-sample/Actors/ActorCounter` 專案中https://github.com/Azure-Samples/service-fabric-java-getting-started. \(英文\) 中進行一些範例變更。 將您的變更推送至遠端 `master` 分支 (或您已經設定使用的任何分支)。 這會觸發您設定的 Jenkins 作業 `MyJob`。 它會從 GitHub 擷取變更、建置它們並且將應用程式部署至您在建置後動作中指定的叢集。  
+現在已設定 GitHub 和 Jenkins。 請考慮在您儲存機制分支中的 `reliable-services-actor-sample/Actors/ActorCounter` 專案中 https://github.com/Azure-Samples/service-fabric-java-getting-started \(英文\) 中進行一些範例變更。 將您的變更推送至遠端 `master` 分支 (或您已經設定使用的任何分支)。 這會觸發您設定的 Jenkins 作業 `MyJob`。 它會從 GitHub 擷取變更、建置它們並且將應用程式部署至您在建置後動作中指定的叢集。  
 
   <!-- Images -->
   [build-step]: ./media/service-fabric-cicd-your-linux-application-with-jenkins/build-step.png

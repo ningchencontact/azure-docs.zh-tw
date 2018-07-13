@@ -109,7 +109,7 @@
         - name: Jenkins 持續部署
           href: jenkins-continuous-deployment.md
         - name: 適用於 ASK 的 Azure DevOps 專案
-          href: 'https://docs.microsoft.com/en-us/vsts/pipelines/actions/azure-devops-project-aks'
+          href: ../devops-project/azure-devops-project-aks.md
           maintainContext: true
     - name: Kubernetes 基本概念
       items:

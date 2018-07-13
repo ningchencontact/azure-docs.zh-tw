@@ -7,18 +7,10 @@
 - name: 快速入門
   expanded: true
   items:
-    - name: 試用認知搜尋
-      href: cognitive-search-quickstart-blob.md
     - name: 建立服務
       href: search-create-service-portal.md
-    - name: 入口網站
-      items:
-        - name: 建立索引
-          href: search-create-index-portal.md
-        - name: 匯入資料
-          href: search-import-data-portal.md
-        - name: 搜尋總管
-          href: search-explorer.md
+    - name: 試用認知搜尋
+      href: cognitive-search-quickstart-blob.md
     - name: .NET
       items:
         - name: 建立索引
@@ -39,18 +31,18 @@
           href: search-fiddler.md
 - name: 教學課程
   items:
+    - name: 使用內建工具
+      href: search-get-started-portal.md
     - name: 認知搜尋開發
       href: cognitive-search-tutorial-blob.md
-    - name: 為 Azure SQL Database 編製索引
-      href: search-indexer-tutorial.md
     - name: 為 Azure Blob 編製索引
       href: search-semi-structured-data.md
+    - name: 為 Azure SQL Database 編製索引
+      href: search-indexer-tutorial.md
     - name: 在 .NET 中新增同義字
       href: search-synonyms-tutorial-sdk.md
     - name: 在 .NET 新增自動完成
       href: search-autocomplete-tutorial.md
-    - name: 入口網站逐步解說
-      href: search-get-started-portal.md
 - name: 範例
   items:
     - name: Azure 程式碼範例
@@ -129,6 +121,8 @@
       items:
         - name: 索引定義
           href: search-what-is-an-index.md
+        - name: 建立索引 (入口網站)
+          href: search-create-index-portal.md
         - name: 分析器
           items:
             - name: 文字分析器
@@ -151,6 +145,8 @@
       items:
         - name: 推送以及提取索引
           href: search-what-is-data-import.md
+        - name: 匯入精靈 (入口網站)
+          href: search-import-data-portal.md
         - name: 重建索引
           href: search-howto-reindex.md
         - name: 索引大型資料集
@@ -181,6 +177,8 @@
       items:
         - name: 基本查詢建構
           href: search-query-overview.md
+        - name: 搜尋總管 (入口網站)
+          href: search-explorer.md
         - name: 簡單查詢語法
           href: 'https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search'
         - name: Lucene 查詢語法

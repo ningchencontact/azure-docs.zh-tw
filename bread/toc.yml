@@ -289,6 +289,9 @@
     - name: ExpressRoute
       tocHref: /azure/expressroute/
       topicHref: /azure/expressroute/
+    - name: 防火牆
+      tocHref: /azure/firewall/
+      topicHref: /azure/firewall/
     - name: 指引
       tocHref: /azure/guidance/
       topicHref: /azure/guidance/
@@ -354,7 +357,7 @@
     - name: Key Vault
       tocHref: /azure/key-vault/
       topicHref: /azure/key-vault/
-    - name: Load Balancer
+    - name: 負載平衡器
       tocHref: /azure/load-balancer/
       topicHref: /azure/load-balancer/
     - name: Log Analytics

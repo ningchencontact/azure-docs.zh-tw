@@ -42,7 +42,7 @@ ms.locfileid: "35297323"
 
 ### <a name="add-aws-read-only-role-based-access"></a>新增 AWS 唯讀角色型存取
 
-1. 登入 AWS 主控台 (位於 https://console.aws.amazon.com/iam/home)，然後選取 [角色]。
+1. 登入 AWS 主控台 (位於 https://console.aws.amazon.com/iam/home )，然後選取 [角色]。
 2. 按一下 [建立角色]，然後選取 [另一個 AWS 帳戶]。
 3. 在 [帳戶識別碼] 方塊中，貼上 `432263259397`。 此帳戶識別碼是由 AWS 指派給 Cloudyn 服務的「成本管理」資料收集器帳戶。 使用顯示的確切帳戶識別碼。
 4. 在 [選項] 旁邊，選取 [需要外部識別碼]。 貼上先前從「成本管理」中 [外部識別碼] 欄位複製的唯一值。 然後按 [下一步：權限]。  
@@ -77,7 +77,7 @@ ms.locfileid: "35297323"
 
 ### <a name="add-aws-read-only-user-based-access"></a>新增 AWS 唯讀以使用者為基礎的存取
 
-1. 登入 AWS 主控台 (位於 https://console.aws.amazon.com/iam/home)，然後選取 [使用者]。
+1. 登入 AWS 主控台 (位於 https://console.aws.amazon.com/iam/home )，然後選取 [使用者]。
 2. 按一下 [新增使用者] 。
 3. 在 [使用者名稱] 欄位中，輸入使用者名稱。
 4. 針對 [存取類型]，選取 [以程式設計方式存取]，然後按 [下一步：權限]。  
@@ -108,7 +108,7 @@ ms.locfileid: "35297323"
 
 使用下列步驟以取得您的 AWS 角色 ARN。 使用角色 ARN 將讀取權限授與帳單貯體。
 
-1. 登入 AWS 主控台 (位於 https://console.aws.amazon.com)，然後選取 [服務]。
+1. 登入 AWS 主控台 (位於 https://console.aws.amazon.com )，然後選取 [服務]。
 2. 在 [服務搜尋] 方塊中，輸入「IAM」，然後選取該選項。
 3. 從左側功能表選取 [角色]。
 4. 在 [角色] 清單中，選取您為 Cloudyn 存取所建立的角色。
@@ -118,7 +118,7 @@ ms.locfileid: "35297323"
 
 建立 S3 貯體以儲存詳細帳單資訊。
 
-1. 登入 AWS 主控台 (位於 https://console.aws.amazon.com)，然後選取 [服務]。
+1. 登入 AWS 主控台 (位於 https://console.aws.amazon.com )，然後選取 [服務]。
 2. 在 [服務搜尋] 方塊中，輸入「S3」，然後選取 [S3]。
 3. 在 [Amazon S3] 頁面上，按一下 [建立貯體]。
 4. 在建立貯體精靈中，選擇貯體名稱和區域，然後按 [下一步]。  

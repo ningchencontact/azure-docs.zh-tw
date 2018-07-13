@@ -185,7 +185,7 @@
           href: luis-how-to-add-features.md
         - name: 新增模式
           href: luis-how-to-model-intent-pattern.md
-    - name: 訓練
+    - name: 定型
       href: luis-how-to-train.md
     - name: 測試
       items:
@@ -201,8 +201,6 @@
           href: luis-prebuilt-entities.md
         - name: 使用網域
           href: luis-how-to-use-prebuilt-domains.md
-        - name: 使用 Cortana
-          href: luis-how-to-cortana-prebuilt-app.md
     - name: 管理應用程式
       items:
         - name: 使用儀表板
@@ -271,8 +269,6 @@
           href: luis-reference-prebuilt-url.md
     - name: 預先建置的網域參考
       href: luis-reference-prebuilt-domains.md
-    - name: 預先建置的 Cortana 應用程式參考
-      href: luis-reference-cortana-prebuilt.md
     - name: 編寫 V2 API
       href: 'https://aka.ms/luis-authoring-apis'
     - name: 端點 V2 API

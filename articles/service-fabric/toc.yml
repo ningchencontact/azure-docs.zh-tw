@@ -215,6 +215,10 @@
               href: service-fabric-image-store-connection-string.md
         - name: 服務資源
           href: service-fabric-service-manifest-resources.md
+        - name: 定期備份和還原
+          items:
+            - name: 了解定期備份組態
+              href: service-fabric-backuprestoreservice-configure-periodic-backup.md
     - name: 叢集
       href: service-fabric-deploy-anywhere.md
       items:

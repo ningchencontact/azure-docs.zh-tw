@@ -49,8 +49,8 @@
           href: howto-version-devicetemplate.md
         - name: 建立遙測規則
           href: howto-create-telemetry-rules.md
-        - name: 建立事件規則
-          href: howto-create-event-rules.md
+        - name: 設定首頁
+          href: howto-configure-homepage.md
         - name: 準備及上傳映像
           href: howto-prepare-images.md
     - name: 運算子
