@@ -6,16 +6,16 @@ ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 05/11/2018
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 3415989cb6cec68f95e7d317671c31ba9bd231e9
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 17b34b173a10a355817fee0f5928b7fb478125e3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34266998"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38506518"
 ---
 # <a name="leave-an-organization-as-a-guest-user"></a>以來賓使用者的身分從組織離職
 
@@ -23,7 +23,7 @@ Azure Active Directory (Azure AD) B2B 使用者如果不再需要組織的應用
 
 ## <a name="leave-an-organization"></a>從組織離職
 
-若要從組織離職，請以使用者身分登入 [存取面板][](https://myapps.microsoft.com)，接著執行下列動作：
+若要從組織離職，請以使用者身分登入 [[存取面板]](https://myapps.microsoft.com)，接著執行下列動作：
 
 1. 如果您尚未登入打算離開的組織，請在右上角選取您的名稱，然後按一下要離開的組織。
 2. 在右上角選取您的名稱。
@@ -43,7 +43,7 @@ Azure Active Directory (Azure AD) B2B 使用者如果不再需要組織的應用
 
 如有需要，租用戶系統管理員在 30 天內隨時可永久刪除帳戶。 作法：
 
-1. 在 [Azure 入口網站][](https://portal.azure.com) 中，選取 **[Azure Active Directory]**。
+1. 在 [[Azure 入口網站]](https://portal.azure.com) 中，選取 **[Azure Active Directory]**。
 2. 在 [管理] 底下選取 [使用者]。
 3. 選取 [刪除的使用者]。
 4. 選取已刪除使用者旁邊的核取方塊，然後選取 [永久刪除]。
