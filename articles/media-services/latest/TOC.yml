@@ -28,7 +28,7 @@
 - name: 範例
   items:
     - name: Azure 程式碼範例
-      href: 'https://azure.microsoft.com/resources/samples/?service=media-services'
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=media-services&term=v3'
     - name: Azure CLI
       href: cli-samples.md
 - name: 概念
@@ -95,12 +95,14 @@
       href: 'https://docs.microsoft.com/en-us/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest'
     - name: 事件結構描述
       href: media-services-event-schemas.md
-    - name: DRM 授權結構描述
+    - name: DRM 授權
       items:
         - name: PlayReady 授權範本
           href: playready-license-template-overview.md
         - name: Widevine 授權範本
           href: widevine-license-template-overview.md
+        - name: FairPlay 授權需求
+          href: fairplay-license-overview.md
 - name: 資源
   items:
     - name: Azure 藍圖

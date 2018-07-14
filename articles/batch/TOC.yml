@@ -87,8 +87,6 @@
           href: batch-job-prep-release.md
         - name: 並行節點工作
           href: batch-parallel-node-tasks.md
-        - name: 依狀態計算工作數量
-          href: batch-get-task-counts.md
         - name: 作業相依性
           href: batch-task-dependencies.md
         - name: 執行工作的使用者帳戶
@@ -119,7 +117,9 @@
           href: batch-diagnostics.md
         - name: 使用 Application Insights 進行監視
           href: monitor-application-insights.md
-        - name: 有效率的清單查詢
+        - name: 依狀態計算資源
+          href: batch-get-resource-counts.md
+        - name: 有效率地查詢資源
           href: batch-efficient-list-queries.md
     - name: 使用開發人員工具
       items:

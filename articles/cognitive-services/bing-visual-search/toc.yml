@@ -28,6 +28,8 @@
       href: visual-search-sdk-python.md
 - name: 教學課程
   items:
+    - name: 視覺化搜尋影像上傳
+      href: tutorial-visual-search-image-upload.md
     - name: 單一頁面 Web 應用程式
       href: tutorial-bing-visual-search-single-page-app.md
     - name: 單一頁面 Web 應用程式 (原始程式碼)

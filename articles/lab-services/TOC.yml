@@ -63,6 +63,8 @@
           href: devtest-lab-create-first-vm.md
         - name: 為實驗室設定原則
           href: devtest-lab-get-started-with-lab-policies.md
+        - name: 將祕密儲存在 Azure Key Vault 中
+          href: devtest-lab-store-secrets-in-key-vault.md
         - name: 在實驗室中使用 VM
           items:
             - name: 建立 VM

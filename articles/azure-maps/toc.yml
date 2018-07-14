@@ -4,7 +4,7 @@
   href: index.yml
 - name: 概觀
   items:
-    - name: 關於 Azure 地圖服務
+    - name: 什麼是 Azure 地圖服務？
       href: about-azure-maps.md
 - name: 快速入門
   items:
@@ -22,22 +22,10 @@
   items:
     - name: 縮放層級和圖格格線
       href: zoom-levels-and-tile-grid.md
-    - name: 地理編碼涵蓋範圍
-      href: geocoding-coverage.md
-    - name: 流量涵蓋範圍
-      href: traffic-coverage.md
-    - name: 轉譯涵蓋範圍
-      href: render-coverage.md
-    - name: 路由涵蓋範圍
-      href: routing-coverage.md
     - name: 支援的搜尋類別
       href: supported-search-categories.md
     - name: 支援的語言
       href: supported-languages.md
-    - name: 耗用模型
-      href: consumption-model.md
-    - name: 擴充 geoJSON
-      href: extend-geojson.md
 - name: 使用說明指南
   items:
     - name: 管理地圖服務帳戶
@@ -76,6 +64,22 @@
           href: map-accessibility.md
 - name: 參考
   items:
+    - name: 服務涵蓋範圍
+      items:
+        - name: 地理編碼
+          href: geocoding-coverage.md
+        - name: 交通流量
+          href: traffic-coverage.md
+        - name: 轉譯
+          href: render-coverage.md
+        - name: 路由
+          href: routing-coverage.md
+    - name: API 和參數擴充功能
+      items:
+        - name: 車輛耗用模型
+          href: consumption-model.md
+        - name: 擴充 GeoJSON 格式
+          href: extend-geojson.md
     - name: REST
       items:
         - name: 轉譯服務
@@ -139,4 +143,4 @@
     - name: 技術案例研究
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
     - name: 影片
-      href: 'https://azure.microsoft.com/documentation/videos'
+      href: 'https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo'
