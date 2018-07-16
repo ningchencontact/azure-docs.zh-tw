@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: c1277484d8f8b3073ac15534110b01903c265318
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: bbe60fb6a6371551f588d5472ac304148a4a1aa7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795878"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38453411"
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB：使用圖形 API 來建置 .NET Framework 或 Core 應用程式
 
@@ -86,7 +86,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     private static int port = 443;
     private static string authKey = "your-authentication-key";
     private static string database = "your-database";
-    private static string collection = "your-collection-or-graph";
+    private static string collection = "your-graph-container";
     ```
 
 * 要執行的 Gremlin 命令會列於字典 (第 26 行) 中：
@@ -175,7 +175,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
     `private static string database = "your-database";`
 
-5. 同樣地，使用以上建立的集合資訊，將集合 (也是圖形名稱) 貼在第 23 行的 `collection` 變數內。 
+5. 同樣地，使用以上建立的容器資訊，將集合 (也是圖形名稱) 貼在第 23 行的 `collection` 變數內。 
 
     `private static string collection = "your-collection-or-graph";`
 
@@ -193,7 +193,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 您現在可以回到 Azure 入口網站中的 [資料總管]，瀏覽及查詢新的圖形資料。
 
-1. 在 [資料總管] 中，新的資料庫會出現在 [圖形] 窗格中。 展開資料庫和集合節點，然後按一下 [圖形]。
+1. 在 [資料總管] 中，新的資料庫會出現在 [圖形] 窗格中。 展開資料庫和容器節點，然後按一下 [圖形]。
 
 2. 按一下 [套用篩選條件] 按鈕，以使用預設查詢來檢視圖形中的所有頂點。 範例應用程式所產生的資料會顯示在 [圖形] 窗格中。
 

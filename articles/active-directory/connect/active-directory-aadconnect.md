@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6d866a6b068e9f6b8a46e53d60653d55e35a2ffd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f56ac74c62334ef64fca45a6430a539e3c4c372c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34594018"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38442531"
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>整合您的內部部署目錄與 Azure Active Directory
 Azure AD Connect 會整合您的內部部署目錄與 Azure Active Directory。 這可讓您為與 Azure AD 整合之 Office 365、Azure 和 SaaS 應用程式的使用者提供通用身分識別。 本主題將引導您完成規劃、部署和作業步驟。 其中集結了與此領域相關的主題連結。
@@ -33,8 +33,9 @@ Azure AD Connect 會整合您的內部部署目錄與 Azure Active Directory。 
 
 > 
 > - 將使用者同步處理至 Azure AD 是**免費功能**，客戶不需具備任何付費訂用帳戶。
->- 同步處理的使用者**不會自動獲得**「任何」授權。 系統管理員仍有授權指派的整體控制權。 
+> - 同步處理的使用者**不會自動獲得**「任何」授權。 系統管理員仍有授權指派的整體控制權。 
 > - Microsoft 的建議是讓 IT 系統管理員同步處理其所有使用者。 這不只可將使用者解除封鎖以存取任何 Azure AD 整合式資源，也讓 IT 系統管理員能更廣泛地查看其使用者正在存取哪些應用程式。 
+> - Microsoft 強烈建議您不要同步處理使用者與 AAD 中的管理員角色。
 
 ![何謂 Azure AD Connect](media/active-directory-aadconnect/arch.png)
 

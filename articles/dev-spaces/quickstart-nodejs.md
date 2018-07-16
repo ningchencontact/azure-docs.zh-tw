@@ -6,17 +6,17 @@ services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 ms.author: ghogen
-ms.date: 06/06/2018
+ms.date: 07/09/2018
 ms.topic: quickstart
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
 manager: douge
-ms.openlocfilehash: 99508d6e4e6502fe4fd2a81ee7aaefdde7cd2e15
-ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
+ms.openlocfilehash: d0cb1c113724af5d07abf75e6d3a45b54e5202dc
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36945797"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950765"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-nodejs"></a>快速入門：使用 Azure Dev Spaces 建立 Kubernetes 開發人員空間 (Node.js)
 
@@ -32,7 +32,7 @@ ms.locfileid: "36945797"
 ## <a name="prerequisites"></a>先決條件
 
 - Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，您可以建立[免費帳戶](https://azure.microsoft.com/free)。
-- 在 EastUS、WestEurope 或 CanadaEast 區域中執行 Kubernetes 1.9.6、並且已啟用 **HTTP 應用程式路由**的 [Kubernetes 叢集](https://ms.portal.azure.com/#create/microsoft.aks)。
+- 在 EastUS、CentralUS、WestUS2、WestEurope、CanadaCentral 或 CanadaEast 區域中執行 Kubernetes 1.10.3、並且已啟用 **HTTP 應用程式路由**的 [Kubernetes 叢集](https://ms.portal.azure.com/#create/microsoft.aks)。
 
   ![請務必啟用 HTTP 應用程式路由。](media/common/Kubernetes-Create-Cluster-3.PNG)
 
@@ -42,8 +42,7 @@ ms.locfileid: "36945797"
 
 1. 安裝 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (2.0.38 版或更新版本)。
 1. 在您的 AKS 叢集上設定 Dev Spaces：`az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
-1. 下載 VS Code 的 [Azure Dev Spaces 擴充功能](https://aka.ms/get-azds-code)。
-1. 安裝擴充功能：`code --install-extension path-to-downloaded-extension/azds-0.1.1.vsix`
+1. 下載 VS Code 的 [Azure Dev Spaces 擴充功能](https://aka.ms/get-azds-code)。 在擴充功能的 Marketplace 頁面上按一下 [安裝]，然後在 VS Code 再按一次。
 
 ## <a name="build-and-run-code-in-kubernetes"></a>在 Kubernetes 中建置及執行程式碼
 
@@ -182,4 +181,4 @@ Azure 開發人員空間會在偵錯工作階段之間重新啟動 Node.js 程�
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [使用多個容器和小組開發](get-started-nodejs.md#call-a-service-running-in-a-separate-container)
+> [使用多個容器和小組開發](team-development-nodejs.md)

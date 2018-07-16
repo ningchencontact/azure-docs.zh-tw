@@ -9,12 +9,12 @@ ms.component: knowledge-exploration
 ms.topic: article
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 27202379b8c36696a380049336229cac040b0108
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b64025be2f5a9708162da475c1f037d7f253d2c6
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368175"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865748"
 ---
 # <a name="grammar-format"></a>文法格式
 文法是一個 XML 檔案，其會指定服務可以解譯的一組加權自然語言查詢，以及將這些自然語言查詢轉譯為語意查詢運算式的方式。  文法的語法是以 [SRGS](http://www.w3.org/TR/speech-grammar/) 為基礎，也就是語音辨識文法的 W3C 標準，其包含支援資料索引整合和語意函式的擴充功能。

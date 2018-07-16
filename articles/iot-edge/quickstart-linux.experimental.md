@@ -4,17 +4,17 @@ description: 在本快速入門中，請了解如何將預先建置的程式碼�
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/27/2018
+ms.date: 07/02/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 0e0d22b3363b00c81be5091fd12773f9e486c09e
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 8ee43a1e3b448faae79a7e3086e2e1d639c341f2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37099180"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611921"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>快速入門：將您的第一個 IoT Edge 模組部署至 Linux x64 裝置
 
@@ -31,7 +31,14 @@ Azure IoT Edge 可讓您在裝置上執行分析和資料處理，而不必將�
 
 本快速入門會讓 Linux 電腦或虛擬機器成為 IoT Edge 裝置。 接著，您可以從 Azure 入口網站將模組部署至裝置。 您在本快速入門中部署的模組是一個模擬感應器，會產生溫度、溼度和壓力資料。 其他 Azure IoT Edge 教學課程會以您在此所做的工作為基礎，部署模組來分析模擬資料以產生商業見解。 
 
-如果您沒有使用中的 Azure 訂用帳戶，請在開始之前建立 [free account][lnk-account]。
+如果您沒有使用中的 Azure 訂用帳戶，請在開始前建立[免費帳戶][lnk-account]。
+
+## <a name="prerequisites"></a>先決條件
+
+本快速入門會以 Linux 機器作為 IoT Edge 裝置。 如果您還沒有可用於測試的裝置，請依照[在 Azure 入口網站中建立 Linux 虛擬機器](../virtual-machines/linux/quick-create-portal.md)中的指示操作。 
+* 您不需要依照這些步驟來安裝和執行 Web 伺服器。 在連線至虛擬機器後，您即可停止作業。  
+* 在新的資源群組中建立虛擬機器，以供您在建立本快速入門的其餘 Azure 資源時使用。 為其指定可辨識的名稱，例如 *IoTEdgeResources*。 
+* 測試 IoT Edge 並不需要非常大型的虛擬機器。 **B1ms** 的大小即已足夠。 
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
 
@@ -54,6 +61,8 @@ Azure IoT Edge 可讓您在裝置上執行分析和資料處理，而不必將�
 ![註冊裝置][5]
 
 IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 它有三個元件。 **IoT Edge 安全性精靈**會在每次 Edge 裝置開機時啟動，並藉由啟動 IoT Edge 代理程式來啟動該裝置。 **IoT Edge 代理程式**有助於在 IoT Edge 裝置 (包括 IoT Edge 中樞) 上部署及監視模組。 **IoT Edge 中樞**會管理 IoT Edge 裝置上的模組通訊，以及裝置與 IoT 中樞之間的通訊。 
+
+在您準備用於本快速入門的 Linux 機器或 VM 中，完成下列步驟中。 
 
 ### <a name="register-your-device-to-use-the-software-repository"></a>註冊裝置以使用軟體存放庫
 
@@ -85,11 +94,16 @@ IoT Edge 執行階段是一組容器，而部署至 IoT Edge 裝置的邏輯會�
    sudo apt-get update
    ```
 
-安裝 Moby、容器執行階段及其 CLI 命令。 
+安裝 **Moby**，此為容器執行階段。
 
    ```bash
    sudo apt-get install moby-engine
-   sudo apt-get install moby-cli   
+   ```
+
+安裝 Moby 的 CLI 命令。 
+
+   ```bash
+   sudo apt-get install moby-cli
    ```
 
 ### <a name="install-and-configure-the-iot-edge-security-daemon"></a>安裝並設定 IoT Edge 安全性精靈
@@ -109,15 +123,19 @@ IoT Edge 執行階段是一組容器，而部署至 IoT Edge 裝置的邏輯會�
    sudo nano /etc/iotedge/config.yaml
    ```
 
-3. 新增您在註冊裝置時所複製的 IoT Edge 裝置連接字串。 請取代您先前在本快速入門中複製的 **device_connection_string** 變數值。
+3. 新增 IoT Edge 裝置連接字串。 找出 **device_connection_string** 變數，並使用您在註冊裝置時複製的字串來更新其值。
 
-4. 重新啟動 Edge 安全性精靈：
+4. 儲存並關閉檔案。 
+
+   `CTRL + X`、`Y`, `Enter`
+
+4. 重新啟動 IoT Edge 安全性精靈。
 
    ```bash
    sudo systemctl restart iotedge
    ```
 
-5. 確認 Edge 安全性精靈正以系統服務的形式執行：
+5. 確認 Edge 安全性精靈正以系統服務的形式執行。
 
    ```bash
    sudo systemctl status iotedge
@@ -131,12 +149,14 @@ IoT Edge 執行階段是一組容器，而部署至 IoT Edge 裝置的邏輯會�
    journalctl -u iotedge
    ```
 
-6. 檢視在您的裝置上執行的模組： 
+6. 檢視在您的裝置上執行的模組。 
+
+   >[!TIP]
+   >受先您必須使用 *sudo* 來執行 `iotedge` 命令。 登出機器並重新登入以更新權限，其後您即可執行 `iotedge` 命令而不需要提升的權限。 
 
    ```bash
    sudo iotedge list
    ```
-登出再登入後，上述命令就不需要 *sudo*。
 
    ![檢視裝置上的一個模組](./media/quickstart-linux/iotedge-list-1.png)
 
@@ -157,7 +177,6 @@ IoT Edge 執行階段是一組容器，而部署至 IoT Edge 裝置的邏輯會�
    ```bash
    sudo iotedge list
    ```
-登出再登入後，上述命令就不需要 *sudo*。
 
    ![在您的裝置上檢視三個模組](./media/quickstart-linux/iotedge-list-2.png)
 
@@ -177,7 +196,22 @@ IoT Edge 執行階段是一組容器，而部署至 IoT Edge 裝置的邏輯會�
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您想要繼續進行 IoT Edge 教學課程，您可以使用在本快速入門中註冊和設定的裝置。 如果您想要從裝置移除這些安裝，請使用下列命令。  
+如果您想要繼續進行 IoT Edge 教學課程，您可以使用在本快速入門中註冊和設定的裝置。 否則，您可以刪除您所建立的 Azure 資源，並從裝置中移除 IoT Edge 執行階段。 
+
+### <a name="delete-azure-resources"></a>刪除 Azure 資源
+
+如果您是在新的資源群組中建立虛擬機器和 IoT 中樞，您可以刪除該群組和所有相關聯的資源。 如果該資源群組中有您想要保留的項目，則只要刪除您要清除的個別資源即可。 
+
+若要移除資源群組，請依照下列步驟操作： 
+
+1. 登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [資源群組]。
+2. 在 [依名稱篩選...] 文字方塊中，輸入包含 IoT 中樞的資源群組名稱。 
+3. 在結果清單中的資源群組右側，按一下 **...**，然後按一下 [刪除資源群組]。
+4. 系統將會要求您確認是否刪除資源。 再次輸入您的資源群組名稱進行確認，然後按一下 [刪除]。 片刻過後，系統便會刪除該資源群組及其所有內含的資源。
+
+### <a name="remove-the-iot-edge-runtime"></a>移除 IoT Edge 執行階段
+
+如果您想要從裝置移除這些安裝，請使用下列命令。  
 
 移除 IoT Edge 執行階段。
 
@@ -185,10 +219,18 @@ IoT Edge 執行階段是一組容器，而部署至 IoT Edge 裝置的邏輯會�
    sudo apt-get remove --purge iotedge
    ```
 
-刪除已在您的裝置上建立的容器。 
+IoT Edge 執行階段移除後，它所建立的容器隨即停止，但仍會存在於您的裝置上。 檢視所有容器。
 
    ```bash
-   sudo docker rm -f $(sudo docker ps -aq)
+   sudo docker ps -a
+   ```
+
+刪除 IoT Edge 執行階段在您的裝置上建立的容器。 如果您將 tempSensor 容器命名為其他名稱，請變更其名稱。 
+
+   ```bash
+   sudo docker rm -f tempSensor
+   sudo docker rm -f edgeHub
+   sudo docker rm -f edgeAgent
    ```
 
 移除容器執行階段。
@@ -196,8 +238,6 @@ IoT Edge 執行階段是一組容器，而部署至 IoT Edge 裝置的邏輯會�
    ```bash
    sudo apt-get remove --purge moby
    ```
-
-當您不再需要 Azure IoT 中樞或您在本快速入門中建立的 IoT Edge 裝置時，您可以在 Azure 入口網站中加以刪除。 瀏覽至 IoT 中樞的概觀頁面，然後選取 [刪除]。 
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -221,5 +261,6 @@ IoT Edge 執行階段是一組容器，而部署至 IoT Edge 裝置的邏輯會�
 [9]: ./media/tutorial-simulate-device-linux/sensor-data.png
 
 <!-- Links -->
+[lnk-account]: https://azure.microsoft.com/free
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer

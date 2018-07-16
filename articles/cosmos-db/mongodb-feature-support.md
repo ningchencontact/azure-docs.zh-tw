@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: 9202e8eb328f098f7ab68a18f4629a95ecc10991
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 2c86cbe2ac9a0611873aca35480af92304abe5b5
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796350"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928681"
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>MongoDB 功能和語法的 MongoDB API 支援
 
@@ -23,14 +23,19 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 藉由使用 Azure Cosmos DB MongoDB API，您除了可享有慣用的 MongoDB API 權益外，還可使用 Azure Cosmos DB 提供的所有企業功能：[全域發佈](distribute-data-globally.md)、[自動分區](partition-data.md)、可用性和延遲保證、每個欄位的自動編製索引、待用加密、備份等功能。
 
+## <a name="mongodb-protocol-support"></a>MongoDB 通訊協定支援
+
+Azure Cosmos DB MongoDB API 預設會與 MongoDB 伺服器 **3.2** 版相容。 以下列出支援的運算子及任何限制或例外狀況。 目前只有在預覽功能中，才提供 MongoDB **3.4** 版中新增的功能或查詢運算子。 能解析這些通訊協定的任何用戶端驅動程式，都應該能夠使用 MongoDB API 連線到 Cosmos DB。
+
+目前只在另一個預覽功能中，也提供了 [MongoDB 彙總管線](#aggregation-pipeline)。
+
 ## <a name="mongodb-query-language-support"></a>MongoDB 查詢語言支援
 
 Azure Cosmos DB MongoDB API 可完整支援 MongoDB 查詢語言建構。 目前支援的作業、運算子、階段、命令和選項詳細清單如下所示。
 
-
 ## <a name="database-commands"></a>資料庫命令
 
-Azure Cosmos DB 支援在所有 MongoDB API 帳戶上使用下列資料庫命令。 
+Azure Cosmos DB 支援在所有 MongoDB API 帳戶上使用下列資料庫命令。
 
 ### <a name="query-and-write-operation-commands"></a>查詢和寫入作業命令
 - delete
@@ -287,7 +292,11 @@ $all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
 $elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |  
 $size | ```{ "Location.coordinates": { $size: 2 } }``` | 
 $comment |  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` | 
-$text |  | 不支援。 改用 $regex 
+$text |  | 不支援。 請改用 $regex。
+
+## <a name="unsupported-operators"></a>不支援的運算子
+
+Azure Cosmos DB 不支援 ```$where``` 和 ```$eval``` 運算子。
 
 ### <a name="methods"></a>方法
 
@@ -316,6 +325,10 @@ Azure Cosmos DB 尚不支援使用者和角色。 Azure Cosmos DB 支援角色�
 ## <a name="replication"></a>複寫
 
 Azure Cosmos DB 支援最低層級的自動、原生複寫。 此邏輯也可延伸至達到低延遲且全域的複寫。 Azure Cosmos DB 不支援手動複寫命令。
+
+## <a name="write-concern"></a>寫入考量
+
+指定[寫入考量](https://docs.mongodb.com/manual/reference/write-concern/)的特定 MongoDB API 支援，會指定寫入作業期間所需的回應數目。 由於 Cosmos DB 在背景中處理複寫的方式，所有的寫入依預設全部都會自動仲裁。 用戶端程式碼所指定的任何寫入考量都會受到忽略。 深入了解[使用一致性層級將可用性和效能最大化](consistency-levels.md)。
 
 ## <a name="sharding"></a>分區化
 

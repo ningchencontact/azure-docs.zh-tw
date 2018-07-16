@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: v-geberr
-ms.openlocfilehash: 2de25645e5377efdd53bcc980695804d34db5ee2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8dfe5b2363fbf9b89947956f212d8d4e1ef5d82a
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369966"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867030"
 ---
 # <a name="manage-luis-service-from-azure-cloud-shell"></a>從 Azure Cloud Shell 管理 LUIS 服務
 Azure 入口網站可讓您透過 PowerShell Cmdlet 來使用 LUIS 資源。 
@@ -22,7 +22,7 @@ Azure 入口網站可讓您透過 PowerShell Cmdlet 來使用 LUIS 資源。
 這些 Cmdlet 可讓您[建立](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/new-azurermcognitiveservicesaccount?view=azurermps-6.0.0) LUIS 訂用帳戶、取得訂用帳戶的相關資訊 (包括[使用量](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/get-azurermcognitiveservicesaccountusage?view=azurermps-6.0.0))，以及[移除](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/remove-azurermcognitiveservicesaccount?view=azurermps-6.0.0)訂用帳戶。 
 
 ## <a name="cloud-shell-storage-account-and-authentication"></a>Cloud Shell 儲存體帳戶和驗證
-若要在 Azure 入口網站 [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell) 中使用 PowerShell，您必須擁有 Azure 儲存體帳戶。 如果您沒有[儲存體帳戶](https://docs.microsoft.com/en-us/azure/cloud-shell/persisting-shell-storage#set-up-a-clouddrive-file-share)，系統會提示您建立帳戶。 儲存體帳戶可讓您將 PowerShell 指令碼儲存在 Cloud Shell 中。  
+若要在 Azure 入口網站 [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell) 中使用 PowerShell，您必須擁有 Azure 儲存體帳戶。 如果您沒有[儲存體帳戶](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage#set-up-a-clouddrive-file-share)，系統會提示您建立帳戶。 儲存體帳戶可讓您將 PowerShell 指令碼儲存在 Cloud Shell 中。  
 
 您也需要在 Cloud Shell 向 Azure 進行驗證，才能存取資源。 
 

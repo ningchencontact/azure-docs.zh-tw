@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 84baf03c83bb63883b80982056cdf6e1e25b3fb7
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d7ec8648a8428558264c9bfd4d923523b90cce07
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370675"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37855935"
 ---
 # <a name="about-the-text-to-speech-api"></a>關於文字轉換語音 API
 
@@ -35,11 +35,11 @@ ms.locfileid: "35370675"
 
 ## <a name="voice-support"></a>語音支援
 
-Microsoft **文字轉換語音**服務在 45 個以上的語言和地區設定中提供 75 種以上的語音。 若要使用這些標準「語音字型」，您只需要在呼叫服務的 REST API 時，使用一些其他參數來指定語音名稱。 如需所支援語音的詳細資料，請參閱[支援的語言](supported-languages.md)。 
+Microsoft **文字轉換語音**服務在 45 個以上的語言和地區設定中提供 75 種以上的語音。 若要使用這些標準「語音字型」，您只需要在呼叫服務的 REST API 時，使用一些其他參數來指定語音名稱。 如需所支援語音的詳細資料，請參閱[支援的語言](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/supported-languages#text-to-speech)。 
 
 若希望應用程式辨識獨特的語音，您可以從自己的語音範例建立[自訂語音字型](how-to-customize-voice-font.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
-* [取得語音試用版訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)
-* [了解如何以 C# 辨識語音](quickstart-csharp-windows.md)
+* [試用認知服務](https://azure.microsoft.com/try/cognitive-services/)
+* [了解如何以 C# 辨識語音](quickstart-csharp-windows.md) (英文)

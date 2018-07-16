@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: e4e90082f483720699fb029db33bc8110173c0aa
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: bc53d245dd814b6f9bb4edab89ddcbf841f16a8f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082949"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38579172"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory 簡介 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -120,6 +120,10 @@ Azure Data Factory 本身不會儲存任何資料。 它可讓您建立資料導
 雖然只有特定區域有提供 Data Factory，但為 Data Factory 中的資料移動提供技術支援的服務卻是全球數個區域中都有提供。 如果資料存放區位於防火牆後面，就會改由內部部署環境中所安裝的自我裝載 Integration Runtime 負責移動資料。
 
 如需範例，讓我們假設您的計算環境 (例如 Azure HDInsight 叢集和 Azure 機器學習服務) 即將用盡西歐區域的資源。 您可以在美國東部或美國東部 2 建立和利用 Azure Data Factory 執行個體，並用它來排程您在西歐計算環境的作業。 只要幾毫秒的時間，Data Factory 就能觸發計算環境上的作業，但執行計算環境上作業所需的時間則不會改變。
+
+## <a name="accessibility"></a>協助工具
+
+可存取 Azure 入口網站中的 Data Factory 使用者體驗。
 
 ## <a name="compare-with-version-1"></a>與第 1 版比較
 如需 Data Factory 服務第 1 版與目前版本的差異清單，請參閱[與第 1 版比較](compare-versions.md)。 

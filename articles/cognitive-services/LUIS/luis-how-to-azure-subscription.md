@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: v-geberr
-ms.openlocfilehash: 3526871f126ac975f323fe84b14883b361b684ae
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dbcbdb0f806241c015e6fbc160465390bead7c37
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35370766"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340768"
 ---
 # <a name="manage-azure-endpoint-subscription-keys"></a>管理 Azure 端點訂用帳戶金鑰
 
@@ -40,7 +40,7 @@ ms.locfileid: "35370766"
     ![Azure 金鑰](./media/luis-azure-subscription/azure-keys.png)
 
     > [!Note] 
-    > * 登入您地區的 [LUIS](luis-reference-regions.md) 網站並[新增 LUIS 端點金鑰](Manage-Keys.md#assign-endpoint-key)。 
+    > * 登入您地區的 [LUIS](luis-reference-regions.md) 網站並[新增 LUIS 端點金鑰](luis-how-to-manage-keys.md#assign-endpoint-key)。 
     > * 您必須記住建立的 Azure 服務名稱，以便在區域的 [LUIS](luis-reference-regions.md) 發佈頁面上加以選取。  
 
 ## <a name="change-luis-pricing-tier"></a>變更 LUIS 定價層
@@ -53,7 +53,7 @@ ms.locfileid: "35370766"
     ![變更 LUIS 付款層](./media/luis-usage-tiers/plans.png)
 4.  定價變更完成時，快顯視窗會確認新的定價層。 
     ![驗證 LUIS 付款層](./media/luis-usage-tiers/updated.png)
-5. 請記得在 [發佈] 頁面上[指派此端點金鑰](manage-keys.md#assign-endpoint-key)，然後將它使用於所有端點查詢。 
+5. 請記得在 [發佈] 頁面上[指派此端點金鑰](luis-how-to-manage-keys.md#assign-endpoint-key)，然後將它使用於所有端點查詢。 
 
 ## <a name="exceed-pricing-tier-usage"></a>超過定價層使用量
 每一層都允許端點以特定比率向您的 LUIS 帳戶提出要求。 如果要求的比率高於您的計量帳戶每分鐘或每個月允許的比率，則要求會收到 HTTP 錯誤「429：太多要求」。

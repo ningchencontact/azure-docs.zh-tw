@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.component: metrics
-ms.openlocfilehash: 4d08c4c7a76d7ed16ec57590ee0fd4ee978e5258
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f6b7b9fe73f5e815e08bbf4f6493ee181a0c692b
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263145"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918266"
 ---
 # <a name="archive-azure-monitoring-data"></a>封存 Azure 監視資料
 
@@ -28,7 +28,7 @@ Azure 環境的許多層會產生記錄和計量資料，可封存至 Azure 儲�
 > * 檢視其中的監視資料
 > * 清除資源
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
@@ -136,6 +136,11 @@ Azure 環境的許多層會產生記錄和計量資料，可封存至 Azure 儲�
 來自虛擬機器的監視資料現在開始流入儲存體帳戶。
 
 ## <a name="view-the-monitoring-data-in-the-storage-account"></a>檢視儲存體帳戶中的監視資料
+
+> [!WARNING]
+> 2018 年 11 月 1 日起，儲存體帳戶中的記錄資料格式將變更為 JSON 資料行。 [請參閱本文章以了解影響的描述，以及如何更新您的工具，來處理新的格式。](./monitor-diagnostic-logs-append-blobs.md) 
+>
+> 
 
 如果您遵循上述步驟操作，資料已經開始流向儲存體帳戶。
 

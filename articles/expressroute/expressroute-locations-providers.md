@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2018
 ms.author: jaredro
-ms.openlocfilehash: 859421a2726272b07e4d09e468ba6c804db26076
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 401ffcdfa1aa84d7db4e991dd412723b2bafe6fd
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752450"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969872"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -51,6 +51,10 @@ ms.locfileid: "36752450"
 | **澳洲政府** | 澳大利亞中部、澳大利亞中部 2 |坎培拉、坎培拉 2 | 
 | **印度** |印度西部、印度中部、印度南部 |辰內，孟買 |
 | **南韓** |南韓中部、南韓南部 |釜山、首爾 |
+| **南非** |[南非西部+、南非北部+](https://blogs.microsoft.com/blog/2017/05/18/microsoft-deliver-microsoft-cloud-datacenters-africa/) |開普敦、約翰尼斯堡 |
+
+ **+** 表示即將推出
+
 
 ### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>國家雲端的區域和地理政治界限
 下表提供國家雲端的區域和地理政治界限等資訊。
@@ -71,19 +75,19 @@ ms.locfileid: "36752450"
 ### <a name="production-azure"></a>生產 Azure
 | **位置** | **服務提供者** |
 | --- | --- |
-| **阿姆斯特丹** |Aryaka Networks、AT&T NetBond、British Telecom、Colt、Equinix、euNetworks、GÉANT、InterCloud、Internet Solutions - Cloud Connect、Interxion、KPN、Level 3 Communications、Megaport、NTT Communications、Orange、Tata Communications、TeleCity Group、Telefonica、Telenor、Verizon、Zayo |
+| **阿姆斯特丹** |Aryaka Networks、AT&T NetBond、British Telecom、Colt、Equinix、euNetworks、GÉANT、InterCloud、Interxion、KPN、Level 3 Communications、Megaport、NTT Communications、Orange、Tata Communications、TeleCity Group、Telefonica、Telenor、Verizon、Zayo |
 | **亞特蘭大** |Equinix |
 | **斧山** |LG CNS |
 | **坎培拉** | CDC |
 | **坎培拉2** | CDC |
-| **開普敦** |Liquid Telecom、Teraco |
+| **開普敦** |Internet Solutions - Cloud Connect、Liquid Telecom、Teraco |
 | **辰內** | Airtel+、Global CloudXchange (GCX)、SIFY、Tata Communications |
 | **芝加哥** |AT&T NetBond、Comcast、Coresite、Equinix、PacketFabric、Level 3 Communications、Megaport、Sprint、Verizon、Zayo |
-| **達拉斯** |Aryaka Networks、AT&T NetBond、Cologix、Equinix、Level 3 Communications、Megaport、Telmex Uninet+、Verizon、Zayo|
+| **達拉斯** |Aryaka Networks、AT&T NetBond、Cologix、Equinix、Level 3 Communications、Megaport、Neutrona Networks、Telmex Uninet+、Verizon、Zayo|
 | **丹佛** |CoreSite、Megaport |
 | **都柏林** |Colt、eir、Equinix、Interxion、Megaport |
 | **香港** |Aryaka Networks、British Telecom、China Telecom Global、Equinix、Megaport、NTT Communications、Orange、PCCW Global Limited、Tata Communications、Verizon |
-| **約翰尼斯堡** |Liquid Telecom、Teraco |
+| **約翰尼斯堡** |Internet Solutions - Cloud Connect、Liquid Telecom、Teraco |
 | **拉斯維加斯** |CenturyLink Cloud Connect、Megaport |
 | **倫敦** |AT&T NetBond、British Telecom、Col、Equinix、InterCloud、Internet Solutions - Cloud Connect、Interxion、Jisc、Level 3 Communications、Megaport、MTN、NTT Communications、Orange、Tata Communications、Telehouse - KDDI、Telenor、Telia Carrier、Verizon、Vodafone、Zayo |
 | **洛杉磯** |CoreSite、Equinix、Megaport、NTT、Zayo |

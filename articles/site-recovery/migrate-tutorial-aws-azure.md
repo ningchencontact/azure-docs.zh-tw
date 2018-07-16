@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b0474ce532831e15738ec882dfdf451bc35d09cf
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: ee38fe542ca6e2e4e1f8e09b54717d4390b453d0
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737607"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37922652"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>將 Amazon Web Services (AWS) VM 移轉至 Azure
 
@@ -29,15 +29,12 @@ ms.locfileid: "34737607"
 > * 測試容錯移轉以確定一切都沒問題
 > * 執行一次性容錯移轉至 Azure
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="prerequisites"></a>先決條件
 - 確定您想要移轉的 VM 正執行支援的 OS 版本。 支援的版本包括： 
     - Windows Server 2016
-    - Windows Server 2012 R2
-    - Windows Server 2012
-    - 64 位元版本的 Windows Server 2008 R2 SP1 或更新版本
-    - Red Hat Enterprise Linux 6.7 (僅限 HVM 虛擬化執行個體)，具備 Citrix Paravirtual 驅動程式或 AWS Paravirtual 驅動程式。 「不」支援執行 Red Hat Paravirtual 驅動程式的執行個體。
+    - Red Hat Enterprise Linux 6.7 (僅限 HVM 虛擬化執行個體)，而且必須只具備 Citrix PV 或 AWS PV 驅動程式。 **不**支援執行 Red Hat PV 驅動程式的執行個體。
 
 - 行動服務必須安裝在您要複寫的每個 VM 上。 
 

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: a7a4391b436af4ffa303741397f0be7abf0186fb
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 538977b9057a5699d61d6c2cc44209367e3550e2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33935872"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38722842"
 ---
 # <a name="import-and-publish-your-first-api"></a>匯入和發佈您的第一個 API 
 
@@ -53,6 +53,8 @@ ms.locfileid: "33935872"
 
     您可以在建立期間或稍後前往 [設定] 索引標籤來設定 API 值。欄位旁的紅色星號表示此為必要欄位。
 
+    請使用下表中的值建立您的第一個 API。
+
     |設定|值|說明|
     |---|---|---|
     |**OpenAPI 規格**|http://conferenceapi.azurewebsites.net?format=json|參考實作 API 的服務。 API 管理則將要求轉送至此位址。|
@@ -75,19 +77,21 @@ ms.locfileid: "33935872"
 1. 選取您在上一個步驟中建立的 API (從 [API] 索引標籤)。
 2. 按 [測試] 索引標籤。![測試 API](./media/api-management-get-started/test-api.png)
 3. 按一下 [GetSpeakers]。
-    此頁面會顯示查詢參數的欄位，但在此案例中，我們沒有任何適用欄位。 此頁面也會顯示標頭的欄位。 其中一個標頭是 "Ocp-Apim-Subscription-Key"，它適用於與此 API 相關聯之產品的訂用帳戶金鑰。 系統會自動填入金鑰。
+    此頁面會顯示查詢參數的欄位 (在此案例中沒有此欄位) 和標頭。 其中一個標頭是 "Ocp-Apim-Subscription-Key"，它適用於與此 API 相關聯之產品的訂用帳戶金鑰。 系統會自動填入金鑰。
 4. 按 [傳送]。
 
     後端會回應 **200 確定**與部分資料。
 
 ## <a name="call-operation"> </a>從開發人員入口網站呼叫作業
 
-您也可以從**開發人員入口網站**呼叫作業來測試 API。 
+您也可以從**開發人員入口網站**呼叫作業來測試 API。
 
-1. 選取 [Demo Conference API]。
-2. 按一下 [GetSpeakers]。
+1. 瀏覽至**開發人員入口網站**。
+![開發人員入口網站](./media/api-management-get-started/developer-portal.png)
+
+2. 選取 [APIS]，按一下 [Demo Conference API]，然後按一下 [GetSpeakers]。
     
-    此頁面會顯示查詢參數的欄位，但在此案例中，我們沒有任何適用欄位。 此頁面也會顯示標頭的欄位。 其中一個標頭是 "Ocp-Apim-Subscription-Key"，它適用於與此 API 相關聯之產品的訂用帳戶金鑰。 如果您建立了 APIM 執行個體，您就已經是系統管理員，因此會自動填入此金鑰。
+    此頁面會顯示查詢參數的欄位 (在此案例中沒有此欄位) 和標頭。 其中一個標頭是 "Ocp-Apim-Subscription-Key"，它適用於與此 API 相關聯之產品的訂用帳戶金鑰。 如果您建立了 APIM 執行個體，您就已經是系統管理員，因此會自動填入此金鑰。
 3. 按 [試試看]。
 4. 按 [傳送]。
     

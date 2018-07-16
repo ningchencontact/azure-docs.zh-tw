@@ -1,6 +1,6 @@
 ---
-title: 篩選網路流量 - 教學課程 - Azure PowerShell | Microsoft Docs
-description: 在本教學課程中，您將了解如何使用 PowerShell 透過網路安全性群組篩選傳至子網路的網路流量。
+title: 篩選網路流量 - 教學課程 - Azure 入口網站 | Microsoft Docs
+description: 在本教學課程中，您將了解如何使用 Azure 入口網站，透過網路安全性群組篩選傳至子網路的網路流量。
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/30/2018
+ms.date: 06/20/2018
 ms.author: jdial
-ms.custom: mvc
-ms.openlocfilehash: 165bd6770109348bd19ebb4fa1735bedf83004b1
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.custom: ''
+ms.openlocfilehash: a731c1e0617fe0ccf9d571dd2b7d0c2ad107bc9e
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34261312"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901393"
 ---
-# <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-powershell"></a>教學課程：使用 PowerShell 透過網路安全性群組篩選網路流量
+# <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站透過網路安全性群組篩選網路流量
 
 您可以透過網路安全性群組篩選輸入虛擬網路子網路和從中輸出的網路流量。 網路安全性群組包含可依 IP 位址、連接埠和通訊協定篩選網路流量的安全性規則。 安全性規則會套用至子網路中部署的資源。 在本教學課程中，您了解如何：
 
@@ -34,272 +34,191 @@ ms.locfileid: "34261312"
 > * 將虛擬機器 (VM) 部署至子網路中
 > * 測試流量篩選
 
-如果您想要，您可以使用 [Azure CLI](tutorial-filter-network-traffic-cli.md) 完成本教學課程。
+您可以依偏好使用 [Azure CLI](tutorial-filter-network-traffic-cli.md) 或 [PowerShell](tutorial-filter-network-traffic-powershell.md) 完成本教學課程。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+## <a name="log-in-to-azure"></a>登入 Azure
 
-如果您選擇在本機安裝和使用 PowerShell，則在執行本教學課程時，您必須使用 Azure PowerShell 模組 5.4.1 版或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。 
-
-## <a name="create-a-network-security-group"></a>建立網路安全性群組
-
-網路安全性群組包含安全性規則。 安全性規則可指定來源和目的地。 來源和目的地可以是應用程式安全性群組。
-
-### <a name="create-application-security-groups"></a>建立應用程式安全性群組
-
-首先，請使用 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) 為本教學課程中建立的所有資源建立資源群組。 下列範例會在 *eastus* 位置建立資源群組： 
-
-
-```azurepowershell-interactive
-New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
-```
-
-使用 [New-AzureRmApplicationSecurityGroup](/powershell/module/azurerm.network/new-azurermapplicationsecuritygroup) 建立應用程式安全性群組。 應用程式安全性群組可讓您將具有類似連接埠篩選需求的伺服器分組在一起。 下列範例會建立兩個應用程式安全性群組。
-
-```azurepowershell-interactive
-$webAsg = New-AzureRmApplicationSecurityGroup `
-  -ResourceGroupName myResourceGroup `
-  -Name myAsgWebServers `
-  -Location eastus
-
-$mgmtAsg = New-AzureRmApplicationSecurityGroup `
-  -ResourceGroupName myResourceGroup `
-  -Name myAsgMgmtServers `
-  -Location eastus
-```
-
-### <a name="create-security-rules"></a>建立安全性規則
-
-使用 [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig) 建立安全性規則。 下列範例會建立允許透過連接埠 80 和 443 從網際網路將流量輸入 *myWebServers* 應用程式安全性群組的規則：
-
-```azurepowershell-interactive
-$webRule = New-AzureRmNetworkSecurityRuleConfig `
-  -Name "Allow-Web-All" `
-  -Access Allow `
-  -Protocol Tcp `
-  -Direction Inbound `
-  -Priority 100 `
-  -SourceAddressPrefix Internet `
-  -SourcePortRange * `
-  -DestinationApplicationSecurityGroupId $webAsg.id `
-  -DestinationPortRange 80,443
-
-The following example creates a rule that allows traffic inbound from the internet to the *myMgmtServers* application security group over port 3389:
-
-$mgmtRule = New-AzureRmNetworkSecurityRuleConfig `
-  -Name "Allow-RDP-All" `
-  -Access Allow `
-  -Protocol Tcp `
-  -Direction Inbound `
-  -Priority 110 `
-  -SourceAddressPrefix Internet `
-  -SourcePortRange * `
-  -DestinationApplicationSecurityGroupId $mgmtAsg.id `
-  -DestinationPortRange 3389
-```
-
-在本教學課程中，會針對 *myAsgMgmtServers* VM 將 RDP (連接埠 3389) 公開至網際網路。 在生產環境中則不應將連接埠 3389 公開至網際網路，而是建議您使用 [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或[私人](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)網路連線連接到您想要管理的 Azure 資源。
-
-### <a name="create-a-network-security-group"></a>建立網路安全性群組
-
-使用 [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup) 建立網路安全性群組。 下列範例會建立名為 myNsg 的網路安全性群組： 
-
-```powershell-interactive
-$nsg = New-AzureRmNetworkSecurityGroup `
-  -ResourceGroupName myResourceGroup `
-  -Location eastus `
-  -Name myNsg `
-  -SecurityRules $webRule,$mgmtRule
-```
+在 https://portal.azure.com 上登入 Azure 入口網站。
 
 ## <a name="create-a-virtual-network"></a>建立虛擬網路
 
-使用 [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) 建立虛擬網路。 下列範例會建立名為 myVirtualNetwork 的虛擬網路：
+1. 選取 Azure 入口網站左上角的 [+ 建立資源]。
+2. 選取 [網絡]，然後選取 [虛擬網路]。
+3. 輸入或選取下列資訊、接受其餘設定的預設值，然後選取 [建立]：
 
-```azurepowershell-interactive
-$virtualNetwork = New-AzureRmVirtualNetwork `
-  -ResourceGroupName myResourceGroup `
-  -Location EastUS `
-  -Name myVirtualNetwork `
-  -AddressPrefix 10.0.0.0/16
-```
+    | 設定                 | 值                                              |
+    | ---                     | ---                                                |
+    | Name                    | myVirtualNetwork                                   |
+    | 位址空間           | 10.0.0.0/16                                        |
+    | 訂用帳戶            | 選取您的訂用帳戶。                          |
+    | 資源群組          | 選取 [新建]，然後輸入 *myResourceGroup*。 |
+    | 位置                | 選取 [美國東部]。                                |
+    | 子網路 - 名稱            | mySubnet                                           |
+    | 子網路 - 位址範圍  | 10.0.0.0/24                                        |
 
-使用 [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) 建立子網路組態，然後使用 [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) 將子網路組態寫入至虛擬網路。 下列範例會將名為 mySubnet 的子網路新增至虛擬網路，並將其與 myNsg 網路安全性群組產生關聯：
+## <a name="create-application-security-groups"></a>建立應用程式安全性群組
 
-```azurepowershell-interactive
-Add-AzureRmVirtualNetworkSubnetConfig `
-  -Name mySubnet `
-  -VirtualNetwork $virtualNetwork `
-  -AddressPrefix "10.0.2.0/24" `
-  -NetworkSecurityGroup $nsg
-$virtualNetwork | Set-AzureRmVirtualNetwork
-```
+應用程式安全性群組可讓您將具有類似功能 (例如 web 伺服器) 的伺服器群組在一起。
+
+1. 選取 Azure 入口網站左上角的 [+ 建立資源]。
+2. 在 [搜尋 Marketplace] 方塊中，輸入「應用程式安全性群組」。 當搜尋結果中出現 [應用程式安全性群組] 時，請加以選取，在 [所有項目] 下再次選取 [應用程式安全性群組]，然後選取 [建立]。
+3. 輸入或選取下列資訊，然後選取 [建立]︰
+
+    | 設定        | 值                                                         |
+    | ---            | ---                                                           |
+    | Name           | myAsgWebServers                                               |
+    | 訂用帳戶   | 選取您的訂用帳戶。                                     |
+    | 資源群組 | 選取 [使用現有的]，然後選取 [myResourceGroup]。 |
+    | 位置       | 美國東部                                                       |
+
+4. 再次完成步驟 3，並指定下列值：
+
+    | 設定        | 值                                                         |
+    | ---            | ---                                                           |
+    | Name           | myAsgMgmtServers                                              |
+    | 訂用帳戶   | 選取您的訂用帳戶。                                     |
+    | 資源群組 | 選取 [使用現有的]，然後選取 [myResourceGroup]。 |
+    | 位置       | 美國東部                                                       |
+
+## <a name="create-a-network-security-group"></a>建立網路安全性群組
+
+1. 選取 Azure 入口網站左上角的 [+ 建立資源]。
+2. 選擇 [網路]，然後選取 [網路安全性群組]。
+3. 輸入或選取下列資訊，然後選取 [建立]︰
+
+    |設定|值|
+    |---|---|
+    |Name|myNsg|
+    |訂用帳戶| 選取您的訂用帳戶。|
+    |資源群組 | 選取 [使用現有的]，然後選取 [myResourceGroup]。|
+    |位置|美國東部|
+
+## <a name="associate-network-security-group-to-subnet"></a>將網路安全性群組關聯至子網路
+
+1. 在入口網站頂端的 [搜尋資源、服務和文件] 方塊中，開始鍵入 myNsg。 當搜尋結果中出現 **myNsg** 時，請加以選取。
+2. 在 [設定] 底下選取 [子網路]，然後選取 [+ 關聯]，如下圖所示：
+
+    ![將 NSG 關聯至子網路](./media/tutorial-filter-network-traffic/associate-nsg-subnet.png)
+
+3. 在 [建立子網路關聯] 底下，選取 [虛擬網路]，然後選取 [myVirtualNetwork]。 選取 [子網路]、選取 [mySubnet]，然後選取 [確定]。
+
+## <a name="create-security-rules"></a>建立安全性規則
+
+1. 在 [設定] 下，選取 [輸入安全性規則]，然後選取 [+ 新增]，如下圖所示：
+
+    ![新增 [輸入安全性規則]](./media/tutorial-filter-network-traffic/add-inbound-rule.png)
+
+2. 建立安全性規則，允許連接埠 80 和 443 連至 **myAsgWebServers** 應用程式安全性群組。 在 [新增輸入安全性規則] 下，輸入或選取下列值、接受其餘預設值，然後選取 [新增]：
+
+    | 設定                 | 值                                                                                                           |
+    | ---------               | ---------                                                                                                       |
+    | 目的地             | 選取 [應用程式安全性群組]，然後針對 [應用程式安全性群組] 選取 [myAsgWebServers]。  |
+    | 目的地連接埠範圍 | 輸入 80,443                                                                                                    |
+    | 通訊協定                | 選取 TCP                                                                                                      |
+    | Name                    | Allow-Web-All                                                                                                   |
+
+3. 使用下列值再次完成步驟 2：
+
+    | 設定                 | 值                                                                                                           |
+    | ---------               | ---------                                                                                                       |
+    | 目的地             | 選取 [應用程式安全性群組]，然後針對 [應用程式安全性群組] 選取 [myAsgMgmtServers]。 |
+    | 目的地連接埠範圍 | 輸入 3389                                                                                                      |
+    | 通訊協定                | 選取 TCP                                                                                                      |
+    | 優先順序                | 輸入 110                                                                                                       |
+    | Name                    | Allow-RDP-All                                                                                                   |
+
+    在本教學課程中，RDP (連接埠 3389) 會公開至 VM 的網際網路，且這個 VM 會指派給 myAsgMgmtServers 應用程式安全性群組。 在生產環境中則不應將連接埠 3389 公開至網際網路，而是建議您使用 VPN 或私人網路連線連接到您想要管理的 Azure 資源。
+
+一旦您完成步驟 1-3 後，請檢閱您所建立的規則。 您的清單看起來應如下圖中所示的清單︰
+
+![安全性規則](./media/tutorial-filter-network-traffic/security-rules.png)
 
 ## <a name="create-virtual-machines"></a>建立虛擬機器
 
-建立 VM 之前，請使用 [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork) 擷取具有子網路的虛擬網路物件：
+在虛擬網路內建立兩個 VM。
 
-```powershell-interactive
-$virtualNetwork = Get-AzureRmVirtualNetwork `
- -Name myVirtualNetwork `
- -Resourcegroupname myResourceGroup
-```
-使用 [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) 建立每個 VM 的公用 IP 位址：
+### <a name="create-the-first-vm"></a>建立第一個 VM
 
-```powershell-interactive
-$publicIpWeb = New-AzureRmPublicIpAddress `
-  -AllocationMethod Dynamic `
-  -ResourceGroupName myResourceGroup `
-  -Location eastus `
-  -Name myVmWeb
+1. 選取 Azure 入口網站左上角的 [+ 建立資源]。
+2. 選取 [計算]，然後選取 [Windows Server 2016 Datacenter]。
+3. 輸入或選取下列資訊、接受其餘設定的預設值，然後選取 [確定]：
 
-$publicIpMgmt = New-AzureRmPublicIpAddress `
-  -AllocationMethod Dynamic `
-  -ResourceGroupName myResourceGroup `
-  -Location eastus `
-  -Name myVmMgmt
-```
+    |設定|值|
+    |---|---|
+    |Name|myVmWeb|
+    |使用者名稱| 輸入您選擇的使用者名稱。|
+    |密碼| 輸入您選擇的密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
+    |訂用帳戶| 選取您的訂用帳戶。|
+    |資源群組| 選取 [使用現有項目]，然後選取 [myResourceGroup]。|
+    |位置| 選取 [美國東部]|
 
-使用 [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) 建立兩個網路介面，並將公用 IP 位址指派給網路介面。 下列範例會建立網路介面、將其與 myVmWeb 公用 IP 位址產生關聯，並使其成為 myAsgWebServers 應用程式安全性群組的成員：
+4. 選取 VM 的大小，然後選取 [選取]。
+5. 在 [設定] 下，選取下列值、接受其餘預設值，然後選取 [確定]：
 
-```powershell-interactive
-$webNic = New-AzureRmNetworkInterface `
-  -Location eastus `
-  -Name myVmWeb `
-  -ResourceGroupName myResourceGroup `
-  -SubnetId $virtualNetwork.Subnets[0].Id `
-  -ApplicationSecurityGroupId $webAsg.Id `
-  -PublicIpAddressId $publicIpWeb.Id
-```
+    |設定|值|
+    |---|---|
+    |虛擬網路 |選取 **myVirtualNetwork**|
+    |網路安全性群組 | 選取 [進階]。|
+    |網路安全性群組 (防火牆)| 選取 [(新建) myVmWeb-nsg]，然後在 [選擇網路安全性群組] 下，選取 [無]。 |
 
-下列範例會建立網路介面、將其與 myVmMgmt 公用 IP 位址產生關聯，並使其成為 myAsgMgmtServers 應用程式安全性群組的成員：
+6. 在 [摘要] 的 [建立] 底下，選取 [建立] 來開始部署 VM。
 
-```powershell-interactive
-$mgmtNic = New-AzureRmNetworkInterface `
-  -Location eastus `
-  -Name myVmMgmt `
-  -ResourceGroupName myResourceGroup `
-  -SubnetId $virtualNetwork.Subnets[0].Id `
-  -ApplicationSecurityGroupId $mgmtAsg.Id `
-  -PublicIpAddressId $publicIpMgmt.Id
-```
+### <a name="create-the-second-vm"></a>建立第二個 VM
 
-在虛擬網路中建立兩個 VM，以便在後續步驟中驗證流量篩選。 
+再次完成步驟 1-6，但在步驟 3 中，將 VM 命名為 myVmMgmt。 部署 VM 需要幾分鐘的時間。 請勿繼續下一個步驟，直到部署 VM 為止。
 
-使用 [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) 建立 VM 組態，然後使用 [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) 建立 VM。 下列範例會建立將作為 Web 伺服器的 VM。 `-AsJob` 選項會在背景建立虛擬機器，以便您繼續進行下一個步驟： 
+## <a name="associate-network-interfaces-to-an-asg"></a>將網路介面關聯至 ASG
 
-```azurepowershell-interactive
-# Create user object
-$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
+當入口網站建立 VM 時，會建立每個 VM 的網路介面，並將網路介面連結至 VM。 請將每個 VM 的網路介面，新增至您先前建立的其中一個應用程式安全性群組：
 
-$webVmConfig = New-AzureRmVMConfig `
-  -VMName myVmWeb `
-  -VMSize Standard_DS1_V2 | `
-Set-AzureRmVMOperatingSystem -Windows `
-  -ComputerName myVmWeb `
-  -Credential $cred | `
-Set-AzureRmVMSourceImage `
-  -PublisherName MicrosoftWindowsServer `
-  -Offer WindowsServer `
-  -Skus 2016-Datacenter `
-  -Version latest | `
-Add-AzureRmVMNetworkInterface `
-  -Id $webNic.Id
-New-AzureRmVM `
-  -ResourceGroupName myResourceGroup `
-  -Location eastus `
-  -VM $webVmConfig `
-  -AsJob
-```
+1. 在入口網站頂端的「搜尋資源、服務和文件」方塊中，開始輸入 myVmWeb。 當搜尋結果中出現 **myVmWeb** VM 時，請加以選取。
+2. 在 [設定] 底下，選取 [網路]。  選取 [設定應用程式安全性群組]，針對 [應用程式安全性群組] 選取 myAsgWebServers，然後選取 [儲存]，如下圖所示：
 
-建立作為管理伺服器的 VM：
+    ![關聯至 ASG](./media/tutorial-filter-network-traffic/associate-to-asg.png)
 
-```azurepowershell-interactive
-# Create user object
-$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
-
-# Create the web server virtual machine configuration and virtual machine.
-$mgmtVmConfig = New-AzureRmVMConfig `
-  -VMName myVmMgmt `
-  -VMSize Standard_DS1_V2 | `
-Set-AzureRmVMOperatingSystem -Windows `
-  -ComputerName myVmMgmt `
-  -Credential $cred | `
-Set-AzureRmVMSourceImage `
-  -PublisherName MicrosoftWindowsServer `
-  -Offer WindowsServer `
-  -Skus 2016-Datacenter `
-  -Version latest | `
-Add-AzureRmVMNetworkInterface `
-  -Id $mgmtNic.Id
-New-AzureRmVM `
-  -ResourceGroupName myResourceGroup `
-  -Location eastus `
-  -VM $mgmtVmConfig
-```
-
-建立虛擬機器需要幾分鐘的時間。 在 VM 建立完成前，請勿繼續進行下一個步驟。
+3. 再次完成步驟 1 和 2、搜尋 **myVmMgmt** VM，然後選取 **myAsgMgmtServers** ASG。
 
 ## <a name="test-traffic-filters"></a>測試流量篩選
 
-請使用 [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) 來傳回 VM 的公用 IP 位址。 以下範例會傳回 myVmMgmt VM 的公用 IP 位址：
+1. 連線至 myVmMgmt VM。 在入口網站頂端的搜尋方塊中，輸入 myVmMgmt。 當 **myVmMgmt** 出現在搜尋結果中時，請加以選取。 選取 [連線]  按鈕。
+2. 選取 [下載 RDP 檔案]。
+3. 開啟所下載的 RDP 檔案，然後選取 [連線]。 輸入您在建立 VM 時指定的使用者名稱和密碼。 您可能需要選取 [其他選擇]，然後選取 [使用不同的帳戶]，以指定您在建立 VM 時輸入的認證。
+4. 選取 [確定] 。
+5. 您可能會在登入過程中收到憑證警告。 如果您收到警告，請選取 [是] 或 [繼續] 以繼續進行連線。
 
-```azurepowershell-interactive
-Get-AzureRmPublicIpAddress `
-  -Name myVmMgmt `
-  -ResourceGroupName myResourceGroup `
-  | Select IpAddress
-```
+    由於允許連接埠 3389 從網際網路將流量輸入連結至 myVmMgmt VM 的網路介面所在的 myAsgMgmtServers 應用程式安全性群組，因此連線會成功。
 
-請從您的本機電腦使用下列命令，建立 myVmMgmt VM 的遠端桌面工作階段。 以上一個命令傳回的 IP 位址取代 `<publicIpAddress>`。
+6. 在 PowerShell 工作階段中輸入下列命令，從 myVmMgmt VM 連線到 myVmWeb VM：
 
-```
-mstsc /v:<publicIpAddress>
-```
+    ``` 
+    mstsc /v:myVmWeb
+    ```
 
-開啟所下載的 RDP 檔案。 如果出現提示，請選取 [連接]。
+    您可以從 myVmMgmt VM 連線至 myVmWeb VM，因為相同虛擬網路中的 VM 依預設可以透過任何連接埠彼此通訊。 不過，您無法建立從網際網路到 myVmWeb VM 的遠端桌面連線，因為 myAsgWebServers 的安全性規則不允許從網際網路的連接埠 3389 輸入，且依預設會拒絕從網際網路傳至所有資源的輸入流量。
 
-輸入您在建立虛擬機器時指定的使用者名稱和密碼 (您可能需要選取 [更多選擇]，然後選取 [使用不同的帳戶] 以指定您在建立虛擬機器時輸入的認證)，然後選取 [確定]。 您可能會在登入過程中收到憑證警告。 選取 [是] 以繼續進行連線。 
-   
-由於允許連接埠 3389 從網際網路將流量輸入連結至 myVmMgmt VM 的網路介面所在的 myAsgMgmtServers 應用程式安全性群組，因此連線會成功。
+7. 若要在 myVmWeb VM 上安裝 Microsoft IIS，請從 myVmWeb VM 的 PowerShell 工作階段輸入下列命令：
 
-請從 myVmMgmt VM 使用 PowerShell 的下列命令，建立 myVmWeb VM 的遠端桌面工作階段：
+    ```powershell
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    ```
 
-``` 
-mstsc /v:myvmWeb
-```
+8. 完成 IIS 安裝之後，請將 myVmWeb VM 中斷連線，以留在 myVmMgmt VM 遠端桌面連線中。
+9. 從 myVmMgmt VM 中斷連線。
+10. 在 Azure 入口網站頂端的「搜尋資源、服務和文件」方塊中，開始從您的電腦輸入 myVmWeb。 當 **myVmWeb** 出現在搜尋結果中時，選取它。 請記下您 VM 的**公用 IP 位址**。 下圖中所示的位址是 137.135.84.74，但您的地址並不同：
 
-由於每個網路安全性群組中的預設安全性規則允許透過所有連接埠在虛擬網路內的所有 IP 位址之間傳輸流量，因此連線會成功。 您無法建立從網際網路到 myVmWeb VM 的遠端桌面連線，因為 myAsgWebServers 的安全性規則不允許從網際網路的連接埠 3389 輸入。
-
-請從 PowerShell 使用下列命令在 myVmWeb VM 上安裝 Microsoft IIS：
-
-```powershell
-Install-WindowsFeature -name Web-Server -IncludeManagementTools
-```
-
-完成 IIS 安裝之後，請將 myVmWeb VM 中斷連線，以留在 myVmMgmt VM 遠端桌面連線中。 若要檢視 IIS 的歡迎使用畫面，請開啟網際網路瀏覽器，並瀏覽至 http://myVmWeb。
-
-從 myVmMgmt VM 中斷連線。
-
-在您的電腦上，從 PowerShell 輸入下列命令，以擷取 myVmWeb 伺服器的公用 IP 位址的：
-
-```azurepowershell-interactive
-Get-AzureRmPublicIpAddress `
-  -Name myVmWeb `
-  -ResourceGroupName myResourceGroup `
-  | Select IpAddress
-```
-
-若要確認您可以從 Azure 外部存取 myVmWeb Web 伺服器，請在電腦上開啟網際網路瀏覽器，並瀏覽至 `http://<public-ip-address-from-previous-step>`。 由於允許連接埠 80 從網際網路將流量輸入連結至 myVmWeb VM 的網路介面所在的 myAsgWebServers 應用程式安全性群組，因此連線會成功。
+    ![公用 IP 位址](./media/tutorial-filter-network-traffic/public-ip-address.png)
+  
+11. 若要確認您可以從網際網路存取 myVmWeb Web 伺服器，請在電腦上開啟網際網路瀏覽器，並瀏覽至 `http://<public-ip-address-from-previous-step>`。 由於允許連接埠 80 從網際網路將流量輸入連結至 myVmWeb VM 的網路介面所在的 myAsgWebServers 應用程式安全性群組，因此您會看到 IIS 歡迎畫面。
 
 ## <a name="clean-up-resources"></a>清除資源
 
-您可以使用 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) 來移除不再需要的資源群組，以及其所包含的所有資源：
+當不再需要資源群組時，請將資源群組及其包含的所有資源刪除：
 
-```azurepowershell-interactive 
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
-```
+1. 在入口網站頂端的 [搜尋] 方塊中，輸入 myResourceGroup。 當您在搜尋結果中看到 myResourceGroup 時，請加以選取。
+2. 選取 [刪除資源群組]。
+3. 針對 [輸入資源群組名稱:] 輸入 myResourceGroup，然後選取 [刪除]。
 
 ## <a name="next-steps"></a>後續步驟
 

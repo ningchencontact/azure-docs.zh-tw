@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: f75671e2e5511054f3db550a8c24e62d031492c3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4c537b06c4ff50d90d9fd5a847b378038f252790
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776707"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972269"
 ---
 # <a name="tutorial-push-notifications-to-xamarinandroid-apps-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知推送至 Xamarin.Android 應用程式
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -39,7 +39,7 @@ ms.locfileid: "33776707"
 ## <a name="prerequisites"></a>先決條件
 
 - **Azure 訂用帳戶**。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
-- [Visual Studio 和 Xamarin] (在 Windows 上) 或 [Visual Studio for Mac] (在 OS X 上)。
+- [Visual Studio 搭配 Xamarin] (在 Windows 上) 或 [Visual Studio for Mac] (在 OS X 上)。
 - 有效的 Google 帳戶
 
 ## <a name="create-a-firebase-project-and-enable-firebase-cloud-messaging"></a>建立 Firebase 專案並啟用 Firebase 雲端通訊
@@ -58,7 +58,7 @@ ms.locfileid: "33776707"
 
 您的通知中樞已設定成使用 FCM，而且您已擁有可用來註冊應用程式以接收通知和傳送推播通知的連接字串。
 
-## <a name="create-xamainandroid-app-and-connect-it-to-notification-hub"></a>建立 Xamain.Android 應用程式，並將其連線至通知中樞
+## <a name="create-xamarinandroid-app-and-connect-it-to-notification-hub"></a>建立 Xamarin.Android 應用程式，並將其連線至通知中樞
 
 ### <a name="create-visual-studio-project-and-add-nuget-packages"></a>建立 Visual Studio 專案並新增 NuGet 套件
 1. 在 Visual Studio 中指向 [檔案]，選取 [新增]，然後選取 [專案]。 
@@ -142,6 +142,7 @@ ms.locfileid: "33776707"
 8. 在 **MyFirebaseIIDService.cs** 中新增下列 using 陳述式：
    
     ```csharp
+    using Android.App;
     using Android.Util;
     using WindowsAzure.Messaging;
     using Firebase.Iid;
@@ -183,6 +184,7 @@ ms.locfileid: "33776707"
 12. 在 **MyFirebaseMessagingService.cs** 中新增下列 using 陳述式。
     
     ```csharp
+        using Android.App;
         using Android.Util;
         using Firebase.Messaging;
     ```
@@ -284,7 +286,7 @@ ms.locfileid: "33776707"
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-xamarin-android/#create-new-service
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
-[Visual Studio 和 Xamarin]: https://docs.microsoft.com/visualstudio/install/install-visual-studio
+[Visual Studio 搭配 Xamarin]: https://docs.microsoft.com/visualstudio/install/install-visual-studio
 [Visual Studio for Mac]: https://www.visualstudio.com/vs/visual-studio-mac/
 
 [Azure 入口網站]: https://portal.azure.com/

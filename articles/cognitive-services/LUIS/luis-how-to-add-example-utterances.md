@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 74a4b77bd9823e5462eecd438cf4c1d863e79892
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 80ccedc7299836cae689edd8a277a7c6d23befa7
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300633"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345051"
 ---
 # <a name="add-example-utterances-and-label-with-entities"></a>使用實體新增範例語句和標籤
 
@@ -194,7 +194,7 @@ Fix this - moved to luis-how-to-add-intents.md - how ?
 
 -->
 ## <a name="train-your-app-after-changing-model-with-utterances"></a>在利用語句變更模型後訓練您的應用程式
-在您新增、編輯或移除語句之後，[訓練](luis-how-to-train.md)並[發佈](PublishApp.md)您的應用程式，您的變更才會影響端點查詢。 
+在您新增、編輯或移除語句之後，[訓練](luis-how-to-train.md)並[發佈](luis-how-to-publish-app.md)您的應用程式，您的變更才會影響端點查詢。 
 
 ## <a name="next-steps"></a>後續步驟
 

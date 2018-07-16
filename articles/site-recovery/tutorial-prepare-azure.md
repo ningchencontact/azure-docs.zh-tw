@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 06/04/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ffcce12800fae3a4d9e4930c918fcafb919b96ed
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 6a113169cb3f8fea1012643efcb56e5cf6c7e908
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737199"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915964"
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>準備 Azure 資源以進行內部部署機器的複寫
 
@@ -31,7 +31,7 @@ ms.locfileid: "34737199"
 > * 建立復原服務保存庫。 保存庫會保存 VM 的中繼資料和組態資訊，以及其他複寫元件。
 > * 設定 Azure 網路。 當 Azure VM 在容錯移轉後建立時，會加入此 Azure 網路。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
@@ -54,11 +54,12 @@ ms.locfileid: "34737199"
 1. 在 [Azure 入口網站](https://portal.azure.com)功能表中，選取 [建立資源] > [儲存體] > [儲存體帳戶 - Blob、檔案、資料表、佇列]。
 2. 在 [建立儲存體帳戶] 上，輸入帳戶的名稱。 在這些教學課程中，我們會使用 **contosovmsacct1910171607**。 您所選取的名稱必須是 Azure 中的唯一名稱，並介於 3 到 24 個字元之間，而且只能包含數字和小寫字母。
 3. 在 [部署模型] 中選取 [Resource Manager]。
-4. 在 [帳戶種類] 中選取 [儲存體 (一般用途 v1)]。 請勿選取 Blob 儲存體。 在 [效能] 中選取 [標準]。 
+4. 在 [帳戶種類] 中選取 [儲存體 (一般用途 v1)]。 請勿選取 Blob 儲存體。
 5. 在 [複寫] 中，針對儲存體備援選取預設的 [讀取權限異地備援儲存體]。 我們將 [需要安全傳輸] 保留為 [停用]。
-6. 在 [訂用帳戶] 中，選取您要在其中建立新儲存體帳戶的訂用帳戶。 
-2. 在 [資源群組] 中，輸入新的資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 在這些教學課程中，我們會使用 **ContosoRG**。
-3. 在 [位置] 中，選取儲存體帳戶的地理位置。 
+6. 在 [效能] 中，選取 [標準]，並在 [存取層] 中選擇 [經常性] 的預設選項。
+7. 在 [訂用帳戶] 中，選取您要在其中建立新儲存體帳戶的訂用帳戶。
+8. 在 [資源群組] 中，輸入新的資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 在這些教學課程中，我們會使用 **ContosoRG**。
+9. 在 [位置] 中，選取儲存體帳戶的地理位置。 
 
    ![建立儲存體帳戶](media/tutorial-prepare-azure/create-storageacct.png)
 
@@ -98,7 +99,7 @@ ms.locfileid: "34737199"
 
 - [了解](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) Azure 網路。
 - [了解](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts) Azure 儲存體的類型。
-- - [進一步了解](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs#read-access-geo-redundant-storage)儲存體的儲存體備援和[安全傳輸](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)。
+- [進一步了解](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs#read-access-geo-redundant-storage)儲存體的儲存體備援和[安全傳輸](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)。
 
 
 

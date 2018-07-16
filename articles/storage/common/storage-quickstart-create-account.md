@@ -3,18 +3,18 @@ title: Azure 快速入門 - 建立儲存體帳戶 | Microsoft Docs
 description: 快速了解如何使用 Azure 入口網站、Azure PowerShell 或 Azure CLI 建立新的儲存體帳戶。
 services: storage
 author: tamram
-manager: jeconnoc
+manager: twooley
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 01/19/2018
+ms.date: 07/03/2018
 ms.author: tamram
-ms.openlocfilehash: 7f6357c5b0be12c18797e82b73bd05af42888aa0
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 92215c759cd51ce429708ec54b17722c486b7ca6
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752328"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856523"
 ---
 # <a name="create-a-storage-account"></a>建立儲存體帳戶
 
@@ -25,7 +25,7 @@ Azure 儲存體帳戶提供雲端中的唯一命名空間，來儲存及存取 A
 
 ## <a name="prerequisites"></a>先決條件
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/)。
 
 # <a name="portaltabportal"></a>[入口網站](#tab/portal)
 
@@ -165,7 +165,7 @@ Azure 儲存體提供兩種類型的一般用途儲存體帳戶：
 1. 在 Azure 入口網站中，展開左側功能表以開啟服務的功能表，然後選擇 [所有服務]。 然後，向下捲動至 [儲存體]，然後選擇 [儲存體帳戶]。 在出現的 [儲存體帳戶] 視窗上，選擇 [新增]。
 2. 輸入儲存體帳戶的名稱。
 3. 將 [帳戶類型] 欄位設定為 [StorageV2 (一般用途 v2)]。
-4. 將 [複寫] 欄位的設定保留為 [本地備援儲存體 (LRS)]。 或者，您可以選擇 [區域備援儲存體 (ZRS) (預覽)]、[異地備援儲存體 (GRS)] 或 [讀取權限異地備援儲存體 (RA-GRS)]。
+4. 將 [複寫] 欄位的設定保留為 [本地備援儲存體 (LRS)]。 或者，您也可以選擇 [區域備援儲存體 (ZRS)]、[異地備援儲存體 (GRS)] 或 [讀取權限異地備援儲存體 (RA-GRS)]。
 5. 將以下欄位的設定保留為預設值：**部署模型**、**效能**、**需要安全傳輸**。
 6. 選擇您要在其中建立儲存體帳戶的訂用帳戶。
 7. 在 [資源群組] 區段中，選取 [使用現有]，然後選擇您在上一節中建立的資源群組。

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 01/05/2017
 ms.author: lbosq
-ms.openlocfilehash: ee6e3adc3300178164b83ee1f8dc2ab307eec45b
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 333bb4074ac741e854ff56c7c397b0e3be247f1b
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081207"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857145"
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Azure Cosmos DB：圖形 API 簡介
 
@@ -99,7 +99,7 @@ Azure Cosmos DB 提供以下有別於市場上其他圖表資料庫的功能：
 
  提供五個定義完善的一致性層級可選擇，讓您能在一致性與效能之間做出最好的取捨。 針對查詢和讀取作業，Azure Cosmos DB 提供五個不同的一致性等級：強式、限定過期、工作階段、一致的前置和最終。 這些細微且定義完善的一致性等級，可讓您在一致性、可用性與延遲三者間做出合理取捨。 深入了解 [Azure Cosmos DB 中的 Tunable 資料一致性層級](consistency-levels.md)。
 
-Azure Cosmos DB 也能在相同的容器/資料庫內使用多個模型，例如文件和圖表。 您可以使用文件集合來同時儲存圖表資料與文件。 您可以使用 JSON 的 SQL 查詢和 Gremlin 查詢，查詢與圖表相同的資料。
+Azure Cosmos DB 也能在相同的容器/資料庫內使用多個模型，例如文件和圖表。 您可以使用文件容器來同時儲存圖表資料與文件。 您可以使用 JSON 的 SQL 查詢和 Gremlin 查詢，查詢與圖表相同的資料。
 
 ## <a name="get-started"></a>開始使用
 您可以透過 Azure 命令列介面 (CLI)、Azure PowerShell 或 Azure 入口網站，搭配圖形 API 的支援，建立 Azure Cosmos DB 帳戶。 建立之後，Azure 入口網站會提供像 `https://<youraccount>.gremlin.cosmosdb.azure.com` 一樣的服務端點，提供 Gremlin 的 WebSocket 前端。 您可以設定 TinkerPop 相容性工具 (例如 [Gremlin 主控台](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console)) 連線至此端點，然後在 Java、Node.js 或任何 Gremlin 用戶端驅動程式中建置應用程式。

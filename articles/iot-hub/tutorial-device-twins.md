@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 05/14/2018
 ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: 42be14569215af7ee98a540c2a86cef2b2a028e4
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 808cfd1f4d47f49be60c3f45278d2334ba720c49
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37033554"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865177"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -103,7 +103,7 @@ az iot hub device-identity show-connection-string --device-id MyTwinDevice --hub
 
 若要檢視會接收所需屬性的模擬裝置範例程式碼，請在您所下載的範例 Node.js 專案中，瀏覽至 **iot-hub/Tutorials/DeviceTwins** 資料夾。 接著，在文字編輯器中開啟 SimulatedDevice.js 檔案。
 
-下列各節說明為了回應從後端應用程式傳送的所需屬性變更而在模擬裝置上執行的程式碼：
+下列各節說明的程式碼，是為了回應從後端應用程式傳送的所需屬性變更，而在模擬裝置上執行的程式碼：
 
 ### <a name="retrieve-the-device-twin-object"></a>擷取裝置對應項物件
 

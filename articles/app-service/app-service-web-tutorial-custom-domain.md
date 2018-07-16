@@ -13,15 +13,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/23/2017
+ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: a9f1e66a4c55d866d9f174528eb4912c3b9391c0
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 5c0aa042f97e10f90787b1cdf8e03cd6d849441e
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714510"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38461634"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>教學課程：將現有的自訂 DNS 名稱對應至 Azure Web Apps
 
@@ -35,12 +35,8 @@ ms.locfileid: "34714510"
 > * 使用 CNAME 記錄來對應子網域 (例如，`www.contoso.com`)
 > * 使用 A 記錄來對應根網域 (例如，`contoso.com`)
 > * 使用 CNAME 記錄來對應萬用字元網域 (例如，`*.contoso.com`)
+> * 將預設 URL 重新導向至自訂目錄
 > * 使用指令碼來自動對應網域
-
-您可以使用 **CNAME 記錄**或 **A 記錄**將自訂 DNS 名稱對應至 App Service。 
-
-> [!NOTE]
-> 我們建議您對所有自訂 DNS 名稱使用 CNAME，但根網域除外 (例如 `contoso.com`)。
 
 若要將即時網站及其 DNS 網域名稱移轉至 App Service，請參閱[將作用中的 DNS 名稱移轉至 Azure App Service](app-service-custom-domain-name-migrate.md)。
 
@@ -92,7 +88,7 @@ ms.locfileid: "34714510"
 
 ### <a name="scale-up-the-app-service-plan"></a>相應增加 App Service 方案
 
-選取任何非免費層 (**D1**、**B1****B2****B3**或「生產」類別中的任何一層)。 如需其他選項，按一下 [查看其他選項]。
+選取任何非免費層 (**D1**、**B1**、**B2**、**B3** 或「生產」類別中的任何一層)。 如需其他選項，請按一下 [查看其他選項]。
 
 按一下 [套用]。
 
@@ -104,13 +100,26 @@ ms.locfileid: "34714510"
 
 <a name="cname"></a>
 
-## <a name="map-a-cname-record"></a>對應 CNAME 記錄
+## <a name="map-your-domain"></a>對應您的網域
+
+您可以使用 **CNAME 記錄**或 **A 記錄**將自訂 DNS 名稱對應至 App Service。 請依照個別步驟操作：
+
+- [對應 CNAME 記錄](#map-a-cname-record)
+- [對應 A 記錄](#map-an-a-record)
+- [對應萬用字元網域 (使用 CNAME 記錄)](#map-a-wildcard-domain)
+
+> [!NOTE]
+> 您應對所有自訂 DNS 名稱使用 CNAME 記錄，但根網域除外 (例如 `contoso.com`)。 對於根網域，請使用 A 記錄。
+
+### <a name="map-a-cname-record"></a>對應 CNAME 記錄
 
 在教學課程範例中，您新增 `www` 子網域 (例如，`www.contoso.com`) 的 CNAME 記錄。
 
-[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
+#### <a name="access-dns-records-with-domain-provider"></a>存取網域提供者中的 DNS 記錄
 
-### <a name="create-the-cname-record"></a>建立 CNAME 記錄
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
+
+#### <a name="create-the-cname-record"></a>建立 CNAME 記錄
 
 新增 CNAME 記錄以將子網域對應到應用程式的預設主機名稱 (`<app_name>.azurewebsites.net`，其中 `<app_name>` 是您的應用程式的名稱)。
 
@@ -120,7 +129,7 @@ ms.locfileid: "34714510"
 
 ![入口網站瀏覽至 Azure 應用程式](./media/app-service-web-tutorial-custom-domain/cname-record.png)
 
-### <a name="enable-the-cname-record-mapping-in-azure"></a>在 Azure 中啟用 CNAME 記錄對應
+#### <a name="enable-the-cname-record-mapping-in-azure"></a>在 Azure 中啟用 CNAME 記錄對應
 
 在 Azure 入口網站之應用程式分頁的左側導覽中，選取 [自訂網域]。 
 
@@ -136,7 +145,7 @@ ms.locfileid: "34714510"
 
 選取 [驗證]。
 
-[新增主機名稱] 按鈕會啟用。 
+[新增主機名稱] 頁面隨即顯示。 
 
 請確定 [主機名稱記錄類型] 設為 [CNAME (www.example.com 或任何子網域)]。
 
@@ -148,19 +157,22 @@ ms.locfileid: "34714510"
 
 ![CNAME 記錄已新增](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
+> [!NOTE]
+> 若要新增 SSL 繫結，請參閱[將現有的自訂 SSL 憑證繫結至 Azure Web Apps](app-service-web-tutorial-custom-ssl.md)。
+
 如果稍早錯過某個步驟，或在某處打錯字，您在頁面底部會看到驗證錯誤。
 
 ![驗證錯誤](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
 
 <a name="a"></a>
 
-## <a name="map-an-a-record"></a>對應 A 記錄
+### <a name="map-an-a-record"></a>對應 A 記錄
 
 在教學課程範例中，您新增根網域 (例如，`contoso.com`) 的 A 記錄。 
 
 <a name="info"></a>
 
-### <a name="copy-the-apps-ip-address"></a>複製應用程式的 IP 位址
+#### <a name="copy-the-apps-ip-address"></a>複製應用程式的 IP 位址
 
 若要對應 A 記錄，您需要應用程式的外部 IP 位址。 您可以在 Azure 入口網站之應用程式的 [自訂網域] 分頁中找到這個 IP 位址。
 
@@ -172,9 +184,11 @@ ms.locfileid: "34714510"
 
 ![入口網站瀏覽至 Azure 應用程式](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
-[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
+#### <a name="access-dns-records-with-domain-provider"></a>存取網域提供者中的 DNS 記錄
 
-### <a name="create-the-a-record"></a>建立 A 記錄
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
+
+#### <a name="create-the-a-record"></a>建立 A 記錄
 
 若要將 A 記錄對應至應用程式，App Service 需要**兩筆** DNS 記錄︰
 
@@ -194,7 +208,7 @@ ms.locfileid: "34714510"
 
 <a name="enable-a"></a>
 
-### <a name="enable-the-a-record-mapping-in-the-app"></a>在應用程式中啟用 A 記錄對應
+#### <a name="enable-the-a-record-mapping-in-the-app"></a>在應用程式中啟用 A 記錄對應
 
 回到 Azure 入口網站中的應用程式 [自訂網域] 分頁，在清單中新增自訂的完整 DNS 名稱 (例如，`contoso.com`)。
 
@@ -206,7 +220,7 @@ ms.locfileid: "34714510"
 
 選取 [驗證]。
 
-[新增主機名稱] 按鈕會啟用。 
+[新增主機名稱] 頁面隨即顯示。 
 
 請確定 [主機名稱記錄類型] 設為 [A 記錄 (example.com)]。
 
@@ -218,19 +232,24 @@ ms.locfileid: "34714510"
 
 ![A 記錄已新增](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
+> [!NOTE]
+> 若要新增 SSL 繫結，請參閱[將現有的自訂 SSL 憑證繫結至 Azure Web Apps](app-service-web-tutorial-custom-ssl.md)。
+
 如果稍早錯過某個步驟，或在某處打錯字，您在頁面底部會看到驗證錯誤。
 
 ![驗證錯誤](./media/app-service-web-tutorial-custom-domain/verification-error.png)
 
 <a name="wildcard"></a>
 
-## <a name="map-a-wildcard-domain"></a>對應萬用字元網域
+### <a name="map-a-wildcard-domain"></a>對應萬用字元網域
 
 在教學課程範例中，您藉由新增 CNAME 記錄，將[萬用字元 DNS 名稱](https://en.wikipedia.org/wiki/Wildcard_DNS_record) (例如，`*.contoso.com`) 對應至 App Service 應用程式。 
 
-[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
+#### <a name="access-dns-records-with-domain-provider"></a>存取網域提供者中的 DNS 記錄
 
-### <a name="create-the-cname-record"></a>建立 CNAME 記錄
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
+
+#### <a name="create-the-cname-record"></a>建立 CNAME 記錄
 
 新增 CNAME 記錄以將萬用字元名稱對應至應用程式的預設主機名稱 (`<app_name>.azurewebsites.net`)。
 
@@ -240,7 +259,7 @@ ms.locfileid: "34714510"
 
 ![入口網站瀏覽至 Azure 應用程式](./media/app-service-web-tutorial-custom-domain/cname-record-wildcard.png)
 
-### <a name="enable-the-cname-record-mapping-in-the-app"></a>在應用程式中啟用 CNAME 記錄對應
+#### <a name="enable-the-cname-record-mapping-in-the-app"></a>在應用程式中啟用 CNAME 記錄對應
 
 您現在可以將符合萬用字元名稱的任何子網域新增至應用程式 (例如，`sub1.contoso.com` 和 `sub2.contoso.com` 符合 `*.contoso.com`)。 
 
@@ -268,13 +287,16 @@ ms.locfileid: "34714510"
 
 ![CNAME 記錄已新增](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
+> [!NOTE]
+> 若要新增 SSL 繫結，請參閱[將現有的自訂 SSL 憑證繫結至 Azure Web Apps](app-service-web-tutorial-custom-ssl.md)。
+
 ## <a name="test-in-browser"></a>在瀏覽器中測試
 
 瀏覽至您稍早設定的 DNS 名稱 (`contoso.com`、`www.contoso.com`、`sub1.contoso.com` 和 `sub2.contoso.com`)。
 
 ![入口網站瀏覽至 Azure 應用程式](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
-## <a name="resolve-404-error-web-site-not-found"></a>解決 404 錯誤「找不到網站」
+## <a name="resolve-404-not-found"></a>解析 404「找不到」
 
 如果您在瀏覽自訂網域 URL 時收到 HTTP 404 (找不到) 錯誤，請使用 <a href="https://www.whatsmydns.net/" target="_blank">WhatsmyDNS.net</a> 確認網域是否能解析成應用程式的 IP 位址。 如果不行，這可能是下列其中一個原因所造成：
 
@@ -283,7 +305,7 @@ ms.locfileid: "34714510"
 
 <a name="virtualdir"></a>
 
-## <a name="direct-default-url-to-a-custom-directory"></a>將預設 URL 導向自訂目錄
+## <a name="redirect-to-a-custom-directory"></a>重新導向至自訂目錄
 
 根據預設，App Service 會將 Web 要求導向應用程式程式碼的根目錄。 不過，某些 Web 架構並非從根目錄開始。 例如，[Laravel](https://laravel.com/) 從`public` 子目錄開始。 若要繼續 `contoso.com` DNS 範例，這類應用程式在 `http://contoso.com/public` 上可以存取，不過實際上您會想要將 `http://contoso.com` 改為導向 `public` 目錄。 這個步驟與 DNS 解析無關，反而是與自訂虛擬目錄相關。
 
@@ -333,6 +355,7 @@ Set-AzureRmWebApp `
 > * 使用 CNAME 記錄來對應子網域
 > * 使用 A 記錄來對應根網域
 > * 使用 CNAME 記錄來對應萬用字元網域
+> * 將預設 URL 重新導向至自訂目錄
 > * 使用指令碼來自動對應網域
 
 前進到下一個教學課程，以了解如何將自訂 SSL 憑證繫結至 Web 應用程式。

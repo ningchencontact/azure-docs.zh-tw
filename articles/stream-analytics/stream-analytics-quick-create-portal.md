@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 1059a401382820b4e5d3fd4b010d400bb6113926
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 830b3d4226440a68c7de62170d2ffc28082315c2
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031425"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902899"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立串流分析作業
 
@@ -48,7 +48,7 @@ ms.locfileid: "37031425"
 
 4. 從 [所有資源] 頁面中，找出您在上一個步驟中建立的儲存體帳戶。 依序開啟 [概觀] 頁面及 [Blob] 圖格。  
 
-5. 從 [Blob 服務] 頁面中選取 [容器]，並為容器提供**名稱**，例如 container1，然後將 [公用存取層級] 變更為 Blob (僅限以匿名讀取存取 blob) > 選取 [確定]。  
+5. 從 [Blob 服務] 頁面中選取 [容器]，並為容器提供**名稱**，例如 container1，然後將 [公用存取層級] 變更為 [私人] (無匿名存取) > 選取 [確定]。  
 
    ![建立容器](./media/stream-analytics-quick-create-portal/create-a-storage-container.png)
 

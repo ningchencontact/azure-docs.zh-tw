@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 05/29/2018
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 47d52fa412adf3f8e7f0c3c4d4afaf9009b4783e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dc857760cf0d3fa2e146f22196b7bc36d119df5f
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651336"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37869561"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>教學課程：使用模擬裝置來測試與 IoT 中樞的連線能力
 
@@ -49,7 +49,7 @@ az extension add --name azure-cli-iot-ext
 node --version
 ```
 
-從 https://github.com/Azure-Samples/iot-hub-tutorials-node/archive/master.zip 下載範例裝置模擬器 Node.js 專案，並將 ZIP 封存檔解壓縮。
+從 https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip 下載範例裝置模擬器 Node.js 專案，並將 ZIP 封存檔解壓縮。
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
 
@@ -123,6 +123,9 @@ node SimulatedDevice-1.js "{your device connection string}"
 如果您的裝置使用其中一個 IoT 中樞裝置 SDK，該 SDK 程式庫程式碼將會產生用來對中樞進行驗證的 SAS 權杖。 SAS 權杖會從您的中樞名稱、裝置名稱和裝置金鑰產生。
 
 在某些情況下，例如雲端通訊協定閘道中或自訂驗證配置中，您可能需要自行產生 SAS 權杖。 若要對 SAS 產生碼的問題進行疑難排解，最好能夠產生已知良好的 SAS 權杖，以在測試期間使用。
+
+> [!NOTE]
+> SimulatedDevice-2.js 範例包含使用和不使用 SDK 來產生 SAS 權杖的範例。
 
 若要使用 CLI 產生已知良好的 SAS 權杖，請執行下列命令：
 

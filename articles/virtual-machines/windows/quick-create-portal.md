@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/03/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d5f44c634b953194ad4f112722d82f282d8c8f1a
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f5a92d421bbf7bfe485252c148d5f64ae2fb8e23
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444604"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916110"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立 Windows 虛擬機器
 
@@ -67,7 +67,7 @@ ms.locfileid: "37444604"
 
 2. 開啟下載的 RDP 檔案，然後在出現提示時按一下 [連線]。 
 
-3. 在 [Windows 安全性] 視窗中，選取 [更多選擇]，然後選取 [使用不同的帳戶]。 輸入使用者名稱 *vmname*\*username*，輸入您為虛擬機器建立的密碼，然後按一下 [確定]。
+3. 在 [Windows 安全性] 視窗中，選取 [更多選擇]，然後選取 [使用不同的帳戶]。 鍵入使用者名稱 vmname\\username，輸入您為虛擬機器建立的密碼，然後按一下 [確定]。
 
 4. 您可能會在登入過程中收到憑證警告。 按一下 [是] 或 [繼續] 以建立連線。
 

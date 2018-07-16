@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: danoble
-ms.openlocfilehash: 6869698f2e6dca321d371bb22ded316f32cdeb51
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 368caa063ea0487923af8a29f67aa73cae7ed75e
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824089"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952887"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>使用 Azure Cosmos DB 模擬器進行本機開發和測試
 
@@ -59,9 +59,10 @@ Azure Cosmos DB 模擬器提供一個模擬 Azure Cosmos DB 服務的本機環�
 > 
 
 ## <a name="how-the-emulator-works"></a>模擬器的運作方式
+
 Azure Cosmos DB 模擬器提供 Azure Cosmos DB 服務的高逼真度模擬。 它支援與 Azure Cosmos DB 完全相同的功能，包括支援建立和查詢 JSON 文件、佈建和擴充集合，以及執行預存程序和觸發程序。 您可以使用 Azure Cosmos DB 模擬器來開發及測試應用程式，並且只需對 Azure Cosmos DB 的連接端點進行單一組態變更，就能將它們部署至全球規模的 Azure。
 
-雖然我們已建立實際 Azure Cosmos DB 服務的高逼真度本機模擬，但是 Azure Cosmos DB 模擬器的實作是不同的服務。 例如，Azure Cosmos DB 模擬器會使用標準的作業系統元件，例如使用本機檔案系統以獲得持續性，以及使用 HTTPS 通訊協定堆疊進行連線。 這表示，依賴 Azure 基礎結構的某些功能，例如全域複寫、讀取/寫入的單一數字毫秒延遲，以及可調式的一致性層級等，都無法透過 Azure Cosmos DB 模擬器使用。
+當 Azure Cosmos DB 服務的模擬準確可靠時，模擬器的實作會與服務不同。 例如，模擬器會使用標準的作業系統元件，例如使用本機檔案系統以獲得持續性，以及使用 HTTPS 通訊協定堆疊進行連線。 依賴 Azure 基礎結構的功能，例如全域複寫、讀取/寫入的個位數毫秒延遲，以及可調式的一致性層級等，都無法使用。
 
 ## <a name="differences-between-the-emulator-and-the-service"></a>模擬器和服務之間的差異 
 因為 Azure Cosmos DB 模擬器是在本機開發人員工作站上提供一個執行的模擬環境，所以模擬器和雲端 Azure Cosmos DB 帳戶之間會有一些功能上的差異：
@@ -72,7 +73,7 @@ Azure Cosmos DB 模擬器提供 Azure Cosmos DB 服務的高逼真度模擬。 �
 * Azure Cosmos DB 模擬器不會模擬不同的 [Azure Cosmos DB 一致性層級](consistency-levels.md)。
 * Azure Cosmos DB 模擬器不會模擬[多重區域複寫](distribute-data-globally.md)。
 * Azure Cosmos DB 模擬器不支援 Azure Cosmos DB 服務中可用的服務配額覆寫 (例如文件大小限制、增加的分割集合儲存體)。
-* 因為 Azure Cosmos DB 服務最近有變更，Azure Cosmos DB 模擬器複本可能不是最新狀態，請使用 [Azure Cosmos DB 容量規劃工具](https://www.documentdb.com/capacityplanner)，準確地評估應用程式的生產輸送量 (RU) 需求。
+* 因為 Azure Cosmos DB 服務最新的變更，您的 Azure Cosmos DB 模擬器複本可能不是最新狀態，請使用 [Azure Cosmos DB 容量規劃工具](https://www.documentdb.com/capacityplanner)，準確地評估應用程式的生產輸送量 (RU) 需求。
 
 ## <a name="system-requirements"></a>系統需求
 Azure Cosmos DB 模擬器的硬體和軟體需求如下︰
@@ -99,7 +100,7 @@ Azure Cosmos DB 模擬器的硬體和軟體需求如下︰
 
 Azure Cosmos DB 模擬器預設會在接聽連接埠 8081 的本機電腦 ("localhost") 上執行。
 
-Azure Cosmos DB 模擬器預設會安裝到 `C:\Program Files\Azure Cosmos DB Emulator` 目錄。 您也可以從命令列啟動和停止模擬器。 如需詳細資訊，請參閱[命令列工具參考](#command-line)。
+Azure Cosmos DB 模擬器預設會安裝到 `C:\Program Files\Azure Cosmos DB Emulator`。 您也可以從命令列啟動和停止模擬器。 如需詳細資訊，請參閱[命令列工具參考](#command-line)。
 
 ## <a name="start-data-explorer"></a>啟動資料總管
 
@@ -125,11 +126,11 @@ Azure Cosmos DB 模擬器預設會安裝到 `C:\Program Files\Azure Cosmos DB Em
 > [!NOTE] 
 > 如果您使用 /Key 選項啟動模擬器，則請使用產生的金鑰，而不要使用 "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="
 
-此外，就像 Azure Cosmos DB 服務一樣，Azure Cosmos DB 模擬器僅支援透過 SSL 的安全通訊。
+就像 Azure Cosmos DB 服務一樣，Azure Cosmos DB 模擬器僅支援透過 SSL 的安全通訊。
 
 ## <a name="running-on-a-local-network"></a>在區域網路上執行
 
-您可以在本機網路上執行模擬器。 若要啟用網路存取，請在[命令列](#command-line-syntax)指定 /AllowNetworkAccess 選項，也需要您指定 /Key=key_string 或 /KeyFile=file_name。 您可以使用 /GenKeyFile=file_name 來產生具有預先隨機金鑰的檔案。  然後您可以將其傳遞至 /KeyFile=file_name 或 /Key=contents_of_file。
+您可以在本機網路上執行模擬器。 若要啟用網路存取，請在[命令列](#command-line-syntax)指定 /AllowNetworkAccess 選項，這也需要您指定 /Key=key_string 或 /KeyFile=file_name。 您可以使用 /GenKeyFile=file_name 來產生具有預先隨機金鑰的檔案。  然後您可以將其傳遞至 /KeyFile=file_name 或 /Key=contents_of_file。
 
 若是第一次啟用網路存取，使用者應該關閉模擬器，並且刪除模擬器的資料目錄 (C:\Users\user_name\AppData\Local\CosmosDBEmulator)。
 
@@ -392,16 +393,16 @@ docker pull microsoft/azure-cosmosdb-emulator
 ```
 若要啟動映像，請執行下列命令。
 
-從命令列：
+從命令列執行：
 ```cmd 
 md %LOCALAPPDATA%\CosmosDBEmulatorCert 2>null
-docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
+docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
 ```
 
 從 PowerShell：
 ```powershell
 md $env:LOCALAPPDATA\CosmosDBEmulatorCert 2>null
-docker run -v $env:LOCALAPPDATA\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
+docker run -v $env:LOCALAPPDATA\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
 ```
 
 回應如下所示：
@@ -420,7 +421,7 @@ Starting interactive shell
 
 現在，在您的用戶端使用回應中的端點和主要金鑰，並將 SSL 憑證匯入您的主機。 若要匯入 SSL 憑證，請從系統管理員命令提示字元中執行下列命令︰
 
-從命令列：
+從命令列執行：
 ```cmd 
 cd %LOCALAPPDATA%\CosmosDBEmulatorCert
 powershell .\importcert.ps1
@@ -527,7 +528,7 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 
 > [!div class="checklist"]
 > * 已安裝本機模擬器
-> * 已在 Docker for Windows 上執行模擬器
+> * 已在適用於 Windows 的 Docker 上執行模擬器
 > * 已驗證要求
 > * 已在模擬器中使用資料總管
 > * 已匯出 SSL 憑證

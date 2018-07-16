@@ -7,15 +7,15 @@ manager: jeconnoc
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 01/16/2018
+ms.date: 07/03/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: b885a08cb9d5c4f601c9d180d1d3997018b66fb2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f5790f57b66f1d73ff98d5f84276ec9a44568432
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607883"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857921"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>快速入門：使用 Azure CLI 執行您的第一個 Batch 作業
 
@@ -170,29 +170,29 @@ az batch task file download \
     --destination ./stdout.txt
 ```
 
-您可以在文字編輯器中檢視 `stdout.txt` 的內容。 內容會顯示在節點上設定的 Azure Batch 環境變數。 當您建立自己的 Batch 作業時，您可以在工作命令列中，以及由命令列執行的應用程式和指令碼中，參照這些環境變數。
+您可以在文字編輯器中檢視 `stdout.txt` 的內容。 內容會顯示在節點上設定的 Azure Batch 環境變數。 當您建立自己的 Batch 作業時，您可以在工作命令列中，以及由命令列執行的應用程式和指令碼中，參照這些環境變數。 例如︰
 
 ```
-AZ_BATCH_TASK_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask3
+AZ_BATCH_TASK_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask1
 AZ_BATCH_NODE_STARTUP_DIR=/mnt/batch/tasks/startup
-AZ_BATCH_CERTIFICATES_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask3/certs
-AZ_BATCH_ACCOUNT_URL=https://mybatchaccount.eastus2batch.azure.com/
-AZ_BATCH_TASK_WORKING_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask3/wd
+AZ_BATCH_CERTIFICATES_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask1/certs
+AZ_BATCH_ACCOUNT_URL=https://mybatchaccount.eastus2.batch.azure.com/
+AZ_BATCH_TASK_WORKING_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask1/wd
 AZ_BATCH_NODE_SHARED_DIR=/mnt/batch/tasks/shared
 AZ_BATCH_TASK_USER=_azbatch
 AZ_BATCH_NODE_ROOT_DIR=/mnt/batch/tasks
-AZ_BATCH_JOB_ID=myjob
+AZ_BATCH_JOB_ID=myjobl
 AZ_BATCH_NODE_IS_DEDICATED=true
-AZ_BATCH_NODE_ID=tvm-1392786932_2-20171026t223740z
-AZ_BATCH_POOL_ID=mypool-linux
-AZ_BATCH_TASK_ID=mytask3
+AZ_BATCH_NODE_ID=tvm-257509324_2-20180703t215033z
+AZ_BATCH_POOL_ID=mypool
+AZ_BATCH_TASK_ID=mytask1
 AZ_BATCH_ACCOUNT_NAME=mybatchaccount
 AZ_BATCH_TASK_USER_IDENTITY=PoolNonAdmin
 ```
 ## <a name="clean-up-resources"></a>清除資源
 如果您想要繼續執行 Batch 教學課程和範例，請使用本快速入門中建立的 Batch 帳戶和連結的儲存體帳戶。 Batch 帳戶本身不收費。
 
-即使沒有排定的作業，您仍需支付節點執行時的集區費用。 當您不再需要集區時，請使用 [az batch pool delete](/cli/azure/batch/pool#az_batch_pool_delete) 命令加以刪除：
+即使沒有排定的作業，您仍需支付節點執行時的集區費用。 當您不再需要集區時，請使用 [az batch pool delete](/cli/azure/batch/pool#az_batch_pool_delete) 命令加以刪除。 當您刪除集區時，節點上的所有工作輸出也會跟著刪除。 
 
 ```azurecli-interactive
 az batch pool delete --pool-id mypool
