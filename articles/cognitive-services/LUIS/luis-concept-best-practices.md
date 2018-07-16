@@ -9,14 +9,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: v-geberr;
-ms.openlocfilehash: f68e05ba40827375fbd76448e38916c682075228
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 6c4e4c7acb5083e758aa7c6b94e2464a85ae8e9e
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264004"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951104"
 ---
-# <a name="best-practices"></a>最佳做法
+# <a name="best-practices"></a>最佳作法
 使用應用程式撰寫程序來建置您的 LUIS 應用程式。 
 
 * 建置語言模型
@@ -25,7 +25,7 @@ ms.locfileid: "36264004"
 * 從端點測試 
 * 新增功能
 
-[發佈](publishapp.md)您的應用程式之後，請使用新增功能、發佈及從端點測試的撰寫循環。 請勿以新增更多範例語句的方式來開始下一個撰寫循環。 這並不會讓 LUIS 藉由真實世界使用者語句學習您的模型。 
+[發佈](luis-how-to-publish-app.md)您的應用程式之後，請使用新增功能、發佈及從端點測試的撰寫循環。 請勿以新增更多範例語句的方式來開始下一個撰寫循環。 這並不會讓 LUIS 藉由真實世界使用者語句學習您的模型。 
 
 為了讓 LUIS 能有效率地進行學習，請勿擴充語句，直到目前這組範例和端點語句傳回確信的高預測分數為止。 請使用主動式學習、[模式](luis-concept-patterns.md)及[片語清單](luis-concept-feature.md)來提升分數。 
 
@@ -77,7 +77,7 @@ Book a hotel
 這是後援意圖，應用程式外的所有項目都以此表示。 請在您 LUIS 應用程式的其餘部分，每 10 個範例語句中，便將一個範例語句新增至 None 意圖。
 
 ## <a name="do-leverage-the-suggest-feature-for-active-learning"></a>請務必利用主動式學習的建議功能
-請定期使用[主動式學習](label-suggested-utterances.md)的**檢閱端點語句**，而不要將更多範例語句新增至意圖。 由於應用程式會不斷接收端點語句，因此這份清單會不斷成長並變更。
+請定期使用[主動式學習](luis-how-to-review-endoint-utt.md)的**檢閱端點語句**，而不要將更多範例語句新增至意圖。 由於應用程式會不斷接收端點語句，因此這份清單會不斷成長並變更。
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>請務必監視您應用程式的效能
 請使用測試集來監視預測準確性。 
@@ -113,6 +113,4 @@ LUIS 會預期意圖的語句中有所變化。 語句可以在改變的同時�
 
 ## <a name="next-steps"></a>後續步驟
 
-* 了解如何在 LUIS 應用程式中[規劃您的應用程式](plan-your-app.md)。
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
+* 了解如何在 LUIS 應用程式中[規劃您的應用程式](luis-how-plan-your-app.md)。

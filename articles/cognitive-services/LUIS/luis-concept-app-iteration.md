@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: v-geberr
-ms.openlocfilehash: b7f8dd46dc8289322726934f330761b0f1ab94bd
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: e0467e4c41209c937f548edc0c40c05cae588f4c
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265932"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888243"
 ---
 # <a name="authoring-cycle"></a>撰寫循環
 LUIS 在模型變更、語句範例、發佈及從端點查詢收集資料的反覆循環中學習時，成效最佳。 
@@ -40,7 +40,7 @@ Do not add features such as a [phrase list](luis-concept-feature.md) feature in 
 在每個意圖都有 10 到 15 個不同語句，並標記必要實體之後，您必須將 LUIS 定型，然後發佈以取得您的端點。 請務必建立您的應用程式並將其發佈，如此應用程式才能在您所需的[端點區域](luis-reference-regions.md)中可供使用。 
 
 ## <a name="https-endpoint-testing"></a>HTTPS 端點測試
-您可以從 [[Publish](publishapp.md)] \(發佈\) 頁面上所列的 HTTPS 端點測試您的 LUIS 應用程式。 從端點測試可讓 LUIS 選擇任何低信賴度的語句來進行檢閱。  
+您可以從 [[Publish](luis-how-to-publish-app.md)] \(發佈\) 頁面上所列的 HTTPS 端點測試您的 LUIS 應用程式。 從端點測試可讓 LUIS 選擇任何低信賴度的語句來進行檢閱。  
 
 ## <a name="recycle"></a>再循環
 當您完成撰寫循環時，可以重新開始。 請從檢閱 LUIS 標示為低信賴度的端點語句開始著手。 檢查這些語句是否有意圖和實體。 檢閱語句之後，檢閱清單應該會空白。  
@@ -51,5 +51,3 @@ Do not add features such as a [phrase list](luis-concept-feature.md) feature in 
 ## <a name="next-steps"></a>後續步驟
 
 了解[共同作業](luis-concept-collaborator.md)的相關概念。
-
-[luis-reference-prebuilt-domains]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-domains

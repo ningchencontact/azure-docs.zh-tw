@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: fb4c3bb117d1ea60c9cc28d2b193ee3c01f6c945
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 927d95f6b6fac922d2c3701b8a5124efb18825f6
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221626"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951232"
 ---
 # <a name="test-your-luis-app"></a>測試 LUIS 應用程式
 <a name="train-your-app"></a>
@@ -65,7 +65,7 @@ ms.locfileid: "36221626"
 
 ## <a name="view-sentiment-results"></a>檢視情感結果
 
-若已在 [[發行](publishapp.md#enable-sentiment-analysis)] 頁面上設定 [情感分析]，測試結果將會包含在語句中找到的情感。 
+若已在 [[發行](luis-how-to-publish-app.md#enable-sentiment-analysis)] 頁面上設定 [情感分析]，測試結果將會包含在語句中找到的情感。 
 
 ![具有情感分析之 [測試] 窗格的影像](./media/luis-how-to-interactive-test/sentiment.png)
 
@@ -129,5 +129,5 @@ ms.locfileid: "36221626"
 
 若測試顯示出您的 LUIS 應用程式無法識別正確的意圖和實體，則您可以透過標示更多語句或新增功能，以提升 LUIS 應用程式的精確度。 
 
-* [使用 LUIS 標示建議的語調](Label-Suggested-Utterances.md) 
+* [使用 LUIS 標示建議的語調](luis-how-to-review-endoint-utt.md) 
 * [使用功能來改善 LUIS 應用程式效能](luis-how-to-add-features.md) 
