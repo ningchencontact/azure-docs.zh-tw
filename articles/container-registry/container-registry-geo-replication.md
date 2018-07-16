@@ -65,7 +65,7 @@ docker push contosowesteu.azurecr.io/pubic/products/web:1.2
 
 ![在 Azure 入口網站中切換 SKU](media/container-registry-skus/update-registry-sku.png)
 
-若要設定進階登錄的異地複寫，請登入 Azure 入口網站 (http://portal.azure.com)。
+若要設定進階登錄的異地複寫，請登入 Azure 入口網站 ( http://portal.azure.com )。
 
 導覽到 Azure 容器登錄，並選取 [複寫]：
 
