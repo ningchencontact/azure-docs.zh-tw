@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: 5cb93941751c8744a19a5473d13f1e135a589eaa
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6177758eaa3e611ad67da0778d889df48b052d90
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368091"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37095746"
 ---
 # <a name="ecommerce-catalog-moderation-with-machine-learning"></a>使用機器學習產生合適的電子商務目錄
 
@@ -158,7 +158,7 @@ ms.locfileid: "35368091"
 
 ## <a name="classify-into-flags-toys-and-pens"></a>分類為國旗、玩具和筆
 
-1. [登入](https://www.customvision.ai/account/signin)至[自訂視覺 API 預覽版](https://www.customvision.ai/)。
+1. [登入](https://azure.microsoft.com/en-us/services/cognitive-services/custom-vision-service/)至[自訂視覺 API 預覽版](https://www.customvision.ai/)。
 2. 使用[快速入門](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier)來建置自訂分類器，以偵測可能出現的國旗、玩具和筆。
    ![自訂視覺訓練影像](images/tutorial-ecommerce-custom-vision.PNG)
 3. 針對自訂分類器[取得預測端點 URL](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api)。
@@ -240,11 +240,11 @@ ms.locfileid: "35368091"
 
 ## <a name="license"></a>授權
 
-所有 Microsoft 認知服務 SDK 和範例都是透過 MIT 授權來獲得授權的。 如需詳細資訊，請參閱[授權](https://microsoft.mit-license.org/)。
+所有 Microsoft 認知服務 SDK 和範例都是透過 MIT 授權來獲得授權的。 如需詳細資料，請參閱[授權](https://microsoft.mit-license.org/) \(英文\)。
 
 ## <a name="developer-code-of-conduct"></a>開發人員行為準則
 
-使用認知服務 (包括此用戶端程式庫和範例) 的開發人員，應當遵守 http://go.microsoft.com/fwlink/?LinkId=698895 中的「Microsoft 認知服務的開發人員行為準則」。
+使用「認知服務」(包括此用戶端程式庫和範例) 的開發人員應當遵守 http://go.microsoft.com/fwlink/?LinkId=698895 中的「Microsoft 認知服務的開發人員行為準則」。
 
 ## <a name="next-steps"></a>後續步驟
 

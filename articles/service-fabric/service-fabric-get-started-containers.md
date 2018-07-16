@@ -147,7 +147,7 @@ docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
 docker inspect my-web-site
 ```
 
-連線到執行中的容器。 開啟 Web 瀏覽器並指向傳回的 IP 位址，例如 "http://172.31.194.61"。 您應該會看到 "Hello World!" 標題 顯示在瀏覽器中。
+連線到執行中的容器。 開啟 Web 瀏覽器並指向傳回的 IP 位址，例如 " http://172.31.194.61 "。 您應該會看到 "Hello World!" 標題 顯示在瀏覽器中。
 
 若要停止您的容器，請執行︰
 
@@ -382,7 +382,7 @@ Windows 支援兩種容器隔離模式：分別為處理序和 Hyper-V。 在處
 
 應用程式處於 ```Ready``` 狀態時便已準備就緒︰![就緒][2]
 
-開啟瀏覽器並瀏覽至 http://containercluster.westus2.cloudapp.azure.com:8081。 您應該會看到 "Hello World!" 標題 顯示在瀏覽器中。
+開啟瀏覽器並瀏覽至 http://containercluster.westus2.cloudapp.azure.com:8081 。 您應該會看到 "Hello World!" 標題 顯示在瀏覽器中。
 
 ## <a name="clean-up"></a>清除
 當叢集在執行時，您需要繼續支付費用，請考慮[刪除您的叢集](service-fabric-cluster-delete.md)。 [合作對象叢集](https://try.servicefabric.azure.com/)會在幾個小時後自動刪除。

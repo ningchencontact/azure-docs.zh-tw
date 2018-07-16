@@ -23,7 +23,7 @@ ms.locfileid: "35296686"
 
 ## <a name="open-a-support-ticket"></a>開啟支援票證
 
-1. 登入 Azure 入口網站 (https://portal.azure.com)。
+1. 登入 Azure 入口網站 (https://portal.azure.com) 。
 2. 按一下頂端導覽列上的 [說明]。
 3. 在 [說明] 功能表上，按一下 [說明 + 支援]。
 4. 在 [說明 + 支援] 功能表的 [支援] 下方，按一下 [新增支援要求]。
