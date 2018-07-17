@@ -42,9 +42,9 @@
 ### [開始存取權檢閱](pim-resource-roles-start-access-review.md)
 ### [結束存取權檢閱](pim-resource-roles-complete-access-review.md)
 
-# 常見問題集
-## 做為資源角色的 PIM
-### [指派類型](pim-resource-roles-eligible-visibility.md)
+# 概念
+## [指派類型](pim-resource-roles-eligible-visibility.md)
+## [電子郵件通知](pim-email-notifications.md)
 
 # 參考
 ## [程式碼範例](https://azure.microsoft.com/resources/samples/?service=active-directory)

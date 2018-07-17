@@ -143,9 +143,9 @@
 ## 管理密碼
 ### [密碼概觀](authentication/active-directory-passwords-overview.md)
 ### 使用者文件
-#### [重設或變更您的密碼](active-directory-passwords-update-your-own-password.md)
+#### [重設或變更您的密碼](user-help/active-directory-passwords-update-your-own-password.md)
 #### [密碼最佳做法](active-directory-secure-passwords.md)
-#### [註冊自助式密碼重設](active-directory-passwords-reset-register.md)
+#### [註冊自助式密碼重設](user-help/active-directory-passwords-reset-register.md)
 ### [SSPR 運作方式](authentication/concept-sspr-howitworks.md)
 ### [SSPR 部署指南](authentication/howto-sspr-deployment.md)
 ### [SSPR 和 Windows 10](authentication/tutorial-sspr-windows.md)
@@ -174,8 +174,8 @@
 ### [規劃 Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [常見問題集](device-management-faq.md)
 ### 工作
-#### [設定 10 部已註冊 Azure AD 的 Windows 10 裝置](device-management-azuread-registered-devices-windows10-setup.md)
-#### [設定 Azure AD 已加入裝置](device-management-azuread-joined-devices-setup.md)
+#### [設定 10 部已註冊 Azure AD 的 Windows 10 裝置](user-help/device-management-azuread-registered-devices-windows10-setup.md)
+#### [設定 Azure AD 已加入裝置](user-help/device-management-azuread-joined-devices-setup.md)
 #### [設定混合式 Azure AD 已加入裝置](device-management-hybrid-azuread-joined-devices-setup.md)
 #### [部署內部部署](active-directory-device-registration-on-premises-setup.md)
 #### [在第一次執行 Windows 10 時加入 Azure AD 的體驗](device-management-azuread-joined-devices-frx.md)
@@ -208,7 +208,7 @@
 ##### [搭配密碼保存庫的 SSO](manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md)
 #### 概念
 ##### [連接器](manage-apps/application-proxy-connectors.md)
-##### [Security](manage-apps/application-proxy-security.md)
+##### [安全性](manage-apps/application-proxy-security.md)
 ##### [網路](manage-apps/application-proxy-network-topology.md)
 
 

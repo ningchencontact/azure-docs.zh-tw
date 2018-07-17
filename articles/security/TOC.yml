@@ -218,11 +218,10 @@
           href: ./blueprints/uknhs-iaaswa-overview.md
         - name: PaaS Web 應用程式
           href: ./blueprints/uknhs-paaswa-overview.md
-    - name: 英國官方 (UK-OFFICIAL)
-      href: ./blueprints/uk-official-three-tier-applications-overview.md
+    - name: 英國官方
       items:
-        - name: 原則概觀
-          href: ./blueprints/uk-official-three-tier-applications-principles-overview.md
+        - name: IaaS Web 應用程式
+          href: ./blueprints/ukofficial-iaaswa-overview.md
     - name: HIPAA/HITRUST 健康情況資料和 AI
       href: ./blueprints/azure-health.md
 - name: 白皮書
