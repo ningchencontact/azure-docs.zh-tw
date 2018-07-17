@@ -93,7 +93,7 @@ Xamarin 可讓您使用 C# 撰寫可在 iOS、Android 和 Windows (行動裝置�
 
   * *tenant* 是您 Azure AD 租用戶的網域 (例如 contoso.onmicrosoft.com)。
   * *clientId* 是您從入口網站複製的應用程式用戶端識別碼。
-  * returnUri 是您在入口網站中輸入的重新導向 URI (例如，http://DirectorySearcher) 。
+  * returnUri 是您在入口網站中輸入的重新導向 URI (例如， http://DirectorySearcher) 。
 
 ## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>步驟 4：使用 ADAL 來取得 Azure AD 的權杖
 幾乎所有應用程式的驗證邏輯採用 `DirectorySearcher.SearchByAlias(...)`。 平台特定專案所需的只是將內容參數傳遞至 `DirectorySearcher` PCL。
