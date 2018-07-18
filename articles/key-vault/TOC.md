@@ -44,8 +44,8 @@
 ## [.NET](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/keyvault/client?view=azure-dotnet)
 ## [Java](/java/api/overview/azure/keyvault?view=azure-java-stable)
 ## Node.js
-### [保存庫管理](https://docs.microsoft.com/en-us/javascript/api/overview/azure/keyvault/client?view=azure-node-latest)
-### [保存庫內容管理](https://docs.microsoft.com/en-us/javascript/api/azure-arm-keyvault/index?view=azure-node-latest)
+### [保存庫管理](https://docs.microsoft.com/javascript/api/azure-keyvault/index?view=azure-node-latest)
+### [保存庫內容管理](https://docs.microsoft.com/javascript/api/azure-arm-keyvault/index?view=azure-node-latest)
 ## [REST](/rest/api/keyvault)
 ## 開發
 ### [開發人員快速入門影片](http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Key-Vault-Developer-Quick-Start)
