@@ -13,6 +13,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30929405"
 ---
 1. 在入口網站中的左側按一下 [+ 建立資源]，並在搜尋中輸入「虛擬網路閘道」。 在搜尋傳回的結果中找出**虛擬網路閘道**，然後按一下該項目。 在 [虛擬網路閘道] 頁面上，按一下頁面底部的 [建立]，以開啟 [建立虛擬網路閘道] 頁面。
 2. 在 [建立虛擬網路閘道] 頁面上，填入您虛擬網路閘道的值。

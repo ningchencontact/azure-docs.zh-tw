@@ -1,8 +1,8 @@
 ---
-title: "Azure 上適用於 Linux VM 磁碟的標準儲存體 | Microsoft Docs"
-description: "討論符合成本效益的標準儲存體，以及非受控和受控 Linux VM 磁碟。"
+title: Azure 上適用於 Linux VM 磁碟的標準儲存體 | Microsoft Docs
+description: 討論符合成本效益的標準儲存體，以及非受控和受控 Linux VM 磁碟。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: yuemlu
 manager: jeconnoc
 editor: tysonn
@@ -20,5 +20,6 @@ ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/02/2017
+ms.locfileid: "23666870"
 ---
 [!INCLUDE [virtual-machines-common-standard-storage.md](../../../includes/virtual-machines-common-standard-storage.md)]

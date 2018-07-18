@@ -1,11 +1,11 @@
 ---
-title: "Azure 事件中樞 .NET Framework API 概觀 | Microsoft Docs"
-description: "一些主要事件中樞 .NET Framework 用戶端 API 的摘要。"
+title: Azure 事件中樞 .NET Framework API 概觀 | Microsoft Docs
+description: 一些主要事件中樞 .NET Framework 用戶端 API 的摘要。
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7f3b6cc0-9600-417f-9e80-2345411bd036
 ms.service: event-hubs
 ms.devlang: dotnet
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781889"
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>事件中樞 .NET Framework API 概觀
 

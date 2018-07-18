@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22704705"
 ---
 # <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>應用程式閘道端對端 SSL 的概觀
 

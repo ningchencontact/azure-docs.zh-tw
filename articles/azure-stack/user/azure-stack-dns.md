@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4e854a2751ce366e3ca3a353487f2c972401c248
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8459a5f88bf660ac460f778f67618e9805afa29d
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34196520"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970698"
 ---
 # <a name="using-dns-in-azure-stack"></a>在 Azure Stack 中使用 DNS
 
@@ -35,7 +35,7 @@ Azure Stack 支援下列網域名稱系統 (DNS) 功能：
 
 例如，如果您建立公用 IP 資源並以 **contoso** 作為本機 Azure Stack 位置的網域名稱標籤，則[完整網域名稱](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) (FQDN) **contoso.local.cloudapp.azurestack.external** 會解析為資源的公用 IP 位址。 您可以使用此 FQDN 來建立自訂網域 CNAME 記錄，其指向 Azure Stack 中的公用 IP 位址。
 
-若要深入了解名稱解析，請參閱 [DNS 解析](https://docs.microsoft.com/en-us/azure/dns/dns-for-azure-services?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)一文。
+若要深入了解名稱解析，請參閱 [DNS 解析](https://docs.microsoft.com/azure/dns/dns-for-azure-services?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)一文。
 
 > [!IMPORTANT]
 > 您所建立的每個網域名稱標籤在其 Azure Stack 位置中都必須是唯一的。

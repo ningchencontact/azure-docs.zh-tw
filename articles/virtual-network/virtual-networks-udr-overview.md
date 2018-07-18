@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 926f256de0974112c1571fe4d1d48b6e7f530362
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fc03fa2a12c9031d88404d5d8d9f821254b033bb
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211791"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726324"
 ---
 # <a name="virtual-network-traffic-routing"></a>虛擬網路流量路由
 
@@ -167,7 +167,9 @@ Azure 會針對不同的 Azure 功能，新增其他預設系統路由，但只�
         - 能夠進行網路位址轉譯和轉送，或對傳送至子網路中目的地資源的流量設定 Proxy，並將流量傳回網際網路。 
     - **虛擬網路閘道**：如果閘道是 ExpressRoute 虛擬網路閘道，則透過 ExpressRoute 的[私人對等互連](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-private-peering)，連線到網際網路的裝置在內部部署上可以進行網路位址轉譯和轉送，或對傳送至子網路中目的地資源的流量設定 Proxy。 
 
-  請參閱 [Azure 與內部部署資料中心之間的 DMZ](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json)和 [Azure 與網際網路之間的 DMZ](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json)，以取得在網際網路和 Azure 之間使用虛擬網路閘道和虛擬設備的實作詳細資料。
+如果虛擬網路連線至 Azure VPN 閘道，請勿將路由表關聯至所含路由的目的地為 0.0.0.0/0 的[閘道子網路](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub)。 這麼做會讓閘道無法正常運作。
+
+請參閱 [Azure 與內部部署資料中心之間的 DMZ](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json)和 [Azure 與網際網路之間的 DMZ](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json)，以取得在網際網路和 Azure 之間使用虛擬網路閘道和虛擬設備的實作詳細資料。
 
 ## <a name="routing-example"></a>路由範例
 
@@ -259,5 +261,5 @@ Subnet2 的路由表包含所有 Azure 建立的預設路由和選擇性 VNet �
 - [使用路由和網路虛擬設備建立使用者定義路由表](tutorial-create-route-table-portal.md)
 - [設定適用於 Azure VPN 閘道的 BGP](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [搭配使用 ExpressRoute 與 BGP](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
-- [檢視子網路的所有路由](virtual-network-routes-troubleshoot-portal.md)。 使用者定義路由表只會顯示使用者定義路由，而不會顯示子網路的預設和 BGP 路由。 檢視所有路由會顯示子網路 (內含網路介面) 的預設、BGP 及使用者定義路由。
+- [檢視子網路的所有路由](diagnose-network-routing-problem.md)。 使用者定義路由表只會顯示使用者定義路由，而不會顯示子網路的預設和 BGP 路由。 檢視所有路由會顯示子網路 (內含網路介面) 的預設、BGP 及使用者定義路由。
 - 在虛擬機器和目的地 IP 位址間[判斷下一個躍點類型](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 Azure 網路監看員的下一個躍點功能，可讓您判斷流量是否離開子網路且正在路由到您覺得正確的地方。

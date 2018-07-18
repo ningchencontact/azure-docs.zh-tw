@@ -9,17 +9,17 @@ editor: ''
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 2f24eaa65781eb56b641ed179536867ee514f668
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: e564f48b4b90cfcaa72ed51d5f210a71a4980360
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34165446"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902940"
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>如何使用 Azure 虛擬機器受控服務識別 (MSI) 來取得權杖 
 
@@ -313,6 +313,8 @@ echo The MSI access token is $access_token
 | 500 內部伺服器錯誤 | 未知 | 無法從 Active 目錄擷取權杖。 如需詳細資訊，請參閱\<檔案路徑\>中的記錄 | 請確認虛擬機器上已正確啟用 MSI。 如果您需要設定虛擬機器的協助，請參閱[使用 Azure 入口網站設定虛擬機器受控服務識別 (MSI)](qs-configure-portal-windows-vm.md)。<br><br>也請確認 HTTP GET 要求 URI 的格式正確，尤其是查詢字串中指定的資源 URI。 相關範例請參閱[前一節 REST](#rest) 中的「範例要求」，或請參閱[支援 Azure AD 驗證的 Azure 服務](services-support-msi.md)，以取得服務及其各自資源識別碼的清單。
 
 ## <a name="retry-guidance"></a>重試指引 
+
+若您收到 404、429 或 5xx 錯誤碼，建議您重試 (請參閱上方的[錯誤處理](#error-handling))。
 
 節流限制會套用至對 IMDS 端點進行的呼叫數目。 超過節流閾值時，IMDS 端點會在節流生效時，限制任何進一步的要求。 在這段期間，IMDS 端點會傳回 HTTP 狀態碼 429 (「太多要求」)，且要求會失敗。 
 

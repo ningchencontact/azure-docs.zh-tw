@@ -6,22 +6,20 @@ author: tdykstra
 manager: cfowler
 ms.service: functions
 ms.topic: include
-ms.date: 03/12/2018
+ms.date: 05/23/2018
 ms.author: tdykstra
 ms.custom: include file
-ms.openlocfilehash: d47c170936fc954ceac0d76fdb2e6d9c2c886602
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 75be516dc3f23ee02638a6ca9981a6732b00e27a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34307527"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38738901"
 ---
-### <a name="c-class-library"></a>C# 類別庫
+下表說明如何在每個開發環境中為此繫結新增支援。
 
-對於 C# 類別庫開發，繫結支援是藉由[安裝套件](../articles/azure-functions/functions-triggers-bindings.md#local-c-development-using-visual-studio-or-vs-code)來新增。
-
-### <a name="binding-extensions-in-functions-2x"></a>Functions 2.x 中的繫結擴充功能
-
-對於 Azure Functions 2.x 版中的本機開發，此套件用來[註冊繫結擴充功能](../articles/azure-functions/functions-triggers-bindings.md#local-development-azure-functions-core-tools)。
-
-
+| 開發環境               | 若要新增支援 <br>Functions 1.x  |
+|----------------------|----------------|---------------|
+|本機開發 - C# 類別庫       | [安裝套件](../articles/azure-functions/functions-triggers-bindings.md#c-class-library-with-visual-studio-2017) | 
+|本機開發 - C# 指令碼、JavaScript、F# |自動         |
+|入口網站開發|  自動    |

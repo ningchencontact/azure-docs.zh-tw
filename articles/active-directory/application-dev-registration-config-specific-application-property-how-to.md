@@ -3,22 +3,23 @@ title: 如何針對自訂開發的應用程式填寫特定欄位 | Microsoft Doc
 description: 關於當您向 Azure AD 註冊自訂開發的應用程式時如何填寫特定欄位的指引
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: cd4313efb5d08842ba12ec00e6e5160214800d56
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.author: barbkess
+ms.openlocfilehash: c6f6b0685c83d9305c62f121aec562d2afedae21
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34055612"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "36335711"
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>如何針對自訂開發的應用程式填寫特定欄位
 

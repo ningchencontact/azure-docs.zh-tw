@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: b0a73ea89bec67cbf644cce60913981a0533360a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 095205752b8432a741aab16983b175c21b02c0f4
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017865"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>移轉至以 Azure Resource Manager 為基礎的開發工具 (適用於 HDInsight 叢集)
 
@@ -223,7 +224,7 @@ Azure PowerShell Resource Manager Cmdlet 可與 ASM Cmdlet 並存安裝。 來�
 * [提交 Sqoop 工作](hadoop/apache-hadoop-use-sqoop-powershell.md)
 
 ## <a name="migrating-to-the-new-hdinsight-net-sdk"></a>移轉至新的 HDInsight .NET SDK
-以 Azure Service Management (ASM) 為基礎的 [HDInsight.NET SDK](https://msdn.microsoft.com/library/azure/mt416619.aspx) 現在已被取代。 建議您使用以 Azure Resource Management 的[以資源管理員為基礎的 HDInsight.NET SDK](https://msdn.microsoft.com/library/azure/mt271028.aspx)。 下列以 ASM 為基礎的 HDInsight 封裝會被取代。
+以 Azure Service Management (ASM) 為基礎的 [HDInsight.NET SDK](https://msdn.microsoft.com/library/azure/mt416619.aspx) 現在已被取代。 建議您使用以 Azure Resource Management 的[以資源管理員為基礎的 HDInsight.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)。 下列以 ASM 為基礎的 HDInsight 封裝會被取代。
 
 * `Microsoft.WindowsAzure.Management.HDInsight`
 * `Microsoft.Hadoop.Client`

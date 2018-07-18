@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30842433"
 ---
 # <a name="create-a-custom-virtual-machine-running-linux"></a>建立執行 Linux 的自訂虛擬機器
 > [!IMPORTANT] 

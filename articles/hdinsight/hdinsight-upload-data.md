@@ -20,6 +20,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34202453"
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>在 HDInsight 上將 Hadoop 工作的資料上傳
 

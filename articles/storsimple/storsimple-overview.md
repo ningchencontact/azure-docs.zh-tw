@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
-ms.openlocfilehash: 10f4b6ec29c2d9539fa7fe61c96581755e630822
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b0d6a797e4fe84ce2cb969d001ff96177f6ac641
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097041"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple 8000 系列：混合式雲端存放解決方案
 ## <a name="overview"></a>概觀
@@ -248,7 +249,7 @@ StorSimple 8000 系列裝置不支援下列工作負載。 如果部署於 StorS
 | 備份目標 |Veeam |Veeam v 9 及更新版本 |[使用 StorSimple 做為 Veeam 的備份目標](storsimple-configure-backup-target-veeam.md)|
 | 備份目標 |Veritas Backup Exec |Backup Exec 16 及更新版本 |[使用 StorSimple 做為 Backup Exec 的備份目標](storsimple-configure-backup-target-using-backup-exec.md)|
 | 備份目標 |Veritas NetBackup |NetBackup 7.7.x 及更新版本  |[使用 StorSimple 做為 NetBackup 的備份目標](storsimple-configure-backuptarget-netbackup.md)|
-| 通用檔案共用 <br></br> 共同作業 |Talon  |[StorSimple 搭配 Talon](https://www.talonstorage.com/products/fast-deployment-azure-storsimple) | |
+| 通用檔案共用 <br></br> 共同作業 |Talon  |[StorSimple 搭配 Talon](https://www.talonstorage.com/products/archive/fast-deployment-azure-storsimple) | |
 
 ## <a name="storsimple-terminology"></a>StorSimple 詞彙
 在部署 Microsoft Azure StorSimple 解決方案，我們建議您檢閱下列詞彙和定義。

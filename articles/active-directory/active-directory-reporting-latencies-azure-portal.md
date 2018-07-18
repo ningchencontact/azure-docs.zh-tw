@@ -1,25 +1,27 @@
 ---
-title: "Azure Active Directory 報告延遲 | Microsoft Docs"
-description: "深入了解在您的 Azure 入口網站中針對顯示報告事件所花費的時間長度"
+title: Azure Active Directory 報告延遲 | Microsoft Docs
+description: 深入了解在您的 Azure 入口網站中針對顯示報告事件所花費的時間長度
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: priyamohanram
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: compliance-reports
 ms.date: 12/15/2017
-ms.author: markvi;dhanyahk
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5ec41817fede495b8262e28d2d614a480d98ff3b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: eda894216c624956aab6efa74057e15ce9a1b3ff
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36230517"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory 報告延遲
 
@@ -32,17 +34,15 @@ ms.lasthandoff: 12/18/2017
 
 有兩個活動報告的區域︰
 
-- 
-            **登入活動** – 受控應用程式和使用者登入活動的使用情況相關資訊
-- 
-            **稽核記錄檔** - 使用者和群組管理、受控應用程式和目錄活動的相關系統活動資訊
+- **登入活動** – 受控應用程式和使用者登入活動的使用情況相關資訊
+- **稽核記錄檔** - 使用者和群組管理、受控應用程式和目錄活動的相關系統活動資訊
 
 下表列出活動報告的延遲資訊。
 
-| 報告 | 最小值 | 平均值 | 備註 |
-| :-- | --- | --- | :-- |
-| 稽核記錄 | 30 分鐘  | 1 小時  |在某些執行個體中，可能會花費長達 2 小時的時間，才會顯示稽核活動資料。|
-| 登入 | 15 分鐘  | 2 小時 |在某些執行個體中，可能會花費長達 24 小時的時間，才會顯示登入活動資料。 這包括來自舊版 Office 應用程式的登入活動資料。 |
+| 報告 | 延遲 (P95) |延遲 (P99)|
+| :-- | --- | --- | 
+| 稽核記錄 | 2 分鐘  | 5 分鐘  |
+| 登入 | 2 分鐘  | 5 分鐘 |
 
 
 

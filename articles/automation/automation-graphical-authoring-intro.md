@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b813ba564e6451f973972f08f297399c3af1747b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b0517af9f8066d2d5849b0ffe3d4a0d00afdad44
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195483"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437870"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Azure 自動化中的圖形化編寫
 
@@ -289,6 +289,9 @@ $ActivityOutput['Activity Label'].PropertyName
 下一個活動 (Connect-AzureRmAccount) 會加入已驗證的執行身分帳戶，以便在 Runbook 中使用。
 
 ![Connect-AzureRmAccount 參數集](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)
+
+> [!IMPORTANT]
+> **Add-AzureRmAccount** 現在是 **Connect-AzureRMAccount** 的別名。 搜尋您的程式庫項目時，如果沒有看到 **Connect-AzureRMAccount**，便可以使用 **Add-AzureRmAccount**，或是在自動化帳戶中更新模組。
 
 針對 **APPLICATIONID**、**CERTIFICATETHUMBPRINT** 和 **TENANTID** 等參數，您需要針對「欄位」路徑指定屬性名稱，因為活動會使用多個屬性來輸出物件。 否則當您執行 Runbook 時，會在嘗試進行驗證時失敗。 這就是您使用執行身分帳戶驗證 Runbook 時所需的最低限度。
 

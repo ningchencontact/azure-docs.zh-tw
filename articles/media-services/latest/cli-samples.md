@@ -12,11 +12,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 04/15/2018
 ms.author: juliako
-ms.openlocfilehash: bbf69bdcc92316642f6b37d267cdea2aad920316
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: acc92662aa5b727656a8eda368ba6d78a87d9ecd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640884"
 ---
 # <a name="azure-cli-examples-for-azure-media-services"></a>Azure 媒體服務的 Azure CLI 範例
 
@@ -36,3 +37,6 @@ ms.lasthandoff: 05/14/2018
 | [建立作業](./scripts/cli-create-jobs.md)|使用 HTTPs URL 提交作業給簡單的編碼轉換。|
 | [建立 EventGrid](./scripts/cli-create-event-grid.md)|針對作業狀態變更建立帳戶層級的事件方格訂用帳戶。|
 
+## <a name="see-also"></a>另請參閱
+
+[CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)

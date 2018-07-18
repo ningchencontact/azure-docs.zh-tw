@@ -1,25 +1,19 @@
 ---
 title: 連線處理站解決方案的常見問題集 - Azure | Microsoft Docs
 description: 連線處理站解決方案加速器的常見問題集
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 4ed0cd413480e717e686f7e52123102e1a838f19
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: dbdd9c70fc135561eb0e60e5932e446bcfa3759b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627496"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>連線處理站解決方案加速器的常見問題集
 
@@ -67,7 +61,7 @@ Microsoft 選擇 OPC UA 的原因是它是一種開放式、非專屬、與平�
 
 只有在您已使用[儲存機制](https://github.com/Azure/azure-iot-connected-factory)中的 PowerShell 指令碼 `build.ps1` 部署您的解決方案時，才可支援登入模擬虛擬機器。
 
-如果您已從 www.azureiotsuite.com 部署解決方案，則無法登入虛擬機器。 您無法登入是因為會隨機產生密碼，而且您無法重設密碼。
+如果您已從 www.azureiotsolutions.com 部署解決方案，則無法登入虛擬機器。 您無法登入是因為會隨機產生密碼，而且您無法重設密碼。
 
 1. 新增虛擬機器的公用 IP 位址。 請參閱[如何將公用 IP 位址新增至模擬虛擬機器？](#how-do-i-remove-the-public-ip-address-to-the-simulation-vm)
 1. 使用虛擬機器的 IP 位址，為您的虛擬機器建立 SSH 工作階段。
@@ -148,11 +142,11 @@ Microsoft 選擇 OPC UA 的原因是它是一種開放式、非專屬、與平�
 
 若要在連線的處理站解決方案中啟用互動式地圖，您目前必須具有企業用 Bing 地圖服務 API 方案。
 
-從 [www.azureiotsuite.com](http://www.azureiotsuite.com) 部署時，部署流程會確認您的訂用帳戶具有已啟用的企業用 Bing 地圖服務 API 方案，並將互動式地圖自動部署到連線的處理站。 如果不是如此部署，您仍可在部署中啟用互動式地圖，如下所示：
+從 [www.azureiotsolutions.com](http://www.azureiotsolutions.com) 部署時，部署流程會確認您的訂用帳戶具有已啟用的企業用 Bing 地圖服務 API 方案，並將互動式地圖自動部署到連線的處理站。 如果不是如此部署，您仍可在部署中啟用互動式地圖，如下所示：
 
 當您使用連線處理站 GitHub 存放庫中的 `build.ps1` 指令碼進行部署，而且具有企業用 Bing 地圖服務 API 方案時，將建置視窗中的 `$env:MapApiQueryKey` 環境變數設定為方案的查詢金鑰。 系統隨後會自動啟用互動式地圖。
 
-如果您沒有企業用 Bing 地圖服務 API 方案，請從 [www.azureiotsuite.com](http://www.azureiotsuite.com) 或使用 `build.ps1` 指令碼來部署連線的處理站解決方案。 接著，將企業方案 Bing 地圖服務 API 新增至您的訂用帳戶，如[如何建立企業用 Bing 地圖服務 API 帳戶？](#how-do-i-create-a-bing-maps-api-for-enterprise-account)中所述。 如[如何取得企業用 Bing 地圖服務 API QueryKey](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) 中所述查詢此帳戶的查詢金鑰，並儲存此金鑰。 瀏覽至 Azure 入口網站，並存取連線處理站部署中的 App Service 資源。 瀏覽至 [應用程式設定]，您可以在此找到 [應用程式設定] 區段。 將 **MapApiQueryKey** 設定為您取得的查詢金鑰。 儲存設定，然後瀏覽至 [概觀]，並重新啟動 App Service。
+如果您沒有企業用 Bing 地圖服務 API 方案，請從 [www.azureiotsolutions.com](http://www.azureiotsolutions.com) 或使用 `build.ps1` 指令碼來部署連線的處理站解決方案。 接著，將企業方案 Bing 地圖服務 API 新增至您的訂用帳戶，如[如何建立企業用 Bing 地圖服務 API 帳戶？](#how-do-i-create-a-bing-maps-api-for-enterprise-account)中所述。 如[如何取得企業用 Bing 地圖服務 API QueryKey](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) 中所述查詢此帳戶的查詢金鑰，並儲存此金鑰。 瀏覽至 Azure 入口網站，並存取連線處理站部署中的 App Service 資源。 瀏覽至 [應用程式設定]，您可以在此找到 [應用程式設定] 區段。 將 **MapApiQueryKey** 設定為您取得的查詢金鑰。 儲存設定，然後瀏覽至 [概觀]，並重新啟動 App Service。
 
 ### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>如何建立企業用 Bing 地圖服務 API 帳戶
 
@@ -212,6 +206,6 @@ Microsoft 選擇 OPC UA 的原因是它是一種開放式、非專屬、與平�
 
 您也可以探索 IoT 解決方案加速器的一些其他特性與功能：
 
-* [預測性維護解決方案加速器概觀](../iot-suite/iot-suite-predictive-overview.md)
+* [預測性維護解決方案加速器概觀](iot-accelerators-predictive-overview.md)
 * [連線的處理站解決方案加速器概觀](iot-accelerators-connected-factory-overview.md)
-* [從頭建立 IoT 安全性](../iot-suite/securing-iot-ground-up.md)
+* [從頭建立 IoT 安全性](securing-iot-ground-up.md)

@@ -2,23 +2,21 @@
 title: Azure CosmosDB︰使用 Java 和 MongoDB API 建置主控台應用程式 | Microsoft Docs
 description: 提供 Java 程式碼範例，您可用來連線及查詢 Azure Cosmos DB MongoDB API
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: ''
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
 ms.custom: quick start connect, mvc
-ms.workload: ''
-ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: sngun
-ms.openlocfilehash: 28b8f96e2f2ccc966e1832aebf854e4d7f7a04e4
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3c92834085a95ea86dbe5d0c7458f8bef78a34bb
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38299786"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-java-and-the-azure-portal"></a>Azure CosmosDB︰使用 Java 和 Azure 入口網站建置 MongoDB API 主控台應用程式
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30915254"
 ---
 # <a name="create-the-head-node-of-an-hpc-pack-cluster-in-an-azure-vm-with-a-marketplace-image"></a>使用 Marketplace 映像在 Azure VM 中建立 HPC Pack 叢集的前端節點
 您可以使用來自 Azure Marketplace 的 [Microsoft HPC Pack 2012 R2 虛擬機器映像](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) 和 Azure 入口網站，來建立 HPC 叢集的前端節點。 此 HPC Pack VM 映像是基於已預先安裝 HPC Pack 2012 R2 Update 3 的 Windows Server 2012 R2 Datacenter。 使用此前端節點當作 Azure 中 HPC Pack 的概念證明部署。 然後您可以將計算節點加入叢集以執行 HPC 工作負載。

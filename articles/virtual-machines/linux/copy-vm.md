@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure CLI 2.0 來複製 Linux VM | Microsoft Docs
-description: 了解如何使用 Azure CLI 2.0 和受控磁碟來建立 Azure Linux VM 的複本。
+title: 使用 Azure CLI 來複製 Linux VM | Microsoft Docs
+description: 了解如何使用 Azure CLI 和受控磁碟來建立 Azure Linux VM 的複本。
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -14,16 +14,17 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: cynthn
-ms.openlocfilehash: 66f2789d717816f5be3fd8b298819825f8cd87f7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 8d250f1289c3757d5ea862a1c195dde6f8efb0eb
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36938259"
 ---
-# <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-20-and-managed-disks"></a>使用 Azure CLI 2.0 和受控磁碟來建立 Azure Linux VM 的複本
+# <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>使用 Azure CLI 和受控磁碟來建立 Azure Linux VM 的複本
 
 
-本文說明如何使用 Azure CLI 2.0 和 Azure Resource Manager 部署模型，建立執行 Linux 之 Azure 虛擬機器 (VM) 的複本。 您也可以使用 [Azure CLI 1.0](copy-vm-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 來執行這些步驟。
+本文說明如何使用 Azure CLI 2.0 和 Azure Resource Manager 部署模型，建立執行 Linux 之 Azure 虛擬機器 (VM) 的複本。 
 
 您也可以[上傳 VHD 並從中建立 VM](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 

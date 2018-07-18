@@ -18,6 +18,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31586801"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>如何將 Azure API 管理服務執行個體部署到多個 Azure 區域
 API 管理支援多區域部署，可讓 API 發行者跨所需的任意數量 Azure 區域發佈單一 API 管理服務。 這有助於降低地理上分散的 API 取用者感受到的要求延遲，並且可以改善某個區域離線時服務的可用性。 
@@ -25,7 +26,7 @@ API 管理支援多區域部署，可讓 API 發行者跨所需的任意數量 A
 最初建立 API 管理服務時，它只會包含一個 [單位][unit]，並且位在指派做為主要區域的單一 Azure 區域中。 您可以透過「Azure 入口網站」輕鬆新增其他區域。 「API 管理」閘道伺服器會部署到每個區域，而呼叫流量則會路由傳送到距離最近的閘道。 如果區域離線，流量會自動重新導向到下一個最近的閘道。 
 
 > [!IMPORTANT]
-> 多重區域部署僅供**[進階][Premium]**層使用。
+> 多重區域部署僅供**[進階][Premium]** 層使用。
 > 
 > 
 

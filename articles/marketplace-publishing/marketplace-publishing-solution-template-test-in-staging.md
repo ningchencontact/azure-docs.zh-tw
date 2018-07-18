@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29937830"
 ---
 # <a name="test-your-solution-template-offer-in-staging"></a>在預備環境中測試您的解決方案範本供應項目
 預備環境代表將您的供應項目部署在私人的「沙箱」中，您可以在推送到生產環境之前在沙箱中測試與驗證其功能。 供應項目會出現在預備環境中，就如同客戶已部署該項目一樣。 您的供應項目必須經過認證才能推送至預備環境。

@@ -1,13 +1,13 @@
 ---
-title: "Azure 事件中樞診斷記錄 | Microsoft Docs"
-description: "了解如何為 Azure 中的事件中樞設定診斷記錄檔。"
-keywords: 
-documentationcenter: 
+title: Azure 事件中樞診斷記錄 | Microsoft Docs
+description: 了解如何為 Azure 中的事件中樞設定診斷記錄檔。
+keywords: ''
+documentationcenter: ''
 services: event-hubs
 author: banisadr
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28932710"
 ---
 # <a name="event-hubs-diagnostic-logs"></a>事件中樞診斷記錄檔
 

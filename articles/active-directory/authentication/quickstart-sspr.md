@@ -15,6 +15,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33870017"
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>快速部署 Azure AD 自助式密碼重設
 

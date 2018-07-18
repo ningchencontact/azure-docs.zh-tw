@@ -1,30 +1,32 @@
 ---
-title: "混合式身分識別設計 - 管理工作 - Azure | Microsoft Docs"
-description: "透過條件式存取控制，Azure Active Directory 會在驗證使用者時以及允許存取應用程式之前，檢查您挑選的特定條件。 一旦符合這些條件，就會驗證使用者並允許存取應用程式。"
-documentationcenter: 
+title: 混合式身分識別設計 - 管理工作 - Azure | Microsoft Docs
+description: 透過條件式存取控制，Azure Active Directory 會在驗證使用者時以及允許存取應用程式之前，檢查您挑選的特定條件。 一旦符合這些條件，就會驗證使用者並允許存取應用程式。
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 65f80aea-0426-4072-83e1-faf5b76df034
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: ed683f1b96172b71cc3dfae2511607e50071739f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 5fcb229690827c7bd508aa0d27dd68b169b4e25e
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801321"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>規劃混合式身分識別生命週期
-身分識別是企業行動力和應用程式存取策略的基礎之一。 無論您登入行動裝置還是 SaaS 應用程式，您的身分識別都是您能否進行存取的關鍵。 在其最高層級上，身分識別管理解決方案牽涉到儲存機制的統合和同步，而其中又包含佈建資源程序的自動化和集中化。 身分識別解決方案應為跨內部部署與雲端的集中式身分識別功能，且應使用某種形式的身分識別同盟，以維護集中式驗證，並且安全地與外部使用者和企業進行共用和共同作業。 資源的範圍涵蓋作業系統和應用程式，乃至於組織中或隸屬於組織的人員。 組織結構可以改變，以因應佈建原則和程序。
+身分識別是企業行動力和應用程式存取策略的基礎之一。 無論您登入行動裝置還是 SaaS 應用程式，您的身分識別都是您能否進行存取的關鍵。 在其最高層級上，身分識別管理解決方案牽涉到存放庫的統合和同步，而其中又包含佈建資源程序的自動化和集中化。 身分識別解決方案應為跨內部部署與雲端的集中式身分識別功能，且應使用某種形式的身分識別同盟，以維護集中式驗證，並且安全地與外部使用者和企業進行共用和共同作業。 資源的範圍涵蓋作業系統和應用程式，乃至於組織中或隸屬於組織的人員。 組織結構可以改變，以因應佈建原則和程序。
 
-為您的使用者提供身分識別解決方案，使其體驗自助式服務以提升能力進而保持生產力，是很重要的。 您的身分識別解決方案若能讓使用者在其需要存取的所有資源層級上進行的所有資源層級，將會更加健全。系統管理員可在各個層級上使用標準化程序來管理使用者認證。 視佈建管理解決方案的範圍之不同，某些層級的管理可以減少或排除。 此外，您可以安全地在不同組織之間散發管理功能，手動或自動皆可。 例如，網域管理員只能為該網域中的人員和資源提供服務。 這名使用者可以執行管理和佈建工作，但無權執行組態工作，例如建立工作流程。
+為您的使用者提供身分識別解決方案，使其體驗自助式服務以提升能力進而保持生產力，是很重要的。 您的身分識別解決方案如果針對使用者在其需要存取的所有資源中啟用單一登入，則會更強固。 所有層級的系統管理員都可以使用標準化的程序來管理使用者認證。 視佈建管理解決方案的範圍之不同，某些層級的管理可以減少或排除。 此外，您可以安全地在不同組織之間散發管理功能，手動或自動皆可。 例如，網域管理員只能為該網域中的人員和資源提供服務。 這名使用者可以執行管理和佈建工作，但無權執行組態工作，例如建立工作流程。
 
 ## <a name="determine-hybrid-identity-management-tasks"></a>判斷混合式身分識別管理工作
 在您的組織中散發管理工作，可以改善管理的精確度和效率，並改善組織的工作負載平衡。 以下是定義健全的身分識別管理系統的要點。

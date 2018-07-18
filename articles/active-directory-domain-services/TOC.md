@@ -27,7 +27,7 @@
 ### [來自範本的 Windows Server VM](active-directory-ds-join-windows-vm-template.md)
 ### [CentOS](active-directory-ds-join-centos-linux-vm.md)
 ### [CoreOS](active-directory-ds-join-coreos-linux-vm.md)
-### [RedHat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
+### [Red Hat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
 ### [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
 ## 管理受控網域
 ### [管理受控網域](active-directory-ds-admin-guide-administer-domain.md)
@@ -38,6 +38,7 @@
 #### [工作 3：使用 Azure 入口網站，為受控網域啟用安全 LDAP](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
 
 ### [在受控網域上建立 OU](active-directory-ds-admin-guide-create-ou.md)
+### [在受控網域上建立群組受控服務帳戶](active-directory-ds-create-gmsa.md)
 ### [受控網域中的管理群組](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [選取虛擬網路](active-directory-ds-networking.md)
 ## 部署應用程式
@@ -53,13 +54,14 @@
 #### [還原遺失的服務主體](active-directory-ds-troubleshoot-service-principals.md)
 #### [安全 LDAP 錯誤](active-directory-ds-troubleshoot-ldaps.md)
 ### [解析不相符的租用戶錯誤](active-directory-ds-mismatched-tenant-error.md)
+### [暫時停權的網域](active-directory-ds-suspension.md)
 
 
 # 參考
 ## [程式碼範例](https://azure.microsoft.com/resources/samples/?service=active-directory)
 
 # 相關參考
-## [Azure Active Directory](../active-directory/active-directory-whatis.md)
+## [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
 ## [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)
 ## [Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)
 

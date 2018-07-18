@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 9c98918dcd08c2e8ec72cc995c633b8320da8057
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 22f1579b2df2acdc736ed4c1d5cee64d096c320a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38635332"
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>從 VM 建立自訂映像
 
@@ -42,7 +43,7 @@ ms.lasthandoff: 05/07/2018
 
     ![建立自訂映像的功能表項目](./media/devtest-lab-create-template/create-custom-image.png)
 
-1. 在 [自訂映像] 窗格中，輸入自訂映像的名稱和描述。 此資訊會在建立 VM 時顯示於基底清單中。
+1. 在 [自訂映像] 窗格中，輸入自訂映像的名稱和描述。 此資訊會在建立 VM 時顯示於基底清單中。 自訂映像將包含作業系統磁碟及所有連結到此虛擬機器的資料磁碟。
 
     ![[建立自訂映像] 窗格](./media/devtest-lab-create-template/create-custom-image-blade.png)
 

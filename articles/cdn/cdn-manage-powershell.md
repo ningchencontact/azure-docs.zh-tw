@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31592417"
 ---
 # <a name="manage-azure-cdn-with-powershell"></a>使用 PowerShell 管理 Azure CDN
 PowerShell 提供一種最具彈性的方法，以管理您的 Azure CDN 設定檔和端點。  您可以用互動方式使用 PowerShell 或透過撰寫指令碼來自動進行管理工作。  本教學課程會示範數個您可透過 PowerShell 完成的最常見工作，以管理 Azure CDN 設定檔和端點。

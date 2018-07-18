@@ -17,11 +17,12 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: ''
-ms.openlocfilehash: a8844ea44bf604944c5980b0d41ab5d01a30b876
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: a4895c0c58d1cdb0430b7418ba24dd85157ecdd3
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308154"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions 的計時器觸發程序 
 
@@ -29,13 +30,17 @@ ms.lasthandoff: 05/18/2018
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages"></a>封裝
+## <a name="packages---functions-1x"></a>套件 - Functions 1.x
 
-[Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet 套件中提供計時器觸發程序。 套件的原始程式碼位於 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) GitHub 存放庫中。
+[Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet 套件 2.x 版中提供計時器觸發程序。 套件的原始程式碼位於 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Timers/) GitHub 存放庫中。
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>套件 - Functions 2.x
+
+[Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet 套件 3.x 版中提供計時器觸發程序。 套件的原始程式碼位於 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) GitHub 存放庫中。
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="example"></a>範例
 
@@ -214,6 +219,8 @@ Azure Functions 計時器觸發程序的 CRON 運算式包含六個欄位：
 |一組值 (`,` 運算子)|<nobr>"5,8,10 * * * * *"</nobr>|於 hh:mm:05、hh:mm:08 和 hh:mm:10，其中 hh: mm 是每小時的每一分鐘 (一分鐘 3 次)|
 |間隔值 (`/` 運算子)|<nobr>"0 */5 * * * *"</nobr>|於 hh:05:00、hh:10:00、hh:15:00 以此類推，直到 hh:55:00，其中 hh 是每小時 (一小時 12 次)|
 
+若要指定月或日，您可以使用三個字母的縮寫，而不使用數值。 例如，以 Jan 表示一月，或以 Sun 表示星期日。
+
 ### <a name="cron-examples"></a>CRON 範例
 
 以下是您可以在 Azure Functions 中使用於計時器觸發程序的一些 CRON 運算式範例。
@@ -272,7 +279,11 @@ CRON 運算式使用的預設時區是國際標準時間 (UTC)。 若要讓 CRON
 
 ## <a name="retry-behavior"></a>重試行為
 
-不同於佇列觸發程序，計時器觸發程序在函式失敗後並不會重試。 當函式失敗時，需等到排程上的下一次觸發，才會再次呼叫函式。
+不同於佇列觸發程序，計時器觸發程序在函式失敗後並不會重試。 當函式失敗時，必須等到下次排程的時間才會再次呼叫函式。
+
+## <a name="troubleshooting"></a>疑難排解
+
+如需有關當計時器觸發程序未如預期般運作時該怎麼做的資訊，請參閱[調查及報告計時器觸發的函式並未引發的問題](https://github.com/Azure/azure-functions-host/wiki/Investigating-and-reporting-issues-with-timer-triggered-functions-not-firing)。
 
 ## <a name="next-steps"></a>後續步驟
 

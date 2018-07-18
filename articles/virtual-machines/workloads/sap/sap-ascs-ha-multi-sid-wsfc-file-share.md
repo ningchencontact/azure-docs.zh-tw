@@ -4,7 +4,7 @@ description: 在 Azure 上搭配 Windows Server 容錯移轉叢集和檔案共�
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3522e7ef0e3d49ce1bd8bed750b239fa384af8b8
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 604179ec856d21dce51101fdafa5d51eed08f89f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657208"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -221,7 +222,7 @@ Microsoft 在 2016 年 9 月發行的功能，可讓您使用 [Azure 內部負�
 
 ![圖 1：在兩個叢集中部署 SAP ASCS/SCS 執行個體和 SOFS 部署][sap-ha-guide-figure-8007]
 
-_**圖 1：**在兩個叢集中部署 SAP ASCS/SCS 執行個體和 SOFS 部署_
+_**圖 1：** 在兩個叢集中部署 SAP ASCS/SCS 執行個體和 SOFS 部署_
 
 > [!IMPORTANT]
 > 安裝程式必須符合下列條件︰
@@ -235,7 +236,7 @@ _**圖 1：**在兩個叢集中部署 SAP ASCS/SCS 執行個體和 SOFS 部署_
 
 ![圖 2：兩個叢集中的 SAP 多重 SID 設定][sap-ha-guide-figure-8008]
 
-_**圖 2：**兩個叢集中的 SAP 多重 SID 設定_
+_**圖 2：** 兩個叢集中的 SAP 多重 SID 設定_
 
 安裝其他 **SAP \<SID2>** 系統等同於安裝一個 <SID> 系統。 ASCS/SCS 叢集以及檔案共用 SOFS 叢集上需要另兩個準備步驟。
 
@@ -261,7 +262,7 @@ _**圖 2：**兩個叢集中的 SAP 多重 SID 設定_
 
 ![圖 3：多重 SID SOFS 與 SAP 全域主機名稱相同][sap-ha-guide-figure-8014]
 
-_**圖 3：**多重 SID SOFS 與 SAP 全域主機名稱相同_
+_**圖 3：** 多重 SID SOFS 與 SAP 全域主機名稱相同_
 
 > [!IMPORTANT]
 >對於第二個 **SAP \<SID2>** 系統，使用的是相同的 Volume1 及相同的 **\<SAPGlobalHost>** 網路名稱。
@@ -327,7 +328,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ![圖 4：多重 SID SOFS 與 SAP GLOBAL 主機名稱 2 相同][sap-ha-guide-figure-8015]
 
-_**圖 4：**多重 SID SOFS 與 SAP GLOBAL 主機名稱 2 相同_
+_**圖 4：** 多重 SID SOFS 與 SAP GLOBAL 主機名稱 2 相同_
 
 若要使用 \<SAPGlobalHost2> 建立第二個 SOFS 角色，請執行這個 PowerShell 指令碼：
 
@@ -396,27 +397,27 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ![圖 6：啟動 [新增檔案共用] 精靈][sap-ha-guide-figure-8017]
 
-_**圖 6：**啟動 [新增檔案共用] 精靈_
+_**圖 6：** 啟動 [新增檔案共用] 精靈_
 
 <br>
-![圖 7：[選取 SMB 共用 - 快速]][sap-ha-guide-figure-8018]
+![圖 7：「選取 SMB 共用 - 快速」][sap-ha-guide-figure-8018]
 
-_**圖 7：**選取 [SMB 共用 - 快速]_
+_**圖 7：** 選取 [SMB 共用 - 快速]_
 
 <br>
 ![圖 8：選取 [sapglobalhost2] 並在 Volume2 上指定路徑][sap-ha-guide-figure-8019]
 
-_**圖 8：**選取 [sapglobalhost2] 並在 Volume2 上指定路徑_
+_**圖 8：** 選取 [sapglobalhost2] 並在 Volume2 上指定路徑_
 
 <br>
-![圖 9：將檔案共用名稱設定為「sapmnt」][sap-ha-guide-figure-8020]
+![圖 9：將檔案共用名稱設定為 [sapmnt]][sap-ha-guide-figure-8020]
 
-_**圖 9：**將檔案共用名稱設定為「sapmnt」_
+_**圖 9：** 將檔案共用名稱設定為「sapmnt」_
 
 <br>
 ![圖 10：停用所有設定][sap-ha-guide-figure-8021]
 
-_**圖 10：**停用所有設定_
+_**圖 10：** 停用所有設定_
 
 <br>
 請針對下列項目將 [ 完全控制] 權限指派給檔案和 sapmnt 共用：
@@ -425,17 +426,17 @@ _**圖 10：**停用所有設定_
 
 ![圖 11：將完全控制權限指派給使用者群組和電腦帳戶][sap-ha-guide-figure-8022]
 
-_**圖 11：**將「完全控制」指派給使用者群組和電腦帳戶_
+_**圖 11：** 將「完全控制」指派給使用者群組和電腦帳戶_
 
 <br>
 ![圖 12：選取 [建立]][sap-ha-guide-figure-8023]
 
-_**圖 12：**選取 [建立]_
+_**圖 12：** 選取 [建立]_
 
 <br>
 ![圖 13：已建立繫結至 sapglobal2 主機和 Volume2 的第二個 sapmnt][sap-ha-guide-figure-8024]
 
-_**圖 13：**已建立繫結至 sapglobal2 主機和 Volume2 的第二個 sapmnt_
+_**圖 13：** 已建立繫結至 sapglobal2 主機和 Volume2 的第二個 sapmnt_
 
 <br>
 ## <a name="install-sap-netweaver-multi-sid"></a>安裝 SAP NetWeaver 多重 SID

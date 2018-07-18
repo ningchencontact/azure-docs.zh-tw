@@ -1,9 +1,9 @@
 ---
-title: "群組原則和 MDM 設定 | Microsoft Docs"
-description: "提供應該在公司所擁有的裝置上使用的群組原則和行動裝置管理 (MDM) 設定的相關資訊。 這些原則會套用至使用者的整個裝置。"
+title: 群組原則和 MDM 設定 | Microsoft Docs
+description: 提供應該在公司所擁有的裝置上使用的群組原則和行動裝置管理 (MDM) 設定的相關資訊。 這些原則會套用至使用者的整個裝置。
 services: active-directory
-keywords: "什麼是企業狀態漫遊的群組原則和 MDM 設定, 企業狀態漫遊, windows 雲端"
-documentationcenter: 
+keywords: 什麼是企業狀態漫遊的群組原則和 MDM 設定, 企業狀態漫遊, windows 雲端
+documentationcenter: ''
 author: tanning
 manager: mtillman
 editor: curtand
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26734041"
 ---
 # <a name="group-policy-and-mdm-settings"></a>群組原則和 MDM 設定
 只在公司所擁有的裝置上使用這些群組原則和行動裝置管理 (MDM) 設定，因為這些原則會套用到使用者的整個裝置。 套用 MDM 原則來停用個人、使用者所擁有的裝置的設定同步處理，會對使用該裝置造成負面影響。 此外，在裝置上的其他使用者帳戶也會被原則影響。

@@ -9,11 +9,12 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f643c09f00b23cd14e85e83ed0cf7ab7a13c7646
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 478c6dcaa6afd67742df91366021c6186fc1427e
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098527"
 ---
 # <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>調整 Kubernetes Pod 和 Kubernetes 基礎結構
 
@@ -38,7 +39,7 @@ ms.lasthandoff: 04/28/2018
 
 ## <a name="manually-scale-pods"></a>手動調整 Pod
 
-目前為止，已部署 Azure Vote 前端與 Redis 執行個體，每個都有單一複本。 若要確認，請執行 [kubectl get](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) 命令。
+目前為止，已部署 Azure Vote 前端與 Redis 執行個體，每個都有單一複本。 若要確認，請執行 [kubectl get](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) 命令。
 
 ```azurecli-interactive
 kubectl get pods
@@ -52,13 +53,13 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-使用 [kubectl scale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#scale) 命令來手動變更 `azure-vote-front` 部署中的 Pod 數目。 以下範例會將數目增加到 5 個。
+使用 [kubectl scale](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#scale) 命令來手動變更 `azure-vote-front` 部署中的 Pod 數目。 以下範例會將數目增加到 5 個。
 
 ```azurecli-interactive
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-執行 [kubectl get pods](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) 以確認 Kubernetes 是否正在建立 Pod。 在大約一分鐘後，其他 Pod 便已在執行：
+執行 [kubectl get pods](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) 以確認 Kubernetes 是否正在建立 Pod。 在大約一分鐘後，其他 Pod 便已在執行：
 
 ```azurecli-interactive
 kubectl get pods
@@ -90,7 +91,7 @@ resources:
      cpu: 500m
 ```
 
-下列範例使用 [kubectl autoscale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#autoscale) 命令來自動調整 `azure-vote-front` 部署中的 Pod 數目。 在這裡，如果 CPU 使用率超過 50%，自動調整程式就會增加 Pod，最多可達 10 個。
+下列範例使用 [kubectl autoscale](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#autoscale) 命令來自動調整 `azure-vote-front` 部署中的 Pod 數目。 在這裡，如果 CPU 使用率超過 50%，自動調整程式就會增加 Pod，最多可達 10 個。
 
 
 ```azurecli-interactive

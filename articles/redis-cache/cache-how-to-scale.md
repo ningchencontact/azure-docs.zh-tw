@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: 9ef988ccdcca921c0285bf983125483a38a07678
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d88fcea4a41d8402cc25a1623727284afb0e9088
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959377"
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>如何調整 Azure Redis 快取
-Azure Redis 快取都有不同的快取提供項目，以提供選擇快取大小和功能的彈性。 建立快取之後，如果您應用程式的需求改變，您可以調整快取的大小和定價層。 本文說明如何使用 Azure 入口網站和 Azure PowerShell 與 Azure CLI 之類的工具來調整快取。
+Azure Redis 快取都有不同的快取供應項目，以提供選擇快取大小和功能的彈性。 建立快取之後，如果您應用程式的需求改變，您可以調整快取的大小和定價層。 本文說明如何使用 Azure 入口網站和 Azure PowerShell 與 Azure CLI 之類的工具來調整快取。
 
 ## <a name="when-to-scale"></a>調整時機
 您可以使用 Azure Redis 快取的[監視](cache-how-to-monitor.md)功能來監視快取的健康狀態和效能，以及協助判斷何時要調整快取。 
@@ -33,7 +34,7 @@ Azure Redis 快取都有不同的快取提供項目，以提供選擇快取大�
 * 網路頻寬
 * CPU 使用率
 
-如果您判斷快取不再符合您應用程式的需求，則可以調整為適合您應用程式的較大或較小快取定價層。 如需判斷要使用之快取定價層的詳細資訊，請參閱 [我應該使用哪些 Redis 快取提供項目和大小](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)。
+如果您判斷快取不再符合您應用程式的需求，則可以調整為適合您應用程式的較大或較小快取定價層。 如需判斷要使用之快取定價層的詳細資訊，請參閱 [我應該使用哪些 Redis 快取供應項目和大小](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)。
 
 ## <a name="scale-a-cache"></a>調整快取
 若要調整快取，在 [Azure 入口網站](https://portal.azure.com)中[瀏覽至快取](cache-configure.md#configure-redis-cache-settings)，然後按一下 **[資源]** 功能表中的 **[調整]**。
@@ -153,7 +154,7 @@ Azure Redis 快取都有不同的快取提供項目，以提供選擇快取大�
 * **基本**快取在將作業調整至不同大小的期間，會處於離線狀態。 從**基本**調整至**標準**時，基本快取仍可使用，但可能會遇到短暫的連線中斷。 若發生連線中斷，Redis 用戶端應可立即重新建立其連線。
 
 
-### <a name="scaling-limitations-with-geo-relication"></a>異地複寫的調整限制
+### <a name="scaling-limitations-with-geo-replication"></a>異地複寫的調整限制
 
 一旦將異地複寫連結新增至兩個快取之間，您就無法再起始調整作業或變更叢集內的分區數目。 您必須將快取取消連結之後，才能發出這些命令。 如需詳細資訊，請參閱 [設定異地複寫](cache-how-to-geo-replication.md)。
 

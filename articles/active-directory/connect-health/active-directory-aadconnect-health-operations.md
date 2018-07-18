@@ -3,7 +3,7 @@ title: Azure Active Directory Connect Health 作業
 description: 本文說明可以在您部署 Azure AD Connect Health 之後執行的其他作業。
 services: active-directory
 documentationcenter: ''
-author: karavar
+author: zhiweiw
 manager: mtillman
 ms.assetid: 86cc3840-60fb-43f9-8b2a-8598a9df5c94
 ms.service: active-directory
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: c9920857f7d1910921b4bb3771e770fb4c3a42c3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 68be732b2a375d1667c743ac277ce653c78105f1
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37886864"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Azure Active Directory Connect Health 作業
 本主題說明您可以使用 Azure Active Directory (Azure AD) Connect Health 來執行的各種作業。
@@ -121,7 +122,7 @@ Azure AD Connect Health 支援在兩個層級上管理存取：
 
 #### <a name="step-2-add-users-and-groups-and-assign-roles"></a>步驟 2：新增使用者和群組及指派角色
 1. 從 [設定] 區段中，按一下 [使用者]。<br>
-   ![Azure AD Connect Health RBAC 主要刀鋒視窗的螢幕擷取畫面，其中已醒目提示 [使用者]](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
+   ![Azure AD Connect Health 資源提要欄位的螢幕擷取畫面](./media/active-directory-aadconnect-health/startRBAC.png)
 2. 選取 [新增] 。
 3. 在 [選取角色] 窗格中，選取角色 (例如，**擁有者**)。<br>
    ![Azure AD Connect Health RBAC [使用者] 視窗的螢幕擷取畫面](./media/active-directory-aadconnect-health/RBAC_add.png)

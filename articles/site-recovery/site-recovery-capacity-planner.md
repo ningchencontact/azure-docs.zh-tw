@@ -1,24 +1,25 @@
 ---
-title: "估計 Azure 中的複寫容量 | Microsoft Docs"
-description: "使用本文章來估計使用 Azure Site Recovery 進行複寫時的容量"
+title: 估計 Azure 中的複寫容量 | Microsoft Docs
+description: 使用本文章來估計使用 Azure Site Recovery 進行複寫時的容量
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rayne-wiselman
 manager: jwhit
-editor: 
+editor: ''
 ms.assetid: 0a1cd8eb-a8f7-4228-ab84-9449e0b2887b
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 03/09/2018
+ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: d9c2645be73c4b6e34d194d6b2444a700e3900d2
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: d177dae71cd0787a343bbada7c900aebdbad86cc
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920656"
 ---
 # <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>規劃使用 Site Recovery 保護 Hyper-V VM 的容量
 

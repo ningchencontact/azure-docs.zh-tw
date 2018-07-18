@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33887388"
 ---
 # <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>在 Azure 中建立管理解決方案的最佳做法 (預覽)
 > [!NOTE]

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31521983"
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>開始使用 HDInsight 中的 Apache HBase 範例
 

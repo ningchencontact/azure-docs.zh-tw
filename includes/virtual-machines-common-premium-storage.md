@@ -1,3 +1,20 @@
+---
+title: 包含檔案
+description: 包含檔案
+services: storage
+author: ramankumarlive
+ms.service: storage
+ms.topic: include
+ms.date: 06/05/2018
+ms.author: ramankum
+ms.custom: include file
+ms.openlocfilehash: 5cbe6f1f8f15e9da8e1fe6961d3da9b9e2a31e4b
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34806378"
+---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>VM 高效能進階儲存體與受控磁碟
 針對輸入/輸出 (I/O) 工作負載大的虛擬機器 (VM)，Azure 進階儲存體可提供高效能、低延遲的磁碟支援。 使用進階儲存體的 VM 磁碟會將資料儲存在固態硬碟 (SSD) 上。 您可以將現有 VM 磁碟移轉到進階儲存體，以利用進階儲存體磁碟的速度和效能。
 
@@ -21,7 +38,7 @@ Azure 提供兩種建立 VM 進階儲存體磁碟的方法：
 
 我們建議您選擇受控磁碟，以便運用其中多種功能。
 
-若要開始使用進階儲存體，請[建立免費的 Azure 帳戶](https://azure.microsoft.com/pricing/free-trial/)。 
+若要開始使用進階儲存體，[請建立免費的 Azure 帳戶](https://azure.microsoft.com/pricing/free-trial/)。 
 
 如需將現有 VM 移轉到進階儲存體的詳細資訊，請參閱[將 Windows VM 從非受控磁碟轉換至控磁碟](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md)或[將 Linux VM 從非受控磁碟轉換至受控磁碟](../articles/virtual-machines/linux/convert-unmanaged-to-managed-disks.md)。
 
@@ -29,7 +46,7 @@ Azure 提供兩種建立 VM 進階儲存體磁碟的方法：
 > 進階儲存體可在大部分地區使用。 如需可用區域的清單，請參閱[依區域提供的 Azure 產品](https://azure.microsoft.com/regions/#services)中**磁碟儲存體**的資料列。
 > 
 
-## <a name="features"></a>功能
+## <a name="features"></a>特性
 
 以下是進階儲存體的一些功能：
 
@@ -61,10 +78,10 @@ Azure 提供兩種建立 VM 進階儲存體磁碟的方法：
 
 ## <a name="supported-vms"></a>支援的 VM
 
-進階儲存體支援 B 系列、DS 系列、DSv2 系列、DSv3 系列、GS 系列、Ls 系列、M 系列和及 Fs 系列的 VM。 這些 VM 類型可搭配標準和進階儲存體磁碟使用。 您不能將進階儲存體磁碟與不能和進階儲存體相容的 VM 系列搭配使用。
+進階儲存體支援 B 系列、DS 系列、DSv2 系列、DSv3 系列、Esv3 系列、GS 系列、Ls 系列、M 系列和及 Fs 系列的 VM。 這些 VM 類型可搭配標準和進階儲存體磁碟使用。 您不能將進階儲存體磁碟與不能和進階儲存體相容的 VM 系列搭配使用。
 
 
-如需 Azure 中的 VM 類型和大小資訊 (適用於 Windows)，請參閱 [Windows VM 大小](../articles/virtual-machines/windows/sizes.md)。 如需 Azure 中的 VM 類型和大小資訊 (適用於 Linux)，請參閱 [Linux VM 大小](../articles/virtual-machines/linux/sizes.md)。
+如需 Azure 中的 VM 類型和大小資訊 (適用於 Windows)，請參閱 [Windows VM 大小](../articles/virtual-machines/windows/sizes.md)。 如需 Azure 中的 VM 類型和大小資訊 (適用於 Linux)，請參閱 [ VM 大小](../articles/virtual-machines/linux/sizes.md)。
 
 以下是 DS 系列、DSv2 系列、GS 系列、Ls 系列及 Fs 系列 VM 的一些功能：
 
@@ -87,7 +104,7 @@ Azure 提供兩種建立 VM 進階儲存體磁碟的方法：
 
 * **快取**
 
-    支援進階儲存體的大小系列 VM 有獨特的快取功能，在輸送量和延遲上有高層級的表現。 快取功能遠超過基礎進階儲存體磁碟的效能。 您可以在進階儲存體磁碟上將磁碟快取原則設定為 **ReadOnly**、**ReadWrite** 或 **None**。 所有進階資料磁碟的預設磁碟快取原則都是 **ReadOnly**，而作業系統磁碟的磁碟快取原則是 **ReadWrite**。 為獲得最佳的應用程式效能，請使用正確的快取設定。 例如，對於讀取繁重或唯讀資料磁碟 (如 SQL Server 資料檔)，將磁碟快取原則設定為 **ReadOnly**。 例如，對於寫入繁重或唯寫資料磁碟 (例如 SQL Server 記錄檔)，將磁碟快取原則設定為 [無]。 請參閱[使用進階儲存體設計高效能](../articles/virtual-machines/windows/premium-storage-performance.md)，以深入了解如何最佳化進階儲存體。
+    支援進階儲存體的大小系列 VM 有獨特的快取功能，在輸送量和延遲上有高層級的表現。 快取功能遠超過基礎進階儲存體磁碟的效能。 您可以在進階儲存體磁碟上將磁碟快取原則設定為 **ReadOnly**、**ReadWrite** 或 **None**。 所有進階資料磁碟的預設磁碟快取原則都是 **ReadOnly**，而作業系統磁碟的磁碟快取原則是 **ReadWrite**。 為獲得最佳的應用程式效能，請使用正確的快取設定。 例如，對於讀取繁重或唯讀資料磁碟 (如 SQL Server 資料檔)，將磁碟快取原則設定為 **ReadOnly**。 例如，對於寫入繁重或唯寫資料磁碟 (如 SQL Server 記錄檔)，將磁碟快取原則設定為 。 請參閱[使用進階儲存體設計高效能](../articles/virtual-machines/windows/premium-storage-performance.md)，以深入了解如何最佳化進階儲存體。
 
 * **分析**
 
@@ -168,9 +185,9 @@ Azure 提供兩種建立 VM 進階儲存體磁碟的方法：
     | 100 MB/秒 | 0 | 100 MB/秒 |
     | 100 MB/秒 | 60 MB/秒 | 40 MB/秒 |
 
-* **快取命中**
+* **快取點擊**
 
-    快取命中不會受到磁碟配置 IOPS 或輸送量的限制。 例如，當您在進階儲存體支援的 VM 上使用具有 **ReadOnly**快取設定的資料磁碟時，從快取提供的「讀取數」並不受限於磁碟的 IOPS 和輸送量上限。 如果磁碟的工作負載是以讀取為主，您可以獲得極高的輸送量。 在 VM 層級上，根據 VM 大小，快取會受到不同的 IOPS 和輸送量限制。 DS 系列 VM 大約有 4,000 IOPS 與 33 MB/秒的輸送量 (針對快取與本機 SSD I/O 的每個核心)。 GS 系列 VM 有 5,000 IOPS 的限制與 50 MB/秒的輸送量 (針對快取與本機 SSD I/O 的每個核心)。 
+    快取點擊不會受到磁碟配置 IOPS 或輸送量的限制。 例如，當您在進階儲存體支援的 VM 上使用具有 **ReadOnly**快取設定的資料磁碟時，從快取提供的「讀取數」並不受限於磁碟的 IOPS 和輸送量上限。 如果磁碟的工作負載是以讀取為主，您可以獲得極高的輸送量。 在 VM 層級上，根據 VM 大小，快取會受到不同的 IOPS 和輸送量限制。 DS 系列 VM 大約有 4,000 IOPS 與 33 MB/秒的輸送量 (針對快取與本機 SSD I/O 的每個核心)。 GS 系列 VM 有 5,000 IOPS 的限制與 50 MB/秒的輸送量 (針對快取與本機 SSD I/O 的每個核心)。 
 
 ## <a name="throttling"></a>節流
 如果您的應用程式 IOPS 或輸送量超過進階儲存體磁碟的配置限制，可能會發生節流。 也可能是因為 VM 上所有磁碟的總磁碟流量，超過 VM 上可用的磁碟頻寬，因而發生節流。 若要避免節流，我們建議您限制磁碟擱置 I/O 要求的數量限制。 請根據所佈建磁碟的延展性和效能目標，以及 VM 上可用的磁碟頻寬來使用限制。  
@@ -269,7 +286,7 @@ sudo yum install microsoft-hyper-v
 
 * **進階儲存體磁碟和 Blob 大小**
 
-    進階儲存體磁碟或 Blob 的計費依據是磁碟或 Blob 得佈建大小。 Azure 會將佈建大小對應 (無條件進位) 至最接近的進階儲存體磁碟選項。 如需詳細資訊，請參閱[進階儲存體延展性和效能目標](#premium-storage-scalability-and-performance-targets)中的表格。 每一個磁碟對應至一個支援的佈建大小，並據此計費。 任何已佈建的磁碟都是使用每月的進階儲存體優惠價格，以每小時的方式計費。 例如，如果您在佈建完 P10 磁碟的 20 小時後刪除它，則會以 20 小時計算 P10 解決方案的費用。 這與寫入磁碟的實際資料量或使用的 IOPS 和輸送量無關。
+    進階儲存體磁碟或 Blob 的計費依據是磁碟或 Blob 得佈建大小。 Azure 會將佈建大小對應 (無條件進位) 至最接近的進階儲存體磁碟選項。 如需詳細資訊，請參閱[進階儲存體延展性和效能目標](#premium-storage-scalability-and-performance-targets)中的表格。 每一個磁碟對應至一個支援的佈建大小，並據此計費。 任何已佈建的磁碟都是使用每月的進階儲存體供應項目價格，以每小時的方式計費。 例如，如果您在佈建完 P10 磁碟的 20 小時後刪除它，則會以 20 小時計算 P10 供應項目的費用。 這與寫入磁碟的實際資料量或使用的 IOPS 和輸送量無關。
 
 * **進階非受控磁碟快照集**
 

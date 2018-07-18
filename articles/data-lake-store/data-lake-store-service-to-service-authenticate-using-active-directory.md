@@ -8,17 +8,15 @@ manager: jhubbard
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/09/2018
+ms.topic: conceptual
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 58f269fa9c153a37a792d9d4efdaf0bd74eb265a
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 89ebc804aeabfa76309d37721576e7fe833ea2ce
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32771308"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625894"
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-azure-active-directory"></a>使用 Azure Active Directory 以 Data Lake Store 進行服務對服務驗證
 > [!div class="op_single_selector"]

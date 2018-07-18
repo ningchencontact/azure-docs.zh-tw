@@ -3,7 +3,7 @@ title: Azure Log Analytics 中的容器監視解決方案 | Microsoft Docs
 description: Log Analytics 中的容器監視方案可協助您在單一位置檢視及管理 Docker 和 Windows 容器主機。
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: e1e4b52b-92d5-4bfa-8a09-ff8c6b5a9f78
@@ -11,14 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 6adde6a76a7675ef4d8b63757fc9419500872dd9
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.component: na
+ms.openlocfilehash: a5c459fa9bafa48bb8731009a0813cdff7a900d8
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970797"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Log Analytics 中的容器監視解決方案
 
@@ -128,7 +130,7 @@ ms.lasthandoff: 05/04/2018
 啟動您要監視的容器。 修改並使用下列範例：
 
 ```
-sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
+sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/containers:/var/lib/docker/containers -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
 ```
 
 **適用於包含 CoreOS 的所有 Azure Government Linux 容器主機：**
@@ -136,7 +138,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e 
 啟動您要監視的容器。 修改並使用下列範例：
 
 ```
-sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/log:/var/log -e WSID="your workspace id" -e KEY="your key" -e DOMAIN="opinsights.azure.us" -p 127.0.0.1:25225:25225 -p 127.0.0.1:25224:25224/udp --name="omsagent" -h=`hostname` --restart=always microsoft/oms
+sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/log:/var/log -v /var/lib/docker/containers:/var/lib/docker/containers -e WSID="your workspace id" -e KEY="your key" -e DOMAIN="opinsights.azure.us" -p 127.0.0.1:25225:25225 -p 127.0.0.1:25224:25224/udp --name="omsagent" -h=`hostname` --restart=always microsoft/oms
 ```
 
 **從使用已安裝的代理程式切換為使用容器中的 Linux 代理程式**
@@ -150,7 +152,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 - 在主要節點上執行下列命令。
 
     ```
-    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock  -e WSID="<WORKSPACE ID>" -e KEY="<PRIMARY KEY>" -p 25225:25225 -p 25224:25224/udp  --restart-condition=on-failure microsoft/oms
+    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --mount type=bind,source=/var/lib/docker/containers,destination=/var/lib/docker/containers -e WSID="<WORKSPACE ID>" -e KEY="<PRIMARY KEY>" -p 25225:25225 -p 25224:25224/udp  --restart-condition=on-failure microsoft/oms
     ```
 
 ##### <a name="secure-secrets-for-docker-swarm"></a>保護 Docker Swarm 的祕密
@@ -528,7 +530,7 @@ KEY:    88 bytes
 
 ## <a name="solution-components"></a>方案元件
 
-如果您是使用 Windows 代理程式，當您新增這個解決方案時，就會使用代理程式在每部電腦上安裝下列管理組件。 管理組件不需要任何設定或維護。
+從 OMS 入口網站，瀏覽至 [解決方案資源庫] 並新增 [容器監視解決方案]。 如果您是使用 Windows 代理程式，當您新增這個解決方案時，就會使用代理程式在每部電腦上安裝下列管理組件。 管理組件不需要任何設定或維護。
 
 - C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs 中所安裝的 ContainerManagement.xxx
 
@@ -563,6 +565,7 @@ KEY:    88 bytes
 
 ## <a name="monitor-containers"></a>監視容器
 在 Log Analytics 入口網站中啟用此解決方案之後，[容器] 圖格會顯示容器主機和主機中執行之容器的相關摘要資訊。
+
 
 ![容器圖格](./media/log-analytics-containers/containers-title.png)
 

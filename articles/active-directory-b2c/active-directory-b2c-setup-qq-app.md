@@ -1,21 +1,21 @@
 ---
-title: Azure Active Directory B2C：QQ 設定 | Microsoft Docs
+title: Azure Active Directory B2C 中的 QQ 組態 | Microsoft Docs
 description: 在受 Azure Active Directory B2C 保護的應用程式中，針對具有 QQ 帳戶的取用者提供註冊和登入。
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 3/26/2017
 ms.author: davidmu
-ms.openlocfilehash: 12daed5f90e2b073a7520c061f18761baaed5c03
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 1f9a0f56158f08dd3b22078f111c9ec6911b726c
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444424"
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-qq-accounts"></a>Azure Active Directory B2C：針對具有QQ 帳戶的取用者提供註冊和登入
 

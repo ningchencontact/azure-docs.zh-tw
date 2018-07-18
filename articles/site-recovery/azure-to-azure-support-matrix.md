@@ -7,23 +7,20 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 07/06/2018
 ms.author: sujayt
-ms.openlocfilehash: daaca3c7b389642a288f738eb0954050e168abef
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: bac4c1d02df644eedbccb38872a6b0f3e7d11c91
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210557"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919782"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>從一個 Azure 區域複寫至另一個區域的支援矩陣
 
 
->[!NOTE]
->
-> Azure 虛擬機器的 Site Recovery 複寫目前為預覽狀態。
 
-本文摘要說明在從一個區域將 Azure 虛擬機器複寫和復原另一個區域時， Azure Site Recovery 支援的組態和元件。
+本文摘要說明使用 [Azure Site Recovery](site-recovery-overview.md) 服務將 Azure 虛擬機器從一個區域複寫及復原至另一個區域時，所支援的設定和元件。
 
 ## <a name="user-interface-options"></a>使用者介面選項
 
@@ -82,9 +79,10 @@ ms.locfileid: "34210557"
 - Ubuntu 16.04 LTS 伺服器 [(支援的核心版本)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Debian 7 [ (支援的核心版本)](#supported-debian-kernel-versions-for-azure-virtual-machines)
 - Debian 8 [ (支援的核心版本)](#supported-debian-kernel-versions-for-azure-virtual-machines)
-- Oracle Enterprise Linux 6.4、6.5，執行 Red Hat 相容核心或 Unbreakable Enterprise Kernel 第 3 版 (UEK3)
+- SUSE Linux Enterprise Server 12 SP1、SP2、SP3 [ (支援的核心版本)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
 - SUSE Linux Enterprise Server 11 SP3
 - SUSE Linux Enterprise Server 11 SP4
+- Oracle Enterprise Linux 6.4、6.5，執行 Red Hat 相容核心或 Unbreakable Enterprise Kernel 第 3 版 (UEK3)
 
 (不支援 SLES 11 SP3 至 SLES 11 SP4 的複寫電腦升級。 若已將複寫電腦從 SLES 11SP3 升級至 SLES 11 SP4，則您必須停用複寫以在升級後重新提供電腦防護。)
 
@@ -96,22 +94,32 @@ ms.locfileid: "34210557"
 
 **版本** | **行動服務版本** | **核心版本** |
 --- | --- | --- |
-14.04 LTS | 9.12 | 3.13.0-24-generic 至 3.13.0-132-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-96-generic |
-14.04 LTS | 9.13 | 3.13.0-24-generic 至 3.13.0-137-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-104-generic |
-14.04 LTS | 9.14 | 3.13.0-24-generic 至 3.13.0-141-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-112-generic |
+14.04 LTS | 9.17 | 3.13.0-24-generic 至 3.13.0-147-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-124-generic |
+14.04 LTS | 9.16 | 3.13.0-24-generic 至 3.13.0-144-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-119-generic |
 14.04 LTS | 9.15 | 3.13.0-24-generic 至 3.13.0-143-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-116-generic |
-16.04 LTS | 9.12 | 4.4.0-21-generic 至 4.4.0-96-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-35-generic |
-16.04 LTS | 9.13 | 4.4.0-21-generic 至 4.4.0-104-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic |
-16.04 LTS | 9.14 | 4.4.0-21-generic 至 4.4.0-112-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-32-generic、<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1009-azure |
+14.04 LTS | 9.14 | 3.13.0-24-generic 至 3.13.0-141-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-112-generic |
+|||
+16.04 LTS | 9.17 | 4.4.0-21-generic 至 4.4.0-124-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-41-generic、<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1016-azure |
+16.04 LTS | 9.16 | 4.4.0-21-generic 至 4.4.0-119-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-38-generic、<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1012-azure |
 16.04 LTS | 9.15 | 4.4.0-21-generic 至 4.4.0-116-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-37-generic、<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1012-azure |
+16.04 LTS | 9.14 | 4.4.0-21-generic 至 4.4.0-112-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-32-generic、<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1009-azure |
 
 
 ### <a name="supported-debian-kernel-versions-for-azure-virtual-machines"></a>Azure 虛擬機器支援的 Debian 核心版本
 
 **版本** | **行動服務版本** | **核心版本** |
 --- | --- | --- |
-Debian 7 | 9.14、9.15 | 3.2.0-4-amd64 至 3.2.0-5-amd64、3.16.0-0.bpo.4-amd64 |
-Debian 8 | 9.14、9.15 | 3.16.0-4-amd64 至 3.16.0-5-amd64、4.9.0-0.bpo.4-amd64 至 4.9.0-0.bpo.5-amd64 |
+Debian 7 | 9.17 | 3.2.0-4-amd64 至 3.2.0-6-amd64、3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.14、9.15、9.16 | 3.2.0-4-amd64 至 3.2.0-5-amd64、3.16.0-0.bpo.4-amd64 |
+|||
+Debian 8 | 9.17 | 3.16.0-4-amd64 至 3.16.0-6-amd64、4.9.0-0.bpo.4-amd64 至 4.9.0-0.bpo.6-amd64 |
+Debian 8 | 9.14、9.15、9.16 | 3.16.0-4-amd64 至 3.16.0-5-amd64、4.9.0-0.bpo.4-amd64 至 4.9.0-0.bpo.5-amd64 |
+
+### <a name="supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines"></a>Azure 虛擬機器支援的 SUSE Linux Enterprise Server 12 核心版本
+
+**版本** | **行動服務版本** | **核心版本** |
+--- | --- | --- |
+SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | 9.17 | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.88-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default</br></br>SP3 4.4.73-5-default 至 4.4.126-94.22-default |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-azure-virtual-machines-running-linux-os"></a>Azure 虛擬機器 (執行 Linux OS) 上的支援檔案系統與客體儲存體組態
 
@@ -162,10 +170,10 @@ Azure 資源庫映像 - 第三方發行 | 支援 | 只要 VM 在 Site Recovery �
 磁碟上的資料變更率 | 進階儲存體的上限為每個磁碟 10 MBps，標準儲存體的上限為每個磁碟 2 MBps | 如果磁碟的平均資料變更率持續超過 10 MBps (適用於進階儲存體) 和 2 MBps (適用於標準儲存體)，複寫將會趕不上進度。 不過，如果是偶發性的資料高載，資料變更率超過 10 MBps (適用於進階儲存體) 和 2 MBps (適用於標準儲存體) 的情況只持續一段時間便下降，複寫便可趕上進度。 在此情況下，您可能會發現復原點稍微延遲。
 標準儲存體帳戶上的磁碟 | 支援 |
 進階儲存體帳戶上的磁碟 | 支援 | 如果 VM 的磁碟分散於進階和標準儲存體帳戶，您可以對於各個磁碟選取不同的目標儲存體帳戶，以確保目標區域有相同的儲存體設定
-標準受控磁碟 | 在支援 Azure Site Recovery 的 Azure 區域中會支援。 目前不支援政府雲端。  |  
-進階受控磁碟 | 在支援 Azure Site Recovery 的 Azure 區域中會支援。 目前不支援政府雲端。 |
+標準受控磁碟 | 在支援 Azure Site Recovery 的 Azure 區域中會支援。 |  
+進階受控磁碟 | 在支援 Azure Site Recovery 的 Azure 區域中會支援。 |
 儲存體空間 | 支援 |         
-待用加密 (SSE) | 支援 | 對於快取和目標儲存體帳戶，您可以選取 SSE 啟用的儲存體帳戶。     
+待用加密 (SSE) | 支援 | SSE 是儲存體帳戶上的預設設定。   
 Azure 磁碟加密 (ADE) | 不支援 |
 熱新增/移除磁碟 | 不支援 | 如果您在 VM 上新增或移除資料磁碟，需要停用複寫，然後再次為 VM 啟用複寫。
 排除磁碟 | 不支援|   預設排除暫存磁碟。

@@ -14,6 +14,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33893639"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>串流分析時間範圍函式簡介
 在即時串流案例中，針對時間範圍中內含的資料執行作業是常見的模式。 串流分析具備對時間範圍函式的原生支援，可讓開發人員輕鬆地撰寫複雜的串流處理工作。

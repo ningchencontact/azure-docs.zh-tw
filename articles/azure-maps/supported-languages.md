@@ -1,22 +1,19 @@
 ---
 title: Azure 地圖服務中的支援語言 | Microsoft Docs
 description: 了解 Azure 地圖服務中服務的支援語言
-services: azure-maps
-keywords: ''
 author: juliekohler
 ms.author: julieko
-ms.date: 3/30/2018
-ms.topic: article
+ms.date: 03/30/2018
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: ''
-ms.openlocfilehash: 8a603ebf05ec714c57955d32182943a4191627cf
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+services: azure-maps
+manager: ''
+ms.openlocfilehash: 68438a317b33bb7e3e784936cdfd1282ba823ad8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34600233"
 ---
 # <a name="azure-maps-supported-languages"></a>Azure 地圖服務支援的語言
 Azure 地圖服務已經跨服務當地語系化為各種語言。  下表提供每個服務的支援語言代碼。  
@@ -41,7 +38,7 @@ Azure 地圖服務已經跨服務當地語系化為各種語言。  下表提供
 | fi-FI      | 芬蘭文                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | fr-FR      | 法文                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | fr-CA      | 法文 (加拿大)      |       |    ✓   |         |                   |                |     ✓     |
-| gl-ES      | 加里斯亞文               |       |        |         |                   |                |     ✓     |
+| gl-ES      | 加利西亞文               |       |        |         |                   |                |     ✓     |
 | de-DE      | 德文                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | el-GR      | 希臘文                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | he-IL      | 希伯來文                 |       |        |         |         ✓         |                |     ✓     |

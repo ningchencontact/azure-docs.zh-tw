@@ -4,7 +4,7 @@ description: 這篇文章說明 Azure Active Directory (Azure AD) 傳遞驗證�
 services: active-directory
 keywords: 什麼是 Azure AD Connect 傳遞驗證、安裝 Active Directory，以及 Azure AD、SSO、單一登入的必要元件
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 377a8255961a4c7fa55f8bbc5cb98ae4deff3205
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2d88bf5d20beb9de9bf4a0cdcb43548d0d582779
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917273"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>使用 Azure Active Directory 傳遞驗證來進行使用者登入
 
@@ -47,7 +49,7 @@ Azure Active Directory (Azure AD) 傳遞驗證可讓您的使用者以相同密�
 - *安全*
   - 內部部署密碼絕對不會以任何形式儲存在雲端。
   - 代理程式只會從您的網路內進行輸出連線。 因此，不需要將代理程式安裝在周邊網路 (又稱做 DMZ) 中。
-  - 與 [Azure AD 條件式存取原則](../active-directory-conditional-access-azure-portal.md) (包括 Multi-Factor Authentication (MFA)) 緊密配合，並[篩除暴力密碼破解攻擊](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)，藉此保護您的使用者帳戶。
+  - 與 [Azure AD 條件式存取原則](../active-directory-conditional-access-azure-portal.md) (包括 Multi-Factor Authentication (MFA)) 緊密配合，並[篩除暴力密碼破解攻擊](../authentication/howto-password-smart-lockout.md)，藉此保護您的使用者帳戶。
 - *高可用性*
   - 可以在多部內部部署伺服器上安裝其他代理程式，以提供高可用性的登入要求。
 
@@ -62,12 +64,12 @@ Azure Active Directory (Azure AD) 傳遞驗證可讓您的使用者以相同密�
 - 您可以透過 [Azure AD Connect](active-directory-aadconnect.md) 啟用它。
 - 它會使用輕量型內部部署代理程式來接聽並回應密碼驗證要求。
 - 安裝多個代理程式就能提供高可用性的登入要求。
-- 它能[保護](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)您的內部部署帳戶，不讓其遭到雲端暴力密碼破解攻擊的威脅。
+- 它能[保護](../authentication/howto-password-smart-lockout.md)您的內部部署帳戶，不讓其遭到雲端暴力密碼破解攻擊的威脅。
 
 ## <a name="next-steps"></a>後續步驟
 
 - [**快速入門**](active-directory-aadconnect-pass-through-authentication-quick-start.md) - 開始使用 Azure AD 傳遞驗證。
-- [**智慧鎖定**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) - 在租用戶中設定智慧鎖定功能來保護使用者帳戶。
+- [**智慧鎖定**](../authentication/howto-password-smart-lockout.md) - 在租用戶中設定智慧鎖定功能來保護使用者帳戶。
 - [**目前的限制**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - 了解支援的情節和不支援的情節。
 - [**技術性深入探討**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) - 了解這項功能的運作方式。
 - [**常見問題集**](active-directory-aadconnect-pass-through-authentication-faq.md) - 常見問題集的答案。

@@ -3,16 +3,17 @@ title: Azure Analysis Services 中支援的資料來源 | Microsoft Docs
 description: 說明 Azure Analysis Services 中資料模型支援的資料來源。
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3b60a5b96d7b8a0c48aacc916b1ba933dcd83705
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f6ad95eb45cc208fe2289cb2095214f98a0b250b
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442384"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支援的資料來源
 
@@ -62,7 +63,8 @@ ms.lasthandoff: 04/16/2018
 |Dynamics CRM*     |  
 |Excel 活頁簿     |  
 |Exchange*     |  
-|資料夾*     | 
+|資料夾*     |
+|IBM Informix* (搶鮮版 (Beta)) |
 |JSON 文件*     |  
 |Lines from binary*     | 
 |MySQL Database     | 
@@ -70,6 +72,8 @@ ms.lasthandoff: 04/16/2018
 |ODBC 查詢     | 
 |OLE DB     |   
 |Postgre SQL 資料庫*    | 
+|Salesforce 物件* |  
+|Salesforce 報表* |
 |SAP HANA*    |  
 |SAP Business Warehouse*    |  
 |SharePoint*     |   

@@ -1,8 +1,8 @@
 ---
-title: "從 Azure 中的雲端儲存體來回移動大量資料 | Microsoft Docs"
-description: "從 Azure 儲存體來回移動資料之不同方法的概觀。"
+title: 從 Azure 中的雲端儲存體來回移動大量資料 | Microsoft Docs
+description: 從 Azure 儲存體來回移動資料之不同方法的概觀。
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: JarrettRenshaw
 manager: msmets
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28984590"
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>從 Azure 儲存體來回移動資料
 如果您想要將內部部署資料移至 Azure 儲存體 (或相反)，有各種不同的方法可以辦到。 最適合的方法將取決於您的案例。 本文將提供不同案例的快速概觀和每個案例的適當供應項目。

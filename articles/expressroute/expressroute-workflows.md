@@ -1,11 +1,11 @@
 ---
-title: "設定 ExpressRoute 線路的工作流程 | Microsoft Docs"
-description: "此頁面會引導您完成設定 ExpressRoute 線路的工作流程"
+title: 設定 ExpressRoute 線路的工作流程 | Microsoft Docs
+description: 此頁面會引導您完成設定 ExpressRoute 線路的工作流程
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 55e0418c-e0bf-44a7-9aa1-720076df9297
 ms.service: expressroute
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23013123"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>ExpressRoute 工作流程線路佈建和線路狀態
 這個頁面以高階觀點引導您完成服務佈建和路由設定的工作流程。

@@ -1,6 +1,6 @@
 ---
-title: 讓 HDInsight 上的 R Server 能夠運作 - Azure | Microsoft Docs
-description: 了解如何讓 Azure HDInsight 上的 R Server 能夠運作。
+title: 在 HDInsight 上運作 ML 服務 - Azure | Microsoft Docs
+description: 了解如何在 Azure HDInsight 中運作 ML 服務。
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -10,27 +10,31 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: R
 ms.topic: conceptual
-ms.date: 03/23/2018
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 6de6e78d9b4ad68d268b59cff18c75fbdd7be757
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: caefe30ff567a5e24e1f4c3a11309bd35e06190c
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046134"
 ---
-# <a name="operationalize-r-server-cluster-on-azure-hdinsight"></a>讓 Azure HDInsight 上的 R Server 叢集能夠運作
+# <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>在 Azure HDInsight 上運作 ML 服務叢集
 
-當您使用 HDInsight 上的 R Server 叢集來完成資料模型之後，您可以讓該模型運作以做出預測。 本文提供如何執行此工作的相關指示。
+當您使用 HDInsight 中的 ML 服務叢集來完成資料模型建構之後，便可以讓該模型運作以做出預測。 本文提供如何執行此工作的相關指示。
 
 ## <a name="prerequisites"></a>先決條件
 
-* **HDInsight 上的 R Server 叢集**：如需相關指示，請參閱[開始在 HDInsight 上使用 R Server](r-server-get-started.md)。
+* **HDInsight 上的 ML 服務叢集**：如需相關指示，請參閱[開始在 HDInsight 上使用 ML 服務](r-server-get-started.md)。
 
 * **安全殼層 (SSH) 用戶端**：SSH 用戶端可用來從遠端連線至 HDInsight 叢集，並直接在叢集上執行命令。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-## <a name="operationalize-r-server-cluster-with-one-box-configuration"></a>使用單一方塊設定來讓 R Server 叢集能夠運作
+## <a name="operationalize-ml-services-cluster-with-one-box-configuration"></a>使用單一方塊設定來運作 ML 服務叢集
 
-1. 透過 SSH 連線到邊緣節點。  
+> [!NOTE]
+> 下列步驟適用於 R Server 9.0 和 ML Server 9.1。 針對 ML Server 9.3，請參閱[使用管理工具來管理運作設定](https://docs.microsoft.com/machine-learning-server/operationalize/configure-admin-cli-launch) \(英文\)。
+
+1. 透過 SSH 連線到邊緣節點。
 
         ssh USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
@@ -38,21 +42,21 @@ ms.lasthandoff: 04/16/2018
 
 2. 變更相關版本的目錄並對 dot net dll 進行 sudo： 
 
-    - 對於 Microsoft R Server 9.1：
+    - 針對 Microsoft ML Server 9.1：
 
             cd /usr/lib64/microsoft-r/rserver/o16n/9.1.0
             sudo dotnet Microsoft.RServer.Utils.AdminUtil/Microsoft.RServer.Utils.AdminUtil.dll
 
-    - 對於 Microsoft R Server 9.0：
+    - 針對 Microsoft R Server 9.0：
 
             cd /usr/lib64/microsoft-deployr/9.0.1
             sudo dotnet Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
-3. 您會看到可從中選擇的選項。 選擇第一個選項 (如下列螢幕擷取畫面所示) 來**設定要實作的 R Server**。
+3. 您會看到可從中選擇的選項。 選擇第一個選項 (如下列螢幕擷取畫面所示) 來**設定要運作的 ML Server**。
 
     ![one box op](./media/r-server-operationalize/admin-util-one-box-1.png)
 
-4. 您現在會看到可選擇來讓 R Server 能夠運作的選項。 從顯示的選項中，輸入 **A** 來選擇第一項。
+4. 系統會顯示可讓您選擇 ML Server 運作方式的選項。 從顯示的選項中，輸入 **A** 來選擇第一項。
 
     ![one box op](./media/r-server-operationalize/admin-util-one-box-2.png)
 
@@ -68,7 +72,7 @@ ms.lasthandoff: 04/16/2018
 
     ![one box op](./media/r-server-operationalize/diagnostic-1.png)
 
-    b. 從 [診斷測試] 功能表中，選取 **A**。出現提示時，輸入您針對本機系統管理員使用者所提供的密碼。
+    b. 從 [診斷測試] 功能表中，選取 [A]。出現提示時，輸入您針對本機系統管理員使用者所提供的密碼。
 
     ![one box op](./media/r-server-operationalize/diagnostic-2.png)
 
@@ -98,7 +102,7 @@ ms.lasthandoff: 04/16/2018
 
 在此階段中，運算化的設定已完成。 現在您可以在 RClient 上使用 `mrsdeploy` 套件來連線至邊緣節點上的實作，並開始使用其功能，像是[遠端執行](https://docs.microsoft.com/machine-learning-server/r/how-to-execute-code-remotely) \(英文\) 和 [Web 服務](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services) \(英文\)。 根據叢集是否設定在虛擬網路上，您可能必須設定透過 SSH 登入的連接埠轉送通道。 下列各節說明如何設定此通道。
 
-### <a name="r-server-cluster-on-virtual-network"></a>虛擬網路上的 R Server 叢集
+### <a name="ml-services-cluster-on-virtual-network"></a>虛擬網路上的 ML 服務叢集
 
 確定您允許流量通過連接埠 12800 到達邊緣節點。 這樣一來，您就可以使用 Edge 節點連線到實作功能。
 
@@ -114,7 +118,7 @@ ms.lasthandoff: 04/16/2018
 
 如果 `remoteLogin()` 無法連線到邊緣節點，但您可以透過 SSH 連線到邊緣節點，則必須確認是否已正確設定在連接埠 12800 上允許流量的規則。 如果您持續遇到此問題，您可以藉由設定透過 SSH 的連接埠轉送通道來處理此問題。 如需相關指示，請參閱下一節：
 
-### <a name="r-server-cluster-not-set-up-on-virtual-network"></a>R Server 叢集未設定於虛擬網路上
+### <a name="ml-services-cluster-not-set-up-on-virtual-network"></a>ML 服務叢集未在虛擬網路上設定
 
 如果您的叢集未設定於 vnet 上，或如果您在透過 vnet 連線時遇到問題，可以使用 SSH 連接埠轉送通道︰
 
@@ -138,7 +142,7 @@ SSH 工作階段變為作用中後，來自電腦連接埠 12800 的流量就會
 
 ### <a name="step-1-decommission-the-worker-nodes"></a>步驟 1：將背景工作節點解除委任
 
-R Server 叢集並非透過 YARN 來管理。 如果未將背景工作節點解除委任，YARN Resource Manager 就無法如預期般運作，因為它不會知道伺服器目前所佔用的資源。 為了避免這個狀況，建議您相應放大計算節點之前，將背景工作角色節點解除委任。
+ML 服務叢集並非透過 YARN 來管理。 如果未將背景工作節點解除委任，YARN Resource Manager 就無法如預期般運作，因為它不會知道伺服器目前所佔用的資源。 為了避免這個狀況，建議您相應放大計算節點之前，將背景工作角色節點解除委任。
 
 請遵循下列步驟來將背景工作節點解除委任：
 
@@ -162,11 +166,11 @@ R Server 叢集並非透過 YARN 來管理。 如果未將背景工作節點解�
 
 1. 透過 SSH 連線到每個已解除委任的背景工作角色節點。
 
-2. 使用適用於您所擁有之 R Server 叢集的相關 DLL 來執行管理公用程式。 針對 R Server 9.1，執行下列動作：
+2. 針對您所擁的 ML 服務叢集，使用相關的 DLL 來執行系統管理公用程式。 針對 ML Server 9.1，執行下列動作：
 
         dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
-3. 輸入 **1** 以選取選項 [Configure R Server for Operationalization] \(設定要實作的 R Server\)。
+3. 輸入 **1** 以選取 [設定要運作的 ML Server] 選項。
 
 4. 輸入 **C** 以選取選項 `C. Compute node`。 這會設定背景工作角色節點上的計算節點。
 
@@ -174,7 +178,7 @@ R Server 叢集並非透過 YARN 來管理。 如果未將背景工作節點解�
 
 ### <a name="step-3-add-compute-nodes-details-on-web-node"></a>步驟 3：在 Web 節點上新增計算節點詳細資料
 
-當所有已解除委任的背景工作節點皆已設定為執行計算節點後，請回到邊緣節點，然後在 R Server Web 節點的設定中新增已解除委任之背景工作節點的 IP 位址：
+當所有已解除委任的背景工作角色節點都已設定為執行計算節點之後，請回到邊緣節點，然後在 ML Server Web 節點的設定中新增已解除委任之背景工作角色節點的 IP 位址：
 
 1. 透過 SSH 連線到邊緣節點。
 
@@ -191,6 +195,6 @@ R Server 叢集並非透過 YARN 來管理。 如果未將背景工作節點解�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [管理 HDInsight 上的 R Server 叢集](r-server-hdinsight-manage.md)
-* [適用於 HDInsight 上 R Server 叢集的計算內容選項](r-server-compute-contexts.md)
-* [適用於 HDInsight 上 R Server 叢集的 Azure 儲存體選項](r-server-storage.md)
+* [在 HDInsight 上管理 ML 服務叢集](r-server-hdinsight-manage.md)
+* [在 HDInsight 上計算 ML 服務叢集的內容選項](r-server-compute-contexts.md)
+* [HDInsight 上適用於 ML 服務叢集的 Azure 儲存體選項](r-server-storage.md)

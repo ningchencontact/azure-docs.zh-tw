@@ -1,20 +1,21 @@
 ---
-title: 使用 Application Insights 中的事件從 Azure AD B2C 追蹤使用者行為 | Microsoft Docs
+title: 使用 Application Insights 中的事件從 Azure Active Directory B2C 追蹤使用者行為 | Microsoft Docs
 description: 使用自訂原則，從 Azure AD B2C 使用者旅程圖，在 Application Insights 中啟用事件記錄的逐步指南 (預覽)
 services: active-directory-b2c
-documentationcenter: dev-center-name
 author: davidmu1
 manager: mtillman
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: davidmu
-ms.openlocfilehash: db9ba62cb6ef0d2627dbeb07cb8165a4ac7ae490
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: 1b37e61763b34e320ffb4078600e08b1d32330a1
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34709959"
 ---
 # <a name="track-user-behavior-in-azure-ad-b2c-journeys-by-using-application-insights"></a>使用 Application Insights 在 Azure AD B2C 旅程圖內追蹤使用者行為
 

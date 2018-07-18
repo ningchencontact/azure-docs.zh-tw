@@ -1,22 +1,20 @@
 ---
 title: Azure IoT 中樞簡介 | Microsoft Docs
 description: 了解 Azure IoT 中樞。 此 IoT 服務是針對可調整規模的資料擷取、裝置管理和安全性所建置。
-services: iot-hub
-keywords: ''
 author: nberdy
 ms.author: nberdy
-ms.date: 04/27/2018
+ms.date: 07/04/2018
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-hub
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.openlocfilehash: 7ba74834e1c3aad5915959e0457b6e034e4a49ed
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+services: iot-hub
+manager: briz
+ms.openlocfilehash: 0e54c48eb63c5b70626e72f83de6d3676710d4c4
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37860151"
 ---
 # <a name="what-is-azure-iot-hub"></a>何謂 Azure IoT 中心？
 
@@ -110,4 +108,4 @@ IoT 中樞和裝置 SDK 支援下列連線裝置的通訊協定：
 
 若要嘗試完整的 IoT 解決方案，請參閱 IoT 中樞快速入門：
 
-* [快速入門：將遙測從裝置傳送到 IoT 中樞](iot-hub-get-started.md)
+* [快速入門：將遙測從裝置傳送到 IoT 中樞](quickstart-send-telemetry-node.md)

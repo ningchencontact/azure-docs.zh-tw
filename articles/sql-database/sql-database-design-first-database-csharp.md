@@ -8,12 +8,13 @@ ms.reviewer: CarlRabeler
 ms.service: sql-database
 ms.custom: develop databases, mvc, devcenter
 ms.topic: tutorial
-ms.date: 03/15/2018
-ms.openlocfilehash: 3b6f260983e3c826bf558f0fe6d1a0fa6ae6b3af
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.date: 06/07/2018
+ms.openlocfilehash: 4e2238968d29bc0081a472c9c05662cb7813d866
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38697708"
 ---
 # <a name="design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>設計 Azure SQL Database 並連接 C&#x23; 和 ADO.NET
 
@@ -61,5 +62,5 @@ And it starts with a ## H2.
 請前進到下一個教學課程，以了解如何移轉資料。
 
 > [!div class="nextstepaction"]
->[將 SQL Server Database 移轉至 Azure SQL Database](sql-database-migrate-your-sql-server-database.md)
+> [將 SQL Server Database 移轉至 Azure SQL Database](sql-database-migrate-your-sql-server-database.md)
 

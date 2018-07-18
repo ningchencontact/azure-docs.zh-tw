@@ -16,6 +16,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33781577"
 ---
 # <a name="what-happened-to-my-aspnet-core-project-visual-studio-key-vault-connected-service"></a>我的 ASP.NET Core 專案 (Visual Studio Key Vault 連線服務) 發生什麼情形？
 

@@ -1,23 +1,19 @@
 ---
 title: 升級 Azure IoT 中樞 | Microsoft Docs
 description: 變更「IoT 中樞」的定價與級別層，以取得更多傳訊和裝置管理功能。
-services: iot-hub
-documentationcenter: ''
 author: kgremban
 manager: timlt
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: d383d26b406c012b6b76225faf89f4b5dbd6bb9c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 472115f166adc5385b6f46b2f3ac5ef75a6cde92
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637271"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>如何升級 IoT 中樞
 
@@ -40,11 +36,11 @@ ms.lasthandoff: 04/03/2018
 1. 登入 [Azure 入口網站](https://portal.azure.com/)，然後瀏覽至 IoT 中樞。 
 2. 選取 [定價與級別]。 
 
-   ![定價與級別](./media/iot-hub-upgrade/pricing-scale.png)
+   ![價格和調整](./media/iot-hub-upgrade/pricing-scale.png)
 
 3. 若要變更中樞的層級，請選取 [定價與級別層]。 選取新的層級，然後按一下 [選取]。
 
-   ![定價與級別](./media/iot-hub-upgrade/select-tier.png)
+   ![價格和調整](./media/iot-hub-upgrade/select-tier.png)
 
 4. 若要變更您中樞內的單位數，請在 [IoT 中樞單位] 底下輸入新的值。 
 5. 選取 [儲存] 來儲存變更。 

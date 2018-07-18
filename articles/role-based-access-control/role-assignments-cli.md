@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure CLI 管理角色型存取控制 (RBAC) | Microsoft Docs
-description: 了解如何使用 Azure 命令列介面，藉由列出角色和角色動作，以及藉由將角色指派給訂用帳戶和應用程式範圍，來管理「角色型存取控制」(RBAC)。
+title: 使用 RBAC 和 Azure CLI 來管理存取權 | Microsoft Docs
+description: 了解如何使用角色型存取控制 (RBAC) 和 Azure CLI 來管理使用者、群組和應用程式的存取權。 這包括如何列出存取權、授與存取權以及移除存取權。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -8,35 +8,31 @@ manager: mtillman
 ms.assetid: 3483ee01-8177-49e7-b337-4d5cb14f5e32
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/03/2018
+ms.date: 06/20/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
-ms.openlocfilehash: 4a88f78f1f3fc1eaf8d6f9beae42119fe42f1807
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.reviewer: bagovind
+ms.openlocfilehash: 6d1e64c7630f3fd35124e6671476174ddfc16bb6
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437094"
 ---
-# <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>使用 Azure 命令列介面管理角色型存取控制
+# <a name="manage-access-using-rbac-and-azure-cli"></a>使用 RBAC 和 Azure CLI 來管理存取權
 
-> [!div class="op_single_selector"]
-> * [PowerShell](role-assignments-powershell.md)
-> * [Azure CLI](role-assignments-cli.md)
-> * [REST API](role-assignments-rest.md)
-
-
-使用角色型存取控制 (RBAC)，您會藉由在特定範圍指派角色，來定義使用者、群組和服務主體的存取權。 本文說明如何使用 Azure 命令列介面 (CLI) 管理角色指派。
+[角色型存取控制 (RBAC)](overview.md) 是您管理 Azure 資源存取權的手段。 本文將描述如何使用 RBAC 和 Azure CLI 來管理使用者、群組和應用程式的存取權。
 
 ## <a name="prerequisites"></a>先決條件
 
-您必須具備以下先決條件，才能使用 Azure CLI 來管理角色指派：
+若要管理存取權，您需要下列其中一項：
 
-* [Azure CLI 2.0](/cli/azure). 您可以透過 [Azure Cloud Shell](../cloud-shell/overview.md) 在瀏覽器中使用，或者在 macOS、Linux 和 Windows 中[安裝](/cli/azure/install-azure-cli)並從命令列中執行。
+* [Azure Cloud Shell 中的 Bash](/azure/cloud-shell/overview)
+* [Azure CLI](/cli/azure)
 
-## <a name="list-role-definitions"></a>列出角色定義
+## <a name="list-roles"></a>列出角色
 
 若要列出所有可用的角色定義，請使用 [az role definition list](/cli/azure/role/definition#az-role-definition-list):
 
@@ -93,7 +89,7 @@ az role definition list --custom-role-only false --output json | jq '.[] | {"rol
 ...
 ```
 
-### <a name="list-actions-of-a-role-definition"></a>列出角色定義的動作
+### <a name="list-actions-of-a-role"></a>列出角色的動作
 
 若要列出角色定義的動作，請使用 [az role definition list](/cli/azure/role/definition#az-role-definition-list):
 
@@ -181,7 +177,9 @@ az role definition list --name "Virtual Machine Contributor" --output json | jq 
 ]
 ```
 
-## <a name="list-role-assignments"></a>列出角色指派
+## <a name="list-access"></a>列出存取權
+
+在 RBAC 中，若要列出存取權，您可以列出角色指派。
 
 ### <a name="list-role-assignments-for-a-user"></a>列出使用者的角色指派
 
@@ -239,7 +237,9 @@ az role assignment list --resource-group pharma-sales-projectforecast --output j
 ...
 ```
 
-## <a name="create-role-assignments"></a>建立角色指派
+## <a name="grant-access"></a>授與存取權
+
+在 RBAC 中，若要授與存取權，您可以建立角色指派。
 
 ### <a name="create-a-role-assignment-for-a-user"></a>建立使用者的角色指派
 
@@ -289,9 +289,9 @@ az role assignment create --role <role> --assignee-object-id <assignee_object_id
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 44444444-4444-4444-4444-444444444444 --resource-group pharma-sales-projectforecast
 ```
 
-## <a name="remove-a-role-assignment"></a>移除角色指派
+## <a name="remove-access"></a>移除存取
 
-若要移除角色指派，請使用 [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete)：
+在 RBAC 中，若要移除存取權，您可以使用 [az 角色指派刪除](/cli/azure/role/assignment#az-role-assignment-delete)來移除角色指派:
 
 ```azurecli
 az role assignment delete --assignee <assignee> --role <role> --resource-group <resource_group>
@@ -309,139 +309,7 @@ az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine
 az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role "Reader" --scope /subscriptions/11111111-1111-1111-1111-111111111111
 ```
 
-## <a name="custom-roles"></a>自訂角色
-
-### <a name="list-custom-roles"></a>列出自訂角色
-
-若要列出範圍中可供指派的角色，請使用 [az role definition list](/cli/azure/role/definition#az-role-definition-list)。
-
-下列兩個範例都會列出目前訂用帳戶中的所有自訂角色：
-
-```azurecli
-az role definition list --custom-role-only true --output json | jq '.[] | {"roleName":.roleName, "roleType":.roleType}'
-```
-
-```azurecli
-az role definition list --output json | jq '.[] | if .roleType == "CustomRole" then {"roleName":.roleName, "roleType":.roleType} else empty end'
-```
-
-```Output
-{
-  "roleName": "My Management Contributor",
-  "type": "CustomRole"
-}
-{
-  "roleName": "My Service Operator Role",
-  "type": "CustomRole"
-}
-{
-  "roleName": "My Service Reader Role",
-  "type": "CustomRole"
-}
-
-...
-```
-
-### <a name="create-a-custom-role"></a>建立自訂角色
-
-若要建立自訂角色，請使用 [az role definition create](/cli/azure/role/definition#az-role-definition-create)。 角色定義可以是 JSON 描述或包含 JSON 描述的檔案路徑。
-
-```azurecli
-az role definition create --role-definition <role_definition>
-```
-
-下列範例會建立一個名為 Virtual Machine Operator 的自訂角色。 這個自訂角色會指派 Microsoft.Compute、Microsoft.Storage 和 Microsoft.Network 資源提供者之所有讀取作業的存取權，以及指派啟動、重新啟動和監視虛擬機器的存取權。 這個自訂角色可用於兩個訂用帳戶中。 這個範例使用 JSON 檔案做為輸入。
-
-vmoperator.json
-
-```json
-{
-  "Name": "Virtual Machine Operator",
-  "IsCustom": true,
-  "Description": "Can monitor and restart virtual machines.",
-  "Actions": [
-    "Microsoft.Storage/*/read",
-    "Microsoft.Network/*/read",
-    "Microsoft.Compute/*/read",
-    "Microsoft.Compute/virtualMachines/start/action",
-    "Microsoft.Compute/virtualMachines/restart/action",
-    "Microsoft.Authorization/*/read",
-    "Microsoft.Resources/subscriptions/resourceGroups/read",
-    "Microsoft.Insights/alertRules/*",
-    "Microsoft.Support/*"
-  ],
-  "NotActions": [
-
-  ],
-  "AssignableScopes": [
-    "/subscriptions/11111111-1111-1111-1111-111111111111",
-    "/subscriptions/33333333-3333-3333-3333-333333333333"
-  ]
-}
-```
-
-```azurecli
-az role definition create --role-definition ~/roles/vmoperator.json
-```
-
-### <a name="update-a-custom-role"></a>更新自訂角色
-
-若要更新自訂角色，請先使用 [az role definition list](/cli/azure/role/definition#az-role-definition-list) 來擷取角色定義。 接著，對角色定義進行想要的變更。 最後，使用 [az role definition update](/cli/azure/role/definition#az-role-definition-update)儲存更新的角色定義。
-
-```azurecli
-az role definition update --role-definition <role_definition>
-```
-
-下列範例會將 Microsoft.Insights/diagnosticSettings/ 作業新增到 Virtual Machine Operator 自訂角色的 Actions 中。
-
-vmoperator.json
-
-```json
-{
-  "Name": "Virtual Machine Operator",
-  "IsCustom": true,
-  "Description": "Can monitor and restart virtual machines.",
-  "Actions": [
-    "Microsoft.Storage/*/read",
-    "Microsoft.Network/*/read",
-    "Microsoft.Compute/*/read",
-    "Microsoft.Compute/virtualMachines/start/action",
-    "Microsoft.Compute/virtualMachines/restart/action",
-    "Microsoft.Authorization/*/read",
-    "Microsoft.Resources/subscriptions/resourceGroups/read",
-    "Microsoft.Insights/alertRules/*",
-    "Microsoft.Insights/diagnosticSettings/*",
-    "Microsoft.Support/*"
-  ],
-  "NotActions": [
-
-  ],
-  "AssignableScopes": [
-    "/subscriptions/11111111-1111-1111-1111-111111111111",
-    "/subscriptions/33333333-3333-3333-3333-333333333333"
-  ]
-}
-```
-
-```azurecli
-az role definition update --role-definition ~/roles/vmoperator.json
-```
-
-### <a name="delete-a-custom-role"></a>刪除自訂角色
-
-若要刪除自訂角色，請使用 [az role definition delete](/cli/azure/role/definition#az-role-definition-delete)。 若要指定要刪除的角色，請使用角色名稱或角色識別碼。 若要決定角色識別碼，請使用 [az role definition list](/cli/azure/role/definition#az-role-definition-list)。
-
-```azurecli
-az role definition delete --name <role_name or role_id>
-```
-
-下列範例會刪除 Virtual Machine Operator 自訂角色：
-
-```azurecli
-az role definition delete --name "Virtual Machine Operator"
-```
-
 ## <a name="next-steps"></a>後續步驟
 
-[!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
-
+- [教學課程：使用 Azure CLI 建立自訂角色](tutorial-custom-role-cli.md)
+- [使用 Azure CLI 管理 Azure 資源和資源群組](../azure-resource-manager/xplat-cli-azure-resource-manager.md)

@@ -3,23 +3,24 @@ title: Azure Active Directory 報告常見問題集 | Microsoft Docs
 description: Azure Active Directory 報告常見問題集。
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: priyamohanram
 manager: mtillman
 ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
+ms.component: compliance-reports
 ms.date: 05/10/2018
-ms.author: markvi
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5fa52099f5cf55b78fd2fea407c34f29237939d3
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 8d627abfe7b686eeeb5a65c4515e184f4ce62f4e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067005"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335052"
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Azure Active Directory 報告常見問題集
 
@@ -71,7 +72,7 @@ ms.locfileid: "34067005"
 
 **問：我可以從 Azure 入口網站下載多少記錄？**
 
-**答：** 您可以從 Azure 入口網站最多下載 12 萬筆記錄。 這些記錄會依「時間上最近」方式來排序，而根據預設，您會取得最近的 12 萬筆記錄。 
+**答：** 您可以從 Azure 入口網站最多下載 5000 筆記錄。 這些記錄會依「時間上最近」方式來排序，而根據預設，您會取得最近的 5000 筆記錄。
 
 ---
 
@@ -83,7 +84,7 @@ ms.locfileid: "34067005"
 
 **問：我要如何取得進階授權？**
 
-**答：** 如需此問題的解答，請參閱[開始使用 Azure Active Directory Premium](active-directory-get-started-premium.md)。
+**答：** 如需此問題的解答，請參閱[開始使用 Azure Active Directory Premium](fundamentals/active-directory-get-started-premium.md)。
 
 ---
 

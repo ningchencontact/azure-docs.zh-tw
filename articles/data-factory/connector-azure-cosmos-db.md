@@ -10,25 +10,23 @@ ms.service: multiple
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/27/2018
+ms.topic: conceptual
+ms.date: 05/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 58e1c88629c21940e09efd6832d536c0b2b47ace
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 92b45c1038fd099926360dc80802ababf0e8ee93
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37052761"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure Cosmos DB 或從該處複製資料
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [第 1 版 - 正式推出](v1/data-factory-azure-documentdb-connector.md)
-> * [第 2 版 - 預覽](connector-azure-cosmos-db.md)
+> * [第 1 版](v1/data-factory-azure-documentdb-connector.md)
+> * [目前的版本](connector-azure-cosmos-db.md)
 
 本文概述如何使用 Azure Data Factory 中的「複製活動」，從 Azure Cosmos DB (SQL API) 複製資料及將資料複製到該處。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
-
-> [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (也就是正式推出版 (GA))，請參閱 [V1 中的 Azure Cosmos DB 連接器](v1/data-factory-azure-documentdb-connector.md)。
 
 ## <a name="supported-capabilities"></a>支援的功能
 
@@ -111,8 +109,8 @@ ms.lasthandoff: 04/28/2018
 
 針對無結構描述的資料存放區 (例如 Azure Cosmos DB)，複製活動會以下列其中一種方式推斷結構描述。 因此，除非您想要[依原樣匯入/匯出 JSON 文件](#importexport-json-documents)，否則最佳做法是在 **structure** 區段中指定資料的結構。
 
-1. 如果您是使用資料集定義中的 **structure** 屬性來定義結構，Data Factory 服務會將此結構接受為結構描述。 在此情況下，如果資料列不包含資料行的值，則會使用 null 值。
-2. 如果您不是使用資料集定義中的 **structure** 屬性來指定結構，Data Factory 服務會使用資料的第一列來推斷結構描述。 在此情況下，如果第一個資料列不包含完整的結構描述，某些資料行會因複製作業而遺失。
+*. 如果您是使用資料集定義中的 **structure** 屬性來定義結構，Data Factory 服務會將此結構接受為結構描述。 在此情況下，如果資料列不包含資料行的值，則會使用 null 值。
+*. 如果您不是使用資料集定義中的 **structure** 屬性來指定結構，Data Factory 服務會使用資料的第一列來推斷結構描述。 在此情況下，如果第一個資料列不包含完整的結構描述，某些資料行會因複製作業而遺失。
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
@@ -210,8 +208,8 @@ ms.lasthandoff: 04/28/2018
 
 達成這種無從驗證結構描述的複製：
 
-- 在 Cosmos DB 資料集中，請勿指定 "structure" 區段；並且在複製活動的 Cosmos DB 來源/接收器中，不要指定 "nestingSeparator" 屬性。
-- 從 JSON 檔案匯入或匯出到該處時，請將格式類型指定為 "JsonFormat" 並正確地設定 "filePattern" (如需詳細資料，請參閱 [JSON 格式](supported-file-formats-and-compression-codecs.md#json-format)一節)，然後不要指定 "structure" 區段並略過其餘格式設定。
+* 使用複製資料工具時，請核取 [依原樣匯出到 JSON 檔案或 Cosmos DB 集合] 選項。
+* 使用活動撰寫時，請勿在 Cosmos DB 資料集內指定 "structure" (也稱為結構描述) 區段，也不要在複製活動的 Cosmos DB 來源/接收上指定 "nestingSeparator" 屬性。 從 JSON 檔案匯入或匯出到該處時，請在對應的檔案存放區資料及內，將格式類型指定為 "JsonFormat" 並正確地設定 "filePattern" (如需詳細資料，請參閱 [JSON 格式](supported-file-formats-and-compression-codecs.md#json-format)一節)，然後不要指定 "structure" (也稱為結構描述) 區段並略過其餘格式設定。
 
 ## <a name="next-steps"></a>後續步驟
 如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md##supported-data-stores-and-formats)。

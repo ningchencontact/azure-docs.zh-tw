@@ -1,6 +1,5 @@
 # 概觀
-## [Operations Management Suite (OMS) 是什麼？](operations-management-suite-overview.md)
-## [OMS 架構](operations-management-suite-architecture.md)
+## [代理程式監視](../monitoring/index.md)
 
 # 開始使用
 ## [Log Analytics](../log-analytics/log-analytics-get-started.md)
@@ -13,12 +12,10 @@
 
 ## 分析
 ### [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-### [監視產品比較](operations-management-suite-monitoring-product-comparison.md)
-### [管理警示](operations-management-suite-monitoring-alerts.md)
 ## 自動化
 ### [Azure 自動化概觀](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
-## 備份
+## Backup 
 ### [備份概觀](../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Site Recovery 概觀](../site-recovery/site-recovery-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
@@ -45,7 +42,6 @@
 #### [Office 365](oms-solution-office-365.md)
 #### [Service Fabric 分析](../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### 服務對應
-##### [逐步介紹](../monitoring/monitoring-walkthrough-servicemap.md)
 ##### [使用](../monitoring/monitoring-service-map.md)
 ##### [設定](../monitoring/monitoring-service-map-configure.md)
 ##### [與 Operations Manager 整合](../monitoring/monitoring-service-map-scom.md)
@@ -69,12 +65,7 @@
 ### [最佳做法](../monitoring/monitoring-solutions-best-practices.md)
 
 ## 管理案例
-### [從 Runbook 收集分析資料](operations-management-suite-runbook-datacollect.md)
-
-## [與 OMS 整合](operations-management-suite-integration.md)
-
-# 參考
-## [SDK](operations-management-suite-sdk.md)
+### [從 Runbook 收集分析資料](../monitoring/monitoring-runbook-datacollect.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/)

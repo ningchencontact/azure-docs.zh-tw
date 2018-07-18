@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 5a96d21d-fa4a-4dc2-abe8-a830a3482fb1
 ms.service: service-fabric
 ms.devlang: csharp
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2018
 ms.author: subramar
-ms.openlocfilehash: 9530b07b68ca1fafe605fa69a4d692cb382acac2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 59dc090053c78dbddc1854f21db39f66df7bc91c
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365554"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020540"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>建立第一個 Azure Service Fabric 應用程式
 > [!div class="op_single_selector"]
@@ -108,11 +108,23 @@ Service Fabric Yeoman 範本包含建置指令碼，可用來從終端機建置�
 
 部署應用程式後，開啟瀏覽器並瀏覽至 [http://localhost:19080/Explorer](http://localhost:19080/Explorer) 的 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)。 接著展開 [應用程式] 節點，請注意，您的應用程式類型現在有一個項目，而另一個項目則在該類型的第一個執行個體。
 
+> [!IMPORTANT]
+> 若要將應用程式部署到 Azure 中的安全 Linux 叢集，您需要設定憑證來向 Service Fabric 執行階段驗證您的應用程式。 這樣做就能讓您的 Reliable Services 服務可與基礎 Service Fabric 執行階段 API 進行通訊。 若要深入了解，請參閱[將 Reliable Services 應用程式設定為在 Linux 叢集上執行](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters)。  
+>
+
 ## <a name="start-the-test-client-and-perform-a-failover"></a>啟動測試用戶端並執行容錯移轉
 動作項目專案沒有任何屬於自己的項目。 它們需要其他服務或用戶端傳送訊息給它們。 動作項目範本包含簡單的測試指令碼，您可以用來與動作項目服務互動。
 
 1. 使用監看式公用程式執行指令碼，以查看動作項目服務的輸出。
 
+   如果是 MAC OS X，您需要藉由執行下列其他命令，將 myactorsvcTestClient 資料夾複製到容器內的某些位置。
+    
+    ```bash
+    docker cp  [first-four-digits-of-container-ID]:/home
+    docker exec -it [first-four-digits-of-container-ID] /bin/bash
+    cd /home
+    ```
+    
     ```bash
     cd myactorsvcTestClient
     watch -n 1 ./testclient.sh

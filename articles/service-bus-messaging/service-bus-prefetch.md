@@ -1,11 +1,11 @@
 ---
-title: "Azure 服務匯流排預先擷取訊息 | Microsoft Docs"
-description: "藉由預先擷取 Azure 服務匯流排訊息來提升效能。"
+title: Azure 服務匯流排預先擷取訊息 | Microsoft Docs
+description: 藉由預先擷取 Azure 服務匯流排訊息來提升效能。
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28928156"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>預先擷取 Azure 服務匯流排訊息
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31521600"
 ---
 # <a name="create-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>在 Azure 虛擬網路的 HDInsight 上建立 HBase 叢集
 了解如何在 [Azure 虛擬網路][1]中建立 Azure HDInsight HBase 叢集。

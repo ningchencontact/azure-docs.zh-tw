@@ -17,10 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
 ms.openlocfilehash: 42910675bcf512a3d6c76369adc9f41215420a78
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972286"
 ---
 # <a name="cloud-foundry-on-azure"></a>Azure 上的 Cloud Foundry
 
@@ -45,7 +46,7 @@ Microsoft 透過下列社群管道提供 OSS CF 的最佳支援：
 
 ### <a name="pivotal-cloud-foundry"></a>Pivotal Cloud Foundry
 
-Pivotal Cloud Foundry 包含與 OSS 散發版本相同的核心平台，以及一組專屬的管理工具和企業支援。 若要在 Azure 上執行 PCF，您必須取得 Pivotal 的授權。 Azure Marketplace 提供的 PCF 優惠包括 90 天試用版授權。
+Pivotal Cloud Foundry 包含與 OSS 散發版本相同的核心平台，以及一組專屬的管理工具和企業支援。 若要在 Azure 上執行 PCF，您必須取得 Pivotal 的授權。 Azure Marketplace 提供的 PCF 供應項目包括 90 天試用版授權。
 
 這些工具包括 [Pivotal Operations Manager (英文)](http://docs.pivotal.io/pivotalcf/customizing/)、可簡化部署和管理 Cloud Foundry Foundation 的 Web 應用程式，以及 [Pivotal Apps Manager (英文)](https://docs.pivotal.io/pivotalcf/console/)，此為可用來管理使用者和應用程式的 Web 應用程式。
 
@@ -53,7 +54,8 @@ Pivotal Cloud Foundry 包含與 OSS 散發版本相同的核心平台，以及�
 
 ## <a name="azure-service-broker"></a>Azure Service Broker
 
-Cloud Foundry 鼓勵使用 ["twelve-factor app" (英文)](https://12factor.net/) 方法，明確區分無狀態應用程式程序和可設定狀態的備份服務。 [Service Broker (英文)](https://docs.cloudfoundry.org/services/api.html) 提供一致的方式來佈建備份服務並繫結至應用程式。 [Azure Service Broker (英文)](https://github.com/Azure/meta-azure-service-broker) 會透過此管道提供一些主要的 Azure 服務，包括 Azure 儲存體和 Azure SQL。
+Cloud Foundry 鼓勵使用 ["twelve-factor app" (英文)](https://12factor.net/) 方法，明確區分無狀態應用程式程序和可設定狀態的備份服務。 
+  [Service Broker (英文)](https://docs.cloudfoundry.org/services/api.html) 提供一致的方式來佈建備份服務並繫結至應用程式。 [Azure Service Broker (英文)](https://github.com/Azure/meta-azure-service-broker) 會透過此管道提供一些主要的 Azure 服務，包括 Azure 儲存體和 Azure SQL。
 
 如果您使用 Pivotal Cloud Foundry，您也可以從 Pivotal Network，[以圖格形式取得](https://docs.pivotal.io/azure-sb/installing.html)此 Service Broker。
 

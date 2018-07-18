@@ -9,11 +9,11 @@ ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 9a29406b92f7d2e2ce8171974efb5a264e112d1d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34371145"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38724890"
 ---
 1. 登入 [Azure 入口網站][lnk-portal]。
 1. 選取 [建立資源] > [物聯網] > [IoT 中樞]。

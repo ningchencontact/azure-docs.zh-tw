@@ -9,21 +9,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 06e07d566afe64b55470f73e232cf45feccd47fb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ba965b0610525f66c24dd6d5bad3fd113a6b6758
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050860"
 ---
 # <a name="azure-data-factory-service-identity"></a>Azure Data Factory 服務識別
 
 本文協助您了解資料處理站的服務識別及其運作方式。
-
-> [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (正式推出版本 (GA))，請參閱 [Data Factory 第 1 版文件](v1/data-factory-introduction.md)。
 
 ## <a name="overview"></a>概觀
 
@@ -38,7 +36,7 @@ ms.lasthandoff: 03/23/2018
 
 資料處理站服務識別的產生過程如下：
 
-- 自 ADF V2 公開預覽版本開始，透過 **Azure 入口網站或 PowerShell** 建立資料處理站時一律會自動建立服務識別。
+- 透過 **Azure 入口網站或 PowerShell** 建立資料處理站時，一律會自動建立服務識別。
 - 透過 **SDK** 建立資料處理站時，只有您在用於建立的處理站物件中指定 "Identity = new FactoryIdentity()" 時，才會建立服務識別。 請參閱 [.NET 快速入門 - 建立資料處理站](quickstart-create-data-factory-dot-net.md#create-a-data-factory)中的範例。
 - 透過 **REST API** 建立資料處理站時，只有您在要求本文中指定 "identity" 區段時，才會建立服務識別。 請參閱 [REST 快速入門 - 建立資料處理站](quickstart-create-data-factory-rest-api.md#create-a-data-factory)中的範例。
 

@@ -9,16 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: ba4e5996a87596c88822d96faf3e80e8243ad78b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5f1d71db70bbaa6e569ad6f9a6f51bca4c5dc220
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36213119"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>在 Linux 建立第一個 Service Fabric 容器應用程式
 > [!div class="op_single_selector"]
@@ -118,7 +119,7 @@ docker run -d -p 4000:80 --name my-web-site helloworldapp
 
 name - 提供執行中容器的名稱 (而不是容器識別碼)。
 
-連線到執行中的容器。 開啟 Web 瀏覽器並指向連接埠 4000 上傳回的 IP 位址，例如 "http://localhost:4000"。 您應該會看到 "Hello World!" 標題 顯示在瀏覽器中。
+連線到執行中的容器。 開啟 Web 瀏覽器並指向連接埠 4000 上傳回的 IP 位址，例如 " http://localhost:4000 "。 您應該會看到 "Hello World!" 標題 顯示在瀏覽器中。
 
 ![Hello World!][hello-world]
 
@@ -170,26 +171,12 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 
 指定執行個體計數為 "1"。
 
+以適當的格式指定連接埠對應。 針對本文章，您需要提供 ```80:4000``` 當作連接埠對應。 這樣做之後，原本要傳送至主機電腦之連接埠 4000 的任何送入要求，都會被重新導向至容器上的連接埠 80。
+
 ![容器的 Service Fabric Yeoman 產生器][sf-yeoman]
 
-## <a name="configure-port-mapping-and-container-repository-authentication"></a>設定連接埠對應和容器存放庫驗證
-您的容器化服務需要端點進行通訊。 現在將通訊協定、連接埠和類型新增至 ServiceManifest.xml 檔案中 'Resources' 標籤之下的 `Endpoint`。 在本文中，容器化服務會接聽連接埠 4000： 
-
-```xml
-
-<Resources>
-    <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="myServiceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
-    </Endpoints>
-  </Resources>
- ```
- 
-提供 `UriScheme`，就會自動向「Service Fabric 命名」服務註冊容器端點以供搜尋。 本文結尾會提供完整的 ServiceManifest.xml 範例檔案。 
-
-在 ApplicationManifest.xml 檔案的 `ContainerHostPolicies` 中指定 `PortBinding`，以設定容器連接埠與主機連接埠的對應。 在本文中，`ContainerPort` 為 80 (如 Dockerfile 所指定，容器會公開連接埠 80)，而 `EndpointRef` 為 "myServiceTypeEndpoint" (服務資訊清單中定義的端點)。 通訊埠 4000 上服務的連入要求會對應到容器上的連接埠 80。 如果您的容器需要向私人存放庫進行驗證，則新增 `RepositoryCredentials`。 在本文中，新增 myregistry.azurecr.io 容器登錄的帳戶名稱和密碼。 確保該原則已新增在對應至正確服務套件的 'ServiceManifestImport' 標籤之下。
+## <a name="configure-container-repository-authentication"></a>設定容器存放庫驗證
+ 如果您的容器需要向私人存放庫進行驗證，則新增 `RepositoryCredentials`。 在本文中，新增 myregistry.azurecr.io 容器登錄的帳戶名稱和密碼。 確保該原則已新增在對應至正確服務套件的 'ServiceManifestImport' 標籤之下。
 
 ```xml
    <ServiceManifestImport>
@@ -227,14 +214,6 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 
 如果您需要停用整個 Service Fabric 叢集的 **HEALTHCHECK** 整合，就必須將 [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) 設為 **false**。
 
-## <a name="build-and-package-the-service-fabric-application"></a>建置及封裝 Service Fabric 應用程式
-Service Fabric Yeoman 範本包含 [Gradle](https://gradle.org/) 的建置指令碼，可用來從終端機建置應用程式。 若要建置和封裝應用程式，請執行下列指令碼：
-
-```bash
-cd mycontainer
-gradle
-```
-
 ## <a name="deploy-the-application"></a>部署應用程式
 建置應用程式後，可以使用 Service Fabric CLI 將它部署到本機叢集。
 
@@ -252,7 +231,7 @@ sfctl cluster select --endpoint http://localhost:19080
 
 開啟瀏覽器並瀏覽至位於 http://localhost:19080/Explorer 的 Service Fabric Explorer (如果在 Mac OS X 上使用 Vagrant，請以 VM 的私人 IP 取代 localhost)。 展開 [應用程式] 節點，請注意，您的應用程式類型現在有一個項目，而另一個則是該類型的第一個執行個體。
 
-連線到執行中的容器。 開啟 Web 瀏覽器並指向連接埠 4000 上傳回的 IP 位址，例如 "http://localhost:4000"。 您應該會看到 "Hello World!" 標題 顯示在瀏覽器中。
+連線到執行中的容器。 開啟 Web 瀏覽器並指向連接埠 4000 上傳回的 IP 位址，例如 " http://localhost:4000 "。 您應該會看到 "Hello World!" 標題 顯示在瀏覽器中。
 
 ![Hello World!][hello-world]
 

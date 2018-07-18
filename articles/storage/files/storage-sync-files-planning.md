@@ -4,8 +4,8 @@ description: 了解規劃 Azure 檔案部署時的考量事項。
 services: storage
 documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: jgerend
+manager: aungoo
+editor: tamram
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: ebfa7da32859f8d2d0ff3778af3b5cca99bdf1f4
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 1927ab29e82836c60b2ba36c3eec0acf49778082
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077669"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335834"
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>規劃 Azure 檔案同步 (預覽) 部署
 使用 Azure 檔案同步 (預覽版)，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的靈活度、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -145,6 +145,12 @@ Azure 檔案同步和 DFS-R 如需並存使用：
 
 如需詳細資訊，請參閱 [DFS 複寫概觀](https://technet.microsoft.com/library/jj127250)。
 
+### <a name="sysprep"></a>Sysprep
+不支援在已安裝 Azure 檔案同步代理程式的伺服器上使用 sysprep，而且此舉可能會導致非預期的結果。 請在部署伺服器映像和完成 sysprep 迷你設定之後，再進行代理程式安裝與伺服器註冊。
+
+### <a name="windows-search"></a>Windows 搜尋
+如果在伺服器端點上啟用雲端階層處理，則系統會略過階層式檔案，且 Windows 搜尋不會將這些檔案編製索引。 非階層式檔案則會正確編製索引。
+
 ### <a name="antivirus-solutions"></a>防毒解決方案
 因為防毒程式的運作方式是掃描檔案中的已知惡意程式碼，所以防毒產品可能會導致階層式檔案的重新叫用。 因為階層式檔案具有「離線」屬性集，因此建議洽詢您的軟體廠商，以了解如何設定其解決方案以略過讀取離線檔案。 
 
@@ -158,6 +164,11 @@ Azure 檔案同步和 DFS-R 如需並存使用：
 
 ### <a name="backup-solutions"></a>備份解決方案
 備份解決方案類似防毒解決方案，可能會導致階層式檔案的重新叫用。 建議使用雲端備份解決方案來備份 Azure 檔案共用，而不要使用內部部署備份產品。
+
+如果您要使用內部部署備份解決方案，則應該在已停用雲端階層處理的同步群組中，對其中的某個伺服器執行備份。 還原位於伺服器端點位置內的檔案時，請使用檔案層級還原選項。 所還原的檔案會同步處理至同步群組中的所有端點，並使用從備份還原過來的版本取代現有檔案。
+
+> [!Note]  
+> 應用程式感知、磁碟區層級和裸機 (BMR) 還原選項可能會導致非預期的結果，且目前不受支援。 未來的版本會支援這些還原選項。
 
 ### <a name="encryption-solutions"></a>加密解決方案
 加密解決方案的支援取決於其實作方式。 Azure 檔案共用已知可用於：
@@ -180,6 +191,7 @@ Azure 檔案同步僅於下列區域以預覽的形式提供：
 | 區域 | 資料中心位置 |
 |--------|---------------------|
 | 澳洲東部 | 新南威爾斯 |
+| 澳大利亞東南部 | 維多利亞 |
 | 加拿大中部 | 多倫多 |
 | 加拿大東部 | 魁北克市 |
 | 美國中部 | 愛荷華州 |
@@ -189,6 +201,7 @@ Azure 檔案同步僅於下列區域以預覽的形式提供：
 | 北歐 | 愛爾蘭 |
 | 東南亞 | 新加坡 |
 | 英國南部 | 倫敦 |
+| 英國西部 | 卡地夫 |
 | 西歐 | 荷蘭 |
 | 美國西部 | California |
 

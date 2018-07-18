@@ -1,25 +1,19 @@
 ---
-title: 將備份保存庫升級為 Azure 備份的復原服務保存庫 | Microsoft Docs
+title: 將備份保存庫升級為 Azure 備份的復原服務保存庫
 description: 將備份保存庫升級為復原服務保存庫，以取得新功能，例如資源管理員 VM 的備份、增強的安全性、Windows 伺服器的 VMware VM 備份和系統狀態備份
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: vijayts
-editor: ''
-keyword: backup vault; upgrade vault; recovery services vault
-ms.assetid: d037a8bf-49f2-4578-974a-3471d87ca278
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/10/2017
-ms.author: trinadhk, sogup
-ms.openlocfilehash: ffc5f11a324b5ac65c872ca2c033f039c129c5f8
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.author: trinadhk
+ms.openlocfilehash: 358c7b0e61d1c85e236007c2495941a31502431a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606854"
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>將備份保存庫升級為復原服務保存庫
 本文提供復原服務保存庫提供服務的概觀、將現有備份保存庫升級為復原服務保存庫的常見問題集，與升級後步驟。 復原服務保存庫是您存放備份資料之備份保存庫的 Azure Resource Manager 對等項目。 資料通常是資料的副本，或是虛擬機器 (VM)、工作負載、伺服器或工作站的設定資訊，無論是內部部署或是在 Azure 中。

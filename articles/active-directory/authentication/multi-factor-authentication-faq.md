@@ -10,11 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 226400c6da5db589db6ce2f1887c3e96cf9e1f14
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: ea976f7ac80f0c485320713117c9ff2b484a287b
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128685"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>與 Azure Multi-Factor Authentication 相關的常見問題
 
@@ -83,9 +84,9 @@ Microsoft 不保證相同號碼會提供一致的 SMS 或以語音為基礎的�
 
 在某些情況下，是的。
 
-適用於 Azure 系統管理員的 Multi-Factor Authentication 提供免費的 Azure MFA 功能子集，讓您可存取 Microsoft 線上服務，包括 Azure 和 Office 365 系統管理員入口網站。 若 Azure Active Directory 執行個體中的全域系統管理員沒有透過 MFA 授權、組合或以獨立使用作為基礎的提供者取得完整版 Azure MFA，則僅適用此優惠。 如果您的管理員是使用免費版本，然後您購買完整版的 Azure MFA，就會自動將所有全域管理員提升為付費版本。
+適用於 Azure 系統管理員的 Multi-Factor Authentication 提供免費的 Azure MFA 功能子集，讓您可存取 Microsoft 線上服務，包括 Azure 和 Office 365 系統管理員入口網站。 若 Azure Active Directory 執行個體中的全域系統管理員沒有透過 MFA 授權、組合或以獨立使用作為基礎的提供者取得完整版 Azure MFA，則僅適用此供應項目。 如果您的管理員是使用免費版本，然後您購買完整版的 Azure MFA，就會自動將所有全域管理員提升為付費版本。
 
-適用於 Office 365 使用者的 Multi-Factor Authentication 提供免費的 Azure MFA 功能子集，讓您可存取 Office 365 服務，包括 Exchange Online 和 SharePoint Online。 若使用者擁有指派的 Office 365 授權，但相對應的 Azure Active Directory 執行個體沒有透過 MFA 授權、組合或獨立使用型提供者取得完整版 Azure MFA 時，則適用此優惠。
+適用於 Office 365 使用者的 Multi-Factor Authentication 提供免費的 Azure MFA 功能子集，讓您可存取 Office 365 服務，包括 Exchange Online 和 SharePoint Online。 若使用者擁有指派的 Office 365 授權，但相對應的 Azure Active Directory 執行個體沒有透過 MFA 授權、組合或獨立使用型提供者取得完整版 Azure MFA 時，則適用此供應項目。
 
 **問：我的組織是否能隨時在「每位使用者」與「每次驗證」耗用量計費模式之間切換？**
 
@@ -117,7 +118,7 @@ MFA 提供者建立時，可與 Azure Active Directory (或稱為「Azure AD 租
 
 我們希望您的所有使用者並非只設定一種驗證方式。 請告訴他們試著重新登入，但在登入頁面上選取不同驗證方法。
 
-您可以將使用者引導至[終端使用者疑難排解指南](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md)。
+您可以將使用者引導至[終端使用者疑難排解指南](end-user/current/multi-factor-authentication-end-user-troubleshoot.md)。
 
 
 **問︰如果我的使用者無法登入他們的帳戶，我該怎麼做？**
@@ -130,7 +131,7 @@ MFA 提供者建立時，可與 Azure Active Directory (或稱為「Azure AD 租
 
 **問：如果使用者無法登入非瀏覽器的應用程式該怎麼辦？**
 
-如果貴組織仍然使用舊版的用戶端，但您已[允許使用應用程式密碼](howto-mfa-mfasettings.md#app-passwords)，則您的使用者無法使用他們的使用者名稱和密碼登入這些舊版用戶端。 相反地，他們需要[設定應用程式密碼](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-app-passwords.md)。 您的使用者必須先清除 (刪除) 登入資訊、重新啟動應用程式，然後使用他們的使用者名稱和*應用程式密碼* (不是他們慣用的密碼) 登入。
+如果貴組織仍然使用舊版的用戶端，但您已[允許使用應用程式密碼](howto-mfa-mfasettings.md#app-passwords)，則您的使用者無法使用他們的使用者名稱和密碼登入這些舊版用戶端。 相反地，他們需要[設定應用程式密碼](end-user/current/multi-factor-authentication-end-user-app-passwords.md)。 您的使用者必須先清除 (刪除) 登入資訊、重新啟動應用程式，然後使用他們的使用者名稱和*應用程式密碼* (不是他們慣用的密碼) 登入。
 
 如果貴組織沒有舊版用戶端，則不應該允許使用者建立應用程式密碼。
 

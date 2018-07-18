@@ -1,11 +1,11 @@
 ---
-title: "開始使用 Azure CLI for Batch | Microsoft Docs"
-description: "取得 Azure CLI 中 Batch 命令的快速簡介，以便管理 Azure Batch 服務資源"
+title: 開始使用 Azure CLI for Batch | Microsoft Docs
+description: 取得 Azure CLI 中 Batch 命令的快速簡介，以便管理 Azure Batch 服務資源
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
 ms.service: batch
 ms.devlang: na
@@ -15,11 +15,12 @@ ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e27d7f75dd3d0391f45805f4424248c8eac483c7
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: df808078ffe6eedf8abaa32a94edaaf1355b7fc6
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129899"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>使用 Azure CLI 管理 Batch 資源
 
@@ -174,7 +175,7 @@ az batch task list --job-id job001
 * 使用 `-v` 和 `-vv` 來顯示 **verbose** 命令輸出。 包含 `-vv` 旗標後，Azure CLI 會顯示實際的 REST 要求和回應。 這些參數方便用於顯示完整的錯誤輸出。
 * 您可以使用 `--json` 選項檢視 **JSON 格式的命令輸出**。 例如， `az batch pool show pool001 --json` 會以 JSON 格式顯示 pool001 的屬性。 您可以接著複製並修改此輸出，以便用於 `--json-file` (請參閱本文前面的 [JSON 檔案](#json-files) )。
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
-* [Batch 論壇][batch_forum] 受 Batch 小組成員監視。 如果您遇到問題或需要特定作業的協助，您可以在此張貼您的問題。
+
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -182,7 +183,6 @@ az batch task list --job-id job001
 * 如需 Batch 資源的詳細資訊，請參閱[適用於開發人員的 Azure Batch 概觀](batch-api-basics.md)。
 * 如需有關使用 Batch 範本，在不需要撰寫程式碼的情況下來建立集區、作業和工作的詳細資訊，請參閱[使用 Azure Batch CLI 範本和檔案傳輸 (預覽)](batch-cli-templates.md)。
 
-[batch_forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx

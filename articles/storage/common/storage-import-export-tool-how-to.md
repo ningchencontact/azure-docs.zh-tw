@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 匯入/匯出工具 | Microsoft Docs"
-description: "了解如何使用匯入/匯出工具來準備硬碟機，以進行匯入作業、修復匯入作業或修復匯出作業。"
+title: 使用 Azure 匯入/匯出工具 | Microsoft Docs
+description: 了解如何使用匯入/匯出工具來準備硬碟機，以進行匯入作業、修復匯入作業或修復匯出作業。
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: f77535bb-d577-438a-bdd3-e15a82e0c543
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059333"
 ---
 # <a name="using-the-azure-importexport-tool"></a>使用 Azure 匯入匯出工具 
 

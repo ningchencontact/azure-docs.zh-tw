@@ -1,5 +1,5 @@
 ---
-title: 針對 Azure 檔案服務備份進行疑難排解
+title: 針對 Azure 檔案共用備份進行移難排解
 description: 本文說明如何排解您在保護 Azure 檔案共用時所發生的問題。
 services: backup
 ms.service: backup
@@ -7,28 +7,30 @@ author: markgalioto
 ms.author: markgal
 ms.date: 2/21/2018
 ms.topic: tutorial
-ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: 225d11c8609c81ed7877283e8dc0fd920b14d838
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 334cea710d185a6774e28ea3459b3ca1ad9f846f
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959792"
 ---
-# <a name="troubleshoot-problems-backing-up-azure-files"></a>針對備份 Azure 檔案服務的問題進行疑難排解
-您可以使用下列表格中所列的資訊，針對使用 Azure 檔案服務備份時所發生的問題和錯誤進行疑難排解。
+# <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>針對備份 Azure 檔案共用的問題進行疑難排解
+您可以使用下列表格中所列的資訊，針對使用 Azure 檔案共用備份時所發生的問題和錯誤進行疑難排解。
 
-## <a name="preview-boundaries"></a>預覽界限
-Azure 檔案服務備份處於預覽狀態。 Azure 檔案共用不支援下列備份案例︰
-- 使用[區域備援儲存體](../storage/common/storage-redundancy-zrs.md) (ZRS) 或[讀取權限異地備援儲存體](../storage/common/storage-redundancy-grs.md) (RA-GRS) 複寫功能，保護儲存體帳戶中的 Azure 檔案共用。
-- 在已啟用虛擬網路的儲存體帳戶中保護 Azure 檔案共用。
-- 使用 PowerShell 或 CLI 備份 Azure 檔案共用。
+## <a name="limitations-for-azure-file-share-backup-during-preview"></a>預覽期間的 Azure 檔案共用備份限制
+Azure 檔案共用的備份處於預覽狀態。 Azure 檔案共用不支援下列備份案例︰
+- 您無法使用[讀取權限異地備援儲存體](../storage/common/storage-redundancy-grs.md) (RA-GRS) 複寫功能，保護儲存體帳戶中的 Azure 檔案共用*。
+- 您無法在已啟用虛擬網路或防火牆的儲存體帳戶中保護 Azure 檔案共用。
+- 無法透過 PowerShell 或 CLI 使用 Azure 備份來保護 Azure 檔案。
+- 每天的排程備份次數上限為 1 次。
+- 每天的隨選備份次數上限為 4 次。
+- 在儲存體帳戶上使用[資源鎖定](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest)，以防止在您的復原服務保存庫中意外刪除備份。
+- 請勿刪除 Azure 備份所建立的快照集。 刪除快照集可能會導致遺失復原點和/或還原失敗。
 
-### <a name="limitations"></a>限制
-- 每日排定備份上限為 1。
-- 每日隨選備份上限為 4。
-- 在儲存體帳戶上使用資源鎖定，以防止在您的復原服務保存庫中意外刪除備份。
-- 請勿刪除 Azure 備份所建立的快照集。 刪除快照集可能會導致遺失復原點和/或還原失敗
+\*儲存體帳戶中的 Azure 檔案共用以[讀取權限異地備援儲存體](../storage/common/storage-redundancy-grs.md) (RA-GRS) 複寫功能作為 GRS，並以 GRS 價格計費。
+
+在儲存體帳戶中使用[區域備援儲存體](../storage/common/storage-redundancy-zrs.md) (ZRS) 複寫功能備份 Azure 檔案共用，目前僅適用於美國中部 (CUS)、美國東部 2 (EUS2)、北歐 (NE)、東南亞 (SEA) 和西歐 (WE)。
 
 ## <a name="configuring-backup"></a>設定備份
 下表適用於設定備份：
@@ -40,7 +42,7 @@ Azure 檔案服務備份處於預覽狀態。 Azure 檔案共用不支援下列�
 | 選取的儲存體帳戶驗證或註冊失敗。| 請重試此作業。若問題持續發生，請連絡支援人員。|
 | 無法在選取的儲存體帳戶中列出或尋找檔案共用。 | <ul><li> 確定儲存體帳戶存在於資源群組中 (而且上次在保存庫中驗證/註冊之後並未遭到刪除或移動)。<li>確定您想要保護的檔案共用尚未遭到刪除。 <li>確定儲存體帳戶是檔案共用備份支援的儲存體帳戶。<li>請檢查檔案共用是否已在相同的復原服務保存庫中受到保護。|
 | 備份檔案共用設定 (或保護原則設定) 發生失敗。 | <ul><li>請重試此作業，查看問題是否持續發生。 <li> 確定您想要保護的檔案共用尚未遭到刪除。 <li> 如果您嘗試同時保護多個檔案共用，而且有些檔案共用發生失敗，請再次重新設定失敗檔案共用的備份。 |
-| 無法在取消保護檔案共用之後刪除復原服務保存庫。 | 在 Azure 入口網站中，開啟 [備份基礎結構] > [儲存體帳戶]，然後按一下 [取消註冊] 以從復原服務保存庫中移除儲存體帳戶。|
+| 無法在取消保護檔案共用之後刪除復原服務保存庫。 | 在 Azure 入口網站中，開啟您的保存庫 > [備份基礎結構] > [儲存體帳戶]，然後按一下 [取消註冊] 以從復原服務保存庫中移除儲存體帳戶。|
 
 
 ## <a name="error-messages-for-backup-or-restore-job-failures"></a>備份或還原作業失敗的錯誤訊息
@@ -52,7 +54,7 @@ Azure 檔案服務備份處於預覽狀態。 Azure 檔案共用不支援下列�
 | 您已達到此檔案共用的快照集上限，一旦較舊的快照集過期，您就能夠產生更多快照集。 | <ul><li> 當您為一個檔案建立多個隨選備份時，就會發生此錯誤。 <li> 每個檔案共用有 200 個快照集的限制，其中包含 Azure 備份所產生的快照集。 系統會自動清除較舊的排定備份 (或快照集)。 如果已到達限制上限，則必須刪除隨選備份 (或快照集)。<li> 從 Azure 檔案服務入口網站中刪除隨選備份 (Azure 檔案共用快照集)。 **注意**：如果您刪除 Azure 備份所建立的快照集，則會遺失復原點。 |
 | 檔案共用備份或還原因為儲存體服務節流而失敗。 這可能是因為儲存體服務正忙於處理指定儲存體帳戶的其他要求。| 請在一段時間之後重試此作業。 |
 | 還原失敗，因為找不到目標檔案共用。 | <ul><li>確定選取的儲存體帳戶存在，而且目標檔案共用並未刪除。 <li> 確定儲存體帳戶是檔案共用備份支援的儲存體帳戶。 |
-| 已啟用虛擬網路的儲存體帳戶中的 Azure 檔案服務目前不支援 Azure 備份。 | 在您的儲存體帳戶上停用虛擬網路，以確保備份或還原作業成功。 |
+| 已啟用虛擬網路的儲存體帳戶中的 Azure 檔案共用目前不支援 Azure 備份。 | 在您的儲存體帳戶上停用虛擬網路，以確保備份或還原作業成功。 |
 | 備份或還原作業失敗，因為儲存體帳戶處於鎖定狀態。 | 移除儲存體帳戶上的鎖定，或使用刪除鎖定而不是讀取鎖定，然後重試此作業。 |
 | 復原失敗，因為失敗的檔案數目超過閾值。 | <ul><li> 復原失敗原因會列在檔案中 (作業詳細資料中提供的路徑)。 請解決失敗狀況，然後只針對失敗的檔案重試還原作業。 <li> 檔案還原失敗的常見原因： <br/> - 確定目前並未使用失敗的檔案， <br/> - 與失敗檔案同名的目錄存在於上層目錄中。 |
 | 復原失敗，因為無法復原任何檔案。 | <ul><li> 復原失敗原因會列在檔案中 (作業詳細資料中提供的路徑)。 請解決失敗狀況，然後只針對失敗的檔案重試還原作業。 <li> 檔案還原失敗的常見原因： <br/> - 確定目前並未使用失敗的檔案。 <br/> - 與失敗檔案同名的目錄存在於上層目錄中。 |

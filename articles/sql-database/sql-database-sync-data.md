@@ -1,22 +1,23 @@
 ---
-title: Azure SQL 資料同步 (預覽) | Microsoft Docs
-description: 本概觀介紹 Azure SQL 資料同步 (預覽)
+title: Azure SQL 資料同步 | Microsoft Docs
+description: 本概觀介紹 Azure SQL 資料同步
 services: sql-database
-author: douglaslms
+author: allenwux
 manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2018
-ms.author: douglasl
+ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 365a612b20ed91a6acde566dff12b07ff3b8b676
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bb5a383828e98c773c079dcea8e3cf37f9a068f0
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017430"
 ---
-# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>使用 SQL 資料同步 (預覽) 跨多個雲端和內部部署資料庫同步資料
+# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>使用 SQL 資料同步，跨多個雲端和內部部署資料庫同步資料
 
 「SQL 資料同步」是一種建置在 Azure SQL Database 上的服務，可讓您跨多個 SQL 資料庫和 SQL Server 執行個體，雙向同步您選取的資料。
 
@@ -46,29 +47,29 @@ ms.lasthandoff: 04/16/2018
 
 如果您需要讓多個 Azure SQL Database 或 SQL Server 資料庫之間的資料保持在最新狀態，資料同步就很有用。 以下是資料同步主要的使用案例：
 
--   **混合式資料同步：**使用資料同步，您可以讓內部部署資料庫與 Azure SQL Database 之間的資料保持同步，以啟用混合式應用程式。 此功能對於考慮移轉至雲端，而且想要將部分應用程式放在 Azure 的客戶很有吸引力。
+-   **混合式資料同步：** 使用資料同步，您可以讓內部部署資料庫與 Azure SQL Database 之間的資料保持同步，以啟用混合式應用程式。 此功能對於考慮移轉至雲端，而且想要將部分應用程式放在 Azure 的客戶很有吸引力。
 
--   **分散式應用程式：**在許多情況下，將不同的工作負載分散到不同的資料庫會有好處。 例如，如果您有大型的實際執行資料庫，但也必須針對這些資料執行報告或分析工作負載，此時有第二個資料庫分擔這額外的工作負載就很有幫助。 這個方法可以減少對您實際執行工作負載的效能影響。 您可以使用「資料同步」，讓這兩個資料庫保持同步。
+-   **分散式應用程式：** 在許多情況下，將不同的工作負載分散到不同的資料庫會有好處。 例如，如果您有大型的實際執行資料庫，但也必須針對這些資料執行報告或分析工作負載，此時有第二個資料庫分擔這額外的工作負載就很有幫助。 這個方法可以減少對您實際執行工作負載的效能影響。 您可以使用「資料同步」，讓這兩個資料庫保持同步。
 
--   **全域散發的應用程式：**許多企業的業務橫跨多個區域，甚至多個國家/地區。 若要盡可能降低網路延遲，最好讓資料靠近您所在的區域。 使用資料同步，您就可以輕鬆地讓全世界各個區域中的資料庫保持同步。
+-   **全域散發的應用程式：** 許多企業的業務橫跨多個區域，甚至多個國家/地區。 若要盡可能降低網路延遲，最好讓資料靠近您所在的區域。 使用資料同步，您就可以輕鬆地讓全世界各個區域中的資料庫保持同步。
 
-資料同步不適用於下列案例：
+資料同步並非最適合下列案例使用的解決方案：
 
--   災害復原
-
--   讀取級別
-
--   ETL (OLTP 到 OLAP)
-
--   從內部部署 SQL Server 移轉至 Azure SQL Database
+| 案例 | 某些建議的解決方案 |
+|----------|----------------------------|
+| 災害復原 | [Azure 異地備援備份](sql-database-automated-backups.md) |
+| 讀取級別 | [使用唯讀複本對唯讀查詢工作負載進行負載平衡 (預覽)](sql-database-read-scale-out.md) |
+| ETL (OLTP 到 OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) 或 [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services?view=sql-server-2017) |
+| 從內部部署 SQL Server 移轉至 Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
+|||
 
 ## <a name="how-does-data-sync-work"></a>資料同步如何運作？ 
 
--   **追蹤資料變更：**資料同步使用 insert、update 和 delete 觸發程序追蹤變更。 變更會記錄在使用者資料庫中的資料表。
+-   **追蹤資料變更：** 資料同步使用 insert、update 和 delete 觸發程序追蹤變更。 變更會記錄在使用者資料庫中的資料表。
 
--   **同步處理資料：**資料同步是以「中樞和輪輻」的模型設計。 中樞會與每個成員個別同步。 中樞的變更會下載到成員，然後成員的變更會上傳到中樞。
+-   **同步處理資料：** 資料同步是以「中樞和輪輻」的模型設計。 中樞會與每個成員個別同步。 中樞的變更會下載到成員，然後成員的變更會上傳到中樞。
 
--   **解決衝突：**資料同步提供兩個衝突解決選項：*中樞獲勝*或*成員獲勝*。
+-   **解決衝突：** 資料同步提供兩個衝突解決選項：*中樞獲勝*或*成員獲勝*。
     -   如果您選取 [中樞獲勝]，中樞的變更永遠會覆寫成員的變更。
     -   如果您選取 [成員獲勝]，成員的變更永遠會覆寫中樞的變更。 如果有多個成員，最終的值則取決於哪一個成員先同步。
 
@@ -81,6 +82,8 @@ ms.lasthandoff: 04/16/2018
 
 #### <a name="performance-impact"></a>效能影響
 資料同步使用 insert、update 和 delete 觸發程序追蹤變更。 其會在使用者資料庫中建立側邊資料表，以便進行變更追蹤。 這些變更追蹤活動會影響您的資料庫工作負載。 請評估您的服務層，如有必要則請升級。
+
+在建立同步群組期間佈建和取消佈建、更新和刪除也可能會影響資料庫效能。 
 
 ### <a name="general-requirements"></a>一般需求
 
@@ -124,13 +127,13 @@ ms.lasthandoff: 04/16/2018
 
 ## <a name="faq-about-sql-data-sync"></a>SQL 資料同步常見問題集
 
-### <a name="how-much-does-the-sql-data-sync-preview-service-cost"></a>SQL 資料同步 (預覽) 服務的成本為何？
+### <a name="how-much-does-the-sql-data-sync-service-cost"></a>SQL 資料同步服務的成本為何？
 
-在預覽期間，SQL 資料同步 (預覽) 服務本身免費。  不過，您仍需對於資料移入和移出您的 SQL Database 執行個體支付資料傳輸費用。 如需詳細資訊，請參閱 [SQL Database 價格](https://azure.microsoft.com/pricing/details/sql-database/)。
+對 SQL 資料同步服務本身無須支付任何費用。  不過，您仍需對於資料移入和移出您的 SQL Database 執行個體支付資料傳輸費用。 如需詳細資訊，請參閱 [SQL Database 價格](https://azure.microsoft.com/pricing/details/sql-database/)。
 
 ### <a name="what-regions-support-data-sync"></a>哪些區域支援資料同步？
 
-SQL 資料同步 (預覽) 適用於所有公用雲端區域。
+SQL 資料同步適用於所有公用雲端區域。
 
 ### <a name="is-a-sql-database-account-required"></a>是否需要 SQL Database 帳戶？ 
 
@@ -149,7 +152,7 @@ SQL 資料同步 (預覽) 適用於所有公用雲端區域。
 
 ### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>應該使用 SQL 資料同步來備份及還原資料庫嗎？
 
-不建議使用 SQL 資料同步 (預覽) 來建立資料的備份。 您無法備份並還原到特定點時間，因為 SQL 資料同步 (預覽) 同步處理並未設定版本。 此外，SQL 資料同步 (預覽) 不會備份其他 SQL 物件 (例如預存程序)，而且不會快速進行同等的還原作業。
+不建議使用 SQL 資料同步來建立資料的備份。 您無法備份並還原到特定點時間，因為 SQL 資料同步同步處理並未設定版本。 此外，SQL 資料同步不會備份其他 SQL 物件 (例如預存程序)，而且不會快速進行同等的還原作業。
 
 如需建議的備份技術，請參閱[複製 Azure SQL Database](sql-database-copy.md)。
 
@@ -169,7 +172,7 @@ SQL 資料同步 (預覽) 適用於所有公用雲端區域。
 
 ### <a name="is-federation-supported-in-sql-data-sync"></a>SQL 資料同步是否支援同盟？
 
-同盟根資料庫可使用於 SQL 資料同步 (預覽) 服務 (無任何限制)。 您無法將同盟資料庫端點新增至目前的 SQL 資料同步 (預覽) 版本。
+同盟根資料庫可使用於 SQL 資料同步服務 (無任何限制)。 您無法將同盟資料庫端點新增至目前的 SQL 資料同步版本。
 
 ## <a name="next-steps"></a>後續步驟
 

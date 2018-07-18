@@ -15,6 +15,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31598739"
 ---
 # <a name="assigning-variables-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中指派變數
 在 Azure SQL 資料倉儲中指派 T-SQL 變數以便開發解決方案的秘訣。

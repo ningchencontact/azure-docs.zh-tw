@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783657"
 ---
 # <a name="media-services-playready-license-template-overview"></a>媒體服務 PlayReady 授權範本概觀
 Azure 媒體服務現在有提供傳遞 PlayReady 授權的服務。 當播放程式 (例如 Silverlight) 嘗試播放受 PlayReady 保護的內容時，會將要求傳送到授權傳遞服務來取得授權。 如果授權服務核准要求，就會發出授權以傳送給用戶端，並將它用來解密和播放所指定內容。

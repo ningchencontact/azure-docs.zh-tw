@@ -12,22 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/01/2018
+ms.date: 06/05/2018
 ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 0e1eed2601946ddff6fa15f1a1f82398706c920d
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: b9ba2bb89bb0d7e16a28a165cf14530a7a10f71b
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234745"
 ---
-# <a name="make-sql-databases-available-to-your-azure-stack-users"></a>將 SQL 資料庫提供給您的 Azure Stack 使用者
+# <a name="tutorial-make-sql-databases-available-to-your-azure-stack-users"></a>教學課程：將 SQL 資料庫提供給您的 Azure Stack 使用者
+
 身為 Azure Stack 雲端系統管理員，您可以建立供應項目以讓您的使用者 (租用戶) 建立 SQL 資料庫，以搭配其雲端原生應用程式、網站與工作負載使用。 透過將對這些自訂隨選雲端式資料庫的存取權提供給您的使用者，您可以節省其時間與資源。 若要設定，您將必須：
 
 > [!div class="checklist"]
 > * 部署 SQL Server 資源提供者
-> * 建立優惠
+> * 建立供應項目
 > * 測試供應項目
 
 ## <a name="deploy-the-sql-server-resource-provider"></a>部署 SQL Server 資源提供者
@@ -36,17 +38,15 @@ ms.lasthandoff: 05/03/2018
 
 1. [部署 SQL 資源提供者](azure-stack-sql-resource-provider-deploy.md)。
 2. [驗證部署](azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal)。
-3. 透過連線到主控 SQL 伺服器來提供容量。
+3. 透過連線到主控 SQL 伺服器來提供容量。 如需詳細資訊，請參閱[新增主控伺服器](azure-stack-sql-resource-provider-hosting-servers.md)。
 
-## <a name="create-an-offer"></a>建立優惠
+## <a name="create-an-offer"></a>建立供應項目
 
 1.  [設定配額](azure-stack-setting-quotas.md)並將它命名為 *SQLServerQuota*。 選取 [命名空間] 欄位的 [Microsoft.SQLAdapter]。
 2.  [建立方案](azure-stack-create-plan.md)。 將它命名為 *TestSQLServerPlan*，選取 [Microsoft.SQLAdapter] 服務，並選取 [SQLServerQuota] 配額。
 
     > [!NOTE]
-    > 若要讓使用者建立其他應用程式，方案中可能需要有其他服務。 例如，Azure Functions 要求方案必須包括 **Microsoft.Storage** 服務，而 Wordpress 則需要 **Microsoft.MySQLAdapter**。
-    > 
-    >
+    > 若要讓使用者建立其他應用程式，方案中可能需要有其他服務。 例如，Azure Functions 要求方案中必須包括 **Microsoft.Storage** 服務，而 Wordpress 則需要 **Microsoft.MySQLAdapter**。
 
 3.  [建立供應項目](azure-stack-create-offer.md)，將它命名為 **TestSQLServerOffer**，然後選取 [TestSQLServerPlan] 方案。
 
@@ -55,23 +55,24 @@ ms.lasthandoff: 05/03/2018
 既然您已部署 SQL Server 資源提供者並建立供應項目，您能以使用者身分登入並訂閱該供應項目，然後建立資料庫。
 
 ### <a name="subscribe-to-the-offer"></a>訂閱該供應項目
-1. 以租用戶身分登入 Azure Stack 入口網站 (https://portal.local.azurestack.external)。
-2. 按一下 [取得訂用帳戶]，然後在 [顯示名稱] 下輸入 **TestSQLServerSubscription**。
-3. 按一下 [選取服務] > [TestSQLServerOffer] > [建立]。
-4. 按一下 [更多服務] > [訂用帳戶] > [TestSQLServerSubscription] > [資源提供者]。
-5. 按一下 **Microsoft.SQLAdapter** 提供者旁的 [註冊]。
+
+1. 以租用戶身分登入 Azure Stack 入口網站 (https://portal.local.azurestack.external) 。
+2. 選取 [取得訂用帳戶]，然後在 [顯示名稱] 下輸入 **TestSQLServerSubscription**。
+3. 選取 [選取供應項目] > [TestSQLServerOffer] > [建立]。
+4. 選取 [更多服務] > [訂用帳戶] > [TestSQLServerSubscription] > [資源提供者]。
+5. 選取 **Microsoft.SQLAdapter** 提供者旁的 [註冊]。
 
 ### <a name="create-a-sql-database"></a>建立 SQL 資料庫
 
-1. 按一下 [+] > [資料 + 儲存體] > [SQL Database]。
-2. 將欄位維持為預設值，或您可以使用這些範例：
+1. 選取 [+] > [資料 + 儲存體] > [SQL Database]。
+2. 保留預設值，或對下列欄位使用這些範例：
     - **資料庫名稱**：SQLdb
     - **大小上限 (MB)**：100
     - **訂用帳戶**：TestSQLOffer
     - **資源群組**：SQL-RG
-3. 按一下 [登入設定]，輸入資料庫認證，然後按一下 [確定]。
-4. 按一下 [SKU] > 選取您為 SQL 主控伺服器 建立的 SQL SKU > [確定]。
-5. 按一下頁面底部的 [新增] 。
+3. 選取 [登入設定]，輸入資料庫認證，然後選取 [確定]。
+4. 選取 [SKU] > 選取您為 SQL 主控伺服器建立的 SQL SKU > 然後選取 [確定]。
+5. 選取 [建立] 。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -79,11 +80,10 @@ ms.lasthandoff: 05/03/2018
 
 > [!div class="checklist"]
 > * 部署 SQL Server 資源提供者
-> * 建立優惠
+> * 建立供應項目
 > * 測試供應項目
 
 請前進到下一個教學課程，以了解如何：
 
 > [!div class="nextstepaction"]
 > [將 Web、行動裝置與 API 應用程式提供給您的使用者]( azure-stack-tutorial-app-service.md)
-

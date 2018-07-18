@@ -11,11 +11,12 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: 758906126b42c103853e0047bb19d2e96a84fae6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c5de0b1384958bc8553aa3722ad6a5829b69ab12
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38488694"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>在使用自訂映像 (預覽版) 的 Linux 上建立函式
 
@@ -43,7 +44,7 @@ Azure Functions 可讓您在 Linux 的自訂容器中裝載函式。 您也可�
 
 * [Git](https://git-scm.com/downloads)
 * 有效的 [Azure 訂用帳戶](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-* [Docker](https://docs.docker.com/get-started/#setup)
+* [Docker](https://docs.docker.com/install/)
 * [Docker Hub 帳戶](https://docs.docker.com/docker-id/)
 
 [!INCLUDE [Free trial note](../../includes/quickstarts-free-trial-note.md)]
@@ -226,7 +227,7 @@ AzureWebJobsStorage=$storageConnectionString
 > * 從 Docker Hub 部署函式應用程式。
 > * 將應用程式設定加入函式應用程式。
 
-深入了解使用 Azure Functions Core Tools 在本機開發 Azure Functions。
+了解如何啟用核心 App Service 平台內建的持續整合功能。 您可以設定函式應用程式，以便當您在 Docker Hub 中更新您的映像時重新部署容器。
 
 > [!div class="nextstepaction"] 
-> [撰寫 Azure Functions 並在本機進行測試](functions-run-local.md)
+> [使用用於容器的 Web 應用程式進行持續部署](../app-service/containers/app-service-linux-ci-cd.md)

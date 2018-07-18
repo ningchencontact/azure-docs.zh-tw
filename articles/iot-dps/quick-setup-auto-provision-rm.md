@@ -1,22 +1,20 @@
 ---
 title: 使用 Azure Resource Manager 範本設定裝置佈建 | Microsoft Docs
 description: Azure 快速入門 - 使用範本設定 Azure IoT 中樞裝置佈建服務
-services: iot-dps
-keywords: ''
 author: bryanla
-ms.author: v-jamebr
-ms.date: 02/26/2018
-ms.topic: hero-article
+ms.author: bryanla
+ms.date: 06/18/2018
+ms.topic: quickstart
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8bb27cca9e976ff8433793ef378cc6a43449d4bb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6bd1073012a68149d194e21e745604a43dfe92c0
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36219691"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本設定 IoT 中樞裝置佈建服務
 
@@ -155,7 +153,8 @@ ms.lasthandoff: 04/28/2018
                 "iotHubs": [
                     {
                         "connectionString": "[concat('HostName=', reference(variables('iotHubResourceId')).hostName, ';SharedAccessKeyName=', variables('iotHubKeyName'), ';SharedAccessKey=', listkeys(variables('iotHubKeyResource'), '2017-07-01').primaryKey)]",
-                        "location": "[parameters('hubLocation')]"
+                        "location": "[parameters('hubLocation')]",
+                        "name": "[concat(parameters('iotHubName'),'.azure-devices.net')]"
                     }
                 ]
             },
@@ -223,7 +222,8 @@ ms.lasthandoff: 04/28/2018
                    "iotHubs": [
                        {
                            "connectionString": "[concat('HostName=', reference(variables('iotHubResourceId')).hostName, ';SharedAccessKeyName=', variables('iotHubKeyName'), ';SharedAccessKey=', listkeys(variables('iotHubKeyResource'), '2017-07-01').primaryKey)]",
-                           "location": "[parameters('hubLocation')]"
+                           "location": "[parameters('hubLocation')]",
+                           "name": "[concat(parameters('iotHubName'),'.azure-devices.net')]"
                        }
                    ]
                },

@@ -1,12 +1,12 @@
 ---
-title: "使用 .NET Standard 傳送事件至 Azure 事件中樞 | Microsoft Docs"
-description: "開始在 .NET Standard 中傳送事件至事件中樞"
+title: 使用 .NET Standard 傳送事件至 Azure 事件中樞 | Microsoft Docs
+description: 開始在 .NET Standard 中傳送事件至事件中樞
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2018
 ms.author: sethm
-ms.openlocfilehash: f59f88d47bfcb3e761f509a3d87c6d068f44e0db
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 3dba92467dfaf377236a25f48899a8a53c587a82
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130960"
 ---
 # <a name="get-started-sending-messages-to-azure-event-hubs-in-net-standard"></a>開始在 .NET Standard 中傳送訊息至 Azure 事件中樞
 
@@ -32,13 +33,13 @@ ms.lasthandoff: 02/03/2018
 * [Microsoft Visual Studio 2015 或 2017](http://www.visualstudio.com)。 本教學課程中的範例使用 Visual Studio 2017，但也支援 Visual Studio 2015。
 * [.NET Core Visual Studio 2015 或 2017 工具](http://www.microsoft.com/net/core)。
 * Azure 訂用帳戶。
-* 事件中樞命名空間。
+* [事件中樞命名空間和事件中樞](event-hubs-quickstart-portal.md)。
 
 為了將訊息傳送到事件中樞，本教學課程會使用 Visual Studio 來撰寫一個 C# 主控台應用程式。
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>建立事件中樞命名空間和事件中樞
 
-第一個步驟是使用 [Azure 入口網站](https://portal.azure.com)來建立事件中樞類型的命名空間，然後取得您應用程式與事件中樞進行通訊所需的管理認證。 若要建立命名空間和事件中樞，請依照[這篇文章](event-hubs-create.md)中的程序操作，然後繼續進行下列步驟。
+若要建立命名空間和事件中樞，請依照[這篇文章](event-hubs-quickstart-portal.md)中的程序操作，然後繼續進行本教學課程。
 
 ## <a name="create-a-console-application"></a>建立主控台應用程式
 
@@ -140,8 +141,8 @@ ms.lasthandoff: 02/03/2018
         public class Program
         {
             private static EventHubClient eventHubClient;
-            private const string EhConnectionString = "{Event Hubs connection string}";
-            private const string EhEntityPath = "{Event Hub path/name}";
+            private const string EventHubConnectionString = "{Event Hubs connection string}";
+            private const string EventHubName = "{Event Hub path/name}";
 
             public static void Main(string[] args)
             {
@@ -151,11 +152,11 @@ ms.lasthandoff: 02/03/2018
             private static async Task MainAsync(string[] args)
             {
                 // Creates an EventHubsConnectionStringBuilder object from the connection string, and sets the EntityPath.
-                // Typically, the connection string should have the entity path in it, but this simple scenario
-                // uses the connection string from the namespace.
-                var connectionStringBuilder = new EventHubsConnectionStringBuilder(EhConnectionString)
+                // Typically, the connection string should have the entity path in it, but for the sake of this simple scenario
+                // we are using the connection string from the namespace.
+                var connectionStringBuilder = new EventHubsConnectionStringBuilder(EventHubConnectionString)
                 {
-                    EntityPath = EhEntityPath
+                    EntityPath = EventHubName
                 };
 
                 eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuilder.ToString());
@@ -205,4 +206,4 @@ ms.lasthandoff: 02/03/2018
 * [建立事件中樞](event-hubs-create.md)
 * [事件中樞常見問題集](event-hubs-faq.md)
 
-[1]: ./media/event-hubs-dotnet-standard-getstarted-send/netcore.png
+[1]: ./media/event-hubs-dotnet-standard-getstarted-send/netcoresnd.png

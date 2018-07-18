@@ -20,6 +20,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34160745"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>深度學習和 AI 架構
 [資料科學虛擬機器](http://aka.ms/dsvm) \(英文\) (DSVM) 和[深度學習 VM](http://aka.ms/dsvm/deeplearning) \(英文\) 支援數種深度學習架構，可協助建置具備預測性分析及能了解影像及語言之辨識能力的人工智慧 (AI) 應用程式。 
@@ -144,7 +145,7 @@ export CUDA_ROOT=/usr/local/cuda-8.0
 ```
 
 使用 Deep Water：
-* * 在終端機：啟用 [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) 環境，然後執行 _python_。 <br/>
+* 在終端機：啟用 [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) 環境，然後執行 _python_。 <br/>
 * 在 JupyterHub：[連線到 JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)，然後瀏覽至 deep_water 目錄以尋找範例筆記本。
 
 ## <a name="mxnet"></a>MXNet

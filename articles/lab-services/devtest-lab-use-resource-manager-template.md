@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783437"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本建立虛擬機器 
 

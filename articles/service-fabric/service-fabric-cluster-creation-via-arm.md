@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: aljo
-ms.openlocfilehash: 60b447148c5cef24c061274a84620a8221efc430
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d9ed4134cfb8047d5d6839979cd89ba37ff0c3f8
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207939"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701347"
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>使用 Azure Resource Manager 來建立 Service Fabric 叢集 
 > [!div class="op_single_selector"]
@@ -76,7 +76,7 @@ Service Fabric 叢集提供其管理功能的各種進入點 (包括 Web 型 [Se
 
 
 ## <a name="prerequisites"></a>先決條件 
-不論是 Linux 叢集還是 Windows 叢集，建立安全叢集的概念都是相同的。 本指南涵蓋使用 azure powershell 或 azure CLI 建立新叢集的方式。 必要條件如下 
+不論是 Linux 叢集還是 Windows 叢集，建立安全叢集的概念都是相同的。 本指南涵蓋使用 Azure PowerShell 或 Azure CLI 建立新叢集的方式。 必要條件如下：
 
 -  [Azure PowerShell 4.1 和更新版本][azure-powershell]或 [Azure CLI 2.0 和更新版本][azure-CLI]。
 -  您可以在這裡找到 Service Fabric 模組的詳細資料 - [AzureRM.ServiceFabric](https://docs.microsoft.com/powershell/module/azurerm.servicefabric) 和 [az SF CLI 模組](https://docs.microsoft.com/cli/azure/sf?view=azure-cli-latest)
@@ -84,22 +84,21 @@ Service Fabric 叢集提供其管理功能的各種進入點 (包括 Web 型 [Se
 
 ## <a name="use-service-fabric-rm-module-to-deploy-a-cluster"></a>使用 Service Fabric RM 模組部署叢集
 
-在本文件中，我們會使用 Service Fabric RM powershell 和 CLI 模組來部署叢集，powershell 或 CLI 模組命令可允許用於多種案例。 我們會一一瀏覽案例。 挑選最符合您的需求的案例。 
+在本文件中，我們會使用 Service Fabric RM powershell 和 CLI 模組來部署叢集，PowerShell 或 CLI 模組命令可允許用於多種案例。 我們會一一瀏覽案例。 挑選最符合您的需求的案例。 
 
-- 建立新叢集 - 使用系統產生的自我簽署憑證
-    - 使用預設叢集範本
-    - 使用既有範本
-- 建立新叢集 - 使用您已擁有的憑證
-    - 使用預設叢集範本
-    - 使用既有範本
+- 建立新叢集 
+    - 使用系統產生的自我簽署憑證
+    - 使用您已擁有的憑證
+
+您可以使用預設叢集範本或您既有的範本
 
 ### <a name="create-new-cluster----using-a-system-generated-self-signed-certificate"></a>建立新叢集 - 使用系統產生的自我簽署憑證
 
-如果要系統產生自我簽署的憑證，並使用此憑證來保護您的叢集，請使用下列命令建立叢集。 此命令會設定主要叢集憑證，該憑證可用於叢集安全性，以及用來設定管理員存取權，以便使用該憑證來執行管理作業。
+如果要系統產生自我簽署憑證，並使用此憑證來保護您的叢集，請使用下列命令建立叢集。 此命令會設定主要叢集憑證，該憑證可用於叢集安全性，以及用來設定管理員存取權，以便使用該憑證來執行管理作業。
 
-### <a name="login-in-to-azure"></a>登入 Azure。
+### <a name="login-to-azure"></a>登入 Azure
 
-```Powershell
+```PowerShell
 Connect-AzureRmAccount
 Set-AzureRmContext -SubscriptionId <guid>
 ```
@@ -108,15 +107,15 @@ Set-AzureRmContext -SubscriptionId <guid>
 azure login
 az account set --subscription $subscriptionId
 ```
-#### <a name="use-the-default-5-node-1-nodetype-template-that-ships-in-the-module-to-set-up-the-cluster"></a>使用模組中隨附的預設 5 Node 1 nodetype 範本來設定叢集
+#### <a name="use-the-default-5-node-1-node-type-template-that-ships-in-the-module-to-set-up-the-cluster"></a>使用模組中隨附的預設 5 Node 1 節點類型範本來設定叢集
 
 使用下列命令，以最少的參數數目快速建立叢集
 
 所用範本可於 [Azure Service Fabric 範本範例：Windows 範本](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG)和 [Ubuntu 範本](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)上取得
 
-以下命令適用於建立 Windows 和 Linux 叢集，您只需要隨之指定作業系統。 Powershell/ CLI 命令也會在指定的 theCertificateOutputFolder 中輸出憑證，但是請確定已建立憑證資料夾。 此命令也需要其他參數如 VM SKU。
+以下命令適用於建立 Windows 和 Linux 叢集，您只需要隨之指定作業系統。 PowerShell/CLI 命令也會在指定的 CertificateOutputFolder 中輸出憑證，但是請確定已建立憑證資料夾。 此命令也需要其他參數如 VM SKU。
 
-```Powershell
+```PowerShell
 $resourceGroupLocation="westus"
 $resourceGroupName="mycluster"
 $vaultName="myvault"
@@ -200,14 +199,14 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 ```
 
 
-### <a name="create-new-cluster---using-the-certificate-you-bought-from-a-ca-or-you-already-have"></a>建立新叢集 - 使用您從 CA 購買或既有的憑證。
+### <a name="create-new-cluster---using-the-certificate-you-bought-from-a-ca-or-you-already-have"></a>建立新叢集 - 使用您從 CA 購買或既有的憑證
 
 如果您有想要用來保護叢集的憑證，請使用下列命令建立叢集。
 
 如果這是 CA 簽署的憑證，而您最後會將其用於其他用途，建議您特別針對金鑰保存庫提供不同的資源群組。 建議您將 Key Vault 放入其自己的資源群組中。 此動作可讓您移除計算和儲存體資源群組 (包括含有 Service Fabric 叢集的資源群組)，而不會遺失您的金鑰和密碼。 **含有您金鑰保存庫的資源群組_必須與正在使用它的叢集位於相同區域_。**
 
 
-#### <a name="use-the-default-5-node-1-nodetype-template-that-ships-in-the-module"></a>使用模組中隨附的預設 5 Node 1 nodetype 範本
+#### <a name="use-the-default-5-node-1-node-type-template-that-ships-in-the-module"></a>使用模組中隨附的預設 5 Node 1 節點類型範本
 所用範本可於 [Azure 範例：Windows 範本](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG)和 [Ubuntu 範本](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)上取得
 
 ```PowerShell
@@ -334,7 +333,7 @@ Service Fabric 叢集提供其管理功能的各種進入點 (包括 Web 型 [Se
 3. 解壓縮 zip 檔案。
 4. 執行 `SetupApplications.ps1`，並且提供 TenantId、ClusterName 和 WebApplicationReplyUrl 作為參數。 例如︰
 
-```powershell
+```PowerShell
 .\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html'
 ```
 
@@ -363,8 +362,8 @@ https://&lt;cluster_domain&gt;:19080/Explorer
 
 <a id="customize-arm-template" ></a>
 
-## <a name="create-a-service-fabric-cluster-resource-manager-template"></a>建立 Service Fabric 叢集 Resource Manager 範本
-本節適用於想要撰寫自訂 Service Fabric 叢集 Resource Manager 範本的使用者。 擁有範本之後，您仍可使用 powershell 或 CLI 模組進行部署。 
+## <a name="create-a-service-fabric-cluster-resource-manager-template"></a>建立 Service Fabric 叢集資源管理員範本
+本節適用於想要撰寫自訂 Service Fabric 叢集資源管理員範本的使用者。 擁有範本之後，您仍可使用 PowerShell 或 CLI 模組進行部署。 
 
 您可以在 [GitHub 上的 Azure 範例](https://github.com/Azure-Samples/service-fabric-cluster-templates)中取得 Resource Manager 範本範例。 這些範本可以用作叢集範本的起點。
 
@@ -372,7 +371,7 @@ https://&lt;cluster_domain&gt;:19080/Explorer
 本指南使用[五節點安全叢集][service-fabric-secure-cluster-5-node-1-nodetype]範例範本和範本參數。 下載 `azuredeploy.json` 和 `azuredeploy.parameters.json` 到您的電腦並在您最愛的文字編輯器中開啟這兩個檔案。
 
 ### <a name="add-certificates"></a>新增憑證
-您可以藉由參考包含憑證金鑰的 Key Vault，將憑證新增到叢集 Resource Manager 範本。 在 Resource Manager 範本參數檔案 (azuredeploy.parameters.json) 中新增金鑰保存庫參數和值。 
+您可以藉由參考包含憑證金鑰的金鑰保存庫，將憑證新增到叢集資源管理員範本。 在 Resource Manager 範本參數檔案 (azuredeploy.parameters.json) 中新增金鑰保存庫參數和值。 
 
 #### <a name="add-all-certificates-to-the-virtual-machine-scale-set-osprofile"></a>將所有憑證都新增到虛擬機器擴展集 osProfile
 安裝在叢集中的每個憑證都必須在擴展集資源 (Microsoft.Compute/virtualMachineScaleSets) 的 osProfile 區段中設定妥當。 此動作會指示資源提供者在 VM 上安裝憑證。 此安裝既包含叢集憑證，也包含任何您打算用於應用程式的應用程式安全性憑證︰
@@ -500,14 +499,13 @@ https://&lt;cluster_domain&gt;:19080/Explorer
 }
 ```
 
-### <a name="populate-the-parameter-file-with-the-values"></a>將值填入參數檔案中。
-最後，請使用 Key Vault 和 Azure AD PowerShell 命令的輸出值來填入參數檔案︰
+### <a name="populate-the-parameter-file-with-the-values"></a>將值填入參數檔案中
+最後，請使用金鑰保存庫和 Azure AD PowerShell 命令的輸出值來填入參數檔案。
 
-如果您打算使用 Azure Service Fabric RM PowerShell 模組，且希望系統針對叢集安全性產生自我簽署憑證，則您不需要填入叢集憑證資訊，只需將其保持為 Null。 
+如果您打算使用 Azure Service Fabric RM PowerShell 模組，則不需要填入叢集憑證資訊。 如果您想讓系統產生自我簽署憑證以確保叢集安全性，只須讓其保持為 Null。 
 
 > [!NOTE]
 > 若要 RM 模組拾取及填入這些空白參數值，參數名稱必須符合下列名稱
->
 
 ```json
 "clusterCertificateThumbprint": {
@@ -524,9 +522,9 @@ https://&lt;cluster_domain&gt;:19080/Explorer
 },
 ```
 
-如果您使用的是應用程式憑證，或已上傳至金鑰保存庫的現有叢集，您需要取得這項資訊並加以填寫 
+如果您使用的是應用程式憑證，或已上傳至金鑰保存庫的現有叢集，您需要取得這項資訊並加以填寫。
 
-RM 模組無法為您產生 Azure AD 組態。 因此如果您打算針對用戶端存取使用 Azure AD，則需要加以填寫。
+RM 模組無法為您產生 Azure AD 組態，因此如果您打算對用戶端存取使用 Azure AD，您必須將其填入。
 
 ```json
 {
@@ -582,6 +580,16 @@ Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -Templa
 下圖說明 Key Vault 和 Azure AD 組態在 Resource Manager 範本中發生作用的位置。
 
 ![Resource Manager 相依性對應][cluster-security-arm-dependency-map]
+
+
+## <a name="encrypting-the-disks-attached-to-your-windows-cluster-nodevirtual-machine-instances"></a>對連結至您 windows 叢集節點/虛擬機器執行個體的磁碟進行加密
+
+若要對連結至您節點的磁碟 (作業系統磁碟機和其他受控磁碟) 進行加密，我們會利用 Azure 磁碟加密。 Azure 磁碟加密是協助您[加密 Windows 虛擬機器磁碟](service-fabric-enable-azure-disk-encryption-windows.md)的新功能。 Azure 磁碟加密利用 Windows 中符合業界標準的 [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) 功能來為 OS 磁碟區提供磁碟區加密。 此解決方案與 [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) 整合，協助您控制及管理金鑰保存庫訂用帳戶中的磁碟加密金鑰與密碼。 此解決方案也可確保虛擬機器磁碟上的所有待用資料都會在您的 Azure 儲存體中加密。 
+
+## <a name="encrypting-the-disks-attached-to-your-linux-cluster-nodevirtual-machine-instances"></a>對連結至您 Linux 叢集節點/虛擬機器執行個體的磁碟進行加密
+
+若要對連結至您節點的磁碟 (資料磁碟機和其他受控磁碟) 進行加密，我們會利用 Azure 磁碟加密。 Azure 磁碟加密是協助您[加密 Linux 虛擬機器磁碟](service-fabric-enable-azure-disk-encryption-linux.md)的新功能。 Azure 磁碟加密利用 Linux 中符合業界標準的 [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) 功能來為資料磁碟區提供磁碟區加密。 此解決方案與 [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) 整合，協助您控制及管理金鑰保存庫訂用帳戶中的磁碟加密金鑰與密碼。 此解決方案也可確保虛擬機器磁碟上的所有待用資料都會在您的 Azure 儲存體中加密。 
+
 
 ## <a name="create-the-cluster-using-azure-resource-template"></a>使用 Azure 資源範本建立叢集 
 

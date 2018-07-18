@@ -1,11 +1,11 @@
 ---
-title: "Azure 網路監看員中的安全性群組檢視簡介 | Microsoft Docs"
-description: "本頁提供網路監看員安全性檢視功能的概觀"
+title: Azure 網路監看員中的安全性群組檢視簡介 | Microsoft Docs
+description: 本頁提供網路監看員安全性檢視功能的概觀
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ad27ab85-9d84-4759-b2b9-e861ef8ea8d8
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23036713"
 ---
 # <a name="introduction-to-network-security-group-view-in-azure-network-watcher"></a>Azure 網路監看員中的網路安全性群組檢視簡介
 

@@ -3,22 +3,19 @@ title: Azure Cosmos DB 編製索引原則 | Microsoft Docs
 description: 了解 Azure Cosmos DB 中編製索引的運作方式。 了解如何設定編製索引原則，以自動編製索引並追求更高的效能。
 keywords: 編製索引運作方式, 自動編製索引, 為資料庫編製索引
 services: cosmos-db
-documentationcenter: ''
 author: rafats
 manager: kfile
-ms.assetid: d5e8f338-605d-4dff-8a61-7505d5fc46d7
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 277ddd5777ff8edf5195e79885929e3a8c758d7c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d867079b9a5546dc9555697a9066472e4e470977
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298291"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB 如何為資料編製索引？
 
@@ -79,9 +76,9 @@ Azure Cosmos DB 支援三個編製索引模式，這些模式可以透過 Azure 
 
 一致的編製索引支援一致的查詢，但代價可能是減少寫入輸送量。 這指的是減少需要編製索引的唯一路徑以及「一致性層級」的功能。 一致的索引編製模式是針對「快速寫入、立即查詢」工作負載而設計。
 
-**延遲**：索引會在 Azure Cosmos DB 集合靜止 (亦即，未完整利用集合的輸送量容量來處理使用者要求的時候) 時，以非同步方式更新。 對於需要文件擷取的「立即擷取、稍後查詢」工作負載，可能適合「延遲」編製索引模式。 請注意，因為資料擷取與編製索引緩慢，因此可能會有不一致的結果。 這表示，任何給定時間的 COUNT 查詢或特定查詢結果可能不會一致或可重複。 
+**延遲**：索引會在 Azure Cosmos DB 集合靜止 (亦即，未完整利用集合的輸送量容量來處理使用者要求的時候) 時，以非同步方式更新。  請注意，因為資料擷取與編製索引緩慢，因此可能會有不一致的結果。 這表示，指定時間的 COUNT 查詢或特定查詢結果可能不會一致或可重複。 
 
-對於擷取的資料，索引通常處於追補模式。 使用「延遲」編製索引時，存留時間 (TTL) 變更會導致索引被卸除並重新建立。 這會使一段時間內的 COUNT 和查詢結果不一致。 因此，大部分的 Azure Cosmos DB 帳戶都應使用「一致」編制索引模式。
+對於擷取的資料，索引通常處於追補模式。 使用「延遲」編製索引時，存留時間 (TTL) 變更會導致索引被卸除並重新建立。 這會使一段時間內的 COUNT 和查詢結果不一致。 大部分的 Azure Cosmos DB 帳戶都應使用「一致」編制索引模式。
 
 **無**：含有「無」索引模式的集合沒有任何與其相關聯的索引。 如果將 Azure Cosmos DB 做為索引鍵值儲存體，且只能依據文件的 ID 屬性來存取它們，常會使用此選項。 
 
@@ -229,11 +226,11 @@ Azure Cosmos DB 針對每個路徑也支援空間索引類型 (可針對 Point�
 
 同樣地，您可以從編製索引完全排除路徑。 下一個範例示範如何使用 \* 萬用字元運算子將文件 (「樹狀子目錄」) 的整個區段自編製索引中排除。
 
-    var collection = new DocumentCollection { Id = "excludedPathCollection" };
-    collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
-    collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*" });
+    var excluded = new DocumentCollection { Id = "excludedPathCollection" };
+    excluded.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
+    excluded.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*" });
 
-    collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
+    await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
 
 
 

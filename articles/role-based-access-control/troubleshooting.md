@@ -1,6 +1,6 @@
 ---
-title: 針對角色型存取控制 Azure RBAC 進行疑難排解 | Microsoft Docs
-description: 取得有關角色型存取控制資源問題或疑問的協助。
+title: Azure 的 RBAC 疑難排解 | Microsoft Docs
+description: 針對 Azure 角色型存取控制 (RBAC) 的各種問題進行疑難排解。
 services: azure-portal
 documentationcenter: na
 author: rolyon
@@ -10,26 +10,27 @@ ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
+ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: e1f9fa8e3abd3eee9d85c241000a07794af9d36b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 186bcf26639f5cff2dcbf1e805913ac7edab7df4
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437360"
 ---
-# <a name="troubleshooting-azure-role-based-access-control"></a>針對 Azure 角色型存取控制進行疑難排解 
+# <a name="troubleshooting-rbac-in-azure"></a>針對 Azure 的各種 RBAC 問題進行疑難排解
 
-本文將回答關於授與角色之特定存取權限的常見問題，讓您知道在 Azure 入口網站中使用角色時預期能夠使用哪些項目，以及如何針對存取問題進行疑難排解。 這三種角色涵蓋了所有資源類型︰
+本文將回答常見的角色型存取控制 (RBAC) 問題，讓您知道在 Azure 入口網站中使用角色時會有什麼樣的結果，以及如何解決存取權相關問題。 這三種角色涵蓋了所有資源類型︰
 
 * 擁有者  
 * 參與者  
 * 讀取者  
 
-擁有者與參與者都可以完整存取管理經驗，但參與者無法將存取權限授予其他使用者或群組。 讀取者角色則是比較有趣，因此我們會在本文中多花點時間介紹。 請參閱 [角色型存取控制入門文章](role-assignments-portal.md) ，以詳細了解如何授與存取權。
+擁有者與參與者都擁有完整的管理功能，但參與者無法將存取權限授與其他使用者或群組。 讀取者角色則是比較有趣，因此我們會在本文中多花點時間介紹。 如需深入了解如何授與存取權，請參閱[使用 RBAC 和 Azure 入口網站來管理存取權](role-assignments-portal.md)。
 
 ## <a name="app-service"></a>App Service 方案
 ### <a name="write-access-capabilities"></a>寫入存取功能
@@ -96,9 +97,7 @@ Web 應用程式因為幾個互有關聯的資源而顯得複雜。 以下是具
 
 如果您無法存取上述任何一個磚，請洽詢您的系統管理員，以取得資源群組的參與者存取權限。
 
-## <a name="see-more"></a>更多資訊
-* [角色型存取控制](role-assignments-portal.md)：開始在 Azure 入口網站中使用 RBAC。
-* [內建角色](built-in-roles.md)︰取得有關 RBAC 中標準角色的詳細資訊。
-* [Azure RBAC 中的自訂角色](custom-roles.md)︰了解如何建立自訂角色，以符合您的存取需求。
-* [建立存取權變更歷程記錄報告](change-history-report.md)︰追蹤 RBAC 中的角色指派變更。
+## <a name="next-steps"></a>後續步驟
+* [使用 RBAC 和 Azure 入口網站來管理存取權](role-assignments-portal.md)
+* [檢視活動記錄檔中的各種 RBAC 變更](change-history-report.md)
 

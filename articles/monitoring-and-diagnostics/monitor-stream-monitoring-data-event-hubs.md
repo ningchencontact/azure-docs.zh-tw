@@ -1,23 +1,19 @@
 ---
-title: 將 Azure 監視資料串流至事件中樞 | Microsoft Docs
+title: 將 Azure 監視資料串流至事件中樞
 description: 了解如何將所有的 Azure 監視資料串流至事件中樞，以將資料匯入夥伴 SIEM 或分析工具。
 author: johnkemnetz
-manager: robb
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 3/05/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 7/06/2018
 ms.author: johnkem
-ms.openlocfilehash: 9cc4eb8d8f1494a7ea7a63297751f8e251aedf05
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.component: ''
+ms.openlocfilehash: 5e8d8947643494e06faaabb5335c52df5908303e
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902984"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>將 Azure 監視資料串流至事件中樞以供外部工具取用
 
@@ -97,7 +93,7 @@ Azure 資源會發出兩種監視資料：
 
 1. 針對儲存體帳戶[設定連續匯出](../application-insights/app-insights-export-telemetry.md) Application Insights 資料。
 
-2. 設定以計時器觸發的邏輯應用程式，使它能[從 Blob 儲存體提取資料](../connectors/connectors-create-api-azureblobstorage.md#use-an-action)，並[以訊息的形式將它推送至事件中樞](../connectors/connectors-create-api-azure-event-hubs.md#send-events-to-your-event-hub-from-your-logic-app)。
+2. 設定以計時器觸發的邏輯應用程式，使它能[從 Blob 儲存體提取資料](../connectors/connectors-create-api-azureblobstorage.md#add-action)，並[以訊息的形式將它推送至事件中樞](../connectors/connectors-create-api-azure-event-hubs.md#add-action)。
 
 ## <a name="what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub"></a>傳送至事件中樞的監視資料有何功用？
 
@@ -106,7 +102,7 @@ Azure 資源會發出兩種監視資料：
 * **IBM QRadar** - Microsoft Azure DSM 與 Microsoft Azure 事件中樞通訊協定均可從 [IBM 支援網站](http://www.ibm.com/support) \(英文\) 下載。 您可以[從這裡深入了解與 Azure 的整合](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0) \(英文\)。
 * **Splunk** -根據您的 Splunk 安裝程式而定，共有兩種方法：
     1. [適用於 Splunk 的 Azure 監視器附加元件](https://splunkbase.splunk.com/app/3534/) \(英文\) 可從 Splunkbase 和開放原始碼專案中取得。 [文件在此](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk) \(英文\)。
-    2. 如果您無法在 Splunk 執行個體中安裝附加元件 (例如， 如果使用 Proxy 或在 Splunk Cloud 上執行)，您可以使用[由事件中樞中的新訊息觸發的這個功能](https://github.com/sebastus/AzureFunctionForSplunkVS)，將這些事件轉寄給 Splunk HTTP Event Collector。
+    2. 如果您無法在 Splunk 執行個體中安裝附加元件 (例如， 如果使用 Proxy 或在 Splunk Cloud 上執行)，您可以使用[由事件中樞中的新訊息觸發的這個功能](https://github.com/Microsoft/AzureFunctionforSplunkVS)，將這些事件轉寄給 Splunk HTTP Event Collector。
 * **SumoLogic** - 設定 SumoLogic 以從事件中樞取用資料的指示[可從這裡取得](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub) \(英文\)
 
 ## <a name="next-steps"></a>後續步驟

@@ -6,16 +6,17 @@ author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: afab8eb981f59a4ab2ba5528e0518e370d8e05fc
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8781a4fd7e3dde830a173d62025dbf59a0a3738e
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031017"
 ---
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>使用 Azure CLI 建立 Azure Database for MySQL 伺服器
 本快速入門說明如何使用 Azure CLI，在大約 5 分鐘內於 Azure 資源群組中建立 Azure Database for MySQL 伺服器。 Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。
@@ -47,16 +48,21 @@ az group create --name myresourcegroup --location westus
 ```azurecli-interactive
 az mysql server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
 ```
+sku-name 參數值會遵循慣例 {pricing tier}\_{compute generation}\_{vCores}，如下列範例所示：
++ `--sku-name B_Gen4_4` 對應於基本、第 4 代和 4 個 vCore。
++ `--sku-name GP_Gen5_32` 對應於一般用途、第 5 代和 32 個 vCore。
++ `--sku-name MO_Gen5_2` 對應於記憶體最佳化、第 5 代和 2 個 vCore。
+
+請參閱[定價層](./concepts-pricing-tiers.md)文件，以了解每個區域和每一層的有效值。
 
 ## <a name="configure-firewall-rule"></a>設定防火牆規則
 使用 **[az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create)** 命令建立 Azure Database for MySQL 伺服器層級的防火牆規則。 伺服器層級的防火牆規則允許外部應用程式 (例如 **mysql.exe** 命令列工具或 MySQL Workbench) 穿過 Azure MySQL 服務防火牆連線到您的伺服器。 
 
-下列範例會建立適用於預先定義之位址範圍的防火牆規則，在此範例中，這是整個可能的 IP 位址範圍。
+下列範例會建立名為 `AllowMyIP` 的防火牆規則，以允許來自特定 IP 位址 192.168.0.1 的連線。 請替換為與您的連線來源相對應的 IP 位址或 IP 位址範圍。 
 
 ```azurecli-interactive
-az mysql server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowYourIP --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+az mysql server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowMyIP --start-ip-address 192.168.0.1 --end-ip-address 192.168.0.1
 ```
-允許所有的 IP 位址並不安全。 我們為了簡化而提供這個範例，但在真實案例中，您必須知道要為您的應用程式和使用者新增的精確 IP 位址範圍。 
 
 > [!NOTE]
 > Azure Database for MySQL 的連線透過連接埠 3306 進行通訊。 如果您嘗試從公司網路內進行連線，可能不允許透過連接埠 3306 的輸出流量。 若是如此，除非 IT 部門開啟連接埠 3306，否則您無法連線到您的伺服器。

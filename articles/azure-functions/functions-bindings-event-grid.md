@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: 9228b1e80c8c46780a24d33e13fcedbd8da63ac3
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 7e0fb3cee8d4ec72e1ec44f7444264fabb1dd202
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724725"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure Functions 的 Event Grid 觸發程序
 
@@ -33,17 +34,17 @@ Event Grid 是一項 Azure 服務，會傳送 HTTP 要求通知您「發行者�
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages"></a>封裝
+## <a name="packages---functions-1x"></a>套件 - Functions 1.x
 
-[Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet 套件中提供 Event Grid 觸發程序。 套件的原始程式碼位於 [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension) GitHub 存放庫中。
-
-<!--
-If you want to bind to the `Microsoft.Azure.EventGrid.Models.EventGridEvent` type instead of `JObject`, install the [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) package.
--->
+[Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet 套件 1.x 版中提供 Event Grid 觸發程序。 套件的原始程式碼位於 [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/master) GitHub 存放庫中。
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>套件 - Functions 2.x
+
+[Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet 套件 2.x 版中提供 Event Grid 觸發程序。 套件的原始程式碼位於 [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/v2.x) GitHub 存放庫中。
+
+[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="example"></a>範例
 
@@ -57,12 +58,12 @@ If you want to bind to the `Microsoft.Azure.EventGrid.Models.EventGridEvent` typ
 
 ### <a name="c-example"></a>C# 範例
 
-下列範例顯示繫結至 `JObject` 的 [C# 函式](functions-dotnet-class-library.md)：
+下列範例顯示繫結至 `JObject` 的 Functions 1.x [C# 函式](functions-dotnet-class-library.md)：
 
 ```cs
 using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+using Microsoft.Azure.WebJobs.Host;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -79,30 +80,26 @@ namespace Company.Function
 }
 ```
 
-<!--
-The following example shows a [C# function](functions-dotnet-class-library.md) that binds to `EventGridEvent`:
+下列範例顯示繫結至 `EventGridEvent` 的 Functions 2.x [C# 函式](functions-dotnet-class-library.md)：
 
 ```cs
+using Microsoft.Azure.EventGrid.Models;
 using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+using Microsoft.Azure.WebJobs.Host;
 
 namespace Company.Function
 {
     public static class EventGridTriggerCSharp
     {
         [FunctionName("EventGridTest")]
-            public static void EventGridTest([EventGridTrigger] Microsoft.Azure.EventGrid.Models.EventGridEvent eventGridEvent, TraceWriter log)
+        public static void EventGridTest([EventGridTrigger]EventGridEvent eventGridEvent, TraceWriter log)
         {
-            log.Info("C# Event Grid function processed a request.");
-            log.Info($"Subject: {eventGridEvent.Subject}");
-            log.Info($"Time: {eventGridEvent.EventTime}");
-            log.Info($"Data: {eventGridEvent.Data.ToString()}");
+            log.Info(eventGridEvent.Data.ToString());
         }
     }
 }
 ```
--->
 
 如需詳細資訊，請參閱[套件](#packages)、[屬性](#attributes)、[設定](#configuration)和[用法](#usage)。
 
@@ -125,7 +122,7 @@ namespace Company.Function
 }
 ```
 
-以下是繫結至 `JObject` 的 C# 指令碼：
+以下是繫結至 `JObject` 的 Functions 1.x C# 指令碼：
 
 ```cs
 #r "Newtonsoft.Json"
@@ -139,26 +136,17 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 }
 ```
 
-<!--
-Here's C# script code that binds to `EventGridEvent`:
+以下是繫結至 `EventGridEvent` 的 Functions 2.x C# 指令碼：
 
 ```csharp
-#r "Newtonsoft.Json"
-#r "Microsoft.Azure.WebJobs.Extensions.EventGrid"
 #r "Microsoft.Azure.EventGrid"
-
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-Using Microsoft.Azure.EventGrid.Models;
+using Microsoft.Azure.EventGrid.Models;
 
 public static void Run(EventGridEvent eventGridEvent, TraceWriter log)
 {
-    log.Info("C# Event Grid function processed a request.");
-    log.Info($"Subject: {eventGridEvent.Subject}");
-    log.Info($"Time: {eventGridEvent.EventTime}");
-    log.Info($"Data: {eventGridEvent.Data.ToString()}");
+    log.Info(eventGridEvent.Data.ToString());
 }
 ```
--->
 
 如需詳細資訊，請參閱[套件](#packages)、[屬性](#attributes)、[設定](#configuration)和[用法](#usage)。
 
@@ -221,11 +209,17 @@ public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, Trac
 
 ## <a name="usage"></a>使用量
 
-使用 C# 和 F# 函式時，可以在 Event Grid 觸發程序使用下列參數類型：
+使用 Azure Functions 1.x 中的 C# 和 F# 函式時，您可以為 Event Grid 觸發程序使用下列參數類型：
 
 * `JObject`
 * `string`
-* `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent` - 定義所有事件類型通用之欄位的屬性。 **此類型已被取代**，但是取代它的類型尚未發佈至 NuGet。
+
+使用 Azure Functions 2.x 中的 C# 和 F# 函式時，您也可以為 Event Grid 觸發程序使用下列參數類型：
+
+* `Microsoft.Azure.EventGrid.Models.EventGridEvent` - 定義所有事件類型通用之欄位的屬性。
+
+> [!NOTE]
+> 在 Functions v1 中，如果您嘗試繫結至 `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`，編譯器將會顯示「已淘汰」訊息，並建議您改用 `Microsoft.Azure.EventGrid.Models.EventGridEvent`。 若要使用較新的類型，請參考 [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet 套件，並且為 `EventGridEvent` 類型名稱加上 `Microsoft.Azure.EventGrid.Models` 首碼，加以完整限定。 如需如何在 C# 指令碼函式中參考 NuGet 套件的相關資訊，請參閱[使用 NuGet 套件](functions-reference-csharp.md#using-nuget-packages)
 
 對於 JavaScript 函式，由 *function.json* `name` 屬性命名的參數會參考事件物件。
 

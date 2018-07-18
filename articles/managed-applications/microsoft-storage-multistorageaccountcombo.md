@@ -18,6 +18,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261151"
 ---
 # <a name="microsoftstoragemultistorageaccountcombo-ui-element"></a>Microsoft.Storage.MultiStorageAccountCombo UI 元素
 用來建立名稱以通用前置詞作為開頭的多個儲存體帳戶之控制項群組。

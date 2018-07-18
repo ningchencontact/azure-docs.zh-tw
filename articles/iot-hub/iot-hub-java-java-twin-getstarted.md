@@ -1,23 +1,20 @@
 ---
 title: 開始使用 Azure IoT 中樞裝置對應項 (Java) | Microsoft Docs
 description: 如何使用 Azure IoT 中樞裝置對應項來新增標籤，然後使用 IoT 中樞查詢。 您可以使用適用於 Java 的 Azure IoT 裝置 SDK，實作裝置應用程式，也可以使用適用於 Java 的 Azure IoT 服務 SDK，實作服務應用程式，以新增標籤和執行 IoT 中樞查詢。
-services: iot-hub
-documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: dobett
-ms.openlocfilehash: 8611b55f6e4f33f8946d8c7c481163166d24049c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 96cad0fc7f387c5f0cb14996ae6ac015c104b81d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38619432"
 ---
 # <a name="get-started-with-device-twins-java"></a>開始使用裝置對應項 (Java)
 

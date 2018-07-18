@@ -1,12 +1,12 @@
 ---
-title: "Microsoft Cloud Germany 中的 Azure AD Connect"
-description: "Azure AD Connect 會整合您的內部部署目錄與 Azure Active Directory。 這可讓您為與 Azure AD 整合的 Office 365、Azure 和 SaaS 應用程式提供通用身分識別。"
-keywords: "Azure AD Connect 簡介, Azure AD Connect 概觀, 何謂 Azure AD Connect, 安裝 active directory, 德國, 黑森林"
+title: Microsoft Cloud Germany 中的 Azure AD Connect
+description: Azure AD Connect 會整合您的內部部署目錄與 Azure Active Directory。 這可讓您為與 Azure AD 整合的 Office 365、Azure 和 SaaS 應用程式提供通用身分識別。
+keywords: Azure AD Connect 簡介, Azure AD Connect 概觀, 何謂 Azure AD Connect, 安裝 active directory, 德國, 黑森林
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 2bcb0caf-5d97-46cb-8c32-bda66cc22dad
 ms.service: active-directory
 ms.workload: identity
@@ -14,12 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2b0c05b12877fdda11b941d822c265d34d5c04ca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 46d4d095ef71870c7f5b3eabaf66e26797b7331e
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36286314"
 ---
 # <a name="azure-ad-connect-in-microsoft-cloud-germany---public-preview"></a>Microsoft Cloud Germany 中的 Azure AD Connect - 公開預覽
 ## <a name="introduction"></a>簡介
@@ -32,9 +34,7 @@ Azure AD Connect 可進行內部部署 Active Directory 與 Azure Active Directo
   * *.windows.net
   * * 憑證撤銷清單
 * 當您登入 Azure AD 目錄時，必須使用 onmicrosoft.de 網域中的帳戶。
-* 無法使用下列功能：
-  * Azure AD Connect Health
-  * 自動更新
+
  
 ## <a name="download"></a>下載
 您可以從入口網站中的 [Azure AD Connect] 刀鋒視窗下載 Azure AD Connect。  使用下列指示來尋找 Azure AD Connect 刀鋒視窗。

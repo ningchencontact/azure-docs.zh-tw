@@ -1,25 +1,19 @@
 ---
 title: 以 Node.js 將 Raspberry Pi 佈建到遠端監視 - Azure | Microsoft Docs
 description: 描述如何使用以 Node.js 編寫的應用程式，將 Raspberry Pi 裝置連線到遠端監視解決方案加速器。
-services: iot-suite
-suite: iot-suite
-documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: fc50a33f-9fb9-42d7-b1b8-eb5cff19335e
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
-ms.openlocfilehash: a47cc34e6791ae03f4da968e3d44660b47e1214d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 78647612fc747ec328279536d82fb31bb4858688
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38309771"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>將 Raspberry Pi 裝置連線到遠端監視解決方案加速器 (Node.js)
 
@@ -109,7 +103,7 @@ ms.lasthandoff: 05/20/2018
     var async = require('async');
     ```
 
-1. 在 `require` 陳述式之後新增下列變數宣告。 使用您在遠端監視解決方案中，為您佈建之裝置記下的值來取代 `{device connection string}` 預留位置值：
+1. 在 `require` 陳述式之後新增下列變數宣告。 針對您在遠端監視解決方案中所佈建的裝置，使用您記下的值來取代 `{device connection string}` 預留位置值：
 
     ```nodejs
     var connectionString = '{device connection string}';

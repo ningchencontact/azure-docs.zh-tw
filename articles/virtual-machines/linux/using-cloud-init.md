@@ -1,11 +1,11 @@
 ---
-title: "Azure 中 Linux 虛擬機器的 cloud-init 支援概觀 | Microsoft Docs"
-description: "Microsoft Azure 中的 cloud-init 功能概觀"
+title: Azure 中 Linux 虛擬機器的 cloud-init 支援概觀 | Microsoft Docs
+description: Microsoft Azure 中的 cloud-init 功能概觀
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 195c22cd-4629-4582-9ee3-9749493f1d72
 ms.service: virtual-machines-linux
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/05/2018
+ms.locfileid: "29763140"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Azure 中虛擬機器的 Cloud-init 支援
 本文說明針對 [cloud-init](https://cloudinit.readthedocs.io) 存在的支援，以便在 Azure 中佈建時，設定虛擬機器 (VM) 或虛擬機器擴展集 (VMSS)。 一旦 Azure 佈建資源，這些 cloud-init 指令碼就會在初次開機時執行。  

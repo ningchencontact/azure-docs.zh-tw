@@ -3,22 +3,24 @@ title: 使用 Excel 來連接到 Azure Analysis Services | Microsoft Docs
 description: 了解如何使用 Excel 來連接到 Azure Analysis Services 伺服器。
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b3ab749b4610f57e19ad1af0fc74d41340d7555b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 807496584acb3f93fccd3495de005792b769b37f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34192984"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442985"
 ---
 # <a name="connect-with-excel"></a>使用 Excel 進行連接
 
-在您建立伺服器並將表格式模型部署至該伺服器之後，用戶端即可連線及開始瀏覽資料。
+在您建立伺服器並將表格式模型部署至該伺服器之後，用戶端即可連線及開始瀏覽資料。 
 
+## <a name="before-you-begin"></a>開始之前
+您登入的帳戶必須屬於模型資料庫角色，且至少具有讀取權限。 若要深入了解，請參閱[驗證和使用者權限](analysis-services-manage-users.md)。 
 
 ## <a name="connect-in-excel"></a>在 Excel 中連線
 
@@ -31,7 +33,7 @@ ms.locfileid: "34192984"
 2. 在 [資料連線精靈] 的 [伺服器名稱] 中，輸入包含通訊協定和 URI 的伺服器名稱。 例如 asazure://westcentralus.asazure.windows.net/advworks。 然後在 [登入認證] 中，選取 [使用下列的使用者名稱和密碼]，接著輸入組織使用者名稱 (例如 nancy@adventureworks.com) 和密碼。
 
     > [!IMPORTANT]
-    > 如果您使用 Microsoft 帳戶、Live ID、Yahoo、Gmail 等登入，或者必須使用多重要素驗證登入，密碼欄位請空白。 您按 [下一步] 之後系統會提示您輸入密碼。
+    > 如果您使用 Microsoft 帳戶、Live ID、Yahoo、Gmail 等登入，或者必須使用多重要素驗證登入，密碼欄位請空白。 您按 [下一步] 之後系統會提示您輸入密碼。 
 
     ![從 Excel 登入來進行連接](./media/analysis-services-connect-excel/aas-connect-excel-logon.png)
 

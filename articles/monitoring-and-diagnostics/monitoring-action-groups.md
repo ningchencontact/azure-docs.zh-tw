@@ -1,31 +1,25 @@
 ---
-title: 在 Azure 入口網站中建立和管理動作群組 | Microsoft Docs
+title: 在 Azure 入口網站中建立和管理動作群組
 description: 了解如何在 Azure 入口網站中建立和管理動作群組。
 author: dkamstra
-manager: chrad
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/20/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 06/1/2018
 ms.author: dukek
-ms.openlocfilehash: 07e3c1a95aa223121117f3deba0269fb6cc280c2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: alerts
+ms.openlocfilehash: 63216d56fb3acbb954086fbf026441e69073621e
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32170371"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263060"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>在 Azure 入口網站中建立和管理動作群組
 ## <a name="overview"></a>概觀 ##
-本文將說明如何在 Azure 入口網站中建立和管理動作群組。
+動作群組是由使用者定義的通知喜好設定所組成的集合。 Azure 監視器和服務健康狀態警示是設定為在觸發警示時，使用特定的動作群組。 根據使用者的需求而定，不同的警示可能使用相同的動作群組或不同的動作群組。
 
-您可以設定包含動作群組的動作清單。 然後您所定義的每個警示就可以使用這些群組，確保在每次觸發警示時皆採取相同的動作。
+本文將說明如何在 Azure 入口網站中建立和管理動作群組。
 
 每個動作是由下列屬性所組成：
 
@@ -70,7 +64,14 @@ ms.locfileid: "32170371"
 <dd>Azure 應用程式動作目前只支援 ServiceHealth 警示。 將會忽略所有其他的警示時間。 請參閱[設定每當服務健康狀態通知公佈時的警示](monitoring-activity-log-alerts-on-service-notifications.md)。</dd>
 
 <dt>電子郵件</dt>
-<dd>您在動作群組中最多可擁有 50 個電子郵件動作</dd>
+<dd>下列電子郵件地址將寄出電子郵件。 請確定已適當設定您的電子郵件篩選
+
+    - azure-noreply@microsoft.com
+    - azureemail-noreply@microsoft.com
+    - alerts-noreply@mail.windowsazure.com
+    
+</dd>
+<dd>您在動作群組中最多可擁有 1000 個電子郵件動作</dd>
 <dd>請參閱[速率限制資訊](./monitoring-alerts-rate-limiting.md)一文</dd>
 
 <dt>ITSM</dt>

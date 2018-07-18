@@ -1,12 +1,12 @@
 ---
-title: "Azure AD Connect - AD FS 管理和自訂 | Microsoft Docs"
-description: "使用 Azure AD Connect 進行 AD FS 管理，以及使用 Azure AD Connect 和 PowerShell 的使用者 AD FS 登入經驗的自訂。"
-keywords: "AD FS, ADFS, AD FS 管理, AAD Connect, 連線, 登入, AD FS 自訂, 修復信任, O365, 同盟, 信賴憑證者"
+title: Azure AD Connect - AD FS 管理和自訂 | Microsoft Docs
+description: 使用 Azure AD Connect 進行 AD FS 管理，以及使用 Azure AD Connect 和 PowerShell 的使用者 AD FS 登入經驗的自訂。
+keywords: AD FS, ADFS, AD FS 管理, AAD Connect, 連線, 登入, AD FS 自訂, 修復信任, O365, 同盟, 信賴憑證者
 services: active-directory
-documentationcenter: 
-author: anandyadavmsft
+documentationcenter: ''
+author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory
 ms.workload: identity
@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 49acea5c08a10ba3b60d0db5f05e30d573f5e507
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 5597d75da50853e85d6e94f1a5c7b5114068f671
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916991"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>使用 Azure AD Connect 管理和自訂 Active Directory Federation Services
 本文說明如何使用 Azure Active Directory (Azure AD) Connect 管理及自訂 Active Directory Federation Services (AD FS)。 它也包含您可能需要進行以完整設定 AD FS 伺服器陣列的其他常見 AD FS 工作。
@@ -223,7 +225,7 @@ Azure AD Connect 可在將物件同步處理至 Azure AD 時，讓您指定要�
     NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"])
     => add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
 
-此規則會定義稱為 **idflag** 的暫時旗標，如果沒有為使用者填入 **ms-ds-concistencyguid**，則此旗標會設為 **useguid**。 背後邏輯是實際上 AD FS 不允許空的宣告。 所以，在規則 1 中新增宣告 http://contoso.com/ws/2016/02/identity/claims/objectguid 和 http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid 時，只有在已為使用者填入該值時，您才會得到 **msdsconsistencyguid** 宣告。 如果未填入，AD FS 會看到它將具有空值，並因此立即捨棄。 所有物件都會有 **objectGuid**，因此執行規則 1 之後，宣告一律會在該處。
+此規則會定義稱為 **idflag** 的暫時旗標，如果沒有為使用者填入 **ms-ds-concistencyguid**，則此旗標會設為 **useguid**。 背後邏輯是實際上 AD FS 不允許空的宣告。 因此，當您在「規則 1」中新增宣告 http://contoso.com/ws/2016/02/identity/claims/objectguid 和 http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid 時，只有已為使用者填入值時，您最終才會具有 **msdsconsistencyguid** 宣告。 如果未填入，AD FS 會看到它將具有空值，並因此立即捨棄。 所有物件都會有 **objectGuid**，因此執行規則 1 之後，宣告一律會在該處。
 
 **規則 3：發出 ms-ds-consistencyguid 為固定 ID (如果有的話)**
 
@@ -244,31 +246,8 @@ Azure AD Connect 可在將物件同步處理至 Azure AD 時，讓您指定要�
 > 這些規則的順序很重要。
 
 ### <a name="sso-with-a-subdomain-upn"></a>使用子網域 UPN 的 SSO
-您可以使用 Azure AD Connect 新增多個要同盟的網域，如 [新增新的同盟網域](active-directory-aadconnect-federation-management.md#addfeddomain)所述。 您必須修改使用者主要名稱 (UPN) 宣告，讓簽發者識別碼對應至根網域，而不是子網域，因為同盟根網域也涵蓋子系。
 
-根據預設，簽發者識別碼的宣告規則會設定為︰
-
-    c:[Type
-    == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
-
-![預設簽發者識別碼宣告](media/active-directory-aadconnect-federation-management/issuer_id_default.png)
-
-預設規則只是取得 UPN 尾碼，並用在簽發者識別碼宣告中。 比方說，John 是 sub.contoso.com 中的使用者，而 contoso.com 與 Azure AD 同盟。 John 在登入 Azure AD 時輸入 john@sub.contoso.com 做為使用者名稱。 AD FS 中的預設簽發者識別碼宣告規則依下列方法處理︰
-
-    c:[Type
-    == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(john@sub.contoso.com, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
-
-**宣告值：**http://sub.contoso.com/adfs/services/trust/
-
-為了讓簽發者宣告值中只有根網域，請變更宣告規則以符合下列內容︰
-
-    c:[Type == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “^((.*)([.|@]))?(?<domain>[^.]*[.].*)$”, “http://${domain}/adfs/services/trust/“));
+您可以使用 Azure AD Connect 新增多個要同盟的網域，如 [新增新的同盟網域](active-directory-aadconnect-federation-management.md#addfeddomain)所述。 Azure AD Connect 1.1.553.0 版和最新版本會為 issuerID 自動建立正確的宣告規則。 如果您無法使用 Azure AD Connect 1.1.553.0 版或最新版本，建議您使用 [Azure AD RPT 宣告規則](https://aka.ms/aadrptclaimrules)工具，針對 Azure AD 信賴憑證者的信任產生和設定正確的宣告規則。
 
 ## <a name="next-steps"></a>後續步驟
 深入了解 [使用者登入選項](active-directory-aadconnect-user-signin.md)。

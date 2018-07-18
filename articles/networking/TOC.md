@@ -8,6 +8,7 @@
 ### [網路安全性的最佳做法](../security/azure-security-network-security-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [高可用性的網路虛擬設備](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha )
 ### [合併負載平衡方法](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [使用 Azure DNS 和流量管理員進行災害復原](disaster-recovery-dns-traffic-manager.md)
 ## 規劃和設計
 ### [虛擬網路](../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [跨單位連線 - VPN](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
@@ -42,7 +43,7 @@
 ### [建立 P2S VPN 連線 (SSTP 與憑證)](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [建立專用私人連線 (ExpressRoute)](../expressroute/expressroute-howto-circuit-portal-resource-manager.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
-## 管理
+## 管理性
 ### [網路監視概觀](network-monitoring-overview.md)
 ### [檢查資源用量是否超出 Azure 限制](check-usage-against-limits.md)
 ### [檢視網路拓撲](../network-watcher/network-watcher-topology-powershell.md?toc=%2fazure%2fnetworking%2ftoc.json)
@@ -52,7 +53,7 @@
 ### [Azure PowerShell](powershell-samples.md)
 
 ## 教學課程
-### [負載平衡的 VM](../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [負載平衡的 VM](../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [將電腦連線到虛擬網路](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 # 參考

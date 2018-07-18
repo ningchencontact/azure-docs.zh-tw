@@ -1,25 +1,20 @@
 ---
-title: Azure 備份代理程式常見問題集 | Microsoft Docs
+title: Azure 備份代理程式常見問題集
 description: 有關以下常見問題的解答︰Azure 備份代理程式的運作方式、備份和保留限制。
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: ''
 keywords: 備份和災害復原; 備份服務
-ms.assetid: 778c6ccf-3e57-4103-a022-367cc60c411a
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 7/18/2017
-ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 8777b2265666a4505a3432aca6683e2510519cac
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.topic: conceptual
+ms.date: 6/25/2018
+ms.author: trinadhk
+ms.openlocfilehash: ac6d2a8a152f3c6e22be962b867ef58421eda47b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37016481"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>關於 Azure 備份代理程式的問題
 本文包含常見問題的解答，可協助您快速了解 Azure 備份代理程式元件。 在某些答案中，有具有完整資訊的文章連結。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。
@@ -63,7 +58,7 @@ ms.lasthandoff: 03/17/2018
 是。 在客體 Windows OS 上安裝 Azure 備份代理程式，並將檔案和資料夾備份至暫存儲存體。 一旦抹除暫存儲存體資料，備份工作就會失敗。此外，如果暫存儲存體資料已遭刪除，您只能還原至非變動性儲存體。
 
 ### <a name="whats-the-minimum-size-requirement-for-the-cache-folder-br"></a>什麼是快取資料夾的最低大小需求？ <br/>
-快取資料夾的大小可決定您正在備份的資料量。 快取資料夾應該是資料儲存體所需空間的 5%。
+快取資料夾的大小可決定您正在備份的資料量。 相較於備份資料的大小總計，快取資料夾的磁碟區至少應該是 5-10% 的可用空間。 如果此磁碟區低於 5% 的可用空間，請增加磁碟區大小，或[將快取資料夾移至具有足夠可用空間的磁碟區](backup-azure-file-folder-backup-faq.md#backup)。
 
 ### <a name="how-do-i-register-my-server-to-another-datacenterbr"></a>我如何向其他資料中心註冊我的伺服器？<br/>
 備份資料會傳送至保存庫的資料中心以進行註冊。 若要變更資料中心，最簡單的方式是將代理程式解除安裝並重新安裝，然後向所需資料中心的新保存庫進行註冊。

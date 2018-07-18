@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783767"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>使用 Azure Media Indexer 編輯媒體檔案索引
 Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生隱藏式字幕和關鍵字的全文檢索記錄。 您可以處理一份媒體檔或是批次處理多個媒體檔案。  

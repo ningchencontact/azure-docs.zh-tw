@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30902577"
 ---
 # <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>參考架構：使用 Microsoft Azure 串流分析的即時事件處理
 使用 Microsoft Azure 串流分析的即時事件處理之參考架構主要用來提供一般的藍圖，供使用 Microsoft Azure 部署即時的平台即服務 (PaaS) 串流處理解決方案。

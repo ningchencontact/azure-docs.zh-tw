@@ -4,7 +4,7 @@ description: 使用 Azure Resource Manager 範本建立和部署邏輯應用程�
 services: logic-apps
 documentationcenter: ''
 author: ecfan
-manager: anneta
+manager: jeconnoc
 editor: ''
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 69be968f34d756cc725f5353dcf074c01fad65ce
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 0772ed0e6cca98c4e59b563a23549909636d55d0
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32772546"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38572615"
 ---
 # <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本建立和部署邏輯應用程式
 

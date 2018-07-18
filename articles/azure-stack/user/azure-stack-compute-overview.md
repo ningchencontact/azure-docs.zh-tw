@@ -6,30 +6,34 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
-ms.date: 02/28/2018
+ms.date: 05/21/2018
 ms.author: mabrigg
-ms.openlocfilehash: 41e75a6806cc5ff13fad64fd415344376e0d6e88
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.reviewer: kivenkat
+ms.openlocfilehash: 967fcb86c1bf0c85517bc13c2066ed32e8fa28d9
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604126"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Azure Stack 虛擬機器簡介
 
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
-## <a name="overview"></a>概觀
-Azure Stack 虛擬機器 (VM) 是 Azure Stack 提供的一種依需求、可調整的計算資源。 一般而言，當您對於運算環境所需的控制權比其他選擇可提供的還要多時，則您會選擇 VM。 本文提供您在建立 VM 之前應該的事項、建立方式及管理方式的相關資訊。
+Azure Stack 會以一種依需求、可調整的計算資源形式提供虛擬機器 (VM)。 當您對於計算環境所需的控制權比其他選擇還要多時，您可以選擇 VM。 在您建立 VM 之前，本文會提供詳細資料。
 
 Azure Stack VM 供虛擬化的彈性，您不需要管理叢集或個別機器。 不過，您仍然需要執行工作來維護 VM，例如設定、修補和安裝在 VM 上執行的軟體。
 
 Azure Stack 虛擬機器有多種用途。 例如︰
 
-* **開發和測試** – Azure Stack VM 提供快速又簡單的方法來建立電腦，讓電腦具備撰寫和測試應用程式所需的特定設定。
+- **開發和測試**  
+    Azure Stack VM 提供快速又簡單的方法來建立電腦，讓電腦具備撰寫和測試應用程式所需的特定設定。
 
-* **雲端中的應用程式** – 因為對於應用程式的需求會變動，在 Azure Stack 中的 VM 上執行應用程式會較具經濟效益。 當您需要 VM 時便支付額外的 VM，而當您不需要時便關閉這些 VM。
+- **雲端中的應用程式**  
+    因為對於應用程式的需求會變動，在 Azure Stack 中的 VM 上執行應用程式會較具經濟效益。 當您需要 VM 時便支付額外的 VM，而當您不需要時便關閉這些 VM。
 
-* **擴充的資料中心** – Azure Stack 虛擬網路中的虛擬機器很容易連線至組織的網路或 Azure。
+- **擴充的資料中心**  
+    Azure Stack 虛擬網路中的虛擬機器很容易連線至組織的網路或 Azure。
 
 您的應用程式所使用的 VM 數目可以相應增加或相應放大為符合個人需求的任何內容。
 
@@ -37,12 +41,12 @@ Azure Stack 虛擬機器有多種用途。 例如︰
 
 當您在 Azure Stack 中建置應用程式基礎結構時，一定會面臨許多設計考量。 在您開始建立基礎結構之前，仔細考量 VM 的下列層面是很重要的︰
 
-* 應用程式資源的名稱。
-* VM 的大小。
-* 可建立的 VM 數目上限。
-* VM 執行的作業系統。
-* VM 啟動後的設定。
-* VM 需要的相關資源。
+- 應用程式資源的名稱。
+- VM 的大小。
+- 可建立的 VM 數目上限。
+- VM 執行的作業系統。
+- VM 啟動後的設定。
+- VM 需要的相關資源。
 
 ### <a name="naming"></a>命名
 
@@ -61,7 +65,7 @@ Azure Stack 虛擬機器有多種用途。 例如︰
 ### <a name="operating-system-disks-and-images"></a>作業系統磁碟和映像
 
 虛擬機器是使用虛擬硬碟 (VHD) 來儲存其作業系統 (OS) 和資料。 VHD 也能夠使用於您可以選擇用來安裝 OS 的映像。
-Azure Stack 提供一個市集，適用於各種版本和類型的作業系統。 Marketplace 映像是依映像發行者、優惠、SKU 和版本 (版本通常會指定為最新版本) 來識別。
+Azure Stack 提供一個市集，適用於各種版本和類型的作業系統。 Marketplace 映像是依映像發行者、供應項目、SKU 和版本 (版本通常會指定為最新版本) 來識別。
 
 下表顯示一些方法讓您找到映像的資訊：
 
@@ -69,7 +73,7 @@ Azure Stack 提供一個市集，適用於各種版本和類型的作業系統�
 |---------|---------|
 |Azure Stack 入口網站|當您選取要使用的影像時，會自動為您指定值。|
 |Azure Stack PowerShell|`Get-AzureRMVMImagePublisher -Location "location"`<br>`Get-AzureRMVMImageOffer -Location "location" -Publisher "publisherName"`<br>`Get-AzureRMVMImageSku -Location "location" -Publisher "publisherName" -Offer "offerName"`|
-|REST API     |[列出映像發行者](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<br>[列出映像優惠](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<br>[列出映像 SKU](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus)|
+|REST API     |[列出映像發行者](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<br>[列出映像供應項目](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<br>[列出映像 SKU](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus)|
 
 您可以選擇上傳並使用自己的映像。 如果這樣做，則不會使用發行者名稱、供應項目和 SKU。
 
@@ -78,9 +82,14 @@ Azure Stack 提供一個市集，適用於各種版本和類型的作業系統�
 VM 擴充可透過部署後設定及自動化工作，讓您的 VM 有更多功能。
 可以使用擴充功能來完成這些常見工作︰
 
-* 執行自訂指令碼 –「自訂指令碼擴充」可在佈建 VM 時執行您的指令碼，以協助您在 VM 上設定工作負載。
-* 部署和管理設定 –「PowerShell 期望狀態設定 (DSC) 擴充」可協助您在 VM 上設定 DSC 來管理設定和環境。
-* 收集診斷資料 –「Azure 診斷擴充」可協助您設定 VM 來收集診斷資料，用來監視應用程式的健康情況。
+- **執行自訂指令碼**  
+    「自訂指令碼擴充」可在佈建 VM 時執行您的指令碼，以協助您在 VM 上設定工作負載。
+
+- **部署和管理設定**  
+    「PowerShell 期望狀態設定 (DSC) 擴充」可協助您在 VM 上設定 DSC 來管理設定和環境。
+
+- **收集診斷資料**  
+    「Azure 診斷擴充」可協助您設定 VM 來收集診斷資料，用來監視應用程式的健康情況。
 
 ### <a name="related-resources"></a>相關資源
 
@@ -96,7 +105,7 @@ VM 擴充可透過部署後設定及自動化工作，讓您的 VM 有更多功�
 |Linux|yes|VM 需要網路介面以在網路中進行通訊。|
 |資料磁碟|否|VM 可以包含資料磁碟來擴充儲存體功能。|
 
-## <a name="how-do-i-create-my-first-vm"></a>如何建立第一個 VM？
+## <a name="create-your-first-vm"></a>建立您的第一個 VM
 
 建立 VM 有多種選擇。 您的選擇取決於您的環境。
 下表提供資訊來協助您開始建立 VM。
@@ -109,16 +118,16 @@ VM 擴充可透過部署後設定及自動化工作，讓您的 VM 有更多功�
 |PowerShell|[在 Azure Stack 中使用 PowerShell 建立 Windows 虛擬機器](azure-stack-quick-create-vm-windows-powershell.md)<br>[在 Azure Stack 中使用 PowerShell 建立 Linux 虛擬機器](azure-stack-quick-create-vm-linux-powershell.md)|
 |CLI|[在 Azure Stack 中使用 CLI 建立 Windows 虛擬機器](azure-stack-quick-create-vm-windows-cli.md)<br>[在 Azure Stack 中使用 CLI 建立 Linux 虛擬機器](azure-stack-quick-create-vm-linux-cli.md)|
 
-## <a name="how-do-i-manage-the-vm-that-i-created"></a>如何管理我所建立的 VM？
+## <a name="manage-your-vm"></a>管理您的 VM
 
 您可以使用以瀏覽器為基礎的入口網站、支援指令碼處理的命令列工具，或直接透過 API 管理 VM。 您可能會執行的一般管理工作包括：
 
-* 取得 VM 的相關資訊
-* 連線至 VM
-* 管理可用性
-* 建立備份
+- 取得 VM 的相關資訊
+- 連線至 VM
+- 管理可用性
+- 建立備份
 
-### <a name="get-information-about-a-vm"></a>取得 VM 的相關資訊
+### <a name="get-information-about-your-vm"></a>取得 VM 的相關資訊
 
 下表顯示一些方法讓您取得 VM 的相關資訊。
 
@@ -129,10 +138,10 @@ VM 擴充可透過部署後設定及自動化工作，讓您的 VM 有更多功�
 |Azure PowerShell|在 Azure 和 Azure Stack 中，管理 VM 的方法很相似。 如需有關使用 PowerShell 的詳細資訊，請參閱下列 Azure 主題：<br>[使用 Azure PowerShell 模組建立和管理 Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
 |用戶端 SDK|在 Azure 和 Azure Stack 中，使用 C# 來管理 VM 的方法很相似。 如需詳細資訊，請參閱下列 Azure 主題：<br>[在 Azure 中使用 C# 建立和管理 Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/csharp)|
 
-### <a name="connect-to-the-vm"></a>連接至 VM
+### <a name="connect-to-your-vm"></a>連接到您的 VM
 
 在 Azure Stack 入口網站中，您可以使用 [連線] 按鈕來連線至 VM。
 
 ## <a name="next-steps"></a>後續步驟
 
-* [Azure Stack 中虛擬機器的考量](azure-stack-vm-considerations.md)
+- [Azure Stack 中虛擬機器的考量](azure-stack-vm-considerations.md)

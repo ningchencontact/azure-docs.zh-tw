@@ -14,11 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 18a3f3080c58e01117e0fc73adad76d28c298536
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 110f393e723c7e784a4bd7e79559dd9d55147140
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599427"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 中的效能和級別
 
@@ -161,7 +162,7 @@ Azure Functions 支援在單一應用程式執行個體中同時執行多個函�
 > [!TIP]
 > 不同於展開傳送，收合傳送作業受限制於單一 VM。 如果您的應用程式使用展開傳送、收合傳送模式，而且您很在意收合傳送效能，請考慮將活動函式展開傳送細分到多個[子協調流程](durable-functions-sub-orchestrations.md)。
 
-下表顯示先前所述案例的預期「最大」輸送量數字。 「執行個體」是指在 Azure App Service 中單一小型 ([A1](../virtual-machines/windows/sizes-general.md#a-series)) VM 上執行之協調器函式的單一執行個體。 在所有情況下，假設已啟用[擴充工作階段](#orchestrator-function-replay)。 實際結果可能會因函式程式碼所執行的 CPU 或 I/O 工作而有所不同。
+下表顯示先前所述案例的預期「最大」輸送量數字。 「執行個體」是指在 Azure App Service 中單一小型 ([A1](../virtual-machines/windows/sizes-previous-gen.md#a-series)) VM 上執行之協調器函式的單一執行個體。 在所有情況下，假設已啟用[擴充工作階段](#orchestrator-function-replay)。 實際結果可能會因函式程式碼所執行的 CPU 或 I/O 工作而有所不同。
 
 | 案例 | 最大輸送量 |
 |-|-|

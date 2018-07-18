@@ -14,6 +14,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31797170"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>多租用戶 SaaS 應用程式與 Azure 搜尋服務的設計模式
 多租用戶應用程式是為不能查看或共用任何其他租用戶之資料的租用戶提供相同服務和功能的應用程式，其中租用戶的數目並無限制。 本文件將討論以「Azure 搜尋服務」建置的多租用戶應用程式的租用戶隔離策略。

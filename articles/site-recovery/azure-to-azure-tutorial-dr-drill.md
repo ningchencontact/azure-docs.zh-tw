@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/15/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: fb1c41e6fe254fbcbee8cb91a177777ed4e37fbb
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 789e637f3a5806aafe0ca8cad5b6408ef77b32d0
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208969"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919609"
 ---
 # <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>執行 Azure VM 到次要 Azure 區域的災害復原演練
 
@@ -26,7 +26,7 @@ ms.locfileid: "34208969"
 > * 檢查必要條件
 > * 執行單一 VM 測試容錯移轉
 
-Azure 至 Azure 複寫目前為預覽狀態。
+
 
 ## <a name="prerequisites"></a>先決條件
 

@@ -41,6 +41,10 @@
       href: traffic-manager-rum-overview.md
     - name: 流量檢視
       href: traffic-manager-traffic-view-overview.md
+    - name: 計量與警示
+      href: traffic-manager-metrics-alerts.md
+    - name: 使用 Azure DNS 和流量管理員進行災害復原
+      href: ../networking/disaster-recovery-dns-traffic-manager.md
     - name: 常見問題集
       href: traffic-manager-FAQs.md
 - name: |

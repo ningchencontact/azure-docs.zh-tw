@@ -17,11 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: be7dec07597b0a82633d330a72274a94dbb9bf67
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: b6de3094e903c3584aa4a57e7792e4b07711f74a
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937133"
 ---
 # <a name="integrating-with-azure-active-directory"></a>與 Azure Active Directory 整合
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -43,7 +44,7 @@ Azure Active Directory 為組織提供企業等級的雲端應用程式身分識
 
 **使用 Azure AD 來控制有權存取應用程式的人員。**  系統管理員和 Azure AD 中的應用程式擁有者可以將應用程式的存取權限指派給特定使用者和群組。 使用 Graph API，您可以讀取這份清單並用它來控制資源的佈建和取消佈建，以及應用程式內的存取。
 
-**使用 Azure AD 進行角色型存取控制。**  系統管理員和應用程式擁有者可以將使用者和群組指派至您在 Azure AD 中註冊應用程式時所定義的角色。 角色資訊會透過登入權杖傳送至您的應用程式，並可使用 Graph API 進行讀取。 深入了解 [使用 Azure AD 進行授權](http://blogs.technet.com/b/ad/archive/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles.aspx)。
+**使用 Azure AD 進行角色型存取控制。**  系統管理員和應用程式擁有者可以將使用者和群組指派至您在 Azure AD 中註冊應用程式時所定義的角色。 角色資訊會透過登入權杖傳送至您的應用程式，並可使用 Graph API 進行讀取。 深入了解 [使用 Azure AD 進行授權](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/)。
 
 ### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>取得使用者設定檔、行事曆、電子郵件、連絡人、檔案及其他等存取權限
 **Azure AD 是 Office 365 和其他 Microsoft 商務服務的授權伺服器。**  如果您的應用程式支援 Azure AD 登入，或支援使用 OAuth 2.0 將目前使用者帳戶連結至 Azure AD 使用者帳戶，則您可以要求使用者設定檔、行事曆、電子郵件、連絡人、檔案及其他資訊的讀取和寫入存取權限。 您可以順利地將事件寫入使用者的行事曆，並讀取檔案或將檔案寫入使用者的 OneDrive。 深入了解 [存取 Office 365 API](https://msdn.microsoft.com/office/office365/howto/platform-development-overview)。

@@ -1,24 +1,19 @@
 ---
-title: 使用 Resource Manager 範本自動啟用診斷設定 | Microsoft Docs
+title: 使用 Resource Manager 範本自動啟用診斷設定
 description: 了解如何使用 Resource Manager 範本來建立診斷設定，以讓您將診斷記錄檔串流至事件中樞，或將它們儲存在儲存體帳戶中。
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: a8a88a8c-4a48-4df6-8f7e-d90634d39c57
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 3/26/2018
 ms.author: johnkem
-ms.openlocfilehash: 5b372ae5a7ff2ad26e4bb83675f592df3f08931b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.component: ''
+ms.openlocfilehash: a69cefc3c9363c0e8378a90c44d6a466780402b1
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434482"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>使用 Resource Manager 範本在建立資源時自動啟用診斷設定
 在本文中，我們示範如何在建立資源時使用 [Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md) 設定診斷設定。 這可讓您在建立資源時，自動開始將您的診斷記錄檔和度量串流至事件中樞、將它們封存在儲存體帳戶中，或將它們傳送至 Log Analytics。
@@ -80,7 +75,7 @@ ms.lasthandoff: 05/10/2018
     "resources": [
       {
         "type": "providers/diagnosticSettings",
-        "name": "Microsoft.Insights/[parameters('settingName')]",
+        "name": "[concat('Microsoft.Insights/', parameters('settingName'))]",
         "dependsOn": [
           "[/*resource Id for which Diagnostic Logs will be enabled>*/]"
         ],
@@ -210,7 +205,7 @@ ms.lasthandoff: 05/10/2018
       "resources": [
         {
           "type": "providers/diagnosticSettings",
-          "name": "Microsoft.Insights/[parameters('settingName')]",
+          "name": "[concat('Microsoft.Insights/', parameters('settingName'))]",
           "dependsOn": [
             "[resourceId('Microsoft.Logic/workflows', parameters('logicAppName'))]"
           ],

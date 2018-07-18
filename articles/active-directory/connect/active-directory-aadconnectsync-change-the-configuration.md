@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 06c715cf5dbf039334adfde8b3111d9bfcb86568
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: bad1cbe0b142e146ada28f2af5d152973100e919
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595099"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect 同步處理：變更預設組態
 本文的目的在於逐步解說如何對 Azure Active Directory (Azure AD) Connect 同步處理中的預設組態進行變更。其中提供一些常見案例的步驟。 具備此知識，您應該能夠根據自己的商務規則對自己的組態進行簡單的變更。
@@ -314,7 +316,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 
     | 屬性 | 運算子 | 值 |
     | --- | --- | --- |
-    | sourceObjectType | EQUAL | User |
+    | sourceObjectType | EQUAL | 使用者 |
     | cloudMastered | NOTEQUAL | True |
 
     範圍篩選器會決定此輸出同步處理規則要套用至哪個 Azure AD 物件。 在此範例中，我們會使用來自 Out to AD – User Identity 現成可用的同步處理規則的同一個範圍篩選器。 它可避免同步處理規則套用到並非從內部部署 Active Directory 同步過來的使用者物件。 您可能需要根據 Azure AD Connect 部署來調整範圍篩選器。

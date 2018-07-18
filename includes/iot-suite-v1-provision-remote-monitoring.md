@@ -1,8 +1,25 @@
+---
+title: 包含檔案
+description: 包含檔案
+services: iot-accelerators
+author: dominicbetts
+ms.service: iot-accelerators
+ms.topic: include
+ms.date: 05/30/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 04081a514d9b96a5289594a730ec0519e6ee0b01
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36329785"
+---
 ## <a name="provision-the-solution"></a>佈建解決方案
 
 如果您尚未在您的帳戶中佈建遠端監視預先設定的解決方案：
 
-1. 使用 Azure 帳戶認證登入 [azureiotsuite.com][lnk-azureiotsuite]，然後按一下 **+** 建立新的解決方案。
+1. 使用 Azure 帳戶認證登入 [azureiotsuite.com][lnk-azureiotsuite]，然後按一下 [+] 以建立解決方案。
 2. 按一下 [遠端監視] 圖格上的 [選取]。
 3. 輸入遠端監視預先設定的解決方案的 [解決方案名稱]  。
 4. 選取您想要用來佈建解決方案的 [區域] 和 [訂用帳戶]。
@@ -21,7 +38,7 @@
 
 是否有您預期會看到但沒有列出的解決方案詳細資料？ 請在 [使用者心聲](https://feedback.azure.com/forums/321918-azure-iot)中提供功能建議給我們。
 
-[lnk-azureiotsuite]: https://www.azureiotsuite.com
+[lnk-azureiotsuite]: https://www.azureiotsolutions.com
 [lnk-permissions]: ../articles/iot-suite/iot-suite-v1-permissions.md
 [lnk-portal]: http://portal.azure.com/
 [lnk-faq]: ../articles/iot-suite/iot-suite-v1-faq.md

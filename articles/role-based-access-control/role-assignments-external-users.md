@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 中管理外部使用者的角色指派 | Microsoft Docs
-description: 在 Azure 中管理組織外部使用者的角色型存取控制 (RBAC)
+title: 在 Azure 中使用 RBAC 管理外部使用者的存取權 | Microsoft Docs
+description: 了解如何在 Azure 中使用角色型存取控制 (RBAC) 來管理組織外部使用者的存取權。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -9,21 +9,21 @@ editor: ''
 ms.assetid: ''
 ms.service: role-based-access-control
 ms.devlang: ''
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 084594b637f813c110e4e0b2e9df2b9103d58efc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 58108bd2851050e96df1b5453ce96856374b7163
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203881"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437030"
 ---
-# <a name="manage-role-assignments-for-external-users"></a>管理外部使用者的角色指派
+# <a name="manage-access-for-external-users-using-rbac"></a>使用 RBAC 管理外部使用者的存取權
 
 不論是大型組織，還是與需要存取您環境中特定資源，但不一定需要存取整個基礎結構或任何計費相關範圍的外部共同作業者、廠商或自由工作者合作的 SMB，角色型存取控制 (RBAC) 都可為其提供更好的安全性管理。 RBAC 能提供彈性，可擁有一個系統管理員帳戶 (訂用帳戶等級中的服務系統管理員角色) 所管理的 Azure 訂用帳戶，並邀請多個使用者在相同的訂用帳戶下運作，而無需任何系統管理權限。
 
@@ -44,10 +44,10 @@ ms.locfileid: "34203881"
 從 Azure 入口網站中，在您以管理員身分登入之後，請選取「訂用帳戶」，並選擇所需的訂用帳戶。
 ![Azure 入口網站中的訂用帳戶刀鋒視窗](./media/role-assignments-external-users/0.png) 根據預設，如果管理使用者已購買 Azure 訂用帳戶，使用者就會顯示為**帳戶管理員**，這是訂用帳戶角色。 如需 Azure 訂用帳戶角色的詳細資訊，請參閱[新增或變更管理訂用帳戶或服務的 Azure 系統管理員角色](../billing/billing-add-change-azure-subscription-administrator.md)。
 
-在此範例中，使用者 "alflanigan@outlook.com" 是「預設租用戶 Azure」AAD 租用戶中的「免費試用版」訂用帳戶之**擁有者**。 這個使用者是利用初始 Microsoft 帳戶 “Outlook” (Microsoft Account = Outlook, Live etc.) 的 Azure 訂用帳戶建立者，因此這個租用戶中新增之所有其他使用者的預設網域名稱為 **"@alflaniganuoutlook.onmicrosoft.com"**。 根據設計，新網域的語法構成方式是，將建立租用戶的使用者之使用者名稱和網域名稱加以組合，並新增 **".onmicrosoft.com"** 延伸。
+在此範例中，使用者 "alflanigan@outlook.com" 是「預設租用戶 Azure」AAD 租用戶中的「免費試用版」訂用帳戶之**擁有者**。 由於此使用者是具有初始 Microsoft 帳戶 “Outlook” (Microsoft 帳戶 = Outlook、Live 等) 的 Azure 訂用帳戶建立者，因此這個租用戶中所新增其他所有使用者的預設網域名稱會是 **"\@alflaniganuoutlook.onmicrosoft.com"**。 根據設計，新網域的語法構成方式是，將建立租用戶的使用者之使用者名稱和網域名稱加以組合，並新增 **".onmicrosoft.com"** 延伸。
 此外，使用者在新增及驗證新租用戶的自訂網域名稱之後，即可使用租用戶中的自訂網域名稱進行登入。 如需有關如何驗證 Azure Active Directory 租用戶中自訂網域名稱的詳細資訊，請參閱[將自訂網域名稱新增至您的目錄](/active-directory/active-directory-add-domain)。
 
-在此範例中，「預設租用戶 Azure」目錄僅包含具有 "@alflanigan.onmicrosoft.com" 網域名稱的使用者。
+在此範例中，「預設租用戶 Azure」目錄僅包含具有 "\@alflanigan.onmicrosoft.com" 網域名稱的使用者。
 
 選取訂用帳戶之後，管理使用者必須依序按一下 [存取控制 (IAM)] 以及 [新增角色]。
 
@@ -55,7 +55,7 @@ ms.locfileid: "34203881"
 
 ![在 Azure 入口網站的存取控制 IAM 功能中新增使用者](./media/role-assignments-external-users/2.png)
 
-下一個步驟是選取要指派的角色，以及要指派 RBAC 角色的使用者。 在 [角色] 下拉式功能表中，管理使用者只會看到 Azure 中提供的內建 RBAC 角色。 如需每個角色及其可指派範圍的詳細說明，請參閱 [Azure 角色型存取控制的內建角色](built-in-roles.md)。
+下一個步驟是選取要指派的角色，以及要指派 RBAC 角色的使用者。 在 [角色] 下拉式功能表中，管理使用者只會看到 Azure 中提供的內建 RBAC 角色。 如需每個角色及其可指派範圍的詳細說明，請參閱[內建角色](built-in-roles.md)。
 
 然後，管理使用者必須新增外部使用者的電子郵件地址。 預期的行為是要使外部使用者不顯示在現有的租用戶中。 外部使用者受邀請之後，將會與目前在「訂用帳戶」範圍獲指派 RBAC 角色的所有目前使用者一起顯示在 [訂用帳戶] > [存取控制 (IAM)] 下。
 

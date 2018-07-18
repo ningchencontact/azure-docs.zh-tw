@@ -20,6 +20,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33204117"
 ---
 # <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>使用角色型存取控制來管理對 Azure 帳單資訊的存取
 

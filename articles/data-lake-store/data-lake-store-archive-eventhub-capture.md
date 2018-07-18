@@ -9,13 +9,14 @@ editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2018
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: cff2ca87ab2916c9d5aa8bb308325cb7a0227d75
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 57c4d9ccc64c9644c3d333fad1262c997aeff5d1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624656"
 ---
 # <a name="use-azure-data-lake-store-to-capture-data-from-event-hubs"></a>使用 Azure Data Lake Store 從事件中樞擷取資料
 
@@ -56,12 +57,12 @@ ms.lasthandoff: 05/16/2018
 
     c. 在 [指派權限] 下，按一下 [選取權限]。 將 [權限] 設定為 [執行]。 將 [新增至] 設定為 [此資料夾及所有子系]。 將 [新增為] 設定為 [存取權限項目及預設權限項目]。
 
-> [!IMPORTANT]
-> 建立新的資料夾階層 (用來擷取 Azure 事件中樞所接收的資料) 時，這個簡單的方法可確保您能夠存取目的地資料夾。  不過，如果最上層資料夾有許多子檔案和資料夾，為其所有子系新增權限可能需要很長的時間。  如果根資料夾包含大量的檔案和資料夾，為最終目的地資料夾的路徑中的每個資料夾個別新增對 `Microsoft.EventHubs` 的 **Execute** 權限，可能更快。 
+    > [!IMPORTANT]
+    > 建立新的資料夾階層 (用來擷取 Azure 事件中樞所接收的資料) 時，這個簡單的方法可確保您能夠存取目的地資料夾。  不過，如果最上層資料夾有許多子檔案和資料夾，為其所有子系新增權限可能需要很長的時間。  如果根資料夾包含大量的檔案和資料夾，為最終目的地資料夾的路徑中的每個資料夾個別新增對 `Microsoft.EventHubs` 的 **Execute** 權限，可能更快。 
 
-    ![Assign permissions for Data Lake Store root](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Assign permissions for Data Lake Store root")
+    ![為 Data Lake Store 根目錄指派權限](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "為 Data Lake Store 根目錄指派權限")
 
-    Click **OK**.
+    按一下 [確定]。
 
 4. 為 Data Lake Store 帳戶下要擷取資料的目的地資料夾指派權限。
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33887458"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>在 Azure 中建立管理解決方案檔 (預覽)
 > [!NOTE]

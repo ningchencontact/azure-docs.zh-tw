@@ -1,10 +1,10 @@
 ---
-title: "Azure AD Connect - 傳遞驗證 - 升級驗證代理程式 | Microsoft Docs"
-description: "本文說明如何將 Azure Active Directory (Azure AD) 傳遞驗證組態升級。"
+title: Azure AD Connect - 傳遞驗證 - 升級驗證代理程式 | Microsoft Docs
+description: 本文說明如何將 Azure Active Directory (Azure AD) 傳遞驗證組態升級。
 services: active-directory
-keywords: "Azure AD Connect 傳遞驗證, 安裝 Active Directory, Azure AD 的必要元件, SSO, 單一登入"
-documentationcenter: 
-author: swkrish
+keywords: Azure AD Connect 傳遞驗證, 安裝 Active Directory, Azure AD 的必要元件, SSO, 單一登入
+documentationcenter: ''
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/14/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: f0a254b7216ca6fda40e26bafb7de57e796a5218
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: e955973008f1ba3900deb691426d0409440ad08a
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917722"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Azure Active Directory 傳遞驗證：將預覽驗證代理程式升級
 

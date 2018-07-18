@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212012"
 ---
 # <a name="troubleshoot-your-local-development-cluster-setup"></a>疑難排解本機開發叢集設定
 如果您在與本機 Azure Service Fabric 開發叢集互動時遇到問題，請檢閱下列建議，以尋求可能的解決方法。

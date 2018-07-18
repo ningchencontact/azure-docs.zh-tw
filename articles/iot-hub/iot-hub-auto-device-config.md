@@ -1,24 +1,23 @@
 ---
 title: 使用 Azure IoT 中樞大規模設定和監視 IoT 裝置 | Microsoft Docs
 description: 使用 Azure IoT 中樞自動裝置設定來將設定指派給多個裝置
-services: iot-hub
-documentationcenter: ''
 author: ChrisGMsft
-manager: timlt
-editor: ''
+manager: bruz
 ms.service: iot-hub
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
-ms.openlocfilehash: 7146fba69857c3a612ce1b3dbb83387c1f3068d6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 29a56e212f842e8f4243eca7fc865175fd275a39
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030762"
 ---
-# <a name="configure-and-monitor-iot-devices-at-scale---preview"></a>大規模設定和監視 IoT 裝置 - 預覽
+# <a name="configure-and-monitor-iot-devices-at-scale-using-the-azure-portal"></a>使用 Azure 入口網站大規模設定和監視 IoT 裝置
+
+[!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
 Azure IoT 中樞中的自動裝置管理，可將大批裝置在其生命週期全程中的許多重複且複雜的管理工作自動化。 使用自動裝置管理時，您可以根據裝置的屬性，以特定的裝置集合作為目標來定義所需的設定，並讓 IoT 中樞在這些裝置進入範圍內時更新裝置。  執行此動作的方式是使用自動裝置設定，這也可讓您對完成與合規性進行摘要處理、處理合併和衝突，以及階段式地推出設定。
 
@@ -52,7 +51,7 @@ Azure IoT 中樞中的自動裝置管理，可將大批裝置在其生命週期�
 ## <a name="create-a-configuration"></a>建立設定
 
 1. 在 [Azure 入口網站][lnk-portal]中，移至您的 IoT 中樞。 
-1. 選取 [裝置設定 (預覽)]。
+1. 選取 [IoT 裝置組態]。
 1. 選取 [新增設定]。
 
 建立設定有五個步驟。 下列各節將逐步解說每一個步驟。 
@@ -86,7 +85,7 @@ Azure IoT 中樞中的自動裝置管理，可將大批裝置在其生命週期�
 
 例如：`SELECT deviceId FROM devices WHERE properties.reported.chillerWaterSettings.status='pending'`
 
-您可以加入已套用設定的子句，例如：`SELECT deviceId FROM devices WHERE configurations.yourconfigname.status='Applied'`
+您可以加入已套用設定的子句，例如：`SELECT deviceId FROM devices WHERE configurations.[[yourconfigname]].status='Applied'`，包括雙括號。
 
 
 ### <a name="step-4-target-devices"></a>步驟 4：目標裝置
@@ -96,7 +95,7 @@ Azure IoT 中樞中的自動裝置管理，可將大批裝置在其生命週期�
 由於多個設定可能會以相同裝置為目標，您應該為每個設定提供優先順序號碼。 如果發生衝突，則會優先選擇優先順序最高的設定。 
 
 1. 為設定的 [優先順序] 輸入一個正整數。 最高的數值會視為最高優先順序。 如果有兩個設定具有相同的優先順序號碼，則會優先選擇最新建立的設定。 
-1. 輸入 [目標條件] 來判斷這個設定會將哪些裝置設為目標。 條件會以裝置對應項標籤或裝置對應項報告屬性為基礎，且應符合運算式格式。 例如，`tags.environment='test'` 或 `properties.reported.chillerProperties.model='4000x'`。 
+1. 輸入 [目標條件] 來判斷這個設定會將哪些裝置設為目標。 條件會以裝置對應項標籤或裝置對應項報告屬性為基礎，且應符合運算式格式。 例如，`tags.environment='test'` 或 `properties.reported.chillerProperties.model='4000x'`。 您可以指定 `*` 以將所有裝置設為目標。
 1. 選取 [下一步] 移到最後一個步驟。
 
 ### <a name="step-5-review-configuration"></a>步驟 5：檢閱設定
@@ -108,8 +107,8 @@ Azure IoT 中樞中的自動裝置管理，可將大批裝置在其生命週期�
 若要檢視設定的詳細資料，並監視正在執行該設定的裝置，請使用下列步驟：
 
 1. 在 [Azure 入口網站][lnk-portal]中，移至您的 IoT 中樞。 
-1. 選取 [裝置設定 (預覽)]。
-1. 檢查設定清單。 針對每個設定，您可以檢視下列詳細資料：
+1. 選取 [IoT 裝置組態]。
+2. 檢查設定清單。 針對每個設定，您可以檢視下列詳細資料：
    * **識別碼**：設定的名稱。
    * **目標條件**：用來定義目標裝置的查詢。
    * **優先順序**：指派給設定的優先順序號碼。
@@ -136,25 +135,25 @@ Azure IoT 中樞中的自動裝置管理，可將大批裝置在其生命週期�
 若要修改設定，請使用下列步驟： 
 
 1. 在 [Azure 入口網站][lnk-portal]中，移至您的 IoT 中樞。 
-1. 選取 [裝置設定 (預覽)]。 
-1. 選取您想要修改的設定。 
-1. 對下列欄位進行更新： 
+1. 選取 [IoT 裝置組態]。 
+2. 選取您想要修改的設定。 
+3. 對下列欄位進行更新： 
    * 目標條件 
    * 標籤 
    * 優先順序 
    * 度量
-1. 選取 [ **儲存**]。
-1. 依照[監視設定][anchor-monitor]中的步驟來監看所推出的變更。 
+4. 選取 [ **儲存**]。
+5. 依照[監視設定][anchor-monitor]中的步驟來監看所推出的變更。 
 
 ## <a name="delete-a-configuration"></a>刪除設定
 
 當您刪除設定時，任何裝置對應項都會採用其優先順序次高的設定。 如果裝置對應項不符合任何其他設定的目標條件，則不會套用任何其他設定。 
 
 1. 在 [Azure 入口網站][lnk-portal]中，移至您的 IoT 中樞。 
-1. 選取 [裝置設定 (預覽)]。 
-1. 使用核取方塊來選取您想要刪除的設定。 
-1. 選取 [刪除] 。
-1. 您會看到要求確認的提示。
+1. 選取 [IoT 裝置組態]。 
+2. 使用核取方塊來選取您想要刪除的設定。 
+3. 選取 [刪除] 。
+4. 您會看到要求確認的提示。
 
 ## <a name="next-steps"></a>後續步驟
 在本文中，您已了解如何大規模設定和監視 IoT 裝置。 遵循下列連結以深入了解如何管理 Azure IoT 中樞：

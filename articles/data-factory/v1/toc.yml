@@ -1,5 +1,7 @@
 - name: Data Factory V1 文件
   href: null
+- name: 切換至目前版本的文件
+  href: ../introduction.md
 - name: 概觀
   items:
     - name: Azure Data Factory 簡介
@@ -47,8 +49,7 @@
       href: data-factory-move-data-between-onprem-and-cloud.md
     - name: 常見問題集
       href: data-factory-faq.md
-- name: |
-    作法
+- name: 作法
   items:
     - name: 移動資料
       items:
@@ -75,7 +76,7 @@
               href: data-factory-azure-blob-connector.md
             - name: Azure Cosmos DB
               href: data-factory-azure-documentdb-connector.md
-            - name: Azure Data Lake Store
+            - name: Azure Data Lake Storage Gen1
               href: data-factory-azure-datalake-connector.md
             - name: Azure 搜尋服務
               href: data-factory-azure-search-connector.md

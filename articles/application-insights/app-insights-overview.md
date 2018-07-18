@@ -14,11 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 05/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 6e4cc8b399a3d3b1db1c52aafc8a73edb784d13b
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: fe6be773988d1889336cdddb54f7886aeb8d4f5f
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051819"
 ---
 # <a name="what-is-application-insights"></a>什麼是 Application Insights？
 Application Insights 是多個平台上的 Web 開發人員所適用的可延伸「應用程式效能管理」(APM) 服務。 您可以使用它來監視即時 Web 應用程式。 它將會自動偵測效能異常。 其中包括強大的分析工具可協助您診斷問題，並了解使用者實際如何運用您的應用程式。  它是設計來協助您持續改善效能和可用性。 它適用於各種不同平台上的應用程式，包括裝載在內部部署或雲端的 .NET、Node.js 和 J2EE。 它可與您的 DevOps 程序整合，並有各種開發工具的連接點。 透過整合 VVisual Studio App Center 與 HockeyApp，還可以從行動應用程式監視並分析遙測資料。
@@ -70,7 +71,7 @@ Application Insights 是以開發小組為目標，以協助您了解您的應�
 | [**使用量分析**](app-insights-usage-overview.md)<br/>分析使用者區隔和保留期。|![保留期工具](./media/app-insights-overview/retention.png) |
 | [**執行個體資料的診斷搜尋**](app-insights-diagnostic-search.md)<br/>搜尋和篩選事件，例如要求、例外狀況、相依性呼叫、記錄追蹤，以及頁面檢視。  |![搜尋遙測](./media/app-insights-overview/search-tn.png) |
 | [**彙總資料的計量瀏覽器**](app-insights-metrics-explorer.md)<br/>瀏覽、篩選和分割彙總的資料，例如，要求、錯誤和例外狀況的比率；回應時間、頁面載入時間。 |![度量](./media/app-insights-overview/metrics-tn.png) |
-| [** 儀表板**](app-insights-dashboards.md#dashboards)<br/>來自多個資源的交互式資料並與其他人員共用。 非常適用於多元件的應用程式，以及小組聊天室中的連續顯示。 |![儀表板範例](./media/app-insights-overview/dashboard-tn.png) |
+| [**儀表板**](app-insights-dashboards.md#dashboards)<br/>來自多個資源的交互式資料並與其他人員共用。 非常適用於多元件的應用程式，以及小組聊天室中的連續顯示。 |![儀表板範例](./media/app-insights-overview/dashboard-tn.png) |
 | [**即時計量串流**](app-insights-live-stream.md)<br/>當您部署新的組建時，請觀看這些近乎即時的效能指標，以確定一切如預期運作。 |![即時計量範例](./media/app-insights-overview/live-metrics-tn.png) |
 | [**分析**](app-insights-analytics.md)<br/>使用這個功能強大的查詢語言，回答有關您應用程式效能和使用方式的艱難問題。 |![分析範例](./media/app-insights-overview/analytics-tn.png) |
 | [**Visual Studio**](app-insights-visual-studio.md)<br/>查看程式碼中的效能資料。 從堆疊追蹤移至程式碼。|![Visual Studio](./media/app-insights-overview/visual-studio-tn.png) |
@@ -139,7 +140,7 @@ Application Insights 是 Microsoft Azure 中裝載的多項服務之一，而遙
   * [MSDN 論壇](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
   * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * 您的建議：
-  * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
+  * [UserVoice](https://feedback.azure.com/forums/357324-application-insights/filters/top)
 * 部落格：
   * [Application Insights 部落格](https://azure.microsoft.com/blog/tag/application-insights)
 

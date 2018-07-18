@@ -13,6 +13,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777254"
 ---
 # <a name="what-is-search-traffic-analytics"></a>什麼是搜尋流量分析
 搜尋流量分析是一種模式，可用來實作搜尋服務的意見反應管道。 這個模式描述必要的資料，以及如何使用監視多平台服務中的業界領導者 Application Insights 來加以收集。

@@ -1,6 +1,6 @@
 ---
-title: "教學課程︰在 Azure 儲存體中使用 Azure Key Vault 加密和解密 Blob | Microsoft Docs"
-description: "如何使用 Microsoft Azure 儲存體的用戶端加密並搭配 Azure Key Vault 來加密和解密 Blob。"
+title: 教學課程︰在 Azure 儲存體中使用 Azure Key Vault 加密和解密 Blob | Microsoft Docs
+description: 如何使用 Microsoft Azure 儲存體的用戶端加密並搭配 Azure Key Vault 來加密和解密 Blob。
 services: storage
 author: tamram
 manager: jeconnoc
@@ -13,6 +13,7 @@ ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/16/2018
+ms.locfileid: "27815808"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>教學課程：在 Microsoft Azure 儲存體中使用 Azure 金鑰保存庫加密和解密 Blob
 ## <a name="introduction"></a>簡介

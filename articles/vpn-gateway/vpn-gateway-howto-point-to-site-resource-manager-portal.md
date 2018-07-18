@@ -16,10 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: cherylmc
 ms.openlocfilehash: 4603131c31ab3792efc1df504eb95dfde2eccb17
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38452629"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>使用原生 Azure 憑證驗證設定 VNet 的點對站連線：Azure 入口網站
 
@@ -41,21 +42,21 @@ ms.lasthandoff: 03/23/2018
 
 您可以使用下列值來建立測試環境，或參考這些值來進一步了解本文中的範例：
 
-* **VNet 名稱︰**VNet1
-* **位址空間：**192.168.0.0/16<br>在此範例中，我們只使用一個位址空間。 您可以針對 VNet 使用一個以上的位址空間。
-* **子網路名稱：**FrontEnd
-* **子網路位址範圍：**192.168.1.0/24
-* **訂用帳戶：**如果您有一個以上的訂用帳戶，請確認您使用正確的訂用帳戶。
-* **資源群組：**TestRG
-* **位置：**美國東部
-* **GatewaySubnet：**192.168.200.0/24<br>
+* **VNet 名稱︰** VNet1
+* **位址空間：** 192.168.0.0/16<br>在此範例中，我們只使用一個位址空間。 您可以針對 VNet 使用一個以上的位址空間。
+* **子網路名稱：** FrontEnd
+* **子網路位址範圍：** 192.168.1.0/24
+* **訂用帳戶：** 如果您有一個以上的訂用帳戶，請確認您使用正確的訂用帳戶。
+* **資源群組：** TestRG
+* **位置：** 美國東部
+* **GatewaySubnet：** 192.168.200.0/24<br>
 * **DNS 伺服器：**(選擇性) 您想要用於名稱解析之 DNS 伺服器的 IP 位址。
-* **虛擬網路閘道名稱：**VNet1GW
-* **閘道類型：**VPN
-* **VPN 類型：**路由式
-* **公用 IP 位址名稱：**VNet1GWpip
-* **連線類型：**點對站
-* **用戶端位址集區：**172.16.201.0/24<br>使用這個點對站連線來連線到 VNet 的 VPN 用戶端，會收到來自用戶端位址集區的 IP 位址。
+* **虛擬網路閘道名稱：** VNet1GW
+* **閘道類型：** VPN
+* **VPN 類型：** 路由式
+* **公用 IP 位址名稱：** VNet1GWpip
+* **連線類型：** 點對站
+* **用戶端位址集區：** 172.16.201.0/24<br>使用這個點對站連線來連線到 VNet 的 VPN 用戶端，會收到來自用戶端位址集區的 IP 位址。
 
 ## <a name="createvnet"></a>1.建立虛擬網路
 

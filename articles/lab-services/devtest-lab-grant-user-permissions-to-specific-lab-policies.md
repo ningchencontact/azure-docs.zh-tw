@@ -15,10 +15,11 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 2b81c23b5cf9ea5d4bfc47d36ae251f762ffad11
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38539685"
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>將特定實驗室原則的權限授與使用者
 ## <a name="overview"></a>概觀
@@ -29,7 +30,7 @@ ms.lasthandoff: 05/07/2018
 
 在研發/測試實驗室中，原則是一種可啟用 RBAC 動作 **Microsoft.DevTestLab/labs/policySets/policies/** 的資源類型。 每個實驗室原則都是「原則」資源類型中的資源，並且可被指派成某個 RBAC 角色的範圍。
 
-例如，為了將**允許的 VM 大小**原則的讀取/寫入權限授與使用者，您會建立一個處理 **Microsoft.DevTestLab/labs/policySets/policies/** 動作的自訂角色，然後在 **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab** 範圍中將適當的使用者指派給這個自訂角色。
+例如，為了將**允許的 VM 大小**原則的讀取/寫入權限授與使用者，您會建立一個處理 **Microsoft.DevTestLab/labs/policySets/policies/** \* 動作的自訂角色，然後在 **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab** 範圍中將適當的使用者指派給這個自訂角色。
 
 若要深入了解 RBAC 中的自訂角色，請參閱[自訂角色存取控制](../role-based-access-control/custom-roles.md)。
 

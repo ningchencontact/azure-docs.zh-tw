@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31407447"
 ---
 # <a name="introduction-to-the-geo-artificial-intelligence-data-science-virtual-machine"></a>地區人工智慧資料科學虛擬機器的簡介
 

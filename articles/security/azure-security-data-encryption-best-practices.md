@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32193575"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Azure 資料安全性和加密最佳作法
 

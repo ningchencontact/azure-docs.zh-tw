@@ -13,30 +13,29 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: c5b7af290a5e5c45d3f64ccb50586db0811dd592
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: d5858ba7d10093264e1565d88ae518055b814d34
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085737"
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>使用 .NET SDK 建立資料處理站和管線
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [第 1 版 - 正式推出](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [第 2 版 - 預覽](quickstart-create-data-factory-dot-net.md)
+> * [第 1 版](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [目前的版本](quickstart-create-data-factory-dot-net.md)
 
 本快速入門說明如何使用 .NET SDK 來建立 Azure 資料處理站。 在此資料處理站中建立的管線會將資料從 Azure Blob 儲存體中的一個資料夾**複製**到其他資料夾。 如需如何使用 Azure Data Factory **轉換**資料的教學課程，請參閱[教學課程︰使用 Spark 轉換資料](transform-data-using-spark.md)。 
 
 > [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (也就是正式推出版 (GA))，請參閱 [開始使用 Data Factory 第 1 版](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
->
 > 本文不提供 Data Factory 服務的詳細簡介。 如需 Azure Data Factory 服務簡介，請參閱 [Azure Data Factory 簡介](introduction.md)。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>先決條件
 
-### <a name="azure-subscription"></a>Azure 訂閱
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
+### <a name="azure-subscription"></a>Azure 訂用帳戶
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
 ### <a name="azure-roles"></a>Azure 角色
 若要建立 Data Factory 執行個體，您用來登入 Azure 的使用者帳戶必須為**參與者**或**擁有者**角色，或是 Azure 訂用帳戶的**管理員**。 在 Azure 入口網站中，按一下右上角的 [使用者名稱]，然後選取 [權限] 來檢視您在訂用帳戶中所擁有的權限。 如果您有多個訂用帳戶的存取權，請選取適當的訂用帳戶。 如需將使用者新增至角色的範例指示，請參閱[新增角色](../billing/billing-add-change-azure-subscription-administrator.md)文章。
@@ -146,7 +145,7 @@ ms.lasthandoff: 03/29/2018
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-2. 將下列程式碼新增至 **Main** 方法，以設定變數。 將預留位置取代為您自己的值。 目前，Data Factory V2 只允許您在美國東部、美國東部 2 和西歐區域中建立資料處理站。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
+2. 將下列程式碼新增至 **Main** 方法，以設定變數。 將預留位置取代為您自己的值。 如需目前可使用 Data Factory 的 Azure 區域清單，請在下列頁面上選取您感興趣的區域，然後展開 [分析] 以找出 [Data Factory]：[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
 
     ```csharp
     // Set variables
@@ -460,7 +459,7 @@ Checking copy activity run details...
     "throughput": 14073.209,
     "errors": [],
     "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (West US)",
-    "usedCloudDataMovementUnits": 2,
+    "usedDataIntegrationUnits": 2,
     "billedDuration": 23
 }
 

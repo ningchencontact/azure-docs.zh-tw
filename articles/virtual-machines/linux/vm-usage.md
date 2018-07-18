@@ -1,15 +1,15 @@
 ---
-title: "了解 Azure 虛擬機器使用情況 | Microsoft Docs"
-description: "了解虛擬機器使用情況詳細資料"
+title: 了解 Azure 虛擬機器使用情況 | Microsoft Docs
+description: 了解虛擬機器使用情況詳細資料
 services: virtual-machines
-documentationcenter: 
+documentationcenter: ''
 author: mmccrory
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-virtual-machine
-ms.assetid: 
-ms.service: 
-ms.devlang: 
+ms.assetid: ''
+ms.service: ''
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26345398"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>了解 Azure 虛擬機器使用情況
 分析您的 Azure 使用情況資料，可以深入了解使用量，以在整個組織內實現更妥善的成本管理與配置。 本文件會針對您的 Azure 計算使用量詳細資料，提供深入探討。 如需有關一般 Azure 使用情況的詳細資訊，請瀏覽至[了解您的帳單](/billing/billing-understand-your-bill.md)。

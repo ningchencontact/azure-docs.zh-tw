@@ -18,6 +18,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33200989"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends"></a>多租用戶後端的應用程式閘道支援
 

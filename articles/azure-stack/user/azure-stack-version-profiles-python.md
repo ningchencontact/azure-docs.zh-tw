@@ -10,20 +10,53 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/21/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
 <!-- dev: viananth -->
-ms.openlocfilehash: a4fe62ba8c0732745326831b977e8975e1210436
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: d17ba9ed4548a986d6846d934aee197609ec80ca
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32310296"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "34806831"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>在 Azure Stack 中使用 API 版本設定檔與 Python
 
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+
+## <a name="python-and-api-version-profiles"></a>Python 和 API 版本設定檔
+
+Python SDK 支援 API 版本設定檔以不同雲端平台 (例如，Azure Stack 和全域 Azure) 作為目標。 您可以使用 API 設定檔來建立混合式雲端的解決方案。 Python SDK 支援下列 API 設定檔：
+
+1. **最新**  
+    設定檔會以 Azure 平台中所有服務提供者的最新 API 版本作為目標。
+2.  **2017-03-09-profile**  
+    **2017-03-09-profile**  
+    設定檔會以 Azure Stack 所支援的資源提供者 API 版本 作為目標。
+
+    如需 API 設定檔和 Azure Stack 的詳細資訊，請參閱[管理 Azure Stack 中的 API 版本設定檔](azure-stack-version-profiles.md)。
+
+## <a name="install-azure-python-sdk"></a>安裝 Azure Python SDK
+
+1.  從[官方網站](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)安裝 Git。
+2.  如需 Python SDK 的安裝指示，請參閱[適用於 Python 開發人員的 Azure](https://docs.microsoft.com/python/azure/python-sdk-azure-install?view=azure-python)。
+3.  如果無法使用，請建立訂用帳戶，並儲存訂用帳戶識別碼以供後續使用。 如需訂用帳戶的建立指示，請參閱[在 Azure Stack 中建立供應項目的訂用帳戶](../azure-stack-subscribe-plan-provision-vm.md)。 
+4.  建立服務主體，並儲存其識別碼和祕密。 如需 Azure Stack 服務主體的建立指示，請參閱[為 Azure Stack 提供應用程式存取](../azure-stack-create-service-principals.md)。 
+5.  確保您的服務主體在訂用帳戶中擁有參與者/擁有者角色。 如需如何對服務主體指派角色的指示，請參閱[為 Azure Stack 提供應用程式存取](../azure-stack-create-service-principals.md)。
+
+## <a name="prerequisites"></a>先決條件
+
+若要搭配 Azure Stack 使用 Python Azure SDK，您必須提供下列值，然後以環境變數設定值。 針對您的作業系統設定環境變數時，請參閱下表的指示。 
+
+| 值 | 環境變數 | 說明 |
+|---------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------|
+| 租用戶識別碼 | AZURE_TENANT_ID | 您的 Azure Stack [租用戶識別碼](../azure-stack-identity-overview.md)的值。 |
+| 用戶端識別碼 | AZURE_CLIENT_ID | 您在本文件上一節中建立服務主體時儲存的服務主體應用程式識別碼。 |
+| 訂用帳戶識別碼 | AZURE_SUBSCRIPTION_ID | [訂用帳戶識別碼](../azure-stack-plan-offer-quota-overview.md#subscriptions)是您存取 Azure Stack 中供應項目的方式。 |
+| 用戶端密碼 | AZURE_CLIENT_SECRET | 服務主體建立時儲存的服務主體應用程式祕密。 |
+| Resource Manager 端點 | ARM_ENDPOINT | 請參閱 [Azure Stack Resource Manager 端點](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint)。 |
+
 
 ## <a name="python-samples-for-azure-stack"></a>適用於 Azure Stack 的 Python 範例 
 
@@ -84,11 +117,9 @@ ms.locfileid: "32310296"
     pip install -r requirements.txt
     ````
 
-5.  建立[服務主體](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals)以搭配 Azure Stack 使用。 確保您的服務主體在訂用帳戶中擁有[參與者/擁有者角色](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal)。
+5.  建立[服務主體](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals)以搭配 Azure Stack 使用。 確保您的服務主體在訂用帳戶中擁有[參與者/擁有者角色](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal)。
 
 6.  設定下列變數，並將這些環境變數匯出到目前的殼層。 
-
-`Note: provide an explanation of where these variables come from?`
 
     ````bash
     export AZURE_TENANT_ID={your tenant id}
@@ -98,30 +129,32 @@ ms.locfileid: "32310296"
     export ARM_ENDPOINT={your AzureStack Resource Manager Endpoint}
     ```
 
-7.  請注意，若要執行此範例，Azure Stack 市場中必須存在 Ubuntu 16.04-LTS 和 WindowsServer 2012-R2-Datacenter 映像。 這些可以是[從 Azure 下載](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-download-azure-marketplace-item)或[加入平台映像儲存機制](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-add-vm-image)。
+7.  In order to run this sample, Ubuntu 16.04-LTS and WindowsServer 2012-R2-Datacenter images must be present in Azure Stack market place. These can be either [downloaded from Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) or [added to Platform Image Repository](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-vm-image).
 
-
-8. 執行範例。
+8. Run the sample.
 
     ```
     python unmanaged-disks\example.py
     ```
 
-## <a name="notes"></a>注意
+## Notes
 
-您可能會想要再試一次使用 `virtual_machine.storage_profile.os_disk` 擷取 VM 的 OS 磁碟。
-在某些情況下，如此可能會達成您的目的。但請注意，它會產生一個 `OSDisk` 物件。
-為了更新 OS 磁碟的大小，與 `example.py` 一樣，您不需要 `OSDisk` 物件，而是 `Disk` 物件。
-`example.py` 取得包含下列項目的 `Disk` 物件：
+You may be tempted to try to retrieve a VM's OS disk by using
+`virtual_machine.storage_profile.os_disk`.
+In some cases, this may do what you want,
+but be aware that it gives you an `OSDisk` object.
+In order to update the OS Disk's size, as `example.py` does,
+you need not an `OSDisk` object but a `Disk` object.
+`example.py` gets the `Disk` object with the following:
 
 ```python
 os_disk_name = virtual_machine.storage_profile.os_disk.name
 os_disk = compute_client.disks.get(GROUP_NAME, os_disk_name)
 ```
 
-## <a name="next-steps"></a>後續步驟
+## Next steps
 
-- [Azure Python 開發中心](https://azure.microsoft.com/develop/python/)
-- [Azure 虛擬機器文件](https://azure.microsoft.com/services/virtual-machines/)
-- [虛擬機器的學習路徑](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
-- 如果您沒有 Microsoft Azure 訂用帳戶，則可以在[此處](http://go.microsoft.com/fwlink/?LinkId=330212)建立免費的試用帳戶。
+- [Azure Python Development Center](https://azure.microsoft.com/develop/python/)
+- [Azure Virtual Machines documentation](https://azure.microsoft.com/services/virtual-machines/)
+- [Learning Path for Virtual Machines](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
+- If you don't have a Microsoft Azure subscription, you can get a FREE trial account [here](http://go.microsoft.com/fwlink/?LinkId=330212).

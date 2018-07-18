@@ -1,24 +1,20 @@
 ---
 title: 使用 SendGrid 服務和 Azure Functions 在門戶開啟時接收電子郵件 | Microsoft Docs
 description: 監視磁性感應器，以在門戶開啟時加以偵測並使用 Azure Functions 傳送電子郵件通知。
-services: iot-hub
-documentationcenter: ''
 author: liydu
-manager: timlt
-tags: ''
-keywords: ''
+manager: jeffya
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: 4eb13a588f0ffd1377caf3ce9bac4886f052a22f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 25cb3ba53c663a642f0871becbfbcab39d521c67
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437710"
 ---
 # <a name="door-monitor"></a>門戶監視          
 
@@ -37,7 +33,7 @@ MXChip IoT DevKit 包含內建的磁性感應器。 在此專案中，您會偵�
 
 ## <a name="what-you-need"></a>您需要什麼
 
-完成[使用者入門指南]({{"/docs/get-started/" | absolute_url }})以便：
+完成[使用者入門指南](iot-hub-arduino-iot-devkit-az3166-get-started.md)以便：
 
 * 讓 DevKit 連線至 Wi-Fi
 * 準備開發環境

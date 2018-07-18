@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33782787"
 ---
 # <a name="create-clips-with-azure-media-clipper-in-the-portal"></a>在入口網站使用 Azure Media Clipper 建立剪輯
 您可以在入口網站使用 Azure Media Clipper，從媒體服務帳戶中的資產建立剪輯。 若要開始，請在入口網站中瀏覽至您的媒體服務帳戶。 接下來，選取 [子剪輯] 索引標籤。

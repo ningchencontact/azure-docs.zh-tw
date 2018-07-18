@@ -4,7 +4,7 @@ description: Azure Active Directory 無縫單一登入常見問題集的答案�
 services: active-directory
 keywords: 何謂 Azure AD Connect、安裝 Active Directory、Azure AD、SSO、單一登入的必要元件
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ba402847d14f7de6c70b545b74d7ba8c1aaddcb0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8e4cc67af4276bc244d402258a90dfec01d61add
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919014"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory 無縫單一登入：常見問題集
 
@@ -34,7 +36,7 @@ ms.lasthandoff: 04/28/2018
 
 ## <a name="is-seamless-sso-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>[Microsoft Azure 德國雲端](http://www.microsoft.de/cloud-deutschland)和 [Microsoft Azure Government 雲端](https://azure.microsoft.com/features/gov/)是否有提供「無縫 SSO」功能？
 
-編號 只有全球版的 Azure AD 執行個體有提供「無縫 SSO」功能。
+否。 只有全球版的 Azure AD 執行個體有提供「無縫 SSO」功能。
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>哪些應用程式利用無縫 SSO 的 `domain_hint` 或 `login_hint` 參數功能？
 

@@ -51,6 +51,8 @@
           href: tutorial-prepare-azure.md
         - name: 將內部部署機器移轉至 Azure
           href: migrate-tutorial-on-premises-azure.md
+        - name: '將 Windows Server 2008, 2008 R2 伺服器遷移至 Azure'
+          href: migrate-tutorial-windows-server-2008.md
         - name: 將 AWS 執行個體移轉至 Azure
           href: migrate-tutorial-aws-azure.md
         - name: 將 Azure VM 移轉到另一個區域
@@ -101,6 +103,14 @@
               href: hyper-v-vmm-secondary-support-matrix.md
             - name: Hyper-V 至次要網站架構
               href: hyper-v-vmm-architecture.md
+    - name: 網路功能
+      items:
+        - name: 使用 Site Recovery 的 Azure 流量管理員
+          href: concepts-traffic-manager-with-site-recovery.md
+        - name: 使用 Site Recovery 的 ExpressRoute
+          href: concepts-expressroute-with-site-recovery.md
+        - name: 使用 Site Recovery 的網路安全性群組
+          href: concepts-network-security-group-with-site-recovery.md
     - name: 應用程式災害復原
       href: site-recovery-workload.md
     - name: 關於復原方案
@@ -109,17 +119,13 @@
       href: migrate-overview.md
     - name: 關於站台復原的角色型存取控制
       href: site-recovery-role-based-linked-access-control.md
-    - name: 關於站台復原的 Azure 流量管理員
-      href: concepts-traffic-manager-with-site-recovery.md
-    - name: 關於使用 Site Recovery 的 ExpressRoute
-      href: concepts-expressroute-with-site-recovery.md
     - name: 常見問題集
       href: site-recovery-faq.md
 - name: 使用說明指南
   items:
     - name: Azure 至 Azure
       items:
-        - name: 網路
+        - name: 網路功能
           items:
             - name: 管理 Azure 虛擬機器災害復原的網路功能
               href: azure-to-azure-about-networking.md
@@ -153,7 +159,7 @@
               href: azure-to-azure-autoupdate.md
     - name: VMware/實體至 Azure
       items:
-        - name: 網路
+        - name: 網路功能
           items:
             - name: 管理內部部署至 Azure 複寫的網路介面
               href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
@@ -231,6 +237,8 @@
               href: vmware-azure-manage-configuration-server.md
             - name: 管理組態伺服器以複寫實體伺服器
               href: physical-manage-configuration-server.md
+            - name: 管理處理序伺服器
+              href: vmware-azure-manage-process-server.md
             - name: 管理 vCenter 伺服器
               href: vmware-azure-manage-vcenter.md
             - name: 移除伺服器並停用保護
@@ -255,7 +263,7 @@
           href: vmware-physical-secondary-disaster-recovery.md
     - name: Hyper-V 至 Azure
       items:
-        - name: 網路
+        - name: 網路功能
           items:
             - name: 管理內部部署至 Azure 複寫的網路介面
               href: site-recovery-manage-network-interfaces-on-premises-to-azure.md

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
 ms.author: ryanwi
-ms.openlocfilehash: b2b3562f65e7e861b7e4dff7b7c26d58081ff29e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c8b6bc791700e6811f5681ee70329e4d2ac05991
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211920"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824606"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>檢視 Service Fabric 容器服務的記錄
 Azure Service Fabric 是一種容器協調器，可支援 [Linux 和 Windows 容器](service-fabric-containers-overview.md)。  本文說明如何檢視執行中容器服務或無作用容器的容器記錄，以便您診斷問題並進行疑難排解。
@@ -35,6 +35,14 @@ Azure Service Fabric 是一種容器協調器，可支援 [Linux 和 Windows 容
 
 ## <a name="access-the-logs-of-a-dead-or-crashed-container"></a>存取無作用或已損毀容器的記錄
 從 v6.2 開始，您也可以使用 [REST API](/rest/api/servicefabric/sfclient-index) 或 [Service Fabric CLI (SFCTL)](service-fabric-cli.md) 命令來擷取無作用或已損毀容器的記錄。
+
+### <a name="set-container-retention-policy"></a>設定容器保留原則
+為了協助診斷容器啟動的失敗情形，Service Fabric (6.1 版或更新版本) 可保留啟動終止或是無法啟動的容器。 此原則可以在 **ApplicationManifest.xml** 檔案中設定，如下列程式碼片段所示：
+```xml
+ <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
+ ```
+
+**ContainersRetentionCount** 設定會指定容器失敗時要保留的容器數目。 如果指定負數值，就會保留所有失敗的容器。 如果未指定 **ContainersRetentionCount** 屬性，就不會保留任何容器。 **ContainersRetentionCount** 屬性也支援應用程式參數，因此使用者可以為測試和生產叢集指定不同的值。 使用此功能時，請使用位置限制將容器服務鎖定在特定節點上，以避免容器服務移到其他節點上。 使用此功能的所有容器皆需要手動移除。
 
 ### <a name="rest"></a>REST
 使用[取得部署在節點上的容器記錄](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode)作業，來取得已損毀容器的記錄。 指定執行容器的節點名稱、應用程式名稱、服務資訊清單名稱，以及程式碼套件名稱。  指定 `&Previous=true`。 回應包含的容器記錄會來自程式碼套件執行個體的無作用容器。

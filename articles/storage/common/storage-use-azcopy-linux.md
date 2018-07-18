@@ -14,17 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: seguler
-ms.openlocfilehash: 80b112de1fd8417dd64d9d95b7a037ec876d18c7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3ed449912df1e16b5c8f1dfa3c83b81eaf635227
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37034522"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>使用 AzCopy on Linux 傳送資料
 
 AzCopy 是個命令列公用程式，專為使用針對最佳效能而設計的簡單命令來將資料複製到/複製出 Microsoft Azure Blob 和檔案儲存體所設計。 您可以在檔案系統和儲存體帳戶之間，或者儲存體帳戶之間複製資料。  
 
-有兩個 AzCopy 版本可供您下載。 Linux 上的 AzCopy 以 Linux 平台為目標，提供 POSIX 樣式的命令列選項。 [Windows 上的 AzCopy](../storage-use-azcopy.md) 提供了 Windows 樣式的命令列選項。 本文涵蓋之內容包括 AzCopy on Linux。 
+有兩個 AzCopy 版本可供您下載。 Linux 上的 AzCopy 以 Linux 平台為目標，提供 POSIX 樣式的命令列選項。 
+  [Windows 上的 AzCopy](../storage-use-azcopy.md) 提供了 Windows 樣式的命令列選項。 本文涵蓋之內容包括 AzCopy on Linux。 
 
 > [!NOTE]  
 > 從 AzCopy 7.2 版開始，.NET Core 相依項目會與 AzCopy 套件一起封裝。 如果您使用 7.2 版本或更新版本，您不再需要安裝作為先決條件的 .NET Core。
@@ -34,7 +36,9 @@ AzCopy 是個命令列公用程式，專為使用針對最佳效能而設計的�
 ### <a name="installation-on-linux"></a>在 Linux 上安裝
 
 > [!NOTE]
-> 您可能需要安裝在此 [.NET Core 先決條件文章](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)中醒目提示的 .NET Core 2.1 相依項目 (視您的散發套件而定)。 通常不需要 Ubuntu 16.04 和 RHEL 7 等主流散發套件。
+> 您可能需要安裝在此 [.NET Core 先決條件文章](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)中醒目提示的 .NET Core 2.1 相依項目 (視您的散發套件而定)。 
+>
+> 針對 RHEL 7 發行版，請安裝 ICU 和 libunwind 相依性：```yum install -y libunwind icu```
 
 安裝 Linux 上的 AzCopy (v7.2 或更新版本) 相當容易，只要將 tar 套件解壓縮，然後執行安裝指令碼。 
 
@@ -722,4 +726,3 @@ azcopy \
 * [AzCopy：使用可重新啟動模式和 SAS 權杖傳輸資料](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx) \(英文\)
 * [AzCopy: 使用跨帳戶複製 Blob](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 * [AzCopy: 上傳/下載 Azure Blob 的檔案](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
-

@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: e35a33cbe77d9d29b975ede8535abbded2cde4c3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 04fa23e059ee676ba0e7c48eeea3361b85af5415
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261198"
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Azure Active Directory 中的宣告對應 (公開預覽)
 
@@ -238,11 +239,11 @@ ms.lasthandoff: 04/06/2018
 
 ### <a name="include-basic-claim-set"></a>包含基本宣告集
 
-**字串：**IncludeBasicClaimSet
+**字串：** IncludeBasicClaimSet
 
-**資料類型：**布林值 (True 或 False)
+**資料類型：** 布林值 (True 或 False)
 
-**摘要：**此屬性會決定是否在此原則所影響到的權杖中包含基本宣告集。 
+**摘要：** 此屬性會決定是否在此原則所影響到的權杖中包含基本宣告集。 
 
 - 如果設為 True，此原則所影響到的權杖中就會發出基本宣告集。 
 - 如果設為 False，權杖中將不會包含基本宣告集的宣告，除非相同原則的宣告結構描述屬性中個別新增了這些宣告。
@@ -252,18 +253,18 @@ ms.lasthandoff: 04/06/2018
 
 ### <a name="claims-schema"></a>宣告結構描述
 
-**字串：**ClaimsSchema
+**字串：** ClaimsSchema
 
-**資料類型：**具有一或多個宣告結構描述項目的 JSON blob
+**資料類型：** 具有一或多個宣告結構描述項目的 JSON blob
 
-**摘要：**此屬性會定義除了基本宣告集和核心宣告集以外，原則所影響到的權杖中還會有哪些宣告。
+**摘要：** 此屬性會定義除了基本宣告集和核心宣告集以外，原則所影響到的權杖中還會有哪些宣告。
 此屬性中所定義的每個宣告結構描述項目必須有某些資訊。 您必須指定資料來自何處 (**值**或**來源/識別碼組**)，以及資料是以哪種宣告形式來發出 (**宣告類型**)。
 
 ### <a name="claim-schema-entry-elements"></a>宣告結構描述項目的元素
 
-**值：**值元素會定義靜態值來作為宣告中發出的資料。
+**值：** 值元素會定義靜態值來作為宣告中發出的資料。
 
-**來源/識別碼組：**來源和識別碼元素會定義宣告中的資料來自何處。 
+**來源/識別碼組：** 來源和識別碼元素會定義宣告中的資料來自何處。 
 
 來源元素必須設為下列其中一個值： 
 
@@ -282,51 +283,51 @@ ms.lasthandoff: 04/06/2018
 #### <a name="table-3-valid-id-values-per-source"></a>表 3：每個來源的有效識別碼值
 |來源|ID|說明|
 |-----|-----|-----|
-|User|surname|姓氏|
-|User|givenname|名字|
-|User|displayname|顯示名稱|
-|User|objectid|ObjectID|
-|User|mail|電子郵件地址|
-|User|userprincipalname|使用者主體名稱|
-|User|department|department|
-|User|onpremisessamaccountname|內部部署的 Sam 帳戶名稱|
-|User|netbiosname|NetBios 名稱|
-|User|dnsdomainname|Dns 網域名稱|
-|User|onpremisesecurityidentifier|內部部署的安全性識別碼|
-|User|companyname|組織名稱|
-|User|streetaddress|街道地址|
-|User|postalcode|郵遞區號|
-|User|preferredlanguange|慣用語言|
-|User|onpremisesuserprincipalname|內部部署的 UPN|
-|User|mailNickname|郵件暱稱|
-|User|extensionattribute1|擴充屬性 1|
-|User|extensionattribute2|擴充屬性 2|
-|User|extensionattribute3|擴充屬性 3|
-|User|extensionattribute4|擴充屬性 4|
-|User|extensionattribute5|擴充屬性 5|
-|User|extensionattribute6|擴充屬性 6|
+|使用者|surname|姓氏|
+|使用者|givenname|名字|
+|使用者|displayname|顯示名稱|
+|使用者|objectid|ObjectID|
+|使用者|mail|電子郵件地址|
+|使用者|userprincipalname|使用者主體名稱|
+|使用者|department|department|
+|使用者|onpremisessamaccountname|內部部署的 Sam 帳戶名稱|
+|使用者|netbiosname|NetBios 名稱|
+|使用者|dnsdomainname|Dns 網域名稱|
+|使用者|onpremisesecurityidentifier|內部部署的安全性識別碼|
+|使用者|companyname|組織名稱|
+|使用者|streetaddress|街道地址|
+|使用者|postalcode|郵遞區號|
+|使用者|preferredlanguange|慣用語言|
+|使用者|onpremisesuserprincipalname|內部部署的 UPN|
+|使用者|mailNickname|郵件暱稱|
+|使用者|extensionattribute1|擴充屬性 1|
+|使用者|extensionattribute2|擴充屬性 2|
+|使用者|extensionattribute3|擴充屬性 3|
+|使用者|extensionattribute4|擴充屬性 4|
+|使用者|extensionattribute5|擴充屬性 5|
+|使用者|extensionattribute6|擴充屬性 6|
 |User|extensionattribute7|擴充屬性 7|
-|User|extensionattribute8|擴充屬性 8|
-|User|extensionattribute9|擴充屬性 9|
-|User|extensionattribute10|擴充屬性 10|
-|User|extensionattribute11|擴充屬性 11|
-|User|extensionattribute12|擴充屬性 12|
-|User|extensionattribute13|擴充屬性 13|
-|User|extensionattribute14|擴充屬性 14|
-|User|extensionattribute15|擴充屬性 15|
-|User|othermail|其他郵件|
-|User|country|國家 (地區)|
-|User|city|City|
-|User|state|State|
-|User|jobtitle|職稱|
-|User|employeeid|員工識別碼|
-|User|facsimiletelephonenumber|傳真電話號碼|
+|使用者|extensionattribute8|擴充屬性 8|
+|使用者|extensionattribute9|擴充屬性 9|
+|使用者|extensionattribute10|擴充屬性 10|
+|使用者|extensionattribute11|擴充屬性 11|
+|使用者|extensionattribute12|擴充屬性 12|
+|使用者|extensionattribute13|擴充屬性 13|
+|使用者|extensionattribute14|擴充屬性 14|
+|使用者|extensionattribute15|擴充屬性 15|
+|使用者|othermail|其他郵件|
+|使用者|country|國家 (地區)|
+|使用者|city|City|
+|使用者|state|State|
+|使用者|jobtitle|職稱|
+|使用者|employeeid|員工識別碼|
+|使用者|facsimiletelephonenumber|傳真電話號碼|
 |application, resource, audience|displayname|顯示名稱|
 |application, resource, audience|objected|ObjectID|
 |application, resource, audience|tags|服務主體標籤|
 |公司|tenantcountry|租用戶的國家/地區|
 
-**TransformationID：**只有在來源元素設定為「轉換」時，才必須提供 TransformationID 元素。
+**TransformationID：** 只有在來源元素設定為「轉換」時，才必須提供 TransformationID 元素。
 
 - 此元素必須符合 **ClaimsTransformation** 屬性 (會定義如何產生此宣告的資料) 中轉換項目的識別碼元素。
 
@@ -340,15 +341,15 @@ ms.lasthandoff: 04/06/2018
 
 ### <a name="claims-transformation"></a>宣告轉換
 
-**字串：**ClaimsTransformation
+**字串：** ClaimsTransformation
 
-**資料類型：**具有一或多個轉換項目的 JSON blob 
+**資料類型：** 具有一或多個轉換項目的 JSON blob 
 
-**摘要：**使用此屬性可對來源資料套用常見的轉換，以便為宣告結構描述中指定的宣告產生輸出資料。
+**摘要：** 使用此屬性可對來源資料套用常見的轉換，以便為宣告結構描述中指定的宣告產生輸出資料。
 
-**識別碼：**使用識別碼元素可在 TransformationID 宣告結構描述項目中參考此轉換項目。 對於這項原則內的每個轉換項目，此值都必須是唯一的。
+**識別碼：** 使用識別碼元素可在 TransformationID 宣告結構描述項目中參考此轉換項目。 對於這項原則內的每個轉換項目，此值都必須是唯一的。
 
-**TransformationMethod：**TransformationMethod 元素可識別該執行哪個作業才能為宣告產生資料。
+**TransformationMethod：** TransformationMethod 元素可識別該執行哪個作業才能為宣告產生資料。
 
 根據您所選擇的方法，系統預期會有一組輸入和輸出。 您可以使用 **InputClaims**、**InputParameters** 和 **OutputClaims** 元素來定義這些輸入和輸出。
 
@@ -358,47 +359,47 @@ ms.lasthandoff: 04/06/2018
 |Join|string1、string2、分隔符號|outputClaim|可在輸入字串之間使用分隔符號來聯結這些字串。 例如：string1:"foo@bar.com" , string2:"sandbox" , separator:"." 會導致 outputClaim:"foo@bar.com.sandbox"|
 |ExtractMailPrefix|mail|outputClaim|擷取電子郵件地址的本機部分。 例如：mail:"foo@bar.com" 會導致 outputClaim:"foo"。 如果沒有 @ 符號，則原始輸入字串會以現狀傳回。|
 
-**InputClaims：**使用 InputClaims 元素可從宣告結構描述項目將資料傳遞至轉換。 它有兩個屬性：**ClaimTypeReferenceId** 和 **TransformationClaimType**。
+**InputClaims：** 使用 InputClaims 元素可從宣告結構描述項目將資料傳遞至轉換。 它有兩個屬性：**ClaimTypeReferenceId** 和 **TransformationClaimType**。
 
 - **ClaimTypeReferenceId** 會與宣告結構描述項目的識別碼元素聯結以尋找適當的輸入宣告。 
 - **TransformationClaimType** 則可用來為此輸入指定唯一的名稱。 此名稱必須符合轉換方法的其中一個預期輸入。
 
-**InputParameters：**使用 InputParameters 元素可對轉換傳遞常數值。 它有兩個屬性：**值**和**識別碼**。
+**InputParameters：** 使用 InputParameters 元素可對轉換傳遞常數值。 它有兩個屬性：**值**和**識別碼**。
 
 - **值**是要傳遞的實際常數值。
 - **識別碼**則可用來為此輸入指定唯一的名稱。 此名稱必須符合轉換方法的其中一個預期輸入。
 
-**OutputClaims：**使用 OutputClaims 元素可保留轉換所產生的資料，並將資料繫結到宣告結構描述項目。 它有兩個屬性：**ClaimTypeReferenceId** 和 **TransformationClaimType**。
+**OutputClaims：** 使用 OutputClaims 元素可保留轉換所產生的資料，並將資料繫結到宣告結構描述項目。 它有兩個屬性：**ClaimTypeReferenceId** 和 **TransformationClaimType**。
 
 - **ClaimTypeReferenceId** 會與宣告結構描述項目的識別碼聯結以尋找適當的輸出宣告。
 - **TransformationClaimType** 則可用來為此輸出指定唯一的名稱。 此名稱必須符合轉換方法的其中一個預期輸出。
 
 ### <a name="exceptions-and-restrictions"></a>例外狀況和限制
 
-**SAML NameID 和 UPN：**您用來取得 NameID 和 UPN 值的來源屬性以及所允許的宣告轉換會受到限制。
+**SAML NameID 和 UPN：** 您用來取得 NameID 和 UPN 值的來源屬性以及所允許的宣告轉換會受到限制。
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>表 5：允許作為 SAML NameID 資料來源的屬性
 |來源|ID|說明|
 |-----|-----|-----|
-|User|mail|電子郵件地址|
-|User|userprincipalname|使用者主體名稱|
-|User|onpremisessamaccountname|內部部署的 Sam 帳戶名稱|
-|User|employeeid|員工識別碼|
-|User|extensionattribute1|擴充屬性 1|
-|User|extensionattribute2|擴充屬性 2|
-|User|extensionattribute3|擴充屬性 3|
-|User|extensionattribute4|擴充屬性 4|
-|User|extensionattribute5|擴充屬性 5|
-|User|extensionattribute6|擴充屬性 6|
+|使用者|mail|電子郵件地址|
+|使用者|userprincipalname|使用者主體名稱|
+|使用者|onpremisessamaccountname|內部部署的 Sam 帳戶名稱|
+|使用者|employeeid|員工識別碼|
+|使用者|extensionattribute1|擴充屬性 1|
+|使用者|extensionattribute2|擴充屬性 2|
+|使用者|extensionattribute3|擴充屬性 3|
+|使用者|extensionattribute4|擴充屬性 4|
+|使用者|extensionattribute5|擴充屬性 5|
+|使用者|extensionattribute6|擴充屬性 6|
 |User|extensionattribute7|擴充屬性 7|
-|User|extensionattribute8|擴充屬性 8|
-|User|extensionattribute9|擴充屬性 9|
-|User|extensionattribute10|擴充屬性 10|
-|User|extensionattribute11|擴充屬性 11|
-|User|extensionattribute12|擴充屬性 12|
-|User|extensionattribute13|擴充屬性 13|
-|User|extensionattribute14|擴充屬性 14|
-|User|extensionattribute15|擴充屬性 15|
+|使用者|extensionattribute8|擴充屬性 8|
+|使用者|extensionattribute9|擴充屬性 9|
+|使用者|extensionattribute10|擴充屬性 10|
+|使用者|extensionattribute11|擴充屬性 11|
+|使用者|extensionattribute12|擴充屬性 12|
+|使用者|extensionattribute13|擴充屬性 13|
+|使用者|extensionattribute14|擴充屬性 14|
+|使用者|extensionattribute15|擴充屬性 15|
 
 #### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>表 6：允許 SAML NameID 使用的轉換方法
 |TransformationMethod|限制|
@@ -467,7 +468,7 @@ ms.lasthandoff: 04/06/2018
     1. 若要建立原則，請執行此命令：  
      
      ``` powershell
-    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":" tenantcountry ","SamlClaimType":" http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country ","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample” -Type "ClaimsMappingPolicy"
+    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
     ```
     
     2. 若要查看您的新原則並取得原則的 ObjectId，請執行下列命令：

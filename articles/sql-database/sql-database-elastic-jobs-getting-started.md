@@ -6,14 +6,15 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 2d8760476fd7b8a5a11d01a434a383ec1ba27ef1
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 4f12c3353ca4949b3c1c031420ec5a0b8fdb2dbf
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34649147"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>開始使用彈性資料庫工作
 Azure SQL Database 的彈性資料庫工作 (預覽) 可讓您跨越多個資料庫可靠地執行 T-SQL 指令碼，同時自動重試並提供最終完成保證。 如需有關彈性資料庫作業功能的詳細資訊，請參閱[彈性作業](sql-database-elastic-jobs-overview.md)。

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213039"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Service Fabric Reliable Actor 簡介
 Reliable Actors 是以 [Virtual Actor](http://research.microsoft.com/en-us/projects/orleans/) 模式為基礎的 Service Fabric 應用程式架構。 Reliable Actors API 提供單一執行緒的程式設計模型，此模型立基於 Service Fabric 所提供的延展性和可靠性保證上。

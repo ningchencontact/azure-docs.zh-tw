@@ -1,16 +1,33 @@
+---
+title: 包含檔案
+description: 包含檔案
+services: storage
+author: yuemlu
+ms.service: storage
+ms.topic: include
+ms.date: 06/05/2018
+ms.author: yuemlu
+ms.custom: include file
+ms.openlocfilehash: 4e62342a32456787863da775ea98df178ab1d559
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34806293"
+---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>符合成本效益的標準儲存體及非受控和受控 Azure VM 磁碟
 
-如果 VM 執行的工作負載不在乎延遲，Azure 標準儲存體可以提供可靠、低成本的磁碟支援。 它也支援 blob、資料表、佇列和檔案。 使用標準儲存體時，資料會儲存在硬碟 (HDD)。 使用 VM 時，您可以對開發/測試案例和較不重要的工作負載使用標準儲存體磁碟，而對關鍵任務的實際執行應用程式使用進階儲存體磁碟。 所有 Azure 區域中都可以使用標準儲存體。 
+如果 VM 執行的工作負載不在乎延遲，Azure 標準儲存體可以提供可靠、低成本的磁碟支援。 它也支援 blob、資料表、佇列和檔案。 使用標準儲存體時，資料會儲存在硬碟 (HDD)。 使用 VM 時，您可以對開發/測試案例和較不重要的工作負載使用標準 SSD 和 HDD 磁碟，而對關鍵任務的實際執行應用程式使用進階 SSD 磁碟。 所有 Azure 區域中都可以使用標準儲存體。 
 
-本文將著重在為 VM 磁碟使用標準儲存體。 如需有關儲存體用於 blob、資料表、佇列和檔案的詳細資訊，請參閱[儲存體簡介](../articles/storage/common/storage-introduction.md)。
+本文將著重在使用標準 SSD 和 HDD 磁碟。 如需有關儲存體用於 blob、資料表、佇列和檔案的詳細資訊，請參閱[儲存體簡介](../articles/storage/common/storage-introduction.md)。
 
 ## <a name="disk-types"></a>磁碟類型
 
 有兩種方式可以為 Azure VM 建立標準磁碟︰
 
-**非受控磁碟**︰這是原始方法，由您管理儲存對應至 VM 磁碟的 VHD 檔案時所用的儲存體帳戶。 VHD 檔案會以分頁 Blob 的形式儲存在儲存體帳戶中。 非受控磁碟可以附加至任何 Azure VM 大小，包括主要使用進階儲存體的 VM，例如 DSv2 和 GS 系列。 Azure VM 支援附加數個標準磁碟，每個 VM 最多可以有 256 TB 的儲存體。
+**非受控磁碟**︰這種類型的磁碟是原始方法，由您管理儲存對應至 VM 磁碟的 VHD 檔案時所用的儲存體帳戶。 VHD 檔案會以分頁 Blob 的形式儲存在儲存體帳戶中。 非受控磁碟可以附加至任何 Azure VM 大小，包括主要使用進階儲存體的 VM，例如 DSv2 和 GS 系列。 Azure VM 支援附加數個標準磁碟，每個 VM 最多可以有 256 TB 的儲存體。
 
-[**Azure 受控磁碟**](../articles/virtual-machines/windows/managed-disks-overview.md)︰此功能會為您管理用於 VM 磁碟的儲存體帳戶。 您只需要指定類型 (進階或標準)，還有您需要的磁碟大小，Azure 就會替您建立並管理磁碟。 您不必擔心需要將磁碟分配至多個儲存體帳戶，才能維持在儲存體帳戶的延展性限制內。這個部分 Azure 會為您處理。
+[**Azure 受控磁碟**](../articles/virtual-machines/windows/managed-disks-overview.md)︰此功能會為您管理用於 VM 磁碟的儲存體帳戶。 您只需要指定類型 (進階 SSD、標準 SSD 或標準 HDD)，還有您需要的磁碟大小，Azure 就會替您建立並管理磁碟。 您不必擔心需要將磁碟分配至多個儲存體帳戶，才能維持在儲存體帳戶的延展性限制內。這個部分 Azure 會為您處理。
 
 即使這兩種磁碟都可用，我們建議您使用受控磁碟，以利用它的許多功能。
 
@@ -27,11 +44,13 @@
 
 **標準儲存體**：Azure 標準儲存體支援 Azure 磁碟、Azure Blob、Azure 檔案、Azure 資料表和 Azure 佇列。 若要使用標準儲存體服務，首先請[建立 Azure 儲存體帳戶](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)。
 
-**標準儲存體磁碟︰**標準儲存體磁碟可以附加至所有 Azure VM，包括進階儲存體使用的大小系列 VM，例如 DSv2 和 GS 系列。 標準儲存體磁碟只能附加至一個 VM。 不過，您可以將一或多個這些磁碟附加至 VM，最多為該 VM 大小所定義的最大磁碟計數。 在下一節的「標準儲存體延展性和效能目標」中，我們會更詳細地說明規格。 
+**標準 SSD 磁碟：** 相較於標準 HDD 磁碟，標準 SSD 磁碟能提供更可靠的效能，且目前可供預覽。 如需提供標準 SSD 磁碟服務的區域相關資訊，請參閱[標準 SSD 磁碟的區域可用性 (預覽)](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions)。
+
+**標準 HDD 磁碟︰** 標準 HDD 磁碟可以附加至所有 Azure VM，包括進階儲存體使用的大小系列 VM，例如 DSv2 和 GS 系列。 標準 HDD 磁碟只能附加至一個 VM。 不過，您可以將一或多個這些磁碟附加至 VM，最多為該 VM 大小所定義的最大磁碟計數。 在下一節的「標準儲存體延展性和效能目標」中，我們會更詳細地說明規格。
 
 **標準分頁 Blob**︰標準分頁 Blob 用來保存 VM 的持續性磁碟，也可以透過 REST 直接存取，如同其他類型的 Azure Blob 一樣。 [分頁 Blob](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs)是已最佳化隨機讀取和寫入作業的一組 512 位元組分頁。 
 
-**儲存體複寫︰**在大部分區域，標準儲存體帳戶中的資料可以在本地複寫，或跨多個資料中心進行異地複寫。 可用的四種複寫包括本地備援儲存體 (LRS)、區域備援儲存體 (ZRS)、異地備援儲存體 (GRS) 和讀取權限異地備援儲存體 (RA-GRS)。 標準儲存體中的受控磁碟目前只支援本地備援儲存體 (LRS)。 如需詳細資訊，請參閱[儲存體複寫](../articles/storage/common/storage-redundancy.md)。
+**儲存體複寫︰** 在大部分區域，標準儲存體帳戶中的資料可以在本地複寫，或跨多個資料中心進行異地複寫。 可用的四種複寫包括本地備援儲存體 (LRS)、區域備援儲存體 (ZRS)、異地備援儲存體 (GRS) 和讀取權限異地備援儲存體 (RA-GRS)。 標準儲存體中的受控磁碟目前只支援本地備援儲存體 (LRS)。 如需詳細資訊，請參閱[儲存體複寫](../articles/storage/common/storage-redundancy.md)。
 
 ## <a name="scalability-and-performance-targets"></a>擴充和效能目標
 
@@ -98,9 +117,9 @@
 * 輸出資料傳輸
 * 交易
 
-**非受控儲存體資料和磁碟大小︰**對於非受控磁碟和其他資料 (blob、資料表、佇列和檔案)，您只需支付您使用的空間量。 例如，如果 VM 的分頁 Blob 佈建為 127 GB，但 VM 實際上只使用 10 GB 的空間，則會向您收取 10 GB 空間的費用。 我們支援最大 8191 GB 的標準儲存體，以及最大 4095 GB 的標準非受控磁碟。 
+**非受控儲存體資料和磁碟大小︰** 對於非受控磁碟和其他資料 (blob、資料表、佇列和檔案)，您只需支付您使用的空間量。 例如，如果 VM 的分頁 Blob 佈建為 127 GB，但 VM 實際上只使用 10 GB 的空間，則會向您收取 10 GB 空間的費用。 我們支援最大 8191 GB 的標準儲存體，以及最大 4095 GB 的標準非受控磁碟。 
 
-**受控磁碟︰**受控磁碟依據佈建大小計費。 如果磁碟佈建為 10 GB 的磁碟，但您只使用 5 GB，則仍然會向您收取佈建大小 10 GB 的費用。
+**受控磁碟︰** 受控磁碟依據佈建大小計費。 如果磁碟佈建為 10 GB 的磁碟，但您只使用 5 GB，則仍然會向您收取佈建大小 10 GB 的費用。
 
 **快照集**：標準儲存體的快照集會因為使用的額外容量而產生費用。 如需有關快照的資訊，請參閱[建立 Blob 的快照](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)。
 

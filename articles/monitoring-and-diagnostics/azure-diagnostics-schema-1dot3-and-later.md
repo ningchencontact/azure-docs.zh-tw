@@ -1,24 +1,20 @@
 ---
-title: Azure 診斷擴充功能 1.3 版和更新版本的組態結構描述 | Microsoft Docs
+title: Azure 診斷擴充功能 1.3 版和更新版本的組態結構描述
 description: 適用於 Azure 診斷的結構描述 1.3 版和更新版本隨附於 Microsoft Azure SDK 2.4 版和更新版本中。
-services: monitoring-and-diagnostics
-documentationcenter: .net
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
-ms.openlocfilehash: 02656c5bb4d2acd944f565d1397984ce94ced0bd
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: diagnostic-extension
+ms.openlocfilehash: 501e28cf3d01385d65a2308db06702d2db0d91ee
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937908"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure 診斷 1.3 版和更新版本的組態結構描述
 > [!NOTE]
@@ -366,7 +362,7 @@ ms.lasthandoff: 04/05/2018
  下列標籤大致上會遵循上述範例中所示的順序。  如果您未在預期之處看見完整說明，請在頁面中搜尋該元素或屬性。  
 
 ## <a name="common-attribute-types"></a>一般屬性類型  
- **scheduledTransferPeriod** 屬性會出現在數個元素中。 其為排程傳輸至儲存體之間的間隔，無條件進位到最接近的分鐘數。 值是 [XML「持續時間資料類型」(英文)](http://www.w3schools.com/schema/schema_dtypes_date.asp)。
+ **scheduledTransferPeriod** 屬性會出現在數個元素中。 其為排程傳輸至儲存體之間的間隔，無條件進位到最接近的分鐘數。 值是 [XML「持續時間資料類型」(英文)](http://www.w3schools.com/xml/schema_dtypes_date.asp)。
 
 
 ## <a name="diagnosticsconfiguration-element"></a>DiagnosticsConfiguration 元素  
@@ -419,7 +415,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |子元素|說明|  
 |--------------------|-----------------|  
 |**CrashDumps**|請參閱本頁面上其他部分的說明。|  
-|**DiagnosticInfrastructureLogs**|啟用收集 Azure 診斷所產生的記錄。 診斷基礎結構記錄適用於疑難排解診斷系統本身。 選用屬性包括：<br /><br /> - **scheduledTransferLogLevelFilter** - 設定所收集之記錄的最低嚴重性層級。<br /><br /> - **scheduledTransferPeriod** - 排程傳輸至儲存體之間的間隔，無條件進位到最接近的分鐘數。 值是 [XML「持續時間資料類型」(英文)](http://www.w3schools.com/schema/schema_dtypes_date.asp)。 |  
+|**DiagnosticInfrastructureLogs**|啟用收集 Azure 診斷所產生的記錄。 診斷基礎結構記錄適用於疑難排解診斷系統本身。 選用屬性包括：<br /><br /> - **scheduledTransferLogLevelFilter** - 設定所收集之記錄的最低嚴重性層級。<br /><br /> - **scheduledTransferPeriod** - 排程傳輸至儲存體之間的間隔，無條件進位到最接近的分鐘數。 值是 [XML「持續時間資料類型」(英文)](http://www.w3schools.com/xml/schema_dtypes_date.asp)。 |  
 |**Directories**|請參閱本頁面上其他部分的說明。|  
 |**EtwProviders**|請參閱本頁面上其他部分的說明。|  
 |**計量**|請參閱本頁面上其他部分的說明。|  
@@ -492,8 +488,8 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |子元素|說明|  
 |--------------------|-----------------|  
-|**EtwEventSourceProviderConfiguration**|設定要收集從 [EventSource 類別](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx)產生的事件。 必要屬性：<br /><br /> **provider** - EventSource 事件的類別名稱。<br /><br /> 選用屬性包括：<br /><br /> - **scheduledTransferLogLevelFilter** - 要傳輸至儲存體帳戶的最低嚴重性層級。<br /><br /> - **scheduledTransferPeriod** - 排程傳輸至儲存體之間的間隔，無條件進位到最接近的分鐘數。 值是 [XML「持續時間資料類型」(英文)](http://www.w3schools.com/schema/schema_dtypes_date.asp)。 |  
-|**EtwManifestProviderConfiguration**|必要屬性：<br /><br /> **provider** - 事件提供者的 GUID<br /><br /> 選用屬性包括：<br /><br /> - **scheduledTransferLogLevelFilter** - 要傳輸至儲存體帳戶的最低嚴重性層級。<br /><br /> - **scheduledTransferPeriod** - 排程傳輸至儲存體之間的間隔，無條件進位到最接近的分鐘數。 值是 [XML「持續時間資料類型」(英文)](http://www.w3schools.com/schema/schema_dtypes_date.asp)。 |  
+|**EtwEventSourceProviderConfiguration**|設定要收集從 [EventSource 類別](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx)產生的事件。 必要屬性：<br /><br /> **provider** - EventSource 事件的類別名稱。<br /><br /> 選用屬性包括：<br /><br /> - **scheduledTransferLogLevelFilter** - 要傳輸至儲存體帳戶的最低嚴重性層級。<br /><br /> - **scheduledTransferPeriod** - 排程傳輸至儲存體之間的間隔，無條件進位到最接近的分鐘數。 值是 [XML「持續時間資料類型」(英文)](http://www.w3schools.com/xml/schema_dtypes_date.asp)。 |  
+|**EtwManifestProviderConfiguration**|必要屬性：<br /><br /> **provider** - 事件提供者的 GUID<br /><br /> 選用屬性包括：<br /><br /> - **scheduledTransferLogLevelFilter** - 要傳輸至儲存體帳戶的最低嚴重性層級。<br /><br /> - **scheduledTransferPeriod** - 排程傳輸至儲存體之間的間隔，無條件進位到最接近的分鐘數。 值是 [XML「持續時間資料類型」(英文)](http://www.w3schools.com/xml/schema_dtypes_date.asp)。 |  
 
 
 
@@ -528,7 +524,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |子元素|說明|  
 |--------------------|-----------------|  
-|**MetricAggregation**|必要屬性：<br /><br /> **scheduledTransferPeriod** - 排程傳輸至儲存體之間的間隔，無條件進位到最接近的分鐘數。 值是 [XML「持續時間資料類型」(英文)](http://www.w3schools.com/schema/schema_dtypes_date.asp)。 |  
+|**MetricAggregation**|必要屬性：<br /><br /> **scheduledTransferPeriod** - 排程傳輸至儲存體之間的間隔，無條件進位到最接近的分鐘數。 值是 [XML「持續時間資料類型」(英文)](http://www.w3schools.com/xml/schema_dtypes_date.asp)。 |  
 
 
 

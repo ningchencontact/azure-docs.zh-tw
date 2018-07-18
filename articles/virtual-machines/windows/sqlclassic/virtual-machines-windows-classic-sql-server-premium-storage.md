@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure 進階儲存體搭配 SQL Server | Microsoft Docs"
-description: "本文會使用以傳統部署模型建立的資源，並提供使用 Azure 進階儲存體搭配 Azure 虛擬機器上執行之 SQL Server 的指導方針。"
+title: 使用 Azure 進階儲存體搭配 SQL Server | Microsoft Docs
+description: 本文會使用以傳統部署模型建立的資源，並提供使用 Azure 進階儲存體搭配 Azure 虛擬機器上執行之 SQL Server 的指導方針。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: danielsollondon
 manager: craigg
 editor: monicar
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29400608"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>在虛擬機器上搭配使用 Azure 進階儲存體和 SQL Server
 ## <a name="overview"></a>概觀
@@ -40,7 +41,7 @@ ms.lasthandoff: 02/21/2018
 
 如需更多關於 Azure 虛擬機器中 SQL Server 的背景資訊，請參閱 [Azure 虛擬機器中的 SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)。
 
-**作者：**Daniel Sol **技術審稿人員：**Luis Carlos Vargas Herring、Sanjay Mishra、Pravin Mital、Juergen Thomas、Gonzalo Ruiz。
+**作者：** Daniel Sol **技術審稿人員：** Luis Carlos Vargas Herring、Sanjay Mishra、Pravin Mital、Juergen Thomas、Gonzalo Ruiz。
 
 ## <a name="prerequisites-for-premium-storage"></a>適用於進階儲存體的必要條件
 使用進階儲存體之前，必須具備數個必要條件。

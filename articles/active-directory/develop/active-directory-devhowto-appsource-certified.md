@@ -22,6 +22,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257526"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>如何讓 AppSource 取得 Azure Active Directory 認證
 [Microsoft AppSource](https://appsource.microsoft.com/) 是企業用戶探索、嘗試，及管理企業營運 SaaS 應用程式 (獨立 SaaS 和現有 Microsoft SaaS 產品的附加元件) 的目的地。

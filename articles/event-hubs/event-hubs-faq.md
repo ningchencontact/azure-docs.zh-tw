@@ -5,20 +5,16 @@ services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-ms.assetid: bfa10984-eb22-4671-861a-f377a90d9372
 ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/30/2018
+ms.date: 06/07/2018
 ms.author: sethm
-ms.openlocfilehash: 8a30b8cb92b98606ca3d859ada329b8301806b10
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 4c28f1ae5517e54fab259e680128d6c666c82fbe
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235306"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>事件中樞常見問題集
 
@@ -30,7 +26,7 @@ Azure 事件中樞的標準層提供比基本層更多的功能。 標準層包�
 * 較長的事件保留期
 * 其他代理連線，超過包含的數目時支付超額費用
 * 超過單一消費者群組
-* [擷取](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)
+* [擷取](event-hubs-capture-overview.md)
 
 如需有關定價層的詳細資訊，包括專用事件中樞，請參閱[事件中樞定價詳細資料](https://azure.microsoft.com/pricing/details/event-hubs/)。
 
@@ -58,9 +54,10 @@ Azure 事件中樞的標準層提供比基本層更多的功能。 標準層包�
 是。只要所有事件中樞都位於相同的命名空間內即可。
 
 ### <a name="what-is-the-maximum-retention-period-for-events"></a>事件的最大保留期間是多少？
-事件中樞標準層目前支援的最大保留期間為 7 天。 請注意，事件中樞的立意並非作為永久的資料存放區。 大於 24 小時的保留期間乃專為方便地在同一系統上重新執行事件串流的案例而設計。例如，根據現有資料來訓練或驗證新機器學習模型。 如果您需要將訊息保留超過 7 天，請在事件中樞上啟用[事件中樞擷取](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)，這會將資料從事件中樞提取到您選擇的儲存體帳戶或 Azure Data Lake 服務帳戶。 啟用擷取將會產生費用，費用根據您購買的輸送量單位而定。
+事件中樞標準層目前支援的最大保留期間為 7 天。 請注意，事件中樞的立意並非作為永久的資料存放區。 大於 24 小時的保留期間乃專為方便地在同一系統上重新執行事件串流的案例而設計。例如，根據現有資料來訓練或驗證新機器學習模型。 如果您需要將訊息保留超過 7 天，請在事件中樞上啟用[事件中樞擷取](event-hubs-capture-overview.md)，這會將資料從事件中樞提取到您選擇的儲存體帳戶或 Azure Data Lake 服務帳戶。 啟用擷取將會產生費用，費用根據您購買的輸送量單位而定。
 
 ### <a name="where-is-azure-event-hubs-available"></a>哪裡可以取得 Azure 事件中樞？
+
 在所有支援的 Azure 區域皆提供 Azure 事件中樞。 如需清單，請瀏覽 [Azure 區域](https://azure.microsoft.com/regions/)頁面。  
 
 ## <a name="best-practices"></a>最佳作法
@@ -101,22 +98,27 @@ Azure 事件中樞的標準層提供比基本層更多的功能。 標準層包�
 ## <a name="quotas"></a>配額
 
 ### <a name="are-there-any-quotas-associated-with-event-hubs"></a>是否有任何與事件中樞相關聯的配額？
+
 如需所有事件中樞配額的清單，請參閱[配額](event-hubs-quotas.md)。
 
 ## <a name="troubleshooting"></a>疑難排解
 
 ### <a name="what-are-some-of-the-exceptions-generated-by-event-hubs-and-their-suggested-actions"></a>事件中樞所產生的例外狀況有哪些，其建議的動作為何？
+
 如需可能的事件中樞例外狀況清單，請參閱[例外狀況概觀](event-hubs-messaging-exceptions.md)。
 
 ### <a name="diagnostic-logs"></a>診斷記錄檔
+
 事件中樞支援兩種類型的[診斷記錄](event-hubs-diagnostic-logs.md) - 擷取錯誤記錄和作業記錄 - 兩種記錄都是以 JSON 格式代表，且可以透過 Azure 入口網站開啟。
 
 ### <a name="support-and-sla"></a>支援與 SLA
+
 事件中樞的技術支援可透過[社群論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=servbus)取得。 計費及訂用帳戶管理支援均為免費提供。
 
 若要深入了解 SLA，請參閱[服務等級協定](https://azure.microsoft.com/support/legal/sla/)頁面。
 
 ## <a name="next-steps"></a>後續步驟
+
 您可以造訪下列連結以深入了解事件中樞︰
 
 * [事件中心概觀](event-hubs-what-is-event-hubs.md)

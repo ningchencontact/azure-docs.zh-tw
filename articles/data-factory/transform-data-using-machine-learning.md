@@ -9,29 +9,26 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 1bb4ec7cbe9e5b4ab51b4929fc63401c543d5244
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 87a71cff07d18dde25fa5c58b3718e7a57e3ce8d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046008"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>使用 Azure Machine Learning 和 Azure Data Factory 來建立預測管線
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [第 1 版 - 正式推出](v1/data-factory-azure-ml-batch-execution-activity.md)
-> * [第 2 版 - 預覽](transform-data-using-machine-learning.md)
+> * [第 1 版](v1/data-factory-azure-ml-batch-execution-activity.md)
+> * [目前的版本](transform-data-using-machine-learning.md)
 
 [Azure 機器學習服務](https://azure.microsoft.com/documentation/services/machine-learning/) 可讓您建置、測試以及部署預測性分析解決方案。 從高階觀點而言，由下列三個步驟完成這個動作：
 
 1. **建立訓練實驗**。 您可以使用 Azure ML Studio 來進行此步驟。 ML Studio 是共同作業的視覺化開發環境，可供您使用訓練資料來訓練和測試預測性分析模型。
 2. **將其轉換為評分實驗**。 一旦您的模型已使用現有資料訓練，並做好使用該模型為新資料評分的準備之後，您準備並簡化用於評分實驗。
 3. **將其部署為 Web 服務**。 只要按一下，您就可以將評分實驗當做 Azure Web 服務發佈。 您可以透過此 Web 服務端點將資料傳送給您的模型，並從模型接收結果預測。  
-
-> [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務，也就是正式推出 (GA) 的版本，請參閱[第 1 版的 Machine Learning 批次執行活動](v1/data-factory-azure-ml-batch-execution-activity.md)。
-
 
 ### <a name="data-factory-and-machine-learning-together"></a>Data Factory 和 Machine Learning 一起合作
 Azure Data Factory 可讓您輕鬆地建立管線，使用已發佈的 [Azure Machine Learning][azure-machine-learning] Web 服務進行預測性分析。 在 Azure Data Factory 管線中使用 [批次執行活動]  ，您可以叫用 Azure ML Web 服務以對批次中的資料進行預測。 

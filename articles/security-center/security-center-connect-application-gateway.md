@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29854280"
 ---
 # <a name="connecting-microsoft-azure-application-gateway-to-azure-security-center"></a>將 Microsoft Azure 應用程式閘道連線至 Azure 資訊安全中心
 本文件可協助您設定以應用程式閘道 Web 應用程式防火牆 (WAF) 和資訊安全中心進行的整合。

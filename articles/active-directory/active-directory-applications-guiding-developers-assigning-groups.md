@@ -1,11 +1,11 @@
 ---
-title: "將群組指派給 Azure AD 應用程式 | Microsoft Docs'"
-description: "如何為 Azure 應用程式實作群組指派。"
+title: 將群組指派給 Azure AD 應用程式 | Microsoft Docs'
+description: 如何為 Azure 應用程式實作群組指派。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 29b5ba89-a1c7-4f1f-a294-248a40106617
 ms.service: active-directory
 ms.workload: identity
@@ -21,6 +21,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26731047"
 ---
 # <a name="assign-azure-active-directory-groups-to-an-application"></a>將 Azure Active Directory 群組指派給應用程式
 在將使用者和群組指派給應用程式之前，您必須先要求使用者指派。 若要了解如何要求使用者指派，請參閱 [Azure AD 和應用程式：要求使用者指派](active-directory-applications-guiding-developers-requiring-user-assignment.md) 一文。

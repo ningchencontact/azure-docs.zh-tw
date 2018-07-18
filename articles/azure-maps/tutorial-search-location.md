@@ -1,22 +1,20 @@
 ---
 title: 使用 Azure 地圖服務進行搜尋 | Microsoft Docs
 description: 使用 Azure 地圖服務來搜尋附近景點
-services: azure-maps
-keywords: ''
 author: kgremban
 ms.author: kgremban
 ms.date: 05/07/2018
 ms.topic: tutorial
 ms.service: azure-maps
-documentationcenter: ''
+services: azure-maps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a4479ceebd4c8aad477b5f13a5bcc06d24c1202d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4a414b5b865d31dd99b54ef9693abafb5490a50f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34601780"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>使用 Azure 地圖服務來搜尋附近景點
 
@@ -40,14 +38,14 @@ ms.lasthandoff: 05/07/2018
 使用下列步驟建立新的地圖服務帳戶：
 
 1. 按一下 [Azure 入口網站](https://portal.azure.com)左上角的 [建立資源]。
-2. 在 [搜尋 Marketplace] 方塊中，輸入**地圖服務**。
+2. 在 [搜尋 Marketplace] 方塊中，輸入 **Maps**。
 3. 從 [結果] 中，選取 [地圖服務]。 按一下地圖下方顯示的 [建立] 按鈕。 
 4. 在 [建立地圖服務帳戶] 頁面上輸入下列值：
     - 新帳戶的 [名稱]。 
     - 您想要使用於此帳戶的 [訂用帳戶]。
     - 此帳戶的 [資源群組] 名稱。 您可以選擇 [建立新的] 或 [使用現有的] 資源群組。
     - 選取 [資源群組位置]。
-    - 閱讀 [授權] 和 [隱私權聲明]，然後勾選核取方塊以接受條款。 
+    - 閱讀 [授權] 和 [隱私權聲明]，然後選取核取方塊以接受條款。 
     - 按一下 [ **建立** ] 按鈕。
    
     ![在入口網站中建立地圖服務帳戶](./media/tutorial-search-location/create-account.png)

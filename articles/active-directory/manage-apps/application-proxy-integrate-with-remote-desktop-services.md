@@ -11,15 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 06/11/2018
 ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 4c3b88d9f522e28189bcb746905d35dced9d31cc
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 5c6d6b9580b123dafb03af2acc885d2416ca2a56
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292536"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 發佈遠端桌面
 
@@ -49,6 +50,8 @@ ms.lasthandoff: 05/14/2018
 - 您應該已經[部署 RDS](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure) 並[啟用應用程式 Proxy](application-proxy-enable.md)。
 
 - 此案例假設您的終端使用者在透過 RD 網頁連線的 Windows 7 或 Windows 10 桌上型電腦上使用 Internet Explorer。 如果您需要支援其他作業系統，請參閱[其他用戶端設定的支援](#support-for-other-client-configurations)。
+
+- 發行 RD Web 時，建議您使用相同的內部和外部 FQDN。 如果內部和外部 FQDN 不同，則應停用要求標頭轉譯，以避免用戶端接收無效的連結。 
 
 - 在 Internet Explorer 上，啟用 RDS ActiveX 附加元件。
 
@@ -122,7 +125,7 @@ ms.lasthandoff: 05/14/2018
 
 若要使用通道驗證，只需要對本文中所列的步驟進行兩項修改：
 1. 在 [發佈 RD 主機端點](#publish-the-rd-host-endpoint) 步驟 1 中，請將預先驗證方法設為 **通道**。
-2. 在 [將 RDS 流量導向應用程式 Proxy](#direct-rds-traffic-to-application-proxy) 中，完全略過步驟 8。
+2. 在 [Direct RDS traffic to Application Proxy](#direct-rds-traffic-to-application-proxy) (將 RDS 流量導向應用程式 Proxy) 中，完全略過步驟 8。
 
 ## <a name="next-steps"></a>後續步驟
 

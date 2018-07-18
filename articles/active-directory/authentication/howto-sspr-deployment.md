@@ -15,6 +15,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33866978"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>如何成功推出自助式密碼重設
 

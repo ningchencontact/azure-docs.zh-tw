@@ -9,16 +9,16 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 6d107b9264a80c7b280ffed9a50b7bb0ffe354be
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7e2eb9bad8c95e61d5b750cacd0724fc2536f2c5
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365520"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294102"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>針對 Azure Active Directory 混合式身分識別解決方案選擇正確的驗證方法 
 
-本文是一系列文章中的開端，可協助組織實作完整的 Azure Active Directory (Azure AD) 混合式身分識別解決方案。 此解決方案可概述為混合式身分識別數位轉換架構。 它涵蓋組織可以著重的業務成果和目標，以便實作強固且安全的混合式身分識別解決方案。 
+本文是一系列文章中的開端，可協助組織實作完整的 Azure Active Directory (Azure AD) 混合式身分識別解決方案。 此解決方案可概述為[混合式身分識別數位轉換架構](https://aka.ms/aadframework) \(英文\)。 它涵蓋組織可以著重的業務成果和目標，以便實作強固且安全的混合式身分識別解決方案。 
 
 架構的第一個商務結果會列出組織的需求，以便在使用者存取雲端應用程式時保護驗證程序。 驗證安全業務成果的第一個商務目標是，讓使用者能夠使用其內部部署使用者名稱和密碼登入雲端應用程式。 這個登入程序和使用者驗證方式，讓一切都可在雲端中達成。
 
@@ -41,6 +41,8 @@ ms.locfileid: "34365520"
 利用 Azure AD 混合式身分識別解決方案作為新的控制平面，驗證就能成為雲端存取的基礎。 選擇正確的驗證方法是設定 Azure AD 混合式身分識別解決方案的第一項重要決策。 請實作使用 Azure AD Connect 所設定的驗證方法，這也會在雲端佈建使用者。
 
 若要選擇驗證方法，需要考慮實作您選取項目的時間、現有基礎結構、複雜度及成本。 這些因素對每個組織而言不同，並可能隨時間改變。 
+
+>[!VIDEO https://www.youtube.com/embed/YtW2cmVqSEw]
 
 Azure AD 針對混合式身分識別解決方案支援下列驗證方法。
 
@@ -167,7 +169,7 @@ Azure AD 針對混合式身分識別解決方案支援下列驗證方法。
 |多重要素驗證選項有哪些？|[Azure MFA](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/)|[Azure MFA](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/)|[Azure MFA](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/)<br><br>[Azure MFA Server](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfaserver-deploy)<br><br>[第三方 MFA](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)|
 |支援哪些使用者帳戶狀態？|停用的帳戶<br>(最多 30 分鐘的延遲)|停用的帳戶<br><br>帳戶已鎖定<br><br>密碼已過期<br><br>登入時數|停用的帳戶<br><br>帳戶已鎖定<br><br>密碼已過期<br><br>登入時數|
 |條件式存取選項有哪些？|[Azure AD 條件式存取](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal)|[Azure AD 條件式存取](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal)|[Azure AD 條件式存取](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal)<br><br>[AD FS 宣告規則](https://adfshelp.microsoft.com/AadTrustClaims/ClaimsGenerator)|
-|是否支援封鎖舊版通訊協定？|否|否|[是](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
+|是否支援封鎖舊版通訊協定？|[是](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication)|[是](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication)|[是](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
 |您是否可以自訂登入頁面上的標誌、影像和說明？|[是，使用 Azure AD Premium](https://docs.microsoft.com/en-us/azure/active-directory/customize-branding)|[是，使用 Azure AD Premium](https://docs.microsoft.com/en-us/azure/active-directory/customize-branding)|[是](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-federation-management#customlogo)|
 |支援哪些進階案例？|[智慧型密碼鎖定](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-secure-passwords)<br><br>[認證外洩報告](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-risk-events)|[智慧型密碼鎖定](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-smart-lockout)|多網站低延遲驗證系統<br><br>[AD FS 外部網路鎖定](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-lockout-protection)<br><br>[與第三方身分識別系統整合](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-federation-compatibility)|
 

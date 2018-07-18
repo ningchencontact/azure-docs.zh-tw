@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33786057"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>HEVC 的 Smooth Streaming 通訊協定 (MS-SSTR) 增修條款
 
@@ -39,23 +40,23 @@ ms.lasthandoff: 05/07/2018
 
 以下是本文專用的字詞：
 
->  **編寫階段：**樣本存留在用戶端上的時間，如 [[ISO/IEC-14496-12]](http://go.microsoft.com/fwlink/?LinkId=183695) 所定義。
+>  **編寫階段：** 樣本存留在用戶端上的時間，如 [[ISO/IEC-14496-12]](http://go.microsoft.com/fwlink/?LinkId=183695) 所定義。
 
 >   **CENC**：一般加密，如 [ISO/IEC 23001-7] 第二版所定義。
 
->   **解碼階段：**樣本必須在用戶端上解碼的時間，如 [[ISO/IEChttp://go.microsoft.com/fwlink/?LinkId=18369514496-12] 所定義。](http://go.microsoft.com/fwlink/?LinkId=183695)
+>   **解碼階段：** 樣本必須在用戶端上解碼的時間，如 [[ISO/IEChttp://go.microsoft.com/fwlink/?LinkId=18369514496-12] 所定義。](http://go.microsoft.com/fwlink/?LinkId=183695)
 
-**片段：**可單獨下載、包含一或多個**樣本**的**媒體**單元。
+**片段：** 可單獨下載、包含一或多個**樣本**的**媒體**單元。
 
->   **HEVC：**高效率視訊編碼時，如 [ISO/IEC 23008-2] 所定義
+>   **HEVC：** 高效率視訊編碼時，如 [ISO/IEC 23008-2] 所定義
 
->   **資訊清單：**可讓用戶端發出**媒體**要求之**顯示**的相關中繼資料。 **媒體：**用戶端用來播放**顯示**的壓縮音訊、視訊和文字資料。 **媒體格式：**一個妥善定義的格式，可將音訊或視訊顯示為壓縮的**樣本**。
+>   **資訊清單：** 可讓用戶端發出**媒體**要求之**顯示**的相關中繼資料。 **媒體：** 用戶端用來播放**顯示**的壓縮音訊、視訊和文字資料。 **媒體格式：** 一個妥善定義的格式，可將音訊或視訊顯示為壓縮的**樣本**。
 
->   **顯示：**播放單一影片所需的所有**資料流**和相關中繼資料的集合。 **要求：**從用戶端傳送至伺服器的 HTTP 訊息，如 [[RFC2616]](http://go.microsoft.com/fwlink/?LinkId=90372) 所定義。 **回應：**從伺服器傳送至用戶端的 HTTP 訊息，如 [[RFC2616]](http://go.microsoft.com/fwlink/?LinkId=90372) 所定義。
+>   **顯示：** 播放單一影片所需的所有**資料流**和相關中繼資料的集合。 **要求：** 從用戶端傳送至伺服器的 HTTP 訊息，如 [[RFC2616]](http://go.microsoft.com/fwlink/?LinkId=90372) 所定義。 **回應：** 從伺服器傳送至用戶端的 HTTP 訊息，如 [[RFC2616]](http://go.microsoft.com/fwlink/?LinkId=90372) 所定義。
 
->   **樣本：**儲存及處理**媒體**的最小基本單位 (例如框架)。
+>   **樣本：** 儲存及處理**媒體**的最小基本單位 (例如框架)。
 
->   **「可能」、「應該」、「必須」、「不應」、「不可」：**這些字詞 (全都會加上引號) 的用法如 [[RFC2119]](http://go.microsoft.com/fwlink/?LinkId=90317) 所說明。 選擇性行為的所有陳述均使用「可能」、「應該」或「不應」。
+>   **「可能」、「應該」、「必須」、「不應」、「不可」：** 這些字詞 (全都會加上引號) 的用法如 [[RFC2119]](http://go.microsoft.com/fwlink/?LinkId=90317) 所說明。 選擇性行為的所有陳述均使用「可能」、「應該」或「不應」。
 
 ## <a name="12-references"></a>1.2 參考 
 -----------
@@ -113,7 +114,7 @@ ms.lasthandoff: 05/07/2018
 
 >   「應該」使用下列方法來識別使用 HEVC 視訊格式的資料流：
 
->   * **媒體格式的自訂描述性代碼：**這項功能由 **FourCC** 欄位提供，如 *2.2.2.5* 小節所指定。
+>   * **媒體格式的自訂描述性代碼：** 這項功能由 **FourCC** 欄位提供，如 *2.2.2.5* 小節所指定。
 >   實作者可將延伸模組註冊至 MPEG4-RA，以確保延伸模組不會衝突，如 [[ISO/IEC-14496-12]](http://go.microsoft.com/fwlink/?LinkId=183695) 所指定
 
 ## <a name="19-standards-assignments"></a>1.9 標準指派 
@@ -133,7 +134,7 @@ ms.lasthandoff: 05/07/2018
 
 #### <a name="2221-smoothstreamingmedia"></a>2.2.2.1 SmoothStreamingMedia 
 
->   **MinorVersion (變數)：**資訊清單回應訊息的次要版本。 「必須」設為 2。 (無變更)
+>   **MinorVersion (變數)：** 資訊清單回應訊息的次要版本。 「必須」設為 2。 (無變更)
 
 >   **TimeScale (變數)：**「持續時間」屬性的時間間隔，指定為一秒內的增量數目。 預設值為
 >   10000000. (無變更)
@@ -146,7 +147,7 @@ ms.lasthandoff: 05/07/2018
 
 #### <a name="2223-streamelement"></a>2.2.2.3 StreamElement 
 
->   **StreamTimeScale (變數)：**此資料流中的持續時間值和時間值的時間間隔，指定為一秒內的增量數目。 HEVC 資料流的建議值為 90000。 建議對音訊資料流使用符合波形取樣頻率的值 (例如，48000 或 44100)。
+>   **StreamTimeScale (變數)：** 此資料流中的持續時間值和時間值的時間間隔，指定為一秒內的增量數目。 HEVC 資料流的建議值為 90000。 建議對音訊資料流使用符合波形取樣頻率的值 (例如，48000 或 44100)。
 
 ##### <a name="22231-streamprotectionelement"></a>2.2.2.3.1 StreamProtectionElement
 
@@ -154,11 +155,11 @@ ms.lasthandoff: 05/07/2018
 
 #### <a name="225-trackelement"></a>2.2.5 TrackElement 
 
->   **FourCC (變數)：**識別用於各個樣本之媒體格式的四字元代碼。 下列的值範圍保留為下列語意：
+>   **FourCC (變數)：** 識別用於各個樣本之媒體格式的四字元代碼。 下列的值範圍保留為下列語意：
 
 >  * "hev1"：此音軌的視訊樣本會使用 HEVC 視訊，採用 [ISO/IEC-14496-15] 所指定的 ‘hev1’ 樣本說明格式。
 
->   **CodecPrivateData (變數)：**這項資料會指定媒體格式的特定參數和音軌中所有樣本通用的參數，以十六進位編碼位元組的字串表示。 位元組序列的格式和語意會隨著 **FourCC** 欄位的值而不同，如下所示：
+>   **CodecPrivateData (變數)：** 這項資料會指定媒體格式的特定參數和音軌中所有樣本通用的參數，以十六進位編碼位元組的字串表示。 位元組序列的格式和語意會隨著 **FourCC** 欄位的值而不同，如下所示：
 
 >   * 當 TrackElement 說明 HEVC 視訊時，**FourCC** 欄位「應該」等於 **"hev1"**。
 
@@ -216,7 +217,7 @@ ms.lasthandoff: 05/07/2018
 
 >   **TrunBox** 和相關欄位中包含所要求之片段的每個樣本中繼資料。 **TrunBox** 的語法是 [[ISO/IEC-14496-](http://go.microsoft.com/fwlink/?LinkId=183695)*12]* 的 8.8.8 條款所定義之「第 1 版磁軌片段執行方塊」的嚴格子集。
 
->   **SampleCompositionTimeOffset (4 個位元組)：**每個樣本為了讓片段中第一個顯示之樣本的顯示時間等於第一個解碼樣本的解碼時間，而進行調整的樣本組合時間位移。 「應該」使用反面視訊樣本組合位移，
+>   **SampleCompositionTimeOffset (4 個位元組)：** 每個樣本為了讓片段中第一個顯示之樣本的顯示時間等於第一個解碼樣本的解碼時間，而進行調整的樣本組合時間位移。 「應該」使用反面視訊樣本組合位移，
 
 >   如 [[ISO/IEC-14496-12]](http://go.microsoft.com/fwlink/?LinkId=183695) 所定義。
 
@@ -238,13 +239,13 @@ ms.lasthandoff: 05/07/2018
 
 #### <a name="2271-filetype"></a>2.2.7.1 FileType 
 
->   **FileType (變數)：**指定 MPEG-4 ([[MPEG4-RA])](http://go.microsoft.com/fwlink/?LinkId=327787) 檔案的子類型和預定用法，以及高階屬性。
+>   **FileType (變數)：** 指定 MPEG-4 ([[MPEG4-RA])](http://go.microsoft.com/fwlink/?LinkId=327787) 檔案的子類型和預定用法，以及高階屬性。
 
->   **MajorBrand (變數)：**媒體檔案的主要品牌。 「必須」設為 "isml"。
+>   **MajorBrand (變數)：** 媒體檔案的主要品牌。 「必須」設為 "isml"。
 
->   **MinorVersion (變數)：**媒體檔案的次要版本。 「必須」設為 1。
+>   **MinorVersion (變數)：** 媒體檔案的次要版本。 「必須」設為 1。
 
->   **CompatibleBrands (變數)：**指定支援的 MPEG-4 品牌。
+>   **CompatibleBrands (變數)：** 指定支援的 MPEG-4 品牌。
 >   「必須」包含 "ccff" 和 "iso8"。
 
 >   本節中定義之欄位的語法 (指定於 ABNF [[RFC5234]](http://go.microsoft.com/fwlink/?LinkId=123096) 中) 如下所示：

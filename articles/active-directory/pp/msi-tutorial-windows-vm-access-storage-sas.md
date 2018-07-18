@@ -1,8 +1,8 @@
 ---
-title: "使用 Windows VM MSI 透過 SAS 認證存取 Azure 儲存體"
-description: "該教學課程說明如何使用 Windows VM 受控服務識別 (MSI) 存取 Azure 儲存體，所用的是 SAS 認證而非儲存體帳戶存取金鑰。"
+title: 使用 Windows VM MSI 透過 SAS 認證存取 Azure 儲存體
+description: 該教學課程說明如何使用 Windows VM 受控服務識別 (MSI) 存取 Azure 儲存體，所用的是 SAS 認證而非儲存體帳戶存取金鑰。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -15,10 +15,11 @@ ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 9102ea255e533e4233b2cba77a6f7f38b992e2a5
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38610397"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>使用 Windows VM 受控服務識別透過 SAS 認證存取 Azure 儲存體
 
@@ -42,7 +43,7 @@ ms.lasthandoff: 02/03/2018
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-登入 Azure 入口網站，位址是 [https://portal.azure.com](https://portal.azure.com)。
+在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>在新的資源群組中建立 Windows 虛擬機器
 

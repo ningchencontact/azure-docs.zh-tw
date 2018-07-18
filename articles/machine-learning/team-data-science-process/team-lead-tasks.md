@@ -7,18 +7,19 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: d17c6c7543416d3f279b7e25152a421dd233a806
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 9d2043808cbd61d5e2a69cbe0f2a5a611e3afa31
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "32777946"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "34839753"
 ---
 # <a name="team-lead-tasks"></a>小組負責人工作
 

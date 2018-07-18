@@ -1,22 +1,22 @@
 ---
 title: 使用 C# 來管理 Azure 時間序列深入解析環境中的參考資料 | Microsoft Docs
 description: 本文說明如何建立使用 C# (c-sharp) .NET 語言撰寫的自訂應用程式來管理 Azure 時間序列深入解析環境的參考資料。
-services: time-series-insights
 ms.service: time-series-insights
-author: venkatgct
+services: time-series-insights
+author: ashannon7
 ms.author: venkatja
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2018
-ms.openlocfilehash: 61375ae3b304959d5cda37c4ce0364d566d576a5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 0bb216e8be98b0ee795176a6d3ca9ed73baad231
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294119"
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>使用 C# 來管理 Azure Time Series Insights 環境的參考資料
 

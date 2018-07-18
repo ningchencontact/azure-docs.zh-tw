@@ -13,6 +13,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31431715"
 ---
 您可以透過下列影片了解 Azure Cosmos DB 全域散發；在此影片中，Azure Cosmos DB 專案經理 Andrew Liu 會逐步解說全域散發功能。
 

@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2018
 ms.author: cynthn
-ms.openlocfilehash: 26a213d490ee3f661735ff5b893b0a5f5f9906da
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b61b7501c94e9682a3b324488caf119ce4aad3df
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267198"
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm"></a>如何在 Windows VM 中重設遠端桌面服務或其登入密碼
 如果您無法連線到 Windows 虛擬機器 (VM)，您可以重設本機系統管理員密碼或重設「遠端桌面」服務設定 (「Windows 網域控制站」上不支援)。 您可以使用 Azure 入口網站或 Azure PowerShell 中的 VM 存取延伸模組來重設密碼。 您登入 VM 後，應重設該使用者的密碼。  
@@ -57,7 +58,7 @@ ms.lasthandoff: 04/19/2018
 請確定您已[安裝並設定最新的 PowerShell 模組](/powershell/azure/overview)，並使用 `Connect-AzureRmAccount` Cmdlet 登入您的 Azure 訂用帳戶。
 
 ### <a name="reset-the-local-administrator-account-password"></a>**重設本機系統管理員帳戶密碼**
-請使用 [Set-AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell Cmdlet，來重設系統管理員密碼或使用者名稱。 
+請使用 [Set-AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell Cmdlet，來重設系統管理員密碼或使用者名稱。 typeHandlerVersion 必須為 2.0 或更新版本，因為已淘汰第 1 版。 
 
 ```powershell
 $SubID = "<SUBSCRIPTION ID>" 

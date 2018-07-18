@@ -15,11 +15,12 @@ ms.workload: ''
 ms.date: 04/27/2018
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 1f87d411e244d10437e3b6f9befbdee13dde14e9
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 01e5dc3b7c141841dd6dbd44290360b94493b548
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34601270"
 ---
 # <a name="audit-diagnostic-setting"></a>稽核診斷設定
 
@@ -31,7 +32,7 @@ ms.lasthandoff: 05/01/2018
 
 [!code-json[main](../../../policy-templates/samples/Monitoring/audit-diagnostic-setting/azurepolicy.json "Audit diagnostic setting")]
 
-您可以使用 [Azure 入口網站](#deploy-with-the-portal)[PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 來部署此範本。 若要取得內建原則，請使用識別碼 `7f89b1eb-583c-429a-8828-af049802c1d9`。
+您可以使用 [Azure 入口網站](#deploy-with-the-portal) [PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 來部署此範本。 若要取得內建原則，請使用識別碼 `7f89b1eb-583c-429a-8828-af049802c1d9`。
 
 ## <a name="parameters"></a>參數
 
@@ -81,4 +82,4 @@ az policy assignment delete --name "Audit diagnostics" --resource-group myResour
 
 ## <a name="next-steps"></a>後續步驟
 
-- 其他「Azure 原則」範本範例都位於[Azure 原則的範本](../json-samples.md)。
+- 在 [Azure 原則範例](../json-samples.md)檢閱更多範例。

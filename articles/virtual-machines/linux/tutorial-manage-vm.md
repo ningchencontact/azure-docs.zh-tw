@@ -3,7 +3,7 @@ title: 教學課程 - 使用 Azure CLI 來建立和管理 Linux VM | Microsoft D
 description: 在本教學課程中，您會了解如何使用 Azure CLI 2.0 在 Azure 中建立和管理 Linux VM
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/23/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4e8be3af81ce74b033b2a15ceaf857540c1d9a6e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e7338da637d92520bc5f67de9d3d2bdae3204e35
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930030"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli-20"></a>教學課程：使用 Azure CLI 2.0 來建立和管理 Linux VM
 
@@ -121,7 +122,7 @@ Debian         credativ                8                   credativ:Debian:8:lat
 CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
 ```
 
-新增 `--all` 引數即可查看完整的清單。 您也可以依 `--publisher` 或 `–-offer` 來篩選此映像清單。 在此範例中，是以符合 CentOS 的 offer 作為條件來篩選此清單的所有映像。 
+新增 `--all` 引數即可查看完整的清單。 您也可以依 `--publisher` 或 `–-offer` 來篩選此映像清單。 在此範例中，是以符合 CentOS 的供應項目作為條件來篩選此清單的所有映像。 
 
 ```azurecli-interactive 
 az vm image list --offer CentOS --all --output table
@@ -140,7 +141,7 @@ CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20160309     
 CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207       6.5.20170207
 ```
 
-若要使用特定映像部署 VM，請記下 Urn 資料行中的值，其中包含可用來[識別](cli-ps-findimage.md#terminology)映像的發行者、提供者、SKU 和版本號碼 (選擇性)。 指定映像時，可以使用 “latest” 來取代映像版本號碼，這會選取最新的散發版本。 在此範例中，是使用 `--image` 引數來指定最新版的 CentOS 6.5 映像。  
+若要使用特定映像部署 VM，請記下 Urn 資料行中的值，其中包含可用來[識別](cli-ps-findimage.md#terminology)映像的發行者、供應項目、SKU 和版本號碼 (選擇性)。 指定映像時，可以使用 “latest” 來取代映像版本號碼，這會選取最新的散發版本。 在此範例中，是使用 `--image` 引數來指定最新版的 CentOS 6.5 映像。  
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys

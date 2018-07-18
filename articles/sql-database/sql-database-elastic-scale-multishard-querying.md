@@ -6,14 +6,15 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 13d62250112d47ce79f0345828ba69358f153c2d
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 17fb937dc24cbf2fa1630a26ea6876fa56a384f5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646842"
 ---
 # <a name="multi-shard-querying"></a>多分區查詢
 ## <a name="overview"></a>概觀
@@ -54,7 +55,7 @@ using (MultiShardConnection conn = new MultiShardConnection(myShardMap.GetShards
 
 主要差異是多分區連接的建構方式。 其中，**SqlConnection** 在單一資料庫上運作，**MultiShardConnection** 接受分區集合做為輸入。 從分區對應填入分區集合。 然後，使用 **UNION ALL** 語意在分區集合上執行查詢，以組成單一的整體結果。 (選擇性) 在命令上使用 **ExecutionOptions** 屬性，可將資料列的來源分區名稱加入至輸出。 
 
-請注意 **myShardMap.GetShards()**的呼叫。 這個方法會從分區對應擷取所有分區，並提供簡單的方式跨所有相關的資料庫執行查詢。 在呼叫 **myShardMap.GetShards()**所傳回的集合分區上執行 LINQ 查詢，可以進一步調整多分區查詢的分區集合。 結合部分結果原則，多分區查詢目前的功能已設計成可適當處理數十個到數百個分區。
+請注意 **myShardMap.GetShards()** 的呼叫。 這個方法會從分區對應擷取所有分區，並提供簡單的方式跨所有相關的資料庫執行查詢。 在呼叫 **myShardMap.GetShards()** 所傳回的集合分區上執行 LINQ 查詢，可以進一步調整多分區查詢的分區集合。 結合部分結果原則，多分區查詢目前的功能已設計成可適當處理數十個到數百個分區。
 
 多分區查詢目前的限制在於無法驗證所查詢的分區和 Shardlet。 資料相依路由可在查詢時驗證給定的分區是屬於分區對應，但多分區查詢不會執行這項檢查。 這可能會導致在已從分區對應中移除的資料庫上執行多分區查詢。
 

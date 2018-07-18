@@ -12,14 +12,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2018
+ms.date: 06/06/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: 001aadc3dee03a9868a2a78e8dfc280d504633e1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e7e79d51b59d82ebf91d68f0714b8eb7bcaafbe6
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37443625"
 ---
 # <a name="virtual-network-service-endpoints"></a>虛擬網路服務端點
 
@@ -27,10 +28,13 @@ ms.lasthandoff: 05/07/2018
 
 這項功能會在下列 Azure 服務和區域中提供：
 
-- **Azure 儲存體**：已在所有 Azure 區域正式推出
-- **Azure SQL Database**：已在所有 Azure 區域正式推出
-- **Azure Cosmos DB**：已在所有 Azure 公用雲端區域正式推出 
-- **Azure SQL 資料倉儲**：在所有 Azure 公用雲端區域為預覽狀態
+- **[Azure 儲存體](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)**：已在所有 Azure 區域正式推出。
+- **[Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：已在所有 Azure 區域正式推出。
+- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：已在所有 Azure 公用雲端區域正式推出。 
+- **[Azure SQL 資料倉儲](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：在所有 Azure 公用雲端區域為預覽狀態。
+- **適用於 PostgreSQL 和 MySQL 的 Azure 資料庫服務**：在有提供資料庫服務的 Azure 區域中可供預覽。
+- **[Azure 服務匯流排](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：在預覽版中提供。
+- **[Azure 事件中樞](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：在預覽版中提供。
 
 如需最新通知，請查看 [Azure 虛擬網路更新](https://azure.microsoft.com/updates/?product=virtual-network)頁面。
 
@@ -66,7 +70,7 @@ ms.lasthandoff: 05/07/2018
 
 - 服務端點設定於虛擬網路的子網路上。 端點會使用在子網路內執行之任何類型的計算執行個體。
 - 您可以對子網路上所有支援的 Azure 服務 (例如 Azure 儲存體或 Azure SQL Database) 設定多個服務端點。
-- 針對 Azure SQL，虛擬網路必須位於與 Azure 服務資源相同的區域中。 如果使用 GRS 和 RA-GRS Azure 儲存體帳戶，則主要帳戶必須位在與虛擬網路相同的區域中。 針對其他所有服務，Azure 服務資源可以安全地放置在任何區域中的虛擬網路。 
+- 針對 Azure SQL Database，虛擬網路必須位於與 Azure 服務資源相同的區域中。 如果使用 GRS 和 RA-GRS Azure 儲存體帳戶，則主要帳戶必須位在與虛擬網路相同的區域中。 針對其他所有服務，Azure 服務資源可以安全地放置在任何區域中的虛擬網路。 
 - 端點設定所在的虛擬網路可以位於與 Azure 服務資源相同或不同的訂用帳戶中。 如需設定端點和保護 Azure 服務所需權限的詳細資訊，請參閱[佈建](#Provisioning)。
 - 對於支援的服務，您可以使用服務端點，將新的或現有資源放到虛擬網路保護。
 
@@ -78,7 +82,7 @@ ms.lasthandoff: 05/07/2018
 - 透過服務端點，Azure 服務的 DNS 項目會保留現狀，並繼續解析為指派給 Azure 服務的公用 IP 位址。
 - 具有服務端點的網路安全性群組 (NSG)：
   - 根據預設，NSG 允許輸出網際網路流量，因此，也可允許從您的 VNet 至 Azure 服務的流量。 透過服務端點，這會繼續照常運作。 
-  - 如果您要拒絕所有輸出網際網路流量，只允許對特定 Azure 服務的流量，您可以使用 NSG 中的 __Azure 服務標籤__。 您可以將支援的 Azure 服務指定為 NSG 規則中的目的地，而作為每個標籤基礎之 IP 位址的維護則是由 Azure 提供。 如需詳細資訊，請參閱 [Azure 服務標籤](https://aka.ms/servicetags)。 
+  - 如果您要拒絕所有輸出網際網路流量，只允許對特定 Azure 服務的流量，您可以使用 NSG 中的 [服務標籤](security-overview.md#service-tags)。 您可以將支援的 Azure 服務指定為 NSG 規則中的目的地，而作為每個標籤基礎之 IP 位址的維護則是由 Azure 提供。 如需詳細資訊，請參閱 [Azure 服務標籤](security-overview.md#service-tags)。 
 
 ### <a name="scenarios"></a>案例
 
@@ -98,7 +102,7 @@ ms.lasthandoff: 05/07/2018
   - 指出服務的更直接連線已作用 (相較於任何強制通道路由)
 
 >[!NOTE]
-> 服務端點路由會覆寫 Azure 服務之位址前置詞相符項目的任何 BGP 或 UDR 路由。 深入了解[有效路由的疑難排解](virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow)
+> 服務端點路由會覆寫 Azure 服務之位址前置詞相符項目的任何 BGP 或 UDR 路由。 深入了解[有效路由的疑難排解](diagnose-network-routing-problem.md)
 
 ## <a name="provisioning"></a>佈建
 
@@ -122,5 +126,5 @@ ms.lasthandoff: 05/07/2018
 - 了解如何[將 Azure 儲存體帳戶放到虛擬網路保護](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - 了解如何[將 Azure SQL Database 放到虛擬網路保護](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - 了解[虛擬網路中的 Azure 服務整合](virtual-network-for-azure-services.md)
--  快速入門：[Azure Resource Manager 範本](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) 可設定 VNet 子網路上的服務端點，並保護該子網路的 Azure 儲存體帳戶。
+-  快速入門：[Azure Resource Manager 範本](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)可設定 VNet 子網路上的服務端點，並保護該子網路的 Azure 儲存體帳戶。
 

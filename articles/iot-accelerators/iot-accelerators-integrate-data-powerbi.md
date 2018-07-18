@@ -1,22 +1,19 @@
 ---
 title: 使用 Power BI 將遠端監視資料視覺化 - Azure | Microsoft Docs
 description: 本教學課程使用 Power BI Desktop 和 Cosmos DB，將來自遠端監視解決方案的資料整合為自訂的視覺效果。 如此能讓使用者建置自己的自訂儀表板，並與不在解決方案上的使用者共用它們。
-services: iot-suite
-suite: iot-suite
 author: asdonald
 manager: hegate
 ms.author: asdonald
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 55feb56008a54676bd0af332e251da94a9653aaf
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: ae039573cf202059114f23cca86207c117a35ead
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970394"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>使用 Power BI 將遠端監視資料視覺化
 
@@ -97,9 +94,9 @@ ms.lasthandoff: 05/20/2018
 
 ## <a name="publishing-the-dashboard-and-refreshing-the-data"></a>發行儀表板並重新整理資料
 
-成功建立儀表板之後，建議您[發行 Power BI 儀表板](https://docs.microsoft.com/en-us/power-bi/desktop-upload-desktop-files)以與其他人共用。
+成功建立儀表板之後，建議您[發行 Power BI 儀表板](https://docs.microsoft.com/power-bi/desktop-upload-desktop-files)以與其他人共用。
 
-您也會想要在發行的儀表板上[重新整理資料](https://docs.microsoft.com/en-us/power-bi/refresh-data)，以確定您具有最新的資料集。
+您也會想要在發行的儀表板上[重新整理資料](https://docs.microsoft.com/power-bi/refresh-data)，以確定您具有最新的資料集。
 
 ## <a name="next-steps"></a>後續步驟
 

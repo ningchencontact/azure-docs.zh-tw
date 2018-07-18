@@ -1,22 +1,21 @@
 ---
 title: 使用 Java 將模擬 TPM 裝置佈建到 Azure IoT 中樞 | Microsoft Docs
 description: Azure 快速入門 - 使用適用於 Azure IoT 中樞裝置佈建服務的 Java 裝置 SDK 來建立及佈建模擬 TPM 裝置
-services: iot-dps
-keywords: ''
 author: bryanla
-ms.author: v-masebo;bryanla
+ms.author: bryanla
 ms.date: 04/09/2018
 ms.topic: quickstart
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: eb09c03ecf6c22d66f1da1d024c0b3db2d229cdf
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f33e5e364f72d35797343084deb0a10e19c39031
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630403"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-java-device-sdk-for-azure-iot-hub-device-provisioning-service"></a>使用適用於 Azure IoT 中樞裝置佈建服務的 Java 裝置 SDK 來建立及佈建模擬 TPM 裝置
 

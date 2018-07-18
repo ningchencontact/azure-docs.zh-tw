@@ -7,15 +7,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: e56a40e1afef9c622d14804cb7f845b7b6edae6a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 44d68d69a7034e80846fb44f3ae26c0d73c61f28
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32192616"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34648304"
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>監視 Azure SQL Database 中的資料庫效能
 在 Azure 中監視 SQL Database 的效能，必須從監視您選擇之資料庫效能等級相關的資源使用率開始。 監視可協助您判斷資料庫是否有超量的容量或因為資源超量而發生問題，然後判斷是否開始調整[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)或[以虛擬核心為基礎的購買模型 (預覽)](sql-database-service-tiers-vcore.md) 中的資料庫的效能等級和服務層。 您可以使用 [Azure 入口網站](https://portal.azure.com)中的圖形化工具或使用 SQL [動態管理檢視](https://msdn.microsoft.com/library/ms188754.aspx)，監視您的資料庫。

@@ -10,11 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 8dd30f53dc37734e1c01b3712b5adb7d81a1489b
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 363106421e75fa2e1b220d03a7d7cbed25447bcc
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098391"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>管理雲端中 Azure Multi-Factor Authentication 的使用者設定
 
@@ -74,4 +75,4 @@ Azure Multi-Factor Authentication 的可設定功能之一，是讓使用者可�
 
 - 取得如何[設定 Azure Multi-Factor Authentication 設定](howto-mfa-mfasettings.md)的詳細資訊
 
-- 如果您的使用者需要協助，請將他們指向[雙步驟驗證的使用者指南](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user.md)
+- 如果您的使用者需要協助，請將他們指向[雙步驟驗證的使用者指南](end-user/current/multi-factor-authentication-end-user.md)

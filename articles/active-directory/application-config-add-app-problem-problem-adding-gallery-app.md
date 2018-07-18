@@ -3,22 +3,23 @@ title: 新增 Azure AD 資源庫應用程式時遇到問題 | Microsoft Docs
 description: 了解新增 Azure AD 資源庫應用程式時的常見問題及如何解決
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 5cb43976c17bfd46d1f16f0bdaff1c164bdc0fb6
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.author: barbkess
+ms.openlocfilehash: 906a089417cefab72e036dbf1e5650285c7440bc
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34053754"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334980"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>新增 Azure AD 資源庫應用程式時遇到問題
 
@@ -28,13 +29,13 @@ ms.locfileid: "34053754"
 
 在某些情況下，將應用程式新增至目錄後，可能需要 1-2 分鐘 (有時更久)，應用程式才會出現。 雖然這不是正常預期的表現，您還是可以按一下 [Azure 入口網站](https://portal.azure.com/)右上角的 [通知] 圖示 (鐘)，尋找標示為 [建立應用程式] 的 [進行中] 或 [已完成] 通知，看到正在新增應用程式。
 
-如果一直都沒有新增的應用程式，或您按一下 **[新增]** 按鈕時發生錯誤，您會看到**錯誤**狀態的**通知**。 如果您想要取得更多關於此錯誤的詳細資料以進一步了解，或分享給支援工程師，您可以依照[如何查看入口網站通知的詳細資訊](#how-to-see-the-details-of-a-portal-notification)一節中的步驟，來查看此錯誤的詳細資訊。
+如果一直都沒有新增的應用程式，或您按一下 **[新增]** 按鈕時發生錯誤，您會看到**錯誤**狀態的**通知**。 如果您想要取得更多關於此錯誤的詳細資料以進一步了解，或分享給支援工程師，則可以依照[如何查看入口網站通知的詳細資訊](#how-to-see-the-details-of-a-portal-notification)一節中的步驟，來查看此錯誤的詳細資訊。
 
 ## <a name="i-clicked-the-add-button-and-my-application-didnt-appear"></a>我按一下 [新增] 按鈕，但應用程式沒有出現
 
 有時由於暫時性問題、網路問題或錯誤，新增應用程式會失敗。 當您按一下 Azure 入口網站右上方的**通知**圖示 (鐘)，然後在 [建立應用程式] 通知旁看到紅色 (!) 圖示時，就表示發生這種情況。 這表示建立應用程式時發生錯誤。
 
-如果您按一下 [新增] 按鈕時發生錯誤，您會看到**錯誤**狀態的**通知**。 如果您想要取得更多關於此錯誤的詳細資料以進一步了解，或分享給支援工程師，您可以依照[如何查看入口網站通知的詳細資訊](#how-to-see-the-details-of-a-portal-notification)一節中的步驟，來查看此錯誤的詳細資訊。
+如果您按一下 [新增] 按鈕時發生錯誤，您會看到**錯誤**狀態的**通知**。 如果您想要取得更多關於此錯誤的詳細資料以進一步了解，或分享給支援工程師，則可以依照[如何查看入口網站通知的詳細資訊](#how-to-see-the-details-of-a-portal-notification)一節中的步驟，來查看此錯誤的詳細資訊。
 
  ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>我在新增應用程式之後不知道如何設定
 
@@ -55,7 +56,7 @@ ms.locfileid: "34053754"
     >
     >
 
-4.  請使用 [通知詳細資料] 中的資訊來了解更多關於此問題的詳細資料。
+4.  使用 [通知詳細資料] 中的資訊，來了解更多關於此問題的詳細資料。
 
 5.  如果您仍然需要協助，您也可以將這項資訊分享給支援工程師或產品群組，以取得協助來解決您的問題。
 

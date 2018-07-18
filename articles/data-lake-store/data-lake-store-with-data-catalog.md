@@ -10,23 +10,24 @@ ms.assetid: 3294d91e-a723-41b5-9eca-ace0ee408a4b
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2018
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: ea5d658b8f465b3a527033ef5e9d2126732c7029
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 3f1bc925b772265a9f72c34f5ac661088123bb1a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626132"
 ---
 # <a name="register-data-from-data-lake-store-in-azure-data-catalog"></a>在 Azure 資料目錄中註冊來自 Data Lake Store 的資料
-在本文中，您將了解如何使用 Azure 資料目錄整合 Azure Data Lake Store，讓您的資料可在組織中藉由與資料目錄整合進行搜尋。 如需編目資料的詳細資訊，請參閱 [Azure 資料目錄](../data-catalog/data-catalog-what-is-data-catalog.md)。 若要了解您可以使用資料目錄的案例，請參閱 [Azure 資料目錄常見案例](../data-catalog/data-catalog-common-scenarios.md)。
+在本文中，您將了解如何使用 Azure 資料目錄來整合 Azure Data Lake Store，使您的資料與資料目錄整合，讓使用者可在組織中進行搜尋。 如需編目資料的詳細資訊，請參閱 [Azure 資料目錄](../data-catalog/data-catalog-what-is-data-catalog.md)。 若要了解您可以使用資料目錄的案例，請參閱 [Azure 資料目錄常見案例](../data-catalog/data-catalog-common-scenarios.md)。
 
 ## <a name="prerequisites"></a>先決條件
 開始進行本教學課程之前，您必須具備下列條件：
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * **啟用您的 Azure 訂用帳戶** 以使用「Data Lake Store 公開預覽版」。 請參閱 [指示](data-lake-store-get-started-portal.md)。
-* **Azure Data Lake Store 帳戶**。 遵循 [使用 Azure 入口網站開始使用 Azure Data Lake Store](data-lake-store-get-started-portal.md) 的指示。 在本教學課程中，讓我們建立名為 **datacatalogstore**的 Data Lake Store 帳戶。
+* **Azure Data Lake Store 帳戶**。 遵循 [使用 Azure 入口網站開始使用 Azure Data Lake Store](data-lake-store-get-started-portal.md) 的指示。 在本教學課程中，會建立名為 **datacatalogstore** 的 Data Lake Store 帳戶。
 
     一旦您建立帳戶之後，請將範例資料集上傳給它。 在本教學課程中，讓我們上傳 **Azure Data Lake Git 儲存機制** 中 [AmbulanceData](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/)資料夾下的所有 .csv 檔案。 您可以使用各種用戶端，例如： [Azure 儲存體總管](http://storageexplorer.com/)，將資料上傳至 Blob 容器。
 * **Azure 資料目錄**。 您的組織必須為組織建立 Azure 資料目錄。 每個組織只允許有一個目錄。
@@ -60,7 +61,7 @@ ms.lasthandoff: 05/16/2018
     ![檢視資料結構](./media/data-lake-store-with-data-catalog/view-data-structure.png "檢視資料結構")
 8. 在本教學課程中，您應該在目錄中註冊所有檔案。 因此，請按一下 (![移動物件](./media/data-lake-store-with-data-catalog/move-objects.png "移動物件")) 按鈕來將所有檔案移至 [要註冊的物件] 方塊。
 
-    因為資料將會在整個組織的資料目錄中註冊，建議新增一些元資料，讓您稍後可以用來快速尋找資料。 例如，您可以新增資料擁有者 (例如，上傳資料的人員) 的電子郵件地址，或新增可識別資料的標籤。 下方螢幕擷取畫面顯示我們新增至資料的標籤。
+    因為資料將會在整個組織的資料目錄中註冊，建議新增一些中繼資料，讓您稍後可以用來快速尋找資料。 例如，您可以新增資料擁有者 (例如，上傳資料的人員) 的電子郵件地址，或新增可識別資料的標籤。 下方螢幕擷取畫面顯示您新增至資料的標記。
 
     ![檢視資料結構](./media/data-lake-store-with-data-catalog/view-selected-data-structure.png "檢視資料結構")
 

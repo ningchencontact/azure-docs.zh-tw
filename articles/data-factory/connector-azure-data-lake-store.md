@@ -9,25 +9,22 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 522a285d16901f1237a2ed5463e64d0cbf4bb8c9
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: cf1ac441f695e5427e57f1a85bafd095777eed80
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011572"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049293"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure Data Lake Store 或從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [第 1 版 - 正式推出](v1/data-factory-azure-datalake-connector.md)
-> * [第 2 版 - 預覽](connector-azure-data-lake-store.md)
+> * [第 1 版](v1/data-factory-azure-datalake-connector.md)
+> * [目前的版本](connector-azure-data-lake-store.md)
 
 本文概述如何使用 Azure Data Factory 中的「複製活動」，將資料複製到 Azure Data Lake Store 及從該處複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
-
-> [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (也就是正式推出版 (GA))，請參閱 [V1 中的 Azure Data Lake Store 連接器](v1/data-factory-azure-datalake-connector.md)。
 
 ## <a name="supported-capabilities"></a>支援的功能
 
@@ -42,6 +39,9 @@ ms.locfileid: "34011572"
 > 如果您使用自我裝載整合執行階段來複製資料，請設定公司防火牆以允許連接埠 443 上對 `<ADLS account name>.azuredatalakestore.net` 和 `login.microsoftonline.com/<tenant>/oauth2/token` 的輸出流量。 後者是 Azure Security Token Service (STS)，IR 需要與其通訊以取得存取權杖。
 
 ## <a name="get-started"></a>開始使用
+
+> [!TIP]
+> 如需使用 Azure Data Lake Store 連接器的逐步解說，請參閱[將資料載入 Azure Data Lake Store 中](load-azure-data-lake-store.md)。
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -157,7 +157,7 @@ ms.locfileid: "34011572"
 |:--- |:--- |:--- |
 | type | 資料集的類型屬性必須設定為：**AzureDataLakeStoreFile** |yes |
 | folderPath | Data Lake Store 中的資料夾路徑。 不支援萬用字元篩選。 範例：根資料夾/子資料夾/ |yes |
-| fileName | 在指定 "folderPath" 之下檔案的**名稱或萬用字元篩選**。 若未指定此屬性的值，資料集就會指向資料夾中的所有檔案。 <br/><br/>對於篩選，允許的萬用字元為：`*` (多個字元) 和 `?` (單一字元)。<br/>- 範例 1：`"fileName": "*.csv"`<br/>- 範例 2：`"fileName": "???20180427.txt"`<br/>如果實際檔案名稱內有萬用字元或逸出字元 `^`，請使用此逸出字元來逸出。<br/><br/>當沒有針對輸出資料集指定 fileName，且活動接收中沒有指定 **preserveHierarchy** 時，複製活動會自動使用以下格式產生檔案名稱："Data.[活動執行識別碼 GUID].[GUID (若為 FlattenHierarchy)].[格式 (若有設定)].[壓縮 (若有設定)]"。 範例："Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz"。 |否 |
+| fileName | 在指定 "folderPath" 之下檔案的**名稱或萬用字元篩選**。 若未指定此屬性的值，資料集就會指向資料夾中的所有檔案。 <br/><br/>針對篩選，允許的萬用字元為：`*` (符合零或多個字元) 和 `?` (符合零或單一字元)。<br/>- 範例 1：`"fileName": "*.csv"`<br/>- 範例 2：`"fileName": "???20180427.txt"`<br/>如果實際檔案名稱內有萬用字元或逸出字元 `^`，請使用此逸出字元來逸出。<br/><br/>當沒有針對輸出資料集指定 fileName，且活動接收中沒有指定 **preserveHierarchy** 時，複製活動會自動使用以下格式產生檔案名稱："Data.[活動執行識別碼 GUID].[GUID (若為 FlattenHierarchy)].[格式 (若有設定)].[壓縮 (若有設定)]"。 範例："Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz"。 |否 |
 | format | 如果您想要在以檔案為基礎的存放區之間**依原樣複製檔案** (二進位複本)，請在輸入和輸出資料集定義中略過格式區段。<br/><br/>如果您想要以特定格式來剖析或產生檔案，以下是支援的檔案格式類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat**、**ParquetFormat**。 將格式下的 **type** 屬性設定為這些值其中之一。 如需詳細資訊，請參閱[文字格式](supported-file-formats-and-compression-codecs.md#text-format)、[Json 格式](supported-file-formats-and-compression-codecs.md#json-format)、[Avro 格式](supported-file-formats-and-compression-codecs.md#avro-format)、[Orc 格式](supported-file-formats-and-compression-codecs.md#orc-format)和 [Parquet 格式](supported-file-formats-and-compression-codecs.md#parquet-format)章節。 |否 (僅適用於二進位複製案例) |
 | compression | 指定此資料的壓縮類型和層級。 如需詳細資訊，請參閱[支援的檔案格式和壓縮轉碼器](supported-file-formats-and-compression-codecs.md#compression-support)。<br/>支援的類型為：**GZip**、**Deflate**、**BZip2** 及 **ZipDeflate**。<br/>支援的層級為：**Optimal** 和 **Fastest**。 |否 |
 

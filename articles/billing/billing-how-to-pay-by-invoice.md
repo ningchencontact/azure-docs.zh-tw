@@ -19,6 +19,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34067942"
 ---
 # <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>提交按發票支付 Azure 訂用帳戶的要求
 

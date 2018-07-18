@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32774840"
 ---
 # <a name="alerts-validation-in-azure-security-center"></a>Azure 資訊安全中心的警示驗證
 這份文件可協助您了解如何驗證您的系統是否已針對 Azure 資訊安全中心警示正確設定。

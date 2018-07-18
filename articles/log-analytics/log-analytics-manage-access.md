@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/16/2018
+ms.date: 05/17/2018
 ms.author: magoedte
-ms.openlocfilehash: d2480936ed54ec58ba289eae1ba605a16e27f0b3
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 80ce7337717376b05dc9539abaf49b1a933a78f2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271665"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637526"
 ---
 # <a name="manage-workspaces"></a>管理工作區
 
@@ -98,7 +98,7 @@ Log Analytics 工作區有兩個存取控制權限模型︰
 
 | 動作                                                          | 所需的 Azure 權限 | 注意 |
 |-----------------------------------------------------------------|--------------------------|-------|
-| 新增及移除管理解決方案                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
+| 新增及移除管理解決方案                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | 必須在資源群組或訂用帳戶層級授與這些權限。 |
 | 變更定價層                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
 | 檢視 [備份] 和 [Site Recovery] 解決方案圖格中的資料 | 系統管理員/共同管理員 | 存取使用傳統部署模型所部署的資源 |
 | 在 Azure 入口網站中建立工作區                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
@@ -125,11 +125,14 @@ Azure 有兩個適用於 Log Analytics 的內建使用者角色：
 
 
 *Log Analytics 參與者*角色的成員可以：
-- 讀取所有監視資料 
-- 建立和設定自動化帳戶
-- 新增及移除管理解決方案
-- 讀取儲存體帳戶金鑰 
-- 設定 Azure 儲存體的記錄集合
+- 讀取所有監視資料  
+- 建立和設定自動化帳戶  
+- 新增及移除管理解決方案    
+    > [!NOTE] 
+    > 若要成功執行這兩個動作，就必須在資源群組或訂用帳戶層級授與此權限。  
+
+- 讀取儲存體帳戶金鑰   
+- 設定 Azure 儲存體的記錄集合  
 - 編輯 Azure 資源的監視設定，包括
   - 將 VM 擴充功能新增至 VM
   - 在所有 Azure 資源上設定 Azure 診斷
@@ -157,7 +160,7 @@ Azure 有兩個適用於 Log Analytics 的內建使用者角色：
 - 資源群組 - 存取資源群組中的所有工作區
 - 資源 - 僅存取指定的工作區
 
-使用[自訂角色](../active-directory/role-based-access-control-custom-roles.md)建立具備所需特定權限的角色。
+建議您在資源層級 (工作區) 執行指派，以確保存取控制正確無誤。  使用[自訂角色](../active-directory/role-based-access-control-custom-roles.md)建立具備所需特定權限的角色。
 
 ### <a name="azure-user-roles-and-log-analytics-portal-user-roles"></a>Azure 使用者角色和 Log Analytics 入口網站使用者角色
 如果您至少具有 Log Analytics 工作區的 Azure 讀取權限，您可以在檢視 Log Analytics 工作區時按一下 **OMS 入口網站**工作來開啟 Log Analytics 入口網站。

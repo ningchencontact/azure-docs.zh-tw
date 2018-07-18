@@ -8,15 +8,16 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 1febadbbf7821988600d6feddc94fce25d15e989
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ec1727926f6dbfeead9932004715a8bb1dfbb0cd
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36964530"
 ---
 ## <a name="os-config"></a>將 IP 位址新增至 VM 作業系統
 
-連接並登入您使用多個私人 IP 位址建立的 VM。 您必須手動新增您新增至 VM 的所有私人 IP 位址 (包括主要位址)。 對您的 VM 作業系統完成後續步驟。
+連線並登入您使用多個私人 IP 位址建立的 VM。 您必須手動新增您新增至 VM 的所有私人 IP 位址 (包括主要位址)。 對您的 VM 作業系統完成後續步驟。
 
 ### <a name="windows"></a>Windows
 
@@ -109,7 +110,7 @@ ping -S 10.0.0.5 hotmail.com
 
     您應該會在清單中看到您加入的 IP 位址。
 
-### <a name="linux-redhat-centos-and-others"></a>Linux (Redhat、CentOS 以及其他)
+### <a name="linux-red-hat-centos-and-others"></a>Linux (Red Hat、CentOS 以及其他)
 
 1. 開啟終端機視窗。
 2. 請確定您是 root 使用者。 如果不是，請輸入下列命令：

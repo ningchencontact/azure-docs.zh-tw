@@ -1,6 +1,6 @@
 ---
-title: "如何使用 Python 的佇列儲存體 | Microsoft Docs"
-description: "了解如何使用 Python 的 Azure 佇列服務來建立和刪除佇列，以及插入、取得和刪除訊息。"
+title: 如何使用 Python 的佇列儲存體 | Microsoft Docs
+description: 了解如何使用 Python 的 Azure 佇列服務來建立和刪除佇列，以及插入、取得和刪除訊息。
 services: storage
 documentationcenter: python
 author: tamram
@@ -15,10 +15,11 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
 ms.openlocfilehash: c7976c01436b1c30880bfd4c57cb97f72a4f48b0
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38606685"
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>如何使用 Python 的佇列儲存體
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -26,7 +27,7 @@ ms.lasthandoff: 11/29/2017
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>概觀
-本指南說明如何使用 Azure 佇列儲存體服務執行一般案例。 這些範例是以 Python 所撰寫，並使用 [Microsoft Azure Storage SDK for Python (適用於 Python 的 Microsoft Azure 儲存體 SDK)]。 所涵蓋的案例包括「插入」、「查看」、「取得」和「刪除」佇列訊息，以及「建立和刪除佇列」。 如需佇列的詳細資訊，請參閱 [後續步驟] 一節。
+本指南說明如何使用 Azure 佇列儲存體服務執行一般案例。 這些範例是以 Python 所撰寫，並使用 [Microsoft Azure Storage SDK for Python]。 所涵蓋的案例包括「插入」、「查看」、「取得」和「刪除」佇列訊息，以及「建立和刪除佇列」。 如需佇列的詳細資訊，請參閱 [後續步驟] 一節。
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -133,7 +134,7 @@ queue_service.delete_queue('taskqueue')
 * [Python 開發人員中心](/develop/python/)
 * [Azure 儲存體服務 REST API](http://msdn.microsoft.com/library/azure/dd179355)
 * [Azure 儲存體團隊部落格]
-* [Microsoft Azure Storage SDK for Python (適用於 Python 的 Microsoft Azure 儲存體 SDK)]
+* [Microsoft Azure Storage SDK for Python]
 
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
-[Microsoft Azure Storage SDK for Python (適用於 Python 的 Microsoft Azure 儲存體 SDK)]: https://github.com/Azure/azure-storage-python
+[Microsoft Azure Storage SDK for Python]: https://github.com/Azure/azure-storage-python

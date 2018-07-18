@@ -3,7 +3,7 @@ title: 教學課程 - 建立及管理 Azure 虛擬機器擴展集 | Microsoft Do
 description: 了解如何使用 Azure CLI 2.0 建立虛擬機器擴展集，以及一些常見的管理工作，例如如何啟動和停止執行個體，或變更擴展集容量。
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: dc8c58efcaeb5491eb23257e470f42a8d7cfd5c1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a076603519cdce5a16881e0f0703d8187001e058
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38452544"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>教學課程 - 使用 Azure CLI 2.0 建立及管理虛擬機器擴展集
 虛擬機器擴展集可讓您部署和管理一組相同、自動調整的虛擬機器。 在虛擬機器擴展集生命週期期間，您可能需要執行一或多個管理工作。 在本教學課程中，您將了解如何：

@@ -1,22 +1,19 @@
 ---
 title: 遠端監視解決方案中的裝置結構描述 - Azure | Microsoft Docs
 description: 本文說明 JSON 結構描述，它會定義遠端監視解決方案中的模擬裝置。
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/29/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 186eaee952435573a861d144195c3165e4940cc1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 1ba73d24aaa113a9124e17ea91946c205b21fba6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627428"
 ---
 # <a name="understand-the-device-model-schema"></a>了解裝置機型結構描述
 
@@ -26,7 +23,7 @@ ms.lasthandoff: 05/20/2018
 
 下列文章與目前的文章相關：
 
-* [實作裝置機型行為](../iot-suite/iot-suite-remote-monitoring-device-behavior.md)描述您用來實作模擬裝置行為的 JavaScript 檔案。
+* [實作裝置機型行為](iot-accelerators-remote-monitoring-device-behavior.md)描述您用來實作模擬裝置行為的 JavaScript 檔案。
 * [建立新的模擬裝置](iot-accelerators-remote-monitoring-test.md)會統整並示範如何將新的模擬裝置類型部署到您的解決方案。
 
 在本文中，您將了解：
@@ -203,12 +200,12 @@ ms.lasthandoff: 05/20/2018
 
 ## <a name="cloudtodevicemethods"></a>CloudToDeviceMethods
 
-模擬裝置可以回應從遠端監視解決方案呼叫的雲端到裝置的方法。 裝置機型結構描述檔案中的 `CloudToDeviceMethods` 區段：
+模擬裝置可以回應從遠端監視解決方案呼叫的雲端到裝置方法。 裝置機型結構描述檔案中的 `CloudToDeviceMethods` 區段：
 
 * 定義模擬裝置可以回應的方法。
 * 識別 JavaScript 檔案，其中包含要執行的邏輯。
 
-模擬裝置會將它支援的方法清單傳送至遠端監視解決方案。
+模擬裝置會將其支援的方法清單傳送給遠端監視解決方案。
 
 若要了解有關實作裝置行為之 JavaScript 檔案的詳細資訊，請參閱[了解裝置機型行為](iot-accelerators-remote-monitoring-device-behavior.md)。
 

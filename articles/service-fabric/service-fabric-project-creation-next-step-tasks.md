@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206460"
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>您的 Service Fabric 應用程式和後續步驟
 您的 Azure Service Fabric 應用程式已經建立。 本文說明一些可嘗試的教學課程、專案的組成、您感興趣的一些其他資訊，以及潛在後續步驟。

@@ -20,6 +20,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31794519"
 ---
 # <a name="specifying-dns-settings-in-a-virtual-network-configuration-file"></a>指定虛擬網路組態檔中的 DNS 設定
 網路組態檔有兩種您可以用來指定網域名稱系統 (DNS) 設定的項目：**DnsServers** 和 **DnsServerRef**。 您可以藉由指定其 IP 位址並參考 **DnsServers** 項目的名稱，新增 DNS 伺服器的清單。 然後您可以使用 **DnsServerRef** 項目，來針對您虛擬網路內的不同網站，指定要使用 DnsServers 項目中哪些 DNS 伺服器項目。

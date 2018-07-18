@@ -13,6 +13,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32297598"
 ---
 如果您未將快取釘選到儀表板，請使用 [所有服務] 在 [Azure 入口網站](https://portal.azure.com)中找到快取。
 

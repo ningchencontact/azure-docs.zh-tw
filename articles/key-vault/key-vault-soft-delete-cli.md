@@ -1,7 +1,7 @@
 ---
-ms.assetid: 
-title: "Azure Key Vault - 如何以 CLI 使用虛刪除"
-description: "以 CLI 程式碼片段進行虛刪除的使用案例範例"
+ms.assetid: ''
+title: Azure Key Vault - 如何以 CLI 使用虛刪除
+description: 以 CLI 程式碼片段進行虛刪除的使用案例範例
 author: lleonard-msft
 manager: mbaldwin
 ms.service: key-vault
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27927969"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>如何以 CLI 使用金鑰保存庫虛刪除
 

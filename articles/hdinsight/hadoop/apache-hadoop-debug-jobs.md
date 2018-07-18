@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31404751"
 ---
 # <a name="analyze-hadoop-logs"></a>分析 Hadoop 記錄
 
@@ -293,11 +294,11 @@ Azure HDInsight 中的每個 Hadoop 叢集都有一個 Azure 儲存體帳戶作�
 
 ### <a id="UnableToResolveDNS"></a>UnableToResolveDNS
 * **描述**：無法解析 DNS *yourDnsUrl*。 請確定您提供 Blob 端點的完整 URL。  
-* **緩和**：提供有效的 Blob URL。 URL「必須」完全有效，包括以*http://*開頭，以*.com*結尾。
+* **緩和**：提供有效的 Blob URL。 URL「必須」完全有效，包括以*http://* 開頭，以 *.com*結尾。
 
 ### <a id="UnableToVerifyLocationOfResource"></a>UnableToVerifyLocationOfResource
 * **描述**：無法驗證資源的 *yourDnsUrl*的位置。 請確定您提供 Blob 端點的完整 URL。  
-* **緩和**：提供有效的 Blob URL。 URL「必須」完全有效，包括以*http://*開頭，以*.com*結尾。
+* **緩和**：提供有效的 Blob URL。 URL「必須」完全有效，包括以*http://* 開頭，以 *.com*結尾。
 
 ### <a id="VersionCapabilityNotAvailable"></a>VersionCapabilityNotAvailable
 * **描述**：版本「specifiedVersion」和訂用帳戶識別碼「yourSubscriptionId」無法使用版本功能。  

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 26dffa7e57da2ef383f078c7c5cbb7b9664923ee
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7457a820d9179248eab976ceec64f6b7a4a38563
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643333"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>在 Service Fabric 中使用度量管理資源耗用量和負載
 *計量*是您的服務所關切的資源，且是由叢集中的節點提供。 計量就是任何您想要管理，以便改善或監視服務效能的項目。 例如，您可能會監看記憶體耗用量以得知您的服務是否為多載。 另一個用法是，了解服務是否能夠移至記憶體限制較小的其他位置，以取得更佳的效能。
@@ -32,11 +33,12 @@ ms.lasthandoff: 05/16/2018
   - ReplicaCount - 節點上具狀態複本的總數
   - Count - 節點上所有服務物件 (無狀態和具狀態) 的計數
 
-| 計量 | 無狀態執行個體負載 | 具狀態次要負載 | 具狀態主要負載 |
-| --- | --- | --- | --- |
-| PrimaryCount |0 |0 |1 |
-| ReplicaCount |0 |1 |1 |
-| Count |1 |1 |1 |
+| 計量 | 無狀態執行個體負載 | 具狀態次要負載 | 具狀態主要負載 | Weight |
+| --- | --- | --- | --- | --- |
+| PrimaryCount |0 |0 |1 |0 |
+| ReplicaCount |0 |1 |1 |0 |
+| Count |1 |1 |1 |0 |
+
 
 針對基本工作負載，預設計量會提供叢集中工作的適當分配。 在下列範例中，讓我們看看建立兩個服務以及依賴預設計量以進行平衡時會發生什麼情況。 第一個服務是帶有三個資料分割且目標複本集大小為三的具狀態服務。 第二個服務是帶有一個資料分割且執行個體計數為三的無狀態服務。
 

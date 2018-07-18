@@ -1,6 +1,6 @@
 ---
-title: "在適用於 PostgreSQL 的 Azure 資料庫伺服器中建立使用者"
-description: "本文說明如何建立新的使用者帳戶，來與「適用於 PostgreSQL 的 Azure 資料庫」伺服器互動。"
+title: 在適用於 PostgreSQL 的 Azure 資料庫伺服器中建立使用者
+description: 本文說明如何建立新的使用者帳戶，來與「適用於 PostgreSQL 的 Azure 資料庫」伺服器互動。
 services: postgresql
 author: jasonwhowell
 ms.author: jasonh
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/27/2018
+ms.locfileid: "29574181"
 ---
 # <a name="create-users-in-azure-database-for-postgresql-server"></a>在適用於 PostgreSQL 的 Azure 資料庫伺服器中建立使用者 
 本主題說明如在「適用於 PostgreSQL 的 Azure 資料庫」伺服器中建立使用者。

@@ -6,13 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 05/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8eb6717369b48289bd31dcd1972ce275bc550c77
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 83852917909d13555e7a0a339d2ecc805eeead42
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625792"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid 訊息傳遞與重試 
 
@@ -62,7 +63,7 @@ Event Grid 針對事件傳遞使用指數輪詢重試原則。 如果您的 Webh
 
 Event Grid 會將小型隨機加入所有重試間隔。 一個小時之後，事件傳遞會每小時重試一次。
 
-根據預設，事件格線會讓所有未在 24 小時內傳遞的事件變成過期事件。
+事件方格會停止嘗試傳遞所有未在 24 小時內傳遞的事件。
 
 ## <a name="next-steps"></a>後續步驟
 

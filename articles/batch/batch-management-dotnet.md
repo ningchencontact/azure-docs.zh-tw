@@ -21,6 +21,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30316948"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>使用適用於 .NET 的 Batch 管理用戶端程式庫來管理 Batch 帳戶和配額
 

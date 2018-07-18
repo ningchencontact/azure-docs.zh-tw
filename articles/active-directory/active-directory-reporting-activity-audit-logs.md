@@ -3,23 +3,25 @@ title: Azure Active Directory 入口網站中的稽核活動報告 | Microsoft D
 description: 介紹 Azure Active Directory 入口網站中的稽核活動報告
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: compliance-reports
 ms.date: 04/19/2018
-ms.author: markvi
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5950b8bac89a8a6c0ed7979228b8296f34e43364
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 2565f31bdac59c3fbbb1d9d9a516b7bbf31d4d4c
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36222097"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 入口網站中的稽核活動報告 
 
@@ -115,7 +117,7 @@ Azure Active Directory 中的稽核記錄會提供符合規範的系統活動記
 - 全部 
 - 群組
 - 目錄
-- User
+- 使用者
 - Application
 - 原則
 - 裝置

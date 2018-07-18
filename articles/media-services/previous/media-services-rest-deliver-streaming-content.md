@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33785857"
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>使用 REST 發佈 Azure 媒體服務內容
 > [!div class="op_single_selector"]

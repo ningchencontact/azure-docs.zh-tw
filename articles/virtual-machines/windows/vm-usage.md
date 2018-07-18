@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31425175"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>了解 Azure 虛擬機器使用情況
 分析您的 Azure 使用情況資料，可以深入了解使用量，以在整個組織內實現更妥善的成本管理與配置。 本文件會針對您的 Azure 計算使用量詳細資料，提供深入探討。 如需有關一般 Azure 使用情況的詳細資訊，請瀏覽至[了解您的帳單](../../billing/billing-understand-your-bill.md)。

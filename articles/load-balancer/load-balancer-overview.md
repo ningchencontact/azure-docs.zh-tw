@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 080a4e670b06544d84e3d34a0b04bdb91a95aff1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 04fa1f9a23a7c93426b45305302e3f77d16ab8c0
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202436"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726256"
 ---
 # <a name="what-is-azure-load-balancer"></a>什麼是 Azure Load Balancer？
 
@@ -94,7 +94,7 @@ Load Balancer 為 TCP 和 UDP 應用程式提供下列基本功能：
 
     - **TCP 自訂探查：** 此探查依賴於將 TCP 工作階段成功建立至定義的探查連接埠。 只要 VM 上有指定的接聽程式，此探查就成功。 如果系統拒絕連線，探查便會失敗。 此探查會覆寫預設的客體代理程式探查。
 
-    - **客體代理程式探查 (僅限平台即服務 [PaaS] VM)：** Load Balancer 也可以利用 VM 內的客體代理程式。 客體代理程式只有在執行個體處於就緒狀態時，才會接聽並以「HTTP 200 確定」回應。 如果代理程式無法以 HTTP 200 OK 回應，負載平衡器就會將執行個體標示為沒有回應，並停止傳送流量到該執行個體。 負載平衡器會繼續嘗試聯繫執行個體。 如果客體代理程式以 HTTP 200 回應，則負載平衡器會再次傳送流量到該執行個體。 客體代理程式探查是最後手段，只要還能使用 HTTP 或 TCP 自訂探查設定，就不建議使用此方式。 
+    - **客體代理程式探查：** 負載平衡器也可以利用虛擬機器內的客體代理程式。 客體代理程式只有在執行個體處於就緒狀態時，才會接聽並以「HTTP 200 確定」回應。 如果代理程式無法以 HTTP 200 OK 回應，負載平衡器就會將執行個體標示為沒有回應，並停止傳送流量到該執行個體。 負載平衡器會繼續嘗試聯繫執行個體。 如果客體代理程式以 HTTP 200 回應，則負載平衡器會再次傳送流量到該執行個體。 客體代理程式探查是_最後手段_，只要還能使用 HTTP 或 TCP 自訂探查設定，就不建議使用此方式。 
     
 * **輸出連線 (SNAT)**
 

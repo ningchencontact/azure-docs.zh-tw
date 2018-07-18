@@ -2,13 +2,12 @@
 title: 為 Azure 訂用帳戶設定計費或信用額度警示 | Microsoft Docs
 description: 描述如何設定您的 Azure 帳單上的警示，以避免計費出現意外的狀況。
 keywords: 信用額度警示, 計費警示
-services: ''
+services: billing
 documentationcenter: ''
 author: adpick
 manager: adpick
 editor: ''
 tags: billing
-ms.assetid: 9b7b3eeb-cd9d-4690-86a3-51b1e2a8974f
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -16,20 +15,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/9/2017
 ms.author: adpick
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fa7d1853226647917925e8c75e01a1c83d84daeb
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 981cb1153e0268e6572207f8d2401edb23485863
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359045"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607798"
 ---
 # <a name="set-up-billing-or-credit-alerts-for-your-microsoft-azure-subscriptions"></a>為您的 Microsoft Azure 訂用帳戶設定計費或信用額度警示
 如果您是 Azure 訂用帳戶的帳戶管理員，您可以使用「Azure 計費警示服務」來建立自訂計費警示，以協助您監視和管理您 Azure 帳戶的計費活動。
 
 此服務為預覽狀態，因此您必須先在 [預覽功能] 頁面中加以啟用。
 
-[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="set-the-alert-threshold-and-email-recipients"></a>設定警示閾值與電子郵件收件者
 1. 請瀏覽[預覽功能頁面](https://account.windowsazure.com/PreviewFeatures)並啟用**計費警示服務**。
@@ -51,6 +49,11 @@ Azure 支援任何電子郵件地址，但不會驗證電子郵件地址是否�
 ## <a name="check-on-your-alerts"></a>檢查您的通知
 設定警示之後，[帳戶中心] 會列出這些警示，並顯示您還可以設定多少個警示。 針對每個警示，您會看到其傳送日期和時間 (不論是 [計費總計] 還是 [貨幣信用額度] 警示)，以及您所設定的限制。 日期和時間格式是 24 小時制的世界標準時間 (UTC)，而日期為 yyyy-mm-dd 格式。 您可以按一下清單中某個警示的加號來編輯該警示，或按一下資源回收筒圖示來將它刪除。
 
+## <a name="delete-alerts-or-email-addresses-from-the-azure-billing-alert-service"></a>從 Azure 計費警示服務中刪除警示或電子郵件地址
+如果您需要從此服務移除任何資訊，請更新檔案上的電子郵件地址，或完全刪除警示。
+
+   ![可供移除個人資訊的警示刪除檢視螢幕擷取畫面][Image4]
+
 ## <a name="billing-alerts-for-enterprise-agreement-ea-customers"></a>Enterprise 合約 (EA) 客戶適用的計費警示
 此服務不支援 EA 訂用帳戶，EA 客戶可藉由設定消費配額來取得註冊之下每個部門的警示。 請參閱 EA 入口網站中的[部門消費配額](https://ea.azure.com/helpdocs/departmentSpendingQuotas)以便開始使用。
 
@@ -64,3 +67,4 @@ Azure 支援任何電子郵件地址，但不會驗證電子郵件地址是否�
 [Image1]: ./media/azure-billing-set-up-alerts/billingalert1.png 
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
 [Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png 
+[Image4]: ./media/azure-billing-set-up-alerts/AlertsDeleteScreen1.PNG

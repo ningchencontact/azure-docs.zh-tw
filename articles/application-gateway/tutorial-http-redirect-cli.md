@@ -15,6 +15,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34355862"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>使用 Azure CLI 來建立具有 HTTP 到 HTTPS 重新導向功能的應用程式閘道
 

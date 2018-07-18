@@ -1,28 +1,22 @@
 ---
 title: 開始使用 Azure IoT 中樞模組身分識別和模組對應項 (.NET) | Microsoft Docs
 description: 了解如何使用適用於 .NET 的 SDK，建立模組身分識別及更新模組對應項。
-services: iot-hub
-documentationcenter: .net
 author: chrissie926
-manager: timlt
-editor: ''
-ms.assetid: f40604ff-8fd6-4969-9e99-8574fbcf036c
+manager: ''
 ms.service: iot-hub
-ms.devlang: dotnet
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f71ac333aeb73df00856dde279b56f94464127b5
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5855396fc87b7d8de17be65a66af40963c59fc71
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361110"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38687931"
 ---
-# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-net-backup-and-net-device"></a>透過 .NET 備份和 .NET 裝置開始使用 IoT 中樞模組身分識別和模組對應項
+# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-net-back-end-and-net-device"></a>透過 .NET 後端和 .NET 裝置開始使用 IoT 中樞模組身分識別和模組對應項
 
 > [!NOTE]
 > [模組身分識別與模組對應項](iot-hub-devguide-module-twins.md)類似於 Azure IoT 中樞裝置身分識別與裝置對應項，但提供更精細的細微性。 雖然 Azure IoT 中樞裝置身分識別與裝置對應項可讓後端應用程式設定裝置並提供裝置狀況的可見性，但模組身分識別和模組對應項可提供裝置個別元件的上述功能。 在具備多個元件的可用裝置 (例如以作業系統為基礎的裝置或韌體裝置) 上，它允許每個元件有獨立的組態和狀況。
@@ -57,7 +51,7 @@ ms.locfileid: "34361110"
 
     ![建立 Visual Studio 專案][13]
 
-2. **安裝 Azure IoT 中樞 .NET 裝置 SDK V1.16.0-preview-005** - 模組身分識別和模組對應項均處於公開預覽狀態。 它只能在 IoT 中樞發行前版本裝置 SDK 中取得。 在 Visual Studio 中，開啟[工具] > [Nuget 套件管理員] > [管理解決方案的 Nuget 套件]。 搜尋 Microsoft.Azure.Devices.Client。 確定您已核取 [包含發行前版本] 核取方塊。 選取版本 V1.16.0-preview-005 並安裝。 您現在可以存取所有的模組功能。 
+2. **安裝最新的 Azure IoT 中樞 .NET 裝置 SDK** - 模組身分識別和模組對應項均處於公開預覽狀態。 它只能在 IoT 中樞發行前版本裝置 SDK 中取得。 在 Visual Studio 中，開啟[工具] > [Nuget 套件管理員] > [管理解決方案的 Nuget 套件]。 搜尋 Microsoft.Azure.Devices.Client。 確定您已核取 [包含發行前版本] 核取方塊。 選取最新版本並安裝。 您現在可以存取所有的模組功能。 
 
     ![安裝 Azure IoT Hub .NET 服務 SDK V1.16.0-preview-005][14]
 
@@ -119,7 +113,7 @@ ms.locfileid: "34361110"
             var twinTask = Client.GetTwinAsync();
             twinTask.Wait();
             var twin = twinTask.Result;
-            Console.WriteLine(JsonConvert.SerializeObject(twin));
+            Console.WriteLine(JsonConvert.SerializeObject(twin.Properties)); 
 
             Console.WriteLine("Sending app start time as reported property");
             TwinCollection reportedProperties = new TwinCollection();

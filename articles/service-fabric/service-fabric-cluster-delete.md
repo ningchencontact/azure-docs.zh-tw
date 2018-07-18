@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211264"
 ---
 # <a name="delete-a-service-fabric-cluster-on-azure-and-the-resources-it-uses"></a>刪除 Azure 上的 Service Fabric 叢集和其使用的資源
 Service Fabric 叢集是由叢集資源本身和許多其他 Azure 資源所構成。 因此，若要完全刪除 Service Fabric 叢集，您也必須刪除組成叢集的所有資源。

@@ -1,11 +1,11 @@
 ---
-title: "針對 Linux VM 部署-RM 進行疑難排解 | Microsoft Docs"
-description: "針對在 Azure 中建立新 Linux 虛擬機器的 Resource Manager 部署問題進行疑難排解"
+title: 針對 Linux VM 部署-RM 進行疑難排解 | Microsoft Docs
+description: 針對在 Azure 中建立新 Linux 虛擬機器的 Resource Manager 部署問題進行疑難排解
 services: virtual-machines-linux, azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: JiangChen79
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue, azure-resource-manager
 ms.assetid: 906a9c89-6866-496b-b4a4-f07fb39f990c
 ms.service: virtual-machines-linux
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/03/2018
+ms.locfileid: "27579258"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>針對在 Azure 中建立新 Linux 虛擬機器的 Resource Manager 部署問題進行疑難排解
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -45,9 +46,9 @@ ms.lasthandoff: 01/03/2018
 
 **上傳錯誤：**
 
-**N<sup>1</sup>：**如果作業系統是一般化的 Linux，但是上傳它時是以特殊化形式上傳，就會發生佈建逾時錯誤，因為 VM 會卡在佈建階段。
+**N<sup>1</sup>：** 如果作業系統是一般化的 Linux，但是上傳它時是以特殊化形式上傳，就會發生佈建逾時錯誤，因為 VM 會卡在佈建階段。
 
-**N<sup>2</sup>：**如果作業系統是特殊化的 Linux，但是上傳它時是以一般化形式上傳，就會發生佈建失敗錯誤，因為新 VM 是以原始的電腦名稱、使用者名稱和密碼執行。
+**N<sup>2</sup>：** 如果作業系統是特殊化的 Linux，但是上傳它時是以一般化形式上傳，就會發生佈建失敗錯誤，因為新 VM 是以原始的電腦名稱、使用者名稱和密碼執行。
 
 **解決方案：**
 
@@ -55,9 +56,9 @@ ms.lasthandoff: 01/03/2018
 
 **擷取錯誤：**
 
-**N<sup>3</sup>：**如果作業系統是一般化的 Linux，但是擷取它時是以特殊化形式擷取，就會發生佈建逾時錯誤，因為原始 VM 會因被標示為一般化而無法供使用。
+**N<sup>3</sup>：** 如果作業系統是一般化的 Linux，但是擷取它時是以特殊化形式擷取，就會發生佈建逾時錯誤，因為原始 VM 會因被標示為一般化而無法供使用。
 
-**N<sup>4</sup>：**如果作業系統是特殊化的 Linux，但是擷取它時是以一般化形式擷取，就會發生佈建失敗錯誤，因為新 VM 是以原始的電腦名稱、使用者名稱和密碼執行。 此外，原始 VM 會因被標示為特殊化而無法供使用。
+**N<sup>4</sup>：** 如果作業系統是特殊化的 Linux，但是擷取它時是以一般化形式擷取，就會發生佈建失敗錯誤，因為新 VM 是以原始的電腦名稱、使用者名稱和密碼執行。 此外，原始 VM 會因被標示為特殊化而無法供使用。
 
 **解決方案：**
 

@@ -3,22 +3,23 @@ title: 使用 Privileged Identity Management 利用 Azure 資源來設定角色�
 description: 說明如何設定 PIM 的角色設定。
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: protection
 ms.date: 04/02/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 05546be87aec3ec2f44b876a97eeab2121383d61
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: eee76fbe769949c9c55dffcb70df6d73c965418a
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32148806"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447178"
 ---
 # <a name="configure-role-settings-by-using-for-azure-resources-by-using-privileged-identity-management"></a>使用 Privileged Identity Management 利用 Azure 資源來設定角色設定 
 

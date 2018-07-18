@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 雲端設備 Update 3 | Microsoft Docs"
-description: "了解如何建立、部署和管理 Microsoft Azure 虛擬網路中的 StorSimple 雲端設備。 (適用於 StorSimple Update 3 和更新版本)。"
+title: StorSimple 雲端設備 Update 3 | Microsoft Docs
+description: 了解如何建立、部署和管理 Microsoft Azure 虛擬網路中的 StorSimple 雲端設備。 (適用於 StorSimple Update 3 和更新版本)。
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: hero-article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852331"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>部署和管理 Azure 中的 StorSimple 雲端設備 (Update 3 和更新版本)
 

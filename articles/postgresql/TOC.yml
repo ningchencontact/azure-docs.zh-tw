@@ -146,7 +146,21 @@
     - name: 堆疊溢位
       href: 'http://stackoverflow.com/questions/tagged/azure-database-postgresql'
     - name: 影片
-      href: videos.md
+      items:
+        - name: 產品影片
+          href: videos.md
+        - name: 作法影片系列
+          items:
+            - name: 了解產品功能和優點
+              href: 'https://aka.ms/postg-intro-vid'
+            - name: 將您的 PostgreSQL 應用程式遷移到 Azure
+              href: 'https://aka.ms/postg-migrate-vid'
+            - name: 使用認知服務建置智慧型應用程式
+              href: 'https://aka.ms/postg-cogsvs-vid'
+            - name: 使用 OSBA 與容器連線
+              href: 'https://aka.ms/postg-osba-vid'
+            - name: 將應用程式的資料連線至 Power BI
+              href: 'https://aka.ms/postg-powerbi-vid'
     - name: 意見反應論壇
       href: 'https://feedback.azure.com/forums/597976-azure-database-for-postgresql'
     - name: 區域可用性
@@ -155,5 +169,7 @@
       href: 'https://azure.microsoft.com/support/options/'
     - name: 客戶案例
       href: 'https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20PostgreSQL"'
+    - name: 合作夥伴
+      href: partners-migration-postgresql.md
     - name: 資料庫移轉指南
       href: 'https://datamigration.microsoft.com/'

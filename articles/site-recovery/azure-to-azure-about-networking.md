@@ -6,19 +6,18 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 07/06/2018
 ms.author: sujayt
-ms.openlocfilehash: e3acedf4135166f5239b95eb21eb5dfd66d6100f
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 77c445920041653ffb72d31e1dcfe4c368fb6642
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312622"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915920"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>關於 Azure 中進行 Azure 複寫的網路功能
 
->[!NOTE]
-> Azure 虛擬機器的 Site Recovery 複寫目前為預覽狀態。
+
 
 本文提供您使用 [Azure Site Recovery](site-recovery-overview.md)，將 Azure VM 從一個區域複寫和復原到另一個區域時的網路功能指引。
 
@@ -97,8 +96,8 @@ login.microsoftonline.com | 需要此項目方可進行 Site Recovery 服務 URL
    英國南部 | 51.140.43.158 | 51.140.189.52
    英國南部 2 | 13.87.37.4| 13.87.34.139
    英國北部 | 51.142.209.167 | 13.87.102.68
-   韓國中部 | 52.231.28.253 | 52.231.32.85
-   韓國南部 | 52.231.298.185 | 52.231.200.144
+   南韓中部 | 52.231.28.253 | 52.231.32.85
+   南韓南部 | 52.231.298.185 | 52.231.200.144
    法國中部 | 52.143.138.106 | 52.143.136.55
    法國南部 | 52.136.139.227 |52.136.136.62
 
@@ -156,7 +155,7 @@ login.microsoftonline.com | 需要此項目方可進行 Site Recovery 服務 URL
 
 ### <a name="forced-tunneling"></a>強制通道
 
-您可以使用[自訂路由](../virtual-network/virtual-networks-udr-overview.md#custom-routes)來覆寫 0.0.0.0/0 位址前置詞的 Azure 預設系統路由，並將 VM 流量轉向至內部部署網路虛擬應用裝置 (NVA)，但不建議將此設定用於站台復原複寫。 如果您要使用自訂路由，則應該在虛擬網路中為「儲存體」[建立一個虛擬網路服務端點](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage)，這樣複寫流量就不會脫離 Azure 界限。
+您可以使用[自訂路由](../virtual-network/virtual-networks-udr-overview.md#custom-routes)覆寫 0.0.0.0/0 位址前置詞的 Azure 預設系統路由，並將 VM 流量導向內部部署網路虛擬設備 (NVA)，但不建議將此設定用於 Site Recovery 複寫。 如果您使用自訂路由，則應該在虛擬網路中為「儲存體」[建立虛擬網路服務端點](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage)，這樣一來，複寫流量就不會離開 Azure 界限。
 
 ## <a name="next-steps"></a>後續步驟
 - [複寫 Azure 虛擬機器](site-recovery-azure-to-azure.md)來開始保護您的工作負載。

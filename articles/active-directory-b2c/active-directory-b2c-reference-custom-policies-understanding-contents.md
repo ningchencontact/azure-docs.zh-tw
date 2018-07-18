@@ -1,27 +1,27 @@
 ---
-title: Azure Active Directory B2C：了解入門套件的自訂原則 | Microsoft Docs
-description: Azure Active Directory B2C 自訂原則的主題
+title: 了解 Azure Active Directory B2C 中入門套件的自訂原則 | Microsoft Docs
+description: Azure Active Directory B2C 自訂原則的主題。
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
-ms.openlocfilehash: 12f63bc42f8450f086ed9f0e8d598c9c91a0c3d4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: B2C
+ms.openlocfilehash: ebcd7a677acde12558b0f566bce9172a0d00233b
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442469"
 ---
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>了解 Azure AD B2C 自訂原則入門套件的自訂原則
 
 本節會列出**入門套件**隨附之 B2C_1A_base 原則的所有核心元素，此原則也可用來透過繼承 B2C_1A_base_extensions 原則來撰寫您自己的原則。
 
-因此，本節會特別著重在已定義的宣告類型、宣告轉換、內容定義、宣告提供者與其技術設定檔，以及核心的使用者旅程。
+因此，本節會特別著重在已定義的宣告類型、宣告轉換、內容定義、宣告提供者與其技術設定檔，以及核心的使用者旅程圖。
 
 > [!IMPORTANT]
 > Microsoft 對於以下所提供的資訊不做任何明示或暗示的保證。 任何時候 (GA 當下、之前或之後) 皆有可能導入變更。
@@ -193,7 +193,7 @@ B2C_1A_base 原則的核心元素是宣告類型、宣告轉換及內容定義�
 | SM-SocialLogin | |
 | SM-MFA | |
 
-### <a name="technical-profiles-for-trustframework-policy-engine-technicalprofiles"></a>Trustframework 原則引擎 TechnicalProfiles 的技術設定檔
+### <a name="technical-profiles-for-the-trust-framework-policy-engine"></a>信任架構原則引擎的技術設定檔
 
 **Trustframework 原則引擎 TechnicalProfiles** 宣告提供者目前沒有已定義的技術設定檔。
 

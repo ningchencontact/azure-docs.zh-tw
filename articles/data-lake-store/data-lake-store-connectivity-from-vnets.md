@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: elsung
-ms.openlocfilehash: 489e7eb35352e2e8fd3d159381c2177098a90399
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4086ef6ce2a95e0467eda61116ac002cf53610b5
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300788"
 ---
 # <a name="access-azure-data-lake-store-from-vms-within-an-azure-vnet"></a>從 Azure VNET 內的 VM 存取 Azure Data Lake Store
 Azure Data Lake Store 使用公用網際網路 IP 位址執行的 PaaS 服務。 可以連線到公用網際網路的任何伺服器，通常也可以連接到 Azure Data Lake Store 端點。 根據預設，Azure VNET 中所有的 VM 可以存取網際網路，並因此可以存取 Azure Data Lake Store。 不過，也可以將 VNET 中的 VM 設定為無法存取網際網路。 對於這類 VM，也會限制對 Azure Data Lake Store 的存取。 封鎖 Azure VNET 中 VM 的公用網際網路存取，可以使用下列任一個方法來完成：
@@ -41,7 +42,7 @@ Azure Data Lake Store 使用公用網際網路 IP 位址執行的 PaaS 服務。
 
 
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-nsg"></a>使用 NSG 從受限制的 VM 啟用連線
-使用 NSG 規則來封鎖對網際網路的存取時，您接著可以建立另一個允許存取 Data Lake Store IP 位址的 NSG。 如需有關 NSG 規則的詳細資訊，請參閱[網路安全性群組概觀](../virtual-network/security-overview.md)。 如需如何建立 NSG 的指示，請參閱[如何使用 Azure 入口網站管理 NSG](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)。
+使用 NSG 規則來封鎖對網際網路的存取時，您接著可以建立另一個允許存取 Data Lake Store IP 位址的 NSG。 如需有關 NSG 規則的詳細資訊，請參閱[網路安全性群組概觀](../virtual-network/security-overview.md)。 如需如何建立 NSG 的指示，請參閱[如何建立網路安全性群組](../virtual-network/tutorial-filter-network-traffic.md)。
 
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-udr-or-expressroute"></a>使用 UDR 或 ExpressRoute 從受限制的 VM 啟用連線
 路由時會使用 UDR 或 BGP 交換路由來封鎖對網際網路的存取，必須設定特殊的路由，才能使這類子網路中的 VM 可以存取 Data Lake Store 端點。 如需詳細資訊，請參閱[使用者定義路由概觀](../virtual-network/virtual-networks-udr-overview.md)。 如需建立 UDR 的指示，請參閱[在 Resource Manager 中建立 UDR](../virtual-network/tutorial-create-route-table-powershell.md)。

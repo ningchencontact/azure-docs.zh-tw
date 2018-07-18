@@ -13,6 +13,7 @@ ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34303329"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>針對 Azure Event Grid 張貼到自訂主題
 

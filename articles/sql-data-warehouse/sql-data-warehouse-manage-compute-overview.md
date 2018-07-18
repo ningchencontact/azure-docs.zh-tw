@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31528489"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>管理 Azure SQL 資料倉儲中的計算能力
 了解如何管理 Azure SQL 資料倉儲中的計算資源。 藉由暫停資料倉儲來降低成本，或調整資料倉儲規模以符合效能需求。 

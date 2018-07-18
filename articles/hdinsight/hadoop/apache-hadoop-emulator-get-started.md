@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31401127"
 ---
 # <a name="get-started-with-a-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>開始使用 Hadoop 沙箱，它是虛擬機器上的模擬器
 
@@ -50,7 +51,7 @@ ms.lasthandoff: 04/16/2018
 1. 選取「Hortonworks 沙箱」、按一下 [啟動]，然後選取 [正常啟動]。 虛擬機器完成開機程序後會顯示登入指示。
    
     ![正常啟動](./media/apache-hadoop-emulator-get-started/normal-start.png)
-2. 開啟網頁瀏覽器，並瀏覽至顯示的 URL (通常是 http://127.0.0.1:8888))。
+2. 開啟網頁瀏覽器，並瀏覽至顯示的 URL (通常是 http://127.0.0.1:8888) )。
 
 ## <a name="set-sandbox-passwords"></a>設定沙箱密碼
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect 同步：變更預設組態 | Microsoft Docs"
-description: "提供變更 Azure AD Connect 同步處理預設組態的最佳作法。"
+title: Azure AD Connect 同步：變更預設組態 | Microsoft Docs
+description: 提供變更 Azure AD Connect 同步處理預設組態的最佳作法。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 7638a031-1635-4942-94c3-fce8f09eed5e
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 384794849eb0bf2cb2f4dd056b0c95ab84d77b6e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 2c2fc3bcba4b685fba36683f89c0b6ad877dbb1d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595133"
 ---
 # <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Azure AD Connect 同步處理：變更預設組態的最佳作法
 本主題的目的旨在說明支援及不支援的 Azure AD Connect 同步處理變更。

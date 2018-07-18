@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/09/2018
+ms.date: 05/14/2018
 ms.author: celested
+ms.reviewer: elisol, bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 5f42a706bd7cb44162765bb77039cc3173d6941e
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b369cdeb3a58db0336d4f6e343599aaa46643b32
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34354447"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316779"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>在 Azure Active Directory 應用程式庫中列出您的應用程式
 
@@ -34,20 +35,19 @@ Azure Active Directory (Azure AD) 是雲端式識別服務。 [Azure AD 應用�
 
 *  客戶可找到最佳且適用的單一登入體驗。
 
-*  應用程式的設定相當簡單且基本。 
+*  應用程式的設定相當簡單且基本。
 
 *  快速搜尋可在應用程式庫中找到您的應用程式。
 
-*  免費、基本及進階 Azure AD 的客戶都可使用這項整合。 
+*  免費、基本及進階 Azure AD 的客戶都可使用這項整合。
 
-*  共同客戶可取得逐步設定教學課程。 
+*  共同客戶可取得逐步設定教學課程。
 
 *  使用 SCIM 的客戶可以使用相同應用程式的佈建。
 
-
 ##  <a name="prerequisites-implement-federation-protocol"></a>必要條件：實作同盟通訊協定
 
-若要在 Azure AD 應用程式庫中列出某個應用程式，您必須先實作 Azure AD 所支援的下列其中一種同盟通訊協定。 請從這裡閱讀 Azure AD 應用程式庫條款及條件。 
+若要在 Azure AD 應用程式庫中列出某個應用程式，您必須先實作 Azure AD 所支援的下列其中一種同盟通訊協定，並且同意 Azure AD 應用程式庫條款及條件。 請從[這裡](https://azure.microsoft.com/en-us/support/legal/active-directory-app-gallery-terms/)閱讀 Azure AD 應用程式庫條款及條件。
 
 *   **OpenID Connect**：在 Azure AD 中建立多租用戶應用程式，然後為您的應用程式實作 [Azure AD 同意架構](active-directory-integrating-applications.md#overview-of-the-consent-framework)。 將登入要求傳送給通用端點，以便讓所有客戶都可以向該應用程式表示同意。 您可以根據租用戶識別碼和在權杖中收到的使用者 UPN 來控制使用者存取權。 若要整合您的應用程式與 Azure AD，請遵循[開發人員指示](active-directory-authentication-scenarios.md)。
 

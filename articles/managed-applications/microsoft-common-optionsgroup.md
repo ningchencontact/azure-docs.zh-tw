@@ -11,13 +11,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5387f3911c58b115629c461420737230fce6b85a
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: e51061dc781e4ec6e822cde9cc450887ff3b1368
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061180"
 ---
 # <a name="microsoftcommonoptionsgroup-ui-element"></a>Microsoft.Common.OptionsGroup UI 元素
 包含可用選項資料列的選取控制項。
@@ -31,7 +32,7 @@ ms.lasthandoff: 05/17/2018
   "name": "element1",
   "type": "Microsoft.Common.OptionsGroup",
   "label": "Some options group",
-  "defaultValue": "my value",
+  "defaultValue": "Value two",
   "toolTip": "",
   "constraints": {
     "allowedValues": [
@@ -43,7 +44,8 @@ ms.lasthandoff: 05/17/2018
         "label": "Value two",
         "value": "two"
       }
-    ]
+    ],
+    "required": true
   },
   "visible": true
 }
@@ -52,12 +54,11 @@ ms.lasthandoff: 05/17/2018
 ## <a name="remarks"></a>備註
 - `constraints.allowedValues` 的標籤是項目的顯示文字，其值為選取時的元素輸出值。
 - 如果指定，預設值必須是 `constraints.allowedValues` 中存在的標籤。 如果未指定，依預設會選取 `constraints.allowedValues` 中的第一個項目。 預設值為 **null**。
-- `constraints.allowedValues` 必須包含至少一個項目。
-- 這個元素不支援 `constraints.required` 屬性；必須選取項目，才能順利通過驗證。
+- `constraints.allowedValues` 必須有至少一個項目。
 
 ## <a name="sample-output"></a>範例輸出
 ```json
-"Bar"
+"two"
 ```
 
 ## <a name="next-steps"></a>後續步驟

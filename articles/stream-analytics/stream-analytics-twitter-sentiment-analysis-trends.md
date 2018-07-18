@@ -9,11 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: 4c77c8a7209825477929ddc0997b75ace5fe04a1
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 0b920d21486fc0003d8b11bef79bd44be4b28adf
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030609"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Azure 串流分析中的即時 Twitter 情感分析
 
@@ -337,7 +338,7 @@ ms.lasthandoff: 04/06/2018
 
 在您的作業已開始執行並處理即時 Twitter 串流之後，您就可以檢視情感分析的輸出。
 
-您可以使用 [Azure 儲存體總管](https://http://storageexplorer.com/)或 [Azure 總管](http://www.cerebrata.com/products/azure-explorer/introduction)之類的工具，即時檢視您的作業輸出。 從這裡，您可以使用 [Power BI](https://powerbi.com/) 擴充您的應用程式來包含自訂儀表板，如下列螢幕擷取畫面所示：
+您可以使用 [Azure 儲存體總管](https://storageexplorer.com/)或 [Azure 總管](http://www.cerebrata.com/products/azure-explorer/introduction)之類的工具，即時檢視您的作業輸出。 從這裡，您可以使用 [Power BI](https://powerbi.com/) 擴充您的應用程式來包含自訂儀表板，如下列螢幕擷取畫面所示：
 
 ![Power BI](./media/stream-analytics-twitter-sentiment-analysis-trends/power-bi.png)
 

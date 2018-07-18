@@ -11,11 +11,11 @@ ms.date: 3/20/2018
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 9aa0eec9036e32d6f3462886dfc7a796ed1844b8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356285"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38306377"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-azure-powershell"></a>使用 Azure PowerShell 根據 URL 路由網路流量
 
@@ -408,7 +408,7 @@ for ($i=1; $i -le 3; $i++)
 
 ## <a name="test-the-application-gateway"></a>測試應用程式閘道
 
-使用 [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) 取得應用程式閘道的公用 IP 位址。 將公用 IP 位址複製並貼到您瀏覽器的網址列。 例如，*http://52.168.55.24*、*http://52.168.55.24:8080/images/test.htm* 或 *http://52.168.55.24:8080/video/test.htm*。
+使用 [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) 取得應用程式閘道的公用 IP 位址。 將公用 IP 位址複製並貼到您瀏覽器的網址列。 例如，*http://52.168.55.24*, *http://52.168.55.24:8080/images/test.htm*, 或 *http://52.168.55.24:8080/video/test.htm*。
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress

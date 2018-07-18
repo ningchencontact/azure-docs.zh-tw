@@ -1,8 +1,26 @@
+---
+title: 包含檔案
+description: 包含檔案
+services: active-directory
+author: curtand
+ms.service: active-directory
+ms.topic: include
+ms.date: 06/20/2018
+ms.author: curtand
+ms.custom: include file
+ms.openlocfilehash: 10b5fbe0a03d3ea712edc9df603bbcea5e188a02
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36296527"
+---
 以下是 Azure Active Directory 服務的使用條件約束和其他服務限制。
 
 | 類別 | 限制 |
 | --- | --- |
-| 目錄 |單一使用者最多只能與 20 個 Azure Active Directory 目錄相關聯。<br />可能組合的範例︰ <ul> <li>單一使用者建立 20 個目錄。</li><li>單一使用者新增 20 個目錄作為成員。</li><li>單一使用者建立 10 個目錄，之後由其他使用者加入到 10 個不同的目錄。</li></ul> |
+| 目錄 |單一使用者最多能與 20 個 Azure Active Directory 目錄相關聯。<br />可能組合的範例︰ <ul> <li>單一使用者建立 20 個目錄。</li><li>單一使用者新增 20 個目錄作為成員。</li><li>單一使用者建立 10 個目錄，之後由其他使用者加入到 10 個不同的目錄。</li></ul> |
+| 網域 | 您可以新增 900 個以內的受控網域名稱。 如果您要設定所有網域與內部部署 Active Directory 建立同盟，則可以在每個目錄中新增 450 個以內的網域名稱。 |
 | 物件 |<ul><li>在免費版的 Azure Active Directory 中，最多可以在單一目錄中建立 500,000 個物件。</li><li>非系統管理員的使用者最多可以建立 250 個物件。</li></ul> |
 | 結構描述延伸模組 |<ul><li>字串類型延伸模組最多可有 256 個字元。 </li><li>二進位類型延伸模組受限於 256 個位元組。</li><li>任何單一物件均可寫入 100 個延伸模組值 (所有類型和所有應用程式皆可)。</li><li>只能使用「字串」類型或「二進位」類型單一值屬性來擴充 “User”、“Group”、“TenantDetail”、“Device”、“Application” 和 “ServicePrincipal” 實體。</li><li>結構描述延伸模組僅適用於圖形 API 版本 1.21 預覽。 應用程式必須取得寫入權限才能登錄延伸模組。</li></ul> |
 | [應用程式] |最多 100 個使用者可以成為單一應用程式的擁有者。 |

@@ -2,23 +2,21 @@
 title: 快速入門：圖形 API 與 PHP - Azure Cosmos DB | Microsoft Docs
 description: 本快速入門示範如何使用 Azure Cosmos DB 圖形 API，搭配 Azure 入口網站與 PHP 建立主控台應用程式
 services: cosmos-db
-documentationcenter: ''
 author: luisbosquez
 manager: kfile
-ms.assetid: dfce0de9-a326-401c-9940-406ac0414461
 ms.service: cosmos-db
+ms.component: cosmosdb-graph
 ms.custom: quick start connect, mvc
-ms.workload: ''
-ms.tgt_pltfrm: na
-ms.devlang: ''
+ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2018
 ms.author: lbosq
-ms.openlocfilehash: 4c7046c335039f5bc689790aaf53f5dff65991d6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2dabaf5650619ed2ec8d73c88deec136c25e544e
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38310266"
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-php-and-the-azure-portal"></a>Azure Cosmos DB︰使用 PHP 和 Azure 入口網站建立圖形資料庫
 
@@ -213,7 +211,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     > [!NOTE]
     > 在本快速入門中，您會建立非資料分割集合。 不過，如果您藉由在集合建立期間指定資料分割索引鍵來建立資料分割集合，您就必須包含資料分割索引鍵作為每個新頂點的索引鍵。 
 
-6. 按一下 [SERVICEPRINCIPAL] 。 您可能需要展開畫面，才能在螢幕底部看到 [確定]。
+6. 按一下 [確定]。 您可能需要展開畫面，才能在螢幕底部看到 [確定]。
 
 7. 再次按一下 [新增頂點] 並新增額外的新使用者。 
 
@@ -227,7 +225,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     gender|male| 
     school|MIT| 
 
-10. 按一下 [SERVICEPRINCIPAL] 。 
+10. 按一下 [確定]。 
 
 11. 按一下 [套用篩選條件] 按鈕，預設的 `g.V()` 篩選條件會顯示圖形中的所有值。 所有使用者現在會顯示在 [結果] 清單中。 
 

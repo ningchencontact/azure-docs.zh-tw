@@ -1,31 +1,27 @@
 ---
-title: IoT DevKit 到雲端：將 IoT DevKit AZ3166 連線到 Azure IoT 套件遠端監視 v2 | Microsoft Docs
-description: 在本教學課程中，了解如何將 IoT DevKit AZ3166 上的感應器狀態傳送至 Azure IoT 套件的遠端監視 v2 以便進行監視和呈現視覺效果。
-services: iot-hub
-documentationcenter: ''
+title: IoT DevKit 到雲端：將 IoT DevKit AZ3166 連線到遠端監視 IoT 解決方案加速器 | Microsoft Docs
+description: 在本教學課程中，了解如何將 IoT DevKit AZ3166 上的感應器狀態傳送至遠端監視 IoT 解決方案加速器來進行監視和呈現視覺效果。
 author: isabelcabezasm
 manager: ''
-tags: ''
-keywords: ''
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.devlang: c
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: isacabe
-ms.openlocfilehash: 667e51acd5ac1367e185fb9bf9a7949a13e061af
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: e900b952ab9bb2054b9e4174670894027cdd2618
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969447"
 ---
-# <a name="connect-mxchip-iot-devkit-az3166-to-azure-iot-suite-for-remote-monitoring-v2"></a>將 MXChip IoT DevKit AZ3166 連線到遠端監視 v2 的 Azure IoT 套件
+# <a name="connect-mxchip-iot-devkit-az3166-to-the-iot-remote-monitoring-solution-accelerator"></a>將 MXChip IoT DevKit AZ3166 連線到 IoT 遠端監視解決方案加速器
 
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-在本教學課程中，您將會了解如何在 DevKit 上執行範例應用程式，以將感應器資料傳送至 Azure IoT 套件。
+在本教學課程中，您將會了解如何在 DevKit 上執行範例應用程式，以將感應器資料傳送至解決方案加速器。
 
 [MXChip IoT DevKit](https://aka.ms/iot-devkit) 是全方位 Arduino 相容板，具有豐富的週邊設備和感應器。 您可以使用[適用於 Arduino 的 Visual Studio Code 延伸模組](https://aka.ms/arduino)來對它進行開發。 它隨附不斷增長的[專案目錄](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/)，以引導您設定運用 Microsoft Azure 服務的物聯網 (IoT) 解決方案原型。
 
@@ -114,13 +110,13 @@ ms.lasthandoff: 05/20/2018
 
 ## <a name="test-the-project"></a>測試專案
 
-當範例應用程式執行時，DevKit 會透過 Wi-Fi 將感應器資料傳送至 Azure IoT 套件。 若要查看結果，請遵循下列步驟：
+範例應用程式執行時，DevKit 會透過 Wi-Fi 將感應器資料傳送至解決方案加速器。 若要查看結果，請遵循下列步驟：
 
-1. 移至您的 Azure IoT 套件，然後按一下 [儀表板]。
+1. 移至您的 IoT 解決方案加速器，並按一下 [儀表板]。
 
-2. 在 Azure IoT 套件解決方案主控台中，您會看到 DevKit 感應器的狀態。 
+2. 在 IoT 解決方案加速器主控台中，您會看到 DevKit 感應器的狀態。 
 
-![Azure IoT 套件中的感應器資料](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-dashboard.png)
+![IoT 解決方案加速器中的感應器資料](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-dashboard.png)
 
 如果您按一下感應器名稱 (AZ3166)，儀表板右側會開啟索引標籤，您可以在其中檢視即時 MX 晶片感應器圖表。
 
@@ -158,7 +154,7 @@ ms.lasthandoff: 05/20/2018
 
 ## <a name="next-steps"></a>後續步驟
 
-您已了解如何將 DevKit 裝置連接至 Azure IoT 套件並將感應器資料視覺化，以下是建議的後續步驟：
+您已了解如何將 DevKit 裝置連接至 IoT 解決方案加速器並將感應器資料視覺化，以下是建議的後續步驟：
 
-* [Azure IoT 套件概觀](https://docs.microsoft.com/azure/iot-suite/)
-* [將 MXChip IoT DevKit 裝置連線到您的 Microsoft IoT Central 應用程式](https://docs.microsoft.com/en-us/microsoft-iot-central/howto-connect-devkit)
+* [IoT 解決方案加速器概觀](https://docs.microsoft.com/azure/iot-suite/)
+* [將 MXChip IoT DevKit 裝置連線到您的 Microsoft IoT Central 應用程式](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

@@ -13,6 +13,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29846803"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>在虛擬網路中建立 Azure Batch 集區
 

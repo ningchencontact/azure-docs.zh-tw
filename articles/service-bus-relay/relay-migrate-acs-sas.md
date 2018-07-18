@@ -1,11 +1,11 @@
 ---
-title: "從 Azure Active Directory 存取控制服務移轉至共用存取簽章授權 | Microsoft Docs"
-description: "將應用程式從存取控制服務移轉至 SAS"
+title: 從 Azure Active Directory 存取控制服務移轉至共用存取簽章授權 | Microsoft Docs
+description: 將應用程式從存取控制服務移轉至 SAS
 services: service-bus-relay
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-relay
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26855377"
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>從 Azure Active Directory 存取控制服務移轉至共用存取簽章授權
 

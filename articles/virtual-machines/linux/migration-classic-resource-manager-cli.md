@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30909746"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>使用 Azure CLI 將 IaaS 資源從傳統移轉至 Azure Resource Manager
 以下步驟說明如何使用 Azure 命令列介面 (CLI) 命令，將基礎結構即服務 (IaaS) 資源從傳統部署模型移轉至 Azure Resource Manager 部署模型。 本文需要 [Azure CLI 1.0](../../cli-install-nodejs.md)。 Azure CLI 2.0 僅適用於 Azure Resource Manager 資源，不可用於此移轉。

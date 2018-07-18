@@ -1,12 +1,12 @@
 ---
-title: "Azure AD Connect 同步處理：變更 AD DS 帳戶密碼 | Microsoft Docs"
-description: "本主題文件說明如何在變更 AD DS 帳戶的密碼後更新 Azure AD Connect。"
+title: Azure AD Connect 同步處理：變更 AD DS 帳戶密碼 | Microsoft Docs
+description: 本主題文件說明如何在變更 AD DS 帳戶的密碼後更新 Azure AD Connect。
 services: active-directory
-keywords: "AD DS 帳戶, Active Directory 帳戶, 密碼"
-documentationcenter: 
+keywords: AD DS 帳戶, Active Directory 帳戶, 密碼
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
 ms.service: active-directory
 ms.workload: identity
@@ -14,19 +14,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5bc296b594917f68f35d7d15653b7b0c60cde514
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: a4d0d062b28b03de7f1e606202dddae28bf6a2f3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592454"
 ---
 # <a name="changing-the-ad-ds-account-password"></a>變更 AD DS 帳戶密碼
 AD DS 帳戶指的是 Azure AD Connect 用來與內部部署 Active Directory 進行通訊的使用者帳戶。 如果您變更 AD DS 帳戶的密碼，您必須以新密碼更新 Azure AD Connect 同步處理服務。 否則，同步處理服務就無法再正確地與內部部署 Active Directory 進行同步處理，而且您會遇到下列錯誤︰
 
 * 在同步處理服務管理員中，使用內部部署 AD 進行的匯入或匯出作業會失敗，並出現 **no-start-credentials** 錯誤。
 
-* Windows 事件檢視器底下的應用程式事件記錄會包含**事件識別碼為 6000** 的錯誤與**「管理代理程式 "contoso.com" 無法執行，因為認證無效」**的訊息。
+* Windows 事件檢視器底下的應用程式事件記錄會包含**事件識別碼為 6000** 的錯誤與 **「管理代理程式 "contoso.com" 無法執行，因為認證無效」** 的訊息。
 
 
 ## <a name="how-to-update-the-synchronization-service-with-new-password-for-ad-ds-account"></a>如何以新的 AD DS 帳戶密碼更新同步處理服務

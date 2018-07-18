@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783387"
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>將現有的 blob 複製到媒體服務資產
 本文章說明如何使用 [Azure 媒體服務 .NET SDK 延伸模組](https://github.com/Azure/azure-sdk-for-media-services-extensions/)將 Blob 從儲存體帳戶複製到新的 Azure 媒體服務 (AMS) 資產。

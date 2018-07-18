@@ -2,17 +2,18 @@
 title: 搭配 AKS 使用 Azure 磁碟
 description: 搭配 AKS 使用 Azure 磁碟
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/06/2018
-ms.author: nepeters
-ms.openlocfilehash: 858961db439b28a71d3475d2608073287e02f2fd
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: iainfou
+ms.openlocfilehash: ddac68b2a47fc830055b9dd5bd705802cc29c52f
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37095921"
 ---
 # <a name="persistent-volumes-with-azure-disks"></a>包含 Azure 磁碟的永續性磁碟區
 
@@ -37,11 +38,14 @@ default (default)   kubernetes.io/azure-disk   1h
 managed-premium     kubernetes.io/azure-disk   1h
 ```
 
+> [!NOTE]
+> GiB 中會指定持續性磁碟區宣告，但 SKU 會針對特定的大小向 Azure 受控磁碟收費。 這些 SKU 範圍從 S4 或 P4 磁碟的 32GiB 到 S50 或 P50 磁碟的 4TiB。 此外，進階受控磁碟的輸送量和 IOPS 效能，同時取決於 SKU 和 AKS 叢集中節點的執行個體大小。 請參閱[受控磁碟的定價和效能][managed-disk-pricing-performance]。
+
 ## <a name="create-persistent-volume-claim"></a>建立永續性磁碟區宣告
 
 永續性磁碟區宣告 (PVC) 可用來根據儲存體類別，動態佈建儲存體。 在此情況下，PVC 可以使用其中一個預先建立的儲存體類別，來建立標準或進階 Azure 受控磁碟。
 
-建立名為 `azure-premimum.yaml` 的檔案，然後將下列資訊清單複製進來。
+建立名為 `azure-premium.yaml` 的檔案，然後將下列資訊清單複製進來。
 
 請注意，註釋中已指定 `managed-premium` 儲存體類別，而宣告所要求的是一個大小為 `5GB`、具有 `ReadWriteOnce` 存取權的磁碟。
 
@@ -63,7 +67,7 @@ spec:
 使用 [kubectl apply][kubectl-apply] 命令來建立永續性磁碟區宣告。
 
 ```azurecli-interactive
-kubectl apply -f azure-premimum.yaml
+kubectl apply -f azure-premium.yaml
 ```
 
 ## <a name="using-the-persistent-volume"></a>使用永續性磁碟區
@@ -103,16 +107,17 @@ kubectl apply -f azure-pvc-disk.yaml
 深入了解使用 Azure 磁碟的 Kubernetes 永續性磁碟區。
 
 > [!div class="nextstepaction"]
-> [Azure 磁碟的 Kubernetes 外掛程式][kubernetes-disk] (英文)
+> [Azure 磁碟的 Kubernetes 外掛程式][azure-disk-volume] (英文)
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[kubernetes-disk]: https://kubernetes.io/docs/concepts/storage/storage-classes/#new-azure-disk-storage-class-starting-from-v172
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
+[managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
 
 <!-- LINKS - internal -->
+[azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
 [premium-storage]: ../virtual-machines/windows/premium-storage.md

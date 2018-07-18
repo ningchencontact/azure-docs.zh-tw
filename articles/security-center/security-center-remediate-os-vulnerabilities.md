@@ -1,24 +1,25 @@
 ---
-title: "在 Azure 資訊安全中心修復安全性設定 | Microsoft Docs"
-description: "本文件說明如何實作 Azure 資訊安全中心建議的「修復安全性設定」。"
+title: 在 Azure 資訊安全中心修復安全性設定 | Microsoft Docs
+description: 本文件說明如何實作 Azure 資訊安全中心建議的「修復安全性設定」。
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 991d41f5-1d17-468d-a66d-83ec1308ab79
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2018
+ms.date: 06/19/2018
 ms.author: terrylan
-ms.openlocfilehash: 477973298d8cc9d99da78e36274933e0bb737c4f
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 3af8f211c19fde9d2fc79f41fc13009570a9b4de
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285911"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>在 Azure 資訊安全中心修復安全性設定
 Azure 資訊安全中心會針對可能讓虛擬機器 (VM) 和電腦更容易遭受攻擊的設定，每天分析虛擬機器和電腦的作業系統。 當您的 OS 設定不符合建議的安全性設定規則時，資訊安全中心會建議您解決這些弱點，並建議變更設定以解決這些弱點。
@@ -50,7 +51,7 @@ Azure 資訊安全中心會針對可能讓虛擬機器 (VM) 和電腦更容易�
 
   - **CCEID**：規則的 CCE 唯一識別碼。 資訊安全中心會使用一般設定列舉 (CCE) 將唯一識別碼指派給設定規則。
   - **名稱**：失敗規則的名稱。
-  - **規則類型**：[登錄機碼]、[安全性原則] 或 [稽核原則] 規則類型。
+  - **規則類型**：[登錄機碼]、[安全性原則] [稽核原則] 或 [IIS] 規則類型。
   - **VM 及電腦數目**：套用失敗規則的 VM 和電腦總數。
   - **規則嚴重性**：[嚴重]、[重要] 或 [警告] 的 CCE 值。
   - **狀態**：建議的目前狀態：
@@ -99,10 +100,10 @@ Azure 資訊安全中心會針對可能讓虛擬機器 (VM) 和電腦更容易�
 
 若要深入了解資訊安全中心，請參閱下列資源：
 
-* 如需支援的 Windows 與 Linux VM 清單，請參閱 [Azure 資訊安全中心支援的平台](security-center-os-coverage.md)。 
-* 如果要了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則，請參閱[在 Azure 資訊安全中心設定安全性原則](security-center-policies.md)。 
-* 如果要了解建議如何協助保護您的 Azure 資源，請參閱[管理 Azure 資訊安全中心的安全性建議](security-center-recommendations.md)。 
-* 如果要了解如何監視 Azure 資源的健康情況，請參閱 [Azure 資訊安全中心的安全性健康情況監視](security-center-monitoring.md)。 
+* 如需支援的 Windows 與 Linux VM 清單，請參閱 [Azure 資訊安全中心支援的平台](security-center-os-coverage.md)。
+* 如果要了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則，請參閱[在 Azure 資訊安全中心設定安全性原則](security-center-policies.md)。
+* 如果要了解建議如何協助保護您的 Azure 資源，請參閱[管理 Azure 資訊安全中心的安全性建議](security-center-recommendations.md)。
+* 如果要了解如何監視 Azure 資源的健康情況，請參閱 [Azure 資訊安全中心的安全性健康情況監視](security-center-monitoring.md)。
 * 如果要了解如何管理及回應安全性警示，請參閱[管理及回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md)。
 * 如果要了解如何監視合作夥伴解決方案的健康情況，請參閱[使用 Azure 資訊安全中心監視合作夥伴解決方案](security-center-partner-solutions.md)。
 * 如需關於使用服務的常見問題解答，請參閱 [Azure 資訊安全中心常見問題集](security-center-faq.md)。

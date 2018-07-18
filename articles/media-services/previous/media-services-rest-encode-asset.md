@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33785927"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>如何使用媒體編碼器標準為資產編碼
 > [!div class="op_single_selector"]

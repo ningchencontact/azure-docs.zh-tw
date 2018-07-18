@@ -14,13 +14,14 @@ metadata:
   ms.topic: landing-page
   ms.date: 07-21-2017
   ms.author: carolz
-  ms.openlocfilehash: b67814bc2dd622758ade1fc76f1fade99f718bd6
-  ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+  ms.openlocfilehash: 081e54a6ed04fa74f96b327b2c9e9e63c9fc01cb
+  ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 05/07/2018
+  ms.lasthandoff: 06/29/2018
+  ms.locfileid: "37132500"
 abstract:
-  description: Azure Kubernetes Service (AKS) 可以管理裝載 Kubernetes 的環境；因此，您不需具備容器協調流程專業知識，就能快速、輕鬆地部署及管理容器化應用程式。 也可透過佈建、升級與依需求調整資源，以無需讓應用程式離線的方式來消除進行中作業及維護之間的界線。<div class="IMPORTANT alert"><p>重要事項</p><p>Azure Kubernetes Service (AKS) 目前為<strong>預覽</strong>狀態。 若您同意<a href="https://azure.microsoft.com/support/legal/preview-supplemental-terms/">補充的使用規定</a>即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。</p></div>
+  description: Azure Kubernetes Service (AKS) 可以管理裝載 Kubernetes 的環境；因此，您不需具備容器協調流程專業知識，就能快速、輕鬆地部署及管理容器化應用程式。 也可透過佈建、升級與依需求調整資源，以無需讓應用程式離線的方式來消除進行中作業及維護之間的界線。
 sections:
 - title: 5 分鐘快速入門
   items:
@@ -30,9 +31,13 @@ sections:
     style: icon48
     items:
     - image:
-        src: /azure/media/index/ContainerService.svg
-      text: 建立 AKS 叢集
+        src: https://docs.microsoft.com/media/common/i_cligeneric.svg
+      text: Azure CLI
       href: /azure/aks/kubernetes-walkthrough
+    - image:
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: Azure 入口網站
+      href: /azure/aks/kubernetes-walkthrough-portal
 - title: 逐步教學課程
   items:
   - type: paragraph
@@ -46,7 +51,6 @@ sections:
     - html: <a href="/azure/aks/tutorial-kubernetes-deploy-application">在 Kubernetes 中執行容器映像</a>
     - html: <a href="/azure/aks/tutorial-kubernetes-scale">調整應用程式和 Kubernetes 基礎結構</a>
     - html: <a href="/azure/aks/tutorial-kubernetes-app-update">更新在 Kubernetes 中執行的應用程式</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-monitor">透過 Log Analytics 監視 Kubernetes</a>
     - html: <a href="/azure/aks/tutorial-kubernetes-upgrade-cluster">升級 AKS 叢集</a>
 - title: 參考
   items:
@@ -56,5 +60,7 @@ sections:
     items:
     - title: 命令列
       html: <p><a href="/cli/azure/aks">Azure CLI</a></p>
+    - title: 語言
+      html: <p><a href="/dotnet/api/overview/azure/containerservice">.NET</a></p><p><a href="/python/api/overview/azure/containerservice">Python</a></p><p><a href="/java/api/overview/azure/containerservice">Java</a></p><p><a href="/javascript/api/overview/azure/container-service">Node.js</a></p>
     - title: REST
       html: <p><a href="/rest/api/aks">REST API</a></p>

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30906655"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Azure 上的 FreeBSD 簡介
 本主題提供在 Azure 中執行 FreeBSD 虛擬機器的概觀。

@@ -12,248 +12,249 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 05/30/2018
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 43a4db9114cd47da5bef98ed634847b547589b47
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 5aa716f91a3155e81ef8dc7c436b4a9a5811238b
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34723247"
 ---
-# <a name="configuring-role-claim-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>針對 Azure Active Directory 中的企業應用程式設定 SAML 權杖中發出的角色宣告
+# <a name="configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>針對 Azure Active Directory 中的企業應用程式設定 SAML 權杖中發出的角色宣告
 
-此功能可讓使用者針對使用 Azure AD 來授權應用程式時所收到回應權杖中的「角色」宣告，自訂宣告類型。
+藉由使用 Azure Active Directory (Azure AD)，您可以針對在授權應用程式之後所收到回應權杖中的角色宣告，自訂其宣告類型。
 
 ## <a name="prerequisites"></a>先決條件
-- 具有目錄設定的 Azure AD 訂用帳戶
-- 已啟用單一登入的訂用帳戶
-- 您必須設定與您應用程式搭配運作的 SSO
+- 具有目錄設定的 Azure AD 訂用帳戶。
+- 已啟用單一登入 (SSO) 的訂用帳戶。 您必須設定與您應用程式搭配運作的 SSO。
 
 ## <a name="when-to-use-this-feature"></a>使用此功能的時機
 
-如果您的應用程式預期在 SAML 回應中傳遞自訂角色，您就需要使用此功能。 此功能可讓您依需求建立多個要從 Azure AD 傳回給應用程式的角色。
+如果您的應用程式預期在 SAML 回應中傳遞自訂角色，您就需要使用此功能。 您可以依需求建立多個要從 Azure AD 傳回給應用程式的角色。
 
-## <a name="steps-to-use-this-feature"></a>使用此功能的步驟
+## <a name="create-roles-for-an-application"></a>建立應用程式的角色
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 [Azure 入口網站](https://portal.azure.com)的左側窗格中，選取 [Azure Active Directory] 圖示。 
 
-    ![Azure Active Directory 按鈕][1]
+    ![Azure Active Directory 圖示][1]
 
-2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
+2. 選取 [企業應用程式]。 接著，選取 [所有應用程式]。
 
-    ![企業應用程式刀鋒視窗][2]
+    ![企業應用程式窗格][2]
     
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+3. 若要新增新的應用程式，請選取對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![新增應用程式按鈕][3]
+    ![[新增應用程式] 按鈕][3]
 
-4. 在搜尋方塊中，輸入應用程式的名稱，從結果面板選取您的應用程式，然後按一下 [新增] 按鈕以新增應用程式。
+4. 在搜尋方塊中輸入應用程式的名稱，然後從結果面板中選取您的應用程式。 選取 [新增] 按鈕以新增應用程式。
 
     ![結果清單中的應用程式](./media/active-directory-enterprise-app-role-management/tutorial_app_addfromgallery.png)
 
 5. 新增應用程式之後，移至 [屬性] 頁面，然後複製 [物件識別碼]。
 
-<!-- ![Properties Page](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png) Note: Image is missing. -->
+    ![屬性頁面](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
 
-6. 在另一個視窗中開啟 [Azure AD Graph 總管](https://developer.microsoft.com/graph/graph-explorer)。
+6. 在另一個視窗中開啟 [Azure AD Graph 總管](https://developer.microsoft.com/graph/graph-explorer)，然後採取下列步驟：
 
-    a. 使用您租用戶的全域管理員/共同管理員認證來登入 [Graph 總管] 網站。
+    a. 使用您租用戶的全域管理員或共同管理員認證來登入 [Graph 總管] 網站。
 
-    b. 您必須有足夠的權限才能建立角色。 按一下 [修改權限] 以取得必要的權限。 
+    b. 您必須有足夠的權限才能建立角色。 選取 [修改權限] 來取得權限。 
 
-    ![Graph 總管對話方塊](./media/active-directory-enterprise-app-role-management/graph-explorer-new9.png)
+      ![[修改權限] 按鈕](./media/active-directory-enterprise-app-role-management/graph-explorer-new9.png)
 
-    c. 從清單中選取下列權限 (如果您還沒有)，然後按一下 [修改權限] 
+    c. 從清單中選取下列權限 (如果您還沒有這些權限)，然後選取 [修改權限]。 
 
-    ![Graph 總管對話方塊](./media/active-directory-enterprise-app-role-management/graph-explorer-new10.png)
+      ![權限清單和 [修改權限] 按鈕](./media/active-directory-enterprise-app-role-management/graph-explorer-new10.png)
 
-    d. 此時系統會要求您重新登入並接受此要求。 接受此要求後，您會重新登入系統。
+    d. 接受此同意。 您便會再次登入系統。
 
-    e. 將版本變更為 [搶鮮版 (Beta)]，然後使用下列查詢，從您的租用戶擷取服務主體清單：
+    e. 將版本變更為 [搶鮮版 (Beta)]，然後使用下列查詢從租用戶中擷取服務主體清單：
     
      `https://graph.microsoft.com/beta/servicePrincipals`
         
-    如果您使用多個目錄，則應該依照此模式 `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+      如果您使用多個目錄，則請依照此模式：`https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
     
-    ![Graph 總管對話方塊](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
+      ![[Graph 總管] 對話方塊，具有用於擷取服務主體的查詢](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
     
-    f. 從所擷取的服務主體清單中，取得您需要修改的服務主體。 您也可以使用 Ctrl+F，從所有列出的服務主體中搜尋應用程式。 搜尋您從 [屬性] 頁面複製的**物件識別碼**，然後使用下列查詢來移至個別的「服務主體」。
+    f. 從所擷取的服務主體清單中，取得您需要修改的服務主體。 您也可以使用 Ctrl+F，從所有列出的服務主體中搜尋應用程式。 搜尋您從 [屬性] 頁面複製的物件識別碼，然後使用下列查詢來移至該服務主體：
     
-    `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`。
+      `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
 
-    ![Graph 總管對話方塊](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
+      ![用來取得所需修改服務主體的查詢](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
 
-    g. 從服務主體物件擷取 appRoles 屬性。 
+    g. 從服務主體物件擷取 **appRoles** 屬性。 
 
-    ![Graph 總管對話方塊](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
+      ![appRoles 屬性的詳細資料](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
+
+      > [!Note]
+      > 如果您使用自訂應用程式 (而非 Azure Marketplace 應用程式)，您會看到兩個預設角色：使用者和 msiam_access。 如果是 Marketplace 應用程式，則 msiam_access 會是唯一的預設角色。 您不需要在預設角色中進行任何變更。
+
+    h. 為應用程式產生新角色。 
+
+      下列 JSON 是 **appRoles** 物件的範例。 請建立類似的物件，以新增應用程式所需的角色。 
+
+      ```
+      {
+         "appRoles": [
+          {
+              "allowedMemberTypes": [
+                  "User"
+              ],
+              "description": "msiam_access",
+              "displayName": "msiam_access",
+              "id": "b9632174-c057-4f7e-951b-be3adc52bfe6",
+              "isEnabled": true,
+              "origin": "Application",
+              "value": null
+          },
+          {
+              "allowedMemberTypes": [
+                  "User"
+              ],
+              "description": "Administrators Only",
+              "displayName": "Admin",
+              "id": "4f8f8640-f081-492d-97a0-caf24e9bc134",
+              "isEnabled": true,
+              "origin": "ServicePrincipal",
+              "value": "Administrator"
+          }
+      ]
+      }
+      ```
+      
+      > [!Note]
+      > 您只能在修補作業的 msiam_access 之後新增角色。 此外，您可以新增組織所需數目的角色。 Azure AD 會在 SAML 回應中以宣告值的形式傳送這些角色的值。 若要針對新角色的識別碼產生 GUID 值，請使用[這](https://www.guidgenerator.com/)一類的 Web 工具
+    
+    i. 返回 Graph 總管，並將方法從 [GET] 變更為 [PATCH]。 藉由更新 **appRoles** 屬性 (例如前述範例所示屬性)，將服務主體物件修補成具有所需的角色。 選取 [執行查詢] 以執行修補作業。 若出現成功訊息，表示角色已建立。
+
+      ![具有成功訊息的修補作業](./media/active-directory-enterprise-app-role-management/graph-explorer-new11.png)
+
+7. 將服務主體修補成具有更多角色之後，您可以將使用者指派給各自的角色。 您可以移至入口網站並瀏覽至應用程式，來指派使用者。 選取 [使用者和群組] 索引標籤。此索引標籤會列出已指派給應用程式的所有使用者和群組。 您可以對新角色新增使用者。 您也可以選取現有使用者，然後選取 [編輯] 以變更角色。
+
+    ![[使用者和群組] 索引標籤](./media/active-directory-enterprise-app-role-management/graph-explorer-new5.png)
+
+    若要將角色指派給任何使用者，請選取新角色，然後選取頁面底部的 [指派] 按鈕。
+
+    ![[編輯指派] 窗格和 [選取角色] 窗格](./media/active-directory-enterprise-app-role-management/graph-explorer-new6.png)
 
     > [!Note]
-    > 如果您使用自訂 (不在資源庫內的) 應用程式，您會看到兩個預設角色 - 使用者和 msiam_access。 如果是資源庫應用程式，則 msiam_access 會是唯一的預設角色。 您不需要在預設角色中進行任何變更。
+    > 您必須在 Azure 入口網站中重新整理工作階段，才能看到新角色。
 
-    h. 現在，您必須為您的應用程式產生新角色。 
+8. 更新 [屬性] 資料表以定義自訂的角色宣告對應。
 
-    i. 以下 JSON 是 appRoles 物件的範例。 請建立類似的物件，以新增您的應用程式所需的角色。 
-
-    ```
-    {
-       "appRoles": [
-        {
-            "allowedMemberTypes": [
-                "User"
-            ],
-            "description": "msiam_access",
-            "displayName": "msiam_access",
-            "id": "b9632174-c057-4f7e-951b-be3adc52bfe6",
-            "isEnabled": true,
-            "origin": "Application",
-            "value": null
-        },
-        {
-            "allowedMemberTypes": [
-                "User"
-            ],
-            "description": "Administrators Only",
-            "displayName": "Admin",
-            "id": "4f8f8640-f081-492d-97a0-caf24e9bc134",
-            "isEnabled": true,
-            "origin": "ServicePrincipal",
-            "value": "Administrator"
-        }
-    ]
-    }
-    ```
-    > [!Note]
-    > 您只能在修補作業的 **msiam_access** 之後新增角色。 此外，您可以根據組織的需求新增任意數目的角色。 Azure AD 會在 SAML 回應中以宣告值的形式傳送這些角色的**值**。
-    
-    j. 返回 Graph 總管，並將方法從 **GET** 變更為 **PATCH**。 藉由將 appRoles 屬性更新為前述範例中的類似屬性，將服務主體物件修補成具有所需的角色。 按一下 [執行查詢] 以執行修補作業。 若出現成功訊息，表示角色已建立。
-
-    ![Graph 總管對話方塊](./media/active-directory-enterprise-app-role-management/graph-explorer-new11.png)
-
-7. 將服務主體修補成具有更多角色之後，您可以將使用者指派給各自的角色。 這可藉由移至入口網站，然後瀏覽至各自的應用程式來完成。 按一下頂端的 [使用者和群組] 索引標籤。 此處會列出已指派給應用程式的所有使用者和群組。 您可以對新角色新增使用者，也可以選取現有的使用者，然後按一下 [編輯] 以變更角色。
-
-    ![設定單一登入的新增](./media/active-directory-enterprise-app-role-management/graph-explorer-new5.png)
-
-     若要將角色指派給任何使用者，請選取新角色，然後按一下頁面底部的 [指派] 按鈕。
-
-    ![設定單一登入的新增](./media/active-directory-enterprise-app-role-management/graph-explorer-new6.png)
-
-    > [!Note]
-    > 請注意，您必須在 Azure 入口網站中重新整理您的工作階段，才能看到新角色。
-
-8. 將角色指派給使用者之後，我們需要更新 [屬性] 資料表，以定義**角色**宣告的自訂對應。
-
-9. 在 [單一登入] 對話方塊的 [使用者屬性] 區段中，如圖所示設定 SAML 權杖屬性，然後執行下列步驟：
+9. 在 [單一登入] 對話方塊的 [使用者屬性] 區段中，如圖所示設定 SAML 權杖屬性，然後執行下列步驟。
     
     | 屬性名稱 | 屬性值 |
     | -------------- | ----------------|    
     | 角色名稱      | user.assignedrole |
 
-    a. 按一下 [新增屬性] 來開啟 [新增屬性] 對話方塊。
+    a. 選取 [新增屬性] 來開啟 [新增屬性] 窗格。
 
-    ![設定單一登入的新增](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
+      ![[新增屬性] 按鈕](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 
-    ![設定單一登入屬性](./media/active-directory-enterprise-app-role-management/tutorial_attribute_05.png)
+      ![[新增屬性] 窗格](./media/active-directory-enterprise-app-role-management/tutorial_attribute_05.png)
 
-    b. 在 [名稱] 文字方塊中，視需要輸入屬性名稱。 在此範例中，我們使用 [角色名稱] 作為宣告名稱。
+    b. 在 [名稱] 方塊中，視需要輸入屬性名稱。 此範例使用 [角色名稱] 作為宣告名稱。
 
     c. 在 [值] 清單中，選取該列所顯示的值。
 
-    d. 讓 [命名空間] 保持空白。
+    d. 讓 [命名空間] 方塊保持空白。
     
-    e. 按一下 [確定] 。
+    e. 選取 [確定]。
 
-10. 若要在 IDP 起始的單一登入中測試您的應用程式，請登入「存取面板」(https://myapps.microsoft.com))，然後按一下您的應用程式圖格。 在 SAML 權杖中，您應該會看到具有您所指定宣告名稱之使用者的所有指派角色。
+10. 若要在識別提供者所起始的單一登入中測試應用程式，請登入[存取面板](https://myapps.microsoft.com)，並選取應用程式圖格。 在 SAML 權杖中，您應該會看到具有所指定宣告名稱之使用者的所有指派角色。
 
-## <a name="update-existing-role"></a>更新現有的角色
+## <a name="update-an-existing-role"></a>更新現有角色
 
-若要更新現有的角色，請執行下列步驟 -
+若要更新現有角色，請執行下列步驟：
 
 1. 開啟 [Azure AD Graph 總管](https://developer.microsoft.com/graph/graph-explorer)。
 
-2. 使用您租用戶的全域管理員/共同管理員認證來登入 [Graph 總管] 網站。
+2. 使用您租用戶的全域管理員或共同管理員認證來登入 [Graph 總管] 網站。
     
-3. 將版本變更為 [搶鮮版 (Beta)]，然後使用下列查詢，從您的租用戶擷取服務主體清單：
+3. 將版本變更為 [搶鮮版 (Beta)]，然後使用下列查詢從租用戶中擷取服務主體清單：
     
     `https://graph.microsoft.com/beta/servicePrincipals`
     
-    如果您使用多個目錄，則應該依照此模式 `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+    如果您使用多個目錄，則請依照此模式：`https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
-    ![Graph 總管對話方塊](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
+    ![[Graph 總管] 對話方塊，具有用於擷取服務主體的查詢](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
     
-4. 從所擷取的服務主體清單中，取得您需要修改的服務主體。 您也可以使用 Ctrl+F，從所有列出的服務主體中搜尋應用程式。 搜尋您從 [屬性] 頁面複製的**物件識別碼**，然後使用下列查詢來移至個別的「服務主體」。
+4. 從所擷取的服務主體清單中，取得您需要修改的服務主體。 您也可以使用 Ctrl+F，從所有列出的服務主體中搜尋應用程式。 搜尋您從 [屬性] 頁面複製的物件識別碼，然後使用下列查詢來移至該服務主體：
     
-    `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`。
+    `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
 
-    ![Graph 總管對話方塊](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
+    ![用來取得所需修改服務主體的查詢](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
     
-5. 從服務主體物件擷取 appRoles 屬性。
+5. 從服務主體物件擷取 **appRoles** 屬性。
     
-    ![Graph 總管對話方塊](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
+    ![appRoles 屬性的詳細資料](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
     
-6. 若要更新現有的角色，請依循下列步驟：
+6. 若要更新現有角色，請使用下列步驟。
 
-    ![Graph 總管對話方塊](./media/active-directory-enterprise-app-role-management/graph-explorer-patchupdate.png)
+    !["PATCH" 的要求本文，並醒目提示 "description" 和 "displayname"](./media/active-directory-enterprise-app-role-management/graph-explorer-patchupdate.png)
     
-    * 將方法從 **GET** 變更為 **PATCH**。
+    a. 將方法從 **GET** 變更為 **PATCH**。
 
-    * 複製現有的角色，然後貼到 [要求本文] 中。
+    b. 複製現有角色，然後貼到 [要求本文] 底下。
 
-    * 視需要藉由更新 [角色描述]、[角色值] 或 [角色顯示名稱] 來更新角色的值。
+    c. 視需要藉由更新角色描述、角色值或角色顯示名稱，來更新角色的值。
 
-    * 更新所有必要的角色之後，按一下 [執行查詢]。
+    d. 更新所有必要角色之後，選取 [執行查詢]。
         
-## <a name="delete-existing-role"></a>刪除現有的角色
+## <a name="delete-an-existing-role"></a>刪除現有角色
 
-若要刪除現有的角色，請執行下列步驟：
+若要刪除現有角色，請執行下列步驟：
 
 1. 在另一個視窗中開啟 [Azure AD Graph 總管](https://developer.microsoft.com/graph/graph-explorer)。
 
-2. 使用您租用戶的全域管理員/共同管理員認證來登入 [Graph 總管] 網站。
+2. 使用您租用戶的全域管理員或共同管理員認證來登入 [Graph 總管] 網站。
 
-3. 將版本變更為 [搶鮮版 (Beta)]，然後使用下列查詢，從您的租用戶擷取服務主體清單：
+3. 將版本變更為 [搶鮮版 (Beta)]，然後使用下列查詢從租用戶中擷取服務主體清單：
     
     `https://graph.microsoft.com/beta/servicePrincipals`
     
-    如果您使用多個目錄，則應該依照此模式 `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+    如果您使用多個目錄，則請依照此模式：`https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
     
-    ![Graph 總管對話方塊](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
+    ![[Graph 總管] 對話方塊，具有用於擷取服務主體清單的查詢](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
     
-4. 從所擷取的服務主體清單中，取得您需要修改的服務主體。 您也可以使用 Ctrl+F，從所有列出的服務主體中搜尋應用程式。 搜尋您從 [屬性] 頁面複製的**物件識別碼**，然後使用下列查詢來移至個別的「服務主體」。
+4. 從所擷取的服務主體清單中，取得您需要修改的服務主體。 您也可以使用 Ctrl+F，從所有列出的服務主體中搜尋應用程式。 搜尋您從 [屬性] 頁面複製的物件識別碼，然後使用下列查詢來移至該服務主體：
      
-    `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`。
+    `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
 
-    ![Graph 總管對話方塊](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
+    ![用來取得所需修改服務主體的查詢](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
     
-5. 從服務主體物件擷取 appRoles 屬性。
+5. 從服務主體物件擷取 **appRoles** 屬性。
     
-    ![Graph 總管對話方塊](./media/active-directory-enterprise-app-role-management/graph-explorer-new7.png)
+    ![服務主體物件中 appRoles 屬性的詳細資料](./media/active-directory-enterprise-app-role-management/graph-explorer-new7.png)
 
-6. 若要刪除現有的角色，請依循下列步驟：
+6. 若要刪除現有角色，請使用下列步驟。
 
-    ![Graph 總管對話方塊](./media/active-directory-enterprise-app-role-management/graph-explorer-new8.png)
+    !["PATCH" 的要求本文，且 IsEnabled 設定為 false](./media/active-directory-enterprise-app-role-management/graph-explorer-new8.png)
 
-    * 將方法從 **GET** 變更為 **PATCH**。
+    a. 將方法從 **GET** 變更為 **PATCH**。
 
-    * 從應用程式複製現有的角色，然後貼到 [要求本文] 中。
+    b. 從應用程式複製現有的角色，然後貼到 [要求本文] 底下。
         
-    * 針對您要刪除的角色，將 **IsEnabled** 值設定為 **false**
+    c. 針對您要刪除的角色，將 **IsEnabled** 值設定為 **false**。
 
-    * 按一下 [執行查詢]。
+    d. 選取 [執行查詢]。
     
     > [!NOTE] 
-    > 請確定您擁有 **msiam_access** 使用者角色，而且識別碼與所產生角色中的相符。
+    > 請確定您擁有 msiam_access 角色，而且識別碼與所產生角色中的相符。
     
-7. 在停用角色之後，請從 appRoles 區段中刪除該角色區塊、將方法保留為 **PATCH**，然後按一下 [執行查詢]。
+7. 在停用角色之後，從 **appRoles** 區段中刪除該角色區塊。 繼續保持使用 [PATCH] 方法，然後選取 [執行查詢]。
     
-8. 執行查詢後將會刪除該角色。
+8. 執行查詢之後，便會刪除該角色。
     
     > [!NOTE]
     > 必須先停用角色，才可移除該角色。 
 
 ## <a name="next-steps"></a>後續步驟
 
-如需了解其他步驟，請參閱[應用程式文件](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)。
+如需其他步驟，請參閱[應用程式文件](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)。
 
 <!--Image references-->
 <!--Image references-->

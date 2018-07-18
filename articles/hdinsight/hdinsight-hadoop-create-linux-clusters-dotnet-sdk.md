@@ -2,7 +2,6 @@
 title: 使用 .NET 建立 Hadoop 叢集 - Azure HDInsight | Microsoft Docs
 description: 了解如何在 Linux 上使用 HDInsight .NET SDK 為 HDInsight 建立 Hadoop、HBase、Storm 或 Spark 叢集。
 services: hdinsight
-documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -10,15 +9,15 @@ tags: azure-portal
 ms.assetid: 9c74e3dc-837f-4c90-bbb1-489bc7124a3d
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/14/2018
+ms.date: 07/09/2018
 ms.author: jgao
-ms.openlocfilehash: 8523b012d6ceaf116e6849abaf8952bbde8b41b3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a0e5bf4afcd1d02c81597efdab8ff349e6adf856
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952921"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>在 HDInsight 中使用 .NET SDK 建立以 Linux 為基礎的叢集
 
@@ -395,6 +394,7 @@ static void Main(string[] args)
 * [利用 Livy 在 Spark 叢集上遠端執行工作](spark/apache-spark-livy-rest-interface.md)
 * [Spark 和 BI：搭配 BI 工具來使用 HDInsight 中的 Spark 以執行互動式資料分析](spark/apache-spark-use-bi-tools.md)
 * [Spark 和機器學習服務：使用 HDInsight 中的 Spark 來預測食品檢查結果](spark/apache-spark-machine-learning-mllib-ipython.md)
+
 ### <a name="run-jobs"></a>執行工作
 * [使用 .NET SDK 在 HDInsight 中執行 Hive 工作](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
 * [使用 .NET SDK 在 HDInsight 中執行 Pig 工作](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)

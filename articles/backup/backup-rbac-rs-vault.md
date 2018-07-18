@@ -1,24 +1,19 @@
 ---
-title: 使用 Azure 角色型存取控制管理備份 | Microsoft Docs
+title: 使用 Azure 角色型存取控制管理備份
 description: 使用角色型存取控制來管理復原服務保存庫中的備份管理作業存取權。
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: ''
-ms.assetid: 3bd46b97-4b29-47a5-b5ac-ac174dd36760
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 8/22/2017
-ms.author: trinadhk;markgal
-ms.openlocfilehash: 442d998d8898dc40ee23ca541d35c340edf64dbd
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: trinadhk
+ms.openlocfilehash: 37240b211e055682c4ce93c9057c4b266bba49e3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607441"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>使用角色型存取控制來管理 Azure 備份復原點
 Azure 角色型存取控制 (RBAC) 可以對 Azure 進行更細緻的存取權管理。 RBAC 可讓您區隔小組內的職責，而僅授與使用者執行作業所需的存取權。

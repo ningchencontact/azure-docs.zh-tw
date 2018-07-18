@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2018
+ms.date: 05/21/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: e568ffd2c3adb97ed0b727b85e7888fb797db1f9
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: adbe88a44ac38868a68a6845c328ef4cf7fba60c
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258204"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604432"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>管理 Azure Stack 中的 API 版本設定檔
 
@@ -37,7 +37,7 @@ API 設定檔會指定 Azure 資源提供者和 Azure REST 端點的 API 版本�
 ## <a name="summary-of-api-profiles"></a>API 設定檔的摘要
 
 - API 設定檔可用來代表一組 Azure 資源提供者和其 API 版本。
-- API 設定檔是為了讓開發人員能夠建立跨多個 Azure 雲端的範本而建立的。 設定檔的設計目的，是為了滿足相容和穩定介面的需求。
+- API 設定檔是為了讓您建立跨多個 Azure 雲端之範本而建立的。 設定檔的設計目的，是為了滿足您需要相容且穩定介面的需求。
 - 設定檔每年會發行四次。
 - 所使用的設定檔命名慣例有三個：
     - **最新**  
@@ -67,17 +67,11 @@ Azure Stack 不會使用全域 Azure 中所找到的最新版 API。 當您在�
 
 API 設定檔可與使用 Azure Resource Manager 的工具搭配運作，例如 PowerShell、Azure CLI、SDK 所提供的程式碼，以及 Microsoft Visual Studio。 工具和 SDK 可使用設定檔來讀取建置應用程式時所納入的模組和程式庫版本。
 
-**使用設定檔的開發案例**  
-假設您要使用 PowerShell 來建立：
+例如，如果使用 PowerShell 以支援 api-version 2016-03-30 的 **Microsoft.Storage** 資源提供者建立儲存體帳戶，並使用 api-version 為 2015-12-01 的 Microsoft.Compute 資源提供者建立 VM，您就必須查看哪個 PowerShell 模組支援使用 2016-03-30 來進行儲存，以及哪個模組支援使用 2015-02-01 來進行計算，然後安裝這兩個模組。 但您也可以改為使用設定檔。 使用 Cmdlet **Install-Profile *profilename***，然後 PowerShell 就會載入正確的模組版本。
 
-* 使用 **Microsoft.Storage** 資源提供者的儲存體帳戶，其支援 API 版本 2016-03-30。
-* 使用 **Microsoft.Compute** 資源提供者的 VM，其支援 API 版本 2015-12-01。
+同樣地，在使用 Python SDK 來建置以 Python 為基礎的應用程式時，您也可以指定設定檔。 SDK 會為指令碼所指定的資源提供者載入正確模組。
 
-您可以使用設定檔，而不是尋找並安裝可支援儲存和計算所需 API 版本的 PowerShell 模組。 使用 Cmdlet **Install-Profile *profilename***，然後 PowerShell 就會載入正確的模組版本。
-
-同樣地，在使用 Python SDK 來建置以 Python 為基礎的應用程式時，您也可以使用設定檔。 SDK 會為指令碼所指定的資源提供者載入正確模組。
-
-身為開發人員，您可以專注於撰寫解決方案。 您可以使用設定檔，並知道程式碼將可在所有支援設定檔的雲端中運作。
+身為開發人員，您可以專注於撰寫解決方案。 您可以使用設定檔，並清楚程式碼可跨所有支援該設定檔的雲端來運作，而不必研究哪個 api-version、資源提供者和哪個雲端可一起運作。
 
 ## <a name="api-profile-code-samples"></a>API 設定檔程式碼範例
 
@@ -90,7 +84,9 @@ API 設定檔可與使用 Azure Resource Manager 的工具搭配運作，例如 
 - **GO**  
 在 GO SDK 中，設定檔結合了不同服務不同版本的不同資源類型。 設定檔可於 profiles/ 路徑下取得，而其版本採用 **YYYY-MM-DD** 格式。 如需資訊，請參閱[使用適用於 GO 的 API 版本設定檔](azure-stack-version-profiles-go.md)。
 - **Ruby**  
-Azure Stack 資源管理員的 Ruby SDK 會提供工具，可協助您建置及管理基礎結構。 SDK 中的資源提供者包括運算、虛擬網路和使用 Ruby 語言的儲存體。 如需資訊，請參閱[使用 API 版本設定檔與 Ruby](azure-stack-version-profiles-ruby.md)
+適用於 Azure Stack Resource Manager 的 Ruby SDK 會提供工具，以協助您建置及管理您的基礎結構。 SDK 中的資源提供者包括運算、虛擬網路和使用 Ruby 語言的儲存體。 如需資訊，請參閱[使用 API 版本設定檔與 Ruby](azure-stack-version-profiles-ruby.md)
+- **Python**  
+- Python SDK 支援 API 版本設定檔以不同雲端平台 (例如，Azure Stack 和全域 Azure) 作為目標。 您可以使用 API 設定檔來建立混合式雲端的解決方案。 如需資訊，請參閱[使用 API 版本設定檔與 Python](azure-stack-version-profiles-python.md)
 
 ## <a name="next-steps"></a>後續步驟
 

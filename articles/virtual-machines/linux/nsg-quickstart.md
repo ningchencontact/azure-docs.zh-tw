@@ -3,7 +3,7 @@ title: 使用 Azure CLI 2.0 針對 Linux VM 開啟連接埠 | Microsoft Docs
 description: 了解如何使用 Azure Resource Manager 部署模型和 Azure CLI 2.0 對 Linux VM 開啟連接埠/建立端點
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 ms.assetid: eef9842b-495a-46cf-99a6-74e49807e74e
@@ -13,15 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
-ms.author: iainfou
-ms.openlocfilehash: 16493d7ecdec0ec1464820be7668dfa19ec1b13c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.author: cynthn
+ms.openlocfilehash: 7125523b051441a2547560ff3af650ccd91f07a0
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928884"
 ---
 # <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>使用 Azure CLI 針對 Linux VM 開啟連接埠和端點
-您可以透過在子網路或 VM 網路介面上建立網路篩選，對 Azure 中的虛擬機器 (VM) 開啟連接埠或建立端點。 您可將控制輸入和輸出流量的這些篩選器放在可接收流量的資源所附加的網路安全性群組上。 讓我們使用連接埠 80 上的 Web 流量的常見範例。 這篇文章說明如何使用 Azure CLI 2.0 來開啟連接埠至 VM。 您也可以使用 [Azure CLI 1.0](nsg-quickstart-nodejs.md) 來執行這些步驟。
+您可以透過在子網路或 VM 網路介面上建立網路篩選，對 Azure 中的虛擬機器 (VM) 開啟連接埠或建立端點。 您可將控制輸入和輸出流量的這些篩選器放在可接收流量的資源所附加的網路安全性群組上。 讓我們使用連接埠 80 上的 Web 流量的常見範例。 這篇文章說明如何使用 Azure CLI 2.0 來開啟連接埠至 VM。 
 
 若要建立網路安全性群組和規則，您需要安裝 [Azure CLI 2.0](/cli/azure/install-az-cli2)，並且使用 [az login](/cli/azure/reference-index#az_login) 登入 Azure 帳戶。
 

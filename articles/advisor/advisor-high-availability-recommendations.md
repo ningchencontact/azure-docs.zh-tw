@@ -1,12 +1,12 @@
 ---
-title: "Azure 建議程式高可用性建議 | Microsoft Docs"
-description: "使用 Azure 建議程式來改善 Azure 部署的高可用性。"
+title: Azure 建議程式高可用性建議 | Microsoft Docs
+description: 使用 Azure 建議程式來改善 Azure 部署的高可用性。
 services: advisor
 documentationcenter: NA
 author: KumudD
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: e1cd7948e1969cd4ddb926e428c09b559190a805
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 23764b476f01c30b1755c507a0cfa5ead27be91e
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736546"
 ---
 # <a name="advisor-high-availability-recommendations"></a>建議程式高可用性建議
 
@@ -48,6 +49,9 @@ Advisor 會識別使用標準磁碟的虛擬機器，並建議升級為進階磁
 
 ## <a name="protect-your-virtual-machine-data-from-accidental-deletion"></a>防止意外刪除虛擬機器的資料
 設定虛擬機器備份可確保業務關鍵資料的可用性，並防止資料意外刪除或損毀。  Advisor 會識別未啟用備份的虛擬機器，並建議啟用備份。 
+
+## <a name="ensure-you-have-access-to-azure-cloud-experts-when-you-need-it"></a>請確定您在需要時可以存取「Azure Cloud Experts」
+當您執行業務關鍵工作負載時，在有需要時能諮詢支援小組至關緊要。 Advisor 可識別支援計劃中不包含支援小組的潛在業務關鍵訂用帳戶，並建議升級至包含支援小組的選項。
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>如何存取建議程式中的高可用性建議
 

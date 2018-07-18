@@ -1,25 +1,22 @@
 ---
-title: 使用 Azure 命令列介面管理 Azure Data Lake Analytics | Microsoft Docs
-description: 了解如何使用 Azure CLI 管理 Data Lake Analytics 帳戶、資料來源、工作和使用者
+title: 使用 Azure 命令列介面管理 Azure Data Lake Analytics
+description: 本文說明如何使用 Azure CLI 入口網站來管理 Data Lake Analytics 作業、資料來源和使用者。
 services: data-lake-analytics
-documentationcenter: ''
-author: SnehaGunda
-manager: Kfile
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
 ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/29/2018
-ms.author: sngun
-ms.openlocfilehash: 9504e1fcbb0128f538cb6e959cf7586f24827836
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 86fa41db2d21beac08015d067b79ce1375cd3ddf
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736084"
 ---
-# <a name="manage-azure-data-lake-analytics-using-azure-command-line-interface-cli"></a>使用 Azure 命令列介面 (CLI) 管理 Azure Data Lake Analytics
+# <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>使用 Azure 命令列介面 (CLI) 管理 Azure Data Lake Analytics
 
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
@@ -214,24 +211,6 @@ az dla job recurrence list --account "<Data Lake Analytics Account Name>"
 
 az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recurrence-identity "<Recurrence ID>"
 ```
-
-
-## <a name="use-azure-resource-manager-groups"></a>使用 Azure 資源管理員群組
-應用程式通常由許多元件組成，例如 Web 應用程式、資料庫、資料庫伺服器、儲存體及協力廠商服務。 Azure Resource Manager 可讓您將應用程式中的資源做為群組使用，稱為 Azure 資源群組。 您可以透過單一、協調的作業來部署、更新、監視或刪除應用程式的所有資源。 您會使用部署的範本，且該範本可以用於不同的環境，例如測試、預備和生產環境。 您可以檢視整個群組的彙總成本，為您的組織釐清計費。 如需詳細資訊，請參閱 [Azure 資源管理員概觀](../azure-resource-manager/resource-group-overview.md)。 
-
-Data Lake Analytics 服務可包含下列元件：
-
-* Azure Data Lake Analytics 帳戶
-* 必要的預設 Azure Data Lake 儲存體帳戶
-* 其他 Azure Data Lake 儲存體帳戶
-* 其他 Azure 儲存體帳戶
-
-您可以在某個資源管理員群組下建立上述所有元件，這樣更容易管理。
-
-![Azure Data Lake Analytics 帳戶與儲存體](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-arm-structure.png)
-
-Data Lake Analytics 帳戶和相依的儲存體帳戶必須位於相同的 Azure 資料中心。
-但資源管理員群組可位在不同的資料中心內。  
 
 ## <a name="see-also"></a>另請參閱
 * [Microsoft Azure Data Lake Analytics 概觀](data-lake-analytics-overview.md)

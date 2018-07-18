@@ -1,25 +1,19 @@
 ---
-title: Azure 監視器中的記錄警示 - 警示 | Microsoft Docs
+title: Azure 監視器中的記錄警示
 description: 當您指定的分析查詢條件符合 Azure 警示時，觸發電子郵件、通知、呼叫網站 URL (Webhook) 或自動化。
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: 8bf534177e8236a7d72d6dfdd4612b5f6f492b17
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.component: alerts
+ms.openlocfilehash: f36f05789424cfd3213525dd501333f852a0d9c2
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34057316"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971715"
 ---
 # <a name="log-alerts-in-azure-monitor---alerts"></a>Azure 監視器中的記錄警示 - 警示 
 本文提供記錄警示的詳細資料，記錄警示是新的 [Azure 警示](monitoring-overview-unified-alerts.md) 內所支援的其中一種警示類型，可讓使用者使用 Azure 的分析平台來作為基礎警示。 如需計量警示使用記錄的詳細資訊，請參閱[近乎即時的度量警示](monitoring-near-real-time-metric-alerts.md)。
@@ -36,7 +30,7 @@ Azure 警示會建立記錄搜尋規則，以自動定期執行指定的記錄�
 - **記錄查詢**。  每次引發警示規則都會執行的查詢。  此查詢所傳回的記錄將是用來判斷是否要建立警示。 *Azure Application Insights* 查詢也可以包含[跨應用程式呼叫](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery)，但前提是使用者具有外部應用程式的存取權限。 
 
     > [!IMPORTANT]
-    > [Application Insights 的跨應用程式查詢](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery)支援目前為預覽版 - 其功能和使用者體驗可能會有變動。 Azure 警示目前**不支援**使用[跨工作區查詢](https://dev.loganalytics.io/oms/documentation/3-Using-the-API/CrossResourceQuery)和 [Log Analytics 的跨資源查詢](../log-analytics/log-analytics-cross-workspace-search.md)方式。
+    > [Application Insights 的跨應用程式查詢](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery)支援目前為預覽版 - 其功能僅限 2 個以上的應用程式使用，而且使用者體驗可能會有變動。 Azure 警示目前**不支援**使用[跨工作區查詢](https://dev.loganalytics.io/oms/documentation/3-Using-the-API/CrossResourceQuery)和 [Log Analytics 的跨資源查詢](../log-analytics/log-analytics-cross-workspace-search.md)方式。
 
 - **時間週期**。  指定查詢的時間範圍。 查詢只會傳回在此目前時間範圍內建立的記錄。 時間週期會限制為了查詢記錄所能擷取的資料以防濫用，並可規避記錄查詢中所使用的任何時間命令 (例如 ago)。 <br>*例如，如果時間週期設定為 60 分鐘，且查詢會在下午 1:15 執行，則只會傳回在下午 12:15 與下午 1:15 之間所建立的記錄以執行記錄查詢。現在，如果記錄查詢使用 ago (7d) 之類的時間命令，則只會對下午 12:15 與下午 1:15 之間的資料執行記錄查詢 - 彷彿只有過去 60 分鐘有資料。而不是記錄查詢中所指定的七天資料。*
 - **頻率**。  指定應執行查詢的頻率。 可以是介於 5 分鐘與 24 小時之間的任何值。 應等於或小於此時間週期。  如果值大於時間週期，則您可能有遺漏記錄的風險。<br>*例如，請考慮 30 分鐘的時間週期，以及 60 分鐘的頻率。如果在 1:00 執行查詢，它會傳回 12:30 到下午 1:00 之間的記錄。下一次執行查詢就是 2:00 時，它會傳回 1:30 至 2:00 之間的記錄。1:00 和 1:30 之間建立的任何記錄一律不會評估。*
@@ -126,7 +120,7 @@ Azure 警示會建立記錄搜尋規則，以自動定期執行指定的記錄�
 
 如需詳細資訊以及 REST API 的使用範例，請參閱：
 - [Log Analytics 警示 REST API](../log-analytics/log-analytics-api-alerts.md) - 以建立和管理 Azure Log Analytics 的記錄搜尋警示規則
-- [Azure 監視器排程的查詢規則 REST API](https://docs.microsoft.com/en-us/rest/api/monitorr/scheduledqueryrules/) - 以建立和管理 Azure Application Insights 的記錄搜尋警示規則
+- [Azure 監視器排程的查詢規則 REST API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) - 以建立和管理 Azure Application Insights 的記錄搜尋警示規則
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager 範本
 使用者也可以使用 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 所提供的彈性來建立和更新資源 - 用於建立或更新記錄警示。

@@ -2,21 +2,25 @@
 
 # 概觀
 ## [什麼是 Resource Manager？](resource-group-overview.md)
-## [資源提供者和類型](resource-manager-supported-services.md)
-## [Resource Manager 與傳統部署](resource-manager-deployment-model.md)
-## [訂用帳戶治理](/azure/architecture/cloud-adoption-guide/subscription-governance)
-## [利用管理群組組織資源](management-groups-overview.md)
+## [資源管理員與傳統部署](resource-manager-deployment-model.md)
 
 # 開始使用
 ## [建立和部署範本](resource-manager-create-first-template.md)
 ## [適用於範本的 VS Code 延伸模組](resource-manager-vscode-extension.md)
 ## [搭配 Resource Manager 使用 Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
+# 概念
+## [資源提供者和類型](resource-manager-supported-services.md)
+## [管理群組](management-groups-overview.md)
+## [訂用帳戶治理](/azure/architecture/cloud-adoption-guide/subscription-governance?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [雲端一致性的範本](templates-cloud-consistency.md)
+
 # 作法
 ## 建立範本
 ### [範本區段](resource-group-authoring-templates.md)
 #### [參數](resource-manager-templates-parameters.md)
 #### [變數](resource-manager-templates-variables.md)
+#### [函式](resource-group-authoring-templates.md#functions)
 #### [資源](resource-manager-templates-resources.md)
 #### [輸出](resource-manager-templates-outputs.md)
 ### [連結和巢狀範本](resource-group-linked-templates.md)
@@ -47,7 +51,8 @@
 ### [Azure 入口網站](resource-group-portal.md)
 ### [使用標籤來整理資源](resource-group-using-tags.md)
 ### [將資源移至新群組或訂用帳戶](resource-group-move-resources.md)
-### [以程式設計方式建立 EA 訂用帳戶](programmatically-create-subscription.md)
+### [建立 EA 訂用帳戶](programmatically-create-subscription.md)
+### [授與存取權以建立 EA 訂用帳戶](grant-access-to-create-subscription.md)
 ### [建立管理群組](management-groups-create.md)
 ### [管理您的管理群組](management-groups-manage.md)
 

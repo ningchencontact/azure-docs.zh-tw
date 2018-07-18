@@ -1,25 +1,24 @@
 ---
 title: 將遙測傳送至 Azure IoT 中樞快速入門 | Microsoft Docs
 description: 本快速入門中，您可以執行範例 iOS 應用程式，將模擬的遙測傳送到 IoT 中樞以及從 IoT 中樞讀取遙測，以便在雲端中處理。
-services: iot-hub
 author: kgremban
 manager: timlt
-editor: ''
 ms.service: iot-hub
-ms.devlang: ''
+services: iot-hub
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: ns
-ms.date: 04/20//2018
+ms.date: 04/20/2018
 ms.author: kgremban
-ms.openlocfilehash: 0f1d3a5f714a2202836f477e78a30aa080947239
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: dbc1cc4a72d0346c92d506358c39a66a4d780b32
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38309740"
 ---
-# <a name="send-telemetry-from-a-device-to-an-iot-hub-swift"></a>將遙測從裝置傳送到 IoT 中樞 (Swift)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>快速入門：將遙測從裝置傳送到 IoT 中樞 (iOS)
+
+[!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
 IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷取到雲端進行儲存或處理。 在本文中，您會將遙測從模擬的裝置應用程式傳送到 IoT 中樞。 然後您可以從後端應用程式檢視資料。 
 
@@ -42,32 +41,8 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
 
-第一個步驟是使用 Azure 入口網站在您的訂用帳戶中建立 IoT 中樞。 IoT 中樞可讓您從許多裝置將大量的遙測擷取到雲端。 然後中樞會啟用在雲端執行的一或多項後端服務，以讀取和處理該遙測。
+[!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
 
-1. 登入 [Azure 入口網站](http://portal.azure.com)。
-
-1. 選取 [建立資源] > [物聯網] > [IoT 中樞]。 
-
-   ![選擇安裝 IoT 中樞](media/quickstart-send-telemetry-ios/selectiothub.png)
-
-1. 若要建立 IoT 中樞，請使用下表中的值：
-
-    | 設定 | 值 |
-    | ------- | ----- |
-    | Name | 中樞的唯一名稱 |
-    | 定價與級別層 | F1 免費 |
-    | IoT 中樞單位 | 1 |
-    | 裝置到雲端的分割區 | 2 個分割區 |
-    | 訂用帳戶 | 您的 Azure 訂用帳戶。 |
-    | 資源群組 | 新建。 輸入資源群組的名稱。 |
-    | 位置 | 最靠近您的位置。 |
-    | 釘選到儀表板 | yes |
-
-1. 按一下頁面底部的 [新增] 。  
-
-   ![中樞設定](media/quickstart-send-telemetry-ios/hubdefinition.png)
-
-1. 記下您的 IoT 中樞與資源群組名稱。 您稍後會在本快速入門中使用這些值。
 
 ## <a name="register-a-device"></a>註冊裝置
 
@@ -160,18 +135,19 @@ iothub-explorer monitor-events myiOSdevice --login "{your hub service connection
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您打算繼續進行其他文件中的測試 IoT 中樞，請保留您的資源群組和 IoT 中樞，稍後重複使用。
-
-如果您不再需要 IoT 中樞，請在入口網站中刪除它和資源群組。 若要這樣做，請選取包含 IoT 中樞的資源群組，然後按一下 [刪除]。
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>後續步驟
 
 在本文中，您已設定 IoT 中樞、註冊裝置，將模擬的遙測從 iOS 裝置傳送到中樞，並從中樞讀取遙測。 
 
-若要繼續了解 iOS 裝置搭配 IoT 中樞的運作方式，請參閱[在 iOS 中傳送雲端到裝置的訊息 (Swift)](iot-hub-ios-swift-c2d.md)
+若要了解如何從後端應用程式控制您的模擬裝置，請繼續下一個快速入門。
+
+> [!div class="nextstepaction"]
+> [快速入門：控制連線到 IoT 中樞的裝置](quickstart-control-device-node.md)
 
 <!-- Links -->
-[lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-process-d2c-tutorial]: tutorial-routing.md
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/

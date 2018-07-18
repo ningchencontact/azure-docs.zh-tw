@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: a3dfce6ce1b136e39047cfd47b336b2fb2a35af9
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 8ac151a70a81f78dab5ed1f30df51a1121a42cbd
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258676"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029011"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>在 Azure Stack 中輪替使用祕密
 
@@ -84,11 +84,12 @@ Azure Stack 支援在下列環境中使用新憑證授權單位 (CA) 的外部�
     > [!note]  
     > 下一個步驟僅適用於更換 Azure Stack 外部密碼時。
 
-2.  準備一組新的替代外部憑證。 新的一組憑證需符合 [Azure Stack PKI 憑證需求](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs)中所述的憑證規格。
-3.  將用於輪替的憑證備份儲存在安全的備份位置。 如果執行輪替時發生失敗，您可以使用備份副本取代檔案共用中的憑證，然後再重新執行輪替。 請記得將備份副本保存在安全的備份位置。
-3.  建立可以從 ERCS VM 存取的檔案共用。 檔案共用必須讓 **CloudAdmin** 身分識別可讀取和寫入。
-4.  從您可存取檔案共用的電腦中開啟 PowerShell ISE 主控台。 瀏覽至您的檔案共用。 
-5.  執行 **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** 以建立您外部憑證所需的目錄。
+2. 確定在過去一個月內未成功在您的環境上執行祕密輪替。 目前 Azure Stack 僅支援每月進行一次祕密輪替。 
+3. 準備一組新的替代外部憑證。 新的一組憑證需符合 [Azure Stack PKI 憑證需求](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs)中所述的憑證規格。
+4.  將用於輪替的憑證備份儲存在安全的備份位置。 如果執行輪替時發生失敗，您可以使用備份副本取代檔案共用中的憑證，然後再重新執行輪替。 請記得將備份副本保存在安全的備份位置。
+5.  建立可以從 ERCS VM 存取的檔案共用。 檔案共用必須讓 **CloudAdmin** 身分識別可讀取和寫入。
+6.  從您可存取檔案共用的電腦中開啟 PowerShell ISE 主控台。 瀏覽至您的檔案共用。 
+7.  執行 **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** 以建立您外部憑證所需的目錄。
 
 ## <a name="rotating-external-and-internal-secrets"></a>輪替外部和內部秘密
 

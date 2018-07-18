@@ -2,30 +2,27 @@
 title: 利用存留時間讓 Azure Cosmos DB 中的資料過期 | Microsoft Docs
 description: Microsoft Azure Cosmos DB 可讓您利用 TTL 在一段時間後自動從系統清除文件。
 services: cosmos-db
-documentationcenter: ''
 keywords: 存留時間
 author: SnehaGunda
 manager: kfile
-ms.assetid: 25fcbbda-71f7-414a-bf57-d8671358ca3f
 ms.service: cosmos-db
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: 13f2caa631817a5745f39b44faccb11252a2d549
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e1b11d637eec54d43c9f1212936d94b2d7396c97
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34615116"
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>利用存留時間讓 Azure Cosmos DB 集合中的資料自動過期
 應用程式可以產生並儲存大量資料。 其中有些資料，例如電腦產生的事件資料、記錄檔和使用者工作階段資訊只能在有限的期間內使用。 一旦資料超過應用程式的需求，即可放心清除此資料並減少應用程式的儲存體需求。
 
 Microsoft Azure Cosmos DB 可讓您利用「存留時間」(或稱 TTL) 在一段時間後自動從資料庫清除文件。 預設存留時間可以在集合層級設定，並且在每份文件上覆寫。 設定 TTL (不論是作為集合預設值或是在文件層級設定) 之後，Cosmos DB 就會自動移除自上次修改後存在時間達該指定時間 (以秒為單位) 的文件。
 
-Cosmos DB 中的存留時間會使用上次修改文件時的對照時間位移。 為了這麼做，它會使用每份文件上都有的 `_ts` 欄位。 _ts 欄位是 unix 樣式的 Epoch 時間戳記，表示日期和時間。 每次修改文件時都會更新 `_ts` 欄位。 
+Azure Cosmos DB 中的存留時間會使用上次修改文件時的對照時間位移。 為了這麼做，它會使用每份文件上都有的 `_ts` 欄位。 _ts 欄位是 unix 樣式的 Epoch 時間戳記，表示日期和時間。 每次修改文件時都會更新 `_ts` 欄位。 
 
 ## <a name="ttl-behavior"></a>TTL 行為
 TTL 功能是由兩個層級 (集合層級和文件層級) 的 TTL 屬性所控制。 這些值會以秒為單位來設定，而且會視為與上次修改文件時的 `_ts` 的差異。
@@ -33,8 +30,8 @@ TTL 功能是由兩個層級 (集合層級和文件層級) 的 TTL 屬性所控�
 1. 集合的 DefaultTTL
    
    * 如果遺失 (或設為 null)，便不會自動刪除文件。
-   * 如果存在且值為 "-1" = 無限 – 文件預設不會過期
-   * 如果存在且值是某個數字 ("n") – 文件會在上次修改後的 "n" 秒到期
+   * 如果存在且值設為 "-1" = 無限 – 文件預設不會過期
+   * 如果存在且值設為某個數字 ("n") – 文件會在上次修改後的 "n" 秒到期
 2. 文件的 TTL︰ 
    
    * 僅在父集合有 DefaultTTL 時，才適用屬性。

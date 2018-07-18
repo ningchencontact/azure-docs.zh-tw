@@ -3,22 +3,24 @@ title: 使用應用程式 Proxy 應用程式時發生「無法存取此企業應
 description: 如何解決使用 Azure AD 應用程式 Proxy 應用程式時常見的存取問題。
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: b9a643dab98fa685bb4873705c177a834af831ce
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.date: 05/21/2018
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: 1e13fe6a9a2e5251d167bb56a05721e613300e83
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156087"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334824"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>使用 Application Proxy 應用程式時發生「無法存取此企業應用程式」錯誤
 
@@ -108,7 +110,7 @@ ms.locfileid: "34156087"
 
 如果您繼續看到此錯誤，請移到已安裝連接器的電腦，開啟瀏覽器，並嘗試連線到應用程式使用的內部 URL。 連接器就像同一台電腦中的另一個用戶端。 如果您無法連線到應用程式，請調查為何該電腦無法連線到應用程式，或使用能夠存取應用程式之伺服器上的連接器。
 
-如果您可以從電腦連線到應用程式，請找出連接器本身的問題或錯誤。 您可以在[疑難排解文件](active-directory-application-proxy-troubleshoot.md#connector-errors)中看見一些常見錯誤。 您也可以直接查看連接器記錄檔，以找出任何錯誤。 我們的錯誤訊息中有許多能夠分享更具體的修正程式建議。 若要了解如何檢視記錄檔，請參閱[連接器文件](manage-apps/application-proxy-connectors.md#under-the-hood)。
+如果您可以從電腦連線到應用程式，請找出連接器本身的問題或錯誤。 您可以在[疑難排解文件](manage-apps/application-proxy-troubleshoot.md#connector-errors)中看見一些常見錯誤。 您也可以直接查看連接器記錄檔，以找出任何錯誤。 我們的錯誤訊息中有許多能夠分享更具體的修正程式建議。 若要了解如何檢視記錄檔，請參閱[連接器文件](manage-apps/application-proxy-connectors.md#under-the-hood)。
 
 ## <a name="next-steps"></a>後續步驟
 [了解 Azure AD 應用程式 Proxy 連接器](manage-apps/application-proxy-connectors.md)

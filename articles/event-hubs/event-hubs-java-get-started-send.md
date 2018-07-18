@@ -2,23 +2,19 @@
 title: 使用 Java 將事件傳送至 Azure 事件中樞 | Microsoft Docs
 description: 開始使用 Java 傳送事件至事件中樞
 services: event-hubs
-documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: event-hubs
 ms.workload: core
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 05/30/2018
 ms.author: sethm
-ms.openlocfilehash: 5dd0c88dab9ff4b7073a9acf6872b4c3ff085586
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6d3bf0b8ac5c5bdc7bf3deda21e800fe3cc6be2e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626406"
 ---
 # <a name="send-events-to-azure-event-hubs-using-java"></a>使用 Java 將事件傳送至 Azure 事件中樞
 
@@ -28,12 +24,14 @@ ms.lasthandoff: 03/23/2018
 
 本教學課程也會示範如何使用以 Java 撰寫的主控台應用程式，將事件傳送到事件中樞。 若要使用 Java Event Processor Host 程式庫接收事件，請參閱[此文章](event-hubs-java-get-started-receive-eph.md)，或按一下左側目錄中適當的接收語言。
 
-若要完成本教學課程，您需要下列項目：
+## <a name="prerequisites"></a>先決條件
 
-* Java 開發環境。 針對本教學課程，我們採用 [Eclipse](https://www.eclipse.org/)。
+若要完成本教學課程，您需要下列必要條件：
+
+* Java 開發環境。 本教學課程使用 [Eclipse](https://www.eclipse.org/)。
 * 使用中的 Azure 帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶][]。
 
-本教學課程中的程式碼是根據[傳送 GitHub 範例](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/Send)，您可以檢查該範例以查看完整的運作中應用程式。
+本教學課程中的程式碼是根據 [SimpleSend GitHub 範例](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend)，您可以檢查該範例以查看可完整運作的應用程式。
 
 ## <a name="send-events-to-event-hubs"></a>將事件傳送至事件中樞
 
@@ -94,7 +92,7 @@ public class Send {
 
 ### <a name="send-events"></a>傳送事件
 
-接著將字串轉換為 UTF-8 位元組編碼，藉以建立單一事件。 然後從連接字串建立新的事件中樞用戶端執行個體，並傳送訊息。   
+將字串轉換為 UTF-8 位元組編碼，藉以建立單一事件。 然後從連接字串建立新的事件中樞用戶端執行個體，並傳送訊息：   
 
 ```java 
 byte[] payloadBytes = "Test AMQP message from JMS".getBytes("UTF-8");

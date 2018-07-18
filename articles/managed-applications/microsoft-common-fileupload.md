@@ -11,13 +11,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 591fe2222c54aad50acc378be7f3399518a8087e
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: c41ff548ed4020ab85d15f610503a3b1592910a5
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059884"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Microsoft.Common.FileUpload UI 元素
 控制項可讓使用者指定要上傳的一個或多個檔案。
@@ -49,7 +50,7 @@ ms.lasthandoff: 05/17/2018
 ## <a name="remarks"></a>備註
 - `constraints.accept` 會指定在瀏覽器的 [檔案] 對話方塊中顯示的檔案類型。 請參閱 [HTML5 規格](http://www.w3.org/TR/html5/forms.html#attr-input-accept) 以取得允許的值。 預設值為 **null**。
 - 如果將 `options.multiple` 設為 **true**，使用者就允許在瀏覽器的 [檔案] 對話方塊中選取一個以上的檔案。 預設值為 **false**。
-- 這個元素會根據 `options.uploadMode` 的值，支援兩種檔案上傳模式。 如果是指定 **file**，輸出就會包含檔案內容作為 blob。 如果是指定 **url**，檔案就會上傳至暫存位置，而輸出會包含 blob 的 URL。 24 小時之後，就會清除暫存 blob。 預設值為 **file**。
+- 這個元素會根據 `options.uploadMode` 的值，支援兩種檔案上傳模式。 如果是指定 **file**，輸出就會包含檔案內容作為 Blob。 如果是指定 **URL**，檔案就會上傳至暫存位置，而輸出會包含 Blob 的 URL。 24 小時之後，就會清除暫存 blob。 預設值為 **file**。
 - `options.openMode` 的值會決定讀取檔案的方式。 如果預期是純文字檔案，則指定為 **text**；否則，指定為 **binary**。 預設值為 **text**。
 - 如果將 `options.uploadMode` 設為 **file**，且將 `options.openMode` 設為 **binary**，輸出就會是 base64 編碼。
 - `options.encoding` 會指定讀取檔案時要使用的編碼方式。 預設值為 **UTF-8**，且僅在 `options.openMode` 設為 **text** 時才會使用。

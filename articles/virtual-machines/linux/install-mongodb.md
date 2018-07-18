@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure CLI 在 Linux VM 上安裝 MongoDB | Microsoft Docs"
-description: "了解如何使用 Azure CLI 2.0 在 Linux 虛擬機器上安裝及設定 MongoDB"
+title: 使用 Azure CLI 在 Linux VM 上安裝 MongoDB | Microsoft Docs
+description: 了解如何使用 Azure CLI 2.0 在 Linux 虛擬機器上安裝及設定 MongoDB
 services: virtual-machines-linux
-documentationcenter: 
-author: iainfoulds
+documentationcenter: ''
+author: cynthn
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 3f55b546-86df-4442-9ef4-8a25fae7b96e
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
@@ -13,15 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2017
-ms.author: iainfou
-ms.openlocfilehash: b21b33a265d499136dbe3e72538923d8295e9876
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.author: cynthn
+ms.openlocfilehash: d066b412fb722318824a408861fe7d9595c71537
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928228"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>如何在 Linux VM 上安裝及設定 MongoDB
-[MongoDB](http://www.mongodb.org) 是受歡迎的高效能開放原始碼 NoSQL 資料庫。 本文說明如何使用 Azure CLI 2.0 在 Linux VM 上安裝及設定 MongoDB。 您也可以使用 [Azure CLI 1.0](install-mongodb-nodejs.md) 來執行這些步驟。 範例會詳細說明如何︰
+[MongoDB](http://www.mongodb.org) 是受歡迎的高效能開放原始碼 NoSQL 資料庫。 本文說明如何使用 Azure CLI 2.0 在 Linux VM 上安裝及設定 MongoDB。 範例會詳細說明如何︰
 
 * [手動安裝及設定基本 MongoDB 執行個體](#manually-install-and-configure-mongodb-on-a-vm)
 * [使用 Resource Manager 範本建立基本 MongoDB 執行個體](#create-basic-mongodb-instance-on-centos-using-a-template)

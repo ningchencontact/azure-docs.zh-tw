@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783417"
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>使用 Azure 佇列儲存體監視 .NET 的媒體服務工作通知
 執行編碼作業時，您通常需要設法追蹤作業進度。 您可以設定媒體服務，將通知傳遞給 [Azure 佇列儲存體](../../storage/storage-dotnet-how-to-use-queues.md)。 從佇列儲存體取得通知，即可監視作業進度。 

@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 05/16/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 69148a0ac9a5761eeee0ab47d83862724583619a
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 5d403f7c1d0fff466f6c0fb9942ec777ab820eab
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258788"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604527"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>將市集項目從 Azure 下載到 Azure Stack
 
@@ -86,7 +86,7 @@ ms.locfileid: "34258788"
 
 - 若要能夠匯入已下載的市集項目，則必須[為 Azure Stack 操作者設定 PowerShell 環境](azure-stack-powershell-configure-admin.md)。  
 
-- 您必須在 Azure Stack 中擁有具備可公開存取容器 (這是儲存體 blob) 的儲存體帳戶。 您可使用容器作為市集項目資源庫檔案的暫存儲存體。 如果您不熟悉儲存體帳戶和容器，請參閱在 Azure 文件中[使用 blob - Azure 入口網站](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)。
+- 您必須在 Azure Stack 中擁有具備可公開存取容器 (這是儲存體 blob) 的[儲存體帳戶](azure-stack-manage-storage-accounts.md)。 您可使用容器作為市集項目資源庫檔案的暫存儲存體。 如果您不熟悉儲存體帳戶和容器，請參閱在 Azure 文件中[使用 blob - Azure 入口網站](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)。
 
 - 市集摘要整合工具會在第一個程序期間下載。 
 

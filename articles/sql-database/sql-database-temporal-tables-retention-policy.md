@@ -6,14 +6,15 @@ author: bonova
 manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: bonova
-ms.openlocfilehash: 3175236306f05831a78ae8ca01911d0c5d19f893
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: f65f7ec44ccbeb6f64d43d20b1bd7a77329fa97f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34649018"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>使用保留原則管理時態表中的歷史資料
 時態表會讓資料庫變得更大，特別是當您保留一段很長時間的歷史資料時，而一般資料表還不至於讓資料庫變得這麼大。 因此，在規劃及管理每個時態表的生命週期時，歷史資料的保留原則很重要。 Azure SQL Database 中的時態表隨附方便使用的保留機制，可協助您完成這項工作。

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/26/2017
 ms.author: abhisram
-ms.openlocfilehash: 9b4825be7ce7fb05b109310f21cd65cfe3819ae8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 03c8bf129bcb8bf1b8af4bb7d189f1a38ba8f503
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809085"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Reliable Actors 的診斷和效能監視
 Reliable Actors 執行階段會發出 [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 事件與[效能計數器](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx)。 這些項目提供深入了解執行階段的運作方式，並有助於疑難排解及效能監視。
@@ -170,5 +171,5 @@ Reliable Actor 執行階段會發佈下列與動作項目啟用和停用相關�
 ## <a name="next-steps"></a>後續步驟
 * [Reliable Acto 如何使用 Service Fabric 平台](service-fabric-reliable-actors-platform.md)
 * [動作項目 API 參考文件](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [範例程式碼](https://github.com/Azure/servicefabric-samples)
+* [範例程式碼](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [PerfView 中的 EventSource 提供者](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

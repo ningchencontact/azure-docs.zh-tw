@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33782897"
 ---
 # <a name="loading-assets-into-azure-media-clipper"></a>將資產載入 Azure Media Clipper
 您可以透過兩個方法將資產載入 Azure Media Clipper：

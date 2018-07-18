@@ -1,26 +1,23 @@
 ---
 title: 本機部署遠端監視解決方案 - Azure | Microsoft Docs
 description: 本教學課程示範如何將遠端監視解決方案加速器部署到本機電腦，以進行測試和開發。
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 03/07/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: a11df1dc17b4dcbacece85526eeac39502cbbe34
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.topic: conceptual
+ms.openlocfilehash: 3f723d716a652e64527310a499d6b06a6cf6bc6f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627226"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally"></a>本機部署遠端監視解決方案加速器
 
-本文示範如何將遠端監視解決方案加速器部署到本機電腦，以進行測試和開發。 這種方法會將微服務部署到本機 Docker 容器，並在雲端中使用 IoT 中樞、Cosmos DB 和 Azure 儲存體服務。 您會使用解決方案加速器 (PCS) CLI 來部署 Azure 雲端服務。
+本文會示範如何將遠端監視解決方案加速器部署到本機電腦，以進行測試和開發。 這種方法會將微服務部署到本機 Docker 容器，並在雲端中使用 IoT 中樞、Cosmos DB 和 Azure 儲存體服務。 您會使用解決方案加速器 (PCS) CLI 來部署 Azure 雲端服務。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -52,7 +49,7 @@ npm install iot-solutions -g
 
 ### <a name="download-the-source-code"></a>下載原始程式碼
 
- 遠端監視原始程式碼存放庫包含您在下載、設定及執行內含微服務之 Docker 映像時所需的 Docker 組態檔。 若要複製和建立本機版本的存放庫，透過您最愛的命令列或終端機，在本機電腦上瀏覽至適當的資料夾，然後執行下列其中一個命令：
+ 遠端監視原始程式碼存放庫包含您在下載、設定及執行內含微服務的 Docker 映像時，所需的 Docker 組態檔。 若要複製和建立本機版本的存放庫，透過您最愛的命令列或終端機，在本機電腦上瀏覽至適當的資料夾，然後執行下列其中一個命令：
 
 若要安裝微服務的 Java 實作，請執行：
 
@@ -119,13 +116,13 @@ docker-compose up
 
 您可以使用個別殼層來檢視容器中的記錄。 請先使用 `docker ps -a` 命令來尋找容器識別碼。 然後使用 `docker logs {container-id} --tail 1000` 來檢視指定容器的最後 1000 個記錄項目。
 
-若要存取遠端監視解決方案儀表板，在瀏覽器中瀏覽至 [http://localhost:8080](http://localhost:8080)。
+若要存取遠端監視解決方案儀表板，請在瀏覽器中瀏覽至 [http://localhost:8080](http://localhost:8080)。
 
 ## <a name="clean-up"></a>清除
 
 為避免不必要的費用，當您完成測試時，請從您的 Azure 訂用帳戶中移除雲端服務。 移除服務的最簡單方式是瀏覽至 [Azure 入口網站](https://ms.portal.azure.com)，然後刪除您透過 `pcs` 工具建立的資源群組。
 
-使用 `docker-compose down --rmi all` 命令來移除 Docker 映像，並釋放您本機電腦上的空間。 您也可以將您從 GitHub 複製原始程式碼時所建立的遠端監視存放庫本機副本刪除。
+使用 `docker-compose down --rmi all` 命令來移除 Docker 映像，並釋放您本機電腦上的空間。 您也可以將您從 GitHub 複製原始程式碼時，所建立的遠端監視存放庫本機副本刪除。
 
 ## <a name="next-steps"></a>後續步驟
 

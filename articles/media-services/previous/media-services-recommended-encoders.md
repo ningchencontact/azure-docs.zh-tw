@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33785717"
 ---
 # <a name="recommended-on-premises-encoders"></a>建議的內部部署編碼器
 使用 Azure 媒體服務進行即時串流時，您可以指定想讓通道接收輸入資料流的方式。 如果您選擇使用搭配即時編碼通道的內部部署編碼器，您的編碼器應該會推送高品質的單一位元速率資料流作為輸出。 如果您選擇使用搭配傳遞通道的內部部署編碼器，您的編碼器應該會推送具有所有所需輸出品質的多位元速率資料流作為輸出。 如需詳細資訊，請參閱[透過內部部署編碼器進行即時串流](media-services-live-streaming-with-onprem-encoders.md)。

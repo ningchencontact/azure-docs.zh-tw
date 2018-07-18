@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: 5ba13aeb63a72b738aac435b63ebbcfd4eeb7fa9
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f196859500d5de883a4de3f21b803c8f83e2f0b2
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021407"
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>設定 Reliable Actors 的 FabricTransport 設定
 
@@ -50,6 +51,10 @@ https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fa
 ## <a name="config-package"></a>組態封裝
 
 您可以使用[組態封裝](service-fabric-application-and-service-manifests.md)修改預設組態。
+
+> [!IMPORTANT]
+> 在 Linux 節點上，憑證必須是 PEM 格式。 若要深入了解如何尋找和設定適用於 Linux 的憑證，請參閱[在 Linux 上設定憑證](./service-fabric-configure-certificates-linux.md)。 
+> 
 
 ### <a name="configure-fabrictransport-settings-for-the-actor-service"></a>設定動作項目服務的 FabricTransport 設定
 

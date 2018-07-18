@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: f74a44ed1b26458ad77e5de43a67a961aee70ec1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 85cdce312e141bee9da3b633c45dc770e503abfe
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356404"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724793"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure Blob 儲存體繫結
 
@@ -35,13 +35,17 @@ ms.locfileid: "34356404"
 > [!NOTE]
 > 在僅限 Blob 的儲存體帳戶上以 Event Grid 觸發程序取代 Blob 儲存體觸發程序，可獲得高延展性，也能避免冷啟動延遲。 如需詳細資訊，請參閱[觸發程序](#trigger)一節。 
 
-## <a name="packages"></a>封裝
+## <a name="packages---functions-1x"></a>套件 - Functions 1.x
 
-[Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 套件中提供 Blob 儲存體繫結。 套件的原始程式碼位於 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src) GitHub 存放庫中。
+[Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 套件 2.x 版中提供 Blob 儲存體繫結。 套件的原始程式碼位於 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Blob) GitHub 存放庫中。
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>套件 - Functions 2.x
+
+[Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 套件 3.x 版中提供 Blob 儲存體繫結。 套件的原始程式碼位於 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Storage/Blob) GitHub 存放庫中。
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
@@ -263,6 +267,8 @@ module.exports = function(context) {
 * `CloudAppendBlob`<sup>1</sup>
 
 <sup>1</sup> 在 *function.json* 或 `FileAccess.ReadWrite` C# 類別庫中需要 "inout" 繫結 `direction`。
+
+如果您嘗試繫結至其中一個儲存體 SDK 類型，並出現錯誤訊息，請確定您已參考[正確的儲存體 SDK 版本](#azure-storage-sdk-version-in-functions-1x)。
 
 由於會將整個 blob 內容載入記憶體中，因此只有在 Blob 大小很小時才建議繫結至 `string`、`Byte[]` 或 POCO。 一般而言，最好使用 `Stream` 或 `CloudBlockBlob` 類型。 如需詳細資訊，請參閱本文稍後的[並行存取和記憶體使用量](#trigger---concurrency-and-memory-usage)。
 
@@ -564,6 +570,8 @@ public static void Run(
 
 <sup>1</sup> 在 *function.json* 或 `FileAccess.ReadWrite` C# 類別庫中需要 "inout" 繫結 `direction`。
 
+如果您嘗試繫結至其中一個儲存體 SDK 類型，並出現錯誤訊息，請確定您已參考[正確的儲存體 SDK 版本](#azure-storage-sdk-version-in-functions-1x)。
+
 由於會將整個 blob 內容載入記憶體中，因此只有在 Blob 大小很小時才建議繫結至 `string` 或 `Byte[]`。 一般而言，最好使用 `Stream` 或 `CloudBlockBlob` 類型。 如需詳細資訊，請參閱本文稍早的[並行存取和記憶體使用量](#trigger---concurrency-and-memory-usage)。
 
 在 JavaScript 中，使用 `context.bindings.<name from function.json>` 存取 Blob 資料。
@@ -777,6 +785,8 @@ public static void Run(
 <sup>1</sup> 在 *function.json* 或 `FileAccess.Read` C# 類別庫中需要 "in" 繫結 `direction`。 不過，您可以使用執行階段提供的容器物件來執行寫入作業，例如將 blob 上傳至容器。
 
 <sup>2</sup> 在 *function.json* 或 `FileAccess.ReadWrite` C# 類別庫中需要 "inout" 繫結 `direction`。
+
+如果您嘗試繫結至其中一個儲存體 SDK 類型，並出現錯誤訊息，請確定您已參考[正確的儲存體 SDK 版本](#azure-storage-sdk-version-in-functions-1x)。
 
 在非同步函式中，使用傳回值或 `IAsyncCollector`，而不是 `out` 參數。
 

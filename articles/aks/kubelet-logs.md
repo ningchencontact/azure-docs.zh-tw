@@ -2,18 +2,19 @@
 title: 從 Azure Kubernetes Service (AKS) 取得 kubelet 記錄
 description: 從 Azure Kubernetes Service (AKS) 叢集節點取得 kubelet 記錄
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/08/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 93633f1961c954fd61be62005b68359a80736df4
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 6fadc502812ea0d983b86c94914d86fcb21a54cd
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100159"
 ---
 # <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>從 Azure Kubernetes Service (AKS) 叢集節點取得 kubelet 記錄
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/20/2018
+ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 042dd4876a63e5881e67456b449570b01cb967a5
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: b802c7b96bd8d0cfa56347d45542495caf69d7e4
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011283"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824705"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS 保護：最佳做法與參考架構
 
@@ -87,8 +87,8 @@ Azure 客戶可藉由檢閱 Microsoft 的最佳做法，以及全域建置針對
 
 深層防禦背後的概念是使用各種不同的防禦策略來管理風險。 將應用程式中的安全性防禦分層，可降低成功攻擊的機會。 建議您使用 Azure 平台的內建功能，為您的應用程式實作安全設計。
 
-例如，攻擊的風險會隨著應用程式大小 (*介面區*) 而提高。 您可以使用白名單來關閉負載平衡器 ([Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md) 和 [Azure 應用程式閘道](../application-gateway/application-gateway-create-probe-portal.md)) 上不需要的公開 IP 位址空間和接聽連接埠，來減少介面區。 [網路安全性群組 (NSG)](../virtual-network/virtual-networks-nsg.md) 是減少攻擊面的另一種方法。
-您可以使用[服務標記](/virtual-network/security-overview.md)和[應用程式安全性群組](/virtual-network/security-overview.md)，將建立安全性規則與設定網路安全性的複雜性近可能降低，直到成為應用程式結構的自然延伸。
+例如，攻擊的風險會隨著應用程式大小 (*介面區*) 而提高。 您可以使用白名單來關閉負載平衡器 ([Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md) 和 [Azure 應用程式閘道](../application-gateway/application-gateway-create-probe-portal.md)) 上不需要的公開 IP 位址空間和接聽連接埠，來減少介面區。 [網路安全性群組 (NSG)](../virtual-network/security-overview.md) 是減少攻擊面的另一種方法。
+您可以使用[服務標記](/virtual-network/security-overview.md#service-tags)和[應用程式安全性群組](/virtual-network/security-overview.md#application-security-groups)，將建立安全性規則與設定網路安全性的複雜性近可能降低，直到成為應用程式結構的自然延伸。
 
 應盡可能將 Azure 服務部署於[虛擬網路](../virtual-network/virtual-networks-overview.md)上。 此種做法可讓服務資源透過私人 IP 位址進行通訊。 根據預設，來自虛擬網路的 Azure 服務流量會使用公用 IP 位址作為來源 IP 位址。 使用[服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)，會在從虛擬網路存取 Azure 服務時，將服務流量切換為使用虛擬網路私人位址作為來源 IP 位址。
 
@@ -292,18 +292,9 @@ Azure 流量管理員會將連入要求路由到其中一個區域中的應用�
 
 如需此參考架構的詳細資訊，請參閱[使用 Azure 虛擬網路延伸 Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network?toc=%2fazure%2fvirtual-network%2ftoc.json) 一文。
 
-### <a name="azure-api-management"></a>Azure API 管理
-
-此參考架構會協助保護 [Azure API 管理](../api-management/api-management-key-concepts.md)資源的公用端點，其會將 API 發佈給組織外的客戶。 請將 API 管理部署於外部虛擬網路中，以啟用 DDoS 保護。
-
-![API 管理的架構參考圖](media/azure-ddos-best-practices/image15.png)
-
-當您設定外部虛擬網路時，可透過公用負載平衡器從公用網際網路存取 API 管理閘道和開發人員入口網站。 在此架構中，會在 API 管理的外部虛擬網路上啟用標準 DDoS 保護。 流量會從網際網路路由到 API 管理的公用 IP 位址，其會受到保護以防禦第 3 層和第 4 層的網路攻擊。 若要防禦第 7 層 HTTP/HTTPS 攻擊，可在 WAF 模式中設定應用程式閘道。
-
-如需其他部署於虛擬網路且可針對標準 DDoS 保護加以設定的服務清單，請參閱[這篇文章](../virtual-network/virtual-network-for-azure-services.md)。 標準 DDoS 保護僅支援 Azure Resource Manager 資源。 
 
 > [!NOTE]
-> 對於使用公共 IP 的虛擬網路中 PowerApps 的 App Service 環境的插入式部署，並未提供原生支援。 如需保護 App Service 環境的詳細資訊，請參閱本節。
+> 在使用公用 IP 的虛擬網路中，Azure App Service 環境未能原生支援對於 PowerApps 或 API 的管理。
 
 ## <a name="next-steps"></a>後續步驟
 

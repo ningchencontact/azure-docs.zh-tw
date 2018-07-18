@@ -9,17 +9,17 @@ editor: daveba
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
-ms.author: arluca
-ms.openlocfilehash: a2225409e4cb50d91c09207ee70b76df12925192
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.author: daveba
+ms.openlocfilehash: 67bb45f7bd27a142b978bedb48925cc41e8d1287
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34301206"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37904368"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-service-identity-msi-on-a-windows-vm-to-access-azure-resource-manager"></a>教學課程：使用 Windows VM 上使用者指派的受控服務識別 (MSI) 來存取 Azure Resource Manager
 
@@ -80,14 +80,13 @@ New-AzureRmVm `
 
 使用者指派的身分識別會建立為獨立的 Azure 資源。 Azure 會使用 [New-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/get-azurermuserassignedidentity)，在您的 Azure AD 租用戶中建立一個可指派給一或多個 Azure 服務執行個體的身分識別。
 
-> [!IMPORTANT]
-> 建立使用者指派的身分識別僅支援英數字元和連字號 (0-9 或 a-z 或 A-Z 或 -) 字元。 此外，指派至 VM/VMSS 的名稱應該限制為 24 個字元長度，才能正常運作。 請回來查看以取得更新資料。 如需詳細資訊，請參閱[常見問題集和已知問題](known-issues.md)
+[!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 ```azurepowershell-interactive
 Get-AzureRmUserAssignedIdentity -ResourceGroupName myResourceGroupVM -Name ID1
 ```
 
-回應會包含所建立之使用者指派身分識別的詳細資料，與下列範例類似。 請記下使用者指派身分識別的 `Id` 值，因為後續步驟中會使用該值：
+回應會包含所建立使用者指派身分識別的詳細資料，與下列範例類似。 請記下使用者指派身分識別的 `Id` 值，因為後續步驟中會使用該值：
 
 ```azurepowershell
 {
@@ -172,4 +171,7 @@ CanDelegate: False
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需 MSI 的概觀，請參閱[受控服務識別概觀](overview.md)。
+在本教學課程中，您已學習如何建立使用者指派的身分識別，並將其連結至 Azure 虛擬機器以存取 Azure Resource Manager API。  若要深入了解 Azure Resource Manager，請參閱：
+
+> [!div class="nextstepaction"]
+>[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)

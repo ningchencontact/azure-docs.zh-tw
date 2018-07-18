@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31526979"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中，使用 IDENTITY 建立 Surrogate 索引鍵
 在 Azure SQL 資料倉儲中的資料表上，使用 IDENTITY 屬性建立 Surrogate 索引鍵的建議與範例。

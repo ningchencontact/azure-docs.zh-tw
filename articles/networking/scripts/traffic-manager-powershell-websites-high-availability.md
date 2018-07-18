@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31597323"
 ---
 # <a name="route-traffic-for-high-availability-of-applications"></a>路由傳送流量以達到應用程式的高可用性
 

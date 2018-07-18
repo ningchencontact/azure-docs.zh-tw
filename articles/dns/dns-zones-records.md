@@ -20,6 +20,7 @@ ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/19/2017
+ms.locfileid: "26761908"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>DNS 區域和記錄的概觀
 

@@ -1,12 +1,12 @@
 ---
-title: "開始使用預先設定解決方案 | Microsoft Docs"
-description: "遵循此教學課程學習如何部署 Azure IoT Suite 預先設定解決方案。"
-services: 
+title: 開始使用預先設定解決方案 | Microsoft Docs
+description: 遵循此教學課程學習如何部署 Azure IoT Suite 預先設定解決方案。
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6ab38d1a-b564-469e-8a87-e597aa51d0f7
 ms.service: iot-suite
 ms.devlang: na
@@ -16,10 +16,11 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
 ms.openlocfilehash: 12eb858f0be4220419300019497070a081e58249
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723012"
 ---
 # <a name="get-started-with-the-preconfigured-solutions"></a>開始使用預先設定的解決方案
 
@@ -155,7 +156,7 @@ Azure IoT 套件[預先設定的解決方案][lnk-preconfigured-solutions]結合
 
 1. 選擇 **InitiateFirmwareUpdate** 做為 [方法]。
 
-1. 將 **FwPackageUri** 參數設定為 **https://iotrmassets.blob.core.windows.net/firmwares/FW20.bin**。
+1. 將 **FwPackageUri** 參數設為 **https://iotrmassets.blob.core.windows.net/firmwares/FW20.bin**。
 
 1. 選擇 [排程]。 預設值適用於要立即執行的作業。
 

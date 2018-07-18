@@ -1,12 +1,12 @@
 ---
-title: "為自訂 API 新增驗證 - Azure Logic Apps | Microsoft Docs"
-description: "為從邏輯應用程式對自訂 API 發出的呼叫設定驗證"
+title: 為自訂 API 新增驗證 - Azure Logic Apps | Microsoft Docs
+description: 為從邏輯應用程式對自訂 API 發出的呼叫設定驗證
 author: ecfan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.tgt_pltfrm: na
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 2528f4318d92bbfdc1008795876f0240a5e3e4f6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 705abb2a3cc25c965bdce364eb169b4e3a814bff
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298544"
 ---
 # <a name="secure-calls-to-your-custom-apis-from-logic-apps"></a>保護從邏輯應用程式對自訂 API 發出的呼叫
 
@@ -53,7 +54,7 @@ ms.lasthandoff: 11/03/2017
 
 **在 Azure 入口網站中建立邏輯應用程式的應用程式識別碼**
 
-1. 在 [Azure 入口網站](https://portal.azure.com "https://portal.azure.com")中，選擇 **Azure Active Directory**。 
+1. 在 [Azure 入口網站](https://portal.azure.com "https://portal.azure.com")中，選擇 [Azure Active Directory]。 
 
 2. 請確認您與 web 應用程式或 API 應用程式位於相同的目錄中。
 
@@ -106,7 +107,7 @@ ms.lasthandoff: 11/03/2017
 
 3. `New-AzureADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password "identity-password"`
 
-4. 請務必複製 [租用戶識別碼] (您 Azure AD 租用戶的 GUID)、[應用程式識別碼] 和您所使用的密碼。
+4. 請務必複製 [租用戶識別碼] \(您 Azure AD 租用戶的 GUID)、[應用程式識別碼] 和您所使用的密碼。
 
 如需詳細資訊，請了解如何[使用 PowerShell 建立用來存取資源的服務主體](../azure-resource-manager/resource-group-authenticate-service-principal.md)。
 
@@ -116,7 +117,7 @@ ms.lasthandoff: 11/03/2017
 
 **建立應用程式識別碼，並在 Azure 入口網站中開啟已部署應用程式的驗證**
 
-1. 在 [Azure 入口網站](https://portal.azure.com "https://portal.azure.com")中，尋找並選取您的 web 應用程式或 API 應用程式。 
+1. 在 [Azure 入口網站](https://portal.azure.com "https://portal.azure.com")中，找出並選取您的 Web 應用程式或 API 應用程式。 
 
 2. 在 [設定] 下，選擇 [驗證/授權]。 在 [App Service 驗證] 下，將驗證 [開啟]。 在 [驗證提供者] 下，選擇 [Azure Active Directory]。
 

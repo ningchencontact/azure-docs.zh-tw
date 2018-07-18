@@ -12,15 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/04/2018
+ms.date: 05/31/2018
 ms.author: maghan
-ms.openlocfilehash: 1bc641e210a5bd965c5cdbf41efe853e9b297132
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8d68a950438a332cdf8ddd8d4f13a316c87aa0a5
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715916"
 ---
-# <a name="about-power-bi-embedded"></a>關於 Power BI Embedded
+# <a name="what-is-power-bi-embedded"></a>什麼是 Power BI Embedded？
 
 Power BI Embedded 旨在簡化 ISV 和開發人員使用 Power BI 功能的方式。 Power BI Embedded 可協助您在應用程式中快速新增令人讚嘆的視覺效果、報告和儀表板，藉以簡化 Power BI 功能。 類似於 Microsoft Azure 上建置的應用程式使用諸如 Machine Learning 和 IoT 等服務。 藉由讓客戶可在其應用程式內輕鬆地瀏覽資料，ISV 可讓其客戶在內容中制定快速、明智的決策。
 
@@ -30,7 +31,7 @@ Power BI Embedded 旨在簡化 ISV 和開發人員使用 Power BI 功能的方�
 
 使用 Power BI Embedded，ISV 和開發人員能獲得額外的彈性，供他們使用 Power BI API 在其應用程式中內嵌智慧。 ISV 和開發人員可以善用最小化的開發工作來達到加速上市時間，並將 Microsoft 的世界級分析引擎導入其應用程式中，從而讓自己脫穎而出。 同樣地，開發人員可以花時間專注於其解決方案，以滿足客戶需求，而不是開發視覺化的分析功能。 此外，Power BI Embedded 可讓您在已使用的熟悉開發環境 – Visual Studio 和 Azure  – 中工作。
 
-您的現有應用程式是否使用 Power BI Premium 與內嵌 Power BI 內容？ 如果您是提供應用程式或使用它們的組織之 ISV 或開發人員，就不需要採取任何動作。 您與您的客戶可以在不受中斷的情況下繼續使用這些應用程式。 如果您有 Power BI 工作區集合上所建置的現有應用程式，並需要利用聚合的 API 介面和以容量作為基礎的新型 Azure SKU，請瀏覽文件以取得移轉指導方針。
+您現有的應用程式中，是否有任何內嵌 Power BI 內容會使用 Power BI Premium？ 如果您是提供應用程式或使用它們的組織之 ISV 或開發人員，就不需要採取任何動作。 您與您的客戶可以在不受中斷的情況下繼續使用這些應用程式。 如果您有 Power BI 工作區集合上所建置的現有應用程式，並需要利用聚合的 API 介面和以容量作為基礎的新型 Azure SKU，請瀏覽文件以取得移轉指導方針。
 
 ## <a name="comparing-power-bi-embedded-with-power-bi-premium"></a>比較 Power BI Embedded 與 Power BI Premium
 
@@ -38,7 +39,7 @@ Power BI Embedded 適用於建置應用程式的開發人員。 當您需要使�
 
 ## <a name="easy-to-use-tools"></a>容易使用
 
-Power BI Embedded 可讓您專注於拿手項目：建置絕佳的應用程式。 您可以使用已具備的工具和技巧來管理和開發 Power BI Embedded。
+Power BI Embedded 可讓您專注於拿手項目：建置絕佳的應用程式。 您可以使用已具備的工具和技巧，來管理和開發 Power BI Embedded。
 
 * [**Azure 入口網站**](https://portal.azure.com/)：網頁型應用程式，可用於管理所有 Azure 服務
 * [**Visual Studio Code**](https://code.visualstudio.com/docs)：支援擴充功能的免費、可下載開放來源、程式碼編輯器，適用於 Windows、macOS 和 Linux

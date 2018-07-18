@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 484c7a17fec4ee94e3170e93eb1438af688d101e
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: e226aadbe499d5905b1814bec5d042f67d898c18
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303938"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294844"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>部署 Azure Blockchain Workbench
 
@@ -48,7 +48,10 @@ Blockchain Workbench 的成本是彙總基礎 Azure 服務的成本。 Azure 服
 
 ### <a name="blockchain-workbench-api-app-registration"></a>Blockchain Workbench API 應用程式註冊
 
-要部署 Blockchain Workbench，必須要註冊 Azure AD 應用程式。 您必須要有 Azure Active Directory (Azure AD) 租用戶才能註冊應用程式。 您可以使用現有的租用戶，或建立新的租用戶。 如果您要使用現有的 Azure AD 租用戶，您必須要有足夠的權限才能在 Azure AD 租用戶中註冊應用程式。 應用程式註冊必須在部署 Workbench 之訂用帳戶的訂用帳戶管理員的租用戶中執行。 如需 Azure AD 租用戶的詳細資訊，請參閱[如何取得 Active Directory 租用戶](../active-directory/develop/active-directory-howto-tenant.md)和[整合應用程式與 Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md)。
+要部署 Blockchain Workbench，必須要註冊 Azure AD 應用程式。 您必須要有 Azure Active Directory (Azure AD) 租用戶才能註冊應用程式。 您可以使用現有的租用戶，或建立新的租用戶。 如果您要使用現有的 Azure AD 租用戶，您必須要有足夠的權限才能在 Azure AD 租用戶中註冊應用程式和授與圖形 API 權限。 如果現有的 Azure AD 租用戶中沒有足夠權限，請建立新的租用戶。 
+
+> [!IMPORTANT]
+> Workbench 所要部署到的租用戶，不必和用來註冊 Azure AD 應用程式的租用戶相同。 Workbench 所要部署到的租用戶，必須是您在其中有足夠權限可部署資源的租用戶。 如需 Azure AD 租用戶的詳細資訊，請參閱[如何取得 Active Directory 租用戶](../active-directory/develop/active-directory-howto-tenant.md)和[整合應用程式與 Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md)。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在右上角選取帳戶，並切換至所需的 Azure AD 租用戶。 此租用戶應為部署 Workbench 之訂用帳戶的訂用帳戶管理員的租用戶，且您必須有足夠的權限可註冊應用程式。
@@ -73,7 +76,7 @@ Blockchain Workbench 的成本是彙總基礎 Azure 服務的成本。 Azure 服
 接著，您必須修改應用程式資訊清單，以使用 Azure AD 中的應用程式角色來指定 Blockchain Workbench 管理員。  如需應用程式資訊清單的詳細資訊，請參閱 [Azure Active Directory 應用程式資訊清單](../active-directory/develop/active-directory-application-manifest.md)。
 
 1. 針對您所登錄的應用程式，在 [已註冊的應用程式詳細資料] 窗格中選取 [資訊清單]。
-2. 產生 GUID。 您可以使用 PowerShell 命令 `[guid]::NewGuid()` 或線上工具來產生 GUID。 
+2. 產生 GUID。 您可以使用 PowerShell 命令 [guid] :: NewGuid () 或 New-GUID Cmdlet 產生 GUID。 另一個選項是使用 GUID 產生器網站。
 3. 您將會更新資訊清單的 [appRoles] 區段。 在 [編輯資訊清單] 窗格中，選取 [編輯]，並將 `"appRoles": []` 取代為提供的 JSON。 請務必將 [識別碼] 欄位的值取代為您所產生的 GUID。 
 
     ``` json

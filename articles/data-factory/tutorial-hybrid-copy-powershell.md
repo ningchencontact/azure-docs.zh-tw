@@ -13,18 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 5d362d8167cdfb772c70b02cc57bb49d3c2eb01d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d002955bcdb6e521fd3daddc223e07afa50f2208
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082696"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>教學課程：將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體
 在本教學課程中，您會使用 Azure PowerShell 建立資料處理站管線，以將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體。 您要建立及使用自我裝載的整合執行階段，其會在內部部署與雲端資料存放區之間移動資料。 
 
 > [!NOTE]
-> 本文適用於第 2 版的 Azure Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (正式推出版本 (GA))，請參閱 [Data Factory 第 1 版文件](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
-> 
 > 本文不提供 Data Factory 服務的詳細簡介。 如需詳細資訊，請參閱 [Azure Data Factory 簡介](introduction.md)。 
 
 在本教學課程中，您會執行下列步驟：
@@ -39,7 +38,7 @@ ms.lasthandoff: 04/19/2018
 > * 監視管道執行。
 
 ## <a name="prerequisites"></a>先決條件
-### <a name="azure-subscription"></a>Azure 訂閱
+### <a name="azure-subscription"></a>Azure 訂用帳戶
 開始之前，如果您還沒有 Azure 訂用帳戶，[請建立免費帳戶](https://azure.microsoft.com/free/)。
 
 ### <a name="azure-roles"></a>Azure 角色
@@ -186,7 +185,7 @@ ms.lasthandoff: 04/19/2018
 >    The specified data factory name 'ADFv2TutorialDataFactory' is already in use. Data factory names must be globally unique.
 >    ```
 > * 若要建立資料處理站執行個體，您用來登入 Azure 的使用者帳戶必須具備「參與者」或「擁有者」角色，或必須是 Azure 訂用帳戶的「管理員」。
-> * 目前，使用 Data Factory 第 2 版，您只能在美國東部、美國東部 2 和西歐區域中建立資料處理站。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (Azure HDInsight 等) 可位於其他區域。
+> * 如需目前可使用 Data Factory 的 Azure 區域清單，請在下列頁面上選取您感興趣的區域，然後展開 [分析] 以找出 [Data Factory]：[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (Azure HDInsight 等) 可位於其他區域。
 > 
 > 
 
@@ -267,7 +266,7 @@ ms.lasthandoff: 04/19/2018
 
 5. 在 [準備好要安裝 Microsoft Integration Runtime] 視窗中，選取 [安裝]。 
 
-6. 如果您看到一則有關正在設定不使用時要進入睡眠或休眠模式之電腦的警告訊息，請選取 [確定]。 
+6. 如果您看到一則有關正在設定不使用時要進入睡眠或休眠模式的電腦警告訊息，請選取 [確定]。 
 
 7. 如果顯示 [電源選項] 視窗，請將它關閉，然後切換到安裝視窗。 
 
@@ -443,7 +442,7 @@ ms.lasthandoff: 04/19/2018
 在此步驟中，您會建立輸入和輸出資料集。 其代表複製作業的輸入和輸出資料，而複製作業會將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體。
 
 ### <a name="create-a-dataset-for-the-source-sql-server-database"></a>建立來源 SQL Server 資料庫的資料集
-在此步驟中，您要定義代表 SQL Server 資料庫執行個體中資料的資料集。 資料集的類型為 SqlServerTable。 它會參考您在前一個步驟中建立的 SQL Server 連結服務。 此連結服務具有連線資訊，可供 Data Factory 服務在執行階段用來連線到您的 SQL Server 執行個體。 此資料集會指定包含資料之資料庫中的 SQL 資料表。 在本教學課程中，**emp** 資料表包含來源資料。 
+在此步驟中，您要定義代表 SQL Server 資料庫執行個體中資料的資料集。 資料集的類型為 SqlServerTable。 它會參考您在前一個步驟中建立的 SQL Server 連結服務。 此連結服務具有連線資訊，可供 Data Factory 服務在執行階段用來連線到您的 SQL Server 執行個體。 此資料集會指定包含資料的資料庫中的 SQL 資料表。 在本教學課程中，**emp** 資料表包含來源資料。 
 
 1. 使用下列程式碼，在 C:\ADFv2Tutorial 資料夾中建立名為 SqlServerDataset.json 的 JSON 檔案：  
 

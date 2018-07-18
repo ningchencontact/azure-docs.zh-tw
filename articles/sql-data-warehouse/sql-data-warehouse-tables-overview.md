@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31527934"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中設計資料表
 

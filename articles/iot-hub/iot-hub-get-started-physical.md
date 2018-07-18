@@ -1,24 +1,20 @@
 ---
-title: "開始將實體裝置連線到 Azure IoT 中樞 | Microsoft Docs"
-description: "了解實體裝置和面板如何連線到 Azure IoT 中樞。 您的裝置可以將遙測資料傳送到 IoT 中樞，而 IoT 中樞會監視並管理您的裝置。"
-services: iot-hub
-documentationcenter: 
+title: 開始將實體裝置連線到 Azure IoT 中樞 | Microsoft Docs
+description: 了解實體裝置和面板如何連線到 Azure IoT 中樞。 您的裝置可以將遙測資料傳送到 IoT 中樞，而 IoT 中樞會監視並管理您的裝置。
 author: dominicbetts
 manager: timlt
-editor: 
-keywords: "Azure IoT 中樞教學課程"
+keywords: Azure IoT 中樞教學課程
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: dobett
-ms.openlocfilehash: 26a2d63aef21bd470d65d79e1abf8cefd2828419
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: e7911c190ded59f758eff868add6440f5add6579
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633990"
 ---
 # <a name="azure-iot-hub-get-started-with-physical-devices-tutorials"></a>Azure IoT 中樞開始使用實體裝置教學課程
 

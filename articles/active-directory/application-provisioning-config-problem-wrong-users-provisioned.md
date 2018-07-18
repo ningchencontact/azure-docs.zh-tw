@@ -1,23 +1,26 @@
 ---
-title: "一組錯誤的使用者佈建至 Azure AD 資源庫應用程式 | Microsoft Docs"
-description: "了解如何查明為什麼一組不同於您所預期的使用者佈建至應用程式"
+title: 一組錯誤的使用者佈建至 Azure AD 資源庫應用程式 | Microsoft Docs
+description: 了解如何查明為什麼一組不同於您所預期的使用者佈建至應用程式
 services: active-directory
-documentationcenter: 
-author: ajamess
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 2dca671d4813dac0709dacb17d39cd3af3b3292c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: f984db4c06a98f7d131860f8eb5d76a67a35a483
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332546"
 ---
 # <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>一組錯誤的使用者佈建至 Azure AD 資源庫應用程式
 
@@ -53,11 +56,11 @@ ms.lasthandoff: 02/21/2018
 
 11. 將滑鼠停留在清單中的**使用者**上方，以顯示**核取方塊**。 按一下使用者設定檔照片或標誌旁邊的核取方塊，將使用者新增至 [已選取] 清單。
 
-12. **選擇性︰**如果您想要**新增多位使用者**，請在 [依姓名或電子郵件地址搜尋] 搜尋方塊中，輸入另一個**全名**或**電子郵件地址**，然後按一下核取方塊，將此使用者新增至 [已選取] 清單。
+12. **選擇性︰** 如果您想要**新增多位使用者**，請在 [依姓名或電子郵件地址搜尋] 搜尋方塊中，輸入另一個**全名**或**電子郵件地址**，然後按一下核取方塊，將此使用者新增至 [已選取] 清單。
 
 13. 當您完成選取使用者時，按一下 [選取] 按鈕，將他們新增到要指派至應用程式的使用者和群組清單。
 
-14. **選擇性︰**按一下 [新增指派] 窗格中的 [選取角色] 選取器，以選取要指派給您已選取之使用者的角色。
+14. **選擇性︰** 按一下 [新增指派] 窗格中的 [選取角色] 選取器，以選取要指派給您已選取之使用者的角色。
 
 15. 按一下 [指派] 按鈕，將應用程式指派給選取的使用者。
 
@@ -91,11 +94,11 @@ ms.lasthandoff: 02/21/2018
 
 11. 將滑鼠停留在清單中的**群組**上方，以顯示**核取方塊**。 按一下群組設定檔照片或標誌旁邊的核取方塊，將使用者新增至 [已選取] 清單。
 
-12. **選擇性︰**如果您想要**新增多個群組**，請在 [依姓名或電子郵件地址搜尋] 搜尋方塊中，輸入另一個**完整群組名稱**，然後按一下核取方塊，將此群組新增至 [已選取] 清單。
+12. **選擇性︰** 如果您想要**新增多個群組**，請在 [依姓名或電子郵件地址搜尋] 搜尋方塊中，輸入另一個**完整群組名稱**，然後按一下核取方塊，將此群組新增至 [已選取] 清單。
 
 13. 當您完成選取群組時，按一下 [選取] 按鈕，將它們新增到要指派給應用程式的使用者和群組清單。
 
-14. **選擇性︰**按一下 [新增指派] 窗格中的 [選取角色] 選取器，以選取要指派給您已選取之群組的角色。
+14. **選擇性︰** 按一下 [新增指派] 窗格中的 [選取角色] 選取器，以選取要指派給您已選取之群組的角色。
 
 15. 按一下 [指派] 按鈕，將應用程式指派給選取的群組。
 

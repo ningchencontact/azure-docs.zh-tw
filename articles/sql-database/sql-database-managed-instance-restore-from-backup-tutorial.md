@@ -8,15 +8,15 @@ ms.reviewer: carlrab, srbozovi
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: tutorial
-ms.date: 04/10/2018
+ms.date: 07/06/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: ff605b7512a27f81b111560f5d151010dbb62273
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 1d8db471a3f8ebf9dbcce77b101a2688f2570fd6
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "31425855"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37949879"
 ---
 # <a name="restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>將資料庫備份還原至 Azure SQL Database 受控執行個體
 
@@ -140,7 +140,7 @@ ms.locfileid: "31425855"
 
     ![檔案清單](./media/sql-database-managed-instance-tutorial/file-list.png)
 
-4. 使用下列指令碼從備份檔案還原 Adventure Works 2012 資料庫 - 提供含有備份檔案之容器的 URL：
+4. 使用下列指令碼從備份檔案還原 Wide World Importers 資料庫 - 提供含有備份檔案容器的 URL：
 
    ```sql
    RESTORE DATABASE [Wide World Importers] FROM URL =

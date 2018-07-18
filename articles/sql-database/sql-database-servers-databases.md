@@ -1,33 +1,22 @@
 ---
-title: 建立和管理 Azure SQL Server 與 SQL Database | Microsoft Docs
-description: 深入了解 Azure SQL Database 伺服器和資料庫的概念，以及關於建立和管理伺服器和資料庫。
+title: Azure SQL 邏輯伺服器和單一資料庫 | Microsoft Docs
+description: 了解 Azure SQL Database 邏輯伺服器和單一資料庫概念以及其資源。
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.topic: article
-ms.date: 04/10/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: carlrab
-ms.openlocfilehash: 3ffae541020a2672affab774ee6da2a8c707745f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 505fd88959feb1c84abc53c6435776a5c5b4123c
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195527"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309175"
 ---
-# <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>建立和管理 Azure SQL Database 伺服器與資料庫
-
-SQL Database 提供三種類型的資料庫：
-
-- 建立在 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)內的單一資料庫，此資源群組具有[一組合併的計算和儲存體資源](sql-database-service-tiers-dtu.md)或[獨立的計算和儲存體資源規模](sql-database-service-tiers-vcore.md)。 Azure SQL Database 與 Azure SQL Database 邏輯伺服器相關聯，後者在特定的 Azure 區域內建立。
-- 建立為 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)內[資料庫集區](sql-database-elastic-pool.md)成員的資料庫，此資源群組具有[一組合併的計算和儲存體資源 (以 DTU 為基礎)](sql-database-service-tiers-dtu.md) 或[獨立的計算和儲存體資源規模 (以虛擬核心為基礎)](sql-database-service-tiers-vcore.md)，這些資源為集區內的所有資料庫所共用。 Azure SQL Database 與 Azure SQL Database 邏輯伺服器相關聯，後者在特定的 Azure 區域內建立。
-- 建立在 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)內的 [SQL Server 執行個體](sql-database-managed-instance.md) (受控執行個體)，此資源群組具有一組已定義計算和儲存體資源，可供該伺服器執行個體上所有的資料庫使用。 受控執行個體同時包含系統和使用者資料庫。 「受控執行個體」的設計目的是要讓資料庫可原封不動轉移至完全受控的 PaaS，而不必重新設計應用程式。 「受控執行個體」針對內部部署 SQL Server 程式設計模型提供高相容性，並支援大多數 SQL Server 功能及隨附的工具與服務。  
-
-Microsoft Azure SQL Database 支援表格式資料流 (TDS) 通訊協定用戶端 7.3 版或更新版本，且只允許使用加密的 TCP/IP 連線。
-
-> [!IMPORTANT]
-> 「SQL Database 受控執行個體」(目前為公開預覽版) 提供單一的「一般用途」服務層。 如需詳細資訊，請參閱 [SQL Database 受控執行個體](sql-database-managed-instance.md)。 本文的其餘部分不適用於「受控執行個體」。
+# <a name="azure-sql-database-logical-servers-and-single-databases-and-their-resources"></a>Azure SQL Database 邏輯伺服器和單一資料庫以及其資源
 
 ## <a name="what-is-an-azure-sql-logical-server"></a>什麼是 Azure SQL 邏輯伺服器？
 
@@ -59,6 +48,20 @@ Azure 資料庫邏輯伺服器：
 - 伺服器層級主體登入可以管理伺服器上的所有資料庫
 - 可以包含類似內部部署之 SQL Server 執行個體中的登入，其在伺服器上一或多個資料庫被授與存取，且可以授與有限的系統管理權限。 如需詳細資訊，請參閱[登入](sql-database-manage-logins.md)。
 - 在邏輯伺服器上建立之所有使用者資料庫的預設定序是 `SQL_LATIN1_GENERAL_CP1_CI_AS`，其中 `LATIN1_GENERAL` 是英文 (美國)、`CP1` 是字碼頁 1252、`CI` 是不區分大小寫，以及 `AS` 是區分腔調字。
+
+## <a name="logical-servers-and-databases"></a>邏輯伺服器和資料庫
+
+在邏輯伺服器上，您可以建立：
+
+- 建立在 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)內的單一資料庫，此資源群組具有[一組合併的計算和儲存體資源](sql-database-service-tiers-dtu.md)或[獨立的計算和儲存體資源規模](sql-database-service-tiers-vcore.md)。 Azure SQL Database 與 Azure SQL Database 邏輯伺服器相關聯，後者在特定的 Azure 區域內建立。
+- 建立為 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)內[資料庫集區](sql-database-elastic-pool.md)成員的資料庫，此資源群組具有[一組合併的計算和儲存體資源 (以 DTU 為基礎)](sql-database-service-tiers-dtu.md) 或[獨立的計算和儲存體資源規模 (以虛擬核心為基礎)](sql-database-service-tiers-vcore.md)，這些資源為集區內的所有資料庫所共用。 Azure SQL Database 與 Azure SQL Database 邏輯伺服器相關聯，後者在特定的 Azure 區域內建立。
+
+> [!IMPORTANT]
+> SQL Database 受控執行個體 (目前處於公開預覽狀態) 是建立在 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)內的 [SQL Server 執行個體](sql-database-managed-instance.md) (受控執行個體)，此資源群組具有一組已定義計算和儲存資源，可供該伺服器執行個體上所有的資料庫使用。 受控執行個體同時包含系統和使用者資料庫。 「受控執行個體」的設計目的是要讓資料庫可原封不動轉移至完全受控的 PaaS，而不必重新設計應用程式。 「受控執行個體」針對內部部署 SQL Server 程式設計模型提供高相容性，並支援大多數 SQL Server 功能及隨附的工具與服務。 如需詳細資訊，請參閱 [SQL Database 受控執行個體](sql-database-managed-instance.md)。 本文的其餘部分不適用於「受控執行個體」。
+
+## <a name="tds-and-tcpip-connections"></a>TDS 和 TCP/IP 連線
+
+Microsoft Azure SQL Database 支援表格式資料流 (TDS) 通訊協定用戶端 7.3 版或更新版本，且只允許使用加密的 TCP/IP 連線。
 
 ## <a name="azure-sql-databases-protected-by-sql-database-firewall"></a>Azure SQL Database 受 SQL Database 防火牆保護
 
@@ -109,7 +112,7 @@ Azure 資料庫邏輯伺服器：
 |[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|取得一或多個資料庫|
 |[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|設定資料庫的屬性，或將現有資料庫移到彈性集區中|
 |[Remove-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|移除資料庫|
-|[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)|建立資源群組
+|[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)|建立資源群組|
 |[New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver)|建立伺服器|
 |[Get-AzureRmSqlServer](/powershell/module/azurerm.sql/get-azurermsqlserver)|傳回伺服器的相關資訊|
 |[Set-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlserver)|修改伺服器的屬性|

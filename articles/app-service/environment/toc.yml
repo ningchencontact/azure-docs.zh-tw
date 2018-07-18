@@ -64,8 +64,6 @@
           href: app-service-app-service-environment-network-architecture-overview.md
         - name: 在 ASEv1 建立 Web 應用程式
           href: app-service-web-how-to-create-a-web-app-in-an-ase.md
-        - name: 高密度託管
-          href: app-service-high-density-hosting.md
         - name: 連線到後端
           href: app-service-app-service-environment-securely-connecting-to-backend-resources.md
         - name: 設定 ExpressRoute
@@ -74,15 +72,6 @@
           href: app-service-app-service-environment-control-inbound-traffic.md
         - name: 使用多層式安全性
           href: app-service-app-service-environment-layered-security.md
-    - name: CLI 2.0
-- name: 參考
-  items:
-    - name: Azure CLI
-      href: /cli/azure/appservice
-    - name: Azure PowerShell
-      href: /powershell
-    - name: REST API
-      href: /rest/api/appservice/
 - name: 資源
   items:
     - name: Azure 藍圖

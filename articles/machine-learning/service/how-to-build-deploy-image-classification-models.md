@@ -9,11 +9,12 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 04/23/2018
-ms.openlocfilehash: bd9f01e76c68fa41616818251b5b54553059cbcc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 72f5215bac9254c9e3295b2cade7b6d44d516af6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637730"
 ---
 # <a name="build-and-deploy-image-classification-models-with-azure-machine-learning"></a>使用 Azure Machine Learning 建置及部署影像分類模型
 
@@ -227,7 +228,6 @@ else:
 ## <a name="define-dnn-models"></a>定義 DNN 模型
 
 此套件支援下列預先定型的深度類神經網路模型： 
-+ AlexNet
 + Resnet-18
 + Resnet-34
 + Resnet-50
@@ -444,13 +444,9 @@ display(pr_ui.ui)
 + 若要查看目前的模型管理帳戶，請使用此命令：
   <br>`az ml account modelmanagement show`
 
-**建立並設定您的部署環境**
+**建立並設定您的叢集部署環境**
 
 您只需要設定部署環境一次。 如果您還沒有部署環境，請立即使用[這些指示](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#environment-setup)來設定部署環境。 
-
-請根據您的需求，正確地遵循本機或叢集部署設定步驟。
-+ Linux 及 Windows 10 電腦支援本機部署，但 Windows Data Science VM 或 Deep Learning VM 則不支援。 
-+ Linux 和 Windows 都支援叢集環境部署。 
 
 若要查看作用中的部署環境，請使用下列 CLI 命令：
 <br>`az ml env show`
@@ -470,7 +466,7 @@ az ml env cluster
 
 下列 API 可用於將模型部署為 Web 服務、管理那些 Web 服務，以及管理部署。
 
-|工作|API|
+|Task|API|
 |----|----|
 |建立部署物件|`deploy_obj = AMLDeployment(deployment_name=deployment_name, associated_DNNModel=dnn_model, aml_env="cluster")`
 |部署 Web 服務|`deploy_obj.deploy()`|

@@ -1,25 +1,22 @@
 ---
-title: "從 Azure Logic Apps 連線至 Dynamics 365 (線上) | Microsoft Docs"
-description: "建立邏輯應用程式工作流程，以透過 Dynamics 365 連接器提供的 API 管理 Dynamics 365 (線上) 實體"
-services: logic-apps
-cloud: Azure Stack
+title: 連線到 Dynamics 365 - Azure Logic Apps | Microsoft Docs
+description: 使用 Dynamics 365 (線上) REST API 和 Azure Logic Apps 建立及管理記錄
 author: Mattp123
-manager: anneta
-documentationcenter: 
-tags: connectors
-ms.assetid: 0dc2abef-7d2c-4a2d-87ca-fad21367d135
-ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+manager: jeconnoc
+ms.author: matp
 ms.date: 02/10/2017
-ms.author: matp; LADocs
-ms.openlocfilehash: d35647921ff540167a3a591fb489d3bab031a5c1
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: 6ac45d45ed1df0e89eb27657a064a8c95ad4be79
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294838"
 ---
 # <a name="connect-to-dynamics-365-from-logic-app-workflows"></a>從邏輯應用程式邏輯應用程式連線至 Dynamics 365
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34057672"
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>什麼是 Azure 上的內容傳遞網路？
 內容傳遞網路 (CDN) 是可以有效率地將 Web 內容傳遞給使用者的分散式伺服器網路。 CDN 會將快取的內容儲存在使用者附近的邊緣伺服器上的存在點 (POP) 位置中，以將延遲降至最低。 

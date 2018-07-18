@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358824"
 ---
 # <a name="export-azure-resource-manager-templates-with-azure-cli"></a>使用 Azure CLI 來匯出 Azure Resource Manager 範本
 

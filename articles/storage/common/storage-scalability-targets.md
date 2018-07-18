@@ -19,6 +19,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30239679"
 ---
 # <a name="azure-storage-scalability-and-performance-targets"></a>Azure 儲存體延展性和效能目標
 ## <a name="overview"></a>概觀

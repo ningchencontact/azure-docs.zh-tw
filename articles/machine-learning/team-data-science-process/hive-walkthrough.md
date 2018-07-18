@@ -8,17 +8,19 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: e9e76c91-d0f6-483d-bae7-2d3157b86aa0
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: deguhath
-ms.openlocfilehash: 6f16b7524bc8c268ed3a2314b8b88d25eb2f4325
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: beb1c2f88eed8fc38bd32de113835122cfd4e9a4
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34837322"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team Data Science Process 實務：使用 Azure HDInsight Hadoop 叢集
 在此逐步解說中，我們在端對端案例中使用 [Team Data Science Process (TDSP)](overview.md)。 我們使用 [Azure HDInsight Hadoop 叢集](https://azure.microsoft.com/services/hdinsight/)，以對 [NYC 計程車車程](http://www.andresmh.com/nyctaxitrips/) \(英文\) 資料集內可公開使用的資料進行儲存、探索和特徵工程設計，並縮減取樣資料。 若要處理二元和多元分類和迴歸預測工作，我們使用 Azure Machine Learning 建置資料的模型。 

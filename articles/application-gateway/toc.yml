@@ -48,24 +48,39 @@
     - name: 重新支援
       href: redirect-overview.md
     - name: 多租用戶支援
+      href: application-gateway-web-app-overview.md
     - name: 健康狀況監視
       href: application-gateway-probe-overview.md
     - name: WebSocket 支援
       href: application-gateway-websocket.md
 - name: 使用說明指南
   items:
-    - name: 建立應用程式閘道
+    - name: 管理網路流量
       items:
+        - name: Azure PowerShell
+          href: tutorial-manage-web-traffic-powershell.md
         - name: 範本
           href: create-vmss-template.md
-        - name: Web 應用程式 - PowerShell
-          href: create-web-app.md
-        - name: 設定內部負載平衡
-          href: application-gateway-ilb.md
-    - name: 設定 SSL 終止 - 入口網站
-      href: create-ssl-portal.md
-    - name: 裝載多個網站 - 入口網站
-      href: create-multiple-sites-portal.md
+    - name: 設定內部負載平衡器
+      items:
+        - name: Azure PowerShell
+          href: application-gateway-ilb-arm.md
+    - name: 設定 SSL 終止
+      items:
+        - name: 使用 Azure 入口網站終止 SSL
+          href: create-ssl-portal.md
+        - name: 使用 Azure PowerShell 進行 SSL 終止
+          href: tutorial-ssl-powershell.md
+        - name: 更新憑證
+          href: renew-certificates.md
+        - name: 設定 SSL 原則
+          href: application-gateway-configure-ssl-policy-powershell.md
+    - name: 設定 Web 應用程式防火牆
+      items:
+        - name: Azure 入口網站
+          href: application-gateway-web-application-firewall-portal.md
+        - name: Azure PowerShell
+          href: tutorial-restrict-web-traffic-powershell.md
     - name: 自訂 WAF 規則
       items:
         - name: Azure 入口網站
@@ -74,40 +89,36 @@
           href: application-gateway-customize-waf-rules-powershell.md
         - name: Azure CLI
           href: application-gateway-customize-waf-rules-cli.md
-    - name: 重新導向外部流量
+    - name: 藉由 URL 路由傳送
       items:
+        - name: Azure 入口網站
+          href: create-url-route-portal.md
         - name: Azure PowerShell
-          href: redirect-external-site-powershell.md
-        - name: Azure CLI
-          href: redirect-external-site-cli.md
-    - name: 將 HTTP 重新導向到 HTTPS
+          href: tutorial-url-route-powershell.md
+    - name: 裝載多個網站
       items:
+        - name: Azure 入口網站
+          href: create-multiple-sites-portal.md
         - name: Azure PowerShell
-          href: redirect-http-to-https-powershell.md
-        - name: Azure CLI
-          href: redirect-http-to-https-cli.md
-    - name: 重新導向內部流量
+          href: tutorial-multiple-sites-powershell.md
+    - name: 重新導向流量
       items:
-        - name: Azure PowerShell
-          href: redirect-internal-site-powershell.md
-        - name: Azure CLI
-          href: redirect-internal-site-cli.md
-    - name: 限制網路流量 - 入口網站
-      href: create-waf-portal.md
-    - name: 根據 URL 路由傳送 - 入口網站
-      href: create-url-route-portal.md
-    - name: 使用 Azure PowerShell 管理網路流量
-      href: tutorial-manage-web-traffic-powershell.md
-    - name: 使用 Azure PowerShell 限制網路流量
-      href: tutorial-restrict-web-traffic-powershell.md
-    - name: 使用 Azure PowerShell 進行 SSL 終止
-      href: tutorial-ssl-powershell.md
-    - name: 更新憑證
-      href: renew-certificates.md
-    - name: 使用 Azure PowerShell 裝載多個網站
-      href: tutorial-multiple-sites-powershell.md
-    - name: 使用 Azure PowerShell 路由傳送網路流量
-      href: tutorial-url-route-powershell.md
+        - name: HTTP 至 HTTPS
+          items:
+            - name: Azure PowerShell
+              href: redirect-http-to-https-powershell.md
+            - name: Azure CLI
+              href: redirect-http-to-https-cli.md
+        - name: 重新導向內部流量
+          items:
+            - name: Azure PowerShell
+              href: redirect-internal-site-powershell.md
+            - name: Azure CLI
+              href: redirect-internal-site-cli.md
+    - name: 多租用戶支援
+      items:
+        - name: 設定多租用戶支援
+          href: create-web-app.md
     - name: 使用 Azure PowerShell 重新導向網路流量
       href: tutorial-url-redirect-powershell.md
     - name: 建立區域備援應用程式閘道

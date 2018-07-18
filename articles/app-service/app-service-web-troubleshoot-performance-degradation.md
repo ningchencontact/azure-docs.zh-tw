@@ -1,13 +1,13 @@
 ---
-title: "App Service 中的 Web 應用程式效能變慢 | Microsoft Docs"
-description: "本文可協助您針對 Azure App Service 中 Web 應用程式效能變慢的問題進行疑難排解。"
+title: App Service 中的 Web 應用程式效能變慢 | Microsoft Docs
+description: 本文可協助您針對 Azure App Service 中 Web 應用程式效能變慢的問題進行疑難排解。
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: top-support-issue
-keywords: "Web 應用程式效能、變慢的應用程式、應用程式變慢"
+keywords: Web 應用程式效能、變慢的應用程式、應用程式變慢
 ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.service: app-service-web
 ms.workload: web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29461837"
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>針對 Azure App Service 中 Web 應用程式效能變慢的問題進行疑難排解
 本文可協助您針對 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)中 Web 應用程式效能變慢的問題進行疑難排解。

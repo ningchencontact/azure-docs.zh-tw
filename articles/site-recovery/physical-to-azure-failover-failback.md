@@ -1,6 +1,6 @@
 ---
-title: "使用 Site Recovery 將實體伺服器容錯移轉及容錯回復至 Azure | Microsoft Docs"
-description: "了解如何使用 Site Recovery，將實體伺服器容錯移轉到 Azure，然後容錯回復到內部部署網站"
+title: 使用 Site Recovery 將實體伺服器容錯移轉及容錯回復至 Azure | Microsoft Docs
+description: 了解如何使用 Site Recovery，將實體伺服器容錯移轉到 Azure，然後容錯回復到內部部署網站
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
@@ -12,6 +12,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29876003"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>將複寫的實體伺服器容錯移轉及容錯回復至 Azure
 

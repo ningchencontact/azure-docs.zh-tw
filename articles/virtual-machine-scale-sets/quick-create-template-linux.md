@@ -3,7 +3,7 @@ title: 快速入門 - 使用 Azure 範本建立 Linux 虛擬機器擴展集 | Mi
 description: 了解如何使用 Azure Resource Manager 範本快速建立 Linux 虛擬機器縮放，可部署範例應用程式及設定自動縮放規則
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/18
-ms.author: iainfou
-ms.openlocfilehash: c23c798e1e79f8bf66b59da96ccd5342105ffd3a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: cynthn
+ms.openlocfilehash: fc3128c0e08a54bfe95ec4d09bcc766d1d20811f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38477865"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>快速入門：使用 Azure 範本建立 Linux 虛擬機器擴展集
 虛擬機器擴展集可讓您部署和管理一組相同、自動調整的虛擬機器。 您可以手動調整擴展集中的 VM 數目，或定義規則以根據 CPU、記憶體需求或網路流量等資源使用量進行自動調整。 其後，Azure 負載平衡器會將流量分配到擴展集中的多個 VM 執行個體。 在此快速入門中，您會使用 Resource Manager 範本建立虛擬機器擴展集，並部署範例應用程式。

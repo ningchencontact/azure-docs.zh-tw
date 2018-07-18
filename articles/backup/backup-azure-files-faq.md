@@ -7,13 +7,13 @@ ms.author: markgal
 ms.date: 2/21/2018
 ms.topic: tutorial
 ms.service: backup
-ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: c0261b4f89647a8db3b7bf452a8827d40fdc1911
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: de91559d9c3626bdd07c2e497a8aa0b124f00b57
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434831"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>有關備份 Azure 檔案服務的問題
 本文提供有關備份 Azure 檔案服務的常見問題解答。 在某些答案中，有具有完整資訊的文章連結。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。
@@ -23,7 +23,7 @@ ms.lasthandoff: 04/28/2018
 ## <a name="configuring-the-backup-job-for-azure-files"></a>設定 Azure 檔案服務的備份作業
 
 ### <a name="why-cant-i-see-some-of-my-storage-accounts-i-want-to-protect-that-contain-valid-azure-file-shares-br"></a>為何看不到某些我想要保護且包含有效 Azure 檔案共用的儲存體帳戶？ <br/>
-在預覽期間，Azure 檔案共用的備份不支援所有的儲存體帳戶類型。 請參閱[這裡](troubleshoot-azure-files.md#preview-boundaries)的清單，以查看支援的儲存體帳戶清單。 您所尋找的儲存體帳戶也可能已經受保護或向另一個保存庫註冊。 從保存庫[取消註冊](troubleshoot-azure-files.md#configuring-backup)，以探索其他保存庫中用於保護的儲存體帳戶。
+在預覽期間，Azure 檔案共用的備份不支援所有的儲存體帳戶類型。 請參閱[這裡](troubleshoot-azure-files.md#limitations-for-azure-file-share-backup-during-preview)的清單，以查看支援的儲存體帳戶清單。 您所尋找的儲存體帳戶也可能已經受保護或向另一個保存庫註冊。 從保存庫[取消註冊](troubleshoot-azure-files.md#configuring-backup)，以探索其他保存庫中用於保護的儲存體帳戶。
 
 ### <a name="why-cant-i-see-some-of-my-azure-file-shares-in-the-storage-account-when-im-trying-to-configure-backup-br"></a>為何我在嘗試設定備份時，在儲存體帳戶中看不到某些 Azure 檔案共用？ <br/>
 請確認 Azure 檔案共用是否已在相同的復原服務保存庫中受到保護，或是否已於近期刪除。
@@ -39,20 +39,20 @@ ms.lasthandoff: 04/28/2018
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>我可以在哪些地區備份 Azure 檔案共用 <br/>
 Azure 檔案共用的備份功能目前處於預覽狀態，僅適用於下列地區： 
--   澳大利亞東南部 (ASE) 
+-   澳洲東部 (AE) 
+- 澳大利亞東南部 (ASE) 
 - 巴西南部 (BRS)
 - 加拿大中部 (CNC)
 -   加拿大東部 (CE)
 -   美國中部 (CUS)
 -   東亞 (EA)
--   澳大利亞東部 (AE) 
 -   美國東部 (EUS)
 -   美國東部 2 (EUS2)
 - 日本東部 (JPE)
 - 日本西部 (JPW)
 -   印度中部 (INC) 
 - 印度南部 (INS)
-- 韓國中部 (KRC)
+- 南韓中部 (KRC)
 - 南韓 (KRS)
 -   美國中北部 (NCUS) 
 -   北歐 (NE) 
@@ -68,10 +68,10 @@ Azure 檔案共用的備份功能目前處於預覽狀態，僅適用於下列�
 如果您在未列於上方的特定地區中需要使用該功能，請寫信送至 [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com)。
 
 ### <a name="how-many-azure-file-shares-can-i-protect-in-a-vaultbr"></a>我可以在一個保存庫中保護多少個 Azure 檔案共用？<br/>
-在預覽期間，您在每個保存庫中最多可以保護 25 個儲存體帳戶的 Azure 檔案共用。 此外，您在單一保存庫中最多可保護 200 個檔案共用。
+在預覽期間，您在每個保存庫中最多可以保護 50 個儲存體帳戶的 Azure 檔案共用。 此外，您在單一保存庫中最多可保護 200 個檔案共用。
 
 ### <a name="can-i-protect-two-different-file-shares-from-the-same-storage-account-to-different-vaults"></a>可以將相同儲存體帳戶中的兩個不同檔案共用放入不同的保存庫中保護？
-編號 一個儲存體帳戶中的所有檔案共用只能由相同的保存庫保護。
+否。 一個儲存體帳戶中的所有檔案共用只能由相同的保存庫保護。
 
 ## <a name="backup"></a>Backup 
 

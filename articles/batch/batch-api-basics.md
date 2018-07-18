@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 04/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: add8e184db102d48275bd8d3faa42def63918c19
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3fe0d3836046ad143e746503210099ee5c640a08
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360484"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129093"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>使用 Batch 開發大規模的平行運算解決方案
 
@@ -506,8 +506,7 @@ Batch 可處理使用 Azure 儲存體將應用程式封裝儲存及部署到計�
 * 了解可用來建置 Batch 解決方案的 [Batch API 和工具](batch-apis-tools.md)。
 * 在 [開始使用適用於 .NET 的 Azure Batch 程式庫](batch-dotnet-get-started.md)中逐步了解範例 Batch 應用程式。 另外還有 [Python 版本](batch-python-tutorial.md) 的教學課程，該教學課程會在 Linux 計算節點上執行工作負載。
 * 下載並安裝 [BatchLabs][batch_labs] 以在開發 Batch 解決方案時使用。 您可以使用 BatchLabs 來協助建立、偵錯和監視 Azure Batch 應用程式。 
-* 了解如何 [建立 Linux 計算節點的集區](batch-linux-nodes.md)。
-* 瀏覽 MSDN 上的 [Azure Batch 論壇][batch_forum]。 不論您是新手或是使用 Batch 的專家，論壇都是詢問問題的好地方。
+* 請參閱社群資源，包括[Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)、[Batch 社群存放庫](https://github.com/Azure/Batch)以及 MSDN 上的 [Azure Batch 論壇][batch_forum]。 
 
 [1]: ./media/batch-api-basics/node-folder-structure.png
 
@@ -541,7 +540,7 @@ Batch 可處理使用 Azure 儲存體將應用程式封裝儲存及部署到計�
 [net_rdpfile]: https://msdn.microsoft.com/library/azure/Mt272127.aspx
 [vnet]: https://msdn.microsoft.com/library/azure/dn820174.aspx#bk_netconf
 
-[py_add_user]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.operations.html#azure.batch.operations.ComputeNodeOperations.add_user
+[py_add_user]: https://docs.microsoft.com/en-us/python/azure/?view=azure-python
 
 [batch_rest_api]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
 [rest_add_job]: https://msdn.microsoft.com/library/azure/mt282178.aspx

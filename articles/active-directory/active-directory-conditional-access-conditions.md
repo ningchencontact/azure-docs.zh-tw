@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory 條件式存取中的條件 | Microsoft Docs
-description: 了解如何在 Azure Active Directory 條件式存取中使用指派來觸發原則。
+title: 什麼是 Azure Active Directory 條件式存取中的條件？ | Microsoft Docs
+description: 了解如何在 Azure Active Directory 條件式存取中使用條件來觸發原則。
 services: active-directory
 keywords: 應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則
 documentationcenter: ''
@@ -9,21 +9,22 @@ manager: mtillman
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/01/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 3cb8e598864bccfbea24a2aec5d9387ff903e51c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 42792170593dbd94d0eae9b408c70f326891508a
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32770616"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "36231916"
 ---
-# <a name="conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory 條件式存取中的條件 
+# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的條件？ 
 
 透過 [Azure Active Directory (Azure AD) 條件式存取](active-directory-conditional-access-azure-portal.md)，您可以控制授權使用者如何存取您的雲端應用程式。 在條件式存取原則中，您會定義對觸發原則之原因 ("when this happens") 做出的回應 ("do this")。 
 
@@ -139,7 +140,7 @@ ms.locfileid: "32770616"
 
 - 針對從特定國家或地區存取服務的使用者，封鎖存取權。 
 
-如需詳細資訊，請參閱 [Azure Active Directory 條件式存取中的位置條件](active-directory-conditional-access-locations.md)。
+如需詳細資訊，請參閱[什麼是 Azure Active Directory 條件式存取中的位置條件](active-directory-conditional-access-locations.md)。
 
 
 ## <a name="client-apps"></a>用戶端應用程式
@@ -149,7 +150,7 @@ ms.locfileid: "32770616"
 - 網站和服務
 - 行動應用程式和傳統型應用程式。 
 
-![條件](./media/active-directory-conditional-access-conditions/04.png)
+
 
 應用程式會被歸類為：
 
@@ -157,7 +158,7 @@ ms.locfileid: "32770616"
 
 - 行動應用程式或傳統型應用程式 - 如果應用程式針對原生用戶端使用行動應用程式 OpenID Connect。
 
-如需可在條件式存取原則中使用的用戶端應用程式完整清單，請參閱 [Azure Active Directory 條件式存取的技術參考](active-directory-conditional-access-technical-reference.md#client-apps-condition)。
+如需可在條件式存取原則中使用的用戶端應用程式完整清單，請參閱「Azure Active Directory 條件式存取的技術參考」中的[用戶端應用程式條件](active-directory-conditional-access-technical-reference.md#client-apps-condition)。
 
 此條件的常見使用案例是會採取下列措施的原則：
 
@@ -167,6 +168,20 @@ ms.locfileid: "32770616"
 
 除了使用 Web SSO 和新式驗證通訊協定之外，您也可以將此條件套用至使用 Exchange ActiveSync (例如大多數智慧型手機上的原生郵件應用程式) 的郵件應用程式。 目前，必須使用 AD FS 來保護使用傳統通訊協定的用戶端應用程式。
 
+只有在 **Office 365 Exchange Online** 是唯一選取的雲端應用程式時，才可以選取此條件。
+
+![雲端應用程式](./media/active-directory-conditional-access-conditions/32.png)
+
+只有在原則中並未設定其他條件時，才支援選取 **Exchange ActiveSync** 作為用戶端應用程式條件。 不過，您可以將此條件的範圍縮小至只會套用到支援的平台。
+
+ 
+![支援的平台](./media/active-directory-conditional-access-conditions/33.png)
+
+只將此條件套用到支援的平台相當於套用到[裝置平台條件](active-directory-conditional-access-conditions.md#device-platforms)中的所有裝置平台。
+
+![支援的平台](./media/active-directory-conditional-access-conditions/34.png)
+
+
  如需詳細資訊，請參閱
 
 - [設定 SharePoint Online 和 Exchange Online，以便採用 Azure Active Directory 條件式存取](active-directory-conditional-access-no-modern-authentication.md)
@@ -174,15 +189,59 @@ ms.locfileid: "32770616"
 - [Azure Active Directory 應用程式型條件式存取](active-directory-conditional-access-mam.md) 
 
 
+### <a name="legacy-authentication"></a>舊版驗證  
+
+條件式存取現在適用於不支援新式驗證的舊版 Office 用戶端，以及使用 POP、IMAP、SMTP 等郵件通訊協定的用戶端。這可讓您設定**封鎖其他用戶端的存取**之類的原則。
+
+
+![舊版驗證](./media/active-directory-conditional-access-conditions/160.png)
+ 
 
 
 
+#### <a name="known-issues"></a>已知問題
+
+- 為**其他用戶端**設定原則會讓整個組織封鎖特定用戶端，例如 SPConnect。 這是因為這些舊版用戶端會以非預期的方式進行驗證。 主要的 Office 應用程式 (例如，較舊的 Office 用戶端) 不會有這個問題。 
+
+- 原則最慢可能需要 24 小時才會生效。 
+
+
+#### <a name="frequently-asked-questions"></a>常見問題集
+
+**這會封鎖 Exchange Web 服務 (EWS) 嗎？**
+
+視 EWS 所使用的驗證通訊協定而定。 如果 EWS 應用程式使用新式驗證，則會在「行動應用程式和桌面用戶端」用戶端應用程式的涵蓋範圍內。 如果 EWS 應用程式使用基本驗證，則會在「其他用戶端」用戶端應用程式的涵蓋範圍內。
+
+
+**我可以對其他用戶端使用哪些控制項**
+
+您可以對「其他用戶端」設定任何控制項。 不過，所有案例的終端使用者體驗都會是封鎖存取。 「其他用戶端」不支援 MFA、符合規範的裝置、網域加入等控制項。 
+ 
+**我可以對其他用戶端使用哪些條件**
+
+您可以對「其他用戶端」設定任何條件。
+
+**Exchange ActiveSync 是否支援所有條件和控制項？**
+
+否。 以下是 Exchange ActiveSync (EAS) 支援的摘要：
+
+- EAS 僅支援使用者和群組目標。 它不支援來賓、角色。 如果設定了來賓/角色條件，由於我們無法判斷是否應將原則套用至使用者，所以會封鎖所有使用者。
+
+- EAS 只能以雲端應用程式的形式與 Exchange 搭配運作。 
+
+- EAS 不支援用戶端應用程式本身以外的任何條件。
+
+- 您可以對 EAS 設定任何控制項 (但裝置相容性會導致封鎖)。
+
+**原則之後是否會預設適用於所有用戶端應用程式？**
+
+否。 預設原則行為不會有任何變更。 原則預設會繼續適用於瀏覽器和行動應用程式/桌面用戶端。
 
 
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如果您想要知道如何設定條件式存取原則，請參閱[開始使用 Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal-get-started.md)。
+- 如果您想要知道如何設定條件式存取原則，請參閱[利用 Azure Active Directory 條件式存取來取得特定應用程式的 MFA](active-directory-conditional-access-app-based-mfa.md)。
 
 - 如果您已準備好設定您環境的條件式存取原則，請參閱 [Azure Active Directory 中條件式存取的最佳做法](active-directory-conditional-access-best-practices.md)。 
 

@@ -14,6 +14,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31796843"
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Azure 搜尋服務索引子中的欄位對應
 使用 Azure 搜尋服務索引子時，您偶爾會發現置身於輸入資料不完全符合目標索引結構描述的情況中。 在這些情況下，您可以使用 **欄位對應** 將您的資料轉換成所需的形狀。

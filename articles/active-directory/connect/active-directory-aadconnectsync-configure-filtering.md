@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0b4b306d1224b5521774b05a110c862b58450eb3
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 59bc6652a61e0c61188bbfd09251161411923628
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287570"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect 同步處理：設定篩選
 使用篩選功能可讓您控制內部部署目錄中的哪些物件應該出現在 Azure Active Directory 中。 預設組態會擷取所設定樹系中所有網域內的所有物件。 一般會建議使用者使用這個組態。 完整的全域通訊清單對於使用 Exchange Online 和商務用 Skype 等 Office 365 工作負載的使用者來說十分方便，因為如此一來，他們就可以傳送電子郵件和呼叫每個人。 使用預設設定時，所獲得的體驗與使用 Exchange 或 Lync 的內部部署實作相同。
@@ -38,7 +40,7 @@ ms.lasthandoff: 03/29/2018
 ## <a name="basics-and-important-notes"></a>基本概念和重要事項
 在 Azure AD Connect 同步處理中，您隨時都能啟用篩選功能。 如果您一開始是使用目錄同步作業的預設組態，接著設定了篩選，則篩選出的物件就不會再同步處理至 Azure AD。 因為這項變更，系統會在 Azure AD 中，刪除 Azure AD 中先前已同步處理但接著篩選出的所有物件。
 
-在開始變更篩選之前，請確定您已 [停用排程的工作](#disable-scheduled-task) ，如此才不會意外匯出尚未確認是否正確的變更。
+在開始變更篩選之前，請確定您已 [停用排程的工作](#disable-the-scheduled-task) ，如此才不會意外匯出尚未確認是否正確的變更。
 
 因為篩選後會同時移除許多的物件，您必須先確定新的篩選器正確無誤，然後再開始將變更匯出至 Azure AD。 在完成組態設定步驟後，建議您一定要先按照 [驗證步驟](#apply-and-verify-changes) 中的指示執行過一次，然後才對 Azure AD 進行匯出和變更作業。
 

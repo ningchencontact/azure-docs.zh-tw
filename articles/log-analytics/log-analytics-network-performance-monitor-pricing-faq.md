@@ -10,16 +10,18 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: ajaycode
-ms.openlocfilehash: 1e7e43dc2e7ed386f8f77fd1ab186d2ff34af405
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: na
+ms.openlocfilehash: 96eb26d6a4faf8c6907d23ebf21f2446722c913b
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127088"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Azure 網路效能監控的定價變更
 
@@ -55,7 +57,7 @@ NPM 中的效能監控功能現在是根據下列組合計費：
 
 **我有兩個子網路 (A 和 B)，且每個子網路上有數個代理程式。效能監控會監控子網路 A 上所有代理程式到子網路 B 上所有代理程式的連線。是否會根據子網路間的連線數目向我收費？**
 
-編號 為了計費目的，從子網路 A 到子網路 B 的所有連線會群組在一起成為一個子網路連結， 而會向您收取單一連線的費用。 效能監控會持續監控每個子網路上各種代理程式之間的連線。
+否。 為了計費目的，從子網路 A 到子網路 B 的所有連線會群組在一起成為一個子網路連結， 而會向您收取單一連線的費用。 效能監控會持續監控每個子網路上各種代理程式之間的連線。
 
 **監視子網路連結的成本為何？**
 

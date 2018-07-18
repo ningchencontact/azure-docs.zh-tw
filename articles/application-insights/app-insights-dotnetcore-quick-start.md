@@ -1,8 +1,8 @@
 ---
-title: "Azure Application Insights 快速入門 | Microsoft Docs"
-description: "提供指示說明如何快速設定 ASP.NET Core Web 應用程式，以透過 Application Insights 來監視"
+title: Azure Application Insights 快速入門 | Microsoft Docs
+description: 提供指示說明如何快速設定 ASP.NET Core Web 應用程式，以透過 Application Insights 來監視
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/12/2017
@@ -15,6 +15,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29386376"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>開始監視 ASP.NET Core Web 應用程式
 

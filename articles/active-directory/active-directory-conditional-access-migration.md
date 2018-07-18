@@ -1,5 +1,5 @@
 ---
-title: Azure 入口網站中的 Migrate 傳統原則 | Microsoft Docs
+title: 什麼是 Azure Active Directory 條件式存取中的原則移轉？ | Microsoft Docs
 description: 了解如何在 Azure 入口網站中移轉傳統原則中。
 services: active-directory
 keywords: 應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則
@@ -9,20 +9,22 @@ manager: femila
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2017
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 16628bd4fa41d2e7697e1c2501f2ccd31dbd0496
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 4a9b3df66567c4170ba861d3e597261e37271bf1
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231888"
 ---
-# <a name="migrate-classic-policies-in-the-azure-portal"></a>Azure 入口網站中的 Migrate 傳統原則 
+# <a name="what-is-a-policy-migration-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的原則移轉？ 
 
 
 [條件式存取](active-directory-conditional-access-azure-portal.md)是 Azure Active Directory (Azure AD) 的功能，可讓您控制授權使用者如何存取您的雲端應用程式。 雖然目的仍相同，但新版的 Azure 入口網站導入了條件式存取如何運作的重大改善。
@@ -83,11 +85,11 @@ ms.lasthandoff: 12/12/2017
 
 請參閱：
 
-- [Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal.md)，以了解基本概念與術語。
+- [什麼是 Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal.md)，以了解基本概念與術語。
 
 - [Azure Active Directory 中的條件式存取最佳做法](active-directory-conditional-access-best-practices.md)，以取得在您的組織中部署條件式存取的一些指引。
 
-- [開始使用 Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal-get-started.md)，以熟悉 Azure 入口網站的使用者介面。
+- [利用 Azure Active Directory 條件式存取來取得特定應用程式的 MFA](active-directory-conditional-access-app-based-mfa.md)，以熟悉 Azure 入口網站的使用者介面。
 
 
  
@@ -168,6 +170,6 @@ Office 365 Exchange Online [以應用程式為基礎](active-directory-condition
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如果您想要知道如何設定條件式存取原則，請參閱[開始使用 Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal-get-started.md)。
+- 如果您想要知道如何設定條件式存取原則，請參閱[利用 Azure Active Directory 條件式存取來取得特定應用程式的 MFA](active-directory-conditional-access-app-based-mfa.md)。
 
 - 如果您已準備好設定您環境的條件式存取原則，請參閱 [Azure Active Directory 中條件式存取的最佳做法](active-directory-conditional-access-best-practices.md)。 

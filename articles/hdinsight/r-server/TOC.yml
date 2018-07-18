@@ -1,6 +1,6 @@
 - name: Azure HDInsight 文件
   href: /azure/hdinsight
-- name: HDInsight 上的 R 伺服器
+- name: HDInsight 上的 ML 服務
   items:
     - name: 概觀
       href: r-server-overview.md
@@ -9,7 +9,7 @@
       maintainContext: true
 - name: 開始使用
   items:
-    - name: 以 R 伺服器開始
+    - name: 開始使用 ML 服務
       href: r-server-get-started.md
     - name: 安裝 HDInsight 應用程式
       href: ../hdinsight-apps-install-applications.md
@@ -19,11 +19,11 @@
       maintainContext: true
 - name: 作法
   items:
-    - name: 使用 R 伺服器
+    - name: 使用 ML 服務
       items:
-        - name: 管理 R 伺服器叢集
+        - name: 管理 ML 服務叢集
           href: r-server-hdinsight-manage.md
-        - name: 讓 R 伺服器叢集能夠運作
+        - name: 讓 ML 服務叢集能夠運作
           href: r-server-operationalize.md
         - name: 儲存體選項
           href: r-server-storage.md
@@ -276,13 +276,10 @@
         - name: 將 HDInsight 與內部部署網路連線
           href: ../connect-on-premises-network.md
           maintainContext: true
-    - name: 使用 OMS 監控
+    - name: 使用 Log Analytics 監視
       items:
         - name: 使用 Azure Log Analytics
           href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-          maintainContext: true
-        - name: 叢集特定儀表板
-          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
           maintainContext: true
         - name: 透過 Log Analytics 使用查詢
           href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
@@ -311,6 +308,10 @@
     - name: 版本資訊
       href: ../hdinsight-release-notes.md
       maintainContext: true
+      items:
+        - name: 封存的版本資訊
+          href: ../hdinsight-release-notes-archive.md
+          maintainContext: true
     - name: Azure 藍圖
       href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
     - name: 在論壇上取得協助

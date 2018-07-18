@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: aa140bceb5f7ad5e638f747fa8d88803c27f02a3
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 5f25213d8d1fbc95aa419c86ca5b780f345952ed
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33867660"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130194"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>解決 Azure Multi-Factor Authentication NPS 擴充功能的錯誤訊息
 
@@ -52,14 +52,14 @@ ms.locfileid: "33867660"
 | 錯誤碼 | 錯誤訊息 | 疑難排解步驟 |
 | ---------- | ------------- | --------------------- |
 | **AccessDenied** | 呼叫者租用戶並沒有執行使用者驗證的存取權限 | 請檢查租用戶網域和使用者主要名稱 (UPN) 的網域是否相同。 例如，請確定 user@contoso.com 正在嘗試驗證的是 Contoso 租用戶。 UPN 代表 Azure 中有效的租用戶使用者。 |
-| **AuthenticationMethodNotConfigured** | 使用者未設定指定的驗證方法 | 請讓使用者根據[管理您的雙步驟驗證設定](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md)中的指示，來新增或驗證他們的驗證方法。 |
+| **AuthenticationMethodNotConfigured** | 使用者未設定指定的驗證方法 | 請讓使用者根據[管理您的雙步驟驗證設定](end-user/current/multi-factor-authentication-end-user-manage-settings.md)中的指示，來新增或驗證他們的驗證方法。 |
 | **AuthenticationMethodNotSupported** | 不支援指定的驗證方法。 | 請收集所有包含此錯誤的記錄，並[連絡支援人員](#contact-microsoft-support)。 當您連絡支援人員時，請提供使用者名稱和觸發錯誤的次要驗證方法。 |
-| **BecAccessDenied** | MSODS Bec 呼叫傳回拒絕存取，可能是因為使用者名稱未在租用戶中定義 | 使用者存在於 Active Directory 內部部署中，但未透過 AD Connect 同步至 Azure AD。 或者，租用戶遺失使用者。 請將使用者新增至 Azure AD，並讓使用者根據[管理您的雙步驟驗證設定](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md)中的指示，來新增他們的驗證方法。 |
+| **BecAccessDenied** | MSODS Bec 呼叫傳回拒絕存取，可能是因為使用者名稱未在租用戶中定義 | 使用者存在於 Active Directory 內部部署中，但未透過 AD Connect 同步至 Azure AD。 或者，租用戶遺失使用者。 請將使用者新增至 Azure AD，並讓使用者根據[管理您的雙步驟驗證設定](end-user/current/multi-factor-authentication-end-user-manage-settings.md)中的指示，來新增他們的驗證方法。 |
 | **InvalidFormat** 或 **StrongAuthenticationServiceInvalidParameter** | 無法辨識電話號碼格式 | 請使用者修正他們的驗證電話號碼。 |
 | **InvalidSession** | 指定的工作階段無效或已過期 | 工作階段費時三分鐘以上才完成。 請確定使用者在驗證要求啟動後的三分鐘內輸入驗證碼或回應應用程式通知。 如果這麼做沒有修正問題，請檢查用戶端、NAS 伺服器、NPS 伺服器與 Azure MFA 端點之間沒有網路延遲的情形。  |
-| **NoDefaultAuthenticationMethodIsConfigured** | 使用者未設定預設的驗證方法 | 請讓使用者根據[管理您的雙步驟驗證設定](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md)中的指示，來新增或驗證他們的驗證方法。 請確定使用者已選擇預設驗證方法，且已為他們的帳戶設定該方法。 |
+| **NoDefaultAuthenticationMethodIsConfigured** | 使用者未設定預設的驗證方法 | 請讓使用者根據[管理您的雙步驟驗證設定](end-user/current/multi-factor-authentication-end-user-manage-settings.md)中的指示，來新增或驗證他們的驗證方法。 請確定使用者已選擇預設驗證方法，且已為他們的帳戶設定該方法。 |
 | **OathCodePinIncorrect** | 輸入的代碼和 Pin 碼錯誤。 | 此錯誤不應出現在 NPS 擴充功能中。 如果您的使用者遇到此錯誤，請[連絡支援人員](#contact-microsoft-support)以取得疑難排解說明。 |
-| **ProofDataNotFound** | 指定的驗證方法未設定證明資料。 | 請讓使用者根據[管理您的雙步驟驗證設定](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md)中的指示，嘗試不同驗證方法或新增驗證法。 如果您確認使用者已正確設定他們的驗證方法，但使用者仍持續看見此錯誤，請[連絡支援人員](#contact-microsoft-support)。 |
+| **ProofDataNotFound** | 指定的驗證方法未設定證明資料。 | 請讓使用者根據[管理您的雙步驟驗證設定](end-user/current/multi-factor-authentication-end-user-manage-settings.md)中的指示，嘗試不同驗證方法或新增驗證法。 如果您確認使用者已正確設定他們的驗證方法，但使用者仍持續看見此錯誤，請[連絡支援人員](#contact-microsoft-support)。 |
 | **SMSAuthFailedWrongCodePinEntered** | 輸入的代碼和 Pin 碼錯誤。 (OneWaySMS) | 此錯誤不應出現在 NPS 擴充功能中。 如果您的使用者遇到此錯誤，請[連絡支援人員](#contact-microsoft-support)以取得疑難排解說明。 |
 | **TenantIsBlocked** | 租用戶已遭封鎖 | 請從 Azure 入口網站中的 Azure AD 屬性頁面中取得 Directory 識別碼並[連絡支援人員](#contact-microsoft-support)。 |
 | **UserNotFound** | 找不到指定的使用者 | 此租用戶在 Azure AD 中已不是顯示為作用中的租用戶。 請檢查您的訂用帳戶是否在作用中，以及您是否有必要的第一方應用程式。 也請確定憑證主體中的租用戶正確，且憑證仍然有效，並已註冊於服務主體下。 |
@@ -96,7 +96,7 @@ ms.locfileid: "33867660"
 
 ### <a name="troubleshoot-user-accounts"></a>針對使用者帳戶進行移難排解
 
-如果您的使用者[進行雙步驟驗證時發生問題](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md)，請協助助他們自行診斷問題。 
+如果您的使用者[進行雙步驟驗證時發生問題](end-user/current/multi-factor-authentication-end-user-troubleshoot.md)，請協助助他們自行診斷問題。 
 
 ### <a name="contact-microsoft-support"></a>連絡 Microsoft 支援
 

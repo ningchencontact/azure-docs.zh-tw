@@ -1,21 +1,21 @@
 ---
-title: Azure Active Directory B2C︰將自有屬性新增到自訂原則並用於設定檔編輯 | Microsoft Docs
-description: 逐步解說如何使用擴充屬性、自訂屬性，並將其包含在使用者介面中
+title: 在 Azure Active Directory B2C 中將您自己的屬性新增至自訂原則 | Microsoft Docs
+description: 逐步解說如何使用擴充功能內容、自訂屬性，並將其包含在使用者介面中。
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: davidmu
-ms.openlocfilehash: e0595a67b90e1be7bb992ef7bda4343e692d8957
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: B2C
+ms.openlocfilehash: e4dfb92257dca4069905f17e1c3ccd43d87cd45c
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34710153"
 ---
 # <a name="azure-active-directory-b2c-creating-and-using-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C︰在自訂設定檔編輯原則中建立和使用自訂屬性
 

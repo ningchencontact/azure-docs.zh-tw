@@ -6,14 +6,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: c97aa3aba9b705eeb0e3f40f289af389e6f380b0
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 7d1fa8d05de11ed68bedbc91fbe22aa64b25372e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650378"
 ---
 # <a name="monitor-and-improve-performance"></a>監視並改善效能
 Azure SQL Database 可找出資料庫中的潛在問題，並透過提供智慧型微調動作和建議來建議可以改善工作負載效能的動作。
@@ -65,7 +66,7 @@ Azure SQL Databases 能透過套用[效能建議](sql-database-advisor.md)來自
 
   ![效能儀表板](./media/sql-database-query-performance/performance.png)
 
-如需此頁面的詳細資訊，可在**[如何使用查詢效能深入解析](sql-database-query-performance.md)**一文中找到。
+如需此頁面的詳細資訊，可在**[如何使用查詢效能深入解析](sql-database-query-performance.md)** 一文中找到。
 
 ## <a name="additional-resources"></a>其他資源
 * [單一資料庫的 Azure SQL Database 效能指引](sql-database-performance-guidance.md)

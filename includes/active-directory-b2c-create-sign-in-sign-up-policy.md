@@ -6,11 +6,11 @@
 
 輸入原則 [名稱]，以供您的應用程式參考。 例如，輸入 `SiUpIn`。
 
-選取 [識別提供者]，然後勾選 [電子郵件註冊]。 (選擇性) 您也可以選取社交身分識別提供者 (如果已經設定)。 按一下 [SERVICEPRINCIPAL] 。
+選取 [識別提供者]，然後勾選 [電子郵件註冊]。 (選擇性) 您也可以選取社交身分識別提供者 (如果已經設定)。 按一下 [確定]。
 
 ![以識別提供者身分來選取 [電子郵件註冊]，然後按一下 [確定] 按鈕](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-identity-providers.png)
 
-選取 [註冊屬性]。 選擇註冊期間要向取用者收集的屬性。 例如，勾選 [國家/區域]、[顯示名稱] 和 [郵遞區號]。 按一下 [SERVICEPRINCIPAL] 。
+選取 [註冊屬性]。 選擇註冊期間要向取用者收集的屬性。 例如，勾選 [國家/區域]、[顯示名稱] 和 [郵遞區號]。 按一下 [確定]。
 
 ![選取某些屬性，然後按一下 [確定] 按鈕](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-sign-up-attributes.png)
 

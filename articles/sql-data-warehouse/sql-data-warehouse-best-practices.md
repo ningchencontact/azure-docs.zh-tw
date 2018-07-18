@@ -15,6 +15,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31798687"
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲最佳做法
 本文集合讓您從 Azure SQL 資料倉儲獲得最佳效能的最佳做法。  文章中有些基本概念很容易說明，有些概念則更進階，我們在文中只做概述。  這篇文章的目的是要提供您一些基本指引，以及讓您對建立資料倉儲時需注意的重要領域有所認知。  每一節都會介紹一個概念，並提供您哪裡可以閱讀深度討論的詳細文章。

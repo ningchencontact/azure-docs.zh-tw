@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32158761"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>在 Azure App Service 中針對 Web 應用程式啟用診斷記錄功能。
 ## <a name="overview"></a>概觀

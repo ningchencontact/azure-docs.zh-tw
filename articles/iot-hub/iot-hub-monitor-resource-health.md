@@ -1,31 +1,28 @@
 ---
 title: 監視 Azure IoT 中樞的健康情況 | Microsoft Docs
 description: 使用「Azure 監視器」和「Azure 資源健康狀態」來監視您的「IoT 中樞」並快速診斷問題
-services: iot-hub
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 10/09/2017
 ms.author: kgremban
-ms.openlocfilehash: bf6202b002aaf6d89a30c7c653fdcee00cb50290
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 39171f7d7a7b27ec54f67b592e184e90134a1a52
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202215"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611366"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>監視 Azure IoT 中樞的健康情況並快速診斷問題
 
 實作「Azure IoT 中樞」的企業會期望其資源有可靠的效能。 為了協助您對作業維持密切的監看，「IoT 中樞」已與 [Azure 監視器][lnk-AM]和 [Azure 資源健康狀態][lnk-ARH]完全整合。 這兩項服務會一前一後協力運作，為您提供讓 IoT 解決方案以健全狀態啟動並執行所需的資料。 
 
-「Azure 監視器」是您所有 Azure 服務之監視和記錄功能的單一來源。 您可以將「Azure 監視器」產生的記錄傳送給 Log Analytics、「事件中樞」或「Azure 儲存體」來進行自訂的處理。 「Azure 監視器」的計量和診斷設定可讓您即時檢視資源的效能。 請繼續閱讀本文來了解如何搭配您的 IoT 中樞來[使用 Azure 監視器](#use-azure-monitor)。 
+「Azure 監視器」是您所有 Azure 服務之監視和記錄功能的單一來源。 您可以將 Azure 監視器產生的診斷記錄傳送給 Log Analytics、事件中樞或 Azure 儲存體來進行自訂處理。 Azure 監視器的計量和診斷設定可讓您檢視資源的效能。 請繼續閱讀本文來了解如何搭配您的 IoT 中樞來[使用 Azure 監視器](#use-azure-monitor)。 
+
+> [!IMPORTANT]
+> 不保證使用 Azure 監視器診斷記錄透過 IoT 中樞服務發出的事件是可靠的或按順序的。 某些事件可能會遺失，或未按順序傳遞。 診斷記錄也不是即時的，而且它可能需要幾分鐘的時間才能將事件記錄到您所選擇的目的地。
 
 「Azure 資源健康狀態」可協助您在 Azure 問題影響您的資源時，進行診斷並取得支援。 個人化儀表板可提供您「IoT 中樞」的目前和過去健全狀態。 請繼續閱讀本文來了解如何搭配您的 IoT 中樞來[使用 Azure 資源健康狀態](#use-azure-resource-health)。 
 
@@ -47,7 +44,7 @@ ms.locfileid: "34202215"
 
 #### <a name="connections"></a>連線
 
-連線類別會追蹤當裝置與 IoT 中樞連線或中斷連線時發生的錯誤。 若想識別未經授權的連線嘗試，以及在連線品質不佳之區域內的裝置中斷連線時進行追蹤，就很適合追蹤此類別。
+連線類別會追蹤來自 IoT 中樞的裝置連線和中斷連線事件以及錯誤。 若想識別未經授權的連線嘗試，以及在連線品質不佳之區域內的裝置中斷連線時進行追蹤，就很適合追蹤此類別。
 
 ```json
 {

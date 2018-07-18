@@ -1,11 +1,11 @@
 ---
-title: "在 Azure Redis 快取中匯入與匯出資料 | Microsoft Docs"
-description: "了解如何使用進階 Azure Redis 快取執行個體將資料匯入至 blob 儲存體並從其中匯出資料"
+title: 在 Azure Redis 快取中匯入與匯出資料 | Microsoft Docs
+description: 了解如何使用進階 Azure Redis 快取執行個體將資料匯入至 blob 儲存體並從其中匯出資料
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 4a68ac38-87af-4075-adab-569d37d7cc9e
 ms.service: cache
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27910082"
 ---
 # <a name="import-and-export-data-in-azure-redis-cache"></a>在 Azure Redis 快取中匯入與匯出資料
 匯入/匯出是 Azure Redis 快取資料管理作業，可讓您將資料匯入 Azure Redis 快取或將資料從 Azure Redis 快取匯出，方法是從進階快取將 Redis 快取資料庫 (RDB) 快照匯入和匯出至 Azure 儲存體帳戶中的 blob。 

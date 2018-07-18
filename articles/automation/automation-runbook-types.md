@@ -6,14 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 06/29/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 94fbc1cf0232eaf48bb0be3c6edc0542142e4681
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7958042ccb2f55e9b6021f7d804a0dcd090695c5
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109312"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure 自動化 Runbook 類型
 Azure 自動化支援下表中簡短描述的幾種 Runbook。  下列各節提供各種類型的進一步資訊，包括每種類別何時使用的考量。
@@ -43,7 +44,7 @@ Azure 自動化支援下表中簡短描述的幾種 Runbook。  下列各節提�
 * 無法檢視或直接編輯圖形化工作流程所建立的 PowerShell 程式碼。 請注意，您可以檢視您在任何程式碼活動中所建立的程式碼。
 
 ## <a name="powershell-runbooks"></a>PowerShell Runbook
-PowerShell Runbook 以 Windows PowerShell 為基礎。  您可以直接使用 Azure 入口網站的文字編輯器來編輯 Runbook 的程式碼。  您也可以使用任何離線文字編輯器，並 [匯入 Runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx) 到 Azure 自動化。
+PowerShell Runbook 以 Windows PowerShell 為基礎。  您可以直接使用 Azure 入口網站的文字編輯器來編輯 Runbook 的程式碼。  您也可以使用任何離線文字編輯器，並 [匯入 Runbook](automation-creating-importing-runbook.md) 到 Azure 自動化。
 
 ### <a name="advantages"></a>優點
 * 使用 PowerShell 程式碼實作所有複雜的邏輯，不必處理 PowerShell 工作流程的其他複雜性。 
@@ -64,7 +65,7 @@ PowerShell Runbook 以 Windows PowerShell 為基礎。  您可以直接使用 Az
 * 如果 PowerShell Runbook 嘗試一次將非常大量的資料寫入輸出資料流，可能會失敗。   在處理大型物件時，只輸出您所需的資訊，通常就可以解決這個問題。  例如，不要輸出類似 *Get-Process* 之類的資訊，您可以使用 *Get-Process | Select ProcessName, CPU*，只輸出需要的欄位。
 
 ## <a name="powershell-workflow-runbooks"></a>PowerShell 工作流程 Runbook
-PowerShell Workflow Runbook 是以 [Windows PowerShell 工作流程](automation-powershell-workflow.md)為基礎的文字 Runbook。  您可以直接使用 Azure 入口網站的文字編輯器來編輯 Runbook 的程式碼。  您也可以使用任何離線文字編輯器，並 [匯入 Runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx) 到 Azure 自動化。
+PowerShell Workflow Runbook 是以 [Windows PowerShell 工作流程](automation-powershell-workflow.md)為基礎的文字 Runbook。  您可以直接使用 Azure 入口網站的文字編輯器來編輯 Runbook 的程式碼。  您也可以使用任何離線文字編輯器，並 [匯入 Runbook](automation-creating-importing-runbook.md) 到 Azure 自動化。
 
 ### <a name="advantages"></a>優點
 * 使用 PowerShell 工作流程程式碼實作所有複雜的邏輯。
@@ -79,7 +80,7 @@ PowerShell Workflow Runbook 是以 [Windows PowerShell 工作流程](automation-
 * 只有使用 Start-AzureAutomationRunbook Cmdlet 才能併入 PowerShell Runbook 做為子 Runbook，此 Cmdlet 會建立新的工作。
 
 ## <a name="python-runbooks"></a>Python Runbook
-Python 2 下的 Python Runbook 編譯。  您可以在 Azure 入口網站中使用文字編輯器直接編輯 Runbook 的程式碼，或是使用任何離線的文字編輯器，然後將 [unbook 匯入](http://msdn.microsoft.com/library/azure/dn643637.aspx) Azure 自動化。
+Python 2 下的 Python Runbook 編譯。  您可以在 Azure 入口網站中使用文字編輯器直接編輯 Runbook 的程式碼，或是使用任何離線的文字編輯器，然後將 [unbook 匯入](automation-creating-importing-runbook.md) Azure 自動化。
 
 ### <a name="advantages"></a>優點
 * 利用 Python 的強固標準程式庫。

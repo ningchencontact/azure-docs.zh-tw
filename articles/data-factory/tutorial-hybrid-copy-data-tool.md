@@ -11,24 +11,22 @@ ms.workload: data-services
 ms.topic: hero-article
 ms.date: 01/04/2018
 ms.author: jingwang
-ms.openlocfilehash: 85b721df1e666903c4966ca240c433ded01c06b7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b080029cdf7e7200663830abad02ae7e61dbdb99
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053349"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>使用複製資料工具將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [第 1 版 - 正式運作](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [第 2 版 - 預覽](tutorial-hybrid-copy-data-tool.md)
+> * [第 1 版](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [目前的版本](tutorial-hybrid-copy-data-tool.md)
 
 在這個教學課程中，您會使用 Azure 入口網站來建立資料處理站。 接著，您會使用複製資料工具建立管線，以將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體。
 
 > [!NOTE]
 > - 如果您不熟悉 Azure Data Factory，請參閱 [Data Factory 簡介](introduction.md)。
->
-> - 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory (正式推出版本)，請參閱[開始使用 Data Factory 第 1 版](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
-
 在本教學課程中，您會執行下列步驟：
 
 > [!div class="checklist"]
@@ -53,7 +51,7 @@ ms.lasthandoff: 03/23/2018
 2. 使用您的認證連線到 SQL Server 執行個體。 
 
 3. 建立範例資料庫。 在樹狀檢視中，以滑鼠右鍵按一下 [資料庫]，然後選取 [新增資料庫]。 
- 
+
 4. 在 [新增資料庫] 視窗中，輸入資料庫的名稱，然後選取 [確定]。 
 
 5. 若要建立 **emp** 資料表並在其中插入一些範例資料，請針對資料庫執行下列查詢指令碼。 在樹狀檢視中，以滑鼠右鍵按一下您建立的資料庫，然後選取 [新增查詢]。
@@ -119,24 +117,24 @@ ms.lasthandoff: 03/23/2018
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 
 1. 在左側功能表中，選取 [新增] > [資料 + 分析] > [資料處理站]。 
-   
+  
    ![新資料處理站的建立](./media/tutorial-hybrid-copy-data-tool/new-azure-data-factory-menu.png)
 2. 在 [新增資料處理站] 頁面的 [名稱] 下，輸入 **ADFTutorialDataFactory**。 
-      
+   
      ![新增 Data Factory](./media/tutorial-hybrid-copy-data-tool/new-azure-data-factory.png)
- 
+
    資料處理站的名稱必須是「全域唯一」的名稱。 如果您在 [名稱] 欄位看到下列錯誤訊息，請變更資料處理站的名稱 (例如 yournameADFTutorialDataFactory)。 如需 Data Factory 成品的命名規則，請參閱 [Data Factory 命名規則](naming-rules.md)。
-  
+
    ![新增資料處理站名稱](./media/tutorial-hybrid-copy-data-tool/name-not-available-error.png)
 3. 選取您要在其中建立資料處理站的 Azure **訂用帳戶**。 
 4. 針對 [資源群組]，採取下列其中一個步驟︰
-     
+  
       - 選取 [使用現有的] ，然後從下拉式清單選取現有的資源群組。
 
       - 選取 [建立新的] ，然後輸入資源群組的名稱。 
-         
+        
       若要了解資源群組，請參閱[使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。
-5. 在 [版本] 下，選取 [V2 (預覽版)]。
+5. 在 [版本] 下，選取 **[V2]**。
 6. 在 [位置] 下，選取資料處理站的位置。 只有受到支援的位置會顯示在下拉式清單中。 Data Factory 所使用的資料存放區 (例如 Azure 儲存體和 SQL Database) 和計算 (例如 Azure HDInsight) 可位於其他地區/區域。
 7. 選取 [釘選到儀表板]。 
 8. 選取 [建立] 。
@@ -144,7 +142,7 @@ ms.lasthandoff: 03/23/2018
 
     ![部署資料處理站圖格](media/tutorial-hybrid-copy-data-tool/deploying-data-factory.png)
 10. 建立完成之後，您會看到如圖中所示的 [Data Factory] 頁面。
-   
+  
     ![Data Factory 首頁](./media/tutorial-hybrid-copy-data-tool/data-factory-home-page.png)
 11. 選取 [編寫與監視]，以在另一個索引標籤中啟動 Data Factory 使用者介面。 
 
@@ -153,82 +151,126 @@ ms.lasthandoff: 03/23/2018
 1. 在 [現在就開始吧] 頁面中，選取 [複製資料] 以啟動複製資料工具。 
 
    ![複製資料工具圖格](./media/tutorial-hybrid-copy-data-tool/copy-data-tool-tile.png)
+
 2. 在複製資料工具的 [屬性] 頁面中上，於 [工作名稱] 下輸入 **CopyFromOnPremSqlToAzureBlobPipeline**。 然後，選取 [下一步]。 複製資料工具會使用您在此欄位指定的名稱建立管線。 
-    
+
    ![工作名稱](./media/tutorial-hybrid-copy-data-tool/properties-page.png)
-3. 在 [來源資料存放區] 頁面上，選取 [SQL Server]，然後選取 [下一步]。 您可能需要向下捲動以查看清單中的 **SQL Server**。 
+
+3. 在 [來源資料存放區] 頁面上，按一下 [建立新連線]。 
+
+   ![建立新的連結服務](./media/tutorial-hybrid-copy-data-tool/create-new-source-data-store.png)
+
+4. 在 [新增連結服務] 下搜尋 [SQL Server]，然後選取 [下一步]。 
 
    ![SQL Server 選取](./media/tutorial-hybrid-copy-data-tool/select-source-data-store.png)
-4. 在 [連線名稱] 下輸入 **SqlServerLinkedService**。 選取 [建立整合執行階段] 連結。 您必須建立自我裝載的整合執行階段、將其下載到您的機器，並使用 Data Factory 進行註冊。 自我裝載的整合執行階段會在內部部署環境與雲端之間複製資料。
 
-   ![建立自我裝載整合執行階段](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-link.png)
-5. 在 [建立整合執行階段] 對話方塊中的 [名稱] 下，輸入 **TutorialIntegration Runtime**。 然後選取 [建立]。 
+5. 在 [新增連結服務 (SQL Server)] 的 **[名稱]**** 下，輸入 **SqlServerLinkedService**。 在 [透過整合執行階段連線] 下選取 [+新增]。 您必須建立自我裝載的整合執行階段、將其下載到您的機器，並使用 Data Factory 進行註冊。 自我裝載的整合執行階段會在內部部署環境與雲端之間複製資料。
+
+   ![建立自我裝載的整合執行階段](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-link.png)
+
+6. 在 [Integration Runtime 安裝] 對話方塊中，選取 [私人網路]。 然後，選取 [下一步]。 
+
+   ![](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-dialog0.png)
+
+7. 在 [Integration Runtime 安裝] 對話方塊中的 [名稱] 下，輸入 **TutorialIntegrationRuntime**。 然後，選取 [下一步]。 
 
    ![整合執行階段名稱](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-dialog.png)
-6. 選取 [在這台電腦上啟動快速安裝]。 此動作會在您的機器上安裝整合執行階段，並使用 Data Factory 進行註冊。 或者，您可以使用手動安裝選項來下載安裝檔案、執行它，並使用金鑰來註冊整合執行階段。 
+
+8. 選取 [按一下這裡啟動此電腦的快速安裝]。 此動作會在您的機器上安裝整合執行階段，並使用 Data Factory 進行註冊。 或者，您可以使用手動安裝選項來下載安裝檔案、執行它，並使用金鑰來註冊整合執行階段。 
 
     ![[在這台電腦上啟動快速安裝] 連結](./media/tutorial-hybrid-copy-data-tool/launch-express-setup-link.png)
-7. 執行下載的應用程式。 您會在視窗中看到快速安裝的狀態。 
+
+9. 執行下載的應用程式。 您會在視窗中看到快速安裝的狀態。 
 
     ![快速安裝狀態](./media/tutorial-hybrid-copy-data-tool/express-setup-status.png)
-8. 確認已為 [整合執行階段] 欄位選取 [TutorialIntegrationRuntime]。
+
+10. 確認已為 [整合執行階段] 欄位選取 [TutorialIntegrationRuntime]。
 
     ![已選取整合執行階段](./media/tutorial-hybrid-copy-data-tool/integration-runtime-selected.png)
-9. 在 [指定內部部署 SQL Server 資料庫] 中，採取下列步驟： 
 
-    a. 在 [連線名稱] 下輸入 **OnPremSqlLinkedService**。
+11. 在 [指定內部部署 SQL Server 資料庫] 中，採取下列步驟： 
 
-    b. 在 [伺服器名稱] 下，輸入內部部署 SQL Server 執行個體的名稱。
+      a. 在 [名稱] 下輸入 **SqlServerLinkedService**。
 
-    c. 在 [資料庫名稱] 下，輸入內部部署資料庫名稱。
+      b. 在 [伺服器名稱] 下，輸入內部部署 SQL Server 執行個體的名稱。
 
-    d. 在 [驗證類型] 下，選取適當的驗證。
+      c. 在 [資料庫名稱] 下，輸入內部部署資料庫名稱。
 
-    e. 在 [使用者名稱] 下，輸入具有內部部署 SQL Server 存取權的使用者名稱。
+      d. 在 [驗證類型] 下，選取適當的驗證。
 
-    f. 輸入使用者的 [密碼]。 
-10. 在 [選取要從中複製資料的資料表或使用自訂查詢] 頁面中，選取清單中的 **[dbo].[emp]** 資料表，然後選取 [下一步]。 
+      e. 在 [使用者名稱] 下，輸入具有內部部署 SQL Server 存取權的使用者名稱。
 
-    ![emp 資料表選取範圍](./media/tutorial-hybrid-copy-data-tool/select-emp-table.png)
-11. 在 [目的地資料存放區] 頁面上，選取 [Azure Blob 儲存體]，然後選取 [下一步]。
+      f. 輸入使用者的 [密碼]。 選取 [完成]。 
 
-    ![Blob 儲存體選取](./media/tutorial-hybrid-copy-data-tool/select-destination-data-store.png)
-12. 在 [指定 Azure Blob 儲存體帳戶] 頁面上，採取以下步驟︰ 
+12. 選取 [下一步] 。
 
-    a. 在 [連線名稱] 下輸入 **AzureStorageLinkedService**。
+     ![](./media/tutorial-hybrid-copy-data-tool/select-source-linked-service.png)
 
-    b. 在 [儲存體帳戶名稱] 下，從下拉式清單中選取您的儲存體帳戶。 
+13. 在 [選取要從中複製資料的資料表或使用自訂查詢] 頁面中，選取清單中的 **[dbo].[emp]** 資料表，然後選取 [下一步]。 您可以根據自己的資料庫選取任何其他資料表。
 
-    c. 選取 [下一步]。
+     ![生產資料表選取項目](./media/tutorial-hybrid-copy-data-tool/select-emp-table.png)
 
-    ![指定儲存帳號](./media/tutorial-hybrid-copy-data-tool/specify-azure-blob-storage-account.png)
-13. 在 [選擇輸出檔案或資料夾] 頁面的 [資料夾路徑] 下，輸入 **adftutorial/fromonprem**。 您已建立 **adftutorial** 容器作為必要條件的一部分。 如果 output 資料夾不存在，Data Factory 會自動加以建立。 您也可以使用 [瀏覽] 按鈕以瀏覽 Blob 儲存體和其容器/資料夾。 請注意，依預設系統會將輸出檔案的名稱設定為 **dbo.emp**。
-        
-    ![選擇輸出檔案或資料夾](./media/tutorial-hybrid-copy-data-tool/choose-output-file-folder.png)
-14. 在 [檔案格式設定] 頁面上，選取 [下一步]。 
+14. 在 [目的地資料存放區] 頁面上，選取 [建立新連線]
 
-    ![檔案格式設定頁面](./media/tutorial-hybrid-copy-data-tool/file-format-settings-page.png)
-15. 在 [設定] 頁面上，選取 [下一步]。 
+     //image create-new-sink-connection.png
 
-    ![設定頁面](./media/tutorial-hybrid-copy-data-tool/settings-page.png)
-16. 在 [摘要] 頁面中，檢閱所有設定的值，然後選取 [下一步]。 
+     ![建立目的地連結服務](./media/tutorial-hybrid-copy-data-tool/create-new-sink-connection.png)
 
-    ![摘要頁面](./media/tutorial-hybrid-copy-data-tool/summary-page.png)
-17. 在 [部署] 頁面中，選取 [監視] 來監視您建立的管線或工作。
+15. 在 [新增連結服務] 中，搜尋並選取 [Azure Blob]，然後選取 [繼續]。 
 
-    ![部署頁面](./media/tutorial-hybrid-copy-data-tool/deployment-page.png)
-18. 在 [監視] 索引標籤上，您可以檢視您所建立管線的狀態。 您可以使用 [動作] 資料行中的連結檢視與此管線執行相關聯的活動執行，以及重新執行管線。 
+     ![Blob 儲存體選取](./media/tutorial-hybrid-copy-data-tool/select-destination-data-store.png)
 
-    ![監視管線回合](./media/tutorial-hybrid-copy-data-tool/monitor-pipeline-runs.png)
-19. 選取 [動作] 資料行中的 [檢視活動執行] 連結，以查看與此管線執行相關聯的活動執行。 若要看與關於複製作業的詳細資料，請選取 [動作] 資料行中的 [詳細資料] 連結 (眼鏡圖示)。 若要切換回 [管線執行] 檢視，請選取頂端的 [管線]。
+16. 在 [新增連結服務 (Azure Blob 儲存體)] 對話方塊上，執行下列步驟： 
 
-    ![監視活動回合](./media/tutorial-hybrid-copy-data-tool/monitor-activity-runs.png)
-20. 確認您在 **adftutorial** 容器的 **fromonprem** 資料夾中看到輸出檔案。 
- 
-    ![輸出 Blob](./media/tutorial-hybrid-copy-data-tool/output-blob.png)
-21. 選取左側的 [編輯] 索引標籤以切換至編輯器模式。 您可以使用編輯器更新此工具所建立的連結服務、資料集和管線。 選取 [程式碼] 以檢視與編輯器中開啟之實體相關聯的 JSON 程式碼。 如需如何在 Data Factory 使用者介面中編輯這些實體的詳細資訊，請參閱[本教學課程的 Azure 入口網站版本](tutorial-copy-data-portal.md)。
+     a. 在 **[名稱]**** 下，輸入 **AzureStorageLinkedService**。
 
-    ![編輯索引標籤](./media/tutorial-hybrid-copy-data-tool/edit-tab.png)
+     b. 在 [透過整合執行階段連線] 下，選取 [TutorialIntegrationRuntime]
+
+     c. 在 [儲存體帳戶名稱] 下，從下拉式清單中選取您的儲存體帳戶。 
+
+     d. 選取 [下一步] 。
+
+     ![指定儲存帳號](./media/tutorial-hybrid-copy-data-tool/specify-azure-blob-storage-account.png)
+
+17. 在 [目的地資料存放區] 對話方塊中，選取 [下一步]。 在 [連線屬性] 中，選取 [Azure 儲存體服務] 作為 [Azure Blob 儲存體]。 選取 [下一步] 。 
+
+     ![連線屬性](./media/tutorial-hybrid-copy-data-tool/select-connection-properties.png)
+
+18. 在 [選擇輸出檔案或資料夾] 對話方塊中的 [資料夾路徑] 下，輸入 **adftutorial/fromonprem**。 您已建立 **adftutorial** 容器作為必要條件的一部分。 如果輸出資料夾不存在 (在此案例中為 **fromonprem**)，Data Factory 會自動加以建立。 您也可以使用 [瀏覽] 按鈕以瀏覽 Blob 儲存體和其容器/資料夾。 如果您未在 [檔案名稱] 下指定任何值，依預設將會使用來自來源的名稱 (在此案例中為 **dbo.emp**)。
+           
+     ![選擇輸出檔案或資料夾](./media/tutorial-hybrid-copy-data-tool/choose-output-file-folder.png)
+
+19. 在 [檔案格式設定] 對話方塊上，選取 [下一步]。 
+
+     ![檔案格式設定頁面](./media/tutorial-hybrid-copy-data-tool/file-format-settings-page.png)
+
+20. 在 [設定] 對話方塊上，選取 [下一步]。 
+
+     ![設定頁面](./media/tutorial-hybrid-copy-data-tool/settings-page.png)
+
+21. 在 [摘要] 對話方塊上，檢閱所有設定的值，然後選取 [下一步]。 
+
+     ![摘要頁面](./media/tutorial-hybrid-copy-data-tool/summary-page.png)
+
+22. 在 [部署] 頁面中，選取 [監視] 來監視您建立的管線或工作。
+
+     ![部署頁面](./media/tutorial-hybrid-copy-data-tool/deployment-page.png)
+
+23. 在 [監視] 索引標籤上，您可以檢視您所建立管線的狀態。 您可以使用 [動作] 資料行中的連結檢視與此管線執行相關聯的活動執行，以及重新執行管線。 
+
+     ![監視管線回合](./media/tutorial-hybrid-copy-data-tool/monitor-pipeline-runs.png)
+
+24. 選取 [動作] 資料行中的 [檢視活動執行] 連結，以查看與此管線執行相關聯的活動執行。 若要看與關於複製作業的詳細資料，請選取 [動作] 資料行中的 [詳細資料] 連結 (眼鏡圖示)。 若要切換回 [管線執行] 檢視，請選取頂端的 [管線]。
+
+     ![監視活動回合](./media/tutorial-hybrid-copy-data-tool/monitor-activity-runs.png)
+
+25. 確認您在 **adftutorial** 容器的 **fromonprem** 資料夾中看到輸出檔案。 
+
+     ![輸出 Blob](./media/tutorial-hybrid-copy-data-tool/output-blob.png)
+
+26. 選取左側的 [編輯] 索引標籤以切換至編輯器模式。 您可以使用編輯器更新此工具所建立的連結服務、資料集和管線。 選取 [程式碼] 以檢視與編輯器中開啟之實體相關聯的 JSON 程式碼。 如需如何在 Data Factory 使用者介面中編輯這些實體的詳細資訊，請參閱[本教學課程的 Azure 入口網站版本](tutorial-copy-data-portal.md)。
+
+     ![編輯索引標籤](./media/tutorial-hybrid-copy-data-tool/edit-tab.png)
 
 
 ## <a name="next-steps"></a>後續步驟

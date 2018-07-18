@@ -20,6 +20,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32153179"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>使用 Azure Stack 中具有特殊權限的端點
 

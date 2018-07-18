@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/10/2018
+ms.date: 06/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: 3950c9dfc5ff5f7ea1d170da086b4f97048ed81c
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 05278ee4b0dc1f2c22f40bfcff4f9d7342017c0f
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37108751"
 ---
 # <a name="create-a-virtual-machine-and-install-a-certificate-retrieved-from-an-azure-stack-key-vault"></a>建立虛擬機器，並安裝從 Azure Stack 金鑰保存庫擷取的憑證
 
@@ -42,8 +43,8 @@ ms.lasthandoff: 05/11/2018
 2. 更新 azuredeploy.parameters.json 檔案。
 3. 部署範本
 
->[!NOTE]
->您可以從 Azure Stack 開發套件，或從外部用戶端 (如果是透過 VPN 連線) 來使用這些步驟。
+> [!NOTE]
+> 您可以從 Azure Stack 開發套件，或從外部用戶端 (如果是透過 VPN 連線) 來使用這些步驟。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -55,8 +56,8 @@ ms.lasthandoff: 05/11/2018
 
 下列指令碼會建立 .pfx 格式的憑證、建立金鑰保存庫，並將憑證存放在金鑰保存庫中當做祕密。
 
->[!IMPORTANT]
->建立金鑰保存庫時，您必須使用 `-EnabledForDeployment` 參數。 此參數可確保您能夠從 Azure Resource Manager 範本參考金鑰保存庫。
+> [!IMPORTANT]
+> 建立金鑰保存庫時，您必須使用 `-EnabledForDeployment` 參數。 此參數可確保您能夠從 Azure Resource Manager 範本參考金鑰保存庫。
 
 ```powershell
 

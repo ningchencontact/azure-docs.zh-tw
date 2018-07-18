@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/04/2018
 ms.author: douglasl
-ms.openlocfilehash: e9ec338e04c456a9a91d51a7a4741e4760f1b3c9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5959eeea7e5a16170414c7ef8036093ce122681d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045665"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>在 Azure 虛擬網路中使用 Azure Data Factory 中的 Hive 活動轉換資料
 在本教學課程中，您會使用 Azure 入口網站建立 Data Factory 管線，以在 Azure 虛擬網路 (VNet) 中的 HDInsight 叢集上，使用 Hive 活動來轉換資料。 您會在本教學課程中執行下列步驟：
@@ -29,9 +30,6 @@ ms.lasthandoff: 04/28/2018
 > * 觸發管線執行。
 > * 監視管道執行 
 > * 驗證輸出
-
-> [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (正式推出版本 (GA))，請參閱 [Data Factory 第 1 版文件](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
 
@@ -89,7 +87,7 @@ ms.lasthandoff: 04/28/2018
       - 選取 [建立新的] ，然後輸入資源群組的名稱。   
          
       若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。  
-4. 對 [版本] 選取 [V2 (預覽)]。
+4. 針對 [版本] 選取 [V2]。
 5. 選取 Data Factory 的 [位置]  。 清單中只會顯示資料處理站建立所支援的位置。
 6. 選取 [釘選到儀表板]。     
 7. 按一下頁面底部的 [新增] 。

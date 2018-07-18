@@ -4,21 +4,19 @@ description: 本快速入門示範如何使用 Azure Cosmos DB Cassandra API，�
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: ef611081-0195-4ad8-9b54-b313588e5754
 ms.service: cosmos-db
+ms.component: cosmosdb-cassandra
 ms.custom: quick start connect, mvc
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: java
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 720e566206a5b85a03c64de798418c3061e308e6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e0344aadbbf263fa3c84ee37f2527eb41b19b7d8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38629082"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-java-and-azure-cosmos-db"></a>快速入門：使用 JAVA 和 Azure Cosmos DB 建置 Cassandra 應用程式
 
@@ -222,7 +220,7 @@ Azure Cosmos DB Cassandra API 預覽版程式的存取權。 如果您尚未申�
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已了解如何使用 [資料總管] 來建立 Azure Cosmos DB 帳戶、Cassandra 資料庫和集合，以及如何執行應用程式來以程式設計方式執行同樣的作業。 您現可將其他資料匯入至 Azure Cosmos DB 集合。 
+在本快速入門中，您已了解如何使用 [資料總管] 來建立 Azure Cosmos DB 帳戶、Cassandra 資料庫和容器，以及如何執行應用程式來以程式設計方式執行同樣的作業。 您現可將其他資料匯入至 Azure Cosmos DB 容器。 
 
 > [!div class="nextstepaction"]
 > [將 Cassandra 資料匯入到 Azure Cosmos DB](cassandra-import-data.md)

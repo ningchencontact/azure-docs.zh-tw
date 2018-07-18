@@ -3,9 +3,9 @@ title: 針對 Linux 中的 Azure 檔案服務問題進行疑難排解 | Microsof
 description: 針對 Linux 中的 Azure 檔案服務問題進行疑難排解
 services: storage
 documentationcenter: ''
-author: genlin
-manager: willchen
-editor: na
+author: wmgries
+manager: aungoo
+editor: tamram
 tags: storage
 ms.service: storage
 ms.workload: na
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
-ms.author: genli
-ms.openlocfilehash: 7b5567359e7ca87d26e05d336337b55af364031e
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: wgries
+ms.openlocfilehash: 4a80b868529b18875100d8205fd8c3a664b6b9e2
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738359"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>針對 Linux 中的 Azure 檔案服務問題進行疑難排解
 
@@ -86,7 +87,7 @@ ms.lasthandoff: 05/11/2018
 
 ### <a name="solution"></a>解決方法
 
-4.11 核心推出 Linux 的 SMB 3.0 適用的加密功能。 此功能讓您可從內部部署或不同 Azure 區域的 Azure 檔案共用進行掛接。 發佈時，這項功能已向前移植到 Ubuntu 17.04 和 Ubuntu 16.10。 如果您的 Linux SMB 用戶端不支援加密，在與檔案儲存體帳戶相同的資料中心上，從 Azure Linux VM 使用 SMB 2.1 掛接 Azure 檔案服務。
+4.11 核心推出 Linux 的 SMB 3.0 適用的加密功能。 此功能讓您可從內部部署或不同 Azure 區域的 Azure 檔案共用進行裝載。 發佈時，這項功能已向前移植到 Ubuntu 17.04 和 Ubuntu 16.10。 如果您的 Linux SMB 用戶端不支援加密，在與檔案儲存體帳戶相同的資料中心上，從 Azure Linux VM 使用 SMB 2.1 掛接 Azure 檔案服務。
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>掛接在 Linux VM 上的 Azure 檔案共用效能變慢
@@ -129,7 +130,7 @@ COPYFILE 中的強制旗標 **f** 會導致在 Unix 上執行 **cp -p -f**。 �
 - `Su [storage account name]`
 - `Cp -p filename.txt /share`
 
-## <a name="cannot-connect-or-mount-an-azure-file-share"></a>無法連線到或掛接 Azure 檔案共用
+## <a name="cannot-connect-or-mount-an-azure-file-share"></a>無法連線到或裝載 Azure 檔案共用
 
 ### <a name="cause"></a>原因
 

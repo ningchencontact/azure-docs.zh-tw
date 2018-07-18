@@ -1,22 +1,20 @@
 ---
 title: 使用 Azure 地圖服務顯示指示 | Microsoft Docs
 description: 如何在 JavaScript 地圖上顯示兩個位置之間的指示
-services: azure-maps
-keywords: ''
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
+services: azure-maps
 manager: timlt
-ms.devlang: na
 ms.custom: codepen
-ms.openlocfilehash: 9007afd1bc4d2361addc2a554fab1330174e88e7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5e9ab73ddc16517e17894cddd9bc102f3941f00c
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "35772013"
 ---
 # <a name="show-directions-from-a-to-b"></a>顯示從甲地到乙地的指示 
 
@@ -45,3 +43,7 @@ ms.lasthandoff: 05/07/2018
     * [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#setcamerabounds)
     * [addLinestrings](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addlinestrings)
     * [addPins](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addpins)
+
+如需更多可新增至地圖的程式碼範例，請參閱下列文章： 
+* [在地圖上顯示路況](./map-show-traffic.md)
+* [與地圖互動 – 滑鼠事件](./map-events.md)

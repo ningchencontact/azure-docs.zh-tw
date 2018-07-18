@@ -1,24 +1,19 @@
 ---
-title: 針對 Azure 備份代理程式進行疑難排解 | Microsoft Docs
+title: 針對 Azure 備份代理程式進行疑難排解
 description: 針對 Azure 備份代理程式的安裝和註冊進行疑難排解
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
 manager: shreeshd
-editor: ''
-ms.assetid: 778c6ccf-3e57-4103-a022-367cc60c411a
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/4/2017
-ms.author: saurse;markgal;
-ms.openlocfilehash: f7f4ac328c4e35f52bcc9708faf96d06189dd9ac
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: saurse
+ms.openlocfilehash: 89a39f6189367f91248b3868b1e1cb9f6abf0407
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36228385"
 ---
 # <a name="troubleshoot-azure-backup-agent-configuration-and-registration-issues"></a>針對 Azure 備份代理程式的設定和註冊問題進行疑難排解
 ## <a name="recommended-steps"></a>建議的步驟
@@ -41,13 +36,19 @@ ms.lasthandoff: 03/17/2018
 
 | 錯誤詳細資料 | 可能的原因 | 建議動作 |
 | ---     | ---     | ---    |      
-| **錯誤** </br>*無法設定安全備份的加密金鑰。由於發生內部服務錯誤「無效輸入錯誤」，導致目前的操作失敗。請在一段時間之後重試此操作。如果問題持續發生，請連絡 Microsoft 支援服務*。 |伺服器已經向另一個保存庫註冊。| 從該保存庫中將伺服器取消註冊，然後重新註冊。
+| **錯誤** </br>*無法設定安全備份的加密金鑰。啟動未完全成功，但是加密複雜密碼已儲存至下列檔案*。 |<li>伺服器已經向另一個保存庫註冊。<li>在設定期間，複雜密碼已損毀| 從該保存庫中取消註冊伺服器，然後重新註冊。
 
 ## <a name="the-activation-did-not-complete-successfully-the-current-operation-failed-due-to-an-internal-service-error-0x1fc07"></a>啟動沒有成功完成。 由於發生內部服務錯誤 [0x1FC07]，導致目前的操作失敗
 
 | 錯誤詳細資料 | 可能的原因 | 建議動作 |
 | ---     | ---     | ---    |          
-| **錯誤** </br><ol><li>*啟動沒有成功完成。由於發生內部服務錯誤 [0x1FC07]，導致目前的操作失敗。請在一段時間之後重試此操作。如果問題持續發生，請連絡 Microsoft 支援服務* <li>*錯誤 34506。未正確設定儲存於此電腦上的加密複雜密碼*。 | <li> 臨時資料夾所在的磁碟區沒有足夠的空間。 <li> 並未正確地將臨時資料夾移至其他位置。 <li> 遺失 OnlineBackup.KEK 檔案。 | <li>將臨時資料夾或快取位置移至具有相當於備份資料總大小之 5-10% 可用空間的磁碟區。 若要正確移動快取位置，請參閱[關於 Azure 備份代理程式的問題](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup)中的步驟。<li> 確定 OnlineBackup.KEK 檔案存在。 <br>臨時資料夾或快取位置路徑的預設位置是 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch。
+| **錯誤** </br><ol><li>*啟動沒有成功完成。由於發生內部服務錯誤 [0x1FC07]，導致目前的操作失敗。請在一段時間之後重試此操作。如果問題持續發生，請連絡 Microsoft 支援服務*| <li> 臨時資料夾所在的磁碟區沒有足夠的空間。 <li> 並未正確地將臨時資料夾移至其他位置。 <li> 遺失 OnlineBackup.KEK 檔案。 | <li>升級至[最新版本](http://aka.ms/azurebackup_agent)的 MARS 代理程式。<li>將臨時資料夾或快取位置移至具有相當於備份資料總大小之 5-10% 可用空間的磁碟區。 若要正確移動快取位置，請參閱[關於 Azure 備份代理程式的問題](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup)中的步驟。<li> 確定 OnlineBackup.KEK 檔案存在。 <br>臨時資料夾或快取位置路徑的預設位置是 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch。
+  
+## <a name="error-34506-the-encryption-passphrase-stored-on-this-computer-is-not-correctly-configured"></a>錯誤 34506。 未正確設定儲存於此電腦上的加密複雜密碼
+
+| 錯誤詳細資料 | 可能的原因 | 建議動作 |
+| ---     | ---     | ---    |          
+| **錯誤** </br><ol><li>*錯誤 34506。未正確設定儲存於此電腦上的加密複雜密碼*。 | <li> 臨時資料夾所在的磁碟區沒有足夠的空間。 <li> 並未正確地將臨時資料夾移至其他位置。 <li> 遺失 OnlineBackup.KEK 檔案。 | <li>升級至[最新版本](http://aka.ms/azurebackup_agent)的 MARS 代理程式。<li>將臨時資料夾或快取位置移至具有相當於備份資料總大小之 5-10% 可用空間的磁碟區。 若要正確移動快取位置，請參閱[關於 Azure 備份代理程式的問題](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup)中的步驟。<li> 確定 OnlineBackup.KEK 檔案存在。 <br>臨時資料夾或快取位置路徑的預設位置是 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch。  
 
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員
 如果仍需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。

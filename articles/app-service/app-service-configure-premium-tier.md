@@ -1,12 +1,12 @@
 ---
-title: "設定 Azure App Service 的 PremiumV2 層 | Microsoft Docs"
-description: "了解如何藉由調整為新的 PremiumV2 定價層，讓 Azure App Service 中的 Web 應用程式、行動應用程式和 API 應用程式獲得更好的效能。"
-keywords: "App Service, Azure App Service, 級別, 可調整, App Service方案, App Service 成本"
+title: 設定 Azure App Service 的 PremiumV2 層 | Microsoft Docs
+description: 了解如何藉由調整為新的 PremiumV2 定價層，讓 Azure App Service 中的 Web 應用程式、行動應用程式和 API 應用程式獲得更好的效能。
+keywords: App Service, Azure App Service, 級別, 可調整, App Service方案, App Service 成本
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.service: app-service
 ms.workload: na
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: cephalin
-ms.openlocfilehash: 76897173d9fdfffe7139e7c5648ad0efb1c05b97
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 4c157ed905b7dc48c886b26987c164ef9a47f3c3
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714556"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>設定 Azure App Service 的 PremiumV2 層
 
@@ -51,9 +52,9 @@ App Service 應用程式的定價層會定義在其執行所在的 [App Service 
 
 在 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>中設定 App Service 方案時，請選取 [定價層]。 
 
-選擇其中一個 **PremiumV2** 選項，然後按一下 [選取]。
+選取 [生產]，然後選取 [P1V2]、[P2V2] 或 [P3V2]，然後按一下 [套用]。
 
-![](media/app-service-configure-premium-tier/pick-premium-tier.png)
+![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
 > [!IMPORTANT] 
 > 如果您沒有看到 **P1V2**、**P2V2** 和 **P3V2** 選項，原因可能是您所選擇的區域不提供 **PremiumV2**，也可能是您所設定的是 Linux 的 App Service 方案，因此不支援 **PremiumV2**。
@@ -70,7 +71,7 @@ App Service 應用程式的定價層會定義在其執行所在的 [App Service 
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
 
-選取其中一個 **PremiumV2** 大小，然後按一下 [選取]。
+選取 [生產]，然後選取 [P1V2]、[P2V2] 或 [P3V2]，然後按一下 [套用]。
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 

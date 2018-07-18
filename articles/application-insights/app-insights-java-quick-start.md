@@ -10,11 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 0198614f34b5e4ad31d9cf19f6799913dc71e21f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7248e2477a217c769bd232b87a8e510fcfd59790
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798435"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>開始監視 Java Web 應用程式
 
@@ -33,6 +34,8 @@ Azure Application Insights 可讓您輕鬆監視 Web 應用程式的可用性、
 如果您沒有 Java 動態 Web 專案，請參閱[建立 Java Web 應用程式快速入門](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-java)來建立。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
+
+如果您偏好 Spring 架構，可嘗試＜[設定 Spring Boot 初始設定式應用程式來使用 Application Insights 的指南](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)＞
 
 ## <a name="log-in-to-the-azure-portal"></a>登入 Azure 入口網站
 

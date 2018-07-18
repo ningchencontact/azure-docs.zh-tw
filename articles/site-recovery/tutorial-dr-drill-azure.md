@@ -1,45 +1,46 @@
 ---
 title: 深入了解如何使用 Azure Site Recovery 為內部部署電腦及 Azure 執行災害復原演練 | Microsoft 文件
 description: 深入了解如何使用 Azure Site Recovery 為內部部署電腦及 Azure 執行災害復原演練
-services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/16/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 724144e8f2f2f76c4ad98b4c5cad84e69dadadbb
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: af8062fc0134975542c8a5ec420c790f33996154
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209720"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920166"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>執行 Azure 的災害復原演練
 
-此教學課程會示範如何使用測試容錯移轉執行災害復原演練，從內部部署機器至 Azure。 此演練可驗證您複寫策略未遺失資料。 在本教學課程中，您了解如何：
+在本文中，我們會示範如何使用測試容錯移轉執行內部部署機器至 Azure 的災害復原演練。 此演練可驗證您複寫策略未遺失資料。
+
+這是一系列中的第四個教學課程，說明如何為內部部署 VMware VM 或 Hyper-V VM 設定 Azure 的災害復原。
+
+此教學課程假設您已完成前三個教學課程： 
+    - 在[第一個教學課程](tutorial-prepare-azure.md)中，我們針對 VMware 災害復原需求設定 Azure 元件。
+    - 在[第二個教學課程](vmware-azure-tutorial-prepare-on-premises.md)中，我們為災害復原準備了內部部署元件，並檢閱必要條件。
+    - 在[第三個教學課程](vmware-azure-tutorial.md)中，我們為內部部署 VMware VM 設定和啟用複寫。
+    - 這些教學課程的設計訴求是顯示**案例的最簡單部署路徑**。 可能的話，會使用預設選項，而不會顯示所有可能的設定與路徑。 如果您想要深入了解測試容錯移轉的步驟，請參閱[作法指南](site-recovery-test-failover-to-azure.md)。
+
+在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
 > * 為測試容錯移轉設定隔離網路
 > * 準備在容錯移轉後連線到 Azure VM
 > * 執行單一機器測試容錯移轉
 
-這是本系列的第四個教學課程 本教學課程假設您已經完成了先前教學課程中的工作。
-
-1. [準備 Azure](tutorial-prepare-azure.md)
-2. [準備內部部署 VMware](tutorial-prepare-on-premises-vmware.md)
-3. [設定災害復原](tutorial-vmware-to-azure.md)
+本教學課程
 
 ## <a name="verify-vm-properties"></a>驗證 VM 屬性
 
-執行測試容錯移轉之前，請先驗證 VM 屬性，並確定 Hyper-V VM[hyper-v-azure-support-matrix.md#replicated-vms]、[VMware VM 或實體伺服器](vmware-physical-azure-support-matrix.md#replicated-machines)符合 Azure 需求。
+執行測試容錯移轉之前，請先驗證 VM 屬性，並確定 [Hyper-V VM](hyper-v-azure-support-matrix.md#replicated-vms) 或 [VMware VM](vmware-physical-azure-support-matrix.md#replicated-machines) 遵守 Azure 需求。
 
-1. 在 [受保護的項目] 中，按一下 [複寫的項目] > VM。
+1. 在 [受保護的項目] 中，按一下 [複寫的項目] 然後按一下 [VM]。
 2. 在 [複寫的項目] 窗格中，將會呈現 VM 資訊、健康情況狀態，以及最新可用復原點的摘要。 如需檢視詳細資訊，請按一下 [屬性]。
-3. 在 [計算與網路] 中，您可以修改 Azure 的名稱、資源群組、目標大小、[可用性設定組](../virtual-machines/windows/tutorial-availability-sets.md)，及管理磁碟設定。
-   
-      >[!NOTE]
-      目前不支援從具有受控磁碟的 Azure VM 容錯回復至內部部署 Hyper-V 機器。 如果您計畫將內部部署 VM 移轉至 Azure，您應只使用受控磁碟選項來進行容錯移轉，而不對其進行容錯回復。
-   
+3. 在 [計算與網路] 中，您可以修改 Azure 的名稱、資源群組、目標大小、可用性設定組及受控磁碟設定。
 4. 您可以檢視及修改網路設定，包括在容錯移轉後 Azure VM 所在的網路/子網路，以及要指派給它的 IP 位址。
 5. 在 [磁碟] 中，您可以看見 VM 上作業系統和資料磁碟的相關資訊。
 
@@ -48,7 +49,7 @@ ms.locfileid: "34209720"
 當您執行測試容錯移轉時，會發生下列情況：
 
 1. 程式會進行必要條件檢查，以確保所有容錯移轉所需之條件都已準備就緒。
-2. 容錯移轉會處理資料，以便建立 Azure VM。 若選取最新的復原點，則會根據資料建立復原點。
+2. 容錯移轉會處理資料，以便建立 Azure VM。 如果您選取最新的復原點，則會根據資料建立復原點。
 3. 將會使用先前步驟中處理的資料來建立 Azure VM。
 
 執行測試容錯移轉，如下所示：
@@ -68,3 +69,4 @@ ms.locfileid: "34209720"
 
 > [!div class="nextstepaction"]
 > [在內部部署 VMware VM 執行容錯移轉和容錯回復](vmware-azure-tutorial-failover-failback.md)。
+> [在內部部署 Hyper-V VM 執行容錯移轉和容錯回復](hyper-v-azure-failover-failback-tutorial.md)。

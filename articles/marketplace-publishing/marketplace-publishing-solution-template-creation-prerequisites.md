@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32165873"
 ---
 # <a name="technical-prerequisites-for-creating-a-solution-template-for-the-azure-marketplace"></a>建立 Azure Marketplace 解決方案範本的技術必要條件
 開始之前，請先徹底閱讀程序，並且了解每個步驟執行的位置及原因。 在供應項目建立程序之前，您應該盡可能準備您的公司資訊和其他資料、下載必要的工具，和/或建立技術元件。  

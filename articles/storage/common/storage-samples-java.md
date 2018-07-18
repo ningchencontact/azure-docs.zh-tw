@@ -1,12 +1,12 @@
 ---
-title: "使用 Java 的 Azure 儲存體範例 | Microsoft Docs"
-description: "檢視、下載及執行 Azure 儲存體的範例程式碼和應用程式。 探索使用 Java 儲存體用戶端程式庫之 Blob、佇列、資料表和檔案的入門範例。"
+title: 使用 Java 的 Azure 儲存體範例 | Microsoft Docs
+description: 檢視、下載及執行 Azure 儲存體的範例程式碼和應用程式。 探索使用 Java 儲存體用戶端程式庫之 Blob、佇列、資料表和檔案的入門範例。
 services: storage
 documentationcenter: na
 author: seguler
 manager: jahogg
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.devlang: java
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23107806"
 ---
 # <a name="azure-storage-samples-using-java"></a>使用 Java 的 Azure 儲存體範例
 

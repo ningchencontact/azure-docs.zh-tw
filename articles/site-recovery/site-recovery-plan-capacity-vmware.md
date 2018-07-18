@@ -1,18 +1,18 @@
 ---
-title: "使用 Azure Site Recovery 針對 VMware 到 Azure 的複寫進行容量和規模調整規劃 | Microsoft Docs"
-description: "使用 Azure Site Recovery 將 VMware VM 複寫至 Azure 時，可使用本文來進行容量規劃和調整。"
+title: 使用 Azure Site Recovery 針對 VMware 到 Azure 的複寫進行容量和規模調整規劃 | Microsoft Docs
+description: 使用 Azure Site Recovery 將 VMware VM 複寫至 Azure 時，可使用本文來進行容量規劃和調整。
 services: site-recovery
 author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 02/27/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: rayne
-ms.openlocfilehash: dbaf1e29fbf4be8ef9432842b7ea4d6511b21cbb
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 30e4534fbc235a228ac887ddc3336f09909b4fa6
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287349"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>使用 Azure Site Recovery 規劃容量並調整 Azure 中的 VMware 複寫
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/28/2018
 
 **元件** | **詳細資料** |
 --- | --- | ---
-**複寫** | **每日變更率上限：**受保護的機器只能使用一部處理序伺服器，而且單一處理序伺服器可處理的每日變更率最多為 2 TB。 因此 2 TB 是針對受保護機器支援的每日資料變更率上限。<br/><br/> **最大輸送量：**複寫的機器可以屬於 Azure 中的一個儲存體帳戶。 標準儲存體帳戶每秒可處理最多 20000 個要求，建議您將來源機器的每秒輸入/輸出作業 (IOPS) 數保持為 20000。 例如，如果您有一部具備 5 個磁碟的來源機器，並且在來源機器上的每個磁碟會產生 120 個 IOP (8K 大小)，則它會在 Azure 每個磁碟 IOPS 限制 500 之內  (所需的儲存體帳戶數目等於來源機器 IOPS 總數除以 20000)。
+**複寫** | **每日變更率上限：** 受保護的機器只能使用一部處理序伺服器，而且單一處理序伺服器可處理的每日變更率最多為 2 TB。 因此 2 TB 是針對受保護機器支援的每日資料變更率上限。<br/><br/> **最大輸送量：** 複寫的機器可以屬於 Azure 中的一個儲存體帳戶。 標準儲存體帳戶每秒可處理最多 20000 個要求，建議您將來源機器的每秒輸入/輸出作業 (IOPS) 數保持為 20000。 例如，如果您有一部具備 5 個磁碟的來源機器，並且在來源機器上的每個磁碟會產生 120 個 IOP (8K 大小)，則它會在 Azure 每個磁碟 IOPS 限制 500 之內  (所需的儲存體帳戶數目等於來源機器 IOPS 總數除以 20000)。
 **組態伺服器** | 組態伺服器應該要能夠處理在受保護機器上執行之所有工作負載的每日變更率容量，因此需要足夠頻寬以持續地將資料複寫到 Azure 儲存體。<br/><br/> 最佳做法是將組態伺服器放在與您想要保護的機器相同的網路與 LAN 區段上。 它可以位於不同的網路，但是您想要保護的機器應該具有第 3 層網路可見性。<br/><br/> 下一節的資料表會摘要說明組態伺服器的大小建議。
 **處理序伺服器** | 組態伺服器上會安裝第一部處理序伺服器。 您可以部署額外的處理序伺服器來調整您的環境。 <br/><br/> 處理序伺服器會從受保護的機器接收複寫資料，並透過快取、壓縮和加密予以最佳化。 然後，它會將資料傳送至 Azure。 處理序伺服器機器應該要有足夠的資源來執行這些工作。<br/><br/> 處理序伺服器使用磁碟快取。 請另外使用一個 600 GB 以上的快取磁碟，來處理發生網路瓶頸或中斷時儲存的資料變更。
 

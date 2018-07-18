@@ -2,28 +2,26 @@
 title: 使用 PowerShell 執行 Azure Cosmos DB 資料表 API 作業 | Microsoft Docs
 description: 如何使用 PowerShell 執行 Azure Cosmos DB 資料表 API 作業
 services: storage
-documentationcenter: storage
-author: robinsh
-manager: timlt
+author: SnehaGunda
+manager: kfile
 editor: tysonn
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: na
 ms.topic: how-to
 ms.date: 11/15/2017
-ms.author: robinsh
-ms.openlocfilehash: d40a56ca3c07bfadcf6e24d407b059a39522ca2b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: sngun
+ms.openlocfilehash: 9365fd70036c8b489efaea42bda9c670182c496c
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082269"
 ---
 # <a name="perform-azure-cosmos-db-table-api-operations-with-azure-powershell"></a>使用 Azure PowerShell 執行 Azure Cosmos DB 資料表 API 作業 
 
 >[!NOTE]
->Azure Cosmos DB 資料表 API 提供資料表儲存體的高階功能，例如周全的全域發佈、低延遲讀取和寫入、自動次要索引，以及專用的輸送量。 在大部分情況下，本文中的 PowerShell 命令同時適用於 Azure Cosmos DB 資料表 API 和 Azure 資料表儲存體，但本文旨在說明 Azure Cosmos DB 資料表 API。 如果您使用的是 Azure 資料表儲存體，請參閱[使用 Azure PowerShell 執行 Azure 資料表儲存體作業](table-storage-how-to-use-powershell.md)。
+>Azure Cosmos DB 資料表 API 提供資料表儲存體的高階功能，例如周全的全域發佈、低延遲讀取和寫入、自動次要索引，以及專用的輸送量。 在大部分情況下，本文中的 PowerShell 命令同時適用於 Azure Cosmos DB 資料表 API 和 Azure 資料表儲存體，但本文旨在說明 Azure Cosmos DB 資料表 API。 如果您使用的是 Azure 資料表儲存體，請參閱[使用 Azure PowerShell 執行 Azure 資料表儲存體作業](../storage/tables/table-storage-how-to-use-powershell.md)。
 >
 
 Azure Cosmos DB 資料表 API 可讓您儲存和查詢龐大的結構化、非關聯式資料集。 服務的主要元件是資料表、實體和屬性。 資料表是一組實體。 實體是一組屬性。 每個實體最多可有 252 個屬性，也就是所有的名稱/值組。 本文假設您已熟悉 Azure Cosmos DB 資料表 API 的概念。 如需詳細資訊，請參閱 [Azure Cosmos DB 資料表 API 的簡介](table-introduction.md)和[使用資料表 API 來建置 .NET 應用程式](create-table-dotnet.md)。
@@ -47,7 +45,7 @@ Azure Cosmos DB 資料表 API 可讓您儲存和查詢龐大的結構化、非�
 Install-Module AzureRmStorageTable
 ```
 
-然後須在本機安裝 Azure Cosmos DB 組件，才能使用這些 PowerShell。 如需如何執行該動作的指示，請參閱[適用於 Cosmos DB 資料表的 Azure RM 儲存體資料表 PowerShell 模組](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/) \(英文\)。
+然後須在本機安裝 Azure Cosmos DB 組件，才能使用這些 PowerShell。 如需如何執行該動作的指示，請參閱[適用於 Cosmos DB 資料表的 Azure RM 儲存體資料表 PowerShell 模組](https://blogs.technet.microsoft.com/paulomarques/2017/01/17/working-with-azure-storage-tables-from-powershell/) \(英文\)。
 
 若要嘗試下列練習，您需要 Azure Cosmos DB 資料庫帳戶。 如果您還沒有帳戶，請使用 [Azure 入口網站](https://portal.azure.com)建立一個新的 Azure Cosmos DB 帳戶。 如需建立新資料庫帳戶的說明，請參閱 [Azure Cosmos DB：建立資料庫帳戶](create-table-dotnet.md#create-a-database-account)。
 
@@ -90,7 +88,7 @@ $storageTable = Get-AzureStorageTableTable `
 
 ## <a name="delete-a-table"></a>刪除資料表 
 
-PowerShell 不支援從 Azure Cosmos DB 刪除資料表。 若要刪除資料表，請移至 [Azure 入口網站](https://azure.portal.com)，找到您正在使用的 Azure Cosmos DB 帳戶，然後尋找並刪除資料表。 
+PowerShell 不支援從 Azure Cosmos DB 刪除資料表。 若要刪除資料表，請移至 [Azure 入口網站](https://portal.azure.com)，找到您正在使用的 Azure Cosmos DB 帳戶，然後尋找並刪除資料表。 
 
 ## <a name="clean-up-resources"></a>清除資源
 

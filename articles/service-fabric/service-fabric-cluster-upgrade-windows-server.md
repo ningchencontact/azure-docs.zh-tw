@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208646"
 ---
 # <a name="upgrade-your-standalone-azure-service-fabric-cluster-on-windows-server"></a>在 Windows Server 上升級獨立的 Azure Service Fabric 叢集 
 > [!div class="op_single_selector"]

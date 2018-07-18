@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211400"
 ---
 # <a name="getting-started-with-reliable-actors"></a>開始使用 Reliable Actors
 > [!div class="op_single_selector"]

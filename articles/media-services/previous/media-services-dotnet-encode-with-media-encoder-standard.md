@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783447"
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>使用 .NET 透過 Media Encoder Standard 為資產編碼
 編碼工作是媒體服務中最常見的處理作業。 您建立編碼工作以將媒體檔案從一種編碼轉換成另一種編碼。 編碼時，您可以使用媒體服務內建的 Media Encoder。 您也可以使用媒體服務合作夥伴提供的編碼器；第三方編碼器可透過 Azure Marketplace 取得。 

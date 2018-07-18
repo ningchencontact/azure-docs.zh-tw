@@ -1,11 +1,11 @@
 ---
-title: "使用 cloud-init 在 Azure 上的 Linux 虛擬機器中執行 Bash 指令碼 | Microsoft Docs"
-description: "如何透過 Azure CLI 2.0 在建立期間使用 cloud-init 在 Linux 虛擬機器中執行 Bash 指令碼"
+title: 使用 cloud-init 在 Azure 上的 Linux 虛擬機器中執行 Bash 指令碼 | Microsoft Docs
+description: 如何透過 Azure CLI 2.0 在建立期間使用 cloud-init 在 Linux 虛擬機器中執行 Bash 指令碼
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29123713"
 ---
 # <a name="use-cloud-init-to-run-a-bash-script-in-a-linux-vm-in-azure"></a>使用 cloud-init 在 Azure 上的 Linux 虛擬機器中執行 Bash 指令碼
 本文會示範如何在 Azure 佈建期間，使用 [cloud-init](https://cloudinit.readthedocs.io) 在 Linux 虛擬機器 (VM) 上或虛擬機器擴展集 (VMSS) 上執行現有的 Bash 指令碼。 一旦 Azure 佈建資源之後，這些 cloud-init 指令碼就會在初次開機時執行。 如需深入了解 cloud-init 如何以原生方式在 Azure 和支援的 Linux 散發版本中運作，請參閱 [cloud-init 概觀](using-cloud-init.md)

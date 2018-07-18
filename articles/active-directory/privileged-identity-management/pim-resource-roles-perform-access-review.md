@@ -3,23 +3,24 @@ title: 在適用於 Azure 資源的 Privileged Identity Management 中執行存�
 description: 本文件說明如何在適用於 Azure 資源的 PIM 中，根據資源角色來執行存取權檢閱。
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
-editor: mwahl
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
+ms.component: protection
 ms.date: 03/30/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 47d981ce8034d725fe2b119392334a156852698d
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: fc4499e56d3508086365a353d5fa3f2bb42082b7
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33201584"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447297"
 ---
 # <a name="perform-an-access-review-in-pim-according-to-resource-role"></a>在 PIM 中根據資源角色來執行存取權檢閱
 適用於 Azure 資源的 Privileged Identity Management (PIM) 簡化了企業管理以特殊權限身分存取 Azure AD 中資源的方式。 

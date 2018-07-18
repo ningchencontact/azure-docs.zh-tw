@@ -17,11 +17,12 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 19ca9d70f769a19556d131d1d131f1bc9d107ef0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8b11d4ab7188141b36b998e16429329c33f09cee
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599563"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>將 Azure Functions 效能和可靠性最佳化
 
@@ -116,7 +117,8 @@ ms.lasthandoff: 03/23/2018
 在[主機設定文件](functions-host-json.md)中可以找到其他主機設定選項。
 
 ## <a name="next-steps"></a>後續步驟
+
 如需詳細資訊，請參閱下列資源：
 
-因為 Azure Functions 使用 Azure App Service，所以您也應該充分了解 Azure App Service 指導方針。
-* [HTTP 效能最佳化的模式與做法](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/)
+* [如何管理 Azure Functions 中的連線](manage-connections.md)
+* [Azure App Service 最佳做法](../app-service/app-service-best-practices.md)

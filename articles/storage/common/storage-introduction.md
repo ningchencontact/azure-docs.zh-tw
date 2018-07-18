@@ -8,11 +8,12 @@ ms.service: storage
 ms.topic: get-started-article
 ms.date: 04/05/2018
 ms.author: tamram
-ms.openlocfilehash: 8fc94db3e44fc5388063b507cf240863fcc26a3c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0ae4e196c81e767b2bbee4340f5d99b9f803df3b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653649"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure 儲存體簡介
 
@@ -31,7 +32,7 @@ Azure 儲存體包含以下資料服務：
 - [Azure Blob](../blobs/storage-blobs-introduction.md)：適用於文字和二進位資料且可大幅調整的物件存放區。
 - [Azure 檔案服務](../files/storage-files-introduction.md)：雲端或內部部署的受控檔案共用。
 - [Azure 佇列](../queues/storage-queues-introduction.md)：可在應用程式元件之間可靠傳訊的訊息存放區。 
-- [Azure 資料表](../../cosmos-db/table-storage-overview.md)：以無結構描述方式儲存結構化資料的 NoSQL 存放區。
+- [Azure 資料表](../tables/table-storage-overview.md)：以無結構描述方式儲存結構化資料的 NoSQL 存放區。
 
 每個服務都會透過儲存體帳戶存取。 若要開始使用，請參閱[建立儲存體帳戶](storage-quickstart-create-account.md)。
 
@@ -78,13 +79,13 @@ Azure 佇列服務用來儲存及擷取訊息。 佇列訊息的大小上限為 
 
 ## <a name="table-storage"></a>表格儲存體
 
-Azure 資料表儲存體現在屬於 Azure Cosmos DB。 若要查看 Azure 資料表儲存體文件，請參閱 [Azure 資料表儲存體概觀](../../cosmos-db/table-storage-overview.md)。 除了現有的 Azure 資料表儲存體服務，有新的 Azure Cosmos DB 資料表 API 供應項目，可提供輸送量最佳化的資料表、全域發佈，以及自動次要索引。 若要深入了解並試用新的進階體驗，請查看 [Azure Cosmos DB 資料表 API](https://aka.ms/premiumtables)。
+Azure 資料表儲存體現在屬於 Azure Cosmos DB。 若要查看 Azure 資料表儲存體文件，請參閱 [Azure 資料表儲存體概觀](../tables/table-storage-overview.md)。 除了現有的 Azure 資料表儲存體服務，有新的 Azure Cosmos DB 資料表 API 供應項目，可提供輸送量最佳化的資料表、全域發佈，以及自動次要索引。 若要深入了解並試用新的進階體驗，請查看 [Azure Cosmos DB 資料表 API](https://aka.ms/premiumtables)。
 
-如需資料表儲存體的詳細資訊，請參閱 [Azure 資料表儲存體概觀](../../cosmos-db/table-storage-overview.md)。
+如需資料表儲存體的詳細資訊，請參閱 [Azure 資料表儲存體概觀](../tables/table-storage-overview.md)。
 
 ## <a name="disk-storage"></a>磁碟儲存體
 
-Azure 儲存體也包含虛擬機器所使用的受控和非受控磁碟功能。 如需有關這些功能的詳細資訊，請參閱[計算服務文件](https://docs.microsoft.com/azure/#pivot=services&panel=Compute)。
+Azure 儲存體也包含虛擬機器所使用的受控和非受控磁碟功能。 如需有關這些功能的詳細資訊，請參閱[計算服務文件](https://docs.microsoft.com/en-gb/azure/#pivot=products&panel=Compute)。
 
 ## <a name="types-of-storage-accounts"></a>儲存體帳戶類型
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
 ms.openlocfilehash: f6096238deb2186edfac2eb9d1c9a9e76db07553
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "33776629"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308514"
 ---
 # <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知推送至特定 iOS 裝置
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]

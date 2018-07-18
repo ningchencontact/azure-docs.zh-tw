@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29943168"
 ---
 > [!NOTE]
 > 本文件並非最新版本，且資訊並不準確。 如需在 Azure Marketplace 發佈供應項目的說明資訊，請改至 Azure Marketplace [賣方指南](https://docs.microsoft.com/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide)。

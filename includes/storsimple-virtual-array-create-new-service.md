@@ -1,6 +1,6 @@
 #### <a name="to-create-a-new-service"></a>建立新服務
 
-1.  使用您的 Microsoft 帳戶認證登入 Azure 入口網站，URL 如下：<https://portal.azure.com/>。 如果在政府機構入口網站中部署裝置，請在以下網址登入︰<https://portal.azure.us/>
+1.  使用您的 Microsoft 帳戶認證，在下列 URL 上登入 Azure 入口網站：<https://portal.azure.com/>。 如果在 Government 入口網站中部署裝置，請在以下網址登入︰<https://portal.azure.us/>
 
 2.  在 Azure 入口網站中，按一下 [+ 建立資源] &gt; [儲存體] &gt; [StorSimple 虛擬系列]。
 

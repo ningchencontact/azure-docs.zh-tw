@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure 通知中樞和 Google 雲端通訊將通知推播至 Android 應用程式 | Microsoft Docs
-description: 在本教學課程中，您會了解如何使用 Azure 通知中樞和 Google Firebase 雲端通訊，將通知推播到 Android 裝置。
+description: 在本教學課程中，您將了解如何使用 Azure 通知中樞和 Google Firebase 雲端通訊，將通知推送至 Android 裝置。
 services: notification-hubs
 documentationcenter: android
 keywords: 推播通知,推播通知,android 推播通知
@@ -17,10 +17,11 @@ ms.custom: mvc
 ms.date: 04/05/2018
 ms.author: dimazaid
 ms.openlocfilehash: efad7353a477577e5b5ac862b418ce78b1c4c304
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38697247"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging"></a>教學課程：使用 Azure 通知中樞和 Google 雲端通訊將通知推播至 Android 裝置
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -44,7 +45,7 @@ ms.lasthandoff: 05/07/2018
 
 ## <a name="prerequisites"></a>先決條件
 
-- **Azure 訂用帳戶**。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。 
+- **Azure 訂用帳戶**。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/)。 
 - [Android Studio](http://go.microsoft.com/fwlink/?LinkId=389797).
 
 ## <a name="creating-a-project-that-supports-google-cloud-messaging"></a>建立支援 Google 雲端通訊的專案
@@ -57,7 +58,7 @@ ms.lasthandoff: 05/07/2018
 
 1. 在 [通知設定] 中選取 [Google] \(GCM\)。 
 2. 輸入您從 Google Cloud Console 中取得的 **API 金鑰**。 
-3. 在工具列上，選取 [儲存]。 
+3. 在工具列上選取 [儲存]。 
 
     ![Azure 通知中樞 - Google (GCM)](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
 
@@ -692,10 +693,10 @@ ms.lasthandoff: 05/07/2018
     ```
 
 ## <a name="next-steps"></a>後續步驟
-在本教學課程中，您已將廣播通知傳送給向後端註冊的所有 Android 裝置。 若要了解如何將通知推播至特定 Android 裝置，請繼續進行下列教學課程：  
+在本教學課程中，您已將廣播通知傳送給向後端註冊的所有 Android 裝置。 若要了解如何將通知推送至特定 Android 裝置，請繼續進行下列教學課程：  
 
  > [!div class="nextstepaction"] 
- > [將通知推播至特定裝置](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md) 
+ > [將通知推送至特定裝置](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md) 
 
 
 <!-- Images. -->

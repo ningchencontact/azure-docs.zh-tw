@@ -11,13 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/13/2018
+ms.date: 06/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: c7e9807e7195be47bf7874837ff9428c90abbcee
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5e67c60828467cce7c3b40ba17f15f44ad045920
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34735665"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>將 Azure 資源部署至多個訂用帳戶和資源群組
 
@@ -128,11 +129,11 @@ ms.lasthandoff: 05/20/2018
 
 若要部署範例範本，請使用 Azure PowerShell 4.0.0 或更新版本或是 Azure CLI 2.0.0 或更新版本。
 
-## <a name="use-the-resourcegroup-function"></a>使用 resourceGroup() 函式
+## <a name="use-the-resourcegroup-and-subscription-functions"></a>使用 resourceGroup() 和 subscription() 函式
 
-對於跨資源群組部署，[resouceGroup() 函式](resource-group-template-functions-resource.md#resourcegroup)會根據您指定巢狀範本的方式，以不同的方式進行解析。 
+對於跨資源群組部署，[resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) 和 [subscription()](resource-group-template-functions-resource.md#subscription) 函式會根據您指定巢狀範本的方式，以不同的方式進行解析。 
 
-如果您將某個範本內嵌於另一個範本內，巢狀範本中的 resouceGroup() 會解析至父資源群組。 內嵌範本會使用下列格式：
+如果您將某個範本內嵌於另一個範本內，巢狀範本中的函式將會解析至父資源群組和訂用帳戶。 內嵌範本會使用下列格式：
 
 ```json
 "apiVersion": "2017-05-10",
@@ -143,12 +144,12 @@ ms.lasthandoff: 05/20/2018
     "mode": "Incremental",
     "template": {
         ...
-        resourceGroup() refers to parent resource group
+        resourceGroup() and subscription() refer to parent resource group/subscription
     }
 }
 ```
 
-如果您連結至個別範本，連結範本中的 resourceGroup() 會解析至巢狀資源群組。 連結範本會使用下列格式：
+如果您連結至個別範本，連結範本中的函式將會解析至巢狀資源群組和訂用帳戶。 連結範本會使用下列格式：
 
 ```json
 "apiVersion": "2017-05-10",
@@ -159,7 +160,7 @@ ms.lasthandoff: 05/20/2018
     "mode": "Incremental",
     "templateLink": {
         ...
-        resourceGroup() in linked template refers to linked resource group
+        resourceGroup() and subscription() in linked template refer to linked resource group/subscription
     }
 }
 ```

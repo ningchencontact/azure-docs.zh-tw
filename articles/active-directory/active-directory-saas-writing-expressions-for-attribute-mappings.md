@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: f1cf83044eb4f001ba341cabd0771b267c3f996d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 24b20766997a9a41956f575f6cab8ee5ef0d9e25
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37034534"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>在 Azure Active Directory 中撰寫屬性對應的運算式
 當您設定佈建到 SaaS 應用程式時，您可以指定的其中一種屬性對應類型是運算式對應。 您必須撰寫類似指令碼的運算式，以便讓您將使用者的資料轉換成 SaaS 應用程式更能接受的格式。
@@ -36,7 +37,7 @@ ms.lasthandoff: 04/20/2018
 * 對於字串常數，如果您在字串中需要反斜線 ( \ ) 或引號 ( " ) ，則必須使用反斜線 ( \ ) 符號逸出。 例如："公司名稱：\"Contoso\""
 
 ## <a name="list-of-functions"></a>函式的清單
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
 
 - - -
 ### <a name="append"></a>Append
@@ -95,6 +96,18 @@ ms.lasthandoff: 04/20/2018
 | **length** |必要 |integer |子字串的長度。 如果長度超出 **source** 字串結尾，函式會傳回從 **start** 索引一直到 **source** 字串結尾的子字串。 |
 
 - - -
+### <a name="normalizediacritics"></a>NormalizeDiacritics
+**函式：**<br> NormalizeDiacritics(source)
+
+**說明：**<br> 需要一個字串引數。 傳回字串，但是當中所有的變音符號字元皆被同等的非變音符號字元取代。 通常用於將包含變音符號字元 (重音符號) 的名字和姓氏，轉換成可用於如使用者主體名稱、SAM 帳戶名稱，與電子郵件地址等各種使用者識別碼中的有效值。
+
+**參數：**<br> 
+
+| Name | 必要 / 重複 | 型別 | 注意 |
+| --- | --- | --- | --- |
+| **source** |必要 |字串 | 通常為名字或姓氏屬性 |
+
+- - -
 ### <a name="not"></a>否
 **函式：**<br> Not(source)
 
@@ -128,7 +141,6 @@ ms.lasthandoff: 04/20/2018
   * 如果 **source** 有值，則使用 **regexPattern** 和 **regexGroupName** 從有 **replacementPropertyName** 的屬性擷取取代值。 結果會傳回取代值
 
 **參數：**<br> 
-
 | Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要 |字串 |通常為 source 物件的屬性名稱。 |
@@ -143,7 +155,7 @@ ms.lasthandoff: 04/20/2018
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
 **函式：**<br> SingleAppRoleAssignment([appRoleAssignments])
 
-**說明：**<br> 從針對特定應用程式指派給使用者的所有 appRoleAssignment 清單中傳回單一 appRoleAssignment。 需有此函式才能將 appRoleAssignments 物件轉換成單一角色名稱字串。 請注意，最佳做法是確定一次只有一個 appRoleAssignment 會指派給一位使用者，如果多個角色受到指派，則傳回的角色字串可能不可預測。
+**說明：**<br> 需要一個字串引數。 傳回字串，但是當中所有的變音符號字元皆被同等的非變音符號字元取代。
 
 **參數：**<br> 
 
@@ -214,16 +226,16 @@ ms.lasthandoff: 04/20/2018
 * **輸入** (surname)："Doe"
 * **輸出**："JohDoe"
 
-### <a name="remove-diacritics-from-a-string-and-convert-to-lowercase"></a>從字串中移除變音符號，然後轉換成小寫
-您必須從字串中移除特殊字元，並將大寫字元轉換成小寫。
+### <a name="remove-diacritics-from-a-string"></a>移除字串中的變音符號
+您必須以不含重音符號的同等字元取代含重音符號的字元。
 
 **運算式：** <br>
-`Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace([givenName], , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , )`
+NormalizeDiacritics([givenName])
 
 **範例輸入/輸出：** <br>
 
-* **輸入** (givenName)："Zoë"
-* **輸出**："zoe"
+* **輸入** (givenName)： "Zoë"
+* **輸出**：「Zoe」
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>以特定格式將日期輸出為字串
 您想要以特定格式傳送日期到 SaaS 應用程式。 <br>
@@ -256,7 +268,7 @@ ms.lasthandoff: 04/20/2018
 * [自動化 SaaS 應用程式使用者佈建/解除佈建](active-directory-saas-app-provisioning.md)
 * [自訂使用者佈建的屬性對應](active-directory-saas-customizing-attribute-mappings.md)
 * [適用於使用者佈建的範圍篩選器](active-directory-saas-scoping-filters.md)
-* [使用 SCIM 以啟用從 Azure Active Directory 到應用程式的使用者和群組自動佈建](active-directory-scim-provisioning.md)
+* [使用 SCIM 以啟用從 Azure Active Directory 到應用程式的使用者和群組自動佈建](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [帳戶佈建通知](active-directory-saas-account-provisioning-notifications.md)
-* [如何整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
+* [如何整合 SaaS 應用程式的教學課程清單](saas-apps/tutorial-list.md)
 

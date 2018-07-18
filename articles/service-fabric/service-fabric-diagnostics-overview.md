@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2018
 ms.author: srrengar
-ms.openlocfilehash: 4fcf8c514cb785dbb0a149e5b3073fc72937b68a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f7fe07500f877cf34626e53361c9c68dd459a5e4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643170"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>對 Azure Service Fabric 進行監視和診斷
 
@@ -46,9 +47,6 @@ Service Fabric 提供一組完整的現成事件。 這些 [Service Fabric 事�
 我們建議您使用 EventStore 來進行快速分析，概略了解叢集的運作情況，以及各項功能是否如預期般正常進行。 若要收集叢集所產生的記錄和事件，我們通常建議使用 [Azure 診斷擴充功能](service-fabric-diagnostics-event-aggregation-wad.md)。 這項擴充功能會與 OMS Log Analytics 的 Service Fabric 專屬解決方案「Service Fabric 分析」充分整合，該解決方案提供一個監視 Service Fabric 叢集的自訂儀表板，可讓您查詢叢集的事件和設定警示。 您可以在[使用 OMS 進行事件分析](service-fabric-diagnostics-event-analysis-oms.md)閱讀更多資訊。 
 
  您可以在[平台層級事件和記錄產生](service-fabric-diagnostics-event-generation-infra.md)閱讀更多監視叢集的詳細資訊。
-
-
- ![OMS SF 解決方案](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-solution.png)
 
 ## <a name="performance-monitoring"></a>效能監視
 監視根本的基礎結構是了解叢集狀態和資源使用率的關鍵部分。 測量系統效能取決於許多因素，每個因素通常都可透過關鍵效能指標 (KPI) 測量。 Service Fabric 相關的 KPI 可以對應至可從叢集中節點收集的計量，作為效能計數器。

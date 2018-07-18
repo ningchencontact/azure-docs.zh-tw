@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31512923"
 ---
 # <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>關鍵考量：使用服務或為 Azure Stack 建置應用程式
 

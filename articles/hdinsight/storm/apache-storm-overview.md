@@ -1,13 +1,13 @@
 ---
-title: "什麼是 Apache Storm - Azure HDInsight | Microsoft Docs"
-description: "Apache Storm 可讓您即時處理資料流。 Azure HDInsight 可讓您在 Azure 雲端上輕鬆建立 Storm 叢集。 使用 Visual Studio，您可以使用 C# 建立 Storm 解決方案，然後再部署到 HDInsight Storm 叢集。"
+title: 什麼是 Apache Storm - Azure HDInsight | Microsoft Docs
+description: Apache Storm 可讓您即時處理資料流。 Azure HDInsight 可讓您在 Azure 雲端上輕鬆建立 Storm 叢集。 使用 Visual Studio，您可以使用 C# 建立 Storm 解決方案，然後再部署到 HDInsight Storm 叢集。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-keywords: "apache storm 使用案例,storm 叢集,什麼是 apache storm"
+keywords: apache storm 使用案例,storm 叢集,什麼是 apache storm
 ms.assetid: 72d54080-1e48-4a5e-aa50-cce4ffc85077
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
@@ -17,11 +17,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 7defb860ab526824492ddeb1fddf8ce037ec39ae
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 1179a1556d47c22d4f0055dff3e94ca1bc49e939
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128365"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>什麼是 Apache Storm on Azure HDInsight？
 
@@ -148,7 +149,7 @@ Apache Storm 可以提供不同程度的訊息處理保證。 例如，基本的
 
 ### <a name="ibasicbolt"></a>IBasicBolt
 
-讀取輸入 Tuple、發出零個以上的 Tuple，然後在執行方法結束時立即認可輸入 Tuple，是常見的模式。 Storm 提供 [IBasicBolt](https://storm.apache.org/releases/1.1.0/javadocs/org/apache/storm/topology/IBasicBolt.html) 介面將此模式自動化。
+讀取輸入 Tuple、發出零個以上的 Tuple，然後在執行方法結束時立即認可輸入 Tuple，是常見的模式。 Storm 提供 [IBasicBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) 介面將此模式自動化。
 
 ### <a name="joins"></a>聯結
 

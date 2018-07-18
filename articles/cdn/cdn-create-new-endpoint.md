@@ -1,10 +1,10 @@
 ---
 title: 快速入門 - 建立 Azure CDN 設定檔和端點 | Microsoft Docs
-description: 此快速入門說明如何藉由建立新的 CDN 設定檔和端點來啟用 Azure CDN。
+description: 此快速入門說明如何藉由建立新的 CDN 設定檔和 CDN 端點來啟用 Azure CDN。
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
 ms.service: cdn
@@ -12,14 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/13/2018
-ms.author: mazha
+ms.date: 05/24/2018
+ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 2f2d34db2bb18b93ee4d8b78a135caecde5a293b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: cf0a0b10d8df3b119f5abbd8060f8821d54172bb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607866"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>快速入門：建立 Azure CDN 設定檔和端點
 在此快速入門中，您會藉由建立新的 CDN 設定檔和端點來啟用 Azure 內容傳遞網路 (CDN)。 在建立設定檔和端點後，您即可開始將內容傳遞給您的客戶。
@@ -27,7 +28,7 @@ ms.lasthandoff: 05/07/2018
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>先決條件
-基於此快速入門的用途，您必須建立名為 *mystorageacct123* (作為原始主機名稱) 的儲存體帳戶。 如需詳細資訊，請參閱[整合 Azure 儲存體帳戶與 Azure CDN](cdn-create-a-storage-account-with-cdn.md)
+基於此快速入門的用途，您必須建立名為 *mystorageacct123* (作為原始主機名稱) 的儲存體帳戶。 如需詳細資訊，請參閱[整合 Azure 儲存體帳戶與 Azure CDN](cdn-create-a-storage-account-with-cdn.md)。
 
 ## <a name="log-in-to-the-azure-portal"></a>登入 Azure 入口網站
 使用您的 Azure 帳戶登入 [Azure 入口網站](https://portal.azure.com)。
@@ -46,23 +47,23 @@ ms.lasthandoff: 05/07/2018
    
     ![CDN 設定檔](./media/cdn-create-new-endpoint/cdn-select-endpoint.png)
    
-    [新增端點] 頁面隨即出現。
+    此時會顯示 [新增端點] 窗格。
 
-    使用影像下方的資料表中指定的設定。
-   
-    ![新增端點窗格](./media/cdn-create-new-endpoint/cdn-add-endpoint.png)
+3. 對於端點設定，使用下表中所指定的值：
 
     | 設定 | 值 |
     | ------- | ----- |
     | **名稱** | 輸入 *my-endpoint-123* 作為您的端點主機名稱。 此名稱必須是全域唯一的；如果已在使用中，您可以輸入不同名稱。 此名稱可用來存取位於網域 _&lt;endpoint name&gt;_.azureedge.net 的快取資源。|
     | **原始類型** | 選取 [儲存體] 。 | 
-    | **原始主機名稱** | 輸入 *mystorageacct123.blob.core.windows.net* 作為您的主機名稱。 此名稱必須是全域唯一的；如果已在使用中，您可以輸入不同名稱 |
+    | **原始主機名稱** | 輸入 *mystorageacct123.blob.core.windows.net* 作為您的主機名稱。 此名稱必須是全域唯一的；如果已在使用中，您可以輸入不同名稱。 |
     | **原始路徑** | 保留空白。 |
     | **原始主機標頭** | 保留產生的預設值。 |  
     | **通訊協定** | 保留已選取的預設值 **HTTP** 和 **HTTPS** 選項。 |
     | **原始連接埠** | 保留預設的連接埠值。 | 
     | **最佳化對象** | 保留預設選項 [一般 Web 傳遞]。 |
-    
+
+    ![新增端點窗格](./media/cdn-create-new-endpoint/cdn-add-endpoint.png)
+
 3. 選取 [新增] 來建立新的端點。
    
    端點建立之後，即會出現在設定檔的端點清單中。

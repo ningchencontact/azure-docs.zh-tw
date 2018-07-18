@@ -10,24 +10,22 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 3da4b0286ddea88d8009757ea44797e4269140a2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 7fc4fc42893ec839f3ffbe667e9fcfad944115f5
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053552"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 SQL Server 及從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [第 1 版 - 正式推出](v1/data-factory-sqlserver-connector.md)
-> * [第 2 版 - 預覽](connector-sql-server.md)
+> * [第 1 版](v1/data-factory-sqlserver-connector.md)
+> * [目前的版本](connector-sql-server.md)
 
 本文概述如何使用 Azure Data Factory 中的「複製活動」，從 SQL Server 資料庫複製資料及將資料複製到該處。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
-
-> [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (也就是正式推出版 (GA))，請參閱 [V1 中的 SQL Server 連接器](v1/data-factory-sqlserver-connector.md)。
 
 ## <a name="supported-capabilities"></a>支援的功能
 
@@ -57,7 +55,7 @@ ms.lasthandoff: 04/05/2018
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**SqlServer** | yes |
-| connectionString |指定使用 SQL 驗證或 Windows 驗證來連線至 SQL Server 資料庫時所需的 connectionString 資訊。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |yes |
+| connectionString |指定使用 SQL 驗證或 Windows 驗證來連線至 SQL Server 資料庫時所需的 connectionString 資訊。 請參閱下列範例，您要新增擴充來包含更多屬性，例如 Always On。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |yes |
 | userName |如果您使用「Windows 驗證」，請指定使用者名稱。 範例︰**domainname\\username**。 |否 |
 | password |指定您為 userName 指定之使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |否 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用「自我裝載 Integration Runtime」或 Azure Integration Runtime (如果您的資料存放區是可公開存取的)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |

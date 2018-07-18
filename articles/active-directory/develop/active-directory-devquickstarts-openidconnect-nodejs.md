@@ -17,11 +17,12 @@ ms.date: 04/20/2018
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 8068e193ac267ef23bdaab1fc23bc7bf9b0d330b
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 7d9b8a740c331a73ac66398be801ba3878312969
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969073"
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD Node.js Web 應用程式快速入門
 在此我們使用 Passport 來執行下列動作：
@@ -61,6 +62,10 @@ Passport 是 Node.js 的驗證中介軟體。 您可以暗中將極具彈性且�
 
 6. 註冊之後，Azure AD 會指派唯一的應用程式識別碼給您的應用程式。 您會在後續章節中用到這個值，所以請從應用程式頁面中複製此值。
 7. 從應用程式的 [設定]  ->  [屬性] 頁面，更新應用程式識別碼 URI。 [ **應用程式識別碼 URI** ] 是指應用程式的唯一識別碼。 慣例是使用 `https://<tenant-domain>/<app-name>` 格式，例如：`https://contoso.onmicrosoft.com/my-first-aad-app`。
+8. 若要建立祕密金鑰，請遵循[新增用來存取 Web API 的應用程式認證或權限](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis)中的步驟 4。
+
+   > [!IMPORTANT]
+   > 複製應用程式金鑰值。 這是 `clientSecret` 的值，您在下方的**步驟 3** 中需要此值。 
 
 ## <a name="step-2-add-prerequisites-to-your-directory"></a>步驟 2︰在目錄中新增必要條件
 1. 從命令列中，將目錄位置變更為根資料夾 (若目錄位置原本不在該處)，然後執行下列命令：

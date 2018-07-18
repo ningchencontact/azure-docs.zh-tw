@@ -20,6 +20,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33778353"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>使用 Azure 通知中樞和 Node.js 傳送推播通知
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -70,7 +71,7 @@ Azure 通知中樞提供易用、多平台、可調整的基礎結構，用以�
 
     var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
 
-執行下列步驟，即可從 **Azure 入口網站**取得連線的 [connectionstring] 值：
+執行下列步驟，即可從 [Azure 入口網站] 取得連線的 **connectionstring** 值：
 
 1. 在左導覽窗格中，按一下 [瀏覽] 。
 2. 選取 [通知中樞] ，然後尋找您要用於範例的中樞。 如果您需要建立新通知中樞的說明，您可以參考 [Windows 市集開始使用教學課程](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 。

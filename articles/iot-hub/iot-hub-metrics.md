@@ -1,25 +1,19 @@
 ---
-title: "使用計量監視 Azure IoT 中樞 | Microsoft Docs"
-description: "如何使用 Azure IoT 中樞度量來評估和監視 IoT 中樞的整體健全狀況。"
-services: iot-hub
-documentationcenter: 
+title: 使用計量監視 Azure IoT 中樞 | Microsoft Docs
+description: 如何使用 Azure IoT 中樞度量來評估和監視 IoT 中樞的整體健全狀況。
 author: nberdy
-manager: timlt
-editor: 
-ms.assetid: a47108fd-f994-4105-b21d-5b8f697b699c
+manager: briz
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: nberdy
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cafe5009b8e96b147b5bbed1957024f6d96feb58
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 754901bb9c851f66708771346cbb7fe2e42688cd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634058"
 ---
 # <a name="understand-iot-hub-metrics"></a>了解 IoT 中樞計量
 IoT 中樞度量提供更好的資料，讓您了解 Azure 訂用帳戶中各種 Azure 資源的狀態。 IoT 中樞度量可讓您評估 IoT 中樞服務及其連接之裝置的整體健全狀況。 提供給您的統計資料非常重要，因為它們可以協助您了解其 IoT 中樞的情況，並協助您不需要連絡 Azure 支援人員就解決根本問題。

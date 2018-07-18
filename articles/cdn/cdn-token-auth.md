@@ -19,6 +19,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30905141"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>使用權杖驗證保護 Azure CDN 資產
 

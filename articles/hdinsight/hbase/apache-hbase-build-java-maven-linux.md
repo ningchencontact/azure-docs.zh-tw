@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/01/2018
+ms.locfileid: "32311483"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>建置 Apache HBase 的 Java 應用程式
 

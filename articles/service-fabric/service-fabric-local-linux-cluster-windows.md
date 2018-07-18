@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206288"
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>在 Windows 開發人員電腦上設定 Linux Service Fabric 叢集
 

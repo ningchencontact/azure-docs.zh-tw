@@ -1,13 +1,13 @@
 ---
-title: "在 Azure Linux 虛擬機器上設定 Oracle ASM | Microsoft Docs"
-description: "快速在您的 Azure 環境中啟動並執行 Oracle ASM。"
+title: 在 Azure Linux 虛擬機器上設定 Oracle ASM | Microsoft Docs
+description: 快速在您的 Azure 環境中啟動並執行 Oracle ASM。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: RicksterCDN
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/19/2017
 ms.author: rclaus
-ms.openlocfilehash: 0e34a188271a5ac2fb6cb34a088ec3f650be6cab
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: cc75235680eeace5107ef6ac0380e8b7a42974fc
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38618432"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>在 Azure Linux 虛擬機器上設定 Oracle ASM  
 
@@ -200,7 +201,7 @@ ssh <publicIpAddress>
    ```
 
 3. 透過執行下列命令格式化磁碟 /dev/sdc，並透過下列項目回答提示：
-   - n 為新磁碟分割
+   - *n* 適用於新的磁碟分割
    - *p* 為主要磁碟分割
    - *1* 以選取第一個磁碟分割
    - 按 `enter` 為預設第一個磁柱

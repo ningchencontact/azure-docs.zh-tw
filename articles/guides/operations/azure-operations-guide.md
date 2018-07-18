@@ -3,7 +3,7 @@ title: Azure IT 操作員快速入門指南 | Microsoft Docs
 description: Azure IT 操作人員快速入門指南
 services: ''
 documentationcenter: ''
-author: neilpeterson
+author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
@@ -14,12 +14,13 @@ ms.topic: ''
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
-ms.author: nepeters
-ms.openlocfilehash: b63beffdd3b10071c6d18128e78a949374c171b2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.author: iainfou
+ms.openlocfilehash: f79f727ed46f85866f59468be418ba8975c17bd8
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099488"
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>雲端運算和 Microsoft Azure 簡介
 
@@ -60,7 +61,7 @@ SaaS 是集中裝載和管理的軟體。 它通常以多租用戶架構為基�
 
 Microsoft Office 365 是良好的 SaaS 供應項目範例。 訂閱者需每月或每年支付訂閱費用，他們可取得 Microsoft Exchange、Microsoft OneDrive 和 Microsoft Office 套件即服務的其餘部分。 訂閱者一律可取得最新版本，而系統會為您管理 Exchange 伺服器。 相較於每年安裝及升級 Office，這種作法比較經濟實惠。
 
-#### <a name="paas-platform-as-a-service"></a>PaaS：平台即服務 
+#### <a name="paas-platform-as-a-service"></a>PaaS：平台即服務
 
 採用 PaaS，您可將應用程式部署到雲端服務廠商所提供的環境。 廠商會進行所有的基礎結構管理工作，以便您專注於應用程式開發。
 
@@ -148,7 +149,7 @@ Azure 是在全球各地許多地區正式推出的全域雲端平台。 當您�
 ### <a name="azure-portal"></a>Azure 入口網站
 
 
-Azure 入口網站是一種 Web 應用程式，可用來建立、管理和移除 Azure 資源和服務。 Azure入口網站位於 https://portal.azure.com。它包含用於管理 Azure 資源的可自訂儀表板和工具。 它也提供帳單和訂用帳戶資訊。 如需詳細資訊，請參閱 [Microsoft Azure 入口網站概觀](https://azure.microsoft.com/documentation/articles/azure-portal-overview/)和[透過入口網站管理 Azure 資源](https://docs.microsoft.com/azure/azure-portal/resource-group-portal)。
+Azure 入口網站是一種 Web 應用程式，可用來建立、管理和移除 Azure 資源和服務。 Azure入口網站位於 https://portal.azure.com。 它包含用於管理 Azure 資源的可自訂儀表板和工具。 它也提供帳單和訂用帳戶資訊。 如需詳細資訊，請參閱 [Microsoft Azure 入口網站概觀](https://azure.microsoft.com/documentation/articles/azure-portal-overview/)和[透過入口網站管理 Azure 資源](https://docs.microsoft.com/azure/azure-portal/resource-group-portal)。
 
 ### <a name="resources"></a>資源
 
@@ -380,11 +381,11 @@ Azure 儲存體帳戶可以設定不同層級的備援性：
 
 -   **讀取權限的異地備援儲存體**是異地備援儲存體，加上在次要區域中讀取資料的能力。 這項功能適合用於部分災害復原。 如果主要區域發生問題，您可以將應用程式變更為具有配對區域的唯讀存取權。
 
-### <a name="use-cases"></a>使用案例 
+### <a name="use-cases"></a>使用案例
 
 每個儲存體類型都有不同的使用案例。
 
-**Blob 儲存體** 
+**Blob 儲存體**
 
 blob 這個字是「二進位大型物件的縮寫。 Blob 類似您在電腦上儲存的非結構化檔案。 Blob 儲存體可以儲存任何類型的文字或二進位資料，例如文件、媒體檔案或應用程式安裝程式。 Blob 儲存體也稱為物件儲存體。 Azure Blob 儲存體也可保留 Azure 虛擬機器資料磁碟。
 
@@ -444,7 +445,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
 
 ### <a name="access-and-security-for-azure-storage"></a>Azure 儲存體的存取權與安全性
 
-Azure 儲存體可以不同的方式存取，包括透過 Azure 入口網站、在建立 VM 和作業期間，以及經由儲存體用戶端程式庫。 
+Azure 儲存體可以不同的方式存取，包括透過 Azure 入口網站、在建立 VM 和作業期間，以及經由儲存體用戶端程式庫。
 
 **虛擬機器磁碟**
 

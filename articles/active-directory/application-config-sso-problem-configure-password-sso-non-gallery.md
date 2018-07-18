@@ -3,22 +3,23 @@ title: 為不在資源庫內的應用程式設定密碼單一登入時遇到的�
 description: 了解使用者在為不在資源庫內的自訂應用程式設定密碼單一登入 (這類應用程式不會列於 Azure AD 應用程式庫中) 時所面臨的常見問題
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 7b671089bfac04b359717874928d6a342c44b3d4
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.author: barbkess
+ms.openlocfilehash: 69a2bf6e622cd2338d57e62ed82951cb2385edd6
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34069669"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334902"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>為不在資源庫內的應用程式設定密碼單一登入時遇到的問題
 

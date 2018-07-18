@@ -3,19 +3,19 @@ title: 使用 Azure Migrate 進行規模探索和評定 | Microsoft Docs
 description: 說明如何使用 Azure Migrate 服務評定大量的內部部署機器。
 author: rayne-wiselman
 ms.service: azure-migrate
-ms.topic: article
-ms.date: 05/18/2018
+ms.topic: conceptual
+ms.date: 06/19/2018
 ms.author: raynew
-ms.openlocfilehash: c8943aec1c81abb34b646180df48bcc55764ca24
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: dd7524c0114589e0c145cb4c03b0f531d58ce950
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365326"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36214686"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>探索及評定大型 VMware 環境
 
-本文說明如何使用 [Azure Migrate](migrate-overview.md) 來評定大量內部部署虛擬機器 (VM)。 Azure Migrate 會評定機器，以確認機器是否適合移轉至 Azure。 此服務會提供在 Azure 中執行機器的大小調整建議和成本估計。
+Azure Migrate 具有每個專案 1500 部機器的限制，本文說明如何使用 [Azure Migrate](migrate-overview.md) 來評定大量內部部署虛擬機器 (VM)。   
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -24,7 +24,9 @@ ms.locfileid: "34365326"
 - **權限**：在 vCenter Server 中，您需要權限，方可藉由匯入 .OVA 格式的檔案來建立虛擬機器。
 - **統計資料設定**：vCenter Server 的統計資料設定應該先設為層級 3，再開始部署。 如果低於層級 3，還是能進行評定，但不會收集儲存體和網路的效能資料。 在此情況下，將根據 CPU 和記憶體的效能資料，以及磁碟和網路介面卡的組態資料來提出大小建議。
 
-## <a name="plan-azure-migrate-projects"></a>規劃 Azure Migrate 專案
+## <a name="plan-your-migration-projects-and-discoveries"></a>規劃您的移轉專案及探索
+
+單一 Azure Migrate 收集器可支援從多部 vCenter Server (依序) 進行探索，且支援探索至多個移轉專案 (依序)。 收集器能以「射後不理」(Fire and Forget) 模式運作；一旦探索完成後，您可以使用相同收集器從不同的 vCenter Server 收集資料，或將資料傳送到不同的移轉專案。
 
 根據下列限制來規劃探索和評定：
 
@@ -34,25 +36,35 @@ ms.locfileid: "34365326"
 | 探索  | 1,500             |
 | 評量 | 1,500             |
 
-<!--
-- If you have fewer than 400 machines to discover and assess, you need a single project and a single discovery. Depending on your requirements, you can either assess all the machines in a single assessment or split the machines into multiple assessments.
-- If you have 400 to 1,000 machines to discover, you need a single project with a single discovery. But you will need multiple assessments to assess these machines, because a single assessment can hold up to 400 machines.
-- If you have 1,001 to 1,500 machines, you need a single project with two discoveries in it.
-- If you have more than 1,500 machines, you need to create multiple projects, and perform multiple discoveries, according to your requirements. For example:
-    - If you have 3,000 machines, you can set up two projects with two discoveries, or three projects with a single discovery.
-    - If you have 5,000 machines, you can set up four projects: three with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one.
-      -->
-
-## <a name="plan-multiple-discoveries"></a>規劃多次探索
-
-您可以使用相同的 Azure Migrate 收集器，對一或多個專案進行多次探索。 請記住下列規劃考量：
+請記住下列規劃考量：
 
 - 當您使用 Azure Migrate 收集器進行探索時，可以將探索範圍設定為 vCenter Server 資料夾、資料中心、叢集或主機。
 - 若要執行一次以上的探索，請在 vCenter Server 中確認您要探索的虛擬機器是位於支援 1500 部機器限制的資料夾、資料中心、叢集或主機內。
 - 基於評定目的，我們建議您將相依的機器保留在同個專案和同次評定內。 在 vCenter Server 中，確認相依的機器位在同一個資料夾、資料中心或叢集內，以供評定。
 
+根據您的案例，您可以將探索分割，如下所述：
 
-## <a name="create-a-project"></a>建立專案
+### <a name="multiple-vcenter-servers-with-less-than-1500-vms"></a>多部 vCenter Server 包含小於 1500 部虛擬機器
+
+如果您的環境中有多部 vCenter Server，且虛擬機器總數小於 1500，則可使用單一收集器和單一移轉專案來探索所有虛擬機器中的所有 vCenter Server。 由於收集器一次會探索一部 vCenter Server，所以您可以針對所有 vCenter Server 執行相同的收集器，並將收集器指向相同的移轉專案。 所有探索完成後，您可以接著建立機器的評估。
+
+### <a name="multiple-vcenter-servers-with-more-than-1500-vms"></a>多部 vCenter Server 包含大於 1500 部虛擬機器
+
+如果您有多部 vCenter Server，且每部 vCenter Server 的虛擬機器小於 1500 部，但所有 vCenter Server 中有超過 1500 部虛擬機器，則必須建立多個移轉專案 (一個移轉專案只能包含 1500 部虛擬機器)。 若要達到這個目的，您可以按 vCenter Server 建立移轉專案，並分割探索。 您可以使用單一收集器來探索每部 vCenter Server (依序)。 如果您希望探索同時間開始，也可以部署多部設備，並以平行方式執行探索。
+
+### <a name="more-than-1500-machines-in-a-single-vcenter-server"></a>在單一 vCenter Server 中超過 1500 部機器
+
+如果您在單一 vCenter Server 中有超過 1500 部虛擬機器，則必須將探索分割為多個移轉專案。 若要分割探索，您可以利用設備中的 [範圍] 欄位，並指定主機、叢集、資料夾，或您想要探索的資料中心。 例如，如果您在 vCenter Server 中有兩個資料夾，一個包含 1000 部虛擬機器 (Folder1)，另一個包含 800 部虛擬機器 (Folder2)，則您可以使用單一收集器，並執行兩個探索。 在第一個探索中，您可以指定 Folder1 作為範圍，並將其指向第一個移轉專案，一旦第一個探索完成之後，您可以使用相同的收集器、將其範圍變更為 Folder2，並將移轉專案詳細資料變更為第二個移轉專案，然後執行第二個探索。
+
+### <a name="multi-tenant-environment"></a>多租用戶環境
+
+如果您有一個在租用戶之間共用的環境，而且不想在一個租用戶的訂用帳戶中探索另一個租用戶的虛擬機器，您可以使用收集器設備中的 [範圍] 欄位來設定探索的範圍。 如果租用戶間要共用主機，請只針對屬於特定租用戶的虛擬機器，建立具有唯讀存取權的認證，然後在收集器設備中使用此認證，並將範圍指定為要進行探索的主機。 或者，您也可以在 vCenter Server 中建立資料夾 (例如 tenant1 對 folder1 及 tenant2 對 folder2)，在共用主機下，將 tenant1 的虛擬機器移到 folder1、並將 tenant2 的虛擬機器移到 tenant2，然後據以指定適當的資料夾來設定收集器中的探索範圍。
+
+## <a name="discover-on-premises-environment"></a>探索內部部署環境
+
+當您準備好計劃時，可以接著開始探索內部部署虛擬機器：
+
+### <a name="create-a-project"></a>建立專案
 
 根據需求建立 Azure Migrate 專案：
 
@@ -62,11 +74,11 @@ ms.locfileid: "34365326"
 4. 建立新的資源群組。
 5. 指定您要建立專案的位置，然後選取 [建立]。 請注意，您仍可針對不同目標位置評定虛擬機器。 為專案指定的位置用於儲存從內部部署虛擬機器收集的中繼資料。
 
-## <a name="set-up-the-collector-appliance"></a>設定收集器設備
+### <a name="set-up-the-collector-appliance"></a>設定收集器設備
 
 Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此虛擬機器會探索內部部署 VMware 虛擬機器，並將其相關中繼資料傳送至 Azure Migrate 服務。 若要設定收集器設備，您可以下載 .OVA 檔案，並將其匯入內部部署 vCenter Server 執行個體。
 
-### <a name="download-the-collector-appliance"></a>下載收集器設備
+#### <a name="download-the-collector-appliance"></a>下載收集器設備
 
 如果您有多個專案，只需要將收集器設備下載到 vCenter Server 一次。 下載和設定設備之後，您可以針對每個專案執行設備，並指定唯一的專案識別碼和索引鍵。
 
@@ -75,7 +87,7 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此虛�
 3. 在 [複製專案認證] 中，複製專案識別碼和索引鍵。 在設定收集器時，您會需要這些資料。
 
 
-### <a name="verify-the-collector-appliance"></a>確認收集器設備
+#### <a name="verify-the-collector-appliance"></a>確認收集器設備
 
 請先確認 OVA 檔案是安全的，再進行部署：
 
@@ -121,7 +133,7 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此虛�
     SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
     SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
 
-## <a name="create-the-collector-vm"></a>建立收集器 VM
+### <a name="create-the-collector-vm"></a>建立收集器 VM
 
 將下載的檔案匯入 vCenter Server：
 
@@ -137,7 +149,7 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此虛�
 7. 在 [網路對應] 中，指定收集器 VM 所要連線的網路。 此網路必須能夠連線到網際網路，以將中繼資料傳送至 Azure。
 8. 檢閱並確認設定，然後選取 [完成]。
 
-## <a name="identify-the-id-and-key-for-each-project"></a>找出每個專案的識別碼和索引鍵
+### <a name="identify-the-id-and-key-for-each-project"></a>找出每個專案的識別碼和索引鍵
 
 如果您有多個專案，請務必找出每個專案的識別碼和索引鍵。 當您執行收集器來探索 VM 時，將會需要索引鍵。
 
@@ -145,7 +157,7 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此虛�
 2. 在 [複製專案認證] 中，複製專案識別碼和索引鍵。
     ![複製專案認證](./media/how-to-scale-assessment/copy-project-credentials.png)
 
-## <a name="set-the-vcenter-statistics-level"></a>設定 vCenter 統計資料層級
+### <a name="set-the-vcenter-statistics-level"></a>設定 vCenter 統計資料層級
 以下是在探索期間收集的效能計數器清單。 這些計數器預設可在 vCenter Server 的各個層級取用。
 
 我們建議您為統計資料層級設定最高的一般層級 (3)，以正確收集所有計數器。 如果您的 vCenter 設定為較低層級，只有幾個計數器能完整收集，其他會設定為 0。 因此評定可能會顯示不完整的資料。
@@ -166,7 +178,7 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此虛�
 > [!WARNING]
 > 如果您剛剛設定較高的統計資料層級，可能需要一天的時間才能產生效能計數器。 因此，建議您在一天後執行探索。
 
-## <a name="run-the-collector-to-discover-vms"></a>執行收集器來探索 VM
+### <a name="run-the-collector-to-discover-vms"></a>執行收集器來探索 VM
 
 針對每個需要執行的探索，您要執行收集器來探索所需範圍內的虛擬機器。 請逐一執行探索。 系統不支援並行探索，且每個探索的範圍不得相同。
 
@@ -194,7 +206,7 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此虛�
 7.  在 [檢視收集進度] 中監視探索程序，然後確認從虛擬機器收集到的中繼資料位於範圍內。 收集器會提供概略的探索時間。
 
 
-### <a name="verify-vms-in-the-portal"></a>在入口網站中確認 VM
+#### <a name="verify-vms-in-the-portal"></a>在入口網站中確認 VM
 
 探索時間取決於您要探索多少 VM。 一般來說，若是 100 個虛擬機器，探索大約會在收集器完成執行後的一小時完成。
 

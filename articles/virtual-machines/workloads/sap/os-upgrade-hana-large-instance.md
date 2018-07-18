@@ -4,7 +4,7 @@ description: 在 Azure 上執行 SAP Hana on Azure (大型執行個體) 的作�
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 05/11/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1354b67ade78a0da1578ef9d98c3b1e8edb41cd4
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: f6af1a6612360c2433c05a7add79d2e7b3b9d754
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077743"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34658255"
 ---
 # <a name="operating-system-upgrade"></a>作業系統升級
 本文件會詳述 Hana 大型執行個體作業系統升級的詳細資訊。

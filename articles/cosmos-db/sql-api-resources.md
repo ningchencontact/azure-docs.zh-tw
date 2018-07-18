@@ -3,23 +3,21 @@ title: Azure Cosmos DB 資源模型和概念 | Microsoft Docs
 description: 深入了解 Azure Cosmos DB 資料庫的階層式模型、集合、使用者定義函數 (UDF)、文件、權限，以便管理資源等。
 keywords: 階層式模型, Hierarchical model, cosmosdb, azure, Microsoft azure
 services: cosmos-db
-documentationcenter: ''
 author: rafats
 manager: kfile
-ms.assetid: ef9d5c0c-0867-4317-bb1b-98e219799fd5
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 69ee7baeda524647dd259ea22bb948b0168fd913
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 21b1e69573d2ddd31979e6c23dd7f3bd130cadbe
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798011"
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Azure Cosmos DB 階層式資源模型和核心概念
 
@@ -56,7 +54,7 @@ Azure Cosmos DB 管理的資料庫實體稱為「資源」。 每個資源可透
 | --- | --- |
 | 資料庫帳戶 |資料庫帳戶會與一組資料庫及附件之固定數目的 Blob 儲存體相關聯。 您可以使用 Azure 訂用帳戶建立一或多個資料庫帳戶。 如需詳細資訊，請瀏覽[定價頁面](https://azure.microsoft.com/pricing/details/cosmos-db/)。 |
 | 資料庫 |資料庫是分割給多個集合之文件儲存體的邏輯容器。 同時也是使用者容器。 |
-| User |範圍權限的邏輯命名空間。 |
+| 使用者 |範圍權限的邏輯命名空間。 |
 | 權限 |與使用者相關聯的授權權杖，可讓使用者用於存取特定資源。 |
 | 集合 |集合是 JSON 文件和相關聯 JavaScript 應用程式邏輯的容器。 集合可以跨越一或多個資料分割/伺服器，也可以進行調整以處理幾乎無限量的儲存體或輸送量。 |
 | 預存程序 |以 JavaScript 撰寫的應用程式邏輯，會向集合註冊並透過交易方式在資料庫引擎內執行。 |

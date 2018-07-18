@@ -1,22 +1,20 @@
 ---
 title: 使用 Azure 地圖服務新增圖形 | Microsoft Docs
 description: 如何在 JavaScript 地圖上新增圖形
-services: azure-maps
-keywords: ''
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
+services: azure-maps
+manager: ''
 ms.custom: codepen
-ms.openlocfilehash: fb9ec0713d3db465cf835346465e70c4455b38ff
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: dec9b7289927365faa9c58522df2571db99f0494
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599366"
 ---
 # <a name="add-a-shape-to-a-map"></a>在地圖中新增圖形
 
@@ -59,3 +57,10 @@ ms.lasthandoff: 05/07/2018
 在程式碼的第二個區塊中，會建立一個多邊形。 多邊形是 [Polygon](https://docs.microsoft.com/javascript/api/azure-maps-javascript/polygon?view=azure-iot-typescript-latest) 的一項[功能](https://docs.microsoft.com/javascript/api/azure-maps-javascript/feature?view=azure-iot-typescript-latest)，會以 [PolygonProperties](https://docs.microsoft.com/javascript/api/azure-maps-javascript/polygonproperties?view=azure-iot-typescript-latest) 作為其功能屬性。 使用 `new atlas.data.Feature(new atlas.data.Polygon())` 建立多邊形，並定義其屬性。 在多邊形建構函式中提供多邊形路徑的已排序座標。
 
 多邊形圖層是多邊形的陣列。 最後一個程式碼區塊會使用地圖類別的 [addPolygons](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addpolygons) 函式，在地圖中新增多邊形圖層並定義其屬性。 請在 [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-javascript/polygonlayeroptions?view=azure-iot-typescript-latest) 查看多邊形圖層的屬性。 
+
+## <a name="next-steps"></a>後續步驟
+如需更多可新增至地圖的程式碼範例，請參閱下列文章：
+* [新增自訂 HTML](./map-add-custom-html.md)
+* [顯示搜尋結果](./map-search-location.md)
+
+

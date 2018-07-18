@@ -11,15 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 6ab0e36fc0b4bd3f04d75499b6dfe734a9f72d4d
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 8eb629396629a92503907439a64cca9d70747010
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594109"
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 發佈應用程式
 
@@ -29,6 +30,9 @@ Azure Active Directory (AD) 應用程式 Proxy 可藉由發佈要透過網際網
 
 如果您是應用程式 Proxy 的新手，可至[如何為內部部署應用程式提供安全的遠端存取](application-proxy.md)深入了解這個功能。
 
+## <a name="before-you-begin"></a>開始之前
+
+本文假設您已經安裝並註冊連接器。 如果您仍然需要執行這些步驟，請參閱[開始使用應用程式 Proxy 並安裝連接器](application-proxy-enable.md)。
 
 ## <a name="publish-an-on-premises-app-for-remote-access"></a>發佈可遠端存取的內部部署應用程式
 

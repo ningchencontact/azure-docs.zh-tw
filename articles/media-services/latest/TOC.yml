@@ -17,6 +17,10 @@
           href: stream-files-tutorial-with-api.md
         - name: 透過 REST
           href: stream-files-tutorial-with-rest.md
+    - name: 即時串流
+      items:
+        - name: 透過 .NET Core
+          href: stream-live-tutorial-with-api.md
     - name: 分析您的影片
       items:
         - name: 透過 .NET
@@ -24,19 +28,25 @@
 - name: 範例
   items:
     - name: Azure 程式碼範例
-      href: 'https://azure.microsoft.com/resources/samples/?service=media-services'
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=media-services&term=v3'
     - name: Azure CLI
       href: cli-samples.md
 - name: 概念
   items:
     - name: Assets
       href: assets-concept.md
+    - name: 內容保護
+      items:
+        - name: 概觀
+          href: content-protection-overview.md
     - name: 編碼
       items:
         - name: 概觀
           href: encoding-concept.md
         - name: Autogen 彈性位元速率階梯
           href: autogen-bitrate-ladder.md
+    - name: 即時串流
+      href: live-streaming-overview.md
     - name: 媒體智慧
       href: intelligence-concept.md
     - name: 回應事件
@@ -53,23 +63,25 @@
       href: create-account-cli-how-to.md
     - name: 存取 API - CLI
       href: access-api-cli-how-to.md
-    - name: 作業狀態事件 - CLI
+    - name: 監視作業狀態事件 - CLI
       href: job-state-events-cli-how-to.md
-    - name: 上傳內容 - .NET
+    - name: 自訂轉換預設 - .NET Core
+      href: customize-encoder-presets-how-to.md
+    - name: 上傳內容
       items:
-        - name: 起始 HTTP
+        - name: 從 HTTP(s) - .NET
           href: job-input-from-http-how-to.md
-        - name: 從本機檔案
+        - name: 從本機檔案 - .NET
           href: job-input-from-local-file-how-to.md
-    - name: 自訂轉換預設
+    - name: 保護內容
       items:
-        - name: 透過 .NET Core
-          href: customize-encoder-presets-how-to.md
+        - name: 使用 AES-128 - .NET
+          href: protect-with-aes128.md
 - name: 參考
   items:
     - name: OpenAPI 規格 (Swagger)
       href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview'
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: 'https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest'
     - name: REST
       href: 'https://go.microsoft.com/fwlink/p/?linkid=873030'
@@ -83,6 +95,14 @@
       href: 'https://docs.microsoft.com/en-us/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest'
     - name: 事件結構描述
       href: media-services-event-schemas.md
+    - name: DRM 授權
+      items:
+        - name: PlayReady 授權範本
+          href: playready-license-template-overview.md
+        - name: Widevine 授權範本
+          href: widevine-license-template-overview.md
+        - name: FairPlay 授權需求
+          href: fairplay-license-overview.md
 - name: 資源
   items:
     - name: Azure 藍圖

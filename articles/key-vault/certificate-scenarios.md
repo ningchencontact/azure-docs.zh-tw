@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: 5f3b8a7b9c7bf582ebc2fac2be8ff55134fbc6f2
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: f1a1a2fa083dd1bf02132e08981d736a17a2c58f
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109479"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>開始使用 Key Vault 憑證
 下列情節概述 Key Vault 憑證管理服務的數個主要用法 (包括在金鑰保存庫中建立第一個憑證所需的其他步驟)。
@@ -82,8 +83,9 @@ ms.lasthandoff: 05/10/2018
       -   更新資訊 - > 例如 到期之前的 90 天  
 
   - 憑證建立流程通常為非同步流程，並且包含輪詢金鑰保存庫中的建立憑證作業狀態。  
-[取得憑證作業](https://docs.microsoft.com/en-us/rest/api/keyvault/getcertificateoperation) - 狀態：已完成、失敗但有錯誤資訊，或已取消  
-            - 因為延遲建立，所以可以起始取消作業。 取消不一定會有作用。  
+[取得憑證作業](https://docs.microsoft.com/en-us/rest/api/keyvault/getcertificateoperation)  
+      -   狀態：已完成、失敗但有錯誤資訊，或已取消  
+      -   因為延遲建立，所以可以起始取消作業。 取消不一定會有作用。  
 
 ## <a name="import-a-certificate"></a>匯入憑證  
  或者，可以將憑證匯入至 Key Vault – PFX 或 PEM。  
@@ -119,5 +121,5 @@ ms.lasthandoff: 05/10/2018
   (5) - 應用程式合併 CA 的 X509 憑證，來完成新憑證建立。
 
 ## <a name="see-also"></a>另請參閱
-- [憑證作業](/rest/api/keyvault/certificate-operations.md)
+- [憑證作業](/rest/api/keyvault/certificate-operations)
 - [關於金鑰、密碼與憑證](about-keys-secrets-and-certificates.md)

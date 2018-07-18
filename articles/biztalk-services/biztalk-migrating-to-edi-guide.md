@@ -1,11 +1,11 @@
 ---
-title: "將 BizTalk Server EDI 解決方案移轉至 BizTalk 服務技術指南 | Microsoft Docs"
-description: "將 EDI 移轉到 MABS；Microsoft Azure BizTalk 服務"
+title: 將 BizTalk Server EDI 解決方案移轉至 BizTalk 服務技術指南 | Microsoft Docs
+description: 將 EDI 移轉到 MABS；Microsoft Azure BizTalk 服務
 services: biztalk-services
 documentationcenter: na
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 61c179fa-3f37-495b-8016-dee7474fd3a6
 ms.service: biztalk-services
 ms.workload: integration
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 1b70fc3d199d7f1521acb534dafec8fb3e69500e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aaa7028bb37ac4c2c313efce2afebc1dc5e814d2
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37860073"
 ---
 # <a name="migrating-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>BizTalk Server EDI 解決方案移轉至 BizTalk 服務：技術指南
 
@@ -103,7 +104,7 @@ Microsoft Azure BizTalk 服務提供工具，可將 BizTalk Server 移轉至 Biz
 ## <a name="orchestrations"></a>協調流程
 如果您需要將 BizTalk Server 協調流程移轉至 Microsoft Azure，協調流程需要重寫，因為 Microsoft Azure 不支援 BizTalk Server 協調流程的執行。  您可以在 Windows Workflow Foundation 4.0 (WF4) 服務中重寫協調流程功能。  這會完全重寫，因為目前沒有從 BizTalk Server 協調流程至 WF4 的移轉。 以下是 Windows 工作流程的一些資源：
 
-* [*如何整合 WCF 工作流程服務與服務匯流排佇列和主題*](https://msdn.microsoft.com/library/azure/hh709041.aspx) (由 Paolo Salvatori 撰寫)。 
+* [*如何整合 WCF 工作流程服務與服務匯流排佇列和主題*](https://blogs.msdn.microsoft.com/paolos/2013/04/09/how-to-integrate-a-wcf-workflow-service-with-service-bus-queues-and-topics/) (由 Paolo Salvatori 撰寫)。 
 * [*使用 Windows Workflow Foundation 和 Azure 建置應用程式*講習](http://go.microsoft.com/fwlink/p/?LinkId=237314) (來自 Build 2011 會議)。
 * [*Windows Workflow Foundation 開發人員中心*](http://go.microsoft.com/fwlink/p/?LinkId=237315) (位於 MSDN 上)。
 * [*Windows Workflow Foundation 4 (WF4) 文件*](https://msdn.microsoft.com/library/dd489441.aspx) (位於 MSDN 上)。

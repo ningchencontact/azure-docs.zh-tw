@@ -12,13 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 07/06/2018
 ms.author: pratshar
-ms.openlocfilehash: 7afa05b53186ceac13bef3294c7a139f77193110
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c877f4bbc0ed14e859ff39f1d719a9cd0b787118
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920826"
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>使用 SQL Server 災害復原和 Azure Site Recovery 保護 SQL Server
 

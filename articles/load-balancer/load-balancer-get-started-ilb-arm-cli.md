@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/27/2017
+ms.date: 06/27/2018
 ms.author: kumud
-ms.openlocfilehash: d90a4e74b6ad3bb95e91ad3a5327c887a87784bd
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 92e464aa4e0dcb7199b6db44d2c28db5b6d1673c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38676081"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>使用 Azure CLI 2.0 建立內部負載平衡器以平衡 VM 的負載
 
@@ -46,7 +47,7 @@ ms.lasthandoff: 03/29/2018
 
 ```azurecli-interactive
   az network vnet create \
-    --name myVnet
+    --name myVnet \
     --resource-group myResourceGroupILB \
     --location eastus \
     --subnet-name mySubnet
@@ -56,7 +57,7 @@ ms.lasthandoff: 03/29/2018
 本節將詳細說明如何建立及設定下列負載平衡器元件：
   - 前端 IP 組態，可接收負載平衡器上的連入網路流量。
   - 後端 IP 集區，前端集區在其中傳送負載平衡網路流量。
-  - 健康情況探查，可判斷後端 VM 執行個體的健康情況。
+  - 健康狀態探查，可判斷後端 VM 執行個體的健康狀態。
   - 負載平衡器規則，可定義如何將流量分散至 VM。
 
 ### <a name="create-the-load-balancer"></a>建立負載平衡器
@@ -75,7 +76,7 @@ ms.lasthandoff: 03/29/2018
   ```
 ### <a name="create-the-health-probe"></a>建立健康情況探查
 
-健全狀況探查會檢查所有虛擬機器執行個體，確認它們可以接收網路流量。 探查檢查失敗的虛擬機器執行個體會從負載平衡器上移除，直到其恢復正常運作且探查判斷其健全狀況良好為止。 使用 [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#create) 建立健康情況探查，以檢視虛擬機器的健康情況。 
+健全狀況探查會檢查所有虛擬機器執行個體，確認它們可以接收網路流量。 探查檢查失敗的虛擬機器執行個體會從負載平衡器上移除，直到其恢復正常運作且探查判斷其健全狀況良好為止。 使用 [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#create) 建立健康狀態探查，以檢視虛擬機器的健康狀態。 
 
 ```azurecli-interactive
   az network lb probe create \
@@ -107,36 +108,9 @@ ms.lasthandoff: 03/29/2018
 
 請先建立支援的虛擬網路資源，才可部署一些 VM 及測試您的負載平衡器。
 
-###  <a name="create-a-network-security-group"></a>建立網路安全性群組
-建立網路安全性群組，以定義虛擬網路的輸入連線。
-
-```azurecli-interactive
-  az network nsg create \
-    --resource-group myResourceGroupILB \
-    --name myNetworkSecurityGroup
-```
-
-### <a name="create-a-network-security-group-rule"></a>建立網路安全性群組規則
-
-建立網路安全性群組規則，以允許透過連接埠 80 的輸入流量。
-
-```azurecli-interactive
-  az network nsg rule create \
-    --resource-group myResourceGroupILB \
-    --nsg-name myNetworkSecurityGroup \
-    --name myNetworkSecurityGroupRuleHTTP \
-    --protocol tcp \
-    --direction inbound \
-    --source-address-prefix '*' \
-    --source-port-range '*' \
-    --destination-address-prefix '*' \
-    --destination-port-range 22 \
-    --access allow \
-    --priority 300
-```
 ### <a name="create-nics"></a>建立 NIC
 
-使用 [az network nic create](/cli/azure/network/nic#az_network_nic_create) 建立兩個網路介面，並使其與私人 IP 位址和網路安全性群組產生關聯。 
+使用 [az network nic create](/cli/azure/network/nic#az_network_nic_create) 建立兩個網路介面，並使其與私人 IP 位址產生關聯。 
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -145,7 +119,6 @@ for i in `seq 1 2`; do
     --name myNic$i \
     --vnet-name myVnet \
     --subnet mySubnet \
-    --network-security-group myNetworkSecurityGroup \
     --lb-name myLoadBalancer \
     --lb-address-pools myBackEndPool
 done
@@ -248,7 +221,7 @@ for i in `seq 1 2`; do
 
 ```azurecli-interactive
   az network lb show \
-    --name myLoadBalancer
+    --name myLoadBalancer \
     --resource-group myResourceGroupILB
 ``` 
 ![測試負載平衡器](./media/load-balancer-get-started-ilb-arm-cli/load-balancer-test.png)

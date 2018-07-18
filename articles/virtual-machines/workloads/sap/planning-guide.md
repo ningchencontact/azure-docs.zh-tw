@@ -4,7 +4,7 @@ description: SAP NetWeaver 的 Azure 虛擬機器規劃和實作指南
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2abb219cd43e6bb95c6cbd562dda6115628e73f2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7f1c2b028521983081ba5f276789af9701b568b7
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972463"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver 的 Azure 虛擬機器規劃和實作指南
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -774,7 +775,7 @@ ExpressRoute 強制通道會透過 ExpressRoute BGP 對等互連工作階段廣�
 
 ![決定能否將 SAP 部署在 Azure 的決策樹][planning-guide-figure-700]
 
-**步驟 1**︰若要開始著手進行，最重要的資訊就是所指定 SAP 系統的 SAPS 需求。 您必須將 SAPS 需求分為 DBMS 部分和 SAP 應用程式部分，即使 SAP 系統已在 2 層組態中內部部署亦然。 若是現有的系統，通常可根據現有的 SAP 基準來判斷或評估與使用中硬體相關的 SAPS。 您可以在下列網頁找到結果：<http://global.sap.com/campaigns/benchmark/index.epx> \(英文\)。
+**步驟 1**︰若要開始著手進行，最重要的資訊就是所指定 SAP 系統的 SAPS 需求。 您必須將 SAPS 需求分為 DBMS 部分和 SAP 應用程式部分，即使 SAP 系統已在 2 層組態中內部部署亦然。 若是現有的系統，通常可根據現有的 SAP 基準來判斷或評估與使用中硬體相關的 SAPS。 您可以在下列網頁找到結果：<https://sap.com/about/benchmark.html> \(英文\)。
 若是新部署的 SAP 系統，您應該已經完成調整大小練習，而能判斷系統的 SAPS 需求。
 另請參閱此部落格及附加文件，以了解如何在 Azure 上調整 SAP 大小：<http://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx> \(英文\)
 
@@ -987,7 +988,7 @@ Microsoft Azure 提供多種方法來部署 VM 和相關聯的磁碟。 因此�
 
 * 使用 Powershell 或 Azure CLI 上傳 VHD
 * (選擇性) 使用 Powershell、Azure CLI 或 Azure 入口網站從 VHD 建立受控磁碟
-* 如[此 JSON 範本範例](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd/azuredeploy.json)所示使用參考 VHD 的 JSON 範本，或如[此 JSON 範本範例](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sap-2-tier-user-disk-md/azuredeploy.json)所示使用受控磁碟，來部署 VM。
+* 如[此 JSON 範本範例](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json)所示使用參考 VHD 的 JSON 範本，或如[此 JSON 範本範例](https://github.com/Azure/azure-quickstart-templates/blob/master/sap-2-tier-user-image-md/azuredeploy.json)所示使用受控磁碟，來部署 VM。
 
 #### <a name="deployment-of-a-vm-image"></a>VM 映像的部署
 若要從內部部署網路上傳現有的 VM 或 VHD 以作為 Azure VM 映像，這類 VM 或 VHD 必須符合本文件的[準備使用客戶特定的映像為 SAP 部署 VM][planning-guide-5.2.2] 一章中所列的需求。

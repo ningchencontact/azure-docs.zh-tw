@@ -1,12 +1,12 @@
 ---
-title: "Azure Stack 整合式系統的邊界連線能力網路整合考量 | Microsoft Docs"
-description: "了解您可以執行哪些工作，來為資料中心邊界網路與多節點 Azure Stack 的連線做規劃。"
+title: Azure Stack 整合式系統的邊界連線能力網路整合考量 | Microsoft Docs
+description: 了解您可以執行哪些工作，來為資料中心邊界網路與多節點 Azure Stack 的連線做規劃。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28919429"
 ---
 # <a name="border-connectivity"></a>邊界連線能力 
 網路整合規劃是成功的 Azure Stack 整合式系統部署、作業及管理的重要先決條件。 邊界連線能力規劃是從選擇是否要搭配邊界閘道協定 (BGP) 使用動態路由開始。 這需要指派 16 位元 BGP 自治號碼 (公用或私人)，或使用靜態路由，這會為邊界裝置指派一個靜態預設路由。

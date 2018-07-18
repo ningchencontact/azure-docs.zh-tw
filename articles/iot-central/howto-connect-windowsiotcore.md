@@ -1,19 +1,19 @@
 ---
 title: 將 Windows IoT 核心版裝置連線到 Azure IoT 中心應用程式 | Microsoft Docs
 description: 如何以裝置開發人員身分，將 MXChip IoT DevKit 裝置連線到 Azure IoT 中心應用程式。
-services: iot-central
-author: miriamb
+author: miriambrus
 ms.author: mriamb
 ms.date: 04/09/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
 manager: peterpr
-ms.openlocfilehash: c38231f97eeb1c4511702bf3e788f72918cab045
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c36a9798718c37fba889323830b76cf8201785cf
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200399"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261894"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>將 Windows IoT 核心版裝置連線到 Azure IoT 中心應用程式
 
@@ -23,12 +23,12 @@ ms.locfileid: "34200399"
 
 若要完成這篇文章中的步驟，您需要下列項目︰
 
-1. Azure IoT 中心應用程式是從**範例 Devkits** 應用程式範本建立而來。 如需詳細資訊，請參閱[建立 Azure IoT Central 應用程式](howto-create-application.md)。
+1. Azure IoT Central 應用程式是從**範例 Devkits** 應用程式範本建立而來。 如需詳細資訊，請參閱[建立 Azure IoT Central 應用程式](howto-create-application.md)。
 2. 執行 Windows 10 IoT 核心版作業系統的裝置。 在此逐步解說中，我們將使用 Raspberry Pi
 
 從**範例 Devkits** 應用程式範本建立的應用程式包含具有下列特性的 **Windows IoT 核心版**裝置範本：
 
-### <a name="telemetry-measurements"></a>遙測量值
+### <a name="telemetry-measurements"></a>遙測量測
 
 | 欄位名稱     | Units  | 最小值 | 最大值 | 小數位數 |
 | -------------- | ------ | ------- | ------- | -------------- |
@@ -49,7 +49,7 @@ ms.locfileid: "34200399"
 
 | 類型            | 顯示名稱 | 欄位名稱 | 資料類型 |
 | --------------- | ------------ | ---------- | --------- |
-| 裝置屬性 | Die 數字   | dieNumber  | number    |
+| 裝置屬性 | 模具編號   | dieNumber  | number    |
 | 文字            | 位置     | location   | N/A       |
 
 ## <a name="add-a-real-device"></a>新增真實裝置

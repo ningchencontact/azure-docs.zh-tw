@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2018
+ms.date: 06/05/2018
 ms.author: charwen,cherylmc
-ms.openlocfilehash: deb2a768d766f3fcfa5523b5b3e77b85c0b87b9c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9b0e19ac859d3f0185c42a79353651996fcbf631
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823558"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>設定 ExpressRoute 和站對站並存連線
 > [!div class="op_single_selector"]
@@ -28,7 +29,16 @@ ms.lasthandoff: 04/28/2018
 > 
 > 
 
-設定站對站 VPN 和 ExpressRoute 並存連線有諸多好處。 您可以設定站對站 VPN 作為 ExpressRoute 的安全容錯移轉路徑。 或者，您可以使用站對站 VPN 來連線到未透過 ExpressRoute 連線的網站。 本文涵蓋設定這兩個案例的步驟。 本文適用於 Resource Manager 部署模型並使用 PowerShell。 此組態無法使用於 Azure 入口網站。
+設定站對站 VPN 和 ExpressRoute 並存連線有諸多好處：
+
+* 您可以設定站對站 VPN 作為 ExpressRoute 的安全容錯移轉路徑。 
+* 或者，您可以使用站對站 VPN 來連線到未透過 ExpressRoute 連線的網站。 
+
+本文涵蓋設定這兩個案例的步驟。 本文適用於 Resource Manager 部署模型並使用 PowerShell。 此組態無法使用於 Azure 入口網站。
+
+>[!NOTE]
+>如果您想要建立透過 ExpressRoute 線路的站對站 VPN，請參閱[本文](site-to-site-vpn-over-microsoft-peering.md)。
+>
 
 ## <a name="limits-and-limitations"></a>限制
 * **不支援傳輸路由。** 您無法在透過站對站 VPN 連線的區域網路與透過 ExpressRoute 連線的區域網路之間，進行路由傳送 (透過 Azure)。

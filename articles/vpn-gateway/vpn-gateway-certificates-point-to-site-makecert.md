@@ -16,10 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/12/2018
 ms.author: cherylmc
 ms.openlocfilehash: b2f31761e4560cf4b9b9a5b92f5de9982a663a75
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38651782"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>使用 MakeCert 來產生並匯出點對站連線的憑證
 

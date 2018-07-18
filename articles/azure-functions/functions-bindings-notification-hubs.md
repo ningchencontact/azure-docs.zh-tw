@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 572bf9d783e1018b835b47c6c63fff1ce69659e9
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 4208a7be3c002bcefed273015d002cb1aee0fecd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38467659"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Azure Functions 的通知中樞輸出繫結
 
@@ -29,13 +30,15 @@ ms.lasthandoff: 05/18/2018
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages"></a>封裝
+## <a name="packages---functions-1x"></a>套件 - Functions 1.x
 
-[Microsoft.Azure.WebJobs.Extensions.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs) NuGet 套件中提供通知中樞繫結。 套件的原始程式碼位於 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.NotificationHubs/) GitHub 存放庫中。
+[Microsoft.Azure.WebJobs.Extensions.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs) NuGet 套件 1.x 版中提供通知中樞繫結。 套件的原始程式碼位於 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.NotificationHubs) GitHub 存放庫中。
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>套件 - Functions 2.x
+
+Functions 2.x 中不提供此繫結。
 
 ## <a name="example---template"></a>範例 - 範本
 

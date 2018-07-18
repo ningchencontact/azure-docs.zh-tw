@@ -1,26 +1,22 @@
 ---
-title: "Azure 快速入門 - 使用 Azure CLI 來備份 VM | Microsoft Docs"
-description: "了解如何使用 Azure CLI 來備份虛擬機器"
+title: Azure 快速入門 - 使用 Azure CLI 來備份 VM
+description: 了解如何使用 Azure CLI 來備份虛擬機器
 services: backup
-documentationcenter: virtual-machines
 author: markgalioto
 manager: carmonm
-editor: 
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: 
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.tgt_pltfrm: vm-linux
-ms.workload: storage-backup-recovery
 ms.date: 2/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 3696f57c0520cd8cb3d9fbf22a708c2323d666fc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 68aeb6e96e7588696d31b7b03e0c639506e0c89b
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38598368"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>使用 CLI 在 Azure 中備份虛擬機器
 Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。 您可以定期建立備份以保護您的資料。 Azure 備份會建立復原點，其可儲存在異地備援復原保存庫中。 本文詳述如何使用 Azure CLI 在 Azure 中備份虛擬機器 (VM)。 您也可以透過 [Azure PowerShell](quick-backup-vm-powershell.md) 或在 [Azure 入口網站](quick-backup-vm-portal.md)中執行這些步驟。
@@ -61,6 +57,16 @@ az backup protection enable-for-vm \
     --policy-name DefaultPolicy
 ```
 
+> [!NOTE]
+如果 VM 所在的資源群組與保存庫不同，則 myResourceGroup 會參考保存庫建立所在的資源群組。 不要提供 VM 名稱，請如下所示提供 VM 識別碼。
+
+```azurecli-interactive 
+az backup protection enable-for-vm \
+    --resource-group myResourceGroup \
+    --vault-name myRecoveryServicesVault \
+    --vm $(az vm show -g VMResourceGroup -n MyVm --query id) \
+    --policy-name DefaultPolicy
+```
 
 ## <a name="start-a-backup-job"></a>開始備份作業
 若要立即開始備份，而非等候預設原則在排定的時間執行此作業，請使用 [az backup protection backup-now](https://docs.microsoft.com/cli/azure/backup/protection#az_backup_protection_backup_now)。 這第一個備份作業會建立完整復原點。 此初始備份之後的每個備份作業會建立增量復原點。 增量復原點符合儲存和時間效率，因為它只會傳輸自上次備份後所做的變更。

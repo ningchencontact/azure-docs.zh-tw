@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 06/03/2018
 ms.author: glenga
-ms.openlocfilehash: 523ef25fe0d3227d526acbdee2c7cf2660fc4f25
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 5613b6b30d97b88bdfa6b00f90e334f1756ad614
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294476"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>撰寫 Azure Functions 並在本機進行測試
 
@@ -63,9 +64,9 @@ npm install -g azure-functions-core-tools
 
 3. 安裝 Core Tools 套件：
 
-  ```bash
-  npm install -g azure-functions-core-tools@core
-  ```
+    ```bash
+    npm install -g azure-functions-core-tools@core
+    ```
 
 #### <a name="brew"></a>採用 Homebrew 的 MacOS
 
@@ -73,9 +74,9 @@ npm install -g azure-functions-core-tools
 
 1. 安裝[適用於 macOS 的 .NET Core 2.0](https://www.microsoft.com/net/download/macos)。
 
-1. 如果尚未安裝 [Homebrew](https://brew.sh/)，請加以安裝。
+2. 如果尚未安裝 [Homebrew](https://brew.sh/)，請加以安裝。
 
-2. 安裝 Core Tools 套件：
+3. 安裝 Core Tools 套件：
 
     ```bash
     brew tap azure/functions
@@ -88,42 +89,43 @@ npm install -g azure-functions-core-tools
 
 1. 安裝[適用於 Linux 的 .NET Core 2.0](https://www.microsoft.com/net/download/linux)。
 
-1. 將 Microsoft 產品金鑰註冊為可信任：
+2. 將 Microsoft 產品金鑰註冊為可信任：
 
-  ```bash
-  curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-  sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-  ```
+    ```bash
+    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+    sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+    ```
 
-2.  設定套件摘要，並以表格中的適當版本名稱取代下列命令中的 `<version>`：
+3. 請確認您的 Ubuntu 伺服器正在執行下表其中一個適當的版本。 若要新增 apt 來源，請執行：
 
-  ```bash
-  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-<version>-prod <version> main" > /etc/apt/sources.list.d/dotnetdev.list'
-  sudo apt-get update
-  ```
+    ```bash
+    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
+    sudo apt-get update
+    ```
 
-  | Linux 散發套件 | `<version>` |
-  | --------------- | ----------- |
-  | Ubuntu 17.10    | `artful`    |
-  | Ubuntu 17.04    | `zesty`     |
-  | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
+    | Linux 散發套件 | 版本 |
+    | --------------- | ----------- |
+    | Ubuntu 17.10    | `artful`    |
+    | Ubuntu 17.04    | `zesty`     |
+    | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
 
-3. 安裝 Core Tools 套件：
+4. 安裝 Core Tools 套件：
 
-  ```bash
-  sudo apt-get install azure-functions-core-tools
-  ```
+    ```bash
+    sudo apt-get install azure-functions-core-tools
+    ```
 
 ## <a name="run-azure-functions-core-tools"></a>執行 Azure Functions Core Tools
- 
+
 Azure Functions Core Tools 新增下列命令別名：
-* **func**
-* **azfun**
-* **azurefunctions**
+
++ **func**
++ **azfun**
++ **azurefunctions**
 
 在範例中顯示 `func` 時，可以使用下列任何別名。
 
-```
+```bash
 func init MyFunctionProj
 ```
 
@@ -133,13 +135,13 @@ func init MyFunctionProj
 
 在終端機視窗或命令提示字元中，執行下列命令來建立專案和本機 Git 存放庫：
 
-```
+```bash
 func init MyFunctionProj
 ```
 
 輸出看起來會像下列範例：
 
-```
+```output
 Writing .gitignore
 Writing host.json
 Writing local.settings.json
@@ -151,7 +153,7 @@ Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
 
 ## <a name="register-extensions"></a>註冊延伸模組
 
-在 2.x 版的 Azure Functions 執行階段中，您必須明確註冊您在函式應用程式中使用的[繫結延伸模組](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) \(英文\)。 
+在 2.x 版的 Azure Functions 執行階段中，您必須明確註冊您在函數應用程式中使用的繫結延伸模組 (繫結類型)。
 
 [!INCLUDE [Register extensions](../../includes/functions-core-tools-install-extension.md)]
 
@@ -165,8 +167,9 @@ local.settings.json 檔案會儲存應用程式設定、連接字串和 Azure Fu
 {
   "IsEncrypted": false,   
   "Values": {
-    "AzureWebJobsStorage": "<connection string>", 
-    "AzureWebJobsDashboard": "<connection string>" 
+    "AzureWebJobsStorage": "<connection-string>", 
+    "AzureWebJobsDashboard": "<connection-string>",
+    "MyBindingConnection": "<binding-connection-string>"
   },
   "Host": {
     "LocalHttpPort": 7071, 
@@ -177,16 +180,17 @@ local.settings.json 檔案會儲存應用程式設定、連接字串和 Azure Fu
   }
 }
 ```
+
 | 設定      | 說明                            |
 | ------------ | -------------------------------------- |
 | **IsEncrypted** | 設定為 **true** 時，所有的值都會使用本機電腦金鑰加密。 需搭配 `func settings` 命令使用。 預設值為 **false**。 |
-| **值** | 於本機執行時使用的應用程式設定集合。 **AzureWebJobsStorage** 和 **AzureWebJobsDashboard** 是範例；如需完整清單，請參閱[應用程式設定參考](functions-app-settings.md)。 許多觸發程序和繫結都有參考應用程式設定的屬性，例如 Blob 儲存體觸發程序的 [連線] 屬性。 對於這類屬性，您需要在 [值] 陣列中定義應用程式設定。 這也適用於您藉由以百分比符號包圍值而設定為應用程式設定名稱的任何繫結屬性，例如 `%AppSettingName%`。 |
-| **Host** | 此區段中的設定能自訂於本機執行的 Functions 主機處理序。 | 
+| **值** | 於本機執行時使用的應用程式設定集合與連接字串。 這些會對應至 Azure 中函數應用程式的應用程式設定，例如 **AzureWebJobsStorage** 和 **AzureWebJobsDashboard**。 許多觸發程序和繫結都有參考連結字串應用程式設定的屬性，例如 [Blob 儲存體觸發程序](functions-bindings-storage-blob.md#trigger---configuration)的**連線**屬性。 對於這類屬性，您需要在 [值] 陣列中定義應用程式設定。 <br/>**AzureWebJobsStorage** 是 HTTP 以外之觸發程序的必要應用程式設定。 當您在本機安裝了 [Azure 儲存體模擬器](../storage/common/storage-use-emulator.md)，便可以將 **AzureWebJobsStorage** 設定至 `UseDevelopmentStorage=true` 與使用模擬器的核心工具。 此功能在開發期間非常實用，但您應在部署前先透過實際的儲存體連接進行測試。 |
+| **Host** | 此區段中的設定能自訂於本機執行的 Functions 主機處理序。 |
 | **LocalHttpPort** | 設定於執行本機 Functions 主機 (`func host start` 和 `func run`) 時所使用的預設連接埠。 `--port` 命令列選項的優先順序高於此值。 |
 | **CORS** | 定義針對[跨來源資源共享 (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) 所允許的來源。 來源是以不含空格的逗號分隔清單提供。 支援萬用字元值 (\*)，它允許來自任何來源的要求。 |
-| **ConnectionStrings** | 包含函式的資料庫連接字串。 此物件中的連接字串會新增至具有 **System.Data.SqlClient** 提供者類型的環境。  | 
+| **ConnectionStrings** | 請勿將此集合用於您函式繫結所使用的連接字串。 此集合僅供架構使用，且必須取得設定檔 **ConnectionStrings** 區段的連接字串，例如 [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx)。 此物件中的連接字串會新增至具有 [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx) 提供者類型的環境。 此集合中的項目不會發佈至具備其他應用程式設定的 Azure。 您必須在您的函數應用程式中，明確將這些值新增到 **[應用程式設定]** 的 **[連接字串]** 區段。 |
 
-這些設定也可以在您的程式碼中讀取為環境變數。 如需詳細資訊，請參閱這些特定語言參考主題的「環境變數」章節：
+這些函數應用程式設定值在您的程式碼中也可以做為環境變數加以讀取。 如需詳細資訊，請參閱這些特定語言參考主題的「環境變數」章節：
 
 + [先行編譯 C#](functions-dotnet-class-library.md#environment-variables)
 + [C# 指令碼 (.csx)](functions-reference-csharp.md#environment-variables)
@@ -194,26 +198,37 @@ local.settings.json 檔案會儲存應用程式設定、連接字串和 Azure Fu
 + [Java](functions-reference-java.md#environment-variables) 
 + [JavaScript](functions-reference-node.md#environment-variables)
 
-local.settings.json 檔案中的值，只會由於本機執行的 Functions 工具使用。 根據預設，在專案發佈至 Azure 時，這些設定將不會自動移轉。 請在[發佈時](#publish)使用 `--publish-local-settings` 參數，以確保這些設定會新增至 Azure 中的函式應用程式。
+local.settings.json 檔案中的值，只會由於本機執行的 Functions 工具使用。 根據預設，在專案發佈至 Azure 時，這些設定將不會自動移轉。 請在[發佈時](#publish)使用 `--publish-local-settings` 參數，以確保這些設定會新增至 Azure 中的函式應用程式。 **ConnectionStrings** 中的值永遠不會發佈。
 
-沒有針對 **AzureWebJobsStorage** 設定有效的儲存體連接字串時，系統會顯示下列錯誤訊息：  
+若沒有針對 **AzureWebJobsStorage** 設定有效的儲存體連接字串，而且未使用模擬器時，系統會顯示下列錯誤訊息：  
 
 >在 local.settings.json 中遺失 AzureWebJobsStorage 的值。 這對 HTTP 以外的所有觸發程序是必要的。 您可以執行 'func azure functionapp fetch-app-settings <functionAppName>'，或指定 local.settings.json 中的連接字串。
-  
-[!INCLUDE [Note to not use local storage](../../includes/functions-local-settings-note.md)]
 
-### <a name="configure-app-settings"></a>進行應用程式設定
+### <a name="get-your-storage-connection-strings"></a>取得您的儲存體連接字串
 
-若要設定連接字串的值，您可以執行下列其中一個選項：
-* 從 [Azure 儲存體總管](http://storageexplorer.com/) \(英文\) 輸入連接字串。
-* 使用下列其中一個命令：
+即使使用儲存體模擬器進行開發，您可能想要透過實際的儲存體連接進行測試。 假設您已經[建立了儲存體帳戶](../storage/common/storage-create-storage-account.md)，您可以透過下列其中一種方式取得有效的儲存體連接字串：
 
-    ```
++ 從 [Azure 入口網站]。 瀏覽至您的儲存體帳戶，並在 **[設定]** 中選取 **[存取金鑰]**，然後複製其中一個**連接字串**值。
+
+  ![從 Azure 入口網站複製連接字串](./media/functions-run-local/copy-storage-connection-portal.png)
+
++ 使用 [Azure 儲存體總管](http://storageexplorer.com/)以連接至您的 Azure 帳戶。 在**總管**中展開您的訂閱，選取您的儲存體帳戶，並複製主要或次要連接字串。 
+
+  ![透過儲存體總管複製連接字串](./media/functions-run-local/storage-explorer.png)
+
++ 使用核心工具，並藉由以下其中一個命令從 Azure 下載連接字串：
+
+    + 從現有的函數應用程式下載所有設定：
+
+    ```bash
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
-    ```
+    + 取得特定儲存體帳戶的連接字串：
+
+    ```bash
     func azure storage fetch-connection-string <StorageAccountName>
     ```
+    
     這兩個命令都需要先登入 Azure。
 
 <a name="create-func"></a>
@@ -221,7 +236,7 @@ local.settings.json 檔案中的值，只會由於本機執行的 Functions 工�
 
 若要建立函式，請執行下列命令：
 
-```
+```bash
 func new
 ``` 
 `func new` 支援下列選擇性引數︰
@@ -234,21 +249,21 @@ func new
 
 例如，若要建立 JavaScript HTTP 觸發程序，請執行：
 
-```
+```bash
 func new --language JavaScript --template "Http Trigger" --name MyHttpTrigger
 ```
 
 若要建立佇列所觸發的函式，請執行：
 
-```
+```bash
 func new --language JavaScript --template "Queue Trigger" --name QueueTriggerJS
-```
+```bash
 <a name="start"></a>
-## <a name="run-functions-locally"></a>在本機執行函式
+## Run functions locally
 
-若要執行 Functions 專案，請執行 Functions 主機。 主機可允許專案中所有函式的觸發程序：
+To run a Functions project, run the Functions host. The host enables triggers for all functions in the project:
 
-```
+```bash
 func host start
 ```
 
@@ -267,7 +282,7 @@ func host start
 
 Functions 主機啟動時，它會輸出 HTTP 觸發函式的 URL：
 
-```
+```bash
 Found the following functions:
 Host.Functions.MyHttpTrigger
 
@@ -275,7 +290,7 @@ Job host started
 Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
 
-### <a name="debug-in-vs-code-or-visual-studio"></a>在 VS Code 或 Visual Studio 中進行偵錯
+### <a name="vs-debug"></a>在 VS Code 或 Visual Studio 偵錯
 
 若要連結偵錯工具，請傳遞 `--debug` 引數。 若要偵錯 JavaScript 函式，請使用 Visual Studio Code。 對於 C# 函式，請使用 Visual Studio。
 
@@ -283,7 +298,7 @@ Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 
 若要啟動主機並設定 JavaScript 偵錯，請執行：
 
-```
+```bash
 func host start --debug vscode
 ```
 
@@ -313,12 +328,12 @@ func host start --debug vscode
 
 下列 cURL 命令從 GET 要求在查詢字串中傳遞 _name_ 參數，觸發 `MyHttpTrigger` 快速入門函式。 
 
-```
+```bash
 curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
 ```
 下列範例與從 POST 要求在要求本文中傳遞 _name_ 所呼叫的函式相同：
 
-```
+```bash
 curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
 ```
 
@@ -340,7 +355,7 @@ curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azu
 ```` 
 `<trigger_input>` 值包含函式預期格式的資料。 下列 cURL 範例是 POST 到 `QueueTriggerJS` 函式。 在此情況下，輸入是一個相當於在佇列中預期找到的訊息字串。      
 
-```
+```bash
 curl --request POST -H "Content-Type:application/json" --data '{"input":"sample queue data"}' http://localhost:7071/admin/functions/QueueTriggerJS
 ```
 
@@ -363,7 +378,7 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 
 例如，若要呼叫 HTTP 觸發的函式並傳遞內容的內文，請執行下列命令：
 
-```
+```bash
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
 
@@ -375,7 +390,7 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 若要將 Functions 專案發佈至 Azure 中的函式應用程式，請使用 `publish` 命令：
 
-```
+```bash
 func azure functionapp publish <FunctionAppName>
 ```
 
@@ -383,7 +398,7 @@ func azure functionapp publish <FunctionAppName>
 
 | 選項     | 說明                            |
 | ------------ | -------------------------------------- |
-| **`--publish-local-settings -i`** |  將 local.settings.json 中的設定發佈至 Azure，若設定已經存在，則提示進行覆寫。|
+| **`--publish-local-settings -i`** |  將 local.settings.json 中的設定發佈至 Azure，若設定已經存在，則提示進行覆寫。 如果您使用儲存體模擬器，請將應用程式設定變更為[實際的儲存體連接](#get-your-storage-connection-strings)。 |
 | **`--overwrite-settings -y`** | 必須與 `-i` 搭配使用。 使用本機值在 Azure 中覆寫 AppSettings (如果不同)。 預設值為提示。|
 
 此命令會發行至 Azure 中的現有函式應用程式。 訂用帳戶中沒有 `<FunctionAppName>` 時，會發生錯誤。 若要了解如何使用 Azure CLI 從命令提示字元或終端機視窗建立函式應用程式，請參閱[建立無伺服器也可執行的函式應用程式](./scripts/functions-cli-create-serverless.md)。

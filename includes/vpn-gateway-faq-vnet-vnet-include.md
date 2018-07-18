@@ -13,6 +13,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30921303"
 ---
 VNet 對 VNet 常見問題集適用於 VPN 閘道連線。 如果您要尋找 VNet 對等互連，請參閱[虛擬網路對等互連](../articles/virtual-network/virtual-network-peering-overview.md)
 

@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: 53de4afb42e9ea5b7845a9c862dc1e06c6de36df
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: e4ce2a17f475fa3e11a4101c448f1c1c60dc66ec
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604738"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>使用 Azure 管理群組來組織資源 
 
@@ -69,7 +70,7 @@ ms.lasthandoff: 05/04/2018
 
 Azure 管理群組支援對所有的資源存取和角色定義使用 [Azure 角色型存取控制 (RBAC)](../role-based-access-control/overview.md)。 這些權限會被存在於階層中的子資源繼承。   
 
-雖然任何[內建 RBAC 角色](../role-based-access-control/overview.md#built-in-roles)都可指派給管理群組，但常用的角色只有四種： 
+雖然任何[內建 RBAC 角色](../role-based-access-control/built-in-roles.md)都可指派給管理群組，但常用的角色只有四種： 
 - **擁有者** 具有所有資源的完整存取權，包括將存取權委派給其他人的權限。 
 - **參與者**：可以建立和管理所有類型的 Azure 資源，但是不能將存取權授與其他人。
 - **資源原則參與者**可在目錄中建立和管理資源的原則。     

@@ -1,7 +1,7 @@
 在此範例中，我將說明如何使用「SharePoint Online - 當建立新項目時」  觸發程序，在於 SharePoint Online 清單中建立新項目時，起始邏輯應用程式工作流程。
 
 > [!NOTE]
-> 如果您尚未建立與 SharePoint Online 的「連線」，系統將會提示您登入您的 SharePoint 帳戶。  
+> 如果您尚未建立與 SharePoint Online 的「連線」，系統將會提示您登入 SharePoint 帳戶。  
 > 
 > 
 

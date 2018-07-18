@@ -15,6 +15,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33882863"
 ---
 # <a name="getting-started-with-azure-multi-factor-authentication-in-the-cloud"></a>開始在雲端中使用 Azure Multi-Factor Authentication
 本文將帶領您逐步了解如何在雲端中開始使用 Azure Multi-Factor Authentication。

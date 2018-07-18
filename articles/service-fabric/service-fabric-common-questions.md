@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: a40432aa1d9a466706b4a3ebbcbd56cd8e5b768e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d864a663604794a249b08a7c7be471c3abba32af
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971531"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric 的常見問題
 
@@ -28,9 +29,9 @@ ms.lasthandoff: 05/16/2018
 
 ### <a name="how-do-i-rollback-my-service-fabric-cluster-certificate"></a>如何復原 Service Fabric 叢集憑證？
 
-若要復原應用程式的任何升級，唯有發生健康情況失敗偵測，Service Fabric 叢集仲裁才會認可變更；認可後的變更只能向前復原。 如果您引進未受監視的中斷性憑證變更，若要復原叢集，您可能需要透過客戶支援服務提報工程師。  [Service Fabric 的應用程式升級](https://review.docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-upgrade?branch=master)會套用[應用程式升級參數](https://review.docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master)，以及履行不需要停機升級承諾。  完成我們建議的應用程式升級監視模式後，是否能自動進展到更新網域，端視應用程式是否通過健康情況檢查，如果預設服務更新失敗，系統將進行自動復原。
+若要復原應用程式的任何升級，唯有發生健康情況失敗偵測，Service Fabric 叢集仲裁才會認可變更；認可後的變更只能向前復原。 如果您引進未受監視的中斷性憑證變更，若要復原叢集，您可能需要透過客戶支援服務提報工程師。  [Service Fabric 的應用程式升級](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade?branch=master)會套用[應用程式升級參數](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master)，以及履行不需要停機升級承諾。  完成我們建議的應用程式升級監視模式後，是否能自動進展到更新網域，端視應用程式是否通過健康情況檢查，如果預設服務更新失敗，系統將進行自動復原。
  
-如果叢集的 Resource Manager 範本還在使用傳統憑證指紋屬性，建議您[將叢集從憑證指紋變更為通用名稱](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn)，這樣才能運用現代化的秘密管理功能。
+如果叢集的 Resource Manager 範本還在使用傳統憑證指紋屬性，建議您[將叢集從憑證指紋變更為通用名稱](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn)，這樣才能運用現代化的秘密管理功能。
 
 ### <a name="can-i-create-a-cluster-that-spans-multiple-azure-regions-or-my-own-datacenters"></a>我能否建立跨多個 Azure 區域或自有資料中心的叢集？
 

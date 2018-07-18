@@ -20,6 +20,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29809432"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>將 SQL Server 資料庫移轉至 Azure VM 中的 SQL Server
 

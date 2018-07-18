@@ -9,17 +9,17 @@ editor: daveba
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: af0ddebc79100cbe0ea55e46b825c35ab8a775b7
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: cde1af63fe609170c65bc469fa57573d7bc48490
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303751"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901505"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>教學課程：使用 Linux VM 受控服務識別，透過存取金鑰存取 Azure 儲存體
 
@@ -227,10 +227,7 @@ az storage blob download -c <CONTAINER NAME> -n test.txt -f test-download.txt --
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需 MSI 的概觀，請參閱[受控服務識別概觀](overview.md)。
-- 若要了解如何使用儲存體 SAS 認證進行此相同教學課程，請參閱[使用 Linux VM 受控服務識別，透過 SAS 認證存取 Azure 儲存體](tutorial-linux-vm-access-storage-sas.md)
-- 如需有關 Azure 儲存體帳戶 SAS 功能的詳細資訊，請參閱：
-  - [使用共用存取簽章 (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1.md)
-  - [建構服務 SAS](/rest/api/storageservices/Constructing-a-Service-SAS.md)
+在本教學課程中，您已學習如何使用 Linux 虛擬機器的受控服務識別，透過存取金鑰來存取 Azure 儲存體。  若要深入了解 Azure 儲存體存取金鑰，請參閱：
 
-使用下列意見區段來提供意見反應，並協助我們改善及設計我們的內容。
+> [!div class="nextstepaction"]
+>[管理儲存體存取金鑰](/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)

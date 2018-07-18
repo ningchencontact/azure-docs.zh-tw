@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211383"
 ---
 # <a name="replicas-and-instances"></a>複本和執行個體 
 本文概述具狀態服務之複本及無狀態服務之執行個體的生命週期。

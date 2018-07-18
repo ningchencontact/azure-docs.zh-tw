@@ -5,14 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/15/2018
+ms.date: 07/06/2018
+ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 345b73db423c6e12b56bb3308f7700917a372dda
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: dc316df754ea0b8630abe341dc5ce6b0adffa685
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920030"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>常見問題 - VMware 到 Azure 的複寫
 
@@ -116,7 +117,7 @@ Site Recovery 可透過公用端點將資料從內部部署環境複寫至 Azure
 建議您使用最新版的 OVF 範本來[建立組態伺服器 VM](vmware-azure-deploy-configuration-server.md)。 如果您因故無法這麼做 (例如您沒有 VMware 伺服器的存取權)，您可以從入口網站[下載統一安裝檔案](physical-azure-set-up-source.md)，並在 VM 上執行。 
 
 ### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>組態伺服器是否可複寫到多個區域？
-編號 若要這麼做，您必須在每個區域中設定組態伺服器。
+否。 若要這麼做，您必須在每個區域中設定組態伺服器。
 
 ### <a name="can-i-host-a-configuration-server-in-azure"></a>是否可將組態伺服器裝載在 Azure 中？
 雖然可行，但執行組態伺服器的 Azure VM 將需要與您的內部部署 VMware 基礎結構和 VM 通訊。 額外負荷可能會大幅降低其可行性。

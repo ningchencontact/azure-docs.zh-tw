@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894744"
 ---
 # <a name="azure-operational-security-checklist"></a>Azure 作業安全性檢查清單
 在 Azure 上部署應用程式很快速、輕鬆且符合成本效益。 在生產環境中部署雲端應用程式之前，針對您需要考慮的重要和建議作業安全性動作清單，取得檢查清單以協助評估應用程式是很有幫助的。

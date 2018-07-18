@@ -4,7 +4,7 @@ description: 本文說明 Azure Active Directory (Azure AD) 傳遞驗證和 GDPR
 services: active-directory
 keywords: Azure AD Connect 傳遞驗證、GDPR、Azure AD 的必要元件、SSO、單一登入
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2018
+ms.date: 05/21/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 910eb5bdd1b9d4a2a27a27c89812584bb068bec0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f53f8ffcf8354d35fa552f099302456fa5226ca8
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32150618"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915872"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>使用者隱私權與 Azure Active Directory 傳遞驗證
 
@@ -29,13 +30,13 @@ ms.locfileid: "32150618"
 
 ## <a name="overview"></a>概觀
 
-Azure AD 傳遞驗證會建立下列記錄類型，其中可以包含 EUII：
+Azure AD 傳遞驗證會建立下列記錄類型，其中可能會包含「個人資料」：
 
 - Azure AD Connect 追蹤記錄檔。
 - 驗證代理程式追蹤記錄檔。
 - Windows 事件記錄檔。
 
-適用於傳遞驗證的使用者隱私權可使用兩種方式來達成：
+使用以下兩種方式來改善傳遞驗證的使用者隱私權：
 
 1.  在接到要求時擷取使用者的資料，並從安裝中移除該使用者的資料。
 2.  確保沒有資料會保留超過 48 小時。

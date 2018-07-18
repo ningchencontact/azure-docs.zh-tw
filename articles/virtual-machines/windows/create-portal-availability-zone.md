@@ -21,6 +21,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30321983"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>使用 Azure 入口網站在可用性區域中建立 Windows 虛擬機器
 

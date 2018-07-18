@@ -1,6 +1,6 @@
 ---
-title: "如何使用 Hudson 與 Blob 儲存體 | Microsoft Docs"
-description: "說明如何使用 Hudson 與 Azure Blob 儲存體作為組建成品的存放庫。"
+title: 如何使用 Hudson 與 Blob 儲存體 | Microsoft Docs
+description: 說明如何使用 Hudson 與 Azure Blob 儲存體作為組建成品的存放庫。
 services: storage
 documentationcenter: java
 author: seguler
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23060123"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>使用 Azure 儲存體與 Hudson 連續整合解決方案
 ## <a name="overview"></a>概觀

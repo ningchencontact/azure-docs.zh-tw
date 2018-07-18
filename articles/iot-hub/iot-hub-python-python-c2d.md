@@ -1,35 +1,31 @@
 ---
 title: 使用 Azure IoT 中樞傳送雲端到裝置訊息 (Python) | Microsoft Docs
 description: 如何使用適用於 Python 的 Azure IoT SDK，將雲端到裝置訊息從 Azure IoT 中樞傳送到裝置。 您可以修改模擬裝置應用程式，以接收雲端到裝置訊息，也可以修改後端應用程式，以傳送雲端到裝置訊息。
-services: iot-hub
-documentationcenter: python
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: 3ca8a78f-ade2-46e8-8a49-d5d599cdf1f1
 ms.service: iot-hub
-ms.devlang: javascript
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: python
+ms.topic: conceptual
 ms.date: 01/22/2018
-ms.author: v-masebo;kgremban
-ms.openlocfilehash: 236758f1ff83ec37c39a44068879bea80f2ffdb0
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: kgremban
+ms.openlocfilehash: ac57af167948ad0ca2a658953ba39fc188e2e800
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635384"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>使用 IoT 中樞傳送雲端到裝置訊息 (Python)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 
 ## <a name="introduction"></a>簡介
-Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置和一個解決方案後端進行可靠且安全的雙向通訊。 [IoT 中樞入門] 教學課程會示範如何建立 IoT 中樞、在其中佈建裝置識別，以及編寫模擬的裝置應用程式，以傳送裝置到雲端的訊息。
+Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置和一個解決方案後端進行可靠且安全的雙向通訊。 [IoT 中心入門] 教學課程會示範如何建立 IoT 中樞、在其中佈建裝置識別，以及編寫模擬的裝置應用程式，以傳送裝置到雲端的訊息。
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-本教學課程是以 [IoT 中樞入門]為基礎。 這會說明如何：
+本教學課程是以 [IoT 中心入門]為基礎。 這會說明如何：
 
 * 從您的解決方案後端，透過 IoT 中樞將雲端到裝置訊息傳送給單一裝置。
 * 接收裝置上的雲端到裝置訊息。
@@ -39,11 +35,11 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 
 在本教學課程結尾，您會執行兩個 Python 主控台應用程式：
 
-* **SimulatedDevice.py**，這是在[IoT 中樞入門]建立之應用程式的修改版本，可連線到您的 IoT 中樞，並接收雲端到裝置的訊息。
+* **SimulatedDevice.py**，這是在[IoT 中心入門]建立之應用程式的修改版本，可連線到您的 IoT 中樞，並接收雲端到裝置的訊息。
 * **SendCloudToDeviceMessage.py**，會透過 IoT 中樞，將雲端到裝置訊息傳送到模擬裝置應用程式，然後接收其傳遞通知。
 
 > [!NOTE]
-> 「IoT 中樞」透過 Azure IoT 裝置 SDK 為許多裝置平台和語言 (包括 C、Java 及 Javascript) 提供 SDK 支援。 如需有關如何將您的裝置與本教學課程中的程式碼連接 (通常是連接到「Azure IoT 中樞」) 的逐步指示，請參閱 [Azure IoT 開發人員中樞]。
+> 「IoT 中樞」透過 Azure IoT 裝置 SDK 為許多裝置平台和語言 (包括 C、Java 及 Javascript) 提供 SDK 支援。 如需有關如何將您的裝置與本教學課程中的程式碼連接 (通常是連接到「Azure IoT 中樞」) 的逐步指示，請參閱 [Azure IoT 開發人員中心]。
 > 
 
 若要完成此教學課程，您需要下列項目：
@@ -77,7 +73,7 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
     RECEIVE_CALLBACKS = 0
     ```
 
-1. 將下列程式碼新增至 **SimulatedDevice.py** 檔案。 使用您在[IoT 中樞入門]教學課程中為裝置建立的裝置連接字串來取代 "{deviceConnectionString}" 預留位置值：
+1. 將下列程式碼新增至 **SimulatedDevice.py** 檔案。 使用您在[IoT 中心入門]教學課程中為裝置建立的裝置連接字串來取代 "{deviceConnectionString}" 預留位置值：
    
     ```python
     # choose AMQP or AMQP_WS as transport protocol
@@ -169,7 +165,7 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 
 
 ## <a name="send-a-cloud-to-device-message"></a>傳送雲端到裝置訊息
-在本節中，您會建立一個 Python 主控台應用程式，將雲端到裝置訊息傳送到模擬裝置應用程式。 您需要您在[IoT 中樞入門]教學課程中所新增裝置的裝置識別碼。 您也需要中樞的 IoT 中樞連接字串 (可在 [Azure 入口網站]中找到)。
+在本節中，您會建立一個 Python 主控台應用程式，將雲端到裝置訊息傳送到模擬裝置應用程式。 您需要您在[IoT 中心入門]教學課程中所新增裝置的裝置識別碼。 您也需要中樞的 IoT 中樞連接字串 (可在 [Azure 入口網站]中找到)。
 
 1. 使用文字編輯器，建立 **SendCloudToDeviceMessage.py** 檔案。
 
@@ -188,7 +184,7 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
     MSG_TXT = "{\"service client sent a message\": %.2f}"
     ```
 
-1. 將下列程式碼新增至 **SendCloudToDeviceMessage.py** 檔案。 使用您在[IoT 中樞入門]教學課程為中樞建立的 IoT 中樞連接字串來取代 "{IoTHubConnectionString}" 預留位置值。 使用您在[IoT 中樞入門]教學課程中新增之裝置的裝置識別碼來取代 "{deviceId}" 預留位置：
+1. 將下列程式碼新增至 **SendCloudToDeviceMessage.py** 檔案。 使用您在[IoT 中心入門]教學課程為中樞建立的 IoT 中樞連接字串來取代 "{IoTHubConnectionString}" 預留位置值。 使用您在[IoT 中心入門]教學課程中新增之裝置的裝置識別碼來取代 "{deviceId}" 預留位置：
    
     ```python
     CONNECTION_STRING = "{IoTHubConnectionString}"
@@ -315,10 +311,10 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 [lnk-visual-c-redist]: http://www.microsoft.com/download/confirmation.aspx?id=48145
 [lnk-node-download]: https://nodejs.org/en/download/
 [lnk-install-pip]: https://pip.pypa.io/en/stable/installing/
-[IoT 中樞入門]: iot-hub-node-node-getstarted.md
+[IoT 中心入門]: iot-hub-node-node-getstarted.md
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 [IoT 中樞開發人員指南]: iot-hub-devguide.md
-[Azure IoT 開發人員中樞]: http://www.azure.com/develop/iot
+[Azure IoT 開發人員中心]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx

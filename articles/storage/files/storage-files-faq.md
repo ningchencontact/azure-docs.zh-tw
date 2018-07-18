@@ -5,23 +5,23 @@ services: storage
 documentationcenter: ''
 author: RenaShahMSFT
 manager: aungoo
-editor: tysonn
+editor: tamram
 ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/04/2017
+ms.date: 05/31/2018
 ms.author: renash
-ms.openlocfilehash: 67884df9e38906ba7dc426b63275941dba2b8130
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c78138fa06da4d83774f9a2270263a48d404b17a
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210526"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751850"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>關於 Azure 檔案服務的常見問題集 (FAQ)
-[Azure 檔案服務](storage-files-introduction.md)提供雲端中完全受控的檔案共用，可透過業界標準的[伺服器訊息區 (SMB) 通訊協定](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) \(英文\) (也稱為 Common Internet File System 或 CIFS) 存取。 您可以同時在 Windows、Linux 和 macOS 的雲端或內部部署上掛接 Azure 檔案共用。 您也可以使用 Azure 檔案同步 (預覽)，在接近使用資料之處進行快速存取，藉以在 Windows Server 電腦上快取 Azure 檔案共用。
+[Azure 檔案](storage-files-introduction.md)提供雲端中完全受控的檔案共用，可透過業界標準[伺服器訊息區 (SMB) 通訊協定](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)來存取。 您可以同時在 Windows、Linux 和 macOS 的雲端或內部部署上掛接 Azure 檔案共用。 您也可以使用 Azure 檔案同步 (預覽)，在接近使用資料之處進行快速存取，藉以在 Windows Server 電腦上快取 Azure 檔案共用。
 
 本文將回答有關 Azure 檔案服務特性與功能 (包括將 Azure 檔案同步與 Azure 檔案搭配使用) 的常見問題。 如果您找不到問題的答案，可透過下列管道 (依先後順序) 和我們連絡：
 
@@ -91,7 +91,7 @@ ms.locfileid: "34210526"
 
 * <a id="afs-region-availability"></a>
 **哪些區域支援 Azure 檔案同步 (預覽)？**  
-    Azure 檔案同步目前適用於澳大利亞東部、加拿大中部、美國東部、東南亞、英國南部、西歐和美國西部。 未來將新增對更多區域的支援，因為我們正朝著正式運作的目標努力。 如需詳細資訊，請參閱 [區域可用性](storage-sync-files-planning.md#region-availability)。
+    Azure 檔案同步目前適用於澳大利亞東部、澳大利亞東南部、加拿大中部、加拿大東部、美國中部、東亞、美國東部、美國東部 2、北歐、東南亞、英國南部、英國西部、西歐和美國西部。 未來將新增對更多區域的支援，因為我們正朝著正式運作的目標努力。 如需詳細資訊，請參閱 [區域可用性](storage-sync-files-planning.md#region-availability)。
 
 * <a id="cross-domain-sync"></a>
 **相同的同步群組中是否可以同時有已加入網域和未加入網域的伺服器？**  
@@ -190,6 +190,14 @@ ms.locfileid: "34210526"
 **我可以將 Azure 檔案同步與 Windows Server 2008 R2、Linux 或網路連接儲存裝置 (NAS) 搭配使用嗎？**  
     Azure 檔案同步目前只支援 Windows Server 2016 和 Windows Server 2012 R2。 現階段我們沒有其他計劃，但會保持開放態度，並根據客戶需求來支援其他平台。 請前往 [Azure 檔案服務 UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) \(英文\)，讓我們知道您希望我們支援哪些平台。
 
+* <a id="afs-tiered-files-out-of-endpoint"></a>
+**分層的檔案為何存在於伺服器端點命名空間以外？**  
+    在 Azure 檔案同步代理程式版本 3 之前，Azure 檔案同步會禁止移動位於伺服器端點以外外、但與伺服器端點位於相同磁碟區上的分層檔案。 非分層檔案的複製作業和移動，以及從分層磁碟區到其他磁碟區的移動，均不受影響。 之所以會有此行為，是因為系統隱含地假設在相同磁碟區上執行這些移動作業的檔案總管和其他 Windows API (幾近於) 是 即時的重新命名作業。 這表示，當 Azure 檔案同步回復雲端中的資料時，移動作業將會使檔案總管或其他的移動方法 (例如命令列或 PowerShell) 呈現為無回應的狀態。 從 [Azure 檔案同步代理程式 3.0.12.0 版](storage-files-release-notes.md#agent-version-30120)開始，Azure 檔案同步將可讓您移動伺服器端點以外的分層檔案。 我們讓分層的檔案以分層的形式存在於伺服器端點以外，然後在背景中回復檔案，以避免產生負面影響。 這表示，相同磁碟區上的移動會即時執行，而我們會在移動完成後，再執行所有將檔案回復至磁碟的工作。 
+
+* <a id="afs-do-not-delete-server-endpoint"></a>
+**我在伺服器上的 Azure 檔案同步有問題 (同步、雲端分層等)。我是否應移除並重新建立伺服器端點？**  
+    [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
+
 ## <a name="security-authentication-and-access-control"></a>安全性、驗證和存取控制
 * <a id="ad-support"></a>
 **Azure 檔案服務是否支援以 Active Directory 為基礎的驗證和存取控制？**  
@@ -219,18 +227,18 @@ ms.locfileid: "34210526"
 
 * <a id="data-compliance-policies"></a>
 **Azure 檔案服務支援哪些資料合規性原則？**  
-   Azure 檔案服務和 Azure 儲存體的其他儲存體中所使用的服務都是在相同的儲存體架構上運作。 Azure 檔案服務會套用其他 Azure 儲存體服務中所使用的相同資料合規性原則。 如需 Azure 儲存體資料合規性的詳細資訊，您可以下載並參考 [Microsoft Azure 資料保護文件](http://go.microsoft.com/fwlink/?LinkID=398382&clcid=0x409) \(英文\)，並前往 [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx) \(英文\)。
+   Azure 檔案服務和 Azure 儲存體的其他儲存體中所使用的服務都是在相同的儲存體架構上運作。 Azure 檔案服務會套用其他 Azure 儲存體服務中所使用的相同資料合規性原則。 如需 Azure 儲存體資料合規性的詳細資訊，您可以下載並參考 [Microsoft Azure 資料保護文件](http://go.microsoft.com/fwlink/?LinkID=398382&clcid=0x409) \(英文\)，並前往 [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx) \(英文\)。
 
 ## <a name="on-premises-access"></a>內部部署存取
 * <a id="expressroute-not-required"></a>
 **我必須使用 Azure ExpressRoute 來連線到 Azure 檔案服務，還是必須在內部部署中使用 Azure 檔案同步？**  
-    編號 不需要 ExpressRoute 就能存取 Azure 檔案共用。 如果您要直接在內部部署掛接 Azure 檔案共用，只需開啟連接埠 445 (TCP 輸出) 以進行網際網路存取 (這是 SMB 用來進行通訊的連接埠)。 如果您使用 Azure 檔案同步，只需連接埠 443 (TCP 輸出) 以進行 HTTPS 存取 (不需要 SMB)。 不過，您可以將 ExpressRoute 與這些其中一個選項搭配使用。
+    否。 不需要 ExpressRoute 就能存取 Azure 檔案共用。 如果您要直接在內部部署掛接 Azure 檔案共用，只需開啟連接埠 445 (TCP 輸出) 以進行網際網路存取 (這是 SMB 用來進行通訊的連接埠)。 如果您使用 Azure 檔案同步，只需連接埠 443 (TCP 輸出) 以進行 HTTPS 存取 (不需要 SMB)。 不過，您可以將 ExpressRoute 與這些其中一個選項搭配使用。
 
 * <a id="mount-locally"></a>
 **如何在本機電腦上掛接 Azure 檔案共用？**  
     如果已開啟連接埠 445 (TCP 輸出) 且您的用戶端支援 SMB 3.0 通訊協定 (例如，若您使用的是 Windows 10 或 Windows Server 2016)，即可使用 SMB 通訊協定掛接檔案共用。 如果組織的原則或您的 ISP 會封鎖連接埠 445，您可以使用 Azure 檔案同步來存取 Azure 檔案共用。
 
-## <a name="backup"></a>備份
+## <a name="backup"></a>Backup 
 * <a id="backup-share"></a>
 **如何備份我的 Azure 檔案共用？**  
     您可以使用定期[共用快照集](storage-snapshots-files.md)來防範意外刪除的情況。 您也可以使用 AzCopy、RoboCopy，或是可備份已掛接檔案共用的協力廠商備份工具。 Azure 備份會提供 Azure 檔案的備份。 深入了解如何[使用 Azure 備份來備份 Azure 檔案共用](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files)。
@@ -319,9 +327,13 @@ ms.locfileid: "34210526"
 **Azure 檔案服務有何規模限制？**  
     如需 Azure 檔案服務的延展性和效能目標相關資訊，請參閱 [Azure 檔案服務延展性和效能目標](storage-files-scale-targets.md)。
 
-* <a id="need-larger-share"></a>
-**我需要的檔案共用比 Azure 檔案服務目前所提供的更大。我可以提高 Azure 檔案共用的大小嗎？**  
-    編號 Azure 檔案共用的大小上限是 5 TiB。 這是目前的固定限制，我們無法調整。 我們正在研究將共用大小提高到 100 TiB 的解決方案，但目前沒有時間表。
+* 
+  <a id="need-larger-share">
+    </a>
+  
+
+  **我需要的檔案共用比 Azure 檔案服務目前所提供的更大。我可以提高 Azure 檔案共用的大小嗎？**  
+  否。 Azure 檔案共用的大小上限是 5 TiB。 這是目前的固定限制，我們無法調整。 我們正在研究將共用大小提高到 100 TiB 的解決方案，但目前沒有時間表。
 
 * <a id="open-handles-quota"></a>
 **多少個用戶端可以同時存取相同的檔案？**   
@@ -350,7 +362,7 @@ ms.locfileid: "34210526"
 
 * <a id="nested-shares"></a>
 **我可以設定巢狀共用嗎？也就是說，共用下的共用？**  
-    編號 檔案共用是您可以掛接的虛擬驅動程式，因此不支援巢狀共用。
+    否。 檔案共用是您可以掛接的虛擬驅動程式，因此不支援巢狀共用。
 
 * <a id="ibm-mq"></a>
 **如何將 Azure 檔案服務與 IBM MQ 搭配使用？**  

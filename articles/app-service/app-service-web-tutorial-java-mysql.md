@@ -20,6 +20,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33203114"
 ---
 # <a name="tutorial-build-a-java-and-mysql-web-app-in-azure"></a>教學課程：在 Azure 中建置 Java 和 MySQL Web 應用程式
 

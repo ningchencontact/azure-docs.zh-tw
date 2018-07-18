@@ -3,34 +3,31 @@ title: 適用於 Azure Cosmos DB 的 SQL API 之 Node.js 教學課程 | Microsof
 description: 使用 SQL API 所建立的 Cosmos DB 之 Node.js 教學課程。
 keywords: node.js 教學課程，節點資料庫
 services: cosmos-db
-documentationcenter: node.js
-author: AndrewHoh
+author: SnehaGunda
 manager: kfile
 editor: monicar
-ms.assetid: 14d52110-1dce-4ac0-9dd9-f936afccd550
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: node
-ms.topic: article
+ms.component: cosmosdb-sql
+ms.devlang: nodejs
+ms.topic: tutorial
 ms.date: 08/14/2017
-ms.author: anhoh
-ms.openlocfilehash: d8e5ef9da0d884d3120f71b7b06b079b2bdfbded
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: sngun
+ms.openlocfilehash: 6a98d3b477a3cb06c1454a79b77dffa685853a35
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38668119"
 ---
 # <a name="nodejs-tutorial-use-the-sql-api-in-azure-cosmos-db-to-create-a-nodejs-console-application"></a>Node.js 教學課程：使用 Azure Cosmos DB 中的 SQL API 建立 Node.js 主控台應用程式
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
 > * [Node.js for MongoDB](mongodb-samples.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
 > * [Java](sql-api-java-get-started.md)
-> * [C++](sql-api-cpp-get-started.md)
->  
-> 
+
 
 歡迎使用 Azure Cosmos DB Node.js SDK 的 Node.js 教學課程！ 完成本教學課程之後，您將會有一個主控台應用程式，可用來建立和查詢 Azure Cosmos DB 資源。
 
@@ -53,6 +50,7 @@ ms.lasthandoff: 04/16/2018
 讓我們開始吧！
 
 ## <a name="prerequisites-for-the-nodejs-tutorial"></a>Node.js 教學課程的必要條件
+
 請確定您具有下列項目：
 
 * 使用中的 Azure 帳戶。 如果您沒有帳戶，您可以註冊 [免費 Azure 試用](https://azure.microsoft.com/pricing/free-trial/)。 
@@ -62,11 +60,13 @@ ms.lasthandoff: 04/16/2018
 * [Node.js](https://nodejs.org/) v0.10.29 版或更高版本。
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>步驟 1：建立 Azure Cosmos DB 帳戶
+
 讓我們來建立 Azure Cosmos DB 帳戶。 如果您已經擁有想要使用的帳戶，就可以直接跳到[設定您的 Node.js 應用程式](#SetupNode)。 如果您是使用「Azure Cosmos DB 模擬器」，請依照 [Azure Cosmos DB 模擬器](local-emulator.md)的步驟來設定模擬器，然後直接跳到[設定您的 Node.js 應用程式](#SetupNode)。
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 ## <a id="SetupNode"></a>步驟 2：設定您的 Node.js 應用程式
+
 1. 開啟您偏好的終端機。
 2. 找出您想儲存 Node.js 應用程式的資料夾或目錄位置。
 3. 使用下列命令，建立兩個空白的 JavaScript 檔案：
@@ -82,6 +82,7 @@ ms.lasthandoff: 04/16/2018
 太棒了！ 現在已完成安裝程式，讓我們開始撰寫一些程式碼。
 
 ## <a id="Config"></a>步驟 3：設定您的應用程式設定
+
 在您慣用的文字編輯器中開啟 ```config.js```。
 
 然後，複製並貼上以下的程式碼片段，以及將屬性 ```config.endpoint``` 和 ```config.primaryKey``` 設定為您的 Azure Cosmos DB 端點 uri 和主要金鑰。 您可以在 [Azure 入口網站](https://portal.azure.com)找到這些設定。
@@ -165,7 +166,6 @@ ms.lasthandoff: 04/16/2018
         }
     };
 
-
 資料庫、集合和文件定義將作為您 Azure Cosmos DB 的 ```database id```、```collection id``` 和文件的資料。
 
 最後，匯出您的 ```config``` 物件，如此就可以在 ```app.js``` 檔案中參考它。
@@ -179,19 +179,19 @@ ms.lasthandoff: 04/16/2018
     module.exports = config;
 
 ## <a id="Connect"></a>步驟 4：連線至 Azure Cosmos DB 帳戶
+
 在文字編輯器中開啟您的空白 ```app.js``` 檔案。 複製並貼上以下的程式碼，以匯入 ```documentdb``` 模組和新建的 ```config``` 模組。
 
     // ADD THIS PART TO YOUR CODE
     "use strict";
 
     var documentClient = require("documentdb").DocumentClient;
+    const uriFactory = require('documentdb').UriFactory;
     var config = require("./config");
-    var url = require('url');
 
 複製並貼上以下的程式碼，以使用先前儲存的 ```config.endpoint``` 和 ```config.primaryKey``` 來建立新的 DocumentClient。
 
     var config = require("./config");
-    var url = require('url');
 
     // ADD THIS PART TO YOUR CODE
     var client = new documentClient(config.endpoint, { "masterKey": config.primaryKey });
@@ -199,30 +199,29 @@ ms.lasthandoff: 04/16/2018
 您現在具有程式碼，可將 Azure Cosmos DB 用戶端初始化，讓我們看看如何使用 Azure Cosmos DB 資源。
 
 ## <a name="step-5-create-a-node-database"></a>步驟 5：建立節點資料庫
-複製並貼上以下的程式碼，以設定 [找不到] 的HTTP 狀態、資料庫 url 和集合 url。 這些 url 可讓 Azure Cosmos DB 用戶端尋找正確的資料庫和集合。
+
+複製並貼上以下的程式碼，以設定 [找不到] 的 HTTP 狀態、資料庫識別碼和集合識別碼。這些識別碼可讓 Azure Cosmos DB 用戶端尋找正確的資料庫和集合。
 
     var client = new documentClient(config.endpoint, { "masterKey": config.primaryKey });
 
     // ADD THIS PART TO YOUR CODE
     var HttpStatusCodes = { NOTFOUND: 404 };
-    var databaseUrl = `dbs/${config.database.id}`;
-    var collectionUrl = `${databaseUrl}/colls/${config.collection.id}`;
+    var databaseId = config.database.id;
+    var collectionId = config.collection.id;
 
-可以使用 **DocumentClient** 類別的 [createDatabase](https://azure.github.io/azure-documentdb-node/DocumentClient.html) 函式來建立[資料庫](sql-api-resources.md#databases)。 資料庫是分割給多個集合之文件儲存體的邏輯容器。
+可以使用 **DocumentClient** 類別的 [createDatabase](/javascript/api/documentdb/documentclient) 函式來建立[資料庫](sql-api-resources.md#databases)。 資料庫是分割給多個集合之文件儲存體的邏輯容器。
 
-複製並貼上 **getDatabase** 函式，以 ```config``` 物件中指定的 ```id```，在 app.js 檔案中加入建立新資料庫的函式。 此函數會檢查具有相同 ```FamilyRegistry``` 識別碼的資料庫不存在。 如果存在，我們會傳回該資料庫，而不會建立新資料庫。
-
-    var collectionUrl = `${databaseUrl}/colls/${config.collection.id}`;
+複製並貼上 **getDatabase** 函式，以便使用 ```config``` 物件中指定的 ```databaseId``` 在 app.js 檔案中建立新資料庫。 此函數會檢查具有相同 ```FamilyRegistry``` 識別碼的資料庫不存在。 如果存在，我們會傳回該資料庫，而不會建立新資料庫。
 
     // ADD THIS PART TO YOUR CODE
     function getDatabase() {
-        console.log(`Getting database:\n${config.database.id}\n`);
-
+        console.log(`Getting database:\n${databaseId}\n`);
+        let databaseUrl = uriFactory.createDatabaseUri(databaseId);
         return new Promise((resolve, reject) => {
             client.readDatabase(databaseUrl, (err, result) => {
                 if (err) {
                     if (err.code == HttpStatusCodes.NOTFOUND) {
-                        client.createDatabase(config.database, (err, created) => {
+                        client.createDatabase({ id: databaseId }, (err, created) => {
                             if (err) reject(err)
                             else resolve(created);
                         });
@@ -234,7 +233,7 @@ ms.lasthandoff: 04/16/2018
                 }
             });
         });
-    }
+    };
 
 複製並貼上以下的程式碼，以設定 **getDatabase** 函式來加入協助程式函式 **exit**，該函式會列印結束訊息和呼叫 **getDatabase** 函式。
 
@@ -252,7 +251,7 @@ ms.lasthandoff: 04/16/2018
         process.stdin.setRawMode(true);
         process.stdin.resume();
         process.stdin.on('data', process.exit.bind(process, 0));
-    }
+    };
 
     getDatabase()
     .then(() => { exit(`Completed successfully`); })
@@ -263,31 +262,31 @@ ms.lasthandoff: 04/16/2018
 恭喜！ 您已成功建立 Azure Cosmos DB 資料庫。
 
 ## <a id="CreateColl"></a>步驟 6：建立集合
+
 > [!WARNING]
 > **createCollection** 會建立具有定價含意的新集合。 如需詳細資訊，請造訪 [定價頁面](https://azure.microsoft.com/pricing/details/cosmos-db/)。
-> 
-> 
 
-可以使用 **DocumentClient** 類別的 [createCollection](https://azure.github.io/azure-documentdb-node/DocumentClient.html) 函式建立[集合](sql-api-resources.md#collections)。 集合是 JSON 文件和相關聯 JavaScript 應用程式邏輯的容器。
+可以使用 **DocumentClient** 類別的 [createCollection](/javascript/api/documentdb/documentclient) 函式建立[集合](sql-api-resources.md#collections)。 集合是 JSON 文件和相關聯 JavaScript 應用程式邏輯的容器。
 
-將 **getCollection** 函式複製並貼到 app.js 檔案中的 **getDatabase** 函式之下，以 ```config``` 物件中指定的 ```id``` 建立新的集合。 同樣地，我們會檢查確定具有相同 ```FamilyCollection``` 識別碼的集合不存在。 如果存在，我們會傳回該集合，而不會建立新集合。
+將 **getCollection** 函式複製並貼到 app.js 檔案中的 **getDatabase** 函式之下，以 ```config``` 物件中指定的 ```collectionId``` 建立新的集合。 同樣地，我們會檢查確定具有相同 ```FamilyCollection``` 識別碼的集合不存在。 如果存在，我們會傳回該集合，而不會建立新集合。
 
                 } else {
                     resolve(result);
                 }
             });
         });
-    }
+    };
 
     // ADD THIS PART TO YOUR CODE
     function getCollection() {
-        console.log(`Getting collection:\n${config.collection.id}\n`);
-
+        console.log(`Getting collection:\n${collectionId}\n`);
+        let collectionUrl = uriFactory.createDocumentCollectionUri(databaseId, collectionId);
         return new Promise((resolve, reject) => {
             client.readCollection(collectionUrl, (err, result) => {
                 if (err) {
                     if (err.code == HttpStatusCodes.NOTFOUND) {
-                        client.createCollection(databaseUrl, config.collection, { offerThroughput: 400 }, (err, created) => {
+                        let databaseUrl = uriFactory.createDatabaseUri(databaseId);
+                        client.createCollection(databaseUrl, { id: collectionId }, { offerThroughput: 400 }, (err, created) => {
                             if (err) reject(err)
                             else resolve(created);
                         });
@@ -299,7 +298,7 @@ ms.lasthandoff: 04/16/2018
                 }
             });
         });
-    }
+    };
 
 將以下的程式碼複製並貼到對 **getDatabase** 的呼叫之下，以執行 **getCollection** 函式。
 
@@ -317,7 +316,8 @@ ms.lasthandoff: 04/16/2018
 恭喜！ 您已成功建立 Azure Cosmos DB 集合。
 
 ## <a id="CreateDoc"></a>步驟 7：建立文件
-可以使用 **DocumentClient** 類別的 [createDocument](https://azure.github.io/azure-documentdb-node/DocumentClient.html) 函式來建立[文件](sql-api-resources.md#documents)。 文件會是使用者定義的 (任意) JSON 內容。 您現在可以將文件插入 Azure Cosmos DB。
+
+可以使用 **DocumentClient** 類別的 [createDocument](/javascript/api/documentdb/documentclient) 函式來建立[文件](sql-api-resources.md#documents)。 文件會是使用者定義的 (任意) JSON 內容。 您現在可以將文件插入 Azure Cosmos DB。
 
 將 **getFamilyDocument** 函式複製並貼到 **getCollection** 函式之下，以便建立包含 ```config``` 物件中儲存之 JSON 資料文件。 同樣地，我們會檢查以確定具有相同識別碼的文件不存在。
 
@@ -326,17 +326,17 @@ ms.lasthandoff: 04/16/2018
                 }
             });
         });
-    }
+    };
 
     // ADD THIS PART TO YOUR CODE
     function getFamilyDocument(document) {
-        let documentUrl = `${collectionUrl}/docs/${document.id}`;
         console.log(`Getting document:\n${document.id}\n`);
-
+        let documentUrl = uriFactory.createDocumentUri(databaseId, collectionId, document.id);
         return new Promise((resolve, reject) => {
             client.readDocument(documentUrl, (err, result) => {
                 if (err) {
                     if (err.code == HttpStatusCodes.NOTFOUND) {
+                        let collectionUrl = uriFactory.createDocumentCollectionUri(databaseId, collectionId);
                         client.createDocument(collectionUrl, document, (err, created) => {
                             if (err) reject(err)
                             else resolve(created);
@@ -380,12 +380,12 @@ Azure Cosmos DB 支援針對儲存於每個集合的 JSON 文件進行[豐富查
                 }
             });
         });
-    }
+    };
 
     // ADD THIS PART TO YOUR CODE
     function queryCollection() {
-        console.log(`Querying collection through index:\n${config.collection.id}`);
-
+        console.log(`Querying collection through index:\n${collectionId}`);
+        let collectionUrl = uriFactory.createDocumentCollectionUri(databaseId, collectionId);
         return new Promise((resolve, reject) => {
             client.queryDocuments(
                 collectionUrl,
@@ -403,7 +403,6 @@ Azure Cosmos DB 支援針對儲存於每個集合的 JSON 文件進行[豐富查
             });
         });
     };
-
 
 下圖說明如何針對您所建立的集合呼叫 Azure Cosmos DB SQL 查詢語法。
 
@@ -438,14 +437,13 @@ Azure Cosmos DB 支援取代 JSON 文件。
                 }
             });
         });
-    }
+    };
 
     // ADD THIS PART TO YOUR CODE
     function replaceFamilyDocument(document) {
-        let documentUrl = `${collectionUrl}/docs/${document.id}`;
         console.log(`Replacing document:\n${document.id}\n`);
+        let documentUrl = uriFactory.createDocumentUri(databaseId, collectionId, document.id);
         document.children[0].grade = 6;
-
         return new Promise((resolve, reject) => {
             client.replaceDocument(documentUrl, document, (err, result) => {
                 if (err) reject(err);
@@ -475,6 +473,7 @@ Azure Cosmos DB 支援取代 JSON 文件。
 恭喜！ 您已成功取代 Azure Cosmos DB 文件。
 
 ## <a id="DeleteDocument"></a>步驟 10︰刪除文件
+
 Azure Cosmos DB 支援刪除 JSON 文件。
 
 將 **deleteFamilyDocument** 函式複製並貼到 **replaceFamilyDocument** 函式之下。
@@ -488,9 +487,8 @@ Azure Cosmos DB 支援刪除 JSON 文件。
 
     // ADD THIS PART TO YOUR CODE
     function deleteFamilyDocument(document) {
-        let documentUrl = `${collectionUrl}/docs/${document.id}`;
         console.log(`Deleting document:\n${document.id}\n`);
-
+        let documentUrl = uriFactory.createDocumentUri(databaseId, collectionId, document.id);
         return new Promise((resolve, reject) => {
             client.deleteDocument(documentUrl, (err, result) => {
                 if (err) reject(err);
@@ -519,6 +517,7 @@ Azure Cosmos DB 支援刪除 JSON 文件。
 恭喜！ 您已成功將 Azure Cosmos DB 文件刪除。
 
 ## <a id="DeleteDatabase"></a>步驟 11：刪除節點資料庫
+
 刪除已建立的資料庫將會移除資料庫和所有子系資源 (集合、文件等)。
 
 將 **cleanup** 函式複製並貼到 **deleteFamilyDocument** 函式之下，以移除資料庫和所有子系資源。
@@ -532,15 +531,15 @@ Azure Cosmos DB 支援刪除 JSON 文件。
 
     // ADD THIS PART TO YOUR CODE
     function cleanup() {
-        console.log(`Cleaning up by deleting database ${config.database.id}`);
-
+        console.log(`Cleaning up by deleting database ${databaseId}`);
+        let databaseUrl = uriFactory.createDatabaseUri(databaseId);
         return new Promise((resolve, reject) => {
             client.deleteDatabase(databaseUrl, (err) => {
                 if (err) reject(err)
                 else resolve(null);
             });
         });
-    }
+    };
 
 將以下的程式碼複製並貼到對 **deleteFamilyDocument** 的呼叫之下，以執行 **cleanup** 函式。
 
@@ -554,6 +553,7 @@ Azure Cosmos DB 支援刪除 JSON 文件。
     .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 
 ## <a id="Run"></a>步驟 12：一起執行您的 Node.js 應用程式！
+
 總之，呼叫您的函數的順序應如下所示︰
 
     getDatabase()
@@ -605,6 +605,7 @@ Azure Cosmos DB 支援刪除 JSON 文件。
 恭喜！ 您已完成 Node.js 教學課程，並擁有您的第一個 Azure Cosmos DB 主控台應用程式！
 
 ## <a id="GetSolution"></a>取得完整的 Node.js 教學課程方案
+
 如果您沒有時間完成本教學課程中的步驟，或只想要下載程式碼，您可以從 [GitHub](https://github.com/Azure-Samples/documentdb-node-getting-started) 取得程式碼。
 
 若要執行包含本文中所有範例的 GetStarted 方案，您將需要下列項目：

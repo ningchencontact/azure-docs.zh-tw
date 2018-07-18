@@ -1,6 +1,6 @@
 ---
-title: "在 StorSimple Linux 主機上設定 MPIO | Microsoft Docs"
-description: "在連線到執行 CentOS 6.6 之 Linux 主機的 StorSimple 上設定 MPIO"
+title: 在 StorSimple Linux 主機上設定 MPIO | Microsoft Docs
+description: 在連線到執行 CentOS 6.6 之 Linux 主機的 StorSimple 上設定 MPIO
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 2fbae15c1c6a9ec886f57f9df903612ae10d8e12
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: ccd24e1498282cd2b627226df79af22e9647b64d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38681567"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>在執行 CentOS 的 StorSimple 主機上設定 MPIO
 本文說明在 Centos 6.6 主機伺服器上設定多重路徑 IO (MPIO) 所需的步驟。 主機伺服器會連線到您的 Microsoft Azure StorSimple 裝置，以透過 iSCSI 啟動器取得高可用性。 文中詳細描述多重路徑裝置的自動探索，以及 StorSimple 磁碟區特有的設定。
@@ -66,7 +67,7 @@ multipath.conf 有五個區段：
 
 下列程序描述有兩個網路介面的 StorSimple 裝置連接到有兩個網路介面的主機時，要如何設定多重路徑。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本節將詳細說明 CentOS 伺服器和 StorSimple 裝置的設定必要條件。
 
 ### <a name="on-centos-host"></a>在 CentOS 主機上
@@ -419,7 +420,7 @@ A. 若要驗證您的裝置是否已列入允許清單，請使用下列疑難�
 如需詳細資訊，移至 [對多重路徑使用疑難排解互動式命令](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html)。
 
 ## <a name="list-of-useful-commands"></a>有用的命令清單
-| 在系統提示您進行確認時，輸入  | 命令 | 描述 |
+| 在系統提示您進行確認時，輸入  | 命令 | 說明 |
 | --- | --- | --- |
 | **iSCSI** |`service iscsid start` |啟動 iSCSI 服務 |
 | &nbsp; |`service iscsid stop` |停止 iSCSI 服務 |
@@ -444,5 +445,5 @@ A. 若要驗證您的裝置是否已列入允許清單，請使用下列疑難�
 當您在 Linux 主機上設定 MPIO 時，您可能也需要參考下列 CentoS 6.6 文件︰
 
 * [在 CentOS 上設定 MPIO](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
-* [Linux 訓練指南](http://linux-training.be/files/books/LinuxAdm.pdf)
+* [Linux 訓練指南](http://linux-training.be/linuxsys.pdf)
 

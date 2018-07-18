@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "23125496"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-classic-powershell"></a>範例 1 – 使用 NSG 搭配傳統 PowerShell 建立簡單的 DMZ
 [返回 [安全性界限最佳作法] 頁面][HOME]

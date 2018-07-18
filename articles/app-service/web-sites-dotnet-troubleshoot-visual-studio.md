@@ -19,6 +19,7 @@ ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/29/2018
+ms.locfileid: "30266133"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>使用 Visual Studio 疑難排解 Azure App Service 中的 Web 應用程式
 ## <a name="overview"></a>概觀

@@ -1,4 +1,20 @@
-
+---
+title: 包含檔案
+description: 包含檔案
+services: app-service\mobile
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 05/25/2018
+ms.author: crdun
+ms.custom: include file
+ms.openlocfilehash: 4da469ac31c3ee50d601c87b4d7487ae5bb7bc3a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34663997"
+---
 1. 按一下 [應用程式服務] 按鈕，依序選取您的 Mobile Apps 後端、[快速入門]，以及您的用戶端平台 (iOS、Android、Xamarin、Cordova)。
 
     ![已醒目提示 [Mobile Apps 快速入門] 的 Azure 入口網站][quickstart]
@@ -19,10 +35,10 @@
 
     ![Azure 入口網站通知：「您已經有資料連線」][already-connection]
 
-3. 在 **2.建立資料表 API** 之下，選取 Node.js 作為**後端語言**。 
- 
-4. 接受通知，然後選取 [建立 TodoItem 資料表] 。  
-    這會在您的資料庫中建立新的待辦事項資料表。 
+3. 在 **2.建立資料表 API** 之下，選取 Node.js 作為**後端語言**。
+
+4. 接受通知，然後選取 [建立 TodoItem 資料表] 。
+    這會在您的資料庫中建立新的待辦事項資料表。
 
     >[!IMPORTANT]
     > 將現有後端切換到 Node.js 會覆寫所有內容。 若要改為建立 .NET 後端，請參閱[使用適用於 Mobile Apps 的 .NET 後端伺服器 SDK][instructions]。

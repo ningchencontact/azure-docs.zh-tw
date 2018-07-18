@@ -1,25 +1,20 @@
 ---
 title: 將 Azure 虛擬機器容錯移轉至另一個 Azure 區域時保留 IP 位址 | Microsoft Docs
 description: 說明如何在使用 Azure Site Recovery 進行 Azure 至 Azure 容錯移轉案例時保留 IP 位址
-services: site-recovery
-documentationcenter: ''
-author: mayanknayar
-manager: rochakm
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/11/2018
+ms.date: 07/06/2018
+author: mayanknayar
+ms.topic: conceptual
 ms.author: manayar
-ms.openlocfilehash: 9a9c18bfe9073e5af94c7bd8f0fbb91651387731
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: d9753f4359e1123ec9051dc303416a74e7aee847
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34071659"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920411"
 ---
 # <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>針對 Azure 虛擬機器容錯移轉保留 IP 位址
 

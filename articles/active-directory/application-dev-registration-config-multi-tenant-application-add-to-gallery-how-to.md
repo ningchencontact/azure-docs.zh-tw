@@ -3,21 +3,24 @@ title: 將多租用戶應用程式新增至 Azure AD 應用程式庫 | Microsoft
 description: 說明如何在 Azure AD 應用程式庫中列出自訂開發的多租用戶應用程式。
 services: active-directory
 documentationCenter: na
-author: jeevansd
-manager: femila
+author: barbkess
+manager: mtillman
 ms.assetid: 92c1651a-675d-42c8-b337-f78e7dbcc40d
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2018
-ms.author: jeedes
-ms.openlocfilehash: 51a088ccdcc018b85a70f72a5f88fab8de3c7363
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: barbkess
+ms.reviewer: jeedes
+ms.openlocfilehash: 4ff64847e057a67f0ed3378baefa7762c159aba8
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333345"
 ---
 # <a name="add-a-multitenant-application-to-the-azure-ad-application-gallery"></a>將多租用戶應用程式新增至 Azure AD 應用程式庫
 

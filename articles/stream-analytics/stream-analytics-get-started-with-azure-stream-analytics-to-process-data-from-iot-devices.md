@@ -14,6 +14,7 @@ ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312968"
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>開始使用 Azure 串流分析來處理 IoT 裝置的資料
 在本教學課程中，您將學習如何建立串流處理邏輯，以從物聯網 (IoT) 裝置收集資料。 我們將使用真實世界的物聯網 (IoT) 使用案例以示範如何快速且經濟地建置您的解決方案。

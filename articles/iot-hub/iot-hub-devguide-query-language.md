@@ -1,24 +1,19 @@
 ---
 title: 了解 Azure IoT 中樞查詢語言 | Microsoft Docs
 description: 開發人員指南 - 說明類似 SQL 的 IoT 中樞查詢語言，用於從 IoT 中樞擷取裝置/模組對應項和作業的相關資訊。
-services: iot-hub
-documentationcenter: .net
 author: fsautomata
-manager: timlt
-editor: ''
-ms.assetid: 851a9ed3-b69e-422e-8a5d-1d79f91ddf15
+manager: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 27ddc41c463c00a061a396098f0ccfaa6cec80a1
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 321d70a04e3c524e578a01e8531d63733d088c3f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444179"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>裝置與模組對應項、作業和訊息路由的 IoT 中樞查詢語言
 
@@ -173,13 +168,13 @@ SELECT * FROM devices.modules
 我們不允許 devices 與 devices.modules 集合之間的聯結。 如果您想要跨裝置查詢模組對應項，可以根據標籤來執行。 此查詢會傳回所有裝置上具有 scanning 狀態的所有模組對應項：
 
 ```sql
-Select * from devices.modules where reported.properties.status = 'scanning'
+Select * from devices.modules where properties.reported.status = 'scanning'
 ```
 
 此查詢會傳回具有 scanning 狀態的所有模組對應項，但僅以指定的裝置子集為限。
 
 ```sql
-Select * from devices.modules where reported.properties.status = 'scanning' and deviceId IN ('device1', 'device2')  
+Select * from devices.modules where properties.reported.status = 'scanning' and deviceId IN ('device1', 'device2')  
 ```
 
 ### <a name="c-example"></a>C# 範例

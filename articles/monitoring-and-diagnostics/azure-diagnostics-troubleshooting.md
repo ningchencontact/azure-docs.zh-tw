@@ -1,24 +1,20 @@
 ---
-title: "針對 Azure 診斷進行疑難排解 | Microsoft Docs"
-description: "針對在 Azure 虛擬機器、Service Fabric 或 雲端服務中使用 Azure 診斷時出現的問題進行疑難排解。"
-services: monitoring-and-diagnostics
-documentationcenter: .net
+title: 針對 Azure 診斷擴充功能疑難排解
+description: 針對在 Azure 虛擬機器、Service Fabric 或 雲端服務中使用 Azure 診斷時出現的問題進行疑難排解。
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: 
-ms.assetid: 66469bce-d457-4d1e-b550-a08d2be4d28c
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/12/2017
 ms.author: robb
-ms.openlocfilehash: e194c2898616d5a19782039d38592c59f6b0c576
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.component: diagnostic-extension
+ms.openlocfilehash: 8f41605114de296b626418d0a868e3ed778c0640
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263841"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure 診斷疑難排解
 本文說明有關使用 Azure 診斷的疑難排解資訊。 如需有關 Azure 診斷的詳細資訊，請參閱 [Azure 診斷概觀](azure-diagnostics.md)。
@@ -288,7 +284,7 @@ Windows Azure 診斷擴充功能對於 .NET 4.5 Framework 或更新版本有執�
 System.IO.FileLoadException: Could not load file or assembly 'System.Threading.Tasks, Version=1.5.11.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies
 ```
 
-**緩解方式：**在電腦上安裝 .NET 4.5 或更新版本。
+**緩解方式：** 在電腦上安裝 .NET 4.5 或更新版本。
 
 **2.儲存體中有效能計數器資料，但入口網站中沒有顯示**
 

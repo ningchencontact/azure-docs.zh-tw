@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: c4d5533c443d27afa56471ce048efc5a375f6780
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 5aa6f629b04a4c187a43b13c929a122a6304c575
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639430"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>使用 Azure 媒體服務執行即時串流，以建立多位元速率串流
 
@@ -332,7 +333,7 @@ slate 的持續時間，以秒為單位。 必須為非零的正整數值才能�
 * 只有當您的通道處於 **執行中** 狀態時，才會向您計費。 若需詳細資訊，請參閱 [這個](media-services-manage-live-encoder-enabled-channels.md#states) 章節。
 * 目前，即時事件的最大建議持續時間是 8 小時。 如果您需要較長的時間來執行通道，請連絡 amslived@microsoft.com。
 * 確定您想要串流內容的串流端點已處於 [執行中] 狀態。
-* 編碼預設採用「畫面播放速率上限」30fps 的概念。 因此，如果輸入是 60fps/59.97i，輸入畫面會降低/去交錯為 30/29.97 fps。 如果輸入是 50fps/50i，輸入畫面會降低/去交錯為 25 fps。 如果輸入是 25 fps，輸出會保持為 25 fps。
+* 編碼預設採用「畫面播放速率上限」30fps 的概念。 因此，如果輸入是 60fps/59.94i，輸入畫面會降低/去交錯為 30/29.97 fps。 如果輸入是 50fps/50i，輸入畫面會降低/去交錯為 25 fps。 如果輸入是 25 fps，輸出會保持為 25 fps。
 * 切記在完成時停止您的通道。 如果您忘記，計費會繼續。
 
 ## <a name="known-issues"></a>已知問題

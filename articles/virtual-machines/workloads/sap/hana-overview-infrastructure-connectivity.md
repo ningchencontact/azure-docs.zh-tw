@@ -4,35 +4,36 @@ description: 設定必要的連線基礎結構以使用 SAP HANA on Azure (大�
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/31/2017
+ms.date: 06/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 51089ffa05168d2309bd2a96ec44b2ce0fed75f9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4741cf306aed1c86be1bc4b54fb961383e2f70bd
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778285"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763760"
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Azure 上 SAP HANA (大型執行個體) 的基礎結構和連接 
 
 閱讀本指南之前請先了解某些預先定義。 我們在 [Azure 上 SAP HANA (大型執行個體) 的概觀和架構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)中引進了兩種不同類別的 HANA 大型執行個體單位：
 
-- S72、S72m、S144、S144m、S192 和 S192m，稱之為「類型 I 類別」的 SKU。
-- S384、S384m、S384xm、S576m、S768m 和 S960m，稱之為「類型 II 類別」的 SKU。
+- S72、S72m、S144、S144m、S192、S192m 和 S192xm，稱之為「類型 I 類別」的 SKU。
+- S384、S384m、S384xm、S384xxm、S576m、S576xm、S768m、S768xm 和 S960m，稱之為「類型 II 類別」的 SKU。
 
 在整個 HANA 大型執行個體文件中都會使用類別規範，最終以 HANA 大型執行個體 SKU 為基礎指向不同的功能和需求。
 
 其他常用定義包括：
 - **大型執行個體戳記︰** 經 SAP HANA TDI 認證並專門用來執行 Azure 內 SAP HANA 執行個體的硬體基礎結構堆疊。
-- **SAP HANA on Azure (大型執行個體)：** Azure 中產品方案的正式名稱，此產品方案可在經 SAP HANA TDI 認證並部署在不同 Azure 區域之「大型執行個體」戳記中的硬體上執行 HANA 執行個體。 **HANA 大型執行個體**是 SAP HANA on Azure (大型執行個體) 的相關詞彙簡稱，並在本技術部署指南中廣泛使用。
+- 
+  **SAP HANA on Azure (大型執行個體)：** Azure 中供應項目的正式名稱，此供應項目可在經 SAP HANA TDI 認證並部署在不同 Azure 區域之「大型執行個體」戳記中的硬體上執行 HANA 執行個體。 **HANA 大型執行個體**是 SAP HANA on Azure (大型執行個體) 的相關詞彙簡稱，並在本技術部署指南中廣泛使用。
  
 
 在您與 Microsoft 企業帳戶小組之間的 SAP HANA on Azure (大型執行個體) 購買程序完成之後，Microsoft 需要下列資訊才能部署「HANA 大型執行個體單位」：
@@ -214,7 +215,7 @@ New-AzureRmVirtualNetworkGateway -Name $myGWName -ResourceGroupName $myGroupName
 在此範例中，使用了 HighPerformance 閘道 SKU。 您的選項為 HighPerformance 或 UltraPerformance，因為 SAP HANA on Azure (大型執行個體) 僅支援這些閘道 SKU。
 
 > [!IMPORTANT]
-> 若為 SKU 類型 S384、S384m、S384xm、S576m、S768m 和 S960m (類型 II 類別的 SKU) 的 HANA 大型執行個體，強制使用強效閘道 SKU。
+> 對於類型 II 類別 SKU 的 HANA 大型執行個體，必須使用 UltraPerformance 閘道 SKU。
 
 ### <a name="linking-vnets"></a>連結 VNet
 

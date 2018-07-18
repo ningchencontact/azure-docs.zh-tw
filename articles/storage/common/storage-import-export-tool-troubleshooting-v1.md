@@ -1,11 +1,11 @@
 ---
-title: "針對 Azure 匯入/匯出工具進行疑難排解 | Microsoft Docs"
-description: "了解使用 Azure 匯入/匯出工具時見到的一些常見問題及其處理方式。"
+title: 針對 Azure 匯入/匯出工具進行疑難排解 | Microsoft Docs
+description: 了解使用 Azure 匯入/匯出工具時見到的一些常見問題及其處理方式。
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: b91ca5eb-c557-460a-9afc-0590b38471f9
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059363"
 ---
 # <a name="troubleshooting-the-azure-importexport-tool"></a>針對 Azure 匯入/匯出工具進行疑難排解
 如果發生問題，Microsoft Azure 匯入/匯出工具會傳回錯誤訊息。 本主題列出使用者可能會遇到的一些常見問題。  

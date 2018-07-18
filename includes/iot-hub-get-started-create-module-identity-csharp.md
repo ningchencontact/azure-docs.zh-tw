@@ -9,11 +9,12 @@ ms.topic: include
 ms.date: 04/26/2018
 ms.author: menchi
 ms.custom: include file
-ms.openlocfilehash: a94a68d238a731388d8b13bd962b0db1007c5ca4
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: d2b409c7454645893665b080b927998402056cdd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34666903"
 ---
 ## <a name="create-a-module-identity"></a>建立模組身分識別
 
@@ -43,7 +44,16 @@ ms.lasthandoff: 05/03/2018
     const string moduleID = "myFirstModule";
     ```
 
-5. 將下列方法新增至 **Program** 類別：
+5. 將以下程式碼新增至 **Main** 類別。
+    ```csharp
+    static void Main(string[] args)
+    {
+        AddDeviceAsync().Wait();
+        AddModuleAsync().Wait();
+    }
+    ```
+
+6. 將下列方法新增至 **Program** 類別：
 
     ```csharp
     private static async Task AddDeviceAsync()
@@ -87,7 +97,7 @@ ms.lasthandoff: 05/03/2018
 
 [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-6. 執行此應用程式，並記下裝置金鑰和模組金鑰。
+7. 執行此應用程式，並記下裝置金鑰和模組金鑰。
 
 > [!NOTE]
 > IoT 中樞身分識別登錄只會儲存裝置和模組身分識別，以啟用對 IoT 中樞的安全存取。 身分識別登錄會儲存裝置識別碼和金鑰，以作為安全性認證使用。 身分識別登錄也會儲存每個裝置的已啟用/已停用旗標，以便您用來停用該裝置的存取權。 如果您的應用程式需要儲存其他裝置特定的中繼資料，它應該使用應用程式專用的存放區。 模組身分識別沒有啟用/停用旗標。 如需詳細資訊，請參閱 [IoT 中樞開發人員指南][lnk-devguide-identity]。

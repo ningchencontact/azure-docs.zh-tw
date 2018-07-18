@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bcf266813476c682d47bfd483db77f5d8b73837a
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 7cc86f56f7f68c70d66407bd44e6368f31f202d4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593780"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>針對使用 Azure AD Connect 同步執行的密碼雜湊同步處理進行疑難排解
 本主題提供如何針對密碼雜湊同步處理問題進行疑難排解的步驟。 如果密碼未如預期般同步，可能會影響一部分使用者或所有使用者。

@@ -9,11 +9,11 @@ ms.date: 05/22/2018
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 16bda26a80611b29fdb100736cfc48978e63f75a
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34702411"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38739200"
 ---
 Visual Studio 中的 Azure Functions 專案範本會建立可發行至 Azure 中函式應用程式的專案。 函式應用程式可讓您將多個函式群組為邏輯單位，以便您管理、部署和共用資源。
 

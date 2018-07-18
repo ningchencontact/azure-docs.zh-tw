@@ -1,21 +1,21 @@
 ---
-title: Azure Active Directory B2C︰使用自訂原則新增 Microsoft 帳戶 (MSA) 作為識別提供者
-description: 透過 OpenID 連線 (OIDC) 通訊協定使用 Microsoft 作為識別提供者的範例
+title: 在 Azure Active Directory B2C 中使用自訂原則新增 Microsoft 帳戶 (MSA) 作為識別提供者 | Microsoft Docs
+description: 透過 OpenID 連線 (OIDC) 通訊協定使用 Microsoft 作為識別提供者的範例。
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
-ms.openlocfilehash: a49e9589322eeb90a713321b4fbe4c4820609f7a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 7a83ace83176d75abdac03b354c4c4ac71eb4238
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448899"
 ---
 # <a name="azure-active-directory-b2c-add-microsoft-account-msa-as-an-identity-provider-using-custom-policies"></a>Azure Active Directory B2C︰使用自訂原則新增 Microsoft 帳戶 (MSA) 作為識別提供者
 
@@ -150,7 +150,7 @@ ms.lasthandoff: 03/23/2018
 1.  開啟原則的基本檔案 (例如，TrustFrameworkBase.xml)。
 2.  尋找 `<UserJourneys>` 元素，並複製 `<UserJourneys>` 節點的完整內容。
 3.  開啟擴充檔案 (例如，TrustFrameworkExtensions.xml)，並尋找 `<UserJourneys>` 元素。 如果此元素不存在，請新增。
-4.  貼上您複製作為 `<UserJourneys>` 元素之子元素的 `<UserJournesy>` 節點的完整內容。
+4.  貼上您複製作為 `<UserJourneys>` 元素之子元素的 `<UserJourneys>` 節點的完整內容。
 
 ### <a name="display-the-button"></a>顯示按鈕
 `<ClaimsProviderSelections>` 元素會定義宣告提供者選擇的選項清單和它們的順序。  `<ClaimsProviderSelection>` 元素類似於註冊/登入頁面上的識別提供者按鈕。 如果您新增 Microsoft 帳戶的 `<ClaimsProviderSelection>` 元素，當使用者登陸頁面時，會出現新的按鈕。 若要新增此元素：
@@ -160,7 +160,7 @@ ms.lasthandoff: 03/23/2018
 3.  在 `<ClaimsProviderSelections>` 節點下，新增下列 XML 程式碼片段：
 
 ```xml
-<ClaimsProviderSelection TargetClaimsExchangeId="MSAExchange" />
+<ClaimsProviderSelection TargetClaimsExchangeId="MicrosoftAccountExchange" />
 ```
 
 ### <a name="link-the-button-to-an-action"></a>將按鈕連結至動作
@@ -170,7 +170,7 @@ ms.lasthandoff: 03/23/2018
 2.  在 `<ClaimsExchanges>` 節點下，新增下列 XML 程式碼片段：
 
 ```xml
-<ClaimsExchange Id="MSAExchange" TechnicalProfileReferenceId="MSA-OIDC" />
+<ClaimsExchange Id="MicrosoftAccountExchange" TechnicalProfileReferenceId="MSA-OIDC" />
 ```
 
 > [!NOTE]

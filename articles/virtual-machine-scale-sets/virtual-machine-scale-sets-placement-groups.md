@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33941123"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>使用大型的虛擬機器擴展集
 您現在可以建立容量多達 1,000 個 VM 的 Azure [虛擬機器擴展集](/azure/virtual-machine-scale-sets/)。 本文件將_大型虛擬機器擴展集_定義為能夠調整到 100 個 VM 以上的擴展集。 此容量是由擴展集屬性 (_singlePlacementGroup=False_) 所設定。 

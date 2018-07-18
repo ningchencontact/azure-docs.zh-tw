@@ -1,10 +1,10 @@
 ---
-title: "適用於 B2B 的企業整合 - Azure Logic Apps | Microsoft Docs"
-description: "使用企業整合套件針對邏輯應用程式建置 B2B 工作流程並支援企業整合案例"
+title: 適用於 B2B 的企業整合 - Azure Logic Apps | Microsoft Docs
+description: 使用企業整合套件針對邏輯應用程式建置 B2B 工作流程並支援企業整合案例
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
-manager: anneta
+manager: jeconnoc
 editor: cgronlun
 ms.assetid: dd517c4d-1701-4247-b83c-183c4d8d8aae
 ms.service: logic-apps
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 9462707db03ecfcc3d5186ce7ded8655ad3bdcc9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 25349d48d88b64568fef0f5a6bac5950da15196b
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298632"
 ---
 # <a name="overview-b2b-scenarios-and-communication-with-the-enterprise-integration-pack"></a>概觀：使用企業整合套件的 B2B 案例與通訊
 

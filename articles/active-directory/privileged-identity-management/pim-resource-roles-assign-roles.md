@@ -3,22 +3,23 @@ title: 使用 Privileged Identity Management 指派適用於 Azure 資源的角�
 description: 說明如何在 PIM 中指派角色。
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: protection
 ms.date: 04/02/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 501f063992d2f5c7769a5c9059b346aa2b5c2bb4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: da5a0e41c476a75f230e2d2645e7f5befd644a93
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32149367"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441425"
 ---
 # <a name="assign-roles-for-azure-resources-by-using-privileged-identity-management"></a>使用 Privileged Identity Management 指派適用於 Azure 資源的角色
 

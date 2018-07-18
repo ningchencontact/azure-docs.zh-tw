@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31424686"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Windows VM 的計算基準測試分數
 下列 SPECInt 基準測試分數顯示執行 Windows Server 的 Azure 高效能 VM 產品陣容的計算效能。 也有 [Linux VM](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)的計算基準測試分數。 

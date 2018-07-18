@@ -10,16 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 860a09d004c16de992093e79c0dbda4c469bb775
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 0db357194aa4bd4d01b1d445cb407d983214b32b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32771359"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054117"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>使用 Azure 入口網站和 PowerShell 監視和管理 Azure Data Factory 管線
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "32771359"
 > * [使用監視及管理應用程式](data-factory-monitor-manage-app.md)
 
 > [!NOTE]
-> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用第 2 版 Data Factory 服務 (預覽版)，請參閱[在第 2 版中監視和管理 Data Factory 管線](../monitor-visually.md)。
+> 本文適用於第 1 版的 Data Factory。 如果您使用目前版本的 Data Factory 服務，請參閱[監視和管理 Data Factory 管線](../monitor-visually.md)。
 
 本文描述如何使用 Azure 入口網站和 PowerShell 來監視、管理和偵錯您的管線。
 

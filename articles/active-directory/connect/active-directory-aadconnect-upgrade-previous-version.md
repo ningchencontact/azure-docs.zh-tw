@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect：從舊版升級 | Microsoft Docs"
-description: "說明將 Azure Active Directory Connect 升級至最新版本的不同方法，包括就地升級和變換移轉。"
+title: Azure AD Connect：從舊版升級 | Microsoft Docs
+description: 說明將 Azure Active Directory Connect 升級至最新版本的不同方法，包括就地升級和變換移轉。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 31f084d8-2b89-478c-9079-76cf92e6618f
 ms.service: active-directory
 ms.devlang: na
@@ -13,12 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4d431a9e0fab8d46b244fd40178ede594c095893
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 1a6fe4fc7fd5f47bfd4bc4d9168f76c31c78b47b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592471"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect：從舊版升級到最新版本
 本主題說明各種可用於將 Azure Active Directory (Azure AD) Connect 安裝升級到最新版本的方法。 我們建議您讓自己的 Azure AD Connect 保持在最新版本。 當您進行大幅組態變更時，也會使用[變換移轉](#swing-migration)一節中的步驟。

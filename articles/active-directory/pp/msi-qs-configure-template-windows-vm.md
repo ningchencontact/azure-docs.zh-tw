@@ -1,11 +1,11 @@
 ---
-title: "如何使用 Azure 範本為 Azure 虛擬機器設定使用者指派的 MSI"
-description: "使用 Azure Resource Manager 範本，為 Azure 虛擬機器設定使用者指派之受控服務識別 (MSI) 的逐步指示。"
+title: 如何使用 Azure 範本為 Azure 虛擬機器設定使用者指派的 MSI
+description: 使用 Azure Resource Manager 範本，為 Azure 虛擬機器設定使用者指派之受控服務識別 (MSI) 的逐步指示。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,11 @@ ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: e01e4c397e0d0a19280a32fc1e8341b57b47e4eb
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38610378"
 ---
 # <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-an-azure-template"></a>使用 Azure 範本為虛擬機器設定使用者指派的受控服務識別 (MSI)
 

@@ -10,20 +10,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: c1db81594f44f805cf50523b449af62d76099a08
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 67b8e35f0ddafd0a39bf29757927f4ace6230547
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33771043"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048912"
 ---
 # <a name="data-management-gateway"></a>資料管理閘道
 > [!NOTE]
-> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用第 2 版 Data Factory 服務 (預覽版)，請參閱[第 2 版中的自我裝載整合執行階段](../create-self-hosted-integration-runtime.md)。 
+> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱 [Data Factory 中的自我裝載整合執行階段](../create-self-hosted-integration-runtime.md)。 
 
 > [!NOTE]
 > 資料管理閘道現已更名為「自我裝載整合執行階段」。  
@@ -46,7 +46,7 @@ ms.locfileid: "33771043"
 * 安全地管理內部部署資料來源的存取權。
   * 不需要變更公司防火牆。 閘道器只會使輸出 HTTP 連線開啟網際網路。
   * 利用您的憑證加密內部部署資料存放區的認證。
-* 有效率地移動資料 – 資料會以平行方式傳輸，且系統會採用自動重試邏輯，修復間歇性網路問題。
+* 有效率地移動資料 - 資料會以平行方式傳輸，且系統會採用自動重試邏輯，修復間歇性網路問題。
 
 ### <a name="command-flow-and-data-flow"></a>命令流程和資料流程
 當您使用複製活動在內部部署與雲端之間複製資料時，該活動會使用閘道將資料從內部部署資料來源轉移到雲端，以及反向操作。
@@ -237,7 +237,7 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。 如果沒有，�
 如果發生類似以下的錯誤，有可能是因為防火牆或 Proxy 伺服器的組態不正確，使得閘道無法連線到 Data Factory 來進行自我驗證。 請參閱上一節，以確保您的防火牆和 Proxy 伺服器的設定皆正確。
 
 1. 當您嘗試註冊閘道器時，您會收到下列錯誤：「無法註冊閘道器金鑰。 再次嘗試註冊閘道器金鑰之前，請確認資料管理閘道已處於連線狀態，且已啟動資料管理閘道主機服務。」
-2. 當您開啟「組態管理員」時，您會看到「已中斷連線」或「正在連接」狀態。 檢視 Windows 事件記錄檔時，在 [事件檢視器] > [應用程式和服務記錄檔] > [資料管理閘道] 下，您會看到如以下的錯誤訊息：`Unable to connect to the remote server`
+2. 當您開啟「組態管理員」時，您會看到「已中斷連線」或「正在連線」狀態。 檢視 Windows 事件記錄時，在 [事件檢視器] > [應用程式和服務記錄] > [資料管理閘道] 下，您會看到如以下的錯誤訊息：`Unable to connect to the remote server`
    `A component of Data Management Gateway has become unresponsive and restarts automatically. Component name: Gateway.`
 
 ### <a name="open-port-8050-for-credential-encryption"></a>開啟用於認證加密的連接埠 8050
@@ -288,12 +288,12 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。 如果沒有，�
     ```PowerShell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on  
     ```
-[適用於多節點高度可用且可調整的閘道 (預覽)](data-factory-data-management-gateway-high-availability-scalability.md)
+[適用於多節點高度可用且可調整的閘道](data-factory-data-management-gateway-high-availability-scalability.md)
 1. 在閘道電腦上啟動 Windows PowerShell。
 2. 切換至 C:\Program Files\Microsoft Integration Runtime\3.0\PowerShellScript\ 資料夾。
 3. 執行下列命令，將自動更新功能關閉 (停用)。   
 
-    對於具備高可用性功能的閘道 (預覽)，需要額外的 AuthKey 參數。
+    對於具備高可用性功能的閘道，需要額外的 AuthKey 參數。
     ```PowerShell
     .\IntegrationRuntimeAutoUpdateToggle.ps1  -off -AuthKey <your auth key>
     ```
@@ -369,7 +369,7 @@ Name | 邏輯閘道和閘道相關聯節點的名稱。 節點是安裝了閘道
 CPU 使用率 | 閘道節點的 CPU 使用率。 這個值是近乎即時的快照集。 
 網路功能 (輸入/輸出) | 閘道節點的網路使用率。 這個值是近乎即時的快照集。 
 並行作業 (執行中/限制) | 每個節點上執行的作業或工作數目。 這個值是近乎即時的快照集。 限制表示每個節點的最大並行作業數。 這個值會根據機器大小來定義。 您可以提高限制以在進階案例 (CPU/記憶體/網路並未充分使用，但活動會逾時的案例) 中相應增加並行作業執行能力。單一節點的閘道也能擁有這樣的能力 (即使該閘道尚未啟用延展性和可用性功能)。  
-角色 | 多節點閘道中的角色有兩種 – 發送器和背景工作角色。 所有節點都是背景工作角色，這表示它們全都能用來執行作業。 發送器節點只有一個，可用來提取雲端服務中的工作/作業，並發送到不同的背景工作節點 (包括發送器節點本身)。
+角色 | 多節點閘道中的角色有兩種 - 發送器和背景工作角色。 所有節點都是背景工作角色，這表示它們全都能用來執行作業。 發送器節點只有一個，可用來提取雲端服務中的工作/作業，並發送到不同的背景工作節點 (包括發送器節點本身)。
 
 當閘道中有兩個以上的節點 (相應放大案例) 時，您會在此頁面中看到某些更合理的設定。 如需設定多節點閘道的詳細資料，請參閱[資料管理閘道 - 高可用性和延展性](data-factory-data-management-gateway-high-availability-scalability.md)。
 

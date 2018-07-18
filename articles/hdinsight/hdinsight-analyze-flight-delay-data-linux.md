@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: 46c80f326c8210ac3282cf128058cee91ff3836c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1abc0a8ed9aec1082a4710647f6c03c87e1fd1d2
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33770832"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098224"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>教學課程：使用 Azure HDInsight 上的 Apache Hive 來擷取、轉換和載入資料
 
@@ -320,6 +320,7 @@ ms.locfileid: "33770832"
 
 若要了解更多 HDInsight 中資料的使用方式，請參閱下列文章：
 
+* [教學課程：使用 Azure HDInsight 上的 Apache Hive 來擷取、轉換和載入資料](../storage/data-lake-storage/tutorial-extract-transform-load-hive.md)
 * [搭配 HDInsight 使用 Hivet][hdinsight-use-hive]
 * [搭配 HDInsight 使用 Pig][hdinsight-use-pig]
 * [在 HDInsight 上開發 Hadoop 的 Java MapReduce 程式][hdinsight-develop-mapreduce]

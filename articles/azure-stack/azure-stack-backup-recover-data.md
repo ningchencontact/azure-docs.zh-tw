@@ -20,6 +20,7 @@ ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/12/2018
+ms.locfileid: "34075715"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>從重大資料遺失的情況下復原
 

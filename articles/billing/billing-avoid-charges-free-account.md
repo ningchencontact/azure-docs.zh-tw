@@ -1,5 +1,5 @@
 ---
-title: 避免 Azure 免費帳戶的費用 - Azure | Microsoft Docs
+title: 避免 Azure 免費帳戶的費用 | Microsoft Docs
 description: 了解為什麼您看到 Azure 免費帳戶的費用。 了解如何避免這些費用。
 services: ''
 documentationcenter: ''
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-ms.openlocfilehash: d7a6b60abe3319c787d1fa2b5ff7bf3985bd7cd2
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 8803a4c0f1be3a3407e5e90bbdadeddbfcb1ab9c
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060999"
 ---
 # <a name="avoid-getting-charged-for-your-azure-free-account"></a>避免產生 Azure 免費帳戶的費用
 

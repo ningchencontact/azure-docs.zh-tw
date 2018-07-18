@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: e86353703d4eb8ee9acc251d62cf77d139d18ddb
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: a6e3bb31886f1b682ef20404b536bfc4a0c07151
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365741"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656878"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>建立、變更或刪除網路介面
 
@@ -53,7 +53,7 @@ ms.locfileid: "34365741"
     |虛擬網路|yes|選取網路介面的虛擬網路。 您只能將網路介面指派給和網路介面的訂用帳戶和位置相同的虛擬網路。 網路介面建立後，即無法變更為它指派的虛擬網路。 新增網路介面的虛擬機器必須也位於和網路介面相同的位置和訂用帳戶。|
     |子網路|yes|選取您所選虛擬網路內的子網路。 在網路介面建立後，您可以變更為它指派的子網路。|
     |私人 IP 位址指派|yes| 在此設定中，您選擇的是 IPv4 位址指派方法。 選擇下列任一指派方法︰**動態︰** 若選取此選項，Azure 會自動指派您所選子網路位址空間中的下一個可用位址。 **靜態︰** 若選取此選項，您必須手動指派所選子網路位址空間中的可用 IP 位址。 直到您變更靜態和動態位址或刪除網路介面，位址才會變更。 您可以在建立網路介面後變更指派方法。 Azure DHCP 伺服器會將此位址指派給虛擬機器作業系統內的網路介面。|
-    |網路安全性群組|否| 保持設為 [無]、選取現有的[網路安全性群組](security-overview.md)或[建立網路安全性群組](tutorial-filter-network-traffic.md)。 網路安全性群組可讓您篩選進出網路介面的網路流量。 您可以將網路安全性群組套用至網路介面或不套用。 您也可以將網路安全性群組套用至網路介面的目的地子網路或不套用。 當網路安全性群組套用至網路介面和網路介面的目的地子網路後，有時會發生非預期結果。 若要為套用至網路介面和子網路的網路安全性群組進行疑難排解，請參閱[針對網路安全性群組進行疑難排解](virtual-network-nsg-troubleshoot-portal.md#nsg)。|
+    |網路安全性群組|否| 保持設為 [無]、選取現有的[網路安全性群組](security-overview.md)或[建立網路安全性群組](tutorial-filter-network-traffic.md)。 網路安全性群組可讓您篩選進出網路介面的網路流量。 您可以將網路安全性群組套用至網路介面或不套用。 您也可以將網路安全性群組套用至網路介面的目的地子網路或不套用。 當網路安全性群組套用至網路介面和網路介面的目的地子網路後，有時會發生非預期結果。 若要為套用至網路介面和子網路的網路安全性群組進行疑難排解，請參閱[針對網路安全性群組進行疑難排解](diagnose-network-traffic-filter-problem.md)。|
     |訂用帳戶|yes|選取其中一個 Azure [訂用帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)。 連接網路介面的虛擬機器和虛擬機器連線的虛擬網路，必須存在於相同的訂用帳戶。|
     |私人 IP 位址 (IPv6)|否| 如果您選取此核取方塊，除了指派給網路介面的 IPv4 位址以外，IPv6 位址也會指派給網路介面。 如需使用 IPv6 搭配網路介面的重要資訊，請參閱本文的 [IPv6](#IPv6) 一節。 您無法選取 IPv6 位址的指派方法。 如果您選擇要指派 IPv6 位址，會使用動態方法指派。
     |IPv6 名稱 (只有在核取 [私人 IP 位址 (IPv6)] 核取方塊時才會顯示) |是，如果核取 [私人 IP 位址 (IPv6)] 核取方塊。| 這個名稱會指派給網路介面的次要 IP 組態。 若要深入了解 IP 設定，請參閱[檢視網路介面設定](#view-network-interface-settings)。|

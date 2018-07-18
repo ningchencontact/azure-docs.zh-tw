@@ -12,19 +12,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9945ad30cc7d8882d8b99f6b4278f2063ab4b7f7
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f65e84bff63bbdb781991ff6648b0fb98ca5208f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193758"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592308"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>針對使用 Azure AD Connect 同步所執行的物件同步處理進行疑難排解
-本文件提供如何使用疑難排解工作來針對物件同步處理問題進行疑難排解的步驟。
+本文提供使用疑難排解工作，針對物件同步處理問題進行疑難排解的步驟。 若要查看疑難排解如何在 Azure Active Directory (Azure AD) Connect 中運作，請觀賞[這段短片](https://aka.ms/AADCTSVideo)。
 
 ## <a name="troubleshooting-task"></a>疑難排解工作
-對於 1.1.749.0 版或更新版本的 Azure Active Directory (AAD) Connect 部署，請在精靈中使用疑難排解工作，針對物件同步處理問題進行疑難排解。 對於先前的版本，則請以[這裡](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)所述的方式手動疑難排解。
+對於 1.1.749.0 版或更新版本的 Azure AD Connect 部署，請在精靈中使用疑難排解工作，針對物件同步處理問題進行疑難排解。 對於先前的版本，則請以[這裡](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)所述的方式手動疑難排解。
 
 ### <a name="run-the-troubleshooting-task-in-the-wizard"></a>在精靈中執行疑難排解工作
 若要在精靈中執行疑難排解工作，請執行下列步驟：
@@ -81,7 +82,7 @@ Azure Active Directory 不允許將 UserPrincipalName (UPN)/替代登入識別�
 ![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch6.png)
 
 ## <a name="object-is-filtered-due-to-ou-filtering"></a>因為 OU 篩選而篩選物件
-由於 OU 篩選設定所致，此物件會超出同步範圍。 在下列範例中，物件屬於 OU=NoSync,DC=bvtadwbackdc,DC=com。這個 OU 不會包含在同步範圍內。</br>
+由於 OU 篩選設定所致，此物件會超出同步範圍。 在下列範例中，物件屬於 OU=NoSync,DC=bvtadwbackdc,DC=com。  這個 OU 不會包含在同步範圍內。</br>
 
 ![OU](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch7.png)
 

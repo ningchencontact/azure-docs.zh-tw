@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32179702"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>佈建適用於 Linux (Ubuntu) 的資料科學虛擬機器
 
@@ -146,7 +147,7 @@ Linux VM 已經佈建了 X2Go 伺服器，並準備接受用戶端連接。 若�
 
 ### <a name="jupyterhub-and-jupyterlab"></a>JupyterHub 和 JupyterLab
 
-Ubuntu DSVM 執行 [JupyterHub](https://github.com/jupyterhub/jupyterhub)，這是一個多使用者的 Jupyter 伺服器。 若要連線，請在您的膝上型電腦或桌上型電腦瀏覽至 https://your-vm-ip:8000，輸入您用來建立 VM 的使用者名稱和密碼，然後登入。 有許多範例筆記本可供您瀏覽和嘗試。
+Ubuntu DSVM 執行 [JupyterHub](https://github.com/jupyterhub/jupyterhub)，這是一個多使用者的 Jupyter 伺服器。 若要連線，請在您的膝上型電腦或桌上型電腦瀏覽至 https://your-vm-ip:8000 ，輸入您用來建立 VM 的使用者名稱和密碼，然後登入。 有許多範例筆記本可供您瀏覽和嘗試。
 
 也提供 JupyterLab (新一代的 Jupyter 筆記本) 與 JupyterHub。 若要存取，請登入 JupyterHub，然後瀏覽至 URL https://your-vm-ip:8000/lab。 您可以在 /etc/jupyterhub/jupyterhub_config.py 中加入下面這一行，設定 JupyterLab 為預設的筆記本伺服器：
 

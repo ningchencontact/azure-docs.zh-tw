@@ -13,17 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 50f28fcb2d7945949134d89f6bcc4238cf625bd1
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: dffc76151e0739bf56091d987bf21d02b5bfb1e2
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716538"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>虛擬機器 vCPU 配額
 
-虛擬機器和虛擬機器擴展集的 vCPU 配額依每個地區的每個訂用帳戶分兩層排列。 第一層是「區域 vCPU 總計」，第二層是不同的 VM 大小系列核心，例如「標準 D 系列 vCPU」。 每當部署新的 VM 時，新部署 VM 的 vCPU 不得超過特定 VM 大小系列的 vCPU 配額或區域 vCPU 總計配額。 如果超過這些配額，將不允許 VM 部署。 另外還有區域中虛擬機器整體數目的配額。 在 [Azure 入口網站](https://portal.azure.com) [訂用帳戶] 頁面的 [使用量 + 配額] 區段中可以看到這些配額的詳細資料，或者您可以使用 PowerShell 查詢這些值。
+虛擬機器和虛擬機器擴展集的 vCPU 配額依每個地區的每個訂用帳戶分兩層排列。 第一層是「區域 vCPU 總計」，第二層是不同的 VM 大小系列核心，例如「D 系列 vCPU」。 在每次部署新的 VM 時，VM 的 vCPU 皆不得超過 VM 大小系列的 vCPU 配額或區域 vCPU 總配額。 如果超過這些配額，將不允許 VM 部署。 另外還有區域中虛擬機器整體數目的配額。 在 [Azure 入口網站](https://portal.azure.com) [訂用帳戶] 頁面的 [使用量 + 配額] 區段中可以看到這些配額的詳細資料，或者您可以使用 PowerShell 查詢這些值。
 
  
 ## <a name="check-usage"></a>檢查使用量
@@ -74,7 +75,6 @@ Standard NCv3 Family vCPUs                   0     0 Count
 Standard LSv2 Family vCPUs                   0     0 Count
 Standard Storage Managed Disks               2 10000 Count
 Premium Storage Managed Disks                1 10000 Count
-
 ```
 
 

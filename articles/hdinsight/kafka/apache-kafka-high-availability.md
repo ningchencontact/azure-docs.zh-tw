@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32772444"
 ---
 # <a name="high-availability-of-your-data-with-apache-kafka-on-hdinsight"></a>使用 HDInsight 上的 Apache Kafka 確保您資料的高可用性
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: Brenduns
 ms.reviewer: JeffGoldner
-ms.openlocfilehash: d90ac726ae689cf299ee41d4e7ff4c17769e7455
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 8d9337053c8905886ed4429d64f8ef5b4e2c7d14
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34074825"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060442"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Azure Stack 上的支援客體作業系統
 
@@ -40,7 +40,7 @@ Azure Stack 支援下表所列的 Windows 客體作業系統：
 | Windows Server 2008 SP2 | 64 位元 |  自備映像 |
 | Windows 10 (請參閱附註 1) | 64 位元、Pro 和 Enterprise | 自備映像 |
 
-***附註 1：****若要在 Azure Stack 上部署 Windows 10 用戶端作業系統，您必須具備 [Windows 的每位使用者授權](https://www.microsoft.com/Licensing/product-licensing/windows10.aspx)，或者透過合格多租用戶主機服務提供者 ([QMTH](https://www.microsoft.com/CloudandHosting/licensing_sca.aspx)) 購買。*
+***附註 1：****若要在 Azure Stack 上部署 Windows 10 用戶端作業系統，您必須具備 [Windows 的每位使用者授權](https://www.microsoft.com/en-us/Licensing/product-licensing/windows10.aspx)，或者透過合格多租用戶主機服務提供者 ([QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)) 購買。*
 
 Marketplace 映像適用於隨用隨付或 BYOL (EA/SPLA) 授權。 不支援在單一 Azure Stack 執行個體上同時使用兩者。 在部署期間，Azure Stack 會將適當版本的客體代理程式插入映像中。
 

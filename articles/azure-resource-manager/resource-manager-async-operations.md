@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358705"
 ---
 # <a name="track-asynchronous-azure-operations"></a>追蹤非同步 Azure 作業
 某些 Azure REST 作業因為無法快速完成，而以非同步方式執行。 本主題說明如何透過回應中傳回的值，以追蹤非同步作業的狀態。  

@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 11/30/2017
+ms.date: 06/19/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: b9adae07bc95e385e9932250f7eb91115396f275
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9ba8eae0fe9e68e4931bcdda989e59c59fd65edd
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193449"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293324"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>教學課程：將現有的自訂 SSL 憑證繫結至 Azure Web Apps
 
@@ -32,9 +32,11 @@ Azure Web Apps 提供可高度擴充、自我修復的 Web 主機服務。 本�
 
 > [!div class="checklist"]
 > * 升級應用程式的定價層
-> * 將自訂 SSL 憑證繫結至 App Service
-> * 為應用程式強制使用 HTTPS
-> * 使用指令碼來自動繫結 SSL 憑證
+> * 將自訂憑證繫結至 App Service
+> * 更新憑證
+> * 強制使用 HTTPS
+> * 強制使用 TLS 1.1/1.2
+> * 使用指令碼將 TLS 管理自動化
 
 > [!NOTE]
 > 如果您需要自訂 SSL 憑證，可以直接在 Azure 入口網站取得，並將它繫結至 web 應用程式。 遵循 [App Service 憑證教學課程](web-sites-purchase-ssl-web-site.md)。
@@ -84,17 +86,17 @@ Azure Web Apps 提供可高度擴充、自我修復的 Web 主機服務。 本�
 
 ![相應增加功能表](./media/app-service-web-tutorial-custom-ssl/scale-up-menu.png)
 
-請檢查以確定您的 web 應用程式不在**免費**或**共用** 層中。 系統會以深藍色方塊醒目顯示 Web 應用程式目前的層。
+請檢查以確定您的 Web 應用程式不在 **F1** 或 **D1** 層中。 系統會以深藍色方塊醒目顯示 Web 應用程式目前的層。
 
 ![檢查定價層](./media/app-service-web-tutorial-custom-ssl/check-pricing-tier.png)
 
-**免費**和**共用**層中不支援自訂 SSL。 如果您需要相應增加，請遵循下一節中的步驟來進行。 否則，請關閉 [選擇定價層] 頁面，然後跳至[上傳並繫結 SSL 憑證](#upload)。
+**F1** 或 **D1** 層中不支援自訂 SSL。 如果您需要相應增加，請遵循下一節中的步驟來進行。 否則，請關閉 [相應增加] 頁面，然後跳至[上傳並繫結 SSL 憑證](#upload)。
 
 ### <a name="scale-up-your-app-service-plan"></a>相應增加您的 App Service 方案
 
-選取**基本****標準**或**高階**層的其中一個。
+選取任何非免費層 (**B1**、**B2****B3**或「生產」類別中的任何一層)。 如需其他選項，按一下 [查看其他選項]。
 
-按一下 [選取] 。
+按一下 [套用]。
 
 ![選擇定價層](./media/app-service-web-tutorial-custom-ssl/choose-pricing-tier.png)
 
@@ -213,6 +215,14 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 <a name="bkmk_enforce"></a>
 
+## <a name="renew-certificates"></a>更新憑證
+
+當您刪除繫結時，您可以變更輸入 IP 位址，即使該繫結是以 IP 為基礎亦然。 當您更新已在以 IP 為基礎的繫結中的憑證時，這一點更為重要。 若要避免變更應用程式的 IP 位址，請依序執行下列步驟：
+
+1. 上傳新憑證。
+2. 將新的憑證繫結至您要的自訂網域，而不刪除舊憑證。 此動作會取代繫結，而不會移除舊的繫結。
+3. 刪除舊憑證。 
+
 ## <a name="enforce-https"></a>強制使用 HTTPS
 
 根據預設，任何人仍可以使用 HTTP 存取您的 Web 應用程式。 您可以將所有 HTTP 要求重新都導向至 HTTPS 連接埠。
@@ -236,14 +246,6 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 ![強制使用 TLS 1.1 或 1.2](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
 
 當作業完成時，您的應用程式會拒絕與較低 TLS 版本的所有連線。
-
-## <a name="renew-certificates"></a>更新憑證
-
-當您刪除繫結時，您可以變更輸入 IP 位址，即使該繫結是以 IP 為基礎亦然。 當您更新已在以 IP 為基礎的繫結中的憑證時，這一點更為重要。 若要避免變更應用程式的 IP 位址，請依序執行下列步驟：
-
-1. 上傳新憑證。
-2. 將新的憑證繫結至您要的自訂網域，而不刪除舊憑證。 此動作會取代繫結，而不會移除舊的繫結。
-3. 刪除舊憑證。 
 
 ## <a name="automate-with-scripts"></a>使用指令碼進行自動化
 
@@ -273,6 +275,15 @@ az webapp config ssl bind \
     --ssl-type SNI \
 ```
 
+下列命令會強制使用 TLS 的最低版本 1.2。
+
+```bash
+az webapp config set \
+    --name <app_name> \
+    --resource-group <resource_group_name>
+    --min-tls-version 1.2
+```
+
 ### <a name="azure-powershell"></a>Azure PowerShell
 
 下列命令會將匯出的 PFX 檔案上傳，並新增以 SNI 為基礎的 SSL 繫結。
@@ -297,9 +308,11 @@ New-AzureRmWebAppSSLBinding `
 
 > [!div class="checklist"]
 > * 升級應用程式的定價層
-> * 將自訂 SSL 憑證繫結至 App Service
-> * 為應用程式強制使用 HTTPS
-> * 使用指令碼來自動繫結 SSL 憑證
+> * 將自訂憑證繫結至 App Service
+> * 更新憑證
+> * 強制使用 HTTPS
+> * 強制使用 TLS 1.1/1.2
+> * 使用指令碼將 TLS 管理自動化
 
 前進至下一個教學課程，以了解如何使用 Azure 內容傳遞網路。
 

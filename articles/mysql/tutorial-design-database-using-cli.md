@@ -6,16 +6,17 @@ author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 3a06374119851560d517704b817fb9bf18728059
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2b40d5fdd2b21cc9ff82b4749e1f2b4fe2c38614
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028657"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>教學課程：使用 Azure CLI 設計適用於 MySQL 的 Azure 資料庫
 
@@ -58,6 +59,13 @@ az group create --name myresourcegroup --location westus
 ```azurecli-interactive
 az mysql server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
 ```
+sku-name 參數值會遵循慣例 {pricing tier}\_{compute generation}\_{vCores}，如下列範例所示：
++ `--sku-name B_Gen4_4` 對應於基本、第 4 代和 4 個 vCore。
++ `--sku-name GP_Gen5_32` 對應於一般用途、第 5 代和 32 個 vCore。
++ `--sku-name MO_Gen5_2` 對應於記憶體最佳化、第 5 代和 2 個 vCore。
+
+請參閱[定價層](./concepts-pricing-tiers.md)文件，以了解每個區域和每一層的有效值。
+
 > [!IMPORTANT]
 > 必須要有您在此處指定的伺服器系統管理員登入和密碼，稍後在本快速入門中才能登入伺服器及其資料庫。 請記住或記錄此資訊，以供稍後使用。
 
@@ -65,10 +73,10 @@ az mysql server create --resource-group myresourcegroup --name mydemoserver --lo
 ## <a name="configure-firewall-rule"></a>設定防火牆規則
 使用 az mysql server firewall-rule create 命令來建立「適用於 MySQL 的 Azure 資料庫」伺服器層級防火牆規則。 伺服器層級防火牆規則可允許外部應用程式 (例如 **mysql** 命令列工具或 MySQL Workbench) 穿過 Azure MySQL 服務防火牆連線到您的伺服器。 
 
-下列範例會針對一個預先定義的位址範圍建立防火牆規則。 此範例會顯示整個可能的 IP 位址範圍。
+下列範例會建立名為 `AllowMyIP` 的防火牆規則，以允許來自特定 IP 位址 192.168.0.1 的連線。 請替換為與您的連線來源相對應的 IP 位址或 IP 位址範圍。 
 
 ```azurecli-interactive
-az mysql server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowAllIPs --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+az mysql server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowMyIP --start-ip-address 192.168.0.1 --end-ip-address 192.168.0.1
 ```
 
 ## <a name="get-the-connection-information"></a>取得連線資訊

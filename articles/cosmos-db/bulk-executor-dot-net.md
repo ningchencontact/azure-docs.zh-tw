@@ -1,25 +1,25 @@
 ---
-title: 在 Azure Cosmos DB 中使用 BulkExecutor .NET 程式庫執行大量作業 | Microsoft Docs
-description: 使用 Azure Cosmos DB 的 BulkExecutor .NET 程式庫將文件大量匯入和更新至 Azure Cosmos DB 集合。
+title: 在 Azure Cosmos DB 中使用大量執行程式 .NET 程式庫執行大量作業 | Microsoft Docs
+description: 使用 Azure Cosmos DB 的大量執行程式 .NET 程式庫將文件大量匯入和更新至 Azure Cosmos DB 集合。
 keywords: .Net 大量執行程式
 services: cosmos-db
 author: tknandu
 manager: kfile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: dotnet
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 608551090ce10e08ba517def644c72186a6f25e1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: b09fd415c442c1e605987a6b25fd938ce04ce5c1
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887237"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300766"
 ---
-# <a name="using-bulkexecutor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中使用 BulkExecutor .NET 程式庫執行大量作業
+# <a name="using-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中使用大量執行程式 .NET 程式庫執行大量作業
 
-本教學課程說明如何使用 Azure Cosmos DB 的 BulkExecutor.NET 程式庫將文件匯入並更新至 Azure Cosmos DB 集合。 若要深入了解 BulkExecutor 程式庫，以及它如何協助您利用大量輸送量與儲存體，請參閱 [BulkExecutor 程式庫概觀](bulk-executor-overview.md)一文。 本教學課程將引導您使用 .NET 應用程式範例，將隨機產生的文件大量匯入至 Azure Cosmos DB 集合。 匯入之後，應用程式會說明如何將修補程式指定為可在特定文件欄位上執行的作業，來大量更新匯入的資料。
+本教學課程說明如何使用 Azure Cosmos DB 的大量執行程式 .NET 程式庫將文件匯入並更新至 Azure Cosmos DB 集合。 若要深入了解大量執行程式程式庫，以及它如何協助您利用大量輸送量與儲存體，請參閱[大量執行程式程式庫概觀](bulk-executor-overview.md)一文。 本教學課程將引導您使用 .NET 應用程式範例，將隨機產生的文件大量匯入至 Azure Cosmos DB 集合。 匯入之後，應用程式會說明如何將修補程式指定為可在特定文件欄位上執行的作業，來大量更新匯入的資料。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -166,7 +166,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
     
 ## <a name="performance-tips"></a>效能秘訣 
 
-使用 BulkExecutor 程式庫時，請考量下列各點以提升效能：
+使用大量執行程式程式庫時，請考量下列各點以提升效能：
 
 * 為達到最佳效能，請從位於與 Cosmos DB 帳戶寫入區域相同區域的 Azure 虛擬機器中執行應用程式。  
 
@@ -196,4 +196,4 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
 ```
 
 ## <a name="next-steps"></a>後續步驟
-* 若要深入了解 Nuget 套件及 BulkExecutor .Net 程式庫的版本資訊，請參閱 [BulkExecutor SDK 詳細資料](sql-api-sdk-bulk-executor-dot-net.md)。 
+* 若要深入了解 Nuget 套件及大量執行程式 .Net 程式庫的版本資訊，請參閱[大量執行程式 SDK 詳細資料](sql-api-sdk-bulk-executor-dot-net.md)。 

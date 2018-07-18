@@ -1,23 +1,25 @@
 ---
-title: "Azure Active Directory 入口網站中標幟為有風險的使用者安全性報告 | Microsoft Docs"
-description: "了解 Azure Active Directory 入口網站中標幟為有風險的使用者安全性報告"
+title: Azure Active Directory 入口網站中標幟為有風險的使用者安全性報告 | Microsoft Docs
+description: 了解 Azure Active Directory 入口網站中標幟為有風險的使用者安全性報告
 services: active-directory
-author: MarkusVi
-manager: femila
+author: priyamohanram
+manager: mtillman
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/24/2017
-ms.author: markvi
+ms.component: compliance-reports
+ms.date: 05/23/2018
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ed6201e9edcef39b14b948b6b2f6e0b5da01ec60
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 60a77a8bee54c0582cbc9c88b9d517820a2760e0
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36221975"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>補救 Azure Active Directory 入口網站中標幟為有風險的使用者
 
@@ -29,12 +31,20 @@ Microsoft 致力於協助保護您的環境。 為此承諾，Microsoft 會持�
 如果偵測到可能表示未經授權存取某些使用者帳戶的異常活動，您就會收到可讓您採取行動的通知。 提供通知給您，並不表示 Microsoft 的自有系統受到任何方式的危害。
  
 
-## <a name="azure-active-directory-report-access"></a>Azure Active Directory 報告存取
+## <a name="access-the-users-flagged-for-risk-report"></a>存取標幟為有風險的使用者報告
 
-您可以透過線上 Azure Active Directory 報告檢閱標幟為有風險的使用者。 如果您不是 Azure 的訂閱者，則可在 [http://aka.ms/AccessAAD](http://aka.ms/AccessAAD) 進行免費訂閱程序。  
-完成後，您可以使用 Office 365 認證來存取 Azure 系統管理中心。 請注意，在基本訂閱等級提供的詳細資料數量有限。 其他資料和分析資料則適用於 Azure 進階訂閱者。 如需詳細資訊，請參閱 [Azure Active Directory 入口網站中標幟為有風險的使用者安全性報告](active-directory-reporting-security-user-at-risk.md)。
+您可以透過 Azure Active Directory (AD) 中相關的[報告](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk)，檢閱標幟為有風險的使用者。 如果您不是 Azure AD 的訂閱者，則可在 [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD) 進行一次性的免費訂閱程序。 在這份報告上，您可以採取各種動作，例如：
 
-當您啟動您的 Azure AD 存取時，您就會重新導向至 [Azure AD 入口網站](https://portal.azure.com)。 若要直接移至此報告，請瀏覽至下列 URL：[https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk)。
+- 產生臨時密碼
+- 要求使用者在下次登入時安全地重設其密碼
+- 解除使用者風險，但不採取任何補救動作。
+
+如需詳細資訊，請參閱 [Azure Active Directory 入口網站中標幟為有風險的使用者安全性報告](active-directory-reporting-security-user-at-risk.md)。
+
+### <a name="azure-ad-subscription-for-office-365-customers"></a>Office 365 客戶的 Azure AD 訂用帳戶
+
+完成後，您可以使用 Office 365 認證來存取 Azure 系統管理中心。 在您啟動 Azure AD 存取後，您就會重新導向至 Azure AD 入口網站。 在基本訂閱等級，報告中提供的詳細資料數量有限。 其他資料和分析資料則適用於 Azure 進階訂閱者。
+
 
 **若要在 Office 365 系統管理中心存取標幟為有風險的使用者報告：**
 
@@ -45,7 +55,7 @@ Microsoft 致力於協助保護您的環境。 為此承諾，Microsoft 會持�
 4.  在左側導覽功能表中，按一下 [Azure Active Directory]。 
 5.  在瀏覽窗格中，按一下 [標幟為有風險的使用者] 下的 [安全性]。
 
-檢閱此處顯示的資訊。 您應該為此處所列的任何帳戶重設密碼。 
+檢閱此處顯示的資訊。 您應該為所列的任何帳戶重設密碼。 
 
 ## <a name="remediation-actions"></a>補救動作
 

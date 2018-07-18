@@ -18,6 +18,7 @@
 ### [從舊版升級](active-directory-aadconnect-upgrade-previous-version.md)
 ### [使用現有的 ADSync 資料庫安裝](active-directory-aadconnect-existing-database.md)
 ### [使用 SQL 委派的系統管理員權限安裝](active-directory-aadconnect-sql-delegation.md)
+### [將 Azure AD Connect 資料庫移動至遠端 SQL Server](active-directory-aadconnect-move-db.md)
 
 # 作法
 ## 規劃和設計
@@ -46,7 +47,6 @@
 ##### [目前限制](active-directory-aadconnect-pass-through-authentication-current-limitations.md)
 ##### [運作方式](active-directory-aadconnect-pass-through-authentication-how-it-works.md)
 ##### [升級預覽代理程式](active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md)
-##### [智慧鎖定](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)
 ##### [常見問題集](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [疑難排解](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
 ##### [深入探討安全性](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md)

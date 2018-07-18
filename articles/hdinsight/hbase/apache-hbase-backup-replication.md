@@ -19,6 +19,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165327"
 ---
 # <a name="set-up-backup-and-replication-for-hbase-and-phoenix-on-hdinsight"></a>設定 HDInsight 上 HBase 和 Phoenix 的備份和複寫
 

@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure CLI 管理 Azure Redis Cache | Microsoft Docs"
-description: "了解如何在任何平台上安裝 Azure CLI、如何使用它來連接到您的 Azure 帳戶，以及如何從 Azure CLI 建立和管理 Redis 快取。"
+title: 使用 Azure CLI 管理 Azure Redis Cache | Microsoft Docs
+description: 了解如何在任何平台上安裝 Azure CLI、如何使用它來連接到您的 Azure 帳戶，以及如何從 Azure CLI 建立和管理 Redis 快取。
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 964ff245-859d-4bc1-bccf-62e4b3c1169f
 ms.service: cache
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27911273"
 ---
 # <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>如何使用 Azure 命令列介面 (Azure CLI) 建立並管理 Azure Redis 快取
 > [!div class="op_single_selector"]

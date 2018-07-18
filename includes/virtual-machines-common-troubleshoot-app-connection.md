@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 23abf13aca84bde3a9e4a82722051689cc177a2b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ab668a905b435287a4eaf96ff04b2fa5b54deb1d
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34371264"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36313508"
 ---
 有各種原因會造成無法啟動或連接至在 Azure 虛擬機器 (VM) 上執行的應用程式。 原因包括應用程式並未執行，或未在預期的連接埠上接聽，接聽連接埠遭到封鎖，或網路規則未正確將流量傳遞至應用程式。 本文說明條理式方法，以找出並更正問題。
 
@@ -32,7 +32,7 @@ ms.locfileid: "34371264"
 
 * 重新啟動虛擬機器
 * 重新建立端點/防火牆規則/網路安全性群組 (NSG) 規則
-  * [資源管理員模型 - 管理網路安全性群組](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+  * [資源管理員模型 - 管理網路安全性群組](../articles/virtual-network/manage-network-security-group.md)
   * [傳統模型 - 管理雲端服務端點](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
 * 從不同的位置 (例如不同的 Azure 虛擬網路) 進行連線
 * 重新部署虛擬機器
@@ -93,7 +93,7 @@ ms.locfileid: "34371264"
 * 在目標 VM 上執行的入侵偵測或網路監視軟體允許流量。
 * 雲端服務端點或網路安全性群組允許流量：
   * [傳統模型 - 管理雲端服務端點](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
-  * [資源管理員模型 - 管理網路安全性群組](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+  * [資源管理員模型 - 管理網路安全性群組](../articles/virtual-network/manage-network-security-group.md)
 * 在您的 VM 中，測試 VM 與 VM 間的路徑執行的個別元件 (例如負載平衡器或防火牆) 允許流量。
 
 在 Windows 虛擬機器上，請使用「具有進階安全性的 Windows 防火牆」判斷防火牆規則是否排除了您應用程式的輸入與輸出流量。

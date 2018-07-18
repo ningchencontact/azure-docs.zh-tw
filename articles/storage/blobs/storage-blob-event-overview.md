@@ -8,11 +8,12 @@ ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 2762466c0130ead36372a93f4c3b852cb378a02a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: db062fc36478d6ba2cf0f00544793f635ccdbb06
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650123"
 ---
 # <a name="reacting-to-blob-storage-events"></a>回應 Blob 儲存體事件
 
@@ -118,7 +119,7 @@ Blob 儲存體事件的主體使用格式：
 
 若要比對建立於共用 Blob 名稱前置詞的特定容器之 Blob 事件，請使用 `subjectEndsWith` 篩選條件，例如 “.log” 或 “.jpg”
 
-如需詳細資訊，請參閱 [Event Grid 概念](../../event-grid/concepts.md#filters)。
+如需詳細資訊，請參閱 [Event Grid 概念](../../event-grid/concepts.md#event-subscriptions)。
 
 ## <a name="practices-for-consuming-events"></a>消費事件做法
 處理 Blob 儲存體事件的應用程式應該遵循幾個建議做法：

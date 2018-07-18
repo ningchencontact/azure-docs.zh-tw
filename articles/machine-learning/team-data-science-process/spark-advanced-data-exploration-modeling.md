@@ -8,18 +8,19 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: f90d9a80-4eaf-437b-a914-23514390cd60
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: deguhath
-ms.openlocfilehash: 9f24d05a344e0042fa498b62c874617ba7466f8f
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: a81c23d6acb79e42157ac7d804dac259723b3b0e
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "32778337"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114345"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>使用 Spark 進階資料探索和模型化
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -1125,7 +1126,7 @@ R-sqr = 0.733445485802
 ### <a name="gradient-boosting-trees-regression"></a>漸層停駐提升樹狀結構迴歸
 本節的程式碼顯示如何訓練評估及儲存漸層停駐提升樹狀結構模型，可預測 NYC 計程車車程資料的小費金額。
 
-**訓練及評估 **
+**訓練及評估**
 
     #PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
 

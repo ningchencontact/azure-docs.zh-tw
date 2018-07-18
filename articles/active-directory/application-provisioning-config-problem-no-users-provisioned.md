@@ -1,23 +1,26 @@
 ---
-title: "未將任何使用者佈建至 Azure AD 資源庫應用程式 | Microsoft Docs"
-description: "如何對當您沒有看到 Azure AD 資源庫應用程式中顯示任何使用者時所面臨的常見問題進行疑難排解，而該應用程式是您已設定來搭配 Azure AD 進行使用者佈建"
+title: 未將任何使用者佈建至 Azure AD 資源庫應用程式 | Microsoft Docs
+description: 如何對當您沒有看到 Azure AD 資源庫應用程式中顯示任何使用者時所面臨的常見問題進行疑難排解，而該應用程式是您已設定來搭配 Azure AD 進行使用者佈建
 services: active-directory
-documentationcenter: 
-author: ajamess
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
-ms.author: asteen
-ms.openlocfilehash: a36d60b8915ae0b46226bb2127829a8f1767daba
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: 394e8642c177312c8990ea211f77fb802d4228fd
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332404"
 ---
 # <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>未將任何使用者佈建至 Azure AD 資源庫應用程式
 
@@ -55,13 +58,13 @@ ms.lasthandoff: 12/11/2017
 
 當使用者在稽核記錄中顯示為「已略過」時，請務必讀取記錄訊息中延伸的詳細資料來判斷原因。 下面是常見原因和解決方式：
 
--   **已設定範圍設定篩選****，這會根據屬性值篩選出使用者**。 如需範圍設定篩選的詳細資訊，請參閱 <https://docs.microsoft.com/azure/active-directory/active-directory-saas-scoping-filters>。
+-   **已設定範圍設定篩選****，這會根據屬性值篩選出使用者**。 如需有關範圍設定篩選的詳細資訊，請參閱 <https://docs.microsoft.com/azure/active-directory/active-directory-saas-scoping-filters>。
 
--   **使用者「不具有效權限」。** 如果您看到此特定錯誤訊息，這是因為儲存在 Azure AD 中的使用者指派記錄發生問題。 若要修正此問題，請從應用程式解除指派使用者 (或群組)，然後重新指派一次。 如需指派的詳細資訊，請參閱 <https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal>。
+-   **使用者「不具有效權限」。** 如果您看到此特定錯誤訊息，這是因為儲存在 Azure AD 中的使用者指派記錄發生問題。 若要修正此問題，請從應用程式解除指派使用者 (或群組)，然後重新指派一次。 如需有關指派的詳細資訊，請參閱 <https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal>。
 
 -   **必要屬性已遺失或未針對使用者填入。** 設定佈建時必須考量的重點是，檢視和設定屬性 (Attribute) 對應，以及定義哪些使用者 (或群組) 屬性 (Property) 會從 Azure AD 流向應用程式的工作流程。 這包括設定「比對屬性」，此屬性可用於唯一識別並比對兩個系統之間的使用者/群組。 如需這個重要程序的詳細資訊，請參閱[在 Azure Active Directory 中自訂 SaaS 應用程式的使用者佈建屬性對應](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings)。
 
-  * **群組的屬性對應：**除了成員，還有群組名稱和群組詳細資訊的佈建 (如果某些應用程式有支援)。 您可以對 [佈建] 索引標籤中顯示的群組物件啟用或停用 [對應]，以啟用或停用此功能。如果已啟用佈建群組，請務必檢閱屬性對應，以確保「比對識別碼」使用適當的欄位。 這可以是顯示名稱或電子郵件別名，因為如果 Azure AD 中某個群組的比對屬性空白或未填入，則不會佈建群組和其成員。
+  * **群組的屬性對應：** 除了成員，還有群組名稱和群組詳細資訊的佈建 (如果某些應用程式有支援)。 您可以對 [佈建] 索引標籤中顯示的群組物件啟用或停用 [對應]，以啟用或停用此功能。如果已啟用佈建群組，請務必檢閱屬性對應，以確保「比對識別碼」使用適當的欄位。 這可以是顯示名稱或電子郵件別名，因為如果 Azure AD 中某個群組的比對屬性空白或未填入，則不會佈建群組和其成員。
 
 ## <a name="next-steps"></a>後續步驟
 [Azure AD Connect 同步處理：了解宣告式佈建](active-directory-aadconnectsync-understanding-declarative-provisioning.md)

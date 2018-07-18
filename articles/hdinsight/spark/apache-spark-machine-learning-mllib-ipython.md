@@ -20,6 +20,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34361330"
 ---
 # <a name="use-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>使用 Spark MLlib 建置機器學習應用程式及分析資料集
 

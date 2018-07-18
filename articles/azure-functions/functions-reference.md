@@ -1,13 +1,13 @@
 ---
-title: "Azure Functions 開發指引 | Microsoft Docs"
-description: "了解在 Azure 中開發函式所需的 Azure Functions 概念與技術，其中包含所有的程式設計語言和繫結。"
+title: Azure Functions 開發指引 | Microsoft Docs
+description: 了解在 Azure 中開發函式所需的 Azure Functions 概念與技術，其中包含所有的程式設計語言和繫結。
 services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: "開發指南, azure functions, 函式, 事件處理, webhook, 動態計算, 無伺服器架構"
+editor: ''
+tags: ''
+keywords: 開發指南, azure functions, 函式, 事件處理, webhook, 動態計算, 無伺服器架構
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.service: functions
 ms.devlang: multiple
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29121741"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions 開發人員指南
 在 Azure Functions 中，不論您使用何種語言或繫結，特定函式都會共用一些核心技術概念和元件。 閱讀指定語言或繫結特有的詳細資料之前，請務必詳閱這份適用於所有語言或繫結的概觀。

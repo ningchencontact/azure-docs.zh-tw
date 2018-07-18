@@ -3,7 +3,7 @@ title: Azure Stack 整合式系統的 Azure Stack 公開金鑰基礎結構憑證
 description: 說明 Azure Stack 整合式系統的 Azure Stack PKI 憑證部署需求。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2018
-ms.author: jeffgilb
+ms.date: 06/07/2018
+ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: b1dcbfc51e63a5bca9186b62c871b2623653bbab
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9a43179998e8377dfbbb1a41ba7d46936d63aedd
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33935626"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030150"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack 公開金鑰基礎結構憑證需求
 
@@ -30,7 +30,7 @@ Azure Stack 有一個公共基礎結構網路，其使用已指派給一小組 A
 - 取得符合這些規格之憑證的程序
 - 如何在部署期間準備、驗證及使用這些憑證
 
-> [!NOTE]
+> [!Note]  
 > 在部署期間，您必須將憑證複製到符合您要部署識別提供者 (Azure AD 或 AD FS) 的部署資料夾。 如果您將單一憑證使用於所有端點，您必須將該憑證檔案複製到下表所述的每個部署資料夾。 資料夾結構已預先建置於部署虛擬機器中且位於：C:\CloudDeployment\Setup\Certificates。 
 
 ## <a name="certificate-requirements"></a>憑證需求
@@ -47,12 +47,12 @@ Azure Stack 有一個公共基礎結構網路，其使用已指派給一小組 A
 - 憑證的 [核發給：] 欄位不能與 [核發者：] 欄位相同。
 - 部署時，所有憑證 pfx 檔案的密碼都必須相同
 - 憑證 pfx 的密碼必須是複雜密碼。
-- 確定所有憑證的 [主體名稱] 和 [主體別名] 都必須符合本文中所述的規格，以免部署失敗。
+- 確定主體名稱和主體別名延伸模組 (x509v3_config) 中的主體別名相符。 [主體別名] 欄位可讓您指定要透過單一 SSL 憑證保護的其他主機名稱 (網站、IP 位址、一般名稱)。
 
-> [!NOTE]
+> [!NOTE]  
 > 不支援使用自我簽署憑證。
 
-> [!NOTE]
+> [!NOTE]  
 > 支援憑證信任鏈結 IS 中存在的中繼憑證授權單位。 
 
 ## <a name="mandatory-certificates"></a>必要憑證
@@ -60,7 +60,7 @@ Azure Stack 有一個公共基礎結構網路，其使用已指派給一小組 A
 
 每個 Azure Stack 公用基礎結構端點需要具有適當 DNS 名稱的憑證。 每個端點的 DNS 名稱是以下列格式表示：*&lt;prefix>.&lt;region>.&lt;fqdn>*。 
 
-針對您的部署，[region] 和 [externalfqdn] 值必須符合您為 Azure Stack 系統選擇的地區和外部網域名稱。 例如，如果區域名稱為 Redmond，而外部網域名稱為 contoso.com，則 DNS 名稱的格式會是 *&lt;prefix>.redmond.contoso.com*。Microsoft 會預先指定 *&lt;prefix>* 值，以描述憑證所保護的端點。 此外，外部基礎結構端點的 *&lt;prefix>* 值取決於使用特定端點的 Azure Stack 服務。 
+針對您的部署，[region] 和 [externalfqdn] 值必須符合您為 Azure Stack 系統選擇的地區和外部網域名稱。 例如，如果區域名稱為 Redmond，而外部網域名稱為 contoso.com，則 DNS 名稱的格式會是 *&lt;prefix>.redmond.contoso.com*。 Microsoft 會預先指定 *&lt;prefix>* 值，以描述憑證所保護的端點。 此外，外部基礎結構端點的 *&lt;prefix>* 值取決於使用特定端點的 Azure Stack 服務。 
 
 > [!note]  
 > 憑證可以作為單一萬用字元憑證，涵蓋複製到所有目錄的主體以及主體別名 (SAN) 欄位中的所有命名空間；或作為個別憑證，供複製到對應目錄的每個端點使用。 請記住，無論使用哪種方式，在必要時您都必須針對端點 (例如 **acs** 和 Key Vault) 使用萬用宇元憑證。 
@@ -76,20 +76,6 @@ Azure Stack 有一個公共基礎結構網路，其使用已指派給一小組 A
 | ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(萬用字元 SSL 憑證) | 佇列儲存體 | queue.&lt;region>.&lt;fqdn> |
 | KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(萬用字元 SSL 憑證) | Key Vault | vault.&lt;region>.&lt;fqdn> |
 | KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(萬用字元 SSL 憑證) |  內部金鑰保存庫 |  adminvault.&lt;region>.&lt;fqdn> |
-
-### <a name="for-azure-stack-environment-on-pre-1803-versions"></a>供 Pre-1803 版本上的 Azure Stack 環境使用
-
-|部署資料夾|必要的憑證主體和主體別名 (SAN)|範圍 (每個區域)|子網域命名空間|
-|-----|-----|-----|-----|
-|公用入口網站|portal.*&lt;region>.&lt;fqdn>*|入口網站|*&lt;region>.&lt;fqdn>*|
-|管理入口網站|adminportal.*&lt;region>.&lt;fqdn>*|入口網站|*&lt;region>.&lt;fqdn>*|
-|Azure Resource Manager (公用)|management.*&lt;region>.&lt;fqdn>*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
-|Azure Resource Manager (管理員)|adminmanagement.*&lt;region>.&lt;fqdn>*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
-|ACS<sup>1</sup>|具有主體別名的一個多重子網域萬用字元憑證：<br>&#42;.blob.*&lt;region>.&lt;fqdn>*<br>&#42;.queue.*&lt;region>.&lt;fqdn>*<br>&#42;.table.*&lt;region>.&lt;fqdn>*|儲存體|blob.*&lt;region>.&lt;fqdn>*<br>table.*&lt;region>.&lt;fqdn>*<br>queue.*&lt;region>.&lt;fqdn>*|
-|KeyVault|&#42;.vault.*&lt;region>.&lt;fqdn>*<br>(萬用字元 SSL 憑證)|Key Vault|vault.*&lt;region>.&lt;fqdn>*|
-|KeyVaultInternal|&#42;.adminvault.*&lt;region>.&lt;fqdn>*<br>(萬用字元 SSL 憑證)|內部金鑰保存庫|adminvault.*&lt;region>.&lt;fqdn>*|
-|
-<sup>1</sup> ACS 憑證要求單一憑證上有三個萬用字元 SAN。 並非所有公用憑證授權單位都支援單一憑證上有多個萬用字元 SAN。 
 
 如果您使用 Azure AD 部署模式來部署 Azure Stack，您只需要求上表中所列的憑證。 不過，如果您使用 AD FS 部署模式來部署 Azure Stack，您也必須要求下表中所述的憑證：
 

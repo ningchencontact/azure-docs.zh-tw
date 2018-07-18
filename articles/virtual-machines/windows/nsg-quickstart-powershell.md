@@ -3,7 +3,7 @@ title: 使用 Azure PowerShell 對 VM 開啟連接埠 | Microsoft Docs
 description: 了解如何使用 Azure Resource Manager 部署模式和 Azure PowerShell 對 Windows VM 開啟連接埠 / 建立端點
 services: virtual-machines-windows
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 ms.assetid: cf45f7d8-451a-48ab-8419-730366d54f1e
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
-ms.author: iainfou
-ms.openlocfilehash: b8eb36e4abad12cb46493846a024da00f9146d40
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: cynthn
+ms.openlocfilehash: f79db8cdec0aa48ae300aff4c58072fb6afdc932
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932777"
 ---
 # <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>如何使用 PowerShell 對 Azure 中的 VM 開啟連接埠與端點
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -96,6 +97,6 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 在此範例中，您建立了簡單的規則來允許 HTTP 流量。 您可以從下列文章中，找到有關建立更詳細環境的資訊︰
 
 * [Azure Resource Manager 概觀](../../azure-resource-manager/resource-group-overview.md)
-* [什麼是網路安全性群組 (NSG)？](../../virtual-network/virtual-networks-nsg.md)
+* [什麼是網路安全性群組？](../../virtual-network/security-overview.md)
 * [負載平衡器的 Azure Resource Manager 概觀](../../load-balancer/load-balancer-arm.md)
 

@@ -11,11 +11,12 @@ ms.date: 02/28/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 62d34f82749900e161bebdb7a1a8d470b2e85bbf
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 4d62e8e4cb778e60b39e502f09ce0aafca9b5212
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866812"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>針對您環境中的變更進行疑難排解
 
@@ -112,6 +113,7 @@ ConfigurationChange
 |項目名稱     | 所要追蹤檔案的易記名稱        |
 |群組     | 用於將檔案以邏輯方式分組的群組名稱        |
 |輸入路徑     | 要檢查檔案的路徑，例如："c:\temp\myfile.txt"       |
+|上傳所有設定的檔案內容| 開啟或關閉追蹤變更上的檔案內容上傳。 可用的選項：**True** 或 **False**。|
 
 ### <a name="add-a-linux-file"></a>新增 Linux 檔案
 
@@ -129,6 +131,7 @@ ConfigurationChange
 |遞迴     | 決定在尋找所要追蹤的項目時是否使用遞迴。        |
 |使用 Sudo     | 此設定會決定在檢查項目時是否使用 sudo。         |
 |連結     | 此設定會決定在周遊目錄時處理符號連結的方式。<br> **忽略** - 忽略符號連結，而不包含參考的檔案/目錄<br>**遵循** - 遵循遞迴期間的符號連結，而且包含參考的檔案/目錄<br>**管理** - 遵循符號連結並允許變更所傳回內容的處理方式      |
+|上傳所有設定的檔案內容| 開啟或關閉追蹤變更上的檔案內容上傳。 可用的選項：**True** 或 **False**。|
 
    > [!NOTE]   
    > 不建議選擇「管理」連結選項。 不支援檔案內容擷取。

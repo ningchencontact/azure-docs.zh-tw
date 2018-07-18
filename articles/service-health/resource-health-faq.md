@@ -19,6 +19,7 @@ ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/29/2018
+ms.locfileid: "30264229"
 ---
 # <a name="azure-resource-health-faq"></a>Azure 資源健康狀態常見問題集
 了解 Azure 資源健康狀態相關常見問題的答案。

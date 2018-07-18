@@ -9,20 +9,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: b18fa2879056600cfc9c6a85afc599e2695af711
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 832e4672a15368768977feedade83707a26b9965
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048783"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>如何建立和設定自我裝載整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可提供跨不同網路環境的資料整合功能。 如需 IR 的詳細資訊，請參閱[整合執行階段概觀](concepts-integration-runtime.md)。
-
-> [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用 Data Factory 服務的 1 版 (正式推出版本 (GA))，請參閱 [Data Factory 第 1 版文件](v1/data-factory-introduction.md)。
 
 自我裝載整合執行階段可以在雲端資料存放區以及私人網路的資料存放區之間執行複製活動，並且可以在內部部署或 Azure 虛擬網路中針對計算資源分派轉換活動。 自我裝載整合執行階段必須安裝在內部部署電腦上，或安裝在位於私人網路內的虛擬機器上。  
 

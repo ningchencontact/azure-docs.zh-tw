@@ -1,6 +1,6 @@
 ---
-title: Azure 角色型存取控制 (RBAC) 的內建角色 | Microsoft Docs
-description: 描述 Azure 角色型存取控制 (RBAC) 的內建角色。 列出 actions 和 notActions。
+title: Azure 中的內建角色 | Microsoft Docs
+description: 描述 Azure 角色型存取控制 (RBAC) 的內建角色。 列出 notActions、dataActions 和 notDataActions 動作。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,24 +11,24 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 05/11/2018
+ms.date: 06/06/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
+ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 91f721f5508191c7530e57b6dd96cad3301542a7
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 861b4ca360ef3fb9bc752d79009570ee2cfc9ade
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203500"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294491"
 ---
-# <a name="built-in-roles-for-azure-role-based-access-control"></a>Azure 角色型存取控制的內建角色
-[角色型存取控制 (RBAC)](overview.md) 具有數個內建角色定義，可供您指派給使用者、群組和服務主體。 角色指派是您控制 Azure 資源存取權的方式。 您無法修改內建角色，但您可以建立自己的[自訂角色](custom-roles.md)以符合您組織的特定需求。
+# <a name="built-in-roles-in-azure"></a>Azure 中的內建角色
+[角色型存取控制 (RBAC)](overview.md) 具有數個內建角色定義，可供您指派給使用者、群組和服務主體。 角色指派是您控制 Azure 資源存取權的方式。 如果內建的角色無法滿足您組織的特定需求，您可以建立自己的[自訂角色](custom-roles.md)。
 
 內建角色不斷發展。 若要取得最新角色定義，請使用 [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) 或 [az role definition list](/cli/azure/role/definition#az-role-definition-list)。
 
 ## <a name="built-in-role-descriptions"></a>內建角色描述
-下表提供內建角色的簡短描述。 按一下角色名稱，即可查看每個角色的 `actions` 和 `notActions` 清單。
+下表提供內建角色的簡短描述。 按一下角色名稱，即可查看每個角色的 `actions`、`notActions`、`dataActions` 及 `notDataActions` 清單。
 
 
 | 內建角色 | 說明 |
@@ -84,6 +84,7 @@ ms.locfileid: "34203500"
 | [New Relic APM 帳戶參與者](#new-relic-apm-account-contributor) | 可讓您管理 New Relic Application Performance Management 帳戶及應用程式，但無法存取它們。 |
 | [讀取者及資料存取](#reader-and-data-access) | 可讓您檢視所有內容，但無法讓您刪除或建立儲存體帳戶或內含的資源。 也可透過存取儲存體帳戶金鑰，對儲存體帳戶中內含的所有資料進行讀取/寫入存取。 |
 | [Redis 快取參與者](#redis-cache-contributor) | 可讓您管理 Redis 快取，但無法存取它們。 |
+| [資源原則參與者 (預覽)](#resource-policy-contributor-preview) | (預覽) 從 EA 回填的使用者，有權建立/修改資源原則、建立支援票證及讀取資源/階層。 |
 | [排程器工作集合參與者](#scheduler-job-collections-contributor) | 可讓您管理「排程器」工作集合，但無法存取它們。 |
 | [搜尋服務參與者](#search-service-contributor) | 可讓您管理「搜尋」服務，但無法存取它們。 |
 | [安全性系統管理員](#security-admin) | 僅限資訊安全中心：可檢視安全性原則、檢視安全性狀態、編輯安全性原則、檢視警示和建議、關閉警示和建議 |
@@ -97,6 +98,10 @@ ms.locfileid: "34203500"
 | [SQL Server 參與者](#sql-server-contributor) | 可讓您管理 SQL 伺服器及資料庫，但無法存取它們，也無法存取其安全性相關原則。 |
 | [儲存體帳戶參與者](#storage-account-contributor) | 可讓您管理儲存體帳戶，但無法存取它們。 |
 | [儲存體帳戶金鑰操作員服務角色](#storage-account-key-operator-service-role) | 「儲存體帳戶金鑰操作員」可以列出及重新產生「儲存體帳戶」的金鑰 |
+| [儲存體 Blob 資料參與者 (預覽)](#storage-blob-data-contributor-preview) | 可讀取、寫入及刪除 Azure 儲存體 Blob 容器與資料 |
+| [儲存體 Blob 資料讀者 (預覽)](#storage-blob-data-reader-preview) | 可讀取 Azure 儲存體 Blob 容器與資料 |
+| [儲存體佇列資料參與者 (預覽)](#storage-queue-data-contributor-preview) | 可讀取、寫入及刪除 Azure 儲存體佇列與佇列訊息 |
+| [儲存體佇列資料讀者 (預覽)](#storage-queue-data-reader-preview) | 可讀取 Azure 儲存體佇列與佇列訊息 |
 | [支援要求參與者](#support-request-contributor) | 可讓您建立及管理支援要求 |
 | [流量管理員參與者](#traffic-manager-contributor) | 可讓您管理「流量管理員」設定檔，但無法控制誰可以存取它們。 |
 | [使用者存取系統管理員](#user-access-administrator) | 可讓您管理 Azure 資源的使用者存取。 |
@@ -128,6 +133,8 @@ ms.locfileid: "34203500"
 > | Microsoft.Authorization/*/Delete | 無法刪除角色和角色指派 |
 > | Microsoft.Authorization/*/Write | 無法建立角色和角色指派 |
 > | Microsoft.Authorization/elevateAccess/Action | 對呼叫者授與租用戶範圍的使用者存取系統管理員存取權 |
+> | Microsoft.Blueprint/blueprintAssignments/write |  |
+> | Microsoft.Blueprint/blueprintAssignments/delete |  |
 
 ## <a name="reader"></a>讀取者
 > [!div class="mx-tableFixed"]
@@ -704,7 +711,7 @@ ms.locfileid: "34203500"
 > | **Id** | 150f5e0c-0603-4f03-8c7f-cf70034c4e90 |
 > | **動作** |  |
 > | Microsoft.Insights/components/*/read |  |
-> | Microsoft.Insights/components/purge/action |  |
+> | Microsoft.Insights/components/purge/action | 從 Application Insights 清除資料 |
 > | Microsoft.OperationalInsights/workspaces/*/read |  |
 > | Microsoft.OperationalInsights/workspaces/purge/action | 從工作區刪除指定的資料 |
 
@@ -1034,6 +1041,20 @@ ms.locfileid: "34203500"
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 取得指定範圍中所有資源的可用性狀態 |
 > | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
+> | Microsoft.Support/* | 建立和管理支援票證 |
+
+## <a name="resource-policy-contributor-preview"></a>資源原則參與者 (預覽)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **說明** | (預覽) 從 EA 回填的使用者，有權建立/修改資源原則、建立支援票證及讀取資源/階層。 |
+> | **Id** | 36243c78-bf99-498c-9df9-86d9f8d28608 |
+> | **動作** |  |
+> | */read | 讀取密碼以外的所有類型的資源。 |
+> | Microsoft.Authorization/policyassignments/* | 建立及管理原則指派 |
+> | Microsoft.Authorization/policydefinitions/* | 建立及管理原則定義 |
+> | Microsoft.Authorization/policysetdefinitions/* | 建立及管理原則集合 |
+> | Microsoft.PolicyInsights/* |  |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 
 ## <a name="scheduler-job-collections-contributor"></a>排程器工作集合參與者
@@ -1389,6 +1410,58 @@ ms.locfileid: "34203500"
 > | Microsoft.Storage/storageAccounts/listkeys/action | 傳回指定儲存體帳戶的存取金鑰。 |
 > | Microsoft.Storage/storageAccounts/regeneratekey/action | 重新產生指定儲存體帳戶的存取金鑰。 |
 
+## <a name="storage-blob-data-contributor-preview"></a>儲存體 Blob 資料參與者 (預覽)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **說明** | 可讀取、寫入及刪除 Azure 儲存體 Blob 容器與資料 |
+> | **Id** | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
+> | **動作** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | 傳回刪除容器的結果 |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | 傳回容器或容器清單 |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/write | 傳回放置或租用 Blob 容器的結果 |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | 傳回刪除 Blob 的結果 |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | 傳回 Blob 或 Blob 清單 |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | 傳回寫入 Blob 的結果 |
+
+## <a name="storage-blob-data-reader-preview"></a>儲存體 Blob 資料讀者 (預覽)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **說明** | 可讀取 Azure 儲存體 Blob 容器與資料 |
+> | **Id** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
+> | **動作** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | 傳回容器或容器清單 |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | 傳回 Blob 或 Blob 清單 |
+
+## <a name="storage-queue-data-contributor-preview"></a>儲存體佇列資料參與者 (預覽)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **說明** | 可讀取、寫入及刪除 Azure 儲存體佇列與佇列訊息 |
+> | **Id** | 974c5e8b-45b9-4653-ba55-5f855dd0fb88 |
+> | **動作** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/delete | 傳回刪除佇列的結果 |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/read | 傳回佇列或佇列清單。 |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/write | 傳回寫入佇列的結果 |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | 傳回刪除訊息的結果 |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | 傳回訊息 |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | 傳回寫入訊息的結果 |
+
+## <a name="storage-queue-data-reader-preview"></a>儲存體佇列資料讀者 (預覽)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **說明** | 可讀取 Azure 儲存體佇列與佇列訊息 |
+> | **Id** | 19e7f393-937e-4f77-808e-94535e297925 |
+> | **動作** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/read | 傳回佇列或佇列清單。 |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | 傳回訊息 |
+
 ## <a name="support-request-contributor"></a>支援要求參與者
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1438,6 +1511,9 @@ ms.locfileid: "34203500"
 > | Microsoft.Network/loadBalancers/read | 取得負載平衡器定義 |
 > | Microsoft.Network/networkInterfaces/read | 取得網路介面定義。  |
 > | Microsoft.Compute/virtualMachines/*/read |  |
+> | **DataActions** |  |
+> | Microsoft.Compute/virtualMachines/login/action | 以一般使用者身分登入虛擬機器 |
+> | Microsoft.Compute/virtualMachines/loginAsAdmin/action | 以 Windows 系統管理員或 Linux 根使用者權限登入虛擬機器 |
 
 ## <a name="virtual-machine-contributor"></a>虛擬機器參與者
 > [!div class="mx-tableFixed"]
@@ -1496,6 +1572,8 @@ ms.locfileid: "34203500"
 > | Microsoft.Network/loadBalancers/read | 取得負載平衡器定義 |
 > | Microsoft.Network/networkInterfaces/read | 取得網路介面定義。  |
 > | Microsoft.Compute/virtualMachines/*/read |  |
+> | **DataActions** |  |
+> | Microsoft.Compute/virtualMachines/login/action | 以一般使用者身分登入虛擬機器 |
 
 ## <a name="web-plan-contributor"></a>Web 方案參與者
 > [!div class="mx-tableFixed"]

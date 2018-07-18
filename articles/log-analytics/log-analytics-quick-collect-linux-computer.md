@@ -3,7 +3,7 @@ title: 使用 Azure Log Analytics 從內部部署 Linux 電腦收集資料 | Mic
 description: 了解如何部署適用於 Linux 的 Log Analytics 代理程式，並啟用使用 Log Analytics 從該作業系統的資料收集。
 services: log-analytics
 documentationcenter: log-analytics
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -15,16 +15,18 @@ ms.topic: quickstart
 ms.date: 04/02/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 30bb21ebd6b19f4cc52e364039b9be8a9a7695e5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.component: na
+ms.openlocfilehash: aca8ee7305f919068733dfa3cb636a0f9bad7b05
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127164"
 ---
 # <a name="collect-data-from-linux-computer-hosted-in-your-environment"></a>從您的環境中裝載的 Linux 電腦收集資料
 [Azure Log Analytics](log-analytics-overview.md) 可將來自環境中的實體或虛擬 Linux 電腦和其他資源的資料直接收集到單一存放庫，以供詳細分析和相互關聯之用。  本快速入門向您示範如何以幾個簡單步驟來設定和收集 Linux 電腦的資料。  針對 Azure Linux VM，請參閱下列主題[收集關於 Azure 虛擬機器的資料](log-analytics-quick-collect-azurevm.md)。  
 
-若要了解部署 Linux 代理程式的網路和系統需求，請檢閱 [Linux 作業系統的先決條件](log-analytics-concept-hybrid.md#prerequisites)。
+若要了解支援的組態，請檢閱[支援的 Linux 作業系統](log-analytics-concept-hybrid.md#supported-linux-operating-systems)和[網路防火牆組態](log-analytics-concept-hybrid.md#network-firewall-requirements)。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -102,7 +104,7 @@ Log Analytics 可以從 Linux Syslog 收集事件，和收集您指定要用於�
 2. 您可以輸入記錄檔的名稱，來新增事件記錄檔。  輸入 **Syslog**，然後按一下加號 **+**。  
 3. 在表格中，取消選取 [資訊]、[注意] 和 [偵錯] 嚴重性。 
 4. 按一下頁面頂端的 [儲存] 來儲存設定。
-5. 選取 [Linux 效能資料] 以啟用 Linux 電腦上的效能計數器收集。 
+5. 選取 [Linux 效能資料] 以啟用收集 Windows 電腦上的效能計數器。 
 6. 當您第一次為新的 Log Analytics 工作區設定 Linux 效能計數器時，系統會提供選項，讓您快速建立數個常用的計數器。 這些計數器旁邊皆會列出核取方塊。<br><br> ![選取的預設 Windows 效能計數器](media/log-analytics-quick-collect-azurevm/linux-perfcounters-default.png)<br> 按一下 [新增選定的效能計數器]。  隨即會新增且收集取樣間隔時間的預設值為 10 秒。  
 7. 按一下頁面頂端的 [儲存] 來儲存設定。
 

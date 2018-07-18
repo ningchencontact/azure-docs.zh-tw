@@ -1,10 +1,10 @@
 ---
 title: 在 Azure 中搭配 SQL Database 來建置 ASP.NET 應用程式 | Microsoft Docs
-description: 了解如何取得在 Azure 中運作的 ASP.NET 應用程式，並連接至 SQL Database。
+description: 了解如何將採用 SQL Server 資料庫的 C# ASP.NET 應用程式部署到 Azure。
 services: app-service\web
-documentationcenter: nodejs
+documentationcenter: ''
 author: cephalin
-manager: erikre
+manager: cfowler
 editor: ''
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.service: app-service-web
@@ -12,14 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 06/09/2017
+ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 4fd1381594c77d8bba92027fee06c08376ee903b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b08033c53185e6229e6fa368a3456749e19eb1f0
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021318"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>教學課程：在 Azure 中搭配 SQL Database 來建置 ASP.NET 應用程式
 
@@ -43,21 +44,17 @@ ms.lasthandoff: 04/23/2018
 
 若要完成本教學課程：
 
-* 使用下列工作負載安裝 [Visual Studio 2017](https://www.visualstudio.com/downloads/)：
-  - **ASP.NET 和 Web 開發**
-  - **Azure 開發**
-
-  ![ASP.NET 和 Web 開發及 Azure 開發 (在 [Web 和雲端] 之下)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
+安裝包含 **ASP.NET 和 Web 開發**工作負載的 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a>。
 
 如果您已安裝 Visual Studio，請按一下 [工具] > [取得工具和功能] 在 Visual Studio 中新增工作負載。
 
 ## <a name="download-the-sample"></a>下載範例
 
-[下載範例專案](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip)。
+<a name="-download-the-sample-projecthttpsgithubcomazure-samplesdotnet-sqldb-tutorialarchivemasterzip"></a>-[下載範例專案](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
+-
+- 解壓縮 dotnet-sqldb-tutorial-master.zip 檔案。
 
-擷取 (解壓縮) dotnet-sqldb-tutorial-master.zip 檔案。
-
-範例專案包含一個基本 [ASP.NET MVC](https://www.asp.net/mvc) CRUD (建立-讀取-更新-刪除) 應用程式，使用 [Entity Framework Code First](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application)。
+範例專案包含一個使用 [Entity Framework Code First](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application) 的基本 [ASP.NET MVC](https://www.asp.net/mvc) 建立-讀取-更新-刪除 (CRUD) 應用程式。
 
 ### <a name="run-the-app"></a>執行應用程式
 
@@ -85,20 +82,20 @@ ms.lasthandoff: 04/23/2018
 
 ### <a name="sign-in-to-azure"></a>登入 Azure
 
-在 [建立 App Service] 對話方塊中，按一下 [新增帳戶]，然後登入您的 Azure 訂用帳戶。 如果您已登入 Microsoft 帳戶，請確定該帳戶保留您的 Azure 訂用帳戶。 如果登入的 Microsoft 帳戶沒有 Azure 訂用帳戶，請按一下它來新增正確的帳戶。
+在 [建立 App Service] 對話方塊中，按一下 [新增帳戶]，然後登入您的 Azure 訂用帳戶。 如果您已登入 Microsoft 帳戶，請確定該帳戶保留您的 Azure 訂用帳戶。 如果登入的 Microsoft 帳戶沒有 Azure 訂用帳戶，請按一下它來新增正確的帳戶。 
+
+> [!NOTE]
+> 如果您已經登入，請勿選取 [建立]。
+>
+>
    
 ![登入 Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/sign-in-azure.png)
-
-登入之後，您即可在此對話方塊中建立 Azure Web 應用程式需要的所有資源。
 
 ### <a name="configure-the-web-app-name"></a>設定 Web 應用程式名稱
 
 您可以保留產生的 Web 應用程式名稱，或將它變更為另一個唯一的名稱 (有效的字元是 `a-z`、`0-9` 和 `-`)。 Web 應用程式名稱是作為應用程式預設 URL 的一部分 (`<app_name>.azurewebsites.net`，其中 `<app_name>` 是您的 Web 應用程式名稱)。 Web 應用程式名稱在 Azure 中的所有應用程式之間必須是唯一的。 
 
 ![建立 App Service 對話方塊](media/app-service-web-tutorial-dotnet-sqldatabase/wan.png)
-
-> [!NOTE]
-> 不要按一下 [建立]。 您必須先在稍後步驟中設定 SQL Database。
 
 ### <a name="create-a-resource-group"></a>建立資源群組
 
@@ -130,13 +127,9 @@ ms.lasthandoff: 04/23/2018
 
 建立資料庫之前，您需要 [Azure SQL Database 邏輯伺服器](../sql-database/sql-database-features.md)。 邏輯伺服器包含一組當作群組管理的資料庫。
 
-選取 [瀏覽其他 Azure 服務]。
+按一下 [建立 SQL Database]。
 
-![設定 Web 應用程式名稱](media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
-
-在 [服務] 索引標籤中，按一下 [SQL Database] 旁的 [+] 圖示。 
-
-![在 [服務] 索引標籤中，按一下 [SQL Database] 旁的 + 圖示。](media/app-service-web-tutorial-dotnet-sqldatabase/sql.png)
+![建立 SQL Database](media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
 
 在 [設定 SQL Database] 對話方塊中，按一下 [SQL Server] 旁的 [新增]。 
 
@@ -151,7 +144,7 @@ ms.lasthandoff: 04/23/2018
 
 ![建立 SQL Server 執行個體](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
-按一下 [SERVICEPRINCIPAL] 。 尚不要關閉 [設定 SQL Database] 對話方塊。
+按一下 [確定]。 尚不要關閉 [設定 SQL Database] 對話方塊。
 
 ### <a name="create-a-sql-database"></a>建立 SQL Database
 
@@ -163,7 +156,7 @@ ms.lasthandoff: 04/23/2018
 
 ![設定 SQL Database](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
 
-[建立 App Service] 對話方塊會顯示您已建立的資源。 按一下頁面底部的 [新增] 。 
+[建立 App Service] 對話方塊會顯示您已設定的資源。 按一下頁面底部的 [新增] 。 
 
 ![您已建立的資源](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
 
@@ -313,7 +306,7 @@ public ActionResult Create([Bind(Include = "Description,CreatedDate,Done")] Todo
 
 就像之前一樣，以滑鼠右鍵按一下專案，然後選取 [發佈]。
 
-按一下 [設定] 以開啟發佈精靈。
+按一下 [設定] 來開啟發佈設定。
 
 ![開啟發佈設定](./media/app-service-web-tutorial-dotnet-sqldatabase/publish-settings.png)
 

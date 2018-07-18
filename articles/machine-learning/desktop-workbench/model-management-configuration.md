@@ -7,14 +7,16 @@ ms.author: raymondl
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
-ms.openlocfilehash: 45ddd4dc6fb5559c020706e2784158b1319f9b52
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 6802d1dfc360a48d8085ff07a8d4488ee1751e33
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34832096"
 ---
 # <a name="model-management-setup"></a>模型管理安裝
 
@@ -30,7 +32,7 @@ ms.lasthandoff: 04/19/2018
 CLI 已預先安裝於 Azure Machine Learning Workbench 和 [Azure DSVM](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) 上。
 
 ## <a name="using-the-cli"></a>使用 CLI
-若要從 Workbench 使用命令列介面 (CLI)，請按一下 **檔案** -\] **開啟命令列介面**。 
+若要從 Workbench 使用命令列介面 (CLI)，請按一下 **檔案** -] **開啟命令列介面**。 
 
 在資料科學虛擬機器上，連接並開啟命令提示字元。 輸入 `az ml -h` 查看選項。 如需有關命令的詳細資訊，請使用 --help 旗標。
 

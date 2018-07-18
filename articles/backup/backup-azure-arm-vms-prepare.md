@@ -1,26 +1,20 @@
 ---
-title: Azure 備份：準備備份虛擬機器 | Microsoft Docs
+title: Azure 備份：準備備份虛擬機器
 description: 確認在 Azure 中備份虛擬機器的環境已準備就緒。
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: 備份；備份；
-ms.assetid: e87e8db2-b4d9-40e1-a481-1aa560c03395
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 3/1/2018
-ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 489875e595c9f28a1e30cbb29cde078f1b716f7f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.topic: conceptual
+ms.date: 6/21/2018
+ms.author: markgal
+ms.openlocfilehash: 06898877a4f13182230c6d5fb12544f90525d84d
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33940565"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960163"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>準備環境以備份 Resource Manager 部署的虛擬機器
 
@@ -40,11 +34,14 @@ ms.locfileid: "33940565"
 如果您的環境已經滿足這些條件，請繼續依[備份 VM](backup-azure-arm-vms.md) 一文中的指示進行。 如果您需要設定或檢查前述任何必要條件，本文章會引導您逐步完成相關步驟。
 
 ## <a name="supported-operating-systems-for-backup"></a>支援的備份作業系統
- * **Linux**：Azure 備份支援 [Azure 所背書的散發套件清單](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)，但 CoreOS Linux 除外。 
- 
+
+ * **Linux**：Azure 備份支援 [Azure 所背書的散發套件清單](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)，但 CoreOS Linux 除外。 如需支援還原檔案的 Linux 作業系統清單，請參閱[從虛擬機器備份復原檔案](backup-azure-restore-files-from-vm.md#for-linux-os)。
+
     > [!NOTE] 
     > 只要虛擬機器上有 VM 代理程式並可支援 Python，其他「自備 Linux」散發套件即可運作。 不過，不支援這些散發套件。
- * **Windows Server**：不支援比 Windows Server 2008 R2 更舊的版本。
+    >
+ * **Windows Server**、**Windows 用戶端**：不支援比 Windows Server 2008 R2 或 Windows 7 更舊的版本。
+
 
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>備份和還原 VM 時的限制
 準備環境之前，請務必先了解下列限制：
@@ -60,6 +57,7 @@ ms.locfileid: "33940565"
 * 對於所選網路，在為儲存體帳戶設定防火牆和虛擬網路設定後，請選取 [允許信任的 Microsoft 服務存取此儲存體帳戶] 作為例外狀況，以啟用 Azure 備份服務來存取網路受限的儲存體帳戶。 網路受限的儲存體帳戶不支援項目層級復原。
 * 您可以在 Azure 的所有公開區域中備份虛擬機器。 (請參閱支援地區的[檢查清單](https://azure.microsoft.com/regions/#services)。)如果您尋找的區域目前不受支援，在建立保存庫期間，該區域就不會顯示在下拉式清單中。
 * 只有透過 PowerShell 才支援還原屬於多網域控制站 (DC) 組態的 DC VM。 若要深入了解，請參閱[還原多 DC 網域控制站](backup-azure-arm-restore-vms.md#restore-domain-controller-vms)。
+* 不支援已啟用寫入加速器的磁碟快照集。 這項限制會封鎖「Azure 備份服務」對虛擬機器的所有磁碟執行應用程式一致快照的能力。
 * 僅支援透過 PowerShell 還原具有以下特殊網路組態的虛擬機器。 完成還原作業之後，透過 UI 中還原工作流程所建立的 VM 將不會具有這些網路設定。 若要深入了解，請參閱 [還原具有特殊網路組態的 VM](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations)。
   * 負載平衡器組態下的虛擬機器 (內部與外部)
   * 具有多個保留的 IP 位址的虛擬機器
@@ -175,7 +173,9 @@ ms.locfileid: "33940565"
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>在虛擬機器上安裝 VM 代理程式
 Azure [VM 代理程式](../virtual-machines/extensions/agent-windows.md)必須安裝在 Azure 虛擬機器上，備份擴充功能才能運作。 如果 VM 是建立自 Azure Marketplace，則 VM 代理程式已存在於虛擬機器上。 
 
-如果您「不是」使用從 Azure Marketplace 建立的 VM，則適用下列提供的資訊。 例如，從內部部署資料中心移轉的 VM。 在這種情況下，您需要安裝 VM 代理程式才能保護虛擬機器。
+如果您「不是」使用從 Azure Marketplace 建立的 VM，則適用下列提供的資訊。 **例如，從內部部署資料中心移轉的 VM。在這種情況下，您需要安裝 VM 代理程式才能保護虛擬機器。**
+
+**注意**：安裝 VM 代理程式之後，您也必須使用 Azure PowerShell 來更新 ProvisionGuestAgent 屬性，讓 Azure 知道 VM 已安裝代理程式。 
 
 如果您在備份 Azure VM 時遇到問題，請使用下表來確定已在虛擬機器上正確安裝 Azure VM 代理程式。 下表提供適用於 Windows 和 Linux VM 之 VM 代理程式的其他資訊。
 

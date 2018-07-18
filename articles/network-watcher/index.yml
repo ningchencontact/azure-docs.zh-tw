@@ -1,24 +1,25 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: 網路監看員
+title: 網路監看員文件
 metadata:
   document_id: 
-  title: 網路監看員
+  title: 網路監看員文件 - 教學課程、快速入門和 API 參考 | Microsoft Docs
   meta.description: Learn how to use Azure Network Watcher. Quickstarts, tutorials, and more, show you how to gain insight into your Azure Virtual Network with tools like packet capture and NSG flows logs, to diagnose problems with traffic filtering and routing, and to monitor connections.
   services: network-watcher
   author: jdial
   manager: jeconnoc
-  ms.service: virtual-network
+  ms.service: network-watcher
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 04/24/2018
   ms.author: jdial
-  ms.openlocfilehash: d8f4996aedec1083ccdb3e05e17bf068bdeffe22
-  ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+  ms.openlocfilehash: 44e4e55b44d4a0f6998597217716f8b957b48fdc
+  ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 05/01/2018
+  ms.lasthandoff: 06/27/2018
+  ms.locfileid: "37016314"
 abstract:
   description: 了解如何使用 Azure 網路監看員。 快速入門、教學課程等等資源會示範如何使用像是封包擷取和 NSG 流程記錄的工具，取得 Azure 虛擬網路的見解，以診斷流量篩選和路由傳送的問題，以及監視連線。
 sections:
@@ -49,7 +50,9 @@ sections:
     style: ordered
     items:
     - html: <a href="/azure/network-watcher/diagnose-vm-network-routing-problem">診斷虛擬機器 (VM) 網路路由問題</a>
-    - html: <a href="/azure/network-watcher/connection-monitor">監視虛擬機器與端點之間的網路通訊</a>
+    - html: <a href="/azure/network-watcher/connection-monitor">監視 VM 間的網路通訊</a>
+    - html: <a href="/azure/network-watcher/diagnose-communication-problem-between-networks">診斷網路間的通訊問題</a>
+    - html: <a href="/azure/network-watcher/network-watcher-nsg-flow-logging-portal">記錄往返 VM 的網路流量</a>
 - title: 免費 Pluralsight 影片訓練
   items:
   - type: list

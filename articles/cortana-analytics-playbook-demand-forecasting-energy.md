@@ -1,8 +1,8 @@
 ---
-title: "能源需求預測的 Cortana Intelligence 解決方案範本教戰守則 | Microsoft Docs"
-description: "使用 Microsoft Cortana Intelligence 的解決方案範本，協助預測能源公共事業公司的需求。"
+title: 能源需求預測的 Cortana Intelligence 解決方案範本教戰守則 | Microsoft Docs
+description: 使用 Microsoft Cortana Intelligence 的解決方案範本，協助預測能源公共事業公司的需求。
 services: cortana-analytics
-documentationcenter: 
+documentationcenter: ''
 author: ilanr9
 manager: ilanr9
 editor: yijichen
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23004033"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>能源需求預測的 Cortana Intelligence 解決方案範本教戰守則
 ## <a name="executive-summary"></a>執行摘要

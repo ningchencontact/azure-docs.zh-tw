@@ -9,17 +9,17 @@ editor: daveba
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 74bc28619996b7cd52d2280d4d8b6288aa7c904f
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 16b715261329544687fd78ed9c022d7392cc32d9
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304302"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901471"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>教學課程：使用 Linux VM 受控服務識別 (MSI) 來存取 Azure Key Vault 
 
@@ -135,12 +135,12 @@ ms.locfileid: "34304302"
     
 一旦您已從 Key Vault 擷取密碼，您便可以將其用來向需要名稱和密碼的服務進行驗證。
 
+## <a name="next-steps"></a>後續步驟
 
-## <a name="related-content"></a>相關內容
+在本教學課程中，您已學習如何使用 Linux 虛擬機器的受控服務識別來存取 Azure Key Vault。  若要深入了解 Azure Key Vault，請參閱：
 
-- 如需 MSI 的概觀，請參閱[受控服務識別概觀](overview.md)。
-
-使用下列意見區段來提供意見反應，並協助我們改善及設計我們的內容。
+> [!div class="nextstepaction"]
+>[Azure 金鑰保存庫](/azure/key-vault/key-vault-whatis)
 
 
 

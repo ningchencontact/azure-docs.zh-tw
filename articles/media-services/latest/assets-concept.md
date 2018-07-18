@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 76ed74f2df62d478b83e109a492977ec2d580198
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 61555eb6cca6995215ce43051abbda9aa43539ec
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305084"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284833"
 ---
 # <a name="assets"></a>Assets
 
@@ -50,7 +50,7 @@ ms.locfileid: "34305084"
 
 如需完整定義，請參閱[資產](https://docs.microsoft.com/rest/api/media/assets)。
 
-## <a name="filtering-ordering-and-paging-support"></a>篩選、排序和分頁支援
+## <a name="filtering-ordering-paging"></a>篩選、排序、分頁
 
 媒體服務支援下列資產的 OData 查詢選項： 
 
@@ -88,7 +88,7 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 在四個已啟用的分類排序中，每一個皆可支援分頁。 
 
-如果查詢回應包含許多 (目前超過 1000 個) 項目，服務會傳回 "@odata.nextLink" 屬性，以取得下一頁的結果。 這可用來逐頁查看整個結果集。 使用者無法設定頁面大小。 
+如果查詢回應包含許多 (目前超過 1000 個) 項目，服務會傳回 "\@odata.nextLink" 屬性，以取得下一頁的結果。 這可用來逐頁查看整個結果集。 使用者無法設定頁面大小。 
 
 如果逐頁查看集合時，有資產建立或刪除，則所做的變更會反映在傳回的結果中 (如果這些變更屬於尚未下載的集合)。 
 
@@ -105,6 +105,21 @@ while (currentPage.NextPageLink != null)
 ```
 
 如需其他範例，請參閱[資產 - 清單](https://docs.microsoft.com/rest/api/media/assets/list)
+
+
+## <a name="storage-side-encryption"></a>儲存端加密
+
+若要保護待用資產，資產應該透過儲存端加密來進行加密。 下表顯示儲存端加密在媒體服務中的運作方式：
+
+|加密選項|說明|媒體服務 v2|媒體服務 v3|
+|---|---|---|---|
+|媒體服務的儲存體加密|AES-256 加密，由媒體服務管理金鑰|支援<sup>(1)</sup>|不支援<sup>(2)</sup>|
+|[待用資料的儲存體服務加密](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Azure 儲存體提供的伺服器端加密，由 Azure 或客戶管理金鑰|支援|支援|
+|[儲存體用戶端加密](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Azure 儲存體提供的用戶端加密，由客戶管理 Key Vault 中的金鑰|不支援|不支援|
+
+<sup>1</sup> 雖然媒體服務支援處理乾淨/不含任何加密形式的內容，但不建議您這麼做。
+
+<sup>2</sup> 在媒體服務 v3 中，如果您的資產是以媒體服務 v2 建立，則儲存體加密 (AES-256 加密) 只對回溯相容性有所支援。 這表示 v3 可用於現有的儲存體加密資產，但不允許建立新的。
 
 ## <a name="next-steps"></a>後續步驟
 

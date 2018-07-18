@@ -14,11 +14,12 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1e82c73c1d2984631e8d2dd2eb0f93c9751a1cf1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 135cfbb148f2e47819c41c7874e4a5e08335f6bf
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38452561"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>教學課程：使用 Visual Studio 建立具有複製活動的管線
 > [!div class="op_single_selector"]
@@ -34,7 +35,7 @@ ms.lasthandoff: 04/16/2018
 > 
 
 > [!NOTE]
-> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用第 2 版 Data Factory 服務 (預覽版)，請參閱[第 2 版中的複製活動教學課程文件](../quickstart-create-data-factory-dot-net.md)。 
+> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[複製活動教學課程](../quickstart-create-data-factory-dot-net.md)。 
 
 在本文中，您會了解如何使用 Microsoft Visual Studio 建立資料處理站，其中有管線可將資料從 Azure Blob 儲存體複製到 Azure SQL 資料庫。 如果您不熟悉 Azure Data Factory，請先詳閱 [Azure Data Factory 簡介](data-factory-introduction.md)一文，再進行本教學課程。   
 

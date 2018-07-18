@@ -16,6 +16,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31796885"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a>開始使用 Azure Blob 儲存體和 Visual Studio 已連接服務 (雲端服務專案)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]

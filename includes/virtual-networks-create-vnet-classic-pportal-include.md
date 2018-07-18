@@ -13,6 +13,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31805296"
 ---
 ## <a name="how-to-create-a-classic-vnet-in-the-azure-portal"></a>如何在 Azure 入口網站中建立傳統 VNet
 若要以上述案例為基礎建立傳統 VNet，請遵循下列步驟執行。
@@ -28,7 +29,7 @@ ms.lasthandoff: 04/23/2018
    
     ![建立資源群組窗格](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure3.png)
 6. 如有必要，變更 VNet 的**訂用帳戶**和**位置**設定。 
-7. 如果您不想在**「開始面板」**上看到 VNet 圖格，請停用 [釘選到「開始面板」]。 
+7. 如果您不想在 **「開始面板」** 上看到 VNet 圖格，請停用 [釘選到「開始面板」]。 
 8. 按一下 [建立]，並注意名為 [建立虛擬網路] 的圖格，如下圖所示。
    
     ![在入口網站中建立 VNet](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure4.png)

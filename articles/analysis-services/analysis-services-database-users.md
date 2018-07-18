@@ -3,20 +3,21 @@ title: 管理 Azure Analysis Services 中的使用者角色和使用者 | Micros
 description: 了解如何在 Azure 中管理 Analysis Services 伺服器上的資料庫角色和使用者。
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3c35fb1ee70544b8b01bbadaf72ee38145179b27
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8c777d5376614f7afe59342dc5a9fbfa37ca4556
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441051"
 ---
 # <a name="manage-database-roles-and-users"></a>管理資料庫角色和使用者
 
-在模型資料庫層級上，所有使用者都必須屬於某個角色。 角色可針對模型資料庫定義具有特定權限的使用者。 任何新增至某個角色的使用者或安全性群組都必須在與伺服器相同的訂用帳戶中具有 Azure AD 租用戶的帳戶。
+在模型資料庫層級上，所有使用者都必須屬於某個角色。 角色可針對模型資料庫定義具有特定權限的使用者。 任何新增至某個角色的使用者或安全性群組都必須在與伺服器相同的訂用帳戶中具有 Azure AD 租用戶的帳戶。 
 
 定義角色的方式會根據您使用的工具而有所不同，但效果一樣。
 
@@ -26,6 +27,9 @@ ms.lasthandoff: 04/16/2018
 *  **讀取** - 使用者可以使用用戶端應用程式來連接和分析模型資料庫的資料。
 
 建立表格式模型專案時，您可在 SSDT 中使用角色管理員來建立角色，並將使用者或群組新增至這些角色。 若部署至伺服器，您可使用 SSMS、[Analysis Services PowerShell Cmdlet](https://msdn.microsoft.com/library/hh758425.aspx) 或[表格式模型指令碼語言](https://msdn.microsoft.com/library/mt614797.aspx) (TMSL)，新增或移除角色和使用者成員。
+
+> [!NOTE]
+> 安全性群組必須將 `MailEnabled` 屬性設定為 `True`。
 
 ## <a name="to-add-or-manage-roles-and-users-in-ssdt"></a>在 SSDT 中新增或管理角色和使用者  
   

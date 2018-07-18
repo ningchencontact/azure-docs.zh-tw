@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/07/2018
-ms.openlocfilehash: c110011f3b4c3c677354bc8423c8cd86cca6ac90
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 06/08/2018
+ms.openlocfilehash: f64b2922818eddcab02f7d1c7b8f97671d92589e
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32776171"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850248"
 ---
 # <a name="migrate-sql-server-to-azure-sql-database-using-dms"></a>使用 DMS 將 SQL Server 移轉到 Azure SQL Database
 您可以使用 Azure 資料庫移轉服務，將資料庫從內部部署 SQL Server 執行個體移轉到 [Azure SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/)。 在本教學課程中，您要使用 Azure 資料庫移轉服務，將已還原至內部部署 SQL Server 2016 (或更新版本) 執行個體的 **Adventureworks2012** 資料庫移轉到 Azure SQL Database。
@@ -59,9 +59,9 @@ ms.locfileid: "32776171"
 
     預設會選取這兩種報告類型。
 
-4.  在 Data Migration Assistant 的 [Options] \(選項\) 畫面上，選取 [Next] \(下一步\)。
-5.  在 [Select sources] \(選取來源\) 畫面的 [Connect to a server] \(連線到伺服器\) 對話方塊中，提供您 SQL Server 的連線詳細資料，然後選取 [Connect] \(連線\)。
-6.  在 [新增資源] 對話方塊中，依序選取 [AdventureWorks2012]、[新增]，然後選取 [開始評估]。
+3.  在 Data Migration Assistant 的 [Options] \(選項\) 畫面上，選取 [Next] \(下一步\)。
+4.  在 [Select sources] \(選取來源\) 畫面的 [Connect to a server] \(連線到伺服器\) 對話方塊中，提供您 SQL Server 的連線詳細資料，然後選取 [Connect] \(連線\)。
+5.  在 [新增資源] 對話方塊中，依序選取 [AdventureWorks2012]、[新增]，然後選取 [開始評估]。
 
     評估完成時，結果會如下圖所示：
 
@@ -72,7 +72,7 @@ ms.locfileid: "32776171"
     - **SQL Server 功能同位**類別提供一組完整的建議、Azure 中可使用的替代方法以及補救步驟，協助您規劃移轉專案所需的時間和精力。
     - **相容性問題**類別則識別反映出相容性問題的部分支援或不支援功能，這些相容性問題可能會阻礙將內部部署 SQL Server 資料庫移轉到 Azure SQL Database。 同時也提供協助您解決這些問題的建議。
 
-7.  選取特定的選項，檢閱評估結果是否有阻礙移轉的問題和功能同位問題。
+6.  選取特定的選項，檢閱評估結果是否有阻礙移轉的問題和功能同位問題。
 
 ## <a name="migrate-the-sample-schema"></a>移轉範例結構描述
 當您滿意評估結果，而且選取的資料庫也適合移轉到 Azure SQL Database 之後，請使用 Data Migration Assistant 將結構描述移轉到 Azure SQL Database。
@@ -83,33 +83,33 @@ ms.locfileid: "32776171"
 若要將 **AdventureWorks2012** 結構描述移轉到 Azure SQL Database，請執行下列步驟：
 
 1.  在資料移轉小幫手中，選取新增 (+) 圖示，然後在 [專案類型] 底下選取 [移轉]。
-3.  在 [Source server type] \(來源伺服器類型\) 文字方塊中指定專案名稱，選取 [SQL Server]，然後在 [Target server type] \(目標伺服器類型\) 文字方塊中，選取 [Azure SQL Database]。
-4.  在 [Migration Scope] \(移轉範圍\) 下，選取 [Schema only] \(僅結構描述\)。
+2.  在 [Source server type] \(來源伺服器類型\) 文字方塊中指定專案名稱，選取 [SQL Server]，然後在 [Target server type] \(目標伺服器類型\) 文字方塊中，選取 [Azure SQL Database]。
+3.  在 [Migration Scope] \(移轉範圍\) 下，選取 [Schema only] \(僅結構描述\)。
 
     執行先前的步驟之後，Data Migration Assistant 介面應該如下圖所示：
     
     ![建立 Data Migration Assistant 專案](media\tutorial-sql-server-to-azure-sql\dma-create-project.png)
 
-5.  選取 [Create] \(建立\) 以建立專案。
-6.  在 Data Migration Assistant 中，為您的 SQL Server 指定來源連線詳細資料，選取 [Connect] \(連線\)，然後選取 [AdventureWorks2012] 資料庫。
+4.  選取 [Create] \(建立\) 以建立專案。
+5.  在 Data Migration Assistant 中，為您的 SQL Server 指定來源連線詳細資料，選取 [Connect] \(連線\)，然後選取 [AdventureWorks2012] 資料庫。
 
     ![Data Migration Assistant 來源連線詳細資料](media\tutorial-sql-server-to-azure-sql\dma-source-connect.png)
 
-7.  在 [連線到目標伺服器] 下選取 [下一步]，指定 Azure SQL Database 的目標連線詳細資料、選取 [連線]，然後選取您已在 Azure SQL Database 中預先佈建的 [AdventureWorksAzure] 資料庫。
+6.  在 [連線到目標伺服器] 下選取 [下一步]，指定 Azure SQL Database 的目標連線詳細資料、選取 [連線]，然後選取您已在 Azure SQL Database 中預先佈建的 [AdventureWorksAzure] 資料庫。
 
     ![Data Migration Assistant 目標連線詳細資料](media\tutorial-sql-server-to-azure-sql\dma-target-connect.png)
 
-8.  選取 [Next] \(下一步\) 前進到 [Select objects] \(選取物件\) 畫面，您可以指定 **AdventureWorks2012** 資料庫中需要部署至 Azure SQL Database 的結構描述物件。
+7.  選取 [Next] \(下一步\) 前進到 [Select objects] \(選取物件\) 畫面，您可以指定 **AdventureWorks2012** 資料庫中需要部署至 Azure SQL Database 的結構描述物件。
 
     預設會選取所有物件。
 
     ![產生 SQL 指令碼](media\tutorial-sql-server-to-azure-sql\dma-assessment-source.png)
 
-9.  選取 [Generate SQL script] \(產生 SQL 指令碼\) 來建立 SQL 指令碼，然後檢閱指令碼是否有任何錯誤。
+8.  選取 [Generate SQL script] \(產生 SQL 指令碼\) 來建立 SQL 指令碼，然後檢閱指令碼是否有任何錯誤。
 
     ![結構描述指令碼](media\tutorial-sql-server-to-azure-sql\dma-schema-script.png)
 
-10. 選取 [Deploy schema] \(部署結構描述\) 以將結構描述部署至 Azure SQL Database，並在結構描述部署好之後，檢查目標伺服器是否有任何異常狀況。
+9.  選取 [Deploy schema] \(部署結構描述\) 以將結構描述部署至 Azure SQL Database，並在結構描述部署好之後，檢查目標伺服器是否有任何異常狀況。
 
     ![部署結構描述](media\tutorial-sql-server-to-azure-sql\dma-schema-deploy.png)
 
@@ -145,7 +145,7 @@ ms.locfileid: "32776171"
 
 5. 選取定價層。
 
-    如需成本和定價層的詳細資訊，請參閱[定價頁面](https://aka.ms/dms-pricing)。
+    如需成本和定價層的詳細資訊，請參閱[定價分頁](https://aka.ms/dms-pricing)。
 
     如果您需要選擇適當 Azure 資料庫移轉服務層的協助，請參閱張貼在[這裡](https://go.microsoft.com/fwlink/?linkid=861067)的建議。  
 
@@ -164,15 +164,15 @@ ms.locfileid: "32776171"
  
      ![找出您的 Azure 資料庫移轉服務執行個體](media\tutorial-sql-server-to-azure-sql\dms-instance-search.png)
  
-3. 選取 [新增移轉專案]。
-4. 在 [新增移轉專案] 畫面上，在 [Source server type] \(來源伺服器類型\) 中指定專案名稱、選取 [SQL Server]，然後在 [Target server type] \(目標伺服器類型\) 文字方塊中，選取 [Azure SQL Database]。
+3. 選取 [+ 新增移轉專案]。
+4. 在 [New migration project] \(新增移轉專案\) 畫面上，在 [Source server type] \(來源伺服器類型\) 中指定專案名稱、選取 [SQL Server]，然後在 [Target server type] \(目標伺服器類型\) 文字方塊中，選取 [Azure SQL Database]。
 
     ![建立資料庫移轉服務專案](media\tutorial-sql-server-to-azure-sql\dms-create-project1.png)
 
 5.  選取 [Create] \(建立\) 以建立專案。
 
 ## <a name="specify-source-details"></a>指定來源詳細資料
-1. 在 [來源詳細資料] 畫面上，指定來源 SQL Server 執行個體名稱的連線詳細資料。
+1. 在 [來源詳細資料] 畫面上，指定來源 SQL Server 執行個體的連線詳細資料。
  
     請務必使用來源 SQL Server 執行個體名稱的完整網域名稱 (FQDN)。 如果無法解析 DNS 名稱，您也可以使用 IP 位址。
 
@@ -200,7 +200,7 @@ ms.locfileid: "32776171"
 
     ![DMS 摘要](media\tutorial-sql-server-to-azure-sql\dms-summary1.png)
 
-4. 選取 [儲存]。
+4. 選取 [ **儲存**]。
 
 ## <a name="run-the-migration"></a>執行移轉
 1.  依序選取最近儲存的專案、[+ 新增活動] 以及 [執行移轉]。
@@ -209,7 +209,7 @@ ms.locfileid: "32776171"
 
 2.  出現提示時，請輸入來源伺服器與目標伺服器的認證，然後選取 [儲存]。
 
-3.  在 [對應到目標資料庫] 畫面上，對應要進行移轉的來源資料庫和目標資料庫。
+3.  在 [Map to target databases] \(對應到目標資料庫\) 畫面上，對應要進行移轉的來源資料庫和目標資料庫。
 
     如果目標資料庫包含與來源資料庫相同的資料庫名稱，Azure DMS 預設會選取目標資料庫。
 
@@ -221,9 +221,9 @@ ms.locfileid: "32776171"
 
     ![選取資料表](media\tutorial-sql-server-to-azure-sql\dms-configure-setting-activity1.png)
 
-5.  在 [移轉摘要] 畫面上選取 [儲存]，在 [活動名稱] 文字方塊中，指定移轉活動的名稱。
+5.  在 [Migration summary] \(移轉摘要\) 畫面上選取 [儲存]，在 [Activity name] \(活動名稱\) 文字方塊中，指定移轉活動的名稱。
 
-6. 展開 [驗證選項] 區段以顯示 [選擇驗證選項] 畫面，此畫面用於是否要驗證已移轉的資料庫以進行結構描述比較、資料一致性，以及查詢正確性。
+6. 展開 [驗證選項] 區段以顯示 [選擇驗證選項] 畫面，此畫面用於是否要驗證已移轉的資料庫以進行**結構描述比較**、**資料一致性**，以及**查詢正確性**。
     
     ![選擇驗證選項](media\tutorial-sql-server-to-azure-sql\dms-configuration1.png)
 
@@ -238,13 +238,13 @@ ms.locfileid: "32776171"
     ![活動狀態](media\tutorial-sql-server-to-azure-sql\dms-activity-status1.png)
 
 ## <a name="monitor-the-migration"></a>監視移轉
-1. 在 [移轉活動] 畫面上，選取 [重新整理] 以更新顯示，直到您看到移轉的 [狀態] 顯示為 [已完成]。
+1. 在移轉活動畫面上，選取 [重新整理] 以更新顯示，直到移轉的**狀態**顯示為 [已完成] 為止。
 
     ![活動狀態已完成](media\tutorial-sql-server-to-azure-sql\dms-completed-activity1.png)
 
 2. 移轉完成之後，請選取 [下載報告] 以取得報告，其中會列出與移轉程序相關聯的詳細資料。
 
-3. 驗證目標 Azure SQL Database 上的目標資料庫。
+3. 驗證目標 Azure SQL Database 伺服器上的目標資料庫。
 
 ### <a name="additional-resources"></a>其他資源
 

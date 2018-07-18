@@ -15,11 +15,12 @@ ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 915c2eb6be14520d8a6eeccf173ac30b70eca45b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d8e4108e4c79a0920d7ff193e4751e1c71191488
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050398"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>教學課程：使用 Azure PowerShell 建置您的第一個 Azure Data Factory
 > [!div class="op_single_selector"]
@@ -34,7 +35,7 @@ ms.lasthandoff: 04/19/2018
 
 
 > [!NOTE]
-> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用第 2 版 Data Factory 服務 (預覽版)，請參閱[快速入門：使用 Azure Data Factory 第 2 版來建立資料處理站](../quickstart-create-data-factory-powershell.md)。
+> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[快速入門：使用 Azure Data Factory 來建立資料處理站](../quickstart-create-data-factory-powershell.md)。
 
 在本文中，您會使用 Azure PowerShell 來建立您的第一個 Azure Data Factory。 若要使用其他工具/SDK 進行本教學課程，請選取下拉式清單的其中一個選項。
 

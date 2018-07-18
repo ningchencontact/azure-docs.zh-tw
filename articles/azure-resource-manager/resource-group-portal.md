@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2016
 ms.author: tomfitz
-ms.openlocfilehash: fda195c03c589361b8a798166b0ae4d93611bcd0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7398e01a46b5d296f26905e2063acdb98383f567
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38600356"
 ---
 # <a name="manage-azure-resources-through-portal"></a>透過入口網站管理 Azure 資源
 
@@ -130,5 +131,5 @@ ms.lasthandoff: 05/20/2018
 * 若要檢視有關部署的詳細資料，請參閱[檢視部署作業](resource-manager-deployment-operations.md)。
 * 若要透過入口網站部署資源，請參閱 [使用 Resource Manager 範本與 Azure 入口網站來部署資源](resource-group-template-deploy-portal.md)。
 * 若要管理資源的存取權，請參閱 [使用角色指派來管理 Azure 訂用帳戶資源的存取權](../role-based-access-control/role-assignments-portal.md)。
-* 如需關於企業如何使用 Resource Manager 有效地管理訂用帳戶的指引，請參閱 [Azure 企業 Scaffold - 規定的訂用帳戶治理](resource-manager-subscription-governance.md)。
+* 如需關於企業如何使用 Resource Manager 有效地管理訂用帳戶的指引，請參閱 [Azure 企業 Scaffold - 規定的訂用帳戶治理](/azure/architecture/cloud-adoption-guide/subscription-governance)。
 

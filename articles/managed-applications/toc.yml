@@ -31,6 +31,8 @@
       href: update-managed-resources.md
     - name: 使用入口網站發佈
       href: publish-portal.md
+    - name: 使用 Key Vault 中的祕密
+      href: key-vault-access.md
 - name: 參考
   items:
     - name: Azure CLI

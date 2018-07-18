@@ -14,14 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: rogarana
-ms.openlocfilehash: c3dcd2f9c71b64ac48c2c7b6f51d2694d649c15e
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 8b3a4d7feccc3af55415f54473ae1a2588ad5672
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936882"
 ---
 # <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>如何使用 Azure CLI 擴充 Linux VM 上的虛擬硬碟
-在 Azure 中，Linux 虛擬機器 (VM) 上作業系統 (OS) 的預設虛擬硬碟大小通常是 30 GB。 您可以[新增資料磁碟](add-disk.md)來提供更多儲存空間，但您也可能想要擴充既有的資料磁碟。 本文將詳細說明如何使用 Azure CLI 2.0 來擴充 Linux VM 的受控磁碟。 您也可以使用 [Azure CLI 1.0](expand-disks-nodejs.md) 來擴充非受控的 OS 磁碟。
+在 Azure 中，Linux 虛擬機器 (VM) 上作業系統 (OS) 的預設虛擬硬碟大小通常是 30 GB。 您可以[新增資料磁碟](add-disk.md)來提供更多儲存空間，但您也可能想要擴充既有的資料磁碟。 本文將詳細說明如何使用 Azure CLI 2.0 來擴充 Linux VM 的受控磁碟。 
 
 > [!WARNING]
 > 在執行磁碟調整大小作業前，務必備份資料。 如需詳細資訊，請參閱[在 Azure 中備份 Linux 虛擬機器](tutorial-backup-vms.md)。

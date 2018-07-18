@@ -19,6 +19,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30323146"
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>如果 Azure 儲存體發生中斷怎麼辦
 在 Microsoft，我們竭力確保我們的服務總是可供用。 有時候會因為不可抗拒之因素，而造成服務在一或多個區域內中斷。 為了協助您處理這類罕見的狀況，我們提供下列 Azure 儲存體服務的高階指引。

@@ -8,6 +8,8 @@
       href: cheat-sheet.md
 - name: 版本資訊
   items:
+    - name: 2018 年 6 月
+      href: release-notes-june-2018.md
     - name: 2018 年 5 月
       href: release-notes-may-2018.md
     - name: 2018 年 4 月
@@ -49,8 +51,6 @@
           href: sql-data-warehouse-manage-compute-overview.md
         - name: 備份與還原
           href: backup-and-restore.md
-        - name: 稽核
-          href: sql-data-warehouse-auditing-overview.md
         - name: 容量限制
           href: sql-data-warehouse-service-capacity-limits.md
         - name: '維護 '
@@ -61,8 +61,24 @@
       items:
         - name: 概觀
           href: sql-data-warehouse-overview-manage-security.md
+        - name: 存取控制
+          href: ../sql-database/sql-database-control-access.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: 防火牆規則
+          href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: 防火牆虛擬網路規則
+          href: ../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/sql-data-warehouse/toc.json
         - name: 驗證
-          href: sql-data-warehouse-authentication.md
+          href: sql-data-warehouse-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Azure AD
+          href: ../sql-database/sql-database-aad-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: 登入和使用者
+          href: ../sql-database/sql-database-manage-logins.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: 多因素驗證
+          href: ../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: 稽核
+          href: sql-data-warehouse-auditing-overview.md
+        - name: 資料行層級安全性
+          href: column-level-security.md
     - name: 移轉至 SQL 資料倉儲
       items:
         - name: 概觀
@@ -179,6 +195,12 @@
           href: sql-data-warehouse-restore-database-rest-api.md
     - name: 安全性
       items:
+        - name: 設定 Azure AD 驗證
+          href: ../sql-database/sql-database-aad-authentication-configure.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: 條件式存取
+          href: ../sql-database/sql-database-conditional-access.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: PowerShell 的虛擬網路規則
+          href: ../sql-database/sql-database-vnet-service-endpoint-rule-powershell.md?toc=/azure/sql-data-warehouse/toc.json
         - name: 啟用加密 - 入口網站
           href: sql-data-warehouse-encryption-tde.md
         - name: 啟用加密 - T-SQL

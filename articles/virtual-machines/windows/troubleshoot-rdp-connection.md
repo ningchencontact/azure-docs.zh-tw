@@ -16,11 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2018
 ms.author: danis
-ms.openlocfilehash: 60c54850c1ca5de0e9bda4b48688ba297874e48e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: c1444901fa46a62761d6b94ccb8e7ea3ff3d057f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701882"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>針對 Azure 虛擬機器的遠端桌面連線進行疑難排解
 有各式各樣的原因可能導致 Windows 型 Azure 虛擬機器 (VM) 的遠端桌面通訊協定 (RDP) 連線失敗，讓您無法存取您的 VM。 問題可能與 VM 上的遠端桌面服務、網路連線或主機電腦上的遠端桌面用戶端有關。 本文將引導您完成一些可解決 RDP 連線問題的最常見方法。 
@@ -65,7 +66,7 @@ ms.lasthandoff: 04/06/2018
     在 Azure 入口網站中選取您的 VM。 向下捲動至 [設定] 窗格中接近清單底部的 [支援 + 疑難排解] 區段。 按一下 [重設密碼] 按鈕。 將 [模式] 設定為 [只重設組態]，然後按一下 [更新] 按鈕︰
    
     ![在 Azure 入口網站中重設 RDP 組態](./media/troubleshoot-rdp-connection/reset-rdp.png)
-2. **確認網路安全性群組規則**。 使用 [IP 流量驗證](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md)來確認網路安全性群組中的規則是否會封鎖虛擬機器的輸入或輸出流量。 您也可以檢閱有效的安全性群組規則，以確保輸入「允許」NSG 規則存在並已針對 RDP 連接埠 (預設值 3389) 設定優先順序。 如需詳細資訊，請參閱[使用有效安全性規則對 VM 流量流程進行疑難排解](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow)。
+2. **確認網路安全性群組規則**。 使用 [IP 流量驗證](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md)來確認網路安全性群組中的規則是否會封鎖虛擬機器的輸入或輸出流量。 您也可以檢閱有效的安全性群組規則，以確保輸入「允許」NSG 規則存在並已針對 RDP 連接埠 (預設值 3389) 設定優先順序。 如需詳細資訊，請參閱[使用有效安全性規則對 VM 流量流程進行疑難排解](../../virtual-network/diagnose-network-traffic-filter-problem.md)。
 
 3. **檢閱 VM 開機診斷**。 此疑難排解步驟可檢閱 VM 主控台記錄檔，以判斷 VM 是否報告問題。 並非所有 VM 都已啟用開機診斷，所以此疑難排解步驟可能是選擇性的。
    
@@ -95,7 +96,7 @@ ms.lasthandoff: 04/06/2018
    
     此作業完成之後，會遺失暫時磁碟資料，並且會更新與 VM 相關聯的動態 IP 位址。
 
-9. **確認路由**。 使用網路監看員的[下一個躍點](../../network-watcher/network-watcher-check-next-hop-portal.md)功能，確認路由不會防止流量從虛擬機器往返路由傳送。 您也可以檢閱有效路由，以查看網路介面的所有有效路由。 如需詳細資訊，請參閱[使用有效路由來針對 VM 流量流程進行疑難排解](../../virtual-network/virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow)。
+9. **確認路由**。 使用網路監看員的[下一個躍點](../../network-watcher/network-watcher-check-next-hop-portal.md)功能，確認路由不會防止流量從虛擬機器往返路由傳送。 您也可以檢閱有效路由，以查看網路介面的所有有效路由。 如需詳細資訊，請參閱[使用有效路由來針對 VM 流量流程進行疑難排解](../../virtual-network/diagnose-network-routing-problem.md)。
 
 10. 確保任何內部部署防火牆或您電腦上的防火牆允許對 Azure 輸出 TCP 3389 流量。
 
@@ -184,7 +185,7 @@ ms.lasthandoff: 04/06/2018
     Set-AzureRmVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
 
-6. **確認路由**。 使用網路監看員的[下一個躍點](../../network-watcher/network-watcher-check-next-hop-portal.md)功能，確認路由不會防止流量從虛擬機器往返路由傳送。 您也可以檢閱有效路由，以查看網路介面的所有有效路由。 如需詳細資訊，請參閱[使用有效路由來針對 VM 流量流程進行疑難排解](../../virtual-network/virtual-network-routes-troubleshoot-powershell.md#using-effective-routes-to-troubleshoot-vm-traffic-flow)。
+6. **確認路由**。 使用網路監看員的[下一個躍點](../../network-watcher/network-watcher-check-next-hop-portal.md)功能，確認路由不會防止流量從虛擬機器往返路由傳送。 您也可以檢閱有效路由，以查看網路介面的所有有效路由。 如需詳細資訊，請參閱[使用有效路由來針對 VM 流量流程進行疑難排解](../../virtual-network/diagnose-network-routing-problem.md)。
 
 7. 確保任何內部部署防火牆或您電腦上的防火牆允許對 Azure 輸出 TCP 3389 流量。
 

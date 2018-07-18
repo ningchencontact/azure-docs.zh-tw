@@ -4,20 +4,21 @@ description: 您可以使用 CDN 快取規則，以全域及有條件 (例如 UR
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 06/11/2018
 ms.author: v-deasim
-ms.openlocfilehash: 09705893c50e56cce5d888db097d7b810624b5d8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4095ed763de378a673908d033d87b2aa6d72f13c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260001"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>使用快取規則來控制 Azure CDN 快取行為
 
@@ -105,7 +106,12 @@ ms.lasthandoff: 05/07/2018
 若設定了這些規則，針對 _&lt;endpoint hostname&gt;_.azureedge.net/home/index.html 的要求就會觸發自訂快取規則 #2，它會設定為：**缺少時才設定**和 3 天。 因此，如果 index.html 檔案具有 `Cache-Control` 或 `Expires` HTTP 標頭，則會優先採用它們，否則，如果未設定這些標頭，就會將檔案快取 3 天。
 
 > [!NOTE] 
-> 在規則變更之前快取的檔案會維持其原始的快取持續時間設定。 若要重設它們的快取持續時間，您必須[清除檔案](cdn-purge-endpoint.md)。 針對**來自 Verizon 的 Azure CDN** 端點，新的快取規則可能需要 90 分鐘才會生效。
+> 在規則變更之前快取的檔案會維持其原始的快取持續時間設定。 若要重設它們的快取持續時間，您必須[清除檔案](cdn-purge-endpoint.md)。 
+>
+> Azure CDN 組態變更會需要一些時間才能傳播至整個網路： 
+> - 若為**來自 Akamai 的標準 Azure CDN** 設定檔，通常會在一分鐘內完成傳播。 
+> - 若為**來自 Verizon 的標準 Azure CDN** 設定檔，則通常會在 10 分鐘內完成傳播。  
+>
 
 ## <a name="see-also"></a>另請參閱
 

@@ -1,21 +1,21 @@
 ---
-title: 使用 OpenID Connect 的 Web 登入 - Azure AD B2C | Microsoft Docs
-description: 使用 OpenID Connect 驗證通訊協定的 Azure Active Directory 實作來建置 Web 應用程式
+title: 在 Azure Active Directory B2C 中利用 OpenID Connect 的 Web 登入 | Microsoft Docs
+description: 使用 Azure Active Directory 的 OpenID Connect 驗證通訊協定實作來建置 Web 應用程式。
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: e787ea36ab5099705f151504385dd5dc97029e37
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 4ad7a6fb032c805072fd9608fb8058a70aa12914
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441826"
 ---
 # <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C：利用 OpenID Connect 的 Web 登入
 OpenID Connect 是建置在 OAuth 2.0 之上的驗證通訊協定，可用來將使用者安全地登入 Web 應用程式。 藉由使用 OpenID Connect 的 Azure Active Directory B2C (Azure AD B2C) 實作，您就能將 Web 應用程式中的註冊、登入及其他識別管理體驗外包給 Azure Active Directory (Azure AD)。 本指南會以與語言無關的方式示範如何執行此動作。 而是在說明如何傳送和接收 HTTP 訊息，但不使用我們的任何開放原始碼程式庫。

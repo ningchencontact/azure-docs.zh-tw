@@ -4,19 +4,18 @@ description: Azure Cosmos DB 快速入門，說明如何使用 Azure Cosmos DB �
 services: cosmos-db
 author: luisbosquez
 manager: kfile
-ms.assetid: bf08e031-718a-4a2a-89d6-91e12ff8797d
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: terminal
+ms.component: cosmosdb-graph
+ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 0f50443385f483fd948d7f19164050600fa8c143
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6f6a622c2b9faf6117a8212000e1e632df3526b2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38634125"
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB︰在 Gremlin 主控台中建立、查詢和周遊圖形
 
@@ -46,11 +45,11 @@ Gremlin 主控台是以 Groovy/Java 為基礎並且在 Linux、Mac 和 Windows �
 
 ## <a id="ConnectAppService"></a>連線到您的應用程式服務
 1. 啟動 Gremlin 主控台之前，請建立或修改 `apache-tinkerpop-gremlin-console-3.2.5/conf` 目錄中的 remote-secure.yaml 組態檔。
-2. 填入您的 host、port、username、password、connectionPool 和 serializer 組態︰
+2. 填入如下表中定義的 host、port、username、password、connectionPool 和 serializer 組態︰
 
     設定|建議的值|說明
     ---|---|---
-    主機|針對 2017 年 12 月 20 日之前建立的帳戶，[account-name.gremlin.cosmosdb.azure.com] 或 [account-name.graphs.azure.com]|請參閱下列螢幕擷取畫面。 這是 Azure 入口網站的 [概觀] 頁面上的 Gremlin URI 值，其以方括號括住並已移除尾端的 :443/。<br><br>此值也可以從 [金鑰] 索引標籤擷取，方法是移除 https://、將文件變更為圖形 pr gremlin.cosmosdb，並移除尾端的 :443/ 來使用 URI 值。
+    主機|針對 2017 年 12 月 20 日之前建立的帳戶，[account-name.gremlin.cosmosdb.azure.com] 或 [account-name.graphs.azure.com]|請參閱下列螢幕擷取畫面。 這是 Azure 入口網站的 [概觀] 頁面上的 Gremlin URI 值，其以方括號括住並已移除尾端的 :443/。
     連接埠|443|設為 443。
     username|您的使用者名稱|`/dbs/<db>/colls/<coll>` 表單的資源，其中 `<db>` 是您的資料庫名稱，而 `<coll>` 是您的集合名稱。
     password|您的主要金鑰| 請看下方的第二個螢幕擷取畫面。 這是您的主要金鑰，可以從 Azure 入口網站 [金鑰] 頁面的 [主鑰金鑰] 方塊中擷取。 使用方塊左側的 [複製] 按鈕來複製此值。
@@ -79,6 +78,8 @@ serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessage
 
     > [!TIP]
     > 如果您收到 `No appenders could be found for logger` 錯誤，確定您如步驟 2 所述更新了 remote-secure.yaml 檔案中的序列化程式值。 
+
+5. 接下來，執行 `:remote console` 以將所有主控台命令重新導向至遠端伺服器。
 
 太棒了！ 現在已完成安裝程式，讓我們開始執行一些主控台命令。
 

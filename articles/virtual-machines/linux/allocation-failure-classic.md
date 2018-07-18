@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 04/13/2018
 ms.author: genli
 ms.openlocfilehash: d03580e688b993b9b0ea5ca0ea436e1a47a4b0bd
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "31529191"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38561154"
 ---
 # <a name="troubleshooting-steps-specific-to-allocation-failure-scenarios-in-the-classic-deployment-model"></a>傳統部署模型中配置失敗案例的具體疑難排解步驟
 

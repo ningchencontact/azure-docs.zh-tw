@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2018
 ms.author: yushwang
-ms.openlocfilehash: b3d9d45da0fb62445867d13c9dff7502af77e8a8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: ba557fdae01df4a631c2acff49cc3350fb08ff59
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726232"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>關於 VPN 裝置和站對站 VPN 閘道連線的 IPsec/IKE 參數
 
@@ -56,7 +57,7 @@ ms.lasthandoff: 04/20/2018
 | Check Point |Security Gateway |R77.30 |[設定指南](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[設定指南](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
 | Cisco              |ASA       |8.3<br>8.4+ (IKEv2\*) |[設定範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |[設定指南\*](vpn-gateway-3rdparty-device-config-cisco-asa.md) |
 | Cisco |ASR |原則式：IOS 15.1<br>路由式：IOS 15.2 |[設定範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[設定範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
-| Cisco |ISR |原則式：IOS 15.0<br>路由式*：IOS 15.1 |[設定範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[設定範例\**](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
+| Cisco |ISR |原則式：IOS 15.0<br>路由式*：IOS 15.1 |[設定範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[設定範例\*\*](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
 | Cisco |Meraki |N/A |不相容 |不相容 |
 | Citrix |NetScaler MPX、SDX、VPX |10.1 和更新版本 |[設定指南](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |不相容 |
 | F5 |BIG-IP 系列 |12.0 |[設定指南](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[設定指南](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
@@ -145,16 +146,16 @@ ms.lasthandoff: 04/20/2018
 | **屬性**                  |**原則式**| **路由式**                              |
 | ---                           | ---           | ---                                         |
 | IKE 版本                   |IKEv1          |IKEv2                                        |
-| 加密與雜湊演算法 |1.AES256、SHA256<br>2.AES256、SHA1<br>3.AES128、SHA1<br>4. 3DES、SHA1 |[RouteBased QM SA 提供項目](#RouteBasedOffers) |
+| 加密與雜湊演算法 |1.AES256、SHA256<br>2.AES256、SHA1<br>3.AES128、SHA1<br>4. 3DES、SHA1 |[RouteBased QM SA 供應項目](#RouteBasedOffers) |
 | SA 存留期 (時間)            |3,600 秒  |27,000 秒                                |
 | SA 存留期 (位元組)           |102,400,000 KB | -                                           |
-| 完整轉寄密碼 (PFS) |否             |[RouteBased QM SA 提供項目](#RouteBasedOffers) |
+| 完整轉寄密碼 (PFS) |否             |[RouteBased QM SA 供應項目](#RouteBasedOffers) |
 | 停用的對等偵測 (DPD)     |不支援  |支援                                    |
 
 
-### <a name ="RouteBasedOffers"></a>RouteBased VPN IPsec 安全性關聯 (IKE 快速模式 SA) 提供項目
+### <a name ="RouteBasedOffers"></a>RouteBased VPN IPsec 安全性關聯 (IKE 快速模式 SA) 供應項目
 
-下表列出 IPsec SA (IKE 快速模式) 提供項目。 提供項目是依其呈現或被接受的喜好設定順序而列出。
+下表列出 IPsec SA (IKE 快速模式) 供應項目。 供應項目是依其呈現或被接受的喜好設定順序而列出。
 
 #### <a name="azure-gateway-as-initiator"></a>Azure 閘道器為啟動者
 

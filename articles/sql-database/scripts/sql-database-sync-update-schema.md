@@ -1,9 +1,9 @@
 ---
-title: PowerShell 範例 - 更新 SQL 資料同步 (預覽) 的同步結構描述 | Microsoft Docs
+title: PowerShell 範例 - 更新 SQL 資料同步的同步結構描述 | Microsoft Docs
 description: 更新 SQL 資料同步之同步結構描述的 Azure PowerShell 範例指令碼
 services: sql-database
 documentationcenter: sql-database
-author: jognanay
+author: allenwux
 manager: craigg
 editor: ''
 tags: ''
@@ -15,21 +15,22 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 01/10/2018
-ms.author: jognanay
+ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: f306eba91adf574f8bb20b2aa459f890b97bb732
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: ee491ab02305b858241ba5ddc2ec7651b7802be0
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37024673"
 ---
 # <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>使用 PowerShell 更新現有同步群組中的同步結構描述
 
-此 PowerShell 範例會更新現有 SQL 資料同步 (預覽) 同步群組中的同步結構描述。 當您要同步處理多個資料表時，此指令碼可協助您有效率地更新同步結構描述。
+此 PowerShell 範例會更新現有「SQL 資料同步」同步群組中的同步結構描述。 當您要同步處理多個資料表時，此指令碼可協助您有效率地更新同步結構描述。
 
 此範例會示範 **UpdateSyncSchema** 指令碼的使用方式，這個指令碼在 GitHub 上會以 [UpdateSyncSchema.ps1](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/sql-data-sync/UpdateSyncSchema.ps1) 提供使用。
 
-如需 SQL 資料同步的概觀，請參閱[使用 Azure SQL 資料同步 (預覽)，跨多個雲端和內部部署資料庫同步處理資料](../sql-database-sync-data.md)。
+如需 SQL 資料同步的概觀，請參閱[使用 Azure SQL 資料同步，跨多個雲端和內部部署資料庫同步處理資料](../sql-database-sync-data.md)。
 ## <a name="prerequisites"></a>先決條件
 
 此範例需要 Azure PowerShell 模組 4.2 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。

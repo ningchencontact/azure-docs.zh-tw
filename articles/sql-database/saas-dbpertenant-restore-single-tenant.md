@@ -7,15 +7,16 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: eb7e87934269a5e1ba453e20f6f409a10dfbda5b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 319195ceb98b5b760d4d92055faa6e09c8fb0e3d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34644343"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>使用每一租用戶一個資料庫的 SaaS 應用程式還原單一租用戶
 
@@ -64,7 +65,7 @@ ms.lasthandoff: 04/06/2018
 
 ### <a name="open-the-events-app-to-review-the-current-events"></a>開啟事件應用程式以檢閱目前的事件
 
-1. 開啟 [事件中樞] (http://events.wtp.&lt;user&gt;.trafficmanager.net)，然後選取 [Contoso Concert Hall]。
+1. 開啟 [事件中樞] \(http://events.wtp.&lt;user&gt;.trafficmanager.net)，然後選取 [Contoso Concert Hall]。
 
    ![事件中樞](media/saas-dbpertenant-restore-single-tenant/events-hub.png)
 

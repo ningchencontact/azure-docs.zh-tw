@@ -13,6 +13,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/24/2018
+ms.locfileid: "30323621"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>區域備援儲存體 (ZRS)：高可用性 Azure 儲存體應用程式
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30174964"
 ---
 # <a name="grant-permission-to-many-applications-to-access-a-key-vault"></a>對許多應用程式授與金鑰保存庫的存取權限
 

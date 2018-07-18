@@ -1,21 +1,21 @@
 ---
-title: "使用 Azure IoT Edge 裝置作為閘道 | Microsoft Docs"
-description: "使用 Azure IoT Edge 來建立透明、不透明或 Proxy 閘道裝置，將資料從多個下游裝置傳送到雲端或在本機處理。"
-services: iot-edge
-keywords: 
+title: 使用 Azure IoT Edge 裝置作為閘道 | Microsoft Docs
+description: 使用 Azure IoT Edge 來建立透明、不透明或 Proxy 閘道裝置，將資料從多個下游裝置傳送到雲端或在本機處理。
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 11/27/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: fe7ad2444b9378550e9624e3d109c8be4fd29f23
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+services: iot-edge
+ms.openlocfilehash: 0e085d6c2962ec2a2324bfc134b0e201df04a336
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028960"
 ---
-# <a name="how-an-iot-edge-device-can-be-used-as-a-gateway---preview"></a>如何使用 IoT Edge 裝置作為閘道 - 預覽
+# <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>如何使用 IoT Edge 裝置作為閘道
 
 IoT 解決方案中的閘道用途為解決方案所特有，結合了裝置連線能力與邊緣分析。 不論 Azure IoT Edge 是與連線能力、身分識別或邊緣分析相關，都可用來滿足 IoT 閘道的所有需求。 本文中的閘道模式只是指下游裝置連線能力和裝置身分識別的特性，而非在閘道上處理裝置資料的方式。
 
@@ -54,7 +54,7 @@ IoT 解決方案中的閘道用途為解決方案所特有，結合了裝置連�
 ## <a name="next-steps"></a>後續步驟
 使用 IoT Edge 裝置作為[透明閘道][lnk-iot-edge-as-transparent-gateway] 
 
-[lnk-iot-edge-as-transparent-gateway]: ./how-to-create-transparent-gateway.md
+[lnk-iot-edge-as-transparent-gateway]: ./how-to-create-transparent-gateway-linux.md
 [lnk-iothub-throttles-quotas]: ../iot-hub/iot-hub-devguide-quotas-throttling.md
 
 [1]: ./media/iot-edge-as-gateway/edge-as-gateway.png

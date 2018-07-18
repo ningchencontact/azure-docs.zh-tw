@@ -10,28 +10,26 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/26/2018
+ms.topic: conceptual
+ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 855cb159474836e4c015f84d7d57546b5e1a2e99
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c0a07cb872ec87bbf39237b74990a1fc7a74e9e8
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053250"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>在 Azure Data Factory 中資料移動的安全性考量
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [第 1 版 - 正式推出](v1/data-factory-data-movement-security-considerations.md)
-> * [第 2 版 - 預覽](data-movement-security-considerations.md)
+> * [第 1 版](v1/data-factory-data-movement-security-considerations.md)
+> * [目前的版本](data-movement-security-considerations.md)
 
 本文說明 Azure Data Factory 中資料移動服務用來協助保護您資料的基本安全性基礎結構。 Data Factory 管理資源建置在 Azure 安全性基礎結構上，並使用 Azure 提供的所有可能安全性措施。
 
-> [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務，也就是正式推出 (GA) 的版本，請參閱 [Data Factory 第 1 版的資料移動安全性考量](v1/data-factory-data-movement-security-considerations.md)。
-
 在 Data Factory 方案中，您可以建立一或多個資料 [管線](concepts-pipelines-activities.md)。 管線是一起執行某個工作的活動所組成的邏輯群組。 這些管線位於建立 Data Factory 的區域中。 
 
-雖然 Data Factory 只有在美國東部、美國東部 2、西歐區域才有提供 (版本 2 預覽)，但[全球數個區域](concepts-integration-runtime.md#azure-ir)都有提供資料移動服務。 如果資料移動服務尚未部署到該區域，Data Factory 服務可確保資料不會離開某個地區或區域，除非您明確指示服務使用替代區域。 
+儘管 Data Factory 僅適用於某些區域，資料移動服務仍[全球適用](concepts-integration-runtime.md#integration-runtime-location)，以確保資料合規、有效率，且網路輸出成本降低。 
 
 Azure Data Factory 除了用於雲端資料存放區的連結服務認證 (會使用憑證加密) 之外，並不會儲存任何資料。 您可以使用 Data Factory 來建立資料導向工作流程，藉由使用其他區域或內部部署環境中的[計算服務](compute-linked-services.md)，協調[所支援資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)之間的資料移動和資料處理。 您也可以藉由使用 SDK 和 Azure 監視器來監視和管理工作流程。
 
@@ -41,7 +39,7 @@ Azure Data Factory 除了用於雲端資料存放區的連結服務認證 (會�
 -   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018)
 -   [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
 
-如果您對 Azure 法規遵循以及 Azure 如何保護其專屬基礎結構感興趣，請瀏覽 [Microsoft 信任中心](https://www.microsoft.com/trustcenter)。
+如果您對 Azure 法規遵循以及 Azure 如何保護其專屬基礎結構感興趣，請瀏覽 [Microsoft 信任中心](https://microsoft.com/en-us/trustcenter/default.aspx)。
 
 在本文中，我們會檢閱下列兩個資料移動案例中的安全性考量︰ 
 

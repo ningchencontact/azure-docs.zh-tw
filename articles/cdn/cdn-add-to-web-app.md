@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: de8b354cf0199d36d5e0b1410a9f79d4a9e3e05c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: efd8e93f32020d1ef3695e7fc6b9907374275848
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359776"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608384"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>教學課程：將 Azure CDN 新增至 Azure App Service Web 應用程式
 
@@ -55,6 +55,9 @@ ms.locfileid: "34359776"
 
 開啟瀏覽器並瀏覽至 [Azure 入口網站](https://portal.azure.com)。
 
+### <a name="dynamic-site-acceleration-optimization"></a>動態網站加速最佳化
+如果您想要為 CDN 端點進行動態網站加速 (DSA) 的最佳化，您應使用 [CDN 入口網站](cdn-create-new-endpoint.md)建立設定檔和端點。 執行 [DSA 最佳化](cdn-dynamic-site-acceleration.md)後，具有動態內容的網頁將可顯著提升效能。 如需如何從 CDN 入口網站為 CDN 端點進行 DSA 最佳化的相關指示，請參閱[用來加速傳遞動態檔案的 CDN 端點組態](cdn-dynamic-site-acceleration.md#cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files)。 否則，如果您不想要最佳化新端點，您可以依照下一節中的步驟，使用 Web 應用程式入口網站建立端點。 請注意，對於**來自 Verizon 的 Azure CDN** 設定檔，您無法在 CDN 端點建立之後變更其最佳化。
+
 ## <a name="create-a-cdn-profile-and-endpoint"></a>建立 CDN 設定檔和端點
 
 在左側導覽中，選取 [應用程式服務]，然後選取您在[靜態 HTML 快速入門](../app-service/app-service-web-get-started-html.md)中建立的應用程式。
@@ -64,9 +67,6 @@ ms.locfileid: "34359776"
 在 [App Service] 頁面的 [設定] 區段中，選取 [網路] > [設定您應用程式的 Azure CDN]。
 
 ![在入口網站中選取 CDN](media/cdn-add-to-web-app/portal-select-cdn.png)
-
-### <a name="dynamic-site-acceleration-optimization"></a>動態網站加速最佳化
-如果您想要為 CDN 端點進行動態網站加速 (DSA) 的最佳化，請使用 CDN 入口網站直接建立端點。 執行 [DSA 最佳化](cdn-dynamic-site-acceleration.md)後，具有動態內容的網頁將可顯著提升效能。 如需關於從 CDN 入口網站為 CDN 端點進行 DSA 最佳化的詳細資訊，請參閱[用來加速傳遞動態檔案的 CDN 端點組態](cdn-dynamic-site-acceleration.md#cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files)。 針對**來自 Verizon 的 Azure CDN**設定檔，您無法在 CDN 端點建立之後，變更其最佳化。
 
 在 [Azure 內容傳遞網路] 頁面中，提供表格中所指定的 [新端點] 設定。
 

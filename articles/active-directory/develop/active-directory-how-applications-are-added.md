@@ -16,19 +16,22 @@ ms.workload: identity
 ms.date: 04/18/2018
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: c9ebfcba59e3f46fb30f4cd2402ec4ebb606f6d0
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: elisol, lenalepa
+ms.openlocfilehash: 5c8ae9534e79b8dc801262f85d8a007e050f4da7
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316954"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>將應用程式加入至 Azure AD 的方式和原因
+
 應用程式在 Azure AD 中有兩種表示方式： 
-* [應用程式物件](active-directory-application-objects.md#application-object) - 雖有[例外](#notes-and-exceptions)，但您可以將這些物件視為應用程式的定義。
-* [服務主體](active-directory-application-objects.md#service-principal-object) - 您可以將這些主體視為應用程式的執行個體。 服務主體通常會參考應用程式物件，而且一個應用程式物件可供不同目錄的多個服務主體來參考。
+* [應用程式物件](active-directory-application-objects.md#application-object) - 雖有[例外狀況](#notes-and-exceptions)，但可以將應用程式物件視為應用程式的定義。
+* [服務主體](active-directory-application-objects.md#service-principal-object) - 可以將這些主體視為應用程式的執行個體。 服務主體通常會參考應用程式物件，而且一個應用程式物件可供不同目錄的多個服務主體來參考。
 
 ## <a name="what-are-application-objects-and-where-do-they-come-from"></a>什麼是應用程式物件，其來自何處？
-[應用程式物件](active-directory-application-objects.md#application-object) (您可以在 Azure 入口網站中透過[應用程式註冊](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade)體驗來管理) 會向 Azure AD 描述應用程式，而且您可以將其視為應用程式的定義，其可讓服務了解如何根據其設定對應用程式核發權杖。 應用程式物件只存在於其主目錄中，即使其為在其他目錄中支援服務主體的多租用戶應用程式也是如此。 應用程式物件可能包含下列任何項目 (以及此處未提及的其他資訊)：
+您可以在 Azure 入口網站中透過[應用程式註冊](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade)體驗來管理[應用程式物件](active-directory-application-objects.md#application-object)。 應用程式物件會向 Azure AD 描述應用程式，而且您可以將其視為應用程式的定義，其可讓服務了解如何根據其設定對應用程式核發權杖。 應用程式物件只存在於其主目錄中，即使其為在其他目錄中支援服務主體的多租用戶應用程式也是如此。 應用程式物件可能包含下列任何項目 (以及此處未提及的其他資訊)：
 * 名稱、標誌和發行者
 * 回覆 URL
 * 密碼 (用來驗證應用程式的對稱和/或非對稱金鑰)
@@ -47,7 +50,7 @@ ms.lasthandoff: 05/14/2018
 * 許多其他路徑，包括 Azure 中的各種開發人員經驗，以及在跨開發人員中心的 API 總管體驗
 
 ## <a name="what-are-service-principals-and-where-do-they-come-from"></a>什麼是服務主體，其來自何處？
-[服務主體](active-directory-application-objects.md#service-principal-object) (您可以透過[企業應用程式](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)體驗來管理) 會實際控管連線至 Azure AD 的應用程式，您可以將其視為目錄中應用程式的執行個體。 任何給定的應用程式最多可以有一個應用程式物件 (註冊於「主」目錄)，以及一或多個服務主體物件 (代表應用程式作用所在每個目錄中應用程式的執行個體)。 
+您可以在 Azure 入口網站中透過[企業應用程式](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)體驗來管理[服務主體](active-directory-application-objects.md#service-principal-object)。 服務主體可控管連線至 Azure AD 的應用程式，您可以將其視為目錄中應用程式的執行個體。 任何給定的應用程式最多可以有一個應用程式物件 (註冊於「主」目錄)，以及一或多個服務主體物件 (代表應用程式作用所在每個目錄中應用程式的執行個體)。 
 
 服務主體可包含：
 
@@ -129,7 +132,8 @@ ms.lasthandoff: 05/14/2018
 * 若要防止使用者同意應用程式代表使用者自己行事：
   1. 在 Azure 入口網站中，移至企業應用程式下的[使用者設定](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)區段。
   2. 將 [使用者可同意應用程式代表自己存取公司資料] 變更為 [否]。 
-     請注意，如果您決定關閉使用者同意功能，使用者需要使用的任何新應用程式就必須由系統管理員同意。
+      > [!NOTE]
+      > 如果您決定關閉使用者同意功能，使用者需要使用的任何新應用程式就必須由系統管理員同意。    
 * 若要防止使用者註冊自己的應用程式：
   1. 在 Azure 入口網站中，移至 Azure Active Directory 下的[使用者設定](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings)區段
   2. 將 [使用者可以註冊應用程式] 變更為 [否]。

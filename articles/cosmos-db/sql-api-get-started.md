@@ -3,22 +3,20 @@ title: Azure Cosmos DB：SQL API 入門教學課程 | Microsoft Docs
 description: 本教學課程將使用 SQL API 來建立線上資料庫，以及 C# 主控台應用程式。
 keywords: nosql 教學課程, 線上資料庫, c# 主控台應用程式
 services: cosmos-db
-documentationcenter: .net
-author: AndrewHoh
+author: SnehaGunda
 manager: kfile
-ms.assetid: bf08e031-718a-4a2a-89d6-91e12ff8797d
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/16/2017
-ms.author: anhoh
-ms.openlocfilehash: 9de183ccd60dca0b8c67bc3e17136212b7132439
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: sngun
+ms.openlocfilehash: 461279b5deb992be998e449f8f1ed062e91aae9b
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38629456"
 ---
 # <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB：SQL API 入門教學課程
 > [!div class="op_single_selector"]
@@ -26,9 +24,7 @@ ms.lasthandoff: 04/06/2018
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
 > * [Node.js for MongoDB](mongodb-samples.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
-> * [Java](sql-api-java-get-started.md)
-> * [C++](sql-api-cpp-get-started.md)
->  
+> * [Java](sql-api-java-get-started.md) 
 > 
 
 歡迎使用 Azure Cosmos DB SQL API 入門教學課程！ 完成本教學課程之後，您將會有一個主控台應用程式，可用來建立和查詢 Azure Cosmos DB 資源。

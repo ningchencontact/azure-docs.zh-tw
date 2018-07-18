@@ -128,8 +128,8 @@
           href: azure-stack-monitor-health.md
         - name: 管理網路資源
           href: azure-stack-viewing-public-ip-address-consumption.md
-        - name: 管理 Windows Azure 套件 VM
-          href: azure-stack-manage-windows-azure-pack.md
+        - name: 變更使用者訂用帳戶擁有者
+          href: azure-stack-change-subscription-owner.md
         - name: 啟動及停止 Azure Stack
           href: azure-stack-start-and-stop.md
         - name: 管理容量
@@ -189,21 +189,25 @@
               href: azure-stack-enable-multitenancy.md
         - name: 旋轉祕密
           href: azure-stack-rotate-secrets.md
-    - name: 優惠服務
+        - name: 更新防毒軟體
+          href: azure-stack-security-av.md
+    - name: 供應項目服務
       items:
-        - name: 優惠服務概觀
+        - name: 供應項目服務概觀
           href: azure-stack-offer-services-overview.md
-        - name: 建立方案、優惠和配額
+        - name: 建立方案、供應項目和配額
           items:
-            - name: 方案、優惠、配頭和訂用帳戶概觀
+            - name: 方案、供應項目、配頭和訂用帳戶概觀
               href: azure-stack-plan-offer-quota-overview.md
             - name: 建立方案
               href: azure-stack-create-plan.md
-            - name: 建立優惠
+            - name: 建立附加方案
+              href: create-add-on-plan.md
+            - name: 建立供應項目
               href: azure-stack-create-offer.md
-            - name: 訂閱優惠
+            - name: 訂閱供應項目
               href: azure-stack-subscribe-plan-provision-vm.md
-            - name: 在 Azure Stack 中委派優惠
+            - name: 在 Azure Stack 中委派供應項目
               href: azure-stack-delegated-provider.md
             - name: 配額類型
               href: azure-stack-quota-types.md
@@ -214,7 +218,7 @@
           items:
             - name: 部署 SQL Server 資源提供者
               href: azure-stack-sql-resource-provider-deploy.md
-            - name: 新增主機伺服器
+            - name: 新增 SQL 主機伺服器
               href: azure-stack-sql-resource-provider-hosting-servers.md
             - name: 建立 SQL 資料庫
               href: azure-stack-sql-resource-provider-databases.md
@@ -225,7 +229,20 @@
             - name: 移除 SQL Server 資源提供者
               href: azure-stack-sql-resource-provider-remove.md
         - name: 提供 MySQL 做為 PaaS
-          href: azure-stack-mysql-resource-provider-deploy.md
+          href: azure-stack-mysql-resource-provider.md
+          items:
+            - name: 部署 MySQL Server 資源提供者
+              href: azure-stack-mysql-resource-provider-deploy.md
+            - name: 新增 MySQL 主機伺服器
+              href: azure-stack-mysql-resource-provider-hosting-servers.md
+            - name: 建立 MySQL 資料庫
+              href: azure-stack-mysql-resource-provider-databases.md
+            - name: 更新 MySQL Server 資源提供者
+              href: azure-stack-mysql-resource-provider-update.md
+            - name: 維護 MySQL Server 資源提供者
+              href: azure-stack-mysql-resource-provider-maintain.md
+            - name: 移除 MySQL Server 資源提供者
+              href: azure-stack-mysql-resource-provider-remove.md
         - name: 提供 App Service 做為 PaaS
           items:
             - name: Azure Stack 概觀上的 App Service
@@ -252,6 +269,8 @@
               href: azure-stack-app-service-release-notes-update-one.md
             - name: App Service on Azure Stack 更新 2 版本資訊
               href: azure-stack-app-service-release-notes-update-two.md
+        - name: 部署 Ethereum
+          href: azure-stack-ethereum.md
         - name: 植入 Marketplace
           items:
             - name: Marketplace 概觀
@@ -277,15 +296,15 @@
             - name: 提供 Kubernetes 叢集
               href: azure-stack-solution-template-kubernetes-cluster-add.md
         - name: 使用量與計費
+          href: azure-stack-billing-and-chargeback.md
           items:
-            - name: 概觀
-              href: azure-stack-billing-and-chargeback.md
             - name: 透過 CSP 管理使用量和帳單
               href: azure-stack-add-manage-billing-as-a-csp.md
-            - name: 新增租用戶使用方式與帳單
-              href: azure-stack-csp-howto-register-tenants.md
-            - name: 管理租用戶註冊
-              href: azure-stack-csp-ref-operations.md
+              items:
+                - name: 新增租用戶使用方式與帳單
+                  href: azure-stack-csp-howto-register-tenants.md
+                - name: 管理租用戶註冊
+                  href: azure-stack-csp-ref-operations.md
             - name: 使用方式與帳單參考
               items:
                 - name: 使用量資料報告

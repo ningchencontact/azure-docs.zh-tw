@@ -1,23 +1,21 @@
 ---
-title: 在內建原則中新增 OpenID Connect 識別提供者 - Azure AD B2C | Microsoft Docs
-description: 如何在 Azure AD B2C 的內建原則中新增 OpenID Connect 提供者的概觀指南
+title: 在 Azure Active Directory B2C 的內建原則中新增 OpenID Connect 識別提供者 | Microsoft Docs
+description: 如何在 Azure AD B2C 的內建原則中新增 OpenID Connect 提供者的概觀指南。
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 357d193a-e33b-469c-8a93-0a8f45a60a9f
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: davidmu
-ms.openlocfilehash: 46223f1ec6b82828983861dae26ec8d777b77b86
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.component: B2C
+ms.openlocfilehash: e5baf95cd2426c9753620cba7c5a67b4c1672788
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2018
-ms.locfileid: "32308979"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444220"
 ---
 # <a name="azure-active-directory-b2c-add-a-custom-openid-connect-identity-provider-in-built-in-policies"></a>Azure Active Directory B2C︰在內建原則中新增自訂 OpenID Connect 識別提供者
 
@@ -50,7 +48,7 @@ ms.locfileid: "32308979"
 > [!NOTE]
 > 用戶端祕密為選擇性項目。 不過，如果您想要使用[授權碼流程](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) (其使用祕密將程式碼換成權杖)，您必須輸入用戶端祕密。
 
-#### <a name="scope"></a>Scope
+#### <a name="scope"></a>影響範圍
 
 範圍可定義您想要從自訂識別提供者蒐集的資訊和權限。 OpenID Connect 要求必須包含 `openid` 範圍值，以便接收來自識別提供者的識別碼權杖。 沒有識別碼權杖，使用者將無法使用自訂識別提供者登入 Azure AD B2C。
 

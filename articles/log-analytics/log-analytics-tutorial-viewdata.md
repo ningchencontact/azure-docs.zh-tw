@@ -14,11 +14,13 @@ ms.topic: tutorial
 ms.date: 04/03/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 6345fe89a3bf25041621213274ea0c3081848d99
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: na
+ms.openlocfilehash: 6b25712d660c26f2e7206b361c443b8f97aad361
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867608"
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>檢視或分析以 Log Analytics 記錄搜尋所收集的資料
 
@@ -40,8 +42,8 @@ ms.lasthandoff: 04/05/2018
 ## <a name="open-the-log-search-portal"></a>開啟記錄搜尋入口網站 
 從開啟記錄搜尋入口網站開始。   
 
-1. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。
-2. 在 [Log Analytics 訂用帳戶] 窗格中，選取工作區，然後選取 [記錄搜尋] 圖格。<br><br> ![[記錄搜尋] 按鈕](media/log-analytics-tutorial-viewdata/azure-portal-02.png)
+1. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中輸入 [監視器]。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [監視器]。
+2. 在 [監視器] 導覽功能表中，選取 [Log Analytics]，然後選取工作區
 
 ## <a name="create-a-simple-search"></a>建立簡單搜尋
 若要擷取某些資料來使用，最快的方式是使用會傳回資料表中所有記錄的簡單查詢。  如果有任何 Windows 或 Linux 用戶端連線到您的工作區，則您會擁有事件 (Windows) 或 Syslog (Linux) 資料表中的資料。
@@ -83,7 +85,7 @@ Syslog | where (SeverityLevel == "err")
 
 只有在將滑鼠移至上方時，名稱是藍色的屬性才會有 [篩選] 選項。  這些是可搜尋的欄位，已針對搜尋條件編列索引。  灰色的欄位是「自然語言檢索搜尋旗標」欄位，只有 [顯示參考] 選項。  此選項會傳回在任何屬性中具有該值的記錄。
 
-您可以選取記錄功能表中的 [分組依據] 選項，在單一屬性上群組結果。  這會將[摘要](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator)運算子新增到查詢中，可在圖表中顯示結果。  您可以群組一個以上的屬性，但需要直接編輯查詢。  選取**電腦**屬性旁的記錄功能表，並選取 [依「電腦」分組]。  
+您可以選取記錄功能表中的 [分組依據] 選項，在單一屬性上群組結果。  這會將[摘要](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator)運算子新增到查詢中，可在圖表中顯示結果。  您可以群組一個以上的屬性，但需要直接編輯查詢。  選取**電腦**屬性旁的記錄功能表，並選取 [Group by 'Computer'] \(依「電腦」分組\)。  
 
 ![依電腦分組](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-04.png)
 
@@ -123,7 +125,7 @@ Perf
 針對所有效能物件和計數器傳回數百萬筆記錄並不太實用。  您可以使用與上述相同的方法來篩選資料，或直接在 [記錄搜尋] 方塊中輸入下列查詢。  這對於 Windows 和 Linux 電腦都只會傳回處理器使用率記錄。
 
 ```
-Perf | where (ObjectName == "Processor")  | where (CounterName == "% Processor Time")
+Perf | where ObjectName == "Processor"  | where CounterName == "% Processor Time"
 ```
 
 ![處理器使用率](media/log-analytics-tutorial-viewdata/log-analytics-portal-perfsearch-02.png)
@@ -131,7 +133,9 @@ Perf | where (ObjectName == "Processor")  | where (CounterName == "% Processor T
 這可讓資料限制在特定的計數器，但仍無法以非常實用的形式來呈現資料。  您可透過折線圖顯示資料，但首先需要以 [電腦] 與 [TimeGenerated] 進行群組。  若要群組多個欄位，您需要直接修改查詢，因此，請將查詢修改如下。  這是在 **CounterValue** 屬性上使用 [avg](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/avg()) 函式來計算每小時的平均值。
 
 ```
-Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor Time") | summarize avg(CounterValue) by Computer, TimeGenerated
+Perf  
+| where ObjectName == "Processor"  | where CounterName == "% Processor Time"
+| summarize avg(CounterValue) by Computer, TimeGenerated
 ```
 
 ![效能資料圖表](media/log-analytics-tutorial-viewdata/log-analytics-portal-perfsearch-03.png)
@@ -139,7 +143,10 @@ Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor 
 資料既已適當分組，您可以新增[轉譯](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator)運算子，以視覺圖表來顯示資料。  
 
 ```
-Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor Time") | summarize avg(CounterValue) by Computer, TimeGenerated | render timechart
+Perf  
+| where ObjectName == "Processor" | where CounterName == "% Processor Time" 
+| summarize avg(CounterValue) by Computer, TimeGenerated 
+| render timechart
 ```
 
 ![折線圖](media/log-analytics-tutorial-viewdata/log-analytics-portal-linechart-01.png)

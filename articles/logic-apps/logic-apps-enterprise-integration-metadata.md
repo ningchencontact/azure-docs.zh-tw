@@ -2,7 +2,7 @@
 title: 管理整合帳戶構件中繼資料 - Azure Logic Apps | Microsoft Docs
 description: 從 Azure Logic Apps 的整合帳戶新增或擷取構件中繼資料
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -15,11 +15,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 02/23/2018
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 8ebca60c21366cddadccfd0456880696457d7777
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 3e7ef6aef9bc1062ae0f76adfbaf086961fcaa94
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298360"
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-for-logic-apps"></a>在 Logic Apps 的整合帳戶中管理構件中繼資料
 

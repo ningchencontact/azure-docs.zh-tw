@@ -10,23 +10,24 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ce5909bd522ab7af77846af598506ea69058bd5c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8f86f43b4d8c474f338285abffb3c444f5ebc2d7
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054733"
 ---
 # <a name="copy-data-to-and-from-data-lake-store-by-using-data-factory"></a>了解如何使用 Data Factory 從 Data Lake Store 來回複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [第 1 版 - 正式推出](data-factory-azure-datalake-connector.md)
-> * [第 2 版 - 預覽](../connector-azure-data-lake-store.md)
+> * [第 1 版](data-factory-azure-datalake-connector.md)
+> * [第 2 版 (目前的版本)](../connector-azure-data-lake-store.md)
 
 > [!NOTE]
-> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用處於預覽狀態的 Data Factory 第 2 版，請參閱[第 2 版中的 Azure Data Lake Store 連接器](../connector-azure-data-lake-store.md)。
+> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[第 2 版中的 Azure Data Lake Store 連接器](../connector-azure-data-lake-store.md)。
 
 本文說明如何使用 Azure Data Factory 中的「複製活動」，將資料移進與移出 Azure Data Lake Store。 本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文，該文概述使用「複製活動」移動資料。
 
@@ -191,13 +192,13 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 
 ## <a name="troubleshooting-tips"></a>疑難排解秘訣
 
-**徵兆：**將資料複製**到** Azure Data Lake Store 時，如果複製活動因以下錯誤而發生失敗：
+**徵兆：** 將資料複製**到** Azure Data Lake Store 時，如果複製活動因以下錯誤而發生失敗：
 
   ```
   Failed to detect the region for Azure Data Lake account {your account name}. Please make sure that the Resource Group name: {resource group name} and subscription ID: {subscription ID} of this Azure Data Lake Store resource are correct.
   ```
 
-**根本原因：**有 2 個可能的原因：
+**根本原因：** 有 2 個可能的原因：
 
 1. Azure Data Lake Store 已連結服務中指定的 `resourceGroupName` 和/或 `subscriptionId` 不正確；
 2. 使用者或服務主體沒有所需的權限。

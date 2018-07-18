@@ -1,11 +1,11 @@
 ---
-title: "Azure AD 和應用程式：將使用者指派給應用程式 | Microsoft Docs"
-description: "如何實作 Azure 應用程式的使用者指派。"
+title: Azure AD 和應用程式：將使用者指派給應用程式 | Microsoft Docs
+description: 如何實作 Azure 應用程式的使用者指派。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 97ce69c1-4034-4e38-bd82-8caf984f6b98
 ms.service: active-directory
 ms.workload: identity
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26731107"
 ---
 # <a name="azure-ad-and-applications-assigning-users-to-an-application"></a>Azure AD 和應用程式：將使用者指派給應用程式
 在將使用者和群組指派給應用程式之前，您必須先要求使用者指派。  若要了解如何要求使用者指派，請參閱 [要求使用者指派](active-directory-applications-guiding-developers-requiring-user-assignment.md) 文章。

@@ -1,23 +1,25 @@
 ---
-title: "如何為自訂開發的應用程式變更權杖存留期預設值 | Microsoft Docs"
-description: "如何為針對 Azure AD 開發的應用程式更新權杖存留期原則"
+title: 如何為自訂開發的應用程式變更權杖存留期預設值 | Microsoft Docs
+description: 如何為針對 Azure AD 開發的應用程式更新權杖存留期原則
 services: active-directory
-documentationcenter: 
-author: ajamess
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 8067ecf3e274f65abe2c82f20dd2f4469344f3b6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: barbkess
+ms.openlocfilehash: bd963253ee796fb56405e8da855475df2d2f5d08
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335334"
 ---
 # <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>如何為自訂開發的應用程式變更權杖存留期預設值
 

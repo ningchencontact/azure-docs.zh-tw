@@ -14,6 +14,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31793472"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-3"></a>升級至 Azure 搜尋服務 .NET SDK 版本 3
 如果您使用版本 2.0 預覽版或更舊版本的 [Azure 搜尋服務 .NET SDK](https://aka.ms/search-sdk)，本文可協助您將應用程式升級至版本 3。

@@ -19,6 +19,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33205375"
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>使用傳統部署模型設定適用於 SSL 卸載的應用程式閘道
 

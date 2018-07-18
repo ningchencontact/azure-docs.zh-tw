@@ -3,7 +3,7 @@ title: Azure 儀表板結構 | Microsoft Docs
 description: 本文說明 Azure 儀表板的 JSON 結構
 services: azure-portal
 documentationcenter: ''
-author: adamab
+author: adamabmsft
 manager: dougeby
 editor: tysonn
 ms.service: azure-portal
@@ -13,11 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: fa50b31a0c8e9077658106039c4fbd2eef8b4367
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 2eb9289957968db04b78087413fb9df8ed1b085b
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301667"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Azure 儀表板結構
 此文件將使用下列儀表板做為範例，逐步說明 Azure 儀表板的結構：

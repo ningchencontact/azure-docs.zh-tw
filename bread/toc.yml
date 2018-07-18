@@ -89,6 +89,9 @@
     - name: Azure China 21Vianet
       tocHref: /azure/china/
       topicHref: /azure/china/
+    - name: Azure NetApp Files
+      tocHref: /azure/azure-netapp-files/
+      topicHref: /azure/azure-netapp-files/
     - name: Azure 入口網站
       tocHref: /azure/azure-portal/
       topicHref: /azure/azure-portal/
@@ -104,7 +107,7 @@
     - name: 支援能力
       tocHref: /azure/azure-supportability/
       topicHref: /azure/azure-supportability/
-    - name: 備份
+    - name: 'Backup '
       tocHref: /azure/backup/
       topicHref: /azure/backup/
     - name: Batch
@@ -268,10 +271,10 @@
     - name: Data Factory
       tocHref: /azure/data-factory/
       topicHref: /azure/data-factory/
-    - name: Data Lake Analytics
+    - name: 資料湖分析
       tocHref: /azure/data-lake-analytics/
       topicHref: /azure/data-lake-analytics/
-    - name: Data Lake Store
+    - name: Data Lake Storage Gen1
       tocHref: /azure/data-lake-store/
       topicHref: /azure/data-lake-store/
     - name: Devtest Lab
@@ -289,6 +292,9 @@
     - name: ExpressRoute
       tocHref: /azure/expressroute/
       topicHref: /azure/expressroute/
+    - name: 防火牆
+      tocHref: /azure/firewall/
+      topicHref: /azure/firewall/
     - name: 指引
       tocHref: /azure/guidance/
       topicHref: /azure/guidance/
@@ -311,7 +317,7 @@
         - name: 企業安全性
           tocHref: /azure/hdinsight/domain-joined
           topicHref: /azure/hdinsight/domain-joined/apache-domain-joined-introduction
-        - name: R 伺服器
+        - name: ML 服務
           tocHref: /azure/hdinsight/r-server
           topicHref: /azure/hdinsight/r-server-overview
         - name: Spark
@@ -354,7 +360,7 @@
     - name: Key Vault
       tocHref: /azure/key-vault/
       topicHref: /azure/key-vault/
-    - name: Load Balancer
+    - name: 負載平衡器
       tocHref: /azure/load-balancer/
       topicHref: /azure/load-balancer/
     - name: Log Analytics
@@ -417,7 +423,7 @@
     - name: 網路監看員
       tocHref: /azure/network-watcher/
       topicHref: /azure/network-watcher/
-    - name: 網路
+    - name: 網路功能
       tocHref: /azure/networking/
       topicHref: /azure/networking/networking-overview
     - name: 通知中樞
@@ -466,9 +472,12 @@
     - name: Remoteapp
       tocHref: /azure/remoteapp/
       topicHref: /azure/remoteapp/
-    - name: 復原功能
+    - name: 災害復原
       tocHref: /azure/resiliency/
       topicHref: /azure/resiliency/
+    - name: 角色型存取控制
+      tocHref: /azure/role-based-access-control/
+      topicHref: /azure/role-based-access-control/
     - name: 服務健康情況
       tocHref: /azure/service-health/
       topicHref: /azure/service-health/
@@ -515,6 +524,9 @@
         - name: Blob
           tocHref: /azure/storage/blobs/
           topicHref: /azure/storage/blobs/storage-blobs-introduction
+        - name: Data Lake Storage Gen2
+          tocHref: /azure/storage/data-lake-storage-gen2/
+          topicHref: /azure/storage/data-lake-storage/introduction
         - name: 檔案
           tocHref: /azure/storage/files/
           topicHref: /azure/storage/files/storage-files-introduction

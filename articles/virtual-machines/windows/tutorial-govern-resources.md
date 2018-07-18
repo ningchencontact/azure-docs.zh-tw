@@ -11,22 +11,23 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/21/2018
+ms.date: 05/21/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 154ba47881c65d963729f9074d93c7bb61020389
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 42f7d767162f2f403b2cf921e31a38b711a3c773
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38477689"
 ---
-# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-powershell"></a>教學課程：了解如何使用 Azure PowerShell 來控管 Linux 虛擬機器
+# <a name="tutorial-learn-about-windows-virtual-machine-governance-with-azure-powershell"></a>教學課程：了解如何使用 Azure PowerShell 來控管 Windows 虛擬機器
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-如果您選擇在本機安裝和使用 PowerShell，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。 針對本機安裝，您還必須[下載 Azure AD PowerShell 模組](https://www.powershellgallery.com/packages/AzureAD/)以建立新的 Azure Active Directory 群組。
+本文的範例需要 Azure PowerShell 6.0 版或更新版本。 如果在本機執行 PowerShell，而您沒有 6.0 版或更新版本，請[更新您的版本](/powershell/azure/install-azurerm-ps)。 您也需要執行 `Connect-AzureRmAccount` 來建立與 Azure 的連線。 針對本機安裝，您還必須[下載 Azure AD PowerShell 模組](https://www.powershellgallery.com/packages/AzureAD/)以建立新的 Azure Active Directory 群組。
 
 ## <a name="understand-scope"></a>了解範圍
 
@@ -54,7 +55,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 * [網路參與者](../../role-based-access-control/built-in-roles.md#network-contributor)
 * [儲存體帳戶參與者](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-相較於將角色指派給個別使用者，為需要執行類似動作的使用者[建立 Azure Active Directory 群組](../../active-directory/active-directory-groups-create-azure-portal.md)通常會更加容易。 然後，將該群組指派給適當的角色。 一言以蔽之，您要建立沒有成員的 Azure Active Directory 群組。 您仍然可以指派此群組給某個範圍內的角色。 
+相較於將角色指派給個別使用者，為需要執行類似動作的使用者[建立 Azure Active Directory 群組](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)通常會更加容易。 然後，將該群組指派給適當的角色。 一言以蔽之，您要建立沒有成員的 Azure Active Directory 群組。 您仍然可以指派此群組給某個範圍內的角色。 
 
 下列範例會建立名為 VMDemoContributors、郵件暱稱為 vmDemoGroup 的 Azure Active Directory 群組。 郵件暱稱可作為群組的別名。
 
@@ -193,16 +194,16 @@ Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentatio
 
 ### <a name="find-resources-by-tag"></a>依標籤尋找資源
 
-若要尋找具有某標籤名稱和值的資源，請使用 [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) 命令：
+若要尋找具有某標籤名稱和值的資源，請使用 [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) 命令：
 
 ```azurepowershell-interactive
-(Find-AzureRmResource -TagName Environment -TagValue Test).Name
+(Get-AzureRmResource -Tag @{ Environment="Test"}).Name
 ```
 
 傳回的值可用於管理工作，例如停止具有某標籤值的所有虛擬機器。
 
 ```azurepowershell-interactive
-Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | Stop-AzureRmVM
+Get-AzureRmResource -Tag @{ Environment="Test"} | Where-Object {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | Stop-AzureRmVM
 ```
 
 ### <a name="view-costs-by-tag-values"></a>依標籤值檢視成本

@@ -1,12 +1,12 @@
 ---
-title: "建置工作流程以處理電子郵件和附件 - Azure Logic Apps | Microsoft Docs"
-description: "此教學課程說明如何使用 Azure Logic Apps、Azure 儲存體和 Azure Functions 建立用來處理電子郵件和附件的自動化工作流程"
+title: 建置工作流程以處理電子郵件和附件 - Azure Logic Apps | Microsoft Docs
+description: 此教學課程說明如何使用 Azure Logic Apps、Azure 儲存體和 Azure Functions 建立用來處理電子郵件和附件的自動化工作流程
 author: ecfan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.tgt_pltfrm: na
@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 8c327599585e67ccc6ebdf849d3e9cf9b95e7398
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 3d6d66dca06c1f34a31155a27c32bbe3e48c8aa3
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300628"
 ---
 # <a name="process-emails-and-attachments-with-a-logic-app"></a>使用邏輯應用程式來處理電子郵件和附件
 
@@ -71,7 +72,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
    | **複寫** | 本機備援儲存體 (LRS) | 此設定會指定如何複製、儲存、管理及同步處理您的資料。 請參閱[複寫](../storage/common/storage-introduction.md#replication)。 | 
    | **需要安全傳輸** | 已停用 | 此設定會指定連線要求所需的安全性。 請參閱[需要安全傳輸](../storage/common/storage-require-secure-transfer.md)。 | 
    | **訂用帳戶** | <your-Azure-subscription-name> | Azure 訂用帳戶的名稱 | 
-   | **資源群組** | LA-Tutorial-RG | 用來組織及管理相關資源的 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)的名稱。 <p>**注意：**資源群組會存在於某個特定區域內。 雖然此教學課程中提及的項目可能並非適用於所有區域，但請盡可能使用相同的區域。 | 
+   | **資源群組** | LA-Tutorial-RG | 用來組織及管理相關資源的 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)的名稱。 <p>**注意：** 資源群組會存在於某個特定區域內。 雖然此教學課程中提及的項目可能並非適用於所有區域，但請盡可能使用相同的區域。 | 
    | **位置** | 美國東部 2 | 用來儲存您儲存體帳戶相關資訊的區域 | 
    | **設定虛擬網路** | 已停用 | 在此教學課程中，請保留 [停用] 設定。 | 
    |||| 
@@ -135,7 +136,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
    | **資源群組** | LA-Tutorial-RG | 您先前使用的相同 Azure 資源群組 | 
    | **主控方案** | 取用方案 | 此設定會決定如何配置和調整執行函式應用程式所需的資源，例如運算能力。 請參閱[主控方案比較](../azure-functions/functions-scale.md)。 | 
    | **位置** | 美國東部 2 | 您先前使用的相同區域 | 
-   | **儲存體** | cleantextfunctionstorageacct | 為您的函式應用程式建立儲存體帳戶。 請一律使用小寫字母和數字。 <p>**注意：**此儲存體帳戶包含您的函式應用程式，且不同於您先前為電子郵件附件建立的儲存體帳戶。 | 
+   | **儲存體** | cleantextfunctionstorageacct | 為您的函式應用程式建立儲存體帳戶。 請一律使用小寫字母和數字。 <p>**注意：** 此儲存體帳戶包含您的函式應用程式，且不同於您先前為電子郵件附件建立的儲存體帳戶。 | 
    | **Application Insights** | 關閉 | 可開啟 [Application Insights](../application-insights/app-insights-overview.md) 的應用程式監視功能，但在此教學課程中，請保留 [關閉] 設定。 | 
    |||| 
 
@@ -256,7 +257,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
       | 設定 | 值 | 說明 | 
       | ------- | ----- | ----------- | 
-      | **具有附件** | yes | 僅取得含附件的電子郵件。 <p>**注意：**觸發程序並不會從您的帳戶移除任何電子郵件，而只會檢查新的訊息及處理符合主旨篩選條件的電子郵件。 | 
+      | **具有附件** | yes | 僅取得含附件的電子郵件。 <p>**注意：** 觸發程序並不會從您的帳戶移除任何電子郵件，而只會檢查新的訊息及處理符合主旨篩選條件的電子郵件。 | 
       | **包含附件** | yes | 取得附件並作為工作流程的輸入，而非只是檢查是否有附件。 | 
       | **主旨篩選** | ```Business Analyst 2 #423501``` | 要在電子郵件主旨中尋找的文字 | 
       |  |  |  | 

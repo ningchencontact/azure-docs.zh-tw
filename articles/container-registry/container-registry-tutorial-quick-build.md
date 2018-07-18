@@ -9,11 +9,12 @@ ms.topic: tutorial
 ms.date: 05/11/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: fefa6096e39d86b94f8ea348d894179220ad09e1
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: d86c47c890fd15515c590e06b395ca82f9747ffe
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38461464"
 ---
 # <a name="tutorial-build-container-images-in-the-cloud-with-azure-container-registry-build"></a>教學課程：使用 Azure Container Registry 組建在雲端中建置容器映像
 
@@ -34,7 +35,7 @@ ms.lasthandoff: 05/11/2018
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果您想要在本機使用 Azure CLI，您必須安裝 Azure CLI **2.0.32** 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級 CLI，請參閱[安裝 Azure CLI 2.0][azure-cli]。
+如果您想要在本機使用 Azure CLI，您必須安裝 Azure CLI **2.0.32** 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級 CLI，請參閱[安裝 Azure CLI][azure-cli]。
 
 ## <a name="prerequisites"></a>先決條件
 

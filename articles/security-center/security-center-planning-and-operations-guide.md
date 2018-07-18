@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32777922"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Azure 資訊安全中心規劃和操作指南
 本指南適用於計劃採用 Azure 資訊安全中心的組織中的資訊技術 (IT) 專業人員、IT 架構設計人員、資訊安全性分析師和雲端系統管理員。

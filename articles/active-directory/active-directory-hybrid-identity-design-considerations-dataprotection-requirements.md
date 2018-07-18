@@ -1,28 +1,30 @@
 ---
-title: "混合式身分識別設計 - Azure 資料保護需求 | Microsoft Docs"
-description: "在規劃混合式身分識別解決方案時，請識別您企業的資料保護需求，以及有哪些可用選項可充分因應這些需求。"
-documentationcenter: 
+title: 混合式身分識別設計 - Azure 資料保護需求 | Microsoft Docs
+description: 在規劃混合式身分識別解決方案時，請識別貴企業的資料保護需求，以及有哪些可用選項可充分因應這些需求。
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 40dc4baa-fe82-4ab6-a3e4-f36fa9dcd0df
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 1a2feca8d24fabda4c191b5a181ab6606c912657
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 423624e999e4170ceddf097125e4fb3e9a40384b
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34800916"
 ---
-# <a name="plan-for-enhancing-data-security-through-strong-identity-solution"></a>透過增強式身分識別解決方案規劃更高的資料安全性
-保護資料的第一個步驟，是識別誰可以存取該資料，而在此程序中，您必須要有可與您的系統整合以提供驗證和授權功能的身分識別解決方案。 驗證和授權常被混淆，兩者角色也常被誤解。 這兩者其實是很不一樣的，如下圖所說明：
+# <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>透過強式識別解決方案規劃更高的資料安全性
+保護資料的第一個步驟是識別可以存取該資料的人員。 此外，您需要可與系統整合的身分識別解決方案，以提供驗證和授權功能。 驗證和授權常被混淆，兩者角色也常被誤解。 這兩者其實是不同的，如下圖所示：
 
 ![](./media/hybrid-id-design-considerations/mobile-devicemgt-lifecycle.png)
 
@@ -36,9 +38,9 @@ ms.lasthandoff: 01/18/2018
 > 
 
 ## <a name="determine-data-protection-requirements"></a>判斷資料保護需求
-在行動裝置時代，大部分的公司都有共同的目標：讓使用者在行動裝置上提高生產力，無論是在內部部署，還是遠端的任何位置。 雖然可能有此共同目標，但有這類需求的公司也會顧慮必須要降低以保護公司資料安全和維護使用者隱私權的威脅數量。 每一家公司在這方面可能會有不同的需求；會隨著公司所屬產業而異的符合性規則，會產生不同的設計決策。 
+在行動裝置時代，大部分的公司都有共同的目標：讓使用者在行動裝置上提高生產力，無論是在內部部署，還是遠端的任何位置。 有這類需求的公司也會顧慮必須要降低的威脅數量，以保護公司的資料安全並維護使用者的隱私權。 每一家公司在這方面可能會有不同的需求；會隨著公司所屬產業而異的符合性規則，會產生不同的設計決策。 
 
-但無論是何種產業，都有一些安全性層面是必須探索並驗證的，這將在下一節說明。
+但無論是何種產業，都有一些安全性層面是必須探索並驗證的。
 
 ## <a name="data-protection-paths"></a>資料保護路徑
 ![](./media/hybrid-id-design-considerations/data-protection-paths.png)
@@ -52,7 +54,7 @@ ms.lasthandoff: 01/18/2018
 3. 在內部部署中待用時的資料保護。
 4. 在雲端中待用時的資料保護。
 
-雖然混合式身分識別解決方案並未直接提供可讓 IT 人員在每一個階段保護資料本身的技術性控制，但混合式身分識別解決方案仍必須能夠運用內部部署和雲端管理資源，在授與資料的存取權之前識別使用者。 規劃您的混合式身分識別解決方案時，請確定會根據貴組織的需求來回答下列問題：
+混合式身分識別解決方案在授與資料的存取權之前，必須能夠利用內部部署和雲端身分識別管理資源來識別使用者。 在根據貴組織的需求規劃混合式身分識別解決方案時，請確保您知道下列問題的答案：
 
 ## <a name="data-protection-at-rest"></a>保護待用資料
 不論資料是在何處待用 (裝置、雲端或內部部署)，請務必執行評估，以了解組織在這方面的需求。 針對這個層面，請確實回答下列問題：
@@ -70,10 +72,11 @@ ms.lasthandoff: 01/18/2018
 * 雲端身分識別管理是否可確保進入和存在於目錄的流量 (在資料中心之中和之間) 進行簽署？
 
 ## <a name="compliance"></a>法規遵循
-規定、法律和法規遵循需求會隨著您的公司所屬的產業而有所不同。 受到嚴格規範的公司，必須處理與法規遵循有關的身分識別管理問題。 諸如沙賓法案 (SOX)、健康保險流通與責任法案 (HIPAA)、美國金融服務法案 (GLBA) 和支付卡產業資料安全標準 (PCI DSS) 等法規，在身分識別和存取方面都有非常嚴格的規定。 您的公司所將採用的混合式身分識別解決方案，必須具有核心功能可因應這些法規的一或多項需求。 針對這個層面，請確實回答下列問題：
+規定、法律及法規遵循需求會隨著貴公司所屬的產業而有所不同。 受到嚴格規範的公司，必須處理與法規遵循有關的身分識別管理問題。 諸如沙賓法案 (SOX)、健康保險流通與責任法案 (HIPAA)、美國金融服務法案 (GLBA) 和支付卡產業資料安全標準 (PCI DSS) 等法規，在身分識別和存取方面都有嚴格的規定。 您的公司所將採用的混合式身分識別解決方案，必須具有核心功能可因應這些法規的一或多項需求。 針對這個層面，請確實回答下列問題：
 
 * 混合式身分識別解決方案是否符合貴公司的法規需求？
-* 混合式身分識別解決方案是否有內建功能可讓您的公司符合法規需求？ 
+* 混合式身分識別解決方案是否有內建 
+* 功能，可讓貴公司符合法規遵循需求？ 
 
 > [!NOTE]
 > 請確定會記下每個答案，並了解答案背後的原理。 [定義資料保護策略](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) 將介紹可用選項，以及每個選項的優點/缺點。  回答這些問題之後，您就能選取最適合業務需求的選項。

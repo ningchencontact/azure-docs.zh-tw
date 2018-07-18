@@ -3,7 +3,7 @@ title: 教學課程 - 建立及管理 Azure 虛擬機器擴展集 | Microsoft Do
 description: 了解如何使用 Azure PowerShell 建立虛擬機器擴展集，以及一些常見的管理工作，例如如何啟動和停止執行個體，或變更擴展集容量。
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/18/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 91174f14cb6a49e560504e01ba47e7121f869080
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 6e3262ffbf31c18611a82c8293c63e13e572e30c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366251"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38531557"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>教學課程 - 使用 Azure PowerShell 建立及管理虛擬機器擴展集
 虛擬機器擴展集可讓您部署和管理一組相同、自動調整的虛擬機器。 在虛擬機器擴展集生命週期期間，您可能需要執行一或多個管理工作。 在本教學課程中，您將了解如何：
@@ -146,7 +146,7 @@ mstsc /v 52.168.121.216:50001
 
 
 ## <a name="understand-vm-instance-images"></a>了解 VM 執行個體映像
-您在先前的步驟中使用 [Set-AzureRmVmssStorageProfile](/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile) 定義擴展集組態時，您使用了 Windows Server 2016 Datacenter 映像。 Azure Marketplace 包含許多可用來建立 VM 執行個體的映像。 若要檢視可用發行者清單，請使用 [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) 命令。
+Azure Marketplace 包含許多可用來建立 VM 執行個體的映像。 若要檢視可用發行者清單，請使用 [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) 命令。
 
 ```azurepowershell-interactive
 Get-AzureRmVMImagePublisher -Location "EastUS"

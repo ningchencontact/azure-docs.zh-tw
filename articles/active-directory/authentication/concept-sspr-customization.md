@@ -10,11 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: ffd12d03dffb5deafc8605cc7352bd71d588d235
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: afcd39e6512ac7bcb46f56df157822efa463113e
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448872"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>自訂 Azure AD 的自助式密碼重設功能
 
@@ -38,7 +39,7 @@ ms.lasthandoff: 05/08/2018
 
 在所有情況下，最多 100 位收件者會收到通知。
 
-若要深入了解不同的系統管理員角色，以及如何指派這些角色，請參閱[在 Azure Active Directory 中指派系統管理員角色](../active-directory-assign-admin-roles-azure-portal.md)。
+若要深入了解不同的系統管理員角色，以及如何指派這些角色，請參閱[在 Azure Active Directory 中指派系統管理員角色](../users-groups-roles/directory-assign-admin-roles.md)。
 
 ### <a name="disable-contact-your-administrator-emails"></a>停用 [請連絡您的系統管理員] 電子郵件
 
@@ -68,7 +69,7 @@ ms.lasthandoff: 05/08/2018
     * 藉由傳遞 *whr* 參數傳送到密碼重設頁面，例如 "https://login.microsoftonline.com/?whr=contoso.com"
     * 藉由傳遞 *username* 參數到密碼重設頁面，例如 "https://login.microsoftonline.com/?username=admin@contoso.com"
 
-如需有關如何設定公司商標的詳細資料，請參閱[將公司商標新增至 Azure AD 中的登入頁面](../customize-branding.md)一文。
+如需有關如何設定公司商標的詳細資料，請參閱[將公司商標新增至 Azure AD 中的登入頁面](../fundamentals/customize-branding.md)一文。
 
 ### <a name="directory-name"></a>目錄名稱
 

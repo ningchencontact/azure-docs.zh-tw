@@ -20,6 +20,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31515674"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>使用 Batch 應用程式套件將應用程式部署至計算節點
 

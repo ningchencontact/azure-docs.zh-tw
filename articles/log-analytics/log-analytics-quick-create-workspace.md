@@ -3,7 +3,7 @@ title: 在 Azure Log Analytics 中建立工作區 | Microsoft Docs
 description: 了解如何建立 Log Analytics 工作區，以從您的雲端和內部部署環境啟用管理解決方案和資料收集。
 services: log-analytics
 documentationcenter: log-analytics
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -11,14 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptal
 ms.date: 04/02/2018
 ms.author: magoedte
-ms.openlocfilehash: e05d620a457edf427c946366a9caca471ac8531e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: na
+ms.openlocfilehash: eff79e8ccf0b878b4c083753f245aae993be72de
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127562"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>在 Azure 入口網站中建立 Log Analytics 工作區
 您可以在 Azure 入口網站中設定 Log Analytics 工作區，這是一個唯一的 Log Analytics 環境，有其自己的資料存放庫、資料來源和解決方案。  如果您想要從下列來源收集資料，則需要本文中所述的步驟：

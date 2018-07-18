@@ -13,11 +13,12 @@ ms.topic: get-started-article
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 78954e2dd00e425d2dfdd81d2c3e386f199f4f8f
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: c3774774ff220153d1af9ec9f9807414efb3f7ce
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081801"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>在 Azure Data Factory 中使用 Databricks Notebook 活動執行 Databricks Notebook
 
@@ -67,11 +68,11 @@ ms.lasthandoff: 05/01/2018
 
     本快速入門的某些步驟是假設您使用 **ADFTutorialResourceGroup** 作為資源群組名稱。 若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)。
 
-1.  針對 [版本]，選取 [V2 (預覽版)]。
+1.  針對 [版本]，選取 [V2]。
 
 2.  針對 [位置]，選取資料處理站的位置。
 
-    目前，Data Factory V2 只允許您在美國東部、美國東部 2 和西歐區域中建立資料處理站。 Data Factory 所使用的資料存放區 (Azure 儲存體和 Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
+    如需目前可使用 Data Factory 的 Azure 區域清單，請在下列頁面上選取您感興趣的區域，然後展開 [分析] 以找出 [Data Factory]：[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)。 Data Factory 所使用的資料存放區 (Azure 儲存體和 Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
 
 3.  選取 [釘選到儀表板]。
 

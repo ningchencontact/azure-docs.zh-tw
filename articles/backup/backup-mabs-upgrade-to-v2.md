@@ -1,24 +1,19 @@
 ---
-title: 安裝 Azure 備份伺服器 v2 | Microsoft Docs
+title: 安裝 Azure 備份伺服器 v2
 description: Azure 備份伺服器 v2 可提供您經過強化的備份功能，讓您保護 VM、檔案和資料夾以及工作負載等項目。 了解如何安裝或升級為 Azure 備份伺服器 v2。
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: masaran;markgal
-ms.openlocfilehash: dd7b76d9e06bc82ffd75f12131c2c247da05cc91
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: adigan
+ms.openlocfilehash: fdf69003566f704354a17335b1f46fc3077aedbc
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38598385"
 ---
 # <a name="install-azure-backup-server-v2"></a>安裝 Azure 備份伺服器 v2
 
@@ -52,15 +47,15 @@ Azure 備份伺服器可協助保護您的虛擬機器 (VM)、工作負載以及
 
 3. 在 Microsoft Azure 備份伺服器精靈的 [安裝] 底下，選取 [Microsoft Azure 備份伺服器]。
 
-  ![設定安裝程式 - 選取安裝](./media/backup-mabs-upgrade-to-v2/mabs-installer-s1.png)
+   ![設定安裝程式 - 選取安裝](./media/backup-mabs-upgrade-to-v2/mabs-installer-s1.png)
 
 4. 在 [歡迎使用] 頁面上檢閱警告，然後選取 [下一步]。
 
-  ![設定安裝程式 - [歡迎使用] 頁面](./media/backup-mabs-upgrade-to-v2/mabs-installer-s2.png)
+   ![設定安裝程式 - [歡迎使用] 頁面](./media/backup-mabs-upgrade-to-v2/mabs-installer-s2.png)
 
 5. 設定精靈會執行必要條件檢查以確定您的環境是否可以升級。 在 [必要條件檢查] 頁面上，選取 [檢查]。
 
-  ![設定安裝程式 - [必要條件檢查] 頁面](./media/backup-mabs-upgrade-to-v2/mabs-installer-s3-perform-checks.png)
+   ![設定安裝程式 - [必要條件檢查] 頁面](./media/backup-mabs-upgrade-to-v2/mabs-installer-s3-perform-checks.png)
 
 6. 您的環境必須通過必要條件檢查。 如果您的環境未通過檢查，請記下所發生的問題，並加以修正。 然後，選取 [再檢查一次]。 通過必要條件檢查之後，選取 [下一步]。
 
@@ -68,11 +63,11 @@ Azure 備份伺服器可協助保護您的虛擬機器 (VM)、工作負載以及
 
 7. 在 [SQL 設定] 頁面上，選取 SQL 安裝的相關選項，然後選取 [檢查並安裝]。
 
-  ![設定安裝程式 - [SQL 設定] 頁面](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5-sql-settings.png)
+   ![設定安裝程式 - [SQL 設定] 頁面](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5-sql-settings.png)
 
   檢查可能需要幾分鐘的時間。 檢查完畢後，選取 [下一步]。
 
-  ![設定安裝程式 - [SQL 設定] 的 [檢查並安裝] 按鈕](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5a-check-and fix-settings.png)
+   ![設定安裝程式 - [SQL 設定] 的 [檢查並安裝] 按鈕](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5a-check-and-fix-settings.png)
 
 8. 在 [安裝設定] 頁面上，對備份伺服器安裝所在的位置或臨時位置進行任何變更。 選取 [下一步] 。
 
@@ -181,7 +176,7 @@ Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-Datasour
 
   ![停止保護成員](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
-2. 在 [從群組中移除] 對話方塊中，檢閱儲存集區中已使用的磁碟空間和可用空間。 預設值是讓復原點留在磁碟上，並讓復原點按照所關聯的保留原則來到期。 按一下 [SERVICEPRINCIPAL] 。
+2. 在 [從群組中移除] 對話方塊中，檢閱儲存集區中已使用的磁碟空間和可用空間。 預設值是讓復原點留在磁碟上，並讓復原點按照所關聯的保留原則來到期。 按一下 [確定]。
 
   如果您想要立即將已使用的磁碟空間歸還給可用的儲存集區，請選取 [刪除磁碟上的複本] 核取方塊，以刪除與該成員相關聯的備份資料 (與復原點)。
 

@@ -1,24 +1,19 @@
 ---
 title: 部署連線處理站閘道 - Azure | Microsoft Docs
 description: 如何在 Windows 或 Linux 上部署閘道，以啟用與連線處理站解決方案加速器的連線。
-services: iot-suite
-suite: iot-suite
-documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: 829b2031458b78a1046e900dbf37028ac9eb4dc8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: c2805ddf7627ad520f6cc6585baedc7f5194aad6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626899"
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>在 Windows 或 Linux 上部署連線處理站解決方案加速器的 Edge 閘道
 
@@ -170,6 +165,6 @@ OPC Proxy 會在安裝期間儲存連接字串。 在後續的執行中應該省
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入了解連線處理站解決方案加速器的架構，請參閱[連線處理站解決方案加速器逐步解說](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough)。
+若要深入了解連線處理站解決方案加速器的架構，請參閱[連線處理站解決方案加速器逐步解說](iot-accelerators-connected-factory-sample-walkthrough.md)。
 
 了解 [OPC 發行者參考實作](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-publisher)。

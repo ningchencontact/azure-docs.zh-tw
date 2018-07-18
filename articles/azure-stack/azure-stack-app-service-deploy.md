@@ -12,20 +12,21 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 05/22/2018
 ms.author: anwestg
-ms.openlocfilehash: 330b8015bdddbbcf27e4325b97e8b734c4d98d12
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f44e6e917058306e37b9eb99819afda76a742389
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604262"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>將 App Service 資源提供者新增到 Azure Stack
 
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 > [!IMPORTANT]
-> 在部署 Azure App Service 之前，請先將 1802 更新套用到您的 Azure Stack 整合式系統，或部署最新的 Azure Stack 開發套件。
+> 在部署 Azure App Service 1.2 之前，請先將 1804 更新套用到您的 Azure Stack 整合式系統，或部署最新的 Azure Stack 開發套件。
 >
 >
 
@@ -57,7 +58,7 @@ ms.lasthandoff: 04/20/2018
 
 4. 檢閱並接受協力廠商授權條款，然後按 [下一步]。
 
-5. 請確定 App Service 雲端組態資訊正確。 如果您在 Azure Stack 開發套件部署期間使用了預設設定，在這裡可以接受預設值。 不過，如果您在部署 Azure Stack 時已自訂選項，或是要部署在整合式系統上，則必須編輯此視窗中的值來反映該情況。 例如，如果您使用網域尾碼 mycloud.com，您的 Azure Stack 租用戶 Azure Resource Manager 端點就必須變更為 management.&lt;region&gt;.mycloud.com。確認您的資訊之後，按 [下一步]。
+5. 請確定 App Service 雲端組態資訊正確。 如果您在 Azure Stack 開發套件部署期間使用了預設設定，在這裡可以接受預設值。 不過，如果您在部署 Azure Stack 時已自訂選項，或是要部署在整合式系統上，則必須編輯此視窗中的值來反映該情況。 例如，如果您使用網域尾碼 mycloud.com，您的 Azure Stack 租用戶 Azure Resource Manager 端點就必須變更為 management.&lt;region&gt;.mycloud.com。 確認您的資訊之後，按 [下一步]。
 
     ![App Service 安裝程式][2]
 
@@ -66,11 +67,17 @@ ms.lasthandoff: 04/20/2018
         * 如果您使用 Azure Active Directory (Azure AD)，請輸入部署 Azure Stack 時所提供的 Azure AD 管理員帳戶和密碼。 按一下 [登入] 。
         * 如果您使用 Active Directory 同盟服務 (AD FS)，請提供您的管理帳戶。 例如： cloudadmin@azurestack.local。 輸入您的密碼，然後按一下 [登入]。
     2. 在 [Azure Stack 訂用帳戶] 方塊中，選取 [預設提供者訂用帳戶]。
+    
+    > [!NOTE]
+    > 目前，App Service 只能部署到**預設提供者訂用帳戶**。  在未來的更新中，App Service 會部署至 Azure Stack 1804 所導入的新計量訂用帳戶，而且現有部署也全都會遷移至這個新的訂用帳戶。
+    >
+    >
+    
     3. 在 [Azure Stack 位置] 方塊中，選取對應到您要部署之區域的位置。 例如，如果要部署至 Azure Stack 開發套件，請選取 [本機]。
 
     ![App Service 安裝程式][3]
 
-4. 您現在可以選擇部署至現有的虛擬網路 (透過[這裡](azure-stack-app-service-before-you-get-started.md#virtual-network)的步驟所設定)，或是允許 App Service 安裝程式建立虛擬網路及關聯的子網路。
+7. 您現在可以選擇部署至現有的虛擬網路 (透過[這裡](azure-stack-app-service-before-you-get-started.md#virtual-network)的步驟所設定)，或是允許 App Service 安裝程式建立虛擬網路及關聯的子網路。
     1. 選取 [使用預設設定來建立 VNet]，接受預設值，然後按 [下一步]，或者；
     2. 選取 [使用現有的 VNet 和子網路]。
         1. 選取包含您的虛擬網路的**資源群組**；
@@ -80,7 +87,7 @@ ms.lasthandoff: 04/20/2018
 
     ![App Service 安裝程式][4]
 
-7. 輸入檔案共用的資訊，然後按 [下一步]。 檔案共用的位址必須使用檔案伺服器的完整網域名稱或 IP 位址。 例如，\\\appservicefileserver.local.cloudapp.azurestack.external\websites 或 \\\10.0.0.1\websites。
+8. 輸入檔案共用的資訊，然後按 [下一步]。 檔案共用的位址必須使用檔案伺服器的完整網域名稱或 IP 位址。 例如，\\\appservicefileserver.local.cloudapp.azurestack.external\websites 或 \\\10.0.0.1\websites。
 
    > [!NOTE]
    > 在繼續進行之前，安裝程式會先嘗試測試是否能夠與檔案共用連線。  不過，如果您已選擇在現有的虛擬網路中部署，安裝程式可能會無法連線至檔案共用，而會顯示警告來詢問您是否要繼續進行。  請確認檔案共用資訊，如果正確，便繼續進行。
@@ -89,7 +96,7 @@ ms.lasthandoff: 04/20/2018
 
    ![App Service 安裝程式][7]
 
-8. 在下一個頁面上：
+9. 在下一個頁面上：
     1. 在 [身分識別應用程式識別碼] 方塊中，輸入您要用於身分識別的應用程式 GUID (來自 Azure AD)。
     2. 在 [身分識別應用程式憑證檔案] 方塊中，輸入 (或瀏覽至) 憑證檔案的位置。
     3. 在 [身分識別應用程式憑證密碼] 方塊中，輸入憑證的密碼。 此密碼是當您使用指令碼來建立憑證時所記下的密碼。
@@ -98,7 +105,7 @@ ms.lasthandoff: 04/20/2018
 
     ![App Service 安裝程式][9]
 
-9. 對於三個憑證檔案方塊的每一個，按一下 [瀏覽] 並瀏覽至適當的憑證檔案。 您必須提供每個憑證的密碼。 這些憑證是您在[建立必要的憑證步驟](azure-stack-app-service-before-you-get-started.md#get-certificates)中建立的憑證。 輸入所有資訊之後，按 [下一步]。
+10. 對於三個憑證檔案方塊的每一個，按一下 [瀏覽] 並瀏覽至適當的憑證檔案。 您必須提供每個憑證的密碼。 這些憑證是您在[建立必要的憑證步驟](azure-stack-app-service-before-you-get-started.md#get-certificates)中建立的憑證。 輸入所有資訊之後，按 [下一步]。
 
     | Box | 憑證檔案名稱範例 |
     | --- | --- |
@@ -110,7 +117,7 @@ ms.lasthandoff: 04/20/2018
 
     ![App Service 安裝程式][10]
 
-10. 針對用於裝載 App Service 資源提供者資料庫的伺服器執行個體，輸入 SQL Server 詳細資料，然後按 [下一步]。 按 [下一步]，安裝程式即會驗證 SQL 連線屬性。
+11. 針對用於裝載 App Service 資源提供者資料庫的伺服器執行個體，輸入 SQL Server 詳細資料，然後按 [下一步]。 按 [下一步]，安裝程式即會驗證 SQL 連線屬性。
 
     > [!NOTE]
     > 在繼續進行之前，安裝程式會先嘗試測試是否能夠與 SQL Server 連線。  不過，如果您已選擇在現有的虛擬網路中部署，安裝程式可能會無法連線至 SQL Server，而會顯示警告來詢問您是否要繼續進行。  請確認 SQL Server 資訊，如果正確，便繼續進行。
@@ -119,7 +126,7 @@ ms.lasthandoff: 04/20/2018
 
     ![App Service 安裝程式][11]
 
-11. 檢閱角色執行個體和 SKU 選項。 填入的預設值為 ASDK 部署中每個角色的最少執行個體數目和最低 SKU。 系統會提供 vCPU 和記憶體的需求摘要，以協助您規劃部署。 進行選擇之後，按一下 [下一步]。
+12. 檢閱角色執行個體和 SKU 選項。 填入的預設值為 ASDK 部署中每個角色的最少執行個體數目和最低 SKU。 系統會提供 vCPU 和記憶體的需求摘要，以協助您規劃部署。 進行選擇之後，按一下 [下一步]。
 
     > [!NOTE]
     > 對於生產環境部署，請按照 [Azure Stack 中的 Azure App Service 伺服器角色的容量規劃](azure-stack-app-service-capacity-planning.md)中的指導方針進行。
@@ -139,23 +146,23 @@ ms.lasthandoff: 04/20/2018
     > [!NOTE]
     > **Windows Server 2016 Core 不是支援的平台映像，無法與 Azure Stack 上的 Azure App Service 搭配使用。請勿將評估映像用於生產環境部署。**
 
-12. 在 [選取平台映像] 方塊中，從 App Service 雲端之運算資源提供者所提供的映像中，選擇您的部署 Windows Server 2016 虛擬機器映像。 按 [下一步] 。
+13. 在 [選取平台映像] 方塊中，從 App Service 雲端之運算資源提供者所提供的映像中，選擇您的部署 Windows Server 2016 虛擬機器映像。 按 [下一步] 。
 
-13. 在下一個頁面上：
+14. 在下一個頁面上：
      1. 輸入背景工作角色虛擬機器系統管理員使用者名稱和密碼。
      2. 輸入其他角色的虛擬機器系統管理員使用者名稱和密碼。
      3. 按 [下一步] 。
 
     ![App Service 安裝程式][15]    
 
-14. 在摘要頁面上：
+15. 在摘要頁面上：
     1. 確認您所做的選擇。 若要進行變更，請使用 [上一步] 按鈕來瀏覽先前的頁面。
     2. 如果設定均正確，請選取核取方塊。
     3. 若要開始部署，請按一下 [下一步]。
 
     ![App Service 安裝程式][16]
 
-15. 在下一個頁面上：
+16. 在下一個頁面上：
     1. 追蹤安裝進度。 根據預設的選取項目而定，部署 Azure App Service on Azure Stack 大約需要 60 分鐘。
     2. 當安裝程式順利完成之後，請按一下 [結束]。
 

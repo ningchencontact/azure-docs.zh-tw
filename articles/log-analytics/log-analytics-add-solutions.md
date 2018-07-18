@@ -1,25 +1,26 @@
 ---
-title: "新增 Azure Log Analytics 管理解決方案 | Microsoft Docs"
-description: "Azure 中的管理解決方案是邏輯、視覺效果和資料擷取規則的集合，可提供針對特定問題領域進行計量的樞紐分析。"
+title: 新增 Azure Log Analytics 管理解決方案 | Microsoft Docs
+description: Azure 中的管理解決方案是邏輯、視覺效果和資料擷取規則的集合，可提供針對特定問題領域進行計量的樞紐分析。
 services: log-analytics
-documentationcenter: 
-author: MGoedtel
+documentationcenter: ''
+author: mgoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: f029dd6d-58ae-42c5-ad27-e6cc92352b3b
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f6ec6dd46d28518baf6f105dd232a4b0e77a8c6f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.component: na
+ms.openlocfilehash: 0cffdbcaa128dce52758e4b618b93dd763961361
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131470"
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>將 Azure Log Analytics 管理解決方案新增至您的工作區
 
@@ -65,13 +66,13 @@ Azure Marketplace 包含 [Log Analytics 的管理解決方案](https://azuremark
     ![刪除解決方案](./media/log-analytics-add-solutions/solution-delete.png)  
 4. 在確認對話方塊中，按一下 [是]。
 
-## <a name="offers-and-pricing-tiers"></a>優惠和定價層
+## <a name="offers-and-pricing-tiers"></a>供應項目和定價層
 
 下表列出適用於每個 Operations Management Suite 供應項目的管理解決方案。
 此表格也會列出適用於每個管理解決方案的定價層。
 下表中的所有解決方案都可從 Azure 入口網站以及 Log Analytics 入口網站的解決方案庫中取得。
 
-| 管理解決方案                                                                       | 提供項目                                                                     | 定價層<sup>1</sup>                                                 | 注意 |
+| 管理解決方案                                                                       | 供應項目                                                                     | 定價層<sup>1</sup>                                                 | 注意 |
 | ---                                                                                       | ---                                                                       | ---                                                                                                       | ---   |
 | [活動 Log Analytics](log-analytics-activity.md)                                                                   | <ul><li>深入解析&nbsp;與&nbsp;分析</li><li>Log Analytics</li></ul>   | 免費<br> 標準<br> 進階&nbsp;(OMS)<br> 每個&nbsp;GB&nbsp;(獨立)<br> 每個&nbsp;節點&nbsp;(OMS)   | 可免費使用資料 90 天<br>資料不受免費層限制 |
 | [AD 評估](log-analytics-ad-assessment.md)                                           | <ul><li>深入解析&nbsp;與&nbsp;分析</li><li>Log Analytics</li></ul>   | 免費<br> 標準<br> 進階&nbsp;(OMS)<br> 每個&nbsp;GB&nbsp;(獨立)<br> 每個&nbsp;節點&nbsp;(OMS)   | |
@@ -115,7 +116,7 @@ Azure Marketplace 包含 [Log Analytics 的管理解決方案](https://azuremark
 
 社群提供的解決方案都是來自 [Azure 範本庫](https://azure.microsoft.com/resources/templates/?term=Per&nbsp;Node&nbsp;(OMS))或直接由作者提供。
 
-| 管理解決方案               | 提供項目                                                                     | 定價層                         | 注意 |
+| 管理解決方案               | 供應項目                                                                     | 定價層                         | 注意 |
 | ---                               | ---                                                                       | ---                                   | ---   |
 | 所有社群提供的解決方案  | <ul><li>深入解析&nbsp;與&nbsp;分析</li><li>Log Analytics</li></ul>   | 免費<br> 每個&nbsp;節點&nbsp;(OMS)     |   要求您將 Log Analytics 工作區連結到自動化帳戶 |
 
@@ -123,7 +124,7 @@ Azure Marketplace 包含 [Log Analytics 的管理解決方案](https://azuremark
 
 
 ## <a name="data-collection-details"></a>資料收集詳細資料
-下列表格顯示資料收集方法，以及有關 Log Analytics 管理解決方案和資料來源的資料是如何收集的其他詳細資料。 這些表格會依解決方案優惠 (等同於[訂用帳戶定價層](https://go.microsoft.com/fwlink/?linkid=827926)) 來分類。 活動 Log Analytics 解決方案可免費供所有定價層使用。
+下列表格顯示資料收集方法，以及有關 Log Analytics 管理解決方案和資料來源的資料是如何收集的其他詳細資料。 這些表格會依解決方案供應項目 (等同於[訂用帳戶定價層](https://go.microsoft.com/fwlink/?linkid=827926)) 來分類。 活動 Log Analytics 解決方案可免費供所有定價層使用。
 
 Log Analytics Windows 代理程式和 System Center Operations Manager 代理程式基本上是一樣的。 Windows 代理程式還包含其他功能，可讓它連接到 Log Analytics 工作區，並透過 Proxy 路由傳送。 如果您使用 Operations Manager 代理程式，則必須作為與 Log Analytics 通訊的目標 OMS 代理程式。 此表格中的 Operations Manager 代理程式是連接到 Operations Manager 的 OMS 代理程式。 如需將現有 Operations Manager 環境連線到 Log Analytics 的相關資訊，請參閱[將 Operations Manager 連接到 Log Analytics](log-analytics-om-agents.md)。
 

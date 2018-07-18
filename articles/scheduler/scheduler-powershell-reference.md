@@ -1,11 +1,11 @@
 ---
-title: "排程器 PowerShell Cmdlet 參考"
-description: "排程器 PowerShell Cmdlet 參考"
+title: 排程器 PowerShell Cmdlet 參考
+description: 排程器 PowerShell Cmdlet 參考
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 9a26c457-d7a1-4e4a-bc79-f26592155218
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23039833"
 ---
 # <a name="scheduler-powershell-cmdlets-reference"></a>排程器 PowerShell Cmdlet 參考
 下表說明並連結至 Azure 排程器中每個主要 Cmdlet 的參考頁面。

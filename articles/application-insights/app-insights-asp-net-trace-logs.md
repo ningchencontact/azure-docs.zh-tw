@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 574b11f9ba38bda775610f2f9e90fbb2d2b05868
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 5ffb758fe5fa42be6323de06afbfb38068ae1926
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969165"
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>在 Application Insights 中探索 .NET 追蹤記錄
 如果您使用 NLog、log4Net 或 System.Diagnostics.Trace 在 ASP.NET 應用程式中進行診斷追蹤，您可以將記錄傳送至 [Azure Application Insights][start]，以在其中探索和搜尋這些記錄。 您的記錄檔會與來自應用程式的其他遙測合併，讓您可以識別與服務每個使用者要求相關聯的追蹤，並將它們與其他事件和例外狀況報告相互關聯。

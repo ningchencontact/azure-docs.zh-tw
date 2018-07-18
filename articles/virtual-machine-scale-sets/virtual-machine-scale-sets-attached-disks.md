@@ -20,6 +20,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187833"
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Azure 虛擬機器擴展集和連結的資料磁碟
 若要擴充可用的儲存體，Azure [虛擬機器擴展集](/azure/virtual-machine-scale-sets/)支援 VM 執行個體連結資料磁碟。 您可以在擴展集建立時連結資料磁碟，或將資料磁碟連結至現有擴展集。

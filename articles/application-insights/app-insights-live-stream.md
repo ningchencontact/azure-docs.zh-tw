@@ -11,16 +11,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 05/24/2018
 ms.author: mbullwin; Soubhagya.Dash
-ms.openlocfilehash: 3b17344af099ea8b5d2554d5f6045a10641ff861
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 352fff53d9e35ddd8d8e0c107e969357d9c766b3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193422"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599230"
 ---
-# <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>即時計量資料流︰以 1 秒的延遲進行監視與診斷 
+# <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>即時計量資料流︰以 1 秒的延遲進行監視與診斷
 
 使用 [Application Insights](app-insights-overview.md) 中的即時計量資料流，探查您即時生產環境 Web 應用程式中的活動訊號。 選取並篩選要即時監看的計量和效能計數器，而不會對您的服務造成任何干擾。 檢查失敗要求和例外狀況範例中的堆疊追蹤。 即時計量資料流可搭配[分析工具](app-insights-profiler.md)、[快照集偵錯工具](app-insights-snapshot-debugger.md)和[效能測試](app-insights-monitor-web-app-availability.md#performance-tests)，為您的即時網站提供強大且非侵入性的診斷工具。
 
@@ -35,8 +35,6 @@ ms.locfileid: "34193422"
 * 輕鬆識別有問題的伺服器，並將所有 KPI/即時摘要篩選到只有該伺服器。
 
 [![即時計量資料流影片](./media/app-insights-live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
-
-即時計量資料流目前適用於在內部部署或雲端中執行的 ASP.NET 應用程式。 
 
 ## <a name="get-started"></a>開始使用
 

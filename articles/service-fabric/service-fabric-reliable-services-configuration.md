@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: c5aaf9869326f2de86d3bff33f36e8f967f3e6fa
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 3e058242840a3fa8b86c9ae9d5a0940cc02f04d2
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020384"
 ---
 # <a name="configure-stateful-reliable-services"></a>設定具狀態可靠服務
 有兩組組態設定可供 Reliable Services 使用。 一組是適用於叢集中的所有 Reliable Services，而另一組專屬於特定的 Reliable Services。
@@ -81,6 +82,11 @@ Azure Service Fabric 執行階段預設會在建立基礎執行階段元件時�
 
 ### <a name="replicator-security-configuration"></a>複寫器安全性組態
 複寫器安全性組態用來保護在複寫期間使用的通訊通道。 這表示服務將無法看到彼此的複寫流量，並且也會確保高度可用資料的安全。 依預設，空白的安全性組態區段會妨礙複寫安全性。
+
+> [!IMPORTANT]
+> 在 Linux 節點上，憑證必須是 PEM 格式。 若要深入了解如何尋找和設定適用於 Linux 的憑證，請參閱[在 Linux 上設定憑證](./service-fabric-configure-certificates-linux.md)。 
+> 
+> 
 
 ### <a name="default-section-name"></a>預設區段名稱
 ReplicatorSecurityConfig

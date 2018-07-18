@@ -14,14 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 3b4d99fe883cf52ca7f1ef98e70b7f3a1bccd5ae
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 35eedb170e1c79f4d282f71608b456a271c4d59b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018213"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Azure 資源健康狀態中的資源類型和健康情況檢查
 以下是依資源類型透過資源健康狀態執行之所有檢查的完整清單。
+
+## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers
+|執行的檢查|
+|---|
+|<ul><li>伺服器是否已啟動且執行中？</li><li>伺服器是否已耗盡記憶體？</li><li>伺服器正在啟動嗎？</li><li>伺服器正在復原嗎？</li></ul>|
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 |執行的檢查|
@@ -56,13 +62,13 @@ ms.lasthandoff: 04/23/2018
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/accounts
 |執行的檢查|
 |---|
-|<ul><li>使用者可以將作業提交至區域中的 Data Lake Analytics 嗎？</li><li>是否會在區域中執行且順利完成基本作業？</li><li>使用者可以列出區域中的目錄項目嗎？</li>|
+|<ul><li>使用者在提交或列出其 Data Lake Analytics 作業時是否遇到問題？</li><li>Data Lake Analytics 作業是否因為系統錯誤而無法完成？</li></ul>|
 
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.datalakestore/accounts
 |執行的檢查|
 |---|
-|<ul><li>使用者可以將資料上傳至區域中的 Data Lake Store 嗎？</li><li>使用者可以從區域中的 Data Lake Store 下載資料嗎？</li></ul>|
+|<ul><li>使用者將資料上傳至 Data Lake Store 時是否遇到問題？</li><li>使用者從 Data Lake Store 下載資料時是否遇到問題？</li></ul>|
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
 
@@ -74,6 +80,11 @@ ms.lasthandoff: 04/23/2018
 |執行的檢查|
 |---|
 |<ul><li>是否有因 Azure Cosmos DB 服務無法使用而不提供的任何資料庫或集合要求？</li><li>是否有因 Azure Cosmos DB 服務無法使用而不提供的任何文件要求？</li></ul>|
+
+## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
+|執行的檢查|
+|---|
+|<ul><li>對金鑰保存庫執行的要求是否因為 Azure KeyVault 平台問題而失敗？</li><li>對金鑰保存庫執行的要求是否因為客戶發出太多要求而遭到節流？</li></ul>|
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
 |執行的檢查|
@@ -104,6 +115,11 @@ ms.lasthandoff: 04/23/2018
 |執行的檢查|
 |---|
 |<ul><li> 是否已經登入資料庫？</li></ul>|
+
+## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
+|執行的檢查|
+|---|
+|<ul><li>從儲存體帳戶讀取資料的要求是否因為 Azure 儲存體的平台問題而失敗？</li><li>將資料寫入儲存體帳戶的要求是否因為 Azure 儲存體平台問題而失敗？</li><li>儲存體帳戶所在的儲存體叢集無法使用嗎？</li></ul>|
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 |執行的檢查|

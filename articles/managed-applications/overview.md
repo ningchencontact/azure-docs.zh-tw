@@ -10,12 +10,12 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.date: 04/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 643998921ec2ae4ec6737dc4ab88160e85007867
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: d87b27101b5bbb3fb589987865649e102d7835de
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304992"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639202"
 ---
 # <a name="azure-managed-applications-overview"></a>Azure 受控應用程式概觀
 
@@ -53,7 +53,9 @@ Azure 受控應用程式可讓您提供雲端解決方案，讓取用者方便�
 
 ## <a name="resource-groups-for-managed-applications"></a>受控應用程式的資源群組
 
-一般來說，受控應用程式的資源位於兩個資源群組中。 取用者會管理一個資源群組，發行者會管理另一個資源群組。 在定義受控應用程式時，發行者會指定存取的層級。 下圖顯示的案例是發行者要求受控資源群組的擁有者角色。 發行者會為取用者對這個資源群組進行唯讀鎖定。 獲取受控資源群組存取權的發行者身分識別免除鎖定。
+一般來說，受控應用程式的資源位於兩個資源群組中。 取用者會管理一個資源群組，發行者會管理另一個資源群組。 在定義受控應用程式時，發行者會指定存取的層級。 Azure 中的所有資料提供者目前都不支援限制存取[資料作業](../role-based-access-control/role-definitions.md)。
+
+下圖顯示的案例是發行者要求受控資源群組的擁有者角色。 發行者會為取用者對這個資源群組進行唯讀鎖定。 獲取受控資源群組存取權的發行者身分識別免除鎖定。
 
 ![資源群組存取](./media/overview/access.png)
 

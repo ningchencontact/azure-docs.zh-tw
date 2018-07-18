@@ -21,6 +21,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30914050"
 ---
 # <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>擷取以傳統部署模型建立之 Azure Windows 虛擬機器的映像
 > [!IMPORTANT]

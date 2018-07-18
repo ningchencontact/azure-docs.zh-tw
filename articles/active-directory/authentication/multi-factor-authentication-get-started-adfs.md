@@ -15,6 +15,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33866475"
 ---
 # <a name="getting-started-with-azure-multi-factor-authentication-and-active-directory-federation-services"></a>開始使用 Azure Multi-Factor Authentication Server 和 Active Directory Federation Services
 

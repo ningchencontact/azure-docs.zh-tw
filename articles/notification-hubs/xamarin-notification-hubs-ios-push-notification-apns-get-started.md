@@ -16,11 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: babd6bff3cec38318cacc0d55394a7563f8e69a4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: cebb73fedffe3b5f0a11c919ff39d1d2acd462d3
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969522"
 ---
 # <a name="tutorial-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知推送至 Xamarin.iOS 應用程式
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -83,34 +84,46 @@ ms.lasthandoff: 05/07/2018
 
     ![Visual Studio- iOS 應用程式組態][32]
 
-4. 新增 Azure 傳訊套件。 在 [方案] 檢視中，以滑鼠右鍵按一下專案，然後選取 [新增] > [新增 NuGet 套件]。 搜尋 **Xamarin.Azure.NotificationHubs.iOS**，並將此套件新增至專案中。
+4. 從 [方案] 檢視中，按兩下 *Entitlements.plist*，並確定已核取 [啟用推播通知]。
 
-5. 在您的類別中新增檔案，將其命名為 **Constants.cs**，然後新增下列變數，並以您的「中樞名稱」和先前記下的「DefaultListenSharedAccessSignature」取代字串常值預留位置。
+    ![Visual Studio- iOS 權利組態][33]
+
+5. 新增 Azure 傳訊套件。 在 [方案] 檢視中，以滑鼠右鍵按一下專案，然後選取 [新增] > [新增 NuGet 套件]。 搜尋 **Xamarin.Azure.NotificationHubs.iOS**，並將此套件新增至專案中。
+
+6. 在您的類別中新增檔案，將其命名為 **Constants.cs**，然後新增下列變數，並以您的「中樞名稱」和先前記下的「DefaultListenSharedAccessSignature」取代字串常值預留位置。
    
     ```csharp
         // Azure app-specific connection string and hub path
-        public const string ConnectionString = "<Azure connection string>";
-        public const string NotificationHubPath = "<Azure hub path>";
+        public const string ListenConnectionString = "<Azure connection string>";
+        public const string NotificationHubName = "<Azure hub path>";
     ```
 
-6. 在 **AppDelegate.cs**中，新增下列 using 陳述式：
+7. 在 **AppDelegate.cs**中，新增下列 using 陳述式：
    
     ```csharp
         using WindowsAzure.Messaging;
     ```
 
-7. 宣告 **SBNotificationHub**的執行個體：
+8. 宣告 **SBNotificationHub**的執行個體：
    
     ```csharp
         private SBNotificationHub Hub { get; set; }
     ```
 
-8. 在 **AppDelegate.cs** 中，更新 **FinishedLaunching()** 以符合下列程式碼：
-   
+9.  在 **AppDelegate.cs** 中，更新 **FinishedLaunching()** 以符合下列程式碼：
+  
     ```csharp
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
-            if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
+            if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
+            {
+                UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert | UNAuthorizationOptions.Sound | UNAuthorizationOptions.Sound,
+                                                                      (granted, error) =>
+                {
+                    if (granted)
+                        InvokeOnMainThread(UIApplication.SharedApplication.RegisterForRemoteNotifications);
+                });
+            } else if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
                 var pushSettings = UIUserNotificationSettings.GetSettingsForTypes (
                        UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound,
                        new NSSet ());
@@ -126,12 +139,12 @@ ms.lasthandoff: 05/07/2018
         }
     ```
 
-9. 覆寫 **AppDelegate.cs** 中的 **RegisteredForRemoteNotifications()** 方法：
+10. 覆寫 **AppDelegate.cs** 中的 **RegisteredForRemoteNotifications()** 方法：
    
     ```csharp
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
         {
-            Hub = new SBNotificationHub(Constants.ConnectionString, Constants.NotificationHubPath);
+            Hub = new SBNotificationHub(Constants.ListenConnectionString, Constants.NotificationHubName);
    
             Hub.UnregisterAllAsync (deviceToken, (error) => {
                 if (error != null)
@@ -149,7 +162,7 @@ ms.lasthandoff: 05/07/2018
         }
     ```
 
-10. 覆寫 **AppDelegate.cs** 中的 **ReceivedRemoteNotification()** 方法：
+11. 覆寫 **AppDelegate.cs** 中的 **ReceivedRemoteNotification()** 方法：
    
     ```csharp
         public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)
@@ -158,7 +171,7 @@ ms.lasthandoff: 05/07/2018
         }
     ```
 
-11. 在 **AppDelegate.cs** 中建立下列 **ProcessNotification()** 方法：
+12. 在 **AppDelegate.cs** 中建立下列 **ProcessNotification()** 方法：
    
     ```csharp
         void ProcessNotification(NSDictionary options, bool fromFinishedLaunching)
@@ -199,7 +212,7 @@ ms.lasthandoff: 05/07/2018
    > 您可以選擇覆寫 **FailedToRegisterForRemoteNotifications()** 以處理沒有網路連線等的情況。 這點特別重要，因為使用者可能在離線模式下 (例如飛機) 啟動您的應用程式，而您希望針對您的應用程式來處理推播傳訊案例。
   
 
-12. 在您的裝置上執行應用程式。
+13. 在您的裝置上執行應用程式。
 
 ## <a name="send-test-push-notifications"></a>傳送測試推播通知
 您可以在 [Azure 入口網站] 中，使用 [測試傳送] 選項測試應用程式能否接收通知。 它會將測試推播通知傳送至您的裝置。
@@ -225,6 +238,7 @@ ms.lasthandoff: 05/07/2018
 [30]: ./media/notification-hubs-ios-get-started/notification-hubs-test-send.png
 [31]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-create-ios-app.png
 [32]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-app-settings.png
+[33]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-entitlements-settings.png
 
 
 

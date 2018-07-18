@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33770567"
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>在 HDInsight 上使用 Hadoop 分析航班延誤資料
 Hive 可透過一種類似 SQL 的指令碼語言 (稱為 *[HiveQL][hadoop-hiveql]*) 來執行 Hadoop MapReduce 作業，可用來彙總、查詢和分析大量資料。

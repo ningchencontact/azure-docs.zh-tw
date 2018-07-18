@@ -3,7 +3,7 @@ title: 教學課程 - 使用 Azure PowerShell 管理 Azure 磁碟 | Microsoft Do
 description: 在本教學課程中，您會了解如何使用 Azure PowerShell 來建立及管理虛擬機器的 Azure 磁碟
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/09/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ea9d89b7dd94c38b326b83ff1fbf51595d67599a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 67e95ea4b816e1c21b5a43233360c7fa89f43a7a
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929299"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>教學課程 - 使用 Azure PowerShell 管理 Azure 磁碟
 
@@ -35,7 +36,7 @@ Azure 虛擬機器使用硬碟來儲存 VM 作業系統、應用程式和資料�
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-如果您選擇在本機安裝和使用 PowerShell，則在執行本教學課程時，您必須使用 Azure PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
+如果您選擇在本機安裝和使用 PowerShell，則在執行本教學課程時，必須使用 Azure PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
 
 ## <a name="default-azure-disks"></a>預設 Azure 磁碟
 

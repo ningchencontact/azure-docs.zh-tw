@@ -20,6 +20,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30316224"
 ---
 # <a name="azure-stack-1711-update"></a>Azure Stack 1711 更新
 
@@ -75,21 +76,21 @@ Azure Stack 1711 更新組建編號為 **171201.3**。
 本節包含在 1711 更新安裝時可能遇到的已知問題。
 
 
-1. **徵兆：**Azure Stack 作業員在更新程序期間可能會看到下列錯誤："name:Install Update.", "description": "Install Update on Hosts and Infra VMs.", "errorMessage": "Type 'LiveUpdate' of Role 'VirtualMachines' raised an exception:\n\nThere is not enough space on the disk.\n\nat <ScriptBlock>, <No file>: line22", "status": "Error", "startTimeUtc": "2017-11-10T16:46:59.123Z", "endTimeUtc": "2017-11-10T19:20:29.669Z", "steps": [ ]"
-    2. **原因：**這個問題是因為屬於 Azure Stack 基礎結構的一或多個虛擬機器上可用磁碟空間不足
-    3. **解決方式：**請連絡 Microsoft 客戶服務與支援中心 (CSS) 以尋求協助。
+1. **徵兆：** Azure Stack 作業員在更新程序期間可能會看到下列錯誤："name:Install Update.", "description": "Install Update on Hosts and Infra VMs.", "errorMessage": "Type 'LiveUpdate' of Role 'VirtualMachines' raised an exception:\n\nThere is not enough space on the disk.\n\nat <ScriptBlock>, <No file>: line22", "status": "Error", "startTimeUtc": "2017-11-10T16:46:59.123Z", "endTimeUtc": "2017-11-10T19:20:29.669Z", "steps": [ ]"
+    2. **原因：** 這個問題是因為屬於 Azure Stack 基礎結構的一或多個虛擬機器上可用磁碟空間不足
+    3. **解決方式：** 請連絡 Microsoft 客戶服務與支援中心 (CSS) 以尋求協助。
 <br><br>
-2. **徵兆：**Azure Stack 作業員在更新程序期間可能會看到下列錯誤：Exception calling "ExtractToFile" with "3" argument(s):"The process cannot access the file '<\\<machineName>-ERCS01\C$\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Diagnostics\Microsoft.AzureStack.Common.Tools.Diagnostics.AzureStackDiagnostics.dll>'
-    1. **原因：**這個問題是因為繼續更新先前使用特殊權限結束點 (PEP) 繼續的入口網站所造成。
-    2. **解決方式：**請連絡 Microsoft 客戶服務與支援中心 (CSS) 以尋求協助。
+2. **徵兆：** Azure Stack 作業員在更新程序期間可能會看到下列錯誤：Exception calling "ExtractToFile" with "3" argument(s):"The process cannot access the file '<\\<machineName>-ERCS01\C$\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Diagnostics\Microsoft.AzureStack.Common.Tools.Diagnostics.AzureStackDiagnostics.dll>'
+    1. **原因：** 這個問題是因為繼續更新先前使用特殊權限結束點 (PEP) 繼續的入口網站所造成。
+    2. **解決方式：** 請連絡 Microsoft 客戶服務與支援中心 (CSS) 以尋求協助。
 <br><br>
-3. **徵兆：**Azure Stack 作業員在更新程序期間可能會看到下列錯誤：*"Type 'CheckHealth' of Role 'VirtualMachines' raised an exception:\n\nVirtual Machine health check for <machineName>-ACS01 produced the following errors.\nThere was an error getting VM information from hosts.例外狀況詳細資料：\nGet-VM : 電腦上的 'Node03' 作業失敗：WS-Management 服務無法處理要求。WMI \nservice 或 WMI 提供者傳回未知的錯誤：HRESULT 0x8004106c"。*
-    1. **原因：**這個問題是因為 Windows Server 問題所造成，會在後續 Windows Server 更新中獲得解決。
-    2. **解決方式：**請連絡 Microsoft 客戶服務與支援中心 (CSS) 以尋求協助。
+3. **徵兆：** Azure Stack 作業員在更新程序期間可能會看到下列錯誤：*"Type 'CheckHealth' of Role 'VirtualMachines' raised an exception:\n\nVirtual Machine health check for <machineName>-ACS01 produced the following errors.\nThere was an error getting VM information from hosts.例外狀況詳細資料：\nGet-VM : 電腦上的 'Node03' 作業失敗：WS-Management 服務無法處理要求。WMI \nservice 或 WMI 提供者傳回未知的錯誤：HRESULT 0x8004106c"。*
+    1. **原因：** 這個問題是因為 Windows Server 問題所造成，會在後續 Windows Server 更新中獲得解決。
+    2. **解決方式：** 請連絡 Microsoft 客戶服務與支援中心 (CSS) 以尋求協助。
 <br><br>
-4. **徵兆：**Azure Stack 作業員在更新程序期間可能會看到下列錯誤：*"Type 'DefenderUpdate' of Role 'URP' raised an exception: Failed getting version from \\SU1FileServer\SU1_Public\DefenderUpdates\x64\{file name}.exe after 60 attempts at Copy-AzSDefenderFiles, C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Defender\Microsoft.AzureStack.Defender.psm1: line 262"*
-    1. **原因：**這個問題是因為 Windows Defender 定義更新的背景下載失敗或不完整所造成。
-    2. **解決方式：**請在第一次更新嘗試起經過 8 小時之後，再嘗試繼續更新。
+4. **徵兆：** Azure Stack 作業員在更新程序期間可能會看到下列錯誤：*"Type 'DefenderUpdate' of Role 'URP' raised an exception: Failed getting version from \\SU1FileServer\SU1_Public\DefenderUpdates\x64\{file name}.exe after 60 attempts at Copy-AzSDefenderFiles, C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Defender\Microsoft.AzureStack.Defender.psm1: line 262"*
+    1. **原因：** 這個問題是因為 Windows Defender 定義更新的背景下載失敗或不完整所造成。
+    2. **解決方式：** 請在第一次更新嘗試起經過 8 小時之後，再嘗試繼續更新。
 
 ### <a name="known-issues-post-installation"></a>已知問題 (安裝後)
 

@@ -1,24 +1,26 @@
 ---
-title: "如何使用自助應用程式存取 | Microsoft Docs"
-description: "啟用自助應用程式存取以允許使用者尋找自己的應用程式"
+title: 如何使用自助應用程式存取 | Microsoft Docs
+description: 啟用自助應用程式存取以允許使用者尋找自己的應用程式
 services: active-directory
-documentationcenter: 
-author: ajamess
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.reviewer: japere
-ms.openlocfilehash: 760234d0d36bc140e3b441d7326083407de726b0
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: barbkess
+ms.reviewer: japere,asteen
+ms.openlocfilehash: 8eb12764cf5df539f61842ba3602c6265c1e2b86
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441204"
 ---
 # <a name="how-to-use-self-service-application-access"></a>如何使用自助應用程式存取
 
@@ -66,15 +68,15 @@ ms.lasthandoff: 02/21/2018
 
 9.  接著，若要為要求存取此應用程式的使用者指派群組，請按一下 [要將指派的使用者新增至哪個群組呢?] 標籤旁的選取控制項，然後選取一個群組。
 
-10. **選擇性：**若要將使用者設定為必須經過商務核准才能存取應用程式，請將 [需要核准才能授予此應用程式的存取權嗎?] 切換開關設定為 [是]。
+10. **選擇性：** 若要將使用者設定為必須經過商務核准才能存取應用程式，請將 [需要核准才能授予此應用程式的存取權嗎?] 切換開關設定為 [是]。
 
-11. **選擇性：對於只使用密碼單一登入的應用程式，**若要讓那些商務核准者為核准的使用者指定傳送給此應用程式的密碼，請將 [要允許核准者為此應用程式設定使用者的密碼嗎?] 切換開關設定為 [是]。
+11. **選擇性：對於只使用密碼單一登入的應用程式，** 若要讓那些商務核准者為核准的使用者指定傳送給此應用程式的密碼，請將 [要允許核准者為此應用程式設定使用者的密碼嗎?] 切換開關設定為 [是]。
 
-12. **選擇性：**若要指定商務核准者以核准此應用程式存取權，請按一下 [哪些人員可核准此應用程式的存取權?] 標籤旁的選取控制項以選取最多 10 個商務核准者。
+12. **選擇性：** 若要指定商務核准者以核准此應用程式存取權，請按一下 [哪些人員可核准此應用程式的存取權?] 標籤旁的選取控制項以選取最多 10 個商務核准者。
 
    * 不支援群組。
 
-13. **選擇性：****對於公開角色的應用程式，**若要將已獲得自助存取核准的使用者指派給角色，請按一下 [在此應用程式中應為使用者指派的角色為?] 旁的選取控制項，以選取要為這些使用者指派的角色。
+13. **選擇性：****對於公開角色的應用程式，** 若要將已獲得自助存取核准的使用者指派給角色，請按一下 [在此應用程式中應為使用者指派的角色為?] 旁的選取控制項，以選取要為這些使用者指派的角色。
 
 14. 按一下刀鋒視窗頂端的 [儲存] 按鈕以完成此動作。
 
@@ -83,4 +85,4 @@ ms.lasthandoff: 02/21/2018
 這些核准只支援單一核准工作流程，這表示若您指定多個核准者，任何核准者都可以核准應用程式存取。
 
 ## <a name="next-steps"></a>後續步驟
-[設定 Azure Active Directory 進行自助服務群組管理](active-directory-accessmanagement-self-service-group-management.md)
+[設定 Azure Active Directory 進行自助服務群組管理](users-groups-roles/groups-self-service-management.md)

@@ -10,19 +10,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 198fa15b7ee8cce6781e6a2575844a9666185be9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 191f8973e85186590a2ba840e473f8fff57a9d94
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37053043"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON 指令碼參考
 > [!NOTE]
-> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。
+> 本文適用於 Data Factory 第 1 版。
 
 
 本文提供 JSON 結構描述和範例來定義 Azure Data Factory 實體 (管線、活動、資料集和連結服務)。  
@@ -1480,7 +1481,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 
 | 屬性 | 說明 | 允許的值 | 必要 |
 | --- | --- | --- | --- |
-| AzureTableSourceQuery |使用自訂查詢來讀取資料。 |Azure 資料表查詢字串。 請參閱下一節中的範例。 |編號 指定 tableName 時若沒有指定 azureTableSourceQuery，資料表中的所有記錄都會複製到目的地。 如果同時指定了 azureTableSourceQuery，則資料表中符合查詢的記錄會複製到目的地。 |
+| AzureTableSourceQuery |使用自訂查詢來讀取資料。 |Azure 資料表查詢字串。 請參閱下一節中的範例。 |否。 指定 tableName 時若沒有指定 azureTableSourceQuery，資料表中的所有記錄都會複製到目的地。 如果同時指定了 azureTableSourceQuery，則資料表中符合查詢的記錄會複製到目的地。 |
 | azureTableSourceIgnoreTableNotFound |指出是否忍受資料表不存在的例外狀況。 |TRUE<br/>FALSE |否 |
 
 #### <a name="example"></a>範例
@@ -1944,7 +1945,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 | --- | --- | --- |
 | driverType | 指定要用來從 Oracle 複製資料/將資料複製到 Oracle 資料庫的驅動程式。 允許的值為 **Microsoft** 或 **ODP** (預設值)。 如需驅動程式詳細資料，請參閱[支援的版本和安裝](#supported-versions-and-installation)一節。 | 否 |
 | connectionString | 針對 connectionString 屬性指定連接到 Oracle 資料庫執行個體所需的資訊。 | yes |
-| gatewayName | 用來連接到內部部署 Oracle 伺服器的閘道器名稱 |yes |
+| gatewayName | 用來連線內部部署 Oracle 伺服器的閘道名稱 |yes |
 
 #### <a name="example"></a>範例
 ```json
@@ -2976,7 +2977,7 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
 | 屬性 | 說明 | 允許的值 | 必要 |
 | --- | --- | --- | --- |
 | query |使用自訂查詢來讀取資料。 |SQL-92 查詢或 CQL 查詢。 請參閱 [CQL 參考資料](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html)。 <br/><br/>在使用 SQL 查詢時，指定 **keyspace name.table 名稱** 來代表您想要查詢的資料表。 |否 (如果已定義資料集上的 tableName 和 keyspace)。 |
-| consistencyLevel |一致性層級可指定必須先有多少複本回應讀取要求，才會將資料傳回用戶端應用程式。 Cassandra 會檢查要讓資料滿足讀取要求的指定複本數目。 |ONE、TWO、THREE、QUORUM、ALL、LOCAL_QUORUM、EACH_QUORUM、LOCAL_ONE。 如需詳細資訊，請參閱 [設定資料一致性](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) 。 |編號 預設值為 ONE。 |
+| consistencyLevel |一致性層級可指定必須先有多少複本回應讀取要求，才會將資料傳回用戶端應用程式。 Cassandra 會檢查要讓資料滿足讀取要求的指定複本數目。 |ONE、TWO、THREE、QUORUM、ALL、LOCAL_QUORUM、EACH_QUORUM、LOCAL_ONE。 如需詳細資訊，請參閱 [設定資料一致性](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) 。 |否。 預設值為 ONE。 |
 
 #### <a name="example"></a>範例
   
@@ -3493,7 +3494,7 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
 
 | 屬性 | 說明 | 允許的值 | 必要 |
 | --- | --- | --- | --- |
-| copyBehavior |當來源為 BlobSource 或 FileSystem 時，定義複製行為。 |**PreserveHierarchy：**保留目標資料夾中的檔案階層。 亦即，來源檔案到來源資料夾的相對路徑，與目標檔案到目標資料夾的相對路徑相同。<br/><br/>**FlattenHierarchy：**來源資料夾的中所有檔案都會建立在目標資料夾的第一層中。 建立的目標檔案會具有自動產生的名稱。<br/><br/>**MergeFiles：**將來源資料夾的所有檔案合併為一個檔案。 如果有指定檔案/Blob 名稱，合併檔案的名稱會是指定的名稱。 否則，就會是自動產生的檔案名稱。 |否 |
+| copyBehavior |當來源為 BlobSource 或 FileSystem 時，定義複製行為。 |**PreserveHierarchy：** 保留目標資料夾中的檔案階層。 亦即，來源檔案到來源資料夾的相對路徑，與目標檔案到目標資料夾的相對路徑相同。<br/><br/>**FlattenHierarchy：** 來源資料夾的中所有檔案都會建立在目標資料夾的第一層中。 建立的目標檔案會具有自動產生的名稱。<br/><br/>**MergeFiles：** 將來源資料夾的所有檔案合併為一個檔案。 如果有指定檔案/Blob 名稱，合併檔案的名稱會是指定的名稱。 否則，就會是自動產生的檔案名稱。 |否 |
 auto-
 
 #### <a name="example"></a>範例
@@ -3553,7 +3554,7 @@ auto-
 | username |可存取 FTP 伺服器的使用者 |否 |&nbsp; |
 | password |使用者 (使用者名稱) 的密碼 |否 |&nbsp; |
 | encryptedCredential |用來存取 FTP 伺服器的加密認證 |否 |&nbsp; |
-| gatewayName |連接至內部部署 FTP 伺服器的「資料管理閘道」閘道 |否 |&nbsp; |
+| gatewayName |要連線至內部部署 FTP 伺服器的資料管理閘道名稱 |否 |&nbsp; |
 | 連接埠 |FTP 伺服器所接聽的連接埠 |否 |21 |
 | enableSsl |指定是否使用透過 SSL/TLS 的 FTP 通道 |否 |true |
 | enableServerCertificateValidation |指定是否在使用透過 SSL/TLS 的 FTP 通道時啟用伺服器 SSL 憑證驗證 |否 |true |
@@ -3865,10 +3866,10 @@ auto-
 | host | SFTP 伺服器的名稱或 IP 位址。 |yes |
 | 連接埠 |SFTP 伺服器所接聽的連接埠。 預設值：21 |否 |
 | authenticationType |指定驗證類型。 允許的值︰**Basic**、**SshPublicKey**。 <br><br> 請參閱[使用基本驗證](#using-basic-authentication)和[使用 SSH 公開金鑰驗證](#using-ssh-public-key-authentication)章節，分別取得更多屬性和 JSON 範例。 |yes |
-| skipHostKeyValidation | 指定是否略過主機金鑰驗證。 | 編號 預設值：false |
+| skipHostKeyValidation | 指定是否略過主機金鑰驗證。 | 否。 預設值：false |
 | hostKeyFingerprint | 指定主機金鑰的指紋。 | 如果 `skipHostKeyValidation` 設為 false，則為 [是]。  |
 | gatewayName |要連線至內部部署 SFTP 伺服器的資料管理閘道名稱。 | 如果從內部部署 SFTP 伺服器複製資料，則為 [是]。 |
-| encryptedCredential | 用來存取 SFTP 伺服器的加密認證。 當您在複製精靈或 ClickOnce 快顯對話方塊中指定基本驗證 (使用者名稱 + 密碼) 或 SshPublicKey 驗證 (使用者名稱 + 私密金鑰路徑或內容) 時自動產生。 | 編號 僅當從內部部署 SFTP 伺服器複製資料時才套用。 |
+| encryptedCredential | 用來存取 SFTP 伺服器的加密認證。 當您在複製精靈或 ClickOnce 快顯對話方塊中指定基本驗證 (使用者名稱 + 密碼) 或 SshPublicKey 驗證 (使用者名稱 + 私密金鑰路徑或內容) 時自動產生。 | 否。 僅當從內部部署 SFTP 伺服器複製資料時才套用。 |
 
 #### <a name="example-using-basic-authentication"></a>範例：使用基本驗證
 
@@ -4073,7 +4074,7 @@ auto-
 | authenticationType | 指定驗證類型。 允許的值為︰**匿名**、**基本**、**摘要**、**Windows**、**ClientCertificate**。 <br><br> 請分別參閱此關於更多屬性的下列資料表各節以及這些驗證類型的 JSON 範例。 | yes |
 | enableServerCertificateValidation | 如果來源是 HTTPS Web 伺服器，指定是否啟用伺服器 SSL 憑證驗證 | 否，預設值是 True |
 | gatewayName | 連接至內部部署 HTTP 來源的「資料管理閘道」閘道。 | 如果從內部部署 HTTP 來源複製資料，則為是。 |
-| encryptedCredential | 用來存取 HTTP 端點的加密認證。 當您在複製精靈或 ClickOnce 快顯對話方塊中設定驗證資訊時會自動產生。 | 編號 僅當從內部部署 HTTP 伺服器複製資料時才套用。 |
+| encryptedCredential | 用來存取 HTTP 端點的加密認證。 當您在複製精靈或 ClickOnce 快顯對話方塊中設定驗證資訊時會自動產生。 | 否。 僅當從內部部署 HTTP 伺服器複製資料時才套用。 |
 
 #### <a name="example-using-basic-digest-or-windows-authentication"></a>範例︰使用基本、摘要或 Windows 驗證
 將 `authenticationType` 設定為 `Basic`、`Digest`或 `Windows`，並指定除了上面介紹的 HTTP 連接器泛用的下列屬性︰
@@ -4115,7 +4116,7 @@ auto-
 3. 以滑鼠右鍵按一下個人存放區中的 [憑證]，然後選取 [所有工作]->[管理私用金鑰...]
 3. 在 [安全性] 索引標籤上，新增資料管理閘道主機服務使用憑證讀取存取執行所在的使用者帳戶。  
 
-**範例：使用用戶端憑證：**此連結服務會將您的資料處理站連結至內部部署 HTTP Web 伺服器。 它會使用已安裝資料管理閘道的電腦上所安裝的用戶端憑證。
+**範例：使用用戶端憑證：** 此連結服務會將您的資料處理站連結至內部部署 HTTP Web 伺服器。 它會使用已安裝資料管理閘道的電腦上所安裝的用戶端憑證。
 
 ```json
 {
@@ -4158,7 +4159,7 @@ auto-
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | relativeUrl | 包含資料之資源的相對 URL。 當路徑未指定時，則只會使用在連結服務定義中指定的 URL。 <br><br> 若要建構動態 URL，您可以使用 [Data Factory 函式和系統變數](data-factory-functions-variables.md)，範例︰`"relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)"`。 | 否 |
-| requestMethod | HTTP 方法。 允許的值為 **GET** 或 **POST**。 | 編號 預設值為 `GET`。 |
+| requestMethod | HTTP 方法。 允許的值為 **GET** 或 **POST**。 | 否。 預設值為 `GET`。 |
 | additionalHeaders | 其他 HTTP 要求標頭。 | 否 |
 | requestBody | HTTP 要求的內文。 | 否 |
 | format | 如果您只想要**從 HTTP 端點依現狀擷取資料**而不剖析它，請略過此格式設定。 <br><br> 如果您想要在複製期間剖析 HTTP 回應內容，支援下列格式類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat**、**ParquetFormat**。 如需詳細資訊，請參閱[文字格式](data-factory-supported-file-and-compression-formats.md#text-format)、[Json 格式](data-factory-supported-file-and-compression-formats.md#json-format)、[Avro 格式](data-factory-supported-file-and-compression-formats.md#avro-format)、[Orc 格式](data-factory-supported-file-and-compression-formats.md#orc-format)和 [Parquet 格式](data-factory-supported-file-and-compression-formats.md#parquet-format)章節。 |否 |
@@ -4213,7 +4214,7 @@ auto-
 
 | 屬性 | 說明 | 必要 |
 | -------- | ----------- | -------- |
-| httpRequestTimeout | HTTP 的逾時 (TimeSpan) 要求取得回應。 逾時會取得回應，而非逾時讀取回應資料。 | 編號 預設值：00:01:40 |
+| httpRequestTimeout | HTTP 的逾時 (TimeSpan) 要求取得回應。 逾時會取得回應，而非逾時讀取回應資料。 | 否。 預設值：00:01:40 |
 
 
 #### <a name="example"></a>範例
@@ -4742,7 +4743,7 @@ auto-
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | type |資料集的類型。 必須設定為 **WebTable** |yes |
-| path |包含資料表之資源的相對 URL。 |編號 當路徑未指定時，則只會使用在連結服務定義中指定的 URL。 |
+| path |包含資料表之資源的相對 URL。 |否。 當路徑未指定時，則只會使用在連結服務定義中指定的 URL。 |
 | index |資源中資料表的索引。 如需如何取得 HTML 網頁中資料表索引的步驟，請參閱 [取得 HTML 網頁中資料表的索引](#get-index-of-a-table-in-an-html-page) 一節。 |yes |
 
 #### <a name="example"></a>範例

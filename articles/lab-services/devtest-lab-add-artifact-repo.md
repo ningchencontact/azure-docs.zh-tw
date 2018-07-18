@@ -15,10 +15,11 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 80724a7d8d2b5cec19bdbce27cdafd4a9c09eb47
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38452493"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>新增可以存放自訂構件和 Resource Manager 範本的 Git 存放庫
 
@@ -53,7 +54,7 @@ ms.lasthandoff: 05/07/2018
 
 ### <a name="get-the-visual-studio-team-services-repository-clone-url-and-personal-access-token"></a>取得 Visual Studio Team Services 儲存機制複製 URL 和個人存取權杖
 
-1. 移至您的小組集合首頁 (例如 https://contoso-web-team.visualstudio.com)，然後選取專案。
+1. 移至您的小組集合首頁 (例如 https://contoso-web-team.visualstudio.com) ，然後選取專案。
 2. 在專案首頁上，選取 [程式碼] 。
 3. 若要檢視複製 URL，可在專案 [程式碼] 頁面上，選取 [複製]。
 4. 儲存 URL。 您稍後會用到該 URL。

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
-ms.openlocfilehash: 4a7d39910fac6096ef17873a9f81c5e1d1508857
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 8fcc654b7f5068037ec0818e19d8dff09bc07537
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34757134"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38635083"
 ---
 # <a name="managing-azure-file-shares-with-azure-powershell"></a>使用 Azure PowerShell 管理 Azure 檔案共用 
 [Azure 檔案](storage-files-introduction.md)是 Microsoft 易於使用的雲端檔案系統。 Azure 檔案共用可在 Windows、Linux 和 macOS 中掛接。 本指南會逐步說明透過 PowerShell 來使用 Azure 檔案共用的基本概念。 在本文中，您將了解如何：
@@ -170,7 +170,7 @@ Get-AzureStorageFile -Context $storageAcct.Context -ShareName "myshare2" -Path "
 
 ## <a name="create-and-modify-share-snapshots"></a>建立及修改共用快照集
 可以使用 Azure 檔案共用來執行的另一項實用工作，是建立共用快照集。 快照集會保留 Azure 檔案共用的時間點。 共用快照集類似於您可能已經很熟悉的下列作業系統技術：
-- Windows 檔案系統的[磁碟區陰影複製服務 (VSS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee923636)，例如 NTFS 和 ReFS
+- Windows 檔案系統的[磁碟區陰影複製服務 (VSS)](https://docs.microsoft.com/en-us/windows/desktop/VSS/volume-shadow-copy-service-portal)，例如 NTFS 和 ReFS
 - Linux 系統的[邏輯磁碟區管理員 (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) 快照集
 - macOS 的 [Apple 檔案系統 (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) 快照集。 
 

@@ -3,7 +3,7 @@ title: 建立 Linux VHD 並上傳至 Azure | Microsoft Docs
 description: 使用傳統部署模型來建立及上傳包含 Linux 作業系統的 Azure 虛擬硬碟 (VHD)。
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -15,12 +15,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
-ms.author: iainfou
-ms.openlocfilehash: 1ba568eeaf3bbc3d786cc48e54404aa65a00fecc
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: cynthn
+ms.openlocfilehash: cdbe6aa5683ecf9d8bdaf6bbf9503ddc455f03ee
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928262"
 ---
 # <a name="creating-and-uploading-a-virtual-hard-disk-that-contains-the-linux-operating-system"></a>建立及上傳包含 Linux 作業系統的虛擬硬碟
 > [!IMPORTANT] 

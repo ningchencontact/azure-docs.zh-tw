@@ -1,21 +1,21 @@
 ---
-title: 自訂原則中的密碼複雜度 - Azure AD B2C | Microsoft Docs
-description: 如何在自訂原則中設定密碼複雜度需求
+title: 在 Azure Active Directory B2C 自訂原則中的密碼複雜度 | Microsoft Docs
+description: 如何在自訂原則中設定密碼複雜度需求。
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: 9f8d576cbc5c2bb2fe4109086b04711422911390
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.component: B2C
+ms.openlocfilehash: ed0001d8d88a2604e3128a4d5f7a365aeb7b00b1
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37440786"
 ---
 # <a name="configure-password-complexity-in-custom-policies"></a>在自訂原則中設定密碼複雜度
 

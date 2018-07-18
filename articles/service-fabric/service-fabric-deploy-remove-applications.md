@@ -19,6 +19,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271411"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>使用 PowerShell 部署與移除應用程式
 > [!div class="op_single_selector"]

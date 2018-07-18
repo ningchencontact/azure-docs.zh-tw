@@ -15,6 +15,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31794604"
 ---
 # <a name="data-warehouse-workload"></a>資料倉儲工作負載
 資料倉儲工作負載是指所有針對資料倉儲所發生的作業。 資料倉儲工作負載包含將資料載入倉儲、對資料倉儲執行分析和報告、管理資料倉儲中的資料，以及從資料倉儲匯出資料的整個程序。 這些元件的廣度與深度多半與資料倉儲的成熟度相當。

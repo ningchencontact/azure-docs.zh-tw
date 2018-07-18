@@ -11,11 +11,12 @@ ms.topic: tutorial
 ms.date: 05/09/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: 198a637fcfc2268e393a63b27a153b163dc4331e
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e337a5c7c203e2e1048149dfeff71436a4d2752f
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850605"
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>在 Azure 入口網站中建立 Azure SQL Database 受控執行個體
 
@@ -161,16 +162,16 @@ ms.lasthandoff: 05/10/2018
 
    ![受控執行個體 - 建立](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
 
-3. 選取您的訂用帳戶並確認預覽條款顯示 [已接受]。
+4. 選取您的訂用帳戶並確認預覽條款顯示 [已接受]。
 
    ![受控執行個體預覽 - 已接受](./media/sql-database-managed-instance-tutorial/preview-accepted.png)
 
-4. 使用下表中的資訊，填妥受控執行個體表單中所要求的資訊：
+5. 使用下表中的資訊，填妥受控執行個體表單中所要求的資訊：
 
    | 設定| 建議的值 | 說明 |
    | ------ | --------------- | ----------- |
    |**受控執行個體名稱**|任何有效名稱|如需有效的名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。|
-   |**受控執行個體系統管理員登入**|任何有效的使用者名稱|如需有效的名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。| 
+   |**受控執行個體系統管理員登入**|任何有效的使用者名稱|如需有效的名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。 請勿使用 "serveradmin"，因為這是保留的伺服器層級角色。| 
    |**密碼**|任何有效密碼|密碼長度至少必須有 16 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)。|
    |**資源群組**|您先前建立的資源群組||
    |**位置**|您先前選取的位置|如需區域的相關資訊，請參閱 [Azure 區域](https://azure.microsoft.com/regions/)。|
@@ -178,17 +179,17 @@ ms.lasthandoff: 05/10/2018
 
    ![受控執行個體建立表單](./media/sql-database-managed-instance-tutorial/managed-instance-create-form.png)
 
-5. 按一下 [定價層] 來調整計算和儲存體資源的大小，以及檢閱定價層選項。 根據預設，您的執行個體會取得 32 GB 的免費儲存空間，這對您的應用程式而言可能不夠。
-6. 使用滑桿或文字方塊來指定儲存體數量和虛擬核心數目。 
-   ![受控執行個體建立表單](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
+6. 按一下 [定價層] 來調整計算和儲存體資源的大小，以及檢閱定價層選項。 根據預設，您的執行個體會取得 32 GB 的免費儲存空間，這對您的應用程式而言可能不夠。
+7. 使用滑桿或文字方塊來指定儲存體數量和虛擬核心數目。 
+   ![受控執行個體定價層](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
 
-7. 完成時，按一下 [套用] 以儲存您的選取項目。  
-8. 按一下 [建立] 以部署受控執行個體。
-9. 按一下 [通知] 圖示以檢視部署的狀態。
+8. 完成時，按一下 [套用] 以儲存您的選取項目。  
+9. 按一下 [建立] 以部署受控執行個體。
+10. 按一下 [通知] 圖示以檢視部署的狀態。
  
    ![部署進度](./media/sql-database-managed-instance-tutorial/deployment-progress.png)
 
-9. 按一下 [部署正在進行中] 來開啟受控執行個體視窗，以進一步監視部署進度。
+11. 按一下 [部署正在進行中] 來開啟受控執行個體視窗，以進一步監視部署進度。
  
    ![部署進度 2](./media/sql-database-managed-instance-tutorial/managed-instance.png)
 
@@ -248,18 +249,18 @@ ms.lasthandoff: 05/10/2018
 
    ![虛擬機器建立表單](./media/sql-database-managed-instance-tutorial/virtual-machine-create-form.png)
 
-3. 按一下 [確定]。
-4. 選取 VM 的大小。 若要查看更多大小，請選取 [檢視全部] 或變更 [支援的磁碟類型] 篩選條件。 在本教學課程中，您只需要小型虛擬機器。
+4. 按一下 [確定]。
+5. 選取 VM 的大小。 若要查看更多大小，請選取 [檢視全部] 或變更 [支援的磁碟類型] 篩選條件。 在本教學課程中，您只需要小型虛擬機器。
 
     ![VM 大小](./media/sql-database-managed-instance-tutorial/virtual-machine-size.png)  
 
-5. 按一下 [選取] 。
-6. 在 [設定] 表單上，按一下 [子網路]，然後選取 [vm_subnet]。 請勿選擇受控執行個體佈建所在的子網路，而是相同 Vnet 中的另一個子網路。
+6. 按一下 [選取] 。
+7. 在 [設定] 表單上，按一下 [子網路]，然後選取 [vm_subnet]。 請勿選擇受控執行個體佈建所在的子網路，而是相同 Vnet 中的另一個子網路。
 
     ![VM 設定](./media/sql-database-managed-instance-tutorial/virtual-machine-settings.png)  
 
-7. 按一下 [確定]。
-8. 在摘要頁面上，檢閱供應項目詳細資料，然後按一下 [建立] 開始進行虛擬機器部署。
+8. 按一下 [確定]。
+9. 在摘要頁面上，檢閱供應項目詳細資料，然後按一下 [建立] 開始進行虛擬機器部署。
  
 ## <a name="connect-to-virtual-machine"></a>連線至虛擬機器
 

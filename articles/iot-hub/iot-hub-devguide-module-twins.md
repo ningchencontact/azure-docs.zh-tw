@@ -1,26 +1,19 @@
 ---
 title: 了解 Azure IoT 中樞模組對應項 | Microsoft Docs
 description: 開發人員指南 - 使用模組對應項來同步處理 IoT 中樞與裝置之間的狀態和設定資料
-services: iot-hub
-documentationcenter: .net
 author: chrissie926
-manager: timlt
-editor: ''
-ms.assetid: 8a3da072-a5bf-46e5-8de4-24cdbb2a03fa
+manager: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1e6f52da6f7524828cef928c2ee5d5cd92a1de1e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 71d762b6f1c199db17058ac107aad7a0b3260ae7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201069"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633490"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>了解和使用 IoT 中樞的模組對應項
 

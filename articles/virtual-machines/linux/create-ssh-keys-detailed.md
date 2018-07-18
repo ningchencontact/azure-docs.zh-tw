@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: danlep
 ms.openlocfilehash: 827c80a70047fd0f1ad67e4f19cb2300e45b2c6b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38606201"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>詳細步驟：在 Azure 中建立和管理對 Linux VM 進行驗證所需的 SSH 金鑰 
 您可以利用安全殼層 (SSH) 金鑰組，在 Azure 上建立依預設使用 SSH 金鑰進行驗證的 Linux 虛擬機器，而免除登入密碼的需求。 使用 Azure 入口網站、Azure CLI、Resource Manager 範本或其他工具建立的 VM，可以將 SSH 公開金鑰納入部署中，以設定 SSH 連線的 SSH 金鑰驗證。 
@@ -161,7 +162,7 @@ ssh-keygen \
 ```
 
 ## <a name="ssh-to-your-vm-with-an-ssh-client"></a>從 SSH 用戶端透過 SSH 連線至您的 VM
-公開金鑰已部署到您的 Azure VM 且私密金鑰儲存在本機系統中，此時可以使用 VM 的 IP 位址或 DNS 名稱，透過 SSH 連線到您的 VM。 請將下列命令中的 *azureuser* 和 *myvm.westus.cloudapp.azure.com* 取代為系統管理員使用者名稱和完整網域名稱 (或 IP 位址)：
+公開金鑰已部署到您的 Azure VM 且私密金鑰儲存在本機系統中，此時可以使用 VM 的 IP 位址或 DNS 名稱，透過 SSH 連線到您的 VM。 將下列命令中的 *azureuser* 和 *myvm.westus.cloudapp.azure.com* 換成系統管理員使用者名稱和完整網域名稱 (或 IP 位址)：
 
 ```bash
 ssh azureuser@myvm.westus.cloudapp.azure.com

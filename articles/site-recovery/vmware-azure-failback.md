@@ -1,18 +1,17 @@
 ---
 title: 使用 Azure Site Recovery 從 Azure 容錯回復至 VMware | Microsoft Docs
 description: 將虛擬機器容錯移轉到 Azure 之後，您可以開始將虛擬機器容錯回復到內部部署的作業。 了解如何容錯回復的步驟。
-services: site-recovery
 author: nsoneji
-manager: gauravd
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/05/2018
+ms.date: 07/06/2018
+ms.topic: conceptual
 ms.author: nisoneji
-ms.openlocfilehash: 8f580fa40bade2bf586dd116729881b249bbba88
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 9d8398582766a27f1457e3a59bdde0c59298ed50
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919830"
 ---
 # <a name="fail-back-from-azure-to-an-on-premises-site"></a>從 Azure 容錯回復至內部部署網站
 

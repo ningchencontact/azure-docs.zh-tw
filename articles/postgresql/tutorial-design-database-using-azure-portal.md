@@ -15,6 +15,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30186303"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站來設計適用於 PostgreSQL 的 Azure 資料庫
 

@@ -12,68 +12,60 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2017
+ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 7e290b3bbe3fa70522533f23febe587fbb873e35
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 59415941172fab06b3e86ef4d34d464cf359ce8f
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779000"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025230"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure 儲存體總管版本資訊
 
-本文包含 Microsoft Azure 儲存體總管 1.0.0 版和先前版本的版本資訊。
+本文包含「Azure 儲存體總管」1.2.0 版及先前版本的版本資訊。
 
 [Microsoft Azure 儲存體總管](./vs-azure-tools-storage-manage-with-storage-explorer.md) 是一個獨立應用程式，可讓您在 Windows、macOS 和 Linux 上輕鬆使用 Azure 儲存體資料。
 
-## <a name="version-100"></a>1.0.0 版
-04/16/2018
+## <a name="version-120"></a>版本 1.2.0
+2018 年 12 月 6 日
 
-### <a name="download-azure-storage-explorer-100"></a>下載 Azure 儲存體總管 1.0.0
-- [適用於 Windows 的 Azure 儲存體總管 1.0.0](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [適用於 Mac 的 Azure 儲存體總管 1.0.0](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [適用於 Linux 的 Azure 儲存體總管 1.0.0](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-120"></a>下載 Azure 儲存體總管 1.2.0
+- [適用於 Windows 的 Azure 儲存體總管 1.2.0](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [適用於 Mac 的 Azure 儲存體總管 1.2.0](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [適用於 Linux 的 Azure 儲存體總管 1.2.0](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>新增
-* 增強式驗證，可讓儲存體總管使用與 Visual Studio 2017 相同的帳戶存放區。 若要使用這項功能，您必須重新登入您的帳戶，並重新設定已篩選的訂用帳戶。
-* 對於 AAD 所支援的 Azure Stack 帳戶，如果已啟用 [目標 Azure Stack]，則儲存體總管現在會擷取 Azure Stack 訂用帳戶。 您不再需要建立自訂登入環境。
-* 已新增數個捷徑，以便進行更快速的導覽。 這些包括切換各種面板並在編輯器之間移動。 如需詳細資訊，請參閱 [檢視] 功能表。
-* GitHub 上現在提供儲存體總管意見反應。 按一下左下方的 [意見反應] 按鈕或移至 [https://github.com/Microsoft/AzureStorageExplorer/issues](https://github.com/Microsoft/AzureStorageExplorer/issues)，即可抵達我們的問題頁面。 請隨意提出建議、回報問題、詢問問題，或留下任何其他形式的意見反應。
-* 如果您遇到 SSL 憑證問題，而且找不到引起問題的憑證，現在可以使用 `--ignore-certificate-errors` 旗標從命令列啟動儲存體總管。 使用這個旗標啟動時，儲存體總管會忽略 SSL 憑證錯誤。
-* Blob 和檔案項目的內容功能表中現在有 [下載] 選項。
-* 已改善協助工具和畫面讀取器支援。 如果您需依賴協助工具功能，請參閱[協助工具文件](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-accessibility)以取得詳細資訊。
-* 儲存體總管現在使用 Electron 1.8.3
-
-### <a name="breaking-changes"></a>重大變更
-* 儲存體總管已切換到新的驗證程式庫。 切換到此程式庫時，您必須重新登入您的帳戶，並重新設定已篩選的訂用帳戶。
-* 用來加密敏感性資料的方法已變更。 這可能會導致必須重新新增部分的快速存取項目及/或必須重新連結部分已連結的資源。
+* 如果 [儲存體總管] 只有在從一小部分租用戶載入訂用帳戶時發生失敗，系統將會顯示所有已成功載入的訂用帳戶，並特別針對失敗的租用戶顯示錯誤訊息。 [#159](https://github.com/Microsoft/AzureStorageExplorer/issues/159)
+* 在 Windows 上，當有更新可用時，您現在可以選擇 [關閉時更新]。 選取此選項時，該項更新的安裝程式將會在您關閉 [儲存體總管] 之後執行。 [#21](https://github.com/Microsoft/AzureStorageExplorer/issues/21)
+* 已將 [還原快照集] 新增至檢視檔案共用快照集時的檔案共用編輯器操作功能表。[#131](https://github.com/Microsoft/AzureStorageExplorer/issues/131)
+* 現在一律啟用 [清除佇列] 按鈕。[#135](https://github.com/Microsoft/AzureStorageExplorer/issues/135)
+* 已重新啟用對登入 ADFS Azure Stack 的支援。 需要 Azure Stack 1804 版或更新版本。 [#150](https://github.com/Microsoft/AzureStorageExplorer/issues/150)
 
 ### <a name="fixes"></a>修正
-* 位於 Proxy 後方的某些使用者會有因為「無法解析」錯誤訊息而中斷的群組 blob 上傳或下載。 已修正此問題。
-* 如果使用直接連結時需要登入，按一下 [登入] 提示就會顯示空白的對話方塊。 已修正此問題。
-* 在 Linux 上，如果儲存體總管因為 GPU 程序損毀而無法啟動，您現在會獲知損毀、得知要使用 '--disable-gpu' 參數，而儲存體總管會接著在已啟用此參數的情況下自動重新啟動。
-* 在 [存取原則] 對話方塊中難以識別無效的存取原則。 無效的存取原則識別碼現在會以紅色標示，讓您更容易辨識。
-* 活動記錄有時在活動的不同部分之間會有大量空白區域。 已修正此問題。
-* 在表格查詢編輯器中，如果您讓時間戳記子句處於無效狀態，然後嘗試修改另一個子句，則編輯器會凍結。 如果偵測到另一個子句變更，編輯器現在會將時間戳記子句還原到其前次有效的狀態。
-* 如果您在樹狀檢視中輸入搜尋查詢時暫停，則搜尋會開始並且從文字方塊竊取焦點。 現在，您必須按 'Enter' 鍵，或按一下 [開始搜尋] 按鈕，明確地開始搜尋。
-* 在檔案共用中的檔案上按一下滑鼠右鍵時，有時會停用 [取得共用存取簽章] 命令。 已修正此問題。
-* 如果在搜尋期間已篩選掉具有焦點的資源樹狀節點，您就無法用 Tab 鍵移入資源樹狀結構並使用方向鍵來瀏覽資源樹狀結構。 現在，如果取得焦點的資源樹狀節點隱藏起來，則資源樹狀結構中的第一個節點會自動取得焦點。
-* 在編輯器工具列中有時可看到額外的分隔符號。 已修正此問題。
-* 階層連結文字方塊有時會溢位。 已修正此問題。
-* 一次上傳許多檔案時，有時會經常重新整理 Blob 和檔案共用編輯器。 已修正此問題。
-* 在檔案共用快照集管理檢視中，[資料夾統計資料] 功能沒有任何用途。 它現在已停用。
-* 在 Linux 上，[檔案] 功能表不會出現。 已修正此問題。
-* 將資料夾上傳至檔案共用時，預設只會上傳資料夾的內容。 現在，預設行為是將資料夾的內容上傳到檔案共用中的相符資料夾。
-* 數個對話方塊中的按鈕順序已反轉。 已修正此問題。
-* 各種安全性相關修正程式。
+* 當您檢視某個檔案共用的快照集時，如果該檔案共用的名稱是相同儲存體帳戶中另一個檔案共用的前置詞，則系統也會列出該另一個檔案共用的快照集。 已修正此問題。 [#255](https://github.com/Microsoft/AzureStorageExplorer/issues/255)
+* 當透過 SAS 連結時，從檔案共用快照集還原檔案會導致發生錯誤。 已修正此問題。 [#211](https://github.com/Microsoft/AzureStorageExplorer/issues/211)
+* 當檢視某個 Blob 的快照集時，如果已選取基底 Blob 和單一快照集，就會啟用 [升階快照集] 動作。 現在只有在選取單一快照集的情況下，才會啟用此動作。 [#230](https://github.com/Microsoft/AzureStorageExplorer/issues/230)
+* 如果啟動單一作業 (例如下載 Blob) 而後發生失敗，將不會自動重試，直到您啟動另一個相同類型的作業為止。 所有作業現在應該都會自動重試，不論您已將多少作業排入佇列。
+* 針對在 GPV2 和「Blob 儲存體」帳戶中新建立的 Blob 容器，所開啟的編輯器沒有 [存取層] 資料行。 已修正此問題。 [#109](https://github.com/Microsoft/AzureStorageExplorer/issues/109)
+* 透過 SAS 連結儲存體帳戶或 Blob 容器時，有時不會顯示 [存取層] 資料行。 現在一律會顯示此資料行，但如果未設定任何「存取層」，則值會空白。 [#160](https://github.com/Microsoft/AzureStorageExplorer/issues/160)
+* 已停用為新上傳的區塊 Blob 設定「存取層」的功能。 已修正此問題。 [#171](https://github.com/Microsoft/AzureStorageExplorer/issues/171)
+* 使用鍵盤來叫用 [索引標籤保持開啟狀態] 按鈕時，會失去鍵盤焦點。 現在，焦點會移至保持開啟的索引標籤。 [#163](https://github.com/Microsoft/AzureStorageExplorer/issues/163)
+* 針對「查詢產生器」中的查詢，VoiceOver 不會提供目前運算子的有用描述。 現在已較具描述性。 [#207](https://github.com/Microsoft/AzureStorageExplorer/issues/207)
+* 各種編輯器的分頁連結不具描述性。 現在已變更為較具描述性。 [#205](https://github.com/Microsoft/AzureStorageExplorer/issues/205)
+* 在 [新增實體] 對話方塊中，VoiceOver 不會宣告輸入元素所屬的資料行。 目前資料行的名稱現在已包含在元素的描述中。 [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
+* 當焦點移至選項按鈕和核取方塊時，兩者沒有可見的框線。 已修正此問題。 [#237](https://github.com/Microsoft/AzureStorageExplorer/issues/237)
 
 ### <a name="known-issues"></a>已知問題
+* 使用模擬器 (例如「Azure 儲存體模擬器」或 Azurite) 時，您將必須讓它們在其預設連接埠上接聽連線。 否則，「儲存體總管」將無法連線至這些模擬器。
+* 如果您使用 VS for Mac，而且曾建立自訂 AAD 設定，則您可能無法登入。 若要解決此問題，請刪除 ~/.IdentityService/AadConfigurations 的內容。 如果這麼做無法將您解除封鎖，請對[此問題](https://github.com/Microsoft/AzureStorageExplorer/issues/97)加上註解。
+* Azurite 尚未完全實作所有的儲存體 API。 因此，對於開發儲存體使用 Azurite 時，可能出現未預期的錯誤或行為。
 * 在少數情況下，樹狀焦點可能會固定在快速存取上。 若要取消固定焦點，您可以 [全部重新整理]。
+* 由於 NodeJS 中的錯誤，造成無法從您的 OneDrive 資料夾上傳。 已修正該 Bug，但是尚未整合至 Electron。
 * 當目標為 Azure Stack，以附加 Blob 方式上傳特定檔案會失敗。
-* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用此處所述的取消篩選器因應措施。 
+* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用[此處](https://github.com/Azure/azure-storage-node/issues/317)所述的取消篩選器因應措施。
 * 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
-* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案和實體的所有其他屬性和中繼資料都會在重新命名期間保留。
+* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案及實體的所有其他屬性和中繼資料在重新命名期間都會保留。
 * 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。
 * 儲存體總管使用的 Electron 殼層具有一些 GPU (圖形處理單元) 硬體加速的問題。 如果儲存體總管顯示空白 (空的) 主視窗，您可以嘗試從命令列啟動儲存體總管並透過新增 `--disable-gpu` 切換停用 GPU 加速：
 
@@ -82,7 +74,7 @@ ms.locfileid: "32779000"
 ```
 
 * 對於 Linux 使用者，您必須安裝 [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)。
-* 使用 Ubuntu 14.04 的使用者必須確定 GCC 編譯器集合是最新版本，這可以透過執行下列命令並重新啟動電腦來完成：
+* 針對使用 Ubuntu 14.04 的使用者，您必須確定 GCC 已是最新版本，做法是執行下列命令，然後重新啟動電腦即可：
 
     ```
     sudo add-apt-repository ppa:ubuntu-toolchain-r/test
@@ -97,8 +89,17 @@ ms.locfileid: "32779000"
     sudo apt-get install libgconf-2-4
     ```
 
+
+
+
+
+
+
+
 ## <a name="previous-releases"></a>舊版
 
+* [1.1.0 版](#version-110)
+* [1.0.0 版](#version-100)
 * [0.9.6 版](#version-096)
 * [0.9.5 版](#version-095)
 * [0.9.4 和 0.9.3 版](#version-094-and-093)
@@ -122,13 +123,129 @@ ms.locfileid: "32779000"
 * [0.7.20160105.0 版](#version-07201601050)
 * [0.7.20151116.0 版](#version-07201511160)
 
+
+## <a name="version-110"></a>1.1.0 版
+05/09/2018
+
+### <a name="new"></a>新增
+* 儲存體總管現在支援使用 Azurite。 注意：Azurite 的連線是硬式編碼至預設開發端點。
+* 儲存體總管現在支援僅限 Blob 和 GPV2 儲存體帳戶的存取層。 在[此處](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers)深入了解存取層。
+* 產生 SAS 時，不再需要開始時間。
+
+### <a name="fixes"></a>修正
+* 美國政府帳戶的訂用帳戶擷取已中斷。 已修正此問題。 [#61](https://github.com/Microsoft/AzureStorageExplorer/issues/61)
+* 未正確儲存存取原則的到期時間。 已修正此問題。 [#50](https://github.com/Microsoft/AzureStorageExplorer/issues/50)
+* 在容器中產生項目的 SAS URL 時，項目的名稱不會附加至 URL。 已修正此問題。 [#44](https://github.com/Microsoft/AzureStorageExplorer/issues/44)
+* 建立 SAS 時，過去的到期時間有時會成為預設值。 這是因為儲存體總管使用上次使用的開始和到期時間作為預設值。 現在，每當您開啟 SAS 對話方塊時，都會產生一組新的預設值。 [#35](https://github.com/Microsoft/AzureStorageExplorer/issues/35)
+* 在儲存體帳戶之間進行複製時，則會產生 24 小時制 SAS。 如果複製持續 24 小時以上，複製會失敗。 我們已增加 SAS 持續 1 星期，以減少複製由於過期的 SAS 而失敗的機會。 [#62](https://github.com/Microsoft/AzureStorageExplorer/issues/62)
+* 對於某些活動，按一下 [取消] 不一定有作用。 已修正此問題。 [#125](https://github.com/Microsoft/AzureStorageExplorer/issues/125)
+* 對於某些活動，傳輸速度不正確。 已修正此問題。 [#124](https://github.com/Microsoft/AzureStorageExplorer/issues/124)
+* [檢視] 功能表中的 [上一步] 拼字不正確。 現在拼字正確無誤。 [#71](https://github.com/Microsoft/AzureStorageExplorer/issues/71)
+* Windows 安裝程式的最後一頁有 [下一步] 按鈕。 已變更為 [完成] 按鈕。 [#70](https://github.com/Microsoft/AzureStorageExplorer/issues/70)
+* 使用 HC 黑色佈景主題時，對話方塊的按鈕不會出現索引標籤焦點。 現在會出現。[#64](https://github.com/Microsoft/AzureStorageExplorer/issues/64)
+* 活動記錄檔中的動作 [自動解決] 大小寫不正確。 現在正確。 [#51](https://github.com/Microsoft/AzureStorageExplorer/issues/51)
+* 從資料表刪除實體時，要求確認的對話方塊會顯示錯誤圖示。 對話方塊現在使用警告圖示。 [#148](https://github.com/Microsoft/AzureStorageExplorer/issues/148)
+
+### <a name="known-issues"></a>已知問題
+* 如果您使用 VS for Mac，而且曾建立自訂 AAD 設定，則您可能無法登入。 若要解決此問題，請刪除 ~/.IdentityService/AadConfigurations 的內容。 如果這麼做無法將您解除封鎖，請對[此問題](https://github.com/Microsoft/AzureStorageExplorer/issues/97)加上註解。
+* Azurite 尚未完全實作所有的儲存體 API。 因此，對於開發儲存體使用 Azurite 時，可能出現未預期的錯誤或行為。
+* 在少數情況下，樹狀焦點可能會固定在快速存取上。 若要取消固定焦點，您可以 [全部重新整理]。
+* 由於 NodeJS 中的錯誤，造成無法從您的 OneDrive 資料夾上傳。 已修正該 Bug，但是尚未整合至 Electron。
+* 當目標為 Azure Stack，以附加 Blob 方式上傳特定檔案會失敗。
+* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用[此處](https://github.com/Azure/azure-storage-node/issues/317)所述的取消篩選器因應措施。
+* 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
+* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案及實體的所有其他屬性和中繼資料在重新命名期間都會保留。
+* 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。
+* 儲存體總管使用的 Electron 殼層具有一些 GPU (圖形處理單元) 硬體加速的問題。 如果儲存體總管顯示空白 (空的) 主視窗，您可以嘗試從命令列啟動儲存體總管並透過新增 `--disable-gpu` 切換停用 GPU 加速：
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* 對於 Linux 使用者，您必須安裝 [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)。
+* 針對使用 Ubuntu 14.04 的使用者，您必須確定 GCC 已是最新版本，做法是執行下列命令，然後重新啟動電腦即可：
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* 使用 Ubuntu 17.04 的使用者必須安裝 GConf，這可以透過執行下列命令並重新啟動電腦來完成：
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+
+## <a name="version-100"></a>1.0.0 版
+04/16/2018
+
+### <a name="new"></a>新增
+* 增強式驗證，可讓儲存體總管使用與 Visual Studio 2017 相同的帳戶存放區。 若要使用這項功能，您必須重新登入您的帳戶，並重新設定已篩選的訂用帳戶。
+* 對於 AAD 所支援的 Azure Stack 帳戶，如果已啟用 [目標 Azure Stack]，則儲存體總管現在會擷取 Azure Stack 訂用帳戶。 您不再需要建立自訂登入環境。
+* 已新增數個捷徑，以便進行更快速的導覽。 這些包括切換各種面板並在編輯器之間移動。 如需詳細資訊，請參閱 [檢視] 功能表。
+* GitHub 上現在提供儲存體總管意見反應。 按一下左下方的 [意見反應] 按鈕或移至 [https://github.com/Microsoft/AzureStorageExplorer/issues](https://github.com/Microsoft/AzureStorageExplorer/issues)，即可抵達我們的問題頁面。 請隨意提出建議、回報問題、詢問問題，或留下任何其他形式的意見反應。
+* 如果您遇到 SSL 憑證問題，而且找不到引起問題的憑證，現在可以使用 `--ignore-certificate-errors` 旗標從命令列啟動儲存體總管。 使用這個旗標啟動時，儲存體總管會忽略 SSL 憑證錯誤。
+* Blob 和檔案項目的內容功能表中現在有 [下載] 選項。
+* 已改善協助工具和畫面讀取器支援。 如果您需依賴協助工具功能，請參閱[協助工具文件](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-accessibility)以取得詳細資訊。
+* 儲存體總管現在使用 Electron 1.8.3
+
+### <a name="breaking-changes"></a>重大變更
+* 儲存體總管已切換到新的驗證程式庫。 切換到此程式庫時，您必須重新登入您的帳戶，並重新設定已篩選的訂用帳戶。
+* 用來加密敏感性資料的方法已變更。 這可能會導致必須重新新增部分的快速存取項目及/或必須重新連結部分已連結的資源。
+
+### <a name="fixes"></a>修正
+* 位於 Proxy 後方的某些使用者會有因為「無法解析」錯誤訊息而中斷的群組 blob 上傳或下載。 已修正此問題。
+* 如果使用直接連結時需要登入，按一下 [登入] 提示時會顯示空白的對話方塊。 已修正此問題。
+* 在 Linux 上，如果儲存體總管因為 GPU 程序損毀而無法啟動，您現在會獲知損毀、得知要使用 '--disable-gpu' 參數，而儲存體總管會接著在已啟用此參數的情況下自動重新啟動。
+* 在 [存取原則] 對話方塊中難以識別無效的存取原則。 無效的存取原則識別碼現在會以紅色標示，讓您更容易辨識。
+* 活動記錄有時在活動的不同部分之間會有大量空白區域。 已修正此問題。
+* 在表格查詢編輯器中，如果您讓時間戳記子句處於無效狀態，然後嘗試修改另一個子句，則編輯器會凍結。 如果偵測到另一個子句變更，編輯器現在會將時間戳記子句還原到其前次有效的狀態。
+* 如果您在樹狀檢視中輸入搜尋查詢時暫停，則搜尋會開始並且從文字方塊竊取焦點。 現在，您必須按 'Enter' 鍵，或按一下 [開始搜尋] 按鈕，明確地開始搜尋。
+* 在檔案共用中的檔案上按一下滑鼠右鍵時，有時會停用 [取得共用存取簽章] 命令。 已修正此問題。
+* 如果在搜尋期間已篩選掉具有焦點的資源樹狀節點，您就無法用 Tab 鍵移入資源樹狀結構並使用方向鍵來瀏覽資源樹狀結構。 現在，如果取得焦點的資源樹狀節點隱藏起來，則資源樹狀結構中的第一個節點會自動取得焦點。
+* 在編輯器工具列中有時可看到額外的分隔符號。 已修正此問題。
+* 階層連結文字方塊有時會溢位。 已修正此問題。
+* 一次上傳許多檔案時，有時會經常重新整理 Blob 和檔案共用編輯器。 已修正此問題。
+* 在檔案共用快照集管理檢視中，[資料夾統計資料] 功能沒有任何用途。 它現在已停用。
+* 在 Linux 上，[檔案] 功能表不會出現。 已修正此問題。
+* 將資料夾上傳至檔案共用時，預設只會上傳資料夾的內容。 現在，預設行為是將資料夾的內容上傳到檔案共用中的相符資料夾。
+* 數個對話方塊中的按鈕順序已反轉。 已修正此問題。
+* 各種安全性相關修正程式。
+
+### <a name="known-issues"></a>已知問題
+* 在少數情況下，樹狀焦點可能會固定在快速存取上。 若要取消固定焦點，您可以 [全部重新整理]。
+* 當目標為 Azure Stack，以附加 Blob 方式上傳特定檔案會失敗。
+* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用此處所述的取消篩選器因應措施。
+* 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
+* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案及實體的所有其他屬性和中繼資料在重新命名期間都會保留。
+* 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。
+* 儲存體總管使用的 Electron 殼層具有一些 GPU (圖形處理單元) 硬體加速的問題。 如果儲存體總管顯示空白 (空的) 主視窗，您可以嘗試從命令列啟動儲存體總管並透過新增 `--disable-gpu` 切換停用 GPU 加速：
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* 對於 Linux 使用者，您必須安裝 [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)。
+* 針對使用 Ubuntu 14.04 的使用者，您必須確定 GCC 已是最新版本，做法是執行下列命令，然後重新啟動電腦即可：
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* 使用 Ubuntu 17.04 的使用者必須安裝 GConf，這可以透過執行下列命令並重新啟動電腦來完成：
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
 ## <a name="version-096"></a>0.9.6 版
 02/28/2018
-
-### <a name="download-azure-storage-explorer-096-preview"></a>下載 Azure 儲存體總管 0.9.6 (預覽)
-- [適用於 Windows 的 Azure 儲存體總管 0.9.6 (預覽)](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [適用於 Mac 的 Azure 儲存體總管 0.9.6 (預覽)](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [適用於 Linux 的 Azure 儲存體總管 0.9.6 (預覽)](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="fixes"></a>修正
 * 導致預期的 blob/檔案無法列在編輯器中的問題。 已修正此問題。
@@ -140,7 +257,7 @@ ms.locfileid: "32779000"
 * 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用[此處](https://github.com/Azure/azure-storage-node/issues/317)所述的取消篩選器因應措施。
 * 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
 * 帳戶設定面板可能會提示您需要重新輸入認證以篩選訂用帳戶。
-* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案和實體的所有其他屬性和中繼資料都會在重新命名期間保留。
+* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案及實體的所有其他屬性和中繼資料在重新命名期間都會保留。
 * 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。
 * 儲存體總管使用的 Electron 殼層具有一些 GPU (圖形處理單元) 硬體加速的問題。 如果儲存體總管顯示空白 (空的) 主視窗，您可以嘗試從命令列啟動儲存體總管並透過新增 `--disable-gpu` 切換停用 GPU 加速：
 
@@ -148,7 +265,7 @@ ms.locfileid: "32779000"
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* 使用 Ubuntu 14.04 的使用者必須確定 GCC 編譯器集合是最新版本，這可以透過執行下列命令並重新啟動電腦來完成：
+* 針對使用 Ubuntu 14.04 的使用者，您必須確定 GCC 已是最新版本，做法是執行下列命令，然後重新啟動電腦即可：
 
     ```
     sudo add-apt-repository ppa:ubuntu-toolchain-r/test
@@ -165,11 +282,6 @@ ms.locfileid: "32779000"
 
 ## <a name="version-095"></a>0.9.5 版
 02/06/2018
-
-### <a name="download-azure-storage-explorer-095-preview"></a>下載 Azure 儲存體總管 0.9.5 (預覽)
-- [適用於 Windows 的 Azure 儲存體總管 0.9.5 (預覽)](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [適用於 Mac 的 Azure 儲存體總管 0.9.5 (預覽)](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [適用於 Linux 的 Azure 儲存體總管 0.9.5 (預覽)](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>新增
 
@@ -194,7 +306,7 @@ ms.locfileid: "32779000"
 * 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用此處所述的取消篩選器因應措施。
 * 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
 * 帳戶設定面板可能會提示您需要重新輸入認證以篩選訂用帳戶。
-* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案和實體的所有其他屬性和中繼資料都會在重新命名期間保留。
+* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案及實體的所有其他屬性和中繼資料在重新命名期間都會保留。
 * 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。
 * 儲存體總管使用的 Electron 殼層具有一些 GPU (圖形處理單元) 硬體加速的問題。 如果儲存體總管顯示空白 (空的) 主視窗，您可以嘗試從命令列啟動儲存體總管並透過新增 `--disable-gpu` 切換停用 GPU 加速：
 
@@ -202,7 +314,7 @@ ms.locfileid: "32779000"
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* 使用 Ubuntu 14.04 的使用者必須確定 GCC 編譯器集合是最新版本，這可以透過執行下列命令並重新啟動電腦來完成：
+* 針對使用 Ubuntu 14.04 的使用者，您必須確定 GCC 已是最新版本，做法是執行下列命令，然後重新啟動電腦即可：
 
     ```
     sudo add-apt-repository ppa:ubuntu-toolchain-r/test
@@ -220,11 +332,6 @@ ms.locfileid: "32779000"
 ## <a name="version-094-and-093"></a>0.9.4 和 0.9.3 版
 01/21/2018
 
-### <a name="download-azure-storage-explorer-094-preview"></a>下載 Azure 儲存體總管 0.9.4 (預覽)
-* [下載適用於 Windows 的 Azure 儲存體總管 0.9.4 (預覽)](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [下載適用於 Mac 的 Azure 儲存體總管 0.9.4 (預覽)](https://go.microsoft.com/fwlink/?LinkId=809307)
-* [下載適用於 Linux 的 Azure 儲存體總管 0.9.4 (預覽)](https://go.microsoft.com/fwlink/?LinkId=809308)
-
 ### <a name="new"></a>新增
 * 在下列情況下，將會重新使用您的現有儲存體總管視窗：
     * 開啟儲存體總管中所產生的直接連結。
@@ -237,7 +344,7 @@ ms.locfileid: "32779000"
 ### <a name="fixes"></a>修正
 * 已修正安全性問題。 請盡早升級至 0.9.4 版。
 * 舊的活動不適合進行清理。 這會影響長期執行作業的效能。 現在，會將它們正確地清除。
-* 涉及大量檔案和目錄的動作偶而會導致儲存體總管凍結。 現在會對 Azure for File Shares 要求進行節流控制，以限制系統資源使用。
+* 涉及大量檔案和目錄的動作偶而會導致儲存體總管凍結。 現在會針對向 Azure for File Shares 發出的要求進行節流控制，以限制系統資源使用。
 
 ### <a name="known-issues"></a>已知問題
 * 儲存體總管不支援 ADFS 帳戶。
@@ -246,13 +353,13 @@ ms.locfileid: "32779000"
 * 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用此處所述的取消篩選器因應措施。
 * 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
 * 帳戶設定面板可能會提示您需要重新輸入認證以篩選訂用帳戶。
-* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案和實體的所有其他屬性和中繼資料都會在重新命名期間保留。
+* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案及實體的所有其他屬性和中繼資料在重新命名期間都會保留。
 * 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。
 * 儲存體總管使用的 Electron 殼層具有一些 GPU (圖形處理單元) 硬體加速的問題。 如果儲存體總管顯示空白 (空的) 主視窗，您可以嘗試從命令列啟動儲存體總管並透過新增 `--disable-gpu` 切換停用 GPU 加速：
 ```
 ./StorageExplorer --disable-gpu
 ```
-* 使用 Ubuntu 14.04 的使用者必須確定 GCC 編譯器集合是最新版本，這可以透過執行下列命令並重新啟動電腦來完成：
+* 針對使用 Ubuntu 14.04 的使用者，您必須確定 GCC 已是最新版本，做法是執行下列命令，然後重新啟動電腦即可：
 
     ```
     sudo add-apt-repository ppa:ubuntu-toolchain-r/test
@@ -308,13 +415,13 @@ ms.locfileid: "32779000"
 * 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用此處所述的取消篩選器因應措施。
 * 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
 * 帳戶設定面板可能會提示您需要重新輸入認證以篩選訂用帳戶。
-* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案和實體的所有其他屬性和中繼資料都會在重新命名期間保留。
+* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案及實體的所有其他屬性和中繼資料在重新命名期間都會保留。
 * 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。
 * 儲存體總管使用的 Electron 殼層具有一些 GPU (圖形處理單元) 硬體加速的問題。 如果儲存體總管顯示空白 (空的) 主視窗，您可以嘗試從命令列啟動儲存體總管並透過新增 `--disable-gpu` 切換停用 GPU 加速：
 ```
 ./StorageExplorer --disable-gpu
 ```
-* 使用 Ubuntu 14.04 的使用者必須確定 GCC 編譯器集合是最新版本，這可以透過執行下列命令並重新啟動電腦來完成：
+* 針對使用 Ubuntu 14.04 的使用者，您必須確定 GCC 已是最新版本，做法是執行下列命令，然後重新啟動電腦即可：
 
     ```
     sudo add-apt-repository ppa:ubuntu-toolchain-r/test
@@ -362,13 +469,13 @@ ms.locfileid: "32779000"
 * 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用此處所述的取消篩選器因應措施。
 * 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
 * 帳戶設定面板可能會提示您需要重新輸入認證以篩選訂用帳戶。
-* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案和實體的所有其他屬性和中繼資料都會在重新命名期間保留。
+* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案及實體的所有其他屬性和中繼資料在重新命名期間都會保留。
 * 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。
 * 儲存體總管使用的 Electron 殼層具有一些 GPU (圖形處理單元) 硬體加速的問題。 如果儲存體總管顯示空白 (空的) 主視窗，您可以嘗試從命令列啟動儲存體總管並透過新增 `--disable-gpu` 切換停用 GPU 加速：
 ```
 ./StorageExplorer --disable-gpu
 ```
-* 使用 Ubuntu 14.04 的使用者必須確定 GCC 編譯器集合是最新版本，這可以透過執行下列命令並重新啟動電腦來完成：
+* 針對使用 Ubuntu 14.04 的使用者，您必須確定 GCC 已是最新版本，做法是執行下列命令，然後重新啟動電腦即可：
 
     ```
     sudo add-apt-repository ppa:ubuntu-toolchain-r/test
@@ -406,9 +513,9 @@ ms.locfileid: "32779000"
 * 完成 Blob 上傳之後，系統會重新整理起始該上傳的索引標籤。 這和先前的行為不同，且會導致您返回所在容器的根。
 * 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
 * 帳戶設定面板可能會提示您需要重新輸入認證以篩選訂用帳戶。
-* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案和實體的所有其他屬性和中繼資料都會在重新命名期間保留。
+* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案及實體的所有其他屬性和中繼資料在重新命名期間都會保留。
 * 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。
-* 使用 Ubuntu 14.04 的使用者必須確定 GCC 編譯器集合是最新版本，這可以透過執行下列命令並重新啟動電腦來完成：
+* 針對使用 Ubuntu 14.04 的使用者，您必須確定 GCC 已是最新版本，做法是執行下列命令，然後重新啟動電腦即可：
 
     ```
     sudo add-apt-repository ppa:ubuntu-toolchain-r/test
@@ -439,7 +546,7 @@ ms.locfileid: "32779000"
 * 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定
 * 同時上傳超過 3 個 Blob 或檔案群組可能會造成錯誤
 * 帳戶設定面板可能會提示您需要重新輸入認證以篩選訂用帳戶
-* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案和實體的所有其他屬性和中繼資料都會在重新命名期間保留。
+* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案及實體的所有其他屬性和中繼資料在重新命名期間都會保留。
 * 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。
 * Ubuntu 14.04 安裝需要更新或升級 gcc 版本，升級步驟如下：
 
@@ -473,7 +580,7 @@ ms.locfileid: "32779000"
 * 在放大或縮小期間，縮放層級可能會暫時重設為預設層級
 * 同時上傳超過 3 個 Blob 或檔案群組可能會造成錯誤
 * 帳戶設定面板可能會提示您需要重新輸入認證以篩選訂用帳戶
-* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案和實體的所有其他屬性和中繼資料都會在重新命名期間保留。
+* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案及實體的所有其他屬性和中繼資料在重新命名期間都會保留。
 * 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。
 * Ubuntu 14.04 安裝需要更新或升級 gcc 版本，升級步驟如下：
 
@@ -516,7 +623,7 @@ ms.locfileid: "32779000"
 * 在放大或縮小期間，縮放層級可能會暫時重設為預設層級。
 * 同時上傳超過 3 個 Blob 或檔案群組可能會造成錯誤。
 * 帳戶設定面板可能會提示您需要重新輸入認證以篩選訂用帳戶。
-* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案和實體的所有其他屬性和中繼資料都會在重新命名期間保留。
+* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案及實體的所有其他屬性和中繼資料在重新命名期間都會保留。
 * 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。
 * Ubuntu 14.04 安裝需要更新或升級 gcc 版本，升級步驟如下：
 
@@ -540,8 +647,8 @@ ms.locfileid: "32779000"
 
 * 儲存體總管 0.8.9 將會自動下載最新版本的更新。
 * Hotfix：先前使用由入口網站所產生的 SAS URI 來附加儲存體帳戶將會導致錯誤。
-* 現已能針對 Blob 快照集進行建立、管理及升階。
-* 現已能登入 Azure 中國、Azure 德國及 Azure 美國政府帳戶。
+* 您現在已可以針對 Blob 快照集進行建立、管理及升階。
+* 您現在已可以登入「Azure 中國」、「Azure 德國」及「Azure 美國政府」帳戶。
 * 現已能變更縮放層級。 使用 [檢視] 功能表中的選項來放大、縮小及重設縮放。
 * Blob 和檔案的使用者中繼資料現已支援 Unicode 字元。
 * 協助工具改進。
@@ -836,7 +943,7 @@ ms.locfileid: "32779000"
 #### <a name="new"></a>新增
 
 * macOS 及 Windows 版本
-* 登入以檢視儲存體帳戶，使用您的組織帳戶、Microsoft 帳戶、2FA 等等。
+* 使用您的「組織帳戶」、「Microsoft 帳戶」、2FA 等來登入以檢視「儲存體帳戶」。
 * 本機開發儲存體 (使用儲存體模擬器，僅限 Windows)
 * Azure Resource Manager 和傳統資源支援
 * 建立及刪除 Blob、佇列或資料表

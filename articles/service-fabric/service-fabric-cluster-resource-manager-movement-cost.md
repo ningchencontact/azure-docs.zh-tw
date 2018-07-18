@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34204918"
 ---
 # <a name="service-movement-cost"></a>服務移動成本
 「Service Fabric 叢集資源管理員」在嘗試判斷要對叢集進行哪些變更時會考量一個因素，就是這些變更的成本。 「成本」的概念是針對叢集可以改善多少來做取捨。 成本在移動服務進行平衡、重組和其他需求時納入考量因素。 目標是以最沒有干擾、最便宜的方式符合需求。 

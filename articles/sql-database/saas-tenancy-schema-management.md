@@ -7,15 +7,16 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: 12d8f3cc9fa4ec75f247b6ed602e120b0302be0e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 2e4af3e3e1ef1d9da7c66b929885e3ec749b462f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646267"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>使用每一租用戶一個資料庫的模式，透過 Azure SQL Database 管理 SaaS 應用程式中的結構描述
 
@@ -104,7 +105,7 @@ Demo-SchemaManagement.ps1 指令碼會呼叫 Deploy-SchemaManagement.ps1 指令�
 使用相同的作業「系統」預存程序建立作業。
 
 1. 開啟 SSMS 並連線到 catalog-dpt-&lt;user&gt;.database.windows.net 伺服器
-1. 開啟檔案_…\\Learning Modules\\Schema Management\\OnlineReindex.sql_
+1. 開啟檔案 _…\\Learning Modules\\Schema Management\\OnlineReindex.sql_
 1. 按一下滑鼠右鍵並選取 [連線]，然後連線到 catalog-dpt-&lt;user&gt;.database.windows.net 伺服器 (如果您尚未連線)
 1. 確定您已連線到 jobagent 資料庫，然後按 **F5** 以執行指令碼
 

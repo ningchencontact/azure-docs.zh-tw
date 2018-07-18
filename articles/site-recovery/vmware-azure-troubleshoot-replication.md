@@ -2,17 +2,18 @@
 title: 使用 Azure Site Recovery 針對 VMware VM 和實體伺服器複寫到 Azure 的複寫問題進行疑難排解 | Microsoft Docs
 description: 本文提供使用 Azure Site Recovery 將 VMware VM 和實體伺服器複寫至 Azure 時的常見複寫問題疑難排解。
 services: site-recovery
-author: asgang
+author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
-ms.author: asgang
-ms.openlocfilehash: 9291840428c9a8d7ba5d65bc94ce5964728316f3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.date: 07/06/2018
+ms.author: ramamill
+ms.openlocfilehash: f305f552d576f58914bc33351331f1da3c68bc23
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951643"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>針對 VMware VM 和實體伺服器的複寫問題進行疑難排解
 

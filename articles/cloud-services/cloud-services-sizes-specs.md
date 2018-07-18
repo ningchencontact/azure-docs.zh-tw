@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: bde4347c487be8986c72435172b18c10effa0690
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 490fd248cdd14858e2ca71f94dcb9dbaa5726f9c
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33940279"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "34608809"
 ---
 # <a name="sizes-for-cloud-services"></a>雲端服務的大小
 本主題描述雲端服務角色執行個體 (Web 角色和背景工作角色)的可用大小和選項。 同時也提供計劃使用這些資源時，需注意的部署考量。 每種大小都有一個識別碼，可讓您放入[服務定義檔](cloud-services-model-and-package.md#csdef)。 每種大小的價格可以在[雲端服務價格](https://azure.microsoft.com/pricing/details/cloud-services/)頁面上取得。
@@ -85,13 +85,13 @@ ms.locfileid: "33940279"
 | 大小            | CPU 核心 | 記憶體：GiB  | 暫存位置：GiB       | 最大 NIC / 網路頻寬 |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | 特小型      | 1         | 0.768        | 20                   | 1 / 低 |
-| 小型           | 1         | 1.75         | 70                   | 1 / 中 |
-| 中          | 2         | 3.5          | 135                  | 1 / 中 |
-| 大型           | 4         | 7            | 285                  | 2 / 高 |
-| 特大型      | 8         | 14           | 605                  | 4 / 高 |
-| A5              | 2         | 14           | 135                  | 1 / 中 |
-| A6              | 4         | 28           | 285                  | 2 / 高 |
-| A7              | 8         | 56           | 605                  | 4 / 高 |
+| 小型           | 1         | 1.75         | 225                  | 1 / 中 |
+| 中          | 2         | 3.5          | 490                  | 1 / 中 |
+| 大型           | 4         | 7            | 1000                 | 2 / 高 |
+| 特大型      | 8         | 14           | 2040                 | 4 / 高 |
+| A5              | 2         | 14           | 490                  | 1 / 中 |
+| A6              | 4         | 28           | 1000                 | 2 / 高 |
+| A7              | 8         | 56           | 2040                 | 4 / 高 |
 
 ## <a name="a-series---compute-intensive-instances"></a>A 系列 - 大量計算執行個體
 如需有關使用這些大小的資訊與考量，請參閱[高效能計算 VM 大小](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。

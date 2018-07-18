@@ -3,22 +3,24 @@ title: 使用 Azure AD 存取權檢閱來管理來賓存取權 | Microsoft Docs
 description: 使用 Azure Active Directory 存取權檢閱，以作為群組成員或指派給應用程式的方式管理來賓使用者
 services: active-directory
 documentationcenter: ''
-author: markwahl-msft
+author: rolyon
 manager: mtillman
-editor: ''
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/16/2018
-ms.author: billmath
-ms.openlocfilehash: a96e856b55f118b74c7cb43ead925e10e4b74f1c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.component: compliance-reports
+ms.date: 06/21/2018
+ms.author: rolyon
+ms.reviewer: mwahl
+ms.openlocfilehash: 452501d5da58d06093f22009c6ecc30e02f581a5
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34192433"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38295634"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>使用 Azure AD 存取權檢閱來管理來賓存取權
 
@@ -28,7 +30,7 @@ ms.locfileid: "34192433"
 您可以輕易確保來賓使用者有適當的存取權。 您可藉由要求來賓本身或決策者參與存取權檢閱，並重新證實 (或「證明」) 來賓的存取權。 檢閱者可以根據 Azure AD 的建議，對每位使用者的持續存取需求給予其意見。 存取權檢閱完成時，您可以接著進行變更，並為不再需要存取的來賓移除存取權。
 
 > [!NOTE]
-> 本文件著重於檢閱來賓使用者的存取權。 如果您想檢閱所有使用者的存取權 (不只來賓)，請參閱[使用存取權檢閱管理使用者存取權](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)。 若您想要檢閱使用者的系統管理角色 (例如全域系統管理員) 成員資格，請參閱[在 Azure AD Privileged Identity Management 中開始存取權檢閱](active-directory-privileged-identity-management-how-to-start-security-review.md)。 
+> 本文件著重於檢閱來賓使用者的存取權。 如果您想檢閱所有使用者的存取權 (不只來賓)，請參閱[使用存取權檢閱管理使用者存取權](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)。 若您想要檢閱使用者的系統管理角色 (例如全域系統管理員) 成員資格，請參閱[在 Azure AD Privileged Identity Management 中開始存取權檢閱](privileged-identity-management/pim-how-to-start-security-review.md)。 
 >
 >
 
@@ -37,14 +39,11 @@ ms.locfileid: "34192433"
 
 存取權檢閱是 Microsoft Enterprise Mobility + Security, E5 中所含之 Azure AD Premium P2 版本的一項功能。 如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。 透過這項功能進行互動 (包括建立檢閱、填寫檢閱或確認其存取權) 的每個使用者，都需要授權。 
 
-存取權檢閱是 Microsoft Enterprise Mobility + Security, E5 中所含之 Azure AD Premium P2 版本的一項功能。 如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-whatis.md)。 透過這項功能建立檢閱、存取檢閱或套用檢閱結果的每位使用者都需要授權。
-
-
 若您計劃讓來賓使用者檢閱自己的存取權，請閱讀來賓使用者授權相關資訊。 如需詳細資訊，請參閱 [Azure AD B2B 共同作業授權](active-directory-b2b-licensing.md)。
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>建立和執行來賓的存取權檢閱
 
-首先，讓存取權檢閱出現在檢閱者的存取面板上。 以全域管理員身分，移至[存取權檢閱頁面](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)。 
+首先，讓存取權檢閱出現在檢閱者的存取面板上。 以全域管理員或使用者帳戶管理員身分，移至[存取權檢閱頁面](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)。 
 
 Azure AD 可檢閱來賓使用者的幾個案例。
 

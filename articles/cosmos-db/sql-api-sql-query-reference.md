@@ -4,20 +4,18 @@ description: Azure Cosmos DB SQL 查詢語言的參考文件。
 services: cosmos-db
 author: LalithaMV
 manager: kfile
-documentationcenter: ''
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2017
 ms.author: laviswa
-ms.openlocfilehash: 83ee1d37dd6d79ce26ae95cd1486298f0210f661
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 13337e7979a378382df5e62661b04bac8dffa689
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798826"
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Azure Cosmos DB SQL 語法參考
 
@@ -272,7 +270,7 @@ AS `input_alias`
   
     {100, 200} 為 `input_alias2 = 1,`  
   
-    {300}為 `input_alias2 = 3,`  
+    {300} 為 `input_alias2 = 3,`  
   
 - FROM 子句 `<from_source1> JOIN <from_source2> JOIN <from_source3>` 會產生下列 Tuple：  
   
@@ -301,7 +299,7 @@ AS `input_alias`
   
     {100, 200} 為 `input_alias2 = A,`  
   
-    {300}為 `input_alias2 = C,`  
+    {300} 為 `input_alias2 = C,`  
   
 - FROM 子句 `<from_source1> JOIN <from_source2> JOIN <from_source3>` 會產生下列 Tuple：  
   
@@ -482,7 +480,7 @@ ORDER BY <sort_specification>
 |**類別**|**詳細資料**|  
 |-|-|  
 |**arithmetic**|運算子預期的輸入為數字。 輸出也是數字。 若有任何**未定義的**輸入，或輸入了數字以外的類型，則會產生**未定義**的結果。|  
-|**bitwise**|運算子預期的輸入為 32 位元的帶正負號整數。 輸出也為 32 位元的帶正負號整數。<br /><br /> 任何非整數值均會進行四捨五入。 正值會無條件捨去，負值則會進位。<br /><br /> 除了 32 位元整數範圍的任何值，都會以去掉其兩個元件標記法的最後 32 位元進行轉換。<br /><br /> 若有任何**未定義的**輸入，或輸入了數字以外的類型，則會產生**未定義**的結果。<br /><br /> **注意：**以上行為會與 JavaScript 位元運算子行為相容。|  
+|**bitwise**|運算子預期的輸入為 32 位元的帶正負號整數。 輸出也為 32 位元的帶正負號整數。<br /><br /> 任何非整數值均會進行四捨五入。 正值會無條件捨去，負值則會進位。<br /><br /> 除了 32 位元整數範圍的任何值，都會以去掉其兩個元件標記法的最後 32 位元進行轉換。<br /><br /> 若有任何**未定義的**輸入，或輸入了數字以外的類型，則會產生**未定義**的結果。<br /><br /> **注意：** 以上行為會與 JavaScript 位元運算子行為相容。|  
 |**logical**|運算子預期的輸入為布林值。 輸出也是布林值。<br />若有任何**未定義的**輸入，或輸入了布林值以外的類型，則會產生**未定義**的結果。|  
 |**comparison**|運算子預期的輸入具有相同的未定義類型。 輸出也是布林值。<br /><br /> 若有任何**未定義的**輸入，或是不同類型的輸入，則會產生**未定義**的結果。<br /><br /> 請參閱**比較值順序**表格以取得值順序的詳細資料。|  
 |**字串**|運算子預期的輸入為字串。 輸出也是字串。<br />若有任何**未定義的**輸入，或輸入了字串以外的類型，則會產生**未定義**的結果。|  

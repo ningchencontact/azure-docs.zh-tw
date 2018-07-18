@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30914835"
 ---
 # <a name="create-a-windows-high-performance-computing-hpc-cluster-with-the-hpc-pack-iaas-deployment-script"></a>使用 HPC Pack IaaS 部署指令碼建立 Windows 高效能運算 (HPC) 叢集
 執行 HPC Pack IaaS 部署 PowerShell 指令碼，以在 Azure 虛擬機器中為 Windows 工作負載部署完整的 HPC Pack 2012 R2 叢集。 叢集是由加入 Active Directory、且執行 Windows Server 和 Microsoft HPC Pack 的前端節點，以及您指定的其他 Windows 計算資源所組成。 如果您想要在 Azure 中為 Linux 工作負載部署 HPC Pack 叢集，請參閱 [使用 HPC Pack IaaS 部署指令碼建立 Linux HPC 叢集](../../linux/classic/hpcpack-cluster-powershell-script.md)。 

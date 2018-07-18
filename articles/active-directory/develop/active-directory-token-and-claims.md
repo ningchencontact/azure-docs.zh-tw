@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/22/2018
+ms.date: 06/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 95ce83a3f1288d1b731aeeb8dcc32e58bcaefe21
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: a12ac87eba14db4ff13868446cf8d14b10d1f5fb
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157916"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317821"
 ---
 # <a name="azure-ad-token-reference"></a>Azure AD 權杖參考
 Azure Active Directory (Azure AD) 會在處理每個驗證流程時發出數種安全性權杖。 本文件說明每種權杖的格式、安全性特性和內容。 
@@ -56,7 +56,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 | JWT 宣告 | Name | 說明 |
 | --- | --- | --- |
 | `aud` |對象 |權杖的預定接收者。 接收權杖的應用程式必須確認對象值正確無誤，並拒絕任何適用於不同對象的權杖。 <br><br> **範例 SAML 值**： <br> `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>` <br><br> **範例 JWT 值**： <br> `"aud":"https://contoso.com"` |
-| `appidacr` |應用程式驗證內容類別參考 |指出如何驗證用戶端。 若為公用用戶端，此值為 0。 如果使用用戶端識別碼和用戶端密碼，此值為 1。 <br><br> **範例 JWT 值**： <br> `"appidacr": "0"` |
+| `appidacr` |應用程式驗證內容類別參考 |指出如何驗證用戶端。 若為公用用戶端，此值為 0。 如果使用用戶端識別碼和用戶端密碼，此值為 1。 如果已使用用戶端憑證進行驗證，則值為 2。 <br><br> **範例 JWT 值**： <br> `"appidacr": "0"` |
 | `acr` |驗證內容類別參考 |指出主體的驗證方式 (相對於應用程式驗證內容類別參考宣告中的用戶端)。 值為 "0" 表示使用者驗證不符合 ISO/IEC 29115 的需求。 <br><br> **範例 JWT 值**： <br> `"acr": "0"` |
 | 驗證時刻 |記錄驗證發生的日期和時間。 <br><br> **範例 SAML 值**： <br> `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | |
 | `amr` |驗證方法 |識別如何驗證權杖的主體。 <br><br> **範例 SAML 值**： <br> `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` <br><br> **範例 JWT 值**：`“amr”: ["pwd"]` |
@@ -113,7 +113,8 @@ Azure AD 所簽發的權杖是使用業界標準非對稱式加密演算法 (例
 {
   "typ": "JWT",
   "alg": "RS256",
-  "x5t": "kriMPdmBvx68skT8-mPAB3BseeA"
+  "x5t": "iBjL1Rcqzhiy4fpxIxdZqohM2Yk"
+  "kid": "iBjL1Rcqzhiy4fpxIxdZqohM2Yk"
 }
 ```
 
@@ -129,12 +130,13 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 
 > [!TIP]
 > 在瀏覽器中嘗試此 URL！
-> 
-> 
 
 此中繼資料文件是 JSON 物件，內含幾項實用的資訊，例如執行 OpenID Connect 驗證所需的各種端點的位置。 
 
 此外，還包含 `jwks_uri`，其提供用來簽署權杖的公用金鑰組的位置。 位於 `jwks_uri` 的 JSON 文件包含在該特定時間點使用的所有公開金鑰資訊。 您的應用程式可以使用 JWT 標頭中的 `kid` 宣告選取本文件中已用來簽署特定權杖的公開金鑰。 接著可以使用正確的公開金鑰和指定的演算法來執行簽章驗證。
+
+> [!NOTE]
+> v1.0 端點會同時傳回 `x5t` 和 `kid` 宣告。 v2.0 權杖中遺失 `x5t` 宣告。 v2.0 端點會以 `kid` 宣告來回應。 往後，建議您使用 `kid` 宣告來驗證權杖。
 
 執行簽章驗證已超出本文件的範圍 - 有許多開放原始碼程式庫可協助您這麼做 (如有必要)。
 
@@ -153,21 +155,31 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 ## <a name="token-revocation"></a>權杖撤銷
 
 重新整理權杖可能會因為各種原因而隨時失效或撤銷。 這主要可分成兩大類：逾時和撤銷。 
-* 權杖逾時
-  * MaxInactiveTime：如果未在 MaxInactiveTime 所指定的時間內使用重新整理權杖，重新整理權杖將不再有效。 
-  * MaxSessionAge：如果 MaxAgeSessionMultiFactor 或 MaxAgeSessionSingleFactor 設為其預設值 (直到撤銷為止) 以外的值，則在 MaxAgeSession* 中設定的時間經過之後，將必須重新驗證。 
-  * 範例：
-    * 租用戶的 MaxInactiveTime 為 5 天，而使用者去渡假一週，因此 AAD 已有 7 天未看見來自該使用者的新權杖要求。 下次使用者要求新的權杖時，將會發現其重新整理權杖已被撤銷，且必須重新輸入其認證。 
-    * 某個敏感的應用程式將 MaxAgeSessionSingleFactor 設為 1 天。 如果使用者在星期一登入，到星期二 (經過 25 小時之後)，他們將必須重新驗證。 
-* 撤銷
-  * 自發性密碼變更：如果使用者變更其密碼，他們可能必須在某些應用程式重新驗證，端視取得權杖的方式而定。 請參閱下列附註以了解例外狀況。 
-  * 自發性密碼變更：如果系統管理員強制使用者變更其密碼或加以重設，使用者的權杖若是使用其密碼取得的，則會失效。 請參閱下列附註以了解例外狀況。 
-  * 安全性漏洞：發生安全性漏洞 (例如，密碼的內部部署儲存區遭到入侵) 時，管理員可以撤銷目前已發出的所有重新整理權杖。 這會強制所有使用者進行重新驗證。 
+
+**權杖逾時**
+
+* MaxInactiveTime：如果未在 MaxInactiveTime 所指定的時間內使用重新整理權杖，重新整理權杖將不再有效。 
+* MaxSessionAge：如果 MaxAgeSessionMultiFactor 或 MaxAgeSessionSingleFactor 設為其預設值 (直到撤銷為止) 以外的值，則在 MaxAgeSession* 中設定的時間經過之後，將必須重新驗證。 
+* 範例：
+  * 租用戶的 MaxInactiveTime 為 5 天，而使用者去渡假一週，因此 AAD 已有 7 天未看見來自該使用者的新權杖要求。 下次使用者要求新的權杖時，將會發現其重新整理權杖已被撤銷，且必須重新輸入其認證。 
+  * 某個敏感的應用程式將 MaxAgeSessionSingleFactor 設為 1 天。 如果使用者在星期一登入，到星期二 (經過 25 小時之後)，他們將必須重新驗證。 
+
+**撤銷**
+
+|   | 密碼型 Cookie | 密碼型權杖 | 非密碼型 Cookie | 非密碼型權杖 | 機密用戶端權杖| 
+|---|-----------------------|----------------------|---------------------------|--------------------------|--------------------------|
+|密碼到期| 保持運作|保持運作|保持運作|保持運作|保持運作|
+|使用者已變更密碼| 已撤銷 | 已撤銷 | 保持運作|保持運作|保持運作|
+|使用者進行 SSPR|已撤銷 | 已撤銷 | 保持運作|保持運作|保持運作|
+|管理員重設密碼|已撤銷 | 已撤銷 | 保持運作|保持運作|保持運作|
+|使用者[透過 PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) \(英文\) 撤銷他們的重新整理權杖 | 已撤銷 | 已撤銷 |已撤銷 | 已撤銷 |已撤銷 | 已撤銷 |
+|管理員[透過 PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) \(英文\) 撤銷租用戶的所有重新整理權杖 | 已撤銷 | 已撤銷 |已撤銷 | 已撤銷 |已撤銷 | 已撤銷 |
+|在 Web 上[單一登出](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code#single-sign-out) | 已撤銷 | 保持運作 |已撤銷 | 保持運作 |保持運作 |保持運作 |
 
 > [!NOTE]
->如果是使用驗證的非密碼方法 (Windows Hello、驗證器應用程式、臉部或指紋之類的生物識別技術) 取得權杖，則變更使用者的密碼將不會強制使用者進行重新驗證 (但會強制其驗證器應用程式重新驗證)。 這是因為他們選擇的驗證輸入 (例如臉部) 並未變更，因此可以再次使用進行重新驗證。
+> 「非密碼型」登入是讓使用者不需輸入密碼就能取得它的方式。  例如，使用您的臉部搭配 Windows Hello、FIDO 金鑰或 PIN。 
 >
-> 機密用戶端不會受到密碼變更撤銷影響。 在密碼變更之前發出重新整理權杖的機密用戶端，能夠繼續使用該重新整理權杖來取得更多的權杖。 
+> 有已知與 Windows 主要重新整理權杖有關的問題存在。  如果 PRT 是透過密碼取得，接著使用者會透過 Hello 登入，則這不會變更 PRT 的來源，而且如果使用者變更其密碼，將會撤銷它。 
 
 ## <a name="sample-tokens"></a>權杖範例
 

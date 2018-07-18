@@ -10,24 +10,22 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 05/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 3aca66d6922273e78b5100948f1b868c6c9b56af
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: a27d90006d31c83b5ebe6cfc4a8d97969743a91e
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049853"
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>使用 Azure Data Factory 從 HTTP 端點複製資料 | Microsoft Docs
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [第 1 版 - 正式推出](v1/data-factory-http-connector.md)
-> * [第 2 版 - 預覽](connector-http.md)
+> * [第 1 版](v1/data-factory-http-connector.md)
+> * [目前的版本](connector-http.md)
 
 本文概述如何使用 Azure Data Factory 中的「複製活動」，從 HTTP 端點複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
-
-> [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務，也就是正式推出 (GA) 的版本，請參閱[第 1 版中的 HTTP 連接器](v1/data-factory-http-connector.md)。
 
 ## <a name="supported-capabilities"></a>支援的功能
 
@@ -58,7 +56,7 @@ ms.lasthandoff: 03/29/2018
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**HttpServer**。 | yes |
 | url | Web 伺服器的基本 URL | yes |
-| enableServerCertificateValidation | 指定是否在連線到 HTTP 端點時啟用伺服器 SSL 憑證驗證。 | 否，預設值是 True |
+| enableServerCertificateValidation | 指定是否在連線到 HTTP 端點時啟用伺服器 SSL 憑證驗證。 當 HTTPS 伺服器使用自我簽署的憑證時，請將此屬性設定為 false。 | 否，預設值是 True |
 | authenticationType | 指定驗證類型。 允許的值為︰**匿名**、**基本**、**摘要**、**Windows**、**ClientCertificate**。 <br><br> 請分別參閱此關於更多屬性的下列資料表各節以及這些驗證類型的 JSON 範例。 | yes |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 

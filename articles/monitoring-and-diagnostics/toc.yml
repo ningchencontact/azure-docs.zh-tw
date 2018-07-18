@@ -23,6 +23,8 @@
       href: monitoring-data-sources.md
     - name: Azure 監視器
       href: monitoring-overview-azure-monitor.md
+    - name: 代理程式
+      href: ../monitoring/monitoring-overview-azure-agents.md
     - name: 度量
       href: monitoring-overview-metrics.md
     - name: Autoscale
@@ -101,6 +103,8 @@
           href: monitoring-stream-diagnostic-logs-to-event-hubs.md
         - name: 使用 Resource Manager 範本啟用診斷設定
           href: monitoring-enable-diagnostic-logs-using-template.md
+        - name: 準備使用 JSON Lines 診斷記錄格式
+          href: monitor-diagnostic-logs-append-blobs.md
     - name: 使用活動記錄
       items:
         - name: 檢視活動記錄中的事件
@@ -129,6 +133,8 @@
           href: monitoring-rest-api-walkthrough.md
         - name: Azure PowerShell 範例
           href: insights-powershell-samples.md
+        - name: Azure CLI 範例
+          href: insights-cli-samples.md
     - name: 使用 Azure 診斷擴充功能
       items:
         - name: 傳送到 Azure 儲存體

@@ -9,20 +9,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: douglasl
-ms.openlocfilehash: db757c5a8a1b51278ada24a5ff50a2da1b357397
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: cb1a263c0a33a291a44e7c60b3c032d7f9dc16a3
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054070"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>如何建立和設定 Azure 整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可提供跨不同網路環境的資料整合功能。 如需 IR 的詳細資訊，請參閱[整合執行階段](concepts-integration-runtime.md)。
-
-> [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (也就是正式推出版本 (GA))，請參閱 [Data Factory V1 文件](v1/data-factory-introduction.md)。
 
 Azure IR 提供完全受控的計算，以原生方式執行資料移動並將資料轉換活動分派到計算服務 (例如 HDInsight)。 它裝載於 Azure 環境中，並且支援連線到具有可公開存取端點之公用網路環境中的資源。
 

@@ -1,24 +1,19 @@
 ---
-title: "常見的自動調整規模模式概觀 | Microsoft Docs"
-description: "了解一些在 Azure 中自動調整資源規模的常見模式。"
+title: 常見的自動調整規模模式概觀
+description: 了解一些在 Azure 中自動調整資源規模的常見模式。
 author: anirudhcavale
-manager: orenr
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: d37d3fda-8ef1-477c-a360-a855b418de84
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
-ms.openlocfilehash: fce51546e041c8989d813c3935e058c52b38ba77
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: autoscale
+ms.openlocfilehash: 84727ec3694f64d40ad002a248a255df9074d7f4
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263254"
 ---
 # <a name="overview-of-common-autoscale-patterns"></a>常見的自動調整規模模式概觀
 本文說明一些在 Azure 中調整資源規模的常見模式。

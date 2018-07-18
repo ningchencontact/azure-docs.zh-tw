@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Microsoft Genomics 文件"
+title: Microsoft Genomics 文件
 metadata:
-  title: "Microsoft Genomics 文件"
+  title: Microsoft Genomics 文件
   meta.description: Learn how to use the Microsoft Genomics service.
   services: microsoft-genomics
   author: grhuynh
@@ -18,17 +18,18 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: zh-TW
   ms.lasthandoff: 12/13/2017
+  ms.locfileid: "26684580"
 abstract:
-  description: "了解 Microsoft Genomics 如何透過 Burrows-Wheeler Aligner (BWA) 和 Genome Analysis Toolkit (GATK) 的雲端實作以進行次級分析。"
+  description: 了解 Microsoft Genomics 如何透過 Burrows-Wheeler Aligner (BWA) 和 Genome Analysis Toolkit (GATK) 的雲端實作以進行次級分析。
 sections:
-- title: "5 分鐘快速入門"
+- title: 5 分鐘快速入門
   items:
   - type: paragraph
-    text: "透過 Microsoft Genomics 服務提交工作流程。"
+    text: 透過 Microsoft Genomics 服務提交工作流程。
   - type: list
     style: icon48
     items:
     - image:
         src: media/index/helix-blue-orange.svg
-      text: "提交工作流程"
+      text: 提交工作流程
       href: quickstart-run-genomics-workflow-portal

@@ -15,14 +15,15 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 5c5c9894127386a05da9825435cfe5ca07b01542
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: ccdeb2e57d8e2f8fc7ad2fa5e76726b90c0c8a50
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936814"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>使用 Azure CLI 2.0 從自訂磁碟上傳並建立 Linux VM
-本文說明如何使用 Azure CLI 2.0，將虛擬硬碟 (VHD) 上傳至 Azure 儲存體帳戶，並從這個自訂磁碟建立 Linux VM。 您也可以使用 [Azure CLI 1.0](upload-vhd-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 來執行這些步驟。 這項功能可讓您安裝和設定 Linux 散發版本以符合您的需求，然後使用該 VHD 快速建立 Azure 虛擬機器 (VM)。
+本文說明如何使用 Azure CLI 2.0，將虛擬硬碟 (VHD) 上傳至 Azure 儲存體帳戶，並從這個自訂磁碟建立 Linux VM。 這項功能可讓您安裝和設定 Linux 散發版本以符合您的需求，然後使用該 VHD 快速建立 Azure 虛擬機器 (VM)。
 
 本主題會將儲存體帳戶用於最終的 VHD，但您也可以使用[受控磁碟](upload-vhd.md)來執行這些步驟。 
 

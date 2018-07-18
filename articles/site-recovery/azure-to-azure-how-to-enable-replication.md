@@ -6,21 +6,18 @@ author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 07/06/2018
 ms.author: asgang
-ms.openlocfilehash: 5e1361e681c17d4106b9c79fee56efa06be2a745
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e7cd3032053b3628b94f93f3c7e00b6890afd4ca
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209452"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916277"
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>將 Azure 虛擬機器複寫到另一個 Azure 區域
 
 
->[!NOTE]
->
-> Azure 虛擬機器的 Site Recovery 複寫目前為預覽狀態。
 
 本文說明如何將 Azure VM 從一個 Azure 區域複寫到另一個區域。
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32181815"
 ---
 # <a name="azure-status"></a>Azure 狀態
 [Azure 狀態](https://azure.microsoft.com/status/)提供您 Azure 服務健康情況的全域檢視。 您可以使用 Azure 狀態取得服務可用性的最新資訊。 每個人都可存取 Azure 狀態，而且可以檢視回報其服務健康情況的所有服務。 

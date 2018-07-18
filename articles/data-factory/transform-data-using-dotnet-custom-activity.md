@@ -9,19 +9,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: a9e70ad5296a832e711ebac97302d56429ab5bff
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2dab0adb0728a1fb5e8ac9bebe01f861ed8c7c3a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055294"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>在 Azure 資料處理站管線中使用自訂活動
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [第 1 版 - 正式推出](v1/data-factory-use-custom-activities.md)
-> * [第 2 版 - 預覽](transform-data-using-dotnet-custom-activity.md)
+> * [第 1 版](v1/data-factory-use-custom-activities.md)
+> * [目前的版本](transform-data-using-dotnet-custom-activity.md)
 
 您可以在 Azure Data Factory 管線中使用兩種活動。
 
@@ -29,10 +30,6 @@ ms.lasthandoff: 04/28/2018
 - 使用 Azure HDInsight、Azure Batch 及 Azure Machine Learning 等計算服務來轉換資料的[資料轉換活動](transform-data.md)。 
 
 若要將資料移入/移出 Data Factory 不支援的資料存放區，或者以 Data Factory 不支援的方式轉換/處理資料，您可以利用自己的資料移動或轉換邏輯建立**自訂活動**，然後在管線中使用活動。 自訂活動會在虛擬機器的 **Azure Batch** 集區上執行自訂程式碼邏輯。
-
-> [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務，也就是正式推出 (GA) 的版本，請參閱 [Data Factory 第 1 版中的 (自訂) DotNet 活動](v1/data-factory-use-custom-activities.md)。
- 
 
 如果您不熟悉 Azure Batch 服務，請參閱下列文章：
 
@@ -60,10 +57,6 @@ ms.lasthandoff: 04/28/2018
                 "referenceName": "StorageLinkedService",
                 "type": "LinkedServiceReference"
             }
-        }
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
         }
     }
 }
@@ -218,7 +211,7 @@ namespace SampleApp
 
             // From LinkedServices
             dynamic linkedServices = JsonConvert.DeserializeObject(File.ReadAllText("linkedServices.json"));
-            Console.WriteLine(linkedServices[0].properties.typeProperties.connectionString.value);
+            Console.WriteLine(linkedServices[0].properties.typeProperties.accountName);
         }
     }
 }
@@ -291,7 +284,7 @@ namespace SampleApp
   "failureType": ""
   "target": "MyCustomActivity"
   ```
-如果您想要在下游活動中取用 stdout.txt 的內容，可以在 "@activity('MyCustomActivity').output.outputs[0]" 運算式中取得 stdout.txt 檔案的路徑。 
+如果您想要在下游活動中取用 stdout.txt 的內容，可以在 "\@activity('MyCustomActivity').output.outputs[0]" 運算式中取得 stdout.txt 檔案的路徑。 
 
   > [!IMPORTANT]
   > - activity.json、linkedServices.json 和 datasets.json 會儲存在 Batch 工作的執行階段資料夾。 例如，activity.json、linkedServices.json 和 datasets.json 會儲存在「https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/」路徑。 您必須視需要個別加以清除。 
@@ -310,7 +303,7 @@ namespace SampleApp
   下表說明 Data Factory V2 自訂活動和 Data Factory 第 1 版 (自訂) DotNet 活動之間的差異： 
 
 
-|差異      |第 2 版自訂活動      | 第 1 版 (自訂) DotNet 活動      |
+|差異      | 自訂活動      | 第 1 版 (自訂) DotNet 活動      |
 | ---- | ---- | ---- |
 |定義自訂邏輯的方式      |提供可執行檔      |實作 .Net DLL      |
 |自訂邏輯的執行環境      |Windows 或 Linux      |Windows (.Net Framework 4.5.2)      |
@@ -321,7 +314,7 @@ namespace SampleApp
 |記錄      |直接寫入 STDOUT      |實作 .Net DLL 中的記錄器      |
 
 
-  如果您的現有 .Net 程式碼是針對第 1 版 (自訂) DotNet 活動所撰寫，您需要為其修改程式碼，才能與第 2 版自訂活動搭配使用。 遵循下列高階指導方針來更新程式碼：  
+  如果您的現有 .Net 程式碼是針對第 1 版 (自訂) DotNet 活動所撰寫，您就必須修改程式碼，才能與目前自訂活動的版本搭配使用。 遵循下列高階指導方針來更新程式碼：  
 
    - 將專案由 .Net 類別庫變更為主控台應用程式。 
    - 使用 `Main` 方法啟動您的應用程式。 已不再需要 `IDotNetActivity` 介面的 `Execute` 方法。 
@@ -330,7 +323,7 @@ namespace SampleApp
    - 不再需要 Microsoft.Azure.Management.DataFactories NuGet 套件。 
    - 編譯您的程式碼，將可執行檔及其相依性上傳至 Azure 儲存體，並在 `folderPath` 屬性中定義路徑。 
 
-如需如何將 Data Factory 第 1 版文章[在 Azure Data Factory 管線中使用自訂活動](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities)中所述的端對端 DLL 和管線範例重新撰寫為 Data Factory V2 自訂活動的完整範例，請參閱 [Data Factory 第 2 版自訂活動範例](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample) \(英文\)。 
+如需如何將 Data Factory 第 1 版文章[在 Azure Data Factory 管線中使用自訂活動](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities)中所述的端對端 DLL 和管線範例重新撰寫為 Data Factory 自訂活動的完整範例，請參閱 [Data Factory 自訂活動範例](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample) \(英文\)。 
 
 ## <a name="auto-scaling-of-azure-batch"></a>Azure Batch 的自動調整
 您也可以建立具有 **自動調整** 功能的 Azure Batch 集區。 例如，您可以用 0 專用 VM 和依據暫止工作數目自動調整的公式，建立 Azure Batch 集區。 

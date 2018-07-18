@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: damaerte
-ms.openlocfilehash: 3c01a31eae2b90ecb54cbfba7f565fd140db3773
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: cffa67509690f4c594182fbe8104f0620da56bee
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608945"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Azure Cloud Shell 的疑難排解和限制
 
@@ -43,11 +44,6 @@ ms.lasthandoff: 04/19/2018
  - **解決辦法**：確認您已將您的網路設定設定為啟用傳送 https 要求和 websocket 要求至 *.console.azure.com 中的網域。
 
 ## <a name="bash-troubleshooting"></a>Bash 疑難排解
-
-### <a name="cannot-run-az-login"></a>無法執行 az login
-
-- **詳細資料**：執行 `az login` 將無法運作，因為您已經在用來登入 Cloud Shell 或 Azure 入口網站的帳戶下驗證過。
-- **解決方式**：運用您使用的帳戶來登入或登出，然後使用您預期的 Azure 帳戶來重新進行驗證。
 
 ### <a name="cannot-run-the-docker-daemon"></a>無法執行 Docker 精靈
 

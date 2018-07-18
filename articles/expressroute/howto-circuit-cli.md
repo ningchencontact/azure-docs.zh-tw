@@ -1,13 +1,13 @@
 ---
-title: "建立與修改 Azure ExpressRoute 線路：CLI | Microsoft Docs"
-description: "本文說明如何使用 CLI 建立、佈建、驗證、更新、刪除和取消佈建 ExpressRoute 線路。"
+title: 建立與修改 Azure ExpressRoute 線路：CLI | Microsoft Docs
+description: 本文說明如何使用 CLI 建立、佈建、驗證、更新、刪除和取消佈建 ExpressRoute 線路。
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23479607"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>使用 CLI 建立和修改 ExpressRoute 線路
 

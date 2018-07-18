@@ -1,12 +1,12 @@
 ---
-title: "設定 Azure 匯入/匯出工具 | Microsoft Docs"
-description: "了解如何設定 Azure 匯入/匯出服務的磁碟機準備及修復工具。"
+title: 設定 Azure 匯入/匯出工具 | Microsoft Docs
+description: 了解如何設定 Azure 匯入/匯出服務的磁碟機準備及修復工具。
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059763"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>設定 Azure 匯入/匯出工具
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "23109846"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>使用 StorSimple Snapshot Manager 來建立和管理磁碟區群組
 ## <a name="overview"></a>概觀

@@ -1,3 +1,20 @@
+---
+title: 包含檔案
+description: 包含檔案
+services: service-bus-messaging
+author: sethmanheim
+ms.service: service-bus-messaging
+ms.topic: include
+ms.date: 06/29/2018
+ms.author: sethm
+ms.custom: include file
+ms.openlocfilehash: bad7e87cb194fb7d8846e7e675881658a1d33b1e
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37138155"
+---
 請確定您已建立服務匯流排命名空間，如[這裡][namespace-how-to]所示。
 
 1. 登入 [Azure 入口網站][azure-portal]。

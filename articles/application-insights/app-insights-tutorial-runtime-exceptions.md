@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure Application Insights 診斷執行階段例外狀況 | Microsoft Docs"
-description: "使用 Azure Application Insights 來尋找並診斷應用程式執行階段例外狀況的教學課程。"
+title: 使用 Azure Application Insights 診斷執行階段例外狀況 | Microsoft Docs
+description: 使用 Azure Application Insights 來尋找並診斷應用程式執行階段例外狀況的教學課程。
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/19/2017
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/23/2018
+ms.locfileid: "27998044"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>使用 Azure Application Insights 尋找並診斷執行階段例外狀況
 

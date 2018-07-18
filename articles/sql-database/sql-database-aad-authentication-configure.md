@@ -6,15 +6,15 @@ author: GithubMirek
 manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: 5451046eb2bfc611db863d18cee93a248e651f88
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9a0cb3d69cd161a409d0a035be783bb255a83036
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32194244"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34644360"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>搭配 SQL Database、受控執行個體或 SQL 資料倉儲來設定及管理 Azure Active Directory 驗證
 
@@ -293,7 +293,7 @@ CREATE USER [appName] FROM EXTERNAL PROVIDER;
 原生使用者是在 Azure AD 中明確建立，且透過使用者名稱和密碼進行驗證的使用者，而同盟使用者則是將網域與 Azure AD 同盟的 Windows 使用者。 如果使用者想要使用此 Windows 認證，但其本機電腦未加入網域 (即使用遠端存取)，則可以使用後一種方法 (利用使用者和密碼)。 在此情況下，Windows 使用者可以指定其網域帳戶和密碼，並且可使用同盟認證對 SQL DB/DW 進行驗證。
 
 1. 啟動 Management Studio 或 Data Tools，並在 [連線到伺服器] \(或 [連線到 Database Engine]) 對話方塊的 [驗證] 方塊中，選取 [Active Directory - 密碼]。
-2. 在 [使用者名稱] 方塊中，以 **username@domain.com** 格式輸入您的 Azure Active Directory 使用者名稱。這必須是來自 Azure Active Directory 的帳戶或來自與 Azure Active Directory 建立同盟之網域的帳戶。
+2. 在 [使用者名稱] 方塊中，以 **username@domain.com** 格式輸入您的 Azure Active Directory 使用者名稱。 這必須是來自 Azure Active Directory 的帳戶或來自與 Azure Active Directory 建立同盟之網域的帳戶。
 3. 在 [密碼]  方塊中，輸入您的 Azure Active Directory 帳戶或同盟網域帳戶的使用者密碼。
 
     ![選取 AD 密碼驗證][12]

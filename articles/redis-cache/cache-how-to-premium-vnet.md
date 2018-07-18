@@ -15,10 +15,11 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: wesmc
 ms.openlocfilehash: 250c66c3a39519a6eddc1ecb51259ec1944c88a9
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38671117"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>如何設定高階 Azure Redis 快取的虛擬網路支援
 Azure Redis 快取有不同的快取供應項目，可讓您彈性選擇快取大小和功能，包括叢集、持續性和虛擬網路支援等進階層功能。 VNet 是雲端中的私人網路。 當 Azure Redis 快取執行個體是以 VNet 設定時，它不是公開定址，只能從 VNet 中的虛擬機器和應用程式存取。 本文說明如何設定進階 Azure Redis 快取執行個體的虛擬網路支援。
@@ -141,7 +142,7 @@ Azure Redis 快取裝載在 VNet 時，會使用下表中的連接埠。
 在虛擬網路中，可能一開始就不符合 Azure Redis 快取的一些網路連線需求。 Azure Redis Cache 需要符合下列項目，才能在虛擬網路內使用時正確運作。
 
 * 全球 Azure 儲存體端點的輸出網路連線。 這包括位於與 Azure Redis 快取執行個體相同區域中的端點，以及位於 **其他** Azure 區域的儲存體端點。 Azure 儲存體端點在下列 DNS 網域之下解析：table.core.windows.net、blob.core.windows.net、queue.core.windows.net 和 file.core.windows.net。 
-* *ocsp.msocsp.com*、*mscrl.microsoft.com* 和 *crl.microsoft.com* 的輸出網路連線。需要此連線才能支援 SSL 功能。
+* *ocsp.msocsp.com*、*mscrl.microsoft.com* 和 *crl.microsoft.com* 的輸出網路連線。 需要此連線才能支援 SSL 功能。
 * 虛擬網路的 DNS 設定必須能夠解析前面幾點所提到的所有端點和網域。 確定已針對虛擬網路設定及維護有效的 DNS 基礎結構，即可符合 DNS 需求。
 * 在下列 DNS 網域下解析之下列 Azure 監視端點的輸出網路連線︰shoebox2-black.shoebox2.metrics.nsatc.net、north-prod2.prod2.metrics.nsatc.net、azglobal-black.azglobal.metrics.nsatc.net、shoebox2-red.shoebox2.metrics.nsatc.net、east-prod2.prod2.metrics.nsatc.net、azglobal-red.azglobal.metrics.nsatc.net。
 

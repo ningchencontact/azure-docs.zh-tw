@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: ed1a307cb2a2613fc7701392cd7b408715f10910
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fc0bb56e85c2a9cf7a458b0f6d97887d392ee65f
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114311"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Service Fabric 健康狀態監視簡介
 Azure Service Fabric 導入了健康狀態模型，提供豐富、彈性且可延伸的健康狀態評估與報告。 此模型允許幾乎即時地監視叢集狀態以及其中所執行的服務。 您可以輕鬆地取得健康狀態資訊，並在潛在問題引起連鎖反應和造成大規模中斷之前，予以更正。 在一般模型中，服務會根據其本機檢視傳送報告，且該資訊會進行彙總以提供整體叢集層級檢視。
@@ -116,7 +117,7 @@ Service Fabric 會使用三種健康狀態來描述實體的健康狀態是否�
 [應用程式健康狀態原則](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy) 會針對應用程式及其子系，說明完成事件和子系狀態彙總評估的方式。 在應用程式封裝中，它可以定義於應用程式資訊清單 (即 **ApplicationManifest.xml**) 中。 若未指定任何原則，則當健康狀態報告或子系處於「Warning」或「Error」健康狀態時，Service Fabric 會假設實體狀況不良。
 可設定的原則包含：
 
-* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.considerwarningaserror.aspx)。 指定是否要在健康狀態評估期間將「Warning」健康狀態報告視為錯誤。 預設：false。
+* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror)。 指定是否要在健康狀態評估期間將「Warning」健康狀態報告視為錯誤。 預設：false。
 * [MaxPercentUnhealthyDeployedApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.maxpercentunhealthydeployedapplications)。 指定在系統將應用程式視為「Error」之前，對狀況不良之已部署應用程式的最大容許百分比。 此百分比的計算方式是將狀況不良的已部署應用程式數目，除以叢集中目前部署應用程式的節點數目。 針對較少的節點數目，計算會四捨五入以容許一個失敗。 預設百分比：零。
 * [DefaultServiceTypeHealthPolicy](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.defaultservicetypehealthpolicy)。 指定預設服務類型健康狀態原則，這會取代應用程式中所有服務類型的預設健康狀態原則。
 * [ServiceTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap)。 針對每個服務類型提供服務健康狀態原則的對應。 這些原則會取代每個指定服務類型的預設服務類型健康狀態原則。 例如，如果應用程式具有無狀態閘道服務類型和具狀態引擎服務類型，您可以設定不同的健康狀態原則來評估它們。 當您針對每個服務類型指定原則時，可以對服務的健康狀態取得更細微的控制。

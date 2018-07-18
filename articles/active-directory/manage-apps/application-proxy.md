@@ -20,6 +20,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156648"
 ---
 # <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>如何為內部部署應用程式提供安全的遠端存取
 

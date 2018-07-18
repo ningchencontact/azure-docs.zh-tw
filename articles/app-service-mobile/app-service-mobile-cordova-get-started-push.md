@@ -1,10 +1,10 @@
 ---
-title: "使用 Azure App Service 的 Mobile Apps 功能新增推播通知至 Apache Cordova 應用程式 | Microsoft Docs"
-description: "了解如何使用 Mobile Apps 將推播通知傳送至 Apache Cordova 應用程式。"
+title: 使用 Azure App Service 的 Mobile Apps 功能新增推播通知至 Apache Cordova 應用程式 | Microsoft Docs
+description: 了解如何使用 Mobile Apps 將推播通知傳送至 Apache Cordova 應用程式。
 services: app-service\mobile
 documentationcenter: javascript
 manager: crdun
-editor: 
+editor: ''
 author: conceptdev
 ms.assetid: 92c596a9-875c-4840-b0e1-69198817576f
 ms.service: app-service-mobile
@@ -14,11 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: 6af5fa51f2e6553431b9f0aa2dbb368651e7e209
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 13c1a53cfa3f998c9e3fa3ee1ee2dcec37357095
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38547262"
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>新增推播通知至您的 Apache Cordova 應用程式
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -33,13 +34,13 @@ ms.lasthandoff: 02/21/2018
 
 若要完成本教學課程，您需要：
 
-* 具有 [Visual Studio Community 2015][2] 或更新版本的電腦 
+* 具有 [Visual Studio Community 2015][2] 或更新版本的電腦
 * [Visual Studio Tools for Apache Cordova][4]
 * [使用中的 Azure 帳戶][3]
 * 已完成的 [Apache Cordova 快速入門][5]專案
 * (Android) 具有已驗證電子郵件地址的 [Google 帳戶][6]
 * (iOS) [Apple Developer Program 成員資格][7]和 iOS 裝置 (iOS 模擬器不支援推播通知)
-* (Windows) [Windows 市集開發人員帳戶][8]和 Windows 10 裝置
+* (Windows) [Microsoft 市集開發人員帳戶][8]和 Windows 10 裝置
 
 ## <a name="configure-hub"></a>設定通知中樞
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
@@ -213,11 +214,11 @@ Apache Cordova 應用程式原本就不會處理裝置或網路功能。  這些
 #### <a name="test-push-notifications-in-the-app-on-android"></a>在 Android 上的應用程式中測試推播通知
 您現在可以執行應用程式，在 TodoItem 資料表中插入項目，以測試推播通知。 只要是使用相同的後端，您可以從相同的裝置或第二部裝置來測試。 以下列方法之一在 Android 平台上測試 Cordova 應用程式︰
 
-* *在實體裝置上︰*使用 USB 纜線將 Android 裝置連接至開發電腦。  請選取 [裝置]，不要選取 [Google Android 模擬器]。 Visual Studio 會將應用程式部署至裝置，並執行應用程式。 您接著可以在裝置上與應用程式互動。
+* *在實體裝置上︰* 使用 USB 纜線將 Android 裝置連接至開發電腦。  請選取 [裝置]，不要選取 [Google Android 模擬器]。 Visual Studio 會將應用程式部署至裝置，並執行應用程式。 您接著可以在裝置上與應用程式互動。
 
   [Mobizen][20] 等螢幕畫面分享應用程式可協助您開發 Android 應用程式。 Mobizen 會將您的 Android 畫面投射至電腦上的網頁瀏覽器。
 
-* *在 Android 模擬器上︰*使用模擬器時，還需要其他設定步驟。
+* *在 Android 模擬器上︰* 使用模擬器時，還需要其他設定步驟。
 
     請確定您是部署至已將 Google API 設為目標的虛擬裝置，如 Android 虛擬裝置 (AVD) 管理員中所示。
 

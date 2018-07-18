@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30838361"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>在 Azure 中建立 ASP.NET Core Web 應用程式
 

@@ -4,7 +4,7 @@ description: 本主題描述 Azure Active Directory (Azure AD) 的無縫單一�
 services: active-directory
 keywords: 何謂 Azure AD Connect、安裝 Active Directory、Azure AD、SSO、單一登入的必要元件
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b1c82727e97b85fae5f315ceb1cd79cfdd111b45
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ad7c412ee92db53dd797e38df2fc6db0a762fe78
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916161"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory 無縫單一登入
 
@@ -28,7 +30,7 @@ ms.lasthandoff: 03/28/2018
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-無縫 SSO 可以與[密碼雜湊同步處理](active-directory-aadconnectsync-implement-password-synchronization.md)或[傳遞驗證](active-directory-aadconnect-pass-through-authentication.md)登入方法合併使用。
+無縫 SSO 可以與[密碼雜湊同步處理](active-directory-aadconnectsync-implement-password-hash-synchronization.md)或[傳遞驗證](active-directory-aadconnect-pass-through-authentication.md)登入方法合併使用。
 
 ![無縫單一登入](./media/active-directory-aadconnect-sso/sso1.png)
 
@@ -42,7 +44,7 @@ ms.lasthandoff: 03/28/2018
   - 使用者不需要重複輸入其密碼。
 - 容易部署和管理
   - 在內部部署上不需要任何其他元件，即可進行這項工作。
-  - 與任何雲端驗證方法搭配運作：[密碼雜湊同步處理](active-directory-aadconnectsync-implement-password-synchronization.md)或[傳遞驗證](active-directory-aadconnect-pass-through-authentication.md)。
+  - 與任何雲端驗證方法搭配運作：[密碼雜湊同步處理](active-directory-aadconnectsync-implement-password-hash-synchronization.md)或[傳遞驗證](active-directory-aadconnect-pass-through-authentication.md)。
   - 可以推出給使用群組原則的一部分使用者或所有使用者。
   - 可透過 Azure AD 註冊非 Windows 10 裝置，無需任何的 AD FS 基礎結構。 此功能需要使用 2.1 版或更新版本的[加入工作場所用戶端](https://www.microsoft.com/download/details.aspx?id=53554)。
 

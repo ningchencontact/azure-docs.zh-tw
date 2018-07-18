@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/01/2018
+ms.locfileid: "32313404"
 ---
 # <a name="create-a-vpn-gateway-and-add-a-site-to-site-connection-using-powershell"></a>使用 PowerShell 建立 VPN 閘道並新增站對站連線
 

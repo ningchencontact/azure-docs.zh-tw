@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 7a244a5dbb86b076f99975ad477d4062699270b5
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: f2fe02a6e7e696fa2c0ab301e7469060d6bd4ab6
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894223"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36292033"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>建立、變更或刪除網路安全性群組
 
@@ -39,7 +39,7 @@ ms.locfileid: "33894223"
 
 ## <a name="work-with-network-security-groups"></a>使用網路安全性群組
 
-您可以建立網路安全性群組、[檢視所有網路安全性群組](#view-all-network-security-groups)[檢視網路安全性群組的詳細資料](#view-details-of-a-network-security-group)，以及[變更](#change-a-network-security-group)和[刪除](#delete-a-network-security-group)網路安全性群組。 您也可以讓網路安全性群組與網路介面或子網路[建立關聯或中斷關聯](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource)。
+您可以建立網路安全性群組、[檢視所有網路安全性群組](#view-all-network-security-groups)[檢視網路安全性群組的詳細資料](#view-details-of-a-network-security-group)，以及[變更](#change-a-network-security-group)和[刪除](#delete-a-network-security-group)網路安全性群組。 您也可以讓網路安全性群組與網路介面或子網路[建立關聯或中斷關聯](#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet-or-network-interface)。
 
 ### <a name="create-a-network-security-group"></a>建立網路安全性群組
 
@@ -66,7 +66,7 @@ ms.locfileid: "33894223"
 ### <a name="view-details-of-a-network-security-group"></a>檢視網路安全性群組的詳細資料
 
 1. 在入口網站頂端的搜尋方塊中，輸入「網路安全性群組」。 當**網路安全性群組**出現在搜尋結果中時，請選取它。
-2. 選取清單中您想要檢視其詳細資料的網路安全性群組。 在 [設定] 底下，您可以檢視網路安全性群組所關聯的 [輸入安全性規則] 和 [輸出安全性規則]、[網路介面] 和 [子網路]。 您也可以啟用或停用 [診斷記錄]，以及檢視 [有效的安全性規則]。 若要深入了解，請參閱[診斷記錄](virtual-network-nsg-manage-log.md)和[檢視有效的安全性規則](virtual-network-nsg-troubleshoot-portal.md)。
+2. 選取清單中您想要檢視其詳細資料的網路安全性群組。 在 [設定] 底下，您可以檢視網路安全性群組所關聯的 [輸入安全性規則] 和 [輸出安全性規則]、[網路介面] 和 [子網路]。 您也可以啟用或停用 [診斷記錄]，以及檢視 [有效的安全性規則]。 若要深入了解，請參閱[診斷記錄](virtual-network-nsg-manage-log.md)和[檢視有效的安全性規則](diagnose-network-traffic-filter-problem.md)。
 3. 若要深入了解列出的一般 Azure 設定，請參閱下列文章：
     *   [活動記錄檔](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
     *   [存取控制 (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
@@ -121,9 +121,9 @@ ms.locfileid: "33894223"
     
     |設定  |值  |詳細資料  |
     |---------|---------|---------|
-    |來源     | 選取 [任何]、[IP 位址] 或 [服務標籤]。        | 如果您選取 [IP 位址]，就必須指定 [來源 IP 位址/CIDR 範圍]。 您可以指定單一值或以逗號分隔的多值清單。 多值範例：10.0.0.0/16, 192.188.1.1。 您可以指定的值數目有所限制。 如需詳細資訊，請參閱 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。 如果您選取 [服務標籤]，則必須選取一個服務標籤。 服務標籤是為 IP 位址類別預先定義的識別碼。 若要深入了解可用的服務標籤，以及每個標籤所代表的意義，請參閱[服務標籤](security-overview.md#service-tags)        |
+    |來源     | 選取 [任何]、[IP 位址] 或 [服務標籤]。        | 如果您選取 [IP 位址]，就必須指定 [來源 IP 位址/CIDR 範圍]。 您可以指定單一值或以逗號分隔的多值清單。 多值範例：10.0.0.0/16, 192.188.1.1。 您可以指定的值數目有所限制。 如需詳細資訊，請參閱 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。 如果您選取 [服務標籤]，則必須選取一個服務標籤。 服務標籤是為 IP 位址類別預先定義的識別碼。 若要深入了解可用的服務標籤，以及每個標籤所代表的意義，請參閱[服務標籤](security-overview.md#service-tags)。 如果您將指定的 IP 位址指派給 Azure 虛擬機器，並將公用 IP 位址指派給虛擬機器，請確定您指定的是私人 IP 位址，而不是公用 IP 位址。 在 Azure 針對輸入安全性規則將公用 IP 位址轉譯為私人 IP 位址之後，和 Azure 針對輸出規則將私人 IP 位址轉譯為公用 IP 位址之前，安全性規則會進行處理。 若要深入了解 Azure 中的公用和私人 IP 位址，請參閱 [IP 位址類型](virtual-network-ip-addresses-overview-arm.md)。        |
     |來源連接埠範圍     | 指定單一連接埠 (例如 80)、連接埠範圍 (例如 1024-65535)，或是單一連接埠和/或連接埠範圍的逗號分隔清單 (例如 80, 1024-65535)。 輸入星號可以允許任何連接埠上的流量。 | 連接埠和範圍指定規則將允許或拒絕哪些連接埠流量。 您可以指定的連接埠數目有所限制。 如需詳細資訊，請參閱 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。  |
-    |目的地     | 選取 [任何]、[IP 位址] 或 [虛擬網路]。        | 如果您選取 [IP 位址]，就必須指定 [目的地 IP 位址/CIDR 範圍]。 與 [來源] 和 [來源 IP 位址/CIDR 範圍] 類似，您可以指定單一或多個位址或範圍，且您可以指定的數目有所限制。 選取 [虛擬網路] (服務標籤) 即表示允許流量連至虛擬網路位址空間內的所有 IP 位址。        |
+    |目的地     | 選取 [任何]、[IP 位址] 或 [虛擬網路]。        | 如果您選取 [IP 位址]，就必須指定 [目的地 IP 位址/CIDR 範圍]。 與 [來源] 和 [來源 IP 位址/CIDR 範圍] 類似，您可以指定單一或多個位址或範圍，且您可以指定的數目有所限制。 選取 [虛擬網路] (服務標籤) 即表示允許流量連至虛擬網路位址空間內的所有 IP 位址。 如果您將指定的 IP 位址指派給 Azure 虛擬機器，並將公用 IP 位址指派給虛擬機器，請確定您指定的是私人 IP 位址，而不是公用 IP 位址。 在 Azure 針對輸入安全性規則將公用 IP 位址轉譯為私人 IP 位址之後，和 Azure 針對輸出規則將私人 IP 位址轉譯為公用 IP 位址之前，安全性規則會進行處理。 若要深入了解 Azure 中的公用和私人 IP 位址，請參閱 [IP 位址類型](virtual-network-ip-addresses-overview-arm.md)。        |
     |目的地連接埠範圍     | 指定單一值或以逗號分隔的值清單。 | 與 [來源連接埠範圍] 類似，您可以指定單一或多個位址和範圍，且您可以指定的數目有所限制。 |
     |通訊協定     | 選取 [任何]、[TCP] 或 [UDP]。        |         |
     |動作     | 選取 [允許] 或 [拒絕]。        |         |

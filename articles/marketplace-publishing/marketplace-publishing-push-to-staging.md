@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29947265"
 ---
 # <a name="complete-the-offer-creation-with-marketing-content"></a>使用行銷內容完成供應項目建立程序
 在發佈程序的這個步驟中，您需要在 Azure Marketplace 中提供特定的行銷內容，以及關於您的優惠和 (或) SKU 的詳細資料。 例如，您將提供產品的描述、公司標誌、價目表、方案的詳細資料，以及其他將您的優惠和 (或) SKU 推送至預備環境的必要資訊。 此資訊會做為 Azure 入口網站中的行銷內容。 您將在[發佈入口網站][link-pubportal]中開始進行此程序。
@@ -220,7 +221,7 @@ ms.lasthandoff: 03/16/2018
 ### <a name="22-set-your-developer-service-prices"></a>2.2. 設定開發人員服務價格
 方案可以是基本 + 耗用量的任意組合，其中基本是每月價格，而超額部分是每次使用付費價格 (詳細資訊請見下文)。
 
-**範例：**Contoso 開發人員服務供應項目
+**範例：** Contoso 開發人員服務供應項目
 
 | 規劃 | 價格 | 包括 | 移轉路徑 |
 | --- | --- | --- | --- |

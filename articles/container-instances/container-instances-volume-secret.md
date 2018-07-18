@@ -8,18 +8,19 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: marsma
-ms.openlocfilehash: 47abb4c305b1997fa3f44c07aa85dd01e5a94f1f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a030582c885dd0a5680bd23046ea2a9c0329701a
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830066"
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>在 Azure 容器執行個體中掛接秘密磁碟區
 
 了解如何在您的容器執行個體中掛接秘密磁碟區，以供您容器群組中的容器儲存和擷取機密資訊。
 
 > [!NOTE]
-> 目前只有 Linux 容器才能掛接「祕密」磁碟區。 雖然我們致力於將所有功能帶入 Windows 容器，但是您可以在 [Azure 容器執行個體配額和區域可用性](container-instances-quotas.md)中找到目前的平台差異。
+> 目前只有 Linux 容器才能掛接「祕密」磁碟區。 了解如何在[設定環境變數](container-instances-environment-variables.md)中，為 Windows 和 Linux 容器傳遞安全的環境變數。 雖然我們致力於將所有功能帶入 Windows 容器，但是您可以在 [Azure 容器執行個體配額和區域可用性](container-instances-quotas.md)中找到目前的平台差異。
 
 ## <a name="secret-volume"></a>祕密磁碟區
 

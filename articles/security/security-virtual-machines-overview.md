@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 7d31a434d4ead6dd8f8a13a08d368389904b5b4a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5ffba386ae6b1e1e5d18f92803bc8cb74b2ff89e
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364228"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061294"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Azure 虛擬機器安全性概觀
 您可以使用 Azure 虛擬機器靈活地部署各種運算方案。 此服務支援 Microsoft Windows、Linux、Microsoft SQL Server、Oracle、IBM、SAP 和 Azure BizTalk 服務。 因此，您幾乎可以在所有作業系統上部署任何工作負載和任何語言。
@@ -142,5 +142,5 @@ Azure 虛擬機器經過 FISMA、FedRAMP、HIPAA、PCI DSS Level 1 及其他重�
 
 深入了解：
 
-* [Microsoft 信任中心：法規遵循](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)
+* [Microsoft 信任中心：法規遵循](https://www.microsoft.com/en-us/trustcenter/compliance)
 * [受信任的雲端：Microsoft Azure 安全性、隱私權及法規遵循](http://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)

@@ -1,25 +1,20 @@
 ---
-title: 在 Azure 監視器中建立具有動態閾值的警示 | Microsoft Docs
+title: 在 Azure 監視器中建立具有動態閾值的警示
 description: 建立警示，內含以機器學習為基礎的動態閾值
 author: antonfrMSFT
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/27/2018
-ms.author: antonfr;mbullwin
-ms.openlocfilehash: 45d2f39ff7fb2e5a22cda74cd0c794db28e351f1
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: mbullwin
+ms.reviewer: antonfr
+ms.component: alerts
+ms.openlocfilehash: 01f924e0b3a2976a3f537cb5acac842eeeaccb4b
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33943292"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263308"
 ---
 # <a name="alerts-with-dynamic-thresholds-in-azure-monitor-limited-public-preview"></a>在 Azure 監視器中具有動態閾值的警示 (有限的公開預覽)
 

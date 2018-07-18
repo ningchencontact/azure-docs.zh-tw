@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34200151"
 ---
 # <a name="index-of-hadoop-in-hdinsight-troubleshooting-articles"></a>HDInsight 中的 Hadoop 疑難排解文章索引
 文章是依錯誤的類型加以整理。

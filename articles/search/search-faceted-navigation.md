@@ -13,6 +13,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195289"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>如何在 Azure 搜尋服務中實作多面向導覽
 多面向導覽是一個篩選機制，它在搜尋應用程式中提供自動導向的向下鑽研導覽。 「多面向導覽」一詞可能讓您感到陌生，但您可能早已使用過它。 如下列範例所示，多面向導覽其實就是用來篩選結果的類別。

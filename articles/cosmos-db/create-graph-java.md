@@ -2,23 +2,21 @@
 title: 使用 Java 建立 Azure Cosmos DB 圖形資料庫 | Microsoft Docs
 description: 提供 Java 程式碼範例，您可透過 Gremlin 用來連線及查詢 Azure Cosmos DB 中的圖形資料。
 services: cosmos-db
-documentationcenter: ''
 author: luisbosquez
 manager: kfile
-ms.assetid: daacbabf-1bb5-497f-92db-079910703046
 ms.service: cosmos-db
+ms.component: cosmosdb-graph
 ms.custom: quick start connect, mvc
-ms.workload: ''
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: lbosq
-ms.openlocfilehash: a7c86ab78704baf4048bc0415d89c1ab826e16bc
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ac9d0291b38e7a8679e9c6e7707e13a90554b914
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38582513"
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB︰使用 Java 和 Azure 入口網站建立圖形資料庫
 
@@ -172,7 +170,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
    ![在 Azure 入口網站的 [資料總管] 中建立新文件](./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png)
 
-2. 在 [結果] 清單中，請注意已新增到圖形的新使用者。 選取 **ben**，請注意，他已連線到 robin。 您可以拖放移動周圍的頂點、捲動滑鼠滾輪執行縮放、使用雙箭號展開圖形大小。 
+2. 在 [結果] 清單中，請注意已新增到圖形的新使用者。 選取 [ben]，並注意到此使用者已連線到 robin。 您可以拖放移動周圍的頂點、捲動滑鼠滾輪執行縮放、使用雙箭號展開圖形大小。 
 
    ![Azure 入口網站的資料總管之圖形中的新頂點](./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png)
 
@@ -191,9 +189,9 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     tech | java | 
 
     > [!NOTE]
-    > 在本快速入門中，我們會建立非資料分割集合。 不過，如果您藉由在集合建立期間指定資料分割索引鍵來建立資料分割集合，您就必須包含資料分割索引鍵作為每個新頂點的索引鍵。 
+    > 在本快速入門中，您會建立非資料分割集合。 不過，如果您藉由在集合建立期間指定資料分割索引鍵來建立資料分割集合，您就必須包含資料分割索引鍵作為每個新頂點的索引鍵。 
 
-6. 按一下 [SERVICEPRINCIPAL] 。 您可能需要展開畫面，才能在螢幕底部看到 [確定]。
+6. 按一下 [確定]。 您可能需要展開畫面，才能在螢幕底部看到 [確定]。
 
 7. 再次按一下 [新增頂點] 並新增額外的新使用者。 
 
@@ -207,13 +205,13 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     gender|male| 
     school|MIT| 
 
-10. 按一下 [SERVICEPRINCIPAL] 。 
+10. 按一下 [確定]。 
 
 11. 按一下 [套用篩選條件] 按鈕，預設的 `g.V()` 篩選條件會顯示圖形中的所有值。 所有使用者現在會顯示在 [結果] 清單中。 
 
     隨著您新增更多的資料，您可以使用篩選條件來限制您的結果。 依預設，[資料總管] 會使用 `g.V()` 擷取圖形中的所有頂點。 您可將其變更為不同的[圖形查詢](tutorial-query-graph.md) (例如 `g.V().count()`)，以使用 JSON 格式傳回圖形中所有頂點的計數。 若您變更篩選條件，請將篩選條件變更回 `g.V()`，然後按一下 [套用篩選條件]，即可再次顯示所有的結果。
 
-12. 現在我們可以連線 rakesh 和 ashley。 請確定已在 [結果] 清單中選取 **ashley**，然後按一下右下方 [目標] 旁邊的 [![變更圖形中頂點的目標](./media/create-graph-java/edit-pencil-button.png)]。 您可能需要加寬視窗，才可看到按鈕。
+12. 現在您可以將 rakesh 和 ashley 連線。 請確定已在 [結果] 清單中選取 **ashley**，然後按一下右下方 [目標] 旁邊的 [![變更圖形中頂點的目標](./media/create-graph-java/edit-pencil-button.png)]。 您可能需要加寬視窗，才可看到按鈕。
 
    ![變更圖形中頂點的目標](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 
@@ -225,7 +223,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
    ![[資料總管] 中連線的兩個頂點](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
 
-   本教學課程的資源建立部分結束了。您可繼續新增頂點至圖形、修改現有的頂點，或是變更查詢。 現在讓我們檢閱 Azure Cosmos DB 提供的計量，然後再清除資源。 
+   這會完成本教學課程中的資源建立部分。 您可以繼續將頂點新增至圖形、修改現有的頂點，或是變更查詢。 現在讓我們檢閱 Azure Cosmos DB 提供的計量，然後再清除資源。 
 
 ## <a name="review-slas-in-the-azure-portal"></a>在 Azure 入口網站中檢閱 SLA
 

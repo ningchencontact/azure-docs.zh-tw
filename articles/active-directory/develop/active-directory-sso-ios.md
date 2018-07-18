@@ -20,6 +20,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157243"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>如何使用 ADAL 在 iOS 上啟用跨應用程式的 SSO
 提供單一登入 (SSO)，讓使用者只需要輸入一次認證，就可以讓認證自動跨應用程式運作，這是客戶目前的期待。 在小型螢幕上輸入其使用者名稱和密碼的困難，通常伴隨著其他因素 (2FA)，例如撥打電話或簡訊傳送程式碼，如果使用者必須對您的產品執行這個動作多次，會容易讓使用者不滿。

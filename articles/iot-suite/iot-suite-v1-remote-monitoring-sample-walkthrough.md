@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 3aa9bb9c785bb69c80d9bb33e595393a5a1d220a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d35052087899925e0e8119ce104345f718cc12bd
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858508"
 ---
 # <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>遠端監視預先設定解決方案逐步解說
 
@@ -35,7 +36,7 @@ IoT 套件遠端監視[預先設定解決方案][lnk-preconfigured-solutions]是
 
 下圖概述預先設定解決方案的邏輯元件：
 
-![邏輯架構](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture-updated.png)
+![邏輯架構](media/iot-suite-v1-remote-monitoring-sample-walkthrough/remote-monitoring-architecture-updated.png)
 
 ## <a name="microservices--docker-containers"></a>微服務和 Docker 容器
 遠端監視是我們第一項運用微服務架構的預先設定解決方案。 此解決方案在 [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) 和 [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java) 中均適用。
@@ -274,8 +275,8 @@ Web 應用程式中的此頁面會使用 PowerBI javascript 控制項 (請參閱
 
 下列 TechNet 部落格文章提供有關遠端監視預先設定之解決方案更多的詳細資料︰
 
-* [IoT 套件 - 幕後 - 遠端監視](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-v1-under-the-hood-remote-monitoring.aspx)
-* [IoT 套件 - 遠端監視 - 新增即時與模擬裝置](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-v1-remote-monitoring-adding-live-and-simulated-devices.aspx)
+* [IoT 套件 - 幕後 - 遠端監視](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
+* [IoT 套件 - 遠端監視 - 新增即時與模擬裝置](https://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx)
 
 您可以繼續閱讀下列文章，了解如何開始使用 IoT 套件︰
 

@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31526041"
 ---
 # <a name="group-by-options-in-sql-data-warehouse"></a>根據 SQL 資料倉儲中的選項分組
 根據 Azure SQL 資料倉儲中的選項實作群組以便開發解決方案的秘訣。

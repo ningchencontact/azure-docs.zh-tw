@@ -6,13 +6,14 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 11/07/2017
+ms.date: 07/09/2018
 ms.author: heidist
-ms.openlocfilehash: 1837fc6511ac734766c55bd1c2a2a7a40219c31a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 0c7f9807605236a8250d75623d0885730c9945a0
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950666"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>在入口網站中建立 Azure 搜尋服務
 
@@ -28,8 +29,8 @@ ms.lasthandoff: 04/23/2018
 
 ## <a name="find-azure-search"></a>尋找 Azure 搜尋服務
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 按一下左上角的加號 ("+")。
-3. 選取 [Web + 行動] > [Azure 搜尋服務]。
+2. 按一下左上角的加號 (「+ 建立資源」)。
+3. 選取 [Web] > [Azure 搜尋服務]。
 
 ![](./media/search-create-service-portal/find-search3.png)
 
@@ -57,7 +58,8 @@ ms.lasthandoff: 04/23/2018
 做為 Azure 服務，Azure 搜尋服務可以裝載於世界各地的資料中心。 請注意，各地理位置的[價格可能不同](https://azure.microsoft.com/pricing/details/search/) 。
 
 ## <a name="select-a-pricing-tier-sku"></a>選取定價層 (SKU)
-[Azure 搜尋服務目前提供多個定價層](https://azure.microsoft.com/pricing/details/search/)︰免費、基本或標準。 每一層都有自己的[容量和限制](search-limits-quotas-capacity.md)。 請參閱[選擇定價層或 SKU](search-sku-tier.md) 以取得指導方針。
+
+  [Azure 搜尋服務目前提供多個定價層](https://azure.microsoft.com/pricing/details/search/)︰免費、基本或標準。 每一層都有自己的[容量和限制](search-limits-quotas-capacity.md)。 請參閱[選擇定價層或 SKU](search-sku-tier.md) 以取得指導方針。
 
 在此逐步解說中，我們已為服務選擇標準層。
 
@@ -76,12 +78,14 @@ ms.lasthandoff: 04/23/2018
 
 「複本」允許服務來處理更高的搜尋查詢負載。
 
+新增資源會增加每月的帳單。 [定價計算機](https://azure.microsoft.com/pricing/calculator/)可協助您了解新增資源對帳單的影響。 請記住，您可以根據負載來調整資源。 例如，您可增加資源來建立完整的初始索引，並於稍後將資源減少到較適合累加式編製索引的層級。
+
 > [!Important]
 > 服務必須具有 [2 個唯讀 SLA 的複本和 3 個讀/寫 SLA 的複本](https://azure.microsoft.com/support/legal/sla/search/v1_0/)。
 
 1. 在 Azure 入口網站中移至您的搜尋服務頁面。
 2. 在左導覽窗格中，選取 [設定] > [調整]。
-3. 使用滑桿來新增複本或分割區。
+3. 您可以使用滑桿來新增任何一種類型的資源。
 
 ![](./media/search-create-service-portal/settings-scale.png)
 

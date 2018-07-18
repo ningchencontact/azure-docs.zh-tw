@@ -16,6 +16,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31794067"
 ---
 # <a name="manage-the-resources-associated-with-your-azure-accounts-in-visual-studio-cloud-explorer"></a>在 Visual Studio Cloud Explorer 中管理與 Azure 帳戶關聯的資源
 Cloud Explorer 可讓您從 Visual Studio 內檢視您的 Azure 資源和資源群組、檢查其屬性，以及執行重要的開發人員診斷動作。 

@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: include file
-ms.openlocfilehash: 99e429a2f82d1a9b8d9a87fb3eb4102183c19fe8
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: e54813896eee8a58ae456f14f76151318ac1b9fc
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38766961"
 ---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Azure 中虛擬機器的區域和可用性
 Azure 在世界各地多個資料中心運作。 這些資料中心會依據地理區域分組，提供您彈性來選擇要建置應用程式的位置。 請務必了解虛擬機器 (VM) 在 Azure 中的運作方式和位置，以及可充分發揮效能、可用性和備援功能的選項。 本文提供 Azure 可用性和備援功能的概觀。
@@ -48,7 +49,7 @@ Azure 在世界各地多個資料中心運作。 這些資料中心會依據地�
 您可以 [在這裡看到完整的區域配對清單](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions)。
 
 ## <a name="feature-availability"></a>功能可用性
-有些服務或 VM 功能只有在特定區域提供，例如特定的 VM 大小或儲存體類型。 也有一些不會要求您選取特定區域的通用 Azure 服務，例如 [Azure Active Directory](../articles/active-directory/active-directory-whatis.md)、[流量管理員](../articles/traffic-manager/traffic-manager-overview.md)或 [Azure DNS](../articles/dns/dns-overview.md)。 為了協助您設計應用程式環境，您可以查看 [每個區域的 Azure 服務可用性](https://azure.microsoft.com/regions/#services)。 您也可以[透過程式設計來查詢每個地區支援的 VM 大小和限制](../articles/azure-resource-manager/resource-manager-sku-not-available-errors.md)。
+有些服務或 VM 功能只有在特定區域提供，例如特定的 VM 大小或儲存體類型。 也有一些不會要求您選取特定區域的通用 Azure 服務，例如 [Azure Active Directory](../articles/active-directory/fundamentals/active-directory-whatis.md)、[流量管理員](../articles/traffic-manager/traffic-manager-overview.md)或 [Azure DNS](../articles/dns/dns-overview.md)。 為了協助您設計應用程式環境，您可以查看 [每個區域的 Azure 服務可用性](https://azure.microsoft.com/regions/#services)。 您也可以[透過程式設計來查詢每個地區支援的 VM 大小和限制](../articles/azure-resource-manager/resource-manager-sku-not-available-errors.md)。
 
 ## <a name="storage-availability"></a>儲存體可用性
 在您考慮可用的儲存體複寫選項時，了解 Azure 區域和地理位置會變得相當重要。 根據儲存體類型，您會有不同的複寫選項。
@@ -102,7 +103,7 @@ Azure 在世界各地多個資料中心運作。 這些資料中心會依據地�
 更新網域是可以同時進行維護或重新啟動的基礎硬體邏輯群組。 當您在可用性設定組中建立 VM 時，Azure 平台會自動將您的 VM 分散於這些更新網域。 此方法可確保當 Azure 平台進行定期維護時，您的應用程式至少有一個執行個體一直保持執行中。 重新啟動的更新網域順序可能不會在規劃的維護事件期間循序進行，而只會一次重新啟動一個更新網域。
 
 ### <a name="managed-disk-fault-domains"></a>受控磁碟容錯網域
-若 VM 使用 [Azure 受控磁碟](../articles/virtual-machines/windows/faq-for-disks.md)，VM 會在使用受管理的可用性設定組時配合使用受控磁碟容錯網域。 此一配合行為可確保連接到 VM 的所有受控磁碟都位於相同的受控磁碟容錯網域。 在受管理的可用性設定組中只能建立使用受控磁碟的 VM。 受控磁碟容錯網域數目會依區域而異，每個區域會有兩個或三個受控磁碟容錯網域。 閱讀更多適用於 [Linux VM](../articles/virtual-machines/linux/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set) 或 [Windows VM](../articles/virtual-machines/linux/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set) 的這些受控磁碟容錯網域相關資訊。
+若 VM 使用 [Azure 受控磁碟](../articles/virtual-machines/windows/faq-for-disks.md)，VM 會在使用受管理的可用性設定組時配合使用受控磁碟容錯網域。 此一配合行為可確保連接到 VM 的所有受控磁碟都位於相同的受控磁碟容錯網域。 在受管理的可用性設定組中只能建立使用受控磁碟的 VM。 受控磁碟容錯網域數目會依區域而異，每個區域會有兩個或三個受控磁碟容錯網域。 閱讀更多適用於 [Linux VM](../articles/virtual-machines/linux/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set) 或 [Windows VM](../articles/virtual-machines/windows/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set) 的這些受控磁碟容錯網域相關資訊。
 
 ## <a name="availability-zones"></a>可用性區域
 

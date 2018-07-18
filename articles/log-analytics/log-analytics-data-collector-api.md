@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2018
+ms.date: 05/25/2018
 ms.author: bwren
-ms.openlocfilehash: d42069e8ed72a834973b56df55488955d62e71f2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 33b98c56cde8d4a876f217d0bbdd716d3a336260
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636727"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>使用 HTTP 資料收集器 API 將資料傳送給 Log Analytics (公開預覽狀態)
 本文示範如何使用「HTTP 資料收集器 API」將資料從 REST API 用戶端傳送給 Log Analytics。  它說明如何將您指令碼或應用程式所收集的資料格式化、將其包含在要求中，以及讓 Log Analytics 授權該要求。  提供的範例適用於 PowerShell、C# 及 Python。
@@ -59,7 +60,7 @@ Log Analytics 儲存機制中的所有資料都會以具有特定記錄類型的
 | Authorization |授權簽章。 本文稍後會說明如何建立 HMAC-SHA256 標頭。 |
 | Log-Type |指定正在提交的資料記錄類型。 記錄檔類型目前僅支援英文字元。 不支援數值或特殊字元。 此參數的大小上限是 100 個字元。 |
 | x-ms-date |處理要求的日期 (採用 RFC 1123 格式)。 |
-| time-generated-field |資料中包含資料項目時間戳記的欄位名稱。 如果您指定欄位，則其內容會用於 **TimeGenerated**。 如果未指定此欄位，則 **TimeGenerated** 的預設值是所擷取訊息的時間。 訊息欄位的內容應遵循 ISO 8601 格式 YYYY-MM-DDThh:mm:ssZ。 |
+| time-generated-field |資料中包含資料項目時間戳記的欄位名稱。 如果您指定欄位，則其內容會用於 **TimeGenerated**。 它不得為 null，而且必須包含有效的日期時間。 如果未指定此欄位，則 **TimeGenerated** 的預設值是所擷取訊息的時間。 訊息欄位的內容應遵循 ISO 8601 格式 YYYY-MM-DDThh:mm:ssZ。 |
 
 ## <a name="authorization"></a>Authorization
 任何對於 Log Analytics HTTP 資料收集器 API 的要求都必須包含授權標頭。 若要驗證要求，您必須使用提出要求之工作區的主要或次要金鑰來簽署要求。 然後，將該簽章當作要求的一部分傳遞。   

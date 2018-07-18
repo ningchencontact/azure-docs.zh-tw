@@ -77,6 +77,8 @@
           href: edit-api.md
     - name: 佈建和調整
       items:
+        - name: 容量計量
+          href: api-management-capacity.md
         - name: 升級和調整規模
           href: upgrade-and-scale.md
         - name: 設定自訂網域
@@ -97,6 +99,8 @@
           href: api-management-howto-integrate-internal-vnet-appgateway.md
         - name: 相互憑證驗證
           href: api-management-howto-mutual-certificates.md
+        - name: 管理通訊協定和加密
+          href: api-management-howto-manage-protocols-ciphers.md
     - name: 自訂開發人員經驗
       items:
         - name: 修改頁面內容和版面配置
@@ -173,6 +177,8 @@
           href: api-management-howto-deploy-multi-region.md
         - name: 將事件記錄到 Azure 事件中樞
           href: api-management-howto-log-event-hubs.md
+        - name: 使用 Azure Application Insights 記錄要求
+          href: api-management-howto-app-insights.md
         - name: 使用備份/還原設定 DR
           href: api-management-howto-disaster-recovery-backup-restore.md
         - name: 管理使用者帳戶

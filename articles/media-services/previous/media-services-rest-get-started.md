@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2018
 ms.author: juliako
-ms.openlocfilehash: f0241278343ba4383caef5bb52bc4f1ece2bec7e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 53ccd4dc40136ada30a0e230d526414b567919c7
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960452"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>使用 REST 傳遞點播內容入門
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -266,11 +267,9 @@ SAS URL 具有下列格式：
 
 適用一些考量事項：
 
-* 您一次不能有超過五個唯一定位器與指定的資產相關聯。 如需詳細資訊，請參閱＜定位器＞。
+* 您一次不能有超過五個唯一定位器與指定的資產相關聯。 
 * 如果您需要立即上傳檔案，您應該將 StartTime 值設為目前時間的五分鐘前。 這是因為用戶端電腦與媒體服務之間可能有時間差。 此外，您的 StartTime 值必須是以下日期時間格式：YYYY-MM-DDTHH:mm:ssZ (例如，"2014-05-23T17:53:50Z")。    
-* 建立 Locator 之後到它可供使用時，中間可能會有 30 到 40 秒的延遲。 此問題同時適用於 SAS URL 與原始定位器。
-
-如需 SAS 定位器的詳細資訊，請參閱[這個](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/)部落格。
+* 建立 Locator 之後到它可供使用時，中間可能會有 30 到 40 秒的延遲。 此問題同時適用於 [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) 與原始定位器。
 
 下列範例會示範如何建立 SAS URL 定位器，如要求主體中的 Type 屬性所定義 ("1" 代表 SAS 定位器，"2" 代表隨選原始定位器)。 傳回的 **Path** 屬性包含上傳檔案必須使用的 URL。
 
@@ -693,7 +692,7 @@ SAS URL 具有下列格式：
 
 ## <a id="publish_get_urls"></a>使用 REST API 發行資產及取得串流和漸進式下載 URL
 
-若要串流處理或下載資產，您必須先建立定位器來「發佈」它。 定位器提供對於資產中包含之檔案的存取。 媒體服務支援兩種類型的定位器：OnDemandOrigin 定位器，用於串流媒體 (例如，MPEG DASH、HLS 或 Smooth Streaming) 和存取簽章 (SAS) 定位器，用來下載媒體檔案。 如需 SAS 定位器的詳細資訊，請參閱[這個](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/)部落格。
+若要串流處理或下載資產，您必須先建立定位器來「發佈」它。 定位器提供對於資產中包含之檔案的存取。 媒體服務支援兩種類型的定位器：OnDemandOrigin 定位器，用於串流媒體 (例如，MPEG DASH、HLS 或 Smooth Streaming) 和存取簽章 (SAS) 定位器，用來下載媒體檔案。 
 
 建立定位器之後，您便可以建立用來串流或下載檔案的 URL。
 

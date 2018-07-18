@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: danis
-ms.openlocfilehash: 3977aa16878ea1e2d808376165f551ce5fb8d00f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 850acae818638bb7c823edde03dbbecccf930073
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944980"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969318"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>搭配 Linux 虛擬機器使用 Azure 自訂指令碼擴充功能第 1 版
 自訂指令碼擴充功能第 2 版會在 Azure 虛擬機器上下載並執行指令碼。 此擴充功能適用於部署後設定、軟體安裝或其他任何設定/管理工作。 您可以從 Azure 儲存體或其他可存取的網際網路位置下載指令碼，或是將指令碼提供給擴充功能執行階段。 
@@ -46,7 +46,7 @@ Linux 的自訂指令碼擴充功能將在擴充功能支援的擴充功能 OS �
 您可以利用擴充功能來使用 Azure Blob 儲存體認證，以存取 Azure Blob 儲存體。 或者，指令碼可以位於任何位置，前提是 VM 可以路由傳送至該端點，例如 GitHub、內部檔案伺服器等。
 
 ### <a name="internet-connectivity"></a>網際網路連線
-如果您需要在外部下載指令碼 (例如 GitHub 或 Azure 儲存體)，則必須開放額外的防火牆/網路安全性群組連接埠。 例如，如果您的指令碼位於 Azure 儲存體，則可以允許使用[儲存體](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags)適用的 Azure NSG 服務標記進行存取。
+如果您需要在外部下載指令碼 (例如 GitHub 或 Azure 儲存體)，則必須開放額外的防火牆/網路安全性群組連接埠。 例如，如果您的指令碼位於 Azure 儲存體，則可以允許使用[儲存體](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)適用的 Azure NSG 服務標記進行存取。
 
 如果您的指令碼是在本機伺服器上，則仍然可能需要開放額外的防火牆/網路安全性群組連接埠。
 
@@ -57,7 +57,7 @@ Linux 的自訂指令碼擴充功能將在擴充功能支援的擴充功能 OS �
 * 指令碼可執行的時間為 90 分鐘。若超過這個時間，將會導致擴充功能佈建失敗。
 * 請不要在指令碼內放置重新開機指令，這會造成正在安裝的其他擴充功能發生問題。也不要放置後續重新開機指令，因為擴充功能在重新啟動後不會繼續執行。 
 * 如果您的指令碼將會造成重新開機，則請安裝應用程式，然後執行指令碼等等。您應該使用 Cron 作業，或使用 DSC、Chef 或 Puppet 擴充功能之類的工具，以排程重新開機。
-* 擴充功能只會執行指令碼一次。如果您想要在每次開機時執行指令碼，則可以使用 [cloud-init image](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/using-cloud-init)，並使用 [Scripts Per Boot](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) 模組。 或者，您可以使用指令碼來建立 Systemd 服務單位。
+* 擴充功能只會執行指令碼一次。如果您想要在每次開機時執行指令碼，則可以使用 [cloud-init image](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)，並使用 [Scripts Per Boot](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) 模組。 或者，您可以使用指令碼來建立 Systemd 服務單位。
 * 如果您想要排程指令碼的執行時間，則應該使用擴充功能來建立 Cron 作業。 
 * 當指令碼正在執行時，只能從 Azure 入口網站或 CLI 看到「正在轉換」擴充功能狀態。 如果您需要執行中指令碼更頻繁的狀態更新，便必須建立自己的解決方案。
 * 自訂指令碼擴充功能未原生支援 Proxy 伺服器，但是您可以在指令碼中使用支援 Proxy 伺服器的檔案傳輸工具，例如 *Curl*。 
@@ -76,7 +76,7 @@ Linux 的自訂指令碼擴充功能將在擴充功能支援的擴充功能 OS �
 ```json
 {
   "name": "config-app",
-  "type": "extensions",
+  "type": "Microsoft.Compute/virtualMachines/extensions",
   "location": "[resourceGroup().location]",
   "apiVersion": "2015-06-15",
   "dependsOn": [
@@ -154,7 +154,7 @@ dos2unix 轉換可藉由將 skipDos2Unix 設定為 true 來略過。
 ```json
 {
   "fileUris": ["<url>"],
-  "commandToExecute": "<command-to-execute>"
+  "commandToExecute": "<command-to-execute>",
   "skipDos2Unix": true
 }
 ```

@@ -6,18 +6,19 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 10/24/2017
+ms.date: 04/30/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: c6ac8f22f128b350844af10f309fd3b93512d54d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6347c460ab88929152424d301445a219720b98e8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38582296"
 ---
 # <a name="tutorial-deploy-web-app-from-azure-container-registry"></a>教學課程：從 Azure Container Registry 部署 Web 應用程式
 
-這是三段式教學課程系列的第二段。 在[第一段](container-registry-tutorial-prepare-registry.md)中，已建立異地複寫的容器登錄，也已從來源建立容器映像並推送至登錄中。 在本文中，您要將容器部署至兩個不同 Azure 區域中的兩個 Web 應用程式執行個體，以便獲得異地複寫的登錄因網路位置接近的好處。
+這是三段式教學課程系列的第二段。 在[第一段](container-registry-tutorial-prepare-registry.md)中，已建立異地複寫的容器登錄，也已從來源建立容器映像並推送至登錄中。 在本文中，您要將容器部署至兩個不同 Azure 區域中的 Web 應用程式執行個體，以便獲得異地複寫的登錄因網路位置接近的好處。 接著，每個執行個體將從最接近的登錄提取容器映像。
 
 在本教學課程中，系列的第二段：
 
@@ -27,7 +28,7 @@ ms.lasthandoff: 04/28/2018
 
 如果您尚未建立異地複寫的登錄，並將容器化的應用程式範例映像推送至登錄中，請返回系列的上一個教學課程，[準備異地複寫的 Azure Container Registry](container-registry-tutorial-prepare-registry.md)。
 
-在系列的下一段中，您要更新應用程式，然後將新的容器映像推送至登錄中。 最後，您要瀏覽至每個執行的 Web 應用程式執行個體，查看兩者當中皆已自動反映變更，顯示出 Azure Container Registry 異地複寫和 Webhook 起作用。
+在系列的下一篇文章中，您要更新應用程式，然後將更新的容器映像推送至登錄中。 最後，您要瀏覽至每個執行的 Web 應用程式執行個體，查看兩者當中皆已自動反映變更，顯示出 Azure Container Registry 異地複寫和 Webhook 起作用。
 
 ## <a name="automatic-deployment-to-web-apps-for-containers"></a>自動部署至用於容器的 Web 應用程式
 
@@ -103,11 +104,7 @@ Azure Container Registry 支援將容器化的應用程式直接部署至[用於
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您從異地複寫的 Azure Container Registry 部署了兩個用於容器的 Web 應用程式執行個體。 依照本教學課程的步驟，您：
-
-> [!div class="checklist"]
-> * 將容器映像部署到兩個*用於容器的 Web 應用程式*執行個體
-> * 確認了部署的應用程式
+在本教學課程中，您從異地複寫的 Azure Container Registry 部署了兩個用於容器的 Web 應用程式執行個體。
 
 請前進到下一個教學課程更新容器映像，並將新的容器映像部署到容器登錄中，然後確認這兩個區域中執行的 Web 應用程式都已自動更新。
 

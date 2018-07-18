@@ -1,12 +1,12 @@
 ---
-title: "Azure AD Connect 同步︰如何管理 Azure AD 服務帳戶 | Microsoft Docs"
-description: "本主題將說明如何還原 Azure AD 服務帳戶。"
+title: Azure AD Connect 同步︰如何管理 Azure AD 服務帳戶 | Microsoft Docs
+description: 本主題將說明如何還原 Azure AD 服務帳戶。
 services: active-directory
-keywords: "AADSTS70002, AADSTS50054, 如何重設 Azure AD Connect 同步處理連接器服務帳戶的密碼"
-documentationcenter: 
+keywords: AADSTS70002, AADSTS50054, 如何重設 Azure AD Connect 同步處理連接器服務帳戶的密碼
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 6077043a-27f1-4304-a44b-81dc46620f24
 ms.service: active-directory
 ms.workload: identity
@@ -14,12 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cfd807706ebbf0bfa6ea699129cb197f1c79db8c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 8f201f2478e2883289a6cc4b435e2c3218950b1d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594035"
 ---
 # <a name="azure-ad-connect-sync-how-to-manage-the-azure-ad-service-account"></a>Azure AD Connect 同步處理︰如何管理 Azure AD 服務帳戶
 Azure AD 連接器所使用的服務帳戶應該是免費的服務。 如果您需要重設其認證，則這個主題適合您。 例如，如果全域管理員不小心使用 PowerShell 重設了服務帳戶的密碼。

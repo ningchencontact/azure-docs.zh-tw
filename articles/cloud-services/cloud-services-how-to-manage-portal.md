@@ -1,11 +1,11 @@
 ---
-title: "常見的雲端服務管理工作 | Microsoft Docs"
-description: "了解如何在 Azure 入口網站中管理雲端服務。 這些範例使用 Azure 入口網站。"
+title: 常見的雲端服務管理工作 | Microsoft Docs
+description: 了解如何在 Azure 入口網站中管理雲端服務。 這些範例使用 Azure 入口網站。
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cb218ad9-77d4-4149-83db-71159c00767e
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29121190"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>在 Azure 入口網站中管理雲端服務
 在 Azure 入口網站的 [雲端服務] 區域中，您可以：

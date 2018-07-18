@@ -1,8 +1,8 @@
 ---
-title: "從 Azure CLI 建立您的第一個函式 | Microsoft Docs"
-description: "了解如何使用 Azure CLI 來建立您的第一個 Azure 函式以進行無伺服器執行。"
+title: 從 Azure CLI 建立您的第一個函式 | Microsoft Docs
+description: 了解如何使用 Azure CLI 來建立您的第一個 Azure 函式以進行無伺服器執行。
 services: functions
-keywords: 
+keywords: ''
 author: ggailey777
 ms.author: glenga
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
@@ -13,10 +13,11 @@ ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
 ms.openlocfilehash: 2088844693748f090a67ad56f9b5fba4514d1282
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38488352"
 ---
 # <a name="create-your-first-function-using-the-azure-cli"></a>在 Azure CLI 建立您的第一個函式
 

@@ -1,21 +1,22 @@
 ---
-title: "Azure CLI 指令碼 - 下載適用於 MySQL 的 Azure 資料庫中的伺服器記錄"
-description: "此範例 Azure CLI 指令碼示範如何啟用並下載「適用於 MySQL 的 Azure 資料庫」伺服器的伺服器記錄。"
+title: Azure CLI 指令碼 - 下載適用於 MySQL 的 Azure 資料庫中的伺服器記錄
+description: 此範例 Azure CLI 指令碼示範如何啟用並下載「適用於 MySQL 的 Azure 資料庫」伺服器的伺服器記錄。
 services: mysql
 author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: 311bade14e00346e18167684bd022ff0e9630701
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: abe79185b817a4581c7df3f73c1d48ece6058643
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38698003"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-mysql-server-using-azure-cli"></a>使用 Azure CLI 啟用並下載「適用於 MySQL 的 Azure 資料庫」伺服器的伺服器慢速查詢記錄
 此範例 CLI 指令碼會啟用並下載單一「適用於 MySQL 的 Azure 資料庫」伺服器的慢速查詢記錄。

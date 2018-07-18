@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30840797"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance-script-sample"></a>透過網路虛擬設備路由流量的指令碼範例
 

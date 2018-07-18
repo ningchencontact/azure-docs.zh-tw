@@ -22,6 +22,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34069868"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>將 Azure 訂用帳戶的擁有權轉移給另一個帳戶
 

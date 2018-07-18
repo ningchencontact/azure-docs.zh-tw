@@ -2,23 +2,20 @@
 title: Azure Cosmos DB：.NET 變更摘要處理器 API、SDK 和資源 | Microsoft Docs
 description: 了解「變更摘要處理器 API 和 SDK」的所有相關資訊，包括發行日期、停用日期，以及「.NET 變更摘要處理器 SDK」每個版本之間的變更。
 services: cosmos-db
-documentationcenter: .net
 author: ealsur
 manager: kfile
-ms.assetid: f2dd9438-8879-4f74-bb6c-e1efc2cd0157
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: article
-ms.date: 04/19/2018
+ms.topic: reference
+ms.date: 05/21/2018
 ms.author: maquaran
-ms.openlocfilehash: 7ed5772df4d8677fe878d7ced831dc15bbe8cac0
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: f69742d111555e776a968454bdc004ba171e6336
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33885131"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937412"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 變更摘要處理器 SDK：下載和版本資訊
 > [!div class="op_single_selector"]
@@ -45,6 +42,10 @@ ms.locfileid: "33885131"
 ## <a name="release-notes"></a>版本資訊
 
 ### <a name="stable-builds"></a>穩定的組建
+
+### <a name="a-name133133"></a><a name="1.3.3"/>1.3.3
+* 已新增更多記錄。
+* 已修正在多次呼叫擱置中工作估計時的 DocumentClient 流失。
 
 ### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
 * 修正擱置的工作評估。
@@ -73,6 +74,17 @@ ms.locfileid: "33885131"
 * 與 [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.14.1 或以上版本相容。
 
 ### <a name="pre-release-builds"></a>發行前版本組建
+
+### <a name="a-name203-prerelease203-prerelease"></a><a name="2.0.3-prerelease"/>2.0.3-prerelease
+* 修正下列問題：
+  * 當分割區進行分割時，可能會重複處理分割前修改的文件。
+  * 租用集合中沒有租用時，GetEstimatedRemainingWork API 傳回 0。
+
+* 下列例外狀況設為公開。 實作 IPartitionProcessor 的擴充可能擲回以下例外狀況。
+  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.LeaseLostException. 
+  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionException. 
+  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionNotFoundException.
+  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionSplitException. 
 
 ### <a name="a-name202-prerelease202-prerelease"></a><a name="2.0.2-prerelease"/>2.0.2 發行前版本
 * 次要 API 變更：
@@ -108,6 +120,7 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [1.3.3](#1.3.3) |2018 年 5 月 8 日 |--- |
 | [1.3.2](#1.3.2) |2018 年 4 月 18 日 |--- |
 | [1.3.1](#1.3.1) |2018 年 3 月 13 日 |--- |
 | [1.2.0](#1.2.0) |2017 年 10 月 31 日 |--- |

@@ -7,14 +7,16 @@ ms.author: kehuan
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: cbb077796d9f14a7f9d1d00268c7b6889ade8375
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 29f493449d48df26919a98452fa7f832d653d45e
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37861104"
 ---
 # <a name="document-collection-analysis"></a>文件集合分析
 
@@ -73,7 +75,7 @@ ms.lasthandoff: 04/19/2018
 
 ## <a name="data-description"></a>資料說明
 
-此案例中使用的資料集包含美國國會所採取之每個立法行動的文字摘要和相關中繼資料。 資料是從 [GovTrack.us](https://www.govtrack.us/) 收集而來，該網站可追蹤美國國會的活動並協助美國公民參與其國家立法程序。 使用手動指令碼可透過[此連結](https://www.govtrack.us/data/congress/)下載大量資料，但該指令碼並未包含在此案例中。 在 [GovTrack API 文件](https://www.govtrack.us/developers/api)中可找到中如何下載資料的詳細資訊。
+此案例中使用的資料集包含美國國會所採取之每個立法行動的文字摘要和相關中繼資料。 資料是從 [GovTrack.us](https://www.govtrack.us/) 收集而來，該網站可追蹤美國國會的活動並協助美國公民參與其國家立法程序。 使用手動指令碼可透過[此連結](https://www.govtrack.us/data/congress/)下載大量資料，但該指令碼並未包含在此案例中。 在 [GovTrack API 文件](https://www.govtrack.us/developers)中可找到中如何下載資料的詳細資訊。
 
 ### <a name="data-source"></a>資料來源
 

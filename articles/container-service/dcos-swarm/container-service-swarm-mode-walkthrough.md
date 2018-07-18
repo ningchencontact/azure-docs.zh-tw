@@ -2,18 +2,19 @@
 title: 快速入門 - 適用於 Linux 的 Azure Docker CE 叢集
 description: 快速了解如何在 Azure Container Service 中使用 Azure CLI 建立適用於 Linux 容器的 Docker CE 叢集。
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: ''
-ms.openlocfilehash: cd52982fc650d5fd3b4edd8513946a721306a451
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 46e93953ba8db141b99b14aa78674e85b343adbc
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903383"
 ---
 # <a name="deploy-docker-ce-cluster"></a>部署 Docker CE 叢集
 
@@ -57,7 +58,7 @@ az group create --name myResourceGroup --location ukwest
 下列範例會建立一個名為 mySwarmCluster 的叢集，其中包含一個 Linux 主要節點和三個 Linux 代理程式節點。
 
 ```azurecli-interactive
-az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-group myResourceGroup --generate-ssh-keys
+az acs create --name mySwarmCluster --orchestrator-type swarm --resource-group myResourceGroup --generate-ssh-keys
 ```
 
 在有限試用之類的某些情況下，Azure 訂用帳戶只擁有 Azure 資源的有限存取權。 如果部署因可用核心受限而失敗，請將 `--agent-count 1` 加入 [az acs create](/cli/azure/acs#az_acs_create) 命令來減少預設代理程式的數量。 

@@ -1,11 +1,11 @@
 ---
-title: "使用 Visual Studio 的已連接服務加入行動服務 | Microsoft Docs"
-description: "使用 Visual Studio 的加入已連接服務對話方塊加入行動服務"
+title: 使用 Visual Studio 的已連接服務加入行動服務 | Microsoft Docs
+description: 使用 Visual Studio 的加入已連接服務對話方塊加入行動服務
 services: visual-studio-online
 documentationcenter: na
 author: mlhoop
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 75c3cb93-88e1-476d-a416-f34caa3608e3
 ms.service: visual-studio-online
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23125106"
 ---
 # <a name="adding-mobile-services-by-using-visual-studio-connected-services"></a>使用 Visual Studio 已連接服務加入行動服務
 透過 Visual Studio 2015，您可以使用 [ **加入已連接服務** ] 對話方塊連接到 Azure 行動服務。 您可以從任何 C# 用戶端應用程式、任何 JavaScript 應用程式或跨平台 Cordova 應用程式連接。 連接後，您可以建立和存取資料、建立自訂 API 和排程的工作，或加入推播通知的支援。  已連接服務作業會加入所有適當的參考和連接程式碼。 您也可以利用包含各種熱門身分識別配置 (例如 Azure AD、Facebook、Twitter 和 Microsoft 帳戶) 的內建驗證支援。

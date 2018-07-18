@@ -3,23 +3,24 @@ title: 適用於 Azure Privileged Identity Management 的合格指派和資源�
 description: 說明使用 PIM 時如何將成員指派為「合格」的資源角色。
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
-editor: mwahl
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
+ms.component: protection
 ms.date: 04/02/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 4804d930a98192d64245784058920eeba7d30212
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8089591708676073bcef84ad13b3690b39bdc653
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32149981"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448198"
 ---
 # <a name="eligible-assignments-and-resource-visibility-with-privileged-identity-management"></a>Privileged Identity Management 適用的合格指派和資源可見度
 

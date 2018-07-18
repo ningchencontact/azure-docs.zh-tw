@@ -1,8 +1,8 @@
 ---
-title: "使用範圍篩選條件佈建應用程式 | Microsoft Docs"
-description: "在支援使用者佈建自動化的應用程式中，了解如何使用範圍篩選條件來防止佈建不符合商務需求的物件。"
+title: 使用範圍篩選條件佈建應用程式 | Microsoft Docs
+description: 在支援使用者佈建自動化的應用程式中，了解如何使用範圍篩選條件來防止佈建不符合商務需求的物件。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: bcfbda74-e4d4-4859-83bc-06b104df3918
@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 10/31/2017
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e7a2322239945a529a544054c2273e37a3d65abf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d6f4f257d380d6521774afd23dbeaf6a94711c6d
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293070"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>含範圍篩選器的屬性型應用程式佈建
 本文的目標在於說明如何使用範圍篩選條件來定義以屬性為基礎的規則，以決定將哪些使用者佈建到應用程式。
@@ -29,7 +30,7 @@ ms.lasthandoff: 12/11/2017
 
 範圍篩選條件的使用方式取決於佈建連接器的類型：
 
-* **從 Azure AD 向外佈建到 SaaS 應用程式**。 當 Azure AD 為來源系統時，[使用者和群組指派](active-directory-coreapps-assign-user-azure-portal.md)是決定哪些使用者要納入佈建範圍內的最常用方法。 這些指派也用於啟用單一登入，並提供單一方法來管理存取與佈建。 根據屬性值，除了指派或取代之外，範圍篩選器可以選擇性地用於篩選使用者。
+* **從 Azure AD 向外佈建到 SaaS 應用程式**。 當 Azure AD 為來源系統時，[使用者和群組指派](manage-apps/assign-user-or-group-access-portal.md)是決定哪些使用者要納入佈建範圍內的最常用方法。 這些指派也用於啟用單一登入，並提供單一方法來管理存取與佈建。 根據屬性值，除了指派或取代之外，範圍篩選器可以選擇性地用於篩選使用者。
 
     >[!TIP]
     > 您可以根據企業應用程式的指派，將 [範圍](active-directory-saas-app-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) 功能表中的佈建設定底下的設定，變更為 **同步所有使用者與群組**，以停用佈建。 使用此選項再加上屬性型範圍篩選器時，可提供比使用群組型指派更快的效能。  
@@ -115,6 +116,6 @@ Azure AD 佈建服務所處理的每個使用者或群組，一律會根據每�
 * [自訂使用者佈建的屬性對應](active-directory-saas-customizing-attribute-mappings.md)
 * [撰寫屬性對應的運算式](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [帳戶佈建通知](active-directory-saas-account-provisioning-notifications.md)
-* [使用 SCIM 以啟用將使用者和群組從 Azure Active Directory 自動佈建到應用程式](active-directory-scim-provisioning.md)
+* [使用 SCIM 以啟用將使用者和群組從 Azure Active Directory 自動佈建到應用程式](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [如何整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
 

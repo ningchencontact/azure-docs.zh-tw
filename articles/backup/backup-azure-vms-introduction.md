@@ -1,25 +1,20 @@
 ---
-title: 在 Azure 中規劃 VM 備份基礎結構 | Microsoft Docs
+title: 在 Azure 中規劃 VM 備份基礎結構
 description: 在 Azure 中備份虛擬機器時的重要考量
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: 備份 VM, 備份虛擬機器
-ms.assetid: 19d2cf82-1f60-43e1-b089-9238042887a9
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 3/23/2018
-ms.author: markgal;trinadhk;sogup
-ms.openlocfilehash: 299794b100ed438de2995d70419025dd686d2278
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: markgal
+ms.openlocfilehash: 92122e7dc62e0f402bcddff099984e6e2c605fae
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606081"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>在 Azure 中規劃 VM 備份基礎結構
 本文提供效能和資源方面的建議，以協助您規劃 VM 備份基礎結構。 本文也會定義備份服務的重要層面；這些層面對於決定架構、容量規劃及排程來說相當重要。 如果您已經[準備好環境](backup-azure-arm-vms-prepare.md)，則規劃是您開始[備份 VM](backup-azure-arm-vms.md) 之前的下一個步驟。 如果您需要 Azure 虛擬機器的詳細資訊，請參閱 [虛擬機器文件](https://azure.microsoft.com/documentation/services/virtual-machines/)。
@@ -119,7 +114,7 @@ Azure 備份提供指令碼架構。 為確保備份 Linux VM 時應用程式的
 * 安排 VM 備份在非尖峰時段進行。 如此一來，備份服務會使用 IOPS 將資料從客戶儲存體帳戶傳輸到保存庫。
 * 確定有原則套用至橫跨不同儲存體帳戶的 VM。 我們的建議是，相同備份排程只保護單一儲存體帳戶中總計不超過 20 個的磁碟。 如果您的儲存體帳戶中有超過 20 個磁碟，請將這些 VM 分散到多個原則，以在備份程序的傳輸階段取得所需的 IOPS。
 * 請勿將進階儲存體上執行的 VM 還原至相同的儲存體帳戶。 如果還原作業程序與備份作業一致，將會減少備份可用的 IOPS。
-* 若要進行進階 VM 備份，請確定裝載進階磁碟的儲存體帳戶至少有 50% 的可用空間可供暫存快照集，以便能順利完成備份。 
+* 對於 VM 備份堆疊 V1 上的進階 VM ，建議只配置 50% 的總儲存體帳戶空間，讓 Azure 備份服務可以將快照集複製到儲存體帳戶，並從儲存體帳戶中複製的這個位置，將資料傳送到到保存庫。
 * 請確定為了進行備份而在 Linux VM 上啟用的 python 版本為 2.7
 
 ## <a name="data-encryption"></a>資料加密

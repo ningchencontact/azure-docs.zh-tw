@@ -1,12 +1,12 @@
 ---
-title: "使用 Azure 匯入/匯出來設定屬性和中繼資料 | Microsoft Docs"
-description: "了解執行 Azure 匯入/匯出工具準備磁碟機時，如何指定要在目的地 blob 上設定的屬性和中繼資料。"
+title: 使用 Azure 匯入/匯出來設定屬性和中繼資料 | Microsoft Docs
+description: 了解執行 Azure 匯入/匯出工具準備磁碟機時，如何指定要在目的地 blob 上設定的屬性和中繼資料。
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059403"
 ---
 # <a name="setting-properties-and-metadata-during-the-import-process"></a>在匯入程序期間設定屬性和中繼資料
 

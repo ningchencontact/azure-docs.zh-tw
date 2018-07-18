@@ -2,22 +2,19 @@
 title: 使用 Azure Cosmos DB 全域散發資料 | Microsoft Docs
 description: 了解如何從 Azure Cosmos DB (全域散發的多模型資料庫服務)，使用全域資料庫進行全球規模的異地複寫、容錯移轉及資料復原。
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: ba5ad0cc-aa1f-4f40-aee9-3364af070725
 ms.service: cosmos-db
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 967e7458d43dccd4601440138b7445eb876b9f01
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4f548e180ca315013d5ca91118041cac2e622520
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34611444"
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>如何使用 Azure Cosmos DB 全域散發資料
 Azure 無所不在，它跨 50 多個地理區域，遍佈全球並持續擴充中。 遍佈全球的 Azure 提供給開發人員的其中一項獨特功能，就是能夠輕鬆地建置、部署及管理分散在世界各地的應用程式。 
@@ -87,7 +84,7 @@ Azure Cosmos DB 可讓您將區域 (和資料庫相關聯) 設定為「讀取」
 Azure Cosmos DB 可讓您觸發資料庫帳戶的容錯移轉，以驗證整個應用程式 (超越資料庫) 的*端對端*可用性屬性。 由於能保證失敗偵測和選出領導者的安全性與作用中屬性，因此 Azure Cosmos DB 針對由租用戶起始的手動容錯移轉作業，能夠做出*零資料遺失*的保證。
 
 ### <a id="AutomaticFailover"></a>自動容錯移轉
-Azure Cosmos DB 支援在發生一或多個區域中斷時自動容錯移轉。 進行區域容錯移轉時，Azure Cosmos DB 會維持其讀取延遲、執行時間可用性、一致性及輸送量 SLA。 Azure Cosmos DB 會提供完成自動容錯移轉作業的持續時間上限。 資料很可能會在區域中斷服務時的這段時間內遺失。
+Azure Cosmos DB 支援在一或多個區域中斷期間自動容錯移轉。 進行區域容錯移轉時，Azure Cosmos DB 會維持其讀取延遲、執行時間可用性、一致性及輸送量 SLA。 Azure Cosmos DB 會提供完成自動容錯移轉作業的持續時間上限。 資料很可能會在區域中斷服務時的這段時間內遺失。
 
 ### <a id="GranularFailover"></a>專為不同的容錯移轉資料粒度設計
 目前是在資料庫帳戶的資料粒度公開自動和手動容錯移轉功能。 請注意，Azure Cosmos DB 在內部的設計是以更精細的資料庫、容器或甚至是 (擁有一系列索引鍵的容器) 分割區的資料粒度*自動*容錯移轉。 
@@ -98,9 +95,9 @@ Azure Cosmos DB 可讓您使用*邏輯*(區域無從驗證) 或*實體* (區域�
 在個別連結的文章中，可以找到如何設定 [SQL API](../cosmos-db/tutorial-global-distribution-sql-api.md)、[Gremlin API](../cosmos-db/tutorial-global-distribution-graph.md)、[資料表 API](../cosmos-db/tutorial-global-distribution-table.md) 和 [MongoDB API](../cosmos-db/tutorial-global-distribution-mongodb.md) 讀取喜好設定的資訊。
 
 ### <a id="TransparentSchemaMigration"></a>透明且一致的資料庫結構描述與索引移轉 
-Azure Cosmos DB 為完全[無從驗證結構描述](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) \(英文\)。 資料庫引擎的獨特設計能讓 Azure Cosmos DB 自動且同步對內嵌的所有資料編製索引，不需要使用者提供任何結構描述或次要索引。 這可讓您快速地反覆查看分散在世界各地的應用程式，而不必擔心資料庫結構描述和索引移轉，或協調多階段應用程式推出結構描述變更。 Azure Cosmos DB 可確保任何明確由您對編製索引原則所做的變更，都不會導致效能或可用性降低。  
+Azure Cosmos DB 為完全[無從驗證結構描述](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) \(英文\)。 資料庫引擎的獨特設計能讓 Azure Cosmos DB 自動且同步對擷取時的所有資料編製索引，不需要使用者提供任何結構描述或次要索引。 這可讓您快速地反覆查看分散在世界各地的應用程式，而不必擔心資料庫結構描述和索引移轉，或協調多階段應用程式推出結構描述變更。 Azure Cosmos DB 可確保任何明確由您對編製索引原則所做的變更，都不會導致效能或可用性降低。  
 
-### <a id="ComprehensiveSLAs"></a>全方位 SLA (不光只有高可用性)
+### <a id="ComprehensiveSLAs"></a>全方位 SLA (不只有高可用性)
 Azure Cosmos DB 是全域散發的資料庫服務，可為全域規模的資料庫提供在**可用性**、**延遲**、**輸送量**和**一致性**方面定義完善且全方位的 SLA，無論與資料庫相關聯的區域數目為何。  
 
 ## <a id="LatencyGuarantees"></a>延遲保證
@@ -109,7 +106,7 @@ Azure Cosmos DB 是全域散發的資料庫服務，可為全域規模的資料�
 ### <a id="LatencyAndConsistency"></a>延遲和一致性的關聯性 
 為使全域散發的服務在全域散發的安裝程式中提供強式一致性，它需要同步複寫寫入資料，或同步執行跨區域讀取。 光速和廣域網路可靠性，使得強式一致性將會導致資料庫作業有較高的延遲和降低的可用性。 因此，為使一致性寬鬆的所有單一區域帳戶和多重區域帳戶擁有最低延遲和 99.99% 的可用性保證，並使所有多重區域資料庫帳戶擁有 99.999% 的可用性保證，服務需採用非同步複寫。 這轉而要求服務同時必須提供[定義完善、寬鬆的一致性模型](consistency-levels.md)，比強式稍差 (以保證提供低延遲與高可用性)，且最好比「最終」一致性 (直覺式程式設計模型) 更強。
 
-Azure Cosmos DB 能確保不需要讀取作業來連絡跨多個區域的複本，以提供特定一致性層級保證。 同樣地，它可確保跨所有區域複寫資料時，不會封鎖寫入作業 (也就是寫入會以非同步的方式跨區域複寫)。 對於多重區域資料庫帳戶，有提供強式與多個寬鬆的一致性層級。 
+Azure Cosmos DB 能確保不需要讀取作業來連絡跨多個區域的複本，以提供特定一致性層級保證。 同樣地，它可確保跨所有區域複寫資料時，不會封鎖寫入作業 (也就是，寫入會以非同步的方式跨區域複寫)。 對於多重區域資料庫帳戶，有提供強式與多個寬鬆的一致性層級。 
 
 ### <a id="LatencyAndAvailability"></a>延遲和可用性的關聯性 
 延遲和可用性就像錢幣的一體兩面。 我們談論的是穩定狀態下作業的延遲，以及在存在失敗或網路分割之情況下的可用性。 從應用程式的觀點而言，執行緩慢的資料庫作業和無法使用的資料庫，並無法辨別。 
@@ -174,7 +171,8 @@ Azure Cosmos DB 的一致性 SLA 保證 100% 的讀取要求都將符合您所�
 
 
 ### <a id="ConsistencyAndAvailability"></a>一致性和可用性的關聯性
-[CAP 定理](https://people.eecs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf) \(英文\) 的[不可達的結果](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf) \(英文\) 證明在發生失敗時，系統確實不可能在維持可用的同時，提供線性的一致性。 資料庫服務必須選擇 CP 或 AP，其中 CP 系統會為了線性一致性而放棄可用性，而 AP 系統則會為了可用性而放棄[線性一致性](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) \(英文\)。 由於 Azure Cosmos DB 永遠不會違反要求的一致性模型，這使其正式成為 CP 系統。 然而實際上，一致性並不是非有及無的極端主張；在線性和最終一致性之間的一致性範圍內，還有數個定義完善的一致性模型。 在 Azure Cosmos DB 中，我們試著找出數個適用於真實世界案例且能夠直覺使用的寬鬆一致性模型。 Azure Cosmos DB 會權衡一致性和可用性之間的取捨，並針對所有單一資料庫帳戶提供[多個寬鬆但定義完善的一致性模型](consistency-levels.md)和 99.99% 的可用性，並針對所有多重區域資料庫帳戶提供 99.999% 的讀取和寫入可用性。 
+
+  [CAP 定理](https://people.eecs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf) \(英文\) 的[不可達的結果](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf) \(英文\) 證明在發生失敗時，系統確實不可能在維持可用的同時，提供線性的一致性。 資料庫服務必須選擇 CP 或 AP，其中 CP 系統會為了線性一致性而放棄可用性，而 AP 系統則會為了可用性而放棄[線性一致性](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) \(英文\)。 由於 Azure Cosmos DB 永遠不會違反要求的一致性模型，這使其正式成為 CP 系統。 然而實際上，一致性並不是非有及無的極端主張；在線性和最終一致性之間的一致性範圍內，還有數個定義完善的一致性模型。 在 Azure Cosmos DB 中，找出數個適用於真實世界案例且能夠直覺使用的寬鬆一致性模型。 Azure Cosmos DB 會權衡一致性和可用性之間的取捨，並針對所有單一資料庫帳戶提供[多個寬鬆但定義完善的一致性模型](consistency-levels.md)和 99.99% 的可用性，並針對所有多重區域資料庫帳戶提供 99.999% 的讀取和寫入可用性。 
 
 ### <a id="ConsistencyAndAvailability"></a>一致性和延遲的關聯性
 更全面的 CAP 定理變化稱為 [PACELC](http://cs-www.cs.yale.edu/homes/dna/papers/abadi-pacelc.pdf)，它也能解釋在穩定狀態下對延遲和一致性的權衡取捨。 它指出在穩定狀態下，資料庫系統必須在一致性和延遲之間做出選擇。 使用多個寬鬆的一致性模型 (受非同步複寫和本機讀取、寫入仲裁所支援)，Azure Cosmos DB 能確保所有讀取和寫入都會分別在讀取和寫入區域本地進行。 這可讓 Azure Cosmos DB 在指定的一致性模型的區域內提供低延遲保證。  
@@ -196,7 +194,7 @@ Azure Cosmos DB 可讓您視需要或需求彈性地跨任意數目的區域調�
 
 Azure Cosmos DB 容器會在兩個維度中散發：(i) 在區域內與 (ii) 跨區域。 方式如下： 
 
-* **本地散發**：就*資源分割區*而言，在單一區域內，Azure Cosmos DB 容器會水平向外延展。 每個資源分割區會管理一組索引鍵，而且具有強式一致性和高度可用性，因為它實際上會由四個複本 (也稱為*複本集*) 和那些複本中的狀態機器複寫所代表。 Azure Cosmos DB 是全面資源管理的系統，其中的資源分割區會依照系統所配置資源的預算來傳遞其輸送量。 Azure Cosmos DB 容器的調整會對使用者完全公開。 Azure Cosmos DB 會管理資源分割區，並隨儲存體和輸送量需求的變更，視需要分割及合併它們。 
+* **本地散發**：就*資源分割區*而言，在單一區域內，Azure Cosmos DB 容器會水平向外延展。 每個資源分割區會管理一組索引鍵，而且具有強式一致性和高度可用性，因為它實際上會由四個複本 (也稱為*複本集*) 和那些複本中的狀態機器複寫所代表。 Azure Cosmos DB 是全面資源管理的系統，其中的資源分割區會依照系統所配置資源的預算來傳遞其輸送量。 Azure Cosmos DB 容器的調整對使用者而言公開透明。 Azure Cosmos DB 會管理資源分割區，並隨儲存體和輸送量需求的變更，視需要分割及合併它們。 
 * **全域散發**：如果是多重區域資料庫，每個資源分割區接著會在那些區域之間散發。 擁有同一組跨區域索引鍵的資源分割區，會組成*分割集* (請參閱[上圖](#ThroughputGuarantees))。  分割集內的資源分割區，會在與該資料庫相關聯的多個區域上使用狀態機器複寫來進行協調。 根據設定的一致性層級，分割集內的資源資料分割設定為動態使用不同的拓撲 (例如，星形、菊輪鍊、樹狀目錄等)。 
 
 透過回應相當靈敏的分割區管理、負載平衡及嚴格的資源管理，Azure Cosmos DB 可讓您彈性地調整與 Azure Cosmos DB 容器或資料庫相關聯的多個 Azure 區域輸送量。 變更佈建輸送量是 Azure Cosmos DB 中的執行階段作業。 與其他資料庫作業類似，Azure Cosmos DB 可針對變更已佈建輸送量的要求，保證其絕對延遲上限。 例如，下圖顯示的客戶容器會根據需求彈性地調整佈建輸送量 (在兩個區域之間能提供每秒 1M-10M 個要求的輸送量)。

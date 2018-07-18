@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32151795"
 ---
 # <a name="getting-started"> </a>關於 Azure App Service 中的 Mobile Apps
 Azure App Service 是完全受控的[平台即服務](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) 產品，適用於專業開發人員。 此服務為 Web、行動及整合案例提供一組豐富的功能。 

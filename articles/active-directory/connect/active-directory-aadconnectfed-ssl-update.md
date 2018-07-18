@@ -1,9 +1,7 @@
 ---
-title: "Azure AD Connect - 更新 AD FS 伺服器陣列的 SSL 憑證 | Microsoft Docs"
-description: "本文件詳述使用 Azure AD Connect 更新 AD FS 伺服器陣列 SSL 憑證的步驟。"
+title: Azure AD Connect - 更新 AD FS 伺服器陣列的 SSL 憑證 | Microsoft Docs
+description: 本文件詳述使用 Azure AD Connect 更新 AD FS 伺服器陣列 SSL 憑證的步驟。
 services: active-directory
-keywords: "azure ad connect, adfs ssl 更新, adfs 憑證更新, 變更 adfs 憑證, 新增 adfs 憑證, adfs 憑證, 更新 adfs ssl 憑證, 更新 ssl 憑證 adfs, 設定 adfs ssl 憑證, adfs, ssl, 憑證, adfs 服務通訊憑證, 更新同盟, 設定同盟, aad connect"
-authors: anandyadavmsft
 manager: mtillman
 editor: billmath
 ms.assetid: 7c781f61-848a-48ad-9863-eb29da78f53c
@@ -12,14 +10,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
-ms.author: anandy
+ms.date: 07/09/2018
+ms.component: hybrid
+author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: b31a4d178d287eba275a0072936b4222a2c84346
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.author: billmath
+ms.openlocfilehash: 0eeb3f7d54617ff060481795bcdaa8b54e36dfa8
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917647"
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>更新 Active Directory Federation Services (AD FS) 伺服器陣列的 SSL 憑證
 
@@ -85,7 +86,7 @@ Azure AD Connect 會透過下列方式，嘗試自動取得 AD FS 伺服器陣�
 
 * **新 AD FS SSL 憑證之憑證的主體名稱應該是什麼？**
 
-    Azure AD Connect 會檢查憑證的主體名稱/替代主體名稱是否包含同盟服務名稱。 例如，如果同盟服務名稱為 fs.contoso.com，則主體名稱/替代主體名稱必須是 fs.contoso.com。也接受萬用字元憑證。
+    Azure AD Connect 會檢查憑證的主體名稱/替代主體名稱是否包含同盟服務名稱。 例如，如果同盟服務名稱為 fs.contoso.com，則主體名稱/替代主體名稱必須是 fs.contoso.com。  也接受萬用字元憑證。
 
 * **為什麼會要求我於 WAP 伺服器頁面上再次輸入認證？**
 

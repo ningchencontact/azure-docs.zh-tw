@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 417517cbbd187d32b84cc0a78f7b68a5fcf8eb23
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1ca7d40bb3c358b374e354fa2c3ef77edba055c9
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971776"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>一般串流分析使用模式的查詢範例
 
@@ -117,7 +118,7 @@ Azure 串流分析的查詢會以類似 SQL 的查詢語言表達。 語言建�
         Make,
         TumblingWindow(second, 10)
 
-**說明**：**CASE** 子句可讓我們根據一些準則提供不同的運算 (在我們的案例中，汽車計數在彙總視窗中)。
+**說明**：**CASE** 運算式會比較運算式和一組簡單運算式來決定結果。 在此範例中，計數為 1 的車輛傳回的字串描述與計數並非為 1 的車輛所傳回者不同。 
 
 ## <a name="query-example-send-data-to-multiple-outputs"></a>查詢範例：將資料傳送至多個輸出
 **描述**：將資料從單一工作傳送到多個輸出目標。
@@ -173,7 +174,7 @@ Azure 串流分析的查詢會以類似 SQL 的查詢語言表達。 語言建�
         [Count] >= 3
 
 **說明**：**INTO** 子句會告訴串流分析要從此陳述式將資料寫入哪個輸出。
-第一個查詢將我們接收到的資料傳遞至我們命名為 **ArchiveOutput** 的輸出。
+第一個查詢將接收到的資料傳遞至名稱為 **ArchiveOutput** 的輸出。
 第二個查詢會執行一些簡單的彙總和篩選，並將結果傳送至下游的警示系統。
 
 請注意，您也可以在多個輸出陳述式中重複使用通用資料表運算式 (CTE) 的結果 (例如 **WITH** 陳述式)。 此選項多了一項優點，就是對輸入來源開放的讀取器較少。
@@ -393,14 +394,14 @@ GROUP BY
 
 **輸入**：  
 
-| User | 功能 | Event | 時間 |
+| 使用者 | 功能 | Event | 時間 |
 | --- | --- | --- | --- |
 | user@location.com |RightMenu |Start |2015-01-01T00:00:01.0000000Z |
 | user@location.com |RightMenu |End |2015-01-01T00:00:08.0000000Z |
 
 **輸出**：  
 
-| User | 功能 | Duration |
+| 使用者 | 功能 | Duration |
 | --- | --- | --- |
 | user@location.com |RightMenu |7 |
 
@@ -418,7 +419,7 @@ GROUP BY
 
 ## <a name="query-example-detect-the-duration-of-a-condition"></a>查詢範例：偵測某個情況的持續時間
 **描述**：找出某個情況的持續時間。
-例如，假設有個錯誤導致所有車輛的重量不正確 (超過 20,000 磅)， 而我們想要計算該錯誤的持續時間。
+例如，假設有個錯誤導致所有車輛的重量不正確 (超過 20,000 磅)，而且必須計算該錯誤的持續時間。
 
 **輸入**：
 
@@ -506,8 +507,8 @@ GROUP BY
 
 
 ## <a name="query-example-correlate-two-event-types-within-the-same-stream"></a>查詢範例：將相同串流中的兩個事件類型相互關聯
-**描述**：我們有時需要根據特定時間範圍內發生的多種事件類型來產生警示。
-例如，在家用烤爐的 IoT 案例中，我們希望在風扇溫度低於 40 且過去 3 分鐘的最大功率低於 10 時發出警示。
+**描述**：有時需要根據特定時間範圍內發生的多種事件類型來產生警示。
+例如，在家用烤爐的 IoT 案例中，風扇溫度低於 40 且過去 3 分鐘的最大功率低於 10 時，必須發出警示。
 
 **輸入**：
 
@@ -577,6 +578,46 @@ WHERE
 ````
 
 **說明**：第一個查詢 `max_power_during_last_3_mins` 會使用[滑動時間範圍](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics)來尋找過去 3 分鐘內每個裝置的功率感應器最大值。 系統會將第二個查詢加入第一個查詢，以找出目前事件最近相關時間範圍內的功率值。 然後，假如條件符合，就會針對裝置產生警示。
+
+## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>查詢範例：與裝置時鐘誤差 (子串流) 無關的處理事件
+**描述**：事件會由於事件產生器之間的時鐘誤差、分割之間的時鐘誤差或網路延遲而晚發生或順序錯誤。 在下列範例中，TollID 2 的裝置時鐘比 TollID 1 晚 10 秒，而且 TollID 3 的裝置時鐘比 TollID 1 晚 5 秒。 
+
+
+**輸入**：
+| LicensePlate | 請確定 | 時間 | TollID |
+| --- | --- | --- | --- |
+| DXE 5291 |Honda |2015-07-27T00:00:01.0000000Z | 1 |
+| YHN 6970 |Toyota |2015-07-27T00:00:05.0000000Z | 1 |
+| QYF 9358 |Honda |2015-07-27T00:00:01.0000000Z | 2 |
+| GXF 9462 |BMW |2015-07-27T00:00:04.0000000Z | 2 |
+| VFE 1616 |Toyota |2015-07-27T00:00:10.0000000Z | 1 |
+| RMV 8282 |Honda |2015-07-27T00:00:03.0000000Z | 3 |
+| MDR 6128 |BMW |2015-07-27T00:00:11.0000000Z | 2 |
+| YZK 5704 |Ford |2015-07-27T00:00:07.0000000Z | 3 |
+
+**輸出**：
+| TollID | Count |
+| --- | --- |
+| 1 | 2 |
+| 2 | 2 |
+| 1 | 1 |
+| 3 | 1 |
+| 2 | 1 |
+| 3 | 1 |
+
+**解決方案**：
+
+````
+SELECT
+      TollId,
+      COUNT(*) AS Count
+FROM input
+      TIMESTAMP BY Time OVER TollId
+GROUP BY TUMBLINGWINDOW(second, 5), TollId
+
+````
+
+**說明**：[TIMESTAMP BY OVER](https://msdn.microsoft.com/azure/stream-analytics/reference/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) 子句會使用子串流個別查看每個裝置時間軸。 計算時會產生每個 TollID 的輸出事件，這表示事件的順序均與每個 TollID 有關，而不會重新排列順序，就像所有裝置都依據同一個時鐘一般。
 
 
 ## <a name="get-help"></a>取得說明

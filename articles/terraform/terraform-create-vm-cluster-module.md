@@ -14,6 +14,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29952212"
 ---
 # <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>搭配使用模組登錄與 Terraform 以建立 VM 叢集
 

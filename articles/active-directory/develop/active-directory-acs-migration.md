@@ -15,12 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/14/2017
 ms.author: celested
-ms.reviewer: dastrock
-ms.openlocfilehash: c1c86f21d5a99cf251b0b83f41576c2cdaf96dfb
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: hirsin, dastrock
+ms.openlocfilehash: 0b3e7d9b7a01767e44c7c59c7250808290a03c30
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319219"
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>從 Azure 存取控制服務移轉
 
@@ -254,7 +255,8 @@ Possible nameIdentifiers from Access Control (via AAD or AD FS):
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) 是彈性的雲端識別服務，不僅建立了[適用於存取控制客戶的高階移轉指南](https://auth0.com/acs)，而且幾乎能支援 ACS 支援的所有功能。 |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) 提供兩種類似 ACS 的解決方案。 PingOne 是支援許多與 ACS 相同之功能的雲端識別服務，而 PingFederate 則是類似的內部部署身分識別產品，不過彈性更大。 如需有關使用這些產品的詳細資料，請參閱 [Ping 的 ACS 淘汰指導](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html)。 |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | 
+  [Ping Identity](https://www.pingidentity.com) 提供兩種類似 ACS 的解決方案。 PingOne 是支援許多與 ACS 相同之功能的雲端識別服務，而 PingFederate 則是類似的內部部署身分識別產品，不過彈性更大。 如需有關使用這些產品的詳細資料，請參閱 [Ping 的 ACS 淘汰指導](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html)。 |
 
 我們與 Ping Identity 和 Auth0 合作的目的是，確保所有存取控制客戶都能獲得從存取控制中，盡可能簡單地搬移其應用程式和服務的移轉方式。
 
@@ -316,7 +318,8 @@ Other IDPs: use Auth0? https://auth0.com/docs/integrations/sharepoint.
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) 是彈性的雲端識別服務，不僅建立了[適用於存取控制客戶的高階移轉指南](https://auth0.com/acs)，而且幾乎能支援 ACS 支援的所有功能。 |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) 提供兩種類似 ACS 的解決方案。 PingOne 是支援許多與 ACS 相同之功能的雲端識別服務，而 PingFederate 則是類似的內部部署身分識別產品，不過彈性更大。 如需有關使用這些產品的詳細資料，請參閱 [Ping 的 ACS 淘汰指導](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html)。 |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | 
+  [Ping Identity](https://www.pingidentity.com) 提供兩種類似 ACS 的解決方案。 PingOne 是支援許多與 ACS 相同之功能的雲端識別服務，而 PingFederate 則是類似的內部部署身分識別產品，不過彈性更大。 如需有關使用這些產品的詳細資料，請參閱 [Ping 的 ACS 淘汰指導](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html)。 |
 
 我們與 Ping Identity 和 Auth0 合作的目的是，確保所有存取控制客戶都能獲得從存取控制中，盡可能簡單地搬移其應用程式和服務的移轉方式。
 

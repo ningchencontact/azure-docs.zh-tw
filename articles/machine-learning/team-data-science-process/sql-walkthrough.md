@@ -8,17 +8,19 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 6066b083-262c-4453-a712-a5c05acc3df8
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: deguhath
-ms.openlocfilehash: 1e53814c0c0598380944d576e1937e38d1e1d792
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 56e338c7bf28bff3fd40ac35c849b2fdf9b19ed6
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839005"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Team Data Science Process 實務：使用 SQL Server
 在這個教學課程中，您將遵循逐步解說，使用 SQL Server 和可公開取得的資料集 ([NYC Taxi Trips (NYC 計程車車程)](http://www.andresmh.com/nyctaxitrips/) 資料集)，完成建置和部署機器學習服務模型的程序。 程序會遵循標準的資料科學工作流程︰包括擷取和瀏覽資料，以及設計功能以加快學習，接著建置和部署模型。
@@ -624,7 +626,7 @@ Azure Machine Learning 將根據訓練實驗的元件來建立計分實驗。 �
 此逐步解說範例及其隨附的指令碼和 IPython Notebook 是在 MIT 授權下由 Microsoft 所共用。 如需詳細資訊，請檢查 GitHub 上程式碼範例目錄中的 LICENSE.txt 檔案。
 
 ### <a name="references"></a>參考
-•    [Andrés Monroy NYC 計程車車程下載頁面](http://www.andresmh.com/nyctaxitrips/)  
+•    [Andrés Monroy NYC 計程車車程下載頁面](http://www.andresmh.com/nyctaxitrips/) \(英文\)  
 •    [FOILing NYC 的計程車車程資料 (作者為 Chris Whong)](http://chriswhong.com/open-data/foil_nyc_taxi/)   
 •    [NYC 計程車和禮車委託研究和統計資料](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 

@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure 儲存體模擬器進行開發和測試 | Microsoft Docs
-description: Azure 儲存體模擬器提供免費的本機開發環境，針對 Azure 儲存體應用程式進行開發和測試。 了解如何驗證要求、如何從應用程式連接到模擬器，以及如何使用命令列工具。
+description: Azure 儲存體模擬器提供免費的本機開發環境，針對 Azure 儲存體應用程式進行開發和測試。 了解如何授權要求、如何從應用程式連線到模擬器，以及如何使用命令列工具。
 services: storage
 author: tamram
 manager: jeconnoc
@@ -8,11 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: tamram
-ms.openlocfilehash: c16bf1e750ea059e663e05c91835884eb0bc54a5
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: c6500cd1ddd31d789b8cd5d72d6e4614db3f88db
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36291933"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>使用 Azure 儲存體模擬器進行開發和測試
 
@@ -80,14 +81,14 @@ Microsoft Azure 儲存體模擬器提供了模擬 Azure Blob、佇列和資料�
 > 您可以使用 [Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) 來管理您的 SQL Server 執行個體，包括 LocalDB 安裝。 在 SMSS [連接到伺服器] 對話方塊中，於 [伺服器名稱:] 欄位中指定 `(localdb)\MSSQLLocalDb`，以連接到 LocalDB 執行個體。
 
 ## <a name="authenticating-requests-against-the-storage-emulator"></a>對儲存體模擬器的驗證要求
-一旦您安裝並啟動儲存體模擬器之後，就可以針對它測試您的程式碼。 就像雲端中的 Azure 儲存體一樣，您傳送給儲存體模擬器的每個要求都必須經過驗證，除非它是匿名的要求。 您可以使用共用金鑰驗證或共用存取簽章 (SAS)，驗證傳送給儲存體模擬器的要求。
+一旦您安裝並啟動儲存體模擬器之後，就可以針對它測試您的程式碼。 就像雲端中的 Azure 儲存體一樣，您傳送給儲存體模擬器的每個要求都必須經過授權，除非它是匿名的要求。 您可以使用共用金鑰驗證或共用存取簽章 (SAS)，授權傳送給儲存體模擬器的要求。
 
-### <a name="authenticate-with-shared-key-credentials"></a>使用共用金鑰認證進行驗證
+### <a name="authorize-with-shared-key-credentials"></a>使用共用金鑰認證進行授權
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
 
 如需連接字串的詳細資訊，請參閱[設定 Azure 儲存體連接字串](../storage-configure-connection-string.md)。
 
-### <a name="authenticate-with-a-shared-access-signature"></a>使用共用存取簽章進行驗證
+### <a name="authorize-with-a-shared-access-signature"></a>使用共用存取簽章進行授權
 某些 Azure 儲存體用戶端程式庫 (例如 Xamarin 程式庫)，僅支援使用共用存取簽章 (SAS) 權杖進行的驗證。 您可以使用類似[儲存體總管](http://storageexplorer.com/)的工具或其他支援共用金鑰驗證的應用程式來建立 SAS 權杖。
 
 您也可以使用 Azure PowerShell 來產生 SAS 權杖。 下列範例會產生 SAS 權杖且對 blob 容器具有完整權限：
@@ -203,12 +204,23 @@ https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2015-
 模擬器中的佇列儲存體沒有特定差異。
 
 ## <a name="storage-emulator-release-notes"></a>儲存體模擬器版本資訊
+
+### <a name="version-55"></a>版本 5.5
+* 儲存體模擬器現在支援 Blob、佇列和資料表服務端點上 2017-11-09 版的儲存體服務。
+* 已新增 Blob **Created** 屬性的支援，它會傳回 Blob 建立時間。
+
+### <a name="version-54"></a>版本 5.4
+若要改善安裝穩定性，模擬器不會嘗試在安裝時保留連接埠。 如果想要保留連接埠，可以使用 **init** 命令的 *-reserveports* 選項來指定連接埠。
+
+### <a name="version-53"></a>版本 5.3
+儲存體模擬器現在支援 Blob、佇列和資料表服務端點上 2017-07-29 版的儲存體服務。
+
 ### <a name="version-52"></a>5.2 版
 * 儲存體模擬器現在支援 Blob、佇列和表格服務端點上 2017-04-17 版的儲存體服務。
 * 已修正資料表屬性值未正確編碼的錯誤。
 
 ### <a name="version-51"></a>版本 5.1
-* 修正了儲存體模擬器在某些回應中傳回 `DataServiceVersion` 標頭 (但服務未傳回) 的問題。
+修正了儲存體模擬器在某些回應中傳回 `DataServiceVersion` 標頭 (但服務未傳回) 的問題。
 
 ### <a name="version-50"></a>版本 5.0
 * 儲存體模擬器安裝程式不再會檢查現有的 MSSQL 和 .NET Framework 安裝。

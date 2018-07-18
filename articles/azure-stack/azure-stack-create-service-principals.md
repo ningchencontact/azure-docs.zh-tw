@@ -11,13 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/15/2018
+ms.date: 06/21/2018
 ms.author: mabrigg
-ms.openlocfilehash: c2e18f30e55007a0625a19258ec3745f64dc25da
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0db3f19c99b786d7f32f126ad7bd70efc999a751
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444260"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>為 Azure Stack 提供應用程式存取
 
@@ -44,7 +45,7 @@ ms.lasthandoff: 04/28/2018
 ### <a name="create-service-principal"></a>建立服務主體
 在本節中，您會在 Azure AD 中建立一個應用程式 (服務主體) 來代表您的應用程式。
 
-1. 透過 [Azure 入口網站](https://portal.azure.com)登入 Azure 帳戶。
+1. 透過 [Azure 入口網站](https://portal.azure.com)登入您的 Azure 帳戶。
 2. 選取 [Azure Active Directory] > [應用程式註冊] > [新增]   
 3. 提供應用程式的名稱和 URL。 針對您想要建立的應用程式類型，選取 [Web 應用程式/API] 或 [原生]。 設定值之後，選取 [建立]。
 
@@ -76,7 +77,7 @@ ms.lasthandoff: 04/28/2018
 
 
 需求：
-- 需要認證。
+- 需要憑證。
 
 **參數**
 
@@ -96,17 +97,45 @@ ms.lasthandoff: 04/28/2018
    > [!NOTE]
    > 此範例會建立自我簽署憑證。 當您在生產環境部署中執行這些命令時，使用 Get-Certificate 擷取您想要使用之憑證的憑證物件。
 
-   ```
-   $creds = Get-Credential
+   ```PowerShell  
+    # Credential for accessing the ERCS PrivilegedEndpoint typically domain\cloudadmin
+    $creds = Get-Credential
 
-   $session = New-PSSession -ComputerName <IP Address of ECRS> -ConfigurationName PrivilegedEndpoint -Credential $creds
+    # Creating a PSSession to the ERCS PrivilegedEndpoint
+    $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
 
-   $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=testspn2" -KeySpec KeyExchange
+    # This produces a self signed cert for testing purposes.  It is prefered to use a managed certificate for this.
+    $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
 
-   Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name 'MyApp' -ClientCertificates $using:cert}
+    $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name '<yourappname>' -ClientCertificates $using:cert}
+    $AzureStackInfo = Invoke-Command -Session $session -ScriptBlock { get-azurestackstampinformation }
+    $session|remove-pssession
 
-   $session|remove-pssession
+    # For Azure Stack development kit, this value is set to https://management.local.azurestack.external. We will read this from the AzureStackStampInformation output of the ERCS VM.
+    $ArmEndpoint = $AzureStackInfo.TenantExternalEndpoints.TenantResourceManager
 
+    # For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. We will read this from the AzureStackStampInformation output of the ERCS VM.
+    $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
+
+    # TenantID for the stamp. We will read this from the AzureStackStampInformation output of the ERCS VM.
+    $TenantID = $AzureStackInfo.AADTenantID
+
+    # Register an AzureRM environment that targets your Azure Stack instance
+    Add-AzureRMEnvironment `
+    -Name "AzureStackUser" `
+    -ArmEndpoint $ArmEndpoint
+
+    # Set the GraphEndpointResourceId value
+    Set-AzureRmEnvironment `
+    -Name "AzureStackUser" `
+    -GraphAudience $GraphAudience `
+    -EnableAdfsAuthentication:$true
+
+    Add-AzureRmAccount -EnvironmentName "azurestackuser" `
+    -ServicePrincipal `
+    -CertificateThumbprint $ServicePrincipal.Thumbprint `
+    -ApplicationId $ServicePrincipal.ClientId `
+    -TenantId $TenantID
    ```
 
 2. 自動化完成之後，它會顯示使用 SPN 的必要詳細資料。 
@@ -121,6 +150,7 @@ ms.lasthandoff: 04/28/2018
    PSComputerName        : azs-ercs01
    RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
    ```
+
 ### <a name="assign-a-role"></a>指派角色
 一旦建立服務主體，您必須[將它指派至角色](azure-stack-create-service-principals.md#assign-role-to-service-principal)
 
@@ -131,7 +161,7 @@ ms.lasthandoff: 04/28/2018
 Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
  -ServicePrincipal `
  -CertificateThumbprint $servicePrincipal.Thumbprint `
- -ApplicationId $servicePrincipal.ApplicationId ` 
+ -ApplicationId $servicePrincipal.ClientId ` 
  -TenantId $directoryTenantId
 ```
 

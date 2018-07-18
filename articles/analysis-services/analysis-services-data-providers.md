@@ -3,17 +3,17 @@ title: 連接到 Azure Analysis Services 所需的用戶端程式庫 | Microsoft
 description: 說明用戶端應用程式和工具連接到 Azure Analysis Services 所需的用戶端程式庫
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c6c92bdd2461a0f1147f15b5c1134c189c55a37c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 04b8ac9437b2859480b96ff5b46b34518dcc0883
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193303"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447263"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>可供連接到 Azure Analysis Services 的用戶端程式庫
 
@@ -23,10 +23,10 @@ ms.locfileid: "34193303"
 
 |下載  |產品版本  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.1.395      |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.1.395      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.0.4     |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.0.4     |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.1.492      |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.1.492      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.1.0.0    |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.1.0.0     |
 
 ## <a name="amo-and-adomd-nuget-packages"></a>AMO 和 ADOMD (NuGet 套件)
 
@@ -34,8 +34,8 @@ Analysis Services 管理物件 (AMO) 和 ADOMD 用戶端文件庫可從 [NuGet.o
 
 |Package  | 產品版本  | 
 |---------|---------|
-|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.0.2.0      |
-|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.0.2.0      |
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.1.0.0      |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.1.0.0      |
 
 Nuget 套件組件 AssemblyVersion 會遵循語意化版本控制系統：MAJOR.MINOR.PATCH。 NuGet 參考會載入預期的版本，即使是 GAC (產生自 MSI 安裝) 中的不同版本也一樣。 PATCH 會針對每個版本遞增。 AMO 和 ADOMD 版本會保持同步。
 
@@ -73,7 +73,7 @@ Microsoft 用戶端應用程式 (像是 Power BI Desktop 和 Excel) 會安裝這
   
 ### <a name="oleddb-msolap"></a>OLEDDB (MSOLAP)  
   
-1.  移至 C:\Program Files\Microsoft Analysis Services\AS OLEDB\。 如果您有多個資料夾，請選擇較高的數字。
+1.  移至 `C:\Program Files\Microsoft Analysis Services\AS OLEDB\`。 如果您有多個資料夾，請選擇較高的數字。
   
 2.  以滑鼠右鍵按一下 [msolap.dll] > [屬性] > [詳細資料]。 如果檔名為 msolap140.dll，就會比最新版本還舊，而應進行升級。
     

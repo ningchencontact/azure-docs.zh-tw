@@ -19,6 +19,7 @@ ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011453"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Azure CDN 規則引擎的 HTTP 變數
 HTTP 變數能提供擷取 HTTP 要求和回應中繼資料的方法。 此中繼資料可以接著用來動態調整要求或回應。 HTTP 變數的使用，僅限於下列規則引擎功能：

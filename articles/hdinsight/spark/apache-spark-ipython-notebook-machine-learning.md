@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33770900"
 ---
 # <a name="tutorial-build-a-spark-machine-learning-application-in-hdinsight"></a>教學課程：在 HDInsight 中建置 Spark 機器學習應用程式 
 

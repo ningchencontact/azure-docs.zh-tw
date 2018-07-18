@@ -20,6 +20,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32771184"
 ---
 # <a name="create-start-or-delete-an-application-gateway-with-powershell"></a>使用 PowerShell 建立、啟動或刪除應用程式閘道 
 

@@ -3,17 +3,17 @@ title: 使用 Azure 虛擬網路資料來源的內部部署資料閘道 | Micros
 description: 了解如何將伺服器設定為使用 VNet 上的資料來源閘道。
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7e792114c61c6257f4f5be5bfa65474d595f0d36
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f1cf447f27509bc62cc71a9c64237ff7dc3d7b30
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32149573"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446061"
 ---
 # <a name="use-gateway-for-data-sources-on-an-azure-virtual-network-vnet"></a>使用 Azure 虛擬網路 (VNet) 上的資料來源閘道
 

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 318898598617ba54b3f8f777bfeca0223d0d296c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 43845a55589be9550e64b4a491b7d3675fb22e8c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641776"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Azure Service Fabric 中 Docker Compose 的部署支援 (預覽)
 
@@ -66,7 +67,7 @@ Start-ServiceFabricComposeDeploymentUpgrade -DeploymentName TestContainerApp -Co
 接受升級之後，可以使用下列命令追蹤升級進度：
 
 ```powershell
-Get-ServiceFabricComposeDeploymentUpgrade -Deployment TestContainerApp
+Get-ServiceFabricComposeDeploymentUpgrade -DeploymentName TestContainerApp
 ```
 
 ### <a name="use-azure-service-fabric-cli-sfctl"></a>使用 Azure Service Fabric CLI (sfctl)

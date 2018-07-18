@@ -4,8 +4,6 @@ description: 在 Azure 搜尋服務擴充管線的影像檔中擷取文字。
 services: search
 manager: pablocas
 author: luiscabrer
-documentationcenter: ''
-ms.assetid: ''
 ms.service: search
 ms.devlang: NA
 ms.workload: search
@@ -13,12 +11,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 48253b68a329d17f213369e8e4ee2e06bdf17992
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 478afe81ed739b98487973eb092ee9cad0aa17fd
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365819"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055459"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR 認知技能
 
@@ -38,7 +36,7 @@ ms.locfileid: "34365819"
 | 參數名稱     | 說明 |
 |--------------------|-------------|
 | detectOrientation | 啟用自動偵測影像方向。 <br/> 有效值：true/false。|
-|defaultLanguageCode |  輸入文字的語言代碼。 支援的語言包括：`ar, cs, da, de, en, es, fi, fr, he, hu, it, ko, pt-br, pt`。  如果未指定語言代碼或為 Null，會自動偵測語言。|
+|defaultLanguageCode | <p>  輸入文字的語言代碼。 支援的語言包括： <br/> zh-Hans (簡體中文) <br/> zh-Hant (繁體中文) <br/>cs (捷克文) <br/>da (丹麥文) <br/>nl (荷蘭文) <br/>en (英文) <br/>fi (芬蘭文)  <br/>fr (法文) <br/>  de (德文) <br/>el (希臘文) <br/> hu (匈牙利文) <br/> it (義大利文) <br/>  ja (日文) <br/> ko (韓文) <br/> nb (挪威文) <br/>   pl (波蘭文) <br/> pt (葡萄牙文) <br/>  ru (俄文) <br/>  es (西班牙文) <br/>  sv (瑞典文) <br/>  tr (土耳其文) <br/> ar (阿拉伯文) <br/> ro (羅馬尼亞文) <br/> sr-Cyrl (塞爾維亞文 - 斯拉夫) <br/> sr-Latn (塞爾維亞文 - 拉丁) <br/>  sk (斯洛伐克文) <br/>  unk (未知) <br/><br/> 如果未指定語言代碼或為 Null，會自動偵測語言。 </p> |
 | textExtractionAlgorithm | 「列印」或「手寫」。 「手寫」文字辨識 OCR 演算法目前為預覽狀態，並且僅支援英文。 |
 
 ## <a name="skill-inputs"></a>技能輸入
@@ -61,7 +59,7 @@ ms.locfileid: "34365819"
 {
     "skills": [
       {
-        "description": "Extracts text (plain and structured) from image."
+        "description": "Extracts text (plain and structured) from image.",
         "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
         "context": "/document/normalized_images/*",
         "defaultLanguageCode": null,
@@ -198,7 +196,7 @@ ms.locfileid: "34365819"
 ```
 
 ## <a name="see-also"></a>另請參閱
-+ [預先定義的技能](cognitive-search-predefined-skills.md) (英文)
++ [預先定義的技能](cognitive-search-predefined-skills.md)
 + [TextMerger 技能](cognitive-search-skill-textmerger.md) (英文)
 + [如何定義技能集](cognitive-search-defining-skillset.md) (英文)
-+ [建立索引子 (REST)](ref-create-indexer.md)
++ [建立索引子 (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

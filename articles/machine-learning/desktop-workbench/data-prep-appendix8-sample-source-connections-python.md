@@ -7,16 +7,18 @@ ms.author: euang
 manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 27d72f1b49a89929098c0cc35f92d3915fc8b0b9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b87d88a5bb7846894c425e701a073707ddd1f3be
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831179"
 ---
 # <a name="sample-of-custom-source-connections-python"></a>自訂來源連線的範例 (Python) 
 閱讀本附錄之前，請先參閱 [Python 擴充性概觀](data-prep-python-extensibility-overview.md)。

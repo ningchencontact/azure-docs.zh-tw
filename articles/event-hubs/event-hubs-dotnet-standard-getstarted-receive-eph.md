@@ -1,12 +1,12 @@
 ---
-title: "使用 .NET Standard 程式庫從 Azure 事件中樞接收事件 | Microsoft Docs"
-description: "開始使用 .NET Standard 中的 EventProcessorHost 接收訊息"
+title: 使用 .NET Standard 程式庫從 Azure 事件中樞接收事件 | Microsoft Docs
+description: 開始使用 .NET Standard 中的 EventProcessorHost 接收訊息
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2017
 ms.author: sethm
-ms.openlocfilehash: 5eb5c2d1f0b85c907f788fb6ac752488601f613a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: fd74405c8ca95ca1a5880ab26bf87705bde217de
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127528"
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>開始使用 .NET Standard 中的事件處理器主機來接收訊息
 
@@ -32,8 +33,8 @@ ms.lasthandoff: 02/21/2018
 * [Microsoft Visual Studio 2015 或 2017](http://www.visualstudio.com)。 本教學課程中的範例使用 Visual Studio 2017，但也支援 Visual Studio 2015。
 * [.NET Core Visual Studio 2015 或 2017 工具](http://www.microsoft.com/net/core)。
 * Azure 訂用帳戶。
-* Azure 事件中樞命名空間。
-* Azure 儲存體帳戶。
+* Azure 事件中樞命名空間和事件中樞。
+* 一個 Azure 儲存體帳戶。
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>建立事件中樞命名空間和事件中樞  
 
@@ -122,11 +123,11 @@ ms.lasthandoff: 02/21/2018
     using System.Threading.Tasks;
     ```
 
-2. 針對事件中樞連接字串、事件中樞名稱、儲存體帳戶容器名稱、儲存體帳戶名稱及儲存體帳戶金鑰，將常數新增到 `Program` 類別。 新增下列程式碼，其中將預留位置取代成其對應的值。
+2. 針對事件中樞連接字串、事件中樞名稱、儲存體帳戶容器名稱、儲存體帳戶名稱及儲存體帳戶金鑰，將常數新增到 `Program` 類別。 新增下列程式碼，其中將預留位置取代成其對應的值：
 
     ```csharp
-    private const string EhConnectionString = "{Event Hubs connection string}";
-    private const string EhEntityPath = "{Event Hub path/name}";
+    private const string EventHubConnectionString = "{Event Hubs connection string}";
+    private const string EventHubName = "{Event Hub path/name}";
     private const string StorageContainerName = "{Storage account container name}";
     private const string StorageAccountName = "{Storage account name}";
     private const string StorageAccountKey = "{Storage account key}";
@@ -142,9 +143,9 @@ ms.lasthandoff: 02/21/2018
         Console.WriteLine("Registering EventProcessor...");
 
         var eventProcessorHost = new EventProcessorHost(
-            EhEntityPath,
+            EventHubName,
             PartitionReceiver.DefaultConsumerGroupName,
-            EhConnectionString,
+            EventHubConnectionString,
             StorageConnectionString,
             StorageContainerName);
 
@@ -173,8 +174,8 @@ ms.lasthandoff: 02/21/2018
 
         public class Program
         {
-            private const string EhConnectionString = "{Event Hubs connection string}";
-            private const string EhEntityPath = "{Event Hub path/name}";
+            private const string EventHubConnectionString = "{Event Hubs connection string}";
+            private const string EventHubName = "{Event Hub path/name}";
             private const string StorageContainerName = "{Storage account container name}";
             private const string StorageAccountName = "{Storage account name}";
             private const string StorageAccountKey = "{Storage account key}";
@@ -222,4 +223,4 @@ ms.lasthandoff: 02/21/2018
 * [事件中樞常見問題集](event-hubs-faq.md)
 
 [1]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/event-hubs-python1.png
-[2]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcore.png
+[2]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcorercv.png

@@ -1,12 +1,12 @@
 ---
-title: "連線到內部部署檔案系統 - Azure Logic Apps | Microsoft Docs"
-description: "透過內部部署資料閘道和檔案系統連接器，從邏輯應用程式工作流程連線到內部部署檔案系統"
-keywords: "檔案系統, 內部部署"
+title: 連線到內部部署檔案系統 - Azure Logic Apps | Microsoft Docs
+description: 透過內部部署資料閘道和檔案系統連接器，從邏輯應用程式工作流程連線到內部部署檔案系統
+keywords: 檔案系統, 內部部署
 services: logic-apps
 author: derek1ee
-manager: anneta
-documentationcenter: 
-ms.assetid: 
+manager: jeconnoc
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: LADocs; deli
-ms.openlocfilehash: 32ab5be41a8dee3b1f2c0b1bde076c0d1a844bdd
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 019b5fcd218ddd471c5f02d0332b8f5b5bf0edb3
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300815"
 ---
 # <a name="connect-to-on-premises-file-systems-from-logic-apps-with-the-file-system-connector"></a>使用檔案系統連接器，從邏輯應用程式連線到內部部署檔案系統
 
@@ -50,7 +51,7 @@ ms.lasthandoff: 01/19/2018
 
    | 設定 | 說明 |
    | ------- | ----------- |
-   | **根資料夾** | 指定您檔案系統的根資料夾。 您可以指定內部部署資料閘道安裝所在電腦的本機資料夾，或者資料夾可以是電腦可存取的網路共用。 <p>**秘訣：**根資料夾是主要的父資料夾，會作為所有檔案相關動作的相對路徑。 | 
+   | **根資料夾** | 指定您檔案系統的根資料夾。 您可以指定內部部署資料閘道安裝所在電腦的本機資料夾，或者資料夾可以是電腦可存取的網路共用。 <p>**秘訣：** 根資料夾是主要的父資料夾，會作為所有檔案相關動作的相對路徑。 | 
    | **驗證類型** | 您檔案系統所使用的驗證類型 | 
    | **使用者名稱** | 為先前安裝的閘道提供您的使用者名稱 {*網域*\\*使用者名稱*}。 | 
    | **密碼** | 為先前安裝的閘道提供您的密碼。 | 

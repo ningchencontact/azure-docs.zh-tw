@@ -10,19 +10,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 93b63e7c657282fc0ef285054ba90c9d6bc310b6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1d19cf6ecc9f2bedb6ceaf6312b247670d965b84
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048544"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>利用資料管理閘道在內部部署來源和雲端之間移動資料
 > [!NOTE]
-> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用第 2 版 Data Factory 服務 (預覽版)，請參閱[使用 Data Factory 第 2 版在內部部署和雲端之間複製資料](../tutorial-hybrid-copy-powershell.md)。
+> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[使用 Data Factory 在內部部署和雲端之間複製資料](../tutorial-hybrid-copy-powershell.md)。
 
 本文提供使用 Data Factory 整合內部部署資料存放區與雲端資料存放區資料的概觀。 本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文和其他 Data Factory 核心概念文章：[資料集](data-factory-create-datasets.md)和[管線](data-factory-create-pipelines.md)。
 

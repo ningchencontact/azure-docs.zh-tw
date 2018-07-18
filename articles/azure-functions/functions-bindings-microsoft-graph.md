@@ -11,11 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: 2de80760484ae1869b340898ea1e5f740fbc2883
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: af748f234a27ed9b37ac50438d7497fd680bc193
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085567"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>適用於 Azure Functions 的 Microsoft Graph 繫結
 
@@ -39,7 +40,7 @@ Microsoft Graph 擴充功能會提供下列繫結：
 
 [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/) NuGet 套件中提供驗證權杖輸入繫結。 [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/) 套件中提供其他 Microsoft Graph 繫結。 套件的原始程式碼位於 [azure-functions-microsoftgraph-extension](https://github.com/Azure/azure-functions-microsoftgraph-extension/) GitHub 存放庫中。
 
-[!INCLUDE [functions-package](../../includes/functions-package.md)]
+[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="setting-up-the-extensions"></a>設定擴充功能
 
@@ -975,7 +976,7 @@ Webhook 可讓您回應 Microsoft Graph 中的事件。 若要支援 webhook，�
 - [Microsoft Graph webhook 訂用帳戶輸入繫結](#webhook-input)可讓您列出現有的訂用帳戶，並選擇性地加以重新整理。
 - [Microsoft Graph webhook 訂用帳戶輸出繫結](#webhook-output)可讓您建立或刪除 webhook 訂用帳戶。
 
-繫結本身不需要任何 Azure AD 權限，但您必須要求與所需回應之資源類型相關的權限。 如需每個資源類型所需權限的清單，請參閱[訂用帳戶權限](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions#permissions)。
+繫結本身不需要任何 Azure AD 權限，但您必須要求與所需回應之資源類型相關的權限。 如需每個資源類型所需權限的清單，請參閱[訂用帳戶權限](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions)。
 
 如需 Webhook 的詳細資訊，請參閱[在 Microsoft Graph 中使用 Webhook]。
 
@@ -1381,7 +1382,7 @@ module.exports = function (context, req) {
 |**userId**|UserId  |只有當_身分識別_設為 `userFromId` 時才需要。 與先前已登入之使用者相關聯的使用者主體識別碼。|
 |**userToken**|**UserToken**|只有當_身分識別_設為 `userFromToken` 時才需要。 函式應用程式有效的權杖。 |
 |**action**|**Action**|必要項目 - 指定繫結應該要執行的動作。 可以是下列其中一個值：<ul><li><code>create</code> - 註冊新的訂用帳戶。</li><li><code>delete</code> - 刪除指定的訂用帳戶。</li><li><code>refresh</code> - 重新整理指定的訂用帳戶以避免過期。</li></ul>|
-|**subscriptionResource**|**SubscriptionResource**|只有當_動作_設為 `create` 時才需要。 指定要監視以進行變更的 Microsoft Graph 資源。 請參閱[在 Microsoft Graph 中使用 Webhook]。 |
+|**subscriptionResource**|**SubscriptionResource**|只有當_動作_設為 `create` 時才需要。 指定要監視以進行變更的 Microsoft Graph 資源。 請參閱[在 Microsoft Graph 中使用 webhook]。 |
 |**changeType**|**ChangeType**|只有當_動作_設為 `create` 時才需要。 指出會引發通知之訂閱資源中的變更類型。 支援的值為：`created`、`updated`、`deleted`。 可以使用逗號分隔清單來組合多個值。|
 
 ### <a name="webhook-output---usage"></a>Webhook 輸出 - 使用方式
@@ -1576,4 +1577,4 @@ public class UserSubscription {
 > [深入了解 Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)
 
 [HTTP 觸發程序]: functions-bindings-http-webhook.md
-[在 Microsoft Graph 中使用 Webhook]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/webhooks
+[在 Microsoft Graph 中使用 webhook]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/webhooks

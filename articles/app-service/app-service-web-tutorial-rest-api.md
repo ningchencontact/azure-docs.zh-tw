@@ -16,10 +16,11 @@ ms.date: 02/28/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 4b5e432a9c553f5221f138b19a180f92420e6058
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38317744"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>教學課程：在 Azure App Service 中裝載具有 CORS 支援的 RESTful API
 

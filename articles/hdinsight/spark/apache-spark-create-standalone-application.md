@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: jgao
-ms.openlocfilehash: c72f513c7134c556afa5fa5d0b94c17b1142be54
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ed90e50167f7e86c464b1571b91dc27435437e9b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627411"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-spark-in-hdinsight-using-intellij"></a>教學課程：使用 IntelliJ 為 HDInsight 上的 Spark 建立 Scala Maven 應用程式
 
@@ -46,6 +47,41 @@ ms.lasthandoff: 05/07/2018
 * HDInsight 上的 Apache Spark 叢集。 如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
 * Oracle Java Development Kit。 您可以從[這裡](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)安裝它。
 * Java IDE。 本文使用 IntelliJ IDEA 18.1.1。 您可以從[這裡](https://www.jetbrains.com/idea/download/)安裝它。
+
+## <a name="use-intellij-to-create-application"></a>使用 IntelliJ 建立應用程式
+
+1. 啟動 IntelliJ IDEA，然後建立專案。 在 [新增專案]  對話方塊中，執行下列操作： 
+
+   a. 選取 [HDInsight] > [HDInsight 上的 Spark (Scala)]。
+
+   b. 在 [建置工具] 清單中，根據您的需求選取下列任一項目：
+
+      * **Maven**，以支援 Scala 專案建立精靈
+      * **SBT**，以管理相依性並建置 Scala 專案
+
+   ![[新增專案] 對話方塊](./media/apache-spark-create-standalone-application/create-hdi-scala-app.png)
+
+2. 選取 [下一步] 。
+
+3. Scala 專案建立精靈會自動偵測您是否已安裝 Scala 外掛程式。 選取 [安裝]。
+
+   ![Scala 外掛程式檢查](./media/apache-spark-create-standalone-application/Scala-Plugin-check-Reminder.PNG) 
+
+4. 若要下載 Scala 外掛程式，請選取 [確定]。 依指示重新啟動 IntelliJ。 
+
+   ![Scala 外掛程式安裝對話方塊](./media/apache-spark-create-standalone-application/Choose-Scala-Plugin.PNG)
+
+5. 在 [新增專案] 視窗中，執行下列動作：  
+
+    ![選取 Spark SDK](./media/apache-spark-create-standalone-application/hdi-new-project.png)
+
+   a. 輸入專案名稱和位置。
+
+   b. 在 [專案 SDK] 下拉式清單中，選取 [Java 1.8] \(適用於 Spark 2.x 叢集)，或選取 [Java 1.7] \(適用於 Spark 1.x 叢集)。
+
+   c. 在 [Spark 版本] 下拉式清單中，Scala 專案建立精靈會為 Spark SDK 和 Scala SDK 整合正確的版本。 如果 Spark 叢集是 2.0 以前的版本，請選取 [Spark 1.x]。 否則，請選取 [Spark2.x]。 此範例使用 **Spark 2.0.2 (Scala 2.11.8)**。
+
+6. 選取 [完成]。
 
 ## <a name="install-scala-plugin-for-intellij-idea"></a>安裝 IntelliJ IDEA 的 Scala 外掛程式
 若要安裝 Scala 外掛程式，請使用下列步驟：

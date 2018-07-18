@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208466"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric 應用程式和服務資訊清單
 本文說明如何使用 ApplicationManifest.xml 和 ServiceManifest.xml 檔案來定義 Service Fabric 應用程式和服務及設定其版本。  這些資訊清單檔的 XML 結構描述記載於 [ServiceFabricServiceModel.xsd 結構描述文件](service-fabric-service-model-schema.md)中。

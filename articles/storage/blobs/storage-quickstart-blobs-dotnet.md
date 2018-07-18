@@ -7,13 +7,14 @@ manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 04/09/2018
+ms.date: 05/22/2018
 ms.author: tamram
-ms.openlocfilehash: 7607643698cddb0cf5a113191ef638d36ab176bc
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 157fd47861857fedbe4886407ba464f886ef1be3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38767131"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-net"></a>快速入門：使用 .NET 上傳、下載及列出 Blob
 
@@ -62,7 +63,7 @@ git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
 
 ## <a name="configure-your-storage-connection-string"></a>設定儲存體連接字串
 
-若要執行應用程式，您必須提供儲存體帳戶的連接字串。 此範例應用程式會讀取環境變數中的連接字串，並使用它來驗證對 Azure 儲存體的要求。
+若要執行應用程式，您必須提供儲存體帳戶的連接字串。 此範例應用程式會讀取環境變數中的連接字串，並使用它來授權對 Azure 儲存體的要求。
 
 在複製您的連接字串後，請在執行應用程式的本機電腦上，將該字串寫入至新的環境變數中。 若要設定環境變數，請開啟主控台視窗，並遵循您的作業系統所適用的指示。 將 `<yourconnectionstring>` 用實際的連接字串取代：
 

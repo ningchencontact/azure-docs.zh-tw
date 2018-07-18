@@ -2,18 +2,19 @@
 title: 使用 Web UI 管理 Azure Kubernetes 叢集
 description: 使用 AKS 中的 Kubernetes 儀表板
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 02/24/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: cdb406c5a0a314562ae886c797c5ebd9dc5f8796
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b56751750d5c0731a79b3229106a6bc2a5eccac9
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100420"
 ---
 # <a name="kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Kubernetes 儀表板與 Azure Kubernetes Service (AKS)
 
@@ -37,7 +38,7 @@ az aks browse --resource-group myResourceGroup --name myAKSCluster
 
 ## <a name="run-an-application"></a>執行應用程式
 
-在 Kubernetes 儀表板中，按一下右上方視窗中的 [建立] 按鈕。 將部署命名為 `nginx`，並針對映像名稱輸入 `nginx:latest`。 在 [服務] 下選取 [外部]，針對連接埠和目標連接埠輸入 `80`。
+在 Kubernetes 儀表板中，按一下右上方視窗中的 [建立] 按鈕。 將部署命名為 `nginx`，並針對容器映像名稱輸入 `nginx:latest`。 在 [服務] 下選取 [外部]，針對連接埠和目標連接埠輸入 `80`。
 
 準備就緒時，按一下 [部署] 建立部署。
 

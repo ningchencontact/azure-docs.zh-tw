@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 0ec7f9e692dd4269ccb428d644c673e5c27b413a
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 41fa742571b94505588172b94ea91f196e212a4c
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312673"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920954"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery：常見問題集 (FAQ)
 本文包含有關 Azure Site Recovery 的常見問題集。 如果您在閱讀本文後有問題，請將問題張貼在 [Azure 復原服務論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)。
@@ -91,7 +91,7 @@ Site Recovery 已通過 ISO 27001:2013、27018、HIPAA、DPA 認證，並且正�
 Azure Site Recovery 會透過公用端點，將資料複製到 Azure 儲存體帳戶。 複寫不是透過站對站 VPN。 您可以透過 Azure 虛擬網路建立站對站 VPN。 這並不會影響 Site Recovery 複寫。
 
 ### <a name="can-i-use-expressroute-to-replicate-virtual-machines-to-azure"></a>可以使用 ExpressRoute 將虛擬機器複寫到 Azure 嗎？
-是的，[可以使用 ExpressRoute](concepts-expressroute-with-site-recovery.md) 將內部部署虛擬機器複寫至 Azure。 Azure Site Recovery 會透過公用端點，將資料複製到 Azure 儲存體帳戶。 您必須設定[公用對等互連](../expressroute/expressroute-circuit-peerings.md#azure-public-peering)或 [Microsoft 對等互連](../expressroute/expressroute-circuit-peerings.md#microsoft-peering)，以使用 Site Recovery 複寫的 ExpressRoute。 Microsoft 對等互連是建議用於複寫的路由網域。 在虛擬機器容錯移轉到 Azure 虛擬網路之後，您可以 Azure 虛擬網路使用[私人對等互連](../expressroute/expressroute-circuit-peerings.md#azure-private-peering)安裝來存取這些虛擬機器。 私人對等互連不支援複寫。
+是的，[可以使用 ExpressRoute](concepts-expressroute-with-site-recovery.md) 將內部部署虛擬機器複寫至 Azure。 Azure Site Recovery 會透過公用端點，將資料複製到 Azure 儲存體帳戶。 您必須設定[公用對等互連](../expressroute/expressroute-circuit-peerings.md#azure-public-peering)或 [Microsoft 對等互連](../expressroute/expressroute-circuit-peerings.md#microsoft-peering)，以使用 Site Recovery 複寫的 ExpressRoute。 Microsoft 對等互連是建議用於複寫的路由網域。 在虛擬機器容錯移轉到 Azure 虛擬網路之後，您可以 Azure 虛擬網路使用[私人對等互連](../expressroute/expressroute-circuit-peerings.md#azure-private-peering)安裝來存取這些虛擬機器。 私用對等互連不支援複寫。
 
 ### <a name="are-there-any-prerequisites-for-replicating-virtual-machines-to-azure"></a>將虛擬機器複寫至 Azure 有任何先決條件嗎？
 您想要複寫至 Azure 的 [VMware VM](vmware-physical-azure-support-matrix.md#replicated-machines) 和 [Hyper-V VM](hyper-v-azure-support-matrix.md#replicated-vms) 應該符合 Azure 需求。
@@ -172,7 +172,7 @@ Azure 是針對復原能力而設計的。 Site Recovery 已經設計成可根�
 是，Site Recovery 同時支援專用與共用的基礎結構模型。
 
 ### <a name="for-a-service-provider-is-the-identity-of-my-tenant-shared-with-the-site-recovery-service"></a>對服務提供者而言，租用戶的身分識別是否會與 Site Recovery 服務共用？
-編號 租用戶身分識別會保持匿名。 您的租用戶不需要存取 Site Recovery 入口網站。 只有服務提供者系統管理員會與入口網站互動。
+否。 租用戶身分識別會保持匿名。 您的租用戶不需要存取 Site Recovery 入口網站。 只有服務提供者系統管理員會與入口網站互動。
 
 ### <a name="will-tenant-application-data-ever-go-to-azure"></a>租用戶應用程式資料是否會傳送到 Azure？
 在服務提供者擁有的站台之間進行複寫時，永遠不會將應用程式資料傳送到 Azure。 資料會在傳輸中加密，並且會在服務提供者站台之間直接進行複寫。
@@ -180,7 +180,7 @@ Azure 是針對復原能力而設計的。 Site Recovery 已經設計成可根�
 如果您是複寫至 Azure，應用程式資料就會傳送到 Azure 儲存體而不是 Site Recovery 服務。 資料會在傳輸中加密並在 Azure 中繼續維持加密狀態。
 
 ### <a name="will-my-tenants-receive-a-bill-for-any-azure-services"></a>我的租用戶會收到來自 Azure 服務的帳單嗎？
-編號 Azure 的計費關係是直接與服務提供者相關。 服務提供者負責為其租用戶產生特定的帳單。
+否。 Azure 的計費關係是直接與服務提供者相關。 服務提供者負責為其租用戶產生特定的帳單。
 
 ### <a name="if-im-replicating-to-azure-do-we-need-to-run-virtual-machines-in-azure-at-all-times"></a>如果我複寫至 Azure，我們需要在 Azure 中隨時執行虛擬機器嗎？
 否，資料會複寫至您訂用帳戶中的 Azure 儲存體帳戶。 當您執行測試容錯移轉 (DR 演練) 或實際容錯移轉時，Site Recovery 會自動在您的訂用帳戶中建立虛擬機器。

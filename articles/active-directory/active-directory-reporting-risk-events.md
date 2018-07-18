@@ -3,23 +3,24 @@ title: Azure Active Directory 風險事件 | Microsoft Docs
 description: 本文詳述何謂風險事件。
 services: active-directory
 keywords: azure active directory identity protection, 安全性, 風險, 風險層級, 弱點, 安全性原則
-author: MarkusVi
+author: priyamohanram
 manager: mtillman
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
+ms.component: compliance-reports
 ms.date: 05/14/2018
-ms.author: markvi
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e883caa63bde26e13234dde949ce4517b328e3a5
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: cb94d84cf4e033094827f81e83d489243897671a
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195313"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36227355"
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory 風險事件
 

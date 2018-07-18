@@ -1,26 +1,23 @@
 ---
-title: 使用適用於 Azure Data Lake Analytics 作業的作業瀏覽器和作業檢視 | Microsoft Docs
-description: '了解如何使用適用於 Azure Data Lake Analytics 作業的作業瀏覽器和作業檢視。 '
+title: 使用適用於 Azure Data Lake Analytics 作業的作業瀏覽器和作業檢視
+description: 本文說明如何使用適用於 Azure Data Lake Analytics 作業的作業瀏覽器和作業檢視。
 services: data-lake-analytics
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
+editor: jasonwhowell
+ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
+ms.topic: conceptual
 ms.date: 08/02/2017
-ms.author: jgao
-ms.openlocfilehash: cc9048566dd58733cd86aac0f9836763fa095843
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6d7ebc8d14e82281e074ff52abd41a16871470c0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623225"
 ---
-# <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics-jobs"></a>使用適用於 Azure Data Lake Analytics 作業的作業瀏覽器和作業檢視
+# <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>使用適用於 Azure Data Lake Analytics 的作業瀏覽器和作業檢視
 Azure Data Lake Analytics 服務會將提交的作業封存在[查詢存放區](#query-store)中。 在本文中，您會了解如何在適用於 Visual Studio 的 Azure Data Lake 工具中使用作業瀏覽器和作業檢視，來尋找作業歷程記錄資訊。 
 
 依預設，Azure Data Lake Analytics 服務會封存作業 30 天。 您可以藉由設定自訂的到期原則，從 Azure 入口網站設定有效期限。 期限到期後，您將無法存取作業資訊。 

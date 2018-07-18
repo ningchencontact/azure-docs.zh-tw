@@ -1,12 +1,12 @@
 ---
-title: "使用 Azure 流量管理員在 Azure 中部署高可用性跨地區 AD FS | Microsoft Docs"
-description: "在本文件中，您將了解如何在 Azure 中部署 AD FS 以獲得高可用性。"
-keywords: "採用 Azure 流量管理員的 Ad fs, 採用 Azure 流量管理員的 adfs, 地理, 多重資料中心, 地理資料中心, 多重地理資料中心, 在 azure 中部署 AD FS, 部署 azure adfs, azure adfs, azure ad fs, 部署 adfs, 部署 ad fs, azure 中的 adfs, 在 azure 中部署 adfs, 在 azure 中部署 AD FS, adfs azure, AD FS 簡介, Azure, Azure 中的 AD FS, iaas, ADFS, 將 adfs 移至 azure"
+title: 使用 Azure 流量管理員在 Azure 中部署高可用性跨地區 AD FS | Microsoft Docs
+description: 在本文件中，您將了解如何在 Azure 中部署 AD FS 以獲得高可用性。
+keywords: 採用 Azure 流量管理員的 Ad fs, 採用 Azure 流量管理員的 adfs, 地理, 多重資料中心, 地理資料中心, 多重地理資料中心, 在 azure 中部署 AD FS, 部署 azure adfs, azure adfs, azure ad fs, 部署 adfs, 部署 ad fs, azure 中的 adfs, 在 azure 中部署 adfs, 在 azure 中部署 AD FS, adfs azure, AD FS 簡介, Azure, Azure 中的 AD FS, iaas, ADFS, 將 adfs 移至 azure
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: anandyadavmsft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a14bc870-9fad-45ed-acd5-a90ccd432e54
 ms.service: active-directory
 ms.workload: identity
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26604774"
 ---
 # <a name="high-availability-cross-geographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>使用 Azure 流量管理員在 Azure 中部署高可用性跨地區 AD FS
 [Azure 中的 AD FS 部署](active-directory-aadconnect-azure-adfs.md) 提供有關如何在 Azure 中為您的組織部署簡單 AD FS 基礎結構的逐步指導方針。 本文會提供後續的步驟，以使用 [Azure 流量管理員](../traffic-manager/traffic-manager-overview.md)在 Azure 中建立跨地區的 AD FS 部署。 Azure 流量管理員會使用各種可用的路由方法來順應基礎結構的不同需求，而有助於為您的組織建立分散各地的高可用性和高效能 AD FS 基礎結構。

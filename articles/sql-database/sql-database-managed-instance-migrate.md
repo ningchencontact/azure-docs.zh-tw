@@ -8,14 +8,15 @@ ms.reviewer: carlrab
 manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: 5b8a2ec7e0401ac239acdefdd77a13b522f73960
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1015600343886333655a921f2e0944ebb676f3e6
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050121"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>將 SQL Server 遷移至 Azure SQL Database 受控執行個體
 
@@ -77,11 +78,12 @@ SQL Database 受控執行個體是現有 SQL Data 服務的擴充項目，提供
 
 - Azure 資料庫移轉服務 - 幾乎零停機時間的移轉
 - 從 URL 原生還原 - 從 SQL Server 使用原生備份且需要一些停機時間
-- 使用 BACPAC 檔案進行遷移 - 從 SQL Server 或 SQL Database 使用 BACPAC 檔案且需要一些停機時間
 
 ### <a name="azure-database-migration-service"></a>Azure 資料庫移轉服務
 
 [Azure 資料庫移轉服務 (DMS)](../dms/dms-overview.md) 是一個完全受控的服務，能夠從多個資料庫來源無縫移轉到 Azure 資料平台，將停機時間降到最低。 此服務可簡化將現有第三方和 SQL Server 資料庫移動至 Azure 時所需的工作。 公開預覽中的部署選項包括 Azure SQL Database、受控執行個體，以及 Azure 虛擬機器中的 SQL Server。 DMS 是移轉企業工作負載的建議方法。 
+
+如果您在內部部署 SQL Server 上使用 SQL Server Integration Services (SSIS)，DMS 尚未支援移轉 SSIS 目錄 (SSISDB)，該目錄儲存 SSIS 套件，但是您可以在 Azure Data Factory (ADF) 中佈建 Azure-SSIS Integration Runtime (IR)，這樣會在 Azure SQL Database/受控執行個體中建立新的 SSISDB，然後您可以將套件重新部署至其中，請參閱[在 ADF 中建立 Azure-SSIS IR](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime)。
 
 若要深入了解 DMS 的此案例和組態步驟，請參閱[使用 DMS 將內部部署資料庫遷移至受控執行個體](../dms/tutorial-sql-server-to-managed-instance.md)。  
 
@@ -106,10 +108,6 @@ SQL Database 受控執行個體是現有 SQL Data 服務的擴充項目，提供
 > 不支援系統資料庫還原。 若要移轉執行個體層級物件 (儲存在 master 或 msdb 資料庫中)，我們建議透過指令碼來找出這些物件，並在目的地執行個體上執行 T-SQL 指令碼。
 
 如需包含使用 SAS 認證將資料庫備份還原至受控執行個體的完整教學課程，請參閱[從備份還原至受控執行個體](sql-database-managed-instance-restore-from-backup-tutorial.md)。
-
-### <a name="migrate-using-bacpac-file"></a>使用 BACPAC 檔案進行遷移
-
-您可以在 BACPAC 檔案中建立原始資料庫的副本 (包含資料)，並從此 BACPAC 檔案匯入 Azure SQL Database 和受控執行個體。 請參閱[將 BACPAC 檔案匯入到新的 Azure SQL Database](sql-database-import.md)。
 
 ## <a name="monitor-applications"></a>監視應用程式
 

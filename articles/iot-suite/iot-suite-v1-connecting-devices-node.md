@@ -1,12 +1,12 @@
 ---
-title: "使用 Node.js 連接裝置 |Microsoft Docs"
-description: "描述如何使用 Node.js 中已寫入的應用程式，將裝置連接至 Azure IoT Suite 預先設定遠端監視方案。"
-services: 
+title: 使用 Node.js 連接裝置 |Microsoft Docs
+description: 描述如何使用 Node.js 中已寫入的應用程式，將裝置連接至 Azure IoT Suite 預先設定遠端監視方案。
+services: ''
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fc50a33f-9fb9-42d7-b1b8-eb5cff19335e
 ms.service: iot-suite
 ms.devlang: na
@@ -16,10 +16,11 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
 ms.openlocfilehash: 87a2e97638508eef1d90a219cfb38d1fcac81d55
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723520"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-nodejs"></a>將裝置連接至遠端監視預先設定方案 (Node.js)
 [!INCLUDE [iot-suite-v1-selector-connecting](../../includes/iot-suite-v1-selector-connecting.md)]

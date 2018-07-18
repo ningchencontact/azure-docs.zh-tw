@@ -3,22 +3,24 @@ title: 使用 Azure Resource Manager 範本建立和設定 Log Analytics 工作�
 description: 您可以使用 Azure Resource Manager 範本來建立和設定 Log Analytics 工作區。
 services: log-analytics
 documentationcenter: ''
-author: richrundmsft
-manager: jochan
+author: mgoedtel
+manager: carmonm
 editor: ''
 ms.assetid: d21ca1b0-847d-4716-bb30-2a8c02a606aa
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
-ms.topic: article
-ms.date: 04/25/2018
-ms.author: richrund
-ms.openlocfilehash: 297f15430c64e5de3c10e6f38855664a50d11a8d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.topic: conceptual
+ms.date: 06/11/2018
+ms.author: magoedte
+ms.component: na
+ms.openlocfilehash: 6e23858bcc288b68a70750e7dbcecdf4b43b8870
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133272"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本管理 Log Analytics
 您可以使用 [Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)來建立和設定 Log Analytics 工作區。 您可以使用範本執行的工作範例包括︰
@@ -35,6 +37,16 @@ ms.lasthandoff: 04/28/2018
 * 設定 Log Analytics 將 Azure 診斷所收集的資料編製索引
 
 本文提供範例範本，示範您可以透過範本執行的一些設定。
+
+## <a name="api-versions"></a>API 版本
+下表列出此範例中使用的資源 API 版本。
+
+| 資源 | 資源類型 | API 版本 |
+|:---|:---|:---|:---|
+| 工作區   | workspaces    | 2017-03-15-preview |
+| Search      | savedSearches | 2017-03-15-preview |
+| 資料來源 | datasources   | 2015-11-01-preview |
+| 解決方法    | solutions     | 2015-11-01-preview |
 
 ## <a name="create-a-log-analytics-workspace"></a>建立 Log Analytics 工作區
 下列範例會從您的本機電腦使用範本建立工作區。 JSON 範本會設定為只提示您輸入工作區的名稱，並針對您環境中可能作為標準組態使用的其他參數，指定預設值。  

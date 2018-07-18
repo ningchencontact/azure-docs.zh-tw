@@ -1,26 +1,21 @@
 ---
-title: 何謂 Azure 備份？ | Microsoft Docs
+title: 何謂 Azure 備份？
 description: 使用 Azure 備份，從 Windows Server、Windows 工作站、System Center DPM 伺服器及 Azure 虛擬機器，備份和還原資料與工作負載。
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: 備份與還原；復原服務；備份解決方案
-ms.assetid: 0d2a7f08-8ade-443a-93af-440cbf7c36c4
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 3/1/2018
-ms.author: markgal;trinadhk;anuragm
+ms.author: markgal
 ms.custom: mvc
-ms.openlocfilehash: b6701cdc4dd25c0a46193a73d1edd022388bc5ab
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: bbcb05fcc17b958711b704c75a53cf4af4d41bd0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607094"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure 備份中的功能概觀
 Azure 備份是您可用來備份 (或保護) 和還原 Microsoft Cloud 資料的 Azure 服務。 Azure 備份將以一個可靠、安全及具成本競爭力的雲端架構解決方案，取代您現有的內部部署或異地備份解決方案。 Azure 備份提供多個元件，您可以下載並部署在適當的電腦、伺服器或雲端中。 您部署的元件或代理程式，取決於您想要保護的項目。 所有 Azure 備份的元件 (無論您要保護的是內部部署或雲端資料) 都可以將資料備份至 Azure 中的復原服務保存庫。 請參閱 [Azure 備份元件資料表](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (稍後於本文提及) 以取得該使用哪個元件來保護特定資料、應用程式或工作負載的資訊。

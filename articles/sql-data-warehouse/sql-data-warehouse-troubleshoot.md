@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31525242"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>針對 Azure SQL 資料倉儲問題進行疑難排解
 本主題列出常見的疑難排解問題。

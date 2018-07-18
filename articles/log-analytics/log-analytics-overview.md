@@ -9,16 +9,18 @@ editor: tysonn
 ms.assetid: bd90b460-bacf-4345-ae31-26e155beac0e
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: bwren
-ms.openlocfilehash: b951d41dab4d349a8d648e7eaa7e23b73ced2ced
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.component: na
+ms.openlocfilehash: 463ac7ee3e640f8bc275adb9e6ac27cc3e6a037a
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127954"
 ---
 # <a name="what-is-azure-log-analytics"></a>什麼是 Azure Log Analytics？
 Log Analytics 在 Azure 管理中扮演主要角色，其可從各種來源收集遙測和其他資料，並提供查詢語言和分析引擎，讓您得以深入了解應用程式和資源的運作。  您可以透過記錄搜尋和檢視直接與 Log Analytics 資料互動，也可以在其他 Azure 服務中使用分析工具 (例如 Application Insights 或 Azure 資訊安全中心)，將其資料儲存在 Log Analytics 中。  

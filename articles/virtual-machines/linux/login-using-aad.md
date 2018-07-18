@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/16/2018
 ms.author: iainfou
-ms.openlocfilehash: ec330570604494503de2fa3f5484a1e41ddf4603
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 96cc7aeb5fd1c64dc3793a801a4a5b759e7558b9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271955"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652867"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>在 Azure 中使用 Azure Active Directory 驗證登入 Linux 虛擬機器 (預覽)
 
@@ -112,6 +112,9 @@ az role assignment create \
     --assignee $username \
     --scope $vm
 ```
+
+> [!NOTE]
+> 如果 AAD 網域和登入使用者名稱網域不相符，您必須以 --assignee-object-id 指定使用者帳戶的物件識別碼，而不只是以 -assignee 指定使用者名稱。 您可以使用 [az ad user list](/cli/azure/ad/user#az-ad-user-list) 取得使用者帳戶的物件識別碼。
 
 如需關於如何使用 RBAC 來管理 Azure 訂用帳戶資源存取權的詳細資訊，請參閱使用 [Azure CLI 2.0](../../role-based-access-control/role-assignments-cli.md)、[Azure 入口網站](../../role-based-access-control/role-assignments-portal.md)或 [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)。
 

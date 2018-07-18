@@ -18,6 +18,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32150952"
 ---
 # <a name="azure-sdk-for-net-29-release-notes"></a>Azure SDK for .NET 2.9 版本資訊
 

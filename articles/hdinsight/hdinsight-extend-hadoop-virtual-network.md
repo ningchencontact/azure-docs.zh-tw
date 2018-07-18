@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: larryfr
-ms.openlocfilehash: 3df32c39152c8dda24fd5d0796f8074af8ce8a1a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 9ad7a35864f8e8a1aa95f0b54174a792f069ba18
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700701"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虛擬網路延伸 Azure HDInsight
 
@@ -90,7 +91,7 @@ ms.lasthandoff: 05/20/2018
         az network nsg list --resource-group $RESOURCEGROUP
         ```
 
-        如需詳細資訊，請參閱[為網路安全性群組疑難排解](../virtual-network/virtual-network-nsg-troubleshoot-portal.md)文件。
+        如需詳細資訊，請參閱[為網路安全性群組疑難排解](../virtual-network/diagnose-network-traffic-filter-problem.md)文件。
 
         > [!IMPORTANT]
         > 會根據規則優先順序依序套用網路安全性群組規則。 會套用第一個符合流量模式的規則，而且未針對該流量套用其他規則。 排序從最寬鬆到最嚴格權限的規則。 如需詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](../virtual-network/security-overview.md)文件。
@@ -107,7 +108,7 @@ ms.lasthandoff: 05/20/2018
         az network route-table list --resource-group $RESOURCEGROUP
         ```
 
-        如需詳細資訊，請參閱[為路由疑難排解](../virtual-network/virtual-network-routes-troubleshoot-portal.md)文件。
+        如需詳細資訊，請參閱[為路由疑難排解](../virtual-network/diagnose-network-routing-problem.md)文件。
 
 4. 建立 HDInsight 叢集，並在設定期間選擇 Azure 虛擬網路。 使用下列文件中的步驟，以了解叢集建立程序：
 
@@ -291,8 +292,8 @@ HDInsight 會在數個連接埠上公開服務。 使用虛擬設備防火牆時
     | 印度 | 印度中部 | 52.172.153.209</br>52.172.152.49 | 443 | 輸入 |
     | 日本 | 日本東部 | 13.78.125.90</br>13.78.89.60 | 443 | 輸入 |
     | &nbsp; | 日本西部 | 40.74.125.69</br>138.91.29.150 | 443 | 輸入 |
-    | 韓國 | 韓國中部 | 52.231.39.142</br>52.231.36.209 | 433 | 輸入 |
-    | &nbsp; | 韓國南部 | 52.231.203.16</br>52.231.205.214 | 443 | 輸入
+    | 南韓 | 南韓中部 | 52.231.39.142</br>52.231.36.209 | 433 | 輸入 |
+    | &nbsp; | 南韓南部 | 52.231.203.16</br>52.231.205.214 | 443 | 輸入
     | 英國 | 英國西部 | 51.141.13.110</br>51.141.7.20 | 443 | 輸入 |
     | &nbsp; | 英國南部 | 51.140.47.39</br>51.140.52.16 | 443 | 輸入 |
     | 美國 | 美國中部 | 13.67.223.215</br>40.86.83.253 | 443 | 輸入 |

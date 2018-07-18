@@ -9,15 +9,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/30/2018
+ms.topic: conceptual
+ms.date: 06/18/2018
 ms.author: douglasl
-ms.openlocfilehash: 16eec117514d040dc91b5d18b73d4cc6025c901e
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: febd43586ab3006303143ca04ce8a37941a6fd60
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32310973"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36267920"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Azure Data Factory 中的持續整合和部署
 
@@ -89,42 +89,9 @@ ms.locfileid: "32310973"
 
 4.  輸入您的環境名稱。
 
-5.  新增 Git 成品，並選取以 Data Factory 設定的相同存放庫。 選擇 `adf\_publish` 作為具有最新預設版本的預設分支。
+5.  新增 Git 成品，並選取以 Data Factory 設定的相同存放庫。 選擇 `adf_publish` 作為具有最新預設版本的預設分支。
 
     ![](media/continuous-integration-deployment/continuous-integration-image7.png)
-
-6.  從 Azure Key Vault 取得密碼。 有兩種方式可處理密碼︰
-
-    a.  將密碼新增至參數檔案：
-
-       -   建立已上傳至發行分支的參數檔案複本，並以下列格式設定您想要從金鑰保存庫取得的參數值：
-
-        ```json
-        {
-            "parameters": {
-                "azureSqlReportingDbPassword": {
-                    "reference": {
-                        "keyVault": {
-                            "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
-                        },
-                        "secretName": " < secret - name > "
-                    }
-                }
-            }
-        }
-        ```
-
-       -   當您使用此方法時，系統會自動從金鑰保存庫提取密碼。
-
-       -   參數檔案也必須位於發行分支中。
-
-    b.  新增 [Azure Key Vault 工作](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault)：
-
-       -   選取 [工作] 索引標籤、建立新的工作、搜尋 **Azure Key Vault**，並加以新增。
-
-       -   在 Key Vault 工作中，選擇您用來建立金鑰保存庫的訂用帳戶、視需要提供認證，然後選擇金鑰保存庫。
-
-       ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 7.  新增 Azure Resource Manager 部署工作：
 
@@ -134,7 +101,7 @@ ms.locfileid: "32310973"
 
     c.  選取**建立或更新資源群組**動作。
 
-    d.  選取 **…** (位於 [範本] 欄位中)。 瀏覽在入口網站中以發行動作建立的 Resource Manager 範本 (*ARMTemplateForFactory.json*)。 在 `adf\_publish` 分支的根資料夾中尋找此檔案。
+    d.  選取 **…** (位於 [範本] 欄位中)。 瀏覽在入口網站中以發行動作建立的 Resource Manager 範本 (*ARMTemplateForFactory.json*)。 在 `adf_publish` 分支的 `<FactoryName>` 資料夾中尋找此檔案。
 
     e.  對參數檔案執行相同的動作。 根據您是已建立複本還是使用預設檔案 *ARMTemplateParametersForFactory.json*，選擇正確的檔案。
 
@@ -147,6 +114,43 @@ ms.locfileid: "32310973"
 9.  從這個發行定義建立新發行。
 
     ![](media/continuous-integration-deployment/continuous-integration-image10.png)
+
+### <a name="optional---get-the-secrets-from-azure-key-vault"></a>選用 - 從 Azure Key Vault 取得祕密
+
+如果您要將祕密傳遞至 Azure Resource Manager 範本，我們建議您使用 VSTS 版本的 Azure Key Vault。
+
+有兩種方式可處理密碼︰
+
+1.  將祕密新增至參數檔案。 如需詳細資訊，請參閱[在部署期間使用 Azure Key Vault 以傳遞安全的參數值](../azure-resource-manager/resource-manager-keyvault-parameter.md)。
+
+    -   建立已上傳至發行分支的參數檔案複本，並以下列格式設定您想要從金鑰保存庫取得的參數值：
+
+    ```json
+    {
+        "parameters": {
+            "azureSqlReportingDbPassword": {
+                "reference": {
+                    "keyVault": {
+                        "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
+                    },
+                    "secretName": " < secret - name > "
+                }
+            }
+        }
+    }
+    ```
+
+    -   當您使用此方法時，系統會自動從金鑰保存庫提取密碼。
+
+    -   參數檔案也必須位於發行分支中。
+
+2.  在上一節中所述的 Azure Resource Manager 部署之前，新增 [Azure Key Vault 工作](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault)：
+
+    -   選取 [工作] 索引標籤、建立新的工作、搜尋 **Azure Key Vault**，並加以新增。
+
+    -   在 Key Vault 工作中，選擇您用來建立金鑰保存庫的訂用帳戶、視需要提供認證，然後選擇金鑰保存庫。
+
+    ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 ### <a name="grant-permissions-to-the-vsts-agent"></a>授與對 VSTS 代理程式的權限
 Azure Key Vault 工作第一次執行時可能會失敗，並發生拒絕存取錯誤。 下載發行的記錄，並使用指定 VSTS 代理程式權限的命令找出 `.ps1` 檔案。 您可以直接執行此命令，或是從檔案複製主體識別碼，然後在 Azure 入口網站中手動新增存取原則。 (*取得*和*列出*是所需的最低權限)。
@@ -161,14 +165,9 @@ Azure Key Vault 工作第一次執行時可能會失敗，並發生拒絕存取�
 3.  選擇 [內嵌指令碼] 作為指令碼類型，然後提供您的程式碼。 下列範例會停止觸發程序：
 
     ```powershell
-    $armTemplate="$(env:System.DefaultWorkingDirectory)/Dev/ARMTemplateForFactory.json"
+    $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
 
-    $templateJson = Get-Content "$(env:System.DefaultWorkingDirectory)/Dev/ARMTemplateForFactory.json" | ConvertFrom-Json
-
-    $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName
-    $DataFactoryName -ResourceGroupName $ResourceGroupName
-
-    $triggersADF | ForEach-Object { Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $\_.name -Force }
+    $triggersADF | ForEach-Object { Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.name -Force }
     ```
 
     ![](media/continuous-integration-deployment/continuous-integration-image11.png)

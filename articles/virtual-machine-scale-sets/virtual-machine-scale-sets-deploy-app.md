@@ -3,7 +3,7 @@ title: 將應用程式部署到 Azure 虛擬機器擴展集 | Microsoft Docs
 description: 了解如何將應用程式部署到擴展集中的 Linux 和 Windows 虛擬機器執行個體
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,13 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2017
-ms.author: iainfou
-ms.openlocfilehash: e033439ba9f525307edb857a358d1f760a08aad0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 05/29/2018
+ms.author: cynthn
+ms.openlocfilehash: 8817facc21d2a7ac86bdaf198aab3179a93c4914
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38718976"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>在虛擬機器擴展集上部署您的應用程式
 若要在擴展集的虛擬機器 (VM) 執行個體上執行應用程式，您需要先安裝應用程式元件和必要的檔案。 本文介紹如何在擴展集中建置執行個體的自訂 VM 映像，或在現有的 VM 執行個體上自動執行安裝指令碼。 您也將了解如何跨擴展集管理應用程式或作業系統更新。
@@ -39,6 +40,7 @@ ms.lasthandoff: 04/28/2018
 
 - [Azure CLI 2.0](tutorial-install-apps-cli.md)
 - [Azure PowerShell](tutorial-install-apps-powershell.md)
+- [Azure Resource Manager 範本](tutorial-install-apps-template.md)
 
 
 ## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>使用 PowerShell DSC 將應用程式安裝到 Windows VM
@@ -89,7 +91,7 @@ Update-AzureRmVmss `
 
 
 ## <a name="install-an-app-to-a-linux-vm-with-cloud-init"></a>使用 cloud-init 將應用程式安裝到 Linux VM
-[Cloud-init (英文)](https://cloudinit.readthedocs.io/latest/) 是在 Linux VM 初次開機時，廣泛用來自訂它們的方法。 您可以使用 cloud-init 來安裝封裝和寫入檔案，或者設定使用者和安全性。 當 cloud-init 在初次開機程序期間執行時，不需要使用任何額外的步驟或必要的代理程式來套用您的組態。
+[Cloud-init (英文)](https://cloudinit.readthedocs.io/en/latest/index.html) 是在 Linux VM 初次開機時，廣泛用來自訂它們的方法。 您可以使用 cloud-init 來安裝封裝和寫入檔案，或者設定使用者和安全性。 當 cloud-init 在初次開機程序期間執行時，不需要使用任何額外的步驟或必要的代理程式來套用您的組態。
 
 Cloud-init 也適用於散發套件。 例如，您不使用 **apt-get install** 或 **yum install** 來安裝套件。 您可以改為定義要安裝的套件清單。 Cloud-init 會針對您選取的散發套件自動使用原生的套件管理工具。
 
@@ -112,7 +114,7 @@ az vmss create \
 ### <a name="install-applications-with-os-updates"></a>安裝應用程式與作業系統更新
 當新的作業系統版本可用時，您可以使用或建立新的自訂映像，並[將作業系統升級部署到](virtual-machine-scale-sets-upgrade-scale-set.md)擴展集。 每個 VM 執行個體會升級為您指定的最新映像。 您可以使用預先安裝應用程式的自訂映像、自訂指令碼延伸模組，或 PowerShell，以便在執行升級時自動開放使用應用程式。 執行此程序時可能需要規劃應用程式維護，確認不存在任何版本相容性問題。
 
-如果您使用預先安裝應用程式的自訂 VM 映像，您可以整合應用程式更新與部署管線來建立新映像，並跨擴展集部署作業系統升級。 這個方法可讓管線挑選最新的應用程式組建、建立及驗證 VM 映像，然後在擴展集中升級 VM 執行個體。 若要執行部署管線，跨自訂 VM 映像來建立和部署應用程式更新，您可以使用 [Visual Studio Team Services](https://www.visualstudio.com/team-services/)、[Spinnaker](https://www.spinnaker.io/) 或 [Jenkins](https://jenkins.io/)。
+如果您使用預先安裝應用程式的自訂 VM 映像，您可以整合應用程式更新與部署管線來建立新映像，並跨擴展集部署作業系統升級。 這個方法可讓管線挑選最新的應用程式組建、建立及驗證 VM 映像，然後在擴展集中升級 VM 執行個體。 若要執行部署管線，跨自訂 VM 映像來建立和部署應用程式更新，您可以[使用 Visual Studio Team Services 建立 Packer 映像及進行部署](/vsts/pipelines/apps/cd/azure/deploy-azure-scaleset)，或使用另一個平台，例如 [Spinnaker](https://www.spinnaker.io/) 或 [Jenkins](https://jenkins.io/)。
 
 
 ## <a name="next-steps"></a>後續步驟

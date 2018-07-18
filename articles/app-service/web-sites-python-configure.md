@@ -1,12 +1,12 @@
 ---
-title: "使用 Azure App Service Web Apps 設定 Python"
-description: "本教學課程描述在 Azure App Service Web Apps 上編寫與設定基本的 Web 伺服器閘道介面 (WSGI) 相容之 Python 應用程式的選項。"
+title: 使用 Azure App Service Web Apps 設定 Python
+description: 本教學課程描述在 Azure App Service Web Apps 上編寫與設定基本的 Web 伺服器閘道介面 (WSGI) 相容之 Python 應用程式的選項。
 services: app-service
 documentationcenter: python
 tags: python
 author: huguesv
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: fd00dc91-9935-4331-b955-4bd71e66d518
 ms.service: app-service
 ms.workload: na
@@ -15,11 +15,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/26/2016
 ms.author: huvalo
-ms.openlocfilehash: fa5f9afbc595f06bd41e8670fab7730b610f570e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 32d9cd6c42387b67881877a1165dfcbcaef405ba
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598635"
 ---
 # <a name="configuring-python-with-azure-app-service-web-apps"></a>使用 Azure App Service Web Apps 設定 Python
 本教學課程描述在 [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714)上編寫與設定基本的 Web 伺服器閘道介面 (WSGI) 相容之 Python 應用程式的選項。
@@ -29,9 +30,9 @@ ms.lasthandoff: 02/21/2018
 ## <a name="bottle-django-or-flask"></a>Bottle、Django 或 Flask？
 Azure Marketplace 包含 Bottle、Django 和 Flask 架構的範本。 如果您正在開發 Azure App Service 中的第一個 Web 應用程式，您可以從 Azure 入口網站快速地建立一個應用程式：
 
-* [利用 Bottle 建立 Web 應用程式](https://portal.azure.com/#create/PTVS.Bottle)
-* [利用 Django 建立 Web 應用程式](https://portal.azure.com/#create/PTVS.Django)
-* [利用 Flask 建立 Web 應用程式](https://portal.azure.com/#create/PTVS.Flask)
+* [採用 Bottle 的 Web 應用程式](https://portal.azure.com/#create/PTVS.Bottle)
+* [採用 Django 的 Web 應用程式](https://portal.azure.com/#create/PTVS.Django)
+* [Linux 上採用 Flask 的 Web 應用程式](https://portal.azure.com/#create/PTVS.FlaskLinux)
 
 ## <a name="web-app-creation-on-azure-portal"></a>在 Azure 入口網站上建立 Web 應用程式
 本教學課程假設有現有的 Azure 訂用帳戶，而且能夠存取 Azure 入口網站。

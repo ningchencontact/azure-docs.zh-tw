@@ -3,22 +3,20 @@ title: 建置適用於 Azure Cosmos DB 的 Node.js Web 應用程式 | Microsoft 
 description: 這個 Node.js 教學課程會探索如何使用 Microsoft Azure Cosmos DB，從 Azure 網站上裝載的 Node.js Express Web 應用程式來儲存和存取資料。
 keywords: 應用程式開發, 資料庫教學課程, 了解 node.js, node.js 教學課程
 services: cosmos-db
-documentationcenter: nodejs
 author: SnehaGunda
 manager: kfile
-ms.assetid: 9da9e63b-e76a-434e-96dd-195ce2699ef3
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: nodejs
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/23/2018
 ms.author: sngun
-ms.openlocfilehash: 6a7d1b961245a47015bdb96fd8653d04586238b3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d18e6dd9464ef103157a8532215fa797ab282437
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38543848"
 ---
 # <a name="_Toc395783175"></a>使用 Azure Cosmos DB 來建置 Node.js Web 應用程式
 > [!div class="op_single_selector"]

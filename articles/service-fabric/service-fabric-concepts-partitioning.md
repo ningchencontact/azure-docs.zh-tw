@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206528"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>分割 Service Fabric 可靠服務
 這篇文章介紹分割 Azure Service Fabric 可靠服務的基本概念。 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions)上也提供本文中使用的原始碼。

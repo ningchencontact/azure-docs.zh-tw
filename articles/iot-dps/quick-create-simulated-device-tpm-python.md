@@ -1,22 +1,21 @@
 ---
 title: 使用 Python 將模擬 TPM 裝置佈建到 Azure IoT 中樞 | Microsoft Docs
 description: Azure 快速入門 - 使用適用於 IoT 中樞裝置佈建服務的 Java 裝置 SDK 來建立及佈建模擬 TPM 裝置
-services: iot-dps
-keywords: ''
 author: bryanla
-ms.author: v-masebo;bryanla
-ms.date: 04/09/2018
+ms.author: bryanla
+ms.date: 05/21/2018
 ms.topic: quickstart
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 5038a632bc88c7b44f275968779d9d7ca5044d38
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 52b94482e545418c36cfc2bc5c9a5e4ad7d22538
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630736"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>使用適用於 IoT 中樞裝置佈建服務的 Python 裝置 SDK 來建立及佈建模擬 TPM 裝置
 
@@ -109,7 +108,7 @@ ms.lasthandoff: 04/16/2018
     cd azure-iot-sdk-python/provisioning_device_client/samples
     ```
 
-1. 使用您的 Python IDE，編輯名為 **provisioning\_device\_client\_sample.py** 的 python 指令碼。 將 _GLOBAL\_PROV\_URI_ 和 _ID\_SCOPE_ 變數修改為先前所述的值。
+1. 使用您的 Python IDE，編輯名為 **provisioning\_device\_client\_sample.py** 的 python 指令碼。 將 GLOBAL\_PROV\_URI 和 ID\_SCOPE 變數修改為先前所述的值。 此外確定 SECURITY\_DEVICE\_TYPE 設定為 `ProvisioningSecurityDeviceType.TPM`
 
     ```python
     GLOBAL_PROV_URI = "{globalServiceEndpoint}"
@@ -151,4 +150,4 @@ ms.lasthandoff: 04/16/2018
 在本快速入門中，您已在電腦上建立的 TPM 模擬裝置，並使用 IoT 中樞裝置佈建服務將它佈建到 IoT 中樞。 若要了解如何以程式設計方式註冊您的 TPM 裝置，請繼續閱讀以程式設計方式註冊 TPM 裝置的快速入門。 
 
 > [!div class="nextstepaction"]
-> [Azure 快速入門 - 向 Azure IoT 中樞裝置佈建服務註冊 TPM 裝置](quick-enroll-device-tpm-java.md)
+> [Azure 快速入門 - 向 Azure IoT 中樞裝置佈建服務註冊 TPM 裝置](quick-enroll-device-tpm-python.md)

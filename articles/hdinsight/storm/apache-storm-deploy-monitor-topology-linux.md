@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 9dd63e1f3ec381dd99495ebc6193198611c76c88
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 53433e6a677a2576a11209075f397bb5f246b875
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129280"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>部署和管理 HDInsight 上的 Apache Storm 拓撲
 
@@ -39,9 +40,9 @@ ms.lasthandoff: 04/16/2018
 
     下列其中一個 Visual Studio 版本：
 
-  * Visual Studio 2012 [(含 Update 4)](http://www.microsoft.com/download/details.aspx?id=39305)
+  * Visual Studio 2012 (含 Update 4)
 
-  * Visual Studio 2013 [(含 Update 4)](http://www.microsoft.com/download/details.aspx?id=44921) 或 [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
+  * Visual Studio 2013 (含 Update 4) 或 [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
   * [Visual Studio 2015](https://www.visualstudio.com/downloads/)
 
   * Visual Studio 2015 (任何版本)
@@ -211,7 +212,7 @@ Storm UI 的主頁面會提供下列資訊：
 
 Storm UI 是以 REST API 為建置基礎，因此您可以使用 REST API 執行類似的管理和監視功能。 您可以使用 REST API 建立自訂工具來管理和監視 Storm 拓撲。
 
-如需詳細資訊，請參閱 [Storm UI REST API](http://storm.apache.org/releases/0.9.6/STORM-UI-REST-API.html)。 下列資訊專用於搭配使用 REST API 與 Apache Storm on HDInsight。
+如需詳細資訊，請參閱 [Storm UI REST API](http://storm.apache.org/releases/current/STORM-UI-REST-API.html)。 下列資訊專用於搭配使用 REST API 與 Apache Storm on HDInsight。
 
 > [!IMPORTANT]
 > Storm REST API 不是透過網際網路公開可用，而是必須使用 HDInsight 叢集前端節點的 SSH 通道來存取。 如需建立及使用 SSH 通道的詳細資訊，請參閱[使用 SSH 通道來存取 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI](../hdinsight-linux-ambari-ssh-tunnel.md)。

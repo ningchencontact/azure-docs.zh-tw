@@ -12,16 +12,16 @@ ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: virtual-networ
+ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/14/2018
 ms.author: jdial
-ms.custom: mvc
-ms.openlocfilehash: f53544e756bde623a604513f17f9cc92c8efe42b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2442c177b303600f936e80f6c765e2d4096b1dca
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021714"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站透過虛擬網路服務端點來限制對 PaaS 資源的網路存取
 
@@ -65,6 +65,8 @@ ms.lasthandoff: 04/05/2018
 
 ## <a name="enable-a-service-endpoint"></a>啟用服務端點
 
+每項服務、每個子網路都會啟用服務端點。 建立子網路，並啟用子網路的服務端點。
+
 1. 在入口網站頂端的 [搜尋資源、服務和文件] 方塊中，輸入 myVirtualNetwork。 當搜尋結果中出現 **myVirtualNetwork** 時加以選取。
 2. 將子網路新增至虛擬網路。 在 [設定] 底下選取 [子網路]，然後選取 [+ 子網路]，如下圖所示：
 
@@ -78,11 +80,16 @@ ms.lasthandoff: 04/05/2018
     |位址範圍| 10.0.1.0/24|
     |服務端點| 選取 [服務] 底下的 [Microsoft.Storage]|
 
+> [!CAUTION]
+> 針對具有資源的現有子網路啟用服務端點之前，請參閱[變更子網路設定](virtual-network-manage-subnet.md#change-subnet-settings)。
+
 ## <a name="restrict-network-access-for-a-subnet"></a>限制子網路的網路存取
+
+根據預設，子網路中的所有 VM 可以與所有資源通訊。 建立網路安全性群組，並將它與子網路產生關聯，即可限制與子網路中所有資源之間的通訊。
 
 1. 選取 Azure 入口網站左上角的 [+ 建立資源]。
 2. 選擇 [網路]，然後選取 [網路安全性群組]。
-在 [建立網路安全性群組] 底下，輸入或選取下列資訊，然後選取 [建立]︰
+3. 在 [建立網路安全性群組] 底下，輸入或選取下列資訊，然後選取 [建立]︰
 
     |設定|值|
     |----|----|
@@ -94,7 +101,7 @@ ms.lasthandoff: 04/05/2018
 4. 建立網路安全性群組之後，請在入口網站頂端的 [搜尋資源、服務和文件] 方塊中，輸入 myNsgPrivate。 當 **myNsgPrivate** 出現在搜尋結果中時，請加以選取。
 5. 在 [設定] 下，選取 [輸出安全性規則]。
 6. 選取 [+ 新增] 。
-7. 建立一個規則，允許對指派給 Azure 儲存體服務之公用 IP 位址的輸出存取。 輸入或選取下列資訊，然後選取 [確定]︰
+7. 建立一個規則，允許 Azure 儲存體服務的輸出通訊。 輸入或選取下列資訊，然後選取 [確定]︰
 
     |設定|值|
     |----|----|
@@ -107,7 +114,8 @@ ms.lasthandoff: 04/05/2018
     |動作|允許|
     |優先順序|100|
     |Name|Allow-Storage-All|
-8. 建立一個規則，以覆寫允許輸出存取所有公用 IP 位址的預設安全性規則。 使用下列值再次完成步驟 6 和 7：
+    
+8. 建立一個規則，以拒絕網際網路的輸出通訊。 此規則會覆寫所有網路安全性群組中允許輸出網際網路通訊的預設規則。 使用下列值再次完成步驟 6 和 7：
 
     |設定|值|
     |----|----|
@@ -171,9 +179,9 @@ ms.lasthandoff: 04/05/2018
 4. 在 [名稱] 下，輸入 my-file-share，然後選取 [確定]。
 5. 關閉 [檔案服務] 方塊。
 
-### <a name="enable-network-access-from-a-subnet"></a>啟用子網路的網路存取
+### <a name="restrict-network-access-to-a-subnet"></a>限制對子網路的網路存取
 
-根據預設，儲存體帳戶會接受來自任何網路用戶端的網路連線。 若只要允許來自特定子網路的存取，並拒絕來自所有其他網路的網路存取，請完成下列步驟：
+根據預設，儲存體帳戶會接受來自任何網路用戶端的網路連線，包括網際網路。 拒絕來自網際網路以及所有虛擬網路中所有其他子網路的網路存取，myVirtualNetwork 虛擬網路中的「私人」子網路除外。
 
 1. 在儲存體帳戶的 [設定] 下，選取 [防火牆和虛擬網路]。
 2. 在 [虛擬網路] 下，選取 [選取的網路]。
@@ -256,13 +264,13 @@ ms.lasthandoff: 04/05/2018
 
     Azure 檔案共用已成功對應至 Z 磁碟機。
 
-7. 從命令提示字元確認 VM 沒有以任何其他公用 IP 位址為目標的輸出連線：
+7. 從命令提示字元確認 VM 沒有網際網路的輸出連線：
 
     ```
     ping bing.com
     ```
     
-    您不會收到回應，因為與「私人」子網路相關聯的網路安全性群組只允許對指派給 Azure 儲存體服務的位址進行輸出存取，此位址以外的公用 IP 位址一律不允許。
+    您不會收到回應，因為與「私人」子網路相關聯的網路安全性群組不允許對網際網路進行輸出存取。
 
 8. 關閉 myVmPrivate 虛擬機器的遠端桌面工作階段。
 
@@ -272,7 +280,7 @@ ms.lasthandoff: 04/05/2018
 2. 當 **myVmPublic** 出現在搜尋結果中時，請選取它。
 3. 在 myVmPublic VM 的 [確認對儲存體帳戶的存取](#confirm-access-to-storage-account) 中，完成步驟 1-6。
 
-    存取遭到拒絕，且您收到 `New-PSDrive : Access is denied` 錯誤。 存取遭到拒絕，因為 myVmPublic VM 是部署在「公用」子網路中。 「公用」子網路沒有已啟用的服務端點可供 Azure 儲存體使用，且儲存體帳戶只允許「私人」子網路而不允許「公用」子網路的網路存取。
+    存取遭到拒絕，且您收到 `New-PSDrive : Access is denied` 錯誤。 存取遭到拒絕，因為 myVmPublic VM 是部署在「公用」子網路中。 「公用」子網路沒有已啟用的服務端點可供 Azure 儲存體使用。 儲存體帳戶只允許「私人」子網路，而不允許「公用」子網路的網路存取。
 
 4. 關閉 myVmPublic VM 的遠端桌面工作階段。
 
@@ -295,7 +303,7 @@ ms.lasthandoff: 04/05/2018
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已啟用虛擬網路子網路的服務端點。 您已了解可以針對使用多個 Azure 服務部署的資源啟用服務端點。 您已建立 Azure 儲存體帳戶，並將儲存體帳戶的網路存取限制為只能存取虛擬網路子網路內的資源。 若要深入了解服務端點，請參閱[服務端點概觀](virtual-network-service-endpoints-overview.md)和[管理子網路](virtual-network-manage-subnet.md)。
+在本教學課程中，您已啟用虛擬網路子網路的服務端點。 您已了解可以針對從多項 Azure 服務部署的資源啟用服務端點。 您已建立 Azure 儲存體帳戶，並將儲存體帳戶的網路存取限制為只能存取虛擬網路子網路內的資源。 若要深入了解服務端點，請參閱[服務端點概觀](virtual-network-service-endpoints-overview.md)和[管理子網路](virtual-network-manage-subnet.md)。
 
 如果您的帳戶中有多個虛擬網路，您可以同時連線兩個虛擬網路，讓每個虛擬網路內的資源都可互相進行通訊。 若要了解如何連線虛擬網路，請移至下一個教學課程。
 

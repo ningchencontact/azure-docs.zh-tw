@@ -1,12 +1,12 @@
 ---
-title: "Azure Cloud Shell 價格 | Microsoft Docs"
-description: "Azure Cloud Shell 的價格概觀"
-services: 
-documentationcenter: 
+title: Azure Cloud Shell 價格 | Microsoft Docs
+description: Azure Cloud Shell 的價格概觀
+services: ''
+documentationcenter: ''
 author: jluk
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/15/2017
+ms.locfileid: "24809861"
 ---
 # <a name="pricing"></a>價格
 Cloud Shell 中的 Bash 和 Cloud Shell 中的 PowerShell (預覽) 依下列資訊而異。

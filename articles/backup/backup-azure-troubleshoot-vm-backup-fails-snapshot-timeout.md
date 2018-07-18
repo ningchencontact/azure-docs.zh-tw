@@ -1,26 +1,20 @@
 ---
-title: 針對 Azure 備份失敗：無法使用客體代理程式狀態進行疑難排解 | Microsoft Docs
+title: 針對 Azure 備份失敗：無法使用客體代理程式狀態進行疑難排解
 description: 與代理程式、延伸模組及磁碟相關之 Azure 備份失敗的徵狀、原因和解決方案。
 services: backup
-documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: ''
 keywords: Azure 備份; VM 代理程式; 網路連線;
-ms.assetid: 4b02ffa4-c48e-45f6-8363-73d536be4639
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 01/09/2018
-ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 17f4f832af0177ad588058833672c0986adeb3fa
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.date: 06/25/2018
+ms.author: genli
+ms.openlocfilehash: 09cfda3c2c790297b0961ecac92cba61c9e6de6f
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34196758"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754132"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>針對 Azure 備份失敗進行疑難排解：與代理程式或延伸模組相關的問題
 
@@ -64,7 +58,7 @@ ms.locfileid: "34196758"
 
 ## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>備份因為 VM 代理程式沒有回應而失敗
 
-錯誤訊息：「無法執行操作，因為 VM 代理程式沒有回應」 <br>
+錯誤訊息：「無法與 VM 代理程式通訊來取得快照集狀態」 <br>
 錯誤碼："GuestAgentSnapshotTaskStatusError"
 
 在註冊及排程 Azure 備份服務的 VM 之後，備份就會藉由與 VM 備份擴充功能通訊以取得時間點快照，來起始作業。 下列任一種狀況都可能會阻止觸發快照集。 如果未觸發快照集，可能會發生備份失敗。 請依照列出的順序完成下列疑難排解步驟，然後重試作業：  
@@ -90,7 +84,17 @@ ms.locfileid: "34196758"
 ### <a name="the-vm-has-no-internet-access"></a>VM 沒有網際網路存取
 根據部署需求，VM 無法存取網際網路。 或者，它可能會有防止存取 Azure 基礎結構的限制。
 
-備份延伸模組需要連線到 Azure 公用 IP 位址，才能正確運作。 延伸模組會將命令傳送至 Azure 儲存體端點 (HTTP URL) 來管理 VM 的快照集。 如果延伸模組無法存取公用網際網路，則備份最終會失敗。
+備份延伸模組需要連線到 Azure 公用 IP 位址，才能正確運作。 延伸模組會將命令傳送至 Azure 儲存體端點 (HTTPS URL) 來管理 VM 的快照集。 如果延伸模組無法存取公用網際網路，則備份最終會失敗。
+
+您可以部署 Proxy 伺服器來路由傳送 VM 流量。
+##### <a name="create-a-path-for-https-traffic"></a>建立 HTTPS 流量的路徑
+
+1. 如果您已有網路限制 (例如，網路安全性群組)，請部署 HTTPS Proxy 伺服器來路由傳送流量。
+2. 若要允許從 HTTPS Proxy 伺服器存取網際網路，可將規則新增到網路安全性群組 (如果您有一個)。
+
+若要了解如何設定 VM 備份的 HTTPS Proxy，請參閱[準備環境以備份 Azure 虛擬機器](backup-azure-arm-vms-prepare.md#establish-network-connectivity)。
+
+已備份的 VM，抑或用於路由傳送流量的 Proxy 伺服器需要存取 Azure 公用 IP 位址
 
 ####  <a name="solution"></a>解決方法
 若要解決此問題，請嘗試下列其中一個方法：
@@ -105,13 +109,6 @@ ms.locfileid: "34196758"
 
 > [!WARNING]
 > 儲存體服務標籤處於預覽狀態。 僅在特定區域中提供使用。 如需區域清單，請參閱[儲存體的服務標籤](../virtual-network/security-overview.md#service-tags)。
-
-##### <a name="create-a-path-for-http-traffic"></a>建立 HTTP 流量的路徑
-
-1. 如果您已有網路限制 (例如，網路安全性群組)，請部署 HTTP Proxy 伺服器來路由傳送流量。
-2. 若要允許從 HTTP Proxy 存取網際網路，可將規則新增到網路安全性群組 (如果您有一個)。
-
-若要了解如何設定 VM 備份的 HTTP Proxy，請參閱[準備環境以備份 Azure 虛擬機器](backup-azure-arm-vms-prepare.md#establish-network-connectivity)。
 
 如果您使用 Azure 受控磁碟，您可能需要在防火牆上開啟其他連接埠 (連接埠 8443)。
 
@@ -195,6 +192,19 @@ VM 備份仰賴發給底層儲存體帳戶的快照命令。 備份可能會失�
 
 #### <a name="solution"></a>解決方法
 
-若要解決此問題，請從資源群組中移除鎖定，並且讓 Azure 備份服務在下一次備份中清除復原點集合和基礎快照集。
-完成後，您可以再次於 VM 資源群組放回鎖定。 
+若要解決此問題，請移除資源群組的鎖定，並完成下列步驟來移除還原點集合： 
+ 
+1. 移除 VM 所在資源群組中的鎖定。 
+2. 使用 Chocolatey 安裝 ARMClient： <br>
+   https://github.com/projectkudu/ARMClient
+3. 登入 ARMClient： <br>
+    `.\armclient.exe login`
+4. 取得 VM 對應的還原點集合： <br>
+    `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
 
+    範例： `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
+5. 刪除還原點集合： <br>
+    `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
+6. 下一個排定的備份會自動建立還原點集合和新的還原點。
+
+完成後，您可以再次於 VM 資源群組放回鎖定。 

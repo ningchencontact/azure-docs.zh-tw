@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: a8784a8e29e65d8abea566b5a2bf41a2ae6cadf0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7a1b6aa9afd26116253482a2e1a9c6a25bdf3c55
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441568"
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>使用入口網站來建立可存取資源的 Active Directory 應用程式和服務主體
 
@@ -46,7 +47,7 @@ ms.lasthandoff: 05/20/2018
 
    ![檢視應用程式註冊](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
 
-1. 如果應用程式註冊設定為 [否]，只有[全域系統管理員](../active-directory/active-directory-assign-admin-roles-azure-portal.md)才能註冊應用程式。 檢查帳戶是否為 Azure AD 租用戶的系統管理員。 選取 [概觀] 並查看您的使用者資訊。 如果您的帳戶指派給「使用者」角色，但應用程式註冊設定 (從先前步驟中) 僅限於系統管理員使用者，請洽詢系統管理員將您指派為全域系統管理員角色，或讓使用者可以註冊應用程式。
+1. 如果應用程式註冊設定為 [否]，只有[全域系統管理員](../active-directory/users-groups-roles/directory-assign-admin-roles.md)才能註冊應用程式。 檢查帳戶是否為 Azure AD 租用戶的系統管理員。 選取 [概觀] 並查看您的使用者資訊。 如果您的帳戶指派給「使用者」角色，但應用程式註冊設定 (從先前步驟中) 僅限於系統管理員使用者，請洽詢系統管理員將您指派為全域系統管理員角色，或讓使用者可以註冊應用程式。
 
    ![尋找使用者](./media/resource-group-create-service-principal-portal/view-user-info.png)
 

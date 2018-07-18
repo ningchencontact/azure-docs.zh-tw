@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: danis
-ms.openlocfilehash: 01178995dbf9203082a6250ef256522bc1101e57
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 04f6d68feccf4a9b2bf2fa0f03ad8bd978cf5f17
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944700"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653258"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Azure 虛擬機器擴充功能和功能
 Azure 虛擬機器 (VM) 擴充功能是在 Azure VM 上提供部署後設定和自動化工作的小型應用程式。您可以使用現有的映像，然後將其自訂為部署的一部分，就不必建置自訂映像。

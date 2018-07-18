@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "28979202"
 ---
 # <a name="service-bus-quotas"></a>服務匯流排配額
 本節列出 Azure 服務匯流排訊息中的基本配額和節流閾值。

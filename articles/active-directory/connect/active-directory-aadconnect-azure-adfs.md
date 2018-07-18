@@ -4,7 +4,7 @@ description: 在本文件中，您將了解如何在 Azure 中部署 AD FS 以�
 keywords: 在 azure 中部署 AD FS, 部署 azure adfs, azure adfs, azure ad fs, 部署 adfs, 部署 ad fs, azure 中的 adfs, 在 azure 中部署 adfs, 在 azure 中部署 AD FS, adfs azure, AD FS 簡介, Azure, Azure 中的 AD FS, iaas, ADFS, 將 adfs 移至 azure
 services: active-directory
 documentationcenter: ''
-author: anandyadavmsft
+author: billmath
 manager: mtillman
 editor: ''
 ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
-ms.author: anandy; billmath
+ms.component: hybrid
+ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 76ed05d55389e2c05b38fe1f2c239f544c6a5d38
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: f2ebe6c7a70e4e574ea4953ca9ed01801190f80e
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917130"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>在 Azure 中部署 Active Directory 同盟服務
 AD FS 提供簡化、安全的身分識別同盟和 Web 單一登入 (SSO) 功能。 與 Azure AD 或 O365 同盟可讓使用者使用內部部署認證進行驗證，並存取雲端中的所有資源。 如此一來，就一定要有高可用性的 AD FS 基礎結構，以確保能夠存取內部部署和雲端中的資源。 在 Azure 中部署 AD FS 有助於達成執行最低限度的工作所需要的高可用性。
@@ -210,7 +212,7 @@ AD FS 提供簡化、安全的身分識別同盟和 Web 單一登入 (SSO) 功�
 ### <a name="7-configuring-the-web-application-proxy-server"></a>7.設定 Web 應用程式 Proxy 伺服器
 **7.1.設定 Web 應用程式 Proxy 伺服器以連線到 AD FS 伺服器**
 
-為了確保 Web 應用程式 Proxy 伺服器能夠連線到 ILB 背後的 AD FS 伺服器，請在 %systemroot%\system32\drivers\etc\hosts 建立 ILB 的記錄。 請注意，辨別名稱 (DN) 應該是同盟服務名稱，例如 fs.contoso.com。而且 IP 項目應該是 ILB 的 IP 位址 (如範例中的 10.3.0.8) 的項目。
+為了確保 Web 應用程式 Proxy 伺服器能夠連線到 ILB 背後的 AD FS 伺服器，請在 %systemroot%\system32\drivers\etc\hosts 建立 ILB 的記錄。 請注意，辨別名稱 (DN) 應該是同盟服務名稱，例如 fs.contoso.com。 而且 IP 項目應該是 ILB 的 IP 位址 (如範例中的 10.3.0.8) 的項目。
 
 **7.2.安裝 Web 應用程式 Proxy 角色**
 
@@ -238,7 +240,7 @@ AD FS 提供簡化、安全的身分識別同盟和 Web 單一登入 (SSO) 功�
 
 1. 按一下 [公用 IP 位址]。 這會開啟公用 IP 與其設定的面板
 2. 按一下 [組態]
-3. 提供 DNS 標籤。 這會成為您可以從任何地方存取的公用 DNS 標籤，例如 contosofs.westus.cloudapp.azure.com。您可以在外部 DNS 中新增用於同盟服務的項目 (例如 fs.contoso.com)，以解析為外部負載平衡器的 DNS 標籤 (contosofs.westus.cloudapp.azure.com)。
+3. 提供 DNS 標籤。 這會成為您可以從任何地方存取的公用 DNS 標籤，例如 contosofs.westus.cloudapp.azure.com。 您可以在外部 DNS 中新增用於同盟服務的項目 (例如 fs.contoso.com)，以解析為外部負載平衡器的 DNS 標籤 (contosofs.westus.cloudapp.azure.com)。
 
 ![設定網際網路對向負載平衡器](./media/active-directory-aadconnect-azure-adfs/elbdeployment3.png) 
 
@@ -303,7 +305,7 @@ AD FS 提供簡化、安全的身分識別同盟和 Web 單一登入 (SSO) 功�
 
 1. 使用 PowerShell 在 AD FS 伺服器上執行以下 Cmdlet，將它設定為啟用。
    Set-AdfsProperties -EnableIdPInitiatedSignonPage $true 
-2. 從任何外部的電腦存取 https://adfs.thecloudadvocate.com/adfs/ls/IdpInitiatedSignon.aspx  
+2. 從任何外部電腦，存取 https:\//adfs-server.contoso.com/adfs/ls/IdpInitiatedSignon.aspx。  
 3. 您應該會看到如下圖的 AD FS 網頁︰
 
 ![測試登入網頁](./media/active-directory-aadconnect-azure-adfs/test1.png)

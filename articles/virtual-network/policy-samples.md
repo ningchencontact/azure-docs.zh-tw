@@ -21,6 +21,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32779531"
 ---
 # <a name="azure-policy-sample-templates-for-virtual-network"></a>虛擬網路的 Azure 原則範例範本
 

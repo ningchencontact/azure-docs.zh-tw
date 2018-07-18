@@ -10,10 +10,11 @@ ms.date: 05/11/2018
 ms.author: marsma
 ms.custom: mvc
 ms.openlocfilehash: 4a1d338304dbd5e2845768b7bf0273eed23af0ec
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38453561"
 ---
 # <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>快速入門：在 Azure Container Instances 中建立您的第一個容器
 
@@ -21,7 +22,7 @@ Azure Container Instances 能讓您在 Azure 中輕鬆建立及管理 Docker 容
 
 ![在瀏覽器中檢視使用 Azure Container Instances 所部署的應用程式][qs-powershell-01]
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/)。
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 

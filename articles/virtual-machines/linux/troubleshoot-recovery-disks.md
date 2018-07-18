@@ -3,7 +3,7 @@ title: 透過 Azure CLI 2.0 使用 Linux 疑難排解 VM | Microsoft Docs
 description: 了解如何使用 Azure CLI 2.0 將 OS 磁碟連接至復原 VM，以針對 Linux VM 問題進行疑難排解
 services: virtual-machines-linux
 documentationCenter: ''
-authors: iainfoulds
+authors: cynthn
 manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
@@ -12,16 +12,16 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
-ms.author: iainfou
-ms.openlocfilehash: bff31dafdf3263ec189f67da7de8fea6eb3d2662
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.author: cynthn
+ms.openlocfilehash: 8e164393b58604d74b9a794479f6e614b8da3d6c
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271481"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931390"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli-20"></a>使用 Azure CLI 2.0 將 OS 磁碟連結至復原 VM，以針對 Linux VM 進行疑難排解
-如果 Linux 虛擬機器 (VM) 發生開機或磁碟錯誤，您可能需要對虛擬硬碟本身執行疑難排解步驟。 常見的例子是 `/etc/fstab` 中的項目無效，導致 VM 無法成功開機。 本文詳細說明如何使用 Azure CLI 2.0 將虛擬硬碟連接至另一個 Linux VM，以修正任何錯誤，然後重新建立原始 VM。 您也可以使用 [Azure CLI 1.0](troubleshoot-recovery-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 來執行這些步驟。
+如果 Linux 虛擬機器 (VM) 發生開機或磁碟錯誤，您可能需要對虛擬硬碟本身執行疑難排解步驟。 常見的例子是 `/etc/fstab` 中的項目無效，導致 VM 無法成功開機。 本文詳細說明如何使用 Azure CLI 2.0 將虛擬硬碟連接至另一個 Linux VM，以修正任何錯誤，然後重新建立原始 VM。 
 
 
 ## <a name="recovery-process-overview"></a>復原程序概觀
@@ -167,7 +167,7 @@ az vm unmanaged-disk attach --resource-group myResourceGroup --vm-name myVMRecov
 ## <a name="create-vm-from-original-hard-disk"></a>從原始硬碟建立 VM
 若要從原始虛擬硬碟建立 VM，請使用[這個 Azure Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd)。 實際的 JSON 範本位於下列連結︰
 
-- https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd/azuredeploy.json
+- https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json
 
 此範本會使用先前以命令取得的 VHD URI 來部署 VM。 使用 [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create) 部署範本。 提供原始 VHD 的 URI，然後指定 OS 類型、VM 大小和 VM 名稱，如下所示︰
 

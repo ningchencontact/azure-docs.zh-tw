@@ -20,6 +20,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30167890"
 ---
 # <a name="microsoft-azure-stack-development-kit-asdk-troubleshooting"></a>Microsoft Azure Stack 開發套件 (ASDK) 疑難排解
 此文件提供 ASDK 的常見疑難排解資訊。 若您遇到未記載的問題，請務必檢查 [Azure Stack MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)以取得進一步的協助與資訊。  

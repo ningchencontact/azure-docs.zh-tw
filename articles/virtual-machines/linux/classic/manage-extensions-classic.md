@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30841447"
 ---
 # <a name="manage-virtual-machine-extensions"></a>管理虛擬機器擴充功能
 描述如何尋找、加入、修改或移除 Azure 上之 Windows 或 Linux 虛擬機器的 VM 擴充功能。

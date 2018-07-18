@@ -6,14 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5a3b14bd8409226772d210f60dadd525960f7890
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0094362ee083511b05027f22b37ed62d56d68d41
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36217120"
 ---
 # <a name="call-an-azure-automation-runbook-from-a-log-analytics-alert"></a>從 Log Analytics 警示呼叫 Azure 自動化 Runbook
 
@@ -32,7 +33,7 @@ ms.lasthandoff: 05/16/2018
 
 ## <a name="calling-a-runbook-by-using-a-webhook"></a>使用 Webhook 呼叫 Runbook
 
-您可以使用 Webhook 在 Azure 自動化中，透過單一 HTTP 要求啟動特定的 Runbook。 在設定 [Log Analytics 警示](../log-analytics/log-analytics-alerts.md#alert-rules)以使用 Webhook 呼叫 Runbook 作為警示動作前，您必須為透過此方法呼叫的 Runbook [建立 Webhook](automation-webhooks.md#creating-a-webhook)。 請記得記錄 Webhook URL，如此您就可以在設定警示規則時加以參考。   
+您可以使用 Webhook 在 Azure 自動化中，透過單一 HTTP 要求啟動特定的 Runbook。 在設定[記錄警示的 Webhook 動作](../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md)，以使用 Webhook 呼叫 Runbook 作為警示動作前，您必須為透過此方法呼叫的 Runbook [建立 Webhook](automation-webhooks.md#creating-a-webhook)。 請記得記錄 Webhook URL，如此您就可以在設定警示規則時加以參考。   
 
 ## <a name="calling-a-runbook-directly"></a>直接呼叫 Runbook
 
@@ -98,6 +99,6 @@ $SearchResult.SvcDisplayName_CF
 
 ## <a name="next-steps"></a>後續步驟
 
-* 若要深入了解 Log Analytics 的警示以及如何建立，請參閱 [Log Analytics 中的警示](../log-analytics/log-analytics-alerts.md)。
+* 若要深入了解使用記錄搜尋來建立 Azure 警示，請參閱 [Azure 中的記錄警示](../monitoring-and-diagnostics/monitor-alerts-unified-log.md)。
 
 * 若要了解如何使用 Webhook 來觸發 Runbook，請參閱 [Azure 自動化 Webhook](automation-webhooks.md)。

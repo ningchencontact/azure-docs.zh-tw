@@ -5,15 +5,15 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 05/04/2018
+ms.date: 06/29/2018
 ms.topic: tutorial
 ms.service: event-grid
-ms.openlocfilehash: 31c8dd520079046808b32dad0d338415bed71c58
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: ee504f805c536ba9a6186514206546c3df1f0f1a
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302972"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127708"
 ---
 # <a name="route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>使用 Azure CLI 和事件方格將自訂事件路由至 Azure 轉送混合式連線
 
@@ -55,7 +55,7 @@ az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 
 `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Relay/namespaces/<relay-namespace>/hybridConnections/<hybrid-connection-name>`
 
-下列指令碼會取得轉送命名空間的資源識別碼。 它會建構混合式連線的識別碼，並訂閱事件方格主題。 它會將端點類型設為 `hybridconnection`，並為端點使用混合型連線識別碼。
+下列指令碼會取得轉送命名空間的資源識別碼。 它會建構混合式連線的識別碼，並訂閱事件方格主題。 此指令碼會將端點類型設為 `hybridconnection`，並為端點使用混合型連線識別碼。
 
 ```azurecli-interactive
 relayname=<namespace-name>
@@ -73,9 +73,25 @@ az eventgrid event-subscription create \
   --endpoint $hybridid
 ```
 
+## <a name="create-application-to-process-events"></a>建立應用程式來處理事件
+
+您需要可以從混合式連線擷取事件的應用程式。 [適用於 C# 的 Microsoft Azure Event Grid 混合式連線取用者範例](https://github.com/Azure-Samples/event-grid-dotnet-hybridconnection-destination)會執行該作業。 您已經完成必要的步驟。
+
+1. 確定您有 Visual Studio 2017 Version 15.5 或更新版本。
+
+1. 將存放庫複製到本機電腦。
+
+1. 在 Visual Studio 中載入 HybridConnectionConsumer 專案。
+
+1. 在 Program.cs 中，以您建立的轉送連接字串和混合式連線名稱取代 `<relayConnectionString>` 和 `<hybridConnectionName>`。
+
+1. 從 Visual Studio 編譯和執行應用程式。
+
 ## <a name="send-an-event-to-your-topic"></a>將事件傳送至主題
 
-讓我們觸發事件以了解 Event Grid 如何將訊息散發至您的端點。 首先，讓我們取得自訂主題的 URL 和金鑰。 再次，將您的主題名稱用於 `<topic_name>`。
+讓我們觸發事件以了解 Event Grid 如何將訊息散發至您的端點。 本文說明如何使用 Azure CLI 來觸發事件。 或者，您可以使用 [Event Grid 發行者應用程式](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/tree/master/EventGridPublisher)。
+
+首先，讓我們取得自訂主題的 URL 和金鑰。 再次，將您的主題名稱用於 `<topic_name>`。
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --query "endpoint" --output tsv)

@@ -5,15 +5,16 @@ ms.service: sql-database
 author: srdjan-bozovic
 manager: craigg
 ms.custom: managed instance
-ms.topic: article
-ms.date: 04/10/2018
+ms.topic: conceptual
+ms.date: 05/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 1eecd28d5e7043acae5cfd52edf93e8d301bd31e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bea1dc88d66717717cdeacbc8504f5df7e37ba04
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647828"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>將您的應用程式連線到 Azure SQL Database 受控執行個體
 
@@ -39,10 +40,10 @@ ms.lasthandoff: 04/16/2018
 - [Azure 虛擬網路對等互連](../virtual-network/virtual-network-peering-overview.md) 
 - VNet 對 VNet VPN 閘道 ([Azure 入口網站](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)、[PowerShell](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)、[Azure CLI](../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md)) 
  
-對等互連選項是偏好選項，因為對等互連使用 Microsoft 骨幹網路，所以從連線的觀點來看，對等互連 VNet 與相同 VNet 中虛擬機器之間的延遲沒有明顯差異。 雖然跨區域對等互連在某些區域中的啟用是預覽狀態，但 VNet 對等互連僅限於在相同區域中的網路。  
+對等互連選項是偏好選項，因為對等互連使用 Microsoft 骨幹網路，所以從連線的觀點來看，對等互連 VNet 與相同 VNet 中虛擬機器之間的延遲沒有明顯差異。 VNet 對等互連受限於相同區域中的網路。  
  
 > [!IMPORTANT]
-> 與公開上市版相比，跨區域建立之 VNet 對等互連的可用性和可靠性較低。 VNet 對等互連的功能可能有限，而且可能只有部分 Azure 區域能進行對等互連。 如需此功能可用性和狀態的最新通知，請查看  [Azure 虛擬網路](https://azure.microsoft.com/updates/?product=virtual-network)更新頁面。 
+> 由於[全域虛擬網路對等互連的條件約束](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)，受控執行個體的 VNet 對等互連案例會受限於相同區域中的網路。 
 
 ## <a name="connect-an-on-premises-application"></a>連線內部部署應用程式 
 

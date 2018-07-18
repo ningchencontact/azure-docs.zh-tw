@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2016
 ms.author: mbullwin
-ms.openlocfilehash: 3cddfb918f98dfd41e84a6cc5473df6e26d1a482
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8e8e63b053cb5bd504a41da9b537354a1dd42968
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34795555"
 ---
 # <a name="get-started-with-application-insights-with-java-in-eclipse"></a>在 Eclipse 中利用 Java 開始使用 Application Insights
 Application Insights SDK 會透過 Java Web 應用程式傳送遙測，使得您可以分析使用量和效能。 Application Insights 適用的 Eclipse 外掛程式會自動在您的專案中安裝 SDK，使得您可以取得內建的遙測，加上可以用來編寫自訂遙測的 API。   
@@ -32,6 +33,8 @@ Application Insights SDK 會透過 Java Web 應用程式傳送遙測，使得您
 * [Microsoft Azure](https://azure.microsoft.com/)訂用帳戶。
 * [Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/)、Indigo 或更新版本。
 * Windows 7 或更新版本，或 Windows Server 2008 或更新版本
+
+如果您偏好 Spring 架構，可嘗試[設定 Spring Boot 初始設定式應用程式來使用 Application Insights 指南](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights) \(英文\)。
 
 ## <a name="install-the-sdk-on-eclipse-one-time"></a>在 Eclipse 上安裝 SDK (一次)
 您只需在每一部機器上執行一次此動作。 此步驟會安裝工具組，然後工具組會將 SDK 加入到每個動態網站專案。

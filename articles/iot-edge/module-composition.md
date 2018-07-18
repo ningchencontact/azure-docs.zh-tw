@@ -1,37 +1,37 @@
 ---
 title: Azure IoT Edge 模組撰寫 | Microsoft Docs
-description: 了解 Azure IoT Edge 模組有什麼內容以及如何重複使用
-services: iot-edge
-keywords: ''
+description: 了解部署資訊清單如何宣告要部署哪些模組、如何加以部署，以及如何在其間建立訊息路由。
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/23/2018
-ms.topic: article
+ms.date: 06/06/2018
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 3d95a602815cd444fb4b062853d9d31b75993e6a
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+services: iot-edge
+ms.openlocfilehash: 209f159d9003838edb36728828758b76730118ff
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098459"
 ---
-# <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>了解如何使用、設定以及重複使用 IoT Edge 模組 - 預覽
+# <a name="learn-how-to-use-deployment-manifests-to-deploy-modules-and-establish-routes"></a>了解如何使用部署資訊清單來部署模組及建立路由
 
-每個 IoT Edge 裝置會至少執行兩個模組：$edgeAgent 和 $edgeHub，由這兩個模組組成 IoT Edge 執行階段。 除了這兩個標準的模組，任何 IoT Edge 裝置都可以執行多個模組，以執行任意數目的處理程序。 當您將所有這些模組一次部署到裝置時，您需要有方法來宣告包含的模組，以及這些模組與彼此互動的方式。 
+每個 IoT Edge 裝置會至少執行兩個模組：$edgeAgent 和 $edgeHub，由這兩個模組組成 IoT Edge 執行階段。 除了這兩個標準的模組，任何 IoT Edge 裝置都可以執行多個模組，以執行任意數目的處理程序。 當您將所有這些模組同時部署至裝置時，您需要有方法來宣告包含的模組，以及這些模組彼此互動的方式。 
 
 部署資訊清單是 JSON 文件，描述：
 
-* 必須部署哪些 IoT Edge 模組，以及其建立和管理選項。
+* Edge 代理程式的組態，其中包含每個模組的容器映像、用來存取私人容器登錄的認證，以及如何建立和管理每個模組的指示。
 * Edge 中樞的組態，包括訊息如何在模組之間流動，及最後如何到達 IoT 中樞。
-* (選擇性) 在模組對應項預期屬性中設定的值，以設定個別模組應用程式。
+* (選擇性) 模組對應項的所需屬性。
 
 所有 IoT Edge 裝置都需要使用部署資訊清單來設定。 新安裝的 IoT Edge 執行階段會報告錯誤碼，直到使用有效的資訊清單進行設定。 
 
-在 Azure IoT Edge 教學課程中，您會藉由完成 Azure IoT Edge 入口網站中的精靈，來建置部署資訊清單。 您也可以程式設計方式使用 REST 或 IoT 中樞服務 SDK，套用部署資訊清單。 請參閱[部署與監視][lnk-deploy]以取得 IoT Edge 部署的詳細資訊。
+在 Azure IoT Edge 教學課程中，您會藉由完成 Azure IoT Edge 入口網站中的精靈，來建置部署資訊清單。 您也可以程式設計方式使用 REST 或 IoT 中樞服務 SDK，套用部署資訊清單。 如需詳細資訊，請參閱[了解 IoT Edge 部署][lnk-deploy]。
 
 ## <a name="create-a-deployment-manifest"></a>建立部署資訊清單
 
-概括而言，部署資訊清單會為 IoT Edge 裝置上部署之 IoT Edge 模組設定模組對應項的所需屬性。 這兩個模組永遠存在：Edge 代理程式和 Edge 中樞。
+概括而言，部署資訊清單會為 IoT Edge 裝置上部署之 IoT Edge 模組設定模組對應項的所需屬性。 其中有兩個模組一律存在：`$edgeAgent` 和 `$edgeHub`。
 
 僅包含 IoT Edge 執行階段 (代理程式和中樞) 的部署資訊清單才是有效的。
 
@@ -44,6 +44,7 @@ ms.lasthandoff: 05/14/2018
             "properties.desired": {
                 // desired properties of the Edge agent
                 // includes the image URIs of all modules
+                // includes container registry credentials
             }
         },
         "$edgeHub": {
@@ -67,7 +68,7 @@ ms.lasthandoff: 05/14/2018
 
 ## <a name="configure-modules"></a>設定模組
 
-除了為任何要部署的模組建立所需屬性外，您必須告訴 IoT Edge 執行階段如何安裝這些屬性。 所有模組的組態和管理資訊都會進入 **$edgeAgent** 所需屬性中。 這項資訊包含 Edge 代理程式本身的組態參數。 
+您必須指示 IoT Edge 執行階段如何將模組安裝在您的部署中。 所有模組的組態和管理資訊都會進入 **$edgeAgent** 所需屬性中。 這項資訊包含 Edge 代理程式本身的組態參數。 
 
 如需可包含或必須包含的屬性完整清單，請參閱 [Edge 代理程式和 Edge 中樞的屬性](module-edgeagent-edgehub.md)。
 
@@ -78,6 +79,11 @@ $EdgeAgent 屬性遵循此結構：
     "properties.desired": {
         "schemaVersion": "1.0",
         "runtime": {
+            "settings":{
+                "registryCredentials":{ // give the edge agent access to container images that aren't public
+                    }
+                }
+            }
         },
         "systemModules": {
             "edgeAgent": {
@@ -88,7 +94,7 @@ $EdgeAgent 屬性遵循此結構：
             }
         },
         "modules": {
-            "{module1}": { //optional
+            "{module1}": { // optional
                 // configuration and management details
             },
             "{module2}": { // optional
@@ -158,7 +164,7 @@ FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
 | `$upstream` | 將訊息傳送到 IoT 中樞 |
 | `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | 將訊息傳送到模組 `{moduleId}` 的輸入 `{input}` |
 
-務必記住，Edge 中樞提供至少一次保證，這表示訊息會儲存在本機，以免路由無法將訊息傳遞到其接收，例如，Edge 中樞無法連線到 IoT 中樞，或目標模組未連線。
+IoT Edge 提供至少一次的保證。 Edge 中樞會將訊息儲存在本機，以備路由無法將訊息傳遞至其接收端時使用。 例如，如果 IoT 中樞無法連線至 IoT 中樞，或目標模組未連線。
 
 [Edge 中樞所需屬性](module-edgeagent-edgehub.md)的 `storeAndForwardConfiguration.timeToLiveSecs` 屬性會指定訊息能在 Edge 中樞內儲存多久。
 
@@ -168,7 +174,7 @@ FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
 
 如果您未在部署資訊清單中指定模組對應項的預期屬性，IoT 中樞就不會修改模組對應項，您將無法以程式設計方式設定預期屬性。
 
-您可以使用與修改裝置對應項相同的機制來修改模組對應項。 如需進一步資訊，請參閱[裝置對應項開發人員指南](../iot-hub/iot-hub-devguide-device-twins.md)。   
+您可以使用與修改裝置對應項相同的機制來修改模組對應項。 如需詳細資訊，請參閱[裝置對應項開發人員指南](../iot-hub/iot-hub-devguide-device-twins.md)。   
 
 ## <a name="deployment-manifest-example"></a>部署資訊清單範例
 
@@ -176,72 +182,79 @@ FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
 
 ```json
 {
-"moduleContent": {
+  "moduleContent": {
     "$edgeAgent": {
-        "properties.desired": {
-            "schemaVersion": "1.0",
-            "runtime": {
-                "type": "docker",
-                "settings": {
-                    "minDockerVersion": "v1.25",
-                    "loggingOptions": ""
-                }
-            },
-            "systemModules": {
-                "edgeAgent": {
-                    "type": "docker",
-                    "settings": {
-                    "image": "microsoft/azureiotedge-agent:1.0-preview",
-                    "createOptions": ""
-                    }
-                },
-                "edgeHub": {
-                    "type": "docker",
-                    "status": "running",
-                    "restartPolicy": "always",
-                    "settings": {
-                    "image": "microsoft/azureiotedge-hub:1.0-preview",
-                    "createOptions": ""
-                    }
-                }
-            },
-            "modules": {
-                "tempSensor": {
-                    "version": "1.0",
-                    "type": "docker",
-                    "status": "running",
-                    "restartPolicy": "always",
-                    "settings": {
-                    "image": "microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview",
-                    "createOptions": "{}"
-                    }
-                },
-                "filtermodule": {
-                    "version": "1.0",
-                    "type": "docker",
-                    "status": "running",
-                    "restartPolicy": "always",
-                    "settings": {
-                    "image": "myacr.azurecr.io/filtermodule:latest",
-                    "createOptions": "{}"
-                    }
-                }
+      "properties.desired": {
+        "schemaVersion": "1.0",
+        "runtime": {
+          "type": "docker",
+          "settings": {
+            "minDockerVersion": "v1.25",
+            "loggingOptions": "",
+            "registryCredentials": {
+              "ContosoRegistry": {
+                "username": "myacr",
+                "password": "{password}",
+                "address": "myacr.azurecr.io"
+              }
             }
+          }
+        },
+        "systemModules": {
+          "edgeAgent": {
+            "type": "docker",
+            "settings": {
+              "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+              "createOptions": ""
+            }
+          },
+          "edgeHub": {
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+              "createOptions": ""
+            }
+          }
+        },
+        "modules": {
+          "tempSensor": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
+              "createOptions": "{}"
+            }
+          },
+          "filtermodule": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "myacr.azurecr.io/filtermodule:latest",
+              "createOptions": "{}"
+            }
+          }
         }
+      }
     },
     "$edgeHub": {
-        "properties.desired": {
-            "schemaVersion": "1.0",
-            "routes": {
-                "sensorToFilter": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
-                "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
-            },
-            "storeAndForwardConfiguration": {
-                "timeToLiveSecs": 10
-            }
+      "properties.desired": {
+        "schemaVersion": "1.0",
+        "routes": {
+          "sensorToFilter": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
+          "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
+        },
+        "storeAndForwardConfiguration": {
+          "timeToLiveSecs": 10
         }
+      }
     }
-}
+  }
 }
 ```
 

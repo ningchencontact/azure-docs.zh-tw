@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: bdf10f1d9199500d4f5bda3c5a05a3d67ff65541
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 66c51b08884c9d7a4d522c94f7b81774ec7a8bda
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641997"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Service Fabric 服務的放置原則
 放置原則是在一些較罕見的特定情況下可用來掌管服務放置的額外規則。 這些情況的一些例子如下︰
@@ -90,7 +91,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ```csharp
 ServicePlacementPreferPrimaryDomainPolicyDescription primaryDomain = new ServicePlacementPreferPrimaryDomainPolicyDescription();
 primaryDomain.DomainName = "fd:/EastUS/";
-serviceDescription.PlacementPolicies.Add(invalidDomain);
+serviceDescription.PlacementPolicies.Add(primaryDomain);
 ```
 
 PowerShell：

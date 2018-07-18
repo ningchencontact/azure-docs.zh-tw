@@ -2,17 +2,17 @@
 title: 使用服務主體讓 Azure Analysis Services 工作自動化 | Microsoft Docs
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2b49b85d39f55052e112fd9f4f0e28bdc6c91637
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 76cadc453a696b8d19788525bfb69cf9cacd353d
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213277"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448232"
 ---
 # <a name="automation-with-service-principals"></a>使用服務主體進行自動化
 

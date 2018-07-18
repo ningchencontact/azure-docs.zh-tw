@@ -1,11 +1,11 @@
 ---
-title: "使用 Power BI 將 Azure 網路安全性群組流程記錄視覺化 | Microsoft Docs"
-description: "此頁面說明如何使用 Power BI 將 NSG 流程記錄視覺化。"
+title: 使用 Power BI 將 Azure 網路安全性群組流程記錄視覺化 | Microsoft Docs
+description: 此頁面說明如何使用 Power BI 將 NSG 流程記錄視覺化。
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1e4f95fa-f5f0-4e03-bc25-008fbfc4934c
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/17/2017
+ms.locfileid: "24878576"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>使用 Power BI 將網路安全性群組流程記錄視覺化
 

@@ -3,7 +3,7 @@ title: 快速入門 - 在 Azure 入口網站中建立 Linux VM | Microsoft Docs
 description: 在本快速入門中，您將了解如何使用 Azure 入口網站來建立 Linux 虛擬機器
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/24/2018
-ms.author: iainfou
+ms.date: 07/03/2018
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 18ac0291bff2c0fbfffdd5dfa3097f8a6acb561f
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 03d4ad081a788299bab563ca6b956edc347732da
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447953"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立 Linux 虛擬機器
 
@@ -62,7 +63,7 @@ ssh-keygen -t rsa -b 2048
 
     ![顯示 VM 大小的螢幕擷取畫面](./media/quick-create-portal/create-linux-vm-portal-sizes.png)
 
-5. 在 [設定] 下保留預設值，然後選取 [確定]。
+5. 在 [設定] 頁面的 [網路] > [網路安全性群組] > [選取公用輸入連接埠] 中，選取 [HTTP] 和 [SSH (22)]。 保留其餘的預設值，然後選取 [確定]。
 
 6. 在 [摘要] 頁面上選取 [建立]，以開始進行 VM 部署。
 
@@ -98,14 +99,6 @@ sudo apt-get -y install nginx
 
 完成時，請 `exit` SSH 工作階段並返回 Azure 入口網站中的 VM 屬性。
 
-## <a name="open-port-80-for-web-traffic"></a>針對 Web 流量開啟連接埠 80
-
-網路安全性群組 (NSG) 可保護輸入和輸出流量。 從 Azure 入口網站建立 VM 時，會在連接埠 22 上建立 SSH 連線的輸入規則。 由於此 VM 主控 Web 伺服器，因此必須針對連接埠 80 建立 NSG 規則。
-
-1. 在 VM 概觀頁面上，選取 [網路]。
-2. 此時會顯示現有輸入和輸出規則的清單。 選擇 [新增輸入連接埠規則]。
-3. 選取位於頂端的 [基本] 選項，然後從可用服務清單中選擇 [HTTP]。 系統會為您提供連接埠 80、優先順序和名稱。
-4. 若要建立規則，請選取 [新增]。
 
 ## <a name="view-the-web-server-in-action"></a>檢視作用中的網頁伺服器
 

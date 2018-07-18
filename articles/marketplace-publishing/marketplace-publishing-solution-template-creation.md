@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
 ms.author: mbaldwin
-ms.openlocfilehash: 83e69701aa5e8c11354e7551d66f3fdd18289000
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 147b0b9b4a3fe789544457d17fed3d29badbe12c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113947"
 ---
 # <a name="guide-to-create-a-solution-template-for-azure-marketplace"></a>建立 Azure Marketplace 解決方案範本的指南
 完成步驟 1 [帳戶建立和註冊][link-acct-creation]之後，我們引導您依照[建立解決方案範本的技術性必要條件](marketplace-publishing-solution-template-creation-prerequisites.md)建立與 Azure 相容的解決方案範本。 現在，我們將逐步引導您在 Azure Marketplace 的[發佈入口網站][link-pubportal]上建立一個多 VM 的解決方案範本。
 
 ## <a name="create-your-solution-template-offer-in-the-publishing-portal"></a>在發佈入口網站中建立解決方案範本供應項目
-移至 [https://publish.windowsazure.com](http://publish.windowsazure.com)。當第一次登入 [發佈入口網站](https://publish.windowsazure.com/)時，請使用與您公司的賣方設定檔註冊時相同的帳戶。 稍後您可以在發佈入口網站中將您公司的任何員工新增為共同管理員。
+移至 [https://publish.windowsazure.com](http://publish.windowsazure.com)。 當第一次登入 [發佈入口網站](https://publish.windowsazure.com/)時，請使用與您公司的賣方設定檔註冊時相同的帳戶。 稍後您可以在發佈入口網站中將您公司的任何員工新增為共同管理員。
 
 ### <a name="1-select-solution-templates"></a>1.選取 [解決方案範本]
   ![繪圖][img-pubportal-menu-sol-templ]
@@ -59,7 +60,7 @@ ms.lasthandoff: 03/16/2018
 您也可能對以下相關文章有興趣：
 
 * VM 映像： [關於 Azure 中的虛擬機器映像](https://msdn.microsoft.com/library/azure/dn790290.aspx)
-* VM 延伸模組：[VM 代理程式與 VM 延伸模組概觀](https://msdn.microsoft.com/library/azure/dn832621.aspx)及 [Azure VM 延伸模組與功能](https://msdn.microsoft.com/library/azure/dn606311.aspx)
+* VM 延伸模組：[VM 代理程式與 VM 延伸模組概觀](https://msdn.microsoft.com/library/azure/dn832621.aspx)及 [Azure VM 延伸模組與功能](https://docs.microsoft.com/azure/virtual-machines/extensions/features-windows)
 * Azure Resource Manager：[撰寫 Azure Resource Manager 範本 (英文)](../azure-resource-manager/resource-group-authoring-templates.md)和[簡單範本範例](https://github.com/rjmax/ArmExamples)
 * 儲存體帳戶節流：[如何監視儲存體帳戶節流](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx)和[進階儲存體](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets)
 

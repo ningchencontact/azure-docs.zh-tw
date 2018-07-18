@@ -11,11 +11,12 @@ ms.date: 04/24/2018
 ms.author: brenduns
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 2ea07f04d4c566c0add39d75cad3d3a4ed81c6c8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c364a9ba5a9606967fa86262417ccd1ac3aeffc3
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866265"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>快速入門：使用 Azure Stack 入口網站建立 Linux 伺服器虛擬機器
 
@@ -131,7 +132,7 @@ sudo apt-get -y install nginx
 
 ## <a name="view-the-nginx-welcome-page"></a>檢視 NGINX 歡迎使用頁面
 
-在您的虛擬機器上安裝 NGINX 並開啟連接埠 80，即可使用虛擬機器的公用 IP 位址存取網頁伺服器。 (公用 IP 位址會顯示在虛擬機器的 [概觀] 頁面上。)
+在已於虛擬機器上安裝 NGINX 並開啟連接埠 80 的情況下，您可以使用虛擬機器的公用 IP 位址存取網頁伺服器。 (公用 IP 位址會顯示在虛擬機器的 [概觀] 頁面上。)
 
 請開啟網頁瀏覽器，然後瀏覽至 ```http://<public IP address>```。
 

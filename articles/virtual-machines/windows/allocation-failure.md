@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 04/13/2018
 ms.author: cjiang
 ms.openlocfilehash: c434e7776539031a905b9d7a4c6032d30d6588e9
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38630168"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-windows-vms-in-azure"></a>在 Azure 中建立、重新啟動或調整 Windows VM 大小時，對配置失敗進行疑難排解
 

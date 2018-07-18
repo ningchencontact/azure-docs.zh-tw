@@ -3,16 +3,17 @@ title: 安裝內部部署資料閘道 | Microsoft Docs
 description: 了解如何安裝及設定內部部署資料閘道。
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5a923d3b5fbb5e7afe5f2a922ba083608ff35fd9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 59dc2dad103de60cb7d4b6a44a6d6f7271368391
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444934"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>安裝及設定內部部署資料閘道
 如果相同區域中有一或多部 Analysis Services 伺服器連線到內部部署資料來源，則需要一個內部部署閘道。 若要深入了解閘道，請參閱[內部部署資料閘道](analysis-services-gateway.md)。

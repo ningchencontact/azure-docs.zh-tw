@@ -3,7 +3,7 @@ title: 檢視 Azure Web Apps 分析資料 | Microsoft Docs
 description: 您可以使用 Azure Web Apps 分析解決方案在所有 Azure Web 應用程式資源之間收集不同的計量，以深入了解 Azure Web 應用程式。
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 20ff337f-b1a3-4696-9b5a-d39727a94220
@@ -11,21 +11,23 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/03/2018
+ms.topic: conceptual
+ms.date: 06/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 7b83b9de08d024b91ca7008a4f0bf970e8d00688
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.component: na
+ms.openlocfilehash: 7915a255c24fc33cfa489354b49596ca0feec473
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128940"
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>檢視所有 Azure Web 應用程式資源之間的計量分析資料
 
 ![Web Apps 符號](./media/log-analytics-azure-web-apps-analytics/azure-web-apps-analytics-symbol.png)  
 
 > [!NOTE]
-> Azure Web Apps 分析解決方案已被取代。  已安裝此解決方案的客戶可以繼續使用，但無法將 Azure Web Apps 分析加入至任何新的工作區。
+> Azure Web Apps 分析解決方案已被取代。  已安裝此解決方案的客戶可以繼續使用，但無法將 Azure Web Apps 分析加入至任何新的工作區。  若要監視 Web 應用程式，建議您使用 [Application Insights](../application-insights/app-insights-overview.md)。 
 
 Azure Web Apps 分析 (預覽) 解決方案會收集所有 Azure Web 應用程式資源之間的不同計量，以深入了解 [Azure Web Apps](../app-service/app-service-web-overview.md)。 透過此解決方案，您可以分析與搜尋 Web 應用程式資源計量資料。
 
@@ -56,8 +58,7 @@ Azure Web Apps 分析 (預覽) 解決方案會收集所有 Azure Web 應用程�
 
 執行下列步驟為您的工作區設定 Azure Web Apps 分析解決方案。
 
-1. 從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureWebAppsAnalyticsOMS?tab=Overview) 或使用[從方案庫加入 Log Analytics 方案](log-analytics-add-solutions.md)中所述的程序，啟用 Azure Web Apps 分析解決方案。
-2. [使用 PowerShell 允許 Azure 資源計量記錄至 Log Analytics](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell)。
+1. [使用 PowerShell 允許 Azure 資源計量記錄至 Log Analytics](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell)。
 
 Azure Web Apps 分析解決方案會從 Azure 收集兩組計量：
 

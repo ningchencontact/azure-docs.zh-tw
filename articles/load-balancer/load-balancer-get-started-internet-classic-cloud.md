@@ -19,6 +19,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34067481"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-for-cloud-services"></a>開始為雲端服務建立網際網路面向的負載平衡器
 

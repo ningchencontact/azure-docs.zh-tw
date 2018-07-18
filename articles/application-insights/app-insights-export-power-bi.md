@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/18/2016
 ms.author: mbullwin
-ms.openlocfilehash: c9b53c26eea0a5eced32acf196204aef3c3bb125
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: dee3313082fbe75d76bf27105979cf7e869fafad
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869048"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294117"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>從 Application Insights 提供 Power BI
 [Power BI](http://www.powerbi.com/) 是一套商務工具，可協助您分析資料及分享見解。 每個裝置上都提供豐富的儀表板。 您可以結合許多來源的資料，包含來自 [Azure Application Insights](app-insights-overview.md) 的「分析」查詢。

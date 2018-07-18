@@ -1,23 +1,26 @@
 ---
-title: 使用 Azure Data Lake Store 的最佳做法 | Microsoft Docs
-description: 了解將 Azure Data Lake Store 用在擷取、資料安全性和效能方面的最佳做法
+title: 使用 Azure Data Lake Storage Gen1 的最佳做法 | Microsoft Docs
+description: 了解將 Azure Data Lake Storage Gen1 (先前稱為 Azure Data Lake Store) 用在資料擷取、資料安全性和效能方面的最佳做法
 services: data-lake-store
 documentationcenter: ''
 author: sachinsbigdata
 manager: jhubbard
-editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: ac0a01ed7a067688732aa54eb1b76e0e299e4263
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 00eb2b6b60aa6c3224b58556f6dad64d4294c308
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37034507"
 ---
-# <a name="best-practices-for-using-azure-data-lake-store"></a>使用 Azure Data Lake Store 的最佳做法
+# <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>使用 Azure Data Lake Storage Gen1 的最佳做法
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
 在本文中，您會了解使用 Azure Data Lake Store 的最佳做法和考量。 本文提供 Data Lake Store 的安全性、效能、恢復功能及監視作業等相關資訊。 尚未使用 Data Lake Store 之前，若要在 Azure HDInsight 這類服務中處理如此龐大的資料，過程會十分繁瑣。 您必須將資料分給多個 Blob 儲存體帳戶，才能達到該規模的 PB 儲存量和最佳效能。 Data Lake Store 能突破大小和效能等大部分的硬性限制。 不過，為了讓您可取得 Data Lake Store 的最佳效能，本文中仍包含了一些考量。 
 
 ## <a name="security-considerations"></a>安全性考量
@@ -65,9 +68,9 @@ Data Lake Store 中的 POSIX 權限和稽核會在處理大量小型檔案時，
 * 加快複製/複寫的速度
 * 更新 Data Lake Store POSIX 權限時處理的檔案更少 
 
-視服務和工作負載使用的資料而定，可考慮的合適檔案大小為 256 MB 到 1 GB，最理想的情況是不要低於 100 MB，或超過 2 GB。 如果檔案大小無法在置入 Data Lake Store 時進行批次處理，您可以個別執行壓縮作業，將這些檔案結合成較大的檔案。 如需有關檔案大小及如何在 Data Lake Store 中組織資料的詳細資訊和建議，請參閱[建構您的資料集](data-lake-store-performance-tuning-guidance.md#structure-your-data-set)。 
+依據使用資料的是哪些服務和工作負載，對檔案來說良好的大小是 256 MB 以上。 如果檔案大小無法在置入 Data Lake Store 時進行批次處理，您可以個別執行壓縮作業，將這些檔案結合成較大的檔案。 如需有關檔案大小及如何在 Data Lake Store 中組織資料的詳細資訊和建議，請參閱[建構您的資料集](data-lake-store-performance-tuning-guidance.md#structure-your-data-set)。
 
-### <a name="large-file-sizes-and-potential-performance-impact"></a>大型檔案大小和潛在的效能影響 
+### <a name="large-file-sizes-and-potential-performance-impact"></a>大型檔案大小和潛在的效能影響
 
 雖然 Data Lake Store 可支援大小達數 PB 的大型檔案，但為獲得最佳效能，以及視讀取資料的程序而定，平均大小最好不要超過 2 GB。 例如，使用 **Distcp** 在多個位置或不同儲存體帳戶之間複製資料時，檔案是用來決定對應工作時，最細微的層級。 因此，如果您複製 10 個 1 TB 的檔案，最多會配置 10 個對應程式。 同樣地，如果您有大量已指派對應程式的檔案，一開始對應程式會以平行方式來移動大型檔案。 不過，因為作業進展會開始變得緩慢，只有少數對應程式維持配置狀態，而指派給大型檔案的單一對應程式可能會造成停滯。 Microsoft 已向 Distcp 提交改善方法，未來的 Hadoop 版本中將會解決此問題。  
 
@@ -113,7 +116,7 @@ Apache Oozie 工作流程和 Linux Cron 作業可使用頻率或資料觸發程�
 
 ### <a name="use-azure-data-factory-to-schedule-copy-jobs"></a>使用 Azure Data Factory 排程備份作業 
 
-Azure Data Factory 也可使用**複製活動**來排程備份作業，甚至可以透過**複製精靈**來根據頻率進行設定。 請注意，Azure Data Factory 有雲端資料移動單位 (DMU) 限制，最終會達到大型資料工作負載的輸送量/計算上限。 此外，Azure Data Factory 目前並未提供 Data Lake Store 帳戶之間的差異更新，因此 Hive 資料表這類資料夾將需要複寫整個複本。 如需有關使用 Data Factory 進行複製的詳細資訊，請參閱[複製活動微調指南](../data-factory/v1/data-factory-copy-activity-performance.md)。 
+Azure Data Factory 也可使用**複製活動**來排程備份作業，甚至可以透過**複製精靈**來根據頻率進行設定。 請注意，Azure Data Factory 有雲端資料移動單位 (DMU) 限制，最終會達到大型資料工作負載的輸送量/計算上限。 此外，Azure Data Factory 目前並未提供 Data Lake Store 帳戶之間的差異更新，因此 Hive 資料表這類資料夾將需要複寫整個複本。 如需有關使用 Data Factory 進行複製的詳細資訊，請參閱[複製活動微調指南](../data-factory/copy-activity-performance.md)。 
 
 ### <a name="adlcopy"></a>AdlCopy
 

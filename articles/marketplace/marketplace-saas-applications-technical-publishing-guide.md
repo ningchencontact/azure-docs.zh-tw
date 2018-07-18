@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: pabutler
-ms.openlocfilehash: 48b0b4177dad6262105bf30be2b8714f6ea1228f
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 2ac8119e36843e38e334fb5772ea4ade9962b4f9
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34076696"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809466"
 ---
 # <a name="saas-applications-technical-publishing-guide"></a>SaaS 應用程式技術發行指南
 
@@ -51,7 +51,7 @@ ms.locfileid: "34076696"
 | **PowerBI / Dynamics** | yes | 是 (Azure AD 整合) |  
 | **SaaS 應用程式**| yes | 是 (Azure AD 整合) |     
 
-如需有關 Marketplace 店面和每個發行選項說明的詳細資訊，請參閱 [Marketplace 發行者指南](https://aka.ms/sellerguide)和[發行選項](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide#select-a-publishing-option)。
+如需有關 Marketplace 店面和每個發行選項說明的詳細資訊，請參閱 [Marketplace 發行者指南](https://aka.ms/sellerguide)和[發行選項](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide#select-a-publishing-option)。
 
 ## <a name="business-requirements"></a>商業需求
 您可以平行完成 SaaS 供應項目的商業需求與技術需求。 大部分業務需求與資訊都會在您從 Cloud Partner 入口網站中建置 SaaS 供應項目時進行收集。 商業需求如下所示： 
@@ -62,7 +62,7 @@ ms.locfileid: "34076696"
 * 設定隱私權原則及使用規定
 * 定義支援連絡人  
 
-您可以在 [Marketplace 發行的必要條件](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide#prerequisites-for-marketplace-publishing)主題中找到詳細資訊
+您可以在 [Marketplace 發行的必要條件](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide#prerequisites-for-marketplace-publishing)主題中找到詳細資訊
 
 ## <a name="technical-requirements"></a>技術需求
 
@@ -72,11 +72,11 @@ SaaS 應用程式的技術需求很簡單。 發行者只需要與 Azure Active 
 
 您可以在下列網站取得最適合的 Azure Active Directory 文件、範例和指引： 
 
-* [Azure Active Directory 開發人員指南](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
+* [Azure Active Directory 開發人員指南](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
 
-* [與 Azure Active Directory 整合](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-how-to-integrate)
+* [與 Azure Active Directory 整合](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
 
-* [整合應用程式與 Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
+* [整合應用程式與 Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 
 * [Azure 藍圖 - 安全性與身分識別](https://azure.microsoft.com/roadmap/?category=security-identity)
 
@@ -125,7 +125,7 @@ SaaS 發行程序分為技術和商業步驟。  大部分用於開發和整合 
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>使用 Azure Active Directory 啟用試用版  
 
-Microsoft 可使用 Azure AD 來驗證所有 Marketplace 使用者，因此已驗證的使用者點選試用版清單並重新導向至試用版環境時，您可以將使用者直接佈建置至試用版，而不需要額外的登入步驟。 應用程式在驗證期間從 Azure AD 收到的權杖，包括可用以在應用程式中建立使用者帳戶的寶貴使用者資訊，讓您將佈建體驗自動化並增加轉換的可能性。 如需有關權杖的詳細資訊，請參閱[權杖範例](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims)。
+Microsoft 可使用 Azure AD 來驗證所有 Marketplace 使用者，因此已驗證的使用者點選試用版清單並重新導向至試用版環境時，您可以將使用者直接佈建置至試用版，而不需要額外的登入步驟。 應用程式在驗證期間從 Azure AD 收到的權杖，包括可用以在應用程式中建立使用者帳戶的寶貴使用者資訊，讓您將佈建體驗自動化並增加轉換的可能性。 如需有關權杖的詳細資訊，請參閱[權杖範例](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)。
 
 使用 Azure AD 對應用程式或試用版啟用單鍵驗證，可達到以下效果：  
 * 簡化客戶從 Marketplace 至試用版的體驗。  
@@ -141,15 +141,15 @@ Microsoft 可使用 Azure AD 來驗證所有 Marketplace 使用者，因此已�
 
 如果您已支援 Azure AD，請執行下列動作：
 1.  在 Azure 入口網站註冊您的應用程式
-2.  在 Azure AD 中啟用多租用戶支援功能，以獲得「單鍵」試用體驗。 您可以在[此處](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)找到更多特定資訊。  
+2.  在 Azure AD 中啟用多租用戶支援功能，以獲得「單鍵」試用體驗。 您可以在[此處](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)找到更多特定資訊。  
 
 如果您剛剛接觸 Azure AD 同盟 SSO，請執行下列動作： 
 1.  在 Azure 入口網站註冊您的應用程式
-2.  使用 [OpenID Connect](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code) 或 [OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code)，開發透過 Azure AD 的 SSO。
-3.  啟用 AAD 中的多租用戶支援功能以獲得「單鍵」試用版體驗，您可以在[此處](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified)找到更多特定資訊。  
+2.  使用 [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) 或 [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code)，開發透過 Azure AD 的 SSO。
+3.  啟用 AAD 中的多租用戶支援功能以獲得「單鍵」試用版體驗，您可以在[此處](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified)找到更多特定資訊。  
 
 **對於單一租用戶應用程式，請使用下列任一選項：**  
-* 使用 [Azure B2B](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) 將使用者新增至目錄作為來賓使用者
+* 使用 [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) 將使用者新增至目錄作為來賓使用者
 * 使用「與我連絡」為客戶手動佈建試用版
 * 開發每個客戶的「試用產品」
 * 建置使用 SSO 的多租用戶範例示範應用程式

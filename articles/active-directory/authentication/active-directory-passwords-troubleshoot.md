@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: d3e43d3484d321c93b4ac3b0e2b947b69af5d2c6
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 7a23702b40ea46edd6dd139ebdb0a3742193429e
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869949"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857213"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>針對自助式密碼重設進行疑難排解
 
@@ -35,11 +35,11 @@ ms.locfileid: "33869949"
 | OnPremisesConnectivityError = 30 | 很抱歉，因為貴組織的連線發生問題，此時我們無法重設密碼。 現在無需採取任何動作，但如果您稍後再試，可能會解決問題。 如果問題持續發生，請連絡您的系統管理員，並要求他們調查。 若要深入了解連線問題，請參閱[針對密碼回寫連線問題進行疑難排解](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback-connectivity)。 | SSPR_0030：因為您內部部署環境的連線不佳，我們無法重設您的密碼。 請連絡您的系統管理員，並要求他們調查。|
 
 
-## <a name="troubleshoot-the-password-reset-configuration-in-the-azure-portal"></a>在 Azure 入口網站中，針對密碼重設設定進行疑難排解
+## <a name="troubleshoot-the-password-reset-configuration-in-the-azure-portal"></a>對 Azure 入口網站中的密碼重設設定進行疑難排解
 
 | Error | 解決方法 |
 | --- | --- |
-| 我在 Azure 入口網站中的 Azure AD 之下看不到 [密碼重設] 區段。 | 如果您未將 Azure AD Premium 或 Basic 授權指派給執行此作業的系統管理員，就會發生這種情況。 <br> <br> 將授權指派給所提及的系統管理員帳戶。 您可以遵循[指派、驗證授權及解決其問題](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses)一文中的步驟。|
+| 我在 Azure 入口網站中的 Azure AD 之下看不到 [密碼重設] 區段。 | 如果您未將 Azure AD Premium 或 Basic 授權指派給執行此作業的系統管理員，就會發生這種情況。 <br> <br> 將授權指派給所提及的系統管理員帳戶。 您可以遵循[指派、驗證授權及解決其問題](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses)一文中的步驟。|
 | 我看不到特定的設定選項。 | 許多 UI 元素只會在需要時出現。 如果您想要看到這些元素，請嘗試啟用所有選項。 |
 | 我看不到 [內部部署整合] 索引標籤。 | 只有在您下載 Azure AD Connect 並設定密碼回寫後，這個選項才會出現。 如需詳細資訊，請參閱[利用快速設定開始使用 Azure AD Connect](./../connect/active-directory-aadconnect-get-started-express.md)。 |
 
@@ -47,7 +47,7 @@ ms.locfileid: "33869949"
 
 | Error | 解決方法 |
 | --- | --- |
-| 我在 [自助式密碼管理] 稽核事件類別中看不到任何密碼管理活動類型。 | 如果您未將 Azure AD Premium 或 Basic 授權指派給執行此作業的系統管理員，就會發生這種情況。 <br> <br> 您可以將授權指派給所提及的系統管理員帳戶，以解決這個問題。 如需詳細資訊，請參閱[指派、驗證授權及解決其問題](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses)。 |
+| 我在 [自助式密碼管理] 稽核事件類別中看不到任何密碼管理活動類型。 | 如果您未將 Azure AD Premium 或 Basic 授權指派給執行此作業的系統管理員，就會發生這種情況。 <br> <br> 您可以將授權指派給所提及的系統管理員帳戶，以解決這個問題。 如需詳細資訊，請參閱[指派、驗證授權及解決其問題](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses)。 |
 | 使用者註冊顯示多個時間。 | 目前當使用者註冊時，我們會將所註冊的每一筆個別資料記錄為個別事件。 <br> <br> 如果您需要彙總此資料並以更有彈性的方式檢視，可以下載報告，並在 Excel 中以樞紐分析表開啟資料。
 
 ## <a name="troubleshoot-the-password-reset-registration-portal"></a>疑難排解密碼重設註冊入口網站
@@ -55,7 +55,7 @@ ms.locfileid: "33869949"
 | Error | 解決方法 |
 | --- | --- |
 | 目錄未啟用密碼重設功能。 **您的系統管理員尚未為您啟用這項功能。** | 將 [已啟用自助式密碼重設] 旗標切換為 [選取項目] 或 [全部]，然後選取 [儲存]。 |
-| 使用者尚未獲得 Azure AD Premium 或 Basic 授權。 **您的系統管理員尚未為您啟用這項功能。** | 如果您未將 Azure AD Premium 或 Basic 授權指派給執行此作業的系統管理員，就會發生這種情況。 <br> <br> 您可以將授權指派給所提及的系統管理員帳戶，以解決這個問題。 如需詳細資訊，請參閱[指派、驗證授權及解決其問題](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses)。|
+| 使用者尚未獲得 Azure AD Premium 或 Basic 授權。 **您的系統管理員尚未為您啟用這項功能。** | 如果您未將 Azure AD Premium 或 Basic 授權指派給執行此作業的系統管理員，就會發生這種情況。 <br> <br> 您可以將授權指派給所提及的系統管理員帳戶，以解決這個問題。 如需詳細資訊，請參閱[指派、驗證授權及解決其問題](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses)。|
 | 處理要求時發生錯誤。 | 許多問題都會造成此情形，但這個錯誤通常是因為服務中斷或設定問題所導致。 如果您看到這個錯誤，而且它會影響您的業務，請連絡 Microsoft 支援服務人員以尋求其他協助。 |
 
 ## <a name="troubleshoot-the-password-reset-portal"></a>疑難排解密碼重設入口網站
@@ -63,16 +63,18 @@ ms.locfileid: "33869949"
 | Error | 解決方法 |
 | --- | --- |
 | 目錄未啟用密碼重設功能。 | 將 [已啟用自助式密碼重設] 旗標切換為 [選取項目] 或 [全部]，然後選取 [儲存]。 |
-| 使用者尚未獲得 Azure AD Premium 或 Basic 授權。 | 如果您未將 Azure AD Premium 或 Basic 授權指派給執行此作業的系統管理員，就會發生這種情況。 <br> <br> 如果您將授權指派給所提及的系統管理員帳戶，就可以解決這個問題。 如需詳細資訊，請參閱[指派、驗證授權及解決其問題](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses)。 |
+| 使用者尚未獲得 Azure AD Premium 或 Basic 授權。 | 如果您未將 Azure AD Premium 或 Basic 授權指派給執行此作業的系統管理員，就會發生這種情況。 <br> <br> 如果您將授權指派給所提及的系統管理員帳戶，就可以解決這個問題。 如需詳細資訊，請參閱[指派、驗證授權及解決其問題](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses)。 |
 | 目錄已啟用密碼重設，但使用者的驗證資訊遺失或格式不正確。 | 在繼續之前，請確定使用者已在目錄中登記格式正確的連絡資料。 如需詳細資訊，請參閱 [Azure AD 自助式密碼重設所用的資料](howto-sspr-authenticationdata.md)。 |
 | 目錄已啟用密碼重設，原則設定為需要兩個驗證方法，但使用者只登記一個連絡資料。 | 在繼續之前，請確定使用者有至少兩個已正確設定的連絡方法。 例如，擁有行動電話號碼和辦公室電話號碼。 |
 | 目錄已啟用密碼重設，並已正確設定使用者，但無法連絡到使用者。 | 原因可能是暫時性的服務錯誤，或如果連絡資料不正確，而無法正確偵測到。 <br> <br> 如果使用者等候 10 秒，就會出現「再試一次」和「連絡您的系統管理員」連結。 如果使用者選取「再試一次」，就會重試該呼叫。 如果使用者選取「連絡您的系統管理員」，就會傳送表單電子郵件給其全域系統管理員，要求對該使用者帳戶執行密碼重設。 |
 | 使用者從未收到密碼重設 SMS 或來電。 | 原因可能是目錄中的電話號碼格式不正確。 請確定電話號碼的格式是 “+ccc xxxyyyzzzzXeeee”。 <br> <br> 密碼重設並不支援分機號碼，即使您在目錄中指定也是一樣。 在分派呼叫之前，會移除分機號碼。 使用沒有分機號碼的電話號碼，或將分機號碼整合至專用交換機 (PBX) 中的電話號碼。 |
 | 使用者從未收到密碼重設電子郵件。 | 這個問題最常見的原因，是垃圾郵件篩選器拒絕了郵件。 請檢查您的垃圾郵件或刪除的郵件資料夾中是否有該電子郵件。 <br> <br> 同時確定您檢查的是正確電子郵件帳戶中的訊息。 |
 | 我已設定密碼重設原則，但是當系統管理員帳戶使用密碼重設時，卻未套用該原則。 | Microsoft 會管理及控制系統管理員的密碼重設原則，以確保最高層級的安全性。 |
-| 禁止使用者在一天當中嘗試重設密碼太多次。 | 我們實作了自動節流機制來避免使用者在短時間內嘗試重設密碼太多次。 節流發生時機： <br><ul><li>使用者嘗試在一個小時內驗證電話號碼 5 次。</li><li>使用者嘗試在一個小時內使用安全性問題關卡 5 次。</li><li>使用者嘗試在一個小時內重設相同使用者帳戶的密碼 5 次。</li></ul>若要修正這個問題，請指示使用者在最後一次嘗試之後等待 24 小時。 使用者接著可以重設其密碼。 |
+| 禁止使用者在一天當中嘗試重設密碼太多次。 | 我們實作了自動節流機制來避免使用者在短時間內嘗試重設密碼太多次。 節流發生時機： <br><ul><li>使用者嘗試在一個小時內驗證電話號碼 5 次。</li><li>使用者在一個小時內嘗試使用安全性問題關卡五次。</li><li>使用者在一個小時內嘗試重設相同使用者帳戶的密碼五次。</li></ul>若要修正這個問題，請指示使用者在最後一次嘗試之後等待 24 小時。 使用者接著可以重設其密碼。 |
 | 使用者在驗證其電話號碼時看到錯誤。 | 輸入的電話號碼與登記的電話號碼不符時，就會發生這個錯誤。 請確定使用者在嘗試使用電話式方法來重設密碼時，輸入了完整的電話號碼，包括區碼和國碼。 |
 | 處理要求時發生錯誤。 | 許多問題都會造成此情形，但這個錯誤通常是因為服務中斷或設定問題所導致。 如果您看到這個錯誤，而且它會影響您的業務，請連絡 Microsoft 支援服務人員以尋求其他協助。 |
+| 內部部署原則違規 | 密碼不符合內部部署的 Active Directory 密碼原則。 |
+| 密碼未遵循模糊原則 | 使用的密碼存在於禁止的密碼清單中，不得使用。 |
 
 ## <a name="troubleshoot-password-writeback"></a>針對密碼回寫進行疑難排解
 
@@ -83,10 +85,10 @@ ms.locfileid: "33869949"
 | 在 Azure AD Connect 安裝程序的最後一個步驟，您會看到一個錯誤，指出無法設定「密碼回寫」。 <br> <br> Azure AD Connect 應用程式事件記錄包含錯誤 32009，以及「取得授權權杖時發生錯誤」文字。 | 下列兩種情況會發生此錯誤： <br><ul><li>針對在 Azure AD Connect 安裝程序開始時所指定的全域系統管理員帳戶，指定了錯誤的密碼。</li><li>針對在 Azure AD Connect 安裝程序開始時所指定的全域系統管理員帳戶，嘗試使用同盟使用者。</li></ul> 若要修正此問題，請確定您並未針對在安裝程序開始時所指定的全域系統管理員使用同盟帳戶。 也請確定所指定的密碼正確。 |
 | Azure AD Connect 電腦的事件記錄包含透過執行 PasswordResetService 所擲回的錯誤 32002。 <br> <br> 此錯誤指出：「連線到服務匯流排時發生錯誤。 權杖提供者無法提供安全性權杖。」 | 您的內部部署環境無法連線到雲端的 Azure 服務匯流排端點。 這個錯誤是因為防火牆規則封鎖連往特定連接埠或網址的輸出連線所導致。 如需詳細資訊，請參閱[連線必要條件](./../connect/active-directory-aadconnect-prerequisites.md)。 在您更新這些規則之後，請重新啟動 Azure AD Connect 電腦，「密碼回寫」應該就會再次開始運作。 |
 | 運作一段時間之後，同盟、傳遞驗證或密碼雜湊同步使用者無法重設其密碼。 | 在某些罕見的情況下，Azure AD Connect 重新啟動後，「密碼回寫」服務可能仍無法重新啟動。 在這些情況下，請先檢查「密碼回寫」是否在內部部署環境中顯示為已啟用。 您可以使用 Azure AD Connect 精靈或 PowerShell 來檢查 (請參閱上一節「做法」)。 如果此功能顯示為已啟用，請再次嘗試透過 UI 或 PowerShell 啟用或停用此功能。 如果這麼做沒有效，請嘗試完整解除安裝再重新安裝 Azure AD Connect。 |
-| 同盟、傳遞驗證或密碼雜湊同步使用者若嘗試重設其密碼，會在嘗試提交密碼後看到錯誤。 此錯誤表示發生服務問題。 <br ><br> 除了這個問題之外，在密碼重設作業期間，您可能會在內部部署的事件記錄中看到關於管理代理程式存取遭拒的錯誤。 | 如果您在事件記錄中看到這些錯誤，請確認在設定時於精靈中指定的 Active Directory 管理代理程式 (ADMA) 帳戶具有密碼回寫的必要權限。 <br> <br> 請注意，給予此權限後，最多需要一小時的時間，此權限才會透過網域控制站 (DC) 上的 `sdprop` 背景工作往下傳遞。 <br> <br> 若要讓密碼重設正常運作，必須在要重設密碼的使用者物件安全性描述元上為權限加上戳記。 在使用者物件上出現此權限之前，密碼重設會繼續因存取遭拒訊息而失敗。 |
+| 同盟、傳遞驗證或密碼雜湊同步使用者若嘗試重設其密碼，會在嘗試提交密碼後看到錯誤。 此錯誤表示發生服務問題。 <br ><br> 除了這個問題之外，在密碼重設作業期間，您可能會在內部部署的事件記錄中看到關於管理代理程式存取遭拒的錯誤。 | 如果您在事件記錄中看到這些錯誤，請確認在設定時於精靈中指定的 Active Directory 管理代理程式 (ADMA) 帳戶具有密碼回寫的必要權限。 <br> <br> 這項權限在授與後，最多需要一小時的時間，才會透過網域控制站 (DC) 上的 `sdprop` 背景工作往下傳遞。 <br> <br> 若要讓密碼重設正常運作，必須在要重設密碼的使用者物件安全性描述元上為權限加上戳記。 在使用者物件上出現此權限之前，密碼重設會繼續因存取遭拒訊息而失敗。 |
 | 同盟、傳遞驗證或密碼雜湊同步使用者若嘗試重設其密碼，會在嘗試提交密碼後看到錯誤。 此錯誤表示發生服務問題。 <br> <br> 除了這個問題之外，在密碼重設作業期間，您可能會在 Azure AD Connect 服務的事件記錄中，看到錯誤指出「找不到物件」錯誤。 | 這個錯誤通常表示同步處理引擎找不到 Azure AD 連接器空間中的使用者物件，或連結的 Metaverse (MV) 或 Azure AD 連接器空間物件。 <br> <br> 若要針對這個問題進行疑難排解，請確定使用者已確實透過 Azure AD Connect 的目前執行個體從內部部屬同步處理到 Azure AD，並檢查連接器空間和 MV 中物件的狀態。 確認 Active Directory 憑證服務 (AD CS) 物件會透過 “Microsoft.InfromADUserAccountEnabled.xxx” 規則連線到 MV 物件。|
-| 同盟、傳遞驗證或密碼雜湊同步使用者若嘗試重設其密碼，會在嘗試提交密碼後看到錯誤。 此錯誤表示發生服務問題。 <br> <br> 除了這個問題之外，在密碼重設作業期間，您可能會在 Azure AD Connect 服務的事件記錄中看到錯誤，指出「找到多個相符項目」錯誤。 | 此錯誤指出同步處理引擎偵測到 MV 物件透過 “Microsoft.InfromADUserAccountEnabled.xxx” 連線到多個 AD CS 物件。 這表示使用者在多個樹系中啟用帳戶。 請注意，密碼回寫不支援此案例。 |
-| 密碼作業因設定錯誤而失敗。 應用程式事件記錄中包含 Azure AD Connect 錯誤 6329 和文字：「0x8023061f (作業失敗，因為此管理代理程式上未啟用密碼同步處理)」。 | 如果在已經啟用「密碼回寫」功能之後，變更 Azure AD Connect 設定來新增新的 Active Directory 樹系 (或移除現有樹系再重新加入)，就會發生此錯誤。 位於在這些最近新增樹系中的使用者，其密碼作業會失敗。 若要修正此問題，請在完成樹系設定變更之後，將「密碼回寫」功能先停用，然後再重新啟用。 |
+| 同盟、傳遞驗證或密碼雜湊同步使用者若嘗試重設其密碼，會在嘗試提交密碼後看到錯誤。 此錯誤表示發生服務問題。 <br> <br> 除了這個問題之外，在密碼重設作業期間，您可能會在 Azure AD Connect 服務的事件記錄中看到錯誤，指出「找到多個相符項目」錯誤。 | 此錯誤指出同步處理引擎偵測到 MV 物件透過 “Microsoft.InfromADUserAccountEnabled.xxx” 連線到多個 AD CS 物件。 這表示使用者在多個樹系中啟用帳戶。 密碼回寫不支援此案例。 |
+| 密碼作業因設定錯誤而失敗。 應用程式事件記錄中包含 Azure AD Connect 錯誤 6329 和文字：「0x8023061f (作業失敗，因為此管理代理程式上未啟用密碼同步處理)」。 | 如果在已經啟用密碼回寫功能之後，變更 Azure AD Connect 設定以新增 Active Directory 樹系 (或移除現有樹系再重新加入)，就會發生此錯誤。 位於在這些最近新增樹系中的使用者，其密碼作業會失敗。 若要修正此問題，請在完成樹系設定變更之後，將「密碼回寫」功能先停用，然後再重新啟用。 |
 
 ## <a name="password-writeback-event-log-error-codes"></a>密碼回寫事件記錄錯誤碼
 
@@ -167,7 +169,7 @@ ms.locfileid: "33869949"
    - passwordreset.microsoftonline.com
    - servicebus.windows.net
 
-如需詳細資訊，請參閱 [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) (Microsoft Azure Datacenter IP 範圍) 的更新清單，該清單會每個星期三進行更新並在下一個星期一生效。
+如需詳細資訊，請參閱 [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) (Microsoft Azure Datacenter IP 範圍) 的更新清單，該清單會在每星期三更新、隔週星期一生效。
 
 如需詳細資訊，請在 [Azure AD Connect 的必要條件](./../connect/active-directory-aadconnect-prerequisites.md)一文中檢閱連線必要條件。
 

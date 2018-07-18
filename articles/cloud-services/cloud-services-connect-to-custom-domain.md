@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29845650"
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>將 Azure 雲端服務角色連接到裝載於 Azure 中的自訂 AD 網域控制站
 我們會先在 Azure 中設定虛擬網路 (VNet)。 接著再將 Active Directory 網域控制站 (裝載於 Azure 虛擬機器上) 加入 VNet。 下一步是將現有雲端服務角色加入預先建立的 VNet，然後將它們連接到網域控制站。

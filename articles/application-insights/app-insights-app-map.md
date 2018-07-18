@@ -10,14 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2017
-ms.author: mbullwin; Soubhagya.Dash
-ms.openlocfilehash: a02d345c0f624f2d1694b4b9622bf3c82c009429
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: Soubhagya.Dash
+ms.author: mbullwin
+ms.openlocfilehash: 539becf272194a116355c6a0491042d40e1e7494
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293957"
 ---
 # <a name="application-map-triage-distributed-applications"></a>應用程式對應：對分散式應用程式進行分級
 應用程式對應可協助您找出分散式應用程式所有元件的效能瓶頸或失敗熱點。 對應上的每個節點各代表應用程式元件或其相依性；並具有健康情況 KPI 和警示狀態。 您可以從任何元件逐一點選至更詳細的診斷，例如 Application Insights 事件。 如果您的應用程式使用 Azure 服務，您也可以逐一點選 Azure 診斷，例如 SQL 資料庫建議程式的建議。

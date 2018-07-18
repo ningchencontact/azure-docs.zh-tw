@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 10/23/2017
 ms.author: tdykstra
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: a1ca2b821678b48f65fe6ec6e58fa65cd8e4304f
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 71adccabc0778e2765c574f3714aab0ed0179deb
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303407"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724464"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 佇列儲存體繫結
 
@@ -29,13 +29,17 @@ ms.locfileid: "34303407"
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages"></a>封裝
+## <a name="packages---functions-1x"></a>套件 - Functions 1.x
 
-[Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 套件中提供佇列儲存體繫結。 套件的原始程式碼位於 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src) GitHub 存放庫中。
+[Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 套件 2.x 版中提供佇列儲存體繫結。 套件的原始程式碼位於 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Queue) GitHub 存放庫中。
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>套件 - Functions 2.x
+
+[Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 套件 3.x 版中提供佇列儲存體繫結。 套件的原始程式碼位於 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Storage/Queue) GitHub 存放庫中。
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
@@ -241,6 +245,8 @@ module.exports = function (context) {
 * `string`
 * `byte[]`
 * [CloudQueueMessage]
+
+如果您嘗試繫結至 `CloudQueueMessage`，並出現錯誤訊息，請確定您已參考[正確的儲存體 SDK 版本](#azure-storage-sdk-version-in-functions-1x)。
 
 在 JavaScript 中，使用 `context.bindings.<name>` 存取佇列項目承載。 如果承載為 JSON，則會將已序列化的承載還原為物件。
 
@@ -475,6 +481,8 @@ public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
 * `string`
 * `byte[]`
 * [CloudQueueMessage] 
+
+如果您嘗試繫結至 `CloudQueueMessage`，並出現錯誤訊息，請確定您已參考[正確的儲存體 SDK 版本](#azure-storage-sdk-version-in-functions-1x)。
 
 在 C# 和 C# 指令碼中，藉由使用下列其中一個類型，寫入多個佇列訊息： 
 

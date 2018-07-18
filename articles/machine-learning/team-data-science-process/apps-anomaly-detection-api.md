@@ -8,17 +8,19 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 52fafe1f-e93d-47df-a8ac-9a9a53b60824
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
 ms.author: alok
-ms.openlocfilehash: 7633d2bd15e5bc4620a4980623f3883c162f4331
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9f1f3c2c808558124548008927219191469a412b
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34836461"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning 異常偵測 API
 ## <a name="overview"></a>概觀
@@ -32,7 +34,7 @@ ms.lasthandoff: 04/28/2018
 
 這些 Machine Learning 偵測器會追蹤數值在不同時間所發生的這一類變化，並以異常分數的形式報告數值正在進行的變化。 它們不需要臨機操作調整臨界值，而且其分數可用來控制偽陽性率。 異常偵測 API 可用在許多案例，例如追蹤不同時間的 KPI 以監視服務、透過搜尋次數、點擊次數等度量來監視使用量、透過不同時間的記憶體、CPU、檔案讀取數等計數器來監視效能。
 
-異常偵測在供應時會隨附有用的工具以讓您快速入門。
+異常偵測供應項目在供應時會隨附有用的工具以讓您快速入門。
 
 * [Web 應用程式](http://anomalydetection-aml.azurewebsites.net/) 可協助您評估和視覺化將異常偵測 API 套用在您的資料後所產生的結果。
 

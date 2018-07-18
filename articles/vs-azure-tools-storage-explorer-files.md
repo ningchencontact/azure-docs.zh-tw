@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31525752"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>搭配使用儲存體總管與 Azure 檔案儲存體
 

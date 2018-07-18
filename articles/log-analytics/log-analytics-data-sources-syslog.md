@@ -9,16 +9,18 @@ editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 011eaf1a4705f9078225b9b871f81b4333b05ee8
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.component: na
+ms.openlocfilehash: 1e7806e802f9b1dda16a9d5d477783663d03d416
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131781"
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Log Analytics 中的 Syslog 資料來源
 Syslog 是通用於 Linux 的事件記錄通訊協定。  應用程式將傳送的訊息可能會儲存在本機電腦上，或傳遞到 Syslog 收集器。  安裝 OMS Agent for Linux 時，它會設定本機 Syslog 精靈來將訊息轉送到代理程式。  接著，代理程式會將訊息傳送到 Log Analytics，其中對應的記錄會建立於 OMS 儲存機制中。  

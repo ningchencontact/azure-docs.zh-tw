@@ -1,21 +1,21 @@
 ---
-title: Azure Active Directory B2C：使用自訂原則新增 LinkedIn 作為 OAuth2 識別提供者
-description: 使用 OAuth2 通訊協定和自訂原則來設定 LinkedIn 應用程式的使用說明文章
+title: 在 Azure Active Directory B2C 中使用自訂原則新增 LinkedIn 作為 OAuth2 識別提供者 | Microsoft Docs
+description: 使用 OAuth2 通訊協定和自訂原則來設定 LinkedIn 應用程式的使用說明文章。
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: davidmu
-ms.openlocfilehash: 9e5235739abcfbee1e530685890098a45a1b093d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 334f696d79cf801facf7c5301b2240b69f7134f7
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444373"
 ---
 # <a name="azure-active-directory-b2c-add-linkedin-as-an-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C：使用自訂原則新增 LinkedIn 作為識別提供者
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/23/2018
 完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)一文中的步驟。
 
 ## <a name="step-1-create-a-linkedin-account-application"></a>步驟 1：建立 LinkedIn 帳戶應用程式
-如果要在 Azure Active Directory B2C (Azure AD B2C) 中將 LinkedIn 作為識別提供者，您必須建立 LinkedIn 應用程式，然後為其提供正確的參數。 您可以前往 [LinkedIn 註冊頁面](https://LinkedIn.com/signup)，註冊 LinkedIn 應用程式。
+如果要在 Azure Active Directory B2C (Azure AD B2C) 中將 LinkedIn 作為識別提供者，您必須建立 LinkedIn 應用程式，然後為其提供正確的參數。 您可以前往 [LinkedIn 註冊頁面](https://www.linkedin.com/start/join)，註冊 LinkedIn 應用程式。
 
 1. 前往 [LinkedIn 應用程式管理](https://www.linkedin.com/secure/developer?newapp=)網站，使用您的 LinkedIn 帳戶認證登入，然後選取 [建立應用程式]。
 

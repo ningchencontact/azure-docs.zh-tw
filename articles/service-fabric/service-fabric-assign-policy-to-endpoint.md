@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/21/2018
 ms.author: mfussell
-ms.openlocfilehash: f9de8d213d11a8ccb3ffff484a67560d9e2abe77
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 33d6d83d4dcd0ec9bebf8d4197684e0e52c48ac5
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701313"
 ---
 # <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>為 HTTP 和 HTTPS 端點指派安全性存取原則
 如果您套用執行身分原則，而且服務資訊清單宣告 HTTP 端點資源，您就必須指定 **SecurityAccessPolicy**。  **SecurityAccessPolicy** 可確保配置給這些端點的連接埠受到正確限制，唯有執行服務的使用者帳戶才能使用。 否則， **http.sys** 無法存取服務，而且您從用戶端呼叫時將會失敗。 下列範例會將 Customer1 帳戶套用到名為 **EndpointName** 的端點，這會給予它完整的存取權限。
@@ -42,6 +43,10 @@ ms.lasthandoff: 05/16/2018
   <EndpointBindingPolicy EndpointRef="EndpointName" CertificateRef="Cert1" />
 </Policies
 ```
+
+> [!WARNING] 
+> 使用 HTTPS 時，請勿對部署至相同節點的不同服務執行個體 (獨立於應用程式) 使用相同連接埠和憑證。 在不同的應用程式執行個體中，使用相同連接埠來升級兩個不同的服務，將會導致升級失敗。 如需詳細資訊，請參閱[使用 HTTPS 端點來升級多個應用程式](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints)。
+> 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 若要了解後續步驟，請閱讀下列文章：

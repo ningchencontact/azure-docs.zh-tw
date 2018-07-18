@@ -1,6 +1,6 @@
 ---
-title: 設定 Azure Active Directory 裝置型條件式存取原則 | Microsoft Docs
-description: 了解如何設定 Azure Active Directory 裝置型條件式存取原則。
+title: 作法 - 透過 Azure Active Directory 條件式存取要求必須從受控裝置存取雲端應用程式 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory (Azure AD) 裝置型條件式存取原則，以要求必須從受控裝置存取雲端應用程式。
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -8,42 +8,53 @@ manager: mtillman
 editor: ''
 ms.assetid: a27862a6-d513-43ba-97c1-1c0d400bf243
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 06/14/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 07957d5ec843c414813d69b7084915bcd70a5a61
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 066d25e8953a2be4bd64cdd1af79b7f2a25dd5f9
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33930852"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37034499"
 ---
-# <a name="configure-azure-active-directory-device-based-conditional-access-policies"></a>設定 Azure Active Directory 裝置型條件式存取原則
+# <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>作法：透過條件式存取要求必須從受控裝置存取雲端應用程式
 
-透過 [Azure Active Directory (Azure AD) 條件式存取](active-directory-conditional-access-azure-portal.md)，您可以控制授權使用者如何存取您的資源。 例如，您可以將特定資源的存取限制為受控裝置。 需要受控裝置的條件式存取原則，也稱為裝置型條件式存取原則。
+在行動第一、雲端第一的世界中，Azure Active Directory (Azure AD) 可讓您從任何地方單一登入至應用程式和服務。 授權使用者可以從多種裝置 (包括行動裝置和個人裝置) 存取您的雲端應用程式。 不過，許多環境都至少會有些許應用程式只應由符合您的安全性與相容性標準的裝置存取。 這些裝置也稱為受控裝置。 
 
-本主題說明如何為 Azure AD 連線應用程式設定裝置型條件式存取原則。 
+本文說明如何設定條件式存取原則，以要求只有受控裝置才能存取您環境中的特定雲端應用程式。 
 
 
-## <a name="before-you-begin"></a>開始之前
+## <a name="prerequisites"></a>先決條件
 
-裝置型條件式存取會將 **Azure AD 條件式存取**和 **Azure AD 裝置管理**繫結在一起。 如果您還不熟悉上述其中一種領域，您應該先閱讀下列主題：
+要求須由受控裝置存取雲端應用程式，會將 **Azure AD 條件式存取**和 **Azure AD 裝置管理**繫結在一起。 如果您還不熟悉上述其中一種領域，您應該先閱讀下列主題：
 
-- **[Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal.md)** - 本主題提供條件式存取和相關術語的概念性概觀。
+- **[Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal.md)** - 本文提供條件式存取的概念性概觀和相關術語。
 
-- **[Azure Active Directory 中的裝置管理簡介](device-management-introduction.md)** - 本主題提供您可用來連線裝置與 Azure AD 之各種選項的概觀。 
+- **[Azure Active Directory 中的裝置管理簡介](device-management-introduction.md)** - 本文概略說明在組織的控制下可用來連接裝置的各種選項。 
 
+
+## <a name="scenario-description"></a>案例描述
+
+要兼顧安全性與生產力並不容易。 在可存取雲端資源的裝置種類激增的情況下，使用者的生產力得以提升。 而另一方面，您應該不希望環境中的特定資源在保護層級不確定的情況下受到裝置存取。 對於受影響的資源，您應要求使用者只能使用受控裝置加以存取。 
+
+利用 Azure AD 條件式存取，您可以透過單一原則來處理此需求並：
+
+- 將存取權授與所選的雲端應用程式
+
+- 將存取權授與所選使用者和群組
+
+- 必須使用受控裝置
 
 
 ## <a name="managed-devices"></a>受控裝置  
 
-在行動第一、雲端第一的世界中，Azure Active Directory 可讓您從任何地方單一登入至裝置、應用程式和服務。 對於您環境中的某些資源，授與存取權給適當的使用者可能還不夠好。 除了適當的使用者，您也可能要求只能使用受控裝置執行存取嘗試。
-
-受控裝置是符合您的安全性與合規性標準的裝置。 簡單來說，受控裝置是受到「某種」組織性控制的裝置。 在 Azure AD 中，受控裝置的必要條件是已向 Azure AD 註冊。 註冊裝置時，系統會以裝置物件的形式為裝置建立身分識別。 Azure 使用此物件來追蹤裝置的狀態資訊。 身為 Azure AD 管理員的您已經可以使用此物件來切換 (啟用/停用) 裝置的狀態。
+簡單來說，受控裝置是受到「某種」組織性控制的裝置。 在 Azure AD 中，受控裝置的必要條件是已向 Azure AD 註冊。 註冊裝置時，系統會以裝置物件的形式為裝置建立身分識別。 Azure 使用此物件來追蹤裝置的狀態資訊。 身為 Azure AD 管理員的您已經可以使用此物件來切換 (啟用/停用) 裝置的狀態。
   
 ![裝置型條件](./media/active-directory-conditional-access-policy-connected-applications/32.png)
 
@@ -55,10 +66,9 @@ ms.locfileid: "33930852"
 
 - **[已加入混合式 Azure AD 的裝置](device-management-introduction.md#hybrid-azure-ad-joined-devices)** - 向 Azure AD 註冊已加入內部部署 AD 的 Windows 10 裝置。
 
-若要成為受控裝置，註冊的裝置可以是已加入混合式 Azure AD 的裝置，或是標示為符合規範的裝置。  
+若要成為受控裝置，已註冊的裝置必須是**已加入混合式 Azure AD 的裝置**，或是**標示為符合規範的裝置**。  
 
 ![裝置型條件](./media/active-directory-conditional-access-policy-connected-applications/47.png)
-
 
  
 ## <a name="require-hybrid-azure-ad-joined-devices"></a>需要已加入混合式 Azure AD 的裝置
@@ -67,7 +77,7 @@ ms.locfileid: "33930852"
 
 ![裝置型條件](./media/active-directory-conditional-access-policy-connected-applications/10.png)
 
-此設定只適用於已加入內部部署 Azure AD 的 Windows 10 裝置。 您只可以使用「加入混合式 Azure AD」向 Azure AD 註冊這些裝置，而這是註冊 Windows 10 裝置的[自動化程序](device-management-hybrid-azuread-joined-devices-setup.md)。 
+此設定只適用於已加入內部部署 AD 的 Windows 10 裝置。 您只可以使用「加入混合式 Azure AD」向 Azure AD 註冊這些裝置，而這是註冊 Windows 10 裝置的[自動化程序](device-management-hybrid-azuread-joined-devices-setup.md)。 
 
 ![裝置型條件](./media/active-directory-conditional-access-policy-connected-applications/45.png)
 
@@ -82,8 +92,8 @@ ms.locfileid: "33930852"
 
 此選項要求向 Azure AD 註冊裝置，而且裝置要由下列項目標示為符合規範：
          
-- Intune 
-- 協力廠商行動裝置受控系統，可透過 Azure AD 整合來管理 Windows 10 裝置 
+- Intune。
+- 一個第三方行動裝置管理 (MDM) 系統，可透過 Azure AD 整合來管理 Windows 10 裝置。 不支援針對 Windows 10 以外的裝置 OS 類型使用的第三方 MDM 系統。
  
 ![裝置型條件](./media/active-directory-conditional-access-policy-connected-applications/46.png)
 

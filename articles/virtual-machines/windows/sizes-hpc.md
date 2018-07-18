@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/15/2018
+ms.date: 07/06/2018
 ms.author: jonbeck
-ms.openlocfilehash: e402fd3ac95cac4816b9442f7c08aeaf7c108886
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 31e81741d2a627888e478b3871bdbab4e6b6d6f5
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37902634"
 ---
 # <a name="high-performance-compute-vm-sizes"></a>高效能運算 VM 大小
 
@@ -62,6 +63,7 @@ ms.lasthandoff: 04/06/2018
 - [記憶體最佳化](../virtual-machines-windows-sizes-memory.md)
 - [儲存體最佳化](../virtual-machines-windows-sizes-storage.md)
 - [GPU 最佳化](sizes-gpu.md)
+- [前幾代](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>後續步驟
 

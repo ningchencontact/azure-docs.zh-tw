@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: f831c046bcf8f633841f9dc4a0fce6d1e419e6c2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 869b87b8df3b1f532a33e943e728681b358ed8b4
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287621"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric 容器網路模式
 
@@ -230,7 +231,23 @@ ms.lasthandoff: 05/16/2018
      </Endpoints>
    </Resources>
    ```
+   
+6. 就 Windows 而言、VM 重新開機將會導致開放式網路重新建立。 這是為了緩解網路堆疊中潛藏的問題。 預設行為是重新建立網路。 如果必須關閉此行為，您可以在進行組態升級之前使用下列組態。
 
+```json
+"fabricSettings": [
+                {
+                    "name": "Setup",
+                    "parameters": [
+                    {
+                            "name": "SkipContainerNetworkResetOnReboot",
+                            "value": "true"
+                    }
+                    ]
+                }
+            ],          
+ ``` 
+ 
 ## <a name="next-steps"></a>後續步驟
 * [了解 Service Fabric 應用程式模型](service-fabric-application-model.md)
 * [深入了解 Service Fabric 服務資訊清單資源](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)

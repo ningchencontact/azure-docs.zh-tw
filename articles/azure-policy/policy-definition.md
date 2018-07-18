@@ -4,16 +4,16 @@ description: 說明「Azure 原則」如何使用資源原則定義，藉由描�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/07/2018
+ms.date: 05/24/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1937792290d973f3aee7fa3c0714f4667c21e79a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 2f756d65fa167b3812772088aec7232d08b04b9f
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194643"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937327"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure 原則定義結構
 
@@ -64,7 +64,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 }
 ```
 
-所有「Azure 原則」範本範例都位於[Azure 原則的範本](json-samples.md)。
+所有 Azure 原則範例都位於[原則範例](json-samples.md)。
 
 ## <a name="mode"></a>Mode
 
@@ -192,7 +192,8 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 - `"notContainsKey": "keyName"`
 - `"exists": "bool"`
 
-當使用 **like** 和 **notLike** 條件時，您可以在值中提供萬用字元 (*)。
+使用 **like** 和 **notLike** 條件時，您可以在值中提供萬用字元 `*`。
+值不能包含一個以上的萬用字元 `*`。
 
 當使用 **match** 和 **notMatch** 條件時，請提供 `#` 來表示數字、`?` 來表示字母，以及任何其他字元來表示該實際字元。 如需範例，請參閱[允許多個名稱模式](scripts/allow-multiple-name-patterns.md)。
 
@@ -204,7 +205,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 
 - `name`
 - `fullName`
-  - 傳回資源的完整名稱，包括任何父項 (例如 "myServer/myDatabase")
+  - 傳回資源的完整名稱。 資源的完整名稱是資源名稱前面加上任何父系資源名稱 (例如 "myServer/myDatabase")。
 - `kind`
 - `type`
 - `location`
@@ -251,6 +252,8 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 
 使用 **AuditIfNotExists** 及 **DeployIfNotExists** 時，您可以評估相關資源是否存在，並在該資源不存在時，套用規則及對應的效果。 例如，您可以要求網路監看員針對所有虛擬網路部署。
 如需在未部署虛擬機器擴充功能時進行稽核的範例，請參閱[稽核擴充功能是否不存在](scripts/audit-ext-not-exist.md)。
+
+如須每個效果的完整詳細資訊、評估順序、屬性和範例，請參閱[了解原則效果](policy-effects.md)。
 
 ## <a name="aliases"></a>別名
 
@@ -392,4 +395,4 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 
 ## <a name="next-steps"></a>後續步驟
 
-- 檢閱位於 [Azure 原則的範本](json-samples.md)的「Azure 原則」範本範例。
+- 在 [Azure 原則範例](json-samples.md)檢閱更多範例。

@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31527149"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>在 SQL 資料倉儲中編製資料表的索引
 在 Azure SQL 資料倉儲中編製資料表索引的建議與範例。

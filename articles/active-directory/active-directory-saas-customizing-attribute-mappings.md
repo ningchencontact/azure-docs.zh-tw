@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 03/13/2018
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 78d971b47ffceb8d845f21a731176834f004f12c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7dad9f3e688c43de3eabd430bf5618ad4632ca3d
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37034527"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>在 Azure Active Directory 中自訂 SaaS 應用程式的使用者佈建屬性對應
-Microsoft Azure AD 支援使用者佈建到例如 Salesforce、Google Apps 等等的協力廠商 SaaS 應用程式。 如果您啟用了第三方 SaaS 應用程式的使用者佈建，Azure 入口網站會以名為「屬性對應」的組態形式控制其屬性值。
+Microsoft Azure AD 支援使用者佈建到例如 Salesforce、Google Apps 等等的協力廠商 SaaS 應用程式。 如果您啟用了第三方 SaaS 應用程式的使用者佈建，Azure 入口網站會以「屬性對應」的形式控制其屬性值。
 
 在 Azure AD 使用者物件和每個 SaaS 應用程式的使用者物件之間，有一組預先設定的屬性和屬性對應。 有些應用程式除了使用者以外，還會管理其他類型的物件，例如群組。 <br> 
  您可以根據您的業務需求自訂預設的屬性對應。 這表示您可以變更或刪除現有的屬性對應，或建立新的屬性對應。
@@ -47,7 +48,7 @@ Microsoft Azure AD 支援使用者佈建到例如 Salesforce、Google Apps 等�
 
 
 ### <a name="understanding-attribute-mapping-types"></a>了解屬性對應類型
-有了屬性對應，您就可以控制屬性在協力廠商 SaaS 應用程式中填入的方式。 支援四種不同的對應類型：
+透過屬性對應，您將可控制屬性在第三方 SaaS 應用程式中填入的方式。 支援四種不同的對應類型：
 
 * **直接** - 目標屬性會填入 Azure AD 中連結物件的屬性值。
 * **常數** - 目標屬性會填入您所指定的特定字串。
@@ -55,13 +56,13 @@ Microsoft Azure AD 支援使用者佈建到例如 Salesforce、Google Apps 等�
   如需詳細資訊，請參閱[在 Azure Active Directory 中撰寫屬性對應的運算式](active-directory-saas-writing-expressions-for-attribute-mappings.md)。
 * **無** - 目標屬性保留未修改。 不過，如果目標屬性是空的，就會填入您所指定的預設值。
 
-除了這四個基本屬性對應類型，自訂屬性對應還支援選擇性的**預設**值指派的概念。 預設值指派可確保當 Azure AD 中和目標物件都沒有值時，目標屬性會填入某個值。 最常見的設定是將其保留空白。
+除了這四個基本類型以外，自訂屬性對應還支援選擇性的**預設**值指派的概念。 預設值指派可確保當 Azure AD 中和目標物件都沒有值時，目標屬性會填入某個值。 最常見的設定是將其保留空白。
 
 
 ### <a name="understanding-attribute-mapping-properties"></a>了解屬性對應屬性
 
-在前一個區段中，您已經引進了屬性對應類型屬性。
-除了這個屬性之外，屬性對應也會支援下列屬性：
+在上一節中，我們已為您介紹屬性對應類型屬性。
+除了這個屬性之外，屬性對應也支援下列屬性：
 
 - **來源屬性** - 來源系統的使用者屬性 (例如：Azure Active Directory)。
 - **目標屬性** – 目標系統中的使用者屬性 (例如：ServiceNow)。
@@ -83,7 +84,7 @@ Microsoft Azure AD 支援使用者佈建到例如 Salesforce、Google Apps 等�
 佈建為群組物件一部分的屬性，可依照與使用者物件相同的方式進行自訂，如前所述。 
 
 >[!TIP]
->佈建群組物件 (屬性和成員) [與將群組指派](active-directory-coreapps-assign-user-azure-portal.md)給應用程式是不同的概念。 您可以將群組指派給應用程式，但只能佈建群組中所包含的使用者物件。 要在指派中使用群組，並不需要佈建整個群組的物件。
+>佈建群組物件 (屬性和成員) [與將群組指派](manage-apps/assign-user-or-group-access-portal.md)給應用程式是不同的概念。 您可以將群組指派給應用程式，但只能佈建群組中所包含的使用者物件。 要在指派中使用群組，並不需要佈建整個群組的物件。
 
 
 ## <a name="editing-the-list-of-supported-attributes"></a>編輯支援的屬性清單
@@ -97,8 +98,7 @@ Microsoft Azure AD 支援使用者佈建到例如 Salesforce、Google Apps 等�
 * Salesforce
 * ServiceNow
 * Workday
-* Azure Active Directory
-* 內部部署 Active Directory (作為 Workday 使用者佈建連接器的一部分)
+* Azure Active Directory (支援 [Azure AD Graph API 預設屬性](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity)和自訂目錄擴充功能)
 * 支援 [SCIM 2.0](https://tools.ietf.org/html/rfc7643) 的應用程式，定義於[核心結構描述](https://tools.ietf.org/html/rfc7643)中的屬性必須新增至此處
 
 >[!NOTE]
@@ -149,8 +149,8 @@ Microsoft Azure AD 支援使用者佈建到例如 Salesforce、Google Apps 等�
 * [自動化 SaaS 應用程式使用者佈建/解除佈建](active-directory-saas-app-provisioning.md)
 * [撰寫屬性對應的運算式](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [適用於使用者佈建的範圍篩選器](active-directory-saas-scoping-filters.md)
-* [使用 SCIM 以啟用從 Azure Active Directory 到應用程式的使用者和群組自動佈建](active-directory-scim-provisioning.md)
-* [如何整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
+* [使用 SCIM 以啟用從 Azure Active Directory 到應用程式的使用者和群組自動佈建](manage-apps/use-scim-to-provision-users-and-groups.md)
+* [如何整合 SaaS 應用程式的教學課程清單](saas-apps/tutorial-list.md)
 
 <!--Image references-->
 [5]: ./media/active-directory-saas-customizing-attribute-mappings/21.png

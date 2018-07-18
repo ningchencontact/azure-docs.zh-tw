@@ -15,6 +15,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31790656"
 ---
 # <a name="rest-apis-for-azure-sql-data-warehouse"></a>適用於 Azure SQL 資料倉儲的 REST API
 在 Azure SQL 資料倉儲中用於管理計算能力的 REST API。

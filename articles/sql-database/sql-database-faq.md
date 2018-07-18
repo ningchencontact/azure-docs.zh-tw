@@ -6,15 +6,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: reference
-ms.topic: article
-ms.date: 04/04/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: carlrab
-ms.openlocfilehash: 5d77c2dc121d7f291fa755f66d7d9a5d7213bf9f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2aff7d98fde50c89e637572437a7c572911bce76
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195425"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309124"
 ---
 # <a name="sql-database-faq"></a>SQL Database 常見問題集
 
@@ -24,19 +24,19 @@ ms.locfileid: "32195425"
 ## <a name="what-is-the-sla-for-sql-database"></a>SQL Database 的 SLA 是什麼？
 我們保證，無論您屬於哪個服務層，您的 Microsoft Azure SQL Database 可與我們的網際網路閘道正常連線的時間至少須達 99.99%。 如需詳細資訊，請參閱 [SLA](http://azure.microsoft.com/support/legal/sla/)。
 
-## <a name="whatis-the-new-vcore-based-purchasing-model-preview-for-azure-sql-database"></a>Azure SQL Database 以虛擬核心為基礎的新購買模型 (預覽) 為何？
+## <a name="what-is-the-new-vcore-based-purchasing-model-preview-for-azure-sql-database"></a>Azure SQL Database 以虛擬核心為基礎的新購買模型 (預覽) 為何？
 
-新的購買模型是在以 DTU 為基礎的現有模型以外新增的模型。 以虛擬核心為基礎的模型可為客戶提供彈性、可控制、透明且直接的方法，讓他們將內部部署工作負載需求移轉到雲端。 此模型可讓客戶根據工作負載需求，進行計算和儲存體的調整。 使用 vCore 模型的單一資料庫和彈性集區選項可透過[適用於 SQL Server 的 Azure Hybrid Use Benefit](../virtual-machines/windows/hybrid-use-benefit-licensing.md) 來節省成本，最多可省下 30%。 如需詳細資訊，請參閱[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)和[以虛擬核心為基礎的購買模型 (預覽)](sql-database-service-tiers-vcore.md)。 
+新的購買模型是在以 DTU 為基礎的現有模型以外新增的模型。 以虛擬核心為基礎的模型可為客戶提供彈性、可控制、透明且直接的方法，讓他們將內部部署工作負載需求移轉到雲端。 此模型可讓客戶根據工作負載需求來調整計算和儲存資源。 使用 vCore 模型的單一資料庫和彈性集區選項可透過[適用於 SQL Server 的 Azure Hybrid Use Benefit](../virtual-machines/windows/hybrid-use-benefit-licensing.md) 來節省成本，最多可省下 30%。 如需詳細資訊，請參閱[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)和[以虛擬核心為基礎的購買模型 (預覽)](sql-database-service-tiers-vcore.md)。 
 
 ## <a name="what-is-a-vcore"></a>什麼是 vCore？ 
-虛擬核心代表提供了選項讓您在各硬體世代間進行選擇的邏輯 CPU。 第 4 代邏輯 CPU 以 E5-2673 v3 (Haswell) 2.4 GHz 處理器為基礎，而第 5 代邏輯 CPU 則以 Intel E5-2673 v4 (Broadwell) 2.3 GHz 處理器為基礎。
+虛擬核心代表可以選擇使用的邏輯 CPU，可在各硬體世代間進行選擇。 第 4 代邏輯 CPU 以 E5-2673 v3 (Haswell) 2.4 GHz 處理器為基礎，而第 5 代邏輯 CPU 則以 Intel E5-2673 v4 (Broadwell) 2.3 GHz 處理器為基礎。
 
 ## <a name="is-moving-to-the-vcore-based-model-required"></a>一定要改用以 vCore 為基礎的模型嗎？
 不一定。在彈性集區和單一資料庫部署選項中加入以 vCore 為基礎的模型，反映了我們對客戶選擇和彈性的承諾。 如果客戶想要繼續使用 DTU 架構的模型，他們可以忽略此公告，其使用和計費方式都會和原來一樣。 
 
 在許多情況下，應用程式都可基於預先設定的資源組合所具備的簡易性而獲益。 因此，我們會繼續為客戶提供並支援這些以 DTU 為基礎的選項。 如果您正在使用此類模型，而它也符合您的業務需求，您就應該繼續使用。
 
-以 DTU 和 vCore 為基礎的模型將繼續並存。 我們推出以 vCore 為基礎的模型是為了回應客戶的要求，使其資料庫資源更透明，並能分開調整計算和儲存資源。 以 vCore 為基礎的模型也能讓擁有有效軟體保證的客戶透過適用於 SQL Server 的 Azure Hybrid Benefit 節省更多成本。
+以 DTU 和 vCore 為基礎的模型將繼續並存。 我們推出以虛擬核心為基礎的模型是為了回應客戶的要求，使其資料庫資源更透明，並且能夠分開調整其計算和儲存資源。 以 vCore 為基礎的模型也能讓擁有有效軟體保證的客戶透過適用於 SQL Server 的 Azure Hybrid Benefit 節省更多成本。
 
 ## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model-preview"></a>如何在以 DTU 為基礎的購買模型和以虛擬核心為基礎的購買模型 (預覽) 之間做出選擇？ 
 資料庫交易單位 (DTU) 是以 CPU、記憶體、讀取和寫入的混合量值為基礎。 以 DTU 為基礎的效能等級代表已預先設定的資源組合，以期達成不同等級的應用程式效能。 如果客戶不想煩惱基礎資源的事，偏好簡單的預先設定資源組合，並且每個月支付固定金額，以 DTU 為基礎的模型可能較符合其需求。 然而，如果客戶需要深入了解基礎資源的情況，或是需要個別調整資源以達到最佳效能，以 vCore 為基礎的模型將是最佳選擇。  此外，如果客戶的 SQL Server 具有有效的軟體保證 (SA)，則運用其現有的投資，透過[適用於 SQL Server 的 Azure Hybrid Ese Benefit](../virtual-machines/windows/hybrid-use-benefit-licensing.md) 節省成本，最多可達 30%。  這兩種購買模型內的選項皆提供完全受控服務的權益，例如自動備份、軟體更新和修補程式。 
@@ -52,7 +52,7 @@ ms.locfileid: "32195425"
 我們現在為 SQL Server 客戶提供的軟體保證授權行動性權益，允許客戶將其授權重新指派給第三方共用伺服器。 此權益可用於 Azure IaaS 和 AWS EC2。
 適用於 SQL Server 的 Azure Hybrid Benefit 主要在以下兩方面與授權行動性有所差異：
 - 它提供將高度虛擬化工作負載移轉至 Azure 的經濟效益。 在一般目的 SKU 中，SQL EE 客戶在內部部署所擁有的每個核心，將可使其在 Azure 中獲得 4 個核心，以用於高度虛擬化應用程式。 授權行動性並不允許將虛擬化工作負載移轉至雲端的任何特殊成本優勢。
-- 它是針對 Azure 上與內部部署 SQL Server (SQL Database 受控執行個體) 高度相容的 PaaS 目的地而提供的。
+- 它是針對 Azure 上與內部部署 SQL Server 高度相容的 PaaS 目的地 (SQL Database 受控執行個體) 而提供的。
 
 ## <a name="what-are-the-specific-rights-of-the-azure-hybrid-benefit-for-sql-server"></a>適用於 SQL Server 的 Azure Hybrid Benefit 有哪些明確的權利？
 SQL Database 客戶將會有下列與適用於 SQL Server 的 Azure Hybrid Benefit 相關聯的權利：
@@ -90,18 +90,18 @@ SQL Database 客戶將會有下列與適用於 SQL Server 的 Azure Hybrid Benef
 您可以為備份保留設定 7 到 35 天的 PITR。 如果實際儲存體用量超過等同於資料大小上限的儲存體數量時，將會根據該實際用量收取備份儲存體的費用。 在預覽期間，預設的 PITR 保留期限設為 7 天。 在多數情況下，資料大小上限皆足以儲存 7 天的備份。
 
 ## <a name="why-do-you-allow-selection-of-the-hardware-generation-for-compute"></a>用於計算的硬體世代為何可供選取？
-我們的目標是要提供最大的彈性，讓您能夠選擇最符合應用程式需求的效能組態。 上表顯示 Gen4 和 Gen5 之間的差異。 特別是，Gen4 硬體提供的每一 vCore 記憶體會高出許多。 不過，Gen5 硬體可讓您大幅相應增加計算容量。 我們想要清楚顯示這些差異，以協助您讓應用程式達到最理想的性價比。
+我們的目標是要提供最大的彈性，讓您能夠選擇最符合應用程式需求的效能組態。 上表顯示 Gen4 和 Gen5 之間的差異。 特別是，Gen4 硬體提供的每一 vCore 記憶體會高出許多。 不過，Gen5 硬體可讓您大幅相應增加計算資源。 我們想要清楚顯示這些差異，以協助您讓應用程式達到最理想的性價比。
 
 ## <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>是否需要先讓應用程式離線，才能從以 DTU 為基礎的資料庫轉換為以 vCore 為基礎的服務層？ 
-新的服務層提供簡單的線上轉換方法，類似現在將資料庫從標準版升級為進階版服務層的程序，反之亦然。 這項轉換可使用入口網站、ARM、PowerShell、Azure CLI 或 T-SQL 來起始。 請參閱[管理單一資料庫](sql-database-single-database-resources.md)和[管理彈性集區](sql-database-elastic-pool.md)。
+新的服務層提供簡單的線上轉換方法，類似現在將資料庫從標準版升級為進階版服務層的程序，反之亦然。 這項轉換可使用 Azure 入口網站、PowerShell、Azure CLI、T-SQL 或 REST API 來起始。 請參閱[管理單一資料庫](sql-database-single-database-scale.md)和[管理彈性集區](sql-database-elastic-pool.md)。
 
 ## <a name="can-i-convert-a-database-from-a-vcore-based-service-tier-to-a-dtu-based-one"></a>是否可將資料庫從以 vCore 為基礎的服務層轉換為以 DTU 為基礎的服務層？ 
-是，您可以使用入口網站輕鬆地將資料庫轉換為任何支援的效能目標，或是以程式設計方式使用入口網站、ARM、PowerShell、Azure CLI 或 T-SQL 來轉換。 請參閱[管理單一資料庫](sql-database-single-database-resources.md)和[管理彈性集區](sql-database-elastic-pool.md)。
+是，您可以使用 Azure 入口網站、PowerShell、Azure CLI、T-SQL 或 REST API，輕鬆地將資料庫轉換為任何支援的效能目標。 請參閱[管理單一資料庫](sql-database-single-database-scale.md)和[管理彈性集區](sql-database-elastic-pool.md)。
 
 ## <a name="can-i-upgrade-or-downgrade-between-the-general-purpose-and-business-critical-service-tiers"></a>我是否可在一般目的與業務關鍵服務層之間升級或降級？ 
 是，但有某些限制。 您的目的地 SKU 必須符合您為現有部署設定的資料庫或彈性集區大小上限。 如果您使用[適用於 SQL Server 的 Azure Hybrid Use Benefit](../virtual-machines/windows/hybrid-use-benefit-licensing.md)，則業務關鍵 SKU 僅可供具有 Enterprise Edition 授權的客戶使用。 只有使用適用於 SQL Server 的 Azure Hybrid Benefit 與 Enterprise Edition 授權從內部部署移轉至「一般目的」的客戶，才可升級為「業務關鍵」。 如需詳細資訊，請參閱[適用於 SQL Server 的 Azure Hybrid Use Benefit 有哪些明確的權利](../virtual-machines/windows/hybrid-use-benefit-licensing.md)？
 
-這項轉換不會導致停止運作，並且可使用入口網站、ARM、PowerShell、Azure CLI 或 T-SQL 來起始。 請參閱[管理單一資料庫](sql-database-single-database-resources.md)和[管理彈性集區](sql-database-elastic-pool.md)。
+這項轉換不會導致停止運作，並可使用 Azure 入口網站、PowerShell、Azure CLI、T-SQL 或 REST API 來起始。 請參閱[管理單一資料庫](sql-database-single-database-scale.md)和[管理彈性集區](sql-database-elastic-pool.md)。
 
 ## <a name="i-am-using-a-premium-rs-database-that-will-not-be-generally-available---can-i-upgrade-it-to-a-new-tier-and-achieve-a-similar-priceperformance-benefit"></a>我所使用的進階 RS 資料庫並不會正式推出 - 是否可將其升級至新服務層而達到類似的價格/效能優勢？
 由於 vCore 模型允許您個別控制佈建的計算和儲存體數量，因此您可以更有效地管理產生的成本，這正是您使用進階 RS 資料庫的誘因。 此外，在使用以 vCore 為基礎的模型時，[適用於 SQL Server 的 Azure Hybrid Use Benefit](../virtual-machines/windows/hybrid-use-benefit-licensing.md) 會提供大幅折扣。 
@@ -193,3 +193,4 @@ SQL Database 會根據[購買模型](sql-database-service-tiers-dtu.md)以可預
 
 ## <a name="to-move-a-database-between-subscriptions"></a>在訂用帳戶之間移動資料庫
 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [SQL Server]，然後從清單中選取裝載您資料庫的伺服器。 按一下 [移動] ，然後挑選要移動的資源以及要移入的訂用帳戶。
+

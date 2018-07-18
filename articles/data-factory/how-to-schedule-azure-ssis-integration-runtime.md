@@ -3,35 +3,37 @@ title: 如何排程 Azure SSIS 整合執行階段 | Microsoft Docs
 description: 本文說明如何使用 Azure 自動化及 Data Factory 來排程 Azure SSIS 整合執行階段的啟動和停止。
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
-ms.topic: article
-ms.date: 05/18/2018
-ms.author: douglasl
-ms.openlocfilehash: dfb54aeeff1b1f1640609be708e1b9d767a18c3a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.date: 06/01/2018
+author: swinarko
+ms.author: sawinark
+ms.reviewer: douglasl
+manager: craigg
+ms.openlocfilehash: 3758b04fc9b5ecd5dc69c82a8bd07999a9f1074a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360320"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050602"
 ---
-# <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>如何排程 Azure SSIS 整合執行階段的啟動和停止 
-執行 Azure SSIS (SQL Server Integration Services) 整合執行階段 (IR) 會產生相關費用。 因此，您只應在需要於 Azure 中執行 SSIS 套件時才執行 IR，而在不需要時即應加以停止。 您可以使用 Data Factory UI 或 Azure PowerShell，[以手動方式啟動或停止 Azure SSIS IR](manage-azure-ssis-integration-runtime.md)。 本文說明如何使用 Azure 自動化及 Azure Data Factory 來排程 Azure SSIS 整合執行階段 (IR) 的啟動和停止。 以下是本文說明的概要步驟：
+# <a name="how-to-start-and-stop-the-azure-ssis-integration-runtime-on-a-schedule"></a>如何排程 Azure SSIS 整合執行階段的啟動和停止
+本文說明如何使用 Azure 自動化及 Azure Data Factory 來排程 Azure SSIS 整合執行階段 (IR) 的啟動和停止。 執行 Azure SSIS (SQL Server Integration Services) 整合執行階段 (IR) 會產生相關費用。 因此，您通常只應在需要於 Azure 中執行 SSIS 套件時才執行 IR，而在不需要時即應加以停止。 您可以使用 Data Factory UI 或 Azure PowerShell，[以手動方式啟動或停止 Azure SSIS IR](manage-azure-ssis-integration-runtime.md)。
+
+例如，您可以使用 Webhook 建立 Web 活動至 Azure 自動化 PowerShell Runbook，並在它們之間鏈結 Execute SSIS 套件活動。 Web 活動可在您的套件執行前或後即時啟動和停止您的 Azure SSIS IR。 如需有關 Execute SSIS 套件活動的詳細資訊，請參閱[在 Azure Data Factory 中使用 SSIS 活動執行 SSIS 套件](how-to-invoke-ssis-package-ssis-activity.md)。
+
+## <a name="overview-of-the-steps"></a>步驟概觀
+
+以下是本文說明的概要步驟：
 
 1. **建立並測試 Azure 自動化 Runbook。** 在此步驟中，您會使用指令碼建立啟動或停止 Azure SSIS IR 的 PowerShell Runbook。 然後，您會在「啟動」和「停止」的案例中測試 Runbook，並確認 IR 會啟動或停止。 
 2. **為 Runbook 建立兩個排程。** 在第一個排程中，您會設定具有 START 作業的 Runbook。 在第二個排程中，則設定具有 STOP 作業的 Runbook。 對這兩個排程，您都會指定執行 Runbook 的頻率。 例如，您可以將第一個 Runbook 排程在每天上午 8 點執行，第二個則在每天晚上 11 點執行。 第一個 Runbook 執行時，即會啟動 Azure SSIS IR。 第二個 Runbook 執行時，則會停止 Azure SSIS IR。 
 3. **為 Runbook 建立兩個 Webhook**，一個用於 START 作業，另一個則用於 STOP 作業。 您在 Data Factory 管線中設定 Web 活動時，可以使用這些 Webhook 的 URL。 
 4. **建立 Data Factory 管線**。 您建立的管線包含下列三個活動。 第一個 **Web** 活動會叫用第一個 Webhook，以啟動 Azure SSIS IR。 **預存程序**活動會執行 SQL 指令碼以執行 SSIS 套件。 第二個 **Web** 活動會停止 Azure SSIS IR。 如需如何使用預存程序活動從 Data Factory 管線叫用 SSIS 套件的詳細資訊，請參閱[叫用 SSIS 套件](how-to-invoke-ssis-package-stored-procedure-activity.md)。 接著，您可以建立排程觸發程序，以將管線排程為依照您指定的頻率執行。
 
-> [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務，也就是正式推出 (GA) 的版本，請參閱[使用第 1 版的預存程序活動叫用 SSIS 封裝](v1/how-to-invoke-ssis-package-stored-procedure-activity.md)。
-
- 
 ## <a name="prerequisites"></a>先決條件
 如果您尚未佈建 Azure SSIS 整合執行階段，請依照[教學課程](tutorial-create-azure-ssis-runtime-portal.md)中的指示加以佈建。 
 
@@ -74,11 +76,11 @@ ms.locfileid: "34360320"
 
     ![驗證必要的模組](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image1.png)
 
-2.  移至 [AzureRM.DataFactoryV2 0.5.2 模組](https://www.powershellgallery.com/packages/AzureRM.DataFactoryV2/0.5.2)的 PowerShell 資源庫，選取 [部署至 Azure 自動化]，選取您的自動化帳戶，然後選取 [確定]。 回到左側功能表的 [共用資源] 中，檢視 [模組]，並等到您看到 **AzureRM.DataFactoryV2 0.5.2** 模組的 [狀態] 變更為 [可用] 為止。
+2.  移至 [AzureRM.DataFactoryV2 模組](https://www.powershellgallery.com/packages/AzureRM.DataFactoryV2/)的 PowerShell 資源庫，選取 **[部署至 Azure 自動化]**，選取您的自動化帳戶，然後選取 **[確定]**。 回到左側功能表的 **[共用資源]** 中，檢視 **[模組]**，並等到您看到 **AzureRM.DataFactoryV2** 模組的 **[狀態]** 變更為 **[可用]** 為止。
 
     ![驗證 Data Factory 模組](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image2.png)
 
-3.  移至 [AzureRM.Profile 4.5.0 模組](https://www.powershellgallery.com/packages/AzureRM.profile/4.5.0)的 PowerShell 資源庫，按一下 [部署至 Azure 自動化]，選取您的自動化帳戶，然後選取 [確定]。 回到左側功能表的 [共用資源] 中，檢視 [模組]，並等到您看到 **AzureRM.Profile 4.5.0** 模組的 [狀態] 變更為 [可用] 為止。
+3.  移至 [AzureRM.Profile 模組](https://www.powershellgallery.com/packages/AzureRM.profile/)的 PowerShell 資源庫，按一下 **[部署至 Azure 自動化]**，選取您的自動化帳戶，然後選取 **[確定]**。 回到左側功能表的 **[共用資源]** 中，檢視 **[模組]**，並等到您看到 **AzureRM.Profile** 模組的 **[狀態]** 變更為 **[可用]** 為止。
 
     ![驗證設定檔模組](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image3.png)
 
@@ -240,7 +242,7 @@ ms.locfileid: "34360320"
  
    Azure Data Factory 的名稱必須是 **全域唯一的**。 如果您收到下列錯誤，請變更資料處理站的名稱 (例如 yournameMyAzureSsisDataFactory)，然後試著重新建立。 請參閱 [Data Factory - 命名規則](naming-rules.md)一文，以了解 Data Factory 成品的命名規則。
   
-       `Data factory name “MyAzureSsisDataFactory” is not available`
+       `Data factory name �MyAzureSsisDataFactory� is not available`
 3. 選取您要在其中建立資料處理站的 Azure **訂用帳戶**。 
 4. 針對 [資源群組]，請執行下列其中一個步驟︰
      
@@ -248,7 +250,7 @@ ms.locfileid: "34360320"
       - 選取 [建立新的] ，然後輸入資源群組的名稱。   
          
       若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。  
-4. 對 [版本] 選取 [V2 (預覽)]。
+4. 針對 [版本] 選取 [V2]。
 5. 選取 Data Factory 的 [位置]  。 清單中只會顯示資料處理站建立所支援的位置。
 6. 選取 [釘選到儀表板]。     
 7. 按一下頁面底部的 [新增] 。
@@ -382,6 +384,9 @@ ms.locfileid: "34360320"
     ![觸發程序執行](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-runs.png)
 
 ## <a name="next-steps"></a>後續步驟
+請參閱下列部落格文章：
+-   [使用 ADF 管線中的 SSIS 活動來現代化及擴充您的 ETL/ELT 工作流程](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/)
+
 請參閱 SSIS 文件中的下列文章： 
 
 - [在 Azure 上部署、執行和監視 SSIS 套件](/sql/integration-services/lift-shift/ssis-azure-deploy-run-monitor-tutorial)   

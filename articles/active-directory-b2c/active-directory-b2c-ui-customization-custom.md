@@ -1,22 +1,21 @@
 ---
-title: 使用自訂原則來自訂 UI - Azure AD B2C | Microsoft Docs
+title: 在 Azure Active Directory B2C 中使用自訂原則來自訂 UI | Microsoft Docs
 description: 了解如何在 Azure AD B2C 中使用自訂原則時自訂使用者介面 (UI)。
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 41b756855ea91db291f4fdb5a963993de4b9cd7e
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.component: B2C
+ms.openlocfilehash: 9908a7cf96c56e414e0a8d7faea0352b60214ea4
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33200853"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446158"
 ---
 # <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C︰在自訂原則中設定 UI 自訂
 

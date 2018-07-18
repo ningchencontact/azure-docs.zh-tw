@@ -16,6 +16,7 @@ ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34053805"
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>探索您的 Azure 電腦和非 Azure 電腦上安裝了哪些軟體
 

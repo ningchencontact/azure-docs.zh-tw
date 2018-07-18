@@ -10,22 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 17e5ba3637b0ae36412e46166f7f178d4c82d179
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: e254c9b18d86debad7ba914a0a4d41369795bc58
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33204763"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050009"
 ---
 # <a name="copy-data-from-azure-database-for-mysql-using-azure-data-factory"></a>使用 Azure Data Factory 從適用於 MySQL 的 Azure 資料庫複製資料
 
 本文概述如何使用 Azure Data Factory 中的「複製活動」，從適用於 MySQL 的 Azure 資料庫複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
-
-> [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (也就是正式推出版 (GA))，請參閱 [V1 中的 MySQL 連接器](v1/data-factory-onprem-mysql-connector.md)。
 
 ## <a name="supported-capabilities"></a>支援的功能
 
@@ -159,13 +156,14 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 |:--- |:--- |
 | `bigint` |`Int64` |
 | `bigint unsigned` |`Decimal` |
-| `bit` |`Decimal` |
+| `bit` |`Boolean` |
+| `bit(M), M>1`|`Byte[]`|
 | `blob` |`Byte[]` |
-| `bool` |`Boolean` |
+| `bool` |`Int16` |
 | `char` |`String` |
 | `date` |`Datetime` |
 | `datetime` |`Datetime` |
-| `decimal` |`Decimal` |
+| `decimal` |`Decimal, String` |
 | `double` |`Double` |
 | `double precision` |`Double` |
 | `enum` |`String` |

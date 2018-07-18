@@ -19,6 +19,7 @@ ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/29/2018
+ms.locfileid: "30265079"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>ExpressRoute 必要條件和檢查清單
 若要使用 ExpressRoute 連線到 Microsoft 雲端服務，您必須確認是否符合以下各節中所列的下列需求。

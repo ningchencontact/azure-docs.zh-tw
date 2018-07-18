@@ -4,7 +4,7 @@ description: 本文描述 Azure Active Directory 無縫單一登入功能的運�
 services: active-directory
 keywords: 何謂 Azure AD Connect、安裝 Active Directory、Azure AD、SSO、單一登入的必要元件
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -13,21 +13,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9d17a4038f2171b74c8ba1dbc21e8335e6893691
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 0b1940894ffb01595d11bc49889c6ec01714816b
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918249"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory 無縫單一登入：技術性深入探討
 
 本文提供 Azure Active Directory 無縫單一登入 (無縫 SSO) 功能運作方式的技術詳細資料。
 
-## <a name="how-does-seamless-sso-work"></a>無縫 SSO 如何運作？
+## <a name="how-does-seamless-sso-work"></a>順暢 SSO 如何運作？
 
 本節包含三個相關部分：
-1. 「無縫 SSO」功能的設定。
+1. 無縫 SSO 功能的設定。
 2. 網頁瀏覽器上的單一使用者登入交易如何與「無縫 SSO」搭配運作。
 3. 原生用戶端上的單一使用者登入交易如何與「無縫 SSO」搭配運作。
 
@@ -50,7 +52,7 @@ ms.lasthandoff: 03/08/2018
 
 網頁瀏覽器上的登入流程如下：
 
-1. 使用者嘗試從公司網路內已加入網域的公司裝置存取 Web 應用程式 (例如 Outlook Web 應用程式 - https://outlook.office365.com/owa/)。
+1. 使用者嘗試從公司網路內已加入網域的公司裝置存取 Web 應用程式 (例如 Outlook Web App，https://outlook.office365.com/owa/))。
 2. 如果使用者尚未登入，則會將使用者重新導向至 Azure AD 登入頁面。
 3. 使用者將他們的使用者名稱鍵入 Azure AD 登入頁面中。
 

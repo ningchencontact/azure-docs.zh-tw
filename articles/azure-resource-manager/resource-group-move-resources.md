@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/14/2018
+ms.date: 06/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6c0e9c96840995c7d5a067e60264c66ce987af93
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7bee84e1ce473c27730b3fe84aa0a580baeba7c2
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360082"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36939919"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
@@ -30,7 +30,7 @@ ms.locfileid: "34360082"
 您無法變更資源的位置。 移動資源只會將它移動到新的資源群組。 新的資源群組可能會有不同的位置，但那樣不會變更資源的位置。
 
 > [!NOTE]
-> 本文說明如何在現有的 Azure 帳戶提供項目內移動資源。 如果您真的想要變更 Azure 帳戶提供項目 (例如，從隨用隨付升級為預付)，同時繼續使用現有的資源，請參閱 [切換至不同的 Azure 訂用帳戶優惠](../billing/billing-how-to-switch-azure-offer.md)。
+> 本文說明如何在現有的 Azure 帳戶供應項目內移動資源。 如果您真的想要變更 Azure 帳戶供應項目 (例如，從隨用隨付升級為預付)，同時繼續使用現有的資源，請參閱 [切換至不同的 Azure 訂用帳戶供應項目](../billing/billing-how-to-switch-azure-offer.md)。
 >
 >
 
@@ -57,7 +57,7 @@ ms.locfileid: "34360082"
   如果來源和目的地訂用帳戶的租用戶識別碼不相同，請使用下列方法來協調租用戶識別碼：
 
   * [將 Azure 訂用帳戶的擁有權轉移給另一個帳戶](../billing/billing-subscription-transfer.md)
-  * [如何將 Azure 訂用帳戶關聯或新增至 Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md)
+  * [如何將 Azure 訂用帳戶關聯或新增至 Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 2. 服務必須啟用移動資源的功能。 本文列出哪些服務可實現移動資源，哪些服務無法實現移動資源。
 3. 必須針對要移動之資源的資源提供者註冊其目的地訂用帳戶。 否則，您會收到錯誤，指出 **未針對資源類型註冊訂用帳戶**。 將資源移至新的訂用帳戶時，可能會因為該訂用帳戶不曾以指定的資源類型使用過而遇到問題。
@@ -93,6 +93,10 @@ ms.locfileid: "34360082"
    * 來源資源群組上的 **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action**。
    * 來源資源群組上的 **Microsoft.Resources/subscriptions/resourceGroups/write**。
 
+5. 移動資源之前，請針對您要將資源移入的訂用帳戶，檢查其訂用帳戶配額。 如果移動資源表示訂用帳戶會超出限制，那麼您必須檢閱您是否可以要求增加配額。 如需限制清單和如何要求增加配額的資訊，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md)。
+
+5. 可能的話，請將大型移動細分為個別的移動作業。 Resource Manager 在單一作業中嘗試移動超過 800 個資源會立即失敗。 不過，移動少於 800 個資源也可能因為逾時而失敗。
+
 ## <a name="when-to-call-support"></a>呼叫支援的時機
 
 您可以透過本文顯示的自助式作業，移動大部分資源。 使用自助式作業︰
@@ -113,6 +117,7 @@ ms.locfileid: "34360082"
 * App Service 應用程式 (Web 應用程式) - 請參閱 [App Service 限制](#app-service-limitations)
 * App Service 憑證
 * Application Insights
+* Analysis Services
 * 自動化
 * Azure Cosmos DB
 * Azure 轉送
@@ -124,7 +129,7 @@ ms.locfileid: "34360082"
 * 內容仲裁
 * 資料目錄
 * Data Factory - 可移動 V1，但不支援移動 V2 (預覽)
-* Data Lake Analytics
+* 資料湖分析
 * Data Lake Store
 * DNS
 * 事件中樞
@@ -151,7 +156,8 @@ ms.locfileid: "34360082"
 * 儲存體
 * 儲存體 (傳統) - 請參閱 [傳統部署限制](#classic-deployment-limitations)
 * 串流分析 - 無法移動執行中狀態的串流分析作業。
-* SQL Database 伺服器 - 資料庫和伺服器必須位於相同的資源群組。 當您移動 SQL 伺服器時，其所有資料庫也會跟著移動。 此行為會套用至 Azure SQL Database 和 Azure SQL Data Warehouse 資料庫。 
+* SQL Database 伺服器 - 資料庫和伺服器必須位於相同的資源群組。 當您移動 SQL 伺服器時，其所有資料庫也會跟著移動。 此行為會套用至 Azure SQL Database 和 Azure SQL Data Warehouse 資料庫。
+* 時間序列深入解析
 * 流量管理員
 * 虛擬機器 - VM 具有無法移動的受控磁碟。 請參閱[虛擬機器限制](#virtual-machines-limitations)
 * 虛擬機器 (傳統) - 請參閱 [傳統部署限制](#classic-deployment-limitations)
@@ -172,6 +178,7 @@ ms.locfileid: "34360082"
 * Azure Migrate
 * BizTalk 服務
 * 憑證 - App Service 憑證可以移動，但上傳的憑證則有其[限制](#app-service-limitations)。
+* 容器服務
 * DevTest Labs - 已啟用移動至相同訂用帳戶中新資源群組的功能，但未啟用跨訂用帳戶之間的移動。
 * Dynamics LCS
 * ExpressRoute
@@ -244,7 +251,7 @@ ms.locfileid: "34360082"
 
 ## <a name="classic-deployment-limitations"></a>傳統部署限制
 
-移動透過傳統模型所部署之資源的選項，會根據移動訂用帳戶內的資源還是將資源移到新的訂用帳戶而有所不同。
+透過傳統模型所部署的資源移動選項，會根據移動訂用帳戶內的資源還是將資源移到新的訂用帳戶而有所不同。
 
 ### <a name="same-subscription"></a>相同訂用帳戶
 
@@ -340,7 +347,7 @@ ms.locfileid: "34360082"
 
 ## <a name="hdinsight-limitations"></a>HDInsight 限制
 
-您可以將 HDInsight 叢集移至新的訂用帳戶或資源群組。 不過，您無法跨訂用帳戶來移動連結至 HDInsight 叢集的網路資源 (例如虛擬網路、NIC 或負載平衡器)。 此外，您無法將已連接至叢集虛擬機器的 NIC 移至新的資源群組。
+您可以將 HDInsight 叢集移至新的訂用帳戶或資源群組。 不過，您無法跨訂用帳戶來移動連結至 HDInsight 叢集的網路資源 (例如虛擬網路、NIC 或負載平衡器)。 此外，您無法將已連結至叢集虛擬機器的 NIC 移至新的資源群組。
 
 將 HDInsight 叢集移至新的訂用帳戶時，請先移動其他資源 (例如儲存體帳戶)。 然後，移動 HDInsight 叢集本身。
 

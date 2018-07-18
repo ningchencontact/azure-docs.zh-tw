@@ -8,15 +8,16 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: c718fa972b9d6cba13a13edd3c7e8df29fa63207
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 22c1d24042072de5d57d41da379a5fad18180de7
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972499"
 ---
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 選取 [建立資源] > **[Web + 行動]** > [通知中樞]。
+2. 選取 [建立資源] > [行動] > [通知中樞]。
    
       ![Azure 入口網站 - 建立通知中樞](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
       
@@ -32,7 +33,7 @@ ms.lasthandoff: 05/07/2018
    
       ![Azure 入口網站 - 設定通知中樞屬性](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
 
-4. 選取 [通知] (鈴鐺圖示)，然後選取 [前往資源]。 
+4. 選取 [通知] \(鈴鐺圖示)，然後選取 [前往資源]。 
 
       ![Azure 入口網站 - 通知 -> 前往資源](./media/notification-hubs-portal-create-new-hub/notification-go-to-resource.png)    
 5. 從清單中選取 [存取原則]。 請記下您可使用的兩個連接字串。 您稍後需要用到這些連接字串來處理推播通知。

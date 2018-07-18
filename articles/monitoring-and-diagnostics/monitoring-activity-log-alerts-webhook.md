@@ -1,22 +1,19 @@
 ---
-title: 了解活動記錄警示中使用的 Webhook 結構描述 | Microsoft Docs
+title: 了解活動記錄警示中使用的 Webhook 結構描述
 description: 深入了解活動記錄警示啟動時，張貼至 Webhook URL 的 JSON 結構描述。
 author: johnkemnetz
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
-ms.openlocfilehash: f71714774d7ad54d7eb2132e8c20c87f972157ab
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: alerts
+ms.openlocfilehash: 3935da72cb747a642ee1f360dc5318fc2d34e763
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263226"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure 活動記錄警示的 Webhook
 在定義動作群組的過程中，您可以設定 Webhook 端點以接收活動記錄警示通知。 您可以使用 Webhook 將這些通知路由到其他系統，以進行後置處理或自訂動作。 本文會說明 HTTP POST 至 Webhook 的承載資料樣貌。

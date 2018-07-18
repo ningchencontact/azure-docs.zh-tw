@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213056"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>以程式設計方式調整 Service Fabric 叢集 
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31795189"
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>使用 Beeline 用戶端搭配 Apache Hive
 

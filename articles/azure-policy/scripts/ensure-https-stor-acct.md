@@ -15,11 +15,12 @@ ms.workload: ''
 ms.date: 10/30/2017
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: cc816d74d370b32330221c267d2cc9c5b8561d47
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: dfa9ef6ab3b1168880e29bd1f80a2a8938e7eb25
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38305822"
 ---
 # <a name="ensure-https-traffic-only-for-storage-account"></a>針對儲存體帳戶確保只允許 HTTPS 流量
 
@@ -31,11 +32,11 @@ ms.lasthandoff: 04/28/2018
 
 [!code-json[main](../../../policy-templates/samples/Storage/https-traffic-only/azurepolicy.json "Ensure https traffic only for storage account")]
 
-您可以使用 [Azure 入口網站](#deploy-with-the-portal)[PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 來部署此範本。
+您可以使用 [Azure 入口網站](#deploy-with-the-portal) [PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 來部署此範本。
 
 ## <a name="deploy-with-the-portal"></a>使用入口網站部署
 
-[![部署至 Azure](http://azuredeploy.net/deploybutton.png)](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FStorage%2Fhttps-traffic-only%2Fazurepolicy.json)
+[![部署至 Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FStorage%2Fhttps-traffic-only%2Fazurepolicy.json)
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 部署
 
@@ -76,4 +77,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>後續步驟
 
-- 其他「Azure 原則」範本範例都位於[Azure 原則的範本](../json-samples.md)。
+- 在 [Azure 原則範例](../json-samples.md)檢閱更多範例。

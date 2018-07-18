@@ -20,6 +20,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30168321"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>使用用於容器的 Web 應用程式進行持續部署
 

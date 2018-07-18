@@ -5,20 +5,17 @@ keywords: power bi 教學課程，視覺化資料，power bi 連接器
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: cd1b7f70-ef99-40b7-ab1c-f5f3e97641f7
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: sngun
-ms.openlocfilehash: 8a0f50ad6df1135e05cd69be78e6b7f7820f90c6
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 67ea7a9ea1a1be4fd0780f8b8ce22f1a133615e0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34615864"
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Azure Cosmos DB 的 Power BI 教學課程：使用 Power BI 連接器將資料視覺化
 [PowerBI.com](https://powerbi.microsoft.com/) 是一項線上服務，您可以在其中建立及共用具有您和組織之重要資料的儀表板和報告。  Power BI Desktop 是一項專用的報告撰寫工具，可讓您從各種資料來源擷取資料、合併和轉換資料、建立功能強大的報告和視覺效果，以及將報告發佈至 Power BI。  有了最新版的 Power BI Desktop，您現在可以透過 Power BI 的 Azure Cosmos DB 連接器連線到 Azure Cosmos DB 帳戶。   
@@ -34,7 +31,7 @@ ms.lasthandoff: 04/23/2018
 * 如何在 PowerBI.com 中發佈及共用我的報告？
 
 > [!NOTE]
-> 適用於 Azure Cosmos DB 的 Power BI 連接器會連線到 Power BI Desktop 以擷取和轉換資料。 在 Power BI Desktop 中建立的報告接著可以發行至 PowerBI.com。您無法在 PowerBI.com 中直接擷取和轉換 Azure Cosmos DB 資料。 
+> 適用於 Azure Cosmos DB 的 Power BI 連接器會連線到 Power BI Desktop 以擷取和轉換資料。 在 Power BI Desktop 中建立的報告接著可以發行至 PowerBI.com。 您無法在 PowerBI.com 中直接擷取和轉換 Azure Cosmos DB 資料。 
 
 > [!NOTE]
 > 若要使用 MongoDB API 將 Azure Cosmos DB 連線至 Power BI，您必須使用 [Simba MongoDB ODBC 驅動程式](http://www.simba.com/drivers/mongodb-odbc-jdbc/)。
@@ -49,7 +46,7 @@ ms.lasthandoff: 04/23/2018
     * 唯讀金鑰：MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==
   * 或者，若要建立您自己的帳戶，請參閱[使用 Azure 入口網站建立 Azure Cosmos DB 資料庫帳戶](https://azure.microsoft.com/documentation/articles/create-account/)。 然後，若要取得類似於本教學課程所使用的範例火山資料 (但不包含 GeoJSON 區塊)，請參閱 [NOAA 網站](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5)，然後使用 [Azure Cosmos DB 資料移轉工具](import-data.md)匯入資料。
 
-若要在 PowerBI.com 上共用您的報告，您必須有 PowerBI.com 中的帳戶。若要深入了解免費的 Power BI 和 Power BI Pro，請瀏覽 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing)。
+若要在 PowerBI.com 上共用您的報告，您必須有 PowerBI.com 中的帳戶。  若要深入了解免費的 Power BI 和 Power BI Pro，請瀏覽 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing)。
 
 ## <a name="lets-get-started"></a>現在就開始吧
 在本教學課程中，我們假設您是研究世界各地火山的地質學家。  火山資料儲存在 Azure Cosmos DB 帳戶中，而 JSON 文件看起來如同下列範例文件。
@@ -131,7 +128,7 @@ ms.lasthandoff: 04/23/2018
     ![Azure Cosmos DB Power BI 連接器的 Power BI 教學課程 - 座標清單](./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png)
 7. 為了將座標陣列壓平合併，請建立名為 LatLong 的 [自訂資料行]。  選取 [新增資料行] 功能區，然後按一下 [自訂資料行]。  [自訂資料行] 視窗會隨即出現。
 8. 提供新資料行的名稱，例如 LatLong。
-9. 接下來，指定新資料行的自訂公式。  在我們的範例中，我們將依照下列方式使用以下公式，串連以逗號分隔的緯度和經度值： `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`。 按一下 [SERVICEPRINCIPAL] 。
+9. 接下來，指定新資料行的自訂公式。  在我們的範例中，我們將依照下列方式使用以下公式，串連以逗號分隔的緯度和經度值： `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`。 按一下 [確定]。
    
     如需資料分析運算式 (DAX) (包括 DAX 函數) 的詳細資訊，請瀏覽 [Power BI Desktop 中的 DAX 基礎](https://support.powerbi.com/knowledgebase/articles/554619-dax-basics-in-power-bi-desktop)。
    

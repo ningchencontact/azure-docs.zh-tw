@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 0df54d1758693bce5fb5fd74c3be9c4cfd7dccb6
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 3377a0b4e6440d83962d103b3e1770ccf43bd785
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752916"
 ---
 # <a name="management-solutions-in-azure"></a>在 Azure 中的管理解決方案
 管理解決方案會運用 Azure 中的服務，提供特定應用程式或服務的額外作業見解。 本文提供 Azure 中管理解決方案的簡短概觀，以及使用和安裝它們的詳細資料。
@@ -51,21 +52,17 @@ ms.lasthandoff: 05/08/2018
 ![解決方案屬性](media/monitoring-solutions/solution-properties.png)
 
 
-## <a name="find-management-solutions"></a>尋找管理解決方案
-您可以瀏覽及安裝 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace)中來自 Microsoft 和夥伴的管理解決方案。 執行[管理解決方案搜尋](https://azuremarketplace.microsoft.com/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions)來篩選管理解決方案，然後按一下任何項目以獲得更多詳細資料。
-
-![Marketplace](media/monitoring-solutions/marketplace.png)
 
 ## <a name="install-a-management-solution"></a>安裝管理解決方案
+您可以從 [Azure Marketplace](https://azuremarketplace.microsoft.com) 取得來自 Microsoft 和夥伴的管理解決方案。 您可以使用下列程序來搜尋可用的解決方案並安裝它們。
 
-### <a name="install-a-management-solution-from-the-azure-marketplace"></a>從 Azure Marketplace 安裝管理解決方案
-您可以使用下列任何方法，找出管理解決方案並開始進行安裝。
+1. 從[訂用帳戶的解決方案清單](#list-installed-management-solutions)，按一下 [新增]。 
+1. 在 [管理解決方案] 的右邊，按一下 [更多資訊]。 
+1. 找出您想要的管理解決方案，然後完整閱讀它的說明。
+1. 按一下 [建立] 以啟動安裝程序。
+1. 當安裝程序開始時，系統會提示您提供因每個解決方案而異的必要組態。 無論如何，您都需要選取將會安裝解決方案及收集其資料的 Log Analytics 工作區。 
 
-- 在 [Azure Marketplace](#find-management-solutions) 中的管理解決方案上，按一下 [立即取得]。
-- 從[訂用帳戶的解決方案清單](#list-installed-management-solutions)，按一下 [新增]。 在 [管理解決方案] 的右邊，按一下 [更多資訊]。 找出您想要的管理解決方案，然後按一下 [建立]。
-- 在 Azure 入口網站中，選取 [建立資源] > [監視 + 管理] > [查看全部]。 在 [管理解決方案] 的右邊，按一下 [更多資訊]。 找出您想要的管理解決方案，然後按一下 [建立]。
-
-當安裝程序開始時，系統會提示您提供因每個解決方案而異的必要組態。 無論如何，您都需要選取將會安裝解決方案及收集其資料的 Log Analytics 工作區。 您可能也需要[指定自動化帳戶](#log-analytics-workspace-and-automation-account) (如果解決方案要求)。
+![安裝解決方案](media/monitoring-solutions/install-solution.png)
 
 ### <a name="install-a-solution-from-the-community"></a>從社群安裝解決方案
 社群成員可以將管理解決方案提交至 Azure 快速入門範本。 您可以直接安裝這些解決方案，或下載其範本以便稍後安裝。

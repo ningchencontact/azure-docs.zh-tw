@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect：了解宣告式佈建 | Microsoft Docs"
-description: "說明 Azure AD Connect 中的宣告式佈建組態模型。"
+title: Azure AD Connect：了解宣告式佈建 | Microsoft Docs
+description: 說明 Azure AD Connect 中的宣告式佈建組態模型。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 50fce526d667fa829551425edff4bd3863429ef2
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: bb6a0c16322884afba3d306c491c3cd592fc8595
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593186"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect 同步處理：了解宣告式佈建
 本主題說明 Azure AD Connect 中的組態模型。 此模型稱為宣告式佈建，它可讓您輕鬆地進行組態變更。 本主題中所述的許多項目都是進階的，而且在大部分客戶案例中並非必要。
@@ -39,9 +41,9 @@ ms.lasthandoff: 01/18/2018
 * [優先順序](#precedence)：解決衝突的屬性貢獻
 * 目標：目標物件
 
-## <a name="scope"></a>Scope
+## <a name="scope"></a>影響範圍
 範圍模組會評估物件，並判斷在範圍中且應納入處理的規則。 視物件上的屬性值而定，不同的同步處理規則會評估為在範圍中。 例如，沒有 Exchange 信箱的已停用使用者會有不同於具有信箱的已啟用使用者的規則。  
-![Scope](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/scope1.png)  
+![影響範圍](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/scope1.png)  
 
 範圍可定義為群組和子句。 子句位於群組中。 邏輯 AND 使用於群組中的所有子句之間。 例如，(department =IT AND country = Denmark)。 邏輯 OR 使用於群組之間。
 

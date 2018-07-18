@@ -15,6 +15,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31795352"
 ---
 # <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>分析 Azure SQL 資料倉儲的工作負載 | Microsoft Docs
 在 Azure SQL 資料倉儲中用來分析工作負載查詢優先順序的技術。

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: 674f4ec53300643450d8a576db6fcb50e86dd9d2
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: c500725508d2bf9f09279e665871ab286d9e495a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161153"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652064"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>適用於 StorSimple 的角色型存取控制
 
@@ -31,7 +31,7 @@ ms.locfileid: "34161153"
 
 您可以根據角色指派 RBAC。 該角色會以環境中可用的資源作為基礎來確保特定權限等級。 StorSimple 使用者可以選擇兩種角色類型：內建或自訂。
 
-* **內建角色** - 內建角包可能是擁有者、參與者、讀者或使用者存取管理員。 如需詳細資訊，請參閱 [Azure 角色型存取控制的內建角色](../role-based-access-control/overview.md#built-in-roles)。
+* **內建角色** - 內建角包可能是擁有者、參與者、讀者或使用者存取管理員。 如需詳細資訊，請參閱 [Azure 角色型存取控制的內建角色](../role-based-access-control/built-in-roles.md)。
 
 * **自訂角色** - 如果內建角色不符合需求，您可以建立適用於 StorSimple 的自訂 RBAC 角色。 若要建立自訂的 RBAC 角色，請從內建角色開始，對角色加以編輯，然後將其匯入回環境中。 系統會使用 Azure PowerShell 或 Azure CLI 管理角色的上傳和下載。 如需詳細資訊，請參閱[建立角色型存取控制的自訂角色](../role-based-access-control/custom-roles.md)。
 
@@ -154,7 +154,7 @@ PS C:\WINDOWS\system32>
 
 ## <a name="add-users-to-the-custom-role"></a>將使用者新增至自訂角色
 
-您可從角色指派範圍內的資源、資源群組或訂用帳戶授與存取權。 提供存取權時，請記住子節點將繼承授與父節點的存取權。 如需詳細資訊，請移至[資源階層和存取繼承](../role-based-access-control/overview.md#resource-hierarchy-and-access-inheritance)。
+您可從角色指派範圍內的資源、資源群組或訂用帳戶授與存取權。 提供存取權時，請記住子節點將繼承授與父節點的存取權。 如需詳細資訊，請移至[角色型存取控制](../role-based-access-control/overview.md)。
 
 1. 移至 [存取控制 (IAM)]。 在 [存取控制] 刀鋒視窗上，按一下 [+ 新增]。
 

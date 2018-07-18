@@ -4,22 +4,21 @@ description: 針對 Azure 檔案同步常見問題進行疑難排解。
 services: storage
 documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: jgerend
+manager: aungoo
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 05/31/2018
 ms.author: wgries
-ms.openlocfilehash: 8526918630189824e26b95df7f0560c96392e55d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ea05c29bb40b595ad32304df55a79a9cf82acc18
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213260"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738433"
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>針對 Azure 檔案同步 (預覽) 進行移難排解
 使用 Azure 檔案同步 (預覽版)，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的靈活度、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -30,6 +29,9 @@ ms.locfileid: "34213260"
 2. [Azure 儲存體論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)。
 3. [Azure 檔案服務 UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) \(英文\)。 
 4. Microsoft 支援服務。 若要建立新的支援要求，在 Azure 入口網站的 [說明] 索引標籤上，選取 [說明 + 支援] 按鈕，然後選取 [新增支援要求]。
+
+## <a name="im-having-an-issue-with-azure-file-sync-on-my-server-sync-cloud-tiering-etc-should-i-remove-and-recreate-my-server-endpoint"></a>我在伺服器上的 Azure 檔案同步有問題 (同步、雲端分層等)。 我是否應移除並重新建立伺服器端點？
+[!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
 
 ## <a name="storage-sync-service-object-management"></a>儲存體同步處理服務物件管理
 如果您從某個訂用帳戶將資源移到另一個訂用帳戶，系統會阻止檔案同步處理 (儲存體同步處理服務) 資源移動。 
@@ -155,7 +157,7 @@ Set-AzureRmStorageSyncServerEndpoint -Id serverendpointid -CloudTiering true -Vo
     2. 確認 Azure 檔案同步服務正在伺服器上執行。 做法是，開啟 [服務] MMC 嵌入式管理單元，並確認儲存體同步代理程式服務 (FileSyncSvc) 正在執行。
 
 <a id="replica-not-ready"></a>**同步處理失敗，發生錯誤：「0x80c8300f - 複本未就緒，無法執行要求的作業」**  
-如果您建立雲端端點並使用包含資料的 Azure 檔案共用，便會發生此問題。 掃描 Azure 檔案共用中變更的變更偵測工作會排定每隔 24 小時一次。  完成時間取決於 Azure 檔案共用中命名空間的大小。  此錯誤在完成後就會消失。
+如果您建立雲端端點並使用包含資料的 Azure 檔案共用，便會發生此問題。 在 Azure 檔案共用中掃描變更的變更偵測工作排程為每 24 小時執行一次。  所需時間取決於 Azure 檔案共用中的命名空間大小。  此錯誤在完成後就會消失。
 
 
     > [!NOTE]

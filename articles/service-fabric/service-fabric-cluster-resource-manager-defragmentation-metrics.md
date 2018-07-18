@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205071"
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>度量的重組和 Service Fabric 中的負載
 Service Fabric 叢集資源管理員對於管理叢集中負載計量的預設策略是分散負載。 確保平均使用節點，以避免忙碌和閒置位置，導致爭用和浪費的資源。 就故障情況下幸存而言，分散工作負載是最安全的，因為這可確保不會因為故障而使指定的工作負載損失慘重。 

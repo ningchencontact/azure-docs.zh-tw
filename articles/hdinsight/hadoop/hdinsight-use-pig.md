@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: larryfr
-ms.openlocfilehash: d382293ce815f24ad635b50c920d7988b664d79c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d030bdaf4c68a7e2ec9d11cdd8a2f55eccfbd67d
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081162"
 ---
 # <a name="use-pig-with-hadoop-on-hdinsight"></a>搭配使用 Pig 與 HDInsight 上的 Hadoop
 
@@ -54,7 +55,7 @@ Pig Latin 語言可讓您從原始輸入描述資料流 (經過一或多個轉�
 
 Pig Latin 也支援使用者定義函數 (UDF)，此函數讓您可用叫用外部元件，這些元件會實作很難以 Pig Latin 模型化的邏輯。
 
-如需 Pig Latin 的詳細資訊，請參閱 [Pig Latin 參考手冊 1](http://pig.apache.org/docs/r0.7.0/piglatin_ref1.html) (英文) 和 [Pig Latin 參考手冊 2](http://pig.apache.org/docs/r0.7.0/piglatin_ref2.html) (英文)。
+如需 Pig Latin 的詳細資訊，請參閱 [Pig Latin 參考手冊 1](http://archive.cloudera.com/cdh/3/pig/piglatin_ref1.html) (英文) 和 [Pig Latin 參考手冊 2](http://archive.cloudera.com/cdh/3/pig/piglatin_ref2.html) (英文)。
 
 如需搭配 Pig 使用 UDF 的範例，請參閱以下文件：
 

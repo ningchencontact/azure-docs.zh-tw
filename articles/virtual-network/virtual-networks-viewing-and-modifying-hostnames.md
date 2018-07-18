@@ -12,24 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/27/2016
+ms.date: 05/24/2018
 ms.author: genli
-ms.openlocfilehash: 9bf57eac2176444ed408d90723009118bd411480
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f4c602368368e8ef36581d3f035ff3943a8f0d8f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657276"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>檢視與修改主機名稱
 若要允許主機名稱參考您的角色執行個體，您必須在各個角色的服務組態檔中設定主機名稱的值。 您可以將需要的主機名稱新增到 **Role** 項目的 **vmName** 屬性。 **vmName** 屬性的值會做為各個角色執行個體之主機名稱的基底。 例如，如果 **vmName** 是 webrole 且有三個該角色的執行個體，執行個體的主機名稱將是 webrole0、webrole1 以及 webrole2。 您不需要指定組態檔中虛擬機器的主機名稱，因為虛擬機器的主機名稱會根據虛擬機器名稱填入。 如需設定 Microsoft Azure 服務的詳細資訊，請參閱 [Azure 服務組態結構描述 (.cscfg 檔)](https://msdn.microsoft.com/library/azure/ee758710.aspx)
 
 ## <a name="viewing-hostnames"></a>檢視主機名稱
 您可以使用下列任何工具，在雲端服務中檢視虛擬機器和角色執行個體的主機名稱。
-
-### <a name="azure-portal"></a>Azure 入口網站
-您可以使用 [Azure 入口網站](http://portal.azure.com) 檢視虛擬機器概觀刀鋒視窗上虛擬機器的主機名稱。 請記住，刀鋒視窗中顯示**名稱**和**主機名稱**的值。 雖然它們一開始都相同，但是變更主機名稱不會變更虛擬機器或角色執行個體的名稱。
-
-角色執行個體也能在 Azure 入口網站中檢視，但是當您列出雲端服務中的執行個體時不會顯示主機名稱。 您將會看到各個執行個體的名稱，但是該名稱不代表主機名稱。
 
 ### <a name="service-configuration-file"></a>服務組態檔
 您可以從 Azure 入口網站中服務的 [設定] 刀鋒視窗，下載已部署服務的服務組態檔。 然後您可以尋找 **Role name** 項目的**vmName** 屬性，查看主機名稱。 請記住，這個主機名稱是做為各個角色執行個體之主機名稱的基底。 例如，如果 **vmName** 是 webrole 且有三個該角色的執行個體，執行個體的主機名稱將是 webrole0、webrole1 以及 webrole2。

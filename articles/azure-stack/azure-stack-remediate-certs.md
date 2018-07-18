@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33937570"
 ---
 # <a name="remediate-common-issues-for-azure-stack-pki-certificates"></a>修復 Azure Stack PKI 憑證的一般問題
 本文中的資訊可協助您了解並解決 Azure Stack PKI 憑證的一般問題。 當您使用 Azure Stack 整備檢查程式工具來[驗證 Azure Stack PKI 憑證](azure-stack-validate-pki-certs.md)時，可以探索到問題。 此工具會進行檢查，以確保憑證符合 Azure Stack 部署和 Azure Stack 祕密修復的 PKI 需求，並將結果記錄在 [report.json 檔案](azure-stack-validation-report.md)中。  

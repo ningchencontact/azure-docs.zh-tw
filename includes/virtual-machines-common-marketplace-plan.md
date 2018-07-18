@@ -1,6 +1,6 @@
 ---
-title: "包含檔案"
-description: "包含檔案"
+title: 包含檔案
+description: 包含檔案
 services: virtual-machines-windows, virtual-machines-linux
 author: dlepow
 ms.service: multiple
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29743357"
 ---
 ## <a name="deploy-an-image-with-marketplace-terms"></a>利用 Marketplace 條款部署映像
 

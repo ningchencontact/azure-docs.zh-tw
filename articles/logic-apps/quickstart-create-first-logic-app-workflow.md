@@ -1,28 +1,24 @@
 ---
-title: 建立第一個自動化工作流程 - Azure Logic Apps | Microsoft Docs
-description: 本快速入門針對整合系統和雲端服務的系統整合和企業應用程式整合 (EAI) 案例，說明如何使用 Azure Logic Apps 自動執行第一個工作流程。
-author: ecfan
-manager: anneta
-editor: ''
+title: 建立和自動執行第一個工作流程 - Azure Logic Apps | Microsoft Docs
+description: 說明如何建立第一個邏輯應用程式，以使用 Azure Logic Apps 自動執行工作、程序和工作流程的快速入門。 針對系統和雲端服務的系統整合和企業應用程式整合 (EAI) 解決方案，建立邏輯應用程式
 services: logic-apps
-keywords: 工作流程, 雲端服務, 系統整合, 企業應用程式整合, EAI
-documentationcenter: ''
-ms.assetid: ce3582b5-9c58-4637-9379-75ff99878dcd
 ms.service: logic-apps
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
+ms.date: 1/12/2018
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 1/12/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: ccd00fbb3c5dc0f78a31adcaed31bbe6e4a6e785
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 0a629deec0cc18f65dfe5e88a3eaea528636dd0f
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300934"
 ---
-# <a name="quickstart-build-your-first-logic-app-workflow---azure-portal"></a>快速入門：建立第一個邏輯應用程式工作流程 - Azure 入口網站
+# <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>快速入門：使用 Azure Logic Apps 建立第一個自動化工作流程 - Azure 入口網站
 
 本快速入門介紹如何使用 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 建立第一個自動化工作流程。 在本文中，您會建立一個邏輯應用程式，以定期檢查網站的 RSS 摘要中是否有新項目。 如果存在新的項目，邏輯應用程式會針對每個項目傳送電子郵件。 當您完成時，邏輯應用程式大致如下列工作流程所示︰
 

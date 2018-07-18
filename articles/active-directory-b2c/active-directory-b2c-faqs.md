@@ -1,20 +1,21 @@
 ---
-title: 常見問題集 - Azure Active Directory B2C
-description: Azure Active Directory B2C 常見問題集 (FAQ)
+title: Azure Active Directory B2C 的常見問題集 | Microsoft Docs
+description: Azure Active Directory B2C 常見問題集 (FAQ)。
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: d213a3f8bed5af526efba39868855b6f6727a7c0
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.component: B2C
+ms.openlocfilehash: e16130dc41418b22f2dea4ceae5e0a90ed963161
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36939736"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C：常見問題集 (FAQ) 
 此頁面會回答有關 Azure Active Directory (Azure AD) B2C 的常見問題。 請隨時回來查看最新消息。
@@ -55,7 +56,7 @@ Azure AD B2C 也新增了[自訂原則](https://docs.microsoft.com/azure/active-
 在 Azure 入口網站的左側功能表中開啟 'Azure AD B2C' 之前，您必須切換到需要管理的目錄。  在 Azure 入口網站右上角按一下您的身分識別來切換目錄，然後選擇出現在下拉式清單中的目錄。  如需逐步映像，請參閱[瀏覽至 Azure AD B2C 設定](active-directory-b2c-app-registration.md#navigate-to-b2c-settings)。
 
 ### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>我如何自訂 Azure AD B2C 傳送的驗證電子郵件 (內容和 [寄件者:] 欄位)？
-您可以使用 [公司商標功能](../active-directory/customize-branding.md) 自訂驗證電子郵件的內容。 明確地說，您可以自訂電子郵件的下列兩個元素：
+您可以使用 [公司商標功能](../active-directory/fundamentals/customize-branding.md) 自訂驗證電子郵件的內容。 明確地說，您可以自訂電子郵件的下列兩個元素：
 
 * **橫幅標幟**：顯示在右下方。
 * **背景色彩**：顯示在頂端。
@@ -88,7 +89,7 @@ Azure AD B2C 的本機帳戶密碼原則是以 Azure AD 的原則為基礎。 Az
 與 Microsoft Dynamics 365 入口網站的整合已可供使用。  請參閱[設定 Dynamics 365 入口網站，以使用 Azure AD B2C 進行驗證](https://docs.microsoft.com/dynamics365/customer-engagement/portals/azure-ad-b2c)。
 
 ### <a name="does-azure-ad-b2c-work-with-sharepoint-on-premises-2016-or-earlier"></a>Azure AD B2C 可以搭配 SharePoint 內部部署的 2016 或更舊版本一起使用嗎？
-Azure AD B2C 不適用於 SharePoint 外部夥伴共用的情節。請改以參閱 [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx)。
+Azure AD B2C 不適用於 SharePoint 外部夥伴共用的情節。請改以參閱 [Azure AD B2B](https://cloudblogs.microsoft.com/enterprisemobility/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview/)。
 
 ### <a name="should-i-use-azure-ad-b2c-or-b2b-to-manage-external-identities"></a>我應該使用 Azure AD B2C 或 B2B 來管理外部身分識別？
 請閱讀這篇關於 [外部身分識別](../active-directory/active-directory-b2b-compare-external-identities.md) 的文章，以深入了解將適當的功能套用至外部身分識別的案例。

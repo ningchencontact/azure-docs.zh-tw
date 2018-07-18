@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 05/22/2018
 ms.author: anwestg
-ms.openlocfilehash: 5b4281de4a6c2efee8e96f98a3cd46fec191fe22
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7084243c0fc84429b585c3e8fd9e5c64df469ec4
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359895"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604279"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>將 App Service 資源提供者新增至中斷連線且受 AD FS 保護的 Azure Stack 環境
 
@@ -74,7 +74,7 @@ ms.locfileid: "34359895"
 
 5. 檢閱並接受協力廠商授權條款，然後按 [下一步]。
 
-6. 請確定 App Service 雲端組態資訊正確。 如果您在 Azure Stack 開發套件部署期間使用了預設設定，在這裡可以接受預設值。 不過，如果您在部署 Azure Stack 時已自訂選項，或是要部署在整合式系統上，則必須編輯此視窗中的值來反映該情況。 例如，如果您使用網域尾碼 mycloud.com，您的 Azure Stack 租用戶 Azure Resource Manager 端點就必須變更為 management.<region>.mycloud.com。確認您的資訊之後，按 [下一步]。
+6. 請確定 App Service 雲端組態資訊正確。 如果您在 Azure Stack 開發套件部署期間使用了預設設定，在這裡可以接受預設值。 不過，如果您在部署 Azure Stack 時已自訂選項，或是要部署在整合式系統上，則必須編輯此視窗中的值來反映該情況。 例如，如果您使用網域尾碼 mycloud.com，您的 Azure Stack 租用戶 Azure Resource Manager 端點就必須變更為 management.<region>.mycloud.com。 確認您的資訊之後，按 [下一步]。
 
     ![App Service 安裝程式][3]
 
@@ -82,6 +82,12 @@ ms.locfileid: "34359895"
     1. 按一下 [Azure Stack 訂用帳戶] 方塊旁邊的 [連線] 按鈕。
         - 提供您的管理帳戶。 例如： cloudadmin@azurestack.local。 輸入您的密碼，然後按一下 [登入]。
     2. 在 [Azure Stack 訂用帳戶] 方塊中，選取 [預設提供者訂用帳戶]。
+    
+    > [!NOTE]
+    > 目前，App Service 只能部署到**預設提供者訂用帳戶**。  在未來的更新中，App Service 會部署至 Azure Stack 1804 所導入的新計量訂用帳戶，而且現有部署也全都會遷移至這個新的訂用帳戶。
+    >
+    >
+    
     3. 在 [Azure Stack 位置] 方塊中，選取對應到您要部署之區域的位置。 例如，如果要部署至 Azure Stack 開發套件，請選取 [本機]。
     4. 按 [下一步] 。
 
@@ -97,12 +103,12 @@ ms.locfileid: "34359895"
 
     ![App Service 安裝程式][5]
 
-9. 輸入檔案共用的資訊，然後按 [下一步]。 檔案共用的位址必須使用檔案伺服器的完整網域名稱或 IP 位址。 例如，\\\appservicefileserver.local.cloudapp.azurestack.external\websites 或 \\\10.0.0.1\websites。
+9. 輸入檔案共用的資訊，然後按 [下一步]。 檔案共用的位址必須使用檔案伺服器的完整網域名稱或 IP 位址。 例如，\\\appservicefileserver.local.cloudapp.azurestack.external\websites 或 \\\10.0.0.1\websites
 
-> [!NOTE]
-> 在繼續進行之前，安裝程式會先嘗試測試是否能夠與檔案共用連線。  不過，如果您已選擇在現有的虛擬網路中部署，安裝程式可能會無法連線至檔案共用，而會顯示警告來詢問您是否要繼續進行。  請確認檔案共用資訊，如果正確，便繼續進行。
->
->
+    > [!NOTE]
+    > 在繼續進行之前，安裝程式會先嘗試測試是否能夠與檔案共用連線。  不過，如果您已選擇在現有的虛擬網路中部署，安裝程式可能會無法連線至檔案共用，而會顯示警告來詢問您是否要繼續進行。  請確認檔案共用資訊，如果正確，便繼續進行。
+    >
+    >
 
    ![App Service 安裝程式][8]
 
@@ -129,10 +135,10 @@ ms.locfileid: "34359895"
 
 12. 針對用來裝載 App Service 資源提供者資料庫的伺服器執行個體，輸入 SQL Server 詳細資料，然後按 [下一步]。 按 [下一步]，安裝程式即會驗證 SQL 連線屬性。 您**必須**輸入內部 ip 或 SQL Server 名稱的完整網域名稱。
 
-> [!NOTE]
-> 在繼續進行之前，安裝程式會先嘗試測試是否能夠與 SQL Server 連線。  不過，如果您已選擇在現有的虛擬網路中部署，安裝程式可能會無法連線至 SQL Server，而會顯示警告來詢問您是否要繼續進行。  請確認 SQL Server 資訊，如果正確，便繼續進行。
->
->
+    > [!NOTE]
+    > 在繼續進行之前，安裝程式會先嘗試測試是否能夠與 SQL Server 連線。  不過，如果您已選擇在現有的虛擬網路中部署，安裝程式可能會無法連線至 SQL Server，而會顯示警告來詢問您是否要繼續進行。  請確認 SQL Server 資訊，如果正確，便繼續進行。
+    >
+    >
    
    ![App Service 安裝程式][12]
 

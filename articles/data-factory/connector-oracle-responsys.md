@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 從 Oracle Responsys 複製資料 (搶鮮版 (Beta)) | Microsoft Docs
+title: 使用 Azure Data Factory 從 Oracle Responsys 複製資料 | Microsoft Docs
 description: 了解如何使用 Azure Data Factory 管線中的複製活動，將資料從 Oracle Responsys 複製到支援的接收資料存放區。
 services: data-factory
 documentationcenter: ''
@@ -10,25 +10,22 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/30/2018
+ms.topic: conceptual
+ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 629c1e071f475ab1d3ae3bf25839d6832b416264
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 1368a75fb8ae44949ef25def19589ab164e25d8b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33206331"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055292"
 ---
-# <a name="copy-data-from-oracle-responsys-using-azure-data-factory-beta"></a>使用 Azure Data Factory 從 Oracle Responsys 複製資料 (搶鮮版 (Beta))
+# <a name="copy-data-from-oracle-responsys-using-azure-data-factory"></a>使用 Azure Data Factory 從 Oracle Responsys 複製資料
 
 本文概述如何使用 Azure Data Factory 中的「複製活動」，從 Oracle Responsys 複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
 
-> [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務，也就是正式推出 (GA) 的版本，請參閱[第 1 版的複製活動](v1/data-factory-data-movement-activities.md)。
-
 > [!IMPORTANT]
-> 此連接器目前為搶鮮版 (Beta)。 您可以親身體驗並提供意見反應。 請勿在生產環境中使用它。
+> 此連接器目前為預覽狀態。 您可以親身體驗並提供意見反應。 如果您需要依賴解決方案中的預覽連接器，請連絡 [Azure 支援](https://azure.microsoft.com/support/)。
 
 ## <a name="supported-capabilities"></a>支援的功能
 

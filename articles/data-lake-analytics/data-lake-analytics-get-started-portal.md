@@ -1,26 +1,26 @@
 ---
 title: 使用 Azure 入口網站開始使用 Azure Data Lake Analytics
-description: 了解如何使用 Azure 入口網站建立 Data Lake Analytics 帳戶、使用 U-SQL 建立 Data Lake Analytics 作業，以及提交作業。
+description: 使用 Azure 入口網站來建立 Azure Data Lake Analytics 帳戶和提交 U-SQL 作業。
 services: data-lake-analytics
+ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
 manager: kfile
+editor: jasonwhowell
 ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
-ms.service: data-lake-analytics
-ms.topic: hero-article
-ms.workload: big-data
+ms.topic: get-started-article
 ms.date: 03/21/2017
-ms.openlocfilehash: 63fc4272dc4b26e9eb4846118bc57cd6aa5bf361
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: fa6a0febfc268fe96063e962a208d73662f9815a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358280"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623905"
 ---
-# <a name="get-started-with-azure-data-lake-analytics-using-azure-portal"></a>使用 Azure 入口網站開始使用 Azure Data Lake Analytics
+# <a name="get-started-with-azure-data-lake-analytics-using-the-azure-portal"></a>使用 Azure 入口網站開始使用 Azure Data Lake Analytics
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-了解如何使用 Azure 入口網站建立 Azure Data Lake Analytics 帳戶、在 [U-SQL](data-lake-analytics-u-sql-get-started.md)中定義作業，以及將作業提交至 Data Lake Analytics 服務。 如需有關 Data Lake Analytics 的詳細資訊，請參閱 [Azure Data Lake Analytics 概觀](data-lake-analytics-overview.md)。
+本文說明如何使用 Azure 入口網站建立 Azure Data Lake Analytics 帳戶、在 [U-SQL](data-lake-analytics-u-sql-get-started.md) 中定義作業，以及將作業提交至 Data Lake Analytics 服務。
 
 ## <a name="prerequisites"></a>先決條件
 

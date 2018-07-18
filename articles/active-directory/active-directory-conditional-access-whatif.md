@@ -1,28 +1,30 @@
 ---
-title: "Azure Active Directory 條件式存取假設工具 - 預覽 | Microsoft Docs"
-description: "了解如何測試 Azure Active Directory 條件式存取原則的設定。"
+title: 什麼是 Azure Active Directory 條件式存取假設工具？
+description: 了解環境中的條件式存取原則會產生什麼影響。
 services: active-directory
-keywords: "應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則"
-documentationcenter: 
+keywords: 應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 19ebb30164eee8e03a3cd8f18b6d575c6eee5438
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 897f1b96f0861fb13ba0e6c2427b621ea6a12a06
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750077"
 ---
-# <a name="azure-active-directory-conditional-access-what-if-tool---preview"></a>Azure Active Directory 條件式存取假設工具 - 預覽
+# <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取假設工具？
 
 [條件式存取](active-directory-conditional-access-azure-portal.md)是 Azure Active Directory (Azure AD) 的功能，可讓您控制授權使用者存取雲端應用程式的方式。 要如何知道環境中的條件式存取原則會有什麼影響？ 若要回答這個問題，您可以使用**條件式存取假設工具**。
 
@@ -67,7 +69,7 @@ ms.lasthandoff: 02/09/2018
 ![假設](./media/active-directory-conditional-access-whatif/02.png)
 
 
-### <a name="user"></a>User
+### <a name="user"></a>使用者
 
 您只能選取一個使用者。 這是唯一的必要欄位。
 
@@ -119,7 +121,7 @@ IP 位址是用來模擬[位置條件](active-directory-conditional-access-locat
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如果您想要知道如何設定條件式存取原則，請參閱[開始使用 Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal-get-started.md)。
+- 如果您想要知道如何設定條件式存取原則，請參閱[利用 Azure Active Directory 條件式存取來取得特定應用程式的 MFA](active-directory-conditional-access-app-based-mfa.md)。
 
 - 如果您已準備好設定您環境的條件式存取原則，請參閱 [Azure Active Directory 中條件式存取的最佳做法](active-directory-conditional-access-best-practices.md)。 
 

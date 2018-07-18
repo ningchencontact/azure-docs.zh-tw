@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: 44777946fdc829da222ffdd67dfecfa3bf240be7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2eefabcc0484fca0e6e3ad1dd5037684a759d010
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850441"
 ---
 # <a name="troubleshooting-guide-for-azure-stream-analytics"></a>Azure 串流分析的疑難排解指南
 
@@ -41,6 +42,7 @@ ms.lasthandoff: 04/06/2018
 
 5.  排除常見的錯誤，例如︰
     - 查詢中的 [**WHERE**](https://msdn.microsoft.com/library/azure/dn835048.aspx) 子句篩選出所有事件，造成無法產生任何輸出作業。
+    - [**CAST**](https://msdn.microsoft.com/azure/stream-analytics/reference/cast-azure-stream-analytics) 函式失敗，導致作業失敗。 若要避免 cast 類型的失敗，請改為使用 [**TRY_CAST**](https://msdn.microsoft.com/azure/stream-analytics/reference/try-cast-azure-stream-analytics)。
     - 當您使用視窗函式時，請等候完整的視窗運作時間，以查看查詢的輸出。
     - 事件的時間戳記早於作業開始時間，因此事件遭到刪除。
 

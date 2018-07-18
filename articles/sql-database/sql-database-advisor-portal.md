@@ -6,15 +6,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 3361519c260fe842ae362814cbee62aa9257b9f8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d52838aa65ade8e2dfac75089ee82b4b1bae5257
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364347"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34644190"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>尋找和套用效能建議
 
@@ -102,8 +102,10 @@ Azure SQL Database 可讓您使用下列 3 個選項的其中任一選項來控�
     ![建議的索引](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> 請注意，此時 [DROP_INDEX] 選項與使用分割區切換和索引提示的應用程式不相容，並且在這些情況下不應該開啟。
+> 請注意，此時 [DROP_INDEX] 選項與使用分割區切換和索引提示的應用程式不相容，而且不應該在這些情況下啟用。
 >
+
+選取所需的組態後，按一下 [套用]。
 
 ### <a name="manually-run-the-recommended-t-sql-script"></a>手動執行建議的 T-SQL 指令碼
 選取任何建議，然後按一下 [檢視指令碼] 。 對資料庫執行這個指令碼，以手動套用建議。

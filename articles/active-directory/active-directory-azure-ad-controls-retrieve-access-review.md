@@ -3,26 +3,30 @@ title: 擷取 Azure AD 存取權檢閱結果| Microsoft Docs
 description: 如何擷取 Azure Active Directory 存取權檢閱的結果。
 services: active-directory
 documentationcenter: ''
-author: markwahl-msft
+author: rolyon
 manager: mtillman
-editor: ''
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 05/16/2018
-ms.author: billmath
-ms.openlocfilehash: cdd07fd837863d9a5abced0db8cacaded6288a41
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.component: compliance-reports
+ms.date: 06/21/2018
+ms.author: rolyon
+ms.reviewer: mwahl
+ms.openlocfilehash: 96676c3ec6d96fd6c6f78aa2dbed8cf4d0a6718d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34192219"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38295295"
 ---
 # <a name="retrieve-access-review-results"></a>擷取存取權檢閱結果
 
-系統管理員可以使用 Azure Active Directory (Azure AD) 為群組成員或指派給應用程式的或使用者[建立存取權檢閱](active-directory-azure-ad-controls-create-access-review.md)。  具有 [全域管理員]、[安全性系統管理員] 或 [安全性讀取者] 角色的使用者，也可以讀取存取權檢閱的結果。  若要將使用者指派給其中一個角色，特殊權限角色管理員可以使用 Azure AD PIM 讓使用者能夠啟用角色，或全域管理員可以永久[將使用者指派給角色](active-directory-users-assign-role-azure-portal.md)。
+系統管理員可以使用 Azure Active Directory (Azure AD) 為群組成員或指派給應用程式的或使用者[建立存取權檢閱](active-directory-azure-ad-controls-create-access-review.md)。  具有 [全域管理員]、[使用者帳戶管理員]、[安全性系統管理員] 或 [安全性讀取者] 角色的使用者，也可以讀取存取權檢閱的結果。  若要將使用者指派給其中一個角色，特殊權限角色管理員可以使用 Azure AD PIM 讓使用者能夠啟用角色，或全域管理員可以永久[將使用者指派給角色](fundamentals/active-directory-users-assign-role-azure-portal.md)。
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="locating-an-access-review"></a>找出存取權檢閱
 
@@ -43,9 +47,7 @@ ms.locfileid: "34192219"
 
 ## <a name="removing-users-from-an-access-review"></a>從存取權檢閱中移除使用者
 
-[!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
-
-根據預設，已刪除的使用者會在 Azure AD 中以已刪除的狀態保留 30 天，在這段期間內，系統管理員可以視需要加以還原。  經過 30 天後，該使用者將永久刪除。  此外，全域管理員可以使用 Azure Active Directory 入口網站，在該時段結束之前明確地[永久刪除最近刪除的使用者](active-directory-users-restore.md)。  使用者永久刪除後，關於該使用者的資料將會從作用中的存取權檢閱中移除。  與已刪除的使用者有關的稽核資訊仍會保留在稽核記錄中。
+根據預設，已刪除的使用者會在 Azure AD 中以已刪除的狀態保留 30 天，在這段期間內，系統管理員可以視需要加以還原。  經過 30 天後，該使用者將永久刪除。  此外，全域管理員可以使用 Azure Active Directory 入口網站，在該時段結束之前明確地[永久刪除最近刪除的使用者](fundamentals/active-directory-users-restore.md)。  使用者永久刪除後，關於該使用者的資料將會從作用中的存取權檢閱中移除。  與已刪除的使用者有關的稽核資訊仍會保留在稽核記錄中。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -53,6 +55,6 @@ ms.locfileid: "34192219"
 - [使用 Azure AD 存取權檢閱來管理來賓存取權](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
 - [管理 Azure AD 存取權檢閱的程式和控制項](active-directory-azure-ad-controls-manage-programs-controls.md)
 - [建立群組成員或應用程式存取的存取權檢閱](active-directory-azure-ad-controls-create-access-review.md)
-- [在 Azure AD 管理角色中建立使用者的存取權檢閱](active-directory-privileged-identity-management-how-to-start-security-review.md)
+- [在 Azure AD 管理角色中建立使用者的存取權檢閱](privileged-identity-management/pim-how-to-start-security-review.md)
 
 

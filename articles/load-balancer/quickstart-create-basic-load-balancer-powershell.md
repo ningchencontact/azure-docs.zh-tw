@@ -17,11 +17,11 @@ ms.date: 04/20/2018
 ms.author: kumud
 ms:custom: mvc
 ms.openlocfilehash: bc9883ee64f2d682a6b7b69bd1fb168cddd60001
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304560"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38539986"
 ---
 # <a name="get-started"></a>快速入門：使用 Azure PowerShell 建立公用負載平衡器
 本快速入門示範如何使用 Azure PowerShell 建立基本負載平衡器。 若要測試負載平衡器，您要部署兩部執行 Windows Server 的虛擬機器 (VM)，並平衡兩部 VM 間 Web 應用程式的負載。
@@ -333,7 +333,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroupLB
 
 ## <a name="next-steps"></a>後續步驟
 
-本快速入門中，您已建立基本負載平衡器、並將 VM 加以連結、設定負載平衡器流量規則、健康情況探查，接著測試負載平衡器。 若要深入了解 Azure Load Balancer，請繼續 Azure Load Balancer 的教學課程。
+本快速入門中，您已建立基本 Load Balancer、並將 VM 加以連結、設定負載平衡器流量規則、健康情況探查，接著測試負載平衡器。 若要深入了解 Azure Load Balancer，請繼續 Azure Load Balancer 的教學課程。
 
 > [!div class="nextstepaction"]
 > [Azure Load Balancer 教學課程](tutorial-load-balancer-basic-internal-portal.md)

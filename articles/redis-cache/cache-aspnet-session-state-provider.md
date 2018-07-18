@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31518751"
 ---
 # <a name="aspnet-session-state-provider-for-azure-redis-cache"></a>Azure Redis 快取的 ASP.NET 工作階段狀態提供者
 Azure Redis 快取提供工作階段狀態提供者，可讓您用來將記憶體內部工作階段狀態儲存在 Redis 快取中，而不是 SQL Server 資料庫中。 若要使用快取工作階段狀態提供者，請先設定快取，再使用「Redis 快取工作階段狀態 NuGet 套件」設定 ASP.NET 應用程式的快取。

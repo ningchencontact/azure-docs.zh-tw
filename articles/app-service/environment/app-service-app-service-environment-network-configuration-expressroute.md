@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32153213"
 ---
 # <a name="network-configuration-details-for-app-service-environments-with-expressroute"></a>使用 ExpressRoute 之 App Service 環境的網路組態詳細資料
 ## <a name="overview"></a>概觀

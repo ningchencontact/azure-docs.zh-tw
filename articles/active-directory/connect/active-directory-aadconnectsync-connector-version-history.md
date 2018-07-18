@@ -13,12 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/22/2018
-ms.author: davidste
-ms.openlocfilehash: 039e21cb3c35f8eb024ad2fca56e8a59e3182d3a
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.component: hybrid
+ms.author: billmath
+ms.openlocfilehash: 9bbf75f258f9853803ca4c00155eb186ceca54a3
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916399"
 ---
 # <a name="connector-version-release-history"></a>連接器版本發行歷程記錄
 適用於 Forefront Identity Manager (FIM) 和 Microsoft Identity Manager (MIM) 的連接器會經常更新。
@@ -117,7 +119,7 @@ ms.lasthandoff: 05/03/2018
 
 * 一般 SQL：
   * **情節：重新設計的實作：** "*" 功能
-  * **解決方案說明：**已變更[多重值參照屬性處理方法](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql)。
+  * **解決方案說明：** 已變更[多重值參照屬性處理方法](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql)。
 
 
 ### <a name="fixed-issues"></a>已修正的問題：
@@ -141,8 +143,8 @@ Lotus：
 ### <a name="enhancements"></a>增強功能
 
 * 一般 SQL：</br>
-  **案例徵兆︰**SQL 連接器的已知限制，一個物件類型只允許一個參考，且成員需要交互參考。 </br>
-  **解決方案說明︰**在已選擇 "*" 選項之參考的處理步驟中，物件類型的所有組合會傳回給同步處理引擎。
+  **案例徵兆︰** SQL 連接器的已知限制，一個物件類型只允許一個參考，且成員需要交互參考。 </br>
+  **解決方案說明︰** 在已選擇 "*" 選項之參考的處理步驟中，物件類型的所有組合會傳回給同步處理引擎。
 
 >[!Important]
 - 這會造成許多預留位置
@@ -150,15 +152,15 @@ Lotus：
 
 
 * 一般 LDAP：</br>
- **案例︰**只選取了特定資料分割中的幾個容器時，仍會對整個資料分割執行搜尋。 詳細資料會依同步處理服務來進行篩選，而不是依可能會造成效能降低的 MA。 </br>
+ **案例︰** 只選取了特定資料分割中的幾個容器時，仍會對整個資料分割執行搜尋。 詳細資料會依同步處理服務來進行篩選，而不是依可能會造成效能降低的 MA。 </br>
 
- **解決方案說明︰**變更了 GLDAP 連接器的程式碼，使其可以瀏覽過所有容器，並搜尋各容器中的物件，而非在整個資料分割中搜尋。
+ **解決方案說明︰** 變更了 GLDAP 連接器的程式碼，使其可以瀏覽過所有容器，並搜尋各容器中的物件，而非在整個資料分割中搜尋。
 
 
 * Lotus Domino：
 
-  **案例︰**在匯出期間移除人員時支援刪除 Domino 郵件。 </br>
-  **解決方案︰**可設定在匯出期間移除人員時刪除郵件的支援。
+  **案例︰** 在匯出期間移除人員時支援刪除 Domino 郵件。 </br>
+  **解決方案︰** 可設定在匯出期間移除人員時刪除郵件的支援。
 
 ### <a name="fixed-issues"></a>已修正的問題：
 * 一般 Web 服務︰

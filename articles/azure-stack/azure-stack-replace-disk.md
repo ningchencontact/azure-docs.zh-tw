@@ -19,6 +19,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30311316"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>更換 Azure Stack 中的實體磁碟
 

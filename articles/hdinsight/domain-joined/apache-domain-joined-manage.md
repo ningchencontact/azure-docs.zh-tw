@@ -16,6 +16,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34160235"
 ---
 # <a name="manage-domain-joined-hdinsight-clusters"></a>管理已加入網域的 HDInsight 叢集
 認識已加入網域的 HDInsight 叢集中的使用者和角色，了解如何管理已加入網域的 HDInsight 叢集。

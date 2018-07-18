@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: danis
-ms.openlocfilehash: eac64a5b456eb040bcb1ac01c3c86dfde0847e57
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 526021ca238be7bc934e639c34d3e49879279a6a
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944920"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127647"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>搭配 Linux 虛擬機器使用 Azure 自訂指令碼擴充功能第 1 版
 自訂指令碼擴充功能第 1 版會在 Azure 虛擬機器上下載並執行指令碼。 此擴充功能適用於部署後設定、軟體安裝或其他任何設定/管理工作。 您可以從 Azure 儲存體或其他可存取的網際網路位置下載指令碼，或是將指令碼提供給擴充功能執行階段。 
@@ -34,7 +34,7 @@ Linux 自訂指令碼擴充功能有兩個：
 * 第 1 版 - Microsoft.OSTCExtensions.CustomScriptForLinux
 * 第 2 版 - Microsoft.Azure.Extensions.CustomScript
 
-請切換新的和現有的部署，以改用新版本 ([Microsoft.Azure.Extensions.CustomScript](\custom-script-linux.md))。 新版本可供簡易替換 (drop-in replacement)。 因此，移轉就像變更名稱和版本一樣簡單，而不需要變更您的擴充功能設定。
+請切換新的和現有的部署，以改用新版本 ([Microsoft.Azure.Extensions.CustomScript](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-linux))。 新版本可供簡易替換 (drop-in replacement)。 因此，移轉就像變更名稱和版本一樣簡單，而不需要變更您的擴充功能設定。
 
  
 

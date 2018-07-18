@@ -1,12 +1,12 @@
 ---
-title: "Azure 事件中樞管理程式庫 | Microsoft Docs"
-description: "從 .NET 管理事件中樞命名空間和實體"
+title: Azure 事件中樞管理程式庫 | Microsoft Docs
+description: 從 .NET 管理事件中樞命名空間和實體
 services: event-hubs
 cloud: na
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-ms.assetid: 
+ms.assetid: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26780968"
 ---
 # <a name="event-hubs-management-libraries"></a>事件中樞管理程式庫
 

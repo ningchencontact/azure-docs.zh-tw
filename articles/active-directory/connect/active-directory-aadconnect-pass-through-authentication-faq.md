@@ -4,7 +4,7 @@ description: Azure Active Directory 傳遞驗證常見問題的解答
 services: active-directory
 keywords: Azure AD Connect 傳遞驗證, 安裝 Active Directory, Azure AD 的必要元件, SSO, 單一登入
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7a817092581ef0be0b6be063282f7484c46ff094
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: e62117ee98b1d47600141249dcd3b17ec58a9654
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918150"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory 傳遞驗證：常見問題集
 
@@ -34,7 +36,7 @@ ms.lasthandoff: 05/11/2018
 
 ## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>[Microsoft Azure 德國雲端](http://www.microsoft.de/cloud-deutschland)和 [Microsoft Azure Government 雲端](https://azure.microsoft.com/features/gov/)是否有提供傳遞驗證功能？
 
-編號 只有全球版的 Azure AD 執行個體會提供傳遞驗證功能。
+否。 只有全球版的 Azure AD 執行個體會提供傳遞驗證功能。
 
 ## <a name="does-conditional-accessactive-directory-conditional-access-azure-portalmd-work-with-pass-through-authentication"></a>[條件式存取](../active-directory-conditional-access-azure-portal.md)是否能與傳遞驗證搭配運作？
 
@@ -46,7 +48,7 @@ ms.lasthandoff: 05/11/2018
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>密碼雜湊同步處理是否會作為傳遞驗證的遞補？
 
-編號 傳遞驗證_不會_自動容錯移轉至密碼雜湊同步處理。 它只會作為[目前不支援傳遞驗證的情況下](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios)的遞補。 若要避免使用者登入失敗，您應該為傳遞驗證設定[高可用性](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability)。
+否。 傳遞驗證_不會_自動容錯移轉至密碼雜湊同步處理。 它只會作為[目前不支援傳遞驗證的情況下](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios)的遞補。 若要避免使用者登入失敗，您應該為傳遞驗證設定[高可用性](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability)。
 
 ## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>能否在傳遞驗證代理程式所在的同一部伺服器上安裝 [Azure AD 應用程式 Proxy](../manage-apps/application-proxy.md) 連接器？
 
@@ -64,7 +66,7 @@ ms.lasthandoff: 05/11/2018
 
 ## <a name="how-does-pass-through-authentication-protect-you-against-brute-force-password-attacks"></a>傳遞驗證如何防範暴力密碼破解攻擊？
 
-如需詳細資訊，請參閱 [Azure Active Directory 傳遞驗證：智慧鎖定](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)。
+如需詳細資訊，請參閱 [Azure Active Directory 傳遞驗證：智慧鎖定](../authentication/howto-password-smart-lockout.md)。
 
 ## <a name="what-do-pass-through-authentication-agents-communicate-over-ports-80-and-443"></a>傳遞驗證代理程式會透過連接埠 80 和 443 進行哪些方面的通訊？
 
@@ -131,7 +133,7 @@ ms.lasthandoff: 05/11/2018
 ## <a name="next-steps"></a>後續步驟
 - [目前的限制](active-directory-aadconnect-pass-through-authentication-current-limitations.md)：了解支援的情節和不支援的情節。
 - [快速入門](active-directory-aadconnect-pass-through-authentication-quick-start.md)：開始使用 Azure AD 傳遞驗證。
-- [智慧鎖定](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)：了解如何在租用戶中設定智慧鎖定功能以保護使用者帳戶。
+- [智慧鎖定](../authentication/howto-password-smart-lockout.md)：了解如何在租用戶中設定智慧鎖定功能以保護使用者帳戶。
 - [技術深入探討](active-directory-aadconnect-pass-through-authentication-how-it-works.md)：了解傳遞驗證功能的運作方式。
 - [疑難排解](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)：了解如何解決傳遞驗證功能的常見問題。
 - [安全性深入探討](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md)：取得傳遞驗證功能上的深入技術資訊。

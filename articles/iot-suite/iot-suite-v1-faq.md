@@ -1,12 +1,12 @@
 ---
-title: "Azure IoT Suite 常見問題集 | Microsoft Docs"
-description: "IoT 套件的常見問題集"
-services: 
+title: Azure IoT Suite 常見問題集 | Microsoft Docs
+description: IoT 套件的常見問題集
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
 ms.service: iot-suite
 ms.devlang: na
@@ -15,15 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: 6c644395aa7ad51c289cdc4a23b02e9e0239a0fe
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 77b9fab68b66fe8998733a8f890acb9dd6b97899
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34702273"
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>IoT 套件的常見問題集
 
-另請參閱，連線處理站專用的[常見問題集](iot-suite-faq-cf.md)。
+另請參閱，連線處理站專用的[常見問題集](../iot-accelerators/iot-accelerators-faq-cf.md)。
 
 ### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solutions"></a>哪裡可以找到預先設定之解決方案的原始程式碼？
 
@@ -104,11 +105,11 @@ ms.lasthandoff: 01/05/2018
 您也可以瀏覽一些其他功能和預先設定的 IoT 套件解決方案的功能︰
 
 * [預先設定的預防性維護解決方案概觀][lnk-predictive-overview]
-* [連線處理站預先設定的解決方案概觀](iot-suite-connected-factory-overview.md)
+* [連線處理站預先設定的解決方案概觀](../iot-accelerators/iot-accelerators-connected-factory-overview.md)
 * [從頭建立 IoT 安全性][lnk-security-groundup]
 
-[lnk-predictive-overview]: iot-suite-predictive-overview.md
-[lnk-security-groundup]: securing-iot-ground-up.md
+[lnk-predictive-overview]:../iot-accelerators/iot-accelerators-predictive-overview.md
+[lnk-security-groundup]:../iot-accelerators/securing-iot-ground-up.md
 
 [link-azuresupportticket]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade 
 [link-azuresublimits]: https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#iot-hub-limits

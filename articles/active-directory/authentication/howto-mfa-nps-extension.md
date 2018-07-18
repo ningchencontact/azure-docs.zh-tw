@@ -1,5 +1,5 @@
 ---
-title: 使用現有的 NPS 伺服器提供 Azure MFA 功能 | Microsoft Docs
+title: 使用現有的 NPS 伺服器提供 Azure MFA 功能
 description: 將雲端式雙步驟驗證功能新增至現有的驗證基礎結構
 services: multi-factor-authentication
 ms.service: active-directory
@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 57bf8b81d8d7fee6eaee216b9a2e0c52aa625257
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: ac2b0e2ba3eff83462ded91bcd0ac9a7309f73b4
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33868325"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031136"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>將現有的 NPS 基礎結構與 Azure Multi-Factor Authentication 整合
 
@@ -58,8 +58,8 @@ Windows Server 2008 R2 SP1 或更新版本。
 
 這些程式庫會自動連同延伸模組一起安裝。
 
--   [適用於 Visual Studio 2013 的 Visual C++ 可轉散發套件 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
--   [適用於 Windows PowerShell 1.1.1660 版本的 Microsoft Azure Active Directory 模組](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
+- [適用於 Visual Studio 2013 的 Visual C++ 可轉散發套件 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
+- [適用於 Windows PowerShell 1.1.1660 版本的 Microsoft Azure Active Directory 模組](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
 
 如果您還沒有適用於 Windows PowerShell 的 Microsoft Azure Active Directory 模組，系統會透過您在安裝過程中執行的設定指令碼來加以安裝。 因此，如果您尚未安裝此模組，就不必事先安裝。
 
@@ -70,6 +70,13 @@ Windows Server 2008 R2 SP1 或更新版本。
 當您安裝擴充功能時，您的 Azure AD 租用戶需要目錄識別碼和系統管理員認證。 您可以在 [Azure 入口網站](https://portal.azure.com)中找到您的目錄識別碼。 請以系統管理員身分登入，選取左側的 [Azure Active Directory] 圖示，然後選取 [屬性]。 複製 [目錄識別碼] 方塊中的 GUID，然後儲存。 當您安裝 NPS 擴充功能時，將使用此 GUID 作為租用戶識別碼。
 
 ![在 Azure Active Directory 屬性下尋找您的目錄識別碼](./media/howto-mfa-nps-extension/find-directory-id.png)
+
+### <a name="network-requirements"></a>網路需求
+
+NPS 伺服器必須能夠透過連接埠 80 和 443 與下列 URL 通訊。
+
+* https://adnotifications.windowsazure.com  
+* https://login.microsoftonline.com
 
 ## <a name="prepare-your-environment"></a>準備您的環境
 
@@ -115,7 +122,7 @@ NPS 伺服器會連線到 Azure Active Directory，並驗證 MFA 要求。 為�
 
 ### <a name="register-users-for-mfa"></a>針對 MFA 註冊使用者
 
-在您部署與使用 NPS 延伸模組之前，必須先針對 MFA 註冊將需執行雙步驟驗證的使用者。 緊接著，若要同時部署與測試延伸模組，您必須至少有一個測試帳戶，並應已針對 Multi-Factor Authentication 完全註冊此帳戶。
+在您部署與使用 NPS 擴充功能之前，必須先針對 MFA 註冊需執行雙步驟驗證的使用者。 緊接著，若要同時部署與測試延伸模組，您必須至少有一個測試帳戶，並應已針對 Multi-Factor Authentication 完全註冊此帳戶。
 
 使用下列步驟啟動測試帳戶：
 1. 使用測試帳戶登入 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)。 
@@ -131,19 +138,19 @@ NPS 伺服器會連線到 Azure Active Directory，並驗證 MFA 要求。 為�
 
 ### <a name="download-and-install-the-nps-extension-for-azure-mfa"></a>下載並安裝 Azure MFA 的 NPS 延伸模組
 
-1.  從 Microsoft 下載中心[下載 NPS 延伸模組](https://aka.ms/npsmfa)。
-2.  將二進位檔複製到您要設定的網路原則伺服器。
-3.  執行 *setup.exe* 並遵循安裝指示。 如果您遇到錯誤，請根據必要條件一節再次檢查兩個已成功安裝的程式庫。
+1. 從 Microsoft 下載中心[下載 NPS 延伸模組](https://aka.ms/npsmfa)。
+2. 將二進位檔複製到您要設定的網路原則伺服器。
+3. 執行 *setup.exe* 並遵循安裝指示。 如果您遇到錯誤，請根據必要條件一節再次檢查兩個已成功安裝的程式庫。
 
 ### <a name="run-the-powershell-script"></a>執行 PowerShell 指令碼
 
-安裝程式會在下列位置建立 PowerShell 指令碼︰`C:\Program Files\Microsoft\AzureMfa\Config` (其中 C:\ 是您的安裝磁碟機)。 此 PowerShell 指令碼會執行下列動作：
+安裝程式會在下列位置建立 PowerShell 指令碼︰`C:\Program Files\Microsoft\AzureMfa\Config` (其中 C:\ 是您的安裝磁碟機)。 此 PowerShell 指令碼會在每次執行時執行下列動作：
 
--   建立自我簽署憑證。
--   讓憑證的公開金鑰與 Azure AD 的服務主體產生關聯。
--   將憑證儲存在本機電腦的憑證存放區。
--   將憑證的私密金鑰存取權授與給網路使用者。
--   重新啟動 NPS。
+- 建立自我簽署憑證。
+- 讓憑證的公開金鑰與 Azure AD 的服務主體產生關聯。
+- 將憑證儲存在本機電腦的憑證存放區。
+- 將憑證的私密金鑰存取權授與給網路使用者。
+- 重新啟動 NPS。
 
 除非您想要使用自己的憑證 (而非 PowerShell 指令碼產生的自我簽署憑證)，否則請執行 PowerShell 指令碼來完成安裝。 如果您在多部伺服器上安裝延伸模組，每一部伺服器都應該有自己的憑證。
 
@@ -162,8 +169,8 @@ NPS 伺服器會連線到 Azure Active Directory，並驗證 MFA 要求。 為�
 
 在您想要進行設定以取得負載平衡的任何其他 NPS 伺服器上，重複上述步驟。
 
->[!NOTE]
->如果您使用自己的憑證，而不是透過 PowerShell 指令碼產生憑證，請確定這些憑證遵守 NPS 命名慣例。 主體名稱必須是 **CN=\<租用戶識別碼\>,OU=Microsoft NPS Extension**。 
+> [!NOTE]
+> 如果您使用自己的憑證，而不是透過 PowerShell 指令碼產生憑證，請確定這些憑證遵守 NPS 命名慣例。 主體名稱必須是 **CN=\<租用戶識別碼\>,OU=Microsoft NPS Extension**。 
 
 ## <a name="configure-your-nps-extension"></a>設定 NPS 擴充功能
 
@@ -172,7 +179,7 @@ NPS 伺服器會連線到 Azure Active Directory，並驗證 MFA 要求。 為�
 ### <a name="configuration-limitations"></a>設定限制
 
 - Azure MFA 的 NPS 延伸模組並未包含可將使用者與設定從 MFA Server 移轉至雲端的工具。 有基於此，建議將此延伸模組用於新的部署，而非用於現有部署。 如果您在現有部署上使用此延伸模組，您的使用者必須再次執行證明，以便在雲端中填入其 MFA 詳細資料。  
-- NPS 擴充功能會使用來自內部部署 Active Directory 的 UPN，識別 Azure MFA 上用來執行次要驗證的使用者。此延伸模組可設定為使用不同的識別碼，例如 UPN 以外的替代登入識別碼或自訂 Active Directory 欄位。 如需詳細資訊，請參閱 [Multi-Factor Authentication 之 NPS 延伸模組的進階設定選項](howto-mfaserver-nps-vpn.md)。
+- NPS 擴充功能會使用來自內部部署 Active Directory 的 UPN，識別 Azure MFA 上用來執行次要驗證的使用者。此延伸模組可設定為使用不同的識別碼，例如 UPN 以外的替代登入識別碼或自訂 Active Directory 欄位。 如需詳細資訊，請參閱 [NPS 擴充功能的 Multi-Factor Authentication 所適用的進階設定選項](howto-mfa-nps-extension-advanced.md)一文。
 - 並非所有的加密通訊協定都支援所有的驗證方法。
    - **PAP** 支援通話、單向簡訊、行動裝置應用程式通知和行動裝置應用程式驗證碼
    - **CHAPV2** 和 **EAP** 支援通話和行動裝置應用程式通知
@@ -232,12 +239,15 @@ Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b0
 
 確認 AD Connect 正在執行，且使用者已存在於 Windows Active Directory 與 Azure Active Directory。
 
-------------------------------------------------------------
+-------------------------------------------------------------
 
 ### <a name="why-do-i-see-http-connect-errors-in-logs-with-all-my-authentications-failing"></a>為何我會在記錄中看到 HTTP 連線錯誤，且我的所有驗證都失敗？
 
 確認可以從執行 NPS 延伸模組的伺服器存取 https://adnotifications.windowsazure.com。
 
+## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>管理的 TLS/SSL 通訊協定和加密套件
+
+除非您的組織需要較舊的和較弱的加密套件，否則建議您加以停用或移除。 如需如何完成這項工作的相關資訊，請參閱[管理 AD FS 的 SSL/TLS 通訊協定和加密套件](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)一文
 
 ## <a name="next-steps"></a>後續步驟
 

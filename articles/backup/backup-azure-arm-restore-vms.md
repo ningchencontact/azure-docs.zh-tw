@@ -1,25 +1,20 @@
 ---
-title: Azure 備份：使用 Azure 入口網站還原虛擬機器 | Microsoft Docs
+title: Azure 備份：使用 Azure 入口網站還原虛擬機器
 description: 使用 Azure 入口網站從復原點還原 Azure 虛擬機器
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: 還原備份；如何還原；復原點；
-ms.assetid: 372b87c6-3544-4dc5-bbc9-c742ca502159
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/04/2017
-ms.author: markgal;trinadhk;
-ms.openlocfilehash: 9a25a2f40e93c291d4c69ee726c732468005d2cd
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.author: markgal
+ms.openlocfilehash: 52ca7cf4a04ace2a43f15433c05a2db26bde3602
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605588"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>使用 Azure 入口網站來還原虛擬機器
 於定義的間隔進行資料快照，來保護您的資料。 這些快照稱為復原點，而且儲存在復原服務保存庫中。 如果需要修復或重新建立虛擬機器 (VM)，您可以從任何已儲存的復原點還原 VM。 當您還原復原點時，您可以：

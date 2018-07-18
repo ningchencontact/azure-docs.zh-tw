@@ -91,7 +91,7 @@ New-AzureRmKeyVault -VaultName “Vault01” -ResourceGroupName “VaultRG” -L
 
 ![新的金鑰保存庫](media/azure-stack-kv-manage-powershell/image4.png)
 
-此命令的輸出會顯示您所建立的金鑰保存庫屬性。 應用程式存取此保存庫時，它必須使用 [保存庫 URI] 屬性，在此範例中為 "https://vault01.vault.local.azurestack.external"。
+此命令的輸出會顯示您所建立的金鑰保存庫屬性。 應用程式存取此保存庫時，它必須使用 [保存庫 URI] 屬性，在此範例中為 " https://vault01.vault.local.azurestack.external "。
 
 ### <a name="active-directory-federation-services-ad-fs-deployment"></a>Active Directory 同盟服務 (AD FS) 部署
 

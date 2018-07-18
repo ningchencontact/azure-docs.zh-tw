@@ -18,6 +18,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32186903"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>使用 PowerShell 在 Azure 獨立雲端中管理儲存體
 

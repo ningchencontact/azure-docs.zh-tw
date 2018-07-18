@@ -16,10 +16,11 @@ ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: ee7f37f83d6b3503df1af61509f6f85ca19bc13e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38472946"
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建置 Node.js 和 MongoDB Web 應用程式
 
@@ -106,7 +107,7 @@ MEAN.JS version: 0.5.0
 --
 ```
 
-在瀏覽器中，瀏覽至 `http://localhost:3000`。 按一下上層功能表中的 [註冊]，然後建立測試使用者。 
+在瀏覽器中，瀏覽至 `http://localhost:3000` 。 按一下上層功能表中的 [註冊]，然後建立測試使用者。 
 
 MEAN.js 範例應用程式會將使用者資料儲存於資料庫中。 如果您成功建立使用者並且登入，則您的應用程式正在將資料寫入本機 MongoDB 資料庫。
 
@@ -232,7 +233,7 @@ App version:     0.5.0
 MEAN.JS version: 0.5.0
 ```
 
-在瀏覽器中，瀏覽至 `http://localhost:8443`。 按一下上層功能表中的 [註冊]，然後建立測試使用者。 如果您成功建立使用者並且登入，則您的應用程式正在將資料寫入 Azure 中的 Cosmos DB 資料庫。
+在瀏覽器中，瀏覽至 `http://localhost:8443` 。 按一下上層功能表中的 [註冊]，然後建立測試使用者。 如果您成功建立使用者並且登入，則您的應用程式正在將資料寫入 Azure 中的 Cosmos DB 資料庫。
 
 在終端機中，輸入 `Ctrl+C` 以停止 Node.js。
 

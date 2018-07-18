@@ -1,29 +1,25 @@
 ---
-title: 迴圈 - 處理陣列或重複動作 - Azure Logic Apps | Microsoft Docs
-description: 使用 "for each" 迴圈處理陣列或重複動作，直到符合邏輯應用程式中的特定條件
+title: 新增會重複動作或處理陣列的迴圈 - Azure Logic Apps | Microsoft Docs
+description: 如何在 Azure Logic Apps 中建立會重複工作流程動作或處理陣列的迴圈
 services: logic-apps
-keywords: for each 迴圈
-documentationcenter: ''
-author: ecfan
-manager: anneta
-editor: ''
-ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 4029da2c7ad59b1e61dabe0af252834746a4c5c6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 87595eeb0330a2d8210258c097c29b205b628cf4
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298180"
 ---
-# <a name="loops-process-arrays-or-repeat-actions-until-a-condition-is-met"></a>迴圈：處理陣列或重複動作，直到符合條件
+# <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>在 Azure Logic Apps 中建立會重複工作流程動作或處理陣列的迴圈
 
-若要逐一查看邏輯應用程式中的陣列，您可以使用 ["Foreach" 迴圈](#foreach-loop)或[循序 "Foreach" 迴圈](#sequential-foreach-loop)。 標準 "Foreach" 迴圈中的循環會平行執行，而循序 "Foreach" 迴圈中的循環為每一次執行一個。 如需 "Foreach" 迴圈在單一邏輯應用程式中可處理的陣列項目數上限，請參閱[限制和設定](../logic-apps/logic-apps-limits-and-config.md)。 
+若要逐一查看邏輯應用程式中的陣列，您可以使用  [Foreach](#foreach-loop) 迴圈 或循序  [Foreach 迴圈](#sequential-foreach-loop)。 標準  "Foreach" 迴圈中的反覆項目會平行執行，而循序  "Foreach" 迴圈中的反覆項目為每次執行一個。 如需 "Foreach" 迴圈在單一邏輯應用程式中可處理的陣列項目數上限，請參閱[限制和設定](../logic-apps/logic-apps-limits-and-config.md)。 
 
 > [!TIP] 
 > 如果您的觸發程序接收到陣列，並想要針對每個陣列項目執行工作流程，您可以使用 [**SplitOn** 觸發屬性](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)將該陣列「解除批次」。 

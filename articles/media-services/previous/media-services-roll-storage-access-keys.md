@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33785747"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>更換儲存體存取金鑰之後更新媒體服務
 

@@ -1,27 +1,28 @@
 ---
-title: "搭配 Linux 使用 Azure 檔案 | Microsoft Docs"
-description: "了解如何透過 Linux 上的 SMB 掛接 Azure 檔案共用。"
+title: 搭配 Linux 使用 Azure 檔案 | Microsoft Docs
+description: 了解如何透過 Linux 上的 SMB 掛接 Azure 檔案共用。
 services: storage
 documentationcenter: na
 author: RenaShahMSFT
 manager: aungoo
-editor: tysonn
+editor: tamram
 ms.assetid: 6edc37ce-698f-4d50-8fc1-591ad456175d
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 03/29/2018
 ms.author: renash
-ms.openlocfilehash: cca0d315a815faca5db07099b8e8e451ef55fad5
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: ec900182e2fe201ee598518076c6a75a7ac057c2
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839564"
 ---
 # <a name="use-azure-files-with-linux"></a>搭配 Linux 使用 Azure 檔案
-[Azure 檔案服務](storage-files-introduction.md)是 Microsoft 易於使用的雲端檔案系統。 可以使用 [CIFS 核心用戶端](https://wiki.samba.org/index.php/LinuxCIFS)將 Azure 檔案共用掛接在 Linux 發行版本中。 本文將說明掛接 Azure 檔案共用的兩種方式：使用 `mount` 命令的隨選掛接，以及建立項目 `/etc/fstab` 的開機掛接。
+[Azure 檔案服務](storage-files-introduction.md)是 Microsoft 易於使用的雲端檔案系統。 可以使用 [SMB 核心用戶端](https://wiki.samba.org/index.php/LinuxCIFS)將 Azure 檔案共用裝載在 Linux 發行版本中。 本文將說明掛接 Azure 檔案共用的兩種方式：使用 `mount` 命令的隨選掛接，以及建立項目 `/etc/fstab` 的開機掛接。
 
 > [!NOTE]  
 > 若要在 Azure 區域之外掛接 Azure 檔案共用，例如內部部署或是在不同的 Azure 區域，作業系統必須支援 SMB 3.0 的加密功能。
@@ -42,21 +43,21 @@ ms.lasthandoff: 01/19/2018
 
     在 **Ubuntu** 和 **Debian 型**發行版本上，請使用 `apt-get` 封裝管理員：
 
-    ```
+    ```bash
     sudo apt-get update
     sudo apt-get install cifs-utils
     ```
 
     在 **RHEL** 和 **CentOS** 上，請使用 `yum` 封裝管理員：
 
-    ```
-    sudo yum install samba-client samba-common cifs-utils
+    ```bash
+    sudo yum install cifs-utils
     ```
 
     在 **openSUSE** 上，請使用 `zypper` 封裝管理員：
 
-    ```
-    sudo zypper install samba*
+    ```bash
+    sudo zypper install cifs-utils
     ```
 
     在其他發行版本上，請使用適當的封裝管理員或[從來源編譯](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download)。
@@ -72,7 +73,7 @@ ms.lasthandoff: 01/19/2018
     
     如果此處未列出您的 Linux 發行版本，您可以使用下列命令查看 Linux 核心版本：
 
-    ```
+    ```bash
     uname -r
     ```
 
@@ -89,13 +90,13 @@ ms.lasthandoff: 01/19/2018
 
 2. **建立掛接點的資料夾**：掛接點的資料夾可以在檔案系統上任何位置建立，但是常見慣例是在 `/mnt` 資料夾底下建立這個資料夾。 例如︰
 
-    ```
+    ```bash
     mkdir /mnt/MyAzureFileShare
     ```
 
 3. **使用 mount 命令掛接 Azure 檔案共用**：請記得針對您的環境使用適當的資訊來取代 `<storage-account-name>`、`<share-name>`、`<smb-version>`、`<storage-account-key>` 和 `<mount-point>`。 如果您的 Linux 發行版本支援具有加密的 SMB 3.0 (請參閱[了解 SMB 用戶端需求](#smb-client-reqs)以取得詳細資訊)，請針對 `<smb-version>` 使用 `3.0`。 對於不支援具有加密的 SMB 3.0 之 Linux 發行版本，請針對 `<smb-version>` 使用 `2.1`。 請注意，Azure 檔案共用只能使用 SMB 3.0 掛接在 Azure 區域外部 (包括內部部署或不同的 Azure 區域)。 
 
-    ```
+    ```bash
     sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <mount-point> -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
     ```
 
@@ -107,14 +108,33 @@ ms.lasthandoff: 01/19/2018
 
 2. **建立掛接點的資料夾**：掛接點的資料夾可以在檔案系統上任何位置建立，但是常見慣例是在 `/mnt` 資料夾底下建立這個資料夾。 每當您建立這個資料夾，請記下資料夾的完整路徑。 例如，下列命令會在 `/mnt` 底下建立新的資料夾 (路徑為完整路徑)。
 
-    ```
+    ```bash
     sudo mkdir /mnt/MyAzureFileShare
     ```
 
-3. **使用下列命令將下列一行附加至 `/etc/fstab`**：請記得針對您的環境使用適當的資訊來取代 `<storage-account-name>`、`<share-name>`、`<smb-version>`、`<storage-account-key>` 和 `<mount-point>`。 如果您的 Linux 發行版本支援具有加密的 SMB 3.0 (請參閱[了解 SMB 用戶端需求](#smb-client-reqs)以取得詳細資訊)，請針對 `<smb-version>` 使用 `3.0`。 對於不支援具有加密的 SMB 3.0 之 Linux 發行版本，請針對 `<smb-version>` 使用 `2.1`。 請注意，Azure 檔案共用只能使用 SMB 3.0 掛接在 Azure 區域外部 (包括內部部署或不同的 Azure 區域)。 
+3. **建立認證檔來儲存檔案共用的使用者名稱 (儲存體帳戶名稱) 和密碼 (儲存體帳戶金鑰)。** 請記得將 `<storage-account-name>` 和 `<storage-account-key>` 取代為您環境的適當資訊。 
 
+    ```bash
+    if [ -d "/etc/smbcredentials" ]; then
+        sudo mkdir /etc/smbcredentials
+    fi
+
+    if [ ! -f "/etc/smbcredentials/<storage-account-name>.cred" ]; then
+        sudo bash -c 'echo "username=<storage-account-name>" >> /etc/smbcredentials/<storage-account-name>.cred'
+        sudo bash -c 'echo "password=<storage-account-key>" >> /etc/smbcredentials/<storage-account-name>.cred'
+    fi
     ```
-    sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> <mount-point> cifs nofail,vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
+
+4. **變更認證檔的權限，因此只有 root 才能讀取或修改密碼檔。** 由於儲存體帳戶金鑰基本上是儲存體帳戶的超級管理員密碼，因此請務必設定只有 root 才能存取的檔案權限，讓更低權限的使用者無法擷取儲存體帳戶金鑰。   
+
+    ```bash
+    sudo chmod 600 /etc/smbcredentials/<storage-account-name>.cred
+    ```
+
+5. **使用下列命令將下列一行新增至 `/etc/fstab`**：請記得針對您的環境使用適當的資訊來取代 `<storage-account-name>`、`<share-name>`、`<smb-version>` 和 `<mount-point>`。 如果您的 Linux 發行版本支援具有加密的 SMB 3.0 (請參閱[了解 SMB 用戶端需求](#smb-client-reqs)以取得詳細資訊)，請針對 `<smb-version>` 使用 `3.0`。 對於不支援具有加密的 SMB 3.0 之 Linux 發行版本，請針對 `<smb-version>` 使用 `2.1`。 請注意，Azure 檔案共用只能使用 SMB 3.0 掛接在 Azure 區域外部 (包括內部部署或不同的 Azure 區域)。 
+
+    ```bash
+    sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> <mount-point> cifs nofail,vers=<smb-version>,credentials=/etc/smbcredentials/<storage-account-name>.cred,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
     ```
 
 > [!Note]  

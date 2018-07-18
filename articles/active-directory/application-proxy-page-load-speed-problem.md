@@ -3,22 +3,24 @@ title: Application Proxy 應用程式載入時間過長 | Microsoft Docs
 description: 為 Azure AD Application Proxy 的頁面載入效能問題疑難排解
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 34422cb42768ddbc2997da3eec3d35c11e272855
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: 26acc620184b51719a2ee55b75bd01966d225b8e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34158501"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36330922"
 ---
 # <a name="an-application-proxy-application-takes-too-long-to-load"></a>Application Proxy 應用程式載入時間過長
 
@@ -32,7 +34,7 @@ ms.locfileid: "34158501"
 若要找到含 Application Proxy 服務的資料中心，可使用[連接器連接埠測試工具](https://aadap-portcheck.connectorporttest.msappproxy.net/)。 
 
 ## <a name="feedback-on-application-proxy-data-center-locations"></a>對 Application Proxy 資料中心位置的意見反應 
-可能會有 Azure 資料中心尚未包含 Application Proxy，但能為您顯著改善延遲的問題。 請將資料中心位置傳送至 aadapfeedback@microsoft.com。Microsoft 會將您的意見反應用於擴展計劃。
+可能會有 Azure 資料中心尚未包含 Application Proxy，但能為您顯著改善延遲的問題。 請將資料中心位置傳送至 aadapfeedback@microsoft.com。 Microsoft 會將您的意見反應用於擴展計劃。
 
 Microsoft 正努力處理其他功能，以改善延遲。 當這些改進功能可供使用時，文件將隨之更新。
 

@@ -1,27 +1,22 @@
 ---
-title: 初步了解：使用復原服務保存庫保護 Azure VM | Microsoft Docs
+title: 初步了解：使用復原服務保存庫保護 Azure VM
 description: 使用復原服務保存庫保護 Azure VM。 使用 Resource Manager 部署的 VM、傳統部署的 VM 和進階儲存體 VM、已在受控磁碟中加密 VM 的備份來保護您的資料。 建立和註冊復原服務保存庫。 在 Azure 中註冊 VM、建立原則和保護 VM。
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keyword: backups; vm backup
-ms.assetid: 45e773d6-c91f-4501-8876-ae57db517cd1
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/18/2018
-ms.author: markgal;jimpark;sogup
+ms.author: markgal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 701accb107931bd1f4472d8999102fecb4fd6373
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+keywords: 備份; VM 備份
+ms.openlocfilehash: feae4ac83b637588fe0979a82ce05a56c2d339ae
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32310599"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38466126"
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>將 Azure 虛擬機器備份到復原服務保存庫
 

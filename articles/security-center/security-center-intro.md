@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29395644"
 ---
 # <a name="what-is-azure-security-center"></a>什麼是 Azure 資訊安全中心？
 Azure 資訊安全中心為混合式雲端工作負載提供統一的安全性管理和進階威脅防護。 使用資訊安全中心，您可以在工作負載中套用安全性原則、限制暴露於威脅的可能性，以及偵測和回應攻擊。

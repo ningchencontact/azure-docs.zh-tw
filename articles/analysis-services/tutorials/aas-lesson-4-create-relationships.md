@@ -3,16 +3,17 @@ title: Azure Analysis Services 教學課程第 4 課：建立關聯性 | Microso
 description: 說明如何在 Azure Analysis Services 教學課程專案中建立關聯性。
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 694043454ba2564900416135e1f143bdeb63c202
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5007e18db0af40621ab4b30a16d705d3a5b3915c
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37443812"
 ---
 # <a name="create-relationships"></a>建立關聯性
 

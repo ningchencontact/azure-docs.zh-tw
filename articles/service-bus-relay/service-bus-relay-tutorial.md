@@ -1,11 +1,11 @@
 ---
-title: "Azure 服務匯流排 WCF 轉送教學課程 | Microsoft Docs"
-description: "使用 WCF 轉送建立用戶端和服務應用程式。"
+title: Azure 服務匯流排 WCF 轉送教學課程 | Microsoft Docs
+description: 使用 WCF 轉送建立用戶端和服務應用程式。
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 53dfd236-97f1-4778-b376-be91aa14b842
 ms.service: service-bus-relay
 ms.devlang: na
@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: sethm
-ms.openlocfilehash: a0b06c32cf5f154cf5eb01842d9b917dcb35f7b3
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 82e26571c88460436e6ca5ee70323cd680c82bdc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642303"
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Azure WCF 轉送教學課程
 
-本教學課程說明如何使用 Azure 轉送，來建置簡單的 WCF 轉送用戶端應用程式和服務。 如需使用[服務匯流排通訊](../service-bus-messaging/service-bus-messaging-overview.md#brokered-messaging)的類似教學課程，請參閱[開始使用服務匯流排佇列](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)。
+本教學課程說明如何使用 Azure 轉送，來建置簡單的 WCF 轉送用戶端應用程式和服務。 如需使用[服務匯流排通訊](../service-bus-messaging/service-bus-messaging-overview.md)的類似教學課程，請參閱[開始使用服務匯流排佇列](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)。
 
 循序完成本教學課程，可讓您了解建立 WCF 轉送用戶端和服務應用程式所需的步驟。 如同他們原始的 WCF 對應項目，服務是可公開一或多個端點的結構，而每個端點都會公開一或多個服務作業。 服務的端點指定可找到服務的位址、內含用戶端與服務通訊所需資訊的繫結，以及可定義服務提供給其用戶端之功能的合約。 WCF 與 WCF 轉送的主要差異在於端點是在雲端公開，而不是在您的電腦本機上公開。
 
@@ -413,7 +414,7 @@ namespace Microsoft.ServiceBus.Samples
 
    1. 在方案總管中含有服務的相同方案中，以滑鼠右鍵按一下目前的方案 (而非專案)，然後按一下 [加入]。 然後按一下 [新增專案]。
    2. 在 [新增專案] 對話方塊中，按一下 [Visual C#] \(如果 **Visual C#** 未出現，請在 [其他語言] 下尋找)，選取 [主控台應用程式 (.NET Framework)] 範本，並將它命名為 **EchoClient**。
-   3. 按一下 [SERVICEPRINCIPAL] 。
+   3. 按一下 [確定]。
       <br />
 2. 在 [方案總管] 中，按兩下 **EchoClient** 專案中的 Program.cs 檔案，以在編輯器中開啟它 (如果尚未開啟的話)。
 3. 將命名空間名稱從 `EchoClient` 的預設名稱變更為 `Microsoft.ServiceBus.Samples`。
@@ -714,7 +715,7 @@ namespace Microsoft.ServiceBus.Samples
 
 ## <a name="next-steps"></a>後續步驟
 
-本教學課程示範了如何使用服務匯流排的 WCF 轉送功能，來建置 Azure 轉送用戶端應用程式和服務。 如需使用[服務匯流排通訊](../service-bus-messaging/service-bus-messaging-overview.md#brokered-messaging)的類似教學課程，請參閱[開始使用服務匯流排佇列](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)。
+本教學課程示範了如何使用服務匯流排的 WCF 轉送功能，來建置 Azure 轉送用戶端應用程式和服務。 如需使用[服務匯流排通訊](../service-bus-messaging/service-bus-messaging-overview.md)的類似教學課程，請參閱[開始使用服務匯流排佇列](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)。
 
 若要深入了解 Azure 轉送，請參閱下列主題。
 

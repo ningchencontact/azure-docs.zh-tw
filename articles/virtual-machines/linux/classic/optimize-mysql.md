@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30841498"
 ---
 # <a name="optimize-mysql-performance-on-azure-linux-vms"></a>在 Azure Linux 上最佳化 MySQL 效能
 有許多因素會影響 Azure 上的 MySQL 效能，均與虛擬硬體選取和軟體設定有關。 本文著重於透過儲存體、系統和資料庫設定最佳化效能。

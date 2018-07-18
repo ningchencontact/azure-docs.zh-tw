@@ -1,28 +1,24 @@
 ---
-title: 使用 Azure Data Lake U-SQL SDK 調整 U-SQL 本機執行和測試 | Microsoft Docs
-description: 了解如何使用 Azure Data Lake U-SQL SDK 在本機工作站上使用命令列及程式設計介面來調整 U-SQL 作業本機執行和測試。
+title: 使用 Azure Data Lake U-SQL SDK 在本機執行及測試 U-SQL 作業
+description: 了解如何使用本機工作站上的命令列及程式設計介面，在本機執行及測試 U-SQL 作業。
 services: data-lake-analytics
-documentationcenter: ''
-author: ''
-manager: ''
-editor: ''
-ms.assetid: ''
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 03/01/2017
+author: yanacai
 ms.author: yanacai
-ms.openlocfilehash: 55242bcf644ca0e7f30cfe7eada2130451c36e64
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+manager: kfile
+editor: jasonwhowell
+ms.topic: conceptual
+ms.date: 03/01/2017
+ms.openlocfilehash: 11a2bfdcda09a071667cc034ef1ff42794b73a33
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737066"
 ---
-# <a name="scale-u-sql-local-run-and-test-with-azure-data-lake-u-sql-sdk"></a>使用 Azure Data Lake U-SQL SDK 調整 U-SQL 本機執行和測試
+# <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>使用 Azure Data Lake U-SQL SDK 來執行及測試 U-SQL
 
-在開發 U-SQL 指令碼時，通常會在本機執行並測試 U-SQL 指令碼，然後才送出至雲端。 Azure Data Lake 針對此案例提供稱為 Azure Data Lake U-SQL SDK 的 Nuget 套件，讓您可以輕鬆地調整 U-SQL 本機執行和測試。 此外，也可以將此 U-SQL 測試與 CI (持續整合) 系統整合以自動化編譯和測試。
+在開發 U-SQL 指令碼時，通常會在本機執行並測試 U-SQL 指令碼，然後才送出至雲端。 Azure Data Lake 針對此案例提供稱為 Azure Data Lake U-SQL SDK 的 Nuget 套件，讓您可以輕鬆地調整 U-SQL 執行和測試。 此外，也可以將此 U-SQL 測試與 CI (持續整合) 系統整合以自動化編譯和測試。
 
 如果您在意要如何使用 GUI 工具來手動本機執行並針對 U-SQL 指令碼進行偵錯，您可以使用 Azure Data Lake Tools for Visual Studio 來執行。 您可以在[這裡](data-lake-analytics-data-lake-tools-local-run.md)深入了解。
 
@@ -212,12 +208,12 @@ U-SQL 本機執行需要指定的資料根做為本機儲存體帳戶，以及�
 
 下列為 **execute** 的選擇性引數：
 
-|引數|說明|
-|--------|-----------|
-|-DataRoot [預設值 '']|中繼資料執行的資料根。 它預設為 **LOCALRUN_DATAROOT** 環境變數。|
-|-MessageOut [預設值 '']|將主控台上的訊息傾印成檔案。|
-|-Parallel [預設值 '1']|使用指定的平行處理原則層級執行產生本機執行步驟的指示器。|
-|-Verbose [預設值 'False']|顯示詳細執行階段輸出的指示器。|
+|引數|預設值|說明|
+|--------|-------------|-----------|
+|-DataRoot | '' |中繼資料執行的資料根。 它預設為 **LOCALRUN_DATAROOT** 環境變數。|
+|-MessageOut | '' |將主控台上的訊息傾印成檔案。|
+|-Parallel | '1' |使用指定的平行處理原則層級執行產生本機執行步驟的指示器。|
+|-Verbose | 'False' |顯示詳細執行階段輸出的指示器。|
 
 以下是使用範例︰
 

@@ -3,7 +3,7 @@ title: 使用 Azure 虛擬機器擴展集自動調整的概觀 | Microsoft Docs
 description: 深入了解您可以根據效能或依固定的排程自動調整 Azure 虛擬機器擴展集的不同方式
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,17 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
-ms.author: iainfou
+ms.date: 05/29/2018
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 03053f8427fbd20b0a7288d930dca258ee3070b6
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 48e64f0cc65ade870425f73989209e8bef8ec8d5
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38630281"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>使用 Azure 虛擬機器擴展集自動調整的概觀
-Azure 虛擬機器擴展集可以自動增加或減少執行您的應用程式的 VM 執行個體數目。 這個自動化和彈性的行為會降低監視和最佳化應用程式效能的管理額外負荷。 您可以建立規則，規則定義最低限度的可接受效能，以獲得正向客戶體驗。 符合那些定義的閾值時，自動調整規則就會採取動作來調整擴展集的容量。 您也可以排定事件，以在固定時間自動增加或減少擴展集的容量。 本文提供可用效能計量以及可執行的自動調整動作的概觀。
+Azure 虛擬機器擴展集可以自動增加或減少執行您的應用程式的 VM 執行個體數目。 這個自動化和彈性的行為會降低監視和最佳化應用程式效能的管理額外負荷。 您可以建立規則，用以定義對於正面客戶體驗可接受的效能水準。 符合那些定義的閾值時，自動調整規則就會採取動作來調整擴展集的容量。 您也可以排定事件，以在固定時間自動增加或減少擴展集的容量。 本文提供可用效能計量以及可執行的自動調整動作的概觀。
 
 
 ## <a name="benefits-of-autoscale"></a>自動調整的優點
@@ -115,7 +116,7 @@ Azure 診斷擴充功能是在 VM 執行個體內部執行的代理程式。 代
 
 若要使用 Azure 診斷擴充功能，您必須為您的 VM 執行個體建立 Azure 儲存體帳戶、安裝 Azure 診斷代理程式，然後設定 VM 將特定效能計數器串流至儲存體帳戶。
 
-如需詳細資訊，請參閱如何在 [Linux VM](../virtual-machines/linux/diagnostic-extension.md) 或 [Windows VM](../virtual-machines/windows/ps-extensions-diagnostics.md) 上啟用 Azure 診斷擴充功能的文章。
+如需詳細資訊，請參閱如何在 [Linux VM](../virtual-machines/extensions/diagnostics-linux.md) 或 [Windows VM](../virtual-machines/extensions/diagnostics-windows.md) 上啟用 Azure 診斷擴充功能的文章。
 
 
 ## <a name="application-level-metrics-with-app-insights"></a>使用 App Insights 的應用程式層級計量

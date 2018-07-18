@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32158863"
 ---
 # <a name="article-top"></a>將您現有的 Azure 行動服務移轉至 Azure App Service
 透過 [Azure App Service 的公開上市版]，Azure 行動服務網站將可輕易地就地移轉，以使用 Azure App Service 的所有功能。  本文件說明將您的網站從 Azure 行動服務移轉至 Azure App Service 時的情形。

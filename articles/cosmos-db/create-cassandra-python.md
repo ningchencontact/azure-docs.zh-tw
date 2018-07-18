@@ -2,23 +2,21 @@
 title: 快速入門：Cassandra API 與 Python - Azure Cosmos DB | Microsoft Docs
 description: 本快速入門示範如何使用 Azure Cosmos DB 的 Apache Cassandra API，以使用 Python 建立設定檔應用程式
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: 4ebc883e-c512-4e34-bd10-19f048661159
 ms.service: cosmos-db
+ms.component: cosmosdb-cassandra
 ms.custom: quick start connect, mvc
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 49ec500db23eeea29baaeeafe9ad39e9b1a5b25a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0adabc3561ee989e0ce383a5d995a12c144b19b7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38237783"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-and-azure-cosmos-db"></a>快速入門：使用 Python 和 Azure Cosmos DB 建置 Cassandra 應用程式
 
@@ -211,7 +209,7 @@ Azure Cosmos DB Cassandra API 預覽版程式的存取權。 如果您尚未申�
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已了解如何建立 Azure Cosmos DB 帳戶、如何使用 [資料總管] 建立集合，以及如何執行應用程式。 您現在可以將其他資料匯入到 Cosmos DB 帳戶。 
+在本快速入門中，您已了解如何建立 Azure Cosmos DB 帳戶、如何使用 [資料總管] 建立容器，以及如何執行應用程式。 您現在可以將其他資料匯入到 Cosmos DB 帳戶。 
 
 > [!div class="nextstepaction"]
 > [將 Cassandra 資料匯入到 Azure Cosmos DB](cassandra-import-data.md)

@@ -7,15 +7,17 @@ ms.author: ranku
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: 51ed7dbead7f9085de563d2fb20c4e4a08f90bb2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 951ce8947d113eaad2ea0e3b5df5e9714aa33dd8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723182"
 ---
 # <a name="tutorial-use-azure-machine-learning-workbench-for-advanced-data-preparation-bike-share-data"></a>教學課程：使用 Azure Machine Learning Workbench 進行進階資料準備 (自行車共享資料)
 Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進階分析解決方案，可供專業資料科學家用來以雲端規模準備資料、開發測試以及部署模型。

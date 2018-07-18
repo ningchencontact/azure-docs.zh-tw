@@ -16,6 +16,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31792166"
 ---
 # <a name="configure-an-azure-cloud-service-project-with-visual-studio"></a>使用 Visual Studio 來設定 Azure 雲端服務專案
 您可以根據 Azure 雲端服務專案的需求來設定專案。 您可以設定下列類別的專案的屬性：

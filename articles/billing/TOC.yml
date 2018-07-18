@@ -81,7 +81,7 @@
       href: billing-how-to-change-credit-card.md
     - name: 變更管理員
       href: billing-add-change-azure-subscription-administrator.md
-    - name: 切換訂用帳戶優惠
+    - name: 切換訂用帳戶供應項目
       href: billing-how-to-switch-azure-offer.md
     - name: 按發票付款
       href: billing-how-to-pay-by-invoice.md
@@ -111,8 +111,26 @@
       href: billing-enterprise-mgmt-grp-troubleshoot-cost-view.md
     - name: 請連絡支援人員
       href: ../azure-supportability/how-to-create-azure-support-request.md
+- name: 範例
+  items:
+    - name: REST API
+      items:
+        - name: 檢閱企業成本
+          href: billing-review-enterprise-billing.md
+        - name: 檢閱訂用帳戶用途
+          href: billing-review-subscription-billing.md
+    - name: .NET 範例
+      items:
+        - name: 發票 API 程式碼範例
+          href: 'https://github.com/Azure-Samples/billing-dotnet-core-invoice-download'
+        - name: 使用情況 API 程式碼範例
+          href: 'https://github.com/Azure-Samples/billing-dotnet-usage-api'
+        - name: RateCard API 程式碼範例
+          href: 'https://github.com/Azure-Samples/billing-dotnet-ratecard-api'
 - name: 參考
   items:
+    - name: 計費自動化案例
+      href: billing-cost-management-automation-scenarios.md
     - name: Azure 計費 API 概觀
       href: billing-usage-rate-card-overview.md
       items:
@@ -120,7 +138,8 @@
           href: 'https://docs.microsoft.com/rest/api/billing'
         - name: 合作夥伴解決方案 - Cloud Cruiser
           href: billing-usage-rate-card-partner-solution-cloudcruiser.md
-    - name: Azure 使用量 API
+    - name: Azure 使用量 API 概觀
+      href: billing-consumption-api-overview.md
       items:
         - name: Azure 使用量 REST API
           href: 'https://docs.microsoft.com/rest/api/consumption'
@@ -133,11 +152,3 @@
       items:
         - name: Enterprise 報表 REST API
           href: 'https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary'
-    - name: 計費程式碼範例
-      items:
-        - name: 發票 API 程式碼範例
-          href: 'https://github.com/Azure-Samples/billing-dotnet-core-invoice-download'
-        - name: 使用情況 API 程式碼範例
-          href: 'https://github.com/Azure-Samples/billing-dotnet-usage-api'
-        - name: RateCard API 程式碼範例
-          href: 'https://github.com/Azure-Samples/billing-dotnet-ratecard-api'

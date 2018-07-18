@@ -6,16 +6,17 @@ author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.custom: mvc
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 8ac1e3a7bb092f2eab64caeab61b10852533dd6b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c92d28bd7515372c17af34d90a4ac73317a13630
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265015"
 ---
 # <a name="azure-database-for-mysql-use-net-c-to-connect-and-query-data"></a>Azure Database for MySQL︰使用 .NET (C#) 來連線及查詢資料
 本快速入門示範如何使用 C# 應用程式來連線到適用於 MySQL 的 Azure 資料庫。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本主題假設您已熟悉使用 C# 進行開發，但不熟悉適用於 MySQL 的 Azure 資料庫。

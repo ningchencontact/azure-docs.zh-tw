@@ -16,10 +16,10 @@ ms.date: 01/31/2017
 ms.author: jroth
 experimental_id: d51f3cc6-753b-4e
 ms.openlocfilehash: e986440edc0b683d1b1cd49207a355dac060c53d
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "29398313"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>連線到 Azure 上的 SQL Server 虛擬機器 (傳統部署)

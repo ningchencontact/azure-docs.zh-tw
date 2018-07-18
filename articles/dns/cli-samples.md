@@ -20,6 +20,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32773102"
 ---
 # <a name="azure-cli-samples-for-traffic-manager"></a>流量管理員的 Azure CLI 範例
 

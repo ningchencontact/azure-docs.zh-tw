@@ -14,11 +14,12 @@ ms.topic: overview
 ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 8f477282e49104e9b034e11656ff50c2a67545f7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 585dcd120c42562b1520d4454f9d04e445553101
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096187"
 ---
 # <a name="what-is-azure-redis-cache"></a>何謂 Azure Redis 快取
 
@@ -26,7 +27,7 @@ Azure Redis 快取是以常用的開放原始碼 [Redis 快取](https://redis.io
 
 Azure Redis 快取也可用來作為記憶體中的資料結構存放區、分散式的非關聯資料庫和訊息代理程式。 利用 Redis 引擎的低延遲與高輸送量效能可提升應用程式效能。
 
-Azure Redis 快取可讓您從 Azure 內的任何應用程式，存取由 Microsoft 管理且裝載於 Azure 內的安全、專用 Redis 快取。
+Azure Redis 快取可讓您從 Azure 內的任何應用程式，存取由 Microsoft 管理且裝載於 Azure 內部或外部的安全、專用 Redis 快取。
 
 ## <a name="why-use-azure-redis-cache"></a>使用 Azure Redis 快取的理由
 
@@ -76,6 +77,7 @@ Azure Redis 快取服務可在以下層級使用：
 
 * [ASP.NET Web 應用程式快速入門](cache-web-app-howto.md) 建立可使用 Azure Redis 快取的簡單 ASP.NET Web 應用程式。
 * [.NET 快速入門](cache-dotnet-how-to-use-azure-redis-cache.md) 建立可使用 Azure Redis 快取的 .NET 應用程式。
+* [.NET Core 快速入門](cache-dotnet-core-quickstart.md) 建立可使用 Azure Redis 快取的 .NET Core 應用程式。
 * [Node.js 快速入門](cache-nodejs-get-started.md) 建立可使用 Azure Redis 快取的簡單 Node.js 應用程式。
 * [Java 快速入門](cache-java-get-started.md) 建立可使用 Azure Redis 快取的簡單 Java 應用程式。
 * [Python 快速入門](cache-python-get-started.md) 建立可使用 Azure Redis 快取的 Python 應用程式。

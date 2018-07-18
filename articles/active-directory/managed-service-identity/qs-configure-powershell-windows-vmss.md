@@ -9,31 +9,31 @@ editor: ''
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: 97c5e2dde3faeaad13317597bef4f70455d22102
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 61fa6c94c0d717fe1e71bf8929f2e3b4a0982562
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33930124"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903874"
 ---
 # <a name="configure-a-vmss-managed-service-identity-msi-using-powershell"></a>使用 PowerShell 設定 VMSS 受控服務識別 (MSI)
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-在 Azure Active Directory 中，「受控服務識別」會提供自動受控身分給 Azure 服務。 您可以使用此身分識別來向任何支援 Azure AD 驗證的服務進行驗證，不需要任何您程式碼中的認證。 
+在 Azure Active Directory 中，「受控服務身分識別」會提供自動受控身分給 Azure 服務。 您可以使用此身分識別來向任何支援 Azure AD 驗證的服務進行驗證，不需要任何您程式碼中的認證。 
 
-在本文中，您將了解如何使用 PowerShell，在 Azure 虛擬機器擴展集 (VMSS) 上執行以下受控服務識別作業：
-- 在 Azure VMSS 上啟用和停用系統指派身分識別
-- 在 Azure VMSS 上新增和移除使用者指派身分識別
+在本文中，您將了解如何使用 PowerShell，在虛擬機器擴展集 (VMSS) 上執行受控服務識別作業：
+- 在 Azure VMSS 上啟用和停用系統指派的身分識別
+- 在 Azure VMSS 上新增和移除使用者指派的身分識別
 
 ## <a name="prerequisites"></a>先決條件
 
-- 如果您不熟悉受控服務識別，請參閱[概觀](overview.md)一節。 **請務必檢閱[系統指派和使用者指派之身分識別之間的差異](overview.md#how-does-it-work)**。
+- 如果您不熟悉受控服務識別，請參閱[概觀](overview.md)一節。 **請務必檢閱[系統指派和使用者指派身分識別之間的差異](overview.md#how-does-it-work)**。
 - 如果您還沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com/free/)，再繼續進行。
 - 如果您尚未安裝[最新版的 Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM)，請先安裝。 
 
@@ -122,8 +122,7 @@ ms.locfileid: "33930124"
 
 2. 先使用 `Get-AzureRmVM` Cmdlet 擷取 VM 屬性。 然後使用 [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) Cmdlet 上的 `-IdentityType` 和 `-IdentityID` 參數，將使用者指派的身分識別新增至 Azure VMSS。 以您自己的值取代 `<VM NAME>`、`<SUBSCRIPTION ID>`、`<RESROURCE GROUP>`、`<USER ASSIGNED ID1>`、`USER ASSIGNED ID2`。
 
-   > [!IMPORTANT]
-   > 建立使用者指派的身分識別僅支援英數字元和連字號 (0-9 或 a-z 或 A-Z 或 -) 字元。 此外，指派至 VM/VMSS 的名稱應該限制為 24 個字元長度，才能正常運作。 請回來查看以取得更新資料。 如需詳細資訊，請參閱[常見問題集和已知問題](known-issues.md)
+   [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 
    ```powershell
@@ -144,7 +143,7 @@ $vmss.Identity.IdentityIds = "<MSI NAME>"
 Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -VirtualMachineScaleSet $vmss
 ```
 
-如果您的 VMSS 同時具有系統指派和使用者指派的身分識別，您可以藉由切換為僅使用系統指派的身分識別，來移除所有使用者指派的身分識別。 使用下列命令：
+如果您的 VMSS 同時具有系統指派和使用者指派的身分識別，只要切換為僅使用系統指派的身分識別，即可移除所有使用者指派的身分識別。 使用下列命令：
 
 ```powershell
 $vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss

@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33937552"
 ---
 # <a name="azure-stack-validation-report"></a>Azure Stack 驗證報告
 Azure Stack 整備檢查程式工具會執行可支援 Azure Stack 環境部署和服務的驗證。 此工具會將驗證結果寫入 .json 報告檔案。 報告中會顯示關於 Azure Stack 部署先決條件狀態，以及關於現有 Azure Stack 部署秘密輪替的詳細和摘要資料。  

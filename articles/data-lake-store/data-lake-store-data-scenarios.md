@@ -1,24 +1,26 @@
 ---
-title: 有關 Data Lake 存放區的資料案例 | Microsoft Docs
-description: 了解用來內嵌、處理、下載及視覺化 Data Lake 存放區之資料的各種案例和工具
+title: 有關 Data Lake Storage Gen1 的資料案例 | Microsoft Docs
+description: 了解可在 Data Lake Storage Gen1 (先前稱為 Azure Data Lake Store) 中用來內嵌、處理、下載及視覺化資料的各種案例和工具
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
-editor: cgronlun
-ms.assetid: 37409a71-a563-4bb7-bc46-2cbd426a2ece
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2018
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: e6b89a4cb415c2d127244d55acf3e284425f03e0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e0c7ed22762ef19c6e68ad69d0cabcfeb8007251
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031034"
 ---
-# <a name="using-azure-data-lake-store-for-big-data-requirements"></a>使用 Azure Data Lake Store 處理巨量資料需求
+# <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>使用 Azure Data Lake Storage Gen1 處理巨量資料需求
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
 巨量資料處理有四個主要階段︰
 
 * 即時或以批次形式將大量資料內嵌到存放區
@@ -42,7 +44,7 @@ ms.lasthandoff: 05/16/2018
 | Azure 儲存體 Blob |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[AdlCopy 工具](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[HDInsight 叢集上執行的 DistCp](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
 ### <a name="streamed-data"></a>串流資料
-代表可能由應用程式、裝置、感應器等各種來源產生的資料。這些資料可透過多種工具內嵌到 Data Lake 存放區。 這些工具通常能以事件為基礎即時擷取及處理資料，然後再以批次將事件寫入 Data Lake 存放區，以供進一步處理。
+代表可能由應用程式、裝置、感應器等各種來源產生的資料。這些資料可透過多種工具內嵌到 Data Lake Store。 這些工具通常能以事件為基礎即時擷取及處理資料，然後再以批次將事件寫入 Data Lake 存放區，以供進一步處理。
 
 以下是您可以使用的工具︰
 

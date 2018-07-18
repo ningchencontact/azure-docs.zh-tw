@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33786017"
 ---
 # <a name="widevine-license-template-overview"></a>Widevine 授權範本概觀
 您可以使用 Azure 媒體服務來設定和要求 Google Widevine 授權。 播放程式嘗試播放 Widevine 保護的內容時，會將要求傳送到授權傳遞服務來取得授權。 如果授權服務核准要求，服務就會發出授權。 授權會傳送至用戶端，並用來解密及播放指定內容。

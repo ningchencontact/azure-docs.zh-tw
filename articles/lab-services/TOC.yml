@@ -10,18 +10,18 @@
   items:
     - name: DevTest Labs
       items:
-        - name: 1. 設定自訂實驗室
+        - name: 1. 設定實驗室
           href: tutorial-create-custom-lab.md
-        - name: 2. 存取自訂實驗室
+        - name: 2. 存取實驗室
           href: tutorial-use-custom-lab.md
     - name: 教室實驗室
       items:
         - name: 1. 設定實驗室帳戶
-          href: tutorial-setup-lab-account.md
+          href: classroom-labs/tutorial-setup-lab-account.md
         - name: 2. 設定教室實驗室
-          href: tutorial-setup-classroom-lab.md
+          href: classroom-labs/tutorial-setup-classroom-lab.md
         - name: 3. 存取教室實驗室
-          href: tutorial-connect-virtual-machine-classroom-lab.md
+          href: classroom-labs/tutorial-connect-virtual-machine-classroom-lab.md
 - name: 範例
   items:
     - name: DevTest Labs
@@ -50,20 +50,22 @@
     - name: 教室實驗室
       items:
         - name: 管理實驗室帳戶
-          href: how-to-manage-lab-accounts.md
+          href: classroom-labs/how-to-manage-lab-accounts.md
         - name: 管理教室實驗室
-          href: how-to-manage-classroom-labs.md
+          href: classroom-labs/how-to-manage-classroom-labs.md
         - name: 存取教室實驗室
-          href: how-to-use-classroom-lab.md
+          href: classroom-labs/how-to-use-classroom-lab.md
     - name: DevTest 實驗室
       items:
-        - name: 建立自訂實驗室
+        - name: 建立實驗室
           href: devtest-lab-create-lab.md
-        - name: 在自訂實驗室中建立虛擬機器
+        - name: 在實驗室中建立虛擬機器
           href: devtest-lab-create-first-vm.md
-        - name: 為自訂實驗室設定原則
+        - name: 為實驗室設定原則
           href: devtest-lab-get-started-with-lab-policies.md
-        - name: 在自訂實驗室中使用虛擬機器
+        - name: 將祕密儲存在 Azure Key Vault 中
+          href: devtest-lab-store-secrets-in-key-vault.md
+        - name: 在實驗室中使用 VM
           items:
             - name: 建立 VM
               href: devtest-lab-add-vm.md
@@ -75,7 +77,13 @@
               href: devtest-lab-use-resource-manager-template.md
             - name: 重新啟動 VM
               href: devtest-lab-restart-vm.md
-        - name: 在自訂實驗室中使用環境
+            - name: 調整 VM 的大小
+              href: devtest-lab-resize-vm.md
+            - name: 重新部署 VM
+              href: devtest-lab-redeploy-vm.md
+            - name: 匯入 VM
+              href: devtest-lab-import-vm.md
+        - name: 在實驗室環境中
           items:
             - name: 建立環境
               href: devtest-lab-create-environment-from-arm.md
@@ -85,7 +93,7 @@
               href: devtest-lab-add-devtest-user.md
             - name: 以自訂角色來自訂權限
               href: devtest-lab-grant-user-permissions-to-specific-lab-policies.md
-        - name: 設定自訂實驗室
+        - name: 設定實驗室
           items:
             - name: 設定原則和排程
               href: devtest-lab-set-lab-policy.md
@@ -95,11 +103,11 @@
               href: devtest-lab-configure-marketplace-images.md
             - name: 啟用授權的映像
               href: devtest-lab-enable-licensed-images.md
-            - name: 將標記新增至自訂實驗室
+            - name: 將標籤加入至實驗室
               href: devtest-lab-add-tag.md
-            - name: 在自訂實驗室中張貼公告
+            - name: 在實驗室中張貼公告
               href: devtest-lab-announcements.md
-            - name: 在自訂實驗室中新增支援資訊
+            - name: 在實驗室中新增支援資訊
               href: devtest-lab-internal-support-message.md
         - name: 選取自訂映像或公式
           href: devtest-lab-comparing-vm-base-image-types.md

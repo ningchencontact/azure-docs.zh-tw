@@ -1,25 +1,21 @@
 ---
-title: Azure Active Directory B2C：使用內建原則新增 Azure AD 提供者 | Microsoft Docs
-description: 了解如何新增 Open ID Connect 識別提供者 (Azure AD)
+title: 在 Azure Active Directory B2C 中使用內建原則新增 Azure AD 提供者 | Microsoft Docs
+description: 了解如何新增 Open ID Connect 識別提供者 (Azure AD)。
 services: active-directory-b2c
-documentationcenter: ''
-author: parakhj
-manager: krassk
-editor: parakhj
-ms.assetid: 7dac9545-d5f1-4136-a04d-1c5740aea499
-ms.service: active-directory-b2c
+author: davidmu1
+manager: mtillman
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.devlang: na
+ms.topic: conceptual
 ms.date: 04/27/2018
-ms.author: parja
-ms.openlocfilehash: 52a752df9cf199acf39596f49e7368bce27a8158
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.author: davidmu
+ms.component: B2C
+ms.openlocfilehash: 70d3a19b715052fe658102929a1c29cf3db2d595
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2018
-ms.locfileid: "32309013"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37443712"
 ---
 # <a name="azure-active-directory-b2c-sign-in-using-azure-ad-accounts-through-a-built-in-policy"></a>Azure Active Directory B2C：透過內建原則使用 Azure AD 帳戶登入
 
@@ -74,7 +70,7 @@ ms.locfileid: "32309013"
 1. 保留 [回應類型] 的預設值，且應設定成 `code`。
 1. 保留 [回應模式] 的預設值，且應設定成 `form_post`。
 1. 您也可以選擇輸入 [網域] 的值 (如 `ContosoAD`)。 這是在要求中使用 *domain_hint* 參考此識別提供者時，要使用的值。 
-1. 按一下 [SERVICEPRINCIPAL] 。
+1. 按一下 [確定]。
 1. 在 [對應此識別提供者的宣告] 上按一下。
 1. 針對 [使用者識別碼]，輸入 `oid`。
 1. 針對 [顯示名稱]，輸入 `name`。

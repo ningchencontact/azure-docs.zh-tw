@@ -3,7 +3,7 @@ title: Log Analytics 中的連線資料方案 | Microsoft Docs
 description: 網路資料是來自具有 OMS 代理程式 (包括 Operations Manager 和 Windows 連線的代理程式) 的電腦的網路和效能彙總資料。 網路資料結合記錄資料可協助您將資料相互關聯。
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: fc3d7127-0baa-4772-858a-5ba995d1519b
@@ -11,14 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: magoedte
-ms.openlocfilehash: c86d1274ed46ff725c9db3093a8852fbae7f67ff
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.component: na
+ms.openlocfilehash: f44f47129a1d989422d25b7f0c5c55c1d229c07e
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129001"
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Log Analytics 中的 Wire Data 2.0 (預覽) 解決方案
 

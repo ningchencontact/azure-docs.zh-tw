@@ -1,22 +1,21 @@
 ---
 title: 什麼是 Azure 時間序列深入解析？ | Microsoft Docs
 description: Azure 時間序列深入解析簡介，這項新服務可用於時間序列資料分析和 IoT 解決方案。
-services: time-series-insights
 ms.service: time-series-insights
+services: time-series-insights
 author: ashannon7
-ms.author: anshan, jasonh
+ms.author: anshan
 manager: jhubbard
-editor: MarkMcGeeAtAquent
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
-ms.topic: article
+ms.topic: overview
 ms.date: 01/26/2018
-ms.openlocfilehash: f29fe50468aabadcf92d2ed3de3f9ec631d17f21
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e3c7881406d4d3736c185c39a85a488ecf8aab77
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33941528"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317761"
 ---
 # <a name="what-is-azure-time-series-insights"></a>什麼是 Azure 時間序列深入解析？
 

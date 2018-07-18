@@ -1,24 +1,19 @@
 ---
 title: 使用 Azure IoT 中樞 (.NET/.NET) 排程作業 | Microsoft Docs
 description: 如何排定 Azure IoT 中樞作業在多個裝置上叫用直接方法。 您可以使用適用於 .NET 的 Azure IoT 裝置 SDK，實作模擬裝置應用程式和服務應用程式來執行作業。
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 2233356e-b005-4765-ae41-3a4872bda943
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 012/16/2018
-ms.author: v-masebo;dobett
-ms.openlocfilehash: 76c8d3739b2af3c010cd80585c93c097fc9eb466
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+services: iot-hub
+ms.topic: conceptual
+ms.date: 03/06/2018
+ms.author: dobett
+ms.openlocfilehash: beb1e1e166325cb41a5d4e4fa07565b1f3d4b3bb
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38666911"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>排程及廣播作業 (.NET/.NET)
 
@@ -87,8 +82,9 @@ ms.lasthandoff: 04/28/2018
     ```csharp
     static string DeviceConnectionString = "<yourDeviceConnectionString>";
     static DeviceClient Client = null;
+    ```
 
-1. Add the following to implement the direct method on the device:
+1. 新增下列項目以在裝置上實作直接方法：
 
     ```csharp
     static Task<MethodResponse> LockDoor(MethodRequest methodRequest, object userContext)
@@ -100,8 +96,9 @@ ms.lasthandoff: 04/28/2018
         string result = "'Door was locked.'";
         return Task.FromResult(new MethodResponse(Encoding.UTF8.GetBytes(result), 200));
     }
+    ```
 
-1. Add the following to implement the device twins listener on the device:
+1. 新增下列項目以在裝置上實作裝置對應項接聽程式：
 
     ```csharp
     private static async Task OnDesiredPropertyChanged(TwinCollection desiredProperties, object userContext)
@@ -175,6 +172,7 @@ ms.lasthandoff: 04/28/2018
 1. 將下列欄位新增到 **Program** 類別。 將預留位置取代為您在上一節中針對中樞建立的 IoT 中樞連接字串和裝置的名稱。
 
     ```csharp
+    static JobClient jobClient;
     static string connString = "<yourIotHubConnectionString>";
     static string deviceId = "<yourDeviceId>";
     ```

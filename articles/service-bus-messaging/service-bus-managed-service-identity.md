@@ -1,12 +1,12 @@
 ---
-title: "搭配使用受控服務識別與 Azure 服務匯流排預覽 | Microsoft Docs"
-description: "搭配使用受控服務識別與 Azure 服務匯流排"
+title: 搭配使用受控服務識別與 Azure 服務匯流排預覽 | Microsoft Docs
+description: 搭配使用受控服務識別與 Azure 服務匯流排
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29874647"
 ---
 # <a name="managed-service-identity-preview"></a>受控服務識別 (預覽)
 

@@ -15,11 +15,12 @@ ms.workload: ''
 ms.date: 10/30/2017
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 49429dd4db4c33f16fce39a932f387e2145da250
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 0580d8ac864bf8ac5017985c96bfe7469a7c2276
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017583"
 ---
 # <a name="billing-tags-policy-initiative"></a>計費標籤原則計畫
 
@@ -63,20 +64,18 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 在指派原則之後，您可以對所有現有的資源觸發更新，以強制您加入的標籤原則。 下列指令碼會保留資源中現存的任何其他標籤︰
 
 ```powershell
-$group = Get-AzureRmResourceGroup -Name "ExampleGroup"
-$resources = Find-AzureRmResource -ResourceGroupName $group.ResourceGroupName
+$resources = Get-AzureRmResource -ResourceGroupName 'ExampleGroup'
 
-foreach($r in $resources)
-{
-    try{
-        $r | Set-AzureRmResource -Tags ($a=if($r.Tags -eq $NULL) { @{}} else {$r.Tags}) -Force -UsePatchSemantics
+foreach ($r in $resources) {
+    try {
+        Set-AzureRmResource -Tags ($a = if ($r.Tags -eq $NULL) { @{} } else {$r.Tags}) -ResourceId $r.ResourceId -Force -UsePatchSemantics
     }
-    catch{
-        Write-Host  $r.ResourceId + "can't be updated"
+    catch {
+        Write-Host $r.ResourceId + "can't be updated"
     }
 }
 ```
 
 ## <a name="next-steps"></a>後續步驟
 
-- 其他「Azure 原則」範本範例都位於[Azure 原則的範本](../json-samples.md)。
+- 在 [Azure 原則範例](../json-samples.md)檢閱更多範例。

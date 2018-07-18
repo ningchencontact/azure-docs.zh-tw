@@ -4,7 +4,7 @@ description: Logic Apps 中的錯誤和例外狀況處理模式。
 services: logic-apps
 documentationcenter: ''
 author: dereklee
-manager: anneta
+manager: jeconnoc
 editor: ''
 ms.assetid: e50ab2f2-1fdc-4d2a-be40-995a6cc5a0d4
 ms.service: logic-apps
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 01/31/2018
 ms.author: deli; LADocs
-ms.openlocfilehash: 70dd4e98dbffd9dac27752f0b4c2f5ce4ca70bdc
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ee2c4f1408dcb6527220cd3870ab00d83987f471
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300057"
 ---
 # <a name="handle-errors-and-exceptions-in-logic-apps"></a>處理 Logic Apps 中的錯誤和例外狀況
 
@@ -116,7 +117,7 @@ ms.lasthandoff: 04/03/2018
 
 每個邏輯應用程式動作都會在動作開始之前，宣告必須先完成的一些動作，就類似於在工作流程中指定步驟順序的方式。 在動作定義中，**runAfter** 屬性會定義此順序，並且是描述哪些動作和動作狀態會執行動作的物件。
 
-根據預設，所有您在「邏輯應用程式設計工具」中新增的動作都會設定為在前一個步驟執行後才執行，但前提是前一個步驟結果為 **Succeeded (成功)**。 不過，您可以自訂 **runAfter** 值，讓動作可以在上一個動作結果為 **Failed (失敗)**、**Skipped (略過)**或這些值的一些組合時引發。 例如，若要在特定的 **Insert_Row** 動作失敗後，將項目新增至特定的服務匯流排主題，您可以使用此 **runAfter** 定義範例：
+根據預設，所有您在「邏輯應用程式設計工具」中新增的動作都會設定為在前一個步驟執行後才執行，但前提是前一個步驟結果為 **Succeeded (成功)**。 不過，您可以自訂 **runAfter** 值，讓動作可以在上一個動作結果為 **Failed (失敗)**、**Skipped (略過)** 或這些值的一些組合時引發。 例如，若要在特定的 **Insert_Row** 動作失敗後，將項目新增至特定的服務匯流排主題，您可以使用此 **runAfter** 定義範例：
 
 ```json
 "Send_message": {
@@ -231,7 +232,7 @@ ms.lasthandoff: 04/03/2018
    如果範圍中的單一動作失敗，**foreach** 中的動作只會執行一次。 
    如果有多個失敗動作，則會導致對每個失敗執行一個動作。
 
-4. 在 **foreach** 項目回應本文 \(**@item() ['outputs']['body']**\) 上傳送 HTTP POST。 **@result()** 項目圖形和 **@actions()** 圖形相同，並可透過相同方式剖析。
+4. 在 **foreach** 項目回應本文 \(**@item() ['outputs']['body']** \) 上傳送 HTTP POST。 **@result()** 項目圖形和 **@actions()** 圖形相同，並可透過相同方式剖析。
 
 5. 包含兩個具有失敗動作名稱 **@item()['name']** 和失敗執行用戶端追蹤識別碼 **@item()['clientTrackingId']** 的自訂標頭。
 

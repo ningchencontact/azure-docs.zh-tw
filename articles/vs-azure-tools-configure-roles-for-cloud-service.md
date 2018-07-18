@@ -16,6 +16,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31798721"
 ---
 # <a name="configure-azure-cloud-service-roles-with-visual-studio"></a>使用 Visual Studio 設定 Azure 雲端服務角色
 Azure 雲端服務可以有一或多個背景工作角色或 web 角色。 您必須為每個角色定義其設定方式，並設定該角色的執行方式。 若要深入了解雲端服務中的角色，請參閱視訊 [Azure 雲端服務簡介](https://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Introduction-to-Windows-Azure-Cloud-Services)。 

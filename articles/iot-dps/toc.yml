@@ -113,6 +113,14 @@
           href: how-to-manage-dps-with-cli.md
         - name: 控制佈建服務 API 的存取
           href: how-to-control-access.md
+    - name: 佈建 IoT Edge 裝置
+      items:
+        - name: Linux
+          href: ../iot-edge/how-to-auto-provision-simulated-device-linux.md
+          maintainContext: true
+        - name: Windows
+          href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
+          maintainContext: true
     - name: 透過 SDK 使用證明機制
       href: use-hsm-with-sdk.md
     - name: 使用 SDK 工具進行開發
@@ -149,6 +157,16 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: 資源
   items:
+    - name: '適用於 C# 的 Azure IoT 範例 (.NET)'
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/'
+    - name: 適用於 Node.js 的 Azure IoT 範例
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-node/'
+    - name: 適用於 Java 的 Azure IoT 範例
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-java/'
+    - name: 適用於 Python 的 Azure IoT 範例
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-python/'
+    - name: 適用於 iOS 平台的 Azure IoT 範例
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/'
     - name: Azure IoT 中樞
       href: 'https://azure.microsoft.com/services/iot-hub/'
     - name: Azure IoT 認證裝置目錄

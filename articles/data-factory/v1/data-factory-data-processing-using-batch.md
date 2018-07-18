@@ -10,19 +10,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 8f0cd8aad2d5c5142fc66c78393b57ff210a7b83
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f6b2be357ad53a1852973d40e221da3d41b09ffb
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050568"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>使用 Data Factory 和 Batch 來處理大型資料集
 > [!NOTE]
-> 本文適用於第 1 版 Azure Data Factory (正式運作版)。 如果您使用第 2 版 Data Factory 服務 (預覽版)，請參閱 [Data Factory 第 2 版中的自訂活動](../transform-data-using-dotnet-custom-activity.md)。
+> 本文適用於第 1 版 Azure Data Factory (正式運作版)。 如果您使用目前版本的 Data Factory 服務，請參閱 [Data Factory 中的自訂活動](../transform-data-using-dotnet-custom-activity.md)。
 
 本文說明範例解決方案的架構，此解決方案能以自動且排程的方式移動和處理大型資料集。 本文也提供如何使用 Data Factory 和 Azure Batch 來實作解決方案的端對端逐步解說。
 
@@ -577,7 +578,7 @@ test custom activity Microsoft test custom activity Microsoft
    d. 針對 **batchUri** JSON 屬性，輸入 Batch URI。
 
       > [!IMPORTANT]
-      > [Batch 帳戶] 刀鋒視窗中的 URL 格式如下：\<accountname\>.\<region\>.batch.azure.com。針對 JSON 指令碼中的 **batchUri** 屬性，您必須從該 URL 中移除 a88"accountname."**。 例如 `"batchUri": "https://eastus.batch.azure.com"`。
+      > [Batch 帳戶] 刀鋒視窗中的 URL 格式如下：\<accountname\>.\<region\>.batch.azure.com。 針對 JSON 指令碼中的 **batchUri** 屬性，您必須從該 URL 中移除 a88"accountname."**。 例如 `"batchUri": "https://eastus.batch.azure.com"`。
       >
       >
 

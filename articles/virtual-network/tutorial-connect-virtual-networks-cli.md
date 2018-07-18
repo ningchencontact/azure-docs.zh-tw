@@ -18,10 +18,11 @@ ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
 ms.openlocfilehash: 29ab957e97c6aa57be6192e6ee4d86fe642ae95d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38307851"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>使用 Azure CLI 以虛擬網路對等互連連線虛擬網路
 

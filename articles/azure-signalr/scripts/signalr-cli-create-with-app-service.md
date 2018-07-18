@@ -20,6 +20,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33766388"
 ---
 # <a name="create-a-signalr-service-with-an-app-service"></a>使用 App Service 建立 SignalR 服務
 

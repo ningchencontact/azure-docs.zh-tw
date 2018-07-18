@@ -13,30 +13,28 @@ ms.devlang: rest-api
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 7c5f36fec870a81e023c4cde74c9e878f2f544f3
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 27754395e0be5bffab3c63b42fff9ddbf93cf338
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084599"
 ---
 # <a name="create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>使用 REST API 建立 Azure 資料處理站和管線
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [第 1 版 - 正式推出](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [第 2 版 - 預覽](quickstart-create-data-factory-rest-api.md)
+> * [第 1 版](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [目前的版本](quickstart-create-data-factory-rest-api.md)
 
 Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資料驅動工作流程，以便協調及自動進行資料移動和資料轉換。 使用 Azure Data Factory，您可以建立和排程資料驅動工作流程 (稱為管線)，這類工作流程可以從不同資料存放區內嵌資料，使用計算服務 (例如 Azure HDInsight Hadoop、Spark、Azure Data Lake Analytics 和 Azure Machine Learning) 來處理/轉換資料，以及將輸出資料發佈至資料存放區 (例如 Azure SQL 資料倉儲)，以供商業智慧 (BI) 應用程式使用。 
 
 本快速入門說明如何使用 REST API 來建立 Azure 資料處理站。 在此資料處理站中的管線會將資料從 Azure Blob 儲存體中的一個位置複製到其他位置。
 
-> [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (也就是正式推出版 (GA))，請參閱 [開始使用 Data Factory 第 1 版](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
-
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>先決條件
 
 * **Azure 訂用帳戶**。 如果您沒有訂用帳戶，則可以建立[免費試用](http://azure.microsoft.com/pricing/free-trial/)帳戶。
-* **Azure 儲存體帳戶**。 您需要使用 Blob 儲存體作為**來源**和**接收**資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)一文以取得建立步驟。
+* **Azure 儲存體帳戶**。 您需要使用 Blob 儲存體作為**來源**和**接收**資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)一文，按照步驟來建立帳戶。
 * 在 Blob 儲存體中建立一個 **Blob 容器**，在容器中建立一個輸入**資料夾**，然後上傳一些檔案到資料夾中。 您可以使用 [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)之類的工具連線到 Azure Blob 儲存體，建立 Blob 容器，上傳輸入檔，以及驗證輸出檔。
 * 安裝 **Azure PowerShell**。 遵循[如何安裝並設定 Azure PowerShell](/powershell/azure/install-azurerm-ps) 中的指示。 本快速入門會使用 PowerShell 來叫用 REST API 呼叫。
 * 請遵循[此指示](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)**在 Azure Active Directory 中建立應用程式**。 記下這些值，您在稍後的步驟中會用到：**應用程式識別碼**、**驗證金鑰**和**租用戶識別碼**。 將應用程式指派給「**參與者**」角色。
@@ -114,7 +112,7 @@ $response | ConvertTo-Json
     ```
     Data factory name "ADFv2QuickStartDataFactory" is not available.
     ```
-* 目前，Data Factory V2 只允許您在美國東部、美國東部 2 和西歐區域中建立資料處理站。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
+* 如需目前可使用 Data Factory 的 Azure 區域清單，請在下列頁面上選取您感興趣的區域，然後展開 [分析] 以找出 [Data Factory]：[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
 
 以下是範例回應：
 
@@ -426,7 +424,7 @@ $runId = $response.runId
                         "activityEnd":  "2017-09-07T13:12:38.4780542Z",
                         "duration":  36148,
                         "input":  "@{source=; sink=}",
-                        "output":  "@{dataRead=331452208; dataWritten=331452208; copyDuration=22; throughput=14712.9; errors=System.Object[]; effectiveIntegrationRuntime=DefaultIntegrationRuntime (West US); usedCloudDataMovementUnits=2; billedDuration=22}",
+                        "output":  "@{dataRead=331452208; dataWritten=331452208; copyDuration=22; throughput=14712.9; errors=System.Object[]; effectiveIntegrationRuntime=DefaultIntegrationRuntime (West US); usedDataIntegrationUnits=2; billedDuration=22}",
                         "error":  "@{errorCode=; message=; failureType=; target=CopyFromBlobToBlob}"
                     }
                 ]

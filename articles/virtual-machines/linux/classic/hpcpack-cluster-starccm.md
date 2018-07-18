@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30841482"
 ---
 # <a name="run-star-ccm-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>在 Azure 中的 Linux RDMA 叢集以 Microsoft HPC Pack 執行 STAR-CCM+
 本文將說明如何在 Azure 上部署 Microsoft HPC Pack 叢集，並在與 InfiniBand 相互連接的多個 Linux 計算節點上執行 [CD-adapco STAR-CCM+](http://www.cd-adapco.com/products/star-ccm%C2%AE) 作業。

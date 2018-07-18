@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 6b45b00de53822224afbfb3a15dbc6790deb11ce
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: feb9b0c3d90aea9d5e0351b6691e93186dbfb9f6
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34356336"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902073"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>使用 Azure 入口網站建立包含 URL 路徑型路由規則的應用程式閘道
 
@@ -142,8 +142,8 @@ ms.locfileid: "34356336"
 
 1. 按一下 [規則]，然後按一下 [路徑型]。
 2. 輸入 rule2 作為名稱。
-3. 輸入 Images 作為第一個路徑的名稱。 輸入 /images/* 作為路徑。 選取 **imagesBackendPool** 作為後端集區。
-4. 輸入 Video 作為第二個路徑的名稱。 輸入 /video/* 作為路徑。 選取 **videoBackendPool** 作為後端集區。
+3. 輸入 Images 作為第一個路徑的名稱。 輸入 */images/*\* 作為路徑。 選取 **imagesBackendPool** 作為後端集區。
+4. 輸入 Video 作為第二個路徑的名稱。 輸入 */video/*\* 作為路徑。 選取 **videoBackendPool** 作為後端集區。
 
     ![建立路徑型規則](./media/create-url-route-portal/application-gateway-route-rule.png)
 
@@ -155,13 +155,13 @@ ms.locfileid: "34356336"
 
     ![記錄應用程式閘道公用 IP 位址](./media/create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. 將公用 IP 位址複製並貼到您瀏覽器的網址列。 例如，http://http://40.121.222.19。
+2. 將公用 IP 位址複製並貼到您瀏覽器的網址列。 例如，http://40.121.222.19。
 
     ![在應用程式閘道中測試基底 URL](./media/create-url-route-portal/application-gateway-iistest.png)
 
-3. 將 URL 變更為 http://&lt;ip-address&gt;:8080/video/test.htm，將 &lt;ip-address&gt; 取代為您的 IP 位址，然後您會看到類似下列的範例：
+3. 將 URL 變更為 http://&lt;ip-address&gt;:8080/images/test.htm，將 &lt;ip-address&gt; 取代為您的 IP 位址，然後您會看到類似下列的範例：
 
-    ![在應用程式閘道中測試映像 URL](./media/create-url-route-portal/application-gateway-iistest-images.png)
+    ![在應用程式閘道中測試影像 URL](./media/create-url-route-portal/application-gateway-iistest-images.png)
 
 4. 將 URL 變更為 http://&lt;ip-address&gt;:8080/video/test.htm，將 &lt;ip-address&gt; 取代為您的 IP 位址，然後您會看到類似下列的範例：
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure Multi-Factor Authentication 文件 - 教學課程和 API 參考 | Microsoft Docs"
-description: "了解如何透過可提供簡單登入程序的各種驗證方法，部署 Multi-Factor Authentication。 教學課程、SDK 等等。"
+title: Azure Multi-Factor Authentication 文件 - 教學課程和 API 參考 | Microsoft Docs
+description: 了解如何透過可提供簡單登入程序的各種驗證方法，部署 Multi-Factor Authentication。 教學課程、SDK 等等。
 services: multi-factor-authentication
 author: czeumault
 manager: mtillman
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: multi-factor-authentication
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26630813"
 ---
 # <a name="multi-factor-authentication-documentation"></a>Multi-Factor Authentication 文件
 

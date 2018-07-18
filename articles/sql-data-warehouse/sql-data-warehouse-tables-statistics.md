@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 05/09/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 2922a859f741c6b6420f49d34b982b7ec4968a8c
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: bbc6a5083aebba40885700cab6c67128c9d9f916
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011759"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643425"
 ---
 # <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>建立、更新 Azure SQL 資料倉儲中資料表的查詢最佳化統計資料
 建立和更新 Azure SQL 資料倉儲中資料表的查詢最佳化統計資料。
@@ -50,11 +50,14 @@ SET AUTO_CREATE_STATISTICS ON
 > 統計資料的建立也會記錄在不同使用者內容之下的 [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016) 中。
 > 
 
-當自動統計資料建立完成時，會採用以下格式：_WA_Sys_<8 digit column id in Hex>_<8 digit table id in Hex>。 可以執行以下命令來檢視已建立的統計資料：
+當自動統計資料建立完成時，會採用以下格式：_WA_Sys_<8 digit column id in Hex>_<8 digit table id in Hex>。 您可以執行 [DBCC SHOW_STATISTICS](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-2017) 命令來檢視已建立的統計資料：
 
 ```sql
 DBCC SHOW_STATISTICS (<tablename>, <targetname>)
 ```
+第一個引數是資料表，其中包含要顯示的統計資料。 不能是外部資料表。 第二個引數是用來顯示統計資料資訊的目標索引、統計資料或資料行名稱。
+
+
 
 ## <a name="updating-statistics"></a>更新統計資料
 

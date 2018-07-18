@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/10/2018
+ms.date: 07/06/2018
 ms.author: jonbeck
-ms.openlocfilehash: cb001705a0864899f070db3c36c1b82f0227ec16
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7335a81f4fc7feefbda558cb21f645e69ea687d5
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37902593"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>一般用途的虛擬機器大小
 
@@ -35,6 +36,7 @@ ms.lasthandoff: 04/16/2018
 - [儲存體最佳化](sizes-storage.md)
 - [GPU](sizes-gpu.md)
 - [高效能計算](sizes-hpc.md)
+- [前幾代](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>後續步驟
 深入了解 [Azure 計算單位 (ACU)](acu.md) 如何協助您比較各個 Azure SKU 的計算效能。

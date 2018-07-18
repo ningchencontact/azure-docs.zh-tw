@@ -3,17 +3,18 @@ title: 在認知搜尋管線中建立技能集 (Azure 搜尋服務) | Microsoft 
 description: 定義資料擷取、自然語言處理或影像分析步驟，以從您的資料擴充及擷取在 Azure 搜尋服務中使用的結構化資訊。
 manager: pablocas
 author: luiscabrer
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 05/24/2018
 ms.author: luisca
-ms.openlocfilehash: 3ab35cfd8ce5cf54a68473736fe05b78d26850de
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 997b106f748a2f18e8141f77f3b9ff8bb6b9d971
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786867"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36268020"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>如何在擴充管線中建立技能集
 
@@ -52,7 +53,7 @@ ms.locfileid: "33786867"
 
 ## <a name="skillset-definition-in-rest"></a>REST 中的技能集定義
 
-技能集會定義為技能的陣列。 每項技能分別定義其輸入的來源和所產生的輸出名稱。 使用[建立技能集 REST API](ref-create-skillset.md)，可以定義對應於上圖的技能集： 
+技能集會定義為技能的陣列。 每項技能分別定義其輸入的來源和所產生的輸出名稱。 使用[建立技能集 REST API](https://docs.microsoft.com/rest/api/searchservice/create-skillset)，可以定義對應於上圖的技能集： 
 
 ```http
 PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2017-11-11-Preview
@@ -104,13 +105,13 @@ Content-Type: application/json
      "description": "Calls an Azure function, which in turn calls Bing Entity Search",
       "uri": "https://indexer-e2e-webskill.azurewebsites.net/api/InvokeTextAnalyticsV3?code=foo",
       "httpHeaders": {
-          "Ocp-Apim-Subscription-Key": "foobar",
+          "Ocp-Apim-Subscription-Key": "foobar"
       },
-      "context": "/document/content/organizations/*",
+      "context": "/document/organizations/*",
       "inputs": [
         {
           "name": "query",
-          "source": "/document/content/organizations/*"
+          "source": "/document/organizations/*"
         }
       ],
       "outputs": [
@@ -153,8 +154,7 @@ Content-Type: application/json
           "name": "text",
           "source": "/document/content"
         }
-      ],
-      "outputs": [
+      ],      "outputs": [
         {
           "name": "organizations",
           "targetName": "organizations"
@@ -209,13 +209,13 @@ Content-Type: application/json
      "description": "This skill calls an Azure function, which in turn calls Bing Entity Search",
       "uri": "https://indexer-e2e-webskill.azurewebsites.net/api/InvokeTextAnalyticsV3?code=foo",
       "httpHeaders": {
-          "Ocp-Apim-Subscription-Key": "foobar",
+          "Ocp-Apim-Subscription-Key": "foobar"
       }
-      "context": "/document/content/organizations/*",
+      "context": "/document/organizations/*",
       "inputs": [
         {
           "name": "query",
-          "source": "/document/content/organizations/*"
+          "source": "/document/organizations/*"
         }
       ],
       "outputs": [
@@ -229,9 +229,9 @@ Content-Type: application/json
 
 此定義是一種自訂技能，會在擴充的過程中呼叫 Web API。 對於每個具名實體辨識所識別的組織，此技能都會呼叫 Web API，以尋找該組織的說明。 何時應呼叫 Web API 以及如何傳輸接收到的資訊等協調流程，由擴充引擎在內部處理。 不過，呼叫此自訂 API 所需的初始化，必須提供於 JSON 中 (例如 URI、httpHeaders 和預期的輸入)。 如需為擴充管線建立自訂 Web API 的指引，請參閱[如何定義自訂介面](cognitive-search-custom-skill-interface.md)。
 
-請注意，[內容] 欄位設定為附有星號的 ```"/document/content/organizations/*"```，這表示擴充步驟是對 ```"/document/content/organizations"``` 下的「每個」組織而呼叫的。 
+請注意，[內容] 欄位設定為附有星號的 ```"/document/organizations/*"```，這表示擴充步驟是對 ```"/document/organizations"``` 下的「每個」組織而呼叫的。 
 
-系統會為所識別的每個組織產生輸出 (在此案例中為公司說明)。 在下游步驟中參照說明時 (例如，在擷取關鍵片語時)，您會使用路徑 ```"/document/content/organizations/*/description"``` 來執行。 
+系統會為所識別的每個組織產生輸出 (在此案例中為公司說明)。 在下游步驟中參照說明時 (例如，在擷取關鍵片語時)，您會使用路徑 ```"/document/organizations/*/description"``` 來執行。 
 
 ## <a name="enrichments-create-structure-out-of-unstructured-information"></a>擴充會從非結構化資訊建立結構
 

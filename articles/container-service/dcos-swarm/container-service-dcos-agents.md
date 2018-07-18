@@ -2,18 +2,19 @@
 title: Azure Container Service 的 DC/OS 代理程式集區
 description: 公用和私用代理程式集區如何與 Azure Container Service DC/OS 叢集搭配運作
 services: container-service
-author: dlepow
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 01/04/2017
-ms.author: danlep
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 81059fd75f0e61324221614c4bb8eccd94203478
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9dda6d45caf69734eb135779c8bac00fea721efd
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901053"
 ---
 # <a name="dcos-agent-pools-for-azure-container-service"></a>Azure Container Service 的 DC/OS 代理程式集區
 Azure Container Service 中的 DC/OS 叢集包含兩個集區中的代理程式節點，即公用集區和私用集區。 您可以將應用程式部署到其中任一集區，以影響容器服務中電腦之間的存取性。 電腦可以公開至網際網路 (公用) 或保留在內部 (私用)。 本文簡短概述為什麼會有公用集區和私用集區。

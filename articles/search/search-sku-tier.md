@@ -7,14 +7,14 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/12/2018
+ms.date: 06/19/2018
 ms.author: heidist
-ms.openlocfilehash: bbf535c5b446fd654331374d29c106b6e43d55f5
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 241d24746d82a359b4bbf4febbbaaf91180dd23e
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34266875"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36210919"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>選擇 Azure 搜尋服務的定價層
 
@@ -39,7 +39,7 @@ ms.locfileid: "34266875"
 容量是由「複本」和「資料分割」所構成。 複本是搜尋服務的執行個體，每個複本都會裝載一份經過負載平衡的索引。 例如，具有 6 個複本的服務，會有 6 份已在服務中載入的每個索引。 資料分割會儲存索引並自動將可搜尋的資料分割：兩個資料分割會將索引對半分割、三個資料分割會將索引分割成三等份，依此類推。 就容量來說，「資料分割大小」是定價層的主要區分功能。
 
 > [!NOTE]
-> 所有**標準**層都支援[彈性組合複本和資料分割](search-capacity-planning.md#chart)，讓您可以藉由變更平衡來[讓系統偏向速度或儲存取向](search-performance-optimization.md)。 **基本**層最多可提供三個複本以實現高可用性，但只有一個資料分割。 **免費**層不會提供專用資源：其計算資源是由多個免費服務共用。
+> 所有**標準**層都支援[彈性組合複本和資料分割](search-capacity-planning.md#chart)，讓您可以藉由變更平衡來[讓系統偏向速度或儲存取向](search-performance-optimization.md)。 **Basic** 層最多可提供三個複本以實現高可用性，但只有一個資料分割。 **免費**層不會提供專用資源：其計算資源是由多個免費服務共用。
 
 ### <a name="limits"></a>限制
 
@@ -59,7 +59,8 @@ ms.locfileid: "34266875"
 
 ![Azure 搜尋服務層](./media/search-sku-tier/tiers.png "Azure 搜尋服務定價層")
 
-在任一端都有**基本**和 **S3 HD** 可供重要但非典型的耗用量模式使用。 **基本**適用於小型生產工作負載：其提供 SLA、專用資源、高可用性，但適量的儲存體，最多總共可達 2 GB。 此定價層是設計給一直未充分使用可用容量的客戶來使用。 針對 ISV、合作夥伴、[多租用戶解決方案](search-modeling-multitenant-saas-applications.md)或任何會呼叫大量小型索引的任何組態等典型工作負載，則適合使用另一端的 **S3 HD**。 如果**基本**或 **S3 HD** 層合用，情形通常很明顯，但如果您想要確認，請在 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-search) 張貼文章或[連絡 Azure支援](https://azure.microsoft.com/support/options/)以尋求進一步的指引。
+在任一端都有**基本**和 **S3 HD** 可供重要但非典型的耗用量模式使用。 
+  **基本**適用於小型生產工作負載：其提供 SLA、專用資源、高可用性，但適量的儲存體，最多總共可達 2 GB。 此定價層是設計給一直未充分使用可用容量的客戶來使用。 針對 ISV、合作夥伴、[多租用戶解決方案](search-modeling-multitenant-saas-applications.md)或任何會呼叫大量小型索引的任何組態等典型工作負載，則適合使用另一端的 **S3 HD**。 如果**基本**或 **S3 HD** 層合用，情形通常很明顯，但如果您想要確認，請在 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-search) 張貼文章或[連絡 Azure支援](https://azure.microsoft.com/support/options/)以尋求進一步的指引。
 
 讓我們將焦點轉到更常見的標準層，**S1-S3** 是逐漸增加的容量層級，具有資料分割大小轉折點以及索引、索引子和推論資源數目上限：
 

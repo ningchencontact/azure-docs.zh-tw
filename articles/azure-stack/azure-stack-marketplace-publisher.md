@@ -1,12 +1,12 @@
 ---
-title: "使用 Marketplace 工具組來建立和發佈 Marketplace 項目 | Microsoft Docs"
-description: "了解如何以發佈工具組快速建立 Marketplace 項目"
+title: 使用 Marketplace 工具組來建立和發佈 Marketplace 項目 | Microsoft Docs
+description: 了解如何以發佈工具組快速建立 Marketplace 項目
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29386872"
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>使用發佈工具新增 Marketplace 項目
 將您的內容新增到 [Azure Stack Marketplace](azure-stack-marketplace.md)，可讓您的解決方案供您和您的租用戶用於部署。  Marketplace 工具組會根據您的 IaaS Azure Resource Manager 範本或 VM 擴充功能，建立 Azure Marketplace 套件 (.azpkg) 檔案。  您也可以使用 Marketplace 工具組來發佈 .azpkg 檔案 (可使用此工具或使用[手動](azure-stack-create-and-publish-marketplace-item.md)步驟建立)。  本主題會逐步引導您下載工具、根據 VM 範本建立 Marketplace 項目，然後將該項目發佈到 Azure Stack Marketplace。     

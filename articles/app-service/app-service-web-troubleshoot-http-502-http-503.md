@@ -1,13 +1,13 @@
 ---
-title: "修正 502 不正確的閘道、503 服務無法使用錯誤 |Microsoft Docs"
-description: "針對 Azure App Service 所裝載之 Web 應用程式的「502 不正確的閘道」和「503 服務無法使用」錯誤進行疑難排解。"
+title: 修正 502 不正確的閘道、503 服務無法使用錯誤 |Microsoft Docs
+description: 針對 Azure App Service 所裝載之 Web 應用程式的「502 不正確的閘道」和「503 服務無法使用」錯誤進行疑難排解。
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: top-support-issue
-keywords: "502 不正確的閘道、503 服務無法使用、錯誤 503、錯誤 502"
+keywords: 502 不正確的閘道、503 服務無法使用、錯誤 503、錯誤 502
 ms.assetid: 51cd331a-a3fa-438f-90ef-385e755e50d5
 ms.service: app-service-web
 ms.workload: web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22986253"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-your-azure-web-apps"></a>對您的 Azure Web 應用程式中「502 不正確的閘道」和「503 服務無法使用」的 HTTP 錯誤進行疑難排解
 在裝載於 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)的 Web 應用程式中「502 不正確的閘道」和「503 服務無法使用」是常見的錯誤。 本文可協助您對這些錯誤進行疑難排解。

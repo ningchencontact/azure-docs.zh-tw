@@ -1,11 +1,11 @@
 ---
-title: "開始使用 Azure Blob 儲存體和 Visual Studio 已連線服務 (ASP.NET Core) | Microsoft Docs"
-description: "在使用 Visual Studio 已連線服務連接到儲存體帳戶之後，如何在 Visual Studio 的 ASP.NET Core 專案中開始使用 Azure Blob 儲存體"
+title: 開始使用 Azure Blob 儲存體和 Visual Studio 已連線服務 (ASP.NET Core) | Microsoft Docs
+description: 在使用 Visual Studio 已連線服務連接到儲存體帳戶之後，如何在 Visual Studio 的 ASP.NET Core 專案中開始使用 Azure Blob 儲存體
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: camsoper
 manager: wpickett
-editor: 
+editor: ''
 ms.service: storage
 ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
@@ -14,10 +14,11 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: casoper
 ms.openlocfilehash: 42390effd6a2d2a8afe9350e0a77d3c0a17b6129
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38720224"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>開始使用 Azure Blob 儲存體和 Visual Studio 已連接服務 (ASP.NET Core)
 
@@ -124,7 +125,7 @@ Blob 容器是 blob 和資料夾的巢狀階層。 本文件中剩餘的步驟�
     ```
 
 > [!NOTE]
-> 即使 *test-blob-container* 尚不存在，此程式碼也會建立對它的參考。 如此一來，才能使用下一個步驟中所示的 `CreateIfNotExists` 方法來建立容器。
+> 即使 test-blob-container 尚不存在，此程式碼也會建立對它的參考。 如此一來，才能使用下一個步驟中所示的 `CreateIfNotExists` 方法來建立容器。
 
 ## <a name="create-a-blob-container"></a>建立 Blob 容器
 
@@ -147,7 +148,7 @@ Blob 容器是 blob 和資料夾的巢狀階層。 本文件中剩餘的步驟�
     CloudBlobContainer container = GetCloudBlobContainer();
     ```
 
-1. 呼叫 `CloudBlobContainer.CreateIfNotExists` 方法來建立容器 (如果尚不存在)。 如果容器不存在而已成功建立，則 `CloudBlobContainer.CreateIfNotExists` 方法會傳回 **true**。 否則，此方法會傳回 **false**。    
+1. 呼叫 `CloudBlobContainer.CreateIfNotExists` 方法來建立容器 (如果尚不存在)。 如果容器不存在且已成功建立，則 `CloudBlobContainer.CreateIfNotExists` 方法會傳回 **true**。 否則，此方法會傳回 **false**。    
 
     ```csharp
     ViewBag.Success = container.CreateIfNotExistsAsync().Result;
@@ -174,11 +175,11 @@ Blob 容器是 blob 和資料夾的巢狀階層。 本文件中剩餘的步驟�
 
 1. 在 [方案總管] 中，於 [檢視] 資料夾上按一下滑鼠右鍵。
 
-2. 從操作功能表中，選取 [新增] > [新增資料夾]。 將新資料夾命名為 *Blobs*。 
+2. 從快顯功能表中，選取 [新增] > [新增資料夾]。 將新資料夾命名為 Blobs。 
 
 1. 在 [方案總管] 中，展開 [檢視] 資料夾，然後在 [Blobs] 上按一下滑鼠右鍵。
 
-4. 從操作功能表中，選取 [新增] > [檢視]。
+4. 從快顯功能表中，選取 [新增] > [檢視]。
 
 1. 在 [新增檢視] 對話方塊中，針對檢視名稱輸入 **CreateBlobContainer**，然後選取 [新增]。
 
@@ -206,11 +207,11 @@ Blob 容器是 blob 和資料夾的巢狀階層。 本文件中剩餘的步驟�
   
     ![[建立 Blob 容器] 的螢幕擷取畫面](./media/vs-storage-aspnet-core-getting-started-blobs/create-blob-container-results.png)
 
-    如先前所述，只有在容器不存在而已建立時，`CloudBlobContainer.CreateIfNotExists` 方法才會傳回 **true**。 因此，如果在容器已存在時執行應用程式，則此方法會傳回 **false**。
+    如先前所述，只有在容器不存在且已建立時，`CloudBlobContainer.CreateIfNotExists` 方法才會傳回 **true**。 因此，如果在容器已存在時執行應用程式，則此方法會傳回 **false**。
 
 ## <a name="upload-a-blob-into-a-blob-container"></a>將 Blob 上傳至 blob 容器
 
-在[建立 Blob 容器](#create-a-blob-container)之後，請將檔案上傳至該容器。 本節將逐步引導您將本機檔案上傳至 Blob 容器。 這些步驟會假設有一個名為 *test-blob-container* 的 Blob 容器。 
+在[建立 Blob 容器](#create-a-blob-container)之後，請將檔案上傳至該容器。 本節將逐步引導您將本機檔案上傳至 Blob 容器。 這些步驟會假設有一個名為 test-blob-container 的 Blob 容器。 
 
 1. 開啟 `BlobsController.cs` 檔案。
 
@@ -238,9 +239,9 @@ Blob 容器是 blob 和資料夾的巢狀階層。 本文件中剩餘的步驟�
     ```
     
     > [!NOTE]
-    > Blob 名稱是用來擷取 Blob 之 URL 的一部分，並且可以是任何字串，包括檔案的名稱。
+    > Blob 名稱是用來擷取 Blob 之 URL 的一部分，且可以是任何字串，包括檔案的名稱。
 
-1. 有了 Blob 參考之後，您便可以藉由呼叫 Blob 參考物件的 `UploadFromStream` 方法，將任何資料流上傳至其中。 如果 Blob 不存在，`UploadFromStream` 方法就會建立 Blob，若已存在，則會予以覆寫。 (請將 *&lt;file-to-upload>* 變更為所要上傳之檔案的完整路徑)。
+1. 有了 Blob 參考之後，您便可以藉由呼叫 Blob 參考物件的 `UploadFromStream` 方法，將任何資料流上傳至其中。 如果 Blob 不存在，`UploadFromStream` 方法就會建立 Blob，若已存在，則會予以覆寫。 (請將 &lt;file-to-upload> 變更為所要上傳之檔案的完整路徑)。
 
     ```csharp
     using (var fileStream = System.IO.File.OpenRead(@"<file-to-upload>"))
@@ -272,7 +273,7 @@ Blob 容器是 blob 和資料夾的巢狀階層。 本文件中剩餘的步驟�
     <li><a asp-area="" asp-controller="Blobs" asp-action="UploadBlob">Upload blob</a></li>
     ```
 
-1. 執行應用程式，並選取 [上傳 blob]。 *success!* 一字 應該會出現。
+1. 執行應用程式，並選取 [上傳 blob]。 success! 一字 應該會出現。
     
     ![成功驗證的螢幕擷取畫面](./media/vs-storage-aspnet-core-getting-started-blobs/upload-blob.png)
   
@@ -298,7 +299,7 @@ Blob 容器是 blob 和資料夾的巢狀階層。 本文件中剩餘的步驟�
     CloudBlobContainer container = GetCloudBlobContainer();
     ```
    
-1. 若要列出 Blob 容器中的 Blob，請使用 `CloudBlobContainer.ListBlobsSegmentedAsync` 方法。 `CloudBlobContainer.ListBlobsSegmentedAsync` 方法會傳回 `BlobResultSegment`。 這包含可轉換成 `CloudBlockBlob`、`CloudPageBlob` 或 `CloudBlobDirectory` 物件的 `IListBlobItem` 物件。 下列程式碼片段列舉 blob 容器中的所有 blob。 每個 Blob 都會根據其類型轉換成適當的物件。 其名稱 (如果是 `CloudBlobDirectory`，則為 URI) 會新增至清單。
+1. 若要列出 Blob 容器中的 Blob，請使用 `CloudBlobContainer.ListBlobsSegmentedAsync` 方法。 `CloudBlobContainer.ListBlobsSegmentedAsync` 方法會傳回 `BlobResultSegment`。 這包含可轉換成 `CloudBlockBlob`、`CloudPageBlob` 或 `CloudBlobDirectory` 物件的 `IListBlobItem` 物件。 下列程式碼片段列舉 blob 容器中的所有 blob。 每個 Blob 都會以其類型為基礎，轉換成適當的物件。 其名稱 (如果是 `CloudBlobDirectory`，則為 URI) 會新增至清單。
 
     ```csharp
     List<string> blobs = new List<string>();
@@ -357,7 +358,7 @@ Blob 容器是 blob 和資料夾的巢狀階層。 本文件中剩餘的步驟�
 
 1. 在 [方案總管] 中，展開 [檢視] 資料夾，然後在 [Blobs] 上按一下滑鼠右鍵。
 
-2. 從操作功能表中，選取 [新增] > [檢視]。
+2. 從快顯功能表中，選取 [新增] > [檢視]。
 
 1. 在 [新增檢視] 對話方塊中，針對檢視名稱輸入 `ListBlobs`，然後選取 [新增]。
 
@@ -420,7 +421,7 @@ Blob 容器是 blob 和資料夾的巢狀階層。 本文件中剩餘的步驟�
     CloudBlockBlob blob = container.GetBlockBlobReference("myBlob");
     ```
 
-1. 若要下載 Blob，請使用 `CloudBlockBlob.DownloadToStream` 方法。 下列程式碼會將 Blob 的內容傳輸至資料流物件。 系統會接著將該物件保存至本機檔案。 (請將 *&lt;local-file-name>* 變更為代表 Blob 下載位置的完整檔案名稱)。 
+1. 若要下載 Blob，請使用 `CloudBlockBlob.DownloadToStream` 方法。 下列程式碼會將 Blob 的內容傳輸至串流物件。 系統會接著將該物件保存至本機檔案。 (請將 *&lt;local-file-name>* 變更為代表 Blob 下載位置的完整檔案名稱)。 
 
     ```csharp
     using (var fileStream = System.IO.File.OpenWrite(<local-file-name>))
@@ -452,7 +453,7 @@ Blob 容器是 blob 和資料夾的巢狀階層。 本文件中剩餘的步驟�
     <li><a asp-area="" asp-controller="Blobs" asp-action="DownloadBlob">Download blob</a></li>
     ```
 
-1. 執行應用程式，並選取 [下載 blob] 下載 blob。 `CloudBlobContainer.GetBlockBlobReference` 方法呼叫中指定的 Blob 會下載至 `File.OpenWrite` 方法呼叫中指定的位置。 *success!* 文字 應該會出現在瀏覽器中。 
+1. 執行應用程式，並選取 [下載 blob] 下載 blob。 `CloudBlobContainer.GetBlockBlobReference` 方法呼叫中指定的 Blob 會下載至 `File.OpenWrite` 方法呼叫中指定的位置。 success! 文字 應該會出現在瀏覽器中。 
 
 ## <a name="delete-blobs"></a>刪除 Blob
 
@@ -509,7 +510,7 @@ Blob 容器是 blob 和資料夾的巢狀階層。 本文件中剩餘的步驟�
     <li><a asp-area="" asp-controller="Blobs" asp-action="DeleteBlob">Delete blob</a></li>
     ```
 
-1. 執行應用程式，然後選取 [刪除 Blob] 以刪除 `CloudBlobContainer.GetBlockBlobReference` 方法呼叫中指定的 Blob。 *success!* 文字 應該會出現在瀏覽器中。 選取瀏覽器的 [上一頁] 按鈕，然後選取 [列出 Blob] 以確認 Blob 已不存在於容器中。
+1. 執行應用程式，然後選取 [刪除 Blob] 以刪除 `CloudBlobContainer.GetBlockBlobReference` 方法呼叫中指定的 Blob。 success! 文字 應該會出現在瀏覽器中。 選取瀏覽器的 [上一頁] 按鈕，然後選取 [列出 Blob] 以確認 Blob 已不存在於容器中。
 
 ## <a name="next-steps"></a>後續步驟
 

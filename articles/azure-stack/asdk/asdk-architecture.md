@@ -20,6 +20,7 @@ ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29974136"
 ---
 # <a name="microsoft-azure-stack-development-kit-architecture"></a>Microsoft Azure Stack 開發套件架構
 Azure Stack 開發套件 (ASDK) 是 Azure Stack 的單一節點部署。 所有元件都安裝在於單一主機電腦上執行的虛擬機器中。 

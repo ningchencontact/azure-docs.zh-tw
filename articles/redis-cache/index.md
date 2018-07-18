@@ -17,6 +17,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30177982"
 ---
 # <a name="redis-cache-documentation"></a>Redis 快取文件
 

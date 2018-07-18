@@ -4,8 +4,8 @@ description: 了解使用 Azure 入口網站來管理 Azure 檔案服務。
 services: storage
 documentationcenter: ''
 author: wmgries
-manager: jeconnoc
-editor: ''
+manager: aungoo
+editor: tamram
 ms.assetid: ''
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
-ms.openlocfilehash: 9b8a7988be2c3a2622dd45a264abcb674b7d169e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 24996e80d2e75978a814bbf471176d4edcf22549
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38479167"
 ---
 # <a name="managing-azure-file-shares-with-the-azure-portal"></a>使用 Azure 入口網站管理 Azure 檔案共用 
 [Azure 檔案](storage-files-introduction.md)是 Microsoft 易於使用的雲端檔案系統。 Azure 檔案共用可在 Windows、Linux 和 macOS 中掛接。 本指南會逐步說明透過 [Azure 入口網站](https://portal.azure.com/)來使用 Azure 檔案共用的基本概念。 了解如何：
@@ -74,7 +75,7 @@ ms.lasthandoff: 04/16/2018
 
 ## <a name="create-and-modify-share-snapshots"></a>建立及修改共用快照集
 可以使用 Azure 檔案共用來執行的另一項實用工作，是建立共用快照集。 快照集會保留 Azure 檔案共用的時間點。 共用快照集類似於您可能已經很熟悉的下列作業系統技術：
-- Windows 檔案系統的[磁碟區陰影複製服務 (VSS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee923636)，例如 NTFS 和 ReFS
+- Windows 檔案系統的[磁碟區陰影複製服務 (VSS)](https://docs.microsoft.com/en-us/windows/desktop/VSS/volume-shadow-copy-service-portal)，例如 NTFS 和 ReFS
 - Linux 系統的[邏輯磁碟區管理員 (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) 快照集
 - macOS 的 [Apple 檔案系統 (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) 快照集。 
 

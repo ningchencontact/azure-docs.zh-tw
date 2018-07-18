@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect︰從 DirSync 升級 | Microsoft Docs"
-description: "了解如何從 DirSync 升級至 Azure AD Connect。 本文說明從 DirSync 升級至 Azure AD Connect 的步驟"
+title: Azure AD Connect︰從 DirSync 升級 | Microsoft Docs
+description: 了解如何從 DirSync 升級至 Azure AD Connect。 本文說明從 DirSync 升級至 Azure AD Connect 的步驟
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: baf52da7-76a8-44c9-8e72-33245790001c
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6a7287a6b3fa26e69167334ec47413dfc570d031
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 4598166b6fac68fbd2d3adbc97488457a377f0cc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593384"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect︰從 DirSync 升級
 Azure AD Connect 是 DirSync 的後續產品。 您會在本主題中了解可從 DirSync 升級的方式。 這些步驟不適用於從另一個版本的 Azure AD Connect 或從 Azure AD Sync 升級。

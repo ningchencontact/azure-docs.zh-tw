@@ -10,12 +10,12 @@ ms.tgt_pltfrm: windows
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
-ms.openlocfilehash: e95b5a6037c791f501a04ebe468b1c781805f693
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 4323f4fd9b94c38d99557f1d4426682a8c16dd9b
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "32313506"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267089"
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>關於 Azure Windows VM 的磁碟儲存體
 就像任何其他電腦，Azure 中的虛擬機器會使用磁碟做為儲存作業系統、應用程式和資料的位置。 所有 Azure 虛擬機器都至少有兩個磁碟 - 一個 Windows 作業系統磁碟和一個暫存磁碟。 作業系統磁碟是從映像建立，且作業系統磁碟與該映像都是儲存在 Azure 儲存體帳戶中的虛擬硬碟 (VHD)。 虛擬機器也可以有一或多個資料磁碟，而這些磁碟也會儲存成 VHD。 
@@ -32,7 +32,7 @@ ms.locfileid: "32313506"
 每個虛擬機器都有一個連接的作業系統磁碟。 它會註冊為 SATA 磁碟機，並預設標示為 C: 磁碟機。 此磁碟的最大容量為 2048 GB。 
 
 ### <a name="temporary-disk"></a>暫存磁碟
-每個 VM 都包含一個暫存磁碟。 暫存磁碟為應用程式和處理程序提供短期的儲存空間，且僅供用來儲存分頁檔之類的資料。 暫存磁碟上的資料可能會在[維護事件](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime)期間或當您[重新佈署 VM](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 時遺失。 在 VM 的標準重新開機期間，暫存磁碟上的資料會保留。
+每個 VM 都包含一個暫存磁碟。 暫存磁碟為應用程式和處理程序提供短期的儲存空間，且僅供用來儲存分頁檔之類的資料。 暫存磁碟上的資料可能會在[維護事件](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime)期間或當您[重新佈署 VM](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 時遺失。 在 VM 的成功標準重新開機期間，暫存磁碟上的資料將保留。 
 
 暫存磁碟預設會標示為 D: 磁碟機，並用於儲存 pagefile.sys。 若要將此磁碟重新對應至不同的磁碟機代號，請參閱 [變更 Windows 暫存磁碟的磁碟機代號](change-drive-letter.md)。 暫存磁碟的大小會依據虛擬機器的大小而改變。 如需詳細資訊，請參閱 [Windows 虛擬機器的大小](sizes.md)。
 

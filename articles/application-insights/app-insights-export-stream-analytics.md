@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/04/2018
 ms.author: mbullwin
-ms.openlocfilehash: c898e43cb1334bf7fb1836554fb92708033d3f7d
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 874a338c27262de29b1806352ec3ade068c188e0
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294229"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>使用串流分析來處理從 Application Insights 匯出的資料
 [Azure 串流分析](https://azure.microsoft.com/services/stream-analytics/)是處理[從 Application Insights 匯出](app-insights-export-telemetry.md)之資料的理想工具。 串流分析可以從各種來源提取資料。 它可以轉換和篩選資料，然後將它路由傳送至各種接收。

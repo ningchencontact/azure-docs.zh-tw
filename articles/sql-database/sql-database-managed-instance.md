@@ -7,15 +7,15 @@ ms.reviewer: carlrab
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: 85a0157751a1c26fb7f37152d7c12f56b1c423d1
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e606b38c626c1a4dd335c40926e89a7cf0cec17a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193279"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054648"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>什麼是受控執行個體 (預覽)？
 
@@ -39,7 +39,7 @@ Azure SQL Database 受控執行個體 (預覽) 是 Azure SQL Database 的新功�
 
 | | 使用方式情節 | 
 | --- | --- | 
-|SQL Database 受控執行個體 |若客戶想要盡可能輕鬆地遷移大量內部部署、IaaS、自行建置或 ISV 提供的應用程式，則建議使用受控執行個體。 利用 Azure 中完全自動化的[資料移轉服務 (DMS)](/sql/dma/dma-overview)，客戶可以將內部部署 SQL Server 隨即移轉至受控執行個體，受控執行個體可與 SQL Server 內部部署環境相容，並透過原生 VNET 支援來完全隔離客戶執行個體。  您可以透過軟體保證使用[適用於 SQL Server 的 Azure Hybrid Use Benefit](../virtual-machines/windows/hybrid-use-benefit-licensing.md)，以折扣優惠在 SQL Database 受控執行個體上交換執行個體的現有授權。  對於需要高度安全性和程式設計介面豐富的 SQL Server 執行個體而言，SQL Database 受控執行個體是雲端中最佳的移轉目的地。 |
+|SQL Database 受控執行個體 |若客戶想要盡可能輕鬆地遷移大量內部部署、IaaS、自行建置或 ISV 提供的應用程式，則建議使用受控執行個體。 利用 Azure 中完全自動化的[資料移轉服務 (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance)，客戶可以將內部部署 SQL Server 隨即移轉至受控執行個體，受控執行個體可與 SQL Server 內部部署環境相容，並透過原生 VNET 支援來完全隔離客戶執行個體。  您可以透過軟體保證使用[適用於 SQL Server 的 Azure Hybrid Use Benefit](../virtual-machines/windows/hybrid-use-benefit-licensing.md)，以折扣優惠在 SQL Database 受控執行個體上交換執行個體的現有授權。  對於需要高度安全性和程式設計介面豐富的 SQL Server 執行個體而言，SQL Database 受控執行個體是雲端中最佳的移轉目的地。 |
 |Azure SQL 資料庫 (單一或集區) |**彈性集區**：若客戶要開發新的 SaaS 多租用戶應用程式，或有意將其現有的內部部署應用程式移轉至 SaaS 多租用戶應用程式，則建議使用彈性集區。 此模型的優勢包括： <br><ul><li>從銷售授權轉換為銷售服務訂用帳戶的商務模型轉換 (適用於 ISV)</li></ul><ul><li>簡單且確實的租用戶隔離</li></ul><ul><li>以資料庫為中心的簡化程式設計模型</li></ul><ul><li>沒有硬限制的延展性</li></ul>**單一資料庫**：除了 SaaS 多租用戶，客戶若想開發其他工作負載穩定且可預測的新應用程式，則建議使用單一資料庫。 此模型的優勢包括：<ul><li>以資料庫為中心的簡化程式設計模型</li></ul>  <ul><li>每個資料庫的效能可預測性</li></ul>|
 |SQL IaaS 虛擬機器|若客戶需要自訂作業系統或資料庫伺服器，且客戶在執行可支援 SQL Server 的第三方應用程式時有特殊需求 (在相同的 VM 上)，建議您將 SQL VM / IaaS 作為最佳解決方案|
 |||
@@ -122,7 +122,8 @@ Azure SQL Database 受控執行個體 (預覽) 是 Azure SQL Database 的新功�
 | 入口網站支援 | yes|
 |||
 
-\*虛擬核心代表可以選擇使用的邏輯 CPU，可在各硬體世代間進行選擇。 第四代邏輯 CPU 的基礎為 E5-2673 v3 (Haswell) 2.4 GHz 處理器，第五代邏輯 CPU 的基礎為 Intel E5-2673 v4 (Broadwell) 2.3 GHz 處理器。 
+
+  \*虛擬核心代表可以選擇使用的邏輯 CPU，可在各硬體世代間進行選擇。 第四代邏輯 CPU 的基礎為 E5-2673 v3 (Haswell) 2.4 GHz 處理器，第五代邏輯 CPU 的基礎為 Intel E5-2673 v4 (Broadwell) 2.3 GHz 處理器。 
 
 ## <a name="advanced-security-and-compliance"></a>進階安全性與合規性 
 
@@ -186,11 +187,10 @@ Azure 資料庫移轉服務是一個完全受控的服務，能夠從多個資�
 
 移轉方法會利用 Azure Blob 儲存體的 SQL 備份。 儲存在 Azure 儲存體 Blob 的備份可以直接用來還原到受控執行個體。 若要將現有的 SQL 資料庫還原至受控執行個體，您可以：
 
-- 使用[資料移轉服務 (DMS)](/sql/dma/dma-overview)。 如需教學課程，請參閱[使用 Azure Database Migration Service (DMS) 移轉至受控執行個體](../dms/tutorial-sql-server-to-managed-instance.md)從資料庫備份檔案還原
+- 使用[資料移轉服務 (DMS)](../dms/dms-overview.md)。 如需教學課程，請參閱[使用 Azure Database Migration Service (DMS) 移轉至受控執行個體](../dms/tutorial-sql-server-to-managed-instance.md)從資料庫備份檔案還原
 - 使用 [T-SQL RESTORE 命令](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql)。 
   - 如需示範如何還原 Wide World Importers - 標準資料庫備份檔案的教學課程，請參閱[還原備份檔案至受控執行個體](sql-database-managed-instance-restore-from-backup-tutorial.md)。 本教學課程顯示，您必須將備份檔案上傳到 Azure Blog 儲存體，並使用共用存取簽章 (SAS) 金鑰保護其安全。
   - 如需從 URL 還原的資訊，請參閱[從 URL 原生還原](sql-database-managed-instance-migrate.md#native-restore-from-url)。
-- [從 BACPAC 檔案匯入](sql-database-import.md)
 
 ## <a name="sql-features-supported"></a>SQL 功能支援 
 
@@ -211,7 +211,8 @@ Azure 資料庫移轉服務是一個完全受控的服務，能夠從多個資�
 - 受控執行個體不允許指定完整實體路徑，因此需要以不同的方式支援所有相對應的情節：RESTORE DB 不支援 WITH MOVE、CREATE DB 不允許的實體路徑、BULK INSERT 只能搭配 Azure Blob 使用等等。 
 - 受控執行個體支援以 [Azure AD 驗證](sql-database-aad-authentication.md) 作為 Windows 驗證的雲端替代方案。 
 - 受控執行個體都會自動為包含記憶體內部 OLTP 物件的資料庫管理 XTP 檔案群組和檔案
- 
+- 受控執行個體支援 SQL Server Integration Services (SSIS)，且可主控儲存 SSIS 封裝的 SSIS 目錄 (SSISDB)，但會在 Azure Data Factory (ADF) 中的受控 Azure-SSIS Integration Runtime (IR) 上執行，請參閱[在 ADF 中建立 Azure-SSIS IR](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime) \(英文\)。
+
 ### <a name="managed-instance-administration-features"></a>受控執行個體的管理功能  
 
 受控執行個體讓系統管理員可以專注於與商務最相關的事情。 許多系統管理員/DBA 活動其實非必要或相當簡單。 例如，OS / RDBMS 安裝和修補、動態執行個體的大小調整和組態、備份、資料庫複寫 (包括系統資料庫)、高可用性組態，以及健康情況和效能監視資料流的組態。 

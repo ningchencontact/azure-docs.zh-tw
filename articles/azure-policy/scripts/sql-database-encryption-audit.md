@@ -15,11 +15,12 @@ ms.workload: ''
 ms.date: 04/27/2018
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 5151a4ac930f5f6fb11a9aad7fb2ab872ef04e6c
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 91759155a828c9da4de7f2190b1d27fd1d312bd6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34601661"
 ---
 # <a name="audit-sql-database-encryption"></a>稽核 SQL 資料庫加密
 
@@ -61,7 +62,7 @@ ms.lasthandoff: 05/01/2018
 }
 ```
 
-您可以使用 [Azure 入口網站](#deploy-with-the-portal)[PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 來部署此範本。 若要取得內建原則，請使用識別碼 `17k78e20-9358-41c9-923c-fb736d382a12`。
+您可以使用 [Azure 入口網站](#deploy-with-the-portal) [PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 來部署此範本。 若要取得內建原則，請使用識別碼 `17k78e20-9358-41c9-923c-fb736d382a12`。
 
 ## <a name="deploy-with-the-portal"></a>使用入口網站部署
 
@@ -103,4 +104,4 @@ az policy assignment delete --name "SQL TDE Audit" --resource-group myResourceGr
 
 ## <a name="next-steps"></a>後續步驟
 
-- 其他「Azure 原則」範本範例都位於[Azure 原則的範本](../json-samples.md)。
+- 在 [Azure 原則範例](../json-samples.md)檢閱更多範例。

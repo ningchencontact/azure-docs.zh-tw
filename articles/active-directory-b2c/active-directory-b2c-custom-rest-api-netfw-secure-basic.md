@@ -1,21 +1,21 @@
 ---
-title: Azure Active Directory B2C：使用 HTTP 基本驗證保護您的 RESTful 服務
-description: 使用 HTTP 基本驗證在您的 Azure AD B2C 中保護您的自訂 REST API 宣告交換
+title: 在 Azure Active Directory B2C 中使用 HTTP 基本驗證保護 RESTful 服務 | Microsoft Docs
+description: 使用 HTTP 基本驗證在您的 Azure AD B2C 中保護您的自訂 REST API 宣告交換。
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
-ms.openlocfilehash: 749157d16c1c394b173545dddb8751d58fdcfd56
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: 02dfec1ff572f846463b27a2ca0d91916fbee5ae
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444900"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>使用 HTTP 基本驗證保護 RESTful 服務
 

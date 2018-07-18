@@ -1,24 +1,25 @@
 ---
-title: "如何在 Azure 入口網站中建立服務匯流排命名空間 | Microsoft Docs"
-description: "使用 Azure 入口網站建立服務匯流排命名空間。"
+title: 如何在 Azure 入口網站中建立服務匯流排命名空間 | Microsoft Docs
+description: 使用 Azure 入口網站建立服務匯流排命名空間。
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fbb10e62-b133-4851-9d27-40bd844db3ba
 ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 02/22/2018
+ms.date: 06/29/2018
 ms.author: sethm
-ms.openlocfilehash: a24fa21848005d9768d26ae865680a4851e1dd81
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 2763e401454cdb6145067a3ac415c3a252d7c494
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38630075"
 ---
 # <a name="create-a-service-bus-namespace-using-the-azure-portal"></a>使用 Azure 入口網站建立服務匯流排命名空間
 
@@ -35,7 +36,7 @@ ms.lasthandoff: 02/24/2018
 
 ## <a name="next-steps"></a>後續步驟
 
-查看 [GitHub 範例][github-samples]，其中會示範一些更進階的服務匯流排傳訊功能。
+查看服務匯流排 [GitHub 範例][github-samples]，其中會示範一些更進階的服務匯流排傳訊功能。
 
 [create-namespace-using-arm]: service-bus-resource-manager-overview.md
 [github-samples]: https://github.com/Azure/azure-service-bus/tree/master/samples

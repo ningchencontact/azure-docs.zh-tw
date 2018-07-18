@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/08/2017
+ms.date: 06/15/2018
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: cad7719eb077d7aca9c1db5741a5fe1e0ca910a2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 38ff1ee4c525d41e2a7446d5adc792c746504491
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754117"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>如何驗證傳輸到虛擬網路的 VPN 輸送量
 
@@ -53,7 +54,7 @@ VPN 閘道連線涉及下列元件：
 4.  決定您網際網路服務提供者 (ISP) 的頻寬。
 5.  計算您預期的輸送量 - 最小頻寬的 (VM、閘道、ISP) * 0.8。
 
-如果您算出的輸送量不符合您應用程式的基準輸送量需求，您需要增加您發現已成為瓶頸的資源頻寬。 如果要調整 Azure VPN 閘道的大小，請參閱 [變更閘道 SKU](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku)。 如果調整虛擬機器的大小，請參閱 [調整 VM 的大小](../virtual-machines/virtual-machines-windows-resize-vm.md)。 如果您未能享有預期的網際網路頻寬，您可能也需要連絡您的 ISP。
+如果您算出的輸送量不符合您應用程式的基準輸送量需求，您需要增加您發現已成為瓶頸的資源頻寬。 如果要調整 Azure VPN 閘道的大小，請參閱 [變更閘道 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)。 如果調整虛擬機器的大小，請參閱 [調整 VM 的大小](../virtual-machines/virtual-machines-windows-resize-vm.md)。 如果您未能享有預期的網際網路頻寬，您可能也需要連絡您的 ISP。
 
 ## <a name="validate-network-throughput-by-using-performance-tools"></a>使用效能工具驗證網路輸送量
 
@@ -76,7 +77,7 @@ iPerf 是我們用於此測試的工作，分別在 Windows 與 Linux 上工作�
 
 2. 在這兩個節點上，啟用連接埠 5001 的防火牆例外狀況。
 
-    **Windows：**以系統管理員身分執行下列命令。
+    **Windows：** 以系統管理員身分執行下列命令。
 
     ```CMD
     netsh advfirewall firewall add rule name="Open Port 5001" dir=in action=allow protocol=TCP localport=5001
@@ -88,7 +89,7 @@ iPerf 是我們用於此測試的工作，分別在 Windows 與 Linux 上工作�
     netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
     ```
     </br>
-    **Azure Linux：**Azure Linux 映像有寬鬆的防火牆。 如果有應用程式接聽連接埠，則允許通過流量。 受保護的自訂映像可能需要明確開啟連接埠。 常見的 Linux OS 層防火牆包括 `iptables`、`ufw` 或 `firewalld`。
+    **Azure Linux：** Azure Linux 映像有寬鬆的防火牆。 如果有應用程式接聽連接埠，則允許通過流量。 受保護的自訂映像可能需要明確開啟連接埠。 常見的 Linux OS 層防火牆包括 `iptables`、`ufw` 或 `firewalld`。
 
 3. 在伺服器節點上，請變更至將 iperf3.exe 解壓縮的目錄。 然後在伺服器模式中執行 iPerf，並以下列命令設為接聽連接埠 5001︰
 

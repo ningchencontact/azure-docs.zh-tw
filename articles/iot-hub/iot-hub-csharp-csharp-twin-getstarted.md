@@ -1,24 +1,20 @@
 ---
 title: 開始使用 Azure IoT 中樞裝置對應項 (.NET/.NET) | Microsoft Docs
 description: 如何使用 Azure IoT 中樞裝置對應項來新增標籤，然後使用 IoT 中樞查詢。 您可以使用適用於 .NET 的 Azure IoT 裝置 SDK，實作模擬的裝置應用程式，也可以使用適用於 .NET 的 Azure IoT 服務 SDK，實作服務應用程式，以新增標籤和執行 IoT 中樞查詢。
-services: iot-hub
-documentationcenter: node
 author: dsk-2015
 manager: timlt
-editor: ''
-ms.assetid: f7e23b6e-bfde-4fba-a6ec-dbb0f0e005f4
 ms.service: iot-hub
-ms.devlang: node
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: dkshir
-ms.openlocfilehash: b337e463ac4aefd7e4644af4c2cdcad4f3c5300a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0ce1a3983ad34882236b175d6b8eec5e538c736b
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723550"
 ---
 # <a name="get-started-with-device-twins-netnet"></a>開始使用裝置對應項 (.NET/.NET)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -228,7 +224,7 @@ ms.lasthandoff: 05/07/2018
 
 [lnk-iothub-getstarted]: iot-hub-csharp-csharp-getstarted.md
 [lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
-[lnk-twin-how-to-configure]: iot-hub-csharp-node-twin-how-to-configure.md
+[lnk-twin-how-to-configure]: iot-hub-csharp-csharp-twin-how-to-configure.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 

@@ -1,11 +1,11 @@
 ---
-title: "雲端服務角色回收的常見原因 | Microsoft Docs"
-description: "突然回收的雲端服務角色可能會造成顯著的停機時間。 以下是導致角色回收的一些常見問題，或許有助於縮短停機時間。"
+title: 雲端服務角色回收的常見原因 | Microsoft Docs
+description: 突然回收的雲端服務角色可能會造成顯著的停機時間。 以下是導致角色回收的一些常見問題，或許有助於縮短停機時間。
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: simonxjx
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 533930d1-8035-4402-b16a-cf887b2c4f85
 ms.service: cloud-services
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/04/2017
+ms.locfileid: "23984281"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>導致角色回收的常見問題
 本文討論部署問題的常見原因，和可協助您解決這些問題的疑難排解秘訣。 應用程式出現問題的徵候之一，是角色執行個體無法啟動，或是在初始化中、忙碌和停止中狀態之間循環。

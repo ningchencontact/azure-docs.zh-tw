@@ -1,24 +1,19 @@
 ---
 title: 透過 Azure IoT 中樞進行裝置管理 | Microsoft Docs
 description: Azure IoT 中樞的裝置管理概觀︰企業裝置生命週期及裝置管理模式，例如重新啟動、恢復出廠預設值、韌體更新、設定、裝置對應項、查詢、作業。
-services: iot-hub
-documentationcenter: ''
 author: bzurcher
-manager: timlt
-editor: ''
-ms.assetid: a367e715-55f6-4593-bd68-7863cbf0eb81
+manager: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: briz
-ms.openlocfilehash: 4fe4328314e23bbd1ace13e935f82336e1e602a9
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c4d0b5d5ba429dc5d839fa054476461f96a52143
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030728"
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>IoT 中樞的裝置管理概觀
 
@@ -56,16 +51,16 @@ IoT 本身伴隨著一組獨特的管理挑戰，因此每個企業級解決方�
 
 * **計劃**︰讓操作員得以建立裝置中繼資料配置，以便他們可以輕鬆且精確地查詢和鎖定要進行大量管理作業的裝置群組。 您可以使用裝置對應項，以標記和屬性的形式來儲存此裝置中繼資料。
   
-    *進階閱讀*：[開始使用裝置對應項][lnk-twins-getstarted]、[了解裝置對應項][lnk-twins-devguide]、[如何使用裝置對應項屬性][lnk-twin-properties]。
+    *進階閱讀*：[開始使用裝置對應項][lnk-twins-getstarted]、[了解裝置對應項][lnk-twins-devguide]、[如何使用裝置對應項屬性][lnk-twin-properties]、[IoT 解決方案內的裝置設定最佳做法][lnk-adm-best-practices]。
 * **佈建**︰安全地向 IoT 中樞佈建新裝置，並且讓操作員能夠立即探索裝置功能。  使用 IoT 中樞身分識別登錄來建立富有彈性的裝置身分識別與認證，並利用作業 (Job) 大量執行此作業 (Operation)。 建置一些裝置，經由裝置對應項中的裝置屬性來報告其功能和狀況。
   
-    進階閱讀：[管理裝置身分識別][lnk-identity-registry]、[大量管理裝置身分識別][lnk-bulk-identity]、[如何使用裝置對應項屬性][lnk-twin-properties]、[Azure IoT 中樞裝置佈建服務][lnk-dps]。
+    進階閱讀：[管理裝置身分識別][lnk-identity-registry]、[大量管理裝置身分識別][lnk-bulk-identity]、[如何使用裝置對應項屬性][lnk-twin-properties]、[IoT 解決方案內的裝置設定最佳做法][lnk-adm-best-practices]、[Azure IoT 中樞裝置佈建服務][lnk-dps]。
 * **設定**︰協助裝置進行大量組態變更和韌體更新，同時維持健康狀態與安全性。 使用所需的屬性或透過直接方法和廣播作業，大量執行這些裝置管理作業。
   
-    *進階閱讀*：[使用直接方法][lnk-c2d-methods]、[在裝置上叫用直接方法][lnk-methods-devguide]、[如何使用裝置對應項屬性][lnk-twin-properties]、[排程及廣播工作][lnk-jobs]、[在多個裝置上排程工作][lnk-jobs-devguide]。
+    *進階閱讀*：[如何使用裝置對應項屬性][lnk-twin-properties]、[大規模設定和監視 IoT 裝置][lnk-adm-how-to]、[IoT 解決方案內的裝置設定最佳做法][lnk-adm-best-practices]。
 * **監視**︰監視整體裝置集合健康狀態、進行中作業的狀態，以及就可能需要關注的問題對操作員發出警示。  套用裝置對應項，可讓裝置報告更新作業的即時作業狀況和狀態。 建置強大的儀表板報告，以使用裝置對應項查詢來呈現最即時的問題。
   
-    *進階閱讀*：[如何使用裝置對應項屬性][lnk-twin-properties]、[裝置對應項、作業與訊息路由的 IoT 中樞查詢語言][lnk-query-language]。
+    *進階閱讀*：[如何使用裝置對應項屬性][lnk-twin-properties]、[裝置對應項、作業和訊息路由的 IoT 中樞查詢語言][lnk-query-language]、[大規模設定和監視 IoT 裝置][lnk-adm-how-to]、[IoT 解決方案內的裝置設定最佳做法][lnk-adm-best-practices]。
 * **淘汰**︰在故障、升級循環或服務存留期結束後，更換裝置或予以解除委任。  如果實體裝置正被取代，則使用裝置對應項來維護裝置資訊，若正在淘汰中則加以封存。 使用 IoT 中樞身分識別登錄，安全地撤銷裝置身分識別與認證。
   
     *進階閱讀*：[如何使用裝置對應項屬性][lnk-twin-properties]、[管理裝置身分識別][lnk-identity-registry]。
@@ -82,7 +77,7 @@ IoT 中樞可實現下列這套裝置管理模式。  [裝置管理教學課程]
 * **設定** - 後端應用程式使用所需的屬性來設定裝置上執行的軟體。  裝置會使用報告的屬性來更新裝置的組態狀態。
   
     ![裝置管理設定模式圖形][img-config_pattern]
-* **韌體更新** - 後端應用程式會透過直接方法讓裝置知道已起始韌體更新。  裝置會起始多步驟程序，以下載韌體映像、套用韌體映像，並於最後重新連線到 IoT 中樞服務。  透過多步驟程序，裝置會使用報告的屬性來更新裝置的進度與狀態。
+* **韌體更新** - 後端應用程式會使用自動裝置管理組態來選取裝置，用以接收更新、指示裝置更新位於何處，以及監視更新程序。 裝置會起始多步驟程序，以下載、驗證和套用韌體映像，並於重新連線至 IoT 中樞服務之前將裝置重新開機。  透過多步驟程序，裝置會使用報告的屬性來更新裝置的進度與狀態。
   
     ![裝置管理韌體更新模式圖形][img-fwupdate_pattern]
 * **報告進度和狀態** - 解決方案後端會橫跨一組裝置來執行裝置對應項查詢，以報告裝置上所執行動作的狀態和進度。
@@ -116,3 +111,5 @@ IoT 中樞針對裝置管理所提供的功能、模式和程式碼程式庫，�
 [lnk-jobs]: iot-hub-node-node-schedule-jobs.md
 [lnk-jobs-devguide]: iot-hub-devguide-jobs.md
 [lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps
+[lnk-adm-best-practices]: iot-hub-configuration-best-practices.md
+[lnk-adm-how-to]: iot-hub-auto-device-config.md

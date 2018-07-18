@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 06/04/2018
 ms.author: anwestg
-ms.openlocfilehash: 95393df03ffc33748f0f14344d989d58ae52297c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ae21a7cc5c38fefd40a2676e15308b027c6f95d5
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359874"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796728"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>開始使用 Azure Stack 上的 App Service 之前
 
@@ -331,7 +331,7 @@ Azure Stack 上的 Azure App Service 的 SQL Server 執行個體必須能夠從�
 | AdminArmEndpoint | 必要 | Null | 管理員 Azure Resource Manager 端點。 例如，adminmanagement.local.azurestack.external。 |
 | TenantARMEndpoint | 必要 | Null | 租用戶 Azure Resource Manager 端點。 例如，management.local.azurestack.external。 |
 | AzureStackAdminCredential | 必要 | Null | Azure AD Service 管理員的認證。 |
-| CertificateFilePath | 必要 | Null | 稍早產生之身分識別應用程式憑證檔案的路徑。 |
+| CertificateFilePath | 必要 | Null | 稍早產生之身分識別應用程式憑證檔案的**完整路徑**。 |
 | CertificatePassword | 必要 | Null | 協助保護憑證私密金鑰的密碼。 |
 
 ## <a name="create-an-active-directory-federation-services-application"></a>建立 Active Directory 同盟服務應用程式
@@ -365,7 +365,7 @@ Azure Stack 上的 Azure App Service 的 SQL Server 執行個體必須能夠從�
 | AdminArmEndpoint | 必要 | Null | 管理員 Azure Resource Manager 端點。 例如，adminmanagement.local.azurestack.external。 |
 | PrivilegedEndpoint | 必要 | Null | 特殊權限的端點。 例如，AzS-ERCS01。 |
 | CloudAdminCredential | 必要 | Null | Azure Stack 雲端管理的網域帳戶認證。 例如，Azurestack\CloudAdmin。 |
-| CertificateFilePath | 必要 | Null | 識別應用程式憑證 PFX 檔案的路徑。 |
+| CertificateFilePath | 必要 | Null | 識別應用程式憑證 PFX 檔案的**完整路徑**。 |
 | CertificatePassword | 必要 | Null | 協助保護憑證私密金鑰的密碼。 |
 
 ## <a name="next-steps"></a>後續步驟

@@ -1,23 +1,19 @@
 ---
-title: "使用 Azure 備份伺服器來備份 VMware 伺服器 | Microsoft Docs"
-description: "使用 Azure 備份伺服器，將 VMware vCenter/ESXi 伺服器備份至 Azure 或磁碟。 本文提供備份 (或保護) 您 VMware 工作負載的逐步指示。"
+title: 使用 Azure 備份伺服器來備份 VMware 伺服器
+description: 使用 Azure 備份伺服器，將 VMware vCenter/ESXi 伺服器備份至 Azure 或磁碟。 本文提供備份 (或保護) 您 VMware 工作負載的逐步指示。
 services: backup
-documentationcenter: 
 author: markgalioto
 manager: carmonm
-ms.assetid: 6b131caf-de85-4eba-b8e6-d8a04545cd9d
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 07/24/2017
-ms.author: markgal;
-ms.openlocfilehash: ad331dffb7c31d12290f4223967c568e4535fe3c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: adigan
+ms.openlocfilehash: 9cf3c9d5df11e19045cd47a41d7ab9ac93bdf700
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605418"
 ---
 # <a name="back-up-a-vmware-server-to-azure"></a>將 VMware 伺服器備份到 Azure
 
@@ -336,11 +332,11 @@ Azure 備份伺服器會使用使用者名稱和密碼來驗證 vCenter Server�
 
 6. 在 [檢閱磁碟配置] 頁面上，檢閱並視需要修改 VM 的磁碟空間。 建議的磁碟配置是以 [指定短期目標] 頁面中指定的保留範圍、工作負載類型及受保護的資料大小 (可在步驟 3 中找到) 為基礎。  
 
-  - **資料大小：**保護群組中的資料大小。
-  - **磁碟空間：**保護群組的建議磁碟空間數量。 如果您想要修改此設定，您配置的總空間應該稍微大於您預估每個資料來源將成長的數量。
-  - **共置資料：**如果您開啟共置功能，受保護的多個資料來源可以對應至單一複本和復原點磁碟區。 不支援所有工作負載的共置。
-  - **自動成長：**如果您開啟此設定，而且受保護群組中的資料成長超過初始配置，則 System Center Data Protection Manager 會嘗試增加 25% 的磁碟大小。
-  - **儲存集區詳細資料：**顯示儲存體集區的狀態，包括總計和剩餘的磁碟大小。
+  - **資料大小：** 保護群組中的資料大小。
+  - **磁碟空間：** 保護群組的建議磁碟空間數量。 如果您想要修改此設定，您配置的總空間應該稍微大於您預估每個資料來源將成長的數量。
+  - **共置資料：** 如果您開啟共置功能，受保護的多個資料來源可以對應至單一複本和復原點磁碟區。 不支援所有工作負載的共置。
+  - **自動成長：** 如果您開啟此設定，而且受保護群組中的資料成長超過初始配置，則 System Center Data Protection Manager 會嘗試增加 25% 的磁碟大小。
+  - **儲存集區詳細資料：** 顯示儲存體集區的狀態，包括總計和剩餘的磁碟大小。
 
     ![檢閱磁碟配置](./media/backup-azure-backup-server-vmware/review-disk-allocation.png)
 

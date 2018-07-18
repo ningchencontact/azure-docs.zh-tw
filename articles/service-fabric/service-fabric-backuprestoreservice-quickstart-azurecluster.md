@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: hrushib
-ms.openlocfilehash: b2e2e7dcc26bece79ae0423d55b08416065d599e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 73b5356f63199c7530fe5eef0c4b4b7ee617ff5f
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236115"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Azure Service Fabric 中的定期備份與還原 (預覽)
 > [!div class="op_single_selector"]
@@ -117,13 +118,13 @@ Service Fabric 提供一組 API，可實現下列和定期備份與復原功能�
 
 第一步是建立備份原則來描述備份排程、備份資料的目標儲存體、原則名稱，以及觸發完整備份之前所允許的增量備份上限。 
 
-針對備份儲存體，請使用上面建立的 Azure 儲存體帳戶。 此範例假設使用名為 `sfbackupstore` 的 Azure 儲存體帳戶。 `backup-container` 是設定來儲存備份的容器，如果此容器尚未存在，便會在上傳備份的期間，建立具有此名稱的容器。 在 `ConnectionString` 中填入有效的 Azure 儲存體帳戶連接字串。
+針對備份儲存體，請使用上面建立的 Azure 儲存體帳戶。 容器 `backup-container` 已設定為儲存備份。 如果此容器尚未存在，便會在備份上傳期間，建立具有此名稱的容器。 在 `ConnectionString` 中填入 Azure 儲存體帳戶的有效連接字串，然後使用您的儲存體帳戶名稱來取代 `account-name`，並使用您的儲存體帳戶金鑰來取代 `account-key`。
 
-執行下列 PowerShell 指令碼來叫用必要的 REST API 以建立新原則。
+執行下列 PowerShell 指令碼來叫用必要的 REST API 以建立新原則。 請使用您的儲存體帳戶名稱來取代 `account-name`，並使用您的儲存體帳戶金鑰來取代 `account-key`。
 
 ```powershell
 $StorageInfo = @{
-    ConnectionString = 'DefaultEndpointsProtocol=https;AccountName=sfbackupstore;AccountKey=64S+3ykBgOuKhd2DK1qHJJtDml3NtRzgaZUa+8iwwBAH4EzuGt95JmOm7mp/HOe8V3l645iv5l8oBfnhhc7dJA==;EndpointSuffix=core.windows.net'
+    ConnectionString = 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net'
     ContainerName = 'backup-container'
     StorageKind = 'AzureBlobStore'
 }

@@ -6,14 +6,15 @@ manager: craigg
 services: sql-database
 ms.service: sql-database
 ms.custom: monitor and tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: aamalvea
-ms.openlocfilehash: 0c543ccf1d2104a83f7610bc870334b460ec40fb
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 349f1bbb0bfcc737d70e32947dd217c2cd51e194
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34648018"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>使用 Azure 入口網站建立 Azure SQL Database 和資料倉儲警示
 

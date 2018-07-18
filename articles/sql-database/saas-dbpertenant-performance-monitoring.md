@@ -7,20 +7,21 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: f76a9f0aa5e68e729c67dad52f6dae4e01fdb56a
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: d8e260b8dabb4c6823d59374a7b8661e024f1b3d
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752266"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>監視及管理多租用戶 SaaS 應用程式中 Azure SQL Database 和集區的效能
 
 本教學課程會探索 SaaS 應用程式中使用的數個關鍵效能管理案例。 使用負載產生器來跨所有租用戶資料庫模擬活動，而且示範 SQL Database 和彈性集區的內建監視和警示功能。
 
-Wingtip Tickets SaaS Database Per Tenant 應用程式使用單一租用戶資料模型，其中每個場地 (租用戶) 都有各自的資料庫。 與許多 SaaS 應用程式類似，預期的租用戶工作負載模式無法預測且偶爾發生。 換句話說，票證銷售可能會在任何時間發生。 若要利用這種一般資料庫使用模式，租用戶資料庫要部署到彈性資料庫集區中。 彈性集區可透過跨多個資料庫共用資源，來最佳化解決方案的成本。 使用這種類型的模式，請務必監視資料庫和集區資源使用量，以確保合理地跨集區平衡負載。 您也必須確定個別的資料庫擁有足夠的資源，且集區未達到其 [eDTU](sql-database-what-is-a-dtu.md) 限制。 本教學課程將探討監視及管理資料庫與集區的方式，以及如何採取矯正措施以回應工作負載的變化。
+Wingtip Tickets SaaS Database Per Tenant 應用程式使用單一租用戶資料模型，其中每個場地 (租用戶) 都有各自的資料庫。 與許多 SaaS 應用程式類似，預期的租用戶工作負載模式無法預測且偶爾發生。 換句話說，票證銷售可能會在任何時間發生。 若要利用這種一般資料庫使用模式，租用戶資料庫要部署到彈性資料庫集區中。 彈性集區可透過跨多個資料庫共用資源，來最佳化解決方案的成本。 使用這種類型的模式，請務必監視資料庫和集區資源使用量，以確保合理地跨集區平衡負載。 您也必須確定個別的資料庫擁有足夠的資源，且集區未達到其 [eDTU](sql-database-service-tiers.md#what-are-database-transaction-units-dtus) 限制。 本教學課程將探討監視及管理資料庫與集區的方式，以及如何採取矯正措施以回應工作負載的變化。
 
 在本教學課程中，您將了解如何：
 
@@ -218,7 +219,8 @@ Wingtip Tickets SaaS Database Per Tenant 是 SaaS 應用程式，而實際 SaaS 
 
 **預先調整** 在您探索如何調整隔離資料庫的上述練習中，您知道要尋找的資料庫。 如果 Contoso 演藝廳管理已通知 Wingtips 即將發生的票證銷售，則資料庫可能已預先移出集區。 否則，它可能會需要集區或資料庫上的警示來了解發生的事件。 您不會想要從集區中其他抱怨效能降低的租用戶得知這件事。 而且如果租用戶可以預測需要其他資源多久的時間，您可以設定 Azure 自動化 Runbook 將資料庫移出集區，然後依定義的排程將它重新移回到集區中。
 
-**租用戶自助調整** 因為調整是可以透過管理 API 輕鬆呼叫的工作，您可以輕易地在您的租用戶面向應用程式中建立調整租用戶資料庫的能力，並以 SaaS 服務的功能形式提供。 例如，讓租用戶自行管理相應增加和減少，或許會直接影響其計費！
+
+  **租用戶自助調整** 因為調整是可以透過管理 API 輕鬆呼叫的工作，您可以輕易地在您的租用戶面向應用程式中建立調整租用戶資料庫的能力，並以 SaaS 服務的功能形式提供。 例如，讓租用戶自行管理相應增加和減少，或許會直接影響其計費！
 
 **依排程相應增加和減少集區，以符合使用模式**
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6f9b2b04c3bdfc02065e2a01e1975d734a5f53ac
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 8c828bb49548adfdb02ed6fb1611eb405ebf4ff2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358977"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38466255"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>使用標記來組織 Azure 資源
 
@@ -136,6 +136,10 @@ if ($group.Tags -ne $null) {
                 }
             }
             Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
+        }
+        else
+        {
+            Set-AzureRmResource -Tag $group.Tags -ResourceId $r.ResourceId -Force
         }
     }
 }
@@ -272,4 +276,4 @@ Azure 入口網站和 PowerShell 在幕後都使用 [Resource Manager REST API](
 * 如需在部署資源時使用 Azure PowerShell 的簡介，請參閱 [搭配使用 Azure PowerShell 與 Azure Resource Manager](powershell-azure-resource-manager.md)。
 * 如需在部署資源時使用 Azure CLI 的簡介，請參閱[使用適用於 Mac、Linux 和 Windows 的 Azure CLI 搭配 Azure Resource Manager](xplat-cli-azure-resource-manager.md)。
 * 如需使用入口網站的簡介，請參閱[使用 Azure 入口網站來管理您的 Azure 資源](resource-group-portal.md)。  
-* 如需關於企業如何使用 Resource Manager 有效地管理訂用帳戶的指引，請參閱 [Azure 企業 Scaffold - 規定的訂用帳戶治理](resource-manager-subscription-governance.md)。
+* 如需關於企業如何使用 Resource Manager 有效地管理訂用帳戶的指引，請參閱 [Azure 企業 Scaffold - 規定的訂用帳戶治理](/azure/architecture/cloud-adoption-guide/subscription-governance)。

@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/04/2018
+ms.date: 05/29/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: efa8c2603d6ff4493656cda41306a5dad46bc5f3
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bc4b9cb9940f073034df01143f4d9e77a47cb19b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34654380"
 ---
 # <a name="set-up-gpu-drivers-for-n-series-vms-running-windows"></a>為執行 Windows 的 N 系列虛擬機器設定 GPU 驅動程式 
 若要利用 Azure N 系列虛擬機器 (執行支援的 Windows Server 或 Windows 版本) 的 GPU 功能，必須安裝 NVIDIA 圖形驅動程式。 本文提供您在部署 N 系列 VM 後的驅動程式安裝步驟。 驅動程式設定資訊也適用於 [ VM](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
@@ -53,7 +54,7 @@ ms.lasthandoff: 04/05/2018
 
 ## <a name="rdma-network-connectivity"></a>RDMA 網路連線
 
-可以在支援 RDMA 的 N 系列 VM (例如部署在同一個可用性設定組或虛擬機器擴展集中的 NC24r) 上啟用 RDMA 連線能力。 在具備 RDMA 功能的 VM 上，HpcVmDrivers 擴充必須新增以安裝 Windows 網路裝置驅動程式，該驅動程式會啟用 RDMA 連線能力。 若要將 VM 擴充功能新增至 RDMA 啟用的 N 系列 VM，請針對 Azure Resource Manager 使用 [Azure PowerShell](/powershell/azure/overview) Cmdlet。
+可以在支援 RDMA 的 N 系列 VM (例如部署在同一個可用性設定組或 VM 擴展集的單一放置群組中的 NC24r) 上啟用 RDMA 網路連線能力。 在具備 RDMA 功能的 VM 上，HpcVmDrivers 擴充必須新增以安裝 Windows 網路裝置驅動程式，該驅動程式會啟用 RDMA 連線能力。 若要將 VM 擴充功能新增至 RDMA 啟用的 N 系列 VM，請針對 Azure Resource Manager 使用 [Azure PowerShell](/powershell/azure/overview) Cmdlet。
 
 若要在美國西部區域中名為 myVM 的現有具備 RDMA 功能的 VM 上安裝最新版本 1.1 HpcVMDrivers 延伸模組：
   ```PowerShell
@@ -66,6 +67,6 @@ RDMA 網路可針對使用 [Microsoft MPI](https://msdn.microsoft.com/library/bb
 
 ## <a name="next-steps"></a>後續步驟
 
-* 針對 NVIDIA Tesla GPU 組建 GPU 加速應用程式的開發人員也可以下載及安裝 [CUDA Toolkit 9.1](https://developer.nvidia.com/cuda-downloads)。 如需詳細資訊，請參閱 [CUDA 安裝指南](http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi)。
+* 針對 NVIDIA Tesla GPU 組建 GPU 加速應用程式的開發人員也可以下載及安裝最新 [CUDA Toolkit](https://developer.nvidia.com/cuda-downloads)。 如需詳細資訊，請參閱 [CUDA 安裝指南](http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi)。
 
 

@@ -9,16 +9,18 @@ editor: tysonn
 ms.assetid: 67710115-c861-40f8-a377-57c7fa6909b4
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/19/2018
+ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 5201d02b4f70f964f39b4fe135e4715732b9741a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.component: na
+ms.openlocfilehash: 9a43774a5327536ae4fa1346ae933739ea629771
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130079"
 ---
 # <a name="data-sources-in-log-analytics"></a>Log Analytics 中的資料來源
 Log Analytics 會從 [連接的來源] 收集資料，並將它儲存在 Log Analytics 工作區中。  而您設定的資料來源可定義要從每個來源收集哪些資料。  Log Analytics 中的資料會儲存為一組記錄。  每個資料來源都會建立特定類型的記錄，每種類型各有自己的一組屬性。
@@ -36,7 +38,7 @@ Log Analytics 會從 [連接的來源] 收集資料，並將它儲存在 Log Ana
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | [自訂的記錄檔](log-analytics-data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | 與抵達同時 |
 | [自訂的記錄檔](log-analytics-data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | 與抵達同時 |
-| [IIS 記錄檔](log-analytics-data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |5 分鐘 |
+| [IIS 記錄檔](log-analytics-data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |取決於記錄檔檔案換用設定 |
 | [效能計數器](log-analytics-data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |依排程，最少 10 秒 |
 | [效能計數器](log-analytics-data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |依排程，最少 10 秒 |
 | [Syslog](log-analytics-data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |從 Azure 儲存體 ：10 分鐘；從代理程式：與抵達同時 |

@@ -3,23 +3,25 @@ title: Privileged Identity Management 訂用帳戶 - Azure| Microsoft Docs
 description: 說明在租用戶中管理及使用 Azure AD Privileged Identity Management 的訂用帳戶和授權需求
 services: active-directory
 documentationcenter: ''
-author: barclayn
+author: rolyon
 manager: mtillman
-editor: mwahl
+editor: markwahl-msft
 ms.assetid: 34367721-8b42-4fab-a443-a2e55cdbf33d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
+ms.component: protection
 ms.date: 06/01/2017
-ms.author: barclayn
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 9e49ddb8fca9ce193c92f27c307942d5f3d3d2fd
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 681169fc3db69c2dfb8aa36d6e2896e0ddba8b56
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38548123"
 ---
 # <a name="azure-active-directory-privileged-identity-management-subscription-requirements"></a>Azure Active Directory Privileged Identity Management 訂用帳戶需求
 
@@ -36,7 +38,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management 處於預覽狀
 2. 輸入 `Connect-MsolService` 以在您的租用戶中以使用者身分進行驗證。
 3. 輸入 `Get-MsolSubscription | ft SkuPartNumber,IsTrial,Status`。
 
-此命令會擷取您租用戶中的訂用帳戶清單。 如果未傳回任何資料行，您必須取得 Azure AD Premium P2 試用版、購買 Azure AD Premium P2 訂用帳戶或 EMS E5 訂用帳戶，才能使用 Azure AD Privileged Identity Management。  若要取得試用版並開始使用 Azure AD Privileged Identity Management，請參閱[開始使用 Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md)。
+此命令會擷取您租用戶中的訂用帳戶清單。 如果未傳回任何資料行，您必須取得 Azure AD Premium P2 試用版、購買 Azure AD Premium P2 訂用帳戶或 EMS E5 訂用帳戶，才能使用 Azure AD Privileged Identity Management。  若要取得試用版並開始使用 Azure AD Privileged Identity Management，請參閱[開始使用 Azure AD Privileged Identity Management](pim-getting-started.md)。
 
 如果此命令傳回一個資料行，其中的 SkuPartNumber 為 "AAD_PREMIUM_P2" 或 "EMSPREMIUM" 且 IsTrial 為 "True"，這表示 Azure AD Premium P2 試用版已存在於租用戶。  如果訂用帳戶狀態為未啟用，而且您未購買 Azure AD Premium P2 或 EMS E5 訂用帳戶，則您必須購買 Azure AD Premium P2 訂用帳戶或 EMS E5 訂用帳戶，才能繼續使用 Azure AD Privileged Identity Management。
 
@@ -59,5 +61,5 @@ Azure Active Directory (Azure AD) Privileged Identity Management 處於預覽狀
 
 ## <a name="next-steps"></a>後續步驟
 
-- [開始使用 Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md)
-- [Azure AD Privileged Identity Management 中的角色](../active-directory-privileged-identity-management-roles.md)
+- [開始使用 Azure AD Privileged Identity Management](pim-getting-started.md)
+- [Azure AD Privileged Identity Management 中的角色](pim-roles.md)

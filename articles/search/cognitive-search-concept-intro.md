@@ -3,17 +3,18 @@ title: Azure 搜尋服務中的資料擷取和自然語言處理的認知搜尋 
 description: 可透過認知技能在 Azure 搜尋服務索引中建立可搜尋內容的資料擷取、自然語言處理 (NLP) 和影像處理。
 manager: cgronlun
 author: HeidiSteen
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: heidist
-ms.openlocfilehash: cce10ceb190ac90b57e77bfa5903b30b2c249a2c
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 64b4c0a315e206cd260f2f1108362e92f55d1843
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942154"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36304279"
 ---
 # <a name="what-is-cognitive-search"></a>什麼是認知搜尋？
 
@@ -103,9 +104,9 @@ AI 整合是透過*認知技能*執行的，這些技能可透過循序的程序
 | REST API | 說明 |
 |-----|-------------|
 | [建立資料來源](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | 一項資源，用以識別提供來源資料以建立擴充文件的外部資料來源。  |
-| [建立技能集 (api-version=2017-11-11-Preview)](ref-create-skillset.md)  | 在索引編製期間負責對擴充管線中使用的[預先定義的技能](cognitive-search-predefined-skills.md)和[自訂認知技能](cognitive-search-custom-skill-interface.md)進行用法協調的資源。 |
+| [建立技能集 (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | 在索引編製期間負責對擴充管線中使用的[預先定義的技能](cognitive-search-predefined-skills.md)和[自訂認知技能](cognitive-search-custom-skill-interface.md)進行用法協調的資源。 |
 | [建立索引](https://docs.microsoft.com/rest/api/searchservice/create-index)  | 表示 Azure 搜尋服務索引的結構描述。 索引中與來源資料中的欄位或在擴充階段產生的欄位 (例如，實體辨識所建立之組織名稱的欄位) 相對應的欄位。 |
-| [建立索引子 (api-version=2017-11-11-Preview)](ref-create-skillset.md)  | 一項資源，用以定義在索引編製期間所使用的元件：包括資料來源、技能集、來源和中繼資料結構與目標索引的欄位關聯性，以及索引本身。 執行索引子是擷取和擴充資料的觸發程序。 輸出是以索引結構描述為基礎、以來源資料填入，並透過技能集進行擴充的搜尋主體。  |
+| [建立索引子 (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | 一項資源，用以定義在索引編製期間所使用的元件：包括資料來源、技能集、來源和中繼資料結構與目標索引的欄位關聯性，以及索引本身。 執行索引子是擷取和擴充資料的觸發程序。 輸出是以索引結構描述為基礎、以來源資料填入，並透過技能集進行擴充的搜尋主體。  |
 
 **檢查清單：一般工作流程**
 
@@ -113,11 +114,11 @@ AI 整合是透過*認知技能*執行的，這些技能可透過循序的程序
 
 1. 在 Azure 搜尋服務中建立[資料來源物件](https://docs.microsoft.com/rest/api/searchservice/create-data-source)，以提供用來擷取資料的連接字串。
 
-1. 透過擴充步驟建立[技能集](ref-create-skillset.md)。
+1. 透過擴充步驟建立[技能集](https://docs.microsoft.com/rest/api/searchservice/create-skillset)。
 
 1. 定義[索引結構描述](https://docs.microsoft.com/rest/api/searchservice/create-index)。 *欄位*集合包含來源資料中的欄位。 您也應該清除多餘的欄位，以保存為擴充期間建立的內容產生的值。
 
-1. 定義參考資料來源、技能集和索引的[索引子](ref-create-skillset.md)。
+1. 定義參考資料來源、技能集和索引的[索引子](https://docs.microsoft.com/rest/api/searchservice/create-skillset)。
 
 1. 在索引子內新增 *outputFieldMappings*。 這部分會將技能集的輸出 (在步驟 3 中) 對應至索引結構描述中的輸入欄位 (在步驟 4 中)。
 

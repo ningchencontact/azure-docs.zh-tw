@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dastanfo
 ms.custom: mvc
-ms.openlocfilehash: b9b9e08676228ddbdea8be91253b41dac8ef8fb8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7ba5fa1d4c5b87d1c4828ee98dae36f415d37c20
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211730"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344150"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>教學課程：安裝和建立 Service Fabric 叢集
 
@@ -61,15 +61,9 @@ Service Fabric 會提供一個安裝套件以建立 Service Fabric 獨立叢集�
         }
 ```
 
-然後，您必須更新若干屬性。  在第 34 行上，您必須修改診斷存放區的連接字串。在修改之後，會取代為您的 IP 位址，而應該會如下所示：`"connectionstring": "\\\\172.31.27.1\\c$\\DiagnosticsStore"`
+然後，您必須更新若干屬性。  在第 34 行上，您必須修改診斷存放區的連接字串，其看起來會像下面這樣：`"connectionstring": "C:\\ProgramData\\SF\\DiagnosticsStore"`
 
-在更新連接字串之後，請務必建立資料夾。  下列命令會建立資料夾，請務必將下方的 IP 位址取代為您在連接字串中插入的 IP 位址：
-
-```powershell
-mkdir \\172.31.27.1\c$\DiagnosticsStore
-```
-
-最後，在新增組態的 `nodeTypes` 區段中新增一個區段，以對應 Windows 所將使用的暫時連接埠。  組態檔應如下所示：
+最後，在組態的 `nodeTypes` 區段中新增一個區段，以對應 Windows 所將使用的暫時連接埠。  組態檔應如下所示：
 
 ```json
 "applicationPorts": {

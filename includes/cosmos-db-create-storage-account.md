@@ -13,6 +13,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31431741"
 ---
 建立您第一個 Azure 儲存體帳戶最簡單的方法，就是使用 [Azure 入口網站](https://portal.azure.com)。 若要深入了解，請參閱 [建立儲存體帳戶](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)。
 

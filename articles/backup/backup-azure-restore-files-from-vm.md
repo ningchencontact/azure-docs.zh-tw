@@ -1,28 +1,24 @@
 ---
-title: Azure 備份︰從 Azure VM 備份復原檔案和資料夾 | Microsoft Docs
+title: Azure 備份︰從 Azure VM 備份復原檔案和資料夾
 description: 從 Azure 虛擬機器的復原點復原檔案
 services: backup
-documentationcenter: dev-center-name
 author: pvrk
 manager: shivamg
 keywords: 項目層級復原；從 Azure VM 備份檔案復原；從 Azure VM 中還原檔案
-ms.assetid: f1c067a2-4826-4da4-b97a-c5fd6c189a77
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 12/20/2017
-ms.author: pullabhk;markgal
-ms.openlocfilehash: 0fce38db010a77ac61145ef63f616e0e466c95e2
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: pullabhk
+ms.openlocfilehash: 4be1ffcabed6667ab76ec790326a687d75c8b125
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36958615"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>從 Azure 虛擬機器備份復原檔案
 
-Azure 備份可從 Azure 虛擬機器 (VM) 備份 (又稱還原點) 來還原 [Azure VM 和磁碟](./backup-azure-arm-restore-vms.md)。 本文說明如何從 Azure VM 備份來復原檔案和資料夾。 只有使用 Resource Manager 模型部署且受復原服務保存庫保護的 Azure VM，才能還原檔案和資料夾。
+Azure 備份可從 Azure 虛擬機器 (VM) 備份 (又稱復原點) 還原 [Azure VM 和磁碟](./backup-azure-arm-restore-vms.md)。 本文說明如何從 Azure VM 備份來復原檔案和資料夾。 只有使用 Resource Manager 模型部署且受復原服務保存庫保護的 Azure VM，才能還原檔案和資料夾。
 
 > [!Note]
 > 這項功能適用於使用 Resource Manager 模型部署且受復原服務保存庫保護的 Azure VM。
@@ -31,7 +27,7 @@ Azure 備份可從 Azure 虛擬機器 (VM) 備份 (又稱還原點) 來還原 [A
 
 ## <a name="mount-the-volume-and-copy-files"></a>掛接磁碟區和複製檔案
 
-若要從還原點還原檔案或資料夾，請移至虛擬機器，然後選擇還原點。 
+若要從復原點還原檔案或資料夾，請移至虛擬機器，然後選擇所需的復原點。 
 
 1. 登入 [Azure 入口網站](http://portal.Azure.com)，按一下左側功能表中的 [虛擬機器]。 從虛擬機器的清單中，選取虛擬機器以開啟該虛擬機器的儀表板。 
 
@@ -177,7 +173,7 @@ $ mount [RAID Disk Path] [/mountpath]
 | Windows Server 2012    | Windows 8  |
 | Windows Server 2008 R2 | Windows 7   |
 
-### <a name="for-linux"></a>若為 Linux
+### <a name="for-linux-os"></a>若為 Linux 作業系統
 
 在 Linux 中，用來還原檔案的電腦作業系統必須支援受保護虛擬機器的檔案系統。 選取要執行指令碼的電腦時，請確認該電腦具有相容的作業系統，且使用下表中列出的其中一個版本：
 

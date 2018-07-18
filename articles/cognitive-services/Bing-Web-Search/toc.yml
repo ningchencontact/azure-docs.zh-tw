@@ -1,0 +1,98 @@
+- name: Bing Web 搜尋文件
+  href: index.yml
+- name: 概觀
+  items:
+    - name: 什麼是 Bing Web 搜尋？
+      href: overview.md
+- name: REST API 快速入門
+  expanded: true
+  items:
+    - name: 'C#'
+      href: quickstarts/csharp.md
+    - name: Go
+      href: quickstarts/go.md
+    - name: Java
+      href: quickstarts/java.md
+    - name: Node.js
+      href: quickstarts/nodejs.md
+    - name: PHP
+      href: quickstarts/php.md
+    - name: Python
+      href: quickstarts/python.md
+    - name: Ruby
+      href: quickstarts/ruby.md
+- name: SDK 快速入門
+  items:
+    - name: SDK 範例概觀
+      href: sdk.md
+    - name: 'Web 搜尋 SDK C# 快速入門'
+      href: web-search-sdk-quickstart.md
+    - name: Web 搜尋 SDK Node.js 快速入門
+      href: web-search-sdk-node-quickstart.md
+    - name: Web 搜尋 SDK Python 快速入門
+      href: web-sdk-python-quickstart.md
+    - name: Web 搜尋 SDK JAVA 快速入門
+      href: web-sdk-java-quickstart.md
+- name: 教學課程
+  items:
+    - name: 單一頁面 Web 應用程式
+      href: tutorial-bing-web-search-single-page-app.md
+    - name: 單一頁面 Web 應用程式 (原始程式碼)
+      href: tutorial-bing-web-search-single-page-app-source.md
+    - name: 視覺搜尋行動應用程式
+      href: computer-vision-web-search-tutorial.md
+    - name: 視覺搜尋行動應用程式 (Visual Studio 解決方案)
+      href: 'https://azure.microsoft.com/resources/samples/cognitive-services-xamarin-forms-computer-vision-search/'
+      maintainContext: true
+- name: 範例
+  items:
+    - name: 程式碼範例
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Web+Search'
+- name: 使用說明指南
+  items:
+    - name: 使用和顯示結果
+      href: UseAndDisplayRequirements.md
+    - name: 篩選答案
+      href: filter-answers.md
+    - name: 順位結果
+      href: rank-results.md
+    - name: 處理命中結果醒目提示
+      href: hit-highlighting.md
+    - name: 逐頁檢視結果
+      href: paging-webpages.md
+    - name: 調整大小和裁剪縮圖
+      href: resize-and-crop-thumbnails.md
+    - name: 從 v5 升級到 v7
+      href: bing-web-upgrade-guide-v5-to-v7.md
+- name: 參考
+  items:
+    - name: Bing Web 搜尋 API v7
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference'
+    - name: Bing Web 搜尋 API v5
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference'
+- name: 資源
+  items:
+    - name: 常見問題集
+      href: bing-web-search-resource-faq.md
+    - name: 價格
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/web/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/555907-bing-web-search-api'
+    - name: 堆疊溢位
+      href: 'https://stackoverflow.com/search?q=bing+web+search'
+    - name: 區域可用性
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Azure 藍圖
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 知識庫
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
+    - name: 取得 API 金鑰
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api'
+    - name: 試試看！
+      href: 'https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/'
+    - name: Bing Web 搜尋端點
+      href: web-search-endpoints.md
+    - name: 支援的國家/地區與市場
+      href: supported-countries-markets.md
+    - name: Bing Web 搜尋 API 的分析
+      href: bing-web-stats.md

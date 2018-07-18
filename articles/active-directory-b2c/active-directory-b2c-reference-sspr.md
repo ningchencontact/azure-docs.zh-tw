@@ -1,21 +1,21 @@
 ---
-title: 自助式密碼重設 |Microsoft Docs
+title: Azure Active Directory B2C 中的自助式密碼重設 | Microsoft Docs
 description: 示範如何在 Azure Active Directory B2C 中為您的客戶設定自助式密碼重設
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: davidmu
-ms.openlocfilehash: 5b75455ad604b594a5f85fea8299d35a7d02c848
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: 3612e10df12e2b18f32caae55bdd83b12a4e24a6
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448862"
 ---
 # <a name="set-up-self-service-password-reset-for-your-customers"></a>設定客戶的自助式密碼重設
 自助式密碼重設功能可讓已註冊本機帳戶的客戶自行重設自己的密碼。 這可大幅減輕支援人員的負擔，特別是在您的應用程式具有數百萬名定期使用的客戶時更是如此。 目前僅支援使用已驗證的電子郵件地址作為復原方法。
@@ -35,7 +35,7 @@ ms.lasthandoff: 04/18/2018
 如果要進行測試，請針對所有將本機帳戶作為識別提供者的登入原則使用 [立即執行] 功能。 在本機帳戶登入頁面上 (您輸入電子郵件地址和密碼，或使用者名稱和密碼的頁面)，按一下 [無法存取您的帳戶？] 驗證客戶體驗。
 
 > [!NOTE]
-> 您可以使用 [公司商標功能](../active-directory/customize-branding.md)自訂自助式密碼重設頁面。
+> 您可以使用 [公司商標功能](../active-directory/fundamentals/customize-branding.md)自訂自助式密碼重設頁面。
 > 
 > 
 

@@ -1,13 +1,14 @@
 ---
-title: "Azure Active Directory Identity Protection 詞彙 | Microsoft Docs"
-description: "Azure Active Directory Identity Protection 詞彙"
+title: Azure Active Directory Identity Protection 詞彙 | Microsoft Docs
+description: Azure Active Directory Identity Protection 詞彙
 services: active-directory
-keywords: "azure active directory identity protection, cloud app discovery, 管理應用程式, 安全性, 風險, 風險層級, 弱點, 安全性原則, 詞彙"
-documentationcenter: 
+keywords: azure active directory identity protection, cloud app discovery, 管理應用程式, 安全性, 風險, 風險層級, 弱點, 安全性原則, 詞彙
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 833119a5-33d6-4482-adda-fa35218c72c3
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 30cf3911d0f22e2d9351fc606cd6697ef437e452
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: a9cc4a914091c91f4b2ae1c152644fe8e01747e8
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713386"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Azure Active Directory Identity Protection 詞彙
 ### <a name="at-risk-user"></a>有風險 (使用者)
@@ -80,7 +82,7 @@ Azure Active Directory 中的活動記錄。
 預防藉由不當使用疑似或已知遭到入侵的身分識別或裝置來傷害組織的動作。 預防動作並不會保護裝置或身分識別的安全，且不會解決先前的風險事件。
 
 ### <a name="privileged-user"></a>特殊權限 (使用者)
-在發生風險事件時，擁有永久或暫時系統管理權限可存取 Azure Active Directory 中一或多項資源的使用者，例如全域管理員，計費管理員、服務管理員、使用者管理員和密碼管理員。 
+在發生風險事件時，擁有永久或暫時系統管理權限，可存取 Azure Active Directory 中一或多項資源的使用者，例如全域管理員、計費管理員、服務管理員、使用者管理員和密碼管理員。 
 
 ### <a name="real-time"></a>即時
 請參閱即時偵測。
@@ -155,7 +157,7 @@ Identity Protection 自動設定的風險事件狀態，表示已使用此風險
 一個條件式存取原則，可根據預先定義的條件和規則來考量及套用緩和動作。
 
 ### <a name="users-flagged-for-risk"></a>標示有風險的使用者
-具有作用中或已補救之風險事件的使用者
+具有作用中或已補救風險事件的使用者
 
 ### <a name="vulnerability"></a>弱點
 Azure Active Directory 中的組態或狀況，此組態或狀況會使目錄容易受到入侵或威脅的影響。

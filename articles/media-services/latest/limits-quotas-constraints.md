@@ -9,45 +9,46 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 06/13/2018
 ms.author: juliako
-ms.openlocfilehash: 21fc80d7cb274197ae75d2fd5524e76e1e6288d9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 14779306815681c368a98d698a6688d528a6c747
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294024"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Azure 媒體服務 v3 配額和限制
 
-本主題描述 Azure 媒體服務 v3 的配額和限制。
+本文描述 Azure 媒體服務 v3 的配額和限制。
 
 | 資源 | 預設限制 | 
 | --- | --- | 
 | 每個 Azure 媒體服務帳戶的資產 | 1,000,000|
-| 每個工作的工作輸入 | 100 |
-| 每個工作的工作輸出 | 30 (固定) |
+| 每個工作的工作輸入 | 50 (固定)|
+| 每個作業的 JobOutputs/轉換中的 TransformOutputs | 20 (固定) |
+| 每個 JobInput 的檔案|10 (固定)|
 | 檔案大小| 在某些情況下，對於媒體服務中支援處理的檔案大小上限有所限制。 <sup>(1)</sup> |
-| 每個媒體服務帳戶的工作 | 50,000<sup>(2)</sup> |
+| 每個媒體服務帳戶的工作 | 500,000 <sup>(2)</sup> (固定)|
+| 列出轉換|將回應分頁，每頁 1000 個轉換|
+| 列出作業|將回應分頁，每頁 500 個作業|
 | 每個媒體服務帳戶的 LiveEvents |5|
 | 單一訂用帳戶的媒體服務帳戶 | 25 (固定) |
 | StreamingPolicies | 1,000,000<sup>(3)</sup> |
 | 每個 LiveEvent 其處於執行中狀態的 LiveOutputs |3|
 | 每個 LiveEvent 其處於已停止狀態的 LiveOutputs |50|
-| 儲存體帳戶 | 1,000<sup>(4)</sup> (固定) |
+| 儲存體帳戶 | 100<sup>(4)</sup> (固定) |
 | 每個媒體服務其處於執行中狀態的串流端點|2|
-| 每個媒體服務帳戶的轉換 | 20 |
+| 每個媒體服務帳戶的轉換 | 100 (固定)|
 | 一次與資產相關聯的唯一 StreamingLocator | 20<sup>(5)</sup> |
-  
-<sup>1</sup>單一 blob 支援的大小上限，目前在 Azure Blob 儲存體最多為 5 TB。 不過，其他的限制會以服務所使用的 VM 大小作為基礎套用在 Azure 媒體服務中。 如果原始程式檔超過 260 GB，您的工作可能會失敗。 如果您的 4K 內容超過 260 GB 限制，請來函寄到 amshelp@microsoft.com，我們將針對您的情況，提供解決的方法。
+
+<sup>1</sup> 單一 blob 支援的大小上限目前在 Azure Blob 儲存體是最多 5 TB。 不過，其他的限制會以服務所使用的 VM 大小作為基礎套用在 Azure 媒體服務中。 如果原始程式檔超過 260 GB，您的工作可能會失敗。 如果您的 4K 內容超過 260 GB 限制，請來函寄到 amshelp@microsoft.com，我們將針對您的情況，提供解決的方法。
 
 <sup>2</sup> 這個數字包括佇列、已完成、作用中和已取消的工作。 不包含已刪除的工作。 
 
 您的帳戶中任何超過 90 天的工作記錄，都會自動刪除，即使記錄總數低於配額上限亦然。 
 
-<sup>3</sup> 對於不同的媒體服務原則 (例如 StreamingLocator 原則或 ContentKeyAuthorizationPolicy)，有 100 萬個 StreamingPolicy 的限制。 
-
->[!NOTE]
-> 如果您總是使用相同的天數 / 存取權限 / 等等，您應該使用相同的原則識別碼。 
+<sup>3</sup> 使用自訂的 [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) 時，您應該為媒體服務帳戶設計一組受限的這類原則，並且在需要相同的加密選項和通訊協定時，對 StreamingLocators 重新使用這些原則。 不建議您對每個 StreamingLocator 建立新的 StreamingPolicy。
 
 <sup>4</sup> 儲存體帳戶必須來自相同的 Azure 訂用帳戶。
 

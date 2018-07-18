@@ -1,9 +1,9 @@
 ---
 title: 工作流程定義語言函式 - Azure Logic Apps | Microsoft Docs
-description: 了解您可以在邏輯應用程式工作流程定義中使用的函式
+description: 了解使用工作流程定義語言來建立邏輯應用程式的函式
 services: logic-apps
 author: ecfan
-manager: SyntaxC4
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 ms.assetid: ''
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 04/25/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: 0155e35641a0407fe48c4da07400fa188152b0af
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6f1871e1e135ecb9e7cb37c0bedff3737d3febb7
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182248"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301383"
 ---
 # <a name="workflow-definition-language-functions-reference-for-azure-logic-apps"></a>Azure Logic Apps 的工作流程定義語言函式參考
 
-本文將說明您使用 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 建立工作流程時可使用的函式。 如需有關邏輯應用程式定義的詳細資訊，請參閱[Azure Logic Apps 的工作流程定義語言](../logic-apps/logic-apps-workflow-definition-language.md)。 
+本文將說明您使用 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 建立工作流程時可使用的函式。 若要深入了解邏輯應用程式定義中的函式，請參閱 [Azure Logic Apps 的工作流程定義語言](../logic-apps/logic-apps-workflow-definition-language.md#functions)。 
 
 > [!NOTE]
 > 在參數定義的語法中，參數後方出現問號 (？) 表示此參數是選擇性的。 例如，請參閱 [getFutureTime()](#getFutureTime)。
@@ -104,7 +104,7 @@ actionBody('Get_user')
 
 ## <a name="actionoutputs"></a>actionOutputs
 
-傳回執行階段上動作的輸出。 `actions('<actionName>').outputs` 的簡略版。 請參閱 [actions()](#actions)。
+傳回動作在執行階段的輸出。 `actions('<actionName>').outputs` 的簡略版。 請參閱 [actions()](#actions)。
 
 ```
 actionOutputs('<actionName>')
@@ -679,7 +679,7 @@ binary('hello')
 
 ## <a name="body"></a>body
 
-傳回執行階段上動作的 `body` 輸出。 `actions('<actionName>').outputs.body` 的簡略版。 請參閱 [actionBody()](#actionBody) 和 [actions()](#actions)。
+傳回動作在執行階段的 `body` 輸出。 `actions('<actionName>').outputs.body` 的簡略版。 請參閱 [actionBody()](#actionBody) 和 [actions()](#actions)。
 
 ```
 body('<actionName>')
@@ -2426,7 +2426,7 @@ mul(1.5, 2)
 
 ## <a name="multipartbody"></a>multipartBody
 
-從具有多個部分的動作輸出中，傳回特定部分的內容。
+在具有多個部分的動作輸出中，傳回特定部分的內容。
 
 ```
 multipartBody('<actionName>', <index>)
@@ -3213,7 +3213,7 @@ trigger()
 
 ## <a name="triggerbody"></a>triggerBody
 
-傳回執行階段上觸發程序的 `body` 輸出。 `trigger().outputs.body` 的簡略版。 請參閱 [trigger()](#trigger)。 
+傳回觸發程序在執行階段的 `body` 輸出。 `trigger().outputs.body` 的簡略版。 請參閱 [trigger()](#trigger)。 
 
 ```
 triggerBody()
@@ -3306,7 +3306,7 @@ triggerMultipartBody(<index>)
 
 ## <a name="triggeroutputs"></a>triggerOutputs
 
-傳回執行階段上觸發程序的輸出，或來自其他 JSON 成對名稱和數值中的值。 `trigger().outputs` 的簡略版。 請參閱 [trigger()](#trigger)。 
+傳回觸發程序在執行階段的輸出，或來自其他 JSON 名稱與值配對中的值。 `trigger().outputs` 的簡略版。 請參閱 [trigger()](#trigger)。 
 
 ```
 triggerOutputs()

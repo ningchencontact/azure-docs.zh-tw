@@ -1,21 +1,22 @@
 ---
-title: "Azure CLI 指令碼 - 還原適用於 MySQL 的 Azure 資料庫伺服器"
-description: "此範例 Azure CLI 指令碼示範如何將「適用於 MySQL 的 Azure 資料庫」伺服器及其資料庫還原至先前的時間點。"
+title: Azure CLI 指令碼 - 還原適用於 MySQL 的 Azure 資料庫伺服器
+description: 此範例 Azure CLI 指令碼示範如何將「適用於 MySQL 的 Azure 資料庫」伺服器及其資料庫還原至先前的時間點。
 services: mysql
 author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: 9863bd194e002e00ad67cda9218e8d7f78092ec2
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: ec8e82f2fecc001be93fb7a1614f1b018f8dd1f2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611162"
 ---
 # <a name="restore-an-azure-database-for-mysql-server-using-azure-cli"></a>使用 Azure CLI 還原「適用於 MySQL 的 Azure 資料庫」伺服器
 此範例 CLI 指令碼會將單一「適用於 MySQL 的 Azure 資料庫」伺服器還原至先前的時間點。

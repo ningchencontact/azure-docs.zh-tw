@@ -4,7 +4,7 @@ description: Azure 檔案同步內部部署網路組態
 services: storage
 documentationcenter: ''
 author: fauhse
-manager: klaasl
+manager: aungoo
 editor: tamram
 ms.assetid: ''
 ms.service: storage
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: fauhse
-ms.openlocfilehash: 979897e3cb703b36a46e96848a9176d6d4c6cc6a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 5014c8204b6b6da539a41aaa3308d8787fb517a7
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072261"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738525"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure 檔案同步 Proxy 和防火牆設定
 Azure 檔案同步會將您的內部部署伺服器連線到 Azure 檔案服務，以啟用多網站同步處理和雲端層功能。 因此，內部部署伺服器必須連線到網際網路。 IT 系統管理員必須決定進入 Azure 雲端服務之伺服器的最佳路徑。

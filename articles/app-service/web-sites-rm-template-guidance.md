@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: dc816bb6e95d2800d79124dfac60b55e88eaa500
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 8c29cf5a65e9587b281a6000b5b4eff47f11da91
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807317"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本部署 Web 應用程式的指引
 
@@ -58,19 +59,20 @@ ms.lasthandoff: 03/16/2018
 
 一般而言，您的解決方案只會包含前述部分的資源和層級。 對於缺漏的層級，會將較低的資源往高一層對應。
 
-下列範例將說明範本的一部分。 連接字串組態的值取決於 MSDeploy 延伸模組。 MSDeploy 延伸模組則取決於 Web 應用程式和資料庫。
+下列範例將說明範本的一部分。 連接字串組態的值取決於 MSDeploy 延伸模組。 MSDeploy 延伸模組則取決於 Web 應用程式和資料庫。 
 
 ```json
 {
-    "name": "[parameters('name')]",
-    "type": "Microsoft.Web/sites",
+    "name": "[parameters('appName')]",
+    "type": "Microsoft.Web/Sites",
+    ...
     "resources": [
       {
           "name": "MSDeploy",
           "type": "Extensions",
           "dependsOn": [
-            "[concat('Microsoft.Web/Sites/', parameters('name'))]",
-            "[concat('SuccessBricks.ClearDB/databases/', parameters('databaseName'))]"
+            "[concat('Microsoft.Web/Sites/', parameters('appName'))]",
+            "[concat('Microsoft.Sql/servers/', parameters('dbServerName'), '/databases/', parameters('dbName'))]",
           ],
           ...
       },
@@ -78,13 +80,15 @@ ms.lasthandoff: 03/16/2018
           "name": "connectionstrings",
           "type": "config",
           "dependsOn": [
-            "[concat('Microsoft.Web/Sites/', parameters('name'), '/Extensions/MSDeploy')]"
+            "[concat('Microsoft.Web/Sites/', parameters('appName'), '/Extensions/MSDeploy')]"
           ],
           ...
       }
     ]
 }
 ```
+
+如需使用上述程式碼且已就緒可執行的範例，請參閱[範本：建置簡單的 Umbraco Web 應用程式](https://github.com/Azure/azure-quickstart-templates/tree/master/umbraco-webapp-simple) \(英文\)。
 
 ## <a name="find-information-about-msdeploy-errors"></a>尋找 MSDeploy 錯誤的相關資訊
 

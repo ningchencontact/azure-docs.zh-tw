@@ -20,6 +20,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33764701"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>在 Azure App Service 中設定預備環境
 <a name="Overview"></a>

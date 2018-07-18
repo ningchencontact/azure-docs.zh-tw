@@ -5,21 +5,23 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 04/05/2018
+ms.date: 07/05/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: a16a9bdb866803a65bf7204628b735bd9ac60aee
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 4fef565dbd78cf3559cd47ed6c59800c8e6f9c9d
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302554"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37869138"
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>使用 Azure 入口網站和事件格線建立和路由傳送自訂事件
 
 Azure Event Grid 是一項雲端事件服務。 在本文中，您可使用 Azure 入口網站建立自訂主題、訂閱主題，以及觸發事件來檢視結果。 您會將事件傳送至 Azure Function，以記錄事件資料。 當您完成時，您會看到事件資料已傳送至端點並已記錄。
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
 ## <a name="create-a-custom-topic"></a>建立自訂主題
 
@@ -71,7 +73,7 @@ Event Grid 主題會提供使用者定義的端點，作為您發佈事件的目
 
    ![建立函式](./media/custom-event-quickstart-portal/create-function.png)
 
-1. 請提供 Azure Function 的唯一名稱。 請勿使用圖片中顯示的名稱。 選取您在本文中建立的資源群組。 針對主控方案，請使用 [取用方案]。 使用建議的新儲存體帳戶。 提供值之後，選取 [建立]。
+1. 請提供 Azure Function 的唯一名稱。 請勿使用圖片中顯示的名稱。 選取您在本文中建立的資源群組。 針對主控方案，請使用 [取用方案]。 使用建議的新儲存體帳戶。 您可以關閉 Application Insights。 提供值之後，選取 [建立]。
 
    ![提供函式值](./media/custom-event-quickstart-portal/provide-function-values.png)
 

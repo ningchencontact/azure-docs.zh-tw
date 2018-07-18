@@ -4,7 +4,7 @@ description: 本文說明如何開始使用 Azure Active Directory (Azure AD) �
 services: active-directory
 keywords: Azure AD Connect 傳遞驗證, 安裝 Active Directory, Azure AD 的必要元件, SSO, 單一登入
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b592eb8ca43e5bf3eebe2b0c47d8f17dbec7b238
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: fc98f15303f23937d58131de971d5c60017c9034
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917705"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory 傳遞驗證：快速入門
 
@@ -139,7 +141,7 @@ Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true
 第二種，您可以建立並執行自動部署指令碼。 當您想要一次部署多個「驗證代理程式」，或是在未啟用使用者介面或您無法使用「遠端桌面」來存取的 Windows 伺服器上安裝「驗證代理程式」時，這會相當有用。 以下是有關如何使用此方法的指示：
 
 1. 執行下列命令來安裝「驗證代理程式」：`AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`。
-2. 您可以使用 Windows PowerShell 來向我們的服務註冊「驗證代理程式」。 建立 PowerShell 認證物件 `$cred`，其中含有租用戶的全域管理員使用者名稱和密碼。 執行下列命令，取代 *\<使用者名稱\>*和*\<密碼\>*：
+2. 您可以使用 Windows PowerShell 來向我們的服務註冊「驗證代理程式」。 建立 PowerShell 認證物件 `$cred`，其中含有租用戶的全域管理員使用者名稱和密碼。 執行下列命令，取代 *\<使用者名稱\>* 和*\<密碼\>*：
    
         $User = "<username>"
         $PlainPassword = '<password>'
@@ -150,7 +152,7 @@ Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 
 ## <a name="next-steps"></a>後續步驟
-- [智慧鎖定](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)：了解如何在租用戶中設定智慧鎖定功能以保護使用者帳戶。
+- [智慧鎖定](../authentication/howto-password-smart-lockout.md)：了解如何在租用戶中設定智慧鎖定功能以保護使用者帳戶。
 - [目前的限制](active-directory-aadconnect-pass-through-authentication-current-limitations.md)：了解傳遞驗證支援的情節和不支援的情節。
 - [技術深入探討](active-directory-aadconnect-pass-through-authentication-how-it-works.md)：了解傳遞驗證功能的運作方式。
 - [常見問題集](active-directory-aadconnect-pass-through-authentication-faq.md)：常見問題集的答案。

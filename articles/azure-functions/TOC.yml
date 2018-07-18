@@ -11,12 +11,12 @@
   items:
     - name: 建立函式 - 入口網站
       href: functions-create-first-azure-function.md
-    - name: 建立函式 - Azure CLI
-      href: functions-create-first-azure-function-azure-cli.md
     - name: 建立函式 - Visual Studio
       href: functions-create-your-first-function-visual-studio.md
     - name: 建立函式 - Java/Maven
       href: functions-create-first-java-maven.md
+    - name: 建立函式 - Azure CLI
+      href: functions-create-first-azure-function-azure-cli.md
     - name: 建立函式 - Linux
       href: functions-create-first-azure-function-azure-cli-linux.md
     - name: 觸發程序
@@ -49,8 +49,8 @@
       href: functions-openapi-definition.md
     - name: 使用 Event Grid 進行映像大小調整
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
-    - name: 使用 Functions 作為 API 來建立無伺服器 Web 應用程式
-      href: 'https://docs.microsoft.com/learn/build-serverless-app/index'
+    - name: 建立無伺服器 Web 應用程式
+      href: 'https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database'
     - name: 在 Linux 上的 Functions
       items:
         - name: 自訂映像
@@ -97,6 +97,8 @@
       items:
         - name: 概觀
           href: durable-functions-overview.md
+        - name: 函式類型和功能
+          href: durable-functions-types-features-overview.md
         - name: 繫結
           href: durable-functions-bindings.md
         - name: 檢查點和重新執行
@@ -138,9 +140,11 @@
         - name: 測試函式
           href: functions-test-a-function.md
         - name: 在本機開發及偵錯
-          href: functions-run-local.md
+          href: functions-develop-local.md
         - name: Visual Studio 開發
           href: functions-develop-vs.md
+        - name: 核心工具開發
+          href: functions-run-local.md
         - name: 管理連線
           href: manage-connections.md
         - name: 錯誤處理

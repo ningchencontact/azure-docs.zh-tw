@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell 範例 - Azure 受控應用程式 | Microsoft Docs"
-description: "Azure PowerShell 範例 - Azure 受控應用程式"
+title: Azure PowerShell 範例 - Azure 受控應用程式 | Microsoft Docs
+description: Azure PowerShell 範例 - Azure 受控應用程式
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/30/2017
+ms.locfileid: "23636978"
 ---
 # <a name="azure-powershell-samples"></a>Azure PowerShell 範例
 

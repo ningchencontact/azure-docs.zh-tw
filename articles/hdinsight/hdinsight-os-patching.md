@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31409750"
 ---
 # <a name="os-patching-for-hdinsight"></a>HDInsight 的作業系統修補 
 HDInsight 作為受控 Hadoop 服務，會負責修補 HDInsight 叢集所使用之基礎 VM 的作業系統。 自 2016 年 8 月 1 日起，我們已變更以 Linux 為基礎之 HDInsight 叢集 (3.4 版或更新版本) 的客體 OS 修補原則。 新原則的目標是大幅減少因為修補而產生的重新開機次數。 新的原則將會在每個星期一或星期四 UTC 上午 12 時開始，以交錯方式在任何指定叢集的節點之間，繼續修補 Linux 叢集上的虛擬機器 (VM)。 不過，任何指定的 VM 每隔 30 天只會因為客體 OS 修補而最多重新開機一次。 此外，新建立的叢集在叢集建立之後，也不會在 30 天內第一次重新開機。 VM 重新開機後，修補便會生效。

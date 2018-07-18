@@ -1,12 +1,12 @@
 ---
-title: "Azure Functions 執行階段概觀 | Microsoft Docs"
-description: "Azure Functions 執行階段預覽的概觀"
+title: Azure Functions 執行階段概觀 | Microsoft Docs
+description: Azure Functions 執行階段預覽的概觀
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/05/2017
+ms.locfileid: "26290219"
 ---
 # <a name="azure-functions-runtime-overview"></a>Azure Functions 執行階段概觀
 

@@ -3,22 +3,24 @@ title: Azure PIM 資源 RBAC 概觀 |Microsoft Docs
 description: 取得 PIM 中 RBAC 功能的概觀，包括術語和通知
 services: active-directory
 documentationcenter: ''
-author: barclayn
+author: rolyon
 manager: mtillman
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: protection
 ms.date: 03/30/2018
-ms.author: billmath
-ms.openlocfilehash: edf22ea0cfe60cb734b4339363d50af050466000
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: rolyon
+ms.openlocfilehash: 07fe49be9fcb879b86d2b8a33799d11deb7d7446
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38528615"
 ---
 # <a name="pim-for-azure-resources"></a>適用於 Azure 資源的 PIM
 
@@ -57,7 +59,7 @@ Azure AD PIM 可以管理內建 Azure 資源角色，以及自訂 (RBAC) 角色�
 
 ## <a name="activate-roles"></a>啟用角色
 
-啟用 Azure 資源的角色可導入新的體驗，讓合格的角色成員能夠排定未來日期/時間的啟用，並可在上限 (由系統管理員設定) 範圍內選取特定的啟用持續時間。 了解[如何啟用 Azure AD 角色](../active-directory-privileged-identity-management-how-to-activate-role.md)。
+啟用 Azure 資源的角色可導入新的體驗，讓合格的角色成員能夠排定未來日期/時間的啟用，並可在上限 (由系統管理員設定) 範圍內選取特定的啟用持續時間。 了解[如何啟用 Azure AD 角色](pim-how-to-activate-role.md)。
 
 ![](media/azure-pim-resource-rbac/contributor.png)
 
@@ -117,9 +119,9 @@ Azure AD PIM 可以管理內建 Azure 資源角色，以及自訂 (RBAC) 角色�
 
 從下拉式功能表中選擇適用的作業類型。 
 
-**及時指派：**為使用者或群組成員提供合資格但不持續的的角色存取，時間可在指定期間或無限期 (如在角色設定中設定)。 
+**及時指派：** 為使用者或群組成員提供合資格但不持續的的角色存取，時間可在指定期間或無限期 (如在角色設定中設定)。 
 
-**直接指派：**無須使用者或群組成員即可啟用角色指派 (稱為持續存取)。 Microsoft 建議在短期使用上使用直接指派 (例如待命移位或以時間區分的活動)，這些工作完成時皆不需要存取。
+**直接指派：** 無須使用者或群組成員即可啟用角色指派 (稱為持續存取)。 Microsoft 建議在短期使用上使用直接指派 (例如待命移位或以時間區分的活動)，這些工作完成時皆不需要存取。
 
 ![](media/azure-pim-resource-rbac/membership-settings.png)
 
@@ -154,7 +156,7 @@ Azure AD PIM 可以管理內建 Azure 資源角色，以及自訂 (RBAC) 角色�
 
 ![](media/azure-pim-resource-rbac/owner.png)
 
-[深入了解存取權檢閱](../active-directory-privileged-identity-management-how-to-perform-security-review.md)
+[深入了解存取權檢閱](pim-how-to-perform-security-review.md)
 
 >[!NOTE]
 訂用帳戶資源類型僅在此時支援 [檢閱]。
@@ -194,5 +196,5 @@ Azure AD PIM 可以管理內建 Azure 資源角色，以及自訂 (RBAC) 角色�
 ## <a name="next-steps"></a>後續步驟
 
 - [適用於 Azure 資源的內建角色](../../role-based-access-control/built-in-roles.md)
-- 深入了解[在這裡啟用 Azure AD 角色](../active-directory-privileged-identity-management-how-to-activate-role.md)
+- 深入了解[在這裡啟用 Azure AD 角色](pim-how-to-activate-role.md)
 - [PIM 核准工作流程](azure-ad-pim-approval-workflow.md)

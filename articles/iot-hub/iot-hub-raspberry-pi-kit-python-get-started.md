@@ -1,24 +1,21 @@
 ---
 title: Raspberry Pi 至 cloud (Python) - 將 Raspberry Pi 連線至 Azure IoT 中樞 | Microsoft Docs
 description: 了解在本教學課程中如何設定及連線 Raspberry Pi 至 Azure IoT 中樞，讓 Raspberry Pi 將資料傳送到 Azure 雲端平台。
-services: iot-hub
-documentationcenter: ''
 author: rangv
-manager: timlt
-tags: ''
+manager: ''
 keywords: azure iot raspberry pi, raspberry pi iot 中樞, raspberry pi 將資料傳送至雲端, raspberry pi 至 cloud
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: python
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 4/11/2018
+ms.topic: conceptual
+ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 7069748c10f7c98f80fadc008f43a3aa02f7ac0e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 15b917d811dff2d70b638ab82c808bdc7fa1012b
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38235724"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-python"></a>將 Raspberry Pi 連線至 Azure IoT Hub (Python)
 

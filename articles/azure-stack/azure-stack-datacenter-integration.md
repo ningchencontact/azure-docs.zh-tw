@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 55243ead4f088f7a2b3d54c0581c604f0dc63d07
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 0c43b66a9d6210ea951af3fae5eca8bc6d47c3d9
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32769687"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261210"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Azure Stack 整合式系統的一般資料中心整合考量
 如果您對 Azure Stack 整合式系統有興趣，您應瞭解一些有關部署的重大規劃考量，及系統如何融入您的資料中心。 本文提供這些考量的高階概觀，協助您為 Azure Stack 多節點系統做出重要的基礎結構決策。 與您的 OEM 硬體廠商一起將 Azure Stack 部署到您的資料中心時，瞭解這些考量有所助益。  
@@ -77,7 +77,7 @@ Azure Stack 是密封的系統，已從權限和網路觀點鎖定基礎結構�
 
 ## <a name="naming-decisions"></a>命名決策
 
-您將需要思考如何規劃 Azure Stack 命名空間，尤其是區域名稱和外部網域名稱。 公開端點之 Azure Stack 部署的外部完整網域名稱 (FQDN) 以下兩個名稱的組合：&lt;*region*&gt;.&lt;*fqdn*&gt;。 例如，*east.cloud.fabrikam.com*。在此範例中，Azure Stack 入口網站將位於下列 URL：
+您將需要思考如何規劃 Azure Stack 命名空間，尤其是區域名稱和外部網域名稱。 公開端點之 Azure Stack 部署的外部完整網域名稱 (FQDN) 以下兩個名稱的組合：&lt;*region*&gt;.&lt;*fqdn*&gt;。 例如，*east.cloud.fabrikam.com*。 在此範例中，Azure Stack 入口網站將位於下列 URL：
 
 - https://portal.east.cloud.fabrikam.com
 - https://adminportal.east.cloud.fabrikam.com
@@ -135,9 +135,9 @@ Azure Stack 是密封的系統，已從權限和網路觀點鎖定基礎結構�
 
 | 案例 | 連線方法 | 優點 | 缺點 | 適用對象 |
 | -- | -- | --| -- | --|
-| 單一租用戶 Azure Stack，內部網路部署 | 輸出 NAT | 用於更快傳輸的更佳頻寬。 簡單實作；沒有必要的閘道。 | 不會加密流量；TOR 外部無隔離或加密。 | 同樣信任所有租用戶的企業部署。<br><br>具有至 Azure 的 Azure ExpressRoute 電路的企業。 |
+| 單一租用戶 Azure Stack，內部網路部署 | 輸出 NAT | 用於更快傳輸的更佳頻寬。 簡單實作；沒有必要的閘道。 | 不會加密流量；堆疊外部無隔離或加密。 | 同樣信任所有租用戶的企業部署。<br><br>具有至 Azure 的 Azure ExpressRoute 電路的企業。 |
 | 多租用戶 Azure Stack，內部網路部署 | 站對站 VPN | 從租用戶 VNet 到目的地的流量是安全的。 | 頻寬會受限於站對站 VPN 通道。<br><br>需要虛擬網路上的閘道和目的地網路上的 VPN 裝置。 | 必須避免其他租用戶接觸其部分租用戶流量的企業部署。 |
-| 單一租用戶 Azure Stack，網際網路部署 | 輸出 NAT | 用於更快傳輸的更佳頻寬。 | 不會加密流量；TOR 外部無隔離或加密。 | 裝載情節，其中租用戶取得其自己的 Azure Stack 部署和 Azure Stack 環境的專屬電路。 例如，ExpressRoute 和多重通訊協定標籤交換 (MPLS)。
+| 單一租用戶 Azure Stack，網際網路部署 | 輸出 NAT | 用於更快傳輸的更佳頻寬。 | 不會加密流量；堆疊外部無隔離或加密。 | 裝載情節，其中租用戶取得其自己的 Azure Stack 部署和 Azure Stack 環境的專屬電路。 例如，ExpressRoute 和多重通訊協定標籤交換 (MPLS)。
 | 多租用戶 Azure Stack，網際網路部署 | 站對站 VPN | 從租用戶 VNet 到目的地的流量是安全的。 | 頻寬會受限於站對站 VPN 通道。<br><br>需要虛擬網路上的閘道和目的地網路上的 VPN 裝置。 | 裝載情節，其中的提供者要提供多租用戶雲端，讓租用戶彼此不信任且必須加密流量。
 |  |  |  |  |  |
 
@@ -183,7 +183,7 @@ Azure Stack 解決方案隨附的硬體生命週期主機是 Azure Stack 外部�
 - 您在現有的 Windows 型檔案伺服器或協力廠商裝置上需要有外部 SMB 檔案共用。
 - 您應該將這個相同的共用使用於網路交換器與硬體生命週期主機的備份。 OEM 硬體廠商將協助提供這些元件的備份和還原指引，因為這些是 Azure Stack 外部的作業。 您負責根據 OEM 廠商的建議來執行備份工作流程。
 
-如果發生重大資料遺失，您可以使用基礎結構來重新植入部署資料，例如部署輸入和識別碼、服務帳戶、CA 根憑證、同盟的資源 (在中斷連線的部署中)、計劃、優惠、訂用帳戶、配額、RBAC 原則與角色指派，和金鑰保存庫密碼。
+如果發生重大資料遺失，您可以使用基礎結構來重新植入部署資料，例如部署輸入和識別碼、服務帳戶、CA 根憑證、同盟的資源 (在中斷連線的部署中)、計劃、供應項目、訂用帳戶、配額、RBAC 原則與角色指派，和金鑰保存庫密碼。
  
 ### <a name="protect-tenant-applications-on-iaas-virtual-machines"></a>保護 IaaS 虛擬機器上的租用戶應用程式
 

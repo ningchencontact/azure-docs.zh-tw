@@ -3,31 +3,32 @@ title: 對應用程式執行同意時發生非預期的錯誤 | Microsoft Docs
 description: 討論對應用程式執行同意的程序期間會發生的錯誤，以及可對錯誤採取的動作
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: bbc0cee8a44773c025c6174eaf7eccaba81b8d1b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: bad508c59983f463aaa3247fa653064dfa03ab20
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331072"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>對應用程式執行同意時出現非預期的錯誤
 
-這篇文章討論對應用程式進行同意的程序期間會發生的錯誤。 如果您正在疑難排解未包含任何錯誤訊息的非預期同意提示，請參閱 [Azure AD 的驗證案例](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios)。
+這篇文章討論對應用程式進行同意的程序期間會發生的錯誤。 如果您正在針對未包含任何錯誤訊息的非預期同意提示進行疑難排解，請參閱 [Azure AD 的驗證案例](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios)。
 
-許多與 Azure Active Directory 整合的應用程式需要能存取其他資源的權限，才能夠運作。 當這些資源也與 Azure Active Directory 整合時，通常會使用一般的同意架構來要求存取這些資源的權限。 
+許多與 Azure Active Directory 整合的應用程式需要能存取其他資源的權限，才能夠運作。 當這些資源也與 Azure Active Directory 整合時，通常會使用一般的同意架構來要求存取這些資源的權限。 會顯示同意提示，一般會發生在第一次使用應用程式時，但也會發生在後續使用應用程式時。
 
-這會造成顯示同意提示，一般會發生在第一次使用應用程式時，但也會發生在後續使用應用程式時。
-
-某些條件必須成立，使用者才能同意應用程式所需的權限。 如果不符合這些條件，便會發生各種錯誤。 其中包含：
+某些條件必須成立，使用者才能同意應用程式所需的權限。 如果不符合這些條件，便會發生下列錯誤。
 
 ## <a name="requesting-not-authorized-permissions-error"></a>要求未經授權權限的錯誤
 * **AADSTS90093：** &lt;clientAppDisplayName&gt; 正在要求一或多個您未授權授與的權限。 請連絡系統管理員，其可代表您同意此應用程式。
@@ -40,12 +41,12 @@ ms.lasthandoff: 04/05/2018
 當公司系統管理員關閉使用者同意應用程式的功能，接著非系統管理員使用者嘗試使用需要同意的應用程式時，會發生此錯誤。 可代表其組織授與應用程式存取權的系統管理員能夠解決此錯誤。
 
 ## <a name="intermittent-problem-error"></a>間歇性問題錯誤
-* **AADSTS90090：**要記錄您嘗試授與 &lt;clientAppDisplayName&gt; 的權限時似乎發生問題，此問題間歇性發生。 請稍後再試一次。
+* **AADSTS90090：** 看來登入程序在記錄您嘗試授與 &lt;clientAppDisplayName&gt; 的權限時似乎發生問題，此問題間歇性發生。 請稍後再試一次。
 
 此錯誤表示已發生間歇性服務端問題。 再次嘗試同意應用程式，可解決此問題。
 
 ## <a name="resource-not-available-error"></a>資源無法使用錯誤
-* **AADSTS65005：**應用程式 &lt;clientAppDisplayName&gt; 要求可存取資源 &lt;resourceAppDisplayName&gt; 的權限，但該資源無法使用。 
+* **AADSTS65005：** 應用程式 &lt;clientAppDisplayName&gt; 要求可存取資源 &lt;resourceAppDisplayName&gt; 的權限，但該資源無法使用。 
 
 請連絡應用程式開發人員。
 
@@ -55,19 +56,19 @@ ms.lasthandoff: 04/05/2018
 請確認此資源可以使用，或與 &lt;tenantDisplayName&gt; 的系統管理員連絡。
 
 ## <a name="permissions-mismatch-error"></a>權限不符合錯誤
-* **AADSTS65005：**應用程式要求同意存取 &lt;resourceAppDisplayName&gt; 資源。 此要求失敗，因為它不符合在應用程式註冊期間預先設定應用程式的方式。 請連絡應用程式廠商。**
+* **AADSTS65005：** 應用程式要求同意存取 &lt;resourceAppDisplayName&gt; 資源。 此要求失敗，因為它不符合在應用程式註冊期間預先設定應用程式的方式。 請連絡應用程式廠商。**
 
-當使用者嘗試同意的應用程式正在要求存取某個資源應用程式的權限，但在組織的目錄 (租用戶) 中找不到該應用程式時，這些錯誤全部發生。 發生的原因有數種：
+當使用者嘗試同意的應用程式正在要求存取某個資源應用程式的權限，但在組織的目錄 (租用戶) 中找不到該應用程式時，這些錯誤全部發生。 發生這種狀況的原因有數種：
 
 -   用戶端應用程式開發人員將其應用程式設定錯誤，導致應用程式要求存取無效的資源。 在此狀況下，應用程式開發人員必須更新用戶端應用程式的組態，以解決此問題。
 
--   代表目標資源應用程式的服務主體不存在於組織中，或是過去曾存在，但現已遭移除。 若要解決此問題，在組織中必須佈建資源應用程式的服務主體，讓用戶端應用程式可以向主體要求權限。 發生這種狀況的方式有數種，視應用程式類型而定，包括︰
+-   代表目標資源應用程式的服務主體不存在於組織中，或是過去曾存在，但現已遭移除。 若要解決此問題，在組織中必須佈建資源應用程式的服務主體，讓用戶端應用程式可以向主體要求權限。 服務主體可以用數種方式佈建，這取決於應用程式的類型，包括：
 
     -   取得資源應用程式 (Microsoft 發佈的應用程式) 的訂用帳戶
 
     -   同意資源應用程式
 
-    -   透過 Azure Portal 授與應用程式權限
+    -   透過 Azure 入口網站授與應用程式權限
 
     -   從 Azure AD 應用程式資源庫新增應用程式
 

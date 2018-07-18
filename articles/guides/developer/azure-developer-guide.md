@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: e0a04d44edf39c90533c59d67ea2dfce69f092cd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f4dfc376e49ac26f0c054282994a29d9a7d2b54b
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442166"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 開發人員開始使用指南
 
@@ -106,19 +107,20 @@ Service Fabric 支援具有 Open Web Interface for .NET (OWIN) 和 ASP.NET Core 
 大部分應用程式都必須儲存資料，因此無論您決定如何在 Azure 中裝載應用程式，請考慮下列一或多個儲存體和資料服務。
 
 -   **Azure Cosmos DB**：全域分散式的多模型資料庫服務，可讓您透過完整的 SLA，彈性地調整任何地區數量的輸送量及儲存體。 
-    >**使用時機：**當您的應用程式需要文件、資料表或圖表資料庫時，請併入具有多個定義完善、一致模型的 MongoDB 資料庫。 
+    >**使用時機：** 當您的應用程式需要文件、資料表或圖表資料庫時，請併入具有多個定義完善、一致模型的 MongoDB 資料庫。 
 
     >**入門**：[建置 Azure Cosmos DB Web 應用程式](../../cosmos-db/create-sql-api-dotnet.md)。 如果您是 MongoDB 開發人員，請參閱[使用 Azure Cosmos DB 建置 MongoDB Web 應用程式](../../cosmos-db/create-mongodb-dotnet.md)。
 
--   **Azure 儲存體**：提供 Blob、佇列、檔案和其他類型之非關聯式資料的持久性高可用性儲存體。 儲存體提供 VM 的儲存體基礎。
+-   
+  **Azure 儲存體**：提供 Blob、佇列、檔案和其他類型之非關聯式資料的持久性高可用性儲存體。 儲存體提供 VM 的儲存體基礎。
 
-    >**使用時機：**當您的應用程式儲存非關聯式資料 (例如，鍵值組 (資料表)、Blob、檔案共用或訊息 (佇列)) 時。
+    >**使用時機：** 當您的應用程式儲存非關聯式資料 (例如，鍵值組 (資料表)、Blob、檔案共用或訊息 (佇列)) 時。
 
     >**開始使用**：選擇下列其中一種類型的儲存體：[Blob](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)、[資料表](../../cosmos-db/table-storage-how-to-use-dotnet.md)、[佇列](../../storage/queues/storage-dotnet-how-to-use-queues.md)或[檔案](../../storage/files/storage-dotnet-how-to-use-files.md)。
 
 -   **Azure SQL Database**：Azure 版本的 Microsoft SQL Server 引擎，可將關聯式表格資料儲存在雲端中。 SQL Database 提供可預測的效能、無停機時間的延展性、商務持續性和資料保護功能。
 
-    >**使用時機：**當您的應用程式需要具有參考完整性、交易支援和 TSQL 查詢支援的資料儲存體時。
+    >**使用時機：** 當您的應用程式需要具有參考完整性、交易支援和 TSQL 查詢支援的資料儲存體時。
 
     >**開始使用**[：使用 Azure 入口網站在幾分鐘內建立 SQL Database](../../sql-database/sql-database-get-started.md)。
 
@@ -204,7 +206,7 @@ Azure 是在全球各地許多地區正式推出的全域雲端平台。 當您�
 
 雖然不可能，但是整個資料中心不可能因天然災害或網際網路失敗等事件而離線。 最好將重要商務應用程式裝載在多個資料中心，以提供最大的可用性。 使用多個區域也可以減少全域使用者的延遲，並在更新應用程式時提供彈性的其他機會。
 
-某些服務 (例如 Virtual Machine 和 App Services) 使用 [Azure 流量管理員](../../traffic-manager/traffic-manager-overview.md)來啟用具有區域間之容錯移轉的多區域支援，以支援高可用性企業應用程式。 如需範例，請參閱 [Azure 參考架構︰高可用性的 Web 應用程式](../../guidance/guidance-web-apps-multi-region.md)。
+某些服務 (例如 Virtual Machine 和 App Services) 使用 [Azure 流量管理員](../../traffic-manager/traffic-manager-overview.md)來啟用具有區域間之容錯移轉的多區域支援，以支援高可用性企業應用程式。 如需範例，請參閱 [Azure 參考架構︰在多個區域中執行 Web 應用程式](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region)。
 
 >**使用時機**：當您有受益於容錯移轉和複寫的企業和高可用性應用程式時。
 
@@ -262,13 +264,13 @@ Azure 是以支援 Azure 入口網站 UI 的一組 REST API 所建置。 也支�
 
 若要可以建立或使用 Azure 訂用帳戶，您必須擁有 Azure 帳戶。 Azure 帳戶就是 Azure AD 或目錄 (例如公司或學校組織) 中 Azure AD 所信任的身分識別。 如果您不屬於這類組織，則一律會使用 Azure AD 所信任的 Microsoft 帳戶來建立訂用帳戶。 若要深入了解整合內部部署 Windows Server Active Directory 與 Azure AD，請參閱[整合您的內部部署身分識別與 Azure Active Directory](../../active-directory/active-directory-aadconnect.md)。
 
-每個 Azure 訂用帳戶都會與 Azure AD 執行個體有信任關係。 這表示它信任該目錄來驗證使用者、服務和裝置。 多個訂用帳戶可以信任相同的目錄，但是一個訂用帳戶只能信任一個目錄。 若要深入了解，請參閱 [Azure 訂用帳戶與 Azure Active Directory 建立關聯的方式](../../active-directory/active-directory-how-subscriptions-associated-directory.md)。
+每個 Azure 訂用帳戶都會與 Azure AD 執行個體有信任關係。 這表示它信任該目錄來驗證使用者、服務和裝置。 多個訂用帳戶可以信任相同的目錄，但是一個訂用帳戶只能信任一個目錄。 若要深入了解，請參閱 [Azure 訂用帳戶與 Azure Active Directory 建立關聯的方式](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)。
 
-除了定義個別 Azure 帳戶身分識別 (也稱為「使用者」) 之外，您還可以在 Azure AD 中定義「群組」。 建立使用者群組是使用角色型存取控制 (RBAC) 管理訂用帳戶中資源存取權的好方法。 若要了解如何建立群組，請參閱[在 Azure Active Directory Preview 中建立群組](../../active-directory/active-directory-groups-create-azure-portal.md)。 您也可以[使用 PowerShell](../../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md) 建立和管理群組。
+除了定義個別 Azure 帳戶身分識別 (也稱為「使用者」) 之外，您還可以在 Azure AD 中定義「群組」。 建立使用者群組是使用角色型存取控制 (RBAC) 管理訂用帳戶中資源存取權的好方法。 若要了解如何建立群組，請參閱[在 Azure Active Directory Preview 中建立群組](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)。 您也可以[使用 PowerShell](../../active-directory/users-groups-roles/groups-settings-v2-cmdlets.md) 建立和管理群組。
 
 ### <a name="manage-your-subscriptions"></a>管理訂用帳戶
 
-訂用帳戶是連結至 Azure 帳戶之 Azure 服務的邏輯單元。 在訂用帳戶中，每個相關聯的帳戶都會有一個角色。 Azure 服務是根據訂用帳戶計費。 如需依類型的可用訂用帳戶優惠清單，請參閱 [Microsoft Azure 優惠詳細資料](https://azure.microsoft.com/support/legal/offer-details/)。
+訂用帳戶是連結至 Azure 帳戶之 Azure 服務的邏輯單元。 在訂用帳戶中，每個相關聯的帳戶都會有一個角色。 Azure 服務是根據訂用帳戶計費。 如需依類型的可用訂用帳戶供應項目清單，請參閱 [Microsoft Azure 供應項目詳細資料](https://azure.microsoft.com/support/legal/offer-details/)。
 
 #### <a name="administrator-roles"></a>系統管理員角色
 

@@ -15,11 +15,12 @@ ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 75139e39c3391a7662e3d02ee8d56463ac9fcc7a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e57a2e72479d36908ef1e9f537506bb67ae311fe
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048402"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站建置您的第一個資料處理站
 > [!div class="op_single_selector"]
@@ -32,7 +33,7 @@ ms.lasthandoff: 04/16/2018
 
 
 > [!NOTE]
-> 本文適用於第 1 版 Azure Data Factory (正式運作版)。 如果您使用第 2 版 Data Factory 服務 (預覽版)，請參閱[快速入門：使用 Data Factory 第 2 版來建立資料處理站](../quickstart-create-data-factory-dot-net.md)。
+> 本文適用於第 1 版 Azure Data Factory (正式運作版)。 如果您使用 Data Factory 服務的目前版本，請參閱[快速入門：使用 Data Factory 來建立資料處理站](../quickstart-create-data-factory-dot-net.md)。
 
 在本文中，您會了解如何使用 [Azure 入口網站](https://portal.azure.com/) 來建立您的第一個資料處理站。 若要使用其他工具/SDK 進行本教學課程，請選取下拉式清單的其中一個選項。 
 

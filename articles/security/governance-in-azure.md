@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: a5f323b98fa30d2c4c89fa8fe8e75c1d89089b6e
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c0794ebd953160c8569502db5d58c6d2b9ad892a
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061491"
 ---
 # <a name="governance-in-azure"></a>Azure 中的治理
 
@@ -129,7 +130,7 @@ Azure 註冊階層會定義服務在企業合約內的結構方式。 企業入�
 
 - 界線
 
-  - 使用量和計費 (費率卡片會以優惠數目為基礎)
+  - 使用量和計費 (費率卡片會以供應項目數目為基礎)
 
   - 限制
 
@@ -293,7 +294,8 @@ Resource Manager 鎖定只會套用於管理平面發生的作業，亦即要傳
 
 - **資源中繼資料** - 資源詳細資料 (例如計量名稱、計量類別、計量子類別、單位和區域) 可讓呼叫端深入了解耗用的內容。 我們也致力於跨 Azure 入口網站、Azure 使用情況 CSV、EA 計費 CSV 和其他向外公開的體驗統一資源中繼資料術語，以讓您跨體驗將資料相互關聯。
 
-- **所有優惠類型的使用情況** – 所有優惠類型 (例如隨收隨付、MSDN、貨幣承諾、貨幣信用額度和 EA) 皆有提供使用情況資料。
+- 
+  **所有供應項目類型的使用情況** – 所有供應項目類型 (例如隨收隨付、MSDN、貨幣承諾、貨幣信用額度和 EA) 皆有提供使用情況資料。
 
 **Azure 資源 RateCard API (預覽)**
 
@@ -301,7 +303,8 @@ Resource Manager 鎖定只會套用於管理平面發生的作業，亦即要傳
 
 - **Azure 角色型存取控制** - 在 Azure 入口網站上或透過 Azure PowerShell Cmdlet 設定存取原則，以指定哪些使用者或應用程式可以存取 RateCard 資料。 呼叫端必須使用標準的 Azure Active Directory 權杖進行驗證。 將呼叫端新增至讀取者、擁有者或參與者角色，以存取特定 Azure 訂用帳戶的使用情況資料。
 
-- **支援隨收隨付、MSDN、貨幣承諾、貨幣信用額度優惠 (不支援 EA)** - 此 API 提供 Azure 優惠層級費率資訊。 此 API 的呼叫端必須輸入優惠資訊以取得資源詳細資料和費率。 由於 EA 優惠已自訂每個註冊的費率，所以我們目前無法提供 EA 費率。 以下是一些案例，可產生使用情況和 RateCard API 的組合：
+- 
+  **支援隨收隨付、MSDN、貨幣承諾、貨幣信用額度供應項目 (不支援 EA)** - 此 API 提供 Azure 供應項目層級費率資訊。 此 API 的呼叫端必須輸入供應項目資訊以取得資源詳細資料和費率。 由於 EA 供應項目已自訂每個註冊的費率，所以我們目前無法提供 EA 費率。 以下是一些案例，可產生使用情況和 RateCard API 的組合：
 
 - **Azure 月份花費** - 使用使用情況和 RateCard API 的組合，來取得當月份雲端花費的更佳見解。 您可以分析每小時和每天的使用情況及收費評估值區。
 
@@ -309,11 +312,11 @@ Resource Manager 鎖定只會套用於管理平面發生的作業，亦即要傳
 
 - **預測計費** – 取得預估的耗用量及雲端花費，並應用機器學習演算法來預測在計費週期結束時的計費情形。
 
-- **耗用前成本分析** – 使用 RateCard API 來預測當您將工作負載移至 Azure 時，所預期的使用量需要多少費用。 如果您有其他雲端或私用雲端中的現有工作負載，您也可以對應您的使用情況和 Azure 費率，以取得 Azure 花費的較佳評估。 此預估可讓您以優惠為依據來進行選擇，並比較隨收隨付以外的不同優惠類型，包含貨幣承諾和貨幣信用額度。 此 API 也可讓您依區域查看成本差異，並可讓您執行假設成本分析，以幫助您做出部署決定。
+- **耗用前成本分析** – 使用 RateCard API 來預測當您將工作負載移至 Azure 時，所預期的使用量需要多少費用。 如果您有其他雲端或私用雲端中的現有工作負載，您也可以對應您的使用情況和 Azure 費率，以取得 Azure 花費的較佳評估。 此預估可讓您以供應項目為依據來進行選擇，並比較隨收隨付以外的不同供應項目類型，包含貨幣承諾和貨幣信用額度。 此 API 也可讓您依區域查看成本差異，並可讓您執行假設成本分析，以幫助您做出部署決定。
 
 - **模擬分析** - 您可以判斷在另一個區域執行工作負載，或是在 Azure 資源的另一個設定上執行工作負載是否會比較符合成本效益。 Azure 資源成本可能會因為您所使用的 Azure 區域而有所不同。
 
-- 您也可以判斷另一個 Azure 優惠類型是否會在 Azure 資源上提供更好的費率。
+- 您也可以判斷另一個 Azure 供應項目類型是否會在 Azure 資源上提供更好的費率。
 
 ## <a name="networking-controls"></a>網路控制
 
@@ -412,7 +415,7 @@ Azure 資訊安全中心會監視下列 Azure 資源：
 
 ### <a name="log-analytics"></a>Log Analytics
 
-Log Analytics 軟體開發和服務小組的資訊安全性及[治理程式](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md)可支援其商務需求，並且會遵守 [Microsoft Azure 信任中心](https://azure.microsoft.com/support/trust-center/)和 [Microsoft 信任中心合規性所述的法律與法規](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)。 上述位置也會描述 Log Analytics 建立安全性需求、識別安全性控制，以及管理和監視風險的方式。 每年我們都會檢閱原則、標準、程序和指導方針。
+Log Analytics 軟體開發和服務小組的資訊安全性及[治理程式](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md)可支援其商務需求，並且會遵守 [Microsoft Azure 信任中心](https://azure.microsoft.com/support/trust-center/)和 [Microsoft 信任中心合規性所述的法律與法規](https://microsoft.com/en-us/trustcenter/compliance)。 上述位置也會描述 Log Analytics 建立安全性需求、識別安全性控制，以及管理和監視風險的方式。 每年我們都會檢閱原則、標準、程序和指導方針。
 
 每個 Log Analytics 開發小組成員都會獲得正式的應用程式安全性訓練。 在內部，我們使用版本控制系統來開發軟體。 每個軟體專案都受到版本控制系統的保護。
 

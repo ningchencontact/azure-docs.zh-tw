@@ -5,15 +5,16 @@ services: cosmos-db
 author: kanshiG
 manager: kfile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: b07a159e69a11656555a8550b807cce0b2c9ef6c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: de52521824c146f63fb16e2690e2a24167ae2efe
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333907"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>使用 Azure 虛擬網路服務端點保護 Azure Cosmos DB 帳戶的存取權
 
@@ -48,7 +49,7 @@ Azure Cosmos DB 是全域散發的多模型資料庫服務。 您可以將 Azure
    ![選取虛擬網路和子網路](./media/vnet-service-endpoint/choose-subnet-and-vnet.png)
 
    > [!NOTE]
-   > 如果 Azure Cosmos DB 的服務端點未針對所選 Azure 虛擬網路和子網路事先設定，可以設定為這項作業的一部分。 啟用存取權可能需要 15 分鐘的時間才能完成。 
+   > 如果 Azure Cosmos DB 的服務端點未針對所選 Azure 虛擬網路和子網路事先設定，可以設定為這項作業的一部分。 啟用存取權可能需要 15 分鐘的時間才能完成。 在記下防火牆 ACL 的內容之後，請務必停用 IP 防火牆，以便之後予以重新啟用。 
 
    ![已成功設定虛擬網路和子網路](./media/vnet-service-endpoint/vnet-and-subnet-configured-successfully.png)
 
@@ -57,6 +58,9 @@ Azure Cosmos DB 是全域散發的多模型資料庫服務。 您可以將 Azure
 ### <a name="configure-service-endpoint-for-a-new-azure-virtual-network-and-subnet"></a>對新的 Azure 虛擬網路和子網路設定服務端點
 
 1. 從 [所有資源] 刀鋒視窗中，尋找要保護的 Azure Cosmos DB 帳戶。  
+
+> [!NOTE]
+> 如果您的 Azure Cosmos DB 帳戶已設定 IP 防火牆，則須注意防火牆組態，請移除 IP 防火牆，然後啟用服務端點。 如果您未停用防火牆就啟用服務端點，來自該 IP 範圍的流量將會遺失虛擬 IP 身分識別而遭到捨棄，並顯示 IP 篩選條件錯誤訊息。 因此，若要避免這個錯誤，請一律停用防火牆規則、複製規則、啟用子網路的服務端點，最後為 Cosmos DB 的子網路設定 ACL。 服務端點設定好並新增 ACL 之後，您可以再次重新啟用 IP 防火牆 (如有需要)。
 
 2. 啟用虛擬網路服務端點之前，請複製與 Azure Cosmos DB 帳戶供相關聯的 IP 防火牆資訊以供未來使用。 服務端點設定好之後，您可以重新啟用 IP 防火牆。  
 
@@ -76,7 +80,7 @@ Azure Cosmos DB 是全域散發的多模型資料庫服務。 您可以將 Azure
 
 如果您的 Azure Cosmos DB 帳戶會由其他 Azure 服務 (例如 Azure 搜尋服務) 使用，或是會從串流分析或 Power BI 進行存取，則您可以核取 [允許存取 Azure 服務] 來允許存取。
 
-若要確保您可以從入口網站存取 Azure Cosmos DB 計量，您必須啟用 [允許存取 Azure 入口網站] 選項。 若要深入了解這些選項，請參閱[來自 Azure 入口網站的連線](firewall-support.md#connections-from-the-azure-portal)和[來自 Azure PaaS 服務的連線](firewall-support.md#connections-from-other-azure-paas-services)章節。 選取存取之後，請選取 [儲存] 以儲存設定。
+若要確保您可以從入口網站存取 Azure Cosmos DB 計量，您必須啟用 [允許存取 Azure 入口網站] 選項。 若要深入了解這些選項，請參閱[來自 Azure 入口網站的連線](firewall-support.md#connections-from-the-azure-portal)和[來自 Azure PaaS 服務的連線](firewall-support.md#connections-from-global-azure-datacenters-or-azure-paas-services)章節。 選取存取之後，請選取 [儲存] 以儲存設定。
 
 ## <a name="remove-a-virtual-network-or-subnet"></a>移除現有虛擬網路或子網路 
 
@@ -95,6 +99,10 @@ Azure Cosmos DB 是全域散發的多模型資料庫服務。 您可以將 Azure
 若要使用 Azure PowerShell 對 Azure Cosmos DB 帳戶設定服務端點，請使用下列步驟：  
 
 1. 安裝最新的 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) 並[登入](https://docs.microsoft.com/powershell/azure/authenticate-azureps)。  啟用帳戶的服務端點之前，請確定您已記下 IP 防火牆設定並完全刪除 IP 防火牆。
+
+
+> [!NOTE]
+> 如果您的 Azure Cosmos DB 帳戶已設定 IP 防火牆，則須注意防火牆組態，請移除 IP 防火牆，然後啟用服務端點。 如果您未停用防火牆就啟用服務端點，來自該 IP 範圍的流量將會遺失虛擬 IP 身分識別而遭到捨棄，並顯示 IP 篩選條件錯誤訊息。 因此，若要避免這個錯誤，請一律停用防火牆規則、複製規則、啟用子網路的服務端點，最後為 Cosmos DB 的子網路設定 ACL。 服務端點設定好並新增 ACL 之後，您可以再次重新啟用 IP 防火牆 (如有需要)。
 
 2. 啟用虛擬網路服務端點之前，請複製與 Azure Cosmos DB 帳戶供相關聯的 IP 防火牆資訊以供未來使用。 服務端點設定好之後，您可以重新啟用 IP 防火牆。  
 
@@ -117,15 +125,16 @@ Azure Cosmos DB 是全域散發的多模型資料庫服務。 您可以將 Azure
 4. 確定虛擬網路與子網路已為 Azure Cosmos DB 啟用服務端點，以便在 CosmosDB 帳戶上啟用 ACL。
 
    ```powershell
-   $subnet = Get-AzureRmVirtualNetwork `
-    -ResourceGroupName $rgname `
-    -Name $vnName  | Get-AzureRmVirtualNetworkSubnetConfig -Name $sname
-   $vnProp = Get-AzureRmVirtualNetwork `-Name $vnName  -ResourceGroupName $rgName
+   $vnProp = Get-AzureRmVirtualNetwork `
+     -Name $vnName  -ResourceGroupName $rgName
    ```
 
 5. 請執行下列 Cmdlet 以取得 Azure Cosmos DB 帳戶的屬性：  
 
    ```powershell
+   $apiVersion = "2015-04-08"
+   $acctName = "<Azure Cosmos DB account name>"
+
    $cosmosDBConfiguration = Get-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
@@ -136,15 +145,24 @@ Azure Cosmos DB 是全域散發的多模型資料庫服務。 您可以將 Azure
 
    ```powershell
    $locations = @(@{})
+
+   <# If you have read regions in addition to a write region, use the following code to set the $locations variable instead.
+
+   $locations = @(@{"locationName"="<Write location>"; 
+                 "failoverPriority"=0}, 
+               @{"locationName"="<Read location>"; 
+                  "failoverPriority"=1}) #>
+
    $consistencyPolicy = @{}
    $cosmosDBProperties = @{}
 
    $locations[0]['failoverPriority'] = $cosmosDBConfiguration.Properties.failoverPolicies.failoverPriority
    $locations[0]['locationName'] = $cosmosDBConfiguration.Properties.failoverPolicies.locationName
+
    $consistencyPolicy = $cosmosDBConfiguration.Properties.consistencyPolicy
 
    $accountVNETFilterEnabled = $True
-   $subnetID = $vnProp.Id+"/subnets/" + $subnetName  
+   $subnetID = $vnProp.Id+"/subnets/" + $sname  
    $virtualNetworkRules = @(@{"id"=$subnetID})
    $databaseAccountOfferType = $cosmosDBConfiguration.Properties.databaseAccountOfferType
    ```
@@ -158,7 +176,7 @@ Azure Cosmos DB 是全域散發的多模型資料庫服務。 您可以將 Azure
    $cosmosDBProperties['virtualNetworkRules'] = $virtualNetworkRules
    $cosmosDBProperties['isVirtualNetworkFilterEnabled'] = $accountVNETFilterEnabled
 
-   Set-AzureRmResource ``
+   Set-AzureRmResource `
      -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
@@ -219,9 +237,13 @@ Azure Cosmos DB 是全域散發的多模型資料庫服務。 您可以將 Azure
 
 一個 Azure Cosmos DB 帳戶可設定 64 個虛擬網路服務端點。
 
-### <a name="what-is-the-relationship-of-service-endpoint-with-respect-to-network-security-group-nsg-rules"></a>服務端點與網路安全性群組 (NSG) 規則的關係為何？  
+### <a name="what-is-the-relationship-between-service-endpoint-and-network-security-group-nsg-rules"></a>服務端點與網路安全性群組 (NSG) 規則的關係為何？  
 
-NSG 的 Azure Cosmos DB 規則可限制只有 Azure Cosmos DB IP 位址範圍可進行存取。
+Azure Cosmos DB 中的 NSG 規則可讓您對 Azure Cosmos DB IP 位址範圍的存取進行限制。 如果您想要允許對特定[區域](https://azure.microsoft.com/global-infrastructure/regions/)中的 Azure Cosmos DB 執行個體進行存取，您可以用下列格式指定區域： 
+
+    AzureCosmosDB.<region name>
+
+若要深入了解 NSG 標籤，請參閱[虛擬網路服務標籤](../virtual-network/security-overview.md#service-tags)一文。 
   
 ### <a name="what-is-relationship-between-an-ip-firewall-and-virtual-network-service-endpoint-capability"></a>IP 防火牆與虛擬網路服務端點功能之間的關係為何？  
 

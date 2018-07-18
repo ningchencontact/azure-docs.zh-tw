@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156869"
 ---
 # <a name="quickstart-for-the-azure-ad-graph-api"></a>Azure AD Graph API 的快速入門
 Azure Active Directory (AD) Graph API 是透過 OData REST API 端點，以程式設計方式存取 Azure AD。 應用程式可以使用 Azure AD 圖形 API 來執行有關目錄資料和物件的建立、讀取、更新及刪除 (CRUD) 作業。 例如，您可以使用 Azure AD Graph API 來建立新的使用者、檢視或更新使用者的屬性、變更使用者的密碼、檢查群組成員資格以進行角色型存取、停用或刪除使用者。 如需有關 Azure AD Graph API 功能和應用程式案例的詳細資訊，請參閱 [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 和 [Azure AD Graph API 先決條件](https://msdn.microsoft.com/library/hh974476.aspx)。 

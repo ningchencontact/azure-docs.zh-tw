@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783567"
 ---
 # <a name="azure-media-services-error-codes"></a>Azure 媒體服務錯誤代碼
 使用 Microsoft Azure 媒體服務時，您可能會根據問題從服務收到 HTTP 錯誤代碼，例如驗證權杖過期到媒體服務中不支援的動作。 以下是媒體服務可能會傳回的「HTTP 錯誤代碼」的清單，以及其可能原因。  

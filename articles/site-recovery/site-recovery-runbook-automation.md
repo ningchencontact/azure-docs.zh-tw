@@ -12,13 +12,14 @@ ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 05/02/2018
+ms.date: 07/06/2018
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: a0a57e4a604a8cadedd5d715acf5f76a147da6d1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: e9a1dfc6aa26246db5322a8f4491ab2a5bccfcf5
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917688"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>將 Azure 自動化 Runbook 新增至復原方案
 在本文中，我們說明如何將 Azure Site Recovery 與 Azure 自動化整合在一起，以協助您擴充復原方案。 復原方案可以協調使用 Site Recovery 保護的 VM 復原。 復原方案可複寫至次要雲端，也可以複寫至 Azure。 復原方案也有助於讓復原「保持一致精確」、「可重複執行」及「自動化」。 如果您將 VM 容錯移轉至 Azure，與 Azure 自動化的整合可擴充復原方案。 您可以使用它來執行 Runbook，以提供功能強大的自動化工作。

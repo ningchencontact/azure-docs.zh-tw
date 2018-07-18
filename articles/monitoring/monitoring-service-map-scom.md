@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33887438"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>服務對應與 System Center Operations Manager 的整合
   > [!NOTE]

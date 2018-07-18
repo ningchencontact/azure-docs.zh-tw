@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32149998"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-microsoft-account-login"></a>如何設定 App Service 應用程式以使用 Microsoft 帳戶登入
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]

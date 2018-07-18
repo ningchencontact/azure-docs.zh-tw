@@ -2,7 +2,7 @@
 title: 使用 Log Analytics 監視邏輯應用程式執行並取得深入解析 - Azure Logic Apps | Microsoft Docs
 description: 透過 Log Analytics 監視邏輯應用程式執行，來取得深入解析和更豐富的偵錯詳細資料，以便進行疑難排解和診斷
 author: divyaswarnkar
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -12,19 +12,20 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/9/2017
+ms.date: 06/19/2018
 ms.author: LADocs; divswa
-ms.openlocfilehash: d484aaf7d7582bd474d7437a7a62f41880690dbc
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0dc7f28ebe3816ba317eb3a4e28fc640c8a12a4e
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294569"
 ---
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-log-analytics"></a>透過 Log Analytics 監視邏輯應用程式執行並取得深入解析
 
 如需監視和更豐富的偵錯資訊，您可以在建立邏輯應用程式時，同時開啟 Log Analytics。 Log Analytics 會透過 Azure 入口網站，為邏輯應用程式執行提供診斷記錄和監視功能。 當您新增 Logic Apps 管理解決方案時，您會取得邏輯應用程式執行的彙總狀態，以及狀態、執行時間、重新提交狀態和相互關聯識別碼等特定詳細資料。
 
-本主題說明如何開啟 Log Analytics，讓您能夠檢視邏輯應用程式執行的執行階段事件和資料。
+本文說明如何開啟 Log Analytics，讓您能夠檢視邏輯應用程式執行的執行階段事件和資料。
 
  > [!TIP]
  > 若要監視現有的 Logic Apps，請遵循下列步驟以[開啟診斷記錄，並將邏輯應用程式執行階段資料傳送至 Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics)。
@@ -66,17 +67,17 @@ ms.lasthandoff: 04/05/2018
 
    ![選取 Log Analytics 工作區](media/logic-apps-monitor-your-logic-apps-oms/select-logic-app.png)
 
-3. 在 [管理] 下，選擇 [OMS 入口網站]。
+3. 在 [管理] 下，選擇 [概觀]。
 
-   ![選擇 [OMS 入口網站]](media/logic-apps-monitor-your-logic-apps-oms/oms-portal-page.png)
+   ![選擇 [OMS 入口網站]](media/logic-apps-monitor-your-logic-apps-oms/ibiza-portal-page.png)
 
-4. 在 [所有解決方案] 下，找到並選擇 [Logic Apps Management] \(Logic Apps 管理) 解決方案的磚。
+4. 在 [概觀] 頁面上，選擇 [新增] 以開啟 [管理解決方案] 圖格。 
 
-   ![選擇 [Logic Apps Management] \(Logic Apps 管理)](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-management-tile2.png)
+   ![選擇 [Logic Apps Management] \(Logic Apps 管理)](media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
 
-5. 若要在您的 Log Analytics 工作區中安裝解決方案，請選擇 [新增]。
+5. 在 [管理解決方案] 的清單中捲動，選擇 [Logic Apps 管理] 解決方案，然後選擇 [建立] 將其安裝到 [概觀] 頁面。
 
-   ![針對 [Logic Apps Management] \(Logic Apps 管理) 選擇 [新增]](media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
+   ![針對 [Logic Apps Management] \(Logic Apps 管理) 選擇 [新增]](media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
 
 <a name="view-logic-app-runs-oms"></a>
 
@@ -99,13 +100,13 @@ ms.lasthandoff: 04/05/2018
    ![檢視邏輯應用程式或狀態的執行](media/logic-apps-monitor-your-logic-apps-oms/logic-app-run-details.png)
 
    此頁面上有兩個進階選項：
-   * **追蹤屬性：**此欄顯示邏輯應用程式的追蹤屬性 (依動作分組)。 若要檢視追蹤屬性，請選擇 [檢視]。 您可以使用資料行篩選來搜尋追蹤屬性。
+   * **追蹤屬性：** 此欄顯示邏輯應用程式的追蹤屬性 (依動作分組)。 若要檢視追蹤屬性，請選擇 [檢視]。 您可以使用資料行篩選來搜尋追蹤屬性。
    
      ![檢視邏輯應用程式的追蹤屬性](media/logic-apps-monitor-your-logic-apps-oms/logic-app-tracked-properties.png)
 
      初次顯示任何新增的追蹤屬性可能需費時 10-15 分鐘。 深入了解[如何將追蹤屬性新增至應用程式邏輯](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details)。
 
-   * **重新提交：**您可以重新提交一個或多個已失敗、已成功或仍在執行的邏輯應用程式執行。 針對您要重新提交的執行選取核取方塊，然後選擇 [重新提交]。 
+   * **重新提交：** 您可以重新提交一個或多個已失敗、已成功或仍在執行的邏輯應用程式執行。 針對您要重新提交的執行選取核取方塊，然後選擇 [重新提交]。 
 
      ![重新提交邏輯應用程式執行](media/logic-apps-monitor-your-logic-apps-oms/logic-app-resubmit.png)
 

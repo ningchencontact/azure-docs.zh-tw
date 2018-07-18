@@ -13,11 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: cephalin
-ms.openlocfilehash: c41cb3ef2939fe7271b1f8738fcf0cb95c4b1111
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 688ea090384755b9a6d60a4968d958678edc27ad
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337176"
 ---
 # <a name="customize-authentication-and-authorization-in-azure-app-service"></a>自訂 Azure App Service 中的驗證與授權
 
@@ -88,7 +89,7 @@ App Service 會使用特殊標頭，將使用者宣告傳遞至您的應用程�
 
 - **Google**：將 `access_type=offline` 查詢字串參數附加至您的 `/.auth/login/google` API 呼叫。 如果是使用 Mobile Apps SDK，您可以將參數新增至其中一個 `LogicAsync` 多載 (請參閱 [Google 重新整理權杖](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens))。
 - **Facebook**：不提供重新整理權杖。 長時間執行的權杖會在 60 天內到期 (請參閱 [Facebook 到期和存取權杖的擴充功能](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension))。
-- **Twitter**：存取權杖不會到期 (請參閱 [Twitter OAuth 常見問題集](https://developer.twitter.com/docs/basics/authentication/guides/oauth-faq))。
+- **Twitter**：存取權杖不會到期 (請參閱 [Twitter OAuth 常見問題集](https://developer.twitter.com/en/docs/basics/authentication/guides/oauth-faq))。
 - **Microsoft 帳戶**：當您[設定 Microsoft 帳戶驗證設定](app-service-mobile-how-to-configure-microsoft-authentication.md)時，請選取 `wl.offline_access` 範圍。
 - **Azure Active Directory**：在 [https://resources.azure.com](https://resources.azure.com) 中，執行下列步驟：
     1. 在頁面的頂端，選取 [讀取/寫入]。
@@ -102,7 +103,7 @@ App Service 會使用特殊標頭，將使用者宣告傳遞至您的應用程�
 
     1. 按一下 [放置]。 
 
-一旦設定您的提供者之後，您可以呼叫 `/.auth/me` 來查看重新整理權杖是否在權杖存放區中。 
+設定好提供者之後，您可以在權杖存放區中[尋找重新整理權杖和存取權杖的到期時間](#retrieve-tokens-in-app-code)。 
 
 若要隨時重新整理您的存取權杖，只需要以任何語言呼叫 `/.auth/refresh`。 下列程式碼片段會使用 jQuery 來重新整理 JavaScript 用戶端的存取權杖。
 

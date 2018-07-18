@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30911313"
 ---
 # <a name="azure-and-linux"></a>Azure 和 Linux
 Microsoft Azure 集結了各種整合式公用雲端服務且數量不斷增加，包括分析、虛擬機器、資料庫、行動、網路、儲存體和 Web&mdash;因此很適合用來裝載您的方案。  Microsoft Azure 提供可調整的運算平台，可讓您在需要時用多少就付多少，而不需投資內部部署的硬體。  Azure 可供您將您的方案相應增加和放大至任何您需要的規模，以滿足您所服務之客戶的需求。

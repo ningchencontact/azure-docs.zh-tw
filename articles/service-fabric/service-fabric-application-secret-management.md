@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/21/2018
 ms.author: vturecek
-ms.openlocfilehash: fa79d50d6ef2899dcaf4116dcfe8ac7fae077959
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 85eb1cd40986bd6fb83c80a274046bbae3756b7e
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295448"
 ---
 # <a name="manage-secrets-in-service-fabric-applications"></a>管理 Service Fabric 應用程式中的祕密
 本指南將逐步引導您完成管理 Service Fabric 應用程式中密碼的步驟。 密碼可以是任何機密資訊，例如儲存體連接字串、密碼或其他不會以純文字處理的值。

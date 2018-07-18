@@ -1,19 +1,20 @@
 ---
-title: "將應用程式連線至適用於 MySQL 的 Azure 資料庫"
-description: "本文件列出目前支援讓應用程式與「適用於 MySQL 的 Azure 資料庫」連線的所有連接字串，包括 ADO.NET (C#)、JDBC、Node.js、ODBC、PHP、Python 和 Ruby。"
+title: 將應用程式連線至適用於 MySQL 的 Azure 資料庫
+description: 本文件列出目前支援讓應用程式與「適用於 MySQL 的 Azure 資料庫」連線的所有連接字串，包括 ADO.NET (C#)、JDBC、Node.js、ODBC、PHP、Python 和 Ruby。
 services: mysql
 author: mswutao
 ms.author: wuta
 editor: jasonwhowell
 manager: kfile
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: e7b200fd1de79f0bca680bdedc34fa376cf07d68
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 083c6850151340ba8cb307a237f489e5923761a5
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265678"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>如何將應用程式連線至適用於 MySQL 的 Azure 資料庫
 本主題列出適用於 MySQL 的 Azure 資料庫所支援的連接字串類型，以及範本和範例。 您可以在連接字串中使用不同的參數和設定。

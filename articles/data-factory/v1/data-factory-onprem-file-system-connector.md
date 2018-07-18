@@ -10,24 +10,24 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 960a5e7a67ffaed45515e99b6aa7e64025d3167a
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 7ab38c689cb6445bc85a942fc350c2a1f5de7912
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32770010"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37047038"
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>使用 Azure Data Factory 從內部部署檔案系統來回複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [第 1 版 - 正式推出](data-factory-onprem-file-system-connector.md)
-> * [第 2 版 - 預覽](../connector-file-system.md)
+> * [第 1 版](data-factory-onprem-file-system-connector.md)
+> * [第 2 版 (目前的版本)](../connector-file-system.md)
 
 > [!NOTE]
-> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用處於預覽狀態的第 2 版 Data Factory 服務，請參閱[第 2 版的檔案系統連接器](../connector-file-system.md)。
+> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[第 2 版中的檔案系統連接器](../connector-file-system.md)。
 
 
 本文說明如何使用 Azure Data Factory 中的「複製活動」，從內部部署檔案系統來回複製資料。 本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文，該文提供使用複製活動來移動資料的一般概觀。

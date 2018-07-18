@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2018
+ms.date: 06/28/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: a16e9ad5b72d87614f5d3630e24e6aa36def8c51
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: c0d19c53a0bd217935a494dfb4affbaa85062247
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097473"
 ---
 # <a name="tutorial-load-balance-internal-traffic-with-basic-load-balancer-to-vms-using-the-azure-portal"></a>教學課程：在 Azure 入口網站中使用基本負載平衡器，將內部流量負載平衡到 VM
 
@@ -42,6 +43,8 @@ ms.lasthandoff: 05/03/2018
     - myBackendSubnet - 作為子網路名稱。
 2. 按一下 [建立] 以建立虛擬網路。
 
+![建立負載平衡器](./media/tutorial-load-balancer-basic-internal-portal/1-load-balancer.png)
+
 ## <a name="create-a-basic-load-balancer"></a>建立基本負載平衡器
 使用入口網站建立內部基本負載平衡器。
 
@@ -56,10 +59,7 @@ ms.lasthandoff: 05/03/2018
     - myResourceGroupILB - 作為您新建立的資源群組名稱。
 3. 按一下 [建立] 以建立負載平衡器。
    
-    ![建立負載平衡器](./media/tutorial-load-balancer-basic-internal-portal/1-load-balancer.png)
-
-
-## <a name="create-backend-servers"></a>建立後端伺服器
+    ## <a name="create-backend-servers"></a>建立後端伺服器
 
 本節中，您會針對基本負載平衡器的後端集區建立兩部虛擬機器，然後在虛擬機器上安裝 IIS，協助測試負載平衡器。
 
@@ -75,10 +75,10 @@ ms.lasthandoff: 05/03/2018
     - myAvailabilitySet - 作為您新建立的可用性設定組名稱。
     -  myVNet - 確保已選取作為虛擬網路。
     - myBackendSubnet - 確保已選取作為子網路。
-    - myNetworkSecurityGroup - 作為您必須建立之新網路安全性群組 (防火牆) 的名稱。
+5. 在 [網路安全性群組] 下方，選取 [進階]。 接下來，針對 [網路安全性群組 (防火牆)]，選取 [無]。
 5. 按一下 [停用] 來停用開機診斷。
 6. 按一下 [確定]，檢閱 [摘要] 頁面上的設定，然後按一下 [建立]。
-7. 使用步驟 1-6，建立名為 VM2 的第二部 VM，其可用性設定組為 myAvailabilityset、虛擬網路為 myVnet、子網路為 myBackendSubnet，而其網路安全性群組為 myNetworkSecurityGroup。 
+7. 使用步驟 1-6，建立名為 VM2 的第二部 VM，其可用性設定組為 myAvailabilityset、虛擬網路為 myVnet、子網路為 myBackendSubnet，然後針對 [網路安全性群組(防火牆)] 選取 [無]。 
 
 ### <a name="install-iis-and-customize-the-default-web-page"></a>安裝 IIS 和自訂預設網頁
 
@@ -100,33 +100,6 @@ ms.lasthandoff: 05/03/2018
 5. 關閉與 myVM1 的 RDP 連線。
 6. 對 myVM2 重複步驟 1-5，以安裝 IIS 和自訂預設網頁。
 
-## <a name="create-nsg-rules"></a>建立 NSG 規則
-
-在本節中，您會建立 NSG 規則，以允許使用 HTTP 與 RDP 的輸入連線。
-
-1. 按一下左側功能表中的 [所有資源]，然後從資源清單按一下 **myNetworkSecurityGroup**，其位於 **myResourceGroupLB** 資源群組中。
-2. 在 [設定] 底下，按一下 [輸入安全性規則]，然後按一下 [新增]。
-3. 輸入輸入安全性規則 (名為 myHTTPRule) 的下列值，以允許使用連接埠 80 的輸入 HTTP 連線：
-    - 服務標記 - 作為 [來源]。
-    - 網際網路 - 作為 [來源服務標記]
-    - 80 - 作為 [目的地連接埠範圍]
-    - TCP - 作為 [通訊協定]
-    - 允許 - 作為 [動作]
-    - 100 作為 [優先順序]
-    - myHTTPRule 作為名稱
-    - 允許 HTTP - 作為描述
-4. 按一下 [確定]。
- 
-5. 重複步驟 2 到 4 來建立另一個名為 myRDPRule 的規則，以允許使用連接埠 3389 的輸入 RDP 連線，其具有下列值：
-    - 服務標記 - 作為 [來源]。
-    - 網際網路 - 作為 [來源服務標記]
-    - 3389 - 作為 [目的地連接埠範圍]
-    - TCP - 作為 [通訊協定]
-    - 允許 - 作為 [動作]
-    - 200 作為 [優先順序]
-    - myRDPRule 作為名稱
-    - 允許 RDP - 作為描述
-
 ## <a name="create-basic-load-balancer-resources"></a>建立基本負載平衡器資源
 
 在本節中，您會設定後端位址集區和健康狀態探查的負載平衡器設定，並指定負載平衡器和 NAT 規則。
@@ -139,7 +112,7 @@ ms.lasthandoff: 05/03/2018
 1. 按一下左側功能表中的 [所有資源]，然後從資源清單按一下 [myLoadBalancer]。
 2. 在 [設定] 之下，依序按一下 [後端集區] 和 [新增]。
 3. 在 [新增後端集區] 頁面上，執行下列操作：
-    - 針對名稱，輸入 *myBackEndPool，作為您後端集區的名稱。
+    - 針對名稱，輸入 myBackEndPool，作為您後端集區的名稱。
     - 針對 [關聯對象]，從下拉式功能表按一下 [可用性設定組]
     - 針對 [可用性設定組]，按一下 [myAvailabilitySet]。
     - 按一下 [新增目標網路 IP 組態]，將您建立的每部虛擬機器 (myVM1 & myVM2) 新增至後端集區。

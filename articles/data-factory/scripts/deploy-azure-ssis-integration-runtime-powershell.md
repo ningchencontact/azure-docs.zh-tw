@@ -17,6 +17,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30164986"
 ---
 # <a name="powershell-script---deploy-azure-ssis-integration-runtime"></a>PowerShell 指令碼 - 部署 Azure-SSIS 整合執行階段
 

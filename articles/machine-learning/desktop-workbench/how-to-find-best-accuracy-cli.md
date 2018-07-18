@@ -7,14 +7,16 @@ ms.author: kefzhou
 manager: akannava
 ms.reviewer: akannava, haining, mldocs, jmartens, jasonwhowell
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/29/2017
-ms.openlocfilehash: bd8888d911730831435b87d3a60b48a7797eea98
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 077af8b5d3367dd2188cbd6e5d76aaf52512a1e8
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830794"
 ---
 # <a name="find-runs-with-the-best-accuracy-and-lowest-duration"></a>尋找包含最佳精確度與最低持續時間的執行
 當有多個執行時，其中一個使用案例是找出精確度最佳的執行。 其中一個方法是使用命令列介面 (CLI) 搭配 [JMESPath](http://jmespath.org/) 查詢。 如需有關如何在 Azure CLI 中使用 JMESPath 的詳細資訊，請參閱[使用 JMESPath 查詢搭配 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest)。 在以下範例中，會建立 4 個執行，精確度值分別為 0、0.98、1 及 1。 執行如果符合範圍 `[MaxAccuracy-Threshold, MaxAccuracy]` (其中 `Threshold = .03`)，就會被篩選出來。

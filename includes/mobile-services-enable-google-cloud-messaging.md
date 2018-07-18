@@ -13,6 +13,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33836463"
 ---
 1. 瀏覽至 [Google 雲端主控台](https://console.developers.google.com/cloud-resource-manager)，並使用您的 Google 帳戶認證登入。 
 2. 選取工具列上的 [建立專案]。 

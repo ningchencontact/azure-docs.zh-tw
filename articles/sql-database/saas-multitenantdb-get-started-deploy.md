@@ -8,14 +8,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 4cbf758b82bccae8efe77e197d23a090d71fd7e5
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: ac53443140b792d01147cdf22b81d0e6658fa429
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646451"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>部署及探索使用 Azure SQL Database 的分區化多租用戶應用程式
 
@@ -99,7 +100,7 @@ ms.lasthandoff: 04/06/2018
 3. 按一下 [下載 ZIP]，並儲存檔案。
 4. 以滑鼠右鍵按一下 **WingtipTicketsSaaS-MultiTenantDb-master.zip** 檔案，然後選取 [屬性]。
 5. 在 [一般] 索引標籤上，選取 [解除封鎖]，然後按一下 [套用]。
-6. 按一下 [SERVICEPRINCIPAL] 。
+6. 按一下 [確定]。
 7. 將檔案解壓縮。
 
 指令碼位於 *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\* 資料夾中。
@@ -123,7 +124,7 @@ ms.lasthandoff: 04/06/2018
 中央 [事件中樞] 網頁提供特定部署中租用戶的連結清單。 使用下列步驟，以體驗 [事件中樞] 網頁和個別 Web 應用程式：
 
 1. 在網頁瀏覽器中開啟 [事件中樞]：
-    - http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net &nbsp;  *(將 &lt;user&gt; 取代為您部署的使用者值。)*
+    - http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net &nbsp; (將 &lt;user&gt; 取代為您部署的使用者值。)
 
     ![事件中樞](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 

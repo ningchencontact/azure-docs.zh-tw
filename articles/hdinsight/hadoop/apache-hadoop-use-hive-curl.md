@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32170249"
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>使用 REST 以 HDInsight 中的 Hadoop 執行 Hive 查詢
 

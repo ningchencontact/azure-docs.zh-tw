@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 9a8e4e95f2f4de6475243de196519d94e87a9297
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 314920d4aae2bd364ea93451fcbda2034a36cc7e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366540"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332094"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>建立、變更或刪除虛擬網路對等互連
 
@@ -31,7 +31,7 @@ ms.locfileid: "34366540"
 在完成本文任一節的步驟之前，請先完成下列工作︰
 
 - 如果您還沒有 Azure 帳戶，請註冊[免費試用帳戶](https://azure.microsoft.com/free)。
-- 如果使用入口網站，請開啟 https://portal.azure.com，並使用具有[必要的權限](#permissions)而可與對等互連搭配運作的帳戶來登入。
+- 如果使用入口網站，請開啟 https://portal.azure.com ，並使用具有[必要的權限](#permissions)而可與對等互連搭配運作的帳戶來登入。
 - 如果使用 PowerShell 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/powershell) \(英文\) 中執行命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 本教學課程需要 Azure PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您要在本機執行 PowerShell，則還需要使用具有[必要的權限](#permissions)而可與對等互連搭配運作的帳戶來執行 `Connect-AzureRmAccount`，以建立與 Azure 的連線。
 - 如果使用命令列介面 (CLI) 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/bash) \(英文\) 中執行命令，或從您的電腦執行 CLI。 本教學課程需要 Azure CLI 2.0.31 版或更新版本。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。 如果您要在本機執行 Azure CLI，則還需要使用具有[必要的權限](#permissions)而可與對等互連搭配運作的帳戶來執行 `az login`，以建立與 Azure 的連線。
 
@@ -116,7 +116,8 @@ ms.locfileid: "34366540"
     - 虛擬網路可以存在於任何的 Azure 公用雲端區域，但並非在 Azure 國家雲端。
     - 一個虛擬網路中的資源無法與對等互連虛擬網路中 Azure 內部負載平衡器的 IP 位址通訊。 負載平衡器和與其通訊的資源必須位於相同的虛擬網路。
     - 您無法使用遠端閘道，也無法允許閘道傳輸。 若要使用遠端閘道或允許閘道傳輸，對等互連的兩個虛擬網路必須存在於相同區域。 
-- 虛擬網路可位於相同或不同的訂用帳戶。 當虛擬網路位在不同訂用帳戶中時，兩個訂用帳戶必須與相同的 Azure Active Directory 租用戶相關聯。 如果您還沒有 AD 租用戶，您可以快速地[建立一個](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant)。 您可以使用 [VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V)，將兩個存在於與不同 Active Directory 租用戶相關聯之不同訂用帳戶中的虛擬網路加以連線。
+    - 不支援在全域對等互連的虛擬網路間透過下列 VM 類型進行通訊：[高效能計算](../virtual-machines/windows/sizes-hpc.md)和 [GPU](../virtual-machines/windows/sizes-gpu.md)。 其中包括 H、NC、NV、NCv2、NCv3 和 ND 系列 VM。
+- 虛擬網路可位於相同或不同的訂用帳戶。 當您將不同訂用帳戶中的虛擬網路對等互連時，這兩個訂用帳戶必須與相同的 Azure Active Directory 租用戶相關聯。 如果您還沒有 AD 租用戶，您可以快速地[建立一個](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant)。 您可以使用 [VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V)，將兩個存在於與不同 Active Directory 租用戶相關聯之不同訂用帳戶中的虛擬網路加以連線。
 - 要建立對等互連的虛擬網路必須有非重疊的 IP 位址空間。
 - 一旦虛擬網路與另一個虛擬網路對等互連，您便無法在虛擬網路中新增或刪除位址範圍。 若要新增或移除位址範圍，請刪除對等互連，新增或移除位址範圍，然後重新建立對等互連。 若要在虛擬網路新增或移除位址範圍，請參閱[管理虛擬網路](manage-virtual-network.md)。
 - 您可以將透過 Resource Manager 所部署的兩個虛擬網路對等互連，或將透過 Resource Manager 所部署的虛擬網路與透過傳統部署模型所部署的虛擬網路對等互連。 您無法將兩個透過傳統部署模型所建立的虛擬網路對等互連。 如果您不熟悉 Azure 部署模型，請閱讀[了解 Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)一文。 您可以使用 [VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V)，將兩個透過傳統部署模型建立的虛擬網路加以連線。
@@ -162,6 +163,6 @@ ms.locfileid: "34366540"
     |一個使用 Resource Manager、一個使用傳統部署模型  |[相同](create-peering-different-deployment-models.md)|
     |                                   |[不同](create-peering-different-deployment-models-subscriptions.md)|
 
-* 了解如何建立[中樞和輪輻網路拓撲](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering)
+* 了解如何建立[中樞和輪輻網路拓撲](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * 使用 [PowerShell](powershell-samples.md) 或 [Azure CLI](cli-samples.md) 範例指令碼，或使用 Azure [Resource Manager 範本](template-samples.md)建立虛擬網路對等互連
 * 為虛擬網路建立及套用 [Azure 原則](policy-samples.md)

@@ -3,7 +3,7 @@ title: 使用 Azure Data Factory 以累加方式複製多個資料表 | Microsof
 description: 在本教學課程中，您會建立 Azure Data Factory 管線，透過累加方式將差異資料從內部部署 SQL Server 資料庫中的多個資料表，複製到 Azure SQL Database。
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/20/2018
-ms.author: jingwang
-ms.openlocfilehash: 399e132f0a28ffc6b60e3d757afff5aae60f7674
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: yexu
+ms.openlocfilehash: c35d267acfd1778e80605cdfe9eec0edbb18a281
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052839"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>以累加方式將 SQL Server 中多個資料表的資料載入到 Azure SQL Database
 在本教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從內部部署 SQL Server 中的多個資料表，載入到 Azure SQL Database。    
@@ -36,9 +37,6 @@ ms.lasthandoff: 03/23/2018
 > * 新增或更新來源資料表中的資料。
 > * 重新執行，並監視管線。
 > * 檢閱最終結果。
-
-> [!NOTE]
-> 本文適用於第 2 版的 Azure Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (正式推出版本)，請參閱 [Data Factory 第 1 版文件](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
 ## <a name="overview"></a>概觀
 以下是建立此解決方案的重要步驟： 
@@ -236,7 +234,7 @@ END
       
      ![新增資料處理站頁面](./media/tutorial-incremental-copy-multiple-tables-portal/new-azure-data-factory.png)
  
-   Azure Data Factory 的名稱必須是 **全域唯一的**。 如果您收到錯誤，請變更資料處理站的名稱 (例如 yournameADFMultiIncCopyTutorialDF)，然後試著重新建立。 請參閱 [Data Factory - 命名規則](naming-rules.md)一文，以了解 Data Factory 成品的命名規則。
+   Azure Data Factory 的名稱必須是 **全域唯一的**。 如果您收到下列錯誤，請變更資料處理站的名稱 (例如 yournameADFMultiIncCopyTutorialDF)，然後試著重新建立。 請參閱 [Data Factory - 命名規則](naming-rules.md)一文，以了解 Data Factory 成品的命名規則。
   
        `Data factory name ADFMultiIncCopyTutorialDF is not available`
 3. 選取您要在其中建立資料處理站的 Azure **訂用帳戶**。 
@@ -261,8 +259,8 @@ END
 
    ![開始使用頁面](./media/tutorial-incremental-copy-multiple-tables-portal/get-started-page.png)
 
-## <a name="create-self-hosted-integration-runtime"></a>建立自我裝載整合執行階段
-當您以私人網路將資料存放區中的資料 (內部部署) 移至 Azure 資料存放區時，請在內部部署環境中安裝自我裝載整合執行階段 (IR)。 自我裝載 IR 會在您的私人網路與 Azure 之間移動資料。 
+## <a name="create-self-hosted-integration-runtime"></a>建立自我裝載的整合執行階段
+當您將資料從私人網路中的資料存放區 (內部部署) 移至 Azure 資料存放區時，請在內部部署環境中安裝自我裝載整合執行階段 (IR)。 自我裝載 IR 會在您的私人網路與 Azure 之間移動資料。 
 
 1. 按一下左窗格底部的 [連線]，並切換至 [連線] 視窗中的 [整合執行階段]。 
 
@@ -345,7 +343,7 @@ END
 
 ### <a name="create-a-source-dataset"></a>建立來源資料集
 
-1. 按一下左窗格中的 [+] (加號)，然後按一下 [資料集]。
+1. 按一下左窗格中的 [+\] (加號\)，然後按一下 [資料集]。
 
    ![新增資料集功能表](./media/tutorial-incremental-copy-multiple-tables-portal/new-dataset-menu.png)
 2. 在 [新增資料集] 視窗中選取 [SQL Server]，然後按一下 [完成]。 
@@ -360,7 +358,7 @@ END
 
 
 ### <a name="create-a-sink-dataset"></a>建立接收資料集
-1. 按一下左窗格中的 [+] (加號)，然後按一下 [資料集]。
+1. 按一下左窗格中的 [+\] (加號\)，然後按一下 [資料集]。
 
    ![新增資料集功能表](./media/tutorial-incremental-copy-multiple-tables-portal/new-dataset-menu.png)
 2. 在 [新增資料集] 視窗中選取 [Azure SQL Database]，然後按一下 [完成]。 
@@ -369,21 +367,30 @@ END
 3. 您會看到網頁瀏覽器中開啟了用來設定資料集的新索引標籤。 你也會在樹狀檢視中看到資料集。 在底部 [屬性] 視窗的 [一般] 索引標籤中，輸入 **SinkDataset** 作為 [名稱]。
 
    ![接收資料集 - 一般](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-general.png)
-4. 在 [屬性] 視窗中切換至 [連線] 索引標籤，然後針對 [連結服務] 選取 **AzureSqlLinkedService**。 
-
-   ![接收資料集 - 連線](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection.png)
-5. 在 [屬性] 視窗中切換至 [參數] 索引標籤，並執行下列步驟： 
+4. 在 [屬性] 視窗中切換至 [參數] 索引標籤，並執行下列步驟： 
 
     1. 按一下 [建立/更新參數] 區段中的 [新增]。 
     2. 輸入 **SinkTableName** 作為**名稱**，並輸入 **String** 作為**類型**。 此資料集採用 **SinkTableName** 作為參數。 SinkTableName 參數是由管線在執行階段動態設定的。 管線中的 ForEach 活動會逐一查看資料表名稱清單，並將資料表名稱傳遞至每個反覆項目中的這個資料集。
-    3. 在 [可參數化屬性] 區段中，為 **tableName** 屬性輸入 `@{dataset().SinkTableName}`。 您可以使用傳給 **SinkTableName** 參數的值，初始化資料集的 **tableName** 屬性。 
-
+   
        ![接收資料集 - 屬性](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png)
+5. 在 [屬性] 視窗中切換至 [連線] 索引標籤，然後針對 [連結服務] 選取 **AzureSqlLinkedService**。 針對 [資料表] 屬性，按一下 [新增動態內容]。 
+
+   ![接收資料集 - 連線](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection.png)
+    
+    
+6. 選取 [參數] 區段中的 [SinkTableName]
+   
+   ![接收資料集 - 連線](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-dynamicContent.png)
+
+   
+ 7. 按一下 [完成] 後，您會看到資料表名稱顯示為 **@dataset().SinkTableName**。
+   
+   ![接收資料集 - 連線](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 
 ### <a name="create-a-dataset-for-a-watermark"></a>建立水位線的資料集
 在此步驟中，您會建立資料集來儲存高水位線值。 
 
-1. 按一下左窗格中的 [+] (加號)，然後按一下 [資料集]。
+1. 按一下左窗格中的 [+\] (加號\)，然後按一下 [資料集]。
 
    ![新增資料集功能表](./media/tutorial-incremental-copy-multiple-tables-portal/new-dataset-menu.png)
 2. 在 [新增資料集] 視窗中選取 [Azure SQL Database]，然後按一下 [完成]。 
@@ -547,7 +554,7 @@ END
 1. 切換至左側的 [監視] 索引標籤。 您會看到**手動觸發程序**所觸發的管線執行。 按一下 [重新整理] 按鈕即可重新整理清單。 [動作] 資料行中的連結可讓您檢視與此管線執行相關聯的活動執行，以及重新執行管線。 
 
     ![管線執行](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-runs.png)
-2. 按一下 [動作]資料行中的 [檢視活動執行] 連結。 您會看到所有與選取的管線執行相關聯的活動執行。 
+2. 按一下 [動作] 資料行中的 [檢視活動執行] 連結。 您會看到所有與選取的管線執行相關聯的活動執行。 
 
     ![活動執行](./media/tutorial-incremental-copy-multiple-tables-portal/activity-runs.png)
 
@@ -644,12 +651,12 @@ VALUES
     ]
     ```
 
-## <a name="monitor-the-pipeline"></a>監視管線
+## <a name="monitor-the-pipeline-again"></a>重新監視管線
 
 1. 切換至左側的 [監視] 索引標籤。 您會看到**手動觸發程序**所觸發的管線執行。 按一下 [重新整理] 按鈕即可重新整理清單。 [動作] 資料行中的連結可讓您檢視與此管線執行相關聯的活動執行，以及重新執行管線。 
 
     ![管線執行](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-runs.png)
-2. 按一下 [動作]資料行中的 [檢視活動執行] 連結。 您會看到所有與選取的管線執行相關聯的活動執行。 
+2. 按一下 [動作] 資料行中的 [檢視活動執行] 連結。 您會看到所有與選取的管線執行相關聯的活動執行。 
 
     ![活動執行](./media/tutorial-incremental-copy-multiple-tables-portal/activity-runs.png) 
 

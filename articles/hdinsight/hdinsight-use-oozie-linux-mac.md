@@ -2,23 +2,22 @@
 title: 在 Linux 型 Azure HDInsight 上使用 Hadoop Oozie 工作流程 | Microsoft Docs
 description: 在 Linux 型 HDInsight 上使用 Hadoop Oozie。 了解如何定義 Oozie 工作流程，以及提交 Oozie 作業。
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
+author: omidm1
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: d7603471-5076-43d1-8b9a-dbc4e366ce5d
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/23/2018
-ms.author: larryfr
-ms.openlocfilehash: 8a25507ab076c4eecccea4e8a503d68ff1441ae5
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 06/26/2018
+ms.author: omidm
+ms.openlocfilehash: a1fd33ec83208dfd5d90a0fb11557c72a5f02e88
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019266"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>在 Linux 型 Azure HDInsight 上搭配 Hadoop 使用 Oozie 來定義並執行工作流程
 
@@ -36,8 +35,6 @@ ms.lasthandoff: 04/28/2018
 > [!NOTE]
 > 還有另一個選項可以定義與 HDInsight 搭配的工作流程，那就是 Azure Data Factory。 若要深入了解 Data Factory，請參閱[搭配 Data Factory 使用 Pig 和 Hive][azure-data-factory-pig-hive]。
 
-> [!IMPORTANT]
-> Oozie 未在已加入網域的 HDInsight 上啟用。
 
 ## <a name="prerequisites"></a>先決條件
 

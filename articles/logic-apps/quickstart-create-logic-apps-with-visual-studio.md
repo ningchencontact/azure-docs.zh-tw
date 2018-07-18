@@ -1,29 +1,26 @@
 ---
-title: 使用 Visual Studio 和 Azure Logic Apps 自動執行工作和程序 | Microsoft Docs
-description: 本快速入門示範如何建立工作流程，以在 Visual Studio 中使用 Azure Logic Apps 自動執行工作和程序。
-author: ecfan
-manager: SyntaxC4
-editor: ''
+title: 建立可透過 Visual Studio 自動執行工作流程的邏輯應用程式 - Azure Logic Apps | Microsoft Docs
+description: 說明如何在 Visual Studio 中使用 Azure Logic Apps 自動執行工作、程序和工作流程的快速入門
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
+ms.date: 03/15/2018
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/15/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 02e19de97654d751dc0cd557791a61a863a9a4e0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: a35c46bd67a157416844c4054b75f993304298b4
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300747"
 ---
-# <a name="quickstart-automate-tasks-and-processes-with-azure-logic-apps---visual-studio"></a>快速入門：使用 Azure Logic Apps 自動執行工作和程序 - Visual Studio
+# <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>快速入門：使用 Azure Logic Apps 建立和自動執行工作、程序和工作流程 - Visual Studio
 
-使用 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)，您可以建立可自動執行工作和程序的工作流程，以便整合各企業或組織的應用程式、資料、系統和服務。 本快速入門示範如何藉由以下方式設計及建立這些工作流程：在 Visual Studio 中建立邏輯應用程式，並將這些應用程式部署至雲端中的 <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a>。 雖然您可以在 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>中執行這些工作，但 Visual Studio 可讓您將邏輯應用程式新增至原始檔控制、發佈不同的版本，並針對不同的部署環境建立 Azure Resource Manager 範本。 
+使用 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 和 Visual Studio，您可以建立可自動執行工作和程序的工作流程，以便整合各企業和組織的應用程式、資料、系統和服務。 本快速入門示範如何藉由以下方式設計及建立這些工作流程：在 Visual Studio 中建立邏輯應用程式，並將這些應用程式部署至雲端中的 <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a>。 雖然您可以在 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>中執行這些工作，但 Visual Studio 可讓您將邏輯應用程式新增至原始檔控制、發佈不同的版本，並針對不同的部署環境建立 Azure Resource Manager 範本。 
 
 如果您還不熟悉 Azure Logic Apps 而只想要基本概念，請改為嘗試[在 Azure 入口網站中建立邏輯應用程式的快速入門](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 在 Azure 入口網站與 Visual Studio 中，邏輯應用程式設計工具的運作方式類似。 
 
@@ -37,10 +34,10 @@ ms.lasthandoff: 03/16/2018
 
 * 如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊一個免費的 Azure 帳戶</a>。
 
-* 如果您還沒有這些工具，請加以下載並安裝： 
+* 如果您還沒有以下這些工具，請加以下載並安裝： 
 
   * <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2017 或 Visual Studio 2015 - Community 版本或更高版本</a>。 
-  本快速入門會使用免費的 Visual Studio Community 2017。
+  本快速入門使用免費的 Visual Studio Community 2017。
 
   * <a href="https://azure.microsoft.com/downloads/" target="_blank">Azure SDK (2.9.1 或更新版本)</a> 和 <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
 
@@ -187,4 +184,5 @@ ms.lasthandoff: 03/16/2018
 本文中，您已使用 Visual Studio 建置、部署及執行邏輯應用程式。 若要深入了解如何使用 Visual Studio 來管理及執行邏輯應用程式的進階部署，請參閱下列文章：
 
 > [!div class="nextstepaction"]
-> [使用 Visual Studio 管理邏輯應用程式](../logic-apps/manage-logic-apps-with-visual-studio.md)
+> * [使用 Visual Studio 管理邏輯應用程式](../logic-apps/manage-logic-apps-with-visual-studio.md)
+> * [透過 Visual Studio 建立邏輯應用程式的部署範本](../logic-apps/logic-apps-create-deploy-template.md)

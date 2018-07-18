@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5f963e9ef6f0a19599f372b196dc75a327b92b5a
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 7da3ae1ca0fc59b0d606a22e9c00b8e7b58674ba
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "32178231"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335086"
 ---
 # <a name="what-is-appsource"></a>什麼是 AppSource
 AppSource 可讓 Microsoft 合作夥伴透過 Microsoft 支援的線上店面，讓客戶找到他們的技術與服務。 身為 AppSource 發行者，您可讓商務使用者參與 AppSource 以尋找、嘗試及取得企業營運 SaaS 應用程式與實作服務，以協助推動商務成果並縮短創造價值的時程： 
@@ -39,7 +39,8 @@ AppSource 可讓 Microsoft 合作夥伴透過 Microsoft 支援的線上店面，
 *   **Dynamics NAV 受控服務**：Microsoft **Dynamics NAV** 是適用於中型組織的企業資源規劃 (ERP) 軟體套件。 此服務提供適用於製造業、通路業、政府、零售業及其他產業的特殊功能。
 *   **Power BI**：商務分析視覺化解決方案。
 *   **諮詢供應項目**：由 Microsoft 合作夥伴提供的服務，協助客戶了解、試用及實作特製化技術解決方案。
-*   **Cortana Intelligence**：Cortana Intelligence Suite 是由 Azure 提供的獨立，但完整整合的資料與分析平台工具集合。
+*   
+  **Cortana Intelligence**：Cortana Intelligence Suite 是由 Azure 提供的獨立，但完整整合的資料與分析平台工具集合。
 *   **Office 365**：位於雲端的現代化工作場所。 免費與 Microsoft Word、PowerPoint、Excel 和 OneNote 共同作業。
 
 ### <a name="office-365"></a>Office 365
@@ -76,7 +77,7 @@ AppSource 可讓 Microsoft 合作夥伴透過 Microsoft 支援的線上店面，
 | SaaS 應用程式 (前身為 Web Apps) | 慣用 | Azure AD 是確保無縫式客戶經驗及促進最高品質潛在客戶的最佳做法 |
 ###### <a name="table-appsource-offerings-that-require-azure-active-directory-integration"></a>表格：需要 Azure Active Directory 整合的 AppSource 供應項目
 
-一開始，我們建議**您設定專用於 Azure Marketplace 發行的訂用帳戶***，以便讓您的工作與其他計劃分開進行。 此外，如果尚未安裝下列工具，那麼建議您將下列工具新增到您的開發環境： 
+一開始，我們建議**您設定專用於 Azure Marketplace 發行的訂用帳戶**\*，以便讓您的工作與其他計劃分開進行。 此外，如果尚未安裝下列工具，那麼建議您將下列工具新增到您的開發環境： 
 *   [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest "Azure - CLI")
 *   [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0 "PowerShell - Azure")
 *   在 [Azure 開發人員工具](https://azure.microsoft.com/tools/ "Azure - 開發人員工具")頁面中檢閱可用工具

@@ -1,8 +1,8 @@
 ---
-title: "搭配 Azure 使用 Terraform"
-description: "使用 Terraform 設定 Azure 基礎結構版本和部署的簡介。"
+title: 搭配 Azure 使用 Terraform
+description: 使用 Terraform 設定 Azure 基礎結構版本和部署的簡介。
 ms.service: virtual-machines-linux
-keywords: "Terraform, DevOps, 概觀, 計畫, 套用, 自動化"
+keywords: Terraform, DevOps, 概觀, 計畫, 套用, 自動化
 author: binderjoe
 ms.author: jbinder
 ms.date: 10/19/2017
@@ -12,6 +12,7 @@ ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26364465"
 ---
 # <a name="terraform-with-azure"></a>搭配 Azure 使用 Terraform
 

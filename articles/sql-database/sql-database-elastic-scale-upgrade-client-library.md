@@ -6,14 +6,15 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 5e7702c164a414ee2b9c08ccb276d5d74ad90f19
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 56500a21822f7c7122a20cb676b9ad307de49c87
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647005"
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>將應用程式升級以使用最新的彈性資料庫用戶端程式庫
 新版本的 [彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md) 是透過 Visual Studio 中的 NuGet 和 NuGetPackage Manager 介面提供。 升級包含用戶端程式庫的錯誤修正以及對新功能的支援。
@@ -64,7 +65,7 @@ ms.lasthandoff: 04/06/2018
 
 這些中繼資料升級技巧可以套用多次且不會造成損害。 例如，如果較舊的用戶端版本在您已經更新之後意外建立分區，您可以在所有分區上再次執行升級，以確保您的整個基礎結構都擁有最新的中繼資料版本。 
 
-**注意：**至今發佈的新版本用戶端程式庫可以繼續和 Azure SQL DB 上的舊版分區對應管理員中繼資料搭配使用，反之亦然。   但是，若要使用最新用戶端中的部分新功能，則必須升級中繼資料。   請注意，中繼資料升級將不會影響任何使用者資料或應用程式特定資料，只會影響分區對應管理員所建立及使用的物件。  而且應用程式會繼續透過上述的升級順序運作。 
+**注意：** 至今發佈的新版本用戶端程式庫可以繼續和 Azure SQL DB 上的舊版分區對應管理員中繼資料搭配使用，反之亦然。   但是，若要使用最新用戶端中的部分新功能，則必須升級中繼資料。   請注意，中繼資料升級將不會影響任何使用者資料或應用程式特定資料，只會影響分區對應管理員所建立及使用的物件。  而且應用程式會繼續透過上述的升級順序運作。 
 
 ## <a name="elastic-database-client-version-history"></a>彈性資料庫用戶端版本歷程記錄
 如需版本歷程記錄，請瀏覽 [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)

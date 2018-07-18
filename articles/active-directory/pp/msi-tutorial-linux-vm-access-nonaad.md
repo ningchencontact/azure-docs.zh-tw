@@ -1,8 +1,8 @@
 ---
-title: "使用 Linux VM MSI 存取 Azure Key Vault"
-description: "此教學課程引導您使用 Linux VM 受控服務身分識別 (MSI) 來存取 Azure Resource Manager 的程序。"
+title: 使用 Linux VM MSI 存取 Azure Key Vault
+description: 此教學課程引導您使用 Linux VM 受控服務身分識別 (MSI) 來存取 Azure Resource Manager 的程序。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -14,11 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: e42ed14b9c7c89972021a5422ebdfe415a70830d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a6ca37105cfff8542f0c4a8af3112fa317416c56
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611246"
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>使用 Linux VM 受控服務識別 (MSI) 來存取 Azure Key Vault 
 
@@ -40,7 +41,7 @@ ms.lasthandoff: 02/21/2018
 [!INCLUDE [msi-tut-prereqs](~/includes/active-directory-msi-tut-prereqs.md)]
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
-登入 Azure 入口網站，位址是 [https://portal.azure.com](https://portal.azure.com)。 
+在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。 
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>在新的資源群組中建立 Linux 虛擬機器
 

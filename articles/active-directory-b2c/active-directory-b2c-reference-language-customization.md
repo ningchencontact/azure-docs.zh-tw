@@ -1,22 +1,21 @@
 ---
-title: Azure AD B2C 中的語言自訂 | Microsoft Docs
+title: Azure Active Directory B2C 中的語言自訂 | Microsoft Docs
 description: 深入瞭解自訂語言體驗。
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: davidmu
-ms.openlocfilehash: 097033b78e3e4f640e7bf4008fd970c53315d5d7
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.component: B2C
+ms.openlocfilehash: affd52352dcc745557dd66c61ccfa1e7a99dcdb7
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33200547"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442316"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的語言自訂
 
@@ -201,7 +200,7 @@ Chrome 和 Firefox 都會要求使用其設定的語言。 如果該語言受到
 | 坎那達文               | kn            |
 | 韓文                | ko            |
 | 馬來亞拉姆文             | ml            |
-| 馬拉提文               | mr            |
+| 馬拉地文               | mr            |
 | 馬來文                 | ms            |
 | 挪威文 (巴克摩)      | nb            |
 | 荷蘭文                 | nl            |
@@ -214,7 +213,7 @@ Chrome 和 Firefox 都會要求使用其設定的語言。 如果該語言受到
 | 斯洛伐克文                | sk            |
 | 瑞典文               | sv            |
 | 坦米爾文                 | ta            |
-| 特拉古文                | te            |
+| 泰盧固文                | te            |
 | 泰文                  | th            |
 | 土耳其文               | tr            |
 | 中文 - 簡體  | zh-hans       |

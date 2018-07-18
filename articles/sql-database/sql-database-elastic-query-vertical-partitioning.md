@@ -6,14 +6,15 @@ manager: craigg
 author: MladjoA
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: mlandzic
-ms.openlocfilehash: 243110e47ab7c98c9fec9b2747fde73ccb775fbc
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 6b4dd9017c336c2034bac81ba92d219b511a38a4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645750"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>對不同結構描述的雲端資料庫執行查詢 (預覽)
 ![在不同資料庫中跨資料表查詢][1]

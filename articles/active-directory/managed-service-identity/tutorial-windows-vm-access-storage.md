@@ -9,17 +9,17 @@ editor: daveba
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: a7bdbee064e6acdd3d1ef95879b98daa43fdb230
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 823b647dbc171050f7b36cfc729b0d3529e1f296
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34301745"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901223"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>教學課程：使用 Windows VM 受控服務識別，透過存取金鑰存取 Azure 儲存體
 
@@ -196,15 +196,10 @@ Context           : Microsoft.WindowsAzure.Commands.Storage.AzureStorageContext
 Name              : testblob
 ```
 
+## <a name="next-steps"></a>後續步驟
 
-## <a name="related-content"></a>相關內容
+在本教學課程中，您已學習如何建立受控服務識別，以使用存取金鑰來存取 Azure 儲存體。  若要深入了解 Azure 儲存體存取金鑰，請參閱：
 
-- 如需 MSI 的概觀，請參閱[受控服務識別概觀](overview.md)。
-- 若要了解如何使用儲存體 SAS 認證進行此相同教學課程，請參閱[使用 Windows VM 受控服務識別，透過 SAS 認證存取 Azure 儲存體](tutorial-windows-vm-access-storage-sas.md)
-- 如需有關 Azure 儲存體帳戶 SAS 功能的詳細資訊，請參閱：
-  - [使用共用存取簽章 (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1.md)
-  - [建構服務 SAS](/rest/api/storageservices/Constructing-a-Service-SAS.md)
-
-使用下列意見區段來提供意見反應，並協助我們改善及設計我們的內容
-
+> [!div class="nextstepaction"]
+>[管理儲存體存取金鑰](/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)
 

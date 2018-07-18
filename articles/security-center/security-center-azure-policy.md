@@ -3,7 +3,7 @@ title: Azure 資訊安全中心安全性原則與 Azure 原則的整合 | Micros
 description: 本文件可協助您設定 Azure 資訊安全中心安全性原則與 Azure 原則的整合。
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: cd906856-f4f9-4ddc-9249-c998386f4085
@@ -12,60 +12,65 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2018
-ms.author: yurid
-ms.openlocfilehash: aec29ac1ccf9386615e7603898f071fe9cda44cf
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.date: 06/21/2018
+ms.author: terrylan
+ms.openlocfilehash: b3d6d15d41fece613290deb2c77e980caa5dcfef
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364330"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018558"
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>整合資訊安全中心安全性原則與 Azure 原則
-本文件可協助您設定 Azure 資訊安全中心安全性原則 (採用 Azure 原則技術)。
+本文件可協助您設定 Azure 資訊安全中心安全性原則 (採用 [Azure 原則](../azure-policy/azure-policy-introduction.md)技術)。
 
 ## <a name="how-security-policies-work"></a>安全性原則的運作方式
-資訊安全中心會為每個 Azure 訂用帳戶自動建立預設安全性原則。 您可以編輯資訊安全中心的原則，或使用 [Azure 原則](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction)執行下列動作：
-* 建立新原則定義。
-* 將原則指派給代表整個組織或組織內業務單位的各個管理群組。
-* 監視原則相容性。
+資訊安全中心會為每個 Azure 訂用帳戶自動建立預設安全性原則。 您可以編輯資訊安全中心的原則，或使用 Azure 原則執行下列動作：
+- 建立新原則定義。
+- 將原則指派給代表整個組織或組織內業務單位的各個管理群組和訂用帳戶。
+- 監視原則相容性。
 
-> [!NOTE]
-> Azure 原則是以有限預覽形式提供。 若要加入，請移至[註冊 Azure 原則](https://aka.ms/getpolicy)。 如需 Azure 原則的詳細資訊，請參閱[建立和管理原則來強制執行合規性](http://docs.microsoft.com/azure/azure-policy/create-manage-policy)。
+如需 Azure 原則的詳細資訊，請參閱[建立和管理原則來強制執行合規性](../azure-policy/create-manage-policy.md)。
+
+Azure 原則由下列元件組成：
+
+- **原則**是一個規則
+- **方案**是一組規則
+- **指派**是將方案或原則套用至特定範圍 (管理群組、訂用帳戶或資源群組)
+
+資源會根據指派給它的原則進行評估，並根據資源符合的原則數目來接收合規比率。
 
 ## <a name="edit-security-policies"></a>編輯安全性原則
-您可以在資訊安全中心內，編輯每個 Azure 訂用帳戶的預設安全性原則。 若要修改安全性原則，您必須是該訂用帳戶或所在管理群組的擁有者、參與者或安全性系統管理員。 若要檢視資訊安全中心的安全性原則，請執行下列作業：
+您可以在資訊安全中心內，編輯每個 Azure 訂用帳戶和管理群組的預設安全性原則。 若要修改安全性原則，您必須是該訂用帳戶或所在管理群組的擁有者、參與者或安全性系統管理員。 若要在資訊安全中心檢視安全性原則：
 
-1. 登入 Azure 入口網站。
-
-2. 在 [資訊安全中心] 儀表板的 [一般] 底下，選取 [安全性原則]。
+1. 在 [資訊安全中心] 儀表板的 [原則與合規性] 底下，選取 [安全性原則]。 [原則管理] 隨即開啟。
 
     ![原則管理窗格](./media/security-center-azure-policy/security-center-policies-fig10.png)
 
-3. 選取您要啟用安全性原則的訂用帳戶。  
+  原則管理會顯示管理群組、訂用帳戶和工作區數目，以及您的管理群組結構。
 
-4. 在 [原則元件] 區段中，選取 [安全性原則]。  
-    [基本資料] 視窗隨即開啟。
+  > [!NOTE]
+  > 資訊安全中心儀表板在 [訂用帳戶涵蓋範圍] 之下顯示的訂用帳戶數目，比在 [原則管理] 之下顯示的訂用帳戶數目還要多。 訂用帳戶涵蓋範圍會顯示標準、免費和「未涵蓋」的訂用帳戶數目。 「未涵蓋」訂用帳戶並未啟用資訊安全中心，而且不會顯示在 [原則管理] 之下。
+  >
+  >
 
-    ![原則元件](./media/security-center-azure-policy/security-center-policies-fig12.png)
+  資料表中的資料行會顯示：
 
-5. 若要刪除原則定義，請在 [原則和參數] 下您要刪除的定義旁，選取 [刪除]。
+ - 原則方案指派 – 資訊安全中心內建的原則和方案，已指派給訂用帳戶或管理群組。
+ - 合規性 - 管理群組、訂用帳戶或工作區的整體合規性分數。 此分數是指派的加權平均值。 單一指派中原則數目的加權平均因子，以及套用指派的資源數目。
 
-6. 按一下 [檔案] 。  
-    [可用定義] 視窗隨即開啟，並顯示透過 Azure 原則指派給資訊安全中心的預設原則。
+ 例如，如果訂用帳戶有兩個 VM 以及已指派五個原則的方案，則您的訂用帳戶中有 10 項評估。 如果其中一個 VM 不符合兩個原則，您訂用帳戶指派的整體合規性分數為 80%。
 
-7. (選擇性) 在 [可用定義] 視窗中，執行下列其中一個動作：
+ - 涵蓋範圍 - 識別執行管理群組、訂用帳戶或工作區的定價層 (免費或標準)。  若要深入了解資訊安全中心的定價層，請參閱[價格](security-center-pricing.md)。
+ - 設定 – 訂用帳戶具有 [編輯設定] 連結。 選取 [編輯設定] 可讓您更新訂用帳戶設定，例如資料收集、定價層和電子郵件通知。
 
-    * 若要新增原則定義，請選取定義旁邊的加號 (+)。
+2. 選取您要啟用安全性原則的訂用帳戶或管理群組。 [安全性原則] 隨即開啟。
 
-    ![可用原則定義](./media/security-center-azure-policy/security-center-policies-fig11.png)
+3.  在 [安全性原則] 之下，選取您希望資訊安全中心監視的控制項，並藉由選取 [開啟] 提供開啟建議。  如果您不希望資訊安全中心監視該控制項，請選取 [關閉]。
 
-    * 選取以取得原則的詳細說明。  
-    定義的 [預覽] 視窗隨即開啟。 其中會顯示定義說明，以及提供[原則定義](../azure-policy/policy-definition.md)結構的 JSON 程式碼連結。
+    ![原則元件](./media/security-center-azure-policy/security-policy.png)
 
-    ![定義的預覽視窗](./media/security-center-azure-policy/security-center-policies-fig14.png)
-
-7. 編輯完成時，請選取 [儲存]。
+4. 選取 [ **儲存**]。
 
 ## <a name="available-security-policy-definitions"></a>可用的安全性原則定義
 
@@ -86,6 +91,14 @@ ms.locfileid: "34364330"
 | 儲存體加密 |這項功能目前可用於 Azure Blob 儲存體和 Azure 檔案。 啟用儲存體服務加密之後，只會加密新的資料，而此儲存體帳戶中任何現有的檔案都會保持未加密狀態。 |
 | JIT 網路存取 |啟用 Just-In-Time 網路存取時，資訊安全中心會建立網路安全性群組規則，藉此鎖定進入 Azure VM 的流量。 系統應會鎖定選取的 VM 連接埠的輸入流量。 如需詳細資訊，請參閱[使用 Just-In-Time 管理虛擬機器存取](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)。 |
 
+## <a name="management-groups"></a>管理群組
+如果貴組織有多個訂用帳戶，您可能需要一個方法來有效率地管理這些訂用帳戶的存取、原則和相容性。 Azure 管理群組會提供上述訂用帳戶的範圍層級。 您要將訂用帳戶整理到稱為「管理群組」的容器中，並將治理原則套用至管理群組。 管理群組內的所有訂用帳戶都會自動繼承套用到管理群組的原則。 每個目錄會都會有一個最上層管理群組，名為「根」管理群組。 這個根管理群組會建置於階層內，讓所有的管理群組和訂用帳戶摺疊於其中。 這個根管理群組可讓全域原則和 RBAC 指派在目錄層級套用。 若要設定可搭配 Azure 資訊安全中心使用的管理群組，請遵循[取得 Azure 資訊安全中心的全租用戶可見度](security-center-management-groups.md)一文中的指示。 
+
+> [!NOTE]
+> 請務必了解管理群組和訂用帳戶的階層。 若要深入了解管理群組、根管理和管理群組存取，請參閱[使用 Azure 管理群組來組織資源](../azure-resource-manager/management-groups-overview.md#root-management-group-for-each-directory)。
+>
+>
+
 
 ## <a name="next-steps"></a>後續步驟
 在本文中，您了解到如何在資訊安全中心設定安全性原則。 如要深入了解資訊安全中心，請參閱下列文章：
@@ -94,5 +107,8 @@ ms.locfileid: "34364330"
 * [Azure 資訊安全中心的安全性健全狀況監視](security-center-monitoring.md)：了解如何監視 Azure 資源的健全狀況。
 * [管理與回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md)：了解如何管理與回應安全性警示。
 * [使用 Azure 資訊安全中心監視合作夥伴解決方案](security-center-partner-solutions.md)：了解如何監視合作夥伴解決方案的健全狀況。
+* [取得 Azure 資訊安全中心的全租用戶可見度](security-center-management-groups.md)：了解如何設定 Azure 資訊安全中心的管理群組。 
 * [Azure 資訊安全中心常見問題集](security-center-faq.md)：取得使用服務常見問題的解答。
 * [Azure 安全性部落格](http://blogs.msdn.com/b/azuresecurity/)：尋找有關 Azure 安全性與相容性的部落格文章。
+
+若要深入了解 Azure 原則，請參閱[什麼是 Azure 原則？](../azure-policy/azure-policy-introduction.md)

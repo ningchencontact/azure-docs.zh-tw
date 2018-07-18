@@ -3,7 +3,7 @@ title: 如何在 Microsoft Azure 中使用 PerfInsights | Microsoft Docs
 description: 了解如何使用 PerfInsights 針對 Windows VM 效能問題進行疑難排解。
 services: virtual-machines-windows'
 documentationcenter: ''
-author: genlin
+author: anandhms
 manager: cshepard
 editor: na
 tags: ''
@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: cac17b5f3ee730bf1f56dbfd05b6c6d3b02c891f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 2f496f906eef416b35e2e59b2db93481ce65acb1
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36946265"
 ---
-# <a name="how-to-use-perfinsights"></a>如何使用 PerfInsights 
+# <a name="how-to-use-perfinsights"></a>如何使用 PerfInsights
 
 [PerfInsights](http://aka.ms/perfinsightsdownload) \(英文\) 是一種自助診斷工具，此工具會收集和分析診斷資料，並提供報表來協助進行 Azure 中 Windows 虛擬機器效能問題的疑難排解。 您可以在虛擬機器上將 PerfInsights 當作獨立工具執行，或藉由安裝 [Azure 效能診斷 VM 擴充功能](performance-diagnostics-vm-extension.md)來從入口網站直接執行它。
 
@@ -30,7 +31,7 @@ ms.lasthandoff: 05/14/2018
 
 PerfInsights 可以收集並分析多種資訊。 下列幾節會說明常見案例。
 
-### <a name="collect-basic-configuration"></a>收集基本組態 
+### <a name="quick-performance-analysis"></a>快速效能分析
 
 此案例會收集磁碟設定和其他重要資訊，包括：
 
@@ -63,11 +64,11 @@ PerfInsights 可以收集並分析多種資訊。 下列幾節會說明常見案
 > 此案例會影響系統，所以不應該在實際的生產系統上執行。 如有必要，請在專用的維護視窗中執行此案例，以免發生任何問題。 因追蹤或基準測試所增加的工作負載，可能會對 VM 的效能造成負面影響。
 >
 
-### <a name="slow-vm-analysis"></a>慢速虛擬機器分析 
+### <a name="slow-vm-analysis"></a>慢速 VM 分析
 
 此案例會使用於 RuleEngineConfig.json 檔案中指定的計數器來執行[效能計數器](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) \(英文\) 追蹤。 如果將 VM 識別為執行 SQL Server 的伺服器，就會執行效能計數器追蹤。 它會使用可在 RuleEngineConfig.json 檔案中找到的計數器來執行此動作。 此案例也會包含效能診斷資料。
 
-### <a name="azure-files-analysis"></a>Azure 檔案分析 
+### <a name="azure-files-analysis"></a>Azure 檔案分析
 
 此案例會同時執行特殊的效能計數器擷取與網路追蹤。 擷取包含所有伺服器訊息區塊 (SMB) 用戶端共用計數器。 以下是屬於擷取的一些重要 SMB 用戶端共用效能計數器：
 
@@ -89,9 +90,9 @@ PerfInsights 可以收集並分析多種資訊。 下列幾節會說明常見案
 |              | Avg.寫入佇列長度       |
 |              | Avg.資料佇列長度        |
 
-### <a name="custom-slow-vm-analysis"></a>自訂慢速虛擬機器分析 
+### <a name="advanced-slow-vm-analysis"></a>進階慢速 VM 分析
 
-當您執行自訂慢速 VM 分析時，您可選取要平行執行的追蹤。 您可以視需要全部執行 (效能計數器、Xperf、網路和 StorPort)。  
+當您執行進階慢速 VM 分析時，您可選取要平行執行的追蹤。 您可以視需要全部執行 (效能計數器、Xperf、網路和 StorPort)。  
 
 > [!Note]
 > 此案例會影響系統，所以不應該在實際的生產系統上執行。 如有必要，請在專用的維護視窗中執行此案例，以免發生任何問題。 因追蹤或基準測試所增加的工作負載，可能會對 VM 的效能造成負面影響。
@@ -103,7 +104,7 @@ PerfInsights 可以收集並分析多種資訊。 下列幾節會說明常見案
 
 |收集的資料                              |  |  | 效能測試案例 |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                               | 收集基本組態 | 效能評定 | 慢速虛擬機器分析 | Azure 檔案分析 | 自訂慢速虛擬機器分析 |
+|                               | 快速效能分析 | 效能評定 | 慢速 VM 分析 | Azure 檔案分析 | 進階慢速 VM 分析 |
 | 來自事件記錄的資訊       | yes                        | yes                                | yes                      | yes                  | yes                  |
 | 系統資訊                | yes                        | yes                                | yes                      | yes                  | yes                  |
 | 磁碟區對應                        | yes                        | yes                                | yes                      | yes                  | yes                  |
@@ -170,9 +171,9 @@ Diskspd I/O 工作負載測試 (OS 磁碟 [寫入] 和集區磁碟 [讀取/寫�
 
 #### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>當您在生產 VM 上執行工具時可能發生的問題
 
--  對於設定為使用 Xperf 或 Diskspd 的基準案例或「自訂慢速 VM 分析」案例，此工具可能會對 VM 效能產生不良的影響。 這些案例不應在生產環境中執行。
+-  對於設定為使用 Xperf 或 Diskspd 的基準案例或「進階慢速 VM 分析」案例，此工具可能會對 VM 效能產生不良的影響。 這些案例不應在生產環境中執行。
 
--  對於設定為使用 Diskspd 的基準案例或「自訂慢速 VM 分析」案例，請確定 I/O 工作負載不受其他背景活動干擾。
+-  對於設定為使用 Diskspd 的基準案例或「進階慢速 VM 分析」案例，請確定 I/O 工作負載不受其他背景活動干擾。
 
 -  根據預設，工具會使用暫存磁碟機來收集資料。 如果追蹤長時間保持啟用，則收集的資料量會有所影響。 這會降低暫存磁碟的可用空間，從而影響依賴此磁碟機的任何應用程式。
 
@@ -217,10 +218,16 @@ Diskspd I/O 工作負載測試 (OS 磁碟 [寫入] 和集區磁碟 [讀取/寫�
     PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics
     ```
 
-    您可以使用下列範例來搭配 Xperf 和效能計數器追蹤執行為時 5 分鐘的自訂案例：
+    您可以使用下列範例來搭配 Xperf 和效能計數器追蹤執行為時 5 分鐘的進階案例：
     
     ```
-    PerfInsights /run custom xp /d 300 /AcceptDisclaimerAndShareDiagnostics
+    PerfInsights /run advanced xp /d 300 /AcceptDisclaimerAndShareDiagnostics
+    ```
+
+    您可以使用下列範例來執行為時 5 分鐘的慢速 VM 案例，並將結果 ZIP 檔案上傳至儲存體帳戶。
+    
+    ```
+    PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics /sa <StorageAccountName> /sk <StorageAccountKey>
     ```
 
     您可以使用 **/list** 命令，來查詢所有可用的案例和選項：
@@ -236,7 +243,7 @@ Diskspd I/O 工作負載測試 (OS 磁碟 [寫入] 和集區磁碟 [讀取/寫�
     >
     >根據預設，PerfInsights 會嘗試將自己更新為最新版本 (如果可以的話)。 使用 **/SkipAutoUpdate** 或 **/sau** 參數以略過自動更新。  
     >
-    >如果未指定持續時間參數 **/d**，PerfInsights 會在您執行 vmslow、Azure 檔案和自訂案例時提示您重新產生問題。 
+    >如果未指定持續時間參數 **/d**，PerfInsights 會在您執行 vmslow、Azure 檔案和進階案例時提示您重新產生問題。 
 
 當追蹤或作業都完成之後，與 PerfInsights 相同的資料夾中會出現一個新檔案。 檔案名稱為 **CollectedData\_yyyy-MM-dd\_hh-mm-ss-fff.zip**。 您可以將此檔案傳送給支援專員進行分析，或開啟 zip 檔案內的報表來檢閱結果和建議。
 
@@ -250,9 +257,9 @@ Diskspd I/O 工作負載測試 (OS 磁碟 [寫入] 和集區磁碟 [讀取/寫�
 ![PerfInsights 報告的螢幕擷取畫面](media/how-to-use-perfInsights/findings.PNG)
 
 > [!NOTE] 
-> 分類為重大的結果是可能會造成效能問題的已知問題。 分類為重要的結果表示不一定會造成效能問題的非最佳化設定。 分類為資訊的結果是僅用來參考的資訊說明。
+> 分類為「高」的結果是可能會造成效能問題的已知問題。 分類為「中」的結果表示不一定會造成效能問題的非最佳化設定。 分類為「低」的結果是僅用來參考的資訊說明。
 
-檢閱所有重大和重要結果的建議和連結。 了解這些結果如何影響效能，以及效能最佳化組態的最佳做法。
+檢閱所有「高」和「中」結果的建議和連結。 了解這些結果如何影響效能，以及效能最佳化組態的最佳做法。
 
 ### <a name="storage-tab"></a>[儲存體] 索引標籤
 

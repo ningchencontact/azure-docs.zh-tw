@@ -1,22 +1,22 @@
 ---
-title: "如何調整您的 Azure Time Series Insights 環境規模 | Microsoft Docs"
-description: "本文說明如何調整您的 Azure Time Series Insights 環境規模。 使用 Azure 入口網站在價格 SKU 內增加或減少容量。"
-services: time-series-insights
+title: 如何調整您的 Azure Time Series Insights 環境規模 | Microsoft Docs
+description: 本文說明如何調整您的 Azure Time Series Insights 環境規模。 使用 Azure 入口網站在價格 SKU 內增加或減少容量。
 ms.service: time-series-insights
-author: sandshadow
+services: time-series-insights
+author: ashannon7
 ms.author: edett
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: edcd9561778998c4df09cc5014f8b8ba81c0e369
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 3e357f8a1667677c763e94c6f7d57402a7aa175d
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294348"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>如何調整您的 Time Series Insights 環境規模
 

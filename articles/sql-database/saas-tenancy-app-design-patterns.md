@@ -7,23 +7,36 @@ author: billgib
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
+ms.reviewer: genemi
 ms.author: billgib
-ms.openlocfilehash: ef35bbb28f5b13068f92f4bf07c7807b4a5d407a
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 39be48019979ceb1337cbd3008c8cf071d403310
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33941889"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737675"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>多租用戶 SaaS 資料庫租用模式
 
 在設計多租用戶 SaaS 應用程式時，您必須小心選擇最適合您的應用程式需求的租用模型。  租用模型可決定每個租用戶的資料如何對應至儲存體。  您所選的租用模型會影響應用程式的設計和管理。  稍後切換到不同的模型有時所費不貲。
 
-以下是替代租用模型的討論。
+本文說明替代的租用戶模型。
 
-## <a name="a-how-to-choose-the-appropriate-tenancy-model"></a>A. 如何選擇適當的租用模型
+## <a name="a-saas-concepts-and-terminology"></a>A. SaaS 概念與術語
+
+在軟體即服務 (SaaS) 模型中，公司將不會出售軟體的「授權」。 而是讓每位客戶向公司支付租金，使每位客戶成為公司的「租用戶」。
+
+每個租用戶支付租金後，便可以存取 SaaS 應用程式元件，並將資料儲存於 SaaS 系統中。
+
+「租用戶模型」一詞是指組織租用戶儲存資料的方式：
+
+- 單一租用戶：&nbsp;每個資料庫只會儲存來自一個租用戶的資料。
+- 多租用戶：&nbsp;每個資料庫都會儲存來自多個不同租用戶的資料 (搭配保護資料隱私權的機制)。
+- 另外還提供混合式租用戶模型。
+
+## <a name="b-how-to-choose-the-appropriate-tenancy-model"></a>B. 如何選擇適當的租用模型
 
 一般情況下，租用模型不會影響應用程式的功能，但可能會影響整體解決方案的其他層面。  下列準則可用來評估每個模型：
 
@@ -51,7 +64,7 @@ ms.locfileid: "33941889"
 
 租用討論著重於「資料」圖。  但請考慮一下「應用程式」層。  應用程式層會被視為龐大的實體。  如果您將應用程式分割成許多小元件，您所選的租用模型可能會改變。  就使用的租用和儲存體技術或平台而論，您可以將某些元件視為與其他元件不同。
 
-## <a name="b-standalone-single-tenant-app-with-single-tenant-database"></a>B. 具有單一租用戶資料庫的獨立單一租用戶應用程式
+## <a name="c-standalone-single-tenant-app-with-single-tenant-database"></a>C. 具有單一租用戶資料庫的獨立單一租用戶應用程式
 
 #### <a name="application-level-isolation"></a>應用程式層級隔離
 
@@ -67,7 +80,7 @@ ms.locfileid: "33941889"
 
 即使應用程式執行個體是安裝於不同的租用戶訂用帳戶中，廠商仍可存取所有獨立應用程式執行個體中的所有資料庫。  透過 SQL 連線即可進行存取。  此種跨執行個體的存取可以讓廠商集中進行結構描述管理和跨資料庫查詢，以便進行報告或分析。  如果想要使用這種集中式管理，則必須部署可將租用戶識別碼對應到資料庫 URI 的目錄。  Azure SQL Database 提供分區化程式庫，其可搭配 SQL 資料庫用來提供目錄。  分區化程式庫已正式命名為[彈性資料庫用戶端程式庫][docu-elastic-db-client-library-536r]。
 
-## <a name="c-multi-tenant-app-with-database-per-tenant"></a>C. 每一租用戶一個資料庫的多租用戶應用程式
+## <a name="d-multi-tenant-app-with-database-per-tenant"></a>D. 每一租用戶一個資料庫的多租用戶應用程式
 
 下一個模式會使用具有許多資料庫的多租用戶應用程式，所有都是單一租用戶資料庫。  為每個新租用戶佈建一個新資料庫。  為每個節點新增更多資源，以垂直方式相應「增加」應用程式層。  或者，藉由新增更多節點，以水平方式相應「放大」應用程式。  縮放是以工作負載為基礎，並且與個別資料庫的數目或規模無關。
 
@@ -106,7 +119,7 @@ Azure SQL Database 平台有許多管理功能的設計用來大規模管理大�
 
 例如，您可以將單一租用戶自動復原到較早的時間點。  復原只需要還原儲存租用戶的一個單一租用戶資料庫。  此還原並不會影響其他租用戶，這就確認管理作業屬於每個個別租用戶的精細層級。
 
-## <a name="d-multi-tenant-app-with-multi-tenant-databases"></a>D. 具有多租用戶資料庫的多租用戶應用程式
+## <a name="e-multi-tenant-app-with-multi-tenant-databases"></a>E. 具有多租用戶資料庫的多租用戶應用程式
 
 另一個可用模式是在多租用戶資料庫中儲存許多租用戶。  應用程式執行個體可以有任意多個多租用戶資料庫。  多租用戶資料庫的結構描述必須有一或多個租用戶識別碼資料行，如此才能選擇性地擷取任何指定租用戶中的資料。  此外，結構描述可能需要只由部份租用戶使用的一些資料表或資料行。  不過，靜態程式碼與參考資料只會儲存一次，並由所有租用戶共用。
 
@@ -122,13 +135,13 @@ Azure SQL Database 平台有許多管理功能的設計用來大規模管理大�
 
 接著會討論多租用戶資料庫模型的兩種變形，其中的分區化多租用戶模型最具彈性且最能擴充。
 
-## <a name="e-multi-tenant-app-with-a-single-multi-tenant-database"></a>E. 具有單一多租用戶資料庫的多租用戶應用程式
+## <a name="f-multi-tenant-app-with-a-single-multi-tenant-database"></a>F. 具有單一多租用戶資料庫的多租用戶應用程式
 
 這個最簡單的多租用戶資料庫模式會使用單一獨立的資料庫來裝載所有租用戶的資料。  隨著更多租用戶的新增，資料庫會相應增加更多儲存體和計算資源。  雖然一定有終極規模限制，但是此相應增加是有必要的。  不過，在達到該限制之前，資料庫早已變得難以管理。
 
 相較於在多租用戶資料庫中實作管理，著重於個別租用戶的管理作業更為複雜。  而且這些作業的速度可能會變得非常慢。  例如，僅僅一個租用戶的資料時間點還原作業。
 
-## <a name="f-multi-tenant-app-with-sharded-multi-tenant-databases"></a>F. 具有分區化多租用戶資料庫的多租用戶應用程式
+## <a name="g-multi-tenant-app-with-sharded-multi-tenant-databases"></a>G. 具有分區化多租用戶資料庫的多租用戶應用程式
 
 大部分 SaaS 應用程式一次只會存取一個租用戶的資料。  這種存取模式可讓租用戶資料分散於多個資料庫或分區，而任何一個租用戶的所有資料會容納在一個分區中。  與多租用戶資料庫模式結合的分區化模型，幾乎沒有規模限制。
 
@@ -152,7 +165,7 @@ SQL Database 提供可搭配分區化程式庫和目錄資料庫運作的分割/
 
 分區化多租用戶資料庫可以置於彈性集區中。  一般而言，一個集區中具有許多單一租用戶資料庫，與一些多租用戶資料庫中具有許多租用戶的成本效益相同。  如果有大量相當不活躍的租用戶，多租用戶資料庫比較有優勢。
 
-## <a name="g-hybrid-sharded-multi-tenant-database-model"></a>G. 混合式分區化多租用戶資料庫模型
+## <a name="h-hybrid-sharded-multi-tenant-database-model"></a>H. 混合式分區化多租用戶資料庫模型
 
 在混合式模型中，所有資料庫都有其結構描述中的租用戶識別碼。  這類資料庫能夠儲存多個租用戶，而且可以進行分區。  所以就結構描述而言，這些全都是多租用戶的資料庫。  而實際上，其中有些資料庫只包含一個租用戶。  不論如何，儲存在指定資料庫中的租用戶數量不會影響資料庫結構描述。
 
@@ -166,7 +179,7 @@ SQL Database 提供可搭配分區化程式庫和目錄資料庫運作的分割/
 
 在此混合式模型中，可以將訂閱者租用戶的單一租用戶資料庫放在資源集區中，以降低每個租用戶的資料庫成本。  這也可以在每一租用戶一個資料庫的模型中達成。
 
-## <a name="h-tenancy-models-compared"></a>H. 比較租用模型
+## <a name="i-tenancy-models-compared"></a>I. 比較租用模型
 
 下表摘要說明主要租用模型之間的差異。
 

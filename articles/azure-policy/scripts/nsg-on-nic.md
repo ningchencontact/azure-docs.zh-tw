@@ -15,11 +15,12 @@ ms.workload: ''
 ms.date: 10/30/2017
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 09b635e064212bea6f5756a4493a590130894644
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1c15f15f6cd14c05b913fe1f5a2ad0610e2e956f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34602324"
 ---
 # <a name="nsg-x-on-every-nic"></a>對每個 NIC 使用 NSG X
 
@@ -31,7 +32,7 @@ ms.lasthandoff: 04/28/2018
 
 [!code-json[main](../../../policy-templates/samples/Network/enforce-nsg-on-nic/azurepolicy.json "NSG X on every nic")]
 
-您可以使用 [Azure 入口網站](#deploy-with-the-portal)[PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 來部署此範本。
+您可以使用 [Azure 入口網站](#deploy-with-the-portal) [PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 來部署此範本。
 
 ## <a name="deploy-with-the-portal"></a>使用入口網站部署
 
@@ -76,4 +77,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>後續步驟
 
-- 其他「Azure 原則」範本範例都位於[Azure 原則的範本](../json-samples.md)。
+- 在 [Azure 原則範例](../json-samples.md)檢閱更多範例。

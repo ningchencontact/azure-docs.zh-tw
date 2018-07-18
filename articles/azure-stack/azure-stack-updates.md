@@ -1,11 +1,11 @@
 ---
-title: "管理 Azure Stack 中的更新概觀 | Microsoft Docs"
-description: "深入了解 Azure Stack 整合系統的更新管理。"
+title: 管理 Azure Stack 中的更新概觀 | Microsoft Docs
+description: 深入了解 Azure Stack 整合系統的更新管理。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 9b0781f4-2cd5-4619-a9b1-59182b4a6e43
 ms.service: azure-stack
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/06/2018
+ms.locfileid: "27620918"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>在 Azure Stack 中管理更新概觀
 

@@ -3,8 +3,8 @@ title: 在 Azure 中使用服務對應解決方案 | Microsoft Docs
 description: 服務對應是 Azure 中的一個解決方案，可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 本文會詳細說明如何在環境中部署服務對應並將它用於各種案例。
 services: monitoring
 documentationcenter: ''
-author: daveirwin1
-manager: jwhit
+author: mgoedtel
+manager: carmonm
 editor: tysonn
 ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
 ms.service: monitoring
@@ -12,19 +12,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/22/2016
-ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: aa9a6b54576ce8399471891c9ab5b80216f00ee1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.date: 06/22/2018
+ms.author: daseidma;bwren
+ms.openlocfilehash: 812137a8320634364a7d91fd2e61cd3e9d15fc12
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751423"
 ---
 # <a name="using-service-map-solution-in-azure"></a>在 Azure 中使用服務對應解決方案
 服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 您可以藉由服務對應，將伺服器視為提供重要服務的互連系統，藉此來檢視伺服器。 不需要進行任何設定，只要安裝了代理程式，服務對應就會顯示橫跨任何 TCP 連線架構的伺服器、處理序和連接埠之間的連線。
 
-本文說明使用服務對應的詳細資訊。 如需設定服務對應和啟用代理程式的相關資訊，請參閱[在 Azure 中設定服務對應解決方案]( monitoring-service-map-configure.md)。
+本文說明上線和使用服務對應的詳細資訊。 如需設定服務對應和啟用代理程式的相關資訊，請參閱[在 Azure 中設定服務對應解決方案]( monitoring-service-map-configure.md)。
 
+## <a name="sign-in-to-azure"></a>登入 Azure
+在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
+
+## <a name="enable-service-map"></a>啟用服務對應
+1. 在 Azure 入口網站中，按一下 [+ 建立資源]。
+2. 在搜尋列中輸入**服務對應**，然後按 **Enter**。
+3. 在市集搜尋結果頁面的清單中，選取 [服務對應]。<br><br> ![從 Azure Marketplace 搜尋結果中選取服務對應解決方案](./media/monitoring-service-map/marketplace-search-results.png)<br>
+4. 在 [服務對應] 概觀窗格上，檢閱解決方案詳細資料，然後按一下 [建立] 開始將程序上線到 Log Analytics 工作區。<br><br> ![將服務對應解決方案上線](./media/monitoring-service-map/service-map-onboard.png)。
+5. 在 [設定解決方案] 窗格中，選取現有的或建立新的 Log Analytics 工作區。  如需如何建立新工作區的進一步資訊，請參閱[在 Azure 入口網站中建立 Log Analytics 工作區](../log-analytics/log-analytics-quick-create-workspace.md)。 提供必要資訊後，按一下 [建立] 。  
+
+確認資訊並部署解決方案後，您可以在功能表的 [通知] 底下追蹤其進度。 
+
+您可以在 Azure 入口網站中從 Log Analytics 工作區存取服務對應，然後從左窗格選取 [解決方案] 選項。<br><br> ![在工作區中選取 [解決方案] 選項](./media/monitoring-service-map/select-solution-from-workspace.png)。<br> 從解決方案清單中，選取 [ServiceMap(workspaceName)]，然後在 [服務對應解決方案概觀] 頁面中，按一下 [服務對應摘要] 圖格。<br><br> ![[服務對應摘要] 圖格](./media/monitoring-service-map/service-map-summary-tile.png)。
 
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>使用案例︰讓 IT 處理序可以感知相依性
 
@@ -43,9 +57,10 @@ ms.lasthandoff: 05/08/2018
 ### <a name="patch-management"></a>修補程式管理
 服務對應藉由向您指出其他哪些小組和伺服器依賴您的服務，增強了系統更新評量的使用性，因此您可以事先通知他們，然後才關閉系統進行修補。 服務對應更藉由向您指出服務在修補並重新啟動之後是否可用並已正確連線，增強了修補程式管理。
 
-
 ## <a name="mapping-overview"></a>對應概觀
-服務對應代理程式會收集其安裝所在伺服器上所有 TCP 連線處理程序的相關資訊，以及有關每個處理程序之輸入和輸出連線的詳細資料。 在左窗格的清單中，可以選取具有服務對應代理程式的機器或群組，將它們在指定時間範圍內的相依性視覺化。 機器相依性對應的焦點會集中在特定機器，並顯示屬於該機器的所有直接 TCP 用戶端或伺服器機器。  機器群組對應會顯示多組伺服器及其相依性。
+服務對應代理程式會收集其安裝所在伺服器上所有 TCP 連線處理程序的相關資訊，以及有關每個處理程序之輸入和輸出連線的詳細資料。
+
+在左窗格的清單中，可以選取具有服務對應代理程式的機器或群組，將它們在指定時間範圍內的相依性視覺化。 機器相依性對應的焦點會集中在特定機器，並顯示屬於該機器的所有直接 TCP 用戶端或伺服器機器。  機器群組對應會顯示多組伺服器及其相依性。
 
 ![服務對應概觀](media/monitoring-service-map/service-map-overview.png)
 
@@ -186,16 +201,13 @@ ms.lasthandoff: 05/08/2018
 ![[處理序摘要] 窗格](media/monitoring-service-map/process-summary.png)
 
 ## <a name="alerts-integration"></a>警示整合
-服務對應會與 Log Analytics 中的警示整合，以顯示所選時間範圍內針對所選伺服器觸發的警示。 如果有最新警示，伺服器會顯示圖示，且 [機器警示] 窗格會列出警示。
+服務對應會與 Azure 警示整合，以顯示所選時間範圍內針對所選伺服器觸發的警示。 如果有最新警示，伺服器會顯示圖示，且 [機器警示] 窗格會列出警示。
 
 ![[機器警示] 窗格](media/monitoring-service-map/machine-alerts.png)
 
 若要讓服務對應顯示相關警示，請建立針對特定電腦觸發的警示規則。 若要建立適當的警示︰
-- 包含依電腦群組的子句，例如，**by Computer interval 1minute** (依 1 分鐘的電腦間隔)。
+- 包含依電腦群組的子句，例如，**by Computer interval 1 minute** (依 1 分鐘的電腦間隔)。
 - 選擇依據計量量值來發出警示。
-
-![警示組態](media/monitoring-service-map/alert-configuration.png)
-
 
 ## <a name="log-events-integration"></a>記錄事件整合
 服務對應會與記錄搜尋整合，以顯示所選時間範圍期間，適用於所選伺服器的所有可用記錄事件計數。 您可以按一下事件計數清單中的任一列，以移至記錄搜尋並查看個別的記錄事件。
@@ -223,7 +235,7 @@ ms.lasthandoff: 05/08/2018
 
 下圖是選取 [在 Log Analytics 中顯示] 之後，可能會看到的 ConfigurationChange 事件詳細檢視。
 
-![ConfigurationChange 事件](media/monitoring-service-map/configuration-change-event.png)
+![ConfigurationChange 事件](media/monitoring-service-map/configuration-change-event-01.png)
 
 
 ## <a name="performance-integration"></a>效能整合
@@ -253,7 +265,6 @@ Linux：
 [機器安全性] 面板會顯示安全性與稽核解決方案中針對所選伺服器的資料。 此窗格會列出所選時間範圍內伺服器任何未處理之安全性問題的摘要。 按一下任一安全性問題會向下鑽研到記錄搜尋，以顯示關於安全性問題的詳細資料。
 
 ![[機器安全性] 窗格](media/monitoring-service-map/machine-security.png)
-
 
 ## <a name="updates-integration"></a>更新整合
 當「服務對應」和「更新管理」這兩個解決方案皆已在 Log Analytics 工作區中啟用並設定，便會自動進行整合。

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: c2232e1ce92eb6198b22bad22b8c3e10bab6bf12
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 79bc42394513efc2ac03ea9d7170f035d71edb4f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603718"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>使用 Resource Manager 範本與 Azure 入口網站來部署資源
 
@@ -113,7 +114,7 @@ ms.lasthandoff: 05/20/2018
 
 ## <a name="deploy-resources-from-a-template-saved-to-your-account"></a>從儲存至您帳戶的範本部署資源
 
-入口網站可讓您將範本儲存至您的 Azure 帳戶，並於日後部署它。 如需使用這些已儲存範本的詳細資訊，請參閱 [開始在 Azure 入口網站上使用私人範本](../marketplace-consumer/mytemplates-getstarted.md)。
+入口網站可讓您將範本儲存至您的 Azure 帳戶，並於日後部署它。 如需範本的詳細資訊，請參閱[建立及部署第一個 Azure Resource Manager 範本](resource-manager-create-first-template.md)。
 
 1. 若要尋找您已儲存的範本，請選取 [更多服務]。
 
@@ -135,4 +136,4 @@ ms.lasthandoff: 05/20/2018
 * 若要檢視稽核記錄檔，請參閱 [使用 Resource Manager 來稽核作業](resource-group-audit.md)。
 * 若要針對部署錯誤進行疑難排解，請參閱[檢視部署作業](resource-manager-deployment-operations.md)。
 * 若要從部署或資源群組擷取範本，請參閱 [從現有資源匯出 Azure Resource Manager 範本](resource-manager-export-template.md)。
-* 如需關於企業如何使用 Resource Manager 有效地管理訂用帳戶的指引，請參閱 [Azure 企業 Scaffold - 規定的訂用帳戶治理](resource-manager-subscription-governance.md)。
+* 如需關於企業如何使用 Resource Manager 有效地管理訂用帳戶的指引，請參閱 [Azure 企業 Scaffold - 規定的訂用帳戶治理](/azure/architecture/cloud-adoption-guide/subscription-governance)。

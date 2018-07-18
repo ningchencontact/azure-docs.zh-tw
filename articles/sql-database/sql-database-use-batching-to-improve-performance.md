@@ -6,15 +6,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: d534e138af7a22b32fbf64e2200016091beac62f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c0e1ff3cf018e185ae2dfb329e2aa56766cc247c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32194966"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34649776"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>如何使用批次處理來改善 SQL Database 應用程式效能
 批次處理 Azure SQL Database 的作業可大幅改善應用程式的效能和延展性。 為了瞭解優點，本文的第一個部分涵蓋一些範例測試結果，其中比較 SQL Database 的循序和批次要求。 本文其餘部分說明技術、案例和考量因素，協助您在 Azure 應用程式中順利使用批次處理。

@@ -17,6 +17,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206315"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Azure Service Fabric 主控模型
 本文提供 Azure Service Fabric 所提供之應用程式主控模型的概觀，並說明**共用處理序**與**專屬處理序**模型之間的差異。 本文說明已部署之應用程式在 Service Fabric 節點上看起來的樣子，以及服務的複本 (或執行個體) 與服務主機處理序之間的關聯性。

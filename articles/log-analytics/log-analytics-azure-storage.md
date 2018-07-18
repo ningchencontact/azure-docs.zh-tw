@@ -3,7 +3,7 @@ title: 為 Log Analytics 收集 Azure 服務的記錄和計量 | Microsoft Docs
 description: 在 Azure 資源上設定診斷以便將記錄和度量寫入 Log Analytics。
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 84105740-3697-4109-bc59-2452c1131bfe
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a748cb0e2a08ed5e8ada5db171d5ef12b2fe121e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: na
+ms.openlocfilehash: dec2abdf68b3a38706549b4b655e33bc7abca1a3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38452666"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>收集 Azure 服務的記錄和計量以便使用於 Log Analytics
 
@@ -56,7 +57,7 @@ ms.lasthandoff: 04/28/2018
 | 虛擬機器        | Microsoft.Compute/virtualMachines       | 分機   | 分機 <br> 診斷  | |
 | 虛擬機器擴展集 | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | 診斷 | |
 | Web 伺服器陣列        | Microsoft.Web/serverfarms               |             | 診斷 | |
-| 網站               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | 診斷 | [Azure Web Apps 分析 (預覽)](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureWebAppsAnalyticsOMS?tab=Overview) |
+| 網站               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | 診斷 | [Azure Web Apps 分析 (預覽)](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-web-apps-analytics) |
 
 
 > [!NOTE]

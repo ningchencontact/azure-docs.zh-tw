@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206987"
 ---
 # <a name="run-a-service-as-an-active-directory-user-or-group"></a>以 Active Directory 使用者或群組身分執行服務
 在 Windows Server 獨立叢集上，您可以使用 RunAs 原則，以 Active Directory 使用者或群組身分執行服務。  根據預設，Service Fabric 應用程式會在用以執行 Fabric.exe 程序的帳戶之下執行。 即使在共用主控環境中，以不同帳戶執行應用程式能避免彼此干擾。 請注意，這會使用網域內部部署的 Active Directory，不是 Azure Active Directory (Azure AD)。  您也可以利用[群組受控服務帳戶 (gMSA)](service-fabric-run-service-as-gmsa.md) 身分執行服務。

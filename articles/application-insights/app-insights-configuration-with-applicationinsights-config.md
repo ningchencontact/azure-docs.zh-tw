@@ -10,15 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/03/2017
-ms.author: mbullwin; olegan
-ms.openlocfilehash: 670600d4370be0b675c71d1c6cf09b17c7bd2597
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: olegan
+ms.author: mbullwin
+ms.openlocfilehash: 664f31d64ac037acea2fb45a8d8b813da52b6da5
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869065"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294695"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>使用 ApplicationInsights.config 或 .xml 設定 Application Insights SDK
 Application Insights .NET SDK 是由數個 NuGet 封裝所組成。 [核心封裝](http://www.nuget.org/packages/Microsoft.ApplicationInsights) 提供 API，用於傳送遙測至 Application Insights。 [其他套件](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights)提供遙測*模組*和*初始設定式*，用於自動從您的應用程式和其內容追蹤遙測。 您可以藉由調整組態檔，來啟用或停用遙測模組和初始設定式，並為其設定一些參數。

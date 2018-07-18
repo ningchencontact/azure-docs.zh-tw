@@ -1,22 +1,21 @@
 ---
 title: 使用 Java 和註冊群組將模擬 X.509 裝置佈建至 Azure IoT 中樞 | Microsoft Docs
 description: Azure 教學課程 - 使用適用於 IoT 中樞裝置佈建服務的 Java 裝置和服務 SDK 和註冊群組來建立及佈建模擬 X.509 裝置
-services: iot-dps
-keywords: ''
 author: bryanla
-ms.author: v-masebo
+ms.author: bryanla
 ms.date: 01/04/2018
 ms.topic: tutorial
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 0d325e71125e875590b54b84700b6ec9e0fe7dd7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 02cc3f861864d3bfa878be6501b8563715f88dac
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971314"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>使用適用於 IoT 中樞裝置佈建服務的 Java 裝置和服務 SDK 以及註冊群組來建立及佈建模擬 X.509 裝置
 

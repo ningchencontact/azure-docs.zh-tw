@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: rogarana
-ms.openlocfilehash: 33ca8af49ed9c3a8e7133eedfd284a1b71a9a9f9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 951b69877718c5da3c165c24c297906a1ad9a976
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652496"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>搭配使用 Azure PowerShell 與 Azure 儲存體
 
@@ -214,7 +215,7 @@ Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storage
 * [如何使用 PowerShell 管理 Blob](../blobs/storage-how-to-use-blobs-powershell.md)
 * [如何使用 PowerShell 管理檔案](../files/storage-how-to-use-files-powershell.md)
 * [如何使用 PowerShell 管理佇列](../queues/storage-powershell-how-to-use-queues.md)
-* [使用 PowerShell 執行 Azure 資料表儲存體作業](../../cosmos-db/table-storage-how-to-use-powershell.md)
+* [使用 PowerShell 執行 Azure 資料表儲存體作業](../../storage/tables/table-storage-how-to-use-powershell.md)
 
 Azure Cosmos DB 資料表 API 提供資料表儲存體的高階功能，例如通行全域發佈、低延遲讀取和寫入、自動次要索引，以及專用的輸送量。 
 

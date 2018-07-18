@@ -1,21 +1,21 @@
 ---
-title: 使用自訂原則的 SSO 工作階段管理 - Azure AD B2C | Microsoft Docs
+title: 在 Azure Active Directory B2C 中使用自訂原則的 SSO 工作階段管理 | Microsoft Docs
 description: 了解如何在 Azure AD B2C 中使用自訂原則管理 SSO 工作階段。
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/20/2017
 ms.author: davidmu
-ms.openlocfilehash: ca7160d39d5d26ca69345ce636f22afbe44b25db
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.component: B2C
+ms.openlocfilehash: 351b48f2e2766b4974a5a41b5e95acfbd63dbfc9
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37443217"
 ---
 # <a name="azure-ad-b2c-single-sign-on-sso-session-management"></a>Azure AD B2C：單一登入 (SSO) 工作階段管理
 

@@ -1,27 +1,25 @@
 ---
-title: 如何搭配 C++ 使用 Azure 表格儲存體和 Azure Cosmos DB | Microsoft Docs
-description: 使用 Azure 表格儲存體 (NoSQL 資料存放區) 將結構化的資料儲存在雲端。
+title: 如何搭配 C++ 使用 Azure 表格儲存體和 Azure Cosmos DB 資料表 API | Microsoft Docs
+description: 使用 Azure 表格儲存體或 Azure Cosmos DB 資料表 API 將結構化資料儲存在雲端。
 services: cosmos-db
-documentationcenter: .net
 author: SnehaGunda
 manager: kfile
-ms.assetid: f191f308-e4b2-4de9-85cb-551b82b1ea7c
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.component: cosmosdb-table
+ms.devlang: cpp
+ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 60c419a45e795d5968b58fbb6b469d06750a0679
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 520c0868e51f1212ee1beca8967d3c08f1d6e869
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34797908"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>如何搭配 C++ 使用 Azure 表格儲存體和 Azure Cosmos DB 資料表 API
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## <a name="overview"></a>概觀
 本指南將示範如何使用 Azure 表格儲存體服務或 Azure Cosmos DB 資料表 API 執行一般案例。 這些範例均以 C++ 撰寫，並使用 [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md)。 所涵蓋的案例包括**建立和刪除資料表**，以及**使用資料表實體**。
@@ -45,7 +43,7 @@ ms.lasthandoff: 04/16/2018
 若要安裝 Azure Storage Client Library for C++，您可以使用下列方法：
 
 * **Linux：** 遵循 [Azure Storage Client Library for C++ 讀我檔案](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) 頁面中提供的指示進行。  
-* **Windows：**在 Visual Studio 中，按一下 [工具] > [NuGet 套件管理員] > [套件管理員主控台]。 在 [NuGet 套件管理員主控台](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) 中輸入下列命令，然後按下 Enter。  
+* **Windows：** 在 Visual Studio 中，按一下 [工具] > [NuGet 套件管理員] > [套件管理員主控台]。 在 [NuGet 套件管理員主控台](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) 中輸入下列命令，然後按下 Enter。  
   
      Install-Package wastorage
 

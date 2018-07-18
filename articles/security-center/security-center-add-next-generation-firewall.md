@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 9f70cb03a26fd5bea7e1e034c653ece8e0b8c349
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 25601b01489b95de0e86b314b4b934d3cffd38c2
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34363684"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36330735"
 ---
 # <a name="add-a-next-generation-firewall-in-azure-security-center"></a>在 Azure 資訊安全中心新增新一代防火牆
 Azure 資訊安全中心可能會建議您新增由 Microsoft 合作夥伴提供的新一代防火牆 (NGFW)，以提升您的安全防護。 本文件逐步解說如何進行這項操作的範例。
@@ -58,7 +58,7 @@ Azure 資訊安全中心可能會建議您新增由 Microsoft 合作夥伴提供
 本文件說明如何實作資訊安全中心建議的「新增新一代防火牆」。 若要了解 NGFW 與檢查點合作夥伴解決方案的詳細資訊，請參閱：
 
 * [新一代防火牆](https://en.wikipedia.org/wiki/Next-Generation_Firewall)
-* [檢查點 vSEC](https://azure.microsoft.com/marketplace/partners/checkpoint/check-point-r77-10/)
+* [檢查點 vSEC](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/checkpoint.vsec)
 
 如要深入了解資訊安全中心，請參閱下列主題：
 

@@ -4,21 +4,22 @@ description: 了解如何向 Azure 檔案同步儲存體同步服務註冊及取
 services: storage
 documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: jgerend
+manager: aungoo
+editor: tamram
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 05/31/2018
 ms.author: wgries
-ms.openlocfilehash: 9367b2bdb1bb77725356d2be41d5e44d900cb927
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7385e8b84668facf8bf44f569a611e7dcdba9a1e
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738287"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>使用 Azure 檔案同步 (預覽) 管理已註冊的伺服器
 Azure 檔案同步 (預覽) 可讓您將貴組織的檔案共用集中在「Azure 檔案」中，而不需要犧牲內部部署檔案伺服器的靈活度、效能及相容性。 它會將您的 Windows Server 轉換成 Azure 檔案共用的快速快取來達到這個目的。 您可以使用 Windows Server 上可用的任何通訊協定來存取本機資料 (包括 SMB、NFS 和 FTPS)，並且可以在世界各地擁有任何所需數量的快取。
@@ -113,14 +114,15 @@ Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - Res
 ### <a name="unregister-the-server-with-storage-sync-service"></a>向儲存體同步服務取消註冊伺服器
 向儲存體同步服務取消註冊伺服器需要執行幾個步驟。 讓我們看看如何正確地取消註冊伺服器。
 
-#### <a name="optional-recall-all-tiered-data"></a>(選擇性) 重新叫用階層式資料
-針對伺服器端點啟用時，雲端階層會將檔案分層到 Azure 檔案共用。 這樣可讓內部部署檔案共用作為快取，而不是資料集的完整複本，以便有效率地使用檔案伺服器上的空間。 不過，如果移除了伺服器端點，但本機伺服器上仍有已分層的檔案，則那些檔案會變成無法存取。 因此，如果您想要繼續存取檔案，您必須從 Azure 檔案服務重新叫用已分層的檔案，然後再繼續取消註冊。 
+> [!Warning]  
+> 除非 Microsoft 工程師明確指示，否則請勿取消註冊後再註冊伺服器，或將伺服器端點移除後再重新建立，嘗試對同步、雲端階層或任何其他方面的 Azure 檔案同步問題進行疑難排解。 取消註冊和移除伺服器端點是破壞性作業，而且註冊伺服器並重新建立伺服器端點之後，在包含伺服器端點之磁碟區上的階層式檔案並不會「重新連接」至其在 Azure 檔案共用的位置，進而導致同步錯誤。 另請注意，位在伺服器端點命名空間外部的階層式檔案可能會永久遺失。 即使從未啟用雲端階層，伺服器端點仍可能有階層式檔案存在。
 
-這可以透過 PowerShell Cmdlet 來完成，如下所示：
+#### <a name="optional-recall-all-tiered-data"></a>(選擇性) 重新叫用階層式資料
+如果您希望在移除 Azure 檔案共用 (也就是說這不是測試環境，而是生產環境) 之後仍可使用檔案目前的分層，請在包含伺服器端點的每個磁碟區上回收所有檔案。 停用所有伺服器端點的雲端階層，然後執行下列 PowerShell Cmdlet：
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
+Invoke-StorageSyncFileRecall -Path <a-volume-with-server-endpoints-on-it>
 ```
 
 > [!Warning]  

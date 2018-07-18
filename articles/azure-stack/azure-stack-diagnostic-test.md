@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31394385"
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>執行 Azure Stack 的驗證測試
 

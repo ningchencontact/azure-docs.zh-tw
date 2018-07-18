@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect 同步：目錄擴充 | Microsoft Docs"
-description: "本主題說明 Azure AD Connect 中的目錄擴充功能。"
+title: Azure AD Connect 同步：目錄擴充 | Microsoft Docs
+description: 本主題說明 Azure AD Connect 中的目錄擴充功能。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 995ee876-4415-4bb0-a258-cca3cbb02193
 ms.service: active-directory
 ms.devlang: na
@@ -13,12 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4430f445a836f4baa90511c71bb734eda8674249
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: dda35e63c209951547a667c46639dc0f37c87b43
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593627"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect 同步處理：目錄擴充
 您可以使用目錄擴充功能，從內部部署 Active Directory 利用自己的屬性擴充 Azure Active Directory (Azure AD) 中的結構描述。 此功能可讓您建置 LOB 應用程式，方法是取用您在內部部署中持續進行管理的屬性。 透過 [Azure AD 圖形 API 目錄擴充功能](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions)或 [Microsoft Graph](https://graph.microsoft.io/) 即可取用這些屬性。 若要查看可用的屬性，您可以分別使用 [Azure AD Graph 總管](https://graphexplorer.azurewebsites.net/)和 [Microsoft Graph 總管](https://developer.microsoft.com/en-us/graph/graph-explorer)。

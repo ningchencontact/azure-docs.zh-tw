@@ -1,28 +1,29 @@
 ---
-title: "使用本機執行和 Azure Data Lake U-SQL SDK 對 U-SQL 作業進行測試和偵錯 | Microsoft Docs"
-description: "了解如何使用 Azure Data Lake Tools for Visual Studio 和 Azure Data Lake U-SQL SDK 在本機工作站上對 U-SQL 作業進行測試和偵錯。"
+title: 使用 Azure Data Lake U-SQL SDK 在本機執行 U-SQL 指令碼
+description: 本文說明如何使用 Azure Data Lake Tools for Visual Studio 在本機工作站上對 U-SQL 作業進行測試和偵錯。
 services: data-lake-analytics
-documentationcenter: 
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 11/15/2016
+author: mumian
 ms.author: yanacai
-ms.openlocfilehash: 771a96df5cc66bac46e7144785be8cc072b57b31
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: kfile
+editor: jasonwhowell
+ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
+ms.topic: conceptual
+ms.date: 11/15/2016
+ms.openlocfilehash: 322278f00f49f718b1ba560e9d21d0af0be49b18
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34735998"
 ---
-# <a name="test-and-debug-u-sql-jobs-by-using-local-run-and-the-azure-data-lake-u-sql-sdk"></a>使用本機執行和 Azure Data Lake U-SQL SDK 對 U-SQL 作業進行測試和偵錯
+# <a name="runing-u-sql-scripts-locally"></a>在本機執行 U-SQL 指令碼
 
-您可以使用 Azure Data Lake Tools for Visual Studio 和 Azure Data Lake U-SQL SDK，和在 Azure Data Lake 服務中一樣地在工作站上執行 U-SQL 作業。 這兩個本機執行功能可節省您對 U-SQL 作業進行測試和偵錯的時間。
+不要在 Azure 中執行 U-SQL，您可以在自己的方塊上執行 U-SQL。 這稱為「本機執行 (local run)」或「本機執行 (local execution)」。 
+
+這些工具中有提供 U-SQL 本機執行：
+* Azure Data Lake Tools for Visual Studio
+* Azure Data Lake U-SQL SDK
 
 ## <a name="understand-the-data-root-folder-and-the-file-path"></a>了解資料根資料夾和檔案路徑
 

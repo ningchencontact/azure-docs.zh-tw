@@ -22,6 +22,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31400509"
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>開發 HDInsight 的 Python 串流處理 MapReduce 程式
 

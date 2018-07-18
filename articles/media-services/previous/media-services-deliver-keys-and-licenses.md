@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783297"
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>使用 Azure 媒體服務傳遞 DRM 授權或 AES 金鑰
 Azure 媒體服務可讓您內嵌、編碼、新增內容保護，以及串流您的內容。 如需詳細資訊，請參閱[使用 PlayReady 和/或 Widevine 動態一般加密](media-services-protect-with-playready-widevine.md)。 有些客戶只想使用媒體服務來傳遞授權和/或金鑰，並使用他們的內部部署伺服器來進行編碼、加密和串流。 本文章說明如何使用媒體服務來傳遞 PlayReady 和/或 Widevine 授權，但使用您的內部部署伺服器來完成其餘部分。 

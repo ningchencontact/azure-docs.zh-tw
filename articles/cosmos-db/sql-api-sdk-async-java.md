@@ -2,23 +2,20 @@
 title: Azure Cosmos DB：SQL Async Java API、SDK 和資源 | Microsoft Docs
 description: 了解所有 SQL Async Java API 和 SDK 相關資訊，包括發行日期、停用日期及 Azure Cosmos DB SQL Async Java SDK 每個版本之間所做的變更。
 services: cosmos-db
-documentationcenter: java
 author: SnehaGunda
 manager: kfile
-ms.assetid: a452ffa2-c15d-4b0a-a8c1-ec9b750ce52b
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: java
-ms.topic: article
-ms.date: 05/18/2018
+ms.topic: reference
+ms.date: 06/20/2018
 ms.author: sngun
-ms.openlocfilehash: 9dae401bc007b78d8ee3c6993735650e3b26b9d1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: e4a3b3a482f56065c54525a4d9cd7971f50f5b2a
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359521"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300674"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK for SQL API：版本資訊與資源
 > [!div class="op_single_selector"]
@@ -56,6 +53,16 @@ SQL API Async Java SDK 與 SQL API Java SDK 的不同之處在於會提供非同
 
 ## <a name="release-notes"></a>版本資訊
 
+### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
+* 因為效能理由及授權 ([github #29](https://github.com/Azure/azure-cosmosdb-java/issues/29))，以 jackson 取代 org.json 相依性。
+* 已移除被取代的 OfferV2 類別。
+* 已將存取子方法新增至輸送量內容的 Offer 類別。
+* 文件/資源中任何傳回 org.json 類型的方法已變更為傳回 jackson 物件類型。
+* 擴充 JsonSerializable 類別的 getObject(.) 方法已變更為傳回 jackson ObjectNode 類型。
+* getCollection(.) 方法已變更為傳回 ObjectNode 的集合。
+* 已使用 org.json.JSONObject 引數移除 JsonSerializable 子類別的建構函式。
+* JsonSerializable.toJson (SerializationFormattingPolicy.Indented) 現在使用兩個空格進行縮排。
+  
 ### <a name="a-name102102"></a><a name="1.0.2"/>1.0.2
 * 新增唯一索引原則的支援。
 * 新增摘要選項中的回應接續權杖大小限制支援。
@@ -92,6 +99,7 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [2.0.0](#2.0.0) |2018 年 6 月 20 日|--- |
 | [1.0.2](#1.0.2) |2018 年 5 月 18 日|--- |
 | [1.0.1](#1.0.1) |2018 年 4 月 20 日|--- |
 | [1.0.0](#1.0.0) |2018 年 2 月 27 日|--- |

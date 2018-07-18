@@ -1,25 +1,26 @@
 ---
-title: "Azure 中的 OpenShift 必要條件 | Microsoft Docs"
-description: "在 Azure 中部署 OpenShift 的必要條件。"
+title: Azure 中的 OpenShift 必要條件 | Microsoft Docs
+description: 在 Azure 中部署 OpenShift 的必要條件。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
 manager: najoshi
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 
+ms.date: ''
 ms.author: haroldw
 ms.openlocfilehash: 178f4d6dab5c87c9c53ab87c4a3b1edcfa61c221
 ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29847119"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>在 Azure 中開發 OpenShift 的一般必要條件
 

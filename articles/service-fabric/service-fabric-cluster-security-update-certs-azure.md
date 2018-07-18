@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207548"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>新增或移除 Azure 中 Service Fabric 叢集的憑證
 建議您熟悉 Service Fabric 使用 X.509 憑證的方式，以及熟悉[叢集安全性案例](service-fabric-cluster-security.md)。 您必須瞭解什麼是叢集憑證及其用途，方可繼續進行後續作業。

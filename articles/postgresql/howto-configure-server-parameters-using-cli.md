@@ -1,6 +1,6 @@
 ---
-title: "在適用於 PostgreSQL 的 Azure 資料庫中設定服務參數"
-description: "本文說明如何使用 Azure CLI 命令列，在適用於 PostgreSQL 的 Azure 資料庫中設定服務參數。"
+title: 在適用於 PostgreSQL 的 Azure 資料庫中設定服務參數
+description: 本文說明如何使用 Azure CLI 命令列，在適用於 PostgreSQL 的 Azure 資料庫中設定服務參數。
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -15,6 +15,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29691388"
 ---
 # <a name="customize-server-configuration-parameters-using-azure-cli"></a>使用 Azure CLI 自訂伺服器設定參數
 您可以使用命令列介面 (Azure CLI)，來列出、顯示和更新 Azure PostgreSQL 伺服器的設定參數。 有一部分的引擎設定會在伺服器層級公開而且可供修改。 

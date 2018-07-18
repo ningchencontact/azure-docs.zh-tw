@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31410347"
 ---
 # <a name="embed-a-report-in-power-bi-workspace-collections"></a>在 Power BI 工作區集合中內嵌報表
 

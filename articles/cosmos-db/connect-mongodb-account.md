@@ -3,22 +3,20 @@ title: Azure Cosmos DB 帳戶的 MongoDB 連接字串 | Microsoft Docs
 description: 了解如何使用 MongoDB 連接字串，將 MongoDB 應用程式連線至 Azure Cosmos DB 帳戶。
 keywords: mongodb 連接字串
 services: cosmos-db
-author: AndrewHoh
+author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: e36f7375-9329-403b-afd1-4ab49894f75e
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/19/2017
-ms.author: anhoh
-ms.openlocfilehash: dfdcb458d0f81c0ddb9399ee8b89a52c4cbc6270
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: sngun
+ms.openlocfilehash: 441f6725b96dc7a099304e06db6d46a65e7f9c81
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34795953"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>將 MongoDB 應用程式連接到 Azure Cosmos DB
 了解如何使用 MongoDB 連接字串，將 MongoDB 應用程式連線至 Azure Cosmos DB 帳戶。 您可以使用 Azure Cosmos DB 資料庫作為 MongoDB 應用程式的資料存放區。 

@@ -14,15 +14,16 @@ ms.topic: sample
 ms.date: 10/09/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 6356eb7ce7d34e973607b0588a9dc2854726f5d3
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: c1096567a42845a0be327edfb1be67838936a057
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434584"
 ---
 # <a name="azure-powershell-samples-for-api-management"></a>API 管理的 Azure PowerShell 範例
 
-下表包含使用 Azure PowerShell 所建置的 Bash 指令碼連結。
+下表包含從 PowerShell 使用 API 管理服務的範例指令碼。
 
 | | |
 |-|-|

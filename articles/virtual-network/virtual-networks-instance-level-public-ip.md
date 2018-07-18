@@ -19,6 +19,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31796015"
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>執行個體層級公用 IP (Classic) 概觀
 執行個體層級公用 IP (ILPIP) 是您可以直接指派至 VM 或雲端服務角色執行個體的公用 IP 位址，而不是指派至 VM 或角色執行個體所在的雲端服務。 ILPIP 不會取代指派給雲端服務的虛擬 IP (VIP)。 應該說是您可以用來直接連接到 VM 或角色執行個體的其他 IP 位址。

@@ -13,6 +13,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "30198123"
 ---
 當您產生用戶端憑證時，它會自動安裝於您用來產生它的電腦上。 如果您想要在另一部用戶端電腦上安裝用戶端憑證，您必須匯出您所產生的用戶端憑證。
 

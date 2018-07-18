@@ -18,6 +18,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33936133"
 ---
 # <a name="azure-api-management-page-controls"></a>Azure API 管理的頁面控制項
 Azure API 管理提供下列可在開發人員入口網站範本中使用的控制項。  

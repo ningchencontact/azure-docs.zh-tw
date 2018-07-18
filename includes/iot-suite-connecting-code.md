@@ -8,17 +8,18 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: e15016da271d512fd9b87d5c14091305a92770b5
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: a2405eb9698b326693b873edf1cc1396eecadafa
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34665994"
 ---
 ## <a name="specify-the-behavior-of-the-iot-device"></a>指定 IoT 裝置的行為
 
 IoT 中樞序列化程式用戶端程式庫會使用模型來指定裝置與 IoT 中樞交換之訊息的格式。
 
-1. 在 `#include` 陳述式之後新增下列變數宣告。 使用您為新增至遠端監視解決方案的實體裝置記下的值來取代 `[Device Id]` 和 `[Device connection string]` 預留位置值：
+1. 在 `#include` 陳述式之後新增下列變數宣告。 使用您針對新增至遠端監視解決方案的實體裝置記下的值，來取代 `[Device Id]` 和 `[Device connection string]` 預留位置值：
 
     ```c
     static const char* deviceId = "[Device Id]";

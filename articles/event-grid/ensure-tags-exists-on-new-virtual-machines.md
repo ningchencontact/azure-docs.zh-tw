@@ -1,12 +1,12 @@
 ---
-title: "整合 Azure 自動化與事件格線 | Microsoft Docs"
-description: "了解如何在新的 VM 建立時自動加入標記，並傳送通知給 Microsoft Teams。"
-keywords: "自動化, Runbook, 小組, 事件格線, 虛擬機器, VM"
+title: 整合 Azure 自動化與事件格線 | Microsoft Docs
+description: 了解如何在新的 VM 建立時自動加入標記，並傳送通知給 Microsoft Teams。
+keywords: 自動化, Runbook, 小組, 事件格線, 虛擬機器, VM
 services: automation
-documentationcenter: 
+documentationcenter: ''
 author: eamonoreilly
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.service: automation
 ms.devlang: na
 ms.topic: tutorial
@@ -19,6 +19,7 @@ ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/07/2017
+ms.locfileid: "26349064"
 ---
 # <a name="integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>將 Azure 自動化與事件格線和 Microsoft Teams 整合
 

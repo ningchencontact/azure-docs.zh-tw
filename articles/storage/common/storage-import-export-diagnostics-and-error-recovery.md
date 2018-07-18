@@ -1,11 +1,11 @@
 ---
-title: "Azure 匯入匯出作業的診斷和錯誤復原 | Microsoft Docs"
-description: "了解如何啟用 Microsoft Azure 匯入/匯出服務作業的詳細資訊記錄。"
+title: Azure 匯入匯出作業的診斷和錯誤復原 | Microsoft Docs
+description: 了解如何啟用 Microsoft Azure 匯入/匯出服務作業的詳細資訊記錄。
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 096cc795-9af6-4335-9fe8-fffa9f239a17
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059283"
 ---
 # <a name="diagnostics-and-error-recovery-for-azure-importexport-jobs"></a>Azure 匯入/匯出作業的診斷和錯誤復原
 針對每個已處理的磁碟機，Azure 匯入/匯出服務會在相關聯的儲存體帳戶中建立錯誤記錄檔。 您也可以在呼叫 [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) 或 [Update Job Properties](/rest/api/storageimportexport/jobs#Jobs_Update) 作業時，將 `LogLevel` 屬性設定為 `Verbose` 來啟用詳細資訊記錄。

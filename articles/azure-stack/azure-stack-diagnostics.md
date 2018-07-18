@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 06/27/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 28e1939d3c9cb5a9b9080e60230ad5600ad8a6a3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 50fef25a3b7b71821e64638729eb8d93f65b9e31
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34196458"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064168"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack 診斷工具
 
@@ -46,6 +46,35 @@ PowerShell Cmdlet **Get-AzureStackLog** 可用來收集 Azure Stack 環境中所
 *   **ETW 記錄**
 
 追蹤收集器會收集這些檔案並儲存在共用內。 然後，可於必要時使用 **Get-AzureStackLog** PowerShell Cmdlet 來收集這些檔案。
+
+### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems"></a>若要在 Azure Stack 整合系統上執行 Get-AzureStackLog 
+若要在整合系統上執行記錄收集工具，您需要能夠存取特殊權限端點 (PEP)。 以下是您可以使用 PEP 執行，以在整合系統上收集記錄的範例指令碼：
+
+```powershell
+$ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
+ 
+$pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
+ 
+$shareCred = Get-Credential
+ 
+$s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Credential $cred
+
+$fromDate = (Get-Date).AddHours(-8)
+$toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
+ 
+Invoke-Command -Session $s {    Get-AzureStackLog -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
+
+if($s)
+{
+    Remove-PSSession $s
+}
+```
+
+- **OutputSharePath** 和 **OutputShareCredential** 參數用於將記錄上傳至外部共用資料夾。
+- 如先前範例中所示，**FromDate** 和 **ToDate** 參數可以用來收集特定時段的記錄。 對於在整合系統上套用更新套件後收集記錄之類案例中，這會非常方便。
+
+
  
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>在 Azure Stack 開發套件 (ASDK) 系統上執行 Get-AzureStackLog
 1. 以 **AzureStack\CloudAdmin** 身分登入主機。
@@ -78,70 +107,11 @@ PowerShell Cmdlet **Get-AzureStackLog** 可用來收集 Azure Stack 環境中所
   Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
 
-### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems-version-1804-and-later"></a>若要在 Azure Stack 整合式系統版本 1804 和更新版本上執行 Get-AzureStackLog：
-
-若要在整合系統上執行記錄收集工具，您需要能夠存取特殊權限端點 (PEP)。 以下是您可以使用 PEP 執行，以在整合系統上收集記錄的範例指令碼：
-
-```powershell
-$ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
- 
-$pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
-$cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
- 
-$shareCred = Get-Credential
- 
-$s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Credential $cred
-
-$fromDate = (Get-Date).AddHours(-8)
-$toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
- 
-Invoke-Command -Session $s {    Get-AzureStackLog -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
-
-if($s)
-{
-    Remove-PSSession $s
-}
-```
-
-- **OutputSharePath** 和 **OutputShareCredential** 參數用於將記錄上傳至外部共用資料夾。
-- 如先前範例中所示，**FromDate** 和 **ToDate** 參數可以用來收集特定時段的記錄。 對於在整合系統上套用更新套件後收集記錄之類案例中，這會非常方便。
-
-
-### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems-version-1803-and-earlier"></a>若要在 Azure Stack 整合式系統版本 1803 和較早版本上執行 Get-AzureStackLog：
-
-若要在整合系統上執行記錄收集工具，您需要能夠存取特殊權限端點 (PEP)。 以下是您可以使用 PEP 執行，以在整合系統上收集記錄的範例指令碼：
-
-```powershell
-$ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
- 
-$pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
-$cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
- 
-$shareCred = Get-Credential
- 
-$s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Credential $cred
-
-$fromDate = (Get-Date).AddHours(-8)
-$toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
- 
-Invoke-Command -Session $s {    Get-AzureStackLog -OutputPath "\\<HLH MACHINE ADDRESS>\c$\logs" -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
-
-if($s)
-{
-    Remove-PSSession $s
-}
-```
-
-- 從 PEP 收集記錄時，將 **OutputPath** 參數指定為硬體生命週期主機 (HLH) 機器上的位置。 也請確定位置已加密。
-- **OutputSharePath** 和 **OutputShareCredential** 參數是選擇性的，並且是在您將記錄上傳至外部共用資料夾時使用。 請使用這些參數，但 **OutputPath** 除外。 如果未指定 **OutputPath**，記錄收集工具會使用 PEP VM 的系統磁碟機進行儲存。 這可能會導致指令碼失敗，因為磁碟機空間有限。
-- 如先前範例中所示，**FromDate** 和 **ToDate** 參數可以用來收集特定時段的記錄。 對於在整合系統上套用更新套件後收集記錄之類案例中，這會非常方便。
-
-
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>ASDK 和整合系統的參數考量
 
 - 如果未指定 **FromDate** 和 **ToDate** 參數，預設將會收集過去 4 小時的記錄。
 - 您可以使用 **TimeOutInMinutes** 參數來設定記錄收集的逾時。 根據預設，它是設定為 150 (2.5 個小時)。
-
+- 在 1805 版和更新版本中，預設會停用傾印檔案記錄收集。 若要加以啟用，請使用 **IncludeDumpFile** 切換參數。 
 - 目前您可以透過下列角色使用 **FilterByRole** 參數來篩選記錄集合：
 
    |   |   |   |
@@ -185,7 +155,7 @@ if($s)
 * 根據記錄要收集的角色，此命令需要一些時間來執行。 促成因素也包括指定收集記錄的進行時間，以及 Azure Stack 環境中的節點數目。
 * 執行記錄收集時，請檢查以命令指定 **OutputSharePath** 參數所建立的新資料夾。
 * 每個角色在個別 ZIP 檔案皆有其記錄。 根據所收集的記錄的大小，角色的記錄可能會分割為多個 zip 檔案。 對於這類角色，如果您想要將所有記錄檔解壓縮至單一資料夾，請使用可以大量解壓縮的工具 (例如 7zip)。 選取角色的所有壓縮檔案，然後選取 [解壓縮到這裡]。 這會將該角色的所有記錄檔解壓縮至單一合併的資料夾中。
-* 也會在包含壓縮記錄檔的資料夾中建立名為 **Get-AzureStackLog_Output.log** 的檔案。 這個檔案是命令輸出的記錄，可用於疑難排解記錄收集期間的問題。
+* 也會在包含壓縮記錄檔的資料夾中建立名為 **Get-AzureStackLog_Output.log** 的檔案。 這個檔案是命令輸出的記錄，可用於疑難排解記錄收集期間的問題。 此記錄檔有時會包含 `PS>TerminatingError` 項目，除非在執行記錄收集後遺漏了預期的記錄檔，否則可放心忽略此項目。
 * 若要調查特定失敗原因，則可能需要多個元件的記錄。
     -   所有基礎結構虛擬機器的系統和事件記錄，皆會收集在「VirtualMachines」角色中。
     -   所有主機的系統和事件記錄，皆會收集在「BareMetal」角色中。

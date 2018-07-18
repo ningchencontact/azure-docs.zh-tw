@@ -2,17 +2,18 @@
 title: Azure Container Registry Webhook
 description: 了解如何在您的登錄存放庫發生特定動作時，使用 Webhook 來觸發事件。
 services: container-registry
-author: neilpeterson
+author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
-ms.author: nepeters
-ms.openlocfilehash: cf71deda9ec9053a91596c17e18fc797995754e2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: marsma
+ms.openlocfilehash: aff8f1b18c60610ff1d231661fe142eb6c69f3d7
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887567"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>使用 Azure Container Registry Webhook
 
@@ -40,7 +41,7 @@ Azure Container Registry 會儲存和管理私人 Docker 容器映像，其方�
 | 自訂標頭 | 您想要與 POST 要求一起傳遞的標頭。 它們應該為「金鑰：值」的格式。 |
 | 觸發程序動作 | 觸發 Webhook 的動作。 可藉由推送映像及/或刪除動作來觸發 Webhook。 |
 | 狀態 | Webhook 建立之後的狀態。 此選項預設為啟用狀態。 |
-| Scope | Webhook 的運作範圍。 根據預設，範圍是登錄中的所有事件。 可以使用「存放庫：標記」格式，針對存放庫或標記加以指定。 |
+| 影響範圍 | Webhook 的運作範圍。 根據預設，範圍是登錄中的所有事件。 可以使用「存放庫：標記」格式，針對存放庫或標記加以指定。 |
 
 範例 Webhook 表單：
 

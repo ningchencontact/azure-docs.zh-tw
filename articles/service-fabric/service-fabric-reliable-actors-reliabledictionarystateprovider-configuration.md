@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: 00ae5db5fc7a327ae19e64c3d8adf653afd12677
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 1c7e31f9da2b2f9fe7a3a7c64cd6927224cb9fa1
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017890"
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>設定 Reliable Actors - ReliableDictionaryActorStateProvider
 您可以在指定之動作項目的 Config 資料夾下，變更 Visual Studio 封裝根中所產生的 settings.xml，來修改 ReliableDictionaryActorStateProvider 的預設組態。
@@ -67,6 +68,10 @@ SharedLogSizeInMB 會指定要預先配置給所有節點上之預設共用記�
 ## <a name="replicator-security-configuration"></a>複寫器安全性組態
 複寫器安全性組態用來保護在複寫期間使用的通訊通道。 這表示服務將無法看到彼此的複寫流量，並且也會確保高度可用資料的安全。
 依預設，空白的安全性組態區段會妨礙複寫安全性。
+
+> [!IMPORTANT]
+> 在 Linux 節點上，憑證必須是 PEM 格式。 若要深入了解如何尋找和設定適用於 Linux 的憑證，請參閱[在 Linux 上設定憑證](./service-fabric-configure-certificates-linux.md)。 
+> 
 
 ### <a name="section-name"></a>區段名稱
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig

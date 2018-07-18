@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a4cf32ea7b77db3fc78a404063b8a4d69ecebf58
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 32cc1a436521574917c8e52b2fa4e045d32a4f09
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195704"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062569"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>在混合式 Runbook 背景工作角色上執行 Runbook
 
@@ -157,13 +157,9 @@ Get-AzureRmAutomationAccount | Select-Object AutomationAccountName
 
 作業在混合式 Runbook 背景工作角色上與在 Azure 沙箱上執行時的處理方式會有些許不同。 其中一個主要差異，在於混合式 Runbook 背景工作角色上並沒有限制作業持續時間。 如果您是使用長時間執行 Runbook，則需要確認它能彈性進行可能的重新開機，例如在裝載混合式背景工作角色的機器重新開機時。 如果混合式背景工作角色主機電腦重新開機，則任何執行中的 Runbook 作業都會從頭重新啟動，或是從 PowerShell 工作流程 Runbook 的最後一個檢查點重新啟動。 如果 Runbook 作業重新啟動超過 3 次，它就會暫止。
 
-## <a name="troubleshooting-runbooks-on-hybrid-runbook-worker"></a>在 Hybrid Runbook Worker 上進行 Runbook 疑難排解
+## <a name="troubleshoot"></a>疑難排解
 
-記錄檔儲存每一個混合式背景工作角色本機的 C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes 中。 混合式背景工作角色也會將錯誤和事件記錄在 Windows 事件記錄的 **Application and Services Logs\Microsoft-SMA\Operational** 底下。 背景工作上執行的 Runbook 相關事件會寫入 **Application and Services Logs\Microsoft-Automation\Operational** 底下。 **Microsoft SMA** 記錄中包含的許多事件，是與推送至背景工作和處理 Runbook 的 Runbook 作業相關。 雖然 **Microsoft 自動化**事件記錄並沒有許多事件具有可協助針對 Runbook 執行進行疑難排解的詳細資料，它還是會包含 Runbook 作業的結果。
-
-[Runbook 輸出和訊息](automation-runbook-output-and-messages.md) 會從混合式背景工作角色傳送到 Azure 自動化，就像雲端中執行的 Runbook 工作一樣。 您也可以啟用詳細資訊和進度資料流，就像您在其他 Runbook 中的作法一樣。
-
-如果您的 Runbook 未成功完成，但作業摘要顯示 [暫止] 狀態，請檢閱疑難排解文章[混合式 Runbook 背景工作角色：Runbook 作業在暫止狀態下終止](automation-troubleshooting-hybrid-runbook-worker.md#a-runbook-job-terminates-with-a-status-of-suspended)。
+如果您的 Runbook 未順利完成，且作業摘要顯示 [暫止] 狀態，請檢閱 [Runbook 執行失敗](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails) 中的疑難排解指南。
 
 ## <a name="next-steps"></a>後續步驟
 

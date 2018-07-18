@@ -1,11 +1,11 @@
 ---
-title: "在 Linux VM 上裝載 Ruby on Rails 網站 | Microsoft 文件"
-description: "在使用 Linux 虛擬機器的 Azure 上設定及裝載 Ruby on Rails 型網站。"
+title: 在 Linux VM 上裝載 Ruby on Rails 網站 | Microsoft 文件
+description: 在使用 Linux 虛擬機器的 Azure 上設定及裝載 Ruby on Rails 型網站。
 services: virtual-machines-linux
 documentationcenter: ruby
 author: rmcmurray
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: aad32685-3550-4bff-9c73-beb8d70b3291
 ms.service: virtual-machines-linux
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29397592"
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Azure VM 上的 Ruby on Rails Web 應用程式
 此教學課程說明如何在 Azure 上使用 Linux 虛擬機器，於 Rails 網站裝載 Ruby。  

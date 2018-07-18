@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31525160"
 ---
 # <a name="migrate-your-schemas-to-sql-data-warehouse"></a>將您的結構描述移轉至 SQL 資料倉儲
 將您的 SQL 結構描述移轉至 SQL 資料倉儲的指引。 

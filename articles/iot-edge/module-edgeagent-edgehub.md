@@ -1,25 +1,25 @@
 ---
 title: Azure IoT EdgeAgent 和 EdgeHub 參考資訊 | Microsoft Docs
 description: 檢閱 edgeAgent 和 edgeHub 模組對應項的特定屬性及其值
-services: iot-edge
-keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 03/14/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 0971d5bba59ce3c7b1a6409ef3248f33a41e37c9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+services: iot-edge
+ms.openlocfilehash: 2858179d42ebf51cbb24d95d2e0093f8577bacef
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030558"
 ---
 # <a name="properties-of-the-edge-agent-and-edge-hub-module-twins"></a>Edge 代理程式和 Edge 中樞模組對應項的屬性
 
 Edge 代理程式和 Edge 中樞是構成 IoT Edge 執行階段的兩個模組。 如需模組各自執行哪些工作的相關資訊，請參閱[了解 Azure IoT Edge 執行階段及其架構](iot-edge-runtime.md)。 
 
-本文提供執行階段模組對應項的所需屬性和報告屬性。 請參閱[部署與監視][lnk-deploy]以取得如何在 IoT Edge 裝置上部署模組的詳細資訊。
+本文提供執行階段模組對應項的所需屬性和報告屬性。 如需如何在 IoT Edge 裝置上部署模組的詳細資訊，請參閱[部署與監視][lnk-deploy]。
 
 ## <a name="edgeagent-desired-properties"></a>EdgeAgent 的所需屬性
 
@@ -31,22 +31,25 @@ Edge 代理程式的模組對應項稱為 `$edgeAgent`，並且會協調裝置�
 | runtime.type | 必須為「docker」 | yes |
 | runtime.settings.minDockerVersion | 此部署資訊清單需要設定為最小 Docker 版本 | yes |
 | runtime.settings.loggingOptions | stringified JSON，包含 Edge 代理程式容器的記錄選項。 [Docker 記錄選項][lnk-docker-logging-options] | 否 |
+| runtime.settings.registryCredentials<br>.{registryId}.username | 容器登錄的使用者名稱。 Azure Container Registry 的使用者名稱通常是登錄名稱。<br><br> 非公用的任何模組映像都需要登錄認證。 | 否 |
+| runtime.settings.registryCredentials<br>.{registryId}.password | 容器登錄的密碼。 | 否 |
+| runtime.settings.registryCredentials<br>.{registryId}.address | 容器登錄的位址。 Azure Container Registry 的位址通常是 *{registryname}.azurecr.io*。 | 否 |  
 | systemModules.edgeAgent.type | 必須為「docker」 | yes |
 | systemModules.edgeAgent.settings.image | Edge 代理程式映像的 URI。 目前，Edge 代理程式無法自行更新。 | yes |
-| systemModules.edgeAgent.settings.createOptions | stringified JSON，包含 Edge 代理程式容器的建立選項。 [Docker 建立選項][lnk-docker-create-options] | 否 |
-| systemModules.edgeAgent.configuration.id | 部署此模組之部署的識別碼。 | 使用部署來套用此資訊清單時，這是由 IoT 中樞進行設定。 非部署資訊清單的一部分。 |
+| systemModules.edgeAgent.settings<br>.createOptions | stringified JSON，包含 Edge 代理程式容器的建立選項。 [Docker 建立選項][lnk-docker-create-options] | 否 |
+| systemModules.edgeAgent.configuration.id | 部署此模組之部署的識別碼。 | 使用部署套用此資訊清單時，此屬性會由 IoT 中樞進行設定。 非部署資訊清單的一部分。 |
 | systemModules.edgeHub.type | 必須為「docker」 | yes |
 | systemModules.edgeHub.status | 必須為「執行中」 | yes |
 | systemModules.edgeHub.restartPolicy | 必須為「永遠」 | yes |
 | systemModules.edgeHub.settings.image | Edge 中樞映像的 URI。 | yes |
-| systemModules.edgeHub.settings.createOptions | stringified JSON，包含 Edge 中樞容器的建立選項。 [Docker 建立選項][lnk-docker-create-options] | 否 |
-| systemModules.edgeHub.configuration.id | 部署此模組之部署的識別碼。 | 使用部署來套用此資訊清單時，這是由 IoT 中樞進行設定。 非部署資訊清單的一部分。 |
+| systemModules.edgeHub.settings<br>.createOptions | stringified JSON，包含 Edge 中樞容器的建立選項。 [Docker 建立選項][lnk-docker-create-options] | 否 |
+| systemModules.edgeHub.configuration.id | 部署此模組之部署的識別碼。 | 使用部署套用此資訊清單時，此屬性會由 IoT 中樞進行設定。 非部署資訊清單的一部分。 |
 | modules.{moduleId}.version | 使用者定義的字串，表示此模組的版本。 | yes |
 | modules.{moduleId}.type | 必須為「docker」 | yes |
 | modules.{moduleId}.restartPolicy | {"never" \| "on-failed" \| "on-unhealthy" \| "always"} | yes |
 | modules.{moduleId}.settings.image | 模組映像的 URI。 | yes |
 | modules.{moduleId}.settings.createOptions | stringified JSON，包含模組容器的建立選項。 [Docker 建立選項][lnk-docker-create-options] | 否 |
-| modules.{moduleId}.configuration.id | 部署此模組之部署的識別碼。 | 使用部署來套用此資訊清單時，這是由 IoT 中樞進行設定。 非部署資訊清單的一部分。 |
+| modules.{moduleId}.configuration.id | 部署此模組之部署的識別碼。 | 使用部署套用此資訊清單時，此屬性會由 IoT 中樞進行設定。 非部署資訊清單的一部分。 |
 
 ## <a name="edgeagent-reported-properties"></a>EdgeAgent 的報告屬性
 
@@ -59,7 +62,7 @@ Edge 代理程式報告屬性包含三個主要部分資訊：
 萬一最新的預期屬性未由執行階段成功套用，讓裝置仍在執行先前的部署資訊清單，這個最後一項資訊就很有用。
 
 > [!NOTE]
-> 可以使用 [IoT 中樞查詢語言][lnk-iothub-query]查詢，以調查大規模部署的狀態時，Edge 代理程式的報告屬性相當有用。 請參閱[部署][lnk-deploy]以取得如何使用這項功能的詳細資訊。
+> 可以使用 [IoT 中樞查詢語言][lnk-iothub-query]查詢，以調查大規模部署的狀態時，Edge 代理程式的報告屬性相當有用。 如需如何將 Edge 代理程式屬性用於狀態的詳細資訊，請參閱[了解單一裝置或大規模的 IoT Edge 部署][lnk-deploy]。
 
 下表不包含從預期屬性複製的資訊。
 

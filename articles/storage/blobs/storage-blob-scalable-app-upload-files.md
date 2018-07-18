@@ -16,6 +16,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30239893"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>將大量隨機資料平行上傳至 Azure 儲存體
 

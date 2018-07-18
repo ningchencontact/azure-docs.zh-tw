@@ -10,21 +10,22 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 140779ca1786bc9fa2afcfd08fdac0857580e8cf
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: d862cd0223609d80c511362edbcc0ed6dd512b1f
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859142"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure Data Factory 中的運算式和函式
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [第 1 版 - 正式推出](v1/data-factory-functions-variables.md)
-> * [第 2 版 - 預覽](control-flow-expression-language-functions.md)
+> * [第 1 版](v1/data-factory-functions-variables.md)
+> * [目前的版本](control-flow-expression-language-functions.md)
 
-本文提供 Azure Data Factory (第 2 版) 支援的運算式和函式的詳細資料。 
+本文提供 Azure Data Factory 支援之運算式和函式的詳細資料。 
 
 ## <a name="introduction"></a>簡介
 定義中的 JSON 值可以是常值，或是在執行階段評估的運算式。 例如︰  
@@ -39,20 +40,15 @@ ms.lasthandoff: 05/14/2018
 "name": "@pipeline().parameters.password"
 ```
 
-
-> [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (也就是正式推出版 (GA))，請參閱 [Data Factory V1 中的函式與變數](v1/data-factory-functions-variables.md)。
-
-
 ## <a name="expressions"></a>運算式  
-運算式可以出現在 JSON 字串值中的任何一處，並一律產生另一個 JSON 值。 當 JSON 值為運算式時，藉由移除 @ 符號來擷取運算式的主體。 如果需要的常值字串開頭為 \@\，它必須使用 \@@ 逸出。 下列範例顯示如何評估運算式。  
+運算式可以出現在 JSON 字串值中的任何一處，並一律產生另一個 JSON 值。 當 JSON 值為運算式時，可透過移除 \@ 符號來擷取運算式的主體。 如果需要的常值字串開頭為 \@\，它必須使用 \@@ 逸出。 下列範例顯示如何評估運算式。  
   
 |JSON 值|結果|  
 |----------------|------------|  
 |"parameters"|傳回字元 'parameters'。|  
 |"parameters[1]"|傳回字元 'parameters[1]'。|  
-|"@@"|傳回包含 \'\@\' 的 1 個字元字串。|  
-|\" \@\"|傳回包含 '\@\' 的 2 個字元字串。|  
+|"\@@"|傳回包含 \'\@\' 的 1 個字元字串。|  
+|" \@"|傳回包含 '\@\' 的 2 個字元字串。|  
   
  使用稱為「字串插補」的功能，運算式也可以出現在字串內，其中運算式會包含在 `@{ ... }` 內。 例如：`"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
   
@@ -60,13 +56,13 @@ ms.lasthandoff: 05/14/2018
   
 |JSON 值|結果|  
 |----------------|------------|  
-|"@pipeline().parameters.myString"| 傳回 `foo` 做為字串。|  
-|"@{pipeline().parameters.myString}"| 傳回 `foo` 做為字串。|  
-|"@pipeline().parameters.myNumber"| 傳回 `42` 做為「編號」。|  
-|"@{pipeline().parameters.myNumber}"| 傳回 `42` 做為「字串」。|  
+|"\@pipeline().parameters.myString"| 傳回 `foo` 做為字串。|  
+|"\@{pipeline().parameters.myString}"| 傳回 `foo` 做為字串。|  
+|"\@pipeline().parameters.myNumber"| 傳回 `42` 做為「編號」。|  
+|"\@{pipeline().parameters.myNumber}"| 傳回 `42` 做為「字串」。|  
 |"Answer is: @{pipeline().parameters.myNumber}"| 傳回字串 `Answer is: 42`。|  
-|"@concat('Answer is: ', string(pipeline().parameters.myNumber))"| 傳回字串 `Answer is: 42`|  
-|"Answer is: @@{pipeline().parameters.myNumber}"| 傳回字串 `Answer is: @{pipeline().parameters.myNumber}`。|  
+|"\@concat('Answer is: ', string(pipeline().parameters.myNumber))"| 傳回字串 `Answer is: 42`|  
+|"Answer is: \@@{pipeline().parameters.myNumber}"| 傳回字串 `Answer is: @{pipeline().parameters.myNumber}`。|  
   
 ### <a name="examples"></a>範例
 
@@ -161,8 +157,8 @@ ms.lasthandoff: 05/14/2018
 |toUpper|將字串轉換為大寫。 例如，下列運算式會傳回 `TWO BY TWO IS FOUR`：`toUpper('Two by Two is Four')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**︰必要。 要轉換成大寫的字串。 如果字串中的字元沒有對等大寫，它在傳回的字串中會保持不變。|  
 |indexof|在不區分大小寫字串內尋找值的索引。 例如，下列運算式會傳回 `7`：`indexof('hello, world.', 'world')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**︰必要。 可以包含值的字串。<br /><br /> **參數編號**：2<br /><br /> **名稱**：字串<br /><br /> **描述**︰必要。 要搜尋索引的值。|  
 |lastindexof|在不區分大小寫字串內尋找值的最後一個索引。 例如，下列運算式會傳回 `3`：`lastindexof('foofoo', 'foo')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**︰必要。 可以包含值的字串。<br /><br /> **參數編號**：2<br /><br /> **名稱**：字串<br /><br /> **描述**︰必要。 要搜尋索引的值。|  
-|startswith|檢查字串是否以不區分大小寫的值開頭。 例如，下列運算式會傳回 `true`：`lastindexof('hello, world', 'hello')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**︰必要。 可以包含值的字串。<br /><br /> **參數編號**：2<br /><br /> **名稱**：字串<br /><br /> **描述**︰必要。 字串可能開始的值。|  
-|endswith|檢查字串是否以不區分大小寫的值結尾。 例如，下列運算式會傳回 `true`：`lastindexof('hello, world', 'world')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**︰必要。 可以包含值的字串。<br /><br /> **參數編號**：2<br /><br /> **名稱**：字串<br /><br /> **描述**︰必要。 字串可能結尾的值。|  
+|startswith|檢查字串是否以不區分大小寫的值開頭。 例如，下列運算式會傳回 `true`：`startswith('hello, world', 'hello')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**︰必要。 可以包含值的字串。<br /><br /> **參數編號**：2<br /><br /> **名稱**：字串<br /><br /> **描述**︰必要。 字串可能開始的值。|  
+|endswith|檢查字串是否以不區分大小寫的值結尾。 例如，下列運算式會傳回 `true`：`endswith('hello, world', 'world')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**︰必要。 可以包含值的字串。<br /><br /> **參數編號**：2<br /><br /> **名稱**：字串<br /><br /> **描述**︰必要。 字串可能結尾的值。|  
 |split|使用分隔符號分隔字串。 例如，下列運算式會傳回 `["a", "b", "c"]`：`split('a;b;c',';')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**︰必要。 分割的字串。<br /><br /> **參數編號**：2<br /><br /> **名稱**：字串<br /><br /> **描述**︰必要。 分隔符號。|  
   
   
@@ -232,7 +228,7 @@ ms.lasthandoff: 05/14/2018
 |decodeDataUri|傳回輸入資料 URI 字串的二進位表示法。 例如，下列運算式會傳回 `some string` 的二進位表示法：`decodeDataUri('data:;base64,c29tZSBzdHJpbmc=')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**︰必要。 要解碼為二進位表示法的 dataURI。|  
 |uriComponent|傳回值的 URI 編碼表示法。 例如，下列運算式會傳回 `You+Are%3ACool%2FAwesome: uriComponent('You Are:Cool/Awesome ')`<br /><br /> 參數詳細資料：數字：1，名稱：字串，描述：必要。 要進行 URI 編碼的字串。|  
 |uriComponentToBinary|傳回 URI 編碼字串的二進位表示法。 例如，下列運算式會傳回 `You Are:Cool/Awesome` 的二進位表示法：`uriComponentToBinary('You+Are%3ACool%2FAwesome')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br />**描述**︰必要。 URI 編碼的字串。|  
-|uriComponentToString|傳回 URI 編碼字串的字串表示法。 例如，下列運算式會傳回 `You Are:Cool/Awesome`：`uriComponentToBinary('You+Are%3ACool%2FAwesome')`<br /><br /> **參數編號**：1<br /><br />**名稱**：字串<br /><br />**描述**︰必要。 URI 編碼的字串。|  
+|uriComponentToString|傳回 URI 編碼字串的字串表示法。 例如，下列運算式會傳回 `You Are:Cool/Awesome`：`uriComponentToString('You+Are%3ACool%2FAwesome')`<br /><br /> **參數編號**：1<br /><br />**名稱**：字串<br /><br />**描述**︰必要。 URI 編碼的字串。|  
 |xml|傳回值的 XML 表示法。 例如，下列運算式會傳回以 `'\<name>Alan\</name>'` 表示的 XML 內容：`xml('\<name>Alan\</name>')`。 XML 函式也支援 JSON 物件輸入。 例如，參數 `{ "abc": "xyz" }` 轉換成 XML 內容 `\<abc>xyz\</abc>`<br /><br /> **參數編號**：1<br /><br />**名稱**︰值<br /><br />**描述**︰必要。 要轉換成 XML 的值。|  
 |xpath|傳回符合值 (xpath 運算式進行評估) 之 xpath 運算式的 XML 節點陣列。<br /><br />  **範例 1**<br /><br /> 假設參數 ‘p1’ 的值是下列 XML 的字串表示法：<br /><br /> `<?xml version="1.0"?> <lab>   <robot>     <parts>5</parts>     <name>R1</name>   </robot>   <robot>     <parts>8</parts>     <name>R2</name>   </robot> </lab>`<br /><br /> 1.此程式碼：`xpath(xml(pipeline().parameters.p1), '/lab/robot/name')`<br /><br /> 會傳回<br /><br /> `[ <name>R1</name>, <name>R2</name> ]`<br /><br /> 而<br /><br /> 2.此程式碼：`xpath(xml(pipeline().parameters.p1, ' sum(/lab/robot/parts)')`<br /><br /> 會傳回<br /><br /> `13`<br /><br /> <br /><br /> **範例 2**<br /><br /> 指定下列 XML 內容：<br /><br /> `<?xml version="1.0"?> <File xmlns="http://foo.com">   <Location>bar</Location> </File>`<br /><br /> 1.此程式碼：`@xpath(xml(body('Http')), '/*[name()=\"File\"]/*[name()=\"Location\"]')`<br /><br /> 或<br /><br /> 2.此程式碼：`@xpath(xml(body('Http')), '/*[local-name()=\"File\" and namespace-uri()=\"http://foo.com\"]/*[local-name()=\"Location\" and namespace-uri()=\"\"]')`<br /><br /> 傳回<br /><br /> `<Location xmlns="http://foo.com">bar</Location>`<br /><br /> 和<br /><br /> 3.此程式碼：`@xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')`<br /><br /> 傳回<br /><br /> ``bar``<br /><br /> **參數編號**：1<br /><br />**名稱**：Xml<br /><br />**描述**︰必要。 要評估 XPath 運算式的 XML。<br /><br /> **參數編號**：2<br /><br />**名稱**：XPath<br /><br />**描述**︰必要。 要評估的 XPath 運算式。|  
 |array|將參數轉換成陣列。  例如，下列運算式會傳回 `["abc"]`：`array('abc')`<br /><br /> **參數編號**：1<br /><br /> **名稱**︰值<br /><br /> **描述**︰必要。 轉換成陣列的值。|

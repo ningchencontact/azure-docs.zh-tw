@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: terrylan
-ms.openlocfilehash: 1e48131ff784ba5bb8d5a7dfffe8afb5ce8bb4c1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 10c2ed359fa77ad00945ddcfbc55dc0901ba8bff
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364364"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38697100"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure 安全性管理和監視概觀
 Azure 提供安全性機制來協助管理和監視 Azure 雲端服務和虛擬機器 (VM)。 本文概述這些核心安全性功能和服務。 所提供的文章連結將提供每個項目的詳細資料，以讓您深入了解。
@@ -39,13 +39,13 @@ Microsoft 雲端服務的安全性是您與 Microsoft 之間的合作關係和�
 
 深入了解：
 
-* [有關 RBAC 的 Active Directory 小組部落格](http://i1.blogs.technet.com/b/ad/archive/2015/10/12/azure-rbac-is-ga.aspx)
+* [有關 RBAC 的 Active Directory 小組部落格](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
 * [Azure 角色型存取控制](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="antimalware"></a>反惡意程式碼
 運用 Azure，您可以使用來自各大安全性廠商 (例如 Microsoft、Symantec、Trend Micro、McAfee 和 Kaspersky) 的反惡意程式碼軟體。 此軟體可協助保護您的虛擬機器來抵禦惡意檔案、廣告軟體和其他威脅。
 
-適用於 Azure 雲端服務和虛擬機器的 Microsoft Antimalware 可讓您針對 PaaS 角色和虛擬機器安裝反惡意程式碼代理程式。 根據 System Center Endpoint Protection，這個功能會將經證實的內部部署安全性技術帶入雲端。
+適用於 Azure 雲端服務和虛擬機器的 Microsoft Antimalware 可讓您針對 PaaS 角色和虛擬機器安裝反惡意程式碼代理程式。 根據 System Center Endpoint Protection，這項功能會將經證實的內部部署安全性技術帶入雲端。
 
 我們也會針對 Azure 平台中 Trend 的 [Deep Security](http://www.trendmicro.com/us/enterprise/cloud-solutions/deep-security/) \(英文\) 和 [SecureCloud](http://www.trendmicro.com/us/enterprise/cloud-solutions/secure-cloud/) \(英文\) 產品提供深入整合。 Deep Security 是一種防毒解決方案，而 SecureCloud 則是一種加密解決方案。 Deep Security 是透過延伸模組模型部署於 VM 內的。 透過使用 Azure 入口網站 UI 和 PowerShell，您可以選擇在所啟動的新 VM 內或已部署的現有 VM 內使用 Deep Security。
 
@@ -94,14 +94,14 @@ VPN 閘道 (也稱為 Azure 虛擬網路閘道) 可用來在虛擬網路與內�
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
 使用者有時候需要在 Azure 資源或其他 SaaS 應用程式中執行特殊權限的作業。 這通常表示組織會授與他們永久的 Azure Active Directory (Azure AD) 特殊存取權限。 
 
-這會提高雲端資源的安全性風險，因為組織無法滴水不漏地監視這些使用者利用其特殊存取權限的所作所為。 此外，如果具特殊存取權限的使用者帳戶遭到入侵，這個缺口就會影響組織的整體雲端安全性。 Azure AD Privileged Identity Management 有助於解決這個風險，方法是降低權限的曝光時間，並增加使用情形的可見性。  
+這會提高雲端資源的安全性風險，因為組織無法滴水不漏地監視這些使用者利用其特殊存取權限的所作所為。 此外，如果具特殊存取權限的使用者帳戶遭到入侵，這個缺口就會影響組織的整體雲端安全性。 Azure AD Privileged Identity Management 有助於解決這項風險，方法是降低權限的曝光時間，並增加使用情形的可見性。  
 
 Privileged Identity Management 引進了角色的臨時系統管理員或「即時」系統管理員存取權的概念。 這種系統管理員是需要針對該指派的角色完成啟用程序的使用者。 啟用程序會在指定的期間，將 Azure AD 中角色的使用者指派從非作用中變更為作用中。
 
 深入了解：
 
-* [Azure AD Privileged Identity Management](../active-directory/active-directory-privileged-identity-management-configure.md)
-* [開始使用 Azure AD Privileged Identity Management](../active-directory/active-directory-privileged-identity-management-getting-started.md)
+* [Azure AD 特殊權限身分識別管理](../active-directory/privileged-identity-management/pim-configure.md)
+* [開始使用 Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-getting-started.md)
 
 ## <a name="identity-protection"></a>身分識別保護
 Azure AD Identity Protection 提供可疑登入活動和潛在弱點的合併檢視，以協助保護您的企業。 Identity Protection 會根據如下的訊號，來偵測使用者和具特殊權限 (系統管理員) 身分識別的可疑活動：
@@ -110,17 +110,17 @@ Azure AD Identity Protection 提供可疑登入活動和潛在弱點的合併檢
 - 認證外洩。
 - 從不熟悉的位置和受感染的裝置登入。
 
-透過提供通知和建議的補救，Identity Protection 有助於即時降低風險。 它會計算使用者風險嚴重性。 您可以設定以風險為基礎的原則，自動協助保護應用程式存取，以免未來受到威脅。
+藉由提供通知和建議的補救，Identity Protection 有助於即時降低風險。 它會計算使用者風險嚴重性。 您可以設定以風險為基礎的原則，自動協助保護應用程式存取，以免未來受到威脅。
 
 深入了解：
 
 * [Azure Active Directory Identity Protection](../active-directory/active-directory-identityprotection.md)
-* [Channel 9：Azure AD 和身分識別展示：Identity Protection 預覽](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+* [第 9 頻道：Azure AD 和身分識別展示：Identity Protection 預覽](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="security-center"></a>資訊安全中心
 Azure 資訊安全中心可協助您保護、偵測威脅並採取相應的措施。 資訊安全中心可讓您完整檢視並控制 Azure 資源的安全性。 它提供您 Azure 訂用帳戶之間的整合式安全性監視和原則管理。 它有助於偵測可能會被忽視的威脅，並可搭配廣泛的安全性解決方案生態系統使用。
 
-資訊安全中心透過下列方式來協助您最佳化和監視 Azure 資源安全性︰
+資訊安全中心藉由下列方式來協助您最佳化和監視 Azure 資源安全性︰
 
 * 讓您能夠根據下列各項來定義適用於 Azure 訂用帳戶資源的原則：
   * 公司的安全性需求。

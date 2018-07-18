@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: b57683f5b0634c27e8604c26496a3421ae386439
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 8295abfae8d82a7c7762c6b27a8bac7487f6afff
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335276"
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Application Insights 中分析的教學課程
 [分析](app-insights-analytics.md)是 [Application Insights](app-insights-overview.md) 的強大搜尋功能。 這些分頁說明 Log Analytics 查詢語言。
@@ -179,7 +180,7 @@ ms.lasthandoff: 05/20/2018
 
 
 ## <a name="projecthttpsdocsloganalyticsiodocslanguage-referencetabular-operatorsproject-operator-select-rename-and-compute-columns"></a>[Project](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator)：選取、重新命名和計算資料行
-使用 [`project`](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html) ，只挑出您想要的資料行：
+使用 [`project`](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator) ，只挑出您想要的資料行：
 
 ```AIQL
 

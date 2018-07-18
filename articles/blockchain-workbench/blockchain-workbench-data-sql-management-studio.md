@@ -10,11 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 1c9ee1e94ba1195db027c3edfab2e2a96f181ca3
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 5c5a2e2b42cd9c19810e6579159b228369ee8f7f
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969294"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-sql-server-management-studio"></a>將 Azure Blockchain Workbench 資料搭配 SQL Server Management Studio 使用
 
@@ -22,7 +23,7 @@ Microsoft SQL Server Management Studio 可供快速撰寫查詢並對 Azure Bloc
 
 ## <a name="prerequisites"></a>先決條件
 
-* 下載 [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017)。
+* 下載 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017)。
 
 ## <a name="connecting-sql-server-management-studio-to-data-in-azure-blockchain-workbench"></a>在 Azure Blockchain Workbench 中將 SQL Server Management Studio 連線至資料
 
@@ -50,4 +51,5 @@ Microsoft SQL Server Management Studio 可供快速撰寫查詢並對 Azure Bloc
 
 ## <a name="next-steps"></a>後續步驟
 
-* [Azure Blockchain Workbench 中的資料庫檢視](blockchain-workbench-database-views.md)
+> [!div class="nextstepaction"]
+> [Azure Blockchain Workbench 中的資料庫檢視](blockchain-workbench-database-views.md)

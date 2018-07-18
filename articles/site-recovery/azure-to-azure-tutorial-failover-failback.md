@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/15/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 4a27142f9110fd26daa8ea0ebd151a67769e6568
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 61b354dfd6f704eb0677991c02f28de08e49ee37
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209268"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917494"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>在 Azure 區域之間容錯移轉及容錯回復 Azure VM
 
@@ -28,7 +28,7 @@ ms.locfileid: "34209268"
 > * 容錯回復次要 VM
 > * 將主要 VM 放回次要區域保護
 
-Azure 至 Azure 複寫目前為預覽狀態。
+
 
 ## <a name="prerequisites"></a>先決條件
 

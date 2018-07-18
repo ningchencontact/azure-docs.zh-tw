@@ -18,6 +18,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32770769"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>使用 Azure 資源管理員範本建立應用程式閘道
 

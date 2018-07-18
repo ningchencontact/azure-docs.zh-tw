@@ -1,19 +1,19 @@
 ---
-title: 將一般 Node.js 用戶端應用程式連線至 Azure IoT 中心 | Microsoft Docs
+title: 將一般 Node.js 用戶端應用程式連線至 Azure IoT Central | Microsoft Docs
 description: 如何以裝置開發人員身分將一般 Node.js 裝置連線到 Azure IoT 中心應用程式。
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 8666a2db051cbd4a93c3e587aeaef3e1722b1b83
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: 42ede975f2cfde2d9c0a61d15ba1af412a88c556
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199590"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628533"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>將一般用戶端應用程式連線到 Azure IoT 中心應用程式 (Node.js)
 
@@ -23,7 +23,7 @@ ms.locfileid: "34199590"
 
 若要完成這篇文章中的步驟，您需要下列項目︰
 
-1. Azure IoT 中心應用程式。 如需詳細資訊，請參閱[建立 Azure IoT 中心應用程式](howto-create-application.md)。
+1. Azure IoT Central 應用程式。 如需詳細資訊，請參閱[建立 Azure IoT 中心應用程式](howto-create-application.md)。
 1. 已安裝 [Node.js](https://nodejs.org/) 4.0.0 版或更新版本的開發電腦。 您可以在命令列執行 `node --version` 來檢查版本。 Node.js 適用於各種作業系統。
 
 在 Azure IoT 中心應用程式中，您必須具有已定義下列量值和裝置屬性的裝置範本：

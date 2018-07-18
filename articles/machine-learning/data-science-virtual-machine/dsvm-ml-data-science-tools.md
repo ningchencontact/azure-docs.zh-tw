@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31409545"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>機器學習與資料科學工具
 資料科學虛擬機器 (DSVM) 具有一系列適用於機器學習服務的豐富工具和程式庫，並以各種熱門的語言提供使用 (例如 Python、R、Julia)。 

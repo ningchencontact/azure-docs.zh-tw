@@ -3,7 +3,7 @@ title: 使用 Azure Log Analytics 跨資源搜尋 | Microsoft Docs
 description: 本文說明如何針對來自訂用帳戶中多個工作區和 App Insights 應用程式的資源執行查詢。
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -11,20 +11,22 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: magoedte
-ms.openlocfilehash: e46ae3af3a718703f9e1d6b847b2342469bf3a1e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: na
+ms.openlocfilehash: a8d5465a2a9aaf9cf686a8e135a1f537cc60c6b5
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129246"
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>在 Log Analytics 中執行跨資源記錄搜尋  
 
 先前使用 Azure Log Analytics 時，您只能分析來自目前工作區內的資料，這項限制讓您無法跨訂用帳戶中定義的多個工作區執行查詢。  此外，您只能搜尋在 Application Insights 中或從 Visual Studio 直接使用 Application Insights 從 Web 應用程式收集的遙測項目。  如此一來，也難以將作業和應用程式資料一起以原生方式分析。   
 
-現在您不僅可以跨多個 Log Analytics 工作區查詢，也可以查詢來自相同資源群組、另一個資源群組或其他訂用帳戶中特定 Application Insights 應用程式中的資料。 這讓您對資料能有全系統的檢視。  您只能在[進階入口網站](log-analytics-log-search-portals.md#advanced-analytics-portal) (無法在 Azure 入口網站) 中執行這些類型的查詢。  
+現在您不僅可以跨多個 Log Analytics 工作區查詢，也可以查詢來自相同資源群組、另一個資源群組或其他訂用帳戶中特定 Application Insights 應用程式中的資料。 這讓您對資料能有全系統的檢視。  您只能在[進階入口網站](log-analytics-log-search-portals.md#advanced-analytics-portal) (無法在 Azure 入口網站) 中執行這些類型的查詢。 單一查詢中可納入的資源 (Log Analytics 工作區和 Application Insights 應用程式) 數目上限為 100 個。 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>跨 Log Analytics 工作區和從 Application Insights 查詢
 若要在查詢中參考另一個工作區，請使用 [*workspace*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()) 識別項，而若要查詢來自 Application Insights 的應用程式，請使用 [*app*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app()) 識別項。  

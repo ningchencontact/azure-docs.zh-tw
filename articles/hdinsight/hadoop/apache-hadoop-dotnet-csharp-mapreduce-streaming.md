@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31400872"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a>搭配 HDInsight 的 Hadoop 上的 MapReduce 串流使用 C#
 

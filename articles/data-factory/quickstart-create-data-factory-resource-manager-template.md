@@ -13,22 +13,21 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 2769be7097ebc65bc7c022ebd2e3f2de6e57e9b8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 525a11d0cbb10d4170930fb4df362e0a9ea024e2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38623501"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>教學課程：使用 Azure Resource Manager 範本建立 Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [第 1 版 - 正式推出](v1/data-factory-build-your-first-pipeline-using-arm.md)
-> * [第 2 版 - 預覽](quickstart-create-data-factory-resource-manager-template.md) 
+> * [第 1 版](v1/data-factory-build-your-first-pipeline-using-arm.md)
+> * [目前的版本](quickstart-create-data-factory-resource-manager-template.md) 
 
 本快速入門說明如何使用 Azure Resource Manager 範本建立 Azure Data Factory。 在此資料處理站中建立的管線會將資料從 Azure Blob 儲存體中的一個資料夾**複製**到其他資料夾。 如需如何使用 Azure Data Factory **轉換**資料的教學課程，請參閱[教學課程︰使用 Spark 轉換資料](transform-data-using-spark.md)。 
 
 > [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務 (也就是正式推出版 (GA))，請參閱[使用 Data Factory 第 1 版建置您的第一個資料處理站](v1/data-factory-build-your-first-pipeline-using-arm.md)。
->
 > 本文不提供 Data Factory 服務的詳細簡介。 如需 Azure Data Factory 服務簡介，請參閱 [Azure Data Factory 簡介](introduction.md)。
 
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 

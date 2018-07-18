@@ -1,22 +1,21 @@
 ---
-title: Azure Active Directory B2C：內建原則 | Microsoft Docs
-description: 關於 Azure Active Directory B2C 的可延伸原則架構及如何建立各種原則類型的主題
+title: Azure Active Directory B2C 中的內建原則 | Microsoft Docs
+description: 關於 Azure Active Directory B2C 的可延伸原則架構，及如何建立各種原則類型的主題。
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: davidmu
-ms.openlocfilehash: 424186a0acfe17cd7cb96f3ba7f8201e8b2b38ec
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.component: B2C
+ms.openlocfilehash: 5c89f39b2f94309ea3d99230f5265d834c7093d9
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33200343"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38477444"
 ---
 # <a name="azure-active-directory-b2c-built-in-policies"></a>Azure Active Directory B2C：內建原則
 

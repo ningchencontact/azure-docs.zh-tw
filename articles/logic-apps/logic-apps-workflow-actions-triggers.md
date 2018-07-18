@@ -3,7 +3,7 @@ title: 工作流程觸發程序和動作 - Azure Logic Apps | Microsoft Docs
 description: 深入了解 Azure Logic Apps 工作流程動作中的觸發程序和動作
 services: logic-apps
 author: kevinlam1
-manager: SyntaxC4
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 ms.assetid: 86a53bb3-01ba-4e83-89b7-c9a7074cb159
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 5/8/2018
 ms.author: klam; LADocs
-ms.openlocfilehash: 88ee3d810a80bed418e8dbafa4f3e35ccf5e85b1
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: f44de1a316a8375618cfef2e4a98d40c2b21e019
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "33886777"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300142"
 ---
 # <a name="triggers-and-actions-for-workflow-definitions-in-azure-logic-apps"></a>Azure Logic Apps 工作流程動作中的觸發程序和動作
 
@@ -1395,7 +1395,7 @@ APIConnectionWebhook 動作會參考 Microsoft 受控連接器。 這個動作�
 | `"expression": "@greater(actions('action1').output.value, parameters('threshold'))"` | 支援比較函式。 就此範例而言，只有當 action1 的輸出大於閾值時，才會執行動作。 | 
 | `"expression": "@or(greater(actions('action1').output.value, parameters('threshold')), less(actions('action1').output.value, 100))"` | 支援使用邏輯函式來建立巢狀布林運算式。 在此範例中，只有當 action1 的輸出超出閾值或低於 100 時，才會執行動作。 | 
 | `"expression": "@equals(length(actions('action1').outputs.errors), 0))"` | 若要檢查陣列是否有任何項目，您可以使用陣列函式。 在此範例中，當錯誤陣列空白時，就會執行動作。 | 
-| `"expression": "parameters('hasSpecialAction')"` | 此運算式會造成錯誤，且不是有效的條件。 條件必須使用 "@" 符號。 | 
+| `"expression": "parameters('hasSpecialAction')"` | 此運算式會造成錯誤，且不是有效的條件。 條件必須使用 "\@\" 符號。 | 
 ||| 
 
 ## <a name="switch-action"></a>Switch 動作

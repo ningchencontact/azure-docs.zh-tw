@@ -1,24 +1,26 @@
 ---
-title: "使用 Azure 入口網站以 Log Analytics 評估 Service Fabric 應用程式 | Microsoft Docs"
-description: "您可以在 Log Analytics 中使用 Azure 入口網站，使用 Service Fabric 解決方案評估 Service Fabric 應用程式、微服務、節點和叢集的風險和健全狀況。"
+title: 使用 Azure 入口網站以 Log Analytics 評估 Service Fabric 應用程式 | Microsoft Docs
+description: 您可以在 Log Analytics 中使用 Azure 入口網站，使用 Service Fabric 解決方案評估 Service Fabric 應用程式、微服務、節點和叢集的風險和健全狀況。
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: niniikhena
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: 9c91aacb-c48e-466c-b792-261f25940c0c
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: nini
-ms.openlocfilehash: 10c5394935c59b21139c0e141c348ce20a7c0800
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.component: na
+ms.openlocfilehash: 8296f0756aef7180efa777795cb361e653c0e4e3
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128008"
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>使用 Azure 入口網站評估 Service Fabric 應用程式和微服務
 

@@ -1,23 +1,21 @@
 ---
 title: 從 Azure IoT 中樞控制裝置快速入門 (Java) | Microsoft Docs
 description: 在此快速入門中，您會執行兩個範例 Java 應用程式。 其中一個應用程式是後端應用程式，可以從遠端控制連線到中樞的裝置。 另一個應用程式則是模擬可以從遠端控制且連線到中樞的裝置。
-services: iot-hub
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: ns
-ms.date: 04/30/2018
+ms.date: 06/22/2018
 ms.author: dobett
-ms.openlocfilehash: 569234e15c0f12de7cbf4ac6bd1c5617035ce0ab
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5da4248f0b0a72c3614b4c3e5ea042c4341f4e03
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38573495"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>快速入門：控制連線到 IoT 中樞的裝置 (Java)
 
@@ -72,10 +70,12 @@ mvn --version
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name {YourIoTHubName}--device-id MyJavaDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyJavaDevice
     ```
 
-1. 執行下列命令，以針對您剛註冊的裝置取得_裝置連接字串_：
+    如果您為裝置選擇不同的名稱，請先在範例應用程式中更新該裝置名稱，再執行應用程式。
+
+2. 執行下列命令，以針對您剛註冊的裝置取得_裝置連接字串_：
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyJavaDevice --output table
@@ -97,19 +97,19 @@ az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
 
 模擬裝置應用程式會連線到 IoT 中樞上的特定裝置端點、傳送模擬的遙測，並接聽來自中樞的直接方法呼叫。 在此快速入門中，來自中樞的直接方法呼叫會告知裝置變更其傳送遙測的間隔。 模擬的裝置在執行直接方法後，會將通知傳送回您的中樞。
 
-1. 在終端機視窗中，瀏覽至範例 Java 專案的根資料夾。 然後瀏覽至 **Quickstarts\simulated-device-2** 資料夾。
+1. 在終端機視窗中，瀏覽至範例 Java 專案的根資料夾。 然後瀏覽至 **iot-hub\Quickstarts\simulated-device-2** 資料夾。
 
-1. 在您選擇的文字編輯器中開啟 **src/main/java/com/microsoft/docs/iothub/samples/SimulatedDevice.java** 檔案。
+2. 在您選擇的文字編輯器中開啟 **src/main/java/com/microsoft/docs/iothub/samples/SimulatedDevice.java** 檔案。
 
     使用先前所記錄的裝置連接字串來取代 `connString` 變數的值。 然後將變更儲存到 **SimulatedDevice.java** 檔案。
 
-1. 在終端機視窗中，執行下列命令以安裝模擬裝置應用程式所需的程式庫並建置模擬裝置應用程式：
+3. 在終端機視窗中，執行下列命令以安裝模擬裝置應用程式所需的程式庫並建置模擬裝置應用程式：
 
     ```cmd/sh
     mvn clean package
     ```
 
-1. 在終端機視窗中，執行下列命令以執行模擬裝置應用程式：
+4. 在終端機視窗中，執行下列命令以執行模擬裝置應用程式：
 
     ```cmd/sh
     java -jar target/simulated-device-2-1.0.0-with-deps.jar
@@ -123,19 +123,19 @@ az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
 
 後端應用程式會連線到 IoT 中樞上的服務端端點。 應用程式會透過您的 IoT 中樞對裝置進行直接方法呼叫，並接聽通知。 IoT 中樞後端應用程式通常會在雲端中執行。
 
-1. 在另一個終端機視窗中，瀏覽至範例 Java 專案的根資料夾。 然後瀏覽至 **Quickstarts\back-end-application** 資料夾。
+1. 在另一個終端機視窗中，瀏覽至範例 Java 專案的根資料夾。 然後瀏覽至 **iot-hub\Quickstarts\back-end-application** 資料夾。
 
-1. 在您選擇的文字編輯器中開啟 **src/main/java/com/microsoft/docs/iothub/samples/ReadDeviceToCloudMessages.java** 檔案。
+2. 在您選擇的文字編輯器中開啟 **src/main/java/com/microsoft/docs/iothub/samples/BackEndApplication.java** 檔案。
 
     使用先前所記錄的服務連接字串來取代 `iotHubConnectionString` 變數的值。 然後將您的變更儲存到 **BackEndApplication.java** 檔案。
 
-1. 在終端機視窗中，執行下列命令以安裝所需的程式庫並建置後端應用程式：
+3. 在終端機視窗中，執行下列命令以安裝所需的程式庫並建置後端應用程式：
 
     ```cmd/sh
     mvn clean package
     ```
 
-1. 在終端機視窗中，執行下列命令以執行後端應用程式：
+4. 在終端機視窗中，執行下列命令以執行後端應用程式：
 
     ```cmd/sh
     java -jar target/back-end-application-1.0.0-with-deps.jar
@@ -151,9 +151,7 @@ az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您打算繼續進行教學課程，請保留資源群組和 IoT 中樞，以供稍後重複使用。
-
-如果您不再需要 IoT 中樞，請在入口網站中刪除它和資源群組。 若要這樣做，請選取包含 IoT 中樞的資源群組，然後按一下 [刪除]。
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -162,4 +160,4 @@ az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
 若要了解如何將「裝置到雲端」訊息路由傳送至雲端中的不同目的地，請繼續下一個教學課程。
 
 > [!div class="nextstepaction"]
-> [教學課程：將遙測路由傳送至不同的端點以進行處理](iot-hub-java-java-process-d2c.md)
+> [教學課程：將遙測路由傳送至不同的端點以進行處理](tutorial-routing.md)

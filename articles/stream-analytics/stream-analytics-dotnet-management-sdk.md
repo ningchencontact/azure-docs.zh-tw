@@ -14,6 +14,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31525296"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>管理 .NET SDK：透過適用於 .NET 的 Azure 串流分析 API 來設定及執行分析工作
 了解如何使用管理 .NET SDK，透過適用於 .NET 的串流分析 API 來設定及執行分析作業。 設定專案，建立輸入與輸出來源、轉換，以及開始和停止工作。 對於您的分析工作，您可以從 Blob 儲存體或從事件中樞串流資料。

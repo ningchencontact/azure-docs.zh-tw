@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1c8bbbde653ed8e927ab1550c32ae86a4dc2ffac
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: d30006fae8a0d495909b9a53cf0bffb5cc824433
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38295391"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>對 Azure AD Connect 的連線問題進行疑難排解
 這篇文章說明 Azure AD Connect 與 Azure AD 之間的連線的運作方式，以及如何疑難排解連線問題。 這些問題最有可能出現在具有 Proxy 伺服器的環境中。
@@ -101,8 +103,8 @@ PowerShell 會使用 machine.config 中的組態來連絡 Proxy。 winhttp/netsh
 ## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Azure AD Connect 與 Azure AD 之間的通訊模式
 如果您已依照上述這些步驟操作卻仍然無法連接，這時可以開始查看網路記錄檔。 本節說明正常和成功的連線模式。 它也會列出常見的假象，當您閱讀網路記錄檔時可以略過。
 
-* 會有一些對 https://dc.services.visualstudio.com 的呼叫。並不需要在 Proxy 中開啟此 URL，安裝即可成功，因此可以忽略這些呼叫。
-* 您會看到 DNS 解析列出要在 DNS 命名空間 nsatc.net 中的實際主機，以及其他不在 microsoftonline.com 底下的命名空間。不過，實際伺服器名稱上沒有任何 Web 服務要求，因此您不需要將這些 URL 新增到 Proxy。
+* 會有一些對 https://dc.services.visualstudio.com 的呼叫。 並不需要在 Proxy 中開啟此 URL，安裝即可成功，因此可以忽略這些呼叫。
+* 您會看到 DNS 解析列出要在 DNS 命名空間 nsatc.net 中的實際主機，以及其他不在 microsoftonline.com 底下的命名空間。 不過，實際伺服器名稱上沒有任何 Web 服務要求，因此您不需要將這些 URL 新增到 Proxy。
 * 端點 adminwebservice 和 provisioningapi 是探索端點，可用來尋找要使用的實際端點。 這些端點會依據您的區域而有所不同。
 
 ### <a name="reference-proxy-logs"></a>參考 Proxy 記錄檔
@@ -172,7 +174,7 @@ Azure AD 目錄找不到或無法解析。 可能是您嘗試以未驗證網域�
 驗證成功。 您不是全域管理員。
 
 ### <a name="privilegedidentitymanagement"></a>PrivilegedIdentityManagement
-驗證成功。 已啟用 Privileged Identity Management，而且您目前不是全域管理員。 如需詳細資訊，請參閱 [Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md)。
+驗證成功。 已啟用 Privileged Identity Management，而且您目前不是全域管理員。 如需詳細資訊，請參閱 [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md)。
 
 ### <a name="companyinfounavailable"></a>CompanyInfoUnavailable
 驗證成功。 無法從 Azure AD 擷取公司資訊。

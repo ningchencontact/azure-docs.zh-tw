@@ -16,10 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
 ms.openlocfilehash: f3f479de8bc3975f4da07a7761ffc99f976db20e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38235470"
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-frontend-using-azure-cli"></a>使用 Azure CLI 建立具有區域備援前端的公用 Load Balancer Standard
 

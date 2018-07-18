@@ -3,24 +3,21 @@ title: Azure Cosmos DB 的資料庫移轉工具 | Microsoft Docs
 description: 了解如何使用開放原始碼 Azure Cosmos DB 資料移轉工具，將各種來源的資料 (包括 MongoDB、SQL Server、資料表儲存體、Amazon DynamoDB、CSV 及 JSON 檔案) 匯入到 Azure Cosmos DB。 將 CSV 轉換成 JSON。
 keywords: csv 轉換成 json, 資料庫移轉工具, 將 csv 轉換成 json
 services: cosmos-db
-author: andrewhoh
+author: SnehaGunda
 manager: kfile
 editor: monicar
-documentationcenter: ''
-ms.assetid: d173581d-782a-445c-98d9-5e3c49b00e25
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/30/2018
-ms.author: anhoh
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: a14dbaffe6bfa68e7606d117823195144250c230
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 52d5977b2a454dec803ad1233fcb12cc9573521c
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100346"
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB：資料移轉工具
 
@@ -58,7 +55,7 @@ ms.lasthandoff: 05/11/2018
 * hbase
 * Azure Cosmos DB 集合
 
-雖然匯入工具包括圖形化使用者介面 (dtui.exe)，您也可以從命令列 (dt.exe) 驅動此工具。 事實上，在透過 UI 設定匯入之後，有一個選項可以輸出相關聯的命令。 表格式來源資料 (例如 SQL Server 或 CSV 檔案) 可以進行轉換，以致可以在匯入期間建立階層式關聯性 (子文件)。 繼續閱讀以深入了解來源選項、從每個來源匯入的範例命令列、目標選項，以及檢視匯入結果。
+雖然匯入工具包括圖形化使用者介面 (dtui.exe)，您也可以從命令列 (dt.exe) 驅動此工具。 事實上，在透過 UI 設定匯入之後，有一個選項可以輸出相關聯的命令。 表格式來源資料 (例如 SQL Server 或 CSV 檔案) 可以進行轉換，以致可以在匯入期間建立階層式關聯性 (子文件)。 繼續閱讀以深入了解來源選項、從每個來源匯入的範例命令、目標選項，以及檢視匯入結果。
 
 ## <a id="Install"></a>安裝
 移轉工具的原始程式碼可在 GitHub 上的[這個存放庫](https://github.com/azure/azure-documentdb-datamigrationtool)中取得。 您可以在本機下載並編譯解決方案，或下載[預先編譯的二進位檔](https://cosmosdbportalstorage.blob.core.windows.net/datamigrationtool/2018.02.28-1.8.1/dt-1.8.1.zip)，然後執行：
@@ -225,7 +222,7 @@ Azure 資料表儲存體連接字串的格式如下：
 > 
 > 
 
-輸入要從中匯入資料的 Azure 資料表名稱。 您可以選擇性地指定 [篩選器](https://msdn.microsoft.com/library/azure/ff683669.aspx)。
+輸入要從中匯入資料的 Azure 資料表名稱。 您可以選擇性地指定 [篩選器](../vs-azure-tools-table-designer-construct-filter-strings.md)。
 
 Azure 資料表儲存體來源匯入工具選項具有下列其他選項：
 
@@ -377,7 +374,7 @@ Azure Cosmos DB 連接字串的格式如下：
 
 匯入到多個集合時，匯入工具支援以雜湊為基礎的分區化。 在此案例中，指定您想要用來做為資料分割索引鍵的文件屬性 (如果資料分割索引鍵是空白的，文件就會跨目標集合隨機進行分區化)。
 
-您可以選擇性地指定在匯入期間，匯入來源中的哪些欄位應該做為 Azure Cosmos DB 文件識別碼屬性使用 (請注意，如果文件不包含這個屬性，則匯入工具會產生 GUID 做為識別碼屬性值)。
+您可以選擇性地指定在匯入期間，匯入來源中的哪些欄位應該作為 Azure Cosmos DB 文件識別碼屬性使用 (如果文件不包含這個屬性，則匯入工具會產生 GUID 做為識別碼屬性值)。
 
 匯入期間有數個可用的進階選項。 首先，雖然此工具包含預設的大量匯入預存程序 (BulkInsert.js)，但您可以選擇指定自己的匯入預存程序：
 
@@ -441,7 +438,7 @@ Azure Cosmos DB 連接字串的格式如下：
 
 匯入到多個集合時，匯入工具支援以雜湊為基礎的分區化。 在此案例中，指定您想要用來做為資料分割索引鍵的文件屬性 (如果資料分割索引鍵是空白的，文件就會跨目標集合隨機進行分區化)。
 
-您可以選擇性地指定在匯入期間，匯入來源中的哪些欄位應該做為 Azure Cosmos DB 文件識別碼屬性使用 (請注意，如果文件不包含這個屬性，則匯入工具會產生 GUID 做為識別碼屬性值)。
+您可以選擇性地指定在匯入期間，匯入來源中的哪些欄位應該作為 Azure Cosmos DB 文件識別碼屬性使用 (如果文件不包含這個屬性，則匯入工具會產生 GUID 做為識別碼屬性值)。
 
 匯入期間有數個可用的進階選項。 首先，匯入日期類型時 (例如從 SQL Server 或 MongoDB)，有三種匯入選項可供選擇：
 
@@ -453,7 +450,7 @@ Azure Cosmos DB 連接字串的格式如下：
 
 Azure Cosmos DB 循序記錄匯入工具含有下列其他進階選項：
 
-1. 平行要求數目：此工具會預設為兩個平行要求。 如果要匯入很小的文件，請考慮提高平行要求數目。 請注意，如果這個數字提高太多，則匯入可能會發生節流。
+1. 平行要求數目：此工具會預設為兩個平行要求。 如果要匯入很小的文件，請考慮提高平行要求數目。 如果這個數字提高太多，則匯入可能會遭遇速率限制。
 2. 停用自動化識別碼產生作業：如果要匯入的每個文件都包含識別碼欄位，則選取此選項可以提升效能。 遺漏唯一識別碼欄位的文件不會被匯入。
 3. 更新現有的文件：此工具預設在發生識別碼衝突時不會取代現有的文件。 選取此選項會允許在識別碼相符時覆寫現有的文件。 對於會更新現有文件的已排定資料移轉來說，這項功能相當有用。
 4. 失敗時的重試次數：指定與 Azure Cosmos DB 的連接發生暫時性失敗 (例如網路連接中斷) 時的重試次數。

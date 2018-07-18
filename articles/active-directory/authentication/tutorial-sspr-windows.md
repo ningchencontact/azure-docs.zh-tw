@@ -10,11 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 701ab041eb603a1a06025d5bb43964880353ada9
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 3b767da394f6337a1110ad171f19ad789fa044d2
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972976"
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>從登入畫面重設 Azure AD 密碼
 
@@ -27,7 +28,7 @@ ms.lasthandoff: 05/08/2018
 * Windows 10 2018 年 4 月更新，或者[已加入 Azure AD](../device-management-azure-portal.md) 或[已加入混合式 Azure AD](../device-management-hybrid-azuread-joined-devices-setup.md) 的較新用戶端。
 * 必須啟用 Azure AD 自助式密碼重設。
 * 設定及部署設定，以透過下列其中一種方法來啟用 [重設密碼] 連結：
-   * [Intune 裝置組態設定檔](tutorial-sspr-windows.md#configure-reset-password-link-using-intune)
+   * [Intune 裝置組態設定檔](tutorial-sspr-windows.md#configure-reset-password-link-using-intune)。 必須完成裝置的 Intune 註冊，才能使用此方法。
    * [登錄機碼](tutorial-sspr-windows.md#configure-reset-password-link-using-the-registry)
 
 ## <a name="configure-reset-password-link-using-intune"></a>使用 Intune 來設定重設密碼連結
@@ -65,7 +66,7 @@ ms.lasthandoff: 05/08/2018
    * 按一下 [選取]
 4. 按一下 [建立] 
 
-如需建立群組的詳細資訊，請參閱[使用 Azure Active Directory 群組管理資源的存取權](../active-directory-manage-groups.md)。
+如需建立群組的詳細資訊，請參閱[使用 Azure Active Directory 群組管理資源的存取權](../fundamentals/active-directory-manage-groups.md)。
 
 #### <a name="assign-device-configuration-policy-to-device-group"></a>將裝置設定原則指派給裝置群組
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/29/2018
+ms.locfileid: "30264858"
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>設定 Azure 託管服務的反向 DNS
 

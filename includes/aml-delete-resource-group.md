@@ -1,6 +1,6 @@
 ---
-title: "包含檔案"
-description: "包含檔案"
+title: 包含檔案
+description: 包含檔案
 services: machine-learning
 author: j-martens
 ms.service: machine-learning
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/27/2018
+ms.locfileid: "29574958"
 ---
 如果您將不繼續使用此應用程式，請使用下列步驟來刪除本快速入門所建立的全部資源，這樣才不會產生任何費用：
 

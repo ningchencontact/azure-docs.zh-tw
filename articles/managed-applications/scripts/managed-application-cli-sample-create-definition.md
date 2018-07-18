@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 指令碼範例 - 建立受控應用程式定義 | Microsoft Docs"
-description: "Azure CLI 指令碼範例 - 建立受控應用程式定義"
+title: Azure CLI 指令碼範例 - 建立受控應用程式定義 | Microsoft Docs
+description: Azure CLI 指令碼範例 - 建立受控應用程式定義
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29848078"
 ---
 # <a name="create-a-managed-application-definition-with-azure-cli"></a>使用 Azure CLI 建立受控應用程式定義
 

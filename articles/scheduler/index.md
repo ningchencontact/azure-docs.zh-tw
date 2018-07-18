@@ -1,11 +1,11 @@
 ---
-title: "Azure 排程器文件 - 教學課程和 API 參考 | Microsoft Docs"
-description: "了解如何使用排程器來排程及叫用作業，例如週期性應用程式動作和例行維護。 教學課程、API 參考等等。"
+title: Azure 排程器文件 - 教學課程和 API 參考 | Microsoft Docs
+description: 了解如何使用排程器來排程及叫用作業，例如週期性應用程式動作和例行維護。 教學課程、API 參考等等。
 services: scheduler
 author: carolz
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: scheduler
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23071342"
 ---
 # <a name="scheduler-documentation"></a>排程器文件
 

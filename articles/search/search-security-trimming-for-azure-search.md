@@ -13,6 +13,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31792795"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-search"></a>在 Azure 搜尋服務中進行安全性篩選以調整結果
 

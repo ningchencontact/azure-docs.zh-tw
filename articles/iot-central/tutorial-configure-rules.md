@@ -1,21 +1,22 @@
 ---
 title: 在 Azure IoT Central 中設定規則和動作 | Microsoft Docs
 description: 本教學課程將為建置者說明如何在 Azure IoT Central 應用程式中設定以遙測為基礎的規則和動作。
-services: iot-central
 author: ankitgupta
 ms.author: ankitgup
 ms.date: 04/16/2018
 ms.topic: tutorial
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 5ac19e0e25ea3e25ede4d87776c01f8bcaea4655
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
+manager: peterpr
+ms.openlocfilehash: af2aa8d7b01d973da400808fd3e97d0739693cd2
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202232"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236326"
 ---
-# <a name="2---configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>2 - 在 Azure IoT Central 中為您的裝置設定規則和動作
+# <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>教學課程：在 Azure IoT 中心為您的裝置設定規則和動作
 
 本教學課程將為身為建置者的您說明如何在 Microsoft Azure IoT Central 應用程式中設定以遙測為基礎的規則和動作。
 
@@ -39,17 +40,17 @@ ms.locfileid: "34202232"
 
     您會看到**連線的空調 (1.0.0)** 裝置範本，以及您在上一個教學課程中建立的**連線的空調-1** 裝置。
 
-1. 若要開始自訂連線的空調裝置，請選擇您在上一個教學課程中建立的裝置：
+2. 若要開始自訂連線的空調裝置，請選擇您在上一個教學課程中建立的裝置：
 
     ![連線的空調頁面](media/tutorial-configure-rules/builderdevicelist.png)
 
-1. 若要開始在 [規則] 檢視中新增規則，請選擇 [規則]：
+3. 若要開始在 [規則] 檢視中新增規則，請選擇 [規則]：
 
     ![規則檢視](media/tutorial-configure-rules/builderrulesview.png)
 
-1. 在本教學課程中，您會新增以閾值為基礎的遙測規則。 若要開始建立以閾值為基礎的規則，請選擇 [新增規則]，然後選擇 [遙測]。
+4. 若要開始建立以閾值為基礎的遙測規則，請選擇 [新增規則]，然後選擇 [遙測]。
 
-1. 若要定義規則，請使用下表中的資訊：
+5. 若要定義規則，請使用下表中的資訊：
 
     | 設定     | 值                          |
     | ----------- | ------------------------------ |
@@ -67,7 +68,7 @@ ms.locfileid: "34202232"
 
     ![溫度規則動作](media/tutorial-configure-rules/builderaddaction.png)
 
-1. 若要定義動作，請使用下表中的資訊：
+2. 若要定義動作，請使用下表中的資訊：
 
     | 設定   | 值                          |
     | --------- | ------------------------------ |
@@ -79,7 +80,7 @@ ms.locfileid: "34202232"
 
     ![應用程式建置者溫度動作](media/tutorial-configure-rules/buildertemperatureaction.png)
 
-1. 選擇 [儲存]。 您的規則會列在 [規則] 頁面上：
+3. 選擇 [儲存]。 您的規則會列在 [規則] 頁面上：
 
     ![應用程式建置者規則](media/tutorial-configure-rules/builderrules.png)
 

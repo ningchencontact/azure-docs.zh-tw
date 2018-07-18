@@ -17,10 +17,11 @@ ms.date: 12/11/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: af779677bd43e78b80224c8033f873fac6fdd54e
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38317455"
 ---
 # <a name="create-a-web-app-and-deploy-code-from-a-local-git-repository"></a>建立 Web 應用程式並從本機 Git 存放庫部署程式碼
 

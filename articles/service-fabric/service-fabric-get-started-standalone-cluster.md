@@ -1,24 +1,25 @@
 ---
-title: "設定獨立 Azure Service Fabric 叢集 | Microsoft Docs"
-description: "建立開發獨立叢集，其中包含在同部電腦上執行的三個節點。 完成此設定之後，您就可以開始建立包含多部電腦的叢集。"
+title: 設定獨立 Azure Service Fabric 叢集 | Microsoft Docs
+description: 建立開發獨立叢集，其中包含在同部電腦上執行的三個節點。 完成此設定之後，您就可以開始建立包含多部電腦的叢集。
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 5438d8d366ef989d5ae29581477513f8c884c4b3
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 93c921e54c69693ed02c122a2491b0942f550126
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643459"
 ---
 # <a name="create-your-first-service-fabric-standalone-cluster"></a>建立您的第一個 Service Fabric 獨立叢集
 您可以在內部部署環境或雲端上，在執行 Windows Server 2012 R2 或 Windows Server 2016 的虛擬機器或電腦上建立 Service Fabric 獨立叢集。 本快速入門可協助您在短短幾分鐘內建立開發獨立叢集。  當您完成時，您會具備有一個包含三個節點的叢集，其在您可部署應用程式的單一電腦上執行。

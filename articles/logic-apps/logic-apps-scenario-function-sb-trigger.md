@@ -1,11 +1,11 @@
 ---
-title: "案例 - 使用 Azure Functions 與 Azure 服務匯流排觸發邏輯應用程式 | Microsoft Docs"
-description: "使用 Azure Functions 和 Azure 服務匯流排建立觸發邏輯應用程式的函式"
+title: 案例 - 使用 Azure Functions 與 Azure 服務匯流排觸發邏輯應用程式 | Microsoft Docs
+description: 使用 Azure Functions 和 Azure 服務匯流排建立觸發邏輯應用程式的函式
 services: logic-apps,functions
 documentationcenter: .net,nodejs,java
 author: jeffhollan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 19cbd921-7071-4221-ab86-b44d0fc0ecef
 ms.service: logic-apps
 ms.devlang: multiple
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/23/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 088f10bc32dd492f82f0a10a7e5829e76f588758
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6bc845e4ec329d308ed87770d0dec6a7d5e447c7
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030944"
 ---
 # <a name="scenario-trigger-a-logic-app-with-azure-functions-and-azure-service-bus"></a>案例：使用 Azure Functions 和 Azure 服務匯流排觸發邏輯應用程式
 
@@ -38,7 +39,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="build-the-function"></a>建置函數
 接著，您必須建立一個函數，以做為觸發程序並接聽佇列。
 
-1. 在 [Azure Functions 入口網站](https://functions.azure.com/signin)中，依序選取 [新增函數] 與 [ServiceBusQueueTrigger - C#] 範本。
+1. 在 [Azure Functions 入口網站](https://functions.azure.com/)中，依序選取 [新增函數] 與 [ServiceBusQueueTrigger - C#] 範本。
    
     ![Azure Functions 入口網站][2]
 2. 設定服務匯流排佇列的連接，其可使用服務匯流排 SDK `OnMessageReceive()` 接聽程式。

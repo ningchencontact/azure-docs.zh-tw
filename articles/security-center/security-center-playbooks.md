@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32779272"
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Azure 資訊安全中心的安全性劇本 (預覽)
 這份文件可協助您使用 Azure 資訊安全中心的安全性劇本，以回應安全性相關問題。

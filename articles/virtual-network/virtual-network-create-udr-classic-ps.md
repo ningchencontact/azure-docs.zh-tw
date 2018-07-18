@@ -16,10 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
 ms.openlocfilehash: 930676a396ae316ec761ba5d03ad1a1d0fd7a425
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38232561"
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-powershell"></a>透過 PowerShell 控制路由和使用虛擬應用裝置 (傳統) 
 

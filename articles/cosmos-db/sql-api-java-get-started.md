@@ -3,22 +3,20 @@ title: NoSQL 教學課程：適用於 Azure Cosmos DB Java SDK 的 SQL API | Mic
 description: NoSQL 教學課程，將使用適用於 Azure Cosmos DB 的 SQL API 來建立線上資料庫以及 Java 主控台應用程式。 Azure SQL 是 JSON 的 NoSQL 資料庫。
 keywords: nosql 教學課程, 線上資料庫, java 主控台應用程式
 services: cosmos-db
-documentationcenter: Java
 author: SnehaGunda
 manager: kfile
-ms.assetid: 75a9efa1-7edd-4fed-9882-c0177274cbb2
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: java
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: sngun
-ms.openlocfilehash: 8405894451c60f0661922584d9927960e3d0f611
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 11831ad6e80c86c3c276fea0524af522046f1a03
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38299756"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL 教學課程：建置 SQL API Java 主控台應用程式
 > [!div class="op_single_selector"]
@@ -27,7 +25,6 @@ ms.lasthandoff: 04/16/2018
 > * [Node.js for MongoDB](mongodb-samples.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
 > * [Java](sql-api-java-get-started.md)
-> * [C++](sql-api-cpp-get-started.md)
 >  
 > 
 

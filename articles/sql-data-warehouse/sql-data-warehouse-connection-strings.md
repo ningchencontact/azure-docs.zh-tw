@@ -15,6 +15,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31597144"
 ---
 # <a name="connection-strings-for-azure-sql-data-warehouse"></a>適用於 Azure SQL 資料倉儲的連接字串
 您可以使用數個不同的應用程式通訊協定 (例如 [ADO.NET][ADO.NET]、[ODBC][ODBC]、[PHP][PHP] 及 [JDBC][JDBC]) 連線到 SQL 資料倉儲。 以下是每個通訊協定連接字串的一些範例。  您也可以使用 Azure 入口網站來建立連接字串。  若要使用 Azure 入口網站建置連接字串，請瀏覽至您資料庫的刀鋒視窗，在 [程式集] 底下，按一下 [顯示資料庫連接字串]。

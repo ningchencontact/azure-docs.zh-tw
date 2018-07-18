@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: celested
-ms.reviewer: dastrock
+ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: db466a3ae416c47f86bb66b3bb8ba4bcd7741f5f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: b71cac474c915d0ebcc9beed29551fbce8b515ea
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157312"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318991"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0 和 OAuth 2.0 用戶端認證流程
 您可以使用 RFC 6749 中指定的 [OAuth 2.0 用戶端認證授與](http://tools.ietf.org/html/rfc6749#section-4.4) (有時稱為「雙方 OAuth」，透過使用應用程式識別碼來存取 Web 主控資源。 這類型的授與通常用於必須在背景中執行 (不需與使用者直接互動) 的伺服器對伺服器互動。 這些類型的應用程式通常稱為「精靈」或「服務帳戶」。

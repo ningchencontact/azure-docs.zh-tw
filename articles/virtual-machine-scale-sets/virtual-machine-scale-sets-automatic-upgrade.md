@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30838218"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Azure 虛擬機器擴展集的作業系統自動升級
 

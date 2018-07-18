@@ -1,20 +1,21 @@
 ---
-title: "使用 Azure CLI 建立和管理適用於 MySQL 的 Azure 資料庫防火牆規則"
-description: "本文描述如何使用 Azure CLI 命令列，建立和管理適用於 MySQL 的 Azure 資料庫防火牆規則。"
+title: 使用 Azure CLI 建立和管理適用於 MySQL 的 Azure 資料庫防火牆規則
+description: 本文描述如何使用 Azure CLI 命令列，建立和管理適用於 MySQL 的 Azure 資料庫防火牆規則。
 services: mysql
 author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: b142d08379f8a8fde20178668a4c1343f08aedbc
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 1bb60a1d6f14f0dc81047a2ffdd514724954fb14
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266052"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>使用 Azure CLI 建立和管理適用於 MySQL 的 Azure 資料庫防火牆規則
 伺服器層級的防火牆規則可讓系統管理員從指定的 IP 位址或 IP 位址範圍，管理適用於 MySQL 的 Azure 資料庫伺服器的存取。 透過方便的 Azure CLI 命令，您可以建立、更新、刪除、列出及顯示防火牆規則，以管理您的伺服器。 如需「適用於 MySQL 的 Azure 資料庫」防火牆的概觀，請參閱[適用於 MySQL 的 Azure 資料庫伺服器防火牆規則](./concepts-firewall-rules.md)
@@ -42,7 +43,7 @@ az login
 ```
 此命令會輸出下一個步驟中要使用的代碼。
 
-2. 使用網頁瀏覽器開啟 [https://aka.ms/devicelogin](https://aka.ms/devicelogin) 頁面並輸入代碼。
+2. 請使用網頁瀏覽器開啟 [https://aka.ms/devicelogin](https://aka.ms/devicelogin) 頁面並輸入代碼。
 
 3. 出現提示時，使用您的 Azure 認證登入。
 

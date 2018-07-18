@@ -15,15 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/24/2017
 ms.author: singhkay
-ms.openlocfilehash: 6bd039225062ac6010d432b930f601fe4678ed2c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: eca03a221014aafe89f07842b5ba9cfed0176faf
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936504"
 ---
 # <a name="how-to-set-up-key-vault-for-virtual-machines-with-the-azure-cli-20"></a>如何使用 Azure CLI 2.0 設定虛擬機器的金鑰保存庫
 
-在 Azure Resource Manager 堆疊中，密碼/憑證會被塑造成 Key Vault 所提供的資源。 若要深入了解「Azure 金鑰保存庫」，請參閱 [什麼是 Azure 金鑰保存庫？](../../key-vault/key-vault-whatis.md) 為了讓 Key Vault 能與 Azure Resource Manager VM 搭配使用，必須將「金鑰保存庫」上的 *EnabledForDeployment* 屬性設定為 true。 本文說明如何使用 Azure CLI 2.0 設定要與 Azure 虛擬機器 (VM) 搭配使用的 Key Vault。 您也可以使用 [Azure CLI 1.0](key-vault-setup-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 來執行這些步驟。
+在 Azure Resource Manager 堆疊中，密碼/憑證會被塑造成 Key Vault 所提供的資源。 若要深入了解「Azure 金鑰保存庫」，請參閱 [什麼是 Azure 金鑰保存庫？](../../key-vault/key-vault-whatis.md) 為了讓 Key Vault 能與 Azure Resource Manager VM 搭配使用，必須將「金鑰保存庫」上的 *EnabledForDeployment* 屬性設定為 true。 本文說明如何使用 Azure CLI 2.0 設定要與 Azure 虛擬機器 (VM) 搭配使用的 Key Vault。 
 
 若要執行這些步驟，您需要安裝最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2)，並且使用 [az login](/cli/azure/reference-index#az_login) 來登入 Azure 帳戶。
 

@@ -16,6 +16,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34166313"
 ---
 # <a name="azure-database-for-postgresql-use-go-language-to-connect-and-query-data"></a>Azure Database for PostgreSQL︰使用 Go 語言連線及查詢資料
 本快速入門示範如何使用以 [Go](https://golang.org/) 語言 (golang) 撰寫的程式碼來連線到 Azure Database for PostgreSQL。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本文假設您已熟悉使用 Go 進行開發，但不熟悉 Azure Database for PostgreSQL。

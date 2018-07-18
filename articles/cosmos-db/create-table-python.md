@@ -2,23 +2,21 @@
 title: 快速入門：資料表 API 與 Python - Azure Cosmos DB | Microsoft Docs
 description: 本快速入門示範如何使用 Azure Cosmos DB 資料表 API，以使用 Azure 入口網站與 Python 建立應用程式
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: ''
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 001275353e2f34978fde6808185597abd680d28f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3bad2e8c8011f82ab4daf75e73b1c71c46436882
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38407015"
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>快速入門：使用 Python 與 Azure Cosmos DB 建置資料表 API 應用程式
 
@@ -33,9 +31,8 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 此外：
 
-* 如果尚未安裝 Visual Studio 2017，您可以下載並使用**免費的** [Visual Studio 2017 Community 版本](https://www.visualstudio.com/downloads/)。 務必在 Visual Studio 設定期間啟用 **Azure 開發**。
-* [GitHub](http://microsoft.github.io/PTVS/)的 Python Tools for Visual Studio。 本教學課程使用 Python Tools for VS 2015。
-* 來自 [python.org](https://www.python.org/downloads/release/python-2712/) 的 Python 2.7
+* 如果尚未安裝 Visual Studio 2017，您可以下載並使用**免費的** [Visual Studio 2017 Community 版本](https://www.visualstudio.com/downloads/)。 請務必在 Visual Studio 安裝期間選取 [Azure 開發] 和 [Python 開發] 工作負載。
+* 此外也請選取 [Python 開發] 工作負載中的 [Python 2] 選項，或從 [python.org](https://www.python.org/downloads/release/python-2712/) 下載 Python 2.7。
 
 ## <a name="create-a-database-account"></a>建立資料庫帳戶
 

@@ -3,7 +3,7 @@ title: 自動化的指令碼可建立與 Azure 中的 IT 服務管理連接器�
 description: 使用自動化的指令碼建立 Service Manager Web 應用程式，來與 Azure 中的 IT 服務管理連接器連線，並將 ITSM 工作項目集中監視及管理。
 services: log-analytics
 documentationcenter: ''
-author: JYOTHIRMAISURI
+author: jyothirmaisuri
 manager: riyazp
 editor: ''
 ms.assetid: 879e819f-d880-41c8-9775-a30907e42059
@@ -11,14 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: 75c61894d5562f4bb0cb45fd8500bd9cf0f2bf8f
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.component: na
+ms.openlocfilehash: 0fe987b00da669daf3830e903d53793d9d1edab6
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950119"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>使用自動化的指令碼建立 Service Manager Web 應用程式
 
@@ -40,7 +42,7 @@ ms.lasthandoff: 05/03/2018
 ## <a name="prerequisites"></a>先決條件
 
  Windows Management Framework 5.0 或更新版本。
-Windows 10 依預設包含 5.1。 您可以從[這裡](https://www.microsoft.com/download/details.aspx?id=53347)下載架構：
+Windows 10 依預設包含 5.1。 您可以從[這裡](https://www.microsoft.com/download/details.aspx?id=50395)下載架構：
 
 使用下列指令碼：
 

@@ -1,6 +1,6 @@
 ---
-title: "包含檔案"
-description: "包含檔案"
+title: 包含檔案
+description: 包含檔案
 services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
@@ -9,10 +9,11 @@ ms.date: 02/21/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: c04514218c7ed8dfd72b94345d2deb88e663fda1
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38740529"
 ---
 [Azure 原則](/azure/azure-policy/)會協助您確認訂用帳戶中的所有資源均符合公司標準。 將部署選項限制為只有已核准的資源類型和 SKU，以使用原則來降低成本。 您為資源定義規則和動作，而那些規則會在部署期間自動強制執行。 例如，您可以控制部署的資源類型。 或者，您可以限制資源的核准位置。 某些原則會拒絕動作，而某些原則會設定動作的稽核。
 

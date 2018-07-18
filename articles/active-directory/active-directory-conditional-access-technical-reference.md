@@ -7,6 +7,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -14,12 +15,12 @@ ms.workload: identity
 ms.date: 04/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 341142222fb1440cf5118e6d10f5a254e73d53d9
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 239ece0f126e1c92c2e94206baa7026ac04d604f
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258102"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36227984"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory 條件式存取設定參考
 
@@ -236,7 +237,7 @@ ms.locfileid: "34258102"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需條件式存取的概觀，請參閱 [Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal.md)。
+- 如需條件式存取的概觀，請參閱[什麼是 Azure Active Directory 中的條件式存取？](active-directory-conditional-access-azure-portal.md)
 - 如果您已準備好設定您環境的條件式存取原則，請參閱 [Azure Active Directory 中條件式存取的建議做法](active-directory-conditional-access-best-practices.md)。
 
 

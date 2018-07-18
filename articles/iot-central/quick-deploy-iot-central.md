@@ -1,20 +1,20 @@
 ---
-title: 部署 Azure IoT Central 應用程式 | Microsoft Docs
+title: 建立 Azure IoT Central 應用程式 | Microsoft Docs
 description: 建立新的 Azure IoT Central 應用程式，以管理冷飲自動販賣裝置。 檢視從模擬裝置產生的遙測資料。
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/15/2018
-ms.topic: hero-article
-ms.prod: microsoft-iot-central
+ms.topic: quickstart
+ms.service: iot-central
+services: iot-central
 ms.custom: mvc
-manager: timlt
-ms.openlocfilehash: 54219246f073f48c2a7e1b04dce7653bd2da0b40
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+manager: peterpr
+ms.openlocfilehash: 51c6753b1e4f2b08e93214abfcd7e18cb2e66613
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202368"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318308"
 ---
 # <a name="create-an-azure-iot-central-application"></a>建立 Azure IoT Central 應用程式
 

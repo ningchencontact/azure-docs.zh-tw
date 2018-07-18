@@ -3,16 +3,17 @@ title: Azure Analysis Services 程式碼、專案和資料庫範例 | Microsoft 
 description: 了解 Azure Analysis Services 的程式碼、專案和資料庫範例。
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 55f350f21111e8937fa1687c890d4f7bb4ab07ed
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6456663a1114ec00f2a071458c54067da53b52a7
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37443709"
 ---
 # <a name="azure-analysis-services-samples"></a>Azure Analysis Services 範例
 使用下列範例資源可協助您了解和測試環境的 Analysis Services。
@@ -38,5 +39,5 @@ GitHub 上的這些範例資料庫可用來建立和測試您自己的模型。
 
 ## <a name="next-steps"></a>後續步驟
 
-[Adventure Works 教學課程](/tutorials/aas-adventure-works-tutorial.md)   
+[Adventure Works 教學課程](tutorials/aas-adventure-works-tutorial.md)   
 [Azure 內部部署資料閘道](analysis-services-gateway.md)  

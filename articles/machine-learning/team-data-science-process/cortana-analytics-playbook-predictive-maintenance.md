@@ -2,10 +2,9 @@
 title: 適用於預測性維護解決方案的 AI 指南 | Microsoft Docs
 description: 資料科學的完整描述，可提供多個垂直產業的預測性維護解決方案。
 services: machine-learning
-documentationcenter: ''
 author: fboylu
-manager: jhubbard
-editor: cgronlun
+manager: cgronlun
+editor: ''
 ms.assetid: 2e8b66db-91eb-432b-b305-6abccca25620
 ms.service: machine-learning
 ms.component: team-data-science-process
@@ -15,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: 581e9d586f007fe0cd28d60b5558594777656ca8
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: ff2e1660ffcc1f397697b27084e000371c7c84f3
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36938004"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>適用於預測性維護解決方案的 AI 指南
 
@@ -434,7 +434,7 @@ Microsoft Azure 會提供有關一般 AI 概念和實務的免費內容及訓練
 |:-------------------|--------------|
 | [使用 Azure 的 AI 開發人員](http://azure.microsoft.com/training/learning-paths/azure-ai-developer) | 公開 |
 | [Microsoft AI School](http://aischool.microsoft.com/learning-paths) | 公開 |
-| [GitHub 中的 Azure AI 學習](http://azure.github.io/learnanalytics/public) | 公開 |
+| [GitHub 中的 Azure AI 學習](https://github.com/Azure/connectthedots/blob/master/readme.md) | 公開 |
 | [LinkedIn Learning](http://www.linkedin.com/learning) | 公開 |
 | [Microsoft AI Youtube 網路研討會](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | 公開 |
 | [Microsoft AI Show](http://channel9.msdn.com/Shows/AI-Show) | 公開 |

@@ -13,21 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 07/13/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 179a669e4c9567950d22ed76a693ec6ab7a2db8d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0a648d0733d9d81cc0e586f5fa54dc8d75d2f6f0
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801927"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect：設計概念
-本主題旨在說明在 Azure AD Connect 實作設計期間必須考量的領域。 這個主題是特定領域的深入探討，而在其他主題中也會簡短描述這些概念。
+本文件旨在說明 Azure AD Connect 實作設計期間必須考量的領域。 本文件是特定領域的深入探討，而在其他文件中也會簡短描述這些概念。
 
 ## <a name="sourceanchor"></a>sourceAnchor
 sourceAnchor 屬性的定義是 *在物件存留期間不會變更的屬性*。 它可將物件唯一識別為內部部署和 Azure AD 中的相同物件。 此屬性也稱為 **immutableId** ，兩個名稱可交換使用。
 
-在本主題中，不可變 (亦即無法變更) 這個字非常重要。 由於此屬性的值在設定之後就無法變更，所以請務必挑選支援您案例的設計。
+在本文件中，「不可變 (亦即無法變更)」這個詞非常重要。 由於此屬性的值在設定之後就無法變更，所以請務必挑選支援您案例的設計。
 
 此屬性用於下列案例︰
 
@@ -40,12 +42,12 @@ sourceAnchor 屬性的定義是 *在物件存留期間不會變更的屬性*。 
 ### <a name="selecting-a-good-sourceanchor-attribute"></a>選取良好的 sourceAnchor 屬性
 此屬性值必須遵循下列規則：
 
-* 長度小於 60 個字元
+* 長度少於 60 個字元
   * 系統會將 a-z、A-Z 或 0-9 以外的字元編碼並計為 3 個字元
 * 不包含特殊字元︰&#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ _
 * 必須是全域唯一的
 * 必須是字串、整數或二進位
-* 不應以使用者的名稱、這些變更為基礎
+* 不應以使用者的名稱為基礎，因為這些可能會有所變更
 * 不應區分大小寫，並避免可能會因大小寫而改變的值
 * 建立物件時應該要予以指派
 
@@ -186,10 +188,10 @@ Azure AD Connect (1.1.524.0 版和更新版本) 現在可協助您使用 msDS-Co
 ### <a name="custom-domain-state-and-upn"></a>自訂網域狀態和 UPN
 請務必確保 UPN 尾碼有已驗證的網域。
 
-John 是 contoso.com 中的使用者。在您將使用者同步至 Azure AD 目錄 contoso.onmicrosoft.com 之後，您希望 John 使用內部部署 UPN john@contoso.com 來登入 Azure。若要這樣做，您必須將 contoso.com 新增為 Azure AD 中的自訂網域並加以驗證，才能開始同步處理使用者。 舉例來說，如果 John 的 UPN 尾碼是 contoso.com，不符合 Azure AD 中已驗證的網域，則 Azure AD 會以 contoso.onmicrosoft.com 取代 UPN 尾碼。
+John 是 contoso.com 中的使用者。 在您將使用者同步至 Azure AD 目錄 contoso.onmicrosoft.com 之後，您希望 John 使用內部部署 UPN john@contoso.com 來登入 Azure。 若要這樣做，您必須將 contoso.com 新增為 Azure AD 中的自訂網域並加以驗證，才能開始同步處理使用者。 舉例來說，如果 John 的 UPN 尾碼是 contoso.com，不符合 Azure AD 中已驗證的網域，則 Azure AD 會以 contoso.onmicrosoft.com 取代 UPN 尾碼。
 
 ### <a name="non-routable-on-premises-domains-and-upn-for-azure-ad"></a>無法路由傳送的內部部署網域與 Azure AD 的 UPN
-有些組織有無法路由傳送的網域，例如 contoso.local 或簡單單一標籤網域，例如 contoso。 您無法確認在 Azure AD 中無法路由傳送的網域。 Azure AD Connect 可以僅同步至 Azure AD 中已驗證的網域。 當您建立 Azure AD 目錄時，它會建立可路由傳送的網域，而該網域會成為 Azure AD 的預設網域，例如 contoso.onmicrosoft.com。因此，如果您不想要同步至預設的 .onmicrosoft.com 網域，則必須在此類案例中驗證所有其他可路由傳送的網域。
+有些組織有無法路由傳送的網域，例如 contoso.local 或簡單單一標籤網域，例如 contoso。 您無法確認在 Azure AD 中無法路由傳送的網域。 Azure AD Connect 可以僅同步至 Azure AD 中已驗證的網域。 當您建立 Azure AD 目錄時，它會建立可路由傳送的網域，而該網域會成為 Azure AD 的預設網域，例如 contoso.onmicrosoft.com。 因此，如果您不想要同步至預設的 .onmicrosoft.com 網域，則必須在此類案例中驗證所有其他可路由傳送的網域。
 
 如需有關如何新增和驗證網域的詳細資訊，請參閱 [將您的自訂網域名稱新增至 Azure Active Directory](../active-directory-domains-add-azure-portal.md) 。
 

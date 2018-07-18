@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783827"
 ---
 # <a name="output-metadata"></a>輸出中繼資料
 ## <a name="overview"></a>概觀
@@ -96,7 +97,7 @@ ms.lasthandoff: 05/07/2018
 ### <a name="attributes"></a>屬性
 | Name | 類型 | 說明 |
 | --- | --- | --- |
-| **Id**<br/><br/> minInclusive ="0"<br/><br/> 必要 |**xs:int** |此視訊播放軌之以零為起始的索引。**注意︰**此**識別碼**不一定是用於 MP4 檔案中的 TrackID。 |
+| **Id**<br/><br/> minInclusive ="0"<br/><br/> 必要 |**xs:int** |此視訊播放軌之以零為起始的索引。**注意︰** 此**識別碼**不一定是用於 MP4 檔案中的 TrackID。 |
 | **FourCC**<br/><br/> 必要 |**xs:string** |視訊轉碼器 FourCC 代碼。 |
 | **設定檔** |**xs:string** |H264 設定檔 (僅適用於 H264 轉碼器)。 |
 | **Level** |**xs:string** |H264 層級 (僅適用於 H264 轉碼器)。 |
@@ -128,7 +129,7 @@ ms.lasthandoff: 05/07/2018
 ### <a name="attributes"></a>屬性
 | Name | 類型 | 說明 |
 | --- | --- | --- |
-| **Id**<br/><br/> minInclusive ="0"<br/><br/> 必要 |**xs:int** |此音訊播放軌之以零為起始的索引。**注意︰**這不一定是用於 MP4 檔中的 TrackID。 |
+| **Id**<br/><br/> minInclusive ="0"<br/><br/> 必要 |**xs:int** |此音訊播放軌之以零為起始的索引。**注意︰** 這不一定是用於 MP4 檔中的 TrackID。 |
 | **Codec** |**xs:string** |音訊播放軌轉碼器字串。 |
 | **EncoderVersion** |**xs:string** |選用的編碼器版本字串，為 EAC3 所需。 |
 | **Channels**<br/><br/> minInclusive ="0"<br/><br/> 必要 |**xs:int** |音訊聲道數目。 |

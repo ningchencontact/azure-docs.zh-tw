@@ -1,11 +1,11 @@
 ---
-title: "將 X12 訊息解碼 - Azure Logic Apps | Microsoft Docs"
-description: "在 Azure Logic Apps 的企業整合套件中使用 X12 訊息解碼器，針對交易集進行驗證 EDI 並產生通知"
+title: 將 X12 訊息解碼 - Azure Logic Apps | Microsoft Docs
+description: 在 Azure Logic Apps 的企業整合套件中使用 X12 訊息解碼器，針對交易集進行驗證 EDI 並產生通知
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 4fd48d2d-2008-4080-b6a1-8ae183b48131
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: bc2e5c2b351fb87cb763459a9e24368a422ada1b
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 14e9f0eefb705eea59a00390494871f5668b0a01
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298656"
 ---
 # <a name="decode-x12-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>使用企業整合套件將 Azure Logic Apps 的 X12 訊息解碼
 

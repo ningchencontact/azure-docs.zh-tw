@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34194983"
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>從 Orchestrator 移轉到 Azure 自動化 (Beta)
 [System Center Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) 中的 Runbook 是根據來自專為 Orchestrator 編寫的整合套件的活動，而 Azure 自動化中的 Runbook 則是根據 Windows PowerShell。  [圖形化 Runbook](automation-runbook-types.md#graphical-runbooks) 外觀都類似 Orchestrator Runbook，其活動代表 PowerShell Cmdlet、子 Runbook 和資產。

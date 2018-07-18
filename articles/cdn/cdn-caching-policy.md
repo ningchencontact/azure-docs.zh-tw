@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33765280"
 ---
 # <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>在 Azure 媒體服務中管理 Azure CDN 快取原則
 Azure 媒體服務提供 HTTP 式「彈性資料流」和漸進式下載功能。 HTTP 式串流具有快取 Proxy 和 CDN 層，以及快取用戶端的優點，所以延展性極佳。 資料流端點提供一般串流功能，以及 HTTP 快取標頭的組態。 串流端點會設定 HTTP Cache-Control: max-age 和 Expires 標頭。 您可以從 [W3.org](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html)(英文) 取得 HTTP 快取標頭的詳細資訊。

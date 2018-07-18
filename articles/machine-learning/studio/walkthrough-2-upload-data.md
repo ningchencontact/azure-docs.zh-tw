@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 9f4bc52e-9919-4dea-90ea-5cf7cc506d85
 ms.service: machine-learning
+ms.component: studio
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 6fb83fbd3106eef9885c50e140a4344e03d901e7
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: dfa6ae8011da0299c270035b8b781d70a8e80119
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34835785"
 ---
 # <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-experiment"></a>逐步解說步驟 2：將現有資料上傳至 Azure Machine Learning 實驗中
 這是 [在 Azure Machine Learning 中為信用風險評估開發預測性分析解決方案](walkthrough-develop-predictive-solution.md)

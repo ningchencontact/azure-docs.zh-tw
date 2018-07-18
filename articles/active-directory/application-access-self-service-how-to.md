@@ -3,21 +3,23 @@ title: 如何設定自助式應用程式指派 | Microsoft Docs
 description: 啟用自助應用程式存取以允許使用者尋找其應用程式
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
-ms.author: asteen
-ms.openlocfilehash: cf70da4933f5513b75f84aef01dec1ef902eab85
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: barbkess
+ms.openlocfilehash: 89eb80dbb749b2f50ca3f1fc097c205b62b6b4a4
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445291"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>如何設定自助應用程式指派
 
@@ -68,18 +70,18 @@ ms.lasthandoff: 04/05/2018
   > [!NOTE]
   > 針對要求存取此應用程式的使用者，不支援將其新增至從內部部署同步處理的群組。
   
-10. **選擇性：**若要將使用者設定為必須經過商務核准才能存取應用程式，請將 [需要核准才能授予此應用程式的存取權嗎?] 切換開關設定為 [是]。
+10. **選擇性：** 若要將使用者設定為必須經過商務核准才能存取應用程式，請將 [需要核准才能授予此應用程式的存取權嗎?] 切換開關設定為 [是]。
 
-11. **選擇性：對於只使用密碼單一登入的應用程式，**若要讓那些商務核准者為核准的使用者指定傳送給此應用程式的密碼，請將 [要允許核准者為此應用程式設定使用者的密碼嗎?] 切換開關設定為 [是]。
+11. **選擇性：對於只使用密碼單一登入的應用程式，** 若要讓那些商務核准者為核准的使用者指定傳送給此應用程式的密碼，請將 [要允許核准者為此應用程式設定使用者的密碼嗎?] 切換開關設定為 [是]。
 
-12. **選擇性：**若要指定商務核准者以核准此應用程式存取權，請按一下 [哪些人員可核准此應用程式的存取權?] 標籤旁的選取控制項以選取最多 10 個商務核准者。
+12. **選擇性：** 若要指定商務核准者以核准此應用程式存取權，請按一下 [哪些人員可核准此應用程式的存取權?] 標籤旁的選取控制項以選取最多 10 個商務核准者。
 
    >[!NOTE]
    >不支援群組。
    >
    >
 
-13. **選擇性：****對於公開角色的應用程式，**若要將已獲得自助存取核准的使用者指派給角色，請按一下 [在此應用程式中應為使用者指派的角色為?] 旁的選取控制項，以選取要為這些使用者指派的角色。
+13. **選擇性：****對於公開角色的應用程式，** 若要將已獲得自助存取核准的使用者指派給角色，請按一下 [在此應用程式中應為使用者指派的角色為?] 旁的選取控制項，以選取要為這些使用者指派的角色。
 
 14. 按一下刀鋒視窗頂端的 [儲存] 按鈕以完成此動作。
 
@@ -88,4 +90,4 @@ ms.lasthandoff: 04/05/2018
 這些核准只支援單一核准工作流程，這表示若您指定多個核准者，任何核准者都可以核准應用程式存取。
 
 ## <a name="next-steps"></a>後續步驟
-[設定 Azure Active Directory 進行自助服務群組管理](active-directory-accessmanagement-self-service-group-management.md)
+[設定 Azure Active Directory 進行自助服務群組管理](users-groups-roles/groups-self-service-management.md)

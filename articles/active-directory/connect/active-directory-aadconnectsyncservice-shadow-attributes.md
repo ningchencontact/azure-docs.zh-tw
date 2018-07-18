@@ -1,24 +1,26 @@
 ---
-title: "Azure AD Connect 同步處理服務陰影屬性 | Microsoft Docs"
-description: "描述陰影屬性如何在 Azure AD Connect 同步處理服務中運作。"
+title: Azure AD Connect 同步處理服務陰影屬性 | Microsoft Docs
+description: 描述陰影屬性如何在 Azure AD Connect 同步處理服務中運作。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 19d5ae46955ecc094c340d141485d3eb54c8e9b2
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: bd1ede2bf8ff642b7be0869e54a6f037b01dd262
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593387"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Azure AD Connect 同步處理服務陰影屬性
 大部分屬性是以它們在內部部署 Active Directory 中的相同方式，在 Azure AD 中表示。 但是某些屬性有一些特殊處理，而且在 Azure AD 中的屬性值可能不同於 Azure AD Connect 同步處理。
@@ -55,7 +57,7 @@ userPrincipalName 屬性是您使用 PowerShell 時看到的值。
 | 內部部署 proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
 | Exchange Online proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
 
-在此情況下，**smtp:abbie.spencer@fabrikam.com**  已移除，因為該網域尚未驗證。 但是 Exchange 也會新增 **SIP:abbie.spencer@fabrikamonline.com** 。Fabrikam 不曾使用 Lync/Skype 內部部署，但是 Azure AD 和 Exchange Online 為它進行準備。
+在此情況下，**smtp:abbie.spencer@fabrikam.com**  已移除，因為該網域尚未驗證。 但是 Exchange 也會新增 **SIP:abbie.spencer@fabrikamonline.com** 。 Fabrikam 不曾使用 Lync/Skype 內部部署，但是 Azure AD 和 Exchange Online 為它進行準備。
 
 proxyAddresses 的此邏輯稱為 **ProxyCalc**。 ProxyCalc 在使用者每次變更時叫用，其時機為︰
 

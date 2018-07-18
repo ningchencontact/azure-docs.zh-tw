@@ -2,20 +2,20 @@
 title: 快速入門 - 使用 Azure Active Directory B2C 為單一頁面應用程式設定登入 | Microsoft Docs
 description: 執行範例單一頁面應用程式，而該應用程式使用 Azure Active Directory B2C 來提供帳戶登入。
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: quickstart
 ms.date: 2/13/2018
 ms.author: davidmu
-ms.openlocfilehash: 96baf0297c3d2976f3d6fb112b0bd0ce077a186f
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: 7e600f55b9eeb2682b005b8c84c74ec25e054c36
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447246"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>快速入門：使用 Azure Active Directory B2C 為單一頁面應用程式設定登入
 
@@ -104,4 +104,4 @@ Azure AD B2C 會針對範例 Web 應用程式，呈現 Wingtip Toys 虛構品牌
 下一個步驟是建立您自己的 Azure AD B2C 租用戶，並設定使用您的租用戶來執行的範例。 
 
 > [!div class="nextstepaction"]
-> [在 Azure 入口網站中建立 Azure Active Directory B2C 租用戶](active-directory-b2c-get-started.md)
+> [在 Azure 入口網站中建立 Azure Active Directory B2C 租用戶](tutorial-create-tenant.md)

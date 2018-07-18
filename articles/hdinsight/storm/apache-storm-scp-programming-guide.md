@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31421550"
 ---
 # <a name="scp-programming-guide"></a>SCP 程式設計指南
 SCP 是一個用來建置即時、可靠、一致和高效能資料處理應用程式的平台。 建置在由 OSS 社群所設計的串流處理系統 [Apache Storm](http://storm.incubator.apache.org/) 之上。 Storm 由 Nathan Marz 所設計，由 Twitter 公開原始碼。 它採用 [Apache ZooKeeper](http://zookeeper.apache.org/)，這是另一個可發揮極可靠的分散式協調和狀態管理的 Apache 專案。 

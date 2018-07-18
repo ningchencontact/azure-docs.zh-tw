@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 2372550548f40ad07b4f76c19bc3bc1cb8380830
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 99838a7038672998d4940bfb437bd31311d3600f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653428"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>準備適用於 Azure 的 SLES 或 openSUSE 虛擬機器
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -93,9 +94,9 @@ SUSE 是建置您自己的 VHD 的替代選項，其也可在 [VMDepot](https://
      ResourceDisk.Format=y  ResourceDisk.Filesystem=ext4  ResourceDisk.MountPoint=/mnt/resource  ResourceDisk.EnableSwap=y  ResourceDisk.SwapSizeMB=2048    ## 注意：將此設為任何您需要的項目。
 15. 執行下列命令，以取消佈建虛擬機器，並準備將它佈建於 Azure 上：
     
-    # <a name="sudo-waagent--force--deprovision"></a>sudo waagent -force -deprovision
-    # <a name="export-histsize0"></a>export HISTSIZE=0
-    # <a name="logout"></a>logout
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
 16. 在 Hyper-V 管理員中，依序按一下 [動作] -> [關閉]。 您現在可以將 Linux VHD 上傳至 Azure。
 
 - - -
@@ -128,7 +129,7 @@ SUSE 是建置您自己的 VHD 的替代選項，其也可在 [VMDepot](https://
         # sudo zypper update
 5. 安裝 Azure Linux 代理程式。
    
-   # <a name="sudo-zypper-install-walinuxagent"></a>sudo zypper install WALinuxAgent
+        # sudo zypper install WALinuxAgent
 6. 修改 grub 組態中的核心開機那一行，使其額外包含用於 Azure 的核心參數。 作法是，在文字編輯器中開啟 "/boot/grub/menu.lst"，並確定預設核心包含下列參數：
    
      console=ttyS0 earlyprintk=ttyS0 rootdelay=300
@@ -150,9 +151,9 @@ SUSE 是建置您自己的 VHD 的替代選項，其也可在 [VMDepot](https://
      ResourceDisk.Format=y  ResourceDisk.Filesystem=ext4  ResourceDisk.MountPoint=/mnt/resource  ResourceDisk.EnableSwap=y  ResourceDisk.SwapSizeMB=2048    ## 注意：將此設為任何您需要的項目。
 11. 執行下列命令，以取消佈建虛擬機器，並準備將它佈建於 Azure 上：
     
-    # <a name="sudo-waagent--force--deprovision"></a>sudo waagent -force -deprovision
-    # <a name="export-histsize0"></a>export HISTSIZE=0
-    # <a name="logout"></a>logout
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
 12. 確定 Azure Linux 代理程式會在啟動時執行：
     
         # sudo systemctl enable waagent.service

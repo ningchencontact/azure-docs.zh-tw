@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30918110"
 ---
 # <a name="install-mysql-on-a-virtual-machine-created-with-the-classic-deployment-model-running-windows-server-2016"></a>在以傳統部署模型建立且執行 Windows Server 2016 的虛擬機器上安裝 MySQL
 [MySQL](https://www.mysql.com) 是一種很受歡迎的開放原始碼 SQL 資料庫。 本教學課程示範如何在執行 **Windows Server 2016** 的虛擬機器上安裝並執行 **MySQL 5.7.18 社群版本**作為 MySQL 伺服器。 對於非 MySQL 或 Windows Server 的版本，操作方式可能略有不同。

@@ -1,11 +1,11 @@
 ---
-title: "Azure 服務匯流排的 AMQP 1.0 概觀 | Microsoft Docs"
-description: "了解如何在 Azure 中使用 Advanced Message Queuing Protocol (AMQP)。"
+title: Azure 服務匯流排的 AMQP 1.0 概觀 | Microsoft Docs
+description: 了解如何在 Azure 中使用 Advanced Message Queuing Protocol (AMQP)。
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0e8d19cc-de36-478e-84ae-e089bbc2d515
 ms.service: service-bus-messaging
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28926592"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>服務匯流排中的 AMQP 1.0 支援
 Azure 服務匯流排雲端服務和內部部署 [Service Bus for Windows Server (Service Bus 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) 兩者都支援進階訊息佇列通訊協定 (AMQP) 1.0。 透過開放式標準通訊協定，AMQP 可讓您打造一個跨平台的混合式應用程式。 您可以透過使用不同語言和架構所建立，且在不同作業系統上執行的元件來建構應用程式。 所有這些元件都可以連線到服務匯流排，並有效地且不失真地順暢交換結構化的商業訊息。

@@ -1,27 +1,22 @@
 ---
 title: 使用角色型存取控制來管理 Azure Site Recovery | Microsoft Docs
 description: 本文說明如何套用與使用角色型存取控制 (RBAC) 來管理 Azure Site Recovery 部署
-services: site-recovery
-documentationcenter: ''
-author: mayanknayar
-manager: rochakm
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/11/2018
+ms.date: 07/06/2018
+author: mayanknayar
+ms.topic: conceptual
 ms.author: manayar
-ms.openlocfilehash: 072e3bc2e1a13476b43fb72c8631453e2ffa3b27
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: dfd880b6ff3a7e199ea259acc5e5ec59f89c897d
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34071600"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919721"
 ---
-# <a name="use-role-based-access-control-to-manage-azure-site-recovery-deployments"></a>使用角色型存取控制管理 Azure Site Recovery 部署
+# <a name="use-role-based-access-control-to-manage-site-recovery-access"></a>使用角色型存取控制管理 Site Recovery 存取
 
 Azure 角色型存取控制 (RBAC) 可以對 Azure 進行更細緻的存取權管理。 您可以使用 RBAC 劃分小組責任，並只將特定存取權限授與需要執行特定工作的使用者。
 

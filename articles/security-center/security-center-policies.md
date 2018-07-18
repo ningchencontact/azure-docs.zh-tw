@@ -3,7 +3,7 @@ title: 在 Azure 資訊安全中心設定安全性原則 | Microsoft Docs
 description: 本文章可協助您在「Azure 資訊安全中心」設定安全性原則。
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: 3b9e1c15-3cdb-4820-b678-157e455ceeba
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2018
-ms.author: yurid
-ms.openlocfilehash: fed4a587d2258cdab35d09f5e3947a8cacade157
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.date: 06/05/2018
+ms.author: terrylan
+ms.openlocfilehash: f12cede430a94da937a874ade2e50e4ed9860da9
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364381"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34756986"
 ---
 # <a name="set-security-policies-in-azure-security-center"></a>在 Azure 資訊安全中心設定安全性原則
 本文章可協助您在「資訊安全中心」設定安全性原則。
@@ -28,7 +28,7 @@ ms.locfileid: "34364381"
 資訊安全中心會為每個 Azure 訂用帳戶自動建立預設安全性原則。 您可以在資訊安全中心編輯原則並監視原則合規性。
 
 > [!NOTE]
-> 您現在可以使用 Azure 原則 (處於有限預覽狀態) 來擴充資訊安全中心原則。 若要加入預覽，請移至[註冊 Azure 原則](https://aka.ms/getpolicy)。 如需詳細資訊，請參閱[整合資訊安全中心安全性原則與 Azure 原則](security-center-azure-policy.md)。
+> 您現在可以使用 [Azure 原則](../azure-policy/azure-policy-introduction.md)來擴充資訊安全中心原則。 如需詳細資訊，請參閱[整合資訊安全中心安全性原則與 Azure 原則](security-center-azure-policy.md)。
 
 用於開發或測試之資源的安全性需求與用於生產應用程式的資源需求可能不同。 使用個人識別資訊等規範資料的應用程式可能會需要較高層級的安全性。 Azure 資訊安全中心中啟用的安全性原則將會決定安全性建議與監視，以協助您識別可能的弱點並減輕威脅。 如需如何決定哪個選項適合您的詳細資訊，請參閱 [Azure 資訊安全中心規劃和操作指南](security-center-planning-and-operations-guide.md)。
 
@@ -75,3 +75,5 @@ ms.locfileid: "34364381"
 * [使用 Azure 資訊安全中心監視合作夥伴解決方案](security-center-partner-solutions.md)：了解如何監視合作夥伴解決方案的健全狀況。
 * [Azure 資訊安全中心常見問題集](security-center-faq.md)：取得使用服務常見問題的解答。
 * [Azure 安全性部落格](http://blogs.msdn.com/b/azuresecurity/)：尋找有關 Azure 安全性與相容性的部落格文章。
+
+若要深入了解 Azure 原則，請參閱[什麼是 Azure 原則？](../azure-policy/azure-policy-introduction.md)

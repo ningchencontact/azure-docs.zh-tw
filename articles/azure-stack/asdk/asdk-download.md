@@ -20,6 +20,7 @@ ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29974148"
 ---
 # <a name="download-and-extract-the-azure-stack-development-kit-asdk"></a>下載 Azure Stack 開發套件 (ASDK) 並解壓縮
 確認您的開發套件主機電腦符合安裝 ASDK 的基本需求後，下一個步驟是下載 ASDK 部署套件並解壓縮以取得 Cloudbuilder.vhdx。

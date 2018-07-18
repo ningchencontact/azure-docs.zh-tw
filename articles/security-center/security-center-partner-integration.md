@@ -12,14 +12,14 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/16/2018
+ms.date: 07/05/2018
 ms.author: terrylan
-ms.openlocfilehash: 28bb900a3281becc7bb243e6bd7bf2beedf1a5c1
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 594588bfaf328c687bb43f2d958ff928a521c5ab
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34261626"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888927"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>在 Azure 資訊安全中心整合安全性解決方案
 這份文件可協助您管理已連線到 Azure 資訊安全中心的安全性解決方案，並且新增新的項目。
@@ -27,16 +27,22 @@ ms.locfileid: "34261626"
 ## <a name="integrated-azure-security-solutions"></a>整合式 Azure 安全性解決方案
 資訊安全中心可以使得在 Azure 中啟用整合式安全性解決方案變得簡單。 優點包括：
 
-- **簡化部署**：資訊安全中心提供整合式合作夥伴解決方案的精簡佈建。 針對像是反惡意程式碼軟體和弱點評量的解決方案，資訊安全中心可以在您的虛擬機器上佈建所需的代理程式，針對防火牆應用裝置，資訊安全中心可以處理大部分所需的網路設定。
+- 
+  **簡化部署**：資訊安全中心提供整合式合作夥伴解決方案的精簡佈建。 針對像是反惡意程式碼軟體和弱點評量的解決方案，資訊安全中心可以在您的虛擬機器上佈建所需的代理程式，針對防火牆應用裝置，資訊安全中心可以處理大部分所需的網路設定。
 - **整合偵測**：來自合作夥伴解決方案的安全性事件會自動收集、彙總以及顯示為資訊安全中心警示和事件的一部分。 這些事件也會與來自其他來源的偵測整合，以提供進階的威脅偵測功能。
 - **統一的健全狀況監視與管理**：客戶可以使用整合式的健康情況事件，一眼就能監視所有合作夥伴解決方案。 提供基本管理功能，而且可以讓您輕鬆使用夥伴解決方案存取進階設定。
 
 目前整合式安全性解決方案包括：
 
-- 端點保護 ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html)、[Symantec](https://www.symantec.com/products)、[McAfee](https://www.mcafee.com/us/products.aspx)、[Windows Defender](https://www.microsoft.com/search/result.aspx?q=Windows+defender+endpoint+protection) 和 [System Center Endpoint Protection](https://www.microsoft.com/search/result.aspx?q=System+Center+endpoint+protection))
+- 端點保護 ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html)、[Symantec](https://www.symantec.com/products)、[McAfee](https://www.mcafee.com/us/products.aspx)、[Windows Defender](https://www.microsoft.com/windows/comprehensive-security) 和 [System Center Endpoint Protection](https://www.microsoft.com/search/result.aspx?q=System+Center+endpoint+protection))
 - Web 應用程式防火牆 ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall)、[F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html)、[Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF)、[Fortinet](https://www.fortinet.com/products.html)，以及 [Azure 應用程式閘道](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/))
 - 新一代防火牆 ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/)、[Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/)、[Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2)、[Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html) 和 [Palo Alto Networks](https://www.paloaltonetworks.com/products))
-- 弱點評估 ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/))  
+- 弱點評量 ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) 和 [Rapid7](https://www.rapid7.com/products/insightvm/))
+
+> [!NOTE]
+> Rapid7 處於預覽狀態。
+>
+>
 
 端點保護整合體驗會根據解決方案而有所不同。 下表包含每個解決方案體驗的詳細資料：
 
@@ -44,7 +50,7 @@ ms.locfileid: "34261626"
 |-----------------------------------|---------------------------------------|------------------------------|---------------------------|
 | Windows Defender (Microsoft 反惡意程式碼軟體)                  | Windows Server 2016                   | 否，內建於 OS           | yes                       |
 | System Center Endpoint Protection (Microsoft 反惡意程式碼軟體) | Windows Server 2012 R2、2012、2008 R2 | 透過延伸模組                | yes                       |
-| Trend Micro – 所有版本         | Windows Server 系列                 | 透過延伸模組                | yes                       |
+| Trend Micro – 所有版本         | Windows Server 系列                 | 否                           | yes                       |
 | Symantec v12.1.1100+              | Windows Server 系列                 | 否                           | yes                       |
 | McAfee v10+                       | Windows Server 系列                 | 否                           | yes                       |
 | Kaspersky                         | Windows Server 系列                 | 否                           | 否                        |

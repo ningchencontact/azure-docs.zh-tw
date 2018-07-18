@@ -7,14 +7,15 @@ manager: craigg
 ms.reviewer: MightyPen
 ms.service: sql-database
 ms.custom: develop databases
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: jodebrui
-ms.openlocfilehash: 19ddcdf9a7d27535172c1e9ccfa89b3836589c84
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a2f0d901abfa0013a6f53bacd72a9f8db2e0fd99
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34648042"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>使用記憶體內部 OLTP 改善 SQL Database 中的應用程式效能
 在[進階和業務關鍵層](sql-database-service-tiers-vcore.md)資料庫中，[記憶體內部 OLTP](sql-database-in-memory.md) 可用來改善交易處理、資料擷取和暫時性資料案例的效能，而無須增加定價層。 

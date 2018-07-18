@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 05/10/2018
+ms.date: 06/27/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 39708248160b029185b64ed927a453562e1003f2
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 5c2088ab39e32c049ce867698e84efba759c9a87
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447331"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>在 Azure Stack 中提供虛擬機器映像
 
@@ -53,7 +54,7 @@ ms.lasthandoff: 05/12/2018
 
    ![將 Blob 存取權設定為公用](./media/azure-stack-add-vm-image/image2.png)
 
-2. 以操作員身分登入 Azure Stack。 在功能表中，選取 [更多服務] > [資源提供者]。 然後，選取 [計算] > [VM 映像] > [新增]。
+2. 以操作員身分登入 Azure Stack。 在功能表中選取 [更多服務]。 然後，選取 [計算] > [VM 映像] > [新增]。
 
 3. 在 [新增 VM 映像] 底下，輸入虛擬機器映像的發行者、供應項目、SKU 及版本。 這些名稱區段指的是 Resource Manager 範本中的 VM 映像。 請務必正確選取 **osType** 值。 針對 [OS 磁碟 Blob URI]，輸入上傳映像所在的 Blob URI。 然後，選取 [建立] 以開始建立 VM 映像。
 
@@ -72,6 +73,9 @@ ms.lasthandoff: 05/12/2018
 3. 按一下 [刪除] 。
 
 ## <a name="add-a-vm-image-to-the-marketplace-by-using-powershell"></a>使用 PowerShell 將 VM 映像新增到 Marketplace
+
+> [!Note]  
+> 當您新增映像時，它只適用於以 Azure Resource Manger 為基礎的範本和 PowerShell 部署。 若要將映像當作 Marketplace 項目提供給使用者，請使用[建立及發佈 Marketplace 項目](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-and-publish-marketplace-item)一文中的步驟發佈 Marketplace 項目。
 
 1. [安裝適用於 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。  
 
@@ -92,9 +96,10 @@ ms.lasthandoff: 05/12/2018
   - **publisher**  
     例如：`Canonical`  
     部署映像時，使用者所使用 VM 映像的發行者名稱區段。 例如 **Microsoft**。 請勿在此欄位中包含空格或其他特殊字元。  
-  - **offer**  
+  - 
+      **供應項目**  
     例如：`UbuntuServer`  
-    部署 VM 映像時，使用者所使用 VM 映像的供應項目名稱區段。 例如 **WindowsServer**。 請勿在此欄位中包含空格或其他特殊字元。  
+部署 VM 映像時，使用者所使用 VM 映像的供應項目名稱區段。 例如 **WindowsServer**。 請勿在此欄位中包含空格或其他特殊字元。  
   - **sku**  
     例如：`14.04.3-LTS`  
     部署 VM 映像時，使用者所使用 VM 映像的 SKU 名稱區段。 例如 **Datacenter2016**。 請勿在此欄位中包含空格或其他特殊字元。  
@@ -108,7 +113,7 @@ ms.lasthandoff: 05/12/2018
     例如：`https://storageaccount.blob.core.windows.net/vhds/Ubuntu1404.vhd`  
     您可以為 `osDisk` 指定 blob 儲存體 URI。  
 
-    如需 Add-AzsPlatformimage Cmdlet 的詳細資訊，請參閱 Microsoft PowerShell [Azure Stack 操作員模組文件](https://docs.microsoft.com/powershell/module/)。
+    如需詳細資訊，請參閱 [Add-AzsPlatformimage](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage) Cmdlet 和 [New-DataDiskObject](https://docs.microsoft.com/powershell/module/Azs.Compute.Admin/New-DataDiskObject) Cmdlet 的 PowerShell 參考。
 
 ## <a name="add-a-custom-vm-image-to-the-marketplace-by-using-powershell"></a>使用 PowerShell 將自訂 VM 映像新增到 Marketplace
 
@@ -196,9 +201,10 @@ ms.lasthandoff: 05/12/2018
   - **publisher**  
     例如：`Canonical`  
     部署映像時，使用者所使用 VM 映像的發行者名稱區段。 例如 **Microsoft**。 請勿在此欄位中包含空格或其他特殊字元。  
-  - **offer**  
+  - 
+      **供應項目**  
     例如：`UbuntuServer`  
-    部署 VM 映像時，使用者所使用 VM 映像的供應項目名稱區段。 例如 **WindowsServer**。 請勿在此欄位中包含空格或其他特殊字元。  
+部署 VM 映像時，使用者所使用 VM 映像的供應項目名稱區段。 例如 **WindowsServer**。 請勿在此欄位中包含空格或其他特殊字元。  
   - **sku**  
     例如：`14.04.3-LTS`  
     部署 VM 映像時，使用者所使用 VM 映像的 SKU 名稱區段。 例如 **Datacenter2016**。 請勿在此欄位中包含空格或其他特殊字元。  

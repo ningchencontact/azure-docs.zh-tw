@@ -4,7 +4,7 @@ description: 本文說明 Azure Active Directory (Azure AD) 無縫 SSO 和 GDPR 
 services: active-directory
 keywords: 何謂 Azure AD Connect、GDPR、Azure AD 的必要元件、SSO、單一登入
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/21/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bffa5a3aa57c5b01e3361bc6fc6b284348707800
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 50c97ce7a492c934e15634622d86bf587ffb3fb7
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32149522"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915719"
 ---
 # <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>使用者隱私權與 Azure AD 無縫單一登入
 
@@ -28,11 +29,11 @@ ms.locfileid: "32149522"
 ## <a name="overview"></a>概觀
 
 
-Azure AD 無縫 SSO會建立下列記錄類型，其中可以包含 EUII：
+Azure AD 無縫 SSO 會建立下列記錄類型，其中可以包含個人資料： 
 
 - Azure AD Connect 追蹤記錄檔。
 
-適用於無縫 SSO 的使用者隱私權合規性可透過兩種方式來達成：
+有兩種方式可改善無縫 SSO 的使用者隱私權：
 
 1.  在接到要求時擷取使用者的資料，並從安裝中移除該使用者的資料。
 2.  確保沒有資料會保留超過 48 小時。

@@ -17,11 +17,12 @@ ms.workload: big-data
 ms.date: 04/26/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 359b458d5fa9089fd7f35f94cd3f0265dc8ea3c9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2750ddaba4b3fe25e18b6d3b7e9a65656165818f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446600"
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>使用 SSH 連線到 HDInsight (Hadoop)
 
@@ -31,7 +32,7 @@ HDInsight 可以使用 Linux (Ubuntu) 作為 Hadoop 叢集節點的作業系統�
 
 | 位址 | 連接埠 | 連線到... |
 | ----- | ----- | ----- |
-| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | 邊緣節點 (R Server on HDInsight) |
+| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | 邊緣節點 (HDInsight 上的 ML 服務) |
 | `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | 邊緣節點 (任何其他叢集類型，如果邊緣節點存在的話) |
 | `<clustername>-ssh.azurehdinsight.net` | 22 | 主要前端節點 |
 | `<clustername>-ssh.azurehdinsight.net` | 23 | 次要前端節點 |
@@ -136,7 +137,19 @@ SSH 金鑰會使用[公開金鑰加密](https://en.wikipedia.org/wiki/Public-key
 
 ## <a id="domainjoined"></a>驗證︰已加入網域的 HDInsight
 
-如果您使用__已加入網域的 HDInsight 叢集__，您必須在使用 SSH 連線之後使用 `kinit` 命令。 此命令會提示您輸入網域使用者和密碼，並向與叢集相關聯的 Azure Active Directory 網域驗證您的工作階段。
+如果您使用__已加入網域的 HDInsight 叢集__，您必須在使用 SSH 本機使用者連線之後使用 `kinit` 命令。 此命令會提示您輸入網域使用者和密碼，並向與叢集相關聯的 Azure Active Directory 網域驗證您的工作階段。
+
+您也可以在每個加入網域的節點 (例如前端節點、邊緣節點) 上啟用 Kerberos 驗證，以便使用網域帳戶進行 ssh 連線。 若要進行此作業，請編輯 sshd 組態檔：
+```bash
+sudo vi /etc/ssh/sshd_config
+```
+取消註解並將 `KerberosAuthentication` 變更為 `yes`
+
+```bash
+sudo service sshd restart
+```
+
+在任何時間，若要確認 Kerberos 驗證是否已成功，請使用 `klist` 命令。
 
 如需詳細資訊，請參閱[設定已加入網域的 HDInsight](./domain-joined/apache-domain-joined-configure.md)。
 

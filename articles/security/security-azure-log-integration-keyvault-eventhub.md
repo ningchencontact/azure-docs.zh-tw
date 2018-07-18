@@ -8,21 +8,24 @@ editor: TomShinder
 ms.assetid: ''
 ms.service: security
 ms.topic: article
-ms.date: 02/16/2018
+ms.date: 06/07/2018
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 42c30a825e44c289c42d0fb0a40a442c4ac950d7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 3de876a8d06a52412bbbfd3ad922c2c4c6d8ec37
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235952"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Azure 記錄整合教學課程：使用事件中樞處理Azure Key Vault 事件
 
+>[!IMPORTANT]
+> Azure 記錄整合功能將於 2019 年 6 月 1 日淘汰。 AzLog 下載將於 2018 年 6 月 27 日停用。 如需繼續進行的指導，請檢閱 [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (使用 Azure 監視器與 SIEM 工具整合) 一文 
+
 您可以使用 Azure 記錄整合擷取記錄的事件，並將其提供給安全性資訊和事件管理 (SIEM) 系統。 本教學課程示範如何使用 Azure 記錄整合，來處理透過 Azure 事件中樞所取得的記錄。
 
->[!IMPORTANT]
->整合 Azure 記錄檔的慣用方法是使用 SIEM 廠商的 Azure 監視器連接器，並遵循這些[指示](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md)。 不過，如果您的 SIEM 廠商沒有提供 Azure 監視器連接器，在這類連接器可供使用之前，您可以使用 Azure 記錄整合作為暫時解決方案 (如果 Azure 記錄整合支援您的 SIEM)。
+整合 Azure 記錄檔的慣用方法是使用 SIEM 廠商的 Azure 監視器連接器，並遵循這些[指示](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md)。 不過，如果您的 SIEM 廠商沒有提供 Azure 監視器連接器，在這類連接器可供使用之前，您可以使用 Azure 記錄整合作為暫時解決方案 (如果 Azure 記錄整合支援您的 SIEM)。
 
  
 您可以使用本教學課程來熟悉 Azure 記錄整合如何與事件中樞搭配運作。請遵循範例步驟，並了解每個步驟如何支援解決方案。 然後您可以利用這裡學到的內容來建立自己的步驟，以支援您公司的獨特需求。

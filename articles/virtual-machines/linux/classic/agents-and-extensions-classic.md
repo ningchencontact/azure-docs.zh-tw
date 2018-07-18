@@ -22,6 +22,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30842239"
 ---
 # <a name="about-the-virtual-machine-agent-and-extensions-for-linux"></a>有關 Linux 的虛擬機器代理程式和擴充功能
 > [!IMPORTANT]

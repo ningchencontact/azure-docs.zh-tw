@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/01/2018
+ms.locfileid: "32311517"
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>使用 SSH 通道來存取 Ambari Web UI、JobHistory、NameNode、Oozie 及其他 Web UI
 
@@ -119,7 +120,7 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 
 建立叢集後，請使用下列步驟來確認您可以從 Ambari Web 存取服務 Web UI：
 
-1. 在瀏覽器中，前往 http://headnodehost:8080。 `headnodehost` 位址會透過通道傳送到叢集，並解析為執行 Ambari 的前端節點。 出現提示時，請輸入您叢集的管理員使用者名稱 (admin) 和密碼。 Ambari Web UI 可能會出現第二次的提示。 若是如此，請重新輸入資訊。
+1. 在瀏覽器中，前往 http://headnodehost:8080 。 `headnodehost` 位址會透過通道傳送到叢集，並解析為執行 Ambari 的前端節點。 出現提示時，請輸入您叢集的管理員使用者名稱 (admin) 和密碼。 Ambari Web UI 可能會出現第二次的提示。 若是如此，請重新輸入資訊。
 
    > [!NOTE]
    > 使用 http://headnodehost:8080 位址連線至叢集時，表示您是透過通道進行連線。 通訊是使用 SSH 通道進行保護，而非 HTTPS。 若要透過 HTTPS 與網際網路連接，請使用 https://clustername.azurehdinsight.net，其中 **clustername** 是叢集的名稱。

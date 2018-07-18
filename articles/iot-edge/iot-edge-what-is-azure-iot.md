@@ -1,24 +1,19 @@
 ---
-title: "Azure 的物聯網解決方案 (IoT Edge) | Microsoft Docs"
-description: "範例 IoT 解決方案架構以及它與裝置、Azure IoT 中樞服務、Azure IoT 裝置 SDK、Azure IoT 服務 SDK 和其他 Azure 服務之關係的概觀。"
-services: iot-hub
-documentationcenter: 
+title: Azure 的物聯網解決方案 (IoT Edge) | Microsoft Docs
+description: 範例 IoT 解決方案架構以及它與裝置、Azure IoT 中樞服務、Azure IoT 裝置 SDK、Azure IoT 服務 SDK 和其他 Azure 服務之關係的概觀。
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: a859e379-dca7-42fa-bdf6-1125c86ad140
-ms.service: iot-hub
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-edge
+services: iot-edge
+ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: dobett
-ms.openlocfilehash: 587b733106d511ec63d71f67a06e520324a3e594
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 56b7bfe02ddb0f2c909b2f363c37308527ec8db1
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029081"
 ---
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
@@ -37,7 +32,7 @@ IoT Edge 也包含一個能夠進行裝置遠端管理的雲端介面。 不需�
 如果您未曾使用 Azure IoT 中樞，您可以從 [Azure IoT 中樞服務概觀][lnk-iot-hub]著手。
 
 [lnk-deployment]: module-deployment-monitoring.md
-[lnk-overview]: how-iot-edge-works.md
+[lnk-overview]: about-iot-edge.md
 [lnk-iot-hub]: ../iot-hub/iot-hub-what-is-iot-hub.md
 [lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/

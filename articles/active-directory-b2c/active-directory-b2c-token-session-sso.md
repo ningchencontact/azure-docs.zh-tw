@@ -1,21 +1,21 @@
 ---
-title: 權杖、工作階段及單一登入設定 - Azure AD B2C | Microsoft Docs
-description: Azure Active Directory B2C 中的權杖、工作階段及單一登入組態
+title: Azure Active Directory B2C 中的權杖、工作階段及單一登入組態 | Microsoft Docs
+description: Azure Active Directory B2C 中的權杖、工作階段及單一登入組態。
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: 925313b6f2a00826f2ec8086457315c60f70b007
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 35210a8e93b8437ea4d8c3b5f002c81c549d3afe
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444814"
 ---
 # <a name="azure-active-directory-b2c-token-session-and-single-sign-on-configuration"></a>Azure Active Directory B2C：權杖、工作階段及單一登入設定
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/23/2018
 4. 按一下功能表頂端的 [編輯]。
 5. 按一下 [權杖、工作階段及單一登入設定]。
 6. 變更需要的項目。 了解後續章節中的可用屬性。
-7. 按一下 [SERVICEPRINCIPAL] 。
+7. 按一下 [確定]。
 8. 按一下功能表頂端的 [儲存]。
 
 ## <a name="token-lifetimes-configuration"></a>權杖存留期組態

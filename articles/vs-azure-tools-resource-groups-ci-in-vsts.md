@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192939"
 ---
 # <a name="continuous-integration-in-visual-studio-team-services-using-azure-resource-group-deployment-projects"></a>使用 Azure 資源群組部署專案在 Visual Studio Team Services 中進行連續整合
 若要部署 Azure 範本，您需要執行各種階段的工作：組建、測試、複製到 Azure (也稱為「暫存」) 及部署範本。 有兩種不同的方式可將範本部署至 Visual Studio Team Services (VS Team Services)。 兩種方法所產生的結果都相同，因此請選擇最符合您工作流程的方法。

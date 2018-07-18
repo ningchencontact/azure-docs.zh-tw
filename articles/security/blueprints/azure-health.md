@@ -15,17 +15,18 @@ ms.workload: na
 ms.date: 02/27/2018
 ms.author: jomolesk
 ms.openlocfilehash: e627019f6219509c21ca6245ee1f7f54f2e1669a
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
+ms.lasthandoff: 06/08/2018
 ms.locfileid: "33894308"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure 安全性與合規性藍圖 - HIPAA/HITRUST 醫療資料和 AI
 
 ## <a name="overview"></a>概觀
 
-**Azure 安全性與合規性藍圖 - HIPAA/HITRUST 醫療資料和 AI 提供 Azure PaaS 解決方案的統包部署，以示範如何安全地內嵌、儲存、分析健康情況資料並與之互動，同時能夠滿足業界合規性需求。該藍圖有助於加速資料受管制之客戶採用及使用雲端。**
+
+  **Azure 安全性與合規性藍圖 - HIPAA/HITRUST 醫療資料和 AI 提供 Azure PaaS 解決方案的統包部署，以示範如何安全地內嵌、儲存、分析健康情況資料並與之互動，同時能夠滿足業界合規性需求。該藍圖有助於加速資料受管制之客戶採用及使用雲端。**
 
 Azure 安全性與合規性藍圖 - HIPAA/HITRUST 醫療資料和 AI 藍圖提供工具與指導方針，協助部署安全的健康保險流通與責任法案 (HIPAA)，以及醫療資訊信任聯盟 (HITRUST) 準備就緒的平台即服務 (PaaS) 環境，以便在部署為端對端解決方案的安全、多層式雲端環境中內嵌、儲存、分析個人與非個人醫療記錄並與之互動。 此藍圖將示範常見的參考架構，並融入可輕鬆採用 Microsoft Azure 的設計。 此架構所說明的解決方案符合組織尋求雲端方法來減少部署負擔與成本的需求。
 

@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: zh-TW
   ms.lasthandoff: 05/03/2018
+  ms.locfileid: "32779481"
 abstract:
   description: 了解如何設定、建立和管理 Azure VPN 閘道。 從內部部署位置為您的虛擬機器建立加密的跨單位連線，或在 VNet 之間建立加密的連線。
 sections:

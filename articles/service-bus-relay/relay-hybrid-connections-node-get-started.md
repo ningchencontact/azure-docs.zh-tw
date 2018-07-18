@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 05/02/2018
 ms.author: sethm
 ms.openlocfilehash: 1e0b76b96029e1a7ed84f1c8cd895090e8acbc6f
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38670997"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-node"></a>在 Node 中開始使用轉送混合式連線 Websocket
 

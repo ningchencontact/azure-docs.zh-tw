@@ -1,13 +1,14 @@
 ---
-title: "在初次執行期間向 Azure AD 加入新的 Windows 10 裝置 | Microsoft Docs"
-description: "本主題說明使用者如何在初次執行體驗期間設定加入 Azure AD。"
+title: 在初次執行期間向 Azure AD 加入新的 Windows 10 裝置 | Microsoft Docs
+description: 本主題說明使用者如何在初次執行體驗期間設定加入 Azure AD。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 0e71df2333dee9c4eb9935d3397d343be246be65
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 0341c5b65816cf1c54fe3f2f7781dde46bf084ad
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757387"
 ---
 # <a name="join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>在初次執行期間向 Azure AD 加入新的 Windows 10 裝置
 
@@ -37,6 +39,8 @@ ms.lasthandoff: 01/16/2018
 ## <a name="before-you-begin"></a>開始之前
 
 若要加入 Windows 10 裝置，必須設定 Device Registration Service，才能註冊裝置。 除了擁有在 Azure AD 租用戶中加入裝置的權限之外，您所擁有的已註冊裝置必須少於已設定的最大值。 如需詳細資料，請參閱[設定裝置設定](device-management-azure-portal.md#configure-device-settings)。
+
+此外，如果您的租用戶已同盟，則您的識別提供者「必須」支援 WS-Fed 和 WS-Trust 使用者名稱/密碼端點。 這可以是 1.3 或 2005 版。 將裝置加入 Azure AD 及使用密碼登入裝置時，都需要此通訊協定支援。
 
 ## <a name="joining-a-device"></a>加入裝置
 

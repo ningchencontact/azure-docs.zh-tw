@@ -12,17 +12,26 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2018
+ms.date: 06/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: bff67bc617a0dfba10b3150aaa8bae92e84304b8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 576558f7ab3ae9a0e3ceebb65d19f689b4836022
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359963"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36958811"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 概觀
 應用程式的基礎結構通常由許多元件所組成 – 或許是虛擬機器、儲存體帳戶和虛擬網路，或者 web 應用程式、資料庫、資料庫伺服器和第三方服務。 您看不到這些元件作為個別的實體，而是看到它們作為單一實體相關且彼此相依的組件。 您會想要將其當成群組來部署、管理和監視。 Azure Resource Manager 可讓您將方案中的資源作為群組使用。 您可以透過單一、協調的作業來部署、更新或刪除方案的所有資源。 您會使用部署的範本，且該範本可以用於不同的環境，例如測試、預備和生產環境。 Resource Manager 會提供安全性、稽核和標記功能，以協助您在部署後管理您的資源。 
+
+## <a name="consistent-management-layer"></a>一致的管理層
+Resource Manager 會提供一致的管理層，以透過 Azure PowerShell、Azure CLI、Azure 入口網站、REST API 和用戶端 SDK 執行工作。 透過 Azure PowerShell、Azure CLI、Azure REST API 和用戶端 SDK 也使用 Azure 入口網站中的所有可用功能。 一開始透過 API 發行的功能將會在初次發行的 180 天內呈現在入口網站中。
+
+選擇最適合您的工具和 API - 它們具有相同的功能並提供一致的結果。
+
+下圖顯示這些工具如何與相同的 Azure Resource Manager API 互動。 API 將要求傳遞給 Resource Manager 服務，由其驗證和授權要求。 然後，Resource Manager 將要求路由傳送到適當的資源提供者。
+
+![Resource Manager 要求模型](./media/resource-group-overview/consistent-management-layer.png)
 
 ## <a name="terminology"></a>術語
 如果您不熟悉 Azure Resource Manager，則您可能不熟悉一些詞彙。
@@ -44,14 +53,7 @@ Resource Manager 會提供數個優點：
 * 您可以將標籤套用至資源，以便以邏輯方式組織訂用帳戶中的所有資源。
 * 您可以檢視共用相同標籤之資源群組的成本，以釐清您的組織的計費方式。  
 
-Resource Manager 提供一個部署和管理方案的新方式。 如果您使用較舊的部署模型並想要了解這些變更，請參閱[瞭解Resource Manager 部署和傳統部署](resource-manager-deployment-model.md)。
-
-## <a name="consistent-management-layer"></a>一致的管理層
-Resource Manager 會針對您透過 Azure PowerShell、Azure CLI、Azure 入口網站、REST API 和開發工具所執行的工作提供一致的管理層。 所有工具使用一組共同的作業。 您所使用的是最適合您的工具，而且您可以交互使用這些工具而不會發生混淆。 
-
-下圖顯示這些工具如何與相同的 Azure Resource Manager API 互動。 API 將要求傳遞給 Resource Manager 服務，由其驗證和授權要求。 然後，Resource Manager 將要求路由傳送到適當的資源提供者。
-
-![Resource Manager 要求模型](./media/resource-group-overview/consistent-management-layer.png)
+Resource Manager 提供一個部署和管理方案的新方式。 如果您使用較舊的部署模型並想要了解這些變更，請參閱 [瞭解資源管理員部署和傳統部署](resource-manager-deployment-model.md)。
 
 ## <a name="guidance"></a>指引
 下列建議可協助您在使用您的方案時充分利用 Resource Manager。
@@ -61,7 +63,7 @@ Resource Manager 會針對您透過 Azure PowerShell、Azure CLI、Azure 入口�
 3. 執行命令式指令來管理您的資源，例如啟動或停止應用程式或機器。
 4. 利用與資源群組中相同的生命週期排列資源。 將標記用於資源的所有其他組織方式。
 
-如需關於企業如何使用 Resource Manager 有效地管理訂用帳戶的指引，請參閱 [Azure 企業 Scaffold - 規定的訂用帳戶治理](resource-manager-subscription-governance.md)。
+如需關於企業如何使用 Resource Manager 有效地管理訂用帳戶的指引，請參閱 [Azure 企業 Scaffold - 規定的訂用帳戶治理](/azure/architecture/cloud-adoption-guide/subscription-governance)。
 
 ## <a name="resource-groups"></a>資源群組
 定義資源群組時，必須考慮一些重要因素：
@@ -227,7 +229,7 @@ Azure 也提供數個資源特有的角色。 一些常見的角色有︰
 您也可以明確地鎖定重要的資源，以防止使用者刪除或修改它們。 如需詳細資訊，請參閱[使用 Azure Resource Manager 來鎖定資源](resource-group-lock-resources.md)。
 
 ## <a name="activity-logs"></a>活動記錄
-Resource Manager 會記錄所有建立、修改或刪除資源的作業。 您可以使用活動記錄在進行疑難排解時發現錯誤，或是監視貴組織使用者修改資源的方式。 若要查看記錄，請在資源群組的 [設定] 刀鋒視窗中選取 [活動記錄]。 您可以透過許多不同的值篩選記錄，包括哪位使用者起始了作業。 如需使用活動記錄的相關資訊，請參閱[檢視活動記錄以管理 Azure 資源](resource-group-audit.md)。
+Resource Manager 會記錄所有建立、修改或刪除資源的作業。 您可以使用活動記錄在進行疑難排解時發現錯誤，或是監視貴組織使用者修改資源的方式。 您可以透過許多不同的值篩選記錄，包括哪位使用者起始了作業。 如需使用活動記錄的相關資訊，請參閱[檢視活動記錄以管理 Azure 資源](resource-group-audit.md)。
 
 ## <a name="customized-policies"></a>自訂的原則
 Resource Manager 可讓您建立自訂的原則，以便管理您的資源。 您所建立的原則類型可以包含各種案例。 您可以強制執行資源的的命名慣例、限制可以部署的資源類型和執行個體，或限制可以裝載某個資源類型的區域。 您可以要求資源的標籤值，以便依照部門組織計費方式。 您可建立原則來協助降低成本，並維護訂用帳戶中的一致性。 
@@ -255,7 +257,7 @@ Resource Manager 可讓您建立自訂的原則，以便管理您的資源。 �
 ## <a name="sdks"></a>SDK
 Azure SDK 可供多個語言和平台使用。 這些語言實作都是透過其生態系統的套件管理員和 GitHub 提供。
 
-以下是我們的開放原始碼 SDK 存放庫。 歡迎提供意見反應、問題並提取要求。
+以下是開放原始碼 SDK 存放庫。
 
 * [Azure SDK for .NET](https://github.com/Azure/azure-sdk-for-net)
 * [適用於 Java 的 Azure 管理程式庫](https://github.com/Azure/azure-sdk-for-java)

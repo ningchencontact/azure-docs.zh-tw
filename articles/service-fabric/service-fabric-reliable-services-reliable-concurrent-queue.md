@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206572"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Azure Service Fabric 中的 ReliableConcurrentQueue 簡介
 可靠的並行佇列是非同步、交易式和複寫的佇列，特徵是加入佇列與清除佇列作業的高並行存取。 它旨在提供高輸送量和低延遲，方法是將[可靠的佇列](https://msdn.microsoft.com/library/azure/dn971527.aspx)所提供的嚴格 FIFO 順序放寬，並改為提供最佳的順序。

@@ -39,12 +39,16 @@
   items:
     - name: 部署
       items:
-        - name: 部署多個容器群組
+        - name: 多個容器群組 - YAML
+          href: container-instances-multi-container-yaml.md
+        - name: 多個容器群組 - 資源管理員
           href: container-instances-multi-container-group.md
         - name: 從 Azure Container Registry 進行部署
           href: container-instances-using-azure-container-registry.md
         - name: 設定環境變數 (env)
           href: container-instances-environment-variables.md
+        - name: 設定活躍度探查
+          href: container-instances-liveness-probe.md
     - name: 管理
       items:
         - name: 執行命令 (exec)

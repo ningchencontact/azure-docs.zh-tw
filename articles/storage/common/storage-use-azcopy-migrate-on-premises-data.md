@@ -10,11 +10,12 @@ ms.devlang: azcopy
 ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
-ms.openlocfilehash: 1e7292cf4d647b38a6fe8ceb270ba161e548a537
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3f9735a1e5a6973ab1c1c3f575cf3aa345a3a5a4
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267436"
 ---
 #  <a name="migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>使用 AzCopy 將內部部署資料移轉至雲端儲存體
 
@@ -22,8 +23,8 @@ AzCopy 是命令列工具，可使用簡單的命令從 Azure Blob 儲存體、A
 
 您可以下載兩個版本的 AzCopy：
 
-* [Linux 上的 AzCopy](storage-use-azcopy.md) 是以 .NET Core Framework 建置。 它以 Linux 平台為目標，提供 POSIX 樣式的命令列選項。 
-* [Windows 上的 AzCopy](../storage-use-azcopy.md) 是以 .NET Framework 建置。 它提供了 Windows 樣式的命令列選項。 
+* [Linux 上的 AzCopy](storage-use-azcopy-linux.md) 是以 .NET Core Framework 建置。 它以 Linux 平台為目標，提供 POSIX 樣式的命令列選項。 
+* [Windows 上的 AzCopy](storage-use-azcopy.md) 是以 .NET Framework 建置。 它提供了 Windows 樣式的命令列選項。 
  
 在本教學課程中，您了解如何：
 

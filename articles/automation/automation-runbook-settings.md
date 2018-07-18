@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34194191"
 ---
 # <a name="runbook-settings"></a>Runbook 設定
 Azure 自動化中的每個 Runbook 具備多個有助於識別其本身及變更其記錄行為的設定。 以下會說明這些設定，後面則是如何加以修改的程序。

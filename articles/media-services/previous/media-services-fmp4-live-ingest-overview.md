@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783867"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Azure 媒體服務的分散 MP4 即時內嵌規格
 此規格說明以分散 MP4 為基礎的即時串流內嵌通訊協定和格式 (適用於 Azure 媒體服務)。 媒體服務提供即時串流服務，讓客戶可使用 Azure 做為雲端平台來串流即時事件和廣播即時內容。 本文件也討論建置高度備援且強固之即時內嵌機制的最佳做法。

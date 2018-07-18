@@ -10,21 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 68e3775be36b434acb5c25b522f9e28bec1b6125
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f9f6d2e43fff9a3e57145f39863f66eed64869b2
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048578"
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP ECC 複製資料
 
 本文概述如何使用 Azure Data Factory 中的「複製活動」，從 SAP ECC (SAP Enterprise Central Component) 複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
-
-> [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務，也就是正式推出 (GA) 的版本，請參閱[第 1 版的複製活動](v1/data-factory-data-movement-activities.md)。
 
 ## <a name="supported-capabilities"></a>支援的功能
 

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
 ms.openlocfilehash: a40971e373a6e2fe6324e06816112e2025506ba8
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 07/12/2018
 ms.locfileid: "34057973"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 執行個體中繼資料服務
@@ -286,7 +286,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 -----|-------------|-----------------------
 location | VM 執行所在的 Azure 區域 | 2017-04-02 
 name | VM 的名稱 | 2017-04-02
-提供項目 | 提供 VM 映像的資訊。 此值只會針對從 Azure 映像庫部署的映像呈現。 | 2017-04-02
+供應項目 | 提供 VM 映像的資訊。 此值只會針對從 Azure 映像庫部署的映像呈現。 | 2017-04-02
 publisher | VM 映像的發佈者 | 2017-04-02
 sku | VM 映像的特定 SKU | 2017-04-02
 version | VM 映像的版本 | 2017-04-02

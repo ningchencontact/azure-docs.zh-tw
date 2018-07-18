@@ -1,28 +1,29 @@
 ---
 title: 將實際裝置新增至 Azure IoT Central 應用程式 | Microsoft Docs
 description: 以操作員的身分，將實際裝置新增至 Azure IoT Central 應用程式。
-services: iot-central
 author: sandeeppujar
 ms.author: sandeepu
 ms.date: 04/16/2018
 ms.topic: tutorial
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: f95d9ec8cf22c287169a8de077ff9eb5907a8e84
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
+manager: peterpr
+ms.openlocfilehash: dd68b65825c9c22453e0191d42a0fcce3b65ca64
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201926"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236081"
 ---
-# <a name="add-a-real-device-to-your-azure-iot-central-application"></a>將實際裝置新增至 Azure IoT Central 應用程式
+# <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>教學課程：將實際裝置新增至 Azure IoT 中心應用程式
 
 本教學課程將說明如何在 Microsoft Azure IoT Central 應用程式中新增和設定實際裝置。
 
 本教學課程由兩個部分所組成：
 
 1. 首先，身為操作員，您將了解如何在 Azure IoT Central 應用程式中新增和設定實際裝置。 在此部分結束時，您會擷取要在第二個單元中使用的連接字串。
-1. 其次，身為裝置開發人員，您將了解實際裝置中的程式碼。 您會將第一個單元中的連接字串新增至範例程式碼。
+2. 其次，身為裝置開發人員，您將了解實際裝置中的程式碼。 您會將第一個單元中的連接字串新增至範例程式碼。
 
 在本教學課程中，您了解如何：
 
@@ -47,17 +48,17 @@ ms.locfileid: "34201926"
 
 1. 若要以操作員的身分新增裝置，請選擇左側導覽功能表中的 [裝置總管]：
 
-    ![顯示連線空調的裝置總管頁面](media/tutorial-add-device/explorer.png)
+   ![顯示連線空調的裝置總管頁面](media/tutorial-add-device/explorer.png)
 
-    [裝置總管] 會顯示**連線的空調**裝置範本，以及建置者在建立裝置範本時自動建立的模擬裝置。
+   [裝置總管] 會顯示**連線的空調**裝置範本，以及建置者在建立裝置範本時自動建立的模擬裝置。
 
-1. 若要開始連接實際的連線空調裝置，請選擇 [新增]，然後選擇 [實際]：
+2. 若要開始連接實際的連線空調裝置，請選擇 [新增]，然後選擇 [實際]：
 
-    ![開始新增，實際的連線空調裝置：](media/tutorial-add-device/newreal.png)
+   ![開始新增，實際的連線空調裝置：](media/tutorial-add-device/newreal.png)
 
-1. (選擇性) 您可以藉由選擇裝置名稱並編輯其值，將新裝置重新命名：
+3. (選擇性) 您可以藉由選擇裝置名稱並編輯其值，將新裝置重新命名：
 
-    ![將裝置重新命名](media/tutorial-add-device/rename.png)
+   ![將裝置重新命名](media/tutorial-add-device/rename.png)
 
 ## <a name="configure-a-real-device"></a>設定實際裝置
 
@@ -67,21 +68,21 @@ ms.locfileid: "34201926"
 
     ![設定顯示同步中](media/tutorial-add-device/settingssyncing.png)
 
-1. 在新的實際連線空調裝置的 [屬性] 頁面上，將 [序號] 設定為 **rcac0010**，並將 [韌體版本] 設為 9.75。 然後，選擇 [儲存]：
+2. 在新的實際連線空調裝置的 [屬性] 頁面上，將 [序號] 設定為 **rcac0010**，並將 [韌體版本] 設為 9.75。 然後，選擇 [儲存]：
 
     ![設定實際裝置的屬性](media/tutorial-add-device/setproperties.png)
 
-1. 身為建置者，您可以檢視實際裝置的 [測量]、[規則] 和 [儀表板] 頁面。
+3. 身為建置者，您可以檢視實際裝置的 [測量]、[規則] 和 [儀表板] 頁面。
 
 ## <a name="get-connection-string-for-real-device-from-application"></a>從應用程式取得適用於實際裝置的連接字串
 
-裝置開發人員必須在執行於裝置上的程式碼中內嵌實際裝置的_連接字串_。 連接字串可讓裝置安全地連線至您的 Azure IoT Central 應用程式。 每個裝置執行個體都有唯一的連接字串。 下列步驟說明如何在您的應用程式中找出裝置執行個體的連接字串：
+裝置開發人員必須在執行於裝置上的程式碼中內嵌實際裝置的*連接字串*。 連接字串可讓裝置安全地連線至您的 Azure IoT Central 應用程式。 每個裝置執行個體都有唯一的連接字串。 下列步驟說明如何在您的應用程式中找出裝置執行個體的連接字串：
 
 1. 在實際的連線空調裝置的 [裝置] 畫面上，選擇 [連接此裝置]：
 
     ![顯示檢視連線資訊連結的裝置頁面](media/tutorial-add-device/connectionlink.png)
 
-1. 在 [連接] 頁面上複製 [主要連接字串]，並加以儲存。 您將在本教學課程的後半段使用此值。 裝置開發人員會在執行於裝置上的用戶端應用程式中使用此值：
+2. 在 [連接] 頁面上複製 [主要連接字串]，並加以儲存。 您將在本教學課程的後半段使用此值。 裝置開發人員會在執行於裝置上的用戶端應用程式中使用此值：
 
     ![連接字串值](media/tutorial-add-device/connectionstring.png)
 
@@ -99,46 +100,46 @@ ms.locfileid: "34201926"
 
 1. 在電腦上安裝 [Node.js](https://nodejs.org/) 4.0.x 版或更新版本。 Node.js 適用於多種作業系統。
 
-1. 在電腦上建立名為 `connectedairconditioner` 的資料夾。
+2. 在電腦上建立名為 `connectedairconditioner` 的資料夾。
 
-1. 在命令列環境中，瀏覽至您所建立的 `connectedairconditioner` 資料夾。
+3. 在命令列環境中，瀏覽至您所建立的 `connectedairconditioner` 資料夾。
 
-1. 若要初始化 Node.js 專案，請以所有預設值執行下列命令：
+4. 若要初始化 Node.js 專案，請以所有預設值執行下列命令：
 
-    ```cmd/sh
-    npm init
-    ```
+   ```cmd/sh
+   npm init
+   ```
 
-1. 若要安裝必要的套件，請執行下列命令︰
+5. 若要安裝必要的套件，請執行下列命令︰
 
-    ```cmd/sh
-    npm install azure-iot-device azure-iot-device-mqtt --save
-    ```
+   ```cmd/sh
+   npm install azure-iot-device azure-iot-device-mqtt --save
+   ```
 
-1. 使用文字編輯器，在 `connectedairconditioner` 資料夾中建立名為 **ConnectedAirConditioner.js** 的檔案。
+6. 使用文字編輯器，在 `connectedairconditioner` 資料夾中建立名為 **ConnectedAirConditioner.js** 的檔案。
 
-1. 在 **ConnectedAirConditioner.js** 檔案的開頭處新增下列 `require` 陳述式：
+7. 在 **ConnectedAirConditioner.js** 檔案的開頭處新增下列 `require` 陳述式：
 
-    ```javascript
-    'use strict';
+   ```javascript
+   'use strict';
 
-    var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
-    var Message = require('azure-iot-device').Message;
-    var ConnectionString = require('azure-iot-device').ConnectionString;
-    ```
+   var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
+   var Message = require('azure-iot-device').Message;
+   var ConnectionString = require('azure-iot-device').ConnectionString;
+   ```
 
-1. 將下列變數宣告新增至該檔案：
+8. 將下列變數宣告新增至該檔案：
 
-    ```javascript
-    var connectionString = '{your device connection string}';
-    var targetTemperature = 0;
-    var client = clientFromConnectionString(connectionString);
-    ```
+   ```javascript
+   var connectionString = '{your device connection string}';
+   var targetTemperature = 0;
+   var client = clientFromConnectionString(connectionString);
+   ```
 
-    > [!NOTE]
-    > 您會在稍後的步驟中更新預留位置 `{your device connection string}`。
+   > [!NOTE]
+   > 您會在稍後的步驟中更新預留位置 `{your device connection string}`。
 
-1. 儲存您到目前為止所做的變更，但將檔案保持為開啟。
+9. 儲存您到目前為止所做的變更，但將檔案保持為開啟。
 
 ## <a name="understand-how-client-code-maps-to-the-application"></a>了解用戶端程式碼如何對應至應用程式
 
@@ -150,66 +151,66 @@ ms.locfileid: "34201926"
 
 1. 若要將溫度遙測資料傳送至 Azure IoT Central 應用程式，請將下列程式碼新增至 **ConnectedAirConditioner.js** 檔案：
 
-    ```javascript
-    // Send device telemetry.
-    function sendTelemetry() {
-      var temperature = targetTemperature + (Math.random() * 15);
-      var data = JSON.stringify({ temperature: temperature });
-      var message = new Message(data);
-      client.sendEvent(message, (err, res) => console.log(`Sent message: ${message.getData()}` +
-        (err ? `; error: ${err.toString()}` : '') +
-        (res ? `; status: ${res.constructor.name}` : '')));
-    }
-    ```
+   ```javascript
+   // Send device telemetry.
+   function sendTelemetry() {
+     var temperature = targetTemperature + (Math.random() * 15);
+     var data = JSON.stringify({ temperature: temperature });
+     var message = new Message(data);
+     client.sendEvent(message, (err, res) => console.log(`Sent message: ${message.getData()}` +
+       (err ? `; error: ${err.toString()}` : '') +
+       (res ? `; status: ${res.constructor.name}` : '')));
+   }
+   ```
 
-    您在 JSON 中傳送的欄位名稱，必須符合您為裝置範本中的溫度遙測資料指定的欄位名稱。 在此範例中，欄位的名稱為 **temperature**。
+   您在 JSON 中傳送的欄位名稱，必須符合您為裝置範本中的溫度遙測資料指定的欄位名稱。 在此範例中，欄位的名稱為 **temperature**。
 
-1. 若要定義您的裝置所支援的設定 (例如 **setTemperature**)，請新增下列定義：
+2. 若要定義您的裝置所支援的設定 (例如 **setTemperature**)，請新增下列定義：
 
-    ```javascript
-    // Add any settings your device supports
-    // mapped to a function that is called when the setting is changed.
-    var settings = {
-      'setTemperature': (newValue, callback) => {
-        // Simulate the temperature setting taking two steps.
-        setTimeout(() => {
-          targetTemperature = targetTemperature + (newValue - targetTemperature) / 2;
-          callback(targetTemperature, 'pending');
-          setTimeout(() => {
-            targetTemperature = newValue;
-            callback(targetTemperature, 'completed');
-          }, 5000);
-        }, 5000);
-      }
-    };
-    ```
+   ```javascript
+   // Add any settings your device supports
+   // mapped to a function that is called when the setting is changed.
+   var settings = {
+     'setTemperature': (newValue, callback) => {
+       // Simulate the temperature setting taking two steps.
+       setTimeout(() => {
+         targetTemperature = targetTemperature + (newValue - targetTemperature) / 2;
+         callback(targetTemperature, 'pending');
+         setTimeout(() => {
+           targetTemperature = newValue;
+           callback(targetTemperature, 'completed');
+         }, 5000);
+       }, 5000);
+     }
+   };
+   ```
 
-1. 若要處理從 Azure IoT Central 傳送的設定，請新增下列函式，以找出並執行適當的裝置程式碼：
+3. 若要處理從 Azure IoT Central 傳送的設定，請新增下列函式，以找出並執行適當的裝置程式碼：
 
-    ```javascript
-    // Handle settings changes that come from Azure IoT Central via the device twin.
-    function handleSettings(twin) {
-      twin.on('properties.desired', function (desiredChange) {
-        for (let setting in desiredChange) {
-          if (settings[setting]) {
-            console.log(`Received setting: ${setting}: ${desiredChange[setting].value}`);
-            settings[setting](desiredChange[setting].value, (newValue, status, message) => {
-              var patch = {
-                [setting]: {
-                  value: newValue,
-                  status: status,
-                  desiredVersion: desiredChange.$version,
-                  message: message
-                }
-              }
-              twin.properties.reported.update(patch, (err) => console.log(`Sent setting update for ${setting}; ` +
-                (err ? `error: ${err.toString()}` : `status: success`)));
-            });
-          }
-        }
-      });
-    }
-    ```
+   ```javascript
+   // Handle settings changes that come from Azure IoT Central via the device twin.
+   function handleSettings(twin) {
+     twin.on('properties.desired', function (desiredChange) {
+       for (let setting in desiredChange) {
+         if (settings[setting]) {
+           console.log(`Received setting: ${setting}: ${desiredChange[setting].value}`);
+           settings[setting](desiredChange[setting].value, (newValue, status, message) => {
+             var patch = {
+               [setting]: {
+                 value: newValue,
+                 status: status,
+                 desiredVersion: desiredChange.$version,
+                 message: message
+               }
+             }
+             twin.properties.reported.update(patch, (err) => console.log(`Sent setting update for ${setting}; ` +
+               (err ? `error: ${err.toString()}` : `status: success`)));
+           });
+         }
+       }
+     });
+   }
+   ```
 
     此函式會：
 
@@ -217,78 +218,76 @@ ms.locfileid: "34201926"
     * 找出要呼叫以處理設定變更的適當函式。
     * 將通知傳回至 Azure IoT Central 應用程式。
 
-1. 新增下列程式碼以完成對 Azure IoT Central 的連線，並連結用戶端程式碼中的函式：
+4. 新增下列程式碼以完成對 Azure IoT Central 的連線，並連結用戶端程式碼中的函式：
 
-    ```javascript
-    // Handle device connection to Azure IoT Central.
-    var connectCallback = (err) => {
-      if (err) {
-        console.log(`Device could not connect to Azure IoT Central: ${err.toString()}`);
-      } else {
-        console.log('Device successfully connected to Azure IoT Central');
-
+   ```javascript
+   // Handle device connection to Azure IoT Central.
+   var connectCallback = (err) => {
+     if (err) {
+       console.log(`Device could not connect to Azure IoT Central: ${err.toString()}`);
+     } else {
+       console.log('Device successfully connected to Azure IoT Central');
         // Send telemetry measurements to Azure IoT Central every 1 second.
-        setInterval(sendTelemetry, 1000);
-
+       setInterval(sendTelemetry, 1000);
         // Get device twin from Azure IoT Central.
-        client.getTwin((err, twin) => {
-          if (err) {
-            console.log(`Error getting device twin: ${err.toString()}`);
-          } else {
-            // Apply device settings and handle changes to device settings.
-            handleSettings(twin);
-          }
-        });
-      }
-    };
+       client.getTwin((err, twin) => {
+         if (err) {
+           console.log(`Error getting device twin: ${err.toString()}`);
+         } else {
+           // Apply device settings and handle changes to device settings.
+           handleSettings(twin);
+         }
+       });
+     }
+   };
 
-    client.open(connectCallback);
-    ```
+   client.open(connectCallback);
+   ```
 
-1. 儲存您到目前為止所做的變更，但將檔案保持為開啟。
+5. 儲存您到目前為止所做的變更，但將檔案保持為開啟。
 
-## <a name="configure-client-code-for-real-device"></a>設定實際裝置的用戶端程式碼
+## <a name="configure-client-code-for-the-real-device"></a>設定實際裝置的用戶端程式碼
 
 <!-- Add the connection string to the sample code, build, and run -->
 若要設定用戶端程式碼以連線至 Azure IoT Central 應用程式，您必須為您先前在本教學課程中記下的實際裝置新增連接字串。
 
 1. 在 **ConnectedAirConditioner.js** 檔案中，尋找以下這一行程式碼：
 
-    ```javascript
-    var connectionString = '{your device connection string}';
-    ```
+   ```javascript
+   var connectionString = '{your device connection string}';
+   ```
 
-1. 將 `{your device connection string}` 取代為實際裝置的連接字串。 您在「從應用程式取得適用於實際裝置的連接字串」一節的結尾處，記下了連接字串。
+2. 將 `{your device connection string}` 取代為實際裝置的連接字串。 您在「從應用程式取得適用於實際裝置的連接字串」一節的結尾處，記下了連接字串。
 
-1. 將變更儲存到 **ConnectedAirConditioner.js** 檔案。
+3. 將變更儲存到 **ConnectedAirConditioner.js** 檔案。
 
-1. 若要執行範例，請在命令列環境中輸入下列命令：
+4. 若要執行範例，請在命令列環境中輸入下列命令：
 
-    ```cmd/sh
-    node ConnectedAirConditioner.js
-    ```
+   ```cmd/sh
+   node ConnectedAirConditioner.js
+   ```
 
-    > [!NOTE]
-    > 請確定您在執行此命令時位於 `connectedairconditioner` 資料夾中。
+   > [!NOTE]
+   > 請確定您在執行此命令時位於 `connectedairconditioner` 資料夾中。
 
-1. 應用程式會將輸出列印至主控台：
+5. 應用程式會將輸出列印至主控台：
 
-    ![用戶端應用程式輸出](media/tutorial-add-device/output.png)
+   ![用戶端應用程式輸出](media/tutorial-add-device/output.png)
 
-1. 約 30 秒後，您就會在裝置的 [測量] 頁面上看到遙測資料：
+6. 約 30 秒後，您就會在裝置的 [測量] 頁面上看到遙測資料：
 
-    ![實際的遙測資料](media/tutorial-add-device/realtelemetry.png)
+   ![實際的遙測資料](media/tutorial-add-device/realtelemetry.png)
 
-1. 在 [設定] 頁面上，您可以看到設定此時處於已同步狀態。 裝置第一次連線時，將會接收設定值並確認變更：
+7. 在 [設定] 頁面上，您可以看到設定此時處於已同步狀態。 裝置第一次連線時，將會接收設定值並確認變更：
 
-    ![設定已同步](media/tutorial-add-device/settingsynced.png)
+   ![設定已同步](media/tutorial-add-device/settingsynced.png)
 
-1. 在 [設定] 頁面上，將裝置溫度設定為 **95**，並選擇 [更新裝置]。 範例應用程式會接收並處理這項變更：
+8. 在 [設定] 頁面上，將裝置溫度設定為 **95**，並選擇 [更新裝置]。 範例應用程式會接收並處理這項變更：
 
-    ![接收並處理設定](media/tutorial-add-device/receivesetting.png)
+   ![接收並處理設定](media/tutorial-add-device/receivesetting.png)
 
-    > [!NOTE]
-    > 「設定更新」訊息有兩種。 一種會在傳送 `pending` 狀態時顯示，另一種則在傳送 `completed` 狀態時顯示。
+   > [!NOTE]
+   > 「設定更新」訊息有兩種。 一種會在傳送 `pending` 狀態時顯示，另一種則在傳送 `completed` 狀態時顯示。
 
 1. 在 [測量] 頁面上，您可以看到裝置正在傳送較高的溫度值：
 

@@ -1,25 +1,19 @@
 ---
 title: 遠端監視解決方案加速器的常見問題集 | Microsoft Docs
 description: 遠端監視解決方案加速器的常見問題集
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: a65f2a90aedf5aa50016a6c5e5019094f202bf55
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 094bb4b781bb554d340580377ec343f33579299e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627649"
 ---
 # <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>遠端監視解決方案加速器的常見問題集
 
@@ -34,7 +28,7 @@ ms.lasthandoff: 05/20/2018
 
 ### <a name="how-can-i-ensure-i-keep-my-costs-down-while-i-develop-my-solution"></a>如何確定我在開發解決方案的同時保持降低成本？
 
-除了提供兩個不同的部署之外，新的遠端監視解決方案有一項設定，可隨選啟用或停用所有模擬的裝置。 停用模擬會減少解決方案中內嵌的資料，並因而降低整體成本。
+除了提供兩種不同的部署之外，新的遠端監視解決方案還有一項設定，可隨選啟用或停用所有模擬的裝置。 停用模擬會減少解決方案中內嵌的資料，並因而降低整體成本。
 
 ### <a name="what-is-the-difference-between-the-basic-and-standard-deployment-options-how-do-i-decide-between-the-two-deployment-options"></a>基本和標準部署選項之間的差異為何？ 如何在兩個部署選項之間做決定？
 
@@ -49,6 +43,6 @@ ms.lasthandoff: 05/20/2018
 您也可以探索 IoT 解決方案加速器的一些其他特性與功能：
 
 * [探索遠端監視解決方案加速器的功能](iot-accelerators-remote-monitoring-explore.md)
-* [預測性維護解決方案加速器概觀](../iot-suite/iot-suite-predictive-overview.md)
+* [預測性維護解決方案加速器概觀](iot-accelerators-predictive-overview.md)
 * [連線的處理站解決方案加速器概觀](iot-accelerators-connected-factory-overview.md)
-* [從頭建立 IoT 安全性](../iot-suite/securing-iot-ground-up.md)
+* [從頭建立 IoT 安全性](securing-iot-ground-up.md)

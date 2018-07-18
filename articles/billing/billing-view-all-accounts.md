@@ -23,9 +23,9 @@ ms.locfileid: "34077733"
 ---
 # <a name="view-all-your-billing-accounts-in-azure-portal"></a>在 Azure 入口網站檢視您所有的帳單帳戶  
 
-您的 Azure 帳單的關聯性是由帳單帳戶所定義。 您可以擁有多個帳單帳戶。 舉例而言，您可能擁有個人專案所用的 Azure 訂用帳戶， 但也可以透過貴組織的 Enterprise 合約獲得 Azure 的使用權限。 前往 Azure 入口網站中的 [成本管理 + 帳單][](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingMenuBlade/Overview)，即可檢視您所有的帳單帳戶。
+您的 Azure 帳單的關聯性是由帳單帳戶所定義。 您可以擁有多個帳單帳戶。 舉例而言，您可能擁有個人專案所用的 Azure 訂用帳戶， 但也可以透過貴組織的 Enterprise 合約獲得 Azure 的使用權限。 前往 Azure 入口網站中的 [成本管理 + 帳單](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingMenuBlade/Overview)，即可檢視您所有的帳單帳戶。
 
-目前只能檢視您個人的帳單帳戶和 Enterprise 合約的帳單帳戶。 預設情況下，[成本管理 + 帳單] [](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingMenuBlade/Overview)頁面會顯示您的個人帳單帳戶。 不過，您可以前往 [帳單帳戶] 進行變更。
+目前只能檢視您個人的帳單帳戶和 Enterprise 合約的帳單帳戶。 預設情況下， [成本管理 + 帳單](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingMenuBlade/Overview)頁面會顯示您的個人帳單帳戶。 不過，您可以前往 [帳單帳戶] 進行變更。
 
 您可以在 [Azure 入口網站](https://portal.azure.com)管理和檢視個人帳單帳戶的所有費用。 不過，在 Enterprise 合約帳戶的部分，只能檢視保留執行個體購買項目、餘額和月初至今的費用。 這些 Enterprise 合約功能為預覽狀態，除非您具有 Enterprise 系統管理員的角色，否則無法使用上述功能。
 

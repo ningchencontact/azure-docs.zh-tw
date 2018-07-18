@@ -1,8 +1,8 @@
 ---
-title: "Azure Application Insights 中的資料保留和儲存 | Microsoft Docs"
-description: "保留和隱私權原則聲明"
+title: Azure Application Insights 中的資料保留和儲存 | Microsoft Docs
+description: 保留和隱私權原則聲明
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: a6268811-c8df-42b5-8b1b-1d5a7e94cbca
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/07/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1818e564acb0e9b5fa620d6f38db141811ca9777
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 0ee712b24478b52dfc5864e59e885e3b9dd6137b
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294061"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 中的資料收集、保留和儲存
 
@@ -190,13 +191,13 @@ Application Insights 不會篩選或刪除資料。 您應該適當地管理資�
 | 損毀 |處理序識別碼、父處理序識別碼、損毀執行緒識別碼；應用程式修補程式、識別碼、組建；例外狀況類型、位址、原因；模糊符號和暫存器、二進位開始和結束位址、二進位檔名稱和路徑、CPU 類型 |
 | 追蹤 |**訊息** 和嚴重性層級 |
 | 效能計數器 |處理器時間、可用記憶體、要求率、例外狀況率、處理序私用位元組、IO 率、要求持續期間、要求佇列長度 |
-| Availability |Web 測試回應程式碼、每個測試步驟的持續時間、測試名稱、時間戳記、成功、回應時間、測試位置 |
+| 可用性 |Web 測試回應程式碼、每個測試步驟的持續時間、測試名稱、時間戳記、成功、回應時間、測試位置 |
 | SDK 診斷 |追蹤訊息或例外狀況 |
 
 您可以[編輯 ApplicationInsights.config 來關閉某些資料][config]
 
 ## <a name="credits"></a>學分
-此產品包含由 MaxMind 建立的 GeoLite2 資料，可從 [http://www.maxmind.com](http://www.maxmind.com)取得。
+此產品包含由 MaxMind 建立的 GeoLite2 資料，可從 [http://www.maxmind.com](http://www.maxmind.com) 取得。
 
 
 

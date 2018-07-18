@@ -1,11 +1,11 @@
 ---
-title: "檢視 Azure Stack 中的公用 IP 位址使用 |Microsoft Docs"
-description: "系統管理員可以檢視區域中的公用 IP 位址使用"
+title: 檢視 Azure Stack 中的公用 IP 位址使用 |Microsoft Docs
+description: 系統管理員可以檢視區域中的公用 IP 位址使用
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 0f77be49-eafe-4886-8c58-a17061e8120f
 ms.service: azure-stack
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29742453"
 ---
 # <a name="view-public-ip-address-consumption-in-azure-stack"></a>檢視 Azure Stack 中的公用 IP 位址使用
 

@@ -14,6 +14,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32190024"
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>在入口網站中建立、查詢和篩選 Azure 搜尋服務索引
 

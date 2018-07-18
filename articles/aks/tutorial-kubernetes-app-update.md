@@ -2,32 +2,31 @@
 title: Azure 上的 Kubernetes 教學課程 - 更新應用程式
 description: AKS 教學課程 - 更新應用程式
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/24/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 622cd17a93bf1b9fa9d3c138d385ca1d29426f3b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 97d8c4bd179edc59d97914f86e2aa139681e739a
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100935"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>教學課程：更新 Azure Kubernetes Service (AKS) 中的應用程式
 
 在 Kubernetes 中部署應用程式之後，您可以藉由指定新的容器映像或映像版本來進行更新。 當您更新應用程式時，更新會分段進行，所以只有一部分的部署會同時更新。 此分段更新方式可讓應用程式在更新期間保持運作， 此外也能當作部署失敗時的復原機制。
 
-在本教學課程 (6/8 部分) 中，已更新範例 Azure Vote 應用程式。 您完成的工作包括：
+在本教學課程 (6/7 部分) 中，已更新範例 Azure Vote 應用程式。 您完成的工作包括：
 
 > [!div class="checklist"]
 > * 更新前端應用程式程式碼
 > * 建立已更新的容器映像
 > * 將容器映像推送至 Azure Container Registry
 > * 部署已更新的容器映像
-
-在後續教學課程中，會將 Log Analytics 設定為監視 Kubernetes 叢集。
 
 ## <a name="before-you-begin"></a>開始之前
 

@@ -1,22 +1,19 @@
 ---
 title: 使用 Azure 裝置佈建服務 SDK 管理裝置註冊 | Microsoft Docs
 description: 如何在 IoT 中樞裝置佈建服務中使用服務 SDK 管理裝置註冊
-services: iot-dps
-keywords: ''
 author: yzhong94
 ms.author: yizhon
 ms.date: 04/04/18
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-dps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: mvc
-ms.openlocfilehash: 1ec86d319f529fe63b0924f4cfa0c2be178cd4d8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+services: iot-dps
+manager: arjmands
+ms.openlocfilehash: 9a68d928c70e1e233f6de7df13441a1f688f456a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629842"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>如何使用 Azure 裝置佈建服務 SDK 管理裝置註冊
 「裝置註冊」會建立單一裝置或裝置群組的記錄，這些裝置可能會在某個時間點向裝置佈建服務進行註冊。 註冊記錄包含屬於該註冊一部分之裝置一開始所需的設定，包括所需的 IoT 中樞。 本文會示範如何針對您的佈建服務使用 Azure IoT 佈建服務 SDK，以程式設計方式管理裝置註冊。  這些 SDK 可從 GitHub 上取得，其位在與 Azure IoT SDK 相同的存放庫中。

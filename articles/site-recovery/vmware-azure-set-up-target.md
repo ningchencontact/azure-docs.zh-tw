@@ -6,13 +6,14 @@ author: bsiva
 manager: abhemraj
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 07/06/2018
 ms.author: bsiva
-ms.openlocfilehash: 5f14bbed7ae59737f62fb736591775cb7ba495c5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4b428dff1cebf353cc081696649494e6e4ec9b92
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37921105"
 ---
 # <a name="prepare-the-target-environment-for-vmware-replication-to-azure"></a>準備將 VMware 複寫至 Azure 的目標環境
 
@@ -30,8 +31,8 @@ ms.lasthandoff: 03/08/2018
 
 ![準備目標](./media/vmware-azure-set-up-target/prepare-target-vmware-to-azure.png)
 
-1. **訂用帳戶︰**從下拉式功能表中選取您想要的訂用帳戶，以將虛擬機器複寫至該訂用帳戶。
-2. **部署模型︰**選取部署模型 (傳統或資源管理員)
+1. **訂用帳戶︰** 從下拉式功能表中選取您想要的訂用帳戶，以將虛擬機器複寫至該訂用帳戶。
+2. **部署模型︰** 選取部署模型 (傳統或資源管理員)
 
 根據所選的部署模型，會執行驗證以確保您的目標訂用帳戶中有至少一個相容的儲存體帳戶和虛擬網路，以便將您的虛擬機器複寫和容錯移轉至其中。
 

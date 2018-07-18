@@ -2,18 +2,19 @@
 title: 將資料作為輸入串流處理至 Azure 串流分析中
 description: 了解如何設定 Azure 串流分析中的資料連線。 輸入包括來自事件的資料流，以及參考資料。
 services: stream-analytics
-author: jasonwhowell
-ms.author: jasonh
+author: mamccrea
+ms.author: mamccrea
 manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: 2b2ef68622f96d87a25d203d3d67aa0877397072
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: d993a29f5a7224c2346469b42309c11e55317756
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808820"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>將資料作為輸入串流處理至串流分析中
 
@@ -22,27 +23,20 @@ ms.lasthandoff: 05/01/2018
 - [Azure IoT 中心](https://azure.microsoft.com/services/iot-hub/) 
 - [Azure Blob 儲存體](https://azure.microsoft.com/services/storage/blobs/) 
 
-這些輸入來源可存在於與串流分析作業相同的 Azure 訂用帳戶中，或來自不同的訂用帳戶。
+這些輸入來源可存在於與串流分析作業相同的 Azure 訂用帳戶中，也可存在於不同的訂用帳戶。
 
 ### <a name="compression"></a>壓縮
 串流分析支援跨所有資料流輸入來源的壓縮。 目前支援的參考類型為：[無]、[GZip] 和 [Deflate] 壓縮。 支援壓縮無法用於參考資料。 如果輸入格式為已壓縮的 Avro 資料，資料將以透明的方式處理。 您不需要使用 Avro 序列化來指定壓縮類型。 
 
-## <a name="create-or-edit-inputs"></a>建立或編輯輸入
-若要建立新的輸入，以及在您的串流作業上列出或編輯現有的輸入，您可以使用 Azure 入口網站：
-1. 開啟 [Azure 入口網站](https://portal.azure.com)，以找出並選取您的串流分析作業。
-2. 在下 [設定] 標題下，選取 [輸入] 選項。 
-4. [輸入] 頁面會列出任何現有的輸入。 
-5. 在 [輸入] 頁面上選取 [新增資料流輸入] 或 [新增參考輸入]，以開啟詳細資料頁面。
-6. 選取現有的輸入以編輯詳細資料，並選取 [儲存] 以編輯現有的輸入。
-7. 在輸入詳細資料頁面上選取 [測試]，以確認連線選項有效並且運作中。 
-8. 以滑鼠右鍵按一下現有輸入的名稱，然後視需要選取 [來自輸入的範例資料] 以進一步測試。
+## <a name="create-edit-or-test-inputs"></a>建立、編輯或測試輸入
+您可以使用 [Azure 入口網站](https://portal.azure.com)來[建立新的輸入](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-quick-create-portal#configure-input-to-the-job)，並檢視或編輯串流作業上的現有輸入。 您也可以測試輸入連線並透過範例資料[測試查詢](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-manage-job#test-your-query)。 當您撰寫查詢時，您會在 FROM 子句中列出輸入。 您可以從入口網站的 [查詢] 頁面取得可用輸入的清單。 如果您想要使用多個輸入，則可 `JOIN` 它們或撰寫多個 `SELECT` 查詢。
 
 
 ## <a name="stream-data-from-event-hubs"></a>來自事件中樞的串流資料
 
-Azure 事件中樞提供高延展性的發佈-訂閱事件擷取器。 事件中樞每秒可收集數百萬個事件，可讓您處理和分析連接的裝置和應用程式所產生的大量資料。 事件中樞和串流分析的搭配，可為您提供即時分析所需的端對端解決方案。 事件中樞可讓您即時將事件饋送至 Azure，而串流分析作業則可即時處理這些事件。 例如，您可以將網頁點擊、感應器讀數或線上記錄事件傳送至事件中樞。 然後，您可以建立串流分析作業，將事件中樞當作輸入資料流來即時篩選、彙總和相互關聯。
+Azure 事件中樞提供高延展性的發佈-訂閱事件擷取器。 事件中樞每秒可收集數百萬個事件，可讓您處理和分析連接的裝置和應用程式所產生的大量資料。 事件中樞和串流分析搭配在一起，可提供即時分析所需的端對端解決方案。 事件中樞可讓您即時將事件饋送至 Azure，而串流分析作業則可即時處理這些事件。 例如，您可以將網頁點擊、感應器讀數或線上記錄事件傳送至事件中樞。 然後，您可以建立串流分析作業，將事件中樞當作輸入資料流來即時篩選、彙總和相互關聯。
 
-在串流分析中，來自事件中樞的事件預設時間戳記是事件抵達事件中樞的時間戳記，也就是 `EventEnqueuedUtcTime`。 若要使用事件裝載中的時間戳記，將資料當作資料流處理，您必須使用 [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) 關鍵字。
+`EventEnqueuedUtcTime` 是事件在事件中樞的抵達時間戳記，也是事件從事件中樞到達串流分析的預設時間戳記。 若要使用事件裝載中的時間戳記，將資料當作資料流處理，您必須使用 [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) 關鍵字。
 
 ### <a name="consumer-groups"></a>用戶群組
 您應該將每一個串流分析事件中樞輸入設定為有自己的取用者群組。 當作業包含自我聯結或有多個輸入時，某些輸入可能由下游的多個讀取器所讀取。 這種情況會影響單一取用者群組中的讀取器數目。 若要避免超出每個分割區的每個取用者群組最多有 5 個讀取器的事件中樞限制，最好為每個串流分析作業指定取用者群組。 另外也限制每一個事件中樞最多有 20 個取用者群組。 如需詳細資訊，請參閱[利用事件中樞接收器為 Azure 串流分析進行疑難排解](stream-analytics-event-hub-consumer-groups.md) (英文)。
@@ -89,10 +83,6 @@ Azure IoT 中樞是已針對 IoT 案例最佳化的高延展性發佈/訂閱事�
 
 在串流分析中，來自 IoT 中樞之事件的預設時間戳記是事件抵達 IoT 中樞的時間戳記，也就是 `EventEnqueuedUtcTime`。 若要使用事件裝載中的時間戳記，將資料當作資料流處理，您必須使用 [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) 關鍵字。
 
-> [!NOTE]
-> 傳送的訊息必須附上 `DeviceClient` 屬性才能處理。
-> 
-
 ### <a name="consumer-groups"></a>用戶群組
 您應將每個串流分析 IoT 中樞輸入設定為有其本身的取用者群組。 當作業包含自我聯結或有多個輸入時，某些輸入可能由下游的多個讀取器所讀取。 這種情況會影響單一取用者群組中的讀取器數目。 若要避免超出每個分割區的每個取用者群組最多有 5 個讀取器的 Azure IoT 中樞限制，最好為每個串流分析作業指定取用者群組。
 
@@ -129,7 +119,7 @@ Azure IoT 中樞是已針對 IoT 案例最佳化的高延展性發佈/訂閱事�
 
 
 ## <a name="stream-data-from-blob-storage"></a>來自 Blob 儲存體的串流資料
-在要於雲端中儲存大量非結構化資料的情節中，Azure Blob 儲存體提供具有成本效益且可擴充的解決方案。 Blob 儲存體中的資料通常被視為待用資料。 不過，串流分析可將 Blob 資料當作資料流來處理。 
+在要於雲端中儲存大量非結構化資料的情節中，Azure Blob 儲存體提供具有成本效益且可擴充的解決方案。 我們通常會將 Blob 儲存體 中的資料視為待用資料，但串流分析可將 Blob 資料視為資料流來加以處理。 
 
 記錄處理是透過串流分析使用 Blob 儲存體輸入時的常用案例。 在此案例中，從系統擷取遙測資料檔案之後，必須加以剖析和處理，才能得到有意義的資料。
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: e4e2866e18c508c0df7a9a9e85a22c98e4372661
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: a4b704f433f02afcff7b94f98c19a478caaa02b2
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302148"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808055"
 ---
 # <a name="create-a-blockchain-application-in-azure-blockchain-workbench"></a>在 Azure Blockchain Workbench 中建立區塊鏈應用程式
 
@@ -238,7 +238,7 @@ Solidity 中的智慧合約類似於物件導向語言中的類別。 每個合�
 
 ### <a name="base-class"></a>基底類別
 
-**WorkbenchBase** 基底類別可讓 Blockchain Workbench 建立更新合約。 Blockchain Workbench 特有的智慧合約程式碼需要基底類別。 您的合約必須繼承自 **WorkbenchBase** 基底類別。
+**WorkbenchBase** 基底類別可讓 Blockchain Workbench 建立並更新合約。 Blockchain Workbench 特有的智慧合約程式碼需要基底類別。 您的合約必須繼承自 **WorkbenchBase** 基底類別。
 
 在 `HelloBlockchain.sol` 智慧合約程式碼檔案中，於檔案開頭新增 **WorkbenchBase** 類別。 
 
@@ -375,7 +375,7 @@ contract HelloBlockchain is WorkbenchBase('HelloBlockchain', 'HelloBlockchain') 
 若要在 Blockchain Workbench 中新增區塊鏈應用程式，請上傳組態檔和智慧合約檔案以定義應用程式。
 
 1. 在網頁瀏覽器中瀏覽至 Blockchain Workbench 的網址。 例如，`https://{workbench URL}.azurewebsites.net/`。部署 Blockchain Workbench 時會建立 Web 應用程式。 如需如何尋找 Blockchain Workbench 網址的資訊，請參閱 [Blockchain Workbench Web URL](blockchain-workbench-deploy.md#blockchain-workbench-web-url)
-2. 以 Blockchain Workbench 系統管理員的身分登入。 如需如何管理使用者的詳細資訊，請參閱[在 Azure Blockchain Workbench 中管理使用者](blockchain-workbench-manage-users.md)。
+2. 以 [Blockchain Workbench 系統管理員](blockchain-workbench-manage-users.md#manage-blockchain-workbench-administrators)的身分登入。
 3. 選取 [應用程式] > [新增]。 [新增應用程式] 窗格隨即顯示。
 4. 選取 [上傳合約組態] > [瀏覽] 來找到您所建立的 **HelloBlockchain.json** 組態檔。 系統會自動驗證組態檔。 選取 [顯示] 連結以顯示驗證錯誤。 先修正驗證錯誤再部署應用程式。
 5. 選取 [上傳合約程式碼] > [瀏覽] 來找到 **HelloBlockchain.sol** 智慧合約程式碼檔案。 系統會自動驗證程式碼檔案。 選取 [顯示] 連結以顯示驗證錯誤。 先修正驗證錯誤再部署應用程式。

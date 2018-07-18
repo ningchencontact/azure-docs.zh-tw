@@ -13,5 +13,6 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31431736"
 ---
 有關建立 Azure Cosmos DB 表格 API 帳戶的指示，請參閱[建立表格 API 帳戶](../articles/cosmos-db/create-table-dotnet.md#create-a-database-account)。

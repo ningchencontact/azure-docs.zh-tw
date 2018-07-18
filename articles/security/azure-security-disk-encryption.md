@@ -14,22 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2018
 ms.author: devtiw
-ms.openlocfilehash: 813124ae7c0dd76a27dcbaea6f0d7aa19bc1e49c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f350716d0ca906376f3eadce9e117694ff14515c
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "35756391"
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Windows 和 Linux IaaS VM 適用的 Azure 磁碟加密
 Microsoft Azure 強烈承諾確保您的資料隱私權、資料主權，並透過一系列進階技術來加密、控制和管理加密金鑰、控制和稽核資料存取，讓您控制您的 Azure 託管資料。 這會提供 Azure 客戶靈活度，可選擇最符合其商務需求的解決方案。 本文中，我們將為您介紹新的技術解決方案「Windows 和 Linux IaaS VM 適用的 Azure 磁碟加密」，以協助保護及保障您的資料，以便符合組織的安全性和符合性的承諾。 本文提供有關如何使用 Azure 磁碟加密功能的詳細指引，包括支援的案例和使用者體驗。
 
-> [!NOTE]
-> 某些建議可能會增加資料、網路或計算資源的使用量，導致額外的授權或訂用帳戶成本。
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
+
 
 ## <a name="overview"></a>概觀
 Azure 磁碟加密是協助您加密 Windows 和 Linux IaaS 虛擬機器磁碟的新功能。 Azure 磁碟加密利用 Windows 的業界標準 [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) 功能和 Linux 的 [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) 功能，為 OS 和資料磁碟提供磁碟區加密。 此解決方案與 [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) 整合，協助您控制及管理金鑰保存庫訂用帳戶中的磁碟加密金鑰與密碼。 此解決方案也可確保虛擬機器磁碟上的所有待用資料都會在您的 Azure 儲存體中加密。
 
 Windows 和 Linux IaaS VM 適用的 Azure 磁碟加密現已在所有 Azure 公用區域和 AzureGov 區域**正式推出**，可供用於標準 VM 和具有高階儲存體的 VM。
+
+> [!NOTE]
+> 某些建議可能會增加資料、網路或計算資源的使用量，導致額外的授權或訂用帳戶成本。
+
 
 ### <a name="encryption-scenarios"></a>加密案例
 Azure 磁碟加密解決方案支援下列客戶案例：
@@ -417,7 +422,7 @@ Azure 平台需要存取您金鑰保存庫中的加密金鑰或密碼，讓該�
 > [!NOTE]
 > 此範本會建立使用 Windows Server 2012 資源庫映像的新加密 Windows VM。
 
-您可以使用此 [Resource Manager 範本](https://aka.ms/fde-rhel)，在具有 200 GB RAID-0 陣列的新 IaaS RedHat Linux 7.2 VM 上啟用磁碟加密。 在您部署範本之後，請確認 VM 加密狀態，方法是使用[在執行中的 Linux VM 上加密 OS 磁碟機](#encrypting-os-drive-on-a-running-linux-vm)中所述的 `Get-AzureRmVmDiskEncryptionStatus` Cmdlet。 當電腦傳回 _VMRestartPending_ 的狀態，重新啟動 VM。
+您可以使用此 [Resource Manager 範本](https://aka.ms/fde-rhel)，在具有 200 GB RAID-0 陣列的新 IaaS Red Hat Linux 7.2 VM 上啟用磁碟加密。 在您部署範本之後，請確認 VM 加密狀態，方法是使用[在執行中的 Linux VM 上加密 OS 磁碟機](#encrypting-os-drive-on-a-running-linux-vm)中所述的 `Get-AzureRmVmDiskEncryptionStatus` Cmdlet。 當電腦傳回 _VMRestartPending_ 的狀態，重新啟動 VM。
 
 針對透過 Marketplace 案例使用 Azure AD 用戶端識別碼的新 VM，以下資料表列出其 Resource Manager 範本參數︰
 

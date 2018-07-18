@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34194514"
 ---
 # <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Azure 自動化案例 - 自動移除資源群組
 許多客戶會建立一個以上的資源群組。 有些可能會用來管理生產應用程式，其他的可能會用來作為開發、測試和預備環境。 自動部署這些資源是一回事，但按一下按鈕就能夠將資源群組解除委任則是另一回事。 您可以使用 Azure 自動化來簡化這個一般管理工作。 如果您使用的 Azure 訂用帳戶因為成員優惠 (像是 MSDN 或 Microsoft Partner Network Cloud Essentials 方案) 而有消費限制，則這會很有幫助。

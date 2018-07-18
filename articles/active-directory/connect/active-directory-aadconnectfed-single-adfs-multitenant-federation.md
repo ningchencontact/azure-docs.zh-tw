@@ -4,7 +4,7 @@ description: 在本文件中，您將學習如何使用多個 Azure AD 和單一
 keywords: 聯盟, ADFS, AD FS, 多個租用戶, 單一 AD FS, 一個 ADFS, 多個租用戶同盟, 多樹系 adfs, aad 連線, 同盟, 跨租用戶同盟
 services: active-directory
 documentationcenter: ''
-author: anandyadavmsft
+author: billmath
 manager: mtillman
 editor: ''
 ms.assetid: ''
@@ -14,12 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
-ms.author: anandy; billmath
-ms.openlocfilehash: c55a4232c54308c5d000cfefc2c7dca2800b462c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: hybrid
+ms.author: billmath
+ms.openlocfilehash: 6c9c4b7db93810cac4518885eb86572b2be7ca05
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915335"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>將多個 Azure AD 執行個體和單一 AD FS 執行個體建立同盟
 
@@ -39,7 +41,7 @@ ms.lasthandoff: 03/23/2018
 
 ## <a name="step-1-establish-a-two-way-trust"></a>步驟 1︰建立雙向信任
  
-若要 contoso.com 中的 AD FS 能夠驗證 fabrikam.com 中的使用者，需要 contoso.com 和 fabrikam.com 之間的雙向信任。請依照本[文章](https://technet.microsoft.com/library/cc816590.aspx)的指導方針建立雙向信任。
+若要 contoso.com 中的 AD FS 能夠驗證 fabrikam.com 中的使用者，需要 contoso.com 和 fabrikam.com 之間的雙向信任。 請依照本[文章](https://technet.microsoft.com/library/cc816590.aspx)的指導方針建立雙向信任。
  
 ## <a name="step-2-modify-contosocom-federation-settings"></a>步驟 2︰修改 contoso.com 同盟設定 
  

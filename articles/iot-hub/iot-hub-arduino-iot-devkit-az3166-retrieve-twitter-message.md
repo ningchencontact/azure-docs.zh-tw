@@ -1,24 +1,20 @@
 ---
 title: 使用 Azure Functions 取出 Twitter 訊息 | Microsoft Docs
-description: 使用動作感應器來偵測搖動，並使用 Azure Functions 來尋找包含您指定之主題標籤的隨機推文。
-services: iot-hub
-documentationcenter: ''
+description: 使用動作感應器來偵測搖動，並使用 Azure Functions 來尋找包含所指定雜湊標記的隨機推文
 author: liydu
-manager: timlt
-tags: ''
-keywords: ''
+manager: jeffya
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: 50ce34cb3289e346e7b637d917730dac8e8a097b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5a4605a1668d25d5a90dc7d7873efa83ddc767ff
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752675"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>搖一搖以獲取推文 -- 使用 Azure Functions 來取出 Twitter 訊息！
 
@@ -40,7 +36,7 @@ ms.lasthandoff: 05/07/2018
 
 ### <a name="start-vs-code"></a>啟動 VS Code
 
-- 確定 DevKit **未**連線至您的電腦。
+- 確定 DevKit 已連線至電腦。
 - 啟動 VS Code。
 - 將 DevKit 連接到您的電腦。
 
@@ -49,7 +45,10 @@ ms.lasthandoff: 05/07/2018
 
 ### <a name="open-arduino-examples-folder"></a>開啟 Arduino 範例資料夾
 
-展開左邊的 [ARDUINO 範例] 區段，瀏覽至 [MXCHIP AZ3166 的範例] > [AzureIoT]，然後選取 [ShakeShake]。 隨即開啟一個內含專案資料夾的新 VS Code 視窗。
+展開左邊的 [ARDUINO 範例] 區段，瀏覽至 [MXCHIP AZ3166 的範例] > [AzureIoT]，然後選取 [ShakeShake]。 隨即開啟一個內含專案資料夾的新 VS Code 視窗。  
+
+> [!NOTE]
+> 如果您看不到 MXCHIP AZ3166 區段，請確定裝置已正確連接並重新啟動 Visual Studio Code。  
 
 ![mini-solution-examples](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_examples.png)
 

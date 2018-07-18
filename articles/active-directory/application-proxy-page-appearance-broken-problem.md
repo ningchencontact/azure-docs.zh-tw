@@ -3,22 +3,23 @@ title: Application Proxy 應用程式的應用程式頁面未正確顯示 | Micr
 description: 當頁面在已與 Azure AD 整合的 Application Proxy 應用程式中未正確顯示時的指引
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
-ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2018
-ms.author: asteen
-ms.openlocfilehash: d15c02d86dc4a61e7e92b4c896cfc13dd0218c61
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.date: 05/21/2018
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: ee06018cd500937c69824f796c137e3972c55f6c
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070527"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334695"
 ---
 # <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>Application Proxy 應用程式的應用程式頁面未正確顯示
 

@@ -10,13 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 4/2/2018
+ms.date: 6/20/2018
 ms.author: amitsriva
-ms.openlocfilehash: 982ae712320cb390b1822de6a7a3980ebfb6251e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 256eac99feacc18a51e45c3f07cdceb7d687cacf
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293616"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>應用程式閘道的後端健康情況、診斷記錄和計量
 
@@ -35,7 +36,7 @@ ms.lasthandoff: 04/03/2018
 後端健康情況報表會將應用程式閘道健康情況探查的輸出反映到後端執行個體。 當探查成功且後端可以接收流量，則視為狀況良好。 否則，視為狀況不良。
 
 > [!IMPORTANT]
-> 如果應用程式閘道子網路上有網路安全性群組 (NSG)，請在應用程式閘道子網路上開啟連接埠範圍 65503-65534，供輸入流量使用。 需要這些連接埠，後端健康情況 API 才能運作。
+> 如果應用程式閘道子網路上有網路安全性群組 (NSG)，請在應用程式閘道子網路上開啟連接埠範圍 65503-65534，供輸入流量使用。 Azure 基礎結構通訊需要此連接埠範圍。 它們受到 Azure 憑證的保護 (鎖定)。 若沒有適當的憑證，外部實體 (包括這些閘道的客戶) 將無法對這些端點起始任何變更。
 
 
 ### <a name="view-back-end-health-through-the-portal"></a>透過入口網站檢視後端健康情況

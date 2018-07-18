@@ -11,15 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 06/28/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 16f008c6a6f97a791122a3b441c4c09eaf7eadde
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 74e6428cf0536a7c8016be6cdf29071128bf4a3b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025201"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>了解 Azure AD 應用程式 Proxy 連接器
 
@@ -91,7 +92,6 @@ Azure AD 會提供您部署之所有連接器的自動更新。 只要應用程�
 
 如需設定輸出防火牆規則的詳細資訊，請參閱[使用現有的內部部署 Proxy 伺服器](application-proxy-configure-connectors-with-proxy-servers.md)。
 
-請使用 [Azure AD 應用程式 Proxy 連接器連接埠測試工具](https://aadap-portcheck.connectorporttest.msappproxy.net/)，來確認您的連接器是否能夠連線到「應用程式 Proxy」服務。 至少，請確定「美國中部」區域及離您最近的區域都具有綠色勾選記號。 除此之外，綠色勾選記號越多代表恢復能力越佳。 
 
 ## <a name="performance-and-scalability"></a>效能和延展性
 
@@ -103,7 +103,7 @@ Azure AD 會提供您部署之所有連接器的自動更新。 只要應用程�
 
 相反地，連接器發行需要較少的記憶體。 線上服務可以處理大部分的處理程序，及所有未經驗證的流量。 所有可在雲端中完成的內容都是在雲端中完成。 
 
-給定連接器群組的連接器之間會進行負載平衡。 我們執行不一樣的循環配置，以決定由群組中的哪一個連接器來處理特定的要求。 選擇連接器之後，我們在工作階段期間維持該使用者與應用程式之間的工作階段親和性。 如果連接器或機器由於任何原因而變成無法使用，流量會開始流向群組中的其他連接器。 此備援能力也是我們建議使用多個連接器的理由。
+給定連接器群組的連接器之間會進行負載平衡。 我們執行不一樣的循環配置，以決定由群組中的哪一個連接器來處理特定的要求。 如果該連接器或機器由於任何原因而變成無法使用，流量將會開始流向群組中的其他連接器。 此備援能力也是我們建議使用多個連接器的理由。
 
 影響效能的另一個因素是連接器之間的網路品質，包括︰ 
 
@@ -164,6 +164,6 @@ Register-AppProxyConnector
 
 * [使用連接器群組在個別的網路和位置上發佈應用程式](application-proxy-connector-groups.md)
 * [使用現有的內部部署 Proxy 伺服器](application-proxy-configure-connectors-with-proxy-servers.md)
-* [針對應用程式 Proxy 和連接器錯誤進行疑難排解](../active-directory-application-proxy-troubleshoot.md)
+* [針對應用程式 Proxy 和連接器錯誤進行疑難排解](application-proxy-troubleshoot.md)
 * [如何以無訊息方式安裝 Azure AD 應用程式 Proxy 連接器](application-proxy-register-connector-powershell.md)
 

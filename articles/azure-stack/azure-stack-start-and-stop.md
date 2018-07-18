@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31391128"
 ---
 # <a name="start-and-stop-azure-stack"></a>啟動及停止 Azure Stack
 您應該遵循本文中的程序，適當地關閉然後重新啟動 Azure Stack 服務。 

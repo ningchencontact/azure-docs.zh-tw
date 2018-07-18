@@ -1,22 +1,20 @@
 ---
 title: 使用 Azure 地圖服務的互動式地圖搜尋 | Microsoft Docs
 description: Azure 快速入門 - 使用 Azure 地圖服務啟動示範互動式地圖搜尋
-services: azure-maps
-keywords: ''
 author: kgremban
 ms.author: kgremban
 ms.date: 05/07/2018
 ms.topic: quickstart
 ms.service: azure-maps
-documentationcenter: ''
+services: azure-maps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8dedaf95289d9637f5f3d1e80a763b5fb400c617
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8765b634b81742acf9fb4d40be8864800025351d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599757"
 ---
 # <a name="launch-an-interactive-search-map-using-azure-maps"></a>使用 Azure 地圖服務啟動互動式地圖搜尋
 
@@ -33,8 +31,8 @@ ms.lasthandoff: 05/07/2018
 
 1. 按一下 [Azure 入口網站](https://portal.azure.com)左上角的 [建立資源]。
 2. 在 [搜尋 Marketplace] 方塊中，輸入 **Maps**。
-3. 從 [結果] 中，選取 [地圖]。 按一下地圖下方顯示的 [建立] 按鈕。 
-4. 在 [建立地圖帳戶] 頁面上輸入下列值：
+3. 從 [結果] 中，選取 [地圖服務]。 按一下地圖下方顯示的 [建立] 按鈕。 
+4. 在 [建立地圖服務帳戶] 頁面上輸入下列值：
     - 新帳戶的 [名稱]。 
     - 您想要使用於此帳戶的 [訂用帳戶]。
     - 此帳戶的 [資源群組]。 您可以選擇 [建立新的] 或 [使用現有的] 資源群組。
@@ -42,7 +40,7 @@ ms.lasthandoff: 05/07/2018
     - 閱讀 [授權] 和 [隱私權聲明]，然後選取核取方塊以接受條款。 
     - 最後，按一下 [建立]  按鈕。
 
-    ![在入口網站中建立地圖帳戶](./media/quick-demo-map-app/create-account.png)
+    ![在入口網站中建立地圖服務帳戶](./media/quick-demo-map-app/create-account.png)
 
 5. 成功建立您的帳戶之後，請將它開啟並尋找帳戶功能表的設定區段。 按一下 [金鑰] 以檢視 Azure 地圖服務帳戶的主要和次要金鑰。 將 [主要金鑰] 值複製到本機剪貼簿，下一節將使用此值。 
 
@@ -77,3 +75,11 @@ ms.lasthandoff: 05/07/2018
 
 > [!div class="nextstepaction"]
 > [搜尋地圖上感興趣的點](./tutorial-search-location.md)
+
+如需更多程式碼範例和互動式編碼體驗，請參閱以下使用說明指南。
+
+> [!div class="nextstepaction"]
+> [了解如何使用 Azure 地圖服務 REST API 來搜尋地址](./how-to-search-for-address.md)
+
+> [!div class="nextstepaction"]
+> [如何使用 Azure 地圖服務的地圖控制項](./how-to-use-map-control.md)

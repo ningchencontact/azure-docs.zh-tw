@@ -4,17 +4,19 @@ description: 這個案例示範如何使用 Azure Machine Learning Workbench 進
 services: machine-learning
 author: pechyony
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.author: dmpechyo
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 70baa1160e9f521ac5533eaa15d4a9ab57433a49
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 6347500b8968394a922969dd3dd2f00dd51cb6dd
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37034523"
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>使用 Azure Machine Learning Workbench 的分散式超參數微調
 
@@ -155,7 +157,7 @@ ms.lasthandoff: 04/19/2018
 
 視您的網際網路連線而定，上傳檔案需要數分鐘的時間。 
 
-在我們的程式碼中，我們使用 [Azure 儲存體 SDK](https://azure-storage.readthedocs.io/en/latest/) 將資料集從 blob 儲存體下載到目前的執行環境。 下載會在 load_data.py 檔案的 load\_data() 函式中執行。 若要使用此程式碼，您必須以主控資料集之儲存體帳戶的名稱與主要金鑰取代 <ACCOUNT_NAME> and <ACCOUNT_KEY>。 您可以在您儲存體帳戶的 Azure 頁面左上角看到帳戶名稱。 若要取得帳戶，請在儲存體帳戶的 Azure 頁面中選取 [存取金鑰] (請參閱「資料擷取」一節中的第一個螢幕擷取畫面)，然後複製金鑰欄的第一列中的長字串：
+在我們的程式碼中，我們使用 [Azure 儲存體 SDK](https://docs.microsoft.com/en-us/python/azure/) 將資料集從 blob 儲存體下載到目前的執行環境。 下載會在 load_data.py 檔案的 load\_data() 函式中執行。 若要使用此程式碼，您必須以主控資料集之儲存體帳戶的名稱與主要金鑰取代 <ACCOUNT_NAME> and <ACCOUNT_KEY>。 您可以在您儲存體帳戶的 Azure 頁面左上角看到帳戶名稱。 若要取得帳戶，請在儲存體帳戶的 Azure 頁面中選取 [存取金鑰] (請參閱「資料擷取」一節中的第一個螢幕擷取畫面)，然後複製金鑰欄的第一列中的長字串：
  
 ![存取金鑰](media/scenario-distributed-tuning-of-hyperparameters/access_key.png)
 

@@ -3,7 +3,7 @@ title: 教學課程 - 使用 Azure 範本自動調整擴展集 |Microsoft Docs
 description: 了解如何使用 Azure Resource Manager 範本隨著 CPU 需求的增加和減少自動調整虛擬機器擴展集
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7ca037a6aec8516d9656b3389da67b9b02a906d8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: da4f06ff4e1478043bc147c2c08083e118bccbe4
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723114"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>教學課程：使用 Azure 範本自動調整虛擬機器擴展集
 當建立擴展集時，您會定義您想要執行的 VM 執行個體數目。 當您的應用程式需求變更時，您可以自動增加或減少 VM 執行個體數目。 自動調整的能力可讓您在整個應用程式的生命週期中，跟上客戶的需求或對應用程式效能變更做出回應。 在本教學課程中，您將了解如何：
@@ -45,7 +46,7 @@ ms.lasthandoff: 04/16/2018
 {
 "type": "Microsoft.insights/autoscalesettings",
 "name": "Autoscale",
-"apiVersion": "2014-04-01",
+"apiVersion": "2015-04-01",
 "location": "[variables('location')]",
 "scale": null,
 "properties": {

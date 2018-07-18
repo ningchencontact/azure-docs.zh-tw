@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: fbca491e845ad96ecafc6afb5f40d46b99c047bf
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 19d602570337b101e4a5cf759fc56822313c631c
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33932093"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098000"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>使用網路原則伺服器 (NPS) 擴充功能和 Azure AD 整合遠端桌面閘道基礎結構
 
@@ -95,7 +95,7 @@ NPS 角色服務可提供 RADIUS 伺服器和用戶端功能，以及網路存�
 ### <a name="configure-accounts-for-two-step-verification"></a>為帳戶設定雙步驟驗證
 在帳戶啟用 MFA 之後，您便無法登入 MFA 原則所控管的資源，除非您成功地設定受信任的裝置來作為第二個驗證要素，並使用雙步驟驗證通過驗證。
 
-遵循 [Azure Multi-factor Authentication 什麼適合我？](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user.md)中的步驟，了解及正確設定您的裝置，以便透過您的使用者帳戶進行 MFA。
+遵循 [Azure Multi-factor Authentication 什麼適合我？](end-user/current/multi-factor-authentication-end-user.md)中的步驟，了解及正確設定您的裝置，以便透過您的使用者帳戶進行 MFA。
 
 ## <a name="install-and-configure-nps-extension"></a>安裝和設定 NPS 擴充功能
 本節會提供指示，引導您將 RDS 基礎結構設定為使用 Azure MFA 讓用戶端向遠端桌面閘道進行驗證。

@@ -12,22 +12,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/01/2018
+ms.date: 06/29/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 86b20e0f317a14db415feff68b17aa99e1e42cb4
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 5d13c565302ae16b6fb2894f6a5a3843f47f9547
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258424"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342220"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>教學課程：在 Azure CDN 自訂網域上設定 HTTPS
 
 > [!IMPORTANT]
-> 這項功能不適用於**來自 Akamai 的標準 Azure CDN** 產品。 如需 CDN 功能的比較，請參閱 [Azure CDN 概觀](cdn-features.md)。
+> 這項功能不適用於**來自 Akamai 的標準 Azure CDN** 產品。 如需 Azure 內容傳遞網路 (CDN) 功能的比較，請參閱[比較 Azure CDN 產品功能](cdn-features.md)。
 
-本教學課程示範如何針對與 Azure 內容傳遞網路 (CDN) 端點相關聯的自訂網域，啟用 HTTPS 通訊協定。 在您的自訂網域上使用 HTTPS 通訊協定 (例如 https:\//www.contoso.com)，確保在網際網路上傳送機密資料時能經由 SSL 加密安全地傳遞。 HTTPS 提供信任與認證，並且保護您的 Web 應用程式免於攻擊。 
+本教學課程示範如何針對與 Azure CDN 端點相關聯的自訂網域，啟用 HTTPS 通訊協定。 在您的自訂網域上使用 HTTPS 通訊協定 (例如 https:\//www.contoso.com)，確保在網際網路上傳送機密資料時能經由 TLS/SSL 加密安全地傳遞。 當網頁瀏覽器透過 HTTPS 連線到網站時，它會驗證網站的安全性憑證，並確認憑證是由合法的憑證授權單位所核發的。 此程序可提供安全性，並讓 Web 應用程式免於遭受攻擊。
 
 Azure CDN 預設支援 CDN 端點主機名稱上的 HTTPS。 舉例來說，當您建立 CDN 端點時 (例如 https:\//contoso.azureedge.net) ，會自動啟用 HTTPS。  
 
@@ -94,13 +94,13 @@ Azure CDN 預設支援 CDN 端點主機名稱上的 HTTPS。 舉例來說，當�
 > 此選項僅適用於**來自 Microsoft 的 Azure CDN 標準**設定檔。 
 >
  
-您可以使用自己的憑證啟用 HTTPS 功能。 此程序會透過與 Azure Key Vault 的整合來進行，因為此一整合可讓您安全地儲存憑證。 Azure CDN 使用此安全機制來取得您的憑證，為此您需要執行一些額外的步驟。
+您可以使用自己的憑證啟用 HTTPS 功能。 此程序會透過與 Azure Key Vault 的整合來進行，因為此一整合可讓您安全地儲存憑證。 Azure CDN 使用此安全機制來取得您的憑證，為此您需要執行一些額外的步驟。 當您建立 SSL 憑證時，您必須使用允許的憑證授權單位 (CA) 來加以建立。 否則，如果您使用非允許的 CA，系統會拒絕您的要求。 如需允許 CA 的清單，請參閱[可在 Azure CDN 上啟用自訂 HTTPS 的允許憑證授權單位](cdn-troubleshoot-allowed-ca.md)。
 
 ### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>準備您的 Azure Key Vault 帳戶和憑證
  
 1. Azure Key Vault：在與您想要啟用自訂 HTTPS 的 Azure CDN 設定檔和 CDN 端點相同的訂用帳戶底下，您必須有執行中的 Azure Key Vault 帳戶。 建立 Azure Key Vault 帳戶 (如果您還沒有的話)。
  
-2. Azure Key Vault 憑證：如果您已擁有憑證，您可以將它直接上傳至您的 Azure Key Vault 帳戶，也可以從與 Azure Key Vault 整合的其中一個合作夥伴憑證授權單位 (CA) 透過 Azure Key Vault 建立新憑證。 
+2. Azure Key Vault 憑證：如果您已擁有憑證，您可以將它直接上傳至您的 Azure Key Vault 帳戶，也可以從與 Azure Key Vault 整合的其中一個合作夥伴 CA 透過 Azure Key Vault 建立新憑證。 
 
 ### <a name="register-azure-cdn"></a>註冊 Azure CDN
 
@@ -123,9 +123,9 @@ Azure CDN 預設支援 CDN 端點主機名稱上的 HTTPS。 舉例來說，當�
 
     ![建立新的存取原則](./media/cdn-custom-ssl/cdn-new-access-policy.png)
 
-    ![存取原則設定](./media/cdn-custom-ssl/cdn-access-policy-settings.png)
+2. 在 [選取主體] 中，搜尋 **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**，然後選擇 [Microsoft.Azure.Cdn]。 按一下 [選取] 。
 
-2. 在 [選取主體] 中，搜尋並選取 [Azure CDN]。
+    ![存取原則設定](./media/cdn-custom-ssl/cdn-access-policy-settings.png)
 
 3. 在 [祕密權限] 中，選取 [取得] 允許 CDN 執行這些權限，以取得並列出憑證。 
 
@@ -165,7 +165,7 @@ Azure CDN 預設支援 CDN 端點主機名稱上的 HTTPS。 舉例來說，當�
 
 ### <a name="custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record"></a>自訂網域已經由 CNAME 記錄對應至您的 CDN 端點
 
-當您為端點新增自訂網域時，便已在網域註冊機構的 DNS 表格中建立 CNAME 記錄，以將它對應至 CDN 端點主機名稱。 如果該 CNAME 記錄仍然存在且不包含 cdnverify 子網域，則 DigiCert 憑證授權單位 (CA) 會使用它來自動驗證您自訂網域的擁有權。 
+當您為端點新增自訂網域時，便已在網域註冊機構的 DNS 表格中建立 CNAME 記錄，以將它對應至 CDN 端點主機名稱。 如果該 CNAME 記錄仍然存在且不包含 cdnverify 子網域，則 DigiCert CA 會使用它來自動驗證您自訂網域的擁有權。 
 
 如果您使用自己的憑證，則不需要進行網域驗證。
 
@@ -177,7 +177,7 @@ Azure CDN 預設支援 CDN 端點主機名稱上的 HTTPS。 舉例來說，當�
 
 如需有關 CNAME 記錄的詳細資訊，請參閱[建立 CNAME DNS 記錄](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain#create-the-cname-dns-records)。
 
-如果您的 CNAME 記錄格式正確，DigiCert 就會自動驗證您的自訂網域名稱，並將其新增至「主體別名」(SAN) 憑證。 DigitCert 不會傳送驗證電子郵件給您，因此您不需要核准您的要求。 憑證有效期限為一年，並且會在到期之前自動更新。 請繼續進行[等待傳播](#wait-for-propagation)。 
+如果您的 CNAME 記錄格式正確，DigiCert 就會自動驗證您的自訂網域名稱，並且為您的網域名稱建立專用憑證。 DigitCert 不會傳送驗證電子郵件給您，因此您不需要核准您的要求。 憑證有效期限為一年，並且會在到期之前自動更新。 請繼續進行[等待傳播](#wait-for-propagation)。 
 
 自動驗證通常只需要幾分鐘。 如果您沒有看到您的網域在一小時內進行驗證，請開啟支援票證。
 
@@ -188,7 +188,7 @@ Azure CDN 預設支援 CDN 端點主機名稱上的 HTTPS。 舉例來說，當�
 
 如果您端點的 CNAME 記錄項目已不存在或包含 cdnverify 子網域，請依照此步驟中的其餘指示進行操作。
 
-在您的自訂網域上啟用 HTTPS 之後，DigiCert 憑證授權單位 (CA) 會根據網域的 [WHOIS](http://whois.domaintools.com/) 註冊資訊連絡其註冊人，以驗證網域的所有權。 連絡方式為透過電子郵件地址 (預設) 或列示在 WHOIS 註冊資訊中的電話號碼。 必須先完成網域驗證才能在您的自訂網域上啟用 HTTPS。 您有六個工作天可以核准網域。 未在六個工作天內核准的要求將會自動遭到取消。 
+在您的自訂網域上啟用 HTTPS 之後，DigiCert CA 會根據網域的 [WHOIS](http://whois.domaintools.com/) 註冊資訊連絡其註冊人，以驗證網域的所有權。 連絡方式為透過電子郵件地址 (預設) 或列示在 WHOIS 註冊資訊中的電話號碼。 必須先完成網域驗證才能在您的自訂網域上啟用 HTTPS。 您有六個工作天可以核准網域。 未在六個工作天內核准的要求將會自動遭到取消。 
 
 ![WHOIS 記錄](./media/cdn-custom-ssl/whois-record.png)
 
@@ -210,11 +210,11 @@ postmaster@&lt;your-domain-name.com&gt;
 
 遵循表單上的指示；您有兩個驗證選項：
 
-- 您可以核准未來所有經相同帳戶針對同一個根網域 (如 contoso.com) 的所有訂購。如果您計劃新增相同根網域的其他自訂網域，建議使用這種方法。
+- 您可以核准未來所有經相同帳戶針對同一個根網域 (如 contoso.com) 的所有訂購。 如果您計劃新增相同根網域的其他自訂網域，建議使用這種方法。
 
 - 您可以只核准這次要求使用的特定主機名稱。 後續的要求需要另外核准。
 
-核准之後，DigiCert 會將您的自訂網域名稱新增至 SAN 憑證。 憑證有效期限為一年，並且會在到期之前自動更新。
+核准之後，DigiCert 會針對您的自訂網域名稱完成憑證建立。 憑證有效期限為一年，並且會在到期之前自動更新。
 
 ## <a name="wait-for-propagation"></a>等待傳播
 
@@ -288,11 +288,11 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 1. *憑證提供者是誰？使用的是哪一種憑證？*
 
-    若為**來自 Verizon 的 Azure CDN**，則會使用 DigiCert 所提供的主體別名 (SAN) 憑證。 SAN 憑證可以使用一個憑證來保護多個完整網域名稱。 若為**來自 Microsoft 的標準 Azure CDN**，則會使用 DigiCert 所提供的單一憑證。
+    對於**來自 Verizon 的 Azure CDN** 與**來自 Microsoft 的 Azure CDN**，Digicert 均為您的自訂網域提供專用/單一憑證。 
 
-2. 您使用 IP 型或 SNI TLS/SSL？
+2. *您使用 IP 型或 SNI TLS/SSL？*
 
-    **來自 Verizon 的 Azure CDN** 會使用 IP 型 TLS/SSL。 **來自 Microsoft 的標準 Azure CDN** 使用了 SNI TLS/SSL。
+    **來自 Verizon 的 Azure CDN** 與**來自 Microsoft 的標準 Azure CDN** 都會使用 SNI TLS/SSL。
 
 3. *如果沒有收到 DigiCert 的驗證電子郵件該怎麼辦？*
 
@@ -309,6 +309,10 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 6. *是否需要我的 DNS 提供者的憑證授權單位授權記錄？*
 
     否，目前不需要憑證授權單位授權記錄。 不過，如果您的確有一個授權記錄，它必須包含 DigiCert 作為有效的 CA。
+
+7. *在 2018 年 6 月 20 日，來自 Verizon 的 Azure CDN 預設開始使用專用憑證搭配 SNI TLS/SSL。如果使用主體別名 (SAN) 憑證和以 IP 為基礎的 TLS/SSL ，我的現有自訂網域會發生什麼狀況？*
+
+    如果 Microsoft 分析只有對您的應用程式進行 SNI 用戶端要求，則您現有的網域將在未來幾個月中逐漸移轉至單一憑證。 如果 Microsoft 偵測到有一些對您的應用程式進行的非 SNI 用戶端要求，您的網域會保持使用 SAN 憑證搭配以 IP 為基礎的 TLS/SSL。 在任何情況下，不論您的用戶端要求是 SNI 還是非 SNI，您對於這些要求的服務或支援都不會中斷。
 
 
 ## <a name="next-steps"></a>後續步驟

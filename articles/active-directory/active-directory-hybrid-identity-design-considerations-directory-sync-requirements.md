@@ -1,11 +1,11 @@
 ---
-title: "混合式身分識別設計 - 目錄同步處理需求 Azure | Microsoft Docs"
-description: "識別哪些是企業在內部部署和雲端之間同步處理所有使用者所需的需求。"
-documentationcenter: 
+title: 混合式身分識別設計 - 目錄同步處理需求 Azure | Microsoft Docs
+description: 識別哪些是企業在內部部署和雲端之間同步處理所有使用者所需的需求。
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 593eaa71-17eb-4c16-8c98-43cc62987e65
 ms.service: active-directory
 ms.devlang: na
@@ -13,13 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 475b35c767fcc9c42b828dd2219a14890e05f779
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d6749960806e858909f42c6ecccd445ba8d5ec00
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801552"
 ---
 # <a name="determine-directory-synchronization-requirements"></a>判斷目錄同步處理需求
 同步處理的重點是根據使用者的內部部署身分識別，為他們提供雲端中的身分識別。 不論使用者是否將使用同步處理的帳戶來進行驗證或同盟驗證，他們仍然需要在雲端中具備身分識別。  這個身分識別必須定期維護和更新。  更新可以有許多形式，範圍可從標題變更到密碼變更。  

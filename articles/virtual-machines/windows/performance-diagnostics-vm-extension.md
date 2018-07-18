@@ -19,6 +19,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072533"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>適用於 Windows 的 Azure 效能診斷 VM 擴充功能
 

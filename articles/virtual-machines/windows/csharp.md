@@ -20,6 +20,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31525924"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>在 Azure 中使用 C# 建立並管理 Windows VM #
 

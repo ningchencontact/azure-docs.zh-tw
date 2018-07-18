@@ -15,10 +15,11 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
 ms.openlocfilehash: 37288fd4a9c7558d05728b8ce03df505117e0232
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611265"
 ---
 # <a name="comparing-custom-images-and-formulas-in-devtest-labs"></a>比較研發/測試實驗室中的自訂映像和公式
 [自訂映像](devtest-lab-create-template.md)和[公式](devtest-lab-manage-formulas.md)可以當作[建立新 VM](devtest-lab-add-vm.md) 的基礎。 不過，自訂映像與公式的主要差別在於自訂映像只是根據 VHD 的映像，而公式是根據 VHD 的映像以及具有預先設定的設定 (例如 VM 大小、虛擬網路、子網路及構件)。 這些預先設定的設定是使用預設值所設定，並且可以在建立 VM 時予以覆寫。 本文說明使用自訂映像與使用公式的一些優缺點。

@@ -2,23 +2,21 @@
 title: 使用圖形 API 來建置 Azure Cosmos DB Node.js 應用程式 | Microsoft Docs
 description: 提供可用來連線及查詢 Azure Cosmos DB 的 Node.js 程式碼範例。
 services: cosmos-db
-documentationcenter: ''
 author: luisbosquez
 manager: kfile
-ms.assetid: daacbabf-1bb5-497f-92db-079910703046
 ms.service: cosmos-db
+ms.component: cosmosdb-graph
 ms.custom: quick start connect, mvc
-ms.workload: ''
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 66b12b25787fc029b1f20b78cac578b7cc18c9b1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 84c92b1c0b2977ca15b82a0884870d78d895a761
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38543767"
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB：使用圖形 API 來建置 Node.js 應用程式
 
@@ -178,7 +176,7 @@ module.exports = config;
 
 您現在可以回到 Azure 入口網站中的 [資料總管]，檢視、查詢、修改並使用新的圖形資料。
 
-在 [資料總管] 中，新的資料庫會出現在 [圖形] 窗格中。 展開資料庫，後面接著該集合，然後選取 [圖形]。
+在 [資料總管] 中，新的資料庫會出現在 [圖形] 窗格中。 展開資料庫，後面接著該容器，然後選取 [圖形]。
 
 當您選取 [套用篩選條件] 時，範例應用程式所產生的資料會顯示在 [圖形] 索引標籤內的下一個窗格中。
 

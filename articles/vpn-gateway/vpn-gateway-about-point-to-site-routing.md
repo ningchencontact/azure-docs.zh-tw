@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/16/2018
 ms.author: anzaman
-ms.openlocfilehash: d25709fb4abb1b8a35596c3dc246f7419a99419b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a0576e00d22b731f7ee9de3a9b021c0f52fc8ef9
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34702171"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>關於點對站 VPN 路由
 
@@ -51,7 +52,7 @@ Azure 目前支援兩種遠端存取通訊協定，即 IKEv2 和 SSTP。 許多�
 
 * 新增至非 Windows 用戶端的路由：10.1.0.0/16、192.168.0.0/24
 
-### <a name="access"></a>存取
+### <a name="access"></a>Access
 
 * Windows 用戶端可以存取 VNet1
 
@@ -81,7 +82,7 @@ Azure 目前支援兩種遠端存取通訊協定，即 IKEv2 和 SSTP。 許多�
 
 * 新增至非 Windows 用戶端的路由：10.1.0.0/16、10.2.0.0/16、10.4.0.0/16、192.168.0.0/24
 
-### <a name="access"></a>存取
+### <a name="access"></a>Access
 
 * Windows 用戶端可以存取 VNet1、VNet2 及 VNet4，但必須重新下載 VPN 用戶端，才能讓所有拓撲變更生效。
 
@@ -109,7 +110,7 @@ Azure 目前支援兩種遠端存取通訊協定，即 IKEv2 和 SSTP。 許多�
 
 * 新增至非 Windows 用戶端的路由：10.1.0.0/16、10.2.0.0/16、192.168.0.0/24
 
-### <a name="access"></a>存取
+### <a name="access"></a>Access
 
 * Windows 用戶端只能存取 VNet1
 
@@ -137,7 +138,7 @@ Azure 目前支援兩種遠端存取通訊協定，即 IKEv2 和 SSTP。 許多�
 
 * 新增至非 Windows 用戶端的路由：10.1.0.0/16、10.2.0.0/16、10.3.0.0/16、192.168.0.0/24
 
-### <a name="access"></a>存取
+### <a name="access"></a>Access
 
 * Windows 用戶端可以存取 VNet1、VNet2 及 VNet3，但必須手動新增 VNet2 和 VNet3 的路由。
 
@@ -163,7 +164,7 @@ Windows 用戶端可以存取 VNet1 和分公司 (Site1)，但必須手動將 Si
 
 * 新增至非 Windows 用戶端的路由：10.1.0.0/16、10.101.0.0/16、192.168.0.0/24
 
-### <a name="access"></a>存取
+### <a name="access"></a>Access
 
 * Windows 用戶端只能存取 VNet1
 
@@ -189,7 +190,7 @@ Windows 用戶端可以存取 VNet 和分公司 (Site1)，但必須手動將 Sit
 
 * 新增至非 Windows 用戶端的路由：10.1.0.0/16、10.101.0.0/16、192.168.0.0/24
 
-### <a name="access"></a>存取
+### <a name="access"></a>Access
 
 * Windows 用戶端可以存取 VNet1 和 Site1，但必須手動新增 Site1 的路由。
 
@@ -220,7 +221,7 @@ Windows 用戶端可以存取 VNet 和分公司 (Site1)，但必須手動將 Sit
 
 * 新增至非 Windows 用戶端的路由：10.1.0.0/16、10.2.0.0/16、10.3.0.0/16、10.101.0.0/16、192.168.0.0/24
 
-### <a name="access"></a>存取
+### <a name="access"></a>Access
 
 * Windows 用戶端只能存取 VNet1
 
@@ -228,7 +229,7 @@ Windows 用戶端可以存取 VNet 和分公司 (Site1)，但必須手動將 Sit
 
 ## <a name="multivnets2sbranchbgp"></a>多個使用 S2S 和分公司 (BGP) 來連線的 VNet
 
-在此範例中，點對站 VPN 閘道連線是用於 VNet1。 VNet1 使用站對站 VPN 連線來連線至 VNet2。 VNet2 使用站對站 VPN 連線來連線至 VNet3。 VNet1 與 VNet3 網路之間沒有任何直接的對等互連或站對站 VPN 通道。 VNet3 使用站對站 VPN 連線來連線至分公司 (Site1)。 所有 VPN 連線都未執行 BGP。 所有 VPN 連線都執行 BGP。
+在此範例中，點對站 VPN 閘道連線是用於 VNet1。 VNet1 使用站對站 VPN 連線來連線至 VNet2。 VNet2 使用站對站 VPN 連線來連線至 VNet3。 VNet1 與 VNet3 網路之間沒有任何直接的對等互連或站對站 VPN 通道。 VNet3 使用站對站 VPN 連線來連線至分公司 (Site1)。 所有 VPN 連線都執行 BGP。
 
 用戶端如果使用 Windows，將可以存取使用站對站 VPN 連線來連線的 VNet，但必須手動將 VNet2、VNet3 及 Site1 的路由新增至用戶端。 非 Windows 用戶端可以存取使用站對站 VPN 連線來連線的 VNet 和站台，無須任何手動介入操作。 此存取權可轉移，且用戶端可以存取所有已連線 VNet 和站台 (內部部署) 中的資源。
 
@@ -250,7 +251,7 @@ Windows 用戶端可以存取 VNet 和分公司 (Site1)，但必須手動將 Sit
 
 * 新增至非 Windows 用戶端的路由：10.1.0.0/16、10.2.0.0/16、10.3.0.0/16、10.101.0.0/16、192.168.0.0/24
 
-### <a name="access"></a>存取
+### <a name="access"></a>Access
 
 * Windows 用戶端可以存取 VNet1、VNet2、VNet3 及 Site1，但必須手動將 VNet2、VNet3 及 Site1 的路由新增至用戶端。
 

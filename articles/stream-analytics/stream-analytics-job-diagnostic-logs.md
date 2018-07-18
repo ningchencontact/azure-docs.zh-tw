@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30905856"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>使用析診斷記錄對 Azure 串流分進行疑難排解
 

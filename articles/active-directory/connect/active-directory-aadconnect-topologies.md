@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
 ms.date: 02/27/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2f72f2dd3dbaaf17494d09a36159afc464cc64d4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6a0f18a47bb50144d0a4d428617e0dc5c7509196
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32154285"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442241"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect 的拓撲
 本文說明使用 Azure AD Connect 同步處理做為重要整合解決方案的各種內部部署和 Azure Active Directory (Azure AD) 拓撲。 本文包含受支援和不受支援的組態。
@@ -137,7 +138,7 @@ Azure AD Connect 支援以「預備模式」安裝第二部伺服器。 此模�
 
 ## <a name="multiple-azure-ad-tenants"></a>多個 Azure AD 租用戶
 我們建議一個組織在 Azure AD 中有單一租用戶。
-在您計劃使用多個 Azure AD 租用戶之前，請參閱文章 [Azure AD 中的系統管理單位管理](../active-directory-administrative-units-management.md)。 它涵蓋了常見的案例，您可以使用單一租用戶。
+在您計劃使用多個 Azure AD 租用戶之前，請參閱文章 [Azure AD 中的系統管理單位管理](../users-groups-roles/directory-administrative-units.md)。 它涵蓋了常見的案例，您可以使用單一租用戶。
 
 ![多個樹系和多個租用戶的拓撲](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectory.png)
 
@@ -148,7 +149,7 @@ Azure AD Connect 同步處理伺服器和 Azure AD 租用戶之間有 1:1 的關
 
 在此拓撲中，一個 Azure AD Connect 同步處理伺服器會連接到每個 Azure AD 租用戶。 Azure AD Connect 同步處理伺服器必須設定篩選，以各自有一組要操作的互斥物件。 例如，將每個伺服器的範圍限定於特定網域或組織單位。
 
-DNS 網域只能在單一 Azure AD 租用戶中註冊。 內部部署 Active Directory 執行個體中的使用者 UPN 也必須使用個別的命名空間。 例如，在上圖中，三個個別的 UPN 尾碼都登錄在內部部署 Active Directory 執行個體中：contoso.com、fabrikam.com 和 wingtiptoys.com。每個內部部署 Active Directory 網域中的使用者會使用不同的命名空間。
+DNS 網域只能在單一 Azure AD 租用戶中註冊。 內部部署 Active Directory 執行個體中的使用者 UPN 也必須使用個別的命名空間。 例如，在上圖中，三個個別的 UPN 尾碼都登錄在內部部署 Active Directory 執行個體中：contoso.com、fabrikam.com 和 wingtiptoys.com。 每個內部部署 Active Directory 網域中的使用者會使用不同的命名空間。
 
 >[!NOTE]
 >「全域通訊清單同步處理」(GalSync) 在此拓撲中不會自動執行，需要額外的自訂 MIM 實作以確保每個租用戶在 Exchange Online 和「商務用 Skype Online」中都擁有完整的「全域通訊清單」(GAL)。

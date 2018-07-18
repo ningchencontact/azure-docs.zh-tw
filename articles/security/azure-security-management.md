@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: f5630c8cb9c0ca13210c62652f8d7f2e98f94438
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: edfabf1f93c78cf29ff3561f437053df11e15bd5
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366642"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857475"
 ---
 # <a name="security-management-in-azure"></a>Azure 的安全性管理
 Azure 訂閱者可從多種裝置管理其雲端環境，這些裝置包括管理工作站、開發人員的電腦，甚至是具有工作專用權限的特殊權限使用者裝置。 有時候，管理功能是透過 Web 式主控台來執行，例如 [Azure 入口網站](https://azure.microsoft.com/features/azure-portal/)。 至於其他時候，則可能會從內部部署系統，透過虛擬私人網路 (VPN)、終端機服務、用戶端應用程式通訊協定或 Azure 服務管理 API (SMAPI) (以程式設計方式) 直接連線至 Azure。 此外，用戶端端點也可以加入網域或是遭到隔離且非受控，例如平板電腦或智慧型手機。
@@ -93,7 +93,7 @@ Azure 提供了安全性機制來協助系統管理員管理 Azure 雲端服務�
 * 執行限制。 僅允許執行一組管理所需的預先定義可執行檔 (稱為「預設拒絕」)。 根據預設，除非程式明確定義於允許清單中，否則應該拒絕使用者執行程式的權限。
 * 最小特殊權限。 管理工作站的使用者不應該擁有本機電腦本身的任何系統管理特殊權限。 如此一來，他們才無法變更系統組態或系統檔案，不論是有意或無意。
 
-透過在 Active Directory Domain Services (AD DS) 中使用[群組原則物件](https://www.microsoft.com/download/details.aspx?id=2612) (GPO)，並透過 (本機) 管理網域將其套用到所有管理帳戶，您即可強制執行上述所有要素。
+透過在 Active Directory Domain Services (AD DS) 中使用[群組原則物件](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-group-policy) (GPO)，並透過 (本機) 管理網域將其套用到所有管理帳戶，您即可強制執行上述所有要素。
 
 ### <a name="managing-services-applications-and-data"></a>管理服務、應用程式和資料
 Azure 雲端服務組態是透過 Azure 入口網站或 SMAPI，經由 Windows PowerShell 命令列介面或利用這些符合 REST 限制之介面的自建應用程式來執行。 使用這些機制的服務包括 Azure Active Directory (Azure AD)、Azure 儲存體、Azure 網站和 Azure 虛擬網路等。
@@ -224,8 +224,8 @@ Azure 雲端服務組態是透過 Azure 入口網站或 SMAPI，經由 Windows P
 除了本白皮書所提到的特定項目外，下列資源還可提供更多有關 Azure 和相關 Microsoft 服務的一般資訊：
 
 * [保護特殊權限存取](https://technet.microsoft.com/library/mt631194.aspx) – 取得設計和建置安全的系統管理工作站以管理 Azure 的技術詳細資料
-* [Microsoft 信任中心](https://www.microsoft.com/TrustCenter/Security/AzureSecurity) - 了解可保護 Azure 網狀架構和在 Azure 上執行之工作負載的 Azure 平台功能
-* [Microsoft 安全性回應中心](http://www.microsoft.com/security/msrc/default.aspx) -- 可在其中回報 Microsoft 安全性弱點 (包括 Azure 的問題) 或透過電子郵件傳送給 [secure@microsoft.com](mailto:secure@microsoft.com)
+* [Microsoft 信任中心](https://microsoft.com/en-us/trustcenter/cloudservices/azure) - 了解可保護 Azure 網狀架構和在 Azure 上執行之工作負載的 Azure 平台功能
+* [Microsoft 安全性回應中心](https://technet.microsoft.com/en-us/security/dn440717.aspx) -- 可在其中回報 Microsoft 安全性弱點 (包括 Azure 的問題) 或透過電子郵件傳送給 [secure@microsoft.com](mailto:secure@microsoft.com)
 * [Azure 安全性部落格](http://blogs.msdn.com/b/azuresecurity/) – 隨時掌握 Azure 安全性的最新消息
 
 <!--Image references-->

@@ -1,8 +1,8 @@
 ---
-title: "在 Azure 中建立從 Visual Studio Team Services 部署的函式 | Microsoft Docs"
-description: "建立函式應用程式和從 Visual Studio Team Services 部署函式程式碼"
+title: 在 Azure 中建立從 Visual Studio Team Services 部署的函式 | Microsoft Docs
+description: 建立函式應用程式和從 Visual Studio Team Services 部署函式程式碼
 services: functions
-keywords: 
+keywords: ''
 author: syntaxc4
 ms.author: cfowler
 ms.date: 01/09/2018
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29842342"
 ---
 # <a name="create-a-function-app-and-deploy-function-code-from-visual-studio-team-services"></a>建立函式應用程式並從 Visual Studio Team Services 部署函式程式碼
 

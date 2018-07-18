@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31402031"
 ---
 # <a name="monitor-hadoop-clusters-in-hdinsight-using-the-ambari-api"></a>使用 Ambari API 監視 HDInsight 上的 Hadoop 叢集
 了解如何使用 Ambari API 監視 HDInsight 叢集。

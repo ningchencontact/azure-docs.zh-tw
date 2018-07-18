@@ -9,11 +9,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 10/12/2017
 ms.author: alleonar
-ms.openlocfilehash: 35e84a22eabce0b7361c2227317baab62421c301
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7ff8c038ac5fa42668227a0531fa77bd853dd2b2
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757514"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure 金鑰保存庫開發人員指南
 
@@ -56,7 +57,7 @@ Azure Key Vault 可安全地儲存認證和其他金鑰及密碼，但是您的�
 
 如需 MSI 的相關資訊，請參閱[適用於 Azure 資源的受控服務識別 (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview)。
 
-如需有關使用 AAD 的詳細資訊，請參閱 [整合應用程式與 Azure Active Directory](/active-directory/develop/active-directory-integrating-applications)。
+如需有關使用 AAD 的詳細資訊，請參閱 [整合應用程式與 Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications)。
 
 在您的金鑰保存庫中使用金鑰、密碼或憑證之前，要先透過 CLI、PowerShell、Resource Manager 範本或 REST 建立及管理金鑰保存庫，如以下文章所述︰
 
@@ -146,7 +147,8 @@ Azure Key Vault 可安全地儲存認證和其他金鑰及密碼，但是您的�
 ## <a name="key-vault-overviews-and-concepts"></a>Key Vault 的概觀和概念
 
 - [Key Vault 虛刪除行為](key-vault-ovw-soft-delete.md)描述一項功能，該功能可復原已刪除的物件，無論是無意或有意刪除的。
-- [Key Vault 用戶端節流](key-vault-ovw-throttling.md)可讓您了解節流的基本概念，並提供適用於您應用程式的方法。
+- 
+  [Key Vault 用戶端節流](key-vault-ovw-throttling.md)可讓您了解節流的基本概念，並提供適用於您應用程式的方法。
 - [Key Vault 儲存體帳戶金鑰概觀](key-vault-ovw-storage-keys.md)描述 Key Vault 與 Azure 儲存體帳戶金鑰的整合。
 - [Key Vault 安全世界](key-vault-ovw-security-worlds.md)描述地區和安全區域之間的關聯性。
 

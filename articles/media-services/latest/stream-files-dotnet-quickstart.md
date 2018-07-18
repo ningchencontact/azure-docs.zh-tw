@@ -13,18 +13,19 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/08/2018
 ms.author: juliako
-ms.openlocfilehash: 40759fc65caa181651de68756f4374f879fd9c9c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e17a800ff61822a5040737e479c3e1855eeb8893
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701033"
 ---
 # <a name="quickstart-stream-video-files---net"></a>快速入門：串流視訊檔案 - .NET
 
 > [!NOTE]
 > Azure 媒體服務的最新版本處於預覽狀態，且會以 v3 稱呼它。 若要開始使用 v3 API，您應該建立新的媒體服務帳戶，如本快速入門中所述。 
 
-本快速入門說明使用 Azure 媒體服務開始在各種不同的瀏覽器和裝置上串流視訊是多麼容易。 
+本快速入門說明使用 Azure 媒體服務開始在各種不同的瀏覽器和裝置上串流視訊是多麼容易。 本主題中的範例會將您可透過 HTTPS URL 存取的內容編碼。 
 
 完成快速入門時，您將能夠串流視訊。  
 
@@ -43,6 +44,18 @@ ms.lasthandoff: 05/07/2018
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts.git
  ```
+
+此範例位於 [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles) 資料夾。
+
+此範例會執行下列動作：
+
+1. 建立轉換 (首先，檢查指定的轉換是否存在)。 
+2. 建立輸出資產，以作為編碼作業的輸出。
+3. 建立以 HTTPS URL 為基礎作業的輸入。
+4. 使用稍早建立的輸入和輸出提交編碼作業。
+5. 檢查作業的狀態。
+6. 建立 StreamingLocator。
+7. 建置串流 URL。
 
 如需範例中的每個函式作用的相關說明，請檢查程式碼並查看[這個原始程式檔](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs) \(英文\) 中的註解。
 
@@ -98,7 +111,7 @@ az group delete --name amsResourceGroup
 
 ## <a name="multithreading"></a>多執行緒
 
-Azure Media Services v3 SDK 不是安全執行緒。 當使用多執行緒應用程式時，您應該為每個執行緒產生新的 AzureMediaServicesClient 物件。
+Azure 媒體服務 v3 SDK 不是安全執行緒。 當使用多執行緒應用程式時，您應該為每個執行緒產生新的 AzureMediaServicesClient 物件。
 
 ## <a name="next-steps"></a>後續步驟
 

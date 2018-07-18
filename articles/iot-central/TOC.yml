@@ -17,20 +17,16 @@
       href: quick-deploy-iot-central.md
 - name: 教學課程
   items:
-    - name: 建立器
-      items:
-        - name: 1 - 定義新的裝置類型
-          href: tutorial-define-device-type.md
-        - name: 2 - 設定規則
-          href: tutorial-configure-rules.md
-        - name: 3 - 自訂操作者檢視
-          href: tutorial-customize-operator.md
-    - name: 運算子
-      items:
-        - name: 4 - 監視您的裝置
-          href: tutorial-monitor-devices.md
-        - name: 5 - 新增裝置
-          href: tutorial-add-device.md
+    - name: 1 - 定義新的裝置類型
+      href: tutorial-define-device-type.md
+    - name: 2 - 設定規則
+      href: tutorial-configure-rules.md
+    - name: 3 - 自訂操作者檢視
+      href: tutorial-customize-operator.md
+    - name: 4 - 監視您的裝置
+      href: tutorial-monitor-devices.md
+    - name: 5 - 新增裝置
+      href: tutorial-add-device.md
 - name: 概念
   items:
     - name: 架構
@@ -41,10 +37,12 @@
   items:
     - name: 管理員
       items:
-        - name: 建立應用程式
-          href: howto-create-application.md
+        - name: 如同 CSP，建立和管理應用程式
+          href: howto-create-and-manage-applications-as-CSP.md
         - name: 管理您的應用程式
           href: howto-administer.md
+        - name: 匯出您的資料
+          href: howto-export-data.md
     - name: 建立器
       items:
         - name: 設定裝置範本
@@ -55,6 +53,10 @@
           href: howto-create-telemetry-rules.md
         - name: 建立事件規則
           href: howto-create-event-rules.md
+        - name: 在 Microsoft Flow 中建置工作流程
+          href: howto-add-microsoft-flow.md
+        - name: 設定首頁
+          href: howto-configure-homepage.md
         - name: 準備及上傳映像
           href: howto-prepare-images.md
     - name: 運算子

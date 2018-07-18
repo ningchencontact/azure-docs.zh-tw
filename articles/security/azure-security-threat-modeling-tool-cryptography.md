@@ -19,6 +19,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30911653"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>安全性架構︰密碼編譯 | 風險降低 
 | 產品/服務 | 文章 |

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 271f3231078b8842b040509ccf0406ed2415e5ec
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: dd26dbe34cd04d1ad3184e2cd62afae5166ac914
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34363939"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640501"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>映像分析認知技能
 
@@ -247,6 +247,6 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 
 ## <a name="see-also"></a>另請參閱
 
-+ [預先定義的技能](cognitive-search-predefined-skills.md) (英文)
++ [預先定義的技能](cognitive-search-predefined-skills.md)
 + [如何定義技能集](cognitive-search-defining-skillset.md) (英文)
-+ [建立索引子 (REST)](ref-create-indexer.md)
++ [建立索引子 (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

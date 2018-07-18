@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/05/2017
 ms.author: fryu
-ms.openlocfilehash: b1d82f9b527a62109e0301907b87bd683f9912af
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 05021d5ab8d33e36bff16ce7d2ebacd3db72639a
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37034470"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure 監視器中的 Azure 儲存體計量
 
@@ -38,7 +39,7 @@ Azure 監視器提供了多種方法供您存取計量。 您可以從 [Azure �
 
 ![在 Azure 入口網站中存取計量的螢幕擷取畫面](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal.png)
 
-如需支援維度的計量，您必須使用所需的維度值來進行篩選。 下列範例說明如何檢視帳戶層級具 **Success** 回應類型的 **Transactions**。
+針對支援維度的計量，您可以使用所需的維度值來篩選計量。 下列範例說明如何藉由選取 [API 名稱] 維度的值，來檢視特定作業在帳戶層級上的 [交易]。
 
 ![在 Azure 入口網站中存取具有維度之計量的螢幕擷取畫面](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal-with-dimension.png)
 
@@ -317,7 +318,7 @@ Azure 監視器提供 [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/queueServices/default
 `
 * 檔案服務資源識別碼`
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/default
 `
 
 ### <a name="resource-id-in-azure-monitor-rest-api"></a>Azure 監視器 REST API 中的資源識別碼
@@ -337,7 +338,7 @@ Azure 儲存體會提供下列 Azure 監視器容量計量。
 
 | 度量名稱 | 說明 |
 | ------------------- | ----------------- |
-| UsedCapacity | 儲存體帳戶所使用的儲存體數量。 若為標準儲存體帳戶，此數量是 Blob、資料表、檔案和佇列所使用的容量總和。 若為進階儲存體帳戶和 Blob 儲存體帳戶，此數量和 BlobCapacity 相同。 <br/><br/> 單位：位元組 <br/> 彙總類型：平均 <br/> 值範例：1024 |
+| UsedCapacity | 儲存體帳戶所使用的儲存體數量。 若為標準儲存體帳戶，則為 Blob、資料表、檔案和佇列所使用的容量總和。 若為進階儲存體帳戶和 Blob 儲存體帳戶，此數量和 BlobCapacity 相同。 <br/><br/> 單位：位元組 <br/> 彙總類型：平均 <br/> 值範例：1024 |
 
 ### <a name="blob-storage"></a>Blob 儲存體
 
@@ -402,6 +403,12 @@ Azure 儲存體支援下列 Azure 監視器計量維度。
 ## <a name="service-continuity-of-legacy-metrics"></a>舊版計量的服務不會中斷
 
 舊版計量可與 Azure 監視器管理的計量並存。 在 Azure 儲存體結束舊版計量的服務之前，支援不會改變。
+
+## <a name="faq"></a>常見問題集
+
+**Azure 儲存體是否支援受控磁碟或非受控磁碟的計量？**
+
+否。Azure 計算支援磁碟的計量。 如需詳細資訊，請參閱[這篇文章](https://azure.microsoft.com/en-us/blog/per-disk-metrics-managed-disks/)。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,26 +1,20 @@
 ---
-title: Azure 監視器概觀 | Microsoft Docs
+title: Azure 監視器概觀
 description: Azure 監視器會收集用於警示、webhook、自動調整，以及自動化的統計資料。 文章也會列出其他 Microsoft 監視選項。
 author: rboucher
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: overview
 ms.date: 03/28/2018
 ms.author: robb
 ms.custom: mvc
-ms.openlocfilehash: 9a9166e93d24f6402d849b1bee3bcf470685c814
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.component: ''
+ms.openlocfilehash: a96991c424b4709002d46b6b7abe1e884c3605dd
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312163"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264580"
 ---
 # <a name="overview-of-azure-monitor"></a>Azure 監視器的概觀
 本文提供 Microsoft Azure 中 Azure 監視器服務的概觀。 它會討論 Azure 監視器所執行的作業，並提供關於如何使用 Azure 監視器之其他資訊的指標。  如果您偏好影片介紹，請參閱本文最後的＜後續步驟＞連結。 

@@ -4,7 +4,7 @@ description: 建立 OpenAPI 定義，讓其他應用程式和服務可在 Azure 
 services: functions
 keywords: OpenAPI, Swagger, 雲端應用程式, 雲端服務,
 documentationcenter: ''
-author: mgblythe
+author: ggailey777
 manager: cfowler
 editor: ''
 ms.assetid: ''
@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/15/2017
-ms.author: mblythe; glenga
+ms.author: glenga
+ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 8caea30196a7ecdd4226b18963cd8b2040dc7e35
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 3205fc8597d4d501b19ace7d50c4807a47d31d03
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38602610"
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>為函式建立 OpenAPI 定義
 REST API 通常會使用 OpenAPI 定義 (之前稱為 [Swagger](http://swagger.io/) 檔案) 來描述。 此定義包含有關 API 中可以使用哪些作業，以及應該如何結構化 API 之要求和回應資料的資訊。

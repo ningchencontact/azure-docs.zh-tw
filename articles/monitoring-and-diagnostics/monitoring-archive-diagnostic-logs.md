@@ -1,24 +1,19 @@
 ---
-title: 封存 Azure 診斷記錄 | Microsoft Docs
+title: 封存 Azure 診斷記錄
 description: 了解如何封存 Azure 診斷記錄以在儲存體帳戶中長期保存。
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 3a55c73f-2ef3-45f3-8956-bcf9c0cb7e05
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/04/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 06/07/2018
 ms.author: johnkem
-ms.openlocfilehash: bf776ba8aaeca361250f39fb2c62233ee1dfbd5b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.component: logs
+ms.openlocfilehash: d48828c8d2ec439f389fe4eddabb59599cc1680b
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752821"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>封存 Azure 診斷記錄
 
@@ -28,9 +23,12 @@ ms.lasthandoff: 04/06/2018
 
 在開始之前，您需要[建立儲存體帳戶](../storage/storage-create-storage-account.md)，以便將診斷記錄封存至其中。 我們強烈建議您不要使用已儲存了其他非監視資料的現有儲存體帳戶，這樣您對監視資料才能有更好的存取控制。 不過，如果您也要封存活動記錄和診斷度量至儲存體帳戶，則將同一儲存體帳戶用於診斷記錄合情合理，因為可以將所有監視資料集中在一個位置。 您使用的儲存體帳戶必須是一般用途的儲存體帳戶，不可以是 blob 儲存體帳戶。
 
+> [!NOTE]
+>  您目前無法將資料封存到位在安全虛擬網路後面的儲存體帳戶。
+
 ## <a name="diagnostic-settings"></a>診斷設定
 
-若要使用下列任何方法封存診斷記錄，您必須為特定資源設定**診斷設定**。 資源的診斷設定會定義要傳送至目的地 (儲存體帳戶、事件中樞命名空間或 Log Analytics) 的記錄類別與計量資料。 它也會定義儲存在儲存體帳戶中每個記錄類別之事件和計量資料的保留原則 (保留的天數)。 如果保留原則設定為零，則會無限期地 (亦即永遠) 儲存該記錄類別的事件。 否則，保留原則可以是 1 到 2147483647 之間的任何天數。 [您可以在此深入了解診斷設定](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)。 保留原則是每天套用，因此在一天結束時 (UTC)，這一天超過保留原則的記錄檔將被刪除。 例如，如果您的保留原則為一天，在今天一開始，昨天之前的記錄檔會被刪除
+若要使用下列任何方法封存診斷記錄，您必須為特定資源設定**診斷設定**。 資源的診斷設定會定義要傳送至目的地 (儲存體帳戶、事件中樞命名空間或 Log Analytics) 的記錄類別與計量資料。 它也會定義儲存在儲存體帳戶中每個記錄類別之事件和計量資料的保留原則 (保留的天數)。 如果保留原則設定為零，則會無限期地 (亦即永遠) 儲存該記錄類別的事件。 否則，保留原則可以是 1 到 2147483647 之間的任何天數。 [您可以在此深入了解診斷設定](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)。 保留原則是每天套用，因此在一天結束時 (UTC)，這一天超過保留原則的記錄檔將被刪除。 例如，如果您的保留原則為一天，在今天一開始，昨天之前的記錄檔會被刪除。 刪除程序會從 UTC 午夜開始，但是請注意，可能需要長達 24 小時的時間，記錄才會從您的儲存體帳戶中刪除。 
 
 > [!NOTE]
 > 目前不支援透過診斷設定傳送多維度計量。 跨維度值所彙總的維度計量會匯出為扁平化單一維度計量。
@@ -102,7 +100,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 
 ## <a name="archive-diagnostic-logs-via-the-rest-api"></a>透過 REST API 封存診斷記錄
 
-[請參閱本文件](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings)，以取得如何使用 Azure 監視器 REST API 設定診斷設定的資訊。
+[請參閱本文件](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings)，以取得如何使用 Azure 監視器 REST API 設定診斷設定的資訊。
 
 ## <a name="schema-of-diagnostic-logs-in-the-storage-account"></a>儲存體帳戶中的診斷記錄結構描述
 

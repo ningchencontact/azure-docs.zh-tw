@@ -1,21 +1,21 @@
 ---
-title: Azure Active Directory B2C：使用自訂原則新增 Twitter 作為 OAuth1 識別提供者
-description: 透過 OAuth1 通訊協定使用 Twitter 作為識別提供者
+title: 在 Azure Active Directory B2C 中使用自訂原則新增 Twitter 作為 OAuth1 識別提供者 | Microsoft Docs
+description: 透過 OAuth1 通訊協定使用 Twitter 作為識別提供者。
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: davidmu
-ms.openlocfilehash: 4a7cc552f49877874dc173a47efe22873d5aeeed
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 6b09bb295d889255dada0cebbb9ded2379d95d23
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34710231"
 ---
 # <a name="azure-active-directory-b2c-add-twitter-as-an-oauth1-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C：使用自訂原則新增 Twitter 作為 OAuth1 識別提供者
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]

@@ -1,11 +1,11 @@
 ---
-title: "B2B 整合帳戶的災害復原 - Azure 邏輯應用程式 | Microsoft Docs"
-description: "Logic Apps B2B 災害復原"
+title: B2B 整合帳戶的災害復原 - Azure 邏輯應用程式 | Microsoft Docs
+description: Logic Apps B2B 災害復原
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 0ef3965adac03f21c386765a43290c93d58d1c18
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 1882207207327214ee6519a98715d06a7e32ab93
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045597"
 ---
 # <a name="logic-apps-b2b-cross-region-disaster-recovery"></a>Logic Apps B2B 跨區域災害復原
 
@@ -84,7 +85,7 @@ Logic Apps 整合帳戶中的商務持續性會根據 B2B 通訊協定 X12、AS2
 EDI X12 文件的商務持續性是根據控制編號：
 
 > [!TIP]
-> 您也可以使用 [X12 快速啟動範本](https://azure.microsoft.com/documentation/templates/201-logic-app-x12-disaster-recovery-replication/)來建立 Logic Apps。 建立主要和次要整合帳戶是使用範本的必要條件。 這個範本可讓您建立 2 個 Logic Apps，一個用於接收的控制編號，另一個用於產生的控制編號。 會在 Logic Apps 中建立個別的觸發程序和動作，將觸發程序連線至主要整合帳戶，並將動作連線至次要整合帳戶。
+> 您也可以使用 [X12 快速啟動範本](https://azure.microsoft.com/resources/templates/201-logic-app-b2b-disaster-recovery-replication/)來建立 Logic Apps。 建立主要和次要整合帳戶是使用範本的必要條件。 這個範本可讓您建立 2 個 Logic Apps，一個用於接收的控制編號，另一個用於產生的控制編號。 會在 Logic Apps 中建立個別的觸發程序和動作，將觸發程序連線至主要整合帳戶，並將動作連線至次要整合帳戶。
 
 **先決條件**
 

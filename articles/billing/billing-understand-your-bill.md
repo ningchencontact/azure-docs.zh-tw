@@ -1,5 +1,5 @@
 ---
-title: 了解 Azure 帳單
+title: 了解 Azure 帳單 | Microsoft Docs
 description: 學習如何閱讀並了解 Azure 訂用帳戶的使用情形和帳單
 services: ''
 documentationcenter: ''
@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 06/14/2018
 ms.author: tonguyen
-ms.openlocfilehash: f3e0e3eeab88ad8ad0c4a21eb69a6340dbbe0441
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 689ea9e0d029bb65bc579fc914c6ed3073b4a96b
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064404"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>了解 Microsoft Azure 帳單
 若要了解您的 Azure 帳單，請比較您包含詳細每日使用量檔案的發票，與 Azure 入口網站中的成本管理報告。
@@ -48,7 +49,7 @@ ms.lasthandoff: 05/04/2018
  | 發票 (PDF) | 詳細使用量 (CSV)|
  | --- | --- |
 |計費週期 | 計費期間 |
- |Name |計量類別 |
+ |名稱 |計量類別 |
  |類型 |計量子類別 |
  |資源 |計量名稱 |
  |區域 |計量區域 |
@@ -101,8 +102,42 @@ Azure 入口網站也可協助您確認費用。Azure 入口網站提供成本�
 
 [建立支援票證](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以要求查看付款的狀態。 
 
-## <a name="tips-for-cost-management"></a>成本管理的秘訣
-- 使用[定價計算機](https://azure.microsoft.com/pricing/calculator/)和來[估計成本](https://aka.ms/azure-tco-calculator)，並取得[每項服務的詳細定價資訊](https://azure.microsoft.com/pricing/)。
+## <a name="are-there-different-azure-customer-types-how-do-i-know-what-customer-type-i-am"></a>是否有不同的 Azure 客戶類型？ 我如何知道自己是屬於哪一種客戶類型？
+目前有不同類型的 Azure 客戶。 若要進一步了解您的定價和帳單，請參閱下列客戶類型描述。
+
+- **企業**：企業客戶已經與 Azure 簽署一份 Enterprise 合約，以便進行承諾用量金額協商和存取 Azure 資源的自訂定價。
+- **Web Direct**：Web Direct 客戶未與 Azure 簽署任何自訂合約。 這些客戶已透過 azure.com 註冊 Azure 服務並收到所有 Azure 資源的公開價格。
+- **雲端服務提供者**：雲端服務提供者通常是一些受僱於終端客戶，在 Azure 之上建置解決方案的公司。
+
+## <a name="why-dont-i-see-the-cost-the-resource-i-have-created-in-my-bill"></a>為什麼在我的帳單中，看不到我所建立資源的成本？
+Azure 並不是直接根據資源成本而收費。 收費是以一個或多個計量為依據，而這些計量是用來追蹤資源整個存留期內的使用量。 接著，這些計量會用來計算帳單金額。 請參閱下列的 Azure 計量詳細資訊。
+
+## <a name="how-does-azure-charge-metering-work"></a>Azure 如何根據計量來收費？
+當您備妥單一 Azure 資源 (例如虛擬機器) 時，也會建立一或多個計量執行個體。 這些計量是用來追蹤一段時間內的資源使用量。 每個計量都會發出使用量記錄，而在我們的成本計量系統中，Azure 會利用這些記錄來計算費用。 
+
+例如，在 Azure 中建立單一虛擬機器時，可能也會建立下列計量來追蹤虛擬機器的使用量：
+
+- 計算時數
+- IP 位址時數
+- 資料傳入
+- 資料傳出
+- 標準受控磁碟
+- 標準受控磁碟作業
+- 標準 IO 磁碟
+- 標準 IO - 區塊 Blob 讀取
+- 標準 IO - 區塊 Blob 寫入
+- 標準 IO - 區塊 Blob 刪除
+
+建立 VM 之後，上述每一個計量會開始發出使用量記錄。 接著，Azure 的計量系統和計量的價格會使用這個使用量，來判斷應向客戶收取多少費用。
+
+> [!Note]
+> 上述範例計量可能只是 VM 建立時一併建立之計量器的一小部分。
+
+## <a name="what-is-the-difference-between-azure-1st-party-charges-and-azure-marketplace-charges"></a>Azure 第一方費用和 Azure Marketplace 費用之間有何差別？
+Azure 第一方費用適用於 Azure 直接開發和提供的資源。 Azure Marketplace 費用適用於第三方軟體廠商建立而且可以透過 Azure Marketplace 取得的資源。 例如，Barracuda Firewall 是協力廠商提供的 Azure Marketplace 資源。 適用於該防火牆和其相對應之計量的所有費用都會顯示為 Marketplace 費用。 
+
+## <a name="tips-for-cost-management"></a>成本管理的祕訣
+- 使用[定價計算機](https://azure.microsoft.com/pricing/calculator/)和來[估計成本](https://aka.ms/azure-tco-calculator)，並取得[每個服務的詳細定價資訊](https://azure.microsoft.com/pricing/)。
 - [設定帳務警示](billing-set-up-alerts.md)。
 - [定期在 Azure 入口網站檢閱您的使用量和成本](billing-getting-started.md#costs)。
 

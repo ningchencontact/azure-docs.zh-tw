@@ -1,12 +1,12 @@
 ---
-title: "Azure Stack 中的 Azure App Service 伺服器角色容量規劃 | Microsoft Docs"
-description: "Azure Stack 中的 Azure App Service 伺服器角色容量規劃"
+title: Azure Stack 中的 Azure App Service 伺服器角色容量規劃 | Microsoft Docs
+description: Azure Stack 中的 Azure App Service 伺服器角色容量規劃
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29388578"
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Azure Stack 中的 Azure App Service 伺服器角色容量規劃
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*

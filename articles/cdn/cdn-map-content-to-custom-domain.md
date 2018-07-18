@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/15/2018
+ms.date: 06/11/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: d20dca9a1248cfb2915ebbc456fba80aadcf81f5
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f66aaa23a631bd71494587683aab87a74a5aef20
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34196499"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261265"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>教學課程：將自訂網域新增至 Azure CDN 端點
 本教學課程說明如何將自訂網域新增至 Azure 內容傳遞網路 (CDN) 端點。 使用 CDN 端點來傳遞內容時，如果您想要在 CDN URL 中顯示您自己的網域名稱，則需要自訂網域。 有可見的網域名稱對您的客戶而言較為方便，並且也有助於宣傳商標。 
@@ -123,7 +123,7 @@ ms.locfileid: "34196499"
 
 4. 對於 [端點主機名稱]，系統會從您的 CDN 端點 URL 衍生要作為 CNAME 記錄之目的地網域的端點主機名稱，並預先填入：*&lt;endpoint hostname&gt;*.azureedge.net。 無法予以變更。
 
-5. 針對 [自訂主機名稱]，請輸入您的自訂網域 (包括子網域)，以作為 CNAME 記錄的來源網域。 例如 www.contoso.com 或 cdn.contoso.com。請勿使用 cdnverify 子網域名稱。
+5. 針對 [自訂主機名稱]，請輸入您的自訂網域 (包括子網域)，以作為 CNAME 記錄的來源網域。 例如 www.contoso.com 或 cdn.contoso.com。 請勿使用 cdnverify 子網域名稱。
 
    ![CDN 自訂網域對話方塊](./media/cdn-map-content-to-custom-domain/cdn-add-custom-domain.png)
 
@@ -134,7 +134,7 @@ ms.locfileid: "34196499"
    新的自訂網域設定傳播至所有 CDN 邊緣節點可能需要一些時間： 
     - 若為**來自 Microsoft 的標準 Azure CDN** 設定檔，通常會在 10 分鐘內完成傳播。 
     - 若為**來自 Akamai 的標準 Azure CDN** 設定檔，通常會在一分鐘內完成傳播。 
-    - 若為**來自 Verizon 的標準 Azure CDN** 和**來自 Verizon 的進階 Azure CDN** 設定檔，通常會在 90 分鐘內完成傳播。   
+    - 若為**來自 Verizon 的標準 Azure CDN** 和**來自 Verizon 的進階 Azure CDN** 設定檔，通常會在 10 分鐘內完成傳播。   
 
 
 ## <a name="verify-the-custom-domain"></a>驗證自訂網域

@@ -1,12 +1,12 @@
 ---
-title: "Azure Cloud Shell 概觀 | Microsoft Docs"
-description: "Azure Cloud Shell 的概觀。"
-services: 
-documentationcenter: 
+title: Azure Cloud Shell 概觀 | Microsoft Docs
+description: Azure Cloud Shell 的概觀。
+services: ''
+documentationcenter: ''
 author: jluk
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29844100"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure Cloud Shell 的概觀
 Azure Cloud Shell 是可經由瀏覽器存取的互動式殼層，應用在 Azure 資源管理上。

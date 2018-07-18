@@ -11,20 +11,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 05/15/2018
+ms.date: 05/22/2018
 ms.author: barclayn
-ms.openlocfilehash: 12a176a6eba3b6dd83ef7fb97f89ecfe99083059
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 1ddc74b1960095509a77d4b3072017847df42d90
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213317"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38235528"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Azure Key Vault 客戶資料功能
 
 Azure Key Vault 會在建立或更新保存庫、金鑰、祕密、憑證及受控儲存體帳戶期間，接收客戶資料。 使用者可以直接在 Azure 入口網站，或透過 REST API 看見這些客戶資料。 客戶資料可以透過更新或刪除包含資料的物件，進行編輯或刪除。
 
 使用者或應用程式存取 Key Vault 時會產生系統存取記錄。 詳細存取記錄可以使用 Azure Insights 提供給客戶。
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="identifying-customer-data"></a>識別客戶資料
 

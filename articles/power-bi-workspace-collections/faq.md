@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31414529"
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Power BI 工作區集合常見問題集
 

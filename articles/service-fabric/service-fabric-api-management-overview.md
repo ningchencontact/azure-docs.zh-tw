@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205156"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric 搭配 Azure API 管理概觀
 

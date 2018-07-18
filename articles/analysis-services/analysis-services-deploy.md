@@ -3,16 +3,17 @@ title: 使用 SSDT 部署至 Azure Analysis Services | Microsoft Docs
 description: 了解如何使用 SSDT 將表格式模型部署至 Azure Analysis Services 伺服器。
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a25066ef8446449148bc0ca95989dc6ca3ca6839
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9a3b969af861d6fb750b8aad666f2e1dfb7c8a3d
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447280"
 ---
 # <a name="deploy-a-model-from-ssdt"></a>從 SSDT 部署模型
 以您的 Azure 訂用帳戶建立伺服器後，您即可將表格式模型資料庫部署至該伺服器。 您可以使用 SQL Server Data Tools (SSDT) 建置與部署您正在使用的表格式模型專案。 
@@ -29,15 +30,18 @@ ms.lasthandoff: 04/16/2018
 > 
 > 
 
-## <a name="to-deploy-a-tabular-model-from-ssdt"></a>從 SSDT 部署表格式模型
+## <a name="get-the-server-name"></a>取得伺服器名稱
 
-1. 部署之前，您必須先取得伺服器名稱。 在 [Azure 入口網站] > 伺服器 > [概觀]  >  [伺服器名稱] 中，複製伺服器名稱。
+在 [Azure 入口網站] > 伺服器 > [概觀]  >  [伺服器名稱] 中，複製伺服器名稱。
    
-    ![在 Azure 中取得伺服器名稱](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
-2. 在 SSDT > [方案總管] 中，以滑鼠右鍵按一下專案 > [屬性]。 接著在 [部署]  >  [伺服器] 中，貼上伺服器名稱。   
+![在 Azure 中取得伺服器名稱](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
+
+## <a name="to-deploy-from-ssdt"></a>若要從 SSDT 部署
+
+1. 在 SSDT > [方案總管] 中，以滑鼠右鍵按一下專案 > [屬性]。 接著在 [部署]  >  [伺服器] 中，貼上伺服器名稱。   
    
     ![將伺服器名稱貼到部署伺服器屬性](./media/analysis-services-deploy/aas-deploy-deployment-server-property.png)
-3. 在 [方案總管] 中，以滑鼠右鍵按一下 [屬性]，然後按一下 [部署]。 系統會提示您登入 Azure。
+2. 在 [方案總管] 中，以滑鼠右鍵按一下 [屬性]，然後按一下 [部署]。 系統會提示您登入 Azure。
    
     ![部署至伺服器](./media/analysis-services-deploy/aas-deploy-deploy.png)
    

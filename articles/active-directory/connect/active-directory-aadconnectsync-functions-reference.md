@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect 同步：函式參考 | Microsoft Docs"
-description: "Azure AD Connect 同步處理中宣告式佈建運算式的參考。"
+title: Azure AD Connect 同步：函式參考 | Microsoft Docs
+description: Azure AD Connect 同步處理中宣告式佈建運算式的參考。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9ce27ca217f99b4f12ca1af0b5a178f5d61a1c89
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 4814d53a86b0d90cf16f76e75c7044448cf791eb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595150"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect 同步處理：函式參考
 在 Azure AD Connect 中，函數是用來在同步處理期間操作屬性值。  
@@ -1108,7 +1110,7 @@ ReplaceChars 函式會取代 ReplacePattern 字串中找到的所有出現的字
 * 此函式會取得已定義之來源的每個出現項目，並使用目標來取代它們。
 * 來源必須是一個 (unicode) 字元。
 * 來源不能是空字串或超過一個字元 (剖析錯誤)。
-* 目標可以有多個字元，例如 ö:oe、β:ss。
+* 目標可以有多個字元，例如，ö:oe、β:ss。
 * 目標可以空白，表示應移除此字元。
 * 來源是區分大小寫且必須完全相符。
 * , (逗號) 和 : (冒號) 是保留字元，無法使用這個函式來取代。

@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/17/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 146ea04081a4adebe4a6e9249bb1fe34ba76e3a4
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: b82eeb43c29fd52f4df2d453bb24bb2b3bd581ad
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305169"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030510"
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>教學課程：設定 Azure 網路應用程式，以從 Key Vault 讀取祕密
 
@@ -46,7 +46,7 @@ az login
 
 使用 [az group create](/cli/azure/group#az_group_create) 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
 
-下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組。
+下列範例會在 eastus 位置建立名為 ContosoResourceGroup 的資源群組。
 
 ```azurecli
 # To list locations: az account list-locations --output table

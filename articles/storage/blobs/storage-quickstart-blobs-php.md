@@ -10,11 +10,12 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: rogarana
-ms.openlocfilehash: 463b6051009ab79013f9bef958fcadec2ef3cd16
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c97585607a8694840d24f4582f5a850b3d6e11f0
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38618554"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>使用 PHP 在 Azure Blob 儲存體之間傳送物件
 在本快速入門中，您會了解如何使用 PHP 在 Azure Blob 儲存體容器中上傳、下載及列出區塊 Blob。 
@@ -128,7 +129,7 @@ Blob 儲存體支援區塊 Blob、附加 Blob 和分頁 Blob。 最常使用的�
 
 若要將檔案上傳至 Blob，請加入本機磁碟機上的目錄名稱和檔案名稱，取得檔案的完整路徑。 然後，您可以使用 **createBlockBlob()** 方法，將檔案上傳至指定的路徑。 
 
-範例程式碼會取得本機檔案並將它上傳至 Azure。 此檔案會在程式碼中儲存為 **myfile**，而 blob 的名稱會儲存為 **fileToUpload**。 下列範例會將檔案上傳到名為 **quickstartblobs** 的容器。
+範例程式碼會取得本機檔案並將它上傳至 Azure。 此檔案會在程式碼中儲存為 **myfile**，而 Blob 的名稱會儲存為 **fileToUpload**。 下列範例會將檔案上傳到名為 **quickstartblobs** 的容器。
 
 ```PHP
     $myfile = fopen("HelloWorld.txt", "w") or die("Unable to open file!");

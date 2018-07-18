@@ -3,21 +3,24 @@ title: 使用 Azure AD，為群組成員或可存取應用程式的使用者完�
 description: 了解如何在 Azure Active Directory 中，完成可存取應用程式之群組成員或使用者的存取權檢閱。
 services: active-directory
 documentationcenter: ''
-author: markwahl-msft
+author: rolyon
 manager: mtillman
-editor: ''
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
+ms.component: compliance-reports
 ms.date: 05/02/2018
-ms.author: billmath
-ms.openlocfilehash: 7998d69a079c4858c54bea22dbd24e4e84c8c793
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: rolyon
+ms.reviewer: mwahl
+ms.openlocfilehash: 3b8fb474f163922844cf9b28568be58cf8cf62e1
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38307344"
 ---
 # <a name="complete-an-access-review-of-members-of-a-group-or-users-access-to-an-application-in-azure-ad"></a>在 Azure AD 中，為群組成員或可存取應用程式的使用者完成存取權檢閱
 
@@ -59,4 +62,4 @@ ms.lasthandoff: 05/16/2018
 - [使用 Azure AD 存取權檢閱來管理來賓存取權](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
 - [管理 Azure AD 存取權檢閱的程式和控制項](active-directory-azure-ad-controls-manage-programs-controls.md)
 - [建立群組成員或應用程式存取的存取權檢閱](active-directory-azure-ad-controls-create-access-review.md)
-- [在 Azure AD 管理角色中建立使用者的存取權檢閱](active-directory-privileged-identity-management-how-to-start-security-review.md)
+- [在 Azure AD 管理角色中建立使用者的存取權檢閱](privileged-identity-management/pim-how-to-start-security-review.md)

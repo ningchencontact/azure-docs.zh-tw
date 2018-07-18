@@ -1,25 +1,27 @@
 ---
-title: "混合式身分識別設計 - Azure 生命週期採用策略 | Microsoft Docs"
-description: "協助根據每個生命週期階段可用的選項，定義混合式身分識別管理工作。"
-documentationcenter: 
+title: 混合式身分識別設計 - Azure 生命週期採用策略 | Microsoft Docs
+description: 協助根據每個生命週期階段可用的選項，定義混合式身分識別管理工作。
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 420b6046-bd9b-4fce-83b0-72625878ae71
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: bfa74c7557819bbef334fc94eb42e5ba83cf3fee
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 911e65719bff0a86e3280482296bbb320fd30377
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801825"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>判斷混合式身分識別生命週期採用策略
 在這項工作中，您將為混合式身分識別解決方案定義身分識別管理策略，以滿足您在 [判斷混合式身分識別管理工作](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)中定義的商務需求。
@@ -35,11 +37,11 @@ ms.lasthandoff: 01/18/2018
 
 | 生命週期管理階段 | 內部部署 | 雲端 | 混合式 |
 | --- | --- | --- | --- |
-| 帳戶管理和佈建 |您可以利用 Active Directory ® 網域服務 (AD DS) 伺服器角色，建立可擴充、安全且容易管理的基礎結構來管理使用者與資源，並支援 Microsoft® Exchange Server 等具有目錄功能的應用程式。 <br><br> [您可以透過身分識別管理員在 AD DS 中佈建群組](https://technet.microsoft.com/library/ff686261.aspx) <br>[ 您可以在 AD DS 中佈建使用者](https://technet.microsoft.com/library/ff686263.aspx) <br><br> 基於安全性考量，系統管理員可以使用存取控制來管理使用者對共用資源的存取權。 在 Active Directory 中，存取控制的管理方式是在物件層級設定物件的不同存取層級 (或權限)，例如完全控制、寫入、讀取或沒有存取權。 Active Directory 中的存取控制定義不同的使用者如何使用 Active Directory 物件。 根據預設，Active Directory 中的物件權限會設定為最安全的設定。 |您必須為每一個會存取 Microsoft 雲端服務的使用者建立帳戶。 您也可以變更使用者帳戶，或在已不需要時將它們刪除。 根據預設，使用者沒有系統管理員權限，但是您可以選擇性地指派給他們。 如需詳細資訊，請參閱 [在 Azure AD 中管理使用者](active-directory-create-users.md)。 <br><br> Azure Active Directory 的其中一項主要功能是管理對資源的存取權。 這些資源可以是目錄的一部分，例如透過目錄中的角色或目錄外部的資源 (例如 SaaS 應用程式、Azure 服務以及 SharePoint 網站或內部部署資源) 管理物件的權限。 <br><br> Azure Active Directory 的存取管理解決方案以安全性群組為核心。 資源擁有者 (或目錄的系統管理員) 可以指派群組，對所擁有的資源提供特定的存取權限。 群組的成員會取得存取權，而資源擁有者可以將管理群組成員清單的權限委派給其他人 – 例如部門經理或服務台系統管理員<br> <br> 「在 Azure AD 中管理群組」主題提供有關透過群組來管理存取權的詳細資訊。 |透過同步處理與同盟將 Active Directory 身分識別延伸至雲端 |
+| 帳戶管理和佈建 |您可以利用 Active Directory ® 網域服務 (AD DS) 伺服器角色，建立可擴充、安全且容易管理的基礎結構來管理使用者與資源，並支援 Microsoft® Exchange Server 等具有目錄功能的應用程式。 <br><br> [您可以透過身分識別管理員在 AD DS 中佈建群組](https://technet.microsoft.com/library/ff686261.aspx) <br>[ 您可以在 AD DS 中佈建使用者](https://technet.microsoft.com/library/ff686263.aspx) <br><br> 基於安全性考量，系統管理員可以使用存取控制來管理使用者對共用資源的存取權。 在 Active Directory 中，存取控制的管理方式是在物件層級設定物件的不同存取層級 (或權限)，例如完全控制、寫入、讀取或沒有存取權。 Active Directory 中的存取控制定義不同的使用者如何使用 Active Directory 物件。 根據預設，Active Directory 中的物件權限會設定為最安全的設定。 |您必須為每一個會存取 Microsoft 雲端服務的使用者建立帳戶。 您也可以變更使用者帳戶，或在已不需要時將它們刪除。 根據預設，使用者沒有系統管理員權限，但是您可以選擇性地指派給他們。 如需詳細資訊，請參閱 [在 Azure AD 中管理使用者](active-directory-create-users.md)。 <br><br> Azure Active Directory 的其中一項主要功能是管理對資源的存取權。 這些資源可以是目錄的一部分，例如透過目錄中的角色或目錄外部的資源 (例如 SaaS 應用程式、Azure 服務以及 SharePoint 網站或內部部署資源) 管理物件的權限。 <br><br> Azure Active Directory 的存取管理解決方案以安全性群組為核心。 資源擁有者 (或目錄的系統管理員) 可以指派群組，對所擁有的資源提供特定的存取權限。 群組的成員會取得存取權，而資源擁有者可以將管理群組成員清單的權限委派給其他人 – 例如部門經理或服務台系統管理員<br> <br> ＜在 Azure AD 中管理群組＞一節中提供有關透過群組來管理存取權的詳細資訊。 |透過同步處理與同盟將 Active Directory 身分識別延伸至雲端 |
 
 ## <a name="role-based-access-control"></a>角色型存取控制
 角色型存取控制 (RBAC) 使用角色和佈建原則來評估、測試和強制執行商務程序和規則，以授與存取權給使用者。 金鑰系統管理員建立佈建原則，將使用者指派到角色，並定義這些角色對資源的權限集。 RBAC 擴充身分識別管理解決方案，使用軟體型處理程序並減少佈建程序中的使用者手動互動。
-Azure AD RBAC 可讓公司限制個人存取 Azure 管理入口網站之後可執行的作業數量。 使用 RBAC 來控制存取入口網站時，IT 系統管理員可以利用下列存取管理方法來委派存取：
+Azure AD RBAC 可讓公司限制個人存取 Azure 入口網站之後可執行的作業數目。 使用 RBAC 來控制存取入口網站時，IT 系統管理員可以利用下列存取管理方法來委派存取：
 
 * **群組型角色指派**：您可以指派存取權給可從本機 Active Directory 同步處理的 Azure AD 群組。 這可讓您運用組織目前在群組管理工具和程序方面所做的投資。 您也可以使用 Azure AD Premium 的委派群組管理功能。
 * **運用 Azure 中內建的角色**：您可以使用三個角色 — 擁有者、參與者和讀者，以確保使用者和群組只擁有他們執行工作所需的權限。
@@ -67,13 +69,14 @@ Azure AD 中的群組型授權管理可讓系統管理員將使用者指派到�
 > 
 > 
 
-以授權為基礎 (以權利為基礎) 的 Azure AD 服務的運作方式，是在您的 Azure AD 目錄/服務租用戶中啟用訂用帳戶。 一旦訂用帳戶啟用，服務功能就可以由目錄/服務系統管理員管理，並由授權的使用者使用。 如需詳細資訊，請參閱「Azure AD 授權如何運作？
-」 與其他協力廠商提供者整合
+以授權為基礎 (以權利為基礎) 的 Azure AD 服務的運作方式，是在您的 Azure AD 目錄/服務租用戶中啟用訂用帳戶。 一旦訂用帳戶啟用，服務功能就可以由目錄/服務系統管理員管理，並由授權的使用者使用。 
 
-Azure Active Directory 為數千個 SaaS 應用程式和內部部署 Web 應用程式提供單一登入和增強的應用程式存取安全性。 如需 Azure Active Directory 應用程式資源庫中支援的 SaaS 應用程式的詳細清單，請參閱「Azure Active Directory 同盟相容性清單：使用協力廠商身分識別提供者實作單一登入」
+## <a name="integration-with-other-3rd-party-providers"></a>」 與其他協力廠商提供者整合
+
+Azure Active Directory 為數千個 SaaS 應用程式和內部部署 Web 應用程式提供單一登入和增強的應用程式存取安全性。 如需詳細資訊，請參閱[整合應用程式與 Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md)
 
 ## <a name="define-synchronization-management"></a>定義同步處理管理
-將內部部署目錄與 Azure AD 整合可提供一個通用身分識別來存取雲端和內部部署資源，讓使用者變得更有生產力。 透過此整合，使用者和組織可以享受到下列好處：
+將內部部署目錄與 Azure AD 整合可提供一個通用身分識別來存取雲端和內部部署資源，讓使用者變得更有生產力。 透過此整合，使用者和組織可以享受到下列優點：
 
 * 組織可以運用 Windows Server Active Directory，然後連線到 Azure Active Directory，提供跨內部部署或雲端架構服務的通用混合式身分識別給使用者。
 * 系統管理員可以根據應用程式資源、裝置和使用者身分識別、網路位置及多因素驗證，提供條件式存取。
@@ -90,7 +93,7 @@ Azure Active Directory 為數千個 SaaS 應用程式和內部部署 Web 應用�
 
 | 同步處理管理選項 | 優點 | 缺點 |
 | --- | --- | --- |
-| 同步型 (透過 DirSync 或 AADConnect) |從內部部署和雲端同步處理的使用者和群組  <br>  **原則控制**：系統管理員可以透過 Active Directory 設定帳戶原則，以管理密碼原則、工作站、限制、鎖定控制等，而不必在雲端中執行其他工作。  <br>  **存取控制**：可以限制對雲端服務的存取，以透過公司環境、線上伺服器或兩者來存取服務。 <br>  減少支援電話：如果使用者要記住的密碼越少，就越不會忘記。 <br>  安全性：使用者身分識別和資訊受到保護，因為單一登入中使用的所有伺服器和服務都由內部部署掌控。 <br>  支援增強式驗證：您可以對雲端服務使用增強式驗證 (也稱為雙重要素驗證)。 不過，如果使用增強式驗證，則必須使用單一登入。 | |
+| 同步型 (透過 DirSync 或 AADConnect) |從內部部署和雲端同步的使用者和群組 <br>  **原則控制**：系統管理員可以透過 Active Directory 設定帳戶原則，以管理密碼原則、工作站、限制、鎖定控制等，而不必在雲端中執行其他工作。  <br>  **存取控制**：可以限制對雲端服務的存取，以透過公司環境、線上伺服器或兩者來存取服務。 <br>  減少支援電話：如果使用者要記住的密碼越少，就越不會忘記。 <br>  安全性：使用者身分識別和資訊受到保護，因為單一登入中使用的所有伺服器和服務都由內部部署掌控。 <br>  支援增強式驗證：您可以對雲端服務使用增強式驗證 (也稱為雙重要素驗證)。 不過，如果使用增強式驗證，則必須使用單一登入。 | |
 | 同盟型 (透過 AD FS) |由 Security Token Service (STS) 啟用。 當您設定 STS 以提供 Microsoft 雲端服務的單一登入存取時，您會在內部部署 STS 與您在 Azure AD 租用戶中指定的同盟網域之間建立同盟信任。 <br> 可讓使用者使用同一組認證來取得多個資源的存取權 <br>使用者不需要維護多組認證。 但是，使用者必須向每個參與的資源提供認證。支援 B2B 和 B2C 案例。 |需要專業人員來部署及維護專用的內部部署 AD FS 伺服器。 如果您打算對 STS 使用 AD FS，使用增強式驗證會受到限制。 如需詳細資訊，請參閱 [設定 AD FS 2.0 的進階選項](http://go.microsoft.com/fwlink/?linkid=235649)。 |
 
 > [!NOTE]

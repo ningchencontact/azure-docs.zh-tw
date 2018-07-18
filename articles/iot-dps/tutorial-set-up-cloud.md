@@ -1,22 +1,20 @@
 ---
-title: "在入口網站中為雲端設定 Azure IoT 中樞裝置佈建服務 | Microsoft Docs"
-description: "在 Azure 入口網站中自動進行 IoT 中樞裝置佈建"
-services: iot-dps
-keywords: 
+title: 在入口網站中為雲端設定 Azure IoT 中樞裝置佈建服務 | Microsoft Docs
+description: 在 Azure 入口網站中自動進行 IoT 中樞裝置佈建
 author: sethmanheim
 ms.author: sethm
 ms.date: 09/05/2017
 ms.topic: tutorial
 ms.service: iot-dps
-documentationcenter: 
+services: iot-dps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 247c2155943d651c3be7791571522b652cf63483
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e334ff0c8dec3a9611b60f64e565111064d10c18
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38619277"
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>設定雲端資源以使用 IoT 中樞裝置佈建服務來佈建裝置
 
@@ -28,7 +26,7 @@ ms.lasthandoff: 02/21/2018
 > * 將 IoT 中樞連結至裝置佈建服務
 > * 對裝置佈建服務設定配置原則
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="log-in-to-the-azure-portal"></a>登入 Azure 入口網站
 

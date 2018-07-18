@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32774823"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center"></a>在 Azure 資訊安全中心監視身分識別和存取
 這篇文章可協助您使用 Azure 資訊安全中心來監視使用者的身分識別和存取活動。

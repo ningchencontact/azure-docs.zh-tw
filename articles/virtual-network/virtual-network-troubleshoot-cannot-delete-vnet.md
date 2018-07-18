@@ -19,6 +19,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072104"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>疑難排解：無法刪除 Azure 中的虛擬網路
 

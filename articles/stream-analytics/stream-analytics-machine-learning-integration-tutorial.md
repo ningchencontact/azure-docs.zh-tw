@@ -14,6 +14,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31527907"
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>使用 Azure 串流分析和 Azure Machine Learning 執行情感分析
 本文說明如何快速設定簡單的 Azure 串流分析工作與 Azure Machine Learning 整合。 您要使用 Cortana 智慧資源庫的機器學習服務情感分析模型，來分析串流文字資料並即時判斷情感分數。 使用 Cortana Intelligence Suite 可讓您完成這項工作，而不需擔心建立情感分析模型的複雜性。

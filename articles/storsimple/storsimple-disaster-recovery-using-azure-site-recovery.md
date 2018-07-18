@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure Site Recovery 自動化 StorSimple 檔案共用災害復原 | Microsoft Docs"
-description: "說明針對 Microsoft Azure StorSimple 儲存體上裝載的檔案共用建立災害復原解決方案的步驟與最佳做法。"
+title: 使用 Azure Site Recovery 自動化 StorSimple 檔案共用災害復原 | Microsoft Docs
+description: 說明針對 Microsoft Azure StorSimple 儲存體上裝載的檔案共用建立災害復原解決方案的步驟與最佳做法。
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
 manager: syadav
-editor: 
+editor: ''
 ms.assetid: 23049a2c-055e-4d0e-b8f5-af2a87ecf53f
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/17/2017
+ms.locfileid: "23452407"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>針對 StorSimple 上裝載的檔案共用使用 Azure Site Recovery 的自動化災害復原解決方案
 ## <a name="overview"></a>概觀
@@ -174,11 +175,11 @@ Microsoft Azure StorSimple 是一個混合式雲端儲存體解決方案，可�
    * *RecoveryPlanName***-DeviceName**：必須執行容錯移轉的 StorSimple 裝置。
    * *RecoveryPlanName***-DeviceIpAddress**：裝置的 IP 位址 (可在 [StorSimple 裝置管理員] 區段&gt; [設定] &gt; [網路] &gt; [DNS 設定] 群組下方的 [裝置] 索引標籤中找到此資訊)。
    * *RecoveryPlanName***-VolumeContainers**：需容錯移轉之裝置上顯示的磁碟區容器字串 (以逗號區隔)；例如 volcon1、volcon2、volcon3。
-   * RecoveryPlanName**-TargetDeviceName**：容器容錯移轉之後所在的 StorSimple Cloud Appliance。
+   * RecoveryPlanName **-TargetDeviceName**：容器容錯移轉之後所在的 StorSimple Cloud Appliance。
    * *RecoveryPlanName***-TargetDeviceIpAddress**：目標裝置的 IP 位址 (可在 [虛擬機器] 區段 &gt; [設定] 群組 &gt; [網路服務] 索引標籤中找到此資訊)。
-   * RecoveryPlanName**-StorageAccountName**：儲存體帳戶名稱，指令碼 (必須在已容錯移轉的 VM 上執行) 將使用此名稱來儲存。 這可以是任何擁有一些空間可暫時儲存指令碼的儲存體帳戶。
-   * RecoveryPlanName**-StorageAccountKey**：上述儲存體帳戶的存取金鑰。
-   * RecoveryPlanName**-VMGUIDS**：在保護 VM 時，Azure Site Recovery 會為每個 VM指派一個唯一識別碼，該識別碼可提供已容錯移轉之 VM 的詳細資料。 若要取得 VMGUID，請選取 [復原服務]  索引標籤，然後按一下 [受保護的項目]  &gt; [保護群組]  &gt; [機器]  &gt; [屬性] 。 如果您有多個 VM，請透過以逗號區隔的字串方式新增 GUID。
+   * RecoveryPlanName **-StorageAccountName**：儲存體帳戶名稱，指令碼 (必須在已容錯移轉的 VM 上執行) 將使用此名稱來儲存。 這可以是任何擁有一些空間可暫時儲存指令碼的儲存體帳戶。
+   * RecoveryPlanName **-StorageAccountKey**：上述儲存體帳戶的存取金鑰。
+   * RecoveryPlanName **-VMGUIDS**：在保護 VM 時，Azure Site Recovery 會為每個 VM指派一個唯一識別碼，該識別碼可提供已容錯移轉之 VM 的詳細資料。 若要取得 VMGUID，請選取 [復原服務]  索引標籤，然後按一下 [受保護的項目]  &gt; [保護群組]  &gt; [機器]  &gt; [屬性] 。 如果您有多個 VM，請透過以逗號區隔的字串方式新增 GUID。
 
     例如，若復原計劃的名稱是 fileServerpredayRP，您的 [變數]、[連線] 和 [憑證] 索引標籤應會在您新增所有資產後顯示如下。
 

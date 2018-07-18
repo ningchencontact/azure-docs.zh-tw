@@ -1,24 +1,26 @@
 ---
-title: "Azure AD Connect︰當您已經有 Azure AD 時 | Microsoft Docs"
-description: "本主題描述當您有現有的 Azure AD 租用戶時，如何使用 Connect。"
+title: Azure AD Connect︰當您已經有 Azure AD 時 | Microsoft Docs
+description: 本主題描述當您有現有的 Azure AD 租用戶時，如何使用 Connect。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: fa264487c68ea5403300d9b5b9978934a639a2a4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 726d8998d24a630808186eea417f236fdbfb565e
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725202"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect︰當您有存在的租用戶
 大部分說明如何使用 Azure AD Connect 的主題會假設您開始使用新的 Azure AD 租用戶，而且沒有任何使用者或其他物件。 但如果您開始使用 Azure AD 租用戶，且以使用者和其他物件填入，而現在想要使用 Connect，則這個主題很適用於您。
@@ -56,7 +58,7 @@ Azure AD 中的物件可能會在雲端 (Azure AD) 中受控或內部部署。 �
 ## <a name="create-a-new-on-premises-active-directory-from-data-in-azure-ad"></a>從 Azure AD 中的資料建立新的內部部署 Active Directory
 有些客戶開始使用僅限雲端的解決方案與 Azure AD，且他們沒有內部部署 AD。 稍後，他們要使用內部部署資源，而且想要根據 Azure AD 資料建置內部部署 AD。 Azure AD Connect 無法針對此案例協助您。 它不會在內部部署建立使用者，且它無法在內部部署將密碼設定為與 Azure AD 中的相同。
 
-如果您計劃要新增內部部署 AD 的唯一理由是要支援 LOB (特定業務應用程式)，則或許您應該考慮改為使用 [Azure AD 網域服務](../../active-directory-domain-services/index.md)。
+如果您計劃要新增內部部署 AD 的唯一理由是要支援 LOB (特定業務應用程式)，則或許您應該考慮改為使用 [Azure AD 網域服務](../../active-directory-domain-services/index.yml)。
 
 ## <a name="next-steps"></a>後續步驟
 深入了解 [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。

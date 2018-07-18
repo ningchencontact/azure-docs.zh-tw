@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2016
 ms.author: mbullwin
-ms.openlocfilehash: b8ddd43fb19b3800840180c458268301b5ec26f6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: edefb6637dae2ff00144f0b7c07ad974430d096b
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34794542"
 ---
 # <a name="application-insights-for-java-web-apps-that-are-already-live"></a>適用於使用中 Java Web 應用程式的 Application Insights
-
 
 如果您有 Web 應用程式已在 J2EE 伺服器上執行，您可以使用 [Application Insights](app-insights-overview.md) 開始監視它，不需要變更程式碼或重新編譯您的專案。 使用此選項可以取得傳送至您伺服器的 HTTP 要求、未處理的例外狀況和效能計數器的相關資訊。
 
@@ -136,4 +136,4 @@ ms.lasthandoff: 04/28/2018
 * [設定 Web 測試](app-insights-monitor-web-app-availability.md) ，以確認應用程式處於線上狀態且能夠回應。
 * [擷取記錄追蹤](app-insights-java-trace-logs.md)
 * [搜尋事件和記錄](app-insights-diagnostic-search.md) 以協助診斷問題。
-
+* [設定 Spring Boot 初始設定式應用程式](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights) \(英文\)

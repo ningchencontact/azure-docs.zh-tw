@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31403929"
 ---
 # <a name="access-yarn-application-logs-on-windows-based-hdinsight"></a>存取以 Windows 為基礎之 HDInsight 上的 YARN 應用程式記錄
 本文件說明針對已在 Azure HDInsight 的以 Windows 為基礎的 Hadoop 叢集上完成的 YARN 應用程式，如何存取其記錄。

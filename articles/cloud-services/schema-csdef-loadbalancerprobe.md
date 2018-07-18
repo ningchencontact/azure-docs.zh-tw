@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360048"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Azure 雲端服務定義 LoadBalancerProbe 結構描述
 負載平衡器探查是客戶定義的健康情況探查，可探查 UDP 端點和角色執行個體中的端點。 `LoadBalancerProbe` 不是獨立元素；它會與服務定義檔中的 Web 角色或背景工作角色結合。 `LoadBalancerProbe` 可由多個角色使用。

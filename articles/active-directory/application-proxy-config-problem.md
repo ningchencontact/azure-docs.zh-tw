@@ -3,21 +3,24 @@ title: 建立應用程式 Proxy 應用程式時發生問題 | Microsoft Docs
 description: 如何針對在 Azure AD 管理入口網站中建立應用程式 Proxy 應用程式時所發生的問題進行疑難排解
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 376925715e954904cfdadccb060d0ca242bbec4a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.date: 05/21/2018
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: 97795593ecc83a0b15f018861f5cd9139d26443b
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335103"
 ---
 # <a name="problem-creating-an-application-proxy-application"></a>建立應用程式 Proxy 應用程式時發生問題 
 

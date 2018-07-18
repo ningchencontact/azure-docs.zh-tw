@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33785707"
 ---
 # <a name="quotas-and-limitations"></a>配額和限制
 本文描述與 Microsoft Azure 媒體服務相關聯的配額和限制。

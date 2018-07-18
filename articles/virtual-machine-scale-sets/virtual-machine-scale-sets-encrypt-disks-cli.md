@@ -3,7 +3,7 @@ title: 使用 Azure CLI 加密 Azure 擴展集的磁碟 | Microsoft Docs
 description: 了解如何使用 Azure CLI 2.0 加密 Linux 虛擬機器擴展集中的 VM 執行個體和已連結的磁碟
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: iainfou
-ms.openlocfilehash: 22d3c763317def137b4e0beb155f28585d7c6ae1
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: cynthn
+ms.openlocfilehash: a01a0ae09b91b550af4617a46f7c0d8647a5f4be
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32776409"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38704550"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli-20-preview"></a>使用 Azure CLI 2.0 (預覽)，在虛擬機器擴展集中加密 OS 和連結的資料磁碟
 

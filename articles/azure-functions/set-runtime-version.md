@@ -1,11 +1,11 @@
 ---
-title: "如何設定 Azure Functions 執行階段目標版本"
-description: "Azure Functions 支援多個執行階段版本。 了解如何指定 Azure 中裝載之函式應用程式的執行階段版本。"
+title: 如何設定 Azure Functions 執行階段目標版本
+description: Azure Functions 支援多個執行階段版本。 了解如何指定 Azure 中裝載之函式應用程式的執行階段版本。
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.service: functions
 ms.workload: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29843386"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>如何設定 Azure Functions 執行階段目標版本
 

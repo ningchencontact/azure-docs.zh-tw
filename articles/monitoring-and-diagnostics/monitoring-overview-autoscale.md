@@ -1,24 +1,19 @@
 ---
-title: "Microsoft Azure 虛擬機器、雲端服務和 Web Apps 的自動調整概觀 | Microsoft Docs"
-description: "Microsoft Azure 的自動調整概觀。 適用於虛擬機器、雲端服務和 Web Apps。"
+title: 虛擬機器、雲端服務和 Web Apps 的自動調整概觀
+description: Microsoft Azure 的自動調整。 適用於虛擬機器、虛擬機器擴展集、雲端服務和 Web 應用程式。
 author: rboucher
-manager: carmonm
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 74bf03be-e658-4239-a214-c12424b53e4c
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 03/02/2016
 ms.author: robb
-ms.openlocfilehash: 0a30f0c3b799f76858424d97218c5a6e4386e78e
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.component: autoscale
+ms.openlocfilehash: 4eeca81e08a0ecae9ba41ccdd2bf8a2f395f579c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264665"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Microsoft Azure 虛擬機器、雲端服務和 Web Apps 的自動調整概觀
 本文說明何謂 Microsoft Azure 自動調整、其優點，以及如何開始使用它。  

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "29378151"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Azure API 管理範本資料模型參考
 本主題說明在 Azure API 管理的開發人員入口網站範本資料模型中，所使用之一般項目的實體和類型表示法。  

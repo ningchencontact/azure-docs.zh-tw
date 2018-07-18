@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209047"
 ---
 # <a name="notes-on-service-fabric-reliable-actors-type-serialization"></a>Service Fabric Reliable Actors 類型序列化的注意事項
 所有方法的引數、動作項目介面中每個方法所傳回之工作的結果類型，以及動作項目的狀態管理員中儲存的物件都必須[可資料合約序列化](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer)。 這也適用於在 [動作項目事件介面](service-fabric-reliable-actors-events.md)中定義的方法引數。 (動作項目事件介面方法一律會傳回無效)。

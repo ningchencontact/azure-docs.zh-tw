@@ -4,7 +4,7 @@ description: 了解如何在您的 Azure 環境中備份及復原 Oracle Databas
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: v-shiuma
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 5/17/2017
 ms.author: rclaus
-ms.openlocfilehash: e804fd17c3dbe9df9e9dc258e67b8f9192c1f8ad
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e01a347607b2c2ff82d15172756f32c9c6a474a8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193099"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656157"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>在 Azure Linux 虛擬機器上備份及復原 Oracle Database 12c 資料庫
 
@@ -284,11 +284,11 @@ ms.locfileid: "32193099"
 
     ![復原服務保存庫備份頁面](./media/oracle-backup-recovery/recovery_service_04.png)
 
-5.  在 [備份目標] 刀鋒視窗上，使用 [Azure] 和 [虛擬機器]預設值。 按一下 [SERVICEPRINCIPAL] 。
+5.  在 [備份目標] 刀鋒視窗上，使用 [Azure] 和 [虛擬機器]預設值。 按一下 [確定]。
 
     ![復原服務保存庫詳細資料頁面](./media/oracle-backup-recovery/recovery_service_05.png)
 
-6.  在 [備份原則] 中，使用 **DefaultPolicy**，或選取 [建立新原則]。 按一下 [SERVICEPRINCIPAL] 。
+6.  在 [備份原則] 中，使用 **DefaultPolicy**，或選取 [建立新原則]。 按一下 [確定]。
 
     ![復原服務保存庫備份原則詳細資料頁面](./media/oracle-backup-recovery/recovery_service_06.png)
 

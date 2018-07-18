@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213158"
 ---
 # <a name="how-data-serialization-affects-an-application-upgrade"></a>資料序列化如何影響應用程式升級
 在 [輪流應用程式升級](service-fabric-application-upgrade.md)中，升級會套用至節點的子集，一次一個升級網域。 在此過程中，有些升級網域會有您應用程式的新版本，有些升級網域則有您應用程式的舊版本。 在首度發行期間，新版的應用程式必須能夠讀取舊版的資料，而舊版的應用程式必須能夠讀取新版的資料。 如果資料格式沒有向前及向後相容，升級便可能會失敗，或是發生更糟糕的狀況，像是資料可能會遺失或損毀。 本文將討論您資料格式的構成項目並提供最佳作法，以確保您的資料向前及向後相容。

@@ -3,16 +3,17 @@ title: 監視 Azure Analysis Services 伺服器計量 | Microsoft Docs
 description: 了解如何在 Azure 入口網站中監視 Analysis Services 伺服器計量。
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b07bd41ee3aa67924256d694c1f9dadd39b038cc
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 608323c467e0106af816c3432dec24090a9a9599
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442928"
 ---
 # <a name="monitor-server-metrics"></a>監視伺服器計量
 

@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33781587"
 ---
 # <a name="understand-shared-ip-addresses-in-azure-devtest-labs"></a>了解 Azure DevTest Labs 中的共用 IP 位址
 
@@ -35,9 +36,9 @@ Azure DevTest Labs 讓實驗室 VM 共用相同公用 IP 位址，將需要存�
 
 ![新的 VM](media/devtest-lab-shared-ip/new-vm.png)
 
-- **共用：**建立為**共用**的所有 VM 歸類到一個資源群組 (RG)。 針對該 RG 指派單一 IP 位址，RG 中的所有 VM 將會使用該 IP 位址。
-- **公用：**您建立的每個 VM 有它自己的 IP 位址，而且建立在它自己的資源群組。
-- **私人：**您建立的每個 VM 使用私人 IP 位址。 您無法使用遠端桌面直接從網際網路連線到此 VM。
+- **共用：** 建立為**共用**的所有 VM 歸類到一個資源群組 (RG)。 針對該 RG 指派單一 IP 位址，RG 中的所有 VM 將會使用該 IP 位址。
+- **公用：** 您建立的每個 VM 有它自己的 IP 位址，而且建立在它自己的資源群組。
+- **私人：** 您建立的每個 VM 使用私人 IP 位址。 您無法使用遠端桌面直接從網際網路連線到此 VM。
 
 每當已啟用共用 IP 的 VM 新增至子網路時，DevTest Labs 就會自動將 VM 新增至負載平衡器，並且在公用 IP 位址上指派 TCP 通訊埠號碼，以轉送至 VM 上的 RDP 連接埠。  
 

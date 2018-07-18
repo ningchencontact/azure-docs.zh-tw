@@ -3,19 +3,20 @@ title: Azure Analysis Services 中的驗證和使用者權限 | Microsoft Docs
 description: 了解 Azure Analysis Services 中的驗證和使用者權限。
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ede05667d794267443babacaa8b016206d86ab2c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 846b76bddbc771a924a1d710cd333dfa4623f5ec
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448836"
 ---
 # <a name="authentication-and-user-permissions"></a>驗證和使用者權限
-Azure Analysis Services 會使用 Azure Active Directory (Azure AD) 進行身分識別管理和使用者驗證。 任何建立、管理或連線到 Azure Analysis Services 伺服器的使用者在相同的訂用帳戶中必須 [Azure AD 租用戶](../active-directory/active-directory-administer.md)的有效使用者身分識別。
+Azure Analysis Services 會使用 Azure Active Directory (Azure AD) 進行身分識別管理和使用者驗證。 任何建立、管理或連線到 Azure Analysis Services 伺服器的使用者在相同的訂用帳戶中必須 [Azure AD 租用戶](../active-directory/fundamentals/active-directory-administer.md)的有效使用者身分識別。
 
 Azure Analysis Services 支援 [Azure AD B2B 共同作業](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md)。 透過 B2B，組織外部的使用者可以受邀成為 Azure AD 目錄中的來賓使用者。 來賓可以來自另一個 Azure AD 租用戶目錄或任何有效的電子郵件地址。 使用者一旦受邀並接受 Azure 透過電子郵件傳送的邀請，使用者身分識別就會新增至租用戶目錄。 這些身分識別可以新增至安全性群組，或成為伺服器管理員或資料庫角色的成員。
 
@@ -75,7 +76,7 @@ Excel 使用者可以使用 Windows 帳戶、組織識別碼 (電子郵件地址
 
 ## <a name="next-steps"></a>後續步驟
 
-[使用 Azure Active Directory 群組來管理資源的存取權](../active-directory/active-directory-manage-groups.md)   
+[使用 Azure Active Directory 群組來管理資源的存取權](../active-directory/fundamentals/active-directory-manage-groups.md)   
 [管理資料庫角色和使用者](analysis-services-database-users.md)  
 [管理伺服器管理員](analysis-services-server-admins.md)  
 [角色型存取控制](../role-based-access-control/overview.md)  

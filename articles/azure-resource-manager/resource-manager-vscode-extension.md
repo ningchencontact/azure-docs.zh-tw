@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/06/2017
+ms.date: 05/22/2018
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: f05b0baee3f11f498976377c69c38b3118f3c922
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 190d4713f5c84281bc2637fc0d8323a2dabf6f21
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358654"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603758"
 ---
 # <a name="use-visual-studio-code-extension-to-create-azure-resource-manager-template"></a>使用 Visual Studio Code 擴充功能來建立 Azure Resource Manager 範本
 本文說明在 Visual Studio Code 中安裝和使用 Azure Resource Manager Tools 擴充功能的優點。 不需使用擴充功能，即可在 VS Code 中建立 Resource Manager 範本，但擴充功能會提供可簡化範本開發的自動完成選項。 它會建議範本中可用的函式、參數和變數。
@@ -171,7 +171,18 @@ ms.locfileid: "34358654"
 
    ![顯示變數](./media/resource-manager-vscode-extension/show-variables.png) 
 
-10. 選取 **storageName** 變數。 加上右括弧。 下列範例顯示 outputs 區段：
+10. 選取 **storageName** 變數。 程式碼現在會像這樣：
+
+   ```json
+   "storageUri": {
+      "type": "string",
+      "value": "[reference(variables('storageName'))"
+   }
+   ```
+   
+11. 因為 `reference` 會傳回物件，上述程式碼不會有作用，但輸出值設定為「字串」。 您必須對該物件指定其中一個值。 參考函式可與任何資源類型搭配使用，因此 VS Code 不會建議適用於該物件的屬性。 相反地，您會發現[針對儲存體帳戶所傳回](/rest/api/storagerp/storageaccounts/getproperties)的其中一個值是 `.primaryEndpoints.blob`。 
+
+   在最後一個括號後面新增該屬性。 加上右括弧。 下列範例顯示 outputs 區段：
 
    ```json
    "outputs": { 
@@ -181,7 +192,7 @@ ms.locfileid: "34358654"
        },
        "storageUri": {
          "type": "string",
-         "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName'))).primaryEndpoints.blob]"
+         "value": "[reference(variables('storageName')).primaryEndpoints.blob]"
        }
    }
    ```
@@ -249,7 +260,7 @@ ms.locfileid: "34358654"
     },
     "storageUri": {
       "type": "string",
-      "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName'))).primaryEndpoints.blob]"
+      "value": "[reference(variables('storageName')).primaryEndpoints.blob]"
     }
   }
 }

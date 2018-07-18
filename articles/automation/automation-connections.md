@@ -9,11 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ee866248ae7f0c1f1c49c449b777c2b68d884c5b
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: d5b31529c9ccfdc5d7871ec860a97d964ece69f8
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435683"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure 自動化中的連接資產
 
@@ -76,10 +77,10 @@ ms.lasthandoff: 05/17/2018
 ```powershell
 $ConnectionAssetName = "AzureRunAsConnection"
 $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId}
-New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues 
+New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
 ```
 
-您也可以使用此指令碼來建立連接資產，因為當您建立您的自動化帳戶時，它預設會自動包含數個全域模組以及 **AzurServicePrincipal** 連線類型，以建立**AzureRunAsConnection** 連線資產。  這很重要要牢記在心，因為如果您嘗試建立新的連接資產來連接到採用不同驗證方法的服務或應用程式，它會失敗，因為在您的自動化帳戶未定義該連接類型。  有關如何從 [PowerShell 資源庫](https://www.powershellgallery.com)為您的自訂或模組建立您自己的連線類型，詳細資訊請參閱[整合模組](automation-integration-modules.md)
+您可以使用此指令碼來建立連線資產，因為建立「自動化」帳戶時，預設會自動包含數個全域模組以及 **AzureServicePrincipal** 連線類型，以建立**AzureRunAsConnection** 連線資產。  這很重要要牢記在心，因為如果您嘗試建立新的連接資產來連接到採用不同驗證方法的服務或應用程式，它會失敗，因為在您的自動化帳戶未定義該連接類型。  有關如何從 [PowerShell 資源庫](https://www.powershellgallery.com)為您的自訂或模組建立您自己的連線類型，詳細資訊請參閱[整合模組](automation-integration-modules.md)
   
 ## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>在 Runbook 或 DSC 設定中使用連接
 
@@ -93,6 +94,9 @@ New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAcc
 $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
 Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 ```
+
+> [!IMPORTANT]
+> **Add-AzureRmAccount** 現在是 **Connect-AzureRMAccount** 的別名。 搜尋您的程式庫項目時，如果沒有看到 **Connect-AzureRMAccount**，便可以使用 **Add-AzureRmAccount**，或是在自動化帳戶中更新模組。
 
 ### <a name="graphical-runbook-samples"></a>圖形化 Runbook 範例
 

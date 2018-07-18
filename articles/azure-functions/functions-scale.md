@@ -14,14 +14,15 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 06/05/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3b4bf8d8ca43110dcfa4aeaed279a8e340e5d529
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 8b6d85fbfdde463352ae80cc8922025a7dcc03f3
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807528"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 的規模調整和主控
 
@@ -43,12 +44,12 @@ Azure Functions 的執行模式有兩種︰取用方案和 Azure App Service 方
 
 ## <a name="consumption-plan"></a>取用方案
 
-當使用取用方案時，會根據傳入事件的數目，動態新增和移除 Azure Functions 主機。 這個方案會自動調整，您只需支付您的函式執行時使用的計算資源。 在取用方案中，函式最多可執行 10 分鐘。 
+當使用取用方案時，會根據傳入事件的數目，動態新增和移除 Azure Functions 主機。 這個方案會自動調整，您只需支付您的函式執行時使用的計算資源。 在取用方案中，函式執行會在一段可設定的時間之後逾時。 
 
 > [!NOTE]
-> 在取用方案中，函式的預設逾時為 5 分鐘。 變更 [host.json](functions-host-json.md#functiontimeout) 專案檔中的 `functionTimeout` 屬性，即可將函數應用程式的值增加為 10 分鐘。
+> 在取用方案中，函式的預設逾時為 5 分鐘。 變更 [host.json](functions-host-json.md#functiontimeout) 專案檔中的 `functionTimeout` 屬性，最多可將函數應用程式的值增加為 10 分鐘。
 
-帳單是根據執行數目、執行時間以及使用的記憶體。 帳單會跨函式應用程式內的所有函式進行彙總。 如需詳細資訊，請參閱 [Azure Functions 價格頁面]。
+帳單是根據執行數目、執行時間以及使用的記憶體。 帳單會跨函式應用程式內的所有函式進行彙總。 如需詳細資訊，請參閱 [Azure Functions 定價頁面]。
 
 取用方案是預設主控方案，具有下列優點︰
 - 只有當您的函式執行時才需付費。
@@ -90,7 +91,7 @@ VM 可以減少執行數目、執行時間以及使用記憶體的成本。 如�
 
 ## <a name="how-the-consumption-plan-works"></a>取用方案的運作方式
 
-在取用方案中，調整控制器會根據事件函式被觸發的事件數目，新增額外的 Functions 主機執行個體，藉此自動調整 CPU 和記憶體資源。 Functions 主機的每個執行個體僅限於 1.5 GB 記憶體。  主機執行個體是函數應用程式，表示函數應用程式內的所有函式都會共用執行個體內的資源，同時進行規模調整。
+在取用方案中，調整控制器會根據事件函式被觸發的事件數目，新增額外的 Functions 主機執行個體，藉此自動調整 CPU 和記憶體資源。 Functions 主機的每個執行個體僅限於 1.5 GB 記憶體。  主機的執行個體是函數應用程式，表示函數應用程式內的所有函式都會共用執行個體內的資源，同時進行規模調整。 共用相同取用方案的函數應用程式會個別進行調整。  
 
 使用取用主控方案時，函式程式碼檔案會儲存在函式之主要儲存體帳戶的 Azure 檔案共用上。 當您刪除函式應用程式的主要儲存體帳戶時，函式程式碼檔案會被刪除，且無法復原。
 
@@ -121,8 +122,8 @@ Azure Functions 使用名為「縮放控制器」的元件來監視事件的速�
 
 ### <a name="billing-model"></a>計費模式
 
-[Azure Functions 價格頁面]會詳細說明取用方案的計費方式。 使用量是在函式應用程式層級彙總，且只會計算函式程式碼執行的時間。 計費單位如下︰ 
+[Azure Functions 定價頁面]會詳細說明取用方案的計費方式。 使用量是在函式應用程式層級彙總，且只會計算函式程式碼執行的時間。 計費單位如下︰ 
 * **以十億位元組-秒 (GB-s) 為單位的資源取用量**。 會計算為在函數應用程式中執行之所有函式的記憶體大小和執行時間組合。 
 * **執行**。 每次函式為回應事件觸發程序而執行，就算一次。
 
-[Azure Functions 價格頁面]: https://azure.microsoft.com/pricing/details/functions
+[Azure Functions 定價頁面]: https://azure.microsoft.com/pricing/details/functions

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30836090"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Azure 中 Linux 虛擬機器的 DNS 名稱解析選項
 Azure 預設會提供單一虛擬網路中所有虛擬機器的 DNS 名稱解析。 您可以在 Azure 託管的虛擬機器上設定專屬 DNS 服務，以實作專屬 DNS 名稱解析解決方案。 下列案例應該可協助您選擇哪一種適合您的情況。

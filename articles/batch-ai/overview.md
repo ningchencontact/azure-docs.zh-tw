@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30903470"
 ---
 # <a name="what-is-batch-ai-in-azure"></a>Azure 中的 Batch AI 是什麼？
 Batch AI 是一項受控服務，可讓資料科學家和 AI 研究人員在 Azure 虛擬機器 (包括具有 GPU 支援的 VM) 叢集上定型 AI 和其他機器學習模型。 您可描述您的作業需求、尋找輸入和儲存輸出的位置，而 Batch AI 會處理其餘部分。  

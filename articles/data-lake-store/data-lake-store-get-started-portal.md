@@ -1,26 +1,24 @@
 ---
-title: 使用 Azure 入口網站來開始使用 Data Lake Store | Microsoft Docs
+title: 使用 Azure 入口網站來開始使用 Data Lake Storage Gen1 | Microsoft Docs
 description: 使用 Azure 入口網站來建立 Data Lake Store 帳戶，並在 Data Lake Store 中執行基本作業
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
-editor: cgronlun
-ms.assetid: fea324d0-ad1a-4150-81f0-8682ddb4591c
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 03/26/2018
+ms.topic: conceptual
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 91ed55e5f12c10e67653bdadfca80bd072779711
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e23b2496ccb69bb530bd825a1feb99abcc4ab35b
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37034626"
 ---
-# <a name="get-started-with-azure-data-lake-store-using-the-azure-portal"></a>使用 Azure 入口網站開始使用 Azure Data Lake Store
+# <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>使用 Azure 入口網站開始使用 Azure Data Lake Storage Gen1
+
 > [!div class="op_single_selector"]
 > * [入口網站](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -28,7 +26,9 @@ ms.lasthandoff: 03/28/2018
 >
 > 
 
-了解如何使用 Azure 入口網站建立 Azure Data Lake Store 帳戶並執行基本作業，例如建立資料夾、上傳和下載資料檔案、刪除您的帳戶等等。如需詳細資訊，請參閱 [Azure Data Lake Store 概觀](data-lake-store-overview.md)。
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
+了解如何使用 Azure 入口網站建立 Azure Data Lake Store 帳戶並執行基本作業，例如建立資料夾、上傳和下載資料檔案、刪除您的帳戶等等。如需詳細資訊，請參閱 [Azure Data Lake Storage Gen1 概觀](data-lake-store-overview.md)。
 
 ## <a name="prerequisites"></a>先決條件
 開始進行本教學課程之前，您必須具備下列項目：
@@ -46,7 +46,7 @@ ms.lasthandoff: 03/28/2018
    * **名稱**。 輸入 Data Lake Store 帳戶的唯一名稱。
    * **訂用帳戶**。 選取您想要建立新 Data Lake Store 帳戶所在的訂用帳戶。
    * **資源群組**。 選取現有的資源群組，或選取 [建立新的] 選項來建立一個。 資源群組是保留應用程式相關資源的容器。 如需詳細資訊，請參閱 [Azure 中的資源群組](../azure-resource-manager/resource-group-overview.md#resource-groups)。
-   * **位置**：選取您要建立資料湖存放區帳戶的位置。
+   * **位置**：選取您要建立 Data Lake Store 帳戶的位置。
    * **加密設定**。 選項有三個：
      
      * **不啟用加密**。
@@ -84,7 +84,7 @@ ms.lasthandoff: 03/28/2018
 
 
 
-## <a name="createfolder"></a>在 Azure 資料湖存放區帳戶中建立資料夾
+## <a name="createfolder"></a>在 Azure Data Lake Store 帳戶中建立資料夾
 您可以在您的 Azure Data Lake Store 帳戶下建立資料夾，用於管理與存放資料。
 
 1. 開啟您建立的 Data Lake Store 帳戶。 從左窗格按一下 [所有資源]，然後從 [所有資源] 刀鋒視窗中，按一下您要在其下建立資料夾的帳戶名稱。 如果您將帳戶釘選到開始面板，請按一下該帳戶磚。
@@ -100,7 +100,7 @@ ms.lasthandoff: 03/28/2018
     ![在 Data Lake 帳戶中建立資料夾](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "在 Data Lake 帳戶中建立資料夾")
 
 ## <a name="uploaddata"></a>將資料上傳至 Azure Data Lake Store 帳戶
-您可以直接在根層級將資料上傳至 Azure 資料湖存放區帳戶，或上傳至您在帳戶內建立的資料夾。 
+您可以直接在根層級將資料上傳至 Azure Data Lake Store 帳戶，或上傳至您在帳戶內建立的資料夾。 
 
 1. 從 [資料總管] 刀鋒視窗中，按一下 [上傳]。 
 2. 在 [上傳檔案] 刀鋒視窗中，導覽至您要上傳的檔案，然後按一下 [新增選取的檔案]。 您可以選取數個檔案加以上傳。
@@ -115,10 +115,10 @@ ms.lasthandoff: 03/28/2018
 ![資料屬性](./media/data-lake-store-get-started-portal/ADL.File.Properties.png "資料屬性") 
 
 ## <a name="secure-your-data"></a>保護您的資料
-您可以在您的 Azure 資料湖存放區帳戶中使用 Azure Active Directory 和存取控制 (ACL) 保護儲存的資料。 如需如何執行此工作的指示，請參閱 [在 Azure 資料湖存放區中保護資料](data-lake-store-secure-data.md)。
+您可以在您的 Azure Data Lake Store 帳戶中使用 Azure Active Directory 和存取控制 (ACL) 保護儲存的資料。 如需如何執行此工作的指示，請參閱 [在 Azure Data Lake Store 中保護資料](data-lake-store-secure-data.md)。
 
-## <a name="delete-azure-data-lake-store-account"></a>刪除 Azure 資料湖存放區帳戶
-若要刪除 Azure 資料湖存放區帳戶，請從 [資料湖存放區] 刀鋒視窗按一下 [刪除] 。 為了確認此動作，將提示您輸入您要刪除的帳戶名稱。 輸入帳戶的名稱，然後按一下 [刪除] 。
+## <a name="delete-azure-data-lake-store-account"></a>刪除 Azure Data Lake Store 帳戶
+若要刪除 Azure Data Lake Store 帳戶，請從 [Data Lake Store] 刀鋒視窗按一下 [刪除]。 為了確認此動作，將提示您輸入您要刪除的帳戶名稱。 輸入帳戶的名稱，然後按一下 [刪除] 。
 
 ![刪除 Data Lake 帳戶](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "刪除 Data Lake 帳戶")
 
@@ -126,5 +126,5 @@ ms.lasthandoff: 03/28/2018
 * [使用 Azure Data Lake Store 處理巨量資料需求](data-lake-store-data-scenarios.md) 
 * [保護 Data Lake Store 中的資料](data-lake-store-secure-data.md)
 * [搭配 Data Lake Store 使用 Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [搭配資料湖存放區使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [搭配 Data Lake Store 使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
 

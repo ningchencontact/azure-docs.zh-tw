@@ -13,6 +13,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33835751"
 ---
 1. 按一下 Android Studio 工具列上的圖示以開啟 Android SDK Manager，或按一下工能表上的 [工具]  >  [Android]  >  [SDK Manager]。 尋找專案中使用之 Android SDK 的目標版本，請按一下[顯示套件詳細資料] 來開啟該版本，然後選擇 [Google API] \(如果尚未安裝的話)。
 2. 按一下 [SDK 工具] 索引標籤。如果您尚未安裝 Google Play 服務，按一下 [Google Play 服務]，如下所示。 然後按一下 [套用] 來安裝。 

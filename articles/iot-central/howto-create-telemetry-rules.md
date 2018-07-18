@@ -1,19 +1,19 @@
 ---
 title: 在 Azure IoT Central 應用程式中建立和管理遙測規則 | Microsoft Docs
 description: Azure IoT Central 遙測規則可讓您近乎即時地監視裝置，以及在觸發規則時自動叫用動作，例如傳送電子郵件。
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 47497fbda90ecb6ebe5b5a8675069a7fb262a3c6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: caca4e9db898b3766995fde8c5eebd4767abd85b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201718"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629808"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>在 Azure IoT Central 應用程式中建立遙測規則並設定通知
 

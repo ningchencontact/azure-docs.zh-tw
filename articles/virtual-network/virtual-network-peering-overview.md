@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: jdial
-ms.openlocfilehash: f2dddb6e9a933c1dc1eb4ccbf7ace6757d546fc8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 27eaa6582a355198b61e996cce0a4acce48061cb
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34367101"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267123"
 ---
 # <a name="virtual-network-peering"></a>虛擬網路對等互連
 
@@ -53,7 +53,7 @@ ms.locfileid: "34367101"
 
 您可以部署中樞和輪輻網路，其中的中樞虛擬網路可以裝載基礎結構元件，例如網路虛擬設備或 VPN 閘道。 所有輪輻虛擬網路可以接著與中樞虛擬網路對等互連。 流量可以通過在中樞虛擬網路中的網路虛擬設備或 VPN 閘道。 
 
-虛擬網路對等互連可讓使用者定義路由中的下一個躍點成為對等互連虛擬網路中虛擬機器的 IP 位址或 VPN 閘道。 不過，您不能使用指定 ExpressRoute 閘道作為下一個躍點類型的使用者定義路由，在虛擬網路之間路由傳送。 若要深入了解使用者定義的路由，請參閱[使用者定義的路由概觀](virtual-networks-udr-overview.md#user-defined)。 若要了解如何建立中樞和輪輻網路拓撲，請參閱[中樞和輪輻網路拓撲](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering)。
+虛擬網路對等互連可讓使用者定義路由中的下一個躍點成為對等互連虛擬網路中虛擬機器的 IP 位址或 VPN 閘道。 不過，您不能使用指定 ExpressRoute 閘道作為下一個躍點類型的使用者定義路由，在虛擬網路之間路由傳送。 若要深入了解使用者定義的路由，請參閱[使用者定義的路由概觀](virtual-networks-udr-overview.md#user-defined)。 若要了解如何建立中樞和輪輻網路拓撲，請參閱[中樞和輪輻網路拓撲](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
 ## <a name="gateways-and-on-premises-connectivity"></a>閘道及內部部署連線能力
 
@@ -71,7 +71,7 @@ ms.locfileid: "34367101"
 
 ## <a name="troubleshoot"></a>疑難排解
 
-若要確認虛擬網路對等互連，您可以針對虛擬網路的任何子網路中的網路介面[檢查有效的路由](virtual-network-routes-troubleshoot-portal.md)。 如果虛擬網路對等互連存在，則虛擬網路內的所有子網路都具有下一個躍點類型為「VNet 對等互連」的路由 (對每個對等互連的虛擬網路中的每個位址空間而言)。
+若要確認虛擬網路對等互連，您可以針對虛擬網路的任何子網路中的網路介面[檢查有效的路由](diagnose-network-routing-problem.md)。 如果虛擬網路對等互連存在，則虛擬網路內的所有子網路都具有下一個躍點類型為「VNet 對等互連」的路由 (對每個對等互連的虛擬網路中的每個位址空間而言)。
 
 您也可以使用網路監看員的[連線能力檢查](../network-watcher/network-watcher-connectivity-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)，針對對等互連虛擬網路中的虛擬機器連線能力進行疑難排解。 連線能力檢查可讓您查看流量是以何種方式從來源虛擬機器的網路介面傳送至目的地虛擬機器的網路介面。
 
@@ -98,5 +98,5 @@ ms.locfileid: "34367101"
     |一個使用 Resource Manager、一個使用傳統部署模型  |[相同](create-peering-different-deployment-models.md)|
     |                                   |[不同](create-peering-different-deployment-models-subscriptions.md)|
 
-* 了解如何建立[中樞和輪輻網路拓撲](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering)。
+* 了解如何建立[中樞和輪輻網路拓撲](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 * 了解所有[虛擬網路對等互連設定，以及如何變更它們](virtual-network-manage-peering.md)。

@@ -2,23 +2,21 @@
 title: Azure Cosmos DB︰使用 Xamarin 建置待辦事項應用程式 | Microsoft Docs
 description: 提供可用來連線及查詢 Azure Cosmos DB 的 Xamarin 程式碼範例
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: ''
 ms.service: cosmos-db
+ms.component: cosmosdb-sql
 ms.custom: quick start connect, mvc
-ms.workload: ''
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/10/2018
+ms.date: 05/30/2018
 ms.author: sngun
-ms.openlocfilehash: ca6780f9cec478cf9ed756aaefc7f6c059b6316a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b224a40f1ed5e778da6429d44a449d3f9ffdf16d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38543895"
 ---
 # <a name="azure-cosmos-db-build-a-todo-app-with-xamarin"></a>Azure Cosmos DB︰使用 Xamarin 建置待辦事項應用程式
 
@@ -75,10 +73,10 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 3. 執行下列命令來複製範例存放庫。 此命令會在您的電腦上建立範例應用程式副本。
 
     ```bash
-    git clone https://github.com/Azure/azure-documentdb-dotnet.git
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-sql-xamarin-getting-started.git
     ```
 
-3. 然後，從 Visual Studio 中的 samples/xamarin/ToDoItems 資料夾開啟 ToDoItems.sln 檔案。
+4. 然後，從 Visual Studio 中的 samples/xamarin/ToDoItems 資料夾開啟 ToDoItems.sln 檔案。
 
 ## <a name="obtain-your-api-keys"></a>取得您的 API 金鑰
 
@@ -97,6 +95,8 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 4. 然後，從入口網站複製您的主要金鑰值，並使它成為 APIKeys.cs 中的 `Cosmos Auth Key` 值。
 
     `public static readonly string CosmosAuthKey = "{Azure Cosmos DB secret}";`
+
+[!INCLUDE [cosmos-db-auth-key-info](../../includes/cosmos-db-auth-key-info.md)]
 
 ## <a name="review-the-code"></a>檢閱程式碼
 

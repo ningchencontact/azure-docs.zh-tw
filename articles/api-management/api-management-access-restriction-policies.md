@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 5fbb4f8a15ee7ee8b6cecbe76391e2b2a7e4be1b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 1b6aea5152e9eb5152b400d74d834e31eb883458
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110214"
 ---
 # <a name="api-management-access-restriction-policies"></a>API 管理存取限制原則
 本主題提供下列 API 管理原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -39,7 +40,7 @@ ms.lasthandoff: 04/18/2018
 ### <a name="policy-statement"></a>原則陳述式  
   
 ```xml  
-<check-header name="header name" failed-check-httpcode="code" failed-check-error-message="message" ignore-case="True">  
+<check-header name="header name" failed-check-httpcode="code" failed-check-error-message="message" ignore-case="true">  
     <value>Value1</value>  
     <value>Value2</value>  
 </check-header>  
@@ -72,9 +73,9 @@ ms.lasthandoff: 04/18/2018
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
--   **原則區段︰**輸入、輸出  
+-   **原則區段︰** 輸入、輸出  
   
--   **原則範圍︰**全域、產品、API、作業  
+-   **原則範圍︰** 全域、產品、API、作業  
   
 ##  <a name="LimitCallRate"></a>依訂用帳戶限制呼叫頻率  
  `rate-limit` 原則藉由將指定時間週期內的呼叫頻率限制為指定次數，以防止每個訂用帳戶的 API 使用量暴增。 觸發此原則時，呼叫者會收到 `429 Too Many Requests` 回應狀態碼。  
@@ -127,9 +128,9 @@ ms.lasthandoff: 04/18/2018
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
--   **原則區段︰**輸入  
+-   **原則區段︰** 輸入  
   
--   **原則範圍︰**產品  
+-   **原則範圍︰** 產品  
   
 ##  <a name="LimitCallRateByKey"></a>依金鑰限制呼叫頻率  
  `rate-limit-by-key` 原則藉由將指定時間週期內的呼叫頻率限制為指定次數，以防止每個金鑰的 API 使用量暴增。 金鑰可以具有任意字串值，而且通常會使用原則運算式來提供。 可以新增選擇性增量條件，以指定哪些要求應該計入限制。 觸發此原則時，呼叫者會收到 `429 Too Many Requests` 回應狀態碼。  
@@ -185,9 +186,9 @@ ms.lasthandoff: 04/18/2018
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
--   **原則區段︰**inbound  
+-   **原則區段︰** inbound  
   
--   **原則範圍︰**全域、產品、API、作業  
+-   **原則範圍︰** 全域、產品、API、作業  
   
 ##  <a name="RestrictCallerIPs"></a>限制呼叫端 IP  
  `ip-filter` 原則可篩選 (允許/拒絕) 來自特定 IP 位址及/或位址範圍的呼叫。  
@@ -228,8 +229,8 @@ ms.lasthandoff: 04/18/2018
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
--   **原則區段︰**inbound  
--   **原則範圍︰**全域、產品、API、作業  
+-   **原則區段︰** inbound  
+-   **原則範圍︰** 全域、產品、API、作業  
   
 ##  <a name="SetUsageQuota"></a>依訂用帳戶設定使用量配額  
  `quota` 原則會以訂用帳戶為單位，強制採用可續訂或有存留期呼叫量與 (或) 頻寬配額。  
@@ -283,8 +284,8 @@ ms.lasthandoff: 04/18/2018
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
--   **原則區段︰**輸入  
--   **原則範圍︰**產品  
+-   **原則區段︰** 輸入  
+-   **原則範圍︰** 產品  
   
 ##  <a name="SetUsageQuotaByKey"></a>依金鑰設定使用量配額  
  `quota-by-key` 原則會以金鑰為單位，強制採用可續訂或有存留期呼叫量與 (或) 頻寬配額。 金鑰可以具有任意字串值，而且通常會使用原則運算式來提供。 可以新增選擇性增量條件，以指定哪些要求應該計入配額。  
@@ -343,8 +344,8 @@ ms.lasthandoff: 04/18/2018
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
--   **原則區段︰**inbound  
--   **原則範圍︰**全域、產品、API、作業  
+-   **原則區段︰** inbound  
+-   **原則範圍︰** 全域、產品、API、作業  
   
 ##  <a name="ValidateJWT"></a>驗證 JWT  
  `validate-jwt` 原則會強制擷取自指定 HTTP 標頭或指定查詢參數的 JWT 必須存在且有效。  
@@ -513,8 +514,8 @@ ms.lasthandoff: 04/18/2018
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
--   **原則區段︰**inbound  
--   **原則範圍︰**全域、產品、API、作業  
+-   **原則區段︰** inbound  
+-   **原則範圍︰** 全域、產品、API、作業  
   
 ## <a name="next-steps"></a>後續步驟
 

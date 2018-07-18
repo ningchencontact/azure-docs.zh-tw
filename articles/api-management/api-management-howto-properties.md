@@ -1,11 +1,11 @@
 ---
-title: "如何在 Azure API 管理原則中使用屬性"
-description: "了解如何在 Azure API 管理原則中使用屬性。"
+title: 如何在 Azure API 管理原則中使用屬性
+description: 了解如何在 Azure API 管理原則中使用屬性。
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28197107"
 ---
 # <a name="how-to-use-properties-in-azure-api-management-policies"></a>如何在 Azure API 管理原則中使用屬性
 API 管理原則是系統的強大功能，可讓 Azure 入口網站透過設定來變更 API 的行為。 原則是陳述式的集合，會因 API 的要求或回應循序執行。 原則陳述可以使用引述的文字、值、原則運算式及屬性來建構。 

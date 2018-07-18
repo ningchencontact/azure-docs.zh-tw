@@ -1,11 +1,11 @@
 ---
-title: "Azure 服務匯流排訊息延遲 | Microsoft Docs"
-description: "服務匯流排訊息的延遲傳遞"
+title: Azure 服務匯流排訊息延遲 | Microsoft Docs
+description: 服務匯流排訊息的延遲傳遞
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28196970"
 ---
 # <a name="message-deferral"></a>訊息延遲
 

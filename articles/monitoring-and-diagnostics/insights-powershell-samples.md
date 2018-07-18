@@ -1,24 +1,19 @@
 ---
-title: Azure 監視器 PowerShell 快速入門範例 | Microsoft Docs
+title: Azure 監視器 PowerShell 快速入門範例
 description: 使用 PowerShell 存取 Azure 監視器的功能，例如自動調整、警示、webhook 和搜尋活動記錄檔。
 author: rboucher
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: c0761814-7148-4ab5-8c27-a2c9fa4cfef5
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 2/14/2018
 ms.author: robb
-ms.openlocfilehash: a67edd4372cff70a3948e85033e806749d585eb5
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.component: ''
+ms.openlocfilehash: d7275bb0399ae5832e85089e44f4b9a1fe412747
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262414"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure 監視器 PowerShell 快速入門範例
 本文說明可協助您存取 Azure 監視器 功能的範例 PowerShell 命令。

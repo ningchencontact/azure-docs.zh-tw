@@ -2,7 +2,7 @@
 title: 在 Log Analytics 中查詢 B2B 訊息 - Azure Logic Apps | Microsoft Docs
 description: 建立查詢以在 Log Analytics 中追蹤 AS2、X12 和 EDIFACT 訊息
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -12,13 +12,14 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 06/19/2018
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 345857801035fb7f149a57a4f0d58e7668f35b81
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 48cca9919bd09906bdcc3faaaef186ec109c9169
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294304"
 ---
 # <a name="query-for-as2-x12-and-edifact-messages-in-log-analytics"></a>查詢 Log Analytics 中的 AS2、X12 和 EDIFACT 訊息
 
@@ -52,41 +53,33 @@ ms.lasthandoff: 04/16/2018
 
    ![選取 Log Analytics 工作區](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/selectla.png)
 
-3. 在 [管理] 下，選擇 [OMS 入口網站]。
+3. 在 [管理] 下，選擇 [記錄搜尋]。
 
-   ![選擇 OMS 入口網站](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/omsportalpage.png)
+   ![選擇 [記錄搜尋]](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/azure-portal-page.png)
 
-4. 在首頁上，選擇 [記錄搜尋]。
-
-   ![在首頁上選擇記錄搜尋](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
-
-   -或-
-
-   ![選擇功能表上的記錄搜尋](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
-
-5. 在搜尋方塊中，輸入您想要尋找的欄位，然後按 **Enter**。 當您開始鍵入時，Log Analytics 會顯示您可以使用的可能相符項目和作業。 深入了解[如何在 Log Analytics 中尋找資料](../log-analytics/log-analytics-log-searches.md)。
+4. 在搜尋方塊中，輸入您想要尋找的欄位，然後按 **Enter**。 當您開始鍵入時，Log Analytics 會顯示您可以使用的可能相符項目和作業。 深入了解[如何在 Log Analytics 中尋找資料](../log-analytics/log-analytics-log-searches.md)。
 
    此範例會搜尋具有 **Type=AzureDiagnostics** 的事件。
 
    ![開始鍵入查詢字串](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-start-query.png)
 
-6. 在左列中，選擇您想要檢視的時間範圍。 若要將篩選新增至查詢，請選擇 [+新增]。
+5. 在左列中，選擇您想要檢視的時間範圍。 若要將篩選新增至查詢，請選擇 [+新增]。
 
    ![將篩選新增至查詢](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query1.png)
 
-7. 在 [新增篩選] 下，輸入篩選名稱，以找到您想要的篩選。 選取篩選，然後選擇 [+新增]。
+6. 在 [新增篩選] 下，輸入篩選名稱，以找到您想要的篩選。 選取篩選，然後選擇 [+新增]。
 
    為了尋找交換控制編號，此範例會搜尋 "interchange" 這個字，並選取 **event_record_messageProperties_interchangeControlNumber_s** 作為篩選。
 
    ![選取篩選](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-add-filter.png)
 
-9. 在左列中，選取您想要使用的篩選值，然後選擇 [套用]。
+7. 在左列中，選取您想要使用的篩選值，然後選擇 [套用]。
 
    此範例會選取我們想要之訊息的交換控制編號。
 
    ![選取篩選值](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-select-filter-value.png)
 
-10. 現在，回到您要建置的查詢。 已使用您所選取的篩選事件和值來更新您的查詢。 現在也會篩選您的先前結果。
+8. 現在，回到您要建置的查詢。 已使用您所選取的篩選事件和值來更新您的查詢。 現在也會篩選您的先前結果。
 
     ![回到具有已篩選結果的查詢](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-filtered-results.png)
 

@@ -3,21 +3,24 @@ title: 登入針對密碼單一登入設定之 Azure AD 資源庫應用程式的
 description: 討論問題範圍，為疑難排解登入針對密碼單一登入所設定 Azure AD 資源庫應用程式相關問題提供指引
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: f13f9fa54af13dbbe435a846be35c9e06fe65455
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: 020a5ec2a6cea2854e46d9da8aa0a178695deb86
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331900"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>登入針對密碼單一登入設定之 Azure AD 資源庫應用程式的問題
 
@@ -80,7 +83,7 @@ ms.lasthandoff: 05/11/2018
 
 ## <a name="troubleshoot-the-access-panel-in-internet-explorer"></a>進行 Internet Explorer 中存取面板的疑難排解
 
-如需存取診斷工具和設定 IE 延伸模組的逐步指示，請遵循[疑難排解 Internet Explorer 的存取面板延伸模組](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-Troubleshoot)指南。
+如需存取診斷工具和設定 IE 延伸模組的逐步指示，請遵循[疑難排解 Internet Explorer 的存取面板延伸模組](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting)指南。
 
 ## <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>如何為不在資源庫內的應用程式設定密碼單一登入
 

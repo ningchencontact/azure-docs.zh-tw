@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 447445ace41bb6b4677a75f5324368b269f938ea
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 02ce774f30cd03b7520f482196629bf4b7ec9ae5
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355231"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318563"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>App Service 環境簡介 #
  
@@ -43,10 +43,11 @@ App Service Environment (ASE) 適合需要下列項目的應用程式工作負�
 
 ASE 已經過隔離，可執行只有單一客戶的應用程式，且一律會部署到虛擬網路。 客戶可以精確控制輸入和輸出的應用程式網路流量。 應用程式可以透過 VPN 建立內部部署公司資源的高速安全連線。
 
-* ASE 可透過安全的網路存取，提供高延展性的應用程式裝載。 如需詳細資訊，請參閱為 ASE 提供的 [AzureCon 深入探討](https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/) (英文)。
+* ASE 隨附在自己的定價層中，了解[隔離式供應項目](https://channel9.msdn.com/Shows/Azure-Friday/Security-and-Horsepower-with-App-Service-The-New-Isolated-Offering?term=app%20service%20environment)如何有助於驅動超大規模作業及安全性。
+* [App Service Environment v2](https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud?term=app%20service%20environment) 提供一個環境來保護您網路子網路中的應用程式，並可讓您擁有私人的 Azure App Service 部署。
 * 您可以使用多個 ASE 進行水平調整。 如需詳細資訊，請參閱[如何設定異地分散應用程式使用量](app-service-app-service-environment-geo-distributed-scale.md)。
 * 您可以將 ASE 用於設定安全性架構，如 AzureCon 深入探討所示。 若要了解 AzureCon 深入探討中示範之安全性架構的設定方式，請參閱有關如何透過 App Service Environment [實行分層安全性架構的文章](app-service-app-service-environment-layered-security.md)。
-* 在 ASE 中執行之應用程式的存取權可能會受到 Web 應用程式防火牆 (WAF) 等上游裝置的管制。 如需詳細資訊，請參閱[整合 ILB App Service Environment 與 Azure 應用程式閘道][AppGW]。
+* 在 ASE 中執行之應用程式的存取權可能會受到 Web 應用程式防火牆 (WAF) 等上游裝置的管制。 如需詳細資訊，請參閱 [Web 應用程式防火牆 (WAF)][AppGW]。
 
 ## <a name="dedicated-environment"></a>專用的環境 ##
 
@@ -72,7 +73,7 @@ ASE 可以是具有公用 IP 位址的網際網路對應，或只具有 Azure �
 
 [網路安全性群組][NSGs]會將輸入網路通訊限制於 ASE 所在的子網路。 您可以使用 NSG 在上游裝置和服務 (例如 WAF 和網路 SaaS 提供者) 背後執行應用程式。
 
-應用程式也經常需要存取公司資源，例如內部資料庫和 Web 服務。 如果您在具有內部部署網路 VPN 連線的虛擬網路中部署 ASE，ASE 中的應用程式便可以存取內部部署資源。 無論 VPN 是[站對站](https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/)或 [Azure ExpressRoute](http://azure.microsoft.com/services/expressroute/) VPN，此功能都可適用。
+應用程式也經常需要存取公司資源，例如內部資料庫和 Web 服務。 如果您在具有內部部署網路 VPN 連線的虛擬網路中部署 ASE，ASE 中的應用程式便可以存取內部部署資源。 無論 VPN 是[站對站](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-multi-site)或 [Azure ExpressRoute](http://azure.microsoft.com/services/expressroute/) VPN，此功能都可適用。
 
 如需有關 ASE 與虛擬網路和內部部署網路搭配運作方式的詳細資訊，請參閱 [App Service Environment 的網路考量][ASENetwork]。
 
@@ -87,6 +88,8 @@ App Service Environment 有兩個版本：ASEv1 和 ASEv2。 前述資訊架構�
 ASEv1 使用與 ASEv2 不同的定價模式。 在 ASEv1 中，您需要支付每個配置的 vCPU。 其中包括用於前端或未裝載任何工作負載之背景工作角色的 vCPU。 在 ASEv1 中，ASE 的預設最大調整大小總計是 55 個主機， 包括背景工作角色與前端。 ASEv1 的其中一個優點，是可以部署在傳統虛擬網路和 Resource Manager虛擬網路中。 若要深入了解 ASEv1，請參閱 [App Service Environment v1 簡介][ASEv1Intro]。
 
 <!--Links-->
+[App Service Environments v2]: https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud?term=app%20service%20environment
+[Isolated offering]: https://channel9.msdn.com/Shows/Azure-Friday/Security-and-Horsepower-with-App-Service-The-New-Isolated-Offering?term=app%20service%20environment
 [Intro]: ./intro.md
 [MakeExternalASE]: ./create-external-ase.md
 [MakeASEfromTemplate]: ./create-from-template.md
@@ -105,4 +108,4 @@ ASEv1 使用與 ASEv2 不同的定價模式。 在 ASEv1 中，您需要支付�
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
 [Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
-[AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[AppGW]: ../../application-gateway/waf-overview.md

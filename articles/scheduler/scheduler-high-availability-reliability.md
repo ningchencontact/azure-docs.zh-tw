@@ -1,11 +1,11 @@
 ---
-title: "排程器高可用性和可靠性"
-description: "排程器高可用性和可靠性"
+title: 排程器高可用性和可靠性
+description: 排程器高可用性和可靠性
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 5ec78e60-a9b9-405a-91a8-f010f3872d50
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23039903"
 ---
 # <a name="scheduler-high-availability-and-reliability"></a>排程器高可用性和可靠性
 ## <a name="azure-scheduler-high-availability"></a>Azure 排程器高可用性

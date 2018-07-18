@@ -3,7 +3,7 @@ title: Windows 虛擬機器概觀 | Microsoft Docs
 description: 了解在 Azure 中建立及管理 Windows 虛擬機器。
 services: virtual-machines-windows
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ff709d021c9d4201301edd9890f1e4a94f555313
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c1122ab403eb7192d7acbd493c46d478d0382a6b
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932180"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure 中的 Windows 虛擬機器概觀
 
@@ -30,7 +31,8 @@ Azure VM 讓您能夠有彈性地進行虛擬化，而不需購買並維護執�
 
 Azure 虛擬機器可用於許多用途。 部分範例如下：
 
-* **開發和測試** – Azure VM 提供了一個快速且簡單的方法，用以建立為應用程式撰寫程式碼並進行測試時所需之特定組態的電腦。
+* 
+  **開發和測試** – Azure VM 提供了一個快速且簡單的方法，用以建立為應用程式撰寫程式碼並進行測試時所需之特定組態的電腦。
 * **雲端中的應用程式** – 因為您應用程式的需求可能會變動，在 Azure VM 上執行它在經濟上是合理的。 當您需要 VM 時便支付額外的 VM，而當您不需要時便關閉這些 VM。
 * **擴充的資料中心** – 可輕鬆將 Azure 虛擬網路中的虛擬機器連線到您組織的網路。
 
@@ -75,7 +77,7 @@ Azure 可依據 VM 的大小和作業系統，以[每小時](https://azure.micro
 ### <a name="operating-system-disks-and-images"></a>作業系統磁碟和映像
 虛擬機器是使用[虛擬硬碟 (VHD)](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 來儲存其作業系統 (OS) 和資料。 VHD 也能夠使用於您可以選擇用來安裝 OS 的映像。 
 
-Azure 提供許多 [Marketplace 映像](https://azure.microsoft.com/marketplace/virtual-machines/)來與不同版本和類型的 Windows Server 作業系統搭配使用。 Marketplace 映像是依映像發行者、優惠、SKU 和版本 (版本通常會指定為最新版本) 來識別。 
+Azure 提供許多 [Marketplace 映像](https://azure.microsoft.com/marketplace/virtual-machines/)來與不同版本和類型的 Windows Server 作業系統搭配使用。 Marketplace 映像是依映像發行者、供應項目、SKU 和版本 (版本通常會指定為最新版本) 來識別。 僅支援 64 位元作業系統。 如需所支援客體作業系統、角色和功能的詳細資訊，請參閱 [Microsoft Azure 虛擬機器的 Microsoft 伺服器軟體支援](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)。
 
 下表顯示您可找到映像資訊的一些方法。
 
@@ -83,10 +85,10 @@ Azure 提供許多 [Marketplace 映像](https://azure.microsoft.com/marketplace/
 | --- | --- |
 | Azure 入口網站 |當您選取要使用的影像時，會自動為您指定值。 |
 | Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -Location "location"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -Location "location" -Publisher "publisherName"<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "location" -Publisher "publisherName" -Offer "offerName" |
-| REST API |[列出映像發行者](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[列出映像優惠](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[列出映像 SKU](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
+| REST API |[列出映像發行者](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[列出映像供應項目](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[列出映像 SKU](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
 | Azure CLI |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_publishers) --location "location"<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_offers) --location "location" --publisher "publisherName"<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list_skus) --location "location" --publisher "publisherName" --offer "offerName"|
 
-您可以選擇[上傳並使用您自己的映像](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account)，當您這麼做時，不會使用發行者名稱、優惠和 SKU。
+您可以選擇[上傳並使用您自己的映像](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account)，當您這麼做時，不會使用發行者名稱、供應項目和 SKU。
 
 ### <a name="extensions"></a>擴充功能
 VM [擴充](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)會透過 post 部署設定及自動化工作為您的 VM 提供其他功能。

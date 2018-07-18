@@ -42,7 +42,7 @@ Azure 現在支援兩種偵錯功能︰Azure 虛擬機器 Resource Manager 部�
     >
     > 
 
-3. 如果您正以 Azure Resource Manager 範本進行部署，請瀏覽至您的虛擬機器的資源並附加診斷設定檔區段。 請記得使用 “2015-06-15” API 版本標頭。
+3. 如果您正以 Azure Resource Manager 範本進行部署，請巡覽至您的虛擬機器的資源並附加診斷設定檔區段。 請記得使用 “2015-06-15” API 版本標頭。
 
     ```json
     {
@@ -71,7 +71,7 @@ Azure 現在支援兩種偵錯功能︰Azure 虛擬機器 Resource Manager 部�
 若要在現有的虛擬機器上啟用開機診斷功能，請遵循下列步驟：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，然後選取虛擬機器。
-2. 在 [支援 + 疑難排解] 中，選取 [開機診斷]  >  [設定]，將狀態變更為 [開啟]，然後選取儲存體帳戶。 
+2. 在 [支援 + 疑難排解] 中，選取 [開機診斷]  > [設定]，將狀態變更為 [開啟]，然後選取儲存體帳戶。 
 4. 確認 [開機診斷] 選項已選取，然後儲存變更。
 
     ![更新現有的 VM](./media/virtual-machines-common-boot-diagnostics/enable-for-existing-vm.png)

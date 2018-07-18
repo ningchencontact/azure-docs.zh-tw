@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 條件式存取中的存取控制 | Microsoft Docs
+title: 什麼是 Azure Active Directory 條件式存取中的存取控制？ | Microsoft Docs
 description: 了解 Azure Active Directory 條件式存取中的存取控制如何運作。
 services: active-directory
 keywords: 應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則
@@ -9,21 +9,22 @@ manager: mtillman
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/01/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 8271c4c88245e98fd3709c7279904d36ad009682
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: dc1e3fd3984d0ccbfb0565a3216ec907894e88ea
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32770718"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028943"
 ---
-# <a name="access-controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory 條件式存取中的存取控制 
+# <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的存取控制？ 
 
 透過 [Azure Active Directory (Azure AD) 條件式存取](active-directory-conditional-access-azure-portal.md)，您可以控制授權使用者如何存取您的雲端應用程式。 在條件式存取原則中，您會定義對觸發原則之原因 ("when this happens") 做出的回應 ("do this")。 
 
@@ -76,7 +77,7 @@ ms.locfileid: "32770718"
 
 ### <a name="compliant-device"></a>符合規範的裝置
 
-您可以設定以裝置作為基礎的條件式存取原則。 裝置型條件式存取原則的目標是，只從[受控裝置](active-directory-conditional-access-policy-connected-applications.md#managed-devices)授與已設定資源的存取權。 定義受控裝置的必要選項之一，是要求符合規範裝置。 如果選取此選項，使用已向您的 Azure Active Directory [註冊](device-management-introduction.md)且經 MDM 解決方案標示為符合規範的裝置進行存取嘗試時，您的條件式存取原則就會對其授與存取權。
+您可以設定以裝置作為基礎的條件式存取原則。 裝置型條件式存取原則的目標是，只從[受控裝置](active-directory-conditional-access-policy-connected-applications.md#managed-devices)授與已設定資源的存取權。 定義受控裝置的必要選項之一，是要求符合規範裝置。 如果選取此選項，使用已向您的 Azure Active Directory [註冊](device-management-introduction.md)且經 Intune (適用於任何裝置 OS) 或您的協力廠商 MDM 系統 (適用於 Windows 10 裝置) 標示為符合規範的裝置進行存取嘗試時，您的條件式存取原則就會對其授與存取權。 不支援針對 Windows 10 以外的裝置 OS 類型使用的協力廠商 MDM 系統。
 
 如需詳細資訊，請參閱[設定 Azure Active Directory 裝置型條件式存取原則](active-directory-conditional-access-policy-connected-applications.md)。
 
@@ -172,6 +173,6 @@ ms.locfileid: "32770718"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如果您想要知道如何設定條件式存取原則，請參閱[開始使用 Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal-get-started.md)。
+- 如果您想要知道如何設定條件式存取原則，請參閱[利用 Azure Active Directory 條件式存取來取得特定應用程式的 MFA](active-directory-conditional-access-app-based-mfa.md)。
 
 - 如果您已準備好設定您環境的條件式存取原則，請參閱 [Azure Active Directory 中條件式存取的最佳做法](active-directory-conditional-access-best-practices.md)。 

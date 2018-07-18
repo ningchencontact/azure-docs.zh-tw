@@ -5,20 +5,17 @@ keywords: odbc, odbc 驅動程式
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: 9967f4e5-4b71-4cd7-8324-221a8c789e6b
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: rest-api
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 360161ec0485259029be0bbd5194911e484a57e5
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 11e0a4e38739a775d977cf76b72d4dc92942a7b0
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725086"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>使用 BI 分析工具搭配 ODBC 驅動程式連線到 Azure Cosmos DB
 
@@ -110,7 +107,7 @@ Azure Cosmos DB 是一種無結構描述的資料庫，因此它會透過讓應�
     b. 如果您只想將取樣範圍設定為您剛才輸入的特定屬性值，請在選取方塊中選取該屬性，然後在 [值] 方塊中輸入值，例如「Seattle」，然後按一下 Enter 鍵。 您可以繼續加入多個屬性的值。 只要確定您輸入值時，已選取正確的屬性。
 
     例如，如果您包含「City」的**屬性**值，而您想要限制資料表只包含含有「New York」和「Dubai」之城市值的資料列，可在 [屬性] 方塊中輸入「City」，而在 [值] 方塊中輸入「New York」和「Dubai」。
-4. 按一下 [SERVICEPRINCIPAL] 。 
+4. 按一下 [確定]。 
 5. 在完成您想要取樣之集合的對應定義之後，在 [結構描述編輯器] 視窗中按一下 [取樣]。
      針對每個資料行，您可以修改資料行「SQL 名稱」、「SQL 類型」、「SQL 長度」(如果適用的話)、「小數位數」(如果適用的話)、「精確度」(如果適用的話)，以及「可為 Null」。
     - 如果您想要將該資料行從查詢結果中排除，您可以將 [隱藏資料行] 設為 **true**。 雖然 [隱藏資料行] 標註為 true 的資料行仍屬於結構描述的一部份，它並不會針對選取和投影傳回。 例如，您可以隱藏開頭為 `_` 的所有 Azure Cosmos DB 系統必要屬性。
@@ -123,7 +120,7 @@ Azure Cosmos DB 是一種無結構描述的資料庫，因此它會透過讓應�
 您可以藉由設定連結的伺服器連線，從 SQL Server Management Studio (SSMS) 查詢 Azure Cosmos DB。
 
 1. 如[步驟 2](#connect) 所述，建立系統資料來源，例如命名為 `SDS Name`。
-2. [安裝 SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+2. [安裝 SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 並連線至伺服器。 
 3. 在 SSMS 查詢編輯器中，使用下列命令為資料來源建立連結的伺服器物件 `DEMOCOSMOS`。 將 `DEMOCOSMOS` 取代成所連結伺服器的名稱，並將 `SDS Name` 取代成系統資料來源的名稱。
 
     ```sql

@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31401091"
 ---
 # <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>查詢 Azure Log Analytics 以監視 HDInsight 叢集
 

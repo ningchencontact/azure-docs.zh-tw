@@ -8,17 +8,19 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: ff90fdb0-5bc7-49e8-aee7-678b54f901c8
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: 55c213e26d39f1f9c27fdeae89e651a5f99a98b5
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 2de926746a5e6b94a458dbc1a126ab5bc86b12fe
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34838529"
 ---
 # <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>使用 SQL 資料分割資料表平行處理大量資料匯入
 本文件說明如何建置資料分割資料表，以快速的平行處理方式將大量資料匯入 SQL Server 資料庫。 若要將巨量資料載入/傳輸至 SQL Database，可使用*資料分割資料表和檢視*，來改善將資料匯入 SQL DB 和後續查詢的效能。 

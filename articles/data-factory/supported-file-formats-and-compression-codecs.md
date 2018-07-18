@@ -6,15 +6,15 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: jingwang
-ms.openlocfilehash: fdfee4e06994de1b9a63996203b1a1b9fed9b768
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 534df0dfef1f69297c5728ed892a5457944e4468
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33940149"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052285"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Azure Data Factory 中支援的檔案格式和壓縮轉碼器
 
@@ -27,9 +27,6 @@ ms.locfileid: "33940149"
 * [Avro 格式](#avro-format)
 * [ORC 格式](#orc-format)
 * [Parquet 格式](#parquet-format)
-
-> [!NOTE]
-> 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版 Data Factory 服務 (正式運作版 (GA))，請參閱 [Data Factory 第 1 版中支援的檔案和壓縮格式](v1//data-factory-supported-file-and-compression-formats.md)。
 
 > [!TIP]
 > 請參閱[複製活動中的結構描述對應](copy-activity-schema-and-type-mapping.md)，以了解複製活動將來源資料對應至接收的方式，其中包括中繼資料是如何根據您的檔案格式設定來決定，以及指定[資料集 `structure`](concepts-datasets-linked-services.md#dataset-structure) 區段的時機。

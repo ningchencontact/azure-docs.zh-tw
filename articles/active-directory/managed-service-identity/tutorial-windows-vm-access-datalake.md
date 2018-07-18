@@ -9,18 +9,19 @@ editor: ''
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: skwan
-ms.openlocfilehash: 57b60e0cf9374a6bd503b160e22eb3aa0a9ba911
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: daveba
+ms.openlocfilehash: afd35c963c2c1c4badb32f7e8f7dba1dce87481c
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37904283"
 ---
-# <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>使用 Windows VM 受控服務識別 (MSI) 來存取 Azure Data Lake Store
+# <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>教學課程：使用 Windows VM 受控服務識別 (MSI) 來存取 Azure Data Lake Store
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -208,12 +209,9 @@ Azure Data Lake Store 原生支援 Azure AD 驗證，因此可以直接接受使
 
 恭喜！  您已經使用 VM MSI 向 Data Lake Store 檔案系統驗證。
 
-## <a name="related-content"></a>相關內容
+## <a name="next-steps"></a>後續步驟
 
-- 如需 MSI 的概觀，請參閱[受控服務識別概觀](overview.md)。
-- Data Lake Store 使用 Azure Resource Manager 執行管理作業。  如需有關使用 VM MSI 向 Resource Manager 驗證的詳細資訊，請閱讀[使用 Linux VM 受控服務識別 (MSI) 存取 Resource Manager](https://docs.microsoft.com/azure/active-directory/msi-tutorial-linux-vm-access-arm)。
-- 深入了解[使用 Azure Active Directory 向 Data Lake Store 進行驗證](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)。
-- 深入了解[使用 REST API 在 Azure Data Lake Store 上進行檔案系統作業](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-operations-rest-api)或 [WebHDFS 檔案系統 API](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis) \(英文\)。
-- 深入了解 [Data Lake Store 中的存取控制](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control)。
+在本教學課程中，您已學習如何使用 Windows 虛擬機器的受控服務識別來存取 Azure Data Lake Store。 若要深入了解 Azure Data Lake Store，請參閱：
 
-使用下列意見區段來提供意見反應，並協助我們改善及設計我們的內容。
+> [!div class="nextstepaction"]
+>[Azure Data Lake Store](/azure/data-lake-store/data-lake-store-overview)

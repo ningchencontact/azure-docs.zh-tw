@@ -1,10 +1,10 @@
 ---
-title: "使用 Jenkins 將您的 Web 應用程式部署至 Azure | Microsoft Docs"
-description: "使用 Jenkins 與 Docker 設定 Java Web 應用程式從 GitHub 到 Azure App Service 的持續整合。"
+title: 使用 Jenkins 將您的 Web 應用程式部署至 Azure | Microsoft Docs
+description: 使用 Jenkins 與 Docker 設定 Java Web 應用程式從 GitHub 到 Azure App Service 的持續整合。
 author: rloutlaw
 manager: douge
 ms.service: jenkins
-ms.search.scope: 
+ms.search.scope: ''
 ms.devlang: java
 ms.topic: article
 ms.workload: web
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852994"
 ---
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>使用 Jenkins 設定 Azure App Service 的持續整合和部署
 

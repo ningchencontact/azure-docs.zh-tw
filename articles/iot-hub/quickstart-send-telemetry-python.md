@@ -1,23 +1,21 @@
 ---
 title: 將遙測傳送至 Azure IoT 中樞快速入門 (Python) | Microsoft Docs
 description: 本快速入門中，您可以執行範例 Python 應用程式，將模擬的遙測傳送到 IoT 中樞，並使用公用程式從 IoT 中樞讀取遙測。
-services: iot-hub
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: ns
 ms.date: 04/30/2018
 ms.author: dobett
-ms.openlocfilehash: 2abc978d6f40808a1bea46a01647444bb79b1211
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 7d4d29b7502f081de8385c7d88687ece4905b02b
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38688381"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-python"></a>快速入門：將遙測從裝置傳送至 IoT 中樞，並使用後端應用程式從中樞讀取遙測 (Python)
 
@@ -100,7 +98,7 @@ npm install -g iothub-explorer
 
 模擬裝置應用程式會連線到 IoT 中樞上的裝置特定端點，並且傳送模擬的溫度和溼度遙測。
 
-1. 在終端機視窗中，瀏覽至範例 Python 專案的根資料夾。 然後瀏覽至 **Quickstarts\simulated-device** 資料夾。
+1. 在終端機視窗中，瀏覽至範例 Python 專案的根資料夾。 然後瀏覽至 **iot-hub\Quickstarts\simulated-device** 資料夾。
 
 1. 在您選擇的文字編輯器中開啟 **SimulatedDevice.py** 檔案。
 
@@ -138,9 +136,7 @@ iothub-explorer monitor-events MyPythonDevice --login {your hub service connecti
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您打算繼續完成下一個快速入門，請保留資源群組和 IoT 中樞，以供稍後重複使用。
-
-如果您不再需要 IoT 中樞，請在入口網站中刪除它和資源群組。 若要刪除，請選取包含 IoT 中樞的 **qs-iot-hub-rg** 資源群組，然後按一下 [刪除]。
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

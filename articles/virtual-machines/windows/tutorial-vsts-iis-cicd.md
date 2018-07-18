@@ -3,7 +3,7 @@ title: 教學課程 - 在 Azure 中使用 Team Services 建立 CI/CD 管線 | Mi
 description: 在本教學課程中，您會了解如何建立用於持續整合和持續傳遞的 Visual Studio Team Services 管線，此管線會在 Azure 中將 Web 應用程式部署至 Windows VM 上的 IIS。
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,17 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/12/2017
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d017f2453bbd757c16e2df034f5879f24ffe42f7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b23cec90573c4be73a73daf0bc0e793da012585c
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32192215"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932087"
 ---
 # <a name="tutorial-create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>教學課程：使用 Visual Studio Team Services 和 IIS 建立持續整合管線
-若要將應用程式開發的組建、測試、部署階段自動化，您可以使用持續整合和部署 (CI/CD) 管線。 在本教學課程中，您可以使用 Visual Studio Team Services 以及 Azure 中執行 IIS 的 Windows 虛擬機器 (VM) 建立 CI/CD 管線。 您會了解如何：
+若要將應用程式開發的組建、測試、部署階段自動化，可以使用持續整合和部署 (CI/CD) 管線。 在本教學課程中，您可以使用 Visual Studio Team Services 以及 Azure 中執行 IIS 的 Windows 虛擬機器 (VM) 建立 CI/CD 管線。 您會了解如何：
 
 > [!div class="checklist"]
 > * 將 ASP.NET Web 應用程式發佈至 Team Services 專案
@@ -127,7 +127,7 @@ Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" | Select IpAddre
 mstsc /v:<publicIpAddress>
 ```
 
-在 VM 上，開啟**系統管理員 PowerShell** 命令提示字元。 安裝 IIS 和所需的 .NET 功能，如下所示︰
+在 VM 上，開啟 **系統管理員 PowerShell** 命令提示字元。 安裝 IIS 和所需的 .NET 功能，如下所示︰
 
 ```powershell
 Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
@@ -135,7 +135,7 @@ Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
 
 
 ## <a name="create-deployment-group"></a>建立部署群組
-若要將 Web 部署套件推送到 IIS 伺服器，請在 Team Services 中定義部署群組。 此群組可讓您在 Team Services 認可程式碼且組建完成時，指定哪些伺服器是新組建的目標。
+若要將 Web 部署封裝推送到 IIS 伺服器，請在 Team Services 中定義部署群組。 此群組可讓您在 Team Services 認可程式碼且組建完成時，指定哪些伺服器是新組建的目標。
 
 1. 在 Team Services 中，選擇 [組建及發行]，然後選取 [部署群組]。
 2. 選擇 [新增部署群組]。
@@ -190,7 +190,7 @@ Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
 3. 在您的發行定義上方會顯示一個小橫幅，例如「已建立 'Release-1' 發行」。 選取發行連結。
 4. 開啟 [記錄] 索引標籤以查看發行進度。
     
-    ![成功的 Team Services 發行和 Web 部署套件推送](media/tutorial-vsts-iis-cicd/successful_release.png)
+    ![成功的 Team Services 發行和 Web 部署封裝推送](media/tutorial-vsts-iis-cicd/successful_release.png)
 
 5. 完成發行後，開啟網頁瀏覽器，並輸入您的 VM 的公用 IP 位址。 您的 ASP.NET Web 應用程式正在執行。
 

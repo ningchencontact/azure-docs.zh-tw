@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
 ms.openlocfilehash: 7148d28038986d3ac7f88dd57f937942b0d29bfc
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "31600235"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38696595"
 ---
 # <a name="create-a-snapshot-from-a-vhd-to-create-multiple-identical-managed-disks-in-small-amount-of-time-with-powershell"></a>使用 PowerShell 從 VHD 建立快照集以在短時間內建立多個相同的受控磁碟
 

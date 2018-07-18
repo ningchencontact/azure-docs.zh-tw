@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783757"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>搭配進階編碼器使用多個輸入檔案和元件屬性
 ## <a name="overview"></a>概觀
@@ -29,7 +30,7 @@ ms.lasthandoff: 05/07/2018
 * 視訊編碼時在輸入視訊上覆疊標誌影像。
 * 多重音訊語言編碼。
 
-若要在建立工作或傳送多個輸入檔案時，讓**「媒體編碼器高階工作流程」**知道您要變更工作流程中的某些屬性，您必須使用包含 **setRuntimeProperties** 及/或 **transcodeSource** 的組態字串。 本主題說明如何使用它們。
+若要在建立工作或傳送多個輸入檔案時，讓 **「媒體編碼器高階工作流程」** 知道您要變更工作流程中的某些屬性，您必須使用包含 **setRuntimeProperties** 及/或 **transcodeSource** 的組態字串。 本主題說明如何使用它們。
 
 ## <a name="configuration-string-syntax"></a>組態字串語法
 在編碼工作中設定的組態字串會使用類似下面的 XML 文件︰

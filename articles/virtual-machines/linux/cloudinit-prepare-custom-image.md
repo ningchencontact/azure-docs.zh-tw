@@ -14,11 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: faa28a6b28c721e4088ccfbb00514be7f605f3e2
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: ff5c76ca0a164d09e45488cb7abf7f2c2ee50a95
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064395"
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>準備現有的 Linux Azure 虛擬機器映像以搭配 cloud-init 使用
 本文會示範如何讓現有的 Azure 虛擬機器準備好進行重新部署，並且可使用 cloud-init。 所產生的映像可用來部署新的虛擬機器或虛擬機器擴展集 - 之後這兩者都可進一步使用 cloud-init 在部署期間進行自訂。  一旦 Azure 佈建資源，這些 cloud-init 指令碼就會在初次開機時執行。 如需深入了解 cloud-init 如何以原生方式在 Azure 和支援的 Linux 散發版本中運作，請參閱 [cloud-init 概觀](using-cloud-init.md)
@@ -96,7 +97,7 @@ EOF
 
 如果您現有的 Azure 映像已設定分頁檔，但您想要使用 cloud-init 來變更新映像的分頁檔設定，那麼就必須移除現有的分頁檔。
 
-針對以 RedHat 為基礎的映像 - 遵循下列 RedHat 文件中的指示，其中會說明如何[移除分頁檔](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Deployment_Guide/s2-swap-removing-file.html)。
+針對以 Red Hat 為基礎的映像 - 遵循下列 Red Hat 文件中的指示，其中會說明如何[移除分頁檔](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/storage_administration_guide/swap-removing-file)。
 
 針對已啟用分頁檔的 CentOS 映像，您可以執行下列命令來關閉分頁檔：
 ```bash

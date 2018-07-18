@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
 ms.author: sethm
-ms.openlocfilehash: 847fe0c08d442388cfa506042272bb358058cb4c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: cda313085d197558e969309eaed928421b0b1924
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32194683"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752899"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>Microsoft Azure 服務匯流排中的 AMQP 1.0：要求/回應架構作業
 
@@ -709,4 +709,4 @@ sql-filter 對應必須包含下列項目：
 
 [服務匯流排 AMQP 概觀]: service-bus-amqp-overview.md
 [AMQP 1.0 通訊協定指南]: service-bus-amqp-protocol-guide.md
-[Windows Server 服務匯流排中的 AMQP]: https://msdn.microsoft.com/library/dn574799.asp
+[Windows Server 服務匯流排中的 AMQP]: https://docs.microsoft.com/previous-versions/service-bus-archive/dn282144(v=azure.100)

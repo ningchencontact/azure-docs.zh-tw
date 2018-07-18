@@ -1,12 +1,12 @@
 ---
-title: "PowerShell for StorSimple 裝置管理 | Microsoft Docs"
-description: "了解如何使用 Windows PowerShell for StorSimple 管理 StorSimple 裝置。"
+title: PowerShell for StorSimple 裝置管理 | Microsoft Docs
+description: 了解如何使用 Windows PowerShell for StorSimple 管理 StorSimple 裝置。
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -15,10 +15,11 @@ ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
 ms.openlocfilehash: 291de21d3d98bf9eb65adc7d506f3549171ee0a0
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38696815"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>使用 Windows PowerShell for StorSimple 管理您的裝置
 
@@ -101,7 +102,7 @@ Windows PowerShell for StorSimple 提供命令列介面，可讓您用來管理 
 2. **登入對等控制器並具備完整存取權** 此選項和選項 1 相同，不過是讓您連線 (使用適當的認證) 至對等控制器上的 **SSAdminConsole** Runspace。 因為 StorSimple 裝置是高可用性的裝置，具有兩個主動-被動組態的控制器；對等指的是您透過序列主控台存取的裝置中的其他控制器。
    和選項 1 類似，此選項也可用於讓「Microsoft 支援」存取對等控制器上不受限制的 Runspace。
 
-3. **連線並具備有限存取權** 此選項用於在有限制的模式下存取 Windows PowerShell 介面。 系統不會提示您輸入存取認證。 相較於選項 1 和 2，此選項會連線至更多限制的 Runspace。  可透過選項 1 執行但在此 Runspace 中\*「無法」 執行的一些工作包括：
+3. **連線並具備有限存取權** 此選項用於在有限制的模式下存取 Windows PowerShell 介面。 系統不會提示您輸入存取認證。 相較於選項 1 和 2，此選項會連線至更多限制的 Runspace。  可透過選項 1 執行但在此 Runspace 中「無法」 執行的一些工作包括：
    
    * 重設為原廠設定
    * 變更密碼

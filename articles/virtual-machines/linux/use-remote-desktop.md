@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 05/30/2018
 ms.author: iainfou
-ms.openlocfilehash: c47822bebdc8b3cc8896fe56b8f9a4ce317495c3
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: fb3639b8ce5c50773bec0ee429e1fa2f7277671b
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364296"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716613"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>在 Azure 中安裝和設定遠端桌面，以連接至 Linux VM
 在 Azure 中的 Linux 虛擬機器 (VM) 通常是使用安全殼層 (SSH) 連接從命令列管理。 如果是 Linux 的新手，或者是快速疑難排解的案例，使用遠端桌面可能會比較容易。 本文將詳細說明如何使用 Resource Manager 部署模型為您的 Linux VM 安裝和設定桌面環境 ([xfce](https://www.xfce.org)) 和遠端桌面 ([xrdp](http://www.xrdp.org))。
@@ -37,7 +37,7 @@ ms.locfileid: "34364296"
 
 下列範例會在 Ubuntu 16.04 LTS VM 上安裝輕量型 [xfce4](https://www.xfce.org/) 桌面環境。 其他散發的命令稍微不同 (例如，使用 `yum` 以在 Red Hat Enterprise Linux 上安裝及設定適當的 `selinux` 規則，或使用 `zypper` 在 SUSE 上安裝)。
 
-首先，SSH 連接至您的 VM。 下列範例會連線至名為 myvm.westus.cloudapp.azure.com 且具有使用者名稱 azureuser 的 VM：
+首先，SSH 連接至您的 VM。 下列範例會連線至名為 myvm.westus.cloudapp.azure.com 且具有使用者名稱 azureuser 的 VM。 使用您自己的值：
 
 ```bash
 ssh azureuser@myvm.westus.cloudapp.azure.com
@@ -86,7 +86,7 @@ sudo passwd azureuser
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>建立遠端桌面流量的網路安全性群組規則
 若要允許遠端桌面流量觸達您的 Linux VM，必須建立網路安全性群組規則，允許連接埠 3389 上的 TCP 觸達您的 VM。 如需有關網路安全性群組規則的詳細資訊，請參閱[什麼是網路安全性群組？](../../virtual-network/security-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 您也可以[使用 Azure 入口網站建立網路安全性群組規則](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
-下列範例會使用 [az vm open-port](/cli/azure/vm#az_vm_open_port) 在連接埠 3389 上建立網路安全性群組規則。
+下列範例會使用 [az vm open-port](/cli/azure/vm#az-vm-open-port) 在連接埠 3389 上建立網路安全性群組規則。 從 Azure CLI 2.0 (而非您 VM 的 SSH 工作階段)，開啟下列網路安全性群組規則：
 
 ```azurecli
 az vm open-port --resource-group myResourceGroup --name myVM --port 3389

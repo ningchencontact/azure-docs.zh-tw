@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 網路監看員管理網路安全性群組流量記錄 - REST API | Microsoft Docs"
-description: "此頁面說明如何使用 REST API 在 Azure 網路監看員中管理網路安全性群組流量記錄"
+title: 使用 Azure 網路監看員管理網路安全性群組流量記錄 - REST API | Microsoft Docs
+description: 此頁面說明如何使用 REST API 在 Azure 網路監看員中管理網路安全性群組流量記錄
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2ab25379-0fd3-4bfe-9d82-425dfc7ad6bb
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26774366"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>使用 REST API 設定網路安全性群組流量記錄
 

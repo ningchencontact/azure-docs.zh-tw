@@ -19,6 +19,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30243198"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-redis-cache"></a>如何設定進階 Azure Redis 快取的 Redis 叢集
 Azure Redis 快取有不同的快取供應項目，可讓您彈性選擇快取大小和功能，包括叢集、持續性和虛擬網路支援等進階層功能。 本文說明如何在進階 Azure Redis 快取執行個體中設定叢集。

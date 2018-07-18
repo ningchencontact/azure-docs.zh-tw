@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210829"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>使用系統健康狀態報告進行疑難排解
 Azure Service Fabric 元件會針對現成叢集中的所有實體，提供系統健康情況報告。 [健康狀態資料存放區](service-fabric-health-introduction.md#health-store) 會根據系統報告來建立和刪除實體。 它也會將這些實體組織為階層以擷取實體的互動。

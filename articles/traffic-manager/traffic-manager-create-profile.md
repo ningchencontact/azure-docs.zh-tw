@@ -1,12 +1,12 @@
 ---
-title: "在 Azure 中建立流量管理員設定檔 | Microsoft Docs"
-description: "本文說明如何建立流量管理員設定檔"
+title: 在 Azure 中建立流量管理員設定檔 | Microsoft Docs
+description: 本文說明如何建立流量管理員設定檔
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29397565"
 ---
 # <a name="create-a-traffic-manager-profile"></a>建立流量管理員設定檔
 

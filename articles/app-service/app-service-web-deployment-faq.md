@@ -20,6 +20,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34068065"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Azure 中 Web 應用程式的部署常見問題集
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31528455"
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>如何在虛擬機器上以 Java 執行大量運算工作
 > [!IMPORTANT] 

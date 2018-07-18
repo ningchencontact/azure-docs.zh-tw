@@ -8,6 +8,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: b8ae865e06e085ebe1bb71b35d812024190e2b21
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: faeeebb21c6dde73be855af469e03ede4c6d0b5d
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444951"
 ---
 # <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
 
@@ -36,7 +38,7 @@ Azure Active Directory Identity Protection 是 Azure AD Premium P2 版本的一�
 
 Microsoft 保護雲端身分識別已經超過十多年。 在您的環境中使用 Azure Active Directory Identity Protection，即可使用與 Microsoft 用來保護身份識別一樣的保護系統。
 
-大部分的安全性缺口出現於當攻擊者藉由竊取使用者的身分識別來取得環境的存取權時。 這些年來，攻擊者變得越來越擅於利用協力廠商缺考，以及使用複雜的網路釣魚攻擊。 只要攻擊者取得更低權限的使用者帳戶的存取權，他們即可相對容易地透過橫向移動存取重要的公司資源。
+大部分的安全性缺口出現於當攻擊者藉由竊取使用者的身分識別來取得環境的存取權時。 這些年來，攻擊者變得越來越擅於利用第三方缺口，以及使用複雜的網路釣魚攻擊。 只要攻擊者取得更低權限的使用者帳戶的存取權，他們即可相對容易地透過橫向移動存取重要的公司資源。
 
 如此一來，您必須：
 
@@ -86,7 +88,7 @@ Azure Active Directory Identity Protection 不只是監視和報告工具而已�
 
 
 
-如需詳細資訊，請參閱[在 Azure Active Directory 中指派系統管理員角色](active-directory-assign-admin-roles-azure-portal.md)
+如需詳細資訊，請參閱[在 Azure Active Directory 中指派系統管理員角色](users-groups-roles/directory-assign-admin-roles.md)
 
 
 

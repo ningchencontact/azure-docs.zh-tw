@@ -9,17 +9,17 @@ editor: vturecek
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 5fcd42a2453bddbfc1c1d1939dd9e63e7e09bdb0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f52861411a34d1fbff577fbbc37cf926151a97d8
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366523"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294807"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>在 Windows 建立第一個 Service Fabric 容器應用程式
 > [!div class="op_single_selector"]
@@ -29,21 +29,28 @@ ms.locfileid: "34366523"
 在 Service Fabric 叢集上的 Windows 容器中執行現有的應用程式，不需要變更您的應用程式。 本文會逐步引導您建立包含 Python [Flask](http://flask.pocoo.org/) Web 應用程式的 Docker 映像，並將它部署到 Service Fabric 叢集。 您也將透過 [Azure Container Registry](/azure/container-registry/) 共用容器化應用程式。 本文假設您對 Docker 有基本認識。 您可藉由閱讀 [Docker 概觀](https://docs.docker.com/engine/understanding-docker/)來了解 Docker。
 
 ## <a name="prerequisites"></a>先決條件
-執行下列項目的開發電腦︰
-* Visual Studio 2015 或 Visual Studio 2017。
-* [Service Fabric SDK 和工具](service-fabric-get-started.md)。
-*  Docker for Windows。 [取得 Docker CE for Windows (穩定)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description)。 安裝並啟動 Docker 之後，以滑鼠右鍵按一下系統匣圖示，然後選取 [切換至 Windows 容器]。 這是執行以 Windows 為基礎的 Docker 映像時的必要步驟。
+* 執行下列項目的開發電腦︰
+  * Visual Studio 2015 或 Visual Studio 2017。
+  * [Service Fabric SDK 和工具](service-fabric-get-started.md)。
+  *  Docker for Windows。 [取得 Docker CE for Windows (穩定)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description)。 安裝並啟動 Docker 之後，以滑鼠右鍵按一下系統匣圖示，然後選取 [切換至 Windows 容器]。 這是執行以 Windows 為基礎的 Docker 映像時的必要步驟。
 
-有三個或更多節點在具有容器的 Windows Server 2016 上執行的 Windows 叢集 - [建立叢集](service-fabric-cluster-creation-via-portal.md)或[免費試用 Service Fabric](https://aka.ms/tryservicefabric)。
+* 有三個或更多節點在具有容器的 Windows Server 上執行的 Windows 叢集。 
 
-Azure Container Registry 中的登錄 - 在 Azure 訂用帳戶中[建立容器登錄](../container-registry/container-registry-get-started-portal.md)。
+  在本文中，在您的叢集節點上執行且具有容器的 Windows Server 版本 (組建) 必須符合您開發電腦上的 Windows Server 版本。 這是因為您會在開發電腦上建立 Docker 映像，而且容器 OS 版本與其部署所在主機 OS 版本之間有相容性條件約束。 如需詳細資訊，請參閱 [Windows Server 容器作業系統和主機作業系統的相容性](#windows-server-container-os-and-host-os-compatibility)。 
+  
+  若要判斷具有您叢集所需容器的 Windows Server 版本，請在開發電腦上從 Windows 命令提示字元執行 `ver` 命令：
+
+  * 如果版本包含 x.x.14323.x，則請在[建立叢集](service-fabric-cluster-creation-via-portal.md)時選取 [WindowsServer 2016-Datacenter-with-Containers] 作為作業系統。 您也可以對合作對象叢集[免費試用 Service Fabric](https://aka.ms/tryservicefabric)。
+  * 如果版本包含 x.x.16299.x，則請在[建立叢集](service-fabric-cluster-creation-via-portal.md)時選取 [WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers] 作為作業系統。 不過，您無法使用合作對象叢集。
+
+* Azure Container Registry 中的登錄 - 在 Azure 訂用帳戶中[建立容器登錄](../container-registry/container-registry-get-started-portal.md)。
 
 > [!NOTE]
-> 在 Windows 10 中或具有 Docker CE 的叢集上，尚未支援將容器部署到 Service Fabric 叢集。 本逐步解說會在 Windows 10 上使用 Docker 引擎進行本機測試，最後在執行 Docker EE 的 Azure 中，將容器服務部署到 Windows Server 叢集。 
+> 系統支援將容器部署到在 Windows 10 上執行的 Service Fabric 叢集。  如需如何設定 Windows 10 以執行 Windows 容器的資訊，請參閱[本文](service-fabric-how-to-debug-windows-containers.md)。
 >   
 
 > [!NOTE]
-> Service Fabric 6.1 版有 Windows Server 1709 版本的預覽支援。 開放網路和 Service Fabric DNS 服務無法與 Windows Server 1709 版本搭配使用。 
+> Service Fabric 6.2 版和更新版本支援將容器部署到在 Windows Server 1709 版上執行的叢集。  
 > 
 
 ## <a name="define-the-docker-container"></a>定義 Docker 容器
@@ -140,7 +147,7 @@ docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
 docker inspect my-web-site
 ```
 
-連線到執行中的容器。 開啟 Web 瀏覽器並指向傳回的 IP 位址，例如 "http://172.31.194.61"。 您應該會看到 "Hello World!" 標題 顯示在瀏覽器中。
+連線到執行中的容器。 開啟 Web 瀏覽器並指向傳回的 IP 位址，例如 " http://172.31.194.61 "。 您應該會看到 "Hello World!" 標題 顯示在瀏覽器中。
 
 若要停止您的容器，請執行︰
 
@@ -316,7 +323,7 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 ```
 
 ## <a name="configure-isolation-mode"></a>設定隔離模式
-Windows 支援兩種容器隔離模式：分別為處理序和 Hyper-V。 在處理序隔離模式中，在相同主機電腦上執行的所有容器都與主機共用核心。 在 Hyper-V 隔離模式中，會在每個 Hyper-V 容器與容器主機之間隔離核心。 隔離模式是在應用程式資訊清單檔中指定的 `ContainerHostPolicies` 元素。 可以指定的隔離模式有 `process`、`hyperv` 和 `default`。 Windows Server 主機上的隔離模式預設為 `process`，Windows 10 主機上的預設值則為 `hyperv`。 下列程式碼片段顯示如何在應用程式資訊清單檔中指定隔離模式。
+Windows 支援兩種容器隔離模式：分別為處理序和 Hyper-V。 在處理序隔離模式中，在相同主機電腦上執行的所有容器都與主機共用核心。 在 Hyper-V 隔離模式中，會在每個 Hyper-V 容器與容器主機之間隔離核心。 隔離模式是在應用程式資訊清單檔中指定的 `ContainerHostPolicies` 元素。 可以指定的隔離模式有 `process`、`hyperv` 和 `default`。 預設值為 Windows Server 主機上的程序隔離模式。 在 Windows 10 主機上，僅支援 Hyper-V 隔離模式，因此不論其隔離模式設定為何，容器都會以 Hyper-V 隔離模式執行。 下列程式碼片段顯示如何在應用程式資訊清單檔中指定隔離模式。
 
 ```xml
 <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
@@ -375,7 +382,7 @@ Windows 支援兩種容器隔離模式：分別為處理序和 Hyper-V。 在處
 
 應用程式處於 ```Ready``` 狀態時便已準備就緒︰![就緒][2]
 
-開啟瀏覽器並瀏覽至 http://containercluster.westus2.cloudapp.azure.com:8081。 您應該會看到 "Hello World!" 標題 顯示在瀏覽器中。
+開啟瀏覽器並瀏覽至 http://containercluster.westus2.cloudapp.azure.com:8081 。 您應該會看到 "Hello World!" 標題 顯示在瀏覽器中。
 
 ## <a name="clean-up"></a>清除
 當叢集在執行時，您需要繼續支付費用，請考慮[刪除您的叢集](service-fabric-cluster-delete.md)。 [合作對象叢集](https://try.servicefabric.azure.com/)會在幾個小時後自動刪除。
@@ -387,19 +394,44 @@ docker rmi helloworldapp
 docker rmi myregistry.azurecr.io/samples/helloworldapp
 ```
 
+## <a name="windows-server-container-os-and-host-os-compatibility"></a>Windows Server 容器作業系統和主機作業系統的相容性
+
+Windows Server 容器在主機 OS 的所有版本之間不相容。 例如︰
+ 
+- 使用 Windows Server 1709 版本所建置的 Windows Server 容器無法在執行 Windows Server 2016 版本的主機上運作。 
+- 使用 Windows Server 2016 版本所建置的 Windows Server 容器在執行 Windows Server 1709 版本的主機上只能以 hyperv 隔離模式運作。 
+- 透過使用 Windows Server 2016 所建置的 Windows Server 容器，可能必須確保在執行 Windows Server 2016 的主機上以程序隔離模式執行時，容器 OS 和主機 OS 的修訂版本相同。
+ 
+若要深入了解，請參閱 [Windows 容器版本相容性](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility)。
+
+在建置容器並部署到 Service Fabric 叢集時，請考慮主機 OS 和容器 OS 的相容性。 例如︰
+
+- 請確定您部署的容器具有的 OS 與您叢集節點上的 OS 相容。
+- 請確定為容器應用程式所指定的隔離模式，與其部署所在節點上的容器 OS 支援一致。
+- 請考慮叢集節點或容器的 OS 升級可能會對其相容性造成何種影響。 
+
+我們建議您利用下列作法，確定容器已正確部署在 Service Fabric 叢集上：
+
+- 使用具有 Docker 映像的明確映像標記來指定用於建立容器的 Windows Server OS 版本。 
+- 使用您應用程式資訊清單檔案中的 [OS 標記](#specify-os-build-specific-container-images)，來確定您的應用程式在不同的 Windows Server 版本和升級之間相容。
+
+> [!NOTE]
+> 使用 Service Fabric 6.2 版和更新版本，您可以在 Windows 10 主機上部署以 Windows Server 2016 為基礎的容器。 在 Windows 10 上，不論應用程式資訊清單中所設定的隔離模式為何，容器都會以 Hyper-V 隔離模式執行。 若要深入了解，請參閱[設定隔離模式](#configure-isolation-mode)。   
+>
+ 
 ## <a name="specify-os-build-specific-container-images"></a>指定作業系統組建專屬的容器映像 
 
-Windows Server 容器 (處理序隔離模式) 可能無法與較新版本的作業系統相容。 例如，使用 Windows Server 2016 所建置的 Windows Server 容器無法在 Windows Server 1709 版本上運作。 因此，如果叢集節點已更新為最新版本，使用較早作業系統版本所建置的容器服務可能會失敗。 若要避免此執行階段的 6.1 版或更新版本出現此問題，Service Fabric 支援為每個容器指定多個作業系統映像，並在其中標記作業系統的組建版本 (可在 Windows 命令提示字元上執行 `winver` 來取得組建版本)。 更新應用程式資訊清單，並指定每個作業系統版本的映像覆寫後，再更新節點上的作業系統。 下列程式碼片段會示範如何在應用程式資訊清單 (**ApplicationManifest.xml**) 中指定多個容器映像：
+Windows Server 容器在不同的 OS 版本之間可能不相容。 例如，使用 Windows Server 2016 所建置的 Windows Server 容器無法在 Windows Server 1709 版本上以程序隔離模式運作。 因此，如果叢集節點更新為最新版本，則使用較早 OS 版本建置的容器服務可能會失敗。 為了避免執行階段 6.1 版和更新版本發生這種情況，Service Fabric 支援為每個容器指定多個 OS 映像，並以應用程式資訊清單中的 OS 組建版本標記它們。 您可藉由在 Windows 命令提示字元執行 `winver` 來取得 OS 組建版本。 更新應用程式資訊清單，並指定每個作業系統版本的映像覆寫後，再更新節點上的作業系統。 下列程式碼片段會示範如何在應用程式資訊清單 (**ApplicationManifest.xml**) 中指定多個容器映像：
 
 
 ```xml
-<ContainerHostPolicies> 
+      <ContainerHostPolicies> 
          <ImageOverrides> 
            <Image Name="myregistry.azurecr.io/samples/helloworldappDefault" /> 
                <Image Name="myregistry.azurecr.io/samples/helloworldapp1701" Os="14393" /> 
                <Image Name="myregistry.azurecr.io/samples/helloworldapp1709" Os="16299" /> 
          </ImageOverrides> 
-     </ContainerHostPolicies> 
+      </ContainerHostPolicies> 
 ```
 WIndows Server 2016 的組建版本為 14393，而 Windows Server 1709 版本的組建版本為 16299。 服務資訊清單可繼續為每個容器服務指定唯一一個映像，如下所示：
 

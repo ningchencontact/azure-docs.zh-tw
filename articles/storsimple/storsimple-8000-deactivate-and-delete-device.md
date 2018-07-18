@@ -1,12 +1,12 @@
 ---
-title: "停用及刪除 StorSimple 8000 系列裝置 | Microsoft Docs"
-description: "描述如何停用然後刪除 StorSimple 裝置，將其從服務中移除。"
+title: 停用及刪除 StorSimple 8000 系列裝置 | Microsoft Docs
+description: 描述如何停用然後刪除 StorSimple 裝置，將其從服務中移除。
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108456"
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>停用及刪除 StorSimple 裝置
 

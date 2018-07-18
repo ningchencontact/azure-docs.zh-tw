@@ -1,8 +1,8 @@
 ---
-title: "Azure 計算選項 - Azure 雲端服務 | Microsoft Docs"
-description: "了解 Azure 計算裝載選項以及其運作方式：App Service、Azure 雲端服務和虛擬機器"
+title: Azure 計算選項 - Azure 雲端服務 | Microsoft Docs
+description: 了解 Azure 計算裝載選項以及其運作方式：App Service、Azure 雲端服務和虛擬機器
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
 ms.assetid: ed7ad348-6018-41bb-a27d-523accd90305
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29120279"
 ---
 # <a name="should-i-choose-azure-cloud-services-or-something-else"></a>我該選擇 Azure 雲端服務還是其他服務？
 Azure 雲端服務適合您嗎？ Azure 對於執行的應用程式提供不同的裝載模型。 每一個各提供一組不同的服務。 您要選擇哪一個取決於您確實要嘗試執行的內容。

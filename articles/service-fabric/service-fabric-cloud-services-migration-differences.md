@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206477"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>移轉應用程式之前，先了解「雲端服務」與 Service Fabric 之間的差異。
 Microsoft Azure Service Fabric 為次世代雲端應用程式平台，適用於高度可調整且高度可靠的分散式應用程式。 其中導入了許多封裝、部署、更新及管理分散式雲端應用程式的新功能。 

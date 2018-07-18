@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 60a1f6a5-5478-46c0-80a8-18fe62da17a8
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/03/2017
 ms.author: ryanwi
-ms.openlocfilehash: ca19b70e3651f72d6fe87fcb3cd2ace2eecf3402
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 244a26df25e39fd4000a8a2692edd8205e354582
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205241"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643238"
 ---
 # <a name="get-started-with-deploying-and-upgrading-applications-on-your-local-cluster"></a>在您的本機叢集上開始部署和升級應用程式
 Azure Service Fabric SDK 包含完整的本機開發環境，可讓您快速地在本機叢集上開始部署和管理應用程式。 在本文中，您會從 Windows PowerShell 建立本機叢集、將現有的應用程式部署至該叢集，然後將應用程式升級為新版本。

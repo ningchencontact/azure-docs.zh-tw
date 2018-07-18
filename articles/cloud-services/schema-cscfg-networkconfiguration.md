@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359640"
 ---
 # <a name="azure-cloud-services-config-networkconfiguration-schema"></a>Azure 雲端服務組態 NetworkConfiguration 結構描述
 

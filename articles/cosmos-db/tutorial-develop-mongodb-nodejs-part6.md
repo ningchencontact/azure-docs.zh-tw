@@ -2,24 +2,22 @@
 title: 適用於 Azure 的 MongoDB、Angular 及 Node 教學課程 - 第 6 部分 | Microsoft Docs
 description: 本教學課程系列的第 6 部分，有關使用您用於 MongoDB 的完全相同 API，以 Azure Cosmos DB 上的 Angular 和 Node 建立 MongoDB 應用程式
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
 editor: ''
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: ''
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 09/05/2017
+ms.date: 06/17/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 00a8cfebbd995d9a1bb99a691fd84bd742855f78
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2a437c02c9391b09cc2adfe84efe677d31f486b4
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231656"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-6-add-post-put-and-delete-functions-to-the-app"></a>使用 Angular 和 Azure Cosmos DB 建立 MongoDB 應用程式 - 第 6 部分：將 Post、Put 和 Delete 函式新增至應用程式
 
@@ -56,7 +54,7 @@ ms.lasthandoff: 04/16/2018
 
    ```javascript
    function postHero(req, res) {
-     const originalHero = { id: req.body.id, name: req.body.name, saying: req.body.saying };
+     const originalHero = { uid: req.body.uid, name: req.body.name, saying: req.body.saying };
      const hero = new Hero(originalHero);
      hero.save(error => {
        if (checkServerError(res, error)) return;
@@ -107,11 +105,11 @@ ms.lasthandoff: 04/16/2018
 1. 在 **routes.js** 中，在 post 路由器之後新增 `put` 和 `delete` 路由器。
 
     ```javascript
-    router.put('/hero/:id', (req, res) => {
+    router.put('/hero/:uid', (req, res) => {
       heroService.putHero(req, res);
     });
 
-    router.delete('/hero/:id', (req, res) => {
+    router.delete('/hero/:uid', (req, res) => {
       heroService.deleteHero(req, res);
     });
     ```
@@ -124,11 +122,11 @@ ms.lasthandoff: 04/16/2018
    ```javascript
    function putHero(req, res) {
      const originalHero = {
-       id: parseInt(req.params.id, 10),
+       uid: parseInt(req.params.uid, 10),
        name: req.body.name,
        saying: req.body.saying
      };
-     Hero.findOne({ id: originalHero.id }, (error, hero) => {
+     Hero.findOne({ uid: originalHero.uid }, (error, hero) => {
        if (checkServerError(res, error)) return;
        if (!checkFound(res, hero)) return;
 
@@ -143,8 +141,8 @@ ms.lasthandoff: 04/16/2018
    }
 
    function deleteHero(req, res) {
-     const id = parseInt(req.params.id, 10);
-     Hero.findOneAndRemove({ id: id })
+     const uid = parseInt(req.params.uid, 10);
+     Hero.findOneAndRemove({ uid: uid })
        .then(hero => {
          if (!checkFound(res, hero)) return;
          res.status(200).json(hero);

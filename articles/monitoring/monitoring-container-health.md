@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2018
+ms.date: 06/22/2018
 ms.author: magoedte
-ms.openlocfilehash: f0501d4404375ee44b96ae4514c15e69b616d38a
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 23109a74fa707759cc3300896392dcc129f3e28c
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335749"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>監視 Azure Kubernetes Service (AKS) 容器健康情況 (預覽)
 
@@ -36,10 +37,10 @@ ms.lasthandoff: 05/04/2018
 ## <a name="requirements"></a>需求 
 開始之前，請檢閱下列詳細資料，以了解支援的必要條件。
 
-- 支援下列 AKS 叢集版本：1.7.7 至 1.9.6。
+- 新的或現有的 AKS 叢集
 - 適用於 Linux 的 OMS 代理程式容器化版本 microsoft/oms:ciprod04202018 與更新版本。 此代理程式會在容器健康情況上線期間自動安裝。  
 - Log Analytics 工作區。  它可在您啟用新 AKS 叢集的監視功能時建立，或您可以透過 [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md)、[PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json) 或從 [Azure 入口網站](../log-analytics/log-analytics-quick-create-workspace.md)來建立。
-
+- 用於啟用容器監視的 Log Analytics 參與者角色成員。  如需有關如何控制 Log Analytics 工作區存取的詳細資訊，請參閱[管理工作區](../log-analytics/log-analytics-manage-access.md)。
 
 ## <a name="components"></a>元件 
 
@@ -49,8 +50,8 @@ ms.lasthandoff: 05/04/2018
 >如果您已部署 AKS 叢集，則可以使用提供的 Azure Resource Manager 範本啟用監視，如本文稍後所示。 您無法使用 `kubectl` 來生集、刪除、重新部署或部署此代理程式。  
 >
 
-## <a name="log-in-to-azure-portal"></a>登入 Azure 入口網站
-在 [https://portal.azure.com](https://portal.azure.com) 上登入 Azure 入口網站。 
+## <a name="sign-in-to-azure-portal"></a>登入 Azure 入口網站
+在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。 
 
 ## <a name="enable-container-health-monitoring-for-a-new-cluster"></a>啟用新叢集的容器健康情況監視
 只有當您從 Azure 入口網站部署 AKS 叢集，才能啟用監視。  請依照快速入門文章[部署 Azure Kubernetes Service (AKS) 叢集](../aks/kubernetes-walkthrough-portal.md)中的步驟執行。  當您在 [監視] 頁面上時，在 [啟用監視] 選項選取 [是] 即可啟用，然後可以選取現有或建立新的 Log Analytics 工作區。  
@@ -65,7 +66,27 @@ ms.lasthandoff: 05/04/2018
 啟用監視之後，大約需要 15 分鐘的時間，您才能看到該叢集的作業資料。  
 
 ## <a name="enable-container-health-monitoring-for-existing-managed-clusters"></a>啟用現有受控叢集的容器健康情況監視
-您無法從入口網站完成啟用監視已部署的 AKS 容器，只能透過 PowerShell Cmdlet **New-AzureRmResourceGroupDeployment** 或 Azure CLI 使用提供的 Azure Resource Manager 範本來執行。  一個 JSON 範本可指定啟用監視的設定，而另一個 JSON 範本包含參數值，您可設定來指定下列各項：
+您可以從 Azure 入口網站或透過 PowerShell Cmdlet **New-AzureRmResourceGroupDeployment** 或 Azure CLI 使用提供的 Azure Resource Manager 範本，來完對已部署的 AKS 容器啟用監視。  
+
+
+### <a name="enable-from-azure-portal"></a>從 Azure 入口網站啟用
+執行下列步驟從 Azure 入口網站啟用 AKS 容器的監視。
+
+1. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中輸入**容器**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Kubernetes 服務]。<br><br> ![Azure 入口網站](./media/monitoring-container-health/azure-portal-01.png)<br><br>  
+2. 在容器清單中選取容器。
+3. 在容器的概觀頁面上，選取 [監視容器健康情況]，然後 [上線以進行容器健康情況與記錄] 頁面隨即出現。
+4. 在 [上線以進行容器健康情況與記錄] 頁面上，如果相同訂用帳戶中有現有 Log Analytics 工作區可作為叢集，請從下拉式清單中加以選取。  清單會預先選取訂用帳戶中可部署 AKS 容器的預設工作區和位置。 您可以選取 [新建]，並在相同訂用帳戶中指定新的工作區。<br><br> ![啟用 AKS 容器健康情況監視](./media/monitoring-container-health/container-health-enable-brownfield.png) 
+
+    如果您選取 [新建]，[建立新工作區] 窗格會隨即出現。 [區域] 預設值是建立容器資源所在的區域，您可以接受預設值或選取不同的區域，然後指定工作區的名稱。  按一下 [建立] 以接受您的選取。<br><br> ![定義容器監視的工作區](./media/monitoring-container-health/create-new-workspace-01.png)  
+
+    >[!NOTE]
+    >在現階段，您無法在「美國中西部」區域建立新的工作區，您只能選取該區域中預先存在的工作區。  即使您可以從清單中選取該區域並讓部署啟動，但不久之後就會失敗。  
+    >
+ 
+啟用監視之後，大約需要 15 分鐘的時間，您才能看到該叢集的作業資料。 
+
+### <a name="enable-using-azure-resource-manager-template"></a>啟用使用 Azure Resource Manager 範本
+此範本包含兩個 JSON 範本，一個範本可指定啟用監視的設定，而另一個 JSON 範本包含參數值，您可設定來指定下列各項：
 
 * AKS 容器資源識別碼 
 * 叢集部署所在的資源群組 
@@ -77,7 +98,7 @@ Log Analytics 工作區必須手動建立。  您可以從 [Azure 入口網站](
 
 如果您選擇使用 Azure CLI，必須先在本機安裝和使用 CLI。  您必須執行 Azure CLI 2.0.27 版或更新版本。 請執行 `az --version` 來識別版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
 
-### <a name="create-and-execute-template"></a>建立和執行範本
+#### <a name="create-and-execute-template"></a>建立和執行範本
 
 1. 複製以下 JSON 語法並貼到您的檔案中：
 
@@ -89,82 +110,82 @@ Log Analytics 工作區必須手動建立。  您可以從 [Azure 入口網站](
       "aksResourceId": {
         "type": "string",
         "metadata": {
-           "description": "AKS Cluster resource id"
-        }
+           "description": "AKS Cluster Resource ID"
+           }
     },
     "aksResourceLocation": {
+    "type": "string",
+     "metadata": {
+        "description": "Location of the AKS resource e.g. \"East US\""
+       }
+    },
+    "workspaceResourceId": {
       "type": "string",
       "metadata": {
-        "description": "Location of the AKS resource e.g. \"East US\""
-        }
-      },
-      "workspaceId": {
-        "type": "string",
-        "metadata": {
-          "description": "Azure Monitor Log Analytics resource id"
-        }
-      },
-      "workspaceRegion": {
-        "type": "string",
-        "metadata": {
-          "description": "Azure Monitor Log Analytics workspace region"
-        }
+         "description": "Azure Monitor Log Analytics Resource ID"
+       }
+    },
+    "workspaceRegion": {
+    "type": "string",
+    "metadata": {
+       "description": "Azure Monitor Log Analytics workspace region"
       }
+     }
     },
     "resources": [
       {
-        "name": "[split(parameters('aksResourceId'),'/')[8]]",
-        "type": "Microsoft.ContainerService/managedClusters",
-        "location": "[parameters('aksResourceLocation')]",
-        "apiVersion": "2018-03-31",
-        "properties": {
-          "mode": "Incremental",
-          "id": "[parameters('aksResourceId')]",
-          "addonProfiles": {
-            "omsagent": {
-              "enabled": true,
-              "config": {
-                "logAnalyticsWorkspaceResourceID": "[parameters('workspaceId')]"
-              }
-            }
+    "name": "[split(parameters('aksResourceId'),'/')[8]]",
+    "type": "Microsoft.ContainerService/managedClusters",
+    "location": "[parameters('aksResourceLocation')]",
+    "apiVersion": "2018-03-31",
+    "properties": {
+      "mode": "Incremental",
+      "id": "[parameters('aksResourceId')]",
+      "addonProfiles": {
+        "omsagent": {
+          "enabled": true,
+          "config": {
+            "logAnalyticsWorkspaceResourceID": "[parameters('workspaceResourceId')]"
           }
-        }
-      },
-      {
-            "type": "Microsoft.Resources/deployments",
-            "name": "[Concat('ContainerInsights', '(', split(parameters('workspaceId'),'/')[8], ')')]",
-            "apiVersion": "2017-05-10",
-            "subscriptionId": "[split(parameters('workspaceId'),'/')[2]]",
-            "resourceGroup": "[split(parameters('workspaceId'),'/')[4]]",
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0.0",
-                    "parameters": {},
-                    "variables": {},
-                    "resources": [
-                        {
-                            "apiVersion": "2015-11-01-preview",
-                            "type": "Microsoft.OperationsManagement/solutions",
-                            "location": "[parameters('workspaceRegion')]",
-                            "name": "[Concat('ContainerInsights', '(', split(parameters('workspaceId'),'/')[8], ')')]",
-                            "properties": {
-                                "workspaceResourceId": "[parameters('workspaceId')]"
-                            },
-                            "plan": {
-                                "name": "[Concat('ContainerInsights', '(', split(parameters('workspaceId'),'/')[8], ')')]",
-                                "product": "[Concat('OMSGallery/', 'ContainerInsights')]",
-                                "promotionCode": "",
-                                "publisher": "Microsoft"
-                            }
-                        }
-                    ]
-                },
-                "parameters": {}
-            }
          }
-      ]
+       }
+      }
+     },
+    {
+        "type": "Microsoft.Resources/deployments",
+        "name": "[Concat('ContainerInsights', '(', split(parameters('workspaceResourceId'),'/')[8], ')')]",
+        "apiVersion": "2017-05-10",
+        "subscriptionId": "[split(parameters('workspaceResourceId'),'/')[2]]",
+        "resourceGroup": "[split(parameters('workspaceResourceId'),'/')[4]]",
+        "properties": {
+            "mode": "Incremental",
+            "template": {
+                "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                "contentVersion": "1.0.0.0",
+                "parameters": {},
+                "variables": {},
+                "resources": [
+                    {
+                        "apiVersion": "2015-11-01-preview",
+                        "type": "Microsoft.OperationsManagement/solutions",
+                        "location": "[parameters('workspaceRegion')]",
+                        "name": "[Concat('ContainerInsights', '(', split(parameters('workspaceResourceId'),'/')[8], ')')]",
+                        "properties": {
+                            "workspaceResourceId": "[parameters('workspaceResourceId')]"
+                        },
+                        "plan": {
+                            "name": "[Concat('ContainerInsights', '(', split(parameters('workspaceResourceId'),'/')[8], ')')]",
+                            "product": "[Concat('OMSGallery/', 'ContainerInsights')]",
+                            "promotionCode": "",
+                            "publisher": "Microsoft"
+                        }
+                    }
+                ]
+            },
+            "parameters": {}
+        }
+       }
+     ]
     }
     ```
 
@@ -173,26 +194,26 @@ Log Analytics 工作區必須手動建立。  您可以從 [Azure 入口網站](
 
     ```json
     {
-       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+       "$schema": "https://schema.management.azure.com/  schemas/2015-01-01/deploymentParameters.json#",
        "contentVersion": "1.0.0.0",
        "parameters": {
          "aksResourceId": {
-           "value": "/subscriptions/<SubscriptionId>/resourcegroups/<ResourceGroup>/providers/Microsoft.ContainerService/managedClusters/<ResourceName>"
-        },
-        "aksResourceLocation": {
-          "value": "East US"
-        },
-        "workspaceId": {
-          "value": "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroup>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>"
-        },
-        "workspaceRegion": {
-          "value": "eastus"
-        }
-      }
+           "value": "/subscriptions/<SubscroptiopnId>/resourcegroups/<ResourceGroup>/providers/Microsoft.ContainerService/managedClusters/<ResourceName>"
+       },
+       "aksResourceLocation": {
+         "value": "East US"
+       },
+       "workspaceResourceId": {
+         "value": "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroup>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>"
+       },
+       "workspaceRegion": {
+         "value": "eastus"
+       }
+     }
     }
     ```
 
-4. 以您在 AKS 叢集的 [AKS 概觀] 頁面找到的值來編輯 **aksResourceId**、**aksResourceLocation** 的值。  **workspaceId** 的值應為 Log Analytics 工作區的名稱，並為 **workspaceRegion** 指定要在其中建立工作區的位置。    
+4. 以您在 AKS 叢集的 [AKS 概觀] 頁面找到的值來編輯 **aksResourceId**、**aksResourceLocation** 的值。  **workspaceResourceId** 值是您 Log Analytics 工作區的完整資源識別碼，其中包含工作區名稱。  同時針對 **workspaceRegion** 指定工作區所在位置。    
 5. 將此檔案儲存為本機資料夾的 **existingClusterParam.json**。
 6. 您已準備好部署此範本。 
 
@@ -223,12 +244,12 @@ Log Analytics 工作區必須手動建立。  您可以從 [Azure 入口網站](
 啟用監視之後，大約需要 15 分鐘的時間，您才能看到該叢集的作業資料。  
 
 ## <a name="verify-agent-deployed-successfully"></a>請確認已成功部署代理程式
-若要確認已正確部署 OMS 代理程式，請執行下列命令：` kubectl get ds omsagent -—namespace=kube-system`。
+若要確認已正確部署 OMS 代理程式，請執行下列命令：`kubectl get ds omsagent --namespace=kube-system`。
 
 輸出應像下面這樣，才表示確實正確部署：
 
 ```
-User@aksuser:~$ kubectl get ds omsagent -—namespace=kube-system 
+User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
 ```  
@@ -321,12 +342,12 @@ Kubernetes 物件後面的資料列階層會從叢集中的節點開始。  展�
 | 容器服務記錄檔 | `ContainerServiceLog`  | TimeGenerated、Computer、TimeOfCommand、Image、Command、SourceSystem、ContainerID |
 | 容器節點清查 | `ContainerNodeInventory_CL`| TimeGenerated、Computer、ClassName_s、DockerVersion_s、OperatingSystem_s、Volume_s、Network_s、NodeRole_s、OrchestratorType_s、InstanceID_g、SourceSystem|
 | 容器流程 | `ContainerProcess_CL` | TimeGenerated、Computer、Pod_s、Namespace_s、ClassName_s、InstanceID_s、Uid_s、PID_s、PPID_s、C_s、STIME_s、Tty_s、TIME_s、Cmd_s、Id_s、Name_s、SourceSystem |
-| 清查 Kubernetes 叢集中的 Pod | `KubePodInventory` | TimeGenerated、Computer、ClusterId 、ContainerCreationTimeStamp、PodUid、PodCreationTimeStamp、ContainerRestartCount、PodRestartCount、PodStartTime、ContainerStartTime、ServiceName、ControllerKind、ControllerName、ContainerStatus、ContainerID、ContainerName、Name、PodLabel、Namespace、PodStatus、ClusterName、PodIp、SourceSystem |
+| 清查 Kubernetes 叢集中的 Pod | `KubePodInventory` | TimeGenerated、Computer、ClusterId、ContainerCreationTimeStamp、PodUid、PodCreationTimeStamp、ContainerRestartCount、PodRestartCount、PodStartTime、ContainerStartTime、ServiceName、ControllerKind、ControllerName、ContainerStatus、ContainerID、ContainerName、Name、PodLabel、Namespace、PodStatus、ClusterName、PodIp、SourceSystem |
 | 清查 Kubernetes 叢集中的節點部分 | `KubeNodeInventory` | TimeGenerated、Computer、ClusterName、ClusterId、LastTransitionTimeReady、Labels、Status、KubeletVersion、KubeProxyVersion、CreationTimeStamp、SourceSystem | 
 | Kubernetes 事件 | `KubeEvents_CL` | TimeGenerated、Computer、ClusterId_s、FirstSeen_t、LastSeen_t、Count_d、ObjectKind_s、Namespace_s、Name_s、Reason_s、Type_s、TimeGenerated_s、SourceComponent_s、ClusterName_s、Message、SourceSystem | 
 | Kubernetes 叢集中的服務 | `KubeServices_CL` | TimeGenerated、ServiceName_s、Namespace_s、SelectorLabels_s、ClusterId_s、ClusterName_s、ClusterIP_s、ServiceType_s、SourceSystem | 
-| Kubernetes 叢集節點部分的效能計量 | Perf &#124; where ObjectName == “K8SNode” | cpuUsageNanoCores、memoryWorkingSetBytes、memoryRssBytes、networkRxBytes、networkTxBytes、restartTimeEpoch、networkRxBytesPerSec、networkTxBytesPerSec、cpuAllocatableNanoCores、memoryAllocatableBytes、cpuCapacityNanoCores、memoryCapacityBytes | 
-| Kubernetes 叢集容器部分的效能計量 | Perf &#124; where ObjectName == “K8SContainer” | cpuUsageNanoCores、memoryWorkingSetBytes、memoryRssBytes、restartTimeEpoch、cpuRequestNanoCores、memoryRequestBytes、cpuLimitNanoCores、memoryLimitBytes | 
+| Kubernetes 叢集節點部分的效能計量 | Perf &#124; where ObjectName == “K8SNode” | Computer、ObjectName、CounterName &#40;cpuUsageNanoCores、memoryWorkingSetBytes、memoryRssBytes、networkRxBytes、networkTxBytes、restartTimeEpoch、networkRxBytesPerSec、networkTxBytesPerSec、cpuAllocatableNanoCores、memoryAllocatableBytes、cpuCapacityNanoCores、memoryCapacityBytes&#41;、CounterValue、TimeGenerated、CounterPath、SourceSystem | 
+| Kubernetes 叢集容器部分的效能計量 | Perf &#124; where ObjectName == “K8SContainer” | CounterName &#40;cpuUsageNanoCores、memoryWorkingSetBytes、memoryRssBytes、restartTimeEpoch、cpuRequestNanoCores、memoryRequestBytes、cpuLimitNanoCores、memoryLimitBytes&#41;、CounterValue、TimeGenerated、CounterPath、SourceSystem | 
 
 ## <a name="search-logs-to-analyze-data"></a>搜尋記錄來分析資料
 Log Analytics 可協助您找出趨勢、診斷瓶頸、預測或讓將資料相互關聯，協助您判斷目前叢集設定是否以最佳方式運作。  提供可立即開始使用的預先定義記錄搜尋，或自訂以您想要的方式傳回資訊。 
@@ -363,7 +384,7 @@ Log Analytics 可協助您找出趨勢、診斷瓶頸、預測或讓將資料相
         "aksResourceId": {
            "type": "string",
            "metadata": {
-             "description": "AKS Cluster resource id"
+             "description": "AKS Cluster Resource ID"
            }
        },
       "aksResourceLocation": {
@@ -416,7 +437,7 @@ Log Analytics 可協助您找出趨勢、診斷瓶頸、預測或讓將資料相
 
 4. 以您在所選取叢集的 [屬性] 頁面所找到 AKS 叢集的值來編輯 **aksResourceId** 與 **aksResourceLocation** 的值。<br><br> ![容器屬性頁面](./media/monitoring-container-health/container-properties-page.png)<br>
 
-    當您在 [屬性] 頁面上時，亦請複製 [工作區資源識別碼]。如果您稍後決定要刪除 Log Analytics 工作區 (不會在此過程中執行)，必須要有這個值。  
+    當您在 [屬性] 頁面上時，亦請複製 [工作區資源識別碼]。  如果您稍後決定要刪除 Log Analytics 工作區 (不會在此過程中執行)，必須要有這個值。  
 
 5. 將此檔案儲存為本機資料夾的 **OptOutParam.json**。
 6. 您已準備好部署此範本。 
@@ -429,7 +450,7 @@ Log Analytics 可協助您找出趨勢、診斷瓶頸、預測或讓將資料相
         New-AzureRmResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGroupName> -TemplateFile .\OptOutTemplate.json -TemplateParameterFile .\OptOutParam.json
         ```
 
-        可能需要幾分鐘的時間才能完成設定變更。 完成後，您會看到類似下列包含結果的訊息：
+        可能需要幾分鐘的時間才能完成設定變更。 完成後會傳回類似下列包含結果的訊息：
 
         ```powershell
         ProvisioningState       : Succeeded
@@ -443,7 +464,7 @@ Log Analytics 可協助您找出趨勢、診斷瓶頸、預測或讓將資料相
         az group deployment create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
         ```
 
-        可能需要幾分鐘的時間才能完成設定變更。 完成後，您會看到類似下列包含結果的訊息：
+        可能需要幾分鐘的時間才能完成設定變更。 完成後會傳回類似下列包含結果的訊息：
 
         ```azurecli
         ProvisioningState       : Succeeded

@@ -1,21 +1,22 @@
 ---
 title: 在 Azure IoT Central 中自訂操作員的檢視 | Microsoft Docs
 description: 身為建置者，您可以在 Azure IoT Central 應用程式中自訂操作員的檢視。
-services: iot-central
 author: sandeeppujar
 ms.author: sadeepu
 ms.date: 04/16/2018
 ms.topic: tutorial
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 3e0dfab05fc7972a055853af45f0d1b13d52c0a1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
+manager: peterpr
+ms.openlocfilehash: ddb6e6d7859227b8eec7f13b95fab06b333dacda
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202317"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235363"
 ---
-# <a name="3---customize-the-azure-iot-central-operators-view"></a>3 - 自訂 Azure IoT Central 操作員的檢視
+# <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>教學課程：自訂 Azure IoT 中心操作員的檢視
 
 本教學課程將為建置者說明如何自訂應用程式的操作員檢視。 當您以建置者的身分對應用程式進行變更時，您可以在 Microsoft Azure IoT Central 應用程式中預覽操作員的檢視。
 
@@ -35,8 +36,8 @@ ms.locfileid: "34202317"
 
 在開始之前，您應先完成兩個先前的教學課程：
 
-1. [在 Azure IoT Central 應用程式中定義新的裝置類型](tutorial-define-device-type.md)。
-1. [為您的裝置設定規則和動作](tutorial-configure-rules.md)。
+* [在 Azure IoT Central 應用程式中定義新的裝置類型](tutorial-define-device-type.md)。
+* [為您的裝置設定規則和動作](tutorial-configure-rules.md)。
 
 ## <a name="configure-your-device-dashboard"></a>設定裝置儀表板
 
@@ -46,17 +47,17 @@ ms.locfileid: "34202317"
 
     ![總管頁面](media/tutorial-customize-operator/explorer.png)
 
-1. 若要開始自訂連線的空調裝置儀表板，請選取**連線的空調 (1.0.0)** 裝置範本。 選擇您在[在應用程式中定義新的裝置類型](tutorial-define-device-type.md)教學課程中建立的**連線的空調-1** 裝置：
+2. 若要開始自訂連線的空調裝置儀表板，請選取**連線的空調 (1.0.0)** 裝置範本。 選擇您在[在應用程式中定義新的裝置類型](tutorial-define-device-type.md)教學課程中建立的**連線的空調-1** 裝置：
 
     ![選取連線的空調裝置](media/tutorial-customize-operator/selectdevice.png)
 
     當您對裝置 (例如**連線的空調-1**) 進行變更時，您會變更基礎範本。 如需詳細資訊，請參閱[建立新的裝置範本版本](howto-version-devicetemplate.md)。
 
-1. 若要編輯儀表板，請選擇 [儀表板]：
+3. 若要編輯儀表板，請選擇 [儀表板]：
 
     ![裝置範本儀表板頁面](media/tutorial-customize-operator/dashboard.png)
 
-1. 若要將 KPI 圖格新增至儀表板，請選擇 [KPI]：
+4. 若要將 KPI 圖格新增至儀表板，請選擇 [KPI]：
 
     ![新增 KPI](media/tutorial-customize-operator/addkpi.png)
 
@@ -69,11 +70,11 @@ ms.locfileid: "34202317"
     | 彙總 | 最大值 |
     | 時間範圍  | 過去 1 星期 |
 
-1. 選擇 [儲存]。 您現在可以在儀表板上檢視 KPI 圖格：
+5. 選擇 [儲存]。 您現在可以在儀表板上檢視 KPI 圖格：
 
     ![KPI 圖格](media/tutorial-customize-operator/temperaturekpi.png)
 
-1. 若要移動儀表板上的圖格或調整其大小，請將滑鼠指標移至圖格上方。 您可以將圖格拖曳至新位置，或調整其大小：
+6. 若要移動儀表板上的圖格或調整其大小，請將滑鼠指標移至圖格上方。 您可以將圖格拖曳至新位置，或調整其大小：
 
     ![編輯儀表板版面配置](media/tutorial-customize-operator/dashboardlayout.png)
 
@@ -85,7 +86,7 @@ ms.locfileid: "34202317"
 
     ![設定頁面](media/tutorial-customize-operator/settings.png)
 
-1. 您可以移動設定圖格以及調整其大小：
+2. 您可以移動設定圖格以及調整其大小：
 
     ![編輯設定版面配置](media/tutorial-customize-operator/settingslayout.png)
 
@@ -100,7 +101,7 @@ ms.locfileid: "34202317"
 
     ![屬性頁面](media/tutorial-customize-operator/properties.png)
 
-1. 您可以移動屬性欄位以及調整其大小：
+2. 您可以移動屬性欄位以及調整其大小：
 
     ![編輯屬性版面配置](media/tutorial-customize-operator/propertieslayout.png)
 
@@ -113,17 +114,17 @@ ms.locfileid: "34202317"
 
 1. 若要以操作員身分檢視連線的空調裝置，您必須將 [設計模式] 切換為關閉。 若要將 [設計模式] 切換為關閉，請將頁面右上方的 [設計模式] 切換為關閉。
 
-1. 若要更新此裝置的序號，請編輯序號圖格中的值，然後選擇 [儲存]：
+2. 若要更新此裝置的序號，請編輯序號圖格中的值，然後選擇 [儲存]：
 
     ![編輯屬性值](media/tutorial-customize-operator/editproperty.png)
 
-1. 若要將設定傳送至連線的空調，請選擇 [設定]，並變更圖格中的設定值，然後選擇 [更新]：
+3. 若要將設定傳送至連線的空調，請選擇 [設定]，並變更圖格中的設定值，然後選擇 [更新]：
 
     ![將設定傳送至裝置](media/tutorial-customize-operator/sendsetting.png)
 
     當裝置確認新的設定值時，該設定在圖格上會顯示為**已同步**。
 
-1. 身為操作員，您可以檢視建置者所設定的裝置儀表板：
+4. 身為操作員，您可以檢視建置者所設定的裝置儀表板：
 
     ![裝置儀表板的操作員檢視](media/tutorial-customize-operator/operatordashboard.png)
 
@@ -135,14 +136,14 @@ ms.locfileid: "34202317"
 
     ![應用程式建置者頁面](media/tutorial-customize-operator/builderhome.png)
 
-1. 若要自訂首頁，請從 [媒體櫃] 新增圖格。 選擇 [連結]，然後新增組織網站的詳細資料。 然後，選擇 [儲存]：
+2. 若要自訂首頁，請從 [媒體櫃] 新增圖格。 選擇 [連結]，然後新增組織網站的詳細資料。 然後，選擇 [儲存]：
 
     ![將連結新增至首頁](media/tutorial-customize-operator/addlink.png)
 
     > [!NOTE]
     > 您也可以將連結新增至 Azure IoT Central 應用程式內的頁面。 例如，您可以將連結新增至裝置儀表板或設定頁面。
 
-1. (選擇性) 選擇 [影像]，並上傳要在首頁上顯示的影像。 影像可以顯示在您加以點選時所將瀏覽到的 URL：
+3. (選擇性) 選擇 [影像]，並上傳要在首頁上顯示的影像。 影像可以顯示在您加以點選時所將瀏覽到的 URL：
 
     ![將影像新增至首頁](media/tutorial-customize-operator/addimage.png)
 

@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: dba7a6fcf936e9610a5f1f04e367d32e9aae6643
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f4278dc3af1074b6de299444d2b205396bc0a9c0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595303"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect 同步處理：了解預設組態
 本文說明現成可用的組態規則。 其中說明這些規則以及這些規則對組態有何影響。 本文也會引導您完成 Azure AD Connect 同步處理的預設組態。其目的是讓讀者了解組態模型 (名為宣告式佈建) 在實際範例中的運作情形。 本文假設您已使用安裝精靈安裝並設定 Azure AD Connect Sync。

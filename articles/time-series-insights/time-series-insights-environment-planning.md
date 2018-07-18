@@ -1,22 +1,22 @@
 ---
 title: 規劃調整您的 Azure 時間序列深入解析環境規模 | Microsoft Docs
-description: 本文說明在規劃 Azure 時間序列深入解析環境 (包括儲存容量、資料保留、輸入容量和監視) 時，如何遵循最佳做法。
+description: 本文說明在規劃 Azure 時間序列深入解析環境 (包括儲存容量、資料保留、輸入容量、監視和業務災害復原 (BCDR)) 時，如何遵循最佳做法。
 services: time-series-insights
 ms.service: time-series-insights
-author: jasonwhowell
+author: ashannon7
 ms.author: jasonh
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: 4da62d808caf1e88aef8e67f91815b959a19af0f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f0f414e43231fc6d873d639902fd4f71e48f1002
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751164"
 ---
 # <a name="plan-your-azure-time-series-insights-environment"></a>規劃 Azure 時間序列深入解析環境
 
@@ -94,8 +94,18 @@ ms.lasthandoff: 04/28/2018
 
 請注意，參考資料不會回溯加入。 這表示一旦設定和上傳參考資料集之後，只會比對目前和未來的輸入資料並加入參考資料集中。  如果您打算將大量歷程記錄資料傳送至 TSI，但沒有先在 TSI 中上傳或建立參考資料，則您可能要重新執行您的工作 (提醒您，這可不有趣)。  
 
-若要深入了解如何在 TSI 中建立、上傳及管理您的參考資料，請移至我們的「參考資料」文件 [文件] (https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set)。
+若要深入了解如何在 TSI 中建立、上傳及管理參考資料，請移至「參考資料」文件[文件](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set)。
 
+## <a name="business-disaster-recovery"></a>業務災害復原
+作為 Azure 服務，時間序列深入解析可提供高可用性 (HA)，在 Azure 區域層級使用備援，且解決方案不需任何額外的工作。 Microsoft Azure 平台也包含各種功能，以協助您建置具有災害復原 (DR) 功能或跨區域可用性的解決方案。 若想要為裝置或使用者提供全域、跨區域的高可用性，可善用這類 Azure DR 功能。 [Azure 業務持續性技術指引](../resiliency/resiliency-technical-guidance.md) 一文描述業務持續性和 DR 的 Azure 內建功能。 [Azure 應用程式的災害復原與高可用性][Azure 應用程式的災害復原與高可用性] 一文針對 Azure 應用程式的策略提供架構指引以達到 HA 和 DR。
+
+時間序列深入解析並未內建業務災害復原 (BCDR)。  不過，需要 BCDR 的客戶還是可以實作復原策略。 請在備份 Azure 區域中建立第二個時間序列深入解析環境，並從主要的事件來源將事件傳送至此第二環境，利用第二個專用取用者群組和該事件來源的 BCDR 指導方針。  
+
+1.  在第二個區域中建立環境。  若要深入了解如何建立時間序列深入解析環境，請參閱[這裡](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-get-started)的內容。
+2.  為事件來源建立第二個專用取用者群組，並將該事件來源連線至新環境。  請務必指定第二個專用取用者群組。  您可以遵循 [IoT 中樞文件](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub)或[事件中樞文件](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-data-access)來深入了解這方面的資訊。
+3.  如果主要區域會在災害事件發生期間停止運作，請將作業切換到備份時間序列深入解析環境來執行。  
+
+若要深入了解 IoT 中樞的 BCDR 原則，請移至[這裡](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-ha-dr)。  若要深入了解事件中樞的 BCDR 原則，請移至[這裡](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-geo-dr)。  
 
 ## <a name="next-steps"></a>後續步驟
 - [如何新增事件中樞的事件來源](time-series-insights-how-to-add-an-event-source-eventhub.md)

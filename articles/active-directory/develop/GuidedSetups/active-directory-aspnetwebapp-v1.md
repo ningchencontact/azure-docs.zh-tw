@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/09/2018
+ms.date: 05/23/2018
 ms.author: andret
-ms.openlocfilehash: 00fef27529dd1d69c13ceaf22e16d2b7cd47801f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6b4ad805fe799e328631c13af5a599a9d1dbd91d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32156456"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594562"
 ---
 <!--start-intro-->
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>將「使用 Microsoft 登入」新增至 ASP.NET Web 應用程式
@@ -221,7 +221,7 @@ ms.locfileid: "32156456"
 
 ### <a name="restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>註冊只來自一個組織之 Active Directory 執行個體的使用者以登入您的應用程式 (單一租用戶)
 
-這個選項是「LOB 應用程式」的常見案例：如果您想要讓應用程式只接受特定 Azure Active Directory 執行個體的成員帳戶登入 (包括該執行個體的「來賓帳戶」)，請從 `Common` 將 *web.config* 中的 `Tenant` 參數取代為該組織的租用戶名稱 – 例如 *contoso.onmicrosoft.com*。完成之後，請將您 [OWIN 啟動類別](#configure-the-authentication-pipeline)中的 `ValidateIssuer` 引數變更為 `true`。
+這個選項是「LOB 應用程式」的常見案例：如果您想要讓應用程式只接受特定 Azure Active Directory 執行個體的成員帳戶登入 (包括該執行個體的「來賓帳戶」)，請從 `Common` 將 *web.config* 中的 `Tenant` 參數取代為該組織的租用戶名稱 – 例如 *contoso.onmicrosoft.com*。 完成之後，請將您 [OWIN 啟動類別](#configure-the-authentication-pipeline)中的 `ValidateIssuer` 引數變更為 `true`。
 
 若只要允許來自某一特定組織清單的使用者登入，請將 `ValidateIssuer` 設定為 true 並使用 `ValidIssuers` 參數指定組織清單。
 

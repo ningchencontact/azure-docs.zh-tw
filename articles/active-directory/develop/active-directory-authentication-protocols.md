@@ -16,12 +16,13 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 71b12b848b1be309823bac46a219c0bb25e26092
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: hirsin
+ms.openlocfilehash: f591898dbe40d2756d5797636ca529c359959f92
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156512"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317070"
 ---
 # <a name="azure-active-directory-authentication-protocols"></a>Azure Active Directory 驗證通訊協定
 Azure Active Directory (Azure AD) 支援數個最常用的驗證和授權通訊協定。 本節中的主題描述 Azure AD 中所支援的通訊協定和其實作。 這些主題包括支援的宣告類型回顧、同盟中繼資料的使用簡介、詳細的 OAuth 2.0  和 SAML 2.0 通訊協定參考文件，以及疑難排解小節。

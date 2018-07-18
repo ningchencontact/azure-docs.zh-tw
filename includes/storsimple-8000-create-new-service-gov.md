@@ -2,7 +2,7 @@
 
 
 #### <a name="to-create-a-new-service"></a>建立新服務
-1. 使用您的 Microsoft 帳戶認證以登入 [Microsoft Azure Government 入口網站](https://portal.azure.us/)。
+1. 使用您的 Microsoft 帳戶認證來登入 [Microsoft Azure Government 入口網站](https://portal.azure.us/)。
 2. 在政府入口網站中，按一下 [+]，然後在 Marketplace 中按一下 [查看全部]。 搜尋 [StorSimple 實體]。 選取並按一下 [StorSimple 實體裝置系列]，然後按一下 [建立]。 或者，在政府入口網站中按一下 [+]，然後在 [儲存體] 下按一下 [StorSimple 實體裝置系列]。
 3. 在 [StorSimple 裝置管理員] 刀鋒視窗中，執行下列步驟：
    

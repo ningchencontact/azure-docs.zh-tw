@@ -15,11 +15,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1e35d795fb65c837f7a4152920f701da5bf8f506
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7eae8aa25546fb94bbf7d006063f44f3b6e51a15
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018790"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>使用 Data Lake Tools for Visual Studio 開發 Apache Storm 的 C# 拓撲
 
@@ -46,9 +47,9 @@ ms.lasthandoff: 04/16/2018
 
 您可以使用下列其中一種 Visual Studio 版本來搭配 SCP.NET 開發 C# 拓撲：
 
-* Visual Studio 2012 [(含 Update 4)](http://www.microsoft.com/download/details.aspx?id=39305)
+* Visual Studio 2012 (含 Update 4)
 
-* Visual Studio 2013 [(含 Update 4)](http://www.microsoft.com/download/details.aspx?id=44921) 或 [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
+* Visual Studio 2013 (含 Update 4) 或 [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
 
 * Visual Studio 2015 或 [Visual Studio 2015 Community](https://go.microsoft.com/fwlink/?LinkId=532606)
 

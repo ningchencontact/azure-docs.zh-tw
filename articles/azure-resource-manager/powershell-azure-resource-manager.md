@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 13e5836aea0e307cdce5bcdcd5cf3c50969dfbf8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5f7c569eabcf6e4b743f1b6616161787764e8f84
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723490"
 ---
 # <a name="manage-resources-with-azure-powershell"></a>使用 Azure PowerShell 管理資源
 
@@ -55,7 +56,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 * [網路參與者](../role-based-access-control/built-in-roles.md#network-contributor)
 * [儲存體帳戶參與者](../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-相較於將角色指派給個別使用者，為需要執行類似動作的使用者[建立 Azure Active Directory 群組](../active-directory/active-directory-groups-create-azure-portal.md)通常會更加容易。 然後，將該群組指派給適當的角色。 一言以蔽之，您要建立沒有成員的 Azure Active Directory 群組。 您仍然可以指派此群組給範圍內的角色。 
+相較於將角色指派給個別使用者，為需要執行類似動作的使用者[建立 Azure Active Directory 群組](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)通常會更加容易。 然後，將該群組指派給適當的角色。 一言以蔽之，您要建立沒有成員的 Azure Active Directory 群組。 您仍然可以指派此群組給範圍內的角色。 
 
 下列範例會建立群組，並將其指派給資源群組中的「虛擬機器參與者」角色。 若要執行 `New-AzureAdGroup` 命令，您必須使用 [Azure Cloud Shell](/azure/cloud-shell/overview) 或[下載 Azure AD PowerShell 模組](https://www.powershellgallery.com/packages/AzureAD/)。
 
@@ -222,4 +223,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 * 若要深入了解如何監視您的虛擬機器，請參閱[使用 Azure PowerShell 監視和更新 Windows 虛擬機器](../virtual-machines/windows/tutorial-monitoring.md)。
 * 若要了解如何使用 Azure 資訊安全中心來實作建議的安全性作法，請參閱[使用 Azure 資訊安全中心監視虛擬機器安全性](../virtual-machines/windows/tutorial-azure-security.md)。
 * 您可以將現有的資源移動到新的資源群組。 如需範例，請參閱 [將資源移至新的資源群組或訂用帳戶](resource-group-move-resources.md)。
-* 如需關於企業如何使用 Resource Manager 有效地管理訂用帳戶的指引，請參閱 [Azure 企業 Scaffold - 規定的訂用帳戶治理](resource-manager-subscription-governance.md)。
+* 如需關於企業如何使用 Resource Manager 有效地管理訂用帳戶的指引，請參閱 [Azure 企業 Scaffold - 規定的訂用帳戶治理](/azure/architecture/cloud-adoption-guide/subscription-governance)。

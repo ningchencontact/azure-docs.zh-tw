@@ -1,11 +1,11 @@
 ---
-title: "如何使用 AMQP 1.0 與 Java 服務匯流排 API 搭配 | Microsoft Docs"
-description: "如何搭配 Azure 服務匯流排和 Advanced Message Queuing Protodol (AMQP) 1.0 使用 Java Message Service (JMS)。"
+title: 如何使用 AMQP 1.0 與 Java 服務匯流排 API 搭配 | Microsoft Docs
+description: 如何搭配 Azure 服務匯流排和 Advanced Message Queuing Protodol (AMQP) 1.0 使用 Java Message Service (JMS)。
 services: service-bus-messaging
 documentationcenter: java
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: be766f42-6fd1-410c-b275-8c400c811519
 ms.service: service-bus-messaging
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23044173"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>如何搭配使用 Java 訊息服務 (JMS) API 與服務匯流排和 AMQP 1.0
 進階訊息佇列通訊協定 (AMQP) 1.0 是一個有效率且可靠的有線等級訊息通訊協定，可以用來建置強大的跨平台訊息應用程式。

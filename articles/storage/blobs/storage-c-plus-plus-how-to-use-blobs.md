@@ -9,10 +9,11 @@ ms.topic: article
 ms.date: 03/21/2018
 ms.author: michaelhauss
 ms.openlocfilehash: d3297ae7bc4a5ac7e2a43d9d44a05365004b685f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38298991"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>如何使用 C++ 的 Blob 儲存體
 
@@ -35,7 +36,7 @@ ms.lasthandoff: 04/16/2018
 若要安裝 Azure Storage Client Library for C++，您可以使用下列方法：
 
 * **Linux：** 遵循 [Azure Storage Client Library for C++ 讀我檔案](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) 頁面中提供的指示進行。  
-* **Windows：**在 Visual Studio 中，按一下 [工具] > [NuGet 套件管理員] > [套件管理員主控台]。 在 [NuGet 套件管理員主控台](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) 中輸入下列命令，然後按下 **Enter**。  
+* **Windows：** 在 Visual Studio 中，按一下 [工具] > [NuGet 套件管理員] > [套件管理員主控台]。 在 [NuGet 套件管理員主控台](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) 中輸入下列命令，然後按下 **Enter**。  
   
      Install-Package wastorage
 

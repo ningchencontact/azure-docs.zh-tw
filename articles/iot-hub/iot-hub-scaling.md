@@ -1,25 +1,19 @@
 ---
 title: Azure IoT 中樞調整 | Microsoft Docs
 description: 如何調整 IoT 中樞以支援您預期的訊息輸送量和所需功能。 包含每個層級支援的輸送量和分區化選項的摘要。
-services: iot-hub
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: e7bd4968-db46-46cf-865d-9c944f683832
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01e6c3a6fb922a649f0ae139af9c8515fcb8b2e0
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: d77953100bb7007553cf1c5ab00b9cdafea281e9
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030432"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>選擇適合您解決方案的 IoT 中樞層
 
@@ -49,7 +43,7 @@ Azure IoT 中樞提供基本和標準兩個層級，兩者所支援的功能數�
 | [監視和診斷](iot-hub-monitor-resource-health.md) | yes | yes |
 | [雲端到裝置傳訊](iot-hub-devguide-c2d-guidance.md) |   | yes |
 | [裝置對應項](iot-hub-devguide-device-twins.md)、[模組對應項](iot-hub-devguide-module-twins.md)和[裝置管理](iot-hub-device-management-overview.md) |   | yes |
-| [Azure IoT Edge](../iot-edge/how-iot-edge-works.md) |   | yes |
+| [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | yes |
 
 IoT 中樞也會提供免費層供您測試和評估。 其具有標準層的所有功能，但允許的傳訊量有限。 您無法從免費層升級至基本或標準層。 
 
@@ -59,34 +53,34 @@ IoT 中樞的基本和標準層之間的支援功能差異，代表某些 API �
 
 | API | 基本層 | 標準層 |
 | --- | ---------- | ------------- |
-| [刪除裝置](https://docs.microsoft.com/rest/api/iothub/deviceapi/deletedevice) | yes | yes |
-| [取得裝置](https://docs.microsoft.com/rest/api/iothub/deviceapi/getdevice) | yes | yes |
+| [刪除裝置](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/deletedevice) | yes | yes |
+| [取得裝置](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdevice) | yes | yes |
 | 刪除模組 | yes | yes |
 | 取得模組 | yes | yes |
-| [取得登錄統計資料](https://docs.microsoft.com/rest/api/iothub/deviceapi/getregistrystatistics) | yes | yes |
-| [取得服務統計資料](https://docs.microsoft.com/rest/api/iothub/deviceapi/getservicestatistics) | yes | yes |
-| [放置裝置](https://docs.microsoft.com/rest/api/iothub/deviceapi/putdevice) | yes | yes |
+| [取得登錄統計資料](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdeviceregistrystatistics) | yes | yes |
+| [取得服務統計資料](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getservicestatistics) | yes | yes |
+| [建立或更新裝置](https://docs.microsoft.com/rest/api/iothub/service/service/createorupdatedevice) | yes | yes |
 | 放置模組 | yes | yes |
-| [查詢裝置](https://docs.microsoft.com/rest/api/iothub/deviceapi/querydevices) | yes | yes |
+| [查詢 IoT 中樞](https://docs.microsoft.com/rest/api/iothub/service/service/queryiothub) | yes | yes |
 | 查詢模組 | yes | yes |
-| [建立檔案上傳 SAS URI](https://docs.microsoft.com/rest/api/iothub/httpruntime/createfileuploadsasuri) | yes | yes |
-| [接收裝置繫結通知](https://docs.microsoft.com/rest/api/iothub/httpruntime/receivedeviceboundnotification) | yes | yes |
-| [傳送裝置事件](https://docs.microsoft.com/rest/api/iothub/httpruntime/senddeviceevent) | yes | yes |
+| [建立檔案上傳 SAS URI](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/createfileuploadsasuri) | yes | yes |
+| [接收裝置繫結通知](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/receivedeviceboundnotification) | yes | yes |
+| [傳送裝置事件](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/senddeviceevent) | yes | yes |
 | 傳送模組事件 | yes | yes |
-| [更新檔案上傳狀態](https://docs.microsoft.com/rest/api/iothub/httpruntime/updatefileuploadstatus) | yes | yes |
-| [大量裝置作業](https://docs.microsoft.com/rest/api/iothub/deviceapi/bulkdeviceoperation) | 是，IoT Edge 功能除外 | yes | 
-| [清除命令佇列](https://docs.microsoft.com/rest/api/iothub/deviceapi/purgecommandqueue) |   | yes |
-| [取得裝置對應項](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/getdevicetwin) |   | yes |
+| [更新檔案上傳狀態](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/updatefileuploadstatus) | yes | yes |
+| [大量裝置作業](https://docs.microsoft.com/en-us/rest/api/iot-dps/deviceenrollment/bulkoperation) | 是，IoT Edge 功能除外 | yes | 
+| [清除命令佇列](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/purgecommandqueue) |   | yes |
+| [取得裝置對應項](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/gettwin) |   | yes |
 | 取得模組對應項 |   | yes |
-| [叫用裝置方法](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/invokedevicemethod) |   | yes |
-| [更新裝置對應項](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/updatedevicetwin) |   | yes | 
+| [叫用裝置方法](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/invokedevicemethod) |   | yes |
+| [更新裝置對應項](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/updatetwin) |   | yes | 
 | 更新模組對應項 |   | yes | 
-| [放棄裝置繫結通知](https://docs.microsoft.com/rest/api/iothub/httpruntime/abandondeviceboundnotification) |   | yes |
-| [完成裝置繫結通知](https://docs.microsoft.com/rest/api/iothub/httpruntime/completedeviceboundnotification) |   | yes |
-| [取消作業](https://docs.microsoft.com/rest/api/iothub/jobapi/canceljob) |   | yes |
-| [建立作業](https://docs.microsoft.com/rest/api/iothub/jobapi/createjob) |   | yes |
-| [取得作業](https://docs.microsoft.com/rest/api/iothub/jobapi/getjob) |   | yes |
-| [查詢作業](https://docs.microsoft.com/rest/api/iothub/jobapi/queryjobs) |   | yes |
+| [放棄裝置繫結通知](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/abandondeviceboundnotification) |   | yes |
+| [完成裝置繫結通知](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/completedeviceboundnotification) |   | yes |
+| [取消作業](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/canceljob) |   | yes |
+| [建立作業](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/createjob) |   | yes |
+| [取得作業](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getjob) |   | yes |
+| [查詢作業](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/queryjobs) |   | yes |
 
 ## <a name="message-throughput"></a>訊息輸送量
 

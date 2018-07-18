@@ -14,11 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.openlocfilehash: 16d35a6b36f4dd85db430e05abdff898affbfd67
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 66ece0affbafc219add2ef5c4da34f29ab34e058
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37860015"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>開始使用 Azure 雲端服務和 ASP.NET
 
@@ -177,7 +178,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
     當雲端服務與儲存體帳戶位於不同的資料中心 (不同的區域) 時，延遲時間會增加，而且您將由於使用資料中心外的頻寬而付費。 資料中心內的頻寬則是免費的。
 
-    Azure 同質群組提供一種機制，可將資料中心內的資源之間的距離縮至最短，因而可以減少延遲時間。 本教學課程不會使用同質群組。 如需詳細資訊，請參閱 [如何在 Azure 中建立同質群組](http://msdn.microsoft.com/library/jj156209.aspx)(英文)。
+    Azure 同質群組提供一種機制，可將資料中心內的資源之間的距離縮至最短，因而可以減少延遲時間。 本教學課程不會使用同質群組。 如需詳細資訊，請參閱 [如何在 Azure 中建立同質群組](https://msdn.microsoft.com/library/azure/gg715317.aspx)(英文)。
 7. 按一下頁面底部的 [新增] 。
 
     ![New storage account](./media/cloud-services-dotnet-get-started/newstorage.png)
@@ -290,7 +291,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
     ![Settings step](./media/cloud-services-dotnet-get-started/pubsettings.png)
 
-    [ **進階** ] 索引標籤中的預設設定適用於本教學課程。 如需進階索引標籤的詳細資訊，請參閱 [發行 Azure 應用程式精靈](http://msdn.microsoft.com/library/hh535756.aspx)。
+    [ **進階** ] 索引標籤中的預設設定適用於本教學課程。 如需進階索引標籤的詳細資訊，請參閱 [發行 Azure 應用程式精靈](https://docs.microsoft.com/azure/vs-azure-tools-publish-azure-application-wizard)。
 4. 在 [摘要] 步驟中，按一下 [發佈]。
 
     ![Summary step](./media/cloud-services-dotnet-get-started/pubsummary.png)

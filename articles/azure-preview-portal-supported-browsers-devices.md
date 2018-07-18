@@ -3,8 +3,7 @@ title: Azure 入口網站支援的瀏覽器和裝置 | Microsoft Docs
 description: 描述 Azure 入口網站運作所在的瀏覽器和裝置。
 services: azure-portal
 documentationcenter: ''
-author: flanakin
-writer: flanakin
+author: adamabmsft
 manager: lwelicki
 editor: ''
 ms.assetid: 35fa18ec-21d8-41bf-af2b-e5e92703401d
@@ -14,13 +13,14 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/02/2018
-ms.author: micflan
+ms.author: adamab
 ms.custom: accessibility
-ms.openlocfilehash: d3964bcfc78fccbd949b30ebb09db44ec5fd5bde
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: ac1c4f4adaa1cb48ce632d36d408e112ba882cab
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36292439"
 ---
 # <a name="supported-browsers-and-devices-for-the-azure-portal"></a>Azure 入口網站支援的瀏覽器和裝置
 您可以在所有新式的桌上型電腦、平板電腦裝置和瀏覽器上執行 [Azure 入口網站](https://portal.azure.com)。

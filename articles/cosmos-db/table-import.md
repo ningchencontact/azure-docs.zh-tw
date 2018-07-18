@@ -4,20 +4,18 @@ description: 了解如何匯入資料以用於 Azure Cosmos DB 資料表 API。
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: b60743e2-0227-43ab-965a-0ae3ebacd917
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: sngun
-ms.openlocfilehash: b6e912d450e1a2fed98fab5b18ba835396257ac9
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: e4e783d131c4ceee9315b3442ee504e662157d8c
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856802"
 ---
 # <a name="import-data-for-use-with-the-azure-cosmos-db-table-api"></a>匯入資料以用於 Azure Cosmos DB 資料表 API
 
@@ -32,7 +30,7 @@ ms.lasthandoff: 05/11/2018
 
 ## <a name="prerequisites"></a>先決條件
 
-* 增加輸送量︰資料移轉的時間長短取決於您為個別集合或一組集合設定的輸送量。 針對較大資料移轉，請務必增加輸送量。 完成移轉之後，再降低輸送量以節省成本。 如需在 Azure 入口網站增加輸送量的詳細資訊，請參閱 Azure Cosmos DB 中的效能等級和定價層。
+* 增加輸送量︰資料移轉的時間長短取決於您為個別容器或一組容器設定的輸送量。 針對較大資料移轉，請務必增加輸送量。 完成移轉之後，再降低輸送量以節省成本。 如需在 Azure 入口網站增加輸送量的詳細資訊，請參閱 Azure Cosmos DB 中的效能等級和定價層。
 
 ## <a name="data-migration-tool"></a>資料移轉工具
 

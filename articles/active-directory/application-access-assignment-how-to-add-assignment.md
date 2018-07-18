@@ -3,21 +3,23 @@ title: 如何將使用者和群組指派至應用程式 | Microsoft Docs
 description: 將使用者指派至應用程式以授與存取權
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 19303237e7e2c3c3a7f373102465875c34a571d1
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: barbkess
+ms.openlocfilehash: 46586bd423500f5d7bb34f58a5833d4bb3613bb3
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36330820"
 ---
 # <a name="how-to-assign-users-and-groups-to-an-application"></a>如何將使用者和群組指派至應用程式
 

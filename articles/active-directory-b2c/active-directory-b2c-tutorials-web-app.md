@@ -3,16 +3,19 @@ title: 教學課程 - 讓 Web 應用程式能夠使用 Azure Active Directory B2
 description: 關於如何使用 Azure Active Directory B2C 為 ASP.NET Web 應用程式提供使用者登入的教學課程。
 services: active-directory-b2c
 author: davidmu1
+manager: mtillman
 ms.author: davidmu
 ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
-ms.service: active-directory-b2c
-ms.openlocfilehash: 10e7c6a8e9e92a559352886095e367585dc484ef
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.service: active-directory
+ms.component: B2C
+ms.openlocfilehash: 729bd9f83c288cc5a326ddef8fff553c6d7700fb
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711608"
 ---
 # <a name="tutorial-enable-a-web-application-to-authenticate-with-accounts-using-azure-active-directory-b2c"></a>教學課程：讓 Web 應用程式能夠使用 Azure Active Directory B2C 向帳戶進行驗證
 
@@ -146,9 +149,9 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 範例方案中有兩個專案：
 
-**Web 應用程式範例應用程式 (TaskWebApp)：**用來建立和編輯工作清單的 Web 應用程式。 此 Web 應用程式會使用**註冊或登入**原則來註冊或登入使用者。
+**Web 應用程式範例應用程式 (TaskWebApp)：** 用來建立和編輯工作清單的 Web 應用程式。 此 Web 應用程式會使用**註冊或登入**原則來註冊或登入使用者。
 
-**Web API 範例應用程式 (TaskService)：**支援建立、讀取、更新和刪除工作清單功能的 Web API。 此 Web API 會受到 Azure AD B2C 的保護，且由 Web 應用程式呼叫。
+**Web API 範例應用程式 (TaskService)：** 支援建立、讀取、更新和刪除工作清單功能的 Web API。 此 Web API 會受到 Azure AD B2C 的保護，且由 Web 應用程式呼叫。
 
 您需要將應用程式變更為在租用戶中使用應用程式註冊，其中包含用戶端識別碼或應用程式識別碼以及用戶端密碼或應用程式金鑰。 您也需要設定您已建立的原則。 範例 Web 應用程式會在 Web.config 檔案中將組態值定義為應用程式設定。 若要變更應用程式設定：
 

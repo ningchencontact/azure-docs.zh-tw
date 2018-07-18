@@ -20,6 +20,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30316190"
 ---
 # <a name="deploy-templates-in-azure-stack-using-the-command-line"></a>使用命令列部署 Azure Stack 中的範本
 

@@ -6,13 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 05/23/2018
 ms.author: raynew
-ms.openlocfilehash: 207ff17f7b113bf4a94bb6c157cf53e7b1c46b45
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a4c83e495e269cdca35844a699d714b55cf1f500
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643306"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>設定內部部署實體伺服器至 Azure 的災害復原
 
@@ -27,18 +28,25 @@ ms.lasthandoff: 04/16/2018
 > * 建立複寫原則
 > * 啟用伺服器的複寫
 
+針對此災害復原案例[檢閱架構](concepts-hyper-v-to-azure-architecture.md)。
+
 ## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程：
 
-- 請確定您了解[情節架構和元件](physical-azure-architecture.md)。
+- 請確定您了解此案例的[架構和元件](physical-azure-architecture.md)。
 - 檢閱所有元件的[支援需求](vmware-physical-secondary-support-matrix.md)。
 - 請確定您想要複寫的伺服器符合 [Azure VM 需求](vmware-physical-secondary-support-matrix.md#replicated-vm-support)。
 - 準備 Azure。 您需要 Azure 訂用帳戶、Azure 虛擬網路及儲存體帳戶。
 - 準備帳戶以自動在您要複寫的每個伺服器上安裝行動服務。
 
-> [!NOTE]
-> 在開始之前請您注意，容錯移轉至 Azure 之後，實體伺服器即無法容錯回復到內部部署實體機器。 您只能容錯回復到 VMware VM。 
+開始之前，請注意︰
+
+- 在容錯移轉至 Azure 之後，實體伺服器即無法容錯回復到內部部署實體機器。 您只能容錯回復到 VMware VM。 
+- 本教學課程會以最簡單的設定，來設定移轉至 Azure 的實體伺服器災害復原。 如果您想要了解其他選項，請閱讀我們的做法指南：
+    - 設定[複寫來源](physical-azure-set-up-source.md)，包括 Site Recovery 組態伺服器。
+    - 設定[複寫目標](physical-azure-set-up-target.md)。
+    - 設定[複寫原則](vmware-azure-set-up-replication.md)及[啟用複寫](vmware-azure-enable-replication.md)。
 
 
 ### <a name="set-up-an-azure-account"></a>設定 Azure 帳戶

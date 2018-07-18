@@ -1,44 +1,42 @@
 ---
-title: 以 Python 開始使用 Azure 表格儲存體 | Microsoft Docs
-description: 使用 Azure 表格儲存體 (NoSQL 資料存放區) 將結構化的資料儲存在雲端。
+title: 以 Python 開始使用 Azure 表格儲存體和 Azure Cosmos DB 資料表 API | Microsoft Docs
+description: 使用 Azure 表格儲存體或 Azure Cosmos DB 資料表 API 將結構化資料儲存在雲端。
 services: cosmos-db
-documentationcenter: python
 author: SnehaGunda
 manager: kfile
-ms.assetid: 7ddb9f3e-4e6d-4103-96e6-f0351d69a17b
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: python
-ms.topic: article
+ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: b4370f63c2e5ccf466de7cb680377b12940a6efc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 42e7ef8699ee5f481c6a1c45832dfa3428e3baa8
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798197"
 ---
-# <a name="get-started-with-azure-table-storage-using-python"></a>以 Python 開始使用 Azure 表格儲存體
+# <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>以 Python 開始使用 Azure 表格儲存體和 Azure Cosmos DB 資料表 API
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-Azure 表格儲存體是可將結構化的 NoSQL 資料儲存在雲端中的服務，並提供具有無結構描述設計的索引鍵/屬性存放區。 由於表格儲存體並無結構描述，因此可輕易隨著應用程式發展需求改寫資料。 相較於類似資料量的傳統 SQL，對許多類型的應用程式而言，表格儲存體資料可快速存取且符合成本效益，通常可降低成本。
+Azure 表格儲存體和 Azure Cosmos DB 是可將結構化的 NoSQL 資料儲存在雲端中的服務，並提供具有無結構描述設計的索引鍵/屬性存放區。 由於表格儲存體和 Azure Cosmos DB 並無結構描述，因此可輕易隨著應用程式發展需求改寫資料。 相較於類似資料量的傳統 SQL，對許多類型的應用程式而言，表格儲存體和資料表 API 資料可快速存取且符合成本效益，通常可降低成本。
 
-您可以使用表格儲存體來儲存具彈性的資料集，例如 Web 應用程式的使用者資料、通訊錄、裝置資訊，以及服務所需的其他中繼資料類型。 您可以在資料表中儲存任意數目的實體，且儲存體帳戶可包含任意數目的資料表，最高可達儲存體帳戶的容量限制。
+您可以使用表格儲存體或 Azure Cosmos DB 來儲存具彈性的資料集，例如 Web 應用程式的使用者資料、通訊錄、裝置資訊，以及服務所需的其他中繼資料類型。 您可以在資料表中儲存任意數目的實體，且儲存體帳戶可包含任意數目的資料表，最高可達儲存體帳戶的容量限制。
 
-### <a name="about-this-tutorial"></a>關於本教學課程
-本教學課程示範如何在常見的 Azure 表格儲存體案例中使用[適用於 Python 的 Azure Cosmos DB 表格 SDK](https://pypi.python.org/pypi/azure-cosmosdb-table/) \(英文\)。 SDK 名稱表示其適用於 Azure Cosmos DB，但也同時適用於 Azure Cosmos DB 和 Azure 表格儲存體，兩個服務皆具有唯一的端點。 在這些案例探索中會使用 Python 範例，可說明如何執行下列動作：
+### <a name="about-this-sample"></a>關於此範例
+此範例示範如何在常見的 Azure 表格儲存體案例中使用[適用於 Python 的 Azure Cosmos DB 表格 SDK](https://pypi.python.org/pypi/azure-cosmosdb-table/) \(英文\)。 SDK 名稱表示其適用於 Azure Cosmos DB，但也同時適用於 Azure Cosmos DB 和 Azure 表格儲存體，兩個服務皆具有唯一的端點。 在這些案例探索中會使用 Python 範例，可說明如何執行下列動作：
 * 建立和刪除表格
 * 插入和查詢實體
 * 修改實體
 
-在進行本教學課程中的案例時，您可以參閱 [Azure Cosmos DB SDK for Python API 參考資料](https://azure.github.io/azure-cosmosdb-python/) \(英文\)。
+在進行此範例中的案例時，您可以參閱 [Azure Cosmos DB SDK for Python API 參考資料](https://azure.github.io/azure-cosmosdb-python/) \(英文\)。
 
 ## <a name="prerequisites"></a>先決條件
 
-您需要下列項目才能成功完成此教學課程︰
+您需要下列項目才能成功完成此範例︰
 
 - [Python](https://www.python.org/downloads/) 2.7、3.3、3.4、3.5 或 3.6
 - [適用於 Python 的 Azure Cosmos DB 資料表 SDK ](https://pypi.python.org/pypi/azure-cosmosdb-table/)。 此 SDK 與 Azure 表格儲存體和 Azure Cosmos DB 資料表 API 連線。

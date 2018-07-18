@@ -3,7 +3,7 @@ title: Azure Log Analytics 中的 DNS 分析解決方案 | Microsoft Docs
 description: 在 Log Analytics 中設定並使用 DNS 分析解決方案，以收集關於 DNS 基礎結構在安全性、效能及作業方面的深入解析。
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: f44a40c4-820a-406e-8c40-70bd8dc67ae7
@@ -11,14 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 6a59cf8b9444fe7cb197501c51d10dae81acb027
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: na
+ms.openlocfilehash: a6f63fac85008425f473f431ae85d04f62eed667
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127586"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>收集搭配 DNS 分析預覽版解決方案使用 DNS 基礎結構的深入解析
 
@@ -64,13 +66,13 @@ DNS 分析可協助您︰
 
 在解決方案儀表板中，按一下 [組態] 以開啟 [DNS 分析組態] 頁面。 您可以進行兩種類型的組態變更︰
 
-- **列入允許清單的網域名稱**。 該解決方案不會處理所有查閱查詢。 它會維護一份網域名稱尾碼的允許清單。 若查閱查詢解析為符合此允許清單中之網域名稱尾碼的網域名稱，此解決方案就不會處理它們。 不處理列入允許清單的網域名稱，有助於最佳化傳送至 Log Analytics 的資料。 預設允許清單包含熱門的公用網域名稱，例如 www.google.com 和 www.facebook.com。您可以捲動來檢視完整的預設清單。
+- **列入白名單的網域名稱**。 該解決方案不會處理所有查閱查詢。 它會維護一份網域名稱尾碼的白名單。 若查閱查詢解析為符合此允許清單中之網域名稱尾碼的網域名稱，此解決方案就不會處理它們。 不處理列入允許清單的網域名稱，有助於最佳化傳送至 Log Analytics 的資料。 預設白名單包含熱門的公用網域名稱，例如 www.google.com 和 www.facebook.com。 您可以捲動來檢視完整的預設清單。
 
  您可以修改清單，將您想要檢視查閱深入解析的任何網域名稱尾碼加以新增。 您也可以將您不想要檢視查閱深入解析的任何網域名稱尾碼加以移除。
 
 - **Talkative 用戶端閾值**。 超過查閱要求數目閾值的 DNS 用戶端，在 [DNS 用戶端] 刀鋒視窗中會反白顯示。 預設閾值為 1,000。 您可以編輯閾值。
 
-    ![列入允許清單的網域名稱](./media/log-analytics-dns/dns-config.png)
+    ![列入白名單的網域名稱](./media/log-analytics-dns/dns-config.png)
 
 ## <a name="management-packs"></a>管理組件
 
@@ -116,7 +118,7 @@ DNS 分析可協助您︰
 - 網域名稱解析成的 IP 位址。
 - 惡意 IP 位址。
 - 問題的嚴重性。
-- 將惡意 IP 列入封鎖清單的原因。
+- 將惡意 IP 列入黑名單的原因。
 - 偵測時間。
 
 **查詢的網域**。 提供您環境中的 DNS 用戶端最常查詢的網域名稱。 您可以檢視查詢的所有網域名稱清單。 您也可以在記錄搜尋中向下切入至特定網域名稱的查閱要求詳細資料。

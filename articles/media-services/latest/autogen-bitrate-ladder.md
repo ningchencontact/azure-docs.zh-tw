@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 5d13c711d7d71df7469e6408ce78cf0df611632b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6e447c04f4a94f2fb534ecb0605595a90816431e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638291"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>使用自動產生的位元速率階梯進行編碼
 
@@ -27,13 +28,13 @@ ms.lasthandoff: 05/07/2018
 
 ### <a name="encoding-for-streaming"></a>只針對串流處理進行編碼
 
-正如其名，建立編碼轉換時，如果您使用 **AdaptiveStreaming** 預設來建立編碼方式轉換時，所得到的輸出很適合利用 DASH、HLS CMAF 此類的串流處理通訊協定加以傳遞。當使用這個 **AdaptiveStreaming** 預設時，編碼器會自行決定應該產生多少層的視訊，以及應當採用的位元速率和解析度。 輸出資產包含 MP4 檔案，其中的 AAC 編碼音訊和 H.264 編碼視訊為非交錯格式。
+當您在 [轉換] 中使用預設 [AdaptiveStreaming] 時，您所得到的輸出很適合透過 HLS 和 DASH 等串流通訊協定進行傳遞。 當使用這項預設時，服務會自行決定應該產生多少層的視訊，以及應當採用的位元速率和解析度。 輸出內容包含 MP4 檔案，其中的 AAC 編碼音訊和 H.264 編碼視訊為非交錯格式。
 
 如需此預設的應用範例，請參閱[串流處理檔案](stream-files-dotnet-quickstart.md)。
 
 ## <a name="output"></a>輸出
 
-本節顯示三個由媒體服務編碼器產生的輸出視訊層範例，它們進行編碼時都是利用 **AdaptiveStreaming** 預設。 在所有情況下，輸出會包含純音訊 MP4 檔案，以 128 kbps 編碼的立體聲 。
+本節顯示三個由媒體服務編碼器產生的輸出視訊層範例，它們進行編碼時都是利用 **AdaptiveStreaming** 預設。 在所有情況下，輸出包含純音訊 MP4 檔案，以 128 kbps 編碼的立體聲。
 
 ### <a name="example-1"></a>範例 1
 高度 "1080" 和畫面播放速率 "29.970" 的來源會產生 6 個視訊層︰

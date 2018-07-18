@@ -20,6 +20,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30317988"
 ---
 # <a name="install-a-client-certificate-for-point-to-site-azure-certificate-authentication-connections"></a>安裝用於 Azure 點對站憑證驗證連線的用戶端憑證
 

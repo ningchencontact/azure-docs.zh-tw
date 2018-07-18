@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: juliako
-ms.openlocfilehash: 6e44cff930f943f5cf30fb5335ad6a7fd1d08ab5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f44f5cffd105d958c7d6552a170150623a0701ea
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "34638446"
 ---
 # <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Azure 隨選媒體編碼器的概觀和比較
 ## <a name="encoding-overview"></a>編碼概觀
@@ -29,10 +30,8 @@ Azure 媒體服務提供多個用於將雲端中之媒體編碼的選項。
 
 「媒體服務」提供動態封裝，這可讓您以「媒體服務」支援的串流格式 (MPEG DASH、HLS、Smooth Streaming) 提供調適性位元速率 MP4 或 Smooth Streaming 編碼內容，而不必重新封裝成這些串流格式。
 
->[!NOTE]
->建立 AMS 帳戶時，**預設**串流端點會新增至 [已停止] 狀態的帳戶。 若要開始串流內容並利用動態封裝和動態加密功能，您想要串流內容的串流端點必須處於 [執行中] 狀態。 若要利用[動態封裝](media-services-dynamic-packaging-overview.md)，您需要執行下列動作：
->
->此外，請將您的來源檔案編碼成一組調適性位元速率 MP4 檔案或調適性位元速率 Smooth Streaming 檔案 (本教學課程稍後會示範編碼步驟)。
+> [!NOTE]
+> 建立 AMS 帳戶時，**預設**串流端點會新增至 [已停止] 狀態的帳戶。 若要開始串流內容並利用動態封裝和動態加密功能，您想要串流內容的串流端點必須處於 [執行中] 狀態。 
 
 媒體服務支援本文中所描述的下列隨選編碼器：
 

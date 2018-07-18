@@ -1,28 +1,23 @@
 ---
-title: 將 Azure 診斷記錄檔串流至 Log Analytics | Microsoft Docs
+title: 將 Azure 診斷記錄檔串流至 Log Analytics
 description: 了解如何將 Azure 診斷記錄串流至 Log Analytics 命名空間。
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
-ms.openlocfilehash: 82011126375a3c5016e110aac9ce6bc1b2d59cdf
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.component: logs
+ms.openlocfilehash: d8966edb6061ed07f5aecb9682fca081ed589040
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083969"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>將 Azure 診斷記錄檔串流至 Log Analytics
 
-您可以使用入口網站、PowerShell Cmdlet 或 Azure CLI 2.0，以近乎即時的方式將 **[Azure 診斷記錄](monitoring-overview-of-diagnostic-logs.md)**串流至 Azure Log Analytics。
+您可以使用入口網站、PowerShell Cmdlet 或 Azure CLI 2.0，以近乎即時的方式將 **[Azure 診斷記錄](monitoring-overview-of-diagnostic-logs.md)** 串流至 Azure Log Analytics。
 
 ## <a name="what-you-can-do-with-diagnostics-logs-in-log-analytics"></a>您可以在 Log Analytics 中使用診斷記錄來做什麼
 
@@ -35,7 +30,7 @@ Azure Log Analytics 是一個彈性的記錄搜尋和分析工具，可讓您深
 
 ## <a name="enable-streaming-of-diagnostic-logs-to-log-analytics"></a>啟用將診斷記錄串流至 Log Analytics 的功能
 
-您可以透過入口網站或使用 [Azure 監視器 REST API](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings)，啟用以程式控制方式對診斷記錄進行串流的功能。 無論使用哪一種方式，您都需建立一個診斷設定，在其中指定 Log Analytics 工作區，以及要傳送至該工作區的記錄類別和計量。 診斷**記錄類別**是一種資源可以提供的記錄類型。
+您可以透過入口網站或使用 [Azure 監視器 REST API](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings)，啟用以程式控制方式對診斷記錄進行串流的功能。 無論使用哪一種方式，您都需建立一個診斷設定，在其中指定 Log Analytics 工作區，以及要傳送至該工作區的記錄類別和計量。 診斷**記錄類別**是一種資源可以提供的記錄類型。
 
 Log Analytics 工作區並不一定要與發出記錄檔的資源位於相同的訂用帳戶中，只要設定該設定的使用者對兩個訂用帳戶都具備適當的 RBAC 存取權即可。
 

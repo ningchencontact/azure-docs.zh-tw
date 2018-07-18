@@ -1,20 +1,21 @@
 ---
-title: Azure Active Directory B2C：稽核記錄範例和定義
-description: 存取 Azure AD B2C 稽核記錄的指南和範例
+title: Azure Active Directory B2C 中的稽核記錄範例和定義 | Microsoft Docs
+description: 存取 Azure AD B2C 稽核記錄的指南和範例。
 services: active-directory-b2c
-author: sromeroz
-manager: sasubram
-ms.author: sezambra
-ms.service: active-directory-b2c
-ms.topic: article
+author: davidmu1
+manager: mtillman
+ms.service: active-directory
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
-ms.openlocfilehash: 8cc48853b0677230c4e19df4f0ecd93ce88b119d
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.author: davidmu
+ms.component: B2C
+ms.openlocfilehash: 1697830f699c9cd50548bcfcdd038348db314020
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33206256"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969654"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>存取 Azure AD B2C 稽核記錄
 
@@ -62,7 +63,7 @@ Azure Active Directory B2C (Azure AD B2C) 會發出稽核記錄，其中包含�
 - 按一下 [下載]，將活動下載為 csv 檔案
 
 ##<a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>透過 Azure AD 報告 API 來存取稽核記錄
-稽核記錄的發行管線與 Azure Active Directory 的其他活動相同，因此可以透過 [Azure Active Directory 報告 API](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-api-audit-reference) \(機器翻譯\) 來存取。 
+稽核記錄的發行管線與 Azure Active Directory 的其他活動相同，因此可以透過 [Azure Active Directory 報告 API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference) \(機器翻譯\) 來存取。 
 
 ###<a name="prerequisites"></a>先決條件
 若要向 Azure AD 報告 API 驗證，需要先註冊應用程式。 請務必遵循[存取 Azure AD 報告 API 的必要條件](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/) \(機器翻譯\) 中的步驟。

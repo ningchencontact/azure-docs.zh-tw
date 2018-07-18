@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206677"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>將 Web 角色和背景工作角色轉換成 Service Fabric 無狀態服務的指南
 本文說明如何將雲端服務的 Web 角色和背景工作角色移轉至 Service Fabric 無狀態服務。 對於整體架構會大致保持相同的應用程式來說，這是最簡單的雲端服務至 Service Fabric 移轉路徑。

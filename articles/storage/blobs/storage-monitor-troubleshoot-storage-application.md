@@ -16,6 +16,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31418181"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>對雲端儲存體應用程式進行疑難排解及監視
 

@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2018
+ms.date: 07/09/2018
 ms.author: ganesr
-ms.openlocfilehash: b0c8be546b40b36746224ca43c7766ac310fd7ee
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 998d4f8017af51a21e13695a8491e9b6bd62af9a
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930523"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 路由需求
 若要使用 ExpressRoute 連線到 Microsoft 雲端服務，您必須設定和管理路由。 有些連線提供者會以受控服務形式提供路由的設定和管理。 請洽詢您的連線服務提供者，以查看他們是否提供這類服務。 如果沒有，您必須遵循下列需求：
@@ -66,6 +67,7 @@ a.b.c.d/29 會分割成 a.b.c.d/30 和 a.b.c.d+4/30 並透過佈建 API 向下�
 ### <a name="ip-addresses-used-for-microsoft-peering"></a>用於 Microsoft 對等互連的 IP 位址
 您必須使用自己的公用 IP 位址來設定 BGP 工作階段。 Microsoft 必須能夠透過路由網際網路登錄和網際網路路由登錄來驗證 IP 位址的擁有權。
 
+* 針對 Microsoft 對等互連的已公告公用前置詞列在入口網站中的 IP，將會建立 Microsoft 核心路由器的 ACL，以允許來自這些 IP 的輸入流量。 
 * 您必須使用唯一的 /29 (IPv4) 或 /125 (IPv6) 子網路或兩個 /30 (IPv4) 或 /126 (IPv6) 子網路來為每個 ExpressRoute 循環 (如果您有多個) 的每個對等互連設定 BGP 對等互連。
 * 如果使用 /29 子網路，它會分割成兩個 /30 子網路。
 * 第一個 /30 子網路用於主要連結，而第二個 /30 子網路用於次要連結。
@@ -115,7 +117,7 @@ Microsoft 對等互連允許使用私人 AS 號碼，但也需要進行手動驗
 > 
 
 ## <a name="dynamic-route-exchange"></a>動態路由交換
-路由交換將會透過 eBGP 通訊協定。 MSEEs 與您的路由器之間會建立 EBGP 工作階段。 不一定需要驗證 BGP 工作階段。 如有必要，也可以設定 MD5 雜湊。 如需設定 BGP 工作階段的資訊，請參閱[設定路由](expressroute-howto-routing-classic.md)和[線路佈建工作流程和線路狀態](expressroute-workflows.md)。
+路由交換將會透過 eBGP 通訊協定。 MSEEs 與您的路由器之間會建立 EBGP 工作階段。 不一定需要驗證 BGP 工作階段。 如有必要，也可以設定 MD5 雜湊。 如需設定 BGP 工作階段的資訊，請參閱[設定路由](how-to-routefilter-portal.md)和[線路佈建工作流程和線路狀態](expressroute-workflows.md)。
 
 ## <a name="autonomous-system-numbers"></a>自發系統號碼
 Microsoft 會使用 AS 12076 進行 Azure 公用、Azure 私人和 Microsoft 對等互連。 我們已保留 65515 至 65520 的 ASN，以供內部使用。 同時支援 16 和 32 位元號碼。
@@ -192,9 +194,9 @@ ExpressRoute 不能設定為傳輸路由器。 您必須依賴連線提供者的
 | 印度南部 | 12076:51019 |
 | 印度西部 | 12076:51018 |
 | 印度中部 | 12076:51017 |
-| **韓國** | |
-| 韓國南部 | 12076:51028 |
-| 韓國中部 | 12076:51029 |
+| **南韓** | |
+| 南韓南部 | 12076:51028 |
+| 南韓中部 | 12076:51029 |
 
 
 所有 Microsoft 公告的路由會都加上適當的社群值。 

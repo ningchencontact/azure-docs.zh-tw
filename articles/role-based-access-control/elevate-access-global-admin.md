@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
-editor: rqureshi
+editor: bagovind
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: role-based-access-control
 ms.devlang: na
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/11/2018
 ms.author: rolyon
-ms.openlocfilehash: b671ff6b473093e59bce18c7bf98b32e9849bbb0
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.reviewer: bagovind
+ms.openlocfilehash: e1e46d5fb786b09a4c006b61f52b3ac99aafd555
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077202"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266495"
 ---
 # <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>提高 Azure Active Directory 中全域管理員的存取權
 
@@ -33,6 +34,8 @@ ms.locfileid: "34077202"
 根據預設，Azure AD 系統管理員角色和 Azure 角色型存取控制 (RBAC) 角色不會跨越 Azure AD 與 Azure。 不過，如果您是Azure AD 中的全域管理員，您可以提高存取權來管理 Azure 訂用帳戶與管理群組。 當您提高存取權時，您會獲得特定租用戶之所有訂用帳戶的[使用者存取系統管理員](built-in-roles.md#user-access-administrator)角色 (RBAC 角色)。 使用者存取系統管理員角色可讓您授權其他使用者存取根目錄範圍 (`/`) 的 Azure 資源。
 
 提高權限應該是暫時的，而且只有在需要時才會進行。
+
+[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="elevate-access-for-a-global-administrator-using-the-azure-portal"></a>使用 Azure 入口網站提高全域管理員的存取權
 
@@ -76,9 +79,9 @@ ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc
 ObjectType         : User
 ```
 
-## <a name="delete-a-role-assignment-at-the-root-scope--using-powershell"></a>使用 PowerShell 刪除根目錄範圍 (/) 的角色指派
+## <a name="remove-a-role-assignment-at-the-root-scope--using-powershell"></a>使用 PowerShell 來移除根目錄範圍 (/) 的角色指派
 
-若要刪除某位使用者在根目錄範圍 (`/`) 的使用者存取系統管理員角色指派，請使用 [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) 命令。
+若要移除根目錄範圍 (`/`) 某位使用者的「使用者存取系統管理員」角色指派，請使用 [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) 命令。
 
 ```azurepowershell
 Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
@@ -110,14 +113,23 @@ Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
    }
    ```
 
-1. 若為使用者存取系統管理員，您也可以在根目錄範圍 (`/`) 刪除角色指派。
+1. 如果您是「使用者存取系統管理員」，則也可以移除根目錄範圍 (`/`) 的角色指派。
 
-1. 撤銷您的使用者存取系統管理員權限，直到再次需要這些權限。
+1. 移除您的「使用者存取系統管理員」權限，直到再次需要這些權限為止。
 
+## <a name="list-role-assignments-at-the-root-scope--using-the-rest-api"></a>使用 REST API 來列出根目錄範圍 (/) 的角色指派
 
-## <a name="how-to-undo-the-elevateaccess-action-with-the-rest-api"></a>如何使用 REST API 復原 elevateAccess 動作
+您可以列出根目錄範圍 (`/`) 某個使用者的所有角色指派。
 
-當您呼叫 `elevateAccess` 時，您會建立自己的角色指派，因此您需要刪除指派才能撤銷這些權限。
+- 呼叫 [GET roleAssignments](/rest/api/authorization/roleassignments/listforscope)，其中 `{objectIdOfUser}` 是您想要其擷取角色指派之使用者的物件識別碼。
+
+   ```http
+   GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectIdOfUser}'
+   ```
+
+## <a name="remove-elevated-access-using-the-rest-api"></a>使用 REST API 來移除已提高的存取權
+
+當您呼叫 `elevateAccess` 時，會為自己建立角色指派，因此若要撤銷這些權限，您必須移除這項指派。
 
 1. 呼叫 [GET roleDefinitions](/rest/api/authorization/roledefinitions/get)，其中 `roleName` 等於使用者存取系統管理員，以判斷使用者存取系統管理員角色的名稱識別碼。
 
@@ -171,7 +183,7 @@ Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
     >[!NOTE] 
     >租用戶系統管理員不應該有許多指派，如果先前的查詢傳回太多指派，您也可以查詢只在租用戶範圍層級的所有指派，然後篩選結果：`GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
         
-    2. 先前的呼叫會傳回角色指派清單。 請尋找範圍是 "/"、`roleDefinitionId` 結尾是您在步驟 1 中找到的角色名稱識別碼且 `principalId` 與租用戶系統管理員之 objectId 相符的角色指派。 
+    2. 先前的呼叫會傳回角色指派清單。 請尋找符合下列條件的角色指派：範圍是 `"/"`，且 `roleDefinitionId` 結尾是您在步驟 1 中找到的角色名稱識別碼，以及 `principalId` 與租用戶系統管理員的 objectId 相符。 
     
     範例角色指派：
 
@@ -199,7 +211,7 @@ Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
         
     同樣地，儲存 `name` 參數中的識別碼，在本例中為 e7dd75bc-06f6-4e71-9014-ee96a929d099。
 
-    3. 最後，使用角色指派識別碼來刪除 `elevateAccess` 所新增的指派：
+    3. 最後，使用角色指派識別碼來移除 `elevateAccess` 所新增的指派：
 
     ```http
     DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01

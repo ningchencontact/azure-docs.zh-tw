@@ -10,24 +10,24 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7799eeb65a109a6ff517d50bb9603fe83f80ed14
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: bbbbaab6090941141abd7a2bbd2eac6dbf9fd354
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32769874"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051537"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 FTP 伺服器移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [第 1 版 - 正式推出](data-factory-ftp-connector.md)
-> * [第 2 版 - 預覽](../connector-ftp.md)
+> * [第 1 版](data-factory-ftp-connector.md)
+> * [第 2 版 (目前的版本)](../connector-ftp.md)
 
 > [!NOTE]
-> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用處於預覽狀態的 Data Factory 第 2 版，請參閱[第 2 版中的 FTP 連接器](../connector-ftp.md)。
+> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[第 2 版中的 FTP 連接器](../connector-ftp.md)。
 
 本文說明如何使用 Azure Data Factory 中的「複製活動」，從 FTP 伺服器移動資料。 本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文，該文提供使用複製活動來移動資料的一般概觀。
 

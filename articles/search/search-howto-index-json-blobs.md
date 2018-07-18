@@ -14,6 +14,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34362997"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>使用 Azure 搜尋服務 Blob 索引子編製索引 JSON Blob
 本文說明如何設定 Azure 搜尋服務 Blob 索引子，從 Azure Blob 儲存體中的 JSON blob 擷取結構化的內容。

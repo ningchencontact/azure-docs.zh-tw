@@ -7,14 +7,14 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 07/06/2018
 ms.author: manayar
-ms.openlocfilehash: 97923af5ed4191f66434166c4743e398f8ac635a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: e8094c582af6ea03f5ffcc4f61914488891cb556
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072601"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920884"
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>使用 Azure Site Recovery 保護 Active Directory 和 DNS
 
@@ -188,7 +188,7 @@ ms.locfileid: "34072601"
 ### <a name="dns-and-domain-controller-on-different-machines"></a>不同電腦上的 DNS 和網域控制站
 如果 DNS 與網域控制站不在相同的虛擬機器上，您必須為測試容錯移轉建立 DNS 虛擬機器。 如果 DNS 和網域控制站不在相同的虛擬機器上，您可以略過本節。
 
-您可以使用全新的 DNS 伺服器，並建立所有的必要區域。 例如，如果 Active Directory 網域是 contoso.com，您可以使用 contoso.com 的名稱來建立 DNS 區域。DNS 中對應至 Active Directory 的項目必須更新，如下所示：
+您可以使用全新的 DNS 伺服器，並建立所有的必要區域。 例如，如果 Active Directory 網域是 contoso.com，您可以使用 contoso.com 的名稱來建立 DNS 區域。 DNS 中對應至 Active Directory 的項目必須更新，如下所示：
 
 1. 確定在復原計劃中的任何其他虛擬機器啟動之前，下列設定均已完成：
    * 區域必須在樹系根名稱之後命名。

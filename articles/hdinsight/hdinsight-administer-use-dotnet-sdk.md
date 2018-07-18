@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jgao
-ms.openlocfilehash: 0feb1e344d70207d48e4ef07f5b45790425727ad
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 08c9d16570a923c79c81cebb8669a43488129d9a
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017932"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>使用 .NET SDK 管理 HDInsight 中的 Hadoop 叢集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-了解如何使用 [HDInsight.NET SDK](https://msdn.microsoft.com/library/mt271028.aspx)管理 HDInsight 叢集。
+了解如何使用 [HDInsight.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)管理 HDInsight 叢集。
 
 **先決條件**
 
@@ -270,7 +271,7 @@ foreach (var key in results.Configuration.Keys)
 請參閱[將資料上傳至 HDInsight][hdinsight-upload-data]。
 
 ## <a name="see-also"></a>另請參閱
-* [HDInsight .NET SDK 參考文件](https://msdn.microsoft.com/library/mt271028.aspx)
+* [HDInsight .NET SDK 參考文件](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
 * [使用 Azure 入口網站管理 HDInsight][hdinsight-admin-portal]
 * [使用命令列介面管理 HDInsight][hdinsight-admin-cli]
 * [建立 HDInsight 叢集][hdinsight-provision]

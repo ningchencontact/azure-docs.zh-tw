@@ -14,11 +14,12 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c4e6fe47f148d6b9cb13d41bda9622a279f8bb93
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: bc88ed342f833123c74bd91db9b838473b5f88aa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38613123"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>教學課程：使用 .NET API 建立具有複製活動的管線
 > [!div class="op_single_selector"]
@@ -32,7 +33,7 @@ ms.lasthandoff: 04/19/2018
 > * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
 > [!NOTE]
-> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用第 2 版 Data Factory 服務 (預覽版)，請參閱[第 2 版中的複製活動教學課程文件](../quickstart-create-data-factory-dot-net.md)。 
+> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[複製活動教學課程](../quickstart-create-data-factory-dot-net.md)。 
 
 在本文中，您會了解如何使用 [.NET API](https://portal.azure.com) 建立資料處理站，其中有管線可將資料從 Azure Blob 儲存體複製到 Azure SQL 資料庫。 如果您不熟悉 Azure Data Factory，請先詳閱 [Azure Data Factory 簡介](data-factory-introduction.md)一文，再進行本教學課程。   
 
@@ -133,7 +134,7 @@ ms.lasthandoff: 04/19/2018
    2. 執行下列命令安裝 Azure Active Directory 套件 (您在程式碼中使用 Active Directory API)︰`Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
 4. 將下列 **appSetttings** 區段新增 **App.config** 檔案。 以下 Helper 方法會使用這些設定： **Microsoft.identitymodel.waad.preview.graph.graphinterface**。
 
-    以您自己的值取代**&lt;應用程式識別碼&gt;**、**&lt;密碼&gt;**、**&lt;訂用帳戶識別碼&gt;****&lt;租用戶識別碼&gt;**的值。
+    以您自己的值取代**&lt;應用程式識別碼&gt;**、**&lt;密碼&gt;**、**&lt;訂用帳戶識別碼&gt;****&lt;租用戶識別碼&gt;** 的值。
 
     ```xml
     <?xml version="1.0" encoding="utf-8" ?>

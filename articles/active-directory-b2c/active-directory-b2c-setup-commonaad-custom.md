@@ -1,25 +1,21 @@
 ---
-title: 使用自訂原則新增多租用戶 Azure AD 識別提供者 - Azure Active Directory B2C | Microsoft Docs
-description: 使用自訂原則新增多租用戶 Azure AD 識別提供者 - Azure Active Directory B2C
+title: 在 Azure Active Directory B2C 中使用自訂原則新增多租用戶 Azure AD 識別提供者 | Microsoft Docs
+description: 使用自訂原則新增多租用戶 Azure AD 識別提供者 - Azure Active Directory B2C。
 services: active-directory-b2c
-documentationcenter: ''
-author: parakhj
-manager: alexsi
-editor: parakhj
-ms.assetid: 33c64001-5261-4ed9-8f46-b09839165250
-ms.service: active-directory-b2c
+author: davidmu1
+manager: mtillman
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.devlang: na
+ms.topic: conceptual
 ms.date: 04/14/2018
-ms.author: parakhj
-ms.openlocfilehash: d5e5ab1262a9d33fcf34cce91113f39c8c8936f4
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.author: davidmu
+ms.component: B2C
+ms.openlocfilehash: 2a8a23245a17c9a80c70860588a8312dbbb5e926
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33200513"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446048"
 ---
 # <a name="azure-active-directory-b2c-allow-users-to-sign-in-to-a-multi-tenant-azure-ad-identity-provider-using-custom-policies"></a>Azure Active Directory B2C：使用自訂原則允許使用者登入多租用戶 Azure AD 識別提供者
 

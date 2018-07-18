@@ -9,16 +9,15 @@ editor: cgronlun
 ms.assetid: d16f8c09-c954-40d3-afab-c86ffa8c353d
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 8fd8bd81191d2019d5fa41ce1b6a029f3587adfd
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: afe1a784ecc0a8f8846a71d21cc7ca8eb76078ec
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36336936"
 ---
 # <a name="access-control-in-azure-data-lake-store"></a>Azure Data Lake Store 中的存取控制
 
@@ -279,7 +278,7 @@ Azure Data Lake Store 實作的存取控制模型衍生自 HDFS，而 HDFS 又�
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>我必須啟用 ACL 的支援嗎？
 
-編號 Data Lake Store 帳戶一律會啟用透過 ACL 的存取控制。
+否。 Data Lake Store 帳戶一律會啟用透過 ACL 的存取控制。
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-folder-and-its-contents"></a>若要以遞迴方式刪除資料夾與其內容，需要哪些權限？
 
@@ -326,7 +325,7 @@ ACL 中的項目會儲存為對應於 Azure AD 中使用者的 GUID。 API 會�
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>何處可以進一步了解 POSIX 存取控制模型？
 
-* [Linux 上的 POSIX 存取控制清單](http://www.vanemery.com/Linux/ACL/POSIX_ACL_on_Linux.html)
+* [Linux 上的 POSIX 存取控制清單](https://www.linux.com/news/posix-acls-linux)
 
 * [HDFS 權限指南](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
 

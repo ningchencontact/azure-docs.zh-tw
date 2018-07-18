@@ -7,18 +7,20 @@ author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 06/27/2018
 ms.author: maheshu
-ms.openlocfilehash: 8da03990ace37b527553b0fe3ff0032515e1b812
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5838dbefab9f7100ed4776eebef7a1d07d2db1a6
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061040"
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>針對 Azure AD 網域服務受控網域設定安全的 LDAP (LDAPS)
 
@@ -29,7 +31,7 @@ ms.lasthandoff: 05/20/2018
 ## <a name="task-3---enable-secure-ldap-for-the-managed-domain-using-the-azure-portal"></a>工作 3 - 使用 Azure 入口網站為受控網域啟用安全 LDAP
 若要啟用安全的 LDAP，請執行下列設定步驟：
 
-1. 瀏覽至 **[Azure 入口網站](https://portal.azure.com)**。
+1. 瀏覽至 **Azure 入口網站[](https://portal.azure.com)**。
 
 2. 在 [搜尋資源] 搜尋方塊中搜尋「網域服務」。 從搜尋結果選取 [Azure AD Domain Services]。 [Azure AD Domain Services] 頁面會列出受控網域。
 
@@ -46,7 +48,7 @@ ms.lasthandoff: 05/20/2018
 4. 根據預設，已停用受控網域的安全 LDAP 存取。 將 [安全 LDAP] 切換至 [啟用]。
 
     ![啟用安全 LDAP](./media/active-directory-domain-services-admin-guide/secure-ldap-blade-configure.png)
-5. 根據預設，已停用透過網際網路之受控網域的安全 LDAP 存取。 視需要將 [在網際網路上允許安全 LDAP 存取] 切換為 [啟用]。 
+5. 根據預設，已停用透過網際網路之受控網域的安全 LDAP 存取。 視需要將 [在網際網路上允許安全 LDAP 存取] 切換為 [啟用]。
 
     > [!WARNING]
     > 當您啟用透過網際網路的安全 LDAP 存取時，您的網域將容易遭受網際網路上的暴力密碼破解攻擊。 因此，建議您設定 NSG，以將存取權鎖定在必要的來源 IP 位址範圍。 請參閱指示，以[鎖定透過網際網路對於受控網域的安全 LDAP 存取](#task-5---lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet)。
@@ -109,6 +111,23 @@ ms.lasthandoff: 05/20/2018
 
 <br>
 
+## <a name="bind-to-the-managed-domain-over-ldap-using-ldpexe"></a>使用 LDP.exe 透過 LDAP 繫結到受控網域
+您可以使用遠端伺服器管理工具套件隨附的 LDP.exe 工具來透過 LDAP 繫結和搜索。
+
+首先，開啟 LDP 並連線到受控網域。 按一下功能表中的 [連線]，然後按一下 [連線...]。 指定受控網域的 DNS 網域名稱。 指定連線用的連接埠。 若是 LDAP 連線，請使用連接埠 389。 若是 LDAPS 連線，請使用連接埠 636。 按一下 [確定] 按鈕以連線至受控網域。
+
+接著繫結至受控網域。 按一下功能表中的 [連線]，然後按一下 [繫結...]。 提供屬於「AAD DC 系統管理員」群組之使用者帳戶的認證。
+
+選取功能表中的 [檢視]，然後選取 [樹狀]。 「基準 DN」欄位保持空白，然後按一下 [確定]。 瀏覽至要搜尋的容器，以滑鼠右鍵按一下該容器，然後選取 [搜尋]。
+
+> [!TIP]
+> - 從 Azure AD 同步的使用者和群組會儲存在 **AADDC 使用者**容器中。 此容器的搜尋路徑看起來如同 ```CN=AADDC\ Users,DC=CONTOSO100,DC=COM```。
+> - 已加入受控網域的電腦之電腦帳戶會儲存在 **AADDC 電腦**容器中。 此容器的搜尋路徑看起來如同 ```CN=AADDC\ Computers,DC=CONTOSO100,DC=COM```。
+>
+>
+
+更多資訊 - [LDAP 查詢基本概念](https://technet.microsoft.com/library/aa996205.aspx)
+
 
 ## <a name="troubleshooting"></a>疑難排解
 如果您無法使用安全 LDAP 來連線到受控網域，請執行下列疑難排解步驟：
@@ -127,6 +146,7 @@ ms.lasthandoff: 05/20/2018
 ## <a name="related-content"></a>相關內容
 * [Azure AD Domain Services - 入門指南](active-directory-ds-getting-started.md)
 * [Administer an Azure AD Domain Services managed domain (管理 Azure AD 網域服務受控網域)](active-directory-ds-admin-guide-administer-domain.md)
+* [LDAP 查詢基本概念](https://technet.microsoft.com/library/aa996205.aspx)
 * [管理 Azure AD Domain Services 受控網域上的群組原則](active-directory-ds-admin-guide-administer-group-policy.md)
 * [網路安全性群組](../virtual-network/security-overview.md)
-* [建立網路安全性群組](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+* [建立網路安全性群組](../virtual-network/tutorial-filter-network-traffic.md)

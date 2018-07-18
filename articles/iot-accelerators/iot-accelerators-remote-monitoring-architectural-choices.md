@@ -1,28 +1,25 @@
 ---
 title: 遠端監視解決方案架構選擇 - Azure | Microsoft Docs
 description: 本文說明在遠端監視中所做的架構及技術選擇
-services: iot-suite
-suite: iot-suite
 author: timlaverty
 manager: camerons
 ms.author: timlav
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 04/30/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 607b8aeb2f986eebddf8fe13b88e7f3bc7b4494b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.topic: conceptual
+ms.openlocfilehash: 6c4bf0e4bf0a6c1a791cf762ec9bb44ed5c0b1bd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627683"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>遠端監視架構選擇
 
-Azure IoT 遠端監視 (RM) 是一個開放原始碼且具備 MIT 授權的解決方案加速器，其會導入常見的 IoT 情節 (例如裝置連線能力、裝置管理及串流處理)，讓客戶可加速開發程序。  RM 會遵循在[這裡](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)發行的建議 Azure IoT 參考架構。  
+Azure IoT 遠端監視解決方案加速器是具備 MIT 授權的開放原始碼解決方案加速器，其會導入常見的 IoT 情節 (例如裝置連線能力、裝置管理及串流處理)，讓客戶可加速開發程序。  遠端監視解決方案會遵循在[這裡](https://aka.ms/iotrefarchitecture)發行的建議 Azure IoT 參考架構。  
 
-本文說明在適用於 RM 的每個子系統中所做的架構及技術選擇，並討論要考量的替代方案。  請務必注意，在 RM 中所做的技術選擇不是實作遠端監視 IoT 解決方案的唯一方式。  技術性實作是用於建置成功應用程式的基準，而且應進行修改以符合客戶解決方案實作需要的技能、體驗及垂直應用程式。
+本文描述在適用於遠端監視解決方案的每個子系統中所做的架構及技術選擇，並討論要考量的替代方案。  請務必注意，在遠端監視解決方案中所做的技術選擇不是實作遠端監視 IoT 解決方案的唯一方式。  技術性實作是用於建置成功應用程式的基準，而且應進行修改以符合客戶解決方案實作需要的技能、體驗及垂直應用程式。
 
 ## <a name="architectural-choices"></a>架構選擇
 
@@ -32,29 +29,29 @@ Azure IoT 遠端監視 (RM) 是一個開放原始碼且具備 MIT 授權的解�
 
 ## <a name="core-subsystem-technology-choices"></a>核心子系統技術選擇
 
-本節將詳細說明在 RM 中針對每個核心子系統所做的技術選擇。
+本節將詳細說明在遠端監視解決方案中針對每個核心子系統所做的技術選擇。
 
 ![核心圖表](./media/iot-accelerators-remote-monitoring-architectural-choices/subsystem.png) 
 
 ### <a name="cloud-gateway"></a>雲端閘道
-Azure IoT 中樞可用來作為 RM 雲端閘道。  IoT 中樞提供與裝置的安全雙向通訊。 您可以在[這裡](https://azure.microsoft.com/services/iot-hub/) \(英文\) 深入了解 IoT 中樞。 針對 IoT 裝置連線能力，會使用 .NET Core 和 Java IoT 中樞 SDK。  此 SDK 會提供包裝 IoT 中樞 REST API 的包裝函式，並處理重試之類的案例。 
+Azure IoT 中樞可作為遠端監視解決方案雲端閘道。  IoT 中樞提供與裝置的安全雙向通訊。 您可以在[這裡](https://azure.microsoft.com/services/iot-hub/) \(英文\) 深入了解 IoT 中樞。 針對 IoT 裝置連線能力，會使用 .NET Core 和 Java IoT 中樞 SDK。  此 SDK 會提供包裝 IoT 中樞 REST API 的包裝函式，並處理重試之類的案例。
 
 ### <a name="stream-processing"></a>串流處理
-針對串流處理，RM 會使用 Azure 串流分析進行複雜的規則處理。  若客戶想要更簡單的規則，我們也提供自訂微服務來支援簡單規則的處理，即使此設定不屬於既有部署的一部分也一樣。 參考架構建議使用 Azure Functions 進行簡單的規則處理，以及使用 Azure 串流分析 (ASA) 進行複雜的規則處理。  
+針對串流處理，遠端監視解決方案會使用 Azure 串流分析進行複雜的規則處理。  若客戶想要更簡單的規則，我們也提供自訂微服務來支援簡單規則的處理，即使此設定不屬於既有部署的一部分也一樣。 參考架構建議使用 Azure Functions 進行簡單的規則處理，以及使用 Azure 串流分析 (ASA) 進行複雜的規則處理。  
 
 ### <a name="storage"></a>儲存體
-針對儲存體，Cosmos DB 適用於所有儲存體需求：冷儲存體、暖儲存體、規則儲存體和警示。 我們目前正在移至 Azure Blob 儲存體，如參考架構所建議。  Cosmos DB 是針對 IoT 應用程式所建議的一般用途暖儲存體解決方案，即使 Azure 時間序列深入解析和 Azure Data Lake 等解決方案適用於多個使用案例也一樣。
+針對儲存體，Azure Cosmos DB 適用於所有儲存體需求：冷儲存體、暖儲存體、規則儲存體和警示。 我們目前正在移至 Azure Blob 儲存體，如參考架構所建議。  Azure Cosmos DB 是針對 IoT 應用程式所建議的一般用途暖儲存體解決方案，即使 Azure 時間序列深入解析和 Azure Data Lake 等解決方案適用於多個使用案例也一樣。
 
 ### <a name="business-integration"></a>商務整合
-RM 中的商務整合僅限於產生警示，其放置於暖儲存體中。 您可以藉由整合解決方案和 Azure Logic Apps，來執行進一步的商務整合。
+遠端監視解決方案中的商務整合僅限於產生警示，其放置於暖儲存體中。 您可以藉由整合解決方案和 Azure Logic Apps，來執行進一步的商務整合。
 
 ### <a name="user-interface"></a>使用者介面
 Web UI 是利用 JavaScript React 所建置的。  React 提供業界常用的 Web UI 架構，而且類似於其他常用架構 (例如 Angular)。  
 
 ### <a name="runtime-and-orchestration"></a>執行階段與協調流程
-針對 RM 中的子系統實作所選擇的應用程式執行階段是含有 Kubernetes (K8s) 的 Docker 容器，可作為協調器進行水平調整。  此架構允許針對每個子系統進行個別調整定義，但從安全性觀點來看，會產生 DevOps 成本以使 VM 和容器保持最新狀態。  Docker & K8s 的替代方案包括在 PaaS 服務 (例如 Azure App Service) 中裝載微服務，或使用 Service Fabric、DCOS、Swarm 等作為協調器。
+針對遠端監視解決方案中的子系統實作所選擇的應用程式執行階段是具有 Kubernetes 的 Docker 容器，可作為協調器進行水平調整。  此架構允許針對每個子系統進行個別調整定義，但從安全性觀點來看，會產生 DevOps 成本以使 VM 和容器保持最新狀態。  Docker 和 Kubernetes 的替代方案包括在 PaaS 服務 (例如 Azure App Service) 中裝載微服務，或使用 Service Fabric、DCOS、Swarm 等作為協調器。
 
 ## <a name="next-steps"></a>後續步驟
-* 在[這裡](https://www.azureiotsuite.com/) \(英文\) 部署 RM 解決方案。
+* 在[此處](https://www.azureiotsolutions.com/)部署遠端監視解決方案。
 * 在 [C#](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) \(英文\) 和[Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java/) \(英文\) 中探索 GitHub 程式碼。  
-* 在[這裡](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/) \(英文\) 深入了解 IoT 參考架構。
+* 在[這裡](https://aka.ms/iotrefarchitecture) \(英文\) 深入了解 IoT 參考架構。

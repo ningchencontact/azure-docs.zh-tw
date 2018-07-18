@@ -1,6 +1,6 @@
 ---
-title: "搜尋 Azure 雲端儲存體中的非結構化資料"
-description: "使用 Azure 搜尋服務來搜尋非結構化資料。"
+title: 搜尋 Azure 雲端儲存體中的非結構化資料
+description: 使用 Azure 搜尋服務來搜尋非結構化資料。
 author: roygara
 manager: timlt
 services: storage
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/17/2017
+ms.locfileid: "23451635"
 ---
 # <a name="search-unstructured-data-in-cloud-storage"></a>搜尋雲端儲存體中的非結構化資料
 

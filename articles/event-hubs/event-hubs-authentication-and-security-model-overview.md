@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/01/2018
+ms.locfileid: "32311364"
 ---
 # <a name="event-hubs-authentication-and-security-model-overview"></a>事件中樞驗證和安全性模型概觀
 

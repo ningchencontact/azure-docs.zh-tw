@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359011"
 ---
 # <a name="azure-cloud-services-definition-schema-csdef-file"></a>Azure 雲端服務定義結構描述 (.csdef 檔)
 服務定義檔會定義應用程式的服務模型。 檔案會包含可供雲端服務使用的角色定義、指定服務端點，並建立服務的組態設定。 組態設定值是在服務組態檔中設定，如[雲端服務 (傳統) 組態結構描述](http://msdn.microsoft.com/library/b1ae68cd-cc95-48cb-a4a4-da91dc708a35)所述。

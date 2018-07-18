@@ -1,25 +1,26 @@
 ---
-title: 使用 Log Analytics 監視 Azure SQL 資料同步 (預覽) | Microsoft Docs
-description: 了解如何使用 Log Analytics 來監視 Azure SQL 資料同步 (預覽)
+title: 使用 Log Analytics 監視 Azure SQL 資料同步 | Microsoft Docs
+description: 了解如何使用 Log Analytics 來監視 Azure SQL 資料同步
 services: sql-database
 ms.date: 04/01/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: sql-database
-author: douglaslMS
-ms.author: douglasl
+author: allenwux
+ms.author: xiwu
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 1b22b4ddf9fa4880b814efc3f8c3f1fc6ec7d141
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 9b64a5e913748cda7927877c50a964ede587ae30
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025225"
 ---
-# <a name="monitor-sql-data-sync-preview-with-log-analytics"></a>使用 Log Analytics 監視 SQL 資料同步 (預覽) 
+# <a name="monitor-sql-data-sync-with-log-analytics"></a>使用 Log Analytics 監視 SQL 資料同步 
 
 以往，若要檢查 SQL 資料同步活動記錄檔並偵測錯誤和警告，您必須在 Azure 入口網站中以手動方式檢查 SQL 資料同步，或使用 PowerShell 或 REST API。 請遵循本文中的步驟，設定自訂解決方案，以改善資料同步的監視體驗。 您可以依據自己的案例來自訂這個解決方案。
 
-如需 SQL 資料同步的概觀，請參閱[使用 Azure SQL 資料同步 (預覽)，跨多個雲端和內部部署資料庫同步處理資料](sql-database-sync-data.md)。
+如需 SQL 資料同步的概觀，請參閱[使用 Azure SQL 資料同步，跨多個雲端和內部部署資料庫同步處理資料](sql-database-sync-data.md)。
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>所有同步群組的監視儀表板 
 
@@ -177,9 +178,9 @@ ms.lasthandoff: 04/06/2018
 
 在大部分情況下，這個解決方案是免費的。
 
-**Azure 自動化：**根據使用量而定，Azure 自動化帳戶可能會產生費用。 每個月的前 500 分鐘作業執行時間為免費。 在大部分情況下，這個解決方案每個月只會用到 500 分鐘以內的使用量。 若要避免費用，請將 Runbook 排程為間隔兩個小時以上執行。 如需詳細資訊，請參閱[自動化定價](https://azure.microsoft.com/pricing/details/automation/)。
+**Azure 自動化：** 根據使用量而定，Azure 自動化帳戶可能會產生費用。 每個月的前 500 分鐘作業執行時間為免費。 在大部分情況下，這個解決方案每個月只會用到 500 分鐘以內的使用量。 若要避免費用，請將 Runbook 排程為間隔兩個小時以上執行。 如需詳細資訊，請參閱[自動化定價](https://azure.microsoft.com/pricing/details/automation/)。
 
-**Log Analytics：**根據使用量而定，可能會產生 Log Analytics 的相關成本。 免費層包含一天 500 MB 的內嵌資料。 在大部分情況下，這個解決方案一天只會內嵌 500 MB 以內的資料量。 若要減少使用量，可使用 Runbook 隨附的僅限失敗篩選功能。 如果您一天使用超過 500 MB，請升級到付費層，以避免因達到限制而停止分析的風險。 如需詳細資訊，請參閱 [Log Analytics 定價](https://azure.microsoft.com/pricing/details/log-analytics/)。
+**Log Analytics：** 根據使用量而定，可能會產生 Log Analytics 的相關成本。 免費層包含一天 500 MB 的內嵌資料。 在大部分情況下，這個解決方案一天只會內嵌 500 MB 以內的資料量。 若要減少使用量，可使用 Runbook 隨附的僅限失敗篩選功能。 如果您一天使用超過 500 MB，請升級到付費層，以避免因達到限制而停止分析的風險。 如需詳細資訊，請參閱 [Log Analytics 定價](https://azure.microsoft.com/pricing/details/log-analytics/)。
 
 ## <a name="code-samples"></a>程式碼範例
 

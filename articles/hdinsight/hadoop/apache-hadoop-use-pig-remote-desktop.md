@@ -14,11 +14,12 @@ ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: f8d403e46f7460dff92cc418b829cc5510efd982
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f293aab67fb5e952dc32e20a6370d45cded682b5
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "35761992"
 ---
 # <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>從遠端桌面連線執行 Pig 工作
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
@@ -76,8 +77,9 @@ ms.lasthandoff: 04/16/2018
     <tr>
     <td>RESULT = order FREQUENCIES by COUNT desc;</td><td>依計數排序記錄層級 (遞減)，並且儲存到 RESULT</td>
     </tr>
-    </table>
-6.您也可以使用 `STORE` 陳述式儲存轉換結果。 例如，下列命令會將 `RESULT` 儲存到叢集之預設儲存體容器中的 **/example/data/pigout** 目錄：
+</table>
+
+6. 您也可以使用 `STORE` 陳述式儲存轉換結果。 例如，下列命令會將 `RESULT` 儲存到叢集之預設儲存體容器中的 **/example/data/pigout** 目錄：
 
         STORE RESULT into 'wasb:///example/data/pigout'
 
@@ -85,6 +87,7 @@ ms.lasthandoff: 04/16/2018
    > 資料會儲存到所指定目錄中名為 **part-nnnnn**的檔案中。 如果目錄已經存在，則會收到錯誤訊息。
    >
    >
+   
 7. 若要結束 grunt 提示字元，請輸入下列陳述式。
 
         QUIT;

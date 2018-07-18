@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34201232"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 管理 Azure DNS 中的 DNS 記錄和記錄集
 

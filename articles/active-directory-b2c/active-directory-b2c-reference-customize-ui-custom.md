@@ -1,20 +1,21 @@
 ---
 title: 使用自訂原則來自訂使用者旅程的 UI | Microsoft Docs
-description: 深入了解 Azure Active Directory B2C 自訂原則
+description: 了解 Azure Active Directory B2C 自訂原則。
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
-ms.openlocfilehash: 4fe9e90996c56773480eb147e5aef7475453fe43
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: B2C
+ms.openlocfilehash: c6882dd56ee96e1fcab5926b77f11ce928bf950b
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442350"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>使用自訂原則來自訂使用者旅程的 UI
 

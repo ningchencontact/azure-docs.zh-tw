@@ -3,23 +3,24 @@ title: 將 Power BI Desktop 檔案匯入 Azure Analysis Services | Microsoft Doc
 description: 描述如何使用 Azure 入口網站來匯入 Power BI Desktop 檔案 (pbix)。
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 35bf2ba85017de43788f802b6244d61ed2bb62df
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3dd90fc862e64812c0ba17bef74818d18788f4b5
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37440975"
 ---
 # <a name="import-a-power-bi-desktop-file"></a>匯入 Power BI Desktop 檔案
 
-您可以藉由匯入 Power BI Desktop 檔案 (pbix)，在 Azure AS 中建立新的模型。 將會匯入的項目包括模型中繼資料、快取資料和資料來源連線。 報告和視覺效果則不會匯入。
+您可以將 Power BI Desktop 檔案 (pbix) 中的資料模型匯入至 Azure Analysis Services。 將會匯入的項目包括模型中繼資料、快取資料和資料來源連線。 報告和視覺效果則不會匯入。 從 Power BI Desktop 匯入的資料模型是在 1400 相容性層級。
 
 **限制**   
-- pbix 模型只能連線到 Azure SQL Database 和 Azure SQL Data Warehouse 資料來源。 
+- pbix 模型只能連線到 **Azure SQL Database** 和 **Azure SQL 資料倉儲**資料來源。 
 - Pbix 模型不能有即時或 DirectQuery 連線。 
 - 如果 pbix 資料模型包含 Analysis Services 中不支援的中繼資料，匯入可能會失敗。
 

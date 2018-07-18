@@ -6,34 +6,29 @@ documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 4bd084c8-0842-4a10-8460-080c6a085bec
 ms.service: azure-resource-manager
 ms.devlang: multiple
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/09/2018
+ms.date: 07/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: bd2869b35d92ea92261223131476d7cc8eb854eb
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: af8b91ee20ccb4d16e7666c317ea7d08a265e6d6
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360099"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435539"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>透過 Visual Studio 建立與部署 Azure 資源群組
-使用 Visual Studio 和 [Azure SDK](https://azure.microsoft.com/downloads/)，您可以建立專案，將您的基礎結構和程式碼部署至 Azure。 例如，您可以為您的應用程式定義 Web 主機、網站和資料庫，並且部署該基礎結構與程式碼。 或者，您可以定義虛擬機器、虛擬網路和儲存體帳戶，並且部署該基礎結構以及在虛擬機器上執行的指令碼。 **Azure 資源群組** 部署專案可讓您在單一、可重複執行的作業中部署所有所需的資源。 如需部署與管理資源的詳細資訊，請參閱 [Azure Resource Manager 概觀](resource-group-overview.md)。
+使用 Visual Studio，您可以建立專案，將您的基礎結構和程式碼部署至 Azure。 例如，您可以為您的應用程式定義 Web 主機、網站和資料庫，並且部署該基礎結構與程式碼。 Visual Studio 針對部署常見案例提供許多不同的入門範本。 在本文中，您將會部署 Web 應用程式和 SQL Database。  
 
-Azure 資源群組專案包含 Azure Resource Manager JSON 範本，可定義部署到 Azure 的資源。 若要了解資源管理員範本的元素，請參閱 [撰寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。 Visual Studio 可讓您編輯這些範本，並提供工具，可簡化範本的使用。
-
-在本文中，您將會部署 Web 應用程式和 SQL Database。 不過對於各種類型的資源來說，其步驟幾乎相同。 您可以輕鬆地部署虛擬機器和其相關的資源。 Visual Studio 針對部署常見案例提供許多不同的入門範本。
-
-本文說明 Visual Studio 2017。 如果您使用 Visual Studio 2015 Update 2 和 Microsoft Azure SDK for .NET 2.9，或 Visual Studio 2013 與 Azure SDK 2.9，您的經驗會大致相同。 您可以使用 Azure SDK 2.6 或更新版本，不過您的使用者介面體驗可能會與本文所示的使用者介面不同。 開始執行步驟前，我們強烈建議您安裝最新版本的 [Azure SDK](https://azure.microsoft.com/downloads/) 。 
+本文說明如何使用[已安裝 Azure 部署和 ASP.NET 工作負載的 Visual Studio 2017](/dotnet/azure/dotnet-tools)。 如果您使用 Visual Studio 2015 Update 2 和 Microsoft Azure SDK for .NET 2.9，或 Visual Studio 2013 與 Azure SDK 2.9，您的經驗會大致相同。
 
 ## <a name="create-azure-resource-group-project"></a>建立 Azure 資源群組專案
-在此程序中，您會利用 **Web 應用程式 + SQL** 範本建立 Azure 資源群組專案。
+在這一節中，您會利用 **Web 應用程式 + SQL** 範本建立 Azure 資源群組專案。
 
-1. 在 Visual Studio 中，選擇 [檔案]新增專案，選擇 [C#] 或 [Visual Basic] \(您所選擇的語言在後續階段沒有任何影響，因為這些專案只包含 JSON 和 PowerShell 內容)。 然後選擇 [雲端]，再選擇 [Azure 資源群組] 專案。
+1. 在 Visual Studio 中，選擇 [檔案]新增專案，選擇 [C#] 或 [Visual Basic] (您所選擇的語言在後續階段沒有任何影響，因為這些專案只有 JSON 和 PowerShell 內容)。 然後選擇 [雲端]，再選擇 [Azure 資源群組] 專案。
    
     ![雲端部署專案](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
 2. 選擇您想要部署至 Azure 資源管理員的範本。 請注意，根據您想要部署的專案類型，有許多不同的選項。 在本文中，我們將選擇 **Web 應用程式 + SQL** 範本。
@@ -52,18 +47,18 @@ Azure 資源群組專案包含 Azure Resource Manager JSON 範本，可定義部
    
     ![顯示節點](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-items.png)
    
-    因為我們針對此範例選擇 Web 應用程式 + SQL 範本，所以您會看到下列檔案： 
+    因為您針對此範例選擇 Web 應用程式 + SQL 範本，所以您會看到下列檔案： 
    
    | 檔案名稱 | 說明 |
    | --- | --- |
-   | Deploy-AzureResourceGroup.ps1 |叫用 PowerShell 命令部署至 Azure 資源管理員的 PowerShell 指令碼。<br />**注意** Visual studio 會使用此 PowerShell 指令碼部署您的範本。 對此指令碼所進行的任何變更也會影響 Visual Studio 中的部署，因此請務必小心。 |
+   | Deploy-AzureResourceGroup.ps1 |執行 PowerShell 命令部署至 Azure 資源管理員的 PowerShell 指令碼。<br />**注意** Visual studio 會使用此 PowerShell 指令碼部署您的範本。 對此指令碼所進行的任何變更也會影響 Visual Studio 中的部署，因此請務必小心。 |
    | WebSiteSQLDatabase.json |Resource Manager 範本 (定義您想要部署至 Azure 的基礎結構)，以及在部署期間您可以提供的參數。 同時定義資源之間的相依性，讓 Resource Manager 以正確的順序部署資源。 |
-   | WebSiteSQLDatabase.parameters.json |參數檔案，包含範本所需的值。 您可以傳遞參數值以自訂每個部署。 |
+   | WebSiteSQLDatabase.parameters.json |參數檔案，具有範本所需的值。 您可以傳遞參數值以自訂每個部署。 |
    
-    所有資源群組部署專案都包含這些基本檔案。 其他專案可能包含其他檔案以支援其他功能。
+    所有資源群組部署專案都有這些基本檔案。 其他專案可能有其他檔案以支援其他功能。
 
 ## <a name="customize-the-resource-manager-template"></a>自訂資源管理員範本
-您可以藉由修改 JSON 範本 (描述您想要部署的資源) 來自訂部署專案。 JSON 代表 JavaScript 物件標記法，而且是很容易使用的序列化資料格式。 JSON 檔案使用的結構描述在每個檔案的頂端提供做為參考。 如果您想要更了解這個結構描述，您可以下載並分析它。 結構描述會定義哪些是有效項目、欄位的類型和格式、可能的列舉值等等。 若要了解資源管理員範本的元素，請參閱 [撰寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
+您可以藉由修改 JSON 範本 (描述您想要部署的資源) 來自訂部署專案。 JSON 代表 JavaScript 物件標記法，而且是很容易使用的序列化資料格式。 JSON 檔案使用的結構描述在每個檔案的頂端提供做為參考。 如果您想要更了解這個結構描述，您可以下載並分析它。 結構描述會定義哪些元素有效、欄位的類型和格式，以及可能的屬性值。 若要了解資源管理員範本的元素，請參閱 [撰寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
 
 若要使用您的範本，請開啟 **WebSiteSQLDatabase.json**。
 
@@ -141,7 +136,7 @@ Visual Studio 也會提供 Intellisense 以協助您了解編輯範本時可以�
    
     **administratorLogin** 指定 SQL Server 系統管理員的使用者名稱。 請勿使用常見的系統管理員名稱，例如 **sa** 或 **admin**。 
    
-    **AdministratorLoginPassword** 指定 SQL Server 系統管理員的密碼。 [將密碼儲存為參數檔案中的純文字]  選項並不安全；因此，請勿選取此選項。 因為不會以純文字方式儲存密碼，所以您必須在部署期間再次提供此密碼。 
+    **AdministratorLoginPassword** 指定 SQL Server 系統管理員的密碼。 [將密碼儲存為參數檔案中的純文字] 選項並不安全；因此，請勿選取此選項。 因為不會以純文字方式儲存密碼，所以您必須在部署期間再次提供此密碼。 
    
     **databaseName** 指定要建立之資料庫的名稱。 
    
@@ -167,7 +162,7 @@ Visual Studio 也會提供 Intellisense 以協助您了解編輯範本時可以�
     ![已部署 Azure 資源群組](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/redeploy.png)
 
 ## <a name="deploy-code-with-your-infrastructure"></a>以您的基礎結構部署程式碼
-此時，您已為您的應用程式部署基礎結構，但是專案尚未部署實際程式碼。 本文說明如何在部署期間部署 Web 應用程式和 SQL Database 資料表。 如果您是部署虛擬機器而不是 Web 應用程式，您想要在機器上執行一些程式碼做為部署的一部分。 部署 Web 應用程式的程式碼或設定虛擬機器的程序幾乎完全相同。
+此時，您已為您的應用程式部署基礎結構，但是專案尚未部署實際程式碼。 本文說明如何在部署期間部署 Web 應用程式和 SQL Database 資料表。 如果您是部署虛擬機器而不是 Web 應用程式，您想要在機器上執行一些程式碼作為部署的一部分。 部署 Web 應用程式的程式碼或設定虛擬機器的程序幾乎完全相同。
 
 1. 將專案新增至您的 Visual Studio 方案。 以滑鼠右鍵按一下方案，然後選取 [新增] > [新增專案]。
    
@@ -194,8 +189,8 @@ Visual Studio 也會提供 Intellisense 以協助您了解編輯範本時可以�
    
     屬性如下︰
    
-   * [其他屬性]  包含會推送至 Azure 儲存體的 Web 部署套件預備位置。 請注意資料夾 (ExampleApp) 和檔案 (package.zip)。 您必須知道這些值，因為您會提供這些值做為部署應用程式時的參數。 
-   * [包含檔案路徑]  包含建立套件所在的路徑。 [包含目標]  包含部署執行的命令。 
+   * [其他屬性] 包含會推送至 Azure 儲存體的 Web 部署套件預備位置。 請注意資料夾 (ExampleApp) 和檔案 (package.zip)。 您必須知道這些值，因為您會提供這些值做為部署應用程式時的參數。 
+   * [包含檔案路徑] 有建立套件所在的路徑。 [包含目標]  有部署執行的命令。 
    * 預設值 [建立封裝]  會讓部署建立 Web 部署封裝 (package.zip)。  
      
      您不需要發佈設定檔，因為部署會從屬性取得必要的資訊來建立套件。
@@ -218,11 +213,11 @@ Visual Studio 也會提供 Intellisense 以協助您了解編輯範本時可以�
      ![顯示已部署的應用程式](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
 
 ## <a name="add-an-operations-dashboard-to-your-deployment"></a>將作業儀表板新增至您的部署
-現在我們已建立了解決方案，該進行最後一步並讓其開始運作了。 您不一定要透過 Visual Studio 介面使用資源。 我們可以利用定義為 JSON 資源的共用儀表板。 透過編輯範本和新增自訂資源即可執行此操作。 
+您不一定要透過 Visual Studio 介面使用資源。 您可以將自訂資源新增至您的範本，以自訂您的部署。 若要說明如何新增資源，您可以新增操作儀表板來管理您部署的資源。
 
-1. 開啟 WebsiteSqlDeploy.json 檔案，並在資源區段的儲存體帳戶資源之後和結尾 ] 之前，新增下列 json 程式碼區塊。
+1. 開啟 WebsiteSqlDeploy.json 檔案，然後將 JSON 新增到儲存體帳戶資源之後，但是在資源區段的結尾 `]` 之前。
 
-```json
+  ```json
     ,{
       "properties": {
         "lenses": {
@@ -297,23 +292,19 @@ Visual Studio 也會提供 Intellisense 以協助您了解編輯範本時可以�
         "hidden-title": "[concat('OPS-',resourceGroup().name)]"
       }
     }
-}
-```
+  }
+  ```
 
-2. 重新部署您的資源群組，當您查看 Azure 入口網站上的儀表板時，您會看到共用儀表已新增至您的選擇清單。 
+2. 重新部署您的資源群組。 在 Azure 入口網站上查看儀表板時，您會發現共用儀表板已新增至您的選擇清單。
 
-    ![自訂儀表板](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/view-custom-dashboards.png)
+   ![自訂儀表板](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/view-custom-dashboards.png)
 
+3. 選取儀表板。
 
+   ![自訂儀表板](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/Ops-DemoSiteGroup-dashboard.png)
 
-   > [!NOTE] 
-   > 您可以使用 RBAC 群組來管理儀表板的存取，並在部署好資源後，將自訂項目發行至資源。 請注意，當您重新部署資源群組時，其會重設回您範本中的預設值。 您應考慮是否要以自訂項目更新範本。 如需此操作的說明，請參閱[以程式設計方式建立 Azure 儀表板](../azure-portal/azure-portal-dashboards-create-programmatically.md)
+您可以使用 RBAC 群組，管理儀表板的存取權。 部署之後，您也可以自訂儀表板的外觀。 不過，如果您重新部署資源群組，則儀表板會處於在您範本中的預設狀態。 如需建立儀表板的詳細資訊，請參閱[以程式設計方式建立 Azure 儀表板](../azure-portal/azure-portal-dashboards-create-programmatically.md)。
 
-
-    ![自訂儀表板](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/Ops-DemoSiteGroup-dashboard.png)
-    
-    
 ## <a name="next-steps"></a>後續步驟
-* 若要了解透過入口網站管理資源，請參閱 [使用 Azure 入口網站來管理您的 Azure 資源](resource-group-portal.md)。
 * 若要了解範本，請參閱 [撰寫 Azure Resource Manager 範本](resource-group-authoring-templates.md)。
 

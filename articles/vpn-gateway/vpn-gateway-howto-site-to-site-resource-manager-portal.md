@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30914176"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>在 Azure 入口網站中建立站對站連線
 
@@ -49,23 +50,23 @@ ms.lasthandoff: 04/06/2018
 
 本文的範例使用下列值。 您可以使用這些值來建立測試環境，或參考這些值，進一步了解本文中的範例。 如需有關 VPN 閘道的一般設定詳細資訊，請參閱 [關於 VPN 閘道設定](vpn-gateway-about-vpn-gateway-settings.md)。
 
-* **VNet 名稱︰**TestVNet1
-* **位址空間：**10.1.0.0/16
-* **訂用帳戶：**您需要使用的訂用帳戶
-* **資源群組︰**TestRG1
-* **位置：**美國東部
-* **子網路：**FrontEnd：10.1.0.0/24，BackEnd：10.1.1.0/24 (在此練習中是選擇性的)
-* **閘道子網路名稱︰**GatewaySubnet (這會在入口網站中自動填入)
-* **閘道子網路位址範圍︰**10.1.255.0/27
-* **DNS 伺服器：**8.8.8.8 - 選擇性。 DNS 伺服器的 IP 位址。
-* **虛擬網路閘道名稱：**VNet1GW
-* **公用 IP：**VNet1GWIP
-* **VPN 類型：**路由式
-* **連線類型︰**網站間 (IPsec)
-* **閘道類型：**VPN
-* **區域網路閘道名稱：**Site1
-* **連線名稱︰**VNet1toSite1
-* **共用的金鑰：**此範例中，我們會使用 abc123。 但是，您可以使用任何與您 VPN 硬體相容的項目。 值務必符合連線的兩端。
+* **VNet 名稱︰** TestVNet1
+* **位址空間：** 10.1.0.0/16
+* **訂用帳戶：** 您需要使用的訂用帳戶
+* **資源群組︰** TestRG1
+* **位置：** 美國東部
+* **子網路：** FrontEnd：10.1.0.0/24，BackEnd：10.1.1.0/24 (在此練習中是選擇性的)
+* **閘道子網路名稱︰** GatewaySubnet (這會在入口網站中自動填入)
+* **閘道子網路位址範圍︰** 10.1.255.0/27
+* **DNS 伺服器：** 8.8.8.8 - 選擇性。 DNS 伺服器的 IP 位址。
+* **虛擬網路閘道名稱：** VNet1GW
+* **公用 IP：** VNet1GWIP
+* **VPN 類型：** 路由式
+* **連線類型︰** 網站間 (IPsec)
+* **閘道類型：** VPN
+* **區域網路閘道名稱：** Site1
+* **連線名稱︰** VNet1toSite1
+* **共用的金鑰：** 此範例中，我們會使用 abc123。 但是，您可以使用任何與您 VPN 硬體相容的項目。 值務必符合連線的兩端。
 
 ## <a name="CreatVNet"></a>1.建立虛擬網路
 

@@ -15,6 +15,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32188441"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>使用 Azure Functions 來管理 Azure SQL 資料倉儲中的計算資源
 

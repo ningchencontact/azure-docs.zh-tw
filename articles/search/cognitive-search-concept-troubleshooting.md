@@ -10,12 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 15fc879958bfd886210a90239e0247c60fe231f9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3c3f9a0d0dc40de6c62c21dab0f11a501829ef11
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786827"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640960"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>對認知搜尋進行疑難排解的秘訣
 
@@ -99,7 +99,7 @@ https://docs.microsoft.com/en-us/azure/search/search-howto-indexing-azure-blob-s
 
 ## <a name="tip-7-increase-indexing-throughput"></a>提示 7：提高索引編製輸送量
 
-對於[平行索引編製](search-howto-reindex.md#parallel-indexing)，請將您的資料放入多個容器中，或是相同容器內的多個虛擬資料夾中。 接著，請建立多個資料來源和索引子配對。 所有索引子將可使用相同的技能集，並寫入至相同的目標搜尋索引，而讓您的搜尋應用程式無須辨識此分割。
+對於[平行索引編製](search-howto-large-index.md)，請將您的資料放入多個容器中，或是相同容器內的多個虛擬資料夾中。 接著，請建立多個資料來源和索引子配對。 所有索引子將可使用相同的技能集，並寫入至相同的目標搜尋索引，而讓您的搜尋應用程式無須辨識此分割。
 如需詳細資訊，請參閱[為大型資料集編製索引](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)。
 
 ## <a name="see-also"></a>另請參閱

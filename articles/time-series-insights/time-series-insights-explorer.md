@@ -1,22 +1,22 @@
 ---
-title: "使用 Azure 時間序列深入解析總管來探索資料 | Microsoft Docs"
-description: "本文說明如何在網頁瀏覽器中使用 Azure 時間序列深入解析總管，快速查看您巨量資料的全域檢視，並驗證您的 IoT 環境。"
-services: time-series-insights
+title: 使用 Azure 時間序列深入解析總管來探索資料 | Microsoft Docs
+description: 本文說明如何在網頁瀏覽器中使用 Azure 時間序列深入解析總管，快速查看您巨量資料的全域檢視，並驗證您的 IoT 環境。
 ms.service: time-series-insights
-author: MarkMcGeeAtAquent
+services: time-series-insights
+author: ashannon7
 ms.author: kfile
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: d09292cce1414a1b89e4b75df27d0a689738b4d6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d3b8973e8798e5b1f32d9e882db8a06ad7486ed8
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295333"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure 時間序列深入解析總管
 本文探討時間序列深入解析總管 Web 應用程式中的各種功能和可用的選項。 在網頁瀏覽器中使用時間序列深入解析總管來建立資料的視覺效果。

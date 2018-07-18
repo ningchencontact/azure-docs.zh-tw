@@ -1,12 +1,12 @@
 ---
-title: "透過入口網站啟用 Azure 事件中樞擷取功能 | Microsoft Docs"
-description: "使用 Azure 入口網站啟用事件中樞擷取功能。"
+title: 透過入口網站啟用 Azure 事件中樞擷取功能 | Microsoft Docs
+description: 使用 Azure 入口網站啟用事件中樞擷取功能。
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26855006"
 ---
 # <a name="enable-event-hubs-capture-using-the-azure-portal"></a>使用 Azure 入口網站啟用事件中樞擷取功能
 

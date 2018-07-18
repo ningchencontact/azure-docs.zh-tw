@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 6a42f4b5b54056424bc3e2d865408ad6711403e0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4a5e613169bf3173b7585b49803fc7ac7f5186ce
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297966"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>使用 Azure 成本管理啟動 Azure 訂用帳戶與帳戶
 
@@ -68,7 +69,7 @@ ms.lasthandoff: 04/28/2018
     1. 在 Azure 入口網站的右上方，按一下使用者資訊，然後按一下 [檢視我的帳單]。
     2. 在 [計費帳戶] 下，按一下 [訂用帳戶]。
     3. 在 [我的訂用帳戶] 下，選取訂用帳戶。
-    4. 費率識別碼會顯示在 [優惠識別碼] 下方。 複製訂用帳戶的優惠識別碼。
+    4. 費率識別碼會顯示在 [供應項目識別碼] 下方。 複製訂用帳戶的供應項目識別碼。
 4. 在 [新增帳戶] (或[編輯訂用帳戶]) 方塊中，按一下 [儲存] (或 [下一步])。 您會被重新導向至 Azure 入口網站。
 5. 登入入口網站。 按一下 [接受]，授權 Azure 成本管理收集器存取您的 Azure 帳戶。
 
@@ -86,7 +87,7 @@ ms.lasthandoff: 04/28/2018
 
 - 在「設定 Azure 成本管理」精靈中顯示的「指定的 API 金鑰不是最上層的註冊金鑰」。
 - 在 Enterprise 合約入口網站中顯示的「直接註冊 – 否」。
-- 在 Cloudyn 入口網站中顯示的*找不到過去 30 天的使用方式資料。*請連絡您的經銷商以確定您的 Azure 帳戶已啟用標記」。
+- 在 Cloudyn 入口網站中顯示的*找不到過去 30 天的使用方式資料。* 請連絡您的經銷商以確定您的 Azure 帳戶已啟用標記」。
 
 前面的訊息指出您透過轉銷商或雲端解決方案提供者購買了 Azure Enterprise 合約。 您的轉銷商或雲端解決方案提供者必須為您的 Azure 帳戶啟用「標記」，您才能在 Azure 成本管理中檢視資料。
 
@@ -95,14 +96,39 @@ ms.lasthandoff: 04/28/2018
 1. 您的轉銷商必須為您的帳戶啟用「標記」。 如需指示，請參閱[間接客戶上線指南](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide)。
 2. 您要產生用於 Azure 成本管理的 Azure Enterprise 合約金鑰。 如需相關指示，請參閱[註冊 Azure Enterprise 合約並檢視成本資料](https://docs.microsoft.com/azure/cost-management/quick-register-ea)。
 
-只有 Azure 服務系統管理員可以啟用「成本管理」。 共同管理員的權限不足。
-
 您必須先遵循下列文章中的指示來啟用 Azure 帳單 API，才能產生 Azure Enterprise 合約 API 金鑰來設定 Azure 成本管理：
 
 - [適用於企業客戶的報告 API 概觀](../billing/billing-enterprise-api.md)
 - **啟用對 API 的資料存取**下的 [Microsoft Azure 企業版入口網站報告 API](https://ea.azure.com/helpdocs/reportingAPI)
 
 您可能也需要提供部門管理員、帳戶擁有者，以及企業管理員等權限，才能使用帳單 API「檢視費用」。
+
+只有 Azure 服務系統管理員可以啟用「成本管理」。 共同管理員的權限不足。 不過，您可以因應系統管理員需求。 您可以要求 Azure Active Directory 系統管理員授與透過 PowerShell 指令碼授權 **CloudynAzureCollector** 的權限。 下列指令碼授與註冊 Azure Active Directory 服務主體 **CloudynAzureCollector** 的權限。
+
+```
+#THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+#Tenant - enter your tenant ID or Name
+$tenant = "<ReplaceWithYourTenantID>"
+
+#Cloudyn Collector application ID
+$appId = "83e638ef-7885-479f-bbe8-9150acccdb3d"
+
+#URL to activate the consent screen
+$url = "https://login.windows.net/"+$tenant+"/oauth2/authorize?api-version=1&response_type=code&client_id="+$appId+"&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2FCloudynJava&prompt=consent"
+
+#Choose your browser, the default is Internet Explorer
+
+#Chrome
+#[System.Diagnostics.Process]::Start("chrome.exe", "--incognito $url")
+
+#Firefox
+#[System.Diagnostics.Process]::Start("firefox.exe","-private-window $url" )
+
+#IExplorer
+[System.Diagnostics.Process]::Start("iexplore.exe","$url -private" )
+
+```
 
 ## <a name="next-steps"></a>後續步驟
 

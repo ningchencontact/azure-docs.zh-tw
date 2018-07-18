@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212988"
 ---
 # <a name="introduction-to-application-groups"></a>應用程式群組簡介
 Service Fabric 的叢集資源管理員通常會將負載平均分配到整個叢集 (透過[計量](service-fabric-cluster-resource-manager-metrics.md)表示)，以管理叢集資源。 Service Fabric 透過[容量](service-fabric-cluster-resource-manager-cluster-description.md)管理叢集的節點容量及整個叢集的容量。 計量和容量很適用於許多工作負載，但過度使用不同 Service Fabric 應用程式執行個體的模式，有時會引起其他需求。 例如，您可能想要：

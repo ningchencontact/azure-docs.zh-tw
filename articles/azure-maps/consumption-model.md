@@ -1,22 +1,19 @@
 ---
 title: Azure 地圖服務中的耗用模型 | Microsoft Docs
 description: 深入了解 Azure 地圖服務中的耗用模型
-services: azure-maps
-keywords: ''
 author: subbarayudukamma
 ms.author: skamma
-ms.date: 5/8/2018
-ms.topic: article
+ms.date: 05/08/2018
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: ''
-ms.openlocfilehash: 146ea084c02bb3de0c74da79ca85021589207de8
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+services: azure-maps
+manager: ''
+ms.openlocfilehash: cf20c7dbfbf7cd3f09579b03b835148c1c295137
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34600624"
 ---
 # <a name="consumption-model"></a>耗用模型
 
@@ -28,7 +25,7 @@ ms.lasthandoff: 05/10/2018
 
 在這兩個耗用模型中，要明確指定一些參數必須同時指定其他參數。 這些相依性如下：
 
-* 所有參數都需要由使用者指定 **constantSpeedConsumption**。 如果未指定 **constantSpeedConsumption***，指定任何其他耗用模型參數會發生錯誤，除了 **vehicleWeight**。
+* 所有參數都需要由使用者指定 **constantSpeedConsumption**。 如果未指定 **constantSpeedConsumption**\*，指定任何其他耗用模型參數會發生錯誤，除了 **vehicleWeight**。
 * **accelerationEfficiency** 和 **decelerationEfficiency** 一律必須指定為一對 (也就是兩個並存或無)。
 * 如果指定 **accelerationEfficiency** 和 **decelerationEfficiency**，其值的產品必不能大於 1 (以防永恆運動)。
 * **uphillEfficiency** 和 **downhillEfficiency** 一律必須指定為一對 (也就是兩個並存或無)。

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34204833"
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>在 Service Fabric 叢集中引發受控制的混亂
 雲端基礎結構之類的大型分散式系統本身並不可靠。 Azure Service Fabric 可讓開發人員在不可靠的基礎結構之上撰寫可靠的分散式服務。 若要在不可靠的基礎結構之上撰寫健全的分散式服務，開發人員需要能夠測試其服務的穩定性，同時不可靠的基礎結構會因錯誤而經歷複雜的狀態轉換。

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 35762d5781d5437a25eaf9942e50f60846ae1ae2
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 2c65b595e4c56b8c69d38a6e2f30ae8e57bba3f4
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344099"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>使用 Azure 網路監看員來針對虛擬網路閘道和連線進行疑難排解
 
@@ -81,7 +82,7 @@ $requestBody = @"
 "@
 
 
-armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${NWresourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/troubleshoot?api-version=2016-03-30" -verbose
+armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${NWresourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/troubleshoot?api-version=2016-03-30" $requestBody -verbose
 ```
 
 由於這項作業的執行時間很長，回應標頭中會傳回用於查詢作業的 URI 和結果的 URI，如下列回應所示：
@@ -209,7 +210,7 @@ $requestBody = @{
 }
 
 }
-armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${NWresourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/troubleshoot?api-version=2016-03-30 "
+armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${NWresourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/troubleshoot?api-version=2016-03-30 $requestBody"
 ```
 
 > [!NOTE]

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: ganesr,cherylmc
-ms.openlocfilehash: 0e060e67d615f0d6aa8ca6cbe305670956ac3faf
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 563ee61b56af22ada662fcfff9f47ae58f3f32ba
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969090"
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>ExpressRoute 線路和路由網域
  您必須訂購 *ExpressRoute 線路* ，才能將內部部署基礎結構透過連線提供者連接到 Microsoft。 下圖所示的是 WAN 與 Microsoft 之間連線的邏輯表示法。
@@ -86,6 +87,11 @@ ExpressRoute 線路有多個相關聯的路由網域：Azure 公用、Azure 私�
 您可以選擇啟用一或多個路由網域，使之成為 ExpressRoute 線路的一部分。 如果想要將所有路由網域合併成單一路由網域，您可以選擇將所有路由網域放在相同的 VPN。 您也可以將他們放在不同的路由網域，類似上圖。 建議的設定是將私用對等直接連線到核心網路，而將公用和 Microsoft 對等連結連線到您的 DMZ。
 
 如果您選擇使用全部三種對等互連工作階段，就必須擁有三個 BGP 工作階段配對 (每個對等互連類型一組)。 BGP 工作階段配對提供高可用性連結。 若您透過第 2 層連線提供者來連線，則要負責設定和管理路由。 如需深入瞭解，請檢閱有關設定 ExpressRoute 的 [工作流程](expressroute-workflows.md) 。
+
+## <a name="expressroute-health"></a>ExpressRoute 健康情況
+您可能會基於可用性、與 VNet 的連線能力及頻寬使用率，使用[網路效能監控](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM) 來監視 ExpressRoute 線路。
+
+NPM 會監視 Azure 私用對等互連和 Microsoft 對等互連的健康情況。  如需詳細資訊，請參閱我們的[文章](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/) \(英文\)。
 
 ## <a name="next-steps"></a>後續步驟
 * 尋找服務提供者。 請參閱 [ExpressRoute 服務提供者和位置](expressroute-locations.md)。

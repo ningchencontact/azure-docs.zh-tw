@@ -10,19 +10,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 387b5e944b0fd198e37a35d7bf1c54f7795c9f21
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1db10a1578133021b976231a66aee6b550d71faf
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38299726"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure 資料處理站-常見問題集
 > [!NOTE]
-> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 如果您使用處於預覽狀態的 Data Factory 服務第 2 版，請參閱[常見問題集 - Data Factory 第 2 版](../frequently-asked-questions.md)。
+> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[常見問題集：Data Factory](../frequently-asked-questions.md)。
 
 ## <a name="general-questions"></a>一般問題
 ### <a name="what-is-azure-data-factory"></a>Azure 資料處理站是什麼？
@@ -40,7 +41,7 @@ Data Factory 可讓您建立資料導向工作流程，不僅可透過計算服�
 * 如需說明如何使用複製活動 **複製/移動資料** 的教學課程，請參閱 [將資料從 Azure Blob 儲存體複製到 Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 * 如需說明如何使用 HDInsight Hive 活動 **轉換資料** 的教學課程。 請參閱 [在 Hadoop 叢集上執行 Hive 指令碼來處理資料](data-factory-build-your-first-pipeline.md)
 
-### <a name="what-is-the-data-factorys-region-availability"></a>什麼是資料處理站的區域可用性？
+### <a name="what-is-the-data-factorys-region-availability"></a>什麼是 Data Factory 的區域可用性？
 Data Factory 可在**美國西部**和**北歐**地區使用。 資料處理站所使用的計算服務和儲存體服務可以在其他區域使用。 請參閱 [支援的區域](data-factory-introduction.md#supported-regions)。
 
 ### <a name="what-are-the-limits-on-number-of-data-factoriespipelinesactivitiesdatasets"></a>資料處理站/管線/活動/資料集的數量有什麼限制？
@@ -57,7 +58,7 @@ Data Factory 可在**美國西部**和**北歐**地區使用。 資料處理站�
 * **Azure Resource Manager 範本** 請參閱 [教學課程：使用 Azure Resource Manager 範本建置您的第一個 Azure Data Factory](data-factory-build-your-first-pipeline-using-arm.md) 以取得詳細資訊。
 
 ### <a name="can-i-rename-a-data-factory"></a>我是否可以重新命名資料處理站？
-編號 和其他 Azure 資源一樣，您無法變更 Azure Data Factory 的名稱。
+否。 和其他 Azure 資源一樣，您無法變更 Azure Data Factory 的名稱。
 
 ### <a name="can-i-move-a-data-factory-from-one-azure-subscription-to-another"></a>我是否可以將 Data Factory 從一個 Azure 訂用帳戶移至另一個訂用帳戶？
 是。 請使用您資料處理站刀鋒視窗上的 [移動] 按鈕，如下圖所示：

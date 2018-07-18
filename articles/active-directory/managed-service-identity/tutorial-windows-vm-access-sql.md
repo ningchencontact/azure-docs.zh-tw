@@ -9,17 +9,17 @@ editor: bryanla
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: skwan
-ms.openlocfilehash: 27c4f35cbd8cc69e689b26078d5a07c8558d8e2a
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.author: daveba
+ms.openlocfilehash: c2c93b8f6b4f8c4d888f7105f09e96dd9df7b574
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303196"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902617"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>教學課程：使用 Windows VM 受控服務識別 (MSI) 來存取 Azure SQL
 
@@ -270,11 +270,9 @@ if (accessToken != null) {
 
 檢查 `$DataSet.Tables[0]` 的值以檢視查詢的結果。  恭喜，您已成功使用 VM MSI 查詢 資料庫，而且不需要提供認證 ！
 
-## <a name="related-content"></a>相關內容
+## <a name="next-steps"></a>後續步驟
 
-- 如需 MSI 的概觀，請參閱[受控服務識別概觀](overview.md)。
-- 深入了解 [Azure AD 驗證的 Azure SQL 支援](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication)。
-- 深入了解[設定 Azure AD 驗證的 Azure SQL 支援](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)。
-- 深入了解 [SQL 伺服器的驗證和存取](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions)。
+在本教學課程中，您已學習如何建立受控服務識別以存取 Azure SQL 伺服器。  若要深入了解 Azure SQL Server，請參閱：
 
-使用下列意見區段來提供意見反應，並協助我們改善及設計我們的內容。
+> [!div class="nextstepaction"]
+>[Azure SQL Database 服務](/azure/sql-database/sql-database-technical-overview)

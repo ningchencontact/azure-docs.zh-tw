@@ -6,15 +6,15 @@ author: danimir
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: vvasic
-ms.openlocfilehash: e4c3a2c1f21bf14bfc75f20dd18cefca68fd2067
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d4d3b7f54c7393b57339ea149e8a79f97891dc20
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364466"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646026"
 ---
 # <a name="enable-automatic-tuning"></a>啟用自動微調
 
@@ -24,36 +24,40 @@ Azure SQL Database 是自動受控的資料服務，會不斷地監視您的查�
 在伺服器層級上，您可以選擇繼承「Azure 預設值」的自動調整設定，或不繼承設定。 Azure 預設值已啟用 FORCE_LAST_GOOD_PLAN 和 CREATE_INDEX，且已停用 DROP_INDEX。
 
 ### <a name="azure-portal"></a>Azure 入口網站
-若要在 Azure SQL Database **伺服器**上啟用自動調整，請導覽至 Azure 入口網站中的伺服器，然後選取功能表中的 [自動調整]。 依序選取您想要啟用的自動調整以及 [套用]。
+若要在 Azure SQL Database 邏輯**伺服器**上啟用自動調整，請導覽至 Azure 入口網站中的伺服器，然後選取功能表中的 [自動調整]。
 
 ![伺服器](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> 請注意，此時 [DROP_INDEX] 選項與使用分割區切換和索引提示的應用程式不相容，並且在這些情況下不應該開啟。
+> 請注意，此時 [DROP_INDEX] 選項與使用分割區切換和索引提示的應用程式不相容，而且不應該在這些情況下啟用。
 >
 
-伺服器上的自動調整選項會套用到伺服器上的所有資料庫。 根據預設，所有資料庫會都繼承其父伺服器中的設定，但這可加以覆寫並針對每個資料庫個別加以指定。
+依序選取您想要啟用的自動調整以及 [套用]。
+
+伺服器上的自動調整選項會套用到此伺服器上的所有資料庫。 根據預設，所有資料庫會都繼承其父伺服器的組態，但這可加以覆寫並針對每個資料庫個別加以指定。
 
 ### <a name="rest-api"></a>REST API
 [按一下這裡以深入了解如何透過 REST API 在伺服器層級上啟用自動調整](https://docs.microsoft.com/rest/api/sql/serverautomatictuning) \(英文\)
 
 ## <a name="enable-automatic-tuning-on-an-individual-database"></a>在個別的資料庫上啟用自動調整
 
-Azure SQL Database 可讓您個別指定每個資料庫上的自動調整設定。 在資料庫層級上，您可以選擇繼承父伺服器「Azure 預設值」的自動調整設定，或不繼承設定。 Azure 預設值已啟用 FORCE_LAST_GOOD_PLAN 和 CREATE_INDEX，且已停用 DROP_INDEX。
+Azure SQL Database 可讓您個別指定每個資料庫的自動調整設定。 在資料庫層級上，您可以選擇繼承父伺服器「Azure 預設值」的自動調整設定，或不繼承設定。 Azure 預設值會設為已啟用 FORCE_LAST_GOOD_PLAN 和 CREATE_INDEX，且已停用 DROP_INDEX。
 
 > [!NOTE]
-> 一般建議是在伺服器層級管理自動調整設定，以便在每一個資料庫上自動套用相同的組態設定。 如果資料庫與相同伺服器上的其他資料庫不同，請在個別資料庫上設定自動調整。
+> 一般建議是在**伺服器層級**管理自動調整設定，以便在每一個資料庫上自動套用相同的組態設定。 只有在您要求該資料庫的設定不同於繼承自相同伺服器的其他設定時，設定自動調整個別的資料庫。
 >
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-若要在**單一資料庫**上啟用自動調整，請導覽至 Azure 入口網站中的資料庫，然後選取 [自動調整]。 您可以選取選項來將單一資料庫設定成從伺服器繼承設定，或者您也可以為資料庫個別指定組態。
+若要在**單一資料庫**上啟用自動調整，請導覽至 Azure 入口網站中的資料庫，然後選取 [自動調整]。
+
+您可以針對每個資料庫分開設定個別的自動調整設定。 您可以手動設定個別的自動調整選項，或指定選項從伺服器繼承其設定。
 
 ![資料庫](./media/sql-database-automatic-tuning-enable/database.png)
 
-一旦您選取適當的設定後，按一下 [套用]。
+請注意，此時 [DROP_INDEX] 選項與使用分割區切換和索引提示的應用程式不相容，而且不應該在這些情況下啟用。
 
-請注意，此時 [DROP_INDEX] 選項與使用分割區切換和索引提示的應用程式不相容，並且在這些情況下不應該開啟。
+選取所需的組態後，按一下 [套用]。
 
 ### <a name="rest-api"></a>Rest API
 [按一下這裡以深入了解如何透過 REST API 在單一資料庫上啟用自動調整](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning) \(英文\)

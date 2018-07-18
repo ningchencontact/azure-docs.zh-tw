@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 05dc8ae48a9164e4f7118d378ab0eb7c30a4249e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/23/2018
 ms.locfileid: "30196767"
 ---
 建立虛擬網路閘道時，您必須指定想要使用的閘道 SKU。 根據工作負載、輸送量、功能和 SLA 的類型，選取符合您需求的 SKU。
@@ -29,7 +29,7 @@ ms.locfileid: "30196767"
 
 | **SKU**| **特性**|
 | ---    | ---         |
-|**基本** (**)   | **路由式 VPN**：10 個 P2S 通道；沒有適用於 P2S 的 RADIUS 驗證；沒有適用於 P2S 的 IKEv2<br>**原則式 VPN** (IKEv1)：1 個通道；沒有 P2S|
+|**基本** (\*\*)   | **路由式 VPN**：10 個 P2S 通道；沒有適用於 P2S 的 RADIUS 驗證；沒有適用於 P2S 的 IKEv2<br>**原則式 VPN** (IKEv1)：1 個通道；沒有 P2S|
 | **VpnGw1、VpnGw2 和 VpnGw3** | **路由式 VPN**：最多 30 個通道 ( * )，P2S、BGP、主動-主動、自訂 IPsec/IKE 原則、ExpressRoute/VPN 共存 |
 |        |             |
 
@@ -44,9 +44,9 @@ ms.locfileid: "30196767"
 | **工作負載**                       | **SKU**               |
 | ---                                | ---                    |
 | **生產、重要工作負載** | VpnGw1、VpnGw2、VpnGw3 |
-| **開發測試或概念證明**   | 基本 (**)                 |
+| **開發測試或概念證明**   | 基本 (\*\*)                 |
 |                                    |                        |
 
-(**) 基本 SKU 被視為舊版 SKU，而且有功能限制。 請先確認其有支援您需要的功能，再使用基本 SKU。
+(\*\*) 基本 SKU 被視為舊版 SKU，而且有功能限制。 請先確認其有支援您需要的功能，再使用基本 SKU。
 
 如果您使用舊式 SKU (舊版)，生產 SKU 建議為標準和高效能。 如需舊式 SKU 的資訊和指示，請參閱[閘道 SKU (舊版)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md)。

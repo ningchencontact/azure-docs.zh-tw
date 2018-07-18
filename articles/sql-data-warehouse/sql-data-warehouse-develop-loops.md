@@ -15,6 +15,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31598960"
 ---
 # <a name="using-t-sql-loops-in-sql-data-warehouse"></a>在 SQL 資料倉儲中使用 T-SQL 迴圈
 在 Azure SQL 資料倉儲中使用 T-SQL 迴圈和取代資料指標以開發解決方案的秘訣。

@@ -1,20 +1,17 @@
 ---
 title: 安裝 Linux 主要目標伺服器以從 Azure 容錯移轉至內部部署 | Microsoft Docs
 description: 在重新保護 Linux 虛擬機器之前，您必須先有 Linux 主要目標伺服器。 了解如何進行安裝。
-services: site-recovery
-documentationcenter: ''
 author: nsoneji
-manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: a18bc242d10c9eb287d0f3645490acb9ca9fec2a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 4443d8fcbf40240e1a7bd718416e522192b4efb3
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072431"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37921064"
 ---
 # <a name="install-a-linux-master-target-server"></a>安裝 Linux 主要目標伺服器
 您可以在將虛擬機器容錯移轉至 Azure 之後，將虛擬機器容錯回復至內部部署網站。 若要進行容錯回復，您需要在從 Azure 到內部部署網站的過程中重新保護虛擬機器。 針對此程序，您需要內部部署的主要目標伺服器以接收流量。 
@@ -243,7 +240,7 @@ Azure Site Recovery 主要目標伺服器需要特定版本的 Ubuntu，因此�
 
 2. 使用 **multipath -ll** 命令以便得知保留磁碟的多重路徑識別碼：**multipath -ll**
 
-    ![多重路徑識別碼](./media/vmware-azure-install-linux-master-target/image22.png)
+    ![多重路徑識別碼](./media/vmware-azure-install-linux-master-target/image27.png)
 
 3. 格式化磁碟機，然後在新的磁碟機上建立一個檔案系統：**mkfs.ext4 /dev/mapper/<保留磁碟的多重路徑識別碼>**。
     

@@ -11,11 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: juliako
-ms.openlocfilehash: 804a418f6ee88974d6e74a2c18bc5d01b6adf838
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c488060b9db0ba482d12eee2394e5149b918950e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331515"
 ---
 # <a name="media-intelligence"></a>媒體智慧
 
@@ -180,7 +181,7 @@ Azure 媒體服務 REST v3 API 可讓您分析音訊及視訊內容。 若要分
 |id|臉部識別碼。|
 |name|臉部名稱。 它可以是 Unknown #0、已識別的名人或客戶培訓人員。|
 |信賴度|臉部識別信賴。|
-|說明|如果是名人，則為其描述 (Satya Nadella 出生在...)。 |
+|說明|如果是名人，則為其描述。 |
 |thumbnalId|該臉部的縮圖識別碼。|
 |knownPersonId|如果是已知人物，則為其內部識別碼。|
 |referenceId|若為 Bing 名人，則為其 Bing 識別碼。|
@@ -282,7 +283,7 @@ Azure 媒體服務 REST v3 API 可讓您分析音訊及視訊內容。 若要分
 |Name|說明|
 |---|---|
 |id|擷取畫面識別碼。|
-|keyFrames|擷取畫面的主要畫面格清單 (每個主要畫面格都有一個識別碼和執行個體的時間範圍清單)。|
+|keyFrames|擷取畫面的主要畫面清單 (每個主要畫面都有一個識別碼和執行個體的時間範圍清單)。|
 |執行個體|此擷取畫面的時間範圍清單 (擷取畫面只能有 1 個執行個體)。|
 
 ```json
@@ -328,33 +329,6 @@ Azure 媒體服務 REST v3 API 可讓您分析音訊及視訊內容。 若要分
       ]
     }
   ]
-```
-
-### <a name="audioeffects"></a>audioEffects
-
-|Name|說明|
-|---|---|
-|id|音訊效果識別碼。|
-|type|音訊效果類型 (例如，拍手聲、說話、無聲)。|
-|執行個體|此音訊效果曾出現的時間範圍清單。|
-
-```json
-"audioEffects": [
-{
-    "id": 0,
-    "type": "Clapping",
-    "instances": [
-    {
-        "start": "00:00:00",
-        "end": "00:00:03"
-    },
-    {
-        "start": "00:01:13",
-        "end": "00:01:21"
-    }
-    ]
-}
-]
 ```
 
 

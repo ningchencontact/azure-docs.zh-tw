@@ -1,11 +1,11 @@
 ---
-title: "使用 .NET Framework 從 Azure 事件中樞接收事件 | Microsoft Docs"
-description: "請遵循本教學課程，以使用 .NET Framework 從 Azure 事件中樞接收事件。"
+title: 使用 .NET Framework 從 Azure 事件中樞接收事件 | Microsoft Docs
+description: 請遵循本教學課程，以使用 .NET Framework 從 Azure 事件中樞接收事件。
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c4974bd3-2a79-48a1-aa3b-8ee2d6655b28
 ms.service: event-hubs
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29393213"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>使用 .NET Framework 從 Azure 事件中樞接收事件
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 02/21/2018
 
 「事件中樞」是一種服務，可處理來自連接裝置和應用程式的大量事件資料 (遙測)。 收集資料至「事件中樞」之後，可以使用存放裝置叢集來儲存資料，或使用即時分析提供者進行轉換。 此大規模事件收集和處理功能是新型應用程式架構 (包括物聯網 (IoT)) 的重要元件。
 
-本教學課程說明如何撰寫一個使用**[事件處理器主機][EventProcessorHost]**從「事件中樞」接收訊息的 .NET Core 主控台應用程式。 若要使用 .NET Framework 傳送事件，請參閱[使用 .NET Framework 將事件傳送至 Azure 事件中樞](event-hubs-dotnet-framework-getstarted-send.md)一文，或按一下左側目錄中適當的傳送語言。
+本教學課程說明如何撰寫一個使用**[事件處理器主機][EventProcessorHost]** 從「事件中樞」接收訊息的 .NET Core 主控台應用程式。 若要使用 .NET Framework 傳送事件，請參閱[使用 .NET Framework 將事件傳送至 Azure 事件中樞](event-hubs-dotnet-framework-getstarted-send.md)一文，或按一下左側目錄中適當的傳送語言。
 
 [事件處理器主機][EventProcessorHost]是一個 .NET 類別，透過管理持續檢查點以及來自事件中樞的平行接收，簡化來自事件中樞之事件的接收作業。 使用[事件處理器主機][Event Processor Host]，您可以將事件分割到多個接收者，即使裝載於不同的節點時也是一樣。 這個範例顯示單一接收者如何使用[事件處理器主機][EventProcessorHost]。 [相應放大事件處理][Scale out Event Processing with Event Hubs]範例顯示如何搭配使用[事件處理器主機][EventProcessorHost]與多個接收者。
 

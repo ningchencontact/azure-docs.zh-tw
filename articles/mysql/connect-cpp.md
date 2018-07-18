@@ -6,16 +6,17 @@ author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.custom: mvc
 ms.devlang: C++
 ms.topic: quickstart
 ms.date: 04/12/2018
-ms.openlocfilehash: 8394fbf5146a268bad464dc1a11d0772359c9acb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0c017907378376c01e4a4a98190f73a9452b9a3d
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264947"
 ---
 # <a name="azure-database-for-mysql-use-connectorc-to-connect-and-query-data"></a>Azure Database for MySQL︰使用 Connector/C++ 來連線及查詢資料
 本快速入門示範如何使用 C++ 應用程式來連線到適用於 MySQL 的 Azure 資料庫。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本主題假設您已熟悉使用 C++ 進行開發，但不熟悉適用於 MySQL 的 Azure 資料庫。

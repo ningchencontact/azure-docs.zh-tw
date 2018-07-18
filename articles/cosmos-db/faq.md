@@ -5,20 +5,17 @@ keywords: 資料庫問題, 常見問題集, Database questions, frequently asked
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: b68d1831-35f9-443d-a0ac-dad0c89f245b
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: fe192fb83c8bf29af0d02f47da366d8551dd6af6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ed69d4de56d23210cc9133d74ab81530f924b5ae
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261554"
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB 常見問題集
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB 基本概念
@@ -61,6 +58,9 @@ Azure Cosmos DB 不需要結構描述的索引引擎能夠自動建立所內嵌�
 
 ### <a name="what-are-the-throughput-limits-of-azure-cosmos-db"></a>Azure Cosmos DB 的輸送量限制有哪些？
 對於容器可以在 Azure Cosmos DB 中支援的總輸送量，沒有任何限制。 其主要概念在於，將您的工作負載大致平均分配在數量夠大的資料分割索引鍵之間。
+
+### <a name="are-direct-and-gateway-connectivity-modes-encrypted-"></a>直接和閘道連線模式是否會加密？ 
+是，這兩種模式一律會完整加密。 
 
 ### <a name="how-much-does-azure-cosmos-db-cost"></a>Azure Cosmos DB 的費用是多少？
 如需詳細資料，請參閱 [Azure Cosmos DB 定價詳細資料](https://azure.microsoft.com/pricing/details/cosmos-db/)頁面。 Azure Cosmos DB 使用量費用取決於已佈建的容器數目、容器在線上的時數，以及每個容器的佈建輸送量。 這裡的「容器」一詞指的是 SQL API 集合、圖形 API 圖形、MongoDB API 集合及資料表 API 資料表。 
@@ -159,10 +159,15 @@ SQL API 透過 HTTP 實體標記或 ETag，支援開放式並行存取控制 (OC
 SQL API 透過 JavaScript 預存程序和觸發程序，支援語言整合式交易。 指令碼內的所有資料庫作業都會在快照隔離的情況下執行。 如果是單一資料分割集合，執行範圍將限制為該集合。 如果集合已經過資料分割，執行範圍將限制為集合內具有相同資料分割索引鍵值的文件。 文件版本 (ETag) 的快照是在交易開始時取得，且只有當指令碼成功執行時才會認可。 如果 JavaScript 擲回錯誤，則會回復交易。 如需詳細資訊，請參閱 [Azure Cosmos DB 的伺服器端 JavaScript 程式設計](programming.md)。
 
 ### <a name="how-can-i-bulk-insert-documents-into-cosmos-db"></a>如何將大量文件插入 Cosmos DB？
-您可以利用任一種方式將文件大量插入 Azure Cosmos DB：
+您可以利用下列任一方式將大量文件插入 Azure Cosmos DB：
 
+* 大量執行程式工具，如[使用大量執行程式工具 .NET 程式庫](bulk-executor-dot-net.md)和[使用大量執行程式工具 Java 程式庫](bulk-executor-java.md)中所述
 * 資料移轉工具，如 [Azure Cosmos DB 的資料庫移轉工具](import-data.md)中所述。
 * 預存程序，如 [Azure Cosmos DB 的伺服器端 JavaScript 程式設計](programming.md)中所述。
+
+### <a name="i-have-setup-my-collection-to-use-lazy-indexing-i-see-that-my-queries-do-not-return-expected-results"></a>我已將集合設定為使用延遲索引，但我發現查詢不會傳回預期的結果。 
+如＜索引＞一節所述，延遲索引可能會導致此行為。 請一律對所有應用程式使用一致的索引。 
+
 
 ### <a name="does-the-sql-api-support-resource-link-caching"></a>SQL API 支援資源連結快取嗎？
 是，因為 Azure Cosmos DB 是一項 RESTful 服務，資源連結是固定不變且可快取的。 SQL API 用戶端可以指定「If-None-Match」標頭來讀取任何類似資源的文件或集合，然後在伺服器版本變更後更新其本機複本。
@@ -171,7 +176,12 @@ SQL API 透過 JavaScript 預存程序和觸發程序，支援語言整合式交
 是。 [Azure Cosmos DB 模擬器](local-emulator.md)提供 Cosmos DB 服務的高逼真度模擬。 它支援與 Azure Cosmos DB 完全相同的功能，包括支援建立和查詢 JSON 文件、佈建和擴充集合，以及執行預存程序和觸發程序。 您可以使用 Azure Cosmos DB 模擬器來開發及測試應用程式，並且只需對 Azure Cosmos DB 的連接端點進行單一組態變更，就能將它們部署至全球規模的 Azure。
 
 ### <a name="why-are-long-floating-point-values-in-a-document-rounded-when-viewed-from-data-explorer-in-the-portal"></a>在入口網站中從資料總管檢視文件中的長浮點值時，這些值為何會四捨五入。 
-這是 JavaScript 的限制。 JavaScript 會使用 IEEE 754 中指定的雙精確度浮點格式數值，且只能夠安全地表示 -(253 - 1) 與 253 – 1 (即 9007199254740991) 之間的數值。
+這是 JavaScript 的限制。 JavaScript 會使用 IEEE 754 中指定的雙精確度浮點格式數值，且只能夠安全地表示 -(253 - 1) 與 253-1 (即 9007199254740991) 之間的數值。
+
+### <a name="where-are-permissions-allowed-in-the-object-hierarchy"></a>物件階層中允許哪些權限？
+
+您可以在集合層級和其子系 (例如文件、附件) 使用 ResourceTokens 來建立權限。 這意味著目前不允許在資料庫或帳戶層級嘗試建立權限。
+
 
 ## <a name="develop-against-the-api-for-mongodb"></a>針對 MongoDB 開發 API
 ### <a name="what-is-the-azure-cosmos-db-api-for-mongodb"></a>什麼是適用於 MongoDB 的 Azure Cosmos DB API？
@@ -213,7 +223,7 @@ Azure Cosmos DB 會強制執行嚴格的安全性需求和標準。 Azure Cosmos
 * 目前不支援 CORS
 * 資料表名稱在 Azure 資料表儲存體中不區分大小寫，但在 Azure Cosmos DB 資料表 API 中則有區分
 * 部分 Azure Cosmos DB 用於編碼資訊 (例如二進位欄位) 的內部格式，目前不如預期地有效率。 因此這會對資料大小造成非預期的限制。 例如，目前無法使用資料表實體的完整 1 Meg 來儲存二進位資料，因為編碼方式增加了資料的大小。
-* 目前不支援實體屬性名稱 “Id”
+* 目前不支援實體屬性名稱 'Id'
 * TableQuery TakeCount 未限制為 1000
 
 就 REST API 來說，Azure Cosmos DB 資料表 API 並不支援某些端點/查詢選項：

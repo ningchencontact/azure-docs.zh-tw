@@ -13,6 +13,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30198225"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>是否所有的 Azure VPN 閘道 SKU 都支援自訂 IPsec/IKE 原則？
 Azure **VpnGw1、VpnGw2、VpnGw3、標準**和**高效能** VPN 閘道可支援自訂 IPsec/IKE 原則。 **不**支援**基本** SKU。

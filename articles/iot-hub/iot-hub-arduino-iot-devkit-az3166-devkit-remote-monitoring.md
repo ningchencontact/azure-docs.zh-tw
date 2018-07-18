@@ -1,24 +1,20 @@
 ---
-title: IoT DevKit 到雲端：將 IoT MXChip DevKit 連線到 Azure IoT 中樞 | Microsoft Docs
+title: IoT DevKit 到雲端 -- 將 IoT MXChip DevKit 連線到 Azure IoT 中樞 | Microsoft Docs
 description: 在本教學課程中，了解如何將 IoT DevKit AZ3166 上的感應器狀態傳送至 Azure IoT 遠端監視解決方案加速器。
-services: iot-hub
-documentationcenter: ''
 author: liydu
-manager: timlt
-tags: ''
-keywords: ''
+manager: jeffya
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: d3de8241b42aff63faaf04477a58c5564407ac8b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 6c5c12ffeacad9a3dd56ac561d9b4fe1a6e67eea
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631491"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>將 MXChip IoT DevKit 連線到 Azure IoT 遠端監視解決方案加速器
 
@@ -40,7 +36,7 @@ ms.lasthandoff: 05/10/2018
 
 ## <a name="create-an-azure-iot-remote-monitoring-solution-accelerator"></a>建立 Azure IoT 遠端監視解決方案加速器
 
-1. 移至 [Azure IoT 解決方案加速器網站](https://www.azureiotsuite.com/)，然後按一下 [建立新解決方案]。
+1. 移至 [Azure IoT 解決方案加速器網站](https://www.azureiotsolutions.com/)，然後按一下 [建立新解決方案]。
   ![選取 Azure IoT 解決方案加速器類型](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-solution-types.png)
   > [!WARNING]
   > 根據預設，此範例會在建立一個 IoT 遠端監視解決方案加速器之後，建立 S2 IoT 中樞。 如果此 IoT 中樞並未搭配大量裝置來使用，強烈建議您將其從 S2 降級為 S1，並刪除不再需要的 IoT 遠端監視解決方案加速器，以便能夠一併刪除相關的 IoT 中樞。 

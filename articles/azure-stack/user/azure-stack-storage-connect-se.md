@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/14/2018
-ms.author: mattbriggs
+ms.date: 05/21/2018
+ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: a3a69f3cf91c0d202d54d0da5dc5fe0531ef9db1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9704f05cc6da97e33c0043b93acedc9e66bdcc36
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34196372"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714896"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>將儲存體總管連線到 Azure Stack 訂用帳戶或儲存體帳戶
 
@@ -26,8 +26,8 @@ ms.locfileid: "34196372"
 
 在本文中，您將了解如何使用儲存體總管連線到 Azure Stack 訂用帳戶和儲存體帳戶。 Azure 儲存體總管是一個獨立應用程式，可讓您在 Windows、macOS 和 Linux 上輕鬆使用 Azure Stack 儲存體資料。
 
->[!NOTE]
->有數個工具可協助您將資料移動至 Azure Stack 儲存體，以及從 Azure Stack 儲存體移動資料。 如需詳細資訊，請參閱 [Azure Stack 儲存體適用的資料傳輸工具](azure-stack-storage-transfer.md)。
+> [!NOTE]  
+> 有數個工具可協助您將資料移動至 Azure Stack 儲存體，以及從 Azure Stack 儲存體移動資料。 如需詳細資訊，請參閱 [Azure Stack 儲存體適用的資料傳輸工具](azure-stack-storage-transfer.md)。
 
 如果您尚未安裝儲存體總管，請[下載儲存體總管](http://www.storageexplorer.com/)並加以安裝。
 
@@ -76,7 +76,7 @@ ms.locfileid: "34196372"
 
     ![新增 Azure Stack 帳戶](./media/azure-stack-storage-connect-se/add-azure-stack-account.png)
 
-3. 在 [連線到 Azure 儲存體] 對話方塊的 [Azure 環境] 之下，選取 [Azure] 或 [Azure China] (視您所使用的 Azure Stack 帳戶而定)。 選取 [登入]，登入與至少一個作用中 Azure Stack 訂用帳戶相關聯的 Azure Stack 帳戶。
+3. 在 [連線到 Azure 儲存體] 對話方塊的 [Azure 環境] 之下，選取 [Azure] 或 [Azure China] (視正在使用的 Azure Stack 帳戶而定)，選取 [登入] 以使用與至少一個有效 Azure Stack 訂用帳戶相關聯的 Azure Stack 帳戶來登入。
 
     ![連線到 Azure 儲存體](./media/azure-stack-storage-connect-se/azure-stack-connect-to-storage.png)
 
@@ -116,5 +116,5 @@ ms.locfileid: "34196372"
 ## <a name="next-steps"></a>後續步驟
 
 * [開始使用儲存體總管](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
-* [Azure Stack 儲存體：差異與注意事項](azure-stack-acs-differences.md)
+* [Azure Stack 儲存體：差異與考量](azure-stack-acs-differences.md)
 * 若要深入了解 Azure 儲存體，請參閱 [Microsoft Azure 儲存體簡介](../../storage/common/storage-introduction.md)
