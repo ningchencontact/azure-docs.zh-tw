@@ -5,12 +5,13 @@
     - name: 什麼是 Azure DNS？
       href: dns-overview.md
 - name: 快速入門
+  expanded: true
   items:
     - name: 名稱解析 - 入口網站
       href: dns-getstarted-portal.md
-    - name: 建立 DNS 區域和記錄 - PowerShell
+    - name: 名稱解析 - PowerShell
       href: dns-getstarted-powershell.md
-    - name: 建立 DNS 區域和記錄 - CLI
+    - name: 名稱解析 - CLI
       href: dns-getstarted-cli.md
 - name: 教學課程
   items:

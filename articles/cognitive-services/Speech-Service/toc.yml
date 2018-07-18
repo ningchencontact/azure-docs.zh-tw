@@ -11,12 +11,18 @@
   items:
     - name: 免費試用語音服務
       href: get-started.md
-    - name: '辨識 C# 中的語音'
-      href: quickstart-csharp-windows.md
+    - name: '使用 C# 辨識語音 (Windows 上的 .NET)'
+      href: quickstart-csharp-dotnet-windows.md
+    - name: '使用 C# 辨識語音 (Windows 上的 .NET Core)'
+      href: quickstart-csharp-dotnetcore-windows.md
+    - name: 使用 UWP 應用程式辨識語音
+      href: quickstart-csharp-uwp.md
     - name: 辨識適用於 Windows 的 C++ 語音
       href: quickstart-cpp-windows.md
     - name: 辨識適用於 Linux 的 C++ 語音
       href: quickstart-cpp-linux.md
+    - name: 使用適用於 Android 的 Java 辨識語音
+      href: quickstart-java-android.md
     - name: 開始使用語音裝置 SDK
       href: speech-devices-sdk-qsg.md
 - name: 使用說明指南
@@ -25,7 +31,7 @@
       href: how-to-speech-to-text.md
     - name: 合成語音
       href: how-to-text-to-speech.md
-    - name: 轉譯語音
+    - name: 翻譯語音
       href: how-to-translate-speech.md
     - name: 批次轉譯
       href: batch-transcription.md

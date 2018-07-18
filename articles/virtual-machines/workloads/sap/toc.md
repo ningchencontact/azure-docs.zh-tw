@@ -48,8 +48,19 @@
 ### SAP 多重安全性識別碼
 #### [Windows 和適用於 (A)SCS 執行個體的共用磁碟](sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
 #### [Windows 和適用於 (A)SCS 執行個體的檔案共用](sap-ascs-ha-multi-sid-wsfc-file-share.md)
-## [部署指南](deployment-guide.md)
-## [DBMS 部署指南](dbms-guide.md)
+## [SAP NetWeaver 部署指南](deployment-guide.md)
+## 適用於 SAP 工作負載的 DBMS 部署指南
+### [適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署](dbms_guide_general.md)
+### [適用於 SAP 工作負載的 SQL Server Azure 虛擬機器 DBMS 部署](dbms_guide_sqlserver.md)
+### [適用於 SAP 工作負載的 Oracle Azure 虛擬機器 DBMS 部署](dbms_guide_oracle.md)
+### [適用於 SAP 工作負載的 IBM DB2 Azure 虛擬機器 DBMS 部署](dbms_guide_ibm.md)
+### [適用於 SAP 工作負載的 SAP ASE Azure 虛擬機器 DBMS 部署](dbms_guide_sapase.md)
+### [Azure 上的 SAP MaxDB、liveCache 與內容伺服器部署](dbms_guide_maxdb.md)
+### [Azure 上的 SAP HANA 作業指南](hana-vm-operations.md)
+#### Azure 虛擬機器中的 SAP HANA 可用性
+##### [Azure 中的 SAP HANA 可用性概觀](sap-hana-availability-overview.md)
+##### [Azure 中的 SAP HANA 在單一 Azure 區域中的可用性概觀](sap-hana-availability-one-region.md)
+##### [Azure 中的 SAP HANA 跨多個 Azure 區域中的可用性概觀](sap-hana-availability-across-regions.md)
 ## [適用於 SAP 災害復原的 Azure Site Recovery](../../../site-recovery/site-recovery-workload.md#protect-sap)
 # AAD SAP 身分識別整合及單一登入
 ## [與 SAP 雲端整合](../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)

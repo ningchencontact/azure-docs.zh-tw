@@ -402,6 +402,8 @@
           href: sql-database-cloud-migrate.md
         - name: 移轉至受控執行個體
           href: sql-database-managed-instance-migrate.md
+        - name: 將 TDE 憑證遷移至受控執行個體
+          href: sql-database-managed-instance-migrate-tde-certificate.md
         - name: 移轉後管理 SQL Database
           href: sql-database-manage-after-migration.md
     - name: 載入和移動資料

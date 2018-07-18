@@ -20,6 +20,8 @@
       href: stream-analytics-with-azure-functions.md
     - name: 3 - 執行 Javascript UDF
       href: stream-analytics-javascript-user-defined-functions.md
+    - name: 4 - 使用 VSTS 中的 CI/CD 部署
+      href: stream-analytics-tools-visual-studio-cicd-vsts.md
 - name: 範例
   items:
     - name: 程式碼範例
