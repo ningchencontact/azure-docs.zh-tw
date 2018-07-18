@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure SignalR 服務用戶端驗證教學課程 | Microsoft Docs
 description: 在本教學課程中，您將會了解如何驗證 Azure SignalR 服務用戶端
 services: signalr
@@ -35,7 +35,7 @@ Microsoft Azure SignalR 服務目前處於[公開預覽](https://azure.microsoft
 
 若要深入了解透過 GitHub 所提供的 OAuth 驗證 API，請參閱[驗證的基本概念](https://developer.github.com/v3/guides/basics-of-authentication/)。
 
-您可以使用任何程式碼編輯器來完成本快速入門中的步驟。 不過，於 Windows、macOS 和 Linux 平台上所提供的 [Visual Studio Code](https://code.visualstudio.com/) \(英文\) 是項不錯的選擇。
+您可以使用任何程式碼編輯器來完成本快速入門中的步驟。 不過，於 Windows、macOS 和 Linux 平台上所提供的 [Visual Studio Code](https://code.visualstudio.com/) 是項不錯的選擇。
 
 本教學課程的程式碼可於 [AzureSignalR-samples GitHub 存放庫](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/GitHubChat)下載。
 

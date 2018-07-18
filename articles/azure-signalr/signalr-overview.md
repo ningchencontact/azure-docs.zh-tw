@@ -1,4 +1,4 @@
----
+﻿---
 title: 什麼是 Azure SignalR | Microsoft Docs
 description: Azure SignalR 服務的概觀。
 services: signalr

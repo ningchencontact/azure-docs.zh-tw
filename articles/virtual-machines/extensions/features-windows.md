@@ -148,7 +148,7 @@ Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM"
 
 ### <a name="azure-resource-manager-templates"></a>Azure 資源管理員範本
 
-VM 擴充功能可以新增至 Azure Resource Manager 範本，並使用範本的部署執行。 當您使用範本部署擴充功能時，可以建立完全設定的 Azure 部署。 例如，下列 JSON 是取自部署一組負載平衡 VM 和 Azure SQL Database 的 Resource Manager 範本，並在每個 VM 上安裝 .NET 核心應用程式。 VM 擴充功能會處理軟體安裝。
+VM 擴充功能可以新增至 Azure Resource Manager 範本，並使用範本的部署執行。 當您使用範本部署擴充功能時，可以建立完全設定的 Azure 部署。 例如，下列 JSON 是取自部署一組負載平衡 VM 和 Azure SQL Database 的 Resource Manager 範本，並在每個 VM 上安裝 .NET Core 應用程式。 VM 擴充功能會處理軟體安裝。
 
 如需詳細資訊，請參閱[完整的 Resource Manager 範本](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)。
 

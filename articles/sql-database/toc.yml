@@ -24,7 +24,7 @@
           href: 'https://docs.microsoft.com/sql/sql-operations-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json'
         - name: Azure 入口網站
           href: sql-database-connect-query-portal.md
-        - name: VS 程式碼
+        - name: VS Code
           href: sql-database-connect-query-vscode.md
         - name: .NET 搭配 Visual Studio
           href: sql-database-connect-query-dotnet-visual-studio.md

@@ -1,4 +1,4 @@
----
+﻿---
 title: 什麼是 Azure SQL Database 服務？ | Microsoft Docs
 description: 取得 SQL Database 簡介：Microsoft 的關聯式資料庫管理系統 (RDBMS) 在雲端中的技術詳細資料和功能。
 keywords: sql 簡介,sql 簡介,什麼是 sql database

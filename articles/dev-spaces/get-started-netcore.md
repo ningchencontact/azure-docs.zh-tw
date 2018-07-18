@@ -1,4 +1,4 @@
----
+﻿---
 title: 使用 .NET Core 和 VS Code 在雲端建立 Kubernetes 開發人員空間 | Microsoft Docs
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
