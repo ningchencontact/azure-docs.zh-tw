@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 06/26/2018
   ms.author: ryanwi
-  ms.openlocfilehash: e5fc62d84ace2acd46816a7116ea1cf2198be63f
-  ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+  ms.openlocfilehash: fccd805f6d4abcf7005fca0cc6f4d368ac5764f1
+  ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
   ms.translationtype: HT
   ms.contentlocale: zh-TW
   ms.lasthandoff: 07/17/2018
-  ms.locfileid: "39073676"
+  ms.locfileid: "39090038"
 abstract:
   description: Azure Service Fabric Mesh 是完全受控的服務，可讓開發人員建置及部署任務關鍵性應用程式，而不需要管理任何基礎結構。  視需要使用 Service Fabric Mesh 來建置，並執行可縮放的安全、分散式微服務應用程式。 了解如何透過我們的快速入門和教學課程使用 Azure Service Fabric。  若要進一步了解，請閱讀 <a href="/azure/service-fabric-mesh/service-fabric-mesh-overview">Service Fabric Mesh 概觀</a>。
 sections:
@@ -45,15 +45,3 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore">部署 .NET Core 應用程式</a>
-- title: 範例
-  items:
-  - type: paragraph
-    text: 尋找適用於 Windows 和 Linux 的 .NET Core 範例應用程式：
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/helloworld">Hello world!</a>
-    - html: <a href="https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/azurefiles-volume">Azure 檔案磁碟區</a>
-    - html: <a href="https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/todolistapp">待辦事項清單</a>
-    - html: <a href="https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/visualobjects">視覺物件</a>
-    - html: <a href="https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/votingapp">投票</a>
