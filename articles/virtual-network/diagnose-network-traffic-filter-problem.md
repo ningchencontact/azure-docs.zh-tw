@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
 ms.openlocfilehash: 1c33a75363eec2b4e338ba64e3d1ad877d8b1610
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.sourcegitcommit: 15bfce02b334b67aedd634fa864efb4849fc5ee2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
+ms.lasthandoff: 07/17/2018
 ms.locfileid: "34757222"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>診斷虛擬機器網路流量篩選問題
@@ -75,7 +75,7 @@ NSG 可讓您針對流入和流出 VM 的流量，控制流量的類型。 您�
 
 ## <a name="diagnose-using-powershell"></a>使用 PowerShell 進行診斷
 
-您可以執行 [Azure Cloud Shell](https://shell.azure.com/powershell) 中採用的命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式殼層。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 如果您從電腦執行 PowerShell，就需要 *AzureRM* PowerShell 模組 6.0.1 版或更新版本。 在電腦上執行 `Get-Module -ListAvailable AzureRM` 以尋找已安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，還需要執行 `Login-AzureRmAccount` 以使用具有[必要權限](virtual-network-network-interface.md#permissions)的帳戶登入 Azure。
+您可以執行 [Azure Cloud Shell](https://shell.azure.com/powershell) 中採用的命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式殼層。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 如果您是從電腦執行 PowerShell，便需要 *AzureRM* PowerShell 模組 6.0.1 版或更新的版本。 請在您的電腦上執行 `Get-Module -ListAvailable AzureRM`，以尋找已安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，還需要執行 `Login-AzureRmAccount` 以使用具有[必要權限](virtual-network-network-interface.md#permissions)的帳戶登入 Azure。
 
 使用 [Get-AzureRmEffectiveNetworkSecurityGroup](/powershell/module/azurerm.network/get-azurermeffectivenetworksecuritygroup) 來取得網路介面的有效安全性規則。 下列範例會針對名為 *myVMVMNic* 的網路介面取得有效的安全性規則，該介面位於名為 *myResourceGroup* 的資源群組中：
 
@@ -97,7 +97,7 @@ $VM = Get-AzureRmVM -Name myVM -ResourceGroupName myResourceGroup
 $VM.NetworkProfile
 ```
 
-您會收到類似下列範例的輸出：
+您會收到類似於下列範例的輸出：
 
 ```powershell
 NetworkInterfaces
@@ -109,7 +109,7 @@ NetworkInterfaces
 
 ## <a name="diagnose-using-azure-cli"></a>使用 Azure CLI 進行診斷
 
-如果使用命令列介面 (CLI) 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/bash) \(英文\) 中執行命令，或從您的電腦執行 CLI。 本文需要 Azure CLI 2.0.32 版或更新版本。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。 如果您在本機執行 Azure CLI，還需要執行 `az login` 並使用具有[必要權限](virtual-network-network-interface.md#permissions)的帳戶登入 Azure。
+如果使用命令列介面 (CLI) 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/bash) \(英文\) 中執行命令，或從您的電腦執行 CLI。 本文需要 Azure CLI 2.0.32 版或更新的版本。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。 如果您在本機執行 Azure CLI，還需要執行 `az login` 並使用具有[必要權限](virtual-network-network-interface.md#permissions)的帳戶登入 Azure。
 
 使用 [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg) 來取得網路介面的有效安全性規則。 下列範例會取得 *myResourceGroup* 資源群組中 *myVMVMNic* 網路介面的有效安全性規則：
 
@@ -179,7 +179,7 @@ az vm show \
 
 當 Azure 處理輸入流量時，會先處理與子網路關聯 NSG 中的規則 (如果有相關聯的 NSG 的話)，然後再處理與網路介面相關聯 NSG 中的規則。 如果有某個 NSG 同時關聯至網路介面和子網路，就必須同時在那兩個 NSG 中開啟該連接埠來使流量能抵達 VM。 為了簡化管理和通訊問題，我們建議您將 NSG 關聯至子網路，而不是個別的網路介面。 如果子網路內的 VM 需要不同的安全性規則，您可以使網路介面成為應用程式安全性群組 (ASG) 的成員，並將 ASG 指定為安全性規則的來源和目的地。 深入了解[應用程式安全性群組](security-overview.md#application-security-groups)。
 
-如果您仍然有通訊問題，請參閱[考量](#considerations)和[其他診斷](#additional-dignosis)。
+如果仍有通訊問題，請參閱[考量](#considerations)和[其他診斷](#additional-dignosis)。
 
 ## <a name="considerations"></a>考量
 
