@@ -1,4 +1,0 @@
-- name: 使用 VM MSI 存取 Azure 儲存體
-  items:
-    - name: 透過 Linux VM 使用存取金鑰
-      href: msi-tutorial-linux-vm-access-storage.md
