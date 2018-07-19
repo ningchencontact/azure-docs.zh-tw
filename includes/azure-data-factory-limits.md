@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/20/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 43408ebc65d4acf581b612e8ecfb9d00679cc078
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 67144407b078a30c521201cbc31c6087c839fa26
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37066096"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39029986"
 ---
 資料處理站是一種多租用戶服務，並具有以下的預設限制以確保客戶訂用帳戶不會受到彼此工作負載的影響。 您只要連絡支援人員，即可將您訂用帳戶的大部分限制調整至其最大限制。
 
@@ -23,7 +23,7 @@ ms.locfileid: "37066096"
 | -------- | ------------- | ------------- |
 | Azure 訂用帳戶中的資料處理站 | 50 | [請連絡支援人員](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | 資料處理站中的實體 (管線、資料集、觸發程序、連結的服務，整合執行階段) 總數 | 5000 | [請連絡支援人員](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| 一個訂用帳戶下的 Azure SSIS Integration Runtime 總 CPU 核心數 | 100 | [請連絡支援人員](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| 一個訂用帳戶下的 Azure SSIS Integration Runtime 總 CPU 核心數 | 128 | [請連絡支援人員](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | 每個管線的並行管線執行回合 | 100 | [請連絡支援人員](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | 每個資料處理站的並行管線執行數 | 10,000  | [請連絡支援人員](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | 每個管線 (包含容器的內部活動) 的活動數目上限 | 40 | 40 |

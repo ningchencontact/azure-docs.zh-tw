@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e4dfb92257dca4069905f17e1c3ccd43d87cd45c
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: ecde4d8cd8ee454290b16b640ba05d310cf348fe
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34710153"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448927"
 ---
 # <a name="azure-active-directory-b2c-creating-and-using-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C︰在自訂設定檔編輯原則中建立和使用自訂屬性
 
@@ -49,182 +49,192 @@ Azure AD B2C 可讓您擴充每個使用者帳戶所儲存的屬性組合。 您
 ## <a name="creating-a-new-application-to-store-the-extension-properties"></a>建立新的應用程式來儲存擴充屬性
 
 1. 開啟瀏覽工作階段並瀏覽至 [Azure 入口網站](https://portal.azure.com)，然後使用您想要設定之 B2C 目錄的系統管理認證來登入。
-1. 在左方的導覽功能表中，按一下 [Azure Active Directory]。 您可能需要選取 [更多服務 >] 才能找到它。
-1. 選取 [應用程式註冊]，然後按一下 [新增應用程式註冊]
-1. 提供下列建議項目︰
-  * 指定 Web 應用程式的名稱：**WebApp-GraphAPI-DirectoryExtensions**
-  * 應用程式類型︰Web 應用程式/API
-  * 登入 URL：https://{tenantName}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions
-1. 選取 **[建立]。 [通知] 中會出現成功完成
-1. 選取新建立的 Web 應用程式：**WebApp-GraphAPI-DirectoryExtensions**
-1. 選取 [設定]：**必要權限**
-1. 選取 API [Windows Azure Active Directory]
-1. 在 [應用程式權限] 中標上核取記號：**讀取及寫入目錄資料**，然後**儲存**
-1. 選擇 [授與權限]，然後確認 [是]。
-1. 將來自 WebApp-GraphAPI-DirectoryExtensions>Settings>Properties> 的下列識別碼複製到剪貼簿並儲存
-*  **應用程式識別碼**。 範例： `103ee0e6-f92d-4183-b576-8c3739027780`
-* **物件識別碼**。 範例： `80d8296a-da0a-49ee-b6ab-fd232aa45201`
+2. 在左方的導覽功能表中，按一下 [Azure Active Directory]。 您可能需要選取 [更多服務 >] 才能找到它。
+3. 選取 [應用程式註冊]，然後按一下 [新增應用程式註冊]
+4. 提供下列建議項目︰
+    * 指定 Web 應用程式的名稱：**WebApp-GraphAPI-DirectoryExtensions**
+    * 應用程式類型︰Web 應用程式/API
+    * 登入 URL：https://{tenantName}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions
+5. 選取 [建立] 。
+6. 選取新建立的 Web 應用程式。
+7. 選取 [設定] > [必要權限]。
+8. 選取 API [Windows Azure Active Directory]。
+9. 在 [應用程式權限] 中標上核取記號：**讀取及寫入目錄資料**，然後選取 [儲存]。
+10. 選擇 [授與權限]，然後確認 [是]。
+11. 複製到剪貼簿並儲存下列識別碼：
+    * **應用程式識別碼**。 範例： `103ee0e6-f92d-4183-b576-8c3739027780`
+    * **物件識別碼**。 範例： `80d8296a-da0a-49ee-b6ab-fd232aa45201`
 
 
 
 ## <a name="modifying-your-custom-policy-to-add-the-applicationobjectid"></a>修改您的自訂原則以新增 ApplicationObjectId
 
-```xml
+完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)中的步驟後，請下載並修改[檔案](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip)，其名稱為 TrustFrameworkBase.xml、TrustFrameworkExtensions.xml、SignUpOrSignin.xml、ProfileEdit.xml 和 PasswordReset.xml。 在下列步驟中，繼續修改這些檔案。
+
+1. 開啟 TrustFrameworkBase.xml 檔案，並新增 `Metadata` 區段，如下列範例所示。 插入您先前為 `ApplicationObjectId` 值記錄的物件識別碼，以及為 `ClientId` 值記錄的應用程式識別碼： 
+
+    ```xml
     <ClaimsProviders>
         <ClaimsProvider>
-              <DisplayName>Azure Active Directory</DisplayName>
+          <DisplayName>Azure Active Directory</DisplayName>
             <TechnicalProfile Id="AAD-Common">
-              <DisplayName>Azure Active Directory</DisplayName>
-              <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-              <!-- Provide objectId and appId before using extension properties. -->
-              <Metadata>
-                <Item Key="ApplicationObjectId">insert objectId here</Item>
-                <Item Key="ClientId">insert appId here</Item>
-              </Metadata>
-            <!-- End of changes -->
-              <CryptographicKeys>
-                <Key Id="issuer_secret" StorageReferenceId="TokenSigningKeyContainer" />
-              </CryptographicKeys>
-              <IncludeInSso>false</IncludeInSso>
-              <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
-            </TechnicalProfile>
+          <DisplayName>Azure Active Directory</DisplayName>
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+              
+          <!-- Provide objectId and appId before using extension properties. -->
+          <Metadata>
+            <Item Key="ApplicationObjectId">insert objectId here</Item>
+            <Item Key="ClientId">insert appId here</Item>
+          </Metadata>
+          <!-- End of changes -->
+              
+          <CryptographicKeys>
+            <Key Id="issuer_secret" StorageReferenceId="TokenSigningKeyContainer" />
+          </CryptographicKeys>
+          <IncludeInSso>false</IncludeInSso>
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+        </TechnicalProfile>
         </ClaimsProvider>
     </ClaimsProviders>
-```
+    ```
 
 >[!NOTE]
-><TechnicalProfile Id="AAD-Common"> 是指「通用」，因為其元素會包含在其中，且會透過下列元素而重複使用在所有的 Azure Active Directory TechnicalProfiles 中︰`<IncludeTechnicalProfile ReferenceId="AAD-Common" />`
-
->[!NOTE]
->當 TechnicalProfile 第一次寫入新建立的擴充屬性中時，您可能會遇到一次性錯誤。  第一次使用時，會建立擴充屬性。  
+>當 TechnicalProfile 第一次寫入新建立的擴充屬性中時，您可能會遇到一次性錯誤。 第一次使用時，會建立擴充屬性。  
 
 ## <a name="using-the-new-extension-property--custom-attribute-in-a-user-journey"></a>在使用者旅程中使用新的擴充屬性/自訂屬性
 
+1. 開啟 ProfileEdit.xml 檔案。
+2. 新增自訂宣告 `loyaltyId`。  藉由將自訂宣告納入 `<RelyingParty>` 元素中，其包含在應用程式權杖中。
+    
+    ```xml
+    <RelyingParty>
+      <DefaultUserJourney ReferenceId="ProfileEdit" />
+      <TechnicalProfile Id="PolicyProfile">
+        <DisplayName>PolicyProfile</DisplayName>
+        <Protocol Name="OpenIdConnect" />
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+          <OutputClaim ClaimTypeReferenceId="city" />
 
-1. 開啟信賴憑證者 (RP) 檔案，此檔案會描述您的原則編輯使用者旅程。  如果您要開始，我們的建議可能是直接從 Azure 入口網站中的 [Azure B2C 自訂原則] 區段，下載您已設定的 RP-PolicyEdit 檔案版本。  或者，您也可以從儲存體資料夾開啟 XML 檔案。
-2. 新增自訂宣告 `loyaltyId`。  藉由在 `<RelyingParty>` 元素中包含自訂宣告，它就會以參數形式傳遞至 UserJourney TechnicalProfiles，並包含在應用程式的權杖中。
-```xml
-<RelyingParty>
-   <DefaultUserJourney ReferenceId="ProfileEdit" />
-   <TechnicalProfile Id="PolicyProfile">
-     <DisplayName>PolicyProfile</DisplayName>
-     <Protocol Name="OpenIdConnect" />
-     <OutputClaims>
-       <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-       <OutputClaim ClaimTypeReferenceId="city" />
+          <!-- Provide the custom claim identifier -->
+          <OutputClaim ClaimTypeReferenceId="extension_loyaltyId" />
+          <!-- End of changes -->
+        </OutputClaims>
+        <SubjectNamingInfo ClaimType="sub" />
+      </TechnicalProfile>
+    </RelyingParty>
+    ```
 
-       <OutputClaim ClaimTypeReferenceId="extension_loyaltyId" />
+3. 開啟 TrustFrameworkExtensions.xml 檔案，並將 `<ClaimsSchema>` 元素及其子項目新增到 `BuildingBlocks` 元素：
 
-     </OutputClaims>
-     <SubjectNamingInfo ClaimType="sub" />
-   </TechnicalProfile>
- </RelyingParty>
- ```
-3. 在 `<ClaimsSchema>` 元素內的擴充原則檔 `TrustFrameworkExtensions.xml` 新增宣告定義，如下所示。
-```xml
-<ClaimsSchema>
-        <ClaimType Id="extension_loyaltyId">
-            <DisplayName>Loyalty Identification Tag</DisplayName>
-            <DataType>string</DataType>
-            <UserHelpText>Your loyalty number from your membership card</UserHelpText>
-            <UserInputType>TextBox</UserInputType>
-        </ClaimType>
-</ClaimsSchema>
-```
-4. 在基底原則檔 `TrustFrameworkBase.xml` 中新增相同的宣告定義。  
->通常不需同時在基底原則檔和擴充原則檔中新增 `ClaimType` 定義，不過，由於接下來的步驟會將 extension_loyaltyId 新增到基底原則檔的 TechnicalProfiles 中，因此原則驗證器將拒絕上傳沒有此項目的基底原則檔。
->追蹤 TrustFrameworkBase.xml 檔案中名為「ProfileEdit」之使用者旅程圖的執行情形可能有用。  請在編輯器中搜尋相同名稱的使用者旅程，並注意到協調流程步驟 5 會叫用 TechnicalProfileReferenceID="SelfAsserted-ProfileUpdate"。  搜尋並檢查此 TechnicalProfile 以熟悉流程。
-5. 在 TechnicalProfile "SelfAsserted-ProfileUpdate" 中新增 loyaltyId 來作為輸入和輸出宣告
-```xml
-<TechnicalProfile Id="SelfAsserted-ProfileUpdate">
-          <DisplayName>User ID signup</DisplayName>
-          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-          <Metadata>
-            <Item Key="ContentDefinitionReferenceId">api.selfasserted.profileupdate</Item>
-          </Metadata>
-          <IncludeInSso>false</IncludeInSso>
-          <InputClaims>
+    ```xml
+    <BuildingBlocks>
+      <ClaimsSchema> 
+        <ClaimType Id="extension_loyaltyId"> 
+          <DisplayName>Loyalty Identification Tag</DisplayName> 
+          <DataType>string</DataType> 
+          <UserHelpText>Your loyalty number from your membership card</UserHelpText> 
+          <UserInputType>TextBox</UserInputType> 
+        </ClaimType> 
+      </ClaimsSchema>
+    </BuildingBlocks>
+    ```
 
-            <InputClaim ClaimTypeReferenceId="alternativeSecurityId" />
-            <InputClaim ClaimTypeReferenceId="userPrincipalName" />
+4. 將相同的 `ClaimType` 定義新增到 TrustFrameworkBase.xml 中。 通常不需同時在基底原則檔和擴充原則檔中新增 `ClaimType` 定義，不過，由於接下來的步驟會將 `extension_loyaltyId` 新增到基底原則檔的 TechnicalProfiles 中，因此原則驗證器將拒絕上傳沒有此項目的基底原則檔。 追蹤 TrustFrameworkBase.xml 檔案中名為「ProfileEdit」的使用者旅程圖執行情形可能有用。  請在編輯器中搜尋相同名稱的使用者旅程，並注意到協調流程步驟 5 會叫用 TechnicalProfileReferenceID="SelfAsserted-ProfileUpdate"。  搜尋並檢查此 TechnicalProfile 以熟悉流程。
 
-            <!-- Optional claims. These claims are collected from the user and can be modified. Any claim added here should be updated in the
-                 ValidationTechnicalProfile referenced below so it can be written to directory after being updated by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
-            <InputClaim ClaimTypeReferenceId="givenName" />
+5. 開啟 TrustFrameworkBase.xml 檔案，並在 TechnicalProfile "SelfAsserted-ProfileUpdate" 中新增 `loyaltyId` 作為輸入和輸出宣告：
+
+    ```xml
+    <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
+      <DisplayName>User ID signup</DisplayName>
+      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      <Metadata>
+        <Item Key="ContentDefinitionReferenceId">api.selfasserted.profileupdate</Item>
+      </Metadata>
+      <IncludeInSso>false</IncludeInSso>
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="alternativeSecurityId" />
+        <InputClaim ClaimTypeReferenceId="userPrincipalName" />
+        <InputClaim ClaimTypeReferenceId="givenName" />
             <InputClaim ClaimTypeReferenceId="surname" />
-            <InputClaim ClaimTypeReferenceId="extension_loyaltyId"/>
-          </InputClaims>
-          <OutputClaims>
-            <!-- Required claims -->
-            <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
 
-            <!-- Optional claims. These claims are collected from the user and can be modified. Any claim added here should be updated in the
-                 ValidationTechnicalProfile referenced below so it can be written to directory after being updated by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
-            <OutputClaim ClaimTypeReferenceId="givenName" />
-            <OutputClaim ClaimTypeReferenceId="surname" />
-            <OutputClaim ClaimTypeReferenceId="extension_loyaltyId"/>
-          </OutputClaims>
-          <ValidationTechnicalProfiles>
-            <ValidationTechnicalProfile ReferenceId="AAD-UserWriteProfileUsingObjectId" />
-          </ValidationTechnicalProfiles>
-        </TechnicalProfile>
-```
-6. 在 TechnicalProfile "AAD-UserWriteProfileUsingObjectId" 中新增宣告，針對目錄中的目前使用者將宣告值保存在擴充屬性中。
-```xml
-<TechnicalProfile Id="AAD-UserWriteProfileUsingObjectId">
-          <Metadata>
-            <Item Key="Operation">Write</Item>
-            <Item Key="RaiseErrorIfClaimsPrincipalAlreadyExists">false</Item>
-            <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
-          </Metadata>
-          <IncludeInSso>false</IncludeInSso>
-          <InputClaims>
-            <InputClaim ClaimTypeReferenceId="objectId" Required="true" />
-          </InputClaims>
-          <PersistedClaims>
-            <!-- Required claims -->
-            <PersistedClaim ClaimTypeReferenceId="objectId" />
+        <!-- Add the loyalty identifier -->
+        <InputClaim ClaimTypeReferenceId="extension_loyaltyId"/>
+        <!-- End of changes -->
+      </InputClaims>
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
+        <OutputClaim ClaimTypeReferenceId="givenName" />
+        <OutputClaim ClaimTypeReferenceId="surname" />
+        
+        <!-- Add the loyalty identifier -->
+        <OutputClaim ClaimTypeReferenceId="extension_loyaltyId"/>
+        <!-- End of changes -->
 
-            <!-- Optional claims -->
-            <PersistedClaim ClaimTypeReferenceId="givenName" />
-            <PersistedClaim ClaimTypeReferenceId="surname" />
-            <PersistedClaim ClaimTypeReferenceId="extension_loyaltyId" />
+      </OutputClaims>
+      <ValidationTechnicalProfiles>
+        <ValidationTechnicalProfile ReferenceId="AAD-UserWriteProfileUsingObjectId" />
+      </ValidationTechnicalProfiles>
+    </TechnicalProfile>
+    ```
 
-          </PersistedClaims>
-          <IncludeTechnicalProfile ReferenceId="AAD-Common" />
-        </TechnicalProfile>
-```
-7. 在 TechnicalProfile "AAD-UserReadUsingObjectId" 中新增宣告，以在每次使用者登入時讀取擴充屬性的值。 到目前為止，只有本機帳戶的流程已變更 TechnicalProfiles。  如果您需要將新屬性用在社交/同盟帳戶的流程中，就必須變更一組不同的 TechnicalProfiles。 請參閱後續步驟。
+6. 在 TrustFrameworkBase.xml 檔案中，將 `loyaltyId` 宣告新增到 TechnicalProfile "AAD-UserWriteProfileUsingObjectId" 中，針對目錄中目前的使用者將宣告值保存在擴充屬性中：
 
-```xml
-<!-- The following technical profile is used to read data after user authenticates. -->
-     <TechnicalProfile Id="AAD-UserReadUsingObjectId">
-       <Metadata>
-         <Item Key="Operation">Read</Item>
-         <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
-       </Metadata>
-       <IncludeInSso>false</IncludeInSso>
-       <InputClaims>
-         <InputClaim ClaimTypeReferenceId="objectId" Required="true" />
-       </InputClaims>
-       <OutputClaims>
-         <!-- Optional claims -->
-         <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
-         <OutputClaim ClaimTypeReferenceId="displayName" />
-         <OutputClaim ClaimTypeReferenceId="otherMails" />
-         <OutputClaim ClaimTypeReferenceId="givenName" />
-         <OutputClaim ClaimTypeReferenceId="surname" />
-         <OutputClaim ClaimTypeReferenceId="extension_loyaltyId" />
-       </OutputClaims>
-       <IncludeTechnicalProfile ReferenceId="AAD-Common" />
-     </TechnicalProfile>
-```
+    ```xml
+    <TechnicalProfile Id="AAD-UserWriteProfileUsingObjectId">
+      <Metadata>
+        <Item Key="Operation">Write</Item>
+        <Item Key="RaiseErrorIfClaimsPrincipalAlreadyExists">false</Item>
+        <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
+      </Metadata>
+      <IncludeInSso>false</IncludeInSso>
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="objectId" Required="true" />
+      </InputClaims>
+      <PersistedClaims>
+        <PersistedClaim ClaimTypeReferenceId="objectId" />
+        <PersistedClaim ClaimTypeReferenceId="givenName" />
+        <PersistedClaim ClaimTypeReferenceId="surname" />
 
+        <!-- Add the loyalty identifier -->
+        <PersistedClaim ClaimTypeReferenceId="extension_loyaltyId" />
+        <!-- End of changes -->
 
->[!IMPORTANT]
->IncludeTechnicalProfile 元素會將 AAD-Common 的所有元素新增到這個 TechnicalProfile。
+      </PersistedClaims>
+      <IncludeTechnicalProfile ReferenceId="AAD-Common" />
+    </TechnicalProfile>
+    ```
 
-## <a name="test-the-custom-policy-using-run-now"></a>使用 [立即執行] 測試自訂原則
+7. 在 TrustFrameworkBase.xml 檔案中，將 `loyaltyId` 宣告新增到 TechnicalProfile "AAD-UserReadUsingObjectId" 中，以在每次使用者登入時讀取擴充屬性的值。 到目前為止，只有本機帳戶的流程已變更 TechnicalProfiles。  如果您需要將新屬性用在社交/同盟帳戶的流程中，就必須變更一組不同的 TechnicalProfiles。 請參閱後續步驟。
+
+    ```xml
+    <TechnicalProfile Id="AAD-UserReadUsingObjectId">
+      <Metadata>
+        <Item Key="Operation">Read</Item>
+        <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
+      </Metadata>
+      <IncludeInSso>false</IncludeInSso>
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="objectId" Required="true" />
+      </InputClaims>
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
+        <OutputClaim ClaimTypeReferenceId="displayName" />
+        <OutputClaim ClaimTypeReferenceId="otherMails" />
+        <OutputClaim ClaimTypeReferenceId="givenName" />
+        <OutputClaim ClaimTypeReferenceId="surname" />
+
+        <!-- Add the loyalty identifier -->
+        <OutputClaim ClaimTypeReferenceId="extension_loyaltyId" />
+        <!-- End of changes -->
+
+      </OutputClaims>
+      <IncludeTechnicalProfile ReferenceId="AAD-Common" />
+    </TechnicalProfile>
+    ```
+
+## <a name="test-the-custom-policy"></a>測試自訂原則
+
 1. 開啟 [Azure AD B2C] 刀鋒視窗，然後巡覽至 [識別體驗架構] > [自訂原則]。
 1. 選取您上傳的自訂原則，按一下 [立即執行] 按鈕。
 1. 您應該可以使用電子郵件地址註冊。

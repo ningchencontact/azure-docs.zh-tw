@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 05096050dfc29aebd2859b298eef884dcd9a1111
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: c48d03b6e8a3d850d02d2c36c35915f8214b00e8
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37906214"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035807"
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>受控服務識別 (MSI) 常見問題和已知問題 (Azure Active Directory)
 
@@ -85,7 +85,7 @@ Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location
 
 在虛擬機器上啟用受控服務識別後，嘗試對虛擬機器或其資源群組使用「自動化指令碼」功能時，出現下列錯誤：
 
-![MSI 自動化指令碼匯出錯誤](../media/msi-known-issues/automation-script-export-error.png)
+![MSI 自動化指令碼匯出錯誤](../managed-service-identity/media/msi-known-issues/automation-script-export-error.png)
 
 「受控服務識別」虛擬機器擴充目前不支援將其結構描述匯出至資源群組範本。 因此，產生的範本不會顯示可在資源上啟用受控服務識別的設定參數。 您可以依照[使用範本來設定虛擬機器受控服務識別](qs-configure-template-windows-vm.md)中的範例，手動新增這些區段。
 

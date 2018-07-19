@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 1ba9f827abeb0c0cf6430089e1fb504288550737
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 8779600f2c85a8bb309f7b2a8874608170de8877
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37900458"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035236"
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-the-azure-portal"></a>使用 Azure 入口網站設定虛擬機器擴展集的「受控服務識別 (MSI)」
 
@@ -32,7 +32,7 @@ ms.locfileid: "37900458"
 > [!NOTE]
 > 目前，不支援透過 Azure 入口網站執行使用者指派的身分識別作業。 請隨時回來查看是否有更新內容。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 
 - 如果您不熟悉受控服務識別，請參閱[概觀](overview.md)一節。
@@ -56,7 +56,7 @@ ms.locfileid: "37900458"
 
 3. 藉由在 [受控服務識別] 下選取 [是]，以在虛擬機器上啟用系統指派的身分識別，然後按一下 [儲存]。 此作業可能需要 60 秒以上才能完成：
 
-   [![組態頁面螢幕擷取畫面](../media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](../media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png#lightbox)  
+   [![組態頁面螢幕擷取畫面](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png#lightbox)  
 
 ## <a name="remove-managed-service-identity-from-an-azure-virtual-machine-scale-set"></a>從 Azure 虛擬機器擴展集移除受控服務識別
 
@@ -68,7 +68,7 @@ ms.locfileid: "37900458"
 
 3. 藉由在 [受控服務識別] 下選取 [否]，以在虛擬機器上停用系統指派的身分識別，然後按一下 [儲存]。 此作業可能需要 60 秒以上才能完成：
 
-   ![組態頁面螢幕擷取畫面](../media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)  
+   ![組態頁面螢幕擷取畫面](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)  
 
 ## <a name="related-content"></a>相關內容
 

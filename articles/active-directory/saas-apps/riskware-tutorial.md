@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jeedes
-ms.openlocfilehash: d234b34f7583441f496fb96d37166c5472cadb4c
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 7705baa0ba912f24d7859110c75d36703aeb4a77
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110822"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041954"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>教學課程：Azure Active Directory 與 Riskware 整合
 
@@ -34,7 +34,7 @@ ms.locfileid: "37110822"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Riskware 整合，您需要下列項目：
 
@@ -297,7 +297,7 @@ ms.locfileid: "37110822"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 [Riskware] 圖格時，應該就會自動登入 Riskware 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 
