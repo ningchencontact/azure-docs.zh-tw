@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a8ac62986eb7eb184ae6d102a956ee051e3aa88a
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 237f0d2b25230528c64bd47edd10ebae62750a0c
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063505"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345377"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure 中的更新管理解決方案
 
@@ -35,9 +35,9 @@ ms.locfileid: "37063505"
 
 ![更新管理程序流程](media/automation-update-management/update-mgmt-updateworkflow.png)
 
-在電腦執行更新合規性掃描之後，代理程式會將大量資訊轉送至 Azure Log Analytics。 在 Windows 電腦上，合規性掃描預設會每 12 小時執行一次。 
+在電腦執行更新合規性掃描之後，代理程式會將大量資訊轉送至 Azure Log Analytics。 在 Windows 電腦上，合規性掃描預設會每 12 小時執行一次。
 
-除了掃描排程，如果在更新安裝之前與更新安裝之後重新啟動 MMA，則會在 15 分鐘內起始更新合規性掃描。 
+除了掃描排程，如果在更新安裝之前與更新安裝之後重新啟動 MMA，則會在 15 分鐘內起始更新合規性掃描。
 
 針對 Linux 電腦，合規性掃描預設每 3 小時執行一次。 若 MMA 代理程式重新啟動，則會在 15 分鐘內起始合規性掃描。
 
@@ -86,7 +86,7 @@ Windows 代理程式必須設定為可與 WSUS 伺服器通訊，或必須能夠
 
 #### <a name="linux"></a>Linux
 
-針對 Linux，機器必須能夠存取更新存放庫。 更新存放庫可以是私人或公用。 此解決方案不支援適用於 Linux 且設定為向多個 Log Analytics 工作區回報的 Operations Management Suite (OMS) 代理程式。
+針對 Linux，機器必須能夠存取更新存放庫。 更新存放庫可以是私人或公用。 必須使用 TLS 1.1 或 TLS 1.2，才能與更新管理互動。 此解決方案不支援適用於 Linux 且設定為向多個 Log Analytics 工作區回報的 Operations Management Suite (OMS) 代理程式。
 
 如需關於如何安裝適用於 Linux 的 OMS 代理程式及下載最新版本的資訊，請參閱[適用於 Linux 的 Operations Management Suite 代理程式](https://github.com/microsoft/oms-agent-for-linux) \(英文\)。 如需有關如何安裝適用於 Windows 的 OMS 代理程式，請參閱[適用於 Windows 的 Operations Management Suite 代理程式](../log-analytics/log-analytics-windows-agent.md)。
 
@@ -115,6 +115,9 @@ Windows 代理程式必須設定為可與 WSUS 伺服器通訊，或必須能夠
 * 更新部署 MP
 
 如需有關方案管理組件如何更新的詳細資訊，請參閱[將 Operations Manager 連線到 Log Analytics](../log-analytics/log-analytics-om-agents.md)。
+
+> [!NOTE]
+> 就使用 Operations Manager 代理程式的系統而言，若要能夠完全受控於「更新管理」，則必須將代理程式更新為 Microsoft Monitoring Agent。 若要深入了解如何更新代理程式，請參閱[如何升級 Operations Manager 代理程式](/system-center/scom/deploy-upgrade-agents.md)。
 
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>確認非 Azure 機器已上線
 
@@ -159,9 +162,9 @@ Heartbeat
 
 | 連線的來源 | 支援 | 說明 |
 | --- | --- | --- |
-| Windows 代理程式 |是 |解決方案會從 Windows 代理程式收集系統更新的相關資訊，然後起始必要更新的安裝。 |
-| Linux 代理程式 |是 |解決方案會從 Linux 代理程式收集系統更新的相關資訊，然後在支援的發行版本上起始必要更新的安裝。 |
-| Operations Manager 管理群組 |是 |方案會從所連線之管理群組中的代理程式收集系統更新的相關資訊。<br/>Operations Manager 代理程式不需要直接連線到 Log Analytics。 資料會從管理群組轉送至 Log Analytics 工作區。 |
+| Windows 代理程式 |yes |解決方案會從 Windows 代理程式收集系統更新的相關資訊，然後起始必要更新的安裝。 |
+| Linux 代理程式 |yes |解決方案會從 Linux 代理程式收集系統更新的相關資訊，然後在支援的發行版本上起始必要更新的安裝。 |
+| Operations Manager 管理群組 |yes |方案會從所連線之管理群組中的代理程式收集系統更新的相關資訊。<br/>Operations Manager 代理程式不需要直接連線到 Log Analytics。 資料會從管理群組轉送至 Log Analytics 工作區。 |
 
 ### <a name="collection-frequency"></a>收集頻率
 
@@ -183,7 +186,7 @@ Heartbeat
 
 ## <a name="install-updates"></a>安裝更新
 
-工作區中的所有 Linux 和 Windows 電腦皆進行過更新評估之後，您可以建立「更新部署」來安裝必要的更新。 更新部署是為一或多部電腦排定的必要更新安裝作業。 您應該指定部署的日期和時間，以及應該包含在部署範圍中的電腦或電腦群組。 若要深入了解電腦群組，請參閱 [Log Analytics 中的電腦群組](../log-analytics/log-analytics-computer-groups.md)。
+工作區中的所有 Linux 和 Windows 電腦皆進行過更新評估之後，您可以建立「更新部署」來安裝必要的更新。 更新部署是為一或多部電腦排定的必要更新安裝作業。 您應該指定部署的日期和時間，以及應該包含在部署範圍中的電腦或電腦群組。 若要深入瞭解電腦群組，請參閱 [Log Analytics 中的電腦群組](../log-analytics/log-analytics-computer-groups.md)。
 
  當您將電腦群組納入更新部署時，只會在建立排程時評估一次群組成員資格。 系統不會反映群組的後續變更。 若要因應這個問題，請刪除已排定的更新部署並重新建立。
 
@@ -210,7 +213,7 @@ Heartbeat
 
 | 屬性 | 說明 |
 | --- | --- |
-|名稱 |用以識別更新部署的唯一名稱。 |
+|Name |用以識別更新部署的唯一名稱。 |
 |作業系統| 選取 [Linux] 或 [Windows]。|
 |要更新的機器 |選取已儲存的搜尋，或從下拉式清單中選擇 [機器] ，然後選取個別機器。 |
 |更新分類|選取您需要的所有更新分類。 CentOS 預設不支援這種更新分類。|
@@ -228,7 +231,7 @@ Heartbeat
 |重大更新     | 特定問題的更新，負責處理與安全性無關的重大錯誤。        |
 |安全性更新     | 特定產品的安全性相關更新。        |
 |更新彙總套件     | 一組累計的 Hotfix，封裝在一起以便於部署。        |
-|功能套件     | 在產品版本之外散發的新產品功能。        |
+|Feature Pack     | 在產品版本之外散發的新產品功能。        |
 |Service Pack     | 一組套用到應用程式的累計 Hotfix。        |
 |定義更新     | 病毒或其他定義檔案的更新。        |
 |工具     | 有助於完成一或多個工作的公用程式或功能。        |
@@ -238,7 +241,7 @@ Heartbeat
 
 |分類  |說明  |
 |---------|---------|
-|重大更新和安全性更新     | 特定問題或特定產品的安全性相關問題的更新。         |
+|重大更新和安全性更新     | 特定問題或特定產品的安全性相關問題的更新，         |
 |其他更新     | 在性質上不重要或非安全性更新的所有其他更新。        |
 
 針對 Linux，「更新管理」可以區分雲端中的重大更新和安全性更新，同時由於雲端中的資料擴充而顯示評估資料。 針對修補，「更新管理」仰賴機器上可用的分類資料。 與其他發行版本不同，CentOS 預設沒有此資訊。 如果您以某種方式將 CentOS 機器設定成傳回以下命令的安全性資料，則「更新管理」將能夠根據分類來進行修補。
@@ -251,7 +254,7 @@ sudo yum -q --security check-update
 
 ## <a name="ports"></a>連接埠
 
-以下為「更新管理」特別需要的位址。 與這些位址的通訊皆經由連接埠 443 進行。
+以下為「更新管理」特別需求的位址。 與這些位址的通訊皆經由連接埠 443 進行。
 
 |Azure 公用  |Azure Government  |
 |---------|---------|
@@ -260,6 +263,8 @@ sudo yum -q --security check-update
 |*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 
 如需混合式 Runbook 背景工作角色所需連接埠的詳細資訊，請參閱[混合式背景工作角色連接埠](automation-hybrid-runbook-worker.md#hybrid-worker-role)。
+
+建議使用定義例外狀況時所列出的位址。 針對 IP 位址，您可以下載 [Microsoft Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。 此檔案會每週更新，並反映目前已部署的範圍及任何即將進行的 IP 範圍變更。
 
 ## <a name="search-logs"></a>搜尋記錄
 

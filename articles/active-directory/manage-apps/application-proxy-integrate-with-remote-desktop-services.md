@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 06/27/2018
 ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 5c6d6b9580b123dafb03af2acc885d2416ca2a56
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 0a004ee6e5dbdd2ceb8546a4b7ce20b2b551fac9
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35292536"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084060"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 發佈遠端桌面
 
@@ -44,6 +44,8 @@ ms.locfileid: "35292536"
 >如果您之前從未部署過 RDS，或在您開始前需要更多資訊，請了解如何[使用 Azure Resource Manager 和 Azure Marketplace 順暢地部署 RDS](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure)。
 
 ## <a name="requirements"></a>需求
+
+- 因為 Web 用戶端不支援應用程式 Proxy，所以使用遠端桌面 Web 用戶端以外的用戶端。
 
 - RD Web 和 RD 閘道端點必須位於相同的電腦上，並具有一般的根。 將 RD Web 和 RD 閘道發佈為單一應用程式並搭配應用程式 Proxy，如此便能在這兩個應用程式之間擁有單一登入的體驗。
 
@@ -124,8 +126,8 @@ ms.locfileid: "35292536"
 預先驗證流程的安全性優點多於通道流程。 使用預先驗證，您可以使用內部部署資源的 Azure AD 驗證功能，例如單一登入、條件式存取和雙步驟驗證。 您也可以確定只有驗證過的流量到達您的網路。
 
 若要使用通道驗證，只需要對本文中所列的步驟進行兩項修改：
-1. 在 [發佈 RD 主機端點](#publish-the-rd-host-endpoint) 步驟 1 中，請將預先驗證方法設為 **通道**。
-2. 在 [Direct RDS traffic to Application Proxy](#direct-rds-traffic-to-application-proxy) (將 RDS 流量導向應用程式 Proxy) 中，完全略過步驟 8。
+1. 在 [[Publish the RD host endpoint] (發佈 RD 主機端點)](#publish-the-rd-host-endpoint) 步驟 1 中，請將預先驗證方法設為 [通道]。
+2. 在 [[Direct RDS traffic to Application Proxy] (將 RDS 流量導向應用程式 Proxy)](#direct-rds-traffic-to-application-proxy) 中，完全略過步驟 8。
 
 ## <a name="next-steps"></a>後續步驟
 

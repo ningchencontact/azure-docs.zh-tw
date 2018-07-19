@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: edc44f0ab2d2cc737807dd8ad543997cdd75bd43
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 96ca5a7ec8b0c87984ea2c76af446d7a8b5504a1
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034439"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344295"
 ---
 # <a name="create-a-windows-iot-edge-device-that-acts-as-a-transparent-gateway"></a>建立作為透明閘道的 Windows IoT Edge 裝置
 
@@ -38,46 +38,56 @@ ms.locfileid: "37034439"
 ## <a name="prerequisites"></a>先決條件
 1.  在您想要作為透明閘道的 Windows 裝置上[安裝 Azure IoT Edge 執行階段][lnk-install-windows-x64]。
 
-1. 取得 Windows 的 OpenSSL。 您可以透過多種方式來安裝 OpenSSL。 此處提供的指示會使用 vcpkg 來完成這項作業。
-   1. 使用從系統管理員 PowerShell 執行的下列命令下載並安裝 vcpkg。 瀏覽至要安裝 OpenSSL 的目錄，我們稱之為 `$VCPKGDIR`。
+1. 取得 Windows 的 OpenSSL。 您可以透過多種方式來安裝 OpenSSL：
 
-   ```PowerShell
-   git clone https://github.com/Microsoft/vcpkg
-   cd vcpkg
-   .\bootstrap-vcpkg.bat
-   .\vcpkg integrate install
-   .\vcpkg install openssl:x64-windows
-   ```
+   >[!NOTE]
+   >如果您已在 Windows 裝置上安裝 OpenSSL，則可以略過此步驟，但請確定您的 `%PATH%` 環境變數中有 `openssl.exe`。
 
-   1. 將環境變數 `OPENSSL_ROOT_DIR` 設為 `$VCPKGDIR\vcpkg\packages\openssl_x64-windows`，並將 `$VCPKGDIR\vcpkg\packages\openssl_x64-windows\tools\openssl` 新增至您的 `PATH` 環境變數。
+   * 下載並安裝任何[第三方 OpenSSL 二進位檔](https://wiki.openssl.org/index.php/Binaries)，例如，從 [SourceForge 上的這個專案](https://sourceforge.net/projects/openssl/)下載並安裝。
+   
+   * 自行下載 OpenSSL 原始程式碼並在您的電腦上組建二進位檔，或是透過 [vcpkg](https://github.com/Microsoft/vcpkg) 來執行此作業。 下列指示會使用 vcpkg 下載原始程式碼，並在 Windows 電腦上編譯並安裝 OpenSSL，且各項作業都能以非常容易使用的步驟完成。
+
+      1. 瀏覽至要安裝 vcpkg 的目錄。 以下我們將稱之為 $VCPKGDIR。 依照指示下載並安裝 [vcpkg](https://github.com/Microsoft/vcpkg)。
+   
+      1. vcpkg 安裝後，請從 Powershell 提示字元執行下列命令，以安裝 Windows x64 的 OpenSSL 套件。 此作業通常需要約 5 分鐘的時間。
+
+         ```PowerShell
+         .\vcpkg install openssl:x64-windows
+         ```
+      1. 將 `$VCPKGDIR\vcpkg\packages\openssl_x64-windows\tools\openssl` 新增至您的 `PATH` 環境變數，讓 `openssl.exe` 檔案可供叫用。
+
+1. 瀏覽至您要使用的目錄。 以下我們將稱之為 $WRKDIR。  所有檔案都會在此目錄中建立。
+   
+   cd $WRKDIR
 
 1.  使用下列命令取得相關指令碼，以產生所需的非生產憑證。 這些指令碼可協助您建立用來設定透明閘道的所需憑證。
 
-   ```PowerShell
-   git clone https://github.com/Azure/azure-iot-sdk-c.git
-   ```
+      ```PowerShell
+      git clone https://github.com/Azure/azure-iot-sdk-c.git
+      ```
 
-1. 瀏覽至您要使用的目錄。 以下我們將稱之為 $WRKDIR。  所有檔案都會在此目錄中建立。
+1. 將組態和指令碼檔案複製到您的工作目錄。 此外，請設定環境變數 OPENSSL_CONF 以使用 openssl_root_ca.cnf 組態檔。
 
-   cd $WRKDIR
-
-1. 將組態和指令碼檔案複製到您的工作目錄。
    ```PowerShell
    copy azure-iot-sdk-c\tools\CACertificates\*.cnf .
    copy azure-iot-sdk-c\tools\CACertificates\ca-certs.ps1 .
+   $env:OPENSSL_CONF = "$PWD\openssl_root_ca.cnf"
    ```
 
 1. 執行下列命令，使 PowerShell 能夠執行指令碼
+
    ```PowerShell
    Set-ExecutionPolicy -ExecutionPolicy Unrestricted
    ```
 
 1. 透過下列命令使用點執行，將指令碼所使用的函式導入 PowerShell 的全域命名空間中
+   
    ```PowerShell
    . .\ca-certs.ps1
    ```
 
-1. 執行下列命令以確認 OpenSSL 已正確安裝，並確定名稱不會與現有的憑證名稱衝突。
+1. 執行下列命令以確認 OpenSSL 已正確安裝，並確定名稱不會與現有的憑證名稱衝突。 如果有問題，指令碼應會說明如何在系統上加以修正。
+
    ```PowerShell
    Test-CACertsPrerequisites
    ```
@@ -85,30 +95,18 @@ ms.locfileid: "37034439"
 ## <a name="certificate-creation"></a>建立憑證
 1.  建立擁有者 CA 憑證和一個中繼憑證。 這些項目都位於 `$WRKDIR` 中。
 
-   ```PowerShell
-   New-CACertsCertChain rsa
-   ```
-
-   指令碼執行的輸出是下列憑證和金鑰：
-   * 憑證
-      * `$WRKDIR\certs\azure-iot-test-only.root.ca.cert.pem`
-      * `$WRKDIR\certs\azure-iot-test-only.intermediate.cert.pem`
-   * 金鑰
-      * `$WRKDIR\private\azure-iot-test-only.root.ca.key.pem`
-      * `$WRKDIR\private\azure-iot-test-only.intermediate.key.pem`
+      ```PowerShell
+      New-CACertsCertChain rsa
+      ```
 
 1.  使用下列命令建立 Edge 裝置 CA 憑證和私密金鑰。
 
    >[!NOTE]
    > **請勿**使用與閘道 DNS 主機名稱相同的名稱。 這麼做將導致使用這些憑證的用戶端認證失敗。
 
-      ```PowerShell
-      New-CACertsEdgeDevice "<gateway device name>"
-      ```
-
-   指令碼執行的輸出是下列憑證和金鑰：
-   * `$WRKDIR\certs\new-edge-device.*`
-   * `$WRKDIR\private\new-edge-device.key.pem`
+   ```PowerShell
+   New-CACertsEdgeDevice "<gateway device name>"
+   ```
 
 ## <a name="certificate-chain-creation"></a>建立憑證鏈結
 使用下列命令，從擁有者 CA 憑證、中繼憑證和 Edge 裝置 CA 憑證建立憑證鏈結。 將它放入鏈結檔案中，可讓您輕鬆地將其安裝在作為透明閘道的 Edge 裝置上。
@@ -116,6 +114,11 @@ ms.locfileid: "37034439"
    ```PowerShell
    Write-CACertsCertificatesForEdgeDevice "<gateway device name>"
    ```
+
+   指令碼執行的輸出是下列憑證和金鑰：
+   * `$WRKDIR\certs\new-edge-device.*`
+   * `$WRKDIR\private\new-edge-device.key.pem`
+   * `$WRKDIR\certs\azure-iot-test-only.root.ca.cert.pem`
 
 ## <a name="installation-on-the-gateway"></a>安裝在閘道上
 1.  從 $WRKDIR 將下列檔案複製到 Edge 裝置上的任一處，我們稱之為 $CERTDIR。 如果您是在 Edge 裝置上產生憑證，請略過此步驟。
@@ -128,9 +131,9 @@ ms.locfileid: "37034439"
 
 ```yaml
 certificates:
-  device_ca_cert: "$CERTDIR\certs\new-edge-device-full-chain.cert.pem"
-  device_ca_pk: "$CERTDIR\private\new-edge-device.key.pem"
-  trusted_ca_certs: "$CERTDIR\certs\azure-iot-test-only.root.ca.cert.pem"
+  device_ca_cert: "$CERTDIR\\certs\\new-edge-device-full-chain.cert.pem"
+  device_ca_pk: "$CERTDIR\\private\\new-edge-device.key.pem"
+  trusted_ca_certs: "$CERTDIR\\certs\\azure-iot-test-only.root.ca.cert.pem"
 ```
 ## <a name="deploy-edgehub-to-the-gateway"></a>將 Edge 中樞部署至閘道
 Azure IoT Edge 的主要功能之一，是能夠從雲端將模組部署到您的 IoT Edge 裝置。 在本節中，您建立了看似空白的部署，但即使沒有其他模組存在，Edge 中樞也會自動新增至所有部署。 Edge 中樞是您讓 Edge 裝置作為透明閘道所需的唯一模組，因此建立空白部署就已足夠。 
@@ -163,7 +166,11 @@ Azure IoT Edge 的主要功能之一，是能夠從雲端將模組部署到您�
  
     您應該會看到訊息指出：「正在更新 /etc/ssl/certs 中的憑證...已新增 1 個，已移除 0 個；完成。」
 
-* Windows - [這篇](https://msdn.microsoft.com/en-us/library/cc750534.aspx)文章詳細說明如何使用憑證匯入精靈在 Windows 裝置上執行這項操作。
+* Windows - 以下是如何在 Windows 主機上安裝 CA 憑證的範例。
+  * 從 [開始] 功能表中，輸入「管理電腦憑證」。 這應該會啟動名為 `certlm` 的公用程式。
+  * 瀏覽至 [憑證本機電腦] --> [受信任的根憑證] --> [憑證] --> 按一下滑鼠右鍵 --> [所有工作] --> [匯入]，以啟動 [憑證匯入精靈]。
+  * 依照指示執行步驟，並匯入憑證檔案 $CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem。
+  * 完成時，您應該會看到「已成功匯入」訊息。
 
 ### <a name="application-level"></a>應用程式層級
 針對 .NET 應用程式，您可以新增下列程式碼片段以信任 PEM 格式的憑證。 使用 `$CERTDIR\certs\azure-iot-test-only.root.ca.cert.pem` 初始化變數 `certPath`。

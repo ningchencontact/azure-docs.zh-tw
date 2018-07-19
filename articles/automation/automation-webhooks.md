@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e047dffa86915b0cd6e8829ea27e0335e7f88cb2
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: f8ee8a2a4aae61e2edc275527d80a162c9bb4dc0
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757151"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345702"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>使用 Webhook 啟動 Azure 自動化 Runbook
 
@@ -86,11 +86,11 @@ Webhook 的安全性仰賴其 URL 的隱私權，其中包含允許叫用它的�
 
 使用下列程序在 Azure 入口網站中建立連結至 Runbook 的全新 Webhook。
 
-1. 從 Azure 入口網站的 [Runbook] 頁面中，按一下 Webhook 要開始檢視其詳細資料頁面的 Runbook。
-1. 按一下頁面頂端的 [Webhook] 以開啟 [新增 Webhook] 頁面。
-1. 按一下 [建立新的 Webhook] 以開啟 [建立 Webhook] 頁面。
-1. 指定 Webhook 的 [名稱]、[到期日期] 以及是否應該啟用。 請參閱 [Webhook 的詳細資料](#details-of-a-webhook) 以取得這些屬性的詳細資訊。
-1. 按一下複製圖示，然後按 Ctrl + C 以複製 Webhook 的 URL。 然後將其記錄在安全的地方。 **一旦您建立 Webhook，即無法再次擷取 URL。**
+1. 從 Azure 入口網站的 [Runbook] 頁面中，按一下 Webhook 要開始檢視其詳細資料頁面的 Runbook。 請確定 Runbook 的 [狀態] 為 [已發佈]。
+2. 按一下頁面頂端的 [Webhook] 以開啟 [新增 Webhook] 頁面。
+3. 按一下 [建立新的 Webhook] 以開啟 [建立 Webhook] 頁面。
+4. 指定 Webhook 的 [名稱]、[到期日期] 以及是否應該啟用。 請參閱 [Webhook 的詳細資料](#details-of-a-webhook) 以取得這些屬性的詳細資訊。
+5. 按一下複製圖示，然後按 Ctrl + C 以複製 Webhook 的 URL。 然後將其記錄在安全的地方。 **一旦您建立 Webhook，即無法再次擷取 URL。**
 
    ![Webhook URL](media/automation-webhooks/copy-webhook-url.png)
 

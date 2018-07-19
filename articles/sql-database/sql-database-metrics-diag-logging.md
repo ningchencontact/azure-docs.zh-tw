@@ -3,19 +3,20 @@ title: Azure SQL Database 計量和診斷記錄 | Microsoft Docs
 description: 了解如何設定 Azure SQL Database ，以儲存資源使用量、連線及查詢執行統計資料。
 services: sql-database
 documentationcenter: ''
-author: veljko-msft
+author: Danimir
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: vvasic
-ms.openlocfilehash: c9126080db4d8091b672a9250c68a5c5590e10c7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: v-daljep
+ms.reviewer: carlrab
+ms.openlocfilehash: c7a5031fab10f44809f9533e43c3596d46dc77e3
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650174"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346020"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 計量和診斷記錄 
 Azure SQL Database 可以發出計量和診斷記錄，以便進行監視。 您可以將 SQL Database 設定為將資源使用量、背景工作與工作階段及連線儲存到下列其中一項 Azure 資源：
@@ -49,8 +50,8 @@ Azure SQL Database 可以發出計量和診斷記錄，以便進行監視。 您
 - [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics)：包含關於查詢所等候內容的查詢等候統計資料的資訊，例如 CPU、LOG 和 LOCKING。
 - [錯誤](sql-database-metrics-diag-logging.md#errors-dataset)：包含關於此資料庫上所發生 SQL 錯誤的資訊。
 - [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset)：包含和資料庫花費在不同等候類型的等候時間長度有關的資訊。
-- [逾時](sql-database-metrics-diag-logging.md#time-outs-dataset)：包含有關資料庫上發生之逾時的資訊。
-- [封鎖](sql-database-metrics-diag-logging.md#blockings-dataset)：包含有關資料庫上所發生事件的資訊。
+- [逾時](sql-database-metrics-diag-logging.md#time-outs-dataset)：包含與資料庫上發生的逾時有關的資訊。
+- [封鎖](sql-database-metrics-diag-logging.md#blockings-dataset)：包含與資料庫上發生的封鎖事件有關的資訊。
 - [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset)：包含 Intelligent Insights。 [深入了解 Intelligent Insights](sql-database-intelligent-insights.md)。
 - **稽核** / **SQLSecurityAuditEvents**：目前無法使用。
 

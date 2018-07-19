@@ -8,12 +8,12 @@ ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 73da48d449a7cc5cdca598c8aef176952909ed85
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c0197b8f0cceab575aa5e830d094ddd2fb6b6b01
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634918"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436290"
 ---
 # <a name="summary-of-customer-data-request-features"></a>客戶資料要求功能的摘要
 
@@ -37,17 +37,17 @@ Azure IoT 中樞是 REST API 型的雲端服務，目標是企業客戶，它能
 
 租用戶系統管理員可以利用 Azure 入口網站中，Azure IoT 中樞擴充功能的 IoT 裝置刀鋒視窗來刪除裝置，這樣會刪除與該裝置相關聯的資料。
 
-也可以使用 REST API 執行裝置的刪除作業。 如需詳細資訊，請參閱[裝置 API - 刪除裝置](https://docs.microsoft.com/rest/api/iothub/deviceapi/deletedevice)。
+也可以使用 REST API 執行裝置的刪除作業。 如需詳細資訊，請參閱[服務 - 刪除裝置](https://docs.microsoft.com/rest/api/iothub/service/deletedevice)。
 
 ## <a name="exporting-customer-data"></a>匯出客戶資料
 
 租用戶系統管理員可以利用 Azure 入口網站中，Azure IoT 中樞擴充功能的 IoT 裝置刀鋒視窗內的複製和貼上，來匯出與裝置相關聯的資料。
 
-也可以使用 REST API 執行裝置的匯出作業。 如需詳細資訊，請參閱[裝置 API - 取得裝置](https://docs.microsoft.com/rest/api/iothub/deviceapi/getdevice)。
+也可以使用 REST API 執行裝置的匯出作業。 如需詳細資訊，請參閱[服務 - 取得裝置](https://docs.microsoft.com/rest/api/iothub/service/getdevice)。
 
 > [!NOTE]
-> 當您使用 Microsoft 的企業服務時，Microsoft 會產生一些資訊，稱為系統產生的記錄。 租用戶系統管理員無法存取或匯出部分 Azure IoT 中樞系統所產生的記錄。 這些記錄可視為在與個人裝置相關的服務和診斷資料中，所進行的實際動作。
+> 當您使用 Microsoft 的企業服務時，Microsoft 會產生一些資訊，稱為系統所產生的記錄。 租用戶系統管理員無法存取或匯出部分 Azure IoT 中樞系統所產生的記錄。 這些記錄可視為在與個人裝置相關的服務和診斷資料中，所進行的實際動作。
 
 ## <a name="links-to-additional-documentation"></a>其他文件的連結
 
-完整的 Azure IoT 中樞裝置 API 文件可於 [https://docs.microsoft.com/rest/api/iothub/deviceapi](https://docs.microsoft.com/rest/api/iothub/deviceapi) 找到。
+Azure IoT 中樞服務 API 的完整文件可於 [https://docs.microsoft.com/rest/api/iothub/service](https://docs.microsoft.com/rest/api/iothub/service) 找到。

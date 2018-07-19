@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: johnkem
 ms.component: alerts
-ms.openlocfilehash: 01dc3a3c6489b694af26c78ae3b4756f3e8f00b7
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 1e79fee75b2361dd7da8c46c175a5a6532089ad6
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263111"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437234"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>建立服務通知的活動記錄警示
 ## <a name="overview"></a>概觀
@@ -25,6 +25,9 @@ ms.locfileid: "35263111"
 - 受影響的訂閱。
 - 受影響的服務。
 - 受影響的區域。
+
+> [!NOTE]
+> 服務健康情況通知不會傳送關於資源健康情況事件的警示。
 
 您也可以設定應傳送警示的對象：
 

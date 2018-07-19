@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 35f8937ddef54d407a6e3c83566225ca8ede8bd9
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 6b47e54e56b12a2975c44ab3b87b023d20a769c3
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960122"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436159"
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>在 HDInsight 中使用 Hive 分析 Twitter 資料
 社群網站是驅使採用巨量資料的其中一個主要動力。 像 Twitter 之類的網站所提供的公開 API，是分析和了解流行趨勢的一項實用的資料來源。
@@ -87,19 +87,19 @@ Twitter 會使用 OAuth 提供對其 API 的授權存取。 OAuth 是一項驗�
    |  網站 |http://www.myhdinsightapp.com |
 4. 核取 [是，我同意] 然後按一下 [建立 Twitter 應用程式]。
 5. 按一下 [權限]  索引標籤。預設權限為 [唯讀] 。 本教學課程使用預設值即可。
-6. 按一下 [金鑰和存取權杖] 索引標籤。
-7. 按一下 [Create my access token]。
-8. 按一下位於頁面右上角的 [測試 OAuth]。
-9. 記下**取用者金鑰**、**取用者祕密**、**存取權杖**和**存取權杖祕密**。 稍後在教學課程中會用到這些值。
+6. 按一下 **[金鑰和存取權杖** ] 索引標籤。
+7. 按一下 [Create my access token] 。
+8. 按一下位於頁面右上角的 [測試 OAuth]  。
+9. 記下**消費者金鑰**、**消費者祕密**、**存取權杖**和**存取權杖祕密**。 稍後在教學課程中會用到這些值。
 
-在本教學課程中，您將使用 Windows PowerShell 發出 Web 服務呼叫。 另一個常用來發出 Web 服務呼叫的工具是 [*Curl*][curl]。 您可以從[這裡][curl-download]下載 Curl。
+在本教學課程中，您將使用 Windows PowerShell 發出 Web 服務呼叫。 另一項常用來發出 Web 服務呼叫的工具是 [*Curl*][curl]。 您可以從[這裡][curl-download]下載 Curl。
 
 > [!NOTE]
 > 在 Windows 上使用 curl 命令時，對選項值請使用雙引號，而不要使用單引號。
 
 **取得推文**
 
-1. 開啟 Windows PowerShell 整合式指令碼環境 (ISE)。 (在 Windows 8 的 [開始] 畫面上輸入 **PowerShell_ISE**，然後按一下 [Windows PowerShell ISE]。 請參閱[在 Windows 8 和 Windows 上啟動 Windows PowerShell][powershell-start]。)
+1. 開啟 Windows PowerShell 整合式指令碼環境 (ISE)。 (在 Windows 8 的 [開始] 畫面上輸入 **PowerShell_ISE**，然後按一下 [Windows PowerShell ISE]。 請參閱[在 Windows 8 和 Windows 上啟動 Windows PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/setup/starting-windows-powershell?view=powershell-6)
 2. 將下列指令碼複製到指令碼窗格中：
 
     ```powershell
@@ -233,8 +233,8 @@ Twitter 會使用 OAuth 提供對其 API 的授權存取。 OAuth 是一項驗�
     變數|說明
     ---|---
     $clusterName|這是您要執行應用程式的 HDInsight 叢集名稱。
-    $oauth_consumer_key|這是您先前在建立 Twitter 應用程式時所記下的 Twitter 應用程式 **取用者金鑰** 。
-    $oauth_consumer_secret|這是您先前記下的 Twitter 應用程式 **取用者密碼** 。
+    $oauth_consumer_key|這是您先前在建立 Twitter 應用程式時所記下的 Twitter 應用程式 **消費者金鑰** 。
+    $oauth_consumer_secret|這是您先前記下的 Twitter 應用程式 **消費者密碼** 。
     $oauth_token|這是您先前記下的 Twitter 應用程式 **存取權杖** 。
     $oauth_token_secret|這是您先前記下的 Twitter 應用程式 **存取權杖密碼** 。
     $destBlobName|這是輸出 Blob 名稱。 預設值為 **tutorials/twitter/data/tweets.txt**。 如果您變更預設值，則 Windows PowerShell 指令碼也必須隨之變更。

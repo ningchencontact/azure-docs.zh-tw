@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: larryfr
-ms.openlocfilehash: 9ca8be3066254ade37c858bd62f9ce6a2e2be902
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 5f6609018f2582ebfc6e2ecbe48bde6a6f2d0f5d
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018374"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098255"
 ---
 # <a name="script-action-development-with-hdinsight"></a>使用 HDInsight 開發指令碼動作
 
@@ -284,7 +284,7 @@ echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 
 * __可公開讀取的 URI__。 例如，在 OneDrive、Dropbox 或其他檔案裝載服務上儲存之資料的 URL。
 
-* 與 HDInsight 叢集相關聯的 __Azure Data Lake Store 帳戶__。 如需使用 Azure Data Lake Store 與 HDInsight 的詳細資訊，請參閱[建立使用 Data Lake Store 的 HDInsight 叢集](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)。
+* 與 HDInsight 叢集相關聯的 __Azure Data Lake Store 帳戶__。 如需有關使用 Azure Data Lake Store 與 HDInsight 的詳細資訊，請參閱[快速入門：在 HDInsight 中設定叢集](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
 
     > [!NOTE]
     > 用來存取 Data Lake Store 的服務主體 HDInsight 必須具有指令碼的讀取權限。
@@ -294,7 +294,7 @@ echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 將檔案儲存在 Azure 儲存體帳戶或 Azure Data Lake Store 中可快速存取，因為兩者都在 Azure 網路內。
 
 > [!NOTE]
-> 用來參考指令碼的 URI 格式會隨所使用的服務而有所不同。 若為與 HDInsight 叢集相關聯的儲存體帳戶，請使用 `wasb://` 或 `wasbs://`。 若為可公開讀取的 URI，請使用 `http://` 或 `https://`。 若為 Data Lake Store，請使用 `adl://`。
+> 用來參考指令碼的 URI 格式會隨所使用的服務而有所不同。 若為與 HDInsight 叢集相關聯的儲存體帳戶，請使用 `wasb://` 或 `wasbs://`。 若為可公開讀取的 URI，請使用 `http://` 或 `https://` 。 若為 Data Lake Store，請使用 `adl://`。
 
 ### <a name="checking-the-operating-system-version"></a>檢查作業系統版本
 

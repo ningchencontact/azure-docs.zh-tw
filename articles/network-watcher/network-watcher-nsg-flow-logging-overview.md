@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: c6a24fbca37d6aa1d775a70c708a139dfb70b813
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ae4edb82fa5e192a30d297dae82199bb7efca0c2
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182420"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344966"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>網路安全性群組流量記錄簡介
 
@@ -33,7 +33,7 @@ ms.locfileid: "32182420"
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 
-在其他記錄上看到的保留原則也同樣適用於流量記錄。 您可以設定 1 天到 365 天的記錄保留原則。 如果未設定保留原則，則會永遠保留記錄檔。
+在其他記錄上看到的保留原則也同樣適用於流量記錄。 您可以設定 1 天到 2147483647 天的記錄保留原則。 如果未設定保留原則，則會永遠保留記錄檔。
 
 ## <a name="log-file"></a>記錄檔
 

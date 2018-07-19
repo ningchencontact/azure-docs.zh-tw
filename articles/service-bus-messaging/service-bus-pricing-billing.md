@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 8ccb44b5009588c28bc79bb45e1a7640ead6c817
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 4faf37394b8e4f6c4e463acb11aea898a29fef80
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2017
-ms.locfileid: "27159781"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448402"
 ---
 # <a name="service-bus-pricing-and-billing"></a>服務匯流排定價與計費
 
@@ -39,7 +39,10 @@ Azure 服務匯流排提供標準和[進階](service-bus-premium-messaging.md)�
 
 **高階** 層可讓您在 CPU 和記憶體層隔離資源，讓每個客戶工作負載能獨立執行。 此資源容器稱為「傳訊單位」 。 每個進階命名空間都會被配置至少一個傳訊單位。 您可以為每個服務匯流排進階命名空間購買 1、2 或 4 個傳訊單位。 單一工作負載或實體可以跨越多個傳訊單位，而傳訊單位數目可以隨意變更，雖然計費是依 24 小時或每日費率收費。 結果是您的服務匯流排方案的效能可預測並可重複。 此效能不僅更可預測並可取得，而且還更快速。
 
-請注意，對於每個 Azure 訂用帳戶，每個月只收取一次標準層基本費用。 這表示建立單一標準層服務匯流排命名空間之後，您就可以在同一個 Azure 訂用帳戶下，依需要建立更多標準層命名空間，而不必支付額外的基本費用。
+> [!NOTE]
+> 在標準或進階定價層中才可使用主題和訂用帳戶；基本層僅支援佇列。
+
+對於每個 Azure 訂用帳戶，每個月只收取一次標準層基本費用。 這表示建立單一標準層服務匯流排命名空間之後，您就可以在同一個 Azure 訂用帳戶下，依需要建立更多標準層命名空間，而不必支付額外的基本費用。
 
 [服務匯流排價格](https://azure.microsoft.com/pricing/details/service-bus/)表格摘要說明標準層和進階層之間的功能差異。
 
@@ -49,7 +52,7 @@ Azure 服務匯流排提供標準和[進階](service-bus-premium-messaging.md)�
 
 | 作業類型 | 說明 |
 | --- | --- |
-| 管理 |對佇列或主題/訂用帳戶執行的建立、讀取、更新、刪除 (CRUD)。 |
+| 管理性 |對佇列或主題/訂用帳戶執行的建立、讀取、更新、刪除 (CRUD)。 |
 | 訊息 |用佇列或主題/訂用帳戶傳送和接收訊息。 |
 | 工作階段狀態 |取得或設定佇列或主題/訂用帳戶上的工作階段狀態。 |
 

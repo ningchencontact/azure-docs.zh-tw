@@ -9,15 +9,15 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 05/16/2018
-ms.author: khdang
+ms.date: 06/29/2018
+ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 62555d3ba3513ce7183e24506530edcf78368247
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: d7d00d6236b601d145be03e6086bec2d72faafcd
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798622"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344932"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK for SQL API：版本資訊與資源
 > [!div class="op_single_selector"]
@@ -52,6 +52,13 @@ SQL API Java SDK 支援同步作業。 如需非同步支援，請使用 [SQL AP
 </table></br>
 
 ## <a name="release-notes"></a>版本資訊
+
+### <a name="a-name11621162"></a><a name="1.16.2"/>1.16.2
+* 已新增串流容錯移轉支援。
+* 已新增自訂中繼資料的支援。
+* 已改善工作階段處理邏輯。
+* 已修正分割區索引鍵範圍快取中的 Bug。
+* 已修正直接模式中的 NPE Bug。
 
 ### <a name="a-name11611161"></a><a name="1.16.1"/>1.16.1
 * 新增唯一索引的支援。
@@ -150,7 +157,7 @@ SQL API Java SDK 支援同步作業。 如需非同步支援，請使用 [SQL AP
 * 已淘汰以 IPartitionResolver 為基礎的自訂分割程式碼。 請針對更高的儲存體和輸送量使用分割集合。
 
 ### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
-* 新加入節流的重試原則支援。  
+* 已新增速率限制的重試原則支援。  
 
 ### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
 * 新加入文件的存留時間 (TTL) 支援。
@@ -198,6 +205,7 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [1.16.2](#1.16.2) |2018 年 6 月 29 日 |--- |
 | [1.16.1](#1.16.1) |2018 年 5 月 16 日 |--- |
 | [1.16.0](#1.16.0) |2018 年 3 月 15 日 |--- |
 | [1.15.0](#1.15.0) |2017 年 11 月 14 日 |--- |

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/30/2018
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5aa716f91a3155e81ef8dc7c436b4a9a5811238b
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: c9a1d605f6cf2ef9dae3a5549e3848931d508394
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34723247"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082738"
 ---
 # <a name="configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>針對 Azure Active Directory 中的企業應用程式設定 SAML 權杖中發出的角色宣告
 
@@ -56,7 +56,7 @@ ms.locfileid: "34723247"
 
     ![屬性頁面](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
 
-6. 在另一個視窗中開啟 [Azure AD Graph 總管](https://developer.microsoft.com/graph/graph-explorer)，然後採取下列步驟：
+6. 在另一個視窗中開啟 [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)，然後採取下列步驟：
 
     a. 使用您租用戶的全域管理員或共同管理員認證來登入 [Graph 總管] 網站。
 
@@ -74,7 +74,7 @@ ms.locfileid: "34723247"
     
      `https://graph.microsoft.com/beta/servicePrincipals`
         
-      如果您使用多個目錄，則請依照此模式：`https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+      如果您使用多個目錄，則請依照此模式： `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
     
       ![[Graph 總管] 對話方塊，具有用於擷取服務主體的查詢](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
     
@@ -178,7 +178,7 @@ ms.locfileid: "34723247"
     
     `https://graph.microsoft.com/beta/servicePrincipals`
     
-    如果您使用多個目錄，則請依照此模式：`https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+    如果您使用多個目錄，則請依照此模式： `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
     ![[Graph 總管] 對話方塊，具有用於擷取服務主體的查詢](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
     
@@ -216,7 +216,7 @@ ms.locfileid: "34723247"
     
     `https://graph.microsoft.com/beta/servicePrincipals`
     
-    如果您使用多個目錄，則請依照此模式：`https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+    如果您使用多個目錄，則請依照此模式： `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
     
     ![[Graph 總管] 對話方塊，具有用於擷取服務主體清單的查詢](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
     

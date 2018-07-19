@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 71d762b6f1c199db17058ac107aad7a0b3260ae7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8f567ba43c1657783f9898863aef980627800481
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34633490"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436314"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>了解和使用 IoT 中樞的模組對應項
 
@@ -319,7 +319,7 @@ IoT 中樞會為模組對應項所需屬性和報告屬性中的每個 JSON 物�
 ## <a name="next-steps"></a>後續步驟
 若要嘗試本文所述的一些概念，請參閱下列「IoT 中樞」教學課程：
 
-* [透過 .NET 備份和 .NET 裝置開始使用 IoT 中樞模組身分識別和模組對應項][lnk-module-twin-tutorial]
+* [透過 .NET 後端和 .NET 裝置開始使用 IoT 中樞模組身分識別和模組對應項][lnk-module-twin-tutorial]
 
 <!-- links and images -->
 

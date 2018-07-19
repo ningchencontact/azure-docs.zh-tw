@@ -10,12 +10,12 @@ ms.date: 03/05/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: e8d84944d44588602593c762c4f60c375e480343
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d4e69d33e07f484b4ccc5343786865230368c7ca
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298163"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096371"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>建立條件陳述式以控制 Azure Logic Apps 中的工作流程動作
 
@@ -50,32 +50,27 @@ ms.locfileid: "35298163"
 
    1. 在左側的方塊中，指定您要比較的資料或欄位。
 
-      在 [新增動態內容] 清單中，您可以從應用程式邏輯中選取現有的欄位。
+      當您按一下左側方塊內部時，動態內容清單隨即出現，以便您在邏輯應用程式中選取先前步驟的輸出。 
+      在此範例中，選取 RSS 摘要的摘要。
+
+      ![建立您的條件](./media/logic-apps-control-flow-conditional-statement/edit-condition.png)
 
    2. 在清單的中間，選取要執行的作業。 
-   3. 在右邊的方塊中，指定作為準則的值或欄位。
+   在此範例中，請選取 "**contains**"。 
 
-   例如︰
-
-   ![在基本模式中編輯條件](./media/logic-apps-control-flow-conditional-statement/edit-condition-basic-mode.png)
+   3. 在右邊的方塊中，指定作為準則的值或欄位。 
+   在此範例中，指定此字串：**Microsoft**
 
    以下是完整的條件：
 
-   ![完整條件](./media/logic-apps-control-flow-conditional-statement/edit-condition-basic-mode-2.png)
+   ![完整條件](./media/logic-apps-control-flow-conditional-statement/edit-condition-2.png)
+
+5. 在 **If true** 和 **If false** 之下，以是否符合條件為基礎，新增要執行的步驟。 例如︰
+
+   ![具有 "If true" 和 "If false" 路徑的條件](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
 
    > [!TIP]
-   > 若要建立更進階的條件或使用運算式，請選擇 [在進階模式中編輯]。 您可以使用[工作流程定義語言](../logic-apps/logic-apps-workflow-definition-language.md)所定義的運算式。
-   > 
-   > 例如︰
-   >
-   > ![在程式碼中編輯條件](./media/logic-apps-control-flow-conditional-statement/edit-condition-advanced-mode.png)
-
-5. 在 **IF YES** 和 **IF NO** 之下，以是否符合條件為基礎，新增要執行的步驟。 例如︰
-
-   ![具 YES 和 NO 路徑的條件](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
-
-   > [!TIP]
-   > 您可以將現有動作拖曳到 **IF YES** 和 **IF NO** 路徑。
+   > 您可以將現有動作拖曳到 **If true** 和 **If false** 路徑。
 
 6. 儲存您的邏輯應用程式。
 
@@ -87,14 +82,21 @@ ms.locfileid: "35298163"
 
 ``` json
 "actions": {
-  "myConditionName": {
+  "Condition": {
     "type": "If",
-    "expression": "@contains(triggerBody()?['summary'], 'Microsoft')",
     "actions": {
       "Send_an_email": {
-        "inputs": { },
+        "inputs": {},
         "runAfter": {}
-      }
+    },
+    "expression": {
+      "and": [ 
+        { 
+          "contains": [ 
+            "@triggerBody()?['summary']", "Microsoft"
+          ]
+        } 
+      ]
     },
     "runAfter": {}
   }

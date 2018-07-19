@@ -1,20 +1,17 @@
 ---
 title: 業務持續性和災害復原 (BCDR)：Azure 配對的區域 | Microsoft Docs
 description: 了解 Azure 區域配對，以確保當資料中心發生故障時應用程式可復原。
-services: site-recovery
-documentationcenter: ''
 author: rayne-wiselman
-manager: carmonm
 ms.service: multiple
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: e2c288af881fa925c1680efdb0f86deec60b7510
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 13a2b78b50b1b10975a90c1da38810f1a62a6bb5
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302673"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436904"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>業務持續性和災害復原 (BCDR)：Azure 配對的區域
 
@@ -32,8 +29,8 @@ Azure 能在世界各地多個地理位置運作。 Azure 地理位置是包含�
 |:--- |:--- |:--- |
 | 亞洲 |東亞 |東南亞 |
 | 澳大利亞 |澳洲東部 |澳大利亞東南部 |
-| 澳大利亞 |澳大利亞中部 |澳大利亞中部 (2) |
-| 巴西 |巴西南部 (2) |美國中南部 |
+| 澳大利亞 |澳大利亞中部 |澳大利亞中部 2 |
+| 巴西 |巴西南部 2 |美國中南部 |
 | 加拿大 |加拿大中部 |加拿大東部 |
 | 中國 |中國北部 |中國東部|
 | 歐洲 |北歐 |西歐 |
@@ -41,7 +38,7 @@ Azure 能在世界各地多個地理位置運作。 Azure 地理位置是包含�
 | 印度 |印度中部 |印度南部 |
 | 印度 |印度西部 (1) |印度南部 |
 | 日本 |日本東部 |日本西部 |
-| 韓國 |韓國中部 |韓國南部 |
+| 南韓 |南韓中部 |南韓南部 |
 | 北美洲 |美國東部 |美國西部 |
 | 北美洲 |美國東部 2 |美國中部 |
 | 北美洲 |美國中北部 |美國中南部 |

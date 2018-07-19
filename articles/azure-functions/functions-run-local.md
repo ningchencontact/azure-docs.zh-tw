@@ -1,6 +1,6 @@
 ---
-title: 開發 Azure 函數並在本機執行 | Microsoft Docs
-description: 在於 Azure Functions 上執行 Azure 函式之前，先了解如何撰寫 Azure 函式並在本機電腦上進行測試。
+title: 使用 Azure Functions Core Tools | Microsoft Docs
+description: 在 Azure Functions 上執行 Azure 函式之前，先了解如何從命令提示字元或終端機在本機電腦上撰寫 Azure 函式並進行測試。
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -12,30 +12,34 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/03/2018
+ms.date: 06/26/2018
 ms.author: glenga
-ms.openlocfilehash: 5613b6b30d97b88bdfa6b00f90e334f1756ad614
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 5c582b080ec6f2cff801758fc4bff4f7d07fd7df
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294476"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083064"
 ---
-# <a name="code-and-test-azure-functions-locally"></a>撰寫 Azure Functions 並在本機進行測試
+# <a name="work-with-azure-functions-core-tools"></a>使用 Azure Functions Core Tools
 
-雖然 [Azure 入口網站] 有提供開發及測試 Azure Functions 的完整工具集，有許多開發人員仍偏好本機開發體驗。 Azure Functions 可讓您輕鬆使用最喜愛的程式碼編輯器及本機開發工具，在本機電腦上開發並測試您的函式。 您的函式可以透過 Azure 中的事件觸發，您也可以在本機電腦上對 C# 和 JavaScript 函式進行偵錯。 
+Azure Functions Core Tools 可讓您從命令提示字元或終端機，在本機電腦上開發及測試您的函式。 您的本機函式可以連線到即時 Azure 服務，而且您可以在本機電腦上使用完整的 Functions 執行階段進行您的函式偵錯。 您甚至可以將函式應用程式部署至您的 Azure 訂用帳戶。
 
-如果您是 Visual Studio C# 開發人員，Azure Functions 也能[與 Visual Studio 2017 整合](functions-develop-vs.md)。
+[!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
 
->[!IMPORTANT]  
-> 請勿在相同函式應用程式中混用本機開發與入口網站開發。 當您從本機專案建立及發佈函式時，不應嘗試在入口網站中維護或修改專案程式碼。
+## <a name="core-tools-versions"></a>Core Tools 版本
+
+Azure Functions Core Tools 有兩個版本。 您使用的版本取決於您的本機開發環境，選擇的語言，以及所需的支援層級：
+
++ [1.x 版](#v1)：支援 1.x 版的執行階段，這是正式上市 (GA) 版本。 這個版本的工具只有在 Windows 電腦上提供支援，並且從 [npm 套件](https://docs.npmjs.com/getting-started/what-is-npm)進行安裝。 使用此版本，您可以未正式支援的實驗性語言建立函式。 如需詳細資訊，請參閱 [Azure Functions 中支援的語言](supported-languages.md)。
+
++ [版本 2.x](#v2)：支援版本 2.x 的執行階段。 此版本支援 [Windows](#windows-npm)、[macOS](#brew) 和 [Linux](#linux)。 使用平台專屬的套件管理員或 npm 進行安裝。 如同 2.x 執行階段，這個版本的 Core Tools 目前為預覽狀態。
+
+除非另外註明，否則本文中的範例適用於 2.x 版。
 
 ## <a name="install-the-azure-functions-core-tools"></a>安裝 Azure Functions Core Tools
 
-[Azure Functions Core Tools] 是 Azure Functions 執行階段的本機版本，可讓您在本機開發電腦上執行。 它不是模擬器。 它與在 Azure 中提供 Functions 的執行階段是相同的執行階段。 Azure Functions Core Tools 有兩個版本：
-
-+ [版本 1.x](#v1)：支援版本 1.x 的執行階段。 此版本只有在 Windows 電腦上提供支援，並且從 [npm 套件](https://docs.npmjs.com/getting-started/what-is-npm)進行安裝。
-+ [版本 2.x](#v2)：支援版本 2.x 的執行階段。 此版本支援 [Windows](#windows-npm)、[macOS](#brew) 和 [Linux](#linux)。 使用平台專屬的套件管理員或 npm 進行安裝。 
+[Azure Functions Core Tools] 包含相同的執行階段版本，以支援您可在本機開發電腦上執行的 Azure Functions 執行階段。 它也提供命令來建立函式、連線到 Azure，以及部署函式專案。
 
 ### <a name="v1"></a>版本 1.x
 
@@ -115,23 +119,11 @@ npm install -g azure-functions-core-tools
     sudo apt-get install azure-functions-core-tools
     ```
 
-## <a name="run-azure-functions-core-tools"></a>執行 Azure Functions Core Tools
-
-Azure Functions Core Tools 新增下列命令別名：
-
-+ **func**
-+ **azfun**
-+ **azurefunctions**
-
-在範例中顯示 `func` 時，可以使用下列任何別名。
-
-```bash
-func init MyFunctionProj
-```
-
 ## <a name="create-a-local-functions-project"></a>建立本機的 Functions 專案
 
-在本機執行時，Functions 專案是具有 [host.json](functions-host-json.md) 和 [local.settings.json](#local-settings-file) 檔案的目錄。 此目錄相當於 Azure 中的函式應用程式。 若要深入了解 Azure Functions 的資料夾結構，請參閱 [Azure Functions 的開發人員指南](functions-reference.md#folder-structure)。
+函式專案目錄包含 [host.json](functions-host-json.md) 和 [local.settings.json](#local-settings-file) 檔案，以及包含個別函式程式碼的子資料夾。 此目錄相當於 Azure 中的函式應用程式。 若要深入了解 Functions 的資料夾結構，請參閱 [Azure Functions 的開發人員指南](functions-reference.md#folder-structure)。
+
+2.x 版要求您在初始化時為您的專案選取預設語言，而所有新增的函式會使用預設語言範本。 在 1.x 版中，您會在每次建立函式時指定語言。
 
 在終端機視窗或命令提示字元中，執行下列命令來建立專案和本機 Git 存放庫：
 
@@ -139,21 +131,30 @@ func init MyFunctionProj
 func init MyFunctionProj
 ```
 
-輸出看起來會像下列範例：
+在 2.x 版中，當您執行命令時，您必須為您的專案選擇執行階段。 如果您打算開發 JavaScript 函式，請選擇**節點**：
 
 ```output
+Select a worker runtime:
+dotnet
+node
+```
+
+使用向上/向下鍵來選擇語言，然後按 Enter。 JavaScript 專案的輸出看起來會像下列範例：
+
+```output
+Select a worker runtime: node
 Writing .gitignore
 Writing host.json
 Writing local.settings.json
-Created launch.json
-Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
+Writing C:\myfunctions\myMyFunctionProj\.vscode\extensions.json
+Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 ```
 
 若要建立不含本機 Git 存放庫的專案，請使用 `--no-source-control [-n]` 選項。
 
 ## <a name="register-extensions"></a>註冊延伸模組
 
-在 2.x 版的 Azure Functions 執行階段中，您必須明確註冊您在函數應用程式中使用的繫結延伸模組 (繫結類型)。
+在 2.x 版的 Azure Functions 執行階段中，您必須明確註冊您在函式應用程式中使用的繫結延伸模組 (繫結類型)。
 
 [!INCLUDE [Register extensions](../../includes/functions-core-tools-install-extension.md)]
 
@@ -165,15 +166,15 @@ local.settings.json 檔案會儲存應用程式設定、連接字串和 Azure Fu
 
 ```json
 {
-  "IsEncrypted": false,   
+  "IsEncrypted": false,
   "Values": {
-    "AzureWebJobsStorage": "<connection-string>", 
+    "AzureWebJobsStorage": "<connection-string>",
     "AzureWebJobsDashboard": "<connection-string>",
     "MyBindingConnection": "<binding-connection-string>"
   },
   "Host": {
-    "LocalHttpPort": 7071, 
-    "CORS": "*" 
+    "LocalHttpPort": 7071,
+    "CORS": "*"
   },
   "ConnectionStrings": {
     "SQLConnectionString": "Value"
@@ -184,7 +185,7 @@ local.settings.json 檔案會儲存應用程式設定、連接字串和 Azure Fu
 | 設定      | 說明                            |
 | ------------ | -------------------------------------- |
 | **IsEncrypted** | 設定為 **true** 時，所有的值都會使用本機電腦金鑰加密。 需搭配 `func settings` 命令使用。 預設值為 **false**。 |
-| **值** | 於本機執行時使用的應用程式設定集合與連接字串。 這些會對應至 Azure 中函數應用程式的應用程式設定，例如 **AzureWebJobsStorage** 和 **AzureWebJobsDashboard**。 許多觸發程序和繫結都有參考連結字串應用程式設定的屬性，例如 [Blob 儲存體觸發程序](functions-bindings-storage-blob.md#trigger---configuration)的**連線**屬性。 對於這類屬性，您需要在 [值] 陣列中定義應用程式設定。 <br/>**AzureWebJobsStorage** 是 HTTP 以外之觸發程序的必要應用程式設定。 當您在本機安裝了 [Azure 儲存體模擬器](../storage/common/storage-use-emulator.md)，便可以將 **AzureWebJobsStorage** 設定至 `UseDevelopmentStorage=true` 與使用模擬器的核心工具。 此功能在開發期間非常實用，但您應在部署前先透過實際的儲存體連接進行測試。 |
+| **值** | 於本機執行時使用的應用程式設定集合與連接字串。 這些值會對應至 Azure 中函數應用程式的應用程式設定，例如 **AzureWebJobsStorage** 和 **AzureWebJobsDashboard**。 許多觸發程序和繫結都有參考連結字串應用程式設定的屬性，例如 [Blob 儲存體觸發程序](functions-bindings-storage-blob.md#trigger---configuration)的**連線**屬性。 對於這類屬性，您需要在 [值] 陣列中定義應用程式設定。 <br/>**AzureWebJobsStorage** 是 HTTP 以外之觸發程序的必要應用程式設定。 當您在本機安裝了 [Azure 儲存體模擬器](../storage/common/storage-use-emulator.md)，便可以將 **AzureWebJobsStorage** 設定至 `UseDevelopmentStorage=true` 與使用模擬器的核心工具。 此功能在開發期間非常實用，但您應在部署前先透過實際的儲存體連接進行測試。 |
 | **Host** | 此區段中的設定能自訂於本機執行的 Functions 主機處理序。 |
 | **LocalHttpPort** | 設定於執行本機 Functions 主機 (`func host start` 和 `func run`) 時所使用的預設連接埠。 `--port` 命令列選項的優先順序高於此值。 |
 | **CORS** | 定義針對[跨來源資源共享 (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) 所允許的來源。 來源是以不含空格的逗號分隔清單提供。 支援萬用字元值 (\*)，它允許來自任何來源的要求。 |
@@ -229,39 +230,65 @@ local.settings.json 檔案中的值，只會由於本機執行的 Functions 工�
     func azure storage fetch-connection-string <StorageAccountName>
     ```
     
-    這兩個命令都需要先登入 Azure。
+    如果您尚未登入 Azure，系統會提示您這麼做。
 
-<a name="create-func"></a>
-## <a name="create-a-function"></a>建立函式
+## <a name="create-func"></a>建立函式
 
 若要建立函式，請執行下列命令：
 
 ```bash
 func new
-``` 
-`func new` 支援下列選擇性引數︰
-
-| 引數     | 說明                            |
-| ------------ | -------------------------------------- |
-| **`--language -l`** | 範本程式語言，例如 C#、F# 或 JavaScript。 |
-| **`--template -t`** | 範本名稱。 |
-| **`--name -n`** | 函式名稱。 |
-
-例如，若要建立 JavaScript HTTP 觸發程序，請執行：
-
-```bash
-func new --language JavaScript --template "Http Trigger" --name MyHttpTrigger
 ```
 
-若要建立佇列所觸發的函式，請執行：
+在 2.x 版中，當您執行 `func new` 時，系統會提示您選擇採用函式應用程式預設語言的範本，然後系統也會提示您為您的函式選擇名稱。 在 1.x 版中，系統也會提示您選擇語言。
+
+```output
+Select a language: Select a template:
+Blob trigger
+Cosmos DB trigger
+Event Grid trigger
+HTTP trigger
+Queue trigger
+SendGrid
+Service Bus Queue trigger
+Service Bus Topic trigger
+Timer trigger
+```
+
+如您在下列佇列觸發程序輸出中所見，函式程式碼會在子資料夾中產生並採用所提供的函式名稱：
+
+```output
+Select a language: Select a template: Queue trigger
+Function name: [QueueTriggerJS] MyQueueTrigger
+Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\index.js
+Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\readme.md
+Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\sample.dat
+Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
+```
+
+您也可以使用下列引數，在命令中指定這些選項：
+
+| 引數     | 說明                            |
+| ------------------------------------------ | -------------------------------------- |
+| **`--language -l`**| 範本程式語言，例如 C#、F# 或 JavaScript。 這是 1.x 版中的必要選項。 在 2.x 版中，請勿使用這個選項，或選擇您專案的預設語言。 |
+| **`--template -t`** | 範本名稱，它可以是下列其中一個值：<br/><ul><li>`Blob trigger`</li><li>`Cosmos DB trigger`</li><li>`Event Grid trigger`</li><li>`HTTP trigger`</li><li>`Queue trigger`</li><li>`SendGrid`</li><li>`Service Bus Queue trigger`</li><li>`Service Bus Topic trigger`</li><li>`Timer trigger`</li></ul> |
+| **`--name -n`** | 函式名稱。 |
+
+例如，若要在單一命令中建立 JavaScript HTTP 觸發程序，請執行：
 
 ```bash
-func new --language JavaScript --template "Queue Trigger" --name QueueTriggerJS
-```bash
-<a name="start"></a>
-## Run functions locally
+func new --template "Http Trigger" --name MyHttpTrigger
+```
 
-To run a Functions project, run the Functions host. The host enables triggers for all functions in the project:
+若要在單一命令中建立佇列所觸發的函式，請執行：
+
+```bash
+func new --template "Queue Trigger" --name QueueTriggerJS
+```
+
+## <a name="start"></a>在本機執行函式
+
+若要執行 Functions 專案，請執行 Functions 主機。 主機可允許專案中所有函式的觸發程序：
 
 ```bash
 func host start
@@ -272,13 +299,13 @@ func host start
 | 選項     | 說明                            |
 | ------------ | -------------------------------------- |
 |**`--port -p`** | 要接聽的本機連接埠。 預設值：7071。 |
-| **`--debug <type>`** | 選項為 `VSCode` 和 `VS`： |
+| **`--debug <type>`** | 啟動已開啟偵錯連接埠的主機，以便您從 [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) 或 [Visual Studio 2017](functions-dotnet-class-library.md) 連結至 **func.exe** 程序。 *\<type\>* 選項為 `VSCode` 和 `VS`。  |
 | **`--cors`** | 以逗號分隔的 CORS 來源清單，不含空格。 |
 | **`--nodeDebugPort -n`** | 要使用的節點偵錯工具連接埠。 預設值：Launch.json 中的值或 5858。 |
 | **`--debugLevel -d`** | 主控台追蹤層級 (off、verbose、info、warning 或 error)。 預設：info。|
 | **`--timeout -t`** | Functions 主機要啟動的逾時 (以秒為單位)。 預設值：20 秒。|
-| **`--useHttps`** | 繫結至 https://localhost:{port} 而不是 http://localhost:{port}。 根據預設，此選項會在您的電腦上建立受信任的憑證。|
-| **`--pause-on-error`** | 暫停以在結束處理程序之前取得其他輸入。 當您從整合式開發環境 (IDE) 啟動 Azure Functions Core Tools 時很有用。|
+| **`--useHttps`** | 繫結至 `https://localhost:{port}` 而不是 `http://localhost:{port}` 。 根據預設，此選項會在您的電腦上建立受信任的憑證。|
+| **`--pause-on-error`** | 暫停以在結束處理程序之前取得其他輸入。 使用於從 Visual Studio 或 VS Code 啟動 Core Tools 時。|
 
 Functions 主機啟動時，它會輸出 HTTP 觸發函式的 URL：
 
@@ -290,28 +317,9 @@ Job host started
 Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
 
-### <a name="vs-debug"></a>在 VS Code 或 Visual Studio 偵錯
-
-若要連結偵錯工具，請傳遞 `--debug` 引數。 若要偵錯 JavaScript 函式，請使用 Visual Studio Code。 對於 C# 函式，請使用 Visual Studio。
-
-若要偵錯 C# 函式，請使用 `--debug vs`。 您也可以使用 [Azure Functions Visual Studio 2017 Tools](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) \(英文\)。 
-
-若要啟動主機並設定 JavaScript 偵錯，請執行：
-
-```bash
-func host start --debug vscode
-```
-
-> [!IMPORTANT]
-> 偵錯僅支援 Node.js 8.x。 不支援 Node.js 9.x。 
-
-然後，在 Visual Studio Code 的 [偵錯] 檢視中，選取 [連結至 Azure Functions]。 您可以附加中斷點、檢查變數及逐步執行程式碼。
-
-![使用 Visual Studio Code 進行 JavaScript 偵錯](./media/functions-run-local/vscode-javascript-debugging.png)
-
 ### <a name="passing-test-data-to-a-function"></a>將測試資料傳遞至函式
 
-若要在本機測試您的函式，您要使用 HTTP 要求在本機伺服器上[啟動 Functions 主機](#start)並呼叫端點。 您呼叫的端點取決於函式的類型。 
+若要在本機測試您的函式，您要使用 HTTP 要求在本機伺服器上[啟動 Functions 主機](#start)並呼叫端點。 您呼叫的端點取決於函式的類型。
 
 >[!NOTE]  
 > 本主題中的範例使用 cURL 工具，從終端機或命令提示字元傳送 HTTP 要求。 您可以使用您選擇的工具，將 HTTP 要求傳送至本機伺服器。 以 Linux 為基礎的系統預設可以使用 cURL 工具。 在 Windows 上，您必須先下載並安裝 [cURL 工具 (英文)](https://curl.haxx.se/)。
@@ -340,6 +348,7 @@ curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azu
 您可以從瀏覽器在查詢字串中傳遞資料來進行 GET 要求。 對於所有其他 HTTP 方法，您必須使用 cURL、Fiddler、Postman 或類似的 HTTP 測試工具。  
 
 #### <a name="non-http-triggered-functions"></a>非 HTTP 觸發函式
+
 對於 HTTP 觸發程序和 Webhook 以外的所有函式類型，您可以呼叫管理端點在本機測試函式。 在本機伺服器上使用 HTTP POST 要求來呼叫此端點會觸發函式。 您可以在 POST 要求本文中選擇性地傳遞測試資料到執行程序。 這項功能類似於 Azure 入口網站中的 [測試] 索引標籤。  
 
 您可以呼叫下列系統管理員端點來觸發非 HTTP 函式：
@@ -352,8 +361,9 @@ curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azu
 {
     "input": "<trigger_input>"
 }
-```` 
-`<trigger_input>` 值包含函式預期格式的資料。 下列 cURL 範例是 POST 到 `QueueTriggerJS` 函式。 在此情況下，輸入是一個相當於在佇列中預期找到的訊息字串。      
+````
+
+`<trigger_input>` 值包含函式預期格式的資料。 下列 cURL 範例是 POST 到 `QueueTriggerJS` 函式。 在此情況下，輸入是一個相當於在佇列中預期找到的訊息字串。
 
 ```bash
 curl --request POST -H "Content-Type:application/json" --data '{"input":"sample queue data"}' http://localhost:7071/admin/functions/QueueTriggerJS
@@ -407,7 +417,8 @@ func azure functionapp publish <FunctionAppName>
 
 >[!IMPORTANT]  
 > 當您在 Azure 中建立函式應用程式時，預設會使用 1.x 版的 Function 執行階段。 若要讓函式應用程式使用 2.x 版的執行階段，請新增應用程式設定 `FUNCTIONS_EXTENSION_VERSION=beta`。  
-使用下列 Azure CLI 程式碼，將這個設定新增至函式應用程式： 
+使用下列 Azure CLI 程式碼，將這個設定新增至函式應用程式：
+
 ```azurecli-interactive
 az functionapp config appsettings set --name <function_app> \
 --resource-group myResourceGroup \
@@ -417,7 +428,7 @@ az functionapp config appsettings set --name <function_app> \
 ## <a name="next-steps"></a>後續步驟
 
 Azure Functions Core Tools 是[開放原始碼且裝載於 GitHub 上](https://github.com/azure/azure-functions-cli)。  
-若要提出錯誤或功能要求，[請開啟 GitHub 問題](https://github.com/azure/azure-functions-cli/issues)。 
+若要提出錯誤或功能要求，[請開啟 GitHub 問題](https://github.com/azure/azure-functions-cli/issues)。
 
 <!-- LINKS -->
 

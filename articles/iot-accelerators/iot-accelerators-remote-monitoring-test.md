@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: d8a528265acc3e0bee24da6c1b6130082815b9fd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 33566bd31f320ccc21f32a256d96d89ee25198bb
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628254"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37088422"
 ---
 # <a name="create-a-new-simulated-device"></a>建立新的模擬裝置
 
@@ -191,15 +191,15 @@ ms.locfileid: "34628254"
 
 當您修改裝置模擬服務 (device-simulation) 時，可以在本機執行它以測試您的變更。 本機執行裝置模擬服務之前，必須先停止虛擬機器上的執行中執行個體，做法如下：
 
-1. 若要找出 **device-simulation** 服務的**容器識別碼**，在連線至虛擬機器的 SSH 工作階段中執行下列命令：
+1. 若要找出 **device-simulation-dotnet** 服務的**容器識別碼**，在連線至虛擬機器的 SSH 工作階段中執行下列命令：
 
     ```sh
     docker ps
     ```
 
-    記下 **device-simulation** 服務的容器識別碼。
+    記下 **device-simulation-dotnet** 服務的容器識別碼。
 
-1. 若要停止 **device-simulation** 容器，請執行下列命令：
+1. 若要停止 **device-simulation-dotnet** 容器，請執行下列命令：
 
     ```sh
     docker stop container-id-from-previous-step
@@ -239,7 +239,7 @@ ms.locfileid: "34628254"
 
 1. 在 [方案總管] 中，以滑鼠右鍵按一下 [WebService] 專案，選擇 [偵錯]，然後選擇 [開始新執行個體]。
 
-1. 服務會開始在本機執行，並在預設瀏覽器中開啟 `http://localhost:9022/v1/status`。 確認 [狀態] 值是「正確: 運作良好」。
+1. 服務會開始在本機執行，並在預設瀏覽器中開啟 `http://localhost:9022/v1/status` 。 確認 [狀態] 值是「正確: 運作良好」。
 
 1. 繼續讓儲存體配接器服務在本機執行，直到完成本教學課程。
 
@@ -248,12 +248,6 @@ ms.locfileid: "34628254"
 ## <a name="create-a-simulated-device-type"></a>建立模擬裝置類型
 
 在裝置模擬服務中建立新裝置類型最簡單的方式，是複製現有的類型並加以修改。 下列步驟會示範如何複製內建 **Chiller** 裝置來建立新的 **Lightbulb** 裝置：
-
-1. 在 Visual Studio 中，開啟您的 **device-simulation** 存放庫本機副本中的 **device-simulation.sln** 解決方案檔案。
-
-1. 在 [方案總管] 中，以滑鼠右鍵按一下 [SimulationAgent] 專案，選擇 [屬性]，然後選擇 [偵錯]。
-
-1. 在 [環境變數] 區段中，編輯 **PCS\_IOTHUB\_CONNSTRING** 變數的值，改為您先前記下的 IoT 中樞連接字串。 然後儲存您的變更。
 
 1. 在 [方案總管] 中，以滑鼠右鍵按一下 [WebService] 專案，選擇 [屬性]，然後選擇 [偵錯]。
 
@@ -385,18 +379,21 @@ ms.locfileid: "34628254"
 1. 編輯 **main** 函式來實作行為，如下列程式碼片段所示：
 
     ```js
-    function main(context, previousState) {
+    function main(context, previousState, previousProperties) {
 
-      // Restore the global state before generating the new telemetry, so that
-      // the telemetry can apply changes using the previous function state.
-      restoreState(previousState);
+        // Restore the global device properties and the global state before
+        // generating the new telemetry, so that the telemetry can apply changes
+        // using the previous function state.
+        restoreSimulation(previousState, previousProperties);
 
-      state.temperature = vary(200, 5, 150, 250);
+        state.temperature = vary(200, 5, 150, 250);
 
-      // Make this flip every so often
-      state.status = flip(state.status);
+        // Make this flip every so often
+        state.status = flip(state.status);
 
-      return state;
+        updateState(state);
+
+        return state;
     }
     ```
 
@@ -545,11 +542,11 @@ ms.locfileid: "34628254"
 
     指令碼已在映像中新增 **testing** 標記。
 
-1. 使用 SSH 連線到 Azure 中您的解決方案虛擬機器。 然後瀏覽至 **App** 資料夾，編輯 **docker compose.yaml** 檔案：
+1. 使用 SSH 連線到 Azure 中您的解決方案虛擬機器。 然後瀏覽至 **App** 資料夾，編輯 **docker-compose.yml** 檔案：
 
     ```sh
     cd /app
-    sudo nano docker-compose.yaml
+    sudo nano docker-compose.yml
     ```
 
 1. 編輯裝置模擬服務的項目，設定為使用您的 docker 映像：
@@ -605,7 +602,7 @@ ms.locfileid: "34628254"
 
 下列步驟會示範如何找出定義內建 **Chiller** 裝置的檔案：
 
-1. 如果您尚未這樣做，使用下列命令，將 **device-simulation** GitHub 存放庫複製到本機電腦：
+1. 如果您尚未這樣做，使用下列命令，將 **device-simulation-dotnet** GitHub 存放庫複製到本機電腦：
 
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
@@ -673,9 +670,9 @@ ms.locfileid: "34628254"
 
 ### <a name="test-the-chiller-device-type"></a>測試 Chiller 裝置類型
 
-若要測試更新後的 **Chiller** 裝置類型，請先執行 **device-simulation** 服務的本機副本，測試您的裝置類型是否行為如預期。 當您已在本機上測試並偵錯您更新的裝置類型時，可以重建容器，並將 **device-simulation** 服務重新部署至 Azure。
+若要測試更新後的 **Chiller** 裝置類型，請先執行 **device-simulation-dotnet** 服務的本機副本，測試您的裝置類型是否行為如預期。 當您已在本機上測試並偵錯您更新的裝置類型時，可以重建容器，並將 **device-simulation-dotnet** 服務重新部署至 Azure。
 
-當您在本機執行 **device-simulation** 服務時，它會將遙測傳送至遠端監視解決方案。 在 [裝置] 頁面上，您可以佈建您更新類型的執行個體。
+當您在本機執行 **device-simulation-dotnet** 服務時，它會將遙測傳送至遠端監視解決方案。 在 [裝置] 頁面上，您可以佈建您更新類型的執行個體。
 
 若要本機測試及偵錯您的變更，請參閱之前的[本機測試燈泡裝置類型](#test-the-lightbulb-device-type-locally)小節。
 

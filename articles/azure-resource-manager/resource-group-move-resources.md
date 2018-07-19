@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/25/2018
+ms.date: 07/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7bee84e1ce473c27730b3fe84aa0a580baeba7c2
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 4f73b6d735997b663ca6769aaceaf363b6d3eda7
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939919"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346479"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
@@ -119,19 +119,26 @@ ms.locfileid: "36939919"
 * Application Insights
 * Analysis Services
 * 自動化
+* Azure Active Directory B2C
 * Azure Cosmos DB
+* Azure 地圖服務
 * Azure 轉送
+* Azure Stack - 註冊
+* Azure Migrate
 * Batch
-* Bing 地圖
+* BizTalk 服務
+* Bot 服務
 * CDN
 * 雲端服務 - 請參閱 [傳統部署限制](#classic-deployment-limitations)
 * 認知服務
+* Container Registry
 * 內容仲裁
 * 資料目錄
-* Data Factory - 可移動 V1，但不支援移動 V2 (預覽)
+* Data Factory
 * 資料湖分析
 * Data Lake Store
 * DNS
+* Event Grid
 * 事件中樞
 * HDInsight 叢集 - 請參閱 [HDInsight 限制](#hdinsight-limitations)
 * IoT 中樞
@@ -145,14 +152,15 @@ ms.locfileid: "36939919"
 * 通知中樞
 * Operational Insights
 * Operations Management
+* 入口網站儀表板
 * Power BI - Power BI Embedded 和 Power BI 工作區集合
 * 公用 IP - 請參閱[公用 IP 限制](#pip-limitations)
 * Redis 快取
 * 排程器
 * Search
-* 伺服器管理
 * 服務匯流排
 * Service Fabric
+* SignalR Service
 * 儲存體
 * 儲存體 (傳統) - 請參閱 [傳統部署限制](#classic-deployment-limitations)
 * 串流分析 - 無法移動執行中狀態的串流分析作業。
@@ -175,20 +183,24 @@ ms.locfileid: "36939919"
 * 應用程式閘道
 * 適用於 MySQL 的 Azure 資料庫
 * 適用於 PostgreSQL 的 Azure 資料庫
-* Azure Migrate
-* BizTalk 服務
+* Azure 資料庫移轉
+* Azure Databricks
+* Batch AI
 * 憑證 - App Service 憑證可以移動，但上傳的憑證則有其[限制](#app-service-limitations)。
 * 容器服務
-* DevTest Labs - 已啟用移動至相同訂用帳戶中新資源群組的功能，但未啟用跨訂用帳戶之間的移動。
 * Dynamics LCS
 * ExpressRoute
 * Kubernetes 服務
+* 實驗室服務 - 已啟用移動至相同訂用帳戶中新資源群組的功能，但未啟用跨訂用帳戶之間的移動。
 * Load Balancer - 請參閱 [Load Balancer 限制](#lb-limitations)
 * 受控應用程式
 * 受控磁碟 - 請參閱[虛擬機器限制](#virtual-machines-limitations)
+* Microsoft Genomics
 * 公用 IP - 請參閱[公用 IP 限制](#pip-limitations)
 * 復原服務保存庫 - 也不會移動與「復原服務」保存庫關聯的「計算」、「網路」及「儲存體」資源，請參閱 [復原服務限制](#recovery-services-limitations)。
+* SAP HANA on Azure
 * 安全性
+* Site Recovery
 * StorSimple 裝置管理員
 * 虛擬網路 (傳統) - 請參閱 [傳統部署限制](#classic-deployment-limitations)
 

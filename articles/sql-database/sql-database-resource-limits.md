@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/02/2018
 ms.author: carlrab
-ms.openlocfilehash: 6806b0c5b5e5ac5e1189f628786f0c8f9b223395
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 403490f47ac171d4a302d2b68af65375bbdc26cd
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750946"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345706"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Azure SQL Database 資源限制概觀 
 
@@ -27,10 +27,11 @@ ms.locfileid: "36750946"
 | 每一伺服器的資料庫 | 5000 |
 | 任何區域中每個訂用帳戶的伺服器預設數目 | 20 |
 | 任何區域中每個訂用帳戶的伺服器最大數目 | 200 |
+| 每一伺服器的 DTU/eDTU 配額 | 54,000 |
 |||
 
 > [!NOTE]
-> 若要獲得大於預設數量的伺服器配額，可以在 Azure 入口網站中，針對訂用帳戶使用問題類型「配額」來提交新的支援要求。
+> 若要獲得大於預設數量的 DTU/eDTU 配額或伺服器，可以在 Azure 入口網站中，針對訂用帳戶使用問題類型「配額」來提交新的支援要求。 每一伺服器的 DTU/eDTU 配額和資料庫限制會限制每一部伺服器的彈性集區數目。 
 
 > [!IMPORTANT]
 > 每當資料庫數量接近每台伺服器的限制時，可能會出現下列情況：

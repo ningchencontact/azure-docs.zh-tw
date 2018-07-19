@@ -1,6 +1,6 @@
 ---
 title: Azure Log Analytics 中的網路效能監視器方案 | Microsoft Docs
-description: 使用網路效能監控中的服務端點管理員功能，對任何具有已開啟 TCP 通訊埠的端點進行網路連線監視。
+description: 使用網路效能監控中的服務連線能力監視功能，對任何具有已開啟 TCP 連接埠的端點進行網路連線監視。
 services: log-analytics
 documentationcenter: ''
 author: abshamsft
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: f6196c1403ded7bb8a72ee5483c2c2056b0e8020
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.component: na
+ms.openlocfilehash: 3c9352e8e4aee7817b1195c15f74503e86e597ea
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030704"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434914"
 ---
 # <a name="service-connectivity-monitor"></a>服務連線能力監視
 
@@ -78,7 +79,7 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 10. 選擇監視條件。 您可以輸入閾值，以設定健康情況事件產生的自訂閾值。 只要條件的值高於針對所選網路或子網路配對選取的閾值時，就會產生健康情況事件。 
 11. 選取 [儲存] 以儲存組態。 
 
-    ![服務端點監視測試組態](media/log-analytics-network-performance-monitor/service-endpoint-configuration.png)
+    ![服務連線能力監視測試組態](media/log-analytics-network-performance-monitor/service-endpoint-configuration.png)
 
 
 
@@ -86,11 +87,11 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 
 移至 [網路效能監控] 儀表板檢視。 若要對您所建立的不同測試取得健康情況摘要，請查看 [服務連線能力監視] 頁面。 
 
-![服務端點監視頁面](media/log-analytics-network-performance-monitor/service-endpoint-blade.png)
+![服務連線能力監視頁面](media/log-analytics-network-performance-monitor/service-endpoint-blade.png)
 
 選取圖格以檢視 [測試] 頁面上的測試詳細資料。 在左側資料表中，您可以檢視所有測試的時間點健康情況和服務回應時間的值、網路延遲及封包遺失。 使用 [網路狀態錄製器] 控制項，檢視過去另一個時間的網路快照集。 在資料表中選取您要調查的測試。 您可以在右側窗格的圖表中，檢視遺失、延遲和回應時間值的歷史趨勢。 選取 [測試詳細資料] 連結，即可檢視每個節點的效能。
 
-![服務端點監視測試](media/log-analytics-network-performance-monitor/service-endpoint-tests.png)
+![服務連線能力監視測試](media/log-analytics-network-performance-monitor/service-endpoint-tests.png)
 
 在 [測試節點] 檢視中，您可以觀察來自每個節點的網路連線。 選取效能降低的節點。 這是能觀察到應用程式執行速度緩慢的節點。
 
@@ -98,15 +99,15 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 
 * **應用程式問題：** 如果回應時間突然增加，但網路延遲是一致的，則表示網路運作正常，而問題可能是應用程式端的問題所致。 
 
-    ![服務端點監視應用程式問題](media/log-analytics-network-performance-monitor/service-endpoint-application-issue.png)
+    ![服務連線能力監視應用程式問題](media/log-analytics-network-performance-monitor/service-endpoint-application-issue.png)
 
 * **網路問題：** 如果回應時間尖峰與對應的網路延遲尖峰同時出現，則表示回應時間增加可能是網路延遲的增加所致。 
 
-    ![服務端點監視網路問題](media/log-analytics-network-performance-monitor/service-endpoint-network-issue.png)
+    ![服務連線能力監視網路問題](media/log-analytics-network-performance-monitor/service-endpoint-network-issue.png)
 
 在您判定問題是因為網路之後，選取 [拓撲] 檢視連結，以識別拓撲地圖上的問題躍點。 範例如下圖所示。 節點與應用程式端點之間的 105 毫秒延遲總計之中，有 96 毫秒是因為躍點標示為紅色。 識別出問題躍點之後，您可以採取矯正措施。 
 
-![服務端點監視測試](media/log-analytics-network-performance-monitor/service-endpoint-topology.png)
+![服務連線能力監視測試](media/log-analytics-network-performance-monitor/service-endpoint-topology.png)
 
 ## <a name="diagnostics"></a>診斷 
 

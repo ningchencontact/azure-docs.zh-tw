@@ -6,14 +6,14 @@ author: lakasa
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 06/12/2018
 ms.author: lakasa
-ms.openlocfilehash: 5e4df176104111f44ca95df2b2d5d1c81ed3a4e3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d469dfb5092f1269a6600ee8ee2f81778fd83b96
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525075"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448870"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>待用資料的 Azure 儲存體服務加密
 
@@ -41,7 +41,7 @@ ms.locfileid: "31525075"
 
 **問：我有傳統儲存體帳戶。是否可以在該帳戶上啟用「儲存體服務加密」？**
 
-答：預設會針對所有儲存體帳戶 (傳統和 Resource Manager) 啟用「儲存體服務加密」。
+答：所有儲存體帳戶 (傳統和 Resource Manager) 都會啟用「儲存體服務加密」。
 
 **問：我要如何在我的傳統儲存體帳戶中加密資料？**
 
@@ -53,7 +53,7 @@ ms.locfileid: "31525075"
 
 **問：如何加密 Resource Manager 儲存體帳戶中的資料？**
 
-答：所有儲存體帳戶 (傳統和 Resource Manager) 的「儲存體服務加密」預設會啟用，背景加密程序將採用回溯方式，為啟用加密之前在儲存體帳戶中建立的所有現有檔案加密。
+答：所有儲存體帳戶 (傳統和 Resource Manager) 都會啟用「儲存體服務加密」，背景加密程序將採用回溯方式，為啟用加密之前在儲存體帳戶中建立的所有現有檔案加密。
 
 **問︰是否可以使用 Azure PowerShell 和 Azure CLI 來建立儲存體帳戶並啟用「儲存體服務加密」？**
 
@@ -73,7 +73,7 @@ ms.locfileid: "31525075"
 
 **問：建立儲存體帳戶時，是否會預設啟用「儲存體服務加密」？**
 
-答：是，預設會針對所有儲存體帳戶和所有 Azure 儲存體服務啟用「儲存體服務加密」。
+答：是，所有儲存體帳戶和所有 Azure 儲存體服務都會啟用「儲存體服務加密」。
 
 **問︰這項功能與 Azure 磁碟加密有什麼不同？**
 
@@ -93,7 +93,11 @@ ms.locfileid: "31525075"
 
 **問：是否只有在特定區域才允許使用「儲存體服務加密」？**
 
-答︰「儲存體服務加密」可供所有區域的所有服務使用。 
+答︰「儲存體服務加密」可供所有區域的所有服務使用。
+
+**問：儲存體服務加密是否符合 FIPS 140-2 規範？**
+
+答：是，儲存體服務加密符合 FIPS 140-2 規範。
 
 **問︰如果我有任何問題或想要提供意見反應，要如何連絡相關人員？**
 

@@ -2,19 +2,19 @@
 title: 適用於 PostgreSQL 的 Azure 資料庫中的限制
 description: 本文描述適用於 PostgreSQL 的 Azure 資料庫中的限制，例如連線數量和儲存引擎選項。
 services: postgresql
-author: kamathsun
-ms.author: sukamat
+author: rachel-msft
+ms.author: raagyema
 manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/04/2018
-ms.openlocfilehash: 5cd829236d8d8a58e68f7bf766790aa3f0cb656e
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.date: 06/30/2018
+ms.openlocfilehash: dc1f8581df5dc7c5728094577298ba078cc2c527
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757411"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37343165"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>適用於 PostgreSQL 的 Azure 資料庫中的限制
 下列各節說明資料庫服務中的容量和功能限制。
@@ -43,8 +43,8 @@ Azure 系統需要五個連線，以用於監控適用於 PostgreSQL 伺服器�
 
 ## <a name="functional-limitations"></a>功能限制：
 ### <a name="scale-operations"></a>調整作業
-1.  目前不支援跨定價層動態調整伺服器。 亦即在「基本」、「一般用途」或「記憶體最佳化」層之間切換。
-2.  目前不支援減少伺服器儲存體大小。
+- 目前不支援基本定價層的雙向動態調整。
+- 目前不支援減少伺服器儲存體大小。
 
 ### <a name="server-version-upgrades"></a>伺服器版本升級
 - 目前不支援在主要資料庫引擎版本之間進行自動轉換。
@@ -52,9 +52,12 @@ Azure 系統需要五個連線，以用於監控適用於 PostgreSQL 伺服器�
 ### <a name="subscription-management"></a>訂用帳戶管理
 - 目前不支援跨訂用帳戶和資源群組動態移動伺服器。
 
+### <a name="vnet-service-endpoints"></a>VNet 服務端點
+- VNet 服務端點的支援僅適用於一般用途伺服器和記憶體最佳化伺服器。
+
 ### <a name="point-in-time-restore-pitr"></a>還原時間點 (PITR)
-1.  使用 PITR 功能時，所建立新伺服器的設定會與作為新伺服器基礎的伺服器設定相同。
-2.  不支援還原已刪除的伺服器。
+- 使用 PITR 功能時，所建立新伺服器的設定會與作為新伺服器基礎的伺服器設定相同。
+- 不支援還原已刪除的伺服器。
 
 ## <a name="next-steps"></a>後續步驟
 - 了解[每個定價層中可用的項目](concepts-pricing-tiers.md)

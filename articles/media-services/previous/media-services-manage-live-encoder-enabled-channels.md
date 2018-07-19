@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 07/02/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 5aa6f629b04a4c187a43b13c929a122a6304c575
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f4b57241085381f4b975c07038b41133b8a4319b
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639430"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436186"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>使用 Azure 媒體服務執行即時串流，以建立多位元速率串流
 
@@ -52,7 +52,7 @@ ms.locfileid: "34639430"
 ## <a name="billing-implications"></a>計費影響
 即時編碼通道只要其狀態透過 API 轉換為「執行中」，即會開始計費。   您也可以在 Azure 入口網站或 Azure 媒體服務總管工具 (http://aka.ms/amse)) 中檢視狀態。
 
-下表顯示通道狀態如何對應至 API 和 Azure 入口網站的計費狀態。 請注意，API 和入口網站 UX 之間的狀態稍有不同。 一旦通道透過 API 處於「執行中」狀態，或在 Azure 入口網站中處於「就緒」或「串流」狀態，就會開始計費。
+下表顯示通道狀態如何對應至 API 和 Azure 入口網站的計費狀態。 API 和入口網站 UX 之間的狀態稍有不同。 一旦通道透過 API 處於「執行中」狀態，或在 Azure 入口網站中處於「就緒」或「串流」狀態，就會開始計費。
 若要停止通道進一步向您計費，您必須停止透過 API 或在 Azure 入口網站中的通道。
 您必須負責在完成即時編碼通道時停止您的通道。  無法停止編碼通道將會導致持續計費。
 
@@ -88,7 +88,7 @@ ms.locfileid: "34639430"
 下列是建立常見即時串流應用程式所含的一般步驟。
 
 > [!NOTE]
-> 目前，即時事件的最大建議持續時間是 8 小時。 如果您需要執行通道更久的時間，請連絡 amslived@microsoft.com。請注意即時編碼有計費影響，而且您應該記住將即時編碼通道保持在「執行中」狀態會產生每小時的計費。  建議您在即時串流事件完成之後立即停止執行的通道，以避免額外的每小時費用。 
+> 目前，即時事件的最大建議持續時間是 8 小時。 如果您需要較長的時間來執行通道，請連絡 amslived@microsoft.com。 即時編碼的計費會受到影響，且您應記住將即時編碼通道保持在「執行中」狀態，會產生依小時計算的費用。  建議您在即時串流事件完成之後立即停止執行的通道，以避免額外的每小時費用。 
 > 
 > 
 
@@ -169,7 +169,7 @@ ms.locfileid: "34639430"
 您可以透過 SSL 連線選擇內嵌的分散 MP4 (Smooth Streaming) 即時串流。 若要透過 SSL 擷取，請務必將擷取 URL 更新為 HTTPS。 請注意，目前 AMS 不支援使用 SSL 搭配自訂網域。  
 
 ### <a name="allowed-ip-addresses"></a>允許的 IP 位址
-您可以定義允許將視訊發行到這個通道的 IP 位址。 允許的 IP 位址可以指定為單一 IP 位址 (例如'10.0.0.1')、使用 IP 位址和 CIDR 子網路遮罩的 IP 範圍 (例如'10.0.0.1/22’)，或使用 IP 位址和以點分隔十進位子網路遮罩的 IP 範圍 (例如'10.0.0.1(255.255.252.0)')。
+您可以定義允許將視訊發行到這個通道的 IP 位址。 允許的 IP 位址可以指定為單一 IP 位址 (例如 ‘10.0.0.1’)、使用 IP 位址和 CIDR 子網路遮罩的 IP 範圍 (例如 ‘10.0.0.1/22’)，或是使用 IP 位址和小數點十進位子網路遮罩的 IP 範圍 (例如 '10.0.0.1(255.255.252.0)')。
 
 如果未指定 IP 位址，而且沒有任何規則定義，則不允許任何 IP 位址。 若要允許任何 IP 位址，請建立規則，並設定 0.0.0.0/0。
 
@@ -182,12 +182,12 @@ ms.locfileid: "34639430"
 通道開始內嵌資料後，您就可以預覽您的資料流。
 
 > [!NOTE]
-> 無論指定的輸入類型為何，目前預覽串流都只能以分散式 MP4 (Smooth Streaming) 格式傳遞。 您可以使用 [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) 播放器來測試您的 Smooth Stream。 您也可以使用裝載於 Azure 入口網站中的播放器來檢視您的串流。
+> 無論指定的輸入類型為何，目前預覽串流都只能以分散式 MP4 (Smooth Streaming) 格式傳遞。  您可以使用裝載於 Azure 入口網站中的播放器來檢視您的串流。
 > 
 > 
 
 ### <a name="allowed-ip-addresses"></a>允許的 IP 位址
-您可以定義允許連接到預覽端點的 IP 位址。 如果沒有指定 IP 位址，將會允許任何 IP 位址。 允許的 IP 位址可以指定為單一 IP 位址 (例如'10.0.0.1')、使用 IP 位址和 CIDR 子網路遮罩的 IP 範圍 (例如'10.0.0.1/22’)，或使用 IP 位址和以點分隔十進位子網路遮罩的 IP 範圍 (例如‘10.0.0.1(255.255.252.0)’)。
+您可以定義允許連接到預覽端點的 IP 位址。 如果沒有指定 IP 位址，將會允許任何 IP 位址。 允許的 IP 位址可以指定為單一 IP 位址 (例如 ‘10.0.0.1’)、使用 IP 位址和 CIDR 子網路遮罩的 IP 範圍 (例如 ‘10.0.0.1/22’)，或是使用 IP 位址和小數點十進位子網路遮罩的 IP 範圍 (例如 '10.0.0.1(255.255.252.0)')。
 
 ## <a name="live-encoding-settings"></a>即時編碼設定
 本節說明通道的**編碼類型**設為**標準**時，如何調整通道中即時編碼器的設定。
