@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 1cd97a9f5cf06be73c866e40744401a7bc4ce157
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4cf5bcc3fe803212b01f14c950b97b3bb16b13a5
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215761"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041245"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-timelive"></a>教學課程：Azure Active Directory 與 TimeLive 整合
 
@@ -34,7 +34,7 @@ TimeLive 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 TimeLive 整合，您需要下列項目：
 
@@ -110,9 +110,9 @@ TimeLive 與 Azure AD 整合提供下列優點：
 
     ![TimeLive 網域與 URL 單一登入資訊](./media/timelive-tutorial/tutorial_timelive_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://domainname.livetecs.com/`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://domainname.livetecs.com/`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://domainname.livetecs.com/`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://domainname.livetecs.com/`
 
     > [!NOTE] 
     > 這些都不是真正的值。 請使用實際的識別碼和登入 URL 將這些值更新。 請連絡 [TimeLive 用戶端支援小組](mailto:support@livetecs.com)以取得這些值。 
@@ -227,7 +227,7 @@ TimeLive 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 TimeLive 圖格時，應該會自動登入您的 TimeLive 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

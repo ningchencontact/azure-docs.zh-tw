@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 7ea727d5fb004ca224407a8b1c93a6f11448b5e7
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 5df8b3d91f52e4809ef43e3e376004e4274b4400
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231350"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112015"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft-v52"></a>教學課程：Azure Active Directory 與 JIRA SAML SSO by Microsoft (V5.2) 整合
 
@@ -62,7 +62,7 @@ JIRA SAML SSO by Microsoft (V5.2) 與 Azure AD 整合提供下列優點：
 **支援的版本：**
 
 *   JIRA 核心和軟體：5.2
-*   JIRA 也支援 6.0 和 7.8。 如需更多詳細資訊，請按一下 [JIRA SAML SSO by Microsoft](jiramicrosoft-tutorial.md)
+*   JIRA 也支援 6.0 和 7.8。 如需詳細資料，請按一下 [JIRA SAML SSO by Microsoft](jiramicrosoft-tutorial.md)
 
 ## <a name="scenario-description"></a>案例描述
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。
@@ -72,7 +72,7 @@ JIRA SAML SSO by Microsoft (V5.2) 與 Azure AD 整合提供下列優點：
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-jira-saml-sso-by-microsoft-v52-from-the-gallery"></a>從資源庫新增 JIRA SAML SSO by Microsoft (V5.2)
-若要設定將 JIRA SAML SSO by Microsoft (V5.2) 整合到 Azure AD 中，您需要從資源庫將 JIRA SAML SSO by Microsoft (V5.2) 新增到受控的 SaaS 應用程式清單。
+若要設定以將 JIRA SAML SSO by Microsoft (V5.2) 整合到 Azure AD 中，您需要從資源庫將 JIRA SAML SSO by Microsoft (V5.2) 新增到受控的 SaaS 應用程式清單。
 
 **若要從資源庫新增 JIRA SAML SSO by Microsoft (V5.2)，請執行下列步驟：**
 
@@ -96,7 +96,7 @@ JIRA SAML SSO by Microsoft (V5.2) 與 Azure AD 整合提供下列優點：
 
 在本節中，您會以名為 "Britta Simon" 的測試使用者身分，使用 JIRA SAML SSO by Microsoft (V5.2) 來設定和測試 Azure AD 單一登入。
 
-若要讓單一登入運作，Azure AD 必須知道 JIRA SAML SSO by Microsoft (V5.2) 與 Azure AD 中互相對應的使用者。 換句話說，必須建立 Azure AD 使用者和 JIRA SAML SSO by Microsoft (V5.2) 中相關使用者之間的連結關聯性。
+若要讓單一登入運作，Azure AD 必須知道 JIRA SAML SSO by Microsoft (V5.2) 中的使用者是對應至 Azure AD 中的哪個使用者。 換句話說，您必須建立 Azure AD 使用者和 JIRA SAML SSO by Microsoft (V5.2) 中相關使用者的連結關聯性。
 
 若要使用 JIRA SAML SSO by Microsoft (V5.2) 設定和測試 Azure AD 單一登入，您需要完成下列基本工作：
 
@@ -110,9 +110,9 @@ JIRA SAML SSO by Microsoft (V5.2) 與 Azure AD 整合提供下列優點：
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入，並在 JIRA SAML SSO by Microsoft (V5.2) 應用程式中設定單一登入。
 
-**若要使用 JIRA SAML SSO by Microsoft (V5.2) 設定 Azure AD 單一登入，請執行下列步驟：**
+**若要搭配 JIRA SAML SSO by Microsoft (V5.2) 設定 Azure AD 單一登入，請執行下列步驟：**
 
-1. 在 Azure 入口網站的 [JIRA SAML SSO by Microsoft (V5.2)] 應用程式整合頁面上，按一下 [單一登入]。
+1. 在 Azure 入口網站中的 [JIRA SAML SSO by Microsoft (V5.2)] 應用程式整合頁面上，按一下 [單一登入]。
 
     ![設定單一登入連結][4]
 
@@ -168,7 +168,7 @@ JIRA SAML SSO by Microsoft (V5.2) 與 Azure AD 整合提供下列優點：
 
     a. 在 [中繼資料 URL] 文字方塊中，貼上您從 Azure 入口網站複製的**應用程式同盟中繼資料 Url**值，然後按一下 [解析] 按鈕。 這樣會讀取 IdP 中繼資料 URL 並填入所有欄位資訊。
 
-    b. 複製**識別碼、回覆 URL 和登入 URL** 的值，然後在 Azure 入口網站的 [JIRA SAML SSO by Microsoft (V5.2) 網域及 URL] 區段上，分別將它們貼到 [識別碼]、[回覆 URL] 和 [登入 URL] 文字方塊中。
+    b. 複製 [識別碼]、[回覆 URL] 和 [登入 URL] 的值，然後在 Azure 入口網站上的 [JIRA SAML SSO by Microsoft (V5.2) 網域及 URL] 區段中，分別將它們貼到 [識別碼]、[回覆 URL] 和 [登入 URL] 文字方塊中。
 
     c. 在 [登入按鈕名稱] 中，輸入您的組織要讓使用者在登入畫面上看到的按鈕名稱。
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 132803377554ecb4494d8b4ca6db7aa2f5f3aff1
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 2da2a2cae3993f7c29726b842db6767d4300cacc
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225223"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39045252"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>教學課程：Azure Active Directory 與 TOPdesk - Secure 整合
 
@@ -34,7 +34,7 @@ ms.locfileid: "36225223"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 TOPdesk - Secure 整合，您需要下列項目：
 
@@ -110,11 +110,11 @@ ms.locfileid: "36225223"
 
     ![TOPdesk - Secure 網域及 URL 單一登入資訊](./media/topdesk-secure-tutorial/tutorial_topdesk-secure_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<companyname>.topdesk.net`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<companyname>.topdesk.net`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<companyname>.topdesk.net/tas/secure/login/verify`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<companyname>.topdesk.net/tas/secure/login/verify`
 
-    c. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://<companyname>.topdesk.net/tas/public/login/saml`
+    c. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<companyname>.topdesk.net/tas/public/login/saml`
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 「回覆 URL」在本教學課程中稍後會提供說明。 請連絡 [TOPdesk - Secure 用戶端支援小組](http://www.topdesk.com/us/support) \(英文\) 以取得這些值。 
@@ -288,7 +288,7 @@ TOPdesk - Secure 需以手動的方式佈建。
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 [TOPdesk - Secure] 圖格時，應該會自動登入您的 TOPdesk - Secure 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

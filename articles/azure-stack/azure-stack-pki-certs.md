@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/07/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 9a43179998e8377dfbbb1a41ba7d46936d63aedd
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 13bc82caf5e10f5b35df29d085349ec4c80628a2
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030150"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929265"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack 公開金鑰基礎結構憑證需求
 
@@ -39,7 +39,7 @@ Azure Stack 有一個公共基礎結構網路，其使用已指派給一小組 A
 - 您的 Azure Stack 基礎結構必須能透過網路來存取憑證中所發佈憑證授權單位的憑證撤銷清單 (CRL) 位置。 這個 CRL 必須是 http 端點
 - 旋轉憑證時，憑證必須是與從用來簽署憑證 (在部署時提供) 相同的內部憑證授權單位，或上述任何公用憑證授權單位發行
 - 不支援使用自我簽署憑證
-- 憑證可以是單一萬用字元憑證，其中涵蓋主體別名 (SAN) 欄位中的所有命名空間。 或者，您可以針對需要憑證的端點 (例如 **acs**、Key Vault)，使用採用萬用字元的個別憑證。 
+- 針對部署和旋轉，您可以使用單一憑證以涵蓋憑證之主體名稱和主體別名 (SAN) 欄位中的所有命名空間，也可以針對下面您規劃利用之 Azure Stack 服務所需的每個命名空間來使用個別憑證。 注意：這兩種方法都需要將萬用字元用於需要它們的端點 (例如 **KeyVault** 和 **KeyVaultInternal**)。 
 - 憑證簽章演算法不能是 SHA1，因為它必須更強大。 
 - 憑證格式必須是 PFX，因為安裝 Azure Stack 時需要公用與私密金鑰。 
 - 憑證 pfx 檔案的 [金鑰使用方法] 欄位中必須有 [數位簽章] 和 [KeyEncipherment] 值。

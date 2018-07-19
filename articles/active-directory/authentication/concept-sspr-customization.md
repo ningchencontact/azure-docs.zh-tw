@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: afcd39e6512ac7bcb46f56df157822efa463113e
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 23a2897142f5cba90513e8b79e4cd461f1dd25b7
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448872"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054585"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>自訂 Azure AD 的自助式密碼重設功能
 
@@ -81,8 +81,8 @@ ms.locfileid: "37448872"
 ## <a name="next-steps"></a>後續步驟
 
 * [如何完成 SSPR 成功首度發行？](howto-sspr-deployment.md)
-* [重設或變更您的密碼](../active-directory-passwords-update-your-own-password.md)
-* [註冊自助式密碼重設](../active-directory-passwords-reset-register.md)
+* [重設或變更您的密碼](../user-help/active-directory-passwords-update-your-own-password.md)
+* [註冊自助式密碼重設](../user-help/active-directory-passwords-reset-register.md)
 * [您有授權問題嗎？](concept-sspr-licensing.md)
 * [SSPR 使用哪些資料，以及您應該為使用者填入哪些資料？](howto-sspr-authenticationdata.md)
 * [哪些驗證方法可供使用者使用？](concept-sspr-howitworks.md#authentication-methods)

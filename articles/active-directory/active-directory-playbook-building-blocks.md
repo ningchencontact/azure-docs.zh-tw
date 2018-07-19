@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 45dedd8c4d6ae2f9b54873d87f82c2e605a8c2aa
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fa399e3644e1050a4f264890583a388f7abd84ed
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38451694"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049464"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 概念證明腳本：構成要素
 
@@ -157,7 +157,7 @@ ms.locfileid: "38451694"
 | 依照指示操作來設定 ServiceNow |  |
 | 在 ServiceNow 應用程式的 [佈建] 刀鋒視窗中，啟用 [自動] 佈建 | [在新的 Azure 入口網站中管理企業應用程式的使用者帳戶佈建](manage-apps/configure-automatic-user-provisioning-portal.md) |
 | 等候幾分鐘讓佈建完成。  此時，您可以查看佈建報告 |  |
-| 以擁有存取權限的測試使用者身分登入 https://myapps.microsoft.com/ | [何謂存取面板？](active-directory-saas-access-panel-introduction.md) |
+| 以擁有存取權限的測試使用者身分登入 https://myapps.microsoft.com/ | [何謂存取面板？](user-help/active-directory-saas-access-panel-introduction.md) |
 | 按一下剛建立之應用程式的圖格。 確認存取 |  |
 | 您可以視需要查看應用程式使用情況報告。 請注意，會有一些延遲，因此您需要等候一些時間，才能在報告中看到流量。 | [Azure Active Directory 入口網站中的登入活動報告：受控應用程式的使用情況](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory 報告保留原則](active-directory-reporting-retention.md) |
 
@@ -188,8 +188,8 @@ ms.locfileid: "38451694"
 | 設定密碼 SSO | [在新的 Azure 入口網站中管理企業應用程式的單一登入：密碼型登入](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
 | 將應用程式指派給「必要條件」中所識別的群組 | [在 Azure Active Directory 中將使用者或群組指派給企業應用程式](manage-apps/assign-user-or-group-access-portal.md) |
 | 以擁有存取權限的測試使用者身分登入 https://myapps.microsoft.com/ |  |
-| 按一下剛建立之應用程式的圖格。 | [何謂存取面板？：不含身分識別佈建的密碼型 SSO](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
-| 提供應用程式認證 | [何謂存取面板？：不含身分識別佈建的密碼型 SSO](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
+| 按一下剛建立之應用程式的圖格。 | [何謂存取面板？：不含身分識別佈建的密碼型 SSO](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
+| 提供應用程式認證 | [何謂存取面板？：不含身分識別佈建的密碼型 SSO](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | 關閉瀏覽器並重新執行登錄。 這次使用者應該會看到順暢的應用程式存取。 |  |
 | 您可以視需要查看應用程式使用情況報告。 請注意，會有一些延遲，因此您需要等候一些時間，才能在報告中看到流量。 | [Azure Active Directory 入口網站中的登入活動報告：受控應用程式的使用情況](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory 報告保留原則](active-directory-reporting-retention.md) |
 
@@ -308,7 +308,7 @@ ms.locfileid: "38451694"
 | 已設定 SaaS 應用程式 (同盟 SSO 或密碼 SSO) | 構成要素：[SaaS 同盟 SSO 組態](#saas-federated-sso-configuration) |
 | 已識別在 #1 中獲指派應用程式存取權的「雲端群組」 | 構成要素：[SaaS 同盟 SSO 組態](#saas-federated-sso-configuration) <br/>[在 Azure Active Directory 中建立群組和新增使用者](fundamentals/active-directory-groups-create-azure-portal.md) |
 | 有群組擁有者的認證可用 | [使用 Azure Active Directory 群組來管理資源的存取權](fundamentals/active-directory-manage-groups.md) |
-| 已識別存取應用程式之資訊工作者的認證 | [何謂存取面板？](active-directory-saas-access-panel-introduction.md) |
+| 已識別存取應用程式之資訊工作者的認證 | [何謂存取面板？](user-help/active-directory-saas-access-panel-introduction.md) |
 
 
 ### <a name="steps"></a>步驟
@@ -318,7 +318,7 @@ ms.locfileid: "38451694"
 | 識別已獲授與應用程式存取權的群組，並設定所指定群組的擁有者| [在 Azure Active Directory 中管理群組的設定](fundamentals/active-directory-groups-settings-azure-portal.md) |
 | 以群組擁有者身分登入，在存取面板的 [群組] 索引標籤中查看群組成員資格 | [Azure Active Directory 群組管理頁面](https://account.activedirectory.windowsazure.com/r#/groups) |
 | 新增您想要測試的資訊工作者 |  |
-| 以資訊工作者身分登入，確認該圖格可用 | [何謂存取面板？](active-directory-saas-access-panel-introduction.md) |
+| 以資訊工作者身分登入，確認該圖格可用 | [何謂存取面板？](user-help/active-directory-saas-access-panel-introduction.md) |
 
 ### <a name="considerations"></a>考量
 
@@ -332,7 +332,7 @@ ms.locfileid: "38451694"
 | --- | --- |
 | 已設定 SaaS 應用程式 (同盟 SSO 或密碼 SSO) | 構成要素：[SaaS 同盟 SSO 組態](#saas-federated-sso-configuration) |
 | 已識別在 #1 中獲指派應用程式存取權的「雲端群組」 | 構成要素：[SaaS 同盟 SSO 組態](#saas-federated-sso-configuration) <br/>[在 Azure Active Directory 中建立群組和新增使用者](fundamentals/active-directory-groups-create-azure-portal.md) |
-| 已識別存取應用程式之資訊工作者的認證 | [何謂存取面板？](active-directory-saas-access-panel-introduction.md) |
+| 已識別存取應用程式之資訊工作者的認證 | [何謂存取面板？](user-help/active-directory-saas-access-panel-introduction.md) |
 
 
 ### <a name="steps"></a>步驟
@@ -380,7 +380,7 @@ ms.locfileid: "38451694"
 
 | 必要條件 | 資源 |
 | --- | --- |
-| 在您的租用戶中啟用自助式密碼管理。 | [IT 系統管理員的 Azure Active Directory 密碼重設](active-directory-passwords-update-your-own-password.md) |
+| 在您的租用戶中啟用自助式密碼管理。 | [IT 系統管理員的 Azure Active Directory 密碼重設](user-help/active-directory-passwords-update-your-own-password.md) |
 | 啟用密碼回寫以管理來自內部部署環境的密碼。 請注意，這需要特定的 Azure AD Connect 版本 | [密碼回寫先決條件](authentication/howto-sspr-writeback.md) |
 | 識別將使用此功能的 PoC 使用者，並確定他們是安全性群組的成員。 使用者必須是非系統管理員，才能完整展示此功能 | [自訂：Azure AD 密碼管理：限制對密碼重設的存取](authentication/howto-sspr-writeback.md) |
 
@@ -395,7 +395,7 @@ ms.locfileid: "38451694"
 | 提供依步驟 2 設定的「自助式密碼重設」資料 | https://aka.ms/ssprsetup |
 | 關閉瀏覽器 |  |
 | 以您在步驟 4 中使用的資訊工作者身分重新開始登入程序 |  |
-| 重設密碼 | [更新自己的密碼：重設密碼](active-directory-passwords-update-your-own-password.md) |
+| 重設密碼 | [更新自己的密碼：重設密碼](user-help/active-directory-passwords-update-your-own-password.md) |
 | 嘗試以您的新密碼登入 Azure AD 及內部部署資源 |  |
 
 ### <a name="considerations"></a>考量
@@ -428,7 +428,7 @@ ms.locfileid: "38451694"
 ### <a name="considerations"></a>考量
 
 1. 此構成要素中的 PoC 步驟會明確地為使用者的所有登入設定 MFA。 此外，還有「條件式存取」和 Identity Protection 之類的其他工具，可在更具目標性的案例中進行 MFA。 這將是從 POC 移到生產環境時需要考量的事項。
-2. 為了方便起見，此構成要素中的 PoC 步驟會明確地使用「通話」作為 MFA 方法。 當您從 POC 轉換到生產環境時，建議您儘可能使用 [Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) 之類的應用程式作為第二要素。
+2. 為了方便起見，此構成要素中的 PoC 步驟會明確地使用「通話」作為 MFA 方法。 當您從 POC 轉換到生產環境時，建議您儘可能使用 [Microsoft Authenticator](user-help/microsoft-authenticator-app-how-to.md) 之類的應用程式作為第二要素。
 深入了解：[DRAFT NIST 特殊出版品 800-63B (英文)](https://pages.nist.gov/800-63-3/sp800-63b.html)
 
 ## <a name="mfa-conditional-access-for-saas-applications"></a>SaaS 應用程式的 MFA 條件式存取
@@ -553,7 +553,7 @@ ms.locfileid: "38451694"
 | --- | --- |
 | 具有從「企業 PKI」佈建之使用者憑證的裝置 (Windows、iOS 或 Android) | [部署使用者憑證](https://msdn.microsoft.com/library/cc770857.aspx) |
 | 與 ADFS 同盟的 Azure AD 網域 | [Azure AD Connect 和同盟](./connect/active-directory-aadconnectfed-whatis.md)<br/>[Active Directory 憑證服務概觀](https://technet.microsoft.com/library/hh831740.aspx)|
-| 針對 iOS 裝置，安裝 Microsoft Authenticator 應用程式 | [開始使用 Microsoft Authenticator 應用程式](authentication/end-user/current/microsoft-authenticator-app-how-to.md) |
+| 針對 iOS 裝置，安裝 Microsoft Authenticator 應用程式 | [開始使用 Microsoft Authenticator 應用程式](user-help/microsoft-authenticator-app-how-to.md) |
 
 ### <a name="steps"></a>步驟
 

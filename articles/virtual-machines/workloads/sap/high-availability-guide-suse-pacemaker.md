@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: sedusch
-ms.openlocfilehash: ba44a8988c4af68abf4d155a2b9cb490b6122d39
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cac2f91a25907be824e3fd3517736d921c3fde64
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656409"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37923426"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>在 Azure 中於 SUSE Linux Enterprise Server 上設定 Pacemaker
 
@@ -28,6 +28,8 @@ ms.locfileid: "34656409"
 [deployment-guide]:deployment-guide.md
 [dbms-guide]:dbms-guide.md
 [sap-hana-ha]:sap-hana-high-availability.md
+[virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#memory-preserving-maintenance
+[virtual-machines-windows-maintenance]:../../windows/maintenance-and-updates.md#memory-preserving-maintenance
 
 有兩個選項可以在 Azure 中設定 Pacemaker 叢集。 您可以使用隔離代理程式，這個代理程式會透過 Azure API 來重新啟動失敗的節點，或者您可以使用 SBD 裝置。
 
@@ -277,10 +279,10 @@ sudo targetcli saveconfig
    sudo vi /root/.ssh/authorized_keys
    </code></pre>
 
-1. **[A]** 安裝 HA 擴充功能
+1. **[A]** 安裝柵欄代理程式
    
    <pre><code>
-   sudo zypper install sle-ha-release fence-agents
+   sudo zypper install fence-agents
    </code></pre>
 
 1. **[A]** 設定主機名稱解析   
@@ -335,11 +337,11 @@ sudo targetcli saveconfig
    sudo vi /etc/corosync/corosync.conf   
    </code></pre>
 
-   將下列粗體內容新增至檔案 (如果檔案中沒有這些值或不同)。
+   將下列粗體內容新增至檔案 (如果檔案中沒有這些值或不同)。 請務必將權杖變更為 30000，以允許記憶體保留維護。 如需詳細資料，請參閱[本 Linux 文章][virtual-machines-linux-maintenance]或[本 Windows 文章][virtual-machines-windows-maintenance]。
    
    <pre><code> 
    [...]
-     <b>token:          5000
+     <b>token:          30000
      token_retransmits_before_loss_const: 10
      join:           60
      consensus:      6000

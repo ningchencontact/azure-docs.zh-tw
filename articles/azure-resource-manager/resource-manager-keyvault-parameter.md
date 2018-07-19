@@ -4,27 +4,34 @@ description: 示範如何在部署期間從金鑰保存庫中傳遞密碼做為�
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/11/2018
+ms.date: 07/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6a6c1f10b5a46633785d9c26a766df9334fe1cb0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3a29319a0d478537dfc4905ee77865b8fea64587
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359089"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38598402"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>在部署期間使用 Azure Key Vault 以傳遞安全的參數值
 
-當您需要在部署期間，傳送安全值 (例如密碼) 做為參數時，您可以從 [Azure Key Vault](../key-vault/key-vault-whatis.md) 擷取值。 您可以藉由參考金鑰保存庫和參數檔案中的密碼來擷取值。 您只參考其金鑰保存庫識別碼，因此該值絕不會公開。 您不需要在每次部署資源時手動輸入密碼的值。 金鑰保存庫可以存在於與您部署的資源群組的不同訂用帳戶中。 當參考金鑰保存庫時，您納入訂用帳戶識別碼。
+當您需要在部署期間，傳送安全值 (例如密碼) 做為參數時，您可以從 [Azure Key Vault](../key-vault/key-vault-whatis.md) 擷取值。 您可以藉由參考金鑰保存庫和參數檔案中的密碼來擷取值。 您只參考其金鑰保存庫識別碼，因此該值絕不會公開。 金鑰保存庫可以存在於與您部署的資源群組的不同訂用帳戶中。
 
-建立金鑰保存庫時，將 *enabledForTemplateDeployment* 屬性設定為 *true*。 將此值設定為 true，即表示您允許在部署期間從 Resource Manager 範本存取。
+## <a name="enable-access-to-the-secret"></a>啟用密碼的存取權
+
+在範本部署期間，要存取金鑰保存庫有兩個重要條件存在：
+
+1. 金鑰保存庫屬性 `enabledForTemplateDeployment` 必須為 `true`。
+2. 部署範本的使用者必須有密碼的存取權。 使用者必須具有金鑰保存庫的 `Microsoft.KeyVault/vaults/deploy/action` 權限。 [擁有者](../role-based-access-control/built-in-roles.md#owner)和[參與者](../role-based-access-control/built-in-roles.md#contributor)角色皆可授與此權限。
+
+將金鑰保存庫與[受控應用程式](../managed-applications/overview.md)的範本搭配使用時，您必須授與**設備資源提供者**服務主體的存取權。 如需詳細資訊，請參閱[在部署 Azure 受控應用程式時存取金鑰保存庫密碼](../managed-applications/key-vault-access.md) (英文)。
+
 
 ## <a name="deploy-a-key-vault-and-secret"></a>部署金鑰保存庫和密碼
 
@@ -60,10 +67,6 @@ New-AzureRmKeyVault `
 $secretvalue = ConvertTo-SecureString $password -AsPlainText -Force
 Set-AzureKeyVaultSecret -VaultName $vaultname -Name "examplesecret" -SecretValue $secretvalue
 ```
-
-## <a name="enable-access-to-the-secret"></a>啟用密碼的存取權
-
-不論您使用新的金鑰保存庫或現有的金鑰保存庫，請確定使用者部署的範本可以存取密碼。 部署範本以參考密碼的使用者必須具有金鑰保存庫的 `Microsoft.KeyVault/vaults/deploy/action` 權限。 [擁有者](../role-based-access-control/built-in-roles.md#owner)和[參與者](../role-based-access-control/built-in-roles.md#contributor)角色皆可授與此權限。
 
 ## <a name="reference-a-secret-with-static-id"></a>使用靜態識別碼參考密碼
 

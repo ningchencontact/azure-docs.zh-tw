@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 71f3a850d4b60c9ca2e3742ea8c83587e04f1dca
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 70b9d41ff9ed47e9ac376f1e13627cc82d87130f
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221456"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048288"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-abintegro"></a>教學課程：Azure Active Directory 與 Abintegro 整合
 
@@ -33,7 +33,7 @@ Abintegro 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Abintegro 整合，您需要下列項目：
 
@@ -112,7 +112,7 @@ Abintegro 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/abintegro-tutorial/tutorial_abintegro_url.png)
 
-    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://dev.abintegro.com/Shibboleth.sso/Login?entityID=<Issuer>&target=https://dev.abintegro.com/secure/`
+    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://dev.abintegro.com/Shibboleth.sso/Login?entityID=<Issuer>&target=https://dev.abintegro.com/secure/`
 
     > [!NOTE] 
     > 這不是真實的值。 請使用實際的登入 URL 來更新此值。 請連絡 [Abintegro 用戶端支援小組](mailto:support@abintegro.com)以取得這些值。 
@@ -202,7 +202,7 @@ Abintegro 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Abintegro] 磚時，應該會看到 Abintegro 應用程式的登入頁面。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

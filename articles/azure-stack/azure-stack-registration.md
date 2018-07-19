@@ -12,21 +12,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 07/09/2018
 ms.author: jeffgilb
-ms.reviewer: avishwan
-ms.openlocfilehash: 7d14b246220264641a3bb726d5505c25dc25bbbd
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.reviewer: brbartle
+ms.openlocfilehash: 65525ffe33ddc100dd3066e7c2b52ef8a856fbc3
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248137"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37933486"
 ---
 # <a name="register-azure-stack-with-azure"></a>向 Azure 註冊 Azure Stack
 
 向 Azure 註冊 [Azure Stack](azure-stack-poc.md)，即可從 Azure 下載市集項目，並設定向 Microsoft 回報商務資料的功能。 註冊 Azure Stack 之後，使用方式會回報給 Azure 商務報告，您可以在註冊所用的訂用帳戶中查看報告。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 必須註冊才能支援完整的 Azure Stack 功能，包括 Marketplace 摘要整合。 此外，如果您在使用隨用隨付計費模型時未註冊，則會違反 Azure Stack 授權條款。 若要深入了解 Azure Stack 授權模型，請參閱[如何購買頁面](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)。
 
 ## <a name="prerequisites"></a>先決條件
@@ -150,9 +150,6 @@ Set-AzsRegistration `
 ```
 
 ## <a name="register-azure-stack-in-disconnected-environments"></a>在已中斷連線的環境中註冊 Azure Stack
-
-本節中的資訊適用於 Azure Stack 1712 起的更新版本 (180106.1)，且不支援舊的版本。
-
 如果您要在已中斷連線的環境 (沒有網際網路連線能力) 中註冊 Azure Stack，就需要從 Azure Stack 環境中取得註冊權杖，然後在可以連線到 Azure 並[已安裝適用於 Azure Stack 之 PowerShell](#bkmk_powershell) 的電腦上使用該權杖。  
 
 ### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>從 Azure Stack 環境中取得註冊權杖

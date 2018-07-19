@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 4fb4a01e10baf835a1e967e9c865241d07b6639d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: fe876db13cc5fb97f827a80a328003a7d2585adc
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212218"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041975"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>教學課程：Azure Active Directory 與 Workplace by Facebook 整合
 
@@ -33,7 +33,7 @@ ms.locfileid: "36212218"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Workplace by Facebook 的整合，您需要下列項目：
 
@@ -116,9 +116,9 @@ ms.locfileid: "36212218"
 
     ![設定單一登入](./media/workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<instancename>.facebook.com`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<instancename>.facebook.com`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://www.facebook.com/company/<instanceID>`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://www.facebook.com/company/<instanceID>`
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請參閱 [Workplace 公司儀表板] 的 [驗證] 頁面，以查看您 Workplace 社群的正確值。 
@@ -248,7 +248,7 @@ ms.locfileid: "36212218"
 ### <a name="testing-single-sign-on"></a>測試單一登入
 
 如果要測試您的單一登入設定，請開啟存取面板。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 
 ## <a name="additional-resources"></a>其他資源

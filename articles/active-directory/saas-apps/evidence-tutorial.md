@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: jeedes
-ms.openlocfilehash: a40ec6e8cea8515e84690e3f95c2b3440c359b55
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 5859a48034339fafa59acb003c117dd8873850c2
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231622"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39052864"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-evidencecom"></a>教學課程：Azure Active Directory 與 Evidence.com 整合
 
@@ -34,7 +34,7 @@ Evidence.com 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Evidence.com 整合，您需要下列項目：
 
@@ -110,9 +110,9 @@ Evidence.com 與 Azure AD 整合提供下列優點：
 
     ![Evidence.com 網域及 URL 單一登入資訊](./media/evidence-tutorial/tutorial_evidence.com_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<yourtenant>.evidence.com`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<yourtenant>.evidence.com`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<yourtenant>.evidence.com`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<yourtenant>.evidence.com`
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Evidence.com 用戶端支援小組](https://communities.taser.com/support/SupportContactUs?typ=LE)以取得這些值。 
@@ -228,7 +228,7 @@ Evidence.com 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 在「存取面板」中按一下 Evidence.com 圖格時，應該會自動登入 Evidence.com 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

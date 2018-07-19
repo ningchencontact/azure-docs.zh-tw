@@ -3,22 +3,22 @@ title: 使用 Azure Stack API | Microsoft Docs
 description: 了解如何從 Azure 擷取驗證，以便對 Azure Stack 提出 API 要求。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: cblackuk
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 07/02/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: e8a9489a3f487a45303bac45f805381b41427b4b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3b89564bf17a9884640b51faa1c3966dce93f89a
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359106"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346785"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
@@ -26,9 +26,9 @@ ms.locfileid: "34359106"
 
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
-您可以使用 Azure Stack 應用程式開發介面 (API)，將整合 Marketplace 項目之類的作業自動化。
+您可以使用應用程式開發介面 (API)，將在 Azure Stack 雲端中新增 VM 之類的作業自動化。
 
-此 API 需要您的用戶端向 Microsoft Azure 登入端點進行驗證。 端點會傳送權杖，以用於每個傳送至 Azure Stack API 之要求的標頭中 Microsoft Azure 使用 Oauth 2.0。
+使用 API 時，您的用戶端必須向 Microsoft Azure 登入端點進行驗證。 端點會傳送權杖，以用於每個傳送至 Azure Stack API 之要求的標頭中 Microsoft Azure 使用 Oauth 2.0。
 
 本文提供使用 **cURL** 公用程式建立 Azure Stack 要求的範例。 cURL 應用程式是用於傳送資料且具有程式庫的命令列工具。 這些範例將逐步引導您進行擷取權杖以存取 Azure Stack API 的流程。 大部分的程式設計語言都會提供 Oauth 2.0 程式庫，其具有健全的權杖管理，並會處理重新整理權杖之類的工作。
 

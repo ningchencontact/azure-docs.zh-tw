@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jeedes
-ms.openlocfilehash: ae5cbd2926f4429cda3138f40a40426efe64627a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: edfa9d31688cc88fb8e50ec0f5f7d2d366487030
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36216978"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042056"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciforma"></a>教學課程：Azure Active Directory 與 Sciforma 整合
 
@@ -33,7 +33,7 @@ Sciforma 與 Azure AD 整合有下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要進行 Azure AD 與 Sciforma 整合的設定，您需要下列項目：
 
@@ -112,9 +112,9 @@ Sciforma 與 Azure AD 整合有下列優點：
 
     ![設定單一登入](./media/sciforma-tutorial/tutorial_sciforma_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<subdomain>.sciforma.net/sciforma/main.html`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<subdomain>.sciforma.net/sciforma/main.html`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.sciforma.net/sciforma/saml`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<subdomain>.sciforma.net/sciforma/saml`
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Sciforma 用戶端支援小組](http://www.sciforma.com/company/contact_us)以取得這些值。 
@@ -204,7 +204,7 @@ Sciforma 與 Azure AD 整合有下列優點：
     
 ### <a name="testing-single-sign-on"></a>測試單一登入
 
-如果要測試您的單一登入設定，請開啟存取面板。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。
+如果要測試您的單一登入設定，請開啟存取面板。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

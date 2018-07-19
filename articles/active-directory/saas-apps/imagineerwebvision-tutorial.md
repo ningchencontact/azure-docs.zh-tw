@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 9c6d819234111c461bf4793376324dbe77e85ae2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d86004680bf13c9716b4ff4e7a41af73ea186f27
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38295357"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39047183"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-imagineer-webvision"></a>教學課程：Azure Active Directory 與 Imagineer WebVision 整合
 
@@ -33,7 +33,7 @@ ms.locfileid: "38295357"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Imagineer WebVision 整合，您需要下列項目：
 
@@ -195,7 +195,7 @@ ms.locfileid: "38295357"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在 [存取面板] 中按一下 [Imagineer WebVision] 磚時，應該會自動登入您的 Imagineer WebVision 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

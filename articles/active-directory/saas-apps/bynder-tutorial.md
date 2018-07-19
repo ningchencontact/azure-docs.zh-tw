@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 06f5d267245311ad829a82562e740db08eb97b12
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 7f30752b2963ee2e3dd837008831ba9a38e4e9e3
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212347"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39043439"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bynder"></a>教學課程：Azure Active Directory 與 Bynder 整合
 
@@ -34,7 +34,7 @@ ms.locfileid: "36212347"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Bynder 整合，您需要下列項目：
 
@@ -110,15 +110,15 @@ ms.locfileid: "36212347"
 
     ![Bynder 網域及 URL 單一登入資訊](./media/bynder-tutorial/tutorial_bynder_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<company name>.getbynder.com`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<company name>.getbynder.com`
     
-    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://<company name>.getbynder.com/sso/SAML/authenticate/`
+    b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<company name>.getbynder.com/sso/SAML/authenticate/`
 
 4. 如果您想要以 **SP** 起始模式設定應用程式，請勾選 [顯示進階 URL 設定]，然後執行下列步驟：
 
     ![Bynder 網域及 URL 單一登入資訊](./media/bynder-tutorial/tutorial_bynder_url1.png)
 
-    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<company name>.getbynder.com/login/`
+    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<company name>.getbynder.com/login/`
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的識別碼、回覆 URL 和登入 URL 來更新這些值。 請連絡 [Bynder 用戶端支援小組](https://www.bynder.com/en/support/)以取得這些值。 
@@ -211,7 +211,7 @@ ms.locfileid: "36212347"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 [Bynder ] 圖格時，應該會自動登入您的 Bynder 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

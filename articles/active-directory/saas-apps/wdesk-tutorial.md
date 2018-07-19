@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: fc1d21545cf8ad6f173cebfc8ebce95f4bcce0e5
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 909e6441b75e4a43ebf1d9e690a14a0d65c74367
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213262"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39040761"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wdesk"></a>教學課程：Azure Active Directory 與 Wdesk 整合
 
@@ -33,7 +33,7 @@ ms.locfileid: "36213262"
 
 如果您想要知道與 Azure AD 整合的 SaaS 應用程式詳細資訊，請參閱： [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Wdesk 整合，您需要下列項目：
 
@@ -112,15 +112,15 @@ ms.locfileid: "36213262"
 
     ![設定單一登入](./media/wdesk-tutorial/tutorial_wdesk_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.wdesk.com/auth/saml/sp/metadata/<instancename>`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<subdomain>.wdesk.com/auth/saml/sp/metadata/<instancename>`
 
-    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://<subdomain>.wdesk.com/auth/saml/sp/consumer/<instancename>`
+    b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<subdomain>.wdesk.com/auth/saml/sp/consumer/<instancename>`
 
 4. 按一下 [顯示進階 URL 設定]。 如果您想要在 **SP** 起始模式中設定應用程式，請執行下列步驟：
 
     ![設定單一登入](./media/wdesk-tutorial/tutorial_wdesk_url1.png)
 
-    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<subdomain>.wdesk.com/auth/login/saml/<instancename>`
+    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<subdomain>.wdesk.com/auth/login/saml/<instancename>`
      
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的識別碼、回覆 URL 和登入 URL 來更新這些值。 當您設定 SSO 時，您可以從 WDesk 入口網站取得這些值。 
@@ -271,7 +271,7 @@ ms.locfileid: "36213262"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Wdesk] 圖格時，應該會自動登入您的 Wdesk 應用程式。
-如需存取面板的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 
 ## <a name="additional-resources"></a>其他資源

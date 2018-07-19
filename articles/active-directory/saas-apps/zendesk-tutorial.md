@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: c34deca7b8248ff8c12433a0d0967fcc3e8e2b4c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: e5ef74329e2adb6f3b8b60f547231a245a03b1fe
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221029"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39050590"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zendesk"></a>教學課程：Azure Active Directory 與 Zendesk 整合
 
@@ -34,7 +34,7 @@ Zendesk 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定與 Zendesk 的 Azure AD 整合，您需要下列項目：
 
@@ -110,7 +110,7 @@ Zendesk 與 Azure AD 整合提供下列優點：
 
     ![Zendesk 網域與 URL 單一登入資訊](./media/zendesk-tutorial/tutorial_zendesk_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<subdomain>.zendesk.com`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<subdomain>.zendesk.com`
 
     b. 在 [識別碼] 文字方塊中，使用下列模式將值輸入：`<subdomain>.zendesk.com`
 
@@ -208,7 +208,7 @@ Zendesk 與 Azure AD 整合提供下列優點：
 
 本節的目標是要在 Zendesk 中建立名為 Britta Simon 的使用者。 Zendesk 支援自動使用者佈建，該功能預設為啟用。 在[這裡](zendesk-provisioning-tutorial.md)可以找到更多關於如何設定自動使用者佈建的詳細資料。
 
-**如果您需要手動建立使用者，請執行以下步驟：**
+**如果您需要手動建立使用者，請執行下列步驟：**
 
 > [!NOTE]
 > [使用者] 帳戶會在登入時自動佈建。 登入之前，必須在 **Zendesk** 中手動佈建 [代理程式] 和 [系統管理員] 帳戶。
@@ -262,7 +262,7 @@ Zendesk 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 Zendesk 圖格時，應該會自動登入您的 Zendesk 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

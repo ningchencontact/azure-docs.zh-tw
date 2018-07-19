@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 96608c491fe4d62b6b4bdb48ee5386c9a72212cf
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: d1a15617830f7b517210c7e86146a88d38ae8343
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36286240"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39046816"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a>教學課程：Azure Active Directory 與 Learning Seat LMS 整合
 
@@ -33,7 +33,7 @@ Learning Seat LMS 與 Azure AD 整合提供下列優點：
 
 如果您想要知道與 Azure AD 整合的 SaaS 應用程式詳細資訊，請參閱： [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Learning Seat LMS 整合，您需要下列項目：
 
@@ -111,15 +111,15 @@ Learning Seat LMS 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/learningseatlms-tutorial/tutorial_learnconnect_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.learningseatlms.com`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<subdomain>.learningseatlms.com`
 
-    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://<subdomain>.learningseatlms.com/Account/AssertionConsumerService`
+    b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<subdomain>.learningseatlms.com/Account/AssertionConsumerService`
 
 4. 如果您想要以 **SP** 起始模式設定應用程式，請勾選 [顯示進階 URL 設定]：
 
     ![設定單一登入](./media/learningseatlms-tutorial/tutorial_learnconnect_url2.png)
 
-    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<subdomain>.learningseatlms.com`
+    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<subdomain>.learningseatlms.com`
      
     > [!NOTE] 
     > 這些值都不是真正的值。 使用實際的識別碼、回覆 URL 和登入 URL 來更新這些值。 請連絡 [Learning Seat 支援小組](http://help.learningseatlms.com/help)以取得這些值。 
@@ -207,7 +207,7 @@ Learning Seat LMS 與 Azure AD 整合提供下列優點：
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。 
 
-在存取面板中按一下 [Learning Seat LMS] 圖格，系統會將您自動登入 Learning Seat LMS 應用程式。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。
+在存取面板中按一下 [Learning Seat LMS] 圖格，系統會將您自動登入 Learning Seat LMS 應用程式。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: cd8579fe29282f3875ecfddf67a34444e3de9ef5
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 891059a440189112c834f3402725781a6b4a3960
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34160745"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952819"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>深度學習和 AI 架構
 [資料科學虛擬機器](http://aka.ms/dsvm) \(英文\) (DSVM) 和[深度學習 VM](http://aka.ms/dsvm/deeplearning) \(英文\) 支援數種深度學習架構，可協助建置具備預測性分析及能了解影像及語言之辨識能力的人工智慧 (AI) 應用程式。 
@@ -66,7 +66,7 @@ ms.locfileid: "34160745"
 
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   | 深度學習架構      |
+| 這是什麼？   | 高階深度學習 API      |
 | 支援的 DSVM 版本      | Windows、Linux     |
 | 它是如何在 DSVM 上設定/安裝的？  | TensorFlow 安裝在 [Linux 和 Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) 的 Python 3.5 中，以及安裝在 [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition) 的 Python 3.6 中。 |
 | 範例的連結      | https://github.com/fchollet/keras/tree/master/examples      |
@@ -145,7 +145,7 @@ export CUDA_ROOT=/usr/local/cuda-8.0
 ```
 
 使用 Deep Water：
-* 在終端機：啟用 [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) 環境，然後執行 _python_。 <br/>
+* * 在終端機：啟用 [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) 環境，然後執行 _python_。 <br/>
 * 在 JupyterHub：[連線到 JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)，然後瀏覽至 deep_water 目錄以尋找範例筆記本。
 
 ## <a name="mxnet"></a>MXNet
@@ -178,7 +178,7 @@ export CUDA_ROOT=/usr/local/cuda-8.0
 
 
 
-## <a name="nvdia-smi"></a>nvdia-smi
+## <a name="nvidia-smi"></a>nvidia-smi
 
 |    |           |
 | ------------- | ------------- |

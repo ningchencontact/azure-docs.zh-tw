@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 07/11/2018
 ms.author: douglasl
-ms.openlocfilehash: 313f4915a8c522ae2b9fc5ebbbe85fdfb4741cc4
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: ecd5f242d2dcb5662376541ac0a9e75ce533b59f
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969573"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005827"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>建立會執行管線來回應事件的觸發程序
 
@@ -51,13 +51,21 @@ ms.locfileid: "38969573"
 
 ![選取觸發程序類型作為事件](media/how-to-create-event-trigger/event-based-trigger-image3.png)
 
+### <a name="map-trigger-properties-to-pipeline-parameters"></a>將觸發程序屬性對應到管線參數
+
+當事件觸發程序對特定 Blob 引發時，事件會擷取 Blob 的資料夾路徑和檔案名稱，變成 `@triggerBody().folderPath` 和 `@triggerBody().fileName`。 若要在管線中使用這些屬性的值，您必須將屬性對應到管線參數。 在將屬性對應到參數之後，您可在整個管線中透過 `@pipeline.parameters.parameterName` 運算式存取觸發程序所擷取的值。
+
+![將屬性對應到管線參數](media/how-to-create-event-trigger/event-based-trigger-image4.png)
+
+舉例來說，在上方的螢幕擷取畫面中， 觸發程序設為在儲存體帳戶中建立了結尾為 `.csv` 的 Blob 路徑時引發。 這樣一來，當儲存體帳戶中的任一處建立了副檔名為 `.csv` 的 Blob 時，`folderPath` 和 `fileName` 屬性就會擷取新 Blob 的位置。 例如，`@triggerBody().folderPath` 有一個 `/containername/foldername/nestedfoldername` 這樣的值，而 `@triggerBody().fileName` 有一個 `filename.csv` 這樣的值。 在範例中，這些值會對應到管線參數 `sourceFolder` 和 `sourceFile`。 您可以分別以 `@pipeline.parameters.sourceFolder` 和 `@pipeline.parameters.sourceFile` 形式在整個管線中加以使用。
+
 ## <a name="json-schema"></a>JSON 結構描述
 
 下表提供與事件型觸發程序相關的結構描述元素概觀：
 
 | **JSON 元素** | **說明** | **類型** | **允許的值** | **必要** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
-| scope | 儲存體帳戶的 Azure Resource Manager 資源識別碼。 | 字串 | Azure Resource Manager 識別碼 | yes |
+| scope | 儲存體帳戶的 Azure Resource Manager 資源識別碼。 | 字串 | Azure Resource Manager 識別碼 | 是 |
 | **events** | 會導致引發此觸發程序的事件類型。 | 陣列    | Microsoft.Storage.BlobCreated、Microsoft.Storage.BlobDeleted | 是，任何組合。 |
 | **blobPathBeginsWith** | Blob 路徑的開頭必須是提供來引發觸發程序的模式。 例如，'/records/blobs/december/' 只會針對 records 容器下 december 資料夾中的 Blob 引發觸發程序。 | 字串   | | 至少必須提供其中一個屬性：blobPathBeginsWith、blobPathEndsWith。 |
 | **blobPathEndsWith** | Blob 路徑的結尾必須是提供來引發觸發程序的模式。 例如，'december/boxes.csv' 只會針對 december 資料夾中的 Blob 具名方塊引發觸發程序。 | 字串   | | 至少必須提供其中一個屬性：blobPathBeginsWith、blobPathEndsWith。 |
@@ -75,14 +83,6 @@ ms.locfileid: "38969573"
 
 > [!NOTE]
 > 每當您指定容器與資料夾、容器與檔案，或是容器、資料夾與檔案時，都必須包含路徑的 `/blobs/` 區段。
-
-## <a name="map-trigger-properties-to-pipeline-parameters"></a>將觸發程序屬性對應到管線參數
-
-當事件觸發程序對特定 Blob 引發時，事件會擷取 Blob 的資料夾路徑和檔案名稱，變成 `@triggerBody().folderPath` 和 `@triggerBody().fileName`。 若要在管線中使用這些屬性的值，您必須將屬性對應到管線參數。 在將屬性對應到參數之後，您可在整個管線中透過 `@pipeline.parameters.parameterName` 運算式存取觸發程序所擷取的值。
-
-![將屬性對應到管線參數](media/how-to-create-event-trigger/event-based-trigger-image4.png)
-
-舉例來說，在上方的螢幕擷取畫面中， 觸發程序設為在儲存體帳戶中建立了結尾為 `.csv` 的 Blob 路徑時引發。 這樣一來，當儲存體帳戶中的任一處建立了副檔名為 `.csv` 的 Blob 時，`folderPath` 和 `fileName` 屬性就會擷取新 Blob 的位置。 例如，`@triggerBody().folderPath` 有一個 `/containername/foldername/nestedfoldername` 這樣的值，而 `@triggerBody().fileName` 有一個 `filename.csv` 這樣的值。 在範例中，這些值會對應到管線參數 `sourceFolder` 和 `sourceFile`。 您可以分別以 `@pipeline.parameters.sourceFolder` 和 `@pipeline.parameters.sourceFile` 形式在整個管線中加以使用。
 
 ## <a name="next-steps"></a>後續步驟
 如需有關觸發程序的詳細資訊，請參閱[管線執行和觸發程序](concepts-pipeline-execution-triggers.md#triggers)。

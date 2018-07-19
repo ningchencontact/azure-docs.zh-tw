@@ -1,23 +1,20 @@
 ---
 title: 使用 Ambari - Azure HDInsight 將叢集設定最佳化 | Microsoft Docs
 description: 使用 Ambari web UI 設定 HDInsight 叢集並使之最佳化。
-documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 07/09/2018
 ms.author: ashish
-ms.openlocfilehash: f3c1edc767ab07bcdd8b09a0e40e291cbd1f3d9a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2f0956c1cbbc6a351b2fc76a6918280dbead298f
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31406177"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951211"
 ---
 # <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>使用 Ambari 將 HDInsight 叢集設定最佳化
 
@@ -245,9 +242,9 @@ Hive 能夠在將記錄插入資料表時建立動態分割區，不需要預先
 
 2. 將動態分割模式變更為 [嚴格]。 在嚴格模式中，至少一個分割區必須為靜態。 這可防止在沒有分割區篩選器出現在 WHERE 子句的情況下進行查詢，也就是說，[嚴格] 會防止掃描所有分割區的查詢。 瀏覽至 Hive [設定] 索引標籤，然後將 `hive.exec.dynamic.partition.mode` 設定為 [嚴格]。 預設值為 **nonstrict**。
  
-3. 若要限制建立的動態分割區數目，請修改 ``hive.exec.max.dynamic.partitions` 參數。 預設值是 5,000。
+3. 若要限制建立的動態分割區數目，請修改 `hive.exec.max.dynamic.partitions` 參數。 預設值為 5000。
  
-4. 若要限制每個節點的動態分割區總數，請修改 `hive.exec.max.dynamic.partitions.pernode`。 預設值是 2,000。
+4. 若要限制每個節點的動態分割區總數，請修改 `hive.exec.max.dynamic.partitions.pernode`。 預設值為 2000。
 
 ### <a name="enable-local-mode"></a>啟用本機模式
 

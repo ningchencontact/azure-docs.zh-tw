@@ -10,15 +10,15 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 3ddc7fea-3339-4fc0-bdf9-853c32b25f69
 caps.latest.revision: 35
-author: thraka
-ms.author: adegeo
+author: jpconnock
+ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: 6347314e7f279356f4f3944f3238deda84f10fc0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 96df87a0d49296280140e392509c0d735f904957
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358212"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007017"
 ---
 # <a name="azure-cloud-services-config-schema-cscfg-file"></a>Azure 雲端服務設定結構描述 (.cscfg 檔)
 服務組態檔會指定要為服務中每個角色部署的角色執行個體數目、任何組態設定的值，以及與角色相關聯之任何憑證的指紋。 如果服務是虛擬網路的一部分，必須在服務組態檔以及虛擬網路組態檔中提供網路的組態資訊。 服務組態檔的預設副檔名為 .cscfg。

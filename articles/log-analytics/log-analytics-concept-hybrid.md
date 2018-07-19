@@ -3,7 +3,7 @@ title: 使用 Azure Log Analytics 從您的環境收集資料 | Microsoft Docs
 description: 此主題可協助您了解如何使用 Log Analytics 來收集資料並監視您內部部署環境或其他雲端環境中裝載的電腦。
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: magoedte
-ms.openlocfilehash: 5bf1e12c958fef0cb20eaad8cece8cadb380c196
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.component: na
+ms.openlocfilehash: a13c83fc0d35be1aec87cb5f2d2b19b0bf27f1bf
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235935"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133265"
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>使用 Log Analytics 從您的環境中的電腦收集資料
 
@@ -96,7 +97,7 @@ Windows 和 Linux 代理程式支援使用 HTTPS 通訊協定，透過 Proxy 伺
 例如：`https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
-> 若您在您的密碼中使用特殊字元 (例如 “@”)，您會收到 Proxy 連線錯誤，因為系統無法正確剖析該值。  若要暫時解決此問題，請使用 [URLDecode](https://www.urldecoder.org/) 之類的工具將 URL 中的密碼編碼。  
+> 若您在您的密碼中使用特殊字元 (例如 "\@")，您會收到 Proxy 連線錯誤訊息，因為系統無法正確剖析該值。  若要暫時解決此問題，請使用 [URLDecode](https://www.urldecoder.org/) 之類的工具將 URL 中的密碼編碼。  
 
 ## <a name="install-and-configure-agent"></a>安裝及設定代理程式 
 視您的需求使用不同的方法，即可將您的內部部署電腦直接與 Log Analytics 連線。 下表說明每個方法，您可以判斷哪個方法最適合您的組織。

@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, divswa, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: a9346092e0a24709a9888937effdf802bf1b09fb
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 3837896911b92361e0a6d0a7166a1b17651d6fe3
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300210"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112855"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>從 Azure Logic Apps 連線至 SAP 系統
 
@@ -97,7 +97,7 @@ ms.locfileid: "35300210"
 
    **建立內部部署 SAP 連線**
 
-   1. 針對 [閘道]，請選取 [透過內部部署資料閘道連線]，此時即會顯示內部部署連線屬性。
+   1. 針對 [閘道]，請選取 [透過內部部署資料閘道連線]，如此就會顯示內部部署連線屬性。
 
    2. 提供 SAP 伺服器的連線資訊。 
    針對 [閘道] 屬性，請選取您在 Azure 入口網站中建立用於安裝閘道的資料閘道，例如：

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: jeedes
-ms.openlocfilehash: f6d0710dd268796bef7f0a340f8eb2bfbee6b1f2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3dc516e24f140ad5ef7443a4cff5962e7d584065
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218008"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042362"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-happyfox"></a>教學課程：Azure Active Directory 與 HappyFox 整合
 
@@ -33,7 +33,7 @@ HappyFox 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 HappyFox 整合，您需要下列項目：
 
@@ -112,9 +112,9 @@ HappyFox 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/happyfox-tutorial/tutorial_happyfox_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<subdomain>.happyfox.com/`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<subdomain>.happyfox.com/`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.happyfox.com/saml/metadata/`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<subdomain>.happyfox.com/saml/metadata/`
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [HappyFox 客戶支援小組](https://support.happyfox.com/home)以取得這些值。 
@@ -230,7 +230,7 @@ HappyFox 與 Azure AD 整合提供下列優點：
 
 2. 按一下 [SAML] 按鈕，使用您的 Azure AD 帳戶登入 HappyFox。
 
-如需存取面板的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

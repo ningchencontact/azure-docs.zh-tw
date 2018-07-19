@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: fe55c84964d10be971c0f1d64d2c70313098a4ee
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: bf262a42751e02c939696e4c8554fc19f5a4f4bd
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215704"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111196"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-fisheyecrucible"></a>教學課程：Azure Active Directory 與 Kantega SSO for FishEye/Crucible 整合
 

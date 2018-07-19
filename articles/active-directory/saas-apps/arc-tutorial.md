@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: jeedes
-ms.openlocfilehash: c1bf5ba68d8242a0ef0831987ac6fd041c62ace9
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: eafd7998e5bc21a539b6709794fe3cd70d9e3179
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969362"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054313"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arc-publishing---sso"></a>教學課程：Azure Active Directory 與 Arc Publishing - SSO 整合
 
@@ -34,7 +34,7 @@ Arc Publishing - SSO 與 Azure AD 整合可提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Arc Publishing - SSO 整合，您需要下列項目：
 
@@ -108,7 +108,7 @@ Arc Publishing - SSO 與 Azure AD 整合可提供下列優點：
 
     ![Arc Publishing - SSO 網域及 URL 單一登入資訊](./media/arc-tutorial/tutorial_arc_url.png)
 
-    1. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://www.okta.com/saml2/service-provider/<Unique ID>`
+    1. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://www.okta.com/saml2/service-provider/<Unique ID>`
 
     1. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://arcpublishing-<Customer>.okta.com/sso/saml2/<Unique ID>`
 
@@ -116,7 +116,7 @@ Arc Publishing - SSO 與 Azure AD 整合可提供下列優點：
 
     ![Arc Publishing - SSO 網域及 URL 單一登入資訊](./media/arc-tutorial/tutorial_arc_url1.png)
 
-    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://arcpublishing-<Customer>.okta.com/sso/saml2/<Unique ID>`
+    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://arcpublishing-<Customer>.okta.com/sso/saml2/<Unique ID>`
      
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的識別碼、回覆 URL 和登入 URL 來更新這些值。 請連絡 [Arc Publishing - SSO 用戶端支援小組](mailto:inf@washpost.com)以取得這些值。 
@@ -239,7 +239,7 @@ Arc Publishing - SSO 與 Azure AD 整合可提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Arc Publishing - SSO] 圖格時，應該會自動登入您的 Arc Publishing - SSO 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

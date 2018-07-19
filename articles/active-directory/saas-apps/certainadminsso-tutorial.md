@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: jeedes
-ms.openlocfilehash: cf23620eb3a3b0a9cb8e5877f517281a9c21809c
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: e465518f5526dcf581afab77e30d0af33aaae88e
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36323433"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054034"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-certain-admin-sso"></a>教學課程：Azure Active Directory 與 Certain Admin SSO 整合
 
@@ -33,7 +33,7 @@ ms.locfileid: "36323433"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Certain Admin SSO 整合，您需要下列項目：
 
@@ -107,9 +107,9 @@ ms.locfileid: "36323433"
 
     ![Certain Admin SSO 網域與 URL 單一登入資訊](./media/certainadminsso-tutorial/tutorial_certainadminsso_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<YOUR DOMAIN URL>/svcs/sso_admin_login/handleRequest/<ID>`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<YOUR DOMAIN URL>/svcs/sso_admin_login/handleRequest/<ID>`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<SUBDOMAIN>.certain.com`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<SUBDOMAIN>.certain.com`
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Certain Admin SSO 用戶端支援小組](mailto:integrations@certain.com)以取得這些值。 
@@ -199,7 +199,7 @@ ms.locfileid: "36323433"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 [Certain Admin SSO] 圖格時，應該會自動登入您的 Certain Admin SSO 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

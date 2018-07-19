@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 1c71fa918e72ac08c653bc319e3d84e0cc4e0508
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 25847d93c9c22ee15970f164802149ad66e77203
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36217583"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054085"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bpmonline"></a>教學課程：Azure Active Directory 與 Bpm’online 整合
 
@@ -34,7 +34,7 @@ ms.locfileid: "36217583"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Bpm’online 整合，您需要下列項目：
 
@@ -110,15 +110,15 @@ ms.locfileid: "36217583"
 
     ![Bpm’online 網域與 URL 單一登入資訊](./media/bpmonline-tutorial/tutorial_bpmonline_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<client site name>.bpmonline.com/`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<client site name>.bpmonline.com/`
 
-    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://<client site name>.bpmonline.com/ServiceModel/AuthService.svc/SsoLogin`
+    b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<client site name>.bpmonline.com/ServiceModel/AuthService.svc/SsoLogin`
 
 4. 如果您想要以 **SP** 起始模式設定應用程式，請勾選 [顯示進階 URL 設定]，然後執行下列步驟：
 
     ![Bpm’online 網域與 URL 單一登入資訊](./media/bpmonline-tutorial/tutorial_bpmonline_url1.png)
 
-    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<client site name>.bpmonline.com/`
+    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<client site name>.bpmonline.com/`
      
     > [!NOTE]
     > 這些都不是真正的值。 使用實際的識別碼、回覆 URL 和登入 URL 來更新這些值。 請連絡 [Bpm’online 用戶端支援小組](mailto:support@bpmonline.com)以取得這些值。 
@@ -204,7 +204,7 @@ ms.locfileid: "36217583"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 [Bpm’online] 圖格時，應該會自動登入您的 Bpm’online 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

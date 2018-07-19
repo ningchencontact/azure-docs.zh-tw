@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: jeedes
-ms.openlocfilehash: d3d85dd3ec074d01d597e34a45f27434214fc0ad
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 641f2e19791be48d014eeb61fb2848fc2a33a9cc
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212259"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042039"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>教學課程：Azure Active Directory 與 Workday 整合
 
@@ -34,7 +34,7 @@ Workday 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Workday 整合，您需要下列項目：
 
@@ -110,7 +110,7 @@ Workday 與 Azure AD 整合提供下列優點：
 
     ![Workday 網域及 URL 單一登入資訊](./media/workday-tutorial/tutorial_workday_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://impl.workday.com/<tenant>/login-saml2.htmld`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://impl.workday.com/<tenant>/login-saml2.htmld`
 
     b. 在 [識別碼] 文字方塊中，輸入 URL：`http://www.workday.com`
 
@@ -118,7 +118,7 @@ Workday 與 Azure AD 整合提供下列優點：
 
     ![Workday 網域及 URL 單一登入資訊](./media/workday-tutorial/tutorial_workday_url1.png)
 
-    在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://impl.workday.com/<tenant>/login-saml.htmld`
+    在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://impl.workday.com/<tenant>/login-saml.htmld`
      
     > [!NOTE] 
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「回覆 URL」來更新這些值。 您的回覆 URL 必須有子網域 (例如：www、wd2、wd3、wd3-impl、wd5、wd5-impl)。 使用 "http://www.myworkday.com" 等形式可以運作，但 "http://myworkday.com" 不行。 請連絡 [Workday 客戶支援小組](https://www.workday.com/en-us/partners-services/services/support.html)以取得這些值。  
@@ -298,7 +298,7 @@ Workday 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 [Workday] 圖格時，應該會自動登入您的 Workday 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

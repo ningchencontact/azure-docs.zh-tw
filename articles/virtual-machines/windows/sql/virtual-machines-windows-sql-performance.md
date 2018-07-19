@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 04/19/2018
 ms.author: jroth
-ms.openlocfilehash: 9d3fbbab76f16a8546c431d5acf913bf419edeb4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a7a24bde6cc34befee7de3bcbf13b96c8b641af2
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31798150"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888903"
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Azure 虛擬機器中的 SQL Server 效能最佳做法
 
@@ -39,7 +39,7 @@ ms.locfileid: "31798150"
 
 | 領域 | 最佳化 |
 | --- | --- |
-| [VM 大小](#vm-size-guidance) |SQL Enterprise Edition 的 [DS3](../sizes-general.md) 或更高版本。<br/><br/>SQL Standard 和 Web Edition 的 [DS2](../sizes-general.md) 或更高版本。 |
+| [VM 大小](#vm-size-guidance) |SQL Enterprise 版的 [DS3_v2](../sizes-general.md) 或更高版本。<br/><br/>SQL Standard 和 Web 版的 [DS2_v2](../sizes-general.md) 或更高版本。 |
 | [儲存體](#storage-guidance) |使用[進階儲存體](../premium-storage.md)。 標準儲存體只建議用於開發/測試。<br/><br/>將[儲存體帳戶](../../../storage/common/storage-create-storage-account.md)和 SQL Server VM 置於同一個區域。<br/><br/>停用儲存體帳戶上的 Azure [異地備援儲存體](../../../storage/common/storage-redundancy.md) (異地複寫)。 |
 | [磁碟](#disks-guidance) |使用最少 2 個 [P30 磁碟](../premium-storage.md#scalability-and-performance-targets) (1 個用於記錄檔，1 個用於資料檔和 TempDB；或將兩個或更多磁碟等量分割，並將所有檔案儲存在單一磁碟區中)。<br/><br/>避免使用作業系統或暫存磁碟作為資料儲存體或進行記錄。<br/><br/>啟用裝載資料檔案和 TempDB 資料檔案的磁碟上的 [讀取快取] 功能。<br/><br/>不要啟用裝載記錄檔案的磁碟上的 [快取] 功能。<br/><br/>重要事項︰變更 Azure VM 磁碟的快取設定時，停止 SQL Server 服務。<br/><br/>分割多個 Azure 資料磁碟，以提高 IO 輸送量。<br/><br/>以文件上記載的配置大小格式化。 |
 | [I/O](#io-guidance) |啟用 [資料庫頁面壓縮] 功能　。<br/><br/>針對資料檔案，啟用 [立即檔案初始化] 功能。<br/><br/>限制資料庫上的 [自動成長] 功能。<br/><br/>停用資料庫上的 [自動壓縮] 功能。<br/><br/>將所有的資料庫 (包括系統資料庫) 移到資料磁碟。<br/><br/>將 SQL Server 的錯誤記錄檔和追蹤檔案目錄移至資料磁碟。<br/><br/>設定預設備份和資料庫檔案位置。<br/><br/>啟用鎖定的頁面。<br/><br/>套用 SQL Server 效能修正程式。 |
@@ -49,10 +49,12 @@ ms.locfileid: "31798150"
 
 ## <a name="vm-size-guidance"></a>VM 大小指引
 
-對於需要高效能的應用程式，建議您採用下列 [虛擬機器大小](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)：
+對於需要高效能的應用程式，建議您採用下列 [虛擬機器大小](../sizes.md)：
 
-* **SQL Server Enterprise Edition**：DS3 或更高版本
-* **SQL Server Standard 和 Web Edition**：DS2 或更高版本
+* **SQL Server Enterprise 版：** DS3_v2 或更高版本
+* **SQL Server Standard 和 Web 版**：DS2_v2 或更高版本
+
+[DSv2 系列](../sizes-general.md#dsv2-series)的 VM 支援進階儲存體，是獲得最佳效能的建議選擇。 此處建議的大小只是基準，您選擇的實際機器大小仍以您的工作負載需求為準。 DSv2 系列的 VM 是一般目的 VM，適合用於各種工作負載，其他機器大小則是專為特定工作負載類型而經過最佳化。 舉例來說，[M 系列](../sizes-memory.md#m-series)提供最高的 vCPU 計數及記憶體，適用於最大型的 SQL Server 工作負載。 [GS 系列](../sizes-memory.md#gs-series)和 [DSv2 系列 11-15](../sizes-memory.md#dsv2-series-11-15) 則為大型記憶體需求經過最佳化。 這兩種系列都可以[有限的核心大小](../../windows/constrained-vcpu.md)提供，為計算需求較低的工作負載節省花費。 [Ls 系列](../sizes-storage.md)機器為高磁碟輸送量與 IO 經過最佳化。 請務必考量您的特定 SQL Server 工作負載，並應用在您的 VM 系列與大小選項。
 
 ## <a name="storage-guidance"></a>儲存體指引
 

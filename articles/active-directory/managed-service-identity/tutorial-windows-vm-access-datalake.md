@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: afd35c963c2c1c4badb32f7e8f7dba1dce87481c
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: a7935aa245239ed32527d2c22fd41845c6da2ae1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904283"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007962"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>教學課程：使用 Windows VM 受控服務識別 (MSI) 來存取 Azure Data Lake Store
 
@@ -32,7 +32,7 @@ ms.locfileid: "37904283"
 > * 將您的 VM 存取權授與 Azure Data Lake Store
 > * 使用 VM 身分識別取得存取權杖，並使用它存取 Azure Data Lake Store
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -53,7 +53,7 @@ ms.locfileid: "37904283"
 5. 若要選取要在其中建立虛擬機器的新 [資源群組]，請選擇 [新建]。 完成時，按一下 [確定]。
 6. 選取 VM 的大小。 若要查看更多大小，請選取 [檢視全部] 或變更 [支援的磁碟類型] 篩選條件。 在 [設定] 頁面上，保留預設值並按一下 [確定]。
 
-   ![替代映像文字](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+   ![替代映像文字](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>在您的 VM 上啟用 MSI 
 
@@ -63,11 +63,11 @@ VM MSI 可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您
 2. 在左側的導覽列上，按一下 [設定] 。 
 3. 您會看到**受控服務識別**。 若要註冊並啟用 MSI，請選取 [是]，如果您想要將它停用，則請選擇 [否]。 
 4. 按一下 [儲存] 確認儲存設定。  
-   ![替代映像文字](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+   ![替代映像文字](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 5. 如果您想要檢查並確認哪些延伸模組會在此 VM 上，請按一下 [延伸模組]。 如果 MSI 已啟用，則 **ManagedIdentityExtensionforWindows** 會出現在清單中。
 
-   ![替代映像文字](../media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
+   ![替代映像文字](media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>將您的 VM 存取權授與 Azure Data Lake Store
 

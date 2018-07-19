@@ -7,23 +7,24 @@ ms.author: raymondl
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: f87f865ef6d2c3403903a1bdcc402c01c3e9f939
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 4a49ccff68003cf7b81a7d945176992a2893d1ac
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831984"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38973170"
 ---
 # <a name="consuming-web-services"></a>取用 Web 服務
 將模型部署為即時 Web 服務後，您就可以對它傳送資料，並從各種不同的平台和應用程式取得預測。 即時 Web 服務會公開用來取得預測的 REST API。 您可以透過單一資料列或多重資料列格式將資料傳送給 Web 服務，以便一次取得一或多個預測。
 
 使用 [Azure Machine Learning Web 服務](model-management-service-deploy.md)，外部應用程式會藉由對服務 URL 發出 HTTP POST 呼叫，來與預測模型進行同步通訊。 若要發出 Web 服務呼叫，用戶端應用程式必須指定您在部署預測時所建立的 API 金鑰，並將要求資料放入 POST 要求本文。
 
-請注意，叢集部署模式才會有 API 金鑰。 本機 Web 服務不會有金鑰。
+> [!NOTE]
+> 請注意，叢集部署模式才會有 API 金鑰。 本機 Web 服務不會有金鑰。
 
 ## <a name="service-deployment-options"></a>服務部署選項
 Azure Machine Learning Web 服務可以部署到雲端式叢集以供生產和測試案例使用，也可以部署到使用 Docker 引擎的本機工作站。 這兩種情況下的預測模型功能會一樣。 叢集式部署會提供以 Azure Container Service 為基礎的解決方案，這個解決方案不僅可擴充，也會有優異的效能，至於本機部署則可用來偵錯。 
@@ -72,11 +73,11 @@ az ml service keys realtime -i <web service id>
 1. 在 Visual Studio 中，建立新的主控台應用程式： 
     * 在功能表中，按一下 [檔案] -> [新增] -> [專案]
     * 在 Visual Studio C# 底下，按一下 [Windows 類別桌面]，然後選取 [主控台應用程式]。
-2. 輸入 MyFirstService 來作為專案的名稱，然後按一下 [確定]。
-3. 在 [專案參考] 中，將參考設定為 System.Net 和 System.Net.Http。
-4. 按一下 [工具] -> [NuGet 套件管理員] -> [套件管理員主控台]，然後安裝 Microsoft.AspNet.WebApi.Client 套件。
-5. 開啟 Program.cs 檔案，並以下列程式碼取代其中的程式碼：
-6. 使用從 Web 服務取得的資訊來更新 SERVICE_URL 和 API_KEY 參數。
+2. 輸入 `MyFirstService` 作為專案的名稱，然後按一下 [確定]。
+3. 在 [專案參考] 中，將參考設定為 `System.Net` 和 `System.Net.Http`。
+4. 按一下 [工具] -> [NuGet 套件管理員] -> [套件管理員主控台]，然後安裝 **Microsoft.AspNet.WebApi.Client** 套件。
+5. 開啟 **Program.cs** 檔案，並以下列程式碼取代其中的程式碼：
+6. 使用從 Web 服務取得的資訊來更新 `SERVICE_URL` 和 `API_KEY` 參數。
 7. 執行專案。
 
 ```csharp

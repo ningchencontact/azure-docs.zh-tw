@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeedes
-ms.openlocfilehash: ee9c1494cb2bca4193bfe8b16b72ba5d317f9f3e
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: cbfb35df529a8caef59c459729225051a45a8ab1
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295465"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041770"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wingspan-etmf"></a>教學課程：Azure Active Directory 與 Wingspan eTMF 整合
 
@@ -33,7 +33,7 @@ Wingspan eTMF 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Wingspan eTMF 整合，您需要下列項目：
 
@@ -112,11 +112,11 @@ Wingspan eTMF 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/wingspanetmf-tutorial/tutorial_wingspanetmf_url11.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<customer name>.<instance name>.mywingspan.com/saml`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<customer name>.<instance name>.mywingspan.com/saml`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`http://saml.<instance name>.wingspan.com/shibboleth`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `http://saml.<instance name>.wingspan.com/shibboleth`
 
-    c. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://<customer name>.<instance name>.mywingspan.com/`
+    c. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<customer name>.<instance name>.mywingspan.com/`
      
     > [!NOTE] 
     > 這些都不是真正的值。 以實際的登入 URL、識別碼和回覆 URL 來更新這些值，包括實際的客戶名稱和執行個體名稱。 請連絡 [Wingspan eTMF 用戶端支援小組](http://www.wingspan.com/contact-us/)以取得這些值。 
@@ -204,7 +204,7 @@ Wingspan eTMF 與 Azure AD 整合提供下列優點：
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。 
 
-在存取面板中按一下 [Wingspan eTMF] 圖格，系統會將您重新導向至組織登入頁面。 成功登入之後，系統會將您登入 Wingspan eTMF 應用程式。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。
+在存取面板中按一下 [Wingspan eTMF] 圖格，系統會將您重新導向至組織登入頁面。 成功登入之後，系統會將您登入 Wingspan eTMF 應用程式。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

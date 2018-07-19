@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 69bc7d71e804ca33b984699ee30a44774542803f
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 91a89d5db7c763fc3fe275d6c01f5fe9dd9af3af
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960486"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125911"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT 中樞術語詞彙
 本文會列出 IoT 中樞文章中使用的一些常見術語。
@@ -121,7 +121,7 @@ Azure IoT 中樞中的自動裝置管理，可將管理大群大型裝置的許�
 [IoT 中樞](#iot-hub)可啟用一般裝置管理模式，包括重新開機、執行恢復出廠預設值，以及在裝置上執行韌體更新。
 
 ## <a name="device-rest-api"></a>裝置 REST API
-您可以使用[裝置 REST API](https://docs.microsoft.com/rest/api/iothub/device/device)，將裝置到雲端訊息從裝置傳送到 IoT 中樞，以及從 IoT 中樞接收[雲端到裝置](#cloud-to-device)訊息。 您通常應該使用如 IoT 中樞教學課程中所示的其中一個較高層級的[裝置 SDK](#azure-iot-device-sdks)。
+您可以使用[裝置 REST API](https://docs.microsoft.com/rest/api/iothub/device)，將裝置到雲端訊息從裝置傳送到 IoT 中樞，以及從 IoT 中樞接收[雲端到裝置](#cloud-to-device)訊息。 您通常應該使用如 IoT 中樞教學課程中所示的其中一個較高層級的[裝置 SDK](#azure-iot-device-sdks)。
 
 ## <a name="device-provisioning"></a>裝置佈建
 裝置佈建是將初始[裝置資料](#device-data)新增至解決方案中存放區的程序。 若要讓新裝置可連接到您的中樞，必須將裝置識別碼和金鑰新增至 IoT 中樞[身分識別登錄](#identity-registry)。 做為佈建程序的一部分，您可能需要初始化其他解決方案存放區中的裝置特定資料。
@@ -225,7 +225,7 @@ IoT 中樞的[作業監視](iot-hub-operations-monitoring.md)可讓您即時監�
 SASL PLAIN 是 [AMQP](#advanced-message-queue-protocol) 通訊協定用來傳輸安全性權杖的通訊協定。
 
 ## <a name="service-rest-api"></a>服務 REST API
-您可以從解決方案後端使用[服務 REST API](https://docs.microsoft.com/rest/api/iothub/service/service) 來管理您的裝置。 該 API 可讓您擷取及更新[裝置對應項](#device-twin)屬性、叫用[直接方法](#direct-method)，以及排程[作業](#job)。 您通常應該使用如 IoT 中樞教學課程中所示的其中一個較高層級的[服務 SDK](#azure-iot-service-sdks)。
+您可以從解決方案後端使用[服務 REST API](https://docs.microsoft.com/rest/api/iothub/service) 來管理您的裝置。 該 API 可讓您擷取及更新[裝置對應項](#device-twin)屬性、叫用[直接方法](#direct-method)，以及排程[作業](#job)。 您通常應該使用如 IoT 中樞教學課程中所示的其中一個較高層級的[服務 SDK](#azure-iot-service-sdks)。
 
 ## <a name="shared-access-signature"></a>共用存取簽章
 共用存取簽章 (SAS) 是以 SHA-256 安全雜湊或 URI 為基礎的驗證機制。 SAS 驗證有兩個元件：「共用存取原則」和「共用存取簽章」 (通常稱為權杖)。 裝置可使用 SAS 向 IoT 中樞進行驗證。 [後端應用程式](#back-end-app)也可使用 SAS 向 IoT 中樞上的服務面向端點進行驗證。 您通常會將 SAS 權杖包含在[連接字串](#connection-string)中，以便應用程式用於建立連往 IoT 中樞的連線。

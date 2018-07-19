@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: c2c93b8f6b4f8c4d888f7105f09e96dd9df7b574
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 72452382c4fd2f9c1acb0d773da5c7ed014f9bda
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902617"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001927"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>教學課程：使用 Windows VM 受控服務識別 (MSI) 來存取 Azure SQL
 
@@ -32,7 +32,7 @@ ms.locfileid: "37902617"
 > * 將您的 VM 存取權授與 Azure SQL 伺服器
 > * 使用 VM 身分識別取得存取權杖，並使用它查詢 Azure SQL 伺服器
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -53,7 +53,7 @@ ms.locfileid: "37902617"
 5.  若要選取要在其中建立虛擬機器的新 [資源群組]，請選擇 [新建]。 完成時，按一下 [確定]。
 6.  選取 VM 的大小。 若要查看更多大小，請選取 [檢視全部] 或變更 [支援的磁碟類型] 篩選條件。 在 [設定] 頁面上，保留預設值並按一下 [確定]。
 
-    ![替代映像文字](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![替代映像文字](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>在您的 VM 上啟用 MSI 
 
@@ -63,7 +63,7 @@ VM MSI 可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您
 2.  在左側的導覽列上，按一下 [設定] 。 
 3.  您會看到**受控服務識別**。 若要註冊並啟用 MSI，請選取 [是]，如果您想要將它停用，則請選擇 [否]。 
 4.  按一下 [儲存] 確認儲存設定。  
-    ![替代映像文字](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![替代映像文字](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>將您的 VM 存取權授與 Azure SQL 伺服器中的資料庫
 

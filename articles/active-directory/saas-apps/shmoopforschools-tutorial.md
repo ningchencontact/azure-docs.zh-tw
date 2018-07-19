@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: e9dc784d84c43600f3ba4fda92e023c01afe8995
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: b5826fd3067ac337808b9e27040dee808cd6a01c
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301128"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39045952"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>教學課程：Azure Active Directory 與 Shmoop For Schools 整合
 
@@ -34,9 +34,9 @@ Shmoop For Schools 與 Azure AD 整合提供下列優點：
 
 如需 SaaS 應用程式與 Azure AD 整合的詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Shmoop For Schools 整合，您需要下列項目：
+若要設定與 Shmoop For Schools 的 Azure AD 整合，您需要下列項目：
 
 - Azure AD 訂用帳戶
 - 已啟用 Shmoop For Schools 單一登入的訂用帳戶
@@ -76,17 +76,17 @@ Shmoop For Schools 與 Azure AD 整合提供下列優點：
 
     ![結果清單中的 Shmoop For Schools](./media/shmoopforschools-tutorial/tutorial_shmoopforschools_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定及測試 Azure AD 單一登入
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
 在本節中，您會以名為 "Britta Simon" 的測試使用者為基礎，設定及測試與 Shmoop For Schools 搭配運作的 Azure AD 單一登入。
 
 若要讓單一登入能夠運作，Azure AD 必須知道 Shmoop For Schools 與 Azure AD 中互相對應的使用者。 換句話說，必須在 Azure AD 使用者和 Shmoop For Schools 中的相關使用者之間建立連結關聯性。
 
-若要設定及測試與 Shmoop For Schools 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要使用 Shmoop For Schools 來設定並測試 Azure AD 單一登入，請完成下列建置組塊：
 
 1. [設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)，讓您的使用者能夠使用此功能。
 2. [建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)，以使用 Britta Simon 測試 Azure AD 單一登入。
-3. [建立 Shmoop For Schools 測試使用者](#create-a-shmoop-for-schools-test-user) - 在 Shmoop For Schools 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
+3. [建立 Shmoop For Schools 測試使用者](#create-a-shmoop-for-schools-test-user) - 在 Shmoop For Schools 中建立 Britta Simon 的對應項目，且該項目須與 Azure AD 中代表使用者的項目連結。
 4. [指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)，讓 Britta Simon 能夠使用 Azure AD 單一登入。
 5. [測試單一登入](#test-single-sign-on)，以驗證組態是否能運作。
 
@@ -104,7 +104,7 @@ Shmoop For Schools 與 Azure AD 整合提供下列優點：
  
     ![單一登入對話方塊](./media/shmoopforschools-tutorial/tutorial_shmoopforschools_samlbase.png)
 
-3. 在 [Shmoop For Schools 網域及 URL] 區段中，採取下列步驟：
+3. 在 [Shmoop For Schools 網域與 URL] 區段中，採取下列步驟：
 
     ![設定單一登入](./media/shmoopforschools-tutorial/tutorial_shmoopforschools_url.png)
 
@@ -115,7 +115,7 @@ Shmoop For Schools 與 Azure AD 整合提供下列優點：
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Shmoop For Schools 用戶端支援小組](mailto:support@shmoop.com)以取得這些值。 
  
-4. Shmoop For Schools 應用程式會預期要有特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中管理這些屬性的值。 下列螢幕擷取畫面說明如何設定判斷提示：
+4. Shmoop For Schools 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中管理這些屬性的值。 下列螢幕擷取畫面說明如何設定判斷提示：
 
     ![設定單一登入](./media/shmoopforschools-tutorial/tutorial_attribute.png)
 
@@ -227,7 +227,7 @@ Shmoop For Schools 與 Azure AD 整合提供下列優點：
 
 當您在存取面板中選取 [Shmoop For Schools] 圖格時，應該會自動登入您的 Shmoop For Schools 應用程式。
 
-如需存取面板的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

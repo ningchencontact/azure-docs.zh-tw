@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 250e9d6f4d5c3148f1e960a7683ba2417605ab65
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 95f8d4561855e31f6bbcfa03a2db7931265c3524
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212507"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048159"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-capriza-platform"></a>教學課程：Azure Active Directory 與 Capriza Platform 整合
 
@@ -33,7 +33,7 @@ ms.locfileid: "36212507"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Capriza Platform 的整合，您需要下列項目：
 
@@ -112,7 +112,7 @@ ms.locfileid: "36212507"
 
     ![設定單一登入](./media/capriza-tutorial/tutorial_caprizaplatform_url.png)
 
-    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<companyname>.capriza.com/<tenantid>`
+    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<companyname>.capriza.com/<tenantid>`
 
     > [!NOTE] 
     > 這不是真實的值。 請使用實際的登入 URL 來更新此值。 請連絡 [Capriza Platform 用戶端支援小組](mailTo:support@capriza.com)以取得此值。 
@@ -205,7 +205,7 @@ ms.locfileid: "36212507"
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在「存取面板」中按一下 [Capriza Platform] 圖格時，應該會自動登入您的 Capriza Platform 應用程式。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+當您在「存取面板」中按一下 [Capriza Platform] 圖格時，應該會自動登入您的 Capriza Platform 應用程式。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
 ms.author: maghan
-ms.openlocfilehash: d138b0c26ffc0a44947f79811fd586dda7df4509
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: de20d532112ca73f34f7cb603d043579c28179d6
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31419087"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071227"
 ---
 # <a name="how-to-migrate-power-bi-workspace-collection-content-to-power-bi-embedded"></a>如何將 Power BI 工作區集合內容移轉至 Power BI Embedded
 
@@ -118,17 +118,17 @@ ms.locfileid: "31419087"
 
 **流程**
 
-1. 呼叫 GET https://api.powerbi.com/v1.0/collections/{collection_id}/workspaces/{wid}/datasets/{dataset_id}/Default.GetBoundGatewayDataSources 並儲存已接收的連接字串。
+1. 呼叫 GET `https://api.powerbi.com/v1.0/collections/{collection_id}/workspaces/{wid}/datasets/{dataset_id}/Default.GetBoundGatewayDataSources` 並儲存已接收的連接字串。
 2. 從您的 Power BI 工作區集合工作區呼叫「下載 PBIX」API。
 3. 儲存 PBIX。
 4. 為您的 Power BI Embedded 工作區呼叫「匯入 PBIX」。
-5. 呼叫 - POST https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.SetAllConnections 更新連接字串
-6. 呼叫 - GET https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.GetBoundGatewayDataSources 取得 GW 識別碼與資料來源識別碼
-7. 呼叫 - PATCH https://api.powerbi.com/v1.0/myorg/gateways/{gateway_id}/datasources/{datasource_id} 更新使用者的認證
+5. 呼叫 - POST `https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.SetAllConnections` 更新連接字串
+6. 呼叫 - GET `https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.GetBoundGatewayDataSources` 取得 GW 識別碼與資料來源識別碼
+7. 呼叫 - PATCH `https://api.powerbi.com/v1.0/myorg/gateways/{gateway_id}/datasources/{datasource_id}` 更新使用者的認證
 
 #### <a name="old-dataset-and-reports"></a>舊的資料集和報表
 
-2016 年 10 月之前上傳的報表不支援「下載 PBIX」功能。
+2016 年 10 月之前上傳的報表不支援「下載 PBIX」功能。 
 
 **流程**
 
@@ -161,7 +161,7 @@ ms.locfileid: "31419087"
 
 1. 修改應用程式以使用 Power BI REST API 和 powerbi.com 內的報表位置。
 
-2. 使用應用程式的「主要」帳戶，重建您的 AuthN/AuthZ 驗證。 您可以藉由使用 [內嵌權杖](https://msdn.microsoft.com/library/mt784614.aspx) 來允許這位使用者代表其他使用者動作。
+2. 使用應用程式的「主要」帳戶，重建您的 AuthN/AuthZ 驗證。 您可以藉由使用「內嵌權杖」[](https://msdn.microsoft.com/library/mt784614.aspx)來允許這位使用者代表其他使用者動作。
 
 3. 將報表從 Power BI Embedded 內嵌到您的應用程式。 如需詳細資訊，請參閱[內嵌 Power BI 儀表板、報表和磚](https://powerbi.microsoft.com/documentation/powerbi-developer-embedding-content/)。
 

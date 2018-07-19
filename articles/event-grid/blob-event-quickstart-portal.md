@@ -8,12 +8,12 @@ ms.author: tomfitz
 ms.date: 07/05/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 4e547a97cde896acc4b6c8b19bc6c6cebf512adb
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 423995aecc6e5f29464ad140349ba27f89c75b5d
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867625"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068738"
 ---
 # <a name="create-and-route-blob-storage-events-with-the-azure-portal-and-event-grid"></a>使用 Azure 入口網站和 Event Grid 建立和路由傳送 Blob 儲存體
 
@@ -27,7 +27,7 @@ Azure Event Grid 是一項雲端事件服務。 在本文中，您會使用 Azur
 
 ## <a name="create-a-storage-account"></a>建立儲存體帳戶
 
-若要使用 Blob 儲存體事件，您需要 [Blob 儲存體帳戶](../storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts)或[一般用途 v2 儲存體帳戶](../storage/common/storage-account-options.md#general-purpose-v2)。 **一般用途 v2 (GPv2)** 儲存體帳戶支援所有儲存體服務 (包括 Blob、檔案、佇列和表格) 的所有功能。 **Blob 儲存體帳戶**是特製化的儲存體帳戶，可將非結構化資料儲存為 Azure 儲存體中的 Blob (物件)。 Blob 儲存體帳戶類似於一般用途儲存體帳戶，可共用所有強大的持續性、可用性、延展性以及您現今使用的效能功能，包括區塊 Blob 和附加 Blob 的 100% API 一致性。 對於只需要封鎖或附加 Blob 儲存體的應用程式，我們建議使用 Blob 儲存體帳戶。 
+若要使用 Blob 儲存體事件，您需要 [Blob 儲存體帳戶](../storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts)或[一般用途 v2 儲存體帳戶](../storage/common/storage-account-options.md#general-purpose-v2-accounts)。 **一般用途 v2 (GPv2)** 儲存體帳戶支援所有儲存體服務 (包括 Blob、檔案、佇列和表格) 的所有功能。 **Blob 儲存體帳戶**是特製化的儲存體帳戶，可將非結構化資料儲存為 Azure 儲存體中的 Blob (物件)。 Blob 儲存體帳戶類似於一般用途儲存體帳戶，可共用所有強大的持續性、可用性、延展性以及您現今使用的效能功能，包括區塊 Blob 和附加 Blob 的 100% API 一致性。 對於只需要封鎖或附加 Blob 儲存體的應用程式，我們建議使用 Blob 儲存體帳戶。 
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 

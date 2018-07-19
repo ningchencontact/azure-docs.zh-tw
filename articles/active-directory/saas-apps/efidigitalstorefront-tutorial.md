@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: c5b8b78940d1e7054fa36b630b6d59a4d0c5880f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8a92824a24cf3cb6e161101183468c66b553bc08
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36224040"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39053191"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-efi-digital-storefront"></a>教學課程：Azure Active Directory 與 EFI Digital StoreFront 整合
 
@@ -34,7 +34,7 @@ ms.locfileid: "36224040"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 EFI Digital StoreFront 整合，您需要下列項目：
 
@@ -110,9 +110,9 @@ ms.locfileid: "36224040"
 
     ![EFI Digital StoreFront 網域和 URL 單一登入資訊](./media/efidigitalstorefront-tutorial/tutorial_efidigital_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<companyname>.myprintdesk.net/DSF`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<companyname>.myprintdesk.net/DSF`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<companyname>.myprintdesk.net/DSF/asp4/`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<companyname>.myprintdesk.net/DSF/asp4/`
 
 4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
@@ -199,7 +199,7 @@ ms.locfileid: "36224040"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 EFI Digital StoreFront 圖格時，應該會自動登入您的 EFI Digital StoreFront 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

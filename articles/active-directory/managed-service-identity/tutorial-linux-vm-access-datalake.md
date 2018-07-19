@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 92bd7190832da6ee9da7d1679b9f27b66a15e3a4
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: ce38dabbe9aa69f7c54bb49888ad83e01a7c9522
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904300"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004875"
 ---
 # <a name="tutorial-use-managed-service-identity-for-a-linux-vm-to-access-azure-data-lake-store"></a>教學課程：使用 Linux VM 的受控服務識別來存取 Azure Data Lake Store
 
@@ -34,7 +34,7 @@ ms.locfileid: "37904300"
 > * 將您的 VM 存取權授與 Azure Data Lake Store。
 > * 使用 VM 身分識別取得存取權杖，並使用它來存取 Azure Data Lake Store。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -52,7 +52,7 @@ ms.locfileid: "37904300"
 2. 選取 [計算]，然後選取 [Ubuntu Server 16.04 LTS]。
 3. 輸入虛擬機器資訊。 針對 [驗證類型] 選取 [SSH 公開金鑰] 或 [密碼]。 建立的認證可讓您登入 VM。
 
-   ![用來建立虛擬機器的「基本」窗格](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+   ![用來建立虛擬機器的「基本」窗格](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. 在 [訂用帳戶] 清單中，選取虛擬機器的訂用帳戶。
 5. 若要選取需要在其中建立虛擬機器的新資源群組，請選擇 [資源群組] > [新建]。 完成時，請選取 [確定]。
@@ -65,7 +65,7 @@ VM MSI 可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您
 1. 在 [虛擬機器] 中，選取您需要在其中啟用 MSI 的虛擬機器。
 2. 在左窗格中，選取 [設定]。
 3. 您會看到**受控服務識別**。 若要註冊並啟用 MSI，請選取 [是]。 如果您需要將它停用，請選取 [否]。
-   ![「向 Azure Active Directory 註冊」選取項目](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+   ![「向 Azure Active Directory 註冊」選取項目](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 4. 選取 [ **儲存**]。
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>將您的 VM 存取權授與 Azure Data Lake Store

@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 9a1a1f1a1866e5221775d583a9bafe86eef17131
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d5cdc2ec0c6cfcf52f84629485d0dd879fbf6fa2
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221218"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39053993"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>教學課程：Azure Active Directory 與 Adobe Sign 整合
 
-在本教學課程中，您將了解如何整合 Adobe Sign 與 Azure Active Directory (Azure AD)。
+在本教學課程中，您會了解如何將 Adobe Sign 與 Azure Active Directory (Azure AD) 整合。
 
 將 Adobe Sign 與 Azure AD 整合可提供下列優點：
 
@@ -33,7 +33,7 @@ ms.locfileid: "36221218"
 
 如需有關 SaaS 應用程式與 Azure AD 整合的詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Adobe Sign 整合，您需要：
 
@@ -83,8 +83,8 @@ ms.locfileid: "36221218"
 
 若要設定及測試與 Adobe Sign 搭配運作的 Azure AD 單一登入，請完成下列基本工作：
 
-1. [設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on) - 讓您的使用者能夠使用此功能。
-2. [建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user) - 使用 Britta Simon 來測試 Azure AD 單一登入。
+1. [設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)，讓您的使用者能夠使用此功能。
+2. [建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)，以使用 Britta Simon 測試 Azure AD 單一登入。
 3. [建立 Adobe Sign 測試使用者](#creating-an-adobe-sign-test-user) - 讓 Adobe Sign 中的 Britta Simon 對應項目得以連結至 Azure AD 中代表該使用者的項目。
 4. [指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)，讓 Britta Simon 能夠使用 Azure AD 單一登入。
 5. [測試單一登入](#testing-single-sign-on) - 驗證設定是否能運作。
@@ -252,7 +252,7 @@ ms.locfileid: "36221218"
     
 ### <a name="test-single-sign-on"></a>測試單一登入
 
-當您在「存取面板」中選取 [Adobe Sign] 圖格時，應該就會自動登入 Adobe Sign 應用程式。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。
+當您在「存取面板」中選取 [Adobe Sign] 圖格時，應該就會自動登入 Adobe Sign 應用程式。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

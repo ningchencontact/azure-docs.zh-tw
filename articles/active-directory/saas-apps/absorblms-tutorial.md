@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 4aa2a2f41bcdd78991184e026f22f8e04754eccb
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 066ae92056e4b80b6627b371d6ebeb3235b2781d
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36286108"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39043773"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>教學課程：Azure Active Directory 與 Absorb LMS
 
@@ -34,7 +34,7 @@ ms.locfileid: "36286108"
 
 若您想深入了解軟體即服務 (SaaS) 應用程式與 Azure AD 整合，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定與 Absorb LMS 的 Azure AD 整合，您需要下列項目：
 
@@ -266,7 +266,7 @@ ms.locfileid: "36286108"
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入組態。
 
-在 [存取面板] 中，選取 [Absorb LMS] 磚，就會自動將您登入 Absorb LMS 應用程式。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。
+在 [存取面板] 中，選取 [Absorb LMS] 磚，就會自動將您登入 Absorb LMS 應用程式。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

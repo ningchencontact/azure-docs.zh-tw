@@ -2,20 +2,20 @@
 title: Azure SQL Database 的資料探索與分類 | Microsoft Docs
 description: Azure SQL Database 的資料探索與分類
 services: sql-database
-author: giladm
+author: giladmit
 manager: craigg
 ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: security
 ms.topic: conceptual
-ms.date: 05/18/2018
+ms.date: 07/10/2018
 ms.author: giladm
-ms.openlocfilehash: 673286c8dc9ec688199fe80cf5a763f249192de5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cc093bebb4b3c39140d6fa5370a78d59168990fa
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646774"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950800"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL Database 的資料探索與分類
 資料探索與分類 (目前處於預覽階段) 提供內建於 Azure SQL Database 的進階功能，可用於**探索**、**分類**、**標記** & **保護**資料庫中的敏感性資料。
@@ -49,55 +49,66 @@ ms.locfileid: "34646774"
 
 2. 瀏覽至 [Azure SQL Database] 窗格中 [安全性] 標題下的 [進階威脅防護]。 按一下以啟用進階威脅防護，然後按一下 [資料探索與分類 (預覽)] 卡片。
 
-   ![掃描資料庫](./media/sql-data-discovery-and-classification/data_classification.png) 
+   ![掃描資料庫](./media/sql-data-discovery-and-classification/data_classification.png)
 
 3. [概觀] 索引標籤包含資料庫目前分類狀態的摘要，包括所有已分類資料行的詳細清單，您也可以篩選這些資料行來只檢視特定的結構描述組件、資訊類型與標籤。 如果您尚未分類任何資料行，請[跳至步驟 5](#step-5)。
 
-   ![目前分類狀態的摘要](./media/sql-data-discovery-and-classification/2_data_classification_overview_dashboard.png) 
+   ![目前分類狀態的摘要](./media/sql-data-discovery-and-classification/2_data_classification_overview_dashboard.png)
 
 4. 若要下載 Excel 格式的報表，請按一下視窗頂端功能表中的 [匯出] 選項。
 
-   ![匯出至 Excel](./media/sql-data-discovery-and-classification/3_data_classification_export_report.png) 
+   ![匯出至 Excel](./media/sql-data-discovery-and-classification/3_data_classification_export_report.png)
 
 5.  <a id="step-5"></a>若要開始分類資料，請按一下視窗頂端的 [分類] 索引標籤。
 
-    ![分類您的資料](./media/sql-data-discovery-and-classification/4_data_classification_classification_tab_click.png) 
+    ![分類您的資料](./media/sql-data-discovery-and-classification/4_data_classification_classification_tab_click.png)
 
 6. 分類引擎會掃描您的資料庫，以尋找包含可能是敏感性資料的資料行，並提供 [建議的資料行分類] 清單。 檢視並套用分類建議：
 
     * 若要檢視建議的資料行分類清單，請按一下視窗底部的建議面板：
-    
-      ![分類您的資料](./media/sql-data-discovery-and-classification/5_data_classification_recommendations_panel.png) 
+
+      ![分類您的資料](./media/sql-data-discovery-and-classification/5_data_classification_recommendations_panel.png)
 
     * 檢閱建議清單：若要接受針對特定資料行的建議，請選取相關資料列左側資料行中的核取方塊。 您也可以選取建議資料表標頭中的核取方塊，將「所有建議」標記為接受。
 
-       ![檢閱建議清單](./media/sql-data-discovery-and-classification/6_data_classification_recommendations_list.png) 
+       ![檢閱建議清單](./media/sql-data-discovery-and-classification/6_data_classification_recommendations_list.png)
 
     * 若要套用選取的建議，請按一下藍色的 [接受選取的建議] 按鈕。
 
-      ![套用建議](./media/sql-data-discovery-and-classification/7_data_classification_accept_selected_recommendations.png) 
+      ![套用建議](./media/sql-data-discovery-and-classification/7_data_classification_accept_selected_recommendations.png)
 
 7. 您也可以選擇將資料行「手動分類」，或同時採用手動分類和建議分類：
 
     * 按一下視窗頂端功能表中的 [新增分類]。
-  
-      ![手動新增分類](./media/sql-data-discovery-and-classification/8_data_classification_add_classification_button.png) 
+
+      ![手動新增分類](./media/sql-data-discovery-and-classification/8_data_classification_add_classification_button.png)
 
     * 在開啟的內容視窗中，選取您想分類的 [結構描述] > [資料表] > [資料行]，以及資訊類型和敏感度標籤。 然後按一下內容視窗底部的藍色 [新增分類] 按鈕。
 
-      ![選取要分類的資料行](./media/sql-data-discovery-and-classification/9_data_classification_manual_classification.png) 
+      ![選取要分類的資料行](./media/sql-data-discovery-and-classification/9_data_classification_manual_classification.png)
 
 8. 若要完成分類，並持續以新的分類中繼資料標記資料庫資料行，請按一下視窗頂端功能表中的 [儲存]。
 
-   ![儲存](./media/sql-data-discovery-and-classification/10_data_classification_save.png) 
+   ![儲存](./media/sql-data-discovery-and-classification/10_data_classification_save.png)
 
 ## <a id="subheading-3"></a>對敏感性資料的存取進行稽核
 
 資訊保護範例的重要層面是能夠監視對敏感性資料的存取。 我們已強化 [Azure SQL Database 稽核](https://docs.microsoft.com/azure/sql-database/sql-database-auditing)，並在稽核記錄中包含新欄位 *data_sensitivity_information*，其中會記錄查詢所傳回之實際資料的敏感度分類 (標籤)。
 
-![稽核記錄檔](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png) 
+![稽核記錄檔](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
-## <a id="subheading-4"></a>後續步驟
+## <a id="subheading-4"></a>自動/程式設計分類
+
+您可以使用 T-SQL 新增/移除資料行分類，以及擷取整個資料庫的所有分類。
+
+> [!NOTE]
+> 使用 T-SQL 管理標籤時，系統不會驗證新增到資料行的標籤是否存在於組織資訊保護原則 (顯示於入口網站建議中的那組標籤)。 因此，這項驗證會由您執行。
+
+* 新增/更新一或多個資料行的分類：[ADD SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/en-us/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
+* 從一或多個資料行移除分類：[DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/en-us/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
+* 檢視資料庫上的所有分類：[sys.sensitivity_classifications](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
+
+## <a id="subheading-5"></a>後續步驟
 
 - 深入了解 [SQL 進階威脅防護](sql-advanced-threat-protection.md)。
 - 請考慮設定 [Azure SQL Database 稽核](https://docs.microsoft.com/azure/sql-database/sql-database-auditing)，以監視和稽核對已分類敏感性資料的存取。
@@ -106,4 +117,5 @@ ms.locfileid: "34646774"
 [SQL Data Discovery & Classification overview]: #subheading-1
 [Discovering, classifying & labeling sensitive columns]: #subheading-2
 [Auditing access to sensitive data]: #subheading-3
-[Next Steps]: #subheading-4
+[Automated/Programmatic classification]: #subheading-4
+[Next Steps]: #subheading-5

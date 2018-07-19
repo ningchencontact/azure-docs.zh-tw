@@ -3,7 +3,7 @@ title: 使用 Azure Active Directory 認證登入 Linux VM | Microsoft Docs
 description: 在此做法指示中，您將了解如何建立及設定要將 Azure Active Directory 驗證用於使用者登入的 Linux VM
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/16/2018
-ms.author: iainfou
-ms.openlocfilehash: 96cc7aeb5fd1c64dc3793a801a4a5b759e7558b9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 06/17/2018
+ms.author: cynthn
+ms.openlocfilehash: 614375c95f4af3a5fbeeb4368ff8c577372e6381
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652867"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37933950"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>在 Azure 中使用 Azure Active Directory 驗證登入 Linux 虛擬機器 (預覽)
 
@@ -46,8 +46,9 @@ ms.locfileid: "34652867"
 | 配送映像 | 版本 |
 | --- | --- |
 | CentOS | CentOS 6.9 和 CentOS 7.4 |
-| RedHat Enterprise Linux | RHEL 7 | 
-| Ubuntu Server | Ubuntu 14.04 LTS、Ubuntu Server 16.04 和 Ubuntu Server 17.10 |
+| Debian | Debian 9 |
+| RedHat Enterprise Linux | RHEL 6、RHEL 7 | 
+| Ubuntu Server | Ubuntu 14.04 LTS、Ubuntu Server 16.04、Ubuntu Server 17.10 和 Ubuntu Server 18.04 |
 
 以下是目前在這項功能的預覽期間支援的 Azure 區域：
 
@@ -178,4 +179,4 @@ Access denied
 
 ## <a name="next-steps"></a>後續步驟
 
-如需 Azure Active Directory 的詳細資訊，請參閱[什麼是 Azure Active Directory](../../active-directory/active-directory-whatis.md) 和[如何開始使用 Azure Active Directory](../../active-directory/get-started-azure-ad.md)。
+如需 Azure Active Directory 的詳細資訊，請參閱[什麼是 Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) 和[如何開始使用 Azure Active Directory](../../active-directory/fundamentals/get-started-azure-ad.md)。

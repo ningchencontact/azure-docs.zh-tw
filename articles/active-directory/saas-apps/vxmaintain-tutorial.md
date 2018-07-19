@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: fc8918ed2901d2f443b94bac8587e24c3f04eeec
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 6362bcb701b444c8cd71b270222ce4f87b4cc2e3
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308742"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39055853"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>教學課程：Azure Active Directory 與 vxMaintain 整合
 
@@ -33,7 +33,7 @@ ms.locfileid: "36308742"
 
 若要深入了解 SaaS 應用程式與 Azure AD 整合，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 vxMaintain 整合，您需要下列項目：
 
@@ -195,7 +195,7 @@ ms.locfileid: "36308742"
 
 在存取面板中選取 [vxMaintain] 圖格時，應該會自動登入您的 vxMaintain 應用程式。
 
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

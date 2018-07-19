@@ -12,36 +12,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2018
+ms.date: 06/14/2018
 ms.author: barclayn
-ms.openlocfilehash: 1a6ff01274c4a47730ffe45275aed9d122994260
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 37620e70377e3f1fbeeeb73aaa294c5f54cf5b3d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366268"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723770"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure 中 IaaS 工作負載的安全性最佳作法
 
-當您開始思考將工作負載移至 Azure 基礎結構即服務 (IaaS) 時，您可能會領悟到有些考量很熟悉。 您可能已經體驗虛擬環境保護。 當您移至 Azure IaaS 時，您可以運用您在保護虛擬環境方面的專業知識，並使用一組新選項來協助您保護資產。
-
-我們先假設我們不應該預期以一對一的方式將內部部署資源引進 Azure。 新的挑戰與新的選項帶來了重新評估現有設計、工具和程序的機會。
+在大部分的基礎結構即服務 (IaaS) 案例中，[Azure 虛擬機器 (VM)](https://docs.microsoft.com/azure/virtual-machines/) 對於使用雲端運算的組織來說是主要工作負載。 在組織想要慢慢地將工作負載移轉至雲端的[混合式案例](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx)中，這特別顯得重要。 在這種情況下，請遵循 [IaaS 的一般安全性考量](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx)，並將安全性最佳作法套用到您所有的 VM。
 
 您的安全性責任是根據雲端服務的類型。 下表摘要說明 Microsoft 與您所擔負之責任的平衡：
 
-
 ![責任範圍](./media/azure-security-iaas/sec-cloudstack-new.png)
 
+安全性需求會取決於多項因素而有所不同，包括不同的工作負載類型。 任何其中一個最佳作法均無法獨自保護您的系統。 如同任何其他安全性項目，您必須選擇適當的選項，以及了解解決方案如何藉由滿足不足之處來彼此互補。
 
-我們將討論 Azure 中一些可用的選項，以協助您符合組織的安全性需求。 請記住，不同類型的工作負載會有不同的安全性需求。 任何其中一個最佳作法均無法獨自保護您的系統。 如同任何其他安全性項目，您必須選擇適當的選項，以及了解解決方案如何藉由滿足不足之處來彼此互補。
+這篇文章討論各種 VM 安全性最佳做法，每個都衍生自客戶和 Microsoft 自己使用 VM 的直接體驗。
+
+最佳作法是根據共識的意見，並使用目前的 Azure 平台功能及功能集。 由於意見和技術會隨著時間改變，因此本文會經過更新以反映這些變化。
 
 ## <a name="use-privileged-access-workstations"></a>使用特殊權限存取工作站
 
-組織往往因為系統管理員在使用具提高權限的帳戶時執行動作，而成為網路攻擊的受害者。 這通常不是惡意行為，而是因為現有的組態和程序允許這麼做。 大部分使用者可從概念性觀點了解這些動作的風險，但仍然選擇這麼做。
+組織往往因為系統管理員在使用具提高權限的帳戶時執行動作，而成為網路攻擊的受害者。 雖然這不一定是惡意活動的結果，但都是因為現有的設定及流程允許才發生。 大部分使用者可從概念性觀點了解這些動作的風險，但仍然選擇這麼做。
 
 檢查電子郵件和瀏覽網際網路等作業看似無害。 但是它們可能會公開提升權限的帳戶，讓惡意執行者入侵。 瀏覽活動、特製的電子郵件或其他技術可以用來存取您的企業。 我們強烈建議使用安全管理工作站 (SAW) 來進行所有的 Azure 系統管理工作。 SAW 是減少遭到意外入侵的方式。
 
-特殊權限存取工作站 (PAW) 提供敏感性工作的專用作業系統，此系統可免於遭受網際網路攻擊和威脅載體攻擊。 區隔每日使用工作站和裝置之間的這些機密工作和帳戶，提供增強式保護。 這個區隔會限制釣魚攻擊、應用程式和 OS 弱點、各種模擬攻擊和認證竊取攻擊的影響。 (按鍵輸入記錄、傳遞雜湊與傳遞票證)
+特殊權限存取工作站 (PAW) 提供敏感性工作的專用作業系統，此系統可免於遭受網際網路攻擊和威脅載體攻擊。 將敏感性工作與帳戶從日常使用的工作站和裝置區隔出來，能提供增強的保護。 這個區隔會限制釣魚攻擊、應用程式和 OS 弱點、各種模擬攻擊和認證竊取攻擊的影響。 (按鍵輸入記錄、傳遞雜湊與傳遞票證)
 
 PAW 方法是完善且建議之作法的延伸，可使用個別指派的系統管理帳戶。 系統管理帳戶與標準使用者帳戶不同。 PAW 會為這些敏感性帳戶提供可靠的工作站。
 
@@ -49,7 +49,7 @@ PAW 方法是完善且建議之作法的延伸，可使用個別指派的系統�
 
 ## <a name="use-multi-factor-authentication"></a>使用 Multi-Factor Authentication
 
-在過去，您的網路周邊用於控制公司資料的存取。 在雲端優先、行動優先的世界裡，身分識別是控制層︰您可使用它來控制從任何裝置存取 IaaS 服務。 您也可使用它來清楚看見及深入了解您的資料使用位置和方式。 保護 Azure 使用者的數位身分識別，就是保護訂用帳戶免於遭受身分盜用和其他網路犯罪的基石。
+以往使用網路周邊來控制公司資料的存取。 在雲端優先、行動優先的世界裡，身分識別是控制層︰您可使用它來控制從任何裝置存取 IaaS 服務。 您也可使用它來清楚看見及深入了解您的資料使用位置和方式。 保護 Azure 使用者的數位身分識別，就是保護訂用帳戶免於遭受身分盜用和其他網路犯罪的基石。
 
 保護帳戶時，您可採取之最有幫助的步驟之一就是啟用雙因素驗證。 雙因素驗證是不只使用密碼的驗證方法。 它有助於緩和設法取得他人密碼的人員所造成的存取風險。
 
@@ -65,7 +65,7 @@ PAW 方法是完善且建議之作法的延伸，可使用個別指派的系統�
 
 ## <a name="limit-and-constrain-administrative-access"></a>限制系統管理存取權
 
-保護可管理 Azure 訂用帳戶的帳戶極為重要。 這類帳戶若遭到入侵，就否定您為了確保資料機密性和完整性而可能採取之其他所有步驟的價值。 如 [Edward Snowden](https://en.wikipedia.org/wiki/Edward_Snowden) 最近所述，內部攻擊會對任何組織的整體安全性造成巨大威脅。
+為能夠管理 Azure 訂用帳戶的帳戶提供保護相當重要。 這類帳戶若遭到入侵，就否定您為了確保資料機密性和完整性而可能採取之其他所有步驟的價值。 如 [Edward Snowden](https://en.wikipedia.org/wiki/Edward_Snowden) 最近所述，內部攻擊會對任何組織的整體安全性造成巨大威脅。
 
 遵循類似下面的準則來評估個人的系統管理權限︰
 
@@ -75,14 +75,13 @@ PAW 方法是完善且建議之作法的延伸，可使用個別指派的系統�
 
 記錄所有其他授與權限的已知替代方法，以及無法接受每種方法的原因。
 
-使用即時管理可防止在不需要提高權限的期間內，不必要存在具有提高權限的帳戶。 帳戶在有限的時間內具有提高的權限，可讓系統管理員執行其作業。 然後，在輪班結束或工作完成時移除這些權限。
+Just-In-Time 管理可以防止具有較高權限的帳戶在不需要這些權限時，成為不必要的存在。 帳戶在有限的時間內具有提高的權限，可讓系統管理員執行其作業。 然後，在輪班結束或工作完成時移除這些權限。
 
-您可以使用 [Privileged Identity Management](../active-directory/active-directory-privileged-identity-management-configure.md) 來管理、監視和控制您組織中的存取權。 它可協助您隨時留意貴組織內個人所採取的動作。 它也可採用合格系統管理員的概念，將即時系統管理引進 Azure AD。 這些是具有帳戶且可能被授與系統管理員權限的人員。 這些類型的使用者可以完成啟動程序，並且在有限的時間內被授與系統管理員權限。
-
+您可以使用 [Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) 來管理、監視和控制您組織中的存取權。 它可協助您隨時留意貴組織內個人所採取的動作。 它也可採用合格系統管理員的概念，將即時系統管理引進 Azure AD。 這些是具有帳戶且可能被授與系統管理員權限的人員。 這些類型的使用者可以完成啟動程序，並且在有限的時間內被授與系統管理員權限。
 
 ## <a name="use-devtest-labs"></a>使用 DevTest Labs
 
-將 Azure 使用於實驗室和開發環境，可讓組織排除硬體採購所造成的延遲，進而獲得測試和開發靈活度。 不幸的是，不熟悉 Azure 或渴望協助促進其採用，可能會導致系統管理員的權限指派過度寬鬆。 此風險可能會不小心讓組織暴露於內部攻擊。 有些使用者可能會被授與超出其應該擁有的存取權。
+用於實驗室和部署環境的 Azure 除去了硬體採購帶來的延遲。 這讓組織能夠提升測試與開發方面的敏捷度。 另一方面而言，不熟悉 Azure 或亟欲加速採用，則可能會導致系統管理員的權限指派過於寬鬆。 此風險可能會不小心讓組織暴露於內部攻擊。 有些使用者可能會被授與超出其應該擁有的存取權。
 
 [Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) 服務會使用 [Azure 角色型存取控制](../role-based-access-control/overview.md) (RBAC)。 透過使用 RBAC，您可以將小組內的職責區隔為各種角色，而僅授與使用者執行其作業所需的存取層級。 RBAC 隨附預先定義的角色 (擁有者、實驗室使用者和參與者)。 您甚至可以使用這些角色來指派權限給外部合作夥伴，大幅簡化共同作業。
 
@@ -97,11 +96,9 @@ Azure DevTest Labs 的功能包括︰
 - 自助式服務可讓使用者利用範本佈建自己的實驗室。
 - 管理和限制取用。
 
-![使用 DevTest Labs 建立實驗室](./media/azure-security-iaas/devtestlabs.png)
+![DevTest Labs](./media/azure-security-iaas/devtestlabs.png)
 
 使用 DevTest Labs 沒有額外的相關成本。 建立實驗室、原則、範本和構件是免費的。 您只需要針對在實驗室內使用到的 Azure 資源 (例如虛擬機器、儲存體帳戶和虛擬網路) 支付費用。
-
-
 
 ## <a name="control-and-limit-endpoint-access"></a>控制和限制端點存取
 
@@ -109,17 +106,24 @@ Azure DevTest Labs 的功能包括︰
 
 Azure 中的技術可協助您限制這些系統管理端點的存取。 在 Azure 中，您可以使用[網路安全性群組](../virtual-network/security-overview.md) (NSG)。 當您使用 Azure Resource Manager 進行部署時，NSG 會將來自所有網路的存取侷限於管理端點 (RDP 或 SSH)。 當您想到 NSG 時，您就會想到路由器 ACL。 您可以使用它們來嚴格控制 Azure 網路的各種區段之間的網路通訊。 這類似於在周邊網路或其他隔離的網路中建立網路。 它們不會檢查流量，但有助於與網路分割。
 
+限制虛擬機器存取還有一個更靈活的方法，是使用 Azure 資訊安全中心的 [Just in time 管理](../security-center/security-center-just-in-time.md)。 資訊安全中心可以鎖定 Azure VM，並在需要時提供存取。 這個流程的運作方式是在依據使用者的[角色型存取控制](../role-based-access-control/role-assignments-portal.md) (RBAC) 來驗證他們擁有必要權限後，為要求存取的使用者提供存取。 Azure 資訊安全中心接著會建立必要的網路安全性群組 (NSG) 以允許連入流量。
 
-在 Azure 中，您可以設定從內部部署網路進行的[網站間 VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)。 網站間 VPN 會將您的內部部署網路擴充至雲端。 這會提供給您使用 NSG 的另一個機會，因為您也可以修改 NSG，不允許從區域網路以外的任何地方進行存取。 然後，您可以要求先透過 VPN 連線到 Azure 網路來進行管理。
+### <a name="site-to-site-vpnvpn-gatewayvpn-gateway-howto-site-to-site-resource-manager-portalmd"></a>[站對站 VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+
+網站間 VPN 會將您的內部部署網路擴充至雲端。 這會提供給您使用 NSG 的另一個機會，因為您也可以修改 NSG，不允許從區域網路以外的任何地方進行存取。 然後，您可以要求先透過 VPN 連線到 Azure 網路來進行管理。
 
 當您在 Azure 中裝載與您的內部部署資源緊密整合的生產系統時，網站間 VPN 選項可能最具吸引力。
 
-此外，當您想要管理不需要存取內部部署資源的系統時，可以使用[點對站](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)選項。 這些系統在自己的 Azure 虛擬網路中可能是孤立的。 系統管理員可以透過 VPN 從自己的系統管理工作站連線到 Azure 託管環境。
+### <a name="point-to-sitevpn-gatewayvpn-gateway-howto-point-to-site-rm-psmd"></a>[點對站](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
+
+在某些情況下，您會想要管理不需要內部部署資源存取的系統。 這些系統在自己的 Azure 虛擬網路中可能是孤立的。 系統管理員可以透過 VPN 從自己的系統管理工作站連線到 Azure 託管環境。
 
 >[!NOTE]
 >您可以使用任何一個 VPN 選項將 NSG 的 ACL 重新設定為不允許從網際網路存取管理端點。
 
-另一個值得考慮的選項是[遠端桌面閘道](../active-directory/authentication/howto-mfaserver-nps-rdg.md)部署。 您可以使用此部署，透過 HTTPS 安全地連線到遠端桌面伺服器，同時對這些連線套用更詳細的控制。
+### <a name="remote-desktop-gatewayactive-directoryauthenticationhowto-mfaserver-nps-rdgmd"></a>[遠端桌面閘道器](../active-directory/authentication/howto-mfaserver-nps-rdg.md)
+
+您可以使用遠端多面閘道，透過 HTTPS 安全地連線到遠端桌面伺服器，同時對這些連線套用更詳細的控制。
 
 您可以存取的功能包括︰
 
@@ -128,6 +132,12 @@ Azure 中的技術可協助您限制這些系統管理端點的存取。 在 Azu
 - 控制人員可以透過閘道連接到哪些系統。
 - 控制裝置與磁碟重新導向。
 
+### <a name="vm-availability"></a>VM 可用性
+
+如果 VM 會執行需要具備高可用性的重要應用程式，則強烈建議使用多個 VM。 如需更佳的可用性，請在[可用性設定組](../virtual-machines/windows/tutorial-availability-sets.md)中至少建立兩個 VM。
+
+[Azure Load Balancer](../load-balancer/load-balancer-overview.md) 也會要求已負載平衡的 VM 屬於同一個可用性設定組。 如果需要從網際網路存取這些 VM，您必須設定[網際網路面向的負載平衡器](../load-balancer/load-balancer-internet-overview.md)。
+
 ## <a name="use-a-key-management-solution"></a>使用金鑰管理解決方案
 
 安全的金鑰管理對於保護雲端資料十分重要。 有了 [Azure 金鑰保存庫](../key-vault/key-vault-whatis.md)，您即可安全地儲存加密金鑰和小型密碼，例如硬體安全性模組 (HSM) 中的密碼。 為了加強保證，您可以在 HSM 中匯入或產生金鑰。
@@ -135,7 +145,6 @@ Azure 中的技術可協助您限制這些系統管理端點的存取。 在 Azu
 Microsoft 會在進行過 FIPS 140-2 Level 2 驗證的 HSM (硬體和韌體) 中處理您的金鑰。 透過 Azure 記錄來監視及稽核金鑰的使用：將記錄傳送到 Azure 中，或您的安全性資訊及事件管理 (SIEM) 系統，以進行其他分析及威脅偵測。
 
 只要擁有 Azure 訂用帳戶，任何人都可以建立和使用金鑰保存庫。 雖然 Key Vault 有益於開發人員和安全性系統管理員，但組織中負責管理 Azure 服務的系統管理員也可以實作並加以管理。
-
 
 ## <a name="encrypt-virtual-disks-and-disk-storage"></a>將虛擬磁碟和磁碟儲存體加密
 
@@ -156,13 +165,14 @@ Microsoft 會在進行過 FIPS 140-2 Level 2 驗證的 HSM (硬體和韌體) 中
 
 ## <a name="use-a-centralized-security-management-system"></a>使用集中式安全性管理系統
 
-您必須監視伺服器是否需要修補、設定，或是否有可能被視為安全性疑慮的事件和活動。 若要解決這些疑慮，您可以使用[資訊安全中心](https://azure.microsoft.com/services/security-center/)和 [Operations Management Suite 安全性和法規遵循](https://azure.microsoft.com/services/security-center/)。 這兩個選項都超出作業系統的設定範圍。 它們也可供監視基礎結構的組態 (例如網路組態) 和虛擬設備使用情況。
+您必須監視伺服器是否有可能視為安全性疑慮的修補、設定、事件及活動。 若要解決這些疑慮，您可以使用[資訊安全中心](https://azure.microsoft.com/services/security-center/)和 [Operations Management Suite 安全性和法規遵循](https://azure.microsoft.com/services/security-center/)。 這兩個選項都超出作業系統的設定範圍。 它們也可供監視基礎結構的組態 (例如網路組態) 和虛擬設備使用情況。
 
 ## <a name="manage-operating-systems"></a>管理作業系統
 
 在 IaaS 部署中，您仍然負責管理您所部署的系統，就像管理您環境中的任何其他伺服器或工作站一樣。 修補、強化、權限指派以及與系統維護相關的其他活動仍是您的責任。 對於與內部部署資源緊密整合的系統，您可以使用您在內部部署使用的相同工具和程序，來處理防毒、防惡意程式、修補和備份等事項。
 
 ### <a name="harden-systems"></a>強化系統
+
 Azure IaaS 中的所有虛擬機器都應該強化，使其只會公開已安裝的應用程式所需的服務端點。 對於 Windows 虛擬機器，請遵循 Microsoft 所發佈的建議，做為 [Security Compliance Manager](https://technet.microsoft.com/solutionaccelerators/cc835245.aspx) 解決方案的基準。
 
 Security Compliance Manager 是免費的工具。 它可讓您使用群組原則和 System Center Configuration Manager 快速設定及管理桌上型電腦、傳統資料中心、私人和公用雲端。
@@ -178,12 +188,12 @@ Security Compliance Manager 可提供已準備好部署的原則和經過測試�
 
 對於與您的生產環境分開裝載的環境，您可以使用反惡意程式碼擴充功能來協助保護虛擬機器和雲端服務。 該擴充功能會與 [Azure 資訊安全中心](../security-center/security-center-intro.md)整合。
 
-
 [Microsoft Antimalware](azure-security-antimalware.md) 包含下列功能：即時防護、排程掃描、惡意程式碼補救、簽章更新、引擎更新、範例報告、排除事件收集和 [PowerShell 支援](https://msdn.microsoft.com/library/dn771715.aspx)。
 
 ![Azure Antimalware](./media/azure-security-iaas/azantimalware.png)
 
-### <a name="install-the-latest-security-updates"></a>安裝最新的安全性更新
+### <a name="install-the-latest-security-updates"></a>安裝最新的安全性更新 
+
 客戶移至 Azure 的第一批工作負載中包括實驗室和對外系統。 如果 Azure 託管的虛擬機器會裝載需要存取網際網路的應用程式或服務，請對修補作業保持警戒。 作業系統之外的修補。 第三方應用程式上未修補的弱點也可能造成一些問題，但只要能夠妥善管理修補程式即可避免這類問題。
 
 ### <a name="deploy-and-test-a-backup-solution"></a>部署和測試備份解決方案
@@ -192,10 +202,11 @@ Security Compliance Manager 可提供已準備好部署的原則和經過測試�
 
 可能的話，移至 Azure 的生產工作負載應該與現有的備份解決方案整合。 或者，您可以使用 [Azure 備份](../backup/backup-azure-arm-vms.md)來協助您滿足備份需求。
 
-
 ## <a name="monitor"></a>監視
 
-[資訊安全中心](../security-center/security-center-intro.md)會持續評估 Azure 資源的安全性狀態，以識別潛在的安全性弱點。 建議清單會引導您完成設定所需控制項的程序。
+### <a name="security-centersecurity-centersecurity-center-intromd"></a>[資訊安全中心](../security-center/security-center-intro.md)
+
+資訊安全中心會持續評估 Azure 資源的安全性狀態，以找出潛在的安全性弱點。 建議清單會引導您完成設定所需控制項的程序。
 
 範例包括：
 
@@ -209,7 +220,9 @@ Security Compliance Manager 可提供已準備好部署的原則和經過測試�
 
 ![Azure 資訊安全中心原則](./media/azure-security-iaas/security-center-policies.png)
 
-[Operations Management Suite](../operations-management-suite/operations-management-suite-overview.md) 是 Microsoft 雲端型 IT 管理解決方案，可協助您管理及保護內部部署和雲端基礎結構。 因為 Operations Management Suite 是以雲端型服務形式實作，所以您對基礎結構資源進行最小的投資就可以快速部署它。
+### <a name="operations-management-suiteoperations-management-suiteoperations-management-suite-overviewmd"></a>[Operations Management Suite](../operations-management-suite/operations-management-suite-overview.md) 
+
+Operations Management Suite 是 Microsoft 雲端式 IT 管理解決方案，可協助您管理及保護內部部署和雲端基礎結構。 因為 Operations Management Suite 是以雲端型服務形式實作，所以您對基礎結構資源進行最小的投資就可以快速部署它。
 
 新功能會自動提供，以節省持續性維護和升級成本。 Operations Management Suite 也會與 System Center Operations Manager 整合。 它有不同的元件，可協助您更妥善管理 Azure 工作負載，包括[安全性和法規遵循](../operations-management-suite/oms-security-getting-started.md)模組。
 
@@ -224,6 +237,16 @@ Security Compliance Manager 可提供已準備好部署的原則和經過測試�
 下列螢幕擷取畫面顯示 Operations Management Suite 可以顯示之資訊的範例。
 
 ![Operations Management Suite 安全性基準](./media/azure-security-iaas/oms-security-baseline.png)
+
+### <a name="monitor-vm-performance"></a>監視 VM 效能
+
+當 VM 程序比所應消耗更多的資源時，可能會產生資源不當使用的問題。 VM 的效能問題可能會導致服務中斷，違反可用性的安全性原則。 因此，請務必了解，不只需要在發生問題時以反應性方式監視 VM 存取，還必須主動在正常作業期間如測量完成基準效能。
+
+藉由分析 [Azure 診斷記錄檔](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/)，您可以監視 VM 資源，並找出可能影響效能和可用性的潛在問題。 Azure 診斷擴充功能會在以 Windows 為基礎的 VM 上提供監視和診斷功能。 您可以將此擴充功能納入為 Azure Resource Manager [範本](../virtual-machines/windows/extensions-diagnostics-template.md)的一部分，藉以啟用這些功能。
+
+您也可以使用 [Azure 監視器](../monitoring-and-diagnostics/monitoring-overview-metrics.md)來查看資源的健康情況。
+
+未監視 VM 效能的組織無法決定效能模式中的特定變更是正常或不正常。 若 VM 比一般消耗更多資源，這類異常狀況可能表示來自外部資源的潛在攻擊，或是在此虛擬機器中執行的入侵程序。
 
 ## <a name="next-steps"></a>後續步驟
 

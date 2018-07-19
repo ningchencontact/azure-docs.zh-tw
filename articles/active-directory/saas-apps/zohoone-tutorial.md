@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 9168b58cda54fa5de497ba331e1e4995dbc4d4e7
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 9f1db693ac75d7ab4b9776d60f63a0ca7524f760
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220528"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39050179"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho-one"></a>教學課程：Azure Active Directory 與 Zoho One 整合
 
@@ -34,7 +34,7 @@ ms.locfileid: "36220528"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Zoho One 整合，您需要下列項目：
 
@@ -110,7 +110,7 @@ ms.locfileid: "36220528"
 
     a. 在 [識別碼 (實體識別碼)] 文字方塊中，輸入 URL：`one.zoho.com`
 
-    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://accounts.zoho.com/samlresponse/<saml-identifier>`
+    b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://accounts.zoho.com/samlresponse/<saml-identifier>`
 
     c. 按一下 [顯示進階 URL 設定]。
 
@@ -118,7 +118,7 @@ ms.locfileid: "36220528"
 
 4. 如果您想要以 **SP** 起始模式設定應用程式，請執行下列步驟：
 
-    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://accounts.zoho.com/samlauthrequest/<domain_name>?serviceurl=https://one.zoho.com`
+    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://accounts.zoho.com/samlauthrequest/<domain_name>?serviceurl=https://one.zoho.com`
      
     > [!NOTE] 
     > 上述 [回覆 URL] 和 [登入 URL] 值並非真正的值。 您將會使用實際的「回覆 URL」與「登入 URL」來更新值，稍後會在本教學課程中說明。 
@@ -167,7 +167,7 @@ ms.locfileid: "36220528"
 
     a. 在 [網域名稱] 文字方塊中，輸入網域，例如 **contoso.com**。
 
-    b. 按一下 [新增]。
+    b. 按一下 [新增] 。
 
     >[!Note]
     >新增網域之後，請依照[這些](https://www.zoho.com/one/help/admin-guide/domain-verification.html)步驟來確認您的網域。 確認網域之後，請在 Azure 入口網站上 [Zoho One 網域及 URL] 的 [登入 URL] 中使用您的網域名稱。
@@ -264,7 +264,7 @@ ms.locfileid: "36220528"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 [Zoho One] 圖格時，應該就會自動登入 Zoho One 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -17,12 +17,12 @@ ms.date: 04/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 07fbda30cdc76e5e4e82b79954d0b0a56e032b50
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 676e23f3136836975616865a9b9dc97605a97929
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34158382"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866248"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>2.0 通訊協定 - 使用隱含流程的 SPA
 使用 v2.0 端點，您可以讓具有 Microsoft 的個人和工作/學校帳戶的使用者登入您的單一頁面 app。 主要在瀏覽器上執行的單一頁面和其他 JavaScript 應用程式，在驗證時會面臨一些有趣的挑戰：
@@ -51,7 +51,7 @@ ms.locfileid: "34158382"
 若要一開始將使用者登入您的應用程式，您可以傳送 [OpenID Connect](active-directory-v2-protocols-oidc.md) 授權要求，以及從 v2.0 端點取得 `id_token`：
 
 > [!IMPORTANT]
-> 若要成功要求 ID 權杖，[註冊入口網站](https://apps.dev.microsoft.com)中的應用程式註冊必須已啟用 Web 用戶端的**[隱含授與](active-directory-v2-protocols-implicit.md)**。 如果未啟用，則會傳回 `unsupported_response` 錯誤："The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'" (此用戶端的 'response_type' 輸入參數不允許使用所提供的值。預期的值為 'code')
+> 若要成功要求識別碼權杖，[註冊入口網站](https://apps.dev.microsoft.com)中的應用程式註冊必須已啟用 Web 用戶端的**[隱含授與](active-directory-v2-protocols-implicit.md)**。 如果未啟用，則會傳回 `unsupported_response` 錯誤："The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'" (此用戶端的 'response_type' 輸入參數不允許使用所提供的值。預期的值為 'code')
 
 ```
 // Line breaks for legibility only

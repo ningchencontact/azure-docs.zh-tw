@@ -9,17 +9,17 @@ editor: ''
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 05859187a5734d982b750e287c3ecd375ed1da2f
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: d8490dcba35cfeabb3da589f3d079571d5e98d3b
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34723740"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969199"
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>使用範本設定虛擬機器受控服務識別 (MSI)
 
@@ -101,16 +101,68 @@ ms.locfileid: "34723740"
 
    ![更新之後範本的螢幕擷取畫面](../media/msi-qs-configure-template-windows-vm/template-file-after.png)
 
-### <a name="disable-a-system-assigned-identity-from-an-azure-vm"></a>停用來自 Azure VM 的系統指派身分識別
+### <a name="assign-a-role-the-vms-system-assigned-identity"></a>指派角色給 VM 的系統指派身分識別
 
-> [!NOTE]
-> 目前不支援停用來自虛擬機器的受控服務識別。 同時，您可以使用系統指派和使用者指派的身分識別進行切換。
+在 VM 上啟用了系統指派的身分識別後，建議您授與 VM 在其中建立的資源群組**讀者**存取這類角色。
+
+1. 無論您是在本機登入 Azure 或透過 Azure 入口網站登入，都請使用與包含虛擬機器的 Azure 訂用帳戶相關聯的帳戶。 此外，也請確定您的帳戶屬於在虛擬機器上具有寫入權限的角色 (例如「虛擬機器參與者」的角色)。
+ 
+2. 在[編輯器](#azure-resource-manager-templates)中載入範本，然後新增下列資訊，以將 VM 在其中建立的資源群組**讀者**存取授與 VM。  您的範本結構可能會因您選擇的編輯器與部署模型而有所不同。
+   
+   在 `parameters` 區段下新增下列內容：
+
+    ```JSON
+    "builtInRoleType": {
+          "type": "string",
+          "defaultValue": "Reader"
+        },
+        "rbacGuid": {
+          "type": "string"
+        }
+    ```
+
+    在 `variables` 區段下新增下列內容：
+
+    ```JSON
+    "Reader": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
+    ```
+
+    在 `resources` 區段下新增下列內容：
+
+    ```JSON
+    {
+        "apiVersion": "2017-09-01",
+         "type": "Microsoft.Authorization/roleAssignments",
+         "name": "[parameters('rbacGuid')]",
+         "properties": {
+                "roleDefinitionId": "[variables(parameters('builtInRoleType'))]",
+                "principalId": "[reference(variables('vmResourceId'), '2017-12-01', 'Full').identity.principalId]",
+                "scope": "[resourceGroup().id]"
+          },
+          "dependsOn": [
+                "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
+            ]
+    }
+    ```
+
+### <a name="disable-a-system-assigned-identity-from-an-azure-vm"></a>停用來自 Azure VM 的系統指派身分識別
 
 如果您的虛擬機器不再需要受控服務識別：
 
 1. 無論您是在本機登入 Azure 或透過 Azure 入口網站登入，都請使用與包含虛擬機器的 Azure 訂用帳戶相關聯的帳戶。 此外，也請確定您的帳戶屬於在虛擬機器上具有寫入權限的角色 (例如「虛擬機器參與者」的角色)。
 
-2. 請將識別類型變更為 `UserAssigned`。
+2. 在[編輯器](#azure-resource-manager-templates)中載入範本，然後在 `resources` 區段找出想要的 `Microsoft.Compute/virtualMachines` 資源。 若您的 VM 只有系統指派的身分識別，您可將身分識別類型變更為 `None`予以停用。  若您的 VM 同時具有系統與使用者指派的身分識別，請從身分識別類型中移除 `SystemAssigned`，並保留使用者指派身分識別中的 `UserAssigned` 與 `identityIds` 陣列。  下列範例示範如何從沒有使用者指派身分識別的 VM 中移除系統指派的身分識別：
+   
+   ```JSON
+    {
+      "apiVersion": "2017-12-01",
+      "type": "Microsoft.Compute/virtualMachines",
+      "name": "[parameters('vmName')]",
+      "location": "[resourceGroup().location]",
+      "identity": { 
+          "type": "None"
+    }
+   ```
 
 ## <a name="user-assigned-identity"></a>使用者指派的身分識別
 

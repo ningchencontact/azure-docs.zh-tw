@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 42be83af52298e1fc6b01793b7692a3fcd7d6250
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: eb458f7ce55ace0375b9bf7e4a79391ebcdb5e4a
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218248"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39040383"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thirdlight"></a>教學課程：Azure Active Directory 與 ThirdLight 整合
 
@@ -33,7 +33,7 @@ ThirdLight 與 Azure AD 整合提供下列優點：
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 ThirdLight 整合，您需要下列項目：
 
@@ -112,9 +112,9 @@ ThirdLight 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/thirdlight-tutorial/tutorial_thirdlight_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<subdomain>.thirdlight.com/`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<subdomain>.thirdlight.com/`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.thirdlight.com/saml/sp`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<subdomain>.thirdlight.com/saml/sp`
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [ThirdLight 客戶支援小組](https://www.thirdlight.com/support)以取得這些值。 
@@ -236,7 +236,7 @@ ThirdLight 需以手動方式佈建。
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [ThirdLight] 圖格時，應該會自動登入您的 ThirdLight 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

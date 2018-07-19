@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 7254e8d1b5a525c3ab06230837bd368e17911dbe
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: ff5227ab61145ab372fdc6e28f1b97ec31e47023
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100274"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049138"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Server 的使用者入口網站
 
@@ -30,7 +30,7 @@ ms.locfileid: "37100274"
 ![MFA 使用者入口網站](./media/howto-mfaserver-deploy-userportal/portal.png)
 
 > [!NOTE]
-> 使用者入口網站只適用於 Multi-Factor Authentication Server。 如果您在雲端中使用 Multi-Factor Authentication，請讓使用者參閱[設定您的帳戶進行雙步驟驗證](end-user/current/multi-factor-authentication-end-user-first-time.md)或[管理您的設定進行雙步驟驗證](end-user/current/multi-factor-authentication-end-user-manage-settings.md)。
+> 使用者入口網站只適用於 Multi-Factor Authentication Server。 如果您在雲端中使用 Multi-Factor Authentication，請讓使用者參閱[設定您的帳戶進行雙步驟驗證](../user-help/multi-factor-authentication-end-user-first-time.md)或[管理您的設定進行雙步驟驗證](../user-help/multi-factor-authentication-end-user-manage-settings.md)。
 
 ## <a name="install-the-web-service-sdk"></a>安裝 Web 服務 SDK
 

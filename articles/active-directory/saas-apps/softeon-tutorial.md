@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 803064033df63fb260319fc46c59f77ca7490ef4
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 65c70cd67a9fb77977b083027c79d3c96ffa96b1
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225131"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041308"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-softeon-wms"></a>教學課程：Azure Active Directory 與 Softeon WMS 整合
 
@@ -33,7 +33,7 @@ Softeon WMS 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定與 Softeon WMS 的 Azure AD 整合，您需要下列項目：
 
@@ -112,9 +112,9 @@ Softeon WMS 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/softeon-tutorial/tutorial_softeon_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<companyname>.softeon.com/<instancename>`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<companyname>.softeon.com/<instancename>`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<companyname>.softeon.com/sp`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<companyname>.softeon.com/sp`
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Softeon WMS 用戶端支援小組](mailto:contact@softeon.com)以取得這些值。 
@@ -207,7 +207,7 @@ Softeon WMS 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您按一下 [存取面板] 中的 [Softeon WMS] 圖格時，您應該會看到 Softeon WMS 應用程式的登入頁面。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

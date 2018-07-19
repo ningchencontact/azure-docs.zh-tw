@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: f4ef40ea5e3d68ed8c04dc2a67042abd74df42aa
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: d1aec5ac1506d1c6151042a65dd8525f29353379
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36317803"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39040417"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-manabi-pocket"></a>教學課程：Azure Active Directory 與 Manabi Pocket 整合
 
@@ -33,9 +33,9 @@ Manabi Pocket 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Manabi Pocket 整合，您需要下列項目：
+若要設定與 Manabi Pocket 的 Azure AD 整合，您需要下列項目：
 
 - Azure AD 訂用帳戶
 - 已啟用 Manabi Pocket 單一登入的訂用帳戶
@@ -55,7 +55,7 @@ Manabi Pocket 與 Azure AD 整合提供下列優點：
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-manabi-pocket-from-the-gallery"></a>從資源庫新增 Manabi Pocket
-若要設定將 Manabi Pocket 整合到 Azure AD 中，您需要從資源庫將 Manabi Pocket 新增到受控 SaaS 應用程式清單。
+若要設定 Manabi Pocket 與 Azure AD 整合，您需要從資源庫將 Manabi Pocket 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Manabi Pocket，請執行下列步驟：**
 
@@ -75,17 +75,17 @@ Manabi Pocket 與 Azure AD 整合提供下列優點：
 
     ![結果清單中的 Manabi Pocket](./media/manabipocket-tutorial/tutorial_manabipocket_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定及測試 Azure AD 單一登入
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 "Britta Simon" 的測試使用者為基礎，設定及測試與 Manabi Pocket 搭配運作的 Azure AD 單一登入。
+在本節中，您會以名為 "Britta Simon" 的測試使用者身分，搭配 Manabi Pocket 設定及測試 Azure AD 單一登入。
 
-若要讓單一登入能夠運作，Azure AD 必須知道 Manabi Pocket 與 Azure AD 中互相對應的使用者。 換句話說，必須在 Azure AD 使用者與 Manabi Pocket 中的相關使用者之間建立連結關聯性。
+若要讓單一登入運作，Azure AD 必須知道 Manabi Pocket 與 Azure AD 中互相對應的使用者。 換句話說，必須在 Azure AD 使用者與 Manabi Pocket 中的相關使用者之間建立連結關聯性。
 
-若要設定及測試與 Manabi Pocket 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要搭配 Manabi Pocket 設定及測試 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 Manabi Pocket 測試使用者](#create-a-manabi-pocket-test-user)** - 在 Manabi Pocket 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
+3. **[建立 Manabi Pocket 測試使用者](#create-a-manabi-pocket-test-user)** - 使 Manabi Pocket 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 5. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
@@ -109,7 +109,7 @@ Manabi Pocket 與 Azure AD 整合提供下列優點：
 
     a. 在 [登入 URL] 文字方塊中，輸入 URL：`https://ed-cl.com/`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/provider`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/provider`
 
     > [!NOTE]
     > 識別碼值不是實際值。 請使用實際的「識別碼」來更新此值。 請連絡 [Manabi Pocket 用戶端支援小組](mailto:info-ed-cl@ntt.com)以取得此值。
@@ -158,7 +158,7 @@ Manabi Pocket 與 Azure AD 整合提供下列優點：
  
 ### <a name="create-a-manabi-pocket-test-user"></a>建立 Manabi Pocket 測試使用者
 
-在本節中，您會在 Manabi Pocket 中建立名為 Britta Simon 的使用者。 請與 [Manabi Pocket 支援小組](mailto:info-ed-cl@ntt.com)合作，在 Manabi Pocket 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 Manabi Pocket 中建立名為 Britta Simon 的使用者。 與 [Manabi Pocket 支援小組](mailto:info-ed-cl@ntt.com)合作，在 Manabi Pocket 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -195,7 +195,7 @@ Manabi Pocket 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Manabi Pocket] 圖格時，應該會自動登入您的 Manabi Pocket 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

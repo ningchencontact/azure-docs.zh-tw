@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: b61465e9f38a5a461802d4ab46a7221c557b4595
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: fb57ab0f746fcad702c18032b9da1a9ec820b809
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308137"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39052412"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>教學課程：Azure Active Directory 與 Keeper Password Manager & Digital Vault 整合
 
@@ -33,7 +33,7 @@ Keeper Password Manager & Digital Vault 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定與 Keeper Password Manager & Digital Vault 的 Azure AD 整合，您需要下列項目：
 
@@ -112,11 +112,11 @@ Keeper Password Manager & Digital Vault 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/keeperpasswordmanager-tutorial/tutorial_keeper_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://{SSO CONNECT SERVER}/sso-connect/saml/login`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://{SSO CONNECT SERVER}/sso-connect/saml/login`
 
-    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://{SSO CONNECT SERVER}/sso-connect/saml/sso`
+    b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://{SSO CONNECT SERVER}/sso-connect/saml/sso`
 
-    c. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://{SSO CONNECT SERVER}/sso-connect`
+    c. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://{SSO CONNECT SERVER}/sso-connect`
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的回覆 URL 與登入 URL 更新這些值。 請連絡 [Keeper Password Manager & Digital Vault 支援小組](https://keepersecurity.com/contact.html)取得這些值。 
@@ -208,7 +208,7 @@ Keeper Password Manager & Digital Vault 與 Azure AD 整合提供下列優點：
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您按一下存取面板中的 [Keeper Password Manager & Digital Vault] 圖格時，您應該會看到 Keeper Password Manager & Digital Vault 應用程式的登入頁面。 成功驗證後，您應該進入應用程式。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+當您按一下存取面板中的 [Keeper Password Manager & Digital Vault] 圖格時，您應該會看到 Keeper Password Manager & Digital Vault 應用程式的登入頁面。 成功驗證後，您應該進入應用程式。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

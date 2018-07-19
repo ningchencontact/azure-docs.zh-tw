@@ -2,22 +2,22 @@
 title: 適用於 Azure Machine Learning 的 Python 套件
 description: 了解適用於 Azure Machine Learning 使用者的 Python 套件。
 ms.service: machine-learning
-ms.component: studio
+ms.component: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jmartens
 author: j-martens
 ms.date: 05/07/2018
-ms.openlocfilehash: 7a8f9e9d757aaab04706dd3b7dc2b962b3a04130
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 36322c5fde7c992faa830fe272971b53fbf10211
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833258"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37870300"
 ---
 # <a name="python-packages-for-azure-machine-learning"></a>適用於 Azure Machine Learning 的 Python 套件
 
-從 Microsoft Azure Machine Learning 了解專屬的 Python 套件。 您可以使用這些程式庫和函數搭配其他開放原始碼或協力廠商套件。但若要使用專屬的套件，您的 Python 程式碼必須針對服務或在提供解譯器的電腦上執行。
+了解 Microsoft 適用於 Azure Machine Learning 的專屬 Python 套件。 您可以使用這些程式庫和函數搭配其他開放原始碼或協力廠商套件。但若要使用專屬的套件，您的 Python 程式碼必須針對服務或在提供解譯器的電腦上執行。
 
 Azure Machine Learning 套件是**適用於 Azure Machine Learning 的 Python 可安裝 pip 的延伸模組**，可讓資料科學家和 AI 開發人員快速建置和部署高度精確的機器學習和各種網域的深入學習模型。
 

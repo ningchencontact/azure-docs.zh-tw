@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/21/2018
 ms.author: trinadhk
-ms.openlocfilehash: d6e78d46f0886b06cb1cf3577c16c8bc4f842bab
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a5828b4e4f42c349246845bd003e874fb0352bae
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607254"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008071"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 虛擬機器備份的疑難排解
 您可以疑難排解將 Azure 備份使用於下表所列資訊時發生的錯誤。
@@ -139,7 +139,7 @@ VM 備份仰賴發給底層儲存體的快照命令。 無法存取儲存體，�
 
 1. 將 Azure 資料中心的 IP 範圍列入允許清單。
    * 取得要列入允許清單的 [Azure 資料中心 IP](https://www.microsoft.com/download/details.aspx?id=41653) 。
-   * 使用 [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) Cmdlet 解除封鎖該 IP。 在提升權限的 PowerShell 視窗中 (以系統管理員身分執行)，於 Azure VM 內執行這個 Cmdlet。
+   * 使用 [New-NetRoute](https://docs.microsoft.com/powershell/module/nettcpip/new-netroute) Cmdlet 解除封鎖該 IP。 在提升權限的 PowerShell 視窗中 (以系統管理員身分執行)，於 Azure VM 內執行這個 Cmdlet。
    * 將規則加入 NSG (若已有規則)，以允許存取該 IP。
 2. 建立 HTTP 流量的行經路徑
    * 如果已有一些網路限制 (例如，網路安全性群組)，請部署 HTTP Proxy 伺服器來路由傳送流量。 部署 HTTP Proxy 伺服器的步驟位於[這裡](backup-azure-arm-vms-prepare.md#establish-network-connectivity)。

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 09527d5e204d2bbc7ebe56cc56288e79e7f1507b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 25a61f03989e2a531e83ea2750c51d2deb92e650
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36217308"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39040176"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lyndacom"></a>教學課程：Azure Active Directory 與 Lynda.com 整合
 
@@ -33,7 +33,7 @@ Lynda.com 與 Azure AD 整合有下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要進行 Azure AD 與 Lynda.com 整合的設定，您需要下列項目：
 
@@ -112,7 +112,7 @@ Lynda.com 與 Azure AD 整合有下列優點：
 
     ![設定單一登入](./media/lynda-tutorial/tutorial_lynda.com_url.png)
 
-    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<subdomain>.lynda.com/Shibboleth.sso/InCommon?providerId=<url>&target=<url> `
+    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<subdomain>.lynda.com/Shibboleth.sso/InCommon?providerId=<url>&target=<url> `
 
     > [!NOTE] 
     > 這不是真實的值。 請使用實際的登入 URL 來更新此值。 請連絡 [Lynda.com 用戶端支援小組](https://www.linkedin.com/help/lynda/ask)以取得這些值。 
@@ -200,7 +200,7 @@ Lynda.com 與 Azure AD 整合有下列優點：
     
 ### <a name="testing-single-sign-on"></a>測試單一登入
 
-如果要測試您的單一登入設定，請開啟存取面板。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如果要測試您的單一登入設定，請開啟存取面板。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: ba24422f7ff5759153a6e067cc61251b43a7a091
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 3e3546a5161c62c137af0a29daf5140133f91eb6
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36286927"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39046102"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-purelyhr"></a>教學課程：Azure Active Directory 與 PurelyHR 整合
 
@@ -33,7 +33,7 @@ PurelyHR 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 PurelyHR 與 Azure AD 的整合，您需要下列項目：
 
@@ -112,7 +112,7 @@ PurelyHR 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/purelyhr-tutorial/tutorial_purelyhr_url.png)
    
-    在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://<companyID>.purelyhr.com/sso-consume`
+    在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<companyID>.purelyhr.com/sso-consume`
 
 4. 如果您想要以 **SP** 起始模式設定應用程式，請勾選 [顯示進階 URL 設定]：
 
@@ -228,7 +228,7 @@ PurelyHR 與 Azure AD 整合提供下列優點：
 
 在存取面板中按一下 [Absorb LMS] 圖格，系統就會自動將您登入 Absorb LMS 應用程式。
 
-如需存取面板的詳細資訊，請參閱： [存取面板簡介](../active-directory-saas-access-panel-introduction.md)。
+如需存取面板的詳細資訊，請參閱： [存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

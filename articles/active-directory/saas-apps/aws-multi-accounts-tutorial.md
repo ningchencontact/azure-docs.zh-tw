@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 2678cf043bb4b2569555309e873ae9ce0ab64eab
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: dfbabdc7d5a02b21103ac709b8dbc89d69cde0e0
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36217792"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054252"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>教學課程：Azure Active Directory 與多個 Amazon Web Services (AWS) 帳戶整合
 
@@ -34,7 +34,7 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Amazon Web Services (AWS) 整合，您需要下列項目：
 
@@ -249,7 +249,7 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
     
     f. 從所擷取的服務主體清單中，取得您需要修改的服務主體。 您也可以使用 Ctrl+F，從所有列出的服務主體中搜尋應用程式。 您可以透過您從 Azure AD 的 [屬性] 頁面複製的**物件識別碼**，使用下列查詢移至各自的「服務主體」。
     
-    `https://graph.microsoft.com/beta/servicePrincipals/<objectID>` 。
+    `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`。
 
     ![Graph 總管對話方塊](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
 
@@ -334,7 +334,7 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
 
 ![設定單一登入的新增](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_test_saml.png)
 
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -1,5 +1,5 @@
 ---
-title: 使用 Data Factory 將資料複製到 Azure Data Lake Store 或從該處複製資料 | Microsoft Docs
+title: 使用 Data Factory 從 Azure Data Lake Storage Gen1 來回複製資料 | Microsoft Docs
 description: 了解如何使用 Data Factory 將資料從支援的來源資料存放區複製到 Azure Data Lake Store，或從 Data Lake Store 複製到支援的接收存放區。
 services: data-factory
 author: linda33wj
@@ -12,19 +12,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: cf1ac441f695e5427e57f1a85bafd095777eed80
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: a3df91adf7c35343dc890dc734ec052f1aa97134
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049293"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37860243"
 ---
-# <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure Data Lake Store 或從該處複製資料
+# <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Azure Data Lake Storage Gen1 來回複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [第 1 版](v1/data-factory-azure-datalake-connector.md)
 > * [目前的版本](connector-azure-data-lake-store.md)
 
-本文概述如何使用 Azure Data Factory 中的「複製活動」，將資料複製到 Azure Data Lake Store 及從該處複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
+本文概述如何使用 Azure Data Factory 中的「複製活動」，從 Azure Data Lake Storage Gen1 (先前稱為 Azure Data Lake Store) 來回複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
 
 ## <a name="supported-capabilities"></a>支援的功能
 

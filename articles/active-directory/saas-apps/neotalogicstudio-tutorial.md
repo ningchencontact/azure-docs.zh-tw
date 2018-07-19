@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: jeedes
-ms.openlocfilehash: 01987f3a5f2a37d7cf2b16202310b7d442c9d7a8
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 5861d709e238e5da07cd6a44fefdcc456422ad9d
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285826"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39046238"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-neota-logic-studio"></a>教學課程：Azure Active Directory 與 Neota Logic Studio 整合
 
@@ -33,7 +33,7 @@ Neota Logic Studio 與 Azure AD 整合提供下列優點：
 
 如果您想要知道與 Azure AD 整合的 SaaS 應用程式詳細資訊，請參閱： [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 如要設定 Azure AD 與 Neota Logic Studio 的整合，您需要下列項目：
 
@@ -115,9 +115,9 @@ Neota Logic Studio 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/neotalogicstudio-tutorial/tutorial_neotalogicstudio_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<sub domain>.neotalogic.com/a/<sub application>`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<sub domain>.neotalogic.com/a/<sub application>`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<sub domain>.neotalogic.com/wb`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<sub domain>.neotalogic.com/wb`
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」和「識別碼」來更新這些值。 在此建議您在 [識別碼] 中使用唯一的字串值。 請連絡 [Neota Logic Studio 客戶支援小組](https://www.neotalogic.com/contact-us/)以取得這些值。 
@@ -204,7 +204,7 @@ Neota Logic Studio 與 Azure AD 整合提供下列優點：
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-在存取面板中按一下 [Neota Logic Studio] 圖格，系統會將您重新導向組織登入頁面。 成功登入之後，系統會將您登入 Neota Logic Studio 應用程式。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。
+在存取面板中按一下 [Neota Logic Studio] 圖格，系統會將您重新導向組織登入頁面。 成功登入之後，系統會將您登入 Neota Logic Studio 應用程式。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

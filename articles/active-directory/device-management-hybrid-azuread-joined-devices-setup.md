@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fabe19a7348591b4a299868dfc3e618c049198c3
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: fd23da29324dc5cb212c144f5bb303a46d6f4d42
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261180"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868430"
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>如何設定混合式 Azure Active Directory 已加入的裝置
 
@@ -57,8 +57,8 @@ ms.locfileid: "35261180"
     - Windows Server 2012 R2
     - Windows Server 2012
     - Windows Server 2008 R2
-- 在非同盟環境中，**支援**透過無縫單一登入 [Azure Active Directory 無縫單一登入](https://aka.ms/hybrid/sso)來註冊舊版 Windows 裝置。 
-- 使用 Azure AD 傳遞驗證時，**不**支援舊版 Windows 裝置的註冊。
+- 在非同盟環境中，**支援**透過無縫單一登入 [Azure Active Directory 無縫單一登入](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start)來註冊舊版 Windows 裝置。 
+- 使用沒有無縫單一登入的 Azure AD 傳遞驗證時，**不**支援舊版 Windows 裝置的註冊。
 - 對於使用漫遊設定檔的裝置，**不支援**註冊舊版 Windows 裝置。 如果您倚賴設定檔或設定的漫遊，請使用 Windows 10。
 
 
@@ -92,8 +92,6 @@ Azure AD Connect：
 如果您的組織打算使用隨選即用 SSO，那麼您必須能從組織內部的電腦連線到下列 URL，也必須將其新增至使用者的本機內部網路區域：
 
 - https://autologon.microsoftazuread-sso.com
-
-- https://aadg.windows.net.nsatc.net
 
 - 此外，請在使用者的內部網路區域啟用下列設定：[允許透過指令碼更新狀態列]。
 
@@ -179,7 +177,6 @@ Azure AD Connect：
 
     $de = New-Object System.DirectoryServices.DirectoryEntry
     $de.Path = "LDAP://CN=Services," + $configNC
-
     $deDRC = $de.Children.Add("CN=Device Registration Configuration", "container")
     $deDRC.CommitChanges()
 
@@ -272,7 +269,7 @@ Azure AD Connect：
  
 ### <a name="issue-objectsid-of-the-computer-account-on-premises"></a>發出內部部署電腦帳戶的 objectSID
 
-**`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`** - 此宣告必須包含內部電腦帳戶的 **objectSid** 值。 在 AD FS 中，您可以新增發行轉換規則，如下所示︰
+**`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`** - 此宣告必須包含內部部署電腦帳戶的 **objectSid** 值。 在 AD FS 中，您可以新增發行轉換規則，如下所示︰
 
     @RuleName = "Issue objectSID for domain-joined computers"
     c1:[
@@ -572,7 +569,7 @@ Azure AD Connect：
 
 ### <a name="remarks"></a>備註
 
-- 您可以使用「群組原則」物件來控制已加入網域之 Windows 10 和 Windows Server 2016 電腦的自動註冊導入。 **如果您不想讓這些裝置自動向 Azure AD 註冊或想要控制註冊**，則您必須先在所有這些裝置導入停用自動註冊的群組原則，再開始進行設定步驟。 在完成設定之後，並已為測試做好準備時，您必須僅在測試裝置上導入啟用自動註冊的群組原則，然後在於您選擇的所有其他裝置上導入該原則。
+- 您可以使用「群組原則」物件或 System Center Configuration Manager 用戶端設定來控制已加入網域之 Windows 10 和 Windows Server 2016 電腦的自動註冊導入。 **如果您不想要自動向 Azure AD 註冊這些裝置，或想要控制註冊**，則必須先推出群組原則以停止所有這些裝置的自動註冊；或者，如果您使用 Configuration Manager，則必須先在 [雲端服務] 下設定用戶端設定 -> 向 Azure Active Directory 自動註冊新 Windows 10 加入網域裝置設定為 [否]，再開始進行任何設定步驟。 在完成設定之後，並已為測試做好準備時，您必須僅在測試裝置上導入啟用自動註冊的群組原則，然後在於您選擇的所有其他裝置上導入該原則。
 
 - 若要導入舊版 Windows 電腦，您可以將 [Windows Installer 封裝](#windows-installer-packages-for-non-windows-10-computers)部署到您所選的電腦。
 

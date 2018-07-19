@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 11/14/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
-ms.openlocfilehash: 0b3e7d9b7a01767e44c7c59c7250808290a03c30
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 803dd69aed91f6e33c354d01d3f5419597d98de9
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319219"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115879"
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>從 Azure 存取控制服務移轉
 
@@ -57,7 +57,7 @@ ms.locfileid: "36319219"
 https://<mynamespace>.accesscontrol.windows.net
 ```
 
-與 STS 和管理作業的所有通訊都透過此 URL 完成。 不同的路徑有不同的用途。 若要判斷應用程式和服務是否使用「存取控制」，請監視所有進入 https://<namespace>.accesscontrol.windows.net 的流量。 所有進入該 URL 的流量都由存取控制處理，而且必須停止。 
+與 STS 和管理作業的所有通訊都透過此 URL 完成。 不同的路徑有不同的用途。 若要判斷應用程式和服務是否使用存取控制，請監視所有進入 https://&lt;namespace&gt;.accesscontrol.windows.net 的流量。 所有進入該 URL 的流量都由存取控制處理，而且必須停止。 
 
 但所有進入 `https://accounts.accesscontrol.windows.net` 的流量除外。 進入此 URL 的流量已經由其他服務處理，因此**不**受「存取控制」的淘汰影響。 
 

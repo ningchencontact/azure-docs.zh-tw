@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: e840a8cbcbf03bf6a658047686f4d4a29994af09
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 6f395897687235f0956928fd0a5dccf00d4c7d12
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36219929"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041036"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---globalprotect"></a>教學課程：Azure Active Directory 與 Palo Alto 網路 - GlobalProtect 整合
 
@@ -34,7 +34,7 @@ ms.locfileid: "36219929"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Palo Alto 網路 - GlobalProtect 整合，您需要下列項目：
 
@@ -110,9 +110,9 @@ ms.locfileid: "36219929"
 
     ![Palo Alto 網路 - GlobalProtect 網域和 URL 單一登入資訊](./media/paloaltoglobalprotect-tutorial/tutorial_paloaltoglobal_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<Customer Firewall URL>`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<Customer Firewall URL>`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<Customer Firewall URL>/SAML20/SP`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<Customer Firewall URL>/SAML20/SP`
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Palo Alto 網路 - GlobalProtect 支援小組](https://support.paloaltonetworks.com/support)以取得這些值。 
@@ -243,7 +243,7 @@ Palo Alto 網路 - GlobalProtect 支援 Just-in-time 使用者佈建，因此，
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Palo Alto 網路 - GlobalProtect ] 組件時，應該會自動登入 Palo Alto 網路 - GlobalProtect 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

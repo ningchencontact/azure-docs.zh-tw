@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 0692c81577706b4d8cce64a912548feec4608f18
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 1eb11b52a89e25603939af9ec42d922d6e7ac0df
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231486"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39047404"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fiscalnote"></a>教學課程：Azure Active Directory 與 FiscalNote 整合
 
@@ -34,7 +34,7 @@ ms.locfileid: "36231486"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 FiscalNote 的整合，您需要下列項目：
 
@@ -108,9 +108,9 @@ ms.locfileid: "36231486"
 
     ![FiscalNote 網域和 URL 單一登入資訊](./media/fiscalnote-tutorial/tutorial_fiscalnote_url.png)
     
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<InstanceName>.fiscalnote.com/login?client=<ClientID>&redirect_uri=https://app.fiscalnote.com/saml-login.html&audience=https://api.fiscalnote.com/&connection=<CONNECTION_NAME>&response_type=id_token%20token`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<InstanceName>.fiscalnote.com/login?client=<ClientID>&redirect_uri=https://app.fiscalnote.com/saml-login.html&audience=https://api.fiscalnote.com/&connection=<CONNECTION_NAME>&response_type=id_token%20token`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`urn:auth0:fiscalnote:<CONNECTIONNAME>`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `urn:auth0:fiscalnote:<CONNECTIONNAME>`
 
     > [!NOTE]
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [FiscalNote 用戶端支援小組](mailto:support@fiscalnote.com)以取得這些值。
@@ -229,7 +229,7 @@ ms.locfileid: "36231486"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [FiscalNote] 圖格時，應該會自動登入您的 FiscalNote 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

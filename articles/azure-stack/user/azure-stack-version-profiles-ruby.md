@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: dd8130ac12f9c7c2095f9329dc4ce8a34187cf62
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 4d62c192b4e74980fc8cd8a671a702ba2ddfdbcb
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011182"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866588"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>在 Azure Stack 中使用 API 版本設定檔搭配 Ruby
 
@@ -80,11 +80,11 @@ azure_sdk Gem 是 Ruby SDK 中所有支援 Gem 的彙總。 這個 Gem 包含**�
   gem install 'azure_sdk
 ````
 
-## <a name="prerequisite"></a>先決條件
+## <a name="prerequisite"></a>必要條件
 
 若要搭配 Azure Stack 使用 Ruby Azure SDK，您必須提供下列值，然後以環境變數設定值。 針對您的作業系統設定環境變數時，請參閱下表的指示。 
 
-| 值 | 環境變數 | 描述 | 
+| 值 | 環境變數 | 說明 | 
 | --- | --- | --- | --- |
 | 租用戶識別碼 | AZURE_TENANT_ID | 您的 Azure Stack [租用戶識別碼](https://docs.microsoft.com/azure/azure-stack/azure-stack-identity-overview)的值。 |
 | 用戶端識別碼 | AZURE_CLIENT_ID | 您在本文件上一節中建立服務主體時儲存的服務主體應用程式識別碼。  |
@@ -200,7 +200,7 @@ end
 
 ## <a name="samples-using-api-profiles"></a>使用 API 設定檔的範例
 
-您可以使用下列在 GitHub 存放庫中找到的範例做為參考，使用 Ruby 和 Azure Stack API 設定檔建立解決方案：
+您可以使用下列在 GitHub 存放庫中找到的範例，作為使用 Ruby 和 Azure Stack API 設定檔建立解決方案的參考：
 
  - [使用 Ruby 管理 Azure 資源與資源群組](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/tree/master/Hybrid)
  - [使用 Ruby 管理虛擬機器](https://github.com/Azure-Samples/compute-ruby-manage-vm/tree/master/Hybrid)

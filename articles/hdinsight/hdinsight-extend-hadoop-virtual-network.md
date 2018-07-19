@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: larryfr
-ms.openlocfilehash: 9ad7a35864f8e8a1aa95f0b54174a792f069ba18
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 842746561b74860e674fbaa298c78bb0ac58bd68
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34700701"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112128"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虛擬網路延伸 Azure HDInsight
 
@@ -36,7 +36,7 @@ ms.locfileid: "34700701"
 > 本文件中的資訊需要了解 TCP/IP 網路。 如果您不熟悉 TCP/IP 網路，則應該與之前在生產網路中修改的人員合作。
 
 > [!IMPORTANT]
-> 如果您要尋找使用 Azure 虛擬網路將 HDInsight 連線到內部網路的逐步指引，請參閱[將 HDInsight 連線至內部部署網路](connect-on-premises-network.md)文件。
+> 如果您要尋找使用 Azure 虛擬網路將 HDInsight 連線到內部部署網路的逐步指引，請參閱[將 HDInsight 連線至內部部署網路](connect-on-premises-network.md)文件。
 
 ## <a name="planning"></a>規劃
 

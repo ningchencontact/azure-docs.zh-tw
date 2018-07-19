@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6c9c4b7db93810cac4518885eb86572b2be7ca05
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 91436af0aa26c079d5cd2cc19d16a1ff0354e860
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915335"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126587"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>將多個 Azure AD 執行個體和單一 AD FS 執行個體建立同盟
 
@@ -60,7 +60,7 @@ ms.locfileid: "37915335"
     Connect-MsolService
 將 fabrikam.com 受控網域轉換為同盟︰
 
-    Convert-MsolDomainToFederated -DomainName anandmsft.com -Verbose -SupportMultipleDomain
+    Convert-MsolDomainToFederated -DomainName fabrikam.com -Verbose -SupportMultipleDomain
  
 上述作業會建立網域 fabrikam.com 與相同 AD FS 的同盟。 您可以使用兩個網域的 Get-msoldomainfederationsettings 確認網域設定。
 

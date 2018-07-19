@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: jeedes
-ms.openlocfilehash: bf3afa56aeb51d3bcdaa84c1c2d75c86ee764f7b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0e6a34ba9df96f904ebee3fc25dc849f7ce6f2ee
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36216237"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39053208"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>教學課程：Azure Active Directory 與 Help Scout 整合
 
@@ -34,7 +34,7 @@ Help Scout 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定與 Help Scout 的 Azure AD 整合，您需要下列項目：
 
@@ -241,7 +241,7 @@ Help Scout 使用電子郵件地址來登入，因此若要建立連結關聯性
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 [Help Scout] 圖格時，應該會自動登入您的 Help Scout 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

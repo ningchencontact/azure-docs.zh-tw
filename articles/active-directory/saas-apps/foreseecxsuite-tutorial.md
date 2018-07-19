@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2018
 ms.author: jeedes
-ms.openlocfilehash: e27bc853db6236165d77f2fb3418bab1170400b2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4c126b3bf08174886b3668cd54c76b72d113ba76
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227698"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39047105"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>教學課程：Azure Active Directory 與 ForeSee CX Suite 整合
 
@@ -34,7 +34,7 @@ ms.locfileid: "36227698"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 ForeSee CX Suite 的整合，您需要下列項目：
 
@@ -125,7 +125,7 @@ ms.locfileid: "36227698"
 
     a. 在 [登入 URL] 文字方塊中，輸入 URL：`https://cxsuite.foresee.com/`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://www.okta.com/saml2/service-provider/<UniqueID>`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://www.okta.com/saml2/service-provider/<UniqueID>`
 
     > [!NOTE]
     > 識別碼值不是實際值。 請使用實際的「識別碼」來更新此值。 請連絡 [ForeSee CX Suite 用戶端支援小組](mailto:support@foresee.com)以取得此值。
@@ -211,7 +211,7 @@ ms.locfileid: "36227698"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您按一下 [存取面板] 中的 [ForeSee CX Suite] 圖格時，應該就會自動登入 ForeSee CX Suite 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

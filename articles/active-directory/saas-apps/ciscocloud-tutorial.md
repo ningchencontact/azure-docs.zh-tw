@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2018
+ms.date: 07/05/2018
 ms.author: jeedes
-ms.openlocfilehash: 7a0f9e54b920ee2c16a141ee62d22784f75c0af6
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 79b0aa9ae435defa980b4da0c8d376fdb69542f3
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36224148"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866554"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>教學課程：Azure Active Directory 與 Cisco Cloud 整合
 
@@ -101,7 +101,7 @@ ms.locfileid: "36224148"
     ![設定單一登入連結][4]
 
 2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
- 
+
     ![單一登入對話方塊](./media/ciscocloud-tutorial/tutorial_ciscocloud_samlbase.png)
 
 3. 如果您想要以 **IDP** 起始模式設定應用程式，請在 [Cisco Cloud 網域和 URL] 區段上執行下列步驟：
@@ -110,26 +110,52 @@ ms.locfileid: "36224148"
 
     a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`<subdomain>.cisco.com`
 
-    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://<subdomain>.cisco.com/sp/ACS.saml2`
+    b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<subdomain>.cisco.com/sp/ACS.saml2`
 
 4. 如果您想要以 **SP** 起始模式設定應用程式，請勾選 [顯示進階 URL 設定]，然後執行下列步驟：
 
     ![Cisco Cloud 網域和 URL 單一登入資訊](./media/ciscocloud-tutorial/tutorial_ciscocloud_url1.png)
 
     在 [登入 URL] 文字方塊中，輸入 URL：`https://<subdomain>.cloudapps.cisco.com`
-     
-    > [!NOTE] 
+
+    > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「識別碼」、「回覆 URL」和「登入 URL」更新這些值。 請連絡 [Cisco Cloud 用戶端支援小組](mailto:cpr-ops@cisco.com)以取得這些值。
 
-5. 在 [SAML 簽署憑證] 區段中，按一下「複製」按鈕複製「應用程式同盟中繼資料 URL」，並將它貼到 [記事本]。
+5. Cisco Cloud 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中，管理這些屬性的值。
+ 以下螢幕擷取畫面顯示其相關範例。
+
+    ![設定單一登入](./media/ciscocloud-tutorial/attribute.png)
+
+6. 在 [使用者屬性] 區段中，按一下 [檢視及編輯所有其他使用者屬性] 核取方塊，可展開屬性。 在每個顯示的屬性上執行下列步驟-
+
+    | 屬性名稱 | 屬性值 |
+    | ---------------| ----------------|
+    | country      |user.country |
+    | company      |user.companyname |
+
+    a. 按一下 [新增屬性] 來開啟 [新增屬性] 對話方塊。
+
+    ![設定單一登入](./media/ciscocloud-tutorial/tutorial_attribute_04.png)
+
+    ![設定單一登入](./media/ciscocloud-tutorial/tutorial_attribute_05.png)
+
+    b. 在 [名稱] 文字方塊中，輸入該資料列所顯示的屬性名稱。
+
+    c. 在 [值] 清單中，選取該列所顯示的值。
+
+    d. 將 [命名空間] 值保留為空白。
+
+    e. 按一下 [確定] 。
+
+7. 在 [SAML 簽署憑證] 區段中，按一下「複製」按鈕複製「應用程式同盟中繼資料 URL」，並將它貼到 [記事本]。
 
     ![憑證下載連結](./media/ciscocloud-tutorial/tutorial_ciscocloud_certificate.png)
 
-6. 按一下 [儲存]  按鈕。
+8. 按一下 [儲存]  按鈕。
 
     ![設定單一登入儲存按鈕](./media/ciscocloud-tutorial/tutorial_general_400.png)
 
-7. 若要在 **Cisco Cloud** 端設定單一登入，您必須將**應用程式同盟中繼資料 Url** 傳送給 [Cisco Cloud 支援小組](mailto:cpr-ops@cisco.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+9. 若要在 **Cisco Cloud** 端設定單一登入，您必須將**應用程式同盟中繼資料 Url** 傳送給 [Cisco Cloud 支援小組](mailto:cpr-ops@cisco.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 

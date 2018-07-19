@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2017
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 52d4297d2e86ad67672d38f1c527041b813f8d61
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 6190a8ee90855223779751373bf16ca3db0fe761
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34723682"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37870340"
 ---
 # <a name="migrate-a-classic-policy-that-requires-multi-factor-authentication-in-the-azure-portal"></a>在 Azure 入口網站中移轉要求多重要素驗證的傳統原則 
 
@@ -103,8 +103,6 @@ ms.locfileid: "34723682"
 
 6. 在 [新增] 頁面上，若要開啟 [雲端應用程式] 頁面，請在 [指派] 區段中，按一下 [雲端應用程式]。
 
-    ![條件式存取](./media/active-directory-conditional-access-azure-portal-get-started/07.png)
-
 8. 在 [雲端應用程式] 頁面上，執行下列步驟︰
 
     ![條件式存取](./media/active-directory-conditional-access-migration/08.png)
@@ -151,6 +149,6 @@ ms.locfileid: "34723682"
 - 如需傳統原則移轉的詳細資訊，請參閱[在 Azure 入口網站中移轉傳統原則](active-directory-conditional-access-migration.md)。
 
 
-- 如果您想要知道如何設定條件式存取原則，請參閱[開始使用 Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal-get-started.md)。
+- 如果您想要知道如何設定條件式存取原則，請參閱[利用 Azure Active Directory 條件式存取來取得特定應用程式的 MFA](active-directory-conditional-access-app-based-mfa.md)。
 
 - 如果您已準備好設定您環境的條件式存取原則，請參閱 [Azure Active Directory 中條件式存取的最佳做法](active-directory-conditional-access-best-practices.md)。 

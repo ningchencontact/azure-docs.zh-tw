@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: jeedes
-ms.openlocfilehash: b23a93db7912aa25b420157241c41533f4f48a27
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 4b2c23745a5e624bcf668dfbfe5d085392d7a583
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939735"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39052446"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>教學課程：Azure Active Directory 與 Leapsome 整合
 
@@ -33,7 +33,7 @@ ms.locfileid: "36939735"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Leapsome 整合，您需要下列項目：
 
@@ -109,13 +109,13 @@ ms.locfileid: "36939735"
 
     a. 在 [識別碼] 文字方塊中，輸入 URL：`https://www.leapsome.com`
 
-    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://www.leapsome.com/api/users/auth/saml/<CLIENTID>/assert`
+    b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://www.leapsome.com/api/users/auth/saml/<CLIENTID>/assert`
 
 4. 如果您想要以 **SP** 起始模式設定應用程式，請勾選 [顯示進階 URL 設定]，然後執行下列步驟：
 
     ![Leapsome 網域與 URL 單一登入資訊](./media/leapsome-tutorial/tutorial_leapsome_url1.png)
 
-    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://www.leapsome.com/api/users/auth/saml/<CLIENTID>/login`
+    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://www.leapsome.com/api/users/auth/saml/<CLIENTID>/login`
      
     > [!NOTE] 
     > 上述 [回覆 URL] 和 [登入 URL] 值並非真正的值。 您將會使用實際的值來更新這些值，稍後會在本教學課程中說明。
@@ -255,7 +255,7 @@ ms.locfileid: "36939735"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 Leapsome 圖格時，應該會自動登入 Leapsome 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

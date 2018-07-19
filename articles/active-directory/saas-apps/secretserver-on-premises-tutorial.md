@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: jeedes
-ms.openlocfilehash: c9229afd7bd8ebad85ce9e329fb11f992236bce0
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 37ae91743077a9cb9ef9b8f97747563a580fada9
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220096"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39051273"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-secret-server-on-premises"></a>教學課程：Azure Active Directory 與 Secret Server (On-Premises) 整合
 
@@ -34,7 +34,7 @@ Secret Server (On-Premises) 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Secret Server (On-Premises) 整合，您需要下列項目：
 
@@ -110,7 +110,7 @@ Secret Server (On-Premises) 與 Azure AD 整合提供下列優點：
 
     a. 在 [識別碼] 文字方塊中，輸入使用者選擇的值作為範例：`https://secretserveronpremises.azure`
 
-    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://<SecretServerURL>/SAML/AssertionConsumerService.aspx `
+    b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<SecretServerURL>/SAML/AssertionConsumerService.aspx `
 
     > [!NOTE]
     > 上面顯示的實體識別碼只是範例，您可以自由選擇任何唯一值以在 Azure AD 中識別您的 Secret Server 執行個體。 您需要將此實體識別碼傳送到 [Secret Server (On-Premises) 用戶端支援小組](https://thycotic.force.com/support/s/)，以在他們那端設定此識別碼。 如需詳細資料，請參閱[這篇文章](https://thycotic.force.com/support/s/article/Configuring-SAML-in-Secret-Server)。
@@ -119,7 +119,7 @@ Secret Server (On-Premises) 與 Azure AD 整合提供下列優點：
 
     ![Secret Server (On-Premises) 網域及 URL 單一登入資訊](./media/secretserver-on-premises-tutorial/tutorial_secretserver_url1.png)
 
-    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<SecretServerURL>/login.aspx`
+    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<SecretServerURL>/login.aspx`
      
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的回覆 URL 與登入 URL 更新這些值。 請連絡 [Secret Server (On-Premises) 用戶端支援小組](https://thycotic.force.com/support/s/)以取得這些值。
@@ -213,7 +213,7 @@ Secret Server (On-Premises) 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Secret Server (On-Premises)] 圖格時，應該會自動登入您的 Secret Server (On-Premises) 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

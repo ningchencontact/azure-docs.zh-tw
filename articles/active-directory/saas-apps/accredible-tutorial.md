@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jeedes
-ms.openlocfilehash: 270c3b9965665643b8406827cb7421ba46198b4a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: b997d03534fdd7c5075b1bd483dac9ad5e1ddbd3
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221105"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048322"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-accredible"></a>教學課程：Azure Active Directory 與 Accredible 整合
 
@@ -34,7 +34,7 @@ ms.locfileid: "36221105"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Accredible 整合，您需要下列項目：
 
@@ -116,7 +116,7 @@ ms.locfileid: "36221105"
     |  `https://api.accredible.com/sp/admin/accredible` |
     | `https://api.accredible.com/sp/user/accredible` |
 
-    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://api.accredible.com/v1/saml/admin/<Unique id>/consume`
+    b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://api.accredible.com/v1/saml/admin/<Unique id>/consume`
 
     > [!NOTE] 
     > [回覆 URL] 不是真實的值。 請根據使用者的角色，分別使用不同的識別碼值。 每個客戶都會依據其識別碼而有唯一的「回覆 URL」。 請連絡 [Accredible 支援小組](mailto:support@accredible.com)以取得這些值。
@@ -205,7 +205,7 @@ ms.locfileid: "36221105"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 [Accredible] 圖格時，應該會自動登入您的 Accredible 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

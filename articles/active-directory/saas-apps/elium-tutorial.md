@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: jeedes
-ms.openlocfilehash: 1ce186978d910cfdae068e68b5f86a8ebd5fa712
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 2957fffecbf448fa456d80200aba9752569b5f69
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227416"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042719"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-elium"></a>教學課程：Azure Active Directory 與 Elium 整合
 
@@ -34,7 +34,7 @@ Elium 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Elium 整合，您需要下列項目：
 
@@ -108,15 +108,15 @@ Elium 與 Azure AD 整合提供下列優點：
 
     ![Elium 網域與 URL 單一登入資訊](./media/elium-tutorial/tutorial_elium_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<platform-domain>.elium.com/login/saml2/metadata`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<platform-domain>.elium.com/login/saml2/metadata`
 
-    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://<platform-domain>.elium.com/login/saml2/acs`
+    b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<platform-domain>.elium.com/login/saml2/acs`
 
 4. 如果您想要以 **SP** 起始模式設定應用程式，請勾選 [顯示進階 URL 設定]，然後執行下列步驟：
 
     ![Elium 網域與 URL 單一登入資訊](./media/elium-tutorial/tutorial_elium_url1.png)
 
-    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰` https://<platform-domain>.elium.com/login/saml2/login`
+    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ ` https://<platform-domain>.elium.com/login/saml2/login`
      
     > [!NOTE] 
     > 這些都不是真正的值。 您可以從 **SP 中繼資料檔案** (可於 `https://<platform-domain>.elium.com/login/saml2/metadata` 下載) 取得這些值，該檔案會在本教學課程稍後加以說明。
@@ -270,7 +270,7 @@ Elium 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 Elium 圖格時，應該會自動登入您的 Elium 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

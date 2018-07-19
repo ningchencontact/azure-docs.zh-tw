@@ -11,15 +11,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/03/2017
+ms.date: 07/05/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 664f31d64ac037acea2fb45a8d8b813da52b6da5
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 9e53fa896f1d958e505d26af430b262be9195605
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294695"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859678"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>使用 ApplicationInsights.config 或 .xml 設定 Application Insights SDK
 Application Insights .NET SDK 是由數個 NuGet 封裝所組成。 [核心封裝](http://www.nuget.org/packages/Microsoft.ApplicationInsights) 提供 API，用於傳送遙測至 Application Insights。 [其他套件](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights)提供遙測*模組*和*初始設定式*，用於自動從您的應用程式和其內容追蹤遙測。 您可以藉由調整組態檔，來啟用或停用遙測模組和初始設定式，並為其設定一些參數。
@@ -47,7 +47,7 @@ Application Insights .NET SDK 是由數個 NuGet 封裝所組成。 [核心封�
 * [Microsoft.ApplicationInsights.DependencyCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) NuGet 封裝。
 
 ### <a name="performance-collector"></a>效能收集器
-[收集系統效能計數器](app-insights-performance-counters.md)，例如 CPU、記憶體和網路負載 (從 IIS 安裝)。 您可以指定要收集哪些計數器，包括您自己所設定的效能計數器。
+[收集系統效能計數器](app-insights-performance-counters.md)，例如 IIS 安裝的 CPU、記憶體和網路負載。 您可以指定要收集哪些計數器，包括您自己所設定的效能計數器。
 
 * `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule`
 * [Microsoft.ApplicationInsights.PerfCounterCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) NuGet 封裝。
@@ -133,7 +133,7 @@ Microsoft.ApplicationInsights 封裝提供 SDK 的 [核心 API](https://msdn.mic
 * `WebTestTelemetryInitializer` 會設定使用者識別碼、工作階段識別碼，以及來自 [可用性測試](app-insights-monitor-web-app-availability.md)的 HTTP 要求的綜合來源屬性。
   `<Filters>` 會設定要求的識別屬性。
 
-針對 Service Fabric 中執行的 .NET 應用程式，您可以包含 `Microsoft.ApplicationInsights.ServiceFabric` NuGet 套件。 此套件包含的 `FabricTelemetryInitializer` 會將 Service Fabric 屬性新增至遙測項目。 如需詳細資訊，請參閱 [GitHub 頁面](https://go.microsoft.com/fwlink/?linkid=848457)了解這個 NuGet 套件所新增之屬性的相關資訊。
+針對 Service Fabric 中執行的 .NET 應用程式，您可以包含 `Microsoft.ApplicationInsights.ServiceFabric` NuGet 套件。 此套件包含的 `FabricTelemetryInitializer` 會將 Service Fabric 屬性新增至遙測項目。 如需詳細資訊，請參閱 [GitHub 頁面](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/master/README.md)了解這個 NuGet 套件所新增之屬性的相關資訊。
 
 ## <a name="telemetry-processors-aspnet"></a>遙測處理器 (ASP.NET)
 遙測處理器可以在遙測從 SDK 傳送至入口網站之前篩選並修改每個遙測項目。
@@ -315,9 +315,9 @@ TelemetryConfiguration.Active.ApplicationIdProvider = new ApplicationInsightsApp
 
 ### <a name="dictionaryapplicationidprovider"></a>DictionaryApplicationIdProvider
 
-這是靜態提供者，將依賴您設定的檢測金鑰 / 應用程式識別碼配對。
+這是靜態提供者，將依賴您設定的檢測金鑰/應用程式識別碼配對。
 
-此類別具有 `Defined` 屬性，也就是應用程式識別碼配對的檢測金鑰字典<string,string>。
+此類別具有 `Defined` 屬性，也就是檢測金鑰與應用程式識別碼配對的「字典<string,string>」。
 
 此類別具有選擇性的 `Next` 屬性，可在您組態中不存在要求的檢測金鑰時，用來設定其他提供者。
 

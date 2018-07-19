@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 2a6c709944262e321997fe2d32e57726ee9f1242
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 30f0f316727cfcf20daa58c35d0ba11c25311898
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36219868"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044113"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-aha"></a>教學課程：Azure Active Directory 與 Aha!
 
@@ -33,7 +33,7 @@ ms.locfileid: "36219868"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Aha! 的整合，您需要下列項目：
 
@@ -112,9 +112,9 @@ ms.locfileid: "36219868"
 
     ![設定單一登入](./media/aha-tutorial/tutorial_aha_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<companyname>.aha.io/session/new`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<companyname>.aha.io/session/new`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<companyname>.aha.io`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<companyname>.aha.io`
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Aha!用戶端支援小組](https://www.aha.io/company/contact)以取得這些值。 
@@ -235,7 +235,7 @@ Aha! 的佈建是自動化工作。 沒有您適用的動作項目。
     
 ### <a name="testing-single-sign-on"></a>測試單一登入
 
-如果要測試您的單一登入設定，請開啟存取面板。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。
+如果要測試您的單一登入設定，請開啟存取面板。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 05/14/2018
 ms.author: danlep
-ms.openlocfilehash: 025ff3dea365ab75af55f107da1fb7331861eb06
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: c4fd48e40eb4f03daf4bcb7e3b7d6794880799cf
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34166364"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036484"
 ---
 # <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>將 HPC 工作從內部部署電腦提交至在 Azure 中部署的 HPC Pack 叢集
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "34166364"
 
 ![將工作提交至 Azure 中的叢集][jobsubmit]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * **在 Azure VM 中部署的 HPC Pack 前端節點** - 建議您使用 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/)等自動化工具來部署前端節點和叢集。 您必須要有前端節點的 DNS 名稱和叢集系統管理員的認證，才能完成本文中的步驟。
 * **用戶端電腦** - 您必須要有可執行 HPC Pack 用戶端公用程式的 Windows 或 Windows Server 用戶端電腦 (請參閱[系統需求](https://technet.microsoft.com/library/dn535781.aspx))。 如果您只想要使用 HPC Pack Web 入口網站或 REST API 來提交工作，您可以使用自行選擇的任何用戶端電腦。
 * **HPC Pack 安裝媒體** - 若要安裝 HPC Pack 用戶端公用程式，可從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=56360)取得最新版 HPC Pack 的免費安裝套件。 請確定您下載的是安裝在前端節點 VM 上的相同 HPC Pack 版本。
@@ -90,7 +90,7 @@ ms.locfileid: "34166364"
 
 1. 在前端節點上，將 [憑證] 嵌入式管理單元新增至本機電腦帳戶的 Microsoft 管理主控台。 如需新增嵌入式管理單元的步驟，請參閱 [將憑證嵌入式管理單元新增至 MMC](https://technet.microsoft.com/library/cc754431.aspx)。
 2. 在主控台樹狀目錄中，展開 [憑證 - 本機電腦]  >  [個人]，然後按一下 [憑證]。
-3. 找出您在[步驟 1：在前端節點上安裝及設定 Web 元件](#step-1:-install-and-configure-the-web-components-on-the-head-node)中為 HPC Pack Web 元件設定的憑證 (例如 CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net)。
+3. 找出您在[步驟 1：在前端節點上安裝及設定 Web 元件](#step-1-install-and-configure-the-web-components-on-the-head-node)中為 HPC Pack Web 元件設定的憑證 (例如 CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net)。
 4. 在憑證上按一下滑鼠右鍵，並選取 [所有工作]  >  [匯出]。
 5. 在 [憑證匯出精靈] 中按 [下一步]，然後確定已選取 [否，不要匯出私密金鑰]。
 6. 依照精靈中的其餘步驟，以 DER 編碼的二進位 X.509 (.CER) 格式匯出憑證。

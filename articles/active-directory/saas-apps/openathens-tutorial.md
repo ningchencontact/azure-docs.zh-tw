@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: jeedes
-ms.openlocfilehash: d29904b58107e84744fb9469956e4b321bab4e88
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ddd669bb8ff8e520c5538457789d4f660a82255d
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230466"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39051419"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-openathens"></a>教學課程：Azure Active Directory 與 OpenAthens 整合
 
@@ -34,7 +34,7 @@ OpenAthens 與 Azure AD 整合提供下列優點：
 
 如需 SaaS 應用程式與 Azure AD 整合的詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 OpenAthens 整合，您需要下列項目：
 
@@ -221,7 +221,7 @@ OpenAthens 支援 Just-In-Time 佈建，使用者在成功通過驗證後會自�
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入組態。
 
 在存取面板中選取 [OpenAthens] 圖格時，應該會自動登入 OpenAthens 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

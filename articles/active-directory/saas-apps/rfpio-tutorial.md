@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: ea5729e02c9f9641b7ed5d136ffea5fc94d1fe03
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 59b05814be0be9042e7507cc8d928b5f5feb80ad
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211647"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39051756"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>教學課程：Azure Active Directory 與 RFPIO 整合
 
@@ -33,7 +33,7 @@ RFPIO 與 Azure AD 整合提供下列優點：
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 RFPIO 整合，您需要下列項目：
 
@@ -275,7 +275,7 @@ RFPIO 需以手動方式佈建。
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入組態。
 
 當您在存取面板中按一下 RFPIO 圖格時，應該會自動登入您的 RFPIO 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

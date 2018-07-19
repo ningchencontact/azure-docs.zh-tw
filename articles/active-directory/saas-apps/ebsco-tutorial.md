@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 993d03e05c7d97634b7ed12c50d248643ce9e51d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 50e9a65f881981964270e0a8bbc7af46a9dfd27a
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221279"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39047720"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ebsco"></a>教學課程：Azure Active Directory 與 EBSCO 整合
 
@@ -34,7 +34,7 @@ ms.locfileid: "36221279"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 EBSCO 的整合，您需要下列項目：
 
@@ -114,7 +114,7 @@ ms.locfileid: "36221279"
 
     ![EBSCO 網域和 URL 單一登入資訊](./media/ebsco-tutorial/tutorial_ebsco_url1.png)
 
-    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`http://search.ebscohost.com/login.aspx?authtype=sso&custid=<unique EBSCO customer ID>&profile=<profile ID>`
+    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `http://search.ebscohost.com/login.aspx?authtype=sso&custid=<unique EBSCO customer ID>&profile=<profile ID>`
      
     > [!NOTE] 
     > [登入 URL] 的值不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [EBSCO 客戶支援小組](mailto:sso@ebsco.com)以取得此值。 
@@ -243,7 +243,7 @@ Azure AD 會將所需的資料傳遞至 EBSCO 應用程式。 EBSCO 的使用者
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 1. 當您在存取面板中按一下 EBSCO 圖格時，應該會自動登入您的 EBSCO 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 2. 登入應用程式後，請按一下右上角的 [登入] 按鈕。
 

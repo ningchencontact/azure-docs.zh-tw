@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
-ms.openlocfilehash: e2c7e7d5a8f359eb811f67a7502f5fc11c05baba
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3f45f9337a5522f490c268bbdae3ef1a41205175
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047321"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859369"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Dynamics 365 (Common Data Service) 複製資料以及複製資料至 Dynamics 365
 
@@ -210,6 +210,9 @@ ms.locfileid: "37047321"
 | type | 複製活動來源的 type 屬性必須設定為 **DynamicsSource**。 | yes |
 | query | FetchXML 是在 Dynamics (線上版和內部部署版) 中使用的專屬查詢語言。 請參閱下列範例。 若要深入了解，請參閱[使用 FetchXML 建置查詢](https://msdn.microsoft.com/library/gg328332.aspx)。 | 否 (如果已指定資料集中的 "entityName") |
 
+>[!NOTE]
+>即使您在 FetchXML 查詢中設定的資料行投影未包含 PK 資料行，還是一律會複製 PK 資料行。
+
 **範例：**
 
 ```json
@@ -330,7 +333,7 @@ Dynamics 365 線上版限制[每個組織只能有 2 個並行批次呼叫](http
 | AttributeType.Double | 兩倍 | ✓ | ✓ |
 | AttributeType.EntityName | 字串 | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
-| AttributeType.Lookup | Guid | ✓ | ✓ |
+| AttributeType.Lookup | Guid | ✓ | ✓ (具有相關聯的單一類型) |
 | AttributeType.ManagedProperty | BOOLEAN | ✓ | |
 | AttributeType.Memo | 字串 | ✓ | ✓ |
 | AttributeType.Money | 十進位 | ✓ | ✓ |

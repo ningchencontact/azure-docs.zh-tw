@@ -14,24 +14,24 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d86a2b702eac4fc976fd59ca24fd7122a76005b4
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 9f0d0b9732b2af36a0411329cede01a9b8cc8efc
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061672"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920809"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory 的新增功能？
 
-> 請訂閱 [![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [摘要](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us)，以便隨時收到 Azure Active Directory (Azure AD) 的最新訊息。
+> 訂閱 [![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [摘要](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us)，以取得何時重新瀏覽此頁面更新的通知。
 
 Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發訊息，本文提供下列相關資訊：
 
--   最新版本
--   已知問題
--   錯誤修正
--   已被取代的功能
--   方案變更
+- 最新版本
+- 已知問題
+- 錯誤修正
+- 已被取代的功能
+- 方案變更
 
 此頁面會每月更新，因此請定期瀏覽。
 
@@ -40,8 +40,8 @@ Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發�
 ### <a name="change-notice-security-fix-to-the-delegated-authorization-flow-for-apps-using-azure-ad-activity-logs-api"></a>變更注意事項：對使用 Azure AD 活動記錄 API 的應用程式委派授權流程進行安全性修正
 
 **類型：** 方案變更  
-**服務類別：** 監視與報告  
-**產品功能：** 報告
+**服務類別：** 報告  
+**產品功能：** 監視和報告
 
 由於我們強制執行了更穩固的安全性，因此必須對使用委派授權流程來存取 [Azure AD 活動記錄 API](https://aka.ms/aadreportsapi) 的應用程式變更權限。 這項變更會在 **2018 年 6 月 26 日**生效。
 
@@ -64,7 +64,7 @@ Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發�
 ### <a name="configure-tls-settings-to-connect-to-azure-ad-services-for-pci-dss-compliance"></a>將 TLS 設定為連線至 Azure AD 服務，以符合 PCI DSS 合規性
 
 **類型：** 新功能  
-**服務類別：** 新功能  
+**服務類別：** N/A  
 **產品功能：** 平台
 
 傳輸層安全性 (TLS) 是提供兩個通訊應用程式之間隱私權和資料完整性的通訊協定，是目前所使用最廣泛部署的安全性通訊協定。
@@ -172,7 +172,8 @@ Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發�
 ### <a name="azure-ad-delegated-app-management-roles-are-in-public-preview"></a>Azure AD 委派的應用程式管理角色位於公開預覽
 
 **類型：** 新功能  
-**服務類別：** 企業應用程式**產品功能：** 存取控制
+**服務類別：** 企業應用程式  
+**產品功能：** 存取控制
 
 管理員現在可以委派應用程式管理工作，而無須指派全域管理員角色。 全新角色和功能包括：
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jeedes
-ms.openlocfilehash: 57c811f0f29c885ef4bbe78c46ddc6b10b0f71f3
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 22352261e7bf2796e1c258cd86a9e11474239926
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212524"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041769"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobile-xpense"></a>教學課程：Azure Active Directory 與 Mobile Xpense 整合
 
@@ -34,7 +34,7 @@ ms.locfileid: "36212524"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Mobile Xpense 整合，您需要下列項目：
 
@@ -112,13 +112,13 @@ ms.locfileid: "36212524"
 
     a. 在 [識別碼] 文字方塊中，輸入 URL：`https://mobilexpense.com/ServiceProvider`
 
-    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://<sub-domain>.mobilexpense.com/NET/SSO/SAML20/SAML/AssertionConsumerService.aspx`
+    b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<sub-domain>.mobilexpense.com/NET/SSO/SAML20/SAML/AssertionConsumerService.aspx`
 
 4. 如果您想要以 **SP** 起始模式設定應用程式，請勾選 [顯示進階 URL 設定]，然後執行下列步驟：
 
     ![Mobile Xpense 網域及 URL 單一登入資訊](./media/mobilexpense-tutorial/tutorial_mobilexpense_url22.png)
 
-    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<sub-domain>.mobilexpense.com/<customername>`
+    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<sub-domain>.mobilexpense.com/<customername>`
      
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的回覆 URL 與登入 URL 更新這些值。 請連絡 [Mobile Xpense 用戶端支援小組](http://www.mobilexpense.net/contact) \(英文\) 以取得這些值。 
@@ -207,7 +207,7 @@ ms.locfileid: "36212524"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 [Mobile Xpense] 圖格時，應該會自動登入您的 Mobile Xpense 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

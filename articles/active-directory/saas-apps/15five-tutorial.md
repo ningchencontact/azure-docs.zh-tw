@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: b78b5b1880d1bfcb55b6736b1393dcadcf46c1ec
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3cc0d9122fd7335bc29c7f35c1163cb39d3481b8
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215659"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054296"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-15five"></a>教學課程：Azure Active Directory 與 15Five 整合
 
@@ -33,7 +33,7 @@ ms.locfileid: "36215659"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 15Five 整合，您需要下列項目：
 
@@ -112,9 +112,9 @@ ms.locfileid: "36215659"
 
     ![設定單一登入](./media/15five-tutorial/tutorial_15five_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<companyname>.15five.com`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<companyname>.15five.com`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<companyname>.15five.com/saml2/metadata/`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<companyname>.15five.com/saml2/metadata/`
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [15Five 用戶端支援小組](https://www.15five.com/contact/)以取得這些值。 
@@ -224,7 +224,7 @@ ms.locfileid: "36215659"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [15Five] 磚時，應該會看到 15Five 應用程式的登入頁面。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

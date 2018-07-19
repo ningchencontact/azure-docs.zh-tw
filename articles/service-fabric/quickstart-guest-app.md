@@ -3,7 +3,7 @@ title: 將現有應用程式快速部署至 Azure Service Fabric 叢集
 description: 使用 Azure Service Fabric 叢集來裝載現有的 Node.js 應用程式與 Visual Studio。
 services: service-fabric
 documentationcenter: nodejs
-author: thraka
+author: rwike77
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
-ms.author: adegeo
-ms.openlocfilehash: 3cb7fdf309c935c21f4e80c1d1ba529838935acc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: ryanwi
+ms.openlocfilehash: 2e7511f0efa36243a9e7e8e25f1697bdd3e60b63
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213005"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005289"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>在 Azure Service Fabric 上裝載 Node.js 應用程式
 
 本快速入門可協助您將現有的應用程式 (在此範例中為 Node.js) 部署到在 Azure 上執行的 Service Fabric 叢集。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 開始之前，請確定您已 [設定開發環境](service-fabric-get-started.md)。 這包括安裝 Service Fabric SDK 及 Visual Studio 2017 或 2015。
 

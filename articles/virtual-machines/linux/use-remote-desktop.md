@@ -3,7 +3,7 @@ title: 在 Azure 中使用遠端桌面連接至 Linux VM | Microsoft Docs
 description: 了解如何安裝和設定遠端桌面 (xrdp)，以使用圖形化工具在 Azure 中連接至 Linux VM
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
-ms.author: iainfou
-ms.openlocfilehash: fb3639b8ce5c50773bec0ee429e1fa2f7277671b
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.author: cynthn
+ms.openlocfilehash: 5e79cfa2c428323d8531bec7eab875a2dace4ff2
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716613"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37934210"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>在 Azure 中安裝和設定遠端桌面，以連接至 Linux VM
 在 Azure 中的 Linux 虛擬機器 (VM) 通常是使用安全殼層 (SSH) 連接從命令列管理。 如果是 Linux 的新手，或者是快速疑難排解的案例，使用遠端桌面可能會比較容易。 本文將詳細說明如何使用 Resource Manager 部署模型為您的 Linux VM 安裝和設定桌面環境 ([xfce](https://www.xfce.org)) 和遠端桌面 ([xrdp](http://www.xrdp.org))。
@@ -101,6 +101,8 @@ az vm open-port --resource-group myResourceGroup --name myVM --port 3389
 驗證之後，會載入 xfce 桌面環境，看起來類似下列範例︰
 
 ![透過 xrdp 的 xfce 桌面環境](./media/use-remote-desktop/xfce-desktop-environment.png)
+
+如果您的本機 RDP 用戶端使用網路層級驗證 (NLA)，您會必須停用該連線設定。 XRDP 目前不支援 NLA。 您也可以尋找支援 NLA 的替代 RDP 解決方案，例如 [FreeRDP](http://www.freerdp.com)。
 
 
 ## <a name="troubleshoot"></a>疑難排解

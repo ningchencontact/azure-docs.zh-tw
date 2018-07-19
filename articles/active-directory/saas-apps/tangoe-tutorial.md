@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 42d1b40e01653e8fb5fa5bf118c65de758832f4d
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: d76ee059720baa1f91dd157c093b476e4cfaf035
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308603"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39040699"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tangoe-command-premium-mobile"></a>教學課程：Azure Active Directory 整合 Tangoe 命令高階行動裝置
 
@@ -34,7 +34,7 @@ Tangoe 命令高階行動裝置與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定與 Tangoe 命令高階行動裝置的 Azure AD 整合，您需要下列項目：
 
@@ -109,9 +109,9 @@ Tangoe 命令高階行動裝置與 Azure AD 整合提供下列優點：
 
     ![Tangoe 命令高階行動裝置網域與 URL](./media/tangoe-tutorial/tutorial_tangoe_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://sso.tangoe.com/sp/startSSO.ping?PartnerIdpId=<tenant issuer>&TARGET=<target page url>`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://sso.tangoe.com/sp/startSSO.ping?PartnerIdpId=<tenant issuer>&TARGET=<target page url>`
 
-    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://sso.tangoe.com/sp/ACS.saml2`
+    b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://sso.tangoe.com/sp/ACS.saml2`
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的回覆 URL 與登入 URL 更新這些值。 請連絡 [Tangoe 命令高階行動裝置客戶支援小組](https://www.tangoe.com/contact-us/)以取得這些值。 
@@ -210,7 +210,7 @@ Tangoe 命令高階行動裝置應用程式需要在應用程式中佈建所有�
 
 在本節中，您會使用存取面板來測試您的 Azure AD SSO 組態。
 
-當您按一下存取面版中的 [Tangoe 命令高階行動裝置] 圖格，您應該會自動登入 Tangoe 命令高階行動裝置應用程式。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+當您按一下存取面版中的 [Tangoe 命令高階行動裝置] 圖格，您應該會自動登入 Tangoe 命令高階行動裝置應用程式。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

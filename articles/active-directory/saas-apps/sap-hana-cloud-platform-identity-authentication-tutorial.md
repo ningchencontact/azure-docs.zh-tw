@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2018
 ms.author: jeedes
-ms.openlocfilehash: dc62d7a24a53ffa04026c0f1a40b05b18e6db71d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 97e77fdbb352e1fcf66044f48e17cb19a8aa2e1d
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231384"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042141"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform-identity-authentication"></a>教學課程：Azure Active Directory 與 SAP Cloud Platform Identity Authentication 整合
 
@@ -34,7 +34,7 @@ ms.locfileid: "36231384"
 
 如需 SaaS 應用程式與 Azure AD 整合的詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)一文。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 SAP Cloud Platform Identity Authentication 的整合，您需要下列項目：
 
@@ -275,7 +275,7 @@ SAP Cloud Platform Identity Authentication 支援 [識別身分同盟] 選項。
 
 選取存取面板中的 SAP Cloud Platform Identity Authentication 圖格時，您會自動登入 SAP Cloud Platform Identity Authentication 應用程式。
 
-如需存取面板的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

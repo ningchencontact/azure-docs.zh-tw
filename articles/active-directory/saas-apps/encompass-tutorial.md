@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 378f2b542270db351a9527e1faddc5b70952455b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: da306315c18a918ed1e49bf85e1bf9b73b5be2f3
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212616"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39047275"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-encompass"></a>教學課程：Azure Active Directory 與 Encompass 整合
 
@@ -34,7 +34,7 @@ Encompass 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Encompass 整合，您需要下列項目：
 
@@ -112,7 +112,7 @@ Encompass 與 Azure AD 整合提供下列優點：
 
     a. 在 [識別碼] 文字方塊中，提供您的客戶特定值。
 
-    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://<subdomain>.voxmobile.com/voxportal/ws/saml/consume`
+    b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<subdomain>.voxmobile.com/voxportal/ws/saml/consume`
 
     > [!NOTE] 
     > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [Encompass 支援小組](http://www.voxmobile.com/contact/)以取得這些值。
@@ -205,7 +205,7 @@ Encompass 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 在存取面板中按一下 [Encompass] 圖格時，應該會自動登入您的 Encompass 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

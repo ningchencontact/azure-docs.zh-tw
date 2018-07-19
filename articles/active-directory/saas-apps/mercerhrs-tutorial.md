@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: jeedes
-ms.openlocfilehash: 8d63bd83f35f6659ce0da6db2468e8e1676133d8
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 02e9bb3b23471bd0e2fc46dd438a407e5ba1173f
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36226165"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39051797"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mercer-benefitscentral-mbc"></a>教學課程：Azure Active Directory 與 Mercer BenefitsCentral (MBC) 整合
 
@@ -34,7 +34,7 @@ ms.locfileid: "36226165"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Mercer BenefitsCentral (MBC) 整合，您需要下列項目：
 
@@ -110,9 +110,9 @@ ms.locfileid: "36226165"
 
     ![Mercer BenefitsCentral (MBC) 網域與 URL 單一登入資訊](./media/mercerhrs-tutorial/tutorial_mercerhrs_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`stg.mercerhrs.com/saml2.0`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `stg.mercerhrs.com/saml2.0`
 
-    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://ssous-stg.mercerhrs.com/SP2/Saml2AssertionConsumer.aspx`
+    b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://ssous-stg.mercerhrs.com/SP2/Saml2AssertionConsumer.aspx`
 
     > [!NOTE] 
     > [回覆 URL] 不是真實的值。 請使用實際的「回覆 URL」來更新此值。 若要取得此值，請連絡 [Mercer BenefitsCentral (MBC) 支援小組](https://www.mercer.com/contact-us.html)。
@@ -205,7 +205,7 @@ ms.locfileid: "36226165"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您按一下存取面板中的 Mercer BenefitsCentral (MBC) 磚時，您應該會自動登入 Mercer BenefitsCentral (MBC) 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

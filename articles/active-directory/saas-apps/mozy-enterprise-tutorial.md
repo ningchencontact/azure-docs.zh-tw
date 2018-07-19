@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 6c814de45fe91990af61bb47c10a43e81e6c4159
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: a0e3d6822c3aa79018482ec601a3f821f9fda254
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36224699"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39040859"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>教學課程：Azure Active Directory 與 Mozy Enterprise 整合
 
@@ -33,7 +33,7 @@ Mozy Enterprise 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Mozy Enterprise 整合，您需要下列項目：
 
@@ -112,7 +112,7 @@ Mozy Enterprise 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/mozy-enterprise-tutorial/tutorial_mozyenterprise_url.png)
 
-    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<tenantname>.Mozyenterprise.com`
+    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<tenantname>.Mozyenterprise.com`
 
     > [!NOTE] 
     > 這不是真實的值。 請使用實際的登入 URL 來更新此值。 請連絡 [Mozy Enterprise 客戶支援小組](http://support.mozy.com/)以取得此值。
@@ -262,7 +262,7 @@ Mozy Enterprise 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您按一下存取面板中的 [Mozy Enterprise] 圖格時，您應該會看到 Mozy Enterprise 應用程式的登入頁面。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

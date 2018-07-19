@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 2f3c3c8db93ae638cfc0bf82ee26ff2e26646d49
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 176ed1718818b24866620d86d7eff4d9af1d378f
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220269"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39050869"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>教學課程：Azure Active Directory 與 SAP 雲端平台整合
 
@@ -34,14 +34,14 @@ SAP 雲端平台與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 SAP 雲端平台整合，您需要下列項目：
 
 - Azure AD 訂用帳戶
 - 已啟用 SAP 雲端平台單一登入的訂用帳戶
 
-完成本教學課程之後，您指派給 SAP 雲端平台的 Azure AD 使用者就能夠使用[存取面板簡介](../active-directory-saas-access-panel-introduction.md)對應用程式進行單一登入。
+完成本教學課程之後，您指派給 SAP 雲端平台的 Azure AD 使用者就能夠使用[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)對應用程式進行單一登入。
 
 >[!IMPORTANT]
 >您需要在 SAP 雲端平台帳戶上部署您自己的應用程式或訂閱應用程式來測試單一登入。 在本教學課程中，帳戶中已部署一個應用程式。

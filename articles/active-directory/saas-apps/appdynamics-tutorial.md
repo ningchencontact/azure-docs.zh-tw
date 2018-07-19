@@ -7,19 +7,18 @@ author: jeevansd
 manager: mtillman
 ms.assetid: 25fd1df0-411c-4f55-8be3-4273b543100f
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 07/09/2018
 ms.author: jeedes
-ms.openlocfilehash: eb79001f6c74526ec2470612adaf290230d2a017
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3600e83d18f8cabd03c46af2ef47445c588cbdb5
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227559"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38548268"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appdynamics"></a>教學課程：Azure Active Directory 與 AppDynamics 整合
 
@@ -49,7 +48,8 @@ ms.locfileid: "36227559"
 - 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。
+本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 AppDynamics
 2. 設定並測試 Azure AD 單一登入
@@ -66,7 +66,7 @@ ms.locfileid: "36227559"
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![[應用程式]][2]
-    
+
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![[應用程式]][3]
@@ -105,7 +105,7 @@ ms.locfileid: "36227559"
     ![設定單一登入][4]
 
 2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
- 
+
     ![設定單一登入](./media/appdynamics-tutorial/tutorial_appdynamics_samlbase.png)
 
 3. 在 [AppDynamics 網域及 URL] 區段上，執行下列步驟：
@@ -116,12 +116,12 @@ ms.locfileid: "36227559"
 
     b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<companyname>.saas.appdynamics.com/controller`
 
-    > [!NOTE] 
-    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [AppDynamics 用戶端支援小組](https://www.appdynamics.com/support/)以取得這些值。 
- 
+    > [!NOTE]
+    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [AppDynamics 用戶端支援小組](https://www.appdynamics.com/support/)以取得這些值。
+
 4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
-    ![設定單一登入](./media/appdynamics-tutorial/tutorial_appdynamics_certificate.png) 
+    ![設定單一登入](./media/appdynamics-tutorial/tutorial_appdynamics_certificate.png)
 
 5. 按一下 [儲存]  按鈕。
 
@@ -129,36 +129,31 @@ ms.locfileid: "36227559"
 
 6. 在 [AppDynamics 組態] 區段上，按一下 [設定 AppDynamics] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登入 URL] 和 [SAML 單一登入服務 URL]。
 
-    ![設定單一登入](./media/appdynamics-tutorial/tutorial_appdynamics_configure.png) 
+    ![設定單一登入](./media/appdynamics-tutorial/tutorial_appdynamics_configure.png)
 
 7. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 AppDynamics 公司網站。
 
 8. 在頂端工具列中，按一下 [設定]，然後按一下 [管理]。
-   
+
     ![管理](./media/appdynamics-tutorial/ic790216.png "管理")
 
 9. 按一下 [驗證提供者]  索引標籤。
-   
+
     ![驗證提供者](./media/appdynamics-tutorial/ic790224.png "驗證提供者")
 
 10. 在 [驗證提供者] 區段中，執行下列步驟：
-   
-    ![SAML 設定](./media/appdynamics-tutorial/ic790225.png "SAML 設定")   
+
+    ![SAML 設定](./media/appdynamics-tutorial/ic790225.png "SAML 設定")
 
     a. 針對 [驗證提供者]，選取 [SAML]。
 
     b. 在 [登入 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 單一登入服務 URL] 值。
 
     c. 在 [登出 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL] 值。
-       
+
     d. 在記事本中開啟您的 Base-64 編碼的憑證，將其內容複製到您的剪貼簿，然後貼到 [憑證] 文字方塊中。
 
     e. 按一下 [檔案] 。
-
-     ![儲存](./media/appdynamics-tutorial/ic777673.png "儲存")
-
-> [!TIP]
-> 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
@@ -169,19 +164,19 @@ ms.locfileid: "36227559"
 
 1. 在 **Azure 入口網站**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
-    ![建立 Azure AD 測試使用者](./media/appdynamics-tutorial/create_aaduser_01.png) 
+    ![建立 Azure AD 測試使用者](./media/appdynamics-tutorial/create_aaduser_01.png)
 
 2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
-    
-    ![建立 Azure AD 測試使用者](./media/appdynamics-tutorial/create_aaduser_02.png) 
+
+    ![建立 Azure AD 測試使用者](./media/appdynamics-tutorial/create_aaduser_02.png)
 
 3. 若要開啟 [使用者] 對話方塊，按一下對話方塊頂端的 [新增]。
- 
+
     ![建立 Azure AD 測試使用者](./media/appdynamics-tutorial/create_aaduser_03.png) 
 
 4. 在 [使用者]  對話頁面上，執行下列步驟：
- 
-    ![建立 Azure AD 測試使用者](./media/appdynamics-tutorial/create_aaduser_04.png) 
+
+    ![建立 Azure AD 測試使用者](./media/appdynamics-tutorial/create_aaduser_04.png)
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
@@ -190,49 +185,32 @@ ms.locfileid: "36227559"
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
     d. 按一下頁面底部的 [新增] 。
- 
+
 ### <a name="creating-an-appdynamics-test-user"></a>建立 AppDynamics 測試使用者
 
-若要讓 Azure AD 使用者能夠登入 AppDynamics，必須將他們佈建到 AppDynamics。 就 AppDynamics 而言，需以手動方式佈建。
-
-**若要設定使用者佈建，請執行下列步驟：**
-
-1. 以系統管理員身分登入您的 AppDynamics 公司網站。
-
-2. 移至 [使用者]，然後按一下 **+** 開啟 [建立使用者] 對話方塊。
-   
-    ![使用者](./media/appdynamics-tutorial/ic790229.png "使用者")
-
-3. 在 [建立使用者] 區段中，執行下列步驟：
-   
-    ![建立使用者](./media/appdynamics-tutorial/ic790230.png "建立使用者")
-   
-    a. 在相關的文字方塊中，輸入您要佈建之有效 AAD 帳戶的 [使用者名稱]、[名稱]、[電子郵件]、[新密碼]、[重複新密碼]。
-
-    b. 按一下 [檔案] 。
-
-    >[!NOTE]
-    >您可以使用任何其他的 AppDynamics 使用者帳戶建立工具或 AppDynamics 提供的 API 來佈建 Azure AD 使用者帳戶。
+本節目標是在 AppDynamics 中建立名為 Britta Simon 的使用者。 AppDynamics支援 Just-in-Time 佈建，並會根據預設啟用。 在這一節沒有您需要進行的動作項目。 嘗試存取 AppDynamics 時，如果使用者還不存在，就會建立新使用者。
+>[!Note]
+>如果您需要手動建立使用者，請連絡 [AppDynamics 用戶端支援小組](https://www.appdynamics.com/support/)。
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
 在本節中，您會將 AppDynamics 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
-![指派使用者][200] 
+![指派使用者][200]
 
 **若要將 Britta Simon 指派給 AppDynamics，請執行下列步驟：**
 
 1. 在 Azure 入口網站中，開啟應用程式檢視，接著瀏覽至目錄檢視並移至 [企業應用程式]，然後按一下 [所有應用程式]。
 
-    ![指派使用者][201] 
+    ![指派使用者][201]
 
 2. 在應用程式清單中，選取 [AppDynamics]。
 
-    ![設定單一登入](./media/appdynamics-tutorial/tutorial_appdynamics_app.png) 
+    ![設定單一登入](./media/appdynamics-tutorial/tutorial_appdynamics_app.png)
 
 3. 在左側功能表中，按一下 [使用者和群組]。
 
-    ![指派使用者][202] 
+    ![指派使用者][202]
 
 4. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
 
@@ -243,7 +221,7 @@ ms.locfileid: "36227559"
 6. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
 
 7. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
-    
+
 ### <a name="testing-single-sign-on"></a>測試單一登入
 
 本節的目標是要使用存取面板來測試您的 Azure AD 單一登入組態。
@@ -254,8 +232,6 @@ ms.locfileid: "36227559"
 
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](tutorial-list.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../manage-apps/what-is-single-sign-on.md)
-
-
 
 <!--Image references-->
 
@@ -270,4 +246,3 @@ ms.locfileid: "36227559"
 [201]: ./media/appdynamics-tutorial/tutorial_general_201.png
 [202]: ./media/appdynamics-tutorial/tutorial_general_202.png
 [203]: ./media/appdynamics-tutorial/tutorial_general_203.png
-

@@ -1,6 +1,6 @@
 ---
 title: 在 Azure Cosmos DB 中使用大量執行程式 Java 程式庫執行大量作業 | Microsoft Docs
-description: 使用 Azure Cosmos DB 的大量執行程式 Java 程式庫將文件大量匯入和更新至 Azure Cosmos DB 集合。
+description: 使用 Azure Cosmos DB 的大量執行程式 Java 程式庫將文件大量匯入並更新至 Azure Cosmos DB 容器。
 keywords: Java 大量執行程式
 services: cosmos-db
 author: tknandu
@@ -10,20 +10,20 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: f241a98cdcc847ddb579b86b51034d1438ee1395
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 8e68a90c347d4802a99072d6ee4492e01dab54ca
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300708"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859971"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>在 Azure Cosmos DB 資料上使用大量執行程式 Java 程式庫執行大量作業
 
-本教學課程說明如何使用 Azure Cosmos DB 大量執行程式的 Java 程式庫來匯入和更新 Azure Cosmos DB 文件。 若要深入了解大量執行程式程式庫，以及它如何協助您利用大量輸送量與儲存體，請參閱[大量執行程式程式庫概觀](bulk-executor-overview.md)一文。 在本教學課程中，您將建置會產生隨機文件的 Java 應用程式，而這些文件會大量匯入至 Azure Cosmos DB 集合。 匯入之後，您會大量更新文件的某些屬性。 
+本教學課程說明如何使用 Azure Cosmos DB 大量執行程式的 Java 程式庫來匯入和更新 Azure Cosmos DB 文件。 若要深入了解大量執行程式程式庫，以及它如何協助您利用大量輸送量與儲存體，請參閱[大量執行程式程式庫概觀](bulk-executor-overview.md)一文。 在本教學課程中，您將建置會產生隨機文件的 Java 應用程式，而這些文件會大量匯入至 Azure Cosmos DB 容器。 匯入之後，您會大量更新文件的某些屬性。 
 
 ## <a name="prerequisites"></a>先決條件
 
-* 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 。  
+* 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。  
 
 * 您可以[免費試用 Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)，無須 Azure 訂用帳戶，也無須任何費用和約定付款。 或者，您也可以搭配使用 [Azure Cosmos DB 模擬器](https://docs.microsoft.com/azure/cosmos-db/local-emulator)與 `https://localhost:8081` URI。 [驗證要求](local-emulator.md#authenticating-requests)中會提供主索引鍵。  
 
@@ -77,7 +77,7 @@ ms.locfileid: "36300708"
      DATABASE_NAME,
      COLLECTION_NAME,
      collection.getPartitionKey(),
-     offerThroughput) // throughput you want to allocate for bulk import out of the collection's total throughput
+     offerThroughput) // throughput you want to allocate for bulk import out of the container's total throughput
 
    // Instantiate DocumentBulkExecutor
    DocumentBulkExecutor bulkExecutor = bulkExecutorBuilder.build()
@@ -87,7 +87,7 @@ ms.locfileid: "36300708"
    client.getConnectionPolicy().getRetryOptions().setMaxRetryAttemptsOnThrottledRequests(0);
 ```
 
-4. 呼叫 importAll API，以產生隨機文件來大量匯入至 Azure Cosmos DB 集合。 您可以設定 CmdLineConfiguration.java 檔案內的命令列組態。
+4. 呼叫 importAll API，以產生隨機文件來大量匯入至 Azure Cosmos DB 容器。 您可以設定 CmdLineConfiguration.java 檔案內的命令列組態。
 
    ```java
    BulkImportResponse bulkImportResponse = bulkExecutor.importAll(documents, false, true, null);
@@ -154,7 +154,7 @@ ms.locfileid: "36300708"
     }).collect(Collectors.toCollection(() -> updateItems));
    ```
 
-2. 呼叫 updateAll API，以產生隨機文件來大量匯入至 Azure Cosmos DB 集合。 您可以設定要傳遞到 CmdLineConfiguration.java 檔案內的命令列組態。
+2. 呼叫 updateAll API，以產生隨機文件來大量匯入至 Azure Cosmos DB 容器。 您可以設定要傳遞到 CmdLineConfiguration.java 檔案內的命令列組態。
 
    ```java
    BulkUpdateResponse bulkUpdateResponse = bulkExecutor.updateAll(updateItems, null)
@@ -205,9 +205,9 @@ ms.locfileid: "36300708"
    * 將 JVM 堆積大小設定為夠大的數字，以避免處理大量文件時發生任何記憶體問題。 建議的堆積大小：max(3GB, 3 * sizeof(在一個批次中傳遞至大量輸入 API 的所有文件))。  
    * 具有前置處理時間，在您對大量文件執行大量作業時，這可讓您取得更高的輸送量。 因此，如果您想要匯入 10,000,000 份文件，較好的方式是對 10 份大量文件 (每份中有 1,000,000 份文件) 執行 10 次大量匯入，而不是對 100 份大量文件 (每份中有 100,000 份文件) 執行 100 次大量匯入。  
 
-* 在對應到特定 Azure Cosmos DB 集合的單一虛擬機器中，建議您為整個應用程式具現化單一 DocumentBulkExecutor 物件。  
+* 在對應到特定 Azure Cosmos DB 容器的單一虛擬機器中，建議您為整個應用程式具現化單一 DocumentBulkExecutor 物件。  
 
-* 單一大量作業 API 執行會取用大量用戶端機器的 CPU 和網路 IO。 這是因為由內部繁衍出多個工作，因此請避免在每次執行大量作業 API 呼叫時，您的應用程式處理程序內繁衍出多個並行工作。 如果在單一虛擬機器上執行的單一大量作業 API 呼叫，無法取用整個集合的輸送量 (如果集合的輸送量 > 1 百萬 RU/s)，建議您建立個別虛擬機器來並行執行大量作業 API 呼叫。
+* 單一大量作業 API 執行會取用大量用戶端機器的 CPU 和網路 IO。 這是因為由內部繁衍出多個工作，因此請避免在每次執行大量作業 API 呼叫時，您的應用程式處理程序內繁衍出多個並行工作。 如果在單一虛擬機器上執行的單一大量作業 API 呼叫無法取用整個容器的輸送量 (如果容器的輸送量 > 1 百萬 RU/s)，建議您建立個別虛擬機器來並行執行大量作業 API 呼叫。
 
     
 ## <a name="next-steps"></a>後續步驟

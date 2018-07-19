@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/10/2018
 ms.author: jeedes
-ms.openlocfilehash: fbdb6d052dc3c79eeb7fefcd57f36a48ba88722f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: e1788de7c2372797b2034eb1753ab435c1299889
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36224730"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38548267"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>教學課程：Azure Active Directory 與 Adobe Creative Cloud 整合
 
@@ -40,6 +40,7 @@ Adobe Creative Cloud 與 Azure AD 整合提供下列優點：
 
 - Azure AD 訂用帳戶
 - 已啟用 Adobe Creative Cloud 單一登入的訂閱
+- 需要 Adobe Creative Cloud Enterprise 版
 
 > [!NOTE]
 > 若要測試本教學課程中的步驟，我們不建議使用生產環境。
@@ -50,12 +51,14 @@ Adobe Creative Cloud 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
+
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Adobe Creative Cloud
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-adobe-creative-cloud-from-the-gallery"></a>從資源庫新增 Adobe Creative Cloud
+
 若要設定將 Adobe Creative Cloud 整合至 Azure AD 中，您需要從資源庫將 Adobe Creative Cloud 新增至受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 Adobe Creative Cloud，請執行下列步驟：**
@@ -110,10 +113,10 @@ Adobe Creative Cloud 與 Azure AD 整合提供下列優點：
 
     a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://www.okta.com/saml2/service-provider/<token>`
 
-    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://<company name>.okta.com/auth/saml20/accauthlinktest`
+    b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<company name>.okta.com/auth/saml20/accauthlinktest`
 
     > [!NOTE]
-    > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [Adobe Creative Cloud 用戶端支援小組](https://helpx.adobe.com/in/contact/support.html)以取得這些值。
+    > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 若要取得這些值，請連絡 [Adobe Creative Cloud Enterprise](https://www.adobe.com/au/creativecloud/business/teams/plans.html)。
 
 4. 如果您想要以 **SP** 起始模式設定應用程式，請勾選 [顯示進階 URL 設定]，然後執行下列步驟：
 

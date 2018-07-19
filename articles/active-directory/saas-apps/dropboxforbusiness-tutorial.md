@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: jeedes
-ms.openlocfilehash: a0481b2eb688b70d5e56b2b6793b026d6b4c96a2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3423f723b3f4857db44c609cd0e2143b6b04653e
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36219994"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868624"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dropbox-for-business"></a>教學課程：Azure Active Directory 與 Dropbox for Business 整合
 
@@ -158,7 +158,7 @@ Dropbox for Business 與 Azure AD 整合提供下列優點：
    
     a. 按一下 [必要]。
    
-    b. 在 [登入 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 **「SAML 單一登入服務 URL」** 值。
+    b. 在 [登入 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 單一登入服務 URL] 值。
 
     c. 按一下 [選擇憑證]，然後瀏覽至您的 **Base-64 編碼的憑證檔案**。
 

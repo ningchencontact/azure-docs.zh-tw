@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 897db5a4d794c22f436fa074ec2c359edc5b590c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0e2936d0b428249226e428ddc0912d62e29a84f3
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225053"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042385"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-collaborative-innovation"></a>教學課程：Azure Active Directory 與 Collaborative Innovation 整合
 
@@ -33,7 +33,7 @@ Collaborative Innovation 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Collaborative Innovation 與 Azure AD 的整合，您需要下列項目：
 
@@ -112,9 +112,9 @@ Collaborative Innovation 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<instancename>.foundry.<companyname>.com/`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<instancename>.foundry.<companyname>.com/`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<instancename>.foundry.<companyname>.com`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<instancename>.foundry.<companyname>.com`
     
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Collaborative Innovation 用戶端支援小組](https://www.unilever.com/contact/)以取得這些值。  
@@ -226,7 +226,7 @@ Collaborative Innovation 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您按一下 [存取面板] 中的 [Collaborative Innovation] 圖格時，應該會取得 Collaborative Innovation 應用程式的登入頁面。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

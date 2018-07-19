@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 4/20/2017
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: ec30832e6863ad92eff8f5c2e613adc503c73af5
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 06a2d4ab12d2a7e03a538a98f5232a417fb39e4f
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34075743"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969464"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>基礎結構備份服務的最佳做法
 
@@ -36,15 +36,13 @@ ms.locfileid: "34075743"
 
 在部署每個 Azure Stack 雲端後，啟用基礎結構備份。 您可以使用 Azure Stack 工具，從任何可存取操作員管理 API 端點的用戶端/伺服器來排程備份。
 
-### <a name="networking"></a>網路
+### <a name="networking"></a>網路功能
 
 路徑的通用命名慣例 (UNC) 字串必須使用完整網域名稱 (FQDN)。 若無法進行名稱解析，也可以使用 IP 位址。 UNC 字串會指定資源的位置，例如共用的檔案或裝置。
 
 ### <a name="encryption"></a>加密
 
-加密金鑰用於將匯出到外部儲存位置的備份資料加密。 可以使用 Azure Stack 工具來產生金鑰。 
-
-![Azure Stack 工具](media\azure-stack-backup\azure-stack-backup-encryption1.png)
+加密金鑰用於將匯出到外部儲存位置的備份資料加密。 金鑰會在[使用 PowerShell 為 Azure Stack 啟用備份](azure-stack-backup-enable-backup-powershell.md)的過程中產生。
 
 金鑰必須儲存在安全的位置 (例如，公用 Azure Key Vault 祕密中)。 在重新部署 Azure Stack 期間，必須使用此金鑰。 
 
@@ -63,7 +61,7 @@ ms.locfileid: "34075743"
  - 基礎結構會自動建立 MASBACKUP 資料夾。 這是 Microsoft 管理的共用。 您可以在與 MASBACKUP 相同的層級建立共用。 不建議您在 MASBACKUP 資料夾內，建立 Azure Stack 未建立的資料夾或儲存體資料。 
  -  請使用資料夾名稱中的 FQDN 和區域，區分來自不同雲端的備份資料。 您 Azure Stack 部署和端點的完整網域名稱 (FQDN) 是「區域」參數和「外部網域名稱」參數的組合。 如需詳細資訊，請參閱 [Azure Stack 資料中心整合 - DNS](azure-stack-integrate-dns.md)。
 
-例如，備份共用是裝載在 fileserver01.contoso.com 上的 AzSBackups。在該檔案共用中，每個 Azure Stack 部署可能都會有一個使用外部網域名稱的資料夾，和一個使用區域名稱的子資料。 
+例如，備份共用是裝載在 fileserver01.contoso.com 上的 AzSBackups。 在該檔案共用中，每個 Azure Stack 部署可能都會有一個使用外部網域名稱的資料夾，和一個使用區域名稱的子資料。 
 
 FQDN：contoso.com  
 區域：nyc

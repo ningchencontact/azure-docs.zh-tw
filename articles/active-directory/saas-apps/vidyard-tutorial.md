@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 0934ec2443d240234b2120056894921f2e30c81c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d796ebf6e30476d766a0d9b6c78ba4b5cf577b47
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213160"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056220"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vidyard"></a>教學課程：Azure Active Directory 與 Vidyard 整合
 
@@ -34,7 +34,7 @@ ms.locfileid: "36213160"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Vidyard 整合，您需要下列項目：
 
@@ -108,15 +108,15 @@ ms.locfileid: "36213160"
 
     ![[Vidyard 網域及 URL] 單一登入資訊](./media/vidyard-tutorial/tutorial_vidyard_url2.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://secure.vidyard.com/sso/saml/<unique id>/metadata`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://secure.vidyard.com/sso/saml/<unique id>/metadata`
 
-    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://secure.vidyard.com/sso/saml/<unique id>/consume`
+    b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://secure.vidyard.com/sso/saml/<unique id>/consume`
 
 4. 如果您想要以 **SP** 起始模式設定應用程式，請勾選 [顯示進階 URL 設定]，然後執行下列步驟：
 
     ![[Vidyard 網域及 URL] 單一登入資訊](./media/vidyard-tutorial/tutorial_vidyard_url1.png)
 
-    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://secure.vidyard.com/sso/saml/<unique id>/login`
+    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://secure.vidyard.com/sso/saml/<unique id>/login`
 
     > [!NOTE]
     > 這些都不是真正的值。 您將會使用實際的「識別碼」、「回覆 URL」及「登入 URL」來更新值，稍後會在本教學課程中說明
@@ -252,7 +252,7 @@ ms.locfileid: "36213160"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 Vidyard 圖格時，應該就會自動登入 Vidyard 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

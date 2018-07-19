@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 4813c492ba25b0d6dd524e2c0b4b5b6e8c2a2bfa
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 7e1d942d593fc01f68c1cdb7ffd923d2529cf171
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308236"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39050607"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-timeoffmanager"></a>教學課程：Azure Active Directory 與 TimeOffManager 整合
 
@@ -34,7 +34,7 @@ TimeOffManager 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 TimeOffManager 整合，您需要下列項目：
 
@@ -109,7 +109,7 @@ TimeOffManager 與 Azure AD 整合提供下列優點：
 
      ![[TimeOffManager 網域與 URL] 區段](./media/timeoffmanager-tutorial/tutorial_timeoffmanager_url.png)
 
-    在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://www.timeoffmanager.com/cpanel/sso/consume.aspx?company_id=<companyid>`
+    在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://www.timeoffmanager.com/cpanel/sso/consume.aspx?company_id=<companyid>`
 
     > [!NOTE] 
     > 這不是真實的值。 請使用實際的「回覆 URL」來更新此值。 您可以從 [單一登入設定] 頁面取得此值，稍後會在本教學課程中加以說明，或連絡 [TimeOffManager 支援小組](https://www.purelyhr.com/contact-us)。
@@ -258,7 +258,7 @@ TimeOffManager 支援即時使用者佈建。 沒有您適用的動作項目。
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 TimeOffManager 圖格時，應該會自動登入您的 TimeOffManager 應用程式。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。
+當您在存取面板中按一下 TimeOffManager 圖格時，應該會自動登入您的 TimeOffManager 應用程式。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

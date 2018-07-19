@@ -1,6 +1,6 @@
 ---
 title: 在 Azure Cosmos DB 中使用大量執行程式 .NET 程式庫執行大量作業 | Microsoft Docs
-description: 使用 Azure Cosmos DB 的大量執行程式 .NET 程式庫將文件大量匯入和更新至 Azure Cosmos DB 集合。
+description: 使用 Azure Cosmos DB 的大量執行程式 .NET 程式庫將文件大量匯入並更新至 Azure Cosmos DB 容器。
 keywords: .Net 大量執行程式
 services: cosmos-db
 author: tknandu
@@ -10,22 +10,22 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: b09fd415c442c1e605987a6b25fd938ce04ce5c1
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 804906e1c1b361b9274dbc8fa3ab1cb204e27dfc
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300766"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857271"
 ---
 # <a name="using-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中使用大量執行程式 .NET 程式庫執行大量作業
 
-本教學課程說明如何使用 Azure Cosmos DB 的大量執行程式 .NET 程式庫將文件匯入並更新至 Azure Cosmos DB 集合。 若要深入了解大量執行程式程式庫，以及它如何協助您利用大量輸送量與儲存體，請參閱[大量執行程式程式庫概觀](bulk-executor-overview.md)一文。 本教學課程將引導您使用 .NET 應用程式範例，將隨機產生的文件大量匯入至 Azure Cosmos DB 集合。 匯入之後，應用程式會說明如何將修補程式指定為可在特定文件欄位上執行的作業，來大量更新匯入的資料。
+本教學課程說明如何使用 Azure Cosmos DB 的大量執行程式 .NET 程式庫將文件匯入並更新至 Azure Cosmos DB 容器。 若要深入了解大量執行程式程式庫，以及它如何協助您利用大量輸送量與儲存體，請參閱[大量執行程式程式庫概觀](bulk-executor-overview.md)一文。 本教學課程將引導您使用 .NET 應用程式範例，將隨機產生的文件大量匯入至 Azure Cosmos DB 容器。 匯入之後，應用程式會說明如何將修補程式指定為可在特定文件欄位上執行的作業，來大量更新匯入的資料。
 
 ## <a name="prerequisites"></a>先決條件
 
 * 如果尚未安裝 Visual Studio 2017，您可以下載並使用 [Visual Studio 2017 Community 版本](https://www.visualstudio.com/downloads/)。 務必在 Visual Studio 設定期間啟用 Azure 開發。
 
-* 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 。 
+* 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。 
 
 * 您可以[免費試用 Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)，無須 Azure 訂用帳戶，也無須任何費用和約定付款。 或者，您也可以搭配使用 [Azure Cosmos DB 模擬器](https://docs.microsoft.com/azure/cosmos-db/local-emulator)與 `https://localhost:8081` URI。 [驗證要求](local-emulator.md#authenticating-requests)中會提供主索引鍵。
 
@@ -170,11 +170,11 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
 
 * 為達到最佳效能，請從位於與 Cosmos DB 帳戶寫入區域相同區域的 Azure 虛擬機器中執行應用程式。  
 
-* 在對應到特定 Cosmos DB 集合的單一虛擬機器中，建議您為整個應用程式具現化單一 BulkExecutor 物件。  
+* 在對應到特定 Cosmos DB 容器的單一虛擬機器中，建議您為整個應用程式具現化單一 BulkExecutor 物件。  
 
-* 單一大量作業 API 執行會取用大量用戶端機器的 CPU 和網路 IO。 這是因為由內部繁衍出多個工作，因此請避免在每次執行大量作業 API 呼叫時，您的應用程式處理程序內繁衍出多個並行工作。 如果在單一虛擬機器上執行的單一大量作業 API 呼叫，無法取用整個集合的輸送量 (如果集合的輸送量 > 1 百萬 RU/s)，建議您建立個別虛擬機器來並行執行大量作業 API 呼叫。  
+* 單一大量作業 API 執行會取用大量用戶端機器的 CPU 和網路 IO。 這是因為由內部繁衍出多個工作，因此請避免在每次執行大量作業 API 呼叫時，您的應用程式處理程序內繁衍出多個並行工作。 如果在單一虛擬機器上執行的單一大量作業 API 呼叫無法取用整個容器的輸送量 (如果容器的輸送量 > 1 百萬 RU/s)，建議您建立個別虛擬機器來並行執行大量作業 API 呼叫。  
 
-* 請確定 InitializeAsync() 是在具現化 BulkExecutor 物件之後叫用，以便提取目標 Cosmos DB 集合分割區對應。  
+* 請確定 InitializeAsync() 是在具現化 BulkExecutor 物件之後叫用，以便提取目標 Cosmos DB 容器資料分割對應。  
 
 * 在應用程式的 App.Config 中，為擁有最佳效能，請確保已啟用 **gcServer**
   ```xml  

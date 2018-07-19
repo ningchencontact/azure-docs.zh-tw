@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 9cd6a373f23c69f920d0e46bad368f17c8d21035
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ebd8e28e8adc357f0e6a0582f422085ddf50749f
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36214990"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041017"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-supermood"></a>教學課程：Azure Active Directory 與 Supermood 整合
 
@@ -34,7 +34,7 @@ ms.locfileid: "36214990"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Supermood 的整合，您需要下列項目：
 
@@ -241,7 +241,7 @@ ms.locfileid: "36214990"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您按一下 [存取面板] 中的 [Supermood] 圖格時，系統應該會自動將您登入 Supermood 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

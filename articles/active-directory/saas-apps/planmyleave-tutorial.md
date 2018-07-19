@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 3c33c545e2b630ef501ebd81f4bd29b16cf77759
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: c064223e06768dc40892774f00b0588b7ec32fdc
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36223863"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39051474"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-planmyleave"></a>教學課程：Azure Active Directory 與 PlanMyLeave 整合
 
@@ -34,7 +34,7 @@ PlanMyLeave 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定與 PlanMyLeave 的 Azure AD 整合，您需要下列項目：
 
@@ -110,9 +110,9 @@ PlanMyLeave 與 Azure AD 整合提供下列優點：
 
     ![PlanMyLeave 網域與 URL 單一登入資訊](./media/planmyleave-tutorial/tutorial_planmyleave_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<company-name>.planmyleave.com/Login.aspx`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<company-name>.planmyleave.com/Login.aspx`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<company-name>.planmyleave.com`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<company-name>.planmyleave.com`
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [PlanMyLeave 用戶端支援小組](mailto:support@planmyleave.com)，以取得這些值。 
@@ -229,7 +229,7 @@ PlanMyLeave 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 [PlanMyLeave] 圖格時，應該會自動登入您的 PlanMyLeave 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 7010983d1b41589d3c0654ddd6362c80ca71a337
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: bbfee75497681df0d51e164b3035b9b88c67ccaa
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36223788"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39052130"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>教學課程：Azure Active Directory 與 Jitbit Helpdesk 整合
 
@@ -33,7 +33,7 @@ Jitbit Helpdesk 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定與 Jitbit Helpdesk 的 Azure AD 整合，您需要下列項目：
 
@@ -271,7 +271,7 @@ Jitbit Helpdesk 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您按一下存取面板中的 [Jitbit Helpdesk] 圖格時，您應該會看到 Jitbit Helpdesk 應用程式的登入頁面。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 
