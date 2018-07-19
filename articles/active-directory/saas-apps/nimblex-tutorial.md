@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: jeedes
-ms.openlocfilehash: 63b70e38f4c4f804c9be520480c7562834d42598
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 7b5dc6d892741f63596589a48ad5d45891b14c21
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37870194"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39040400"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nimblex"></a>教學課程：Azure Active Directory 與 Nimblex 整合
 
@@ -33,7 +33,7 @@ Nimblex 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Nimblex 整合，您需要下列項目：
 
@@ -107,9 +107,9 @@ Nimblex 與 Azure AD 整合提供下列優點：
 
     ![Nimblex 網域與 URL 單一登入資訊](./media/nimblex-tutorial/tutorial_nimblex_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<YOUR APPLICATION PATH>/Login.aspx`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<YOUR APPLICATION PATH>/Login.aspx`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<YOUR APPLICATION PATH>/`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<YOUR APPLICATION PATH>/`
 
     c. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<path-to-application>/SamlReply.aspx`
 
@@ -228,7 +228,7 @@ Nimblex 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Nimblex] 磚時，應該會自動登入 Nimblex 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -12,18 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2018
+ms.date: 07/03/2018
 ms.author: sethm
-ms.openlocfilehash: feb4332f8f6b5ab26067b5c80a376cdee62c7739
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 0886c220dfe926c7dfd9fa378ebb3c13fc900cbf
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
-ms.locfileid: "28984981"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37860032"
 ---
 # <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>使用 .NET Framework 將事件傳送至 Azure 事件中樞
-
-## <a name="introduction"></a>簡介
 
 「事件中樞」是一種服務，可處理來自連接裝置和應用程式的大量事件資料 (遙測)。 收集資料至「事件中樞」之後，可以使用存放裝置叢集來儲存資料，或使用即時分析提供者進行轉換。 此大規模事件收集和處理功能是新型應用程式架構 (包括物聯網 (IoT)) 的重要元件。
 
@@ -31,7 +29,7 @@ ms.locfileid: "28984981"
 
 若要完成本教學課程，您需要下列必要條件：
 
-* [Microsoft Visual Studio 2015 或更高版本](http://visualstudio.com)。 本教學課程中的螢幕擷取畫面使用 Visual Studio 2017。
+* [Microsoft Visual Studio 2017 或更高版本](http://visualstudio.com)。
 * 使用中的 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費帳戶。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/free/)。
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>建立事件中樞命名空間和事件中樞
@@ -60,8 +58,8 @@ ms.locfileid: "28984981"
 5. 將下列欄位新增至 **Program** 類別，並以您在上一節中建立的事件中樞名稱替代預留位置值，以及您先前儲存的命名空間層級連接字串。
    
   ```csharp
-  static string eventHubName = "{Event Hub name}";
-  static string connectionString = "{send connection string}";
+  static string eventHubName = "Your Event Hub name";
+  static string connectionString = "namespace connection string";
   ```
 6. 將下列方法加入至 **Program** 類別：
    
@@ -103,6 +101,7 @@ ms.locfileid: "28984981"
 恭喜！ 您現在已將傳送訊息到事件中樞。
 
 ## <a name="next-steps"></a>後續步驟
+
 您現在已建置一個可建立事件中樞及傳送資料的工作應用程式，接下來可繼續進行下列案例：
 
 * [使用事件處理器主機接收事件](event-hubs-dotnet-framework-getstarted-receive-eph.md)

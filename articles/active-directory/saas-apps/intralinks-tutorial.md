@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: fbe3ceb3d26de90bd46ee02263d09c822ee90c29
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 2dbf52d0e157379687b144feba5c7933a7c5a3e3
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868842"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39046833"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intralinks"></a>教學課程：Azure Active Directory 與 Intralinks 整合
 
@@ -33,7 +33,7 @@ Intralinks 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Intralinks 整合，您需要下列項目：
 
@@ -256,7 +256,7 @@ Intralinks 會針對其他所有 Intralinks 應用程式使用相同的 SSO 身�
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Intralinks] 圖格時，應該會自動登入您的 Intralinks 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

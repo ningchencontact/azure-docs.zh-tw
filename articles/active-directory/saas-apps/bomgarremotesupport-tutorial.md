@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 2d0a4df20ef513b2a6524ba92656a7f861da8458
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: c59f4291726b24b7c96bb60d0497c1578a3e4b0f
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37115343"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048176"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bomgar-remote-support"></a>教學課程：Azure Active Directory 與 Bomgar Remote Support 整合
 
@@ -33,7 +33,7 @@ ms.locfileid: "37115343"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Bomgar Remote Support 的整合，您需要下列項目：
 
@@ -107,7 +107,7 @@ ms.locfileid: "37115343"
 
     ![Bomgar Remote Support 網域及 URL 單一登入資訊](./media/bomgarremotesupport-tutorial/tutorial_bomgarremotesupport_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<SUBDOMAIN>.trafficmanager.net/saml`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<SUBDOMAIN>.trafficmanager.net/saml`
 
     b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`https://<SUBDOMAIN>.trafficmanager.net`
 
@@ -197,7 +197,7 @@ ms.locfileid: "37115343"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Bomgar Remote Support] 圖格時，應該會自動登入您的 Bomgar Remote Support 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

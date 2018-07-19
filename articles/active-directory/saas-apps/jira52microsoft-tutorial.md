@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 5df8b3d91f52e4809ef43e3e376004e4274b4400
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 84afd45f6fb56222aa6d2dea063251353f406b26
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112015"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042671"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft-v52"></a>教學課程：Azure Active Directory 與 JIRA SAML SSO by Microsoft (V5.2) 整合
 
@@ -38,7 +38,7 @@ JIRA SAML SSO by Microsoft (V5.2) 與 Azure AD 整合提供下列優點：
 
 使用 Microsoft Azure Active Directory 帳戶搭配 Atlassian JIRA 伺服器來啟用單一登入。 如此一來，所有組織使用者即可使用 Azure AD 認證來登入 JIRA 應用程式。 此外掛程式使用 SAML 2.0 來進行同盟。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 JIRA SAML SSO by Microsoft (V5.2) 整合，您需要下列項目：
 
@@ -124,11 +124,11 @@ JIRA SAML SSO by Microsoft (V5.2) 與 Azure AD 整合提供下列優點：
 
     ![JIRA SAML SSO by Microsoft 網域及 URL 單一登入資訊](./media/jira52microsoft-tutorial/tutorial_singlesign-onforjira5.2_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<domain:port>/plugins/servlet/saml/auth`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<domain:port>/plugins/servlet/saml/auth`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<domain:port>/`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<domain:port>/`
 
-    c. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://<domain:port>/plugins/servlet/saml/auth`
+    c. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<domain:port>/plugins/servlet/saml/auth`
 
     > [!NOTE]
     > 這些都不是真正的值。 使用實際的識別碼、回覆 URL 和登入 URL 來更新這些值。 如果連接埠是具名 URL，則為選擇性。 在設定 Jira 外掛程式 (本教學課程稍後會說明) 期間會收到這些值。
@@ -291,7 +291,7 @@ JIRA SAML SSO by Microsoft (V5.2) 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [JIRA SAML SSO by Microsoft (V5.2)] 圖格時，應該就會自動登入 JIRA SAML SSO by Microsoft (V5.2) 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 
