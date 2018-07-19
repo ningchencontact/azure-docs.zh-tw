@@ -26,6 +26,10 @@
   items:
     - name: 事件處理器主機概觀
       href: event-hubs-event-processor-host.md
+    - name: IP 連線篩選
+      href: event-hubs-ip-filtering.md
+    - name: 虛擬網路服務端點
+      href: event-hubs-service-endpoints.md
     - name: 程式設計指南
       href: event-hubs-programming-guide.md
     - name: 與事件方格整合
@@ -54,7 +58,7 @@
       maintainContext: true
 - name: 使用說明指南
   items:
-    - name: 建立事件中心
+    - name: 建立事件中樞
       href: event-hubs-create.md
     - name: 使用 .NET Framework 傳送事件
       href: event-hubs-dotnet-framework-getstarted-send.md
@@ -150,7 +154,7 @@
     - name: 常見問題集
       href: event-hubs-faq.md
     - name: Azure 藍圖
-      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: 學習路徑
       href: 'https://azure.microsoft.com/documentation/learning-paths/event-hubs/'
     - name: 價格

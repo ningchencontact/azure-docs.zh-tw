@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: add80b17c76e7262f55e50cd07d4e9b053cfa1ff
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 81dbb61d696da84febc89563f946581315fdf527
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209826"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37922746"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>將 Azure 中的行動服務自動更新至 Azure 複寫
 
@@ -29,6 +29,11 @@ Azure Site Recovery 每個月都會發行，可以增強現有功能或者新增
 
 > [!NOTE]
 > 啟用自動更新不需要重新啟動您的 Azure 虛擬機器，也不會影響進行中的複寫。
+
+> [!NOTE]
+> 自動化帳戶所使用作業的計費根據該月所使用的作業執行時間分鐘數，而且 500 分鐘預設包含為自動化帳戶的免費單位。 作業每日執行數量的範圍從**數秒到一分鐘**，並且**涵蓋在免費信用額度中**。
+
+FREE UNITS INCLUDED (PER MONTH)**   PRICE Job run time    500 minutes ₹0.14/minute
 
 ## <a name="enable-automatic-updates"></a>啟用自動更新
 
@@ -64,7 +69,7 @@ Azure Site Recovery 每個月都會發行，可以增強現有功能或者新增
 如果您嘗試啟用自動更新而失敗，請參閱下方項目以進行疑難排解。
 
 **錯誤**：您沒有權限，無法建立 Azure 執行身分帳戶 (服務主體) 以及將參與者角色授與服務主體。 
-- 建議的動作：確定登入的帳戶獲得指派「參與者」，然後再次嘗試作業。
+- 建議的動作：確定登入的帳戶獲得指派「參與者」，然後再次嘗試作業。 如需指派正確權限的進一步資訊，請參閱[本](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions)文件。
  
 一旦開啟自動更新，只需要按一下 [修復] 按鈕，大部分的問題都可以由 Site Recovery 服務修復。
 

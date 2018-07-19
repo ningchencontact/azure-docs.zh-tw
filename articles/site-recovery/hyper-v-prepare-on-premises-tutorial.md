@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 7e0219a662483ef123bdc2889a43dd3d93d23ac2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: fb820d124fd9b5e882cad538ad436532d7865fbc
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31413223"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37923486"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>準備內部部署 Hyper-V 伺服器以進行至 Azure 的災害復原
 
@@ -66,7 +66,7 @@ ms.locfileid: "31413223"
     
 3. 如果您要依據 IP 位址來控制存取，請確定：
     - 以 IP 位址為基礎的防火牆規則可以連線至 [Azure Datacenter IP 範圍](https://www.microsoft.com/download/confirmation.aspx?id=41653)，以及 HTTPS (443) 連接埠。
-    - 允許訂用帳戶的 Azure 區域和美國西部 (用於存取控制和身分識別管理) 使用 IP 位址範圍。
+    - 允許訂用帳戶之 Azure 區域的 IP 位址範圍。
 
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>準備在容錯移轉後連接到 Azure VM

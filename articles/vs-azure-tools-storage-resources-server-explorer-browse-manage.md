@@ -11,12 +11,12 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 8/24/2017
 ms.author: ghogen
-ms.openlocfilehash: c9828504ab40a1e62c107f218fda024be6330c23
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: dd867462ce3a1841aa4e2e8943f2c2619d168b08
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061738"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112315"
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>使用伺服器總管瀏覽和管理儲存體資源
 
@@ -219,7 +219,7 @@ Azure 資料表儲存體可儲存大量的結構化資料。 此服務是一個 
 1. 當您完成查詢建置時，請關閉對話方塊。 產生的查詢文字格式會出現在文字方塊中做為 WCF Data Services 篩選條件。
 1. 若要執行查詢，請選取綠色的三角形圖示。
 
-如果您直接在篩選文字方塊中輸入 WCF Data Services 篩選字串，您也可以篩選出現在資料表設計工具中的實體資料。 這種類型的字串與 SQL WHERE 子句相似，但是會傳送至伺服器做為 HTTP 要求。 如需如何建構篩選字串的資訊，請參閱 [建構資料表設計工具的篩選字串](https://msdn.microsoft.com/library/azure/ff683669.aspx)。
+如果您直接在篩選文字方塊中輸入 WCF Data Services 篩選字串，您也可以篩選出現在資料表設計工具中的實體資料。 這種類型的字串與 SQL WHERE 子句相似，但是會傳送至伺服器做為 HTTP 要求。 如需如何建構篩選字串的資訊，請參閱[建構資料表設計工具的篩選字串](https://docs.microsoft.com/azure/vs-azure-tools-table-designer-construct-filter-strings)。
 
 下圖顯示有效篩選字串的範例：
 

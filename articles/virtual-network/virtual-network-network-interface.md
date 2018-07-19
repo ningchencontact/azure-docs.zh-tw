@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: a6e3bb31886f1b682ef20404b536bfc4a0c07151
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4b584dfa49c42328a44fff0645dcdec2504abaa2
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656878"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37904215"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>建立、變更或刪除網路介面
 
@@ -62,7 +62,7 @@ ms.locfileid: "34656878"
 
 當您建立網路介面時，入口網站並未提供將公用 IP 位址指派給網路介面的選項，然而在使用入口網站建立虛擬機器時，入口網站會建立公用 IP 位址，並將它指派給網路介面。 若要了解如何在建立網路介面之後對其新增公用 IP 位址，請參閱[管理 IP 位址](virtual-network-network-interface-addresses.md)。 如果您想要建立具有公用 IP 位址的網路介面，就必須使用 CLI 或 PowerShell 來建立網路介面。
 
-入口網站不會提供將網路介面指派給應用程式安全性群組的選項，但是 Azure CLI 和 PowerShell 會提供。 若要深入了解應用程式安全性群組，請參閱[應用程式安全性群組](security-overview.md#application-security-groups)。
+入口網站不會提供建立網路介面時將網路介面指派給應用程式安全性群組的選項，但是 Azure CLI 和 PowerShell 會提供。 只要網路介面有連接至虛擬機器，您就可以使用入口網站，將現有的網路介面指派給應用程式安全性群組。 若要了解如何將網路介面指派給應用程式安全性群組，請參閱[新增到應用程式安全性群組或從中移除](#add-to-or-remove-from-application-security-groups)。
 
 >[!Note]
 > 在網路介面連接至虛擬機器和虛擬機器第一次啟動後，Azure 才會指派 MAC 位址給網路介面。 您無法指定 Azure 指派給網路介面的 MAC 位址。 在網路介面遭到刪除或指派給主要網路介面之主要 IP 組態的私人 IP 位址遭到變更之前，MAC 位址會保持指派給網路介面。 若要深入了解 IP 位址和 IP 設定，請參閱[管理 IP 位址](virtual-network-network-interface-addresses.md)。
@@ -161,7 +161,10 @@ IP 轉送讓網路介面連接的虛擬機器能夠：
 
 ## <a name="add-to-or-remove-from-application-security-groups"></a>新增到應用程式安全性群組或從中移除
 
-入口網站不會提供將網路介面指派給應用程式安全性群組 (或從中移除網路介面) 的選項，但是 Azure CLI 和 PowerShell 會提供。 若要深入了解應用程式安全性群組，請參閱[應用程式安全性群組](security-overview.md#application-security-groups)和[建立應用程式安全性群組](#create-an-application-security-group)。
+如果網路介面是連接至虛擬機器，您只能使用入口網站在應用程式安全性群組中新增或移除網路介面。 無論網路介面是否連接至虛擬機器，您都可以使用 PowerShell 或 Azure CLI 在應用程式安全性群組中新增或移除網路介面。 深入了解[應用程式安全性群組](security-overview.md#application-security-groups)和如何[建立應用程式安全性群組](manage-network-security-group.md#create-an-application-security-group)。
+
+1. 在入口網站頂端的 [搜尋資源、服務和文件] 方塊中，開始輸入您想要在應用程式安全性群組中新增或移除其網路介面的虛擬機器名稱。 當 VM 的名稱出現在搜尋結果中時，請加以選取。
+2. 在 [設定] 底下，選取 [網路]。  選取 [設定應用程式安全性群組]，選取您想要新增網路介面的應用程式安全性群組，或取消選取您想要移除網路介面的應用程式安全性群組，然後選取 [儲存]。 只有同一個虛擬網路中存在的網路介面可新增到同一個應用程式安全性群組。 應用程式安全性群組必須存在於網路介面所在的同一個位置。
 
 **命令**
 
@@ -264,6 +267,6 @@ Azure 網路監看員的下一個躍點功能，也可協助您判斷路由是�
 
 - 使用 [Azure CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或 [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 建立具有多個 NIC 的 VM
 - 使用 [Azure CLI](virtual-network-multiple-ip-addresses-cli.md) 或 [PowerShell](virtual-network-multiple-ip-addresses-powershell.md) 建立具有多個 IPv4 位址的單一 NIC VM
-- 使用 [Azure CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json)、[PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或 [Azure Resource Manager 範本](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|建立具有私人 IPv6 位址的單一 NIC VM (位於 Azure 負載平衡器後方)
+- 使用 [Azure CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json)、[PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或 [Azure Resource Manager 範本](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)建立具有私人 IPv6 位址的單一 NIC VM (位於 Azure Load Balancer 後方)
 - 使用 [PowerShell](powershell-samples.md) 或 [Azure CLI](cli-samples.md) 範例指令碼，或使用 Azure [Resource Manager 範本](template-samples.md)建立網路介面
 - 為虛擬網路建立及套用 [Azure 原則](policy-samples.md)

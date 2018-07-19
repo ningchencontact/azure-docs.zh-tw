@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: brenduns
-ms.openlocfilehash: 324fa19aa97cead44f38d07a2fd0765048cd6238
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 4d475ec93bd8bfa5cc84848ed61afa6a9d6e319b
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605383"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902175"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Azure Stack 中使用虛擬機器的考量
 
@@ -47,7 +47,7 @@ Azure Stack 會施加資源限制，來避免資源 (伺服器本機和服務層
 
 - 虛擬機器的網路輸出已有頻寬上限。 Azure Stack 的上限與 Azure 的上限相同。
 - 至於儲存體資源，Azure Stack 會實作儲存體 IOPS 限制，以避免租用戶為了存取儲存體而造成基本的資源過度耗用。
-- 針對具有多個連結資料磁碟的虛擬機器，每個資料磁碟的最大輸送量是 500 IOPS (適用於 HHD) 和 2300 IOPS (適用於 SSD)。
+- 針對具有多個連結資料磁碟的虛擬機器，每個資料磁碟的最大輸送量是 500 IOPS (適用於 HDD) 和 2300 IOPS (適用於 SSD)。
 
 下表列出 Azure Stack 所支援的虛擬機器及其設定：
 

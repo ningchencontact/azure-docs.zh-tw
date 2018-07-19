@@ -10,12 +10,12 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 6470bb5b7b5b8404683d1ae6fd4f16f0436982ef
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 569ae89a712d14fb36989e756f99725dce398c0a
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370310"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126553"
 ---
 # <a name="using-an-insights-token-to-get-insights-about-an-image"></a>使用見解權杖取得影像的相關見解
 
@@ -62,12 +62,13 @@ Content-Disposition: form-data; name="knowledgeRequest"
 
 如需使用見解權杖的範例，請參閱 [C#](#using-csharp) | [Java](#using-java) | [Node.js](#using-nodejs) | [Python](#using-python)。
 
-<a name="csharp" />
+<a name="using-csharp" />
+
 ## <a name="using-c"></a>使用 C#
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
-您將需要 [Visual Studio 2017](https://www.visualstudio.com/downloads/) 以在 Windows 上執行此程式碼 (可使用免費的 Community Edition)。
+您將需要 [Visual Studio 2017](https://www.visualstudio.com/downloads/) 以在 Windows 上執行此程式碼。 (可使用免費的 Community Edition)。
 
 在本快速入門中，您可以使用[免費試用](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)的訂用帳戶金鑰或付費的訂用帳戶金鑰。
 
@@ -237,14 +238,13 @@ namespace VisualSearchInsightsToken
 }
 ```
 
-
-
+<a name="using-java" />
 
 ## <a name="using-java"></a>使用 Java
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
-您將需要 [JDK 7 或 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 才能編譯和執行這段程式碼。 若您有特別喜愛的 Java IDE 也可以使用，但是文字編輯器就夠了。
+您將需要有 [JDK 7 或 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)，才能編譯和執行此程式碼。 若您有特別喜愛的 Java IDE 也可以使用，但是文字編輯器就夠了。
 
 在本快速入門中，您可以使用[免費試用](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)的訂用帳戶金鑰或付費的訂用帳戶金鑰。
 
@@ -253,7 +253,7 @@ namespace VisualSearchInsightsToken
 若要執行此應用程式，請遵循下列步驟：
 
 1. 下載或安裝 [gson 程式庫](https://github.com/google/gson)。 您也可以透過 Maven 取得。
-2. 在您最愛的 IDE 或編輯器中建立新的 Java 專案。
+2. 在您愛用的 IDE 或編輯器中建立新的 Java 專案。
 3. 在名為 `VisualSearch.java` 的檔案中新增提供的程式碼。
 4. 以您的訂用帳戶金鑰取代 `subscriptionKey` 值。
 5. 執行程式。
@@ -357,11 +357,12 @@ public class InsightsToken {
 
 
 <a name="using-nodejs" />
+
 ## <a name="using-nodejs"></a>使用 Node.js
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
-您需要 [Node.js 6](https://nodejs.org/en/download/) 以執行此程式碼。
+您需要有 [Node.js 6](https://nodejs.org/en/download/)，才能執行此程式碼。
 
 在本快速入門中，您可以使用[免費試用](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)的訂用帳戶金鑰或付費的訂用帳戶金鑰。
 
@@ -422,12 +423,12 @@ function requestCallback(err, res, body) {
 ```
 
 
-
+<a name="using-python" />
 
 ## <a name="using-python"></a>使用 Python
 
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
 您需要 [Python 3](https://www.python.org/) 以執行此程式碼。
 

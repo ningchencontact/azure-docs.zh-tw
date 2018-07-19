@@ -1,24 +1,24 @@
 ---
 title: 教學課程：使用 HDInsight 上的 Hive 執行擷取、轉換、載入 (ETL) 作業 - Azure
 description: 了解如何從原始 CSV 資料集擷取資料、使用 HDInsight 上的 Hive 加以轉換，然後使用 Sqoop 將已轉換的資料載入 Azure SQL 資料庫中。
-services: hdinsight
+services: storage
 documentationcenter: ''
 author: jamesbak
 manager: jahogg
 tags: azure-portal
 ms.component: data-lake-storage-gen2
-ms.service: hdinsight
+ms.service: storage
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: 8f5771ac860d40eab979bf9be92b18da8f5d850d
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 4f71a4e0570695abbe580ffc16b3361d5cd71ac1
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342363"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136481"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>教學課程：使用 Azure HDInsight 上的 Apache Hive 來擷取、轉換和載入資料
 
@@ -40,7 +40,7 @@ ms.locfileid: "37342363"
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * **HDInsight 上的 Linux 型 Hadoop 叢集**。 請參閱[使用 Hadoop、Spark 及 Kafka 等在 HDInsight 中設定叢集](./quickstart-create-connect-hdi-cluster.md)，以取得如何建立新 Linux 型 HDInsight 叢集的步驟。
 

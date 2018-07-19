@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: deguhath
-ms.openlocfilehash: 8479b23f49402962acbf50016226ea0f2eb67b68
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 474efbf3a9255e4699c27c6b0bfcc30ff54c4b45
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839073"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971446"
 ---
 # <a name="what-is-the-team-data-science-process"></a>什麼是 Team Data Science Process？
 
@@ -94,7 +94,7 @@ TDSP 提供管理共用分析和儲存體基礎結構的建議，例如：
 - 巨量資料 (Hadoop 或 Spark) 叢集 
 - 機器學習服務。 
 
-分析和儲存體基礎結構可以在雲端，也可以是內部部署。 這裡儲存著原始資料集和處理後的資料集。 這個基礎架構能夠進行可重現的分析。 它也可避免重複，重複可能會導致不一致和不必要的基礎結構成本。 提供的工具可用來佈建和追蹤共用的資源，並允許每個小組成員安全地連線到這些資源。 讓專案成員建立一致的運算環境也是個不錯的做法。 不同的小組成員可以複寫和驗證實驗。
+分析和儲存體基礎結構可以在雲端，也可以是內部部署。 這裡儲存著原始資料集和處理後的資料集。 這個基礎架構能夠進行可重現的分析。 它也可避免重複，重複可能會導致不一致和不必要的基礎結構成本。 提供的工具可用來佈建和追蹤共用的資源，並允許每個小組成員安全地連線到這些資源。 讓專案成員建立一致的計算環境也是個不錯的做法。 不同的小組成員可以複寫和驗證實驗。
 
 以下是小組處理多個專案並共用各種雲端分析基礎結構元件的範例。
 

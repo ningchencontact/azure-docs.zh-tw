@@ -7,27 +7,27 @@ author: v-jaswel
 ms.service: cognitive-services
 ms.component: translator-speech
 ms.topic: article
-ms.date: 3/5/2018
+ms.date: 07/17/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 29722b3fa7fe61aff0b2406002453020d999ea41
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 40535f400bc5359019e89320489721bf481c1210
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368382"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39124822"
 ---
 # <a name="quickstart-for-microsoft-translator-speech-api-with-python"></a>搭配 Python 使用 Microsoft Translator Speech API 的快速入門 
 <a name="HOLTop"></a>
 
 本文說明如何使用 Microsoft Translator Speech API 來翻譯 .wav 檔案中所說的話語。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您將需要有 [Python 3.x](https://www.python.org/downloads/)，才能執行此程式碼。
 
 您將需要安裝適用於 Python 的 [websocket-client 套件](https://pypi.python.org/pypi/websocket-client)。
 
-您將需要將一個名為 "speak.wav" 的 .wav 檔案，放在與您從下方程式碼編譯之可執行檔相同的資料夾中。 這個 .wav 檔案應該採用標準 PCM 16 位元 16 kHz 單聲道格式。 您可以從 [Translator Text Speak API](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Speak)取得這類 .wav 檔案。
+您將需要將一個名為 "speak.wav" 的 .wav 檔案，放在與您從下方程式碼編譯之可執行檔相同的資料夾中。 這個 .wav 檔案應該採用標準 PCM 16 位元 16 kHz 單聲道格式。
 
 您必須擁有具備 **Microsoft Translator Speech API** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 您將需要一個來自 [Azure 儀表板](https://portal.azure.com/#create/Microsoft.CognitiveServices)的付費訂用帳戶金鑰。
 
@@ -37,7 +37,7 @@ ms.locfileid: "35368382"
 
 1. 在您最愛的 IDE 中建立新的 Python 專案。
 2. 新增下方提供的程式碼。
-3. 以您訂用帳戶的有效存取金鑰取代 `key` 值。
+3. 以訂用帳戶有效的存取金鑰來取代 `key` 值。
 4. 執行程式。
 
 ```python

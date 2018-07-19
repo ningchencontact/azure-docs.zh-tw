@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: e361259bc5ce2dd946d3ea8bc1e69f743a40c6df
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: a6435f74141429cbe4f9a169fd2f234161d486c4
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264396"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918735"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>收集並取用來自 Azure 資源的記錄資料
 
@@ -43,6 +43,11 @@ ms.locfileid: "35264396"
 > [!NOTE]
 >  您目前無法將資料封存到位在安全虛擬網路後面的儲存體帳戶。
 
+> [!WARNING]
+> 2018 年 11 月 1 日起，儲存體帳戶中的記錄資料格式將變更為 JSON 資料行。 [請參閱本文以了解影響的描述，以及如何更新您的工具，來處理新的格式。](./monitor-diagnostic-logs-append-blobs.md) 
+>
+> 
+
 ## <a name="resource-diagnostic-settings"></a>資源診斷設定
 
 非計算資源的資源診斷記錄是使用資源診斷設定來設定的。 資源的**資源診斷設定**可控制：
@@ -52,7 +57,7 @@ ms.locfileid: "35264396"
 * 每個記錄類別應該在儲存體帳戶中保留多久
     - 保留期為 0 天表示會永遠保留記錄。 否則，此值可以是 1 到 2147483647 之間的任意天數。
     - 如果已設定保留原則，但將儲存體帳戶的記錄儲存停用 (例如，若只選取事件中樞或 Log Analytics 選項)，保留原則不會有任何作用。
-    - 保留原則是每天套用，因此在一天結束時 (UTC)，這一天超過保留原則的記錄會被刪除。 例如，如果您的保留原則為一天，在今天一開始，昨天之前的記錄檔會被刪除。 刪除程序會從午夜 UTC 開始，但是請注意，記錄從您的儲存體帳戶刪除可能需要長達 24 小時的時間。
+    - 保留原則是每天套用，因此在一天結束時 (UTC)，這一天超過保留原則的記錄會被刪除。 例如，如果您的保留原則為一天，在今天一開始，昨天之前的記錄檔會被刪除。 刪除程序會從 UTC 午夜開始，但是請注意，可能需要長達 24 小時的時間，記錄才會從您的儲存體帳戶中刪除。
 
 透過 Azure 入口網站中資源的診斷設定、透過 Azure PowerShell 和 CLI 命令、或是透過 [Azure 監視器 REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx)，可以輕鬆地進行這些設定。
 

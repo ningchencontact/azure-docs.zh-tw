@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: c818ff0df5cb1f1b3d20c726b20b30c418f53061
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 3204329dc7c9efe2b0ba0ae05d17bc93d51620b4
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266956"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37923466"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Hyper-V 複寫至 Azure 的支援矩陣
 
@@ -33,7 +33,7 @@ Hyper-V (不含 Virtual Machine Manager) | 您可以針對在不是由 Virtual M
 
 **伺服器** | **需求** | **詳細資料**
 --- | --- | ---
-Hyper-V (執行時不含 Virtual Machine Manager) | 具有最新更新的 Windows Server 2016、Windows Server 2012 R2 | 當您在 Site Recovery 中設定 Hyper-V 站台時，不支援混用執行 Windows Server 2016 和 2012 R2 的主機。<br/><br/> 對於位在執行 Windows Server 2016 之主機上的 VM，不支援復原到替代位置。
+Hyper-V (執行時不含 Virtual Machine Manager) | Windows Server 2016 (包括 Server Core 安裝)、具有最新更新的 Windows Server 2012 R2 | 當您在 Site Recovery 中設定 Hyper-V 站台時，不支援混用執行 Windows Server 2016 和 2012 R2 的主機。<br/><br/> 對於位在執行 Windows Server 2016 之主機上的 VM，不支援復原到替代位置。
 Hyper-V (執行時含 Virtual Machine Manager) | Virtual Machine Manager 2016、Virtual Machine Manager 2012 R2 | 使用 Virtual Machine Manager 時，Windows Server 2016 主機應在 Virtual Machine Manager 2016 中管理。<br/><br/> 目前不支援混用 Windows Server 2016 和 2012 R2 上執行之 Hyper-V 主機的 Virtual Machine Manager 雲端。<br/><br/> 不支援包含將現有 Virtual Machine Manager 2012 R2 伺服器升級至 2016 的環境。
 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 05720e6c290b0b54e5b6d5170a6eb22306e9cb04
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 957a68c80f9fcc07ef6f84b2b08f344745a58d95
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30282193"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866019"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health 常見問題集
 本文會回答有關 Azure Active Directory (Azure AD) Connect Health 的常見問題 (FAQ)。 這些常見問題涵蓋如何使用服務的相關問題，包括計費模型、功能、限制及支援。
@@ -62,8 +62,16 @@ ms.locfileid: "30282193"
 
 **問：Azure AD Connect Health 是否支援 Azure 德國雲端？**
 
-Azure AD Connect Health 具有適用於 Azure 德國的[安裝](active-directory-aadconnect-health-agent-install.md)。 德國雲端客戶的所有資料都會保存在 Azure 德國雲端。
+德國雲端不支援 Azure AD Connect Health，但[同步處理錯誤報告功能](active-directory-aadconnect-health-sync.md#object-level-synchronization-error-report-preview)除外。 
 
+| 角色 | 特性 | 德國雲端中支援 |
+| ------ | --------------- | --- |
+| 適用於同步處理的 Connect Health | 監視/見解/警示/分析 | 否 |
+|  | 同步處理錯誤報告 | yes |
+| 適用於 ADFS 的 Connect Health | 監視/見解/警示/分析 | 否 |
+| 適用於 ADDS 的 Connect Health | 監視/見解/警示/分析 | 否 |
+
+若要確保適用於同步處理的 Connect Health 的代理程式連線能力，請據此設定[安裝需求](active-directory-aadconnect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints)。   
 
 ## <a name="installation-questions"></a>安裝問題
 
@@ -86,7 +94,7 @@ Azure AD Connect Health 具有適用於 Azure 德國的[安裝](active-directory
 
 **問：在安裝 Azure AD Connect Health 代理程式期間，我是否需要重新啟動我的伺服器？**
 
-編號 安裝代理程式不需要您重新啟動伺服器。 不過，安裝某些先決條件的步驟可能需要重新啟動伺服器。
+否。 安裝代理程式不需要您重新啟動伺服器。 不過，安裝某些先決條件的步驟可能需要重新啟動伺服器。
 
 例如，在 Windows Server 2008 R2 上安裝 .NET 4.5 Framework 需要重新啟動伺服器。
 
@@ -103,7 +111,7 @@ Azure AD Connect Health 具有適用於 Azure 德國的[安裝](active-directory
 
 **問：連線到 HTTP Proxy 時，Azure AD Connect Health 是否支援基本驗證？**
 
-編號 目前不支援為基本驗證指定任意使用者名稱和密碼的機制。
+否。 目前不支援為基本驗證指定任意使用者名稱和密碼的機制。
 
 **問：我需要開放哪些防火牆連接埠，Azure AD Connect Health 代理程式才能運作？**
 

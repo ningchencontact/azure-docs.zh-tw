@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: aca03452ff5655d3a7180009f42df14c9459a9ff
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: cc6837ab14aa8fb36317da52cf011ddbd7e464be
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061553"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972226"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric 叢集容量規劃考量
 對於任何生產部署而言，容量規劃都是一個很重要的步驟。 以下是一些您在該程序中必須考量的項目。
@@ -162,6 +162,7 @@ Service Fabric 系統服務 (例如，叢集管理員服務或映像存放區服
 
 生產工作負載： 
 
+- 建議將叢集主要 NodeType 專用於系統服務，並使用放置限制式，將應用程式部署到次要 NodeTypes。
 - 建議的 VM SKU 是標準 D3 或標準 D3_V2 或對等項目，並搭配至少 14 GB 的本機 SSD。
 - 支援使用的最小 VM SKU 是標準 D1 或標準 D1_V2 或對等項目，並搭配至少 14 GB 的本機 SSD。 
 - 局部核心 VM SKU 不支援生產工作負載，例如標準 A0。

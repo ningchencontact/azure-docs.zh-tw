@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/21/2018
 ms.author: maquaran
-ms.openlocfilehash: f69742d111555e776a968454bdc004ba171e6336
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: f47b847b3a356540e5f366235713b8f99aea3404
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937412"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113712"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 變更摘要處理器 SDK：下載和版本資訊
 > [!div class="op_single_selector"]
@@ -41,39 +41,10 @@ ms.locfileid: "36937412"
 
 ## <a name="release-notes"></a>版本資訊
 
-### <a name="stable-builds"></a>穩定的組建
+### <a name="v2-builds"></a>v2 組建
 
-### <a name="a-name133133"></a><a name="1.3.3"/>1.3.3
-* 已新增更多記錄。
-* 已修正在多次呼叫擱置中工作估計時的 DocumentClient 流失。
-
-### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
-* 修正擱置的工作評估。
-
-### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
-* 穩定性改進。
-  * 修正處理取消工作的問題，此問題可能會導致某些分割區上的觀察者停止運作。
-* 支援手動檢查點。
-* 與 [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.21 版和更新版本相容。
-
-### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
-* 新增 .NET Standard 2.0 的支援。 套件現在支援 `netstandard2.0` 和 `net451` Framework Moniker。
-* 與 [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.17.0 或以上版本相容。
-* 與 [SQL .NET Core SDK](sql-api-sdk-dotnet-core.md) 1.5.1 或以上版本相容。
-
-### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
-* 變更摘要為空白或沒有已暫止的工作時，會修正計算剩餘工作估計的問題。
-* 與 [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.13.2 或以上版本相容。
-
-### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
-* 新增方法以取得要在變更摘要中處理之剩餘工作的估算。
-* 與 [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.13.2 或以上版本相容。
-
-### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+### <a name="a-name204204"></a><a name="2.0.4"/>2.0.4
 * GA SDK
-* 與 [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.14.1 或以上版本相容。
-
-### <a name="pre-release-builds"></a>發行前版本組建
 
 ### <a name="a-name203-prerelease203-prerelease"></a><a name="2.0.3-prerelease"/>2.0.3-prerelease
 * 修正下列問題：
@@ -108,6 +79,39 @@ ms.locfileid: "36937412"
 * 可 100% 回溯相容於 v1 API。
 * 新的程式碼基底。
 * 與 [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.21.1 版和更新版本相容。
+
+### <a name="v1-builds"></a>v1 組建
+
+### <a name="a-name133133"></a><a name="1.3.3"/>1.3.3
+* 已新增更多記錄。
+* 已修正在多次呼叫擱置中工作估計時的 DocumentClient 流失。
+
+### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
+* 修正擱置的工作評估。
+
+### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
+* 穩定性改進。
+  * 修正處理取消工作的問題，此問題可能會導致某些分割區上的觀察者停止運作。
+* 支援手動檢查點。
+* 與 [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.21 版和更新版本相容。
+
+### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
+* 新增 .NET Standard 2.0 的支援。 套件現在支援 `netstandard2.0` 和 `net451` Framework Moniker。
+* 與 [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.17.0 或以上版本相容。
+* 與 [SQL .NET Core SDK](sql-api-sdk-dotnet-core.md) 1.5.1 或以上版本相容。
+
+### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
+* 變更摘要為空白或沒有已暫止的工作時，會修正計算剩餘工作估計的問題。
+* 與 [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.13.2 或以上版本相容。
+
+### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
+* 新增方法以取得要在變更摘要中處理之剩餘工作的估算。
+* 與 [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.13.2 或以上版本相容。
+
+### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+* GA SDK
+* 與 [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.14.1 或以上版本相容。
+
 
 ## <a name="release--retirement-dates"></a>發行和停用日期
 Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供順利轉換至較新/支援的版本。

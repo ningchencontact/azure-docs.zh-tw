@@ -8,15 +8,19 @@ ms.topic: conceptual
 ms.date: 4/26/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 0a4e6c2ebb57aca13a53a8ff12953f0c7a90bc61
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 4dba3d182c7c2927aa4feb88e70fe5711fcc6818
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263441"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932204"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>使用 Resource Manager 範本建立度量警示
 本文章將說明如何使用 [Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)在 Azure 監視器中設定[新版計量警示](monitoring-near-real-time-metric-alerts.md)。 Resource Manager 範本可讓您以程式設計方式，在環境中以一致且可重現的方式設定警示。 新版計量警示目前可在[這組資源類型](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported)上使用。
+
+> [!IMPORTANT]
+> 為計量警示指定的 Resource Manager 範本不適用於資源類型：Microsoft.OperationalInsights/workspaces，因為 Log Analytics 的計量支援為預覽狀態。 對資源範本預覽功能有興趣的使用者，請連絡 [Azure 警示意見反應](mailto:azurealertsfeedback@microsoft.com)
+
 
 基本步驟如下：
 

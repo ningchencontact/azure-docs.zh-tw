@@ -10,17 +10,17 @@ ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
 ms.component: msi
 ms.devlang: ''
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 552f9e7cae4d7f46ea1548cfe7d9482bff79e5bc
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 05096050dfc29aebd2859b298eef884dcd9a1111
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33930981"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37906214"
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>受控服務識別 (MSI) 常見問題和已知問題 (Azure Active Directory)
 
@@ -36,7 +36,7 @@ ms.locfileid: "33930981"
 
 不行，MSI 未尚未與 ADAL 或 MSAL 整合。 如需使用 MSI REST 端點取得 MSI 權杖的詳細資訊，請參閱[如何使用 Azure VM 受控服務識別 (MSI) 取得權杖](how-to-use-vm-token.md)。
 
-### <a name="what-is-the-security-boundary-of-a-managed-service-identity"></a>什麼是受控服務識別的安全性界限？
+### <a name="what-is-the-security-boundary-of-a-managed-service-identity"></a>什麼是受控服務身分識別的安全性界限？
 
 身分識別的安全性界限，是指身分識別所連結到的資源。 例如，虛擬機器 MSI 安全性界限就是虛擬機器。 在該 VM 上執行的任何程式碼，都能呼叫 MSI 端點並要求權杖。 它是與支援 MSI 其他資源類似的體驗。
 
@@ -60,7 +60,7 @@ Azure IaaS 所支援的所有 Linux 散發套件都可以透過 IMDS 端點與 M
 注意：MSI VM 延伸模組僅支援下列 Linux 散發套件：
 - CoreOS Stable
 - CentOS 7.1
-- RedHat 7.2
+- Red Hat 7.2
 - Ubuntu 15.04
 - Ubuntu 16.04
 
@@ -97,7 +97,7 @@ Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location
 
 ### <a name="cannot-assign-access-to-virtual-machines-in-the-access-control-iam-blade"></a>在 [存取控制 (IAM)] 刀鋒視窗中無法將存取權指派給虛擬機器
 
-在 Azure 入口網站中，如果**虛擬機器**沒有在 [存取控制 (IAM)] >  [新增權限] 中顯示為**指派存取權的對象**，則表示受控服務識別尚未在您區域的入口網站中啟用。 請稍後再試。  您仍然可藉由搜尋受控服務識別服務主體，選取 MSI 來指派角色。  在 [選取] 欄位中輸入 VM 名稱，服務主體就會出現在搜尋結果中。
+在 Azure 入口網站中，如果**虛擬機器**沒有在 [存取控制 (IAM)] >  [新增權限] 中顯示為**指派存取權的對象**，則表示受控服務識別尚未在您區域的入口網站中啟用。 請稍後再試。  您仍然可藉由搜尋受控服務身分識別服務主體，選取 MSI 來指派角色。  在 [選取] 欄位中輸入 VM 名稱，服務主體就會出現在搜尋結果中。
 
 ### <a name="vm-fails-to-start-after-being-moved-from-resource-group-or-subscription"></a>VM 從資源群組或訂用帳戶移走後會無法啟動
 
@@ -128,7 +128,8 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 - 將 VM 延伸模組佈建到 VM 的作業，可能會因為 DNS 查閱失敗而失敗。 重新啟動 VM，然後再試一次。 
 - 新增「不存在」的使用者指派身分識別會造成 VM 失敗。 
 - 不支援在名稱中使用特殊字元 (例如底線) 建立使用者指派的身分識別。
-- 針對端對端案例，使用者指派身分識別的名稱僅限 24 個字元。 使用者指派身分識別的名稱若超過 24 個字元，將會無法進行指派。  
+- 針對端對端案例，使用者指派身分識別的名稱僅限 24 個字元。 使用者指派身分識別的名稱若超過 24 個字元，將會無法進行指派。
+- 如果您使用受控身分識別虛擬機器擴充功能，所支援的限制為 32 個使用者指派的受控身分識別。 若未使用受控識別虛擬機器擴充功能，則所支援的限制為 512 個。  
 - 新增第二個使用者指派的身分識別時，可能無法使用 clientID 來要求 VM 擴充的權杖。 使用下列兩個 bash 命令重新啟動 MSI VM 延伸模組來作為風險降低措施：
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`

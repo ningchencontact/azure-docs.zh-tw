@@ -8,12 +8,12 @@ ms.date: 06/19/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: bb340b8439927f191bc4a22f385d85d4e21b1cdb
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: b96d723f6c7ca423343c0586f59770abb55ada9f
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064271"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929344"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>針對 Runbook 的錯誤進行疑難排解
 
@@ -204,6 +204,20 @@ The quota for the monthly total job run time has been reached for this subscript
 #### <a name="resolution"></a>解決方案
 
 能避免此問題的已記載解決方案，就是在工作流程中使用檢查點。 若要深入了解，請參閱[了解 PowerShell 工作流程](../automation-powershell-workflow.md#checkpoints)。 如需對於「公平共用」及檢查點更詳細的說明，請參閱這篇部落格文章：[在 Runbook 中使用檢查點](https://azure.microsoft.com/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/)。
+
+### <a name="long-running-runbook"></a>情節：長時間執行的 Runbook 無法完成
+
+#### <a name="issue"></a>問題
+
+這是 Azure 沙箱中故意設計的行為，原因是針對 Azure 自動化中程序的「公平共用」監視，也就是如果 Runbook 的執行時間超過三小時，就會自動暫止。
+
+#### <a name="cause"></a>原因
+
+Runbook 已執行超過 Azure 沙箱中公平共用所允許的 3 小時限制
+
+#### <a name="resolution"></a>解決方案
+
+建議的解決方案是在[混合式 Runbook 背景工作角色](../automation-hrw-run-runbooks.md)上執行 Runbook。 混合式背景工作角色未受限於 Azure 沙箱的[公平共用](../automation-runbook-execution.md#fair-share) 3 小時 Runbook 限制。
 
 ## <a name="common-errors-when-importing-modules"></a>匯入模組時的常見錯誤
 

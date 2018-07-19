@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 06f316a7c96ff266e9f4593fa3a9ac871b2979aa
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: cf6df6dd87de56ca3c8180d5377e35d9be9bbd79
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33929767"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036440"
 ---
 # <a name="assign-a-managed-service-identity-access-to-a-resource-by-using-the-azure-portal"></a>使用 Azure 入口網站將受控服務識別 (MSI) 存取權指派給資源
 
@@ -27,7 +27,7 @@ ms.locfileid: "33929767"
 
 以受控服務識別 (MSI) 設定 Azure 資源後，您就可以將 MSI 存取權提供給另一個資源，就像任何安全性主體一樣。 本文示範如何使用 Azure 入口網站將 Azure 虛擬機器或虛擬機器擴展集的 MSI 存取權提供給 Azure 儲存體帳戶。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -41,20 +41,20 @@ ms.locfileid: "33929767"
 
 3. 針對 Azure 虛擬機器，選取資源的 [存取控制 (IAM)] 頁面，然後選取 [+ 新增]。 接著，指定 [角色]、[指派權存權給「虛擬機器」]，以及指定資源所在的對應 [訂用帳戶] 和 [資源群組]。 在搜尋條件區域中，您應該會看到資源。 選取資源，然後選取 [儲存]。 
 
-   ![存取控制 (IAM) 螢幕擷取畫面](../media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
+   ![存取控制 (IAM) 螢幕擷取畫面](../managed-service-identity/media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
    針對 Azure 虛擬機器擴展集，選取資源的 [存取控制 (IAM)] 頁面，然後選取 [+ 新增]。 然後指定 [角色]、[指派存取權的對象]。 在搜尋條件區域下，搜尋您的虛擬機器擴展集。 選取資源，然後選取 [儲存]。
    
-   ![存取控制 (IAM) 螢幕擷取畫面](../media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-before.png)  
+   ![存取控制 (IAM) 螢幕擷取畫面](../managed-service-identity/media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-before.png)  
 
 4. 回到 [存取控制 (IAM)] 主頁面後，您會看到資源 MSI 的新項目。
 
     Azure 虛擬機器：
 
-   ![存取控制 (IAM) 螢幕擷取畫面](../media/msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
+   ![存取控制 (IAM) 螢幕擷取畫面](../managed-service-identity/media/msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
 
     Azure 虛擬機器擴展集：
 
-    ![存取控制 (IAM) 螢幕擷取畫面](../media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-after.png)
+    ![存取控制 (IAM) 螢幕擷取畫面](../managed-service-identity/media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-after.png)
 
 ## <a name="troubleshooting"></a>疑難排解
 

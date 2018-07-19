@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: jeconnoc
 ms.custom: include file
-ms.openlocfilehash: 629cdf3907f45419ecfa5fce59430a163767c8fb
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: d1a6ff8dbd17d2792709a1ce065bcf793154e585
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36943261"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37780667"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>平台支援的 IaaS 資源移轉 (從傳統移轉至 Azure Resource Manager)
 本文會說明如何將 IaaS 資源從傳統部署模型遷移至 Resource Manager 部署模型，並詳述如何使用虛擬網路站對站閘道，從並存於訂用帳戶中的兩個部署模型連線到資源。 您可以進一步了解 [Azure Resource Manager 功能和優點](../articles/azure-resource-manager/resource-group-overview.md)。 
@@ -28,7 +28,7 @@ Resource Manager 除了可讓您透過範本部署複雜的應用程式之外，
 
 * 虛擬機器
 * 可用性設定組 (Availability Sets)
-* 雲端服務
+* 雲端服務及虛擬機器
 * 儲存體帳戶
 * 虛擬網路
 * VPN 閘道

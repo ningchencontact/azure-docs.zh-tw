@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: dobett
-ms.openlocfilehash: b4502dfc8f856516989326c8d748a5d13fdba02b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4b4b193751606883548e25e731dcece4ae72ba7b
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634585"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38666886"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>透過入口網站和 .NET 裝置開始使用 IoT 中樞模組身分識別和模組對應項
 
@@ -31,7 +31,7 @@ ms.locfileid: "34634585"
 若要完成此教學課程，您需要下列項目：
 
 * Visual Studio 2015 或 Visual Studio 2017。
-* 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立 [免費帳戶][lnk-free-trial])。
+* 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶][lnk-free-trial]。)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -66,7 +66,7 @@ ms.locfileid: "34634585"
 
 1. **建立 Visual Studio 專案** - 在 Visual Studio 中，使用 [主控台應用程式] \(.NET Framework\) 專案範本，將 Visual C# Windows 傳統桌面專案新增至現有的解決方案。 確定 .NET Framework 為 4.6.1 或更新版本。 將專案命名為 **UpdateModuleTwinReportedProperties**。
 
-    ![建立 visual studio 專案][13]
+    ![建立 Visual Studio 專案][13]
 
 2. **安裝最新的 Azure IoT 中樞 .NET 裝置 SDK** - 模組身分識別和模組對應項均處於公開預覽狀態。 它只能在 IoT 中樞發行前版本裝置 SDK 中取得。 在 Visual Studio 中，開啟[工具] > [Nuget 套件管理員] > [管理解決方案的 Nuget 套件]。 搜尋 Microsoft.Azure.Devices.Client。 確定您已核取 [包含發行前版本] 核取方塊。 選取最新版本並安裝。 您現在可以存取所有的模組功能。 
 
@@ -143,18 +143,17 @@ ms.locfileid: "34634585"
     ```
 
     此程式碼範例顯示如何擷取模組對應項，並使用 AMQP 通訊協定更新報告的屬性。 在公開預覽中，我們只支援 AMQP 進行模組對應項作業。
-    ```
 
-## Run the apps
+## <a name="run-the-apps"></a>執行應用程式
 
-You are now ready to run the apps. In Visual Studio, in Solution Explorer, right-click your solution, and then click **Set StartUp projects**. Select **Multiple startup projects**, and then select **Start** as the action for the console app. And then press F5 to start both apps running. 
+您現在可以開始執行應用程式。 在 Visual Studio 的 [方案總管] 中以滑鼠右鍵按一下您的方案，然後按一下 [設定啟始專案]。 選取 [多個啟始專案]，然後選取 [啟動] 作為主控台應用程式的動作。 然後按 F5 來啟動執行這兩個應用程式。 
 
-## Next steps
+## <a name="next-steps"></a>後續步驟
 
-To continue getting started with IoT Hub and to explore other IoT scenarios, see:
+若要繼續開始使用 IoT 中樞並瀏覽其他 IoT 案例，請參閱︰
 
-* [Get started with IoT Hub module identity and module twin using .NET backup and .NET device][lnk-csharp-csharp-getstarted]
-* [Getting started with IoT Edge][lnk-iot-edge]
+* [透過 .NET 備份和 .NET 裝置開始使用 IoT 中樞模組身分識別和模組對應項][lnk-csharp-csharp-getstarted]
+* [開始使用 IoT Edge][lnk-iot-edge]
 
 
 <!-- Images. -->

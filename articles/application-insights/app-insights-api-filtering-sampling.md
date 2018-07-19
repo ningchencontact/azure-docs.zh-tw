@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: a8905f4f14b5f4f78e9f3113ec5a655b12599609
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d46ff5563df1423e3c01ba945b328b748b5979b4
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294088"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091566"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>在 Application Insights SDK 中篩選及前置處理遙測
 
@@ -54,7 +54,7 @@ ms.locfileid: "35294088"
 
     請注意，遙測處理器建構一連串的處理。 當您具現化遙測處理器時，您會傳遞連結至鏈結中的下一個處理器。 遙測資料點傳遞至處理序方法時，它會完成其工作並接著呼叫鏈結中的下一個遙測處理器。
 
-    ``` C#
+    ```csharp
 
     using Microsoft.ApplicationInsights.Channel;
     using Microsoft.ApplicationInsights.Extensibility;
@@ -101,7 +101,7 @@ ms.locfileid: "35294088"
     ```
 1. 在 ApplicationInsights.config 中插入：
 
-```XML
+```xml
 
     <TelemetryProcessors>
       <Add Type="WebApplication9.SuccessfulDependencyFilter, WebApplication9">
@@ -141,7 +141,7 @@ ms.locfileid: "35294088"
 #### <a name="synthetic-requests"></a>綜合要求
 篩選出 bot 和 Web 測試。 雖然計量瀏覽器可讓您篩選出綜合來源，此選項會藉由在 SDK 篩選它們以降低流量。
 
-``` C#
+```csharp
 
     public void Process(ITelemetry item)
     {
@@ -182,7 +182,7 @@ public void Process(ITelemetry item)
 >
 >
 
-``` C#
+```csharp
 
 public void Process(ITelemetry item)
 {
@@ -255,6 +255,7 @@ public void Process(ITelemetry item)
 
 在 ApplicationInsights.config 中：
 
+```xml
     <ApplicationInsights>
       <TelemetryInitializers>
         <!-- Fully qualified type name, assembly name: -->
@@ -262,6 +263,7 @@ public void Process(ITelemetry item)
         ...
       </TelemetryInitializers>
     </ApplicationInsights>
+```
 
 *或者* ，您也可以在程式碼 (如 Global.aspx.cs) 中具現化初始設定式：
 

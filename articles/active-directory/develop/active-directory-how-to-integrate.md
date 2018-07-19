@@ -17,12 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: b6de3094e903c3584aa4a57e7792e4b07711f74a
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 79721c2ad0ae83e3c8bd103aee94916f1e2995aa
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937133"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054632"
 ---
 # <a name="integrating-with-azure-active-directory"></a>與 Azure Active Directory 整合
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -52,7 +52,7 @@ Azure Active Directory 為組織提供企業等級的雲端應用程式身分識
 ### <a name="promote-your-application-in-the-azure-and-office-365-marketplaces"></a>在 Azure 和 Office 365 Marketplace 中推廣您的應用程式
 **將您的應用程式擴廣到數百萬個已使用 Azure AD 的組織。**  搜尋和瀏覽 Marketplace 的使用者已經使用一或多項雲端服務，讓他們成為合格的雲端服務客戶。 深入了解如何在 [Azure Marketplace](https://azure.microsoft.com/marketplace/partner-program/)中推廣您的應用程式。
 
-**當使用者註冊您的應用程式時，它便會出現在其 Azure AD 存取面板和 Office 365 應用程式啟動程式中。**  使用者將能夠迅速且輕鬆地返回您的應用程式，以增加使用者參與度。 深入了解 [Azure AD 存取面板](../active-directory-saas-access-panel-introduction.md)。
+**當使用者註冊您的應用程式時，它便會出現在其 Azure AD 存取面板和 Office 365 應用程式啟動程式中。**  使用者將能夠迅速且輕鬆地返回您的應用程式，以增加使用者參與度。 深入了解 [Azure AD 存取面板](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ### <a name="secure-device-to-service-and-service-to-service-communication"></a>保護裝置對服務和服務對服務通訊的安全
 **使用 Azure AD 進行服務和裝置的身分識別管理，可減少您需要撰寫的程式碼，並可讓 IT 管理存取權限。**  服務與裝置可以使用 OAuth 取得 Azure AD 的權杖，並使用這些權杖來存取 Web API。 使用 Azure AD，您可以避免撰寫複雜的驗證程式碼。 因為服務和裝置的身分識別會儲存在 Azure AD 中，IT 可以在同一個地方管理金鑰和撤銷，而無需在您的應用程式中分別執行此動作。

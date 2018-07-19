@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 60b77f5956cb627905eb955995652098337c4dea
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 864f790db48d3d4542ed56a4c7272a198df5bd56
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311112"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901131"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 裝置管理常見問題集
 
@@ -61,7 +61,7 @@ ms.locfileid: "36311112"
 如果您想要從已註冊的裝置檢查本機裝置註冊狀態：
 
 - 針對 Windows 10 和 Windows Server 2016 或更新的裝置，請執行 dsregcmd.exe /status。
-- 針對舊版作業系統版本，請執行 "%programFiles%\Microsoft Workplace Join\autoworkplace.exe"。
+- 舊版作業系統版本請執行 "%programFiles%\Microsoft Workplace Join\autoworkplace.exe"。
 
 ---
 
@@ -86,11 +86,18 @@ ms.locfileid: "36311112"
 3.  輸入 `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`。
 
 ---
-**問：如何在本機裝置上退出已加入 Azure AD 的裝置？
+**問：如何在本機裝置上退出已加入 Azure AD 的裝置？**
+
 **答：** 
 - 針對已加入 Azure AD 的混合式裝置，請務必關閉自動註冊，這樣的話，已排定的工作就不會再次註冊裝置。 接著，以系統管理員身分開啟命令提示字元，然後輸入 `dsregcmd.exe /debug /leave`。 或者，可跨多個裝置以指令碼方式執行此命令，以進行大量退出。
 
 - 針對純粹已加入 Azure AD 的裝置，確定您具有離線的本機系統管理員帳戶 (若無帳戶則請建立)，因為您將無法使用任何 Azure AD 使用者認證進行登入。 接下來，移至 [設定] > [帳戶] > [存取公司或學校資源]。 選取您的帳戶，然後按一下 [中斷連線]。 遵循提示，然後在系統提示您時提供本機系統管理員認證。 重新啟動裝置以完成退出程序。
+
+---
+
+**問：我的使用者無法從已加入 Azure AD 的裝置搜尋印表機。如何從已加入 Azure AD 的裝置啟用列印功能？**
+
+**答：** 關於如何為已加入 Azure AD 的裝置部署印表機，請參閱[混合式雲端列印](https://docs.microsoft.com/en-us/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) (英文)。 您需要內部部署 Windows Server 才能部署混合式雲端列印。 目前尚無法使用雲端式列印服務。 
 
 ---
 
@@ -124,6 +131,11 @@ ms.locfileid: "36311112"
 
 ---
 
+**問：為什麼我的使用者並未在已加入 Azure AD 的裝置上看見 MFA 提示？**
+
+**答：** 如果使用者是以多重要素驗證向 Azure AD 加入或註冊裝置，裝置本身即會成為該特定使用者受信任的第二個因素。 此後，只要同一位使用者登入裝置並存取應用程式，Azure AD 會將該裝置視為第二個因素，並且讓該使用者順暢地存取應用程式，而完全不會出現其他 MFA 提示。 此行為不適用於登入該裝置的任何其他使用者，因此，存取該裝置的其他所有使用者在存取需要 MFA 的應用程式之前，仍會收到需進行 MFA 的提示。
+
+---
 
 **問：我在 Azure 入口網站中的 [使用者資訊] 底下看到裝置記錄，而且可以看到狀態為已在裝置上註冊。我是否已針對使用條件式存取進行正確設定？**
 
@@ -173,5 +185,6 @@ ms.locfileid: "36311112"
 
 - [針對已加入 Azure AD 網域之 Windows 下層用戶端電腦的自動註冊進行疑難排解](device-management-troubleshoot-hybrid-join-windows-legacy.md)
  
+
 ---
 

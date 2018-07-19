@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/22/2018
+ms.date: 07/06/2018
 ms.author: bsiva
-ms.openlocfilehash: b357a3231dac6dfa54cb02fe921baf771c0880f4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 84b5bf3be09083a69216802fc7f557de1a7f0ee6
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30186286"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917528"
 ---
 # <a name="monitoring-and-troubleshooting-azure-site-recovery"></a>為 Azure Site Recovery 進行監視及疑難排解
 
@@ -146,7 +146,7 @@ Azure Site Recovery 儀表板頁面的各個部分每隔 10 分鐘會自動重�
 **答：** 只有複寫至 Azure 的虛擬機器才會提供基礎結構檢視功能。 此功能目前不適用於在內部部署網站之間進行複寫的虛擬機器。
 
 **問：** 為什麼保存庫基礎架構檢視中的虛擬機器數目與複寫項目環圈中顯示的總數不同？</br>
-**答：** 保存庫基礎結構檢視範圍是根據複寫情況決定。 只有目前所選取複寫案例中的虛擬機器才會包含在基礎架構檢視中顯示的虛擬機器計數中。 此外，在特定案例下，只有目前設定為複寫至 Azure 的虛擬機器才會包含在基礎結構檢視中顯示的虛擬機器計數中 (例如：已容錯移轉的虛擬機器、複寫回內部部署網站的虛擬機器皆不會包含在基礎結構檢視中。)
+**答：** 保存庫基礎結構檢視範圍是根據複寫情況決定。 只有目前所選取複寫案例中的虛擬機器才會包含在基礎架構檢視中顯示的虛擬機器計數中。 此外，在特定案例下，只有目前設定為複寫至 Azure 的虛擬機器才會包含在基礎結構檢視中顯示的虛擬機器計數中 (例如：已容錯移轉的虛擬機器、複寫回內部部署網站的虛擬機器皆不會包含在基礎結構檢視中)。
 
 **問：** 為什麼概觀頁面上的基本資訊隱藏式側邊選單中顯示的複寫項目計數與儀表板上的環圈圖中顯示的複寫項目計數不同？</br>
 **答：** 只有已完成初始複寫的虛擬機器才會包含在基本資訊隱藏式側邊選單顯示的計數中。 複寫項目環圈的總數包含保存庫中的所有虛擬機器，包括正在進行初始複寫的伺服器。

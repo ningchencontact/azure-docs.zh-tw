@@ -7,14 +7,14 @@ author: cherylmc
 Customer intent: As someone with a basic network background, I want to understand how to create zone-redundant gateways.
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 06/28/2018
+ms.date: 07/09/2018
 ms.author: cherylmc
-ms.openlocfilehash: c484358bf98f0121cfc3ce270b162b01c75b5b09
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: fa349555a5effd41ca519cbd5a29005203d79543
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096228"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952550"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones---preview"></a>在 Azure 可用性區域中建立區域備援虛擬網路閘道 - 預覽
 
@@ -207,10 +207,6 @@ $gwipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GwIPConf1 -Subnet $
 
 建立虛擬網路閘道。
 
->[!NOTE]
->此時，您無法指定閘道 SKU。 SKU 將自動為 ExpressRoute 預設為 ErGw1AZ，並為 VPN 閘道預設為 VpnGw1AZ。
->
-
 ### <a name="for-expressroute"></a>針對 ExpressRoute
 
 ```azurepowershell-interactive
@@ -236,6 +232,10 @@ New-AzureRmVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name 
 ### <a name="what-will-change-when-i-enroll"></a>註冊時會有何變更？
 
 從您的觀點來看，您可以在預覽期間部署具有區域備援的閘道。 這表示閘道的所有執行個體將會部署到各個 Azure 可用性區域，而且每個可用性區域都是不同的容錯網域和更新網域。 面對區域失敗時，這可讓您的閘道具有更高的可靠性、可用性及復原能力。
+
+### <a name="can-i-use-the-azure-portal"></a>我是否可使用 Azure 入口網站？
+
+可以，您可以使用 Azure 入口網站進行預覽。 不過，您仍需使用 PowerShell 來註冊，否則您將無法在預覽期間使用入口網站。
 
 ### <a name="what-regions-are-available-for-the-preview"></a>哪些區域可使用預覽版本？
 

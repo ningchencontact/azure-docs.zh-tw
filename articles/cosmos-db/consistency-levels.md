@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e60a69e69f13dd6b8b34fafaa384f032f2ece11
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 20edcd5e8e3ec3a9d3d294f7a81a2e97b4958f50
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611818"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857179"
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 Tunable 資料一致性層級
 Azure Cosmos DB 是針對每個資料模型考量到全球發佈的全新設計。 它的設計目的是提供可預測的低延遲保證，以及多個定義完善且寬鬆的一致性層級模型。 Azure Cosmos DB 目前提供五種一致性層級：強式、限定過期、工作階段、一致的前置和最終。 限定過期、工作階段、一致前置詞、最終，統稱為「寬鬆的一致性模型」，因為它們提供的一致性比強式更小，後者是最高一致性的模型。 
@@ -58,7 +58,7 @@ Azure Cosmos DB 提供全面性的 99.99% [SLA](https://azure.microsoft.com/supp
 已將一致性的規模範圍限制為單一使用者要求。 寫入要求可能會對應至插入、取代、更新插入或刪除交易。 如同寫入，讀取/查詢交易也會將範圍限制為單一使用者要求。 使用者可能需要在大型結果集 (橫跨多個分割區) 上編頁，但是每一個讀取交易的範圍都會限制為單一頁面，並從單一分割區中提供服務。
 
 ## <a name="consistency-levels"></a>一致性層級
-您可以設定資料庫帳戶的「預設一致性層級」，以套用至 Cosmos DB 帳戶底下的所有集合 (和資料庫)。 所有對使用者定義的資源發出的讀取和查詢，預設都會使用資料庫帳戶上所指定的預設一致性層級。 您可以使用每個支援的 API，放寬特定讀取/查詢要求的一致性層級。 Azure Cosmos DB 複寫通訊協定支援五種類型的一致性層級，可在特定一致性保證和效能之間明確進行取捨，如本章節所述。
+您可以設定資料庫帳戶的預設一致性層級，以套用至 Cosmos DB 帳戶下的所有容器 (和資料庫)。 所有對使用者定義的資源發出的讀取和查詢，預設都會使用資料庫帳戶上所指定的預設一致性層級。 您可以使用每個支援的 API，放寬特定讀取/查詢要求的一致性層級。 Azure Cosmos DB 複寫通訊協定支援五種類型的一致性層級，可在特定一致性保證和效能之間明確進行取捨，如本章節所述。
 
 <a id="strong"></a>
 **強式**： 
@@ -112,7 +112,7 @@ Azure Cosmos DB 提供全面性的 99.99% [SLA](https://azure.microsoft.com/supp
     ![此螢幕擷取畫面反白顯示 [設定] 圖示和 [預設一致性] 項目](./media/consistency-levels/database-consistency-level-1.png)
 
 ## <a name="consistency-levels-for-queries"></a>查詢的一致性層級
-根據預設，針對使用者定義的資源，查詢的一致性層級會與讀取的一致性層級相同。 每次在集合中插入、取代或刪除項目時，預設會同步更新索引到 Cosmos DB 容器。 這個行為讓查詢能夠使用與點的讀取相同的一致性層級。 雖然 Azure Cosmos DB 的寫入已經過最佳化處理，並支援持續的寫入數量、同步索引維護，以及提供一致的查詢，但您還是可以設定特定集合，讓集合的索引更新速度變慢。 讓索引速度變慢可提升寫入效能，而且適合用於工作負載主要是進行大量讀取的大量擷取案例。  
+根據預設，針對使用者定義的資源，查詢的一致性層級會與讀取的一致性層級相同。 每次在集合中插入、取代或刪除項目時，預設會同步更新索引到 Cosmos DB 容器。 這個行為讓查詢能夠使用與點的讀取相同的一致性層級。 雖然 Azure Cosmos DB 的寫入已經過最佳化處理，並支援持續的寫入數量、同步索引維護，以及提供一致的查詢，但您還是可以設定特定容器，讓集合的索引更新速度變慢。 讓索引速度變慢可提升寫入效能，而且適合用於工作負載主要是進行大量讀取的大量擷取案例。  
 
 | 索引模式 | 讀取 | 查詢 |
 | --- | --- | --- |

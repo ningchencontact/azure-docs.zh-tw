@@ -4,20 +4,19 @@ description: 建立 Azure Resource Manager 範本以部署 Web 應用程式的�
 services: app-service
 documentationcenter: app-service
 author: tfitzmac
-manager: timlt
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 07/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8c29cf5a65e9587b281a6000b5b4eff47f11da91
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: c2f600d86965e1115d4be1370da8f7c8e1b67f05
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807317"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37927667"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本部署 Web 應用程式的指引
 
@@ -110,6 +109,30 @@ Web 應用程式的名稱必須是全域唯一的。 您可以使用很可能是
   ...
 }
 ```
+
+## <a name="deploy-web-app-certificate-from-key-vault"></a>部署 Key Vault 中的 Web 應用程式憑證
+
+如果您的範本包括 [Microsoft.Web/certificates](/azure/templates/microsoft.web/certificates) 資源來繫結 SSL，而且憑證儲存在 Key Vault 中，則您必須確定 App Service 身分識別可以存取憑證。
+
+在全域 Azure 中，App Service 服務主體的識別碼為 **abfa0a7c-a6b6-4736-8310-5855508787cd**。 若要授與 App Service 服務主體的 Key Vault 存取，請使用：
+
+```azurepowershell-interactive
+Set-AzureRmKeyVaultAccessPolicy `
+  -VaultName KEY_VAULT_NAME `
+  -ServicePrincipalName abfa0a7c-a6b6-4736-8310-5855508787cd `
+  -PermissionsToSecrets get `
+  -PermissionsToCertificates get
+```
+
+在 Azure Government 中，App Service 服務主體的識別碼為 **6a02c803-dafd-4136-b4c3-5a6f318b4714**。 使用上述範例中的該識別碼。
+
+在 Key Vault 中，選取 [憑證] 和 [產生/匯入] 以上傳憑證。
+
+![匯入憑證](media/web-sites-rm-template-guidance/import-certificate.png)
+
+在範本中，提供 `keyVaultSecretName` 的憑證名稱。
+
+如需範例範本，請參閱 [Deploy a Web App certificate from Key Vault secret and use it for creating SSL binding](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault) (從 Key Vault 祕密部署 Web 應用程式憑證，並使用它建立 SSL 繫結)。
 
 ## <a name="next-steps"></a>後續步驟
 

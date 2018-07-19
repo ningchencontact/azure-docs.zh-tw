@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: tomfitz
-ms.openlocfilehash: ee8ce8453c24d19b3912d0f6cc506b3d3e72548f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5a6b227cee3765593adbda430d8c47312f996c18
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34602999"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723460"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>使用 Resource Manager 範本與 Azure CLI 部署資源
 
-本文說明如何使用 Azure CLI 2.0 與 Resource Manager 範本，將您的資源部署至 Azure。 如果您不熟悉部署和管理 Azure 解決方案的相關概念，請參閱 [Azure Resource Manager 概觀](resource-group-overview.md)。  
+本文說明如何使用 Azure CLI 與 Resource Manager 範本，將您的資源部署至 Azure。 如果您不熟悉部署和管理 Azure 解決方案的相關概念，請參閱 [Azure Resource Manager 概觀](resource-group-overview.md)。  
 
 您部署的 Resource Manager 範本可以是電腦上的本機檔案，或是位於類似 GitHub 等存放庫中的外部檔案。 您會在本文中部署的範本，可在[範例範本](#sample-template)一節中取得，也會以 [GitHub 中儲存體帳戶範本 (英文)](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json) 的形式提供。
 

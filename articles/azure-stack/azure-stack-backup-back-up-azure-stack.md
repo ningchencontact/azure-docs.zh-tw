@@ -15,29 +15,52 @@ ms.topic: article
 ms.date: 5/08/2017
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: c2a6727692a7a74b3e5fe32de8800722a9ed91b5
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 2570423a3cae2a15f0cfd294f1d91e6730748f68
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34075182"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38973056"
 ---
 # <a name="back-up-azure-stack"></a>備份 Azure Stack
 
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
-在 Azure Stack 上以就地備份來執行隨選備份。 若您需要啟用基礎結構備份服務，請參閱[從系統管理入口網站啟用 Azure Stack 的備份](azure-stack-backup-enable-backup-console.md)。
-
-> [!Note]  
->  如需設定 PowerShell 環境的指示，請參閱[安裝 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。
+在 Azure Stack 上以就地備份來執行隨選備份。 如需設定 PowerShell 環境的指示，請參閱[安裝 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。 若要登入 Azure Stack，請參閱[設定 Azure Stack PowerShell 環境](azure-stack-powershell-configure-admin.md)。
 
 ## <a name="start-azure-stack-backup"></a>啟動 Azure Stack 備份
 
-在運算子管理環境中，使用提升權限提示字元開啟 Windows PowerShell，並執行下列命令：
+使用 Start-AzSBackup 啟動具有 -AsJob 變數的新備份，以追蹤進度。 
 
 ```powershell
-    Start-AzSBackup -Location $location.Name
+    $backupjob = Start-AzsBackup -Force -AsJob
+    "Start time: " + $backupjob.PSBeginTime;While($backupjob.State -eq "Running"){("Job is currently: " + $backupjob.State+" ;Duration: " + (New-TimeSpan -Start ($backupjob.PSBeginTime) -End (Get-Date)).Minutes);Start-Sleep -Seconds 30};$backupjob.Output
 ```
+
+## <a name="confirm-backup-completed-via-powershell"></a>透過 PowerShell 確認備份已完成
+
+```powershell
+    if($backupjob.State -eq "Completed"){Get-AzsBackup | where {$_.BackupId -eq $backupjob.Output.BackupId}}
+```
+
+- 成果應會類似於以下輸出結果：
+
+  ```powershell
+      BackupDataVersion : 1.0.1
+      BackupId          : <backup ID>
+      RoleStatus        : {NRP, SRP, CRP, KeyVaultInternalControlPlane...}
+      Status            : Succeeded
+      CreatedDateTime   : 7/6/2018 6:46:24 AM
+      TimeTakenToCreate : PT20M32.364138S
+      DeploymentID      : <deployment ID>
+      StampVersion      : 1.1807.0.41
+      OemVersion        : 
+      Id                : /subscriptions/<subscription ID>/resourceGroups/System.local/providers/Microsoft.Backup.Admin/backupLocations/local/backups/<backup ID>
+      Name              : local/<local name>
+      Type              : Microsoft.Backup.Admin/backupLocations/backups
+      Location          : local
+      Tags              : {}
+  ```
 
 ## <a name="confirm-backup-completed-in-the-administration-portal"></a>在系統管理入口網站中確認已完成的備份
 
@@ -45,12 +68,6 @@ ms.locfileid: "34075182"
 2. 選取 [更多服務] > [基礎結構的備份]。 在 [基礎結構備份] 刀鋒視窗中選擇 [設定]。
 3. 在 [可用備份] 清單中尋找備份的 [名稱] 和 [完成日期]。
 4. 確認**狀態**是**已成功**。
-
-<!-- You can also confirm the backup completed from the administration portal. Navigate to `\MASBackup\<datetime>\<backupid>\BackupInfo.xml`
-
-In ‘Confirm backup completed’ section, the path at the end doesn’t make sense (ie relative to what, datetime format, etc?)
-\MASBackup\<datetime>\<backupid>\BackupInfo.xml -->
-
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,5 +1,5 @@
 ---
-title: 存取 Azure 媒體服務 API - CLI 2.0 | Microsoft Docs
+title: 存取 Azure 媒體服務 API - Azure CLI | Microsoft Docs
 description: 請遵循此方法的步驟存取 Azure 媒體服務 API。
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 9295c3f9dfabc8ef7749758e926df443843720a1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e20cac5f1063589bdbfee0f384ac6af5a39811ed
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639770"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723690"
 ---
-# <a name="access-azure-media-services-api-with-cli-20"></a>使用 CLI 2.0 存取 Azure 媒體服務 API
+# <a name="access-azure-media-services-api-with-the-azure-cli"></a>使用 Azure CLI 存取 Azure 媒體服務 API
  
 您應該使用 Azure AD 服務主體驗證來連線至 Azure 媒體服務 API。 您的應用程式必須要求擁有下列參數的 Azure AD 權杖：
 
@@ -28,7 +28,7 @@ ms.locfileid: "34639770"
 * REST 媒體服務的資源 URI
 * Azure AD 應用程式值：用戶端識別碼和用戶端祕密
 
-本主題說明如何使用 CLI 2.0 建立 Azure AD 應用程式和服務主體，以及取得必要的值來存取 Azure 媒體服務資源。
+本主題說明如何使用 Azure CLI 建立 Azure AD 應用程式和服務主體，以及取得必要的值來存取 Azure 媒體服務資源。
 
 ## <a name="prerequisites"></a>先決條件 
 
@@ -40,7 +40,7 @@ ms.locfileid: "34639770"
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-如果您選擇在本機安裝和使用 CLI，本主題需要 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找您擁有的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+如果您選擇在本機安裝和使用 CLI，本主題需要 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找您擁有的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。 
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -51,4 +51,4 @@ ms.locfileid: "34639770"
 
 ## <a name="see-also"></a>另請參閱
 
-[CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)
+[Azure CLI](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)

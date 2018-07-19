@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/7/2017
 ms.author: sngun
-ms.openlocfilehash: 15a4e2fa981617c538edf3731bf9457bf172213c
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 2af77cacced7a6905c4ed7393569949b2eac1906
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113114"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859661"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>常見的 Azure Cosmos DB 使用案例
 本文提供數個常見的 Azure Cosmos DB 使用案例概觀。  本文中的建議可作為使用 Cosmos DB 來開發應用程式時的起點。   
@@ -47,7 +47,7 @@ IoT 使用案例在如何內嵌、處理和儲存資料方面通常共用一些�
 
 ![Azure Cosmos DB IoT 參考架構](./media/use-cases/iot.png)
 
-Azure 事件中樞可以擷取暴增的資料量，因為它提供高輸送量資料擷取和低延遲。 您可以將需要處理以取得即時資訊分析的內嵌資料，使用漏斗方式倒入 Azure 串流分析以進行即時分析。 您可以將資料載入 Azure Cosmos DB 以進行臨機操作查詢。 將資料載入 Azure Cosmos DB 之後，這些資料便可供查詢。 此外，可以在變更摘要上讀取新的資料以及現有資料的變更。 變更摘要是永久性的紀錄檔，僅以附加寫入方式循序儲存 Cosmos DB 集合之變更。 Azure Cosmos DB 中的全部資料或資料變更可用來在即時分析中作為參考資料。 此外，您還可以將 Azure Cosmos DB 資料連線到 HDInsight 來進行 Pig、Hive 或 Map/Reduce 作業，以進一步精簡和處理資料。  接著，系統會將精簡過的資料載入回 Azure Cosmos DB 以供報告使用。   
+Azure 事件中樞可以擷取暴增的資料量，因為它提供高輸送量資料擷取和低延遲。 您可以將需要處理以取得即時資訊分析的內嵌資料，使用漏斗方式倒入 Azure 串流分析以進行即時分析。 您可以將資料載入 Azure Cosmos DB 以進行臨機操作查詢。 將資料載入 Azure Cosmos DB 之後，這些資料便可供查詢。 此外，可以在變更摘要上讀取新的資料以及現有資料的變更。 變更摘要是永久性的記錄檔，僅以附加寫入方式循序儲存 Cosmos DB 容器的變更。 Azure Cosmos DB 中的全部資料或資料變更可用來在即時分析中作為參考資料。 此外，您還可以將 Azure Cosmos DB 資料連線到 HDInsight 來進行 Pig、Hive 或 Map/Reduce 作業，以進一步精簡和處理資料。  接著，系統會將精簡過的資料載入回 Azure Cosmos DB 以供報告使用。   
 
 如需使用 Azure Cosmos DB、EventHubs 和 Storm 的範例 IoT 解決方案，請參閱 [GitHub 上的 hdinsight-storm-examples 存放庫 (英文)](https://github.com/hdinsight/hdinsight-storm-examples/)。
 

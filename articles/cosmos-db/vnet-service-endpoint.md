@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: de52521824c146f63fb16e2690e2a24167ae2efe
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e6b263c1eb9fe3b151f0a51b5da9a92b8ced4549
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333907"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109737"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>使用 Azure 虛擬網路服務端點保護 Azure Cosmos DB 帳戶的存取權
 
@@ -249,7 +249,7 @@ Azure Cosmos DB 中的 NSG 規則可讓您對 Azure Cosmos DB IP 位址範圍的
 
 這兩個功能彼此互補，可確保 Azure Cosmos DB 資產的獨立性並加以保護。 使用 IP 防火牆可確保靜態 IP 可以存取 Azure Cosmos DB 帳戶。  
 
-### <a name="can-an-on-premise-devices-ip-address-that-is-connected-through-azure-virtual-network-gatewayvpn-or-express-route-gateway-access-azure-cosmos-db-account"></a>透過 Azure 虛擬網路閘道 (VPN) 或 Express 路由閘道連線的內部部署裝置 IP 位址，可以存取 Azure Cosmos DB 帳戶嗎？  
+### <a name="can-an-on-premises-devices-ip-address-that-is-connected-through-azure-virtual-network-gatewayvpn-or-express-route-gateway-access-azure-cosmos-db-account"></a>透過 Azure 虛擬網路閘道 (VPN) 或 ExpressRoute 閘道連線的內部部署裝置 IP 位址，可以存取 Azure Cosmos DB 帳戶嗎？  
 
 應將內部部署裝置的 IP 位址或 IP 位址範圍新增至靜態 IP 清單，才能存取 Azure Cosmos DB 帳戶。  
 

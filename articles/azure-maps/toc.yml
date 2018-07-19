@@ -22,8 +22,16 @@
   items:
     - name: 縮放層級和圖格格線
       href: zoom-levels-and-tile-grid.md
-    - name: 支援的搜尋類別
-      href: supported-search-categories.md
+    - name: 服務涵蓋範圍
+      items:
+        - name: 地理編碼
+          href: geocoding-coverage.md
+        - name: 交通流量
+          href: traffic-coverage.md
+        - name: 轉譯
+          href: render-coverage.md
+        - name: 路由
+          href: routing-coverage.md
     - name: 支援的語言
       href: supported-languages.md
 - name: 使用說明指南
@@ -64,22 +72,14 @@
           href: map-accessibility.md
 - name: 參考
   items:
-    - name: 服務涵蓋範圍
-      items:
-        - name: 地理編碼
-          href: geocoding-coverage.md
-        - name: 交通流量
-          href: traffic-coverage.md
-        - name: 轉譯
-          href: render-coverage.md
-        - name: 路由
-          href: routing-coverage.md
     - name: API 和參數擴充功能
       items:
         - name: 車輛耗用模型
           href: consumption-model.md
         - name: 擴充 GeoJSON 格式
           href: extend-geojson.md
+        - name: 支援的搜尋類別
+          href: supported-search-categories.md
     - name: REST
       items:
         - name: 轉譯服務
@@ -129,7 +129,7 @@
     - name: Azure IoT 開發人員中心
       href: 'https://azure.microsoft.com/develop/iot/'
     - name: Azure 藍圖
-      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: MSDN 論壇
       href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs'
     - name: 價格

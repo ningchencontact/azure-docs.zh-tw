@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 06/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 2062ba20b09e8e42fd094fbff628f5e76b5ea00f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d234b34f7583441f496fb96d37166c5472cadb4c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225784"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110822"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>教學課程：Azure Active Directory 與 Riskware 整合
 
@@ -67,7 +67,7 @@ ms.locfileid: "36225784"
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![企業應用程式刀鋒視窗][2]
-    
+
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![新增應用程式按鈕][3]
@@ -101,7 +101,7 @@ ms.locfileid: "36225784"
     ![設定單一登入連結][4]
 
 2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
- 
+
     ![單一登入對話方塊](./media/riskware-tutorial/tutorial_riskware_samlbase.png)
 
 3. 在 [Riskware 網域及 URL] 區段上，執行下列步驟：
@@ -113,7 +113,7 @@ ms.locfileid: "36225784"
     |--|--|
     | UAT|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
     | PROD| `https://riskcloud.net/prod?ccode=<COMPANYCODE>` |
-    | 示範| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` | 
+    | 示範| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` |
     |||
 
     b. 在 [識別碼 (實體識別碼)] 文字方塊中，輸入 URL：
@@ -121,10 +121,10 @@ ms.locfileid: "36225784"
     |--|--|
     | UAT| `https://riskcloud.net/uat` |
     | PROD| `https://riskcloud.net/prod` |
-    | 示範| `https://riskcloud.net/demo` | 
+    | 示範| `https://riskcloud.net/demo` |
     |||
 
-    > [!NOTE] 
+    > [!NOTE]
     > [登入 URL] 的值不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [Riskware 用戶端支援小組](mailto:support@pansoftware.com.au)以取得此值。
 
 4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
@@ -137,11 +137,11 @@ ms.locfileid: "36225784"
 
 6. 在 [Riskware 設定] 區段上，按一下 [設定 Riskware] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL 和 SAML 單一登入服務 URL]。
 
-    ![Riskware 設定](./media/riskware-tutorial/tutorial_riskware_configure.png) 
+    ![Riskware 設定](./media/riskware-tutorial/tutorial_riskware_configure.png)
 
 7. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Riskware 公司網站。
 
-8. 按一下右上方的 [Maintenance] \(維護\) 以開啟維護頁面。 
+8. 按一下右上方的 [Maintenance] \(維護\) 以開啟維護頁面。
 
     ![Riskware 設定：維護](./media/riskware-tutorial/tutorial_riskware_maintain.png)
 
@@ -159,16 +159,16 @@ ms.locfileid: "36225784"
 
     c. 在 [Description]\(描述\) 文字方塊中，輸入您的描述，例如 AZURE Configuration for SSO (AZURE 的 SSO 設定)。
 
-    d. 在 [Single Sign On Page] \(單一登入頁面\) 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 單一登入服務 URL] 值。
+    d. 在 [單一登入頁面] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 單一登入服務 URL] 值。
 
-    e. 在 [Sign out Page] \(登出頁面\) 文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL] 值。
+    e. 在 [登出頁面] 文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL] 值。
 
-    f. 在 [Post Form Field] \(POST 表單欄位\) 文字方塊中，輸入 POST 回應中包含 SAML 的欄位名稱，例如 SamlResponse
+    f. 在 [POST 表單欄位] 文字方塊中，輸入 POST 回應中包含 SAML 的欄位名稱，例如 SAMLResponse
 
     g. 在 [XML Identity Tag Name] \(XML 身分識別標記名稱\) 文字方塊中，輸入 SAML 回應中包含唯一識別碼的屬性，例如 NameID。
 
     h. 在記事本中開啟從 Azure 入口網站下載的 **Metadata Xml**，複製中繼資料檔中的憑證，然後將其貼到 [Certificate]\(憑證\) 文字方塊中
-    
+
     i. 在 [Consumer URL]\(取用者 URL\) 文字方塊中，貼上您向支援小組取得的**回覆 URL** 值。
 
     j. 在 [簽發者] 文字方塊中，貼上您向支援小組取得的**識別碼**值。
@@ -176,9 +176,9 @@ ms.locfileid: "36225784"
     > [!Note]
     > 請連絡 [Riskware 用戶端支援小組](mailto:support@pansoftware.com.au)以取得這些值
 
-    k. 選取 [Use POST]\(使用 POST\) 來以 POST 參數形式傳遞 SAML 要求。
+    k. 勾選 [使用 POST] 核取方塊。
 
-    l. 選取 [Use SAML Request]\(使用 SAML 要求\) 來傳遞 SSO，以允許 SP 起始的 SAML 要求。
+    l. 勾選 [使用 SAML 要求] 核取方塊。
 
     m. 按一下 [檔案] 。
 
@@ -213,7 +213,7 @@ ms.locfileid: "36225784"
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
     d. 按一下頁面底部的 [新增] 。
- 
+
 ### <a name="create-a-riskware-test-user"></a>建立 Riskware 測試使用者
 
 若要讓 Azure AD 使用者能夠登入 Riskware，必須將這些使用者佈建到 Riskware。 在 Riskware 中，需以手動方式佈建。
@@ -230,8 +230,8 @@ ms.locfileid: "36225784"
 
     ![Riskware 設定：人員](./media/riskware-tutorial/tutorial_riskware_people.png)
 
-4. 在 [詳細資料] 索引標籤上，執行下列步驟：
-    
+4. 選取 [詳細資料] 索引標籤，然後執行下列步驟：
+
     ![Riskware 設定：詳細資料](./media/riskware-tutorial/tutorial_riskware_details.png)
 
     a. 選取 [Person Type]\(人員類型\)，例如 [Employee] \(員工\)。
@@ -240,7 +240,7 @@ ms.locfileid: "36225784"
 
     c. 在 [Surname]\(姓氏\) 文字方塊中，輸入使用者的姓氏，例如 **Simon**。
 
-5. 在 [安全性]  索引標籤上執行下列步驟：。    
+5. 在 [安全性]  索引標籤上執行下列步驟：。
 
     ![Riskware 設定：安全性](./media/riskware-tutorial/tutorial_riskware_security.png)
 
@@ -250,12 +250,12 @@ ms.locfileid: "36225784"
 
     c. 在 [Password] \(密碼\) 文字方塊中，輸入使用者的密碼。
 
-6. 在 [Organisation] \(組織\) 索引標籤上，執行下列步驟：
+6. 在 [組織] 索引標籤上，執行下列步驟：
 
     ![Riskware 設定：組織](./media/riskware-tutorial/tutorial_riskware_org.png)
 
-    a. 在 [Organisation]\(組織\) 區段下，選取 [Organisation]\(組織\) 作為 [Level 1] \(第 1 層\) 組織。
-    
+    a. 選取選項作為 **Level1** 組織。
+
     b. 在 [Person's Primary Workplace]\(人員的主要工作場所\) 區段下的 [Location]\(位置\) 文字方塊中，輸入您的位置。
 
     c. 在 [Employee]\(員工\) 區段下，選取 [Employee Status]\(員工狀態\)，例如 [Casual]\(臨時\)。
@@ -266,7 +266,7 @@ ms.locfileid: "36225784"
 
 在本節中，您會將 Riskware 的存取權授與 Britta Simon，使其能夠使用 Azure 單一登入。
 
-![指派使用者角色][200] 
+![指派使用者角色][200]
 
 **若要將 Britta Simon 指派給 Riskware，請執行下列步驟：**
 

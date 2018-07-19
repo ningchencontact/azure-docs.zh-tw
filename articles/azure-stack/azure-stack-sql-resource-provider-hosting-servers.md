@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 07/10/2018
 ms.author: jeffgilb
-ms.openlocfilehash: af820f90c5d8822dbdaa768b16360d534fd47828
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.reviewer: jeffgo
+ms.openlocfilehash: de2e1defeff9ab2dd78bdf019009b62955f73b88
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060037"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970546"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>為 SQL 資源提供者新增主控伺服器
 
@@ -28,15 +29,15 @@ ms.locfileid: "37060037"
 
 在您新增 SQL 主控伺服器之前，請檢閱下列必要與一般需求。
 
-**必要需求**
+### <a name="mandatory-requirements"></a>必要需求
 
 * 啟用 SQL Server 執行個體上的 SQL 驗證。 由於 SQL 資源提供者 VM 未加入網域，因此只能使用 SQL 驗證連線至主控伺服器。
-* 將 SQL 執行個體的 IP 位址設定為公用。 資源提供者和使用者 (例如 Web Apps) 會透過使用者網路通訊，因此需要連線到此網路上的 SQL 執行個體。
+* 安裝在 Azure Stack 上時，將 SQL 執行個體的 IP 位址設定為公用。 資源提供者和使用者 (例如 Web Apps) 會透過使用者網路通訊，因此需要連線到此網路上的 SQL 執行個體。
 
-**一般需求**
+### <a name="general-requirements"></a>一般需求
 
-* 資源提供者和使用者工作負載專用的 SQL 執行個體。 您無法使用任何其他取用者正在使用的 SQL 執行個體。 這項限制也適用於 App Service。
-* 設定具有適當權限層級的帳戶以供資源提供者使用。
+* 資源提供者和使用者工作負載專用的 SQL 執行個體。 您無法使用任何其他取用者正在使用的 SQL 執行個體。 此限制也適用於 App Service。
+* 設定具有適當權限層級的帳戶以供資源提供者使用 (如下所述)。
 * 您負責管理 SQL 執行個體及其主機。  例如，資源提供者不會套用更新、處理備份，或處理認證輪換。
 
 ### <a name="sql-server-virtual-machine-images"></a>SQL Server 虛擬機器映像
@@ -48,7 +49,7 @@ ms.locfileid: "37060037"
 有其他選項可用於部署 SQL VM，包含 [Azure Stack 快速入門資源庫](https://github.com/Azure/AzureStack-QuickStart-Templates)中的範本。
 
 > [!NOTE]
-> 安裝在多節點 Azure Stack 上的任何主控伺服器，必須透過使用者訂用帳戶建立。 無法從預設提供者訂用帳戶加以建立。 必須透過使用者入口網站或透過具有適當登入的 PowerShell 工作階段來加以建立。 所有主控伺服器都是可計費的 VM，而且必須具有適當的 SQL 授權。 服務管理員_可以_是該訂用帳戶的擁有者。
+> 安裝在多節點 Azure Stack 上的任何主伺服器，都必須從使用者訂用帳戶 (而非預設提供者訂用帳戶) 建立。 必須透過使用者入口網站或透過具有適當登入的 PowerShell 工作階段來加以建立。 所有主控伺服器都是可計費的 VM，而且必須具有適當的 SQL 授權。 服務管理員_可以_是該訂用帳戶的擁有者。
 
 ### <a name="required-privileges"></a>需要的權限
 
@@ -58,6 +59,16 @@ ms.locfileid: "37060037"
 * 可用性群組：改變、聯結、新增/移除資料庫
 * 登入：建立、選取、改變、卸除、撤銷
 * 選取作業：\[master\].\[sys\].\[availability_group_listeners\] (AlwaysOn)、sys.availability_replicas (AlwaysOn)、sys.databases、\[master\].\[sys\].\[dm_os_sys_memory\]、SERVERPROPERTY、\[master\].\[sys\].\[availability_groups\] (AlwaysOn)、sys.master_files
+
+### <a name="additional-security-information"></a>額外的安全性資訊
+
+下列資訊提供額外的安全性指導分針：
+
+* 所有 Azure Stack 儲存體都是使用 BitLocker 加密的，因此 Azure Stack 上的任何 SQL 執行個體都會使用加密的 Blob 儲存體。
+* SQL 資源提供者完全支援 TLS 1.2。 確定透過 SQL RP 管理的任何 SQL Server _僅_針對 TLS 1.2 設定，而且 RP 將預設為該設定。 所有支援的 SQL Server 版本都支援 TLS 1.2，請參閱 [Microsoft SQL Server 的 TLS 1.2 支援](https://support.microsoft.com/en-us/help/3135244/tls-1-2-support-for-microsoft-sql-server) \(機器翻譯\)。
+* 使用 SQL Server 組態管理員設定 **ForceEncryption** 選項，以確保與 SQL server 的所有通訊一律都會經過加密。 請參閱[設定伺服器強制加密連線](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#ConfigureServerConnections)。
+* 確定任何用戶端應用程式也都會透過加密連線進行通訊。
+* RP 會設定為信任 SQL Server 執行個體所使用的憑證。
 
 ## <a name="provide-capacity-by-connecting-to-a-standalone-hosting-sql-server"></a>透過連線到獨立式主控 SQL 伺服器來提供容量
 
@@ -89,57 +100,54 @@ ms.locfileid: "37060037"
    * 若要使用現有的 SKU，選擇可用的 SKU，然後選取 [建立]。
    * 若要建立 SKU，請選取 [+ Create new SKU] \(+ 建立新的 SKU\)。 在 [Create SKU] \(建立 SKU\) 中，輸入必要的資訊，然後選取 [確定]。
 
-     > [!IMPORTANT]
-     > [名稱] 欄位中不支援特殊字元，包括空格與句點。 使用以下螢幕擷取畫面作為範例，並輸入 [系列]、[層級] 及 [版本] 欄位的值。
-
      ![建立 SKU](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
-
-      最多需要一小時才能在入口網站中看到 SKU。 在完整建立 SKU 前，使用者無法建立資料庫。
-
-### <a name="sku-notes"></a>SKU 注意事項
-
-您可以使用 SKU 區分服務供應項目。 例如，您可以擁有一個具備以下特性的 SQL Enterprise 執行個體：
-  
-* 高容量
-* 高效能
-* 高可用性
-
-您可以為前述範例建立 SKU，限制存取需要高效能資料庫的特定群組。
-
->[!TIP]
->使用可反映和描述 SKU 中伺服器容量的 SKU 名稱，例如容量與效能。 名稱可作為輔助，來幫助使用者將其資料庫部署至適當的 SKU。
-
-最佳作法是，SKU 中的所有主控伺服器應具有相同的資源和效能特性。
 
 ## <a name="provide-high-availability-using-sql-always-on-availability-groups"></a>使用 SQL Always On 可用性群組提供高可用性
 
 設定 SQL Always On 執行個體需要額外的步驟，並且需要三部 VM (或實體機器)。本文假設您已非常熟悉 Always On 可用性群組的功能。 如需詳細資訊，請參閱下列文章：
 
-* [Azure 虛擬機器上的 SQL Server Always On 可用性群組簡介](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
-* [Always On 可用性群組 (SQL Server)](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
+* [Azure 虛擬機器上的 SQL Server Always On 可用性群組簡介](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
+* [Always On 可用性群組 (SQL Server)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
 
 > [!NOTE]
-> 針對 Always On，SQL 配接器資源提供者「僅」支援 SQL 2016 SP1 企業版或更新版本的執行個體。 此配接器組態需要新的 SQL 功能，例如自動植入。
+> SQL 配接器資源提供者_僅_支援適用於 Always On 可用性群組的 SQL 2016 SP1 企業版或更新版本執行個體。 此配接器組態需要新的 SQL 功能，例如自動植入。
 
-除此之外，您還必須在 SQL Server 的每個執行個體上，為每個可用性群組啟用[自動植入](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group)。
+### <a name="automatic-seeding"></a>自動植入
 
-若要在所有執行個體上啟用自動植入，請編輯下列 SQL 命令，然後針對每個執行個體執行：
+您必須在 SQL Server 的每個執行個體上，為每個可用性群組啟用 [自動植入](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group)。
 
-  ```
+若要在所有執行個體上啟用自動植入，請在主要複本上編輯下列 SQL 命令，然後針對每個次要執行個體執行：
+
+  ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>]
-      MODIFY REPLICA ON 'InstanceName'
+      MODIFY REPLICA ON '<secondary_node>'
       WITH (SEEDING_MODE = AUTOMATIC)
   GO
   ```
 
-在第二個執行個體上，編輯下列 SQL 命令，然後針對每個執行個體執行：
+請注意，可用性群組必須以方括弧括住。
 
-  ```
+在次要節點上，執行下列 SQL 命令：
+
+  ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
   GO
   ```
 
-### <a name="to-add-sql-always-on-hosting-servers"></a>若要新增 SQL Always On 主控伺服器：
+### <a name="configure-contained-database-authentication"></a>設定自主資料庫驗證
+
+將自主資料庫新增至可用性群組之前，請確定在裝載可用性群組之可用性複本的每個伺服器執行個體上，自主資料庫驗證伺服器選項已設定為 1。 如需詳細資訊，請參閱[自主資料庫驗證伺服器組態選項](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017)。
+
+使用這些命令設定每個執行個體的自主資料庫驗證伺服器選項：
+
+  ```sql
+  EXEC sp_configure 'contained database authentication', 1
+  GO
+  RECONFIGURE
+  GO
+  ```
+
+### <a name="to-add-sql-always-on-hosting-servers"></a>新增 SQL Always On 主控伺服器：
 
 1. 以服務管理員身分登入 Azure Stack 管理入口網站。
 
@@ -147,7 +155,7 @@ ms.locfileid: "37060037"
 
    使用 [SQL 主控伺服器] 之下，您可以將 SQL Server 資源提供者連線到作為資源提供者後端的 SQL Server 實際執行個體。
 
-3. 在表單中填妥 SQL Server 執行個體的連線詳細資料。 確定您使用 Always On 接聽程式的 FQDN 位址 (以及選擇性連接埠號碼。)針對您以系統管理員權限設定的帳戶，提供資訊。
+3. 在表單中填妥 SQL Server 執行個體的連線詳細資料。 確定您使用 Always On 接聽程式的 FQDN 位址 (以及選擇性的連接埠號碼和執行個體名稱)。 針對您以系統管理員權限設定的帳戶，提供資訊。
 
 4. 核取 [Always On 可用性群組] 方塊，即可啟用 SQL Always On 可用性群組執行個體的支援。
 
@@ -158,11 +166,26 @@ ms.locfileid: "37060037"
    > [!IMPORTANT]
    > 您不能在相同 SKU 中混合獨立伺服器與 Always On 執行個體。 嘗試在新增第一個主控伺服器之後混合類型會導致錯誤。
 
+## <a name="sku-notes"></a>SKU 注意事項
+
+您可以使用 SKU 區分服務供應項目。 例如，您可以擁有一個具備以下特性的 SQL Enterprise 執行個體：
+  
+* 高容量
+* 高效能
+* 高可用性
+
+在此版本中，無法將 SKU 指派給特定使用者或群組。
+
+ 最多需要一小時才能在入口網站中看到 SKU。 在完整建立 SKU 前，使用者無法建立資料庫。
+
+>[!TIP]
+>使用可反映和描述 SKU 中伺服器容量的 SKU 名稱，例如容量與效能。 名稱可作為輔助，來幫助使用者將其資料庫部署至適當的 SKU。
+
+最佳作法是，SKU 中的所有主控伺服器應具有相同的資源和效能特性。
+
 ## <a name="make-the-sql-databases-available-to-users"></a>將 SQL 資料庫提供給使用者使用
 
-建立方案和供應項目，將 SQL 資料庫提供給使用者使用。 將 **Microsoft.SqlAdapter** 服務新增到方案，然後新增預設配額，或建立新配額。
-
-![建立方案和供應項目來加入資料庫](./media/azure-stack-sql-rp-deploy/sqlrp-newplan.png)
+建立方案和供應項目，將 SQL 資料庫提供給使用者使用。 將 **Microsoft.SqlAdapter** 服務新增到方案，然後建立新配額。
 
 ## <a name="next-steps"></a>後續步驟
 

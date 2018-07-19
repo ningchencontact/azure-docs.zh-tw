@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 6f28df6f2faa78af90fb4b5e62f218e3b391000b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1137f1dac9570b56dc202194e5f94dfd72c31c9f
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37066079"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39030042"
 ---
 # <a name="internet-of-things-security-architecture"></a>物聯網安全性架構
 
@@ -177,7 +177,7 @@ Microsoft 是使用先前概述的架構來為 Azure IoT 進行威脅模型化�
 
 | **元件** | **威脅** | **緩和** | **風險** | **實作** |
 | --- | --- | --- | --- | --- |
-| 裝置 |S |指派身分識別給裝置並驗證裝置 |用其他裝置取代裝置或部分裝置。 如何判斷您是在跟正確的裝置通訊？ |使用傳輸層安全性 (TLS) 或 IPSec 來驗證裝置。 如果裝置無法處理完整的非對稱密碼編譯，則基礎結構應該支援在這些裝置上使用預先共用金鑰 (PSK)。 利用 Azure AD、[OAuth](http://www.rfc-editor.org/in-notes/internet-drafts/draft-ietf-ace-oauth-authz-01.txt) |
+| 裝置 |S |指派身分識別給裝置並驗證裝置 |用其他裝置取代裝置或部分裝置。 如何判斷您是在跟正確的裝置通訊？ |使用傳輸層安全性 (TLS) 或 IPSec 來驗證裝置。 如果裝置無法處理完整的非對稱密碼編譯，則基礎結構應該支援在這些裝置上使用預先共用金鑰 (PSK)。 利用 Azure AD、[OAuth](https://www.rfc-editor.org/pdfrfc/rfc6755.txt.pdf) |
 || TRID |讓人難以甚至無法從裝置擷取金鑰和其他密碼編譯資料，為裝置套用防竄改機制。 |但風險是我們不知道裝置是不是已經受到竄改 (實體干擾)？ 如何確認裝置未受到竄改。 |最有效的安全防護功能是信賴平台模組 (TPM) 功能，其可讓您將金鑰存放在特殊的晶片電路中，以確保金鑰不被讀取，但僅適用於只使用金鑰而不會揭露金鑰的密碼編譯作業。 裝置的記憶體加密。 裝置的金鑰管理。 簽署程式碼。 | |
 || E |具有裝置的存取控制。 授權配置。 |如果裝置可以外部來源或甚至遭入侵之感應器的命令為基礎來執行個別動作，代表攻擊可以藉此執行作業，而不僅是存取內容。 |為裝置進行授權配置 | |
 | 現場閘道器 |S |現場閘道到雲端閘道的驗證 (例如憑證式、PSK 或宣告式)。 |如果有心人士可以欺騙現場閘道器，就可以偽裝成任何裝置。 |TLS RSA/PSK、IPSec、[RFC 4279](https://tools.ietf.org/html/rfc4279)。 同樣地，一般的裝置金鑰儲存和證明考量都高度建議使用 TPM。 IPSec 的 6LowPAN 擴充可支援無線感測網路 (WSN)。 |

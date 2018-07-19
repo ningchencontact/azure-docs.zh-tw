@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/15/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: c8f8dbc4aa32b550849ff14f3ad653311b9fab93
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 5d5b2e78755d6800f61e3e4adb1769799d01dad2
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265278"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111518"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure 監視器合作夥伴整合
 | 合作夥伴 |  |  |
@@ -90,7 +90,7 @@ LogicMonitor® 是領先業界的 SaaS 型效能監視平台，適用於複雜�
 Moogsoft AIOps 會加速敏捷的商務轉換。
 
 Microsoft Azure 自動化與控制工具為 Azure 中部署的應用程式和微服務狀態提供了即時視窗，並且可協助協調診斷和 Runbook，以便更快速補救。
-其他第三方工具提供內部部署應用程式和基礎結構狀態的視窗。
+其他第三方工具可提供內部部署應用程式和基礎結構狀態的視窗。
 
 Moogsoft AIOps 會自動化補救事件工作流程，而不需要變更現有的程序和組織結構。 
 

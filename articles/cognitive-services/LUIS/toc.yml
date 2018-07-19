@@ -17,6 +17,8 @@
           items:
             - name: 'C#'
               href: luis-get-started-cs-get-intent.md
+            - name: Go
+              href: luis-get-started-go-get-intent.md
             - name: Java
               href: luis-get-started-java-get-intent.md
             - name: JavaScript
@@ -33,6 +35,8 @@
           items:
             - name: 'C#'
               href: luis-get-started-cs-add-utterance.md
+            - name: Go
+              href: luis-get-started-go-add-utterance.md
             - name: Java
               href: luis-get-started-java-add-utterance.md
             - name: JavaScript
@@ -69,7 +73,7 @@
           href: luis-quickstart-intent-and-sentiment-analysis.md
     - name: 改善應用程式
       items:
-        - name: 檢閱端點表達方式
+        - name: 檢閱端點語句
           href: luis-tutorial-review-endpoint-utterances.md
         - name: 搭配批次測試
           href: luis-tutorial-batch-testing.md
@@ -85,7 +89,7 @@
       href: luis-concept-best-practices.md
     - name: 編寫應用程式
       items:
-        - name: 編寫週期
+        - name: 撰寫循環
           href: luis-concept-app-iteration.md
         - name: 共同作業
           href: luis-concept-collaborator.md
@@ -220,7 +224,7 @@
             - name: 使用 PowerShell 檢視端點使用量
               href: luis-how-to-manage-from-cloud-shell.md
             - name: 使用流量管理員在各索引鍵中分散端點配額
-              href: traffic-manager.md
+              href: luis-traffic-manager.md
     - name: 移轉至 V2 API
       href: migration-v1-to-v2.md
     - name: 以程式設計方式尋找區域
@@ -251,11 +255,11 @@
           href: luis-reference-prebuilt-dimension.md
         - name: 取代實體
           href: luis-reference-prebuilt-deprecated.md
-        - name: 電子郵件實體
+        - name: Email 實體
           href: luis-reference-prebuilt-email.md
         - name: keyPhrase 實體
           href: luis-reference-prebuilt-keyphrase.md
-        - name: 數字實體
+        - name: Number 實體
           href: luis-reference-prebuilt-number.md
         - name: 序數實體
           href: luis-reference-prebuilt-ordinal.md

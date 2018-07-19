@@ -11,23 +11,26 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5d806afbfd74d68d139f494c7a5a6e871a7dae36
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 2c2553d9ffb1dfbe032385fb77e234a8b96cb239
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260589"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110060"
 ---
 # <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Microsoft.Network.VirtualNetworkCombo UI 元素
 選取新的或現有虛擬網路的控制項群組。
 
 ## <a name="ui-sample"></a>UI 範例
-![Microsoft.Network.VirtualNetworkCombo](./media/managed-application-elements/microsoft.network.virtualnetworkcombo.png)
+當使用者選取新的虛擬網路時，可以自訂每一個子網路的名稱和位址前置詞。 設定子網路為選擇性的。
 
-- 在最上層的框線中，使用者已選取新的虛擬網路，因此使用者可以自訂每一個子網路的名稱和位址前置詞。 在此情況下，設定子網路為選擇性的。
-- 在最下層的框線中，使用者已選取現有的虛擬網路，因此使用者必須將部署範本所需的每個子網路對應到現有的子網路。 在此情況下，設定子網路為必要的。
+![Microsoft.Network.VirtualNetworkCombo new](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-new.png)
+
+當使用者選取現有的虛擬網路時，必須將部署範本所需的每個子網路對應到現有的子網路。 在此情況下，設定子網路為必要的。
+
+![Microsoft.Network.VirtualNetworkCombo existing](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-existing.png)
 
 ## <a name="schema"></a>結構描述
 ```json
@@ -88,12 +91,12 @@ ms.locfileid: "34260589"
 - 必須指定 `constraints.minAddressPrefixSize`。 任何現有虛擬網路的位址空間若低於指定的值，就無法加以選取。
 - 必須指定 `subnets`，且必須指定每個子網路的 `constraints.minAddressPrefixSize`。
 - 在建立新的虛擬網路時，會根據虛擬網路的位址前置詞和個別的 `addressPrefixSize`自動計算每個子網路的位址首碼。
-- 在使用現有的虛擬網路時，無法選取任何小於個別 `constraints.minAddressPrefixSize` 的子網路。 此外，如果指定，就無法選取未至少包含 `minAddressCount` 的子網路。
-預設值為 **0**。 若要確保可用位址是連續的，請將 `requireContiguousAddresses` 指定為 **true**。 預設值為 **true**。
+- 在使用現有的虛擬網路時，無法選取任何小於個別 `constraints.minAddressPrefixSize` 的子網路。 此外，如果指定，就無法選取未至少包含 `minAddressCount` 個可用位址的子網路。 預設值為 **0**。 若要確保可用位址是連續的，請將 `requireContiguousAddresses` 指定為 **true**。 預設值為 **true**。
 - 不支援在現有的虛擬網路中建立子網路。
 - 如果 `options.hideExisting` 為 **true**，使用者就無法選擇現有的虛擬網路。 預設值為 **false**。
 
 ## <a name="sample-output"></a>範例輸出
+
 ```json
 {
   "name": "vnet01",

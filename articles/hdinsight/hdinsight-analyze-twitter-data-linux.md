@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: f48aa68838ff8cac0119f66f168fce6008d388bc
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 0c6643e167f43c2524a4d00a209c5a5db22076a8
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36959017"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865309"
 ---
 # <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>在 HDInsight 上使用 Hive 與 Hadoop 分析 Twitter 資料
 
@@ -308,7 +308,7 @@ hdfs dfs -put tweets.txt /tutorials/twitter/data/tweets.txt
    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -i twitter.hql
    ```
 
-    這個命令會執行 **twitter.hql** 檔案。 當查詢完成時，您會看到 `jdbc:hive2//localhost:10001/>` 提示字元。
+    此命令會執行 **twitter.hql** 檔案。 當查詢完成時，您會看到 `jdbc:hive2//localhost:10001/>` 提示字元。
 
 4. 從 beeline 提示字元中，使用下列查詢來確認資料已匯入︰
 

@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/24/2018
+ms.date: 07/06/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f0705f2fb14bc44a7738f38bc3ef53a6359dfb4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6ffa8e15762710907db92710c3fad61c5f7189bd
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657766"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857509"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>使用 Azure 來裝載和執行 SAP 工作負載案例
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -338,7 +338,7 @@ Azure for SAP HANA 是獨一無二的供應項目，可讓 Azure 在競爭中顯
 ### <a name="high-availability-and-disaster-recovery-of-sap-hana-on-azure-large-instances"></a>SAP HANA on Azure (大型執行個體) 的高可用性和災害復原
 標題：SAP HANA on Azure (大型執行個體) 的高可用性和災害復原
 
-摘要：高可用性 (HA) 和災害復原 (DR) 對執行具任務關鍵性的 SAP HANA on Azure (大型執行個體) 伺服器來說，是相當重要的層面。 它匯入以使用 SAP、您的系統整合者和/或 Microsoft 以正確架構，並為您實作正確的 HA/DR 策略。 您必須考量您的環境特定的復原點目標 (RPO) 和復原時間目標 (RTO) 等重要考量。  本文件說明啟用您慣用層級 HA 和 DR 的選項。
+摘要：高可用性 (HA) 和災害復原 (DR) 對執行具任務關鍵性的 SAP HANA on Azure (大型執行個體) 伺服器來說，是相當重要的層面。 與 SAP、您的系統整合者和/或 Microsoft 合作，以正確地架構並實作合適的 HA/DR 策略，是非常重要的。 您必須考量您的環境特定的復原點目標 (RPO) 和復原時間目標 (RTO) 等重要考量。  本文件說明啟用您慣用層級 HA 和 DR 的選項。
 
 更新日期：2017 年 10 月
 
@@ -480,7 +480,7 @@ Azure for SAP HANA 是獨一無二的供應項目，可讓 Azure 在競爭中顯
 ### <a name="using-azure-site-recovery-for-sap-workload"></a>針對 SAP 工作負載使用 Azure Site Recovery
 標題：SAP NetWeaver：使用 Azure Site Recovery 建置災害復原解決方案
 
-摘要：本文說明 Azure Site Recovery 能如何用以應對災害復原案例。 案例中使用 Azure 作為災害復原位置，用於 Azure Site Recovery 服務之內部部屬 SAP 環境中。 本文另又介紹 Aure 至 Azure (A2A) 災難復原案例，以及該案例如何以 Azure Site Recovery 進行管理。  
+摘要：本文說明 Azure Site Recovery 能如何用以應對災害復原案例。 案例中使用 Azure 作為災害復原位置，應用於使用 Azure Site Recovery 服務的內部部屬 SAP 環境。 本文另又介紹 Aure 至 Azure (A2A) 災難復原案例，以及該案例如何以 Azure Site Recovery 進行管理。  
 
 更新日期：2017 年 8 月
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: 472115f166adc5385b6f46b2f3ac5ef75a6cde92
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1f60b7d30c073c49d5e0a7d35e7263c2181ed744
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637271"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903059"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>如何升級 IoT 中樞
 
@@ -36,16 +36,16 @@ ms.locfileid: "34637271"
 1. 登入 [Azure 入口網站](https://portal.azure.com/)，然後瀏覽至 IoT 中樞。 
 2. 選取 [定價與級別]。 
 
-   ![價格和調整](./media/iot-hub-upgrade/pricing-scale.png)
+   ![定價與級別](./media/iot-hub-upgrade/pricing-scale.png)
 
 3. 若要變更中樞的層級，請選取 [定價與級別層]。 選取新的層級，然後按一下 [選取]。
 
-   ![價格和調整](./media/iot-hub-upgrade/select-tier.png)
+   ![定價與級別](./media/iot-hub-upgrade/select-tier.png)
 
 4. 若要變更您中樞內的單位數，請在 [IoT 中樞單位] 底下輸入新的值。 
 5. 選取 [儲存] 來儲存變更。 
 
-您的 IoT 中樞現已調整完成，而設定則未變更。 
+您的 IoT 中樞現已調整完成，而設定則未變更。 請注意，基本層 IoT 中樞的分割區限制為 8 個。 當您從基本層移轉到標準層時，這項限制保持不變。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -8,16 +8,16 @@ ms.date: 06/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0a973b248022cf3c0497f72bc2fcdd45a6527e65
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 46970d5628df3b46ec88df998a328928f60e15b4
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37115412"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090226"
 ---
 # <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>在 Windows 上建立及佈建模擬 TPM Edge 裝置
 
-Azure IoT Edge 裝置可用[裝置佈建服務](../iot-dps/index.yml)來自動佈建，就像未啟用 Edge 的裝置一樣。 如果您不熟悉自動佈建程序，請先檢閱[自動佈建概念](../iot-dps/concepts-auto-provisioning.md)再繼續。 
+Azure IoT Edge 裝置可用[裝置佈建服務](../iot-dps/index.yml)來自動佈建，就像未啟用 Edge 的裝置一樣。 如果您不熟悉自動佈建程序，請先檢閱[自動佈建概念](../iot-dps/concepts-auto-provisioning.md)，再繼續作業。 
 
 本文將說明如何藉由下列步驟，在模擬 Edge 裝置上測試自動佈建： 
 
@@ -26,16 +26,16 @@ Azure IoT Edge 裝置可用[裝置佈建服務](../iot-dps/index.yml)來自動�
 * 建立裝置的個別註冊。
 * 安裝 IoT Edge 執行階段，並將裝置連線到 IoT 中樞。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Windows 開發機器。 本文使用 Windows 10。 
 * 使用中的 IoT 中樞。 
 
 ## <a name="set-up-the-iot-hub-device-provisioning-service"></a>設定 IoT 中樞裝置佈建服務
 
-在 Azure 中建立 IoT 中樞裝置佈建服務的新執行個體，並將其連結至您的 IoT 中樞。 您可以依照[設定 IoT 中樞 DPS](../iot-dps/quick-setup-auto-provision.md) 中的指示。
+在 Azure 中建立 IoT 中樞裝置佈建服務的新執行個體，並將其連結至您的 IoT 中樞。 您可以依照[設定 IoT 中樞 DPS](../iot-dps/quick-setup-auto-provision.md) 中的指示操作。
 
-裝置佈建服務開始執行之後，從 [概觀] 頁面複製 [識別碼範圍] 的值。 當您設定 IoT Edge 執行階段時會用到此值。 
+裝置佈建服務開始執行之後，請從 [概觀] 頁面複製 [識別碼範圍] 的值。 當您設定 IoT Edge 執行階段時會用到此值。 
 
 ## <a name="simulate-a-tpm-device"></a>模擬 TPM 裝置
 
@@ -58,7 +58,7 @@ Azure IoT Edge 裝置可用[裝置佈建服務](../iot-dps/index.yml)來自動�
 
 ## <a name="install-the-iot-edge-runtime"></a>安裝 IoT Edge 執行階段
 
-IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 其元件會在容器中執行，並可讓您將其他容器部署到裝置，以便您在邊緣上執行程式碼。 在執行 Windows 的裝置上，您可以選擇使用 Windows 容器或 Linux 容器。 選擇您要使用的容器類型，並遵循步驟。 請務必將 IoT Edge 執行階段設定為自動佈建，而不是手動佈建。 
+IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 其元件會在容器中執行，並可讓您將其他容器部署到裝置，以便您在 Edge 上執行程式碼。 在執行 Windows 的裝置上，您可以選擇使用 Windows 容器或 Linux 容器。 選擇您要使用的容器類型，並遵循步驟。 請務必將 IoT Edge 執行階段設定為自動佈建，而不是手動佈建。 
 
 請依照指示，在執行模擬 TPM (已在上一節中建立) 的裝置上安裝 IoT Edge 執行階段。 
 
@@ -80,7 +80,7 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 其元件會在容
 
 ## <a name="restart-the-iot-edge-runtime"></a>重新啟動 IoT Edge 執行階段
 
-重新啟動 IoT Edge 執行階段，讓其可取得您在裝置上所做的所有組態變更。 
+重新啟動 IoT Edge 執行階段，使其可取得您對裝置所做的所有組態變更。 
 
 ```powershell
 Stop-Service iotedge -NoWait
@@ -88,15 +88,9 @@ sleep 5
 Start-Service iotedge
 ```
 
-確認有看到 IoT Edge 執行階段正在執行。 
-
-   ```bash
-   sudo systemctl status iotedge
-   ```
-
 ## <a name="verify-successful-installation"></a>確認安裝成功
 
-如果執行階段順利啟動，您可以移至您的 IoT 中樞，即可看到新裝置已自動佈建，並且已可執行 IoT Edge 模組。 
+如果執行階段順利啟動，您可以移至您的 IoT 中樞，並看到新裝置已自動佈建，且已可執行 IoT Edge 模組。 
 
 檢查 IoT Edge 服務的狀態。
 
@@ -124,4 +118,4 @@ iotedge list
 
 ## <a name="next-steps"></a>後續步驟
 
-佈建新裝置時，裝置佈建服務註冊程序可讓您同時設定裝置識別碼和裝置對應項標記。 您可以使用這些值來鎖定要使用自動裝置管理的個別裝置或裝置群組。 了解如何使用 [Azure 入口網站](how-to-deploy-monitor.md)或 [Azure CLI](how-to-deploy-monitor-cli.md) 來大規模部署和監視 IoT Edge 模組
+佈建新裝置時，裝置佈建服務註冊程序可讓您同時設定裝置識別碼和裝置對應項標記。 您可以使用這些值來鎖定要使用自動裝置管理的個別裝置或裝置群組。 了解如何[使用 Azure 入口網站大規模部署和監視 IoT Edge 模組](how-to-deploy-monitor.md)，或[使用 Azure CLI](how-to-deploy-monitor-cli.md) 執行相同作業

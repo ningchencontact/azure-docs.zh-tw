@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: d77953100bb7007553cf1c5ab00b9cdafea281e9
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: b4c5bf3b11c2ee661d95dc50f5c93e12fe2d56bf
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030432"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901036"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>選擇適合您解決方案的 IoT 中樞層
 
@@ -31,7 +31,7 @@ Azure IoT 中樞提供基本和標準兩個層級，兩者所支援的功能數�
 
 標準層的 IoT 中樞可啟用所有功能，想要使用雙向通訊功能的 IoT 解決方案都必須使用此層級。 基本層則可啟用一小部分功能，可供只需要從裝置到雲端進行單向通訊的 IoT 解決方案使用。 這兩個層級均提供相同的安全性和驗證功能。
 
-在建立 IoT 中樞後，您不需要中斷現有作業就可以從基本層升級到標準層。 如需詳細資訊，請參閱[如何升級 IoT 中樞](iot-hub-upgrade.md)。
+在建立 IoT 中樞後，您不需要中斷現有作業就可以從基本層升級到標準層。 如需詳細資訊，請參閱[如何升級 IoT 中樞](iot-hub-upgrade.md)。 請注意，基本層 IoT 中樞的分割區限制為 8。 當您從基本層移轉到標準層時，這項限制保持不變。
 
 | 功能 | 基本層 | 標準層 |
 | ---------- | ---------- | ------------- |
@@ -43,7 +43,7 @@ Azure IoT 中樞提供基本和標準兩個層級，兩者所支援的功能數�
 | [監視和診斷](iot-hub-monitor-resource-health.md) | yes | yes |
 | [雲端到裝置傳訊](iot-hub-devguide-c2d-guidance.md) |   | yes |
 | [裝置對應項](iot-hub-devguide-device-twins.md)、[模組對應項](iot-hub-devguide-module-twins.md)和[裝置管理](iot-hub-device-management-overview.md) |   | yes |
-| [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | yes |
+| [Azure IoT Edge](../iot-edge/how-iot-edge-works.md) |   | yes |
 
 IoT 中樞也會提供免費層供您測試和評估。 其具有標準層的所有功能，但允許的傳訊量有限。 您無法從免費層升級至基本或標準層。 
 
@@ -59,9 +59,9 @@ IoT 中樞的基本和標準層之間的支援功能差異，代表某些 API �
 | 取得模組 | yes | yes |
 | [取得登錄統計資料](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdeviceregistrystatistics) | yes | yes |
 | [取得服務統計資料](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getservicestatistics) | yes | yes |
-| [建立或更新裝置](https://docs.microsoft.com/rest/api/iothub/service/service/createorupdatedevice) | yes | yes |
+| [放置裝置](https://docs.microsoft.com/rest/api/iothub/deviceapi/putdevice) | yes | yes |
 | 放置模組 | yes | yes |
-| [查詢 IoT 中樞](https://docs.microsoft.com/rest/api/iothub/service/service/queryiothub) | yes | yes |
+| [查詢裝置](https://docs.microsoft.com/rest/api/iothub/deviceapi/querydevices) | yes | yes |
 | 查詢模組 | yes | yes |
 | [建立檔案上傳 SAS URI](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/createfileuploadsasuri) | yes | yes |
 | [接收裝置繫結通知](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/receivedeviceboundnotification) | yes | yes |

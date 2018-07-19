@@ -17,12 +17,12 @@ ms.date: 04/18/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a0cd077b1c6530c5794c92f131dffb814f5b341d
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 747ba9c51181c62b45bb060810391ca54f4c044e
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157712"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37869086"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory 2.0 和 OpenID Connect 通訊協定
 OpenID Connect 在 OAuth 2.0 上建置的驗證通訊協定，可用來讓使用者安全地登入 Web 應用程式。 當您使用 v2.0 端點的 OpenID Connect 實作時，可以在您的 Web 型應用程式中新增登入和 API 存取。 在本文中，我們將示範如何在不受語言限制的情況下執行此操作。 我們將說明如何傳送及接收 HTTP 訊息，但不使用任何 Microsoft 開放原始碼程式庫。
@@ -85,7 +85,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 * 要求必須包含 `nonce` 參數。
 
 > [!IMPORTANT]
-> 若要成功要求 ID 權杖，[註冊入口網站](https://apps.dev.microsoft.com)中的應用程式註冊必須已啟用 Web 用戶端的**[隱含授與](active-directory-v2-protocols-implicit.md)**。 如果未啟用，則會傳回 `unsupported_response` 錯誤："The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'" (此用戶端的 'response_type' 輸入參數不允許使用所提供的值。預期的值為「程式碼」)
+> 若要成功要求識別碼權杖，[註冊入口網站](https://apps.dev.microsoft.com)中的應用程式註冊必須已啟用 Web 用戶端的**[隱含授與](active-directory-v2-protocols-implicit.md)**。 如果未啟用，則會傳回 `unsupported_response` 錯誤："The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'" (此用戶端的 'response_type' 輸入參數不允許使用所提供的值。預期的值為 'code')
 
 例如︰
 

@@ -9,12 +9,12 @@ ms.component: knowledge-exploration
 ms.topic: article
 ms.date: 03/24/2016
 ms.author: paulhsu
-ms.openlocfilehash: ffa42ac73b42a8271004d2d45d7a80f3307ef059
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 71a6f5ac93e5605182a55de1bae9a99c5c3eddf4
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368122"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136350"
 ---
 # <a name="command-line-interface"></a>命令列介面
 KES 命令列介面提供的功能可從結構化資料中建置索引和文法檔案，並將其部署為 Web 服務。  其使用一般語法：`kes.exe <command> <required_args> [<optional_args>]`。  您可以在沒有引數的狀況下，執行 `kes.exe` 來顯示命令清單，或執行 `kes.exe <command>` 來顯示指定命令可用的引數清單。  以下是可用命令的清單：
@@ -26,7 +26,9 @@ KES 命令列介面提供的功能可從結構化資料中建置索引和文法�
 * describe_grammar
 
 <a name="build_index-command"></a>
+
 ## <a name="buildindex-command"></a>build_index 命令
+
 針對要編製索引的物件，**Build_index** 命令可從該物件的結構描述定義檔和資料檔案中建置二進位索引檔案。  產生的索引檔案可用來評估結構化查詢運算式，或用來產生自然語言查詢，以與已編譯的文法檔案搭配使用。
 
 `kes.exe build_index <schemaFile> <dataFile> <indexFile> [options]`
@@ -49,7 +51,9 @@ KES 命令列介面提供的功能可從結構化資料中建置索引和文法�
 > 若要加快建置速度，請藉由降低機率來預先分類資料檔案中的物件。
 
 <a name="build_grammar-command"></a>
+
 ## <a name="buildgrammar-command"></a>build_grammar 命令
+
 **Build_grammar** 命令會將 XML 中指定的文法編譯為二進位文法檔案。  產生的文法檔案可用來搭配索引檔案使用，以產生自然語言查詢的解譯。
 
 `kes.exe build_grammar <xmlFile> <grammarFile>`
@@ -62,7 +66,9 @@ KES 命令列介面提供的功能可從結構化資料中建置索引和文法�
 您可以使用本機檔案路徑或 Azure blob 的 URL 路徑來指定這些檔案。  文法規格會描述一組加權的自然語言運算式及其語意解譯 (請參閱[文法格式](GrammarFormat.md))。  建置成功時，輸出的文法檔案會包含文法規格的二進位表示，以便進行快速解碼。
 
 <a name="host_service-command"/>
+
 ## <a name="hostservice-command"></a>host_service 命令
+
 **host_service** 命令會將 KES 服務的執行個體裝載在本機電腦上。
 
 `kes.exe host_service <grammarFile> <indexFile> [options]`
@@ -78,7 +84,9 @@ KES 命令列介面提供的功能可從結構化資料中建置索引和文法�
 在 Azure 環境之外，本機裝載的服務會有以下限制：索引檔案大小上限為 1 MB、每秒 10 個要求，以及總計 1000 個呼叫。  若要克服這些限制，請在 Azure VM 內執行 **host_service**，或使用 **deploy_service** 部署到 Azure 雲端服務。
 
 <a name="deploy_service-command"/>
+
 ## <a name="deployservice-command"></a>deploy_service 命令
+
 **deploy_service** 命令會將 KES 服務的執行個體部署至 Azure 雲端服務。
 
 `kes.exe deploy_service <grammarFile> <indexFile> <serviceName> <vmSize>[options]`
@@ -96,7 +104,9 @@ KES 命令列介面提供的功能可從結構化資料中建置索引和文法�
 根據預設，服務會部署到預備環境中，您可以選擇性透過 --slot 參數加以覆寫。  請參閱 [Web API](WebAPI.md) 以取得支援的作業清單。
 
 <a name="describe_index-command"/>
+
 ## <a name="describeindex-command"></a>describe_index 命令
+
 **describe_index** 命令會輸出索引檔案的相關資訊，包括結構描述和描述。
 
 `kes.exe describe_index <indexFile>`
@@ -108,7 +118,9 @@ KES 命令列介面提供的功能可從結構化資料中建置索引和文法�
 此檔案可由本機檔案路徑或 Azure blob 的 URL 路徑來指定。  輸出描述字串可使用 **build_index** 命令的 --description 參數來指定。
 
 <a name="describe_grammar-command"/>
+
 ## <a name="describegrammar-command"></a>describe_grammar 命令
+
 **describe_grammar** 命令會輸出用來建置二進位文法的原始文法規格。
 
 `kes.exe describe_grammar <grammarFile>`

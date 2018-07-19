@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 164760355077e2b905aa0e0f03e1efaf28941e55
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: fce92845591f20f7f2e9cff1a856e0904629255b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36296885"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054789"
 ---
 # <a name="password-writeback-overview"></a>密碼回寫概觀
 
@@ -216,8 +216,8 @@ ms.locfileid: "36296885"
 ## <a name="next-steps"></a>後續步驟
 
 * [如何完成 SSPR 成功首度發行？](howto-sspr-deployment.md)
-* [重設或變更您的密碼](../active-directory-passwords-update-your-own-password.md)。
-* [註冊自助式密碼重設](../active-directory-passwords-reset-register.md)。
+* [重設或變更您的密碼](../user-help/active-directory-passwords-update-your-own-password.md)。
+* [註冊自助式密碼重設](../user-help/active-directory-passwords-reset-register.md)。
 * [您有授權問題嗎？](concept-sspr-licensing.md)
 * [SSPR 使用哪些資料，以及您應該為使用者填入哪些資料？](howto-sspr-authenticationdata.md)
 * [哪些驗證方法可供使用者使用？](concept-sspr-howitworks.md#authentication-methods)

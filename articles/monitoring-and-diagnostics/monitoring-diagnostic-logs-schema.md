@@ -5,22 +5,44 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 6/08/2018
+ms.date: 7/06/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 45595893a199b845c8b010bc1e2545b89aa688cd
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f4bf77f07bd8f6b8172798ec3faf8c0bdaf3d3f5
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264974"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37921224"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 診斷記錄支援的服務、結構描述和類別
 
-[Azure 資源診斷記錄](monitoring-overview-of-diagnostic-logs.md)是您 Azure 資源所發出的記錄，會描述該資源的作業。 這些是資源類型特定的記錄。 在本文中，我們概述一組支援的服務，和每一個服務所發出之事件的事件結構描述。 本文也包含每個資源類型的可用記錄類別完整清單。
+[Azure 資源診斷記錄](monitoring-overview-of-diagnostic-logs.md)是您 Azure 資源所發出的記錄，會描述該資源的作業。 透過 Azure 監視器提供的所有診斷記錄都會共用通用最上層結構描述，並且具有每個服務發出其專屬事件之唯一屬性的彈性。
 
-## <a name="supported-services-and-schemas-for-resource-diagnostic-logs"></a>資源診斷記錄的支援服務和結構描述
-資源診斷記錄的結構描述會根據資源和記錄類別而有所不同。   
+資源類型 (適用於 `resourceId` 屬性) 與 `category` 的組合可唯一識別結構描述。 本文描述每個服務結構描述之診斷記錄和連結的最上層結構描述。
+
+## <a name="top-level-diagnostic-logs-schema"></a>最上層診斷記錄結構描述
+
+| Name | 必要/選用 | 說明 |
+|---|---|---|
+| 分析 | 必要 | 事件的時間戳記 (UTC)。 |
+| ResourceId | 必要 | 發出事件之資源的資源識別碼。 |
+| operationName | 必要 | 此事件所代表的作業名稱。 如果事件代表 RBAC 作業，則這是 RBAC 作業名稱 (例如 Microsoft.Storage/storageAccounts/BlobServices/Blobs/Read)。 通常以 Resource Manager 作業形式建模，即使它們不是實際記載的 Resource Manager 作業也是一樣 (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
+| operationVersion | 選用 | 與作業建立關聯的 api-version，如果使用 API 執行 operationName (例如 http://myservice.windowsazure.net/object?api-version=2016-06-01)。 如果沒有對應至此作業的 API，則版本代表該作業的版本，以防與作業建立關聯的屬性在未來變更。 |
+| category | 必要 | 事件的記錄類別。 類別是您可在特定資源上啟用或停用記錄的資料粒度。 事件之屬性 Blob 內顯示的屬性，會與特定記錄類別和資源類型內的屬性相同。 典型記錄類別是「稽核」、「作業」、「執行」和「要求」。 |
+| resultType | 選用 | 事件的狀態。 一般值包括︰「已啟動」、「進行中」、「成功」、「失敗」、「作用中」和「已解決」。 |
+| resultSignature | 選用 | 事件的子狀態。 如果此作業對應至 REST API 呼叫，則這是對應 REST 呼叫的 HTTP 狀態碼。 |
+| resultDescription | 選用 | 此作業的靜態文字描述，例如 “Get storage file.” |
+| durationMs | 選用 | 作業的持續時間 (以毫秒為單位)。 |
+| callerIpAddress | 選用 | 呼叫端 IP 位址，如果作業對應至來自具有公開可用 IP 位址之實體的 API 呼叫。 |
+| correlationId | 選用 | 用來將一組相關事件群組在一起的 GUID。 一般而言，如果兩個事件具有相同 operationName 但具有兩個不同狀態 (例如 "Started" 和 "Succeeded")，則會共用相同的相互關聯識別碼。 這也可能代表事件之間的其他關聯性。 |
+| 身分識別 | 選用 | JSON Blob，描述已執行作業之使用者或應用程式的身分識別。 這通常包括來自 Active Directory 的授權和宣告/JWT 權杖。 |
+| Level | 選用 | 事件的嚴重性層級。 必須是「資訊」、「警告」、「錯誤」或「嚴重」中的其中一個。 |
+| location | 選用 | 發出事件之資源的區域，例如 「美國東部」或「法國南部」 |
+| properties | 選用 | 任何與此特定事件類別相關的擴充屬性。 所有自訂/唯一屬性都必須放在結構描述的這個「部分 B」內。 |
+
+## <a name="service-specific-schemas-for-resource-diagnostic-logs"></a>資源診斷記錄的服務特定結構描述
+資源診斷記錄的結構描述會根據資源和記錄類別而有所不同。 此清單顯示的所有服務都可以製作服務和類別特定結構描述 (如果可用) 的可用診斷記錄和連結。
 
 | 服務 | 結構描述與文件 |
 | --- | --- |
@@ -39,7 +61,7 @@ ms.locfileid: "35264974"
 | ExpressRoute | 無法使用結構描述。 |
 | IoT 中樞 | [IoT 中樞作業](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Azure 金鑰保存庫記錄](../key-vault/key-vault-logging.md) |
-| Load Balancer |[Azure 負載平衡器的 Log Analytics](../load-balancer/load-balancer-monitor-log.md) |
+| 負載平衡器 |[Azure 負載平衡器的 Log Analytics](../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Logic Apps B2B 自訂追蹤結構描述](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | 網路安全性群組 |[網路安全性群組 (NSG) 的記錄檔分析](../virtual-network/virtual-network-nsg-manage-log.md) |
 | DDOS 保護 | [管理 Azure DDoS Protection Standard](../virtual-network/manage-ddos-protection.md) |

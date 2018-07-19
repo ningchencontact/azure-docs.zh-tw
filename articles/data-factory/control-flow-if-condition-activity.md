@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 0141694b87664a83872f7b270631d454f863d5a8
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 5077982bdef4d0e8fbf1ab485566909b4dc97a8a
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046161"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857373"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Azure Data Factory 中的 If Condition 活動
 If Condition 活動所提供的功能，與 If 陳述式在程式設計語言中提供的功能相同。 它能在條件評估為 `true` 時執行一系列的活動，並在條件評估為 `false` 時執行另一系列的活動。 
@@ -69,9 +69,9 @@ If Condition 活動所提供的功能，與 If 陳述式在程式設計語言中
 -------- | ----------- | -------------- | --------
 name | If-Condition 活動的名稱。 | 字串 | yes
 type | 必須設為 [IfCondition] | 字串 | yes
-expression | 必須評估為 true 或 false 的運算式 | yes
-ifTrueActivities | 會在運算式評估為 `true` 時執行的一系列活動。 | yes
-ifFalseActivities | 會在運算式評估為 `false` 時執行的一系列活動。 | yes
+expression | 必須評估為 true 或 false 的運算式 | 結果類型為布林的運算式 | yes
+ifTrueActivities | 會在運算式評估為 `true` 時執行的一系列活動。 | 陣列 | yes
+ifFalseActivities | 會在運算式評估為 `false` 時執行的一系列活動。 | 陣列 | yes
 
 ## <a name="example"></a>範例
 此範例中的管線會將資料從輸入資料夾複製到輸出資料夾。 輸出資料夾是由下列管線參數的值所決定：routeSelection。 如果 routeSelection 的值為 true，資料將會被複製到 outputPath1。 而如果 routeSelection 的值為 false，資料將會被複製到 outputPath2。 

@@ -4,14 +4,14 @@ description: 本文提供使用 Azure Site Recovery 將內部部署 Hyper-V VM �
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 39a397edd17327a91882535fbd00222a4ae4dddc
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 0319e4d1cdbd20c39772c659a3e5a1580d8b925b
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894291"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919643"
 ---
 # <a name="hyper-v-replication-to-a-secondary-site"></a>Hyper-V 複寫至次要網站
 
@@ -24,7 +24,7 @@ ms.locfileid: "33894291"
 
 **元件** | **需求** | **詳細資料**
 --- | --- | ---
-**Azure** | Azure 訂閱 | 您可以在 Azure 訂用帳戶中建立復原服務保存庫，來協調和管理 VMM 位置之間的複寫。
+**Azure** | Azure 訂用帳戶 | 您可以在 Azure 訂用帳戶中建立復原服務保存庫，來協調和管理 VMM 位置之間的複寫。
 **VMM 伺服器** | 您需要 VMM 主要和次要位置。 | 我們建議主要網站與次要網站中各要有一部 VMM 伺服器。
 **Hyper-V 伺服器** |  在主要和次要 VMM 雲端中，有一或多部 Hyper-V 主機伺服器。 | 在主要和次要 Hyper-V 主機伺服器之間，使用 Kerberos 或憑證驗證透過 LAN 或 VPN 來複寫資料。  
 **Hyper-V VM** | 在 Hyper-V 主機伺服器上。 | 來源主機伺服器應該至少有一個您想要複寫的 VM。
@@ -37,8 +37,8 @@ ms.locfileid: "33894291"
 
 1. 觸發初始複寫後，就會建立 [Hyper-V VM 快照集](https://technet.microsoft.com/library/dd560637.aspx)。
 2. VM 上的虛擬硬碟會逐一複寫至次要位置。
-3. 如果在進行初始複寫時發生磁碟變更， 
-4. 初始複寫完成時，就會開始差異複寫。 Hyper-V 複本複寫追蹤器會以 Hyper-V 複寫記錄 (.hrl) 追蹤變更。 這些記錄檔位於與磁碟相同的資料夾中。 每個磁碟都有一個相關聯的 .hrl 檔案會傳送至次要位置。 當初始複寫正在進行時，快照和記錄檔會取用磁碟資源。
+3. 如果在初始複寫進行時發生磁碟變更，Hyper-V 複本複寫追蹤器會以 Hyper-V 複寫記錄 (.hrl) 的形式追蹤變更。 這些記錄檔位於與磁碟相同的資料夾中。 每個磁碟都有一個相關聯的 .hrl 檔案會傳送至次要位置。 當初始複寫正在進行時，快照和記錄檔會取用磁碟資源。
+4. 初始複寫完成時，就會刪除 VM 快照集，並開始差異複寫。
 5. 記錄中的差異磁碟變更會同步處理，並合併到父磁碟。
 
 

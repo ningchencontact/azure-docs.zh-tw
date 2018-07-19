@@ -11,13 +11,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/30/2018
+ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: bf0ef5be609fba14ab12e1e6f9f97bc63f032aae
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: d06a450595a53fdc65fba74791345abe3a1b3db4
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109564"
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Microsoft.Network.PublicIpAddressCombo UI 元素
 選取新的或現有公用 IP 位址的控制項群組。
@@ -69,14 +70,16 @@ ms.lasthandoff: 05/17/2018
 - 對於 `zone`，只能使用指定區域的公用 IP 位址或區域復原公用 IP 位址。
 
 ## <a name="sample-output"></a>範例輸出
-如果使用者未選取公用 IP 位址，則預期會產生下列輸出︰
+如果使用者未選取公用 IP 位址，則控制項會傳回下列輸出︰
+
 ```json
 {
   "newOrExistingOrNone": "none"
 }
 ```
 
-如果使用者選取新的或現有 IP 位址，則預期會產生下列輸出︰
+如果使用者選取全新或現有 IP 位址，則控制項會傳回下列輸出︰
+
 ```json
 {
   "name": "ip01",
@@ -86,6 +89,7 @@ ms.lasthandoff: 05/17/2018
   "newOrExistingOrNone": "new"
 }
 ```
+
 - 當 `options.hideNone` 指定為 **true** 時，`newOrExistingOrNone` 只會有**新的**或**現有的**值。
 - 當 `options.hideDomainNameLabel` 指定為 **true** 時，`domainNameLabel` 為未宣告。
 

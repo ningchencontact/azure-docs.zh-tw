@@ -6,14 +6,14 @@ author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 31461e70e81f0f48a8d67e31b98cfae2dd627a54
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 01d4f3873c854776078986918e6ece55017c9193
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
-ms.locfileid: "29466824"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917467"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Azure Site Recovery 部署規劃工具的成本估計報告 
 
@@ -39,9 +39,9 @@ Azure Site Recovery 部署規劃工具報告會在[建議](hyper-v-deployment-pl
 **每月/年的 Azure 儲存成本**：進階和標準儲存體針對複寫及 DR 演練產生的總儲存成本。
 
 ## <a name="detailed-cost-analysis"></a>詳細成本分析
-計算、儲存體、網路的 Azure 價格會隨著 Azure 區域而有所不同。 您可以產生成本估計報告，其中包含以您的訂用帳戶為基礎的最新 Azure 價格 (以指定的貨幣計價)，與您的訂用帳戶相關聯的優惠，以及適用於指定之目標 Azure 區域的優惠。 根據預設，此工具會使用美國西部 2 Azure 區域和美元 (USD) 貨幣。 如果您使用其他區域和貨幣，當您下次產生不具訂用帳戶識別碼、優惠識別碼、目標區域和貨幣的報告時，將具將會使用上次使用的目標區域和貨幣的價格進行成本估計。
+計算、儲存體、網路的 Azure 價格會隨著 Azure 區域而有所不同。 您可以產生成本估計報告，其中包含以您的訂用帳戶為基礎的最新 Azure 價格 (以指定的貨幣計價)，與您的訂用帳戶相關聯的供應項目，以及適用於指定之目標 Azure 區域的供應項目。 根據預設，此工具會使用美國西部 2 Azure 區域和美元 (USD) 貨幣。 如果您使用其他區域和貨幣，當您下次產生不具訂用帳戶識別碼、供應項目識別碼、目標區域和貨幣的報告時，將具將會使用上次使用的目標區域和貨幣的價格進行成本估計。
 
-此區段會顯示您用於報告產生的訂用帳戶識別碼和優惠識別碼。 如果空白則不會加以使用。
+此區段會顯示您用於報告產生的訂用帳戶識別碼和供應項目識別碼。 如果空白則不會加以使用。
 
 在整份報告中，標示為灰色的資料格都是唯讀的。 您可以根據自己的需求修改白色資料格。
 
@@ -172,7 +172,7 @@ Site Recovery 部署規劃工具可以使用下列任何貨幣來產生成本報
 |ARS 披索|阿根廷披索 ($)||澳幣|澳洲元 ($)||巴西里耳|巴西里耳 (R$)|
 |加拿大幣|加幣 ($)||瑞士法郎|瑞士法郎 (chf)||丹麥幣|丹麥克朗 (kr)|
 |歐元|歐元 (€)||英鎊|英鎊 (£)||港幣|港幣 (HK$)|
-|印尼盾|印尼盾 (Rp)||印度幣|印度盧比 ()||日圓|日圓 (¥)|
+|印尼盾|印尼盾 (Rp)||印度幣|印度盧比 (₹)||日圓|日圓 (¥)|
 |韓元|韓圜 (₩)||墨西哥批索|墨西哥披索 (MX$)||馬來西亞林吉特|馬來西亞林吉特 (RM$)|
 |挪威克朗|挪威克朗 (kr)||紐西蘭幣|紐西蘭元 ($)||盧布|俄羅斯盧布 (руб)|
 |SAR 里亞爾|沙烏地里亞爾 (SR)||瑞典克朗|瑞典克朗 (kr)||新台幣|新台幣 (NT$)|

@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: c608c1b40c7b4cdaedb2b7e7a609ad65c6357584
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 85e67be406b3d9723476821adfb09fc4db8dc1d1
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344211"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068568"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>教學課程：建立自訂語言模型
 
@@ -28,7 +28,7 @@ ms.locfileid: "37344211"
 
 如果您沒有認知服務帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/try/cognitive-services/)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 開啟[認知服務訂用帳戶](https://customspeech.ai/Subscriptions)頁面，確任您的認知服務帳戶已連線到訂用帳戶。
 
@@ -114,6 +114,6 @@ ms.locfileid: "37344211"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [取得語音試用版訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)
-- [如何以 C# 辨識語音](quickstart-csharp-windows.md)
+- [試用認知服務](https://azure.microsoft.com/try/cognitive-services/)
+- [如何以 C# 辨識語音](quickstart-csharp-dotnet-windows.md)
 - [Git 範例資料](https://github.com/Microsoft/Cognitive-Custom-Speech-Service)

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: juliako
-ms.openlocfilehash: 7fe59763162ca53ea0256d5902aeece90525f214
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 098a34aba8e5ce23f64d4bb07e3b9622aa2adb8e
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659139"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110407"
 ---
 # <a name="azure-media-services-v3-preview-frequently-asked-questions"></a>Azure 媒體服務 v3 (預覽) 常見問題集
 
@@ -30,7 +30,7 @@ ms.locfileid: "34659139"
 
 媒體服務小組將會在 v3 剔除 RU。 但所需的服務工作尚未完成。 在那之前，客戶必須使用 Azure 入口網站或 AMS v2 API 來設定 RU (如[調整媒體處理](../previous/media-services-scale-media-processing-overview.md)所述)。 
 
-**VideoAnalyzerPreset** 和 **AudioAnalyzerPreset** v3 預設必須有 S3 RU。
+使用 **VideoAnalyzerPreset** 和/或 **AudioAnalyzerPreset** 時，將您的媒體服務帳戶設定為 10 S3 媒體保留單元。
 
 ## <a name="does-v3-asset-have-no-assetfile-concept"></a>v3 資產是否沒有 AssetFile 概念？
 

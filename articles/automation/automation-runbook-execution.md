@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ff58e22f8b9b837ec272cd2cd6193da80a7b718e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4b9bfc0df01dd8fc8a6a1b7aed5ade466164a82f
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195415"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930047"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure 自動化中的 Runbook 執行
 
@@ -137,7 +137,7 @@ Get-AzureRmLog -ResourceId $JobResourceID -MaxRecord 1 | Select Caller
 
 為了在雲端中的所有 Runbook 之間共用資源，「Azure 自動化」會在任何作業已執行 3 小時之後將其暫時卸載。 在此期間，[以 PowerShell 為基礎的 Runbook](automation-runbook-types.md#powershell-runbooks) 的作業會停止，而且不會重新啟動。 作業狀態顯示 [已停止]。 這類型的 Runbook 一律會從頭重新啟動，因為它們不支援檢查點。
 
-[以 PowerShell 工作流程為基礎的 Runbook](automation-runbook-types.md#powershell-workflow-runbooks) 會從其最後一個[檢查點](https://docs.microsoft.com/system-center/sma/overview-powershell-workflows#bk_Checkpoints) \(機器翻譯\) 繼續。 執行三個小時之後，服務將會暫停 Runbook 作業，而其狀態顯示 [執行中，等待資源]。 當沙箱可以使用時，自動化服務會自動重新啟動 Runbook 並從最後一個檢查點繼續。 這是 PowerShell 工作流程的正常暫停/重新啟動行為。 如果 Runbook 再次超過三個小時的執行階段，此程序會重複 (最多三次)。 在第三次重新啟動之後，如果 Runbook 仍未在三小時內完成，則 Runbook 作業會失敗，而作業狀態會顯示 [失敗，等待資源]。 在此情況下，您會收到下列失敗例外狀況。
+[以 PowerShell 工作流程為基礎的 Runbook](automation-runbook-types.md#powershell-workflow-runbooks) 會從其最後一個[檢查點](https://docs.microsoft.com/system-center/sma/overview-powershell-workflows#bk_Checkpoints) \(機器翻譯\) 繼續。 執行三個小時之後，服務會暫停 Runbook 作業，而其狀態顯示 [執行中，等待資源]。 當沙箱可以使用時，自動化服務會自動重新啟動 Runbook 並從最後一個檢查點繼續。 這是 PowerShell 工作流程的正常暫停/重新啟動行為。 如果 Runbook 再次超過三個小時的執行階段，此程序會重複 (最多三次)。 在第三次重新啟動之後，如果 Runbook 仍未在三小時內完成，則 Runbook 作業會失敗，而作業狀態會顯示 [失敗，等待資源]。 在此情況下，您會收到下列失敗例外狀況。
 
 *作業無法繼續執行，因為已從相同的檢查點重複收回該作業。請確定您的 Runbook 在未保存其狀態的情況下，不會長時間執行作業。*
 
@@ -145,7 +145,9 @@ Get-AzureRmLog -ResourceId $JobResourceID -MaxRecord 1 | Select Caller
 
 如果 Runbook 沒有檢查點，或作業在卸載之前未到達第一個檢查點，則會從頭重新啟動。
 
-建立 Runbook 時，您應該確定在兩個檢查點之間執行的任何活動的時間不會超過 3 小時。 您可能需要在 Runbook 中新增檢查點，以確保它不會達到此 3 小時的限制或中斷長時間執行的作業。 例如，您的 Runbook 可能在大型 SQL 資料庫上執行重新索引。 如果此單一作業未在公平共用的限制內完成，則會卸載作業並從頭開始重新啟動。 在此情況下，您應該將重新索引作業分成多個步驟，例如一次重新索引一個資料表，然後在每個作業之後插入檢查點，讓工作可以在最後一個作業完成後繼續。
+對於長時間執行的工作，建議使用[混合式 Runbook 背景工作角色](automation-hrw-run-runbooks.md#job-behavior)。 混合式 Runbook 背景工作角色未受限於公平共用，而且未限制 Runbook 執行時間長度。
+
+如果您在 Azure 上使用 PowerShell 工作流程 Runbook，則建立 Runbook 時，應該確定在兩個檢查點間所執行之任何活動的時間都未超過 3 小時。 您可能需要在 Runbook 中新增檢查點，以確保它不會達到此 3 小時的限制或中斷長時間執行的作業。 例如，您的 Runbook 可能在大型 SQL 資料庫上執行重新索引。 如果此單一作業未在公平共用的限制內完成，則會卸載作業並從頭開始重新啟動。 在此情況下，您應該將重新索引作業分成多個步驟，例如一次重新索引一個資料表，然後在每個作業之後插入檢查點，讓工作可以在最後一個作業完成後繼續。
 
 ## <a name="next-steps"></a>後續步驟
 

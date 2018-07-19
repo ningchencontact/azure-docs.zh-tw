@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: e407a95d3ac858ea7180a75f9fbfc399860ad378
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f0ee486d9ff4c05269da23866edad281aa627889
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30912010"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113889"
 ---
 # <a name="azure-stream-analytics-event-order-considerations"></a>Azure 串流分析事件的順序考量
 
@@ -22,7 +22,7 @@ ms.locfileid: "30912010"
 
 在事件的時態性資料流中，每個事件都有指派的時間戳記。 Azure 串流分析會使用抵達時間或應用時間，將時間戳記指派給每個事件。 **System.Timestamp** 資料行有指派給事件的時間戳記。 
 
-事件到達來源時，系統會為輸入來源指派抵達時間。 您可以使用事件中樞輸入的 **EventEnqueuedTime** 屬性，並使用 Blob 輸入的 [BlobProperties.LastModified](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) 屬性來存取抵達時間。 
+事件到達來源時，系統會為輸入來源指派抵達時間。 您可以使用事件中樞輸入的 **EventEnqueuedUtcTime** 屬性、IoT 中樞的 **IoTHub.EnqueuedTime** 屬性，以及使用 Blob 輸入的 [BlobProperties.LastModified](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) 屬性來存取抵達時間。 
 
 產生事件時會指派應用時間，且其為承載的一部分。 若要按照應用時間處理事件，請在選取查詢中使用 **Timestamp by** 子句。 如果 **Timestamp by** 子句不存在，將按照抵達時間處理事件。 
 
@@ -111,7 +111,7 @@ Azure 串流分析會依時間戳記順序產生輸出，並提供處理順序�
 
 設定與範例 2 相同。 不過，在其中一個分割區中缺少資料的情況下，可能會因額外的延遲傳入容錯時間而延遲輸出。
 
-## <a name="handling-event-producers-with-differing-timelines"></a>處理具有不同時間軸的事件產生者
+## <a name="handling-event-producers-with-differing-timelines-with-substreams"></a>處理具有不同時間軸 (具有「子串流」) 的事件產生者
 單一輸入事件串流通常包含來自多個事件產生者的事件，例如個別裝置。 這些事件可能會由於先前討論的原因而傳入順序錯亂。 在這些情況下，雖然跨事件產生者的失序可能很大，單一生產者事件內的失序則是小的 (或甚至不存在)。
 
 Azure 串流分析提供一般機制以處理順序錯亂事件。 此類機制會導致處理延遲 (等候紊亂的事件抵達系統)、已捨棄或已調整的事件，或是兩者。

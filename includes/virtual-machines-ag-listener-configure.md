@@ -51,7 +51,7 @@
 
    ![IP 資源](./media/virtual-machines-ag-listener-configure/97-propertiesdependencies.png) 
 
-    d. 按一下 [SERVICEPRINCIPAL] 。
+    d. 按一下 [確定]。
 
 5. <a name="listname"></a>讓用戶端存取點資源依存於 IP 位址。
 
@@ -61,7 +61,7 @@
 
    ![IP 資源](./media/virtual-machines-ag-listener-configure/98-dependencies.png) 
 
-    c. 按一下 [相依性]  索引標籤。確認 IP 位址是相依性。 如果不是，請在 IP 位址上設定相依性。 如果列出多個資源，請確認 IP 位址具有 OR 相依性，而非 AND。 按一下 [SERVICEPRINCIPAL] 。 
+    c. 按一下 [相依性]  索引標籤。確認 IP 位址是相依性。 如果不是，請在 IP 位址上設定相依性。 如果列出多個資源，請確認 IP 位址具有 OR 相依性，而非 AND。 按一下 [確定]。 
 
    ![IP 資源](./media/virtual-machines-ag-listener-configure/98-propertiesdependencies.png) 
 
@@ -79,6 +79,31 @@
     $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
     $IPResourceName = "<IPResourceName>" # the IP Address resource name
     $ILBIP = "<n.n.n.n>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
+    [int]$ProbePort = <nnnnn>
+    
+    Import-Module FailoverClusters
+    
+    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+    ```
+
+    b. 在其中一個叢集節點中執行 PowerShell 指令碼，以設定叢集參數。  
+
+請重複上述步驟，來設定 WSFC 叢集 IP 位址的叢集參數。
+
+1. 取得 WSFC 叢集 IP 位址的 IP 位址名稱。 在 [叢集核心資源] 底下的 [容錯移轉叢集管理員] 中，找出 [伺服器名稱]。
+
+1. 以滑鼠右鍵按一下 [IP 位址]，然後選取 [屬性]。
+
+1. 複製 IP 位址的 [名稱]。 它可能是 `Cluster IP Address`。 
+
+1. <a name="setwsfcparam"></a>在 PowerShell 中設定叢集參數。
+    
+    a. 將下列 PowerShell 指令碼複製到您的其中一個 SQL Server 執行個體。 請更新您環境的變數。     
+    
+    ```PowerShell
+    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+    $IPResourceName = "<ClusterIPResourceName>" # the IP Address resource name
+    $ILBIP = "<n.n.n.n>" # the IP Address of the Cluster IP resource. This is the static IP address for the load balancer you configured in the Azure portal.
     [int]$ProbePort = <nnnnn>
     
     Import-Module FailoverClusters

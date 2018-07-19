@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure 入口網站在 Azure 虛擬機器擴展集上設定 MSI
-description: 使用 Azure 入口網站在 Azure VMSS 上設定「受控服務識別 (MSI)」的逐步指示。
+description: 使用 Azure 入口網站在 Azure VMSS 上設定「受控服務身分識別 (MSI)」的逐步指示。
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -9,28 +9,28 @@ editor: ''
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: c915c692a12781538e10d367d40e3efe473a6853
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 1ba9f827abeb0c0cf6430089e1fb504288550737
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33929038"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37900458"
 ---
-# <a name="configure-a-vmss-managed-service-identity-msi-using-the-azure-portal"></a>使用 Azure 入口網站設定「VMSS 受控服務識別 (MSI)」
+# <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-the-azure-portal"></a>使用 Azure 入口網站設定虛擬機器擴展集的「受控服務識別 (MSI)」
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-在 Azure Active Directory 中，「受控服務識別」會提供自動受控身分給 Azure 服務。 您可以使用此身分識別來向任何支援 Azure AD 驗證的服務進行驗證，不需要任何您程式碼中的認證。 
+在 Azure Active Directory 中，「受控服務身分識別」會提供自動受控身分給 Azure 服務。 您可以使用此身分識別來向任何支援 Azure AD 驗證的服務進行驗證，不需要任何您程式碼中的認證。 
 
-在本文中，您將了解如何使用 Azure 入口網站為 VMSS 啟用和停用系統指派的身分識別。 目前不支援透過 Azure 入口網站在 Azure VMSS 中指派及移除使用者指派身分識別。
+在本文中，您將了解如何使用 Azure 入口網站為虛擬機器擴展集啟用和停用系統指派的識別。 目前不支援透過 Azure 入口網站在 Azure 虛擬機器擴展集中指派及移除使用者指派的識別。
 
 > [!NOTE]
-> 目前，不支援透過 Azure 入口網站執行使用者指派的身分識別作業。 請回來查看以取得更新資料。
+> 目前，不支援透過 Azure 入口網站執行使用者指派的身分識別作業。 請隨時回來查看是否有更新內容。
 
 ## <a name="prerequisites"></a>先決條件
 

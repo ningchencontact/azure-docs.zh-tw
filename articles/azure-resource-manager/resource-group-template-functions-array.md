@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: eb24535956140632da73807364b6f3ff7b91a416
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: cdc8222675a9f0099edccb24310bcea03bf963f4
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360235"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929667"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的陣列和物件函式 
 
@@ -77,7 +77,7 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
         },
         "stringToConvert": {
             "type": "string",
-            "defaultValue": "a"
+            "defaultValue": "efgh"
         },
         "objectToConvert": {
             "type": "object",
@@ -108,7 +108,7 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 | Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | intOutput | 陣列 | [1] |
-| stringOutput | 陣列 | ["a"] |
+| stringOutput | 陣列 | ["efgh"] |
 | objectOutput | 陣列 | [{"a": "b", "c": "d"}] |
 
 若要使用 Azure CLI 部署此範例範本，請使用：

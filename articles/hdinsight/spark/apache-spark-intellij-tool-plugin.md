@@ -2,7 +2,6 @@
 title: 適用於 IntelliJ 的 Azure 工具組：建立適用於 HDInsight 叢集的 Spark 應用程式 | Microsoft Docs
 description: 使用適用於 IntelliJ 的 Azure 工具組來開發以 Scala 撰寫的 Spark 應用程式，並將它們提交到 HDInsight Spark 叢集。
 services: hdinsight
-documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +9,15 @@ tags: azure-portal
 ms.assetid: 73304272-6c8b-482e-af7c-cd25d95dab4d
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/25/2017
-ms.author: maxluk,jejiang
-ms.openlocfilehash: cb78808b515bb3385f7cf56725441a2b228f0aba
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.author: maxluk
+ms.openlocfilehash: a537fc044361ab90a198a528d382a0f85cad5d0a
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164885"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952346"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>使用適用於 IntelliJ 的 Azure 工具組建立適用於 HDInsight 叢集的 Spark 應用程式
 
@@ -72,11 +70,13 @@ ms.locfileid: "34164885"
    
     ![展開的叢集名稱節點](./media/apache-spark-intellij-tool-plugin/view-explorer-4.png)
 
-<h2 id="linkcluster">連結叢集</h2>
-您可以使用 Ambari 受控使用者名稱來連結正常的叢集，也可以使用網域使用者名稱 (例如：user1@contoso.com) 來連結安全性 hadoop 叢集。 
-1. 從 [Azure 總管] 中按一下 [連結叢集]。
+## <a name="link-a-cluster"></a>連結叢集
+您可以使用 Ambari 受控使用者名稱來連結一般的 HDInsight 叢集。 同樣地，對於已加入網域的 HDInsight 叢集，您可以使用網域和使用者名稱進行連結，例如 user1@contoso.com。
+
+1. 從 [Azure 總管] 中選取 [連結叢集]。
 
    ![連結叢集操作功能表](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
+
 
 2. 輸入 [叢集名稱]、[使用者名稱] 和 [密碼]。 如果驗證失敗，您需要檢查使用者名稱和密碼。 您也可以選擇新增 [儲存體帳戶]、[儲存體金鑰]，然後從 [儲存體容器] 選取容器。 儲存體資訊適用於左側樹狀目錄中的儲存體總管
    

@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 26d5fe3cf96f7a63b725f1b46d85e453a8aa6ada
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dfca26f36287cfd856beb98edeb2b2362f36bc4b
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34613960"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858801"
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB：使用 Azure Functions 的無伺服器資料庫計算
 
@@ -27,8 +27,8 @@ ms.locfileid: "34613960"
 Azure Cosmos DB 與 Azure Functions 可讓您以下列方式整合資料庫與無伺服器的應用程式：
 
 * 在 Azure Function 中建立事件驅動的 **Azure Cosmos DB 觸發程序**。 此觸發程序依賴[變更摘要](change-feed.md)串流，以監控 Azure Cosmos DB 容器的變更。 對容器進行任何變更時，變更摘要串流會傳送至觸發程序，其叫用 Azure Function。
-* 或者，使用**輸入繫結**將 Azure Function 繫結至 Azure Cosmos DB 集合。 函式執行時，輸入繫結會從容器讀取資料。
-* 使用**輸出繫結**將函式繫結至 Azure Cosmos DB 集合。 函式完成時，輸出繫結會將資料寫入容器。
+* 或者，使用**輸入繫結**將 Azure Function 繫結至 Azure Cosmos DB 容器。 函式執行時，輸入繫結會從容器讀取資料。
+* 使用**輸出繫結**將函式繫結至 Azure Cosmos DB 容器。 函式完成時，輸出繫結會將資料寫入容器。
 
 > [!NOTE]
 > 此時，Azure Cosmos DB 觸發程序、輸入繫結，以及輸出繫結只會使用 SQL API 和圖形 API 帳戶。
@@ -58,7 +58,7 @@ Azure Cosmos DB 觸發程序、輸入繫結及輸出繫結皆可用於下列組�
 4. 在感應器資料收集每次資料變更時叫用觸發程序，因為所有變更會透過變更摘要串流處理。
 5. 閾值條件用於函式中以將感應器資料傳送至保修部門。
 6. 如果溫度亦超過特定值，也會向擁有者發送警報。
-7. 函式上的**輸出繫結**會更新另一個 Azure Cosmos DB 集合中的汽車記錄，以儲存檢查引擎事件的相關資訊。
+7. 函式上的**輸出繫結**會更新另一個 Azure Cosmos DB 容器中的汽車記錄，以儲存檢查引擎事件的相關資訊。
 
 下圖顯示此觸發程序在 Azure 入口網站中撰寫的程式碼。
 
@@ -95,7 +95,7 @@ Azure Cosmos DB 觸發程序、輸入繫結及輸出繫結皆可用於下列組�
 
 在零售實作中，當使用者將項目加入其購物籃中時，您可以靈活地為可選的業務管道元件建立和叫用函式。
 
-**實作：** 接聽單一集合的多個 Azure Cosmos DB 觸發程序
+**實作：** 接聽單一容器的多個 Azure Cosmos DB 觸發程序
 
 1. 您可以藉由將 Azure Cosmos DB 觸發程序新增至每個函式，以建立多個 Azure Functions，所有函式皆會接聽購物車資料的相同變更摘要。 請注意，若有多個函式接聽相同的變更摘要，則每個函式皆需要新的租用集合。 如需有關租用集合的詳細資訊，請參閱[了解變更摘要處理器程式庫](change-feed.md#understand-cf)。
 2. 每當新的項目新增至使用者的購物車時，會根據購物車容器的變更摘要單獨叫用每個函式。
@@ -130,7 +130,7 @@ Azure Functions 提供了建立可擴展工作單位的功能，或可視需要�
 
 * **無結構描述**。 Azure Cosmos DB 是無結構描述的 - 因此它有獨特的能力可處理來自 Azure Function 的任何資料輸出。 這種「處理任何事」的方法使其可直接建立所有輸出至 Azure Cosmos DB 的各種函式。
 
-* **可擴充的輸送量**。 輸送量可以在 Azure Cosmos DB 中即時地相應增加或相應減少。 如果您有數百或數千個功能查詢，並且寫入同一個集合，您可以相應增加輸送量的 [RU/秒](request-units.md)以處理負載。 所有函式可以使用您分配的 RU/秒來並行工作，且保證您的資料[一致](consistency-levels.md)。
+* **可擴充的輸送量**。 輸送量可以在 Azure Cosmos DB 中即時地相應增加或相應減少。 如果您有數百或數千個功能查詢，並且寫入相同容器，則可以相應增加輸送量的 [RU/s](request-units.md) 以處理負載。 所有函式可以使用您分配的 RU/秒來並行工作，且保證您的資料[一致](consistency-levels.md)。
 
 * **全域複寫**。 您可以複寫[全域範圍內](distribute-data-globally.md)的 Azure Cosmos DB 資料以降低延遲，並異地尋找最靠近使用者所在位置的資料。 如同所有 Azure Cosmos DB 查詢，事件驅動觸發程序的資料是從最靠近使用者的 Azure Cosmos DB 讀取資料。
 

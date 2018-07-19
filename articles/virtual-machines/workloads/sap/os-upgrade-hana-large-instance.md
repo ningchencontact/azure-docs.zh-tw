@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/11/2018
+ms.date: 06/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f6af1a6612360c2433c05a7add79d2e7b3b9d754
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cff9be3b074dde4a0335675663133a8df81ae62d
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658255"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114587"
 ---
 # <a name="operating-system-upgrade"></a>作業系統升級
 本文件會詳述 Hana 大型執行個體作業系統升級的詳細資訊。
@@ -29,33 +29,10 @@ ms.locfileid: "34658255"
 
 佈建 HLI 單元時，Microsoft 作業小組即會安裝作業系統。 隨時間過去，會需要維護 HLI 單元上的作業系統 (例如：修補、調整、升級等)。
 
-對作業系統進行大型變更前 (例如作業系統升級)，請**務必**將以下相容性矩陣納入考量。 開始進行升級等重大作業系統活動之前，也請**務必**建立請求諮詢用的支援票證，藉以連絡 Microsoft 作業小組。
+在您進行作業系統的重大變更之前 (例如，將 SP1 升級為 SP2)，請務必建立請求諮詢用的支援票證，藉以連絡 Microsoft 作業小組。
+
 
 如需具有不同 Linux 版本之 SAP HANA 版本的支援矩陣，請參閱 [SAP 附註 #2235581](https://launchpad.support.sap.com/#/notes/2235581)。
-
-HLI 的下列相容性已經過測試。 如果您的 HLI 伺服器未列於相容性矩陣之中，請連絡 Microsoft 作業支援。
-
-## <a name="for-type-i-class-sku-category"></a>類型 I 類別的 SKU 分類
-
-| 組態 | SUSE12 SP1 | SUSE12 SP2 | RHEL 7.2 | RHEL 7.3|
-| --- | --- | --- | --- | --- |
-| 伺服器韌體 | 3.1(2b) | 3.1(2b) | 3.1(2b) | 3.1(2b) |
-| ENIC 版本 | 2.3.0.44 | 2.3.0.44 | 2.3.0.30 | 2.3.0.44 |
-| FNIC 版本 | 1.6.0.34 | 1.6.0.34 | 1.6.0.27 | 1.6.0.36 |
-| EDAC | 已停用 | 已停用 | 已停用 | 已停用 |
-| 核心版本 | 4.4.21-69-default | 3.12.49-11-default | 3.10.0-327.el7.x86_64 | 3.10.0-693.17.1 |
-
-
-## <a name="for-type-ii-class-sku-category"></a>類型 II 類別的 SKU 分類
-
-| 組態 | SUSE12 SP1 | SUSE12 SP2 | RHEL 7.2 | RHEL 7.3|
-| --- | --- | --- | --- | --- |
-| RMC 韌體版本 | 1.1.121  | 1.1.121  | 1.1.121  | 1.1.121 |
-| BMC 韌體版本 | 1.0.43   | 1.0.43   | 1.0.43   | 1.0.43  |
-| Software Foundation Server (SFS) 版本 | 2.16    | 2.16    | 2.14/2.16   | 2.16   |
-| BIOS | 5.2.6    | 5.2.6    | 5.2.6    | 5.2.6   |
-| i40e 版本    | 2.0.19     | 2.0.19     | 1.5.10-k    | 1.5.10-k   |
-| 核心版本    | 3.12.49-11.1     | 4.4.21-69.1     | 3.10.0-327    | 3.10.0-693.17.1   |
 
 
 ## <a name="known-issues"></a>已知問題

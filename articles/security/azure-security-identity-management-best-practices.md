@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 6632ab962f3df0cfee8d28d7dad40bad8baf3f50
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 210781b36f6215afc925266e597031d772a94002
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365775"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39059200"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure 身分識別管理和存取控制安全性最佳作法
 
 許多人認為身分識別是安全性的新界限層，並從傳統以網路為中心的觀點來接收該角色。 此安全性注意和投資進展的主要關鍵是由於網路周邊的漏洞日益增加，而且周邊防禦的效果不如 [BYOD](http://aka.ms/byodcg) 裝置和雲端應用程式暴增前的效果。
 
-本文會討論一系列的 Azure 身分識別管理和存取控制安全性最佳做法。 這些最佳作法衍生自我們的 [Azure AD](../active-directory/active-directory-whatis.md) 經驗和客戶的經驗。
+本文會討論一系列的 Azure 身分識別管理和存取控制安全性最佳做法。 這些最佳作法衍生自我們的 [Azure AD](../active-directory/fundamentals/active-directory-whatis.md) 經驗和客戶的經驗。
 
 針對每個最佳做法，我們會說明︰
 
@@ -65,7 +65,7 @@ ms.locfileid: "34365775"
 
 當您有多個目錄要管理時，這不只會成為 IT 的系統管理問題，對於必須記住多組密碼的使用者而言也是個問題。 使用 [SSO](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) \(英文\)，為使用者提供使用同一組認證來登入和存取所需資源的能力，而不論此資源位於內部部署或雲端。
 
-使用 SSO 讓使用者根據其在 Azure AD 中的組織帳戶存取其 [SaaS 應用程式](../active-directory/manage-apps/what-is-single-sign-on.md)。 這不只適用於 Microsoft SaaS 應用程式，也適用於其他應用程式，例如 [Google Apps](../active-directory/active-directory-saas-google-apps-tutorial.md) 和 [Salesforce](../active-directory/active-directory-saas-salesforce-tutorial.md)。 您的應用程式可以設定為使用 Azure AD 作為 [SAML 型身分識別提供者](../active-directory/fundamentals-identity.md)。 為了控制安全性，Azure AD 不會核發允許他們登入應用程式的權杖，除非他們已使用 Azure AD 獲得存取存取權。 您可以直接授與存取權，或透過其所屬的群組授與。
+使用 SSO 讓使用者根據其在 Azure AD 中的組織帳戶存取其 [SaaS 應用程式](../active-directory/manage-apps/what-is-single-sign-on.md)。 這不只適用於 Microsoft SaaS 應用程式，也適用於其他應用程式，例如 [Google Apps](../active-directory/saas-apps/google-apps-tutorial.md) 和 [Salesforce](../active-directory/saas-apps/salesforce-tutorial.md)。 您的應用程式可以設定為使用 Azure AD 作為 [SAML 型身分識別提供者](../active-directory/fundamentals-identity.md)。 為了控制安全性，Azure AD 不會核發允許他們登入應用程式的權杖，除非他們已使用 Azure AD 獲得存取存取權。 您可以直接授與存取權，或透過其所屬的群組授與。
 
 > [!NOTE]
 > 使用 SSO 的決策會影響您整合內部部署目錄與雲端目錄的方式。 如果您想要 SSO，則必須使用同盟，因為目錄同步處理只會提供[相同的登入體驗](../active-directory/active-directory-aadconnect.md)。
@@ -78,7 +78,7 @@ ms.locfileid: "34365775"
 
 ## <a name="deploy-password-management"></a>部署密碼管理
 
-在您有多個租用戶或想要讓使用者[重設其密碼](../active-directory/active-directory-passwords-update-your-own-password.md)的案例中，請務必使用適當的安全性原則來防止不當使用。 在 Azure 中，您可以運用自助密碼重設功能，並自訂安全性選項以符合您的商務需求。
+在您有多個租用戶或想要讓使用者[重設其密碼](../active-directory/user-help/active-directory-passwords-update-your-own-password.md)的案例中，請務必使用適當的安全性原則來防止不當使用。 在 Azure 中，您可以運用自助密碼重設功能，並自訂安全性選項以符合您的商務需求。
 
 務必向這些使用者取得意見反應，並從他們嘗試執行這些步驟時的體驗中學習。 根據這些經驗進行詳細計劃，以緩和在大型群組部署期間可能發生的潛在問題。 此外，也建議您使用[密碼重設登錄活動報告](../active-directory/active-directory-passwords-get-insights.md)來監視進行註冊的使用者。
 

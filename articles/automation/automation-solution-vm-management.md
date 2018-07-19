@@ -6,19 +6,19 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/20/2018
+ms.date: 06/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 67f6119dd1fccc126131979148c001b9d1815175
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8675223162527cc5b2bc45dc5521aac07edaf36c
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195976"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37906334"
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Azure 自動化中的「停機期間啟動/停止 VM」解決方案 (預覽)
 
-「停機期間啟動/停止 VM」解決方案可根據使用者定義的排程啟動和停止 Azure 虛擬機器、透過 Azure Log Analytics 提供深入解析，以及使用 [SendGrid](https://azuremarketplace.microsoft.com/marketplace/apps/SendGrid.SendGrid?tab=Overview) \(英文\) 傳送選擇性的電子郵件。 針對大多數的案例，它皆能同時支援 Azure Resource Manager 和傳統 VM。
+「停機期間啟動/停止 VM」解決方案可根據使用者定義的排程來啟動和停止 Azure 虛擬機器、透過 Azure Log Analytics 提供深入解析，以及使用[動作群組](../monitoring-and-diagnostics/monitoring-action-groups.md)來傳送選擇性的電子郵件。 針對大多數的案例，它皆能同時支援 Azure Resource Manager 和傳統 VM。
 
 此解決方案可針對想要使用無伺服器的低成本資源來降低成本的使用者，提供非集中式的自動化選項。 使用此解決方案，您可以：
 
@@ -34,16 +34,6 @@ ms.locfileid: "34195976"
 
   > [!NOTE]
   > 管理 VM 排程的 Runbook 能夠以任何區域中的 VM 為目標。
-
-* 若要在啟動和停止虛擬機器的 Runbook 完成時傳送電子郵件通知，從 Azure Marketplace 進行上線時，請選取 [是] 以部署 SendGrid。
-
-  > [!IMPORTANT]
-  > SendGrid 是第三方服務。 如需支援，請連絡 [SendGrid](https://sendgrid.com/contact/)。
-
-  SendGrid 的限制如下：
-
-  * 每個訂用帳戶的每個使用者最多可以有一個 SendGrid 帳戶。
-  * 每個訂用帳戶最多有兩個 SendGrid 帳戶。
 
 ## <a name="deploy-the-solution"></a>部署解決方案
 
@@ -79,8 +69,8 @@ ms.locfileid: "34195976"
    在這裡，系統會提示您：
    * 指定 [目標資源群組名稱]。 這些是包含此解決方案所要管理的虛擬機器之資源群組名稱。 您可以輸入多個名稱，然後使用逗號加以分隔 (值不區分大小寫)。 如果您想要以訂用帳戶的所有資源群組中的 VM 為目標，則可使用萬用字元。 此值儲存在 **External_Start_ResourceGroupNames** 和 **External_Stop_ResourceGroupNames** 變數中。
    * 指定 [虛擬機器排除清單 (字串)]。 這是來自目標資源群組的一或多個虛擬機器名稱。 您可以輸入多個名稱，然後使用逗號加以分隔 (值不區分大小寫)。 支援使用萬用字元。 這個值會儲存在 **External_ExcludeVMNames** 變數中。
-   * 選取**排程**。 這是一個週期性日期和時間，可用於啟動及停止目標資源群組中的虛擬機器。 根據預設，排程會設定為 UTC 時區。 無法選取不同的區域。 在設定解決方案後，若要將排程設定為特定時區，請參閱[修改啟動和關機排程](#modify-the-startup-and-shutdown-schedule)。
-   * 若要從 SendGrid 接收**電子郵件通知**，請接受預設值 [是]，並提供有效的電子郵件地址。 如果您選取 [否]，但在日後決定想要收到電子郵件通知，您可以使用以逗號分隔的有效電子郵件地址更新 **External_EmailToAddress** 變數，然後將變數 **External_IsSendEmail** 的值修改為 [是]。
+   * 選取**排程**。 這是一個週期性日期和時間，可用於啟動及停止目標資源群組中的虛擬機器。 根據預設，排程會設定為即刻起 30 分鐘後。 無法選取不同的區域。 在設定解決方案後，若要將排程設定為特定時區，請參閱[修改啟動和關機排程](#modify-the-startup-and-shutdown-schedule)。
+   * 若要從動作群組接收**電子郵件通知**，請接受預設值 [是]，並提供有效的電子郵件地址。 如果您選取 [否]，但是日後決定想要收到電子郵件通知，您可以更新[動作群組](../monitoring-and-diagnostics/monitoring-action-groups.md)，該群組是以逗號分隔的有效電子郵件地址所建立。
 
     > [!IMPORTANT]
     > 「目標資源群組名稱」的預設值為 **&ast;**。 這樣會以訂用帳戶中的所有 VM 為目標。 如果您不想解決方案以您訂用帳戶中的所有 VM 為目標，在啟用排程之前，必須先將此值更新為資源群組名稱清單。
@@ -134,7 +124,7 @@ ms.locfileid: "34195976"
 2. 執行 **SequencedStartStop_Parent** Runbook，並將 ACTION 參數設為 **start**，在 *VMList* 參數中新增以逗號分隔的虛擬機器清單，然後將 WHATIF 參數設為 **True**。 預覽變更。
 3. 使用以逗號分隔的虛擬機器清單 (VM1,VM2,VM3) 設定 **External_ExcludeVMNames** 參數。
 4. 此案例不會接受 **External_Start_ResourceGroupNames** 和 **External_Stop_ResourceGroupnames** 變數。 針對此案例，您需要建立自己的自動化排程。 如需詳細資訊，請參閱[在 Azure 自動化中排程 Runbook](../automation/automation-schedules.md)。
-5. 預覽動作，並在針對生產虛擬機器實作前進行所有必要的變更。 就緒後即可將參數設定為 **False** 並手動執行 Runbook，或是讓自動化排程 **Sequenced-StartVM** 和 **Sequenced-StopVM** 依照您指定的排程自動執行。
+5. 預覽動作，並在針對生產虛擬機器實作前進行所有必要的變更。 就緒後即可將參數設定為 **False** 並手動執行 monitoring-and-diagnostics/monitoring-action-groupsrunbook，或是讓自動化排程 **Sequenced-StartVM** 和 **Sequenced-StopVM** 依照您指定的排程自動執行。
 
 ### <a name="scenario-3-startstop-automatically-based-on-cpu-utilization"></a>案例 3：根據 CPU 使用量自動啟動/停止
 
@@ -163,8 +153,8 @@ ms.locfileid: "34195976"
 
 您已具有會根據 CPU 使用率停止虛擬機器的排程，現在您需要啟用下列其中一個排程來啟動它們。
 
-* 透過訂用帳戶和資源群組設定啟動動作目標。 請參閱[案例 1](#scenario-1:-daily-stop/start-vms-across-a-subscription-or-target-resource-groups) 中的步驟以測試和啟用 **Scheduled-StartVM** 排程。
-* 透過訂用帳戶、資源群組和標記設定啟動動作目標。 請參閱[案例 2](#scenario-2:-sequence-the-stop/start-vms-across-a-subscription-using-tags) 中的步驟以測試和啟用 **Sequenced-StartVM** 排程。
+* 透過訂用帳戶和資源群組設定啟動動作目標。 請參閱[案例 1](#scenario-1-startstop-vms-on-a-schedule) 中的步驟以測試和啟用 **Scheduled-StartVM** 排程。
+* 透過訂用帳戶、資源群組和標記設定啟動動作目標。 請參閱[案例 2](#scenario-2-startstop-vms-in-sequence-by-using-tags) 中的步驟以測試和啟用 **Sequenced-StartVM** 排程。
 
 ## <a name="solution-components"></a>方案元件
 
@@ -202,19 +192,13 @@ ms.locfileid: "34195976"
 |External_AutoStop_Threshold | 適用於在變數 *External_AutoStop_MetricName* 中指定之 Azure 警示規則的閾值。 百分比值的範圍為 1 至 100。|
 |External_AutoStop_TimeAggregationOperator | 會套用至選取的視窗大小以評估條件的時間彙總運算子。 可接受的值為 **Average**、**Minimum**、**Maximum**、**Total** 和 **Last**。|
 |External_AutoStop_TimeWindow | Azure 分析選取之計量以觸發警示的視窗大小。 此參數接受時間範圍格式的輸入。 可能的值為 5 分鐘到 6 小時。|
-|External_EmailFromAddress | 指定電子郵件的寄件者。|
-|External_EmailSubject | 指定電子郵件的主旨列文字。|
-|External_EmailToAddress | 指定電子郵件的收件者。 使用逗號分隔名稱。|
 |External_ExcludeVMNames | 輸入要排除的虛擬機器名稱，請使用不含空格的逗號來分隔名稱。|
-|External_IsSendEmail | 指定完成時傳送電子郵件通知的選項。 針對是否傳送電子郵件，指定 **Yes** 或 **No**。 如果您沒有在初始部署期間啟用電子郵件通知，此選項應為 **No**。|
 |External_Start_ResourceGroupNames | 使用逗號分隔值指定一或多個作為啟動動作目標的資源群組。|
 |External_Stop_ResourceGroupNames | 使用逗號分隔值指定一或多個作為停止動作目標的資源群組。|
 |Internal_AutomationAccountName | 指定自動化帳戶的名稱。|
 |Internal_AutoSnooze_WebhookUri | 指定針對 AutoStop 案例呼叫的 Webhook URI。|
 |Internal_AzureSubscriptionId | 指定 Azure 訂用帳戶識別碼。|
 |Internal_ResourceGroupName | 指定自動化帳戶資源群組名稱。|
-|Internal_SendGridAccountName | 指定 SendGrid 帳戶名稱。|
-|Internal_SendGridPassword | 指定 SendGrid 帳戶密碼。|
 
 在所有情況下，**External_Start_ResourceGroupNames**、**External_Stop_ResourceGroupNames** 和 **External_ExcludeVMNames** 變數皆為設定目標虛擬機器的必要項目 (除了為 **AutoStop_CreateAlert_Parent**、**SequencedStartStop_Parent** 和 **ScheduledStartStop_Parent** Runbook 提供以逗號分隔的虛擬機器清單以外)。 也就是說，您的虛擬機器必須位於目標資源群組中，才會發生啟動和停止動作。 此邏輯的運作方式類似 Azure 原則，其中您可以將訂用帳戶或資源群組設為目標，並讓新建立的 VM 繼承動作。 此方法可免去針對每部虛擬機器維護個別排程的必要，並可大規模地管理啟動和停止。
 
@@ -299,11 +283,21 @@ StreamType | 作業串流的類型。 可能的值包括：<br>- Progress (進�
 
 ## <a name="configure-email-notifications"></a>設定電子郵件通知
 
-若要在部署解決方案後設定電子郵件通知，請修改下列三個變數：
+若要在部署解決方案之後變更電子郵件通知，請修改在部署期間建立的動作群組。  
 
-* External_EmailFromAddress：指定寄件人的電子郵件地址。
-* External_EmailToAddress：指定以逗號分隔的電子郵件地址清單 (user@hotmail.com, user@outlook.com)，以接收通知電子郵件。
-* External_IsSendEmail：設為 [是] 以接收電子郵件。 若要停用電子郵件通知，請將值設定為 [否]。
+在 Azure 入口網站中，巡覽至 [監視] -> [動作群組]。 選取標題為 **StartStop_VM_Notication** 的動作群組。
+
+![自動化更新管理解決方案頁面](media/automation-solution-vm-management/azure-monitor.png)
+
+在 [StartStop_VM_Notification] 頁面上，按一下 [詳細資料] 底下的 [編輯詳細資料]。 這樣會開啟 [電子郵件/SMS/推播/語音] 頁面。 請更新電子郵件地址，然後按一下 [確定] 以儲存變更。
+
+![自動化更新管理解決方案頁面](media/automation-solution-vm-management/change-email.png)
+
+或者，您也可以將其他動作新增至動作群組中；若要深入了解動作群組，請參閱[動作群組](../monitoring-and-diagnostics/monitoring-action-groups.md)
+
+以下是當解決方案關閉虛擬機器時，所傳送的範例電子郵件。
+
+![自動化更新管理解決方案頁面](media/automation-solution-vm-management/email.png)
 
 ## <a name="modify-the-startup-and-shutdown-schedules"></a>修改啟動和關機排程
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: ff2e1660ffcc1f397697b27084e000371c7c84f3
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 816ba560ccb9b06414dff8ffaea054e88d216b10
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938004"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972378"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>適用於預測性維護解決方案的 AI 指南
 
@@ -415,7 +415,7 @@ PdM 有另一個實用的技巧，就是使用可偵測資料異常的演算法�
 | # | 標題 | 說明 |
 |--:|:------|-------------|
 | 1 | [Azure 預測性維護機器學習範例](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance) |用來預測接下來 N 個時間單位內失敗的 PdM 範例。 此範例會寫入為 Azure ML Workbench 專案，很適合 PdM 的初學者使用。 與此範例相關的[其他文件](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/scenario-predictive-maintenance)。|
-| 2 | [Azure 預測性維護解決方案範本](https://github.com/Azure/AI-PredictiveMaintenance) | 用來示範多個 PdM 案例的端對端架構。 此範本呈現兩個案例：第一個是即時失敗狀況分類的新使用案例。 第二個案例只是將解決方案 [1] 整合到這個解決方案範本中。 它會示範如何重複使用已部署的相同基礎結構來新增其他新的或現有案例。|
+| 2 | [Azure 預測性維護解決方案範本](https://github.com/Azure/AI-PredictiveMaintenance) | 此開放原始碼解決方案範本展現了 ML 模型化和完整的 Azure 基礎結構，能夠支援 IoT 遠端監控環境中的預測性維護方案。 |
 | 3 | [深入學習預測性維護](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Azure Notebook，內含使用 LSTM (長短期記憶) 網路 (循環類神經網路的類別) 進行預測性維護的示範解決方案，以及[有關此範例的部落格文章](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance)。|
 | 4 | [R Notebook 中的預測性維護模型化指南](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) | R Notebook 中具有指令碼的 PdM 模型化指南。|
 | 5 | [適用於航太業的 Azure 預測性維護](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | 以 Azure ML v1.0 為基礎的前幾個 PdM 解決方案範本之一 (適用於飛機維護)。 本指南源自這個專案。 |

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 42eb1c8332a29ff07c83b962aaa8f8e2f04fd07b
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: ffd4480a13549caba17becff27a43f51fcaa1988
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308294"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041733"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>教學課程：Azure Active Directory 與 SAP Business Object Cloud 整合
 
@@ -34,7 +34,7 @@ ms.locfileid: "36308294"
 
 若要深入了解軟體即服務 (SaaS) 應用程式與 Azure AD 的整合，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要進行 Azure AD 與 SAP Business Object Cloud 整合的設定，您需要下列項目：
 
@@ -278,7 +278,7 @@ ms.locfileid: "36308294"
 
 選取存取面板中的 [SAP Business Object Cloud] 圖格時，應會自動登入您的 SAP Business Object Cloud 應用程式。
 
-如需存取面板的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

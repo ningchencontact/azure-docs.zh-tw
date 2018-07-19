@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure Data Factory 將資料載入 Azure Data Lake Store 中 | Microsoft Docs
-description: 使用 Azure Data Factory 將資料複製到 Azure Data Lake Store 中
+title: 使用 Azure Data Factory 將資料載入 Azure Data Lake Storage Gen1 | Microsoft Docs
+description: 使用 Azure Data Factory 將資料複製到 Azure Data Lake Storage Gen1
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 25df96664f6b5fe9da26bee43bc726e05504e5b8
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 7cdc4f0ef436fbd7ea3bdf1431b08be3b840290f
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055296"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857196"
 ---
-# <a name="load-data-into-azure-data-lake-store-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料載入 Azure Data Lake Store 中
+# <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料載入 Azure Data Lake Storage Gen1
 
-[Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) 是容納巨量資料分析工作負載的企業級超大規模存放庫。 Azure Data Lake 可讓您擷取任何大小、類型和擷取速度的資料。 系統會在單一位置擷取資料以供作業及探勘分析之用。
+[Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md) (先前稱為 Azure Data Lake Store) 是容納巨量資料分析工作負載的企業級超大規模存放庫。 Azure Data Lake 可讓您擷取任何大小、類型和擷取速度的資料。 系統會在單一位置擷取資料以供作業及探勘分析之用。
 
 Azure Data Factory 是完全受控的雲端式資料整合服務。 您可以使用此服務，在建置分析解決方案時於資料湖中填入現有系統的資料並節省時間。
 

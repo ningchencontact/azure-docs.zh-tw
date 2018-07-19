@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/25/2018
+ms.date: 07/10/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: e1505761a0bd1ea9dabdd0b2cbab7af902198311
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: b06f53b0169e3afd140be81d9d633844a5876c09
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938327"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38487642"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>在 Azure Stack 上部署 SQL Server 資源提供者
 
@@ -27,10 +27,11 @@ ms.locfileid: "36938327"
 
 ## <a name="prerequisites"></a>先決條件
 
-您必須先滿足幾個先決條件，才能部署 Azure Stack SQL 資源提供者。 為了滿足這些需求，請在能夠存取具特殊權限端點 VM 的電腦上完成下列步驟：
+您必須先滿足數個先決條件，才能部署 Azure Stack SQL 資源提供者。 為了滿足這些需求，請在能夠存取具特殊權限端點 VM 的電腦上完成下列步驟：
 
 - 如果您尚未這麼做，請向 Azure [註冊 Azure Stack](.\azure-stack-registration.md)，以便下載 Azure Marketplace 項目。
-- 透過下載 **Windows Server 2016 Datacenter - Server Core** 映像，將必要的 Windows Server Core VM 新增到 Azure Stack Marketplace。 您也可以使用指令碼建立 [Windows Server 2016 映像](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image) (\英文\)。 執行指令碼時，請務必選取核心選項。
+- 您必須在將執行此安裝所在的系統上，安裝 Azure 和 Azure Stack PowerShell 模組。 該系統必須是包含最新版 .NET 執行階段的 Windows 10 或 Windows Server 2016 映像。 請參閱[安裝適用於 Azure Stack 的 PowerShell](.\azure-stack-powershell-install.md)。
+- 透過下載 **Windows Server 2016 Datacenter - Server Core** 映像，將必要的 Windows Server Core VM 新增到 Azure Stack Marketplace。 
 
   >[!NOTE]
   >如果您需要安裝某個更新，可以將單一 MSU 套件放在本機相依性路徑中。 如果找到多個 MSU 檔案，SQL 資源提供者安裝將會失敗。
@@ -41,19 +42,14 @@ ms.locfileid: "36938327"
     |-----|-----|
     |1804 版 (1.0.180513.1)|[SQL RP 1.1.24.0 版](https://aka.ms/azurestacksqlrp1804)
     |1802 版 (1.0.180302.1)|[SQL RP 版本 1.1.18.0](https://aka.ms/azurestacksqlrp1802)|
-    |1712 版 (1.0.180102.3、1.0.180103.2 或 1.0.180106.1 (整合系統))|[SQL RP 版本 1.1.14.0](https://aka.ms/azurestacksqlrp1712)|
-    |     |     |
 
 ### <a name="certificates"></a>憑證
 
-僅適用於整合式系統安裝。 您必須提供 [Azure Stack 部署 PKI 需求](.\azure-stack-pki-certs.md#optional-paas-certificates)中選擇性 PaaS 憑證一節所述的 SQL PaaS PKI 憑證。 請將 .pfx 檔案放在 **DependencyFilesLocalPath** 參數所指定的位置中。
+_僅適用於整合式系統安裝_。 您必須提供 [Azure Stack 部署 PKI 需求](.\azure-stack-pki-certs.md#optional-paas-certificates)中選擇性 PaaS 憑證一節所述的 SQL PaaS PKI 憑證。 請將 .pfx 檔案放在 **DependencyFilesLocalPath** 參數所指定的位置中。 不要提供 ASDK 系統的憑證。
 
 ## <a name="deploy-the-sql-resource-provider"></a>部署 SQL 資源提供者
 
 安裝妥所有先決條件項目之後，請執行 **DeploySqlProvider.ps1** 指令碼來部署 SQL 資源提供者。 DeploySqlProvider.ps1 指令碼是從您針對 Azure Stack 版本下載的 SQL 資源提供者二進位檔中解壓縮而來。
-
-> [!IMPORTANT]
-> 您執行指令碼的系統必須是已安裝最新版 .NET 執行階段的 Windows 10 或 Windows Server 2016 系統。
 
 若要部署 SQL 資源提供者，請開啟**新的**已提升權限 PowerShell 主控台視窗，然後變更至您解壓縮 SQL 資源提供者二進位檔的目錄。 建議您使用新的 PowerShell 視窗，以避免已載入的 PowerShell 模組可能造成的問題。
 
@@ -68,7 +64,7 @@ ms.locfileid: "36938327"
 - 視需要在安裝資源提供者的期間，安裝單一 Windows Server 更新。
 
 > [!NOTE]
-> 當 SQL 資源提供者部署開始時，會建立 **system.local.sqladapter** 資源群組。 最多可能需要 75 分鐘的時間，才能完成對此資源群組的四個必要部署。
+> 當 SQL 資源提供者部署開始時，會建立 **system.local.sqladapter** 資源群組。 最多可能需要 75 分鐘的時間，才能完成對此資源群組的必要部署。
 
 ### <a name="deploysqlproviderps1-parameters"></a>DeploySqlProvider.ps1 參數
 
@@ -80,24 +76,22 @@ ms.locfileid: "36938327"
 | **AzCredential** | Azure Stack 服務管理帳戶的認證。 使用與部署 Azure Stack 時所用認證相同的認證。 | _必要_ |
 | **VMLocalCredential** | SQL 資源提供者 VM 之本機系統管理員帳戶的認證。 | _必要_ |
 | **PrivilegedEndpoint** | 具特殊權限端點的 IP 位址或 DNS 名稱。 |  _必要_ |
-| **DependencyFilesLocalPath** | 您的憑證 .pfx 檔案必須也放在這個目錄中。 | _選擇性_ (對於整合式系統為_必要_) |
+| **DependencyFilesLocalPath** | 您的憑證 .pfx 檔案必須放在這個目錄中 (僅適用於整合式系統)。 您可以在這裡選擇性地複製一個 Windows Update MSU 套件。 | _選擇性_ (對於整合式系統為_必要_) |
 | **DefaultSSLCertificatePassword** | .pfx 憑證的密碼。 | _必要_ |
 | **MaxRetryCount** | 當作業失敗時，您想要重試每個作業的次數。| 2 |
 | **RetryDuration** | 重試之間的逾時間隔 (秒)。 | 120 |
 | **解除安裝** | 移除資源提供者和所有關聯的資源 (請參閱下面的附註)。 | 否 |
 | **DebugMode** | 防止在失敗時自動清除。 | 否 |
 
->[!NOTE]
-> 最多需要一小時才能在入口網站中看到 SKU。 您必須等到 SKU 部署完畢並開始執行之後，才能建立資料庫。
-
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>使用自訂指令碼部署 SQL 資源提供者
 
 若要在部署資源提供者時免除任何手動設定，您可以自訂下列指令碼。 請視需要針對您的 Azure Stack 部署，變更預設帳戶資訊和密碼。
 
 ```powershell
-# Install the AzureRM.Bootstrapper module and set the profile.
+# Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
+Install-Module  -Name AzureStack -RequiredVersion 1.3.0
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"
@@ -124,8 +118,7 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
-# Change to the directory If folder where you extracted the installation files.
-# Then adjust the endpoints.
+# Change to the directory folder where you extracted the installation files. Do not provide a certificate on ASDK!
 . $tempDir\DeploySQLProvider.ps1 `
     -AzCredential $AdminCreds `
     -VMLocalCredential $vmLocalAdminCreds `
@@ -145,11 +138,9 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 1. 以服務管理員身分登入管理入口網站。
 2. 選取 [資源群組]。
 3. 選取 [**system.\<位置\>.sqladapter**] 資源群組。
-4. [部署] 底下的訊息 (顯示於下一個螢幕擷取畫面中) 應該會是「4 個成功」。
+4. 在資源群組概觀的摘要頁面上，應該沒有失敗的部署。
 
       ![確認 SQL 資源提供者的部署是否成功](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
-
-5. 您可以在 [設定]底下取得有關資源提供者部署的更多詳細資訊。 選取 [部署] 以取得資訊，例如：每項部署的 [狀態]、[時間戳記] 及 [持續時間]。
 
 ## <a name="next-steps"></a>後續步驟
 

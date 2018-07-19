@@ -8,14 +8,14 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/14/2018
+ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: ed69d4de56d23210cc9133d74ab81530f924b5ae
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 30ebe4f990dc65e53c34673f0948d3aa2240385c
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261554"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37859695"
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB 常見問題集
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB 基本概念
@@ -116,6 +116,11 @@ PreferredLocations 值可以設定為任何提供 Cosmos DB 的 Azure 區域。 
 
 設定區域時，請記住 Azure Cosmos DB 涉及主權和政府雲端。 也就是如果您在[主權區域](https://azure.microsoft.com/global-infrastructure/)中建立帳戶，便無法覆寫到該[主權區域](https://azure.microsoft.com/global-infrastructure/)之外的位置。 同樣地，您也無法從外部帳戶覆寫到其他主權位置。 
 
+### <a name="is-it-possible-to-switch-from-container-level-throughput-provisioning-to-database-level-throughput-provisioning-or-vice-versa"></a>是否可以從容器層級輸送量佈建，切換成資料庫層級輸送量佈建？ 或者反過來？
+
+容器和資料庫層級輸送量佈建是不同的供應項目，在其間切換需要將資料從來源移轉到目的地。 這表示您需要建立新資料庫或新集合，然後藉由使用[大量執行程式程式庫](bulk-executor-overview.md)或 [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) 來移轉資料。
+
+
 ## <a name="develop-against-the-sql-api"></a>針對 SQL API 進行開發
 
 ### <a name="how-do-i-start-developing-against-the-sql-api"></a>如何開始針對 SQL API 進行開發？
@@ -131,12 +136,16 @@ GitHub 上提供 SQL API [.NET](sql-api-dotnet-samples.md)、[Java](https://gith
 是，SQL API 可讓應用程式儲存任意的 JSON 文件，而不需要結構描述定義或提示。 透過 Azure Cosmos DB SQL 查詢介面，就可立即查詢資料。  
 
 ### <a name="does-the-sql-api-support-acid-transactions"></a>SQL API 支援 ACID 交易嗎？
-是，SQL API 支援以 JavaScript 預存程序和觸發程序表示的跨文件交易。 交易以每個集合的單一分割為範圍，且以 ACID 語意執行，也就是「全有或全無」，與其他並行執行的程式碼和使用者要求隔離。 如果伺服器端執行 JavaScript 應用程式碼期間擲回例外狀況，則會回復整個交易。 如需交易的詳細資訊，請參閱 [資料庫程式交易](programming.md#database-program-transactions)。
+是，SQL API 支援以 JavaScript 預存程序和觸發程序表示的跨文件交易。 交易以每個容器的單一分割為範圍，且以 ACID 語意執行，也就是「全有或全無」，與其他並行執行的程式碼和使用者要求隔離。 如果伺服器端執行 JavaScript 應用程式碼期間擲回例外狀況，則會回復整個交易。 如需交易的詳細資訊，請參閱 [資料庫程式交易](programming.md#database-program-transactions)。
 
-### <a name="what-is-a-collection"></a>什麼是集合？
-集合是一組文件及其相關聯的 JavaScript 應用程式邏輯。 集合是計費實體，其[成本](performance-levels.md)是由使用的輸送量和儲存體所決定。 集合可以跨越一或多個資料分割或伺服器，也可以進行調整以處理幾乎無限量的儲存體或輸送量。
+### <a name="what-is-a-container"></a>容器是什麼？
+容器是一組文件及其相關聯的 JavaScript 應用程式邏輯。 容器是計費實體，其[成本](performance-levels.md)是由輸送量和使用的儲存體所決定。 容器可以跨越一或多個磁碟分割或伺服器，也可以進行調整以處理幾乎無限量的儲存體或輸送量。 
 
-集合也是 Azure Cosmos DB 的帳務實體。 每個集合根據佈建的輸送量和使用的儲存體空間，以小時為單位計費。 如需詳細資訊，請參閱 [Azure Cosmos DB 價格](https://azure.microsoft.com/pricing/details/cosmos-db/)。 
+* 針對 SQL 和 MongoDB API 帳戶，容器會對應至集合。 
+* 針對 Cassandra 和資料表 API 帳戶，容器會對應至資料表。 
+* 針對 Gremlin API 帳戶，容器會對應至圖表。 
+
+容器也是 Azure Cosmos DB 的計費實體。 每個容器根據佈建的輸送量和使用的儲存體空間，以小時為單位計費。 如需詳細資訊，請參閱 [Azure Cosmos DB 價格](https://azure.microsoft.com/pricing/details/cosmos-db/)。 
 
 ### <a name="how-do-i-create-a-database"></a>我如何建立資料庫？
 您可以使用 [Azure 入口網站](https://portal.azure.com) (如[新增集合](create-sql-api-dotnet.md#create-collection)所述)、其中一個 [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) 或 [REST API](/rest/api/cosmos-db/) 來建立資料庫。 
@@ -165,7 +174,7 @@ SQL API 透過 JavaScript 預存程序和觸發程序，支援語言整合式交
 * 資料移轉工具，如 [Azure Cosmos DB 的資料庫移轉工具](import-data.md)中所述。
 * 預存程序，如 [Azure Cosmos DB 的伺服器端 JavaScript 程式設計](programming.md)中所述。
 
-### <a name="i-have-setup-my-collection-to-use-lazy-indexing-i-see-that-my-queries-do-not-return-expected-results"></a>我已將集合設定為使用延遲索引，但我發現查詢不會傳回預期的結果。 
+### <a name="i-have-setup-my-container-to-use-lazy-indexing-i-see-that-my-queries-do-not-return-expected-results"></a>我已將容器設定為使用延遲索引，但我發現查詢不會傳回預期的結果。 
 如＜索引＞一節所述，延遲索引可能會導致此行為。 請一律對所有應用程式使用一致的索引。 
 
 
@@ -180,7 +189,7 @@ SQL API 透過 JavaScript 預存程序和觸發程序，支援語言整合式交
 
 ### <a name="where-are-permissions-allowed-in-the-object-hierarchy"></a>物件階層中允許哪些權限？
 
-您可以在集合層級和其子系 (例如文件、附件) 使用 ResourceTokens 來建立權限。 這意味著目前不允許在資料庫或帳戶層級嘗試建立權限。
+您可以在容器層級和其子系 (例如文件、附件) 使用 ResourceTokens 來建立權限。 這意味著目前不允許在資料庫或帳戶層級嘗試建立權限。
 
 
 ## <a name="develop-against-the-api-for-mongodb"></a>針對 MongoDB 開發 API
@@ -280,9 +289,6 @@ DefaultEndpointsProtocol=https;AccountName=<AccountNamefromCosmos DB;AccountKey=
 您可以使用 [Azure 儲存體總管](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)。
 
 能夠彈性地以先前指定之格式採用連接字串的工具，均可支援新的資料表 API。 [Azure 儲存體用戶端工具](../storage/common/storage-explorers.md)頁面上提供一份資料表工具清單。 
-
-### <a name="do-powershell-or-azure-cli-work-with-the-table-api"></a>PowerShell 或 Azure CLI 可以與資料表 API 搭配運作嗎？
-有支援 [PowerShell](table-powershell.md)。 但目前不支援 Azure CLI。
 
 ### <a name="is-the-concurrency-on-operations-controlled"></a>可以在作業中控制並行存取嗎？
 是，開放式並行存取會透過使用 Etag 機制來提供。 
@@ -410,7 +416,7 @@ Azure Cosmos DB 會在當地區域持久認可資料，並在幾毫秒內立即�
 ### <a name="how-is-the-price-calculated-for-the-table-api"></a>如何針對資料表 API 計算價格？ 
 價格取決於配置的 TableThroughput。 
 
-### <a name="how-do-i-handle-any-throttling-on-the-tables-in-table-api-offering"></a>如何在資料表 API 供應項目中處理資料表上的任何節流？ 
+### <a name="how-do-i-handle-any-rate-limiting-on-the-tables-in-table-api-offering"></a>如何在資料表 API 供應項目中處理資料表上的任何速率限制？ 
 如果要求速率超過為基礎容器或容器集佈建的輸送量容量，您就會收到錯誤，而 SDK 會套用重試原則來重試呼叫。
 
 ### <a name="why-do-i-need-to-choose-a-throughput-apart-from-partitionkey-and-rowkey-to-take-advantage-of-the-table-api-offering-of-azure-cosmos-db"></a>為何我需要選擇 PartitionKey 和 RowKey 以外的輸送量，才能運用 Azure Cosmos DB 的資料表 API 供應項目？

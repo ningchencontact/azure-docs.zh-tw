@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: seguler
-ms.openlocfilehash: 2a958ceb0b3a1db9d06d045a8161fa6cd3ef5aba
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 073d81baca7e174872806301236f547329836c45
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37059921"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113471"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-data-lake-storage-gen2-preview"></a>使用 Distcp 在 Azure 儲存體 Blob 與 Data Lake Storage Gen2 預覽版之間複製資料
 
-如果您有可存取 Azure Data Lake Storage Gen2 預覽版的 HDInsight 叢集，就可以使用 Distcp 之類的 Hadoop 生態系統工具，將**送至/來自** HDInsight 叢集儲存體 (WASB) 的資料複製到支援 Data Lake Storage Gen2 的帳戶中。 本文提供如何使用 Distcp 工具的相關指示。
+如果您有可存取 Azure Data Lake Storage Gen2 預覽版的 HDInsight 叢集，就可以使用 [Distcp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) 之類的 Hadoop 生態系統工具，將**送至/來自** HDInsight 叢集儲存體 (WASB) 的資料複製到支援 Data Lake Storage Gen2 的帳戶中。 本文提供如何使用 Distcp 工具的相關指示。
 
 ## <a name="prerequisites"></a>先決條件
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
-* **啟用 Azure Data Lake Storage (預覽) 功能的 Azure 儲存體帳戶**。 如需如何建立帳戶的指示，請參閱 [TODO](quickstart-create-account.md)
+* **啟用 Azure Data Lake Storage (預覽) 功能的 Azure 儲存體帳戶**。 如需如何建立的指示，請參閱[建立 Azure Data Lake Storage Gen2 預覽版儲存體帳戶](quickstart-create-account.md)
 * 可存取 Data Lake Storage 帳戶的 **Azure HDInsight 叢集**。 請參閱[搭配 Azure HDInsight 叢集使用 Data Lake Storage Gen2](use-hdi-cluster.md)。 請確實為叢集啟用遠端桌面。
 
 ## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>使用來自 HDInsight Linux 叢集的 Distcp
@@ -37,35 +37,35 @@ HDInsight 叢集隨附 Distcp 公用程式，可用來將不同來源的資料�
 
 2. 確認您是否可存取 Azure 儲存體 Blob (WASB)。 執行以下命令：
 
-        hdfs dfs –ls wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
+        hdfs dfs –ls wasb://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/
 
     輸出應會提供儲存體 blob 中的內容清單。
 
 3. 同樣地，請確認您是否可從叢集存取 Data Lake Storage 帳戶。 執行以下命令：
 
-        hdfs dfs -ls abfs://<filesystem_name>@<storage_account_name>.dfs.core.windows.net/
+        hdfs dfs -ls abfs://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/
 
     輸出應會提供 Data Lake Storage 帳戶中的檔案/資料夾清單。
 
 4. 使用 Distcp 將資料從 WASB 複製到 Data Lake Storage 帳戶。
 
-        hadoop distcp wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg abfs://<filesystem_name>@<storage_account_name>.dfs.core.windows.net/myfolder
+        hadoop distcp wasb://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg abfs://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder
 
     命令會將 Blob 儲存體中的 **/example/data/gutenberg/** 資料夾內容複製到 Data Lake Storage 帳戶中的 **/myfolder**。
 
 5. 同樣地，請使用 Distcp 將資料從 Data Lake Storage 帳戶複製到 Blob 儲存體 (WASB)。
 
-        hadoop distcp abfs://<filesystem_name>@<storage_account_name>.dfs.core.windows.net/myfolder wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg
+        hadoop distcp abfs://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder wasb://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg
 
     命令會將 Data Lake Store 帳戶中的 **/myfolder** 的內容複製到 WASB 中的 **/example/data/gutenberg/** 資料夾。
 
 ## <a name="performance-considerations-while-using-distcp"></a>使用 DistCp 時的效能考量
 
-因為 DistCp 以單一檔案為最低資料粒度，若要針對 Data Lake Storage 而達到最佳化，設定同步複本數目上限是最重要的參數。 同步複本數目是由命令列設定對應程式數目 (‘m’) 參數來控制。 這個參數指定用來複製資料的對應程式數目上限。 預設值為 20。
+因為 DistCp 以單一檔案為最低資料粒度，若要針對 Data Lake Storage 而達到最佳化，設定同步複本數目上限是最重要的參數。 同步複本數目可從命令列設定對應程式數目 (**m**) 參數來控制。 這個參數指定用來複製資料的對應程式數目上限。 預設值為 20。
 
 **範例**
 
-    hadoop distcp wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg abfs://<filesystem_name>@<storage_account_name>.dfs.core.windows.net/myfolder -m 100
+    hadoop distcp wasb://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg abfs://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder -m 100
 
 ### <a name="how-do-i-determine-the-number-of-mappers-to-use"></a>如何決定要使用的對應程式數目？
 
@@ -81,11 +81,11 @@ HDInsight 叢集隨附 Distcp 公用程式，可用來將不同來源的資料�
 
 假設您在叢集中有 4 個 D14v2s 節點，且嘗試從 10 個不同的資料夾傳輸 10 TB 的資料。 每個資料夾包含不同的資料量，且每個資料夾內的檔案大小都不同。
 
-* YARN 記憶體總計 - 從 Ambari 入口網站，您可以判斷 D14 節點的 YARN 記憶體是 96 GB。 因此，四節點叢集的 YARN 記憶體總計為︰ 
+* **YARN 記憶體總計**：您可以從 Ambari 入口網站判斷 D14 節點的 YARN 記憶體是 96 GB。 因此，四節點叢集的 YARN 記憶體總計為︰ 
 
         YARN memory = 4 * 96GB = 384GB
 
-* 對應程式數目 - 從 Ambari 入口網站，您可以判斷 D14 叢集節點的 YARN 容器大小是 3072。 因此，對應程式數目為︰
+* **對應程式數目**：您可以從 Ambari 入口網站判斷 D14 叢集節點的 YARN 容器大小是 3072。 因此，對應程式數目為︰
 
         m = (4 nodes * 96GB) / 3072MB = 128 mappers
 

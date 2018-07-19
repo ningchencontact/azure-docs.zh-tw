@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 76430fa5652e98cba86c41433f376e27dbb1639a
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 5c6a4ac68694c74f9a7ed99a2d7b4939b84dc33f
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446855"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054874"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Azure Active Directory 中應用程式管理的文章索引
 本頁面提供一份完整清單，列出撰寫 Azure Active Directory (Azure AD) 中各種應用程式相關功能的所有文章。
@@ -112,7 +112,7 @@ Azure AD Connect 適用於 [所有版本的 Azure Active Directory](https://azur
 | 如何為下列類型的資源啟用條件式存取 |[SaaS 應用程式的條件式存取](active-directory-conditional-access-azure-portal-get-started.md)<br /><br />[Office 365 服務的條件式存取](active-directory-conditional-access-device-policies.md)<br /><br />[內部部署應用程式的條件式存取](active-directory-conditional-access-azure-portal.md)<br /><br />[透過 Azure AD 應用程式 Proxy 發佈之內部部署應用程式的條件式存取](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
 | 如何向 Azure Active Directory 註冊裝置，以便啟用裝置型條件式存取原則 |[Azure Active Directory 裝置註冊概觀](active-directory-conditional-access-device-registration-overview.md)<br /><br />[如何為加入網域的 Windows 裝置啟用自動註冊裝置](active-directory-conditional-access-automatic-device-registration.md)<br />— [適用於 Windows 8.1 裝置的步驟](active-directory-conditional-access-automatic-device-registration-setup.md)<br />— [適用於 Windows 7 裝置的步驟](active-directory-conditional-access-automatic-device-registration-setup.md) |
 
-| 如何使用 Microsoft Authenticator 應用程式進行雙步驟驗證 | [Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) |
+| 如何使用 Microsoft Authenticator 應用程式進行雙步驟驗證 | [Microsoft Authenticator](user-help/microsoft-authenticator-app-how-to.md) |
 
 「條件式存取」是一項 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 功能。
 
@@ -180,7 +180,7 @@ Cloud Discovery 會針對超過 16,000 個雲端應用程式的 Microsoft Cloud 
 | 文章指南 |  |
 |:---:| --- |
 | 將單一登入應用程式部署到使用者可用的各種選項比較 |[對使用者部署 Azure AD 整合應用程式](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users) |
-| 存取面板和其行動對等 MyApps 的概觀 |[存取面板和 MyApps 簡介](active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
+| 存取面板和其行動對等 MyApps 的概觀 |[存取面板和 MyApps 簡介](user-help/active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | 如何從 Office 365 網站存取 Azure AD 應用程式 |[使用 Office 365 應用程式啟動程式](https://support.office.com/en-us/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
 | 如何從 Intune Managed Browser 行動應用程式存取 Azure AD 應用程式 |[Intune Managed Browser](https://technet.microsoft.com/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
 | 如何使用深層連結來存取 Azure AD 應用程式以起始單一登入 |[取得應用程式的直接登入連結](manage-apps/what-is-single-sign-on.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |

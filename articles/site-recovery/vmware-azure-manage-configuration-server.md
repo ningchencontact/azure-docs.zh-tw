@@ -3,15 +3,15 @@ title: 使用 Azure Site Recovery 管理 VMware 災害復原的設定伺服器 |
 description: 本文說明如何使用 Azure Site Recovery 管理將 VMware 災害復原到 Azure 的現有設定伺服器。
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 06/20/2018
+ms.topic: article
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 753e123c660b1aacea1157157f0e580e15c47536
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: d7c2224e6529d1675cdad5b29de887f19135a2a6
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287400"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916905"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>管理 VMware VM 的設定伺服器
 
@@ -27,7 +27,7 @@ ms.locfileid: "36287400"
    
 ### <a name="modify-vmware-server-settings"></a>修改 VMware 伺服器設定
 
-1. 若要為不同的 VMware 伺服器與組態伺服器建立關聯，請在登入後選取 [新增 vCenter Server/vSphere ESXi 伺服器]。
+1. 若要為不同的 VMware 伺服器與設定伺服器建立關聯，請在登入後選取 [新增 vCenter Server/vSphere ESXi 伺服器]。
 2. 輸入詳細資料，然後選取 [確定]。
 
 
@@ -96,21 +96,18 @@ ms.locfileid: "36287400"
 
 1. 在保存庫中，移至 [管理] > [Site Recovery 基礎結構] > [組態伺服器]。
 2. 如果有可用的更新，[代理程式版本] > [資料行] 中會出現連結。
-
-    ![更新](./media/vmware-azure-manage-configuration-server/update2.png)
-
-1. 將更新安裝程式檔案下載到組態伺服器上。
+    更新![](./media/vmware-azure-manage-configuration-server/update2.png)
+3. 將更新安裝程式檔案下載到組態伺服器上。
 
     ![更新](./media/vmware-azure-manage-configuration-server/update1.png)
 
 4. 按兩下以執行安裝程式。
-2. 安裝程式會偵測機器上執行的目前版本。 按一下 [是] 開始進行升級。 
-3. 升級完成時，會驗證伺服器組態。
+5. 安裝程式會偵測機器上執行的目前版本。 按一下 [是] 開始進行升級。
+6. 升級完成時，會驗證伺服器組態。
 
     ![更新](./media/vmware-azure-manage-configuration-server/update3.png)
-
-4. 按一下 [完成] 以關閉安裝程式。
-
+    
+7. 按一下 [完成] 以關閉安裝程式。
 
 ## <a name="delete-or-unregister-a-configuration-server"></a>將設定伺服器刪除或取消註冊
 
@@ -150,7 +147,12 @@ ms.locfileid: "36287400"
 > [!NOTE]
 > 您可以使用 Remove-AzureRmSiteRecoveryFabric 中的 **-Force** 選項來強制刪除設定伺服器。
  
+## <a name="generate-configuration-server-passphrase"></a>產生設定伺服器複雜密碼
 
+1. 登入組態伺服器，然後以系統管理員身分開啟命令提示字元視窗。
+2. 若要將目錄切換至 bin 資料夾，執行命令 **cd %ProgramData%\ASR\home\svsystems\bin**
+3. 若要產生複雜密碼檔案，請執行 **genpassphrase.exe -v > MobSvc.passphrase**。
+4. 您的複雜密碼將會儲存在位於 **%ProgramData%\ASR\home\svsystems\bin\MobSvc.passphrase** 的這個檔案中。
 
 ## <a name="renew-ssl-certificates"></a>更新 SSL 憑證
 

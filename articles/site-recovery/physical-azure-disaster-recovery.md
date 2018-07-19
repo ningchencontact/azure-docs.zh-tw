@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/23/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: a4c83e495e269cdca35844a699d714b55cf1f500
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 173423c1a578500a990d6a7b43017d06ea96f6e7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643306"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38704895"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>設定內部部署實體伺服器至 Azure 的災害復原
 
@@ -124,19 +124,25 @@ ms.locfileid: "34643306"
 
 開始之前，請執行下列動作： 
 
-- 在組態伺服器機器上，確定系統時鐘會與[時間伺服器](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service)同步。 應該相符。 如果快慢誤差 15 分鐘，安裝可能會失敗。
-- 請確定主機可以存取這些 URL：       [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+#### <a name="verify-time-accuracy"></a>驗證時間精確度
+在組態伺服器機器上，確定系統時鐘會與[時間伺服器](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service)同步。 應該相符。 如果快慢誤差 15 分鐘，安裝可能會失敗。
 
-- 以 IP 位址為基礎的防火牆規則都應該允許對 Azure 的通訊。
-- 允許 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/confirmation.aspx?id=41653)和 HTTPS (443) 連接埠。
-- 允許訂用帳戶的 Azure 區域和美國西部使用 IP 位址範圍 (用於存取控制和身分識別管理)。
+#### <a name="verify-connectivity"></a>驗證連線能力
+請確定主機可以根據您的環境，存取這些 URL： 
 
+[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
+
+以 IP 位址為基礎的防火牆規則應該允許透過 HTTPS (443) 連接埠，對以上所列的所有 Azure URL 進行通訊。 為簡化並限制 IP 範圍，建議您執行 URL 篩選。
+
+- **商用 IP**：允許 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/confirmation.aspx?id=41653)和 HTTPS (443) 連接埠。 允許訂用帳戶 Azure 區域的 IP 位址範圍，以支援 AAD、 備份、複寫和儲存體 URL。  
+- **政府機關 IP**：允許 [Azure Government 資料中心 IP 範圍](https://www.microsoft.com/en-us/download/details.aspx?id=57063)以及用於所有 USGov 區域 (維吉尼亞州、德州、亞歷桑那州和愛荷華州) 的 HTTPS (443) 連接埠，以支援 AAD、備份、複寫和儲存體 URL。  
+
+#### <a name="run-setup"></a>執行安裝程式
 以本機系統管理員身分執行整合安裝程式，以安裝設定伺服器。 根據預設，處理序伺服器與主要目標伺服器也會安裝在設定伺服器上。
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 註冊完成後，設定伺服器會顯示在保存庫的 [設定] > [伺服器] 頁面上。
-
 
 ## <a name="set-up-the-target-environment"></a>設定目標環境
 

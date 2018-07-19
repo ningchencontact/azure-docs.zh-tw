@@ -10,21 +10,21 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 856ae994e49f809ca2ef906ba6cdc7f8624dd201
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c99ae755705dddf501609c8f199d1977d0bde415
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33870017"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39057356"
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>快速部署 Azure AD 自助式密碼重設
 
 > [!IMPORTANT]
-> **您有登入問題嗎？** 若是如此，請參閱[忘記 Azure AD 密碼的說明](../active-directory-passwords-update-your-own-password.md)。
+> **您有登入問題嗎？** 若是如此，請參閱[忘記 Azure AD 密碼的說明](../user-help/active-directory-passwords-update-your-own-password.md)。
 
 自助式密碼重設 (SSPR) 提供了簡單的方法，讓 IT 系統管理員准許使用者重設或解除鎖定其密碼或帳戶。 系統包含詳細的報告，可追蹤使用者何時存取系統與通知來警示您誤用或濫用。
 
-本指南假設您已經有有效的試用或經過授權的 Azure Active Directory (Azure AD) 租用戶。 如果您需要設定 Azure AD 的說明，請參閱[開始使用 Azure AD](../get-started-azure-ad.md)。
+本指南假設您已經有有效的試用或經過授權的 Azure Active Directory (Azure AD) 租用戶。 如果您需要設定 Azure AD 的說明，請參閱[開始使用 Azure AD](../fundamentals/get-started-azure-ad.md)。
 
 ## <a name="enable-sspr-for-your-azure-ad-tenant"></a>啟用 Azure AD 租用戶的 SSPR
 
@@ -62,7 +62,7 @@ ms.locfileid: "33870017"
    * 通知使用者密碼重設。
    * 當其他系統管理員重設其密碼時通知所有系統管理員。
 
-此時，您已為 Azure AD 租用戶設定 SSPR。 您的使用者現在可以使用[註冊自助式密碼重設](../active-directory-passwords-reset-register.md)和[重設或變更密碼](../active-directory-passwords-update-your-own-password.md)文章中的指示，來更新他們的密碼，而不需要系統管理員介入。 如果您只要在雲端上設定，您可以在此停止。 或者繼續下一節，以設定將密碼同步處理至內部部署 Active Directory 網域。
+此時，您已為 Azure AD 租用戶設定 SSPR。 您的使用者現在可以使用[註冊自助式密碼重設](../user-help/active-directory-passwords-reset-register.md)和[重設或變更密碼](../user-help/active-directory-passwords-update-your-own-password.md)文章中的指示，來更新他們的密碼，而不需要系統管理員介入。 如果您只要在雲端上設定，您可以在此停止。 或者繼續下一節，以設定將密碼同步處理至內部部署 Active Directory 網域。
 
 > [!TIP]
 > 以使用者而非系統管理員測試 SSPR，因為 Microsoft 會強制執行 Azure 系統管理員帳戶的強式驗證需求。 如需有關系統管理員密碼原則的詳細資訊，請參閱我們的[密碼原則](concept-sspr-policy.md#administrator-password-policy-differences)一文。
@@ -95,8 +95,8 @@ ms.locfileid: "33870017"
 下列文章提供有關透過 Azure AD 重設密碼的其他資訊：
 
 * [如何完成 SSPR 成功首度發行？](howto-sspr-deployment.md)
-* [重設或變更您的密碼](../active-directory-passwords-update-your-own-password.md)
-* [註冊自助式密碼重設](../active-directory-passwords-reset-register.md)
+* [重設或變更您的密碼](../user-help/active-directory-passwords-update-your-own-password.md)
+* [註冊自助式密碼重設](../user-help/active-directory-passwords-reset-register.md)
 * [您有授權問題嗎？](concept-sspr-licensing.md)
 * [SSPR 使用哪些資料，以及您應該為使用者填入哪些資料？](howto-sspr-authenticationdata.md)
 * [哪些驗證方法可供使用者使用？](concept-sspr-howitworks.md#authentication-methods)

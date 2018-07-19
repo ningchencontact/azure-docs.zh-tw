@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: c3f4a64c9e11d17899987bbe818506f61c415e3f
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 81809660bdda957eb4502e02799b9f7f5538ae51
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757054"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114018"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>適用於網路安全性群組的診斷記錄
 
@@ -35,7 +35,7 @@ ms.locfileid: "34757054"
 
 ## <a name="enable-logging"></a>啟用記錄
 
-您可以使用 [Azure 入口網站](#azure-portal)或 [PowerShell](#powershell) 來啟用診斷記錄。
+您可以使用 [Azure 入口網站](#azure-portal)、[PowerShell](#powershell) 或 [Azure CLI](#azure-cli) 來啟用診斷記錄。
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
@@ -57,7 +57,7 @@ ms.locfileid: "34757054"
 
 ### <a name="powershell"></a>PowerShell
 
-您可以執行 [Azure Cloud Shell](https://shell.azure.com/powershell) 中採用的命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式殼層。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 如果您從電腦執行 PowerShell，就需要 *AzureRM* PowerShell 模組 6.1.1 版或更新版本。 在電腦上執行 `Get-Module -ListAvailable AzureRM` 以尋找已安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，還需要執行 `Login-AzureRmAccount` 以使用具有[必要權限](virtual-network-network-interface.md#permissions)的帳戶登入 Azure。
+您可以執行 [Azure Cloud Shell](https://shell.azure.com/powershell) 中採用的命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式殼層。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 如果您從電腦執行 PowerShell，就需要 *AzureRM* PowerShell 模組 6.1.1 版或更新版本。 請在您的電腦上執行 `Get-Module -ListAvailable AzureRM`，以尋找已安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則還需要執行 `Login-AzureRmAccount` 以使用具有[必要權限](virtual-network-network-interface.md#permissions)的帳戶來登入 Azure。
 
 若要啟用診斷記錄，您需要現有 NSG 的識別碼。 如果您目前沒有 NSG，可以使用 [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup) 建立一個。
 
@@ -69,12 +69,12 @@ $Nsg=Get-AzureRmNetworkSecurityGroup `
   -ResourceGroupName myResourceGroup
 ```
 
-您可以將診斷記錄寫入至三種目的地類型。 如需詳細資訊，請參閱[記錄目的地](#log-destinations)。 舉例來說，本文中的內容會將記錄傳送到 *Log Analytics* 目的地。 使用 [Get-AzureRmOperationalInsightsWorkspace](/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightsworkspace) 來擷取現有的 Log Analytics 工作區。 例如，若要在 *LaWorkspaces* 資源群組中擷取 *myLaWorkspace* 現有工作區，請輸入下列命令：
+您可以將診斷記錄寫入至三種目的地類型。 如需詳細資訊，請參閱[記錄目的地](#log-destinations)。 舉例來說，本文中的內容會將記錄傳送到 *Log Analytics* 目的地。 使用 [Get-AzureRmOperationalInsightsWorkspace](/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightsworkspace) 來擷取現有的 Log Analytics 工作區。 例如，若要在名為 myWorkspaces 的資源群組中擷取名為 myWorkspace 的現有工作區，請輸入下列命令：
 
 ```azurepowershell-interactive
 $Oms=Get-AzureRmOperationalInsightsWorkspace `
-  -ResourceGroupName LaWorkspaces `
-  -Name myLaWorkspace
+  -ResourceGroupName myWorkspaces `
+  -Name myWorkspace
 ```
 
 如果您目前沒有工作區，可以使用 [New-AzureRmOperationalInsightsWorkspace](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace) 建立一個。
@@ -89,6 +89,41 @@ Set-AzureRmDiagnosticSetting `
 ```
 
 如果您只想針對其中一個類別 (而非兩者) 記錄資料，請將 `-Categories` 選項加入至先前的命令，後面接著輸入 *NetworkSecurityGroupEvent* 或 *NetworkSecurityGroupRuleCounter*。 如果您想要記錄到 Log Analytics 工作區以外的不同[目的地](#log-destinations)，請使用適用於 Azure [儲存體帳戶](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)或[事件中樞](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)的適當參數。
+
+檢視及分析記錄。 如需詳細資訊，請參閱[檢視及分析記錄檔](#view-and-analyze-logs)。
+
+### <a name="azure-cli"></a>Azure CLI
+
+您可以執行 [Azure Cloud Shell](https://shell.azure.com/bash) 中採用的命令，或從您的電腦執行 Azure CLI。 Azure Cloud Shell 是免費的互動式殼層。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 如果您是從電腦執行 CLI，您需要版本 2.0.38 或更新版本。 請在您的電腦上執行 `az --version`，以尋找已安裝的版本。 如果您需要升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)。 如果您在本機執行 CLI，則還需要執行 `az login` 以使用具有[必要權限](virtual-network-network-interface.md#permissions)的帳戶來登入 Azure。
+
+若要啟用診斷記錄，您需要現有 NSG 的識別碼。 如果您目前沒有 NSG，可以使用 [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) 來建立。
+
+使用 [az network nsg show](/cli/azure/network/nsg#az-network-nsg-show) 來擷取您想要啟用診斷記錄的網路安全性群組。 例如，若要擷取名為 *myNsg* 的 NSG 且該 NSG 存在於名為 *myResourceGroup* 的資源群組中，請輸入下列命令：
+
+```azurecli-interactive
+nsgId=$(az network nsg show \
+  --name myNsg \
+  --resource-group myResourceGroup \
+  --query id \
+  --output tsv)
+```
+
+您可以將診斷記錄寫入至三種目的地類型。 如需詳細資訊，請參閱[記錄目的地](#log-destinations)。 舉例來說，本文中的內容會將記錄傳送到 *Log Analytics* 目的地。 如需詳細資訊，請參閱[記錄類別](#log-categories)。 
+
+使用 [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) 來針對 NSG 啟用診斷記錄。 下列範例會將事件和計數器類別資料都記錄到名為 myWorkspace 的現有工作區，該工作區存在於名為 myWorkspaces 的資源群組中，NSG 識別碼則是您先前所擷取的：
+
+```azurecli-interactive
+az monitor diagnostic-settings create \
+  --name myNsgDiagnostics \
+  --resource $nsgId \
+  --logs '[ { "category": "NetworkSecurityGroupEvent", "enabled": true, "retentionPolicy": { "days": 30, "enabled": true } }, { "category": "NetworkSecurityGroupRuleCounter", "enabled": true, "retentionPolicy": { "days": 30, "enabled": true } } ]' \
+  --workspace myWorkspace \
+  --resource-group myWorkspaces
+```
+
+如果您目前沒有工作區，可以使用 [Azure 入口網站](../log-analytics/log-analytics-quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json)或 [PowerShell](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace) 來建立一個工作區。 您可以啟用記錄的記錄類別有兩種。 
+
+如果您只想要記錄某個類別或其他類別的資料，請在上一個命令中移除您不想要記錄資料的類別。 如果您想要記錄到 Log Analytics 工作區以外的不同[目的地](#log-destinations)，請使用適用於 Azure [儲存體帳戶](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)或[事件中樞](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)的適當參數。
 
 檢視及分析記錄。 如需詳細資訊，請參閱[檢視及分析記錄檔](#view-and-analyze-logs)。
 

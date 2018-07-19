@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: wgries
-ms.openlocfilehash: f1230cbc4d654bfb59bb328ed7d75c6fa76ff10c
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 808bc3908790c8d6dedf1d9f00a4c70b42c7c490
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268040"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867064"
 ---
 # <a name="deploy-azure-file-sync-preview"></a>部署 Azure 檔案同步 (預覽)
 使用 Azure 檔案同步 (預覽版)，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的靈活度、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。

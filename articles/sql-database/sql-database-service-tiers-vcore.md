@@ -6,15 +6,15 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/23/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: bfa32796b40033a13d1ced9f8431bd19492e6498
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: dec995d0b9177e4fb88c836c3ea0fef25a3b3ba3
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309574"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859930"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>選擇虛擬核心服務層、計算、記憶體、儲存體和 IO 資源
 
@@ -25,8 +25,8 @@ ms.locfileid: "36309574"
 ||**一般用途**|**商務關鍵性**|
 |---|---|---|
 |適用對象|大部分的商業工作負載。 提供以預算為導向、平衡且可調整規模的計算與儲存體選項。|高 IO 需求的商務應用程式。 使用數個分開的複本，針對失敗提供最高的復原能力。|
-|計算|1 到 80 個 vCore，第 4 代和第 5 代 |1 到 80 個 vCore，第 4 代和第 5 代|
-|記憶體|每個核心 7 GB |每個核心 7 GB |
+|計算|1 到 80 vCore、Gen4 和 Gen5 |1 到 80 vCore、Gen4 和 Gen5|
+|記憶體|Gen4：每個核心 7 GB<br>Gen5：每個核心 5.5 GB | Gen4：每個核心 7 GB<br>Gen5：每個核心 5.5 GB |
 |儲存體|進階遠端儲存體，5 GB – 4 TB|本機 SSD 儲存體，5 GB – 4 TB|
 |IO 輸送量 (大約)|每個虛擬核心 500 IOPS，且 IOPS 上限為 7000|每個虛擬核心 5000 IOPS，且 IOPS 上限為 200000|
 |可用性|1 個複本、無讀取規模|3 個複本、1 個[讀取規模](sql-database-read-scale-out.md)、區域備援 HA|

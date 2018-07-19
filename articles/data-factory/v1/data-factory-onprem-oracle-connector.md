@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fe1ca45b0f79781b2fa17bfb605df03d334cc8d1
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 10535e75a32a9f95e759340cf14d693f43639473
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046708"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856836"
 ---
-# <a name="copy-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>使用 Azure Data Factory 從內部部署 Oracle 來回複製資料
+# <a name="copy-data-to-or-from-on-premises-oracle-using-azure-data-factory"></a>使用 Azure Data Factory 從內部部署 Oracle 來回複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [第 1 版](data-factory-onprem-oracle-connector.md)
 > * [第 2 版 (目前的版本)](../connector-oracle.md)
@@ -103,6 +103,10 @@ Data Factory 支援使用資料管理閘道連接至內部部署 Oracle 來源�
 | gatewayName | 用來連線內部部署 Oracle 伺服器的閘道名稱 |yes |
 
 **範例︰使用 Microsoft 驅動程式：**
+
+>[!TIP]
+>如果您遇到指出「ORA-01025: UPI 參數超出範圍」的錯誤，而且您的 Oracle 版本為 8i，請將 `WireProtocolMode=1` 新增至連接字串並再試一次。
+
 ```json
 {
     "name": "OnPremisesOracleLinkedService",

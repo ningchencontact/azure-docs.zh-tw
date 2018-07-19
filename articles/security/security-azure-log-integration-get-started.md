@@ -15,18 +15,18 @@ ums.workload: na
 ms.date: 06/07/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 5aab890340fcdd87e1b3788d8bcca903c43da1da
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 2f97a2e8ad38bb3c78333cc2c8eedad8f520e68a
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235741"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036797"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>使用 Azure 診斷記錄和 Windows 事件轉送進行 Azure 記錄整合
 
 
 >[!IMPORTANT]
-> Azure 記錄整合功能將於 2019 年 6 月 1 日淘汰。 AzLog 下載將於 2018 年 6 月 27 日停用。 如需繼續進行的指導，請檢閱 [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (使用 Azure 監視器與 SIEM 工具整合) 一文 
+> Azure 記錄整合功能將於 2019/06/01 淘汰。 AzLog 下載將於 2018 年 6 月 27 日停用。 如需繼續進行的指導，請檢閱 [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (使用 Azure 監視器與 SIEM 工具整合) 一文 
 
 只有在無法從安全性資訊與事件管理 (SIEM) 廠商取得 [Azure 監視器](../monitoring-and-diagnostics/monitoring-get-started.md)連接器時，才應該使用 Azure 記錄整合。
 
@@ -47,7 +47,7 @@ Azure 記錄整合服務會在執行 Windows Server 2008 R2 或更新版本 (Win
 
 執行 Azure 記錄整合服務的實體或虛擬機器需要網路連線至 Azure 公用雲端。 本文提供所需設定的詳細資料。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 Azure 記錄整合安裝至少需要下列項目︰
 
@@ -229,6 +229,7 @@ Azure 記錄整合服務會從其安裝所在的電腦收集遙測資料。
     ```Azlog.exe authorize subscriptionId``` 範例：
 
 ```AZLOG.exe authorize ba2c2367-d24b-4a32-17b5-4443234859```
+
 4.  檢查下列資料夾以確認其中是否建立了 Azure Active Directory 稽核記錄 JSON 檔案：
     - C:\Users\azlog\AzureResourceManagerJson
     - C:\Users\azlog\AzureResourceManagerJsonLD

@@ -9,11 +9,11 @@ ms.date: 05/17/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: ab668a905b435287a4eaf96ff04b2fa5b54deb1d
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36313508"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38764717"
 ---
 有各種原因會造成無法啟動或連接至在 Azure 虛擬機器 (VM) 上執行的應用程式。 原因包括應用程式並未執行，或未在預期的連接埠上接聽，接聽連接埠遭到封鎖，或網路規則未正確將流量傳遞至應用程式。 本文說明條理式方法，以找出並更正問題。
 

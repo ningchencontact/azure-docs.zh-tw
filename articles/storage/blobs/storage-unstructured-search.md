@@ -2,19 +2,19 @@
 title: 搜尋 Azure 雲端儲存體中的非結構化資料
 description: 使用 Azure 搜尋服務來搜尋非結構化資料。
 author: roygara
-manager: timlt
+manager: twooley
 services: storage
 ms.service: storage
 ms.topic: tutorial
 ms.date: 10/12/2017
-ms.author: rogara
+ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: 930b735eb03aea6ce701b694ca527049b4c3f24d
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: e50ff3b3a53a13d1604fcb7872853d758259ff9f
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2017
-ms.locfileid: "23451635"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136531"
 ---
 # <a name="search-unstructured-data-in-cloud-storage"></a>搜尋雲端儲存體中的非結構化資料
 

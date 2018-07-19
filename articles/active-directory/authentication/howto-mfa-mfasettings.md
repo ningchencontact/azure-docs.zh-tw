@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: bf25ae5703a632005dd73820fc05347f7b5e16a6
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 1d5e7683050c5e1e4216b81e23554724f12d45f9
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097490"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054704"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>設定 Azure Multi-Factor Authentication 設定
 
@@ -292,7 +292,7 @@ Azure AD 使用內部部署 Windows Server Active Directory Domain Services (AD 
 
 使用者可以在一開始的註冊期間建立應用程式密碼。 使用者可選擇在註冊程序結束時建立應用程式密碼。
 
-使用者也可以在註冊後建立應用程式密碼。 可以透過 Azure 入口網站或 Office 365 入口網站中的設定來建立應用程式密碼。 如需使用者的詳細資訊和詳細步驟，請參閱[什麼是 Azure Multi-Factor Authentication 中的應用程式密碼？](end-user/current/multi-factor-authentication-end-user-app-passwords.md)
+使用者也可以在註冊後建立應用程式密碼。 可以透過 Azure 入口網站或 Office 365 入口網站中的設定來建立應用程式密碼。 如需使用者的詳細資訊和詳細步驟，請參閱[什麼是 Azure Multi-Factor Authentication 中的應用程式密碼？](../user-help/multi-factor-authentication-end-user-app-passwords.md)
 
 <a name="remember-multi-factor-authentication-for-devices-that-users-trust"></a>
 ## <a name="remember-multi-factor-authentication-for-trusted-devices"></a>針對信任的裝置，記住其 Multi-Factor Authentication
@@ -301,7 +301,7 @@ Azure AD 使用內部部署 Windows Server Active Directory Domain Services (AD 
 >[!IMPORTANT]
 >若帳戶或裝置遭到入侵，請記住受信任裝置的 Multi-Factor Authentication 可能會影響安全性。 如果公司帳戶遭入侵或信任的裝置遺失或遭竊，您應該[在所有裝置上還原 Multi-Factor Authentication](howto-mfa-userdevicesettings.md#restore-mfa-on-all-remembered-devices-for-a-user)。
 >
->此還原動作會從所有裝置撤銷受信任的狀態，使用者必須再次執行雙步驟驗證。 您也可以使用[管理雙步驟驗證的設定](end-user/current/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted)中的指示，指示使用者在自己的裝置上還原 Multi-Factor Authentication。
+>此還原動作會從所有裝置撤銷受信任的狀態，使用者必須再次執行雙步驟驗證。 您也可以使用[管理雙步驟驗證的設定](../user-help/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted)中的指示，指示使用者在自己的裝置上還原 Multi-Factor Authentication。
 >
 
 ### <a name="how-the-feature-works"></a>此功能的運作方式
@@ -341,7 +341,7 @@ Azure AD 使用內部部署 Windows Server Active Directory Domain Services (AD 
 
 您可以使用 _可選取的驗證方法_ 功能，來選擇可供使用者使用的驗證方法。 下表提供各種方法的簡短概觀。
 
-使用者將其帳戶註冊進行 Azure Multi-Factor Authentication 時，會在您已啟用的選項中選擇慣用驗證方法。 [對我的帳戶進行雙步驟驗證設定](end-user/current/multi-factor-authentication-end-user-first-time.md)中會提供使用者註冊程序的指引。
+使用者將其帳戶註冊進行 Azure Multi-Factor Authentication 時，會在您已啟用的選項中選擇慣用驗證方法。 [對我的帳戶進行雙步驟驗證設定](../user-help/multi-factor-authentication-end-user-first-time.md)中會提供使用者註冊程序的指引。
 
 | 方法 | 說明 |
 |:--- |:--- |

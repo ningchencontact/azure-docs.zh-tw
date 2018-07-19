@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/27/2018
+ms.date: 07/16/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: c60d736798adbbcb47b94172768dc8b8e5c366fe
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 97404421a48d15339fdecf23a951a64d975da577
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37088413"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090330"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>整合 Azure Active Directory 與應用程式入門指南
 ## <a name="overview"></a>概觀
@@ -57,12 +57,12 @@ ms.locfileid: "37088413"
 
 也許您事先對這所有問題沒有答案，但是沒關係。  本指南可協助您回答其中一些問題，並做出一些明智的決策。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * 一個 Azure 訂用帳戶，以及一個 Azure Active Directory 目錄。  如果您尚沒有 Azure 訂用帳戶，可以免費試用 Azure 30 天。 [立即試用！](https://azure.microsoft.com/trial/get-started-active-directory/)
 
 ## <a name="application-integration-with-azure-ad"></a>與 Azure AD 的應用程式整合
 ### <a name="finding-unsanctioned-cloud-applications-with-cloud-discovery"></a>使用 Cloud Discovery 尋找未經約束的雲端應用程式
-如上所述，可能有應用程式到目前為止仍未受到組織的管理。  作為清查程序的一部分，您可以找到未經約束的雲端應用程式。 請參閱[設定 Cloud Discovery](/cloud-app-security/set-up-cloud-discovery.md)。
+如上所述，可能有應用程式到目前為止仍未受到組織的管理。  作為清查程序的一部分，您可以找到未經約束的雲端應用程式。 請參閱[設定 Cloud Discovery](/cloud-app-security/set-up-cloud-discovery)。
 
 ### <a name="authentication-types"></a>驗證類型
 每個應用程式可能有不同的驗證需求。 利用 Azure AD，可將簽署憑證用於使用 SAML 2.0、WS-同盟或 OpenID Connect 通訊協定，以及密碼單一登入的應用程式。 如需要與 Azure AD 搭配使用的應用程式驗證類型的詳細資訊，請參閱[在 Azure Active Directory 中管理同盟單一登入的憑證](manage-certificates-for-federated-single-sign-on.md)和[密碼式單一登入](what-is-single-sign-on.md)。

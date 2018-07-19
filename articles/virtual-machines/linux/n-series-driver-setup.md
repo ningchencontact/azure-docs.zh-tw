@@ -13,19 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/29/2018
+ms.date: 06/19/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 807af10c0655d9d1728a80a47d1f8f9c2a16fb84
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c8f043fdcaa7554d73be6ac3928a37630baab845
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34654278"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38630416"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>在執行 Linux 的 N 系列 VM 上安裝 NVIDIA GPU 驅動程式
 
-若要利用 Azure N 系列 VM (執行 Linux) 的 GPU 功能，您必須安裝 NVIDIA 圖形驅動程式。 本文提供您在部署 N 系列 VM 後的驅動程式安裝步驟。 驅動程式設定資訊也適用於 [Windows VM](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+若要利用 Azure N 系列 VM (執行 Linux) 的 GPU 功能，您必須安裝 NVIDIA GPU 驅動程式。 [NVIDIA GPU 驅動程式擴充功能](../extensions/hpccompute-gpu-linux.md)會在 N 系列 VM 上安裝適當的 NVIDIA CUDA 或 GRID 驅動程式。 使用 Azure 入口網站或者 Azure CLI 或 Azure Resource Manager 範本之類的工具，安裝或管理擴充功能。 如需支援的發佈和部署步驟，請參閱 [NVIDIA GPU 驅動程式擴充功能文件](../extensions/hpccompute-gpu-linux.md)。
+
+如果您選擇手動安裝 GPU 驅動程式，本文提供支援的發佈、驅動程式，以及安裝和驗證步驟。 驅動程式手動設定資訊也適用於 [Windows VM](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 如需 N 系列 VM 規格、儲存體容量與磁碟的詳細資料，請參閱 [GPU Linux VM 大小](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 
 
@@ -302,7 +304,7 @@ sudo reboot
  
 
 ### <a name="x11-server"></a>X11 伺服器
-如果您需要 X11 伺服器遠端連線到 NV VM，建議使用 [x11vnc](http://www.karlrunge.com/x11vnc/)，因為它可讓圖形進行硬體加速。 必須以手動方式將 M60 裝置的 BusID 新增至 xconfig 檔案 (Ubuntu 16.04 LTS 上的 `etc/X11/xorg.conf`、CentOS 7.3 或 Red Hat Enterprise Server 7.3 上的 `/etc/X11/XF86config`)。 新增類似下列的 `"Device"` 區段：
+如果您需要 X11 伺服器遠端連線到 NV VM，建議使用 [x11vnc](http://www.karlrunge.com/x11vnc/)，因為它可讓圖形進行硬體加速。 M60 裝置的 BusID 必須手動加入至 X11 組態檔 (通常是 `etc/X11/xorg.conf`)。 新增類似下列的 `"Device"` 區段：
  
 ```
 Section "Device"
@@ -310,7 +312,7 @@ Section "Device"
     Driver         "nvidia"
     VendorName     "NVIDIA Corporation"
     BoardName      "Tesla M60"
-    BusID          "your-BusID:0:0:0"
+    BusID          "PCI:0@your-BusID:0:0"
 EndSection
 ```
  
@@ -319,16 +321,23 @@ EndSection
 可以找到十進位 BusID，方法為執行
 
 ```bash
-echo $((16#`/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1`))
+nvidia-xconfig --query-gpu-info | awk '/PCI BusID/{print $4}'
 ```
  
-重新配置或重新啟動 VM 時，可以變更 BusID。 因此，重新啟動 VM 時，建議您建立指令碼來更新 X11 設定中的 BusID。 例如，建立名為 `busidupdate.sh` (或您選擇的其他名稱) 且具有下列內容的指令碼：
+重新配置或重新啟動 VM 時，可以變更 BusID。 因此，重新啟動 VM 時，建議您建立指令碼來更新 X11 設定中的 BusID。 例如，建立名為 `busidupdate.sh` (或您選擇的其他名稱) 且具有類似下列內容的指令碼：
 
 ```bash 
 #!/bin/bash
-BUSID=$((16#`/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1`))
+XCONFIG="/etc/X11/xorg.conf"
+OLDBUSID=`awk '/BusID/{gsub(/"/, "", $2); print $2}' ${XCONFIG}`
+NEWBUSID=`nvidia-xconfig --query-gpu-info | awk '/PCI BusID/{print $4}'`
 
-if grep -Fxq "${BUSID}" /etc/X11/XF86Config; then     echo "BUSID is matching"; else   echo "BUSID changed to ${BUSID}" && sed -i '/BusID/c\    BusID          \"PCI:0@'${BUSID}':0:0:0\"' /etc/X11/XF86Config; fi
+if [[ "${OLDBUSID}" == "${NEWBUSID}" ]] ; then
+        echo "NVIDIA BUSID not changed - nothing to do"
+else
+        echo "NVIDIA BUSID changed from \"${OLDBUSID}\" to \"${NEWBUSID}\": Updating ${XCONFIG}" 
+        sed -e 's|BusID.*|BusID          '\"${NEWBUSID}\"'|' -i ${XCONFIG}
+fi
 ```
 
 接著，在 `/etc/rc.d/rc3.d` 中建立更新指令碼的項目，如此在開機時，會以 root 的身分叫用指令碼。

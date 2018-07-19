@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 6a34187a87c6ecda461357a1c2fc8747ddf4b056
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: f758939964045ed373703a211d4cbef00f0e42e7
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294287"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919541"
 ---
 # <a name="failover-and-failback-hyper-v-vms-replicated-to-azure"></a>將 Hyper-V VM 容錯移轉及容錯回復至 Azure
 
@@ -38,22 +38,26 @@ ms.locfileid: "36294287"
 容錯移轉和容錯回復有三個階段：
 
 1. **容錯移轉至 Azure**：從內部部署網站將 Hyper-V VM 容錯移轉至 Azure。
-2. **容錯回復至內部部署**：將 Azure VM 容錯回復至內部部署網站 (在網站可供使用時)。 它會開始將 VM 複寫回內部部署 Hyper-V VM。 初始資料同步完成後，將 Azure VM 容錯移轉至內部部署網站。  
-3. **反向複寫內部部署 VM**：在資料容錯回復之後，請反向複寫內部部署 VM，以便開始將這些 VM 複寫至 Azure。
+2. **容錯回復至內部部署**：在內部部署網站可供使用時，將 Azure VM 容錯回復至內部部署網站。 它會開始將資料從 Azure 同步處理至內部部署，並在完成時，於內部部署上啟動 VM。  
+3. **反向複寫內部部署 VM**：容錯回復至內部部署之後，請反向複寫內部部署 VM，以開始將這些 VM 複寫至 Azure。
 
 ## <a name="verify-vm-properties"></a>驗證 VM 屬性
 
 在容錯移轉之前，請驗證 VM 屬性，並確定 VM 符合 [Azure 需求](hyper-v-azure-support-matrix.md#replicated-vms)。
 
-1. 在 [受保護的項目] 中，按一下 [複寫的項目] > <VM-name>。
+在 [受保護的項目] 中，按一下 [複寫的項目] > VM。
 
-2. 在 [複寫的項目] 窗格中，檢閱 VM 資訊、健康情況狀態，以及最新可用復原點。 如需檢視詳細資訊，請按一下 [屬性]。
-     - 在 [計算與網路] 中，您可以修改 VM 設定和網路設定，包括在容錯移轉後 Azure VM 所會位於的網路/子網路，以及其所會獲得的 IP 位址。 受控磁碟不支援從 Azure 容錯回復到 Hyper-V。
-      - 在 [磁碟] 中，您可以看見 VM 上作業系統和資料磁碟的相關資訊。
+2. 在 [複寫的項目] 窗格中，將會呈現 VM 資訊、健康情況狀態，以及最新可用復原點的摘要。 如需檢視詳細資訊，請按一下 [屬性]。
+
+3. 在 [計算與網路] 中，您可以修改 Azure 的名稱、資源群組、目標大小、[可用性設定組](../virtual-machines/windows/tutorial-availability-sets.md)，及管理磁碟設定。
+
+4. 您可以檢視及修改網路設定，包括在容錯移轉後 Azure VM 所在的網路/子網路，以及要指派給它的 IP 位址。
+
+5. 在 [磁碟] 中，您可以看見 VM 上作業系統和資料磁碟的相關資訊。
 
 ## <a name="failover-to-azure"></a>容錯移轉至 Azure
 
-1. 在 [設定] > [複寫的項目] 中，按一下 VM > [容錯移轉]。
+1. 在 [設定] > [複寫的項目] 中，按一下 [VM] > [容錯移轉]。
 2. 在 [容錯移轉] 中，選取 [最新的] 復原點。 
 3. 選取 [Shut down machine before beginning failover] \(先將機器關機再開始容錯移轉)。 Site Recovery 會嘗試先關閉來源 VM 後，再觸發容錯移轉。 即使關機失敗，仍會繼續容錯移轉。 您可以 [作業] 頁面上追蹤容錯移轉進度。
 4. 驗證容錯移轉之後，請按一下 [認可]。 這會刪除所有可用的復原點。

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: b87838a80c7c7706b9af2bd4ea274335d04a5c52
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: e8e41c51b6df9962e561d56be75108ba9cd76377
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751508"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901614"
 ---
 # <a name="back-up-your-app-in-azure"></a>在 Azure 中備份應用程式
 [Azure App Service](app-service-web-overview.md) 中的「備份與還原」功能可讓您以手動或透過排程方式，輕鬆建立應用程式備份。 您可以透過覆寫現有的應用程式或還原到另一個應用程式，將應用程式還原到先前狀態的快照。 
@@ -53,6 +53,10 @@ App Service 可以將下列資訊備份到您已設定讓應用程式使用的 A
   「進階」層所允許的每日備份數量比「標準」層多。
 * 您需要與您即將備份之應用程式隸屬於相同訂用帳戶的 Azure 儲存體帳戶和容器。 如需 Azure 儲存體帳戶的詳細資訊，請參閱本文結尾處的 [連結](#moreaboutstorage) 。
 * 備份上限是 10 GB 的應用程式和資料庫內容。 如果備份大小超出此限制，您就會收到錯誤。
+* 不支援備份具 SSL 功能的適用於 MySQL 的 Azure 資料庫。 如果設定備份，會得到失敗的備份檔案。
+* 不支援備份具 SSL 功能的適用於 PostgreSQL 的 Azure 資料庫。 如果設定備份，會得到失敗的備份檔案。
+* 不支援將具防火牆功能的儲存體帳戶做為備份目的地。 如果設定備份，會得到失敗的備份檔案。
+
 
 <a name="manualbackup"></a>
 

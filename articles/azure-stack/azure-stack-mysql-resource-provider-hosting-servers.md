@@ -11,19 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/25/2018
+ms.date: 07/02/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 5522eb1b8b0398aeb6f1b0dd8578b906880b4e89
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: bccc2dcad8e326cd29cfe031a95a7c2d0cf5ec7f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939649"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38302307"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>為 SMySQL 資源提供者新增主控伺服器
 
 您可以使用 [Azure Stack](azure-stack-poc.md) 內 VM 上的 MySQL 執行個體，或 Azure Stack 環境外 VM 上的執行個體，只要 MySQL 資源提供者能夠連線到該執行個體均可。
+
+MySQL 5.6、5.7 和 8.0 版可用於您的主控伺服器。 MySQL RP 不支援 caching_sha2_password 驗證；將下一個版本中加入。 MySQL 8.0 伺服器必須設定為使用 mysql_native_password。 也支援 MariaDB。
 
 ## <a name="connect-to-a-mysql-hosting-server"></a>連線到 MySQL 主控伺服器
 
@@ -51,13 +53,21 @@ ms.locfileid: "36939649"
 
    SKU 的 [名稱] 應反映 SKU 屬性，以便使用者將其資料庫部署到適當的 SKU。
 
-   >[!IMPORTANT]
-   >當您為 MySQL 資源提供者建立 SKU 時，[名稱] 或 [層級] 不支援特殊字元，包括空格和句點。
-
 6. 選取 [確定] 以建立 SKU。
+> [!NOTE]
+> 最多需要一小時才能在入口網站中看到 SKU。 您必須等到 SKU 部署完畢並開始執行之後，才能建立資料庫。
+
 7. 在 [新增 MySQL 主控伺服器] 下方，選取 [建立]。
 
 新增伺服器時，必須將它們指派給新的或現有的 SKU，以將服務供應項目差異化。 例如，您可以使用 MySQL 企業執行個體來提供增加的資料庫和自動備份。 您可以為組織中不同部門保留此高效能伺服器。
+
+## <a name="security-considerations-for-mysql"></a>MySQL 的安全性考量
+
+下列資訊適用於 RP 和 MySQL 主控伺服器：
+
+* 請確定所有主控伺服器都設定為使用 TLS 1.2 通訊。 請參閱[將 MySQL 設定為使用加密連線](https://dev.mysql.com/doc/refman/5.7/en/using-encrypted-connections.html)。
+* 採用[透明資料加密](https://dev.mysql.com/doc/mysql-secure-deployment-guide/5.7/en/secure-deployment-data-encryption.html)。
+* MySQL RP 不支援 caching_sha2_password 驗證。
 
 ## <a name="increase-backend-database-capacity"></a>增加後端資料庫容量
 
@@ -65,9 +75,7 @@ ms.locfileid: "36939649"
 
 ## <a name="make-mysql-database-servers-available-to-your-users"></a>讓您的使用者可使用 MySQL 資料庫伺服器
 
-建立方案和供應項目，讓使用者使用 MySQL 資料庫伺服器。 將 Microsoft.MySqlAdapter 服務新增到方案，然後新增預設配額，或建立新配額。
-
-![建立資料庫的方案和供應項目](./media/azure-stack-mysql-rp-deploy/mysql-new-plan.png)
+建立方案和供應項目，讓使用者使用 MySQL 資料庫伺服器。 將 Microsoft.MySqlAdapter 服務新增到方案，然後建立新配額。 MySQL 不允許限制資料庫的大小。
 
 ## <a name="next-steps"></a>後續步驟
 

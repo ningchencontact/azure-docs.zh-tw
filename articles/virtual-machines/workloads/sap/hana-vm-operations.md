@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/24/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 61369fbf864db28ee0a9415bbb87dca2a185ed43
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 2480ad464f2fc716cf68672387a189aeb92f5737
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809670"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918827"
 ---
 # <a name="sap-hana-on-azure-operations-guide"></a>Azure 上的 SAP Hana 作業指南
 本文件提供已部署在 Azure 原生虛擬機器 (VM) 上之 SAP Hana 系統的作業指引。 這份文件並非用以取代標準 SAP 文件，包含下列內容：
@@ -79,7 +79,7 @@ Azure 針對 Azure 標準儲存體和 Azure 進階儲存體上的 VHD，提供�
 
 ### <a name="configuring-the-storage-for-azure-virtual-machines"></a>設定 Azure 虛擬機器的儲存體
 
-目前您購買的 SAP HANA 設備是用於內部部署，所以您不需要在意 I/O 子系統及其功能，原因是設備廠商必須確認最低儲存體需求符合 SAP HANA。 當您自行建置 Azure 基礎結構時，您也應該對這些需求有些了解，以了解我們在下列章節中建議的組態需求。 或者，針對您要設定虛擬機器來執行 SAP HANA 的情況。 要求的某些特性會導致以下需求：
+目前您購買的 SAP HANA 設備是用於內部部署，所以您不需要在意 I/O 子系統及其功能，因為設備廠商必須確認符合 SAP HANA 的最低儲存體需求。 當您自行建置 Azure 基礎結構時，您也應該對這些需求有些了解，以了解我們在下列章節中建議的組態需求。 或者，針對您要設定虛擬機器來執行 SAP HANA 的情況。 要求的某些特性會導致以下需求：
 
 - 在 /hana/log 上啟用 250MB/秒、最少具有 1 MB I/O 大小的讀取/寫入磁碟區
 - 針對 /hana/data 啟用至少 400MB/秒、16MB 和 64MB I/O 大小的讀取活動
@@ -95,18 +95,31 @@ Azure 針對 Azure 標準儲存體和 Azure 進階儲存體上的 VHD，提供�
 
 RAID 下的 Azure VHD 數目累計，是從 IOPS 和儲存體輸送量端累計。 因此，如果您將 RAID 0 放在 3 x P30 Azure 進階儲存體磁碟上，它應該會給您單一 Azure 進階儲存體 P30 磁碟的 3 倍 IOPS 和 3 倍儲存體輸送量。
 
-請勿在用於 /hana/data 和 /hana/log 的磁碟上設定進階儲存體快取。 建置這些磁碟區的所有磁碟應該將這些磁碟的快取設定為「無」。
+下列快取建議假設 SAP HANA 的 I/O 特性如下所示：
 
-當調整 VM 大小或決定 VM 時，也請注意整體 VM I/O 輸送量。 [記憶體最佳化的虛擬機器大小](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)一文中說明整體虛擬機器儲存體輸送量。
+- 幾乎沒有任何針對 HANA 資料檔案的讀取工作負載。 例外是在資料載入 HANA 時，HANA 執行個體重新啟動或 Azure VM 重新開機之後的大型 I/O。 針對資料檔案讀取較大 I/O 的另一種情況可能是 HANA 資料庫備份。 因此，讀取快取大多不合理，因為在大部分的情況下，必須完整讀取所有資料檔案磁碟區。
+- 當 HANA 儲存點和 HANA 損毀復原時，對資料檔案的寫入會發生高載。 寫入儲存點是非同步的，且不會造成任何使用者交易延遲。 因為系統必須再次快速回應，所以在損毀復原期間的資料寫入效能極為重要。 不過，損毀復原應該不是例外狀況
+- 幾乎不會從 HANA 重做檔案進行任何讀取。 例外是在執行交易記錄備份、損毀復原，或 HANA 執行個體重新啟動階段的大型 I/O。  
+- 對於 SAP HANA 重做記錄檔的主要負載是寫入。 根據工作負載的性質，您的 I/O 可以小到 4 KB，而在其他情況下，I/O 大小也可以是 1 MB 或更大。 對 SAP HANA 重做記錄的寫入延遲效能極為重要。
+- 所有寫入都必須以可靠的方式保存在磁碟上
+
+由 SAP HANA 觀察到的這些 I/O 模式結果，使用 Azure 進階儲存體對不同磁碟區的快取設定應該設定如下：
+
+- /hana/data - 無快取
+- /hana/log - 無快取 - M 系列例外 (請參閱本文件後面部分)
+- /hana/shared - 讀取快取
+
+
+當調整或決定 VM 大小時，也請注意整體 VM I/O 輸送量。 [記憶體最佳化的虛擬機器大小](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)一文中說明整體虛擬機器儲存體輸送量。
 
 #### <a name="cost-conscious-azure-storage-configuration"></a>節省成本的 Azure 儲存體組態
 下表顯示客戶經常用來在 Azure 虛擬機器上裝載 SAP HANA 的虛擬機器類型組態。 可能有部分虛擬機器類型無法符合 SAP HANA 的所有最小準則。 但是目前這些虛擬機器似乎可以針對非生產案例正常執行。 
 
 > [!NOTE]
-> 針對生產案例，請在 [IAAS 的 SAP 文件](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html)中檢查 SAP 是否有支援 SAP HANA 的特定虛擬機器類型。
+> 針對生產案例，請在 [IAAS 的 SAP 文件](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html)中檢查 SAP 是否支援 SAP HANA 的特定虛擬機器類型。
 
 
-| VM SKU | RAM | 最大 VM I/O<br /> Throughput | /hana/data 和 /hana/log<br /> 與 LVM 或 MDADM 等量 | HANA/shared | /root volume | /usr/sap | hana/backup |
+| VM SKU | RAM | 最大 VM I/O<br /> 輸送量 | /hana/data 和 /hana/log<br /> 與 LVM 或 MDADM 等量 | HANA/shared | /root 磁碟區 | /usr/sap | hana/backup |
 | --- | --- | --- | --- | --- | --- | --- | -- |
 | DS14v2 | 128 GB | 768 MB/秒 | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S15 |
 | E16v3 | 128 GB | 384 MB/秒 | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S15 |
@@ -135,7 +148,7 @@ RAID 下的 Azure VHD 數目累計，是從 IOPS 和儲存體輸送量端累計�
 > [!NOTE]
 > 針對生產案例，請在 [IAAS 的 SAP 文件](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html)中檢查 SAP 是否有支援 SAP HANA 的特定虛擬機器類型。
 
-| VM SKU | RAM | 最大 VM I/O<br /> Throughput | /hana/data 和 /hana/log<br /> 與 LVM 或 MDADM 等量 | HANA/shared | /root volume | /usr/sap | hana/backup |
+| VM SKU | RAM | 最大 VM I/O<br /> 輸送量 | /hana/data 和 /hana/log<br /> 與 LVM 或 MDADM 等量 | HANA/shared | /root 磁碟區 | /usr/sap | hana/backup |
 | --- | --- | --- | --- | --- | --- | --- | -- |
 | DS14v2 | 128 GB | 768 MB/秒 | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P15 |
 | E16v3 | 128 GB | 384 MB/秒 | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P15 |
@@ -167,7 +180,7 @@ Azure Write Accelerator 是專門為 M 系列虛擬機器推出的功能。 如�
 
 建議的組態看起來如下所示：
 
-| VM SKU | RAM | 最大 VM I/O<br /> Throughput | /hana/data | /hana/log | HANA/shared | /root volume | /usr/sap | hana/backup |
+| VM SKU | RAM | 最大 VM I/O<br /> 輸送量 | /hana/data | /hana/log | HANA/shared | /root 磁碟區 | /usr/sap | hana/backup |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
 | M32ts | 192 GiB | 500 MB/秒 | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P20 |
 | M32ls | 256 GiB | 500 MB/秒 | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P20 |
@@ -229,7 +242,7 @@ Azure Write Accelerator 的詳細資料和限制可以在相同文件中找到�
 
 
 ### <a name="start-and-restart-vms-that-contain-sap-hana"></a>啟動及重新啟動包含 SAP HANA 的 VM
-Azure 公用雲端的重要功能是您僅需支付運算的分鐘數。 例如，當您關閉執行 SAP HANA 的 VM 時，您只需要支付這段時間的儲存體成本。 當您在初始部署時指定 VM 的靜態 IP 位址，就可使用另一項功能。 當您重新啟動具有 SAP HANA 的 VM 時，VM 會使用其先前的 IP 位址來重新啟動。 
+Azure 公用雲端的重要功能是您僅需支付運算的分鐘數。 例如，當您關閉執行 SAP HANA 的 VM 時，您只需要支付這段時間的儲存體成本。 當您在初始部署時指定 VM 的靜態 IP 位址，就可使用另一個功能。 當您重新啟動具有 SAP HANA 的 VM 時，VM 會使用其先前的 IP 位址來重新啟動。 
 
 
 ### <a name="use-saprouter-for-sap-remote-support"></a>使用 SAPRouter 以取得 SAP 遠端支援

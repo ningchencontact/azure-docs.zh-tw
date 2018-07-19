@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: ce20ae800887d8c9e865ecec46d0cf9a49fb7c3c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cf9ee5339c53eb4f9c74f6b5f251a7963555d676
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631620"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928744"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>將 IoT DevKit AZ3166 連線到雲端中的 Azure IoT 中樞
 
@@ -274,7 +274,7 @@ DevKit 會重新開機，然後開始執行程式碼。
 
 ## <a name="test-the-project"></a>測試專案
 
-在 VS Code 中，依照下列步驟來開啟和設定「序列監視器」：
+在 VS Code 中，遵循下列步驟來開啟和設定序列監視器：
 
 1. 按一下狀態列上的 `COM[X]` 文字，以設定含有 `STMicroelectronics` 的正確 COM 連接埠：![com-port](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/com-port.png)
 
@@ -285,7 +285,7 @@ DevKit 會重新開機，然後開始執行程式碼。
 當您看到以下結果時，表示範例應用程式已成功執行：
 
 * 「序列監視器」會顯示與下列螢幕擷取畫面內容相同的資訊。
-* MXChip IoT DevKit 上的 LED 正在閃爍。
+* MXChip IoT DevKit 上的 RGB LED 正在閃爍。
 
 ![VS Code 的最終輸出](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/result-serial-output.png)
 

@@ -12,14 +12,14 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 07/06/2018
 ms.author: asgang
-ms.openlocfilehash: 27dfdec4e833a2f30963157ba2f4d95232e21270
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 95e5c53da2556293fc676fa5b1db9b4585038300
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267327"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37922736"
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-by-using-site-recovery"></a>使用 Site Recovery 保護多層式 SAP NetWeaver 應用程式部署
 
@@ -83,7 +83,7 @@ Web Dispatcher 元件是用來作為 SAP 應用程式伺服器之間 SAP 流量�
 
 若要支援容錯移轉叢集環境，[SIOS DataKeeper 叢集版本](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8)會執行叢集共用磁碟區函式，方法為複寫叢集節點所擁有的獨立磁碟。 Azure 本身不支援共用磁碟，因此需要 SIOS 所提供的解決方案。 
 
-處理叢集的另一種方式，是實作檔案共用叢集。 [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) 最近修改了中央服務部署模式，來透過 UNC 路徑存取 /sapmnt 全域目錄。 透過此變更，即無需移除中央服務 VM 上的 SIOS 或其他共用磁碟解決方案。 但是仍然建議確保 /sapmnt UNC 共用具有高可用性。 您可以藉由使用 Windows Server 容錯移轉叢集與相應放大檔案伺服器 (SOFS) 和 Windows Server 2016 中的儲存空間直接存取 (S2D) 功能，在中央服務執行個體上完成這項操作。 
+處理叢集的另一種方式，是實作檔案共用叢集。 [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) 最近修改了中央服務部署模式，來透過 UNC 路徑存取 /sapmnt 全域目錄。 不過，仍然建議確保 /sapmnt UNC 共用具有高可用性。 您可以藉由使用 Windows Server 容錯移轉叢集與相應放大檔案伺服器 (SOFS) 和 Windows Server 2016 中的儲存空間直接存取 (S2D) 功能，在中央服務執行個體上完成這項操作。 
  > [!NOTE]
  > 目前，Azure Site Recovery 僅支援使用「儲存空間直接存取」對虛擬機器進行「當機時保持一致復原點」複寫 
 

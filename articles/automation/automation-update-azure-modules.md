@@ -9,18 +9,21 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fe263346d8794b3dc85b6420d8b9b02efa5f9684
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 90aa19d690b1b4ab28c3a65a287a10aaf6a03ac6
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193500"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929027"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>如何更新 Azure 自動化中的 Azure PowerShell 模組
 
-每個自動化帳戶依預設都會提供最通用的 Azure PowerShell 模組。 Azure 小組會定期更新 Azure 模組，因此在自動化帳戶中，我們會提供方法讓您在入口網站有新的版本可供使用時，更新帳戶中的模組。  
+每個自動化帳戶依預設都會提供最通用的 Azure PowerShell 模組。 Azure 小組會定期更新 Azure 模組，因此在自動化帳戶中，我們會提供方法讓您在入口網站有新的版本可供使用時，更新帳戶中的模組。
 
 因為會根據產品群組定期更新模組，所以內含 Cmdlet 可能會變更，這樣可能會根據變更類型 (例如重新命名參數，或完全淘汰 Cmdlet) 對 Runbook 造成負面影響。 若要避免影響 Runbook 以及它們所自動化的處理序，建議您先進行測試和驗證，再繼續進行。 如果您沒有適用於此用途的專用自動化帳戶，請考慮建立自動化帳戶，讓您除了更新 PowerShell 模組這類反覆變更之外，還可以在開發 Runbook 期間測試許多不同的案例和排列。 驗證結果且套用任何所需變更之後，請繼續協調任何需要修改之 Runbook 的移轉，並在生產環境中依說明所述執行以下更新。
+
+> [!NOTE]
+> 新的自動化帳戶可能不會包含最新的模組。
 
 ## <a name="updating-azure-modules"></a>更新 Azure 模組
 
@@ -44,7 +47,7 @@ ms.locfileid: "34193500"
 > [!NOTE]
 > 執行新的排程工作時，Azure 自動化會使用自動化帳戶中的最新模組。    
 
-如果您在 Runbook 中使用來自這些 Azure PowerShell 模組的 Cmdlet，則您會想要每隔大約一個月執行一次此更新程序，以確保您擁有最新模組。
+如果您在 Runbook 中使用來自這些 Azure PowerShell 模組的 Cmdlet，則您會想要每隔大約一個月執行一次此更新程序，以確保您擁有最新模組。 Azure 自動化使用 AzureRunAsConnection 連線以在更新模組時驗證，如果服務主體過期或不再存在於訂用帳戶層級，則模組更新將會失敗。
 
 ## <a name="next-steps"></a>後續步驟
 

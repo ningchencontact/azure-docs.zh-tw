@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/16/2016
 ms.author: mbullwin
-ms.openlocfilehash: fb4bcd57062017c0d7ee802ba1f46660476f6af2
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 056716e243980f0a8aadc1ff7e9b8776809ad88e
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293430"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036392"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Application Insights 中度量圖表上的註解
-[計量瀏覽器](app-insights-metrics-explorer.md)圖表上的註解會顯示您在哪裡部署了新的組建，或是其他重要事件。 註解可讓您輕鬆查看變更是否對應用程式的效能有任何影響。 [Visual Studio Team Services 建置系統](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs)可以自動建立這些註解。 您也可以[從 PowerShell 建立註解](#create-annotations-from-powershell)來標幟您想要的任何事件。
+[計量瀏覽器](app-insights-metrics-explorer.md)圖表上的註解會顯示您在哪裡部署了新的組建，或是其他重要事件。 註解可讓您輕鬆查看變更是否對應用程式的效能有任何影響。 [Visual Studio Team Services 建置系統](https://docs.microsoft.com/vsts/pipelines/tasks/)可以自動建立這些註解。 您也可以[從 PowerShell 建立註解](#create-annotations-from-powershell)來標幟您想要的任何事件。
 
 ![註解範例，其會顯示與伺服器回應時間的相互關聯](./media/app-insights-annotations/00.png)
 

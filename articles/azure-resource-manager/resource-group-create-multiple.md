@@ -4,46 +4,27 @@ description: 使用「Azure 資源管理員」範本中的複製作業和陣列�
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
 editor: ''
-ms.assetid: 94d95810-a87b-460f-8e82-c69d462ac3ca
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/22/2018
+ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: ee32f6459cf7673f6bb633e12776ec3c40eb13e1
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 25488295ec046eb0ca7473af76e4618eacb1155d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753416"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38600765"
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>在 Azure Resource Manager 範本中部署資源或屬性的多個執行個體
-本文說明如何有條件地部署資源以及如何逐一查看您的 Azure Resource Manager 範本，以建立資源的多個執行個體。
 
-## <a name="conditionally-deploy-resource"></a>有條件地部署資源
-
-當您在部署期間必須決定要建立資源的一個執行個體或不建立任何執行個體時，請使用 `condition` 元素。 此元素的值會解析為 true 或 false。 若此值為 true，便已部署資源。 若此值為 false，則未部署資源。 例如，若要指定要部署新的儲存體帳戶或使用現有的儲存體帳戶，請使用：
-
-```json
-{
-    "condition": "[equals(parameters('newOrExisting'),'new')]",
-    "type": "Microsoft.Storage/storageAccounts",
-    "name": "[variables('storageAccountName')]",
-    "apiVersion": "2017-06-01",
-    "location": "[resourceGroup().location]",
-    "sku": {
-        "name": "[variables('storageAccountType')]"
-    },
-    "kind": "Storage",
-    "properties": {}
-}
-```
+本文說明如何逐一查看您的「Azure Resource Manager」範本，以建立資源的多個執行個體。 若需要指定是否要部署資源，請參閱[條件元素](resource-manager-templates-resources.md#condition)。
 
 ## <a name="resource-iteration"></a>資源反覆項目
+
 當您在部署期間必須決定要建立資源的一個或多個執行個體時，請將 `copy` 元素新增至資源類型。 在複製元素中，您可以指定反覆項目的數目以及此迴圈的名稱。 計數值必須為不超過 800 的正整數。 
 
 建立多個時間的資源需使用下列格式：
@@ -456,7 +437,6 @@ copy 元素為一個陣列，因此，您可以針對資源指定一個以上的
 |[複製儲存體](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |利用名稱中的索引編號來部署多個儲存體帳戶。 |
 |[序列複製儲存體](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |一次一個部署多個儲存體帳戶。 名稱包含索引編號。 |
 |[以陣列複製儲存體](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |部署多個儲存體帳戶。 名稱包含陣列中的值。 |
-|[使用 新的或現有虛擬網路、儲存體及公用 IP 的 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) |使用虛擬機器有條件地將部署新的或現有資源。 |
 |[以可變的資料磁碟數目部署 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |利用虛擬機器部署多個資料磁碟。 |
 |[複製變數](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |示範逐一查看變數的不同方式。 |
 |[多個安全性規則](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |將多個安全性規則部署至網路安全性群組。 從參數建構安全性規則。 如需參數，請參閱[多個 NSG 參數檔案](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json)。 |

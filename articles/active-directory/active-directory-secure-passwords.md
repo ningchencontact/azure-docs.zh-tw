@@ -3,31 +3,31 @@ title: Azure AD 多層密碼安全性 | Microsoft Docs
 description: 說明 Azure AD 如何強制執行強式密碼，及保護使用者密碼免遭網路罪犯破解。
 services: active-directory
 documentationcenter: ''
-author: barlanmsft
+author: eross-msft
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 08/28/2017
-ms.author: barlan
-ms.openlocfilehash: 04e437eb5a040f418df22e0857cb96d7ef99bbbb
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: lizross
+ms.openlocfilehash: e3e97a5a9b768b3b9d4a36627d28955be1f3d9df
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31586369"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056914"
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Azure AD 密碼安全性多層法
 
 本文討論身為使用者或系統管理員的您可以遵循的一些最佳做法，以保護您的 Azure Active Directory (Azure AD) 或 Microsoft 帳戶帳戶。
 
  > [!NOTE]
- > **您有登入問題嗎？** 若是如此， [以下是如何變更和重設密碼的說明](active-directory-passwords-update-your-own-password.md)。
+ > **您有登入問題嗎？** 若是如此， [以下是如何變更和重設密碼的說明](user-help/active-directory-passwords-update-your-own-password.md)。
  >
- > Azure AD 系統管理員可以使用[重設 Azure Active Directory 中使用者密碼 (英文)](active-directory-users-reset-password-azure-portal.md) 一文中的指導方針重設使用者密碼。
+ > Azure AD 系統管理員可以使用[重設 Azure Active Directory 中使用者密碼 (英文)](fundamentals/active-directory-users-reset-password-azure-portal.md) 一文中的指導方針重設使用者密碼。
  >
 
 ## <a name="password-requirements"></a>密碼需求
@@ -38,7 +38,7 @@ Azure AD 併入下列一般方法來保護密碼︰
 * 密碼複雜性需求
 * 一般和定期密碼到期
 
-如需在 Azure Active Directory 中重設密碼的相關資訊，請參閱 [IT 專業人員的 Azure AD 自助式密碼重設 (英文) ](active-directory-passwords-update-your-own-password.md)主題。
+如需在 Azure Active Directory 中重設密碼的相關資訊，請參閱 [IT 專業人員的 Azure AD 自助式密碼重設 (英文) ](user-help/active-directory-passwords-update-your-own-password.md)主題。
 
 ## <a name="azure-ad-password-protections"></a>Azure AD 密碼保護
 
@@ -75,7 +75,7 @@ Microsoft 會持續分析[資料外洩](https://www.privacyrights.org/data-breac
 
   ![Microsoft 帳戶遭到鎖定](./media/active-directory-secure-passwords/locked-out-ms-accounts.png)
 
-如需在 Azure Active Directory 中重設密碼的相關資訊，請參閱 [IT 專業人員的 Azure AD 自助式密碼重設 (英文) ](active-directory-passwords-update-your-own-password.md)主題。
+如需在 Azure Active Directory 中重設密碼的相關資訊，請參閱 [IT 專業人員的 Azure AD 自助式密碼重設 (英文) ](user-help/active-directory-passwords-update-your-own-password.md)主題。
 
   >[!NOTE]
   >如果您是 Azure AD 系統管理員，可以使用 [Windows Hello](https://www.microsoft.com/windows/windows-hello) 全然避免使用者建立傳統密碼。
@@ -83,6 +83,6 @@ Microsoft 會持續分析[資料外洩](https://www.privacyrights.org/data-breac
 
 ## <a name="next-steps"></a>後續步驟
 
-* [如何更新自己的密碼](active-directory-passwords-update-your-own-password.md)
+* [如何更新自己的密碼](user-help/active-directory-passwords-update-your-own-password.md)
 * [Azure 身分識別管理的基本概念](fundamentals-identity.md)
 * [密碼重設活動報告](authentication/howto-sspr-reporting.md)

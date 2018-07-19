@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 06/14/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 5e0349d6bae9295e7a0ba9f366f84753ebd838c2
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 101686149c0e3faaf442c58f4002cbbfe0e72eaa
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "35629956"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>建立及發行 Marketplace 項目
 
@@ -35,6 +36,10 @@ ms.lasthandoff: 05/12/2018
        /Contoso.TodoList/Strings/
        /Contoso.TodoList/DeploymentTemplates/
 3. [建立 Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)，或從 GitHub 選擇範本。 Marketplace 項目會使用此範本來建立資源。
+
+    > [!Note]  
+    > 絕對不要硬式編碼任何祕密 (例如 Azure Resource Manager 範本中的產品金鑰、密碼或任何客戶識別資訊)。 範本 JSON 檔案只要發佈至資源庫，就可供存取，而且不需要驗證。  將所有祕密都儲存至 [Key Vault](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-keyvault-parameter)，並從範本呼叫它們。
+
 4. 若要確定可以成功部署資源，請使用 Microsoft Azure Stack API 來測試範本。
 5. 如果您的範本依賴於虛擬機器映像，請遵循指示來[將虛擬機器映像新增至 Azure Stack](azure-stack-add-vm-image.md)。
 6. 將 Azure Resource Manager 範本儲存在 **/Contoso.TodoList/DeploymentTemplates/** 資料夾中。
@@ -72,9 +77,9 @@ ms.lasthandoff: 05/12/2018
 ## <a name="publish-a-marketplace-item"></a>發佈 Marketplace 項目
 1. 使用 PowerShell 或 Azure 儲存體總管來將您的 Marketplace 項目 (.azpkg) 上傳至 Azure Blob 儲存體。 您可以上傳至本機 Azure Stack 儲存體，或上傳至 Azure 儲存體。 (它是套件的暫存位置。)請確定 Blob 可公開存取。
 2. 在 Microsoft Azure Stack 環境中的用戶端虛擬機器上，確定您的 PowerShell 工作階段已設有您服務系統管理員的認證。 您可以在[使用 PowerShell 部署範本](user/azure-stack-deploy-template-powershell.md)中找到如何在 Azure Stack 中驗證 PowerShell 的指示。
-3. 使用 **Add-AzureRMGalleryItem** PowerShell Cmdlet，將 Marketplace 項目發佈至 Azure Stack。 例如︰
+3. 當您使用 [PowerShell 1.3.0]( azure-stack-powershell-install.md) 或更新版本時，可以使用 **Add-AzsGalleryItem** PowerShell Cmdlet 將 Marketplace 項目發佈至 Azure Stack。 在使用 PowerShell 1.3.0 之前，使用 **Add-AzureRMGalleryitem** Cmdlet 代替 **Add-AzsGalleryItem**。  例如，當您使用 PowerShell 1.3.0 或更新版本時：
    
-       Add-AzureRMGalleryItem -GalleryItemUri `
+       Add-AzsGalleryItem -GalleryItemUri `
        https://sample.blob.core.windows.net/gallerypackages/Microsoft.SimpleTemplate.1.0.0.azpkg –Verbose
    
    | 參數 | 說明 |
@@ -89,6 +94,12 @@ ms.lasthandoff: 05/12/2018
    > 
    > 
 5. 您的 Marketplace 項目現在已儲存至 Azure Stack Marketplace。 您可以選擇將它從您的 Blob 儲存體位置刪除。
+    > [!Caution]  
+    > 現在，透過下列 URL，可以未經驗證存取所有預設資源庫成品和您的自訂資源庫成品：  
+`https://adminportal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`  
+`https://portal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`  
+`https://systemgallery.blob.[Region].[external FQDN]/dev20161101-microsoft-windowsazure-gallery/[Template Name]/UiDefinition.json`
+
 6. 使用 **Remove-AzureRMGalleryItem** Cmdlet 可移除 Marketplace 項目。 範例：
    
         Remove-AzureRMGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose

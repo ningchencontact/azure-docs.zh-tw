@@ -10,15 +10,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: bwren
-ms.openlocfilehash: 5719dc3719739fb561626e307ee295729752c1fa
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.component: na
+ms.openlocfilehash: e47e8cbd209ea34317ca9b176a2c4b0fef10a2b2
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297748"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133409"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS 入口網站移至 Azure
 感謝您使用 OMS 入口網站。 感謝您的支持，我們將繼續投入監控和管理服務。 我們不斷收到客戶的意見反應，要求以單一使用者體驗來監控和管理內部部署和 Azure 的工作負載。 Azure 入口網站為所有 Azure 服務的中樞，提供豐富的管理體驗，例如建立資源關聯的儀表板、 尋找資源的智慧型搜尋，以及資源管理的標記等功能。 為了整合及簡化監控和管理工作流程，我們已陸續將 OMS 入口網站的功能加入 Azure 入口網站。 我們很高興在此宣佈，現在 OMS 入口網站的功能大多已納入 Azure 入口網站。 事實上，流量管理員等一些新功能僅能在 Azure 入口網站中使用。 目前只賸下一些差距，包括影響最大的五個解決方案仍在移至 Azure 入口網站的程序中。 如果您並未使用這些功能，那麼，您將能夠在 Azure 入口網站中完成您在 OMS 入口網站中所執行的動作以及其他更多項目。 如果您尚未這麼做，我們建議您立即開始使用 Azure 入口網站 ！ 
@@ -94,7 +95,7 @@ OMS 行動裝置應用程式將會連同 OMS 入口網站一併終止。 您不�
 
 
 ## <a name="azure-network-security-group-analytics"></a>Azure 網路安全性群組分析
-[Azure 網路安全性群組分析解決方案](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics)將由最近推出的[流量分析](../network-watcher/traffic-analytics.md)所取代，讓您清楚掌握雲端網路上使用者和應用程式的活動。 流量分析可協助您稽核貴組織的網路活動、保護應用程式和資料、將工作負載效能最佳化並保持符合規範。 
+[Azure 網路安全性群組分析解決方案](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics)將由最近推出的[流量分析](https://azure.microsoft.com/en-in/blog/traffic-analytics-in-preview/)所取代，讓您清楚掌握雲端網路上使用者和應用程式的活動。 流量分析可協助您稽核貴組織的網路活動、保護應用程式和資料、將工作負載效能最佳化並保持符合規範。 
 
 此解決方案可分析 NSG 流程記錄，並提供下列深入見解。
 
@@ -105,7 +106,7 @@ OMS 行動裝置應用程式將會連同 OMS 入口網站一併終止。 您不�
 - 安全性包括 惡意流量、對網際網路開放的連接埠、嘗試存取網際網路的應用程式或 VM。
 - 容量使用率，這可協助您解決過度佈建或使用量過低的問題。
 
-您可以繼續仰賴診斷設定將 NSG 記錄檔傳送到 Log Analytics，如此一來，您現有已儲存的搜尋、 警示、 儀表板將可繼續運作。 在進一步通知之前，已安裝解決方案的客戶可以繼續使用。 自 6 月 20 日起，NSG 解決方案將從市集中移除，透過社群以 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Operationalinsights)的方式提供。
+您可以繼續仰賴診斷設定將 NSG 記錄檔傳送到 Log Analytics，如此一來，您現有已儲存的搜尋、 警示、 儀表板將可繼續運作。 在進一步通知之前，已安裝解決方案的客戶可以繼續使用。 自 6 月 20 日起，「網路安全性群組分析」解決方案將從市集中移除，並透過社群以 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Operationalinsights)的方式提供。
 
 ## <a name="next-steps"></a>後續步驟
 - 如需有關從 OMS 入口網站移至 Azure 入口網站的指引，請參閱 [Log Analytics 使用者從 OMS 入口網站轉換至 Azure 入口網站的常見問題](log-analytics-oms-portal-faq.md)。

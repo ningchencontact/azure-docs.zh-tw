@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: dc1e3fd3984d0ccbfb0565a3216ec907894e88ea
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: c4cc8035e83ca97971050a5b6ced5bbc912ac791
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37028943"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928313"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的存取控制？ 
 
@@ -77,7 +77,7 @@ ms.locfileid: "37028943"
 
 ### <a name="compliant-device"></a>符合規範的裝置
 
-您可以設定以裝置作為基礎的條件式存取原則。 裝置型條件式存取原則的目標是，只從[受控裝置](active-directory-conditional-access-policy-connected-applications.md#managed-devices)授與已設定資源的存取權。 定義受控裝置的必要選項之一，是要求符合規範裝置。 如果選取此選項，使用已向您的 Azure Active Directory [註冊](device-management-introduction.md)且經 Intune (適用於任何裝置 OS) 或您的協力廠商 MDM 系統 (適用於 Windows 10 裝置) 標示為符合規範的裝置進行存取嘗試時，您的條件式存取原則就會對其授與存取權。 不支援針對 Windows 10 以外的裝置 OS 類型使用的協力廠商 MDM 系統。
+您可以設定以裝置作為基礎的條件式存取原則。 裝置型條件式存取原則的目標是，只從[受控裝置](active-directory-conditional-access-policy-connected-applications.md#managed-devices)授與已設定資源的存取權。 定義受控裝置的必要選項之一，是要求符合規範裝置。 如果選取此選項，使用已向您的 Azure Active Directory [註冊](device-management-introduction.md)且經 Intune (適用於任何裝置 OS) 或您的協力廠商 MDM 系統 (適用於 Windows 10 裝置) 標示為符合規範的裝置進行存取嘗試時，您的條件式存取原則就會對其授與存取權。 不支援針對 Windows 10 以外的裝置 OS 類型使用的第三方 MDM 系統。
 
 如需詳細資訊，請參閱[設定 Azure Active Directory 裝置型條件式存取原則](active-directory-conditional-access-policy-connected-applications.md)。
 
@@ -111,7 +111,7 @@ ms.locfileid: "37028943"
 
 ## <a name="custom-controls"></a>自訂控制項
 
-自訂控制項是 Azure Active Directory Premium P2 版本的一項功能。 使用自訂控制項時，系統會將使用者重新導向到相容的服務，以滿足 Azure Active Directory 之外的進一步需求。 為了滿足此控制項，系統會將使用者的瀏覽器重新導向至外部服務，執行任何必要的驗證或確認活動，再將瀏覽器重新導向回到 Azure Active Directory。 Azure Active Directory 會確認回應，而且使用者如果成功通過驗證或確認，就會繼續進行條件式存取流程。
+自訂控制項是 Azure Active Directory Premium P1 版本的一項功能。 使用自訂控制項時，系統會將使用者重新導向到相容的服務，以滿足 Azure Active Directory 之外的進一步需求。 為了滿足此控制項，系統會將使用者的瀏覽器重新導向至外部服務，執行任何必要的驗證或確認活動，再將瀏覽器重新導向回到 Azure Active Directory。 Azure Active Directory 會確認回應，而且使用者如果成功通過驗證或確認，就會繼續進行條件式存取流程。
 
 這些控制項會允許使用某些外部或自訂的服務來作為條件式存取控制項，而且一般都能擴充條件式存取的功能。
 

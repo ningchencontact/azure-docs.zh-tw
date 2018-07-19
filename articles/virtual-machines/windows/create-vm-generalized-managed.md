@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2017
 ms.author: cynthn
-ms.openlocfilehash: 1d543bd9590664e74cff70cf55e8f7bd42f2c6f0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6baf784068b1fba0c35d2848b8d2dda4f1064a2d
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30239050"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867975"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>從受控映像建立 VM
 
@@ -33,7 +33,7 @@ ms.locfileid: "30239050"
 2. 在左側功能表中，選取 [所有資源]。 您可以依 [類型] 排序資源，以輕鬆找到您的映像。
 3. 從清單選取您要使用的映像。 映像的 [概觀] 頁面隨即開啟。
 4. 按一下功能表中的 [+ 建立 VM]。
-5. 輸入虛擬機器資訊。 在此輸入的使用者名稱和密碼用於登入虛擬機器。 完成時，按一下 [確定]。 您可以在現有的資源群組中建立新的 VM ，或選擇 [建立新項目] 來建立用於儲存 VM 的新資源群組。
+5. 輸入虛擬機器資訊。 在此輸入的使用者名稱和密碼用於登入虛擬機器。 完成時，按一下 [確定]。 您可以在現有的資源群組中建立新的 VM，或選擇 [建立新項目] 來建立用於儲存 VM 的新資源群組。
 6. 選取 VM 的大小。 若要查看更多大小，請選取 [檢視全部] 或變更 [支援的磁碟類型] 篩選條件。 
 7. 在 [設定] 底下，視需要變更，然後按一下 [確定]。 
 8. 在 [摘要] 頁面上，您應該會看到您的映像名稱列為**私人映像**。 按一下 [確定] 以開始虛擬機器部署。

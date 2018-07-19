@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 99838a7038672998d4940bfb437bd31311d3600f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3bdd3f4d67fcaae37736022c3c59af19eb04bec7
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653428"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036644"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>準備適用於 Azure 的 SLES 或 openSUSE 虛擬機器
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 本文假設您已將 SUSE 或 openSUSE Linux 作業系統安裝到虛擬硬碟。 有多個工具可用來建立 .vhd 檔案，例如，像是 Hyper-V 的虛擬化解決方案。 如需指示，請參閱 [安裝 Hyper-V 角色及設定虛擬機器](http://technet.microsoft.com/library/hh846766.aspx)。
 
 ### <a name="sles--opensuse-installation-notes"></a>SLES / openSUSE 安裝注意事項
@@ -38,7 +38,7 @@ ms.locfileid: "34653428"
 ## <a name="use-suse-studio"></a>使用 SUSE Studio
 [SUSE Studio](http://www.susestudio.com) 可讓您輕鬆建立及管理 Azure 和 Hyper-V 的 SLES 與 openSUSE 映像。 這是建議用來自訂您自己的 SLES 和 openSUSE 映像的方法。
 
-SUSE 是建置您自己的 VHD 的替代選項，其也可在 [VMDepot](https://vmdepot.msopentech.com/User/Show?user=1007)發佈 SLES 的 BYOS (自備訂用帳戶，Bring Your Own Subscription) 映像。
+SUSE 是建置您自己的 VHD 的替代選項，其也可在 [VMDepot](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/04/using-and-contributing-vms-to-vm-depot.pdf)發佈 SLES 的 BYOS (自備訂用帳戶，Bring Your Own Subscription) 映像。
 
 ## <a name="prepare-suse-linux-enterprise-server-11-sp4"></a>準備 SUSE Linux Enterprise Server 11 SP4
 1. 在 Hyper-V 管理員的中間窗格中，選取虛擬機器。

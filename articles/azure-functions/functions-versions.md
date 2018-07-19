@@ -12,26 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: glenga
-ms.openlocfilehash: 9f916aaa8032ff519709d73a1c1f51195f811686
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8ba12f21d76d8deded047f40489c46657c9380b8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28919350"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38602112"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions 執行階段版本概觀
 
- Azure Functions 執行階段有兩個主要版本：1.x 和 2.x。 本文說明如何選擇要使用哪個主要版本。
-
-> [!IMPORTANT] 
-> 執行階段 1.x 是唯一經核准可用於生產環境的版本。
+ Azure Functions 執行階段有兩個主要版本：1.x 和 2.x。 只有 1.x 已核准用於生產環境。 本文會說明 2.x (預覽狀態) 中的新增功能。
 
 | 執行階段 | 狀態 |
 |---------|---------|
 |1.x|正式上市 (GA)|
 |2.x|預覽|
 
-如需如何針對特定版本設定函式應用程式或部署環境的詳細資訊，請參閱[如何設定 Azure Functions 執行階段目標版本](set-runtime-version.md)和[撰寫 Azure Functions 並在本機進行測試](functions-run-local.md)。
+> [!NOTE] 
+> 本文所介紹的是雲端服務 Azure Functions。 如需可執行 Azure Functions 內部部署的詳細資訊，請參閱 [Azure Functions 執行階段概觀](functions-runtime-overview.md)。
 
 ## <a name="cross-platform-development"></a>跨平台開發
 
@@ -65,8 +63,8 @@ ms.locfileid: "28919350"
 
 ## <a name="next-steps"></a>後續步驟
 
-> [!div class="nextstepaction"]
-> [在本機開發環境中鎖定 2.0 執行階段](functions-run-local.md)
+如需詳細資訊，請參閱下列資源：
 
-> [!div class="nextstepaction"]
-> [請參閱執行階段版本的版本資訊](https://github.com/Azure/azure-webjobs-sdk-script/releases)
+* [撰寫 Azure Functions 並在本機進行測試](functions-run-local.md)
+* [如何設定 Azure Functions 執行階段目標版本](set-runtime-version.md)
+* [版本資訊](https://github.com/Azure/azure-functions-host/releases)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: 3e058242840a3fa8b86c9ae9d5a0940cc02f04d2
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: c320f27dd53f0545ff5074d2d4f5a7bdd445fd89
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37020384"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866173"
 ---
 # <a name="configure-stateful-reliable-services"></a>設定具狀態可靠服務
 有兩組組態設定可供 Reliable Services 使用。 一組是適用於叢集中的所有 Reliable Services，而另一組專屬於特定的 Reliable Services。

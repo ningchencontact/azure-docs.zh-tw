@@ -2,7 +2,6 @@
 title: 適用於 Eclipse 的 Azure 工具組：建立適用於 HDInsight Spark 的 Scala 應用程式 | Microsoft Docs
 description: 使用 HDInsight 工具 (位於 Eclipse 的 Azure 工具組中) 來開發以 Scala 撰寫的 Spark 應用程式，並直接從 Eclipse IDE 將它們提交到 HDInsight Spark 叢集。
 services: hdinsight
-documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +9,15 @@ tags: azure-portal
 ms.assetid: f6c79550-5803-4e13-b541-e86c4abb420b
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: cd54c4abeaa58c1b78f67c55eb5e8856dc5bb0c4
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 6b1198e4cea4cae62881464ddbddd56c84275909
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010858"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952785"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>使用適用於 Eclipse 的 Azure 工具組建立適用於 HDInsight 叢集的 Spark 應用程式
 
@@ -43,8 +41,10 @@ ms.locfileid: "34010858"
 
 
 ## <a name="install-hdinsight-tools-in-azure-toolkit-for-eclipse-and-the-scala-plug-in"></a>安裝適用於 Eclipse 和 Scala 外掛程式之 Azure 工具組中的 HDInsight 工具
+
 ### <a name="install-azure-toolkit-for-eclipse"></a>安裝適用於 Eclipse 的 Azure 工具組
 適用於 Eclipse 的 HDInsight 工具是適用於 Eclipse 的 Azure 工具組的一部分。 如需安裝指示，請參閱[安裝適用於 Eclipse 的 Azure 工具組](https://docs.microsoft.com/java/azure/eclipse/azure-toolkit-for-eclipse-installation)。
+
 ### <a name="install-the-scala-plug-in"></a>安裝 Scala 外掛程式
 當您開啟 Eclipse 時，HDInsight 工具會自動偵測您是否已安裝 Scala 外掛程式。 選取 [確定] 以繼續，然後遵循指示從 Eclipse Marketplace 安裝外掛程式。
 
@@ -70,9 +70,10 @@ ms.locfileid: "34010858"
    
    ![展開叢集名稱以查看資源](./media/apache-spark-eclipse-tool-plugin/view-explorer-4.png)
 
-<h2 id="linkcluster">連結叢集</h2>
-您可以使用 Ambari 受控使用者名稱來連結正常的叢集，也可以使用網域使用者名稱 (例如：user1@contoso.com) 來連結安全性 hadoop 叢集。
-1. 從 [Azure 總管] 中按一下 [連結叢集]。
+## <a name="link-a-cluster"></a>連結叢集
+您可以使用 Ambari 受控使用者名稱來連結一般的叢集。 同樣地，對於已加入網域的 HDInsight 叢集，您可以使用網域和使用者名稱進行連結，例如 user1@contoso.com。
+
+1. 從 [Azure 總管] 中選取 [連結叢集]。
 
    ![連結叢集操作功能表](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
 

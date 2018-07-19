@@ -5,14 +5,14 @@ services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 07/06/2018
 ms.author: anoopkv
-ms.openlocfilehash: 580d32a51f6b38916ddccd46784b80b1179c29c4
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 068d2774791995fab1c07c73e6d733a6e09379f1
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31598858"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951171"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>管理實體伺服器災害復原的組態伺服器
 
@@ -37,7 +37,7 @@ ms.locfileid: "31598858"
 | IIS | - 沒有預先存在的預設網站 <br> - 啟用[匿名驗證](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) \(英文\) <br> - 啟用 [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 設定  <br> - 沒有預先存在的網站/應用程式接聽連接埠 443<br>|
 | NIC 類型 | VMXNET3 (部署為 VMware VM 時) |
 | IP 位址類型 | 靜態 |
-| 網際網路存取 | 伺服器需要存取這些 URL： <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (不需要相應放大處理序伺服器) <br> - time.nist.gov <br> - time.windows.com |
+| 網際網路存取 | 伺服器需要存取這些 URL： <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://management.azure.com <br> - *.services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (相應放大處理序伺服器不需要) <br> - time.nist.gov <br> - time.windows.com |
 | 連接埠 | 443 (控制通道協調流程)<br>9443 (資料傳輸)|
 
 ## <a name="download-the-latest-installation-file"></a>下載最新的安裝檔案
@@ -98,7 +98,7 @@ Site Recovery 入口網站中提供最新版本的組態伺服器安裝檔案。
 
 ### <a name="sample-usage"></a>範例用法
   ```
-  MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /xC:\Temp\Extracted
+  MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extracted
   cd C:\Temp\Extracted
   UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "CS" /InstallLocation "D:\" /MySQLCredsFilePath "C:\Temp\MySQLCredentialsfile.txt" /VaultCredsFilePath "C:\Temp\MyVault.vaultcredentials" /EnvType "VMWare"
   ```

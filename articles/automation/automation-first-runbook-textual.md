@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 65aad3244ce49e77bdd2e207bf14cf2e7ef459b9
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 32ad5ef4f297a64f0925febb247ccb117dffedf0
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195357"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928585"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>我的第一個 PowerShell 工作流程 Runbook
 
@@ -111,6 +111,13 @@ ms.locfileid: "34195357"
    Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
    ```
+
+   > [!IMPORTANT]
+   > **Add-AzureRmAccount** 和 **Login-AzureRmAccount** 現在是 **Connect-AzureRMAccount** 的別名。 如果 **Connect-AzureRMAccount** Cmdlet 不存在，您可以使用 **Add-AzureRmAccount** 或 **Login-AzureRmAccount**，或者在自動化帳戶中[更新模組](automation-update-azure-modules.md)至最新版本。 
+
+> [!NOTE]
+> 即使您才剛建立新的自動化帳戶，可能還是需要[更新模組](automation-update-azure-modules.md)。
+
 5. 按一下 [測試] 窗格，您便可測試 Runbook。
 6. 按一下 [開始]  以開始測試。 測試完成時，您應該會從帳戶收到如同以下顯示基本資訊的輸出。 這可確認認證有效。<br><br> ![驗證](media/automation-first-runbook-textual/runbook-auth-output.png)
 

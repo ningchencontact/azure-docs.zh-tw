@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 72338a4c168b4d3b7c918fbb16758724f73fefc2
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 4ee02bc2a1956994da0ba49a24eefabf9608565c
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29844100"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856455"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure Cloud Shell 的概觀
 Azure Cloud Shell 是可經由瀏覽器存取的互動式殼層，應用在 Azure 資源管理上。
@@ -49,7 +49,7 @@ Linux 使用者可在 Cloud Shell 中使用 Bash，Windows 使用者則可在 Cl
 ### <a name="authenticated-and-configured-azure-workstation"></a>驗證及設定 Azure 工作站
 Cloud Shell 由 Microsoft 管理，因此隨附受歡迎的命令列工具和語言支援。 Cloud Shell 也可安全地自動驗證，讓您可透過 Azure CLI 2.0 或 Azure PowerShell Cmdlet 快速存取您的資源。
 
-檢視 [Bash 經驗](features.md#tools)和 [PowerShell (預覽) 經驗](features-powershell.md#tools)的完整工具清單。
+檢視完整[工具清單](features.md#tools)。
 
 ### <a name="multiple-access-points"></a>多個存取點
 您可以從下列位置使用 Cloud Shell 這個彈性的工具：
@@ -94,7 +94,7 @@ Cloud Shell 機器是暫存的，因此需要將 Azure 檔案共用掛接為 `cl
 * Cloud Shell 需要掛接 Azure 檔案共用
 * Cloud Shell 會將相同的 Azure 檔案共用同時用於 Bash 和 PowerShell
 * Cloud Shell 會以一台機器、一個使用者帳戶的方式指派
-* Bash 會使用檔案共用中所保有的 5 GB 映像來保存 $Home
+* Cloud Shell 會使用檔案共用中所保有的 5 GB 映像來保存 $Home
 * 權限設定為一般 Linux 使用者 (採用 Bash)
 
 深入了解 [Cloud Shell 中的 Bash](features.md) 和 [Cloud Shell (預覽) 中的 PowerShell](features-powershell.md) 中的功能。

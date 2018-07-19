@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: larryfr
-ms.openlocfilehash: 856a94b0cf64a20fbe9267b76422c47d88d21f43
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 500b6ef33bb70cd5138067d88303b7db9121e867
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32778898"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37101675"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>使用指令碼動作自訂 Linux 型 HDInsight 叢集
 
@@ -58,7 +58,7 @@ HDInsight 提供一個稱為**指令碼動作**的設定方法，此方法會叫
 
 * 必須儲存在可從 HDInsight 叢集存取的 URI 上。 以下是可能的儲存位置：
 
-    * HDInsight 叢集可存取的 **Azure Data Lake Store** 帳戶。 如需使用 Azure Data Lake Store 與 HDInsight 的相關資訊，請參閱[建立使用 Data Lake Store 的 HDInsight 叢集](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)。
+    * HDInsight 叢集可存取的 **Azure Data Lake Store** 帳戶。 如需有關使用 Azure Data Lake Store 與 HDInsight 的詳細資訊，請參閱[快速入門：在 HDInsight 中設定叢集](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
 
         使用 Data Lake Store 中儲存的指令碼時，URI 格式為 `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`。
 
@@ -159,13 +159,13 @@ HDInsight 提供一些指令碼以在 HDInsight 叢集上安裝下列元件：
 
 | Name | 指令碼 |
 | --- | --- |
-| **新增 Azure 儲存體帳戶** |https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh 。請參閱 [在 HDInsight 叢集新增儲存體](hdinsight-hadoop-add-storage.md)。 |
-| **安裝色調** |https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh 。請參閱 [在 HDInsight 叢集上安裝及使用色調](hdinsight-hadoop-hue-linux.md)。 |
-| **安裝 Presto** |https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh 。請參閱 [在 HDInsight 叢集上安裝和使用 Presto](hdinsight-hadoop-install-presto.md)。 |
-| **安裝 Solr** |https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh 。請參閱 [在 HDInsight 叢集上安裝及使用 Solr](hdinsight-hadoop-solr-install-linux.md)。 |
-| **安裝 Giraph** |https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh 。請參閱 [在 HDInsight 叢集上安裝及使用 Giraph](hdinsight-hadoop-giraph-install-linux.md)。 |
-| **預先載入 Hive 程式庫** |https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh 。請參閱 [在 HDInsight 叢集上新增 Hive 程式庫](hdinsight-hadoop-add-hive-libraries.md)。 |
-| **安裝或更新 Mono** | https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash 。 請參閱 [在 HDInsight 上安裝或更新 Mono](hdinsight-hadoop-install-mono.md)。 |
+| **新增 Azure 儲存體帳戶** |https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh。請參閱 [在 HDInsight 叢集新增儲存體](hdinsight-hadoop-add-storage.md)。 |
+| **安裝色調** |https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh。請參閱 [在 HDInsight 叢集上安裝及使用色調](hdinsight-hadoop-hue-linux.md)。 |
+| **安裝 Presto** |https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh。請參閱 [在 HDInsight 叢集上安裝和使用 Presto](hdinsight-hadoop-install-presto.md)。 |
+| **安裝 Solr** |https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh。請參閱 [在 HDInsight 叢集上安裝及使用 Solr](hdinsight-hadoop-solr-install-linux.md)。 |
+| **安裝 Giraph** |https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh。請參閱 [在 HDInsight 叢集上安裝及使用 Giraph](hdinsight-hadoop-giraph-install-linux.md)。 |
+| **預先載入 Hive 程式庫** |https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh。請參閱 [在 HDInsight 叢集上新增 Hive 程式庫](hdinsight-hadoop-add-hive-libraries.md)。 |
+| **安裝或更新 Mono** | https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash。 請參閱 [在 HDInsight 上安裝或更新 Mono](hdinsight-hadoop-install-mono.md)。 |
 
 ## <a name="use-a-script-action-during-cluster-creation"></a>在建立叢集期間使用指令碼動作
 
@@ -173,9 +173,7 @@ HDInsight 提供一些指令碼以在 HDInsight 叢集上安裝下列元件：
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>在建立叢集期間從 Azure 入口網站使用指令碼動作
 
-1. 依[在 HDInsight 建立 Hadoop 叢集](hdinsight-hadoop-provision-linux-clusters.md)中的描述開始建立叢集。 進行至 [叢集摘要] 區段時停止。
-
-2. 在 [叢集摘要] 區段中，選取 [進階設定] 的 [編輯] 連結。
+1. 依[在 HDInsight 建立 Hadoop 叢集](hdinsight-hadoop-provision-linux-clusters.md)中的描述開始建立叢集。 叢集建立期間，您會抵達 [叢集摘要] 頁面。 請從 [叢集摘要] 頁面中，選取 [進階設定] 的 [編輯] 連結。
 
     ![[Advanced settings] \(進階設定\) 連結](./media/hdinsight-hadoop-customize-cluster-linux/advanced-settings-link.png)
 
@@ -420,7 +418,7 @@ HDInsight 服務中有兩種類型的開放原始碼元件可用：
 > [!WARNING]
 > 對隨 HDInsight 叢集提供的元件會有完整支援。 Microsoft 支援服務可協助隔離和解決這些元件的相關問題。
 >
-> 自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。 Microsoft 支援服務可能可以解決問題，也可能要求您利用可用的開放原始碼技術管道，找到該技術的深度專業知識。 例如，有許多社群網站可供使用，例如：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight) \(英文\)、[http://stackoverflow.com](http://stackoverflow.com) \(英文\)。此外，Apache 專案在 [http://apache.org](http://apache.org) 上也有專案網站，例如 [Hadoop](http://hadoop.apache.org/)。
+> 自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。 Microsoft 支援服務可能可以解決問題，也可能要求您利用可用的開放原始碼技術管道，找到該技術的深度專業知識。 例如，有許多社群網站可供使用，例如：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight) \(英文\)、[http://stackoverflow.com](http://stackoverflow.com) \(英文\)。 此外，Apache 專案在 [http://apache.org](http://apache.org) 上也有專案網站，例如 [Hadoop](http://hadoop.apache.org/)。
 
 HDInsight 服務提供數種方式以使用自訂元件。 無論元件如何使用或如何安裝在叢集上，都適用相同層級的支援。 下列清單描述自訂元件可用於 HDInsight 叢集之最常見方式：
 

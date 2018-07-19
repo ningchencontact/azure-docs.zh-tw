@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/14/2017
 ms.author: lizross
-ms.openlocfilehash: 8b0a591f84dd8ece0f6a8e2de19cddfee21b28e4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e304242718478cae2670372a06abe07f926fbed2
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448878"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054738"
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory 常見問題集
 Azure Active Directory (Azure AD) 是全方位的身分識別即服務 (IDaaS) 解決方案，其涉及範圍橫跨身分識別、存取管理和安全性的所有層面。
@@ -93,7 +93,7 @@ Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別�
 
 **答：** 是，Azure AD 可提供您 [Azure AD 存取面板](http://myapps.microsoft.com) ，以供使用者進行自助服務和應用程式存取。 如果您是 Office 365 客戶，您可以在 Office 365 入口網站中找到許多相同的功能。
 
-如需詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。
+如需詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 - - -
 **問︰Azure AD 是否會協助我管理內部部署基礎結構？**

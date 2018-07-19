@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 5d5ddd83a2335e7a08bac587aa627f1dcae9738c
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 1a2b32e7e0e86608f879941485395ebe379a5c1e
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970895"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048856"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Azure Active Directory 中的裝置管理簡介
 
@@ -181,8 +181,8 @@ Azure AD 加入裝置的目標是簡化：
 - 若要深入了解裝置型條件式存取，請參閱[設定 Azure Active Directory 裝置型條件式存取原則](active-directory-conditional-access-policy-connected-applications.md)。
 
 - 若要設定：
-    - 已註冊 Azure Active Directory 的 Windows 10 裝置，請參閱[如何設定已註冊 Azure Active Directory 的 Windows 10 裝置](device-management-azuread-registered-devices-windows10-setup.md)
-    - 已加入 Azure Active Directory 的裝置，請參閱[如何設定已加入 Azure Active Directory 的裝置](device-management-azuread-joined-devices-setup.md)
+    - 已註冊 Azure Active Directory 的 Windows 10 裝置，請參閱[如何設定已註冊 Azure Active Directory 的 Windows 10 裝置](user-help/device-management-azuread-registered-devices-windows10-setup.md)
+    - 已加入 Azure Active Directory 的裝置，請參閱[如何設定已加入 Azure Active Directory 的裝置](user-help/device-management-azuread-joined-devices-setup.md)
     - 已加入混合式 Azure AD 的裝置，請參閱[如何設定已加入混合式 Azure Active Directory 的裝置](device-management-hybrid-azuread-joined-devices-setup.md)。
 
 

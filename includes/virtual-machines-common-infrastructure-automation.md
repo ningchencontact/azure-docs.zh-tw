@@ -47,7 +47,7 @@ Cloud-init 也適用於散發套件。 例如，您不使用 **apt-get install**
 
  我們一直積極地與背書的 Linux 發行版本合作夥伴合作，以便在 Azure Marketplace 中提供支援 Cloud-init 的映像。 這些映像會讓您的 Cloud-init 部署和設定順暢地與 VM 和虛擬機器擴展集運作。 下表概述目前支援 cloud-init 的映像在 Azure 平台上的可用性：
 
-| 發行者 | 提供項目 | SKU | 版本 | cloud-init 就緒
+| 發行者 | 供應項目 | SKU | 版本 | cloud-init 就緒
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |Canonical |UbuntuServer |16.04-LTS |最新 |是 | 
 |Canonical |UbuntuServer |14.04.5-LTS |最新 |是 |

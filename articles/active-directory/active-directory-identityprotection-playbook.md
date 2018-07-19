@@ -2,7 +2,7 @@
 title: Azure Active Directory Identity Protection 腳本 | Microsoft Docs
 description: 了解 Azure AD Identity Protection 如何讓您限制攻擊者利用遭入侵的身分識別或裝置的能力，以及保護先前疑似或已知遭到入侵的身分識別或裝置。
 services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, 管理應用程式, 安全性, 風險, 風險層級, 弱點, 安全性原則
+keywords: azure active directory identity protection, cloud discovery, 管理應用程式, 安全性, 風險, 風險層級, 弱點, 安全性原則
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: ff4a8bfb5a92f0969aef726893bebb6aacd4d942
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: c0fd22bb9abb0710b9b4601777a0f0256386af77
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714301"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38473933"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory Identity Protection 腳本
 
@@ -104,8 +104,8 @@ ms.locfileid: "34714301"
 弱點是 Azure AD 環境中不良執行者可以利用的弱點。 Azure AD Identity Protection 中目前顯示 3 種會運用其他 Azure AD 功能的弱點。 一旦設定好這些功能，這些弱點就會自動顯示在 Identity Protection 儀表板上。
 
 * Azure AD [多重要素驗證](authentication/multi-factor-authentication.md)
-* Azure AD [Cloud App Discovery](manage-apps/cloud-app-discovery.md)。
-* Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md)。 
+* Azure AD [Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
+* Azure AD [Privileged Identity Management](privileged-identity-management/pim-configure.md)。 
 
 
 ## <a name="testing-security-policies"></a>測試安全性原則

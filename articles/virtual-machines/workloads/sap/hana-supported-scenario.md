@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/27/2018
+ms.date: 07/06/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8927b2a32956f73e75ac7b157ebad6bf6596ea88
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 412872e607f62f710e013d88822cddc59255992e
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063624"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859947"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>HANA 大型執行個體的支援案例
 本文件說明 HANA 大型執行個體 (HLI) 的支援案例以及其架構詳細資料。
@@ -54,10 +54,11 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 
 ### <a name="ethernet"></a>乙太網路
 
-每個佈建的伺服器都已預先設定乙太網路集。 以下是每個 HLI 單位上設定的乙太網路詳細資訊。
+每個佈建的伺服器都已預先設定乙太網路介面集。 以下是每個 HLI 單位上設定的乙太網路介面詳細資訊。
 
-- **A**：用於用戶端存取。
-- **B**：用於節點對節點通訊。 這已在所有伺服器上設定 (無論請求的拓撲為何)，但僅用於相應擴充案例。
+- **A**：此介面用於用戶端存取。
+- **B**：此介面用於節點對節點通訊。 此介面已在所有伺服器上設定 (無論請求的拓撲為何)，但僅用於 
+- 相應放大案例。
 - **C**：此介面用於節點對儲存體連線能力。
 - **D**：此介面用於 STONITH 設定的節點對 ISCSI 裝置連線。 只有在要求 HSR 安裝程式時才會設定此介面。  
 
@@ -81,19 +82,19 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 
 在獲指派兩個 IP 位址的情況下，單位的分配應該會看起來如下：
 
-指派給乙太網路 "A" 的 IP 位址應該來自您向 Microsoft 提交的「伺服器 IP 集區」位址範圍。 此 IP 位址將用來在 OS 的 /etc/hosts 中進行維護。
+- 指派給乙太網路 "A" 的 IP 位址應該來自您向 Microsoft 提交的「伺服器 IP 集區」位址範圍。 此 IP 位址將用來在 OS 的 /etc/hosts 中進行維護。
 
-指派給乙太網路 "B" 的 IP 位址應該用於對 NFS 的通訊。 因此，「不」需要在 etc/hosts 中維護這些位址，即可允許租用戶內的執行個體對執行個體流量。
+- 指派給乙太網路 "C" 的 IP 位址應該用於對 NFS 的通訊。 因此，「不」需要在 etc/hosts 中維護這些位址，即可允許租用戶內的執行個體對執行個體流量。
 
 就 HANA 系統複寫或 HANA 向外延展部署案例而言，並不適合使用有兩個指派之 IP 位址的刀鋒伺服器組態。 如果僅指派兩個 IP 位址且想要部署這類組態，請連絡 Azure 服務管理的 SAP HANA 在第三個 VLAN 中指派第三個 IP 位址。 在三個 NIC 連接埠上指派三個 IP 位址的 HANA 大型執行個體單位，適用下列使用規則：
 
 - 指派給乙太網路 "A" 的 IP 位址應該來自您向 Microsoft 提交的「伺服器 IP 集區」位址範圍。 因此，此 IP 位址將不用來在 OS 的 /etc/hosts 中進行維護。
 
-- 指派給乙太網路 "B" 的 IP 位址應該用於對 NFS 儲存體的通訊。 因此，不應該在 etc/hosts 中維護此類型的位址。
+- 乙太網路 "B" 應專門用來在 etc/hosts 中進行維護，以供不同執行個體之間的通訊使用。 這些位址也會是需要在向外延展 HANA 組態中維護的 IP 位址，以作為 HANA 用於節點間組態的 IP 位址。
 
-- 乙太網路 "C" 應專門用來在 etc/hosts 中進行維護，以供不同執行個體之間的通訊使用。 這些位址也會是需要在向外延展 HANA 組態中維護的 IP 位址，以作為 HANA 用於節點間組態的 IP 位址。
+- 指派給乙太網路 "C" 的 IP 位址應該用於對 NFS 儲存體的通訊。 因此，不應該在 etc/hosts 中維護此類型的位址。
 
-- 乙太網路 "D" 應專門用於存取前導者的 STONITH 裝置。 當您設定 HANA 系統複寫 (HSR)，且想要使用以 SBD 為基礎的裝置在作業系統達到自動容錯移轉，這是必要的。
+- 乙太網路 "D" 應專門用於存取前導者的 STONITH 裝置。 當您設定 HANA 系統複寫 (HSR)，且想要使用 SBD 型裝置在作業系統實現自動容錯移轉時，需要此介面。
 
 
 ### <a name="storage"></a>儲存體
@@ -118,9 +119,9 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 5. 具有 STONITH 的 HSR
 6. 具有 DR (標準 / 多用途) 的 HSR 
 7. 主機自動容錯移轉 (1+1) 
-8. 具待命相應擴充
-9. 不具待命相應擴充
-10. 以 DR 相應擴充
+8. 具待命相應放大
+9. 不具待命相應放大
+10. 具有 DR 的相應放大
 
 
 
@@ -236,7 +237,7 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 - /usr/sap/SID 是 /hana/shared/SID 的符號連結。
 - 針對 MCOS：磁碟區大小發佈是根據記憶體中的資料庫大小而定。 請參閱[概觀和架構](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture)一節，以了解多 SID 環境支援記憶體中哪種資料庫大小。
 - 在 DR 上：磁碟區和裝載點已在 DR HLI 單位上針對生產 HANA 執行個體安裝進行設定 (標示為「針對 HANA 安裝為必要」)。 
-- 在 DR 上：從生產網站透過快照集複寫資料、記錄備份和共用磁碟區 (標示為「儲存體複寫」)。 這些磁碟區僅會在容錯移轉期間進行裝載。 請參閱[災害復原容錯移轉程序](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure)，以取得詳細資訊。
+- 在 DR 上：從生產網站透過快照集複寫資料、記錄備份和共用磁碟區 (標示為「儲存體複寫」)。 這些磁碟區僅會在容錯移轉期間進行裝載。 如需詳細資訊，請參閱[災害復原容錯移轉程序](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure)文件。
 - **SKU 類型一類別**的開機磁碟區已複寫到 DR 節點。
 
 
@@ -285,13 +286,13 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 - /usr/sap/SID 是 /hana/shared/SID 的符號連結。
 - 針對 MCOS：磁碟區大小發佈是根據記憶體中的資料庫大小而定。 請參閱[概觀和架構](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture)一節，以了解多 SID 環境支援記憶體中哪種資料庫大小。
 - 在 DR 上：磁碟區和裝載點已在 DR HLI 單位上針對生產 HANA 執行個體安裝進行設定 (標示為「針對 HANA 安裝為必要」)。 
-- 在 DR 上：從生產網站透過快照集複寫資料、記錄備份和共用磁碟區 (標示為「儲存體複寫」)。 這些磁碟區僅會在容錯移轉期間進行裝載。 請參閱[災害復原容錯移轉程序](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure)，以取得詳細資訊。 
+- 在 DR 上：從生產網站透過快照集複寫資料、記錄備份和共用磁碟區 (標示為「儲存體複寫」)。 這些磁碟區僅會在容錯移轉期間進行裝載。 如需詳細資訊，請參閱[災害復原容錯移轉程序](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure)文件。 
 - 在 DR 上：資料、記錄備份、記錄、QA 的共用磁碟區 (標示為「QA 執行個體安裝」) 已針對 QA 執行個體安裝進行設定。
 - **SKU 類型一類別**的開機磁碟區已複寫到 DR 節點。
 
 ## <a name="5-hsr-with-stonith"></a>5.具有 STONITH 的 HSR
  
-此拓撲支援 HANA 系統複寫 (HSR) 設定的兩個節點。 
+此拓撲支援 HANA 系統複寫 (HSR) 設定的兩個節點。 這項組態僅支援節點上的單一 HANA 執行個體。 也就是說，「不」支援 MCOS 案例。
 
 **至目前為止，僅針對 SUSE 作業系統支援此架構。**
 
@@ -340,7 +341,7 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 
 ## <a name="6-hsr-with-dr"></a>6.具有 DR 的 HSR
  
-此拓撲支援 HANA 系統複寫 (HSR) 設定的兩個節點。 標準和多用途 DR 皆受支援。 
+此拓撲支援 HANA 系統複寫 (HSR) 設定的兩個節點。 標準和多用途 DR 皆受支援。 這些組態僅支援節點上的單一 HANA 執行個體。 也就是說，這些組態「不」支援 MCOS 案例。
 
 圖表中描繪了多用途案例，其中在 DR 網站，HLI 單位會用於 QA 執行個體，同時生產作業會從主要網站執行。 在 DR 容錯移轉 (或容錯移轉測試) 期間，會卸下 DR 網站的 QA 執行個體。 
 
@@ -394,7 +395,7 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 - STONITH：已針對 STONITH 安裝程式設定 SBD。 不過，STONITH 的使用是選擇性的。
 - 在 DR 上：**需要兩組儲存體磁碟區**，以用於主要和次要節點複寫。
 - 在 DR 上：磁碟區和裝載點已在 DR HLI 單位上針對生產 HANA 執行個體安裝進行設定 (標示為「針對 HANA 安裝為必要」)。 
-- 在 DR 上：從生產網站透過快照集複寫資料、記錄備份和共用磁碟區 (標示為「儲存體複寫」)。 這些磁碟區僅會在容錯移轉期間進行裝載。 請參閱[災害復原容錯移轉程序](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure)，以取得詳細資訊。 
+- 在 DR 上：從生產網站透過快照集複寫資料、記錄備份和共用磁碟區 (標示為「儲存體複寫」)。 這些磁碟區僅會在容錯移轉期間進行裝載。 如需詳細資訊，請參閱[災害復原容錯移轉程序](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure)文件。 
 - 在 DR 上：資料、記錄備份、記錄、QA 的共用磁碟區 (標示為「QA 執行個體安裝」) 已針對 QA 執行個體安裝進行設定。
 - **SKU 類型一類別**的開機磁碟區已複寫到 DR 節點。
 
@@ -441,9 +442,9 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 - 待命：磁碟區和裝載點已在待命單位上針對 HANA 執行個體安裝進行設定 (標示為「針對 HANA 安裝為必要」)。
  
 
-## <a name="8-scale-out-with-standby"></a>8.具待命相應擴充
+## <a name="8-scale-out-with-standby"></a>8.具待命相應放大
  
-此拓撲支援相應擴充設定中的多個節點。 其中一個節點具有主要角色，一或多個節點具有背景工作角色，一或多個節點為待命。 不過，在任何指定的時間點都只能有一個主要節點。
+此拓撲支援相應放大組態中的多個節點。 其中一個節點具有主要角色，一或多個節點具有背景工作角色，一或多個節點為待命。 不過，在任何指定的時間點都只能有一個主要節點。
 
 
 ### <a name="architecture-diagram"></a>架構圖表  
@@ -476,9 +477,9 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 |/hana/logbackups/SID | 適用於生產 SID 的重做記錄 |
 
 
-## <a name="9-scale-out-without-standby"></a>9.不具待命相應擴充
+## <a name="9-scale-out-without-standby"></a>9.不具待命相應放大
  
-此拓撲支援相應擴充設定中的多個節點。 其中一個節點具有主要角色，一或多個節點具有背景工作角色。 不過，在任何指定的時間點都只能有一個主要節點。
+此拓撲支援相應放大組態中的多個節點。 其中一個節點具有主要角色，一或多個節點具有背景工作角色。 不過，在任何指定的時間點都只能有一個主要節點。
 
 
 ### <a name="architecture-diagram"></a>架構圖表  
@@ -515,9 +516,9 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 ### <a name="key-considerations"></a>主要考量
 - /usr/sap/SID 是 /hana/shared/SID 的符號連結。
 
-## <a name="10-scale-out-with-dr"></a>10.具有 DR 的相應擴充
+## <a name="10-scale-out-with-dr"></a>10.具有 DR 的相應放大
  
-此拓撲支援具 DR 相應擴充中的多個節點。 標準和多用途 DR 皆受支援。 圖表中僅描繪單一用途 DR。 您可以要求此拓撲，不論是否具有待命節點。
+此拓撲支援具 DR 相應放大中的多個節點。 標準和多用途 DR 皆受支援。 圖表中僅描繪單一用途 DR。 您可以要求此拓撲，不論是否具有待命節點。
 
 
 ### <a name="architecture-diagram"></a>架構圖表  
@@ -558,7 +559,7 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 ### <a name="key-considerations"></a>主要考量
 - /usr/sap/SID 是 /hana/shared/SID 的符號連結。
 -  在 DR 上：磁碟區和裝載點已在 DR HLI 單位上針對生產 HANA 執行個體安裝進行設定 (標示為「針對 HANA 安裝為必要」)。 
-- 在 DR 上：從生產網站透過快照集複寫資料、記錄備份和共用磁碟區 (標示為「儲存體複寫」)。 這些磁碟區僅會在容錯移轉期間進行裝載。 請參閱[災害復原容錯移轉程序](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure)，以取得詳細資訊。 
+- 在 DR 上：從生產網站透過快照集複寫資料、記錄備份和共用磁碟區 (標示為「儲存體複寫」)。 這些磁碟區僅會在容錯移轉期間進行裝載。 如需詳細資訊，請參閱[災害復原容錯移轉程序](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure)文件。 
 - **SKU 類型一類別**的開機磁碟區已複寫到 DR 節點。
 
 

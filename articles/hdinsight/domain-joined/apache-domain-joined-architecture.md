@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: omidm
-ms.openlocfilehash: f4380f5d6ec379d5807f697294623a672bd270ae
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 8503534031dc5774e64c58edd3e158162a5a6aee
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715236"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110449"
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>規劃 HDInsight 中已加入網域的 Azure Hadoop 叢集
 
@@ -50,7 +50,7 @@ ms.locfileid: "34715236"
 HDInsight 目前僅支援以 AAD-DS 作為可讓叢集藉由交談將叢集 Kerberize 的主要網域控制站。 不過，您也可以執行其他複雜的 AD 設定，只要該設定最終會啟用 AAD-DS 的 HDI 存取即可。
 
 - **[Azure Active Directory Domain Services (AAD-DS)](../../active-directory-domain-services/active-directory-ds-overview.md)**：這項服務會提供與 Windows Server Active Directory 完全相容的受控網域。 Microsoft 會負責管理、修補及監視高可用性 (HA) 設定中的網域。 您可以放心地部署叢集，不必擔心網域控制站的維護問題。 使用者、群組和密碼都會從您的 Azure Active Directory(AAD) [從 AAD 到 AAD-DS 的單向同步] 進行同步，讓使用者可使用相同的公司認證來登入叢集。 如需詳細資訊，請參閱[如何使用 AAD-DS 設定已加入網域的 HDInsight 叢集](./apache-domain-joined-configure-using-azure-adds.md)。
-- **內部部署 AD 或 IaaS VM 上的 AD**：如果您為網域進行內部部署 AD 或其他更複雜的 AD 設定，您可以使用 AD Connect 將這些識別同步至 AAD，然後在該 AD 租用戶上啟用 AAD-DS。 由於 Kerberos 須依賴密碼雜湊，因此您必須[對 AAD-DS 啟用密碼雜湊同步](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)。 如果您使用與 AD 同盟服務 (ADFS) 的同盟，則可以選擇性地設定密碼雜湊同步，作為 ADFS 基礎結構失敗時的備用方式。 如需詳細資訊，請參閱[透過 AAD Connect 同步啟用密碼雜湊同步](../../active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)。單獨使用內部部署 AD 或 IaaS VM 上的 AD，而未使用 AAD 和 AAD-DS，並非支援 HDI 叢集網域加入的組態。
+- **內部部署 AD 或 IaaS VM 上的 AD**：如果您為網域進行內部部署 AD 或其他更複雜的 AD 設定，您可以使用 AD Connect 將這些識別同步至 AAD，然後在該 AD 租用戶上啟用 AAD-DS。 由於 Kerberos 須依賴密碼雜湊，因此您必須[對 AAD-DS 啟用密碼雜湊同步](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)。 如果您使用與 AD 同盟服務 (ADFS) 的同盟，則可以選擇性地設定密碼雜湊同步，作為 ADFS 基礎結構失敗時的備用方式。 如需詳細資訊，請參閱[透過 AAD Connect 同步啟用密碼雜湊同步](../../active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)。單獨使用內部部署 AD 或 IaaS 虛擬機器上的 AD，而未使用 AAD 和 AAD-DS，並非 HDI 叢集網域加入支援的組態。
 
 ## <a name="next-steps"></a>後續步驟
 * [設定已加入網域的 HDInsight 叢集](apache-domain-joined-configure-using-azure-adds.md)。

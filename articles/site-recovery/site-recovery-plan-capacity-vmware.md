@@ -4,15 +4,15 @@ description: 使用 Azure Site Recovery 將 VMware VM 複寫至 Azure 時，可�
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
+ms.date: 07/06/2018
 ms.topic: conceptual
-ms.date: 06/20/2018
 ms.author: rayne
-ms.openlocfilehash: 30e4534fbc235a228ac887ddc3336f09909b4fa6
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 905798acd5836c31953714d7984cfb19f16cecab
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287349"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920792"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>使用 Azure Site Recovery 規劃容量並調整 Azure 中的 VMware 複寫
 
@@ -107,24 +107,10 @@ ms.locfileid: "36287349"
 
 ## <a name="deploy-additional-process-servers"></a>部署額外處理序伺服器
 
-如果您必須將您的部署相應放大至超過 200 部來源機器，或是擁有總計超過 2 TB 的每日變換率，您便需要額外的處理序伺服器來處理流量。 遵循這些指示以設定處理序伺服器。 設定伺服器之後，請移轉來源機器以便使用它。
-
-1. 在 [Site Recovery 伺服器] 中，依序按一下 [組態伺服器] 和 [處理序伺服器]。
-
-    ![要新增處理序伺服器之 Site Recovery 伺服器選項的螢幕擷取畫面](./media/site-recovery-vmware-to-azure/migrate-ps1.png)
-2. 在 [伺服器類型] 中，按一下 [處理伺服器 (內部部署)]。
-
-    ![[處理序伺服器] 對話方塊的螢幕擷取畫面](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
-3. 下載 Site Recovery 統一安裝檔案，然後執行它以安裝處理序伺服器。 這也會在保存庫中註冊處理序伺服器。
-4. 在 [開始之前] 中，選取 [新增額外處理序伺服器以相應放大部署]。
-5. 以您 [設定](#step-2-set-up-the-source-environment) 組態伺服器時的相同方式完成精靈。
-
-    ![Azure Site Recovery 統一安裝精靈的螢幕擷取畫面](./media/site-recovery-vmware-to-azure/add-ps1.png)
-6. 在 [組態伺服器詳細資料] 中，指定組態伺服器的 IP 位址，以及複雜密碼。 若要取得複雜密碼，請在組態伺服器上執行 **[SiteRecoveryInstallationFolder]\home\sysystems\bin\genpassphrase.exe –n**。
-
-    ![[組態伺服器詳細資料] 頁面的螢幕擷取畫面](./media/site-recovery-vmware-to-azure/add-ps2.png)
+如果您必須將您的部署相應放大至超過 200 部來源機器，或是擁有總計超過 2 TB 的每日變換率，您便需要額外的處理序伺服器來處理流量。 若要設定處理序伺服器，請遵循[本文](vmware-azure-set-up-process-server-scale.md)中指定的指示。 設定伺服器之後，您可以移轉來源機器以使用它。
 
 ### <a name="migrate-machines-to-use-the-new-process-server"></a>移轉機器以使用新的處理序伺服器
+
 1. 在 [設定] > [Site Recovery 伺服器] 中，按一下組態伺服器，然後展開 [處理伺服器]。
 
     ![[處理序伺服器] 對話方塊的螢幕擷取畫面](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
@@ -133,6 +119,30 @@ ms.locfileid: "36287349"
     ![[組態伺服器] 對話方塊的螢幕擷取畫面](./media/site-recovery-vmware-to-azure/migrate-ps3.png)
 3. 在 [選取目標處理序伺服器] 中，選取您要使用的新處理序伺服器，然後選取該伺服器將處理的虛擬機器。 按一下資訊圖示以取得伺服器的相關資訊。 為了協助您進行負載的判斷，會顯示將每個選取的虛擬機器複寫到新的處理序伺服器所需的平均空間。 按一下核取記號以開始複寫到新處理序伺服器。
 
+## <a name="deploy-additional-master-target-servers"></a>部署額外主要目標伺服器
+
+您在下列情況期間需要額外主要目標伺服器
+
+1. 如果您嘗試保護 Linux 虛擬機器。
+2. 如果設定伺服器上可用的主要目標伺服器無法存取 VM 的資料存放區。
+3. 如果主要目標伺服器上的磁碟總數 (伺服器上的本機磁碟數目 + 要保護的磁碟數目) 超過 60 個磁碟。
+
+若要新增 **Linux 虛擬機器**的新主要目標伺服器，請[按一下這裡](vmware-azure-install-linux-master-target.md)。
+
+針對 **Windows 虛擬機器**，遵循下面指定的指示。
+
+1. 巡覽至 [復原服務保存庫] > [Site Recovery Infrastructure] \(Site Recovery 基礎結構\) > [設定伺服器]。
+2. 按一下所需的設定伺服器 > [+主要目標伺服器].![add-master-target-server.png](media/site-recovery-plan-capacity-vmware/add-master-target-server.png)
+3. 下載統一設定，並在 VM 上執行它以設定主要目標伺服器。
+4. 選擇 [安裝主要目標] > [下一步]。 ![choose-MT.PNG](media/site-recovery-plan-capacity-vmware/choose-MT.PNG)
+5. 選擇預設安裝位置 > 按一下 [安裝]。 ![MT-installation](media/site-recovery-plan-capacity-vmware/MT-installation.PNG)
+6. 按一下 [Proceed to Configuration] \(繼續設定\)，向設定伺服器註冊主要目標。 ![MT-proceed-configuration.PNG](media/site-recovery-plan-capacity-vmware/MT-proceed-configuration.PNG)
+7. 輸入設定伺服器的 IP 位址和複雜密碼。 [按一下這裡](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase)，以了解如何產生複雜密碼。![cs-ip-passphrase](media/site-recovery-plan-capacity-vmware/cs-ip-passphrase.PNG)
+8. 按一下 [註冊]，並在註冊之後按一下 [完成]。
+9. 註冊成功時，此伺服器會列在入口網站的 [復原服務保存庫] > [Site Recovery Infrastructure] \(Site Recovery 基礎結構\) > [設定伺服器] > 相關設定伺服器的主要目標伺服器。
+
+ >[!NOTE]
+ >您也可以在[這裡](https://aka.ms/latestmobsvc)下載 Windows 的最新主要目標伺服器統一設定版本。
 
 ## <a name="next-steps"></a>後續步驟
 

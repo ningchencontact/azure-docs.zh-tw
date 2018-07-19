@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: danis
-ms.openlocfilehash: 04f6d68feccf4a9b2bf2fa0f03ad8bd978cf5f17
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1fd4e1a67b6aa4cc66e62822c34606e2769890f8
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653258"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866486"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Azure 虛擬機器擴充功能和功能
 Azure 虛擬機器 (VM) 擴充功能是在 Azure VM 上提供部署後設定和自動化工作的小型應用程式。您可以使用現有的映像，然後將其自訂為部署的一部分，就不必建置自訂映像。
@@ -43,7 +43,7 @@ Azure 平台裝載許多擴充功能，包括 VM 設定、監視、安全性和�
 ## <a name="how-can-i-install-an-extension"></a>如何安裝擴充功能？
 您可以使用 Azure CLI 2.0、Azure PowerShell、Azure Resource Manager 範本及 Azure 入口網站來管理 Azure VM 擴充功能。 若要試用擴充功能，您可以前往 Azure 入口網站、選取「自訂指令碼」擴充功能，然後傳入命令/指令碼並執行擴充功能。
 
-如果想要在入口網站中透過 CLI 或 Resource Manager 範本所新增的相同擴充功能，請參閱不同的擴充功能文件，例如 [Windows 自訂指令碼擴充功能](custom-script-windows.md)和 [Linux 自訂指令碼擴充功能](custom-script-linux.md)。
+如果想要在入口網站中透過 CLI 或 Resource Manager 範本所新增的相同延伸模組，請參閱不同的延伸模組文件，例如 [Windows 自訂指令碼延伸模組](custom-script-windows.md)和 [Linux 自訂指令碼延伸模組](custom-script-linux.md)。
 
 ## <a name="how-do-i-manage-extension-application-lifecycle"></a>如何管理擴充功能應用程式週期？
 您不需要直接連線至 VM，就可以安裝或刪除擴充功能。 由於 Azure 擴充功能應用程式週期是在 VM 外部管理，並整合到 Azure 平台，因此您也可以取得擴充功能的整合狀態。

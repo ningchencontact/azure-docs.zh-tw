@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4741cf306aed1c86be1bc4b54fb961383e2f70bd
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 4c0f5d0c5ed3814495a68d7fd49d41cec521bbd7
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763760"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114553"
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Azure 上 SAP HANA (大型執行個體) 的基礎結構和連接 
 
@@ -121,7 +121,7 @@ ms.locfileid: "34763760"
 
 前幾節中已介紹一些部署 HANA 大型執行個體所需的 IP 位址範圍。 但仍有一些其他重要的 IP 位址。 讓我們來瀏覽一些進一步的詳細資料。 傳送初始部署要求之前，必須定義下列 IP 位址，這些 IP 位址並非全都必須提交給 Microsoft：
 
-- **VNet 位址空間：** 如前文所介紹，這是您在連接到 SAP HANA 大型執行個體環境的 Azure 虛擬網路 (VNet) 中，已指派 (或打算指派) 給位址空間參數的 IP 位址範圍。 建議此位址空間參數採用由 Azure VM 子網路範圍和 Azure 閘道子網路範圍所組成的多行值，如前文圖中所示。 此範圍「不得」與您的內部部署或伺服器 IP 集區或 ER-P2P 位址範圍重疊。 如何取得 IP 位址範圍？ 您的公司網路小組或服務提供者應該提供一或多個網路內未使用的 IP 位址範圍。 範例：如果您的 Azure VM 子網路 (參見前文) 是 10.0.1.0/24，而 Azure 閘道子網路 (參見後方) 是 10.0.2.0/28，則建議 Azure VNet 位址空間採用兩行，即 10.0.1.0/24 和 10.0.2.0/28。 雖然位址空間值可以彙總，但建議讓它們符合子網路範圍，以避免日後在網路中的其他地方，不小心重複使用在較大位址範圍內未使用的 IP 位址範圍。 **VNET 位址範圍是要求初始部署時，所必須提交給 Microsoft 的 IP 位址範圍**
+- **VNet 位址空間：** 如前文所介紹，這是您在連接到 SAP HANA 大型執行個體環境的 Azure 虛擬網路 (VNet) 中，已指派 (或打算指派) 給位址空間參數的 IP 位址範圍。 建議此位址空間參數採用由 Azure VM 子網路範圍和 Azure 閘道子網路範圍所組成的多行值，如前文圖中所示。 此範圍「不得」與您的內部部署、伺服器 IP 集區或 ER-P2P 位址範圍重疊。 如何取得 IP 位址範圍？ 您的公司網路小組或服務提供者應該提供一或多個網路內未使用的 IP 位址範圍。 範例：如果您的 Azure VM 子網路 (參見前文) 是 10.0.1.0/24，而 Azure 閘道子網路 (參見後方) 是 10.0.2.0/28，則建議 Azure VNet 位址空間採用兩行，即 10.0.1.0/24 和 10.0.2.0/28。 雖然位址空間值可以彙總，但建議讓它們符合子網路範圍，以避免日後在網路中的其他地方，不小心重複使用在較大位址範圍內未使用的 IP 位址範圍。 **VNET 位址範圍是要求初始部署時，所必須提交給 Microsoft 的 IP 位址範圍**
 
 - **Azure VM 子網路 IP 位址空間：** 如前文所述，這是您在連接到 SAP HANA 大型執行個體環境的 Azure VNET 中，已指派 (或打算指派) 給 Azure VNet 子網路參數的 IP 位址範圍。 此 IP 位址範圍可用來將 IP 位址指派給您的 Azure VM。 超出此範圍的 IP 位址可以連接到您的 SAP HANA 大型執行個體伺服器。 如果需要，可以使用多個 Azure VM 子網路。 Microsoft 建議為每個「Azure VM 子網路」指定 /24 CIDR 區塊。 此位址範圍必須是「Azure VNet 位址空間」中所使用值的一部分。 如何取得此 IP 位址範圍？ 您的公司網路小組或服務提供者應該提供一個目前網路內未使用的 IP 位址範圍。
 
@@ -244,7 +244,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $myConnectionName `
 -PeerId $PeerID -ConnectionType ExpressRoute -AuthorizationKey $AuthGUID
 ```
 
-如果您想要將閘道連接到與訂用帳戶關聯的多個 ExpressRoute 線路，可能會需要執行此步驟多次。 例如，您可能要將相同的 VNet 閘道連接到 ExpressRoute 線路，而此線路會將 VNet 連接到內部部署網路。
+如果您想要將閘道連接到與訂用帳戶關聯的多個 ExpressRoute 線路，可能會需要執行此步驟多次。 例如，您可能要將相同的 VNet 閘道連線到 ExpressRoute 線路，而此線路會將 VNet 連線到內部部署網路。
 
 ## <a name="adding-more-ip-addresses-or-subnets"></a>新增更多 IP 位址或子網路
 

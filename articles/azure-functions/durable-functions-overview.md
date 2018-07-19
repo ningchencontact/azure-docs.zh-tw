@@ -14,18 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: d253562e0ecb0d53739a4cdc5f9747e33d7e1171
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0bc88a510c05e88351b4ac7d69839a37c0e4fdd8
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33764395"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970484"
 ---
 # <a name="durable-functions-overview"></a>Durable Functions 概觀
 
 *Durable Functions* 是 [Azure Functions](functions-overview.md) 和 [Azure WebJobs](../app-service/web-sites-create-web-jobs.md) 的擴充功能，可讓您在無伺服器環境中撰寫具狀態函式。 此擴充功能會為您管理狀態、設定檢查點和重新啟動。
 
-此擴充功能可讓您以新的函式類型 (稱為「協調器函式」) 定義具狀態的工作流程。 以下是協調器函式的一些優點：
+此擴充功能可讓您以新的函式類型 (稱為[*協調器函式*](durable-functions-types-features-overview.md#orchestrator-functions)) 定義具狀態的工作流程。 以下是協調器函式的一些優點：
 
 * 協調器函式會在程式碼中定義工作流程。 不需要 JSON 結構描述或設計工具。
 * 協調器函式能以同步和非同步方式呼叫其他函式。 所呼叫之函式的輸出可儲存至本機變數。
@@ -340,7 +340,7 @@ Durable Functions 擴充功能其實是以[長期工作架構](https://github.co
 
 此擴充功能會透明地使用事件來源。 實際上，協調器函式中的 `await` 運算子會將協調器執行緒的控制往回產生給長期工作架構發送器。 發送器接著會將協調器函式所排程的任何新的動作 (例如，呼叫一或多個子函式或排程長期計時器) 認可至儲存體。 此透明認可動作會附加至協調流程執行個體的「執行歷程記錄」。 歷程記錄會儲存於儲存體資料表。 認可動作接著會將訊息新增至佇列以排程實際的工作。 此時，協調器函式即可從記憶體卸載。 如果您使用 Azure Functions 取用方案，則會停止其計費。  有更多工作要執行時，便會重新啟動函式，而且其狀態會重新建構。
 
-協調流程函式在收到更多要執行的工作後 (例如，收到回應訊息或長期計時器過期)，協調器會再度甦醒，並從頭開始重新執行整個函式，以便重建本機狀態。 如果在此重新執行期間，這個程式碼嘗試呼叫函式 (或進行任何其他非同步工作)，長期工作架構便會諮詢目前協調流程的「執行歷程記錄」。 如果它發現活動函式已執行並產生某種結果，便會重新執行該函式的結果，而協調器程式碼則會繼續執行。 這種情況會繼續發生，直到函式程式碼已完成，或已排程新的非同步工作。
+協調流程函式在收到更多要執行的工作後 (例如，收到回應訊息或長期計時器過期)，協調器會再度甦醒，並從頭開始重新執行整個函式，以便重建本機狀態。 如果在此重新執行期間，這個程式碼嘗試呼叫函式 (或進行任何其他非同步工作)，長期工作架構便會諮詢目前協調流程的「執行歷程記錄」。 如果它發現[活動函式](durable-functions-types-features-overview.md#activity-functions)已執行並產生某種結果，便會重新執行該函式的結果，而協調器程式碼則會繼續執行。 這種情況會繼續發生，直到函式程式碼已完成，或已排程新的非同步工作。
 
 ### <a name="orchestrator-code-constraints"></a>協調器程式碼條件約束
 
@@ -348,7 +348,7 @@ Durable Functions 擴充功能其實是以[長期工作架構](https://github.co
 
 ## <a name="language-support"></a>語言支援
 
-目前 C# (Functions v1 和 v2) 和 JavaScript (僅限 Functions v2) 是 Durable Functions 唯獨支援的語言。 這包括協調器函式和活動函式。 未來，我們會對 Azure Functions 所支援的所有語言皆新增支援。 請參閱 Azure Functions 的 [GitHub 存放庫問題清單](https://github.com/Azure/azure-functions-durable-extension/issues)，以查看其他語言支援工作的最新狀態。
+目前 C# (Functions v1 和 v2)、F# 和 JavaScript (僅限 Functions v2) 是 Durable Functions 唯獨支援的語言。 這包括協調器函式和活動函式。 未來，我們會對 Azure Functions 所支援的所有語言皆新增支援。 請參閱 Azure Functions 的 [GitHub 存放庫問題清單](https://github.com/Azure/azure-functions-durable-extension/issues)，以查看其他語言支援工作的最新狀態。
 
 ## <a name="monitoring-and-diagnostics"></a>監視和診斷
 
@@ -384,7 +384,7 @@ Durable Functions 擴充功能會使用 Azure 儲存體佇列、資料表和 Blo
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [繼續閱讀 Durable Functions 文件](durable-functions-bindings.md)
+> [繼續閱讀 Durable Functions 文件](durable-functions-types-features-overview.md)
 
 > [!div class="nextstepaction"]
 > [安裝 Durable Functions 擴充功能和範例](durable-functions-install.md)

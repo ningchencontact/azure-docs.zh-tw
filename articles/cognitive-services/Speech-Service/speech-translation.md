@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 43fcde887c21794989aa43540a214ef34893a630
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a569c968d444c36ceb3bce4779d2eca39c21f9bc
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370666"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069189"
 ---
 # <a name="about-the-speech-translation-api"></a>關於語音翻譯 API
 
@@ -42,5 +42,5 @@ Microsoft 語音 API 可讓您將端對端、即時、多國語言翻譯的語�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [取得語音試用版訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)
-* [了解如何以 C# 辨識語音](quickstart-csharp-windows.md)
+* [試用認知服務](https://azure.microsoft.com/try/cognitive-services/)
+* [了解如何以 C# 辨識語音](quickstart-csharp-dotnet-windows.md) (英文)

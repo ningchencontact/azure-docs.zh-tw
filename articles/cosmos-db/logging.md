@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 66ee0856851a301a6849b71b64cb904c925ad18d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: acc327bd9fa6828a65243b6d0ad0c6da4b98f48d
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34612209"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857094"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure Cosmos DB 診斷記錄
 
@@ -42,7 +42,7 @@ ms.locfileid: "34612209"
 
 「Azure 活動記錄」是訂用帳戶記錄，可讓您深入探索 Azure 中發生的訂用帳戶層級事件。 活動記錄會報告系統管理類別下您的訂用帳戶的控制平面事件。 您可以使用活動記錄來判斷對您訂用帳戶中的資源執行的任何寫入作業 (PUT、POST、DELETE) 的「內容、執行者和時間」。 您也可以了解作業的狀態和其他相關屬性。 
 
-活動記錄不同於診斷記錄。 活動記錄會提供關於外部資源 (_控制平面_) 之作業的資料。 在 Azure Cosmos DB 內容中，控制平面作業包括建立集合、列出金鑰、刪除金鑰、列出資料庫等。 診斷記錄是由資源所發出，會提供該資源作業的相關資訊 (_資料平面_)。 舉例來說，Delete、Insert 和 ReadFeed 都是診斷記錄中的資料平面作業。
+活動記錄不同於診斷記錄。 活動記錄會提供關於外部資源 (_控制平面_) 之作業的資料。 在 Azure Cosmos DB 內容中，控制平面作業包括建立容器、列出金鑰、刪除金鑰、列出資料庫等。 診斷記錄是由資源所發出，會提供該資源作業的相關資訊 (_資料平面_)。 舉例來說，Delete、Insert 和 ReadFeed 都是診斷記錄中的資料平面作業。
 
 活動記錄 (控制平面作業) 在本質上可能更豐富，且可能會包含呼叫端的完整電子郵件地址、呼叫端 IP 位址、資源名稱、作業名稱和 TenantId 等等。 活動記錄包含數個資料[類別](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema)。 如需這些類別結構描述的完整詳細資料，請參閱 [Azure 活動記錄事件結構描述](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema)。 不過，診斷記錄在本質上有所限制，因為個人資料通常會從這些記錄中移除。 您可能會有呼叫端的 IP 位址，但最後一個 octent 會被移除。
 
@@ -354,7 +354,7 @@ Azure Cosmos DB 作業執行後兩個小時，就可以在您的帳戶中使用�
 <a id="#view-in-loganalytics"></a>
 ## <a name="view-logs-in-log-analytics"></a>檢視 Log Analytics 中的記錄
 
-如果您開啟診斷記錄時選取 [傳送至 Log Analytics] 選項，集合中的診斷資料會在兩個小時內轉送到 Log Analytics。 如果您在開啟記錄功能後立即查看 Log Analytics，將不會看到任何資料。 只需等待兩個小時，然後再試一次。 
+如果您開啟診斷記錄時選取 [傳送至 Log Analytics] 選項，容器中的診斷資料會在兩個小時內轉送到 Log Analytics。 如果您在開啟記錄功能後立即查看 Log Analytics，將不會看到任何資料。 只需等待兩個小時，然後再試一次。 
 
 檢視記錄前，請確認您的 Log Analytics 工作區是否已升級為使用新的 Log Analytics 查詢語言。 若要進行此確認，請開啟 [Azure 入口網站](https://portal.azure.com)，選取靠左側的 [Log Analytics]，然後選取工作區名稱，如下圖所示。 [OMS 工作區] 頁面隨即顯示：
 
@@ -446,7 +446,7 @@ Azure Cosmos DB 作業執行後兩個小時，就可以在您的帳戶中使用�
 | **properties** | n/a | 此欄位的內容說明於下列資料列中。 |
 | **activityId** | **activityId_g** | 所記錄作業的唯一 GUID。 |
 | **userAgent** | **userAgent_s** | 此字串指定執行要求的用戶端使用者代理程式。 格式為 {使用者代理程式名稱}/{版本}。|
-| **resourceType** | **ResourceType** | 存取的資源類型。 這個值可以是下列任一資源類型：Database、Collection、Document、Attachment、User、Permission、StoredProcedure、Trigger、UserDefinedFunction 或 Offer。 |
+| **resourceType** | **ResourceType** | 存取的資源類型。 這個值可以是下列任一資源類型：Database、Container、Document、Attachment、User、Permission、StoredProcedure、Trigger、UserDefinedFunction 或 Offer。 |
 | **statusCode** | **statusCode_s** | 作業的回應狀態。 |
 | **requestResourceId** | **ResourceId** | 關於要求的 resourceId。 根據執行的作業，此值可能表示 databaseRid、collectionRid 或 documentRid。|
 | **clientIpAddress** | **clientIpAddress_s** | 用戶端的 IP 位址。 |

@@ -11,18 +11,18 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 0648a7555cb94543dadf5d73e0187927a90f5b5a
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 3b606fc78327035e135e0f037288a817171385dd
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31526513"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857939"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>如何在 Azure VM 中啟用巢狀虛擬化
 
 在 Azure 虛擬機器的 Dv3 和 Ev3 系列中支援巢狀虛擬化。 此功能在如開發、測試、訓練和示範環境的支援案例中，可提供更多的彈性。 
 
-本文會在 Azure VM 上逐步啟用巢狀虛擬化，並設定該客體虛擬機器的網際網路連線。
+所有 Dv3 和 Ev3 系列虛擬機器都支援巢狀虛擬化，而且未新增設定。  本文會在 Azure VM 上逐步啟用 Hyper-V，並設定該客體虛擬機器的網際網路連線。
 
 ## <a name="create-a-dv3-or-ev3-series-azure-vm"></a>建立 Dv3 或 Ev3 系列 Azure VM
 

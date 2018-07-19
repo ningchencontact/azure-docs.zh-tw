@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
-ms.openlocfilehash: 6c46ada7fc95d5789512f8f7c7842852e6a86b69
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: d608378f9b3ff3179f9e37ef13f88c65a645d018
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248927"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112981"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>使用 Azure DNS 和流量管理員進行災害復原
 
@@ -59,7 +59,7 @@ DNS 是轉向網路流量最有效率的機制之一，因為 DNS 通常是全�
 
 請務必了解 DNS 的一些概念，我們會廣泛地使用這些概念來討論本文中提供的解決方案：
 - **DNS A 記錄** – A 記錄是將網域指向 IPv4 位址的指標。 
-- **CNAME 或 Canonical 名稱** - 此記錄類型用來指向其他 DNS 記錄。 CNAME 不會以 IP 答覆作為回應，而是以指標，其指向包含 IP 位址的記錄。 
+- **CNAME 或 Canonical 名稱** - 此記錄類型用來指向其他 DNS 記錄。 CNAME 不會以 IP 位址作為回應，而是以指標，其指向包含 IP 位址的記錄。 
 - **加權路由** – 您可以選擇使權重與服務端點相關聯，然後根據指派的權重分配流量。 此路由方法是流量管理員中四個可用流量路由機制的其中一個。 如需詳細資訊，請參閱 [加權路由方法](../traffic-manager/traffic-manager-routing-methods.md#weighted)。
 - **優先順序路由** – 優先順序路由會以端點的健康情況檢查為基礎。 根據預設，Azure 流量管理員會將所有流量傳送到優先順序最高的端點，而在發生失敗或損毀時，流量管理員會將流量路由至次要端點。 如需詳細資訊，請參閱 [優先順序路由方法](../traffic-manager/traffic-manager-routing-methods.md#priority)。
 
@@ -140,7 +140,7 @@ DNS 是轉向網路流量最有效率的機制之一，因為 DNS 通常是全�
 使用名稱 contoso123 建立新的 Azure 流量管理員設定檔，並選取 [優先順序] 作為 [路由方式]。 如果您有想與之建立關聯的現有資源群組，則您可以選取現有的資源群組，否則請建立新的資源群組。
 
 ![建立流量管理員設定檔](./media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
-圖 - 建立流量管理員設定檔**
+*圖 - 建立流量管理員設定檔*
 
 ### <a name="step-2-create-endpoints-within-the-traffic-manager-profile"></a>步驟 2：在流量管理員設定檔中建立端點
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: a44c9ec9270e4ba76f0ff367e039f5ef72eb04a5
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: ede8fab67c04eb7ce8d26280de2d1563b6cc8ad2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "31601632"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38678735"
 ---
 # <a name="create-a-windows-virtual-machine-with-the-simplified-new-azurermvm-cmdlet-in-cloud-shell"></a>在 Cloud Shell 中使用簡化的 New-AzureRMVM Cmdlet 來建立 Windows 虛擬機器 
 
@@ -46,11 +46,11 @@ New-AzureRMVm -Name myVM
 
 系統會要求您建立 VM 的使用者名稱和密碼，稍後在本主題中當您連線到 VM 時會用到。 密碼長度必須是 12-123 個字元，且符合下列四個複雜性需求的其中三項：1 個小寫字元、1 個大寫字元、1 個數字和 1 個特殊字元。
 
-只要花一分鐘即可建立虛擬機器和相關聯的資源。 完成時，您可以看到所有使用 [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) Cmdlet 所建立的的資源。
+只要花一分鐘即可建立虛擬機器和相關聯的資源。 完成時，您可以看到所有使用 [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) Cmdlet 建立的資源。
 
 ```azurepowershell-interactive
-Find-AzureRmResource `
-    -ResourceGroupNameEquals myVMResourceGroup | Format-Table Name
+Get-AzureRmResource `
+    -ResourceGroupName myVMResourceGroup | Format-Table Name
 ```
 
 ## <a name="connect-to-the-vm"></a>連接至 VM

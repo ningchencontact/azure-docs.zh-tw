@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 40a8cd256164bb66e82c651e58d37b1afbb4a652
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: a3bba4e8fd83b160472a2dc6a9425192b4bbd301
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287798"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38531574"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>在 Azure VM 中手動設定 Always On 可用性群組
 
@@ -86,7 +86,7 @@ ms.locfileid: "36287798"
 
    ![叢集屬性](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/42_IPProperties.png)
 
-3. 選取 [靜態 IP 位址]，並在位址文字方塊中，從自動私人 IP 位址 (APIPA) 範圍指定可用的位址：169.254.0.1 到 169.254.255.254。 在此範例中，您可以使用該範圍內的任何位址。 例如 `169.254.0.1`。 然後按 [下一步] 。
+3. 選取 [靜態 IP 位址]，然後從相同的子網路中指定一個可用的位址作為您的虛擬機器。
 
 4. 在 [叢集核心資源] 區段中，於叢集名稱上按一下滑鼠右鍵，然後按一下 [上線]。 然後等待兩個資源上線。 叢集名稱資源上線後，會以新的 AD 電腦帳戶更新 DC 伺服器。 稍後請使用此 AD 帳戶來執行「可用性群組」叢集服務。
 
@@ -341,7 +341,7 @@ Repeat these steps on the second SQL Server.
 
 ## <a name="create-an-azure-load-balancer"></a>建立 Azure Load Balancer
 
-在 Azure 虛擬機器上，「SQL Server 可用性群組」需要負載平衡器。 負載平衡器會保有「可用性群組」接聽程式的 IP 位址。 本節摘要說明如何在 Azure 入口網站中建立負載平衡器。
+在 Azure 虛擬機器上，「SQL Server 可用性群組」需要負載平衡器。 負載平衡器會保有可用性群組接聽程式以及 Windows Server 容錯移轉叢集的 IP 位址。 本節摘要說明如何在 Azure 入口網站中建立負載平衡器。
 
 1. 在 Azure 入口網站中，移至您 SQL Server 所在的資源群組，然後按一下 [+ 加入]。
 2. 搜尋 [負載平衡器]。 選擇 Microsoft 所發行的負載平衡器。
@@ -370,7 +370,7 @@ Repeat these steps on the second SQL Server.
 
 若要設定負載平衡器，您必須建立後端集區、探查，並設定負載平衡規則。 請在 Azure 入口網站中執行這些操作。
 
-### <a name="add-backend-pool"></a>新增後端集區
+### <a name="add-backend-pool-for-the-availability-group-listener"></a>新增可用性群組接聽程式的後端集區
 
 1. 在 Azure 入口網站中，移至您的可用性群組。 您可能需要重新整理檢視，才能看到新建立的負載平衡器。
 
@@ -416,6 +416,46 @@ Repeat these steps on the second SQL Server.
    | **連接埠** | 使用可用性群組接聽程式的連接埠 | 1435 |
    | **後端連接埠** | 如果已為伺服器直接回傳設定「浮動 IP」，便不會使用此欄位。 | 1435 |
    | **探查** |您為探查指定的名稱 | SQLAlwaysOnEndPointProbe |
+   | **工作階段持續性** | 下拉式清單 | **None** |
+   | **閒置逾時** | 讓 TCP 連線保持開啟的分鐘數 | 4 |
+   | **浮動 IP (伺服器直接回傳)** | |已啟用 |
+
+   > [!WARNING]
+   > 伺服器直接回傳是在建立時設定。 無法予以變更。
+
+1. 按一下 [確定] 以設定負載平衡規則。
+
+### <a name="add-the-front-end-ip-address-for-the-wsfc"></a>新增 WSFC 的前端 IP 位址
+
+WSFC IP 位址也必須位於負載平衡器上。 
+
+1. 在入口網站中，新增 WSFC 的前端 IP 設定。 在叢集核心資源中，使用您為 WSFC 設定的 IP 位址。 將 IP 位址設為靜態。 
+
+1. 依序按一下負載平衡器、[健康情況探查]、[+加入]。
+
+1. 依照下列方式設定健康情況探查：
+
+   | 設定 | 說明 | 範例
+   | --- | --- |---
+   | **名稱** | 文字 | WSFCEndPointProbe |
+   | **通訊協定** | 選擇 [TCP] | TCP |
+   | **連接埠** | 任何未使用的連接埠 | 58888 |
+   | **間隔**  | 探查嘗試間隔的時間長度 (秒) |5 |
+   | **狀況不良臨界值** | 將虛擬機器視為狀況不良之前，必須達到的連續探查失敗次數  | 2 |
+
+1. 按一下 [確定] 以設定健康情況探查。
+
+1. 設定負載平衡規則。 按一下 [負載平衡規則]，然後按一下 [+新增]。
+
+1. 依照下列方式設定負載平衡規則。
+   | 設定 | 說明 | 範例
+   | --- | --- |---
+   | **名稱** | 文字 | WSFCPointListener |
+   | **前端 IP 位址** | 選擇一個位址 |使用您在設定 WSFC IP 位址時所建立的位址。 |
+   | **通訊協定** | 選擇 [TCP] |TCP |
+   | **連接埠** | 使用可用性群組接聽程式的連接埠 | 58888 |
+   | **後端連接埠** | 如果已為伺服器直接回傳設定「浮動 IP」，便不會使用此欄位。 | 58888 |
+   | **探查** |您為探查指定的名稱 | WSFCEndPointProbe |
    | **工作階段持續性** | 下拉式清單 | **None** |
    | **閒置逾時** | 讓 TCP 連線保持開啟的分鐘數 | 4 |
    | **浮動 IP (伺服器直接回傳)** | |已啟用 |

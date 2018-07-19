@@ -2,25 +2,22 @@
 title: Azure Active Directory Connect：針對無縫單一登入進行疑難排解 | Microsoft Docs
 description: 本主題說明如何針對 Azure Active Directory 無縫單一登入進行疑難排解
 services: active-directory
-keywords: 何謂 Azure AD Connect、安裝 Active Directory、Azure AD、SSO、單一登入的必要元件
-documentationcenter: ''
-author: swkrish
+author: billmath
+ms.reviewer: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 06/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 205df47c36cb1d6925e232f06c0f1355c40ae973
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4df60668f6b9aa0afb2203fa59788c47e2ffaefb
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592223"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110884"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>針對 Azure Active Directory 無縫單一登入進行疑難排解
 
@@ -84,6 +81,7 @@ ms.locfileid: "34592223"
 - 確定使用者帳戶是來自已設定無縫 SSO 的 Active Directory 樹系。
 - 確定裝置已連線到公司網路。
 - 確定裝置的時間已經與 Active Directory 和網域控制站的時間同步，且彼此的時間差不到五分鐘。
+- 請確認在您想要啟用無縫 SSO 的每個 AD 樹系中，`AZUREADSSOACCT` 電腦帳戶存在且已啟用。 
 - 從命令提示字元使用 `klist` 命令，列出裝置上現有的 Kerberos 票證。 確認是否有核發給 `AZUREADSSOACCT` 電腦帳戶的票證。 使用者的 Kerberos 票證有效期通常為 10 個小時。 您的 Active Directory 可能有不同的設定。
 - 如果您在租用戶上將「無縫 SSO」停用再重新啟用，使用者將必須等到他們的已快取 Kerberos 票證到期之後，才能使用單一登入體驗。
 - 使用 `klist purge` 命令從裝置中清除現有的 Kerberos 票證，然後再試一次。

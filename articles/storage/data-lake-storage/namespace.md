@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: f7c3820624a4ef27e2ece4d902f2c033b6a6f48f
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 9b41ca1eedcf69b23557c079e018d69de9fb907c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061215"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114362"
 ---
 # <a name="azure-data-lake-storage-gen2-preview-hierarchical-namespace"></a>Azure Data Lake Storage Gen2 預覽版階層式命名空間
 
@@ -27,7 +27,7 @@ ms.locfileid: "37061215"
 
 以下優勢是關於在 blob 資料上執行階層式命名空間的檔案系統：
 
-- **不可部分完成的目錄操作：** 物件採用在物件名稱中內嵌斜線 (/) 以表示路徑線段的慣例，儲存近似目錄階層的架構。 雖然此慣例在整理物件方面的效果令人滿意，但此慣例不提供移動、重新命名或刪除目錄等協助動作。 如果沒有真正的目錄，應用程式就必須處理可能數百萬個單獨的 blob 才能達到目錄層級的工作。 相較之下，階層式命名空間以更新單一項目 (父目錄) 的方式來處理這些工作。 
+- **不可部分完成的目錄操作：** 物件採用在物件名稱中內嵌斜線 (/) 以表示路徑線段的慣例，儲存近似目錄階層的架構。 雖然此慣例適用於整理物件，但此慣例不提供移動、重新命名或刪除目錄等協助動作。 如果沒有真正的目錄，應用程式就必須處理可能數百萬個單獨的 blob 才能達到目錄層級的工作。 相較之下，階層式命名空間以更新單一項目 (父目錄) 的方式來處理這些工作。 
 
     這種大幅最佳化對於許多巨量資料分析架構來說尤為重要。 Hive 和 Spark 等工具經常將輸出寫入暫時位置，然後在作業結束時重新命名該位置。 如果沒有階層式命名空間，重新命名所花費的時間通常會比分析流程本身更長。 較低的作業延遲等於較低的分析工作負載擁有權總成本 (TCO)。
 

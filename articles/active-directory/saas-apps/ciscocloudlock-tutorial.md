@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 5ec729c6f82cec503cae2fa057f5842849004ac7
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 5f469269d88320a41551fc86168debcd8fe43f7f
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318240"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865449"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-the-cloud-security-fabric"></a>教學課程：Azure Active Directory 與 The Cloud Security Fabric 整合
 
@@ -75,7 +75,7 @@ ms.locfileid: "36318240"
 
     ![結果清單中的 The Cloud Security Fabric](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定及測試 Azure AD 單一登入
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
 在本節中，您會以名為 "Britta Simon" 的測試使用者為基礎，設定及測試與 The Cloud Security Fabric 搭配運作的 Azure AD 單一登入。
 
@@ -202,7 +202,7 @@ ms.locfileid: "36318240"
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在「存取面板」中按一下 [The Cloud Security Fabric] 圖格時，應該會自動登入您的 The Cloud Security Fabric 應用程式。
+當您按一下 [存取面板] 中的 [The Cloud Security Fabric] 圖格時，應該會自動登入您的 The Cloud Security Fabric 應用程式。
 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/10/2018
+ms.date: 07/03/2018
 ms.author: shlo
-ms.openlocfilehash: c07199887faf073d19007f1ef410c193bbdbf3ee
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c24bec7366ea62b3dd8f7a301c9d2d62c6dd6c7d
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049361"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859273"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Azure Data Factory 中的取得中繼資料活動
 GetMetadata 活動可用來取出 Azure Data Factory 中任何資料的**中繼資料**。 這個活動可以在下列案例使用：
@@ -34,7 +34,7 @@ GetMetadata 活動可用來取出 Azure Data Factory 中任何資料的**中繼�
 
 ## <a name="supported-capabilities"></a>支援的功能
 
-GetMetadata 活動以資料集作為必要的輸入，並輸出可用的中繼資料資訊作為活動輸出。 目前而言，支援以下連接器與相對應可取出的中繼資料：
+GetMetadata 活動以資料集作為必要的輸入，並輸出可用的中繼資料資訊作為活動輸出。 目前支援下列具有對應可擷取中繼資料的連接器，而且支援的中繼資料大小上限為 **1 MB**。
 
 >[!NOTE]
 >如果您在自封式 Integration Runtime 上執行 GetMetadata 活動，在 3.6 或以上的版本上才支援最新功能。 

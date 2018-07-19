@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.author: barbkess
 ms.reviewer: richagi
-ms.openlocfilehash: dd86ad6b9a60c8a44dd73b31d908838d9c213fd1
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: abf7d571097aefd47c90cbd0ce4aab941c4e24c4
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35302239"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126655"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>使用租用戶限制來管理對 SaaS 雲端應用程式的存取
 
@@ -60,7 +60,7 @@ Azure Active Directory 對這項挑戰所提出的解決方案是一個稱為「
 
 以下是透過 Proxy 基礎結構啟用「租用戶限制」的必要組態。 本指導方針是通用的，因此如需了解特定的實作步驟，您應該參考您 Proxy 廠商的文件。
 
-#### <a name="prerequisites"></a>先決條件
+#### <a name="prerequisites"></a>必要條件
 
 - Proxy 必須要能夠執行 SSL 攔截、HTTP 標頭插入，以及使用 FQDN/URL 來篩選目的地。 
 
@@ -116,7 +116,7 @@ Office 365 應用程式必須符合兩項準則，才能完全支援「租用戶
 
 支援新式驗證的 Outlook 和「商務用 Skype」用戶端仍然能夠針對未啟用新式驗證的租用戶使用傳統通訊協定，有效地略過「租用戶限制」。 使用傳統通訊協定的應用程式如果在驗證期間連絡 login.microsoftonline.com、login.microsoft.com 或 login.windows.net，可能會遭到「租用戶限制」封鎖。
 
-針對 Windows 上的 Outlook，客戶可以選擇實作可防止使用者將非已核准郵件帳戶新增至其設定檔的限制。 例如，請參閱[防止新增非預設 Exchange 帳戶](http://gpsearch.azurewebsites.net/default.aspx?ref=1)群組原則設定。 對於非 Windows 平台上的 Outlook 與所有平台上的商務用 Skype，目前尚未完整支援租用戶限制。
+針對 Windows 上的 Outlook，客戶可以選擇實作可防止使用者將非已核准郵件帳戶新增至其設定檔的限制。 例如，請參閱[防止新增非預設 Exchange 帳戶](http://gpsearch.azurewebsites.net/default.aspx?ref=1)群組原則設定。
 
 ## <a name="testing"></a>測試
 

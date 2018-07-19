@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: ramamill
-ms.openlocfilehash: f305f552d576f58914bc33351331f1da3c68bc23
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: c2100ee2388ae09bd309167b1be77f7bdbe32f69
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951643"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126012"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>針對 VMware VM 和實體伺服器的複寫問題進行疑難排解
 
@@ -74,25 +74,7 @@ ms.locfileid: "37951643"
 
 * **檢查處理序伺服器上的 URL 型防火牆是否封鎖存取**：如果您的伺服器使用 URL 型防火牆規則，請確定下列 URL 已新增至防火牆設定。
 
-  `*.accesscontrol.windows.net:` 用於存取控制和身分識別管理
-
-  `*.backup.windowsazure.com:` 用於複寫資料的傳輸和協調
-
-  `*.blob.core.windows.net:` 用於存取儲存體帳戶來儲存複寫的資料
-
-  `*.hypervrecoverymanager.windowsazure.com:` 用於複寫管理作業和協調
-
-  `time.nist.gov` 和 `time.windows.com`：用於檢查系統時間與通用時間之間的時間同步處理
-
-適用於 **Azure Government 雲端**的 URL：
-
-`* .ugv.hypervrecoverymanager.windowsazure.us`
-
-`* .ugv.backup.windowsazure.us`
-
-`* .ugi.hypervrecoverymanager.windowsazure.us`
-
-`* .ugi.backup.windowsazure.us`
+[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
 * **檢查處理序伺服器上的 Proxy 設定是否封鎖存取**。  如果您使用 Proxy 伺服器，請確定 DNS 伺服器可解析 Proxy 伺服器名稱。
 若要查看您在設定伺服器安裝時所提供的資訊， 請移至登錄機碼

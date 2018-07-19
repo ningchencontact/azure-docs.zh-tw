@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 6fda373f832d6e24d1252587a19c88b0f464dda6
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 5065399f161bcaee2f9518236a28f0f5faa0ea5b
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231885"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902022"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>預覽：部署 Azure AD 密碼保護
 
@@ -103,7 +103,7 @@ Azure AD 密碼保護有兩個可從 [Microsoft 下載](https://www.microsoft.co
          只有當目前登入的使用者也是根網域的 Active Directory 網域系統管理員時，此範例才能運作。 有一個替代方案，就是透過 -ForestCredential 參數提供必要的網域認證。
 
          > [!NOTE]
-         > 如果您的環境中安裝了多個 Proxy 伺服器，則在哪個特定的 Proxy 伺服器上執行上述程序並無關緊要。
+         > 如果您的環境中安裝了多個 Proxy 伺服器，則在上述程序中指定哪個 Proxy 伺服器無關緊要。
 
          > [!TIP]
          > 第一次為指定的 Azure 租用戶執行此 Cmdlet 時，在 Cmdlet 執行完成之前，可能會有相當長的延遲 (很多秒)。 除非系統回報失敗，否則不應該將此延遲視為警示。

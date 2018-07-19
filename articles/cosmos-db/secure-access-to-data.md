@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/24/2017
 ms.author: sngun
-ms.openlocfilehash: 079cbff3a1669efb7ba7cd7a97da9256dbbfe9f8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c51d399b646e7914ba85048c0928837caac7c15b
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34613212"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901114"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>安全存取 Azure Cosmos DB 資料
 本文提供儲存於 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)中資料的安全存取概觀。
@@ -24,7 +24,7 @@ Azure Cosmos DB 會使用兩種類型的金鑰來驗證使用者，以允許存�
 |金鑰類型|資源|
 |---|---|
 |[主要金鑰](#master-keys) |用於系統管理資源︰資料庫帳戶、資料庫、使用者和權限|
-|[資源權杖](#resource-tokens)|用於應用程式資源︰集合、文件、附件、預存程序、觸發程序和 UDF|
+|[資源權杖](#resource-tokens)|用於應用程式資源︰容器、文件、附件、預存程序、觸發程序和 UDF|
 
 <a id="master-keys"></a>
 
@@ -32,7 +32,7 @@ Azure Cosmos DB 會使用兩種類型的金鑰來驗證使用者，以允許存�
 
 主要金鑰可讓資料庫帳戶存取所有系統管理資源。 主要金鑰：  
 - 允許存取帳戶、資料庫、使用者和權限。 
-- 無法用來提供集合和文件的更細微存取權。
+- 無法用來提供容器和文件的更細微的存取權。
 - 在帳戶建立期間建立。
 - 可隨時重新產生。
 
@@ -75,7 +75,7 @@ Database database = await client.CreateDatabaseAsync(
 ## <a name="resource-tokens"></a>資源權杖
 
 資源權杖允許存取資料庫內的應用程式資源。 資源權杖：
-- 允許存取特定的集合、分割索引鍵、文件、附件、預存程序、觸發程序和 UDF。
+- 允許存取特定的容器、分割索引鍵、文件、附件、預存程序、觸發程序和 UDF。
 - 在[使用者](#users)被授與特定資源的[權限](#permissions)時建立。
 - 使用 POST、GET 或 PUT 呼叫處理權限資源時重新建立。
 - 使用特別為使用者、資源和權限建構的雜湊資源權杖。
@@ -134,7 +134,7 @@ Cosmos DB 權限資源會與 Cosmos DB 使用者相關聯。  每位使用者都
 * 讀取：使用者只能讀取資源的內容，但無法執行資源的寫入、更新或刪除作業。
 
 > [!NOTE]
-> 為執行 Cosmos DB 預存程序，使用者必須具備即將執行預存程序之集合的「所有」權限。
+> 為執行 Cosmos DB 預存程序，使用者必須具備即將執行預存程序之容器的「所有」權限。
 > 
 > 
 
@@ -174,6 +174,11 @@ foreach (Permission perm in permFeed)
 
 DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ```
+
+## <a name="delete-or-export-user-data"></a>刪除或匯出使用者資料
+Azure Cosmos DB 可讓您搜尋、選取、修改和刪除資料庫或集合中的任何個人資料。 Azure Cosmos DB 會提供可尋找和刪除個人資料的 API，不過，您必須負責使用 API，並定義清除個人資料時所需的邏輯。 每個多模型 API (SQL API、MongoDB API、Gremlin API、Cassandra API、資料表 API) 皆會提供不同的語言 SDK，其中包含搜尋和刪除個人資料的方法。 您也可以啟用[存留時間 (TTL)](time-to-live.md) 功能，在指定期間後自動刪除資料，完全不會產生任何額外的費用。
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="next-steps"></a>後續步驟
 * 若要深入了解 Cosmos DB 資料庫安全性，請參閱 [Cosmos DB 資料庫安全性](database-security.md)。

@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 3e247b6f81a9306cbad630d42c3a41d8ce3045a5
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 32dc9015f5e1a58d02571eb84e6ceeb0e9e8582d
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345119"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069034"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>教學課程：建立自訂原音模型
 
@@ -28,7 +28,7 @@ ms.locfileid: "37345119"
 
 如果您沒有認知服務帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/try/cognitive-services)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 開啟[認知服務訂用帳戶](https://customspeech.ai/Subscriptions)頁面，確任您的認知服務帳戶已連線到訂用帳戶。
 
@@ -70,7 +70,7 @@ ms.locfileid: "37345119"
 | 樣本格式 | PCM，16 位元整數 |
 | 檔案持續時間 | 0.1 秒 < 持續時間 < 60 秒 |
 | 無聲迴圈 | > 0.1 秒 |
-| 封存格式 | Zip |
+| 封存格式 | ZIP |
 | 封存大小上限 | 2 GB |
 
 ## <a name="language-support"></a>語言支援
@@ -143,6 +143,6 @@ ms.locfileid: "37345119"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [取得語音試用版訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)
-- [如何以 C# 辨識語音](quickstart-csharp-windows.md)
+- [試用認知服務](https://azure.microsoft.com/try/cognitive-services/)
+- [如何以 C# 辨識語音](quickstart-csharp-dotnet-windows.md)
 - [Git 範例資料](https://github.com/Microsoft/Cognitive-Custom-Speech-Service)
