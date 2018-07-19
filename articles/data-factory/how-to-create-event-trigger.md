@@ -10,20 +10,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 07/10/2018
 ms.author: douglasl
-ms.openlocfilehash: a9c15b239ee0bd0dde0b1f11691565b2676e3d07
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 313f4915a8c522ae2b9fc5ebbbe85fdfb4741cc4
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062116"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969573"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>建立會執行管線來回應事件的觸發程序
 
 本文說明可在 Data Factory 管線中建立的事件型觸發程序。
 
 事件驅動架構 (EDA) 是常見的資料整合模式，所涉及的環節包括生產、偵測、取用和事件反應。 資料整合案例通常會要求 Data Factory 客戶根據事件來觸發管線。 Data Factory 現在與 [Azure 事件方格](https://azure.microsoft.com/services/event-grid/)整合，可讓您觸發事件上的管線。
+
+> [!NOTE]
+> 本文章中說明的整合，仰賴 [Azure 事件方格](https://azure.microsoft.com/services/event-grid/)。 請確認您的訂用帳戶已向事件方格資源提供者註冊。 如需詳細資訊，請參閱[資源提供者和類型](../azure-resource-manager/resource-manager-supported-services.md#portal)。
 
 ## <a name="data-factory-ui"></a>Data Factory UI
 
@@ -36,17 +39,17 @@ ms.locfileid: "37062116"
 
 ![建立新的事件觸發程序](media/how-to-create-event-trigger/event-based-trigger-image1.png)
 
-### <a name="select-the-event-trigger-type"></a>選取事件觸發程序類型
-
-檔案一到達儲存體位置，而且已建立對應的 Blob 時，此事件就會觸發並執行 Data Factory 管線。 您可以建立觸發程序以在 Data Factory 管線中回應 Blob 建立事件和 (或) Blob 刪除事件。
-
-![選取觸發程序類型作為事件](media/how-to-create-event-trigger/event-based-trigger-image2.png)
-
 ### <a name="configure-the-event-trigger"></a>設定事件觸發程序
 
 使用 **Blob path begins with** 和 **Blob path ends with** 屬性，您可以指定要收到事件的容器、資料夾和 Blob 名稱。 您可以針對 **Blob path begins with** 和 **Blob path ends with** 屬性使用各種不同的模式，如本文稍後的範例所示。 至少要有其中一個屬性。
 
-![設定事件觸發程序](media/how-to-create-event-trigger/event-based-trigger-image3.png)
+![設定事件觸發程序](media/how-to-create-event-trigger/event-based-trigger-image2.png)
+
+### <a name="select-the-event-trigger-type"></a>選取事件觸發程序類型
+
+檔案一到達儲存體位置，而且已建立對應的 Blob 時，此事件就會觸發並執行 Data Factory 管線。 您可以建立觸發程序以在 Data Factory 管線中回應 Blob 建立事件和 (或) Blob 刪除事件。
+
+![選取觸發程序類型作為事件](media/how-to-create-event-trigger/event-based-trigger-image3.png)
 
 ## <a name="json-schema"></a>JSON 結構描述
 
@@ -73,11 +76,13 @@ ms.locfileid: "37062116"
 > [!NOTE]
 > 每當您指定容器與資料夾、容器與檔案，或是容器、資料夾與檔案時，都必須包含路徑的 `/blobs/` 區段。
 
-## <a name="using-blob-events-trigger-properties"></a>使用 Blob 事件觸發程序屬性
+## <a name="map-trigger-properties-to-pipeline-parameters"></a>將觸發程序屬性對應到管線參數
 
-當 Blob 事件觸發程序引發時，會提供兩個變數給您的管線：folderPath 和 fileName。 若要存取這些變數，請使用 `@triggerBody().fileName` 或 `@triggerBody().folderPath` 運算式。
+當事件觸發程序對特定 Blob 引發時，事件會擷取 Blob 的資料夾路徑和檔案名稱，變成 `@triggerBody().folderPath` 和 `@triggerBody().fileName`。 若要在管線中使用這些屬性的值，您必須將屬性對應到管線參數。 在將屬性對應到參數之後，您可在整個管線中透過 `@pipeline.parameters.parameterName` 運算式存取觸發程序所擷取的值。
 
-例如，當使用 `.csv` 作為 `blobPathEndsWith` 的值來建立 Blob 時，請考慮將觸發程序設定為引發。 當您 .csv 檔案置放到儲存體帳戶時，folderPath  和 fileName 會描述 .csv 檔案的位置。 例如，folderPath 具有 `/containername/foldername/nestedfoldername` 值，而 fileName 具有 `filename.csv` 值。
+![將屬性對應到管線參數](media/how-to-create-event-trigger/event-based-trigger-image4.png)
+
+舉例來說，在上方的螢幕擷取畫面中， 觸發程序設為在儲存體帳戶中建立了結尾為 `.csv` 的 Blob 路徑時引發。 這樣一來，當儲存體帳戶中的任一處建立了副檔名為 `.csv` 的 Blob 時，`folderPath` 和 `fileName` 屬性就會擷取新 Blob 的位置。 例如，`@triggerBody().folderPath` 有一個 `/containername/foldername/nestedfoldername` 這樣的值，而 `@triggerBody().fileName` 有一個 `filename.csv` 這樣的值。 在範例中，這些值會對應到管線參數 `sourceFolder` 和 `sourceFile`。 您可以分別以 `@pipeline.parameters.sourceFolder` 和 `@pipeline.parameters.sourceFile` 形式在整個管線中加以使用。
 
 ## <a name="next-steps"></a>後續步驟
 如需有關觸發程序的詳細資訊，請參閱[管線執行和觸發程序](concepts-pipeline-execution-triggers.md#triggers)。
