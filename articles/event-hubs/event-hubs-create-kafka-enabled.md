@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: shvija
-ms.openlocfilehash: 4f1d21be3c19dfbc764485fea47b6d4cb2171b3c
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 7a05a89fdf99efb6470ee9c8695f349cf22b8ebb
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33941226"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442122"
 ---
 # <a name="create-kafka-enabled-event-hubs"></a>建立已啟用 Kafka 的 Azure 事件中樞
 
@@ -37,7 +37,7 @@ Kafka 生態系統的 Azure 事件中樞為您提供端點。 此端點可讓您
     
     ![在入口網站中搜尋事件中樞](./media/event-hubs-create-kafka-enabled/event-hubs-create-event-hubs.png)
  
-3. 藉由提供唯一名稱並在命名空間上啟用 Kafka，來**建立命名空間**。 按一下頁面底部的 [新增] 。
+3. 提供唯一名稱並在命名空間上啟用 Kafka。 按一下頁面底部的 [新增] 。
     
     ![建立命名空間](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.png)
  

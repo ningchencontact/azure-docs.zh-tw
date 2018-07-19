@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/01/2018
 ms.author: garye
 ms.reviewer: gibattag
-ms.openlocfilehash: 3697dd0628f0028cb486139e92c032f0d757c6ed
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ed5f19b23375ecb83e19274c7405e9a1208a7985
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368718"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036147"
 ---
 # <a name="create-a-cognitive-services-apis-account-in-the-azure-portal"></a>在 Azure 入口網站中建立認知服務 API 帳戶
 
@@ -73,6 +73,6 @@ ms.locfileid: "35368718"
 
 如需使用部分範例認知服務 API 的快速入門指南，請參閱：
 
- - [電腦視覺 C# 快速入門](/computer-vision/quickstarts/csharp.md)
- - [文字分析與 Python](/text-analytics/quickstarts/python.md)
- - [使用 JavaScript 的臉部 API](/face/quickstarts/javascript.md)
+ - [電腦視覺 C# 快速入門](computer-vision/quickstarts/csharp.md)
+ - [文字分析與 Python](text-analytics/quickstarts/python.md)
+ - [使用 JavaScript 的臉部 API](face/quickstarts/javascript.md)

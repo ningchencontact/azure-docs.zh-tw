@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
-ms.openlocfilehash: cd04be2046a23901471cb7bd0da9e0ed2d514d0d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a5d031622103183fa9aa7a3f3771a055fc16edb2
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307291"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049971"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>將作用中的 DNS 名稱移轉至 Azure App Service
 
@@ -30,7 +30,7 @@ ms.locfileid: "38307291"
 
 如果您不擔心 DNS 解析發生停機，請參閱[將現有的自訂 DNS 名稱對應至 Azure Web Apps](app-service-web-tutorial-custom-domain.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本操作說明：
 
@@ -55,7 +55,7 @@ ms.locfileid: "38307291"
 
 | DNS 記錄範例 | TXT 主機 | TXT 值 |
 | - | - | - |
-| @ (根網域) | _awverify_ | _&lt;應用程式名稱>.azurewebsites.net_ |
+| \@ (root) | _awverify_ | _&lt;應用程式名稱>.azurewebsites.net_ |
 | www (子網域) | _awverify.www_ | _&lt;應用程式名稱>.azurewebsites.net_ |
 | \* (萬用字元) | _awverify.\*_ | _&lt;應用程式名稱>.azurewebsites.net_ |
 

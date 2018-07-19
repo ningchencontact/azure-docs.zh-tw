@@ -11,11 +11,12 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 11/11/2016
 ms.author: ghogen
-ms.openlocfilehash: 866575a483e705e1c972a0b56d98f26e9cf0c631
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 872ca1dcd48c953180227580d805838c94ea232d
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115539"
 ---
 # <a name="using-windows-powershell-scripts-to-publish-to-dev-and-test-environments"></a>使用 Windows PowerShell 指令碼來發行至開發和測試環境
 
@@ -23,7 +24,7 @@ ms.lasthandoff: 04/23/2018
 
 使用這些指令碼，您可以佈建網站的自訂版本 (也稱為開發和測試環境)，以做臨時使用。 例如，您可以在 Azure 虛擬機器上或網站的預備位置上設定網站的特定版本，以執行測試套件、重現錯誤、測試錯誤修正、試驗提議的變更，或設定用來進行示範或展示的自訂環境。 在建立用來發佈專案的指令碼後，您可以視需要重新執行指令碼來重建相同環境，或對 Web 應用程式的自有組建執行指令碼以建立用於測試的自訂環境。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure SDK 2.3 或更新版本。 請參閱 [Visual Studio 下載](http://go.microsoft.com/fwlink/?LinkID=624384)。 (要產生 Web 專案的指令碼並不需要用到 Azure SDK。 這項功能是供 Web 專案使用，而非供雲端服務中的 Web 角色使用。)
 * Azure PowerShell 0.7.4 或更新版本。 請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。
@@ -35,7 +36,7 @@ ms.lasthandoff: 04/23/2018
 
 ## <a name="generating-the-publish-scripts"></a>產生發佈指令碼
 
-您可以遵循 [這些指示](virtual-machines/windows/classic/web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)，在建立新專案時產生裝載網站之虛擬機器的發佈指令碼。 您也可以 [在 Azure App Service 中產生 Web 應用程式的發佈指令碼](app-service/app-service-web-get-started-dotnet.md)。
+您可以遵循 [這些指示](virtual-machines/windows/classic/web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)，在建立新專案時產生裝載網站之虛擬機器的發佈指令碼。 您也可以 [在 Azure App Service 中產生 Web 應用程式的發佈指令碼](app-service/scripts/app-service-powershell-deploy-github.md)。
 
 ## <a name="scripts-that-visual-studio-generates"></a>Visual Studio 所產生的指令碼
 

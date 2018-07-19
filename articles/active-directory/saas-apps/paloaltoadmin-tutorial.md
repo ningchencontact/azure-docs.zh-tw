@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 7a296c1e358bffa70ed88ba40380266e8731afd8
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: b39879cc8548139879a3039c5e0c6b924e83c107
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211582"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39046666"
 ---
 # <a name="integrate-azure-active-directory-with-palo-alto-networks---admin-ui"></a>整合 Azure Active Directory 與 Palo Alto 網路 - 系統管理 UI
 
@@ -34,7 +34,7 @@ ms.locfileid: "36211582"
 
 若要了解 SaaS 應用程式與 Azure AD 的整合，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Palo Alto 網路 - 系統管理 UI 整合，您需要下列項目：
 
@@ -309,7 +309,7 @@ Palo Alto 網路 - 系統管理 UI 支援 Just-In-Time 使用者佈建。 如果
 
 當您在存取面板中選取 [Palo Alto 網路 - 系統管理 UI ] 圖格時，您應會自動登入「Palo Alto 網路 - 系統管理 UI」應用程式。
 
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

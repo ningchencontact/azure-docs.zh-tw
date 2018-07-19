@@ -8,14 +8,14 @@ editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 01/26/2018
+ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: ff02688d59f32641319e6816dc55744422c62eeb
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: e811527b8bc0b816f09f055f776fe8bd65bed07d
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355010"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069398"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-the-azure-cli"></a>使用 Azure CLI 建立包含 URL 路徑型路由規則的應用程式閘道
 
@@ -214,13 +214,13 @@ for i in `seq 1 3`; do
     --name CustomScript \
     --resource-group myResourceGroupAG \
     --vmss-name myvmss$i \
-    --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
+    --settings '{ "fileUris": ["https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
 done
 ```
 
 ## <a name="test-the-application-gateway"></a>測試應用程式閘道
 
-若要取得應用程式閘道的公用 IP 位址，您可以使用 [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show)。 將公用 IP 位址複製並貼到您瀏覽器的網址列。 例如，*http://40.121.222.19*、*http://40.121.222.19:8080/images/test.htm* 或 *http://40.121.222.19:8080/video/test.htm*。
+若要取得應用程式閘道的公用 IP 位址，您可以使用 [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show)。 將公用 IP 位址複製並貼到您瀏覽器的網址列。 例如，*http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm*, 或 *http://40.121.222.19:8080/video/test.htm*。
 
 ```azurepowershell-interactive
 az network public-ip show \

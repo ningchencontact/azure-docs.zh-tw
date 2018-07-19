@@ -9,15 +9,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: On Demand
-ms.date: 04/04/2018
+ms.date: 06/27/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 9149405e2778557a94815812fdf4966d38a3149c
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 18c162e03030fc4277fa0a7b3e953bf780574a21
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308450"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084955"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>使用 Azure SQL Database 的商務持續性概觀
 
@@ -40,7 +40,7 @@ SQL Database 提供幾種商務持續性功能，包括自動備份和選用的�
 
 SQL Database 會每週自動執行完整資料庫備份、每小時自動執行差異資料庫備份，以及每 5 到 10 分鐘自動執行交易記錄備份，透過這樣的備份組合來防止您的企業遺失資料。 如果您使用[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)，則針對「標準」和「進階」服務層中的資料庫，這些備份會在 RA-GRS 儲存體中儲存達 35 天，如果是「基本」服務層中的資料庫，則儲存天數為 7 天。 如果服務層的保留期間不符合您的企業需求，您可以 [變更服務層](sql-database-single-database-scale.md)來增長保留期間。 如果您使用[以虛擬核心為基礎的購買模型 (預覽)](sql-database-service-tiers-vcore.md)，在一般用途和業務關鍵服務層中，備份保留期可以設定為最多 35 天。 完整和差異資料庫備份也會複寫到[配對的資料中心](../best-practices-availability-paired-regions.md)，以防止發生資料中心中斷的情況。 如需詳細資訊，請參閱[自動資料庫備份](sql-database-automated-backups.md)。
 
-如果應用程式的最大支援 PITR 保留期限不夠，可以藉由針對資料庫設定長期保留 (LTR) 原則來延長。 如需詳細資訊，請參閱[長期保存](sql-database-long-term-retention.md)。
+如果應用程式的最大支援時間點還原 (PITR) 保留期限不夠，可以藉由針對資料庫設定長期保留 (LTR) 原則來延長。 如需詳細資訊，請參閱[自動化備份](sql-database-automated-backups.md)和[長期備份保留](sql-database-long-term-retention.md)。
 
 您可以使用這些自動資料庫備份，將資料庫從各種干擾性事件復原，不論是在您的資料中心內復原，還是復原到另一個資料中心，都可以。 使用自動資料庫備份時，預估的復原時間取決於數個因素，包括在相同區域中同時進行復原的資料庫總數、資料庫大小、交易記錄大小，以及網路頻寬。 復原時間通常不到 12 小時。 復原非常大型的作用中資料庫可能需要比較長的時間。 如需復原時間的詳細資訊，請參閱[資料庫復原時間](sql-database-recovery-using-backups.md#recovery-time)。 復原到另一個資料區域時，每小時差異資料庫備份的異地備援儲存體就限制為可能遺失 1 小時的資料。
 

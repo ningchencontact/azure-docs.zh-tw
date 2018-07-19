@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 893888904b6afc583c3c20b94d08eb3255a98cad
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 7c490aa958cf9e78c260dd0fbcf7952b55d8d88c
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36303989"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096170"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Azure Cosmos DB 大量執行程式程式庫概觀
  
@@ -33,7 +33,7 @@ Azure Cosmos DB 是一種快速且具有彈性的全域分散式資料庫服務�
  
 * 它會大幅減少佔滿輸送量 (配置到容器) 的必要用戶端運算資源。 比起平行寫入資料而佔滿用戶端機器 CPU 的多執行緒應用程式，使用大量匯入 API 寫入資料的單一執行緒應用程式，可達到 10 倍多的寫入輸送量。  
 
-* 它以概念來簡單化撰寫應用程式邏輯的沉悶工作，有效率地在程式庫中處理要求節流、要求逾時和其他暫時性例外狀況。  
+* 它以概念來簡單化撰寫應用程式邏輯的沉悶工作，有效率地在程式庫中處理要求速率限制、要求逾時和其他暫時性例外狀況。  
 
 * 它為執行大量作業的應用程式提供可相應放大的簡化機制。在 Azure VM 上執行的單一大量執行程式執行個體取用的輸送量可大於 50 萬 RU/秒，而您可以藉由在個別用戶端 VM 上新增額外的執行個體來提高輸送量。  
  
@@ -47,7 +47,7 @@ Azure Cosmos DB 是一種快速且具有彈性的全域分散式資料庫服務�
 
 ![大量執行程式架構](./media/bulk-executor-overview/bulk-executor-architecture.png)
 
-Bulk Executor 程式庫可確保充分利用配置到集合的輸送量。 它會為每個 Azure Cosmos DB 分割區索引鍵範圍使用  [AIMD 樣式的壅塞控制機制](https://tools.ietf.org/html/rfc5681)，以有效率地處理節流和逾時。 
+Bulk Executor 程式庫可確保充分利用配置到集合的輸送量。 它會為每個 Azure Cosmos DB 分割區索引鍵範圍使用  [AIMD 樣式的壅塞控制機制](https://tools.ietf.org/html/rfc5681)，以有效率地處理速率限制和逾時。 
 
 ## <a name="next-steps"></a>後續步驟 
   

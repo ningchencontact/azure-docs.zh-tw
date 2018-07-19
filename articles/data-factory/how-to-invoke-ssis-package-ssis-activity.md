@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 05/25/2018
+ms.date: 07/09/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 5ff397e8b13d56b3b034854c507f8bef05008812
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: db5941528eedd10cf252607dbe2160bd498a70de
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054716"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951962"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>在 Azure Data Factory 中使用 Execute SSIS 套件活動執行 SSIS 套件
 本文描述如何使用 Execute SSIS 套件活動，在 Azure Data Factory 管線執行 SSIS 套件。 
@@ -92,9 +92,11 @@ ms.locfileid: "37054716"
 
 ### <a name="optionally-parameterize-the-activity"></a>選擇性將活動參數化
 
-您可以選擇在 **[進階]** 索引標籤上以 JSON 格式將值、運算式或函式 (亦指 Data Factory 系統變數) 指派至您的專案或套件參數。例如，您可以將 Data Factory 管線參數指派至 SSIS 專案或套件參數，如下列螢幕擷取畫面所示：
+(選擇性) 使用 [執行 SSIS 套件活動] 方塊底部的 [檢視原始程式碼] 按鈕，或管線區域右上角的 [程式碼] 按鈕，將可以參考 Data Factory 系統變數的值、運算式或函式，以 JSON 格式指派給您的專案或封裝參數。 例如，您可以將 Data Factory 管線參數指派給 SSIS 專案或套件參數，如下列螢幕擷取畫面所示：
 
-![將參數新增至 Execute SSIS 套件活動](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters.png)
+![編輯執行 SSIS 套件活動的 JSON 指令碼](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters.png)
+
+![將參數新增至 Execute SSIS 套件活動](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters2.png)
 
 ### <a name="run-and-monitor-the-pipeline"></a>執行並監視管線
 在本節中，您會觸發管線執行，然後監視執行的情況。 
@@ -174,7 +176,7 @@ ms.locfileid: "37054716"
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
 * 若要建立 Data Factory 執行個體，您用來登入 Azure 的使用者帳戶必須為**參與者**或**擁有者**角色，或是 Azure 訂用帳戶的**管理員**。
-* 目前，Data Factory 只允許您在美國東部、美國東部 2、西歐及東南亞區域中建立資料處理站。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
+* 如需目前可使用 Data Factory 的 Azure 區域清單，請在下列頁面上選取您感興趣的區域，然後展開 [分析] 以找出 [Data Factory]：[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
 
 ### <a name="create-a-pipeline-with-an-ssis-activity"></a>建立具有 SSIS 活動的管線 
 在此步驟中，您會建立具有 SSIS 活動的管線。 此活動會執行您的 SSIS 套件。 

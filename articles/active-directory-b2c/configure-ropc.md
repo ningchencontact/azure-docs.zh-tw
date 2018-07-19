@@ -6,33 +6,33 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f6f9b9c7ae71697efb6d722eff55d9ee3f8746d5
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 5d68f8fe28b7f029d19a0ed0c03e5324c32f29c0
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34712295"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446804"
 ---
-# <a name="configure-the-resource-owner-password-credentials-flow-ropc-in-azure-ad-b2c"></a>在 Azure AD B2C 中設定資源擁有者密碼認證流程 (ROPC)
+# <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>在 Azure AD B2C 中設定資源擁有者密碼認證流程
 
-資源擁有者密碼認證 (ROPC) 流程是一項 OAUTH 標準驗證流程，在此流程中，應用程式 (也稱為信賴憑證者) 會以有效認證 (例如使用者識別碼和密碼) 交換識別碼權杖、存取權杖和重新整理權杖。 
+資源擁有者密碼認證 (ROPC) 流程是一項 OAuth 標準驗證流程，在此流程中，應用程式 (也稱為信賴憑證者) 會以有效認證 (例如使用者識別碼和密碼) 交換識別碼權杖、存取權杖和重新整理權杖。 
 
 > [!NOTE]
 > 這項功能處於預覽狀態。
 
-在 Azure AD B2C 中支援下列選項：
+Azure Active Directory (Azure AD) B2C 支援下列選項：
 
-- **原生用戶端** – 驗證期間的使用者互動會使用在使用者端裝置上執行的程式碼來執行，這可能是在原生作業系統中執行的行動應用程式 (例如 Android )，或是在瀏覽器中執行的行動應用程式 (例如 Javascript)。
-- **公用用戶端流程** – 只會以 API 呼叫傳送應用程式所收集的使用者認證。 應用程式的認證不會傳送。
-- **新增宣告** - 可以變更識別碼權杖內容以新增宣告。 
+- **原生用戶端**：程式碼在使用者端的裝置上執行時，使用者會在驗證期間與之互動。 裝置可以是在原生作業系統 (例如 Android) 執行的行動應用程式，也可以是在瀏覽器 (例如 JavaScript) 執行的行動應用程式。
+- **公用用戶端流程**：只會以 API 呼叫傳送應用程式所收集的使用者認證。 應用程式的認證不會傳送。
+- **新增宣告**：可以變更識別碼權杖內容以新增宣告。 
 
-下列流程不受支援：
+不支援下列流程：
 
-- **伺服器對伺服器** - 身分識別保護系統 (IDPS) 必須要有從呼叫端 (原生用戶端) 收集到的可靠 IP 位址，以用於互動的過程中。  在伺服器端 API 呼叫中只會使用伺服器的 IP 位址，且若超出失敗驗證的動態閾值，IDPS 可能會將重複的 IP 位址識別為攻擊者。
+- **伺服器對伺服器**：身分識別保護系統必須要有從呼叫端 (原生用戶端) 收集到的可靠 IP 位址，以用於互動的過程中。 伺服器端的 API 呼叫只會使用伺服器的 IP 位址。 如果超出失敗驗證的動態閾值，身分識別保護系統可能會將重複的 IP 位址識別為攻擊者。
 - **機密用戶端流程**：會驗證應用程式用戶端識別碼，但不會驗證應用程式密碼。
 
 ##  <a name="create-a-resource-owner-policy"></a>建立資源擁有者原則
@@ -40,39 +40,39 @@ ms.locfileid: "34712295"
 1. 以 Azure AD B2C 租用戶的全域管理員身分登入 Azure 入口網站。
 2. 若要切換為您的 Azure AD B2C 租用戶，請選取入口網站右上角的 B2C 租用戶。
 3. 在 [原則] 下選取 [資源擁有者原則]。
-4. 提供原則的名稱 (例如 *ROPC_Auth*)，然後按一下 [應用程式宣告]。
+4. 提供原則的名稱 (例如 *ROPC_Auth*)，然後選取 [應用程式宣告]。
 5. 選取您的應用程式所需的應用程式宣告，例如 [顯示名稱]、[電子郵件地址] 和 [身分識別提供者]。
-6. 按一下 [確定]，然後按一下 [建立]。
+6. 選取 [確定]，然後選取 [建立]。
 
-然後，您會看到類似於下列範例的端點：
+   然後，您會看到類似於下列範例的端點：
 
-`https://login.microsoftonline.com/yourtenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1A_ROPC_Auth`
+   `https://login.microsoftonline.com/yourtenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1A_ROPC_Auth`
 
 
 ## <a name="register-an-application"></a>註冊應用程式
 
-1. 在 B2C 設定中，按一下 [應用程式]，然後按一下 [+ 新增]。
-2. 提供應用程式的名稱，例如 *ROPC_Auth_app*。
-3. 針對 [Web 應用程式/Web API] 按一下 [否]，然後針對 [原生用戶端] 按一下 [是]。
-4. 保留所有其他值，然後按一下 [建立]。
-5. 選取新的應用程式，並記下應用程式識別碼。
+1. 在 B2C 設定中選取 [應用程式]，然後選取 [新增]。
+2. 輸入應用程式的名稱，例如 ROPC_Auth_app。
+3. 針對 [Web 應用程式/Web API] 選取 [否]，然後針對 [原生用戶端] 選取 [是]。
+4. 保留所有其他值，然後選取 [建立]。
+5. 選取新的應用程式，並記下應用程式識別碼供稍後使用。
 
 ## <a name="test-the-policy"></a>測試原則
 
 使用您最慣用的 API 開發應用程式產生 API 呼叫，並檢視回應以對您的原則偵錯。 使用下表中的資訊作為 POST 要求的本文，以建構與此類似的呼叫：
-- 將 *yourtenant.onmicrosoft.com* 取代為您的 B2C 租用戶名稱
-- 將 *B2C_1A_ROPC_Auth* 取代為您 ROPC 原則的完整名稱
-- 將 *bef2222d56-552f-4a5b-b90a-1988a7d634c3* 取代為您註冊中的應用程式識別碼。
+- 將 \<yourtenant.onmicrosoft.com> 取代為您的 B2C 租用戶名稱。
+- 將 \<B2C_1A_ROPC_Auth> 取代為資源擁有者密碼認證原則的完整名稱。
+- 將 \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> 取代為您註冊中的應用程式識別碼。
 
-`https://te.cpim.windows.net/yourtenant.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token`
+`https://login.microsoftonline.com/<yourtenant.onmicrosoft.com>/<B2C_1A_ROPC_Auth>/oauth2/v2.0/token`
 
 | Key | 值 |
 | --- | ----- |
 | username | leadiocl@outlook.com |
 | password | Passxword1 |
 | grant_type | password |
-| scope | openid bef2222d56-552f-4a5b-b90a-1988a7d634c3 offline_access |
-| client_id | bef2222d56-552f-4a5b-b90a-1988a7d634c3 |
+| scope | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |
+| client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | response_type | token id_token |
 
 *Client_id* 是您先前記下的應用程式識別碼值。 *Offline_access* 是您要接收重新整理權杖時可選用的項目。 
@@ -81,7 +81,7 @@ ms.locfileid: "34712295"
 
 ```
 POST /yourtenant.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token HTTP/1.1
-Host: te.cpim.windows.net
+Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
 username=leadiocl%40trashmail.ws&password=Passxword1&grant_type=password&scope=openid+bef22d56-552f-4a5b-b90a-1988a7d634ce+offline_access&client_id=bef22d56-552f-4a5b-b90a-1988a7d634ce&response_type=token+id_token
@@ -102,26 +102,25 @@ username=leadiocl%40trashmail.ws&password=Passxword1&grant_type=password&scope=o
 
 ## <a name="redeem-a-refresh-token"></a>兌換重新整理權杖
 
-使用下表中的資訊作為要求的本文，以建構與此類似的 POST 呼叫：
+使用下表中的資訊作為要求的本文，以建構與此處所示範例類似的 POST 呼叫：
 
-`https://te.cpim.windows.net/yourtenant.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token`
+`https://login.microsoftonline.com/<yourtenant.onmicrosoft.com>/<B2C_1A_ROPC_Auth>/oauth2/v2.0/token`
 
 | Key | 值 |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |
-| client_id | bef2222d56-552f-4a5b-b90a-1988a7d634c3 |
-| resource | bef2222d56-552f-4a5b-b90a-1988a7d634c3 |
+| client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
+| resource | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | refresh_token | eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3... |
 
 *Client_id* 和 *resource* 是您先前記下的應用程式識別碼值。 *Refresh_token* 是您在先前所述的驗證呼叫中接收到的權杖。
 
 ## <a name="implement-with-your-preferred-native-sdk-or-use-app-auth"></a>使用您慣用的原生 SDK 或 App-Auth 進行實作
 
+Azure AD B2C 實作符合公用用戶端資源擁有者密碼認證的 OAuth 2.0 標準，且應與大部分的用戶端 SDK 相容。 我們已在生產環境中使用 AppAuth for iOS 和 AppAuth for Android 多方面測試此流程。 如需最新資訊，請參閱[實作現代化最佳做法的 OAuth 2.0 和 OpenID Connect 所適用的原生應用程式 SDK](https://appauth.io/)。
 
-Azure AD B2C 實作符合 OAuth 2.0 標準或公用用戶端 ROPC，且應與大部分的用戶端 SDK 相容。  我們已在生產環境中使用 AppAuth for iOS 和 AppAuth for Android 多方面測試此流程。  如需最新資訊，請參閱https://appauth.io/。
-
-您可以從 Github 下載已設定用於 Azure AD B2C 的實用範例，網址是 https://aka.ms/aadb2cappauthropc (適用於 Android) 和 https://aka.ms/aadb2ciosappauthropc。
+從 GitHub 下載已設定用於 Azure AD B2C 的實用範例 ([Android 版](https://aka.ms/aadb2cappauthropc)和 [iOS 版](https://aka.ms/aadb2ciosappauthropc))。
 
 
 

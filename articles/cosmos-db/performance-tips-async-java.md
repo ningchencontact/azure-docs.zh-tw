@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: sngun
-ms.openlocfilehash: 867a48674fe2489629a887ff9626d8e10b41e653
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e3ee75a07f19fef50d9aca61773bd7ea860f2ca4
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34613977"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37101340"
 ---
 > [!div class="op_single_selector"]
 > * [非同步 Java](performance-tips-async-java.md)
@@ -49,7 +49,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
 
 3. **調整 ConnectionPolicy**
 
-    使用非同步 Java SDK 時，Azure Cosmos DB 要求是透過 HTTPS/REST 發出，並受制於預設最大連線集區大小 (1000)。 這個預設值應該適合大部分的使用案例。 不過，如果您有包含多個分割區的非常大型集合，可以使用 setMaxPoolSize 將最大連線集區大小設為較大的數字 (例如 1500)。
+    使用非同步 Java SDK 時，Azure Cosmos DB 要求是透過 HTTPS/REST 發出，並受制於預設最大連線集區大小 (1000)。 這個預設值應該適合大部分的使用案例。 不過，如果您有包含多個分割區的大型集合，可以使用 setMaxPoolSize 將最大連線集區大小設為較大的數字 (例如 1500)。
 
 4. **微調分割之集合的平行查詢**
 
@@ -83,11 +83,11 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
 
     您也可以使用 setMaxItemCount 方法來設定頁面大小。
     
-9. **使用適當排程器 (避免竊取 Eventloop IO Netty 執行緒)**
+9. **使用適當排程器 (避免竊取事件迴圈 IO Netty 執行緒)**
 
-    非同步 Java SDK 會將 [netty](https://netty.io/) 用於非封鎖 IO。 SDK 會使用固定數目的 IO netty eventloop 執行緒 (和您電腦所擁有的 CPU 核心數一樣多) 來執行 IO 作業。 API 所傳回的 Observable 會在其中一個共用的 IO eventloop netty 執行緒上發出結果。 因此，請切勿封鎖共用的 IO eventloop netty 執行緒。 若執行 CPU 密集工作或封鎖 IO eventloop netty 執行緒上的作業，可能會導致鎖死或大幅降低 SDK 輸送量。
+    非同步 Java SDK 會將 [netty](https://netty.io/) 用於非封鎖 IO。 SDK 會使用固定數目的 IO netty 事件迴圈執行緒 (和您電腦所擁有的 CPU 核心數一樣多) 來執行 IO 作業。 API 所傳回的 Observable 會在其中一個共用的 IO 事件迴圈 netty 執行緒上發出結果。 因此，請切勿封鎖共用的 IO 事件迴圈 netty 執行緒。 若執行 CPU 密集工作或封鎖 IO 事件迴圈 netty 執行緒上的作業，可能會導致鎖死或大幅降低 SDK 輸送量。
 
-    例如，下列程式碼會在 eventloop IO netty 執行緒上執行 CPU 密集工作：
+    例如，下列程式碼會在事件迴圈 IO netty 執行緒上執行 CPU 密集工作：
 
     ```java
     Observable<ResourceResponse<Document>> createDocObs = asyncDocumentClient.createDocument(
@@ -103,7 +103,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
       });
     ```
 
-    在收到結果之後，如果您需要對結果進行 CPU 密集工作，請避免在 eventloop IO netty 執行緒上進行。 您可以改為提供您自己的排程器，以提供自己的執行緒來執行工作。
+    在收到結果之後，如果您需要對結果進行 CPU 密集工作，請避免在事件迴圈 IO netty 執行緒上進行。 您可以改為提供您自己的排程器，以提供自己的執行緒來執行工作。
 
     ```java
     import rx.schedulers;
@@ -126,13 +126,13 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
 
     如需詳細資訊，請查看非同步 Java SDK 的 [Github 頁面](https://github.com/Azure/azure-cosmosdb-java)。
 
-10. **停用 netty 的記錄** Netty 程式庫記錄通訊頻繁，而且必須加以關閉 (隱藏組態中的記錄可能不夠) 以避免額外的 CPU 成本。 如果您不是在偵錯模式中，請停用 netty 全部的記錄。 因此，如果您要使用 log4j 來移除 netty 中的 ``org.apache.log4j.Category.callAppenders()`` 所產生的額外 CPU 成本，請將下列行新增至程式碼基底：
+10. **停用 netty 的記錄** Netty 程式庫記錄通訊頻繁，而且必須加以關閉 (隱藏組態中的登入可能不夠) 以避免額外的 CPU 成本。 如果您不是在偵錯模式中，請停用 netty 全部的記錄。 因此，如果您要使用 log4j 來移除 netty 中的 ``org.apache.log4j.Category.callAppenders()`` 所產生的額外 CPU 成本，請將下列行新增至程式碼基底：
 
     ```java
     org.apache.log4j.Logger.getLogger("io.netty").setLevel(org.apache.log4j.Level.OFF);
     ```
 
-11. **OS 開啟檔案資源限制** 某些 Linux 系統 (例如 Redhat) 有開啟檔案數目的上限，以及連線總數的上限。 執行下列命令來檢視目前的限制：
+11. **OS 開啟檔案資源限制** 某些 Linux 系統 (例如 Red Hat) 有開啟檔案數目的上限，以及連線總數的上限。 執行下列命令來檢視目前的限制：
 
     ```bash
     ulimit -a
@@ -170,7 +170,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
     </dependency>
     ```
 
-針對其他平台 (Redhat、Windows、Mac 等等)，請參閱這些指示 https://netty.io/wiki/forked-tomcat-native.html
+針對其他平台 (Red Hat、Windows、Mac 等等)，請參閱這些指示 https://netty.io/wiki/forked-tomcat-native.html
 
 ## <a name="indexing-policy"></a>索引原則
  
@@ -209,7 +209,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
     response.getRequestCharge();
     ```             
 
-    在此標頭中傳回的要求費用是佈建輸送量的一小部分。 例如，如果您佈建了 2000 RU/秒，且前述查詢傳回 1000 份 1 KB 文件，則作業成本會是 1000。 因此在一秒內，伺服器在節流後續要求前，只會接受兩個這類要求。 如需詳細資訊，請參閱[要求單位](request-units.md)和[要求單位計算機](https://www.documentdb.com/capacityplanner)。
+    在此標頭中傳回的要求費用是佈建輸送量的一小部分。 例如，如果您佈建了 2000 RU/秒，且前述查詢傳回 1000 份 1 KB 文件，則作業成本會是 1000。 因此在一秒內，伺服器在對後續要求進行速率限制前，只會接受兩個這類要求。 如需詳細資訊，請參閱[要求單位](request-units.md)和[要求單位計算機](https://www.documentdb.com/capacityplanner)。
 <a id="429"></a>
 2. **處理速率限制/要求速率太大**
 

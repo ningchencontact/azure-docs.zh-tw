@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 832e4672a15368768977feedade83707a26b9965
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: afd061b026e30378f5e645d11b84b44b7a516143
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048783"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341574"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>如何建立和設定自我裝載整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可提供跨不同網路環境的資料整合功能。 如需 IR 的詳細資訊，請參閱[整合執行階段概觀](concepts-integration-runtime.md)。
@@ -140,6 +140,7 @@ ms.locfileid: "37048783"
 *.servicebus.windows.net | 443、80 | 用於與「資料移動服務」後端進行通訊
 *.core.windows.net | 443 | 用於使用 Azure Blob 的分段複製 (如果已設定)
 *.frontend.clouddatahub.net | 443 | 用於與「資料移動服務」後端進行通訊
+download.microsoft.com | 443 | 用於下載更新
 
 **Windows 防火牆**層級 (電腦層級) 通常會啟用這些連出連接埠。 如果沒有，您可以在自我裝載整合執行階段的電腦上相應地設定網域和連接埠。
 

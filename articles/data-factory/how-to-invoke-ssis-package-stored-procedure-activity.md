@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: jingwang
-ms.openlocfilehash: d1a6dd896f95f4a0efaa7d73fcc8e219493a3117
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 42abb5fdaf05424d5f39ecf4a2c88afcefd17312
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050477"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084734"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>在 Azure Data Factory 中使用預存程序活動執行 SSIS 套件
 本文描述如何使用預存程序活動，在 Azure Data Factory 管線執行 SSIS 套件。 
@@ -187,7 +187,7 @@ ms.locfileid: "37050477"
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
 * 若要建立 Data Factory 執行個體，您用來登入 Azure 的使用者帳戶必須為**參與者**或**擁有者**角色，或是 Azure 訂用帳戶的**管理員**。
-* 目前，Data Factory 只允許您在美國東部、美國東部 2 和西歐區域建立資料處理站。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
+* 如需目前可使用 Data Factory 的 Azure 區域清單，請在下列頁面上選取您感興趣的區域，然後展開 [分析] 以找出 [Data Factory]：[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>建立 Azure SQL Database 連結服務
 建立連結服務，將主控 SSIS 目錄的 Azure SQL 資料庫連結到資料處理站。 資料處理站使用此連結服務中的資訊連線到 SSISDB 資料庫，並執行預存程序來執行 SSIS 套件。 

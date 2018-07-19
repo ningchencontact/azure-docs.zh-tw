@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: big-compute
 ms.date: 12/18/2017
 ms.author: markscu
-ms.openlocfilehash: 565ceb179d8cf749842bb58ab25a8b3d946efa12
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4dd9218b982860e62e04b46fb5d07e5553407599
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608642"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130847"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>使用 Azure Batch CLI 範本和檔案傳輸 (預覽)
 
@@ -258,7 +258,7 @@ az batch file download --file-group ffmpeg-output --local-path
 
 目前僅已將範本和檔案傳輸支援新增至 Azure CLI。 目標旨在將可使用 Batch 的對象拓展到不需要使用 Batch API 來開發程式碼的使用者，例如研究人員、IT 使用者等等。 無需程式碼撰寫，了解 Azure、Batch 和 Batch 所要執行之應用程式的使用者可以建立集區和作業建立的範本。 利用範本參數，未深入了解 Batch 和應用程式的使用者就可以使用範本。
 
-請試用 Azure CLI 的 Batch 擴充功能，並利用本文的評論或透過 [Azure Batch 論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch)將您的意見或建議告訴我們。
+請試用 Azure CLI 的 Batch 擴充功能，並利用本文的評論或透過 [Batch 社群存放庫](https://github.com/Azure/Batch)將您的意見或建議告訴我們。
 
 ## <a name="next-steps"></a>後續步驟
 

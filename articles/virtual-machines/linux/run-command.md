@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 93972c88676cceef07b39b4a4ed34bab5b74cbd3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 850c5ac4df8ff3bd0e35567060b3b90dad7baacc
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36334868"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342686"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>使用執行命令在 Linux VM 中執行殼層指令碼
 
@@ -36,6 +36,7 @@ ms.locfileid: "36334868"
 * 不支援提示資訊 (互動模式) 的指令碼。
 * 您無法取消執行中的指令碼
 * 指令碼可以執行的最長時間是 90 分鐘，經過這段時間後會逾時
+* 需要有虛擬機器的輸出連線，才能傳回指令碼結果。
 
 ## <a name="azure-cli"></a>Azure CLI
 

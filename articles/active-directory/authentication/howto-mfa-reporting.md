@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 4eb91e37331a5af064d2af0e937eb071d805688f
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 146a86058adc73626e532f33e9fdbc83d9cf27e8
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097874"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048981"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 中的報告
 
@@ -49,5 +49,5 @@ Azure Multi-Factor Authentication 提供數個報告，可供您和貴組織透�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [適用於使用者](end-user/current/multi-factor-authentication-end-user.md)
+* [適用於使用者](../user-help/multi-factor-authentication-end-user.md)
 * [部署的位置](concept-mfa-whichversion.md)

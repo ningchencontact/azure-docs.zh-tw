@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/02/2018
 ms.author: maheshu
-ms.openlocfilehash: 701fe17869d6e7744751d80330422ea47361b411
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ff2659ed7dbdb21bccb8b5858d946b47951e40cc
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36216135"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048928"
 ---
 # <a name="enable-password-hash-synchronization-to-azure-active-directory-domain-services"></a>啟用 Azure Active Directory Domain Services 的密碼雜湊同步
 在先前工作中，您已啟用 Azure Active Directory (Azure AD) 租用戶的 Azure Active Directory Domain Services。 下一項工作是啟用 NT LAN Manager (NTLM) 和 Kerberos 驗證所需的密碼雜湊與 Azure AD Domain Services 的同步。 設定密碼雜湊同步後，使用者即可使用他們的公司認證來登入受控網域。
@@ -78,7 +78,7 @@ ms.locfileid: "36216135"
 當您變更密碼幾分鐘之後，新的密碼就能在 Azure Active Directory Domain Services 中使用。 大約 20 分鐘之後，您就能使用最近變更的密碼來登入已加入受控網域的電腦。
 
 ## <a name="related-content"></a>相關內容
-* [如何更新自己的密碼](../active-directory/active-directory-passwords-update-your-own-password.md)
+* [如何更新自己的密碼](../active-directory/user-help/active-directory-passwords-update-your-own-password.md)
 * [在 Azure AD 中開始使用密碼管理](../active-directory/authentication/quickstart-sspr.md)
 * [為同步處理的 Azure AD 租用戶啟用 Azure Active Directory Domain Services 的密碼雜湊同步](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 * [受 Azure Active Directory Domain Services 受控的網域](active-directory-ds-admin-guide-administer-domain.md)

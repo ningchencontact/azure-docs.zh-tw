@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
 ms.component: activitylog
-ms.openlocfilehash: f6f6c59195fdc79959a1964c1f2770c3b6a68b22
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 123ae27310d70812918f3c81ac3b9a71959a6c2c
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264546"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917222"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 活動記錄事件結構描述
-透過「Azure 活動記錄」，您可深入了解 Azure 中發生的任何訂用帳戶層級事件。 本文說明每個資料類別的事件結構描述。
+透過「Azure 活動記錄」，您可深入了解 Azure 中發生的任何訂用帳戶層級事件。 本文說明每個資料類別的事件結構描述。 資料的結構描述取決於您是在入口網站、PowerShell、CLI，或直接透過 REST API 讀取資料，還是[使用記錄設定檔，將資料串流處理至儲存體或事件中樞](./monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)。 下列範例顯示透過入口網站、PowerShell、CLI 和 REST API 提供的結構描述。 本文結尾會提供這些屬性與 [Azure 診斷記錄結構描述](./monitoring-diagnostic-logs-schema.md)的對應。
 
 ## <a name="administrative"></a>管理
 透過 Resource Manager 執行的所有建立、更新、刪除和動作作業皆記錄在此類別中。 您可能會在此類別中看到的事件類型範例包括「建立虛擬機器」和「刪除網路安全性群組」。使用者或應用程式使用 Resource Manager 所執行的每個動作，都會成為特定資源類型上的作業模型。 如果作業類型為「寫入」、「刪除」或「動作」，則該作業的啟動及成功或失敗記錄皆會記錄在「系統管理」類別。 「系統管理」類別也包含訂用帳戶中角色型存取控制的所有變更。
@@ -115,7 +115,7 @@ ms.locfileid: "35264546"
 | 授權 |事件的 RBAC 屬性的 blob。 通常包括 action、role 和 scope 屬性。 |
 | 呼叫者 |已執行作業的使用者的電子郵件地址，根據可用性的 UPN 宣告或 SPN 宣告。 |
 | 通道 |為下列其中一個值：Admin、Operation |
-| claims |Active Directory 用來驗證使用者或應用程式以在 Resource Manager 中執行此作業的 JWT 權杖。 |
+| claims |Active Directory 用來驗證使用者或應用程式，以便在 Resource Manager 中執行此作業的 JWT 權杖。 |
 | correlationId |通常是字串格式的 GUID。 具有相同 correlationId、屬於同一 uber 動作的事件。 |
 | 說明 |事件的靜態文字描述。 |
 | eventDataId |事件的唯一識別碼。 |
@@ -560,6 +560,30 @@ ms.locfileid: "35264546"
 | properties.recommendationImpact| 建議的影響。 可能的值為："High"、"Medium"、"Low" |
 | properties.recommendationRisk| 建議的風險。 可能的值為 "Error"、"Warning"、"None" |
 
+## <a name="mapping-to-diagnostic-logs-schema"></a>診斷記錄結構描述的對應
+
+將 Azure 活動記錄串流處理至儲存體帳戶或事件中樞命名空間時，資料會遵循 [Azure 診斷記錄結構描述](./monitoring-diagnostic-logs-schema.md)。 以下是上述結構描述的屬性與診斷記錄結構描述的對應：
+
+| 診斷記錄結構描述屬性 | 活動記錄 REST API 結構描述屬性 | 注意 |
+| --- | --- | --- |
+| 分析 | eventTimestamp |  |
+| ResourceId | ResourceId | subscriptionId、resourceType、resourceGroupName 全都推斷自 resourceId。 |
+| operationName | operationName.value |  |
+| category | 作業名稱部分 | 作業類型分類："Write"/"Delete"/"Action" |
+| resultType | status.value | |
+| resultSignature | substatus.value | |
+| resultDescription | 說明 |  |
+| durationMs | N/A | 一律為 0 |
+| callerIpAddress | httpRequest.clientIpAddress |  |
+| correlationId | correlationId |  |
+| 身分識別 | 宣告和授權屬性 |  |
+| Level | Level |  |
+| location | N/A | 處理事件所在的位置。 *這不是資源的位置，而是處理事件的位置。此屬性將會在之後的更新中移除。* |
+| properties | properties.eventProperties |  |
+| properties.eventCategory | category | 如果 properties.eventCategory 不存在，則類別為 "Administrative" |
+| properties.eventName | eventName |  |
+| properties.operationId | operationId |  |
+| properties.eventProperties | properties |  |
 
 
 ## <a name="next-steps"></a>後續步驟

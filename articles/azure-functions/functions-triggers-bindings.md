@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/24/2018
 ms.author: tdykstra
-ms.openlocfilehash: 5e7e6608003b365d5516ca2e94a51c0710ad1125
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 1b22357b201306ec09e586bfa52fbe9a821250da
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061348"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887465"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 觸發程序和繫結概念
 
@@ -37,62 +37,6 @@ ms.locfileid: "37061348"
 當您使用 Azure 入口網站來開發函式時，觸發程序和繫結是在 *function.json* 檔案中進行設定。 入口網站提供此設定的 UI，但您可以變更為**進階編輯器**來直接編輯檔案。
 
 當您使用 Visual Studio 建立類別庫來開發函式時，觸發程序和繫結是透過以屬性裝飾方法和參數來進行設定。
-
-## <a name="supported-bindings"></a>支援的繫結
-
-[!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
-
-如需哪些繫結為預覽狀態或已核准可用於實際執行環境的資訊，請參閱[支援的語言](supported-languages.md)。
-
-## <a name="register-binding-extensions"></a>註冊繫結延伸模組
-
-在某些開發環境中，您必須明確「註冊」您想要使用的繫結。 NuGet 套件中會提供繫結擴充功能，若要註冊擴充功能，則需安裝套件。 下表指出何時要註冊繫結擴充功能，以及註冊方式。
-
-|開發環境 |註冊<br/> 在 Functions 1.x 中  |註冊<br/> 在 Functions 2.x 中  |
-|---------|---------|---------|
-|Azure 入口網站|自動|[自動 (含提示)](#azure-portal-development)|
-|在本機使用 Azure Functions 核心工具|自動|[使用核心工具 CLI 命令](#local-development-azure-functions-core-tools)|
-|使用 Visual Studio 2017 的 C# 類別庫|[使用 NuGet 工具](#c-class-library-with-visual-studio-2017)|[使用 NuGet 工具](#c-class-library-with-visual-studio-2017)|
-|使用 Visual Studio Code 的 C# 類別庫|N/A|[使用 .NET Core CLI](#c-class-library-with-visual-studio-code)|
-
-下列繫結類型是例外狀況，不需要明確註冊，因為這些類型會在所有版本和環境中自動註冊：HTTP、計時器和 Azure 儲存體 (blob、佇列和資料表)。 
-
-### <a name="azure-portal-development"></a>Azure 入口網站開發
-
-當您建立函式或新增繫結時，系統會在觸發程序或繫結的擴充功能需要註冊時提示您。 請按一下 [安裝] 來註冊擴充功能，以回應提示。 安裝在取用方案上可能需要多達 10 分鐘。
-
-針對指定的函式應用程式，您只須安裝每個延伸模組一次。 
-
-### <a name="local-development-azure-functions-core-tools"></a>本機開發 Azure Functions Core Tools
-
-[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
-
-<a name="local-csharp"></a>
-### <a name="c-class-library-with-visual-studio-2017"></a>包含 Visual Studio 2017 的 C# 類別庫
-
-在 **Visual Studio 2017** 中，您可以使用 [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) 命令，從「套件管理員主控台」中安裝套件，如下列範例所示：
-
-```powershell
-Install-Package Microsoft.Azure.WebJobs.ServiceBus --Version <target_version>
-```
-
-在指定繫結的參考文章中，會提供要用於該繫結的套件名稱。 如需範例，請參閱[服務匯流排繫結參考文章的套件一節](functions-bindings-service-bus.md#packages---functions-1x)。
-
-請以特定版本的套件 (例如 `3.0.0-beta5`) 取代範例中的 `<target_version>`。 有效的版本會列在 [NuGet.org](https://nuget.org) 的個別套件頁面上。對應至 Functions 執行階段 1.x 或 2.x 的主要版本，會在繫結的參考文章中指定。
-
-### <a name="c-class-library-with-visual-studio-code"></a>包含 Visual Studio Code 的 C# 類別庫
-
-在 **Visual Studio Code** 中，您可以在 .NET Core CLI 中使用 [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) 命令，從命令提示字元安裝套件，如下列範例所示：
-
-```terminal
-dotnet add package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
-```
-
-.NET Core CLI 只能用於 Azure Functions 2.x 開發。
-
-在指定繫結的參考文章中，會提供要用於該繫結的套件名稱。 如需範例，請參閱[服務匯流排繫結參考文章的套件一節](functions-bindings-service-bus.md#packages---functions-1x)。
-
-請以特定版本的套件 (例如 `3.0.0-beta5`) 取代範例中的 `<target_version>`。 有效的版本會列在 [NuGet.org](https://nuget.org) 的個別套件頁面上。對應至 Functions 執行階段 1.x 或 2.x 的主要版本，會在繫結的參考文章中指定。
 
 ## <a name="example-trigger-and-binding"></a>觸發程序和繫結範例
 
@@ -202,6 +146,66 @@ function generateRandomId() {
      public string MobileNumber { get; set; }
  }
 ```
+
+## <a name="supported-bindings"></a>支援的繫結
+
+[!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
+
+如需哪些繫結為預覽狀態或已核准可用於實際執行環境的資訊，請參閱[支援的語言](supported-languages.md)。
+
+## <a name="register-binding-extensions"></a>註冊繫結延伸模組
+
+在某些開發環境中，您必須明確「註冊」您想要使用的繫結。 NuGet 套件中會提供繫結擴充功能，若要註冊擴充功能，則需安裝套件。 下表指出何時要註冊繫結擴充功能，以及註冊方式。
+
+|開發環境 |註冊<br/> 在 Functions 1.x 中  |註冊<br/> 在 Functions 2.x 中  |
+|---------|---------|---------|
+|Azure 入口網站|自動|[自動 (含提示)](#azure-portal-development)|
+|在本機使用 Azure Functions 核心工具|自動|[使用核心工具 CLI 命令](#local-development-azure-functions-core-tools)|
+|使用 Visual Studio 2017 的 C# 類別庫|[使用 NuGet 工具](#c-class-library-with-visual-studio-2017)|[使用 NuGet 工具](#c-class-library-with-visual-studio-2017)|
+|使用 Visual Studio Code 的 C# 類別庫|N/A|[使用 .NET Core CLI](#c-class-library-with-visual-studio-code)|
+
+下列繫結類型是例外狀況，不需要明確註冊，因為這些類型會在所有版本和環境中自動註冊：HTTP、計時器和 Azure 儲存體 (blob、佇列和資料表)。 
+
+### <a name="azure-portal-development"></a>Azure 入口網站開發
+
+本節僅適用於 Functions 2.x。 繫結延伸模組不需要先在 Functions 1.x 中明確註冊。
+
+當您建立函式或新增繫結時，系統會在觸發程序或繫結的擴充功能需要註冊時提示您。 請按一下 [安裝] 來註冊擴充功能，以回應提示。 安裝在取用方案上可能需要多達 10 分鐘。
+
+針對指定的函式應用程式，您只須安裝每個延伸模組一次。 
+
+### <a name="local-development-azure-functions-core-tools"></a>本機開發 Azure Functions Core Tools
+
+本節僅適用於 Functions 2.x。 繫結延伸模組不需要先在 Functions 1.x 中明確註冊。
+
+[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
+
+<a name="local-csharp"></a>
+### <a name="c-class-library-with-visual-studio-2017"></a>包含 Visual Studio 2017 的 C# 類別庫
+
+在 **Visual Studio 2017** 中，您可以使用 [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) 命令，從「套件管理員主控台」中安裝套件，如下列範例所示：
+
+```powershell
+Install-Package Microsoft.Azure.WebJobs.ServiceBus --Version <target_version>
+```
+
+在指定繫結的參考文章中，會提供要用於該繫結的套件名稱。 如需範例，請參閱[服務匯流排繫結參考文章的套件一節](functions-bindings-service-bus.md#packages---functions-1x)。
+
+請以特定版本的套件 (例如 `3.0.0-beta5`) 取代範例中的 `<target_version>`。 有效的版本會列在 [NuGet.org](https://nuget.org) 的個別套件頁面上。對應至 Functions 執行階段 1.x 或 2.x 的主要版本，會在繫結的參考文章中指定。
+
+### <a name="c-class-library-with-visual-studio-code"></a>包含 Visual Studio Code 的 C# 類別庫
+
+在 **Visual Studio Code** 中，您可以在 .NET Core CLI 中使用 [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) 命令，從命令提示字元安裝套件，如下列範例所示：
+
+```terminal
+dotnet add package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
+```
+
+.NET Core CLI 只能用於 Azure Functions 2.x 開發。
+
+在指定繫結的參考文章中，會提供要用於該繫結的套件名稱。 如需範例，請參閱[服務匯流排繫結參考文章的套件一節](functions-bindings-service-bus.md#packages---functions-1x)。
+
+請以特定版本的套件 (例如 `3.0.0-beta5`) 取代範例中的 `<target_version>`。 有效的版本會列在 [NuGet.org](https://nuget.org) 的個別套件頁面上。對應至 Functions 執行階段 1.x 或 2.x 的主要版本，會在繫結的參考文章中指定。
 
 ## <a name="binding-direction"></a>繫結方向
 
@@ -526,7 +530,7 @@ public static void Run(
       "name": "blobContents",
       "type": "blob",
       "direction": "in",
-      "path": "strings/{BlobName.FileName}.{BlobName.Extension}",
+      "path": "strings/{BlobName}",
       "connection": "AzureWebJobsStorage"
     },
     {

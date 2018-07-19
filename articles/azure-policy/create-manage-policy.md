@@ -4,17 +4,17 @@ description: 使用 Azure 原則來強制執行標準、符合法規合規性與
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/24/2018
+ms.date: 07/13/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 5a26a07bae46fb62e067853b9d85dc905f63d5f8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b8ac93da2f0dd4099ab1aa2df93e5d979ecdd285
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34602154"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049739"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>建立和管理原則來強制執行相容性
 
@@ -26,7 +26,7 @@ ms.locfileid: "34602154"
 > - 解決不相容或拒絕的資源
 > - 在整個組織中實作新的原則
 
-如果您想要指派原則以識別現有資源的目前合規性狀態，快速入門文章會說明如何執行這項操作。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
+如果您想要指派原則以識別現有資源的目前合規性狀態，快速入門文章會說明如何執行這項操作。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="assign-a-policy"></a>指派原則
 
@@ -189,10 +189,8 @@ $definition = New-AzureRmPolicyDefinition -Name 'denyCoolTiering' -Description '
                 "equals": "BlobStorage"
             },
             {
-                "not": {
-                    "field": "Microsoft.Storage/storageAccounts/accessTier",
-                    "equals": "cool"
-                }
+                "field": "Microsoft.Storage/storageAccounts/accessTier",
+                "equals": "cool"
             }
         ]
     },
@@ -277,10 +275,8 @@ az policy definition create --name 'denyCoolTiering' --description 'Deny cool ac
                 "equals": "BlobStorage"
             },
             {
-                "not": {
-                    "field": "Microsoft.Storage/storageAccounts/accessTier",
-                    "equals": "cool"
-                }
+                "field": "Microsoft.Storage/storageAccounts/accessTier",
+                "equals": "cool"
             }
         ]
     },

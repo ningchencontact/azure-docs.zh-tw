@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 3b767da394f6337a1110ad171f19ad789fa044d2
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 2a6fbd9e52e07141ae1d8c630bde6ab23801fb18
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972976"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054496"
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>從登入畫面重設 Azure AD 密碼
 
@@ -99,7 +99,7 @@ ms.locfileid: "38972976"
 
 當使用者嘗試登入時，即可看到 [重設密碼] 連結，該連結可開啟登入畫面上的自助式密碼重設體驗。 這項功能可讓使用者重設其密碼，而不需使用另一個裝置來存取網頁瀏覽器。
 
-您的使用者將在[重設您的工作或學校密碼](../active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)中發現使用這項功能的指引
+您的使用者將在[重設您的工作或學校密碼](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)中發現使用這項功能的指引
 
 ## <a name="common-issues"></a>常見問題
 

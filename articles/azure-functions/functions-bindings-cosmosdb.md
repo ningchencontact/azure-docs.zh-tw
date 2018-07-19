@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tdykstra
-ms.openlocfilehash: 97943bc17c9722ffcd8dc815ec67d033e8aa4fee
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 995765b70c6cf2379bf6d6702971ddacec7428d5
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234898"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342448"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>適用於 Azure Functions 1.x 的 Azure Cosmos DB 繫結
 
@@ -538,14 +538,31 @@ namespace CosmosDBSamplesV1
 
 ### <a name="input---c-script-examples"></a>輸入 - C# 指令碼範例
 
-本章節包含下列範例，藉由從各種來源中指定識別碼值，讀取單一文件：
+本區段包含下列範例：
 
-* 佇列觸發程序，從佇列訊息中查閱識別碼
-* 佇列觸發程序，使用 SqlQuery 從佇列訊息中查閱識別碼
+* [佇列觸發程序，從字串中查閱識別碼](#queue-trigger-look-up-id-from-string-c-script)
+* [佇列觸發程序，使用 SqlQuery 取得多個文件](#queue-trigger-get-multiple-docs-using-sqlquery-c-script)
+* [HTTP 觸發程序，從查詢字串中查閱識別碼](#http-trigger-look-up-id-from-query-string-c-script)
+* [HTTP 觸發程序，從路由資料中查閱識別碼](#http-trigger-look-up-id-from-route-data-c-script)
+* [HTTP 觸發程序，使用 SqlQuery 取得多個文件](#http-trigger-get-multiple-docs-using-sqlquery-c-script)
+* [HTTP 觸發程序，使用 DocumentClient 取得多個文件](#http-trigger-get-multiple-docs-using-documentclient-c-script)
+
+HTTP 觸發程序範例會參考簡單的 `ToDoItem` 類型：
+
+```cs
+namespace CosmosDBSamplesV1
+{
+    public class ToDoItem
+    {
+        public string Id { get; set; }
+        public string Description { get; set; }
+    }
+}
+```
 
 [跳過輸入範例](#input---attributes)
 
-#### <a name="queue-trigger-look-up-id-from-queue-message-c-script"></a>佇列觸發程序，從佇列訊息中查閱識別碼 (C# 指令碼)
+#### <a name="queue-trigger-look-up-id-from-string-c-script"></a>佇列觸發程序，從字串中查閱識別碼 (C# 指令碼)
 
 下列範例示範 function.json 檔案中的 Cosmos DB 輸入繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 函式會讀取單一文件，並更新文件的文字值。
 
@@ -579,7 +596,7 @@ namespace CosmosDBSamplesV1
 
 [跳過輸入範例](#input---attributes)
 
-#### <a name="queue-trigger-look-up-id-from-queue-message-using-sqlquery-c-script"></a>佇列觸發程序，使用 SqlQuery 從佇列訊息中查閱識別碼 (C# 指令碼)
+#### <a name="queue-trigger-get-multiple-docs-using-sqlquery-c-script"></a>佇列觸發程序，使用 SqlQuery 取得多個文件 (C# 指令碼)
 
 下列範例顯示 *function.json* 檔案中的 Azure Cosmos DB 輸入繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 函式會使用佇列觸發程序來自訂查詢參數，以擷取 SQL 查詢所指定的多份文件。
 
@@ -620,16 +637,276 @@ namespace CosmosDBSamplesV1
 
 [跳過輸入範例](#input---attributes)
 
-### <a name="input---javascript-examples"></a>輸入 - JavaScript 範例
+#### <a name="http-trigger-look-up-id-from-query-string-c-script"></a>HTTP 觸發程序，從查詢字串中查閱識別碼 (C# 指令碼)
 
-本章節包含下列範例，藉由從各種來源中指定識別碼值，讀取單一文件：
+下列範例會顯示擷取單一文件的 [C# 指令碼函式](functions-reference-csharp.md)。 函式會由 HTTP 要求觸發，該 HTTP 要求會使用查詢字串指定要查閱的識別碼。 該識別碼會用來從指定的資料庫和集合中，擷取 `ToDoItem` 文件。
 
-* 佇列觸發程序，從佇列訊息中查閱識別碼
-* 佇列觸發程序，使用 SqlQuery 從佇列訊息中查閱識別碼
+以下是 *function.json* 檔案：
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "type": "documentDB",
+      "name": "toDoItem",
+      "databaseName": "ToDoItems",
+      "collectionName": "Items",
+      "connection": "CosmosDBConnection",
+      "direction": "in",
+      "Id": "{Query.id}"
+    }
+  ],
+  "disabled": true
+}
+```
+
+以下是 C# 指令碼程式碼：
+
+```cs
+using System.Net;
+
+public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem, TraceWriter log)
+{
+    log.Info("C# HTTP trigger function processed a request.");
+
+    if (toDoItem == null)
+    {
+         log.Info($"ToDo item not found");
+    }
+    else
+    {
+        log.Info($"Found ToDo item, Description={toDoItem.Description}");
+    }
+    return req.CreateResponse(HttpStatusCode.OK);
+}
+```
 
 [跳過輸入範例](#input---attributes)
 
-#### <a name="queue-trigger-look-up-id-from-queue-message-javascript"></a>佇列觸發程序，從佇列訊息中查閱識別碼 (JavaScript)
+#### <a name="http-trigger-look-up-id-from-route-data-c-script"></a>HTTP 觸發程序，從路由資料中查閱識別碼 (C# 指令碼)
+
+下列範例會顯示擷取單一文件的 [C# 指令碼函式](functions-reference-csharp.md)。 函式會由 HTTP 要求觸發，該 HTTP 要求會使用路由資料指定要查閱的識別碼。 該識別碼會用來從指定的資料庫和集合中，擷取 `ToDoItem` 文件。
+
+以下是 *function.json* 檔案：
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "get",
+        "post"
+      ],
+      "route":"todoitems/{id}"
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "type": "documentDB",
+      "name": "toDoItem",
+      "databaseName": "ToDoItems",
+      "collectionName": "Items",
+      "connection": "CosmosDBConnection",
+      "direction": "in",
+      "Id": "{id}"
+    }
+  ],
+  "disabled": false
+}
+```
+
+以下是 C# 指令碼程式碼：
+
+```cs
+using System.Net;
+
+public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem, TraceWriter log)
+{
+    log.Info("C# HTTP trigger function processed a request.");
+
+    if (toDoItem == null)
+    {
+         log.Info($"ToDo item not found");
+    }
+    else
+    {
+        log.Info($"Found ToDo item, Description={toDoItem.Description}");
+    }
+    return req.CreateResponse(HttpStatusCode.OK);
+}
+```
+
+[跳過輸入範例](#input---attributes)
+
+#### <a name="http-trigger-get-multiple-docs-using-sqlquery-c-script"></a>HTTP 觸發程序，使用 SqlQuery 取得多個文件 (C# 指令碼)
+
+下列範例會顯示擷取文件清單的 [C# 指令碼函式](functions-reference-csharp.md)。 函式是由 HTTP 要求所觸發。 查詢會在 `SqlQuery` 屬性內容中指定。
+
+以下是 *function.json* 檔案：
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "type": "documentDB",
+      "name": "toDoItems",
+      "databaseName": "ToDoItems",
+      "collectionName": "Items",
+      "connection": "CosmosDBConnection",
+      "direction": "in",
+      "sqlQuery": "SELECT top 2 * FROM c order by c._ts desc"
+    }
+  ],
+  "disabled": false
+}
+```
+
+以下是 C# 指令碼程式碼：
+
+```cs
+using System.Net;
+
+public static HttpResponseMessage Run(HttpRequestMessage req, IEnumerable<ToDoItem> toDoItems, TraceWriter log)
+{
+    log.Info("C# HTTP trigger function processed a request.");
+
+    foreach (ToDoItem toDoItem in toDoItems)
+    {
+        log.Info(toDoItem.Description);
+    }
+    return req.CreateResponse(HttpStatusCode.OK);
+}
+```
+
+[跳過輸入範例](#input---attributes)
+
+#### <a name="http-trigger-get-multiple-docs-using-documentclient-c-script"></a>HTTP 觸發程序，使用 DocumentClient 取得多個文件 (C# 指令碼)
+
+下列範例會顯示擷取文件清單的 [C# 指令碼函式](functions-reference-csharp.md)。 函式是由 HTTP 要求所觸發。 程式碼會使用由 Azure Cosmos DB 繫結提供的 `DocumentClient` 執行個體來讀取文件清單。 `DocumentClient` 執行個體也會用來進行寫入作業。
+
+以下是 *function.json* 檔案：
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "type": "documentDB",
+      "name": "client",
+      "databaseName": "ToDoItems",
+      "collectionName": "Items",
+      "connection": "CosmosDBConnection",
+      "direction": "inout"
+    }
+  ],
+  "disabled": false
+}
+```
+
+以下是 C# 指令碼程式碼：
+
+```cs
+#r "Microsoft.Azure.Documents.Client"
+
+using System.Net;
+using Microsoft.Azure.Documents.Client;
+using Microsoft.Azure.Documents.Linq;
+
+public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, DocumentClient client, TraceWriter log)
+{
+    log.Info("C# HTTP trigger function processed a request.");
+
+    Uri collectionUri = UriFactory.CreateDocumentCollectionUri("ToDoItems", "Items");
+    string searchterm = req.GetQueryNameValuePairs()
+        .FirstOrDefault(q => string.Compare(q.Key, "searchterm", true) == 0)
+        .Value;
+
+    if (searchterm == null)
+    {
+        return req.CreateResponse(HttpStatusCode.NotFound);
+    }
+
+    log.Info($"Searching for word: {searchterm} using Uri: {collectionUri.ToString()}");
+    IDocumentQuery<ToDoItem> query = client.CreateDocumentQuery<ToDoItem>(collectionUri)
+        .Where(p => p.Description.Contains(searchterm))
+        .AsDocumentQuery();
+
+    while (query.HasMoreResults)
+    {
+        foreach (ToDoItem result in await query.ExecuteNextAsync())
+        {
+            log.Info(result.Description);
+        }
+    }
+    return req.CreateResponse(HttpStatusCode.OK);
+}
+```
+
+[跳過輸入範例](#input---attributes)
+
+### <a name="input---javascript-examples"></a>輸入 - JavaScript 範例
+
+本區段包含下列範例：
+
+* [佇列觸發程序，從 JSON 中查閱識別碼](#queue-trigger-look-up-id-from-string-javascript)
+* [HTTP 觸發程序，從查詢字串中查閱識別碼](#http-trigger-look-up-id-from-query-string-javascript)
+* [HTTP 觸發程序，從路由資料中查閱識別碼](#http-trigger-look-up-id-from-route-data-javascript)
+* [佇列觸發程序，使用 SqlQuery 取得多個文件](#queue-trigger-get-multiple-docs-using-sqlquery-javascript)
+
+[跳過輸入範例](#input---attributes)
+
+#### <a name="queue-trigger-look-up-id-from-json-javascript"></a>佇列觸發程序，從 JSON 中查閱識別碼 (JavaScript)
 
 下列範例示範 function.json 檔案中的 Cosmos DB 輸入繫結，以及使用此繫結的 [JavaScript 指令碼函式](functions-reference-node.md)。 函式會讀取單一文件，並更新文件的文字值。
 
@@ -672,7 +949,126 @@ namespace CosmosDBSamplesV1
 
 [跳過輸入範例](#input---attributes)
 
-#### <a name="queue-trigger-look-up-id-from-queue-message-using-sqlquery-javascript"></a>佇列觸發程序，使用 SqlQuery 從佇列訊息中查閱識別碼 (JavaScript)
+#### <a name="http-trigger-look-up-id-from-query-string-javascript"></a>HTTP 觸發程序，從查詢字串中查閱識別碼 (JavaScript)
+
+下列範例會顯示擷取單一文件的 [JavaScript 函式](functions-reference-node.md)。 函式會由 HTTP 要求觸發，該 HTTP 要求會使用查詢字串指定要查閱的識別碼。 該識別碼會用來從指定的資料庫和集合中，擷取 `ToDoItem` 文件。
+
+以下是 *function.json* 檔案：
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "type": "documentDB",
+      "name": "toDoItem",
+      "databaseName": "ToDoItems",
+      "collectionName": "Items",
+      "connection": "CosmosDBConnection",
+      "direction": "in",
+      "Id": "{Query.id}"
+    }
+  ],
+  "disabled": true
+}
+```
+
+以下是 JavaScript 程式碼：
+
+```javascript
+module.exports = function (context, req, toDoItem) {
+    context.log('JavaScript queue trigger function processed work item');
+    if (!toDoItem)
+    {
+        context.log("ToDo item not found");
+    }
+    else
+    {
+        context.log("Found ToDo item, Description=" + toDoItem.Description);
+    }
+
+    context.done();
+};
+```
+
+[跳過輸入範例](#input---attributes)
+
+#### <a name="http-trigger-look-up-id-from-route-data-javascript"></a>HTTP 觸發程序，從路由資料中查閱識別碼 (JavaScript)
+
+下列範例會顯示擷取單一文件的 [JavaScript 函式](functions-reference-node.md)。 函式會由 HTTP 要求觸發，該 HTTP 要求會使用查詢字串指定要查閱的識別碼。 該識別碼會用來從指定的資料庫和集合中，擷取 `ToDoItem` 文件。
+
+以下是 *function.json* 檔案：
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "get",
+        "post"
+      ],
+      "route":"todoitems/{id}"
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "type": "documentDB",
+      "name": "toDoItem",
+      "databaseName": "ToDoItems",
+      "collectionName": "Items",
+      "connection": "CosmosDBConnection",
+      "direction": "in",
+      "Id": "{id}"
+    }
+  ],
+  "disabled": false
+}
+```
+
+以下是 JavaScript 程式碼：
+
+```cs
+module.exports = function (context, req, toDoItem) {
+    context.log('JavaScript queue trigger function processed work item');
+    if (!toDoItem)
+    {
+        context.log("ToDo item not found");
+    }
+    else
+    {
+        context.log("Found ToDo item, Description=" + toDoItem.Description);
+    }
+
+    context.done();
+};
+```
+
+[跳過輸入範例](#input---attributes)
+
+
+
+#### <a name="queue-trigger-get-multiple-docs-using-sqlquery-javascript"></a>佇列觸發程序，使用 SqlQuery 取得多個文件 (JavaScript)
 
 下列範例顯示 *function.json* 檔案中的 Azure Cosmos DB 輸入繫結，以及使用此繫結的 [JavaScript 函式](functions-reference-node.md)。 函式會使用佇列觸發程序來自訂查詢參數，以擷取 SQL 查詢所指定的多份文件。
 
@@ -794,7 +1190,7 @@ Azure Cosmos DB 輸出繫結可讓您將新的文件寫入 Azure Cosmos DB 資�
 >[!NOTE]
 > 如果您是在 Cosmos DB 帳戶上使用 MongoDB API，請勿使用 Azure Cosmos DB 輸入或輸出繫結。 資料可能會損毀。
 
-## <a name="output---example"></a>輸出 - 範例
+## <a name="output---examples"></a>輸出 - 範例
 
 請參閱特定語言的範例：
 
@@ -901,6 +1297,15 @@ namespace CosmosDBSamplesV1
 
 ### <a name="output---c-script-examples"></a>輸出 - C# 指令碼範例
 
+本區段包含下列範例：
+
+* 佇列觸發程序，寫入一份文件
+* 佇列觸發程序，使用 IAsyncCollector 寫入文件
+
+[跳過輸出範例](#output---attributes)
+
+#### <a name="queue-trigger-write-one-doc-c-script"></a>佇列觸發程序，寫入一份文件 (C# 指令碼)
+
 下列範例顯示 *function.json* 檔案中的 Azure Cosmos DB 輸出繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 此函式會使用可接收 JSON 佇列的佇列輸入繫結，其格式如下︰
 
 ```json
@@ -961,7 +1366,64 @@ namespace CosmosDBSamplesV1
     }
 ```
 
+#### <a name="queue-trigger-write-docs-using-iasynccollector"></a>佇列觸發程序，使用 IAsyncCollector 寫入文件
+
 如果要建立多個文件，您可以繫結至 `ICollector<T>` 或 `IAsyncCollector<T>`，`T` 表示其中一種支援的類型。
+
+此範例會參考簡單的 `ToDoItem` 類型：
+
+```cs
+namespace CosmosDBSamplesV1
+{
+    public class ToDoItem
+    {
+        public string Id { get; set; }
+        public string Description { get; set; }
+    }
+}
+```
+
+以下是 function.json 檔案：
+
+```json
+{
+  "bindings": [
+    {
+      "name": "toDoItemsIn",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "todoqueueforwritemulti",
+      "connection": "AzureWebJobsStorage"
+    },
+    {
+      "type": "documentDB",
+      "name": "toDoItemsOut",
+      "databaseName": "ToDoItems",
+      "collectionName": "Items",
+      "connection": "CosmosDBConnection",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+以下是 C# 指令碼程式碼：
+
+```cs
+using System;
+
+public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> toDoItemsOut, TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed {toDoItemsIn?.Length} items");
+
+    foreach (ToDoItem toDoItem in toDoItemsIn)
+    {
+        log.Info($"Description={toDoItem.Description}");
+        await toDoItemsOut.AddAsync(toDoItem);
+    }
+}
+```
 
 [跳過輸出範例](#output---attributes)
 

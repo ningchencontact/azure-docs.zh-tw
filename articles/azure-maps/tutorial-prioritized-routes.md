@@ -1,20 +1,20 @@
 ---
 title: Azure 地圖服務的多個路線 | Microsoft Docs
 description: 使用 Azure 地圖服務尋找不同行進模式的路線
-author: kgremban
-ms.author: kgremban
+author: dsk-2015
+ms.author: dkshir
 ms.date: 05/07/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ea68c70befde1922fc30d06386a2ae326460c722
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 83ca46ecb8f0cce2ff8c749016eb3ad1ac7df7cf
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34601406"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988964"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>使用 Azure 地圖服務尋找不同行進模式的路線
 
@@ -26,7 +26,7 @@ ms.locfileid: "34601406"
 > * 建立會宣告行進模式的路線查詢
 > * 在地圖上顯示多條路線
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 在繼續之前，請遵循第一個教學課程中的步驟來[建立 Azure 地圖服務帳戶](./tutorial-search-location.md#createaccount)，並[取得帳戶的訂用帳戶金鑰](./tutorial-search-location.md#getkey)。 
 

@@ -1,20 +1,20 @@
 ---
 title: 針對 Azure 備份設定報告
-description: 本文說明如何使用復原服務保存庫針對 Azure 備份設定 Power BI 報告。
+description: 使用復原服務保存庫針對 Azure 備份設定 Power BI 報告。
 services: backup
-author: JPallavi
-manager: vijayts
+author: adiganmsft
+manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/10/2017
-ms.author: pajosh
+ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b645d12255ab2bd6c3747eb966b2a6ecc3e284b3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 81653f9125b9cc4411e5cfe358bd602f92c5bf89
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605224"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448361"
 ---
 # <a name="configure-azure-backup-reports"></a>設定 Azure 備份報告
 本文說明使用復原服務保存庫針對 Azure 備份設定報告，以及使用 Power BI 存取這些報告的步驟。 執行這些步驟後，您可以直接移至 Power BI 以檢閱所有報告，以及自訂和建立報告。 

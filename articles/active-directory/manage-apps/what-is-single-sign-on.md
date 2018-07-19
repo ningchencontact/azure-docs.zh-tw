@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.workload: identity
 ms.topic: article
-ms.date: 06/21/2018
+ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: a6f116842ce61585feda8f20e204e0751a360036
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 199aaf60a21e0362f27707de04f14854aa528297
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311162"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081501"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？
 單一登入表示只要使用單一使用者帳戶登入，就能夠存取所有進行工作所需的應用程式和資源。 登入之後，您可以存取所有需要的應用程式，而不需要再驗證一次 (例如，輸入密碼)。
@@ -45,7 +45,8 @@ Azure AD 能輕鬆整合到許多現今熱門的 SaaS 應用程式。它提供�
 Azure AD 支援三種不同的方式登入應用程式：
 
 * **同盟單一登入**可讓應用程式重新導向至 Azure AD 進行使用者驗證，而不是提示使用者自己的密碼。 支援如 SAML 2.0、WS-同盟或 OpenID Connect 等通訊協定的應用程式都支援同盟單一登入，而且這是最豐富的單一登入模式。
-* **密碼單一登入**可以使用網頁瀏覽器延伸或行動應用程式，安全儲存應用程式的密碼以及重新執行。 密碼型單一登入會使用應用程式提供的現有登入程序，但是讓系統管理員能夠管理密碼，而且使用者不需要知道密碼。
+* **密碼單一登入**可以使用網頁瀏覽器延伸或行動應用程式，安全儲存應用程式的密碼以及重新執行。 密碼型單一登入會利用 
+*  應用程式提供的現有登入程序，但是讓系統管理員可以管理密碼，而且使用者不需要知道密碼。
 * **現有單一登入**可讓 Azure AD 運用應用程式已設定的任何現有單一登入，但可讓這些應用程式連結至 Office 365 或 Azure AD 存取面板入口網站，當其中有應用程式啟動時，Azure AD 中也會有額外的報告。
 
 一旦使用者通過應用程式的驗證，他們在應用程式中也必須具有佈建的帳戶記錄，以便告訴應用程式在應用程式內部具有權限和存取層級的位置。 佈建此帳戶記錄可以自動執行，或是在提供使用者單一登入存取之前由系統管理員手動執行。
@@ -64,7 +65,7 @@ Azure AD 可以對支援 SAML 2.0、WS-同盟或 OpenID Connect 通訊協定的�
 ### <a name="password-based-single-sign-on"></a>密碼單一登入
 設定密碼單一登入可讓您組織中的使用者，使用協力廠商 SaaS 應用程式的使用者帳戶資訊，由 Azure AD 自動登入協力廠商的 SaaS 應用程式。 當您啟用此功能時，Azure AD 會收集並安全地儲存使用者帳戶資訊和相關的密碼。
 
-凡是任何具有 HTML 登入頁面的雲端應用程式，Azure AD 都可以支援密碼單一登入。 AAD 會使用自訂的瀏覽器外掛程式，從目錄安全地擷取應用程式認證 (例如使用者名稱和密碼)，將使用者的登入程序自動化，並代替使用者將這些認證輸入應用程式的登入頁面。 有兩個使用案例：
+凡是任何具有 HTML 登入頁面的雲端應用程式，Azure AD 都可以支援密碼單一登入。 AAD 會使用自訂的瀏覽器外掛程式，從目錄安全地擷取應用程式認證 (例如使用者名稱和密碼)，將登入程序自動化，並代替使用者將這些認證輸入應用程式的登入頁面。 有兩個使用案例：
 
 1. **系統管理員管理認證** – 系統管理員可以建立和管理應用程式認證，並將這些認證指派給需要存取應用程式的使用者或群組。 在這些情況下，使用者不需要知道認證，但只要在其存取面板中或透過提供的連結按一下認證，仍然可以單一登入存取應用程式。 此程序既可讓系統管理員對認證進行週期管理，對終端使用者也很方便，因為終端使用者不需要記住或管理應用程式專用的密碼。 使用者在自動登入程序期間的認證會經過模糊處理，不過使用者使用 Web 偵錯工具在技術上還是可以找到這些認證，因此使用者和系統管理員應該遵循與使用者直接提出認證時相同的安全性原則。 當提供的帳戶存取權是由許多使用者共用時，例如社交媒體或文件共用應用程式，系統管理員提供的認證會很有用。
 2. **使用者管理認證** – 系統管理員可以指派應用程式給使用者或群組，並允許使用者在存取面板中第一次存取應用程式時直接輸入自己的認證。 這樣可以方便使用者，每次存取應用程式時，不需要一再輸入應用程式專用的密碼。 使用者可以繼續管理他們的密碼，視需要更新或刪除它們。 這個使用案例也可以用來做為系統性管理認證的跳板，系統管理員可以在日後設定應用程式的新認證，而不需要變更使用者的應用程式存取體驗。
@@ -133,7 +134,8 @@ Azure AD 可以對支援 SAML 2.0、WS-同盟或 OpenID Connect 通訊協定的�
 
 * 向 Azure AD 啟用單一登入、使用密碼 SSO，或做為目標 SaaS、同盟 SSO (如果適用)
 * (選擇性) 啟用使用者佈建來佈建和解除佈建使用者 (身分識別週期管理)
-* 對於啟用使用者佈建的應用程式，選取哪些使用者可以存取該應用程式
+* 對於啟用 
+* 使用者佈建的應用程式，選取哪些使用者可以存取該應用程式
 
 對於支援同盟單一登入的資源庫應用程式，通常需要您提供其他組態設定，例如用來建立協力廠商應用程式與 Azure AD 之間同盟信任的憑證和中繼資料。 組態精靈會引導您完成細節，並且提供特定資料和指示讓您輕鬆存取 SaaS 應用程式。
 
@@ -192,7 +194,7 @@ Azure AD 也支援對支援密碼單一登入、現有單一登入，以及任�
 ## <a name="related-articles"></a>相關文章
 * [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](../active-directory-apps-index.md)
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](../saas-apps/tutorial-list.md)
-* [使用 Cloud App Discovery 尋找未經約束的雲端應用程式](cloud-app-discovery.md)
+* [設定 Cloud Discovery](/cloud-app/security/set-up-cloud-discovery)
 * [管理應用程式存取簡介](what-is-access-management.md)
 * [比較 Azure AD 中管理外部身分識別的功能](../active-directory-b2b-compare-b2c.md)
 

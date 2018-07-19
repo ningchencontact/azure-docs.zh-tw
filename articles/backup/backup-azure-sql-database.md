@@ -13,15 +13,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/1/2018
+ms.date: 7/6/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 4ae64fefb58840214104a4e1cb338ec404fac1a8
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 32f45b66c4b1d22da3ffc4310a8a47c17319301f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235408"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38302818"
 ---
 # <a name="back-up-sql-server-database-in-azure"></a>在 Azure 中備份 SQL Server 資料庫
 
@@ -78,7 +78,7 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 
 ## <a name="supported-operating-systems-and-versions-of-sql-server"></a>支援的 SQL Server 作業系統和版本
 
-下列支援的 SQL Server 作業系統和版本適用於 SQL Marketplace Azure 虛擬機器，以及非 Marketplace 虛擬機器 (需要手動安裝 SQL Server)。
+以下為支援的作業系統。 支援 SQL Marketplace Azure 虛擬機器，以及非 Marketplace 虛擬機器 (需要手動安裝 SQL Server)。
 
 ### <a name="supported-operating-systems"></a>受支援的作業系統
 
@@ -131,7 +131,7 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 
 ## <a name="set-permissions-for-non-marketplace-sql-vms"></a>設定非 Marketplace SQL VM 的權限
 
-若要備份虛擬機器，Azure 備份需要安裝 **AzureBackupWindowsWorkload** 延伸模組。 如果您使用 Azure Marketplace 虛擬機器，請直接跳到[探索 SQL Server 資料庫](backup-azure-sql-database.md#discover-sql-server-databases)。 如果裝載 SQL 資料庫的虛擬機器不是從 Azure Marketplace 建立，請完成下一節來安裝延伸模組並設定適當的權限。 除了 **AzureBackupWindowsWorkload** 延伸模組，Azure 備份還需要 SQL 系統管理員權限才能保護 SQL 資料庫。 探索虛擬機器上的資料庫時，Azure 備份會建立帳戶 NT Service\AzureWLBackupPluginSvc。 若要讓 Azure 備份探索 SQL 資料庫，NT Service\AzureWLBackupPluginSvc 帳戶必須具有 SQL 登入和 SQL 系統管理員權限。 下列程序說明如何提供這些權限。
+若要備份虛擬機器，Azure 備份需要安裝 **AzureBackupWindowsWorkload** 延伸模組。 如果您使用 Azure Marketplace 虛擬機器，請直接跳到[探索 SQL Server 資料庫](backup-azure-sql-database.md#discover-sql-server-databases)。 如果裝載 SQL 資料庫的虛擬機器不是從 Azure Marketplace 建立，請完成下一節來安裝延伸模組並設定適當的權限。 除了 **AzureBackupWindowsWorkload** 延伸模組，Azure 備份還需要 SQL 系統管理員權限才能保護 SQL 資料庫。 探索虛擬機器上的資料庫時，Azure 備份會建立帳戶 NT Service\AzureWLBackupPluginSvc。 若要讓 Azure 備份探索 SQL 資料庫，NT Service\AzureWLBackupPluginSvc 帳戶必須具有 SQL 和 SQL 系統管理員權限。 下列程序說明如何提供這些權限。
 
 若要設定權限：
 
@@ -168,7 +168,7 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 
 ### <a name="fixing-sql-sysadmin-permissions"></a>修正 SQL 系統管理員權限
 
-在安裝過程中，如果您看到錯誤 **UserErrorSQLNoSysadminMembership**，請使用具有 SQL 系統管理員權限的帳戶登入 SQL Server Management Studio (SSMS)。 除非您需要特殊權限，否則您應該能夠使用 Windows 驗證來辨識帳戶。
+在安裝過程中，如果您看到錯誤 **UserErrorSQLNoSysadminMembership**，請使用具有 SQL 系統管理員權限的帳戶登入 SQL Server Management Studio (SSMS)。 除非您需要特殊權限，否則 Windows 驗證應該能運作。
 
 1. 在 SQL Server 上，開啟 [安全性]/[登入] 資料夾。
 
@@ -190,7 +190,7 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 
     現在應該存在必要權限。
 
-6. 雖然您已修正權限錯誤，但您仍然需要建立資料庫與復原服務保存庫的關聯。 在 Azure 入口網站的 [受保護的伺服器] 清單中，以滑鼠右鍵按一下發生錯誤的伺服器，然後選取 [Rediscover DBs] \(重新探索 DB\)。
+6. 雖然您已修正權限錯誤，但您仍然需要建立資料庫與復原服務保存庫的關聯。 在 Azure 入口網站的 [受保護的伺服器] 清單中，以滑鼠右鍵按一下發生錯誤的伺服器，然後選取 [重新探索 DB]。
 
     ![確認伺服器具有適當的權限](./media/backup-azure-sql-database/check-erroneous-server.png)
 
@@ -211,9 +211,9 @@ Azure 備份可在 SQL Server 執行個體上探索所有資料庫，讓您根�
 
     ![在主功能表中選擇 [所有服務] 選項](./media/backup-azure-sql-database/click-all-services.png) <br/>
 
-3. 在 [所有服務] 對話方塊中，鍵入「復原服務」。 當您開始輸入時，您的輸入會篩選資源清單。 當您看到 [復原服務保存庫] 時，請加以選取。
+3. 在 [所有服務] 對話方塊中，鍵入「復原服務」。 當您開始輸入時，您的輸入會篩選資源清單。 當您看到 [復原服務保存庫] 時，請選取該選項。
 
-    ![在 [所有服務] 對話方塊中，鍵入「復原服務」](./media/backup-azure-sql-database/all-services.png) <br/>
+    ![在 [所有服務] 對話方塊中，輸入 Recovery Services](./media/backup-azure-sql-database/all-services.png) <br/>
 
     隨即會在訂用帳戶中出現 [復原服務保存庫] 清單。 
 
@@ -251,7 +251,7 @@ Azure 備份可在 SQL Server 執行個體上探索所有資料庫，讓您根�
 
 - 在虛擬機器上安裝 **AzureBackupWindowsWorkload** 延伸模組。 備份 SQL 資料庫是無代理程式解決方案；換句話說，只要在虛擬機器上安裝此延伸模組，就不會在 SQL 資料庫上安裝任何代理程式。
 
-- 在虛擬機器上建立服務帳戶 **NT Service\AzureWLBackupPluginSvc**。 所有備份和還原作業都會使用此服務帳戶。 **NT Server\AzureWLBackupPluginSvc** 需要 SQL 系統管理員權限。 所有 SQL Marketplace 虛擬機器都會隨附安裝 SqlIaaSExtension，而且 AzureBackupWindowsWorkload 會使用 SQLIaaSExtension 來自動取得必要權限。 如果您的虛擬機器未安裝 SqlIaaSExtension，「探索 DB」作業會失敗，而且您會收到錯誤訊息 **UserErrorSQLNoSysAdminMembership**。 若要為備份新增系統管理員權限，請遵循[設定非 Marketplace SQL VM 的 Azure 備份權限](backup-azure-sql-database.md#set-permissions-for-non--marketplace-sql-vms)中的指示進行。
+- 在虛擬機器上建立服務帳戶 **NT Service\AzureWLBackupPluginSvc**。 所有備份和還原作業都會使用此服務帳戶。 **NT Service\AzureWLBackupPluginSvc** 需要 SQL 系統管理員權限。 所有 SQL Marketplace 虛擬機器都會隨附安裝 SqlIaaSExtension，而且 AzureBackupWindowsWorkload 會使用 SQLIaaSExtension 來自動取得必要權限。 如果您的虛擬機器未安裝 SqlIaaSExtension，「探索 DB」作業會失敗，而且您會收到錯誤訊息 **UserErrorSQLNoSysAdminMembership**。 若要為備份新增系統管理員權限，請遵循[設定非 Marketplace SQL VM 的 Azure 備份權限](backup-azure-sql-database.md#set-permissions-for-non--marketplace-sql-vms)中的指示進行。
 
     ![選取 VM 和資料庫](./media/backup-azure-sql-database/registration-errors.png)
 
@@ -286,7 +286,7 @@ Azure 備份提供管理服務來保護您的 SQL Server 資料庫及管理備�
     Azure 備份服務會顯示具有獨立資料庫的所有 SQL 執行個體，以及 SQL AlwaysOn 可用性群組。 若要檢視 SQL 執行個體中的獨立資料庫，請按一下執行個體名稱旁的 > 形箭號以檢視資料庫。 下圖顯示獨立執行個體和 AlwaysOn 可用性群組的範例。
 
     > [!NOTE]
-    > 完整和差異備份會從主要節點進行，因為 SQL 平台具有該項限制。 記錄備份可以根據您的備份喜好設定進行。 由於這項限制，您必須註冊主要節點。
+    > 對於 SQL Always On 可用性群組，我們接受 SQL 備份喜好設定。 但是因為 SQL 平台的限制，完整和差異備份必須從主要節點進行。 記錄備份可以根據您的備份喜好設定進行。 由於這項限制，必須一律為主要節點註冊可用性群組。
     >
 
     ![SQL 執行個體中的資料庫清單](./media/backup-azure-sql-database/discovered-databases.png)
@@ -394,13 +394,16 @@ Azure 備份提供管理服務來保護您的 SQL Server 資料庫及管理備�
 
 8. 當您完成備份原則的所有編輯時，請按一下 [確定]。 
 
-   ![差異保留範圍](./media/backup-azure-sql-database/differential-backup-policy.png)
+   ![接受新的原則](./media/backup-azure-sql-database/backup-policy-click-ok.png)
 
 ## <a name="restore-a-sql-database"></a>還原 SQL 資料庫
 
 Azure 備份提供使用交易記錄備份將個別資料庫還原至特定日期或時間的功能，最高可至特定秒。 根據您提供的還原時間，Azure 備份會自動決定適當的完整、差異，以及還原資料所需的記錄備份鏈結。
 
 或者，您可以選取特定完整或差異備份來還原至特定復原點，而不是特定時間。
+ > [!Note]
+ > 在觸發 "master" 資料庫的還原作業之前，請使用啟動選項 "-m AzureWorkloadBackup" 以單一使用者模式啟動 SQL Server。 -m 的引數是用戶端的名稱，僅允許此用戶端開啟連線。 針對所有系統資料庫 (模型、master、msdb)，請在觸發還原之前停止 SQL Agent 服務。 關閉可能會嘗試奪取這些資料庫連線的任何應用程式。
+>
 
 還原資料庫
 
@@ -442,6 +445,10 @@ Azure 備份提供使用交易記錄備份將個別資料庫還原至特定日�
 ### <a name="restore-to-an-alternate-location"></a>還原至替代位置
 
 此程序會逐步將資料還原至替代位置。 如果您想要在還原時覆寫資料庫，請前往[還原並覆寫資料庫](backup-azure-sql-database.md#restore-and-overwrite-the-database)一節。 此程序假設復原服務保存庫已開啟並位於 [還原設定] 功能表中。 如果尚未開啟，請從[還原 SQL 資料庫](backup-azure-sql-database.md#restore-a-sql-database)一節開始。
+
+> [!NOTE]
+> 您可以將資料庫還原到相同 Azure 區域中的 SQL Server，並且必須向復原服務保存庫註冊目的地伺服器。 
+>
 
 [伺服器] 下拉式功能表只會顯示向復原服務保存庫註冊的 SQL Server。 如果您需要的伺服器不在 [伺服器] 清單中，請參閱[探索 SQL Server 資料庫](backup-azure-sql-database.md#discover-sql-server-databases)一節以尋找伺服器。 在探索資料庫過程中，所有新的伺服器都會向復原服務保存庫註冊。
 
@@ -607,10 +614,40 @@ Azure 備份提供使用交易記錄備份將個別資料庫還原至特定日�
 * 取消註冊 SQL Server
 
 ### <a name="monitor-jobs"></a>監視工作
+作為企業級解決方案的 Azure 備份可為任何失敗提供進階的備份警示和通知 (請參閱下面的＜備份警示＞一節)。 如果您仍想監視特定工作，可以根據需求來使用下列任何選項：
 
-Azure 備份使用 SQL 原生 API 來執行所有備份作業。 您可以使用原生 API，從 msdb 資料庫中的 [SQL backupset 資料表](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017)擷取所有工作資訊。 此外，Azure 備份會顯示 [備份工作] 入口網站中所有手動觸發或臨機操作的工作。 入口網站中可用的工作包括：所有設定備份作業、還原作業、註冊和探索資料庫作業，以及停止備份作業。 所有排程工作也可以透過 OMS Log Analytics 監視。 使用 Log Analytics 可移除工作雜亂的情況，並提供更細微的彈性來監視或篩選特定工作。
+#### <a name="use-azure-portal-for-all-adhoc-operations"></a>使用 Azure 入口網站進行所有臨機操作作業
+Azure 備份會在「備份工作」入口網站中顯示所有手動觸發或臨機操作的工作。 入口網站中可用的工作包括：所有設定備份作業、手動觸發備份作業、還原作業、註冊和探索資料庫作業，以及停止備份作業。 
+![進階設定功能表](./media/backup-azure-sql-database/jobs-list.png)
 
-![[進階設定] 功能表](./media/backup-azure-sql-database/jobs-list.png)
+> [!NOTE]
+> 所有排程備份工作 (包括完整、差異及記錄備份) 都不會顯示在入口網站中，並且可以如下所述使用 SQL Server Management Studio 進行監視。
+>
+
+#### <a name="use-sql-server-management-studio-for-backup-jobs"></a>針對備份作業使用 SQL Server Management Studio
+Azure 備份使用 SQL 原生 API 來執行所有備份作業。 您可以使用原生 API，從 msdb 資料庫中的 [SQL backupset 資料表](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017)擷取所有工作資訊。
+
+下列是一個查詢範例，可以針對名稱為 **DB1** 的資料庫，擷取其所有備份作業。 自訂查詢以進行進階監視。
+```
+select CAST (
+Case type
+                when 'D' 
+                                 then 'Full'
+                when  'I'
+                               then 'Differential' 
+                ELSE 'Log'
+                END         
+                AS varchar ) AS 'BackupType',
+database_name, 
+server_name,
+machine_name,
+backup_start_date,
+backup_finish_date,
+DATEDIFF(SECOND, backup_start_date, backup_finish_date) AS TimeTakenByBackupInSeconds,
+backup_size AS BackupSizeInBytes
+  from msdb.dbo.backupset where user_name = 'NT SERVICE\AzureWLBackupPluginSvc' AND database_name =  <DB1>  
+ 
+```
 
 ### <a name="backup-alerts"></a>備份警示
 
@@ -711,6 +748,42 @@ Azure 備份使用 SQL 原生 API 來執行所有備份作業。 您可以使用
 5. 在 [受保護的伺服器] 功能表中，以滑鼠右鍵按一下受保護的伺服器，然後選取 [刪除]。 
 
    ![繼續保護資料庫](./media/backup-azure-sql-database/delete-protected-server.png)
+
+## <a name="sql-database-backup-faq"></a>SQL Database 備份常見問題集
+
+下一節提供 SQL Database 備份的其他相關資訊。
+
+### <a name="can-i-throttle-the-speed-of-the-sql-backup-policy-so-it-minimizes-impact-on-the-sql-server"></a>我可以限制 SQL 備份原則的速度，以便儘量降低對 SQL Server 的影響嗎？
+
+是的，您可以限制備份原則執行的速率。 變更設定：
+
+1. 在 SQL Server 上的 `C:\Program Files\Azure Workload Backup\bin` 資料夾中，開啟 **TaskThrottlerSettings.json**。
+
+2. 在 **TaskThrottlerSettings.json** 檔案中，將 **DefaultBackupTasksThreshold** 變更為較低的值，例如，5。
+
+3. 儲存您的變更，並關閉檔案。
+
+4. 在 SQL Server 中，開啟 [工作管理員]，然後重新啟動 [Azure 備份工作負載協調器服務]。
+
+### <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>我可以從次要複本執行完整備份嗎？
+
+否，不支援此功能。
+
+### <a name="do-successful-backup-jobs-create-alerts"></a>成功的備份作業是否會建立警示？
+
+否。 成功的備份作業不會產生警示。 只有失敗的備份作業會傳送警示。
+
+### <a name="are-scheduled-backup-job-details-shown-in-the-jobs-menu"></a>[作業] 功能表中是否會顯示排定的備份工作詳細資料？
+
+否。 [作業] 功能表會顯示臨機操作工作的詳細資訊，但不會顯示已排定的備份作業。 如果任何排定的備份工作失敗，則可以在失敗的作業警示中找到所有詳細資料。 如果要監視所有排定與臨機操作備份工作，請[使用 SQL Server Management Studio](backup-azure-sql-database.md#use-sql-server-management-studio-for-backup-jobs)。
+
+### <a name="if-i-select-a-sql-server-will-future-databases-automatically-be-added"></a>如果我選取 SQL Server，之後的資料庫會自動新增嗎？
+
+否。 為 SQL Server 設定保護時，如果選取伺服器層級的核取方塊，則會新增所有資料庫。 但是，如果在設定保護之後將資料庫新增至 SQL Server，則必須手動新增新的資料庫來加以保護。 資料庫不會自動包含在已設定的保護中。
+
+### <a name="if-i-change-the-recovery-model-how-do-i-restart-protection"></a>如果我變更復原模式，要如何重新啟動保護？
+
+如果您變更復原模式，將會如預期般觸發完整備份並記錄備份。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -3,7 +3,7 @@ title: 開始使用 Azure 雲端服務和 ASP.NET | Microsoft Docs
 description: 了解如何使用 ASP.NET MVC 和 Azure 建立多層式應用程式。 應用程式在雲端服務中執行，具備 Web 角色和背景工作角色。 它使用 Entity Framework、SQL Database 及 Azure 儲存體佇列和 Blob。
 services: cloud-services, storage
 documentationcenter: .net
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: d7aa440d-af4a-4f80-b804-cc46178df4f9
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
-ms.author: adegeo
-ms.openlocfilehash: 66ece0affbafc219add2ef5c4da34f29ab34e058
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.author: jeconnoc
+ms.openlocfilehash: 819a2f81ca5403a3656bf713cf0ee3ae58050a4b
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860015"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003108"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>開始使用 Azure 雲端服務和 ASP.NET
 
@@ -46,7 +46,7 @@ ms.locfileid: "37860015"
 * 如何上傳檔案並將檔案儲存在 Azure Blob 服務。
 * 如何將 Azure 佇列服務用於層級之間的通訊。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 本教學課程假設您了解 [Azure 雲端服務的基本概念](cloud-services-choose-me.md)，例如「Web 角色」和「背景工作角色」術語。  同時也假設您知道如何在 Visual Studio 中使用 [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) 或 [Web Form](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) 專案。 範例應用程式使用 MVC，但大多數的教學課程內容亦適用於 Web Form。
 
 您不需 Azure 訂用帳戶即可在本機執行應用程式，但需要訂用帳戶才能將應用程式部署至雲端。 如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668)或是[申請免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668)。

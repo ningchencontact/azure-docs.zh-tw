@@ -15,12 +15,12 @@ ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: a1801af582e9e4bfa82dab4b5916c164fcf3bb76
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 3ea8b74eb6ef5b6bcab2935236e2ee3551117b12
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161561"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054364"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 為發佈的應用程式設定自訂首頁
 
@@ -35,7 +35,7 @@ ms.locfileid: "34161561"
 - 設定 *https://ExpenseApp-contoso.msappproxy.net/login/login.aspx* 作為首頁 URL。 
 
 >[!NOTE]
->當您將已發佈應用程式的存取權提供給使用者時，應用程式會顯示在 [Azure AD 存取面板](../active-directory-saas-access-panel-introduction.md)和 [Office 365 應用程式啟動器](https://blogs.office.com/2016/09/27/introducing-the-new-office-365-app-launcher)。
+>當您將已發佈應用程式的存取權提供給使用者時，應用程式會顯示在 [Azure AD 存取面板](../user-help/active-directory-saas-access-panel-introduction.md)和 [Office 365 應用程式啟動器](https://blogs.office.com/2016/09/27/introducing-the-new-office-365-app-launcher)。
 
 ## <a name="before-you-start"></a>開始之前
 

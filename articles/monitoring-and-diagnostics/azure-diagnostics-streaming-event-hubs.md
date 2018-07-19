@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 98e788d87b0ce03eece35868391aadd5233217b0
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: c87a4acb8ca333af73643a38ae1338c9c8769d13
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267708"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341225"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>使用事件中樞串流最忙碌路徑中的 Azure 診斷資料
 Azure 診斷會提供彈性的方法，用來收集來自雲端服務虛擬機器 (VM) 的度量和記錄檔，再將結果傳輸至 Azure 儲存體。 從 2016 年 3 月 (SDK 2.9) 的時間範圍開始，您可以使用 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)，將 Azure 診斷傳送至自訂的資料來源，並立即傳輸最忙碌路徑資料。
@@ -389,9 +389,11 @@ namespace EventHubListener
 </ServiceConfiguration>
 ```
 
-虛擬機器上對等的 JSON 型設定如下所示：
+虛擬機器的對等 JSON 設定如下所示：
+
+公用設定：
 ```JSON
-"settings": {
+{
     "WadCfg": {
         "DiagnosticMonitorConfiguration": {
             "overallQuotaInMB": 4096,
@@ -487,8 +489,11 @@ namespace EventHubListener
     "StorageAccount": "{account name}"
 }
 
+```
 
-"protectedSettings": {
+受保護的設定：
+```JSON
+{
     "storageAccountName": "{account name}",
     "storageAccountKey": "{account key}",
     "storageAccountEndPoint": "{storage endpoint}",

@@ -1,6 +1,6 @@
 ---
 title: Azure Log Analytics 中的網路效能監視器方案 | Microsoft Docs
-description: 使用網路效能監控中的 ExpressRoute 管理員功能，透過 Azure ExpressRoute 監視您分公司與 Azure 之間的端對端連線能力和效能。
+description: 使用網路效能監控中的 ExpressRoute 監視功能，透過 Azure ExpressRoute 監視您分公司與 Azure 之間的端對端連線能力和效能。
 services: log-analytics
 documentationcenter: ''
 author: abshamsft
@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: na
-ms.openlocfilehash: 55308c2f144ea90636fb477f82c19fd3f8276af5
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 27169193a468d98be879164b80e63fffde419002
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131123"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38633344"
 ---
-# <a name="expressroute-manager"></a>ExpressRoute 管理員
+# <a name="expressroute-monitor"></a>ExpressRoute 監視
 
-您可以使用使用[網路效能監控](log-analytics-network-performance-monitor.md)中的 Azure ExpressRoute 管理員功能，透過 Azure ExpressRoute 監視您分公司與 Azure 之間的端對端連線能力和效能。 主要優點如下： 
+您可以使用[網路效能監控](log-analytics-network-performance-monitor.md)中的 Azure ExpressRoute 監視功能，透過 Azure ExpressRoute 來監視分公司與 Azure 之間的端對端連線能力和效能。 主要優點如下： 
 
 - 自動偵測與您訂用帳戶相關聯的 ExpressRoute 線路。
 - 追蹤 ExpressRoute 的頻寬使用率、線路遺失和延遲、對等互連和 Azure 虛擬網路層級。

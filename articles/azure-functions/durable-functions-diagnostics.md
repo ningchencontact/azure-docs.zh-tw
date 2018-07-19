@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4829ea88e0b6507159c192c111acf8ec7e5088e2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ce5acda7e2beca1f3d6367708d5b96a5275b2c7f
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33764010"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340690"
 ---
 # <a name="diagnostics-in-durable-functions-azure-functions"></a>長期函式中的診斷 (Azure Functions)
 
@@ -67,7 +67,17 @@ Azure Functions 長期延伸模組也會發出「追蹤事件」，可讓您追�
 }
 ```
 
-根據預設，會發出所有追蹤事件。 藉由將 `Host.Triggers.DurableTask` 設定為 `"Warning"` 或 `"Error"` 可以降低資料量，在此情況下，追蹤事件只會針對例外情況發出。
+根據預設，會發出所有非重新執行的追蹤事件。 藉由將 `Host.Triggers.DurableTask` 設定為 `"Warning"` 或 `"Error"` 可以降低資料量，在此情況下，追蹤事件只會針對例外情況發出。
+
+若要啟用發出詳細的協調流程重新執行事件，在 `durableTask` 底下的 `host.json` 檔案中 `LogReplayEvents` 可以設定為 `true`，如下所示：
+
+```json
+{
+    "durableTask": {
+        "logReplayEvents": true
+    }
+}
+```
 
 > [!NOTE]
 > 根據預設，Application Insights 遙測是由 Azure Functions 執行階段取樣，以避免過於頻繁發出資料。 這會在短期內發生太多生命週期事件時，造成追蹤資訊遺失。 [Azure Functions 監視文章](functions-monitoring.md#configure-sampling)會說明如何設定這個行為。
@@ -87,7 +97,7 @@ traces
 | extend state = customDimensions["prop__state"]
 | extend isReplay = tobool(tolower(customDimensions["prop__isReplay"]))
 | extend sequenceNumber = tolong(customDimensions["prop__sequenceNumber"]) 
-| where isReplay == false
+| where isReplay != true
 | where instanceId == targetInstanceId
 | sort by timestamp asc, sequenceNumber asc
 | project timestamp, functionName, state, instanceId, sequenceNumber, appName = cloud_RoleName
@@ -112,7 +122,7 @@ traces
 | extend state = tostring(customDimensions["prop__state"])
 | extend isReplay = tobool(tolower(customDimensions["prop__isReplay"]))
 | extend output = tostring(customDimensions["prop__output"])
-| where isReplay == false
+| where isReplay != true
 | summarize arg_max(timestamp, *) by instanceId
 | project timestamp, instanceId, functionName, state, output, appName = cloud_RoleName
 | order by timestamp asc

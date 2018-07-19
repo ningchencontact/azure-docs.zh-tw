@@ -7,28 +7,28 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: d8b7ed593fcd307e6709c17bafbcb5a22661dc83
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 99cd7fe6f9f46ff4d6dbbf6a6e024b3b32679724
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285768"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444256"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>設定及取得 Azure Cosmos DB 容器和資料庫的輸送量
 
-您可以使用 Azure 入口網站或使用用戶端 SDK，設定 Azure Cosmos DB 容器或一組容器的輸送量。 在佈建一組容器的輸送量時，這些容器全都會共用所佈建的輸送量。 佈建個別容器的輸送量會保證保留該特定容器的輸送量。 另一方面，佈建資料庫的輸送量可讓您在所有屬於該資料庫的容器之間共用輸送量。 在 Azure Cosmos DB 資料庫內，您可以有一組共用輸送量的容器，以及有專用輸送量的容器。 
+您可以使用 Azure 入口網站或使用用戶端 SDK，設定 Azure Cosmos DB 容器或一組容器的輸送量。 
 
-Azure Cosmos DB 會根據所佈建的輸送量，配置實體分割區來裝載您的容器，並隨著輸送量的成長來跨分割區分割/重新平衡資料。
+**佈建個別容器的輸送量：** 在佈建一組容器的輸送量時，這些容器全都會共用所佈建的輸送量。 佈建個別容器的輸送量會保證保留該特定容器的輸送量。 指派個別容器層級的 RU/秒時，容器可以建立為*固定*或*無限制的*形式。 固定大小的容器具有上限為 10 GB 和 10,000 RU/秒的輸送量。 若要建立無限制的容器，您必須指定最小輸送量 1,000 RU/s 和[分割區索引鍵](partition-data.md)。 由於您的資料可能必須分散在多個分割區，因此必須挑選基數高 (100 個到數百萬個相異值) 的分割區索引鍵。 藉由選取具有許多相異值的分割區索引鍵，您便可確保 Azure Cosmos DB 可以一致地調整您的容器/資料表/圖表和要求。 
 
-指派個別容器層級的 RU/秒時，容器可以建立為*固定*或*無限制的*形式。 固定大小的容器具有上限為 10 GB 和 10,000 RU/秒的輸送量。 若要建立無限制的容器，您必須指定最小輸送量 1,000 RU/s 和[分割區索引鍵](partition-data.md)。 由於您的資料可能必須分散在多個分割區，因此必須挑選基數高 (100 個到數百萬個相異值) 的分割區索引鍵。 藉由選取具有許多相異值的分割區索引鍵，您便可確保 Azure Cosmos DB 可以一致地調整您的容器/資料表/圖表和要求。 
+**佈建一組容器或資料庫的輸送量：** 佈建資料庫的輸送量可讓您在所有屬於該資料庫的容器之間共用輸送量。 在 Azure Cosmos DB 資料庫內，您可以有一組共用輸送量的容器，以及有專用輸送量的容器。 指派跨一組容器的 RU/秒時，屬於這組容器的容器會視為*無限制的*容器，且必須指定分割區索引鍵。
 
-指派跨一組容器的 RU/秒時，屬於這組容器的容器會視為*無限制的*容器，且必須指定分割區索引鍵。
+Azure Cosmos DB 會根據所佈建的輸送量，配置實體分割區來裝載您的容器，並隨著輸送量的成長來跨分割區分割/重新平衡資料。 容器和資料庫層級輸送量佈建是不同的供應項目，在其間切換需要將資料從來源移轉到目的地。 這表示您需要建立新資料庫或新集合，然後藉由使用[大量執行程式程式庫](bulk-executor-overview.md)或 [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) 來移轉資料。 下圖說明在不同層級佈建輸送量：
 
 ![佈建個別容器和一組容器的要求單位](./media/request-units/provisioning_set_containers.png)
 
-本文會引導您完成設定 Azure Cosmos DB 帳戶不同層級輸送量所需的步驟。 
+在後續幾節中，您將會了解在不同層級為 Azure Cosmos DB 帳戶設定輸送量所需的步驟。 
 
 ## <a name="provision-throughput-by-using-azure-portal"></a>使用 Azure 入口網站佈建輸送量
 
@@ -88,6 +88,8 @@ Azure Cosmos DB 會根據所佈建的輸送量，配置實體分割區來裝載�
 
 以下是一些可協助您決定輸送量保留策略的考量。
 
+### <a name="considerations-when-provisioning-throughput-at-the-database-level"></a>在資料庫層級佈建輸送量時的考量
+
 有下列情況時，請考慮在資料庫層級 (也就是針對一組容器) 佈建輸送量：
 
 * 如果您有為數十多個以上的容器，並可在其中一部分或全部一起共用輸送量。  
@@ -97,6 +99,8 @@ Azure Cosmos DB 會根據所佈建的輸送量，配置實體分割區來裝載�
 * 如果您想要考慮在資料庫層級使用集區輸送量進行非計劃性的工作負載提升。  
 
 * 您不想設定個別容器的輸送量，而是要跨資料庫內的一組容器取得彙總輸送量。
+
+### <a name="considerations-when-provisioning-throughput-at-the-container-level"></a>在容器層級佈建輸送量時的考量
 
 有下列情況時，請考慮在個別容器佈建輸送量：
 
@@ -135,6 +139,7 @@ Azure Cosmos DB 會根據所佈建的輸送量，配置實體分割區來裝載�
 
 ## <a name="set-throughput-by-using-sql-api-for-net"></a>使用 SQL API for .NET 來設定輸送量
 
+### <a name="set-throughput-at-the-container-level"></a>設定容器層級的輸送量
 以下程式碼片段會使用 SQL API 的 .NET SDK，為個別容器建立一個具有每秒 3,000 個要求單位的容器：
 
 ```csharp
@@ -147,6 +152,8 @@ await client.CreateDocumentCollectionAsync(
     myCollection,
     new RequestOptions { OfferThroughput = 3000 });
 ```
+
+### <a name="set-throughput-at-the-for-a-set-of-containers-or-at-the-database-level"></a>針對一組容器或在資料庫層級設定輸送量
 
 以下程式碼片段會使用 SQL API 的 .NET SDK，在一組容器間佈建每秒 100,000 個要求單位：
 

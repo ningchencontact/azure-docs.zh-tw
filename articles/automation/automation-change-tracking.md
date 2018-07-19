@@ -10,12 +10,12 @@ ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b110f83274b2b42896bd18fb364c355ecc97a028
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 717cf6b2abfb529313699836b790bd3f07844a67
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258255"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867948"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>使用變更追蹤解決方案來追蹤環境中的變更
 
@@ -57,6 +57,7 @@ ms.locfileid: "34258255"
 |遞迴     | 決定在尋找所要追蹤的項目時是否使用遞迴。        |
 |使用 Sudo     | 此設定會決定在檢查項目時是否使用 sudo。         |
 |連結     | 此設定會決定在周遊目錄時處理符號連結的方式。<br> **忽略** - 忽略符號連結，而不包含參考的檔案/目錄。<br>**遵循** - 在遞迴期間遵循符號連結，並且包含參考的檔案/目錄。<br>**管理** - 遵循符號連結並允許變更傳回的內容。     |
+|上傳所有的檔案內容設定| 開啟或關閉追蹤變更上的檔案內容上傳。 可用的選項：**True** 或 **False**。|
 
 > [!NOTE]
 > 不建議選擇「管理」連結選項。 不支援檔案內容擷取。
@@ -75,6 +76,13 @@ ms.locfileid: "34258255"
 |項目名稱     | 要追蹤之檔案的易記名稱。        |
 |群組     | 以邏輯方式分組檔案的群組名稱。        |
 |輸入路徑     | 要檢查檔案的路徑，例如："c:\temp\myfile.txt"       |
+|上傳所有的檔案內容設定| 開啟或關閉追蹤變更上的檔案內容上傳。 可用的選項：**True** 或 **False**。|
+
+## <a name="configure-file-content-tracking"></a>設定檔案內容追蹤
+
+您可以使用檔案內容變更追蹤，以檢視檔案變更之前和之後的內容。 此功能可用於 Windows 和 Linux 檔案。對於檔案的每項變更，檔案的內容會儲存在儲存體帳戶中，並以內嵌或並排方式來顯示變更之前和之後的檔案。 若要進一步了解，請參閱[檢視追蹤檔案的內容](change-tracking-file-contents.md)。
+
+![檢視檔案中的變更](./media/change-tracking-file-contents/view-file-changes.png)
 
 ### <a name="configure-windows-registry-keys-to-track"></a>設定要追蹤的 Windows 登錄機碼
 
@@ -125,11 +133,22 @@ ms.locfileid: "34258255"
 | Windows 登錄 | 50 分鐘 |
 | Windows 檔案 | 30 分鐘 |
 | Linux 檔案 | 15 分鐘 |
-| Windows 服務 | 30 分鐘 |
+| Windows 服務 | 10 秒到 30 分鐘</br> 預設值：30 分鐘 |
 | Linux 精靈 | 5 分鐘 |
 | Windows 軟體 | 30 分鐘 |
 | Linux 軟體軟體 | 5 分鐘 |
 
+### <a name="windows-service-tracking"></a>Windows 服務追蹤
+
+Windows 服務的預設收集頻率為 30 分鐘。 若要設定頻率，請移至**變更追蹤**。 在 [Windows 服務] 索引標籤上的 [編輯設定] 下有一個滑桿，可以將 Windows 服務的收集頻率從 10 秒變更為長達 30 分鐘。 將滑桿移至您想要的頻率，它會自動儲存。
+
+![Windows 服務滑桿](./media/automation-change-tracking/windowservices.png)
+
+代理程式只會追蹤變更，這樣可最佳化代理程式的效能。 設定過高的閾值時，若服務還原成原始狀態，則可能會遺漏變更。 若將頻率設為較小的值，則可以攔截可能遺漏的變更。
+
+> [!NOTE]
+> 雖然代理程式可以追蹤 10 秒間隔內的變更，但資料仍需要幾分鐘才會顯示在入口網站中。 在入口網站中顯示所需時間內仍會追蹤並記錄變更。
+  
 ### <a name="registry-key-change-tracking"></a>登錄機碼變更追蹤
 
 監視登錄機碼變更的目的是找出第三方程式碼和惡意程式碼可啟用的擴充點。 下列清單顯示預先設定的登錄機碼清單。 這些機碼已設定，但並未啟用。 若要追蹤這些登錄機碼，必須每個都啟用。

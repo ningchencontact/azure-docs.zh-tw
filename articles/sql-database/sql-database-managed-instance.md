@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: e606b38c626c1a4dd335c40926e89a7cf0cec17a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1dec40871b8842cb5e41d48c759d1f4fa85d7b66
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054648"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082500"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>什麼是受控執行個體 (預覽)？
 
@@ -211,7 +211,7 @@ Azure 資料庫移轉服務是一個完全受控的服務，能夠從多個資�
 - 受控執行個體不允許指定完整實體路徑，因此需要以不同的方式支援所有相對應的情節：RESTORE DB 不支援 WITH MOVE、CREATE DB 不允許的實體路徑、BULK INSERT 只能搭配 Azure Blob 使用等等。 
 - 受控執行個體支援以 [Azure AD 驗證](sql-database-aad-authentication.md) 作為 Windows 驗證的雲端替代方案。 
 - 受控執行個體都會自動為包含記憶體內部 OLTP 物件的資料庫管理 XTP 檔案群組和檔案
-- 受控執行個體支援 SQL Server Integration Services (SSIS)，且可主控儲存 SSIS 封裝的 SSIS 目錄 (SSISDB)，但會在 Azure Data Factory (ADF) 中的受控 Azure-SSIS Integration Runtime (IR) 上執行，請參閱[在 ADF 中建立 Azure-SSIS IR](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime) \(英文\)。
+- 受控執行個體支援 SQL Server Integration Services (SSIS)，且可主控儲存 SSIS 封裝的 SSIS 目錄 (SSISDB)，但會在 Azure Data Factory (ADF) 中的受控 Azure-SSIS Integration Runtime (IR) 上執行，請參閱[在 ADF 中建立 Azure-SSIS IR](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime) \(英文\)。 若要比較 SQL Database 與受控執行個體中的 SSIS 功能，請參閱[比較 SQL Database 和受控執行個體 (預覽)](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-and-managed-instance-preview)。
 
 ### <a name="managed-instance-administration-features"></a>受控執行個體的管理功能  
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: ea6ffa9d07be719c43ca33cfca76876c161d69bc
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: ff1f6fcae1d21d47b5ee0263b4e038287a588991
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048466"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008224"
 ---
 # <a name="deep-dive---advanced-analytics"></a>深入探討 - 進階分析
 
@@ -86,7 +86,7 @@ ML 服務為 HDInsight 的一部分，您可以使用現成可與大量資料集
 
 ### <a name="spark-and-deep-learning"></a>Spark 和深度學習
 
-[深度學習](https://www.microsoft.com/research/group/dltc/)是機器學習服務的一個分支，使用以人類大腦的生物學程序為靈感來源的*深度類神經網路* (DNN)。 許多研究人員都將深度學習視為一個有前景的人工智慧方法。 深度學習的一些範例包括口語語言翻譯工具、影像辨識系統，以及機器推理。 為了協助推展自己在深度學習方面的工作，Microsoft 開發了免費、容易使用的開放原始碼 [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/)。 各種 Microsoft 產品、世界各地需要大規模部署深度學習的公司，以及對最新演算法和技術感興趣的學生，都廣泛使用此工具組。 
+[深度學習](https://www.microsoft.com/research/group/dltc/)是機器學習服務的一個分支，使用以人類大腦的生物學程序為靈感來源的*深度類神經網路* (DNN)。 許多研究人員都將深度學習視為一個有前景的人工智慧方法。 深度學習的一些範例包括口語語言翻譯工具、影像辨識系統，以及機器推理。 為了協助推展自己在深度學習方面的工作，Microsoft 開發了免費、容易使用的開放原始碼 [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/)。 各種 Microsoft 產品、世界各地需要大規模部署深度學習的公司，以及對最新演算法和技術感興趣的學生，都廣泛使用此工具組。 
 
 ## <a name="scenario---score-images-to-identify-patterns-in-urban-development"></a>案例 - 進行影像評分來識別都市發展模式
 

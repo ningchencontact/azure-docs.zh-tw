@@ -6,30 +6,30 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dacff48be3fbf16fc719f5a0395937b1f5acc979
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 202ee9da94fc93e7301c29b62dc61ad443685807
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34712533"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448904"
 ---
-# <a name="manage-user-data-in-azure-ad-b2c"></a>在 Azure AD B2C 中管理使用者資料
+# <a name="manage-user-data-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中管理使用者資料
 
- 本文說明如何使用 [Azure Active Directory Graph API](https://msdn.microsoft.com/en-us/library/azure/ad/graph/api/api-catalog) 提供的作業，以便在 Azure Active Directory (AD) B2C 中管理使用者資料。 管理使用者資料包含了從稽核記錄中刪除資料或匯出資料的能力。
+ 本文探討如何使用 [Azure Active Directory Graph API](https://msdn.microsoft.com/en-us/library/azure/ad/graph/api/api-catalog) 提供的作業，以便在 Azure Active Directory (Azure AD) B2C 中管理使用者資料。 管理使用者資料，包括從稽核記錄中刪除或匯出資料。
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="delete-user-data"></a>刪除使用者資料
 
-使用者資料會儲存在 Azure AD B2C 目錄和稽核記錄中。 在 Azure AD B2C 中，所有使用者稽核資料會有 30 天的資料保留期。 若要在這 30 天內刪除使用者資料，可以使用[刪除使用者](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#DeleteUser) \(英文\) 作業。 針對資料所在的每個 Azure AD B2C 租用戶，必須個別進行刪除作業。 
+使用者資料會儲存在 Azure AD B2C 目錄和稽核記錄中。 在 Azure AD B2C 中，所有使用者稽核資料會保留 30 天。 若要在這 30 天期間內刪除使用者資料，可以使用[刪除使用者](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#DeleteUser) \(英文\) 作業。 針對資料所在的每個 Azure AD B2C 租用戶，必須個別進行刪除作業。 
 
-在 Azure AD B2C 中，會為每個使用者指派一個物件識別碼。 物件識別碼可作為明確的識別碼，供您在 Azure AD B2C 中用來刪除使用者資料。  依架構而定，物件識別碼可能是跨越財務、行銷與客戶關係管理資料庫等其他服務的實用相互關聯識別碼。  
+在 Azure AD B2C 中，會為每個使用者指派一個物件識別碼。 物件識別碼可作為明確的識別碼，供您在 Azure AD B2C 中用來刪除使用者資料。 依架構而定，物件識別碼可能是跨越財務、行銷與客戶關係管理資料庫等其他服務的實用相互關聯識別碼。 
 
-在 Azure AD B2C 驗證過程中取得使用者物件識別碼，是最正確的方法。  若使用其他方法接收來自使用者的有效資料要求，則可能需要離線流程 (像是客服專員所做的搜尋) 來找出使用者並記下關聯的物件識別碼。 
+在 Azure AD B2C 驗證過程中取得使用者物件識別碼，是最正確的方法。 若使用其他方法接收來自使用者的有效資料要求，則可能需要離線流程 (像是客服專員所做的搜尋) 來找出使用者並記下關聯的物件識別碼。 
 
 下列範例示範可能的資料刪除流程：
 
@@ -46,19 +46,19 @@ ms.locfileid: "34712533"
 
 Azure AD B2C 使用者資料僅限於：
 
-- **儲存在 Azure Active Directory 中的資料** - 在 Azure AD B2C 驗證使用者過程中，可以使用物件識別碼，或是電子郵件或使用者等登入名稱來擷取資料。  
-- **使用者特定的稽核事件報告** - 會以物件識別碼來為資料編製索引。
+- **儲存在 Azure Active Directory 中的資料**：在 Azure AD B2C 驗證使用者過程中，可以使用物件識別碼，或是電子郵件地址或使用者名稱等登入名稱來擷取資料。 
+- **使用者特定的稽核事件報告**：您可以使用物件識別碼為資料編製索引。
 
 在下列匯出資料流程的範例中，所述由應用程式執行的步驟，亦可由後端處理序來執行，或由具有目錄中系統管理員角色的使用者來執行：
 
-1. 使用者登入應用程式。 Azure AD B2C 依需求強制進行多重要素授權的驗證。
-2. 應用程式使用使用者認證來呼叫 Azure AD Graph API 作業，以擷取使用者屬性。 Azure AD Graph API 提供 JSON 格式的屬性資料。 根據結構描述而定，識別碼權杖內容可能設為包含使用者的所有個人資料。
-3. 應用程式擷取終端使用者稽核活動。 Azure AD Graph API 提供事件資料給應用程式。
+1. 使用者登入應用程式。 Azure AD B2C 會依需求強制進行 Azure Multi-Factor Authentication 的驗證。
+2. 應用程式使用使用者認證來呼叫 Azure AD Graph API 作業，以擷取使用者屬性。 Azure AD Graph API 提供 JSON 格式的屬性資料。 根據結構描述而定，您可以設定識別碼權杖內容，以包含使用者的所有個人資料。
+3. 應用程式會擷取使用者稽核活動。 Azure AD Graph API 提供事件資料給應用程式。
 4. 應用程式彙總資料，並提供給使用者使用。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需了解如何管理使用者存取應用程式的方式，請參閱[管理使用者存取權](manage-user-access.md)
+- 若要了解如何管理使用者存取應用程式的方式，請參閱[管理使用者存取權](manage-user-access.md)。
 
 
 

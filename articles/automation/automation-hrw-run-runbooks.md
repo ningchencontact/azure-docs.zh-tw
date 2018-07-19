@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 32cc1a436521574917c8e52b2fa4e045d32a4f09
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 899e5dc13dfaf7d7545955e7b4b73939c3275d3f
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062569"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930302"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>在混合式 Runbook 背景工作角色上執行 Runbook
 
@@ -151,11 +151,14 @@ Set-AzureRmContext -SubscriptionId $RunAsConnection.SubscriptionID | Write-Verbo
 Get-AzureRmAutomationAccount | Select-Object AutomationAccountName
 ```
 
+> [!IMPORTANT]
+> **Add-AzureRmAccount** 現在是 **Connect-AzureRMAccount** 的別名。 搜尋您的程式庫項目時，如果沒有看到 **Connect-AzureRMAccount**，便可以使用 **Add-AzureRmAccount**，或是在自動化帳戶中更新模組。
+
 將 *Export-RunAsCertificateToHybridWorker* Runbook 以 `.ps1` 副檔名儲存至您的電腦。 將它匯入您的自動化帳戶，並編輯 Runbook，將變數 `$Password` 的值變更為您自己的密碼。 發佈 Runbook，然後以使用「執行身分」帳戶執行和驗證 Runbook 的 Hybrid Worker 群組為對象，執行 Runbook。 作業資料流會報告將憑證匯入本機電腦存放區的嘗試，後面還會出現幾行，根據訂用帳戶中定義多少自動化帳戶和驗證是否成功而定。
 
 ## <a name="job-behavior"></a>作業行為
 
-作業在混合式 Runbook 背景工作角色上與在 Azure 沙箱上執行時的處理方式會有些許不同。 其中一個主要差異，在於混合式 Runbook 背景工作角色上並沒有限制作業持續時間。 如果您是使用長時間執行 Runbook，則需要確認它能彈性進行可能的重新開機，例如在裝載混合式背景工作角色的機器重新開機時。 如果混合式背景工作角色主機電腦重新開機，則任何執行中的 Runbook 作業都會從頭重新啟動，或是從 PowerShell 工作流程 Runbook 的最後一個檢查點重新啟動。 如果 Runbook 作業重新啟動超過 3 次，它就會暫止。
+作業在混合式 Runbook 背景工作角色上與在 Azure 沙箱上執行時的處理方式會有些許不同。 其中一個主要差異，在於混合式 Runbook 背景工作角色上並沒有限制作業持續時間。 由於[公平共用](automation-runbook-execution.md#fair-share)，在 Azure 沙箱中執行的 Runbook 會限制為 3 小時。 如果您是使用長時間執行 Runbook，則需要確認它能彈性進行可能的重新開機，例如在裝載混合式背景工作角色的機器重新開機時。 如果混合式背景工作角色主機電腦重新開機，則任何執行中的 Runbook 作業都會從頭重新啟動，或是從 PowerShell 工作流程 Runbook 的最後一個檢查點重新啟動。 如果 Runbook 作業重新啟動超過 3 次，它就會暫止。
 
 ## <a name="troubleshoot"></a>疑難排解
 

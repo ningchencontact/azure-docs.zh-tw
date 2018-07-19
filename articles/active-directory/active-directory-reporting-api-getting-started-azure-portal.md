@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 842e4d8413544a303b656a8e4a05bdf58a7c8164
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 93532f4b0b2d527a4d5c79e2ee1b2810394b2f11
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36223836"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442078"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>開始使用 Azure Active Directory 報告 API
 
@@ -47,6 +47,13 @@ Azure Active Directory 提供各種[報告](active-directory-reporting-azure-por
  
 如需詳細指示，請參閱[存取 Azure Active Directory 報告 API 的必要條件](active-directory-reporting-api-prerequisites-azure-portal.md)。
 
+## <a name="apis-with-graph-explorer"></a>API 與 Graph 總管
+
+您可以使用 [MSGraph 總管](https://developer.microsoft.com/en-us/graph/graph-explorer)來確認登入並稽核 API 資料。 請務必同時使用 Graph 總管 UI 中的兩個登入按鈕來登入帳戶，並如下所示地設定租用戶的 **Tasks.ReadWrite** 和 **Directory.ReadAll** 權限。   
+
+![Graph 總管](./media/active-directory-reporting-api-getting-started-azure-portal/graph-explorer.png)
+
+![修改權限 UI](./media/active-directory-reporting-api-getting-started-azure-portal/modify-permissions.png)
 
 ## <a name="recommendation"></a>建議 
 

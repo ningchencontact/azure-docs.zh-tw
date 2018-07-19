@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: c0a07cb872ec87bbf39237b74990a1fc7a74e9e8
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 70225fd59248939c9ea1d5c7c267cdf0da3303e7
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053250"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342397"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>在 Azure Data Factory 中資料移動的安全性考量
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -144,8 +144,9 @@ Azure 虛擬網路是您網路在雲端的邏輯呈現方式。 您可以透過�
 | 網域名稱                  | 輸出連接埠 | 說明                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
 | `*.servicebus.windows.net`    | 443            | 必須提供此資訊，自我裝載整合執行階段才能連線到 Data Factory 中的資料移動服務。 |
-| `*.core.windows.net`          | 443            | 當您使用[分段複製](copy-activity-performance.md#staged-copy)功能時，可供自我裝載整合執行階段用來連線到 Azure 儲存體帳戶。 |
 | `*.frontend.clouddatahub.net` | 443            | 必須提供此資訊，自我裝載整合執行階段才能連線到 Data Factory 服務。 |
+| `download.microsoft.com`    | 443            | 自我裝載整合執行階段所需，以用於下載更新。 如果您已停用自動更新，則可以省略此步驟。 |
+| `*.core.windows.net`          | 443            | 當您使用[分段複製](copy-activity-performance.md#staged-copy)功能時，可供自我裝載整合執行階段用來連線到 Azure 儲存體帳戶。 |
 | `*.database.windows.net`      | 1433           | (選擇性) 當您在 Azure SQL Database 或 Azure SQL 資料倉儲來回複製時，需要提供此資訊。 若要在不開啟連接埠 1433 的情況下，將資料複製到 Azure SQL Database 或 Azure SQL 資料倉儲，請使用分段複製功能。 |
 | `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | (選擇性) 當您在 Azure Data Lake Store 來回複製時，需要提供此資訊。 |
 

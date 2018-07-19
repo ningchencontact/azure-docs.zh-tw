@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: cfac573bc9f1bdec3fd884f8090e11514f1e93b3
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: b5adc1bb5a5aae96f37cc312588aa71e57d8342e
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604704"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083221"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Azure Stack 憑證簽署要求產生
 
@@ -30,8 +30,6 @@ Azure Stack 整備檢查工具 (AzsReadinessChecker) 會執行下列憑證要求
 
  - **標準憑證要求**  
     根據[產生適用於 Azure Stack 部署的 PKI 憑證](azure-stack-get-pki-certs.md)提出要求。
- - **要求類型**  
-    指定憑證簽署要求都是單一要求或多個要求。
  - **平台即服務**  
     對 [Azure Stack 公開金鑰基礎結構憑證要求 - 選擇性 PaaS 憑證](azure-stack-pki-certs.md#optional-paas-certificates)中所指定的憑證，選擇性地要求平台即服務 (PaaS) 名稱。
 
@@ -98,22 +96,22 @@ Azure Stack 整備檢查工具 (AzsReadinessChecker) 會執行下列憑證要求
     > [!note]  
     > `<regionName>.<externalFQDN>` 構成 Azure Stack 中所有外部 DNS 名稱據以建立的基礎，在此範例中，入口網站會是 `portal.east.azurestack.contoso.com`。  
 
-6. 若要使用多個主體別名來產生單一憑證要求：
+6. 若要針對每個 DNS 名稱產生憑證簽署要求：
+
+    ```PowerShell  
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
+    ````
+
+    若要包含 PaaS 服務，請指定 ```-IncludePaaS``` 參數
+
+7. 或者，在開發/測試環境中。 若要產生具有多個主體別名的單一憑證要求，請新增 **-RequestType SingleCSR** 參數和值 (**不**建議用於生產環境)：
 
     ```PowerShell  
     Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ````
 
     若要包含 PaaS 服務，請指定 ```-IncludePaaS``` 參數
-
-7. 若要針對每個 DNS 名稱產生個別憑證簽署要求：
-
-    ```PowerShell  
-    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType MultipleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
-    ````
-
-    若要包含 PaaS 服務，請指定 ```-IncludePaaS``` 參數
-
+    
 8. 檢閱輸出：
 
     ````PowerShell  

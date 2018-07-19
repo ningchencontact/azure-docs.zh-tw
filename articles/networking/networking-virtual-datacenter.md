@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure 虛擬資料中心：網路觀點 | Microsoft Docs
+title: Azure 虛擬資料中心 - 網路觀點
 description: 了解如何在 Azure 中建置虛擬資料中心
 services: networking
 author: tracsman
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/3/2018
 ms.author: jonor
-ms.openlocfilehash: a62d52e30b04b525dc8ff685ed6c3033d6029542
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2c8ca8bcce43596d521fa9c81438ac6a16f6dcdf
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942440"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445376"
 ---
-# <a name="microsoft-azure-virtual-datacenter-a-network-perspective"></a>Microsoft Azure 虛擬資料中心：網路觀點
+# <a name="azure-virtual-datacenter-a-network-perspective"></a>Azure 虛擬資料中心：網路觀點
 **Microsoft Azure**：移動更為快速、節省成本、在內部部署環境整合應用程式和資料
 
 ## <a name="overview"></a>概觀
@@ -232,11 +232,15 @@ IT 基礎結構小組的其中一個主要工作是確保整個企業的 IP 位�
 
 大部分大型企業都會管理多個網域。 Azure DNS 可以用來裝載特定網域的 DNS 記錄。 例如，Azure 外部負載平衡器 (或 WAF) 的虛擬 IP 位址 (VIP) 可以註冊於 Azure DNS 記錄的 A 記錄中。
 
-[**Azure Load Balancer**][ALB]：Azure Load Balancer 提供高可用性層級 4 (TCP、UDP) 服務，可將連入流量分散到負載平衡組中所定義的服務執行個體。 不論有沒有位址轉譯，從前端端點 (公用 IP 端點或私用 IP 端點) 傳送給負載平衡器的流量都會重新分散到一組後端 IP 位址集區 (範例為網路虛擬設備或 VM)。
+
+  [
+  **Azure Load Balancer**][ALB]：Azure Load Balancer 提供高可用性層級 4 (TCP、UDP) 服務，可將連入流量分散到負載平衡組中所定義的服務執行個體。 不論有沒有位址轉譯，從前端端點 (公用 IP 端點或私用 IP 端點) 傳送給負載平衡器的流量都會重新分散到一組後端 IP 位址集區 (範例為網路虛擬設備或 VM)。
 
 Azure Load Balancer 也可以探查各種伺服器執行個體的健康狀態，以及在探查無法回應負載平衡器時，停止將流量傳送至狀況不良的執行個體。 在 vDC 中，我們將外部負載平衡器放在中樞 (例如，將流量平衡到 NVA) 和支點 (執行工作，例如平衡多層應用程式的不同 VM 之間的流量) 中。
 
-[**應用程式閘道**][AppGW]：Microsoft Azure 應用程式閘道是專用的虛擬設備，會以服務形式提供應用程式傳遞控制器 (ADC)，為您的應用程式提供各種第 7 層負載平衡功能。 它會將 CPU 密集 SSL 終止卸載至應用程式閘道，讓您最佳化 Web 伺服器陣列的產能。 它也提供其他第 7 層路由功能，包括循環配置連入流量、以 Cookie 為基礎的工作階段同質、URL 路徑型路由，以及在單一應用程式閘道背後代管多個網站的能力。 Web 應用程式防火牆 (WAF) 也是提供為應用程式閘道 WAF SKU 的一部分。 此 SKU 會保護 Web 應用程式免於遭遇常見的 Web 弱點和攻擊。 應用程式閘道可以設定為面向網際網路的閘道、內部專用閘道或兩者混合。 
+
+  [
+  **應用程式閘道**][AppGW]：Microsoft Azure 應用程式閘道是專用的虛擬設備，會以服務形式提供應用程式傳遞控制器 (ADC)，為您的應用程式提供各種第 7 層負載平衡功能。 它會將 CPU 密集 SSL 終止卸載至應用程式閘道，讓您最佳化 Web 伺服器陣列的產能。 它也提供其他第 7 層路由功能，包括循環配置連入流量、以 Cookie 為基礎的工作階段同質、URL 路徑型路由，以及在單一應用程式閘道背後代管多個網站的能力。 Web 應用程式防火牆 (WAF) 也是提供為應用程式閘道 WAF SKU 的一部分。 此 SKU 會保護 Web 應用程式免於遭遇常見的 Web 弱點和攻擊。 應用程式閘道可以設定為面向網際網路的閘道、內部專用閘道或兩者混合。 
 
 [**公用 IP**][PIP]：某些 Azure 功能可讓您建立服務端點與公用 IP 位址的關聯，而公用 IP 位址允許從網際網路存取資源。 此端點使用網路位址轉譯 (NAT) 將流量路由傳送至 Azure 虛擬網路的內部位址和連接埠。 這個路徑是外部流量進入虛擬網路的主要方式。 公用 IP 位址可以設定成判斷要傳入的流量，以及該流量在虛擬網路上如何轉譯及轉譯至何處。
 

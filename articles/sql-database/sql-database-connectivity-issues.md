@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.author: daleche
-ms.openlocfilehash: 37cd099e6efe44ee70dc1799ef4b2b4377c571d5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 07/11/2018
+ms.author: ninarn
+ms.openlocfilehash: 62b5f7470491027dbf5a1c60ee478268e969d1a8
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647252"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113489"
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>排解、診斷和防止 SQL Database 的 SQL 連接錯誤和暫時性錯誤
 本文描述如何防止、排解、診斷和減少您的用戶端應用程式在與 Azure SQL Database 互動時發生的連接錯誤和暫時性錯誤。 了解如何設定重試邏輯、建置連接字串和調整其他連接設定。
@@ -256,7 +256,8 @@ Enterprise Library 6 (EntLib60) 提供 .NET 受控類別來協助記錄。 如�
 | 記錄查詢 | 說明 |
 |:--- |:--- |
 | `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |[Sys.event_log](http://msdn.microsoft.com/library/dn270018.aspx) 檢視可提供個別事件的資訊，包括會導致暫時性錯誤或連線失敗的某些事件。<br/><br/>在理想的情況下，您可以讓 **start_time** 或 **end_time** 值與用戶端程式發生問題時的相關資訊相互關聯。<br/><br/>您必須連線到 master 資料庫來執行此查詢。 |
-| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |[Sys.database_connection_stats](http://msdn.microsoft.com/library/dn269986.aspx) 檢視可針對其他診斷提供事件類型的彙總計數。<br/><br/>您必須連線到 master 資料庫來執行此查詢。 |
+| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |
+  [Sys.database_connection_stats](http://msdn.microsoft.com/library/dn269986.aspx) 檢視可針對其他診斷提供事件類型的彙總計數。<br/><br/>您必須連線到 master 資料庫來執行此查詢。 |
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
@@ -308,8 +309,8 @@ Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲
 
 > [!NOTE]
 > EntLib60 的原始程式碼可從[下載中心](http://go.microsoft.com/fwlink/p/?LinkID=290898)公開下載。 Microsoft 沒有計劃進一步更新或維護 EntLib 的功能。
-> 
-> 
+>
+>
 
 <a id="entlib60-classes-for-transient-errors-and-retry" name="entlib60-classes-for-transient-errors-and-retry"></a>
 
@@ -319,12 +320,12 @@ Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲
 在命名空間 **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** 中：
 
 * **RetryPolicy** 類別
-  
+
   * **ExecuteAction** 方法
 * **ExponentialBackoff** 類別
 * **SqlDatabaseTransientErrorDetectionStrategy** 類別
 * **ReliableSqlConnection** 類別
-  
+
   * **ExecuteCommand** 方法
 
 在命名空間 **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.TestSupport**中：
@@ -342,7 +343,7 @@ Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲
 
 ### <a name="entlib60-the-logging-block"></a>EntLib60：記錄區塊
 * 記錄區塊是高度彈性且可設定的解決方案，您可用於：
-  
+
   * 建立記錄訊息，並儲存在各種不同的位置中。
   * 分類與篩選訊息。
   * 收集有助於偵錯和追蹤的內容資訊，以及用於稽核和一般記錄需求的內容資訊。
@@ -434,4 +435,3 @@ public bool IsTransient(Exception ex)
 [step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net
 
 [step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
-

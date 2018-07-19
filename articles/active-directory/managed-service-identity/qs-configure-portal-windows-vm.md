@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: daveba
-ms.openlocfilehash: 9d9c18d576f3975d4c8272efff7161366f3f53fe
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 27ecb00bddb41ae45e790a54702c058ff3f1d24b
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901352"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035936"
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-the-azure-portal"></a>使用 Azure 入口網站設定「VM 受控服務身分識別 (MSI)」
 
@@ -32,7 +32,7 @@ ms.locfileid: "37901352"
 > [!NOTE]
 > 目前，不支援透過 Azure 入口網站的使用者指派身分識別作業。 請隨時回來查看是否有更新內容。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 如果您不熟悉受控服務識別，請參閱[概觀](overview.md)一節。
 - 如果您還沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com/free/)，再繼續進行。
@@ -59,7 +59,7 @@ ms.locfileid: "37901352"
     > [!NOTE]
     > 不支援透過 Azure 入口網站將使用者指派的身分識別新增至虛擬機器。
 
-   ![組態頁面螢幕擷取畫面](../media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
+   ![組態頁面螢幕擷取畫面](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
 ## <a name="remove-managed-service-identity-from-an-azure-vm"></a>將受控服務識別從 Azure VM 中移除
 
@@ -74,7 +74,7 @@ ms.locfileid: "37901352"
     > [!NOTE]
     > 不支援透過 Azure 入口網站將使用者指派的身分識別新增至虛擬機器。
 
-   ![組態頁面螢幕擷取畫面](../media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)  
+   ![組態頁面螢幕擷取畫面](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)  
 
 ## <a name="related-content"></a>相關內容
 

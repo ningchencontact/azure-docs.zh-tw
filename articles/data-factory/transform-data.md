@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 23471a4ae912ee4947a91f0aef7fb2557e6ebba3
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: afd1944006a08811075e8af8b1a641d00ee3c352
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050959"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112809"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Azure Data Factory 中的資料轉換
 > [!div class="op_single_selector"]
@@ -64,7 +64,7 @@ Azure Data Factory 可讓您輕鬆地建立管線，使用已發佈的 Azure Mac
 ## <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics U-SQL 活動
 Data Lake Analytics U-SQL 活動會在 Azure Data Lake Analytics 叢集上執行 U-SQL 指令碼。 如需詳細資料，請參閱 [Data Analytics U-SQL 活動](transform-data-using-data-lake-analytics.md)一文。 
 
-## <a name="net-custom-activity"></a>.NET 自訂活動
+## <a name="custom-activity"></a>自訂活動
 如果您需要以 Data Factory 不支援的方法轉換資料，可以利用自己的資料處理邏輯建立自訂活動，然後在管線中使用活動。 您可以將自訂 .NET 活動設定為使用 Azure Batch 服務或 Azure HDInsight 叢集來執行。 如需詳細資訊請參閱 [使用自訂活動](transform-data-using-dotnet-custom-activity.md) 。 
 
 您可以建立自訂活動，以便在已安裝 R 的 HDInsight 叢集上執行 R 指令碼。 請參閱 [使用 Azure Data Factory 執行 R 指令碼](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)。 

@@ -3,7 +3,7 @@ title: 使用 Socket.io 的 Node.js 應用程式 - Azure
 description: 學習如何在裝載於 Azure 的 node.js 應用程式中使用 socket.io。
 services: cloud-services
 documentationcenter: nodejs
-author: thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 7f9435e0-7732-4aa1-a4df-ea0e894b847f
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: adegeo
-ms.openlocfilehash: b5d706f82dd41f0c271aa5f67676bba08cceb3b1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: jeconnoc
+ms.openlocfilehash: 0fae47f248d5662b69a0d1a12c82b7ded33badd6
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608588"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001978"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>在 Azure 雲端服務上使用 Socket.IO 建立 Node.js 交談應用程式
 
@@ -29,7 +29,7 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。 本教學
 
 ![A browser window displaying the service hosted on Azure][completed-app]  
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 請確定已安裝下列產品及版本，以順利完成本文中的範例：
 
 * 安裝 [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)

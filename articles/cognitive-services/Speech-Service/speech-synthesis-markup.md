@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: d955e7fd7805688ba103897c0d900c44f16514f8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4074ba91f5029d6c132982d1d81a4888a5e42721
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369894"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071210"
 ---
 # <a name="speech-synthesis-markup-language"></a>語音合成標記語言
 
@@ -50,7 +50,7 @@ ms.locfileid: "35369894"
 </voice> </speak>
 ```
 
-## <a name="change-volume"></a>改變音量
+## <a name="change-volume"></a>變更音量
 ```xml
 <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
 <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>
@@ -79,4 +79,4 @@ ms.locfileid: "35369894"
 ## <a name="next-steps"></a>後續步驟
 
 * [試用認知服務](https://azure.microsoft.com/try/cognitive-services/)
-* [了解如何以 C# 辨識語音](quickstart-csharp-windows.md) (英文)
+* [了解如何以 C# 辨識語音](quickstart-csharp-dotnet-windows.md) (英文)

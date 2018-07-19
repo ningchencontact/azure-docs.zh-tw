@@ -3,7 +3,7 @@ title: 使用 PowerShell 在 Azure 雲端服務中啟用診斷 | Microsoft Docs
 description: 了解如何使用 PowerShell 啟用雲端服務的診斷
 services: cloud-services
 documentationcenter: .net
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 66e08754-8639-4022-ae18-4237749ba17d
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/06/2016
-ms.author: adegeo
-ms.openlocfilehash: 8dd9724981860c9cd4ccc443cc2bfdc465811e7c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeconnoc
+ms.openlocfilehash: c46c0665eefd7615bf90aeca7b918ddf9195237f
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22998743"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004858"
 ---
 # <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>使用 PowerShell 在 Azure 雲端服務中啟用診斷
 您可以使用 Azure 診斷延伸模組，從雲端服務收集診斷資料 (例如應用程式記錄檔、效能計數器等)。 本文描述如何使用 PowerShell 啟用雲端服務的 Azure 診斷延伸模組。  如需這篇文章所需要的必要條件，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview) 。

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 1195161a0c4045620447439bf9361b7c4c0189ae
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 06abd7867a99c20597ed17faf6fa61b91f70baaa
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904385"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007701"
 ---
 # <a name="tutorial-use-a-user-assigned-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>教學課程：使用 Linux 虛擬機器上使用者指派的身分識別，來存取 Azure Resource Manager
 
@@ -38,7 +38,7 @@ ms.locfileid: "37904385"
 > * 在 Azure Resource Manager 中將使用者指派身分識別的存取權授與資源群組 
 > * 使用使用者指派的身分識別來取得存取權杖，並用其呼叫 Azure Resource Manager 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 如果您不熟悉受控服務識別，請參閱[概觀](overview.md)一節。 **請務必檢閱[系統和使用者指派之身分識別其間的差異](overview.md#how-does-it-work)**。
 - 如果您還沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com/free/)，再繼續進行。
@@ -58,7 +58,7 @@ ms.locfileid: "37904385"
 2. 選取 [計算]，然後選取 [Ubuntu Server 16.04 LTS]。
 3. 輸入虛擬機器資訊。 針對 [驗證類型] 選取 [SSH 公開金鑰] 或 [密碼]。 建立的認證可讓您登入 VM。
 
-    ![建立 Linux VM](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![建立 Linux VM](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. 在下拉式清單中選擇適用於虛擬機器的**訂用帳戶**。
 5. 若要選取要在其中建立虛擬機器的新 [資源群組]，請選擇 [新建]。 完成時，按一下 [確定]。

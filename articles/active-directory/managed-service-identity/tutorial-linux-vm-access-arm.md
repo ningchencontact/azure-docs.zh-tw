@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 690775bb2ff0d5ee16ec5d7f1869c4f23b3745ad
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 60a15c69f1ec748e366697640707804565245cea
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37900910"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001580"
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-resource-manager"></a>使用 Linux VM 受控服務身分識別 (MSI) 來存取 Azure Resource Manager
 
@@ -32,7 +32,7 @@ ms.locfileid: "37900910"
 > * 在 Azure Resource Manager 中將您的 VM 存取權授與資源群組 
 > * 使用 VM 身分識別取得存取權杖，並使用它來呼叫 Azure Resource Manager 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -50,7 +50,7 @@ ms.locfileid: "37900910"
 2. 選取 [計算]，然後選取 [Ubuntu Server 16.04 LTS]。
 3. 輸入虛擬機器資訊。 針對 [驗證類型] 選取 [SSH 公開金鑰] 或 [密碼]。 建立的認證可讓您登入 VM。
 
-    ![替代映像文字](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![替代映像文字](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. 在下拉式清單中選擇適用於虛擬機器的**訂用帳戶**。
 5. 若要選取要在其中建立虛擬機器的新 [資源群組]，請選擇 [新建]。 完成時，按一下 [確定]。
@@ -65,7 +65,7 @@ ms.locfileid: "37900910"
 3. 您會看到**受控服務識別**。 若要註冊並啟用 MSI，請選取 [是]，如果您想要將它停用，則請選擇 [否]。
 4. 按一下 [儲存] 確認儲存設定。
 
-    ![替代映像文字](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![替代映像文字](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-azure-resource-manager"></a>在 Azure Resource Manager 中將您的 VM 存取權授與資源群組 
 
@@ -79,7 +79,7 @@ ms.locfileid: "37900910"
 6. 接下來，確認適當的訂用帳戶已列在 [訂用帳戶]下拉式清單中。 針對 [資源群組]，請選取 [所有資源群組]。
 7. 最後，在 [選取] 中選擇下拉式清單中您的 Linux 虛擬機器，然後按一下 [儲存]。
 
-    ![替代映像文字](../media/msi-tutorial-linux-vm-access-arm/msi-permission-linux.png)
+    ![替代映像文字](media/msi-tutorial-linux-vm-access-arm/msi-permission-linux.png)
 
 ## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-resource-manager"></a>使用 VM 身分識別取得存取權杖，並使用它來呼叫 Resource Manager 
 

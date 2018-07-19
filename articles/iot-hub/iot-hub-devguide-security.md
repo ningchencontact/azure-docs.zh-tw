@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: dobett
-ms.openlocfilehash: 04823409b209d1f35a27452321cfd37d30097dde
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 43eb988915fb917923ab968d22b9b7f0ee36c0f5
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808769"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444390"
 ---
 # <a name="control-access-to-iot-hub"></a>控制 IoT 中樞的存取權
 
@@ -36,13 +36,16 @@ ms.locfileid: "34808769"
 您可以透過下列方式授與[權限](#iot-hub-permissions)：
 
 * **IoT 中樞層級的共用存取原則**。 共用存取原則可以授與上面所列[權限](#iot-hub-permissions)的任意組合。 您可以在 [Azure 入口網站][lnk-management-portal]中定義原則，或使用 [IoT 中樞資源提供者 REST API][lnk-resource-provider-apis] 以程式設計方式定義原則。 新建立的 IoT 中樞有下列預設原則︰
+  
+  | 共用的存取原則 | 權限 |
+  | -------------------- | ----------- |
+  | iothubowner | 所有權限 |
+  | service | **ServiceConnect** 權限 |
+  | 裝置 | **DeviceConnect** 權限 |
+  | registryRead | **RegistryRead** 權限 |
+  | registryReadWrite | **RegistryRead** 和 **RegistryWrite** 權限 |
 
-  * **iothubowner**︰具備所有權限的原則。
-  * **service**︰具備 **ServiceConnect** 權限的原則。
-  * **device**︰具備 **DeviceConnect** 權限的原則。
-  * **registryRead**︰具備 **RegistryRead** 權限的原則。
-  * **registryReadWrite**︰具備 **RegistryRead** 和 RegistryWrite 權限的原則。
-  * **各裝置的安全性認證**。 每個 IoT 中樞都包含[身分識別登錄][lnk-identity-registry]。 對於此身分識別登錄中的每個裝置，您可以設定安全性認證，以對應的裝置端點為範圍來授與 **DeviceConnect** 權限。
+* **各裝置的安全性認證**。 每個 IoT 中樞都包含[身分識別登錄][lnk-identity-registry]。 對於此身分識別登錄中的每個裝置，您可以設定安全性認證，以對應的裝置端點為範圍來授與 **DeviceConnect** 權限。
 
 例如，在典型的 IoT 解決方案中︰
 
@@ -462,7 +465,7 @@ IoT 中樞開發人員指南中的其他參考主題包括︰
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 [lnk-openssl]: https://www.openssl.org/
-[lnk-selfsigned]: https://technet.microsoft.com/library/hh848633
+[lnk-selfsigned]: https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate
 
 [lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-sas-tokens]: iot-hub-devguide-security.md#security-tokens

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/03/2017
+ms.date: 06/28/2018
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: 20914eec070452186295f6d87a85ea0675ebaf4c
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 0c3a1a57a89d716245dc075e47b7970cb228ff50
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060081"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100414"
 ---
 # <a name="move-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model-using-powershell"></a>使用 PowerShell 將 ExpressRoute 電路從傳統部署模型移至 Resource Manager 部署模型
 
@@ -97,9 +97,7 @@ ms.locfileid: "37060081"
 Move-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Location "West US" -ServiceKey "<Service-key>"
 ```
 
-> [!NOTE]
-> 在傳統模式中，ExpressRoute 電路沒有繫結至區域的概念。 在 Resource Manager (ARM) 中，每個資源都必須對應至 Azure 區域。 Move-AzureRmExpressRouteCircuit Cmdlet 中指定的區域嚴格來說可以是任何區域。 基於組織目的，您可能想要選擇最能代表您對等互連位置的區域。
-> 
+在傳統模式中，ExpressRoute 電路沒有繫結至區域的概念。 不過，在 Resource Manager 中，每個資源都必須對應至 Azure 區域。 Move-AzureRmExpressRouteCircuit Cmdlet 中指定的區域嚴格來說可以是任何區域。 基於組織目的，您可能想要選擇最能代表您對等互連位置的區域。
 
 > [!NOTE]
 > 移動完成之後，列在前一個 Cmdlet 中的新名稱會用來處理資源。 電路基本上會重新命名。

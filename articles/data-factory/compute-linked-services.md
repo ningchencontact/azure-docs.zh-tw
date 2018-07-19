@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: douglasl
-ms.openlocfilehash: b4e8a2dba65973919d9716655c4fbb4d533b1c78
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: ca5caa8c8d0e64fb3a63a1c49d08b949b0c9cf36
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824926"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903763"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory 支援的計算環境
 本文說明您可用來處理或轉換資料的各種計算環境。 其中還提供在設定將這些計算環境連結至 Azure Data Factory 的連結服務時，Data Factory 所支援的不同組態 (隨選與自備) 的詳細資料。
@@ -106,7 +106,7 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 | 預設容器            | 隨選叢集用於儲存及處理資料的 Azure 儲存體連結服務。 建立 HDInsight 叢集的區域和這個 Azure 儲存體帳戶的區域相同。 Azure HDInsight 對您在其支援的每個 Azure 區域中可使用的核心總數有所限制。 請確定 Azure 區域有足夠的核心配額，以符合所需的 clusterSize。 如需詳細資料，請參閱[使用 Hadoop、Spark 及 Kafka 等在 HDInsight 中設定叢集](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)。<p>目前，您無法建立使用 Azure Data Lake Store 做為儲存體的隨選 HDInsight 叢集。 如果您想要在 Azure Data Lake Store 中儲存 HDInsight 處理的結果資料，可使用複製活動將 Azure Blob 儲存體的資料複製到 Azure Data Lake Store。 </p> | yes      |
 | clusterResourceGroup         | 在此資源群組中將建立 HDInsight 叢集。 | yes      |
 | timetolive                   | 隨選 HDInsight 叢集允許的閒置時間。 指定在活動執行完成後，如果叢集中沒有其他作用中的作業，隨選 HDInsight 叢集要保持運作多久。 最小的允許值為 5 分鐘 (00:05:00)。<br/><br/>例如，如果活動執行花費 6 分鐘，而 timetolive 設為 5 分鐘，叢集會在處理活動執行的 6 分鐘期間之後保持運作 5 分鐘。 如果 6 分鐘期間內執行另一個活動，則會由相同叢集來處理。<br/><br/>建立隨選 HDInsight 叢集是昂貴的作業 (可能需要一段時間)，因此請視需要使用這項設定，重複使用隨選 HDInsight 叢集以改善 Data Factory 的效能。<br/><br/>如果您將 timetolive 值設為 0，叢集會在活動執行完成後立即刪除。 不過，如果您設定較高的值，叢集可能會保持閒置，以便您登入進行一些疑難排解，但是可能會導致高成本。 因此，請務必根據您的需求設定適當的值。<br/><br/>如果適當地設定 timetolive 屬性值，則多個管線可以共用隨選 HDInsight 叢集的執行個體。 | yes      |
-| clusterType                  | 將建立的 HDInsight 叢集類型。 允許的值為「hadoop」和「spark」。 若未指定，則預設值為 hadoop。 | 否       |
+| clusterType                  | 將建立的 HDInsight 叢集類型。 允許的值為「hadoop」和「spark」。 若未指定，則預設值為 hadoop。 啟用企業安全性套件的叢集目前不受支援 | 否       |
 | version                      | HDInsight 叢集的版本。 如果未指定，則使用目前的 HDInsight 定義的預設版本。 | 否       |
 | hostSubscriptionId           | 用來建立 HDInsight 叢集的 Azure 訂用帳戶識別碼。 如果未指定，它會使用您 Azure 登入內容的訂用帳戶識別碼。 | 否       |
 | clusterNamePrefix           | HDI 叢集名稱的前置詞，在叢集名稱的結尾會自動附加時間戳記| 否       |
@@ -123,6 +123,10 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 
 > [!IMPORTANT]
 > HDInsight 支援多個可部署的 Hadoop 叢集版本。 每一個版本選擇都會建立特定版本的 Hortonworks Data Platform (HDP) 散發，以及該散發內包含的一組元件。 支援的 HDInsight 版本清單會持續更新，以提供最新的 Hadoop 生態系統元件和修正程式。 務必參閱[支援的 HDInsight 版本及 OS 類型](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions)，確定您已使用支援的 HDInsight 版本。 
+>
+> 
+> [!IMPORTANT]
+> 目前，HDInsight 連結服務不支援 HBase、互動式查詢 (Hive LLAP)、Storm 和企業安全性啟用 (已加入網域的) 的叢集。 
 >
 > 
 
@@ -295,6 +299,10 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 > [!IMPORTANT]
 > HDInsight 支援多個可部署的 Hadoop 叢集版本。 每一個版本選擇都會建立特定版本的 Hortonworks Data Platform (HDP) 散發，以及該散發內包含的一組元件。 支援的 HDInsight 版本清單會持續更新，以提供最新的 Hadoop 生態系統元件和修正程式。 務必參閱[支援的 HDInsight 版本及 OS 類型](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions)，確定您已使用支援的 HDInsight 版本。 
 >
+> [!IMPORTANT]
+> 目前，HDInsight 連結服務不支援 HBase、互動式查詢 (Hive LLAP)、Storm 和企業安全性啟用 (已加入網域的) 的叢集。 
+>
+> 
 
 ## <a name="azure-batch-linked-service"></a>Azure Batch 已連結的服務
 
@@ -440,7 +448,7 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
     "properties": {
         "type": "AzureDatabricks",
         "typeProperties": {
-            "domain": "eastus.azuredatabricks.net",
+            "domain": "https://eastus.azuredatabricks.net",
             "newClusterNodeType": "Standard_D3_v2",
             "newClusterNumOfWorker": "1:10",
             "newClusterVersion": "4.0.x-scala2.11",

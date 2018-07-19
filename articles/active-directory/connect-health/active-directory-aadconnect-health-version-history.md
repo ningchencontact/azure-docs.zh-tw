@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 3e3cebd47a259c7c297d6df0eaf76a350111f2e3
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 8907619b802d93cee4463a80155f38ce9030948f
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319260"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129666"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health︰版本發行歷程記錄
 Azure Active Directory 團隊會定期以新的特性和功能更新 Azure AD Connect Health。 本文列出已發行的版本和功能。
@@ -29,6 +29,13 @@ Azure Active Directory 團隊會定期以新的特性和功能更新 Azure AD Co
 * Azure AD Connect Health for Sync - 診斷及修復入口網站中重複的屬性同步處理錯誤 
 
 **代理程式更新：** 
+*  適用於 AD DS 的 Azure AD Connect Health 代理程式 (3.1.7.0 版)    
+   1. 發行 KB：使用 .NET Framework 監視代理程式時發生高 CPU 用量問題的 Hotfix
+
+*   適用於 AD FS 的 Azure AD Connect Health 代理程式 (3.1.7.0 版)  
+   1. 發行 KB：使用 .NET Framework 監視代理程式時發生高 CPU 用量問題的 Hotfix  
+   2. ADFS Server 2016 次要伺服器上的測試結果修正
+   
 *   適用於 AD FS 的 Azure AD Connect Health 代理程式 (3.1.2.0 版)  
    1. 專用於 3.0.244.0 版之憶體管理和相關警示的 Hotfix
 

@@ -1,20 +1,20 @@
 ---
 title: 使用 Azure 地圖服務尋找路線 | Microsoft Docs
 description: 使用 Azure 地圖服務的景點路線
-author: kgremban
-ms.author: kgremban
+author: dsk-2015
+ms.author: dkshir
 ms.date: 05/07/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: fc5dfafec303a439d8a1092771fd2247ab305172
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 09828fade464c3b7b5f6eedaa16513e9eab49467
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34601338"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989637"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>使用 Azure 地圖服務的景點路線
 
@@ -25,7 +25,7 @@ ms.locfileid: "34601338"
 > * 設定地址座標
 > * 查詢路線規劃服務，以了解如何前往景點
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 在繼續之前，請遵循上一個教學課程中的步驟來[建立 Azure 地圖服務帳戶](./tutorial-search-location.md#createaccount)，並[取得帳戶的訂用帳戶金鑰](./tutorial-search-location.md#getkey)。 
 

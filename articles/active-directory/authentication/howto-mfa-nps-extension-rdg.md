@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 19d602570337b101e4a5cf759fc56822313c631c
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 74e56480c5bbf86ee6cbc059431d7d5a328dfcec
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098000"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049060"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>使用網路原則伺服器 (NPS) 擴充功能和 Azure AD 整合遠端桌面閘道基礎結構
 
@@ -54,7 +54,7 @@ Azure 的網路原則伺服器 (NPS) 擴充功能可讓客戶使用 Azure 以雲
 6. 安裝擴充功能的 NPS 伺服器會將 RD CAP 原則的 RADIUS Access-Accept 訊息傳送至遠端桌面閘道伺服器。
 7. 使用者便取得透過 RD 閘道存取要求之網路資源的權限。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 本節會詳述在整合 Azure MFA 與遠端桌面閘道之前所需具備的必要條件。 開始之前，您必須先具備下列必要條件。  
 
 * 遠端桌面服務 (RDS) 基礎結構
@@ -95,7 +95,7 @@ NPS 角色服務可提供 RADIUS 伺服器和用戶端功能，以及網路存�
 ### <a name="configure-accounts-for-two-step-verification"></a>為帳戶設定雙步驟驗證
 在帳戶啟用 MFA 之後，您便無法登入 MFA 原則所控管的資源，除非您成功地設定受信任的裝置來作為第二個驗證要素，並使用雙步驟驗證通過驗證。
 
-遵循 [Azure Multi-factor Authentication 什麼適合我？](end-user/current/multi-factor-authentication-end-user.md)中的步驟，了解及正確設定您的裝置，以便透過您的使用者帳戶進行 MFA。
+遵循 [Azure Multi-factor Authentication 什麼適合我？](../user-help/multi-factor-authentication-end-user.md)中的步驟，了解及正確設定您的裝置，以便透過您的使用者帳戶進行 MFA。
 
 ## <a name="install-and-configure-nps-extension"></a>安裝和設定 NPS 擴充功能
 本節會提供指示，引導您將 RDS 基礎結構設定為使用 Azure MFA 讓用戶端向遠端桌面閘道進行驗證。

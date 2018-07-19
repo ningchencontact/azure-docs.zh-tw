@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: ea976f7ac80f0c485320713117c9ff2b484a287b
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 00eab947120cdfa76de64536ddaa0600c2dff2ec
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128685"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049406"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>與 Azure Multi-Factor Authentication 相關的常見問題
 
@@ -118,7 +118,7 @@ MFA 提供者建立時，可與 Azure Active Directory (或稱為「Azure AD 租
 
 我們希望您的所有使用者並非只設定一種驗證方式。 請告訴他們試著重新登入，但在登入頁面上選取不同驗證方法。
 
-您可以將使用者引導至[終端使用者疑難排解指南](end-user/current/multi-factor-authentication-end-user-troubleshoot.md)。
+您可以將使用者引導至[終端使用者疑難排解指南](../user-help/multi-factor-authentication-end-user-troubleshoot.md)。
 
 
 **問︰如果我的使用者無法登入他們的帳戶，我該怎麼做？**
@@ -131,7 +131,7 @@ MFA 提供者建立時，可與 Azure Active Directory (或稱為「Azure AD 租
 
 **問：如果使用者無法登入非瀏覽器的應用程式該怎麼辦？**
 
-如果貴組織仍然使用舊版的用戶端，但您已[允許使用應用程式密碼](howto-mfa-mfasettings.md#app-passwords)，則您的使用者無法使用他們的使用者名稱和密碼登入這些舊版用戶端。 相反地，他們需要[設定應用程式密碼](end-user/current/multi-factor-authentication-end-user-app-passwords.md)。 您的使用者必須先清除 (刪除) 登入資訊、重新啟動應用程式，然後使用他們的使用者名稱和*應用程式密碼* (不是他們慣用的密碼) 登入。
+如果貴組織仍然使用舊版的用戶端，但您已[允許使用應用程式密碼](howto-mfa-mfasettings.md#app-passwords)，則您的使用者無法使用他們的使用者名稱和密碼登入這些舊版用戶端。 相反地，他們需要[設定應用程式密碼](../user-help/multi-factor-authentication-end-user-app-passwords.md)。 您的使用者必須先清除 (刪除) 登入資訊、重新啟動應用程式，然後使用他們的使用者名稱和*應用程式密碼* (不是他們慣用的密碼) 登入。
 
 如果貴組織沒有舊版用戶端，則不應該允許使用者建立應用程式密碼。
 

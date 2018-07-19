@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 311e58f01fac6d7786992b3c11e4b1b7c02ca838
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: f8cf5a46e1d1e3242fd46900b56f7d8cf15d3fc5
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36304119"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082517"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>管理 Azure 實驗室服務中的教室實驗室 
 本文說明如何建立和設定教室實驗室、檢視所有教室實驗室，或刪除教室實驗室。
@@ -86,8 +86,8 @@ ms.locfileid: "36304119"
 2. 現在，選取 [發佈] 按鈕。 視要建立多少 VM (這與實驗室中允許的使用者數目相同) 而定，此程序可能需要一些時間。
     
     > [!IMPORTANT]
-    > 一旦範本以公用方式提供之後，其存取權限就無法變更為私用。 
-4. 切換到 [虛擬機器] 頁面，確認您看到有五部虛擬機器處於 [未指派] 狀態。 這些虛擬機器尚未指派給任何學生。 
+    > 範本發行後就無法取消發行。 
+4. 切換到 [虛擬機器] 頁面，確認您看到虛擬機器處於 [未指派] 狀態。 這些虛擬機器尚未指派給任何學生。 
 
     ![虛擬機器](../media/tutorial-setup-classroom-lab/virtual-machines.png)
 5. 請等候 VM 建立。 它們應處於 [已停止] 狀態。 您可以在此頁面上啟動學生 VM、連線到 VM、停止 VM，以及刪除 VM。 您可以在此頁面啟動 VM，或是讓學生啟動 VM。 

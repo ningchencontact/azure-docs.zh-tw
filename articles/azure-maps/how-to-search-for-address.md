@@ -1,25 +1,25 @@
 ---
 title: 如何使用 Azure 地圖服務搜尋服務來搜尋地址 | Microsoft Docs
 description: 了解如何使用 Azure 地圖服務搜尋服務來搜尋地址
-author: kgremban
-ms.author: kgremban
+author: dsk-2015
+ms.author: dkshir
 ms.date: 05/07/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 1acb95af7b62641c371627d6250067f9c2eac99c
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 8b7d2119e1eef8532c30b0a45ae2684493462277
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36323633"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990008"
 ---
 # <a name="how-to-find-an-address-using-the-azure-maps-search-service"></a>如何使用 Azure 地圖服務搜尋服務來尋找地址
 
 地圖服務搜尋服務是一組 RESTful 的 API，針對要搜尋地址、位置、感興趣點、商務清單及其他地理資訊的開發人員所設計。 此服務會將經緯度指派給特定地址、交叉街道、地理功能或感景點 (POI)。 搜尋所傳回的緯度與經度值可用來作為其他地圖服務的參數 (例如路線和流量)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要對地圖服務 API 進行呼叫，您需要有地圖服務帳戶和金鑰。 如需建立帳戶和擷取金鑰的相關資訊，請參閱[如何管理 Azure 地圖服務帳戶和金鑰](how-to-manage-account-keys.md)。
 

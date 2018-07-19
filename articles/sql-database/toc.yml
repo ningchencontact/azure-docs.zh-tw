@@ -24,7 +24,7 @@
           href: 'https://docs.microsoft.com/sql/sql-operations-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json'
         - name: Azure 入口網站
           href: sql-database-connect-query-portal.md
-        - name: VS Code
+        - name: VS 程式碼
           href: sql-database-connect-query-vscode.md
         - name: .NET 搭配 Visual Studio
           href: sql-database-connect-query-dotnet-visual-studio.md
@@ -135,7 +135,7 @@
         - name: 資料庫備份
           href: sql-database-automated-backups.md
         - name: 長期備份保留期
-          itmes:
+          items:
             - name: 長期備份保留期
               href: sql-database-long-term-retention.md
             - name: 設定長期備份保留期 - SQL 儲存體

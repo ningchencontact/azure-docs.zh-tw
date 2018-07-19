@@ -2,19 +2,19 @@
 title: Azure SQL Database 以 DTU 為基礎的資源限制單一資料庫 | Microsoft Docs
 description: 此頁面將針對 Azure SQL Database 中的單一資料庫，說明一些以 DTU 為基礎的常見資源限制。
 services: sql-database
-author: CarlRabeler
+author: sachinpMSFT
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 06/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 5a7abb7d67de59ea326b5180cf94e3594cd06576
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 2d6660e1064959f2d04424ae1c3e9bc668231c92
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753382"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131316"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>使用以 DTU 為基礎的購買模型的單一資料庫資源限制 
 
@@ -72,7 +72,7 @@ ms.locfileid: "36753382"
 
 
 > [!IMPORTANT]
-> 所有區域目前均可取得進階層中超過 1 TB 的儲存體，下列區域除外：英國北部、美國中西部、英國南部2、中國東部、USDoDCentral、德國中部、USDoDEast、US Gov (西南部)、US Gov (中南部)、德國東北部、中國北部、US Gov (東部)。 在其他區域，進階層中的儲存空間上限為 1 TB。 請參閱 [P11-P15 目前限制](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
+> 所有區域目前均可取得進階層中超過 1 TB 的儲存體，下列區域除外：美國中西部、中國東部、USDoDCentral、德國中部、USDoDEast、US Gov (西南部)、德國東北部、US Gov (愛荷華州)、中國北部。 在其他區域，進階層中的儲存空間上限為 1 TB。 請參閱 [P11-P15 目前限制](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
 
 ## <a name="single-database-change-storage-size"></a>單一資料庫：變更儲存體大小
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/19/2018
+ms.date: 06/29/2018
 ms.author: terrylan
-ms.openlocfilehash: f950b6fef575e9dc2d637c17ba40b6f504d1f227
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 326b07a18b07f15850e0283ad51a05b42c1ef0ab
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284772"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341308"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Azure 資訊安全中心內的自訂警示規則 (預覽)
 本文件可協助您在 Azure 資訊安全中心內建立自訂警示規則。
@@ -31,7 +31,7 @@ ms.locfileid: "36284772"
 資訊安全中心內的自訂警示規則可讓您根據從環境所收集到的資料，定義新的安全性警示。 您可以建立查詢，並使用這些查詢的結果來作為自訂規則的準則，一旦符合此準則，便執行該項規則。 您可以使用電腦的安全性事件、夥伴的安全性解決方案記錄或透過 API 所擷取的資料，來建立您的自訂查詢。
 
 > [!NOTE]
-> 在您選取用來儲存自訂警示的工作區中，需要這個工作區的寫入權限。
+> 資訊安全中心的[調查功能](security-center-investigation.md)不支援自訂警示。
 >
 >
 
@@ -52,7 +52,14 @@ ms.locfileid: "36284772"
 5.  在 [描述] 欄位中，輸入簡短描述以反映此規則的目的。
 6.  在 [嚴重性] 欄位中，根據您的需求選取嚴重性層級 ([高]、[中]、[低])。
 7.  在 [訂用帳戶] 欄位中，選取要適用此規則的訂用帳戶。
-8.  在 [工作區] 欄位中，選取您想要使用此規則監視的工作區，然後在 [搜尋查詢] 欄位中，選取要用來取得結果的查詢。 在您選取用來儲存自訂警示的工作區中，需要這個工作區的寫入權限。 查詢的結果會觸發警示。 請注意，當您輸入的查詢有效時，此欄位的右上角會出現綠色核取記號：
+8.  在 [工作區] 欄位中，選取您想要使用此規則監視的工作區，然後在 [搜尋查詢] 欄位中，選取要用來取得結果的查詢。
+
+    > [!NOTE]
+    > 在您選取用來儲存自訂警示的工作區中，需要這個工作區的寫入權限。
+    >
+    >
+
+    查詢的結果會觸發警示。 請注意，當您輸入的查詢有效時，此欄位的右上角會出現綠色核取記號：
 
     ![查詢](./media/security-center-custom-alert/security-center-custom-alert-fig3.png)
 

@@ -3,7 +3,7 @@ title: Azure IT 操作員快速入門指南 | Microsoft Docs
 description: Azure IT 操作人員快速入門指南
 services: ''
 documentationcenter: ''
-author: iainfoulds
+author: themichaelbender-ms
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: ''
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
-ms.author: iainfou
-ms.openlocfilehash: f79f727ed46f85866f59468be418ba8975c17bd8
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.author: mibender
+ms.openlocfilehash: 86f11e7c2d5503a0c474a6c15501a6b872c564e3
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37099488"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072329"
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>雲端運算和 Microsoft Azure 簡介
 
@@ -141,13 +141,11 @@ Azure 在其雲端運算平台中提供許多服務。 這些服務包括下列�
 
 ### <a name="datacenters-and-regions"></a>資料中心和區域
 
-
 Azure 是在全球各地許多地區正式推出的全域雲端平台。 當您在 Azure 中佈建服務、應用程式或 VM 時，系統會要求您選取區域。 選取的區域代表您應用程式執行所在的特定資料中心。 如需詳細資訊，請參閱 [Azure 區域](https://azure.microsoft.com/regions/)。
 
 使用 Azure 的其中一個優點是您可以將應用程式部署至全球各地的各種資料中心。 您選擇的區域可能會影響應用程式的效能。 最好選擇較接近大多數客戶的區域，以減少網路要求延遲。 您也可以選取區域，以符合在某些國家/地區散發應用程式的法律需求。
 
 ### <a name="azure-portal"></a>Azure 入口網站
-
 
 Azure 入口網站是一種 Web 應用程式，可用來建立、管理和移除 Azure 資源和服務。 Azure入口網站位於 https://portal.azure.com。 它包含用於管理 Azure 資源的可自訂儀表板和工具。 它也提供帳單和訂用帳戶資訊。 如需詳細資訊，請參閱 [Microsoft Azure 入口網站概觀](https://azure.microsoft.com/documentation/articles/azure-portal-overview/)和[透過入口網站管理 Azure 資源](https://docs.microsoft.com/azure/azure-portal/resource-group-portal)。
 
@@ -165,7 +163,6 @@ Azure Resource Manager 範本是一個 JavaScript 物件標記法 (JSON) 檔案�
 
 ### <a name="automation"></a>自動化
 
-
 除了使用 Azure 入口網站建立、管理和刪除資源，您可以使用 PowerShell 或 Azure 命令列介面 (CLI) 自動執行這些活動。
 
 **Azure PowerShell**
@@ -178,9 +175,7 @@ Azure 命令列介面是一項工具，可用來從命令列建立、管理和�
 
 **REST API** Azure 是以支援 Azure 入口網站 UI 的一組 REST API 所建置。 也支援其中的大部分 REST API，讓您以程式設計方式從任何啟用網際網路的裝置佈建和管理 Azure 資源和應用程式。 如需詳細資訊，請參閱 [Azure REST SDK 參考](https://docs.microsoft.com/rest/api/index)。
 
-
 ## <a name="azure-subscriptions"></a>Azure 訂用帳戶
-
 
 訂用帳戶是連結至 Azure 帳戶之 Azure 服務的邏輯分組。 單一 Azure 帳戶可以包含多個訂用帳戶。 Azure 服務是根據訂用帳戶計費。 Azure 訂用帳戶有可完全掌控訂用帳戶的帳戶管理員，以及可控制訂用帳戶中所有服務的服務管理員。 除了系統管理員，可以透過 RBAC 授與個別帳戶對於 Azure 資源的細部控制。
 
@@ -200,10 +195,7 @@ Azure 命令列介面是一項工具，可用來從命令列建立、管理和�
 
 **企業合約**：依照企業合約，您承諾在下一個年度使用 Azure 中特定數目的服務，以及事先支付該金額。 您所做的承諾可整年取用。 如果超過承諾金額，您可以事後支付超額部分。 所視承諾金額而定，您可享有 Azure 服務的折扣。
 
-
-
 ### <a name="grant-administrative-access-to-an-azure-subscription"></a>將系統管理存取權授予 Azure 訂用帳戶
-
 
 可用的帳戶管理員角色有很多個，而且可以隨時變更。 兩個重要角色如下：
 
@@ -215,13 +207,11 @@ Azure 命令列介面是一項工具，可用來從命令列建立、管理和�
 
 ### <a name="view-billing-information-in-the-azure-portal"></a>在 Azure 入口網站中檢視帳單資訊
 
-
 使用 Azure 的重要元件是檢視帳單資訊的能力。 Azure 入口網站可供深入了解 Azure 帳單資訊。
 
 如需詳細資訊，請參閱[如何下載您的 Azure 帳單發票和每日使用量資料](../../billing/billing-download-azure-invoice-daily-usage-date.md)。
 
 ### <a name="get-billing-information-from-billing-apis"></a>從計費 API 取得計費資訊
-
 
 除了在入口網站中檢視計費資訊，您可以透過 Azure 計費 REST API 使用指令碼或程式來存取帳單資訊：
 
@@ -262,7 +252,6 @@ Resource Manager 會提供數個優點：
 -   您可以檢視共用相同標籤之資源群組的成本，以釐清您的組織的計費方式。
 
 ### <a name="tips-for-creating-resource-groups"></a>建立資源群組的祕訣
-
 
 當您正在進行資源群組的決策時，請考慮下列秘訣：
 
@@ -347,7 +336,6 @@ Azure 虛擬機器是 Azure 的其中一個中央 IaaS 服務。 Azure 虛擬機
 使用 Azure 入口網站部署虛擬機器時，只需要有作用中的 Azure 訂用帳戶和網頁瀏覽器存取權。 您可以選取許多具有各種組態的不同作業系統映像。 在部署期間會設定所有的儲存體和網路需求。 如需詳細資訊，請參閱適用於 [Windows](../../virtual-machines/windows/quick-create-portal.md) 和 [Linux](../../virtual-machines/linux/quick-create-portal.md) 的「在 Azure 入口網站中建立虛擬機器」。
 
 除了從 Azure 入口網站部署虛擬機器，您也可以從入口網站部署 Azure Resource Manager 範本。 這會部署和設定如範本中定義的所有資源。 如需詳細資訊，請參閱[使用 Resource Manager 範本與 Azure 入口網站來部署資源](../../azure-resource-manager/resource-group-template-deploy-portal.md)。
-
 
 **PowerShell**
 

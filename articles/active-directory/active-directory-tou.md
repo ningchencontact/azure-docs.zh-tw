@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 06/18/2018
+ms.date: 06/29/2018
 ms.author: rolyon
-ms.openlocfilehash: 2919ce1d7c57b7a92420ac11b61503caa1fdd3b0
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 7833c9da2303d119f0cb421f21bea455ab449898
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36267552"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856411"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory 使用規定特性
 Azure AD 使用規定提供一種簡單的方法，組織可用來將資訊呈現給終端使用者。 此呈現可確保使用者看到合法或合規性需求的相關免責聲明。 本文將說明如何開始使用 Azure AD 使用規定。
@@ -30,7 +30,7 @@ Azure AD 使用規定提供一種簡單的方法，組織可用來將資訊呈�
 Azure AD 使用規定可讓您執行下列作業：
 - 要求員工或來賓在取得存取權前，先同意您的使用規定。
 - 發佈適用於您組織中所有使用者的一般使用規定。
-- 發佈以使用者屬性為基礎的特定使用規定 (例如， 醫生與護士或國內員工與國際員工，透過使用[動態群組](active-directory-groups-dynamic-membership-azure-portal.md)完成)。
+- 發佈以使用者屬性為基礎的特定使用規定 (例如， 醫生與護士或國內員工與國際員工，透過使用[動態群組](users-groups-roles/groups-dynamic-membership.md)完成)。
 - 發佈在存取高商業影響應用程式 (例如 Salesforce) 時的特定使用規定。
 - 發佈不同語言的使用規定。
 - 列出已同意或未同意使用規定的人員。
@@ -48,7 +48,7 @@ Azure AD 使用規定可讓您執行下列作業：
 
 ## <a name="terms-of-use-document"></a>使用規定文件
 
-Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是任何內容 (例如現有的合約文件) 可讓您在使用者登入期間收集終端使用者合約。 PDF 中建議使用的字型大小是 24。
+Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是任何內容 (例如現有的合約文件)，可讓您在使用者登入期間收集終端使用者合約。 PDF 中建議使用的字型大小是 24。
 
 ## <a name="add-terms-of-use"></a>新增使用規定
 一旦完成了您的使用規定文件，請使用下列程序來新增它。
@@ -157,7 +157,7 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 根據預設，已刪除的使用者會在 Azure AD 中以已刪除的狀態保留 30 天，在這段期間內，系統管理員可以視需要加以還原。  經過 30 天後，該使用者將永久刪除。  此外，全域管理員可以使用 Azure Active Directory 入口網站，在該時段結束之前明確地[永久刪除最近刪除的使用者](fundamentals/active-directory-users-restore.md)。  使用者永久刪除後，關於該使用者的資料將會從作用中的使用規定中移除。  與已刪除的使用者有關的稽核資訊仍會保留在稽核記錄中。
 
 ## <a name="policy-changes"></a>原則變更
-條件式存取原則會立即生效。 當此情況發生時，系統管理員便會開始看到 「悲傷雲端」或「Azure AD 權杖問題」。 系統管理員必須登出並再次登入，才能符合新的原則。
+條件式存取原則會立即生效。 當此情況發生時，系統管理員便會開始看到「悲傷雲端」或「Azure AD 權杖問題」。 系統管理員必須登出並再次登入，才能符合新的原則。
 
 >[!IMPORTANT]
 > 如果情況如下，範圍中的使用者必須登出並登入，才能符合新的原則：
@@ -167,10 +167,10 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 ## <a name="frequently-asked-questions"></a>常見問題集
 
 **問：如何查看使用者何時或是否已接受使用規定？**</br>
-答：您可以按一下使用規定旁邊 [已接受] 下方的數字。  如需詳細資訊，請參閱[檢視已接受或已拒絕的人員](#view-who-has-accepted-and-declined)。  此外，接受使用規定的使用者會寫入至稽核記錄。 您可以搜尋 Azure AD 稽核記錄來查看結果。  
+答：在 [使用規定] 刀鋒視窗上，按一下 [接受] 底下的數字。 您也可以檢視或搜尋稽核記錄中的接受活動。 如需詳細資訊，請參閱[ 檢視已接受和已拒絕的人員](#view-who-has-accepted-and-declined)和[檢視稽核記錄](#view-audit-logs)。
 
 **問：如果變更使用規定，是否需要使用者重新接受？**</br>
-答：是，系統管理員可以變更使用規定，而且其需要重新接受新規定。
+答：是的，系統管理員可以變更使用規定，而且需要使用者重新接受新規定。
 
 **問：使用規定是否支援多種語言？**</br>
 答： 會。  目前有 18 種語言，系統管理員可以設定單一使用規定。 
@@ -179,13 +179,16 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 答：登入體驗期間即會觸發使用規定。
 
 **問：哪些應用程式也可以將使用規定設為目標？**</br>
-答：您可以使用新式驗證，在企業應用程式上建立條件式存取原則。  如需詳細資訊，請參閱[企業應用程式](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-view-azure-portal)。
+答：您可以使用新式驗證，在企業應用程式上建立條件式存取原則。  如需詳細資訊，請參閱[企業應用程式](./manage-apps/view-applications-portal.md)。
 
 **問：是否可以將多個使用規定新增至指定的使用者或應用程式？**</br>
 答：是，方法為建立多個條件式存取原則，將群組或應用程式設為目標。 如果使用者落在多個使用規定的範圍內，他們可以逐一同意各項使用規定。
  
 **問：如果使用者拒絕使用規定，會發生什麼事？**</br>
 答：使用者會遭封鎖而無法存取應用程式。 使用者必須再次登入並同意規定，才能取得存取權。
+ 
+**問：是否可以取消接受先前接受的使用規定？**</br>
+答：您可以[檢閱先前接受的使用規定](#how-users-can-review-their-terms-of-use)，但目前沒有辦法取消接受。
  
 **問：資訊會儲存多久時間？**</br>
 答：使用者計數和接受/拒絕人員會儲存到使用規定的存留期結束。 稽核記錄會儲存 30 天。

@@ -1,25 +1,19 @@
 ---
-title: Azure 備份 - 適用於 DPM 和 Azure 備份伺服器的離線備份 | Microsoft Docs
+title: Azure 備份 - 適用於 DPM 和 Azure 備份伺服器的離線備份
 description: 了解 Azure 備份如何讓您使用 Azure 匯入/匯出服務在網路上傳送資料。 此文章說明如何使用 Azure 匯入/匯出服務離線植入初始備份資料。
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: ''
-ms.assetid: ada19c12-3e60-457b-8a6e-cf21b9553b97
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 5/8/2018
-ms.author: saurse;nkolli;trinadhk
-ms.openlocfilehash: e3f7ae187bee8680fbff7e5c78c666a0bda7e48f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: saurse
+ms.openlocfilehash: 1a0e196f4d96494aca1c19a7527ac7d81837fb5c
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33941256"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "34606472"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>適用於 DPM 和 Azure 備份伺服器的離線備份工作流程
 Azure 備份有數個可提升效率的內建功能，能在資料初始完整備份至 Azure 的期間節省網路和儲存體成本。 初始完整備份通常會傳輸大量資料，且需要較多網路頻寬，相較之下，後續備份只會傳輸差異/增量部分。 Azure 備份會壓縮初始備份。 透過離線植入程序，Azure 備份可以使用磁碟將壓縮後的初始備份資料離線上傳至 Azure。
@@ -64,7 +58,7 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
  ![建立傳統儲存體帳戶](./media/backup-azure-backup-import-export/storageaccountclassiccreate.png)
 
 * 已建立具有足夠磁碟空間來存放初始複本的內部或外部暫存位置 (可能是網路共用或電腦上任何額外的磁碟機)。 例如：若您正在嘗試備份 500 GB 的檔案伺服器，請確定預備區域至少有 500 GB 的空間  (由於壓縮的關係，實際使用量會較少)。
-* 針對將送到 Azure 的磁碟，確保僅使用 2.5 英吋的 SSD，或是 2.5 英吋或 3.5 英吋的 SATA II/III 內部硬碟。 您可以使用高達 10 TB 的硬碟。 檢查 [Azure 匯入/匯出服務文件](../storage/common/storage-import-export-service.md#hard-disk-drives)以取得服務所支援的最新磁碟機組合。
+* 針對將送到 Azure 的磁碟，確保僅使用 2.5 英吋的 SSD，或是 2.5 英吋或 3.5 英吋的 SATA II/III 內部硬碟。 您可以使用高達 10 TB 的硬碟。 檢查 [Azure 匯入/匯出服務文件](../storage/common/storage-import-export-requirements.md#supported-hardware)以取得服務所支援的最新磁碟機組合。
 * SATA 磁碟機必須連接至要執行將備份資料從「暫存位置」複製到 SATA 磁碟機之作業的電腦 (稱為「複本電腦」)。 請確定已在「複本電腦」上啟用 Bitlocker 
 
 ## <a name="workflow"></a>工作流程
@@ -203,7 +197,7 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 
     ![檢查匯入作業狀態](./media/backup-azure-backup-import-export/importjobstatusreporting.png)<br/>
 
-如需有關各種 Azure 匯入作業狀態的詳細資訊，請參閱[這篇文章](../storage/common/storage-import-export-service.md#how-does-the-azure-importexport-service-work)
+如需有關各種 Azure 匯入作業狀態的詳細資訊，請參閱[這篇文章](../storage/common/storage-import-export-view-drive-status.md)
 
 ### <a name="complete-the-workflow"></a>完成工作流程
 匯入作業完成後，儲存體帳戶中就會有初始備份資料可供使用。 到了下一個排定的備份時，「Azure 備份」會從儲存體帳戶將資料內容複製到「復原服務」保存庫，如下所示： 

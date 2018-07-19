@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 7466c3ca87ed47b6d7dfe3d725197d3a6027fdf9
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 7e2033310a30499cf862fb4d399cb0180ac9b713
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901012"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006959"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-resource-manager"></a>使用 Windows VM 受控服務身分識別 (MSI) 來存取 Azure Resource Manager
 
@@ -32,7 +32,7 @@ ms.locfileid: "37901012"
 > * 在 Azure Resource Manager 中將您的 VM 存取權授與資源群組 
 > * 使用 VM 身分識別取得存取權杖，並使用它來呼叫 Azure Resource Manager
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -52,7 +52,7 @@ ms.locfileid: "37901012"
 5.  若要選取要在其中建立虛擬機器的新 [資源群組]，請選擇 [新建]。 完成時，按一下 [確定]。
 6.  選取 VM 的大小。 若要查看更多大小，請選取 [檢視全部] 或變更 [支援的磁碟類型] 篩選條件。 在 [設定] 頁面上，保留預設值並按一下 [確定]。
 
-    ![替代映像文字](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![替代映像文字](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>在您的 VM 上啟用 MSI 
 
@@ -62,7 +62,7 @@ VM MSI 可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您
 2.  在左側的導覽列上，按一下 [設定] 。 
 3.  您會看到**受控服務識別**。 若要註冊並啟用 MSI，請選取 [是]，如果您想要將它停用，則請選擇 [否]。 
 4.  按一下 [儲存] 確認儲存設定。  
-    ![替代映像文字](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![替代映像文字](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-resource-manager"></a>在 Resource Manager 中將您的 VM 存取權授與資源群組
 您的程式碼可以使用 MSI 來取得存取權杖，來向支援 Azure AD 驗證的資源進行驗證。  Azure Resource Manager 支援 Azure AD 驗證。  首先，我們需要在 Resource Manager 中將這個 VM 的身分識別存取權授與資源，此情況下就是包含 VM 的資源群組。  
@@ -75,7 +75,7 @@ VM MSI 可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您
 6.  接下來，確認適當的訂用帳戶已列在 [訂用帳戶]下拉式清單中。 針對 [資源群組]，請選取 [所有資源群組]。 
 7.  最後，在 [選取] 中選擇下拉式清單中您的 Windows VM，然後按一下 [儲存]。
 
-    ![替代映像文字](../media/msi-tutorial-windows-vm-access-arm/msi-windows-permissions.png)
+    ![替代映像文字](media/msi-tutorial-windows-vm-access-arm/msi-windows-permissions.png)
 
 ## <a name="get-an-access-token-using-the-vm-identity-and-use-it-to-call-azure-resource-manager"></a>使用 VM 身分識別取得存取權杖，並使用它來呼叫 Azure Resource Manager 
 

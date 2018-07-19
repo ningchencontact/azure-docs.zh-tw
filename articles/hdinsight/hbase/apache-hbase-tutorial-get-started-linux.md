@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: f85772aa74e876764181330b6d29c4f8d2b48508
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a77724bd5ed14bf8eb91bf64a1837ce7106edd06
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31521983"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867890"
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>開始使用 HDInsight 中的 Apache HBase 範例
 
@@ -35,7 +35,7 @@ ms.locfileid: "31521983"
 * [cURL](http://curl.haxx.se/download.html)。
 
 ## <a name="create-hbase-cluster"></a>建立 HBase 叢集
-下列程序會使用 Azure Resource Manager 範本建立 HBase 叢集和相依的預設 Azure 儲存體帳戶。 若要了解此程序與其他叢集建立方法中使用的參數，請參閱 [在 HDInsight 中建立以 Linux 為基礎的 Hadoop 叢集](../hdinsight-hadoop-provision-linux-clusters.md)。
+下列程序會使用 Azure Resource Manager 範本建立 HBase 叢集和相依的預設 Azure 儲存體帳戶。 若要了解此程序與其他叢集建立方法中使用的參數，請參閱 [在 HDInsight 中建立以 Linux 為基礎的 Hadoop 叢集](../hdinsight-hadoop-provision-linux-clusters.md)。 如需有關如何使用 Data Lake Storage Gen2 的詳細資訊，請參閱[快速入門：在 HDInsight 中設定叢集](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
 
 1. 按一下以下影像，在 Azure 入口網站中開啟範本。 範本位在 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/)。
    
@@ -43,7 +43,7 @@ ms.locfileid: "31521983"
 2. 從 [自訂部署] 刀鋒視窗，輸入下列值：
    
    * **訂用帳戶**：選取用來建立叢集的 Azure 訂用帳戶。
-   * **資源群組**：建立 Azure 資源管理群組，或選取現有的資源管理群組。
+   * **資源群組**：建立 Azure 資源管理群組，或使用現有的資源管理群組。
    * **位置**：指定資源群組的位置。 
    * **叢集名稱**：輸入 HBase 叢集的名稱。
    * **叢集登入名稱和密碼**：預設登入名稱是 **admin**。

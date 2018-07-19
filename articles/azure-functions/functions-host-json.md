@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: d1dec6f2da4f6fcbeb38585fc6a1cfcd9d622c4a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d89170f796355b734facc5e08ad1815a2b865d49
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33764582"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342087"
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Azure Functions 的 host.json 參考
 
@@ -159,8 +159,11 @@ ms.locfileid: "33764582"
     "MaxConcurrentOrchestratorFunctions": 10,
     "AzureStorageConnectionStringName": "AzureWebJobsStorage",
     "TraceInputsAndOutputs": false,
+    "LogReplayEvents": false,
     "EventGridTopicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
-    "EventGridKeySettingName":  "EventGridKey"
+    "EventGridKeySettingName":  "EventGridKey",
+    "EventGridPublishRetryCount": 3,
+    "EventGridPublishRetryInterval": "00:00:30"
   }
 }
 ```
@@ -178,8 +181,11 @@ ms.locfileid: "33764582"
 |MaxConcurrentOrchestratorFunctions |目前電腦上的 10 倍處理器數目|可以在單一主機執行個體上同時處理的活動函式數目上限。|
 |AzureStorageConnectionStringName |AzureWebJobsStorage|具有 Azure 儲存體連接字串的應用程式設定名稱，而該連接字串用來管理基礎的 Azure 儲存體資源。|
 |TraceInputsAndOutputs |false|此值指出是否要追蹤函式呼叫的輸入和輸出。 追蹤函式執行事件時的預設行為就是在函式呼叫的序列化輸入和輸出中包含位元組數目。 這可提供輸入和輸出的最基本資訊，而不會讓記錄變大，或者不小心在記錄中公開敏感性資訊。 將此屬性設定為 true，會導致預設函式記錄功能記錄函式輸入和輸出的整個內容。|
-|EventGridTopicEndpoint ||Azure 事件方格自訂主題端點的 URL。 若已設定這個屬性，協調流程生命週期通知事件就會發佈到此端點。|
-|EventGridKeySettingName ||應用程式設定的名稱，其中包含在 `EventGridTopicEndpoint` 用來向 Azure 事件方格自訂主題進行驗證的金鑰。
+|LogReplayEvents|false|此值可指出是否要將協調流程重新執行事件寫入 Application Insights。|
+|EventGridTopicEndpoint ||Azure 事件方格自訂主題端點的 URL。 若已設定這個屬性，協調流程生命週期通知事件就會發佈到此端點。 這個屬性支援應用程式設定解析。|
+|EventGridKeySettingName ||應用程式設定的名稱，其中包含在 `EventGridTopicEndpoint` 用來向 Azure 事件方格自訂主題進行驗證的金鑰。|
+|EventGridPublishRetryCount|0|如果發佈到 Event Grid 主題失敗，重試的次數。|
+|EventGridPublishRetryInterval|5 分鐘|Event Grid 會以 *hh:mm:ss* 格式發佈重試間隔。|
 
 上述許多屬性適用於將效能最佳化。 如需詳細資訊，請參閱[效能和級別](durable-functions-perf-and-scale.md)。
 

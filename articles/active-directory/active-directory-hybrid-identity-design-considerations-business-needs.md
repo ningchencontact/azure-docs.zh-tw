@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 06/27/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 68a7e71cf374f10b4c5ced3e64da36138b0d2e4d
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: a641464e04421b90de15cd953bb8a0fbf9b687d3
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34800719"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084717"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>判斷混合式身分識別解決方案的身分識別需求
 設計混合式身分識別解決方案的第一個步驟，是判斷將運用此解決方案的企業組織有何需求。  混合式身分識別一開始是支援的角色 (它可提供驗證而支援所有其他雲端解決方案)，接著會提供新奇有趣的功能，為使用者釋出新的工作負載。  您想要為使用者採用的這些工作負載或服務，會指定混合式身分識別設計的需求。  這些服務和工作負載在內部部署和雲端中都需要運用混合式身分識別。  
@@ -58,7 +58,7 @@ ms.locfileid: "34800719"
 * 這項整合目前已投入使用，或只是一項試驗？
 
 > [!NOTE]
-> 如果您無法正確對應您的應用程式與雲端服務，您可以使用雲端應用程式探索工具。 這項工具可讓您的 IT 部門深入了解組織的所有商業和取用者雲端應用程式。 尋找組織中的「影子 IT」從未如此容易，就連使用模式的詳細資料，以及正在存取雲端應用程式的使用者都能找到。 若要開始使用，請參閱[雲端應用程式探索](manage-apps/cloud-app-discovery.md)。
+> Cloud Discovery 會針對超過 16,000 個雲端應用程式的 Microsoft Cloud App Security 雲端應用程式目錄 (根據 70 個以上的風險因素排名及評分)，分析您的流量記錄，讓您能持續明瞭雲端使用情況、Shadow IT 以及 Shadow IT 為您的組織所帶來的風險。若要開始使用，請參閱[設定 Cloud Discovery](/cloud-app-security/set-up-cloud-discovery)。
 > 
 > 
 

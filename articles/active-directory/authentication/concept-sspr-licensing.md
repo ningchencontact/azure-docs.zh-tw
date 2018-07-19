@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 64c12177e5cf6c82018731b493c0da22e1895b7f
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e185b67ae73b86b5f1c3b6cda884de05eb89c6fd
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37855519"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049079"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Azure AD 自助式密碼重設的授權需求
 
@@ -58,8 +58,8 @@ Azure AD 現在支援以群組為基礎的授權。 系統管理員可以將大�
 ## <a name="next-steps"></a>後續步驟
 
 * [如何完成 SSPR 成功首度發行？](howto-sspr-deployment.md)
-* [重設或變更您的密碼](../active-directory-passwords-update-your-own-password.md)
-* [註冊自助式密碼重設](../active-directory-passwords-reset-register.md)
+* [重設或變更您的密碼](../user-help/active-directory-passwords-update-your-own-password.md)
+* [註冊自助式密碼重設](../user-help/active-directory-passwords-reset-register.md)
 * [SSPR 使用哪些資料，以及您應該為使用者填入哪些資料？](howto-sspr-authenticationdata.md)
 * [哪些驗證方法可供使用者使用？](concept-sspr-howitworks.md#authentication-methods)
 * [使用 SSPR 的原則選項有哪些？](concept-sspr-policy.md)

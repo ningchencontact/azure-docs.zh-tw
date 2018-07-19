@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 0c09ad0dd6ca2748a19aabc161390d9e0d09c6e8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 89bbf0bff107cd297f69c0bf5a4017959ea238cd
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34594912"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39043970"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>教學課程：使用 Windows VM 受控服務識別透過 SAS 認證存取 Azure 儲存體
 
@@ -35,7 +35,7 @@ ms.locfileid: "34594912"
 > * 在資源管理員中將 VM 存取權限授與儲存體帳戶 SAS 
 > * 使用 VM 身分識別取得存取權杖，並將其用於從資源管理員取出 SAS 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -56,7 +56,7 @@ ms.locfileid: "34594912"
 5.  若要選取要在其中建立虛擬機器的新 [資源群組]，請選擇 [新建]。 完成時，按一下 [確定]。
 6.  選取 VM 的大小。 若要查看更多大小，請選取 [檢視全部] 或變更 [支援的磁碟類型] 篩選條件。 在 [設定] 刀鋒視窗上，保留預設值並按一下 [確定]。
 
-    ![替代映像文字](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![替代映像文字](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>在您的 VM 上啟用 MSI
 
@@ -67,7 +67,7 @@ ms.locfileid: "34594912"
 3. 若要註冊並啟用 MSI，請選取 [是]，如果您想要將它停用，則請選擇 [否]。
 4. 按一下 [儲存] 確認儲存設定。
 
-    ![替代映像文字](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![替代映像文字](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="create-a-storage-account"></a>建立儲存體帳戶 
 
@@ -80,7 +80,7 @@ ms.locfileid: "34594912"
 5. 確定 [訂用帳戶] 和 [資源群組] 符合您在上一個步驟中建立 VM 時指定的值。
 6. 按一下頁面底部的 [新增] 。
 
-    ![建立新的儲存體帳戶](../media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![建立新的儲存體帳戶](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
 ## <a name="create-a-blob-container-in-the-storage-account"></a>在儲存體帳戶中建立 Blob 容器
 
@@ -91,7 +91,7 @@ ms.locfileid: "34594912"
 3. 按一下頁面上方的 [+ 容器]，[新的容器] 面板隨即會滑出。
 4. 指定容器的名稱，選取存取層級，然後按一下 [確定]。 稍後在教學課程中將會用到您指定的名稱。 
 
-    ![建立儲存體容器](../media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
+    ![建立儲存體容器](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
 ## <a name="grant-your-vms-msi-access-to-use-a-storage-sas"></a>授與 VM 的 MSI 存取權來使用儲存體 SAS 
 
@@ -105,7 +105,7 @@ Azure 儲存體原生並不支援 Azure AD 驗證。  不過，您可以使用 M
 6. 接下來，請確保 [訂用帳戶] 下拉式清單中已列出適當的訂用帳戶，然後將 [資源群組] 設定為 [所有資源群組]。  
 7. 最後，在 [選取] 的下拉式清單中，選擇您的 Windows 虛擬機器，然後按一下 [儲存]。 
 
-    ![替代映像文字](../media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
+    ![替代映像文字](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
 
 ## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>使用 VM 的身分識別取得存取權杖，並使用它來呼叫 Azure Resource Manager 
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/21/2018
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: 49db6b625a9e4fc46fe414eb723dfccd890efd64
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b31e5cc3f99bdbb45aae6f9d71efdabdcc60f9c8
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34677354"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37138172"
 ---
 **上次文件更新**：2018 年 5 月 21 日下午 3:00 PST。
 
@@ -24,11 +24,11 @@ Microsoft 已在我們所有的雲端服務上部署防護功能。 執行 Azure
 此外，Azure 正盡可能擴展[記憶體保留維護](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#memory-preserving-maintenance)的使用，在更新主機或將 VM 移至已經更新的主機時，將 VM 最多暫停 30 秒。  記憶體保留維護會進一步將客戶的影響降到最低，而不需重新開機。  在主機上進行全系統更新時，Azure 將會使用這些方法。
 
 > [!NOTE] 
-在 2018 年 5 月 21 日，Google Project Zero 和 Microsoft 宣佈推出一項推測性執行旁路攻擊漏洞的全新子類別，稱為「推測性存放區旁路」。 我們已在 Microsoft 雲端基礎結構間部署其他深度防護功能，可直接解決推測性執行攻擊漏洞。 此處可取得詳細資訊：https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180012 
+在 2018 年 5 月 21 日，Google Project Zero 和 Microsoft 宣佈推出一項推測性執行旁路攻擊漏洞的全新子類別，稱為「推測性存放區旁路」。 我們已在 Microsoft 雲端基礎結構間部署其他深度防護功能，可直接解決推測性執行攻擊漏洞。 此處可取得詳細資訊： https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180012 
 >
 > 在 2018 年 2 月下旬，Intel Corporation 針對其微碼版本狀態發佈了更新的[微碼修訂指引](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf)，以改善穩定性並降低最近由 [Google Project Zero](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html) 所揭露的弱點風險。 Azure 在 [2018 年 1 月 3 日](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/)實施的緩和措施不會受到 Intel 的微碼更新影響。 Microsoft 已適當地提供強大的防護功能，以保護 Azure 客戶免於遭受其他 Azure 虛擬機器的危害。  
 >
-> Intel 的微碼可解決 Spectre Variant 2 ([CVE-2017-5715](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5715) 或分支目標導入)，以防禦在 Azure 上的 VM 內執行共用或未受信任工作負載的情況下才適用的攻擊。 我們的工程師會測試穩定性，以將微碼的效能影響降至最低，然後才會將它提供給 Azure 客戶使用。  因為很少客戶會在其 VM 內執行未受信任的工作負載，所以大部分客戶都不需要在此功能發行後立即啟用。 
+> Intel 的微碼可解決 Spectre Variant 2 - [CVE-2017-5715](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5715) 或分支目標導入，以防禦在 Azure 上的 VM 內執行共用或未受信任工作負載的情況下才適用的攻擊。 我們的工程師會測試穩定性，以將微碼的效能影響降至最低，然後才會將它提供給 Azure 客戶使用。  因為很少客戶會在其 VM 內執行未受信任的工作負載，所以大部分客戶都不需要在此功能發行後立即啟用。 
 >
 > 此頁面會隨時更新並提供更多資訊。  
 

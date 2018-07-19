@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 06/01/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f3faa9e811216cc930354b76903519a66f3d3587
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 713583a6a184a583145c610b4e014f56941efa4c
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128806"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113506"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>在 Batch 集區中佈建 Linux 計算節點
 
@@ -325,10 +325,7 @@ Azure Batch 採用 Azure 雲端服務和 Azure 虛擬機器技術。 Batch 服�
 如果您是使用[應用程式套件](batch-application-packages.md)將應用程式部署到您的 Batch 節點，也需要支付應用程式套件使用的 Azure 儲存體資源。 一般情況下，Azure 儲存體成本很低。 
 
 ## <a name="next-steps"></a>後續步驟
-### <a name="batch-python-tutorial"></a>Batch Python 教學課程
-如需如何透過 Python 使用 Batch 的深入教學課程，請參閱 [開始使用 Azure Batch Python 用戶端](batch-python-tutorial.md)。 隨附的[程式碼範例][github_samples_pyclient]包含 Helper 函式 `get_vm_config_for_distro`，展示另一種技術來取得虛擬機器組態。
 
-### <a name="batch-python-code-samples"></a>Batch Python 程式碼範例
 GitHub 上 [azure-batch-samples][github_samples] 存放庫中的 [Python 程式碼範例][github_samples_py]包含幾個指令碼，會示範如何執行一般 Batch 作業 (例如建立集區、作業和工作)。 Python 範例隨附的[讀我檔案][github_py_readme]詳細說明如何安裝必要的套件。
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx

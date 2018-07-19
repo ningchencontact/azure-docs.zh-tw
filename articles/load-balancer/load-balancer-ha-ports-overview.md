@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2017
+ms.date: 04/07/2018
 ms.author: kumud
-ms.openlocfilehash: 53e09498324f802ce1839d262999657d37ee973b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 716a3dafe08e896924bd28e44d69141e4c229687
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32169113"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005498"
 ---
 # <a name="high-availability-ports-overview"></a>高可用性連接埠概觀
 
@@ -55,7 +55,7 @@ HA 連接埠功能可協助您處理重要案例，例如虛擬網路內網路�
 
 ### <a name="load-balancing-large-numbers-of-ports"></a>對大量連接埠進行負載平衡
 
-您也可以為需要為大量連接埠進行負載平衡的應用程式使用 HA 連接埠。 您可以透過使用具有 HA 連接埠的內部 [Standard Load Balancer](load-balancer-standard-overview.md) 來簡化這些案例。 單一負載平衡規則會取代多個個別的負載平衡規則，每個連接埠一個規則。
+您也可以對需要負載平衡大量連接埠的應用程式使用 HA 連接埠。 您可以藉由使用具有 HA 連接埠的內部 [Standard Load Balancer](load-balancer-standard-overview.md)，來簡化這些案例。 單一負載平衡規則會取代多個個別的負載平衡規則，每個連接埠一個規則。
 
 ## <a name="region-availability"></a>區域可用性
 

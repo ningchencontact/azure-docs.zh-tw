@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 95eca05d695e039f59b71caa4d730f4e1f84fc97
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 80d06a6c40fa804c543a1cee9dc75b57b293beaf
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337296"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446872"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database 受控執行個體的 T-SQL 差異 
 
@@ -398,9 +398,12 @@ WITH PRIVATE KEY ( <private_key_options> )
 
 每個「受控執行個體」最多會為「Azure 進階磁碟」空間保留 35 TB 的儲存體，且每個資料庫檔案都會放在個別的實體磁碟上。 磁碟大小可以是 128 GB、256 GB、512 GB、1 TB 或 4 TB。 針對磁碟上未使用的空間，並不收費，但「Azure 進階磁碟」大小的總和不可超過 35 TB。 在某些情況下，總計不需 8 TB 的「受控執行個體」可能會因內部分散的緣故而超過 35 TB 的 Azure 儲存體大小限制。 
 
-例如，「受控執行個體」可能有一個大小為 1.2 TB 而使用 4 TB 磁碟的檔案，以及 248 個各為 1 GB 的檔案，放在大小為 128 GB 的 248 個磁碟上。 在此範例中，磁碟儲存體大小總計為 1 x 4 TB + 248 x 128 GB = 35 TB。 不過，為資料庫保留的執行個體大小總計為 1 x 1.2 TB + 248 x 1 GB = 1.4 TB。 這說明了在特性情況下，由於非常特定的檔案散發方式，「受控執行個體」可能在您未預期的情形下，達到「Azure 進階磁碟」儲存體限制。 
+例如，「受控執行個體」可能有一個大小為 1.2 TB 而放置在 4 TB 磁碟上的檔案，以及 248 個各為 1 GB 大小而放置在其他 128 GB 磁碟上的檔案。 在此範例中， 
+* 磁碟儲存體大小總計為 1 x 4 TB + 248 x 128 GB = 35 TB。 
+* 為執行個體上的資料庫保留的大小總計為 1 x 1.2 TB + 248 x 1 GB = 1.4 TB。
+這說明了在特性情況下，由於非常特定的檔案散發方式，「受控執行個體」可能在您未預期的情形下，達到為所連結「Azure 進階磁碟」保留的 35 TB。 
 
-如果未新增檔案，在現有的資料庫上就不會發生錯誤，而且它們可以成長而不會有任何問題，但是新的資料庫將無法建立或還原，因為即使所有資料庫的大小總計並未達到執行個體大小限制，也沒有足夠的空間供新磁碟機使用。 在該情況下所傳回的錯誤將不清楚。
+在此範例中，現有資料庫會繼續運作，只要不新增檔案，就可正常成長而不會有任何問題。 不過，因為沒有足夠空間可供新的磁碟機使用，所以無法建立或還原新的資料庫，即使所有資料庫的大小總計未達到執行個體大小限制也是如此。 在該情況下所傳回的錯誤將不清楚。
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>還原資料庫期間 SAS 金鑰設定不正確
 

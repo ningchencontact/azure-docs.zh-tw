@@ -9,22 +9,22 @@ editor: bagovind
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/11/2018
+ms.date: 06/29/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e1e46d5fb786b09a4c006b61f52b3ac99aafd555
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 0abf0a5971435fc3842a93e79d39468cba5c74da
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266495"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445206"
 ---
 # <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>提高 Azure Active Directory 中全域管理員的存取權
 
-如果您是 Azure Active Directory (Azure AD) 中的[全域管理員](../active-directory/active-directory-assign-admin-roles-azure-portal.md#global-administrator)，有時可能需要執行下列作業：
+如果您是 Azure Active Directory (Azure AD) 中的[全域管理員](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator)，有時可能需要執行下列作業：
 
 - 當使用者失去存取權時，重新取得 Azure 訂用帳戶的存取權
 - 授權其他使用者或您自己存取 Azure 訂用帳戶
@@ -49,7 +49,7 @@ ms.locfileid: "35266495"
 
    ![全域管理員可以管理 Azure 訂用帳戶與管理群組 - 螢幕擷取畫面](./media/elevate-access-global-admin/aad-properties-global-admin-setting.png)
 
-   當您將開關設定為 [是] 時，您的全域管理員帳戶 (目前登入的使用者) 會新增至根目錄範圍 (`/`) 之 Azure RBAC 中的使用者存取系統管理員角色，這會授權您存取與您的 Azure AD 租用戶建立關聯之所有 Azure 訂用帳戶中的檢視和報表。
+   當您將開關設定為 [是] 時，您的全域管理員帳戶 (目前登入的使用者) 會新增至根目錄範圍 (`/`) Azure RBAC 中的使用者存取系統管理員角色，這會授權您存取與 Azure AD 租用戶建立關聯的所有 Azure 訂用帳戶中的檢視和報表。
 
    當您將開關設定為 [否] 時，您的全域管理員帳戶 (目前登入的使用者) 會從 Azure RBAC 的使用者存取系統管理員角色中移除。 您無法看到與 Azure AD 租用戶建立關聯的所有 Azure 訂用帳戶，而且您只能檢視及管理已獲得存取權的 Azure 訂用帳戶。
 
@@ -220,4 +220,5 @@ Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
 ## <a name="next-steps"></a>後續步驟
 
 - [使用 REST 的角色型存取控制](role-assignments-rest.md)
-- [管理存取權指派](role-assignments-users.md)
+- [使用 Privileged Identity Management 來管理對 Azure 資源的存取](pim-azure-resource.md)
+- [使用條件式存取來管理 Azure 管理的存取](conditional-access-azure-management.md)

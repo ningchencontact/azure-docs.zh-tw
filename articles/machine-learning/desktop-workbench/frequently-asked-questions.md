@@ -7,16 +7,16 @@ ms.author: serinak
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 8a0d26a1ba1ca5fa7a3bd5cfca078ee6c94b229d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 94a1f3bbba83e8e71cf9440b5ded0784f4616c99
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831569"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38674150"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Azure Machine Learning 常見問題集
 
@@ -113,11 +113,11 @@ Azure Machine Learning Workbench 是為專業資料科學人員建置的隨附�
 
 **Workbench 是否是一種 IDE？**
 
-編號 Machine Learning Workbench 已設計為常用 IDE (例如 Jupyter Notebook、Visual Studio Code 及 PyCharm) 的隨附應用程式，但它不是功能完整的 IDE。 Machine Learning Workbench 提供一些基本的文字編輯功能，但不支援偵錯、IntelliSense 及其他常用的 IDE 功能。 建議您使用慣用的 IDE 來進行程式碼開發、編輯及偵錯。 您也可以嘗試使用 [Visual Studio Code Tools for AI](https://www.visualstudio.com/downloads/ai-tools-vscode)。
+否。 Machine Learning Workbench 已設計為常用 IDE (例如 Jupyter Notebook、Visual Studio Code 及 PyCharm) 的隨附應用程式，但它不是功能完整的 IDE。 Machine Learning Workbench 提供一些基本的文字編輯功能，但不支援偵錯、IntelliSense 及其他常用的 IDE 功能。 建議您使用慣用的 IDE 來進行程式碼開發、編輯及偵錯。 您也可以嘗試使用 [Visual Studio Code Tools for AI](https://www.visualstudio.com/downloads/ai-tools-vscode)。
 
 **使用 Azure Machine Learning Workbench 是否需要付費？**
 
-編號 Azure Machine Learning Workbench 是免費的應用程式。 您可以視需要將它下載到許多部電腦，並供許多使用者使用。 若要使用 Azure Machine Learning Workbench，您必須擁有一個測試帳戶。 .  
+否。 Azure Machine Learning Workbench 是免費的應用程式。 您可以視需要將它下載到許多部電腦，並供許多使用者使用。 若要使用 Azure Machine Learning Workbench，您必須擁有一個測試帳戶。 .  
 
 **是否支援命令列功能？**
 
@@ -172,4 +172,4 @@ Workbench 中的資料準備工具目前支援從下列格式內嵌：
 
 **Azure Machine Learning 與 Microsoft Cognitive Toolkit 如何相關？**
 
-[Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/) 是我們新工具和服務所支援的眾多架構之一。 Cognitive Toolkit 是一個整合的深層學習工具組，可讓您取用和結合常用的機器學習模型，包括「前饋深層類神經網路」(Feed-Forward Deep Neural Networks)、卷積類神經網路 (Convolutional Nets)、「序列到序列」(Sequence-to-Sequence) 及「循環式網路網路」。 如需有關 Microsoft Cognitive Toolkit 的詳細資訊，請瀏覽我們的[產品文件](https://docs.microsoft.com/cognitive-toolkit/)。 
+[Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/) 是我們新工具和服務所支援的眾多架構之一。 Cognitive Toolkit 是一個整合的深層學習工具組，可讓您取用和結合常用的機器學習模型，包括「前饋深層類神經網路」(Feed-Forward Deep Neural Networks)、卷積類神經網路 (Convolutional Nets)、「序列到序列」(Sequence-to-Sequence) 及「循環式網路網路」。 如需有關 Microsoft Cognitive Toolkit 的詳細資訊，請瀏覽我們的[產品文件](https://docs.microsoft.com/cognitive-toolkit/)。 

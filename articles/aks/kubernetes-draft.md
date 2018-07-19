@@ -2,19 +2,19 @@
 title: 使用 Draft 搭配 AKS 和 Azure Container Registry
 description: 使用 Draft 搭配 AKS 和 Azure Container Registry
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/29/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a5dfecefb6ce1d74e02c64371a864a6d3b07a2e1
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 8f273a5a2c47b25dc339fd63df127d141fe2f8e2
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257310"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130238"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>使用 Draft 搭配 Azure Kubernetes Service (AKS)
 
@@ -58,11 +58,11 @@ Draft 會在本機建置容器映像，然後從本機登錄 (如果是 Minikube
 
 ### <a name="create-trust-between-aks-cluster-and-acr"></a>在 AKS 叢集與 ACR 之間建立信任
 
-若要在 AKS 叢集與 ACR 登錄之間建立信任，您可以修改與 AKS 搭配使用的 Azure Active Directory 服務主體，方法是使用 ACR 存放庫的範圍對它新增參與者角色。 若要這麼做，請執行下列命令，將 _&lt;aks-rg-name&gt;_ 和 _&lt;aks-cluster-name&gt;_ 替換為 AKS 叢集的資源群組與名稱，並將 _&lt;acr-rg-nam&gt;_ 和 _&lt;acr-repo-name&gt;_ 替換為要與其建立信任之 ACR 存放庫的資源群組和存放庫名稱。
+若要在 AKS 叢集與 ACR 登錄之間建立信任，您可以修改與 AKS 搭配使用的 Azure Active Directory 服務主體，方法是使用 ACR 登錄的範圍對它新增參與者角色。 若要這麼做，請執行下列命令，將 _&lt;aks-rg-name&gt;_ 和 _&lt;aks-cluster-name&gt;_ 替換為 AKS 叢集的資源群組與名稱，並將 _&lt;acr-rg-nam&gt;_ 和 _&lt;acr-registry-name&gt;_ 替換為要與其建立信任的 ACR 登錄資源群組和登錄名稱。
 
 ```console
 export AKS_SP_ID=$(az aks show -g <aks-rg-name> -n <aks-cluster-name> --query "servicePrincipalProfile.clientId" -o tsv)
-export ACR_RESOURCE_ID=$(az acr show -g <acr-rg-name> -n <acr-repo-name> --query "id" -o tsv)
+export ACR_RESOURCE_ID=$(az acr show -g <acr-rg-name> -n <acr-registry-name> --query "id" -o tsv)
 az role assignment create --assignee $AKS_SP_ID --scope $ACR_RESOURCE_ID --role contributor
 ```
 

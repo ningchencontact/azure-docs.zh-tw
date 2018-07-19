@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: 5a3070582a32adeda45dff233782c3a971885c14
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 68377ffd53d5f2b99ddc08386529a40dda12e1b2
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018450"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901546"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>開始使用 Azure WebJobs SDK 進行事件驅動幕後處理
 
@@ -46,7 +46,7 @@ public static void Run(
 
 ### <a name="versions-2x-and-3x"></a>2.x 和 3.x 版
 
-這些指示會告知如何建立 WebJobs SDK 2.x 版專案，以及有關 3.x (處於預覽狀態) 相異處的注意事項。 3.x 版所帶來的主要變更，就是使用 .NET Core，而不是使用 .NET Framework。
+指示會說明如何建立 WebJobs SDK 版本 2.x 專案。 WebJobs SDK 的最新版本是 3.x，但它目前為預覽狀態，這份文件尚未具有該版本的指示。 3.x 版所帶來的主要變更，就是使用 .NET Core，而不是使用 .NET Framework。
 
 ### <a name="azure-functions"></a>Azure Functions
 
@@ -65,18 +65,13 @@ public static void Run(
 
 2. 選取 [Windows 傳統桌面] > [主控台應用程式] \(.NET Framework\)。
 
-   若要建立 3.x 專案，請選取 [.NET Core] > [主控台應用程式] \(.NET Core\)。
-   
-   > [!NOTE]
-   > 3.x 仍是預覽版，而且處於開發狀態。 本文中的 3.x 指示尚不完整；如需最新資訊，請參閱頁面底部的 GitHub 發行內容。
-
 3. 將專案命名為 WebJobsSDKSample，然後選取 [確定]。
 
    ![[新增專案] 對話方塊](./media/webjobs-sdk-get-started/new-project.png)
 
 ## <a name="add-webjobs-nuget-package"></a>新增 WebJobs NuGet 套件
 
-1. 安裝 NuGet 套件的最新穩定 2.x 版：`Microsoft.Azure.WebJobs`。 (在 WebJobs SDK 3.x 中，您會選擇最新的 3.x 版。)
+1. 安裝 NuGet 套件的最新穩定 2.x 版：`Microsoft.Azure.WebJobs`。
  
    以下是 2.2.0 版的 [Package Manager Console] 命令：
 
@@ -353,7 +348,7 @@ WebJobs SDK 會在 [應用程式設定] 集合中尋找儲存體連接字串。 
 
 ### <a name="add-application-insights-logging-provider"></a>新增 Application Insights 記錄提供者
 
-1. 為 Application Insights 記錄提供者安裝 NuGet 套件的最新穩定 2.x 版：`Microsoft.Azure.WebJobs.Logging.ApplicationInsights`。 (在 WebJobs SDK 3.x 中，選擇套件最新的 3.x 版。)
+1. 為 Application Insights 記錄提供者安裝 NuGet 套件的最新穩定 2.x 版：`Microsoft.Azure.WebJobs.Logging.ApplicationInsights`。
 
    以下是 2.2.0 版的 [Package Manager Console] 命令：
 

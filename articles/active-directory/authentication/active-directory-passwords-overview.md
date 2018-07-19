@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 77d26d860462b1a82315bf1385bccf62047e3da3
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: e28918fe9e26221738fe234ad41923c58a6ac260
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866663"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049016"
 ---
 # <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>適用於 IT 專業人員的 Azure AD 自助式密碼重設
 
@@ -65,5 +65,5 @@ Azure AD SSPR 可協助您：
 
 * 準備好開始使用 SSPR 嗎？ [安裝 Azure AD 自助式密碼重設](quickstart-sspr.md)。
 * 使用我們[首度發行指南](howto-sspr-deployment.md)中的指引來為使用者計劃成功的 SSPR 部署。
-* [重設或變更您的密碼](../active-directory-passwords-update-your-own-password.md)。
-* [註冊自助式密碼重設](../active-directory-passwords-reset-register.md)。
+* [重設或變更您的密碼](../user-help/active-directory-passwords-update-your-own-password.md)。
+* [註冊自助式密碼重設](../user-help/active-directory-passwords-reset-register.md)。

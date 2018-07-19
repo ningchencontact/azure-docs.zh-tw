@@ -13,15 +13,15 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/11/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 1501ca1c036a8db1d53b9b27170d9ae05d41f797
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 0a2cddec1308b96b960cd0bbc5ccae9fd1a1a9a7
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724110"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448907"
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>快速入門：透過 Azure Active Directory 條件式存取來要求特定應用程式必須使用 MFA 
 
@@ -42,8 +42,18 @@ ms.locfileid: "34724110"
 
 - **Azure AD Premium 版的存取權** - Azure AD 條件式存取是 Azure AD Premium 中的功能。 
 
-- **稱為 Isabella Simonsen 的測試帳戶** - 如果您不知道如何建立測試帳戶，請參閱[新增雲端式使用者](add-users-azure-active-directory.md#add-cloud-based-users)。
+- **稱為 Isabella Simonsen 的測試帳戶** - 如果您不知道如何建立測試帳戶，請參閱[新增雲端式使用者](fundamentals/add-users-azure-active-directory.md#add-cloud-based-users)。
 
+
+## <a name="test-your-sign-in"></a>測試您的登入
+
+此步驟的目標是取得登入體驗的印象，而不需要條件式存取原則。
+
+**若要初始化您的環境：**
+
+1. 以 Isabella Simonsen 身分登入 Azure 入口網站。
+
+2. 登出。
 
 
 ## <a name="create-your-conditional-access-policy"></a>建立條件式存取原則 
@@ -69,7 +79,7 @@ ms.locfileid: "34724110"
 
 **設定條件式存取原則：**
 
-1. 以全域管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
+1. 以全域管理員、安全性系統管理員或條件式存取系統管理員的身分，登入 [Azure 入口網站](https://portal.azure.com)。
 
 2. 在 Azure 入口網站的左側導覽列上，按一下 [Azure Active Directory]。 
 
@@ -161,7 +171,7 @@ ms.locfileid: "34724110"
 
 **建立條件式存取原則：**
 
-1. 在 [條件式存取 - 原則](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) 頁面頂端的功能表中，按一下 **What If**。  
+1. 在 [條件式存取 - 原則](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) 頁面頂端的功能表中，按一下 [What If]。  
  
     ![What If](./media/active-directory-conditional-access-app-based-mfa/14.png)
 
@@ -179,7 +189,7 @@ ms.locfileid: "34724110"
 
     c. 按一下 [選取] 。
 
-    d. 在 [選取] 頁面上，選取 [Microsoft Azure 管理]，然後按一下 [選取]。
+    d. 在 [選取] 頁面中，選取 [Microsoft Azure 管理]，然後按一下 [選取]。
 
     e. 在 [雲端應用程式] 頁面上，按一下 [完成]。
 
@@ -199,7 +209,7 @@ ms.locfileid: "34724110"
 
 當您不再需要測試使用者與條件式存取原則時，即可予以刪除：
 
-- 如果您不知道如何刪除 Azure AD 使用者，請參閱[從 Azure AD 刪除使用者](add-users-azure-active-directory.md#delete-users-from-azure-ad)。
+- 如果您不知道如何刪除 Azure AD 使用者，請參閱[從 Azure AD 刪除使用者](fundamentals/add-users-azure-active-directory.md#delete-users-from-azure-ad)。
 
 - 若要刪除原則，請選取您的原則，然後按一下快速存取工具列的 [刪除]。
 
@@ -208,5 +218,6 @@ ms.locfileid: "34724110"
 
 ## <a name="next-steps"></a>後續步驟
 
-如果您想要深入了解條件式存取，請參閱 [Azure Active Directory 條件式存取](active-directory-conditional-access-azure-portal.md)。
-
+> [!div class="nextstepaction"]
+> [需要接受使用條款](./active-directory-conditional-access-tou.md)
+> [偵測到有工作階段風險時封鎖存取](./active-directory-conditional-access-app-sign-in-risk.md)

@@ -9,12 +9,12 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 06/24/2018
 ms.author: giladm
-ms.openlocfilehash: 0646667caab594556cc3c2043bc36905acef6e54
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: f187a5fe1541f5508e55443abe80fc295ee63c87
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751038"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081450"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>開始使用 SQL Database 稽核
 Azure SQL 資料庫稽核會追蹤資料庫事件，並將事件寫入您 Azure 儲存體帳戶中的稽核記錄。 稽核也具備下列功能：
@@ -62,20 +62,18 @@ Azure SQL 資料庫稽核會追蹤資料庫事件，並將事件寫入您 Azure 
 下節描述使用 Azure 入口網站進行稽核的設定。
 
 1. 移至 [Azure 入口網站](https://portal.azure.com)。
-2. 移至您想要稽核的 SQL 資料庫/SQL 伺服器 [設定] 刀鋒視窗。 在 [設定] 刀鋒視窗中，選取 [稽核與威脅偵測]。
+2. 瀏覽至 SQL 資料庫/伺服器窗格中 [安全性] 標題下的 [稽核]。
 
     <a id="auditing-screenshot"></a> ![導覽窗格][1]
 3. 如果您想要設定伺服器稽核原則 ，可以選取資料庫稽核刀鋒視窗中的 [檢視伺服器設定] 連結。 然後，您可以檢視或修改伺服器稽核設定。 伺服器稽核原則會套用至此伺服器上所有現有和新建立的資料庫。
 
     ![瀏覽窗格][2]
-4. 如果您想要啟用資料庫層級的 Blob 稽核，[稽核] 請選取 [開啟]，[稽核類型] 請選取 [Blob]。
+4. 如果您偏向在資料庫層級啟用稽核，請將 [稽核] 切換到 [開啟]。
 
-    如果已啟用伺服器 Blob 稽核，資料庫設定的稽核將會與伺服器 Blob 稽核並存。
+    如果已啟用伺服器稽核，資料庫設定的稽核將會與伺服器稽核並存。
 
     ![瀏覽窗格][3]
 5. 若要開啟 [稽核記錄儲存體] 刀鋒視窗，請選取 [儲存體詳細資料]。 選取將儲存記錄的 Azure 儲存體帳戶，然後選取保留期間。 舊的記錄將被刪除。 然後按一下 [確定] 。
-    >[!TIP]
-    >若要充分利用稽核報告範本，請讓所有稽核的資料庫都使用相同的儲存體帳戶。
 
     <a id="storage-screenshot"></a> ![導覽窗格][4]
 6. 如果您想要自訂稽核的事件，您可以透過 [PowerShell Cmdlet](#subheading-7) 或 [REST API](#subheading-9) 來自訂。
@@ -102,7 +100,8 @@ Blob 稽核記錄是以 Blob 檔案集合的方式儲存在名為 **sqldbauditlo
     隨即開啟 [稽核記錄] 刀鋒視窗，您可以在其中檢視記錄。
 
     - 您可以按一下 [稽核記錄] 刀鋒視窗頂端的 [篩選] 來檢視特定日期。
-    - 您可以在由伺服器原則或資料庫原則稽核建立的稽核記錄之間切換。
+    - 切換 [稽核來源]，即可在由「伺服器稽核原則」和「資料庫稽核原則」建立的稽核記錄之間切換。
+    - 如果勾選 [只顯示 SQL 插入的稽核記錄] 核取方塊，只可以檢視 SQL 插入相關的稽核記錄。
 
        ![瀏覽窗格][8]
 
@@ -147,8 +146,8 @@ Blob 稽核記錄是以 Blob 檔案集合的方式儲存在名為 **sqldbauditlo
 * 伺服器層級 (**建議**)：啟動**主要伺服器**和**次要伺服器**上的稽核 - 將根據其個別的伺服器層級原則對主要和次要資料庫分開進行稽核。
 
 * 資料庫層級：只能從主要資料庫稽核設定來設定次要資料庫的資料庫層級稽核。
-   * 必須在「主要資料庫本身」 (而不是在伺服器上) 啟用 Blob 稽核。
-   * 在主要資料庫上啟用 Blob 稽核之後，它也會在次要資料庫上變成啟用狀態。
+   * 必須在「主要資料庫本身」 (而不是在伺服器上) 啟用稽核。
+   * 在主要資料庫上啟用稽核之後，它也會在次要資料庫上變成啟用狀態。
 
     >[!IMPORTANT]
     >使用資料庫層級稽核時，次要資料庫的儲存體設定將會和主要資料庫上的設定完全相同，這會導致跨地區流量。 建議您只啟用伺服器層級稽核，並讓所有資料庫的資料庫層級稽核保留在停用狀態。
@@ -204,7 +203,6 @@ Blob 稽核記錄是以 Blob 檔案集合的方式儲存在名為 **sqldbauditlo
 * [建立或更新伺服器 Blob 稽核原則](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/createorupdate)
 * [取得資料庫 Blob 稽核原則](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/get)
 * [取得伺服器 Blob 稽核原則](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/get)
-* [取得伺服器 Blob 稽核操作結果](https://msdn.microsoft.com/library/azure/mt771862.aspx)
 
 具有 WHERE 子句而可支援其他篩選的擴充原則：
 * [建立或更新資料庫「擴充的」Blob 稽核原則](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)

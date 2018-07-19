@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: daveba
-ms.openlocfilehash: fb67d1eea588d96129c4b58a8c1b2f569c9663bf
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: d4daccfdcb2bc11831e960aa20533e32801db946
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904402"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049332"
 ---
 # <a name="tutorial-use-a-linux-vms-managed-identity-to-access-azure-storage"></a>教學課程：使用 Linux VM 受控識別來存取 Azure 儲存體 
 
@@ -38,7 +38,7 @@ ms.locfileid: "37904402"
 > [!NOTE]
 > Azure 儲存體的 Azure Active Directory 驗證處於公開預覽狀態。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 如果您還沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com)，再繼續進行。
 
@@ -61,7 +61,7 @@ ms.locfileid: "37904402"
 2. 選取 [計算]，然後選取 [Ubuntu Server 16.04 LTS]。
 3. 輸入虛擬機器資訊。 針對 [驗證類型] 選取 [SSH 公開金鑰] 或 [密碼]。 建立的認證可讓您登入 VM。
 
-   ![用來建立虛擬機器的「基本」窗格](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+   ![用來建立虛擬機器的「基本」窗格](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. 在 [訂用帳戶] 清單中，選取虛擬機器的訂用帳戶。
 5. 若要選取需要在其中建立虛擬機器的新資源群組，請選擇 [資源群組] > [新建]。 完成時，請選取 [確定]。
@@ -87,7 +87,7 @@ ms.locfileid: "37904402"
 5. 確定 [訂用帳戶] 和 [資源群組] 符合您在上一個步驟中建立 VM 時指定的值。
 6. 按一下頁面底部的 [新增] 。
 
-    ![建立新的儲存體帳戶](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![建立新的儲存體帳戶](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
 ## <a name="create-a-blob-container-and-upload-a-file-to-the-storage-account"></a>建立 Blob 容器，並將檔案上傳至儲存體帳戶
 
@@ -98,14 +98,14 @@ ms.locfileid: "37904402"
 3. 按一下頁面頂端的 [+ 容器]。
 4. 在 [新增容器] 下，輸入容器的名稱，然後在 [公用存取層級] 下保留預設值。
 
-    ![建立儲存體容器](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
+    ![建立儲存體容器](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
 5. 使用您選擇的編輯器，在本機電腦上建立標題為 hello world.txt 的檔案。  開啟檔案並新增以下文字 (不含引號)："Hello world! :)" 然後加以儲存。 
 
 6. 按一下容器名稱，然後按一下 [上傳]，即可將檔案上傳至新建立的容器
 7. 在 [上傳 blob] 窗格的 [檔案] 下，按一下資料夾圖示，然後在本機電腦瀏覽至檔案 **hello_world.txt**、選取檔案，然後按一下 [上傳]。
 
-    ![上傳文字檔](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
+    ![上傳文字檔](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
 ## <a name="grant-your-vm-access-to-an-azure-storage-container"></a>將您的虛擬機器存取權授與 Azure 儲存體容器 
 

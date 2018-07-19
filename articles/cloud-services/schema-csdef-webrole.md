@@ -10,15 +10,15 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 85368e4e-a0db-4c02-8dbc-8e2928fa6091
 caps.latest.revision: 60
-author: thraka
-ms.author: adegeo
+author: jpconnock
+ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: 6db3edef937dc0b5cdd805d0045897e02b985e7b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: e548841f334705aa71ada92c43ccde207a1f6318
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360337"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39002308"
 ---
 # <a name="azure-cloud-services-definition-webrole-schema"></a>Azure 雲端服務定義 WebRole 結構描述
 Azure Web 角色是專為 IIS 7 所支援之 Web 應用程式的程式設計 (例如，ASP.NET、PHP、Windows Communication Foundation 及 FastCGI) 所自訂的角色。

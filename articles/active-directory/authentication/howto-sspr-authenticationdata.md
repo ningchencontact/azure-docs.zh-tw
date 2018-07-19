@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 5409bf198d0e3f6537619ef4698d9f2e31bd27c5
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: ea6bf503eeba9e904c492a858139490b523a10cc
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257582"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044170"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>部署密碼重設而不需要使用者註冊
 
@@ -155,8 +155,8 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 ## <a name="next-steps"></a>後續步驟
 
 * [如何完成 SSPR 成功首度發行？](howto-sspr-deployment.md)
-* [重設或變更您的密碼](../active-directory-passwords-update-your-own-password.md)
-* [註冊自助式密碼重設](../active-directory-passwords-reset-register.md)
+* [重設或變更您的密碼](../user-help/active-directory-passwords-update-your-own-password.md)
+* [註冊自助式密碼重設](../user-help/active-directory-passwords-reset-register.md)
 * [您有授權問題嗎？](concept-sspr-licensing.md)
 * [哪些驗證方法可供使用者使用？](concept-sspr-howitworks.md#authentication-methods)
 * [使用 SSPR 的原則選項有哪些？](concept-sspr-policy.md)

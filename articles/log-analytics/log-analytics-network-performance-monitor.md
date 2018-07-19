@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: na
-ms.openlocfilehash: d083783fb4c648cde5d8f4ab611990f65e48a16e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 28f5ac882051250903fc2f45def95eb65d1b1ce3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129992"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38635533"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure 中的網路效能監控解決方案
 
@@ -35,7 +35,7 @@ ms.locfileid: "37129992"
 
 * [效能監視器](log-analytics-network-performance-monitor-performance-monitor.md)：您可以監視雲端部署和內部部署位置、多個資料中心和分公司，以及任務關鍵性多層式應用程式或微服務之間的網路連線。 利用效能監視器，您可以在使用者提出抱怨之前偵測到網路問題。
 
-* [服務端點監視器](log-analytics-network-performance-monitor-service-endpoint.md)：您可以監視從使用者到所關心服務的連線，判斷路徑中有哪些基礎結構，以及識別發生網路瓶頸之處。 您可以搶先在使用者之前得知中斷情況，並查看網路路徑上發生問題的確切位置。 
+* [服務連線能力監視](log-analytics-network-performance-monitor-service-endpoint.md)：您可以監視從使用者到所關心服務的連線、判斷路徑中有哪些基礎結構，以及識別發生網路瓶頸之處。 您可以搶先在使用者之前得知中斷情況，並查看網路路徑上發生問題的確切位置。 
 
     此功能可協助您執行以 HTTP、HTTPS、TCP 與 ICMP 為基礎的測試，以近乎即時或記錄的方式監視服務的可用性與回應時間。 您也可以監視因網路而造成封包遺失與延遲問題的比重。 透過網路拓撲地圖，您可以解析網速變慢的問題。 您可以利用每個躍點的延遲資料，識別從節點到服務的網路路徑沿途所發生的問題點。 透過內建測試，您完全不需任何預先設定，即可監視 Office365 和 Dynamics CRM 的網路連線。 使用此功能，您可以監視任何支援 TCP 端點的網路連線，例如網站、SaaS 應用程式、PaaS 應用程式和 SQL 資料庫。
 
@@ -68,13 +68,13 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
 
     若要監視網路連結，請在該連結的兩個端點上安裝代理程式。 如果您不確定您的網路拓撲，請在具有重要工作負載、且您想要監視其間網路效能的伺服器上安裝代理程式。 例如，如果您想要監視 Web 伺服器和執行 SQL 的伺服器 之間的網路連線，請在這兩部伺服器上安裝代理程式。 代理程式會監視主機之間的網路連線 (連結)，而不是主機本身。 
 
-* **服務端點監視器**：在您想要的每個節點上安裝 Operations Management Suite 代理程式，監視它與服務端點之間的網路連線。 舉例來說，如果您想要監視辦公室網站 O1、O2 和 O3 對 Office 365 的網路連線。 請分別在 O1、O2 和 O3 中的至少一個節點上安裝 Operations Management Suite 代理程式。 
+* **服務連線能力監視**：在您想要的每個節點上安裝 Operations Management Suite 代理程式，監視它與服務端點之間的網路連線。 舉例來說，如果您想要監視辦公室網站 O1、O2 和 O3 對 Office 365 的網路連線。 請分別在 O1、O2 和 O3 中的至少一個節點上安裝 Operations Management Suite 代理程式。 
 
 * **ExpressRoute 監視器**：在您的 Azure 虛擬網路中安裝至少一個 Operations Management Suite 代理程式。 此外，也在透過 ExpressRoute 私人對等互連進行連線的內部部署子網路中至少安裝一個代理程式。  
 
 ### <a name="configure-operations-management-suite-agents-for-monitoring"></a>設定用於監視的 Operations Management Suite 代理程式 
 
-網路效能監視器會使用綜合交易來監視來源與目的地代理程式之間的網路效能。 您可以從 TCP 和 ICMP 中擇一作為要在監視「效能監視器」和「服務端點監視器」功能中用於監視的通訊協定。 TCP 可用於「ExpressRoute 監視器」。 請確定防火牆允許 Operations Management Suite 代理程式 (這些代理程式將用於在您選擇的通訊協定上進行監視) 之間的通訊。 
+網路效能監視器會使用綜合交易來監視來源與目的地代理程式之間的網路效能。 您可以從 TCP 和 ICMP 中擇一作為要在監視「效能監視器」和「服務連線能力監視」功能中用於監視的通訊協定。 只有 TCP 可以當作 ExpressRoute 監視的監視通訊協定使用。 請確定防火牆允許 Operations Management Suite 代理程式 (這些代理程式將用於在您選擇的通訊協定上進行監視) 之間的通訊。 
 
 * **TCP 通訊協定**：如果您選擇 TCP 作為用於監視的通訊協定，請在用於「網路效能監視器」和「ExpressRoute 監視器」的代理程式上開啟防火牆連接埠，以確保代理程式可以彼此連線。 若要開啟連接埠，請使用系統管理權限執行 [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell 指令碼，而不在 PowerShell 視窗中使用任何參數。
 
@@ -114,7 +114,7 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
 
    ![效能監視器檢視](media/log-analytics-network-performance-monitor/npm-synthetic-transactions.png)
     
-   **服務端點監視器**：此功能提供內建的預先設定測試，可從代理程式監視 Office365 和 Dynamics 365 的網路連線。 請選取您要監視的 Office 365 和 Dynamics 365 服務旁邊的核取方塊，以選擇這些服務。 若要選擇您要用來監視的代理程式，請選取 [新增代理程式]。 如果您不想要使用此功能，或想要稍後再設定，請不要選擇任何項目，而直接選取 [儲存並繼續]。
+   **服務連線能力監視**：此功能提供內建的預先設定測試，可從代理程式監視 Office 365 和 Dynamics 365 的網路連線。 請選取您要監視的 Office 365 和 Dynamics 365 服務旁邊的核取方塊，以選擇這些服務。 若要選擇您要用來監視的代理程式，請選取 [新增代理程式]。 如果您不想要使用此功能，或想要稍後再設定，請不要選擇任何項目，而直接選取 [儲存並繼續]。
 
    ![服務端點監視器檢視](media/log-analytics-network-performance-monitor/npm-service-endpoint-monitor.png)
 
@@ -143,7 +143,7 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
 
 若要啟用或停用特定子網路的監視：
 
-1. 選取或清除  **[子網路識別碼]** 旁的核取方塊。 然後，確定已視情況選取或清除  **[用於監視]** 。 您可以選取或清除多個子網路。 停用後，子網路就不受監視，因為代理程式將會更新為停止 ping 其他代理程式。 
+1. 選取或清除 [子網路識別碼] **** 旁的核取方塊。 然後，確定已視情況選取或清除  **[用於監視]** 。 您可以選取或清除多個子網路。 停用後，子網路就不受監視，因為代理程式將會更新為停止 ping 其他代理程式。 
 2. 選擇您要在特定子網路中監視的節點。 請從清單中選取特定子網路，並且在包含非受控與受控節點的清單之間移動所需的節點。 您可以將自訂描述新增至子網路。
 3. 選取 [儲存] 以儲存組態。 
 
@@ -196,7 +196,7 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
 
 * **ExpressRoute 監視器**：此頁面會提供包含解決方案監視器之各種不同 ExpressRoute 對等互連連線的健康情況摘要。 [拓撲] 圖格會透過您的網路中受監視的 ExpressRoute 線路顯示網路路徑數目。 選取此圖格可移至 [拓撲] 檢視。
 
-* **服務端點監視器**：此頁面會提供您所建立之不同測試的健康情況摘要。 [拓撲] 圖格會顯示受監視的端點數目。 選取此圖格可移至 [拓撲] 檢視。
+* **服務連線能力監視**：此頁面會提供您所建立不同測試的健康情況摘要。 [拓撲] 圖格會顯示受監視的端點數目。 選取此圖格可移至 [拓撲] 檢視。
 
 * **效能監視器**：此頁面會提供解決方案所監視的**網路**連結和**子網路**連結的健康情況摘要。 [拓撲] 圖格會顯示網路中受監視的網路路徑數目。 選取此圖格可移至 [拓撲] 檢視。 
 
@@ -281,4 +281,4 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
 * **加入我們的社群**：我們竭誠歡迎新客戶加入我們的社群。 加入其中，您就能夠及早存取新功能，並有機會協助我們改善網路效能監視器。 如果您想加入，請填妥這份 [快速問卷調查](https://aka.ms/npmcohort)。 
 
 ## <a name="next-steps"></a>後續步驟 
-深入了解[效能監視器](log-analytics-network-performance-monitor-performance-monitor.md)、[服務端點監視器](log-analytics-network-performance-monitor-performance-monitor.md)與 [ExpressRoute 監視器](log-analytics-network-performance-monitor-expressroute.md)。 
+深入了解[效能監視器](log-analytics-network-performance-monitor-performance-monitor.md)、[服務連線能力監視](log-analytics-network-performance-monitor-performance-monitor.md)與 [ExpressRoute 監視](log-analytics-network-performance-monitor-expressroute.md)。 

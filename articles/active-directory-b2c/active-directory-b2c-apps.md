@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 12/06/2016
 ms.author: davidmu1
 ms.component: B2C
-ms.openlocfilehash: 63bf3725eddd14d665e51427a65a339116ceb09b
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: d306d27f448ab9dd95e891b81f27b69e11f05495
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34710078"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442061"
 ---
 # <a name="azure-active-directory-b2c-types-of-applications"></a>Azure Active Directory B2C：應用程式類型
 Azure Active Directory (Azure AD) B2C 支援各種現代應用程式架構的驗證。 全部都以業界標準通訊協定 [OAuth 2.0](active-directory-b2c-reference-protocols.md) 或 [OpenID Connect](active-directory-b2c-reference-protocols.md) 為基礎。 此文件簡要描述您可以建置的應用程式類型，不涉及您慣用的語言或平台。 在您 [開始建立應用程式](active-directory-b2c-overview.md)之前，也可協助您先了解一些高階案例。
@@ -38,8 +38,7 @@ Azure Active Directory (Azure AD) B2C 支援各種現代應用程式架構的驗
 5. 資源伺服器會驗證安全性權杖，以確認可以授與存取權。
 6. 應用程式會定期重新整理安全性權杖。
 
-<!-- TODO: Need a page for libraries to link to -->
-根據您要建置的應用程式類型而定，這些步驟可能稍有不同。
+<!-- TODO: Need a page for libraries to link to --> 根據您要建置的應用程式類型而定，這些步驟可能稍有不同。
 
 ## <a name="web-apps"></a>Web 應用程式
 對於裝載於伺服器且透過瀏覽器存取的 Web 應用程式 (包括 .NET、PHP、Java、Ruby、Python、Node.js)，Azure AD B2C 支援以 [OpenID Connect](active-directory-b2c-reference-protocols.md) 完成一切使用者體驗。 這包括登入、註冊和設定檔管理。 在 Azure AD B2C 的 OpenID Connect 實作中，Web 應用程式會向 Azure AD 發出驗證要求，以起始這些使用者體驗。 要求的結果是 `id_token`。 這個安全性權杖代表使用者的身分識別。 它也以宣告形式提供使用者的相關資訊：

@@ -2,19 +2,19 @@
 title: Azure SQL Database 以 DTU 為基礎的資源限制 - 彈性集區 | Microsoft Docs
 description: 此頁面將針對 Azure SQL Database 中的彈性集區，說明一些以 DTU 為基礎的常見資源限制。
 services: sql-database
-author: CarlRabeler
+author: sachinpMSFT
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 06/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 08dabf1ad66f69c5e0f55aedbc2a4d0bb265a0bd
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: ea912d2b2297cf64b51ea4c50b36b3847fcc1bf8
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752226"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131883"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>使用以 DTU 為基礎的購買模型的彈性集區資源限制 
 
@@ -105,7 +105,7 @@ ms.locfileid: "36752226"
 ||||||||
 
 > [!IMPORTANT]
-> 所有區域目前均可取得進階層中超過 1 TB 的儲存體，但下列區域除外：英國北部、美國中西部、英國南部2、中國東部、USDoDCentral、德國中部、USDoDEast、US Gov (西南部)、US Gov (中南部)、德國東北部、中國北部、US Gov (東部)。 在其他區域，進階層中的儲存空間上限為 1 TB。 請參閱 [P11-P15 目前限制](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
+> 所有區域目前均可取得進階層中超過 1 TB 的儲存體，下列區域除外：美國中西部、中國東部、USDoDCentral、德國中部、USDoDEast、US Gov (西南部)、德國東北部、US Gov (愛荷華州)、中國北部。 在其他區域，進階層中的儲存空間上限為 1 TB。 請參閱 [P11-P15 目前限制](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
 
 如果彈性集區的所有 DTU 均已使用，則集區中的每個資料庫會收到等量的資源以處理查詢。 SQL Database 服務藉由確保運算時間的均等配量，提供資料庫之間的資源共用公平性。 彈性集區資源共用公平性不包括任何資源數量，否則當每個資料庫的最小 DTU 數設為非零的值時，便會對每個資料庫保證資源數量。
 

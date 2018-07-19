@@ -1,6 +1,6 @@
 ---
 title: 了解 Azure RBAC 中的角色定義 | Microsoft Docs
-description: 了解角色型存取控制 (RBAC) 中的角色定義，以及如何定義自訂角色對 Azure 中的資源進行微調存取管理。
+description: 了解角色型存取控制 (RBAC) 中的角色定義，以對 Azure 中的資源進行微調存取管理。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -8,19 +8,19 @@ manager: mtillman
 ms.assetid: ''
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/18/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 9bb7808f2b483fe9cd7d22c6df3fe80d4a98f1f4
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 1d594b91b85a1bad3bbaa69bc27e62a4829a5661
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266851"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37438264"
 ---
 # <a name="understand-role-definitions"></a>了解角色定義
 
@@ -47,7 +47,7 @@ type
 
 用來指定作業的字串具有下列格式：
 
-- `Microsoft.{ProviderName}/{ChildResourceType}/{action}`
+- `{Company}.{ProviderName}/{resourceType}/{action}`
 
 作業字串的 `{action}` 部分指定您可以對資源類型執行的作業類型。 例如，您將會在 `{action}` 中看到下列子字串：
 
@@ -94,7 +94,7 @@ type
 
 ## <a name="management-and-data-operations-preview"></a>管理和資料作業 (預覽)
 
-管理作業的角色型存取控制是在角色定義的 `actions` 和 `notActions` 區段中指定。 以下是 Azure 中的一些管理作業範例：
+管理作業的角色型存取控制是在角色定義的 `actions` 和 `notActions` 屬性中指定。 以下是 Azure 中的一些管理作業範例：
 
 - 管理儲存體帳戶的存取權
 - 建立、更新或刪除 Blob 容器
@@ -104,13 +104,13 @@ type
 
 在此之前，資料作業不可使用角色型存取控制。 資料作業的授權會因為資源提供者不同而有差異。 但管理作業所使用的相同角色型存取控制授權模型已延伸到資料作業 (目前處於預覽狀態)。
 
-為支援資料作業，已新增資料區段到角色定義結構中。 資料作業會在 `dataActions` 和 `notDataActions` 區段中指定。 藉由新增這些資料區段，可繼續維持管理和資料之間的分隔。 這可避免目前具有萬用字元 (`*`) 的角色指派突然存取資料。 以下是可在 `dataActions` 和 `notDataActions`中指定的一些資料作業：
+為支援資料作業，已新增資料屬性到角色定義結構中。 資料作業會在 `dataActions` 和 `notDataActions` 屬性中指定。 藉由新增這些資料屬性，可繼續維持管理和資料之間的分隔。 這可避免目前具有萬用字元 (`*`) 的角色指派突然存取資料。 以下是可在 `dataActions` 和 `notDataActions`中指定的一些資料作業：
 
 - 讀取容器中的 Blob 清單
 - 將儲存體 Blob 寫入容器中
 - 刪除佇列中的訊息
 
-以下是[儲存體 Blob 資料讀取器 (預覽)](built-in-roles.md#storage-blob-data-reader-preview) 的角色定義，其中包含 `actions` 和 `dataActions` 區段中的作業。 此角色可讓您讀取 Blob 容器和基礎 Blob 資料。
+以下是[儲存體 Blob 資料讀取器 (預覽)](built-in-roles.md#storage-blob-data-reader-preview) 的角色定義，其中包含 `actions` 和 `dataActions` 屬性中的作業。 此角色可讓您讀取 Blob 容器和基礎 Blob 資料。
 
 ```json
 [
@@ -142,7 +142,7 @@ type
 ]
 ```
 
-您只能將資料作業新增至 `dataActions` 和 `notDataActions` 區段。 資源提供者會藉由將 `isDataAction` 屬性設為 `true`，來識別哪些作業是資料作業。 若要查看 `isDataAction` 為 `true` 的作業清單，請參閱[資源提供者作業](resource-provider-operations.md)。 在角色定義中，沒有資料作業的角色不需要有 `dataActions` 和 `notDataActions` 區段。
+您只能將資料作業新增至 `dataActions` 和 `notDataActions` 屬性。 資源提供者會藉由將 `isDataAction` 屬性設為 `true`，來識別哪些作業是資料作業。 若要查看 `isDataAction` 為 `true` 的作業清單，請參閱[資源提供者作業](resource-provider-operations.md)。 在角色定義中，沒有資料作業的角色不需要有 `dataActions` 和 `notDataActions` 屬性。
 
 所有管理作業 API 呼叫的授權都會由 Azure Resource Manager 處理。 資料作業 API 呼叫的授權是由資源提供者或 Azure Resource Manager 處理。
 
@@ -190,7 +190,7 @@ Bob 的權限僅限於[儲存體 Blob 資料參與者 (預覽)](built-in-roles.m
 
 ## <a name="actions"></a>動作
 
-`actions` 權限指定角色授與存取權的管理作業。 它是識別 Azure 資源提供者的安全性實體作業的作業字串集合。 以下是可用於 `actions` 中的一些管理作業範例。
+`actions` 權限會指定角色所允許執行的管理作業。 它是識別 Azure 資源提供者的安全性實體作業的作業字串集合。 以下是可用於 `actions` 中的一些管理作業範例。
 
 | 作業字串    | 說明         |
 | ------------------- | ------------------- |
@@ -210,7 +210,7 @@ Bob 的權限僅限於[儲存體 Blob 資料參與者 (預覽)](built-in-roles.m
 
 ## <a name="dataactions-preview"></a>dataActions (預覽)
 
-`dataActions` 權限可對該物件中的資料指定資料作業 (資料作業的存取權是角色所授與)。 例如，如果使用者有儲存體帳戶的讀取 Blob 資料存取權，則他們可讀取該儲存體帳戶中的 Blob。 以下是可用於 `dataActions` 中的一些資料作業範例。
+`dataActions` 權限會指定角色允許對物件內資料執行的管理作業。 例如，如果使用者有儲存體帳戶的讀取 Blob 資料存取權，則他們可讀取該儲存體帳戶中的 Blob。 以下是可用於 `dataActions` 中的一些資料作業範例。
 
 | 作業字串    | 說明         |
 | ------------------- | ------------------- |
@@ -229,11 +229,9 @@ Bob 的權限僅限於[儲存體 Blob 資料參與者 (預覽)](built-in-roles.m
 
 ## <a name="assignablescopes"></a>assignableScopes
 
-`assignableScopes` 區段指定角色可指派的範圍 (管理群組 (目前處於預覽階段)、訂用帳戶、資源群組或資源)。 您可以讓角色僅指派給需要它的訂用帳戶或資源群組，不會干擾其餘訂用帳戶或資源群組的使用者體驗。 您至少必須使用一個管理群組、訂用帳戶、資源群組或資源識別碼。
+`assignableScopes` 屬性指定角色可指派的範圍 (管理群組 (目前處於預覽階段)、訂用帳戶、資源群組或資源)。 您可以讓角色僅指派給需要它的訂用帳戶或資源群組，不會干擾其餘訂用帳戶或資源群組的使用者體驗。 您至少必須使用一個管理群組、訂用帳戶、資源群組或資源識別碼。
 
-內建角色的 `assignableScopes` 設定為根目錄範圍 (`"/"`)。 根目錄範圍表示角色可指派給所有範圍。 您無法在自己的自訂角色中使用根目錄範圍。 如果您嘗試，則會收到授權錯誤。
-
-有效的可指派範圍範例包括：
+內建角色的 `assignableScopes` 設定為根目錄範圍 (`"/"`)。 根目錄範圍表示角色可指派給所有範圍。 有效的可指派範圍範例包括：
 
 | 案例 | 範例 |
 |----------|---------|
@@ -242,86 +240,9 @@ Bob 的權限僅限於[儲存體 Blob 資料參與者 (預覽)](built-in-roles.m
 | 角色只能指派給網路資源群組 | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network"` |
 | 角色可指派給所有範圍 | `"/"` |
 
-## <a name="assignablescopes-and-custom-roles"></a>assignableScopes 和自訂角色
+如需自訂角色的 `assignableScopes` 相關資訊，請參閱[自訂角色](custom-roles.md)。
 
-自訂角色的 `assignableScopes` 區段也會控制誰可以建立、刪除、修改或檢視自訂角色。
-
-| Task | 作業 | 說明 |
-| --- | --- | --- |
-| 建立/刪除自訂角色 | `Microsoft.Authorization/ roleDefinition/write` | 獲得授權可對自訂角色的所有 `assignableScopes` 執行此作業的使用者，可以建立 (或刪除) 用於這些範圍的自訂角色。 例如，訂用帳戶、資源群組和資源的[擁有者](built-in-roles.md#owner)和[使用者存取系統管理員](built-in-roles.md#user-access-administrator)。 |
-| 修改自訂角色 | `Microsoft.Authorization/ roleDefinition/write` | 獲得授權可對自訂角色的所有 `assignableScopes` 執行此作業的使用者，可以在這些範圍中修改自訂角色。 例如，訂用帳戶、資源群組和資源的[擁有者](built-in-roles.md#owner)和[使用者存取系統管理員](built-in-roles.md#user-access-administrator)。 |
-| 檢視自訂角色 | `Microsoft.Authorization/ roleDefinition/read` | 獲得授權可在範圍中執行此作業的使用者，可以檢視可指派給該範圍的自訂角色。 所有內建角色都允許指派自訂角色。 |
-
-## <a name="role-definition-examples"></a>角色定義範例
-
-下列範例使用 Azure CLI 示範[讀取者](built-in-roles.md#reader)角色定義，如下所示：
-
-```json
-[
-  {
-    "additionalProperties": {},
-    "assignableScopes": [
-      "/"
-    ],
-    "description": "Lets you view everything, but not make any changes.",
-    "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
-    "name": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
-    "permissions": [
-      {
-        "actions": [
-          "*/read"
-        ],
-        "additionalProperties": {},
-        "dataActions": [],
-        "notActions": [],
-        "notDataActions": []
-      }
-    ],
-    "roleName": "Reader",
-    "roleType": "BuiltInRole",
-    "type": "Microsoft.Authorization/roleDefinitions"
-  }
-]
-```
-
-下列範例使用 Azure PowerShell 示範可監視和重新啟動虛擬機器的自訂角色，如下所示：
-
-```json
-{
-  "Name":  "Virtual Machine Operator",
-  "Id":  "88888888-8888-8888-8888-888888888888",
-  "IsCustom":  true,
-  "Description":  "Can monitor and restart virtual machines.",
-  "Actions":  [
-                  "Microsoft.Storage/*/read",
-                  "Microsoft.Network/*/read",
-                  "Microsoft.Compute/*/read",
-                  "Microsoft.Compute/virtualMachines/start/action",
-                  "Microsoft.Compute/virtualMachines/restart/action",
-                  "Microsoft.Authorization/*/read",
-                  "Microsoft.Resources/subscriptions/resourceGroups/read",
-                  "Microsoft.Insights/alertRules/*",
-                  "Microsoft.Insights/diagnosticSettings/*",
-                  "Microsoft.Support/*"
-  ],
-  "NotActions":  [
-
-                 ],
-  "DataActions":  [
-
-                  ],
-  "NotDataActions":  [
-
-                     ],
-  "AssignableScopes":  [
-                           "/subscriptions/{subscriptionId1}",
-                           "/subscriptions/{subscriptionId2}",
-                           "/subscriptions/{subscriptionId3}"
-                       ]
-}
-```
-
-## <a name="see-also"></a>另請參閱
+## <a name="next-steps"></a>後續步驟
 
 * [內建角色](built-in-roles.md)
 * [自訂角色](custom-roles.md)

@@ -1,11 +1,11 @@
 ---
 title: Linux 上的 Azure App Service 常見問題集 | Microsoft Docs
 description: Linux 上的 Azure App Service 常見問題集。
-keywords: azure app service, web 應用程式, 常見問題集, linux, oss
+keywords: azure app service, web 應用程式, 常見問題集, linux, oss, 用於容器的 Web App, 多重容器
 services: app-service
 documentationCenter: ''
-author: ahmedelnably
-manager: cfowler
+author: yili
+manager: apurvajo
 editor: ''
 ms.assetid: ''
 ms.service: app-service
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2018
-ms.author: msangapu
-ms.openlocfilehash: 5b3b3d3946b56ff53ad74c2ab93a646baa787d05
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.date: 06/26/2018
+ms.author: yili
+ms.openlocfilehash: ea2e9d9fd1d9390cdd689b4f33b72cd471feeb8c
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222972"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916851"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux 上的 Azure App Service 常見問題集
 
@@ -66,7 +66,7 @@ ms.locfileid: "36222972"
 
 是。
 
-**我可以使用 *Web 部署*來部署我的 Web 應用程式嗎？**
+**我可以使用 *WebDeploy/MSDeploy* 來部署我的 Web 應用程式嗎？**
 
 是，您需要將稱為 `WEBSITE_WEBDEPLOY_USE_SCM` 的應用程式設定設定為 *false*。
 
@@ -144,6 +144,35 @@ SCM 網站是在個別的容器中執行。 您無法檢查應用程式容器的
 **我是否需要在我的自訂容器中實作 HTTPS？**
 
 不需要，平台會在共用的前端處理 HTTPS 終止。
+
+## <a name="multi-container-with-docker-compose-and-kubernetes"></a>多重容器與 Docker Compose 和 Kubernetes
+
+**如何設定 Azure 容器登錄 (ACR) 與多重容器一起使用？**
+
+為了將 ACR 與多重容器一起使用，**所有容器映像**都必須裝載在相同的 ACR 登錄伺服器上。 一旦它們位於相同的登錄伺服器上，您必須建立應用程式設定，然後更新 Docker Compose 或 Kubernetes 組態檔，以包含 ACR 映像名稱。
+
+建立下列應用程式設定：
+
+- DOCKER_REGISTRY_SERVER_USERNAME
+- DOCKER_REGISTRY_SERVER_URL (完整的 URL，例如：https://<server-name>.azurecr.io)
+- DOCKER_REGISTRY_SERVER_PASSWORD (啟用 ACR 設定中的系統管理員存取權)
+
+在組態檔中，參考您的 ACR 映像，如下列範例所示：
+
+```yaml
+image: <server-name>.azurecr.io/<image-name>:<tag>
+```
+
+**我如何知道哪些容器可存取網際網路？**
+
+- 只有一個容器可以開啟以供存取
+- 只有連接埠 80 和 8080 可以存取 (公開連接埠)
+
+以下是判斷哪些容器可存取的規則 - 依優先順序排列：
+
+- 應用程式設定 `WEBSITES_WEB_CONTAINER_NAME` 設為容器名稱
+- 第一個容器定義連接埠 80 或 8080
+- 如果上述任一項皆不為 true，那麼檔案中定義的第一個容器將是可存取的 (公開)
 
 ## <a name="pricing-and-sla"></a>價格和 SLA
 

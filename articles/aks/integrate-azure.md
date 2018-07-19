@@ -8,18 +8,18 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: 471b53be4200ff728214876dd187c3c4e427c947
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: cebd98ec31ae6089c20952924c39ee240cb5d6a2
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342869"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39002693"
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>使用 Open Service Broker for Azure (OSBA) 與 Azure 受控服務整合
 
 Open Service Broker for Azure (OSBA) 可以與 [Kubernetes 服務類別目錄][kubernetes-service-catalog]搭配使用，允許開發人員利用 Kubernetes 中的 Azure 受控服務。 本指南著重於部署 Kubernetes 服務類別目錄、Open Service Broker for Azure (OSBA)，以及利用 Kubernetes 使用 Azure 受控服務的應用程式。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * Azure 訂用帳戶
 
 * Azure CLI：[在本機進行安裝][azure-cli-install]，或用於 [Azure Cloud Shell][azure-cloud-shell]。
@@ -53,7 +53,7 @@ helm install svc-cat/catalog --name catalog --namespace catalog --set controller
 如果您的叢集未啟用 RBAC，請執行此命令。
 
 ```azurecli-interactive
-helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false --set apiserver.auth.enabled=false --set controllerManager.healthcheck.enabled=false
+helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false --set controllerManager.healthcheck.enabled=false
 ```
 
 執行 Helm 圖表之後，請確認 `servicecatalog` 出現在下列命令的輸出中：

@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: fmegen
-ms.openlocfilehash: 528356473c4221a815fa68cbec3426866c4cbd23
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 0eafa7e88df5d00a67646ca7f82ca027602a40b3
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "35371032"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071441"
 ---
 # <a name="about-the-audio-input-stream-api"></a>關於音訊輸入資料流 API
 
@@ -141,5 +141,5 @@ API 使用兩個元件：`AudioInputStream` (未經處理的音訊資料) 和 `A
 
 ## <a name="next-steps"></a>後續步驟
 
-* [取得語音試用版訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)
-* [了解如何以 C# 辨識語音](quickstart-csharp-windows.md)
+* [試用認知服務](https://azure.microsoft.com/try/cognitive-services/)
+* [了解如何以 C# 辨識語音](quickstart-csharp-dotnet-windows.md) (英文)

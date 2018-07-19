@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 183c5f3196653ce9519c0742db7a67cd36c63fb9
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c60d736798adbbcb47b94172768dc8b8e5c366fe
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35292832"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37088413"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>整合 Azure Active Directory 與應用程式入門指南
 ## <a name="overview"></a>概觀
@@ -61,8 +61,8 @@ ms.locfileid: "35292832"
 * 一個 Azure 訂用帳戶，以及一個 Azure Active Directory 目錄。  如果您尚沒有 Azure 訂用帳戶，可以免費試用 Azure 30 天。 [立即試用！](https://azure.microsoft.com/trial/get-started-active-directory/)
 
 ## <a name="application-integration-with-azure-ad"></a>與 Azure AD 的應用程式整合
-### <a name="finding-unsanctioned-cloud-applications-with-cloud-app-discovery"></a>使用 Cloud App Discovery 尋找未經約束的雲端應用程式
-如上所述，可能有應用程式到目前為止仍未受到組織的管理。  作為清查程序的一部分，您可以找到未經約束的雲端應用程式。 請參閱 [使用 Cloud App Discovery 尋找未經約束的雲端應用程式](cloud-app-discovery.md)。
+### <a name="finding-unsanctioned-cloud-applications-with-cloud-discovery"></a>使用 Cloud Discovery 尋找未經約束的雲端應用程式
+如上所述，可能有應用程式到目前為止仍未受到組織的管理。  作為清查程序的一部分，您可以找到未經約束的雲端應用程式。 請參閱[設定 Cloud Discovery](/cloud-app-security/set-up-cloud-discovery.md)。
 
 ### <a name="authentication-types"></a>驗證類型
 每個應用程式可能有不同的驗證需求。 利用 Azure AD，可將簽署憑證用於使用 SAML 2.0、WS-同盟或 OpenID Connect 通訊協定，以及密碼單一登入的應用程式。 如需要與 Azure AD 搭配使用的應用程式驗證類型的詳細資訊，請參閱[在 Azure Active Directory 中管理同盟單一登入的憑證](manage-certificates-for-federated-single-sign-on.md)和[密碼式單一登入](what-is-single-sign-on.md)。
@@ -73,9 +73,9 @@ ms.locfileid: "35292832"
 ### <a name="integrating-applications-with-azure-ad"></a>整合應用程式與 Azure AD
 以下文章將討論整合應用程式與 Azure AD 的各種不同方式，並提供一些指引。
 
-* [決定要使用的 Active Directory](../active-directory-administer.md)
+* [決定要使用的 Active Directory](../fundamentals/active-directory-administer.md)
 * [使用 Azure 應用程式資源庫中的應用程式](what-is-single-sign-on.md)
-* [整合 SaaS 應用程式教學課程清單](../active-directory-saas-tutorial-list.md)
+* [整合 SaaS 應用程式教學課程清單](../saas-apps/tutorial-list.md)
 
 ## <a name="managing-access-to-applications"></a>管理應用程式的存取
 下列文章描述使用 Azure AD 連接器和 Azure AD 將應用程式與 Azure AD 整合之後，您可以管理對應用程式的存取的方式。

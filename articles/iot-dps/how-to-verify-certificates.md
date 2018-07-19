@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: dfd45a68934250978fa8ac0cc9cebabcf8bad597
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7dd4f8cc53d86933d10294dbbf55157d2b1cf290
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629689"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001774"
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>如何使用您的裝置佈建服務執行 X.509 CA 憑證擁有權證明
 
@@ -55,7 +55,6 @@ Microsoft 提供了工具和範例，協助您建立已簽署的驗證憑證：
 
 - **Azure IoT 中樞 C SDK**提供 PowerShell (Windows) 及 Bash (Linux) 指令碼，協助您建立 CA 憑證和分葉憑證來進行開發，以及使用驗證碼執行擁有權證明。 您可以將適用您系統的[檔案](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates)下載至工作資料夾，並遵循[管理 CA 憑證讀我檔案](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)中的指示，對 CA 憑證執行擁有權證明。 
 - **Azure IoT 中樞 C# SDK** 包含[群組憑證驗證範例](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples/GroupCertificateVerificationSample)，可用來執行擁有權證明。
-- 您可以遵循[可管理 CA 簽署之 X.509 憑證的 PowerShell 指令碼](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-create-certificates)一文 (位於 IoT 中樞文件內) 所述的步驟，特別是 [X.509 CA 憑證擁有權證明](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-create-certificates#signverificationcode)標題區段中提到的指令碼。
  
 > [!IMPORTANT]
 > 除了執行擁有權證明外，先前所提到的 PowerShell 和 Bash 指令碼也可讓您建立根憑證、中繼憑證和分葉憑證，以用於驗證和佈建裝置。 這些憑證應只限用於開發。 一律不能用在生產環境中。 

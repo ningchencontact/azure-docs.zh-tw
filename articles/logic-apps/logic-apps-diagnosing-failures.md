@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 10/15/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5af99821305fe6daab8a213d0351c5a1c5936461
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: b0bf6cd747860d938f80787d9bef6634a6a22d09
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298785"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441527"
 ---
 # <a name="troubleshoot-and-diagnose-logic-app-failures"></a>疑難排解和診斷邏輯應用程式失敗
 
@@ -105,15 +105,15 @@ ms.locfileid: "35298785"
 
 ## <a name="perform-runtime-debugging"></a>執行執行階段偵錯
 
-若要協助偵錯，您可以新增診斷步驟至工作流程，以及檢閱觸發程序和執行歷程記錄。 例如，您可以新增使用 [RequestBin](http://requestb.in) 服務的步驟，使得您可以檢查 HTTP 要求，並判斷其確切的大小、圖形與格式。
+若要協助偵錯，您可以新增診斷步驟至工作流程，以及檢閱觸發程序和執行歷程記錄。 例如，您可以新增使用 [Webhook Tester](https://webhook.site/) 服務的步驟，使得您可以檢查 HTTP 要求，並判斷其確切的大小、圖形與格式。
 
-1. 建立 RequestBin，您可以將讓它成為私人並且只能在您的瀏覽器中檢視。
+1. 瀏覽 [Webhook Tester](https://webhook.site/) 並複製所建立的唯一 URL
 
 2. 在您的邏輯應用程式中，以您想要測試的任何內文內容新增 HTTP POST 動作 (例如，運算式或另一個步驟輸出)。
 
-3. 將 RequestBin 的 URL 貼上至 HTTP POST 動作。
+3. 將 Webhook Tester 的 URL 貼上至 HTTP POST 動作。
 
-4. 從 Logic Apps 引擎產生時，若要檢閱要求如何形成，請執行邏輯應用程式，並重新整理您的 RequestBin。
+4. 從 Logic Apps 引擎產生時，若要檢閱要求如何形成，請執行邏輯應用程式，並參閱 Webhook Tester 以取得詳細資料。
 
 ## <a name="next-steps"></a>後續步驟
 

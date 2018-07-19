@@ -1,6 +1,6 @@
 ---
-title: 遠端監視解決方案架構 - Azure | Microsoft Docs
-description: 遠端監視解決方案加速器架構的逐步解說。
+title: 遠端監視解決方案加速器概觀 - Azure | Microsoft Docs
+description: 遠端監視解決方案加速器的概觀。
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,14 +8,14 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: af7feb6c95a7de1d2211378c5eb71f09907221ff
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: a8b5d9e3917c854cb255a35d3bbc901bcce52c24
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757428"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084520"
 ---
-# <a name="remote-monitoring-solution-accelerator-architecture"></a>遠端監視解決方案加速器架構
+# <a name="remote-monitoring-solution-accelerator-overview"></a>遠端監視解決方案加速器概觀
 
 遠端監視[解決方案加速器](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md)會在遠端位置實作多部機器的端對端監視解決方案。 此解決方案結合了主要的 Azure 服務以提供一般的商務案例實作。 您可以將此解決方案作為自己實作的起點並加以[自訂](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md)，以符合自己特有的商務需求。
 

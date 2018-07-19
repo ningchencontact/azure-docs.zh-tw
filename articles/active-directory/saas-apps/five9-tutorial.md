@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 1698a1fc6f9acc2815ae982e090651301d0a8bc5
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3caa9b6885b87664f4b63d629677e69f47768a29
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220602"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39052956"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-five9-plus-adapter-cti-contact-center-agents"></a>教學課程：Azure Active Directory 與 Five9 Plus Adapter 整合 (CTI，Contact Center Agents)
 
@@ -33,7 +33,7 @@ Five9 Plus Adapter (CTI，Contact Center Agents) 與 Azure AD 整合提供下列
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Five9 Plus Adapter (CTI，Contact Center Agents) 的整合，您需要下列項目：
 
@@ -223,7 +223,7 @@ Five9 Plus Adapter (CTI，Contact Center Agents) 與 Azure AD 整合提供下列
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 [\Five9 Plus Adapter (CTI，Contact Center Agents)\] 圖格時，應該會自動登入您的 Five9 Plus Adapter (CTI，Contact Center Agents) 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

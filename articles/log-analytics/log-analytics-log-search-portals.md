@@ -1,23 +1,25 @@
 ---
-title: "Azure Log Analytics 中用於建立和編輯記錄查詢的入口網站 | Microsoft Docs"
-description: "本文會說明可以在 Azure Log Analytics 中用來建立和編輯記錄搜尋的入口網站。"
+title: Azure Log Analytics 中用於建立和編輯記錄查詢的入口網站 | Microsoft Docs
+description: 本文會說明可以在 Azure Log Analytics 中用來建立和編輯記錄搜尋的入口網站。
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/26/2017
+ms.topic: conceptual
+ms.date: 06/11/2018
 ms.author: magoedte; bwren
-ms.openlocfilehash: b205f226d95d94b938a70a834ac0147e76d459ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: na
+ms.openlocfilehash: e2ea0bf1fb3f1c63f4e6f037e465e8fdfd9a4374
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133252"
 ---
 # <a name="portals-for-creating-and-editing-log-queries-in-azure-log-analytics"></a>Azure Log Analytics 中用於建立和編輯記錄查詢的入口網站
 
@@ -37,9 +39,16 @@ ms.lasthandoff: 10/11/2017
 ![進階 Analytics 入口網站](media/log-analytics-log-search-portals/advanced-analytics-portal.png)
 
 
-由於進階 Analytics 入口網站的進階功能，通常會使用它作為建立和編輯查詢的主要工具。  判定查詢如預期般運作之後，即可將其複製並貼到其他位置，例如 [記錄搜尋] 頁面或檢視設計工具。  由於進階 Analytics 入口網站支援多行的查詢，從這個入口網站複製查詢時，請考慮下列事項。
+由於進階 Analytics 入口網站的進階功能，通常會使用它作為建立和編輯查詢的主要工具。  判定查詢如預期般運作之後，即可將其複製並貼到其他位置，例如 [記錄搜尋] 頁面或檢視設計工具。  
 
-- 必須從查詢移除註解，才能將查詢複製並貼到另一個位置。  您可以在一行前加上兩個斜線 (//) 以對該行進行註解。  將多行查詢貼到單行時，會移除分行符號。  如果包含了註解，則第一個註解後的所有字元都視為註解的一部分。
+### <a name="firewall-requirements"></a>防火牆需求
+您的瀏覽器需要存取下列位址，才能存取進階的 Analytics 入口網站。  如果您的瀏覽器要透過防火牆存取 Azure 入口網站，則必須啟用這些位址的存取。
+
+| Uri | IP | 連接埠 |
+|:---|:---|:---|
+| portal.loganalytics.io | 動態 | 80,443 |
+| api.loganalytics.io    | 動態 | 80,443 |
+| docs.loganalytics.io   | 動態 | 80,443 |
 
 
 ## <a name="next-steps"></a>後續步驟

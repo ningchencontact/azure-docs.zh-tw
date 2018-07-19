@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f4278dc3af1074b6de299444d2b205396bc0a9c0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7be5569654cb537260117ecd452e58cff9824a88
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595303"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044769"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect 同步處理：了解預設組態
 本文說明現成可用的組態規則。 其中說明這些規則以及這些規則對組態有何影響。 本文也會引導您完成 Azure AD Connect 同步處理的預設組態。其目的是讓讀者了解組態模型 (名為宣告式佈建) 在實際範例中的運作情形。 本文假設您已使用安裝精靈安裝並設定 Azure AD Connect Sync。
@@ -77,9 +77,9 @@ ms.locfileid: "34595303"
 
 * 連絡人必須擁有郵件功能。 這會使用下列規則來驗證：
   * `IsPresent([proxyAddresses]) = True)`。 必須填入 proxyAddresses 屬性。
-  * 可在 proxyAddresses 屬性或郵件屬性中找到主要電子郵件地址。 @ 是用來確認內容是電子郵件地址。 下列其中一個規則必須評估為 True。
-    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`。 是否有含有 "SMTP:" 的項目，如果有的話，是否可在字串中找到 @？
-    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`。 是否已填入 mail 屬性，如果是的話，是否可在字串中找到 @？
+  * 可在 proxyAddresses 屬性或郵件屬性中找到主要電子郵件地址。 存在的 \@ 可用來證實內容是電子郵件地址。 下列其中一個規則必須評估為 True。
+    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`。 是否有含有 "SMTP:" 的項目，如果有，是否可在字串中找到 \@？
+    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`。 是否已填入郵件屬性，如果是，是否可在字串中找到 \@？
 
 下列連絡人物件 **不會** 同步處理至 Azure AD：
 

@@ -12,12 +12,12 @@ ms.prod: ''
 ms.service: key-vault
 ms.technology: ''
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: db0b0ca72f41c68e19db6635d9ba0e9144183204
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 78baef69d0d411b7611575300580c1c719c28bf8
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31417570"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988807"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>使用 .NET 進行 Azure Key Vault 的服務對服務驗證
 
@@ -189,7 +189,7 @@ az account list
 
     ```
     RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};
-          CertificateStoreLocation={LocalMachine or CurrentUser}.
+          CertificateStoreLocation={LocalMachine or CurrentUser}
     ```
  
     使用步驟 1 產生的值取代 _{AppId}_、_{TenantId}_ 和 _{Thumbprint}_。
@@ -205,7 +205,7 @@ az account list
 2. 將名為 **AzureServicesAuthConnectionString** 的環境變數設定為：
 
     ```
-    RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}. 
+    RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret} 
     ```
 
     使用步驟 1 產生的值取代 _{AppId}_、_{TenantId}_ 和 _{ClientSecret}_。

@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6b09bb295d889255dada0cebbb9ded2379d95d23
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 786f0dfd0cf3cf2e9ab0d16e26811fabd6bfc17c
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34710231"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37440941"
 ---
 # <a name="azure-active-directory-b2c-add-twitter-as-an-oauth1-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C：使用自訂原則新增 Twitter 作為 OAuth1 識別提供者
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -38,7 +38,7 @@ ms.locfileid: "34710231"
 
     b. 在 [Website] \(網站\) 方塊中，貼上 **https://login.microsoftonline.com**。 
 
-    c. 在 [Callback URL] \(回呼 URL\) 方塊中，貼上 **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**。 使用您的租用戶名稱 (例如 contosob2c.onmicrosoft.com) 來取代 {*tenant*}。 請確實使用 HTTPS 配置。 
+    c. 4. 在 [回呼 URL] 中輸入 `https://login.microsoftonline.com/te/{tenant}/{policyId}/oauth1/authresp`。 務必要使用租用戶名稱 (例如 contosob2c.onmicrosoft.com) 來取代 **{tenant}**，並使用原則識別碼 (例如 b2c_1_policy) 來取代 **{policyId}**。  **回呼 URL 必須是全部小寫。** 您應該為所有使用 Twitter 登入的原則新增回呼 URL。 如果要在應用程式中使用，請務必使用 `b2clogin.com` 而不是 ` login.microsoftonline.com`。
 
     d. 在頁面底部，請閱讀並接受條款，然後選取 [建立 Twitter 應用程式] 。
 

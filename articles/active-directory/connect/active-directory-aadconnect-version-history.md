@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c2a830fa873f7277440d1baa9049a9c8eafcbf55
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: e808d4bf116dcab344308c3dd2aa06c72e0318ba
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261775"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049512"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect︰版本發行歷程記錄
 Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 Azure AD Connect。 並非所有新增項目都適用於所有的對象。
@@ -917,7 +917,7 @@ AD FS 管理
 **新的預覽功能：**
 
 * [適用於同步的 Azure AD Connect Health](../connect-health/active-directory-aadconnect-health-sync.md)。
-* 支援 [Azure AD 網域服務](../active-directory-passwords-update-your-own-password.md) 密碼同步處理。
+* 支援 [Azure AD 網域服務](../user-help/active-directory-passwords-update-your-own-password.md) 密碼同步處理。
 
 **新的支援案例：**
 

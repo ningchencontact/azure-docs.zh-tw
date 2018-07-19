@@ -11,14 +11,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/29/2018
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: bbf75a03fb771aa415a26e151614cecfaa14c485
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 333ff3ac3de053eae604ffeab600df7d35874f69
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598873"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085227"
 ---
 # <a name="connect-to-azure-databricks-from-excel-python-or-r"></a>從 Excel、Python 或 R 連線到 Azure Databricks
 
@@ -99,6 +99,9 @@ ms.locfileid: "34598873"
 當您的 Excel 活頁簿中有資料後，您可以對其執行分析作業。
 
 ## <a name="connect-from-r"></a>從 R 連線
+
+> [!NOTE]
+> 本節針對如何使用 Azure Databricks 整合在您的桌面上執行的 R Studio 用戶端，提供相關資訊。 如需如何在 Azure Databricks 叢集本身使用 R Studio 的指示，請參閱 [Azure Databricks 上的 R Studio](https://docs.azuredatabricks.net/spark/latest/sparkr/rstudio.html)。
 
 在本節中，您可以使用 R 語言的整合式開發環境 (IDE)，來參考 Azure Databricks 中的可用資料。 在開始之前，您必須已在電腦上安裝下列項目。
 

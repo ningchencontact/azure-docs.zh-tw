@@ -15,19 +15,19 @@ ms.date: 06/15/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin, dastrock, smalser
-ms.openlocfilehash: 8bb0df567fbac6e8f8a2e2f64f868b4f219e05ac
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 0192b2d89b5e97c7f23b5394106853ddf83ddaf4
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751389"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044004"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>針對 Azure Active Directory 中應用程式的 SAML 型單一登入進行偵錯
 
 了解如何在 Azure Active Directory (Azure AD) 中支援[安全性聲明標記語言 (SAML) 2.0](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) 的應用程式內尋找[單一登入](../manage-apps/what-is-single-sign-on.md)問題，並加以修正。 
 
 ## <a name="before-you-begin"></a>開始之前
-建議您安裝 [My Apps 安全登入擴充功能](../active-directory-saas-access-panel-user-help.md#i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension)。 此瀏覽器擴充功能可輕鬆地收集 SAML 要求和 SAML 回應資訊，以供您解決單一登入問題。 如果您無法安裝此擴充功能，本文會說明如何在已安裝/未安裝此擴充功能的情況下解決問題。
+建議您安裝 [My Apps 安全登入擴充功能](../user-help/active-directory-saas-access-panel-user-help.md#i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension)。 此瀏覽器擴充功能可輕鬆地收集 SAML 要求和 SAML 回應資訊，以供您解決單一登入問題。 如果您無法安裝此擴充功能，本文會說明如何在已安裝/未安裝此擴充功能的情況下解決問題。
 
 若要下載並安裝 My Apps 安全登入擴充功能，請使用下列其中一個連結。
 

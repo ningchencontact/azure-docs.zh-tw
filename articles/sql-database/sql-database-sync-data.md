@@ -7,19 +7,21 @@ manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 07/01/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: bb5a383828e98c773c079dcea8e3cf37f9a068f0
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 56117953c6cd11b952a312e15cd4515895021e10
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37017430"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342652"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>使用 SQL 資料同步，跨多個雲端和內部部署資料庫同步資料
 
 「SQL 資料同步」是一種建置在 Azure SQL Database 上的服務，可讓您跨多個 SQL 資料庫和 SQL Server 執行個體，雙向同步您選取的資料。
+
+## <a name="architecture-of-sql-data-sync"></a>SQL 資料同步的架構
 
 資料同步以「同步群組」的概念為基礎。 「同步群組」是您想要同步的資料庫群組。
 
@@ -27,9 +29,9 @@ ms.locfileid: "37017430"
 
 -   **同步結構描述**說明要同步的資料。
 
--   **同步處理方向**可以是雙向或只有單向。 也就是說，同步處理方向可以是*中樞到成員*或是*成員到中樞*，或兩者皆可。
+-   **同步處理方向**可以是雙向或只有單向。 也就是說，同步處理方向可以是「中樞到成員」或是「成員到中樞」，或兩者皆可。
 
--   **同步處理間隔**是進行同步處理的頻率。
+-   **同步處理間隔**說明了進行同步處理的頻率。
 
 -   **衝突解決原則**是群組層級原則，可以是*中樞獲勝*或*成員獲勝*。
 
@@ -39,7 +41,7 @@ ms.locfileid: "37017430"
 -   **同步處理資料庫**包含「資料同步」的中繼資料和記錄。「同步處理資料庫」必須是與「中樞資料庫」位於相同區域的 Azure SQL Database。 「同步處理資料庫」是由客戶建立，並由客戶擁有。
 
 > [!NOTE]
-> 如果您使用內部部署資料庫，必須[設定本機代理程式](sql-database-get-started-sql-data-sync.md#add-on-prem)。
+> 如果您使用內部部署資料庫當做成員資料庫，則必須[安裝和設定本機同步代理程式](sql-database-get-started-sql-data-sync.md#add-on-prem)。
 
 ![資料庫之間的同步資料](media/sql-database-sync-data/sync-data-overview.png)
 
@@ -73,9 +75,27 @@ ms.locfileid: "37017430"
     -   如果您選取 [中樞獲勝]，中樞的變更永遠會覆寫成員的變更。
     -   如果您選取 [成員獲勝]，成員的變更永遠會覆寫中樞的變更。 如果有多個成員，最終的值則取決於哪一個成員先同步。
 
-## <a name="sync-req-lim"></a> 需求和限制
+## <a name="get-started-with-sql-data-sync"></a>開始使用 SQL 資料同步
 
-### <a name="general-considerations"></a>一般考量
+### <a name="set-up-data-sync-in-the-azure-portal"></a>在 Azure 入口網站中設定資料同步
+
+-   [設定 Azure SQL 資料同步](sql-database-get-started-sql-data-sync.md)
+
+### <a name="set-up-data-sync-with-powershell"></a>使用 PowerShell 設定資料同步
+
+-   [使用 PowerShell 在多個 Azure SQL Database 之間進行同步處理](scripts/sql-database-sync-data-between-sql-databases.md)
+
+-   [使用 PowerShell 設定「資料同步」在內部部署的 Azure SQL Database 和 SQL Server 之間進行同步處理](scripts/sql-database-sync-data-between-azure-onprem.md)
+
+### <a name="review-the-best-practices-for-data-sync"></a>檢閱資料同步最佳做法
+
+-   [Azure SQL 資料同步最佳做法](sql-database-best-practices-data-sync.md)
+
+### <a name="did-something-go-wrong"></a>發生錯誤了嗎？
+
+-   [對 Azure SQL 資料同步的問題進行疑難排解](sql-database-troubleshoot-data-sync.md)
+
+## <a name="consistency-and-performance"></a>一致性與效能
 
 #### <a name="eventual-consistency"></a>最終一致性
 由於資料同步是以觸發程序為基礎，所以並不保證交易一致性。 Microsoft 保證最終會進行所有變更，而且資料同步不會造成資料遺失。
@@ -84,6 +104,8 @@ ms.locfileid: "37017430"
 資料同步使用 insert、update 和 delete 觸發程序追蹤變更。 其會在使用者資料庫中建立側邊資料表，以便進行變更追蹤。 這些變更追蹤活動會影響您的資料庫工作負載。 請評估您的服務層，如有必要則請升級。
 
 在建立同步群組期間佈建和取消佈建、更新和刪除也可能會影響資料庫效能。 
+
+## <a name="sync-req-lim"></a> 需求和限制
 
 ### <a name="general-requirements"></a>一般需求
 
@@ -110,6 +132,14 @@ ms.locfileid: "37017430"
 -   XMLSchemaCollection (支援 XML)
 
 -   Cursor、Timestamp、Hierarchyid
+
+#### <a name="unsupported-column-types"></a>不支援的資料行類型
+
+資料同步無法同步處理唯讀或系統產生的資料行。 例如︰
+
+-   計算資料行。
+
+-   適用於時態表的系統所產生的資料行。
 
 #### <a name="limitations-on-service-and-database-dimensions"></a>服務和資料庫維度的限制
 
@@ -147,7 +177,8 @@ SQL 資料同步適用於所有公用雲端區域。
 -   如果訂用帳戶屬於同一個租用戶，且您擁有所有訂用帳戶的權限，則可以在 Azure 入口網站中設定同步群組。
 -   否則，您必須使用 PowerShell 來新增屬於不同訂用帳戶的同步成員。
    
-### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>能否使用資料同步將生產環境資料庫的資料植入空白資料庫，然後讓資料保持同步？ 
+### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-sync-them"></a>能否使用資料同步將生產環境資料庫的資料植入空白資料庫，然後同步處理資料？
+
 是。 請從原始結構描述編寫結構描述，藉此在新的資料庫中手動建立結構描述。 建立結構描述之後，請將資料表新增到同步群組，以複製資料並讓資料保持同步。
 
 ### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>應該使用 SQL 資料同步來備份及還原資料庫嗎？
@@ -176,20 +207,30 @@ SQL 資料同步適用於所有公用雲端區域。
 
 ## <a name="next-steps"></a>後續步驟
 
-如需 SQL 資料同步的詳細資訊，請參閱：
+### <a name="update-the-schema-of-a-synced-database"></a>更新已同步資料庫的結構描述
 
--   [設定 Azure SQL 資料同步](sql-database-get-started-sql-data-sync.md)
--   [Azure SQL 資料同步最佳做法](sql-database-best-practices-data-sync.md)
+是否必須更新同步群組中的資料庫結構描述？ 結構描述變更不會自動複寫。 如需某些解決方案，請參閱下列文章：
+
+-   [在 Azure SQL 資料同步中自動執行結構描述變更複寫](sql-database-update-sync-schema.md)
+
+-   [使用 PowerShell 更新現有同步群組中的同步結構描述](scripts/sql-database-sync-update-schema.md)
+
+### <a name="monitor-and-troubleshoot"></a>監視及疑難排解
+
+是否如預期執行 SQL 資料同步？ 若要監視活動並針對問題進行疑難排解，請參閱下列文章：
+
 -   [透過 Log Analytics 監視 Azure SQL 資料同步](sql-database-sync-monitor-oms.md)
+
 -   [對 Azure SQL 資料同步的問題進行疑難排解](sql-database-troubleshoot-data-sync.md)
 
--   示範如何設定 SQL 資料同步的完整 PowerShell 範例：
-    -   [使用 PowerShell 在多個 Azure SQL Database 之間進行同步處理](scripts/sql-database-sync-data-between-sql-databases.md)
-    -   [使用 PowerShell 設定「資料同步」在內部部署的 Azure SQL Database 和 SQL Server 之間進行同步處理](scripts/sql-database-sync-data-between-azure-onprem.md)
+### <a name="learn-more-about-azure-sql-database"></a>深入了解 Azure SQL Database
 
--   [下載 SQL 資料同步 REST API 文件](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
-
-如需 SQL Database 的詳細資訊，請參閱：
+如需 SQL Database 的詳細資訊，請參閱下列文章：
 
 -   [SQL Database 概觀](sql-database-technical-overview.md)
+
 -   [資料庫生命週期管理](https://msdn.microsoft.com/library/jj907294.aspx)
+
+### <a name="developer-reference"></a>開發人員參考
+
+-   [下載 SQL 資料同步 REST API 文件](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)

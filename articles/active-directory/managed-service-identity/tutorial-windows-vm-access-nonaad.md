@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 81509108060b636e47154a8c375f5569cac73648
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: aed990c01e781ae766f421c1dd34ad64f13985cf
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902729"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048733"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>教學課程：使用 Windows VM 受控服務識別 (MSI) 來存取 Azure Key Vault 
 
@@ -35,7 +35,7 @@ ms.locfileid: "37902729"
 > * 將您的 VM 存取權授與 Key Vault 中儲存的祕密 
 > * 使用 VM 身分識別取得存取權杖，並使用它來擷取 Key Vault 的祕密 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -56,7 +56,7 @@ ms.locfileid: "37902729"
 5.  若要選取要在其中建立虛擬機器的新 [資源群組]，請選擇 [新建]。 完成時，按一下 [確定]。
 6.  選取 VM 的大小。 若要查看更多大小，請選取 [檢視全部] 或變更 [支援的磁碟類型] 篩選條件。 在 [設定] 刀鋒視窗上，保留預設值並按一下 [確定]。
 
-    ![替代映像文字](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![替代映像文字](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>在您的 VM 上啟用 MSI 
 
@@ -67,7 +67,7 @@ ms.locfileid: "37902729"
 3.  您會看到**受控服務識別**。 若要註冊並啟用 MSI，請選取 [是]，如果您想要將它停用，則請選擇 [否]。 
 4.  按一下 [儲存] 確認儲存設定。  
 
-    ![替代映像文字](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![替代映像文字](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>授與 VM 存取權以取得 Key Vault 中的密碼 
  
@@ -84,7 +84,7 @@ ms.locfileid: "37902729"
 7. 按一下 [確定] 來完成新增存取原則，和 [確定] 來完成存取原則選取。 
 8. 按一下 [建立] 即可完成建立 Key Vault。 
 
-    ![替代映像文字](../media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
+    ![替代映像文字](../managed-service-identity/media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
 
 
 接下來，將密碼新增至 Key Vault，好讓您稍後可以使用在 VM 中執行的程式碼來擷取密碼： 

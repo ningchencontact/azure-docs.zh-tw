@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 204910ff6e02eafd62eeb56bf82b77b91b3cb5ad
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 6945966d4a701ea6e2684b7da766c8b6c9f9a283
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37099604"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049043"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>如何要求使用者或群組使用雙步驟驗證
 
@@ -71,7 +71,7 @@ Azure Multi-Factor Authentication 中的使用者帳戶具有下列三種不同�
 
 5. 在開啟的快顯視窗中確認您的選取項目。 
 
-當您啟用使用者之後，請透過電子郵件通知他們。 告訴他們系統會在他們下一次登入時要求其進行註冊。 此外，如果您的組織使用不支援新式驗證的非瀏覽器應用程式，他們就需要建立應用程式密碼。 您也可以納入 [Azure MFA 使用者指南](end-user/current/multi-factor-authentication-end-user.md)的連結，以協助他們開始使用。
+當您啟用使用者之後，請透過電子郵件通知他們。 告訴他們系統會在他們下一次登入時要求其進行註冊。 此外，如果您的組織使用不支援新式驗證的非瀏覽器應用程式，他們就需要建立應用程式密碼。 您也可以納入 [Azure MFA 使用者指南](../user-help/multi-factor-authentication-end-user.md)的連結，以協助他們開始使用。
 
 ### <a name="use-powershell"></a>使用 PowerShell
 若要使用 [Azure AD PowerShell](/powershell/azure/overview) 來變更使用者狀態，請變更 `$st.State`。 有三個可能的狀態︰

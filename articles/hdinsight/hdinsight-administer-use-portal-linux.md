@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: jgao
-ms.openlocfilehash: b672b777e9a60f2f3d978947c06290db48e6766c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bcfa7a6b9a2ebd60ec804fe8a61c26300f003a5e
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627018"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097779"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 入口網站管理 HDInsight 上的 Hadoop 叢集
 
@@ -105,7 +105,7 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
     * **監視**：監視 Azure Log Analytics 中的叢集。
     * **屬性**：檢視叢集屬性。
     * **儲存體帳戶**︰檢視儲存體帳戶和金鑰。 儲存體帳戶是在進行叢集建立程序時設定。
-    * **Data Lake Store 存取**：設定 Data Lake Store 的存取。  請參閱[使用 Azure 入口網站建立搭配 Data Lake Store 的 HDInsight 叢集](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)。
+    * **Data Lake Store 存取**：設定 Data Lake Store 的存取。  請參閱[快速入門：在 HDInsight 中設定叢集](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
     * **資源健康狀態**：請參閱 [Azure 資源健康狀態概觀](../service-health/resource-health-overview.md)。
     * **新的支援要求**︰可讓您透過 Microsoft 支援服務建立支援票證。
     

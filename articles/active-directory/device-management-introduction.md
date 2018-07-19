@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 8bcc89f9ec7c73fd1f690e00e831fbd5b960eef9
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 5d5ddd83a2335e7a08bac587aa627f1dcae9738c
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850003"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970895"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Azure Active Directory 中的裝置管理簡介
 
@@ -75,8 +75,8 @@ Azure AD 加入裝置的目標是簡化：
 ![Azure AD 註冊裝置](./media/device-management-introduction/02.png)
 
 您可以使用下列任何一種方法來部署 Azure AD Join： 
- - [Windows Autopilot](https://docs.microsoft.com/en-us/windows/deployment/windows-autopilot/windows-10-autopilot)
- - [大量部署](https://docs.microsoft.com/en-us/intune/windows-bulk-enroll)
+ - [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot)
+ - [大量部署](https://docs.microsoft.com/intune/windows-bulk-enroll)
  - [自助體驗](device-management-azuread-joined-devices-frx.md) 
 
 **Azure AD Join** 適用於想要採用雲端優先 (亦即，以使用雲端服務為主，目標是減少使用內部部署基礎結構) 或只使用雲端 (沒有內部部署基礎結構) 的組織。 針對哪些組織可以部署 Azure AD Join，並沒有任何大小或類型的限制。 Azure AD Join 即使在混合式環境中也可以良好運作，可讓您同時存取雲端及內部部署應用程式與資源。

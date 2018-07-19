@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 85450119b9ab25b6f812cbf8c6c64174dd6f322c
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 1b9b1fa5b67e37181ff4c76773c6666ccbbcf275
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061721"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082860"
 ---
 # <a name="create-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>在 Azure Data Factory 中建立 Azure-SSIS 整合執行階段
 本文提供在 Azure Data Factory 中佈建 Azure-SSIS Integration Runtime 的步驟。 接著，您可以使用 SQL Server Data Tools (SSDT) 或 SQL Server Management Studio (SSMS)，將 SQL Server Integration Services (SSIS) 套件部署到 Azure 中的此執行階段並執行。 
@@ -51,12 +51,12 @@ ms.locfileid: "37061721"
     - 您要將 SSIS 目錄資料庫裝載於具有虛擬網路中虛擬網路服務端點/受控執行個體 (預覽) 的 Azure SQL Database 中。 
     - 您想要從 Azure-SSIS 整合執行階段上執行的 SSIS 套件連線至內部部署資料存放區。 
 
-- **Azure PowerShell** \(英文\)。 如果您使用 PowerShell 來執行指令碼，請依照[如何安裝和設定 Azure PowerShell](/powershell/azure/install-azurerm-ps) 中的指示操作，以佈建在雲端執行 SSIS 套件的 Azure-SSIS 整合執行階段。 
+- **Azure PowerShell**(英文)。 如果您使用 PowerShell 來執行指令碼，請依照[如何安裝和設定 Azure PowerShell](/powershell/azure/install-azurerm-ps)中的指示操作，以佈建在雲端執行 SSIS 套件的 Azure-SSIS 整合執行階段。 
 
 ### <a name="region-support"></a>區域支援
-您可以在下列區域建立資料處理站：美國東部、美國東部 2、東南亞和西歐。 
+如需目前可使用 Data Factory 的 Azure 區域清單，請在下列頁面上選取您感興趣的區域，然後展開 [分析] 以找出 [Data Factory]：[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)。
 
-您可以在下列區域中建立 Azure-SSIS IR：美國東部、美國東部 2、美國中部、美國西部 2、北歐、西歐、英國南部和澳大利亞東部。 
+如需目前可使用 Data Factory 的 Azure 區域清單，請在下列頁面上選取您感興趣的區域，然後展開 [分析] 以找出 [Data Factory]：[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)。### 比較 SQL Database 與受控執行個體 (預覽)
 
 ### <a name="compare-sql-database-and-managed-instance-preview"></a>比較 SQL Database 和受控執行個體 (預覽)
 
@@ -92,15 +92,15 @@ ms.locfileid: "37061721"
 5. 選取您要在其中建立資料處理站的 Azure **訂用帳戶**。 
 6. 針對 [資源群組]，請執行下列其中一個步驟︰ 
 
-   - 選取 [使用現有的]，然後從下拉式清單選取現有的資源群組。 
-   - 選取 [建立新的]，然後輸入資源群組的名稱。 
+   - 選取 [使用現有的] ，然後從下拉式清單選取現有的資源群組。 
+   - 選取 [建立新的] ，然後輸入資源群組的名稱。 
 
-   若要了解資源群組，請參閱[使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。 
+   若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。 
 
 7. 針對 [版本] 選取 [V2]。 
-8. 選取 Data Factory 的 [位置] 。 清單中只會顯示資料處理站建立所支援的位置。 
+8. 選取 Data Factory 的 [位置]  。 清單中只會顯示資料處理站建立所支援的位置。 
 9. 選取 [釘選到儀表板]。 
-10. 按一下頁面底部的 [新增]。 
+10. 按一下頁面底部的 [新增] 。 
 11. 在儀表板上，您會看到狀態如下的下列圖格︰**正在部署資料處理站**。 
 
     ![部署資料處理站圖格](media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png)
@@ -146,7 +146,7 @@ ms.locfileid: "37061721"
 
     c. 針對 [目錄資料庫伺服器端點]，選取裝載 SSISDB 的資料庫伺服器端點。 根據選取的資料庫伺服器，SSISDB 可代表您建立為單一資料庫、彈性集區的一部分，或建立在受控執行個體中 (預覽)，並且可在公用網路中或透過加入虛擬網路來存取。 
 
-    d. 在 [使用 AAD 驗證] 核取方塊上，為裝載 SSISDB 的資料庫伺服器選取驗證方法：SQL 或使用 Azure Data Factory 受控服務識別 (MSI) 的 Azure Active Directory (AAD)。 如果您核取該方塊，您必須將 Data Factory MSI 新增至具有資料庫伺服器存取權的 AAD 群組，請參閱[啟用 Azure-SSIS IR 的 AAD 驗證](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir)。 
+    d. 在 [使用 AAD 驗證...] 核取方塊上，為裝載 SSISDB 的資料庫伺服器選取驗證方法：使用 Azure Data Factory 受控服務識別 (MSI) 的 SQL 或 Azure Active Directory (AAD)。 如果您核取該方塊，您必須將 Data Factory MSI 新增至具有資料庫伺服器存取權的 AAD 群組，請參閱[啟用 Azure-SSIS IR 的 AAD 驗證](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir)。 
 
     e. 針對 [管理使用者名稱]，為裝載 SSISDB 的資料庫伺服器輸入 SQL 驗證使用者名稱。 
 
@@ -184,7 +184,7 @@ ms.locfileid: "37061721"
     > - 此程序需要大約 20 到 30 分鐘才能完成
     > - 此 Data Factory 服務會連線到您的 Azure SQL Database，以準備 SSIS 目錄資料庫 (SSISDB)。 若已指定，則指令碼也會設定您虛擬網路的權限和設定，並將 Azure-SSIS 整合執行階段的新執行個體加入到虛擬網路。 
 
-7. 如有必要，切換到 [連線] 視窗中的 [整合執行階段]。 按一下 [重新整理] 以重新整理狀態。 
+7. 如有必要，切換到 [連線] 視窗中的 [整合執行階段]。 按一下 [重新整理]  即可重新整理狀態。 
 
    ![建立狀態](./media/tutorial-create-azure-ssis-runtime-portal/azure-ssis-ir-creation-status.png)
 
@@ -220,13 +220,11 @@ ms.locfileid: "37061721"
 $SubscriptionName = "[your Azure subscription name]"
 $ResourceGroupName = "[your Azure resource group name]"
 $DataFactoryName = "[your data factory name]"
-# You can create a data factory in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
 $DataFactoryLocation = "EastUS" 
 
 ### Azure-SSIS integration runtime information - This is the Data Factory compute resource for running SSIS packages
 $AzureSSISName = "[specify a name for your Azure-SSIS IR]"
 $AzureSSISDescription = "[specify a description for your Azure-SSIS IR]"
-# You can create an Azure-SSIS IR in the following regions: East US, East US 2, Central US, West US 2, North Europe, West Europe, UK South, and Australia East.
 $AzureSSISLocation = "EastUS" 
 # Only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported.
 $AzureSSISNodeSize = "Standard_D4_v2"
@@ -392,13 +390,11 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 $SubscriptionName = "[your Azure subscription name]"
 $ResourceGroupName = "[your Azure resource group name]"
 $DataFactoryName = "[your data factory name]"
-# You can create a data factory in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
 $DataFactoryLocation = "EastUS" 
 
 ### Azure-SSIS integration runtime information - This is the Data Factory compute resource for running SSIS packages
 $AzureSSISName = "[specify a name for your Azure-SSIS IR]"
 $AzureSSISDescription = "[specify a description for your Azure-SSIS IR]"
-# You can create an Azure-SSIS IR in the following regions: East US, East US 2, Central US, West US 2, North Europe, West Europe, UK South, and Australia East.
 $AzureSSISLocation = "EastUS" 
 # Only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported.
 $AzureSSISNodeSize = "Standard_D4_v2"

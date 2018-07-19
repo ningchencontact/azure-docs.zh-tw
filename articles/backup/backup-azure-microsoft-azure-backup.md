@@ -7,16 +7,16 @@ manager: shivamg
 keywords: Azure 備份伺服器; 保護工作負載; 備份工作負載
 ms.service: backup
 ms.topic: conceptual
-ms.date: 5/14/2018
+ms.date: 7/10/2018
 ms.author: adigan
-ms.openlocfilehash: 13b3a5f8530c9f91ca23072c320513b8107df061
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 67243aca9f5f578402ff79422783148af53798c6
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605802"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38546012"
 ---
-# <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>準備使用 Azure 備份伺服器來備份工作負載
+# <a name="install-and-configure-azure-backup-server"></a>安裝和設定 Azure 備份伺服器
 > [!div class="op_single_selector"]
 > * [Azure 備份伺服器](backup-azure-microsoft-azure-backup.md)
 > * [SCDPM](backup-azure-dpm-introduction.md)
@@ -224,7 +224,7 @@ Azure 備份伺服器需要連線至 Azure 備份服務，產品才能順利運�
 ### <a name="recovering-from-loss-of-connectivity"></a>從連線中斷的情況復原
 如果您有防火牆或 Proxy 以致無法存取 Azure，您必須將防火牆/Proxy 設定檔中的下列網域位址列入允許清單中：
 
-* www.msftncsi.com
+* `http://www.msftncsi.com/ncsi.txt`
 * \*.Microsoft.com
 * \*.WindowsAzure.com
 * \*.microsoftonline.com

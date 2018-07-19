@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/26/18
 ms.author: mihauss
-ms.openlocfilehash: 7021a0499547818d702d14aecb9d8e451a820181
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: df1661b5fe7a2c0e37deef5259d6b5842ed6ee5e
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025178"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131604"
 ---
 # <a name="static-website-hosting-in-azure-storage-preview"></a>Azure 儲存體中的靜態網站託管 (預覽)
 Azure 儲存體現在推出靜態網站託管 (預覽)，讓您可以在 Azure 上部署符合成本效益且可延展的新式 Web 應用程式。 在靜態網站中，網頁會包含靜態內容和 JavaScript，或是其他用戶端程式碼。 相反地，動態網站取決於伺服器端程式碼，並可使用 [Azure Web Apps](/app-service/app-service-web-overview.md) 來託管。
@@ -27,7 +27,7 @@ Web 服務端點一律允許匿名的讀取存取，並會傳回格式化的 HTM
 
 靜態網站的內容會託管於名為 "$web" 的特殊容器中。 作為啟用程序的一部分，如果尚未建立 "$web"，系統會為您建立一個。 "$web" 中的內容可以使用 Web 端點在帳戶根目錄中加以存取。 例如，`https://contoso.z4.web.core.windows.net/` 會傳回您為網站設定的索引文件，前提是 $web 的根目錄中有該名稱的文件。
 
-將內容上傳至您的網站時，請使用 Blob 儲存體端點。 若要上傳可在帳戶根目錄存取且名為 'image.jpg' 的 Blob，請使用下列 URL `https://contoso.blob.core.windows.net/$web/image.jpg`。 您可以在網頁瀏覽器中檢視上傳的影像，位於對應的 Web 端點 `https://contoso.z4.web.core.windows.net/image.jpg` 上。
+將內容上傳至您的網站時，請使用 Blob 儲存體端點。 若要上傳可在帳戶根目錄存取且名為 'image.jpg' 的 Blob，請使用下列 URL `https://contoso.blob.core.windows.net/$web/image.jpg` 。 您可以在網頁瀏覽器中檢視上傳的影像，位於對應的 Web 端點 `https://contoso.z4.web.core.windows.net/image.jpg` 上。
 
 
 ## <a name="custom-domain-names"></a>自訂網域名稱
@@ -43,6 +43,9 @@ Web 服務端點一律允許匿名的讀取存取，並會傳回格式化的 HTM
 ![](media/storage-blob-static-website/storage-blob-static-website-portal-config.PNG)
 
 將 Web 資產上傳至 "$web" 容器，此容器是在靜態網站啟用程序中建立的。 您可以直接在 Azure 入口網站中執行此作業，或是利用 [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)來上傳整個目錄結構。 請務必使用您設定的名稱來包含索引文件。 在此範例中，文件的名稱是 "index.html"。
+
+> [!NOTE]
+> 文件名稱會區分大小寫，因此必須完全相符儲存體中的檔案名稱。
 
 最後，瀏覽至您的 Web 端點，以測試您的網站。
 

@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: kgremban
-ms.openlocfilehash: 7cbfe289f662987d85f0f2678e4971492ed8cd80
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 862a5bdfef3f75a1c80becc1e5374c8364f87740
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38666938"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049927"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>排程及廣播作業 (Python)
 
@@ -327,7 +327,7 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
 [lnk-twin-props]: iot-hub-node-node-twin-how-to-configure.md
 [lnk-c2d-methods]: iot-hub-python-python-direct-methods.md
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
-[lnk-fwupdate]: iot-hub-node-node-firmware-update.md
+[lnk-fwupdate]: tutorial-firmware-update.md
 [lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

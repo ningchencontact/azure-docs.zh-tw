@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: hero-article
 ms.date: 05/10/2018
 ms.author: danlep
-ms.openlocfilehash: 954a67ed126b505c9ba0da81b3ace0d25e840adb
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: f07b3ce85641f34462c97d16bbed8cf9e2e50652
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128583"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114536"
 ---
 # <a name="get-started-with-batch-rendering"></a>開始使用 Batch 轉譯 
 
@@ -47,7 +47,7 @@ Batch 轉譯目前支援下列應用程式：
 - Blender (2.79)
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要使用 Batch 轉譯，您需要：
 
@@ -123,7 +123,7 @@ Azure Batch 可讓您提供您自己的自訂映像。 使用此選項，可以�
 
 3ds Max Batch Labs 範本可讓您使用 Batch 轉譯來轉譯 VRay 和 Arnold 場景。 VRay 和 Arnold 的範本有兩種變化，一個用於標準場景，一個用於需要資產和紋理的 3ds Max 路徑檔案 (.mxp 檔案) 的更複雜場景。 如需有關 3ds Max Batch Labs 範本的詳細資訊，請參閱 GitHub 上的 [BatchLabs 資料](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax)存放庫。
 
-此外，您可以使用 [Batch Python SDK](https://docs.microsoft.com/azure/batch/batch-python-tutorial) 將轉譯與您現有的管線整合。
+此外，您可以使用 [Batch Python SDK](/python/api/overview/azure/batch) 將轉譯與您現有的管線整合。
 
 
 ## <a name="use-the-batch-plug-in-for-maya-to-submit-a-render-job"></a>使用適用於 Maya 的 Batch 外掛程式提交轉譯作業

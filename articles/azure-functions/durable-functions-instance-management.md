@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3c6602bdd90c82568a50ad7354d7abb7c6a472ae
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 5cb3ccbc949f8250101fab6cb7899b859149fdfd
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287743"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341087"
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>在 Durable Functions (Azure Functions) 中管理執行個體
 
@@ -81,6 +81,7 @@ module.exports = function (context, input) {
 * **CustomStatus**：JSON 格式的自訂協調流程狀態。 
 * **Output**：函式的 JSON 值輸出 (如果函式已完成)。 如果協調器函式失敗，此屬性會包含失敗詳細資料。 如果協調器函式終止，此屬性會包含提供的終止原因 (如果有的話)。
 * **RuntimeStatus**：下列其中一個值：
+    * **擱置**：已排程的執行個體尚未開始執行。
     * **Running**：執行個體已開始執行。
     * **Completed**：執行個體已正常完成。
     * **ContinuedAsNew**：執行個體本身以新的記錄重新啟動。 這是暫時性的狀態。

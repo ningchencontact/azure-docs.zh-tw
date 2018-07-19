@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
-ms.openlocfilehash: 68e101ebec4a90d8c0f39eedeef33d252c720ed1
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: b7cb8b1ca2f377964f3613ad8e0549418cb2abec
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737363"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131866"
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>使用 Azure CLI 2.0 搭配 Azure 儲存體
 
@@ -198,9 +198,20 @@ az storage account create \
   * `Standard_RAGRS`
   * `Standard_ZRS`
 
-
 ### <a name="set-default-azure-storage-account-environment-variables"></a>設定預設 Azure 儲存體帳戶環境變數
+
 您可以在 Azure 訂用帳戶中有多個儲存體帳戶。 若要選取其中一個來用於所有後續的儲存體命令，您可以設定下列環境變數︰
+
+首先，使用 [az storage account keys list](/cli/azure/storage/account/keys#list) 命令顯示您的儲存體帳戶金鑰：
+
+```azurecli-interactive
+az storage account keys list \
+    --account-name <account_name> \
+    --resource-group <resource_group> \
+    --output table
+```
+
+現在您有了金鑰，您可以將其和帳戶名稱定義為環境變數：
 
 ```azurecli
 export AZURE_STORAGE_ACCOUNT=<account_name>
@@ -223,7 +234,6 @@ export AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
 
 > [!NOTE]
 > 本文下列各節中的所有範例都假設您已設定 `AZURE_STORAGE_ACCOUNT` 和 `AZURE_STORAGE_ACCESS_KEY` 環境變數。
->
 
 ## <a name="create-and-manage-blobs"></a>建立和管理 Blob
 Azure Blob 儲存體是一項儲存大量非結構化資料的服務 (例如文字或二進位資料)，全球任何地方都可透過 HTTP 或 HTTPS 來存取這些資料。 本節假設您已熟悉 Azure Blob 儲存體的概念。 如需詳細資訊，請參閱[使用 .NET 開始使用 Azure Blob 儲存體](../blobs/storage-dotnet-how-to-use-blobs.md)和 [Blob 服務概念](/rest/api/storageservices/blob-service-concepts)。

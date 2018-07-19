@@ -11,15 +11,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/14/2017
+ms.date: 07/02/2018
 ms.reviewer: danha
 ms.author: mbullwin
-ms.openlocfilehash: 7f8f49cf88bda8e485d2365281c13680ef796196
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: aa86e2f3b1fb147ab167c948475a5207693143c2
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295514"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341557"
 ---
 # <a name="using-analytics-in-application-insights"></a>使用 Application Insights 中的分析
 [分析](app-insights-analytics.md)是 [Application Insights](app-insights-overview.md) 的強大搜尋功能。 這些分頁說明 Log Analytics 查詢語言。
@@ -151,7 +151,7 @@ IntelliSense 會向您提示您可使用的運算子和運算式元素。 按一
 
 當您將圖表釘選到儀表板時，圖表會套用某些簡化效果。
 
-**時間限制：** 查詢會自動限制為過去 14 天。 效果就像您的查詢包含 `where timestamp > ago(14d)` 一樣。
+**時間限制：** 查詢會自動限制為過去 30 天。 效果就像您的查詢包含 `where timestamp > ago(30d)` 一樣。
 
 **量化計數限制：** 如果您顯示的是有許多不連續量化的圖表 (通常是長條圖)，所佔比例較少的量化會自動分組到單一的「其他」量化。 例如，下列查詢︰
 

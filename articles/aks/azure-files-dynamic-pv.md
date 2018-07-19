@@ -2,19 +2,19 @@
 title: 搭配 AKS 使用 Azure 檔案
 description: 搭配 AKS 使用 Azure 磁碟
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/21/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d3e92902e711ba2b1664c6497ecb66f035ea9308
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 84500791887194884e1ec7d15ddfbc169ba22517
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34597496"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098340"
 ---
 # <a name="persistent-volumes-with-azure-files"></a>包含 Azure 檔案的永續性磁碟區
 
@@ -24,7 +24,7 @@ ms.locfileid: "34597496"
 
 ## <a name="create-storage-account"></a>建立儲存體帳戶
 
-在以動態方式將 Azure 檔案共用建立為 Kubernetes 磁碟區時，您可以使用任何儲存體帳戶，只要該帳戶位於 AKS **節點**資源群組中即可。 使用 [az resource show][az-resource-show] 命令取得資源群組名稱。
+在以動態方式將 Azure 檔案共用建立為 Kubernetes 磁碟區時，您可以使用任何儲存體帳戶，只要該帳戶位於 AKS **節點**資源群組中即可。 這是具有 `MC_` 前置詞的帳戶，由 AKS 叢集的資源佈建所建立。 使用 [az resource show][az-resource-show] 命令取得資源群組名稱。
 
 ```azurecli-interactive
 $ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
@@ -40,13 +40,15 @@ MC_myResourceGroup_myAKSCluster_eastus
 az storage account create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name mystorageaccount --location eastus --sku Standard_LRS
 ```
 
+> Azure 檔案服務目前只適用於標準儲存體。 如果使用進階儲存體，您的磁碟區將無法佈建。
+
 ## <a name="create-storage-class"></a>建立儲存體類別
 
 儲存體類別可用來定義 Azure 檔案共用的建立方式。 您可以在類別中指定特定的儲存體帳戶。 如果未指定儲存體帳戶，就必須指定 `skuName` 和 `location`，而系統將會評估相關資源群組中的所有儲存體帳戶以尋找相符項目。
 
 如需有關適用於 Azure 檔案之 Kubernetes 儲存體類別的詳細資訊，請參閱 [Kubernetes 儲存體類別][kubernetes-storage-classes]。
 
-建立名為 `azure-file-sc.yaml` 的檔案，然後將下列資訊清單複製進來。 將 `storageAccount` 更新成您目標儲存體帳戶的名稱。
+建立名為 `azure-file-sc.yaml` 的檔案，然後將下列資訊清單複製進來。 將 `storageAccount` 更新成您目標儲存體帳戶的名稱。 如需 `mountOptions` 的詳細資訊，請參閱 [掛接選項] 一節。
 
 ```yaml
 kind: StorageClass
@@ -54,8 +56,13 @@ apiVersion: storage.k8s.io/v1
 metadata:
   name: azurefile
 provisioner: kubernetes.io/azure-file
+mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=1000
+  - gid=1000
 parameters:
-  storageAccount: mystorageaccount
+  skuName: Standard_LRS
 ```
 
 使用 [kubectl apply][kubectl-apply] 命令來建立儲存體類別。
@@ -206,3 +213,4 @@ spec:
 [az-storage-create]: /cli/azure/storage/account#az_storage_account_create
 [az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list
 [az-storage-share-create]: /cli/azure/storage/share#az_storage_share_create
+[mount-options]: #mount-options

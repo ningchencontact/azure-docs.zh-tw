@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 004577ead56befce02771b82ace088706e8f0c3c
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 0832b3b8e0b2b6d7459eeddb8d8e5a93a7f17d09
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34709201"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448344"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>使用用戶端憑證保護您的 RESTful 服務
 
@@ -38,21 +38,13 @@ ms.locfileid: "34709201"
 * 取得有效的憑證 (具有私密金鑰的 .pfx 檔案)。
 
 ## <a name="step-1-configure-a-web-app-for-client-certificate-authentication"></a>步驟 1：設定 Web 應用程式進行用戶端憑證驗證
-若要設定 **Azure App Service** 以要求用戶端憑證，請將 Web 應用程式 `clientCertEnabled` 站台設定設為 *true*。 若要進行此變更，您必須使用 REST API。 您可以透過 Azure 入口網站中的管理體驗使用此設定。 若要尋找這些設定，請在 RESTful 應用程式的 [設定] 功能表上，於 [開發工具] 下，選取 [資源總管]。
+若要設定 **Azure App Service** 以要求用戶端憑證，請將 Web 應用程式 `clientCertEnabled` 站台設定設為 *true*。 若要進行此變更，請在 Azure 入口網站中，開啟 Web 應用程式頁面。 在左側導覽的 [設定] 底下，選取 [SSL 設定]。 在 [用戶端憑證] 區段中，開啟 [連入用戶端憑證] 選項。
 
 >[!NOTE]
 >請確定您的 Azure App Service 方案至少為標準版本。 如需詳細資訊，請參閱 [Azure App Service 方案深入概觀](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview)。
 
-
-使用 [Azure 資源總管 (預覽)](https://resources.azure.com) 將 **clientCertEnabled** 屬性設為 *true*，如下圖所示：
-
-![透過 Azure 資源總管設定 clientCertEnabled](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-resource-explorer.png)
-
 >[!NOTE]
 >如需設定 **clientCertEnabled** 屬性的詳細資訊，請參閱[設定 Web 應用程式的 TLS 相互驗證](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth)。
-
->[!TIP]
->或者，若要更輕鬆地製作 REST API 呼叫，您也可以使用 [ARMClient](https://github.com/projectkudu/ARMClient) 工具。
 
 ## <a name="step-2-upload-your-certificate-to-azure-ad-b2c-policy-keys"></a>步驟 2：將憑證上傳至 Azure AD B2C 原則金鑰
 將 `clientCertEnabled` 設為 *ture* 之後，與您的 RESTful API 的通訊需要用戶端憑證。 若要在您的 Azure AD B2C 租用戶中取得、上傳和儲存用戶端憑證，請執行下列動作： 

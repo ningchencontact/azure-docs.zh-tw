@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 11e0a4e38739a775d977cf76b72d4dc92942a7b0
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: e93b241c79a50380f4ef1538dfbf7615232e6c49
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725086"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096504"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>使用 BI 分析工具搭配 ODBC 驅動程式連線到 Azure Cosmos DB
 
@@ -63,7 +63,7 @@ Azure Cosmos DB 是一種無結構描述的資料庫，因此它會透過讓應�
 4. 按一下 [測試] 按鈕，確定您可以連線到您的 Azure Cosmos DB 帳戶。 
 5. 按一下 [進階選項] 並設定下列值︰
     - **查詢一致性**︰選取適用於您的作業的[一致性層級](consistency-levels.md)。 預設為 [工作階段]。
-    - **重試次數**：輸入初始要求因為服務節流而未完成時，重試作業的次數。
+    - **重試次數**：輸入初始要求因為服務速率限制而未完成時，重試作業的次數。
     - **結構描述檔案**：您在這裡有一些選項。
         - 此項目預設為空白，此時驅動程式會掃描所有集合的第一個頁面資料，以判斷每個集合的結構描述。 這就是所謂的「集合對應」。 如果沒有定義結構描述檔案，驅動程式就必須掃描每一個驅動程式工作階段，而可能導致使用 DSN 的應用程式啟動時間過長。 建議您一律將結構描述檔案與 DSN 產生關連。
         - 如果您已經有結構描述檔案 (可能是您使用 [結構描述編輯器](#schema-editor) 建立的)，您可以按一下 [瀏覽]並瀏覽至您的檔案，按一下 [儲存]，然後按一下 [確定]。

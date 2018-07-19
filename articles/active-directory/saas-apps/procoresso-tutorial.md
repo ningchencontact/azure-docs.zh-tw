@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
-ms.openlocfilehash: 380b7e8fc48b88449cf43fda92af7f9503771777
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: bd84224f4c3a8a498a296ff50190713111895472
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287219"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39051610"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>教學課程：Azure Active Directory 與 Procore SSO 整合
 
@@ -33,7 +33,7 @@ Procore SSO 與 Azure AD 整合提供下列優點：
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Procore SSO 與 Azure AD 的整合，您需要下列項目：
 
@@ -254,7 +254,7 @@ To ensure users can sign-in to Procore SSO after it has been configured to use A
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-如果要測試您的單一登入設定，請開啟存取面板。 如需 [存取面板] 的詳細資訊，請參閱 [存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 當您按一下「存取面板」中的 Procore SSO 圖格時，應該會自動登入您的 Procore SSO 應用程式。
+如果要測試您的單一登入設定，請開啟存取面板。 如需 [存取面板] 的詳細資訊，請參閱 [存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 當您按一下「存取面板」中的 Procore SSO 圖格時，應該會自動登入您的 Procore SSO 應用程式。
 
 ## <a name="additional-resources"></a>其他資源
 

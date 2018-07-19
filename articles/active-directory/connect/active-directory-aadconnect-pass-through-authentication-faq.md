@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e62117ee98b1d47600141249dcd3b17ec58a9654
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 6d5cd79a6336b2e5c4b3c5c6f5765d92cd602552
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918150"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048963"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory 傳遞驗證：常見問題集
 
@@ -60,7 +60,7 @@ ms.locfileid: "37918150"
 
 ## <a name="what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication"></a>如果使用者的密碼過期又嘗試使用傳遞驗證來登入，會發生什麼事？
 
-如果您已經為特定使用者設定[密碼回寫](../active-directory-passwords-update-your-own-password.md)，而使用者又使用傳遞驗證來登入，則他們將能夠變更或重設其密碼。 密碼將會如預期般回寫至內部部署 Active Directory。
+如果您已經為特定使用者設定[密碼回寫](../user-help/active-directory-passwords-update-your-own-password.md)，而使用者又使用傳遞驗證來登入，則他們將能夠變更或重設其密碼。 密碼將會如預期般回寫至內部部署 Active Directory。
 
 如果您尚未為特定使用者設定密碼回寫，或使用者未獲指派有效的 Azure AD 授權，則使用者將無法在雲端中更新其密碼。 即使他們的密碼過期，他們也無法加以更新。 使用者會看到這則訊息：「您的組織不允許您在此網站更新您的密碼。 請依據您組織所建議的方法更新密碼，或洽詢您的管理員尋求協助。」 使用者或系統管理員必須在內部部署 Active Directory 中重設其密碼。
 

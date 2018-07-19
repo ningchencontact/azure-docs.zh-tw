@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 1e143c8c17d5cbc3403d90f7a354d5300265d679
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: f1df6544ea7ca5a0f84bfb164982d816633d7fbe
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100380"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054398"
 ---
 # <a name="security-guidance-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>搭配 Azure AD 帳戶使用 Azure Multi-Factor Authentication 的安全性指引
 
@@ -106,5 +106,5 @@ Azure Multi-Factor Authentication Server 可以使用同盟來保護雲端資源
 雖然這篇文章強調 Azure MFA 的一些最佳做法，還有其他資源您也可以在規劃 MFA 部署時使用。 以下清單有可以在此程序期間協助您的一些關鍵文章：
 
 * [Azure Multi-Factor Authentication 中的報告](howto-mfa-reporting.md)
-* [雙步驟驗證註冊體驗](end-user/current/multi-factor-authentication-end-user-first-time.md)
+* [雙步驟驗證註冊體驗](../user-help/multi-factor-authentication-end-user-first-time.md)
 * [Azure Multi-Factor Authentication 常見問題集](multi-factor-authentication-faq.md)

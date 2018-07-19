@@ -8,16 +8,15 @@ manager: jhubbard
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/09/2018
+ms.topic: conceptual
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 6e92eed5e4083c9b8063318b2a9139e20f53de1a
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: fa1c42a7bb9a06b2ea790e883ec7da6caa41d6b3
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39011956"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-store-using-python"></a>使用 Python 在 Azure Data Lake Store 上進行檔案系統作業
 > [!div class="op_single_selector"]
@@ -30,7 +29,7 @@ ms.lasthandoff: 05/10/2018
 
 在本文中，您會了解如何使用 Python SDK 在 Azure Data Lake Store 上執行檔案系統作業。 如需有關如何使用 Python 在 Data Lake Store 上執行帳戶管理作業的指示，請參閱[使用 Python 在 Data Lake Store 上進行帳戶管理作業](data-lake-store-get-started-python.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * **Python**。 您可以從[這裡](https://www.python.org/downloads/)下載 Python。 本文使用 Python 3.6.2。
 
@@ -131,6 +130,6 @@ pip install azure-datalake-store
 * [使用 Python 在 Data Lake Store 上進行帳戶管理作業](data-lake-store-get-started-python.md)。
 
 ## <a name="see-also"></a>另請參閱
-* [Azure Data Lake Store Python (帳戶管理) 參考資料](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
+
 * [Azure Data Lake Store Python (檔案系統) 參考資料](http://azure-datalake-store.readthedocs.io/en/latest)
 * [與 Azure Data Lake Store 相容的開放原始碼巨量資料應用程式](data-lake-store-compatible-oss-other-applications.md)

@@ -3,7 +3,7 @@ title: 檢視 Azure Application Insights 應用程式資料 | Microsoft Docs
 description: 您可以使用 Applications Insights Connector 解決方案來診斷效能問題，以及了解使用者如何使用 Application Insights 監視您的應用程式。
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 49280cad-3526-43e1-a365-c6a3bf66db52
@@ -11,19 +11,23 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/18/2017
+ms.topic: conceptual
+ms.date: 06/29/2018
 ms.author: magoedte
-ms.openlocfilehash: 854ec70c897b6a561fdec056228f82ccec3ae16c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: na
+ms.openlocfilehash: 2312b0ed51be7079da3e53b27c269adfb761044d
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30186228"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131621"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights Connector 管理解決方案 (預覽)
 
 ![Application Insights 符號](./media/log-analytics-app-insights-connector/app-insights-connector-symbol.png)
+
+>[!NOTE]
+> 因為[跨資源查詢](log-analytics-cross-workspace-search.md)的支援，已不再需要 Application Insights 連接器管理解決方案，此方案將遭到取代。 從 7 月開始，您將無法從新的 Application Insights 資源連結到 Log Analytics 工作區。 現有的連結和儀表板將會繼續運作到 2018 年 11 月為止。 如需詳細資訊，請參閱[移至 Azure 的 OMS 入口網站](log-analytics-oms-portal-transition.md)。
 
 Applications Insights Connector 解決方案可協助您診斷效能問題，以及了解使用者如何使用 [Application Insights](../application-insights/app-insights-overview.md) 監視您的應用程式。 在 Log Analytics 中可使用開發人員在 Application Insights 中看見的相同應用程式遙測檢視。 不過，在整合 Application Insights 應用程式與 Log Analytics 時，將作業與應用程式資料放在一個地方可提高您應用程式的可見性。 具有相同的檢視，可協助您與您的應用程式開發人員共同作業。 常見的檢視可協助減少偵測及解決應用程式和平台問題的時間。
 
@@ -157,7 +161,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 解決方案會從已連線的 Application Insights 應用程式收到下列類型的遙測資料：
 
-- Availability
+- 可用性
 - 例外狀況
 - Requests
 - 頁面檢視 – 為了讓工作區接收頁面檢視，您必須設定您的應用程式來收集該資訊。 如需詳細資訊，請參閱 [PageViews](../application-insights/app-insights-api-custom-events-metrics.md#page-views)。
@@ -199,7 +203,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 | 屬性 | 說明 |
 | --- | --- |
-| TelemetryType | Availability |
+| TelemetryType | 可用性 |
 | AvailabilityTestName | Web 測試的名稱 |
 | AvailabilityRunLocation | http 要求的地理區域來源 |
 | AvailabilityResult | 指出 Web 測試的成功結果 |

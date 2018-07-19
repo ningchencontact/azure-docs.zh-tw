@@ -2,19 +2,19 @@
 title: Azure SQL Database 服務層 - DTU | Microsoft Docs
 description: 深入了解單一和集區資料庫的服務層，以提供效能層級和儲存體大小。
 services: sql-database
-author: CarlRabeler
+author: sachinpMSFT
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 06/28/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: cf17ec616819da94678f2ae4f0f0ca283f99f629
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: d6dc641123e2bf840940f6246245a89fdd792db5
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750419"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131832"
 ---
 # <a name="choosing-a-dtu-based-service-tier-performance-level-and-storage-resources"></a>選擇以 DTU 為基礎的服務層、效能等級和儲存體資源 
 
@@ -60,7 +60,7 @@ ms.locfileid: "36750419"
 ||||||
 
 > [!IMPORTANT]
-> 所有區域目前均可取得進階層中超過 1 TB 的儲存體，但下列區域除外：英國北部、美國中西部、英國南部2、中國東部、USDoDCentral、德國中部、USDoDEast、US Gov (西南部)、US Gov (中南部)、德國東北部、中國北部、US Gov (東部)。 在其他區域，進階層中的儲存空間上限為 1 TB。 請參閱 [P11-P15 目前限制](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
+> 所有區域目前均可取得進階層中超過 1 TB 的儲存體，下列區域除外：美國中西部、中國東部、USDoDCentral、德國中部、USDoDEast、US Gov (西南部)、US Gov (愛荷華州)、德國東北部、中國北部。 在其他區域，進階層中的儲存空間上限為 1 TB。 請參閱 [P11-P15 目前限制](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
 
 ## <a name="next-steps"></a>後續步驟
 

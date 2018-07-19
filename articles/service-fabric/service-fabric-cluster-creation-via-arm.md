@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: aljo
-ms.openlocfilehash: d9ed4134cfb8047d5d6839979cd89ba37ff0c3f8
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: e963b0f816d30411aa7d1e8c172ca0c2e5ddf0f1
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34701347"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444356"
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>使用 Azure Resource Manager 來建立 Service Fabric 叢集 
 > [!div class="op_single_selector"]
@@ -115,6 +115,10 @@ az account set --subscription $subscriptionId
 
 以下命令適用於建立 Windows 和 Linux 叢集，您只需要隨之指定作業系統。 PowerShell/CLI 命令也會在指定的 CertificateOutputFolder 中輸出憑證，但是請確定已建立憑證資料夾。 此命令也需要其他參數如 VM SKU。
 
+> [!NOTE]
+> 下列 PowerShell 命令僅適用於 Azure Resource Manager PowerShell 6.1 以上的版本。 若要檢查 Azure Resource Manager PowerShell 的目前版本，請執行下列 PowerShell 命令 "Get-Module AzureRM"。 遵循此連結即可升級 Azure Resource Manager PowerShell 版本。 https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.3.0
+>
+>
 ```PowerShell
 $resourceGroupLocation="westus"
 $resourceGroupName="mycluster"

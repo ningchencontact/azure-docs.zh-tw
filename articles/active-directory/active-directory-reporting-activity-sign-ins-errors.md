@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/31/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: dc01a775579455ae24c95ecc6f3858ce28149dea
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: bbd826b636bebca90eacba43ca879a725cddf7d2
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231895"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971069"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Azure Active Directory 入口網站中的登入活動報告錯誤碼
 
@@ -75,9 +75,10 @@ ms.locfileid: "36231895"
 |50008|權杖中的 SAML 判斷提示遺漏或設定不正確。 請連絡同盟提供者。|
 |50010|應用程式的對象 URI 驗證失敗，因為未設定權杖對象。 請連絡應用程式擁有者|
 |50011|回覆地址遺漏、設定不正確或不符合針對應用程式所設定的回覆地址。 請嘗試使用下列文件所列出的解決方式：[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application)。 如果還是有問題，請連絡應用程式擁有者或應用程式管理員|
+|50012| 這是指出驗證失敗的一般錯誤訊息。 發生的原因可能是要求中遺失或無效的認證或宣告。 確認傳送的要求中包含正確的認證和宣告。 |
 |50013|判斷提示因為各種原因而無效：權杖簽發者不符合其有效時間範圍內的 API 版本；過期；格式不正確；判斷提示中的重新整理權杖不是主要的重新整理權杖。|
 |50017|憑證驗證失敗，原因如下：<ul><li>在受信任的憑證清單中找不到發行憑證</li><li>找不到預期的 CrlSegment</li><li>在受信任的憑證清單中找不到發行憑證</li><li>在設定差異 CRL 發佈點時未指定對應的 CRL 發佈點</li><li>由於逾時問題而無法擷取有效的 CRL 區段</li><li>無法下載 CRL</li></ul>請連絡租用戶管理員。|
-|50020|使用者未經授權；因為版本問題而無法簽發權杖；未指定簽發者名稱；簽發者名稱有問題 (Null - 最大長度)。 請連絡應用程式擁有者|
+|50020|由於以下其中一個原因，使用者未獲得授權。<ul><li>使用者嘗試以含 v1 端點的 MSA 帳戶來登入</li><li>使用者不存在於租用戶中。</li></ul> 請連絡應用程式擁有者。|
 |50027|JWT 權杖無效，原因如下：<ul><li>未包含 nonce 宣告、子宣告</li><li>主旨識別碼不相符</li><li>idToken 宣告中的宣告重複</li><li>未預期的簽發者</li><li>未預期的對象</li><li>不在其有效時間範圍內 </li><li>權杖格式不正確</li><li>來自簽發者的外部 ID 權杖未能通過簽章驗證。</li></ul>請連絡應用程式擁有者|
 |50029|URI 無效 - 網域名稱包含無效字元。 請連絡租用戶管理員。|
 |50034|使用者不存在於目錄中。 請連絡租用戶管理員。|
@@ -99,7 +100,7 @@ ms.locfileid: "36231895"
 |50089|流程權杖過期 - 驗證失敗。 讓使用者嘗試以使用者名稱/密碼重新登入|
 |50097|需要裝置驗證 - DeviceId - DeviceAltSecId 宣告為 Null，或沒有與裝置識別碼對應的裝置存在|
 |50099|JWT 簽章無效。 請連絡應用程式擁有者。|
-|50105|未將登入的使用者指派給所登入應用程式的角色。 請將使用者指派給應用程式。 如需詳細資訊：[https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role)|
+|50105|未將登入的使用者指派給所登入應用程式的角色。 請將使用者指派給應用程式。 如需詳細資訊：[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role)|
 |50107|所要求的同盟領域物件不存在。 請連絡租用戶管理員。|
 |50120|JWT 標頭有問題。 請連絡租用戶管理員。|
 |50124|宣告轉換所包含的輸入參數無效。 請連絡租用戶管理員以更新原則。|
@@ -173,7 +174,10 @@ ms.locfileid: "36231895"
 |81001|使用者的 Kerberos 票證太大。 如果使用者位於過多群組，以致於 Kerberos 票證包含過多群組成員資格，便會發生此錯誤。 降低使用者的群組成員資格，並再試一次。|
 |81005|驗證套件不受支援|
 |81007|租用戶未啟用無縫 SSO|
-
+|90010|基於各種不同的原因而不支援該要求。 例如，該要求是使用不支援的要求方法 (僅支援 POST 方法)，或不支援所要求的權杖簽章演算法。 請連絡應用程式開發人員。|
+|90014| 遺漏通訊協定訊息的必要欄位，請連絡應用程式擁有者。 如果您是應用程式擁有者，請確定擁有登入要求的所有必要參數。 |
+|90072| 必須先在租用戶中將帳戶新增為外部使用者。 登出後再使用不同的 Azure AD 帳戶登入。|
+|90094| 進行授與需要系統管理員權限。 詢問您的租用戶系統管理員，以提供對此應用程式的同意。|
 
 ## <a name="next-steps"></a>後續步驟
 

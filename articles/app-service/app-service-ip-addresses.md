@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: cephalin
-ms.openlocfilehash: 906a5d511615c57b6ff807ac240a838c63917e66
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 752f9d82afafaf7324c0c63c0d7377b952fe0716
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31788074"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003141"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Azure App Service 中的輸入和輸出 IP 位址
 
@@ -67,4 +67,4 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 了解如何依來源 IP 位址限制輸入流量。
 
 > [!div class="nextstepaction"]
-> [靜態 IP 限制](app-service-ip-addresses.md)
+> [靜態 IP 限制](app-service-ip-restrictions.md)

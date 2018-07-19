@@ -13,15 +13,15 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 10/04/2017
-ms.author: cfowler
+ms.date: 07/03/2018
+ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: e868f07a8c24948655d81c7db1859d819b01c062
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 929598f9b2d7c3bd4b7c96158486c019d6afc281
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38306359"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988767"
 ---
 # <a name="create-a-function-app-for-serverless-code-execution"></a>建立無伺服器程式碼也可執行的函式應用程式
 
@@ -55,6 +55,6 @@ ms.locfileid: "38306359"
 
 ## <a name="next-steps"></a>後續步驟
 
-如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](/cli/azure)。
+如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](https://docs.microsoft.com/cli/azure)。
 
 您可以在 [Azure Functions 文件](../functions-cli-samples.md)中找到其他 Azure Functions CLI 指令碼範例。

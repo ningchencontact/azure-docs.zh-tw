@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: e2512a2af05ee7101713886c3ae1b5c6c74dd3db
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 5ef1ca201bc564949ee65f81970d0b040679d6b8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018533"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38671420"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒體服務版本資訊
 Azure 媒體服務的這些版本資訊彙總了舊版發行後的變更和已知問題。
@@ -366,7 +366,7 @@ Azure Media Services Packager 和 Encryptor 完成了下列錯誤修正：
 
 ## <a id="may_changes_14"></a>2014 年 5 月版本
 ### <a id="may_14_changes"></a>一般媒體服務更新
-您現在可以使用[動態封裝]進行 HLS 第 3 版的串流處理。 若要串流處理 HLS 第 3 版，請將下列格式新增至原始定位器路徑：* .ism/manifest(format=m3u8-aapl-v3)。 如需詳細資訊，請參閱 [此部落格](http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/)。
+您現在可以使用[動態封裝]進行 HLS 第 3 版的串流處理。 若要串流處理 HLS 第 3 版，請將下列格式新增至原始定位器路徑：* .ism/manifest(format=m3u8-aapl-v3)。 如需詳細資訊，請參閱[此論壇](https://social.msdn.microsoft.com/Forums/en-US/13b8a776-9519-4145-b9ed-d2b632861fde/dynamic-packaging-to-hls-v3)。
 
 動態封裝現在也支援根據使用 PlayReady 靜態加密的 Smooth Streaming，來傳遞使用 PlayReady 加密的 HLS (第 3 版和第 4 版)。 如需如何使用 PlayReady 為 Smooth Streaming 加密的相關資訊，請參閱[使用 PlayReady 保護 Smooth Streaming](http://msdn.microsoft.com/library/azure/dn189154.aspx)。
 
@@ -396,7 +396,7 @@ Azure Media Services Packager 和 Encryptor 完成了下列錯誤修正：
 * 修正了使用 OrderBy 陳述式進行 LINQ 查詢的用法相關問題。
 * [GitHub] 中的測試方案已分成單元測試和案例測試。
 
-如需變更的詳細資訊，請參閱[媒體服務 .NET SDK 3.0.0.1 和 3.0.0.2 版本](http://www.gtrifonov.com/2014/02/07/windows-azure-media-services-.net-sdk-3.0.0.2-release/)。
+如需變更的詳細資訊，請參閱[媒體服務 .NET SDK 3.0.0.1 和 3.0.0.2 版本](http://gtrifonov.com/2014/02/07/windows-azure-media-services-net-sdk-3-0-0-2-release/index.html)。
 
 3.0.0.3 版做了下列變更：
 

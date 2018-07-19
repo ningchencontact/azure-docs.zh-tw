@@ -1,20 +1,20 @@
 ---
 title: 使用 Azure 地圖服務進行搜尋 | Microsoft Docs
 description: 使用 Azure 地圖服務來搜尋附近景點
-author: kgremban
-ms.author: kgremban
+author: dsk-2015
+ms.author: dkshir
 ms.date: 05/07/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 4a414b5b865d31dd99b54ef9693abafb5490a50f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ffc4b7625a6c43f8e2801313c61f14c785a3ec5f
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34601780"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988869"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>使用 Azure 地圖服務來搜尋附近景點
 
@@ -26,7 +26,7 @@ ms.locfileid: "34601780"
 > * 使用地圖控制項 API 建立新的網頁
 > * 使用地圖服務的搜尋服務來尋找附近景點
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="log-in-to-the-azure-portal"></a>登入 Azure 入口網站
 登入 [Azure 入口網站](https://portal.azure.com)。

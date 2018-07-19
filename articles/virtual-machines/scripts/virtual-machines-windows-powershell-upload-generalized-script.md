@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e0f9bcbda02bc3cdbb76c82595b4127bbee247fa
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 832b32ebc4cf99d17df4669b421415d0d0ca0560
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448023"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112843"
 ---
 # <a name="sample-script-to-upload-a-vhd-to-azure-and-create-a-new-vm"></a>將 VHD 上傳至 Azure 並新建 VM 的範例指令碼
 
@@ -131,24 +131,24 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 | 命令                                                                                                             | 注意                                                                                                                                                                                |
 |---------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)                           | 建立用來存放所有資源的資源群組。                                                                                                                          |
-| [New-AzureRmStorageAccount](/powershell/module/azurerm.resources/new-azurermstorageaccount)                         | 建立儲存體帳戶。                                                                                                                                                           |
-| [Add-AzureRmVhd](/powershell/module/azurerm.resources/add-azurermvhd)                                               | 將虛擬硬碟從內部部署虛擬機器上傳至 Azure 雲端儲存體帳戶中的 Blob。                                                                       |
-| [New-AzureRmImageConfig](/powershell/module/azurerm.resources/new-azurermimageconfig)                               | 建立可設定的映像物件。                                                                                                                                                 |
-| [Set-AzureRmImageOsDisk](/powershell/module/azurerm.resources/set-azurermimageosdisk)                               | 設定映像物件上的作業系統磁碟屬性。                                                                                                                        |
-| [New-AzureRmImage](/powershell/module/azurerm.resources/new-azurermimage)                                           | 建立新的映像。                                                                                                                                                                 |
-| [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.resources/new-azurermvirtualnetworksubnetconfig) | 建立子網路組態。 此組態可使用於虛擬網路建立程序。                                                                                |
-| [New-AzureRmVirtualNetwork](/powershell/module/azurerm.resources/new-azurermvirtualnetwork)                         | 建立虛擬網路。                                                                                                                                                           |
-| [New-AzureRmPublicIpAddress](/powershell/module/azurerm.resources/new-azurermpublicipaddress)                       | 建立公用 IP 位址。                                                                                                                                                         |
-| [New-AzureRmNetworkInterface](/powershell/module/azurerm.resources/new-azurermnetworkinterface)                     | 建立網路介面。                                                                                                                                                         |
-| [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.resources/new-azurermnetworksecurityruleconfig)   | 建立網路安全性群組規則組態。 建立 NSG 時，此組態用來建立 NSG 規則。                                                       |
-| [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.resources/new-azurermnetworksecuritygroup)             | 建立網路安全性群組。                                                                                                                                                    |
-| [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.resources/get-azurermvirtualnetwork)                         | 取得資源群組中的虛擬網路。                                                                                                                                          |
-| [New-AzureRmVMConfig](/powershell/module/azurerm.resources/new-azurermvmconfig)                                     | 建立 VM 組態。 此組態包括 VM 名稱、作業系統和系統管理認證等資訊。 建立 VM 時會使用此組態。 |
-| [Set-AzureRmVMSourceImage](/powershell/module/azurerm.resources/set-azurermvmsourceimage)                           | 指定虛擬機器的映像。                                                                                                                                            |
-| [Set-AzureRmVMOSDisk](/powershell/module/azurerm.resources/set-azurermvmosdisk)                                     | 設定虛擬機器上的作業系統磁碟屬性。                                                                                                                      |
-| [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.resources/set-azurermvmoperatingsystem)                   | 設定虛擬機器上的作業系統磁碟屬性。                                                                                                                      |
-| [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.resources/add-azurermvmnetworkinterface)                 | 將網路介面新增至虛擬機器。                                                                                                                                       |
-| [New-AzureRmVM](/powershell/module/azurerm.resources/new-azurermvm)                                                 | 建立虛擬機器。                                                                                                                                                            |
+| [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount)                         | 建立儲存體帳戶。                                                                                                                                                           |
+| [Add-AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd)                                               | 將虛擬硬碟從內部部署虛擬機器上傳至 Azure 雲端儲存體帳戶中的 Blob。                                                                       |
+| [New-AzureRmImageConfig](/powershell/module/azurerm.compute/new-azurermimageconfig)                               | 建立可設定的映像物件。                                                                                                                                                 |
+| [Set-AzureRmImageOsDisk](/powershell/module/azurerm.compute/set-azurermimageosdisk)                               | 設定映像物件上的作業系統磁碟屬性。                                                                                                                        |
+| [New-AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage)                                           | 建立新的映像。                                                                                                                                                                 |
+| [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) | 建立子網路組態。 此組態可使用於虛擬網路建立程序。                                                                                |
+| [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork)                         | 建立虛擬網路。                                                                                                                                                           |
+| [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress)                       | 建立公用 IP 位址。                                                                                                                                                         |
+| [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface)                     | 建立網路介面。                                                                                                                                                         |
+| [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig)   | 建立網路安全性群組規則組態。 建立 NSG 時，此組態用來建立 NSG 規則。                                                       |
+| [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup)             | 建立網路安全性群組。                                                                                                                                                    |
+| [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork)                         | 取得資源群組中的虛擬網路。                                                                                                                                          |
+| [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig)                                     | 建立 VM 組態。 此組態包括 VM 名稱、作業系統和系統管理認證等資訊。 建立 VM 時會使用此組態。 |
+| [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage)                           | 指定虛擬機器的映像。                                                                                                                                            |
+| [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk)                                     | 設定虛擬機器上的作業系統磁碟屬性。                                                                                                                      |
+| [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem)                   | 設定虛擬機器上的作業系統磁碟屬性。                                                                                                                      |
+| [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.network/add-azurermvmnetworkinterface)                 | 將網路介面新增至虛擬機器。                                                                                                                                       |
+| [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm)                                                 | 建立虛擬機器。                                                                                                                                                            |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup)                     | 移除資源群組及其內含的所有資源。                                                                                                                         |
 
 ## <a name="next-steps"></a>後續步驟

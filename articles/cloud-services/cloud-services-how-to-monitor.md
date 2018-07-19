@@ -3,7 +3,7 @@ title: 監視 Azure 雲端服務 | Microsoft Docs
 description: 描述監視 Azure 雲端服務所涉及的作業以及您的一些選項。
 services: cloud-services
 documentationcenter: ''
-author: thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: adegeo
-ms.openlocfilehash: f3a3a1beb8540ee8ab0502379396c06ea505fb44
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.author: jeconnoc
+ms.openlocfilehash: 725a705f746bbf5e32fcc410ba4153ac29e3fc3d
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2018
-ms.locfileid: "29149901"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003848"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>雲端服務監視簡介
 

@@ -3,7 +3,7 @@ title: 將 Windows 電腦連接到 Azure Log Analytics | Microsoft Docs
 description: 本文說明如何使用 Microsoft Monitoring Agent (MMA) 將其他雲端中託管的 Windows 電腦或內部部署電腦連線至 Log Analytics。
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: magoedte
-ms.openlocfilehash: 342387edb3793358d041702eaa6d76b462aef527
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: na
+ms.openlocfilehash: df61ef74d95dd9305fa8d97758bf07bcb40d54a6
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637407"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131381"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>將 Windows 電腦連接到 Azure 中的 Log Analytics 服務
 
@@ -101,8 +102,8 @@ ms.locfileid: "34637407"
 
 以下範例會安裝 64 位元代理程式，可由 `URI` 值識別。 您也可以取代 URI 值改為使用 32 位元版本。 這兩個版本的 URI 分別是︰
 
-- Windows 64 位元代理程式：https://go.microsoft.com/fwlink/?LinkId=828603
-- Windows 32 位元代理程式：https://go.microsoft.com/fwlink/?LinkId=828604
+- Windows 64 位元代理程式： https://go.microsoft.com/fwlink/?LinkId=828603
+- Windows 32 位元代理程式： https://go.microsoft.com/fwlink/?LinkId=828604
 
 
 >[!NOTE]

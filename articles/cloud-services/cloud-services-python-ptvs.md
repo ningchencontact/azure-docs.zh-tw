@@ -3,7 +3,7 @@ title: 開始使用 Python 和 Azure 雲端服務 | Microsoft Docs
 description: 使用 Python Tools for Visual Studio 建立 Azure 雲端服務的概觀，包括 Web 角色和背景工作角色。
 services: cloud-services
 documentationcenter: python
-author: thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 5489405d-6fa9-4b11-a161-609103cbdc18
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: hero-article
 ms.date: 07/18/2017
-ms.author: adegeo
-ms.openlocfilehash: 7465d355b31c495049167c652a2a7e1512827d8d
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.author: jeconnoc
+ms.openlocfilehash: 10ade991b77b90f31309dbe6a105744dbc02df40
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37111230"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003637"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>採用 Python Tools for Visual Studio 的 Python Web 和背景工作角色
 
 本文提供在 [Python Tools for Visual Studio][Python Tools for Visual Studio] 中使用 Python Web 和背景工作角色的概觀。 學習如何使用 Visual Studio 來建立和部署使用 Python 的基本雲端服務。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * [Visual Studio 2013、2015 或 2017](https://www.visualstudio.com/)
 * [Python Tools for Visual Studio][Python Tools for Visual Studio] (PTVS)
 * [Azure SDK Tools for VS 2013][Azure SDK Tools for VS 2013] 或  

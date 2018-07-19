@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: fa68711158bea203d4fe1605966363dd2786a038
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 9418525e60f255787f39a42657ee0dbdbd46957d
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715015"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096928"
 ---
 > [!div class="op_single_selector"]
 > * [非同步 Java](performance-tips-async-java.md)
@@ -119,7 +119,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
     在某些情況下，降低廢棄項目收集頻率可能會有幫助。 在 .NET 中，請將 [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) 設定為 true。
 6. **在 RetryAfter 間隔實作降速**
 
-    在進行效能測試期間，您應該增加負載，直到系統對小部分要求進行節流處理為止。 如果進行節流處理，用戶端應用程式應該在節流時降速，且持續時間達伺服器指定的重試間隔。 採用降速可確保您在重試之間花費最少的等待時間。 重試原則支援包含於 SQL [.NET](sql-api-sdk-dotnet.md) 和 [Java](sql-api-sdk-java.md) 的版本 1.8.0 和以上版本中，[Node.js](sql-api-sdk-node.md) 和 [Python](sql-api-sdk-python.md) 的版本 1.9.0 或以上版本中，以及 [.NET Core](sql-api-sdk-dotnet-core.md) SDK 所有支援的版本。 如需詳細資訊，請參閱[超過保留的輸送量限制](request-units.md#RequestRateTooLarge)和 [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx)。
+    在進行效能測試期間，您應該增加負載，直到系統對小部分要求進行節流處理為止。 如果進行節流處理，用戶端應用程式應該在節流時降速，且持續時間達伺服器指定的重試間隔。 採用降速可確保您在重試之間花費最少的等待時間。 重試原則支援包含於 SQL [.NET](sql-api-sdk-dotnet.md) 和 [Java](sql-api-sdk-java.md) 的版本 1.8.0 和以上版本中，[Node.js](sql-api-sdk-node.md) 和 [Python](sql-api-sdk-python.md) 的版本 1.9.0 或以上版本中，以及 [.NET 核心](sql-api-sdk-dotnet-core.md) SDK 所有支援的版本。 如需詳細資訊，請參閱[超過保留的輸送量限制](request-units.md#RequestRateTooLarge)和 [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx)。
     
     使用 .NET SDK 1.19 版和更新版本時，有一個機制可以記錄診斷資訊，並且針對延遲問題進行移難排解，如以下範例所示。 您可以針對具有較高讀取延遲的要求記錄診斷字串。 所擷取的診斷字串有助於您了解針對指定要求觀察 429s 的次數。
     ```csharp
@@ -200,7 +200,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
          }
     ```             
 
-    在此標頭中傳回的要求費用是佈建輸送量的一小部分 (也就是 2000 RU / 秒)。 例如，如果前述查詢傳回 1000 份 1KB 文件，則作業成本會是 1000。 因此在一秒內，伺服器在節流後續要求前，只會接受兩個這類要求。 如需詳細資訊，請參閱[要求單位](request-units.md)和[要求單位計算機](https://www.documentdb.com/capacityplanner)。
+    在此標頭中傳回的要求費用是佈建輸送量的一小部分 (也就是 2000 RU / 秒)。 例如，如果前述查詢傳回 1000 份 1KB 文件，則作業成本會是 1000。 因此在一秒內，伺服器在對後續要求進行速率限制前，只會接受兩個這類要求。 如需詳細資訊，請參閱[要求單位](request-units.md)和[要求單位計算機](https://www.documentdb.com/capacityplanner)。
 <a id="429"></a>
 2. **處理速率限制/要求速率太大**
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 07cbc047179c3de19d6f648d0342d47970c81dbc
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 235ba5fd1365ed8b400edce3db22420369540cce
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231367"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39052664"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>整合 Azure Active Directory 與 E Sales Manager Remix
 
@@ -34,7 +34,7 @@ ms.locfileid: "36231367"
 
 若要深入了解 SaaS 應用程式與 Azure AD 整合，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 E Sales Manager Remix 整合，您需要下列項目：
 
@@ -267,7 +267,7 @@ ms.locfileid: "36231367"
 
 當您選取存取面板中的 [E Sales Manager Remix] 圖格時，應該會自動登入您的 E Sales Manager Remix 應用程式。
 
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

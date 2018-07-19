@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 06/13/2018
 ms.author: iainfou
-ms.openlocfilehash: 6d4fa9a06f3baeb51505c3e6060e9689428f8386
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 1610ea93eed03fe6efe28e63a7151409e1946f5b
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100654"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988709"
 ---
 # <a name="quotas-and-region-availability-for-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 的配額和區域可用性
 
@@ -36,6 +36,8 @@ Azure Kubernetes Service (AKS) 適用於下列區域：
 - 加拿大東部
 - 美國中部
 - 美國東部
+- 美國東部 2
+- 日本東部
 - 北歐
 - 英國南部
 - 西歐

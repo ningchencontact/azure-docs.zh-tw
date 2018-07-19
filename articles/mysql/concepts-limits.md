@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/21/2018
-ms.openlocfilehash: 2fc224445f89a0b0b4afdc0ef1d0eb1b25b45f36
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.date: 06/30/2018
+ms.openlocfilehash: 1fd5905b8ea3f87fe6cfc2a830b73b8120a717dd
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311192"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341472"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>「適用於 MySQL 的 Azure 資料庫」中的限制
 下列各節說明資料庫服務中的容量、儲存引擎支援、權限支援、資料操作陳述式支援，以及功能限制。 另請參閱適用於 MySQL 資料庫引擎的[一般限制](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) \(英文\)。
@@ -77,6 +77,9 @@ ms.locfileid: "36311192"
 ### <a name="point-in-time-restore"></a>還原時間點
 - 使用 PITR 功能時，所建立新伺服器的設定會與作為新伺服器基礎的伺服器設定相同。
 - 不支援還原已刪除的伺服器。
+
+### <a name="vnet-service-endpoints"></a>VNet 服務端點
+- VNet 服務端點的支援僅適用於一般用途伺服器和記憶體最佳化伺服器。
 
 ### <a name="subscription-management"></a>訂用帳戶管理
 - 目前不支援跨訂用帳戶和資源群組動態移動預先建立的伺服器。
