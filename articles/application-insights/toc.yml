@@ -164,6 +164,8 @@
               href: app-insights-proactive-application-security-detection-pack.md
             - name: Azure 雲端服務
               href: app-insights-proactive-cloud-services.md
+            - name: 管理智慧偵測規則
+              href: app-insights-proactive-arm-config.md
         - name: 建立資源
           href: app-insights-create-new-resource.md
     - name: 分析

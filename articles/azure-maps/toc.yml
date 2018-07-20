@@ -82,6 +82,8 @@
           href: supported-search-categories.md
     - name: REST
       items:
+        - name: 地理位置服務
+          href: 'https://docs.microsoft.com/rest/api/maps/geolocation'
         - name: 轉譯服務
           href: 'https://docs.microsoft.com/rest/api/maps/render'
         - name: 路線規劃服務

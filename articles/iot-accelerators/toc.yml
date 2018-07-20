@@ -8,13 +8,13 @@
       href: about-iot-accelerators.md
 - name: 快速入門
   items:
-    - name: 部署遠端監視解決方案
+    - name: 試用遠端監視解決方案
       href: quickstart-remote-monitoring-deploy.md
-    - name: 部署連線的處理站解決方案
+    - name: 試用連線的處理站解決方案
       href: quickstart-connected-factory-deploy.md
-    - name: 部署預測性維護解決方案
+    - name: 試用預測性維護解決方案
       href: quickstart-predictive-maintenance-deploy.md
-    - name: 部署裝置模擬解決方案
+    - name: 試用裝置模擬解決方案
       href: quickstart-device-simulation-deploy.md
 - name: 教學課程
   items:
@@ -137,10 +137,6 @@
               href: ../iot-suite/iot-suite-v1-custom-rule.md
             - name: 遠端監視解決方案中的裝置資訊
               href: ../iot-suite/iot-suite-v1-remote-monitoring-device-info.md
-    - name: 預測性維護
-      items:
-        - name: 部署解決方案加速器
-          href: iot-accelerators-predictive-overview.md
     - name: 連線的處理站
       items:
         - name: 使用儀表板
