@@ -29,7 +29,7 @@
       href: apache-spark-eventhub-streaming.md
     - name: 建立機器學習應用程式
       href: apache-spark-ipython-notebook-machine-learning.md
-    - name: 使用 IntelliJ 建立 Spark 應用程式
+    - name: 在 IntelliJ 中建立 Spark 應用程式
       href: apache-spark-create-standalone-application.md
 - name: 作法
   items:

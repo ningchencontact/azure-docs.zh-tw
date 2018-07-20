@@ -230,9 +230,9 @@
     - name: 以程式設計方式尋找區域
       items:
         - name: '使用 C#'
-          href: find-region-csharp.md
+          href: luis-find-region-csharp.md
         - name: 使用 Node.js
-          href: find-region-nodejs.md
+          href: luis-find-region-nodejs.md
 - name: 參考
   items:
     - name: 使用者隱私權

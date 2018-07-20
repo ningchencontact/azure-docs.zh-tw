@@ -41,6 +41,8 @@
           href: automation-update-management.md
         - name: 管理多個虛擬機器的更新
           href: manage-update-multi.md
+        - name: 將 OMS 更新部署遷移至 Azure
+          href: migrate-oms-update-deployments.md
         - name: 整合 SCCM 與更新管理
           href: oms-solution-updatemgmt-sccmintegration.md
     - name: 變更追蹤

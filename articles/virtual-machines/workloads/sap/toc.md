@@ -24,7 +24,8 @@
 ## [SAP HANA 備份概觀](sap-hana-backup-guide.md)
 ## [SAP HANA 檔案層級備份](sap-hana-backup-file-level.md)
 ## [SAP HANA 儲存體快照備份](sap-hana-backup-storage-snapshots.md)
-# Azure 虛擬機器上的 SAP NetWeaver
+# Azure 虛擬機器上的 SAP NetWeaver 與 Business One
+## [Azure 虛擬機器上的 SAP Business One](business-one-azure.md)
 ## [SAP IDES on Windows/SQL Server SAP CAL 部署指南](cal-ides-erp6-erp7-sp3-sql.md)
 ## [Azure Linux VM 上的 SAP NetWeaver](suse-quickstart.md)
 ## [在 Azure 上規劃並實作 SAP NetWeaver](planning-guide.md)
