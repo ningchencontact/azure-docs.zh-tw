@@ -19,6 +19,8 @@
       href: quickstart-nodejs.md
     - name: 建立 Java 應用程式
       href: quickstart-java.md
+    - name: 建立 Python 應用程式
+      href: quickstart-python.md
     - name: 建立 Ruby 應用程式
       href: quickstart-ruby.md
     - name: 建立 Docker/Go 應用程式

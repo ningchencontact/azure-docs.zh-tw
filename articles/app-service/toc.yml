@@ -23,8 +23,6 @@
       href: app-service-web-get-started-php.md
     - name: 建立 Java 應用程式
       href: app-service-web-get-started-java.md
-    - name: 建立 Python 應用程式
-      href: app-service-web-get-started-python.md
     - name: 建立靜態 HTML 網站
       href: app-service-web-get-started-html.md
 - name: 教學課程
@@ -41,8 +39,6 @@
           href: app-service-web-tutorial-nodejs-mongodb-app.md
         - name: Java with MySQL
           href: app-service-web-tutorial-java-mysql.md
-        - name: Python with PostgreSQL
-          href: app-service-web-tutorial-python-postgresql.md
     - name: 安全存取 SQL DB
       href: app-service-web-tutorial-connect-msi.md
     - name: 託管 RESTful API

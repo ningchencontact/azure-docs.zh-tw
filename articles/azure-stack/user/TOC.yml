@@ -27,7 +27,7 @@
       href: azure-stack-solution-hybrid-identity.md
     - name: 設定混合式雲端連線
       href: azure-stack-solution-hybrid-connectivity.md
-    - name: 訂閱優惠
+    - name: 訂閱供應項目
       href: azure-stack-subscribe-services.md
     - name: 從範本建立虛擬機器
       href: azure-stack-create-vm-template.md
@@ -110,7 +110,8 @@
         - name: 設定開發環境
           items:
             - name: 安裝 Azure Stack PowerShell
-              href: 'https://docs.microsoft.com/azure/azure-stack/user/azure-stack-powershell-install'
+              href: ../azure-stack-powershell-install.md
+              maintainContext: true
             - name: 下載 Azure Stack 工具
               href: azure-stack-powershell-download.md
             - name: 設定 PowerShell - 使用者
