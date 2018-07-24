@@ -291,6 +291,8 @@
           items:
             - name: 透過 iothub-explorer 管理雲端裝置傳訊
               href: iot-hub-explorer-cloud-device-messaging.md
+            - name: 使用適用於 VS Code 的 Azure IoT 工具組管理雲端裝置傳訊
+              href: iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
             - name: 將 IoT 中樞訊息儲存至 Azure Blob 儲存體
               href: iot-hub-store-data-in-azure-table-storage.md
             - name: Power BI 中的資料視覺效果
