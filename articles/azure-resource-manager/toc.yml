@@ -15,6 +15,13 @@
       href: resource-manager-quickstart-create-templates-use-visual-studio-code.md
     - name: 建立範本 - Visual Studio
       href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
+- name: 教學課程
+  expanded: true
+  items:
+    - name: 建立加密的儲存體帳戶
+      href: resource-manager-tutorial-create-encrypted-storage-accounts.md
+    - name: 建立多個資源
+      href: resource-manager-tutorial-create-templates-with-dependent-resources.md
 - name: 概念
   items:
     - name: 資源提供者和類型

@@ -105,6 +105,10 @@
           href: quickstart-ruby-languages.md
         - name: 取得文字中的句子長度
           href: quickstart-ruby-sentences.md
+- name: 教學課程
+  items:
+    - name: 建立適用於翻譯工具文字的 WPF 應用程式
+      href: tutorial-wpf-translation-csharp.md
 - name: 概念
   items:
     - name: 支援的語言
@@ -125,8 +129,6 @@
       href: word-alignment.md
     - name: 使用動態字典功能
       href: dynamic-dictionary.md
-    - name: 使用 WPF 建立 Translator Text 應用程式
-      href: tutorial-wpf-translation-csharp.md
 - name: 參考
   items:
     - name: v3 Translator Text API 參考

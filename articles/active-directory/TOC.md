@@ -140,33 +140,13 @@
 #### [登入範例](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [使用憑證](active-directory-reporting-api-with-certificates.md)
 
-## 管理密碼
-### [密碼概觀](authentication/active-directory-passwords-overview.md)
+## 管理密碼 (active-directory/authentication/concept-sspr-howitworks.md)
 ### 使用者文件
 #### [重設或變更您的密碼](user-help/active-directory-passwords-update-your-own-password.md)
 #### [密碼最佳做法](active-directory-secure-passwords.md)
 #### [註冊自助式密碼重設](user-help/active-directory-passwords-reset-register.md)
-### [SSPR 運作方式](authentication/concept-sspr-howitworks.md)
-### [SSPR 部署指南](authentication/howto-sspr-deployment.md)
-### [SSPR 和 Windows 10](authentication/tutorial-sspr-windows.md)
-### [SSPR 原則](authentication/concept-sspr-policy.md)
-### [SSPR 自訂](authentication/concept-sspr-customization.md)
-### [SSPR 資料需求](authentication/howto-sspr-authenticationdata.md)
-### [SQL 報告](authentication/howto-sspr-reporting.md)
-### [智慧鎖定](authentication/howto-password-smart-lockout.md)
-### [避免弱式密碼](authentication/concept-password-ban-bad.md)
-### [設定禁止的密碼清單](authentication/howto-password-ban-bad.md)
-### [內部部署整合](authentication/concept-password-ban-bad-on-premises.md)
-### [部署 Azure AD 密碼保護](authentication/howto-password-ban-bad-on-premises.md)
-### [設定 Azure AD 密碼保護](authentication/howto-password-ban-bad-on-premises-operations.md)
-### [監視 Azure AD 密碼保護](authentication/howto-password-ban-bad-on-premises-troubleshoot.md)
 ### IT 系統管理員︰重設密碼
 #### [Azure 入口網站](fundamentals/active-directory-users-reset-password-azure-portal.md)
-### [授權 SSPR](authentication/concept-sspr-licensing.md)
-### [密碼回寫](authentication/howto-sspr-writeback.md)
-### [疑難排解](authentication/active-directory-passwords-troubleshoot.md)
-### [常見問題集](authentication/active-directory-passwords-faq.md)
-
 
 ## 管理裝置
 ### [簡介](device-management-introduction.md)

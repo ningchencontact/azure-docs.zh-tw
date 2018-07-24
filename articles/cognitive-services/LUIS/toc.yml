@@ -79,6 +79,10 @@
           href: luis-tutorial-batch-testing.md
         - name: 具有模式
           href: luis-tutorial-pattern.md
+        - name: 搭配角色
+          href: luis-tutorial-pattern-roles.md
+        - name: 搭配 Pattern.any 實體
+          href: luis-tutorial-pattern-any.md
 - name: 範例
   items:
     - name: 程式碼範例
@@ -194,7 +198,7 @@
     - name: 測試
       items:
         - name: 互動式測試
-          href: interactive-test.md
+          href: luis-interactive-test.md
         - name: 批次測試
           href: luis-how-to-batch-test.md
     - name: 發佈應用程式
@@ -226,7 +230,7 @@
             - name: 使用流量管理員在各索引鍵中分散端點配額
               href: luis-traffic-manager.md
     - name: 移轉至 V2 API
-      href: migration-v1-to-v2.md
+      href: luis-migration-api-v1-to-v2.md
     - name: 以程式設計方式尋找區域
       items:
         - name: '使用 C#'
