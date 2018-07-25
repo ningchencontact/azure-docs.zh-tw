@@ -19,7 +19,7 @@
     - name: Azure 雲端中的隔離
       href: azure-isolation.md
     - name: 安全混合式網路架構
-      href: 'https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2Fazure%2Fsecurity%2Ftoc.json'
+      href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
     - name: 安全性技術功能
       href: azure-security-technical-capabilities.md
 - name: 資料安全性與加密
@@ -46,11 +46,11 @@
             - name: 疑難排解
               href: azure-security-disk-encryption-tsg.md
         - name: 加密 Azure 虛擬機器
-          href: ../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json
+          href: ../security-center/security-center-disk-encryption.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Azure 儲存體安全性
       href: security-storage-overview.md
     - name: 儲存體安全性指南
-      href: ../storage/common/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json
+      href: ../storage/common/storage-security-guide.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
 - name: 平台與基礎結構
   items:
     - name: 基礎結構安全性
@@ -104,7 +104,7 @@
         - name: DDoS保護
           href: azure-ddos-best-practices.md
         - name: 邊界安全性
-          href: ../best-practices-network-security.md?toc=%2fazure%2fsecurity%2ftoc.json
+          href: ../best-practices-network-security.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
 - name: Application
   items:
     - name: PaaS
@@ -116,15 +116,15 @@
           href: security-paas-applications-using-storage.md
         - name: 適用於 PaaS 的資料庫最佳做法
           href: security-paas-applications-using-sql.md
-        - name: IoT
-          href: security-internet-of-things-overview.md
-          items:
-            - name: IoT 安全性最佳做法
-              href: ../iot-accelerators/iot-security-best-practices.md
-            - name: IoT 安全性
-              href: '../iot-accelerators/iot-security-architecture.md#security-in-iot'
-            - name: 保護您的 IoT 部署
-              href: ../iot-accelerators/iot-accelerators-security-deployment.md
+    - name: IoT
+      href: security-internet-of-things-overview.md
+      items:
+        - name: IoT 安全性最佳做法
+          href: ../iot-accelerators/iot-security-best-practices.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: IoT 安全性
+          href: '../iot-accelerators/iot-security-architecture.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json#security-in-iot'
+        - name: 保護您的 IoT 部署
+          href: ../iot-accelerators/iot-accelerators-security-deployment.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Azure Service Fabric 安全性
       href: azure-service-fabric-security-overview.md
       items:
@@ -138,7 +138,7 @@
     - name: 稽核和記錄
       items:
         - name: 安全性管理
-          href: ../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json
+          href: ../security-center/security-center-intro.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
         - name: 遠端管理安全性
           href: azure-security-management.md
         - name: Azure 記錄整合
