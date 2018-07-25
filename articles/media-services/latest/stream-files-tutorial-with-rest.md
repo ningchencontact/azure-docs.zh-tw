@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/30/2018
+ms.date: 07/16/2018
 ms.author: juliako
-ms.openlocfilehash: 0faed5d72002f24d7be7602c5f16c18e66a0089e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5cc109467f9affa9cf5f43342203e8d4298269e0
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308608"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115201"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-with-rest"></a>教學課程：使用 REST 上傳、編碼和串流處理視訊
 
@@ -40,7 +40,7 @@ ms.locfileid: "38308608"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 安裝 [Postman](https://www.getpostman.com/) \(英文\) REST 用戶端，來執行在某些 AMS REST 教學課程中所示範的 REST API。 
 
@@ -77,16 +77,17 @@ ms.locfileid: "38308608"
     > [!Note]
     > 使用您從前述的**存取媒體服務 API** 一節中取得的值來更新存取變數。
 
-7. 關閉對話方塊。
-8. 從下拉式清單中選取 **Azure Media Service v3 Environment** 環境。
+7. 按兩下選取的檔案，並輸入您依照[存取 API](#access-the-media-services-api) 步驟所取得的值。
+8. 關閉對話方塊。
+9. 從下拉式清單中選取 **Azure Media Service v3 Environment** 環境。
 
     ![選擇 env](./media/develop-with-postman/choose-env.png)
    
 ### <a name="configure-the-collection"></a>設定集合
 
 1. 按一下 [匯入] 來匯入集合檔案。
-1. 瀏覽至您在複製 `https://github.com/Azure-Samples/media-services-v3-rest-postman.git` 時下載的 `Media Services v3 (2018-03-30-preview).postman_collection.json` 檔案
-3. 選擇 **Media Services v3 (2018-03-30-preview).postman_collection.json** 檔案。
+1. 瀏覽至您在複製 `https://github.com/Azure-Samples/media-services-v3-rest-postman.git` 時下載的 `Media Services v3.postman_collection.json` 檔案
+3. 選擇 **Media Services v3.postman_collection.json** 檔案。
 
     ![匯入檔案](./media/develop-with-postman/postman-import-collection.png)
 
@@ -128,11 +129,21 @@ ms.locfileid: "38308608"
 2. 然後，選取 [建立或更新資產]。
 3. 按 [傳送]。
 
-    此時會傳送下列 **PUT** 作業。
+    * 此時會傳送下列 **PUT** 作業：
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName?api-version={{api-version}}
+        ```
+    * 作業會具有下列主體：
+
+        ```json
+        {
+        "properties": {
+            "description": "My Asset",
+            "alternateId" : "some GUID"
+         }
+        }
+        ```
 
 ### <a name="create-a-transform"></a>建立轉換
 
@@ -149,11 +160,30 @@ ms.locfileid: "38308608"
 2. 然後，選取 [建立轉換]。
 3. 按 [傳送]。
 
-    此時會傳送下列 **PUT** 作業。
+    * 此時會傳送下列 **PUT** 作業。
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}
+        ```
+    * 作業會具有下列主體：
+
+        ```json
+        {
+            "properties": {
+                "description": "Basic Transform using an Adaptive Streaming encoding preset from the libray of built-in Standard Encoder presets",
+                "outputs": [
+                    {
+                    "onError": "StopProcessingJob",
+                "relativePriority": "Normal",
+                    "preset": {
+                        "@odata.type": "#Microsoft.Media.BuiltInStandardEncoderPreset",
+                        "presetName": "AdaptiveStreaming"
+                    }
+                    }
+                ]
+            }
+        }
+        ```
 
 ### <a name="create-a-job"></a>建立工作
 
@@ -165,11 +195,32 @@ ms.locfileid: "38308608"
 2. 然後，選取 [建立或更新作業]。
 3. 按 [傳送]。
 
-    此時會傳送下列 **PUT** 作業。
+    * 此時會傳送下列 **PUT** 作業。
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}
+        ```
+    * 作業會具有下列主體：
+
+        ```json
+        {
+        "properties": {
+            "input": {
+            "@odata.type": "#Microsoft.Media.JobInputHttp",
+            "baseUri": "https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/",
+            "files": [
+                    "Ignite-short.mp4"
+                ]
+            },
+            "outputs": [
+            {
+                "@odata.type": "#Microsoft.Media.JobOutputAsset",
+                "assetName": "testAsset1"
+            }
+            ]
+        }
+        }
+        ```
 
 此作業需要一些時間來完成，而您可以選擇在完成時收到通知。 若要查看作業的進度，建議您使用事件方格。 事件方格是為高可用性、一致效能及動態調整而設計的。 透過事件方格，您的應用程式幾乎可以從所有 Azure 服務和自訂來源接聽及回應事件。 以 HTTP 為基礎的簡單回應式事件處理，可協助您透過智慧型事件篩選和路由來建置有效率的解決方案。  請參閱[將事件路由至自訂 Web 端點](job-state-events-cli-how-to.md)。
 
@@ -189,14 +240,24 @@ ms.locfileid: "38308608"
 媒體服務帳戶有 StreamingPolicy 項目的數量配額。 不建議您對每個 StreamingLocator 建立新的 StreamingPolicy。
 
 1. 在 Postman 的左側視窗中，選取 [串流原則]。
-2. 然後，選取 [建立串流原則]。
+2. 然後，選取 [建立串流定位器]。
 3. 按 [傳送]。
 
-    此時會傳送下列 **PUT** 作業。
+    * 此時會傳送下列 **PUT** 作業。
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}
+        ```
+    * 作業會具有下列主體：
+
+        ```json
+        {
+            "properties":{
+            "assetName": "{{assetName}}",
+            "streamingPolicyName": "{{streamingPolicyName}}"
+            }
+        }
+        ```
 
 ### <a name="list-paths-and-build-streaming-urls"></a>列出路徑並建置串流 URL
 
@@ -208,40 +269,40 @@ ms.locfileid: "38308608"
 2. 然後，選取 [列出路徑]。
 3. 按 [傳送]。
 
-    此時會傳送下列 **POST** 作業。
+    * 此時會傳送下列 **POST** 作業。
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName/listPaths?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName/listPaths?api-version={{api-version}}
+        ```
+        
+    * 此作業沒有主體：
+        
 4. 記下其中一個要用於串流處理的路徑，您將在下一節中使用該路徑。 在此案例中會傳回下列路徑：
     
     ```
-    {
-        "streamingPaths": [
-            {
-                "streamingProtocol": "Hls",
-                "encryptionScheme": "NoEncryption",
-                "paths": [
-                    "/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest(format=m3u8-aapl)"
-                ]
-            },
-            {
-                "streamingProtocol": "Dash",
-                "encryptionScheme": "NoEncryption",
-                "paths": [
-                    "/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest(format=mpd-time-csf)"
-                ]
-            },
-            {
-                "streamingProtocol": "SmoothStreaming",
-                "encryptionScheme": "NoEncryption",
-                "paths": [
-                    "/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest"
-                ]
-            }
-        ],
-        "downloadPaths": []
-    }
+    "streamingPaths": [
+        {
+            "streamingProtocol": "Hls",
+            "encryptionScheme": "NoEncryption",
+            "paths": [
+                "/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest(format=m3u8-aapl)"
+            ]
+        },
+        {
+            "streamingProtocol": "Dash",
+            "encryptionScheme": "NoEncryption",
+            "paths": [
+                "/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest(format=mpd-time-csf)"
+            ]
+        },
+        {
+            "streamingProtocol": "SmoothStreaming",
+            "encryptionScheme": "NoEncryption",
+            "paths": [
+                "/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest"
+            ]
+        }
+    ]
     ```
 
 #### <a name="build-the-streaming-urls"></a>建置串流 URL
@@ -253,16 +314,27 @@ ms.locfileid: "38308608"
     > [!NOTE]
     > 如果播放程式裝載在 HTTPS 網站上，請務必將 URL 更新為 "https"。
 
-2. StreamingEndpoint 的主機名稱。 在此案例中，名稱為 "amsaccount-usw22.streaming.media.azure.net"
-3. 您在上一節中取得的路徑。  
+2. StreamingEndpoint 的主機名稱。 在此案例中，名稱為 "amsaccount-usw22.streaming.media.azure.net"。
+
+    若要取得主機名稱，您可以使用下列 GET 作業：
+    
+    ```
+    https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount/streamingEndpoints/default?api-version={{api-version}}
+    ```
+    
+3. 您在上一節 (列出路徑) 中取得的路徑。  
 
 因此，會建置下列 HLS URL
 
 ```
-https://amsaccount-usw22.streaming.media.azure.net/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest(format=m3u8-aapl)
+https://amsaccount-usw22.streaming.media.azure.net/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest(format=m3u8-aapl)
 ```
 
 ## <a name="test-the-streaming-url"></a>測試串流 URL
+
+
+> [!NOTE]
+> 確定要作為串流來源的串流端點正在執行中。
 
 本文使用 Azure 媒體播放器測試串流。 
 

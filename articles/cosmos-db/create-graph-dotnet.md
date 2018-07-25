@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: bbe60fb6a6371551f588d5472ac304148a4a1aa7
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 27cfb391c5c47ef44c443e2603da62fe5d6a3122
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38453411"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113040"
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB：使用圖形 API 來建置 .NET Framework 或 Core 應用程式
 
@@ -24,7 +24,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 此快速入門示範如何使用 Azure 入口網站建立 Azure Cosmos DB [Graph API](graph-introduction.md) 帳戶、資料庫和圖形 (容器)。 您會接著使用開放原始碼 [Gremlin.Net](http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) 來建置和執行主控台應用程式。  
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 如果尚未安裝 Visual Studio 2017，您可以下載並使用「免費的」[Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)。 務必在 Visual Studio 設定期間啟用 **Azure 開發**。
 
@@ -153,21 +153,25 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 現在，返回 Azure 入口網站以取得連接字串資訊，並將它複製到應用程式中。
 
-1. 在 [Azure 入口網站](http://portal.azure.com/)中，按一下 [金鑰]。 
+1. 在 [Azure 入口網站](http://portal.azure.com/)中，瀏覽至您的圖形資料庫帳戶。 在 [概觀] 索引標籤中，您可以看到兩個端點： 
+ 
+   **.Net SDK URI** - 當您使用 Microsoft.Azure.Graphs 程式庫連線至圖形帳戶時，將會使用此值。 
 
-    複製 URI 值的第一個部分。
+   **Gremlin 端點** - 當您使用 Gremlin.Net 程式庫連線至圖形帳戶時，將會使用此值。
 
-    ![在 Azure 入口網站的 [金鑰] 頁面中，檢視並複製存取金鑰](./media/create-graph-dotnet/keys.png)
+    ![複製端點](./media/create-graph-dotnet/endpoint.png)
+
+   若要執行此範例，請複製 [Gremlin 端點] 值，並刪除結尾處的連接埠號碼，使 URI 變成 `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`
 
 2. 在 Program.cs 中，將此值貼在第 19 行 `hostname` 變數中的 `your-endpoint` 上。 
 
-    `"private static string hostname = "your-endpoint.gremlin.cosmosdb.azure.com";`
+    `"private static string hostname = "<your cosmos db account name>.gremlin.cosmosdb.azure.com";`
 
     端點值現在看起來應該像這樣：
 
     `"private static string hostname = "testgraphacct.gremlin.cosmosdb.azure.com";`
 
-3. 從入口網站複製您的 [主索引鍵] 值，並將它貼在 `authkey` 變數中，並取代第 21 行的 `"your-authentication-key"` 預留位置。 
+3. 接著，瀏覽至 [索引鍵] 索引標籤，並從入口網站複製 [主索引鍵] 值，然後將其貼在 `authkey` 變數中，並取代第 21 行的 `"your-authentication-key"` 預留位置。 
 
     `private static string authKey = "your-authentication-key";`
 

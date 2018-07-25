@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8bf8388829504b18e71ec597d21b844e29a82346
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 6e5b9ce7a4625cccdfaa29492250a5e8255ec23d
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931123"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136514"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>教學課程：使用 Azure PowerShell 來建立及管理 Windows 虛擬機器的 Azure 虛擬網路
 
@@ -49,7 +49,7 @@ Azure 虛擬網路可以讓虛擬機器、網際網路與其他 Azure 服務 (�
 - *myVNet* - VM 彼此進行通訊以及與網際網路進行通訊使用的虛擬網路。
 - *myFrontendSubnet* - 前端資源所使用之 *myVNet* 中的子網路。
 - *myPublicIPAddress* - 從網際網路存取 *myFrontendVM* 所使用的公用 IP 位址。
-- *myFrontentNic* - *myFrontendVM* 與 *myBackendVM* 進行通訊所使用的網路介面。
+- *myFrontendNic* - *myFrontendVM* 與 *myBackendVM* 進行通訊所使用的網路介面。
 - *myFrontendVM* - VM 在網際網路和 *myBackendVM* 之間進行通訊所使用的 VM。
 - *myBackendNSG* - 控制 *myFrontendVM* 和 *myBackendVM* 之間通訊的網路安全性群組。
 - *myBackendSubnet* - 與 *myBackendNSG* 相關聯且由後端資源所使用的子網路。

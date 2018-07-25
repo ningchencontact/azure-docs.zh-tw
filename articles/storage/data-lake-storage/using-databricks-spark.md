@@ -1,34 +1,34 @@
 ---
-title: 使用 Spark 以 DataBricks 存取 Azure Data Lake Storage Gen2 預覽版資料 | Microsoft Docs
-description: 了解如何在 DataBricks 叢集上執行 Spark 查詢，以存取 Azure Data Lake Storage Gen2 儲存體帳戶中的資料。
+title: 使用 Spark 以 Azure Databricks 存取 Azure Data Lake Storage Gen2 預覽版資料 | Microsoft Docs
+description: 了解如何在 Azure Databricks 叢集上執行 Spark 查詢，以存取 Azure Data Lake Storage Gen2 儲存體帳戶中的資料。
 services: hdinsight,storage
 tags: azure-portal
 author: dineshm
 manager: twooley
 ms.component: data-lake-storage-gen2
-ms.service: hdinsight
+ms.service: storage
 ms.workload: big-data
 ms.topic: tutorial
 ms.date: 6/27/2018
 ms.author: dineshm
-ms.openlocfilehash: 27ed860c7dd3b979a25860d453231de74d3f46be
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 41c34b2c1459178c59af66a75e7b34e2ec158025
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096911"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136398"
 ---
-# <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-databricks-using-spark"></a>教學課程：使用 Spark 以 DataBricks 存取 Azure Data Lake Storage Gen2 預覽版資料
+# <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>教學課程：使用 Spark 以 Azure Databricks 存取 Azure Data Lake Storage Gen2 預覽版資料
 
-在本教學課程中，您會了解如何在 DataBricks 叢集上執行 Spark 查詢，以在具有 Azure Data Lake Storage Gen2 預覽版功能的帳戶中查詢資料。
+在本教學課程中，您會了解如何在 Azure Databricks 叢集上執行 Spark 查詢，以在具有 Azure Data Lake Storage Gen2 預覽版功能的帳戶中查詢資料。
 
 > [!div class="checklist"]
-> * 建立 DataBricks 叢集
+> * 建立 Databricks 叢集
 > * 將非結構化的資料內嵌到儲存體帳戶
 > * 觸發 Azure 函式來處理資料
 > * 在 Blob 儲存體中對資料執行分析
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本教學課程示範如何取用及查詢航班資料 (來源為[美國運輸部](https://transtats.bts.gov/Tables.asp?DB_ID=120&DB_Name=Airline%20On-Time%20Performance%20Data&DB_Short_Name=On-Time))。 下載至少兩年份的航線資料 (選取所有欄位)，並將結果儲存至機器。 請務必記下所下載資料的檔案名稱與路徑；稍後的步驟需要這項資訊。
 
@@ -47,11 +47,11 @@ ms.locfileid: "37096911"
 
 本教學課程的後續步驟需要用到帳戶名稱和金鑰。 請開啟文字編輯器，並設定帳戶名稱和金鑰以供日後參考。
 
-## <a name="create-a-databricks-cluster"></a>建立 DataBricks 叢集
+## <a name="create-a-databricks-cluster"></a>建立 Databricks 叢集
 
-下一個步驟是建立 [DataBricks 叢集](https://docs.azuredatabricks.net/)以建立資料工作區。
+下一個步驟是建立 [Databricks 叢集](https://docs.azuredatabricks.net/)以建立資料工作區。
 
-1. 建立 [DataBricks 服務](https://ms.portal.azure.com/#create/Microsoft.Databricks)，並將其命名為 **myFlightDataService** (請務必在建立服務時勾選 [釘選到儀表板] 核取方塊)。
+1. 建立 [Databricks 服務](https://ms.portal.azure.com/#create/Microsoft.Databricks)，並將其命名為 **myFlightDataService** (請務必在建立服務時勾選 [釘選到儀表板] 核取方塊)。
 2. 按一下 [啟動工作區] 以在新的瀏覽器視窗中開啟工作區。
 3. 按一下左側瀏覽列中的 [叢集]。
 4. 按一下 [建立叢集]。
@@ -85,9 +85,9 @@ set ACCOUNT_KEY=<ACCOUNT_KEY>
 azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbricks/folder1/On_Time --recursive 
 ```
 
-### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>使用 DataBricks Notebook 將 CSV 轉換成 Parquet
+### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>使用 Databricks Notebook 將 CSV 轉換成 Parquet
 
-在瀏覽器中重新開啟 DataBricks，然後執行下列步驟：
+在瀏覽器中重新開啟 Databricks，然後執行下列步驟：
 
 1. 選取瀏覽列左上角的 [Azure Databricks]。
 2. 在頁面下半部的 [新增] 區段下選取 [Notebook]。
@@ -116,7 +116,7 @@ azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbr
 
 ## <a name="explore-data-using-hadoop-distributed-file-system"></a>使用 Hadoop 分散式檔案系統探索資料
 
-返回 DataBricks 工作區，然後按一下左側瀏覽列中的 [最近] 圖示。
+返回 Databricks 工作區，然後按一下左側瀏覽列中的 [最近] 圖示。
 
 1. 按一下 [航班資料分析] Notebook。
 2. 按 **Ctrl + Alt + N** 來建立新的資料格。
