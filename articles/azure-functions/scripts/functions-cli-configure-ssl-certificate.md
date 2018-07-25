@@ -13,15 +13,15 @@ ms.workload: na
 ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
-ms.date: 04/10/2017
+ms.date: 07/03/2013
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: fd4c69036960364e12aeea5d9e5f65e7b36eff0d
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 9b6779ac7778b721ff566c8553433853dbadbf13
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29843471"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988256"
 ---
 # <a name="bind-a-custom-ssl-certificate-to-a-function-app"></a>將自訂 SSL 憑證繫結至函式應用程式
 
@@ -29,6 +29,7 @@ ms.locfileid: "29843471"
 
 * 存取網域註冊機構的 DNS 設定頁面。
 * 對於想要上傳並繫結的 SSL 憑證，您具備有效的 .PFX 檔案和其密碼。
+* 已在指向您 Web 應用程式預設網域名稱的自訂網域中設定 A 記錄。 如需詳細資訊，請參閱[將現有的自訂 DNS 名稱對應至 Azure Web Apps](https://aka.ms/appservicecustomdns)。
 
 若要繫結 SSL 憑證，必須在 App Service 方案中建立函式應用程式，而不是在取用方案中建立。
 
@@ -50,15 +51,16 @@ ms.locfileid: "29843471"
 
 | 命令 | 注意 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | 建立繫結 SSL 憑證所需的 App Service 方案。 |
-| [az functionapp create]() | 建立函式應用程式。 |
-| [az appservice web config hostname add](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#az_appservice_web_config_hostname_add) | 將自訂網域對應至函式應用程式。 |
-| [az appservice web config ssl upload](https://docs.microsoft.com/cli/azure/appservice/web/config/ssl#az_appservice_web_config_ssl_upload) | 將 SSL 憑證上傳至函式應用程式。 |
-| [az appservice web config ssl upload](https://docs.microsoft.com/cli/azure/appservice/web/config/ssl#az_appservice_web_config_ssl_bind) | 將上傳的 SSL 憑證繫結至函式應用程式。 |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | 建立用來存放所有資源的資源群組。 |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | 建立函式應用程式所需的儲存體帳戶。 |
+| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az-appservice-plan-create) | 建立繫結 SSL 憑證所需的 App Service 方案。 |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | 在 App Service 方案中建立函式應用程式。 |
+| [az functionapp config hostname add](https://docs.microsoft.com/cli/azure/functionapp/config/hostname#az-functionapp-config-hostname-add) | 將自訂網域對應至函式應用程式。 |
+| [az functionapp config ssl upload](https://docs.microsoft.com/cli/azure/functionapp/config/ssl#az-functionapp-config-ssl-upload) | 將 SSL 憑證上傳至函式應用程式。 |
+| [az functionapp config ssl bind](https://docs.microsoft.com/cli/azure/functionapp/config/ssl#az-functionapp-config-ssl-bind) | 將上傳的 SSL 憑證繫結至函式應用程式。 |
 
 ## <a name="next-steps"></a>後續步驟
 
 如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](https://docs.microsoft.com/cli/azure)。
 
-您可以在 [Azure App Service 文件]()中找到其他的 App Service CLI 指令碼範例。
+您可以在 [Azure App Service 文件](../functions-cli-samples.md)中找到其他的 App Service CLI 指令碼範例。

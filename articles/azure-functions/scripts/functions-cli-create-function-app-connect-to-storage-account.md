@@ -16,12 +16,12 @@ ms.workload: ''
 ms.date: 04/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: cbe7bf95574ca7a77d666981691da05357ce9a0d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9bc4d25b587b7167601765758a0529868d1c6f15
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38467821"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988726"
 ---
 # <a name="create-a-function-app-that-connects-to-an-azure-storage-account"></a>建立可連線至 Azure 儲存體帳戶的函式應用程式
 
@@ -54,11 +54,9 @@ ms.locfileid: "38467821"
 
 | 命令 | 注意 |
 |---|---|
-| [az login](https://docs.microsoft.com/cli/azure/reference-index#az_login) | 登入 Azure。 |
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 指定位置建立資源群組 |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account) | 建立儲存體帳戶 |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | 建立新的函式應用程式 |
-| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | 清除 |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | 使用位置建立資源群組。 |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | 建立儲存體帳戶。 |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | 在無伺服器[取用方案](../functions-scale.md#consumption-plan)中建立函式應用程式。 |
 
 ## <a name="next-steps"></a>後續步驟
 

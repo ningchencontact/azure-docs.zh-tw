@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 91bb57f49f8c92967275d340410e22381adad19e
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: f795333e8af2f09800dedc0b65030c42165d6bbb
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114270"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068898"
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>教學課程：將安全的 Service Fabric Windows 叢集部署到 Azure 虛擬網路
 
@@ -45,7 +45,7 @@ ms.locfileid: "37114270"
 > * [升級叢集的執行階段](service-fabric-tutorial-upgrade-cluster.md)
 > * [使用 Service Fabric 部署 API 管理](service-fabric-tutorial-deploy-api-management.md)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 開始進行本教學課程之前：
 
@@ -97,7 +97,7 @@ Windows 叢集的部署具有下列特性：
 * 啟用[反向 Proxy](service-fabric-reverseproxy.md)
 * 啟用 [DNS 服務](service-fabric-dnsservice.md)
 * Bronze 的[耐久性層級](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) (可在範本參數中設定)
-* Silver 的[可靠性層級](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) (可在範本參數中設定)
+ * Silver 的[可靠性層級](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) (可在範本參數中設定)
 * 用戶端連線端點：19000 (可在範本參數中設定)
 * HTTP 閘道端點：19080 (可在範本參數中設定)
 
@@ -139,9 +139,9 @@ Windows 叢集的部署具有下列特性：
 
 |參數|範例值|注意|
 |---|---||
-|adminUserName|vmadmin| 叢集 VM 的系統管理員使用者名稱。 |
-|adminPassword|Password#1234| 叢集 VM 的系統管理員密碼。|
-|clusterName|mysfcluster123| 叢集的名稱。 |
+|adminUserName|vmadmin| 叢集虛擬機器的管理員使用者名稱。[虛擬機器的使用者名稱需求](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm) |
+|adminPassword|Password#1234| 叢集 VM 的系統管理員密碼。 [虛擬機器的密碼需求](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm)|
+|clusterName|mysfcluster123| 叢集的名稱。 只能包含字母和數字。 長度可介於 3 到 23 個字元之間。|
 |location|southcentralus| 叢集的位置。 |
 |certificateThumbprint|| <p>如果建立自我簽署憑證或提供憑證檔案，則值應該空白。</p><p>若要使用先前上傳至金鑰保存庫的現有憑證，請填入憑證指紋值。 例如 "6190390162C988701DB5676EB81083EA608DCCF3"</p>. |
 |certificateUrlValue|| <p>如果建立自我簽署憑證或提供憑證檔案，則值應該空白。 </p><p>若要使用先前上傳至金鑰保存庫的現有憑證，請填入憑證 URL。 例如，"https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346"。</p>|

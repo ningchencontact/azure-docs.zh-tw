@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 02/27/2018
 ms.author: marsma
-ms.openlocfilehash: 22be921c7ab437e08d8ea5032befb8671dc90ed0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1bc890abc8b406ae75f292f37775e4cb62cf0473
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32163362"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115270"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Azure Container Instances 的配額和區域可用性
 
@@ -31,6 +31,7 @@ ms.locfileid: "32163362"
 | -------- | -- | :---: | :-----------: |
 | 美國西部、美國東部、西歐、北歐 | Linux | 4 | 14 |
 | 美國西部 2、東南亞 | Linux | 2 | 7 |
+| 澳大利亞東部、美國東部 2、美國中部 | Linux | 1 | 1.5 |
 | 美國西部、美國東部、西歐、北歐 | Windows | 4 | 14 |
 | 美國西部 2、東南亞 | Windows | 2 | 3.5 |
 

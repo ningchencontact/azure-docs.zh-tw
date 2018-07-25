@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 01a9120af2fb240eed1463613f7a6f946a9c16ed
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: cf9c56fa2ba75dc5b5ad4af59d111a0124f1a9df
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33934679"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39057322"
 ---
 # <a name="debug-your-apis-using-request-tracing"></a>使用要求追蹤對 API 進行偵錯
 
@@ -32,7 +32,7 @@ ms.locfileid: "33934679"
 
 ![API 偵測器](media/api-management-howto-api-inspector/api-inspector001.PNG)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 + 完成下列快速入門：[建立 Azure API 管理執行個體](get-started-create-service-instance.md)。
 + 以及完成下列教學課程：[匯入和發佈您的第一個 API](import-and-publish.md)。
@@ -44,6 +44,12 @@ ms.locfileid: "33934679"
 3. 選取 [GetSpeakers] 作業。
 4. 切換至 [測試]  索引標籤。
 5. 務必包含名為 **Ocp-Apim-Trace** 且值為 **true** 的 HTTP 標頭。
+
+    ![API 追蹤標頭](media/api-management-howto-api-inspector/api-management-tracing-header.png)
+
+    > [!NOTE]
+    > 如果 Ocp-Apim-Subscription-Key 未自動填入，您可以移至開發人員入口網站並且在設定檔頁面公開金鑰，以便擷取該金鑰。
+
 6. 按一下 [傳送] 以進行 API 呼叫。 
 7. 請等待呼叫完成。 
 8. 移至 **API 主控台**中的 [追蹤] 索引標籤。 您可以按一下下列任一連結，跳至詳細的追蹤資訊：**輸入**、**後端**、**輸出**。

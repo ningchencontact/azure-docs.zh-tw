@@ -7,37 +7,37 @@ manager: jwillis
 ms.service: storage
 ms.workload: storage
 ms.topic: get-started-article
-ms.date: 07/03/2018
+ms.date: 07/14/2018
 ms.author: hux
-ms.openlocfilehash: 6efc50bfee54c38511fb3346f1341f81741d14eb
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 9ea4a6f0d1ff6e78d97fbc64b8a23406172ebf36
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445414"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072409"
 ---
 # <a name="azure-storage-account-options"></a>Azure 儲存體帳戶選項
 
 ## <a name="overview"></a>概觀
 Azure 儲存體提供三種不同的帳戶選項，各自支援不同的價格和功能。 您在建立儲存體帳戶之前請先考量這些差異，以判斷您的應用程式最適用的選項。 三種不同的儲存體帳戶選項分別是：
 
-* **一般用途 v2 (GPv2)** 帳戶 
-* **一般用途 v1 (GPv1)** 帳戶
-* **Blob 儲存體**帳戶
+* [**一般用途 v2 (GPv2)** 帳戶](#general-purpose-v2-accounts)
+* [**一般用途 v1 (GPv1)** 帳戶](#general-purpose-v1-accounts)
+* [**Blob 儲存體**帳戶](#blob-storage-accounts)
 
 各類帳戶將於下列各節中詳細說明：
 
 ## <a name="storage-account-options"></a>儲存體帳戶選項
 
-### <a name="general-purpose-v2"></a>一般用途 v2
+### <a name="general-purpose-v2-accounts"></a>一般用途 v2 帳戶
 
-一般用途 v2 (GPv2) 帳戶是可支援 Blob、檔案、佇列和資料表之各種最新功能的儲存體帳戶。 GPv2 帳戶支援 GPv1 和 Blob 儲存體帳戶可支援的所有 API 和功能。 它們也支援這些帳戶類型的相同耐久性、可用性、延展性和效能功能。 GPv2 帳戶的定價依其設計可提供每 GB 最低的價格，以及具產業競爭力的交易價格。
+一般用途 v2 (GPv2) 帳戶是可支援 Blob、檔案、佇列和資料表之各種最新功能的儲存體帳戶。 GPv2 帳戶支援一般用途 v1 (GPv1) 和 Blob 儲存體帳戶可支援的所有 API、服務和功能。 它們也保留了所有儲存體帳戶類型提供的相同耐久性、可用性、延展性和效能。 GPv2 帳戶的定價依其設計可提供每 GB 最低的價格，以及具產業競爭力的交易價格。
 
 您可以使用 Azure 入口網站、PowerShell 或 Azure CLI，將 GPv1 或 Blob 儲存體帳戶升級至 GPv2 帳戶。 
 
-對於 GPv2 儲存體帳戶中的區塊 Blob，您可以根據存取模式，在帳戶層級選擇經常性存取或非經常性存取層，或在 Blob 層級選擇經常性存取、非經常性存取或封存層。 將經常、不常和很少存取的資料分別放在經常性存取、非經常性存取和封存儲存層，可將成本最佳化。 
+對於 GPv2 儲存體帳戶中的區塊 Blob，您可以根據使用模式，在帳戶層級的經常性存取層或非經常性存取層之間進行選擇，或在 Blob 層級的經常性存取層、非經常性存取層或封存存取層之間進行選擇。 將經常、不常和很少存取的資料分別放在經常性存取層、非經常性存取層和封存儲存層，可將儲存和交易成本最佳化。 
 
-GPv2 儲存體帳戶會在帳戶層級公開 [存取層] 屬性，以將預設儲存體帳戶層指定為 [經常性存取] 或 [非經常性存取]。 預設儲存體帳戶層會套用至未在 blob 層級設定明確層的任何 blob。 如果您的資料使用模式有變動，您也可以隨時在這些儲存層之間切換。 **封存層** 只能套用在 blob 層級。
+GPv2 儲存體帳戶會在帳戶層級公開 [存取層] 屬性，以將預設儲存體帳戶層指定為 [經常性存取] 或 [非經常性存取]。 預設儲存體帳戶層會套用至未在 blob 層級設定明確層的任何 blob。 如果您的資料使用模式有變動，您也可以隨時在這些儲存層之間切換。 **封存層**只能套用在 Blob 層級。
 
 > [!NOTE]
 > 變更儲存層可能會導致額外的費用。 如需詳細資訊，請參閱[定價和計費](#pricing-and-billing)一節。
@@ -46,7 +46,10 @@ GPv2 儲存體帳戶會在帳戶層級公開 [存取層] 屬性，以將預設�
 
 ### <a name="upgrade-a-storage-account-to-gpv2"></a>將儲存體帳戶升級至 GPv2
 
-使用者可隨時使用 Azure 入口網站、PowerShell 或 Azure CLI 將 GPv1 或 Blob 儲存體帳戶升級至 GPv2 帳戶。 這項變更無法反轉，且不允許任何其他變更。
+使用者可隨時使用 Azure 入口網站、PowerShell 或 Azure CLI 將 GPv1 或 Blob 儲存體帳戶升級至 GPv2 帳戶。 這項變更無法反轉，且不允許任何其他帳戶類型變更。 如需有關評估現有儲存體帳戶的詳細資訊，請參閱[評估及移轉至 GPv2 儲存體帳戶](#evaluating-and-migrating-to-gpv2-storage-accounts)一節。
+* [使用 Azure 入口網站升級至 GPv2](#upgrade-with-azure-portal)
+* [使用 PowerShell 升級至 GPv2](#upgrade-with-powershell)
+* [使用 Azure CLI 升級至 GPv2](#upgrade-with-azure-cli)
 
 #### <a name="upgrade-with-azure-portal"></a>使用 Azure 入口網站升級
 若要使用 Azure 入口網站將 GPv1 或 Blob 儲存體帳戶升級至 GPv2 帳戶，請先登入 [Azure 入口網站](https://portal.azure.com)並選取您的儲存體帳戶。 選取 [設定] > [組態]。 您會看到 [升級] 按鈕以及升級程序的相關附註。
@@ -67,7 +70,7 @@ Set-AzureRmStorageAccount -ResourceGroupName <resource-group> -AccountName <stor
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
 ```` 
 
-### <a name="general-purpose-v1"></a>一般用途 v1
+### <a name="general-purpose-v1-accounts"></a>一般用途 v1 帳戶
 
 一般用途 v1 (GPv1) 帳戶可讓使用者存取所有 Azure 儲存體服務，但可能不包含最新功能，每 GB 的定價也並非最低。 例如，GPv1 不支援非經常性儲存體和封存儲存體。 GPv1 交易的定價較低，所以高變換或高讀取率的工作負載可能會受益於此帳戶類型。
 
@@ -196,14 +199,19 @@ Blob 儲存體帳戶支援與 GPv2 完全相同的區塊 Blob 功能，但僅限
 * 您有現有的 GPv1 儲存體帳戶，而且想要評估變更成具有正確儲存層的 GPv2 儲存體帳戶。
 * 您已決定使用 GPv2 儲存體帳戶，或已有一個帳戶並想要評估您應該使用經常性存取還是非經常性存取儲存層。
 
-在這兩種情況下，第一要務是估計儲存和存取在 GPv2 儲存體帳戶中所儲存資料的成本，並與您目前的成本進行比較。
+在這兩種情況下，第一要務是估計儲存、存取及操作在 GPv2 儲存體帳戶中所儲存資料的成本，並與您目前的成本進行比較。
 
 ## <a name="evaluating-gpv2-storage-account-tiers"></a>評估 GPv2 儲存體帳戶層
 
 若要估計儲存和存取在 GPv2 儲存體帳戶中所儲存資料的成本，必須評估您現有的使用模式或接近您預期的使用模式。 一般而言，您想要知道︰
 
-* 您的儲存體使用情況 – 目前儲存多少資料，以及每個月的變化情況為何？
-* 您的儲存體存取模式 – 有多少資料正從帳戶讀取和寫入其中 (包括新資料)？ 有多少交易用於資料存取，而它們是何種交易？
+* 您的資料儲存體耗用量 (GB)
+    - 有多少資料儲存在儲存體帳戶中？
+    - 每月的資料量變更為何？新資料是否會不斷取代舊資料？
+* 您的儲存體存取模式 (作業和資料轉送)
+    - 儲存體帳戶的讀取 (輸出) 和寫入 (輸入) 資料有多少？ 
+    - 在儲存體帳戶中的資料上發生多少作業？
+    - 哪種類型的作業 (讀取與寫入) 會在資料上進行交易？
 
 ## <a name="monitoring-existing-storage-accounts"></a>監視現有的儲存體帳戶
 
@@ -244,7 +252,7 @@ Blob 儲存體帳戶支援與 GPv2 完全相同的區塊 Blob 功能，但僅限
 若要估計 Blob 儲存體帳戶的交易成本，您必須將交易細分成三個群組，因為它們的定價方式不同。
 
 * 寫入 'PutBlob'、'PutBlock'、'PutBlockList'、'AppendBlock'、'ListBlobs'、'ListContainers'、'CreateContainer'、'SnapshotBlob' 和 'CopyBlob' 等交易。
-* 刪除 'DeleteBlob' 和 'DeleteContainer' 等交易。
+* 讀取交易，例如 'GetBlob'。
 * 所有其他交易
 
 若要估計 GPv1 儲存體帳戶的交易成本，不論作業/API 為何，您必須彙總所有的交易。

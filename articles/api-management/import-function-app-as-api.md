@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/22/2017
+ms.date: 07/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 1962a4aac8e2d15caf4ec33998da1985d3b8a9af
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0ee83446bb08e66c7f325bdd5585b8cc0484a74e
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38306468"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090923"
 ---
 # <a name="import-a-function-app-as-an-api"></a>匯入函式應用程式作為 API
 
@@ -31,10 +31,11 @@ ms.locfileid: "38306468"
 > * 在 Azure 入口網站中測試 API
 > * 在開發人員入口網站中測試 API
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 + 完成下列快速入門：[建立 Azure API 管理執行個體](get-started-create-service-instance.md)
-+ 確定您的訂用帳戶中有函式應用程式。 如需詳細資訊，請參閱[建立函式應用程式](../azure-functions/functions-create-first-azure-function.md#create-a-function-app)
++ 確定您的訂用帳戶中有 Azure 函式應用程式。 如需詳細資訊，請參閱[建立函式應用程式](../azure-functions/functions-create-first-azure-function.md#create-a-function-app)
++ 為您的 Azure 函式應用程式[建立 OpenAPI 定義](../azure-functions/functions-openapi-definition.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -56,6 +57,24 @@ ms.locfileid: "38306468"
     * **入門**
     * **無限制**   
 7. 選取 [建立] 。
+
+## <a name="populate-azure-functions-keys-in-azure-api-management"></a>在 Azure API 管理中填入 Azure Functions 金鑰
+
+如果匯入的 Azure Functions 受到金鑰的保護，則 Azure API 管理會自動為其建立**具名值**，但不會在項目中填入祕密。 您必須為每個項目執行下列步驟。  
+
+1. 瀏覽至API 管理執行個體中的 [具名值] 索引標籤。
+2. 按一下項目，然後在資訊看板中按 [顯示值]。
+
+    ![具名值](./media/import-function-app-as-api/apim-named-values.png)
+
+3. 如果內容類似於 *{Azure 函式名稱} 的程式碼*，請移至匯入的 Azure Functions 應用程式，並瀏覽至您的 Azure 函式。
+4. 移至所需 Azure 函式的 [管理]，並根據 Azure 函式的驗證方法複製相關金鑰。
+
+    ![函式應用程式](./media/import-function-app-as-api/azure-functions-app-keys.png)
+
+5. 將 [具名值] 中的金鑰貼在文字方塊中，然後按一下 [儲存]。
+
+    ![函式應用程式](./media/import-function-app-as-api/apim-named-values-2.png)
 
 ## <a name="test-the-new-apim-api-in-the-azure-portal"></a>在 Azure 入口網站中測試新的 APIM API
 

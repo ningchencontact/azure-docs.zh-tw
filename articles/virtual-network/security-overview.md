@@ -1,6 +1,6 @@
 ---
-title: Azure 網路安全性概觀 | Microsoft Docs
-description: 深入了解用於控制 Azure 資源之間網路流量流程的安全性選項。
+title: Azure 安全性群組概觀 | Microsoft Docs
+description: 了解網路和應用程式安全性群組。 安全性群組可協助您篩選 Azure 資源之間的網路流量。
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 11178c574bcfa2224d15f81653f7d202ba88fb55
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8e43f476c6f816a912e5739d5e2c13676cd1ca3e
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657582"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092660"
 ---
-# <a name="network-security"></a>網路安全性
+# <a name="network-and-application-security-groups"></a>網路和應用程式安全性群組
 
-您可以使用網路安全性群組，將網路流量限制為虛擬網路中的資源。 網路安全性群組包含一些安全性規則，可根據來源或目的地 IP 位址、連接埠和通訊協定允許或拒絕輸入或輸出網路流量。 
+您可以使用網路和應用程式安全性群組，限制對虛擬網路中的資源所傳輸的網路流量。 網路安全性群組包含一些安全性規則，可根據來源或目的地 IP 位址、連接埠和通訊協定允許或拒絕輸入或輸出網路流量。 應用程式安全性群組可讓您將具有類似功能的虛擬機器 (例如 Web 伺服器) 群組在一起。 您可以指定應用程式安全性群組作為網路安全性群組規則中的來源或目的地。
 
 ## <a name="network-security-groups"></a>網路安全性群組
 
-每個網路介面都有零個或一個相關聯的網路安全性群組。 每個網路介面都存在於[虛擬網路](virtual-networks-overview.md)子網路中。 子網路也可以有零個或一個相關聯的網路安全性群組。 
+每個網路介面都有零個或一個相關聯的網路安全性群組。 每個網路介面都存在於[虛擬網路](virtual-networks-overview.md)子網路中。 子網路也可以有零個或一個相關聯的網路安全性群組。
 
 若套用至子網路，則安全性規則會套用至子網路中的所有資源。 除了網路介面，您可能具有其他 Azure 服務的執行個體，例如 HDInsight、虛擬機器擴展集，以及在子網路中部署的應用程式服務環境。
 
@@ -167,10 +167,10 @@ ms.locfileid: "34657582"
 
      - **Enterprise 合約**：允許輸出通訊埠 25 通訊。 您能夠從虛擬機器將外寄電子郵件直接傳送到外部電子郵件提供者 (Azure 平台沒有限制)。 
      - **預付型方案：** 所有資源的輸出連接埠 25 通訊都遭到封鎖。 如果您需要將電子郵件從虛擬機器直接傳送給外部電子郵件提供者 (不使用已驗證的 SMTP 轉送)，可以提出移除限制的要求。 要求是在 Microsoft 的斟酌之下審查與核准，而且只會在執行反詐騙檢查之後授權。 若要提出要求，請開啟問題類型為 [技術]、[虛擬網路連線]、[無法傳送電子郵件 (SMTP/連接埠 25)] 的支援案例。 在您的支援案例中，請包含訂用帳戶需要將電子郵件直接傳送到郵件提供者，而不需經過已驗證 SMTP 轉送之原因的詳細資料。 如果您的訂用帳戶獲得豁免，則只有在豁免日期之後建立的虛擬機器能夠透過連接埠 25 對外通訊。
-     - **雲端服務提供者 (CSP)、MSDN、Azure Pass、Azure in Open、Education、BizSpark 和免費試用**：所有資源的輸出連接埠 25 通訊都遭到封鎖。 無法進行任何移除限制的要求，因為要求未獲授權。 如果您必須從虛擬機器傳送電子郵件，就必須使用 SMTP 轉送服務。
+     - **MSDN、Azure Pass、Azure in Open、Education、BizSpark 和免費試用**：所有資源的輸出連接埠 25 通訊都遭到封鎖。 無法進行任何移除限制的要求，因為要求未獲授權。 如果您必須從虛擬機器傳送電子郵件，就必須使用 SMTP 轉送服務。
+     - **雲端服務提供者**：透過雲端服務提供者使用 Azure 資源的客戶，可以建立其雲端服務提供者的支援案例，以及在安全的 SMTP 轉送無法使用時，要求提供者代表他們建立解除封鎖案例。
 
-  如果 Azure 允許您透過連接埠 25 傳送電子郵件，Microsoft 無法保證電子郵件提供者會接受您虛擬機器所發出的內送電子郵件。 如果特定提供者拒絕來自虛擬機器的郵件，您必須直接與提供者合作以解決任何訊息傳遞或垃圾郵件篩選問題，或使用已驗證的 SMTP 轉送服務。 
-
+  如果 Azure 允許您透過連接埠 25 傳送電子郵件，Microsoft 無法保證電子郵件提供者會接受您虛擬機器所發出的內送電子郵件。 如果特定提供者拒絕來自虛擬機器的郵件，您必須直接與提供者合作以解決任何訊息傳遞或垃圾郵件篩選問題，或使用已驗證的 SMTP 轉送服務。
 
 ## <a name="next-steps"></a>後續步驟
 

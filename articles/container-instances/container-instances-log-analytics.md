@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
-ms.date: 06/06/2018
+ms.date: 07/17/2018
 ms.author: marsma
-ms.openlocfilehash: a0772d1009021ca64b448710c5353407a5492fae
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: e4c1efbf4c2c844bae971fa1136e0fe3bed18bcc
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809858"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112958"
 ---
 # <a name="container-instance-logging-with-azure-log-analytics"></a>使用 Azure Log Analytics 的容器執行個體記錄
 
@@ -21,7 +21,7 @@ Log Analytics 工作區提供集中式位置，不僅可讓您從 Azure 資源�
 
 若要將容器執行個體資料傳送至 Log Analytics，您必須使用 Azure CLI (或 Cloud Shell) 和 YAML 檔案建立容器群組。 以下幾節將說明如何建立已啟用記錄的容器群組，以及如何查詢記錄。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要在您的容器執行個體中啟用記錄，您必須具備下列項目：
 
@@ -43,9 +43,26 @@ Azure 容器執行個體必須具備將資料傳送至 Log Analytics 工作區�
 
 ## <a name="create-container-group"></a>建立容器群組
 
-現在您已有 Log Analytics 工作區識別碼和主要金鑰，接下來即可建立已啟用記錄的容器群組。 下列範例會建立一個容器群組搭配單一 [fluentd][fluentd] 容器。 Fluentd 容器在其預設組態中會產生數行輸出。 此輸出會傳送到您的 Log Analytics 工作區，因此很適合用來示範記錄的檢視和查詢。
+現在您已有 Log Analytics 工作區識別碼和主要金鑰，接下來即可建立已啟用記錄的容器群組。
 
-首先，將下列 YAML (會定義含有單一容器的容器群組) 複製到新的檔案。 請將 `LOG_ANALYTICS_WORKSPACE_ID` 和 `LOG_ANALYTICS_WORKSPACE_KEY` 取代為您在先前的步驟中取得的值，然後將檔案儲存為 **deploy-aci.yaml**。
+下列範例示範兩種以單一 [fluentd][fluentd] 容器建立容器群組的方式：Azure CLI，以及搭配使用 YAML 範本的 Azure CLI。 Fluentd 容器在其預設組態中會產生數行輸出。 此輸出會傳送到您的 Log Analytics 工作區，因此很適合用來示範記錄的檢視和查詢。
+
+### <a name="deploy-with-azure-cli"></a>使用 Azure CLI 進行部署
+
+若要使用 Azure CLI 進行部署，請在 [az container create][az-container-create] 命令中指定 `--log-analytics-workspace` 和 `--log-analytics-workspace-key` 參數。 在執行下列命令之前，請先將兩個工作區值取代為您在先前的步驟中取得的值 (並更新資源群組名稱)。
+
+```azurecli-interactive
+az container create \
+    --resource-group myResourceGroup \
+    --name mycontainergroup001 \
+    --image fluent/fluentd \
+    --log-analytics-workspace <WORKSPACE_ID> \
+    --log-analytics-workspace-key <WORKSPACE_KEY>
+```
+
+### <a name="deploy-with-yaml"></a>使用 YAML 進行部署
+
+如果您想要使用 YAML 部署容器群組，請使用此方法。 下列 YAML 會定義具有單一容器的容器群組。 請將 YAML 複製到新檔案中，然後將 `LOG_ANALYTICS_WORKSPACE_ID` 和 `LOG_ANALYTICS_WORKSPACE_KEY` 取代為您在先前的步驟中取得的值。 將檔案儲存為 **deploy-aci.yaml**。
 
 ```yaml
 apiVersion: 2018-06-01
@@ -75,7 +92,7 @@ type: Microsoft.ContainerInstance/containerGroups
 接下來，執行下列命令以部署容器群組；請將 `myResourceGroup` 取代為您訂用帳戶中的資源群組 (或先建立名為 "myResourceGroup" 的資源群組)：
 
 ```azurecli-interactive
-az container create -g myResourceGroup -n mycontainergroup001 -f deploy-aci.yaml
+az container create --resource-group myResourceGroup --name mycontainergroup001 --file deploy-aci.yaml
 ```
 
 在發出命令不久後，您應該就會收到 Azure 的回應，其中包含部署詳細資料。
@@ -135,3 +152,4 @@ ContainerInstanceLog_CL
 [query_lang]: https://docs.loganalytics.io/
 
 <!-- LINKS - Internal -->
+[az-container-create]: /cli/azure/container#az-container-create

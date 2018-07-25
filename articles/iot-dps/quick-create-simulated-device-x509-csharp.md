@@ -1,8 +1,8 @@
 ---
 title: 使用 C# 將模擬 X.509 裝置佈建到 Azure IoT 中樞 | Microsoft Docs
 description: Azure 快速入門 - 使用適用於 Azure IoT 中樞裝置佈建服務的 C# 裝置 SDK 來建立及佈建模擬 X.509 裝置
-author: bryanla
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/09/18
 ms.topic: quickstart
 ms.service: iot-dps
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 697526b243fad585b8692edd59650661ea60fd62
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 28e6158a3dcd4cee98c380c53a1a345983bdf4f7
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629716"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090814"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>使用適用於 IoT 中樞裝置佈建服務的 C# 裝置 SDK 來建立及佈建模擬 X.509 裝置
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -40,6 +40,14 @@ ms.locfileid: "34629716"
     ```
 
 ## <a name="create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry"></a>建立自我簽署的 X.509 裝置憑證和個別的註冊項目
+
+在本節中，您會使用自我簽署 X.509 憑證，請務必記住下列事項：
+
+* 自我簽署憑證僅適用於測試，不應該用於生產環境。
+* 自我簽署憑證的預設到期日為 1 年。
+
+您會使用[適用於 .NET 的 Azure IoT SDK](https://github.com/Azure/azure-iot-sdk-csharp.git) 中的範例程式碼建立憑證，以便與模擬裝置的個別註冊項目搭配使用。
+
 
 1. 在命令提示字元中，將目錄變更到 X.509 裝置佈建範例的專案目錄。
 

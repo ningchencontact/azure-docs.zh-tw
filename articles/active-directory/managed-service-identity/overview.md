@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/28/2018
 ms.author: daveba
-ms.openlocfilehash: 3d6df04df8ceac1f868e64f0e8fbc7eb0fa317e3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d25d868d8f3542d74de8edf8d7d5d26037409911
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38547968"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006925"
 ---
 #  <a name="what-is-managed-service-identity-for-azure-resources"></a>什麼是適用於 Azure 資源的受控服務識別？
 
@@ -40,7 +40,7 @@ ms.locfileid: "38547968"
 
 以下範例顯示系統指派的身分識別如何與 Azure 虛擬機器一起運作：
 
-![Linux 虛擬機器受控身分識別範例](overview/msi-vm-vmextension-imds-example.png)
+![Linux 虛擬機器受控身分識別範例](media/overview/msi-vm-vmextension-imds-example.png)
 
 1. Azure Resource Manager 收到一個要求，要在 VM 上啟用系統指派的身分識別。
 2. Azure Resource Manager 在 Azure AD 中建立服務主體，代表 VM 的身分識別。 服務主體會建立在此訂用帳戶信任的 Azure AD 租用戶中。
@@ -101,6 +101,7 @@ ms.locfileid: "38547968"
 | Azure Functions    | [使用受控服務身分識別與 Azure App Service 或 Azure Functions](/azure/app-service/app-service-managed-service-identity) |
 | Azure 服務匯流排  | [搭配使用受控服務身分識別與 Azure 服務匯流排](../../service-bus-messaging/service-bus-managed-service-identity.md) |
 | Azure 事件中心   | [搭配使用受控服務身分識別與 Azure 事件中樞](../../event-hubs/event-hubs-managed-service-identity.md) |
+| Azure API 管理 | [搭配使用受控服務識別與 Azure API 管理](../../api-management/api-management-howto-use-managed-service-identity.md) |
 
 ## <a name="which-azure-services-support-managed-service-identity"></a>哪些 Azure 服務支援受控服務身分識別？
 

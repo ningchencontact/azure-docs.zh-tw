@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: f66aaa23a631bd71494587683aab87a74a5aef20
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 30dbe6590cc1d70dfc026330a09645c86be24288
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261265"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036882"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>教學課程：將自訂網域新增至 Azure CDN 端點
 本教學課程說明如何將自訂網域新增至 Azure 內容傳遞網路 (CDN) 端點。 使用 CDN 端點來傳遞內容時，如果您想要在 CDN URL 中顯示您自己的網域名稱，則需要自訂網域。 有可見的網域名稱對您的客戶而言較為方便，並且也有助於宣傳商標。 
@@ -34,7 +34,7 @@ ms.locfileid: "35261265"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您必須先建立 CDN 設定檔和至少一個 CDN 端點，才能完成本教學課程中的步驟。 如需詳細資訊，請參閱[快速入門：建立 Azure CDN 設定檔和端點](cdn-create-new-endpoint.md)。
 
@@ -54,11 +54,11 @@ ms.locfileid: "35261265"
 
 在對應生產環境中的現有網域時，會有特殊事項需要考量。 當您在 Azure 入口網站中註冊自訂網域時，該網域可能會有短暫的期間停止運作。 為了避免 Web 流量中斷，請先將自訂網域對應至具有 Azure cdnverify 子網域的 CDN 端點主機名稱，以建立暫時 CNAME 對應。 透過此方法，使用者在 DNS 對應期間將可持續存取您的網域而不被中斷。 
 
-若非如此，如果您是第一次使用自訂網域，而且其間沒有生產流量正在執行，您可以直接將自訂網域對應至 CDN 端點。 請繼續執行[對應永久自訂網域](#map-permanent-custom-domain)。
+若非如此，如果您是第一次使用自訂網域，而且其間沒有生產流量正在執行，您可以直接將自訂網域對應至 CDN 端點。 請繼續執行[對應永久自訂網域](#map-the-permanent-custom-domain)。
 
 建立 cdnverify 子網域的 CNAME 記錄：
 
-1. 登入自訂網域的網域提供者的網站。
+1. 登入自訂網域的網域提供者網站。
 
 2. 找出管理 DNS 記錄的頁面 (可查閱提供者的文件或，尋找網站上標示為**網域名稱**、**DNS** 或**名稱伺服器管理**的區域)。 
 
@@ -152,7 +152,7 @@ ms.locfileid: "35261265"
 
 若要建立自訂網域的 CNAME 記錄：
 
-1. 登入自訂網域的網域提供者的網站。
+1. 登入自訂網域的網域提供者網站。
 
 2. 找到管理 DNS 記錄的頁面 (可查閱提供者的文件或，尋找網站上標示**網域名稱**、**DNS** 或**名稱伺服器管理**的區域)。 
 

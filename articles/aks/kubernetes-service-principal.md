@@ -9,12 +9,12 @@ ms.topic: get-started-article
 ms.date: 04/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: f933788968ffdbd4a856a84476d8d82b32637d62
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 4dbb8b7abf6da77115d0e1d12621ec20ec60d174
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100329"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035195"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>服務主體與 Azure Kubernetes Service (AKS)
 
@@ -35,7 +35,7 @@ AKS 叢集需要 [Azure Active Directory 服務主體][aad-service-principal]，
 
 在下列範例中，會建立 AKS 叢集，因為未指定現有服務主體，所以會為叢集建立服務主體。 為了完成這項作業，您的帳戶必須具有建立服務主體的適當權限。
 
-```azurecli
+```azurecli-interactive
 az aks create --name myAKSCluster --resource-group myResourceGroup --generate-ssh-keys
 ```
 
@@ -47,7 +47,7 @@ az aks create --name myAKSCluster --resource-group myResourceGroup --generate-ss
 
 若要使用 Azure CLI 建立服務主體，請使用 [az ad sp create-for-rbac][az-ad-sp-create] 命令。
 
-```azurecli
+```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
 ```
 
@@ -84,7 +84,12 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --service-pri
 * 指定服務主體的 [用戶端識別碼] 時，使用 `appId` 的值 (如本文所示) 或對應的服務主體 `name` (例如，`https://www.contoso.org/example`)。
 * 在 Kubernetes 叢集中的主要和節點 VM 上，服務主體認證會儲存在 `/etc/kubernetes/azure.json` 檔案中。
 * 當您使用 `az aks create` 命令自動產生服務主體時，服務主體認證會寫入用來執行命令之電腦上的 `~/.azure/aksServicePrincipal.json` 檔案。
-* 刪除 `az aks create` 所建立的 AKS 叢集時，將不會刪除自動建立的服務主體。 使用 `az ad sp delete --id $clientID` 將它刪除。
+* 刪除 `az aks create` 所建立的 AKS 叢集時，不會刪除自動建立的服務主體。 若要刪除服務主體，請先使用 [az ad app list][az-ad-app-list] 取得服務主體的識別碼。 下列範例會查詢名為 myAKSCluster 的叢集，然後使用 [az ad app delete][az-ad-app-delete] 來刪除應用程式識別碼。 請以您自己的值取代這些名稱：
+
+    ```azurecli-interactive
+    az ad app list --query "[?displayName=='myAKSCluster'].{Name:displayName,Id:appId}" --output table
+    az ad app delete --id <appId>
+    ```
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -101,3 +106,5 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --service-pri
 [install-azure-cli]: /cli/azure/install-azure-cli
 [service-principal]: ../active-directory/develop/active-directory-application-objects.md
 [user-defined-routes]: ../load-balancer/load-balancer-overview.md
+[az-ad-app-list]: /cli/azure/ad/app#az-ad-app-list
+[az-ad-app-delete]: /cli/azure/ad/app#az-ad-app-delete

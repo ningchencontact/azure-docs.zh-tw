@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: overview
 ms.date: 07/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 69db32698951519c2630a0a8697e4ebe74f69b04
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: c54f5c5fba31933a6dd9f98d1ecfb6d03a3ad9be
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930472"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003742"
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>在傳遞訊息的 Azure 服務之間進行選擇
 
@@ -82,7 +82,8 @@ Azure 事件中樞是巨量資料管線。 它有助於擷取、保留和重送�
 
 * 需要輪詢之可靠的非同步訊息傳遞 (企業傳訊即服務)
 * 進階傳訊功能，例如 FIFO、批次處理/工作階段、交易、無效信件處理、暫存控制項、路由和篩選，以及重複偵測
-* 正好一次傳遞
+* 至少一次傳遞
+* 選擇性依序傳遞
 
 ## <a name="use-the-services-together"></a>一起使用服務
 

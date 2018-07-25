@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: dcc384fad0479c66211fe31e547ad7076150b58e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 256c951b5bf193f5ee5bfe5f70c3549ef17a4d9b
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611223"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071973"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>歡迎使用 Azure Cosmos DB
 
@@ -68,7 +68,7 @@ Azure Cosmos DB 是一個全球分散式多模型資料庫服務，可讓您輕�
     * Azure Cosmos DB 的資料庫引擎完全不需要結構描述 – 它會自動建立所內嵌之資料的索引，且不需要任何結構描述或索引，還能提供超級快速的查詢。 
 
 * **降低擁有權成本**
-    * [更符合成本效益](https://aka.ms/cosmos-db-tco-paper)，效果是非受控解決方案或內部部署 NoSQL 解決方案的五到十倍。
+    * 更符合成本效益，效果是非受控解決方案或內部部署 NoSQL 解決方案的五到十倍。
     * 比 AWS DynamoDB 或 Google Spanner 便宜三倍。
 
 ## <a name="capability-comparison"></a>功能比較
@@ -78,11 +78,11 @@ Azure Cosmos DB 會提供傳統關聯式與非關聯式資料庫的最佳功能�
 | 功能 | 關聯式資料庫   | 非關聯式 (NoSQL) 資料庫 |    Azure Cosmos DB |
 | --- | --- | --- | --- |
 | 全球發佈 | 否 | 否 | 是，在 30 個以上的區域中周全且立即可用的散發，具有多路連接的 API|
-| 水平調整 | 否 | yes | 是，您可以獨立調整儲存體和輸送量 | 
-| 延遲保證 | 否 | yes | 是，99% 的讀取 <10 毫秒和寫入 <15 毫秒 | 
-| 高可用性 | 否 | yes | 是，Azure Cosmos DB 永遠可用、具有定義完善的 PACELC 折衷辦法，並提供自動和手動的容錯移轉選項|
+| 水平調整 | 否 | 是 | 是，您可以獨立調整儲存體和輸送量 | 
+| 延遲保證 | 否 | 是 | 是，99% 的讀取 <10 毫秒和寫入 <15 毫秒 | 
+| 高可用性 | 否 | 是 | 是，Azure Cosmos DB 永遠可用、具有定義完善的 PACELC 折衷辦法，並提供自動和手動的容錯移轉選項|
 | 資料模型 + API | 關聯式 + SQL | 多模型 + OSS API | 多模型 + SQL + OSS API (更多即將推出) |
-| SLA | yes | 否 | 是，延遲、輸送量、一致性、可用性的完整 SLA |
+| SLA | 是 | 否 | 是，延遲、輸送量、一致性、可用性的完整 SLA |
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>受益於 Azure Cosmos DB 的解決方案
 

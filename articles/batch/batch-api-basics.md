@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 04/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3fe0d3836046ad143e746503210099ee5c640a08
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 9de4b00b2fff1feabcaee4e30667dfbdc75d9266
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129093"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114434"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>使用 Batch 開發大規模的平行運算解決方案
 
@@ -504,7 +504,7 @@ Batch 可處理使用 Azure 儲存體將應用程式封裝儲存及部署到計�
 
 ## <a name="next-steps"></a>後續步驟
 * 了解可用來建置 Batch 解決方案的 [Batch API 和工具](batch-apis-tools.md)。
-* 在 [開始使用適用於 .NET 的 Azure Batch 程式庫](batch-dotnet-get-started.md)中逐步了解範例 Batch 應用程式。 另外還有 [Python 版本](batch-python-tutorial.md) 的教學課程，該教學課程會在 Linux 計算節點上執行工作負載。
+* 了解使用 [Batch .NET 用戶端程式庫](quick-run-dotnet.md)或 [Python](quick-run-python.md) 開發啟用 Batch 之應用程式的基本概念。 這些快速入門會介紹使用 Batch 服務在多個計算節點上執行工作負載的範例應用程式，並說明如何使用 Azure 儲存體進行工作負載檔案的預備和擷取。
 * 下載並安裝 [BatchLabs][batch_labs] 以在開發 Batch 解決方案時使用。 您可以使用 BatchLabs 來協助建立、偵錯和監視 Azure Batch 應用程式。 
 * 請參閱社群資源，包括[Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)、[Batch 社群存放庫](https://github.com/Azure/Batch)以及 MSDN 上的 [Azure Batch 論壇][batch_forum]。 
 

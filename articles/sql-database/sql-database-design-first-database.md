@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop databases
 ms.topic: tutorial
-ms.date: 6/20/2018
+ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: c89b03baccc7e20ae945da154fbd78d5d0dac376
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 6f12c44c2d65eef7e8d3345ec79b812304fe9791
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311026"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091531"
 ---
 # <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>教學課程：使用 SSMS 設計您的第一個 Azure SQL 資料庫
 
@@ -31,9 +31,9 @@ Azure SQL Database 是 Microsoft Cloud (Azure) 中的關聯式資料庫即服務
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
    >[!NOTE]
-   > 為了進行此教學課程，我們會使用[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)，但您也可以選擇[以虛擬核心為基礎的購買模型 (預覽)](sql-database-service-tiers-vcore.md)。 
+   > 為了進行此教學課程，我們會使用[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)，但您也可以選擇[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，請確定您已安裝︰
 - 最新版的 [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS)。
@@ -77,7 +77,7 @@ Azure SQL Database 會使用一組定義的[計算和儲存體資源](sql-databa
 
 5. 按一下 [選取] 。
 
-6. 按一下 [定價層] 可指定服務層、DTU 或 vCore 的數目，以及儲存體數量。 瀏覽 DTU/vCore 數目的選項，以及可供您每個服務層使用的儲存體。 為了進行此教學課程，我們會使用[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)，但您也可以選擇[以虛擬核心為基礎的購買模型 (預覽)](sql-database-service-tiers-vcore.md)。 
+6. 按一下 [定價層] 可指定服務層、DTU 或 vCore 的數目，以及儲存體數量。 瀏覽 DTU/vCore 數目的選項，以及可供您每個服務層使用的儲存體。 為了進行此教學課程，我們會使用[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)，但您也可以選擇[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)。 
 
 7. 在此教學課程中，選取 [標準] 服務層，然後使用滑桿選取 **100 DTU (S3)** 和 **400** GB 的儲存體。
 

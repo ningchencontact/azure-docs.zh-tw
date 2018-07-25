@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5346467dff40832aa35799ee3d532e99bf14d569
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5e0da540b2784ef13986c6089d31f22df992ee59
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38482069"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005810"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>快速入門：將您的第一個 IoT Edge 模組部署至 Linux x64 裝置
 
@@ -44,7 +44,7 @@ Azure IoT Edge 會將雲端的強大功能移至您的物聯網裝置。 在本�
    az extension add --name azure-cli-iot-ext
    ```
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本快速入門會以 Linux 機器作為 IoT Edge 裝置。 如果您目前沒有可用於測試的裝置，您可以使用 Azure CLI 來建立。 
 
@@ -76,7 +76,7 @@ Azure IoT Edge 會將雲端的強大功能移至您的物聯網裝置。 在本�
 1. 在您的新資源群組中建立 IoT 中樞。 下列程式碼會在資源群組 **IoTEdgeResources** 中建立免費的 **F1** 中樞。 請以 IoT 中樞的唯一名稱取代 {hub_name}。
 
    ```azurecli-interactive
-   az iot hub create --resource-group TestResources --name {hub_name} --sku F1 
+   az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 
    ```
 
    如果因您的訂用帳戶中已有免費中樞而發生錯誤，請將 SKU 變更為 **S1**。 
@@ -250,12 +250,11 @@ IoT Edge 執行階段是一組容器，而部署至 IoT Edge 裝置的邏輯會�
 
 如果您是在新的資源群組中建立虛擬機器和 IoT 中樞，您可以刪除該群組和所有相關聯的資源。 如果該資源群組中有您想要保留的項目，則只要刪除您要清除的個別資源即可。 
 
-若要移除資源群組，請依照下列步驟操作： 
+移除 **IoTEdgeResources** 群組。 
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [資源群組]。
-2. 在 [依名稱篩選...] 文字方塊中，輸入包含 IoT 中樞的資源群組名稱。 
-3. 在結果清單中的資源群組右側，按一下 **...**，然後按一下 [刪除資源群組]。
-4. 系統將會要求您確認是否刪除資源。 再次輸入您的資源群組名稱進行確認，然後按一下 [刪除]。 片刻過後，系統便會刪除該資源群組及其所有內含的資源。
+   ```azurecli-interactive
+   az group delete --name IoTEdgeResources 
+   ```
 
 ### <a name="remove-the-iot-edge-runtime"></a>移除 IoT Edge 執行階段
 

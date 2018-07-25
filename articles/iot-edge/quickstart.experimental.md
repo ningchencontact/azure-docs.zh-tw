@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5bde54a65160c58d8bfba2f6c4c3b6a4317e46ed
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 54a8b5f14cc2f9fb0ac887da8995623353e73ac9
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38540226"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115580"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>快速入門：從 Azure 入口網站將您的第一個 IoT Edge 模組部署至 Windows 裝置 - 預覽
 
@@ -37,7 +37,7 @@ Azure IoT Edge 可讓您在裝置上執行分析和資料處理，而不必將�
 
 如果您沒有使用中的 Azure 訂用帳戶，請在開始前建立[免費帳戶][lnk-account]。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本快速入門假設您使用執行 Windows 的電腦或虛擬機器來模擬 IoT 裝置。 如果您在虛擬機器中執行 Windows，請啟用[巢狀虛擬化][lnk-nested]並配置至少 2GB 的記憶體。 
 
@@ -53,6 +53,8 @@ Azure IoT Edge 可讓您在裝置上執行分析和資料處理，而不必將�
 
 在 Azure 入口網站中建立 IoT 中樞，以開始進行此快速入門。
 ![建立 IoT 中樞][3]
+
+在資源群組中，建立可用來對您在本快速入門中建立的所有資源進行維護和管理的 IoT 中樞。 請將其命名為易記的名稱，例如 **IoTEdgeResources**。 將快速入門和教學課程的所有資源放同一個群組中，可一併加以管理，並可在完成測試後輕鬆加以移除。 
 
 [!INCLUDE [iot-hub-create-hub](../../includes/iot-hub-create-hub.md)]
 
@@ -81,14 +83,15 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 它有三個元件
 
 2. 下載 IoT Edge 服務套件。
 
-  ```powershell
-  Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.zip
-  Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
-  Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
-  rmdir C:\ProgramData\iotedge\iotedged-windows
-  $env:Path += ";C:\ProgramData\iotedge"
-  SETX /M PATH "$env:Path"
-  ```
+   ```powershell
+   Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.zip
+   Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
+   Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
+   rmdir C:\ProgramData\iotedge\iotedged-windows
+   $sysenv = "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment"
+   $path = (Get-ItemProperty -Path $sysenv -Name Path).Path + ";C:\ProgramData\iotedge"
+   Set-ItemProperty -Path $sysenv -Name Path -Value $path
+   ```
 
 3. 安裝 vcruntime。
 
@@ -160,7 +163,7 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 它有三個元件
   SETX /M IOTEDGE_HOST "http://<ip_address>:15580"
   ```
 
-6. 在 `config.yaml` 檔案中，尋找 [連接設定] 區段。 以您的 IP 位址和您在上一節中開啟的連接埠更新 **management_uri** 和 **workload_uri** 的值。 取代 **\<GATEWAY_ADDRESS\>** 與您的 IP 位址。 
+6. 在 `config.yaml` 檔案中，尋找 [連接設定] 區段。 以您的 IP 位址和您在上一節中開啟的連接埠更新 **management_uri** 和 **workload_uri** 的值。 請將 **\<GATEWAY_ADDRESS\>** 取代為您所複製的 DockerNAT IP 位址。
 
    ```yaml
    connect: 
@@ -249,14 +252,55 @@ iotedge logs tempSensor -f
 
 ## <a name="clean-up-resources"></a>清除資源
 
-您可以使用您在本快速入門中設定的模擬裝置來測試 IoT Edge 教學課程。 如果您想要停止讓 tempSensor 模組傳送資料至 IoT 中樞，請使用下列命令停止 IoT Edge 服務，並刪除在您的裝置上建立的容器。 當您又想要將電腦作為 IoT Edge 裝置時，請記得啟動服務。 
+如果您想要繼續進行 IoT Edge 教學課程，您可以使用在本快速入門中註冊和設定的裝置。 否則，您可以刪除您所建立的 Azure 資源，並從裝置中移除 IoT Edge 執行階段。 
+
+### <a name="delete-azure-resources"></a>刪除 Azure 資源
+
+如果您是在新的資源群組中建立虛擬機器和 IoT 中樞，您可以刪除該群組和所有相關聯的資源。 如果該資源群組中有您想要保留的項目，則只要刪除您要清除的個別資源即可。 
+
+若要移除資源群組，請依照下列步驟操作： 
+
+1. 登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [資源群組]。
+2. 在 [依名稱篩選...] 文字方塊中，輸入包含 IoT 中樞的資源群組名稱。 
+3. 在結果清單中的資源群組右側，按一下 **...**，然後按一下 [刪除資源群組]。
+4. 系統將會要求您確認是否刪除資源。 再次輸入您的資源群組名稱進行確認，然後按一下 [刪除]。 片刻過後，系統便會刪除該資源群組及其所有內含的資源。
+
+### <a name="remove-the-iot-edge-runtime"></a>移除 IoT Edge 執行階段
+
+如果您預計要在未來的測試中使用 IoT Edge 裝置，但想要在未使用時停止讓 tempSensor 模組傳送資料至 IoT 中樞，請使用下列命令停止 IoT Edge 服務。 
 
    ```powershell
    Stop-Service iotedge -NoWait
-   docker rm -f $(docker ps -aq)
    ```
 
-當您不再需要您所建立的 IoT 中樞時，您可以使用 Azure 入口網站移除資源及其任何相關聯的裝置。 瀏覽至 IoT 中樞的概觀頁面，然後選取 [刪除]。 
+當您準備好再次開始測試時，便可重新啟動服務
+
+   ```powershell
+   Start-Service iotedge
+   ```
+
+如果您想要從裝置移除這些安裝，請使用下列命令。  
+
+移除 IoT Edge 執行階段。
+
+   ```powershell
+   cmd /c sc delete iotedge
+   rm -r c:\programdata\iotedge
+   ```
+
+IoT Edge 執行階段移除後，它所建立的容器隨即停止，但仍會存在於您的裝置上。 檢視所有容器。
+
+   ```powershell
+   docker ps -a
+   ```
+
+刪除 IoT Edge 執行階段在您的裝置上建立的容器。 如果您將 tempSensor 容器命名為其他名稱，請變更其名稱。 
+
+   ```powershell
+   docker rm -f tempSensor
+   docker rm -f edgeHub
+   docker rm -f edgeAgent
+   ```
 
 ## <a name="next-steps"></a>後續步驟
 

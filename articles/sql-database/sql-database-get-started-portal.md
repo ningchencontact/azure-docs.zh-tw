@@ -8,23 +8,23 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
 ms.topic: quickstart
-ms.date: 07/02/2018
+ms.date: 07/16/2018
 ms.author: sachinp
-ms.openlocfilehash: 264397fee8ea37321841a4130cb5977219861053
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 172ee6c2200334a57ebaa073d7ff530d19b2f07d
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345418"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090525"
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>在 Azure 入口網站中建立 Azure SQL Database
 
 本快速入門將逐步解說如何使用[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)在 Azure 中建立 SQL 資料庫。 Azure SQL Database 是可讓您在雲端中執行及調整高可用性 SQL Server 資料庫的「資料庫即服務」供應項目。 此快速入門說明如何使用 Azure 入口網站建立 SQL 資料庫以開始使用產品。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
   >[!NOTE]
-  >本教學課程使用以 DTU 為基礎的購買模型，但[以虛擬核心為基礎的購買模型 (預覽)](sql-database-service-tiers-vcore.md) 也可供使用。
+  >本教學課程使用 DTU 型購買模型，但是[虛擬核心型購買模型](sql-database-service-tiers-vcore.md)也可供使用。
 
 ## <a name="log-in-to-the-azure-portal"></a>登入 Azure 入口網站
 

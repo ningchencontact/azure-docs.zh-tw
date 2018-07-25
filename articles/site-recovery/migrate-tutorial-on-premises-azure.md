@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 07/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b297e2ef2f4c276b9183d1874e104d686b304a14
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: bc04483c35162c0b461fd03c63aaa894b1bc199a
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919116"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070672"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>將內部部署機器移轉至 Azure
 
@@ -38,9 +38,12 @@ ms.locfileid: "37919116"
 開始之前，最好先針對災害復原檢閱 [VMware](vmware-azure-architecture.md) 或 [Hyper-V](hyper-v-azure-architecture.md) 架構。
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-不支援並行虛擬驅動程式所匯出的裝置。
+- 不支援並行虛擬驅動程式所匯出的裝置。
+ 
+> [!WARNING]
+> 您可以藉由將虛擬機器視為實體伺服器，移轉 VMware、Hyper-V 以外其他虛擬化平台 (例如 XenServer) 上的 VM。 不過，這個方法尚未經過 Microsoft 的測試及驗證，可能無法運作。 例如，在 XenServer 平台上執行的 VM 可能無法在 Azure 中執行，除非在開始移轉之前，已從虛擬機器解除安裝 XenServer 工具、準虛擬化儲存體和網路驅動程式。
 
 
 ## <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫
@@ -109,7 +112,7 @@ ms.locfileid: "37919116"
 1. 在 [設定] > [複寫的項目] 中，按一下機器 > [容錯移轉]。
 2. 在 [容錯移轉] 中，選取要容錯移轉的目標**復原點**。 選取最新的復原點。
 3. 加密金鑰設定不適用於此案例。
-4. 選取 [Shut down machine before beginning failover] \(先將機器關機再開始容錯移轉)。 Site Recovery 在觸發容錯移轉之前，會嘗試將來源虛擬機器關機。 即使關機失敗，仍會繼續容錯移轉。 您可以 [作業] 頁面上追蹤容錯移轉進度。
+4. 選取 [Shut down machine before beginning failover] \(先將機器關機再開始容錯移轉)。 Site Recovery 在觸發容錯移轉之前，會嘗試將虛擬機器關機。 即使關機失敗，仍會繼續容錯移轉。 您可以 [作業] 頁面上追蹤容錯移轉進度。
 5. 確認 Azure VM 如預期般出現在 Azure 中。
 6. 在 [複寫的項目] 中，以滑鼠右鍵按一下 VM > [完成移轉]。 這會完成移轉程序、停止 VM 的複寫功能，並停止 VM 的 Site Recovery 計費。
 
@@ -124,7 +127,7 @@ ms.locfileid: "37919116"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已將內部部署 VM 移轉至 Azure VM。 您現在可以設定 Azure VM 的災害復原。
-
-> [!div class="nextstepaction"]
-> 從內部部署站台移轉之後，[設定 Azure VM 的災害復原](azure-to-azure-replicate-after-migration.md)。
+在本教學課程中，您已將內部部署 VM 移轉至 Azure VM。 既然您已成功移轉虛擬機器：
+- 請針對移轉的虛擬機器[設定災害復原](azure-to-azure-replicate-after-migration.md)。
+- 利用 Azure [安全且妥善管理的雲端](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/)功能，來管理 Azure 中的虛擬機器。
+  

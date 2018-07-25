@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: tutorial
 ms.date: 06/14/2018
 ms.author: joke
-ms.openlocfilehash: dc2776e0f3b14d5fd2375f735c18345c32ca743a
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 2cc8db0ce849e0f0d376824665aac7dbc2af29db
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37033525"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035212"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>使用 PowerShell 建立彈性作業代理程式
 
@@ -31,22 +31,29 @@ ms.locfileid: "37033525"
 > * 開始執行作業
 > * 監視作業
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-如果您還沒有 Azure 訂用帳戶，請在開始之前[建立免費帳戶](https://azure.microsoft.com/free/)。
+如果您還沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
-安裝最新的預覽版 **AzureRM.Sql** 模組，以取得彈性作業 Cmdlet。 從提高權限的命令提示字元執行下列命令 (以系統管理員身分)。
+安裝 **AzureRM.Sql** 4.8.1 預覽模組，以取得最新的彈性作業 Cmdlet。 在 PowerShell 中以系統管理存取權執行下列命令。
 
 ```powershell
 # Installs the latest PackageManagement powershell package which PowershellGet v1.6.5 is dependent on
 Find-Package PackageManagement -RequiredVersion 1.1.7.2 | Install-Package -Force
 
-# You may need to restart the powershell session
 # Installs the latest PowershellGet module which adds the -AllowPrerelease flag to Install-Module
 Find-Package PowerShellGet -RequiredVersion 1.6.5 | Install-Package -Force
 
+# Restart your powershell session with administrative access
+
 # Places AzureRM.Sql preview cmdlets side by side with existing AzureRM.Sql version
-Install-Module -Name AzureRM.Sql -AllowPrerelease -Force
+Install-Module -Name AzureRM.Sql -AllowPrerelease -RequiredVersion 4.8.1-preview -Force
+
+# Import the AzureRM.Sql 4.8.1 module
+Import-Module AzureRM.Sql -RequiredVersion 4.8.1
+
+# Confirm if module successfully imported - if the imported version is 4.8.1, then continue
+Get-Module AzureRM.Sql
 ```
 
 ## <a name="create-required-resources"></a>建立所需的資源
@@ -196,7 +203,7 @@ $JobCred = $JobAgent | New-AzureRmSqlElasticJobCredential -Name "jobuser" -Crede
 
 ## <a name="define-the-target-databases-you-want-to-run-the-job-against"></a>定義您要對其執行作業的目標資料庫
 
-「目標群組」[](elastic-jobs-overview.md#target-group)可定義一或多個將會執行作業步驟的資料庫。 
+[目標群組](elastic-jobs-overview.md#target-group)可定義一或多個將會執行作業步驟的資料庫。 
 
 下列程式碼片段會建立兩個目標群組：*ServerGroup* 和 *ServerGroupExcludingDb2*。 *ServerGroup* 會以執行時存在於伺服器上的所有資料庫為目標，*ServerGroupExcludingDb2* 則會以伺服器上的所有資料庫為目標，但 *TargetDb2* 除外：
 

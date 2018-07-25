@@ -3,16 +3,17 @@ title: 快速入門：使用入口網站在 Azure 搜尋服務中建立認知搜
 description: Azure 入口網站中使用範例資料的資料擷取、自然語言和影像處理技能範例。
 manager: cgronlun
 author: HeidiSteen
+services: search
 ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: c5b6036efa4fcd6b7b8d756fa20d63952482518e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3dda4c330f2dc620662c476aa4e5dbfe3a60fa76
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640256"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003691"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>快速入門：使用技能和範例資料建立認知搜尋管線
 
@@ -32,7 +33,7 @@ ms.locfileid: "34640256"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [「什麼是認知搜尋？」](cognitive-search-concept-intro.md) 介紹擴充架構和元件。 
 
@@ -72,7 +73,7 @@ Azure 服務僅限用於此案例中。 建立所需服務是準備工作的一�
 
 1. [下載範例資料](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)，其中有不同類型的小型檔案集。 
 
-1. 註冊 Azure Blob 儲存體、建立儲存體帳戶、登入儲存體總管並建立容器。 如需有關上述所有步驟的指示，請參閱 [Azure 儲存體總管快速入門](../storage/blobs/storage-quickstart-blobs-storage-explorer.md)。
+1. 註冊 Azure Blob 儲存體、建立儲存體帳戶、登入儲存體總管，並建立容器。 如需關於上述所有步驟的指示，請參閱 [Azure 儲存體總管快速入門](../storage/blobs/storage-quickstart-blobs-storage-explorer.md)。
 
 1. 使用 Azure 儲存體總管，在您建立的容器中按一下 [上傳]，即可上傳範例檔案。
 

@@ -1,25 +1,22 @@
 ---
-title: 什麼是 HDInsight 及 Hadoop 與 Spark 技術堆疊？ - Azure | Microsoft Docs
+title: 什麼是 HDInsight 及 Hadoop 與 Spark 技術堆疊？ - Azure
 description: HDInsight 及 Hadoop 與 Spark 技術堆疊和元件簡介，包括用於巨量資料分析的 Kafka、Hive、Storm 和 HBase。
 keywords: azure hadoop, hadoop azure, hadoop 簡介, hadoop 簡介, hadoop 技術堆疊, hadoop 簡介, hadoop 簡介, 什麼是 hadoop 叢集, 什麼是 hadoop 叢集, 什麼是 hadoop
 services: hdinsight
-documentationcenter: ''
 author: cjgronlund
+ms.author: cgronlun
 manager: jhubbard
-editor: cgronlun
 ms.assetid: e56a396a-1b39-43e0-b543-f2dee5b8dd3a
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017, mvc
-ms.devlang: na
 ms.topic: overview
 ms.date: 05/07/2018
-ms.author: cgronlun
-ms.openlocfilehash: b84389c1d52c0c43f1e71da3eed86f4057b85559
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c7bed171a3b866f4b1f94d6a5348dd25d8820f2b
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051377"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115336"
 ---
 # <a name="what-is-azure-hdinsight-and-the-hadoop-technology-stack"></a>什麼是 Azure HDInsight 和 Hadoop 技術堆疊
 
@@ -89,9 +86,9 @@ Azure HDInsight 可在巨量資料處理的各種案例中使用。 它可以是
 ## <a name="cluster-types-in-hdinsight"></a>HDInsight 中的叢集類型
 HDInsight 包含特定叢集類型和叢集自訂功能，例如新增元件、公用程式及語言的功能。 HDInsight 提供下列叢集類型：
 
-* **[Apache Hadoop](https://wiki.apache.org/hadoop)**︰使用 [HDFS](#hdfs)、[YARN](#yarn) 資源管理，以及簡單 [MapReduce](#mapreduce) 程式設計模型的架構，用來平行處理和分析批次資料。
+* **[Apache Hadoop](https://wiki.apache.org/hadoop)**︰使用 HDFS、YARN 資源管理和簡單 MapReduce 程式設計模型的架構，用來平行處理和分析批次資料。
 
-* **[Apache Spark](http://spark.apache.org/)** \(英文\)：一個開放原始碼平行處理架構，可支援記憶體內部處理，大幅提升巨量資料分析應用程式的效能。 請參閱[什麼是 HDInsight 中的 Apache Spark？](../spark/apache-spark-overview.md)
+* **[Apache Spark](http://spark.apache.org/)** \(英文\)：一個開放原始碼平行處理架構，可支援記憶體內部處理，大幅提升巨量資料分析應用程式的效能。 請參閱[什麼是 HDInsight 中的 Apache Spark？](../spark/apache-spark-overview.md)。
 
 * **[Apache HBase](http://hbase.apache.org/)**：建置於 Hadoop 上的 NoSQL 資料庫，可針對大量非結構化及半結構化資料 (可能是數十億的資料列乘以數百萬的資料行)，提供隨機存取功能和強大一致性。 請參閱[什麼是 HDInsight 上的 HBase？](../hbase/apache-hbase-overview.md)
 

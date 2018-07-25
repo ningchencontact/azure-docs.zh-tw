@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: overview
 ms.date: 07/09/2018
 ms.author: heidist
-ms.openlocfilehash: 9391668438dedad755fcf62e044825eaf944bcd9
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 4874e42139e277400c866a7fc4c7094faeae136d
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950942"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39002199"
 ---
 # <a name="what-is-azure-search"></a>何謂 Azure 搜尋服務？
 Azure 搜尋服務是搜尋即服務雲端解決方案，可為開發人員提供 API 和工具，透過 Web、行動和企業應用程式中的私用和異質內容來增添豐富的搜尋體驗。
@@ -121,6 +121,6 @@ Azure 訂閱者可以[在免費層中佈建服務](search-create-service-portal.
 + 0-3 分鐘涵蓋主要功能和使用案例。
 + 3-4 分鐘涵蓋服務佈建。 
 + 4-6 分鐘涵蓋使用「匯入資料」精靈，以內建的房地產資料集建立索引。
-+ 6-9 分鐘涵蓋「搜尋總管」和各種查詢。
++ 第 6-9 分鐘涵蓋「搜尋總管」和各種查詢。
 
 

@@ -1,5 +1,5 @@
 ---
-title: 教學課程：使用 Azure 搜尋服務在搜尋方塊中新增自動完成 | Microsoft Docs
+title: 使用 Azure 搜尋服務在搜尋方塊中新增自動完成的教學課程 | Microsoft Docs
 description: 舉例說明如何使用 Azure 搜尋服務的自動完成和建議 API，來對以資料為中心的應用程式改善終端使用者體驗。
 manager: pablocas
 author: mrcarter8
@@ -7,14 +7,14 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 06/25/2018
+ms.date: 07/11/2018
 ms.author: mcarter
-ms.openlocfilehash: 90e99e7d44183d70f4e348c7b9070001fa3c6329
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 7120080bfdc188c150c7065e1c0639ab8c04f173
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100942"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989670"
 ---
 # <a name="tutorial-add-auto-complete-to-your-search-box-using-azure-search"></a>教學課程：使用 Azure 搜尋服務在搜尋方塊中新增自動完成
 

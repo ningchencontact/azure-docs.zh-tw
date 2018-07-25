@@ -6,14 +6,14 @@ author: tamram
 manager: jeconnoc
 ms.service: storage
 ms.topic: get-started-article
-ms.date: 04/05/2018
+ms.date: 07/11/2018
 ms.author: tamram
-ms.openlocfilehash: 0ae4e196c81e767b2bbee4340f5d99b9f803df3b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 30741e48adbdb621317c13ec286b419bed2f9ea1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653649"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001536"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure 儲存體簡介
 
@@ -140,6 +140,7 @@ Blob 服務可讓您提供容器與其 Blob 或特定 Blob 的公開存取權。
 
 待用的 Azure 儲存體服務加密 (SSE) 會協助您保護資料安全，以符合組織安全性和合規性承諾。 利用此功能，Azure 儲存體會自動加密資料，再保存到儲存體，以及在擷取之前解密。 以完全無感的方式處理所有加密、解密和金鑰管理。
 
+
 SSE 會自動將所有效能層 (標準和進階)、所有部署模型 (Azure Resource Manager 和傳統) 以及所有「Azure 儲存體」服務 (Blob、佇列、資料表和檔案) 中的資料加密。 SSE 不會影響「Azure 儲存體」效能。
 
 如需待用 SSE 加密的詳細資訊，請參閱[待用資料的 Azure 儲存體服務加密](storage-service-encryption.md)。
@@ -168,6 +169,8 @@ SSE 會自動將所有效能層 (標準和進階)、所有部署模型 (Azure Re
 AzCopy 建置於 [Azure 資料移動程式庫](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)之上，其目前可供預覽。
 
 Azure 匯入/匯出服務可用於從儲存體帳戶匯入或匯出大量 blob 資料。 您可準備多個硬碟並將其郵寄至 Azure 資料中心，這些硬碟會在其中從硬碟機傳入/傳出資料並將硬碟機傳送給您。 如需匯入/匯出服務的詳細資訊，請參閱 [使用 Microsoft Azure 匯入/匯出服務將資料傳輸至 Blob 儲存體](../storage-import-export-service.md)。
+
+若要以快速、便宜且可靠的方式，將大量 blob 資料匯入您的儲存體帳戶中，您也可以使用 Azure 資料箱磁碟。 Microsoft 會透過區域電訊廠商，將最多 5 個包含 40 TB 容量的加密固態硬碟 (SSD) 寄送至您的資料中心。 您可快速設定磁碟、透過 USB 連線將資料複製到磁碟，並將磁碟寄回 Azure。 在 Azure 資料中心內，您的資料會從磁碟自動上傳至雲端。 如需有關此解決方案的詳細資訊，請移至 [Azure 資料箱磁碟概觀](https://docs.microsoft.com/azure/databox/data-box-disk-overview)。
 
 ## <a name="pricing"></a>價格
 

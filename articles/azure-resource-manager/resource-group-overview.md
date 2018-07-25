@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/25/2018
+ms.date: 07/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 576558f7ab3ae9a0e3ceebb65d19f689b4836022
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 9b8f87f3cf09fef020ceed0166dd1652617ef605
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36958811"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126604"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 概觀
 應用程式的基礎結構通常由許多元件所組成 – 或許是虛擬機器、儲存體帳戶和虛擬網路，或者 web 應用程式、資料庫、資料庫伺服器和第三方服務。 您看不到這些元件作為個別的實體，而是看到它們作為單一實體相關且彼此相依的組件。 您會想要將其當成群組來部署、管理和監視。 Azure Resource Manager 可讓您將方案中的資源作為群組使用。 您可以透過單一、協調的作業來部署、更新或刪除方案的所有資源。 您會使用部署的範本，且該範本可以用於不同的環境，例如測試、預備和生產環境。 Resource Manager 會提供安全性、稽核和標記功能，以協助您在部署後管理您的資源。 
@@ -63,7 +63,9 @@ Resource Manager 提供一個部署和管理方案的新方式。 如果您使�
 3. 執行命令式指令來管理您的資源，例如啟動或停止應用程式或機器。
 4. 利用與資源群組中相同的生命週期排列資源。 將標記用於資源的所有其他組織方式。
 
-如需關於企業如何使用 Resource Manager 有效地管理訂用帳戶的指引，請參閱 [Azure 企業 Scaffold - 規定的訂用帳戶治理](/azure/architecture/cloud-adoption-guide/subscription-governance)。
+如需關於企業如何使用 Resource Manager 有效地管理訂用帳戶的指引，請參閱 [Azure 企業 Scaffold - 規定的訂用帳戶治理](/azure/architecture/cloud-adoption-guide/subscription-governance?toc=%2fazure%2fazure-resource-manager%2ftoc.json)。
+
+對於建立可跨全域 Azure、Azure 主權雲端與 Azure Stack 使用的 Resource Manager 範本如需相關建議，請參閱[開發針對雲端一致性的 Azure Resource Manager 範本](templates-cloud-consistency.md)。
 
 ## <a name="resource-groups"></a>資源群組
 定義資源群組時，必須考慮一些重要因素：
@@ -283,6 +285,7 @@ Azure SDK 可供多個語言和平台使用。 這些語言實作都是透過其
 * 如需更詳細的建立範本逐步解說，請參閱[建立第一個 Azure Resource Manager 範本](resource-manager-create-first-template.md)。
 * 若要了解您可以在範本中使用的函式，請參閱 [範本函式](resource-group-template-functions.md)
 * 如需有關如何搭配使用 Visual Studio 與 Resource Manager 的相關資訊，請參閱 [透過 Visual Studio 建立和部署 Azure 資源群組](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)。
+* 如需將資源從傳統服務移轉至 ARM 的相關資訊，請參閱[從傳統服務移轉至 Azure Resource Manager](resource-manager-deployment-model.md#migrate-from-classic-to-resource-manager)
 
 以下是此概觀的示範影片。
 

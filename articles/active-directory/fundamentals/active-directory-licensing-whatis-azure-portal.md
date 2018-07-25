@@ -15,12 +15,12 @@ ms.date: 06/13/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: c6800e5a00d2fb837538141571c105a1d21e4374
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 5f5aab6a8514636e8be09deb773748080871b9d4
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860336"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005226"
 ---
 # <a name="group-based-licensing-basics-in-azure-active-directory"></a>Azure Active Directory 中以群組為基礎的授權基本概念
 
@@ -30,8 +30,8 @@ Microsoft 付費的雲端服務 (例如 Office 365、Enterprise Mobility + Secur
 
 為了克服這些挑戰，Azure AD 現在包含群組型授權。 您可以將一或多個產品授權指派給群組。 Azure AD 會確保將授權指派給該群組的所有成員。 任何加入群組的新成員會獲派適當的授權。 當他們離開群組時，就會移除這些授權。 如此一來，不需透過 PowerShell 來自動管理授權，即可依據每一使用者反映組織和部門結構中的變更。
 
->[!NOTE]
->此功能目前為公開預覽狀態。 您應做好將任何變更還原或移除的準備。 公用預覽版期間功能可用於任何付費 Azure Active Directory (Azure AD) 授權方案。 不過，當功能正式推出時，功能的某些層面可能會需要一或多個 Azure Active Directory Premium 授權。
+>[!Note]
+>群組型授權是 Azure Active Directory (Azure AD) 的公用預覽版功能，可與任何付費 Azure AD 授權方案搭配使用。 如需有關預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 ## <a name="features"></a>特性
 

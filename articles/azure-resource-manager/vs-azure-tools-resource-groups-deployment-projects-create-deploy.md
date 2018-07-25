@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: af8b91ee20ccb4d16e7666c317ea7d08a265e6d6
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 62e376a345be837e910ea615f8648e6b8d196ae1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435539"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006242"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>透過 Visual Studio 建立與部署 Azure 資源群組
 使用 Visual Studio，您可以建立專案，將您的基礎結構和程式碼部署至 Azure。 例如，您可以為您的應用程式定義 Web 主機、網站和資料庫，並且部署該基礎結構與程式碼。 Visual Studio 針對部署常見案例提供許多不同的入門範本。 在本文中，您將會部署 Web 應用程式和 SQL Database。  
@@ -292,7 +292,6 @@ Visual Studio 也會提供 Intellisense 以協助您了解編輯範本時可以�
         "hidden-title": "[concat('OPS-',resourceGroup().name)]"
       }
     }
-  }
   ```
 
 2. 重新部署您的資源群組。 在 Azure 入口網站上查看儀表板時，您會發現共用儀表板已新增至您的選擇清單。
@@ -303,7 +302,7 @@ Visual Studio 也會提供 Intellisense 以協助您了解編輯範本時可以�
 
    ![自訂儀表板](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/Ops-DemoSiteGroup-dashboard.png)
 
-您可以使用 RBAC 群組，管理儀表板的存取權。 部署之後，您也可以自訂儀表板的外觀。 不過，如果您重新部署資源群組，則儀表板會處於在您範本中的預設狀態。 如需建立儀表板的詳細資訊，請參閱[以程式設計方式建立 Azure 儀表板](../azure-portal/azure-portal-dashboards-create-programmatically.md)。
+您可以使用 RBAC 群組，管理儀表板的存取權。 部署之後，您也可以自訂儀表板的外觀。 不過，如果您重新部署資源群組，則儀表板會重設回範本中的預設狀態。 如需建立儀表板的詳細資訊，請參閱[以程式設計方式建立 Azure 儀表板](../azure-portal/azure-portal-dashboards-create-programmatically.md)。
 
 ## <a name="next-steps"></a>後續步驟
 * 若要了解範本，請參閱 [撰寫 Azure Resource Manager 範本](resource-group-authoring-templates.md)。

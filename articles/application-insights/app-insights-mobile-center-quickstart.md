@@ -4,31 +4,32 @@ description: 提供指示說明如何快速設定行動應用程式，以透過 
 services: application-insights
 keywords: ''
 author: mrbullwinkle
-ms.author: daviste; mbullwin
-ms.date: 10/05/2017
+ms.author: mbullwin
+ms.date: 07/11/2018
 ms.service: application-insights
+ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 252d16a5c4ef2d1f8230746dff681f7fbf5f44b1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: fd594e65de79844720462996a89477e0a6237ceb
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33867945"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988920"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>開始使用 App Center 和 Application Insights 分析您的行動應用程式
 
 本快速入門會引導您將應用程式的 App Center 執行個體連線到 Application Insights。 Application Insights 提供查詢、分割、篩選及分析遙測資料的強大工具，遠勝於 App Center 的 [Analytics](https://docs.microsoft.com/mobile-center/analytics/) \(英文\) 服務。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本快速入門，您需要：
 
 - Azure 訂用帳戶。
 - iOS、Android、Xamarin、通用 Windows 或 React Native 應用程式。
  
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="onboard-to-app-center"></a>登入 App Center
 
@@ -144,7 +145,7 @@ Application Insights 可以查詢、分割、篩選及分析應用程式的自�
 
    [使用者流程] 工具可將使用者在起始事件之後傳送的事件視覺化。 此工具有助於了解使用者瀏覽應用程式的大致情況。 它也能顯示許多使用者離開應用程式的位置，或不斷重複執行相同動作的位置。
 
-   除了 [使用者流程] 之外，Application Insights 還有可以回答特定問題的其他使用情況分析工具：
+   除了 [使用者流程] 之外，Application Insights 還有可以回答特定問題的其他使用者行為分析工具：
 
    * [漏斗圖] 可分析及監視轉換率。
    * [保留期] 可分析應用程式隨著時間留住使用者的能力。

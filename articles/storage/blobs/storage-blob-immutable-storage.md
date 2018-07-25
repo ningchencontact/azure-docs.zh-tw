@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: sangsinh
-ms.openlocfilehash: 195537b271c442b954d6d6e6fa8d1491c07822e8
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 04e88725c04fc88a8394bafd455d25ea13718f7d
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970239"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070003"
 ---
 # <a name="immutable-storage-feature-of-azure-blob-storage-preview"></a>Azure Blob 儲存體的固定儲存體功能 (預覽)
 
@@ -178,11 +178,11 @@ Blob 的固定儲存體功能可以搭配任何 Blob 類型使用。  不過請�
 
 **如果我嘗試刪除的容器具有以時間為基礎的「鎖定」保留原則或合法保存，則會發生什麼事？**
 
-如果有至少一個 Blob 具以時間為基礎的鎖定保留原則或合法保存，則刪除容器作業會失敗。 如果沒有任何 Blob 具有有效的保留間隔，而且沒有合法保存，則刪除容器作業會成功。 您必須先刪除 Blob，才可以刪除容器。
+如果有至少一個 Blob 具有鎖定的時間式保留原則或法務保存措施，則「刪除容器」作業會失敗。 即使資料已[虛刪除](storage-blob-soft-delete.md)也是如此。如果沒有任何 Blob 具備有效的保留間隔，而且沒有法務保存措施，則「刪除容器」作業會成功。 您必須先刪除 Blob，才可以刪除容器。 
 
 **如果我嘗試刪除的儲存體帳戶具有 WORM 帳戶，且該帳戶具有以時間為基礎的「鎖定」保留原則或合法保存，則會發生什麼事？**
 
-如果有至少一個 WORM 容器具有合法保存或有一個 Blob 具有有效保留間隔，則儲存體帳戶刪除作業會失敗。  必須先刪除所有 WORM 容器，才能刪除儲存體帳戶。  如需容器刪除的相關資訊，請參閱問題 2。
+如果有至少一個 WORM 容器具有合法保存或有一個 Blob 具有有效保留間隔，則儲存體帳戶刪除作業會失敗。  必須先刪除所有 WORM 容器，才能刪除儲存體帳戶。  如需容器刪除的相關資訊，請參閱上述問題。
 
 **當 Blob 處於固定狀態時，我可以跨越不同 Blob 層 (經常性存取層、非經常性存取層、冷門存取層) 移動資料嗎？**
 

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/08/2018
+ms.date: 07/17/2018
 ms.author: barclayn
-ms.openlocfilehash: f9648e15c720c076a65e84a95f4160f27eec598d
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 2cda30c85ce8a8dc9b7a6c0134b7cabc58b842a4
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34068593"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115315"
 ---
 # <a name="what-is-azure-key-vault"></a>什麼是 Azure 金鑰保存庫？
 
@@ -39,9 +39,9 @@ Key Vault 可讓您建立多個安全的容器，稱之為保存庫。 這些保
 
 您的應用程式可以使用 URI 安全地存取所需的資訊，而在應用程式的金鑰或祕密儲存在 Azure Key Vault 之後，URI 可讓它們能擷取特定的祕密版本。 發生這種情況，不需要撰寫自訂程式碼來保護任何祕密資訊。
 
-### <a name="securely-store-secrets"></a>安全地儲存祕密
+### <a name="securely-store-secrets-and-keys"></a>安全地儲存秘密和金鑰
 
-Azure 使用會業界標準演算法、金鑰長度和硬體安全性模組 (HSM) 保護金鑰。 使用的 HSM 經過美國聯邦資訊處理標準 (FIPS) 140-2 Level 2 驗證。
+Azure 使用會業界標準演算法、金鑰長度和硬體安全性模組 (HSM) 來保護秘密和金鑰。 使用的 HSM 經過美國聯邦資訊處理標準 (FIPS) 140-2 Level 2 驗證。
 
 金鑰保存庫的存取權需要先經過適當的驗證和授權，呼叫者 (使用者或應用程式) 才能取得存取權。 驗證會建立呼叫者的身分識別，授權則會判斷呼叫者可以執行的作業。
 
@@ -49,7 +49,7 @@ Azure 使用會業界標準演算法、金鑰長度和硬體安全性模組 (HSM
 
 Azure Key Vault 可能受軟體或硬體 HSM 保護。 在您需要加強保證的情況下，您可以在硬體安全模組 (HSM) 中匯入或產生無需離開 HSM 界限的金鑰。 Microsoft 會使用 Thales 硬體安全性模型。 您可以使用 Thales 工具將金鑰從您的 HSM 移至 Azure Key Vault。
 
-最後，Azure Key Vault 的設計便是讓 Microsoft 無法看見或擷取您的金鑰。
+最後，Azure Key Vault 依設計會使 Microsoft 無法看見或擷取您的資料。
 
 ### <a name="monitor-access-and-use"></a>監視存取和使用
 

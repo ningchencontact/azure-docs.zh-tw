@@ -1,20 +1,20 @@
 ---
-title: 教學課程：在 Azure 搜尋服務中呼叫認知搜尋 API | Microsoft Docs
-description: 資料擷取和轉換的 Azure 搜尋服務索引中的資料擷取、自然語言和影像 AI 處理的範例。
+title: 在 Azure 搜尋服務中呼叫認知搜尋 API 的教學課程 | Microsoft Docs
+description: 在本教學課程中，將逐步說明資料擷取和轉換的 Azure 搜尋服務索引中，資料擷取、自然語言和影像 AI 處理的範例。
 manager: pablocas
 author: luiscabrer
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 05/01/2018
+ms.date: 07/11/2018
 ms.author: luisca
-ms.openlocfilehash: 0bca64675ed656373d6a73ca772fa713ad36a57e
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 35295f00b9264e4b6fba2ff9d293772c22b91c50
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757565"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991845"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>教學課程：了解如何呼叫認知搜尋 API (預覽)
 
@@ -23,8 +23,8 @@ ms.locfileid: "34757565"
 在本教學課程中，您會發出 REST API 呼叫以執行下列工作：
 
 > [!div class="checklist"]
-> * 建立對索引路由中的來源資料進行擴充的索引管線
-> * 對範例資料集使用內建的技能：實體辨識、語言偵測、文字操作和關鍵片語擷取
+> * 建立對索引路由中的範例資料進行擴充的索引管線
+> * 套用內建的技能：實體辨識、語言偵測、文字操作和關鍵片語擷取
 > * 了解如何藉由將技能集的輸入對應至輸出，將多項技術串聯在一起
 > * 執行要求並檢閱結果
 > * 重設索引和索引子以進行進一步開發
@@ -33,7 +33,7 @@ Azure 搜尋服務的輸出是全文檢索的可搜尋索引。 您可以使用�
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 剛開始使用認知搜尋嗎？ 請閱讀[「什麼是認知搜尋？」](cognitive-search-concept-intro.md) 以取得概念，或嘗試以[入口網站快速入門](cognitive-search-quickstart-blob.md)取得重要概念的實際操作簡介。
 
@@ -78,7 +78,7 @@ Azure 搜尋服務的輸出是全文檢索的可搜尋索引。 您可以使用�
 
 1. 註冊 Azure Blob 儲存體、建立儲存體帳戶、登入儲存體總管，並建立名為 `basicdemo` 的容器。 如需關於上述所有步驟的指示，請參閱 [Azure 儲存體總管快速入門](../storage/blobs/storage-quickstart-blobs-storage-explorer.md)。
 
-1. 使用 Azure 儲存體總管，在您建立的 ** 容器中按一下 [上傳]`basicdemo`**，以上傳範例檔案。
+1. 使用 Azure 儲存體總管，在您建立的 `basicdemo` 容器中按一下 [上傳]，以上傳範例檔案。
 
 1. 範例檔案載入之後，請取得 Blob 儲存體的容器名稱和連接字串。 您可以瀏覽至 Azure 入口網站中的儲存體帳戶，以執行此動作。 在 [存取金鑰] 上，複製 [連接字串] 欄位。
 
@@ -412,7 +412,7 @@ Content-Type: application/json
 
 回應會指出索引子是否正在執行。 索引編製完成後，請對 STATUS 端點使用另一個 HTTP GET (如上所列)，以查看在擴充期間是否發生任何錯誤和警告的報告。  
 
-某些來源檔案和技能的組合常會出現警告，這並不一定表示有問題。 在本教學課程中，警告是良性的 (例如，沒有來自 JPEG 檔案的文字輸入)。 您可以檢閱狀態回應，以取得在索引編製期間發出之警告的詳細資訊。
+某些來源檔案和技能的組合常會出現警告，這並不一定表示有問題。 在本教學課程中，警告是良性的 (例如，沒有來自 JPEG 檔案的文字輸入)。 您可以檢閱狀態回應，以取得在索引編製期間所發出警告的詳細資訊。
  
 ## <a name="verify-content"></a>驗證內容
 

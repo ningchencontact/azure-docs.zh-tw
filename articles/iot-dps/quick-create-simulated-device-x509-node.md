@@ -1,8 +1,8 @@
 ---
 title: 使用 Node.js 將模擬 X.509 裝置佈建到 Azure IoT 中樞 | Microsoft Docs
 description: 使用適用於 Azure IoT 中樞裝置佈建服務的 Node.js 裝置 SDK 來建立及佈建模擬 X.509 裝置
-author: bryanla
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/09/2018
 ms.topic: quickstart
 ms.service: iot-dps
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: fb40a85a11dd2a56cc128296f0816baa5fe4267e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7ff567b02fb3371186dc02b97cafb8135ae7bbd2
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631440"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090940"
 ---
 # <a name="create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>使用適用於 IoT 中樞裝置佈建服務的 Node.js 裝置 SDK 來建立及佈建 X.509 模擬裝置
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -41,6 +41,14 @@ ms.locfileid: "34631440"
     >
 
 ## <a name="create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry"></a>建立自我簽署的 X.509 裝置憑證和個別的註冊項目
+
+在本節中，您會使用自我簽署 X.509 憑證，請務必記住下列事項：
+
+* 自我簽署憑證僅適用於測試，不應該用於生產環境。
+* 自我簽署憑證的預設到期日為 1 年。
+
+您會使用[適用於 Node.js 的 Azure IoT SDK](https://github.com/Azure/azure-iot-sdk-node.git) 中的範例程式碼建立憑證，以便與模擬裝置的個別註冊項目搭配使用。
+
 
 1. 開啟命令提示字元。 複製程式碼範例的 GitHub 存放庫：
     

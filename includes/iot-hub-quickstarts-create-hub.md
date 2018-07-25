@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: ddecf2f75e80f95291b12d9c139a8da85f45ac94
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 63acf0297a694ff442d56e67d52fd9b4e49f812d
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36288041"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008581"
 ---
 第一個步驟是使用 Azure 入口網站在您的訂用帳戶中建立 IoT 中樞。 IoT 中樞可讓您從許多裝置將大量的遙測擷取到雲端。 然後中樞會啟用在雲端執行的一或多項後端服務，以讀取和處理該遙測。
 
@@ -26,12 +26,9 @@ ms.locfileid: "36288041"
 1. 在 [IoT 中樞] 窗格中，輸入 IoT 中樞的下列資訊︰
 
    * **訂用帳戶**：選擇您要用於建立此 IoT 中樞的訂用帳戶。
-
-   * **資源群組**：建立用以裝載 IoT 中樞的資源群組，或使用現有資源群組。 您可以將所有相關資源放在群組中，而一併加以管理。 例如，刪除資源群組時，將會刪除該群組中包含的所有資源。 如需詳細資訊，請參閱[使用資源群組管理您的 Azure 資源][lnk-resource-groups]。
-
-   * **區域**：選取最接近您的位置。
-
-   * **名稱**：建立 IoT 中樞的名稱。 如果您輸入的名稱可用，則會出現綠色核取記號。
+   * **資源群組**：建立用以包含 IoT 中樞的資源群組，或使用現有資源群組。 您可以將所有相關資源一起放在群組中，例如 **TestResources**，一併加以管理。 例如，刪除資源群組時，將會刪除該群組中包含的所有資源。 如需詳細資訊，請參閱[使用資源群組管理您的 Azure 資源][lnk-resource-groups]。
+   * **區域**：選取最接近裝置的位置。
+   * **名稱**：建立 IoT 中樞的唯一名稱。 如果您輸入的名稱可用，則會出現綠色核取記號。
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 

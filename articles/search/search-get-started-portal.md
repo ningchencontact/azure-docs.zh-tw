@@ -1,50 +1,45 @@
 ---
-title: 使用入口網站進行編製索引、查詢和篩選的 Azure 搜尋服務教學課程 | Microsoft Docs
-description: 在 Azure 入口網站中，使用預先定義的範例資料在 Azure 搜尋服務中產生索引。 探索全文檢索搜尋、篩選器、面向、模糊搜尋、地理搜尋功能等等。
+title: 使用入口網站在 Azure 搜尋服務中進行編製索引、查詢和篩選的教學課程 | Microsoft Docs
+description: 在本教學課程中，會使用 Azure 入口網站和預先定義的範例資料在 Azure 搜尋服務中產生索引。 探索全文檢索搜尋、篩選器、面向、模糊搜尋、地理搜尋功能等等。
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 04/20/2018
+ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: 9ee88b254131b40fdf1e01b771afa92127734e18
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 124963359d0b2d4050156958de195e47b9331c92
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190024"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007979"
 ---
-# <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>在入口網站中建立、查詢和篩選 Azure 搜尋服務索引
+# <a name="tutorial-use-built-in-tools-for-azure-search-indexing-and-queries"></a>教學課程：使用內建工具進行 Azure 搜尋服務的編製索引和查詢
 
-在 Azure 入口網站中，從預先定義的範例資料集著手，使用 [匯入資料] 精靈快速產生 Azure 搜尋服務索引。 使用**搜尋總管**探索全文檢索搜尋、篩選器、面向、模糊搜尋和地理搜尋功能。  
+在 Azure 入口網站的 Azure 搜尋服務頁面上，您可以使用內建工具來進行概念測試，無須耗費太多力氣即可獲得實際操作的經驗。 入口網站工具不會與 .NET 和 REST API 完全相同，但針對快速概念證明測試，精靈和編輯器可提供輕鬆協助。 此無程式碼的簡介，讓您從小型發行資料集著手，以便立即撰寫有趣的查詢。 
 
-此無程式碼的簡介，讓您從預先定義的資料著手，以便立即撰寫有趣的查詢。 雖然入口網站工具無法取代程式碼，但您可能發現它適合用於下列工作︰
+> [!div class="checklist"]
+> * 從使用公用的範例資料開始，並使用 [匯入資料] 精靈自動產生 Azure 搜尋服務索引。 
+> * 針對任何發佈至 Azure 搜尋服務的索引，檢視索引結構描述和屬性。
+> * 使用**搜尋總管**探索全文檢索搜尋、篩選器、面向、模糊搜尋和地理搜尋功能。  
 
-+ 產品量產時間最短的實際操作學習
-+ 在 [匯入資料] 中撰寫程式碼前，先設定索引的原型
-+ 在 [搜尋總管] 中測試查詢和剖析器語法
-+ 檢視已發佈至您服務的現有索引並查詢其屬性
+入口網站工具不支援完整範圍的 Azure 搜尋服務功能。 如果這些工具過於限制，請考慮[使用 .NET 進行 Azure 搜尋服務程式設計的程式碼型簡介](search-howto-dotnet-sdk.md)或是[發出 REST API 呼叫的 Web 測試工具](search-fiddler.md)。
 
-**估計時間︰** 大約 15 分鐘，但如果還需要註冊帳戶或服務，則時間較長。 
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 您也可以觀看本教學課程中 6 分鐘的步驟示範，大約在此 [Azure 搜尋服務概觀影片](https://channel9.msdn.com/Events/Connect/2016/138)中的第三分鐘處開始。
 
-另外，加強使用 [.NET 中程式設計 Azure 搜尋服務的程式碼型簡介](search-howto-dotnet-sdk.md)。
+## <a name="prerequisites"></a>必要條件
 
-## <a name="prerequisites"></a>先決條件
+[建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下尋找現有服務。 
 
-本教學課程會採用 [Azure 訂用帳戶](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)和 [Azure 搜尋服務](search-create-service-portal.md)。 
-
-如果您不想要立即佈建服務，您可以觀看本教學課程中 6 分鐘的步驟示範 (大約在此 [Azure 搜尋服務概觀影片](https://channel9.msdn.com/Events/Connect/2016/138)中開始的三分鐘處)。
-
-## <a name="find-your-service"></a>尋找您的服務
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 開啟 Azure 搜尋服務的服務儀表板。 如果您並未將服務圖格釘選至儀表板，可以用以下方式找到您的服務︰ 
    
    * 在導向列中，按一下左導覽窗格上的 [所有服務]。
-   * 在搜尋方塊中，輸入 search 以取得訂用帳戶的搜尋服務清單。 您的服務應該會出現在清單中。 
+   * 在搜尋方塊中，鍵入 search 以取得訂用帳戶的搜尋相關服務清單。 按一下 [搜尋服務]。 您的服務應該會出現在清單中。 
 
-## <a name="check-for-space"></a>檢查空間
+### <a name="check-for-space"></a>檢查空間
 許多客戶開始使用此免費服務。 此版本的限制為三個索引、三個資料來源，以及三個索引子。 開始之前，請先確定您有空間可容納額外的項目。 本教學課程會建立各一個物件。 
 
 > [!TIP] 
@@ -54,20 +49,26 @@ ms.locfileid: "32190024"
 >
 
 ## <a name="create-index"></a> 建立索引和載入資料
-搜尋查詢會逐一查看索引  ，其中包含用來最佳化特定搜尋行為的可搜尋資料、中繼資料及建構。
+搜尋查詢會逐一查看[索引](search-what-is-an-index.md)，其中包含用來將特定搜尋行為最佳化的可搜尋資料、中繼資料及建構。
 
-為了讓這項工作以入口網站為基礎，我們使用可以透過 [匯入資料] 精靈使用索引子搜耙的內建範例資料集。 
+為了讓這項工作保持入口網站型的特性，我們使用可以透過 [匯入資料] 精靈使用[索引子](search-indexer-overview.md)編目的內建範例資料集。 索引子是來源特定的編目程式，可以從支援的 Azure 資料來源讀取中繼資料和內容。 在程式碼中，您可以將索引子當作獨立的資源來建立及管理。 在入口網站中，索引子會透過 [匯入資料] 精靈公開。 
 
 #### <a name="step-1-start-the-import-data-wizard"></a>步驟 1︰啟動匯入資料精靈
 1. 在 Azure 搜尋服務儀表板上，按一下命令列中的 [匯入資料]  來啟動可建立及填入索引的精靈。
    
     ![匯入資料命令][2]
 
-2. 在精靈中，按一下 [資料來源] > [範例] >  [realestate-us-sample]。 此資料來源已預先設定名稱、類型和連線資訊。 一旦建立，就會變成可在其他匯入作業中重複使用的「現有資料來源」。
+2. 在精靈中，按一下 [連線到您的資料] > [範例] > [realestate-us-sample]。 此資料來源已預先設定名稱、類型和連線資訊。 一旦建立，就會變成可在其他匯入作業中重複使用的「現有資料來源」。
 
     ![選取範例資料集][9]
 
 3. 按一下 [確定] 加以使用。
+
+#### <a name="skip-cognitive-skills"></a>跳過認知技術
+
+[匯入資料] 包含選擇性的認知技能步驟，會在編製索引程序中新增 AI 演算法。 本教學課程中未討論這項功能，因此您應該直接跳到 [自訂目標索引]。 如果您想知道 Azure 搜尋服務中還有哪些新的認知搜尋預覽功能，請嘗試[認知搜尋快速入門](cognitive-search-quickstart-blob.md)或是[教學課程](cognitive-search-tutorial-blob.md)。
+
+   ![跳過認知技術步驟][11]
 
 #### <a name="step-2-define-the-index"></a>步驟 2：定義索引
 建立索引通常是以手動和程式碼為基礎，但是精靈可以為其可搜耙的任何資料來源產生索引。 索引至少需要有名稱和欄位的集合，而其中一個欄位會標示為文件索引鍵，以便唯一識別每份文件。
@@ -96,8 +97,20 @@ ms.locfileid: "32190024"
 
    ![索引子進度訊息][4]
 
+## <a name="view-the-index"></a>檢視索引
+
+服務儀表板中的圖格會提供摘要資訊以及詳細資訊的存取權。 例如，在 [索引] 圖格中，您應該會看到現有的索引清單，包括您剛才在上一個步驟中建立的 realestate-us-sample 索引。
+
+現在按一下 [realestate-us-sample] 索引即可檢視其定義的入口網站選項。 [新增/編輯欄位] 選項可讓您建立並完整編輯新欄位的屬性。 現有的欄位在 Azure 搜尋服務中具有實體表示法，因此不可修改，甚至是在程式碼中也不可修改。 若要對現有欄位進行重大變更，請建立一個新欄位並捨棄原始欄位。 
+
+   ![範例索引定義][10]
+
+您可以隨時新增其他建構，例如評分設定檔和 CORS 選項。 
+
+若要清楚地了解您在索引設計期間可以編輯和無法編輯的項目，請花點時間檢視索引定義選項。 灰色的選項表示無法修改或刪除選項值。
+
 ## <a name="query-index"></a> 查詢索引
-您現在有準備好要查詢的搜尋索引。  是入口網站內建的查詢工具。 它會提供搜尋方塊，以便確認搜尋結果是否如您所預期。 
+接下來，您現在應該有搜尋索引，準備好要使用內建的 [[搜尋總管]](search-explorer.md) 查詢頁面進行查詢。 它會提供搜尋方塊，讓您能夠測試任意的查詢字串。 
 
 > [!TIP]
 > 在 [Azure 搜尋服務概觀影片](https://channel9.msdn.com/Events/Connect/2016/138)中，下列步驟會在影片的 6 分 08 秒處示範。
@@ -107,42 +120,38 @@ ms.locfileid: "32190024"
 
    ![搜尋總管命令][5]
 
-2. 按一下命令列上的 [變更索引] 以切換到 realestate-us-sample。
+2. 按一下命令列上的 [變更索引] 以切換到 realestate-us-sample。 按一下命令列上的 [設定 API 版本] 以查看可用的 REST API。 對於下列查詢，請使用正式運作版本 (2017-11-11)。 
 
    ![索引和 API 命令][6]
 
-3. 按一下命令列上的 [設定 API 版本] 以查看可用的 REST API。 預覽 API 可讓您存取尚未公開發行的新功能。 對於下列查詢，除非另有指示，否則使用公開上市版本 (2017-11-11)。 
+3. 在搜尋列中，輸入下列查詢字串，然後按一下 [搜尋]。
 
     > [!NOTE]
-    > [Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) 和 [.NET 程式庫](search-howto-dotnet-sdk.md#core-scenarios)完全相等，但**搜尋總管**只能用於處理 REST 呼叫。 它可接受[簡單查詢語法](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)和[完整 Lucene 查詢剖析器](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)的語法，以及[搜尋文件](https://docs.microsoft.com/rest/api/searchservice/search-documents)作業中可用的所有搜尋參數。
+    > [搜尋總管] 只能用於處理 [REST API 要求](https://docs.microsoft.com/rest/api/searchservice/search-documents)。 它可接受[簡單查詢語法](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)和[完整 Lucene 查詢剖析器](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)的語法，以及[搜尋文件](https://docs.microsoft.com/rest/api/searchservice/search-documents)作業中可用的所有搜尋參數。
     > 
 
-4. 在搜尋列中，輸入下列查詢字串，然後按一下 [搜尋]。
 
-  ![搜尋查詢範例][7]
+#### <a name="example-string-searchseattle"></a>範例 (字串)：`search=seattle`
 
-**`search=seattle`**
++ **search** 參數用來輸入可供全文檢索搜尋的關鍵字搜尋，在此案例中，會傳回華盛頓州金郡的清單，並且在文件任何可搜尋的欄位中包含 Seattle。 
 
-+ **search** 參數用來輸入可供全文檢索搜尋的關鍵字搜尋，在此例中，會傳回華盛頓州金郡的清單，並且在文件的任何可搜尋欄位中包含 Seattle。 
++ **搜尋總管**會以 JSON 傳回結果，這是詳細資訊，而如果文件的結構很密集則難以閱讀。 這是刻意設計；整份文件的可見性是重要使用案例，特別是在測試期間。 為了獲得更好的使用者體驗，您必須撰寫程式碼，以[處理搜尋結果](search-pagination-page-layout.md)來找出重要的元素。
 
-+ **搜尋總管**會以 JSON 傳回結果，這是詳細資訊，而如果文件的結構很密集則難以閱讀。 視您的文件而定，您可能需要撰寫程式碼來搜尋結果，以擷取重要的元素。 
++ 文件是由索引中標記為「可擷取」的所有欄位組成。 若要在入口網站中檢視索引屬性，請按一下 [索引] 圖格中的 realestate-us-sample。
 
-+ 文件是由索引中標記為可擷取的所有欄位組成。 若要在入口網站中檢視索引屬性，請按一下 [索引] 圖格中的 realestate-us-sample。
-
-**`search=seattle&$count=true&$top=100`**
+#### <a name="example-parameterized-searchseattlecounttruetop100"></a>範例 (參數化)：`search=seattle&$count=true&$top=100`
 
 + **&** 符號用來附加搜尋參數 (可依任何順序指定)。 
 
-+  **$count=true** 參數會傳回所有已傳回文件的總和計數。 您可以藉由監視 **$count=true** 所報告的變更來驗證篩選查詢。 
++  **$count=true** 參數會傳回所有已傳回文件的總和計數。 這個值會出現在搜尋結果的頂端附近。 您可以藉由監視 **$count=true** 所報告的變更來驗證篩選查詢。 較小的計數表示正在處理您的篩選條件。
 
 + **$top=100** 會傳回所有文件中最高順位的 100 份文件。 根據預設，Azure 搜尋服務會傳回前 50 個最相符項目。 您可以透過 **$top** 來增加或減少數量。
-
 
 ## <a name="filter-query"></a> 篩選查詢
 
 當您附加 **$filter** 參數時，篩選器會包含在搜尋要求中。 
 
-**`search=seattle&$filter=beds gt 3`**
+#### <a name="example-filtered-searchseattlefilterbeds-gt-3"></a>範例 (已篩選)：`search=seattle&$filter=beds gt 3`
 
 + **$filter** 參數會傳回符合您提供之準則的結果。 在此情況下，房間大於 3 間。 
 
@@ -152,7 +161,7 @@ ms.locfileid: "32190024"
 
 Facet 篩選器會包含在搜尋要求中。 您可以使用 facet 參數，傳回符合您所提供之 facet 值的文件彙總計數。 
 
-**`search=*&facet=city&$top=2`**
+#### <a name="example-faceted-with-scope-reduction-searchfacetcitytop2"></a>範例 (多面向且範圍已縮減)：`search=*&facet=city&$top=2`
 
 + **search=*** 是空的搜尋。 空的搜尋會搜尋所有一切。 提交空查詢的其中一個原因是為了篩選一組完整的文件或使其面向化。 例如，您希望多面向導覽結構包含索引中的所有城市。
 
@@ -160,7 +169,7 @@ Facet 篩選器會包含在搜尋要求中。 您可以使用 facet 參數，傳
 
 + **$top=2** 會傳回兩份文件，這表示您可以使用 `top` 來減少或增加結果。
 
-**`search=seattle&facet=beds`**
+#### <a name="example-facet-on-numeric-values-searchseattlefacetbeds"></a>範例 (數值的多面向)：`search=seattle&facet=beds`**
 
 + 此查詢是 beds 的面向，以 Seattle 的文字搜尋為基礎。 可以將 beds 字詞指定為一個面向，因為該欄位標示為可在索引中擷取、篩選及面向化 (1 到 5 的數值)，適合用於將清單分類 (包含 3 個房間、4 個房間的清單)。 
 
@@ -170,58 +179,64 @@ Facet 篩選器會包含在搜尋要求中。 您可以使用 facet 參數，傳
 
 命中項目醒目提示是指關鍵字文字比對的格式設定，前提是在特定欄位中找到相符項目。 如果您的搜尋字詞深藏在描述中，您可以新增命中項目醒目提示功能，更輕鬆地發現所搜尋的字詞。 
 
-**`search=granite countertops&highlight=description`**
+#### <a name="example-highlighter-searchgranite-countertopshighlightdescription"></a>範例 (螢光筆)：`search=granite countertops&highlight=description`
 
 + 在此範例中，格式化片語 granite countertops 可在描述欄位中更容易找出。
 
-**`search=mice&highlight=description`**
+#### <a name="example-linguistic-analysis-searchmicehighlightdescription"></a>範例 (語言分析)：`search=mice&highlight=description`
 
 + 全文檢索搜尋會尋找具有類似語意的文字形式。 在受老鼠侵擾家庭的這個案例中，搜尋結果包含 "mouse" 的醒目提示文字，以回應 "mice" 關鍵字搜尋。 因為語言分析的緣故，結果中可能會出現同一個字的不同形式。 
 
 + Azure 搜尋服務支援 Microsoft 和 Lucene 所提供的 56 個分析器。 Azure 搜尋服務預設使用標準 Lucene 分析器。 
 
-## <a name="fuzzy-search"></a> 使用模糊搜尋
+## <a name="fuzzy-search"></a> 嘗試模糊搜尋
 
-拼錯的字 (如 samamish 是指 Seattle 地區的 Samammish 高原) 無法在一般搜尋中傳回相符項目。 若要處理拼字錯誤，您可以使用下一個範例中所述的模糊搜尋。
+根據預設，拼錯的查詢字詞 (如 samamish 是指 Seattle 地區的 Samammish 高原) 無法在一般搜尋中傳回相符項目。 下列範例不會傳回任何結果。
 
-**`search=samamish`**
+#### <a name="example-misspelled-term-unhandled-searchsamamish"></a>範例 (拼錯的字詞，未處理)：`search=samamish`
 
-+ 此範例將 Seattle 地區的鄰近地區拼錯。
+若要處理拼字錯誤，您可以使用模糊搜尋。 當您使用完整的 Lucene 查詢語法時，會在下列兩種情況下啟用模糊搜尋：在查詢中設定 **queryType=full** 時，以及將 **~** 附加至搜尋字串時。 
 
-**`search=samamish~&queryType=full`**
+#### <a name="example-misspelled-term-handled-searchsamamishquerytypefull"></a>範例 (拼字錯誤的字詞，已處理)：`search=samamish~&queryType=full`
 
-+ 當您在指定 **~** 符號並使用完整查詢剖析器時可啟用模糊搜尋，它會解譯並正確地剖析 **~** 語法。 
+此範例現在會傳回文件，當中包含 "Sammamish" 上的相符項目。
 
-+ 當您選擇使用完整查詢剖析器時可使用模糊搜尋，其發生於當您設定 **queryType=full** 時。 如需完整查詢剖析器所啟用查詢案例的詳細資訊，請參閱 [Azure 搜尋服務中的 Lucene 查詢語法](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)。
+若未指定 **queryType**，則會使用預設的簡單查詢剖析器。 簡單查詢剖析器的速度較快，但如果您需要模糊搜尋、規則運算式、鄰近搜尋或其他進階的查詢類型，則需要完整的語法。 
 
-+ 若未指定 **queryType**，則會使用預設的簡單查詢剖析器。 簡單查詢剖析器的速度較快，但如果您需要模糊搜尋、規則運算式、鄰近搜尋或其他進階的查詢類型，則需要完整的語法。 
+模糊搜尋和萬用字元搜尋會影響搜尋輸出。 不會以這些查詢格式執行語言分析。 在使用模糊及萬用字元搜尋之前，請檢閱[全文檢索搜尋如何在 Azure 搜尋服務中運作](search-lucene-query-architecture.md#stage-2-lexical-analysis)，並尋找語彙分析例外狀況的相關章節。
+
+如需完整查詢剖析器所啟用查詢案例的詳細資訊，請參閱 [Azure 搜尋服務中的 Lucene 查詢語法](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)。
 
 ## <a name="geo-search"></a> 嘗試地理空間搜尋
 
 地理空間搜尋是透過含有座標之欄位上的 [edm.GeographyPoint 資料類型](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)提供支援。 地理搜尋是在[篩選 OData 語法](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)中指定的一種篩選器。 
 
-**`search=*&$count=true&$filter=geo.distance(location,geography'POINT(-122.121513 47.673988)') le 5`**
+#### <a name="example-geo-coordinate-filters-searchcounttruefiltergeodistancelocationgeographypoint-122121513-47673988-le-5"></a>範例 (地理座標篩選)：`search=*&$count=true&$filter=geo.distance(location,geography'POINT(-122.121513 47.673988)') le 5`
 
-+ 範例查詢會篩選所有結果中的位置資料，而結果是小於距離指定點 (以緯度和經度座標指定) 5 公里。 藉由新增 **$count**，您可以看到當您變更距離或座標時傳回多少筆結果。 
+範例查詢會篩選所有結果中的位置資料，而結果是小於距離指定點 (以緯度和經度座標指定) 5 公里。 藉由新增 **$count**，您可以看到當您變更距離或座標時傳回多少筆結果。 
 
-+ 如果搜尋應用程式有「尋找附近地點」功能或使用地圖導航功能，地理空間搜尋便很實用。 不過，並不是全文檢索搜尋。 如果使用者有需要依照名稱搜尋城市或國家/地區，則除了座標以外，請新增包含城市或國家/地區名稱的欄位。
+如果搜尋應用程式有「尋找附近地點」功能或使用地圖導航功能，地理空間搜尋便很實用。 不過，並不是全文檢索搜尋。 如果使用者有需要依照名稱搜尋城市或國家/地區，則除了座標以外，請新增包含城市或國家/地區名稱的欄位。
+
+## <a name="takeaways"></a>重要心得
+
+本教學課程示範在 Azure 入口網站中使用 [匯入資料] 精靈和 [搜尋總管] 的基本步驟。
+
+我們之所以介紹 [匯入資料] 精靈，是為讓您了解有關[索引子](search-indexer-overview.md)，以及索引設計的基本工作流程，包括[對已發佈索引支援的修改](ttps://docs.microsoft.com/rest/api/searchservice/update-index)。 
+
+您已透過實際操作的範例了解查詢語法，這些範例會示範例如篩選、搜尋結果醒目提示、模糊搜尋和地理搜尋等主要功能。
+
+最後，您已了解如何按一下儀表板中的圖格，來取得針對您訂用帳戶建立的任何索引、索引子或資料來源的資訊。 稍後，當您使用自己的索引或由同事所建立的索引時，可以使用入口網站快速檢查資料來源定義，或是欄位集合的建構，而不需要透過不熟悉的程式碼進行搜尋。
+
+## <a name="clean-up-resources"></a>清除資源
+
+在完成教學課程後，最快速的清除方式是刪除包含 Azure 搜尋服務的資源群組。 您現在可以刪除資源群組，以永久刪除當中所包含的所有項目。 在入口網站中，資源群組名稱位在 Azure 搜尋服務的 [概觀] 頁面上。
 
 ## <a name="next-steps"></a>後續步驟
 
-+ 修改您剛建立的任何物件。 在您執行精靈一次之後，您可以返回並檢視或修改個別的元件︰索引、索引子或資料來源。 在索引上不允許進行某些編輯 (例如變更欄位資料類型)，但大部分的屬性和設定都可修改。
+對於 Azure 搜尋服務的其他工具型探索，請考慮使用 REST 測試工具 (例如 Postman 或 Fiddler)：
 
-  若要檢視個別元件，請按一下儀表板上的 [索引]、[索引子] 或 [資料來源] 圖格，以顯示現有物件的清單。 若要深入了解不需要重建的索引編輯動作，請參閱[更新索引 (Azure 搜尋服務 REST API)](https://docs.microsoft.com/rest/api/searchservice/update-index)。
-
-+ 請對其他資料來源試用工具和步驟。 範例資料集 (`realestate-us-sample`) 來自 Azure 搜尋服務可以搜耙的 Azure SQL Database。 除了 Azure SQL Database，Azure 搜尋服務可以從 Azure 表格儲存體、Blob 儲存體、Azure VM 上的 SQL Server 及 Azure Cosmos DB 中的一般資料結構搜耙及推斷索引。 精靈不支援上述所有資料來源。 在程式碼中，您可以使用「索引子」輕鬆地填入索引。
-
-+ 透過推送模型可支援所有其他的非索引子資料來源，您的程式碼可在其中將 JSON 中新的和已變更的資料列集推送至您的索引。 如需詳細資訊，請參閱[在 Azure 搜尋服務中新增、更新或刪除文件](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)。
-
-若要深入了解本文提到的其他功能，請造訪下列連結︰
-
-* [索引子概觀](search-indexer-overview.md)
-* [建立索引 (包含索引屬性的詳細說明)](https://docs.microsoft.com/rest/api/searchservice/create-index)
-* [搜尋總管](search-explorer.md)
-* [搜尋文件 (包含查詢語法範例)](https://docs.microsoft.com/rest/api/searchservice/search-documents)
+> [!div class="nextstepaction"]
+> [用於呼叫 Azure 搜尋服務 REST API 的 Web 測試工具](search-fiddler.md)
 
 
 <!--Image references-->
@@ -234,3 +249,5 @@ Facet 篩選器會包含在搜尋要求中。 您可以使用 facet 參數，傳
 [7]: ./media/search-get-started-portal/search-explorer-query2.png
 [8]: ./media/search-get-started-portal/realestate-indexer2.png
 [9]: ./media/search-get-started-portal/import-datasource-sample2.png
+[10]: ./media/search-get-started-portal/sample-index-def.png
+[11]: ./media/search-get-started-portal/skip-cog-skill-step.png

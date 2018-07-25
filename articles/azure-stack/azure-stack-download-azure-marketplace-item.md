@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/16/2018
+ms.date: 07/13/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 5d403f7c1d0fff466f6c0fb9942ec777ab820eab
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 73f8616449141ca91f96e9fcebede74597bc4fe3
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604527"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044912"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>將市集項目從 Azure 下載到 Azure Stack
 
@@ -39,7 +39,7 @@ ms.locfileid: "34604527"
 ## <a name="connected-scenario"></a>已連線的案例
 如果 Azure Stack 連線到網際網路，您可以使用管理入口網站來下載市集項目。
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 您的 Azure Stack 部署必須具有網際網路連線能力，而且[已向 Azure 註冊](azure-stack-register.md)。
 
 ### <a name="use-the-portal-to-download-marketplace-items"></a>使用入口網站下載市集項目  
@@ -79,7 +79,7 @@ ms.locfileid: "34604527"
 - **第 2 部分：** 上傳並發佈至 Azure Stack Marketplace。 將您下載的檔案移動到 Azure Stack 環境、匯入至 Azure Stack，再將它們發佈至 Azure Stack Marketplace。  
 
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 - 您的 Azure Stack 部署必須[已向 Azure 註冊](azure-stack-register.md)。  
 
 - 具有網際網路連線能力的電腦必須擁有 **Azure Stack PowerShell 模組 1.2.11 版**或更高版本。 如果不存在的話，請[安裝 Azure Stack 特定 PowerShell 模組](azure-stack-powershell-install.md)。  
@@ -136,7 +136,7 @@ ms.locfileid: "34604527"
 
    ![Azure Marketplace 項目快顯視窗](media/azure-stack-download-azure-marketplace-item/image05.png)
 
-7. 選取您想要下載的項目，並記下 version。 (您可以按住 Ctrl 鍵來選取多個映像。)您會在下一個程序中匯入項目時參考 version。 
+7. 選取您想要下載的項目，並記下 version。 (您可以按住 Ctrl 鍵以選取多個映像。)您會在下一個程序中匯入項目時參考「版本」。 
    
    您也可以使用 [新增條件] 選項來篩選映像清單。
 
@@ -148,20 +148,10 @@ ms.locfileid: "34604527"
 ### <a name="import-the-download-and-publish-to-azure-stack-marketplace"></a>匯入下載並發佈至 Azure Stack Marketplace
 1. 您[先前下載的](#use-the-marketplace-syndication-tool-to-download-marketplace-items)虛擬機器映像檔案或解決方案範本檔案，必須可在本機提供給您的 Azure Stack 環境使用。  
 
-2. 將 .VHD 檔案匯入至 Azure Stack。 若要成功匯入虛擬機器 (VM) 映像，您必須具有 VM 的下列資訊：
-   - 如前一個程序步驟 7 中所記下的 version。
-   - VM publisher、offer 和 sku 的值。 若要取得這些值，請重新命名一個 **.azpkg** 檔案副本，將其副檔名變更為 **.zip**。 您可以接著使用文字編輯器來開啟 **DeploymentTemplates\CreateUiDefinition.json**。 在.json 檔案中，找出 imageReference 區段，其中包含市集項目的這些值。 下列範例示範如何顯示此資訊：
+2. 使用 **Add-AzsPlatformimage** Cmdlet 將 VHD 映像匯入至 Azure Stack。 使用此 Cmdlet 時，請以您所匯入映像的值，取代 publisher、offer 及其他參數值。 
 
-     ```json  
-     "imageReference": {  
-        "publisher": "MicrosoftWindowsServer",  
-        "offer": "WindowsServer",  
-        "sku": "2016-Datacenter-Server-Core"  
-      }
-     ```  
-
-   使用 **Add-AzsPlatformimage** Cmdlet 將映像匯入至 Azure Stack。 使用此 Cmdlet 時，務必以您所匯入映像的值，取代 publisher、offer 及其他參數值。 您可以從與 AZPKG 檔案一起下載並儲存在目的地電腦中的文字檔案，取得映像 publisher、offer 和 sku 值。 
-
+   您可以從與 AZPKG 檔案一起下載的文字檔案中，取得映像的 publisher、offer 和 sku 值。 文字檔案會儲存在目的地位置。
+ 
    下列範例指令碼中會使用 Windows Server 2016 Datacenter - Server Core 虛擬機器的值。 
 
    ```PowerShell  

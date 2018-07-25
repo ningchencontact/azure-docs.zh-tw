@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: cea83fbe9c60bab687eb3d43fc269fa9f6bea325
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e9400c476179d801eb66f574373bf75cfb672d9d
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34630454"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091079"
 ---
 # <a name="enroll-x509-devices-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>使用 Java 服務 SDK 向 IoT 中樞裝置佈建服務註冊 X.509 裝置
 
@@ -54,7 +54,12 @@ ms.locfileid: "34630454"
 
 ## <a name="download-and-modify-the-java-sample-code"></a>下載並修改 Java 範例程式碼
 
-本節說明如何將 X.509 裝置的佈建詳細資料新增至範例程式碼。 
+本節使用自我簽署 X.509 憑證，請務必記住下列事項：
+
+* 自我簽署憑證僅適用於測試，不應該用於生產環境。
+* 自我簽署憑證的預設到期日為 1 年。
+
+下列步驟說明如何將 X.509 裝置的佈建詳細資料新增至範例程式碼。 
 
 1. 開啟命令提示字元。 使用 Java 服務 SDK 來複製裝置註冊程式碼範例的 GitHub 存放庫：
     

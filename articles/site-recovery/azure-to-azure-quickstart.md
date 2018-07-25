@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c72ae695c33bf9147bce7f326e8501ce2a88bb33
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: de30085ae5ff95e7067684ff3af9ccb0d45357de
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916597"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990858"
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region"></a>將 Azure VM 複寫到另一個 Azure 區域
 
@@ -34,7 +34,7 @@ ms.locfileid: "37916597"
 
 1. 在 Azure 入口網站中，按一下 [虛擬機器]，然後選取您想要複寫的 VM。
 
-2. 在 [設定] 中，按一下 [災害復原]。
+2. 在 [作業] 中，按一下 [災害復原]。
 3. 在 [設定災害復原] >  [目標區域] 中，選取您要複寫至的目標區域。
 4. 在本快速入門中，接受其他預設設定。
 5. 按一下 [啟用複寫]。 這會開始一項作業來啟用 VM 的複寫。

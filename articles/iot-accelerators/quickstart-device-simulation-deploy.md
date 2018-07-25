@@ -9,18 +9,16 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/05/2018
 ms.author: dobett
-ms.openlocfilehash: f3a252d6f7c49a65e0c548599b1958825b134ee8
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: fd4a637ebb05493bf0c0a940c3ff0cb56ad94c54
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37966896"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005028"
 ---
 # <a name="quickstart-deploy-and-run-a-cloud-based-device-simulation-solution"></a>快速入門：部署和執行雲端型裝置模擬解決方案
 
 本快速入門會示範如何部署 Azure IoT 裝置模擬解決方案加速器，以用來測試您的 IoT 解決方案。 在部署解決方案加速器之後，您要使用 [模擬] 頁面來建立及執行模擬。
-
-## <a name="prerequisites"></a>先決條件
 
 若要完成本快速入門，您需要有效的 Azure 訂用帳戶。
 
@@ -88,7 +86,7 @@ ms.locfileid: "37966896"
 
 如果您打算進一步探索，請讓裝置模擬解決方案加速器維持部署。
 
-如果您不再需要解決方案加速器，則請從 [已佈建的解決方案](https://www.azureiotsolutions.com/Accelerators#dashboard) 頁面中刪除：
+如果您不再需要解決方案加速器，可加以選取，然後按一下 [刪除解決方案]，從[已佈建的解決方案](https://www.azureiotsolutions.com/Accelerators#dashboard)頁面中加以刪除：
 
 ![刪除解決方案](media/quickstart-device-simulation-deploy/deletesolution.png)
 
@@ -96,7 +94,7 @@ ms.locfileid: "37966896"
 
 在本快速入門中，您已部署裝置模擬解決方案加速器，並執行 IoT 裝置模擬。
 
-若要了解如何在模擬中使用現有的 IoT 中樞，請參閱操作指南：
+若要了解如何在模擬中使用現有的 IoT 中樞，請參閱下列操作指南：
 
 > [!div class="nextstepaction"]
 > [使用現有的 IoT 中樞搭配裝置模擬解決方案加速器](iot-accelerators-device-simulation-choose-hub.md)

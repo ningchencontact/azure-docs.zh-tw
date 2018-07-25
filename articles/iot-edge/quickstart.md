@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 11b2fccf3c02555f50f48252f2cd9968c9ec90d7
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 19fd671514da0dbfb1704c37d4347e870763d41b
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38632879"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091808"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>快速入門：從 Azure 入口網站將您的第一個 IoT Edge 模組部署至 Windows 裝置 - 預覽
 
@@ -36,7 +36,7 @@ ms.locfileid: "38632879"
 
 如果您沒有使用中的 Azure 訂用帳戶，請在開始前建立[免費帳戶][lnk-account]。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本快速入門會讓 Windows 電腦或虛擬機器成為 IoT Edge 裝置。 如果您在虛擬機器中執行 Windows，請啟用[巢狀虛擬化][lnk-nested]並配置至少 2GB 的記憶體。 
 
@@ -65,16 +65,16 @@ ms.locfileid: "38632879"
 
 此快速入門適用於 IoT 中樞的免費層級。 如果您在過去已使用過 IoT 中樞，並已建立可用的中樞，您可以使用該 IoT 中樞。 每個訂用帳戶只能有一個免費的 IoT 中樞。 
 
-1. 在 Azure Cloud Shell 中建立資源群組。 下列程式碼會在**美國西部**區域建立名為 **TestResources** 的資源群組。 將快速入門和教學課程的所有資源放同一個群組中，可一併加以管理。 
+1. 在 Azure Cloud Shell 中建立資源群組。 下列程式碼會在**美國西部**區域建立名為 **IoTEdgeResources** 的資源群組。 將快速入門和教學課程的所有資源放同一個群組中，可一併加以管理。 
 
    ```azurecli-interactive
-   az group create --name TestResources --location westus
+   az group create --name IoTEdgeResources --location westus
    ```
 
-1. 在您的新資源群組中建立 IoT 中樞。 下列程式碼會在資源群組 **TestResources** 中建立免費的 **F1** 中樞。 請以 IoT 中樞的唯一名稱取代 {hub_name}。
+1. 在您的新資源群組中建立 IoT 中樞。 下列程式碼會在資源群組 **IoTEdgeResources** 中建立免費的 **F1** 中樞。 請以 IoT 中樞的唯一名稱取代 {hub_name}。
 
    ```azurecli-interactive
-   az iot hub create --resource-group TestResources --name {hub_name} --sku F1 
+   az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 
    ```
 
 ## <a name="register-an-iot-edge-device"></a>註冊 IoT Edge 裝置
@@ -116,14 +116,15 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 它有三個元件
 
 2. 下載 IoT Edge 服務套件。
 
-  ```powershell
-  Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.zip
-  Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
-  Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
-  rmdir C:\ProgramData\iotedge\iotedged-windows
-  $env:Path += ";C:\ProgramData\iotedge"
-  SETX /M PATH "$env:Path"
-  ```
+   ```powershell
+   Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.zip
+   Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
+   Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
+   rmdir C:\ProgramData\iotedge\iotedged-windows
+   $sysenv = "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment"
+   $path = (Get-ItemProperty -Path $sysenv -Name Path).Path + ";C:\ProgramData\iotedge"
+   Set-ItemProperty -Path $sysenv -Name Path -Value $path
+   ```
 
 3. 安裝 vcruntime。
 
@@ -185,18 +186,11 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 它有三個元件
 
 5. 建立名為 **IOTEDGE_HOST** 的環境變數，並將 *\<ip_address\>* 取代為 IoT Edge 裝置的 IP 位址。 
 
-  ```powershell
-  [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
-  ```
-  
-  在重新啟動時保存環境變數。
+   ```powershell
+   [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
+   ```
 
-  ```powershell
-  SETX /M IOTEDGE_HOST "http://<ip_address>:15580"
-  ```
-
-
-6. 在 `config.yaml` 檔案中，尋找 [連接設定] 區段。 以您的 IP 位址和您在上一節中開啟的連接埠更新 **management_uri** 和 **workload_uri** 的值。 取代 **\<GATEWAY_ADDRESS\>** 與您的 IP 位址。 
+6. 在 `config.yaml` 檔案中，尋找 [連接設定] 區段。 以您的 IP 位址和您在上一節中開啟的連接埠更新 **management_uri** 和 **workload_uri** 的值。 請將 **\<GATEWAY_ADDRESS\>** 取代為您所複製的 DockerNAT IP 位址。 
 
    ```yaml
    connect: 
@@ -285,19 +279,55 @@ iotedge logs tempSensor -f
 
 ## <a name="clean-up-resources"></a>清除資源
 
-您可以使用您在本快速入門中設定的模擬裝置來測試 IoT Edge 教學課程。 如果您想要停止讓 tempSensor 模組傳送資料至 IoT 中樞，請使用下列命令停止 IoT Edge 服務，並刪除在您的裝置上建立的容器。 當您又想要將電腦作為 IoT Edge 裝置時，請記得啟動服務。 
+如果您想要繼續進行 IoT Edge 教學課程，您可以使用在本快速入門中註冊和設定的裝置。 否則，您可以刪除您所建立的 Azure 資源，並從裝置中移除 IoT Edge 執行階段。 
+
+### <a name="delete-azure-resources"></a>刪除 Azure 資源
+
+如果您是在新的資源群組中建立虛擬機器和 IoT 中樞，您可以刪除該群組和所有相關聯的資源。 如果該資源群組中有您想要保留的項目，則只要刪除您要清除的個別資源即可。 
+
+移除 **IoTEdgeResources** 群組。 
+
+   ```azurecli-interactive
+   az group delete --name IoTEdgeResources 
+   ```
+
+### <a name="remove-the-iot-edge-runtime"></a>移除 IoT Edge 執行階段
+
+如果您預計要在未來的測試中使用 IoT Edge 裝置，但想要在未使用時停止讓 tempSensor 模組傳送資料至 IoT 中樞，請使用下列命令停止 IoT Edge 服務。 
 
    ```powershell
    Stop-Service iotedge -NoWait
-   docker rm -f $(docker ps -aq)
    ```
 
-當您不再需要您所建立的 Azure 資源時，您可以使用下列命令刪除您所建立的資源群組及其任何相關聯的資源：
+當您準備好再次開始測試時，便可重新啟動服務
 
-   ```azurecli-interactive
-   az group delete --name TestResources
+   ```powershell
+   Start-Service iotedge
    ```
 
+如果您想要從裝置移除這些安裝，請使用下列命令。  
+
+移除 IoT Edge 執行階段。
+
+   ```powershell
+   cmd /c sc delete iotedge
+   rm -r c:\programdata\iotedge
+   ```
+
+IoT Edge 執行階段移除後，它所建立的容器隨即停止，但仍會存在於您的裝置上。 檢視所有容器。
+
+   ```powershell
+   docker ps -a
+   ```
+
+刪除 IoT Edge 執行階段在您的裝置上建立的容器。 如果您將 tempSensor 容器命名為其他名稱，請變更其名稱。 
+
+   ```powershell
+   docker rm -f tempSensor
+   docker rm -f edgeHub
+   docker rm -f edgeAgent
+   ```
+   
 ## <a name="next-steps"></a>後續步驟
 
 在本快速入門中，您已建立新的 IoT Edge 裝置，並使用 Azure IoT Edge 雲端介面將程式碼部署至裝置上。 現在，您已有測試裝置，可產生其環境的相關原始資料。 
