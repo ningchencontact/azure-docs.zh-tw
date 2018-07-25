@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/19/2018
+ms.date: 07/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 8f8de53f03cc1378e8aaafa9a2f486eadc23fe14
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cb957346cb0e003e9aff19026ed81495abf432c5
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637848"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049372"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>Azure 實驗室服務簡介
 Azure 實驗室服務可讓您在雲端為團隊快速設定環境 (例如：開發環境、測試環境、教室實驗室環境)。 實驗室擁有者會建立實驗室，佈建 Windows 或 Linux 虛擬機器，安裝必要的軟體和工具，然後將它們提供給實驗室使用者使用。 實驗室使用者會連線至實驗室中的虛擬機器 (VM)，並使用它們來進行日常工作、短期專案，或是教室練習。 當使用者開始運用實驗室中的資源後，實驗室管理員便可以跨多個實驗室分析成本和使用情形，並設定整體性的原則來對組織或團隊的成本進行最佳化。
@@ -36,6 +36,9 @@ Azure 實驗室服務支援下列主要能力/功能：
 - **成本最佳化和分析**。 實驗室擁有者可以設定實驗室排程，以自動關閉及啟動虛擬機器。 實驗室擁有者可以設定排程以指定實驗室虛擬機器可供使用者存取的時段、設定每個使用者或實驗室的使用原則來將成本最佳化，以及分析實驗室中的使用情況和活動趨勢。 針對如教室實驗室等的受控實驗室，目前有一些成本最佳化和分析選項子集可供使用。 
 - **內嵌安全性**。 實驗室使用者可以針對實驗室設定私人虛擬網路和子集，並提供共用的公用 IP 位址。 實驗室使用者可以使用已設定 ExpressRoute 或站對站 VPN 的虛擬網路，安全地存取資源。 (目前僅於 DevTest Labs 中提供)
 - **與您的工作流程和工具整合**。 Azure 實驗室服務可讓您將實驗室整合至您組織的網站和管理系統。 您可以從您的持續整合/持續部署 (CI/CD) 工具內自動佈建環境。 (目前僅於 DevTest Labs 中提供)
+
+> [!NOTE]
+> 目前，Azure 實驗室服務僅支援從 Azure Marketplace 映像建立的 VM。 如果您想要在實驗室環境中使用自訂映像或建立其他 PaaS 資源，請使用 DevTest 實驗室。 如需詳細資訊，請參閱[在 DevTest 實驗室中建立自訂映像](devtest-lab-create-custom-image-from-vm-using-portal.md)及[使用 Resource Manager 範本建立實驗室環境](devtest-lab-create-environment-from-arm.md)。 
 
 ## <a name="scenarios"></a>案例
 以下為一些 Azure 實驗服務所支援的案例： 

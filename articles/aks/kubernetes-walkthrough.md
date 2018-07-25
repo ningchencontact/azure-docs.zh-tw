@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 06/13/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 5b5ae6ba945b1428ffc2877711ebdc73937ea0a3
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 8b9f53b34b75f9827e4976681a78f873b812ad96
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915937"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39055112"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>快速入門：部署 Azure Kubernetes Service (AKS) 叢集
 
@@ -34,20 +34,20 @@ ms.locfileid: "37915937"
 
 在建立資源群組時，系統會要求您指定位置，這是您的資源存在於 Azure 的位置。
 
-下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組。
+下列範例會在 eastus 位置中建立名為 myAKSCluster 的資源群組。
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location eastus
+az group create --name myAKSCluster --location eastus
 ```
 
 輸出：
 
 ```json
 {
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myAKSCluster",
   "location": "eastus",
   "managedBy": null,
-  "name": "myResourceGroup",
+  "name": "myAKSCluster",
   "properties": {
     "provisioningState": "Succeeded"
   },
@@ -60,7 +60,7 @@ az group create --name myResourceGroup --location eastus
 使用 [az aks create][az-aks-create] 命令來建立 AKS 叢集。 下列範例會建立名為 myAKSCluster 並包含一個節點的叢集。 部署 AKS 叢集時，也可以啟用容器健康狀態監視解決方案。 如需啟用容器健康狀態監視解決方案的詳細資訊，請參閱[監視 Azure Kubernetes Service 健康狀態][aks-monitor]。
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys
+az aks create --resource-group myAKSCluster --name myAKSCluster --node-count 1 --generate-ssh-keys
 ```
 
 幾分鐘之後，此命令就會完成，並以 JSON 格式傳回叢集的相關資訊。
@@ -79,7 +79,7 @@ az aks install-cli
 若要設定 kubectl 來連線到 Kubernetes 叢集，請使用 [az aks get-credentials][az-aks-get-credentials] 命令。 此步驟會下載憑證並設定 Kubernetes CLI 以供使用。
 
 ```azurecli-interactive
-az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
+az aks get-credentials --resource-group myAKSCluster --name myAKSCluster
 ```
 
 若要驗證叢集的連線，請使用 [kubectl get][kubectl-get] 命令來傳回叢集節點的清單。 請注意，這可能需要幾分鐘的時間才會出現。
@@ -209,8 +209,11 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 若不再需要叢集，可使用 [az group delete][az-group-delete] 命令來移除資源群組、容器服務和所有相關資源。
 
 ```azurecli-interactive
-az group delete --name myResourceGroup --yes --no-wait
+az group delete --name myAKSCluster --yes --no-wait
 ```
+
+> [!NOTE]
+> 當您刪除叢集時，不會移除 AKS 叢集所使用的 Azure Active Directory 服務主體。 如需有關如何移除服務主體的步驟，請參閱[AKS 服務主體的考量和刪除][sp-delete]。
 
 ## <a name="get-the-code"></a>取得程式碼
 
@@ -246,4 +249,4 @@ az group delete --name myResourceGroup --yes --no-wait
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli
-
+[sp-delete]: kubernetes-service-principal.md#additional-considerations
