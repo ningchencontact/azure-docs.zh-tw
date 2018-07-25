@@ -7,7 +7,7 @@
 ## [建立 Key Vault - CLI](quick-create-cli.md)
 ## [建立 Key Vault - PowerShell](quick-create-powershell.md)
 ## [建立 Key Vault - 入口網站](quick-create-portal.md)
-
+## [讀取 Key Vault - .NET](quick-create-net.md)
 # 教學課程
 ## [從金鑰保存庫讀取祕密](tutorial-web-application-keyvault.md)
 ## [開始使用金鑰保存庫](key-vault-get-started.md)

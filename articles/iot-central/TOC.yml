@@ -53,6 +53,8 @@
           href: howto-create-telemetry-rules.md
         - name: 建立事件規則
           href: howto-create-event-rules.md
+        - name: 在規則上建立 Webhook 動作
+          href: howto-create-webhooks.md
         - name: 在 Microsoft Flow 中建置工作流程
           href: howto-add-microsoft-flow.md
         - name: 設定首頁

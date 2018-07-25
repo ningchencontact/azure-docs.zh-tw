@@ -157,18 +157,26 @@
           href: iot-accelerators-device-simulation-custom-model.md
 - name: 參考
   items:
-    - name: 開發人員參考指南
-      href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide'
-    - name: 開發人員疑難排解指南
-      href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide'
-    - name: 安全性架構
-      href: /azure/iot-fundamentals/iot-security-architecture?context=azure/iot-accelerators/rc/rc
-    - name: 安全性最佳作法
-      href: /azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-accelerators/rc/rc
-    - name: 保護您的 IoT 部署
-      href: /azure/iot-fundamentals/iot-security-deployment?context=azure/iot-accelerators/rc/rc
-    - name: 從頭建立安全性
-      href: /azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-accelerators/rc/rc
+    - name: 遠端監視
+      items:
+        - name: 開發人員參考指南
+          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide'
+        - name: 開發人員疑難排解指南
+          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide'
+    - name: 裝置模擬
+      items:
+        - name: 開發人員參考指南
+          href: 'https://github.com/Azure/device-simulation-dotnet/wiki/Simulation-Service-Developer-Reference-Guide'
+    - name: 安全性
+      items:
+        - name: 安全性架構
+          href: /azure/iot-fundamentals/iot-security-architecture?context=azure/iot-accelerators/rc/rc
+        - name: 安全性最佳作法
+          href: /azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-accelerators/rc/rc
+        - name: 保護您的 IoT 部署
+          href: /azure/iot-fundamentals/iot-security-deployment?context=azure/iot-accelerators/rc/rc
+        - name: 從頭建立安全性
+          href: /azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-accelerators/rc/rc
 - name: 相關參考
   items:
     - name: 解決方案
@@ -203,6 +211,18 @@
       href: /azure/machine-learning/
 - name: 資源
   items:
+    - name: GitHub 存放庫
+      items:
+        - name: 遠端監視 (.NET)
+          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet'
+        - name: 遠端監視 (Java)
+          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-java'
+        - name: 連線的處理站
+          href: 'https://github.com/Azure/azure-iot-connected-factory'
+        - name: 預測性維護
+          href: 'https://github.com/Azure/azure-iot-predictive-maintenance'
+        - name: 裝置模擬
+          href: 'https://github.com/Azure/device-simulation-dotnet'
     - name: Azure 藍圖
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 常見問題集
