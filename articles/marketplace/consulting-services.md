@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: 7cd902f289d0743b4aecf004f5f64a04024aa790
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 0bfb06add64f5f1cd6ccfb772f604ab588bb1baf
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312078"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950401"
 ---
 # <a name="azure-marketplace-consulting-services"></a>Azure Marketplace 諮詢服務
 Azure Marketplace 中的諮詢服務會為 Microsoft 合作夥伴提供一個目標，希望以服務連結客戶，支援並擴大客戶對 Azure 的使用。 Azure Marketplace 可支援 Microsoft 系統整合商 (SI) 合作夥伴的諮詢服務供應項目清單。 
 
-這些諮詢服務供應項目會由特定客戶使用。 它們的範圍和持續時間是固定的，可以是固定價格或免費的，並有已定義的結果。 潛在客戶可以輕鬆地要求合作夥伴與其連絡。 合作夥伴會在其 CRM 系統中收到通知，並盡力做到在 48 小時內回應要求。
+這些諮詢服務供應項目會由特定客戶使用。 發行者可決定清單類型，且有固定的範圍和持續時間，也可選擇固定價格或免費，並擁有為客戶定義的交付項目。 合作夥伴會在其 CRM 系統中收到通知，並盡力做到在 48 小時內回應要求。
 
 ## <a name="consulting-services-in-azure-marketplace-vs-appsource-storefront"></a>Azure Marketplace 和 AppSource Storefront 的諮詢服務
 市集店面是專為目標對象與 Microsoft 雲端產品提供，協助客戶找到所需。 每個店面都提供專屬的發行選項，有助於讓發行投資發揮最大效用。 下表摘要說明這些選項：
@@ -37,7 +37,8 @@ Azure Marketplace 中的諮詢服務會為 Microsoft 合作夥伴提供一個目
 |產品經驗      |Azure 管理入口網站|Dynamics 365、Office 365、Office 用戶端應用程式| 
 |其他      |透過 Azure Stack 進行內部部署發佈|Dynamics 和 Power BI 的諮詢服務|
 
-Azure Marketplace 的諮詢服務應該利用技術受眾導向的產品，著重於 Azure 技術解決方案和服務。
+>[!Note]
+>Azure Marketplace 的諮詢服務應該利用技術受眾導向的供應項目，著重於 *Azure 技術解決方案和服務*
 
 
 以 Microsoft Dynamics 365、Office 365 和 Power BI 為基礎的服務供應項目有資格列入 AppSource。 如需詳細資訊，請參閱 [Microsoft AppSource 諮詢服務清單指導方針](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf)。 
@@ -71,8 +72,16 @@ SI 合作夥伴可以在下列 18 個國家/地區提交諮詢服務供應項目
 
 Azure Marketplace 諮詢服務會先在澳大利亞、加拿大、英國和北美洲推出。 在合作夥伴提交一定數量且極具吸引力的精選服務供應項目並經 Microsoft 核准後，其他國家/地區的目錄就會推出。
 
+## <a name="how-to-register-for-consulting-services-in-azure-marketplace"></a>如何使用 Azure Marketplace 註冊諮詢服務
+首先請使用 [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup) 註冊您的諮詢服務。 如需完整的註冊需求清單，發行者可以參考[成為 Marketplace 中的發行者](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher)。 
+
+**註冊後的預期事項**上線團隊將在 1-3 個工作日內寄送歡迎電子郵件與您連絡，該電子郵件內含您的 Cloud Partner 入口網站 (CPP) 登入資訊。 [Cloud Partner 入口網站](https://cloudpartner.azure.com)是供應項目清單入口網站，發行者可在其中提交清單資訊和提交內容。 
+
+>[!Note]
+>合作夥伴只需要註冊一次即可成為發行者。 收到歡迎電子郵件和 Cloud Partner 入口網站登入後，發行者不需要重新註冊，即可發布不同的清單類型。 
+
 ## <a name="prepare-your-publishing-artifacts"></a>準備您的發佈成品
-即使您的服務還沒申請成為供應項目，您還是可以開始收集及準備相關內容，幫助您向目標客戶闡述您的服務和解決方案的價值。 
+註冊之前，您可以開始收集及準備相關內容，幫助您向目標客戶闡述您的服務和解決方案的價值。 
 
 |新發行者的設定  |
 |---------|
@@ -142,3 +151,12 @@ Azure Marketplace 諮詢服務會先在澳大利亞、加拿大、英國和北�
 |工作坊    |   包含每日、每週或每月的詳細議程，依據您選擇的供應項目持續時間而定。 清楚表達工作坊的學習目標或其他交付成果     |   使用您的熱門搜尋引擎最佳化關鍵字來最佳化供應項目摘要      |
 
 在 Cloud Partner 入口網站內，您可以藉由使用 [Markdown](https://docs.microsoft.com/en-us/contribute/how-to-write-use-markdown) 將格式新增至您的清單。 這是輕量型設計語言，可協助讓您的清單更完善。 
+
+**範例 Markdown 附註**
+*   在複本區塊的開頭和結尾加上 * - 不使用空格以建立斜體 (例如：*內容*)
+* 在 ":" 冒號後包含分行符號
+*   項目符號 “*” 後的空格 (例如：*(空格)內容)
+*    ### <a name="space-for-heading-ex-spaceagendadeliverables"></a>標題空格 (例如： ###(space)議程/交付項目)
+*   標題之後的分行符號
+*   ** = 粗體 (無空格) (例如：**無空格**) •   斜體提供摘要 •   議程和交付項目是標題
+

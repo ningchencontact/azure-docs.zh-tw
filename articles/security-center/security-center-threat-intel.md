@@ -3,23 +3,23 @@ title: Azure 資訊安全中心內的威脅情報 | Microsoft Docs
 description: 了解如何使用 Azure 資訊安全中心內的威脅情報功能，來識別您 VM 和電腦中的潛在威脅。
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: a771a3a1-2925-46ca-8e27-6f6a0746f58b
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
-ms.author: yurid
-ms.openlocfilehash: 9654c25bf6b51d48dc195d6a536b61312fdcbeff
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 07/10/2018
+ms.author: terrylan
+ms.openlocfilehash: 832998a6028a8977b43e343ed778cc0b60388728
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32774568"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38561359"
 ---
 # <a name="threat-intelligence-in-azure-security-center"></a>Azure 資訊安全中心內的威脅情報
 這篇文章可協助您使用 Azure 資訊安全中心威脅情報來解決安全性相關問題。
@@ -43,20 +43,24 @@ ms.locfileid: "32774568"
 - 識別已遭入侵的系統。
 - 識別已存取的檔案，並判斷這些檔案的敏感度。
 
-您可以使用資訊安全中心的威脅情報資訊來協助進行這些工作。 
+您可以使用資訊安全中心的威脅情報資訊來協助進行這些工作。
 
 ## <a name="access-the-threat-intelligence"></a>存取威脅情報
 若要以視覺化方式檢視目前環境的威脅情報，您必須先選取您資訊所在的工作區。 如果您沒有多個工作區，就會略過工作區選取器，直接跳至 [威脅情報] 儀表板。 若要存取儀表板：
 
 1. 開啟 [資訊安全中心] 儀表板。
 
-2. 在左窗格中，選取 [偵測] 下的 [威脅情報]。 [威脅情報] 儀表板隨即出現。
+2. 在左窗格中的 [威脅防護] 下，選取 [威脅情報]。 對應隨即開啟。
+
+    ![威脅情報對應](./media/security-center-threat-intel/security-center-threat-intel.png)
+
+3. 在對應的頂端，選取 [檢視傳統威脅情報]。 [威脅情報] 儀表板隨即開啟。
 
     ![威脅情報儀表板](./media/security-center-threat-intel/security-center-threat-intel-fig1.png)
 
     > [!NOTE]
-    > 如果最右側的資料行顯示 [升級計劃]，則此工作區是使用免費訂用帳戶。 升級至標準以使用此功能。 如果最右側的資料行顯示 [需要更新]，則更新 [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) 以使用這項功能。 如需有關定價方案的詳細資訊，請閱讀 Azure 資訊安全中心定價。 
-    > 
+    > 如果最右側的資料行顯示 [升級計劃]，則此工作區是使用免費訂用帳戶。 升級至標準以使用此功能。 如果最右側的資料行顯示 [需要更新]，則更新 [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) 以使用這項功能。 如需有關定價方案的詳細資訊，請閱讀 Azure 資訊安全中心定價。
+    >
 3. 如果您有多個工作區要調查，則根據 [惡意 IP] 資料行排定調查的優先順序。 它會顯示此工作區中的目前惡意 IP 數目。 選取您需要使用的工作區，[威脅情報] 儀表板隨即出現。
 
     ![威脅情報資訊](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
@@ -97,7 +101,6 @@ ms.locfileid: "32774568"
 * [在 Azure 資訊安全中心管理和回應安全性警示](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)。 了解如何在資訊安全中心管理警示，以及回應安全性事件。
 * [Azure 資訊安全中心的安全性健全狀況監視](security-center-monitoring.md)。 了解如何監視 Azure 資源的健全狀況。
 * [了解 Azure 資訊安全中心的安全性警示](https://docs.microsoft.com/azure/security-center/security-center-alerts-type)。 了解不同類型的安全性警示。
-* 《[Azure 資訊安全中心疑難排解指南](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide)》。 了解如何針對資訊安全中心的常見問題進行疑難排解。 
+* 《[Azure 資訊安全中心疑難排解指南](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide)》。 了解如何針對資訊安全中心的常見問題進行疑難排解。
 * [Azure 資訊安全中心常見問題集](security-center-faq.md)。 尋找有關使用服務常見問題的答案。
 * [Azure 安全性部落格](http://blogs.msdn.com/b/azuresecurity/)。 尋找有關 Azure 安全性與相容性的部落格文章。
-

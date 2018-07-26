@@ -2,19 +2,19 @@
 title: 搭配 AKS 使用 Azure 磁碟
 description: 搭配 AKS 使用 Azure 磁碟
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/21/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4af4620ff7a17cae76c4d5f2cf1a30ce4a3dccd8
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: f807264dc2c2e07ccd175fb1b0427b7ce9e9f524
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34597062"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868240"
 ---
 # <a name="volumes-with-azure-disks"></a>包含 Azure 磁碟的磁碟區
 
@@ -49,6 +49,12 @@ az disk create \
 ```console
 /subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
 ```
+> [!NOTE]
+> Azure 受控磁碟是按 SKU 的特定大小計費。 這些 SKU 範圍從 S4 或 P4 磁碟的 32GiB 到 S50 或 P50 磁碟的 4TiB。 此外，進階受控磁碟的輸送量和 IOPS 效能，同時取決於 SKU 和 AKS 叢集中節點的執行個體大小。 請參閱[受控磁碟的定價和效能][managed-disk-pricing-performance]。
+
+> [!NOTE]
+> 如果您需要在個別的資源群組中建立磁碟，也需要將叢集的 Azure Kubernetes Service (AKS) 服務主體新增到以 `Contributor` 角色持有磁碟的資源群組。 
+>
 
 ## <a name="mount-disk-as-volume"></a>將磁碟掛接為磁碟區
 
@@ -94,6 +100,7 @@ kubectl apply -f azure-disk-pod.yaml
 <!-- LINKS - external -->
 [kubernetes-disks]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_disk/README.md
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/volumes/
+[managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
 
 <!-- LINKS - internal -->
 [az-disk-list]: /cli/azure/disk#az_disk_list

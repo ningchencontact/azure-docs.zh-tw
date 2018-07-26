@@ -10,12 +10,12 @@ ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/23/2017
-ms.openlocfilehash: 2903046154808da5113f7b32a04bbfba254a07ae
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2d6688524e396a6e36f6d7f293f2930598afaad1
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623446"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867278"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>開始在 Azure Data Lake Analytics 中使用 U-SQL
 U-SQL 是一種語言，結合了宣告式 SQL 與命令式 C#，可讓您處理任何規模的資料。 透過 U-SQL 的可調整分散式查詢功能，您可以有效率地分析各關聯式存放區 (Azure SQL Database) 中的資料。 使用 U-SQL，您可以藉由在讀取時套用結構描述並插入自訂邏輯和 UDF，來處理非結構化資料。 此外，U-SQL 所含有的擴充性可讓您細微控制如何大規模執行。 

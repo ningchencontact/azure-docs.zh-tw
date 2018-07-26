@@ -5,15 +5,15 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/09/2018
+ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 638b52edb554b6bddb206943fca42b03bdc69060
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 033ae1de25fbaada0c2bce715e6bdd71818b341a
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "30845126"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37906797"
 ---
 <!-- F-series, Fs-series* -->
 
@@ -32,6 +32,10 @@ Fs 系列可提供 F 系列的所有優點 (進階儲存體除外)。
 ## <a name="fsv2-series-sup1sup"></a>Fsv2 系列 <sup>1</sup>
 
 ACU：195 - 210
+
+進階儲存體：支援
+
+進階儲存體快取：支援
 
 | 大小             | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | 最大資料磁碟 | 最大快取和暫存儲存體輸送量︰IOPS / MBps (以 GiB 為單位的快取大小) | 最大 NIC/預期的網路頻寬 (Mbps) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|------------------------------------------------|
@@ -53,6 +57,10 @@ ACU：195 - 210
 
 ACU：210 - 250
 
+進階儲存體：支援
+
+進階儲存體快取：支援
+
 | 大小 | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | 最大資料磁碟 | 最大快取和暫存儲存體輸送量︰IOPS / MBps (以 GiB 為單位的快取大小) | 最大取消快取的磁碟輸送量︰IOPS / MBps | 最大 NIC/預期的網路頻寬 (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_F1s |1 |2 |4 |4 |4,000 / 32 (12) |3,200 / 48 |2 / 750 |
@@ -71,6 +79,10 @@ MBps = 每秒 10^6 位元組，而 GiB = 1024^3 位元組。
 ## <a name="f-series"></a>F 系列
 
 ACU：210 - 250
+
+進階儲存體：不支援
+
+進階儲存體快取：不支援
 
 | 大小         | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | 最大暫存儲存體輸送量：IOPS / 讀取 MBps / 寫入 MBps | 最大資料磁碟 / 輸送量︰IOPS | 最大 NIC/預期的網路頻寬 (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|

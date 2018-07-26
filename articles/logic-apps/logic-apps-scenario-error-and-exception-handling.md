@@ -16,12 +16,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: LADocs; b-hoedid
-ms.openlocfilehash: cb80423266d3e9c0b3cac31821965ad92c0420d9
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c4114e32053410689c0482816a46376947023972
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299353"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930268"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>案例︰適用於邏輯應用程式的例外狀況處理與記錄錯誤
 
@@ -440,7 +440,7 @@ ms.locfileid: "35299353"
 
 Azure Cosmos DB 中的每個文件都必須具有唯一識別碼。 我們將會使用 `PatientId` ，並加入轉換為 Unix 時間戳記值 (雙精確度) 的時間戳記。 我們會將值截斷以移除小數值。
 
-您可以[從 GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs)檢視我們的錯誤控制器 API 的原始程式碼。
+可以到 [GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/LogicAppsExceptionManagementApi/Controllers/LogController.cs) 檢視我們的錯誤控制器 API 的原始程式碼。
 
 我們使用下列語法，從邏輯應用程式呼叫 API：
 

@@ -4,14 +4,14 @@ description: 概括介紹 Azure Migrate 服務中的評量計算。
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/05/2018
 ms.author: raynew
-ms.openlocfilehash: 6fd0af65e63e9fc1c09232cd1e002da105a9d086
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 6d5a0b959b25c0ee294b22b3f4066d006806b524
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287883"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920918"
 ---
 # <a name="assessment-calculations"></a>評量計算
 
@@ -58,7 +58,7 @@ Windows Server 2016 與所有 SP | Azure 提供完整支援。 | 可供 Azure �
 Windows Server 2012 R2 與所有 SP | Azure 提供完整支援。 | 可供 Azure 使用
 Windows Server 2012 與所有 SP | Azure 提供完整支援。 | 可供 Azure 使用
 Windows Server 2008 R2，含所有 SP | Azure 提供完整支援。| 可供 Azure 使用
-Windows Server 2003-2008 R2 | 這些作業系統已經過其支援結束的日期，需要[自訂支援合約 (CSA)](https://aka.ms/WSosstatement) 才能在 Azure 中獲得支援。 | 可有條件地供 Azure 使用，在移轉到 Azure 之前，請考慮升級作業系統。
+Windows Server 2003-2008 | 這些作業系統已經過其支援結束的日期，需要[自訂支援合約 (CSA)](https://aka.ms/WSosstatement) 才能在 Azure 中獲得支援。 | 可有條件地供 Azure 使用，在移轉到 Azure 之前，請考慮升級作業系統。
 Windows 2000、98、95、NT、3.1、MS-DOS | 這些作業系統已經過其支援結束的日期，機器可能可以在 Azure 中開機，但 Azure 不會提供作業系統支援。 | 可有條件地供 Azure 使用，建議在移轉到 Azure 之前升級作業系統。
 Windows Client 7、8 及 10 | Azure 僅對 Visual Studio 訂用帳戶提供支援。 | 可有條件地供 Azure 使用
 Windows Vista、XP Professional | 這些作業系統已經過其支援結束的日期，機器可能可以在 Azure 中開機，但 Azure 不會提供作業系統支援。 | 可有條件地供 Azure 使用，建議在移轉到 Azure 之前升級作業系統。

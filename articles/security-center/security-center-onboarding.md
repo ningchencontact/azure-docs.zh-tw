@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 07/10/2018
 ms.author: terrylan
-ms.openlocfilehash: d83beecfc5a8f6b8a01c64e809bc84c6fd0238bf
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a68c0ecc15f81efe6045f4c298b48f9809916297
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31416484"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38479456"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>上架到 Azure 資訊安全中心標準版以增強安全性
 升級至資訊安全中心標準版，讓您的混合式雲端工作負載能充分享有強化的安全性管理和威脅防護。  您可以免費試用「標準版」60 天。 如需詳細資訊，請參閱資訊安全中心[價格頁面](https://azure.microsoft.com/pricing/details/security-center/)。
@@ -42,7 +42,7 @@ ms.locfileid: "31416484"
 
 ## <a name="upgrade-an-azure-subscription"></a>升級 Azure 訂用帳戶
 若要將所有訂用帳戶升級至標準版：
-1. 在資訊安全中心主功能表下，選取 [上架]。
+1. 在 [資訊安全中心] 主功能表下，選取 [Onboarding to advanced security]\(上架到進階安全性\)。
 2. 在 [上架至進階安全性] 下，資訊安全中心會列出符合上架資格的訂用帳戶。 您可以藉由選取 [套用標準版方案] 升級所有列出的訂用帳戶。
 
   ![升級所有訂用帳戶][1]
@@ -113,8 +113,8 @@ ms.locfileid: "31416484"
 
    ![概觀][5]
 
-2. 選取 [計算] 圖格。
-3. 在 [計算] 下，選取 [新增電腦]。
+2. 選取 [計算及應用程式]。
+3. 在 [計算及應用程式] 下，選取 [新增電腦]。
 
    ![[計算] 刀鋒視窗][6]
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: ergreenl
-ms.openlocfilehash: 9eefbdb8acd7dff14817c8358a05ae0f91e5eb11
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 360c6c98227e52f0540b00ef136888d3d143b9fb
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218872"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951069"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - 針對警示進行疑難排解
 本文提供的疑難排解指引，適用於受控網域上可能會遇到的任何警示。
@@ -39,7 +39,7 @@ ms.locfileid: "36218872"
 | AADDS105 | *應用程式識別碼為 “d87dcbc6-a371-462e-88e3-28ad15ec4e64” 的服務主體已刪除，然後重新建立。重新建立會在為您受控網域提供服務所需的 Azure AD Domain Services 資源上留下不一致的權限。受控網域上的密碼同步處理可能會受到影響。* | [密碼同步處理應用程式已過期](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
 | AADDS500 | *受控網域前次是在 [date] 與 Azure AD 同步處理。* 使用者可能無法登入受控網域，或者群組成員資格可能無法與 Azure AD 同步。 | [有一陣子未發生同步處理](#aadds500-synchronization-has-not-completed-in-a-while) |
 | AADDS501 | *受控網域前次是在 [date] 進行備份。* | [有一陣子未進行備份](#aadds501-a-backup-has-not-been-taken-in-a-while) |
-| AADDS502 | 受控網域的安全 LDAP 憑證將於 XX 到期。 | [安全 LDAP 憑證即將到期](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
+| AADDS502 | *受控網域的安全 LDAP 憑證將於 [date] 到期。* | [安全 LDAP 憑證即將到期](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
 | AADDS503 | *受控網域已擱置，因為與此網域相關聯的 Azure 訂用帳戶不在作用中。* | [因為停用的訂用帳戶而造成擱置](#aadds503-suspension-due-to-disabled-subscription) |
 | AADDS504 | 受控網域因為無效的組態而造成擱置。此服務已無法針對受控網域管理、修補或更新網域控制站很長一段時間。 | [因為無效的組態而造成擱置](#aadds504-suspension-due-to-an-invalid-configuration) |
 
@@ -112,6 +112,9 @@ ms.locfileid: "36218872"
 
 [檢查您的網域健康狀態](active-directory-ds-check-health.md)是否有任何警示，其可能表示受控網域的組態有問題。 有時候，您的組態問題可能會妨礙 Microsoft 同步處理受控網域的能力。 如果您能夠解決任何警示，請等候兩小時並回頭查看是否已完成同步處理。
 
+以下是受控網域上同步停止的一些常見原因：
+- 受控網域上的網路連線已遭封鎖。 若要深入了解檢查網路是否存在問題的相關資訊，請參閱[針對受控網域的無效網路設定進行移難排解](active-directory-ds-troubleshoot-nsg.md)，以及 [Azure AD 網域服務的網路考量](active-directory-ds-networking.md)。
+-  從未設定密碼同步化，或已完成同步。 若要設定密碼同步化，請參閱[這篇文章](active-directory-ds-getting-started-password-sync.md)。
 
 ## <a name="aadds501-a-backup-has-not-been-taken-in-a-while"></a>AADDS501：有一陣子未進行備份
 
@@ -132,6 +135,9 @@ ms.locfileid: "36218872"
 
 **解決方案：**
 
+> [!WARNING]
+> 如果您的受控網域已擱置一段時間，可能會遭到刪除。 請盡快處理擱置問題。 若要深入了解，請造訪[這篇文章](active-directory-ds-suspension.md)。
+
 若要還原服務，[請更新與受控網域相關聯的 Azure 訂用帳戶](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable)。
 
 ## <a name="aadds504-suspension-due-to-an-invalid-configuration"></a>AADDS504：因為無效的組態而造成擱置
@@ -142,7 +148,11 @@ ms.locfileid: "36218872"
 
 **解決方案：**
 
+> [!WARNING]
+> 如果您的受控網域已擱置一段時間，可能會遭到刪除。 請盡快處理擱置問題。 若要深入了解，請造訪[這篇文章](active-directory-ds-suspension.md)。
+
 [檢查您的網域健康狀態](active-directory-ds-check-health.md)是否有任何警示，其可能表示受控網域的組態有問題。 如果您可以解決任何警示，請這麼做。 之後，請連絡支援人員以重新啟用您的訂用帳戶。
+
 
 ## <a name="contact-us"></a>與我們連絡
 請連絡 Azure Active Directory Domain Services 產品小組， [分享意見或尋求支援](active-directory-ds-contact-us.md)。

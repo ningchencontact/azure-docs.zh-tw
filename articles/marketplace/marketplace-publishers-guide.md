@@ -3,8 +3,8 @@ title: Azure Marketplace 和 AppSource 發行者指南 | Azure
 description: 適用於應用程式與服務發行者的 Azure Marketplace 和 AppSource 概觀
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
-author: jm-aditi-ms
-manager: pabutler
+author: ellacroi
+manager: nunoc
 editor: ''
 ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
@@ -12,108 +12,81 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: e40b3a9f1454e892e07f7749ba900cd74c42c339
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 0572caa1cd09c164d6c5a53bfe1c143bccffd535
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309226"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859083"
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Azure Marketplace 和 AppSource 發行者指南  
 
-## <a name="overview"></a>概觀  
-歡迎使用市集店面發行者指南。
-*  AppSource  
-*  Azure Marketplace  
+## <a name="overview"></a>概觀 
 
-新發行者和現有發行者 (您) 請使用本指南深入了解下列主題。 
-*   如何使用 Azure Marketplace 和 AppSource 店面
-*   如何發行應用程式和供應項目  
-*   如何提升您與 Microsoft 的業務合作關係  
+歡迎使用 Azure Marketplace 發行者指南。 本指南旨在協助有抱負與現有的發行者了解如何使用 Azure Marketplace (www.azuremarketplace.com) 和 AppSource (www.appsource.com) 店面，藉由與 Microsoft 合作列出應用程式和服務來提升業績。  
 
-您可以更加了解下列主題。
-*   出現在市集店面清單上有何優點  
-*   如何使用店面  
-*   您的供應項目與服務適合哪種店面  
-*   您可以發行哪幾種應用程式和供應項目  
-*   各個發行選項的技術與商務需求為何  
-*   如何建立發行前資產檢查清單  
-*   如何成為發行者  
-*   在哪裡建立和發行供應項目  
-*   如何最佳化清單和使用上市資源以推動影響力  
-*   可在何處取得說明和支援  
+本指南涵蓋下列主題： 
+*   介紹市集及其運作方式 
+*   Azure Marketplace 與 AppSource 店面之間的差異 
+*   參與市集的優點 
+*   如何成為發行者並列出應用程式或服務 
+*   如何拓展業務 
 
-如有關於市集或發行指南的問題和意見，請將電子郵件傳送到 [cloudmarketplace@microsoft.com](mailto:cloudmarketplace@microsoft.com)。  
+本指南內含技術和商務資訊，會逐步說明您在列出應用程式和服務之前所需了解的步驟。 請使用本頁面左側的導覽列來前往本指南的其他章節，也可直接瀏覽重要主題。   
+
+若有其他 Azure Marketplace 和 AppSource 的相關問題，請至 [問題類型] > [Marketplace Onboarding]\(Marketplace 上線\)，傳送訊息給我們。 我們的 Marketplace 發行者上線團隊十分樂意提供協助！ 
 
 ---  
 
-## <a name="benefits"></a>優點  
+## <a name="benefits-of-participating-in-the-marketplace"></a>參與市集的優點 
 
-### <a name="benefits-of-participating-on-the-marketplace"></a>參與市集的優點  
-市集店面是 Microsoft 聯合 Go-To-Market (GTM) 活動的跳板。  
-*   AppSource  
-*   Azure Marketplace  
+Marketplace 是與 Microsoft 共同舉辦上市活動的跳板，有助於促進業務成長。 利用上市推廣、創造需求及聯合銷售與行銷，您的市集供應項目可成為雲端商務引擎的中心。 參與市集無需任何費用。  
 
-店面是通往 Co-sell Ready 合作關係機會的門戶。 您可以選擇以下列角色之一使用應用程式或供應項目。  
-*   雲端商務引擎的中心  
-*   業務成長的推動力 
+我們的目標是要連接 Microsoft 客戶與合作夥伴生態系統所提供的最佳解決方案。 為了實現目標，從上線到發行，再到發展業務的整個過程，我們都會提供支援。 
 
-您可以選擇使用下列市集功能來拓展業務。  
-*    上市推廣  
-*    需求產生  
-*    聯合銷售與行銷  
+利用市集功能來拓展業務： 
 
-參與市集店面無需任何費用。 Microsoft 聚焦在讓您接觸到 Microsoft 合作夥伴所提供的最佳解決方案和服務。 
+### <a name="expand-to-new-markets-and-segments-and-generate-new-sales-opportunities"></a>拓展新市場和區段，創造新的銷售商機
 
-您可以利用市集功能來拓展業務。  
+將市集當做解決方案組合的行銷管道，打通新市場、區段，並觸及 Microsoft 雲端使用者。 產生新的行銷潛在客戶，並加強關係以創造銷售商機。 可受益於聯合行銷和銷售活動的優勢，吸引更多客戶關注。  
 
-#### <a name="generate-leads-and-sales-opportunities"></a>產生潛在客戶與銷售機會。  
-利用市集店面中擴充的解決方案產品組合進入新市場。 追加銷售與交叉銷售市集供應項目。  
+### <a name="enhance-business-value-and-increase-deal-size-with-existing-and-new-customers"></a>提高商務價值並擴大現有和新客戶的交易規模 
 
-#### <a name="enhance-business-value-and-increase-deal-size-with-existing-and-new-customers"></a>提高商務價值並擴大現有和新客戶的交易規模  
-擴大交易規模，並處理您將工作負載移至 Azure 後來自於客戶的問題。 利用銷售以特定工作負載和產業實例為目標的完整解決方案，降低銷售循環，並增加交易獲利率。  
+將工作負載移動到雲端之後，開始解決客戶的問題，藉機追加銷售與交叉銷售您的解決方案。 透過市集銷售或部署解決方案，即能夠以特定工作負載和產業實例為目標來銷售完整的解決方案，進而縮短銷售週期、提高專案效率並增加交易獲利率。 
+  
+### <a name="get-actionable-insights"></a>取得可操作的深入解析 
 
-#### <a name="get-actionable-insights"></a>取得可操作的深入解析  
-您的成功就是我們的成功。 使用 Cloud Partner 入口網站獲得清單效能的相關見解。 深入了解績效與潛在客戶，並了解如何將應用程式的行銷活動效益發揮至最大。  
+可獲得深入解析和分析，了解產品系列的績效表現。 可進一步了解行銷活動績效、訂單與支出，並了解如何讓解決方案的行銷活動發揮最大效益。  
 
->[!NOTE]
->擴充 Office 的應用程式必須透過 Office 應用程式的發行程序來取得見解。  
+### <a name="marketplace-go-to-market-benefits"></a>市集的 Go-To-Market 權益 
 
-### <a name="go-to-market-benefits"></a>Go-To-Market 權益  
-店面可讓您向數百萬的客戶展示解決方案。 列入市集清單的新店面會自動獲得一組免費的 GTM 權益，以協助提升您供應項目在市集上的知名度。  
+新刊登在市集中的商品會享有多樣化的免費權益，以協助合作夥伴在市集中拓展業務。 這些權益分為以下類別： 
 
- 您的 Microsoft 聯合 GTM 活動跳板會從在店面發行供應項目來開始。  店面是通往 Co-sell Ready 合作關係機會的門戶。 新的應用程式和供應項目全都會自動獲得一組免費的 GTM 權益，以協助提升 Microsoft 客戶對您應用程式或供應項目的認識。 GTM 權益提供數個共同行銷和共同銷售活動。  之所以設計共同行銷和共同銷售活動，是為了協助您使用下列項目來提升您解決方案的知名度，並創造銷售量。
-*   Microsoft 品牌  
-*   Microsoft 管道  
-*   Microsoft 客戶和合作夥伴  
+*   技術：提供應用程式上市所需的一切資源。 從技術支援、應用程式設計與架構設計，乃至開發與測試所需的 Azure 點數，全都包括在內。 
 
-您不必採取任何額外的動作。 在發行供應項目後，Microsoft GTM 小組就會與您連絡來開始提供。  
-*   如需 Microsoft GTM 權益以及如何在市集上拓展業務的詳細資訊，請瀏覽 Microsoft Go-To-Market 服務頁面，網址如下：[partner.microsoft.com/reach-customers/gtm](https://partner.microsoft.com/reach-customers/gtm)。  
+*   共同行銷：推出供應項目所需的各種資源。 免費取用 Go-to-Market Launch Fundamentals，協助您發售及促銷解決方案。 您還可以參加其他 Microsoft 行銷活動，獲得在市集中成為強檔主打的機會。  
+
+*   共同銷售：展開您的旅程或加快腳步，透過市集與 Microsoft 合作銷售您的產品。 可取用各種方案與支援，與 Microsoft 團隊一同推動聯合銷售。  
+
+[提交解決方案](https://azuremarketplace.microsoft.com/sell/signup)到市集之後，我們的上線團隊便會連絡您，為您的發行體驗提供支援。  
+
+如需 Microsoft Go-To-Market 權益的詳細資訊，並了解如何在市集上拓展業務，請造訪 [Microsoft Go-To-Market 服務頁面](https://partner.microsoft.com/reach-customers/gtm)。
 
 ---  
+## <a name="marketplace-and-storefronts"></a>市集與店面 
 
-## <a name="storefronts"></a>店面  
-Microsoft 在市集上提供了兩個不同的店面。 店面可讓您列出供應項目、進行試用，並直接與 Microsoft 客戶進行交易。  
-*   比較 AppSource 和 Azure Marketplace
-    *   如需店面的詳細資訊，請瀏覽[比較 AppSource 和 Azure Marketplace](./comparing-appsource-azure-marketplace.md) 中的 [比較 AppSource 和 Azure Marketplace] 頁面。
-*   AppSource 
-    *   如需 AppSource 的詳細資訊，請瀏覽[使用 AppSource 拓展業務](./grow-your-business-with-appsource.md)中的 [使用 AppSource 拓展業務] 頁面。  
-*   Azure Marketplace 
-    *   如需 Azure Marketplace 的詳細資訊，請瀏覽[使用 Azure Marketplace 拓展業務](./grow-your-business-with-azure-marketplace.md)中的 [使用 Azure Marketplace 拓展業務] 頁面。  
+Microsoft 在市集上提供了兩種不同的店面：AppSource 與 Azure Marketplace。 市集店面是專為目標對象與 Microsoft 雲端產品提供，協助客戶輕鬆找到真正需要的產品。 
 
-店面可讓您尋找、試用及購買應用程式和服務，以加快數位轉型速度。 店面可讓您有更多機會接觸到 Microsoft 客戶和合作夥伴，可協助您拓展業務。  
- 
-每個店面都提供專屬選項，有助於讓發行投資發揮最大效用。 下表摘要說明這些選項。  
+選擇店面的第一步，是找出解決方案適合的目標對象。 請使用下表來判斷： 
 
-|  | AppSource | Azure Marketplace |  
-|:--- |:--- |:--- |  
-| 目標對象 | 企業營運決策者<table> <tr> <th>專家角色 </th> </tr> <tr> <td>會計</td> </tr> <tr> <td>採購</td> </tr> <tr> <td>製造</td> </tr> </table> | IT 專業人員和開發人員<table> <tr> <th>專家角色 </th> </tr> <tr> <td>DevOps</td> </tr> <tr> <td>DBAs</td> </tr> <tr> <td>SecOps</td> </tr> </table> |  
+|  | AppSource | Azure Marketplace |
+|:--- |:--- |:--- |
+| 目標對象 | 企業營運決策者 | IT 專業人員和開發人員 | 
 | 建置採用或要擴充 | Azure<br />Dynamics 365<br />Office 365<br />Power BI<br />PowerApps | Azure |  
-| 解決方案和服務類型 | 已完成的企業營運雲端應用程式<br />Office 365 增益集 | 基礎結構解決方案<br />專業服務 |  
-| 供應項目類型 | 諮詢服務<br />與我連絡<br />免費試用<br />立即取得<br />試用產品 | Azure 應用程式：受控應用程式<br />Azure 應用程式：解決方案範本<br />諮詢服務<br />與我連絡<br />試用版<br />虛擬機器 |  
-| 應用程式內體驗，可供使用者<br />在您的應用程式內容中存取<br />應用程式和服務 | Dynamics 365<br />Office 365<br />Office 用戶端應用程式<br />Power BI | Azure 入口網站<br />Azure Resource Manager CLI |  
+
+每種店面都會提供專用的選項與功能，能帶來最多商機。 如需店面的詳細比較，請參閱[比較 AppSource 和 Azure Marketplace](./comparing-appsource-azure-marketplace.md)。 
 
 ---   
 

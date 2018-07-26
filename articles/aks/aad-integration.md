@@ -2,25 +2,25 @@
 title: 整合 Azure Active Directory 與 Azure Kubernetes Service
 description: 如何建立已啟用 Azure Active Directory 的 Azure Kubernetes Service 叢集。
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 6/17/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 7d157d50bbcd25edd9cd6693a71fb04535cbeb79
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: e75577ae917cbe14a123ff5e2d44da2edc8062ef
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937376"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38307308"
 ---
 # <a name="integrate-azure-active-directory-with-aks---preview"></a>整合 Azure Active Directory 與 AKS - 預覽
 
 Azure Kubernetes Service (AKS) 可以設定為使用 Azure Active Directory 進行使用者驗證。 在此組態中，您可以使用您的 Azure Active Directory 驗證權杖來登入 Azure Kubernetes Service 叢集。 此外，叢集系統管理員能夠根據使用者身分識別或目錄群組成員資格，設定 Kubernetes 角色型存取控制。
 
-本文件詳述如何建立 AKS 和 Azure AD 的所有必要先決條件、部署已啟用 Azure AD 的叢集，以及在 AKS 叢集中建立簡單的 RBAC 角色。
+本文件詳述如何建立 AKS 和 Azure AD 的所有必要先決條件、部署已啟用 Azure AD 的叢集，以及在 AKS 叢集中建立簡單的 RBAC 角色。 請注意，目前無法更新現有之已啟用非 RBAC 的 AKS 叢集供 RBAC 使用。
 
 > [!IMPORTANT]
 > Azure Kubernetes Service (AKS) RBAC 和 Azure AD 整合目前為**預覽**狀態。 若您同意[補充的使用規定](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
@@ -59,19 +59,21 @@ Azure Kubernetes Service (AKS) 可以設定為使用 Azure Active Directory 進�
 
 4. 返回 Azure AD 應用程式，選取 [設定] > [必要的權限] > [新增] > [選取 API] > [Microsoft Graph] > [選取]。
 
-  在 [應用程式權限] 之下 [讀取目錄資料] 的旁邊標上核取記號。
+  ![請選取圖表 API](media/aad-integration/graph-api.png)
+
+5. 在 [應用程式權限] 之下 [讀取目錄資料] 的旁邊標上核取記號。
 
   ![設定應用程式圖表權限](media/aad-integration/read-directory.png)
 
-5. 在 [委派的權限] 之下 [登入並讀取使用者設定檔] 和 [讀取目錄資料] 的旁邊標上核取記號。 完成後儲存更新。
+6. 在 [委派的權限] 之下 [登入並讀取使用者設定檔] 和 [讀取目錄資料] 的旁邊標上核取記號。 完成後儲存更新。
 
   ![設定應用程式圖表權限](media/aad-integration/delegated-permissions.png)
 
-6. 選取 [完成] 和 [授與權限] 來完成此步驟。 如果目前的帳戶不是租用戶系統管理員，此步驟將會失敗。
+7. 選取 [完成]，從 API 清單中選擇 [Microsoft Graph]，然後選取 [授與權限]。 如果目前的帳戶不是租用戶系統管理員，此步驟將會失敗。
 
   ![設定應用程式圖表權限](media/aad-integration/grant-permissions.png)
 
-7. 返回應用程式並記下 [應用程式識別碼]。 部署已啟用 Azure AD 的 AKS 叢集時，這個值就是指 `Server application ID`。
+8. 返回應用程式並記下 [應用程式識別碼]。 部署已啟用 Azure AD 的 AKS 叢集時，這個值就是指 `Server application ID`。
 
   ![取得應用程式識別碼](media/aad-integration/application-id.png)
 
@@ -154,7 +156,7 @@ subjects:
   name: "user@contoso.com"
 ```
 
-此外，也可以為 Azure AD 群組的所有成員建立角色繫結。 下列資訊清單將叢集的系統管理員存取權提供給 `kubernetes-admin` 群組的所有成員。
+此外，也可以為 Azure AD 群組的所有成員建立角色繫結。 Azure AD 群組是由群組物件識別碼所指定。
 
  ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -168,7 +170,7 @@ roleRef:
 subjects:
 - apiGroup: rbac.authorization.k8s.io
    kind: Group
-   name: "kubernetes-admin"
+   name: "894656e1-39f8-4bfe-b16a-510f61af6f41"
 ```
 
 如需有關使用 RBAC 保護 Kubernetes 叢集的詳細資訊，請參閱[使用 RBAC 授權][rbac-authorization]。
@@ -195,6 +197,12 @@ aks-nodepool1-42032720-2   Ready     agent     1h        v1.9.6
 ```
 
 完成後，就會快取驗證權杖。 當權杖已過期或重新建立 Kubernetes 組態檔時，系統才會重新提示您登入。
+
+如果成功登入後看到授權錯誤訊息，請檢查您在 Azure AD 中登入的使用者身分不是「來賓」(如果您使用來自其他目錄中的同盟登入，則通常會出現這種情況)。
+```console
+error: You must be logged in to the server (Unauthorized)
+```
+
 
 ## <a name="next-steps"></a>後續步驟
 

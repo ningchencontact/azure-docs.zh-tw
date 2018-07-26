@@ -5,25 +5,23 @@ services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-ms.assetid: 2c6273de-0106-47e5-b45d-59040e51f2c5
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
+ms.date: 07/03/2018
 ms.author: sethm
-ms.openlocfilehash: 964475ba8b42ac41707fa78468bfe551677c595f
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 22fcedfdb1921c941250b63f09bfa7fcff9c2f1b
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26783123"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856700"
 ---
 # <a name="event-hubs-messaging-exceptions"></a>事件中樞傳訊例外狀況
 
-本文列出包括事件中樞 API 在內之 Azure 服務匯流排傳訊 API 程式庫產生的一些例外狀況。 此參考可能有所變更，請不定期查看更新。
+本文列出 Azure 服務匯流排傳訊 API 程式庫產生的一些例外狀況，包括 .NET Framework 事件中樞 API。 此參考可能有所變更，請不定期查看更新。
 
 ## <a name="exception-categories"></a>例外狀況類別
 
@@ -87,7 +85,7 @@ ms.locfileid: "26783123"
 
 2. 事件中樞命名空間沒有足夠的輸送量單位 (您可以檢查 [Azure 入口網站](https://portal.azure.com)中 [事件中樞命名空間] 視窗上的 [度量] 畫面來確認)。 請注意，入口網站會顯示彙總資訊 (1 分鐘)，但我們會即時測量輸送量 – 因此只是估計值。
 
-    解決方式︰增加命名空間的輸送量單位可能會有幫助。 您可以在入口網站中 [事件中樞命名空間] 畫面的 [擴展] 視窗上執行此動作。
+    解決方式︰增加命名空間的輸送量單位可能會有幫助。 您可以在入口網站中 [事件中樞命名空間] 畫面的 [擴展] 視窗上執行此動作。 您也可以使用[自動擴充](event-hubs-auto-inflate.md)。
 
 ### <a name="error-code-50001"></a>錯誤碼 50001
 
@@ -95,6 +93,7 @@ ms.locfileid: "26783123"
 
 
 ## <a name="next-steps"></a>後續步驟
+
 您可以造訪下列連結以深入了解事件中樞︰
 
 * [事件中心概觀](event-hubs-what-is-event-hubs.md)

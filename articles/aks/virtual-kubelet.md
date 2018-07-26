@@ -1,6 +1,6 @@
 ---
 title: 在 Azure Kubernetes Service (AKS) 叢集中執行 Virtual Kubelet
-description: 使用 Virtual Kubelet 在 Azure 容器執行個體上執行 Kubernetes 容器。
+description: 了解如何將 Virtual Kubelet 與 Azure Kubernetes Service (AKS) 搭配使用，以在 Azure Container 執行個體上執行 Linux 和 Windows 容器。
 services: container-service
 author: iainfoulds
 manager: jeconnoc
@@ -8,14 +8,14 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: iainfou
-ms.openlocfilehash: 04fdb1620dc6e7147ed10ae6eeeaeb3eeae14b62
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 0466f416568b2a1a82e264a8508697fc9de87287
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097354"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952473"
 ---
-# <a name="virtual-kubelet-with-aks"></a>採用 AKS 的 Virtual Kubelet
+# <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>將 Virtual Kubelet 與 Azure Kubernetes Service (AKS) 搭配使用
 
 Azure 容器執行個體 (ACI) 可提供託管環境，以便在 Azure 中執行容器。 使用 ACI 時，不需要管理基礎計算基礎結構，Azure 會為您處理此管理工作。 在 ACI 中執行時容器時，系統會針對每個執行中的容器以秒計費。
 
@@ -32,7 +32,38 @@ Azure 容器執行個體 (ACI) 可提供託管環境，以便在 Azure 中執行
 
 您也必須需要 Azure CLI 版本 **2.0.33** 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
 
-此外，也需要 [Helm](https://docs.helm.sh/using_helm/#installing-helm) 才能安裝 Virtual Kubelet。
+若要安裝 Virtual Kubelet，也需要 [Helm](https://docs.helm.sh/using_helm/#installing-helm)。
+
+### <a name="for-rbac-enabled-clusters"></a>對於已啟用 RBAC 的叢集
+
+如果已啟用 RBAC 的 AKS 叢集，您必須建立服務帳戶和角色繫結，以與 Tiller 搭配使用。 如需詳細資訊，請參閱 [Helm 角色型存取控制][helm-rbac]。
+
+也必須為 Virtual Kubelet 建立 *ClusterRoleBinding*。 若要建立繫結，請建立名為 *rbac virtualkubelet.yaml* 的檔案，並貼上下列定義：
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: virtual-kubelet
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: default
+```
+
+使用 [kubectl apply][kubectl-apply] 套用繫結，並指定您的 *rbac-virtualkubelet.yaml* 檔案，如下列範例所示：
+
+```
+$ kubectl apply -f rbac-virtual-kubelet.yaml
+
+clusterrolebinding.rbac.authorization.k8s.io/virtual-kubelet created
+```
+
+您現在可以繼續將 Virtual Kubelet 安裝至 AKS 叢集。
 
 ## <a name="installation"></a>安裝
 
@@ -61,7 +92,7 @@ az aks install-connector --resource-group myAKSCluster --name myAKSCluster --con
 
 若要驗證已安裝的 Virtual Kubelet，請使用 [kubectl get nodes][kubectl-get] 命令來傳回 Kubernetes 節點清單。
 
-```console
+```
 $ kubectl get nodes
 
 NAME                                    STATUS    ROLES     AGE       VERSION
@@ -102,13 +133,13 @@ spec:
 
 使用 [kubectl create][kubectl-create] 命令來執行應用程式。
 
-```azurecli-interactive
+```console
 kubectl create -f virtual-kubelet-linux.yaml
 ```
 
 使用 [kubectl get pods][kubectl-get] 命令搭配 `-o wide` 引數來輸出包含排定節點的 Pod 清單。 請注意，`aci-helloworld` pod 已排定在 `virtual-kubelet-virtual-kubelet-linux` 節點上。
 
-```console
+```
 $ kubectl get pods -o wide
 
 NAME                                READY     STATUS    RESTARTS   AGE       IP             NODE
@@ -145,13 +176,13 @@ spec:
 
 使用 [kubectl create][kubectl-create] 命令來執行應用程式。
 
-```azurecli-interactive
+```console
 kubectl create -f virtual-kubelet-windows.yaml
 ```
 
 使用 [kubectl get pods][kubectl-get] 命令搭配 `-o wide` 引數來輸出包含排定節點的 Pod 清單。 請注意，`nanoserver-iis` pod 已排定在 `virtual-kubelet-virtual-kubelet-win` 節點上。
 
-```console
+```
 $ kubectl get pods -o wide
 
 NAME                                READY     STATUS    RESTARTS   AGE       IP             NODE
@@ -182,3 +213,5 @@ az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --conn
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 [vk-github]: https://github.com/virtual-kubelet/virtual-kubelet
+[helm-rbac]: https://docs.helm.sh/using_helm/#role-based-access-control
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply

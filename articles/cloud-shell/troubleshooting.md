@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 07/03/2018
 ms.author: damaerte
-ms.openlocfilehash: cffa67509690f4c594182fbe8104f0620da56bee
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 21bc0633a9cc607325b48998791cb12631ecd0d7
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608945"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856482"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Azure Cloud Shell 的疑難排解和限制
 
@@ -52,16 +52,6 @@ ms.locfileid: "34608945"
 
 ## <a name="powershell-troubleshooting"></a>PowerShell 疑難排解
 
-### <a name="no-home-directory-persistence"></a>沒有 $Home 目錄持續性
-
-- **詳細資料**：應用程式 (例如：git、vim 和其他項目) 寫入 `$Home` 的任何資料將不會跨 PowerShell 工作階段保存。
-- **解決方式**：在 PowerShell 設定檔中，以在 $Home 的 `clouddrive` 中建立應用程式特定資料夾的符號連結。
-
-### <a name="ctrlc-doesnt-exit-out-of-a-cmdlet-prompt"></a>Ctrl+C 不會結束 Cmdlet 提示字元
-
-- **詳細資料**：嘗試結束 Cmdlet 提示字元時，`Ctrl+C` 不會結束提示字元。
-- **解決方式**：若要結束提示，請依序按 `Ctrl+C` 和 `Enter`。
-
 ### <a name="gui-applications-are-not-supported"></a>不支援 GUI 應用程式
 
 - **詳細資料**：如果使用者啟動 GUI 應用程式，則不會傳回提示。 例如，當使用者複製已啟用雙因素驗證的私人 GitHub 存放庫時，會顯示一個對話方塊，用以完成雙因素驗證。  
@@ -75,18 +65,8 @@ ms.locfileid: "34608945"
 ### <a name="troubleshooting-remote-management-of-azure-vms"></a>針對 Azure VM 遠端管理進行疑難排解
 
 - **詳細資料**：基於 WinRM 的預設 Windows 防火牆設定，使用者可能會看到下列錯誤：`Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
-- **解決方式**：確定 VM 正在執行。 您可以執行 `Get-AzureRmVM -Status` 來找出 VM 狀態。  接下來，在遠端 VM 上新增防火牆規則，以允許任何子網路中的 WinRM 連線 (舉例來說)。
-
- ``` Powershell
- New-NetFirewallRule -Name 'WINRM-HTTP-In-TCP-PSCloudShell' -Group 'Windows Remote Management' -Enabled True -Protocol TCP -LocalPort 5985 -Direction Inbound -Action Allow -DisplayName 'Windows Remote Management - PSCloud (HTTP-In)' -Profile Public
- ```
- 您可以使用 [Azure 自訂指令碼擴充功能](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)，避免登入遠端 VM 來新增防火牆規則。
- 您可以將前述指令碼儲存至檔案 (即 `addfirerule.ps1`)，並將其上傳至 Azure 儲存體容器。
- 然後，嘗試下列命令：
-
- ``` Powershell
- Get-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup | Set-AzureRmVMCustomScriptExtension -VMName MyVM1 -FileUri https://mystorageaccount.blob.core.windows.net/mycontainer/addfirerule.ps1 -Run 'addfirerule.ps1' -Name myextension
- ```
+- **解決方式**：執行 `Enable-AzureRmVMPSRemoting`，在所有目標機器上啟用 PowerShell 遠端所有層面的功能。
+ 
 
 ### <a name="dir-caches-the-result-in-azure-drive"></a>`dir` 會快取 Azure 磁碟機中的結果
 
@@ -133,21 +113,39 @@ Cloud Shell 主要用於互動式的使用案例。 因此，任何長時間執�
 
 ## <a name="powershell-limitations"></a>PowerShell 限制
 
-### <a name="slow-startup-time"></a>緩慢的啟動時間
+### <a name="azuread-module-name"></a>`AzureAD` 模組名稱
 
-在預覽期間，Azure Cloud Shell 中的 PowerShell (Preview) 最多需要 60 秒才能初始化。
+`AzureAD` 模組名稱目前為 `AzureAD.Standard.Preview`，該模組提供同樣的功能。
+
+### <a name="sqlserver-module-functionality"></a>`SqlServer` 模組功能
+
+包含在 Cloud Shell 中的 `SqlServer` 模組只提供發行前版本的 PowerShell Core 支援。 具體來說，`Invoke-SqlCmd` 目前還無法使用。
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>從 Azure 磁碟機建立時的預設檔案位置：
 
-使用 PowerShell Cmdlet 時，使用者無法在 Azure 磁碟機底下建立檔案。 當使用者使用其他工具 (例如 vim 或 nano) 來建立新檔案時，檔案預設會儲存至 C:\Users 資料夾。 
+使用 PowerShell Cmdlet 時，使用者無法在 Azure 磁碟機底下建立檔案。 當使用者使用其他工具 (例如 vim 或 nano) 來建立新檔案時，檔案預設會儲存至 `$HOME` 資料夾。 
 
 ### <a name="gui-applications-are-not-supported"></a>不支援 GUI 應用程式
 
 如果使用者執行的命令會建立 Windows 對話方塊，例如 `Connect-AzureAD` 或 `Connect-AzureRmAccount`，其將會看到如下錯誤訊息：`Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`。
 
-## <a name="gdpr-compliance-for-cloud-shell"></a>Cloud Shell 的 GDPR 合規性
+### <a name="tab-completion-crashes-psreadline"></a>Tab 鍵自動完成導致 PSReadline 當機
 
-Azure Cloud Shell 會謹慎處理您的個人資料，Azure Cloud Shell 服務擷取和儲存的資料是用於提供您專屬體驗的預設值，例如您最近使用的殼層、慣用字型大小、慣用字型及支援 clouddrive 的檔案共用。 若您想匯出或刪除這些資料，可參考下列指示。
+如果使用者將 PSReadline 中的 EditMode 設定為 Emacs，並且嘗試透過 Tab 鍵自動完成來顯示所有可能的值，但視窗尺寸過小而無法顯示所有可能值，PSReadline 就會當機。
+
+### <a name="large-gap-after-displaying-progress-bar"></a>顯示進度列之後出現過大間距
+
+當使用者在 `Azure:` 磁碟機中執行顯示進度列的動作 (如 Tab 鍵自動完成) 時，可能會因為資料指標設定錯誤，導致先前進度列的所在位置出現間隔。
+
+### <a name="random-characters-appear-inline"></a>隨機出現內嵌字元
+
+資料指標位置序列程式碼 (如 `5;13R`)，可能會出現在使用者輸入的內容中。  可以手動移除這些字元。
+
+## <a name="personal-data-in-cloud-shell"></a>Cloud Shell 中的個人資料
+
+Azure Cloud Shell 會謹慎處理您的個人資料，Azure Cloud Shell 服務擷取和儲存的資料是用於提供您專屬體驗的預設值，例如您最近使用的殼層、慣用字型大小、慣用字型以及用以支援雲端磁碟機的檔案共用詳細資訊等。 若您想匯出或刪除這些資料，可參考下列指示。
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ### <a name="export"></a>匯出
 若要匯出 Cloud Shell 為您儲存的使用者設定 (例如慣用殼層、字型大小和字型)，請執行下列命令。

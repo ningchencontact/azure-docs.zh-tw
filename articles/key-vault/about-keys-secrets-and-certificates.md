@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: a6bd63598781a60c2dd717c07b96fcb498a67d30
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 77675b3c0b2ed9fcdb923c92638384d215bddc40
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636601"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972395"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>關於金鑰、祕密與憑證
 Azure Key Vault 可讓使用者在 Microsoft Azure 環境中儲存和使用密碼編譯金鑰。 Key Vault 支援多種金鑰類型和演算法，並可針對高價值金鑰使用硬體安全模組 (HSM)。 此外，Key Vault 可讓使用者安全地儲存秘密。 秘密是有大小限制的八位元物件，其中不包含特定語意。 Key Vault 也支援建立於金鑰和秘密之上，且會新增自動更新功能的憑證。
@@ -122,7 +122,7 @@ Azure Key Vault 中的密碼編譯金鑰會表示為 JSON Web 金鑰 [JWK] 物�
 -   **RSA**：2048 位元的 RSA 金鑰。 這是「軟式」金鑰，由 Key Vault 在軟體中進行處理，但會在待用期間使用 HSM 中的系統金鑰來加密儲存。 用戶端可能會匯入現有的 RSA 金鑰，或要求 Azure Key Vault 產生此金鑰。  
 -   **RSA-HSM**：在 HSM 中處理的 RSA 金鑰。 RSA-HSM 金鑰會在其中一個 Azure Key Vault HSM Security World 中受到保護 (為保有獨立性，每個地理位置中會有一個 Security World)。 用戶端若要匯入 RSA 金鑰，可以透過軟式形式或從相容的 HSM 裝置匯出 RSA 金鑰，或要求 Azure Key Vault 產生此金鑰。 此金鑰類型會將 T 屬性新增至為執行 HSM 金鑰內容而取得的 JWK。  
 
-     如需地理界限的詳細資訊，請參閱 [Microsoft Azure 信任中心](https://azure.microsoft.com/en-us/support/trust-center/privacy/)  
+     如需地理界限的詳細資訊，請參閱 [Microsoft Azure 信任中心](https://azure.microsoft.com/support/trust-center/privacy/)  
 
 ###  <a name="BKMK_RSAAlgorithms"></a>RSA 演算法  
  Azure Key Vault 中的 RSA 金鑰支援下列演算法識別碼。  
@@ -172,7 +172,7 @@ Azure Key Vault 支援以下關於金鑰物件的作業：
 -   **備份**：以受保護的形式匯出金鑰。  
 -   **還原**：匯入先前備份的金鑰。  
 
-如需詳細資訊，請參閱[金鑰作業](/rest/api/keyvault/key-operations.md)  
+如需詳細資訊，請參閱[金鑰作業](/rest/api/keyvault/key-operations)。  
 
 一旦在 Azure Key Vault 中建立金鑰之後，即可使用該金鑰執行下列加密編譯作業：  
 
@@ -281,7 +281,7 @@ Azure Key Vault 也支援秘密的 contentType 欄位。 用戶端可以指定�
 -   刪除：刪除秘密  
 -   所有：所有權限  
 
-如需使用秘密的詳細資訊，請參閱[秘密作業](/rest/api/keyvault/secret-operations.md)。  
+如需使用秘密的詳細資訊，請參閱[秘密作業](/rest/api/keyvault/secret-operations)。  
 
 ###  <a name="BKMK_SecretTags"></a>秘密標記  
 您可以將其他應用程式專屬的中繼資料指定為標記形式。 Azure Key Vault 支援最多 15 個標記，其中每一個都可以有 256 個字元的名稱和 256 個字元的值。  
@@ -443,9 +443,9 @@ Key Vault 可讓您以不同簽發者的提供者組態，來建立多個簽發�
 
 ## <a name="additional-information-for-certificates"></a>憑證的其他資訊
 
-- [憑證與原則](/rest/api/keyvault/certificates-and-policies.md)
-- [憑證簽發者](/rest/api/keyvault/certificate-issuers.md)
-- [憑證連絡人](/rest/api/keyvault/certificate-contacts.md)
+- [憑證與原則](/rest/api/keyvault/certificates-and-policies)
+- [憑證簽發者](/rest/api/keyvault/certificate-issuers)
+- [憑證連絡人](/rest/api/keyvault/certificate-contacts)
 
 ## <a name="see-also"></a>另請參閱
 

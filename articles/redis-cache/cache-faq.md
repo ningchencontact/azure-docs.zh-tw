@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: f78dd2a28575ad8e3fa30ac9c2bbd29c7d85a78f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6c308205c5adb05f4c7e1668c67adea414020ea2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640467"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38232956"
 ---
 # <a name="azure-redis-cache-faq"></a>Azure Redis 快取常見問題集
 了解 Azure Redis 快取常見問題、模式和最佳作法的答案。
@@ -183,7 +183,6 @@ Azure Redis 快取是以常用的開放原始碼 [Redis 快取](http://redis.io)
 - [Microsoft Azure (德國)](https://azure.microsoft.com/overview/clouds/germany/)
 
 如需有關在 Azure Government 雲端、Azure 中國雲端或 Microsoft Azure (德國) 中搭配 PowerShell 使用 Azure Redis 快取的詳細資訊，請參閱[如何連線到其他雲端 - Azure Redis 快取 PowerShell](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds)。
-
 
 <a name="cache-configuration"></a>
 
@@ -398,7 +397,10 @@ CLR 執行緒集區有兩種類型的執行緒：「背景工作」和「I/O 完
   > 這個組態元素中指定的值是「每一核心」設定。 例如，如果您有 4 核心的電腦，並且想要在執行階段將 minIOThreads 設為 200，您會使用 `<processModel minIoThreads="50"/>`。
   >
 
-* 在 ASP.NET 之外，請使用 [ThreadPool.SetMinThreads(...)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) API。
+* 若非 ASP.NET 和 Azure WebSites global.asax，請使用 [ThreadPool.SetMinThreads (...)] (https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) API。
+
+  > [!NOTE]
+  > 此 API 指定的值是全域設定，會影響整個 AppDomain。 如果您有一部 4 核心電腦，而且想要將 minWorkerThreads 和 minIOThreads 設為執行階段期間每個 CPU 50 個，可以使用 ThreadPool.SetMinThreads (200, 200)。
 
 <a name="server-gc"></a>
 

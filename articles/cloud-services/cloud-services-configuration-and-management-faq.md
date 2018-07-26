@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 8cb7cd84e68420006e7c598c224580c9150ab1c7
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 6cdfb40ce02cc5f80e3347b921e2b2c75ae3d8ea
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34070493"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37437132"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 雲端服務之設定和管理問題：常見問題集 (FAQ)
 
@@ -207,7 +207,7 @@ Windows 10 和 Windows Server 2016 隨附用戶端和伺服器端上的 HTTP/2 �
 ### <a name="how-can-i-implement-role-based-access-for-cloud-services"></a>如何實作雲端服務的角色型存取？
 雲端服務不支援角色型存取控制 (RBAC) 模型，因為它不是以 Azure Resource Manager 為基礎的服務。
 
-請參閱 [Azure RBAC 與傳統訂用帳戶系統管理員](../role-based-access-control/overview.md#azure-rbac-vs-classic-subscription-administrators)。
+請參閱[了解 Azure 中的不同角色](../role-based-access-control/rbac-and-directory-admin-roles.md)。
 
 ## <a name="remote-desktop"></a>遠端桌面
 

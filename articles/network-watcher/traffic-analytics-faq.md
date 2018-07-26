@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: a4b87d92751c84d96bc70915d16adae7943c145e
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 9f7fb5009468dccae50190ee40a53d11040d0348
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062872"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903742"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>流量分析常見問題集
 
@@ -194,7 +194,9 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 ## <a name="how-is-traffic-analytics-priced"></a>流量分析的價格為何？
 
-流量分析採計量付費。 計量是以服務處理的流量記錄資料來進行，並將所產生的加強型記錄儲存在 Log Analytics 工作區中。 如需詳細資料，請參閱[價格方案](https://azure.microsoft.com/en-us/pricing/details/network-watcher/)。 
+流量分析採計量付費。 計量是以服務處理的流量記錄資料來進行，並將所產生的加強型記錄儲存在 Log Analytics 工作區中。 
+
+例如，根據[定價方案](https://azure.microsoft.com/en-us/pricing/details/network-watcher/)，以美國中西部區域為例，如果儲存在儲存體帳戶且由流量分析處理的流量記錄資料為 10 GB，而內嵌於 Log Analytics 工作區的加強型記錄為 1 GB，則適用費用為：10 x 2.3$ + 1 x 2.76$ = 25.76$
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>如何在地理地圖檢視中使用鍵盤來瀏覽？
 

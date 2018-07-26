@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 1566cf2b61749121c4eaff5a32b0a940f3341f7e
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: a3267d8f2f088c93a8f69f949dc928437a80f455
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751773"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856941"
 ---
 # <a name="understanding-policy-effects"></a>了解原則效果
 
@@ -125,11 +125,11 @@ Deny 效果沒有任何額外的屬性可供在原則定義的 **then** 條件�
 
 ## <a name="audit"></a>稽核
 
-Audit 效果可用來在評估到不符合規範的資源時，在稽核記錄中建立警告事件。
+Audit 效果可用來在評估到不符合規範的資源時，在活動記錄中建立警告事件，但並不會停止該項要求。
 
 ### <a name="audit-evaluation"></a>Audit 評估
 
-Audit 效果是在建立或更新資源時，在將要求傳送給資源提供者之前，最後執行的效果。 Audit 對資源要求和評估週期的運作方式相同，並且會對「活動記錄」執行 `Microsoft.Authorization/policies/audit/action` 作業。 在這兩種情況下，都會將資源標示為不符合規範。
+Audit 效果是在建立或更新資源時，在將要求傳送給資源提供者之前，最後執行的效果。 Audit 對資源要求和評估週期的運作方式相同，並且會對活動記錄執行 `Microsoft.Authorization/policies/audit/action` 作業。 在這兩種情況下，都會將資源標示為不符合規範。
 
 ### <a name="audit-properties"></a>Audit 屬性
 
@@ -151,7 +151,7 @@ AuditIfNotExists 可讓您稽核符合下列條件的資源：符合 **if** 條�
 
 ### <a name="auditifnotexists-evaluation"></a>AuditIfNotExists 評估
 
-AuditIfNotExists 的執行順序是在資源提供者已處理對資源的建立或更新要求，並且已傳回成功狀態碼之後。 如果沒有任何相關資源，或 **ExistenceCondition** 所定義的資源未評估為 true，就會觸發此效果。 觸發此效果時，會以和 Audit 效果相同的方式對「活動記錄」執行 `Microsoft.Authorization/policies/audit/action` 作業。 當觸發時，滿足 **if** 條件的資源會是標示為不符合規範的資源。
+AuditIfNotExists 的執行順序是在資源提供者已處理對資源的建立或更新要求，並且已傳回成功狀態碼之後。 如果沒有任何相關資源，或 **ExistenceCondition** 所定義的資源未評估為 true，就會觸發此效果。 觸發此效果時，會以和 Audit 效果相同的方式對活動記錄執行 `Microsoft.Authorization/policies/audit/action` 作業。 當觸發時，滿足 **if** 條件的資源會是標示為不符合規範的資源。
 
 ### <a name="auditifnotexists-properties"></a>AuditIfNotExists 屬性
 

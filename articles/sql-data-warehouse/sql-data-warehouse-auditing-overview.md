@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 306032ece4feda0e8132db1e95c4a229472e6c04
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 3630d4d694452f2c619e707d1e2e58f1bfe71c0e
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "34643493"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858947"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲中的稽核
 
@@ -52,8 +52,9 @@ SQL 資料倉儲資料庫稽核可讓您：
 > * 您需要為特定資料庫使用不同的儲存體帳戶或保留期間。
 > * 您想要針對伺服器上不同於其餘資料庫的特定資料庫，稽核其事件類型或類別。 例如，您可能只需要針對特定資料庫稽核資料表插入。
 > * 您想要使用威脅偵測，此功能目前僅支援資料庫層級稽核。
->
 
+> [!IMPORTANT]
+>在 Azure SQL 資料倉儲或擁有 Azure SQL 資料倉儲的伺服器上啟用稽核，**將導致資料倉儲恢復運作** (即使先前已暫停)。 **啟用稽核之後，請務必再次暫停資料倉儲**。
 
 ## <a id="subheading-5"></a>為所有資料庫設定伺服器層級稽核
 

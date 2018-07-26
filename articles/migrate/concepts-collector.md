@@ -4,15 +4,15 @@ description: 提供收集器設備的概觀及其設定方式。
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 07/10/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: d0f36370f5093f8c1d06c83a62532b3854597fa4
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8cc5863489c58a0603d8aa464911031a22dba8f3
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211664"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951034"
 ---
 # <a name="collector-appliance"></a>收集器設備
 
@@ -176,7 +176,7 @@ Azure Migrate 收集器服務應在機器上執行。 此服務會在機器開�
 根據所選範圍中的虛擬機器數目，最多需花費 15 分鐘才能將靜態中繼資料傳送至專案。 一旦中繼資料可用於入口網站，您就可以在入口網站中看到機器清單並開始建立群組。 直到收集作業完成且專案處理資料後，才能建立評量。 收集作業在收集器上完成後，根據所選範圍中的虛擬機器數目，最多可能需要一小時，才能在入口網站取得效能資料。
 
 ## <a name="locking-down-the-collector-appliance"></a>鎖定收集器設備
-我們建議在收集器設備上持續執行 Windows 更新。 如果收集器 45 天未更新，則收集器會開始自動關閉機器。 如果正在執行探索，即使機器已超過 45 天未更新，也不會關閉機器。 張貼探索工作完成，將會關閉機器。 如果您使用收集器超過 45 天，建議執行 Windows 更新以隨時更新機器。
+我們建議在收集器設備上持續執行 Windows 更新。 如果收集器 60 天未更新，則收集器會開始自動關閉機器。 如果正在執行探索，即使機器已超過 60 天未更新，也不會關閉機器。 張貼探索工作完成，將會關閉機器。 如果您使用收集器超過 45 天，建議執行 Windows 更新以隨時更新機器。
 
 我們也建議下列步驟以保護您的設備
 1. 請勿與未經授權的人員分享或錯置管理員密碼。

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ec1630f4de70f77c13e335c68aff16180e524c12
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 9d8f74bd66fc7c980c4fc5f83492aad7d8a4aa5c
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36307803"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866962"
 ---
 # <a name="manage-server-administrators"></a>管理伺服器管理員
 對於伺服器所在的租用戶，伺服器管理員必須是 Azure Active Directory (Azure AD) 中有效的使用者或安全性群組。 在 Azure 入口網站，或 SSMS 的 [伺服器屬性] 中，您可以使用伺服器的 **Analysis Services 管理員**來管理伺服器管理員。 

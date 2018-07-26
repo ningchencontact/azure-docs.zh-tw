@@ -8,14 +8,14 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 07/05/2018
 ms.author: clemensv
-ms.openlocfilehash: 7716ff503bd492cc4b5d510758cb20d74eb82a4f
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: f8874a1d9db754485e9624596465560981bd6425
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034651"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858040"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>搭配 Azure 服務匯流排使用虛擬網路服務端點
 
@@ -25,11 +25,17 @@ ms.locfileid: "37034651"
 
 結果是繫結至子網路的工作負載與個別服務匯流排命名空間之間的私人和隔離關係，儘管傳訊服務端點的可觀察網路位址是在公用 IP 範圍中。
 
-## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>VNet 整合所啟用的進階安全性案例 
+## <a name="enable-service-endpoints-with-service-bus"></a>以服務匯流排啟用服務端點
 
-需要緊密和劃分安全性的解決方案，以及虛擬網路子網路提供劃分服務之間分割的解決方案，通常仍然需要這些區間中服務之間的通訊路徑。
+唯有[進階層](service-bus-premium-messaging.md)服務匯流排命名空間支援虛擬網路。 
 
-區間之間的任何立即 IP 路由，包括那些運輸 HTTPS over TCP/IP，會帶來上層網路層的弱點危害風險。 傳訊服務提供完全隔離的通訊路徑，在其中，當訊息在對象之間轉換時，甚至會寫入到磁碟。 兩個都繫結到相同服務匯流排執行個體的不同虛擬網路，其中的工作負載可以透過訊息有效且可靠地通訊，同時保留各自的網路隔離界限完整性。
+請務必留意，使用 VNet 服務端點搭配服務匯流排時，應避免在混合了標準層和進階層服務匯流排命名空間的應用程式中啟用這些端點。 因為標準層不支援 VNet，所以端點僅限於進階層命名空間。 VNet 會封鎖前往標準命名空間的流量。 
+
+## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>VNet 整合所實現的進階安全性案例 
+
+需要緊密和劃分安全性，而且虛擬網路子網路分割各劃分服務的解決方案，通常仍然需要位於這些區間之各項服務之間的通訊路徑。
+
+區間之間的任何立即 IP 路由，包括那些運輸 HTTPS over TCP/IP，會帶來上層網路的弱點危害風險。 傳訊服務提供完全隔離的通訊路徑，在其中，當訊息在對象之間轉換時，甚至會寫入到磁碟。 兩個都繫結到相同服務匯流排執行個體的不同虛擬網路，其中的工作負載可以透過訊息有效且可靠地通訊，同時保留各自的網路隔離界限完整性。
  
 這表示您的安全性敏感雲端解決方案，不只獲得了 Azure 領先業界可靠和可擴充非同步傳訊功能支援，且現在可以使用傳訊來建立安全解決方案區間之間的通訊路徑，本質上會比任何對等通訊模式 (包括 HTTPS 和其他受 TLS 保護的通訊端通訊協定) 所能達成的更為安全。
 
@@ -43,7 +49,7 @@ ms.locfileid: "37034651"
 
 ### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>利用 Azure Resource Manager 範本來建立虛擬網路規則
 
-下列 Resource Manager 範本可讓您將虛擬網路規則加入至現有的服務匯流排命名空間。
+下列 Resource Manager 範本可讓您將虛擬網路規則新增至現有的服務匯流排命名空間。
 
 範本參數：
 
@@ -90,7 +96,7 @@ ms.locfileid: "37034651"
 }
 ```
 
-若要部署範本，請依照 [Azure Resource Manager][lnk-deploy] 的指示。
+若要部署範本，請依照 [Azure Resource Manager][lnk-deploy] 適用的指示執行。
 
 ## <a name="next-steps"></a>後續步驟
 
