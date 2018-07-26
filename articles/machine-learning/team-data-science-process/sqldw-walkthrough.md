@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: deguhath
-ms.openlocfilehash: 205c62246210373333c1315d5f3a9b3ec8571e59
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 6178c4a55d24bb37aae787129c9a0d390a2e536b
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004365"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226221"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Team Data Science Process 實務：使用 SQL 資料倉儲
 在本教學課程中，我們將引導您使用 SQL 資料倉儲 (SQL DW)，針對可公開使用的資料集 ( [NYC 計程車車程](http://www.andresmh.com/nyctaxitrips/) 資料集) 建置和部署機器學習服務模型。 所建構的二元分類模型可預測是否已針對某趟車程支付小費，並且也會討論預測支付的小費金額分佈的多元分類模型和迴歸模型。
@@ -882,7 +882,7 @@ Azure Machine Learning 將根據訓練實驗的元件來建立計分實驗。 �
 讓我們回顧一下已在此逐步解說教學課程中完成的工作，您已經建立 Azure 資料科學環境、使用大型公用資料集，並在 Team Data Science Process 的整個過程中使用它，而您在這個過程中擷取資料、進行模型定型，然後部署 Azure Machine Learning Web 服務。
 
 ### <a name="license-information"></a>授權資訊
-此逐步解說範例及其隨附的指令碼和 IPython Notebook 是在 MIT 授權下由 Microsoft 所共用。 如需詳細資訊，請檢查 GitHub 上程式碼範例目錄中的 LICENSE.txt 檔案。
+此逐步解說範例及其隨附的指令碼和 IPython Notebook 是在 MIT 授權下由 Microsoft 所共用。 如需詳細資料，請查看 GitHub 上範例程式碼目錄中的 LICENSE.txt 檔案。
 
 ## <a name="references"></a>參考
 •    [Andrés Monroy NYC 計程車車程下載頁面](http://www.andresmh.com/nyctaxitrips/) \(英文\)  

@@ -1,59 +1,51 @@
 ---
-title: Azure Active Directory B2C 中的 Microsoft 帳戶設定 | Microsoft Docs
-description: 在受 Azure Active Directory B2C 保護的應用程式中，針對具有 Microsoft 帳戶的取用者提供註冊和登入。
+title: 使用 Azure Active Directory B2C 設定註冊，並以 Microsoft 帳戶登入 | Microsoft Docs
+description: 使用 Azure Active Directory B2C，讓具有 Microsoft 帳戶的客戶得以註冊和登入您的應用程式。
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2016
+ms.date: 07/05/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c788b14a99125a208390cd4f8ead338efed06933
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 16e4dbac4c8146b048d4d9b76544677a6111e2a5
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444162"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37900824"
 ---
-# <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-microsoft-accounts"></a>Azure Active Directory B2C：針對具有 Microsoft 帳戶的取用者提供註冊和登入
+# <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 設定註冊，並以 Microsoft 帳戶登入
+
 ## <a name="create-a-microsoft-account-application"></a>建立 Microsoft 帳戶應用程式
-若要在 Azure Active Directory (Azure AD) B2C 中使用 Microsoft 帳戶做為識別提供者，您必須建立 Microsoft 帳戶應用程式，然後對其提供正確參數。 您需要 Microsoft 帳戶才能執行此動作。 如果您沒有帳戶，您可以在 [https://www.live.com/](https://www.live.com/) 上取得。
 
-1. 移至 [Microsoft 應用程式註冊入口網站](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)，並使用您的 Microsoft 帳戶認證登入。
-2. 按一下 [新增應用程式] 。
-   
-    ![Microsoft 帳戶 - 加入新的應用程式](./media/active-directory-b2c-setup-msa-app/msa-add-new-app.png)
-3. 為應用程式提供 [名稱]，然後按一下 [建立應用程式]。
-   
-    ![Microsoft 帳戶 - 應用程式名稱](./media/active-directory-b2c-setup-msa-app/msa-app-name.png)
-4. 複製 [應用程式識別碼] 的值。您必須使用此值，將 Microsoft 帳戶於租用戶中設定為識別提供者。
-   
-    ![Microsoft 帳戶 - 應用程式識別碼](./media/active-directory-b2c-setup-msa-app/msa-app-id.png)
-5. 按一下 [新增平台]，然後選擇 [Web]。
-   
-    ![Microsoft 帳戶 - 新增平台](./media/active-directory-b2c-setup-msa-app/msa-add-platform.png)
-   
-    ![Microsoft 帳戶 - Web](./media/active-directory-b2c-setup-msa-app/msa-web.png)
-6. 在 [重新導向 URI] 欄位中輸入 `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`。 使用您的租用戶名稱 (例如 contosob2c.onmicrosoft.com) 來取代 **{tenant}**。
-   
-    ![Microsoft 帳戶 - 重新導向 URL](./media/active-directory-b2c-setup-msa-app/msa-redirect-url.png)
-7. 按一下 [應用程式密碼] 區段底下的 [產生新密碼]。 複製螢幕上顯示的新密碼。 您必須使用此值，將 Microsoft 帳戶於租用戶中設定為識別提供者。 此密碼是重要的安全性認證。
-   
-    ![Microsoft 帳戶 - 產生新密碼](./media/active-directory-b2c-setup-msa-app/msa-generate-new-password.png)
-   
-    ![Microsoft 帳戶 - 新密碼](./media/active-directory-b2c-setup-msa-app/msa-new-password.png)
-8. 勾選 [進階選項] 區段底下顯示 [Live SDK 支援] 的方塊。 按一下 [檔案] 。
-   
-    ![Microsoft 帳戶 - Live SDK 支援](./media/active-directory-b2c-setup-msa-app/msa-live-sdk-support.png)
+若要在 Azure Active Directory (Azure AD) B2C 中使用 Microsoft 帳戶做為識別提供者，您需要在代表該帳戶的租用戶中建立應用程式。 如果您還沒有 Microsoft 帳戶，可以至 [https://www.live.com/](https://www.live.com/) 取得。
 
-## <a name="configure-microsoft-account-as-an-identity-provider-in-your-tenant"></a>將 Microsoft 帳戶於租用戶中設定為識別提供者
-1. 遵循下列步驟以 [瀏覽至 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) (位於 Azure 入口網站上)。
-2. 在 B2C 功能刀鋒視窗中，按一下 [ **身分識別提供者**]。
-3. 按一下刀鋒視窗頂端的 [新增]  。
-4. 針對身分識別提供者組態，提供容易辨識的 **名稱** 。 例如，輸入 "MSA"。
-5. 按一下 [識別提供者類型]、選取 [Microsoft 帳戶]，然後按一下 [確定]。
-6. 按一下 [設定此身分識別提供者]  ，然後輸入您先前建立的 Microsoft 帳戶應用程式的應用程式識別碼和密碼。
-7. 依序按一下 [確定] 與 [建立]，以儲存您的 Microsoft 帳戶設定。
+1. 請使用您的 Microsoft 帳戶認證登入 [Microsoft 應用程式註冊入口網站](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)。
+2. 在右上角選取 [新增應用程式]。
+3. 為應用程式提供 [名稱]，然後按一下 [建立]。
+4. 在註冊頁面上，複製 [應用程式識別碼] 的值。您必須使用此值，在租用戶中將 Microsoft 帳戶設定為識別提供者。
+5. 選取 [新增平台]，然後選擇 [Web]。
+6. 在 [重新導向 URL] 中，輸入 `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`。 使用您的租用戶名稱 (例如 contosob2c.onmicrosoft.com) 來取代 **{tenant}**。
+7. 在 [應用程式密碼] 下，選取 [產生新密碼]。 複製螢幕上顯示的新密碼。 您必須使用此值，在租用戶中將 Microsoft 帳戶設定為識別提供者。 此密碼是重要的安全性認證。
+
+## <a name="configure-a-microsoft-account-as-an-identity-provider"></a>將 Microsoft 帳戶設為識別提供者
+
+1. 以 Azure AD B2C 租用戶的全域管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
+2. 在 Azure 入口網站的右上角切換到您的 Azure AD B2C 租用戶，確定您使用的目錄包含該租用戶。 選取您的訂用帳戶資訊，然後選取 [切換目錄]。 
+
+    ![切換為您的 Azure AD B2C 租用戶](./media/active-directory-b2c-setup-msa-app/switch-directories.png)
+
+    選擇包含您租用戶的目錄。
+
+    ![選取目錄](./media/active-directory-b2c-setup-msa-app/select-directory.png)
+
+3. 選擇 Azure 入口網站左上角的 [所有服務]，搜尋並選取 [Azure AD B2C]。
+4. 選取 [識別提供者]，然後選取 [新增]。
+5. 提供 [名稱]。 例如，輸入 *MSA*。
+6. 選取 [識別提供者類型]、選取 [Microsoft 帳戶]，然後按一下 [確定]。
+7. 選取 [設定此識別提供者]，並輸入 [用戶端識別碼] (您先前記錄下來的應用程式識別碼)，然後輸入 [用戶端密碼] (您先前建立的 Microsoft 帳戶應用程式的密碼)。
+8. 依序按一下 [確定] 與 [建立]，以儲存您的 Microsoft 帳戶設定。
 

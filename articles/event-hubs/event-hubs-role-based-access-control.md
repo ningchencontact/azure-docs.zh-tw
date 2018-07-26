@@ -5,25 +5,21 @@ services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/19/2017
+ms.date: 07/05/2018
 ms.author: sethm
-ms.openlocfilehash: 0d3a779eb2cccf242bcd42d82c1a90048b3512ab
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 9c38f74cd4499fad1feaadb6c1bbc99da791ebd6
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26783508"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888362"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Active Directory 角色型存取控制 (預覽)
 
-Microsoft Azure 針對以 Azure Active Directory (Azure AD) 為基礎的資源和應用程式提供了整合式的存取控制管理功能。 使用 Azure AD，您即可管理使用者帳戶和應用程式 (具體而言是您的 Azure 型應用程式)，也可以讓您現有的 Active Directory 基礎結構與 Azure AD 同盟，以便提供也會跨越 Azure 資源和 Azure 託管應用程式的全公司單一登入功能。 然後，您可以將這些 Azure AD 使用者和應用程式身分識別指派給全域和服務特有的角色，以便授與 Azure 資源的存取權。
+Microsoft Azure 針對以 Azure Active Directory (Azure AD) 為基礎的資源和應用程式提供了整合式的存取控制管理功能。 使用 Azure AD，您即可管理使用者帳戶和應用程式 (具體而言是您的 Azure 型應用程式)，也可以讓您現有的 Active Directory 基礎結構與 Azure AD 建立同盟，以便提供亦可涵蓋 Azure 資源和 Azure 託管應用程式的全公司單一登入功能。 然後，您可以將這些 Azure AD 使用者和應用程式身分識別指派給全域和服務特有的角色，以便授與 Azure 資源的存取權。
 
 對於 Azure 事件中樞來說，透過 Azure 入口網站和 Azure 資源管理 API 來的管理命名空間和所有相關資源的作業，已使用「角色型存取控制 (RBAC)」模型來加以保護。 執行階段作業的 RBAC 目前是處於公開預覽狀態的功能。 
 

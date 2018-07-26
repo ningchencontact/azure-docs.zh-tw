@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/12/2018
 ms.author: ryanwi,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 58b7dc532511ae25c7db2bf021a42fecc3dd9bb5
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 601742d82c1bd9a0e691de28ff9c4a09f12b538e
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056674"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186374"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>教學課程：將 Service Fabric 應用程式部署到 Azure 中的叢集
 
@@ -57,7 +57,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="publish-to-a-service-fabric-cluster"></a>發佈至 Service Fabric 叢集
 
-應用程式備妥後，即可直接從 Visual Studio 將其部署到叢集。 [Service Fabric 叢集](/service-fabric/service-fabric-deploy-anywhere.md)是一組由網路連接的虛擬或實體機器，可用來將您的微服務部署到其中並進行管理。
+應用程式備妥後，即可直接從 Visual Studio 將其部署到叢集。 [Service Fabric 叢集](https://docs.microsoft.com/en-gb/azure/service-fabric/service-fabric-deploy-anywhere)是一組由網路連接的虛擬或實體機器，可用來將您的微服務部署到其中並進行管理。
 
 針對本教學課程，您有兩個選項可使用 Visual Studio 將「投票」應用程式部署到 Service Fabric 叢集：
 

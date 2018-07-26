@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: ergreenl
-ms.openlocfilehash: 807dd2bdcc1e2ad18b1a93c3337c8244e3f1366b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 67f4f0850d0600fc7ca0f1323e7c7801187089f5
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218974"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950729"
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>針對受控網域的無效網路設定進行移難排解
 本文將協助您針對導致下列警示訊息的網路相關設定錯誤進行疑難排解：
@@ -35,8 +35,8 @@ Azure AD Domain Services 網路錯誤最常見的原因是 NSG 設定無效。 �
 1. 在 Azure 入口網站中，瀏覽至 [網路安全性群組](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) 頁面
 2. 從表格中，選擇與已啟用您受控網域的子網路關聯的 NSG。
 3. 在左窗格的 [設定] 下，按一下 [輸入安全性規則]
-4. 檢閱備妥的規則，並識別哪些規則會封鎖存取[這些連接埠](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services)。
-5. 對 NSG 進行以下編輯以確保合規性：刪除規則、新增規則，或建立全新的 NSG。 [新增規則](#add-a-rule-to-a-network-security-group-using-the-azure-portal)或[建立全新符合規範的 NSG](#create-a-nsg-for-azure-ad-domain-services-using-powershell) 的步驟如下。
+4. 檢閱備妥的規則，並識別哪些規則會封鎖存取[這些連接埠](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services)
+5. 對 NSG 進行以下編輯以確保合規性：刪除規則、新增規則，或建立全新的 NSG。 [新增規則](#add-a-rule-to-a-network-security-group-using-the-azure-portal)或[建立全新符合規範的 NSG](#create-a-nsg-for-azure-ad-domain-services-using-powershell) 的步驟如下
 
 ## <a name="sample-nsg"></a>NSG 範例
 下表描述的 NSG 範例，能讓受控網域保持安全，同時允許 Microsoft 監視、管理及更新資訊。
@@ -49,7 +49,7 @@ Azure AD Domain Services 網路錯誤最常見的原因是 NSG 設定無效。 �
 ## <a name="add-a-rule-to-a-network-security-group-using-the-azure-portal"></a>使用 Azure 入口網站將規則新增至網路安全性群組
 如果您不想使用 PowerShell，則可使用 Azure 入口網站，手動對 NSG 新增單一規則。 若要在網路安全性群組中建立規則，請完成下列步驟：
 
-1. 在 Azure 入口網站中，瀏覽至 [網路安全性群組](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) 頁面
+1. 在 Azure 入口網站中，瀏覽至 [網路安全性群組][](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) 頁面。
 2. 從表格中，選擇與已啟用您受控網域的子網路關聯的 NSG。
 3. 在左側面板的 [設定] 底下，按一下 [輸入安全性規則] 或 [輸出安全性規則]。
 4. 按一下 [新增] 並填入資訊來建立規則。 按一下 [確定]。

@@ -11,11 +11,11 @@ ms.date: 03/12/2018
 ms.author: tarcher
 ms.custom: Jenkins
 ms.openlocfilehash: c9f86ab2536d3c598bb8c7084524395b41f18db0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29936572"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38635453"
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>從 Azure 入口網站在 Azure Linux VM 上建立 Jenkins 伺服器
 
@@ -45,7 +45,7 @@ Jenkins 支援由 Jenkins 伺服器將工作委派給一或多個代理程式的
 ssh -L 127.0.0.1:8080:localhost:8080 jenkinsadmin@jenkins2517454.eastus.cloudapp.azure.com
 ```
 
-啟動您的通道後，在本機電腦上瀏覽至 http://localhost:8080/。 
+啟動通道後，在本機電腦上瀏覽至 http://localhost:8080/。 
 
 透過 SSH 連線到 Jenkins VM 時，在命令列中執行下列命令，以取得初始密碼。
 

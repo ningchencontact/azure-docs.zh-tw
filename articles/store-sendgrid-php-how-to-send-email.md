@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
-ms.openlocfilehash: 523b986f66a2e48685e9707903194856f0dcf4a2
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: bceec3e85a54eb0e8b542d40ab20536ab41a50f0
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "23059923"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38718935"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>如何透過 PHP 使用 SendGrid 電子郵件服務
 本指南示範如何在 Azure 上透過 SendGrid 電子郵件服務執行常見程式設計工作。 相關範例是以 PHP 撰寫的。
@@ -47,7 +47,7 @@ SendGrid 是 [雲端架構電子郵件服務]，能提供可靠的 [交易式電
 您可以使用 SendGrid 提供的 SMTP 或 Web API 傳送電子郵件。
 
 ### <a name="smtp-api"></a>SMTP API
-若要使用 SendGrid SMTP API 傳送電子郵件，請使用 *Swift Mailer*，它是元件型資料庫，可透過 PHP 應用程式傳送電子郵件。 您可以從 [http://swiftmailer.org/download][http://swiftmailer.org/download] v5.3.0 下載 *Swift Mailer* 程式庫 (使用 [Composer] 安裝 Swift Mailer)。 使用程式庫傳送電子郵件牽涉到建立 <span class="auto-style2">Swift\_SmtpTransport</span>、<span class="auto-style2">Swift\_Mailer</span> 和 <span class="auto-style2">Swift\_Message</span> 類別的執行個體、設定適當的屬性，以及呼叫 <span class="auto-style2">Swift\_Mailer::send</span> 方法。
+若要使用 SendGrid SMTP API 傳送電子郵件，請使用 *Swift Mailer*，它是元件型資料庫，可透過 PHP 應用程式傳送電子郵件。 您可以從 [http://swiftmailer.org/download][https://swiftmailer.symfony.com/] v5.3.0 下載 *Swift Mailer* 程式庫 (使用 [Composer] 安裝 Swift Mailer)。 使用程式庫傳送電子郵件牽涉到建立 <span class="auto-style2">Swift\_SmtpTransport</span>、<span class="auto-style2">Swift\_Mailer</span> 和 <span class="auto-style2">Swift\_Message</span> 類別的執行個體、設定適當的屬性，以及呼叫 <span class="auto-style2">Swift\_Mailer::send</span> 方法。
 
     <?php
      include_once "vendor/autoload.php";
