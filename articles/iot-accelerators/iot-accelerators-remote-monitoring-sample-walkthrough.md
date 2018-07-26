@@ -8,16 +8,16 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: a8b5d9e3917c854cb255a35d3bbc901bcce52c24
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: dfe584532efeab1dbc0d2928b7afb0a6695a21ee
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084520"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39184940"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>遠端監視解決方案加速器概觀
 
-遠端監視[解決方案加速器](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md)會在遠端位置實作多部機器的端對端監視解決方案。 此解決方案結合了主要的 Azure 服務以提供一般的商務案例實作。 您可以將此解決方案作為自己實作的起點並加以[自訂](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md)，以符合自己特有的商務需求。
+遠端監視[解決方案加速器](../iot-accelerators/about-iot-accelerators.md)會在遠端位置實作多部機器的端對端監視解決方案。 此解決方案結合了主要的 Azure 服務以提供一般的商務案例實作。 您可以將此解決方案作為自己實作的起點並加以[自訂](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md)，以符合自己特有的商務需求。
 
 本文將逐步介紹遠端監視解決方案的一些重要元素，讓您瞭解它的運作方式。 這項知識能協助您︰
 
@@ -27,7 +27,7 @@ ms.locfileid: "37084520"
 
 ## <a name="logical-architecture"></a>邏輯架構
 
-下圖概述 [IoT 架構](../iot-accelerators/iot-accelerators-what-is-azure-iot.md)上重疊的遠端監視解決方案加速器的邏輯元件：
+下圖概述 [IoT 架構](../iot-fundamentals/iot-introduction.md)上重疊的遠端監視解決方案加速器的邏輯元件：
 
 ![邏輯架構](./media/iot-accelerators-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 

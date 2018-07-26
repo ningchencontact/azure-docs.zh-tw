@@ -8,22 +8,22 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: f16fdfca704b8f8cb175de637ad7f3ef143d3ed7
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 10617c129212d8196897af750c02647f0086c8e5
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968950"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185885"
 ---
 # <a name="visualize-remote-monitoring-data-with-time-series-insights"></a>使用時間序列深入解析將遠端監視資料視覺化
 
 操作員可能想要進一步擴充遠端監視預先設定解決方案所提供的現成資料視覺效果。 我們的解決方案加速器原本就會提供與 TSI 的整合。 在此操作說明中，您將了解如何設定時間序列深入解析，來分析裝置遙測和偵測異常行為。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本操作說明，您需要下列各項：
 
-* [部署遠端監視預先設定解決方案](iot-accelerators-remote-monitoring-deploy.md)
+* [部署遠端監視預先設定解決方案](quickstart-remote-monitoring-deploy.md)
 
 ## <a name="create-a-consumer-group"></a>建立取用者群組
 

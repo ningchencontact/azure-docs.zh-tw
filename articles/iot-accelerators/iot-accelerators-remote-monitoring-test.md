@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: 33566bd31f320ccc21f32a256d96d89ee25198bb
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 8d8835bd97b489a730a040e86748c668963c7196
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37088422"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187718"
 ---
 # <a name="create-a-new-simulated-device"></a>建立新的模擬裝置
 
@@ -83,11 +83,11 @@ ms.locfileid: "37088422"
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-38-Customizing-Azure-IoT-Suite-solution-and-connect-a-real-device/Player]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 為了依循本教學課程進行操作，您需要：
 
-* 在 Azure 訂用帳戶中有一個已部署的遠端監視解決方案執行個體。 如果您尚未部署遠端監視解決方案，應該先完成[部署遠端監視解決方案加速器](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md)教學課程。
+* 在 Azure 訂用帳戶中有一個已部署的遠端監視解決方案執行個體。 如果您尚未部署遠端監視解決方案，應該先完成[部署遠端監視解決方案加速器](../iot-accelerators/quickstart-remote-monitoring-deploy.md)教學課程。
 
 * Visual Studio 2017。 如果尚未安裝 Visual Studio 2017，可以下載免費的 [Visual Studio Community](https://www.visualstudio.com/free-developer-offers/) 版本。
 
@@ -239,7 +239,7 @@ ms.locfileid: "37088422"
 
 1. 在 [方案總管] 中，以滑鼠右鍵按一下 [WebService] 專案，選擇 [偵錯]，然後選擇 [開始新執行個體]。
 
-1. 服務會開始在本機執行，並在預設瀏覽器中開啟 `http://localhost:9022/v1/status` 。 確認 [狀態] 值是「正確: 運作良好」。
+1. 服務會開始在本機執行，並在預設瀏覽器中開啟 `http://localhost:9022/v1/status`。 確認 [狀態] 值是「正確: 運作良好」。
 
 1. 繼續讓儲存體配接器服務在本機執行，直到完成本教學課程。
 

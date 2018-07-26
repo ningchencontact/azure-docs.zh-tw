@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 654c458c419db9e2849b55df45f389dd5d282f00
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: b83c67e5c2ca47e73c1743d8eeaea03a8d92ea1f
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37922716"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247847"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>準備封存至儲存體帳戶之 Azure 監視器診斷記錄的格式變更
 
@@ -32,7 +32,7 @@ Azure 監視器提供一種功能，可讓您將資源診斷資料和活動記�
 * 在所有的公用雲端區域中，這項變更會同時發生。 變更還不會出現在 Azure 中國、Azure 德國或 Azure Government 雲端中。
 * 這項變更會影響下列資料類型：
   * [Azure 資源診斷記錄](./monitoring-archive-diagnostic-logs.md) ([請參閱這裡的資源清單](./monitoring-diagnostic-logs-schema.md))
-  * [診斷設定所匯出的 Azure 資源計量](./monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)
+  * [診斷設定所匯出的 Azure 資源計量](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)
   * [記錄設定檔所匯出的 Azure 活動記錄資料](./monitoring-archive-activity-log.md)
 * 這項變更不會影響：
   * 網路流量記錄

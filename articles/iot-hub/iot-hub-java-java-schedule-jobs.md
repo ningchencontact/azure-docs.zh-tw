@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/10/2017
 ms.author: dobett
-ms.openlocfilehash: cb25ae0e90189f0c808f561b20e45f08b49df0d6
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 3161715ac2ff212e2de8a27ff8f8eb53fb858b92
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299156"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186800"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>排定及廣播作業 (Java)
 
@@ -31,7 +31,7 @@ ms.locfileid: "38299156"
 若要一一了解這些功能，請參閱：
 
 * 裝置對應項和屬性：[開始使用裝置對應項](iot-hub-java-java-twin-getstarted.md)
-* 直接方法：[IoT 中樞開發人員指南 - 直接方法](iot-hub-devguide-direct-methods.md)和[教學課程：使用直接方法](iot-hub-java-java-direct-methods.md)
+* 直接方法：[IoT 中樞開發人員指南 - 直接方法](iot-hub-devguide-direct-methods.md)和[教學課程：使用直接方法](quickstart-control-device-java.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -49,7 +49,7 @@ ms.locfileid: "38299156"
 > [!NOTE]
 > [Azure IoT SDK](iot-hub-devguide-sdks.md) 一文提供可用來建置裝置和後端應用程式之 Azure IoT SDK 的相關資訊。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，您需要：
 
@@ -482,5 +482,5 @@ ms.locfileid: "38299156"
 
 使用下列資源來了解如何：
 
-* 利用[開始使用 IoT 中樞](iot-hub-java-java-getstarted.md)教學課程，傳送裝置的遙測資料。
-* 以互動方式控制裝置 (例如，從使用者控制的應用程式開啟風扇)，請參閱[使用直接方法](iot-hub-java-java-direct-methods.md)教學課程。
+* 利用[開始使用 IoT 中樞](quickstart-send-telemetry-java.md)教學課程，傳送裝置的遙測資料。
+* 以互動方式控制裝置 (例如，從使用者控制的應用程式開啟風扇)，請參閱[使用直接方法](quickstart-control-device-java.md)教學課程。

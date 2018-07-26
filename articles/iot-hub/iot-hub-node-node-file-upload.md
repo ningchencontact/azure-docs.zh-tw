@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: 48a2d302727f2f8e9c87552a05bc7506fbef3120
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 936063e1419d5e2261033ea74d75687eade928e8
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38235554"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187312"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>使用 IoT 中樞將檔案從裝置上傳至雲端
 
@@ -25,7 +25,7 @@ ms.locfileid: "38235554"
 - 安全地將 Azure Blob URI 提供給裝置，以便上傳檔案。
 - 您可以使用 IoT 中樞檔案上傳通知來觸發在您的應用程式後端中處理此檔案。
 
-[開始使用 IoT 中樞](iot-hub-node-node-getstarted.md)教學課程示範「IoT 中樞」的基本裝置到雲端傳訊功能。 不過，在某些情況下，您無法輕易地將裝置傳送的資料對應到 IoT 中樞接受且相對較小的裝置到雲端訊息。 例如︰
+[開始使用 IoT 中樞](quickstart-send-telemetry-node.md)教學課程示範「IoT 中樞」的基本裝置到雲端傳訊功能。 不過，在某些情況下，您無法輕易地將裝置傳送的資料對應到 IoT 中樞接受且相對較小的裝置到雲端訊息。 例如︰
 
 * 包含映像的大型檔案
 * 影片

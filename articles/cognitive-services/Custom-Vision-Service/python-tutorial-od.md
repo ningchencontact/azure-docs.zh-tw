@@ -9,18 +9,18 @@ ms.component: custom-vision
 ms.topic: article
 ms.date: 05/03/2018
 ms.author: areddish
-ms.openlocfilehash: b946265b431a7dcb16bf99e3bf78e09f2d0a7de3
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 37bdb9ebf7c74586c728e171a9897903b8ad2ee8
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301007"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213576"
 ---
 # <a name="use-custom-vision-api-to-build-an-object-detection-project-with-python"></a>使用 Python 利用自訂視覺 API 來建置物件偵測專案
 
 探索使用電腦視覺 API 來建立物件偵測專案的基本 Python 指令碼。 建立它之後，您就可以新增標記的區域、上傳影像、為專案定型、取得專案的預設預測端點 URL，並使用端點以程式設計方式測試影像。 使用自訂視覺 API，利用此開放原始碼範例作為範本，來建置自己的應用程式。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要使用教學課程，您需要執行下列動作：
 
@@ -194,7 +194,7 @@ from azure.cognitiveservices.vision.customvision.prediction.prediction_endpoint 
 predictor = prediction_endpoint.PredictionEndpoint(prediction_key)
 
 # Open the sample image and get back the prediction results.
-with open("images/test/test_image.jpg", mode="rb") as test_data:
+with open("images/Test/test_od_image.jpg", mode="rb") as test_data:
     results = predictor.predict_image(project.id, test_data, iteration.id)
 
 # Display the results.

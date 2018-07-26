@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: nberdy
-ms.openlocfilehash: 754901bb9c851f66708771346cbb7fe2e42688cd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b41458f0201c46b99c09d0bfffd219743a36ad50
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634058"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186750"
 ---
 # <a name="understand-iot-hub-metrics"></a>了解 IoT 中樞計量
 IoT 中樞度量提供更好的資料，讓您了解 Azure 訂用帳戶中各種 Azure 資源的狀態。 IoT 中樞度量可讓您評估 IoT 中樞服務及其連接之裝置的整體健全狀況。 提供給您的統計資料非常重要，因為它們可以協助您了解其 IoT 中樞的情況，並協助您不需要連絡 Azure 支援人員就解決根本問題。
@@ -100,7 +100,7 @@ IoT 中樞提供數個度量，以讓您概略了解中樞的健全狀況和所�
 [1]: media/iot-hub-metrics/enable-metrics-1.png
 [2]: media/iot-hub-metrics/enable-metrics-2.png
 
-[lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
+[lnk-get-started]: quickstart-send-telemetry-dotnet.md
 [lnk-operations-monitoring]: iot-hub-operations-monitoring.md
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md

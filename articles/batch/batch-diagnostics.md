@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: e64d272695c4e47c972df040d1c1c2a63bf3dddd
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 54034b9a851fc6f06f97be9cfd5f261465bad455
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31788189"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248257"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>用於診斷評估和監視的 Batch 計量、警示和記錄
 
@@ -101,7 +101,7 @@ ms.locfileid: "31788189"
 
     ![Batch 診斷](media/batch-diagnostics/diagnostics-portal.png)
 
-啟用記錄收集的其他選項包括：使用入口網站中的 Azure 監視器設定診斷設定、使用 [Resource Manager 範本](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md)或使用 Azure PowerShell 或 Azure CLI。 請參閱[收集並取用來自 Azure 資源的記錄資料](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs)。
+啟用記錄收集的其他選項包括：使用入口網站中的 Azure 監視器設定診斷設定、使用 [Resource Manager 範本](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md)或使用 Azure PowerShell 或 Azure CLI。 請參閱[收集並取用來自 Azure 資源的記錄資料](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs)。
 
 
 ### <a name="access-diagnostics-logs-in-storage"></a>存取儲存體中的診斷記錄

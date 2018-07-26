@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 4/20/2017
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: 7ca3945dd3768ac71e0a962417f0a621aa83be1e
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: f1582efa7d357f6f535c562a656ec17024357320
+ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34075715"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39242864"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>從重大資料遺失的情況下復原
 
@@ -65,11 +65,11 @@ Azure Stack 支援一種稱為「雲端復原模式」的部署。 只有在災�
  - 內部身分識別系統
  - 同盟身分識別設定 (已中斷連線的部署)
  - 內部憑證授權單位所使用的根憑證
- - Azure Resource Manager 設定使用者資料，例如訂用帳戶、方案，以及儲存體、網路和計算資源的配額
+ - Azure Resource Manager 設定使用者資料，例如訂用帳戶、方案、供應項目，以及儲存體、網路和計算資源的配額
  - KeyVault 祕密和保存庫
  - RBAC 原則指派和角色指派 
 
-在部署期間不會復原任何使用者的基礎結構即服務 (IaaS) 或平台即服務 (PaaS) 資源。 也就是說，包括 IaaS VM、儲存體帳戶、BLOb、資料表、網路設定等等都會遺失。 雲端復原的目的在於確保您的操作員和使用者在部署完成後，可以重新登入入口網站。 重新登入的使用者不會看到任何資源。 系統會還原使用者的訂用帳戶，以及系統管理員所定義的原始方案和訂閱詳情原則。 重新登入系統的使用者在操作時，同樣會受到災害發生前原始解決方案所設下限制的約束。 雲端復原完成後，操作員可以手動還原加值和第三方 RP 及相關聯的資料。
+在部署期間不會復原任何使用者的基礎結構即服務 (IaaS) 或平台即服務 (PaaS) 資源。 也就是說，包括 IaaS VM、儲存體帳戶、BLOb、資料表、網路設定等等都會遺失。 雲端復原的目的在於確保您的操作員和使用者在部署完成後，可以重新登入入口網站。 重新登入的使用者不會看到任何資源。 系統會還原使用者的訂用帳戶，以及系統管理員所定義的原始方案和供應項目原則。 重新登入系統的使用者在操作時，同樣會受到災害發生前原始解決方案所設下限制的約束。 雲端復原完成後，操作員可以手動還原加值和第三方 RP 及相關聯的資料。
 
 ## <a name="next-steps"></a>後續步驟
 

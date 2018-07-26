@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/05/2017
 ms.author: fryu
-ms.openlocfilehash: 05021d5ab8d33e36bff16ce7d2ebacd3db72639a
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: dd11dd9edd5a90f6f541b56263cea4c4c76225bd
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034470"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249133"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure 監視器中的 Azure 儲存體計量
 
@@ -31,7 +31,7 @@ Azure 監視器提供了統一的使用者介面供您監視不同的 Azure 服�
 
 Azure 監視器提供了多種方法供您存取計量。 您可以從 [Azure 入口網站](https://portal.azure.com)、Azure 監視器 API (REST 和 .Net) 和分析解決方案 (例如 Operation Management Suite 和事件中樞) 來存取這些計量。 如需詳細資訊，請參閱 [Azure 監視器計量](../../monitoring-and-diagnostics/monitoring-overview-metrics.md)。
 
-計量是預設啟用的功能，您可以存取過去 30 天的資料。 如果您需要延長這些資料的保留時間，您可以將計量資料封存到 Azure 儲存體帳戶。 此功能可於 Azure 監視器的[診斷設定](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)中進行設定。
+計量是預設啟用的功能，您可以存取過去 30 天的資料。 如果您需要延長這些資料的保留時間，您可以將計量資料封存到 Azure 儲存體帳戶。 此功能可於 Azure 監視器的[診斷設定](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)中進行設定。
 
 ### <a name="access-metrics-in-the-azure-portal"></a>在 Azure 入口網站中存取計量
 

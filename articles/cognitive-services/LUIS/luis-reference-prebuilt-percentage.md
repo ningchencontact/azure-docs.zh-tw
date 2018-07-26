@@ -3,19 +3,19 @@ title: LUIS 預先建置的百分比實體參考 - Azure| Microsoft Docs
 titleSuffix: Azure
 description: 本文包含 Language Understanding (LUIS) 中預先建置的百分比實體資訊。
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 4d502e93f8b6bf3af2da05a499c359faeabb51da
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: d445dbf69e3d2163b5d44b894f8795d41fbd34e3
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321600"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238959"
 ---
 # <a name="percentage-entity"></a>百分比實體
 百分比數字可顯示為分數 `3 1/2` 或百分比 `2%`。 由於此實體已經定型，因此您不需要將包含百分比的範例語句加入至應用程式意圖。 [多種文化特色](luis-reference-prebuilt-entities.md)都支援百分比實體。 

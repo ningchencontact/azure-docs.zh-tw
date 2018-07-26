@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 91a89d5db7c763fc3fe275d6c01f5fe9dd9af3af
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 1dae926a3a368e518877b210fb1caf487688750c
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125911"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187361"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT 中樞術語詞彙
 本文會列出 IoT 中樞文章中使用的一些常見術語。
@@ -151,7 +151,7 @@ IoT 中樞會公開多個[端點](iot-hub-devguide-endpoints.md)，讓您的應�
 若要讀取傳送到 IoT 中樞的[裝置到雲端](#device-to-cloud)訊息，您可以連接到中樞上的端點，並使用任何事件中樞相容方法讀取這些訊息。 事件中樞相容方法包括使用[事件中樞 SDK](../event-hubs/event-hubs-programming-guide.md) 和 [Azure 串流分析](../stream-analytics/stream-analytics-introduction.md)。
 
 ## <a name="field-gateway"></a>現場閘道
-現場閘道可讓無法直接連線到 [IoT 中樞](#iot-hub)的裝置獲得連線能力，並且通常會與裝置一起部署在本機。 如需詳細資訊，請參閱[何謂 Azure IoT 中樞？](iot-hub-what-is-iot-hub.md)
+現場閘道可讓無法直接連線到 [IoT 中樞](#iot-hub)的裝置獲得連線能力，並且通常會與裝置一起部署在本機。 如需詳細資訊，請參閱[何謂 Azure IoT 中樞？](about-iot-hub.md)
 
 ## <a name="free-account"></a>免費帳戶
 您可以建立[免費的 Azure 帳戶](https://azure.microsoft.com/pricing/free-trial/)來完成 IoT 中樞教學課程，並且試驗 IoT 中樞服務 (和其他 Azure 服務)。
@@ -168,7 +168,7 @@ IoT 中樞會公開多個[端點](iot-hub-devguide-endpoints.md)，讓您的應�
 [!INCLUDE [azure-iot-hub-edge-glossary-includes](../../includes/azure-iot-hub-edge-glossary-includes.md)]
 
 ## <a name="iot-hub"></a>IoT 中樞
-IoT 中樞是一項完全受控的 Azure 服務，可在數百萬個裝置和一個解決方案後端之間啟用可靠且安全的雙向通訊。 如需詳細資訊，請參閱[何謂 Azure IoT 中樞？](iot-hub-what-is-iot-hub.md) 使用 [Azure 訂用帳戶](#subscription)，您可以建立 IoT 中樞來處理 IoT 傳訊工作負載。
+IoT 中樞是一項完全受控的 Azure 服務，可在數百萬個裝置和一個解決方案後端之間啟用可靠且安全的雙向通訊。 如需詳細資訊，請參閱[何謂 Azure IoT 中樞？](about-iot-hub.md) 使用 [Azure 訂用帳戶](#subscription)，您可以建立 IoT 中樞來處理 IoT 傳訊工作負載。
 
 ## <a name="iot-hub-metrics"></a>IoT 中樞計量
 [IoT 中樞計量](iot-hub-metrics.md)可提供 [Azure 訂用帳戶](#subscription)中 IoT 中樞的狀態相關資料。 IoT 中樞度量可讓您評估服務及其連接之裝置的整體健全狀況。 IoT 中樞度量可協助您了解 IoT 中樞的情況並調查根本問題，而不需要連絡 Azure 支援人員。
@@ -180,7 +180,7 @@ IoT 中樞是一項完全受控的 Azure 服務，可在數百萬個裝置和一
 您可以使用 [IoT 中樞資源 REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource)，管理 [Azure 訂用帳戶](#subscription)中執行建立、更新及刪除中樞等作業的 IoT 中樞。
 
 ## <a name="iot-solution-accelerators"></a>IoT 解決方案加速器
-Azure IoT 解決方案加速器將多個 Azure 服務封裝在一起成為解決方案。 這些解決方案可讓您快速開始使用常見 IoT 案例的端對端實作。 如需詳細資訊，請參閱[什麼是 Azure IoT 解決方案加速器？](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md)
+Azure IoT 解決方案加速器將多個 Azure 服務封裝在一起成為解決方案。 這些解決方案可讓您快速開始使用常見 IoT 案例的端對端實作。 如需詳細資訊，請參閱[什麼是 Azure IoT 解決方案加速器？](../iot-accelerators/about-iot-accelerators.md)
 
 ## <a name="the-iot-extension-for-azure-cli-20"></a>Azure CLI 2.0 的 IoT 擴充功能
 [Azure CLI 2.0 的 IoT 擴充功能](https://github.com/Azure/azure-iot-cli-extension)是跨平台的命令列工具。 此工具可讓您管理[身分識別登錄](#identity-registry)中的裝置、傳送及接收裝置的訊息和檔案，以及監視 IoT 中樞作業。
@@ -201,7 +201,7 @@ IoT 中樞的[作業監視](iot-hub-operations-monitoring.md)可讓您即時監�
 當您連接到 IoT 中樞上的裝置面向或服務面向端點時，[連接字串](#connection-string)包含可授與存取權的金鑰。 當您將裝置新增到[身分識別登錄](#identity-registry)或將[共用存取原則](#shared-access-policy)新增到中樞時，服務會產生主要和次要金鑰。 擁有兩個金鑰，可讓您在更新金鑰時從一個金鑰轉換至另一個金鑰，而不會中斷對 IoT 中樞的存取。
 
 ## <a name="protocol-gateway"></a>通訊協定閘道
-通訊協定閘道通常部署在雲端，可為連線到 [IoT 中樞](#iot-hub)的裝置提供通訊協定轉譯服務。 如需詳細資訊，請參閱[何謂 Azure IoT 中樞？](iot-hub-what-is-iot-hub.md)
+通訊協定閘道通常部署在雲端，可為連線到 [IoT 中樞](#iot-hub)的裝置提供通訊協定轉譯服務。 如需詳細資訊，請參閱[何謂 Azure IoT 中樞？](about-iot-hub.md)
 
 ## <a name="quotas-and-throttling"></a>配額和節流
 您的 [IoT 中樞](#iot-hub)使用可套用各種[配額](iot-hub-devguide-quotas-throttling.md)，其中有許多配額會因 IoT 中樞的層次而異。 [IoT 中樞](#iot-hub)也會將[節流](iot-hub-devguide-quotas-throttling.md)套用至您在執行階段的服務使用。

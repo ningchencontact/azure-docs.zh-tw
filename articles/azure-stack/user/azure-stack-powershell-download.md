@@ -6,20 +6,19 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 28F360AD-789A-488D-965F-FC6E6CCF3329
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 07/19/2018
 ms.author: mabrigg
-ms.openlocfilehash: f4c4d907fe76c5e6ee5893b5b4dd1b2d766877a7
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 9c1e4abe50b06db58a4ca05a99e1ae4a531b2294
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287247"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187446"
 ---
 # <a name="download-azure-stack-tools-from-github"></a>從 GitHub 下載 Azure Stack 工具
 
@@ -61,12 +60,12 @@ AzureStack-Tools 存放庫包含 PowerShell 模組，其支援下列 Azure Stack
 
 | 功能 | 說明 | 可以使用此模組的人員 |
 | --- | --- | --- |
-| [雲端功能](azure-stack-validate-templates.md) | 使用此模組來取得雲端的雲端功能。 例如，您可以針對 Azure Stack 和使用此模組的 Azure 雲端取得雲端功能，例如 API 版本、Azure Resource Manager 資源、VM 擴充功能等。 | 雲端系統管理員和使用者。 |
+| [雲端功能](https://github.com/Azure/AzureStack-Tools/tree/master/CloudCapabilities) | 使用此模組來取得雲端的雲端功能。 例如，您可以針對 Azure Stack 和使用此模組的 Azure 雲端取得雲端功能，例如 API 版本、Azure Resource Manager 資源、VM 擴充功能等。 | 雲端系統管理員和使用者。 |
 | [適用於 Azure Stack 的 Resource Manager 原則](azure-stack-policy-module.md) | 使用此模組來設定 Azure 訂用帳戶或 Azure 資源群組，包含與 Azure Stack 相同的版本和服務可用性。 | 雲端系統管理員和使用者 |
 | [連線至 Azure Stack](azure-stack-connect-azure-stack.md) | 使用此模組，透過 PowerShell 連線至 Azure Stack 執行個體，並設定 Azure Stack 的 VPN 連線。 | 雲端系統管理員和使用者 |
 | [範本驗證程式](azure-stack-validate-templates.md) | 使用此模組來確認現有或新範本是否可以部署到 Azure Stack。 | 雲端系統管理員和使用者 |
 
 ## <a name="next-steps"></a>後續步驟
 
-* [設定 Azure Stack 使用者的 PowerShell 環境](azure-stack-powershell-configure-user.md)
-* [透過 VPN 連線至 Azure Stack 開發套件](azure-stack-connect-azure-stack.md)
+- [設定 Azure Stack 使用者的 PowerShell 環境](azure-stack-powershell-configure-user.md)
+- [透過 VPN 連線至 Azure Stack 開發套件](azure-stack-connect-azure-stack.md)

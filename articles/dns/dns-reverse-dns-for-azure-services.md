@@ -3,7 +3,7 @@ title: Azure 服務的反向 DNS | Microsoft Docs
 description: 了解如何設定 Azure 託管服務的反向 DNS 對應
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: timlt
 ms.service: dns
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: kumud
-ms.openlocfilehash: bba2d75ed760a6e4eef2caacb0bb5924680b1f4b
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.author: victorh
+ms.openlocfilehash: 0ff14ec2100d47e0edc5288f1c46f4fdd63fa683
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30264858"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171522"
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>設定 Azure 託管服務的反向 DNS
 
@@ -222,7 +222,7 @@ Set-AzureService –ServiceName "contosoapp1" –Description "App1 with Reverse 
 
 ### <a name="are-default-reverse-dns-records-created-for-my-azure-services"></a>我的 Azure 服務有沒有建立預設的反向 DNS 記錄？
 
-編號 反向 DNS 是選用的功能。 如果您選擇不設定，則不會建立任何預設反向 DNS 記錄。
+否。 反向 DNS 是選用的功能。 如果您選擇不設定，則不會建立任何預設反向 DNS 記錄。
 
 ### <a name="what-is-the-format-for-the-fully-qualified-domain-name-fqdn"></a>完整網域名稱 (FQDN) 的格式為何？
 
@@ -234,15 +234,15 @@ FQDN 是以正向順序指定，且必須以點結束 (例如，"app1.contoso.co
 
 ### <a name="can-i-configure-reverse-dns-for-azure-app-service"></a>Azure App Service 可以設定反向 DNS 嗎？
 
-編號 目前不支援 Azure App Service 反向 DNS。
+否。 目前不支援 Azure App Service 反向 DNS。
 
 ### <a name="can-i-configure-multiple-reverse-dns-records-for-my-azure-service"></a>Azure 服務可以設定多個反向 DNS 記錄嗎？
 
-編號 Azure 雲端服務或 PublicIpAddress，Azure 只支援一筆反向 DNS 記錄。
+否。 Azure 雲端服務或 PublicIpAddress，Azure 只支援一筆反向 DNS 記錄。
 
 ### <a name="can-i-configure-reverse-dns-for-ipv6-publicipaddress-resources"></a>IPv6 PublicIpAddress 資源可以設定反向 DNS嗎？
 
-編號 Azure 目前只支援 IPv4 PublicIpAddress 資源和雲端服務的反向 DNS。
+否。 Azure 目前只支援 IPv4 PublicIpAddress 資源和雲端服務的反向 DNS。
 
 ### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>我可以從我的 Azure 計算服務將電子郵件傳送至外部網域嗎？
 

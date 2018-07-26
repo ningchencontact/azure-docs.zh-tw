@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 82ec2b71ee83d2ec697fa44521c103b11976f1ed
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: a30c6a8d02b46656a0d76cf8438bdf0b3361ae91
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264597"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248456"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>開始使用 Azure 監視器的角色、權限和安全性
 許多團隊需要嚴格規範對監視資料及設定的存取。 例如，如果您擁有專門從事監視 (技術支援工程師、devops 工程師) 的團隊成員，或如果您使用受控服務提供者，則您可能只要授與他們監視資料的存取權，同時限制他們建立、修改或刪除資源的能力。 本文說明如何在 Azure 中快速將內建的監視 RBAC 角色套用到使用者，或針對需要有限監視權限的使用者建置您自己的自訂角色。 接著會討論 Azure 監視器相關資源的安全性考量，以及如何限制對這些資源所包含的資料進行存取。
@@ -28,7 +28,7 @@ Azure 監視器的內建角色是專為協助限制存取訂用帳戶中的資�
 * 檢視 [Azure 警示](monitoring-overview-unified-alerts.md)中定義的警示規則
 * 使用 [Azure 監視器 REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx)、[PowerShell cmdlets](insights-powershell-samples.md) 或[跨平台 CLI](insights-cli-samples.md) 查詢度量。
 * 使用入口網站、Azure 監視器 REST API、PowerShell Cmdlets 或跨平台 CLI 查詢活動記錄檔。
-* 檢視用於資源的 [診斷設定](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) 。
+* 檢視用於資源的 [診斷設定](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) 。
 * 檢視用於訂用帳戶的 [記錄檔設定檔](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) 。
 * 檢視自動調整設定。
 * 檢視警示活動和設定。
@@ -49,7 +49,7 @@ Azure 監視器的內建角色是專為協助限制存取訂用帳戶中的資�
 受指派監視參與者角色的人員可以檢視訂用帳戶中所有的監視資料，並建立或修改監視設定，但無法修改任何其他資源。 此角色是監視讀取者角色的超集，且適用於組織的監視團隊成員或受控服務提供者，這些服務提供者除了上述的權限之外，也必須能夠︰
 
 * 將監視儀表板發佈為共用儀表板。
-* 設定用於資源的[診斷設定](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)。*
+* 設定用於資源的[診斷設定](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)。*
 * 設定用於訂用帳戶的[記錄檔設定檔](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)。*
 * 透過 [Azure 警示](monitoring-overview-unified-alerts.md)設定警示規則活動和設定。
 * 建立 Application Insights web 測試和元件。

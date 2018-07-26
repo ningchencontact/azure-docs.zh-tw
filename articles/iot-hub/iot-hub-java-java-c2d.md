@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: 410a156d60aa9b17da9c36e043082c291eea4849
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 853754947b8d89af15a8c773a765f33523721e12
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808106"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187877"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>使用 IoT 中樞傳送雲端到裝置訊息 (Java)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -41,7 +41,7 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 
 若要完成此教學課程，您需要下列項目：
 
-* [開始使用 IoT 中樞](iot-hub-java-java-getstarted.md)或[處理 IoT 中樞裝置對雲端訊息](tutorial-routing.md)教學課程的完整運作版本。
+* [開始使用 IoT 中樞](quickstart-send-telemetry-java.md)或[處理 IoT 中樞裝置對雲端訊息](tutorial-routing.md)教學課程的完整運作版本。
 * 最新的 [Java SE 開發套件 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Maven 3](https://maven.apache.org/install.html)
 * 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶][lnk-free-trial]。)
@@ -203,7 +203,7 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 [img-send-command]:  media/iot-hub-java-java-c2d/sendc2d.png
 <!-- Links -->
 
-[IoT 中心入門]: iot-hub-java-java-getstarted.md
+[IoT 中心入門]: quickstart-send-telemetry-java.md
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 [IoT 中樞開發人員指南]: iot-hub-devguide.md
 [Azure IoT 開發人員中心]: http://azure.microsoft.com/develop/iot

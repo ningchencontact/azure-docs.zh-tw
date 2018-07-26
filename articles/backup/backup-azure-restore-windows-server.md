@@ -6,14 +6,14 @@ author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/4/2018
+ms.date: 7/25/2018
 ms.author: saurse
-ms.openlocfilehash: 16f0460dea75b0dc52c3852d9947db0ad15f8fbe
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a1c9df57ddebbb1cf471f705acfbd6651c151d7b
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606319"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247273"
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>使用 Resource Manager 部署模型將檔案還原到 Windows Server 或 Windows 用戶端電腦
 
@@ -143,33 +143,6 @@ ms.locfileid: "34606319"
     > [!Important]
     > 如果您並未按一下 [卸載]，復原磁碟區會保持掛接 6 個小時 (從掛接後開始計算)。 不過，如果是進行中的檔案複製，掛接時間可擴充至高達 24 小時。 當磁碟區處於掛接狀態時，不會執行任何備份作業。 當掛接磁碟區時，任何排定要執行的備份作業會在復原磁碟區卸載之後才執行。
     >
-
-## <a name="troubleshooting"></a>疑難排解
-如果即使按一下 [掛接] 數分鐘之後，Azure 備份仍未成功掛接復原磁碟區，或者無法掛接復原磁碟區且有一或多個錯誤，請遵循以下步驟來開始一般復原。
-
-1.  如果已執行數分鐘，請取消進行中的掛接程序。
-
-2.  確認您使用最新版本的 Azure 備份代理程式。 若要了解 Azure 備份代理程式的版本資訊，按一下 Microsoft Azure 備份主控台之 [動作] 窗格中的 [關於 Microsoft Azure 復原服務代理程式]，並且確定**版本**號碼等於或高於[本文](https://go.microsoft.com/fwlink/?linkid=229525)中所述的版本。 您可以從[這裡](https://go.microsoft.com/fwLink/?LinkID=288905)下載最新版本
-
-3.  移至 [裝置管理員]  ->  [儲存體控制器]，並確保您可以找出 **Microsoft iSCSI 啟動器**。 如果您可以找到它，請直接前往以下的步驟 7。 
-
-4.  如果您無法如步驟 3 中所述，找到 Microsoft iSCSI 啟動器服務，請查看是否可以在名為 [不明裝置]、硬體識別碼為**ROOT\ISCSIPRT** 的 [裝置管理員]  ->  [儲存體控制器]項目。
-
-5.  以滑鼠右鍵按一下 [不明裝置]，然後選取 [更新驅動程式軟體]。
-
-6.  藉由選取 [自動搜尋更新的驅動程式軟體] 的選項，以更新驅動程式。 完成更新應該會將 [不明裝置] 變更為 [Microsoft iSCSI 啟動器]如下所示。 
-
-    ![加密](./media/backup-azure-restore-windows-server/UnknowniSCSIDevice.png)
-
-7.  移至 [工作管理員]  ->  [服務 (本機)]  ->  [Microsoft iSCSI 啟動器服務]。 
-
-    ![加密](./media/backup-azure-restore-windows-server/MicrosoftInitiatorServiceRunning.png)
-    
-8.  以滑鼠右鍵按一下服務，以重新啟動 Microsoft iSCSI 啟動器服務，按一下 [停止] 並且再次以滑鼠右鍵按一下，然後按一下 [啟動]。
-
-9.  使用即時還原重試復原。 
-
-如果復原仍然失敗，請重新啟動您的伺服器/用戶端。 如果不想要重新開機，或者即使在重新啟動伺服器之後復原仍然失敗，請嘗試從其他電腦復原，移至 [Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)連絡 Azure 支援並且提交支援要求。
 
 ## <a name="next-steps"></a>後續步驟
 * 現在您已復原檔案和資料夾，接下來您可以 [管理您的備份](backup-azure-manage-windows-server.md)。

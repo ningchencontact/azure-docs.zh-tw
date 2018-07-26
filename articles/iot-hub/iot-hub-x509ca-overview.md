@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: eebaf679ada9da554f8582ad89db4e7491dcc134
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: b5028010953b9dbe2386c30e6fa05cc4a94cb971
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004348"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185487"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>使用 X.509 CA 憑證進行裝置驗證
 
@@ -30,7 +30,7 @@ X.509 CA 功能可讓您使用「憑證授權單位」(CA) 向「IoT 中樞」�
 
 ## <a name="prerequisite"></a>必要條件
 
-若要使用 X.509 CA 功能，您必須擁有「IoT 中樞」帳戶。  如果您還沒有該帳戶，請[了解如何建立 IoT 中樞執行個體](iot-hub-csharp-csharp-getstarted.md)。
+若要使用 X.509 CA 功能，您必須擁有「IoT 中樞」帳戶。  如果您還沒有該帳戶，請[了解如何建立 IoT 中樞執行個體](quickstart-send-telemetry-dotnet.md)。
 
 ## <a name="how-to-get-an-x509-ca-certificate"></a>如何取得 X.509 CA 憑證
 

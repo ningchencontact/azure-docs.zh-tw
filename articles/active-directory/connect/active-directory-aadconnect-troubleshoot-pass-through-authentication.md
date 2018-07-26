@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2e7f3b0f01dbd6656413c233fcf64c46963d00ef
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 6cd6b139699b38a06a8e3f9fce5eb6e24fe24654
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917365"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214170"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>針對 Azure Active Directory 傳遞驗證進行疑難排解
 
@@ -97,7 +97,7 @@ ms.locfileid: "37917365"
 
 如果您已在租用戶上啟用傳遞驗證，但您嘗試解除安裝 Azure AD Connect，它會顯示下列警告訊息：「除非您在其他伺服器上有安裝其他傳遞驗證代理程式，否則使用者將無法登入 Azure AD。」
 
-在您解除安裝 Azure AD Connect 之前，請確認您的設定為[高可用性](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability)，以避免中斷使用者登入。
+在您解除安裝 Azure AD Connect 之前，請確認您的設定為[高可用性](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability)，以避免中斷使用者登入。
 
 ## <a name="issues-with-enabling-the-feature"></a>啟用此功能的問題
 
@@ -112,18 +112,6 @@ ms.locfileid: "37917365"
 ### <a name="enabling-the-feature-failed-due-to-token-or-account-authorization-errors"></a>因為權杖或帳戶授權錯誤，所以啟用功能失敗。
 
 請確定您使用僅限雲端的全域管理員帳戶來啟用此功能。 啟用 Multi-Factor Authentication (MFA) 的全域管理員帳戶有一個已知的問題，請暫時關閉 MFA (只是為了完成作業) 作為因應措施。
-
-## <a name="exchange-activesync-configuration-issues"></a>Exchange ActiveSync 設定問題
-
-這些是在設定傳遞驗證設定的 Exchange ActiveSync 支援時常見的問題。
-
-### <a name="exchange-powershell-issue"></a>Exchange PowerShell 問題
-
-如果您在執行**\.** `Set-OrganizationConfig` Exchange PowerShell 命令時看到「找不到符合參數名稱 'PerTenantSwitchToESTSEnabled' 的參數」錯誤，請連絡 Microsoft 支援服務。
-
-### <a name="exchange-activesync-not-working"></a>Exchange ActiveSync 未運作
-
-此設定需要一些時間才會生效，所需時間取決於您的環境。 如果此狀況持續很長的時間，請連絡 Microsoft 支援服務。
 
 ## <a name="collecting-pass-through-authentication-agent-logs"></a>收集傳遞驗證代理程式記錄
 

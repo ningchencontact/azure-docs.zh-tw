@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: dobett
-ms.openlocfilehash: 96cad0fc7f387c5f0cb14996ae6ac015c104b81d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b8884cafbf250b9d7a88219b5647addafee9904a
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38619432"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186895"
 ---
 # <a name="get-started-with-device-twins-java"></a>開始使用裝置對應項 (Java)
 
@@ -350,8 +350,8 @@ ms.locfileid: "38619432"
 
 使用下列資源來了解如何：
 
-* 利用[開始使用 IoT 中樞](iot-hub-java-java-getstarted.md)教學課程，傳送裝置的遙測資料。
-* 以互動方式控制裝置 (例如，從使用者控制的應用程式開啟風扇)，請參閱[使用直接方法](iot-hub-java-java-direct-methods.md)教學課程。
+* 利用[開始使用 IoT 中樞](quickstart-send-telemetry-java.md)教學課程，傳送裝置的遙測資料。
+* 以互動方式控制裝置 (例如，從使用者控制的應用程式開啟風扇)，請參閱[使用直接方法](quickstart-control-device-java.md)教學課程。
 
 <!-- Images. -->
 [7]: ./media/iot-hub-java-java-twin-getstarted/invoke-method.png

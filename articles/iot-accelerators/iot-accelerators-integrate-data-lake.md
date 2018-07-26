@@ -8,12 +8,12 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 5ba9b5534e986be1cbe55043a9acdd981d2ed7fd
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: a918866ff5e206ea4d2dedde2711424924a478fe
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971732"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188059"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>整合遠端監視解決方案與 Azure Data Lake Store
 
@@ -21,11 +21,11 @@ ms.locfileid: "38971732"
 
 在本操作說明中，您會使用 Azure 串流分析作業將來自遠端監視解決方案 IoT 中樞的資料串流至 Azure Data Lake Store。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本操作說明，您需要下列各項：
 
-* [部署遠端監視解決方案加速器](iot-accelerators-remote-monitoring-deploy.md)。
+* [部署遠端監視解決方案加速器](quickstart-remote-monitoring-deploy.md)。
   * 遠端監視解決方案會將要在本文中使用的 IoT 中樞與 Azure 串流分析作業部署到您的 Azure 訂用帳戶。
 * [部署 Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md)
   * 您的 Data Lake Store 應該要部署到與您遠端監視解決方案相同的區域。

@@ -2,22 +2,22 @@
 title: Azure 串流分析中 JavaScript 使用者定義的彙總
 description: 本文說明如何使用 Azure 串流分析中 JavaScript 使用者定義的彙總來執行進階的查詢機制。
 services: stream-analytics
-author: minhe-msft
-ms.author: minhe
-manager: santoshb
-ms.reviewer: jasonh
+author: rodrigoamicrosoft
+ms.author: rodrigoa
+manager: kfile
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
-ms.openlocfilehash: 718109d17309747a3c19f22921e4a316b0b88dc6
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: eb433a322f8077c947fd6db1aaa0e2266a109938
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30907318"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187049"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Azure 串流分析 JavaScript 使用者定義彙總 (預覽)
-
+ 
 「Azure 串流分析」支援以 JavaScript 撰寫的使用者定義彙總 (UDA)，可讓您實作複雜的具狀態商務邏輯。 在 UDA 內，您可以完全控制狀態資料結構、狀態累積、狀態取消累積，以及彙總結果計算。 本文將介紹兩種不同的 JavaScript UDA 介面、建立 UDA 的步驟，以及如何在「串流分析」中搭配 Windows 型作業使用 UDA。
 
 ## <a name="javascript-user-defined-aggregates"></a>JavaScript 使用者定義彙總

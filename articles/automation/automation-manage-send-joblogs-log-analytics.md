@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c51c79b85f5277496a3b8f80fe2487136a9fcbc1
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 12628b5a552b864784d780e5f2adc00aac579911
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228609"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215028"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>從「自動化」將工作狀態和工作資料流轉送到 Log Analytics
 「自動化」可以將 Runebook 工作狀態和工作資料流傳送到您的 Log Analytics 工作區。 作業記錄和作業串流會顯示於 Azure 入口網站中，或是使用 PowerShell，針對個別作業，而這可讓您執行簡單的調查。 現在透過 Log Analytics，您可以：
@@ -37,14 +37,14 @@ ms.locfileid: "36228609"
 
 ```powershell-interactive
 # Find the ResourceId for the Automation Account
-Find-AzureRmResource -ResourceType "Microsoft.Automation/automationAccounts"
+Get-AzureRmResource -ResourceType "Microsoft.Automation/automationAccounts"
 ```
 
 若要尋找您 Log Analytics 工作區的 ResourceId，請執行下列 PowerShell：
 
 ```powershell-interactive
 # Find the ResourceId for the Log Analytics workspace
-Find-AzureRmResource -ResourceType "Microsoft.OperationalInsights/workspaces"
+Get-AzureRmResource -ResourceType "Microsoft.OperationalInsights/workspaces"
 ```
 
 如果您有多個「自動化」帳戶或工作區，請在先前命令的輸出中，尋找您需要設定的 *Name*，並複製 *ResourceId* 的值。

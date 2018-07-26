@@ -1,3 +1,20 @@
+---
+title: 包含檔案
+description: 包含檔案
+services: iot-accelerators
+author: dominicbetts
+ms.service: iot-accelerators
+ms.topic: include
+ms.date: 05/30/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 55920b6c147626f68f51b9e0479949330c71a748
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "38756397"
+---
 > [!div class="op_single_selector"]
 > * [Windows 上的 C](../articles/iot-suite/iot-suite-v1-connecting-devices.md)
 > * [Linux 上的 C](../articles/iot-suite/iot-suite-v1-connecting-devices-linux.md)
@@ -24,13 +41,13 @@
 ### <a name="provision-your-remote-monitoring-preconfigured-solution"></a>佈建遠端監視預先設定解決方案
 您在本教學課程中建立的裝置會將資料傳送給[遠端監視][lnk-remote-monitoring]預先設定解決方案的執行個體。 如果您尚未在您的 Azure 帳戶中佈建遠端監視預先設定解決方案，請依照下列步驟執行：
 
-1. 在 <https://www.azureiotsuite.com/> 頁面上，按一下 [**+**] 以建立解決方案。
+1. 在 <https://www.azureiotsolutions.com/> 頁面上，按一下 **+** 以建立解決方案。
 2. 按一下 [遠端監視] 面板上的 [選取]，以建立解決方案。
 3. 在 [建立遠端監視解決方案] 頁面上，輸入 您選擇的 [解決方案名稱]，選取您要部署的 [區域]，並選取想要使用的 Azure 訂用帳戶。 按一下 [建立解決方案] 。
 4. 等候佈建程序完成。
 
 > [!WARNING]
-> 預先設定的解決方案使用可計費的 Azure 服務。 當您使用完預先設定的解決方案之後，請務必將它從您的訂用帳戶中移除，以避免任何不必要的費用。 您可以從訂用帳戶中完全移除預先設定的解決方案，請至 <https://www.azureiotsuite.com/> 頁面進行此操作。
+> 預先設定的解決方案使用可計費的 Azure 服務。 當您使用完預先設定的解決方案之後，請務必將它從您的訂用帳戶中移除，以避免任何不必要的費用。 您可以造訪 <https://www.azureiotsolutions.com/> 頁面，以從訂用帳戶中完全移除預先設定的解決方案。
 > 
 > 
 

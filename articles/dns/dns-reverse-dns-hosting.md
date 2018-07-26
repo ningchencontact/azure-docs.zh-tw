@@ -3,7 +3,7 @@ title: 在 Azure DNS 中託管反向 DNS 對應區域 | Microsoft Docs
 description: 了解如何使用 Azure DNS 為您的 IP 範圍託管反向 DNS 對應區域
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: jeconnoc
 ms.service: dns
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: kumud
-ms.openlocfilehash: c5d53838ffb77ff8d33fee9d10aea4a74f3c523c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: victorh
+ms.openlocfilehash: b1c55e054d1113871e4f3753a11cd2bf62e42e67
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32773675"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173586"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>在 Azure DNS 中託管反向 DNS 對應區域
 

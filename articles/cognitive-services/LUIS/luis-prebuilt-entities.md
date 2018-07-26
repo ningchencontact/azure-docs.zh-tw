@@ -2,20 +2,19 @@
 title: LUIS 中預先建置的實體 | Microsoft Docs
 description: 本文包含 Language Understanding Intelligent Services (LUIS) 中所包含預先建置的實體清單。
 services: cognitive-services
-author: cahann
-manager: hsalama
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/15/2018
-ms.author: cahann
-ms.reviewer: v-geberr
-ms.openlocfilehash: 0dc1dbf32114e989fd2b9c2be61bd531f7b5e839
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.author: diberry
+ms.openlocfilehash: 95ff173a843e7ad18ec396a1130b2e2b4035f656
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347298"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248232"
 ---
 # <a name="prebuilt-entities"></a>預先建置的實體
 
@@ -37,7 +36,7 @@ LUIS 包含一組預先建置的實體，用於辨識常見的資訊類型，例
 ## <a name="use-a-prebuilt-number-entity"></a>使用預先建置的 number 實體
 當應用程式中包含預先建置的實體時，其預測會包含在已發佈的應用程式中。 預先建置實體的行為已預先定型且**無法**修改。 請遵循下列步驟，以查看預先建置實體的運作方式：
 
-1. 將 **number** 實體新增到應用程式，然後將應用程式[定型](interactive-test.md)和[發佈](luis-how-to-publish-app.md)。
+1. 將 **number** 實體新增到應用程式，然後將應用程式[定型](luis-interactive-test.md)和[發佈](luis-how-to-publish-app.md)。
 2. 按一下 [發佈應用程式] 頁面中的端點 URL，以在網頁瀏覽器中開啟 LUIS 端點。 
 3. 將語句附加到包含數值運算式的 URL。 例如，您可以輸入 `buy two plane ticktets`，然後看見 LUIS 將 `two` 識別為 `builtin.number` 實體，並將 `2`識別為 `resolution` 欄位中的值。 `resolution` 欄位可協助將數字與日期解析為標準格式，更方便用戶端應用程式使用。 
 
@@ -70,7 +69,7 @@ LUIS 可運用智能辨識非標準格式的數字。 請在語句中試用不�
 ## <a name="use-a-prebuilt-datetimev2-entity"></a>使用預先建置的 datetimeV2 實體
 預先建置的 **datetimeV2** 實體可辨識日期、時間、日期範圍及持續時間。 請遵循下列步驟，以查看 `datetimeV2` 預先建置實體的運作方式：
 
-1. 將 **datetimeV2** 實體新增到應用程式，然後將應用程式[定型](interactive-test.md)和[發佈](luis-how-to-publish-app.md)。
+1. 將 **datetimeV2** 實體新增到應用程式，然後將應用程式[定型](luis-interactive-test.md)和[發佈](luis-how-to-publish-app.md)。
 2. 按一下 [發佈應用程式] 頁面中的端點 URL，以在網頁瀏覽器中開啟 LUIS 端點。 
 3. 將語句附加到包含日期範圍的 URL。 例如，您可以輸入 `book a flight tomorrow`，然後看見 LUIS 將 `tomorrow` 識別為 `builtin.datetimeV2.date` 實體，並將明天的日期識別為 `resolution` 欄位中的值。 
 

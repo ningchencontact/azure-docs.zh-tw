@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 736d0394b61bd2830a155d6ad714a2a8d19af82b
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: dd696330c9ee78ef84ac9fcf85946c837ad5b824
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37017504"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188003"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>使用 CLI 部署遠端監視解決方案加速器
 
-本教學課程示範如何佈建遠端監視解決方案加速器。 您將使用 CLI 來部署解決方案。 您也可以使用 azureiotsuite.com 的 Web 型 UI 來部署解決方案；若要了解此選項，請參閱[部署遠端監視解決方案加速器](iot-accelerators-remote-monitoring-deploy.md)。
+本教學課程示範如何佈建遠端監視解決方案加速器。 您將使用 CLI 來部署解決方案。 您也可以使用 azureiotsuite.com 的 Web 型 UI 來部署解決方案；若要了解此選項，請參閱[部署遠端監視解決方案加速器](quickstart-remote-monitoring-deploy.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要部署遠端監視解決方案加速器，您需要一個有效的 Azure 訂用帳戶。
 
@@ -135,6 +135,6 @@ pcs -h
 > * 部署解決方案加速器
 > * 登入解決方案加速器
 
-既然您已部署遠端監視解決方案，下一步便是[探索解決方案儀表板的功能](./iot-accelerators-remote-monitoring-deploy.md)。
+既然您已部署遠端監視解決方案，下一步便是[探索解決方案儀表板的功能](./quickstart-remote-monitoring-deploy.md)。
 
 <!-- Next tutorials in the sequence -->

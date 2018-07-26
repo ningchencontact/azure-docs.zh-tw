@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: elioda
-ms.openlocfilehash: e4bec631550d6ca3dc2c702b3b3f56bd29c59f03
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e2090977813f5335f2170ff543bde19cd8bf123b
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631882"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185787"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>使用 IoT 中樞將訊息從雲端傳送至裝置 (.NET)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -189,7 +189,7 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 
 [IoT 中樞開發人員指南]: iot-hub-devguide.md
-[IoT 中心入門]: iot-hub-csharp-csharp-getstarted.md
+[IoT 中心入門]: quickstart-send-telemetry-dotnet.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [Azure IoT 遠端監視解決方案加速器]: https://docs.microsoft.com/azure/iot-suite/
 [Azure IoT 裝置 SDK]: iot-hub-devguide-sdks.md
