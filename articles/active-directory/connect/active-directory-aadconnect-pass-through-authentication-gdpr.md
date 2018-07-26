@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/21/2018
+ms.date: 07/23/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: f53f8ffcf8354d35fa552f099302456fa5226ca8
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: b785b23b41981efeb7fe160a18dc0c3c38f3772f
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915872"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215385"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>使用者隱私權與 Azure Active Directory 傳遞驗證
 
@@ -75,7 +75,7 @@ Foreach ($file in $Files) {
 您應該定期檢查 **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\** 的內容，並且每隔 48 小時刪除此資料夾的內容。 
 
 >[!IMPORTANT]
->如果驗證代理程式服務正在執行中，您就無法刪除資料夾中目前的記錄檔。 在重試之前停止服務。 若要避免使用者登入失敗，您應該為傳遞驗證設定[高可用性](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability)。
+>如果驗證代理程式服務正在執行中，您就無法刪除資料夾中目前的記錄檔。 在重試之前停止服務。 若要避免使用者登入失敗，您應該為傳遞驗證設定[高可用性](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability)。
 
 您可以使用 Windows 檔案總管檢閱和刪除這些檔案，也可以使用下列指令碼來執行必要的動作：
 

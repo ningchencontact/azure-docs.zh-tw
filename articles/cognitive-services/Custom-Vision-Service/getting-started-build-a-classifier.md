@@ -9,18 +9,18 @@ ms.component: custom-vision
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: anroth
-ms.openlocfilehash: 6dc271c13f53a445c7d1101f5264d890208bd03c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c5183078d2f9d5eb16abef4f5df240f77eea6b8b
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368859"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223364"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>如何使用自訂視覺建置分類器
 
 若要使用自訂視覺服務，您必須先建置分類器。 在本文件中，了解如何透過網頁瀏覽器建置分類器。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要建置分類器，您必須先具備：
 
@@ -55,7 +55,7 @@ ms.locfileid: "35368859"
 
 3. 輸入專案的名稱和描述。 然後選取其中一個可用領域。 每個領域都會針對特定類型的影像來將分類器最佳化，如下表所述：
 
-    |領域|目的|
+    |網域|目的|
     |---|---|
     |__泛型__| 已針對廣泛的影像分類工作進行最佳化。 如果沒有其他適用的領域，或您不確定要選擇哪一個領域，請選取「泛型」領域。 |
     |__食物__|已針對菜餚相片進行最佳化，如同您在餐廳菜單上看見的一樣。 如果您想要將個別水果或蔬菜的相片分類，請使用「食物」領域。|
@@ -83,8 +83,6 @@ ms.locfileid: "35368859"
     自訂視覺服務接受 .jpg、.png 和 .bmp 格式的定型影像，每個影像最大 6 MB (預測影像在每個影像中最大可以是 4 MB)。我們建議位於最短邊的影像為 256 像素。 自訂視覺服務會相應增加最短邊上任何小於 256 像素的影像。
 
     ![[新增影像] 控制項會顯示於左上方，並在正下方顯示為按鈕。](./media/getting-started-build-a-classifier/add-images01.png)
-
-    ![[瀏覽本機檔案] 按鈕顯示於接近正下方處。](./media/getting-started-build-a-classifier/add-images02.png)
 
     >[!NOTE] 
     > REST API 可以用來從 URL 載入定型影像。

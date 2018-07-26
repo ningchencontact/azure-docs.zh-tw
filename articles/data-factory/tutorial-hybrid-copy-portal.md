@@ -271,7 +271,7 @@ ms.locfileid: "37045456"
 
        a. 在 [連結服務] 中確認已選取 [AzureStorageLinkedService]。
 
-       b. 針對 [檔案路徑] **的**資料夾**/ **目錄**部分，輸入 **adftutorial/fromonprem**。 如果在 adftutorial 容器中輸出資料夾不存在，Data Factory 會自動建立該輸出資料夾。
+       b. 針對 [檔案路徑] 的**資料夾**/ **目錄**部分，輸入 **adftutorial/fromonprem**。 如果在 adftutorial 容器中輸出資料夾不存在，Data Factory 會自動建立該輸出資料夾。
 
        c. 針對 [檔案路徑] 的**檔案名稱**部分，選取 [新增動態內容]。   
 

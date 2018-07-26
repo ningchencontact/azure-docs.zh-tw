@@ -3,24 +3,25 @@ title: 適用於 Azure AD Join 的使用案例和部署考量| Microsoft Docs
 description: 說明系統管理員如何為其使用者 (員工、學生、其他使用者) 設定 Azure AD Join。 其中也會討論使用 Azure AD Join 時出現的各種真實案例。
 services: active-directory
 documentationcenter: ''
-author: femila
+author: MarkusVi
 manager: mtillman
 editor: ''
 tags: azure-classic-portal
+ms.component: devices
 ms.assetid: 81d4461e-21c8-4fdd-9076-0e4991979f62
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 173ad6f07699ca6bfa534dedc053663bba571382
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 29480390e6854dcedeaf8f06c078ed2e4ed2b94d
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26732268"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223002"
 ---
 # <a name="usage-scenarios-and-deployment-considerations-for-azure-ad-join"></a>適用於 Azure AD Join 的使用案例和部署考量
 ## <a name="usage-scenarios-for-azure-ad-join"></a>適用於 Azure AD Join 的使用案例
@@ -40,7 +41,7 @@ ms.locfileid: "26732268"
 ### <a name="enable-your-users-to-join-a-company-owned-device-directly-to-azure-ad"></a>讓使用者可將公司擁有的裝置直接加入 Azure AD
 企業可以為合作夥伴公司和組織提供僅限雲端的帳戶。 這些合作夥伴之後就能使用單一登入，輕易地存取公司的應用程式和資源。 此案例適用於主要存取雲端資源的使用者，例如 Office 365 或 SaaS 應用程式，而這類資源會依賴 Azure AD 進行驗證。
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 **在企業層級 (系統管理員)**
 
 * Azure 訂用帳戶搭配 Azure Active Directory  
@@ -60,7 +61,7 @@ ms.locfileid: "26732268"
 ## <a name="enable-byod-in-your-organization-for-windows-10"></a>在組織中針對 Windows 10 啟用 BYOD
 您可以設定使用者和員工，使用其個人的 Windows 裝置 (BYOD) 來存取公司應用程式和資源。 您的使用者可將其 Azure AD 帳戶 (工作或學校帳戶) 新增到個人的 Windows 裝置，以安全且相容的方式來存取資源。
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 **在企業層級 (系統管理員)**
 
 * Azure AD 訂用帳戶
