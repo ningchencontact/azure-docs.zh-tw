@@ -3,19 +3,19 @@ title: 使用 Node.js 將 LUIS 資料新增至 Application Insights | Microsoft 
 titleSuffix: Azure
 description: 使用 Node.js 建置與 LUIS 應用程式和 Application Insights 整合的 Bot。
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 01/18/2018
-ms.author: v-geberr
-ms.openlocfilehash: 929b6e1cc980d7215f91a616820e257aed26bab7
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: diberry
+ms.openlocfilehash: 5b65747bea7d2496558c5b3b533bb8420eee6254
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370566"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236834"
 ---
 # <a name="add-luis-results-to-application-insights-from-a-web-app-bot"></a>從 Web 應用程式 Bot 將 LUIS 結果新增至 Application Insights
 本教學課程將 LUIS 要求和回應資訊新增至 [Application Insights](https://azure.microsoft.com/services/application-insights/) 遙測資料存放區。 在您擁有該資料之後，即可使用 Kusto 語言或 PowerBi 查詢它，以即時分析、彙總以及報告意圖和語句實體。 此分析可協助您判斷應該新增還是編輯 LUIS 應用程式的意圖和實體。
@@ -27,7 +27,7 @@ ms.locfileid: "35370566"
 * 將 LUIS 查詢結果擷取並傳送至 Application Insights
 * 查詢 Application Insights 中的最高意圖、分數和語句
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * **[上一個教學課程](luis-nodejs-tutorial-build-bot-framework-sample.md)** 中開啟 Application Insights 的 LUIS Web 應用程式 Bot。 
 

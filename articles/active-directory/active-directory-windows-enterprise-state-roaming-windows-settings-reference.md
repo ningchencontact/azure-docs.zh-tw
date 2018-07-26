@@ -4,23 +4,24 @@ description: 在 Windows 10 中進行漫遊或備份的所有設定的完整清�
 services: active-directory
 keywords: 企業狀態漫遊, windows 雲端
 documentationcenter: ''
-author: tanning
+author: MarkusVi
 manager: mtillman
 editor: curtand
+ms.component: devices
 ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 741b76935b5a6d9b2a6869ef57caa0ac0dc6351a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9a06ff345d1bf91efd1abff9960a1a6f9a681dce
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32159072"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223662"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Windows 10 漫遊設定參考
 以下是在 Windows 10 中進行漫遊或備份的所有設定的完整清單。 
@@ -30,10 +31,10 @@ ms.locfileid: "32159072"
 
 | 帳戶類型和作業 | 桌上型 | 行動 |
 | --- | --- | --- |
-| Azure Active Directory：同步處理 |yes |否 |
+| Azure Active Directory：同步處理 |是 |否 |
 | Azure Active Directory：備份/還原 |否 |否 |
-| Microsoft 帳戶：同步處理 |yes |yes |
-| Microsoft 帳戶：備份/還原 |否 |yes |
+| Microsoft 帳戶：同步處理 |是 |是 |
+| Microsoft 帳戶：備份/還原 |否 |是 |
 
 ## <a name="what-is-backup"></a>什麼是備份？
 根據預設，Windows 設定一般會同步處理，但是某些設定只能備份，例如裝置上已安裝應用程式的清單。 備份僅適用於行動裝置，目前不適用企業狀態漫遊使用者。 備份會使用 Microsoft 帳戶，並將設定和應用程式資料儲存到 OneDrive。 如果使用者使用 [設定] 應用程式在裝置上停用同步處理，通常可以同步處理的應用程式資料會變成只能備份。 備份資料在新裝置第一次執行期間，只能透過還原作業存取。 備份可以透過裝置設定停用，並且能透過使用者的 OneDrive 帳戶管理及刪除。
@@ -99,7 +100,8 @@ ms.locfileid: "32159072"
 | **Edge 瀏覽器**：顯示 [首頁] 按鈕 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
 | **Edge 瀏覽器**：封鎖快顯 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
 | **Edge 瀏覽器**：詢問我要如何處理每個下載的項目 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
-| **Edge 瀏覽器**：提供儲存密碼 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
+| 
+  **Edge 瀏覽器**：提供儲存密碼 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
 | **Edge 瀏覽器**：傳送「不要追蹤」要求 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
 | **Edge 瀏覽器**：儲存表單項目 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
 | **Edge 瀏覽器**：在我輸入的同時顯示搜尋與網站建議 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |

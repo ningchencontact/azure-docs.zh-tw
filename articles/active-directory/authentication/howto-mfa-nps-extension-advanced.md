@@ -4,18 +4,18 @@ description: 安裝 NPS 延伸模組之後，請使用下列步驟進行進階�
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 07/14/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 1aa474424823a180a16206ac509053a93c7bfa18
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: michmcla
+ms.openlocfilehash: a857732bcbe70cec164cebb54d7c09a1f103a942
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869262"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160605"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Multi-Factor Authentication 之 NPS 延伸模組的進階設定選項
 
@@ -33,7 +33,7 @@ ms.locfileid: "33869262"
 | ---- | ---- | ------------- | ----------- |
 | LDAP_ALTERNATE_LOGINID_ATTRIBUTE | 字串 | 空白 | 指定您想要使用的 Active Directory 屬性名稱，而非 UPN。 此屬性用作 AlternateLoginId 屬性。 如果此登錄值設定為[有效的 Active Directory 屬性](https://msdn.microsoft.com/library/ms675090.aspx) (例如，mail 或 displayName)，則會使用屬性的值來取代使用者的 UPN 以進行驗證。 如果此登錄值是空的或未設定，則會停用 AlternateLoginId，並以使用者的 UPN 進行驗證。 |
 | LDAP_FORCE_GLOBAL_CATALOG | 布林值 | False | 使用此旗標，可在查閱 AlternateLoginId 時強制使用通用類別目錄進行 LDAP 搜尋。 將網域控制站設定為通用類別目錄，並將 AlternateLoginId 屬性新增至通用類別目錄，然後啟用此旗標。 <br><br> 如果設定 LDAP_LOOKUP_FORESTS (不是空的)，則**此旗標會強制執行為 true**，不論登錄設定的值為何。 在此情況下，NPS 延伸模組需要使用每個樹系的 AlternateLoginId 屬性來設定通用類別目錄。 |
-| LDAP_LOOKUP_FORESTS | 字串 | 空白 | 提供要搜尋的樹系清單 (以分號分隔)。 例如，*contoso.com;foobar.com*。如果設定此登錄值，NPS 延伸模組會依列出順序反覆搜尋所有樹系，並傳回第一個成功的 AlternateLoginId 值。 如果未設定此登錄值，AlternateLoginId 查閱會侷限於目前網域。|
+| LDAP_LOOKUP_FORESTS | 字串 | 空白 | 提供要搜尋的樹系清單 (以分號分隔)。 例如，*contoso.com;foobar.com*。 如果設定此登錄值，NPS 延伸模組會依列出順序反覆搜尋所有樹系，並傳回第一個成功的 AlternateLoginId 值。 如果未設定此登錄值，AlternateLoginId 查閱會侷限於目前網域。|
 
 若要針對替代登入識別碼問題進行疑難排解，請使用[替代登入識別碼錯誤](howto-mfa-nps-extension-errors.md#alternate-login-id-errors)的建議步驟。
 

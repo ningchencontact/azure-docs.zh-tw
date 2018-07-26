@@ -9,12 +9,12 @@ ms.workload: storage-backup-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: f4e8a579e020e81540c1fd52e412c8e6184813d2
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 120c78d9adb83ca58ae61700ae70d07ead42ebd0
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921207"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226555"
 ---
 # <a name="site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Hyper-V 到 Azure 的 Site Recovery 部署規劃工具
 
@@ -74,14 +74,14 @@ Azure Site Recovery 部署規劃工具是一項命令列工具，適用於 Hyper
 
 | | **VMware 至 Azure** |**Hyper-V 至 Azure**|**Azure 至 Azure**|**Hyper-V 至次要網站**|**VMware 至次要網站**
 --|--|--|--|--|--
-支援的案例 |yes|yes|否|是*|否
+支援的案例 |是|yes|否|是*|否
 支援的版本 | vCenter 6.5、6.0 或 5.5| Windows Server 2016、Windows Server 2012 R2 | NA |Windows Server 2016、Windows Server 2012 R2|NA
 支援的設定|vCenter、ESXi| Hyper-V 叢集、Hyper-V 主機|NA|Hyper-V 叢集、Hyper-V 主機|NA|
 每個執行中的 Azure Site Recovery 部署規劃工具執行個體可以分析的伺服器數目 |單一 (屬於一個 vCenter Server 或一個 ESXi 伺服器的 VM 可同時加以分析)|多個 (跨多部主機或主機叢集的 VM 可同時加以分析)| NA |多個 (跨多部主機或主機叢集的 VM 可同時加以分析)| NA
 
 *此工具主要用於 Hyper-V 到 Azure 的災害復原案例。 若為 Hyper-V 到次要站台的災害復原，此工具只能用來了解來源端建議，例如所需的網路頻寬、每個來源 Hyper-V 伺服器上所需的可用儲存體空間，以及初始複寫批次處理數目和批次定義。  請忽略報告中的 Azure 建議和成本。 此外，取得輸送量作業不適用於 Hyper-V 到次要站台的災害復原案例。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 對於 Hyper-V，此工具有三個主要階段：取得 VM 清單、分析，以及產生報告。 另外還有第四個選項：只計算輸送量。 下表顯示必須用來執行不同階段之伺服器的需求：
 
 | 伺服器需求 | 說明 |
@@ -94,13 +94,13 @@ Azure Site Recovery 部署規劃工具是一項命令列工具，適用於 Hyper
 ## <a name="steps-to-add-servers-into-trustedhosts-list"></a>將伺服器新增到 TrustedHosts 清單的步驟
 1.  要用來從中部署工具的 VM 應該在其 TrustedHosts 清單中擁有所有要進行分析的主機。 若要將用戶端新增到 Trustedhosts 清單，請在 VM 上透過提高權限的 PowerShell 執行下列命令。 此 VM 可以是 Windows Server 2012 R2 或 Windows Server 2016。 
 
-            set-item wsman:\localhost\Client\TrustedHosts -value <ComputerName>[,<ComputerName>]
+            set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
 
 2.  每個必須進行分析的 Hyper-V 主機應該具有：
 
     a. 其 TrustedHosts 清單中要用來執行此工具的 VM。 在 Hyper-V 主機上透過提高權限的 PowerShell 執行下列命令。
 
-            set-item wsman:\localhost\Client\TrustedHosts -value <ComputerName>[,<ComputerName>]
+            set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
 
     b. 啟用 PowerShell 遠端處理。
 

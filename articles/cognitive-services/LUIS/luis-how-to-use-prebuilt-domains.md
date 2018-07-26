@@ -2,19 +2,19 @@
 title: 在 Azure 的 LUIS 應用程式中使用預建網域 | Microsoft Docs
 description: 了解如何在 Language Understanding Intelligent Service (LUIS) 應用程式中使用預建網域。
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 12/13/2017
-ms.author: v-geberr
-ms.openlocfilehash: 72ca0def8528adae5e46a02fa5bfccd14a3b6ab4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: diberry
+ms.openlocfilehash: df57f9adf5bf7f5f652a77ddeafe950463c6a9fc
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35370771"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224172"
 ---
 # <a name="use-prebuilt-domains-in-luis-apps"></a>在 LUIS 應用程式中使用預建網域  
 

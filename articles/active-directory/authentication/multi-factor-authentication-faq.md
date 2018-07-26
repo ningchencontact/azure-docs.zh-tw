@@ -4,24 +4,25 @@ description: 與 Azure Multi-Factor Authentication 相關的常見問題與答�
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 06/16/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 00eab947120cdfa76de64536ddaa0600c2dff2ec
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.reviewer: michmcla
+ms.openlocfilehash: b4fc67acae83573db772923a94cdbb6b1c4a301f
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049406"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159836"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>與 Azure Multi-Factor Authentication 相關的常見問題
 
 此常見問題集回答關於 Azure Multi-Factor Authentication 和使用 Multi-Factor Authentication 服務的常見問題。 並將問題細分為一般服務問題、計費模式、使用者體驗和疑難排解。
 
 ## <a name="general"></a>一般
+
 **問：Azure Multi-Factor Authentication Server 如何處理使用者資料？**
 
 使用 Multi-Factor Authentication Server，使用者資料只會儲存在內部部署伺服器。 雲端中不會儲存任何持續性的使用者資料。 使用者執行雙步驟驗證時，Multi-Factor Authentication Server 會將資料傳送到 Azure Multi-Factor Authentication 雲端服務以供驗證。 Multi-Factor Authentication Server 與 Multi-Factor Authentication 雲端服務之間的通訊會透過傳出連接埠 443，使用安全通訊端層 (SSL) 或傳輸層安全性 (TLS) 通訊。
@@ -60,6 +61,7 @@ ms.locfileid: "39049406"
 Microsoft 不保證相同號碼會提供一致的 SMS 或以語音為基礎的多重要素驗證即時交付。 為了使用者的利益，Microsoft 可能會在調整路由來改善 SMS 傳遞能力時，隨時新增或移除簡短程式碼。 Microsoft 不支援美國和加拿大以外之國家/地區的簡短程式碼
 
 ## <a name="billing"></a>計費
+
 大部分計費問題可以從 [Multi-Factor Authentication 價格頁面](https://azure.microsoft.com/pricing/details/multi-factor-authentication/)或有關[如何取得 Azure Multi-Factor Authentication](concept-mfa-licensing.md)的文件中得到解答。
 
 **問︰若為了驗證而撥打電話或傳送簡訊，我的組織是否須為此付費？**
@@ -119,7 +121,6 @@ MFA 提供者建立時，可與 Azure Active Directory (或稱為「Azure AD 租
 我們希望您的所有使用者並非只設定一種驗證方式。 請告訴他們試著重新登入，但在登入頁面上選取不同驗證方法。
 
 您可以將使用者引導至[終端使用者疑難排解指南](../user-help/multi-factor-authentication-end-user-troubleshoot.md)。
-
 
 **問︰如果我的使用者無法登入他們的帳戶，我該怎麼做？**
 
@@ -196,8 +197,8 @@ Windows Server 2012 R2 中的安全性變更已改變 Azure Multi-Factor Authent
 - 組織建立已套用至使用者的 MFA 註冊原則並加以啟用。
 - 使用者先前已註冊過 MFA，但選擇的驗證方法已由系統管理員停用。 使用者必須因此再次進行 MFA 註冊，以選取新的預設驗證方法。
 
-
 ## <a name="errors"></a>Errors
+
 **問：如果使用者在使用行動應用程式通知時看到「驗證要求不適用於已啟用的帳戶」錯誤訊息，應該怎麼辦？**
 
 請告訴他們遵循這個從行動應用程式移除其帳戶的程序，然後重新新增帳戶︰
@@ -214,6 +215,7 @@ Windows Server 2012 R2 中的安全性變更已改變 Azure Multi-Factor Authent
 此種錯誤的因應措施是使用不同的使用者帳戶，進行系統管理和非系統管理作業。 您稍後可以連結系統管理帳戶與非系統管理帳戶之間的信箱，以便使用非系統管理帳戶登入 Outlook。 如需這個解決方案的詳細資訊，請了解如何[讓系統管理員能夠開啟及檢視使用者信箱的內容](http://help.outlook.com/141/gg709759.aspx?sl=1)。
 
 ## <a name="next-steps"></a>後續步驟
+
 如果這裡沒有您問題的解答，請將它留在頁面底部的註解中。 或者，以下是取得協助的一些其他選項︰
 
 * 在 [Microsoft 支援知識庫](https://www.microsoft.com/en-us/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport)搜尋常見技術問題的解決方案。

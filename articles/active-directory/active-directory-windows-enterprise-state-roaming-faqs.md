@@ -4,23 +4,24 @@ description: 回答 IT 系統管理員可能會遇到的設定和應用程式資
 services: active-directory
 keywords: 企業狀態漫遊設定, windows 雲端, 企業狀態漫遊常見問題集
 documentationcenter: ''
-author: tanning
+author: MarkusVi
 manager: mtillman
 editor: curtand
+ms.component: devices
 ms.assetid: c0824f5c-129b-4240-969f-921f6a64eae7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: f33376d5f68d64495a7a90e62870f3ec14f73246
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: ee03ed3159ad2fc1cd8da4a84fd1be34d0b656c8
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258709"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224325"
 ---
 # <a name="settings-and-data-roaming-faq"></a>設定和資料漫遊常見問題集
 本文將回答 IT 系統管理員可能會遇到的設定和應用程式資料同步處理的一些問題。

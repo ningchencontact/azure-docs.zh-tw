@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: d65ca91fc4cffa53adf3a7c56c7919e46c5037d9
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 99a063abb3edea75b14fbcf67a889c5ba435daf3
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31526248"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258043"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中設計分散式資料表的指引
 在 Azure SQL 資料倉儲中設計雜湊分散式資料表和循環配置資源分散式資料表的建議。
@@ -174,7 +174,7 @@ order by two_part_name, row_count
 由於您無法變更現有資料表上的散發資料行，所以解決資料扭曲的典型方式就是重建具有不同散發資料行的資料表。  
 
 ### <a name="re-create-the-table-with-a-new-distribution-column"></a>重建具有新散發資料行的資料表
-此範例會使用 [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) 來重建具有不同雜湊散發資料行的資料表。
+此範例會使用 [CREATE TABLE AS SELECT](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7) 來重建具有不同雜湊散發資料行的資料表。
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_CustomerKey]

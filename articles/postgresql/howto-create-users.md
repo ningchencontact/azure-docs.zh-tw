@@ -9,12 +9,12 @@ manager: jhubbard
 ms.service: postgresql-database
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 87a73929185112190d5dd6698e014db225ebc08e
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: be3be5769f1d9ad6138fcef851179ddc5cf6c0da
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
-ms.locfileid: "29574181"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144732"
 ---
 # <a name="create-users-in-azure-database-for-postgresql-server"></a>在適用於 PostgreSQL 的 Azure 資料庫伺服器中建立使用者 
 本主題說明如在「適用於 PostgreSQL 的 Azure 資料庫」伺服器中建立使用者。
@@ -64,7 +64,7 @@ PostgreSQL 引擎會使用權限來控制資料庫物件的存取，如 [Postgre
    
    CREATE ROLE <db_user> WITH LOGIN NOSUPERUSER INHERIT CREATEDB NOCREATEROLE NOREPLICATION PASSWORD '<StrongPassword!>';
    
-   GRANT CONNECT ON DATABASE testdb TO <db_user>;
+   GRANT CONNECT ON DATABASE <newdb> TO <db_user>;
    ```
 
 4. 由於使用管理帳戶，您可能需要授與其他權限來保護資料庫中的物件。 請參閱 [PostgreSQL 文件](https://www.postgresql.org/docs/current/static/ddl-priv.html)，以深入了解資料庫角色和權限。 例如︰ 

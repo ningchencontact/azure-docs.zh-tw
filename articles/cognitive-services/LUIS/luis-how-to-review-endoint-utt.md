@@ -2,21 +2,21 @@
 title: 使用 LUIS 標示建議的語句 | Microsoft Docs
 description: 使用 Language Understanding (LUIS) 來標示建議的語句，協助提升主動式機器學習。
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/08/2017
-ms.author: v-geberr
-ms.openlocfilehash: c695aed4bc6d2553c719f8dfe664634e2f3b2613
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: diberry
+ms.openlocfilehash: 5e195b8ef5aeb35b73c22438980fe2b2e3856977
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37966827"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224546"
 ---
-# <a name="review-endpoint-utterances"></a>檢閱端點表達方式
+# <a name="review-endpoint-utterances"></a>檢閱端點語句
 
 LUIS 的突破性功能是主動式學習的[概念](luis-concept-review-endpoint-utterances.md)。 一旦您的 LUIS 有端點查詢，LUIS 會使用主動式學習來改善結果品質。 在主動式學習過程中，LUIS 會檢查所有端點語句，並選取不可靠的語句。 如果您要標示這些語句，進行訓練及發佈，則 LUIS 會更精確地識別語句。 
 
@@ -79,4 +79,4 @@ LUIS 會以藍色醒目提示的實體名稱取代實體語彙基元 (字組)。
 
 ## <a name="next-steps"></a>後續步驟
 
-若要在您標示建議的語句之後，測試效能有何改善，您可以選取頂端面板中的 [測試] 來存取測試主控台。 如需有關如何使用測試主控台來測試應用程式的指示，請參閱[訓練和測試您的應用程式](interactive-test.md)。
+若要在您標示建議的語句之後，測試效能有何改善，您可以選取頂端面板中的 [測試] 來存取測試主控台。 如需有關如何使用測試主控台來測試應用程式的指示，請參閱[訓練和測試您的應用程式](luis-interactive-test.md)。

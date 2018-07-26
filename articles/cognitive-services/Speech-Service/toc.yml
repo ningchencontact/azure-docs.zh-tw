@@ -98,7 +98,7 @@
         - name: 文字轉換語音常見問題集
           href: faq-text-to-speech.md
         - name: 翻譯工具應用程式
-          href: 'https://www.microsoft.com/en-us/translator/faq.aspx'
+          href: 'https://www.microsoft.com/translator/faq.aspx'
     - name: 價格
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
     - name: UserVoice

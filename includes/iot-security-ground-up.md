@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 0eaf1115dc6ed5a7dc9e7354340d5eb529116c88
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 181432c3050bbc614898b1ddf779bc90239a35be
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37780650"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39189490"
 ---
 # <a name="internet-of-things-security-from-the-ground-up"></a>徹底保護物聯網安全性
 
@@ -46,7 +46,7 @@ Microsoft 的系統能提供持續的入侵偵測與防護、阻斷服務攻擊�
 此解決方案加速器會充分利用內建於 Azure 平台的安全性和隱私權，以及針對所有 Microsoft 軟體進行的安全開發，和作業所提供的 SDL 和 OSA 程序。 這些程序提供基礎結構保護、網路保護，以及身分識別與管理功能，以做為任何解決方案安全性的基礎。
 
 
-  [IoT 解決方案加速器](../articles/iot-accelerators/iot-accelerators-what-is-azure-iot.md)內的 [Azure IoT 中樞](../articles/iot-hub/iot-hub-what-is-iot-hub.md)提供完全受控服務，使用每一裝置的安全性認證和存取控制，在 IoT 裝置與 Azure 服務之間啟用可靠且安全的雙向通訊，例如 [Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) 和 [Azure 串流分析](../articles/stream-analytics/stream-analytics-introduction.md)。
+  [IoT 解決方案加速器](../articles/iot-fundamentals/iot-introduction.md)內的 [Azure IoT 中樞](../articles/iot-hub/about-iot-hub.md)提供完全受控服務，使用每一裝置的安全性認證和存取控制，在 IoT 裝置與 Azure 服務之間啟用可靠且安全的雙向通訊，例如 [Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) 和 [Azure 串流分析](../articles/stream-analytics/stream-analytics-introduction.md)。
 
 為了以最佳方式傳達內建於 Azure IoT 解決方案加速器的安全性和隱私權功能，本文將套件細分成三個主要的安全性領域。
 

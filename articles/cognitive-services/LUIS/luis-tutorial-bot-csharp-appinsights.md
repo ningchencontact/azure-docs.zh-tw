@@ -3,19 +3,19 @@ title: 使用 C# 將 LUIS 資料新增至 Application Insights | Microsoft Docs
 titleSuffix: Azure
 description: 使用 C# 建置與 LUIS 應用程式和 Application Insights 整合的 Bot。
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: 52b6ae224b0e8da12eb4903f5100a6e5cc39704d
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.author: diberry
+ms.openlocfilehash: f1efe305f5659bfab50cee13ac30d56531cc6093
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35370971"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237786"
 ---
 # <a name="add-luis-results-to-application-insights-from-a-web-app-bot"></a>從 Web 應用程式 Bot 將 LUIS 結果新增至 Application Insights
 本教學課程將 LUIS 回應資訊新增至 [Application Insights](https://azure.microsoft.com/services/application-insights/) 遙測資料存放區。 在您擁有該資料之後，即可使用 Kusto 語言或 PowerBi 查詢它，以即時分析、彙總以及報告意圖和語調實體。 此分析可協助您判斷應該新增還是編輯 LUIS 應用程式的意圖和實體。
@@ -25,9 +25,9 @@ ms.locfileid: "35370971"
 > [!div class="checklist"]
 * 將 Application Insights 新增至 Web 應用程式 Bot
 * 將 LUIS 查詢結果擷取並傳送至 Application Insights
-* 查詢 Application Insights 中的最高意圖、分數和語調
+* 查詢 Application Insights 中的最高意圖、分數和語句
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * **[上一個教學課程](luis-csharp-tutorial-build-bot-framework-sample.md)** 中開啟 Application Insights 的 LUIS Web 應用程式 Bot。 
 * 您的電腦本機上已安裝 [Visual Studio 2017](https://www.visualstudio.com/downloads/)。
@@ -193,7 +193,7 @@ Turn on the hall light
 
     ![搜尋應用程式見解](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights.png)
 
-2. 當資源開啟時，按一下最右側面板中放大鏡的 [搜尋] 圖示。 即會顯示右側新面板。 根據找到的遙測資料量，此面板可能需要一秒才會顯示。 搜尋 `LUIS`。 這份清單的範圍會縮小為只有使用本教學課程所新增的 LUIS 查詢結果。
+2. 當資源開啟時，按一下最右側面板中放大鏡的**搜尋**圖示。 即會顯示右側新面板。 根據找到的遙測資料量，此面板可能需要一秒才會顯示。 搜尋 `LUIS`。 這份清單的範圍會縮小為只有使用本教學課程所新增的 LUIS 查詢結果。
 
     ![搜尋追蹤](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights-search-luis-trace.png)
 
@@ -205,7 +205,7 @@ Turn on the hall light
 
 
 > [!Tip]
-> 如果您想要儲存相依性清單，並於稍後返回，則請按一下 [...其他]，然後按一下 [儲存我的最愛]。
+> 若您想要儲存相依性清單，並於稍後返回，則請按一下 [...More] \(...其他\)，然後按一下 [儲存我的最愛]。
 
 ## <a name="query-application-insights-for-intent-score-and-utterance"></a>查詢 Application Insights 中的意圖、分數和語句
 Application Insights 可讓您使用 [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics) 語言查詢資料，以及將它匯出至 [PowerBI](https://powerbi.microsoft.com)。 
@@ -214,7 +214,7 @@ Application Insights 可讓您使用 [Kusto](https://docs.microsoft.com/azure/ap
 
     ![[Analytics] 按鈕](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights-search-luis-analytics-button.png)
 
-2. 即會開啟新的視窗，而其頂端有查詢視窗，其下則有資料表視窗。 如果您先前使用過資料庫，則這種排列方式十分熟悉。 查詢包括過去 24 小時以 `LUIS` 名稱開始的所有項目。 **CustomDimensions** 資料行具有 LUIS 查詢結果作為名稱/值組。
+2. 即會開啟新的視窗，而其頂端有查詢視窗，其下則有資料表視窗。 若您先前使用過資料庫，則這種排列方式十分熟悉。 查詢包括過去 24 小時以 `LUIS` 名稱開始的所有項目。 **CustomDimensions** 資料行具有 LUIS 查詢結果作為名稱/值組。
 
     ![預設分析報告](./media/luis-tutorial-bot-csharp-appinsights/analytics-query-1.png)
 
@@ -241,7 +241,7 @@ Application Insights 可讓您使用 [Kusto](https://docs.microsoft.com/azure/ap
 
 您可能想要新增至 Application Insights 資料的其他資訊包括應用程式識別碼、版本識別碼、上次模型變更日期、最後訓練日期、最後發行日期。 這些值可以擷取自端點 URL (應用程式識別碼和版本識別碼) 或[撰寫 API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3d) 呼叫，然後設定於 Web 應用程式 Bot 設定並從該處提取。  
 
-如果您將相同端點訂用帳戶用於多個 LUIS 應用程式，則也應該包括訂用帳戶識別碼以及指出它為共用金鑰的屬性。 
+若您將相同端點訂用帳戶用於多個 LUIS 應用程式，則也應該包括訂用帳戶識別碼以及指出它為共用金鑰的屬性。 
 
 > [!div class="nextstepaction"]
 > [深入了解範例語句](luis-how-to-add-example-utterances.md)

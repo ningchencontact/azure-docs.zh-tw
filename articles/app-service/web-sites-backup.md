@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: e8e41c51b6df9962e561d56be75108ba9cd76377
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: fd1e10239d63417a21eb6f76017539ec0d447258
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901614"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224797"
 ---
 # <a name="back-up-your-app-in-azure"></a>在 Azure 中備份應用程式
 [Azure App Service](app-service-web-overview.md) 中的「備份與還原」功能可讓您以手動或透過排程方式，輕鬆建立應用程式備份。 您可以透過覆寫現有的應用程式或還原到另一個應用程式，將應用程式還原到先前狀態的快照。 
@@ -37,8 +37,8 @@ App Service 可以將下列資訊備份到您已設定讓應用程式使用的 A
 
 備份功能支援下列資料庫解決方案： 
    - [SQL Database](https://azure.microsoft.com/services/sql-database/)
-   - [適用於 MySQL 的 Azure 資料庫 (預覽)](https://azure.microsoft.com/services/mysql)
-   - [適用於 PostgreSQL 的 Azure 資料庫 (預覽)](https://azure.microsoft.com/services/postgresql)
+   - [適用於 MySQL 的 Azure 資料庫](https://azure.microsoft.com/services/mysql)
+   - [適用於 PostgreSQL 的 Azure 資料庫](https://azure.microsoft.com/services/postgresql)
    - [應用程式內 MySQL](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
  
 

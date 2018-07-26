@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: fe171ba9f6f0ff36a7c23c47f145d83f7a94fb5d
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: c2b06ed4c31dc585111000266e57888f490938ec
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069483"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258961"
 ---
 # <a name="shipping-an-application"></a>寄送應用程式
 
@@ -27,7 +27,7 @@ ms.locfileid: "39069483"
 
 測試認知語音 SDK 會在 Windows 10 和 Windows Server 2016 上進行測試。
 
-認知服務語音 SDK 需要系統上的[適用於 Visual Studio 2017 的 Microsoft Visual C++ 可轉散發套件](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads)。 您可以在此下載最新版 `Microsoft Visual C++ Redistributable for Visual Studio 2017` 的安裝程式：
+認知服務語音 SDK 需要系統上的[適用於 Visual Studio 2017 的 Microsoft Visual C++ 可轉散發套件](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)。 您可以在此下載最新版 `Microsoft Visual C++ Redistributable for Visual Studio 2017` 的安裝程式：
 
 - [Win32](https://aka.ms/vs/15/release/vc_redist.x86.exe)
 - [x64](https://aka.ms/vs/15/release/vc_redist.x64.exe)

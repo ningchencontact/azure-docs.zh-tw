@@ -7,27 +7,28 @@ documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 editor: ''
+ms.component: protection
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 952a3a3952a96c7125e0b0dbe770b72c17a57101
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: b37c9017d6c9a8b1d5f53141e28c170307206f3b
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232057"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225820"
 ---
 # <a name="how-to-configure-conditional-access-policies-for-access-attempts-from-untrusted-networks"></a>如何：為來自不受信任網路的存取嘗試，設定條件式存取原則   
 
 在行動第一、雲端第一的世界中，Azure Active Directory (Azure AD) 可讓您從任何地方單一登入至裝置、應用程式和服務。 因此，您的使用者可以從組織的網路以及任何不被信任的網際網路位置，存取雲端應用程式。 透過 [Azure Active Directory (Azure AD) 條件式存取](active-directory-conditional-access-azure-portal.md)，您可以控制授權使用者如何存取您的雲端應用程式。 此脈絡中一個常見需求就是要控制從不被信任網路所發起的存取嘗試。 本文提供當您設定條件式存取原則來處理這項規定時所需的資訊。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本文假設您已熟悉以下各項： 
 

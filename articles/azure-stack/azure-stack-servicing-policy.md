@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 07/24/2018
 ms.author: brenduns
 ms.reviewer: harik
-ms.openlocfilehash: c3cc8857373238079fee06c61faec962d7e3a6b2
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: b1e162b9ae151ee947559d40f02909aea4010e5b
+ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796414"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39242915"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack 服務原則
 本文說明 Azure Stack 整合系統的服務原則，以及必須如何做才能將狀態保持在支援的狀態。 
@@ -40,8 +40,6 @@ Microsoft 預期每月發行軟體更新封裝。 不過，可能一個月內發
 在[管理更新概觀](azure-stack-updates.md)文件中可找到如何規劃和管理更新，以及如何判斷您目前的版本。 如需特定更新的詳細資訊，包括如何下載更新，請參閱該更新的版本資訊： 
 - [Azure Stack 1805 更新](azure-stack-update-1805.md)
 - [Azure Stack 1804 更新](azure-stack-update-1804.md)
-- [Azure Stack 1803 更新](azure-stack-update-1803.md)
-
 
 ## <a name="hotfixes"></a>Hotfix
 有時候，Microsoft 會為 Azure Stack 提供 Hotfix，通常可解決預防性或時效性的特定問題。  每個 Hotfix 都會隨著對應的 Microsoft 知識庫文章發行，文中詳述問題、原因和解決方案。 
