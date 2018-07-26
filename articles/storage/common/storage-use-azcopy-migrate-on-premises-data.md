@@ -10,12 +10,12 @@ ms.devlang: azcopy
 ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
-ms.openlocfilehash: 3f9735a1e5a6973ab1c1c3f575cf3aa345a3a5a4
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 4e2d891705cbe4d51ddc6af6fe178257424220ab
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267436"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205318"
 ---
 #  <a name="migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>使用 AzCopy 將內部部署資料移轉至雲端儲存體
 
@@ -34,7 +34,7 @@ AzCopy 是命令列工具，可使用簡單的命令從 Azure Blob 儲存體、A
 > * 基於測試目的修改資料。
 > * 建立排程工作或 cron 作業來識別要上傳的新檔案。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，請下載 [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#download-and-install-azcopy) 或 [Windows](http://aka.ms/downloadazcopy) 上最新版本的 AzCopy。 
 
@@ -70,7 +70,7 @@ Blob 一律會上傳到容器中。 您可以使用容器來組織 blob 的群�
         --recursive
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
-    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /S
+    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /S
 ---
 
 使用您的帳戶金鑰取代 `<key>` 和 `key`。 在 Azure 入口網站中，您可以擷取您的帳戶金鑰，方法是在您的儲存體帳戶中選取 [設定] 底下的 [存取金鑰]。 選取金鑰，並將它貼到 AzCopy 命令中。 如果指定的目的地容器不存在，則 AzCopy 會建立此容器並將檔案上傳至該容器中。 將來源路徑更新為您的資料目錄，並使用您的儲存體帳戶名稱取代目的地 URL 中的 **myaccount**。
@@ -91,7 +91,7 @@ Blob 一律會上傳到容器中。 您可以使用容器來組織 blob 的群�
     --exclude-older
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
-    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /S /XO
+    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /S /XO
 ---
 
 ## <a name="create-a-scheduled-task-or-cron-job"></a>建立排程工作或 cron 作業 
@@ -104,7 +104,7 @@ Blob 一律會上傳到容器中。 您可以使用容器來組織 blob 的群�
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
     cd C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
-    AzCopy /Source: C:\myfolder  /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /V /XO /XN >C:\Path\to\logfolder\azcopy%date:~-4,4%%date:~-7,2%%date:~-10,2%%time:~-11,2%%time:~-8,2%%time:~-5,2%.log
+    AzCopy /Source: C:\myfolder  /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /V /XO /XN >C:\Path\to\logfolder\azcopy%date:~-4,4%%date:~-7,2%%date:~-10,2%%time:~-11,2%%time:~-8,2%%time:~-5,2%.log
 ---
 
 AzCopy 是以詳細資訊 `--verbose` (Linux) 或 `/V` (Windows) 選項執行。 輸出會重新導向到記錄檔。 

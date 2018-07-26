@@ -131,6 +131,9 @@
   items:
     - name: 計費自動化案例
       href: billing-cost-management-automation-scenarios.md
+      items:
+        - name: 使用 Azure Budgets 管理成本
+          href: billing-cost-management-budget-scenario.md
     - name: Azure 計費 API 概觀
       href: billing-usage-rate-card-overview.md
       items:

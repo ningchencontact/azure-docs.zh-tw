@@ -6,8 +6,6 @@
       href: azure-stack-poc.md
     - name: 版本資訊
       items:
-        - name: 1807 更新
-          href: azure-stack-update-1807.md
         - name: 1805 更新
           href: azure-stack-update-1805.md
         - name: 1804 更新
@@ -140,8 +138,6 @@
               href: azure-stack-manage-storage-shares.md
             - name: 管理實際記憶體容量
               href: azure-stack-manage-storage-physical-memory-capacity.md
-            - name: 新增縮放單位節點
-              href: azure-stack-add-scale-node.md
         - name: 更換硬體
           items:
             - name: 節點動作

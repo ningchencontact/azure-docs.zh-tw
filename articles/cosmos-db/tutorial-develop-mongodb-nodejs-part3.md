@@ -2,7 +2,7 @@
 title: 適用於 Azure 的 MongoDB、Angular 及 Node 教學課程 - 第 3 部分 | Microsoft Docs
 description: 本教學課程系列的第 3 部分，有關使用您用於 MongoDB 的完全相同 API，以 Azure Cosmos DB 上的 Angular 和 Node 建立 MongoDB 應用程式。
 services: cosmos-db
-author: SnehaGunda
+author: johnpapa
 manager: kfile
 editor: ''
 ms.service: cosmos-db
@@ -10,14 +10,14 @@ ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
-ms.author: sngun
+ms.author: john.papa
 ms.custom: mvc
-ms.openlocfilehash: eba96be567094a3e2e3977f505d4e4a67f0b5cea
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: d38d6048a59b1a284f4dc24157b2105a748c348d
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798299"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249031"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-3-build-the-ui-with-angular"></a>使用 Angular 和 Azure Cosmos DB 建立 MongoDB 應用程式 - 第 3 部分：使用 Angular 建置 UI
 
@@ -34,7 +34,7 @@ ms.locfileid: "34798299"
 
 > [!VIDEO https://www.youtube.com/embed/MnxHuqcJVoM]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 開始本教學課程的這個部分之前，請確定您已完成本教學課程[第 2 部分](tutorial-develop-mongodb-nodejs-part2.md)中的步驟。
 
@@ -112,8 +112,8 @@ ms.locfileid: "34798299"
 
     @Component({
       selector: 'app-heroes',
-      templateUrl: './heroes.component.html'
-        styleUrls: ['./heroes.component.scss']
+      templateUrl: './heroes.component.html',
+      styleUrls: ['./heroes.component.scss']
     })
     export class HeroesComponent implements OnInit {
       addingHero = false;

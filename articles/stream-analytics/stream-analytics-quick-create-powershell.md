@@ -2,24 +2,24 @@
 title: 使用 Azure PowerShell 建立串流分析作業
 description: 本快速入門詳細說明如何使用 Azure PowerShell 模組來部署和執行 Azure 串流分析作業。
 services: stream-analytics
-author: SnehaGunda
-ms.author: sngun
+author: sidramadoss
+ms.author: sidram
 ms.date: 05/14/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 2b5d8bfd6dbe36637a0c6873e941118e7ee71b80
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 18903dfbe187de73a6edb14196fa29e02d35dbca
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212427"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185375"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-azure-powershell"></a>快速入門：使用 Azure PowerShell 建立串流分析作業
 
 使用 Azure PowerShell 模組，即可利用 PowerShell Cmdlet 或指令碼建立和管理 Azure 資源。 本快速入門詳細說明如何使用 Azure PowerShell 模組來部署和執行 Azure 串流分析作業。 
-
+ 
 範例作業會從 Azure blob 儲存體中的 blob 讀取串流資料。 本快速入門中所使用的輸入資料檔案包含僅供說明之用的靜態資料。 在實際案例中，您可以使用串流輸入資料來進行串流分析作業。 接下來，作業會使用串流分析查詢語言來轉換資料，以計算超過 100° 的平均溫度。 最後，它會將產生的輸出事件寫入另一個檔案中。 
 
 ## <a name="before-you-begin"></a>開始之前

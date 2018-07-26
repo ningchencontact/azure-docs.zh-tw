@@ -2,23 +2,23 @@
 title: 教學課程：使用 Azure 入口網站建立和管理串流分析作業 | Microsoft Docs
 description: 本教學課程提供如何使用 Azure 串流分析來分析通話串流中詐騙電話的端對端實例。
 services: stream-analytics
-author: SnehaGunda
-ms.author: sngun
+author: sidramadoss
+ms.author: sidram
 manager: kfile
 ms.service: stream-analytics
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
-ms.openlocfilehash: 524b15747a275c76fec6c529e4f00d0da1b41420
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 39b39a1d00c91e0ff114a28c13da0d4b6920ec13
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "32778184"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186225"
 ---
 # <a name="create-a-stream-analytics-job-to-analyze-phone-call-data-and-visualize-results-in-a-power-bi-dashboard"></a>建立串流分析作業來分析通話資料，並且在 Power BI 儀表板中將結果視覺化
-
+ 
 本教學課程會示範如何使用 Azure 串流分析來分析用戶端應用程式所產生的範例通電。 用戶端應用程式所產生的通話資料包含某些詐騙電話，而我們會定義串流分析作業來篩選這類電話。
 
 在本教學課程中，您了解如何：
@@ -31,7 +31,7 @@ ms.locfileid: "32778184"
 > * 測試和啟動作業  
 > * 在 Power BI 中將結果視覺化 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 開始之前，請確定您具有下列項目：
 

@@ -45,7 +45,7 @@
       href: ../networking/disaster-recovery-dns-traffic-manager.md
 - name: 作法
   items:
-    - name: 建立自訂 DNS 區域和記錄 - Azure CLI
+    - name: 建立私人 DNS 區域和記錄 - Azure CLI
       href: private-dns-getstarted-cli.md
     - name: 管理 DNS 區域
       items:
