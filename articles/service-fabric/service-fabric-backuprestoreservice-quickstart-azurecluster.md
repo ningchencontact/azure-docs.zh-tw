@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric 中的定期備份與還原 (預覽) | Microsoft Docs
-description: 使用 Service Fabric 的定期備份與還原功能，為您的應用程式提供資料遺失防護。
+title: 快速入門 - Azure Service Fabric 中的定期備份與還原 (預覽) | Microsoft Docs
+description: 使用 Service Fabric 的定期備份與還原功能，啟用應用程式資料的定期資料備份。
 services: service-fabric
 documentationcenter: .net
 author: hrushib
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: hrushib
-ms.openlocfilehash: 9fbf3a6c965bb2f52b71fbac32b289555b922772
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 50ee0d91b27805e4db785e5df211660900333e7f
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113984"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990294"
 ---
-# <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Azure Service Fabric 中的定期備份與還原 (預覽)
+# <a name="quickstart-periodic-backup-and-restore-in-azure-service-fabric-preview"></a>快速入門：Azure Service Fabric 中的定期備份與還原 (預覽)
 > [!div class="op_single_selector"]
 > * [Azure 上的叢集](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
 > * [獨立叢集](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
@@ -57,7 +57,7 @@ Service Fabric 提供一組 API，可實現下列和定期備份與復原功能�
 - 暫時暫停備份
 - 備份的保留管理 (即將推出)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * 具有 Fabric 6.2 版和更新版本的 Service Fabric 叢集。 應該在 Windows Server 上設定叢集。 如需了解使用 Azure 資源範本來建立 Service Fabric 叢集的步驟，請參閱這篇[文章](service-fabric-cluster-creation-via-arm.md)。
 * 用於加密祕密 (連線至儲存體以儲存備份時所需) 的 X.509 憑證。 若要了解如何取得或建立 X.509 憑證，請參閱這篇[文章](service-fabric-cluster-creation-via-arm.md)。
 * 使用 Service Fabric SDK 3.0 版或更新版本來建置的 Service Fabric 可靠具狀態應用程式。 針對以 .Net Core 2.0 為目標的應用程式，則應該使用 Service Fabric SDK 3.1 版或更新版本來建置應用程式。
@@ -226,10 +226,11 @@ FailureError            :
 ## <a name="preview-limitation-caveats"></a>預覽版限制/注意事項
 - 沒有任何 Service Fabric 內建 PowerShell Cmdlet。
 - 不支援 Service Fabric CLI。
-- 不支援自動化備份清除。 需要手動清除備份。
+- 不支援自動化備份清除。 參考[備份保留指令碼](https://github.com/Microsoft/service-fabric-scripts-and-templates/tree/master/scripts/BackupRetentionScript)可設定以指令碼為基礎的外部自動化，以供清除備份。
 - 不支援 Linux 上的 Service Fabric 叢集。
 
 ## <a name="next-steps"></a>後續步驟
+- [了解定期備份組態](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [備份還原 REST API 參考](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/PartitionBackedUpHealthEvent_Azure.png

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: ea16a9828bfb989c49f3cc8d656122b3083ee66a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 26e01ccab3693c672130462104078c16526aa921
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34702069"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38992251"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>加入、變更或刪除虛擬網路子網路
 
@@ -44,7 +44,7 @@ ms.locfileid: "34702069"
 3. 在 [設定] 底下，選取 [子網路]。
 4. 選取 [+ 子網路]。
 5. 為下列參數輸入值︰
-    - **名稱**：此名稱必須是虛擬網路中的唯一名稱。
+    - **名稱**：此名稱必須是虛擬網路中的唯一名稱。 如需與其他 Azure 服務的最大相容性，我們建議使用字母作為名稱的第一個字元。 例如，Azure 應用程式閘道不會部署到名稱以數字開頭的子網路。
     - **位址範圍**：此範圍必須是虛擬網路位址空間內的唯一範圍。 此範圍不能與虛擬網路內的其他子網路位址範圍重疊。 位址空間必須以「無類別網域間路由選擇」(CIDR) 標記法來指定。 例如，在位址空間為 10.0.0.0/16 的虛擬網路中，您可以定義 10.0.0.0/24 的子網路位址空間。 您可以指定的最小範圍是 /29，此範圍可提供八個 IP 位址供子網路使用。 為了符合通訊協定的規定，Azure 會保留每個子網路中的第一個和最後一個位址。 Azure 還會保留三個位址供 Azure 服務使用。 因此，以 /29 位址範圍所定義的子網路會在子網路中產生三個可用的 IP 位址。 如果您打算將虛擬網路連線至 VPN 閘道，則必須建立一個閘道子網路。 深入了解[閘道子網路位址範圍的具體考量](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub)。 若符合特定條件，您可以在子網路加入後變更其位址範圍。 若要了解如何變更子網路的位址範圍，請參閱[變更子網路設定](#change-subnet-settings)。
     - **網路安全性群組**：您可以將零個或一個現有網路安全性群組與子網路建立關聯，以篩選子網路的輸入和輸出網路流量。 網路安全性群組必須與虛擬網路位於相同的訂用帳戶和位置當中。 深入了解[網路安全性群組](security-overview.md)與[如何建立網路安全性群組](tutorial-filter-network-traffic.md)。
     - **路由表︰** 您可以將零個或一個現有路由表和子網路建立關聯，以控制路由至其他網路的網路流量。 路由表必須與虛擬網路位於相同的訂用帳戶和位置當中。 深入了解 [Azure 路由](virtual-networks-udr-overview.md)與[如何建立路由表](tutorial-create-route-table-portal.md)
@@ -68,7 +68,7 @@ ms.locfileid: "34702069"
 4. 在子網路清單中，選取您想要變更設定的子網路。 您可以變更下列設定：
 
     - **位址範圍：** 如果子網路內沒有部署資源，您可以變更位址範圍。 如果子網路中有任何資源存在，您必須將資源移至另一個子網路，或先從子網路中刪除。 不同資源的資源移動或刪除步驟也各異。 若要了解如何移動或刪除子網路中的資源，請閱讀您想要移動或刪除之各個資源類型的適用文件。 如需**位址範圍**的條件約束，請參閱步驟 5 的[新增子網路](#add-a-subnet)。
-    - **使用者**︰您可以使用內建角色或自有的自訂角色來控制子網路的存取。 若要深入了解如何指派角色和使用者以存取子網路，請參閱[使用角色指派來管理 Azure 資源的存取權](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-access)。
+    - **使用者**︰您可以使用內建角色或自有的自訂角色來控制子網路的存取。 若要深入了解如何指派角色和使用者以存取子網路，請參閱[使用角色指派來管理 Azure 資源的存取權](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access)。
     - **網路安全性群組**和**路由表**：請參閱[新增子網路](#add-a-subnet)的步驟 5。
     - **服務端點**：請參閱[新增子網路](#add-a-subnet)的步驟 5 中的服務端點。 當啟用現有子網路的服務端點時，請確定子網路中的任何資源上都沒有重要的工作正在執行。 服務端點會將子網路中每個網路介面上的路由，從使用預設路由 (使用 *0.0.0.0/0* 位址前置詞和*網際網路*的下一個躍點類型) 切換為使用新的路由 (使用服務的位址前置詞和 *VirtualNetworkServiceEndpoint* 的下一個躍點類型)。 在切換期間，任何開啟的 TCP 連接都可能會終止。 直到流量流向服務時，服務端點才會啟用，以便所有網路介面都使用新的路由進行更新。 若要深入了解路由，請參閱[路由概觀](virtual-networks-udr-overview.md)。
 5. 選取 [ **儲存**]。

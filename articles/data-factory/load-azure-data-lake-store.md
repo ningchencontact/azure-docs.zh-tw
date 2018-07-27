@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 7cdc4f0ef436fbd7ea3bdf1431b08be3b840290f
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e401508fc5ffc1de666f727ffbb7790005384fc1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857196"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003792"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料載入 Azure Data Lake Storage Gen1
 
@@ -35,7 +35,8 @@ Azure Data Factory 可針對將資料載入 Azure Data Lake Store 的作業提�
 
 > [!NOTE]
 > 如需詳細資訊，請參閱[使用 Azure Data Factory 將資料複製到 Azure Data Lake Store 或從該處複製資料](connector-azure-data-lake-store.md)。
-## <a name="prerequisites"></a>先決條件
+
+## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶：如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 * Azure Data Lake Store：如果您沒有 Data Lake Store 帳戶，請參閱[建立 Data Lake Store 帳戶](../data-lake-store/data-lake-store-get-started-portal.md#create-an-azure-data-lake-store-account)中的指示。
@@ -109,7 +110,7 @@ Azure Data Factory 可針對將資料載入 Azure Data Lake Store 的作業提�
    3. 選取 [下一步] 。
    
    > [!IMPORTANT]
-   > 在本逐步解說中，您會使用_受控服務識別_來驗證 Data Lake Store。 請務必遵循[這些指示](connector-azure-data-lake-store.md#using-managed-service-identity-authentication)，以對服務主體授與 Azure Data Lake Store 中的適當權限。
+   > 在本逐步解說中，您會使用_受控服務識別_來驗證 Data Lake Store。 請務必遵循[這些指示](connector-azure-data-lake-store.md#using-managed-service-identity-authentication)，以對 MSI 授與 Azure Data Lake Store 中的適當權限。
    
    ![指定 Azure Data Lake Store 帳戶](./media/load-data-into-azure-data-lake-store/specify-adls.png)
 9. 在 [選擇輸出檔案或資料夾] 頁面中，輸入 [copyfroms3] 作為輸出資料夾名稱，然後選取 [下一步]： 

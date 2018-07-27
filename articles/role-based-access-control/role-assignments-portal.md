@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 07/11/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6544503353f085a9dd9b0fe7207bbf8d4e0bc9d0
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: aaa36d850516ff4d8e40b62c588347468da5c6d2
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435612"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008156"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>使用 RBAC 和 Azure 入口網站來管理存取權
 
@@ -88,7 +88,9 @@ ms.locfileid: "37435612"
 
    ![Azure Active Directory 使用者的 Azure 資源](./media/role-assignments-portal/aad-user-azure-resources.png)
 
-   在 [Azure 資源] 刀鋒視窗上，您可以查看所選使用者的角色指派。 此清單只會針對您有權讀取的資源列出其角色指派。 例如，如果使用者在您無法讀取的不同訂用帳戶中也有角色指派，這些角色指派將不會出現在清單中。
+   在 [Azure 資源] 刀鋒視窗上，您可以查看所選使用者和所選訂用帳戶的角色指派。 此清單只會針對您有權讀取的資源列出其角色指派。 例如，如果使用者也有您無法讀取的角色指派，這些角色指派將不會出現在清單中。
+
+1. 如果您有多個訂用帳戶，則可以選擇 [訂用帳戶] 下拉式清單，來查看不同訂用帳戶中的角色指派。
 
 ## <a name="grant-access"></a>授與存取權
 
@@ -161,14 +163,6 @@ ms.locfileid: "37435612"
 1. 在顯示的移除角色指派訊息中，選擇 [是]。
 
 繼承的角色指派無法移除。 如果您需要移除繼承的角色指派，您必須在建立角色指派的範圍中進行移除。 在 [範圍] 資料行中 [繼承] 的旁邊有一個連結，會將您帶往已指派該角色的資源。 移至該處所列的範圍來移除角色指派。
-
-## <a name="other-tools-to-manage-access"></a>其他用來管理存取權的工具
-
-除了 Azure 入口網站以外，您可以使用工具中的 Azure RBAC 命令來指派角色及管理存取權。 如需詳細資訊，請參閱下列連結：
-
-* [Azure PowerShell](role-assignments-powershell.md)
-* [Azure CLI](role-assignments-cli.md)
-* [REST API](role-assignments-rest.md)
 
 ## <a name="next-steps"></a>後續步驟
 

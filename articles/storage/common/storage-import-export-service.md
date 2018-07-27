@@ -6,18 +6,20 @@ manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/11/2018
 ms.author: alkohli
-ms.openlocfilehash: 83ba437e699eb150e86e6c89e478377394966419
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ab73420d1bfe0dbddcf2a0e3c3dd34203e4bb2d7
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232672"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008411"
 ---
 # <a name="what-is-azure-importexport-service"></a>什麼是 Azure 匯入/匯出服務？
 
 Azure 匯入/匯出服務可用來將硬碟運送到 Azure 資料中心，安全地將大量資料匯入 Azure Blob 儲存體和 Azure 檔案服務中。 這項服務也能用來將資料從 Azure Blob 儲存體傳輸到磁碟機，然後運送到您的內部部署網站。 來自一個或多個磁碟機的資料可匯入 Azure Blob 儲存體或 Azure 檔案服務中。 
+
+Azure 匯入/匯出服務會要求您提供自有磁碟。 如果您想要使用由 Microsoft 所提供的磁碟來傳輸資料，則可以使用 Azure 資料箱磁碟將資料匯入到 Azure。 Microsoft 會透過區域電訊廠商，將每筆訂單最多 5 個包含 40 TB 容量的加密固態硬碟 (SSD) 寄送至您的資料中心。 您可快速設定磁碟、透過 USB 3.0 連線將資料複製到磁碟，並將磁碟寄回 Azure。 如需詳細資訊，請移至 [Azure 資料箱磁碟概觀](https://docs.microsoft.com/azure/databox/data-box-disk-overview)。
 
 ## <a name="azure-importexport-usecases"></a>Azure 匯入/匯出使用案例
 

@@ -14,85 +14,97 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 58e3646588e500c4dd5334966d559aaed333b689
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 9795beca93ab4dbbeb1e0e99a50952ea23ca1568
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37083156"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005480"
 ---
-# <a name="become-a-publisher-in-the-storefronts-on-the-marketplace"></a>成為市集中店面的發行者  
-下列步驟可協助您註冊為市集中店面的發行者。 根據您與 Microsoft 間的現有約定及您選取的清單類型，可能不需要下列某些步驟。  
+# <a name="become-a-cloud-marketplace-publisher"></a>成為雲端市集發行者
 
-|  | 註冊步驟 | 時間 | 詳細資料 |  
+本文將說明如何註冊為雲端市集發行者。 根據您選取的發行選項和目前在 Microsoft 合作夥伴網路上的成員資格，可能不需要進行下列某些步驟。 註冊後，您將能夠建立 Azure Marketplace 或 AppSource 的市集供應項目。
+
+
+|  | 註冊步驟 | Duration | 詳細資料 |  
 |:--- |:--- |:--- |:--- |  
 | 1 | 在 Microsoft 合作夥伴網路中註冊 | 15 分鐘 | [在 Microsoft 合作夥伴網路中註冊](#register-in-microsoft-partner-network) |  
-| 2 | 建立 Microsoft ID | 15 分鐘 | [建立 Microsoft ID](#create-a-microsoft-id) |  
-| 3 | 提交 Marketplace 提名表單 | 1-3 天 | [提交市集提名表單](#submit-the-marketplace-nomination-form) |  
-| 4 | 在 Microsoft 開發人員中心 (Dev Center) 註冊 | 5-10 天 | [在開發人員中心註冊](#register-in-dev-center) |  
-| 5 |  登入 Cloud Partner 入口網站 | 15 分鐘 | [登入 Cloud Partner 入口網站](#sign-into-cloud-partner-portal) |  
+| 2 | 建立 Microsoft 帳戶 <ul>(對於 Azure Marketplace 交易供應項目而言是必要的；對於其他項目則是建議)</ul> | 15 分鐘 | [建立 Microsoft ID](#create-a-microsoft-id) |  
+| 3 | 提交市集註冊表單 | 15 分鐘 | [提交市集提名表單](#submit-the-marketplace-nomination-form) |  
+| 4 |  登入 Cloud Partner 入口網站 | 1-3 天 | [登入 Cloud Partner 入口網站](#sign-into-cloud-partner-portal) |  
+| 5 | 在 Microsoft 開發人員中心內註冊 (適用於 Azure Marketplace 交易供應項目) | 5-10 天 | [在開發人員中心註冊](#register-in-dev-center) |  
 
-## <a name="register-in-microsoft-partner-network"></a>在 Microsoft 合作夥伴網路中註冊  
+
+## <a name="1-register-in-microsoft-partner-network"></a>1.在 Microsoft 合作夥伴網路中註冊  
 | 15 分鐘 |  
-加入 Microsoft 合作夥伴網路 (MPN)，成為正式的 Microsoft 合作夥伴後，在 Azure Marketplace 中發行項目時即可接收其他權益與支援。 在 MPN 中註冊，然後按一下 [`Enroll`]。  
-*   若要在 MPN 中註冊，請瀏覽成員資格頁面：[partner.microsoft.com/membership](https://partner.microsoft.com/membership)。  
+參與 Microsoft 雲端市集需要 Microsoft 合作夥伴網路 (MPN) 的成員資格，這也可提供您重要優勢、方案和合作夥伴效能追蹤。 如果您的組織還不是成員之一，請加入 Microsoft 合作夥伴網路 (MPN) 成為正式的 Microsoft 合作夥伴，並在市集中發行項目時接收其他權益與支援。 
+
+*   若要註冊 Microsoft 合作夥伴網路，請瀏覽[成員資格頁面](https://partner.microsoft.com/membership)，並遵循步驟來啟動您的註冊。  
+
+註冊完成之後，請記下組織的 Microsoft 合作夥伴網路識別碼。 當您在步驟 3 中提交市集註冊表單時，會需要此識別碼。
+*   了解 [Microsoft 合作夥伴網路](https://partner.microsoft.com/en-us/commercial)的權益
+*   如果您的組織已擁有成員資格，可以在註冊時加入您的組織。 如果您使用[合作夥伴中心](https://partnercenter.microsoft.com/partner/home)，可以在合作夥伴中心帳戶中看到識別碼。 如果您使用 [Partner Membership Center (PMC)](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx)，可以在 Partner Membership Center 帳戶中看到識別碼。 
 
 ---  
 
-如果貴組織擁有現有的成員資格，您可以在註冊時加入您的組織。 註冊完成之後，請記下您組織的 MPN 識別碼。 Microsoft 會向您索取 MPN 識別碼，然後才會啟動您在 Cloud Partner 入口網站中的發行者設定檔。 
-*   如需有關如何啟動發行者設定檔的詳細資訊，請瀏覽[在開發人員中心註冊](#register-in-dev-center)一節。  
-
----  
-
-## <a name="create-a-microsoft-id"></a>建立 Microsoft ID  
+## <a name="2-create-a-microsoft-account"></a>2.建立 Microsoft 帳戶  
 | 15 分鐘 |  
-您的 Microsoft ID 可讓您存取 Cloud Partner 入口網站。 電子郵件地址必須註冊為 Microsoft ID，並用於 Cloud Partner 入口網站和開發人員中心。 選取的電子郵件地址應最好位於貴公司網域內，並由 IT 小組控制。  
-*   如需有關在開發人員中心註冊的詳細資訊，請瀏覽[在開發人員中心註冊](#register-in-dev-center)一節。  
-*   如需有關登入Cloud Partner 入口網站的詳細資訊，請瀏覽[登入 Cloud Partner 入口網站](#sign-into-cloud-partner-portal)一節。  
-*   若要檢閱建立 Microsoft ID 的指引，請瀏覽[建立 Microsoft ID 以管理市集帳戶的指導方針](./guidelines.md#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account)一節。  
+Microsoft 帳戶 (例如 @outlook.com或 @live.com) 可用來存取許多 Microsoft 裝置和服務。 這對於 Azure Marketplace 交易供應項目而言是必要的，而我們建議您將其用於所有雲端發行者。 如需深入了解 Microsoft 帳戶的優勢與用途，[請瀏覽此頁面](https://account.microsoft.com/account/)。 您將使用個人的 Microsoft 帳戶來存取 Cloud Partner 入口網站，也就是要用來建立及管理市集供應項目的發行平台。 
+
+[! 重要] 請注意，與您工作電子郵件相關聯的 Microsoft 帳戶將不允許用來存取入口網站。
+
+>[!Note]
+>如果您已經有 Microsoft 帳戶，請檢閱[建立 Microsoft 識別碼以管理市集帳戶的指導方針](https://review.docs.microsoft.com/en-us/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account)，來判斷此帳戶是否可以用在市集發行上。 
+
+>使用 Azure Active Directory 同盟公司帳戶的使用者應該先閱讀[這篇文章](https://review.docs.microsoft.com/en-us/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain)，再嘗試建立或使用現有的 Microsoft 帳戶。
+
+*   如需建立或管理 Microsoft 帳戶的說明，請瀏覽 [Microsoft 帳戶說明的支援頁面](https://support.microsoft.com/en-us/products/microsoft-account?category=manage-account)。
+
 
 ---  
 
-## <a name="submit-the-marketplace-nomination-form"></a>提交 Marketplace 提名表單  
-| 1-3 天 |  
-提名您的組織，使其成為市集中店面的發行者。 
-*   若要提交 Azure Marketplace 提名表單，請瀏覽 Azure Marketplace 提名表單頁面：[aka.ms/listonazuremarketplace](http://aka.ms/listonazuremarketplace)  
-*   若要提交 AppSource 提名表單，請瀏覽「介紹您的應用程式」頁面：[aka.ms/listonappsource](http://aka.ms/listonappsource)  
+## <a name="3-submit-the-marketplace-registration-form"></a>3.提交市集註冊表單  
+| 15 分鐘 |  
+完成此簡短的註冊表單，以成為市集發行者。 透過此表單提交的資訊，將會用來在 Cloud Partner 入口網站中建立發行者帳戶，以允許您建立、發行及管理市集供應項目。
 
-請務必在提名表單中中包含下列資訊。  
-*   您組織的詳細資料  
-*   您第一個應用程式或供應項目的詳細資料  
-*   您要提供給客戶的支援層級詳細資料  
-
-提交表單後，您的應用程式或供應項目會接受檢閱與驗證。 如果通過核准，您會收到包含後續步驟的電子郵件，協助您成為核准的合作夥伴。 電子郵件中也會包含促銷代碼，此代碼可免除建立開發人員中心帳戶的註冊費用。 您也可以取得 Cloud Partner 入口網站或 AppSource 的存取權。 在 AppSource 上完成您第一個應用程式，或在 Cloud Partner 入口網站上完成第一個供應項目。 在 AppSource 上建立其他應用程式，或在 Cloud Partner 入口網站上建立其他供應項目。  
-*   如需有關在開發人員中心註冊的詳細資訊，請瀏覽[在開發人員中心註冊](#register-in-dev-center)一節。  
+您必須包含下列資訊：
+*   您組織的詳細資料，包括 Microsoft 合作夥伴網路識別碼 (可以在[合作夥伴中心](https://partnercenter.microsoft.com/partner/home)或 [Partner Membership Center](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx) 中查閱)
+*   簡短描述您要發行的初始應用程式或諮詢服務供應項目，包括與您供應項目最密切相關的 Microsoft 產品或服務
+*   您應用程式或服務的目標對象 
 
 ---  
+## <a name="4-sign-into-cloud-partner-portal"></a>4.登入 Cloud Partner 入口網站
+| 1-3 天| 我們的 Marketplace 上線小組會檢閱和驗證您在步驟 3 提供的市集註冊詳細資料。 一旦核准之後，您會收到歡迎電子郵件帳戶，其中包含帳戶認證及登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com)的指引。
 
-## <a name="register-in-dev-center"></a>在開發人員中心註冊  
+您將使用 [Cloud Partner 入口網站](https://cloudpartner.azure.com)來建立、發行及管理市集供應項目。 一旦收到核准的歡迎電子郵件時，即可立即使用您的 Microsoft 帳戶登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com)，以存取發行至市集及建立供應項目的其他技術資訊。 
+*   如需使用 Cloud Partner 入口網站的詳細資訊，[請瀏覽＜使用者入門＞一文中的＜學習＞區段](https://cloudpartner.azure.com/#documentation/getting-started-with-the-cloud-partner-portal)。 您必須登入 Cloud Partner 入口網站，來存取這些詳細資料。
+*   如果您有任何問題或想要安排電訪以了解上線概觀，請檢閱此發行者指南中的其他文章，或從 Cloud Partner 入口網站的 [問題類型] > [市集上線] 中開啟支援要求。
+*   如果您未收到歡迎電子郵件，請檢查垃圾郵件資料夾，查看是否有主旨為「歡迎使用 Microsoft Marketplace！」的電子郵件。 如果您的垃圾郵件資料夾中沒有任何電子郵件，[請連絡 Microsoft 支援服務](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820)。 在支援頁面中，請選取：[問題類型] > [市集上線]。  我們的 Marketplace 發行者上線團隊十分樂意協助您解決問題。 
+
+
+## <a name="5-register-in-dev-center-for-transact-publishing-option-only"></a>5.在開發人員中心內註冊 (僅適用於交易發行選項) 
 | 5-10 天 |  
-一定要有開發人員中心帳戶，才能發行具有 Transact 列出類型的應用程式；例如，虛擬機器、Azure 應用程式：解決方案範本及 Azure 應用程式：受控應用程式。 此需求可讓 Microsoft 驗證您公司的法律、稅務和銀行相關資訊。 註冊者必須是組織的有效代表，而且必須提供個人資訊以驗證其身分識別。 您必須使用 Microsoft ID 進行註冊。 公司必須共用您的 Microsoft ID。 您使用的 Microsoft ID 必須與 Cloud Partner 入口網站上的一樣。  
-*   如需有關如何建立 Microsoft ID 的詳細資訊，請瀏覽[建立 Microsoft ID](#create-a-microsoft-id)一節。  
+[開發人員中心](https://developer.microsoft.com/en-us/store/register)帳戶對於使用交易發行選項的供應項目而言是必要的：這些發行選項包含設定為透過 Azure 銷售的虛擬機器、Azure 應用程式及 SaaS 應用程式。 Microsoft 會使用[開發人員中心](https://developer.microsoft.com/en-us/store/register)帳戶的詳細資料來驗證您公司的法務、稅務和銀行資訊，這些資訊會在您透過 Azure Marketplace 進行銷售或收取軟體授權費用時，用於付款作業。 
 
->[!NOTE]
->如果您沒有完成市集提名表單，則必須支付 $99 的註冊費用。 若要免除此費用，請填寫市集提名表單，您便會收到包含促銷代碼的電子郵件。  
+您可以先開始[開發人員中心](https://developer.microsoft.com/en-us/store/register)註冊程序，再於 Cloud Partner 入口網站中建立您的供應項目，但必須在發佈您的市集供應項目之前完成此程序。 考慮到通常需要 5-10 天來完成此步驟，因此如果您想要使用交易發行選項，建議您盡快開始此程序。 
+
+[開發人員中心](https://developer.microsoft.com/en-us/store/register)內的個人註冊必須是組織的有效代表，而且必須提供個人資訊以驗證其身分識別。 使用您在步驟 2 中建立的 Microsoft 帳戶進行註冊，並且使用您用來存取 Cloud Partner 入口網站的相同 Microsoft 帳戶。
+
+*   若要註冊[開發人員中心](https://developer.microsoft.com/en-us/store/register)帳戶，[請在此開始註冊程序](https://developer.microsoft.com/en-us/store/register)。
+*   如需有關如何建立 Microsoft 帳戶的詳細資訊，請瀏覽＜建立 Microsoft 帳戶＞一節。
+ 
+完成[開發人員中心](https://developer.microsoft.com/en-us/store/register)註冊後，將 Cloud Partner 設定檔與您的[開發人員中心](https://developer.microsoft.com/en-us/store/register)帳戶連結 (請在此參閱詳細的步驟)。 此步驟必須在發行交易供應項目之前完成。 
+
+>[!Note]
+>若要免除 $99 的開發人員中心註冊費用，請填寫市集註冊表單，您便會收到包含促銷代碼的電子郵件。 
 
 >[!Important]
->在您嘗試建立開發人員中心帳戶之前，請確認您公司尚未有開發人員中心帳戶。 
->*   如需詳細資訊，請瀏覽[如何在開發人員中心註冊](#how-to-register-in-dev-center)一節。  
+>建立 Microsoft 開發人員中心帳戶之前，請確認組織還沒有開發人員中心帳戶，以避免重複的帳戶。 如需詳細資訊，請瀏覽[如何在開發人員中心註冊](https://review.docs.microsoft.com/en-us/azure/marketplace/become-publisher?branch=pr-en-us-44571#how-to-register-in-dev-center)一節。
 
----  
-
-## <a name="sign-into-cloud-partner-portal"></a>登入 Cloud Partner 入口網站
-| 15 分鐘 |  
-當您的提名已核准，而且您已在 MPN 和開發人員中心註冊之後，系統就會為您建立具有 Cloud Partner 入口網站存取權的市集帳戶。 提名核准電子郵件中會包含初次登入認證。 
-*   若要存取 MPN，請瀏覽成員資格頁面：[partner.microsoft.com/membership](https://partner.microsoft.com/membership)。  
-*   若要存取開發人員中心，請瀏覽開發人員中心頁面：[dev.windows.com](https://dev.windows.com)。  
-*   若要存取 Microsoft Cloud Partner 入口網站，請瀏覽 Cloud Partner 入口網站頁面：[cloudpartner.azure.com](https://cloudpartner.azure.com)。  
-*   如需使用 Cloud Partner 入口網站的詳細資訊，請瀏覽學習區段：[cloudpartner.azure.com/#Learn](https://cloudpartner.azure.com/#Learn)。  
-*   如需有關 Cloud Partner 入口網站的文件，請瀏覽文件區段：[cloudpartner.azure.com/#documentation](https://cloudpartner.azure.com/#documentation)。  
 
 ## <a name="next-steps"></a>後續步驟
-*   請瀏覽 [Azure Marketplace 和 AppSource 發行者指南](./marketplace-publishers-guide.md)網頁。  
+* 深入了解市集店面：AppSource 和 Azure Marketplace
+*   決定市集的供應項目
+
  
 ---  

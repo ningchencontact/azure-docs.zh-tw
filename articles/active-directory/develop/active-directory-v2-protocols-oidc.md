@@ -13,41 +13,41 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 07/12/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 747ba9c51181c62b45bb060810391ca54f4c044e
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 2db40be8cab03339b9c0d3ce043d926593ee89a6
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869086"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007071"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory 2.0 和 OpenID Connect 通訊協定
-OpenID Connect 在 OAuth 2.0 上建置的驗證通訊協定，可用來讓使用者安全地登入 Web 應用程式。 當您使用 v2.0 端點的 OpenID Connect 實作時，可以在您的 Web 型應用程式中新增登入和 API 存取。 在本文中，我們將示範如何在不受語言限制的情況下執行此操作。 我們將說明如何傳送及接收 HTTP 訊息，但不使用任何 Microsoft 開放原始碼程式庫。
+
+OpenID Connect 在 OAuth 2.0 上建置的驗證通訊協定，可用來讓使用者安全地登入 Web 應用程式。 當您使用 v2.0 端點的 OpenID Connect 實作時，可以在您的 Web 型應用程式中新增登入和 API 存取。 本文說明如何不受語言限制地執行此工作，並說明如何在不使用任何 Microsoft 開放原始碼程式庫的情況下，傳送和接收 HTTP 訊息。
 
 > [!NOTE]
-> v2.0 端點並未支援所有的 Azure Active Directory 案例和功能。 若要判斷您是否應該使用 v2.0 端點，請參閱 [v2.0 限制](active-directory-v2-limitations.md)。
-> 
-> 
+> v2.0 端點並未支援所有的 Azure Active Directory (Azure AD) 案例和功能。 若要判斷您是否應該使用 v2.0 端點，請參閱 [v2.0 限制](active-directory-v2-limitations.md)。
 
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) 將 OAuth 2.0「授權」通訊協定延伸來當作「驗證」通訊協定使用，以便讓您能夠使用 OAuth 來執行單一登入。 OpenID Connect 引進了「識別碼權杖」的概念，這是一種安全性權杖，可讓用戶端確認使用者的身分識別。 識別碼權杖也會取得使用者的相關基本設定檔資訊。 由於 OpenID Connect 延伸了 OAuth 2.0，因此應用程式可以安全地取得「存取權杖」，而這些權杖可用來存取受[授權伺服器](active-directory-v2-protocols.md#the-basics)保護的資源。 v2.0 端點也可允許已向 Azure AD 註冊的第三方應用程式，針對受保護的資源發出存取權杖，例如 Web API。 如需如何設定應用程式以發出存取權杖的詳細資訊，請參閱[如何使用 v2.0 端點註冊 App](active-directory-v2-app-registration.md)。 如果您要建置裝載於伺服器上且透過瀏覽器存取的 [Web 應用程式](active-directory-v2-flows.md#web-apps)，建議您使用 OpenID Connect。
 
 ## <a name="protocol-diagram-sign-in"></a>通訊協定圖表：登入
-最基本的登入流程包含下圖中顯示的步驟。 我們會在本文中詳細說明每個步驟。
+
+最基本的登入流程包含下圖中顯示的步驟。 本文有每個步驟的詳細說明。
 
 ![OpenID Connect 通訊協定：登入](../../media/active-directory-v2-flows/convergence_scenarios_webapp.png)
 
 ## <a name="fetch-the-openid-connect-metadata-document"></a>擷取 OpenID Connect 中繼資料文件
+
 OpenID Connect 所描述的中繼資料文件包含應用程式執行登入所需的大部分資訊。 這包括要使用的 URL、服務的公開簽署金鑰位置等資訊。 就 v2.0 端點而言，這是您應該使用的 OpenID Connect 中繼資料文件︰
 
 ```
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 ```
-> [!TIP] 
-> 試試看！ 按一下 [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) 以查看 `common` 租用戶設定。 
->
+> [!TIP]
+> 試試看！ 按一下 [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) 以查看 `common` 租用戶設定。
 
 `{tenant}` 可以接受下列四個值的其中一個：
 
@@ -78,6 +78,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 一般而言，您可使用此中繼資料文件來設定 OpenID Connect 程式庫或 SDK；程式庫會使用中繼資料來執行其工作。 不過，如果您並非使用預先建置的 OpenID Connect 程式庫，則可遵循本文其餘部分中的步驟，使用 v2.0 端點在 Web 應用程式中執行登入。
 
 ## <a name="send-the-sign-in-request"></a>傳送登入要求
+
 當您的 Web 應用程式需要驗證使用者時，其可以將使用者導向至 `/authorize` 端點。 這個要求類似於 [OAuth 2.0 授權碼流程](active-directory-v2-protocols-oauth-code.md)的第一個階段，但有下列重要區別：
 
 * 要求必須在 `scope` 參數中包含 `openid` 範圍。
@@ -105,8 +106,6 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > [!TIP]
 > 請按一下以下連結來執行此要求。 登入之後，您的瀏覽器將會重新導向至 https://localhost/myapp/，網址列中會有識別碼權杖。 請注意，此要求會使用 `response_mode=fragment` (僅限用於示範)。 建議您使用 `response_mode=form_post`。
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
-> 
-> 
 
 | 參數 | 條件 | 說明 |
 | --- | --- | --- |
@@ -127,6 +126,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 在使用者驗證並同意之後，v2.0 端點會使用 `response_mode` 參數中指定的方法，將回應傳回至位於指示之重新導向 URI 的應用程式。
 
 ### <a name="successful-response"></a>成功回應
+
 使用 `response_mode=form_post` 時的成功回應看起來像這樣：
 
 ```
@@ -139,10 +139,11 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 
 | 參數 | 說明 |
 | --- | --- |
-| id_token |應用程式所要求的識別碼權杖。 您可以使用 `id_token` 參數來確認使用者的身分識別，並開始與使用者的工作階段。 如需有關識別碼權杖及其內容的更多詳細資料，請參閱 [v2.0 端點權杖參考](active-directory-v2-tokens.md)。 |
+| id_token |應用程式所要求的識別碼權杖。 您可以使用 `id_token` 參數來確認使用者的身分識別，並開始與使用者的工作階段。 如需識別碼權杖及其內容的詳細資訊，請參閱 [v2.0 端點權杖參考](active-directory-v2-tokens.md)。 |
 | state |如果要求中包含 `state` 參數，回應中就應該出現相同的值。 應用程式應該確認要求和回應中的狀態值完全相同。 |
 
 ### <a name="error-response"></a>錯誤回應
+
 錯誤回應也可能傳送到重新導向 URI，以便讓應用程式能夠處理它們。 錯誤回應看起來像這樣：
 
 ```
@@ -159,6 +160,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 | error_description |可協助您識別驗證錯誤根本原因的特定錯誤訊息。 |
 
 ### <a name="error-codes-for-authorization-endpoint-errors"></a>授權端點錯誤的錯誤碼
+
 下表說明可能在錯誤回應的 `error` 參數中傳回的錯誤碼：
 
 | 錯誤碼 | 說明 | 用戶端動作 |
@@ -172,6 +174,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 | invalid_resource |目標資源無效，因為它不存在、Azure AD 找不到它，或是它並未正確設定。 |這表示尚未在租用戶中設定資源 (如果存在)。 應用程式可以對使用者提示一些指示，來安裝應用程式並將它新增到 Azure AD。 |
 
 ## <a name="validate-the-id-token"></a>驗證識別碼權杖
+
 收到識別碼權杖並不足以驗證使用者。 您必須一併驗證識別碼權杖的簽章，並依照您應用程式的需求確認權杖中的宣告。 v2.0 端點使用 [JSON Web Tokens (JWT)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) 和公開金鑰加密簽署權杖及驗證其是否有效。
 
 您可以選擇在用戶端程式碼中驗證識別碼權杖，但是常見的做法是將識別碼權杖傳送到後端伺服器，並在該處執行驗證。 當您驗證識別碼權杖的簽章之後，您將必須驗證幾個宣告。 如需詳細資訊 (包括有關[驗證權杖](active-directory-v2-tokens.md#validating-tokens)和[簽署金鑰變換的相關重要資訊](active-directory-v2-tokens.md)的詳細資訊)，請參閱 [v2.0 權杖參考](active-directory-v2-tokens.md#validating-tokens)。 建議您使用程式庫來剖析及驗證權杖。 大多數語言和平台至少會有這些程式庫其中之一可用。
@@ -185,9 +188,10 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 如需有關識別碼權杖中宣告的詳細資訊，請參閱 [v2.0 端點權杖參考](active-directory-v2-tokens.md)。
 
-在您已徹底驗證識別碼權杖之後，便可開始與使用者的工作階段。 請使用識別碼權杖中的宣告來取得應用程式中使用者的相關資訊。 您可以使用這項資訊來顯示、記錄、授權等等。
+當您驗證過識別碼權杖之後，便可開始關於該使用者的工作階段。 請使用識別碼權杖中的宣告來取得應用程式中使用者的相關資訊。 您可以使用這項資訊來顯示、記錄、授權等等。
 
 ## <a name="send-a-sign-out-request"></a>傳送登出要求
+
 當您想要將使用者登出應用程式時，只是清除應用程式的 Cookie 或結束使用者的工作階段還是不夠。 您還必須將使用者重新導向至 v2.0 端點才能登出。如果不這樣做，使用者不需要再次輸入認證就能重新通過應用程式的驗證，因為他們與 v2.0 端點之間仍然存在有效的登入工作階段。
 
 您可以將使用者重新導向至 OpenID Connect 中繼資料文件中所列出的 `end_session_endpoint`：
@@ -202,9 +206,11 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 | post_logout_redirect_uri | 建議 | 使用者在成功登出之後，要重新導致到的 URL。若未包含此參數，則使用者會看到 v2.0 端點所產生的一般訊息。 此 URL 必須與您在應用程式註冊入口網站中為應用程式註冊的其中一個重新導向 URI 相符。 |
 
 ## <a name="single-sign-out"></a>單一登出
+
 當您將使用者重新導向至 `end_session_endpoint` 時，v2.0 端點會清除瀏覽器中的使用者工作階段。 不過，使用者可能仍然登入其他使用 Microsoft 帳戶進行驗證的應用程式。 為了讓這些應用程式能同時將使用者登入，v2.0 端點會將 HTTP GET 要求傳送至使用者目前登入之所有應用程式的已註冊 `LogoutUrl`。 應用程式必須藉由清除任何可識別使用者的工作階段並傳回 `200` 回應，以回應此要求。 如果您想要在應用程式中支援單一登出，您必須在應用程式的程式碼中實作這類 `LogoutUrl`。 您可以從應用程式註冊入口網站設定 `LogoutUrl`。
 
 ## <a name="protocol-diagram-access-token-acquisition"></a>通訊協定圖表：取得存取權杖
+
 許多 Web 應用程式不僅需要將使用者登入，也需要使用 OAuth 來代表使用者存取 Web 服務。 這個案例結合了 OpenID Connect 來進行使用者驗證，同時又取得您使用 OAuth 授權碼流程時，可用來取得存取權杖的授權碼。
 
 完整的 OpenID Connect 登入和權杖取得流程看起來如下圖。 我們會在本文後續的小節中詳細說明每個步驟。
@@ -238,6 +244,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
 透過在要求中包含權限範圍，以及透過使用 `response_type=id_token code`，v2.0 端點便可確保使用者已同意 `scope` 查詢參數中指出的權限。 它會將授權碼傳回給到您的應用程式以交換存取權杖。
 
 ### <a name="successful-response"></a>成功回應
+
 使用 `response_mode=form_post` 的成功回應看起來像這樣：
 
 ```
@@ -255,6 +262,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 | state |如果要求中包含狀態參數，回應中就應該出現相同的值。 應用程式應該確認要求和回應中的狀態值完全相同。 |
 
 ### <a name="error-response"></a>錯誤回應
+
 錯誤回應也可能傳送到重新導向 URI，以便讓應用程式能夠適當地處理它們。 錯誤回應看起來像這樣：
 
 ```
@@ -272,4 +280,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 如需可能的錯誤碼說明及建議的用戶端回應，請參閱[授權端點錯誤的錯誤碼](#error-codes-for-authorization-endpoint-errors)。
 
-在您取得授權碼和識別碼權杖之後，您可以將使用者登入並代表他們取得存取權杖。 若要將使用者登入，您必須[完全依照所述的方式](#validate-the-id-token)驗證識別碼權杖。 若要取得存取權杖，請依照我們 [OAuth 通訊協定文件](active-directory-v2-protocols-oauth-code.md#request-an-access-token)中所述的步驟操作。
+在您取得授權碼和識別碼權杖之後，您可以將使用者登入並代表他們取得存取權杖。 若要將使用者登入，您必須[完全依照所述的方式](#validate-the-id-token)驗證識別碼權杖。 若要取得存取權杖，請依照 [OAuth 通訊協定文件](active-directory-v2-protocols-oauth-code.md#request-an-access-token)中所述的步驟操作。

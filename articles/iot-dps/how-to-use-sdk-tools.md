@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: arjmands
-ms.openlocfilehash: afc7059f3b066ac5f3c9b49d543bc2b3e52ad6af
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 647f54d8252c594a280f81d661a3de6270bf692b
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631117"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001342"
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>如何使用 SDK 中提供的工具來簡化開發以進行佈建
 IoT 中樞裝置佈建服務會以安全且可擴充的方式，透過零接觸的 Just-In-Time [自動佈建](concepts-auto-provisioning.md)來簡化佈建程序。  需要有 X.509 憑證或信賴平台模組 (TPM) 形式的安全性證明。  Microsoft 也與[其他安全性硬體合作夥伴](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) \(英文\) 合作，以提升保護 IoT 部署安全的信心。 對於開發人員而言，了解硬體安全性需求可能會是相當大的挑戰。 我們提供一組 Azure IoT 佈建服務 SDK，讓開發人員能夠輕鬆撰寫要與佈建服務交談之用戶端。 SDK 也提供適用於常見案例的範例以及一組工具，來簡化開發中的安全性證明。
@@ -34,9 +34,9 @@ git clone https://github.com/Azure/azure-iot-sdk-java.git
 [X.509 憑證](https://docs.microsoft.com/azure/iot-dps/concepts-security#x509-certificates)可用來作為證明機制，以調整生產環境並簡化裝置佈建。  有[數種方式](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate)可取得 X.509 憑證：
 * 針對生產環境，建議向公用根憑證授權單位購買 X.509 CA 憑證。
 * 針對測試環境，您可以使用下列方式來產生 X.509 根憑證或 X.509 憑證鏈結：
-    * OpenSSL：此[作法指南](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-create-certificates) \(機器翻譯\) 能逐步引導您完成使用 [OpenSSL](https://www.openssl.org/) \(英文\) 來建立和簽署 X.509 憑證的範例 PowerShell 指令碼。  此外，您也可以使用其他語言的指令碼來產生憑證：
+    * OpenSSL：您可以使用指令碼來產生憑證：
         * [Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools)
-        * [PowerShell](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)
+        * [PowerShell 或 Bash](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)
         
     * 裝置識別組合引擎 (DICE) 模擬器：可根據 TLS 通訊協定和 X.509 用戶端憑證，將 DICE 用來進行密碼編譯裝置身分識別和證明。  [深入了解](https://www.microsoft.com/research/publication/device-identity-dice-riot-keys-certificates/) \(英文\) 搭配 DICE 的裝置身分識別。
 

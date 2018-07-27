@@ -8,22 +8,22 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: juluk
-ms.openlocfilehash: 76ca4db28d99702532ae656a19f0d54b479a13fe
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: e47d203ab21afc6d07f425ae6367fbc536b13f1d
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248919"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39011826"
 ---
 # <a name="configure-liveness-probes"></a>設定活躍度探查
 
-容器化的應用程式可能會執行一段較長的時間，因而導致可能需要藉由重新啟動容器來修復的中斷狀態。 Azure 容器執行個體支援活躍度探查以包括設定，因此，如果重要的功能無法運作，可以重新啟動您的容器。 
+容器化的應用程式可能會執行一段較長的時間，因而導致可能需要藉由重新啟動容器來修復的中斷狀態。 Azure 容器執行個體支援活躍度探查以包括設定，因此，如果重要的功能無法運作，可以重新啟動您的容器。
 
 本文說明如何部署包含活躍度探查的容器群組，示範如何自動重新啟動模擬的狀況不良容器。
 
 ## <a name="yaml-deployment"></a>YAML 部署
 
-使用下列程式碼片段來建立 `liveness-probe.yaml` 檔案。 此檔案所定義的容器群組是由最終會變成狀況不良的 NGNIX 容器所組成的。 
+使用下列程式碼片段來建立 `liveness-probe.yaml` 檔案。 此檔案所定義的容器群組是由最終會變成狀況不良的 NGNIX 容器所組成的。
 
 ```yaml
 apiVersion: 2018-06-01
@@ -45,7 +45,7 @@ properties:
           memoryInGB: 1.5
       livenessProbe:
         exec:
-            command: 
+            command:
                 - "cat"
                 - "/tmp/healthy"
         periodSeconds: 5
@@ -81,9 +81,9 @@ az container create --resource-group myResourceGroup --name livenesstest -f live
 
 在第一個 30 秒內，啟動命令所建立的 `healthy` 就會存在。 當活躍度命令檢查 `healthy` 檔案是否存在時，狀態碼會傳回零，發出訊號表示成功，因此不會重新啟動。
 
-30 秒之後，`cat /tmp/healthy` 將開始失敗，因而導致狀況不良和終止事件發生。 
+30 秒之後，`cat /tmp/healthy` 將開始失敗，因而導致狀況不良和終止事件發生。
 
-這些事件可從 Azure 入口網站或 Azure CLI 2.0 中加以檢視。
+這些事件可從 Azure 入口網站或 Azure CLI 來檢視。
 
 ![入口網站狀況不良的事件][portal-unhealthy]
 
@@ -101,7 +101,7 @@ az container create --resource-group myResourceGroup --name livenesstest -f live
 
 ## <a name="next-steps"></a>後續步驟
 
-工作型案例可能需要活躍度探查，在先決條件功能未正常運作時啟用自動重新啟動。 如需有關執行工作型容器的詳細資訊，請參閱[在 Azure 容器執行個體中執行容器化工作](container-instances-restart-policy.md)。
+工作型案例可能需要活躍度探查，以在必要功能未正常運作時啟用自動重新啟動。 如需有關執行工作型容器的詳細資訊，請參閱[在 Azure 容器執行個體中執行容器化工作](container-instances-restart-policy.md)。
 
 <!-- IMAGES -->
 [portal-unhealthy]: ./media/container-instances-liveness-probe/unhealthy-killing.png

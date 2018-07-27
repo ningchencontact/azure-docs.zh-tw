@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 503dfc0c7606d44a1b9ab635aa0d479df61f3820
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: f4a9c14a63e2cab84ccc20f8f36b272d21eb8332
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435468"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004179"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>在 Windows 上安裝要與 Linux 容器搭配使用的 Azure IoT Edge 執行階段
 
@@ -50,8 +50,9 @@ Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.z
 Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
 Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
 rmdir C:\ProgramData\iotedge\iotedged-windows
-$env:Path += ";C:\ProgramData\iotedge"
-SETX /M PATH "$env:Path"
+$sysenv = "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment"
+$path = (Get-ItemProperty -Path $sysenv -Name Path).Path + ";C:\ProgramData\iotedge"
+Set-ItemProperty -Path $sysenv -Name Path -Value $path
 ```
 
 使用以下命令來安裝 vcruntime：
@@ -140,7 +141,7 @@ Edge 裝置可以使用[裝置連接字串][lnk-dcs]手動設定，或[透過裝
 
 ![DockerNat][img-docker-nat]
 
-在更新組態檔的 **connect:** 區段中，更新 **workload_uri** 和 **management_uri**。 請將 **\<GATEWAY_ADDRESS\>** 取代為您所複製的 IP 位址。 
+在更新組態檔的 **connect:** 區段中，更新 **workload_uri** 和 **management_uri**。 請將 **\<GATEWAY_ADDRESS\>** 取代為您所複製的 DockerNAT IP 位址。 
 
 ```yaml
 connect:
@@ -148,7 +149,7 @@ connect:
   workload_uri: "http://<GATEWAY_ADDRESS>:15581"
 ```
 
-使用您的 IP 位址作為閘道位址，在組態的 **listen:** 區段中輸入相同的位址。
+在 **listen:** 區段中輸入相同的位址。
 
 ```yaml
 listen:
@@ -208,7 +209,7 @@ Get-WinEvent -ea SilentlyContinue `
   sort-object @{Expression="TimeCreated";Descending=$false}
 ```
 
-然後，使用以下命令列出執行中的模組：
+並使用以下項目列出執行中的模組：
 
 ```powershell
 iotedge list

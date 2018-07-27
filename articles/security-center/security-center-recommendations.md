@@ -3,7 +3,7 @@ title: 管理 Azure 資訊安全中心的安全性建議 | Microsoft Docs
 description: 本文件將逐步引導您了解「Azure 資訊安全中心」的建議如何協助您保護 Azure 資源及遵守安全性原則。
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: TerryLan
 manager: MBaldwin
 editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2018
+ms.date: 07/12/2018
 ms.author: terrylan
-ms.openlocfilehash: 72070f46309adb526901192752fe421a3846398b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 35f9f197dc9886998f695c4c632aa4b68ac4d072
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364245"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006609"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>管理 Azure 資訊安全中心的安全性建議
 本文件將逐步引導您了解如何使用「Azure 資訊安全中心」的建議來協助您保護 Azure 資源。
@@ -76,7 +76,7 @@ ms.locfileid: "34364245"
 | [啟用訂用帳戶的資料收集](security-center-enable-data-collection.md) |建議您為每個訂用帳戶以及所有 Azure 虛擬機器 (VM) 和非 Azure 電腦開啟安全性原則中的資料收集。 |
 | [修復安全性設定](security-center-remediate-os-vulnerabilities.md) |建議您讓作業系統設定符合建議的安全性設定規則，例如不允許儲存密碼。 |
 | [套用系統更新](security-center-apply-system-updates.md) |建議您將遺漏的系統安全性與重大更新部署到您的 Windows 與 Linux VM 和電腦。 |
-| [套用 Just-in-Time 網路存取控制](security-center-just-in-time.md) | 建議您套用 Just-in-Time 虛擬機器存取。 Just-in-Time 為預覽功能，由資訊安全中心的標準層提供。 若要深入了解資訊安全中心的定價層，請參閱[價格](security-center-pricing.md)。 |
+| [套用 Just-in-Time 網路存取控制](security-center-just-in-time.md) | 建議您套用 Just-in-Time 虛擬機器存取。 Just-in-Time 功能由資訊安全中心的標準層提供。 若要深入了解資訊安全中心的定價層，請參閱[價格](security-center-pricing.md)。 |
 | [在系統更新之後重新開機](security-center-apply-system-updates.md#reboot-after-system-updates) |建議您重新啟動 VM 以完成套用系統更新的程序。 |
 | [新增 Web 應用程式防火牆](security-center-add-web-application-firewall.md) |建議您為 Web 端點部署「Web 應用程式防火牆」(WAF)。 系統會針對任何具有相關聯網路安全性群組 (包含開放輸入 Web 連接埠 (80,443)) 的公開 IP (執行個體層級 IP 或負載平衡 IP)，顯示 WAF 建議。 </br>資訊安全中心建議您佈建 WAF，協助對抗以虛擬機器和 App Service 環境上的 Web 應用程式為目標的攻擊。 App Service 環境 (ASE) 是Azure App Service 的 [Premium](https://azure.microsoft.com/pricing/details/app-service/) 服務方案選項，可提供完全隔離和專用的環境，以便安全地執行 Azure App Service 應用程式。 若要深入了解 ASE，請參閱 [App Service 環境的文件](../app-service/environment/intro.md)。</br>您可以將這些應用程式加入現有的 WAF 部署，以保護資訊安全中心的多個 Web 應用程式。 |
 | [完成應用程式保護](security-center-add-web-application-firewall.md#finalize-application-protection) |若要完成 WAF 組態，必須將流量重新路由至 WAF 設備。 遵循這項建議會完成必要的設定變更。 |
@@ -95,7 +95,35 @@ ms.locfileid: "34364245"
 | [未安裝弱點評估](security-center-vulnerability-assessment-recommendations.md) |建議在 VM 上安裝弱點評估解決方案。 |
 | [修復弱點](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |可讓您查看 VM 上安裝的弱點評估解決方案所偵測到的系統和應用程式弱點。 |
 | [為 Azure 儲存體帳戶啟用加密](security-center-enable-encryption-for-storage-account.md) | 建議您為待用資料啟用「Azure 儲存體服務加密」。 「儲存體服務加密」(SSE) 會在資料被寫入 Azure 儲存體時加密資料，並於擷取資料之前將其解密。 SSE 目前僅適用於 Azure Blob 服務，可用於區塊 Blob、分頁 Blob 和附加 Blob。 若要深入了解，請參閱[待用資料的儲存體服務加密](../storage/common/storage-service-encryption.md)。</br>只有在 Resource Manager 儲存體帳戶上才支援 SSE。 |
-
+| [啟用自適性應用程式控制](security-center-adaptive-application.md) | 建議您在 Windows VM 上套用自適性應用程式控制。 這是預覽功能，由資訊安全中心的標準層提供。 若要深入了解資訊安全中心的定價層，請參閱[價格](security-center-pricing.md)。 |
+| App Service 應只可經由 HTTPS 存取 | 建議您限制只能透過 HTTPS 存取 App Service。 |
+| Web 應用程式應停用 Web 通訊端| 建議您仔細檢閱如何在 Web 應用程式中使用 Web 通訊端。  Web 通訊端通訊協定易受不同類型的安全性威脅攻擊。 |
+| 對 Web 應用程式使用自訂網域 | 建議您使用自訂網域來防止 Web 應用程式遭受常見攻擊，例如網路釣魚及其他 DNS 相關攻擊。 |
+| 設定 Web 應用程式的 IP 限制 | 建議您定義允許存取應用程式的 IP 位址清單。  使用 IP 限制可防止 Web 應用程式遭受常見攻擊。 |
+| 請勿允許所有 ('*') 資源來存取應用程式 | 建議您不要將 WEBSITE_LOAD_CERTIFICATES 參數設定為 ‘*’。將參數設定為 '*' 表示所有憑證都會載入 Web 應用程式的個人憑證存放區中。  這會導致最小權限的原則遭到濫用，原因是網站不可能需要在執行階段存取所有憑證。 |
+| CORS 不應允許每項資源存取應用程式 | 建議您只允許必要網域與 Web 應用程式互動。 跨原始資源共用 (CORS) 不應允許所有網域存取 Web 應用程式。 |
+| 為 Web 應用程式使用支援的最新 .NET Framework | 建議您使用最新的 .NET Framework 版本，以取得最新的安全性類別。 使用較舊的類別和類型會讓應用程式變得容易遭受攻擊。 |
+| 為 Web 應用程式使用支援的最新 JAVA 版本 | 建議您使用最新的 Java 版本，以取得最新的安全性類別。 使用較舊的類別和類型會讓應用程式變得容易遭受攻擊。 |
+| 為 Web 應用程式使用支援的最新 PHP 版本 | 建議您使用最新的 PHP 版本，以取得最新的安全性類別。 使用較舊的類別和類型會讓應用程式變得容易遭受攻擊。 |
+| [新增 Web 應用程式防火牆](security-center-add-web-application-firewall.md) |建議您為 Web 端點部署「Web 應用程式防火牆」(WAF)。 系統會針對任何具有相關聯網路安全性群組 (包含開放輸入 Web 連接埠 (80,443)) 的公開 IP (執行個體層級 IP 或負載平衡 IP)，顯示 WAF 建議。</br></br>資訊安全中心建議您佈建 WAF，協助對抗以虛擬機器和 App Service 環境上的 Web 應用程式為目標的攻擊。 App Service 環境 (ASE) 是Azure App Service 的 [Premium](https://azure.microsoft.com/pricing/details/app-service/) 服務方案選項，可提供完全隔離和專用的環境，以便安全地執行 Azure App Service 應用程式。 若要深入了解 ASE，請參閱 [App Service 環境的文件](../app-service/environment/intro.md)。</br></br>您可以將這些應用程式加入現有的 WAF 部署，以保護資訊安全中心的多個 Web 應用程式。 |
+| [完成應用程式保護](security-center-add-web-application-firewall.md#finalize-application-protection) |若要完成 WAF 組態，必須將流量重新路由至 WAF 設備。 遵循這項建議會完成必要的設定變更。 |
+| 為 Web 應用程式使用支援的最新 Node.js 版本 | 建議您使用最新的 Node.js 版本，以取得最新的安全性類別。 使用較舊的類別和類型會讓應用程式變得容易遭受攻擊。 |
+| CORS 不應允許每項資源存取函式應用程式 | 建議您只允許必要網域與 Web 應用程式互動。 跨原始資源共用 (CORS) 不應允許所有網域存取函式應用程式。 |
+| 對函式應用程式使用自訂網域 | 建議您使用自訂網域來防止函式應用程式遭受常見攻擊，例如網路釣魚及其他 DNS 相關攻擊。 |
+| 設定函式應用程式的 IP 限制 | 建議您定義允許存取應用程式的 IP 位址清單。 使用 IP 限制可防止函式應用程式遭受常見攻擊。 |
+| 函式應用程式應只可經由 HTTPS 存取 | 建議您限制只能透過 HTTPS 存取函式應用程式。 |
+| 函式應用程式的遠端偵錯應關閉 | 建議您關閉不再需要使用的函式應用程式偵錯功能。 遠端偵錯需要在函式應用程式上開啟輸入連接埠。 |
+| 函數應用程式應停用 Web 通訊端 | 建議您仔細檢閱如何在函式應用程式中使用 Web 通訊端。 Web 通訊端通訊協定易受不同類型的安全性威脅攻擊。 |
+| 為訂用帳戶指定多位擁有者 | 建議您指定多位訂用帳戶擁有者，以便擁有系統管理員存取備援。 |
+| 為訂用帳戶指定最多 3 位擁有者 | 建議您指定少於 3 位的訂用帳戶擁有者，以降低已遭入侵擁有者造成缺口的可能性。 |
+| 為您訂用帳戶上具有擁有者權限的帳戶啟用 MFA | 建議您為所有具備系統管理員權限的訂用帳戶啟用 Multi-Factor Authentication (MFA)，以避免出現帳戶或資源缺口。 |
+| 為您訂用帳戶中具有寫入權限的帳戶啟用 MFA | 建議您為所有具備寫入權限的訂用帳戶啟用 Multi-Factor Authentication (MFA)，以避免出現帳戶或資源缺口。 |
+| 為您訂用帳戶中具有讀取權限的帳戶啟用 MFA | 建議您為所有具備讀取權限的訂用帳戶啟用 Multi-Factor Authentication (MFA)，以避免出現帳戶或資源缺口。 |
+| 移除您訂用帳戶中具有讀取權限的外部帳戶 | 建議您移除訂用帳戶中具有讀取權限的外部帳戶，以避免出現未受監視的存取。 |
+| 移除您訂用帳戶中具有寫入權限的外部帳戶 | 建議您移除訂用帳戶中具有寫入權限的外部帳戶，以避免出現未受監視的存取。 |
+| 移除您訂用帳戶中具有擁有者權限的外部帳戶 | 建議您移除訂用帳戶中具有擁有者權限的外部帳戶，以避免出現未受監視的存取。 |
+| 移除訂用帳戶中已淘汰的帳戶 | 建議您移除訂用帳戶中已淘汰的帳戶。 |
+| 從訂用帳戶中移除具有擁有者權限的已淘汰帳戶 | 建議您移除訂用帳戶中具有擁有者權限的已淘汰帳戶。 |
 您可以篩選並關閉建議。
 
 1. 選取 [建議] 刀鋒視窗上的 [篩選]。 即會開啟 [篩選]  刀鋒視窗，您可以選取想要查看的嚴重性和狀態值。

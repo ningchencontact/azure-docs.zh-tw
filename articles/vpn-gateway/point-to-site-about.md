@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2668d92b5b933f7ccf8ebcccbe7ea77ea6ea1e86
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8cdc80e8e4f8d3feb36ca82740d5610e60716ec6
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38721423"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003354"
 ---
 # <a name="about-point-to-site-vpn"></a>關於點對站 VPN
 
@@ -58,7 +58,7 @@ AD 網域驗證可讓使用者使用其組織網域認證來連線至 Azure。 �
 
 RADIUS 伺服器也可以與其他外部身分識別系統整合。 這會開啟 P2S VPN 的許多驗證選項，包括多重因素選項。
 
-![point-to-site]](./media/point-to-site-about/p2s.png "Point-to-Site")
+![點對站](./media/point-to-site-about/p2s.png "點對站")
 
 ## <a name="what-are-the-client-configuration-requirements"></a>設定用戶端有哪些需求？
 

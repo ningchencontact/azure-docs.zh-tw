@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 07/12/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 752481186167fccb46d5bf3beb87c1507e0f4feb
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b39a1f7b0de01c50b04072cc0de011928c6af786
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936512"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003608"
 ---
 # <a name="network-connectivity"></a>網路連線
 本文提供 Azure Stack 網路基礎架構資訊，可協助您決定如何以最佳方式將 Azure Stack 整合至現有的網路環境。 
@@ -29,7 +29,7 @@ ms.locfileid: "33936512"
 > 若要從 Azure Stack 解析外部 DNS 名稱 (例如 www.bing.com)，您必須提供 DNS 伺服器來轉送 DNS 要求。 如需有關 Azure Stack DNS 需求的詳細資訊，請參閱 [Azure Stack 資料中心整合 - DNS](azure-stack-integrate-dns.md)。
 
 ## <a name="physical-network-design"></a>實體網路設計
-Azure Stack 解決方案需要有彈性且高可用性的實體基礎結構，以支援其作業和服務。 下圖顯示我們建議的設計：
+Azure Stack 解決方案需要有彈性且高可用性的實體基礎結構，以支援其作業和服務。 從 ToR 上行連結至界限交換器僅限用 SFP + 或 SFP28 媒體和 1 GB、10 GB 或 25 GB 的速度。 請洽詢您原始設備製造商 (OEM) 的硬體廠商，以了解可用性。 下圖是我們建議的設計：
 
 ![建議的 Azure Stack 網路設計](media/azure-stack-network/recommended-design.png)
 

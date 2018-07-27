@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: vidarmsft
-ms.openlocfilehash: d57229ad79909aa0334cc623d727b733a1ec73f9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5845fd246b20d29739eb6d60bbc8621489ccc0d6
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652003"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39011936"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>StorSimple 資料管理員解決方案概觀
 
@@ -85,6 +85,14 @@ StorSimple 資料管理員必須有服務資料加密金鑰，才能從 StorSimp
 ## <a name="managing-personal-information"></a>管理個人資訊
 
 StorSimple 資料管理員不會收集或顯示任何個人資訊。 如需詳細資訊，請在[信任中心](https://www.microsoft.com/trustcenter)檢閱 Microsoft 隱私權原則。
+
+## <a name="known-limitations"></a>已知限制
+
+服務目前有下列限制：
+- StorSimple 資料管理員目前不適用於以 Bitlocker 加密的磁碟區。 如果您嘗試以加密的磁碟機執行服務，作業將會失敗。
+- 檔案的部分中繼資料 (包括 ACL) 不會保留在轉換後的資料中。
+- 這項服務僅適用於 NTFS 磁碟區。
+- 檔案路徑長度必須少於 256 個字元，否則作業將會失敗。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,29 +1,29 @@
 ---
 title: 建立 Azure IoT Central 應用程式 | Microsoft Docs
 description: 了解如何以系統管理員的身分建立 Azure IoT Central 應用程式。
+services: iot-central
+ms.service: iot-central
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 03/20/2018
+ms.date: 07/09/2018
 ms.topic: conceptual
-ms.service: iot-central
-services: iot-central
 manager: peterpr
-ms.openlocfilehash: 39992a1cc36d00a64ee6430cad5f24af3e1e1157
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1fbe3ea142e1dd738cd341f57d2b8f48b539ac75
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629281"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003761"
 ---
 # <a name="create-your-azure-iot-central-application"></a>建立 Azure IoT 中心應用程式
 
-從[建立應用程式](https://apps.microsoftiotcentral.com/create)頁面建立您的 Microsoft Azure IoT 中心應用程式。 若要建立 Azure IoT 中心應用程式，您必須完成這個頁面上的所有欄位，然後選擇 [建立]。 本文包含每個欄位的詳細資訊。
+從[建立應用程式](https://apps.microsoftiotcentral.com/create)頁面建立您的 Microsoft Azure IoT 中心應用程式。 若要建立 Azure IoT 中心應用程式，您必須完成這個頁面上的所有欄位，然後選擇 [建立]。 下列包含每個欄位的詳細資訊。
 
 ![建立應用程式頁面](media\howto-create-application\image1.png)
 
 ## <a name="payment-plan"></a>付款計劃
 
-您可以建立試用或付費應用程式。 在此頁面深入了解試用和付費應用程式。
+您可以建立試用或付費應用程式。 在 [Azure IoT Central 定價頁面](https://azure.microsoft.com/pricing/details/iot-central/)深入了解試用和付費應用程式。
 
 ## <a name="application-name"></a>應用程式名稱
 
@@ -33,7 +33,7 @@ ms.locfileid: "34629281"
 
 應用程式的 URL 是您應用程式的 URL。 您可以將其書籤儲存在您的瀏覽器中，或與他人共用 URL。
 
-當您輸入您的應用程式名稱時，就會自動產生您的應用程式 URL。 如果您想要，可以為您的應用程式選擇不同的 URL。 每個 Azure IoT 中心 URL 都必須是唯一的。 如果您選擇的 URL 已被採用，則會收到錯誤訊息。
+當您輸入您的應用程式名稱時，就會自動產生您的應用程式 URL。 如果您想要，可以為您的應用程式選擇不同的 URL。 在 Azure IoT Central 中，每個 Azure IoT Central URL 都必須是唯一的。 如果您選擇的 URL 已被採用，則會收到錯誤訊息。
 
 ## <a name="directory"></a>目錄
 
@@ -45,11 +45,11 @@ ms.locfileid: "34629281"
 
 若要深入了解，請參閱 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)。
 
-## <a name="azure-subscription"></a>Azure 訂閱
+## <a name="azure-subscription"></a>Azure 訂用帳戶
 
 Azure 訂用帳戶可讓您建立 Azure 服務執行個體。 Azure IoT 中心會自動尋找您可以存取的所有 Azure 訂用帳戶，並顯示於 [建立應用程式] 頁面的下拉式清單中。 選擇 Azure 訂用帳戶，以建立新的 Azure IoT 中心應用程式。
 
-如果您沒有 Azure 訂用帳戶，您可以在此頁面上建立一個。 建立 Azure 訂用帳戶之後，請瀏覽回到 [建立應用程式] 頁面。 新的訂用帳戶會出現在 [Azure 訂用帳戶] 下拉式清單中。
+如果您沒有 Azure 訂用帳戶，您可以在 [Azure 註冊頁面](https://aka.ms/createazuresubscription)上建立一個。 建立 Azure 訂用帳戶之後，請瀏覽回到 [建立應用程式] 頁面。 新的訂用帳戶會出現在 [Azure 訂用帳戶] 下拉式清單中。
 
 若要深入了解，請參閱 [Azure 訂用帳戶](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)。
 
@@ -59,7 +59,7 @@ Azure 訂用帳戶可讓您建立 Azure 服務執行個體。 Azure IoT 中心�
 
 選取您要建立 Azure IoT 中心應用程式的區域。 一般而言，您應選擇實際上最接近您裝置的區域，以取得最佳效能。
 
-若要深入了解，請參閱 [Azure 區域](https://docs.microsoft.com/en-us/azure/guides/developer/azure-developer-guide#azure-regions)。
+若要深入了解，請參閱 [Azure 區域](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#azure-regions)。
 
 您可以在[依區域提供的產品](https://azure.microsoft.com/regions/services/)頁面上，看到可以使用 Azure IoT 中心的區域。
 
@@ -68,7 +68,7 @@ Azure 訂用帳戶可讓您建立 Azure 服務執行個體。 Azure IoT 中心�
 
 ## <a name="application-template"></a>應用程式範本
 
-您可以為新的 Azure IoT 中心應用程式，選擇其中一個可用的應用程式範本。 應用程式範本可以包含預先定義的項目 (例如裝置範本和儀表板)，協助您開始使用：
+您可以為新的 Azure IoT 中心應用程式，選擇其中一個可用的應用程式範本。 應用程式範本可以包含預先定義的項目 (例如裝置範本和儀表板)，協助您開始使用。
 
 | 應用程式範本 | 說明 |
 | -------------------- | ----------- |

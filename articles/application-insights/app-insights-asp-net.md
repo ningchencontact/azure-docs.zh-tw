@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure Application Insights 設定 ASP.NET 的 Web 應用程式分析 | Microsoft Docs"
-description: "針對裝載在內部部署環境或 Azure 的 ASP.NET 網站設定效能、可用性及使用情況分析。"
+title: 使用 Azure Application Insights 設定 ASP.NET 的 Web 應用程式分析 | Microsoft Docs
+description: 針對裝載在內部部署環境或 Azure 的 ASP.NET 網站，設定效能、可用性及使用者行為分析工具。
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4fea71509b2dec897a3dafef627e243ae25447ad
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 73bb1e3d06066c422614bc9d6d3431b49be9c6de
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38992191"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>設定 ASP.NET 網站的 Application Insights
 
@@ -25,14 +26,14 @@ ms.lasthandoff: 02/27/2018
 
 在 Visual Studio 中只需按幾下滑鼠即可進行安裝。 您可以選擇限制遙測的磁碟區來避免產生費用。 這可讓您實驗和偵錯，或使用不多的使用者監視網站。 當您決定要繼續監視您的生產網站時，很容易在稍後提升限制。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要將 Application Insights 新增至您的 ASP.NET 網站，您必須：
 
 - 使用下列工作負載，安裝 [Visual Studio 2017 for Windows](https://www.visualstudio.com/downloads/)：
     - ASP.NET 和 Web 開發
     - Azure 開發
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="ide"></a>步驟 1：新增 Application Insights SDK
 
@@ -142,7 +143,7 @@ Application Insights 設定畫面：
 
 * **[瀏覽器和頁面載入資料](app-insights-javascript.md)** - 在您的網頁中插入程式碼片段。
 * **[取得更詳細的相依性和例外狀況監視](app-insights-monitor-performance-live-website-now.md)** - 在您的伺服器上安裝狀態監視器。
-* **[撰寫自訂事件](app-insights-api-custom-events-metrics.md)**以計數、計時或測量使用者動作。
+* **[撰寫自訂事件](app-insights-api-custom-events-metrics.md)** 以計數、計時或測量使用者動作。
 * **[取得記錄資料](app-insights-asp-net-trace-logs.md)** - 將記錄資料與您的遙測相互關聯。
 
 ### <a name="analysis"></a>分析

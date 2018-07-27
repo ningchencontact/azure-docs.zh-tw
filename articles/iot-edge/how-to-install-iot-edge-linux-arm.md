@@ -9,16 +9,16 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: ad70fcc6b9779cb33772a3fce2fb11b4cec804ee
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 5b5212d5e1663fee01ff87642432818071d4f4dd
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062593"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988529"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>在 Linux (ARM32v7/armhf) 上安裝 Azure IoT Edge 執行階段
 
-在所有 IoT Edge 裝置上都有部署 Azure IoT Edge 執行階段。 它有三個元件。 **IoT Edge 安全性精靈**提供及維護 Edge 裝置的安全性標準。 精靈在每次開機時都會啟動，並藉由啟動 IoT Edge 代理程式，讓裝置進入啟動程序。 **IoT Edge 代理程式**有助於在 Edge 裝置 (包括 IoT Edge 中樞) 上部署及監視模組。 **IoT Edge 中樞**會管理 IoT Edge 裝置上的模組通訊，以及裝置與 IoT 中樞之間的通訊。
+在所有 IoT Edge 裝置上都有部署 Azure IoT Edge 執行階段。 它有三個元件。 **IoT Edge 安全性精靈**提供及維護 Edge 裝置的安全性標準。 精靈會在每次開機時啟動，並且透過啟動 IoT Edge 代理程式讓裝置進入啟動程序。 **IoT Edge 代理程式**有助於在 Edge 裝置 (包括 IoT Edge 中樞) 上部署及監視模組。 **IoT Edge 中樞**會管理 IoT Edge 裝置上的模組通訊，以及裝置與 IoT 中樞之間的通訊。
 
 本文列出在 Linux ARM32v7/armhf Edge 裝置 (例如 Raspberry Pi) 上安裝 Azure IoT Edge 執行階段的步驟。
 
@@ -27,11 +27,9 @@ ms.locfileid: "37062593"
 
 ## <a name="install-the-container-runtime"></a>安裝容器執行階段
 
-Azure IoT Edge 依賴 [OCI 相容][lnk-oci] 容器執行階段 (例如 Docker)。 如果您已在 Edge 裝置上安裝 Docker CE/EE，則可以繼續使用它，透過 Azure IoT Edge 進行開發與測試。 
+Azure IoT Edge 會依賴 [OCI 相容][lnk-oci]的容器執行階段。 針對生產案例，強烈建議您使用下方所提供的 [Moby 型][lnk-moby]引擎。 它是 Azure IoT Edge 正式支援的唯一容器引擎。 Docker CE/EE 容器映像與 Moby 架構的執行階段相容。
 
-針對生產案例，強烈建議您使用下方所提供的 [Moby 型][lnk-moby]引擎。 它是 Azure IoT Edge 正式支援的唯一容器引擎。 Docker CE/EE 容器映像與 Moby 執行階段完全相容。
-
-下列命令會安裝 Moby 引擎及命令列介面 (CLI)。 CLI 對於開發相當有用，但是對於生產部署則是選擇性的。
+下列命令會安裝 Moby 架構的引擎及命令列介面 (CLI)。 CLI 對於開發相當有用，但是對於生產部署則是選擇性的。
 
 ```cmd/sh
 
@@ -67,17 +65,42 @@ sudo apt-get install -f
 
 ## <a name="configure-the-azure-iot-edge-security-daemon"></a>設定 Azure IoT Edge 安全性精靈
 
-精靈可以使用位於 `/etc/iotedge/config.yaml` 的組態檔進行設定。Edge 裝置可以使用[裝置連接字串][lnk-dcs]手動設定<!--[automatically via Device Provisioning Service][lnk-dps] or-->。
 
-針對手動設定，請在 **config.yaml** 的 [佈建] 區段中，輸入裝置連接字串
+您可以使用 `/etc/iotedge/config.yaml` 上的組態檔來設定精靈。 此檔案預設有防寫保護，您可能需要提高的權限才能加以編輯。
 
-```yaml
-provisioning:
-  source: "manual"
-  device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+```bash
+sudo nano /etc/iotedge/config.yaml
 ```
 
-*檔案預設有寫入保護，您可能必須使用 `sudo` 來編輯。例如：`sudo nano /etc/iotedge/config.yaml`*
+Edge 裝置可以使用[裝置連接字串][lnk-dcs]手動設定，或[透過裝置佈建服務自動設定][lnk-dps]。
+
+* 若要手動設定，請取消註解**手動**佈建模式。 以來自 IoT Edge 裝置的連接字串更新 **device_connection_string** 的值。
+
+   ```yaml
+   provisioning:
+     source: "manual"
+     device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+  
+   # provisioning: 
+   #   source: "dps"
+   #   global_endpoint: "https://global.azure-devices-provisioning.net"
+   #   scope_id: "{scope_id}"
+   #   registration_id: "{registration_id}"
+   ```
+
+* 若要自動設定，請取消註解 **dps** 佈建模式。 請將 **scope_id** 和 **registration_id** 的值更新為 IoT Hub DPS 執行個體和具有 TPM 的 IoT Edge 裝置中的值。 
+
+   ```yaml
+   # provisioning:
+   #   source: "manual"
+   #   device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+  
+   provisioning: 
+     source: "dps"
+     global_endpoint: "https://global.azure-devices-provisioning.net"
+     scope_id: "{scope_id}"
+     registration_id: "{registration_id}"
+   ```
 
 在組態中輸入佈建資訊之後，請重新啟動精靈：
 
@@ -86,6 +109,8 @@ sudo systemctl restart iotedge
 ```
 
 ## <a name="verify-successful-installation"></a>確認安裝成功
+
+如果您在上一節中使用**手動設定**步驟，IoT Edge 執行階段應會在您的裝置上成功佈建並執行。 如果您使用**自動設定**步驟，則必須完成一些額外的步驟，讓執行階段可代表您向您的 IoT 中樞註冊裝置。 如需後續步驟，請參閱[在 Linux 虛擬機器上建立及佈建模擬 TPM Edge 裝置](how-to-auto-provision-simulated-device-linux.md#give-iot-edge-access-to-the-tpm)。
 
 您可以使用以下項目，檢查 IoT Edge 精靈的狀態：
 
@@ -102,16 +127,19 @@ journalctl -u iotedge --no-pager --no-full
 並使用以下項目列出執行中的模組：
 
 ```cmd/sh
-iotedge list
+sudo iotedge list
 ```
+>[!NOTE]
+>在資源受限的裝置上 (例如 RaspberryPi)，強烈建議將 OptimizeForPerformance 環境變數設定為 false，如[疑難排解指南][lnk-trouble]中的指示所述
+
 
 ## <a name="next-steps"></a>後續步驟
 
-如果您有 Edge 執行階段是否安裝正確的問題，請參閱[疑難排解][lnk-trouble]頁面。
+如果您有 Edge 執行階段是否正確安裝的問題，請參閱[疑難排解][lnk-trouble]頁面。
 
 <!-- Links -->
-[lnk-dcs]: ../iot-hub/quickstart-send-telemetry-dotnet.md#register-a-device
-[lnk-dps]: how-to-simulate-dps-tpm.md
+[lnk-dcs]: how-to-register-device-portal.md
+[lnk-dps]: how-to-auto-provision-simulated-device-linux.md
+[lnk-trouble]: https://docs.microsoft.com/azure/iot-edge/troubleshoot#stability-issues-on-resource-constrained-devices
 [lnk-oci]: https://www.opencontainers.org/
 [lnk-moby]: https://mobyproject.org/
-[lnk-trouble]: troubleshoot.md

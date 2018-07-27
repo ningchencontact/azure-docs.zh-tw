@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/24/2018
 ms.author: tdykstra
-ms.openlocfilehash: 1b22357b201306ec09e586bfa52fbe9a821250da
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 912176df2681f890cf3bbe6f69395ad39c9263fc
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887465"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004892"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 觸發程序和繫結概念
 
@@ -32,7 +32,7 @@ ms.locfileid: "37887465"
 
 輸入和輸出「繫結」提供從您的程式碼內連線到資料的宣告式方法。 繫結是選擇性的，而且一個函數可以有多個輸入和輸出繫結。 
 
-觸發程序和繫結可讓您避免將正在使用的服務詳細資料硬式編碼。 您的函式會接收函式參數中的資料 (例如佇列訊息的內容)。 您可以使用函式的傳回值、`out` 參數或[收集器物件](functions-reference-csharp.md#writing-multiple-output-values)，來傳送資料 (例如用以建立佇列訊息)。
+觸發程序和繫結可讓您避免將正在使用的服務詳細資料硬式編碼。 您的函式會接收函式參數中的資料 (例如佇列訊息的內容)。 您可以使用函式的傳回值來傳送資料 (例如用以建立佇列訊息)。 在 C# 和 C# 指令碼中，傳送資料的方式可以是 `out` 參數和[收集器物件](functions-reference-csharp.md#writing-multiple-output-values)。
 
 當您使用 Azure 入口網站來開發函式時，觸發程序和繫結是在 *function.json* 檔案中進行設定。 入口網站提供此設定的 UI，但您可以變更為**進階編輯器**來直接編輯檔案。
 
@@ -224,9 +224,11 @@ dotnet add package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
 * 在 C# 類別庫中，將輸出繫結屬性套用至方法傳回值。
 * 在其他語言中，將 function.json 中的 `name` 屬性設定為 `$return`。
 
-如果您必須撰寫多個項目，請使用[收集器物件](functions-reference-csharp.md#writing-multiple-output-values)而不是使用傳回值。 如果有多個輸出繫結，請只對其中一個使用傳回值。
+如果有多個輸出繫結，請只對其中一個使用傳回值。
 
-請參閱特定語言的範例：
+在 C# 和 C# 指令碼中，傳送資料到輸出繫結的方式可以是 `out` 參數和[收集器物件](functions-reference-csharp.md#writing-multiple-output-values)。
+
+請參閱示範傳回值用法的特定語言範例：
 
 * [C#](#c-example)
 * [C# 指令碼 (.csx)](#c-script-example)

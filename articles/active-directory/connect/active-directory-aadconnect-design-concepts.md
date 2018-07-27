@@ -16,12 +16,12 @@ ms.workload: Identity
 ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0a648d0733d9d81cc0e586f5fa54dc8d75d2f6f0
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 6d8d911acf3e3eff2cf3340972b9b77a10be0a5f
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801927"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "35633300"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect：設計概念
 本文件旨在說明 Azure AD Connect 實作設計期間必須考量的領域。 本文件是特定領域的深入探討，而在其他文件中也會簡短描述這些概念。
@@ -44,7 +44,7 @@ sourceAnchor 屬性的定義是 *在物件存留期間不會變更的屬性*。 
 
 * 長度少於 60 個字元
   * 系統會將 a-z、A-Z 或 0-9 以外的字元編碼並計為 3 個字元
-* 不包含特殊字元︰&#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ _
+* 不包含特殊字元︰&#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " \@ _
 * 必須是全域唯一的
 * 必須是字串、整數或二進位
 * 不應以使用者的名稱為基礎，因為這些可能會有所變更
@@ -61,7 +61,7 @@ sourceAnchor 屬性會區分大小寫。 "JohnDoe" 與 "johndoe" 是不同的值
 
 如果您在樹系和網域之間移動使用者，則必須尋找不會變更的屬性，或在移動時可隨使用者移動的屬性。 建議的方法是引入綜合的屬性。 可保存 GUID 之類項目的屬性也可能適用。 在物件建立期間，會建立新的 GUID 建立並於使用者加上戳記。 可以在同步處理引擎伺服器中建立自訂同步規則，以根據 **objectGUID** 建立這個值，然後在 ADDS 中更新選取的屬性。 當您移動物件時，請務必同時複製此值的內容。
 
-另一個解決方案是挑選您知道不會變更的現有屬性。 常用的屬性包括 **employeeID**。 如果您考慮使用含有字母的屬性，請確定屬性值的大小寫 (大寫與小寫) 沒機會變更。 不該使用的不合適屬性，包括含使用者姓名的屬性。 結婚或離婚時，此名稱可能會變更，所以不適用於此屬性。 這也就是不可能在 Azure AD Connect 安裝精靈中選取 **userPrincipalName**、**mail** 和 **targetAddress** 之類屬性的原因之一。 這些屬性也會包含 "@" 字元，而 sourceAnchor 中不允許此字元。
+另一個解決方案是挑選您知道不會變更的現有屬性。 常用的屬性包括 **employeeID**。 如果您考慮使用含有字母的屬性，請確定屬性值的大小寫 (大寫與小寫) 沒機會變更。 不該使用的不合適屬性，包括含使用者姓名的屬性。 結婚或離婚時，此名稱可能會變更，所以不適用於此屬性。 這也就是不可能在 Azure AD Connect 安裝精靈中選取 **userPrincipalName**、**mail** 和 **targetAddress** 之類屬性的原因之一。 這些屬性也會包含 "\@" 字元，而 sourceAnchor 中不允許此字元。
 
 ### <a name="changing-the-sourceanchor-attribute"></a>變更 sourceAnchor 屬性
 在 Azure AD 中建立物件並同步處理身分識別之後，無法變更 sourceAnchor 屬性值。
@@ -180,7 +180,7 @@ Azure AD Connect (1.1.524.0 版和更新版本) 現在可協助您使用 msDS-Co
 ### <a name="choosing-the-attribute-for-userprincipalname"></a>選擇 userPrincipalName 的屬性
 當您選取屬性以便提供要用於 Azure 的 UPN 值時，應確保
 
-* 屬性值符合 UPN 語法 (RFC 822)，其格式應該是 username@domain
+* 屬性值符合 UPN 語法 (RFC 822)，其格式應該是 username\@domain
 * 這些值的尾碼符合 Azure AD 中其中一個已驗證的自訂網域
 
 在快速設定中，屬性的假定選擇會是 userPrincipalName。 如果 userprincipalname 屬性不包含您希望使用者用於登入 Azure 的值，則必須選擇 [自訂安裝] 。
@@ -188,7 +188,7 @@ Azure AD Connect (1.1.524.0 版和更新版本) 現在可協助您使用 msDS-Co
 ### <a name="custom-domain-state-and-upn"></a>自訂網域狀態和 UPN
 請務必確保 UPN 尾碼有已驗證的網域。
 
-John 是 contoso.com 中的使用者。 在您將使用者同步至 Azure AD 目錄 contoso.onmicrosoft.com 之後，您希望 John 使用內部部署 UPN john@contoso.com 來登入 Azure。 若要這樣做，您必須將 contoso.com 新增為 Azure AD 中的自訂網域並加以驗證，才能開始同步處理使用者。 舉例來說，如果 John 的 UPN 尾碼是 contoso.com，不符合 Azure AD 中已驗證的網域，則 Azure AD 會以 contoso.onmicrosoft.com 取代 UPN 尾碼。
+John 是 contoso.com 中的使用者。 在將使用者同步至 Azure AD 目錄 contoso.onmicrosoft.com 之後，您希望 John 使用內部部署 UPN john\@contoso.com 來登入 Azure。 若要這樣做，您必須將 contoso.com 新增為 Azure AD 中的自訂網域並加以驗證，才能開始同步處理使用者。 舉例來說，如果 John 的 UPN 尾碼是 contoso.com，不符合 Azure AD 中已驗證的網域，則 Azure AD 會以 contoso.onmicrosoft.com 取代 UPN 尾碼。
 
 ### <a name="non-routable-on-premises-domains-and-upn-for-azure-ad"></a>無法路由傳送的內部部署網域與 Azure AD 的 UPN
 有些組織有無法路由傳送的網域，例如 contoso.local 或簡單單一標籤網域，例如 contoso。 您無法確認在 Azure AD 中無法路由傳送的網域。 Azure AD Connect 可以僅同步至 Azure AD 中已驗證的網域。 當您建立 Azure AD 目錄時，它會建立可路由傳送的網域，而該網域會成為 Azure AD 的預設網域，例如 contoso.onmicrosoft.com。 因此，如果您不想要同步至預設的 .onmicrosoft.com 網域，則必須在此類案例中驗證所有其他可路由傳送的網域。

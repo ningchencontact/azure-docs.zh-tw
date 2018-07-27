@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 59415941172fab06b3e86ef4d34d464cf359ce8f
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 94ade24f1761700b93ab79d497e273c64c51bddf
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025230"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990892"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure 儲存體總管版本資訊
 
@@ -27,13 +27,95 @@ ms.locfileid: "37025230"
 
 [Microsoft Azure 儲存體總管](./vs-azure-tools-storage-manage-with-storage-explorer.md) 是一個獨立應用程式，可讓您在 Windows、macOS 和 Linux 上輕鬆使用 Azure 儲存體資料。
 
+## <a name="version-130"></a>版本 1.3.0
+07/09/2018
+
+### <a name="download-azure-storage-explorer-130"></a>下載 Azure 儲存體總管 1.3.0
+- [適用於 Windows 的 Azure 儲存體總管 1.3.0](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [適用於 Mac 的 Azure 儲存體總管 1.3.0](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [適用於 Linux 的 Azure 儲存體總管 1.3.0](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>新增
+* 現在支援存取靜態網站所使用的 $web 容器。 這可讓您輕鬆上傳及管理您的網站所使用的檔案和資料夾。 [#223](https://github.com/Microsoft/AzureStorageExplorer/issues/223)
+* macOS 上的應用程式列已重整。 變更包括 [檔案] 功能表、一些快速鍵變更，以及應用程式功能表底下的數個新命令。 [#99](https://github.com/Microsoft/AzureStorageExplorer/issues/99)
+* 用於登入 Azure US Government 的授權單位端點已變更為 https://login.microsoftonline.us/
+* 協助工具：如果螢幕助讀程式為作用中，鍵盤瀏覽現在可搭配用於在右側顯示項目的資料表運作。 您可以使用方向鍵來瀏覽資料列和資料行，使用 Enter 鍵叫用預設動作，使用操作功能表鍵來開啟操作功能表中的項目，以及使用 Shift 或 Ctrl 鍵來選取多個項目。 [#103](https://github.com/Microsoft/AzureStorageExplorer/issues/103)
+
+### <a name="fixes"></a>修正
+*  在某些電腦上，子處理序花了很長的時間才能啟動。 發生這種情況時，會出現「子處理無法及時啟動」錯誤。 為了讓子處理序啟動而配置的時間現在已從 20 增加為 90 秒。 如果您仍然受到此問題影響，請註解連結的 GitHub 問題。 [#281](https://github.com/Microsoft/AzureStorageExplorer/issues/281)
+* 使用沒有讀取權限的 SAS 時，無法上傳大型 blob。 上傳的邏輯已修改成在此案例中運作。 [#305](https://github.com/Microsoft/AzureStorageExplorer/issues/305)
+* 設定容器的公開存取層級會移除所有的存取原則，反之亦然。 現在，若設定公開存取層級和存取原則其中一項，則會同時保留兩者。 [#197](https://github.com/Microsoft/AzureStorageExplorer/issues/197)
+* "AccessTierChangeTime" 在 [屬性] 對話方塊中遭到截斷。 已修正此問題。 [#145](https://github.com/Microsoft/AzureStorageExplorer/issues/145)
+* [建立新目錄] 對話方塊中遺漏 "Microsoft Azure 儲存體總管 -" 前置詞。 已修正此問題。 [#299](https://github.com/Microsoft/AzureStorageExplorer/issues/299)
+* 協助工具：使用 VoiceOver 時難以瀏覽 [新增實體] 對話方塊。 已進行改進。 [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
+* 協助工具：[動作] 和 [屬性] 窗格的摺疊/展開按鈕背景色彩，與黑色高對比佈景主題中類似的 UI 控制項不一致。 此色彩已變更。 [#123](https://github.com/Microsoft/AzureStorageExplorer/issues/123)
+* 協助工具：在黑色高對比佈景主題中，看不見 [屬性] 對話方塊中 'X' 按鈕的焦點樣式。 已修正此問題。 [#243](https://github.com/Microsoft/AzureStorageExplorer/issues/243)
+* 協助工具：[動作] 和 [屬性] 索引標籤遺漏數個 aria 值，進而造成低於標準的螢幕助讀程式體驗。 現在已新增遺漏的 aria 值。 [#316](https://github.com/Microsoft/AzureStorageExplorer/issues/316)
+* 協助工具：系統並未對左側摺疊的樹狀節點提供 aria-expanded 值 false。 已修正此問題。 [#352](https://github.com/Microsoft/AzureStorageExplorer/issues/352)
+
+### <a name="known-issues"></a>已知問題
+* 使用模擬器 (例如「Azure 儲存體模擬器」或 Azurite) 時，您將必須讓它們在其預設連接埠上接聽連線。 否則，「儲存體總管」將無法連線至這些模擬器。
+* 如果您使用 VS for Mac，而且曾建立自訂 AAD 設定，則您可能無法登入。 若要解決此問題，請刪除 ~/.IdentityService/AadConfigurations 的內容。 如果這麼做無法將您解除封鎖，請對[此問題](https://github.com/Microsoft/AzureStorageExplorer/issues/97)加上註解。
+* Azurite 尚未完全實作所有的儲存體 API。 因此，對於開發儲存體使用 Azurite 時，可能出現未預期的錯誤或行為。
+* 在少數情況下，樹狀焦點可能會固定在快速存取上。 若要取消固定焦點，您可以 [全部重新整理]。
+* 由於 NodeJS 中的錯誤，造成無法從您的 OneDrive 資料夾上傳。 已修正該 Bug，但是尚未整合至 Electron。
+* 當目標為 Azure Stack，以附加 Blob 方式上傳特定檔案會失敗。
+* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用[此處](https://github.com/Azure/azure-storage-node/issues/317)所述的取消篩選器因應措施。
+* 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
+* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案及實體的所有其他屬性和中繼資料在重新命名期間都會保留。
+* 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。
+* 儲存體總管使用的 Electron 殼層具有一些 GPU (圖形處理單元) 硬體加速的問題。 如果儲存體總管顯示空白 (空的) 主視窗，您可以嘗試從命令列啟動儲存體總管並透過新增 `--disable-gpu` 切換停用 GPU 加速：
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* 對於 Linux 使用者，您必須安裝 [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)。
+* 針對使用 Ubuntu 14.04 的使用者，您必須確定 GCC 已是最新版本，做法是執行下列命令，然後重新啟動電腦即可：
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* 使用 Ubuntu 17.04 的使用者必須安裝 GConf，這可以透過執行下列命令並重新啟動電腦來完成：
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>舊版
+
+* [版本 1.2.0](#version-120)
+* [1.1.0 版](#version-110)
+* [1.0.0 版](#version-100)
+* [0.9.6 版](#version-096)
+* [0.9.5 版](#version-095)
+* [0.9.4 和 0.9.3 版](#version-094-and-093)
+* [0.9.2 版](#version-092)
+* [0.9.1 和 0.9.0 版](#version-091-and-090)
+* [0.8.16 版](#version-0816)
+* [版本 0.8.14](#version-0814)
+* [0.8.13 版](#version-0813)
+* [0.8.12、0.8.11 和 0.8.10 版](#version-0812-and-0811-and-0810)
+* [0.8.9 和 0.8.8 版](#version-089-and-088)
+* [0.8.7 版](#version-087)
+* [0.8.6 版](#version-086)
+* [0.8.5 版](#version-085)
+* [0.8.4 版](#version-084)
+* [0.8.3 版](#version-083)
+* [0.8.2 版](#version-082)
+* [0.8.0 版](#version-080)
+* [0.7.20160509.0 版](#version-07201605090)
+* [0.7.20160325.0 版](#version-07201603250)
+* [0.7.20160129.1 版](#version-07201601291)
+* [0.7.20160105.0 版](#version-07201601050)
+* [0.7.20151116.0 版](#version-07201511160)
+
 ## <a name="version-120"></a>版本 1.2.0
 2018 年 12 月 6 日
-
-### <a name="download-azure-storage-explorer-120"></a>下載 Azure 儲存體總管 1.2.0
-- [適用於 Windows 的 Azure 儲存體總管 1.2.0](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [適用於 Mac 的 Azure 儲存體總管 1.2.0](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [適用於 Linux 的 Azure 儲存體總管 1.2.0](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>新增
 * 如果 [儲存體總管] 只有在從一小部分租用戶載入訂用帳戶時發生失敗，系統將會顯示所有已成功載入的訂用帳戶，並特別針對失敗的租用戶顯示錯誤訊息。 [#159](https://github.com/Microsoft/AzureStorageExplorer/issues/159)
@@ -88,41 +170,6 @@ ms.locfileid: "37025230"
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-
-
-
-
-
-
-
-## <a name="previous-releases"></a>舊版
-
-* [1.1.0 版](#version-110)
-* [1.0.0 版](#version-100)
-* [0.9.6 版](#version-096)
-* [0.9.5 版](#version-095)
-* [0.9.4 和 0.9.3 版](#version-094-and-093)
-* [0.9.2 版](#version-092)
-* [0.9.1 和 0.9.0 版](#version-091-and-090)
-* [0.8.16 版](#version-0816)
-* [版本 0.8.14](#version-0814)
-* [0.8.13 版](#version-0813)
-* [0.8.12、0.8.11 和 0.8.10 版](#version-0812-and-0811-and-0810)
-* [0.8.9 和 0.8.8 版](#version-089-and-088)
-* [0.8.7 版](#version-087)
-* [0.8.6 版](#version-086)
-* [0.8.5 版](#version-085)
-* [0.8.4 版](#version-084)
-* [0.8.3 版](#version-083)
-* [0.8.2 版](#version-082)
-* [0.8.0 版](#version-080)
-* [0.7.20160509.0 版](#version-07201605090)
-* [0.7.20160325.0 版](#version-07201603250)
-* [0.7.20160129.1 版](#version-07201601291)
-* [0.7.20160105.0 版](#version-07201601050)
-* [0.7.20151116.0 版](#version-07201511160)
-
 
 ## <a name="version-110"></a>1.1.0 版
 05/09/2018
@@ -647,7 +694,7 @@ ms.locfileid: "37025230"
 
 * 儲存體總管 0.8.9 將會自動下載最新版本的更新。
 * Hotfix：先前使用由入口網站所產生的 SAS URI 來附加儲存體帳戶將會導致錯誤。
-* 您現在已可以針對 Blob 快照集進行建立、管理及升階。
+* 現已能針對 Blob 快照集進行建立、管理及升階。
 * 您現在已可以登入「Azure 中國」、「Azure 德國」及「Azure 美國政府」帳戶。
 * 現已能變更縮放層級。 使用 [檢視] 功能表中的選項來放大、縮小及重設縮放。
 * Blob 和檔案的使用者中繼資料現已支援 Unicode 字元。

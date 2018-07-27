@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2018
+ms.date: 07/11/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: a74e77f84aa70519015a589cbc6e7478c0c41592
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 11430a0d194a722c0c0520c936db3c08b1a6b863
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318804"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989566"
 ---
 # <a name="azure-stack-1803-update"></a>Azure Stack 1803 更新
 
@@ -40,7 +40,7 @@ Azure Stack 1803 更新組建編號為 **20180329.1**。
 > 在此更新安裝期間，請勿嘗試建立虛擬機器。 如需管理更新的詳細資訊，請參閱[在 Azure Stack 中管理更新概觀](azure-stack-updates.md#plan-for-updates)。
 
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 - 先安裝 Azure Stack [1802 更新](azure-stack-update-1802.md)，然後才套用 Azure Stack 1803 更新。   
 
 - 您必須先套用 Azure Stack 1803 更新，才能安裝 **AzS Hotfix – 1.0.180312.1- Build 20180222.2**。 此 Hotfix 會更新 Windows Defender，您可在下載 Azure Stack 的更新時取得此 Hotfix。
@@ -106,7 +106,7 @@ Azure Stack 1803 更新組建編號為 **20180329.1**。
 ### <a name="post-update-steps"></a>更新後步驟
 - 在安裝 1803 之後，安裝任何適用的 Hotfix。 如需詳細資訊，請檢視下列知識庫文章，以及我們的[服務原則](azure-stack-servicing-policy.md)。
 
-  - [KB 4341390 - Azure Stack Hotfix 1.0.180424.12](https://support.microsoft.com/en-us/help/4341390).
+  - [KB 4344115 - Azure Stack Hotfix 1.0.180427.15](https://support.microsoft.com/help/4344115).
 
 - 安裝此更新之後，請檢閱防火牆設定，確定已開啟[必要的連接埠](azure-stack-integrate-endpoints.md)。 例如，此更新會導入「Azure 監視器」，這包括將稽核記錄變更為活動記錄。 而這項變更現在會使用連接埠 13012，您也必須開啟此連接埠。  
 

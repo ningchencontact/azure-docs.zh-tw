@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9ec396e8a1ad36e85e1291995345ca1de24668d0
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: ecd19acdeba57a29a28187d42783bbf146095190
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128055"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001900"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge 的常見問題和解決方案
 
@@ -107,19 +107,43 @@ ms.locfileid: "37128055"
 
 ### <a name="view-the-messages-going-through-the-edge-hub"></a>檢視通過 Edge 中樞的訊息
 
-檢視通過 Edge 中樞的訊息，以及透過 edgeAgent 和 edgeHub 執行階段容器的詳細記錄來收集裝置屬性更新的深入解析。 若要開啟這些容器的詳細記錄，請設定 `RuntimeLogLevel` 環境變數： 
+檢視通過 Edge 中樞的訊息，以及透過 edgeAgent 和 edgeHub 執行階段容器的詳細記錄來收集裝置屬性更新的深入解析。 若要開啟這些容器上的詳細資訊記錄，請在 yaml 組態檔中設定 `RuntimeLogLevel`。 若要開啟檔案：
 
 在 Linux 上：
-    
-   ```cmd
-   export RuntimeLogLevel="debug"
+
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
    ```
-    
+
 在 Windows 上：
-    
-   ```powershell
-   [Environment]::SetEnvironmentVariable("RuntimeLogLevel", "debug")
+
+   ```cmd
+   notepad C:\ProgramData\iotedge\config.yaml
    ```
+
+根據預設，`agent` 元素會如下所示：
+
+   ```yaml
+   agent:
+     name: edgeAgent
+     type: docker
+     env: {}
+     config:
+       image: mcr.microsoft.com/azureiotedge-agent:1.0
+       auth: {}
+   ```
+
+將 `env: {}` 取代為：
+
+> [!WARNING]
+> YAML 檔案不可包含使用 Tab 鍵的縮排。 請改用 2 個空格。
+
+   ```yaml
+   env:
+     RuntimeLogLevel: debug
+   ```
+
+儲存檔案並重新啟動 IoT Edge 安全性管理員。
 
 您也可以檢查在 IoT 中樞與 IoT Edge 裝置之間傳送的訊息。 您可以使用 Visual Studio Code 的 [Azure IoT 工具組](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)擴充功能來檢視這些訊息。 如需詳細指引，請參閱[使用 Azure IoT 進行開發時的便利工具](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/)。
 
@@ -236,5 +260,41 @@ IoT Edge 執行階段只能支援少於 64 個字元的主機名稱。 如此通
       notepad C:\ProgramData\iotedge\config.yaml
       ```
 
+## <a name="stability-issues-on-resource-constrained-devices"></a>資源受限裝置的穩定性問題 
+您可能會遇到受限裝置 (例如 Raspberry Pi) 的穩定性問題，尤其在該裝置當作閘道的時候。 徵兆包括 Edge 中樞模組的記憶體不足例外狀況，下游裝置無法連線，或裝置在幾小時後停止傳送遙測訊息。
+
+### <a name="root-cause"></a>根本原因
+根據預設，Edge 中樞 (也是邊線執行階段的一部分) 已針對效能最佳化，而且會嘗試配置大量的記憶體。 這不適合用於受限邊緣裝置，而且可能會造成穩定性問題。
+
+### <a name="resolution"></a>解決方案
+針對 Edge 中樞，將環境變數 **OptimizeForPerformance** 設定為 **false**。 作法有二：
+
+在 UI 中： 
+
+在入口網站中，從 [裝置詳細資料]->[設定模組]->[設定進階 Edge 執行階段設定]，建立名為 OptimizeForPerformance 的環境變數，該變數會針對 [Edge 中樞] 設定為 false。
+
+![optimizeforperformance][img-optimize-for-perf]
+
+**或**
+
+在部署資訊清單中：
+
+```json
+  "edgeHub": {
+    "type": "docker",
+    "settings": {
+      "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+      "createOptions": <snipped>
+    },
+    "env": {
+      "OptimizeForPerformance": {
+          "value": "false"
+      }
+    },
+```
+
 ## <a name="next-steps"></a>後續步驟
 您在 IoT Edge 平台中發現到錯誤嗎？ 請[提交問題](https://github.com/Azure/iotedge/issues)，讓我們可以持續進行改善。 
+
+<!-- Images -->
+[img-optimize-for-perf]: ./media/troubleshoot/OptimizeForPerformanceFalse.png

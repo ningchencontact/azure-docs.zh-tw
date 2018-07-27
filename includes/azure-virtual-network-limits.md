@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/20/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 326da32f91b263bbd09a4c6f521c9ec72094820c
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 9ba9bc993832350f6b6ce1c642e2dc852731b6f0
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37066062"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39029969"
 ---
 <a name="virtual-networking-limits-classic"></a>下列限制僅適用於透過每個訂用帳戶的傳統部署模型所管理的網路資源。 深入了解如何[根據您的訂用帳戶限制檢視目前資源使用量](../articles/networking/check-usage-against-limits.md)。
 
@@ -41,7 +41,7 @@ ms.locfileid: "37066062"
 | --- | --- | --- |
 | 虛擬網路 |50 |1000 |
 | 每一虛擬網路的子網路 |1000 |10000 |
-| 每個虛擬網路的虛擬網路對等互連 |10 |50 |
+| 每個虛擬網路的虛擬網路對等互連 |50** |100 |
 | 每一虛擬網路的 DNS 伺服器 |9 |25 |
 | 每個虛擬網路的私人 IP 位址 |16384** |16384 |
 | 每個網路介面的私人 IP 位址 |256 |256 |
@@ -55,13 +55,13 @@ ms.locfileid: "37066062"
 | 每個應用程式安全性群組的 IP 組態 |1000 |4000 |
 | 可在網路安全性群組的所有安全性規則內指定的應用程式安全性群組 |50 |100 |
 | 使用者定義的路由表 |100 |200 |
-| 每個路由表的使用者定義路由 |100 |400 |
+| 每個路由表的使用者定義路由 |400** |400 |
 | 公用 IP 位址 - 動態 |(基本) 60 |連絡支援人員 |
 | 公用 IP 位址 - 靜態 |(基本) 20 |連絡支援人員 |
 | 公用 IP 位址 - 靜態 |(標準) 20 |連絡支援人員 |
 | 每個 VPN 閘道的點對站根憑證 |20 |20 |
 
-**這些預設限制適用於先前未透過支援增加這些限制的訂用帳戶
+**這些已更新的預設限制適用於先前未透過支援增加這些限制的訂用帳戶。 如果您先前已透過支援增加這些限制，而想要將其更新為新的預設值，請[免費提出線上客戶支援要求](../articles/azure-resource-manager/resource-manager-quota-errors.md)
 
 #### <a name="load-balancer"></a>負載平衡器限制
 下列限制僅適用於透過每個訂用帳戶每一區域的 Azure Resource Manager 所管理的網路資源。 深入了解如何[根據您的訂用帳戶限制檢視目前資源使用量](../articles/networking/check-usage-against-limits.md)

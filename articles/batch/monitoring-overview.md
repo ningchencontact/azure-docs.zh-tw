@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 29ac86ed5c744d37150b0f1b2db17f60306fe77e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: fd4226254e076957ac8651f9172f1f3f82427a60
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31799799"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001825"
 ---
 # <a name="monitor-batch-solutions"></a>監視 Batch 解決方案
 
@@ -43,7 +43,7 @@ Azure 與 Batch 服務提供一系列服務、工具和 API 來監視您的 Batc
 
 在 Batch 應用程式中，使用 Batch API 監視或查詢像是作業、工作、節點和集區等資源的狀態。 例如︰
 
-* [依狀態計算工作數量](batch-get-task-counts.md)
+* [依照狀態計算工作和計算節點](batch-get-resource-counts.md)
 * [建立查詢以便有效率地列出 Batch 資源](batch-efficient-list-queries.md)
 * [建立工作相依性](batch-task-dependencies.md)
 * 使用[作業管理員工作](/rest/api/batchservice/job/add#jobmanagertask)

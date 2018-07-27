@@ -5,14 +5,14 @@ services: azure-migrate
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 07/12/2018
 ms.author: raynew
-ms.openlocfilehash: bf1406c8e361e0a1433b0e26c477c3c34e987fcf
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6f535d98ea9e1312e4d5f197d121c8d12c109449
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38562753"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39002274"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - 部署移轉基礎結構
 
@@ -21,25 +21,30 @@ ms.locfileid: "38562753"
 - 這是 Contoso 專用的範例架構。
 - 您是否需要本文章所說明的所有元素，取決於您的移轉策略。 例如，如果您只是要在 Azure 中建置雲端原生應用程式，則可能需要較不複雜的網路結構。
 
-這份文件是系列文章中的第二篇，描述 Contoso 這家虛構的公司如何將內部部署資源移轉至 Microsoft Azure 雲端。 本系列的文章包含背景資訊和一系列的部署案例，說明如何設定移轉基礎結構、評估移轉內部部署資源的適當性，以及執行不同類型的移轉。 案例會變得越來越複雜，而我們也將不定期增加其他文章。
+這份文件是系列文章中的第二篇，描述 Contoso 這家虛構的公司如何將內部部署資源移轉至 Microsoft Azure 雲端。 整個系列文章中包含資訊與部署案例，說明如何設定移轉基礎結構、評定內部部署資源移轉的適合性，以及執行不同類型的移轉。 案例會變得越來越複雜，而我們也將不定期增加其他文章。
 
 **文章** | **詳細資料** | **狀態**
 --- | --- | ---
 [文章 1：概觀](contoso-migration-overview.md) | 簡單介紹 Contoso 的移轉策略、文章系列以及我們使用的範例應用程式。 | 可用
-文章 2：部署 Azure 基礎結構 (本文) | 說明 Contoso 如何準備其內部部署和 Azure 基礎結構以進行移轉。 所有 Contoso 移轉案例都使用相同的基礎結構。 | 可用
-[文章 3：評估內部部署資源](contoso-migration-assessment.md) | 說明 Contoso 如何評定他們在 VMware 上執行的內部部署兩層式 SmartHotel 應用程式。 他們利用 [Azure Migrate](migrate-overview.md) 服務來評定應用程式 VM，以及利用 [Azure Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) 來評定應用程式 SQL Server 資料庫。 | 可用
-[文章 4：重新裝載至 Azure VM 和 SQL 受控執行個體](contoso-migration-rehost-vm-sql-managed-instance.md) | 示範 Contoso 如何將 SmartHotel 應用程式遷移至 Azure。 他們使用 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) 來遷移應用程式前端 VM，以及使用 [Azure 資料庫移轉](https://docs.microsoft.com/azure/dms/dms-overview)服務，將應用程式資料庫遷移至 SQL 受管理的執行個體。 | 可用
-[文章 5：重新裝載至 Azure VM](contoso-migration-rehost-vm.md) | 說明 Contoso 如何僅使用 Site Recovery，便能夠遷移他們的 SmartHotel 應用程式 VM。
-[文章 6：重新裝載至 Azure VM 和 SQL Server 可用性群組](contoso-migration-rehost-vm-sql-ag.md) | 說明 Contoso 如何遷移 SmartHotel 應用程式。 他們使用 Site Recovery 來遷移應用程式 VM，以及使用資料庫移轉服務，將應用程式資料庫遷移至 SQL Server 可用性群組。 | 可用
-[文章 7：將 Linux 應用程式重新裝載至 Azure VM](contoso-migration-rehost-linux-vm.md) | 說明 Contoso 如何將 Linux osTicket 應用程式移轉至 Azure VM。 | 可用
-[文章 8：將 Linux 應用程式重新裝載至 Azure VM 和 Azure MySQL Server](contoso-migration-rehost-linux-vm-mysql.md) | 說明 Contoso 如何使用 Site Recovery 來移轉 Linux osTicket 應用程式，並使用 MySQL Workbench 來移轉 (備份和還原) 至 Azure MySQL Server 執行個體。 | 可用
+文章 2：部署 Azure 基礎結構 | 描述 Contoso 如何準備其內部部署和 Azure 基礎結構來進行移轉。 所有移轉文章都使用相同的基礎結構。 | 本文。
+[文章 3：存取內部部署資源以移轉至 Azure](contoso-migration-assessment.md)  | 顯示 Contoso 如何評估在 VMware 上執行的內部部署兩層式 SmartHotel 應用程式。 Contoso 利用 [Azure Migrate](migrate-overview.md) 服務來評估應用程式 VM，並利用 [Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) 來評估應用程式 SQL Server 資料庫。 | 可用
+[文章 4：在 Azure VM 和 SQL 受控執行個體上重新裝載應用程式](contoso-migration-rehost-vm-sql-managed-instance.md) | 說明 Contoso 如何為內部部署 SmartHotel 應用程式執行隨即移轉至 Azure 的作業。 Contoso 使用 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) 來移轉應用程式前端 VM，並使用 [Azure 資料庫移轉服務](https://docs.microsoft.com/azure/dms/dms-overview)將應用程式資料庫移轉至 SQL 受控執行個體。 | 可用
+[文章 5：在 Azure VM 上重新裝載應用程式](contoso-migration-rehost-vm.md) | 說明 Contoso 如何透過 Site Recovery 服務將 SmartHotel 應用程式 VM 遷移至 Azure VM。 | 可用
+[文章 6：在 Azure VM 和 SQL Server AlwaysOn 可用性群組上重新裝載應用程式](contoso-migration-rehost-vm-sql-ag.md) | 說明 Contoso 如何遷移 SmartHotel 應用程式。 Contoso 使用 Site Recovery 來移轉應用程式 VM，並使用資料庫移轉服務，將應用程式資料庫移轉至受到 SQL Server 可用性群組保護的 SQL Server 叢集。 | 可用
+[文章 7：將 Linux 應用程式重新裝載至 Azure VM](contoso-migration-rehost-linux-vm.md) | 說明 Contoso 如何使用 Site Recovery 執行將 Linux osTicket 應用程式隨即移轉至 Azure VM 的作業 | 可用
+[文章 8：在 Azure VM 和 Azure MySQL 上重新裝載 Linux 應用程式](contoso-migration-rehost-linux-vm-mysql.md) | 說明 Contoso 如何使用 Site Recovery 將 Linux osTicket 應用程式移轉至 Azure VM，並使用 MySQL Workbench 將應用程式資料庫移轉至 Azure MySQL Server 執行個體。 | 可用
+[文章 9：在 Azure Web 應用程式和 Azure SQL 資料庫上重構應用程式](contoso-migration-refactor-web-app-sql.md) | 示範 Contoso 如何將 SmartHotel 應用程式遷移至 Azure Web 應用程式，以及如何將應用程式資料庫遷移至 Azure SQL Server 執行個體 | 可用
+[文章 10：在 Azure Web Apps 和 Azure MySQL 上重構 Linux 應用程式](contoso-migration-refactor-linux-app-service-mysql.md) | 示範 Contoso 如何將 Linux osTicket 應用程式遷移至多個網站中的 Azure Web Apps (與 GitHub 整合以達到持續傳遞)。 它們會將應用程式資料庫遷移至 Azure MySQL 執行個體。 | 可用
+[文章 11：在 VSTS 上重構 TFS](contoso-migration-tfs-vsts.md) | 示範 Contoso 如何將其內部部署 Team Foundation Server (TFS) 部署遷移至 Azure 中的 Visual Studio Team Services (VSTS)，以便進行遷移。 | 可用
+[文章 12：在 Azure 容器和 Azure SQL Database 上重新建構應用程式](contoso-migration-rearchitect-container-sql.md) | 示範 Contoso 如何將其 SmartHotel 應用程式遷移和重新建構至 Azure。 它們會將應用程式的 Web 層重新建構為 Windows 容器及 Azure SQL Database 中的應用程式資料庫。 | 可用
+[文章 13：重建 Azure 中的應用程式](contoso-migration-rebuild.md) | 示範 Contoso 如何使用各種 Azure 功能和服務 (包括 App Services、Azure Kubernetes、Azure Functions、認知服務及 Cosmos DB) 重建其 SmartHotel 應用程式。 | 可用
 
-在本文中，Contoso 會設定他們為了完成移轉案例所需的所有基礎結構元素。 
+在本文中，Contoso 會設定他們為了完成所有移轉案例所需的所有基礎結構元素。 
 
 
 ## <a name="overview"></a>概觀
 
-Contoso 必須先將其基礎結構準備就緒，才能移轉至 Azure。  他們通常有五大領域的事項需要考量：
+Contoso 必須先將 Azure 基礎結構準備就緒，才能遷移至 Azure。  他們通常有五大領域的事項需要考量：
 
 **步驟 1：Azure 訂用帳戶**：他們將如何購買 Azure，以及與 Azure 平台和服務互動？  
 **步驟 2：混合式身分識別**：在移轉之後，他們將如何管理及控制對內部部署和 Azure 資源的存取？ 他們如何將身分識別管理擴充或移至雲端？  
@@ -88,7 +93,7 @@ Contoso 將使用 [Enterprise 合約 (EA)](https://azure.microsoft.com/pricing/e
 
 ### <a name="manage-subscriptions"></a>管理訂用帳戶
 
-向 Azure 支付費用後，Contoso 必須了解如何管理其訂用帳戶。 他們具有 EA，因此在可設定的 Azure 訂用帳戶數目方面不受限制。
+向 Azure 支付費用後，Contoso 必須了解如何管理 Azure 訂用帳戶。 他們具有 EA，因此在可設定的 Azure 訂用帳戶數目方面不受限制。
 
 - Azure Enterprise 註冊會定義 Azure 服務在公司內的形式和用途，並定義核心控管結構。
 - 在第一個步驟中，Contoso 決定其 Enterprise 註冊的結構 (稱為企業 Scaffold)。 他們使用[本文](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-subscription-governance)協助他們了解和設計 Scaffold。
@@ -136,7 +141,7 @@ Azure Hybrid Benefit 為 Contoso 的移轉提供符合成本效益的方法，�
 
 ### <a name="create-an-azure-ad"></a>建立 Azure AD
 
-Contoso 會使用 Azure 訂用帳戶隨附的 Azure AD 免費版。 依照下列方式新增 AD 目錄：
+Contoso 會使用 Azure 訂用帳戶隨附的 Azure AD Free 版本。 依照下列方式新增 AD 目錄：
 
 1. 在 [Azure 入口網站](http://portal.azure.com/)中，Contoso 移至 [建立資源] > [身分識別] > [Azure Active Directory]。
 2. 在 [建立目錄] 中，他們指定目錄的名稱、初始網域名稱，以及應建立 Azure AD 目錄的區域。
@@ -228,7 +233,7 @@ Contoso 想要提供一般身分識別，用來存取內部部署和雲端中的
 
 5. 在 [準備好設定] 頁面中，他們按一下 [在設定完成時開始同步處理程序] 以立即啟動同步。 然後，他們進行安裝。
 
-
+請注意：
 - Contoso 直接連線至 Azure。 如果您的內部部署 AD 位於 Proxy 後方，請閱讀此[文章](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-connectivity)。
 - 第一次同步處理後，內部部署 Azure AD 會顯示在 Azure AD 物件中。
 
@@ -700,7 +705,7 @@ ENV | 可能的值為 DEV、STG、PROD。 分別代表開發、預備和生產�
 
 安全性在雲端中至關重要，而 Azure 提供了豐富的安全性工具和功能。 這些工具和功能可協助您在安全的 Azure 平台上建立安全的解決方案。 請閱讀[受信任雲端的信賴度](https://azure.microsoft.com/overview/trusted-cloud/)，以深入了解 Azure 安全性。
 
-Contoso 有幾個主要層面需要考量
+Contoso 有幾個主要層面需要考量：
 
 - **Azure 資訊安全中心**：Azure 資訊安全中心可為混合式雲端工作負載提供統一的安全性管理和進階威脅防護。 使用資訊安全中心，您可以在工作負載中套用安全性原則、限制暴露於威脅的可能性，以及偵測和回應攻擊。  [深入了解](https://docs.microsoft.com/azure/security-center/security-center-intro)。
 - **網路安全性群組 (NSG)**：NSG 是一種篩選器 (防火牆)，其中包含安全性規則清單，經套用後可允許或拒絕對已連線至 Azure VNet 的資源傳輸網路流量。 [深入了解](https://docs.microsoft.com/azure/virtual-network/security-overview)。
@@ -772,7 +777,7 @@ Azure 磁碟加密可與 Azure Key Vault 整合，協助您控制及管理金鑰
 
 ## <a name="conclusion"></a>結論
 
-在本文中，Contoso 設定了他們的 Azure 基礎結構，並設定或規劃了 Azure 訂用帳戶、混合式身分識別、災害復原、網路、控管和安全性的基礎結構原則。 
+在本文中，Contoso 為 Azure 訂用帳戶、混合式身分識別、災害復原、網路、控管和安全性設定了 Azure 基礎結構和原則。 
 
 在移轉至雲端的作業中，並不一定會用到 Contoso 在此處完成的所有步驟。 在他們的案例中，他們想要規劃可用於所有移轉類型的網路基礎結構，且需兼具安全性、復原能力和可擴充性。 
 

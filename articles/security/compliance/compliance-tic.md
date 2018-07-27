@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: cf24810c0aa414e751e55df163563f013c1a0081
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 9d71efa35713500911c67d1df15612b64c8e97da
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969940"
+ms.locfileid: "38990824"
 ---
 # <a name="trusted-internet-connection-guidance"></a>受信任網際網路連線指導
 
@@ -227,27 +227,26 @@ Azure 網路監看員的流量分析使用流量記錄資料和其他記錄來�
 
 | 類別 | 工作負載 | IaaS | 專用的 PaaS / VNet 插入  | 服務端點  |
 |---------|---------|---------|---------|--------|
-| 計算 | Linux 虛擬機器 | yes | | |
-| 計算 | Windows 虛擬機器 | yes | | |
-| 計算 | 虛擬機器擴展集 | yes | | |
+| 計算 | Linux 虛擬機器 | 是 | | |
+| 計算 | Windows 虛擬機器 | 是 | | |
+| 計算 | 虛擬機器擴展集 | 是 | | |
 | 計算 | Azure Functions | | 透過 App Service Environment (ASE) | |
 | Web 與行動 | 內部 Web 應用程式 | | 透過 App Service Environment (ASE) | |
 | Web 與行動 | 內部行動應用程式 | | 透過 App Service Environment (ASE) | |
 | Web 與行動 | API Apps | | 透過 App Service Environment (ASE) | |
-| 容器 | Azure Container Service (ACS) | | | yes |
-| 容器 | Azure Container Service (AKS)* | | | yes |
+| 容器 | Azure Container Service (ACS) | | | 是 |
+| 容器 | Azure Container Service (AKS)* | | | 是 |
 | 資料庫 | SQL Database | | Azure SQL Database 受控執行個體* | Azure SQL |
-| 資料庫 | 適用於 MySQL 的 Azure 資料庫 | | | yes |
-| 資料庫 | 適用於 PostgreSQL 的 Azure 資料庫 | | | yes |
-| 資料庫 | SQL 資料倉儲 | | | yes |
-| 資料庫 | Azure Cosmos DB | | | yes |
-| 資料庫 | Redis 快取 | | yes | |
-| 儲存體 | Blob | yes | | |
-| 儲存體 | 檔案 | yes | | |
-| 儲存體 | 佇列 | yes | | |
-| 儲存體 | 資料表 | yes | | |
-| 儲存體 | 磁碟 | yes | | |
+| 資料庫 | 適用於 MySQL 的 Azure 資料庫 | | | 是 |
+| 資料庫 | 適用於 PostgreSQL 的 Azure 資料庫 | | | 是 |
+| 資料庫 | SQL 資料倉儲 | | | 是 |
+| 資料庫 | Azure Cosmos DB | | | 是 |
+| 資料庫 | Redis 快取 | | 是 | |
+| 儲存體 | Blob | 是 | | |
+| 儲存體 | 檔案 | 是 | | |
+| 儲存體 | 佇列 | 是 | | |
+| 儲存體 | 資料表 | 是 | | |
+| 儲存體 | 磁碟 | 是 | | |
 
 *：截至 2018 年 5 月的 Azure Government 公開預覽  
 *：截至 2018 年 5 月的 Azure Government 個人版預覽
-

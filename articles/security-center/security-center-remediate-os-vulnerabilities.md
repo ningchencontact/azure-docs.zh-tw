@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/19/2018
+ms.date: 07/10/2018
 ms.author: terrylan
-ms.openlocfilehash: 3af8f211c19fde9d2fc79f41fc13009570a9b4de
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 3c56abcec37bb6abcb77ec8cc443b0656bd69932
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285911"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990790"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>在 Azure 資訊安全中心修復安全性設定
 Azure 資訊安全中心會針對可能讓虛擬機器 (VM) 和電腦更容易遭受攻擊的設定，每天分析虛擬機器和電腦的作業系統。 當您的 OS 設定不符合建議的安全性設定規則時，資訊安全中心會建議您解決這些弱點，並建議變更設定以解決這些弱點。
@@ -27,11 +27,11 @@ Azure 資訊安全中心會針對可能讓虛擬機器 (VM) 和電腦更容易�
 如需受監視之特定設定的詳細資訊，請參閱[建議的設定規則清單](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) \(英文\)。 若要深入了解如何自訂安全性設定評估，請參閱[在 Azure 資訊安全中心 (預覽) 自訂 OS 安全性設定](security-center-customize-os-security-config.md)。
 
 ## <a name="implement-the-recommendation"></a>實作建議
-「修復安全性設定」會以建議的形式在資訊安全中心中呈現。 建議會顯示在 [建議] > [計算] 下方。
+「修復安全性設定」會以建議的形式在資訊安全中心中呈現。 建議會顯示在 [建議] > [計算及應用程式] 下方。
 
-此範例涵蓋 [計算] 下方的「修復安全性設定」建議。
-1. 在 [資訊安全中心] 的左窗格中，選取 [計算]。  
-  [計算] 視窗隨即開啟。
+此範例涵蓋 [計算及應用程式] 下方的「修復安全性設定」建議。
+1. 在 [資訊安全中心] 的左窗格中，選取 [計算及應用程式]。  
+  [計算及應用程式] 視窗隨即開啟。
 
    ![修復安全性設定][1]
 

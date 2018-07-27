@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/07/2018
+ms.date: 07/11/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: a13c83fc0d35be1aec87cb5f2d2b19b0bf27f1bf
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 2a21c7867bf0dd2d6ca6ee0bd9025739315c8d0a
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133265"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003313"
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>使用 Log Analytics 從您的環境中的電腦收集資料
 
@@ -50,9 +50,6 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 * Windows Server 2008 Service Pack 1 (SP1) 或更新版本
 * Windows 7 SP1 與更新版本
 
-> [!NOTE]
-> 適用於 Windows 的代理程式只支援傳輸層安全性 (TLS) 1.0 與 1.1。  
-
 ## <a name="supported-linux-operating-systems"></a>支援的 Linux 作業系統
 以下為正式支援的 Linux 散發套件。  不過，Linux 代理程式也可能在未列出的其他散發套件上執行。  除非另有說明，列出的每個主要版本都支援所有次要版本。  
 
@@ -64,15 +61,18 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 * Ubuntu 12.04 LTS、14.04 LTS、16.04 LTS (x86/x64)
 * SUSE Linux Enterprise Server 11 和 12 (x86/x64)
 
+## <a name="tls-12-protocol"></a>TLS 1.2 通訊協定
+為了確保資料傳送至 Log Analytics 時的安全性，我們強烈建議您將代理程式設定為至少使用傳輸層安全性 (TLS) 1.2。 我們已發現較舊版本的 TLS/安全通訊端層 (SSL) 較易受到攻擊，而且在其目前的運作中仍允許回溯相容性，因此並**不建議使用**這些版本。  如需其它資訊，請檢閱[使用 TLS 1.2 安全地傳送](log-analytics-data-security.md#sending-data-securely-using-tls-12)。 
+
 ## <a name="network-firewall-requirements"></a>網路防火牆需求
 下列資訊列出 Linux 和 Windows 代理程式與 Log Analytics 通訊所需的 Proxy 和防火牆設定資訊。  
 
 |代理程式資源|連接埠 |方向 |略過 HTTPS 檢查|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |連接埠 443 |輸入和輸出|yes |  
-|*.oms.opinsights.azure.com |連接埠 443 |輸入和輸出|yes |  
-|*.blob.core.windows.net |連接埠 443 |輸入和輸出|yes |  
-|*.azure-automation.net |連接埠 443 |輸入和輸出|yes |  
+|*.ods.opinsights.azure.com |連接埠 443 |輸入和輸出|是 |  
+|*.oms.opinsights.azure.com |連接埠 443 |輸入和輸出|是 |  
+|*.blob.core.windows.net |連接埠 443 |輸入和輸出|是 |  
+|*.azure-automation.net |連接埠 443 |輸入和輸出|是 |  
 
 
 如果您打算使用 Azure 自動化混合式 Runbook 背景工作角色連線到自動化服務並向其註冊，以便在您的環境中使用 Runbook，它必須具有[設定適用於混合式 Runbook 背景工作角色的網路](../automation/automation-hybrid-runbook-worker.md#network-planning)中所述的連接埠號碼和 URL 存取權。 

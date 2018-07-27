@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 688d620e19a8a6f536d134d9c4d7c837ec06bbdc
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d891cd92e70d3491ee0c7a58f1409823301b299c
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293616"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989748"
 ---
 # <a name="import-data-into-analytics"></a>將資料匯入分析
 
@@ -116,15 +116,16 @@ JSON 格式
 ]
 ```
  
-以每個資料行的位置、名稱、類型識別它。 
+以每個資料行的位置、名稱、類型識別它。
 
 * 位置 - 若為以符號分隔的檔案格式，則是對應值的位置。 若為 JSON 格式，則是對應索引鍵的 jpath。
 * 名稱 - 資料行的顯示名稱。
 * 類型 - 資料行的類型。
  
-在使用範例資料、而且檔案格式是符號分隔的情況下，結構描述定義必須對應所有資料行，並在結尾加入新的資料行。 
-
-JSON 允許資料部分對應，因此 JSON 格式的結構描述定義不需要對應範例資料中找到的每個索引鍵。 它也可以對應不屬於範例資料的資料行。 
+> [!NOTE]
+> 在使用範例資料、而且檔案格式是符號分隔的情況下，結構描述定義必須對應所有資料行，並在結尾加入新的資料行。
+> 
+> JSON 允許資料部分對應，因此 JSON 格式的結構描述定義不需要對應範例資料中找到的每個索引鍵。 它也可以對應不屬於範例資料的資料行。 
 
 ## <a name="import-data"></a>匯入資料
 

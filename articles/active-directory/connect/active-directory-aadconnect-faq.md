@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7edabc99da5e1466e848336c647a33213c9edd8b
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 545766aa6c39fe678113297e584422872a6ded87
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133239"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008139"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect 常見問題集
 
@@ -65,7 +65,7 @@ ms.locfileid: "37133239"
 所有網路軟體、實體裝置或其他軟硬體限制連線開啟時間上限的閥值應該至少為 5 分鐘 (300 秒)，以便讓安裝 Azure AD Connect 用戶端的伺服器與 Azure Active Directory 連線。 此建議也適用於所有先前發行的 Microsoft 身分識別同步處理工具。
 
 **問：是否支援單一標籤網域 (SLD)？**  
-否，Azure AD Connect 不支援使用 SLD 的內部部署樹系或網域。
+雖然非常不建議您使用這種網路設定 ([請參閱文章](https://support.microsoft.com/en-us/help/2269810/microsoft-support-for-single-label-domains))，但只要單一層級網域的網路設定可正常運作，便支援搭配使用 Azure AD Connect 同步處理與單一標籤網域。
 
 **問：是否支援使用斷續 AD 網域的樹系？**  
 否，Azure AD Connect 不支援包含斷續命名空間的內部部署樹系。

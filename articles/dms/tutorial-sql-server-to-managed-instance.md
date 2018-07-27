@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/07/2018
-ms.openlocfilehash: 86af0101d84fe9cd44211a931567a85d7b5166e0
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 07/12/2018
+ms.openlocfilehash: c911b096af6662e11afb4c4262b92c239d252c36
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261605"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990222"
 ---
 # <a name="migrate-sql-server-to-azure-sql-database-managed-instance-using-dms"></a>使用 DMS 將 SQL Server 遷移至 Azure SQL Database 受控執行個體
 您可以使用 Azure 資料庫移轉服務，將內部部署 SQL Server 執行個體的資料庫遷移至 [Azure SQL Database 受控執行個體](../sql-database/sql-database-managed-instance.md)。 如需其他可能需要手動操作的方法，請參閱[將 SQL Server 執行個體遷移至 Azure SQL Database 受控執行個體](../sql-database/sql-database-managed-instance-migrate.md)一文。
@@ -34,7 +34,7 @@ ms.locfileid: "35261605"
 > * 監視移轉。
 > * 下載移轉報告。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要完成本教學課程，您需要：
 
 - 使用 Azure Resource Manager 部署模型來建立 Azure 資料庫移轉服務的 VNET，其使用 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 或 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) 提供站對站連線能力給您的內部部署來源伺服器。 [了解使用 Azure 資料庫移轉服務進行 Azure SQL DB 受控執行個體移轉的網路拓樸](https://aka.ms/dmsnetworkformi)。
@@ -133,7 +133,7 @@ ms.locfileid: "35261605"
 
 ## <a name="specify-target-details"></a>指定目標詳細資料
 
-1.  在 [目標詳細資料] 畫面上，指定目標的連線詳細資料，這個目標是 [AdventureWorks2012] 資料庫所要遷移前往的預先佈建 Azure SQL Database 受控執行個體。
+1.  在 [目標詳細資料] 畫面上，指定目標的連線詳細資料，這個目標是 **AdventureWorks2012** 資料庫所要遷移前往的預先佈建 Azure SQL Database 受控執行個體。
 
     如果您尚未佈建 Azure SQL Database 受控執行個體，請選取 [否]，以取得可協助您佈建執行個體的連結。 您仍然可以繼續建立專案，然後在 Azure SQL Database 受控執行個體準備就緒時，返回此特定專案來執行移轉。   
  
@@ -157,9 +157,15 @@ ms.locfileid: "35261605"
 
 3.  在 [選取來源資料庫] 畫面上，選取您要遷移的來源資料庫。
 
-    ![選取來源資料庫](media\tutorial-sql-server-to-managed-instance\dms-select-source-databases1.png)
+    ![選取來源資料庫](media\tutorial-sql-server-to-managed-instance\dms-select-source-databases2.png)
 
-4.  選取 [儲存]，然後在 [設定移轉設定] 畫面上，提供下列詳細資料：
+4.  選取 [儲存]，然後在 [選取登入] 畫面上，選取您要遷移的登入。
+
+    目前版本僅支援遷移 SQL 登入。
+
+    ![選取登入](media\tutorial-sql-server-to-managed-instance\dms-select-logins.png)
+
+5. 選取 [儲存]，然後在 [設定移轉設定] 畫面上，提供下列詳細資料：
 
     | | |
     |--------|---------|
@@ -168,29 +174,31 @@ ms.locfileid: "35261605"
     |**密碼** | 使用者的密碼。 |
     |**儲存體帳戶設定** | 此 SAS URI 會向 Azure 資料庫移轉服務提供您儲存體帳戶容器的存取權，此容器會作為服務上傳備份檔案時的目的地，且會用於將資料庫遷移至 Azure SQL Database 受控執行個體。 [了解如何取得 Blob 容器的 SAS URI](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container)。|
     
-    ![設定移轉設定](media\tutorial-sql-server-to-managed-instance\dms-configure-migration-settings1.png)
+    ![設定移轉設定](media\tutorial-sql-server-to-managed-instance\dms-configure-migration-settings2.png)
 
 5.  選取 [儲存]，在 [移轉摘要] 畫面的 [活動名稱] 文字方塊中，指定移轉活動的名稱。
 
-6. 展開 [驗證選項] 區段以顯示 [選擇驗證選項] 畫面，指定是否驗證已遷移資料庫的查詢正確性，然後選取 [儲存]。  
+    ![移轉摘要](media\tutorial-sql-server-to-managed-instance\dms-migration-summary2.png)
 
-    ![移轉摘要](media\tutorial-sql-server-to-managed-instance\dms-migration-summary1.png)
+6. 展開 [驗證選項] 區段以顯示 [選擇驗證選項] 畫面，指定是否驗證已遷移資料庫的查詢正確性，然後選取 [儲存]。  
 
 7. 選取 [執行移轉]。
 
     [移轉活動] 視窗隨即出現，而且活動的狀態為 [擱置]。
 
-   ![移轉活動擱置](media\tutorial-sql-server-to-managed-instance\dms-migration-activity-pending.png)
-
 ## <a name="monitor-the-migration"></a>監視移轉
 
-1. 在移轉活動畫面上，選取 [重新整理] 以更新顯示，直到您看到移轉的狀態顯示為 [已完成] 為止。
+1. 在移轉活動畫面上，選取 [重新整理] 以更新顯示。
  
-   ![移轉活動已完成](media\tutorial-sql-server-to-managed-instance\dms-migration-activity-finished.png)
+   ![移轉活動進行中](media\tutorial-sql-server-to-managed-instance\dms-migration-activity-in-progress.png)
 
-2. 移轉完成之後，請選取 [下載報告] 以取得報告，其中會列出與移轉程序相關聯的詳細資料。
+2. 您可以進一步展開資料庫和登入類別，以監視個別伺服器物件的移轉狀態。
+
+   ![移轉活動進行中](media\tutorial-sql-server-to-managed-instance\dms-migration-activity-monitor.png)
+
+3. 移轉完成之後，請選取 [下載報告] 以取得報告，其中會列出與移轉程序相關聯的詳細資料。
  
-3. 確認目標 Azure SQL Database 受控執行個體環境上的目標資料庫。
+4. 確認目標 Azure SQL Database 受控執行個體環境上的目標資料庫。
 
 ## <a name="next-steps"></a>後續步驟
 

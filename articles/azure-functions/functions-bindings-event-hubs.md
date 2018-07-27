@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 7ea233f3d5b0e0b6ad1470af146f963fce6c4e94
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 51f64f6f74875c6afac350dc9cc235573b89c524
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970667"
+ms.locfileid: "38989583"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Functions 的 Azure 事件中樞繫結
 
@@ -367,6 +367,8 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 ## <a name="output"></a>輸出
 
 使用事件中樞輸出繫結將事件寫入事件串流。 您必須具備事件中樞的傳送權限，才能將事件寫入其中。
+
+請確定所需的套件參考已就緒︰[Functions 1.x](#packages---functions-1.x) 或 [Functions 2.x](#packages---functions-2.x) 
 
 ## <a name="output---example"></a>輸出 - 範例
 

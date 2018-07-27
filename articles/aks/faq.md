@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 6/25/2018
+ms.date: 07/11/2018
 ms.author: iainfou
-ms.openlocfilehash: ffd81835de82cc5a00b3f6705a7607a51bb3bfa0
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 915f74df69596b1677a0e03770e076ae50efc609
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096446"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001240"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 的常見問題集
 
@@ -21,17 +21,7 @@ ms.locfileid: "37096446"
 
 ## <a name="which-azure-regions-provide-the-azure-kubernetes-service-aks-today"></a>目前，哪些 Azure 區域提供 Azure Kubernetes Service (AKS)？
 
-- 澳洲東部
-- 加拿大中部
-- 加拿大東部
-- 美國中部
-- 美國東部
-- 美國東部 2
-- 北歐
-- 英國南部
-- 西歐
-- 美國西部
-- 美國西部 2
+如需完整清單，請參閱 Azure Kubernetes 服務的[區域和可用性][aks-regions]文件。
 
 ## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>安全性更新是否會套用至 AKS 代理程式節點？
 
@@ -76,7 +66,7 @@ AKS 目前並未原生整合到 Azure Key Vault。 不過，有一些社群解�
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>我是否可以在 AKS 上執行 Windows Server 容器？
 
-若要執行 Windows Server 容器，您需要執行以 Windows Server 為基礎的節點。 目前在 AKS 中並未提供以 Windows Server 為基礎的節點。 如果您需要在 Azure 中的 Kubernetes 上執行 Windows Server 容器，請參閱 [acs 引擎的說明文件](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md)。
+若要執行 Windows Server 容器，您需要執行以 Windows Server 為基礎的節點。 目前在 AKS 中並未提供以 Windows Server 為基礎的節點。 不過，您可以使用 Virtual Kubelet 來排程 Azure 容器執行個體上的 Windows 容器，以及在 AKS 叢集當中進行管理。 如需詳細資訊，請參閱[使用 Virtual Kubelet 搭配 AKS][virtual-kubelet]。
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>為何會使用 AKS 建立兩個資源群組？
 
@@ -87,6 +77,11 @@ AKS 目前並未原生整合到 Azure Key Vault。 不過，有一些社群解�
 ## <a name="does-aks-offer-a-service-level-agreement"></a>AKS 是否提供服務等級協定？
 
 在服務等級協定 (SLA) 中，提供者同意就未達到服務等級的情況，補償該項服務費用。 由於 AKS 本身即免費，因此我們並不提供補償費用，亦無任何正式的 SLA。 不過，我們會盡量將 Kubernetes API 伺服器的可用性維持在至少 99.5%。
+
+<!-- LINKS - internal -->
+
+[aks-regions]: ./container-service-quotas.md
+[virtual-kubelet]: virtual-kubelet.md
 
 <!-- LINKS - external -->
 [auto-scaler]: https://github.com/kubernetes/autoscaler

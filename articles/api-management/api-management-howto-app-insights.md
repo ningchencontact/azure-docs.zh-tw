@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 7740da505f7635944536252d60ec2c2039295975
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 8546b1228c8d8f213cb87692144e8d1d31a949d8
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36323383"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001798"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>如何整合 Azure API 管理與 Azure Application Insights
 
 「Azure API 管理」可與 Azure Application Insights 輕鬆整合，Azure Application Insights 是一項延伸服務，可供 Web 開發人員在多個平台上建置和管理應用程式。 本指南會逐步解說此整合的每個步驟，並說明降低「API 管理」服務執行個體效能影響的策略。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要依照本指南進行操作，您必須具備「Azure API 管理」執行個體。 如果您沒有該執行個體，請先完成此[教學課程](get-started-create-service-instance.md)。
 
@@ -50,6 +50,9 @@ ms.locfileid: "36323383"
 6. 您剛建立了一個含有檢測金鑰的 Azure Application Insights 記錄器。 它現在應該會出現在清單中。  
     ![App Insights 記錄器](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
+> [!NOTE]
+> 在幕後，[記錄器](https://docs.microsoft.com/en-us/rest/api/apimanagement/logger/createorupdate)實體會建立於 API 管理執行個體，其中包含 Application Insights 執行個體的檢測金鑰。
+
 ## <a name="enable-application-insights-logging-for-your-api"></a>為您的 API 啟用 Application Insights 記錄功能
 
 1. 在「Azure 入口網站」中，瀏覽至您的「Azure API 管理服務執行個體」。
@@ -63,6 +66,9 @@ ms.locfileid: "36323383"
 8. 輸入 **100** 作為 [取樣 (%)]，然後勾選 [一律記錄錯誤] 核取方塊。
 9. 在 [本文的前幾個位元組] 欄位中，輸入 **1024**。
 10. 按一下 [檔案] 。
+
+> [!NOTE]
+> 在幕後，名為 'applicationinsights' 的[診斷](https://docs.microsoft.com/en-us/rest/api/apimanagement/diagnostic/createorupdate)實體會建立於 API 層級。
 
 | 設定名稱                        | 值類型                        | 說明                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

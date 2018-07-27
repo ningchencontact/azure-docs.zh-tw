@@ -9,26 +9,29 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/06/2018
 ms.author: jingwang
-ms.openlocfilehash: 961c8dea4dbb6b6600d10b75e84a9a84c34c329b
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 558b426ea85decb0309390e36910eb18719e6e99
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034615"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39002522"
 ---
-# <a name="load-data-into-azure-data-lake-storage-gen2-preview-with-azure-data-factory"></a>使用 Azure Data Factory 將資料載入 Azure Data Lake Storage Gen2 預覽中
+# <a name="load-data-into-azure-data-lake-storage-gen2-preview-with-azure-data-factory"></a>使用 Azure Data Factory 將資料載入 Azure Data Lake Storage Gen2 (預覽) 中
 
-[Azure Data Lake Storage Gen2 預覽](../storage/data-lake-storage/introduction.md)會將具有階層式檔案系統命名空間和安全性功能的通訊協定，新增至 Azure Blob 儲存體，使其易於將分析架構連接到耐久儲存層。 在 Data Lake Storage Gen2 (預覽) 中，所有物件儲存體的品質都維持不變，另外還增加了檔案系統介面的優點。
+[Azure Data Lake Storage Gen2 (預覽) ](../storage/data-lake-storage/introduction.md)會將具有階層式檔案系統命名空間和安全性功能的通訊協定，新增至 Azure Blob 儲存體，使其易於將分析架構連接到耐久儲存層。 在 Data Lake Storage Gen2 (預覽) 中，所有物件儲存體的品質都維持不變，另外還增加了檔案系統介面的優點。
 
 Azure Data Factory 是完全受控的雲端式資料整合服務。 您可以使用此服務，在建置分析解決方案時，於 Lake 中置入來自豐富的內部部署集合和雲端式資料存放區的資料，並節省時間。 如需受支援連接器的詳細清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)資料表。
 
-Azure Data Factory 提供相對於 AzCopy (命令列資料轉送公用程式) 的相應放大、受控資料移動解決方案。 由於 ADF 具有相應放大架構，因此能以高輸送量來內嵌資料。 如需詳細資料，請參閱[複製活動效能](copy-activity-performance.md)。
+Azure Data Factory 提供可向外延展的受控資料移動解決方案。 由於 ADF 具有相應放大架構，因此能以高輸送量來內嵌資料。 如需詳細資料，請參閱[複製活動效能](copy-activity-performance.md)。
 
 本文將示範如何使用 Data Factory 資料複製工具，將資料從 _Amazon Web Services S3 服務_載入 _Azure Data Lake Storage Gen2_ 中。 您可以依照類似的步驟，從其他類型的資料存放區複製資料。
 
-## <a name="prerequisites"></a>先決條件
+>[!TIP]
+>若要將資料從 Azure Data Lake Storage Gen1 複製到 Gen2，請參閱[此特定逐步解說](load-azure-data-lake-storage-gen2-from-gen1.md)。
+
+## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶：如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 * 已啟用 Data Lake Storage Gen2 的 Azure 儲存體帳戶：如果您還沒有儲存體帳戶，請按一下[這裡](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)建立一個帳戶。
@@ -46,7 +49,7 @@ Azure Data Factory 提供相對於 AzCopy (命令列資料轉送公用程式) �
     * **名稱**：輸入 Azure 資料處理站的全域唯一名稱。 如果您收到「資料處理站名稱 \"LoadADLSDemo\" 無法使用」的錯誤，請為資料處理站輸入其他名稱。 例如，您可以使用**您的名稱****ADFTutorialDataFactory**。 請嘗試再次建立資料處理站。 如需 Data Factory 成品的命名規則，請參閱 [Data Factory 命名規則](naming-rules.md)。
     * **訂用帳戶**：選取用來在其中建立資料處理站的 Azure 訂用帳戶。 
     * **資源群組**：從下拉式清單中選取現有資源群組，或選取 [新建] 選項，然後輸入資源群組的名稱。 若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。  
-    * **版本**：選取 **V2 (預覽)**。
+    * **版本**：選取 [V2]。
     * **位置**：選取資料處理站的位置。 只有受到支援的位置會顯示在下拉式清單中。 資料處理站所使用的資料存放區可位於其他位置和區域。 
 
 3. 選取 [建立] 。
@@ -64,7 +67,7 @@ Azure Data Factory 提供相對於 AzCopy (命令列資料轉送公用程式) �
 2. 在 [屬性] 頁面中，對 [工作名稱] 欄位指定 [CopyFromAmazonS3ToADLS]，然後選取 [下一步]：
 
     ![屬性頁面](./media/load-azure-data-lake-storage-gen2/copy-data-tool-properties-page.png)
-3. 在 [來源資料存放區] 頁面中，按一下 [+ 建立新連線]：
+3. 在 [來源資料存放區] 頁面中，按一下 [+ Create new connection] \(+ 建立新連線\)：
 
     ![來源資料存放區頁面](./media/load-azure-data-lake-storage-gen2/source-data-store-page.png)
     
@@ -98,7 +101,7 @@ Azure Data Factory 提供相對於 AzCopy (命令列資料轉送公用程式) �
    1. 從 [儲存體帳戶名稱] 下拉式清單中選取您的 Data Lake Storage Gen2 可使用帳戶。
    2. 選取 [下一步] 。
    
-   ![指定 Azure Data Lake Store 帳戶](./media/load-azure-data-lake-storage-gen2/specify-adls.png)
+   ![指定 Azure Data Lake Storage Gen2 帳戶](./media/load-azure-data-lake-storage-gen2/specify-adls.png)
 
 9. 在 [選擇輸出檔案或資料夾] 頁面中，輸入 [copyfroms3] 作為輸出資料夾名稱，然後選取 [下一步]： 
 
@@ -127,11 +130,11 @@ Azure Data Factory 提供相對於 AzCopy (命令列資料轉送公用程式) �
 
 16. 確認資料已複製到 Data Lake Storage Gen2 帳戶中。
 
-## <a name="best-practice"></a>最佳做法
+## <a name="best-practices"></a>最佳作法
 
 從檔案型資料存放區複製大量資料時，建議您：
 
-- 將檔案分割成 10TB 到 20TB 的檔案集。
+- 將檔案分割成 10TB 到 30TB 的檔案集。
 - 請勿觸發太多並行複製執行，以避免來源或接收資料存放區的節流。 您可以從一個複製執行開始並且監視輸送量，然後視需要逐漸增加。
 
 ## <a name="next-steps"></a>後續步驟
