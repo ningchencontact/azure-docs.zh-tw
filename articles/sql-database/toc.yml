@@ -138,9 +138,9 @@
           items:
             - name: 長期備份保留期
               href: sql-database-long-term-retention.md
-            - name: 設定長期備份保留期 - SQL 儲存體
+            - name: 使用 Azure Blob 儲存體設定
               href: sql-database-long-term-backup-retention-configure.md
-            - name: 設定長期備份保留期 - Azure 保存庫 (已取代)
+            - name: 使用 Azure 保存庫設定 (已取代)
               href: sql-database-long-term-backup-retention-configure-vault.md
         - name: 容錯移轉群組和異地複寫
           items:

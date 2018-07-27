@@ -55,6 +55,8 @@
       href: container-registry-get-started-docker-cli.md
     - name: 檢視存放庫
       href: container-registry-repositories.md
+    - name: 刪除容器映像
+      href: container-registry-delete.md
     - name: 升級傳統登錄
       href: container-registry-upgrade.md
     - name: 使用 ACR Webhook

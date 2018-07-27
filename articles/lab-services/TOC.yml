@@ -133,6 +133,8 @@
               href: devtest-lab-manage-formulas.md
         - name: 管理構件
           items:
+            - name: 指定必要的成品
+              href: devtest-lab-mandatory-artifacts.md
             - name: 建立自訂構件
               href: devtest-lab-artifact-author.md
             - name: 診斷構件失敗

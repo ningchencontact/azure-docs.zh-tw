@@ -43,6 +43,8 @@
           href: howto-administer.md
         - name: 匯出您的資料
           href: howto-export-data.md
+        - name: 在 Power BI 中將資料視覺化
+          href: howto-connect-powerbi.md
     - name: 建立器
       items:
         - name: 設定裝置範本

@@ -6,14 +6,14 @@ manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/17/2018
 ms.author: alkohli
-ms.openlocfilehash: 4349b471f960e7844511c473bffcd2177a34e055
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4f48097fa1ece66dd9e20a7a7939ac43cb0f48b4
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659227"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113472"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>使用 Azure 匯入/匯出服務將資料匯入 Azure 檔案服務
 
@@ -21,7 +21,7 @@ ms.locfileid: "34659227"
 
 匯入/匯出服務僅支援將 Azure 檔案服務匯入到 Azure 儲存體。 不支援將 Azure 檔案服務匯出。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 在建立匯入作業來將資料傳入 Azure 檔案服務之前，請仔細檢閱並完成下列必要條件清單。 您必須：
 
@@ -30,6 +30,14 @@ ms.locfileid: "34659227"
 - 具有屬於[支援類型](storage-import-export-requirements.md#supported-disks)的磁碟，且數量足夠。 
 - 具有執行[受支援 OS 版本](storage-import-export-requirements.md#supported-operating-systems) 的 Windows 系統。
 - 請在 Windows 系統上[下載 WAImportExport 第 2 版](https://www.microsoft.com/download/details.aspx?id=55280)。 將檔案解壓縮至預設資料夾 `waimportexport`。 例如： `C:\WaImportExport`。
+- 擁有 FedEx/DHL 帳戶。 
+    - 帳戶必須是有效的、需要有餘額，且必須有退貨運送功能。
+    - 產生匯出作業的追蹤號碼。
+    - 每個作業都應該具有個別的追蹤號碼。 不支援多個作業使用相同的追蹤號碼。
+    - 如果您沒有貨運公司帳戶，請移至：
+        - [建立 FedEX 帳戶](https://www.fedex.com/en-us/create-account.html) \(英文\)，或 
+        - [建立 DHL 帳戶](http://www.dhl-usa.com/en/express/shipping/open_account.html) \(英文\)。
+ 
 
 
 ## <a name="step-1-prepare-the-drives"></a>步驟 1：準備磁碟機
@@ -142,6 +150,9 @@ ms.locfileid: "34659227"
     - 輸入您在該貨運公司中建立的有效貨運帳戶號碼。 當匯入作業完成時，Microsoft 會透過此帳戶將磁碟機寄還給您。 
     - 提供完整且有效的連絡人名稱、電話、電子郵件、街道地址、城市、郵遞區號、州/省和國家/地區。
 
+        > [!TIP] 
+        > 請提供群組電子郵件，而不是指定單一使用者的電子郵件地址。 這樣可以確保即使當系統管理員不在時，您也可以收到通知。
+
        ![建立匯入工作 - 步驟 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
 
    
@@ -159,6 +170,10 @@ ms.locfileid: "34659227"
 ## <a name="step-4-update-the-job-with-tracking-information"></a>步驟 4：使用追蹤資訊更新作業
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
+
+## <a name="step-5-verify-data-upload-to-azure"></a>步驟 5：確認資料上傳至 Azure
+
+追蹤作業到完成為止。 作業完成之後，請確認您的資料已上傳至 Azure。 確認上傳成功之後才刪除內部部署的資料。
 
 ## <a name="samples-for-journal-files"></a>日誌檔案的範例
 

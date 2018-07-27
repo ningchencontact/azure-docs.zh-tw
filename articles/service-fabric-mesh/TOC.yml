@@ -45,6 +45,12 @@
       href: service-fabric-mesh-howto-deploy-app-azurefiles-volume.md
     - name: 獨立縮放應用程式中的微服務
       href: service-fabric-mesh-howto-app-scale-out.md
+- name: 參考
+  items:
+    - name: Service Fabric Mesh 資源提供者 REST API
+      href: /rest/api/servicefabric/sfmeshrp-index
+    - name: Service Fabric 用戶端資源 REST API
+      href: '/rest/api/servicefabric/sfclient-index#service-fabric-resource-model'
 - name: 資源
   items:
     - name: 常見問題

@@ -8,15 +8,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: Active
-ms.date: 05/25/2018
+ms.date: 07/18/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 558480d0e58a92277a0c56d0f197ee3b5c1c3f60
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: cedad5f48769ed864fef10cfd7059111a4502fd3
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "35633142"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136599"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>了解自動 SQL Database 備份
 
@@ -26,7 +26,7 @@ SQL Database 會自動建立資料庫備份，並使用 Azure 讀取權限異地
 
 ## <a name="what-is-a-sql-database-backup"></a>什麼是 SQL Database 備份？
 
-針對還原時間點 (PITR) 目的，SQL Database 會使用 SQL Server 技術來建立[完整](https://msdn.microsoft.com/library/ms186289.aspx)、[差異](http://msdn.microsoft.com/library/ms175526.aspx)及[交易記錄](https://msdn.microsoft.com/library/ms191429.aspx)備份。 交易記錄備份根據效能層級和資料庫活動量的頻率通常每隔 5-10 分鐘會進行一次。 具有完整和差異備份的交易記錄備份可讓您將資料庫還原到特定的時間點，至裝載資料庫相同的伺服器。 在您還原資料庫時，服務會判斷需要還原的完整、差異及交易記錄備份。
+針對還原時間點 (PITR) 目的，SQL Database 會使用 SQL Server 技術來建立[完整](https://msdn.microsoft.com/library/ms186289.aspx)、[差異](http://msdn.microsoft.com/library/ms175526.aspx)及[交易記錄](https://msdn.microsoft.com/library/ms191429.aspx)備份。 根據效能層級和資料庫活動量的頻率，交易記錄備份通常每隔 5-10 分鐘會進行一次，而差異備份通常每隔 12 小時進行一次。 具有完整和差異備份的交易記錄備份可讓您將資料庫還原到特定的時間點，至裝載資料庫相同的伺服器。 在您還原資料庫時，服務會判斷需要還原的完整、差異及交易記錄備份。
 
 
 您可以使用這些備份︰
@@ -42,7 +42,7 @@ SQL Database 會自動建立資料庫備份，並使用 Azure 讀取權限異地
 > 
 
 ## <a name="how-long-are-backups-kept"></a>備份會保留多久的時間？
-每個 SQL Database 備份都具有預設保留週期，此週期是依據資料庫的服務層，而且在 [DTU 購買模型](sql-database-service-tiers-dtu.md)與 [vCore 購買模型 (預覽)](sql-database-service-tiers-vcore.md) 之間有所不同。 您可以更新資料庫的備份保留週期。 如需詳細資料，請參閱[變更備份保留週期](#how-to-change-backup-retention-period)。
+每個 SQL Database 備份都具有預設保留週期，此週期是依據資料庫的服務層，而且在 [DTU 購買模型](sql-database-service-tiers-dtu.md)與 [vCore 購買模型](sql-database-service-tiers-vcore.md) 之間有所不同。 您可以更新資料庫的備份保留週期。 如需詳細資料，請參閱[變更備份保留週期](#how-to-change-backup-retention-period)。
 
 如果您刪除資料庫，則 SQL Database 會以保存線上資料庫備份的相同方式保存備份。 例如，如果您刪除保留期間為七天的基本資料庫，則為期四天的備份還會再儲存三天。
 
@@ -62,14 +62,9 @@ SQL Database 會自動建立資料庫備份，並使用 Azure 讀取權限異地
 
 如果您延長目前 PITR 保留期間，則 SQL Database 會保留現有備份，直到達到較長的保留期間為止。
 
-### <a name="pitr-retention-for-the-vcore-based-service-tiers-preview"></a>vCore 服務層的 PITR 保留 (預覽)
-
-在預覽期間，使用 vCore 購買模型所建立之資料庫的 PITR 保留週期設定為 7 天。 會免費隨附相關聯的儲存體。    
-
-
 ## <a name="how-often-do-backups-happen"></a>備份頻率是？
 ### <a name="backups-for-point-in-time-restore"></a>時間點還原的備份
-SQL Database 透過自動建立完整備份、差異備份和交易記錄備份，以支援自助式時間點還原 (PITR)。 每週建立一次完整資料庫備份、每幾個小時建立一次差異資料庫備份，以及每 5 - 10 分鐘建立一次交易記錄備份。 建立資料庫之後，會立即排程第一次完整備份。 通常會在 30 分鐘內完成，但如果資料庫很大，則時間可能更久。 比方說，在還原的資料庫或資料庫複本上，初始備份可能需要較長的時間。 第一次完整備份之後，將會自動排程進一步的備份，並在背景中以無訊息方式管理。 資料庫備份的確切時間，依 SQL Database 服務整體系統工作負載維持平衡而決定。
+SQL Database 透過自動建立完整備份、差異備份和交易記錄備份，以支援自助式時間點還原 (PITR)。 根據效能層級和資料庫活動量的頻率，完整資料庫備份會每週建立，差異資料庫備份通常每隔 12 小時建立，而交易記錄備份通常每隔 5-10 分鐘建立。 建立資料庫之後，會立即排程第一次完整備份。 通常會在 30 分鐘內完成，但如果資料庫很大，則時間可能更久。 比方說，在還原的資料庫或資料庫複本上，初始備份可能需要較長的時間。 第一次完整備份之後，將會自動排程進一步的備份，並在背景中以無訊息方式管理。 資料庫備份的確切時間，依 SQL Database 服務整體系統工作負載維持平衡而決定。
 
 PITR 備份為異地備援，並受到 [Azure 儲存體跨區域複寫](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)保護
 
@@ -93,7 +88,7 @@ SQL Database 提供選項讓您設定完整備份的長期保留 (LTR)，最長�
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="how-to-change-backup-retention-period"></a>如何變更備份保留期間
-您可以使用 REST API 或 PowerShell 變更預設保留。 支援的值為：7、14、21、28 或 35 天。下列範例說明如何將 PITR 保留變更為 28 天。 
+您可以使用 REST API 或 PowerShell 變更預設保留。 支援的值為：7、14、21、28 或 35 天。 下列範例說明如何將 PITR 保留變更為 28 天。 
 
 > [!NOTE]
 > 這些 API 只會影響 PITR 保留期間。 如果您已將資料庫設定為 LTR，則它不受影響。 如需如何變更 LTR 保留期間的詳細資料，請參閱[長期備份保留](sql-database-long-term-retention.md)。

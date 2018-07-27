@@ -138,7 +138,7 @@
 ### 疑難排解
 #### [缺少稽核資料](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [下載中缺少的資料](active-directory-reporting-troubleshoot-missing-data-download.md)
-#### [Azure AD Activity 記錄內容套件錯誤]\(active-directory-reporting-troubleshoot-
+#### [Azure AD 活動記錄內容套件錯誤](active-directory-reporting-troubleshoot-content-pack.md)
 #### [Azure AD 報告 API 中的錯誤](active-directory-reporting-troubleshoot-graph-api.md)
 
 ### [程式設計存取](active-directory-reporting-api-getting-started-azure-portal.md)
@@ -222,11 +222,13 @@
 #### [疑難排解](manage-apps/application-proxy-troubleshoot.md)
 
 ### 管理企業應用程式
+#### [新增應用程式](manage-apps/add-application-portal.md)
+#### [檢視租用戶應用程式](manage-apps/view-applications-portal.md)
 #### [指派使用者](manage-apps/assign-user-or-group-access-portal.md)
 #### [自訂商標](manage-apps/change-name-or-logo-portal.md)
 #### [停用使用者登入](manage-apps/disable-user-sign-in-portal.md)
 #### [移除使用者](manage-apps/remove-user-or-group-access-portal.md)
-#### [檢視我的所有應用程式](manage-apps/view-applications-portal.md)
+
 #### [管理使用者帳戶佈建](manage-apps/configure-automatic-user-provisioning-portal.md)
 #### [管理企業應用程式的單一登入](manage-apps/configure-single-sign-on-portal.md)
 #### [適用於 SAML 應用程式的進階憑證](manage-apps/certificate-signing-options.md)

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 1/19/2017
+ms.date: 07/15/2018
 ms.author: tamram
-ms.openlocfilehash: 3c313025917bba06675d3b2d844a6740fab89fbc
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 160fe756458e067125b9d696fd0cdb929774446e
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30323146"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072029"
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>如果 Azure 儲存體發生中斷怎麼辦
 在 Microsoft，我們竭力確保我們的服務總是可供用。 有時候會因為不可抗拒之因素，而造成服務在一或多個區域內中斷。 為了協助您處理這類罕見的狀況，我們提供下列 Azure 儲存體服務的高階指引。
@@ -65,9 +65,8 @@ ms.locfileid: "30323146"
 對於定期備份儲存體資料有一些建議做法。
 
 * VM 磁碟 – 使用 [Azure 備份服務](https://azure.microsoft.com/services/backup/) 來備份您的 Azure 虛擬機器所使用的 VM 磁碟。
-* 區塊 Blob – 建立每個區塊 Blob 的[快照](https://msdn.microsoft.com/library/azure/hh488361.aspx)，或使用 [AzCopy](storage-use-azcopy.md)、[Azure PowerShell](storage-powershell-guide-full.md) 或 [Azure Data Movement 程式庫](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)，將 Blob 複製到其他區域的其他儲存體帳戶。
+* 區塊 Blob – 開啟[虛刪除](../blobs/storage-blob-soft-delete.md)來防止物件層級刪除和覆寫，或使用 [AzCopy](storage-use-azcopy.md)、[Azure PowerShell](storage-powershell-guide-full.md) 或 [Azure Data Movement 程式庫](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)，將 Blob 複製到其他區域的其他儲存體帳戶。
 * 資料表 – 使用 [AzCopy](storage-use-azcopy.md) 將資料表資料匯出到位於其他區域的其他儲存體帳戶。
 * 檔案 – 使用 [AzCopy](storage-use-azcopy.md) 或 [Azure PowerShell](storage-powershell-guide-full.md) 將您的檔案複製到位於其他區域的其他儲存體帳戶。
 
 如需建立應用程式以充分利用 RA-GRS 功能的相關資訊，請造訪[使用 RA-GRS 儲存體設計高可用性的應用程式 (英文)](../storage-designing-ha-apps-with-ragrs.md)
-

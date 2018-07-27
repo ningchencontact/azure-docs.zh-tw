@@ -59,7 +59,7 @@
           href: container-instances-log-analytics.md
     - name: 執行工作負載
       items:
-        - name: 執行容器化工作
+        - name: 使用重新啟動原則執行工作
           href: container-instances-restart-policy.md
         - name: ACI 上的 Jenkins 組建代理程式
           href: container-instances-jenkins.md

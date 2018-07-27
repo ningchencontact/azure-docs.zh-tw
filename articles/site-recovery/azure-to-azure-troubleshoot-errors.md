@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: sujayt
-ms.openlocfilehash: 344ed971dd4a869cfbdc363222d772dcc3191199
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: a41cd658060ef92efb0fc21a98ca616276378c5e
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916035"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113849"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 至 Azure VM 複寫問題的疑難排解
 
@@ -177,6 +177,13 @@ ms.locfileid: "37916035"
 
 ## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>看不見 Azure VM，無法在「啟用複寫」中選取
 
+ **原因 1：資源群組和來源虛擬機器位於不同的位置** <br>
+Azure Site Recovery 目前要求來源區域資源群組和虛擬機器應該位在相同的位置。 如果情況不是這樣，那麼在保護期間您就無法尋找虛擬機器。
+
+**原因 2：資源群組不在選取的訂用帳戶中** <br>
+如果資源群組不是指定的訂用帳戶的一部分，則可能無法在保護時尋找該資源組。 請確定資源群組屬於正在使用的訂用帳戶。
+
+ **原因 3：過時的設定** <br>
 如果您未看見想要啟用來進行複寫的 VM，可能是因為 Azure VM 上保留了過時的 Site Recovery 設定。 在下列情況中，Azure VM 可能保留過時的組態：
 
 - 您使用 Site Recovery 啟用 Azure VM 的複寫，然後刪除 Site Recovery 保存庫，但是並未明確停用 VM 上的複寫。
@@ -185,6 +192,11 @@ ms.locfileid: "37916035"
 ### <a name="fix-the-problem"></a>修正問題
 
 您可以使用[移除過時 ASR 組態指令碼](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412)，並移除 Azure VM 上的過時 Site Recovery 組態。 在移除過時的設定之後，您應該就能看到該 VM。
+
+## <a name="unable-to-select-virtual-machine-for-protection"></a>無法選取虛擬機器進行保護 
+ **原因 1：虛擬機器在失敗或沒有回應的狀態下安裝了某些延伸模組** <br>
+ 移至 [虛擬機器] > [設定] > [延伸模組]，並檢查是否有任何延伸模組處於失敗狀態。 解除安裝失敗的延伸模組，並重試保護虛擬機器。<br>
+ **原因 2：[VM 的佈建狀態無效](#vms-provisioning-state-is-not-valid-error-code-150019)**
 
 ## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>VM 的佈建狀態無效 (錯誤碼 150019)
 
@@ -200,6 +212,7 @@ ms.locfileid: "37916035"
 
 - 如果 [provisioningState] 是「失敗」，請連絡支援人員以取得疑難排解的詳細資訊。
 - 如果 [provisioningState] 是「正在更新」，則可能有其他擴充功能正在部署。 檢查 VM 上是否有任何進行中的作業，等候它們完成然後重試失敗的 Site Recovery **啟用複寫**作業。
+
 
 
 ## <a name="comvolume-shadow-copy-service-error-error-code-151025"></a>COM+/磁碟區陰影複製服務錯誤 (錯誤碼 151025)

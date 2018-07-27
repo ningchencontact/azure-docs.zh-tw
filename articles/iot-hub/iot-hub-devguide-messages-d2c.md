@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 6096d726d7a00a4ddf8047edeebb74ab3f151e51
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: be87b00f27f0d0b25cd77a0634ab1c653a85e5ac
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808252"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126437"
 ---
 # <a name="send-device-to-cloud-messages-to-iot-hub"></a>將裝置到雲端訊息傳送至 IoT 中樞
 
@@ -71,13 +71,13 @@ IoT 中樞的裝置對雲端傳訊具有下列特性：
 
 如需您可以用來傳送裝置對雲端訊息之 SDK 的資訊，請參閱 [Azure IoT SDK][lnk-sdks]。
 
-[快速入門][lnk-get-started]教學課程示範如何從模擬和實體裝置傳送裝置對雲端訊息。 如需詳細資訊，請參閱[使用路由處理 IoT 中樞的裝置到雲端訊息][lnk-d2c-tutorial]教學課程。
+[快速入門][lnk-get-started]示範如何從模擬裝置傳送裝置到雲端的訊息。 如需詳細資訊，請參閱[使用路由處理 IoT 中樞的裝置到雲端訊息][lnk-d2c-tutorial]教學課程。
 
 [lnk-devguide-builtin]: iot-hub-devguide-messages-read-builtin.md
 [lnk-devguide-custom]: iot-hub-devguide-messages-read-custom.md
 [lnk-comparison]: iot-hub-compare-event-hubs.md
 [lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
-[lnk-get-started]: iot-hub-get-started.md
+[lnk-get-started]: quickstart-send-telemetry-node.md
 
 [lnk-event-hubs]: http://azure.microsoft.com/documentation/services/event-hubs/
 [lnk-servicebus]: http://azure.microsoft.com/documentation/services/service-bus/

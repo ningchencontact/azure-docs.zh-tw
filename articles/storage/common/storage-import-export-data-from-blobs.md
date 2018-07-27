@@ -2,29 +2,36 @@
 title: 使用 Azure 匯入/匯出來匯出 Azure Blob 中的資料 | Microsoft Docs
 description: 了解如何在 Azure 入口網站中建立匯出作業，以轉送 Azure Blob 中的資料。
 author: alkohli
-manager: jeconnoc
+manager: twooley
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/17/2018
 ms.author: alkohli
-ms.openlocfilehash: eb41708c7446b3139758678c9247ffbb11da8b40
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: eb714086a0142d9780bd018d77dc880a430f240e
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969260"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113753"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>使用 Azure 匯入/匯出服務匯出 Azure Blob 儲存體中的資料
 本文提供的逐步指示會說明如何使用 Azure 匯入/匯出服務，安全地從 Azure Blob 儲存體匯出大量資料。 此服務需要您將空磁碟機寄送至 Azure 資料中心。 此服務會將您儲存體帳戶的資料匯出至磁碟機，然後將磁碟機寄回給您。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 在建立匯出作業來轉送 Azure Blob 儲存體中的資料之前，請仔細檢閱並完成此服務的下列必要條件清單。 您必須：
 
 - 具有可用於匯入/匯出服務的有效 Azure 訂用帳戶。
 - 具有至少一個 Azure 儲存體帳戶。 請參閱[匯入/匯出服務支援的儲存體帳戶和儲存體類型](storage-import-export-requirements.md)清單。 如需建立新儲存體帳戶的詳細資訊，請參閱 [如何建立儲存體帳戶](storage-create-storage-account.md#create-a-storage-account)(英文)。
 - 具有屬於[支援類型](storage-import-export-requirements.md#supported-disks)的磁碟，且數量足夠。
+- 擁有 FedEx/DHL 帳戶。  
+    - 帳戶必須是有效的、需要有餘額，且必須有退貨運送功能。
+    - 產生匯出作業的追蹤號碼。
+    - 每個作業都應該具有個別的追蹤號碼。 不支援多個作業使用相同的追蹤號碼。 
+    - 如果您沒有貨運公司帳戶，請移至：
+        - [建立 FedEX 帳戶](https://www.fedex.com/en-us/create-account.html) \(英文\)，或 
+        - [建立 DHL 帳戶](http://www.dhl-usa.com/en/express/shipping/open_account.html) \(英文\)。
 
 ## <a name="step-1-create-an-export-job"></a>步驟 1：建立匯出作業
 
@@ -52,7 +59,7 @@ ms.locfileid: "38969260"
     
 3. 在 [作業詳細資料] 中：
 
-    - 選取要從中匯出資料的儲存體帳戶。 
+    - 選取要從中匯出資料的儲存體帳戶。 使用接近您所在位置的儲存體帳戶。
     - 系統會根據所選儲存體帳戶的區域，自動填入「放置」位置。 
     - 指定您要從儲存體帳戶匯出至空白磁碟機的 Blob 資料。 
     - 選擇 [全部匯出]，可匯出儲存體帳戶中的所有 Blob 資料。
@@ -78,11 +85,18 @@ ms.locfileid: "38969260"
     - 從下拉式清單中選取貨運公司。
     - 輸入您在該貨運公司中建立的有效貨運帳戶號碼。 當匯入作業完成時，Microsoft 會透過此帳戶將磁碟機寄還給您。 
     - 提供完整且有效的連絡人名稱、電話、電子郵件、街道地址、城市、郵遞區號、州/省和國家/地區。
+
+        > [!TIP] 
+        > 請提供群組電子郵件，而不是指定單一使用者的電子郵件地址。 這樣可以確保即使當系統管理員不在時，您也可以收到通知。
    
 5. 在 [摘要] 中：
 
     - 檢閱作業的詳細資料。
-    - 請記下作業名稱及所提供的 Azure 資料中心寄送地址，以便將磁碟機寄送至 Azure。 
+    - 請記下作業名稱及所提供的 Azure 資料中心寄送地址，以將磁碟機寄送至 Azure。 
+
+        > [!NOTE] 
+        > 請一律將磁碟機寄送到在 Azure 入口網站中記下的資料中心。 如果磁碟機寄送到錯誤的資料中心，作業將不會被處理。
+
     - 按一下 [確定]，完成建立匯出作業。
 
 ## <a name="step-2-ship-the-drives"></a>步驟 2：寄送磁碟機

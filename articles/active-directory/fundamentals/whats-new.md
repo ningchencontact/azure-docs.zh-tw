@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9f0d0b9732b2af36a0411329cede01a9b8cc8efc
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 76f2bed22d62895e1c537a807ff729c0ba56fbf6
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920809"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136752"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory 的新增功能？
 
@@ -34,6 +34,44 @@ Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發�
 - 方案變更
 
 此頁面會每月更新，因此請定期瀏覽。
+
+---
+
+## <a name="july-2018"></a>2018 年 7 月
+
+### <a name="improvements-to-azure-active-directory-email-notifications"></a>Azure Active Directory 電子郵件通知的改進功能
+
+**類型：** 方案變更  
+**服務類別：** 其他  
+**產品功能：** 身分識別生命週期管理
+ 
+Azure Active Directory (Azure AD) 電子郵件將在 **2018 年 7 月底**提供更新的設計，以及從下列服務傳送時，對寄件者電子郵件地址和寄件者顯示名稱進行的變更：
+ 
+- Azure AD 存取權檢閱
+- Azure AD Connect Health 
+- Azure AD Identity Protection 
+- Azure AD 特殊權限身分識別管理
+- 企業應用程式過期憑證通知
+- 企業應用程式佈建服務通知
+ 
+電子郵件通知將會從下列電子郵件地址和顯示名稱傳送：
+
+- 電子郵件地址：azure-noreply@microsoft.com
+- 顯示名稱：Microsoft Azure
+ 
+如需一些新電子郵件設計的範例和詳細資訊，請參閱 [Azure AD PIM 中的電子郵件通知](https://go.microsoft.com/fwlink/?linkid=2005832) \(英文\)。
+
+---
+
+### <a name="view-legacy-authentications-through-sign-ins-activity-logs"></a>透過登入活動記錄來檢視舊版驗證
+
+**類型：** 新功能  
+**服務類別：** 報告  
+**產品功能：** 監視和報告
+ 
+隨著登入活動記錄中 **Client App** 欄位的導入，客戶現在可看見使用舊版驗證的使用者。 客戶可使用登入 MS Graph API 來存取此資訊，或透過 Azure AD 入口網站中的登入活動記錄使用 **Client App** 控制項來篩選舊版驗證。 如需更多詳細資料，請查看文件。
+
+---
 
 ## <a name="june-2018"></a>2018 年 6 月
 
@@ -57,7 +95,7 @@ Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發�
     >[!Note]
     >您必須是全域管理員，才能授與權限給應用程式。
 
-如需詳細資訊，請參閱必要條件的 [授與權限][](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-prerequisites-azure-portal#grant-permissions) 區域來存取 Azure AD 報告 API 文章。
+如需詳細資訊，請參閱必要條件的 [授與權限](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-prerequisites-azure-portal#grant-permissions) 區域來存取 Azure AD 報告 API 文章。
 
 ---
 
@@ -242,16 +280,6 @@ Azure Active Directory (Azure AD) 等這類 SaaS 供應項目旨在設計為適�
 **產品功能：** SSO
  
 使用者現在即使在公司網路外，也能使用適用於 Azure AD 的 My Apps Secure Sign-in 延伸模組，透過內部 URL 存取應用程式。 這適用於您使用 Azure AD 應用程式 Proxy 發行的所有應用程式，以及亦安裝存取面板瀏覽器延伸模組的所有瀏覽器。 URL 重新導向功能會在使用者登入延伸模組後自動啟用。 該延伸模組可在 [Edge](https://go.microsoft.com/fwlink/?linkid=845176)、[Chrome](https://go.microsoft.com/fwlink/?linkid=866367) 及 [Firefox](https://go.microsoft.com/fwlink/?linkid=866366) 上下載。
-
----
-
-### <a name="view-legacy-authentications-through-sign-ins-activity-logs"></a>透過登入活動記錄來檢視舊版驗證
-
-**類型：** 新功能  
-**服務類別：** 報告  
-**產品功能：** 監視和報告
- 
-隨著登入活動記錄中 **Client App** 欄位的導入，客戶現在可看見使用舊版驗證的使用者。 客戶可使用登入 MS Graph API 來存取此資訊，或透過 Azure AD 入口網站中的登入活動記錄使用 **Client App** 控制項來篩選舊版驗證。 如需更多詳細資料，請查看文件。
 
 ---
  

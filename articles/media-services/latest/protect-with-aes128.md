@@ -11,25 +11,25 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 07/12/2018
 ms.author: juliako
-ms.openlocfilehash: 0da5bbee6d0d6401a35c301a8b35dc0efa77da7d
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 3e5de521570a587b049702dabd3e3692c4227796
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133256"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114788"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>使用 AES-128 動態加密和金鑰傳遞服務
 
-您可以利用 128 位元加密金鑰，使用媒體服務提供 HTTP 即時串流 (HLS)、MPEG-DASH，和透過 AES 加密的 Smooth Streaming。 媒體服務也提供加密金鑰傳遞服務，將加密金鑰傳遞至授權的使用者。 如果您需要媒體服務來加密資產，就需要建立加密金鑰與 StreamingLocator 的關聯，同時設定內容金鑰原則。 播放器要求串流時，媒體服務便會透過 AES 加密，使用指定的金鑰動態加密您的內容。 為了將串流解密，播放程式將向金鑰傳遞服務要求金鑰。 為了決定使用者是否有權取得金鑰，服務會評估為金鑰指定的授權原則。
+您可以利用 128 位元加密金鑰，使用媒體服務提供 HTTP 即時串流 (HLS)、MPEG-DASH，和透過 AES 加密的 Smooth Streaming。 媒體服務也提供加密金鑰傳遞服務，將加密金鑰傳遞至授權的使用者。 如果您需要媒體服務來加密資產，就需要建立加密金鑰與 StreamingLocator 的關聯，同時設定內容金鑰原則。 播放器要求串流時，媒體服務便會透過 AES 加密，使用指定的金鑰動態加密您的內容。 為了將串流解密，播放程式將向金鑰傳遞服務要求金鑰。 為了判斷使用者是否有權取得金鑰，服務會評估您為金鑰指定的內容金鑰原則。
 
-本文是根據 [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES) 範例。 此範例示範如何建立編碼轉換，該轉換會使用內建預設的自適性位元速率編碼，並且直接從 [HTTP 來源 URL](job-input-from-http-how-to.md) 內嵌檔案。 然後使用 AES (ClearKey) 加密來發行輸出資產。 範例中的輸出是 Azure 媒體播放器 URL，包括播放內容所需的 DASH 資訊清單和 AES 權杖。 範例會將 JWT 權杖的到期時間設定為 1 小時。 您可以開啟瀏覽器並貼上產生的 URL，以啟動 Azure 媒體播放器示範頁面，其中已為您填入 URL 和權杖 (格式如下：``` https://ampdemo.azureedge.net/?url= {dash Manifest URL} &aes=true&aestoken=Bearer%3D{ JWT Token here}```。)
+本文是根據 [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES) 範例。 此範例示範如何建立編碼轉換，該轉換會使用內建預設的自適性位元速率編碼，並且直接從 [HTTP 來源 URL](job-input-from-http-how-to.md) 內嵌檔案。 然後使用 AES (ClearKey) 加密來發行輸出資產。 範例中的輸出是 Azure 媒體播放器 URL，包括播放內容所需的 DASH 資訊清單和 AES 權杖。 範例會將 JWT 權杖的到期時間設定為 1 小時。 您可以開啟瀏覽器並貼上產生的 URL，以啟動 Azure 媒體播放器示範頁面，其中已為您填入 URL 和權杖，格式如下：```https://ampdemo.azureedge.net/?url= {dash Manifest URL} &aes=true&aestoken=Bearer%3D{ JWT Token here}```。
 
 > [!NOTE]
 > 您可以使用多種加密類型 (AES-128、PlayReady、Widevine、FairPlay) 來加密每項資產。 請參閱[串流通訊協定和加密類型](content-protection-overview.md#streaming-protocols-and-encryption-types)，以查看哪些組合可行。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 需要有下列項目，才能完成教學課程。
 
@@ -40,7 +40,7 @@ ms.locfileid: "37133256"
 
 ## <a name="download-code"></a>下載程式碼
 
-使用以下命令將包含完整 .NET 範例 (在本主題中討論) 的 GitHub 存放庫複製到您的機器：
+使用以下命令將包含完整 .NET 範例 (在本文中討論) 的 GitHub 存放庫複製到您的電腦：
 
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
@@ -53,13 +53,13 @@ ms.locfileid: "37133256"
 
 ## <a name="start-using-media-services-apis-with-net-sdk"></a>開始搭配使用媒體服務 API 與 .NET SDK
 
-若要開始搭配使用媒體服務 API 與 .NET，您需要建立 **AzureMediaServicesClient** 物件。 若要建立物件，您需要提供必要的認證，讓用戶端使用 Azure AD 連線至 Azure。 在您於本文一開始複製的程式碼中，**GetCredentialsAsync** 函式會根據本機組態檔中提供的認證建立 ServiceClientCredentials 物件。 
+若要開始搭配使用媒體服務 API 與 .NET，您需要建立 **AzureMediaServicesClient** 物件。 若要建立物件，您需要提供必要的認證，讓用戶端使用 Azure AD 連線至 Azure。 在您於本文一開始複製的程式碼中，**GetCredentialsAsync** 函式會根據本機設定檔中提供的認證建立 ServiceClientCredentials 物件。 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CreateMediaServicesClient)]
 
 ## <a name="create-an-output-asset"></a>建立輸出資產  
 
-輸出[資產](https://docs.microsoft.com/rest/api/media/assets)會儲存您的編碼作業結果。 編碼完成之後，請使用 AES (ClearKey) 加密來發行輸出資產。  
+輸出[資產](https://docs.microsoft.com/rest/api/media/assets)會儲存您的編碼作業結果。  
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CreateOutputAsset)]
  
@@ -87,25 +87,20 @@ ms.locfileid: "37133256"
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#WaitForJobToFinish)]
 
-## <a name="create-a-contentkey-policy"></a>建立 ContentKey 原則
+## <a name="create-a-contentkeypolicy"></a>建立 ContentKeyPolicy
 
-內容金鑰可提供資產的安全存取。 您必須建立內容金鑰原則，該原則會設定內容金鑰傳送給終端用戶端的方式。 內容金鑰會與 StreamingLocator 相關聯。 媒體服務也提供加密金鑰傳遞服務，將加密金鑰傳遞至授權的使用者。 
+內容金鑰可提供資產的安全存取。 您必須建立 **ContentKeyPolicy**，其中會設定內容金鑰傳遞給終端用戶端的方式。 內容金鑰會與 **StreamingLocator** 相關聯。 媒體服務也提供加密金鑰傳遞服務，將加密金鑰傳遞至授權的使用者。 
 
-播放器要求串流時，媒體服務會使用指定的金鑰動態加密您的內容 (在此案例中是使用 AES 加密)。為了將串流解密，播放程式將向金鑰傳遞服務要求金鑰。 為了決定使用者是否有權取得金鑰，服務會評估為金鑰指定的授權原則。
+播放器要求串流時，媒體服務會使用指定的金鑰動態加密您的內容 (在此案例中是使用 AES 加密)。為了將串流解密，播放程式將向金鑰傳遞服務要求金鑰。 為了判斷使用者是否有權取得金鑰，服務會評估您為金鑰指定的內容金鑰原則。
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#GetOrCreateContentKeyPolicy)]
 
-## <a name="get-a-token"></a>取得權杖
-        
-在本教學課程中，我們會指定內容金鑰原則具有權杖限制。 權杖限制原則必須伴隨 Security Token Service (STS) 所發出的權杖。 媒體服務支援 [JSON Web 權杖](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT) 格式的權杖，這就是我們在範例中設定的項目。
-
-ContentKeyIdentifierClaim 用於 ContentKeyPolicy，表示向「金鑰傳遞」服務提出的權杖必須具有 ContentKey 的識別碼。 在此範例中，我們在建立 StreamingLocator 時不指定內容金鑰，系統會為我們隨機建立一個金鑰。 為了產生測試權杖，我們必須取得 ContentKeyId，以將其放入 ContentKeyIdentifierClaim 宣告中。
-
-[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#GetToken)]
-
 ## <a name="create-a-streaminglocator"></a>建立 StreamingLocator
 
-編碼完成後，下一個步驟是要讓用戶端可播放輸出資產中的視訊。 您可以透過兩個步驟來執行此動作：第一步，建立[StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators)，第二步，建置用戶端可以使用的串流 URL。 
+編碼完成且設定好內容金鑰原則後，下一個步驟是要讓用戶端可播放輸出資產中的視訊。 您可透過兩個步驟即可完成： 
+
+1. 建立 [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators)
+2. 建置用戶端可使用的串流 URL。 
 
 建立 **StreamingLocator** 的程序稱為發佈。 根據預設，**StreamingLocator** 會在進行 API 呼叫後立即生效，而且會持續運作到遭到刪除為止 (除非您有設定選擇性的開始和結束時間)。 
 
@@ -115,6 +110,14 @@ ContentKeyIdentifierClaim 用於 ContentKeyPolicy，表示向「金鑰傳遞」�
 > 使用自訂的 [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) 時，您應該為媒體服務帳戶設計一組受限的這類原則，並且在需要相同的加密選項和通訊協定時，對 StreamingLocators 重新使用這些原則。 媒體服務帳戶有 StreamingPolicy 項目的數量配額。 不建議您對每個 StreamingLocator 建立新的 StreamingPolicy。
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CreateStreamingLocator)]
+
+## <a name="get-a-test-token"></a>取得測試權杖
+        
+在本教學課程中，我們會指定內容金鑰原則具有權杖限制。 權杖限制原則必須伴隨 Security Token Service (STS) 所發出的權杖。 媒體服務支援 [JSON Web 權杖](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT) 格式的權杖，這就是我們在範例中設定的項目。
+
+ContentKeyIdentifierClaim 用於 ContentKeyPolicy，表示向「金鑰傳遞」服務提出的權杖必須具有 ContentKey 的識別碼。 在此範例中，我們在建立 StreamingLocator 時不指定內容金鑰，系統會為我們隨機建立一個金鑰。 為了產生測試權杖，我們必須取得 ContentKeyId，以將其放入 ContentKeyIdentifierClaim 宣告中。
+
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#GetToken)]
 
 ## <a name="build-a-dash-streaming-url"></a>建置 DASH 串流 URL
 
@@ -130,4 +133,4 @@ ContentKeyIdentifierClaim 用於 ContentKeyPolicy，表示向「金鑰傳遞」�
 
 ## <a name="next-steps"></a>後續步驟
 
-[概觀](content-protection-overview.md)
+查看如何[使用 DRM 保護](protect-with-drm.md)

@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 21e02a9ae4679c1f9521cc188a6f72878276fb93
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: ba0d81761904be74632f8f0025488b7f501bd715
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075198"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185994"
 ---
 # <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>遠端監視解決方案加速器的常見問題集
 
@@ -42,7 +42,7 @@ ms.locfileid: "39075198"
 
 您也可以探索 IoT 解決方案加速器的一些其他特性與功能：
 
-* [探索遠端監視解決方案加速器的功能](iot-accelerators-remote-monitoring-explore.md)
+* [探索遠端監視解決方案加速器的功能](quickstart-remote-monitoring-deploy.md)
 * [預測性維護解決方案加速器概觀](iot-accelerators-predictive-overview.md)
 * [部署連線的處理站解決方案加速器](quickstart-connected-factory-deploy.md) \(英文\)
 * [從頭建立 IoT 安全性](/azure/iot-fundamentals/iot-security-ground-up)

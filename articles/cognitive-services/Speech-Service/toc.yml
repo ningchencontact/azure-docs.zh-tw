@@ -1,3 +1,4 @@
+# displayName: additional text for filtering down the ToC in meaningful way.
 - name: 語音服務 API 文件
   href: index.yml
 - name: 概觀
@@ -13,30 +14,42 @@
       href: get-started.md
     - name: '使用 C# 辨識語音 (Windows 上的 .NET)'
       href: quickstart-csharp-dotnet-windows.md
+      displayName: 'recognize speech, speech recognition, speech to text'
     - name: '使用 C# 辨識語音 (Windows 上的 .NET Core)'
       href: quickstart-csharp-dotnetcore-windows.md
+      displayName: 'recognize speech, speech recognition, speech to text'
     - name: 使用 UWP 應用程式辨識語音
       href: quickstart-csharp-uwp.md
+      displayName: 'recognize speech, speech recognition, speech to text, C#'
     - name: 辨識適用於 Windows 的 C++ 語音
       href: quickstart-cpp-windows.md
+      displayName: 'recognize speech, speech recognition, speech to text'
     - name: 辨識適用於 Linux 的 C++ 語音
       href: quickstart-cpp-linux.md
+      displayName: 'recognize speech, speech recognition, speech to text'
     - name: 使用適用於 Android 的 Java 辨識語音
       href: quickstart-java-android.md
+      displayName: 'recognize speech, speech recognition, speech to text'
     - name: 開始使用語音裝置 SDK
       href: speech-devices-sdk-qsg.md
+      displayName: 'roobo, speech devices sdk'
 - name: 使用說明指南
   items:
     - name: 辨識語音
       href: how-to-speech-to-text.md
+      displayName: 'recognize speech, speech recognition, speech to text'
     - name: 合成語音
       href: how-to-text-to-speech.md
+      displayName: 'synthesize speech, speech synthesis, text to speech'
     - name: 翻譯語音
       href: how-to-translate-speech.md
+      displayName: 'translate speech, speech translation, translator'
     - name: 批次轉譯
       href: batch-transcription.md
+      displayName: 'recognize speech, speech recognition, speech to text'
     - name: 取得語音裝置 SDK
       href: get-speech-devices-sdk.md
+      displayName: 'roobo, speech devices sdk, download'
 - name: 自訂
   items:
     - name: 自訂原音模型
@@ -55,28 +68,37 @@
       href: how-to-use-audio-input-streams.md
     - name: 自訂裝置喚醒字組 (Devices SDK)
       href: speech-devices-sdk-create-kws.md
+      displayName: 'roobo, speech devices sdk, wake word, keyword spotting, kws'
 - name: 範例
   items:
     - name: 下載範例
       href: samples.md
     - name: 語音辨識
       href: speech-to-text-sample.md
+      displayName: 'recognize speech, speech recognition, speech to text'
     - name: 意圖辨識
       href: intent.md
+      displayName: 'recognize intent, intent recognition, language understanding service, luis'
     - name: 翻譯
       href: translation.md
+      displayName: 'translate speech, speech translation, translator'
 - name: 概念
   items:
     - name: 語音轉換文字
       href: speech-to-text.md
+      displayName: 'recognize speech, speech recognition, speech to text'
     - name: 文字轉語音
       href: text-to-speech.md
+      displayName: 'synthesize speech, speech synthesis, text to speech'
     - name: 語音翻譯
       href: speech-translation.md
+      displayName: 'translate speech, speech translation, translator'
     - name: 語音 SDK
       href: speech-sdk.md
+      displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows, NuGet, download'
     - name: 語音裝置 SDK
       href: speech-devices-sdk.md
+      displayName: 'roobo, speech devices sdk'
 - name: 參考
   items:
     - name: 支援的語言
@@ -87,37 +109,46 @@
       href: rest-apis.md
     - name: 語音 SDK API
       href: speech-sdk-reference.md
+      displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows'
     - name: 語音合成標記
       href: speech-synthesis-markup.md
+      displayName: 'synthesize speech, speech synthesis, text to speech'
 - name: 資源
   items:
+    - name: 語音 SDK 版本資訊
+      href: releasenotes.md
     - name: 常見問題集
       items:
         - name: 語音轉換文字常見問題集
           href: faq-stt.md
+          displayName: 'recognize speech, speech recognition, speech to text'
         - name: 文字轉換語音常見問題集
           href: faq-text-to-speech.md
+          displayName: 'synthesize speech, speech synthesis, text to speech'
         - name: 翻譯工具應用程式
           href: 'https://www.microsoft.com/translator/faq.aspx'
+          displayName: 'translate speech, speech translation, translator'
+    - name: 疑難排解
+      href: troubleshooting.md
+    - name: 支援
+      href: support.md
+    - name: 傳送您的應用程式
+      href: ship-application.md
     - name: 價格
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/912208-speech-service'
-    - name: 堆疊溢位
-      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
+    - name: 授權/法律
+      items:
+        - name: 語音 SDK 授權
+          href: license.md
+        - name: 語音 SDK 第三方通知
+          href: third-party-notices.md
+        - name: 語音裝置 SDK 授權
+          href: speech-devices-sdk-license.md
+          displayName: 'roobo, speech devices sdk'
+        - name: 裝置 SDK 第三方通知
+          href: devices-sdk-third-party-notices.md
+          displayName: 'roobo, speech devices sdk'
     - name: Azure 藍圖
       href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
     - name: 隱私權與 Cookie
       href: 'https://privacy.microsoft.com/privacystatement'
-    - name: 疑難排解
-      href: troubleshooting.md
-    - name: 傳送您的應用程式
-      href: ship-application.md
-    - name: 版本資訊
-      href: releasenotes.md
-    - name: 語音 SDK 授權
-      href: license.md
-    - name: 語音裝置 SDK 授權
-      href: speech-devices-sdk-license.md
-    - name: 協力廠商通知
-      href: third-party-notices.md

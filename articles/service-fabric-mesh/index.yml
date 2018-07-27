@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: e7347b521bf490f1148fb1c7ca7e94d502be9019
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39281726"
 documentType: LandingData
 title: Azure Service Fabric Mesh 文件
 metadata:
@@ -11,14 +17,8 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 07/17/2018
+  ms.date: 07/26/2018
   ms.author: ryanwi
-  ms.openlocfilehash: d2f0a847bdc0d26ff44013e3dbe1c2c6acd0c54d
-  ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
-  ms.translationtype: HT
-  ms.contentlocale: zh-TW
-  ms.lasthandoff: 07/18/2018
-  ms.locfileid: "39124859"
 abstract:
   description: Azure Service Fabric Mesh 是完全受控的服務，可讓開發人員建置及部署任務關鍵性應用程式，而不需要管理任何基礎結構。  視需要使用 Service Fabric Mesh 來建置，並執行可縮放的安全、分散式微服務應用程式。 了解如何透過我們的快速入門和教學課程使用 Azure Service Fabric。  若要進一步了解，請閱讀 <a href="/azure/service-fabric-mesh/service-fabric-mesh-overview">Service Fabric Mesh 概觀</a>。
 sections:
@@ -45,3 +45,11 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore">建立、偵錯並將多服務 Web 應用程式部署至 Service Fabric Mesh</a>
+- title: 參考
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST
+      html: <p><a href="/rest/api/servicefabric/sfmeshrp-index">Service Fabric Mesh 資源提供者 API</a></p><p><a href="/rest/api/servicefabric/sfclient-index#service-fabric-resource-model">Service Fabric 用戶端資源 API</a></p>

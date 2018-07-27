@@ -13,15 +13,15 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/03/2018
+ms.date: 07/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 98e2f88c85d21cde2ecc7196f93d531a80b14d13
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f1a6a11f827248d098c018390e9ae5557d9c22d1
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448908"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113370"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>快速入門：針對 Azure Active Directory 條件式存取偵測到工作階段風險時封鎖存取  
 
@@ -36,7 +36,7 @@ ms.locfileid: "37448908"
 
 
 
-## <a name="prerequisites"></a>先決條件 
+## <a name="prerequisites"></a>必要條件 
 
 若要完成本教學課程中的案例，您需要：
 
@@ -62,7 +62,7 @@ ms.locfileid: "37448908"
 
 ## <a name="create-your-conditional-access-policy"></a>建立條件式存取原則 
 
-本快速入門中的案例會使用來自 Tor 瀏覽器的登入，以產生偵測到**從匿名 IP 位址登入**的風險事件。 此風險事件的風險等級是「中」。   
+本快速入門中的案例會使用來自 Tor 瀏覽器的登入，以產生偵測到**從匿名 IP 位址登入**的風險事件。 此風險事件的風險等級是「中」。 若要回應此風險事件，您可以將登入風險條件設定為「中」。 在生產環境中，您應該將登入風險條件設定為 「高」或「中高」。     
 
 本節說明如何建立必要的條件式存取原則。 為您的原則進行下列設定：
 
@@ -70,10 +70,11 @@ ms.locfileid: "37448908"
 |---     | --- |
 | 使用者和群組 | Alain Charon  |
 | 雲端應用程式 | 所有雲端應用程式 |
+| 登入風險 | 中 |
 | 授與 | 封鎖存取 |
  
 
-![建立原則](./media/active-directory-conditional-access-app-sign-in-risk/115.png)
+![建立原則](./media/active-directory-conditional-access-app-sign-in-risk/130.png)
 
  
 
@@ -126,6 +127,26 @@ ms.locfileid: "37448908"
 
     b. 按一下 [完成] 。
 
+10. 按一下 [條件]。 
+
+    ![存取控制](./media/active-directory-conditional-access-app-sign-in-risk/19.png)
+
+11. 在 [條件] 頁面上：
+
+    ![登入風險層級](./media/active-directory-conditional-access-app-sign-in-risk/21.png)
+
+    a. 按一下 [登入風險]。
+ 
+    b. 針對 [設定]，按一下 [是]。
+
+    c. 針對登入風險等級，選取 [中]。
+
+    d. 按一下 [選取] 。
+
+    e. 在 [條件] 頁面上，按一下 [完成]。
+
+
+
 10. 在 [存取控制] 區段中，按一下 [授與]。
 
     ![存取控制](./media/active-directory-conditional-access-app-sign-in-risk/10.png)
@@ -156,7 +177,7 @@ ms.locfileid: "37448908"
 
 **建立條件式存取原則：**
 
-1. 在 [條件式存取 - 原則][](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) 頁面頂端的功能表中，按一下 [What If]。  
+1. 在 [條件式存取 - 原則](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) 頁面頂端的功能表中，按一下 [What If]。  
  
     ![What If](./media/active-directory-conditional-access-app-sign-in-risk/14.png)
 

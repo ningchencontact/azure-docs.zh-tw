@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: glenga
-ms.openlocfilehash: 5c582b080ec6f2cff801758fc4bff4f7d07fd7df
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: c7be9079da6be8d9d7f25b910ab07e905e8ac449
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37083064"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126209"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>使用 Azure Functions Core Tools
 
@@ -62,7 +62,7 @@ npm install -g azure-functions-core-tools
 
 下列步驟使用 npm 在 Windows 上安裝 Core Tools。 您也可以使用 [Chocolatey](https://chocolatey.org/)。 如需詳細資訊，請參閱 [Core Tools 讀我檔案](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows)。
 
-1. 安裝[適用於 Windows 的 .NET Core 2.0](https://www.microsoft.com/net/download/windows)。
+1. 安裝[適用於 Windows 的 .NET Core 2.1](https://www.microsoft.com/net/download/windows)。
 
 2. 安裝 [Node.js] (內含 npm)。 針對 2.x 版的工具，只支援 Node.js 8.5 和更新版本。
 
@@ -76,7 +76,7 @@ npm install -g azure-functions-core-tools
 
 下列步驟使用 Homebrew 在 macOS 上安裝 Core Tools。
 
-1. 安裝[適用於 macOS 的 .NET Core 2.0](https://www.microsoft.com/net/download/macos)。
+1. 安裝[適用於 macOS 的 .NET Core 2.1](https://www.microsoft.com/net/download/macos)。
 
 2. 如果尚未安裝 [Homebrew](https://brew.sh/)，請加以安裝。
 
@@ -91,7 +91,7 @@ npm install -g azure-functions-core-tools
 
 下列步驟使用 [APT](https://wiki.debian.org/Apt) 在 Ubuntu/Debian Linux 散發套件上安裝 Core Tools。 若為其他 Linux 散發套件，請參閱 [Core Tools 讀我檔案](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux)。
 
-1. 安裝[適用於 Linux 的 .NET Core 2.0](https://www.microsoft.com/net/download/linux)。
+1. 安裝[適用於 Linux 的 .NET Core 2.1](https://www.microsoft.com/net/download/linux)。
 
 2. 將 Microsoft 產品金鑰註冊為可信任：
 
@@ -121,7 +121,7 @@ npm install -g azure-functions-core-tools
 
 ## <a name="create-a-local-functions-project"></a>建立本機的 Functions 專案
 
-函式專案目錄包含 [host.json](functions-host-json.md) 和 [local.settings.json](#local-settings-file) 檔案，以及包含個別函式程式碼的子資料夾。 此目錄相當於 Azure 中的函式應用程式。 若要深入了解 Functions 的資料夾結構，請參閱 [Azure Functions 的開發人員指南](functions-reference.md#folder-structure)。
+Functions 專案目錄包含 [host.json](functions-host-json.md) 和 [local.settings.json](#local-settings-file) 檔案，以及包含個別函式程式碼的子資料夾。 此目錄相當於 Azure 中的函式應用程式。 若要深入了解 Functions 的資料夾結構，請參閱 [Azure Functions 的開發人員指南](functions-reference.md#folder-structure)。
 
 2.x 版要求您在初始化時為您的專案選取預設語言，而所有新增的函式會使用預設語言範本。 在 1.x 版中，您會在每次建立函式時指定語言。
 
@@ -137,6 +137,7 @@ func init MyFunctionProj
 Select a worker runtime:
 dotnet
 node
+java
 ```
 
 使用向上/向下鍵來選擇語言，然後按 Enter。 JavaScript 專案的輸出看起來會像下列範例：
@@ -151,6 +152,9 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 ```
 
 若要建立不含本機 Git 存放庫的專案，請使用 `--no-source-control [-n]` 選項。
+
+> [!IMPORTANT]
+> 根據預設，2.x 版的 Core Tools 會建立適用於 .NET 執行階段的函數應用程式專案作為 [C# 類別專案](functions-dotnet-class-library.md) (.csproj)。 這些 C# 專案可以與 Visual Studio 2017 或 Visual Studio Code 搭配使用，並在測試期間以及發佈至 Azure 時進行編譯。 如果您想要改為建立和使用在 1.x 版中以及在入口網站中建立的相同 C# 指令碼 (.csx) 檔案，當您建立及部署函式時，必須包含 `--csx` 參數。
 
 ## <a name="register-extensions"></a>註冊延伸模組
 
@@ -177,7 +181,7 @@ local.settings.json 檔案會儲存應用程式設定、連接字串和 Azure Fu
     "CORS": "*"
   },
   "ConnectionStrings": {
-    "SQLConnectionString": "Value"
+    "SQLConnectionString": "<sqlclient-connection-string>"
   }
 }
 ```
@@ -189,7 +193,7 @@ local.settings.json 檔案會儲存應用程式設定、連接字串和 Azure Fu
 | **Host** | 此區段中的設定能自訂於本機執行的 Functions 主機處理序。 |
 | **LocalHttpPort** | 設定於執行本機 Functions 主機 (`func host start` 和 `func run`) 時所使用的預設連接埠。 `--port` 命令列選項的優先順序高於此值。 |
 | **CORS** | 定義針對[跨來源資源共享 (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) 所允許的來源。 來源是以不含空格的逗號分隔清單提供。 支援萬用字元值 (\*)，它允許來自任何來源的要求。 |
-| **ConnectionStrings** | 請勿將此集合用於您函式繫結所使用的連接字串。 此集合僅供架構使用，且必須取得設定檔 **ConnectionStrings** 區段的連接字串，例如 [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx)。 此物件中的連接字串會新增至具有 [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx) 提供者類型的環境。 此集合中的項目不會發佈至具備其他應用程式設定的 Azure。 您必須在您的函數應用程式中，明確將這些值新增到 **[應用程式設定]** 的 **[連接字串]** 區段。 |
+| **ConnectionStrings** | 請勿將此集合用於您函式繫結所使用的連接字串。 此集合僅供架構使用，通常會從設定檔的 **ConnectionStrings** 區段取得連接字串，例如 [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx)。 此物件中的連接字串會新增至具有 [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx) 提供者類型的環境。 此集合中的項目不會發佈至具備其他應用程式設定的 Azure。 您必須明確地將這些值新增到函數應用程式設定的**連接字串**集合中。 如果您要在函式程式碼中建立 [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) \(英文\)，您應該將連接字串值以及您的其他連線一起儲存於**應用程式設定**中。 |
 
 這些函數應用程式設定值在您的程式碼中也可以做為環境變數加以讀取。 如需詳細資訊，請參閱這些特定語言參考主題的「環境變數」章節：
 
@@ -271,8 +275,9 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 | 引數     | 說明                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--language -l`**| 範本程式語言，例如 C#、F# 或 JavaScript。 這是 1.x 版中的必要選項。 在 2.x 版中，請勿使用這個選項，或選擇您專案的預設語言。 |
-| **`--template -t`** | 範本名稱，它可以是下列其中一個值：<br/><ul><li>`Blob trigger`</li><li>`Cosmos DB trigger`</li><li>`Event Grid trigger`</li><li>`HTTP trigger`</li><li>`Queue trigger`</li><li>`SendGrid`</li><li>`Service Bus Queue trigger`</li><li>`Service Bus Topic trigger`</li><li>`Timer trigger`</li></ul> |
+| **`--template -t`** | 使用 `func templates list` 命令，以針對每個支援的語言查看可用範本的完整清單。   |
 | **`--name -n`** | 函式名稱。 |
+| **`--csx`** | (2.x 版) 產生 1.x 版中和入口網站中所使用的相同 C# 指令碼 (.csx) 範本。 |
 
 例如，若要在單一命令中建立 JavaScript HTTP 觸發程序，請執行：
 

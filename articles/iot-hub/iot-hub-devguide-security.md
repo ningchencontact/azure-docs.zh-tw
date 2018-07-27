@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 43eb988915fb917923ab968d22b9b7f0ee36c0f5
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 754449dcf759820c8bb99d082c3a5ba2792f02c8
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444390"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126318"
 ---
 # <a name="control-access-to-iot-hub"></a>控制 IoT 中樞的存取權
 
@@ -35,7 +35,7 @@ ms.locfileid: "37444390"
 
 您可以透過下列方式授與[權限](#iot-hub-permissions)：
 
-* **IoT 中樞層級的共用存取原則**。 共用存取原則可以授與上面所列[權限](#iot-hub-permissions)的任意組合。 您可以在 [Azure 入口網站][lnk-management-portal]中定義原則，或使用 [IoT 中樞資源提供者 REST API][lnk-resource-provider-apis] 以程式設計方式定義原則。 新建立的 IoT 中樞有下列預設原則︰
+* **IoT 中樞層級的共用存取原則**。 共用存取原則可以授與上面所列[權限](#iot-hub-permissions)的任意組合。 您可以在 [Azure 入口網站][lnk-management-portal]中定義原則，使用 [IoT 中樞資源 REST API][lnk-resource-provider-apis] 以程式設計方式定義原則，或使用 [az iot hub policy](https://docs.microsoft.com/cli/azure/iot/hub/policy?view=azure-cli-latest) CLI 定義原則。 新建立的 IoT 中樞有下列預設原則︰
   
   | 共用的存取原則 | 權限 |
   | -------------------- | ----------- |
@@ -91,7 +91,9 @@ HTTPS 實作驗證的方式是在 **Authorization** 要求標頭中包含有效�
 
 使用者名稱 (DeviceId 區分大小寫)︰ `iothubname.azure-devices.net/DeviceId`
 
-密碼 (使用[裝置總管][lnk-device-explorer]工具產生 SAS 權杖)︰`SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
+密碼 (您可以使用 [Device Explorer][lnk-device-explorer] 工具或 CLI 擴充功能命令 [az iot hub generate-sas-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token) 來產生 SAS 權杖)：
+
+`SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
 > [!NOTE]
 > [Azure IoT SDK][lnk-sdks] 會在連接至服務時自動產生權杖。 在某些情況下，Azure IoT SDK 不支援所有的通訊協定或所有驗證方法。
@@ -268,7 +270,7 @@ var token = generateSasToken(endpoint, deviceKey, null, 60);
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> 您可以使用 .NET [裝置總管][lnk-device-explorer]工具或跨平台 Python 型[適用於 Azure CLI 2.0 的 IoT 擴充模組][lnk-IoT-extension-CLI-2.0]命令列公用程式來產生 SAS 權杖。
+> 您可以使用 .NET [Device Explorer][lnk-device-explorer] 工具或跨平台 Python 型[適用於 Azure CLI 2.0 的 IoT 擴充功能][lnk-IoT-extension-CLI-2.0]命令列公用程式，或[適用於 Visual Studio Code 的 Azure IoT 工具組擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)來產生 SAS 權杖。
 
 ### <a name="use-a-shared-access-policy"></a>使用共用存取原則
 
@@ -348,11 +350,13 @@ var token = generateSasToken(endpoint, policyKey, policyName, 60);
 
 裝置可以使用 X.509 憑證或安全性權杖來進行驗證，但不可同時使用兩者。
 
-如需使用憑證授權單位進行驗證的詳細資訊，請參閱[概念性了解 X.509 CA 憑證](iot-hub-x509ca-concept.md)。
+如需使用憑證授權單位進行驗證的詳細資訊，請參閱[使用 X.509 CA 憑證進行裝置驗證](iot-hub-x509ca-overview.md)。
 
 ### <a name="register-an-x509-certificate-for-a-device"></a>註冊裝置的 X.509 憑證
 
 [適用於 C# 的 Azure IoT 服務 SDK][lnk-service-sdk] (版本 1.0.8+) 支援註冊使用 X.509 憑證來進行驗證的裝置。 其他 API (例如匯入/匯出裝置) 也支援 X.509 憑證。
+
+您也可以使用 CLI 擴充功能命令 [az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) 來設定裝置的 X.509 憑證。
 
 ### <a name="c-support"></a>C\# 支援
 
