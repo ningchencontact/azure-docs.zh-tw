@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: d8490dcba35cfeabb3da589f3d079571d5e98d3b
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 7acbef216c182e5de80515258841af59d9529908
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969199"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114874"
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>使用範本設定虛擬機器受控服務識別 (MSI)
 
@@ -29,7 +29,7 @@ ms.locfileid: "38969199"
 
 在本文中，您將了解如何使用 Azure Resource Manager 部署範本，在 Azure VM 上執行以下受控服務識別作業：
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 如果您不熟悉受控服務識別，請參閱[概觀](overview.md)一節。 **請務必檢閱[系統指派和使用者指派身分識別之間的差異](overview.md#how-does-it-work)**。
 - 如果您還沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com/free/)，再繼續進行。
@@ -59,7 +59,7 @@ ms.locfileid: "38969199"
    > 此範例假設在範本中已定義了 `vmName`、`storageAccountName` 和 `nicName` 這類變數。
    >
 
-   ![範本的螢幕擷取畫面 - 尋找虛擬機器](../media/msi-qs-configure-template-windows-vm/template-file-before.png) 
+   ![範本的螢幕擷取畫面 - 尋找虛擬機器](../managed-service-identity/media/msi-qs-configure-template-windows-vm/template-file-before.png) 
 
 3. 若要啟用系統指派的身分識別，請在與 `"type": "Microsoft.Compute/virtualMachines"` 屬性相同的層級新增 `"identity"` 屬性。 使用下列語法：
 
@@ -99,7 +99,7 @@ ms.locfileid: "38969199"
 
 5. 完成之後，您的範本看起來應該如下所示：
 
-   ![更新之後範本的螢幕擷取畫面](../media/msi-qs-configure-template-windows-vm/template-file-after.png)
+   ![更新之後範本的螢幕擷取畫面](../managed-service-identity/media/msi-qs-configure-template-windows-vm/template-file-after.png)
 
 ### <a name="assign-a-role-the-vms-system-assigned-identity"></a>指派角色給 VM 的系統指派身分識別
 
@@ -173,7 +173,11 @@ ms.locfileid: "38969199"
 
  ### <a name="assign-a-user-assigned-identity-to-an-azure-vm"></a>將使用者指派的身分識別指派給 Azure VM
 
-1. 在 `resources` 元素之下，新增下列項目，以將使用者指派的身分識別指派至您的虛擬機器。  請務必將 `<USERASSIGNEDIDENTITY>` 取代為您建立之使用者指派身分識別的名稱。
+1. 在 `resources` 元素之下，新增下列項目，以將使用者指派的身分識別指派至您的虛擬機器。  請務必將 `<USERASSIGNEDIDENTITY>` 取代為您建立的使用者指派身分識別名稱。
+   
+   > [!Important]
+   > 下列範例所示的 `<USERASSIGNEDIDENTITYNAME>` 值必須儲存於變數中。  此外，目前支援將使用者指派的身分識別指派給 Resource Manager 範本中的虛擬機器，針對這類實作，API 版本必須符合下列範例中的版本。
+    
     ```json
     {
         "apiVersion": "2017-12-01",

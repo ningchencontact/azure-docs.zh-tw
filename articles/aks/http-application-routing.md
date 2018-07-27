@@ -1,6 +1,6 @@
 ---
-title: Azure Container Service (AKS) 上的 HTTP 應用程式路由附加元件
-description: 在 Azure Container Service (AKS) 上使用 HTTP 應用程式路由附加元件
+title: Azure Kubernetes Service (AKS) 上的 HTTP 應用程式路由附加元件
+description: 使用 Azure Kubernetes Service (AKS) 上的 HTTP 應用程式路由附加元件。
 services: container-service
 author: lachie83
 manager: jeconnoc
@@ -8,33 +8,51 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 6e5a81742b4a6b21e5cfa28d8e772430f8ae30ba
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 4484031b20e625f81ba8b3869110e90df189323e
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067498"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39116968"
 ---
 # <a name="http-application-routing"></a>HTTP 應用程式路由
 
-HTTP 應用程式路由解決方案可讓您輕鬆存取已部署至 AKS 叢集的應用程式。 啟用時，解決方案會設定 AKS 叢集中的輸入控制器。 此外，當應用程式部署時，解決方案也會建立應用程式端點的可公開存取 DNS 名稱。
+HTTP 應用程式路由解決方案可讓您輕鬆存取已部署至 Azure Kubernetes Service (AKS) 叢集的應用程式。 啟用此解決方案時，它會在 AKS 叢集中設定輸入控制器。 部署應用程式時，此解決方案也會針對應用程式端點建立可公開存取的 DNS 名稱。
 
-啟用此附加元件會在訂用帳戶中建立 DNS 區域。 如需 DNS 成本的詳細資訊，請參閱 [DNS 定價][dns-pricing]。
+啟用附加元件時，它會在您的訂用帳戶中建立 DNS 區域。 如需 DNS 成本的詳細資訊，請參閱 [DNS 定價][dns-pricing]。
 
 ## <a name="http-routing-solution-overview"></a>HTTP 路由解決方案概觀
 
-附加元件會部署兩個元件，分別是 [Kubernetes 輸入控制器][ingress]和 [External-DNS][external-dns] 控制器。
+附加元件會部署兩個元件：[Kubernetes 輸入控制器][ingress]和 [External-DNS][external-dns] 控制器。
 
-- **輸入控制器** - 輸入控制器會使用 LoadBalancer 類型的 Kubernetes 服務對網際網路公開。 輸入控制器會監看並實作 [Kubernetes 輸入資源][ingress-resource]，以建立應用程式端點的路由。
-- **控制器** - 監看 Kubernetes 輸入資源，並在叢集特有的 DNS 區域中建立 DNS A 記錄。
+- **輸入控制器**：輸入控制器會使用 LoadBalancer 類型的 Kubernetes 服務來向網際網路公開。 輸入控制器會監看並實作 [Kubernetes 輸入資源][ingress-resource]，以建立應用程式端點的路由。
+- **External-DNS 控制器**：監看 Kubernetes 輸入資源，並在叢集特有的 DNS 區域中建立 DNS A 記錄。
 
-## <a name="deploy-http-routing"></a>部署 HTTP 路由
+## <a name="deploy-http-routing-cli"></a>部署 HTTP 路由：CLI
 
-在部署 AKS 叢集時，可透過 Azure 入口網站啟用 HTTP 應用程式路由附加元件。
+部署 AKS 叢集時，可以使用 Azure CLI 來啟用 HTTP 應用程式路由附加元件。 若要這樣做，請使用 [az aks create][az-aks-create] 命令並搭配 `--enable-addons` 引數。
+
+```azurecli
+az aks create --resource-group myAKSCluster --name myAKSCluster --enable-addons http_application_routing
+```
+
+部署叢集之後，使用 [az aks show][az-aks-show] 命令來擷取 DNS 區域名稱。 需要此名稱，才能將應用程式部署至 AKS 叢集。
+
+```azurecli
+$ az aks show --resource-group myAKSCluster --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
+
+Result
+-----------------------------------------------------
+9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io
+```
+
+## <a name="deploy-http-routing-portal"></a>部署 HTTP 路由：入口網站
+
+部署 AKS 叢集時，可透過 Azure 入口網站啟用 HTTP 應用程式路由附加元件。
 
 ![啟用 HTTP 路由功能](media/http-routing/create.png)
 
-在部署叢集後，瀏覽至自動建立的 AKS 資源群組，並選取 DNS 區域。 記下 DNS 區域名稱。 在將應用程式部署至 AKS 叢集時，需要用到此名稱。
+部署叢集之後，瀏覽至自動建立的 AKS 資源群組，並選取 DNS 區域。 記下 DNS 區域名稱。 需要此名稱，才能將應用程式部署至 AKS 叢集。
 
 ![取得 DNS 區域名稱](media/http-routing/dns.png)
 
@@ -47,7 +65,7 @@ annotations:
   kubernetes.io/ingress.class: addon-http-application-routing
 ```
 
-建立名為 `samples-http-application-routing.yaml` 的檔案，然後將下列 YAML 複製進來。 在第 43 行，使用本文件最後一個步驟所收集的 DNS 區域名稱來更新 `<CLUSTER_SPECIFIC_DNS_ZONE>`。
+建立名為 **samples-http-application-routing.yaml** 的檔案，然後將下列 YAML 複製進來。 在第 43 行，使用本文最後一個步驟所收集的 DNS 區域名稱來更新 `<CLUSTER_SPECIFIC_DNS_ZONE>`。
 
 
 ```yaml
@@ -109,7 +127,7 @@ service "party-clippy" created
 ingress "party-clippy" created
 ```
 
-使用 cURL 或瀏覽器來瀏覽至 `samples-http-application-routing.yaml` 檔案 host 區段中所指定的主機名稱。 應用程式最多可能需要一分鐘的時間，才可透過網際網路使用。
+使用 cURL 或瀏覽器來瀏覽至 samples-http-application-routing.yaml 檔案 host 區段中所指定的主機名稱。 應用程式最多需要一分鐘的時間，就能透過網際網路使用。
 
 ```
 $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
@@ -132,9 +150,9 @@ $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
 
 ```
 
-## <a name="troubleshooting"></a>疑難排解
+## <a name="troubleshoot"></a>疑難排解
 
-使用 [kubectl logs][kubectl-logs] 命令來檢視 External-DNS 應用程式的應用程式記錄。 記錄應該可確認是否已成功建立 A 和 TXT DNS 記錄。
+使用 [kubectl logs][kubectl-logs] 命令來檢視 External-DNS 應用程式的應用程式記錄。 記錄應該確認是否已成功建立 A 和 TXT DNS 記錄。
 
 ```
 $ kubectl logs -f deploy/addon-http-application-routing-external-dns -n kube-system
@@ -147,7 +165,7 @@ time="2018-04-26T20:36:21Z" level=info msg="Updating TXT record named 'party-cli
 
 ![取得 DNS 記錄](media/http-routing/clippy.png)
 
-使用 [kubectl logs][kubectl-logs] 命令來檢視 Nginx 輸入控制器的應用程式記錄。 記錄應該可確認是否已建立輸入資源以及是否已重新載入控制器。 系統會記錄所有 HTTP 活動。
+使用 [kubectl logs][kubectl-logs] 命令來檢視 Nginx 輸入控制器的應用程式記錄。 記錄應該確認輸入資源的 `CREATE` 以及是否已重新載入控制器。 系統會記錄所有 HTTP 活動。
 
 ```
 $ kubectl logs -f deploy/addon-http-application-routing-nginx-ingress-controller -n kube-system
@@ -186,9 +204,9 @@ I0426 21:51:58.042932       9 controller.go:179] ingress backend successfully re
 167.220.24.46 - [167.220.24.46] - - [26/Apr/2018:21:53:20 +0000] "GET / HTTP/1.1" 200 234 "" "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" 197 0.001 [default-party-clippy-80] 10.244.0.13:8080 234 0.004 200
 ```
 
-## <a name="cleanup"></a>清除
+## <a name="clean-up"></a>清除
 
-移除在這個步驟中建立的相關聯 Kubernetes 物件。
+移除本文中所建立的相關聯 Kubernetes 物件。
 
 ```
 $ kubectl delete -f samples-http-application-routing.yaml
@@ -200,10 +218,13 @@ ingress "party-clippy" deleted
 
 ## <a name="next-steps"></a>後續步驟
 
-如需在 AKS 中安裝 HTTPS 所保護輸入控制器的相關資訊，請參閱 [Azure Container Service (AKS) 上的 HTTPS 輸入][ingress-https]
+如需在 AKS 中安裝 HTTPS 所保護之輸入控制器的相關資訊，請參閱 [Azure Kubernetes Service (AKS) 上的 HTTPS 輸入][ingress-https]。
 
 <!-- LINKS - internal -->
+[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
+[az-aks-show]: /cli/azure/aks?view=azure-cli-latest#az-aks-show
 [ingress-https]: ./ingress.md
+
 
 <!-- LINKS - external -->
 [dns-pricing]: https://azure.microsoft.com/pricing/details/dns/

@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/14/2017
+ms.date: 07/18/2018
 ms.author: mbullwin
-ms.openlocfilehash: c6a94fd1cebff4aa657ad5293715550161003d21
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 1a343e238662393995404b8e4c705cf799866855
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294379"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136895"
 ---
 # <a name="using-search-in-application-insights"></a>在 Application Insights 中使用搜尋
 「搜尋」是 [Application Insights](app-insights-overview.md) 的一項功能，可用來尋找及探索個別遙測項目，例如頁面檢視、例外狀況或 Web 要求。 而您可以檢視所編寫的記錄追蹤和事件。
@@ -26,16 +26,14 @@ ms.locfileid: "35294379"
 (若要對您的資料執行更複雜的查詢，請使用[分析](app-insights-analytics-tour.md)。)
 
 ## <a name="where-do-you-see-search"></a>「搜尋」在哪裡？
+
 ### <a name="in-the-azure-portal"></a>在 Azure 入口網站
+
 從應用程式的 Application Insights [概觀] 刀鋒視窗中，就可以直接開啟診斷搜尋︰
 
-![Open diagnostic search](./media/app-insights-diagnostic-search/01-open-Diagnostic.png)
+![Open diagnostic search](./media/app-insights-diagnostic-search/001.png)
 
-在您逐一點選某些圖表和格線項目時，它也會開啟。 在此情況中，其篩選器會預設為著重在您選取的項目類型。 
-
-例如，[概觀] 刀鋒視窗上有一個依回應時間分類的要求橫條圖。 點選效能範圍，以查看該回應時間範圍內的個別要求清單︰
-
-![點選要求效能](./media/app-insights-diagnostic-search/07-open-from-filters.png)
+![診斷搜尋圖表的螢幕擷取畫面](./media/app-insights-diagnostic-search/002.png)
 
 「診斷搜尋」的主體是遙測項目的清單 - 伺服器要求、頁面檢視、您編寫的自訂事件等等。 在清單上方是摘要圖表，顯示一般時間的事件計數。
 
@@ -56,9 +54,14 @@ ms.locfileid: "35294379"
 您開啟要求或頁面檢視時可以看到 [追蹤作業] 索引標籤。 「作業」是與單一要求或頁面檢視相關聯的一連串事件。 例如，相依性呼叫、例外狀況、追蹤記錄檔和自訂事件可能都是單一作業的一部分。 針對要求或頁面檢視，[追蹤作業] 索引標籤會以圖形顯示這些事件的時刻和持續時間。 
 
 ## <a name="inspect-individual-items"></a>檢查個別項目
-選取任何遙測項目來查看重要欄位和相關項目。 如果您想要查看完整的欄位集合，請按一下 "..."。 
 
-![按一下 [新增工作項目]、編輯欄位，然後按一下 [確定]。](./media/app-insights-diagnostic-search/10-detail.png)
+選取任何遙測項目來查看重要欄位和相關項目。
+
+![個別相依性要求的螢幕擷取畫面](./media/app-insights-diagnostic-search/003.png)
+
+這將會啟動端對端交易詳細資料檢視：
+
+![端對端交易詳細資料檢視的螢幕擷取畫面。](./media/app-insights-diagnostic-search/004.png)
 
 ## <a name="filter-event-types"></a>篩選事件類型
 開啟 [篩選器] 分頁並選擇要查看的事件類型。 (如果之後想要還原您所開啟分頁的篩選器，請按一下 [重設]。)
@@ -91,14 +94,10 @@ ms.locfileid: "35294379"
 
 ![展開屬性並選擇值](./media/app-insights-diagnostic-search/04-failingReq.png)
 
-
-
-
 ## <a name="find-events-with-the-same-property"></a>尋找具有相同屬性的事件
 尋找具有相同屬性值的所有項目：
 
 ![以滑鼠右鍵按一下屬性](./media/app-insights-diagnostic-search/12-samevalue.png)
-
 
 ## <a name="search-the-data"></a>搜尋資料
 
@@ -128,14 +127,10 @@ ms.locfileid: "35294379"
 | `apple OR banana`<br/>`apple banana` |尋找含有任一單字的事件。 請使用 "OR"，而不是 "or"。<br/>簡短格式。 |
 | `apple NOT banana` |尋找含有一個字但不含另一個字的事件。 |
 
-
-
 ## <a name="sampling"></a>取樣
 如果您的應用程式會產生大量遙測 (且您使用 ASP.NET SDK 版本 2.0.0-beta3 或更新版本)，則調適性取樣模組會只傳送事件代表性片段，自動減少傳送至入口網站的資料量。 不過，同一個要求相關的事件是以整組方式來選取或取消選取，方便您切換瀏覽相關事件。 
 
 [了解取樣](app-insights-sampling.md)。
-
-
 
 ## <a name="create-work-item"></a>建立工作項目
 您可以利用來自任何遙測項目的詳細資料，在 GitHub 或 Visual Studio Team Services 中建立 Bug。 
@@ -147,17 +142,6 @@ ms.locfileid: "35294379"
 ![填入 Team Services 伺服器的 URL 和專案名稱，然後按一下 [授權]](./media/app-insights-diagnostic-search/41.png)
 
 (您也可以在 [工作項目] 刀鋒視窗上設定連結)。
-
-## <a name="save-your-search"></a>儲存搜尋
-設定需要的所有篩選器之後，您可以將搜尋儲存為我的最愛。 如果您使用組織帳戶，可以選擇是否要將它與他小組成員分享。
-
-![按一下 [我的最愛]，設定名稱，然後按一下 [儲存]](./media/app-insights-diagnostic-search/08-favorite-save.png)
-
-若要再次查看搜尋，請 **前往 [概觀] 分頁** ，並開啟 [我的最愛]：
-
-![我的最愛磚](./media/app-insights-diagnostic-search/09-favorite-get.png)
-
-如果儲存時使用「相對」時間範圍，重新開啟的分頁會具有最新資料。 如果儲存時使用「絕對」時間範圍，則會每次都看到相同資料。 (如果您想要儲存我的最愛，但無法使用「相對」，請在標頭中按一下 [時間範圍]，然後設定非自訂範圍的時間範圍。)
 
 ## <a name="send-more-telemetry-to-application-insights"></a>傳送更多遙測到 Application Insights
 除了 Application Insights SDK 傳送的內建遙測，您可以：

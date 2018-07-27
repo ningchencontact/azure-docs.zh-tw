@@ -15,19 +15,19 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 98a5af1c0b321b7f9acf2bfd936a16d22088babf
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 5a44c249a957050afb500decd094183c71d6ca5e
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128855"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114091"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>使用 Visual Studio 專案範本快速啟動 Batch 解決方案
 
 Batch 的**作業管理員**和**工作處理器 Visual Studio 範本**提供了程式碼，協助您以最少的心力在 Batch 上實作並執行計算密集型工作負載。 本文件會說明這些範本，並提供其使用方式指引。
 
 > [!IMPORTANT]
-> 本文只討論適用於這兩個範本的資訊，並假設您熟悉與其相關的 Batch 服務和重要概念︰集區、計算節點、作業和工作、作業管理員工作、環境變數和其他相關資訊。 您可以在 [Azure Batch 的基本概念](batch-technical-overview.md)、[適用於開發人員的 Batch 功能概觀](batch-api-basics.md)和[開始使用適用於 .NET 的 Azure Batch 程式庫](batch-dotnet-get-started.md)中找到更多資訊。
+> 本文只討論適用於這兩個範本的資訊，並假設您熟悉與其相關的 Batch 服務和重要概念︰集區、計算節點、作業和工作、作業管理員工作、環境變數和其他相關資訊。 您可以在 [Azure Batch 基本概念](batch-technical-overview.md)和[適用於開發人員的 Batch 功能概觀](batch-api-basics.md)中找到詳細資訊。
 > 
 > 
 
@@ -52,7 +52,7 @@ Batch 的**作業管理員**和**工作處理器 Visual Studio 範本**提供了
 
 ![顯示用戶端程式碼與 Batch 服務互動方式的圖表][diagram01]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要使用 Batch 範本，您需要下列項目︰
 
 * 已安裝 Visual Studio 2015 的電腦。 目前只有針對 Visual Studio 2015 支援批次範本。

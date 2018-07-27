@@ -15,16 +15,18 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 864f790db48d3d4542ed56a4c7272a198df5bd56
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 10d6b81915432d9f41c0d4751f98cbf380ff2d13
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901131"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136565"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 裝置管理常見問題集
 
+**問：可以註冊 Android 或 iOS BYOD 裝置嗎？**
 
+**答：** 可以，但只能使用 Azure 裝置註冊服務且僅限混合式客戶使用。 不支援使用 AD FS 中的內部部署裝置註冊服務。
 
 **問：我要如何註冊 macOS 裝置？**
 
@@ -98,6 +100,11 @@ ms.locfileid: "37901131"
 **問：我的使用者無法從已加入 Azure AD 的裝置搜尋印表機。如何從已加入 Azure AD 的裝置啟用列印功能？**
 
 **答：** 關於如何為已加入 Azure AD 的裝置部署印表機，請參閱[混合式雲端列印](https://docs.microsoft.com/en-us/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) (英文)。 您需要內部部署 Windows Server 才能部署混合式雲端列印。 目前尚無法使用雲端式列印服務。 
+
+---
+
+**問：如何連線到遠端已加入 Azure AD 的裝置？**
+**答：** 如需詳細資訊，請參閱這篇文章 https://docs.microsoft.com/en-us/windows/client-management/connect-to-remote-aadj-pc。
 
 ---
 

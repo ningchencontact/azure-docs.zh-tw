@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 08/30/2017
 ms.author: jlian
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86c733f138e9926fb13c2c1cb404cc9b61f4780e
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 089bb6f3fd187a56495dfd353ee89086e6bea120
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32769166"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39124978"
 ---
 # <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>將免費試用或 Microsoft Imagine Azure 訂用帳戶升級至隨用隨付
 
@@ -36,4 +36,9 @@ ms.locfileid: "32769166"
    
     ![此螢幕擷取畫面顯示要選取以確認您想要升級訂用帳戶的項目](./media/billing-upgrade-azure-subscription/Upgrade.png)
 
- 當您從免費試用訂用帳戶升級時，可在建立訂用帳戶之後保留剩餘信用點數長達 30 天。 您也可以存取 12 個月的免費服務。
+ 當您從免費試用訂用帳戶升級時，可在建立訂用帳戶之後保留剩餘信用點數長達 30 天。 您也可以在 12 個月內存取免費服務。
+ 
+ 如果您想要在升級之後[轉移訂用帳戶](billing-subscription-transfer.md)升級之後，您必須等到訂用帳戶供應項目識別碼變更為 **MS-AZR-003P**。 供應項目識別碼變更的時機
+
+* 您用完所有剩餘的點數，或
+* 開始免費試用之後過了 30 天

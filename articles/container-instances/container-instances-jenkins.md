@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 07/13/2018
 ms.author: marsma
-ms.openlocfilehash: ff94a250ca40aa546ebb07faa96563f49dea974a
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: d8ac5850a61c1dec9daa508236ef56836876c3fe
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887686"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072070"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>使用 Azure 容器執行個體作為 Jenkins 建置代理程式
 
@@ -92,31 +92,21 @@ Jenkins 現在已設定並準備要建置和部署程式碼。 在此範例中�
 
 ## <a name="create-a-build-job"></a>建立建置作業
 
-使用容器映像作為 Jenkins 建置目標時，您需要指定一個映像，其中包含成功建置所需的全部工具。 指定映像：
+現在，Jenkins 建置任務建立好了，可以在 Azure 容器執行個體上示範 Jenkins 建置。
 
-1. 選取 [管理 Jenkins] > [設定系統] 並向下捲動至 [雲端] 區段。 針對此範例，請將 Docker 映像值更新為 **microsoft/java-on-azure-jenkins-slave**。
-
-   完成後，選取 [儲存] 以返回 Jenkins 儀表板。
-
-   ![Jenkins 雲端組態](./media/container-instances-jenkins/jenkins-aci-image.png)
-
-2. 立即建立 Jenkins 建置作業。 選取 [新增項目]，提供組件專案名稱 (例如 **aci-java-demo**)，選取 [Freestyle 專案]，然後選取 [確定]。
+1. 選取 [新增項目]，提供組件專案名稱 (例如 **aci-demo**)，選取 [Freestyle 專案]，然後選取 [確定]。
 
    ![建置作業的名稱方塊和專案類型清單](./media/container-instances-jenkins/jenkins-new-job.png)
 
-3. 在 [一般] 之下，確定已選取 [限制可以執行這個專案的位置]。 針對 [標籤運算式] 輸入 **linux**。 此組態可確保在 ACI 雲端上執行此建置作業。
+2. 在 [一般] 之下，確定已選取 [限制可以執行這個專案的位置]。 針對 [標籤運算式] 輸入 **linux**。 此組態可確保在 ACI 雲端上執行此建置作業。
 
    ![包含組態詳細資訊的 [一般] 索引標籤](./media/container-instances-jenkins/jenkins-job-01.png)
 
-4. 在 [原始程式碼管理] 之下，選取 **Git** 並輸入 **https://github.com/spring-projects/spring-petclinic.git** 作為存放庫 URL。 此 GitHub 存放庫包含範例應用程式程式碼。
+3. 在 [建置] 之下，選取 [新增建置步驟]，然後選取 [執行殼層]。 輸入 `echo "aci-demo"` 當作命令。
 
-   ![包含原始程式碼資訊的 [原始程式碼管理] 索引標籤](./media/container-instances-jenkins/jenkins-job-02.png)
+   ![包含建置步驟選項的 [組建] 索引標籤](./media/container-instances-jenkins/jenkins-job-02.png)
 
-5. 在 [組建] 下方，選取 [新增組建步驟]，然後選取 [叫用最上層 Maven 目標]。 輸入**套件 (package)** 作為建置步驟目標。
-
-   ![包含建置步驟選項的 [組建] 索引標籤](./media/container-instances-jenkins/jenkins-job-03.png)
-
-6. 選取 [ **儲存**]。
+5. 選取 [ **儲存**]。
 
 ## <a name="run-the-build-job"></a>執行建置作業
 

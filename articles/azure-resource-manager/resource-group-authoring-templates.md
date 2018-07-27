@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: f1ce47874b759748f4a2e2ce1fb438b394443058
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e1964b7f46259e54c65aeb46aa795713922c3504
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36334793"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114607"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>了解 Azure Resource Manager 範本的結構和語法
 本文說明 Azure Resource Manager 範本的結構。 它會呈現範本的不同區段，以及這些區段中可用的屬性。 範本由 JSON 與運算式所組成，可讓您用來為部署建構值。 如需建立範本的逐步教學課程，請參閱[建立第一個 Azure Resource Manager 範本](resource-manager-create-first-template.md)。
@@ -41,12 +41,12 @@ ms.locfileid: "36334793"
 
 | 元素名稱 | 必要 | 說明 |
 |:--- |:--- |:--- |
-| $schema |yes |JSON 結構描述檔案的位置，說明範本語言的版本。 使用上述範例所示的 URL。 |
-| contentVersion |yes |範本版本 (例如 1.0.0.0)。 您可以為此元素提供任何值。 使用此值在範本中記載重大變更。 使用範本部署資源時，這個值可用來確定使用的是正確的範本。 |
+| $schema |是 |JSON 結構描述檔案的位置，說明範本語言的版本。 使用上述範例所示的 URL。 |
+| contentVersion |是 |範本版本 (例如 1.0.0.0)。 您可以為此元素提供任何值。 使用此值在範本中記載重大變更。 使用範本部署資源時，這個值可用來確定使用的是正確的範本。 |
 | parameters |否 |執行部署以自訂資源部署時所提供的值。 |
 | variables |否 |範本中做為 JSON 片段以簡化範本語言運算式的值。 |
 | functions |否 |範本中可用的使用者定義函式。 |
-| resources |yes |在資源群組中部署或更新的資源類型。 |
+| resources |是 |在資源群組中部署或更新的資源類型。 |
 | outputs |否 |部署後傳回的值。 |
 
 每個元素都有可以設定的屬性。 下列範例顯示範本的完整語法：
@@ -214,6 +214,7 @@ ms.locfileid: "36334793"
 在定義使用者函式時，有一些限制：
 
 * 此函式無法存取變數。
+* 此函式無法存取範本參數。 也就是，會將[參數函式](resource-group-template-functions-deployment.md#parameters)限制為函式參數。
 * 此函式無法呼叫其他的使用者定義函式。
 * 此函式不能使用[參考函式](resource-group-template-functions-resource.md#reference)。
 * 函式的參數不能有預設值。
@@ -312,4 +313,4 @@ ms.locfileid: "36334793"
 * 若要檢視許多不同類型解決方案的完整範本，請參閱 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/)。
 * 如需您可以在範本內使用哪些函式的詳細資料，請參閱 [Azure Resource Manager 範本函式](resource-group-template-functions.md)。
 * 若要在部署期間合併多個範本，請參閱 [透過 Azure Resource Manager 使用連結的範本](resource-group-linked-templates.md)。
-* 您可能需要使用不同資源群組內的資源。 這案例常見於使用多個資源群組之間所共用的儲存體帳戶或虛擬網路時。 如需詳細資訊，請參閱 [resourceId 函式](resource-group-template-functions-resource.md#resourceid)。
+* 如需對於建立可跨全域 Azure、Azure 主權雲端與 Azure Stack 使用的 Resource Manager 範本相關建議，請參閱[開發針對雲端一致性的 Azure Resource Manager 範本](templates-cloud-consistency.md)。

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 76b2b1983cc5a6cedfcff204871e0b0f985fef95
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 897681cda31b2f187fca64e77621b7dc5ed4dfae
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37900777"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072104"
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>編譯 Azure 自動化 DSC 中的組態
 
@@ -235,7 +235,7 @@ Azure 自動化 DSC 組態和 Runbook 中的資產參考是相同的。 如需�
 
 ### <a name="credential-assets"></a>認證資產
 
-雖然 Azure 自動化中的 DSC 組態可以使用 **Get-AutomationPSCredential**參考認證資產，但如有需要，也可以透過參數傳入認證資產。 如果組態採用屬於 **PSCredential** 類型的參數，您必須將 Azure 自動化認證資產的字串名稱傳遞為該參數的值，而不是 PSCredential 物件。 會在背景中取出具有該名稱的 Azure 自動化認證資產，並傳遞至設定。
+Azure 自動化中的 DSC 組態可以使用 `Get-AutomationPSCredential` 來參考自動化認證資產。 如果組態的參數類型為 **PSCredential**，則您可以將 Azure 自動化認證資產的字串名稱傳遞至 cmdlet 來擷取認證，這樣就可以使用 `Get-AutomationPSCredential`。 接著您可以將該物件用於需要 **PSCredential** 物件的參數。 會在背景中取出具有該名稱的 Azure 自動化認證資產，並傳遞至設定。 下列範例會顯示具體的操作。
 
 要在節點組態 (MOF 組態文件) 中保持認證的安全性，需要在節點組態 MOF 檔案中為認證加密。 不過，目前您必須告知 PowerShell DSC 在節點組態 MOF 產生期間以純文字形式輸出認證是可行的，因為 PowerShell DSC 並不知道在透過編譯工作產生 MOF 檔案之後 Azure 自動化會加密整個檔案。
 

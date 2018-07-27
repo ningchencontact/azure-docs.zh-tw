@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 9f550af869ccfc44ba4d840f54503ad017cdaf95
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: ab3982c85cfb008bde08495f8cb8aa86d066d8c0
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901206"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114849"
 ---
 # <a name="configure-a-vmss-managed-service-identity-by-using-a-template"></a>使用範本設定 VMSS 受控服務識別
 
@@ -31,7 +31,7 @@ ms.locfileid: "37901206"
 - 在 Azure VMSS 上啟用和停用系統指派身分識別
 - 在 Azure VMSS 上新增和移除使用者指派的身分識別
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 如果您不熟悉受控服務識別，請參閱[概觀](overview.md)一節。 **請務必檢閱[系統指派和使用者指派身分識別之間的差異](overview.md#how-does-it-work)**。
 - 如果您還沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com/free/)，再繼續進行。
@@ -55,7 +55,7 @@ ms.locfileid: "37901206"
 
 1. 將範本載入編輯器之後，找出＜`resources`一節中您感興趣的 `Microsoft.Compute/virtualMachineScaleSets` 資源。 根據您所使用的編輯器，以及您是編輯新的或現有部署的範本而定，您的畫面與下列螢幕擷取畫面可能看起來稍有不同。
    
-   ![範本的螢幕擷取畫面 - 尋找虛擬機器](../media/msi-qs-configure-template-windows-vmss/msi-arm-template-file-before-vmss.png) 
+   ![範本的螢幕擷取畫面 - 尋找虛擬機器](../managed-service-identity/media/msi-qs-configure-template-windows-vmss/msi-arm-template-file-before-vmss.png) 
 
 2. 若要啟用系統指派的身分識別，請在與 `"type": "Microsoft.Compute/virtualMachineScaleSets"` 屬性相同的層級新增 `"identity"` 屬性。 使用下列語法：
 
@@ -91,7 +91,7 @@ ms.locfileid: "37901206"
 
 4. 完成之後，您的範本看起來應該如下所示：
 
-   ![更新之後範本的螢幕擷取畫面](../media/msi-qs-configure-template-windows-vmss/msi-arm-template-file-after-vmss.png) 
+   ![更新之後範本的螢幕擷取畫面](../managed-service-identity/media/msi-qs-configure-template-windows-vmss/msi-arm-template-file-after-vmss.png) 
 
 ### <a name="disable-a-system-assigned-identity-from-an-azure-virtual-machine-scale-set"></a>從 Azure 虛擬機器擴展集移除系統指派身分識別
 
@@ -113,6 +113,9 @@ ms.locfileid: "37901206"
 
 1. 在 `resources` 元素之下，新增下列項目，以將使用者指派的身分識別指派至您的 VMSS。  請務必將 `<USERASSIGNEDIDENTITY>` 取代為您建立的使用者指派身分識別名稱。
 
+   > [!Important]
+   > 下列範例所示的 `<USERASSIGNEDIDENTITYNAME>` 值必須儲存於變數中。  此外，目前支援將使用者指派的身分識別指派給 Resource Manager 範本中的虛擬機器，針對這類實作，API 版本必須符合下列範例中的版本。 
+
     ```json
     {
         "name": "[variables('vmssName')]",
@@ -121,7 +124,7 @@ ms.locfileid: "37901206"
         "identity": {
             "type": "userAssigned",
             "identityIds": [
-                "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/<USERASSIGNEDIDENTITY>)']"
+                "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITY>'))]"
             ]
         }
 

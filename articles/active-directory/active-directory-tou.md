@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 06/29/2018
+ms.date: 07/18/2018
 ms.author: rolyon
-ms.openlocfilehash: 7833c9da2303d119f0cb421f21bea455ab449898
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: b1a11fdb685b8b4e5c513931269c479506d943a0
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856411"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136650"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory 使用規定特性
 Azure AD 使用規定提供一種簡單的方法，組織可用來將資訊呈現給終端使用者。 此呈現可確保使用者看到合法或合規性需求的相關免責聲明。 本文將說明如何開始使用 Azure AD 使用規定。
@@ -36,7 +36,7 @@ Azure AD 使用規定可讓您執行下列作業：
 - 列出已同意或未同意使用規定的人員。
 - 顯示使用規定活動的稽核記錄。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要使用及設定 Azure AD 使用規定，您必須有：
 
 - Azure AD Premium P1、P2、EMS E3 或 EMS E5 訂用帳戶。
@@ -86,7 +86,7 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 
     ![新增 TOU](media/active-directory-tou/create-tou.png)
 
-## <a name="view-who-has-accepted-and-declined"></a>檢視已接受和已拒絕的人員
+## <a name="view-report-of-who-has-accepted-and-declined"></a>檢視已接受和已拒絕的人員報表
 [使用規定] 刀鋒視窗會顯示已接受和已拒絕的使用者計數。 這些計數和接受/拒絕人員會加以儲存，直到使用規定的存留期結束。
 
 1. 登入 Azure 並瀏覽至 [https://aka.ms/catou](https://aka.ms/catou) 上的 [使用規定]。
@@ -97,10 +97,10 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 
     ![稽核事件](media/active-directory-tou/accepted-tou.png)
 
-## <a name="view-audit-logs"></a>檢視稽核記錄檔
+## <a name="view-azure-ad-audit-logs"></a>檢視 Azure AD 稽核記錄
 如果您想要檢視其他活動，Azure AD 使用規定包含稽核記錄。 每個使用者的同意都會觸發稽核記錄 (儲存 30 天) 中的事件。 您可以在入口網站中檢視這些記錄或將其下載為 .csv 檔案。
 
-若要開始使用稽核記錄，請使用下列程序：
+若要開始使用 Azure AD 稽核記錄，請使用下列程序：
 
 1. 登入 Azure 並瀏覽至 [https://aka.ms/catou](https://aka.ms/catou) 上的 [使用規定]。
 
@@ -167,10 +167,19 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 ## <a name="frequently-asked-questions"></a>常見問題集
 
 **問：如何查看使用者何時或是否已接受使用規定？**</br>
-答：在 [使用規定] 刀鋒視窗上，按一下 [接受] 底下的數字。 您也可以檢視或搜尋稽核記錄中的接受活動。 如需詳細資訊，請參閱[ 檢視已接受和已拒絕的人員](#view-who-has-accepted-and-declined)和[檢視稽核記錄](#view-audit-logs)。
+答：在 [使用規定] 刀鋒視窗上，按一下 [接受] 底下的數字。 您也可以檢視或搜尋 Azure AD 稽核記錄中的接受活動。 如需詳細資訊，請參閱[檢視已接受和已拒絕的人員報表](#view-who-has-accepted-and-declined)和[檢視 Azure AD 稽核記錄](#view-azure-ad-audit-logs)。
+ 
+**問：資訊會儲存多久時間？**</br>
+答：使用規定報表中的使用者計數和已接受/已拒絕的人員都會儲存到使用規定的存留期結束。 Azure AD 稽核記錄會儲存 30 天。
 
-**問：如果變更使用規定，是否需要使用者重新接受？**</br>
+**問：為什麼我在使用規定報表與 Azure AD 稽核記錄中看到同意數目不同？**</br>
+答：使用規定報表會儲存到該使用規定的存留期結束，而 Azure AD 稽核記錄會儲存 30 天。 此外，使用規定報表只會顯示使用者目前的同意狀態。 例如，如果使用者先拒絕，然後接受，則使用規定報表將只會顯示該使用者的接受。 如果您需要查看歷程記錄，您可以使用 Azure AD 稽核記錄。
+
+**問：如果變更使用規定的規定，是否需要使用者重新接受？**</br>
 答：是的，系統管理員可以變更使用規定，而且需要使用者重新接受新規定。
+
+**問：如果超連結位於使用規定 PDF 文件中，終端使用者將能點選這些超連結嗎？**</br>
+答：此 PDF 預設會以 JPEG 形式呈現，因此無法點選超連結。 使用者可以選取**檢視時發生問題嗎？請按一下這裡**的選項，這樣就會以原生方式呈現支援超連結的 PDF。
 
 **問：使用規定是否支援多種語言？**</br>
 答： 會。  目前有 18 種語言，系統管理員可以設定單一使用規定。 
@@ -189,6 +198,7 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
  
 **問：是否可以取消接受先前接受的使用規定？**</br>
 答：您可以[檢閱先前接受的使用規定](#how-users-can-review-their-terms-of-use)，但目前沒有辦法取消接受。
- 
-**問：資訊會儲存多久時間？**</br>
-答：使用者計數和接受/拒絕人員會儲存到使用規定的存留期結束。 稽核記錄會儲存 30 天。
+
+## <a name="next-steps"></a>後續步驟
+
+- [Azure Active Directory 中條件式存取的最佳做法](active-directory-conditional-access-best-practices.md)

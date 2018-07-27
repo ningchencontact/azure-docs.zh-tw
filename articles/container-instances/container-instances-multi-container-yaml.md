@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 07/17/2018
 ms.author: marsma
-ms.openlocfilehash: 5dfee15e978d2dba0f50d1dc4b78953698389950
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 1d1885112b8e7f7b1e187073c86d561eb57fd23f
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34851074"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114458"
 ---
 # <a name="deploy-a-multi-container-container-group-with-yaml"></a>使用 YAML 部署多容器的容器群組
 
@@ -35,7 +35,7 @@ Azure 容器執行個體支援使用[容器群組](container-instances-container
 
 一開始先將下列 YAML 複製到名為 **deploy-aci.yaml** 的新檔案中。
 
-此 YAML 檔案會定義含有兩個容器、一個公用 IP 位址和兩個已公開連接埠的容器群組。 群組中第一個容器會執行網際網路對向的 Web 應用程式。 第二個容器 sidecar 會透過容器群組的區域網路，定期對第一個容器中執行的 Web 應用程式執行 HTTP 要求。
+此 YAML 檔案會定義名為 "myContainerGroup"，且含有兩個容器 (一個公用 IP 位址和兩個公開連接埠) 的容器群組。 群組中第一個容器會執行網際網路對向的 Web 應用程式。 第二個容器 sidecar 會透過容器群組的區域網路，定期對第一個容器中執行的 Web 應用程式執行 HTTP 要求。
 
 ```YAML
 apiVersion: 2018-06-01
@@ -83,7 +83,7 @@ az group create --name myResourceGroup --location eastus
 使用 [az container create][az-container-create] 命令部署容器群組，並以引數的形式傳遞 YAML 檔案：
 
 ```azurecli-interactive
-az container create --resource-group myResourceGroup --name myContainerGroup -f deploy-aci.yaml
+az container create --resource-group myResourceGroup --file deploy-aci.yaml
 ```
 
 在幾秒內，您應該會從 Azure 收到首次回應。
@@ -96,7 +96,7 @@ az container create --resource-group myResourceGroup --name myContainerGroup -f 
 az container show --resource-group myResourceGroup --name myContainerGroup --output table
 ```
 
-如果您要檢視執行中的應用程式，請在瀏覽器中瀏覽至應用程式的公用 IP 位址。 例如，在此範例輸出中，IP 是 `52.168.26.124`：
+若要檢視執行中的應用程式，請在瀏覽器中瀏覽至其公用 IP 位址。 例如，在此範例輸出中，IP 是 `52.168.26.124`：
 
 ```bash
 Name              ResourceGroup    ProvisioningState    Image                                                           IP:ports               CPU/Memory       OsType    Location
@@ -200,14 +200,15 @@ type: Microsoft.ContainerInstance/containerGroups
 發出下列 [az container export][az-container-export] 命令，即可匯出稍早建立的容器群群組組態：
 
 ```azurecli-interactive
-az container export --resource-group rg604 --name myContainerGroup --file deployed-aci.yaml
+az container export --resource-group myResourceGroup --name myContainerGroup --file deployed-aci.yaml
 ```
 
 命令執行成功時不會顯示輸出，但您可以檢視檔案的內容以查看結果。 例如，`head` 後的前幾行：
 
 ```console
 $ head deployed-aci.yaml
-apiVersion: 2018-02-01-preview
+additional_properties: {}
+apiVersion: '2018-06-01'
 location: eastus
 name: myContainerGroup
 properties:
@@ -216,11 +217,7 @@ properties:
     properties:
       environmentVariables: []
       image: microsoft/aci-helloworld:latest
-      ports:
 ```
-
-> [!NOTE]
-> 從 Azure CLI 2.0.34 版開始存在一個[已知問題][cli-issue-6525]，也就是匯出的容器群組會指定舊的 API 版本 **2018-02-01-preview** (如前面 JSON 輸出範例中所示)。 如果您想要使用匯出的 YAML 檔案進行重新部署，您可以放心地將所匯出 YAML 檔案中的 `apiVersion` 值更新為 **2018-06-01**。
 
 ## <a name="next-steps"></a>後續步驟
 

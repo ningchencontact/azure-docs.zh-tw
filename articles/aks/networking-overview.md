@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 06/15/2018
+ms.date: 07/16/2018
 ms.author: marsma
-ms.openlocfilehash: 207accc30e10c4e2bed5b713fc59e2f9ad86a876
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: cb7b27b178197cde040e1d106ed5a5ee20905823
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311092"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115790"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 中的網路組態
 
@@ -28,8 +28,7 @@ ms.locfileid: "36311092"
 ## <a name="advanced-networking"></a>進階網路
 
 
-  **進階**網路會將 Pod 放置在您所設定的 Azure 虛擬網路 (VNet) 中，以便讓 Pod 能夠自動連線至 VNet 資源，並與 Vnet 所提供的一組豐富功能做整合。
-使用 [Azure 入口網站][portal]、Azure CLI 或 Resource Manager 範本來部署 AKS 叢集時，可以使用進階網路功能。
+  **進階**網路會將 Pod 放置在您所設定的 Azure 虛擬網路 (VNet) 中，以便讓 Pod 能夠自動連線至 VNet 資源，並與 Vnet 所提供的一組豐富功能做整合。 使用 [Azure 入口網站][portal]、Azure CLI 或 Resource Manager 範本來部署 AKS 叢集時，可以使用進階網路功能。
 
 設定為進階網路的 AKS 叢集節點會使用 [Azure 容器網路介面 (CNI)][cni-networking] Kubernetes 外掛程式。
 
@@ -46,9 +45,6 @@ ms.locfileid: "36311092"
 * 在已啟用服務端點的子網路中，Pod 可以安全地連線到 Azure 服務，例如，Azure 儲存體和 SQL DB。
 * 使用使用者定義的路由 (UDR) 將流量從 Pod 路由到網路虛擬設備。
 * Pod 可以存取公用網際網路上的資源。 基本網路也有這項功能。
-
-> [!IMPORTANT]
-> 使用 Azure 入口網站進行設定時，針對進階網路功能設定之 AKS 叢集中的每個節點最多可以裝載 **30 個 Pod**。  使用 Resource Manager 範本部署叢集時，您只能藉由修改 maxPods 屬性來變更最大值。 為了與 Azure CNI 外掛程式搭配使用所佈建的每個 VNet 限制只能有 **4096 個已設定的 IP 位址**。
 
 ## <a name="advanced-networking-prerequisites"></a>進階網路功能的必要條件
 
@@ -68,19 +64,36 @@ Pod 和叢集節點的 IP 位址會從 VNet 內的指定子網路來指派。 �
 
 | 位址範圍 / Azure 資源 | 限制和調整大小 |
 | --------- | ------------- |
-| 虛擬網路 | Azure VNet 可以和 /8 一樣大，但可能只有 4096 個已設定的 IP 位址。 |
-| 子網路 | 必須大到足以容納節點和 Pod。 若要計算最小的子網路大小：(節點數目) + (節點數目 * 每個節點的 Pod 數)。 針對 50 個節點的叢集：(50) + (50 * 30) = 1,550，您的子網路必須為 /21 或更大。 |
+| 虛擬網路 | Azure VNet 可以和 /8 一樣大，但可能只有 16,000 個已設定的 IP 位址。 |
+| 子網路 | 必須大到足以容納節點、Pod，以及可能會在您叢集中佈建的所有 Kubernetes 和 Azure 資源。 例如，如果您部署內部 Azure Load Balancer，其前端 IP 會從叢集子網路配置，而不是從公用 IP 配置。 <p/>若要計算「最小」的子網路大小：`(number of nodes) + (number of nodes * pods per node)` <p/>50 個節點叢集的範例：`(50) + (50 * 30) = 1,550` (/21 或更大) |
 | Kubernetes 服務位址範圍 | 此範圍不應由此 VNet 上或連線到此 VNet 的任何網路元素所使用。 服務位址 CIDR 必須小於 /12。 |
 | Kubernetes DNS 服務 IP 位址 | 將由叢集服務探索 (kube-dns) 所使用之 Kubernetes 服務位址範圍內的 IP 位址。 |
 | Docker 橋接器位址 | 用來作為節點上 Docker 橋接器 IP 位址的 IP 位址 (採用 CIDR 標記法)。 預設值為 172.17.0.1/16。 |
 
-如先前所述，為了與 Azure CNI 外掛程式搭配使用所佈建的每個 VNet 限制只能有 **4096 個已設定的 IP 位址**。 設定為進階網路的每個叢集節點最多可以裝載 **30 個 Pod**。
+為了與 Azure CNI 外掛程式搭配使用所佈建的每個 VNet 限制只能有 **16,000 個已設定的 IP 位址**。
+
+## <a name="maximum-pods-per-node"></a>每個節點的最大 Pod 數目
+
+AKS 叢集中每個節點預設的最大 Pod 數目，會根據基本和進階網路功能以及叢集部署方法而有所不同。
+
+### <a name="default-maximum"></a>預設的最大值
+
+* 基本網路功能：**每個節點 110 個 Pod**
+* 進階網路功能：**每個節點 30 個 Pod**
+
+### <a name="configure-maximum"></a>設定最大值
+
+根據您的部署方法而定，您可能可在 AKS 叢集中修改每個節點的最大 Pod 數目。
+
+* **Azure CLI**：當您使用 [az aks create][ az-aks-create] 命令部署叢集時，請指定 `--max-pods` 引數。
+* **Resource Manager 範本**：當您使用 Resource Manager 範本部署叢集時，請指定 [ManagedClusterAgentPoolProfile] 物件中的 `maxPods` 屬性。
+* **Azure 入口網站**：當您使用 Azure 入口網站部署叢集時，無法修改每個節點的最大 Pod 數目。 在 Azure 入口網站中部署時，進階網路功能的叢集限制為每個節點 30 個 Pod。
 
 ## <a name="deployment-parameters"></a>部署參數
 
-建立 AKS 叢集時，可針對進階網路功能設定下列參數：
+當您建立 AKS 叢集時，可針對進階網路功能設定下列參數：
 
-**虛擬網路**：要作為 Kubernetes 叢集部署目的地的 VNet。 如果您要為叢集建立新的 VNet，請選取 [新建] 並遵循＜建立虛擬網路＞一節中的步驟。
+**虛擬網路**：要作為 Kubernetes 叢集部署目的地的 VNet。 如果您要為叢集建立新的 VNet，請選取 [新建] 並遵循＜建立虛擬網路＞一節中的步驟。 VNet 限制為 16,000 個已設定的 IP 位址。
 
 **子網路**：VNet 內要用來部署叢集的子網路。 如果您要為叢集建立新的 VNet 子網路，請選取 [新建] 並遵循＜建立子網路＞一節中的步驟。
 
@@ -126,10 +139,6 @@ az aks create --resource-group myAKSCluster --name myAKSCluster --network-plugin
 
 下列問題和解答適用於**進階**網路組態。
 
-* 是否可以使用 Azure CLI 設定進階網路？
-
-  否。 目前，當您在 Azure 入口網站中部署 AKS 叢集或使用 Resource Manager 範本來部署時，才能使用進階網路。
-
 * 是否可以在叢集子網路中部署 VM？
 
   否。 不支援在 Kubernetes 叢集所使用的子網路中部署 VM。 VM 可部署在相同 VNet 中，但不能部署在不同的子網路。
@@ -140,7 +149,7 @@ az aks create --resource-group myAKSCluster --name myAKSCluster --network-plugin
 
 * 是否可以設定可部署到節點的 Pod 數目上限？
 
-  根據預設，每個節點最多可以裝載 30 個 Pod。 您只能在使用 Resource Manager 範本部署叢集時，藉由修改 `maxPods` 屬性來變更上限值。
+  是，當您使用 Azure CLI 或 Resource Manager 範本部署叢集時。 請參閱[每個節點的最大 Pod 數目](#maximum-pods-per-node)。
 
 * 如何針對在 AKS 叢集建立期間所建立的子網路設定其他屬性？例如，服務端點。
 
@@ -178,3 +187,4 @@ az aks create --resource-group myAKSCluster --name myAKSCluster --network-plugin
 <!-- LINKS - Internal -->
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [aks-ssh]: aks-ssh.md
+[ManagedClusterAgentPoolProfile]: /azure/templates/microsoft.containerservice/managedclusters#managedclusteragentpoolprofile-object
