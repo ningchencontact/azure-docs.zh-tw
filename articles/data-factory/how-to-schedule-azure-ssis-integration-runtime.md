@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 06/01/2018
+ms.date: 07/16/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 3758b04fc9b5ecd5dc69c82a8bd07999a9f1074a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: f83715d2a382db271686210d9df285c255c09216
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050602"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113972"
 ---
 # <a name="how-to-start-and-stop-the-azure-ssis-integration-runtime-on-a-schedule"></a>如何排程 Azure SSIS 整合執行階段的啟動和停止
 本文說明如何使用 Azure 自動化及 Azure Data Factory 來排程 Azure SSIS 整合執行階段 (IR) 的啟動和停止。 執行 Azure SSIS (SQL Server Integration Services) 整合執行階段 (IR) 會產生相關費用。 因此，您通常只應在需要於 Azure 中執行 SSIS 套件時才執行 IR，而在不需要時即應加以停止。 您可以使用 Data Factory UI 或 Azure PowerShell，[以手動方式啟動或停止 Azure SSIS IR](manage-azure-ssis-integration-runtime.md)。
@@ -34,7 +34,7 @@ ms.locfileid: "37050602"
 3. **為 Runbook 建立兩個 Webhook**，一個用於 START 作業，另一個則用於 STOP 作業。 您在 Data Factory 管線中設定 Web 活動時，可以使用這些 Webhook 的 URL。 
 4. **建立 Data Factory 管線**。 您建立的管線包含下列三個活動。 第一個 **Web** 活動會叫用第一個 Webhook，以啟動 Azure SSIS IR。 **預存程序**活動會執行 SQL 指令碼以執行 SSIS 套件。 第二個 **Web** 活動會停止 Azure SSIS IR。 如需如何使用預存程序活動從 Data Factory 管線叫用 SSIS 套件的詳細資訊，請參閱[叫用 SSIS 套件](how-to-invoke-ssis-package-stored-procedure-activity.md)。 接著，您可以建立排程觸發程序，以將管線排程為依照您指定的頻率執行。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 如果您尚未佈建 Azure SSIS 整合執行階段，請依照[教學課程](tutorial-create-azure-ssis-runtime-portal.md)中的指示加以佈建。 
 
 ## <a name="create-and-test-an-azure-automation-runbook"></a>建立並測試 Azure 自動化 Runbook
@@ -373,15 +373,40 @@ ms.locfileid: "37050602"
 5. 選取左窗格中的 [全部發佈]，將解決方案發佈至資料處理站。 
 
     ![全部發佈](./media/how-to-schedule-azure-ssis-integration-runtime/publish-all.png)
-6. 若要監視觸發程序執行和管線執行，請使用左側的 [監視] 索引標籤。 如需詳細步驟，請參閱[監視管線](quickstart-create-data-factory-portal.md#monitor-the-pipeline)。
+
+### <a name="monitor-the-pipeline-and-trigger-in-the-azure-portal"></a>在 Azure 入口網站中監視管線和觸發程序
+
+1. 若要監視觸發程序執行和管線執行，請使用左側的 [監視] 索引標籤。 如需詳細步驟，請參閱[監視管線](quickstart-create-data-factory-portal.md#monitor-the-pipeline)。
 
     ![管線執行](./media/how-to-schedule-azure-ssis-integration-runtime/pipeline-runs.png)
-7. 若要檢視與管線執行相關聯的所有活動執行，請選取 [動作] 資料行中的第一個連結 ([檢視活動執行])。 您會看到和管線中每個活動相關聯的三個活動執行 (第一個 Web 活動、預存程序活動和第二個 Web 活動)。 若要切換回去以檢視管線執行，請選取頂端的 [管線] 連結。
+2. 若要檢視與管線執行相關聯的所有活動執行，請選取 [動作] 資料行中的第一個連結 ([檢視活動執行])。 您會看到和管線中每個活動相關聯的三個活動執行 (第一個 Web 活動、預存程序活動和第二個 Web 活動)。 若要切換回去以檢視管線執行，請選取頂端的 [管線] 連結。
 
     ![活動執行](./media/how-to-schedule-azure-ssis-integration-runtime/activity-runs.png)
-8. 您可以從頂端的 [管線執行] 旁邊的下拉式清單中選取 [觸發程序執行]，以檢視觸發程序執行。 
+3. 您可以從頂端的 [管線執行] 旁邊的下拉式清單中選取 [觸發程序執行]，以檢視觸發程序執行。 
 
     ![觸發程序執行](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-runs.png)
+
+### <a name="monitor-the-pipeline-and-trigger-with-powershell"></a>使用 PowerShell 監視管線和觸發程序
+
+使用如以下範例的指令碼來監視管線和觸發程序。
+
+1. 取得管線執行的狀態。
+
+  ```powershell
+  Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $myPipelineRun
+  ```
+
+2. 取得有關觸發程序的資訊。
+
+  ```powershell
+  Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name  "myTrigger"
+  ```
+
+3. 取得觸發程序執行的狀態。
+
+  ```powershell
+  Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "myTrigger" -TriggerRunStartedAfter "2018-07-15" -TriggerRunStartedBefore "2018-07-16"
+  ```
 
 ## <a name="next-steps"></a>後續步驟
 請參閱下列部落格文章：

@@ -4,21 +4,21 @@ description: 了解如何監視 Azure Data Factory 中不同類型的整合執�
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
-manager: ''
+manager: craigg
 editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/23/2017
+ms.date: 07/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 523d50623257d3944342cb174174e27bd4731248
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 4da9696761747874395ec90cb3b446e3621650ba
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045240"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113252"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>在 Azure Data Factory 中監視整合執行階段  
 **整合執行階段**是 Azure Data Factory 所使用的計算基礎結構，可提供跨不同網路環境的各種資料整合功能。 Data Factory 提供三種類型的整合執行階段：
@@ -192,6 +192,24 @@ Azure SSIS 整合執行階段是完全受控的 Azure 虛擬機器 (或節點) �
 | 已啟動 | Azure SSIS 整合執行階段的節點已配置/備妥，而且它們已準備好部署/執行 SSIS 套件。 |
 | 停止中  | Azure SSIS 整合執行階段的節點正在釋出。 |
 | 已停止 | Azure SSIS 整合執行階段的節點已釋出並已停止計費。 |
+
+### <a name="monitor-the-azure-ssis-integration-runtime-in-the-azure-portal"></a>在 Azure 入口網站中監視 Azure-SSIS 整合執行階段
+
+以下螢幕擷取畫面顯示如何選取要監視的 Azure-SSIS IR，並提供所顯示資訊的範例。
+
+![選取要監視的 Azure-SSIS 整合執行階段](media/monitor-integration-runtime/monitor-azure-ssis-ir-image1.png)
+
+![檢視 Azure-SSIS 整合執行階段的相關資訊](media/monitor-integration-runtime/monitor-azure-ssis-ir-image2.png)
+
+### <a name="monitor-the-azure-ssis-integration-runtime-with-powershell"></a>使用 PowerShell 監視 Azure-SSIS 整合執行階段
+
+使用如以下範例的指令碼來檢查 Azure-SSIS IR 的狀態。
+
+```powershell
+Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Status
+```
+
+### <a name="more-info-about-the-azure-ssis-integration-runtime"></a>深入了解 Azure-SSIS 整合執行階段
 
 請參閱下列文章以深入了解 Azure SSIS 整合執行階段：
 

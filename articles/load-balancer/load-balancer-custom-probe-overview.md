@@ -13,20 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/8/2018
+ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: 0aab72fdf48589a72707ae87f90af11f65f35088
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: dd92fca89e3bdb123be46a52708feec1c939f7cc
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30176783"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112717"
 ---
 # <a name="understand-load-balancer-probes"></a>了解 Load Balancer 探查
 
-Azure Load Balancer 會使用健康情況探查，來決定哪一個後端集區執行個體應該接收新流程。 當健康情況探查失敗時，Load Balancer 就會停止將新流程傳送到個別狀況不良的執行個體，而該執行個體上的現有流程不會受到影響。  當所有後端集區執行個體探查失敗時，所有現有流程都將在後端集區中的所有執行個體上逾時。
+Azure Load Balancer 會使用健康情況探查，來決定哪一個後端集區執行個體應該接收新流程。   您可以使用健康情況探查來偵測後端執行個體上的應用程式失敗。  您也可以使用來自應用程式的健康情況探查回應，通知 Load Balancer 是否要繼續傳送新流量，或停止將新流量傳送到後端執行個體，藉此管理負載或計畫的停機時間。
 
-雲端服務角色 (背景工作角色和 Web 角色) 會使用客體代理程式進行探查監視。 當您在 Load Balancer 後方使用 VM 時，必須設定 TCP 或 HTTP 自訂健康情況探查。
+健康情況探查控管新流量是否能與狀況良好的後端執行個體建立連線。 當健康情況探查失敗時，Load Balancer 就會停止傳送新流量給狀況不良的個別執行個體。  健康情況探查失敗之後，已建立的 TCP 連線會繼續。  現有的 UDP 流量將會從狀況不良的執行個體移至後端集區中另一個狀況良好的執行個體。
+
+如果後端集區的所有探查都失敗，Basic Load Balancer 會終止流向後端集區的所有現有 TCP 流量，而 Standard Load Balancer 則會允許已建立的 TCP 流量繼續傳送；沒有任何新流量會傳送到後端集區。  當後端集區的所有探查都失敗時，Basic 和 Standard Load Balancer 會終止所有現有的 UDP 流量。
+
+雲端服務角色 (背景工作角色和 Web 角色) 會使用客體代理程式進行探查監視。 當您在 Load Balancer 後方使用雲端服務搭配 IaaS VM 時，必須設定 TCP 或 HTTP 自訂健康情況探查。
 
 ## <a name="understand-probe-count-and-timeout"></a>了解探查計數及逾時
 

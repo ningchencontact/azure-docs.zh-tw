@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 59d6b960a40910b8b2fe72f6c3b149608ee8b8ad
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d9b89329e2a9bdb26c9aa1d12bc181c61518dcb8
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31798065"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39116158"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>在 Azure 上搭配 Linux 資料科學虛擬機器來運用資料科學
 本逐步解說示範如何使用 Linux 資料科學 VM 執行數個常見的資料科學工作。 Linux 資料科學虛擬機器 (DSVM) 是 Azure 提供的虛擬機器映像，其中預先安裝了一組常用於執行資料分析和機器學習服務的工具。 重要的軟體元件可在 [佈建 Linux 資料科學虛擬機器](linux-dsvm-intro.md) 主題中找到明細。 VM 映像可讓使用者輕鬆地在幾分鐘內開始執行資料科學，而不需要個別安裝和設定每個工具。 您可以在需要時輕鬆地相應增加 VM，並在不使用時加以停止。 因此，這項資源既有彈性，又符合成本效益。
@@ -29,7 +29,7 @@ ms.locfileid: "31798065"
 
 在本逐步解說中，我們會分析 [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) 資料集。 這是一組標示為垃圾郵件或非垃圾郵件 (亦即這些郵件不是垃圾郵件) 的電子郵件，並同時包含關於電子郵件內容的一些統計資料。 其中所含的統計資料會在下下一節中討論。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 您必須先具有下列項目，才可以使用 Linux 資料科學虛擬機器：
 
 * **Azure 訂用帳戶**。 如果您還沒有訂用帳戶，請參閱 [立即建立免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
@@ -42,7 +42,7 @@ ms.locfileid: "31798065"
 [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) 資料集是一組較小的資料，裡面只有 4601 個範例。 在示範資料科學 VM 的某些重要功能時，這樣的大小比較方便使用，因為它會讓所需的資源需求保持適中。
 
 > [!NOTE]
-> 本逐步解說建立在 D2 v2 大小的 Linux 資料科學虛擬機器上。 這個大小的 DSVM 能夠處理此逐步解說中的程序。
+> 本逐步解說是以 D2 v2 大小的 Linux 資料科學虛擬機器 (CentOS 版) 為基礎。 這個大小的 DSVM 能夠處理此逐步解說中的程序。
 >
 >
 
@@ -77,12 +77,8 @@ ms.locfileid: "31798065"
 
     git clone https://github.com/Azure/Azure-MachineLearning-DataScience.git
 
-開啟終端機視窗，並使用 R 互動式主控台啟動新的 R 工作階段。
+開啟終端機視窗並使用 R 互動主控台或電腦上預先安裝的 RStudio 啟動新的 R 工作階段。
 
-> [!NOTE]
-> 您也可以使用 RStudio 來進行下列程序。 若要安裝 RStudio，請在終端機執行下列命令︰ `./Desktop/DSVM\ tools/installRStudio.sh`
->
->
 
 若要匯入資料並設定環境，請執行︰
 
@@ -193,6 +189,7 @@ ms.locfileid: "31798065"
 
 載入 **AzureML** 封裝，然後在 DSVM 的 R 工作階段中以您的權杖和工作區識別碼設定變數值：
 
+    if(!require("AzureML")) install.packages("AzureML")
     require(AzureML)
     wsAuth = "<authorization-token>"
     wsID = "<workspace-id>"
@@ -207,29 +204,28 @@ ms.locfileid: "31798065"
 
 我們需要會以功能做為輸入並傳回預測值的預測函數︰
 
-    predictSpam <- function(char_freq_dollar, word_freq_remove, word_freq_hp) {
-        predictDF <- predict(model.rpart, data.frame("char_freq_dollar" = char_freq_dollar,
-        "word_freq_remove" = word_freq_remove, "word_freq_hp" = word_freq_hp))
-        return(colnames(predictDF)[apply(predictDF, 1, which.max)])
+    predictSpam <- function(newdata) {
+      predictDF <- predict(model.rpart, newdata = newdata)
+      return(colnames(predictDF)[apply(predictDF, 1, which.max)])
     }
+
 
 使用 **publishWebService** 函數將 predictSpam 函數發佈至 AzureML︰
 
-    spamWebService <- publishWebService("predictSpam",
-        "spamWebService",
-        list("char_freq_dollar"="float", "word_freq_remove"="float","word_freq_hp"="float"),
-        list("spam"="int"),
-        wsID, wsAuth)
+    spamWebService <- publishWebService(ws, fun = predictSpam, name="spamWebService", inputSchema = smallTrainSet, data.frame=TRUE)
+
 
 此函數會採用 **predictSpam** 函數、建立名為 **spamWebService** 的 Web 服務以及定義的輸入和輸出，並傳回新端點的相關資訊。
 
-使用下列命令檢視已發佈之 Web 服務的詳細資料，包括其 API 端點和存取金鑰︰
+使用下列命令檢視最新發佈之 Web 服務的詳細資料，包括其 API 端點和存取金鑰︰
 
-    spamWebService[[2]]
+    s<-tail(services(ws, name = "spamWebService"), 1)
+    ep <- endpoints(ws,s)
+    ep
 
 若要對前 10 列測試集試用此服務︰
 
-    consumeDataframe(spamWebService$endpoints[[1]]$PrimaryKey, spamWebService$endpoints[[1]]$ApiLocation, smallTestSet[1:10, 1:3])
+    consume(ep, smallTestSet[1:10, ])
 
 
 ## <a name="use-other-tools-available"></a>使用其他可用工具
@@ -285,7 +281,7 @@ XGBoost 也可以從 Python 或命令列進行呼叫。
 
 若要顯示如何發佈 AzureML 端點，讓我們和先前發佈 R 模型時一樣，建立只有三個變數的簡化模型。
 
-    X = data.ix[["char_freq_dollar", "word_freq_remove", "word_freq_hp"]]
+    X = data[["char_freq_dollar", "word_freq_remove", "word_freq_hp"]]
     y = data.ix[:, 57]
     clf = svm.SVC()
     clf.fit(X, y)
@@ -497,7 +493,7 @@ DSVM 隨附安裝 PostgreSQL。 PostgreSQL 是複雜的開放原始碼關聯式�
 * 將其命名為*垃圾郵件資料庫*，然後選擇 [驅動程式] 下拉式清單中的 [PostgreSQL]。
 * 將 URL 設定為 *jdbc:postgresql://localhost/spam*。
 * 輸入您的*使用者名稱*和*密碼*。
-* 按一下 [SERVICEPRINCIPAL] 。
+* 按一下 [確定]。
 * 若要開啟 [連線] 視窗，請按兩下***垃圾郵件資料庫***別名。
 * 選取 [ **連接**]。
 

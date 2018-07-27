@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 37e1bd0b479e27f0d871495c0725fc865cbb8572
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bf23046b8a80b02bc1667f647cb1d475503a8feb
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632572"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125771"
 ---
 # <a name="reference---iot-hub-endpoints"></a>參考 - IoT 中樞端點
 
@@ -21,7 +21,7 @@ ms.locfileid: "34632572"
 
 ## <a name="iot-hub-names"></a>IoT 中樞名稱
 
-您可以在入口網站的 [概觀] 刀鋒視窗上，找到端點裝載所在的 IoT 中樞名稱。 根據預設，IoT 中樞的 DNS 名稱看起來像：`{your iot hub name}.azure-devices.net`。
+您可以在入口網站中，於 IoT 中樞的 [概觀] 頁面上找到端點裝載所在的 IoT 中樞主機名稱。 根據預設，IoT 中樞的 DNS 名稱看起來像：`{your iot hub name}.azure-devices.net`。
 
 您可以使用 Azure DNS 來建立 IoT 中樞的自訂 DNS 名稱。 如需詳細資訊，請參閱[使用 Azure DNS 為 Azure 服務提供自訂網域設定](../dns/dns-custom-domain.md)。
 

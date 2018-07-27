@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: 5f1d71db70bbaa6e569ad6f9a6f51bca4c5dc220
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 657e4b212b79fec40299e639c3818fd97a339579
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213119"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126723"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>在 Linux 建立第一個 Service Fabric 容器應用程式
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "36213119"
 
 在 Service Fabric 叢集上的 Linux 容器中執行現有的應用程式，無需變更您的應用程式。 本文會逐步引導您建立包含 Python [Flask](http://flask.pocoo.org/) Web 應用程式的 Docker 映像，並將它部署到 Service Fabric 叢集。 您也將透過 [Azure Container Registry](/azure/container-registry/) 共用容器化應用程式。 本文假設您對 Docker 有基本認識。 您可藉由閱讀 [Docker 概觀](https://docs.docker.com/engine/understanding-docker/)來了解 Docker。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * 執行下列項目的開發電腦︰
   * [Service Fabric SDK 和工具](service-fabric-get-started-linux.md)。
   * [Docker CE for Linux](https://docs.docker.com/engine/installation/#prior-releases). 
@@ -189,6 +189,39 @@ docker push myregistry.azurecr.io/samples/helloworldapp
     </Policies>
    </ServiceManifestImport>
 ``` 
+
+
+## <a name="configure-isolation-mode"></a>設定隔離模式
+使用 6.3 執行階段版本，可針對 Linux 容器支援 VM 隔離，因而可針對容器支援兩種格式模式：處理序和 HyperV。 使用 HyperV 隔離模式，在每個容器與容器主機之間隔離核心。 HyperV 隔離是使用 [Clear Containers](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker) \(英文\) 來實作的。 隔離模式是在應用程式資訊清單檔的 `ServicePackageContainerPolicy` 元素中針對 Linux 叢集所指定的。 可以指定的隔離模式有 `process`、`hyperv` 和 `default`。 預設值為處理序隔離模式。 下列程式碼片段顯示如何在應用程式資訊清單檔中指定隔離模式。
+
+```xml
+<ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="MyServicePkg" ServiceManifestVersion="1.0.0"/>
+      <Policies>
+        <ServicePackageContainerPolicy Hostname="votefront" Isolation="hyperv">
+          <PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
+        </ServicePackageContainerPolicy>
+    </Policies>
+  </ServiceManifestImport>
+```
+
+
+## <a name="configure-resource-governance"></a>設定資源控管
+[資源控管](service-fabric-resource-governance.md)可限制容器在主機上可使用的資源。 應用程式資訊清單中指定的 `ResourceGovernancePolicy` 元素是用於宣告服務程式碼封裝的資源限制。 下列資源可設定資源限制：記憶體、MemorySwap、CpuShares (CPU relative weight)、MemoryReservationInMB、BlkioWeight (BlockIO 相對權數)。 在此範例中，service package Guest1Pkg 會在其所在的叢集節點上獲得一個核心。 記憶體限制是絕對的，因此程式碼封裝會限制為 1024MB 的記憶體 (並具有同樣的彈性保證保留)。 程式碼套件 (容器或處理序) 無法配置超過此限制的記憶體，如果嘗試這麼做，將會導致發生記憶體不足的例外狀況。 若要讓資源限制強制能夠運作，應該為服務套件內的所有程式碼套件都指定記憶體限制。
+
+```xml
+<ServiceManifestImport>
+  <ServiceManifestRef ServiceManifestName="MyServicePKg" ServiceManifestVersion="1.0.0" />
+  <Policies>
+    <ServicePackageResourceGovernancePolicy CpuCores="1"/>
+    <ResourceGovernancePolicy CodePackageRef="Code" MemoryInMB="1024"  />
+  </Policies>
+</ServiceManifestImport>
+```
+
+
+
+
 ## <a name="configure-docker-healthcheck"></a>設定 Docker HEALTHCHECK 
 從 6.1 版開始，Service Fabric 會自動將 [Docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) 事件整合至其系統健康情況報告。 這表示，如果您的容器已啟用 **HEALTHCHECK**，每當 Docker 報告容器的健康情況狀態發生變更時，Service Fabric 就會報告健康情況。 如果 health_status 為「狀況良好」，則 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 中的健康情況報告會顯示 **OK (正常)**，如果 health_status 為「狀況不良」，則顯示 **WARNING (警告)**。 **HEALTHCHECK** 指令會指向針對監視容器健康情況而執行的實際檢查，該指令必須存在產生容器映像時使用的 Dockerfile 中。 
 

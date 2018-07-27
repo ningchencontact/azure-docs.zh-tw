@@ -8,12 +8,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: kgremban
-ms.openlocfilehash: 9e69faf1b07af0e60cfd21cd6eb9f00e211ab91e
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 4fbcfe4198f2655f77b1a61c86092e3ac727ab31
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031748"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115716"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>透過 IoT Edge 裝置閘道連線 Modbus TCP 裝置
 
@@ -25,7 +25,7 @@ ms.locfileid: "37031748"
 
 本文假設您使用 Modbus TCP 通訊協定。 如需如何設定此模組以支援 Modbus RTU 的詳細資訊，請參閱 Github 上的 [Azure IoT Edge Modbus 模組](https://github.com/Azure/iot-edge-modbus)專案。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * Azure IoT Edge 裝置。 如需有關如何設定 Azure IoT Edge 裝置的逐步解說，請參閱[在 Windows 中的模擬裝置上部署 Azure IoT Edge](quickstart.md) 或[在 Linux 中的模擬裝置上部署 Azure IoT Edge](quickstart-linux.md)。 
 * IoT Edge 裝置的主索引鍵連接字串。
 * 支援 Modbus TCP 的實體或模擬 Modbus 裝置。
@@ -35,7 +35,7 @@ ms.locfileid: "37031748"
 如果您想要測試 Modbus 閘道功能，Microsoft 有可供您使用的範例模組。 若要使用範例模組，請移至[執行解決方案](#run-the-solution)一節並輸入下列內容作為映像 URI： 
 
 ```URL
-microsoft/azureiotedge-modbus-tcp:1.0-preview
+microsoft/azureiotedge-modbus-tcp:GA-preview-amd64
 ```
 
 如果您想要建立自己的模組並針對您的環境進行自訂，Github 上有開放原始碼 [Azure IoT Edge Modbus 模組](https://github.com/Azure/iot-edge-modbus)專案。 請遵循該專案中的方針，建立您自己的容器映像。 如果您建立自己的容器映像，請參閱[開發和部署 C# IoT Edge 模組](tutorial-csharp-module.md)，以取得將容器映像發佈至登錄，以及將自訂模組部署到裝置的指示。 
@@ -48,7 +48,7 @@ microsoft/azureiotedge-modbus-tcp:1.0-preview
 4. 新增 Modbus 模組：
    1. 按一下 [新增]，然後選取 [IoT Edge 模組]。
    2. 在 [名稱] 欄位中，輸入 "modbus"。
-   3. 在 [映像] 欄位中，輸入範例容器的映像 URI：`microsoft/azureiotedge-modbus-tcp:1.0-preview`。
+   3. 在 [映像] 欄位中，輸入範例容器的映像 URI：`microsoft/azureiotedge-modbus-tcp:GA-preview-amd64`。
    4. 核取 [啟用] 方塊以更新模組對應項所需的屬性。
    5. 將下列 JSON 複製到文字方塊中。 將 [SlaveConnection] 的值變更為 Modbus 裝置的 IPv4 位址。
 
@@ -96,7 +96,7 @@ microsoft/azureiotedge-modbus-tcp:1.0-preview
 docker logs -f modbus
 ```
 
-您也可以使用 [IoT 中樞總管工具](https://github.com/azure/iothub-explorer)，檢視裝置正在傳送的遙測資料。 
+您也可以使用 [IoT 中樞總管工具](https://github.com/azure/iothub-explorer)或[適用於 Visual Studio Code 的 Azure IoT 工具組擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)，來檢視裝置所傳送的遙測資料。 
 
 ## <a name="next-steps"></a>後續步驟
 

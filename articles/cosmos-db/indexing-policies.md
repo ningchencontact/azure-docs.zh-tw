@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 240c0e1f39833e4dc4c4ad410f50ff03df0b5734
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: ae2c6b6a53c6a195bbc79a5776161aab07e42f3d
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072158"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215259"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB 如何為資料編製索引？
 
@@ -374,7 +374,7 @@ Azure Cosmos DB 針對每個路徑也支援空間索引類型 (可針對 Point�
 **卸除集合的索引**
 
     // Switch to Lazy indexing mode.
-    Console.WriteLine("Dropping index by changing to to the None IndexingMode.");
+    Console.WriteLine("Dropping index by changing to the None IndexingMode.");
 
     collection.IndexingPolicy.IndexingMode = IndexingMode.None;
 

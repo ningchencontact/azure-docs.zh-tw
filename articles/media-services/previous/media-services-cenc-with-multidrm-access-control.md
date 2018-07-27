@@ -1,29 +1,29 @@
 ---
-title: 具有多重 DRM 及存取控制的 CENC：Azure 與 Azure 媒體服務的參考設計和實作 | Microsoft Docs
+title: 使用 Azure 媒體服務設計具有存取控制的內容保護系統 | Microsoft Docs
 description: 了解如何授權 Microsoft Smooth Streaming Client Porting Kit。
 services: media-services
 documentationcenter: ''
 author: willzhan
 manager: cfowler
 editor: ''
-ms.assetid: 7814739b-cea9-4b9b-8370-538702e5c615
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 07/15/2018
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: 8f072f13909190eee194565673ccfa1f381f7503
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e606ff09c3b3a867170b783e69879d609b69c11d
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783937"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39075155"
 ---
-# <a name="cenc-with-multi-drm-and-access-control-a-reference-design-and-implementation-on-azure-and-azure-media-services"></a>具有多重 DRM 及存取控制的 CENC：Azure 與 Azure 媒體服務的參考設計和實作
- 
-## <a name="introduction"></a>簡介
+# <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>使用 Azure 媒體服務設計具有存取控制的內容保護系統
+
+## <a name="overview"></a>概觀
+
 設計及建置適用於 Over-The-Pop (OTT) 或線上串流解決方案的數位版權管理 (DRM) 子系統是一項複雜的工作。 操作員/線上視訊提供者通常會將這個工作外包給專門的 DRM 服務提供者。 這份文件的目標是呈現 OTT 或線上串流解決方案中端對端 DRM 子系統的參考設計和實作。
 
 這份文件的目標讀者是使用 OTT 或線上串流/多重螢幕解決方案的 DRM 子系統工程師，或是對於 DRM 子系統有興趣的任何讀者。 假設讀者都熟悉市場上至少一個 DRM 技術，例如 PlayReady、Widevine、FairPlay 或 Adobe Access。
@@ -41,7 +41,8 @@ Microsoft 儼然成為 DASH 和 CENC 與其他一些主要業界播放器的積�
 *  [宣布在 Azure 媒體服務中推出 Google Widevine 授權傳遞服務](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
 * [Azure 媒體服務新增 Google Widevine 封裝來傳送多重 DRM 串流](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)  
 
-### <a name="overview-of-this-article"></a>本文概觀：
+### <a name="goals-of-the-article"></a>本文的目標
+
 本文宗旨如下：
 
 * 提供使用 CENC 搭配多重 DRM 的 DRM 子系統之參考設計。
@@ -62,7 +63,6 @@ Microsoft 儼然成為 DASH 和 CENC 與其他一些主要業界播放器的積�
 | **Windows 10 裝置 (Windows 電腦、Windows 平板電腦、Windows Phone、Xbox)** |PlayReady |MS Edge/IE11/EME<br/><br/><br/>通用 Windows 平台 |DASH (適用於 HLS，並不支援 PlayReady)<br/><br/>DASH、Smooth Streaming (適用於 HLS，並不支援 PlayReady) |
 | **Android 裝置 (電話、平板電腦、電視)** |Widevine |Chrome/EME |DASH、HLS |
 | **iOS (iPhone、iPad)、OS X 用戶端和 Apple 電視** |FairPlay |Safari 8+/EME |HLS |
-
 
 考量目前每種 DRM 的部署狀態，服務通常需要實作 2 或 3 個 DRM，以確保您能以最佳方式來處理所有類型的端點。
 
@@ -215,8 +215,9 @@ DRM 子系統可能包含下列元件：
     | **DRM** | **[瀏覽器]** | **有權限使用者的結果** | **無權限使用者的結果** |
     | --- | --- | --- | --- |
     | **PlayReady** |Windows 10 的 Microsoft Edge 或 Internet Explorer 11 |成功 |不合格 |
-    | **Widevine** |Windows 10 上的 Chrome |成功 |不合格 |
-    | **FairPlay** |TBD | | |
+    | **Widevine** |Chrome、Firefox、Opera |成功 |不合格 |
+    | **FairPlay** |macOS 上的 Safari      |成功 |不合格 |
+    | **AES-128** |大部分的新式瀏覽器  |成功 |不合格 |
 
 如需如何針對 ASP.NET MVC 播放器應用程式設定 Azure AD 的相關資訊，請參閱[整合 Azure 媒體服務 OWIN MVC 型應用程式與 Azure Active Directory 並根據 JWT 宣告限制內容金鑰傳遞](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)。
 
@@ -225,7 +226,7 @@ DRM 子系統可能包含下列元件：
 如需 Azure AD 的資訊：
 
 * 您可以在 [Azure Active Directory 開發人員指南](../../active-directory/active-directory-developers-guide.md)中找到開發人員的資訊。
-* 您可以在 [管理 Azure AD 租用戶目錄](../../active-directory/active-directory-administer.md)中找到系統管理員的資訊。
+* 您可以在 [管理 Azure AD 租用戶目錄](../../active-directory/fundamentals/active-directory-administer.md)中找到系統管理員的資訊。
 
 ### <a name="some-issues-in-implementation"></a>實作中的一些問題
 使用下列疑難排解資訊來取得實作問題的說明。

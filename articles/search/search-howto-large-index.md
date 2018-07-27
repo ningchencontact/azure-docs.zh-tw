@@ -8,14 +8,14 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: cb99096c1217fca1527b17946dc12390ddf3f62c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0dd7a5d5159144c6b1a050ff4c0443b181976738
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659163"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39124949"
 ---
-# <a name="how-to-scale-out-indexing-in-azure-seearch"></a>如何在 Azure 搜尋服務中相應放大索引
+# <a name="how-to-scale-out-indexing-in-azure-search"></a>如何在 Azure 搜尋服務中相應放大索引
 
 隨著資料磁碟區的成長或處理需求的變更，您可能會發現簡單的[重建和重新編製索引作業](search-howto-reindex.md)已不敷需求。 
 

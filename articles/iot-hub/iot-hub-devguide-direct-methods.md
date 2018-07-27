@@ -6,14 +6,14 @@ manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 06/01/2018
+ms.date: 07/17/2018
 ms.author: nberdy
-ms.openlocfilehash: da9672c7a924411136928d8d04e54c2c62a014b9
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 881262816fc8bd634b7f577fd05aa0c8c062e4ca
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736672"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126519"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>了解 IoT 中樞的直接方法並從中樞叫用直接方法
 「IoT 中樞」能讓您從雲端在裝置上叫用直接方法。 直接方法代表與裝置的要求-回覆互動，類似於 HTTP 呼叫，因為會立即成功或失敗 (在使用者指定的逾時之後)。 針對立即動作的進展取決於裝置是否能夠回應的案例，此方法會相當有用。
@@ -46,7 +46,12 @@ IoT 中樞上具有**服務連線**權限的任何人都可以叫用裝置上的
 ### <a name="method-invocation"></a>方法引動過程
 裝置上的直接方法引動過程是 HTTPS 呼叫，由下列各項組成︰
 
-* 裝置特定的 *URI* (`{iot hub}/twins/{device id}/methods/`)
+* 特定裝置的*要求 URI* 與 [API 版本](/rest/api/iothub/service/invokedevicemethod)：
+
+    ```http
+    https://fully-qualified-iothubname.azure-devices.net/twins/{deviceId}/methods?api-version=2018-06-30
+    ```
+
 * POST *方法*
 * *標頭* - 包含授權、要求識別碼、內容類型及內容編碼
 * 透明 JSON *本文*格式如下︰
@@ -63,6 +68,25 @@ IoT 中樞上具有**服務連線**權限的任何人都可以叫用裝置上的
     ```
 
 逾時 (秒)。 如果未設定逾時，它會預設為 30 秒。
+
+#### <a name="example"></a>範例
+
+請參閱以下使用 `curl` 的簡易範例。 
+
+```bash
+curl -X POST \
+  https://iothubname.azure-devices.net/twins/myfirstdevice/methods?api-version=2018-06-30 \
+  -H 'Authorization: SharedAccessSignature sr=iothubname.azure-devices.net&sig=x&se=x&skn=iothubowner' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "methodName": "reboot",
+    "responseTimeoutInSeconds": 200,
+    "payload": {
+        "input1": "someInput",
+        "input2": "anotherInput"
+    }
+}'
+```
 
 ### <a name="response"></a>Response
 後端應用程式會收到一個由下列各項組成的回應︰

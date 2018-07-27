@@ -169,7 +169,9 @@
 - name: 參考
   items:
     - name: REST API
-      href: 'https://msdn.microsoft.com/library/mt704034(Azure.100).aspx'
+      href: 'https://docs.microsoft.com/rest/api/securitycenter/'
+    - name: 服務更新
+      href: 'https://azure.microsoft.com/updates/?product=security-center'
 - name: 資源
   items:
     - name: 管理使用者資料

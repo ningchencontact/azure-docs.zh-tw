@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: a09cc42763787890a4dabf17b1a1a87e7427ba37
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 912bb0dd3e48e53134ad848119ae7428b380b88d
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808531"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39124931"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>從內建端點讀取裝置對雲端訊息
 
@@ -63,16 +63,16 @@ IoT 中樞 SDK 需要 IoT 中樞端點名稱，也就是 [端點] 下顯示的 *
 
 ## <a name="next-steps"></a>後續步驟
 
-如需有關 IoT 中樞端點的詳細資訊，請參閱 [IoT 中樞端點][lnk-endpoints]。
+如需 IoT 中樞端點的詳細資訊，請參閱 [IoT 中樞端點][lnk-endpoints]。
 
-[開始使用][lnk-get-started]教學課程會示範如何從模擬裝置傳送裝置到雲端訊息和從內建端點讀取訊息。 如需詳細資訊，請參閱[使用路由處理 IoT 中樞裝置到雲端訊息][lnk-d2c-tutorial]教學課程。
+[快速入門][lnk-get-started]示範如何從模擬裝置傳送裝置到雲端訊息和從內建端點讀取訊息。 如需詳細資訊，請參閱[使用路由處理 IoT 中樞的裝置到雲端訊息][lnk-d2c-tutorial]教學課程。
 
 如果您想要將裝置到雲端訊息路由至自訂端點，請參閱[針對裝置到雲端訊息使用訊息路由和自訂端點][lnk-custom]。
 
 [img-eventhubcompatible]: ./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png
 
 [lnk-custom]: iot-hub-devguide-messages-read-custom.md
-[lnk-get-started]: iot-hub-get-started.md
+[lnk-get-started]: quickstart-send-telemetry-node.md
 [lnk-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-event-hubs]: http://azure.microsoft.com/documentation/services/event-hubs/

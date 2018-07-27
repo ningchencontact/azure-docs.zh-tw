@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2018
 ms.author: juliako
-ms.openlocfilehash: 2f0996482c599a664d02e172dcb20cda4e039af5
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 1568ea3431f18b7a7a020d34d803f883904e18b4
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341659"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115225"
 ---
 # <a name="content-protection-overview"></a>內容保護概觀
 
@@ -45,8 +45,11 @@ ms.locfileid: "37341659"
   > [!NOTE]
   > 您可以使用多種加密類型 (AES-128、PlayReady、Widevine、FairPlay) 來加密每個資產。 請參閱[串流通訊協定和加密類型](#streaming-protocols-and-encryption-types)，以查看哪些組合可行。
   
-  下列文章說明使用 AES 加密內容的步驟：[利用 AES 加密保護](protect-with-aes128.md)
- 
+  下列文章說明使用 AES 和 (或) DRM 加密內容的步驟： 
+  
+  * [使用 AES 加密保護](protect-with-aes128.md)
+  * [使用 DRM 保護](protect-with-drm.md)
+
 2. 使用 AES 或 DRM 用戶端的播放器。 以播放器 SDK (原生或以瀏覽器為基礎) 為基礎的影片播放器應用程式必須符合下列需求：
   * 播放器 SDK 支援所需的 DRM 用戶端
   * 播放器 SDK 支援所需的串流通訊協定：Smooth、DASH 和/或 HLS
@@ -54,9 +57,9 @@ ms.locfileid: "37341659"
   
     您可以使用 [Azure 媒體播放器 API](http://amp.azure.net/libs/amp/latest/docs/) 來建立播放器。 使用 [Azure 媒體播放器的 ProtectionInfo API](http://amp.azure.net/libs/amp/latest/docs/) 來指定要在不同的 DRM 平台上使用哪個 DRM 技術。
 
-    若要測試 AES 或 CENC (Widevine + PlayReady) 加密的內容，您可以使用 [Azure 媒體播放器](https://ampdemo.azureedge.net/azuremediaplayer.html)。 請確認您按下 [進階選項] 並檢查 AES 及提供權杖。
+    若要測試 AES 或 CENC (Widevine 和/或 PlayReady) 加密的內容，您可以使用 [Azure 媒體播放器](https://ampdemo.azureedge.net/azuremediaplayer.html) \(英文\)。 務必按一下 [進階選項] 並檢查您的加密選項。
 
-    如果您想要測試 FairPlay 加密內容，請使用[此測試播放程式](http://aka.ms/amtest)。 該播放程式支援 Widevine、PlayReady 及 FairPlay DRM，以及 AES-128 清除金鑰加密。 您必須選擇正確的瀏覽器以測試不同的 DRM：Chrome/Opera/Firefox for Widevine、MS Edge/IE11 for PlayReady、Safari on maOS for FairPlay。
+    如果您想要測試 FairPlay 加密內容，請使用[此測試播放程式](http://aka.ms/amtest)。 該播放程式支援 Widevine、PlayReady 及 FairPlay DRM，以及 AES-128 清除金鑰加密。 您必須選擇正確的瀏覽器以測試不同的 DRM：Chrome/Opera/Firefox 適用於 Widevine、MS Edge/IE11 適用於 PlayReady、macOS 上的 Safari 適用於 FairPlay。
 
 3. 安全性權杖服務 (STS) 會發出 JSON Web 權杖 (JWT) 作為後端資源存取的存取權杖。 您可以使用 AMS 授權傳遞服務作為後端資源。 STS 必須定義以下項目：
 
@@ -90,7 +93,7 @@ ms.locfileid: "37341659"
 
 在媒體服務 v3 中，內容金鑰會與 StreamingLocator 相關聯 (請參閱[本例](protect-with-aes128.md))。 如果使用媒體服務金鑰傳遞服務，您應自動產生內容金鑰。 如果您使用自己的金鑰傳遞服務，或需要處理高可用性案例，其中需要在兩個資料中心具有相同的內容金鑰，則您應自行產生內容金鑰。
 
-播放程式要求串流時，媒體服務便會使用 AES 清除金鑰或 DRM 加密，使用指定的金鑰動態加密您的內容。 為了將串流解密，播放程式會向媒體服務金鑰傳遞服務或您指定的金鑰傳遞服務要求金鑰。 為了決定使用者是否有權取得金鑰，服務會評估為金鑰指定的授權原則。
+播放程式要求串流時，媒體服務便會使用 AES 清除金鑰或 DRM 加密，使用指定的金鑰動態加密您的內容。 為了將串流解密，播放程式會向媒體服務金鑰傳遞服務或您指定的金鑰傳遞服務要求金鑰。 為了決定使用者是否有權取得金鑰，服務會評估您為金鑰指定的內容金鑰原則。
 
 ## <a name="aes-128-clear-key-vs-drm"></a>AES-128 未加密金鑰與DRM
 
@@ -122,22 +125,13 @@ ms.locfileid: "37341659"
 
 設定權杖限制的原則時，您必須指定主要驗證金鑰、簽發者和對象參數。 主要驗證金鑰包含簽署權杖用的金鑰。 簽發者為發行權杖的安全性權杖服務。 對象 (有時稱為「範圍」) 描述權杖或權杖獲授權存取之資源的用途。 媒體服務金鑰傳遞服務會驗證權杖中的這些值符合在範本中的值。
 
-## <a name="streaming-urls"></a>串流 URL
-
-如果使用一個以上 DRM 來加密您的資產，請使用串流 URL 中的加密標籤：(format='m3u8-aapl', encryption='xxx')。
-
-您必須考量下列事項：
-
-* 如果只有一個加密套用到資產，則無須在 URL 中指定加密類型。
-* 加密類型不區分大小寫。
-* 可以指定下列加密類型︰
-  * **cenc**︰適用於 PlayReady 或 Widevine (一般加密)
-  * **cbcs-aapl**：適用於 FairPlay (AES CBC 加密)
-  * **cbc**：適用於 AES 信封加密
 
 ## <a name="next-steps"></a>後續步驟
 
-[如何使用媒體服務 v3 中的 AES 加密進行保護](protect-with-aes128.md)
+請查看下列文章：
+
+  * [使用 AES 加密保護](protect-with-aes128.md)
+  * [使用 DRM 保護](protect-with-drm.md)
 
 您可在 [DRM 參考設計和實作](../previous/media-services-cenc-with-multidrm-access-control.md)中找到其他資訊
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 887611f1293e276070df51ac06df51a994161ec1
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 40b8f51c66ebe98cd1c312002b7bd5e96e5032bd
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112182"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112700"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Azure 中管理解決方案的資料收集詳細資料
 本文包含 Microsoft 所提供的[管理解決方案清單](monitoring-solutions.md)，以及其詳細文件的連結。  此外，還提供資料收集到 Log Analytics 中的方法和頻率相關資訊。  您可以使用本文中的資訊來識別不同的可用解決方案，以及了解不同管理解決方案的資料流程和連線需求。 
@@ -53,7 +53,7 @@ ms.locfileid: "37112182"
 | [自動化混合式背景工作角色](../automation/automation-hybrid-runbook-worker.md) | Windows | &#8226; | &#8226; |  |  |  | n/a |
 | [Azure 應用程式閘道分析](../log-analytics/log-analytics-azure-networking-analytics.md) | Azure |  |  |  |  |  | 與通知同時 |
 | **管理解決方案** | **平台** | **Microsoft Monitoring Agent** | **Operations Manager 代理程式** | **Azure 儲存體** | **是否需要 Operations Manager？** | **透過管理群組傳送的 Operations Manager 代理程式資料** | **收集頻率** |
-| [Azure 網路安全性群組分析](../log-analytics/log-analytics-azure-networking-analytics.md) | Azure |  |  |  |  |  | 與通知同時 |
+| [Azure 網路安全性群組分析 (已淘汰)](../log-analytics/log-analytics-azure-networking-analytics.md) | Azure |  |  |  |  |  | 與通知同時 |
 | [Azure SQL Analytics (預覽)](../log-analytics/log-analytics-azure-sql.md) | Windows | | | | | | 1 分鐘 |
 | [備份](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | 與通知同時 |
 | [容量與效能 (預覽)](../log-analytics/log-analytics-capacity.md) |Windows |&#8226; |&#8226; | | |&#8226; |與抵達同時 |
@@ -72,7 +72,7 @@ ms.locfileid: "37112182"
 | [System Center Operations Manager 評定 (預覽)](../log-analytics/log-analytics-scom-assessment.md) | Windows | &#8226; | &#8226; |  |  | &#8226; | 7 天 |
 | [更新管理](../operations-management-suite/oms-solution-update-management.md) | Windows |&#8226; |&#8226; | | |&#8226; |安裝更新之後 15 分鐘，至少一天 2 次 |
 | [升級整備程度](https://docs.microsoft.com/windows/deployment/upgrade/upgrade-readiness-get-started) | Windows | &#8226; |  |  |  |  | 2 天 |
-| [VMware 監控 (預覽)](../log-analytics/log-analytics-vmware.md) | Linux | &#8226; |  |  |  |  | 3 分鐘 |
+| [VMware 監控 (已淘汰)](../log-analytics/log-analytics-vmware.md) | Linux | &#8226; |  |  |  |  | 3 分鐘 |
 | [Wire Data 2.0 (預覽)](../log-analytics/log-analytics-wire-data.md) |Windows (2012 R2/8.1 或更新版本) |&#8226; |&#8226; | | | | 1 分鐘 |
 
 

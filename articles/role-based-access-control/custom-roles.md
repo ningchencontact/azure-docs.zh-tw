@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/12/2018
+ms.date: 07/17/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 446cb34f2de8d0de3ee52e23df6cd26644d31bba
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: d7554ef46289600cd15e4675a91f42a2cd735f18
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435965"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112656"
 ---
 # <a name="custom-roles-in-azure"></a>Azure 中的自訂角色
 
@@ -74,11 +74,11 @@ ms.locfileid: "37435965"
 1. 判斷您所需的權限
 
     在建立自訂角色時，您必須知道可用來定義權限的資源提供者作業。 若要檢視作業的清單，您可以使用 [Get-AzureRMProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) 或 [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list) 命令。
-    若要指定自訂角色的權限，您可以將作業增至[角色定義](role-definitions.md)的 `actions` 或 `notActions` 屬性。 如果您有資料作業，可以將它們新增至 `dataActions` 或 `notDataActions` 屬性。
+    若要指定自訂角色的權限，您可以將作業增至[角色定義](role-definitions.md)的 `Actions` 或 `NotActions` 屬性。 如果您有資料作業，可以將它們新增至 `DataActions` 或 `NotDataActions` 屬性。
 
 2. 建立自訂角色
 
-    您可以使用 Azure PowerShell 或 Azure CLI 來建立自訂角色。 一般而言，您可以從使用現有的內建角色開始，然後針對您的需求進行修改。 接著，您可以使用 [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) 或 [az role definition create](/cli/azure/role/definition#az-role-definition-create) 命令來建立自訂角色。 若要建立自訂角色，您必須擁有所有 `assignableScopes` 的 `Microsoft.Authorization/roleDefinitions/write` 權限，例如[擁有者](built-in-roles.md#owner)或[使用者存取系統管理員](built-in-roles.md#user-access-administrator)。
+    您可以使用 Azure PowerShell 或 Azure CLI 來建立自訂角色。 一般而言，您可以從使用現有的內建角色開始，然後針對您的需求進行修改。 接著，您可以使用 [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) 或 [az role definition create](/cli/azure/role/definition#az-role-definition-create) 命令來建立自訂角色。 若要建立自訂角色，您必須擁有所有 `AssignableScopes` 的 `Microsoft.Authorization/roleDefinitions/write` 權限，例如[擁有者](built-in-roles.md#owner)或[使用者存取系統管理員](built-in-roles.md#user-access-administrator)。
 
 3. 測試自訂角色
 
@@ -90,24 +90,24 @@ ms.locfileid: "37435965"
 
 | 屬性 | 必要 | 類型 | 說明 |
 | --- | --- | --- | --- |
-| `Name` | yes | 字串 | 自訂角色的顯示名稱。 對於您的租用戶而言必須是唯一的。 可以包含字母、數字、空格和特殊字元。 字元數目上限是 128。 |
-| `Id` | yes | 字串 | 自訂角色的唯一識別碼。 針對 Azure PowerShell 和 Azure CLI，當您建立新角色時，會自動產生這個識別碼。 |
-| `IsCustom` | yes | 字串 | 表示這是否為自訂角色。 若為自訂角色，請設定為 `true`。 |
-| `Description` | yes | 字串 | 自訂角色的描述。 可以包含字母、數字、空格和特殊字元。 字元數目上限是 1024。 |
-| `Actions` | yes | String[] | 字串陣列，指定角色允許執行的管理作業。 如需詳細資訊，請參閱 [actions](role-definitions.md#actions)。 |
-| `NotActions` | 否 | String[] | 字串陣列，指定從所允許 `actions` 中排除的管理作業。 如需詳細資訊，請參閱 [notActions](role-definitions.md#notactions)。 |
-| `DataActions` | 否 | String[] | 字串陣列，指定角色允許對物件內資料執行的管理作業。 如需詳細資訊，請參閱 [dataActions (預覽)](role-definitions.md#dataactions-preview)。 |
-| `NotDataActions` | 否 | String[] | 字串陣列，指定從所允許 `dataActions` 中排除的資料作業。 如需詳細資訊，請參閱 [notDataActions (預覽)](role-definitions.md#notdataactions-preview)。 |
-| `AssignableScopes` | yes | String[] | 字串陣列，指定自訂角色可用於指派的範圍。 不能設定為根目錄範圍 (`"/"`)。 如需詳細資訊，請參閱 [assignableScopes](role-definitions.md#assignablescopes)。 |
+| `Name` | 是 | 字串 | 自訂角色的顯示名稱。 對於您的租用戶而言必須是唯一的。 可以包含字母、數字、空格和特殊字元。 字元數目上限是 128。 |
+| `Id` | 是 | 字串 | 自訂角色的唯一識別碼。 針對 Azure PowerShell 和 Azure CLI，當您建立新角色時，會自動產生這個識別碼。 |
+| `IsCustom` | 是 | 字串 | 表示這是否為自訂角色。 若為自訂角色，請設定為 `true`。 |
+| `Description` | 是 | 字串 | 自訂角色的描述。 可以包含字母、數字、空格和特殊字元。 字元數目上限是 1024。 |
+| `Actions` | 是 | String[] | 字串陣列，指定角色允許執行的管理作業。 如需詳細資訊，請參閱 [Actions](role-definitions.md#actions)。 |
+| `NotActions` | 否 | String[] | 字串陣列，指定從所允許 `Actions` 中排除的管理作業。 如需詳細資訊，請參閱 [NotActions](role-definitions.md#notactions)。 |
+| `DataActions` | 否 | String[] | 字串陣列，指定角色允許對物件內資料執行的管理作業。 如需詳細資訊，請參閱 [DataActions (預覽)](role-definitions.md#dataactions-preview)。 |
+| `NotDataActions` | 否 | String[] | 字串陣列，指定從所允許 `DataActions` 中排除的資料作業。 如需詳細資訊，請參閱 [NotDataActions (預覽)](role-definitions.md#notdataactions-preview)。 |
+| `AssignableScopes` | 是 | String[] | 字串陣列，指定自訂角色可用於指派的範圍。 不能設定為根目錄範圍 (`"/"`)。 如需詳細資訊，請參閱 [AssignableScopes](role-definitions.md#assignablescopes)。 |
 
-## <a name="assignablescopes-for-custom-roles"></a>自訂角色的 assignableScopes
+## <a name="assignablescopes-for-custom-roles"></a>自訂角色的 AssignableScopes
 
-就像內建角色一樣，`assignableScopes` 屬性會指定角色可用於指派的範圍。 不過，您無法在自己的自訂角色中使用根目錄範圍 (`"/"`)。 如果您嘗試，則會收到授權錯誤。 自訂角色的 `assignableScopes` 屬性也會控制誰可以建立、刪除、修改或檢視自訂角色。
+就像內建角色一樣，`AssignableScopes` 屬性會指定角色可用於指派的範圍。 不過，您無法在自己的自訂角色中使用根目錄範圍 (`"/"`)。 如果您嘗試，則會收到授權錯誤。 自訂角色的 `AssignableScopes` 屬性也會控制誰可以建立、刪除、修改或檢視自訂角色。
 
 | Task | 作業 | 說明 |
 | --- | --- | --- |
-| 建立/刪除自訂角色 | `Microsoft.Authorization/ roleDefinition/write` | 獲得授權可對自訂角色的所有 `assignableScopes` 執行此作業的使用者，可以建立 (或刪除) 用於這些範圍的自訂角色。 例如，訂用帳戶、資源群組和資源的[擁有者](built-in-roles.md#owner)和[使用者存取系統管理員](built-in-roles.md#user-access-administrator)。 |
-| 修改自訂角色 | `Microsoft.Authorization/ roleDefinition/write` | 獲得授權可對自訂角色的所有 `assignableScopes` 執行此作業的使用者，可以在這些範圍中修改自訂角色。 例如，訂用帳戶、資源群組和資源的[擁有者](built-in-roles.md#owner)和[使用者存取系統管理員](built-in-roles.md#user-access-administrator)。 |
+| 建立/刪除自訂角色 | `Microsoft.Authorization/ roleDefinition/write` | 獲得授權可對自訂角色的所有 `AssignableScopes` 執行此作業的使用者，可以建立 (或刪除) 用於這些範圍的自訂角色。 例如，訂用帳戶、資源群組和資源的[擁有者](built-in-roles.md#owner)和[使用者存取系統管理員](built-in-roles.md#user-access-administrator)。 |
+| 修改自訂角色 | `Microsoft.Authorization/ roleDefinition/write` | 獲得授權可對自訂角色的所有 `AssignableScopes` 執行此作業的使用者，可以在這些範圍中修改自訂角色。 例如，訂用帳戶、資源群組和資源的[擁有者](built-in-roles.md#owner)和[使用者存取系統管理員](built-in-roles.md#user-access-administrator)。 |
 | 檢視自訂角色 | `Microsoft.Authorization/ roleDefinition/read` | 獲得授權可在範圍中執行此作業的使用者，可以檢視可指派給該範圍的自訂角色。 所有內建角色都允許指派自訂角色。 |
 
 ## <a name="next-steps"></a>後續步驟

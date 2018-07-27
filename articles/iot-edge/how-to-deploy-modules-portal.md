@@ -58,7 +58,7 @@ Azure 入口網站有一個精靈，可以引導您建立部署資訊清單，�
 
 ### <a name="specify-routes"></a>指定路由
 
-根據預設，精靈會提供您名為 **route** 的路由，並且定義為 FROM /\* INTO $upstream**，這表示任何模組的任何訊息輸出都會傳送到 IoT 中樞。  
+根據預設，精靈會提供您名為 **route** 的路由，並且定義為 **FROM /\* INTO $upstream**，這表示任何模組的任何訊息輸出都會傳送到 IoT 中樞。  
 
 請使用[宣告路由](module-composition.md#declare-routes)中的資訊來新增或更新路由，然後選取 [下一步] 繼續前往檢閱區段。
 

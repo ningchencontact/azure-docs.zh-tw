@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 5/14/2018
+ms.date: 7/13/2018
 ms.author: pkc
-ms.openlocfilehash: 7a00b72f0b8d52ae0ced5f44784c2a61d40c8ac2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 596e71be75453874492aac15d91cb6153c2076f5
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208952"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112885"
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric 支援選項
 
@@ -79,7 +79,8 @@ ms.locfileid: "34208952"
 | 5.7.* | 5.4.164.* |小於或等於 2.7 版 |2017 年 12 月 15 日  |
 | 6.0.* | 5.6.205.* |小於或等於 2.8 版 |2018 年 3 月 30 日     | 
 | 6.1.* | 5.7.221.* |小於或等於 3.0 版 |2018 年 7 月 15 日      |
-| 6.2.* | 6.0.232.* |小於或等於 3.1 版 |目前版本，沒有結束日期 |
+| 6.2.* | 6.0.232.* |小於或等於 3.1 版 |2018 年 9 月 15 日 |
+| 6.3.* | 6.1.480.* |小於或等於 3.2 版 |目前版本，沒有結束日期 |
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Service Fabric 預覽版本 - 不支援用於生產環境。
 有時候，我們會以預覽形式發行包含我們想得到意見反應之重要功能的版本。 這些預覽版本只能用於測試目的。 您的生產叢集應一律執行支援的穩定 Service Fabric 版本。 預覽版本一律從 255 作為主要和次要版本號碼的開頭。 例如，如果您看到 Service Fabric 版本 255.255.5703.949，該發行版本只能使用於測試叢集並處於預覽狀態。 這些預覽版本也會在 [Service Fabric 小組部落格](https://blogs.msdn.microsoft.com/azureservicefabric)上宣告，並且有內含功能的詳細資料。

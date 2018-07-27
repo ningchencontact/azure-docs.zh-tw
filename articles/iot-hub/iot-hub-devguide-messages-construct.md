@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 1d84fa5ca580a1e56ba9ce17dece9ad9680c74c6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a1296565384e60117d883a1f1407362482ba1a3e
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34633922"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125008"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>建立及讀取 IoT 中樞訊息
 
@@ -65,11 +65,11 @@ IoT 中樞會以不限通訊協定的方式 (只考慮實際的承載) 測量郵
 
 如需 IoT 中樞訊息大小限制的資訊，請參閱 [IoT 中樞配額和節流][lnk-quotas]。
 
-若要了解如何以各種程式設計語言建立及讀取 IoT 中樞訊息，請參閱[快速入門][lnk-get-started]教學課程。
+若要了解如何以各種程式設計語言建立及讀取 IoT 中樞訊息，請參閱[快速入門][lnk-get-started]。
 
 [lnk-messaging]: iot-hub-devguide-messaging.md
 [lnk-quotas]: iot-hub-devguide-quotas-throttling.md
-[lnk-get-started]: iot-hub-get-started.md
+[lnk-get-started]: quickstart-send-telemetry-node.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-c2d]: iot-hub-devguide-messages-c2d.md
 [lnk-d2c]: iot-hub-devguide-messages-d2c.md

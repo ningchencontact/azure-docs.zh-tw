@@ -1,6 +1,6 @@
 ---
 title: Azure 事件中樞適用的虛擬網路服務端點和規則 | Microsoft Docs
-description: 新增 Microsoft.ServiceBus 服務端點至虛擬網路。
+description: 新增 Microsoft.EventHub 服務端點至虛擬網路。
 services: event-hubs
 documentationcenter: ''
 author: clemensv
@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: clemensv
-ms.openlocfilehash: a23e5414cd3c60192badfee65b14c49cd5e96f4e
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 3746c4b7d1b53d7522f317fd2e349d31ba77f406
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034506"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136333"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>將虛擬網路服務端點搭配 Azure 事件中樞使用
 
@@ -37,7 +37,7 @@ ms.locfileid: "37034506"
 
 *虛擬網路規則*是防火牆安全性功能，可控制 Azure 事件中樞伺服器是否接受來自特定虛擬網路子網路的連線。
 
-將事件中樞命名空間繫結至虛擬網路是一個雙步驟程序。 您必須先在虛擬網路子網路上建立**虛擬網路服務端點**，然後為「Microsoft.ServiceBus」啟用該端點，如[服務端點概觀][vnet-sep]所述。 一旦您新增服務端點，便會使用*虛擬網路規則*將事件中樞命名空間與其繫結。
+將事件中樞命名空間繫結至虛擬網路是一個雙步驟程序。 您必須先在虛擬網路子網路上建立**虛擬網路服務端點**，然後為 "Microsoft.EventHub" 啟用該端點，如[服務端點概觀][vnet-sep]所述。 一旦您新增服務端點，便會使用*虛擬網路規則*將事件中樞命名空間與其繫結。
 
 虛擬網路規則是事件中樞命名空間與虛擬網路子網路的具名關聯。 此規則存在時，繫結至該子網路的所有工作負載都會獲得事件中樞命名空間的存取權。 事件中樞本身永遠不會建立輸出連線，不需要獲得存取權，因此永遠不會因為啟用這項規則而獲得您子網路的存取權。
 

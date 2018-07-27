@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: juliako
-ms.openlocfilehash: e3af5efd253458401c13f6174d9567f932482eb0
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: e54aff6e42d19755d274393d4221578cf5595cc5
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133237"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112785"
 ---
-# <a name="widevine-license-template-overview"></a>Widevine 授權範本概觀
+# <a name="widevine-license-template-overview"></a>Widevine 授權範本概觀 
 
-您可以使用 Azure 媒體服務來設定和要求 Google Widevine 授權。 播放程式嘗試播放 Widevine 保護的內容時，會將要求傳送到授權傳遞服務來取得授權。 如果授權服務核准要求，服務就會發出授權。 授權會傳送至用戶端，並用來解密及播放指定內容。
+Azure 媒體服務可讓您使用 **Google Widevine** 來加密您的內容。 媒體服務也提供傳遞 Widevine 授權的服務。 您可以使用 Azure 媒體服務 API 來設定 Widevine 授權。 當播放程式嘗試播放以 Widevine 保護的內容時，會將要求傳送到授權傳遞服務來取得授權。 如果授權服務核准要求，服務就會發出授權。 授權會傳送至用戶端，並用來解密及播放指定內容。
 
 Widevine 授權要求會格式化為 JSON 訊息。  
 
@@ -114,88 +114,95 @@ Widevine 授權要求會格式化為 JSON 訊息。
 
 若要設定範本，您可以：
 
-1.  直接建構/硬式編碼 JSON 字串 (這可能較容易出錯)；
+### <a name="directly-construct-a-json-string"></a>直接建構 JSON 字串
+
+這個方法可能容易發生錯誤。 建議使用其他方法，如[定義所需的類別並序列化為 JSON](#classes) 中所述。
 
     ```csharp
-        ContentKeyPolicyWidevineConfiguration objContentKeyPolicyWidevineConfiguration = new ContentKeyPolicyWidevineConfiguration
+    ContentKeyPolicyWidevineConfiguration objContentKeyPolicyWidevineConfiguration = new ContentKeyPolicyWidevineConfiguration
     {
         WidevineTemplate = @"{""allowed_track_types"":""SD_HD"",""content_key_specs"":[{""track_type"":""SD"",""security_level"":1,""required_output_protection"":{""hdcp"":""HDCP_V2""}}],""policy_overrides"":{""can_play"":true,""can_persist"":true,""can_renew"":false}}"
     };
     ```
 
-2.  使用對應至這些 JSON 屬性的內容來建構所需類別，並在將其序列化為 JSON 字串前進行具現化。 以下是這種類別的範例，其中包含如何將其具現化與序列化。
+### <a id="classes"></a> 定義所需的類別並序列化為 JSON
+
+#### <a name="define-classes"></a>定義類別
+
+下列範例示範對應至 Widevine JSON 結構描述的類別定義範例。 您可以將類別具現化，然後再將它們序列化為 JSON 字串。  
 
     ```csharp
-    public class policy_overrides
+    public class PolicyOverrides
     {
-        public bool can_play { get; set; }
-        public bool can_persist { get; set; }
-        public bool can_renew { get; set; }
-        public int rental_duration_seconds { get; set; }    //Indicates the time window while playback is permitted. A value of 0 indicates that there is no limit to the duration. Default is 0.
-        public int playback_duration_seconds { get; set; }  //The viewing window of time after playback starts within the license duration. A value of 0 indicates that there is no limit to the duration. Default is 0.
-        public int license_duration_seconds { get; set; }   //Indicates the time window for this specific license. A value of 0 indicates that there is no limit to the duration. Default is 0.
+        public bool CanPlay { get; set; }
+        public bool CanPersist { get; set; }
+        public bool CanRenew { get; set; }
+        public int RentalDurationSeconds { get; set; }    //Indicates the time window while playback is permitted. A value of 0 indicates that there is no limit to the duration. Default is 0.
+        public int PlaybackDurationSeconds { get; set; }  //The viewing window of time after playback starts within the license duration. A value of 0 indicates that there is no limit to the duration. Default is 0.
+        public int LicenseDurationSeconds { get; set; }   //Indicates the time window for this specific license. A value of 0 indicates that there is no limit to the duration. Default is 0.
     }
 
-    public class content_key_spec
+    public class ContentKeySpec
     {
-        public string track_type { get; set; }
-        public int security_level { get; set; }
-        public output_protection required_output_protection { get; set; }
+        public string TrackType { get; set; }
+        public int SecurityLevel { get; set; }
+        public OutputProtection RequiredOutputProtection { get; set; }
     }
 
-    public class output_protection
+    public class OutputProtection
     {
-        public string hdcp { get; set; }
+        public string HDCP { get; set; }
     }
 
-    public class widevine_template
+    public class WidevineTemplate
     {
-        public string allowed_track_types { get; set; }
-        public content_key_spec[] content_key_specs { get; set; }
-        public policy_overrides policy_overrides { get; set; }
+        public string AllowedTrackTypes { get; set; }
+        public ContentKeySpec[] ContentKeySpecs { get; set; }
+        public PolicyOverrides PolicyOverrides { get; set; }
     }
     ```
 
-### <a name="configure-the-license"></a>設定授權
+#### <a name="configure-the-license"></a>設定授權
 
 使用上一節中所定義的類別，建立用來設定 [WidevineTemplate](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.contentkeypolicywidevineconfiguration.widevinetemplate?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_ContentKeyPolicyWidevineConfiguration_WidevineTemplate) 的 JSON：
 
 ```csharp
-void ConfigureLicense()
+private static ContentKeyPolicyWidevineConfiguration ConfigureWidevineLicenseTempate()
 {
-    widevine_template objwidevine_template = new widevine_template()
+    WidevineTemplate template = new WidevineTemplate()
     {
-        allowed_track_types = "SD_HD",
-        content_key_specs = new content_key_spec[]
+        AllowedTrackTypes = "SD_HD",
+        ContentKeySpecs = new ContentKeySpec[]
         {
-            new content_key_spec()
+            new ContentKeySpec()
             {
-                track_type = "SD",
-                security_level = 1,
-                required_output_protection = new output_protection()
+                TrackType = "SD",
+                SecurityLevel = 1,
+                RequiredOutputProtection = new OutputProtection()
                 {
-                hdcp = "HDCP_V2"
+                    HDCP = "HDCP_V2"
                 }
             }
         },
-        policy_overrides = new policy_overrides()
+        PolicyOverrides = new PolicyOverrides()
         {
-            can_play = true,
-            can_persist = true,
-            can_renew = false,
-            license_duration_seconds = 2592000,
-            playback_duration_seconds = 10800,
-            rental_duration_seconds = 604800,
+            CanPlay = true,
+            CanPersist = true,
+            CanRenew = false,
+            RentalDurationSeconds = 2592000,
+            PlaybackDurationSeconds = 10800,
+            LicenseDurationSeconds = 604800,
         }
     };
 
     ContentKeyPolicyWidevineConfiguration objContentKeyPolicyWidevineConfiguration = new ContentKeyPolicyWidevineConfiguration
     {
-        WidevineTemplate = Newtonsoft.Json.JsonConvert.SerializeObject(objwidevine_template)
+        WidevineTemplate = Newtonsoft.Json.JsonConvert.SerializeObject(template)
     };
+    return objContentKeyPolicyWidevineConfiguration;
 }
 ```
 
 ## <a name="next-steps"></a>後續步驟
 
-[概觀](content-protection-overview.md)
+查看如何[使用 DRM 保護](protect-with-drm.md)

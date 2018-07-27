@@ -1,6 +1,6 @@
 ---
 title: Azure 中的內建角色 | Microsoft Docs
-description: 描述 Azure 角色型存取控制 (RBAC) 的內建角色。 列出 notActions、dataActions 和 notDataActions 動作。
+description: 描述 Azure 角色型存取控制 (RBAC) 的內建角色。 列出 Actions、NotActions、DataActions 和 NotDataActions。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 06/28/2018
+ms.date: 07/17/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: c5624de13d5d31320beb85aff67c61addaffcbea
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 42a11607c46f77840b14973dd5b7faf4b1734fdc
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437921"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136837"
 ---
 # <a name="built-in-roles-in-azure"></a>Azure 中的內建角色
 [角色型存取控制 (RBAC)](overview.md) 具有數個內建角色定義，可供您指派給使用者、群組和服務主體。 角色指派是您控制 Azure 資源存取權的方式。 如果內建的角色無法滿足您組織的特定需求，您可以建立自己的[自訂角色](custom-roles.md)。
@@ -28,7 +28,7 @@ ms.locfileid: "37437921"
 內建角色不斷發展。 若要取得最新角色定義，請使用 [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) 或 [az role definition list](/cli/azure/role/definition#az-role-definition-list)。
 
 ## <a name="built-in-role-descriptions"></a>內建角色描述
-下表提供內建角色的簡短描述。 按一下角色名稱，即可查看每個角色的 `actions`、`notActions`、`dataActions` 及 `notDataActions` 清單。
+下表提供內建角色的簡短描述。 按一下角色名稱，即可查看每個角色的 `Actions`、`NotActions`、`DataActions` 及 `NotDataActions` 清單。
 
 
 | 內建角色 | 說明 |
@@ -78,6 +78,8 @@ ms.locfileid: "37437921"
 | [邏輯應用程式運算子](#logic-app-operator) | 可讓您讀取、啟用及停用邏輯應用程式。 |
 | [受控身分識別參與者](#managed-identity-contributor) | 建立、讀取、更新及刪除使用者指派的身分識別 |
 | [受控身分識別操作員](#managed-identity-operator) | 讀取及指派使用者指派的身分識別 |
+| [管理群組參與者](#management-group-contributor) | 管理群組參與者角色 |
+| [管理群組讀者](#management-group-reader) | 管理群組讀者角色 |
 | [監視參與者](#monitoring-contributor) | 可以讀取所有監視資料並編輯監視設定。 請參閱[開始使用 Azure 監視器的角色、權限和安全性](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles)。 |
 | [監視讀取器](#monitoring-reader) | 可以讀取所有監視資料 (計量、記錄檔等等)。 請參閱[開始使用 Azure 監視器的角色、權限和安全性](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles)。 |
 | [網路參與者](#network-contributor) | 可讓您管理網路，但無法存取它們。 |
@@ -617,7 +619,7 @@ ms.locfileid: "37437921"
 > | Microsoft.ClassicNetwork/virtualNetworks/join/action | 加入虛擬網路。 |
 > | Microsoft.ClassicNetwork/virtualNetworks/read | 取得虛擬網路。 |
 > | Microsoft.ClassicStorage/storageAccounts/disks/read | 傳回儲存體帳戶磁碟。 |
-> | Microsoft.ClassicStorage/storageAccounts/images/read | 傳回儲存體帳戶映像。 |
+> | Microsoft.ClassicStorage/storageAccounts/images/read | 傳回儲存體帳戶映像。 (已被取代。 使用 'Microsoft.ClassicStorage/storageAccounts/vmImages') |
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | 列出儲存體帳戶的存取金鑰。 |
 > | Microsoft.ClassicStorage/storageAccounts/read | 傳回具有給定帳戶的儲存體帳戶。 |
 > | Microsoft.Insights/alertRules/* | 建立和管理 Insights 警示規則 |
@@ -826,6 +828,7 @@ ms.locfileid: "37437921"
 > | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
 > | Microsoft.LabServices/labAccounts/*/read |  |
 > | Microsoft.LabServices/labAccounts/createLab/action | 在實驗室帳戶中建立實驗室。 |
+> | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action | 取得實驗室帳戶下每個大小類別的區域可用性資訊 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 
@@ -947,6 +950,28 @@ ms.locfileid: "37437921"
 > | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 
+## <a name="management-group-contributor"></a>管理群組參與者
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **說明** | 管理群組參與者角色 |
+> | **Id** | 5d58bcaf-24a5-4b20-bdb6-eed9f69fbe4c |
+> | **動作** |  |
+> | Microsoft.Management/managementGroups/delete | 刪除管理群組。 |
+> | Microsoft.Management/managementGroups/read | 列出已驗證之使用者的管理群組。 |
+> | Microsoft.Management/managementGroups/subscriptions/delete | 從管理群組中取消訂用帳戶的關聯。 |
+> | Microsoft.Management/managementGroups/subscriptions/write | 將現有的訂用帳戶關聯至管理群組。 |
+> | Microsoft.Management/managementGroups/write | 建立或更新管理群組。 |
+
+## <a name="management-group-reader"></a>管理群組讀者
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **說明** | 管理群組讀者角色 |
+> | **Id** | ac63b705-f282-497d-ac71-919bf39d939d |
+> | **動作** |  |
+> | Microsoft.Management/managementGroups/read | 列出已驗證之使用者的管理群組。 |
+
 ## <a name="monitoring-contributor"></a>監視參與者
 > [!div class="mx-tableFixed"]
 > | | |
@@ -957,18 +982,18 @@ ms.locfileid: "37437921"
 > | */read | 讀取密碼以外的所有類型的資源。 |
 > | Microsoft.AlertsManagement/alerts/* |  |
 > | Microsoft.AlertsManagement/alertsSummary/* |  |
+> | Microsoft.Insights/actiongroups/* |  |
 > | Microsoft.Insights/AlertRules/* | 讀取/寫入/刪除警示規則。 |
 > | Microsoft.Insights/components/* | 讀取/寫入/刪除 Application Insights 元件。 |
 > | Microsoft.Insights/DiagnosticSettings/* | 讀取/寫入/刪除診斷設定。 |
 > | Microsoft.Insights/eventtypes/* | 列出訂用帳戶中的活動記錄檔事件 (管理事件)。 此權限適用於以程式設計方式存取和入口網站存取活動記錄檔。 |
 > | Microsoft.Insights/LogDefinitions/* | 此為使用者需要透過入口網站存取活動記錄檔時所需的權限。 列出活動記錄檔中的記錄檔分類。 |
+> | Microsoft.Insights/metricalerts/* |  |
 > | Microsoft.Insights/MetricDefinitions/* | 讀取度量定義 (可用資源的度量類型清單)。 |
 > | Microsoft.Insights/Metrics/* | 讀取資源的度量。 |
 > | Microsoft.Insights/Register/Action | 註冊 Microsoft Insights 提供者 |
-> | Microsoft.Insights/webtests/* | 讀取/寫入/刪除 Application Insights Web 測試。 |
-> | Microsoft.Insights/actiongroups/* |  |
-> | Microsoft.Insights/metricalerts/* |  |
 > | Microsoft.Insights/scheduledqueryrules/* |  |
+> | Microsoft.Insights/webtests/* | 讀取/寫入/刪除 Application Insights Web 測試。 |
 > | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | 讀取/寫入/刪除 Log Analytics 解決方案套件。 |
 > | Microsoft.OperationalInsights/workspaces/savedSearches/* | 讀取/寫入/刪除 Log Analytics 已儲存的搜尋。 |
 > | Microsoft.OperationalInsights/workspaces/search/action | 執行搜尋查詢 |
@@ -976,6 +1001,7 @@ ms.locfileid: "37437921"
 > | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | 讀取/寫入/刪除 Log Analytics 儲存體深入解析設定。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | Microsoft.WorkloadMonitor/workloads/* |  |
+> | Microsoft.WorkloadMonitor/workloadInsights/* |  |
 
 ## <a name="monitoring-reader"></a>監視讀取器
 > [!div class="mx-tableFixed"]
