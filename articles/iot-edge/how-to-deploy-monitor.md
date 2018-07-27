@@ -5,16 +5,16 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/07/2018
+ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0432a1782ab5e3aef471666e2f0a3ca18dead73e
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 28aa2904f63a9802305d24fec1650f84e38601ab
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001502"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258428"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>使用 Azure 入口網站大規模部署和監視 IoT Edge 模組
 
@@ -94,7 +94,7 @@ Azure IoT Edge 可讓您將分析移至 Edge，並提供雲端介面，讓您能
 
 ### <a name="step-3-specify-routes-optional"></a>步驟 3：指定路由 (選擇性)
 
-路由會定義模組在部署內彼此通訊的方式。 根據預設，精靈會提供您名為 **route** 的路由，並且定義為 **FROM /* INTO $upstream**，這表示任何模組的任何訊息輸出都會傳送到 IoT 中樞。  
+路由會定義模組在部署內彼此通訊的方式。 根據預設，精靈會提供您名為 **route** 的路由，並且定義為 **FROM /\* INTO $upstream**，這表示任何模組的任何訊息輸出都會傳送到 IoT 中樞。  
 
 請使用[宣告路由](module-composition.md#declare-routes)中的資訊來新增或更新路由，然後選取 [下一步] 繼續檢閱區段。
 
@@ -106,7 +106,7 @@ Azure IoT Edge 可讓您將分析移至 Edge，並提供雲端介面，讓您能
 由於多個部署可能會以相同裝置為目標，因此，您應該為每個部署提供優先順序號碼。 如果發生衝突，優先順序最高 (值愈高，優先順序就愈高) 的部署將會勝出。 如果兩個部署具有相同的優先順序號碼，則最新建立的部署獲勝。 
 
 1. 為部署**優先順序**輸入一個正整數。 如果兩個以上部署的目標為相同的裝置，則將會套用 [優先順序] 數值最高的部署。
-1. 輸入**目標條件**來判斷這個部署會將哪些裝置設為目標。 條件會以裝置對應項標籤或裝置對應項所需屬性為基礎，且應符合運算式格式。 例如，`tags.environment='test'` 或 `properties.desired.devicemodel='4000x'`。 
+1. 輸入**目標條件**來判斷這個部署會將哪些裝置設為目標。 條件會以裝置對應項標籤或裝置對應項報告屬性為基礎，且應符合運算式格式。 例如，`tags.environment='test'` 或 `properties.reported.devicemodel='4000x'`。 
 1. 選取 [下一步] 移到最後一個步驟。
 
 ### <a name="step-5-review-template"></a>步驟 5：檢閱範本
