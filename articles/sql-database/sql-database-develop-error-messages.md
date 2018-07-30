@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 07/16/2018
 ms.author: sstein
-ms.openlocfilehash: af0cb98d679125d20b3f4b7819012bee70e04cd1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d97ec2cc67da7c4bc1479c55a9a7c35c0c754532
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645492"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092523"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL Database 用戶端應用程式的 SQL 錯誤碼：資料庫連線錯誤和其他問題
 
@@ -207,5 +207,5 @@ Azure 基礎結構能夠在 SQL Database 服務出現繁重的工作負載時動
 ## <a name="next-steps"></a>後續步驟
 * 深入了解 [Azure SQL Database 功能](sql-database-features.md)。
 * 深入了解[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)。
-* 深入了解[以虛擬核心為基礎的購買模型 (預覽)](sql-database-service-tiers-vcore.md)。
+* 深入了解[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)。
 

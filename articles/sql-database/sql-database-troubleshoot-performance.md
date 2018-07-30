@@ -9,14 +9,14 @@ keywords: sql 效能調整，資料庫效能調整，sql 效能調整秘訣，sq
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 07/16/2018
 ms.author: v-shysun
-ms.openlocfilehash: a20d198c64bfc6aeaa42f310ee533626c2b1409c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 79f41ab133cba539e5f855b3ab8fa21723694acb
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649613"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092557"
 ---
 # <a name="monitoring-and-performance-tuning"></a>監視和效能微調
 
@@ -50,7 +50,7 @@ Azure SQL Database 可讓您檢閱[效能微調建議](sql-database-advisor.md)�
 
 ## <a name="improving-database-performance-with-more-resources"></a>使用更多資源提升資料庫效能
 
-最後，如果沒有可改善資料庫效能的可操作項目，您可以變更 Azure SQL Database 中可用的資源數量。 您可以隨時變更獨立資料庫的 [DTU 服務層](sql-database-service-tiers-dtu.md)或增加彈性集區的 eDTU。 或者，如果您使用[以虛擬核心為基礎的購買模型 (預覽)](sql-database-service-tiers-vcore.md)，便可以變更服務層或增加配置給資料庫的資源。 
+最後，如果沒有可改善資料庫效能的可操作項目，您可以變更 Azure SQL Database 中可用的資源數量。 您可以隨時變更獨立資料庫的 [DTU 服務層](sql-database-service-tiers-dtu.md)或增加彈性集區的 eDTU。 或者，如果您使用[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)，便可以變更服務層或增加配置給資料庫的資源。 
 1. 若是獨立資料庫，您可以視需要[變更服務層級](sql-database-service-tiers-dtu.md)或[計算資源](sql-database-service-tiers-vcore.md)以提升資料庫效能。
 2. 若是多個資料庫，請考慮使用[彈性集區](sql-database-elastic-pool-guidance.md)來自動調整資源。
 

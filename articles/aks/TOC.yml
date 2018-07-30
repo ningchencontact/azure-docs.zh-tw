@@ -89,6 +89,10 @@
         - name: Azure 容器健康情況解決方案
           href: ../monitoring/monitoring-container-health.md
           maintainContext: true
+        - name: 檢視主要的元件記錄
+          href: view-master-logs.md
+        - name: 檢視 Kubelet 記錄
+          href: kubelet-logs.md
     - name: 開發及執行應用程式
       items:
         - name: 以 Helm 執行應用程式
@@ -121,8 +125,6 @@
       items:
         - name: SSH 節點存取
           href: aks-ssh.md
-        - name: 取得 kubelet 記錄
-          href: kubelet-logs.md
 - name: 參考
   items:
     - name: Azure CLI

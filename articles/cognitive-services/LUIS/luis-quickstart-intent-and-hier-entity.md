@@ -7,14 +7,14 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/22/2018
+ms.date: 07/04/2018
 ms.author: v-geberr
-ms.openlocfilehash: 6ba45de8ef41c8a57ca9c042a304e323a4fac263
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: babfc2f82e17f3745af1d940df89763170a002bd
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081688"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929581"
 ---
 # <a name="tutorial-5-add-hierarchical-entity"></a>教學課程：5. 新增階層式實體
 在本教學課程中，您將建立應用程式，示範如何根據內容尋找相關資料片段。 
@@ -27,10 +27,10 @@ ms.locfileid: "37081688"
 > * 訓練和發佈應用程式
 > * 查詢的應用程式的端點，以查看包括階層式子系的 LUIS JSON 回應 
 
-在本文中，您需要免費 [LUIS][LUIS] 帳戶才能撰寫 LUIS 應用程式。
+在本文中，您需要免費 [LUIS](luis-reference-regions.md#luis-website) 帳戶才能撰寫 LUIS 應用程式。
 
 ## <a name="before-you-begin"></a>開始之前
-如果您沒有[清單實體](luis-quickstart-intent-and-list-entity.md)教學課程中的人力資源應用程式，請將 JSON [匯入](create-new-app.md#import-new-app) [LUIS](luis-reference-regions.md#luis-website) 網站中的新應用程式。 在 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-list-HumanResources.json) Github 存放庫中可找到要匯入的應用程式。
+如果您沒有[清單實體](luis-quickstart-intent-and-list-entity.md)教學課程中的人力資源應用程式，請將 JSON [匯入](luis-how-to-start-new-app.md#import-new-app) [LUIS](luis-reference-regions.md#luis-website) 網站中的新應用程式。 在 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-list-HumanResources.json) Github 存放庫中可找到要匯入的應用程式。
 
 如果您想要保留原本的人力資源應用程式，在[[設定]](luis-how-to-manage-versions.md#clone-a-version)頁面上複製該版本，並將其命名為 `hier`。 複製是使用各種 LUIS 功能的好方法，因為不會影響原始版本。 
 
@@ -64,12 +64,12 @@ mv Jill Jones from a-2349 to b-1298
     [ ![在左功能表中醒目提示 [實體] 按鈕的 LUIS 應用程式螢幕擷取畫面](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png#lightbox)
 
 
-3. 選取清單中數字實體右邊的三個點 (...)。 選取 [刪除] 。 
+3. 選取清單中數字實體右邊的省略符號 (***...***) 按鈕。 選取 [刪除] 。 
 
     [ ![實體清單頁面上 LUIS 應用程式的螢幕擷取畫面，其中預先建立的數字實體已醒目提示 [刪除] 按鈕](./media/luis-quickstart-intent-and-hier-entity/hr-delete-number-prebuilt.png)](./media/luis-quickstart-intent-and-hier-entity/hr-delete-number-prebuilt.png#lightbox)
 
 
-## <a name="add-utterances-to-findform-intent"></a>將語句新增至 FindForm 意圖
+## <a name="add-utterances-to-moveemployee-intent"></a>將語句新增至 MoveEmployee 意圖
 
 1. 選取左功能表中的 [意圖]。
 
@@ -268,12 +268,8 @@ LUIS 在經過訓練前，並不知道意圖和實體 (模型) 的變更。
 LUIS 是利用此要求來完成。 呼叫應用程式 (例如聊天機器人) 可以採用 topScoringIntent 結果和實體中的資料，進而採取下一個步驟。 LUIS 不會為聊天機器人或呼叫應用程式進行該程式設計工作。 LUIS 只會判斷使用者的用意為何。 
 
 ## <a name="clean-up-resources"></a>清除資源
-若不再需要，請刪除 LUIS 應用程式。 若要這麼做，請選取應用程式清單中應用程式名稱右邊的三個點功能表 (...)，然後選取 [刪除]。 在 [刪除應用程式?] 快顯對話方塊中選取 [確定]。
+若不再需要，請刪除 LUIS 應用程式。 若要這麼做，請選取應用程式清單中應用程式名稱右邊的省略符號 (***...***) 按鈕，然後選取 [刪除]。 在 [刪除應用程式?] 快顯對話方塊中選取 [確定]。
 
 ## <a name="next-steps"></a>後續步驟
 > [!div class="nextstepaction"] 
-> [了解如何新增清單實體](luis-quickstart-intent-and-list-entity.md) 
-
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions
+> [了解如何新增複合實體](luis-tutorial-composite-entity.md) 

@@ -6,15 +6,15 @@ author: jovanpop-msft
 manager: craigg
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/16/2018
 ms.author: jovanpop
 ms.reviewer: carlrab, sashan
-ms.openlocfilehash: a9874681d59d193fc3c3d0fd4271e2a6a0fb0dc6
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 2283b7559bb0dc7e8333949a8e6382d562162123
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060378"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092482"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>高可用性和 Azure SQL Database
 
@@ -46,21 +46,18 @@ Azure 透明地升級和修補基礎作業系統、驅動程式及 SQL Server Da
 
 使用標準 [Always On 可用性群組](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)執行高可用性。 每個資料庫都屬於資料庫節點叢集，其中一個主要資料庫可供客戶工作負載存取，還有一些包含資料副本的次要流程。 主要節點持續將更改推送到次要節點，以確保主要節點因故損毀時，次要複本仍可提供資料。 容錯轉移由 SQL Server Database Engine 處理 - 一個次要複本成為主要節點，並建立新的次要複本，以確保叢集中有足夠的節點。 工作負載會自動重新導向至新的主要節點。 容錯移轉時間以毫秒為單位測量，而新的主要執行個體立即準備繼續提供要求。
 
-## <a name="zone-redundant-configuration-preview"></a>區域備援設定 (預覽)
+## <a name="zone-redundant-configuration"></a>區域備援設定
 
-預設會在相同的資料中心內建立本機儲存體設定的仲裁集複本。 隨著 [Azure 可用性區域](../availability-zones/az-overview.md)的導入，您便能夠將仲裁集內的不同複本放到相同區域的不同可用性區域中。 為了避免發生單點失敗，系統也會跨多個區域將控制環複寫成三個閘道環 (GW)。 [Azure 流量管理員](../traffic-manager/traffic-manager-overview.md) (ATM) 會控制特定閘道的路由。 由於區域備援設定並不會建立額外的資料庫備援，因此在進階或業務關鍵 (預覽) 服務層中使用「可用性區域」並不需要額外付費。 藉由選取區域備援資料庫，您無須進行任何應用程式邏輯變更，即可讓您的進階或業務關鍵 (預覽) 資料庫在面對一組更大規模的失敗情況 (包括災難性的資料中心服務中斷) 時，也能夠復原。 您也可以將任何現有的進階或業務關鍵資料庫或彈性集區 (預覽) 轉換成區域備援組態。
+預設會在相同的資料中心內建立本機儲存體設定的仲裁集複本。 隨著 [Azure 可用性區域](../availability-zones/az-overview.md)的導入，您便能夠將仲裁集內的不同複本放到相同區域的不同可用性區域中。 為了避免發生單點失敗，系統也會跨多個區域將控制環複寫成三個閘道環 (GW)。 [Azure 流量管理員](../traffic-manager/traffic-manager-overview.md) (ATM) 會控制特定閘道的路由。 由於區域備援設定並不會建立額外的資料庫備援，因此在進階或業務關鍵服務層中使用「可用性區域」並不需要額外付費。 藉由選取區域備援資料庫，您無須進行任何應用程式邏輯變更，即可讓您的進階或業務關鍵資料庫在面對一組更大規模的失敗情況 (包括災難性的資料中心服務中斷) 時，也能夠復原。 您也可以將任何現有的進階或業務關鍵資料庫或彈性集區轉換成區域備援組態。
 
 由於區域備援仲裁集在不同資料中心 (資料中心彼此之間有些距離) 內都有複本，增加的網路延遲可能導致認可時間增加，因而影響某些 OLTP 工作負載的效能。 您一律可以停用區域備援設定來回到單一區域設定。 此程序是一個資料大小作業，類似於一般的服務等級目標 (SLO) 更新。 在此程序結束時，資料庫或集區會從區域備援環移轉成單一區域環，或反之亦然。
-
-> [!IMPORTANT]
-> 目前只有在「進階」服務層中才支援區域備援資料庫和彈性集區。 在公開預覽版期間，備份和稽核記錄會儲存在 RA-GRS 儲存體中，因此在發生全區域服務中斷時，可能不會自動提供這些記錄。 
 
 下圖說明區域備援版的高可用性架構：
  
 ![高可用性架構區域備援](./media/sql-database-high-availability/high-availability-architecture-zone-redundant.png)
 
 ## <a name="read-scale-out"></a>讀取向外延展
-如其所述，進階和業務關鍵 (預覽) 服務層會利用仲裁集和 Always ON 技術，在單一區域和區域備援組態中都能取得高可用性。 AlwaysOn 的其中一個優點是複本一律處於交易一致狀態。 因為複本的效能層級與主要複本相同，所以應用程式可以利用額外容量來處理唯讀工作負載，不會有額外成本 (讀取向外延展)。 這種方式的唯讀查詢將會與主要讀寫工作負載隔離，而且不會影響其效能。 讀取向外延展功能適用於包含邏輯上分隔唯讀工作負載 (例如分析) 的應用程式，因此不需要連線到主要複本即可利用這個額外容量。 
+如其所述，進階和業務關鍵服務層會利用仲裁集和 Always ON 技術，在單一區域和區域備援組態中都能取得高可用性。 AlwaysOn 的其中一個優點是複本一律處於交易一致狀態。 因為複本的效能層級與主要複本相同，所以應用程式可以利用額外容量來處理唯讀工作負載，不會有額外成本 (讀取向外延展)。 這種方式的唯讀查詢將會與主要讀寫工作負載隔離，而且不會影響其效能。 讀取向外延展功能適用於包含邏輯上分隔唯讀工作負載 (例如分析) 的應用程式，因此不需要連線到主要複本即可利用這個額外容量。 
 
 若要對特定資料庫使用讀取相應放大功能，您必須在建立資料庫時或者以後明確地啟動它，方法是藉由使用 PowerShell 叫用 [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) 或 [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) Cmdlet，或者透過 Azure Resource Manager REST API 使用[資料庫 - 建立或更新](/rest/api/sql/databases/createorupdate)方法來改變它的設定。
 

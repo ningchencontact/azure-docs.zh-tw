@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 505fd88959feb1c84abc53c6435776a5c5b4123c
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: c96282b8163cc48001ee3c6fe89497e2793309f6
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309175"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091791"
 ---
 # <a name="azure-sql-database-logical-servers-and-single-databases-and-their-resources"></a>Azure SQL Database 邏輯伺服器和單一資料庫以及其資源
 
@@ -82,7 +82,7 @@ Microsoft Azure SQL Database 支援表格式資料流 (TDS) 通訊協定用戶�
   ![建立資料庫-1](./media/sql-database-get-started-portal/create-database-1.png)
 
 > [!IMPORTANT]
-> 如需選取資料庫定價層的資訊，請參閱[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)和[以虛擬核心為基礎的購買模型 (預覽)](sql-database-service-tiers-vcore.md)。
+> 如需選取資料庫定價層的資訊，請參閱 [DTU 形式的購買模型](sql-database-service-tiers-dtu.md)和[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)。
 
 若要建立「受控執行個體」，請參閱[建立受控執行個體](sql-database-managed-instance-create-tutorial-portal.md)
 
@@ -95,7 +95,7 @@ Microsoft Azure SQL Database 支援表格式資料流 (TDS) 通訊協定用戶�
    ![伺服器防火牆規則](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
 > [!IMPORTANT]
-> 若要設定資料庫的效能屬性，請參閱[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)和[以虛擬核心為基礎的購買模型 (預覽)](sql-database-service-tiers-vcore.md)。
+> 若要設定資料庫的效能屬性，請參閱 [DTU 形式的購買模型](sql-database-service-tiers-dtu.md)和[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)。
 >
 
 > [!TIP]

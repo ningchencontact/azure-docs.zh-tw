@@ -6,15 +6,15 @@ author: jovanpop-msft
 ms.reviewer: carlrab
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 07/07/2018
+ms.date: 07/16/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: f55ce511f6ba90c27e149ac90bbd2c8aa0b3c742
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: a6b987d9815cfabed6dd986a0d9842a97f5b5868
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37923436"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092047"
 ---
 # <a name="scale-database-resources"></a>調整資料庫資源
 
@@ -28,9 +28,9 @@ Azure SQL Database 可讓您在最短停機時間的情況下，動態將更多�
 
 ![調整資料庫效能](media/sql-database-scalability/scale-performance.svg)
 
-Azure SQL Database 提供 [DTU 購買模型](sql-database-service-tiers-dtu.md)或 [vCore 購買模型 (預覽)](sql-database-service-tiers-vcore.md)。 
+Azure SQL Database 提供 [DTU 形式的購買模型](sql-database-service-tiers-dtu.md)或[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)。 
 -   [DTU 購買模型](sql-database-service-tiers-dtu.md)提供在下列三個服務層中混用的計算、記憶體和 IO 資源，以支援各種資料庫工作負載 (輕量型到重量型)：基本、標準和進階。 在各層內的效能層級分別提供這些資源的不同混用方式，而且您可以為其新增額外的儲存體資源。
--   [vCore 購買模型](sql-database-service-tiers-vcore.md) (預覽) 可讓您選擇 vCore 數目、記憶體數量，以及儲存體的數量和速度。
+-   [虛擬核心形式的購買模式](sql-database-service-tiers-vcore.md)可讓您選擇虛擬核心的數目、記憶體數量，以及儲存體的數量和速度。
 您可以在一個小型單一資料庫中建置第一個應用程式，每個月所需的成本很低。接著隨時以手動或程式設計方式變更其服務層，以符合您的方案需求。 您的應用程式或客戶皆無須停機，即可調整效能。 動態延展性可讓您的資料庫以透明的方式回應快速變化的資源需求，並且讓您只需支付您所需的資源費用。
 
 

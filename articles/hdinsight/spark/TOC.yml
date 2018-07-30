@@ -209,6 +209,8 @@
       items:
         - name: 管理叢集資源
           href: apache-spark-resource-manager.md
+        - name: 使用擴充的記錄伺服器管理 Spark 應用程式
+          href: apache-azure-spark-history-server.md
         - name: 設定 Spark 設定
           href: apache-spark-settings.md
         - name: 最佳化 Spark 作業

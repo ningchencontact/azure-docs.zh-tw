@@ -6,19 +6,19 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/16/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 1a5424b69fc70f69359b12beac86060f4e23ff27
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: f40fe3da6874d8656c9c0a0ddce9fed602cb25f9
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37083986"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091910"
 ---
 # <a name="azure-sql-database-purchasing-models-and-resources"></a>Azure SQL Database 購買模型和資源 
 
-[Azure SQL Database](sql-database-technical-overview.md) 中的邏輯伺服器針對計算、儲存體和 IO 資源提供了兩種購買模型：以 DTU 為基礎的購買模型和以虛擬核心為基礎的購買模型 (預覽)。 
+[Azure SQL Database](sql-database-technical-overview.md) 中的邏輯伺服器針對計算、儲存體和 IO 資源提供了兩種購買模型：DTU 形式的購買模型和虛擬核心形式的購買模型。 
 
 > [!NOTE]
 > Azure SQL Database 中的[受控執行個體](sql-database-managed-instance.md)僅提供以虛擬核心為基礎的購買模型。
@@ -26,7 +26,7 @@ ms.locfileid: "37083986"
 下列資料表和圖表會比較和對照這兩種購買模型。
 
 > [!IMPORTANT]
-> 針對以虛擬核心為基礎的購買模型 (預覽)，請參閱[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)。
+> 針對虛擬核心形式的購買模型，請參閱[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)
 
 |**購買模型**|**說明**|**適用對象**|
 |---|---|---|
@@ -36,13 +36,13 @@ ms.locfileid: "37083986"
 
 ![定價模型](./media/sql-database-service-tiers/pricing-model.png)
 
-## <a name="vcore-based-purchasing-model--preview"></a>以虛擬核心為基礎的購買模型 (預覽)
+## <a name="vcore-based-purchasing-model"></a>以虛擬核心為基礎的購買模型 
 
-虛擬核心代表可以選擇使用的邏輯 CPU，可在各硬體世代間進行選擇。 以虛擬核心為基礎的購買模型 (預覽) 可讓您以彈性、可控制且透明的方式耗用個別資源，並讓您直接將內部部署工作負載需求平移到雲端。 此模型可讓您根據工作負載需求，進行計算、記憶體和儲存體調整。 在以虛擬核心為基礎的購買模型 (預覽) 中，客戶可以就[單一資料庫](sql-database-single-database-scale.md)與[彈性集區](sql-database-elastic-pool.md)選擇一般用途和商務關鍵性服務層 (預覽)。 
+虛擬核心代表可以選擇使用的邏輯 CPU，可在各硬體世代間進行選擇。 虛擬核心形式的購買模型可讓您以彈性、可控制且透明的方式耗用個別資源，並讓您直接將內部部署工作負載需求平移到雲端。 此模型可讓您根據工作負載需求，進行計算、記憶體和儲存體調整。 在虛擬核心形式的購買模型中，客戶可以就[單一資料庫](sql-database-single-database-scale.md)與[彈性集區](sql-database-elastic-pool.md)選擇一般用途和商務關鍵性服務層。 
 
-以虛擬核心為基礎的採購模型 (預覽) 可讓您獨立地調整計算和儲存體資源、符合內部部署效能，並獲得最佳價格。 如果您的資料庫或彈性集區耗用超過 300 DTU，則轉換成虛擬核心或許能降低成本。 您可以使用您所選擇的 API 或使用 Azure 入口網站來進行轉換，而不需停機。 但您不一定要轉換。 如果 DTU 購買模型符合您的效能和商務需求，請繼續使用即可。 如果您決定從 DTU 模型轉換成虛擬核心模型，請使用下列經驗法則選取效能等級：標準層中每 100 DTU 需要一般用途層至少 1 個虛擬核心，而進階層中每 125 DTU 需要商務關鍵性層至少 1 個虛擬核心。
+虛擬核心形式的採購模型可讓您獨立地調整計算和儲存體資源、符合內部部署效能，並獲得最佳價格。 如果您的資料庫或彈性集區耗用超過 300 DTU，則轉換成虛擬核心或許能降低成本。 您可以使用您所選擇的 API 或使用 Azure 入口網站來進行轉換，而不需停機。 但您不一定要轉換。 如果 DTU 購買模型符合您的效能和商務需求，請繼續使用即可。 如果您決定從 DTU 模型轉換成虛擬核心模型，請使用下列經驗法則選取效能等級：標準層中每 100 DTU 需要一般用途層至少 1 個虛擬核心，而進階層中每 125 DTU 需要商務關鍵性層至少 1 個虛擬核心。
 
-在以虛擬核心為基礎的購買模型 (預覽) 中，客戶需支付下列費用：
+在虛擬核心形式的購買模型中，客戶需支付下列費用：
 - 計算 (服務層 + 虛擬核心數目 + 硬體世代)*
 - 資料和記錄儲存體的類型和數量 
 - IO 數目**
@@ -54,7 +54,7 @@ ms.locfileid: "37083986"
 
 > [!IMPORTANT]
 > 計算、IO、資料和記錄儲存體則依每個資料庫或彈性集區來收費。 備份儲存體是依每個資料庫來收費。 如需受控執行個體費用的詳細資訊，請參閱 [Azure SQL Database 受控執行個體](sql-database-managed-instance.md)。
-> **區域限制：** 下列區域尚未提供以虛擬核心為基礎的購買模型 (預覽)：西歐、法國中部、英國南部、英國西部和澳大利亞東南部。
+> **區域限制：** 下列區域尚未提供虛擬核心形式的購買模型：西歐、法國中部、英國南部、英國西部和澳大利亞東南部。
 
 ## <a name="dtu-based-purchasing-model"></a>以 DTU 為基礎的購買模型
 
@@ -189,5 +189,5 @@ ASDB 可測量基本資料庫作業混合的效能，這些作業最常發生在
 
 ## <a name="next-steps"></a>後續步驟
 
-- 針對以虛擬核心為基礎的購買模型 (預覽)，請參閱[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)。
-- 如需以 DTU 為基礎的購買模型，請參閱[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)。
+- 針對虛擬核心形式的購買模型，請參閱[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)
+- 如需 DTU 形式的購買模型，請參閱 [DTU 形式的購買模型](sql-database-service-tiers-dtu.md)。

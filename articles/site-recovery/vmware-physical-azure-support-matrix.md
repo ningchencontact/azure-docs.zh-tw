@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 07/13/2018
 ms.author: raynew
-ms.openlocfilehash: cb01e71ae45ae8a7e37e8ab5cdf60e3b3fcb9983
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: a02218922a4d4238abf752190293a788504e0cfb
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919755"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070904"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>將 VMware 和實體伺服器複寫至 Azure 的支援對照表
 
@@ -30,7 +30,7 @@ VMware VM | 將內部部署 VMware 虛擬機器複寫至 Azure。 您可以在 A
 
 **伺服器** | **需求** | **詳細資料**
 --- | --- | ---
-VMware | vCenter Server 6.5、6.0 或 5.5 或 vSphere 6.5、6.0 或 5.5 | 我們建議使用 vCenter 伺服器。<br/><br/> 我們建議 vSphere 主機與 vCenter 伺服器應位於和處理序伺服器相同的網路中。 根據預設，處理序伺服器元件會在組態伺服器上執行，因此這是您在其中設定組態伺服器的網路，除非您設定專用處理序伺服器。
+VMware | vCenter Server 6.5、6.7、6.0 或 5.5 或 vSphere 6.7、6.5、6.0 或 5.5 | 我們建議使用 vCenter 伺服器。<br/><br/> 我們建議 vSphere 主機與 vCenter 伺服器應位於和處理序伺服器相同的網路中。 根據預設，處理序伺服器元件會在組態伺服器上執行，因此這是您在其中設定組態伺服器的網路，除非您設定專用處理序伺服器。
 實體 | N/A
 
 ## <a name="site-recovery-configuration-server"></a>Site Recovery 組態伺服器
@@ -61,8 +61,9 @@ Site Recovery 支援複寫任何執行於所支援機器上的工作負載。
 **元件** | **詳細資料**
 --- | ---
 機器設定 | 複寫到 Azure 的電腦必須符合 [Azure 需求](#azure-vm-requirements)。
-Windows 作業系統 | 64 位元 Windows Server 2016 (Server Core，使用桌面體驗的伺服器)、Windows Server 2012 R2、Windows Server 2012、Windows Server 2008 R2 (至少加裝 SP1)。 不支援 Windows 2016 Nano Server。
-Linux 作業系統 | Red Hat Enterprise Linux：5.2 至 5.11、6.1 至 6.9、7.0 至 7.4 <br/><br/>CentOS：5.2 至 5.11、6.1 至 6.9、7.0 至 7.4 <br/><br/>Ubuntu 14.04 LTS 伺服器 [(支援的核心版本)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS 伺服器 [(支援的核心版本)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (支援的核心版本)](#debian-kernel-versions)<br/><br/>Oracle Enterprise Linux 6.4、6.5，執行 Red Hat 相容核心或 Unbreakable Enterprise Kernel 第 3 版 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3、SUSE Linux Enterprise Server 11 SP4 <br/><br/>不支援將複寫的機器從 SP3 升級到 SP4。 若要升級，請停用複寫，然後在升級之後再次加以啟用。
+Windows 作業系統 | 64 位元 Windows Server 2016 (Server Core，使用桌面體驗的伺服器)、Windows Server 2012 R2、Windows Server 2012、Windows Server 2008 R2 (至少加裝 SP1)。 </br></br>  [至少含 SP2 的 Windows Server 2008 -32 位元和 64 位元](migrate-tutorial-windows-server-2008.md) (僅限移轉)。 </br></br> * *不支援 Windows 2016 Nano Server。*
+Linux 作業系統 | Red Hat Enterprise Linux：5.2 至 5.11、6.1 至 6.9、7.0 至 7.5 <br/><br/>CentOS：5.2 至 5.11、6.1 至 6.9、7.0 至 7.5 <br/><br/>Ubuntu 14.04 LTS 伺服器 [(支援的核心版本)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS 伺服器 [(支援的核心版本)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (支援的核心版本)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1、SP2、SP3 [ (支援的核心版本)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3、SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Enterprise Linux 6.4、6.5，執行 Red Hat 相容核心或 Unbreakable Enterprise Kernel 第 3 版 (UEK3) <br/><br/></br>* *不支援將複寫的機器從 SUSE Linux Enterprise Server 11 SP3 升級到 SP4。若要升級，請停用複寫，然後在升級之後再次加以啟用。*
+
 
 >[!NOTE]
 >
@@ -70,21 +71,22 @@ Linux 作業系統 | Red Hat Enterprise Linux：5.2 至 5.11、6.1 至 6.9、7.0
 >
 > - 不支援升級各主要 Linux 散發套件版本的受保護機器。 若要升級，請停用複寫、升級作業系統，然後再次啟用複寫。
 >
+> - 執行 Red Hat Enterprise Linux 5.2 至 5.11 或 CentOS 5.2 至 5.11 的伺服器應該安裝 Linux Integration Services (LIS) 元件，以便機器在 Azure 中啟動。
 
 ### <a name="ubuntu-kernel-versions"></a>Ubuntu 核心版本
 
 
 **支援的版本** | **Azure Site Recovery 行動服務版本** | **核心版本** |
 --- | --- | --- |
+14.04 LTS | 9.18 | 3.13.0-24-generic 至 3.13.0-153-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-130-generic |
 14.04 LTS | 9.17 | 3.13.0-24-generic 至 3.13.0-149-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-127-generic |
 14.04 LTS | 9.16 | 3.13.0-24-generic 至 3.13.0-144-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-119-generic |
 14.04 LTS | 9.15 | 3.13.0-24-generic 至 3.13.0-144-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-119-generic |
-14.04 LTS | 9.14 | 3.13.0-24-generic 至 3.13.0-142-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-116-generic |
 |||
+16.04 LTS | 9.18 | 4.4.0-21-generic 至 4.4.0-130-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-45-generic |
 16.04 LTS | 9.17 | 4.4.0-21-generic 至 4.4.0-127-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-43-generic |
 16.04 LTS | 9.16 | 4.4.0-21-generic 至 4.4.0-119-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-38-generic |
 16.04 LTS | 9.15 | 4.4.0-21-generic 至 4.4.0-119-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-38-generic |
-16.04 LTS | 9.14 | 4.4.0-21-generic 至 4.4.0-116-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-36-generic |
 
 
 ### <a name="debian-kernel-versions"></a>Debian 核心版本
@@ -92,13 +94,18 @@ Linux 作業系統 | Red Hat Enterprise Linux：5.2 至 5.11、6.1 至 6.9、7.0
 
 **支援的版本** | **Azure Site Recovery 行動服務版本** | **核心版本** |
 --- | --- | --- |
-Debian 7 | 9.17 | 3.2.0-4-amd64 至 3.2.0-6-amd64、3.16.0-0.bpo.4-amd64 |
-Debian 7 | 9.14、9.15、9.16 | 3.2.0-4-amd64 至 3.2.0-5-amd64、3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.17、9.18 | 3.2.0-4-amd64 至 3.2.0-6-amd64、3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.15、9.16 | 3.2.0-4-amd64 至 3.2.0-5-amd64、3.16.0-0.bpo.4-amd64 |
 |||
-Debian 8 | 9.17 | 3.16.0-4-amd64 至 3.16.0-6-amd64、4.9.0-0.bpo.4-amd64 至 4.9.0-0.bpo.6-amd64 |
+Debian 8 | 9.17、9.18 | 3.16.0-4-amd64 至 3.16.0-6-amd64、4.9.0-0.bpo.4-amd64 至 4.9.0-0.bpo.6-amd64 |
 Debian 8 | 9.16 | 3.16.0-4-amd64 至 3.16.0-5-amd64、4.9.0-0.bpo.4-amd64 至 4.9.0-0.bpo.6-amd64 |
-Debian 8 | 9.14、9.15 | 3.16.0-4-amd64 至 3.16.0-5-amd64、4.9.0-0.bpo.4-amd64 至 4.9.0-0.bpo.5-amd64 |
+Debian 8 | 9.15 | 3.16.0-4-amd64 至 3.16.0-5-amd64、4.9.0-0.bpo.4-amd64 至 4.9.0-0.bpo.5-amd64 |
 
+### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>SUSE Linux Enterprise Server 12 支援的核心版本
+
+**版本** | **行動服務版本** | **核心版本** |
+--- | --- | --- |
+SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | 9.18 | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.96-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default 至 4.4.121-92.85-default</br></br>SP3 4.4.73-5-default 至 4.4.138-94.39-default |
 
 ## <a name="linux-file-systemsguest-storage"></a>Linux 檔案系統/客體儲存體
 
@@ -135,39 +142,39 @@ XFSv5 | 自「行動服務」9.10 版開始，支援 XFS 檔案系統上的 XFSv
 
 **元件** | **支援**
 --- | ---
-Azure ExpressRoute | yes
-ILB | yes
-ELB | yes
-Azure 流量管理員 | yes
-多個 NIC | yes
-保留的 IP 位址 | yes
-IPv4 | yes
-保留來源 IP 位址 | yes
-Azure 虛擬網路服務端點<br/> (不含 Azure 儲存體防火牆) | yes
+Azure ExpressRoute | 是
+ILB | 是
+ELB | 是
+Azure 流量管理員 | 是
+多個 NIC | 是
+保留的 IP 位址 | 是
+IPv4 | 是
+保留來源 IP 位址 | 是
+Azure 虛擬網路服務端點<br/> (不含 Azure 儲存體防火牆) | 是
 加速網路 | 否
 
 ## <a name="storage"></a>儲存體
 **元件** | **支援**
 --- | ---
 主機 NFS | VMware 為是<br/><br/> 實體伺服器為否
-主機 SAN (iSCSI/FC) | yes
+主機 SAN (iSCSI/FC) | 是
 主機 vSAN | VMware 為是<br/><br/> 實體伺服器為 N/A
 主機多重路徑 (MPIO) | 是，通過 Microsoft DSM、EMC PowerPath 5.7 SP4、EMC PowerPath DSM for CLARiiON 測試
 主機虛擬磁碟區 (VVol) | VMware 為是<br/><br/> 實體伺服器為 N/A
-客體/伺服器 VMDK | yes
+客體/伺服器 VMDK | 是
 客體/伺服器 EFI/UEFI| 部分 (僅適用於 Windows Server 2012 和更新版 VMWare 虛擬機器的移轉到 Azure 作業) </br></br> 請參閱表格結尾處的附註
 客體/伺服器共用叢集磁碟 | 否
 客體/伺服器加密磁碟 | 否
 客體/伺服器 NFS | 否
 客體/伺服器 SMB 3.0 | 否
-客體/伺服器 RDM | yes<br/><br/> 實體伺服器為 N/A
-客體/伺服器磁碟 > 1 TB | yes<br/><br/>最多 4,095 GB
-客體/伺服器磁碟使用 4K 邏輯與 4k 實體磁區大小 | yes
-客體/伺服器磁碟使用 4K 邏輯與 512 位元組實體磁區大小 | yes
-客體/伺服器磁碟區使用等量磁碟 > 4 TB <br><br/>邏輯磁碟區管理 (LVM)| yes
+客體/伺服器 RDM | 是<br/><br/> 實體伺服器為 N/A
+客體/伺服器磁碟 > 1 TB | 是<br/><br/>最多 4,095 GB
+客體/伺服器磁碟使用 4K 邏輯與 4k 實體磁區大小 | 是
+客體/伺服器磁碟使用 4K 邏輯與 512 位元組實體磁區大小 | 是
+客體/伺服器磁碟區使用等量磁碟 > 4 TB <br><br/>邏輯磁碟區管理 (LVM)| 是
 客體/伺服器 - 儲存體空間 | 否
 客體/伺服器 熱新增/移除磁碟 | 否
-客體/伺服器 - 排除磁碟 | yes
+客體/伺服器 - 排除磁碟 | 是
 客體/伺服器多重路徑 (MPIO) | 否
 
 > [!NOTE]
@@ -182,14 +189,14 @@ Azure 虛擬網路服務端點<br/> (不含 Azure 儲存體防火牆) | yes
 
 **元件** | **支援**
 --- | ---
-本地備援儲存體 | yes
-異地備援儲存體 | yes
-讀取權限異地備援儲存體 | yes
+本地備援儲存體 | 是
+異地備援儲存體 | 是
+讀取權限異地備援儲存體 | 是
 非經常性儲存體 | 否
 經常性存取儲存體| 否
 區塊 Blob | 否
-待用資料加密 (儲存體服務加密)| yes
-進階儲存體 | yes
+待用資料加密 (儲存體服務加密)| 是
+進階儲存體 | 是
 匯入/匯出服務 | 否
 設定在目標儲存體/快取儲存體帳戶 (用於儲存複寫資料) 上適用於虛擬網路的 Azure 儲存體防火牆 | 否
 一般用途 v2 儲存體帳戶 (經常性存取層和非經常性存取層) | 否
@@ -198,9 +205,9 @@ Azure 虛擬網路服務端點<br/> (不含 Azure 儲存體防火牆) | yes
 
 **功能** | **支援**
 --- | ---
-可用性設定組 | yes
-中樞 | yes
-受控磁碟 | yes
+可用性設定組 | 是
+中樞 | 是
+受控磁碟 | 是
 
 ## <a name="azure-vm-requirements"></a>Azure VM 需求
 

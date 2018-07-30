@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: a51923738642b0e6a8ffd420b3cf433f7e869f59
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: dbd747fd3ec53b1221536609d6355ff5b4691977
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309328"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091599"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>設定 Azure SQL Database 受控執行個體的 VNet
 
@@ -59,8 +59,9 @@ Azure SQL Database 受控執行個體 (預覽) 必須部署在 Azure [虛擬網�
 
 - Azure 會在子網路中針對自己的需求使用 5 個 IP 位址 
 - 每個一般用途執行個體都需要 2 個位址 
+- 每個業務關鍵執行個體都需要四個位址
 
-**範例**：您打算有 8 個受控執行個體。 這表示您需要 5 + 8 * 2 = 21 個 IP 位址。 因為 IP 範圍是以 2 的乘冪定義，所以您需要 32 (2^5) 個 IP 位址的 IP 範圍。 因此，您需要保留子網路遮罩為 /27 的子網路。 
+**範例**：您計劃要有三個一般用途和兩個業務關鍵受控執行個體。 這表示您需要 5 + 3 * 2 + 2 * 4 = 19 個 IP 位址。 因為 IP 範圍是以 2 的乘冪定義，所以您需要 32 (2^5) 個 IP 位址的 IP 範圍。 因此，您需要保留子網路遮罩為 /27 的子網路。 
 
 ## <a name="create-a-new-virtual-network-for-managed-instances"></a>為受控執行個體建立新的虛擬網路 
 

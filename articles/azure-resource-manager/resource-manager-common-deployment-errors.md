@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/08/2018
+ms.date: 07/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3ecc1a9557c7854a0771decb3cc7f7597bcd87dd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 562e8e49d769f15ba0b965bfb03c0d56076c78f1
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360014"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091317"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>使用 Azure Resource Manager 針對常見的 Azure 部署錯誤進行疑難排解
 
@@ -104,7 +104,21 @@ ms.locfileid: "34360014"
 
 ### <a name="deployment-errors"></a>部署錯誤
 
-當作業通過驗證，但在部署期間失敗時，您會在通知中看見錯誤。 選取通知。
+當作業通過驗證，但在部署期間失敗時，您會收到部署錯誤。
+
+若要使用 PowerShell 查看部署錯誤的代碼和訊息，請使用：
+
+```azurepowershell-interactive
+(Get-AzureRmResourceGroupDeploymentOperation -DeploymentName exampledeployment -ResourceGroupName examplegroup).Properties.statusMessage
+```
+
+若要使用 Azure CLI 查看部署錯誤的代碼和訊息，請使用：
+
+```azurecli-interactive
+az group deployment operation list --name exampledeployment -g examplegroup --query "[*].properties.statusMessage"
+```
+
+在入口網站中選取通知。
 
 ![通知錯誤](./media/resource-manager-common-deployment-errors/notification.png)
 
@@ -118,59 +132,91 @@ ms.locfileid: "34360014"
 
 ## <a name="enable-debug-logging"></a>啟用偵錯記錄
 
-有時您需要更多關於要求和回應的資訊，以了解哪裡出了錯。 使用 PowerShell 或 Azure CLI，您可以要求在部署期間記錄其他資訊。
+有時您需要更多關於要求和回應的資訊，以了解哪裡出了錯。 在部署期間，您可以要求在部署期間記錄其他資訊。 
 
-- PowerShell
+### <a name="powershell"></a>PowerShell
 
-   在 PowerShell 中，將 **DeploymentDebugLogLevel** 參數設定為 [All]、[ResponseContent] 或 [RequestContent]。
+在 PowerShell 中，將 **DeploymentDebugLogLevel** 參數設定為 [All]、[ResponseContent] 或 [RequestContent]。
 
-  ```powershell
-  New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile c:\Azure\Templates\storage.json -DeploymentDebugLogLevel All
-  ```
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -Name exampledeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateFile c:\Azure\Templates\storage.json `
+  -DeploymentDebugLogLevel All
+```
 
-   檢查具有下列 Cmdlet 的要求內容︰
+檢查具有下列 Cmdlet 的要求內容︰
 
-  ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.request | ConvertTo-Json
-  ```
+```powershell
+(Get-AzureRmResourceGroupDeploymentOperation `
+-DeploymentName exampledeployment `
+-ResourceGroupName examplegroup).Properties.request `
+| ConvertTo-Json
+```
 
-   或者，具有下列項目的回應內容︰
+或者，具有下列項目的回應內容︰
 
-  ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.response | ConvertTo-Json
-  ```
+```powershell
+(Get-AzureRmResourceGroupDeploymentOperation `
+-DeploymentName exampledeployment `
+-ResourceGroupName examplegroup).Properties.response `
+| ConvertTo-Json
+```
 
-   此資訊可協助您判斷範本中的值是否會正確設定。
+此資訊可協助您判斷範本中的值是否會正確設定。
 
-- Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
-   使用下列命令檢查部署作業︰
+目前，Azure CLI 不支援開啟偵錯記錄功能，但您可以擷取偵錯記錄。
 
-  ```azurecli
-  az group deployment operation list --resource-group ExampleGroup --name vmlinux
-  ```
+使用下列命令檢查部署作業︰
 
-- 巢狀範本
+```azurecli
+az group deployment operation list \
+  --resource-group examplegroup \
+  --name exampledeployment
+```
 
-   若要記錄巢狀範本的偵錯資訊，請使用 **debugSetting** 項目。
+使用下列命令檢查要求內容︰
 
-  ```json
-  {
-      "apiVersion": "2016-09-01",
-      "name": "nestedTemplate",
-      "type": "Microsoft.Resources/deployments",
-      "properties": {
-          "mode": "Incremental",
-          "templateLink": {
-              "uri": "{template-uri}",
-              "contentVersion": "1.0.0.0"
-          },
-          "debugSetting": {
-             "detailLevel": "requestContent, responseContent"
-          }
-      }
-  }
-  ```
+```azurecli
+az group deployment operation list \
+  --name exampledeployment \
+  -g examplegroup \
+  --query [].properties.request
+```
+
+使用下列命令檢查回應內容︰
+
+```azurecli
+az group deployment operation list \
+  --name exampledeployment \
+  -g examplegroup \
+  --query [].properties.response
+```
+
+### <a name="nested-template"></a>巢狀範本
+
+若要記錄巢狀範本的偵錯資訊，請使用 **debugSetting** 項目。
+
+```json
+{
+    "apiVersion": "2016-09-01",
+    "name": "nestedTemplate",
+    "type": "Microsoft.Resources/deployments",
+    "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+            "uri": "{template-uri}",
+            "contentVersion": "1.0.0.0"
+        },
+        "debugSetting": {
+           "detailLevel": "requestContent, responseContent"
+        }
+    }
+}
+```
 
 ## <a name="create-a-troubleshooting-template"></a>建立疑難排解範本
 

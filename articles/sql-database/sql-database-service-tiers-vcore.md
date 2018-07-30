@@ -1,20 +1,20 @@
 ---
 title: Azure SQL Database 服務 - vCore | Microsoft Docs
-description: 以虛擬核心為基礎的採購模型 (預覽) 可讓您獨立地調整計算和儲存體資源、符合內部部署效能，並獲得最佳價格。
+description: 虛擬核心形式的採購模型可讓您獨立地調整計算和儲存體資源、符合內部部署效能，並獲得最佳價格。
 services: sql-database
 author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/23/2018
+ms.date: 07/16/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: dec995d0b9177e4fb88c836c3ea0fef25a3b3ba3
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: d18076486704d5f03acd2253650762c3bd24b0af
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859930"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091487"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>選擇虛擬核心服務層、計算、記憶體、儲存體和 IO 資源
 
@@ -30,11 +30,9 @@ ms.locfileid: "37859930"
 |儲存體|進階遠端儲存體，5 GB – 4 TB|本機 SSD 儲存體，5 GB – 4 TB|
 |IO 輸送量 (大約)|每個虛擬核心 500 IOPS，且 IOPS 上限為 7000|每個虛擬核心 5000 IOPS，且 IOPS 上限為 200000|
 |可用性|1 個複本、無讀取規模|3 個複本、1 個[讀取規模](sql-database-read-scale-out.md)、區域備援 HA|
-|備份|RA-GRS、7-35 天 (預設為 7 天)|RA-GRS、7-35 天 (預設為 7 天)*|
+|備份|RA-GRS、7-35 天 (預設為 7 天)|RA-GRS、7-35 天 (預設為 7 天)|
 |記憶體內|N/A|支援|
 |||
-
-\* 在預覽期間，備份保留期限無法設定且固定為 7 天。
 
 > [!IMPORTANT]
 > 如果您需要的計算容量少於一個虛擬核心，請使用以 DTU 為基礎的購買模型。
@@ -68,7 +66,7 @@ ms.locfileid: "37859930"
 
 ## <a name="azure-hybrid-use-benefit"></a>Azure Hybrid Use Benefit
 
-在以虛擬核心為基礎的購買模型 (預覽) 中，您可以使用[適用於 SQL Server 的 Azure Hybrid Use Benefit](../virtual-machines/windows/hybrid-use-benefit-licensing.md)，以折扣優惠在 SQL Database 上交換現有授權。 這個 Azure 權益可讓您使用具備軟體保證的內部部署 SQL Server 授權，在 Azure SQL Database 上使用內部部署 SQL Server 授權省下最高 30% 的成本。
+在以虛擬核心為基礎的購買模型中，您可以使用[適用於 SQL Server 的 Azure Hybrid Use Benefit](../virtual-machines/windows/hybrid-use-benefit-licensing.md)，以折扣優惠在 SQL Database 上交換現有授權。 這個 Azure 權益可讓您使用具備軟體保證的內部部署 SQL Server 授權，在 Azure SQL Database 上使用內部部署 SQL Server 授權省下最高 30% 的成本。
 
 ![定價](./media/sql-database-service-tiers/pricing.png)
 

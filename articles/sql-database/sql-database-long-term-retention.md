@@ -7,23 +7,19 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 05/17/2018
+ms.date: 07/16/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: b2f3c454ba84c7b892096cc42dcbe2706ab6159f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8edf66d8ee61b2d0896ed8249ea286b0f3de7de5
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648287"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092789"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>儲存多達 10 年的 Azure SQL Database 備份
 
 許多應用程式具有法規、相容性或其他商務用途，需要您保留 Azure SQL Database [自動備份](sql-database-automated-backups.md)所提供超過 7-35 天的資料庫備份。 使用長期保留 (LTR) 功能可讓您將指定的 SQL Database 完整備份儲存在 [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) blob 儲存體中多達 10 年。 之後您可以將任何備份還原為新的資料庫。
-
-> [!IMPORTANT]
-> 長期保留功能目前為預覽狀態。 這項功能在先前的預覽版中是將備份儲存在 Azure Services 復原服務保存庫中，這些現有的備份會移轉至 SQL Azure 儲存體。<!-- and available in the following regions: Australia East, Australia Southeast, Brazil South, Central US, East Asia, East US, East US 2, India Central, India South, Japan East, Japan West, North Central US, North Europe, South Central US, Southeast Asia, West Europe, and West US.-->
->
 
 ## <a name="how-sql-database-long-term-retention-works"></a>SQL Database 長期保留如何運作
 
@@ -34,7 +30,6 @@ ms.locfileid: "34648287"
 -  W=0, M=0, Y=5, WeekOfYear=3
 
    每年的第 3 個完整備份會保留 5 年。
-
 - W=0, M=3, Y=0
 
    每月的第 1 個完整備份會保留 3 個月。
@@ -61,6 +56,14 @@ W=12 週 (84 天)、M=12 個月 (365 天)、Y=10 年 (3650 天)、WeekOfYear=15 
 1. LTR 複製是由 Azure 儲存體服務執行，因此複製程序對現有資料庫的效能沒有影響。
 2. 該原則適用於未來的備份。 例如 如果在設定原則時指定的 WeekOfYear 為過去時間，則將在下一個年度建立第一個 LTR 備份。 
 3. 若要從 LTR 儲存體還原資料庫，可以依時間戳記選取特定備份。   可將資料庫還原至原始資料庫相同訂用帳戶底下的任何現有伺服器。 
+> 
+
+## <a name="geo-replication-and-long-term-backup-retention"></a>異地複寫和長期備份保留
+
+如果您使用主動式異地複寫或容錯移轉群組作為商務持續性解決方案，您應為最終容錯移轉最好準備，並在不同地區的次要資料庫中設定相同 LTR 原則。 由於備份不是從次要區域產生的，因此這不會增加 LTR 的儲存體成本。 只有當次要變成主要時，備份才會建立。 如此一來，當觸發容錯移轉，以及主要區域移到次要區域時，您可保證 LTR 備份可以不受中斷地產生。 
+
+> [!NOTE]
+當原本的主要資料庫從造成容錯移轉的中斷情況中復原時，它會變成新的次要資料庫。 因此，備份的建立不會繼續，而且現有的 LTR 原則將不會生效，除非它再次變成主要資料庫。 
 > 
 
 ## <a name="configure-long-term-backup-retention"></a>設定長期備份保留期

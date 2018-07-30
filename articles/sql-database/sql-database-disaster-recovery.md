@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 07/16/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: ba59d39fb07dfe9c9772fa4bea6922df052f0385
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dba78d3fb63ed6b2f867539fc471199ab72afe6a
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645206"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092591"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>還原 Azure SQL Database 或容錯移轉到次要資料庫
 Azure SQL Database 提供下列功能，以從中斷復原：
@@ -27,7 +27,7 @@ Azure SQL Database 提供下列功能，以從中斷復原：
 若要了解商務持續性案例，以及支援這些案例的功能，請參閱 [商務持續性](sql-database-business-continuity.md)。
 
 > [!NOTE]
-> 如果您使用區域備援進階或業務關鍵資料庫或集區 (預覽)，系統就會自動執行復原程序，但這份資料的其餘部分不適用。 
+> 如果您使用區域備援進階或業務關鍵資料庫或集區，系統就會自動執行復原程序，但這份資料的其餘部分不適用。 
 
 ### <a name="prepare-for-the-event-of-an-outage"></a>準備中斷事件
 如果要使用容錯移轉群組或異地備援備份成功復原到另一個資料區域，您必須準備一台伺服器，以便在另一個資料中心中斷時成為新的主要伺服器，以及將定義好的步驟寫成文件並經過測試，以確保順利復原。 這些準備步驟包括︰
@@ -38,7 +38,7 @@ Azure SQL Database 提供下列功能，以從中斷復原：
 * 識別並選擇性地建立登入，新主要伺服器的 master 資料庫中必須有這些登入，並確保這些登入在 master 資料庫中有適當的權限 (如果有的話)。 如需詳細資訊，請參閱 [災害復原後的 SQL Database 安全性](sql-database-geo-replication-security-config.md)
 * 識別需要更新成對應至新主要資料庫的警示規則。
 * 將目前主要資料庫上的稽核設定整理成文件
-* 執行 [災害復原演練](sql-database-disaster-recovery-drills.md)。 若要模擬異地還原中斷，您可以刪除或重新命名來源資料庫，讓應用程式連線失敗。 若要使用容錯移轉群組模擬中斷，您可以停用 Web 應用程式或連線到資料庫的的虛擬機器，或是容錯移轉資料庫，讓應用程式連線失敗。
+* 執行 [災害復原演練](sql-database-disaster-recovery-drills.md)。 若要模擬異地還原中斷，您可以刪除或重新命名來源資料庫，讓應用程式連線失敗。 若要使用容錯移轉群組模擬中斷，您可以停用 Web 應用程式或連線到資料庫的虛擬機器，或是容錯移轉資料庫，讓應用程式連線失敗。
 
 ## <a name="when-to-initiate-recovery"></a>何時起始復原
 復原作業會影響應用程式。 它需要變更 SQL 連接字串，或使用 DNS 重新導向，並且可能會導致永久的資料遺失。 因此，只有在中斷情況可能持續超過應用程式的復原時間目標時，才應該執行這項作業。 將應用程式部署至生產環境之後，您應該定期監視應用程式健全狀況，並利用下列資料點判斷是否需要復原：

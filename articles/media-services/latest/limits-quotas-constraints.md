@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 07/17/2018
 ms.author: juliako
-ms.openlocfilehash: 14779306815681c368a98d698a6688d528a6c747
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: b50ba825f675c84f551f9a1d191aa93eaed9a628
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294024"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070843"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Azure 媒體服務 v3 配額和限制
 
@@ -25,6 +25,7 @@ ms.locfileid: "36294024"
 | 資源 | 預設限制 | 
 | --- | --- | 
 | 每個 Azure 媒體服務帳戶的資產 | 1,000,000|
+| 動態資訊清單篩選條件|100|
 | 每個工作的工作輸入 | 50 (固定)|
 | 每個作業的 JobOutputs/轉換中的 TransformOutputs | 20 (固定) |
 | 每個 JobInput 的檔案|10 (固定)|
@@ -34,13 +35,13 @@ ms.locfileid: "36294024"
 | 列出作業|將回應分頁，每頁 500 個作業|
 | 每個媒體服務帳戶的 LiveEvents |5|
 | 單一訂用帳戶的媒體服務帳戶 | 25 (固定) |
-| StreamingPolicies | 1,000,000<sup>(3)</sup> |
 | 每個 LiveEvent 其處於執行中狀態的 LiveOutputs |3|
 | 每個 LiveEvent 其處於已停止狀態的 LiveOutputs |50|
 | 儲存體帳戶 | 100<sup>(4)</sup> (固定) |
 | 每個媒體服務其處於執行中狀態的串流端點|2|
+| StreamingPolicies | 100 <sup>(3)</sup> |
 | 每個媒體服務帳戶的轉換 | 100 (固定)|
-| 一次與資產相關聯的唯一 StreamingLocator | 20<sup>(5)</sup> |
+| 一次與資產相關聯的唯一 StreamingLocator | 100<sup>(5)</sup> (固定) |
 
 <sup>1</sup> 單一 blob 支援的大小上限目前在 Azure Blob 儲存體是最多 5 TB。 不過，其他的限制會以服務所使用的 VM 大小作為基礎套用在 Azure 媒體服務中。 如果原始程式檔超過 260 GB，您的工作可能會失敗。 如果您的 4K 內容超過 260 GB 限制，請來函寄到 amshelp@microsoft.com，我們將針對您的情況，提供解決的方法。
 

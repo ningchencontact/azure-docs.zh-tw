@@ -83,6 +83,7 @@
 
 ## 管理同盟服務
 ### [管理和自訂](active-directory-aadconnect-federation-management.md)
+### [使用 Azure AD Connect 管理搭配 Azure AD 的 AD FS 信任](active-directory-azure-ad-connect-azure-ad-trust.md)
 ### [將多個 Azure AD 執行個體與單一 AD FS 執行個體同盟](active-directory-aadconnectfed-single-adfs-multitenant-federation.md)
 
 

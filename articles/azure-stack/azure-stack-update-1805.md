@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 07/11/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 80ed0d2353fc6ea3a515c0d05475c713920abe46
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: ba162a04d41d9ce6f0bf00e377b7717f78967e7f
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293105"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091767"
 ---
 # <a name="azure-stack-1805-update"></a>Azure Stack 1805 更新
 
@@ -71,7 +71,7 @@ Azure Stack 1805 更新組建編號為 **1.1805.1.47**。
 
 ## <a name="before-you-begin"></a>開始之前    
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 - 請先安裝 Azure Stack [1804 更新](azure-stack-update-1804.md)，然後才套用 Azure Stack 1805 更新。    
 - 開始安裝更新 1805 之前，請先執行 [Test-AzureStack](azure-stack-diagnostic-test.md) 來驗證 Azure Stack 的狀態，並解決所發現的一切運作問題。 也請檢閱作用中警示，並將所有需要採取動作的警示解決。 
 
@@ -83,7 +83,7 @@ Azure Stack 1805 更新組建編號為 **1.1805.1.47**。
 
 ### <a name="post-update-steps"></a>更新後步驟
 在安裝 1805 之後，安裝任何適用的 Hotfix。 如需詳細資訊，請檢視下列知識庫文章，以及我們的[服務原則](azure-stack-servicing-policy.md)。  
- - [KB 4340474 - Azure Stack Hotfix 1.1805.4.53](https://support.microsoft.com/en-us/help/4340474)。
+ - [KB 4344102 - Azure Stack Hotfix 1.1805.7.57](https://support.microsoft.com/help/4344102).
 
 
 ## <a name="known-issues-post-installation"></a>已知問題 (安裝後)
@@ -118,7 +118,7 @@ Azure Stack 1805 更新組建編號為 **1.1805.1.47**。
 
 ### <a name="health-and-monitoring"></a>健康情況和監視
 - <!-- 1264761 - IS ASDK --> 您可能會看到「健康情況控制器」元件出現具有下列詳細資料的警示：  
-
+- 
    警示 #1：
    - NAME：基礎結構角色狀況不良
    - SEVERITY：警告
@@ -131,7 +131,19 @@ Azure Stack 1805 更新組建編號為 **1.1805.1.47**。
    - COMPONENT：健康情況控制器
    - DESCRIPTION：健康情況控制器錯誤掃描器無法使用。 這可能會影響健康情況報告和計量。
 
-  您可以放心地忽略這兩個警示，這兩個警示會在一段時間過後自動關閉。  
+  您可以放心地忽略 #1 和 #2 的警示，這兩個警示會在一段時間過後自動關閉。 
+
+  您也可能會看到下列「容量」警示。 針對此警示，描述中識別的可用記憶體百分比可能不同：  
+
+  警示 #3：
+   - NAME：低記憶體容量
+   - 嚴重性：嚴重
+   - 元件：容量
+   - 描述：區域已取用超過 80.00% 的可用記憶體。 使用大量記憶體建立虛擬機器可能會失敗。  
+
+  在此版本的 Azure Stack 中，此警示可能會不正確地引發。 如果租用戶虛擬機器仍可成功地繼續部署，您就可以放心地忽略此警示。 
+  
+  警示 #3 並不會自動關閉。 如果您關閉此警示，Azure Stack 會在 15 分鐘內建立同一個警示。  
 
 - <!-- 2368581 - IS. ASDK --> 身為 Azure Stack 操作員，如果您收到記憶體不足的警示，而且租用戶虛擬機器無法部署並出現「Fabric VM 建立錯誤」，則可能表示 Azure Stack 戳記的可用記憶體不足。 請使用 [Azure Stack 容量規劃工具](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822)來充分了解可供工作負載使用的容量。 
 

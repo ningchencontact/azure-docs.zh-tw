@@ -9,15 +9,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: On Demand
-ms.date: 06/27/2018
+ms.date: 07/16/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 18c162e03030fc4277fa0a7b3e953bf780574a21
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: dfea1587cddbf7440771ca7007928f7e4054f61a
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084955"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092285"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>使用 Azure SQL Database 的商務持續性概觀
 
@@ -38,7 +38,7 @@ SQL Database 提供幾種商務持續性功能，包括自動備份和選用的�
 
 ### <a name="use-point-in-time-restore-to-recover-a-database"></a>使用時間點還原來復原資料庫
 
-SQL Database 會每週自動執行完整資料庫備份、每小時自動執行差異資料庫備份，以及每 5 到 10 分鐘自動執行交易記錄備份，透過這樣的備份組合來防止您的企業遺失資料。 如果您使用[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)，則針對「標準」和「進階」服務層中的資料庫，這些備份會在 RA-GRS 儲存體中儲存達 35 天，如果是「基本」服務層中的資料庫，則儲存天數為 7 天。 如果服務層的保留期間不符合您的企業需求，您可以 [變更服務層](sql-database-single-database-scale.md)來增長保留期間。 如果您使用[以虛擬核心為基礎的購買模型 (預覽)](sql-database-service-tiers-vcore.md)，在一般用途和業務關鍵服務層中，備份保留期可以設定為最多 35 天。 完整和差異資料庫備份也會複寫到[配對的資料中心](../best-practices-availability-paired-regions.md)，以防止發生資料中心中斷的情況。 如需詳細資訊，請參閱[自動資料庫備份](sql-database-automated-backups.md)。
+SQL Database 會每週自動執行完整資料庫備份、每小時自動執行差異資料庫備份，以及每 5 到 10 分鐘自動執行交易記錄備份，透過這樣的備份組合來防止您的企業遺失資料。 如果您使用[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)，則針對「標準」和「進階」服務層中的資料庫，這些備份會在 RA-GRS 儲存體中儲存達 35 天，如果是「基本」服務層中的資料庫，則儲存天數為 7 天。 如果服務層的保留期間不符合您的企業需求，您可以 [變更服務層](sql-database-single-database-scale.md)來增長保留期間。 如果您使用[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)，在一般用途和業務關鍵服務層中，備份保留期可以設定為最多 35 天。 完整和差異資料庫備份也會複寫到[配對的資料中心](../best-practices-availability-paired-regions.md)，以防止發生資料中心中斷的情況。 如需詳細資訊，請參閱[自動資料庫備份](sql-database-automated-backups.md)。
 
 如果應用程式的最大支援時間點還原 (PITR) 保留期限不夠，可以藉由針對資料庫設定長期保留 (LTR) 原則來延長。 如需詳細資訊，請參閱[自動化備份](sql-database-automated-backups.md)和[長期備份保留](sql-database-long-term-retention.md)。
 
@@ -57,19 +57,19 @@ SQL Database 會每週自動執行完整資料庫備份、每小時自動執行�
 
 如果您需要更快速的復原，請使用[主動式異地複寫](sql-database-geo-replication-overview.md) (會接著討論)。 如果您必須能夠復原 35 天之前的資料，請使用[長期保留](sql-database-long-term-retention.md)。 
 
-### <a name="use-active-geo-replication-and-auto-failover-groups-in-preview-to-reduce-recovery-time-and-limit-data-loss-associated-with-a-recovery"></a>使用作用中異地複寫和自動容錯移轉群組 (預覽版)，以減少復原時間並限制與復原關聯的資料損失
+### <a name="use-active-geo-replication-and-auto-failover-groups-to-reduce-recovery-time-and-limit-data-loss-associated-with-a-recovery"></a>使用主動式異地複寫和自動容錯移轉群組，以減少復原時間並限制與復原關聯的資料損失
 
 除了在發生業務中斷時使用資料庫備份來進行資料庫復原之外，您還可以使用[主動式異地複寫](sql-database-geo-replication-overview.md)來設定資料庫，在您選擇的區域中最多可擁有 4 個可讀取的次要資料庫。 這些次要資料庫會使用非同步複寫機制與主要資料庫保持同步。 此功能可用來防範資料中心中斷或應用程式升級期間的業務中斷。 主動式異地複寫也可用來為地理位置分散的使用者，就唯讀查詢方面提供較佳的查詢效能。
 
-若要啟用自動透明容錯移轉，您應使用 SQL Database [自動容錯移轉群組](sql-database-geo-replication-overview.md)功能 (預覽版)，將異地複寫資料庫分組。
+若要啟用自動透明容錯移轉，您應使用 SQL Database [自動容錯移轉群組](sql-database-geo-replication-overview.md)功能，將異地複寫資料庫分組。
 
-如果主要資料庫意外離線，或者您需要離線進行維護活動，可以快速將次要升級成主要 (也稱為容錯移轉)，並且設定應用程式連線到已升級的主要資料庫。 若您的應用程式使用容錯移轉群組接聽程式連線至資料庫，則在完成容錯移轉後無須變更 SQL 連接字串組態。 使用計劃性容錯移轉時，不會有任何資料遺失。 使用非計劃性容錯移轉時，則由於非同步複寫的性質緣故，可能會有一些少量的資料遺失。 您可使用自動容錯移轉群組 (預覽版) 來自訂容錯移轉原則，以將潛在資料遺失風險降至最低。 容錯移轉之後，無論是根據計畫或當資料中心再次上線時，就可以容錯回復。 在所有情況下，使用者都會經歷短暫的停機時間，而需要重新連線。
+如果主要資料庫意外離線，或者您需要離線進行維護活動，可以快速將次要升級成主要 (也稱為容錯移轉)，並且設定應用程式連線到已升級的主要資料庫。 若您的應用程式使用容錯移轉群組接聽程式連線至資料庫，則在完成容錯移轉後無須變更 SQL 連接字串組態。 使用計劃性容錯移轉時，不會有任何資料遺失。 使用非計劃性容錯移轉時，則由於非同步複寫的性質緣故，可能會有一些少量的資料遺失。 您可使用自動容錯移轉群組來自訂容錯移轉原則，以將潛在資料遺失風險降至最低。 容錯移轉之後，無論是根據計畫或當資料中心再次上線時，就可以容錯回復。 在所有情況下，使用者都會經歷短暫的停機時間，而需要重新連線。
 
 > [!IMPORTANT]
-> 若要使用作用中異地複寫和自動容錯移轉群組 (預覽版)，您必須是訂用帳戶擁有者，或是在 SQL Server 中擁有系統管理權限。 您可以使用 Azure 入口網站、PowerShell 或 REST API 並透過 Azure 訂用帳戶的權限來進行設定和容錯移轉，也可以使用 Transact-SQL 並透過 SQL Server 權限來進行。
+> 若要使用主動式異地複寫和自動容錯移轉群組，您必須是訂用帳戶擁有者，或是在 SQL Server 中擁有系統管理權限。 您可以使用 Azure 入口網站、PowerShell 或 REST API 並透過 Azure 訂用帳戶的權限來進行設定和容錯移轉，也可以使用 Transact-SQL 並透過 SQL Server 權限來進行。
 > 
 
-如果您的應用程式符合下列任何準則，請使用主動式異地複寫和自動容錯移轉群組 (預覽版)：
+如果您的應用程式符合下列任何準則，請使用主動式異地複寫和自動容錯移轉群組：
 
 * 是關鍵性應用程式。
 * 具有服務等級協定 (SLA)，不允許 24 小時以上的停機時間。
@@ -126,7 +126,7 @@ SQL Database 會每週自動執行完整資料庫備份、每小時自動執行�
 如果您沒有適當地準備，在容錯移轉或資料庫復原後讓應用程式上線將會多花費時間，而且也可能需要在有壓力的情況下進行疑難排解 - 這是不良的情況組合。
 
 ### <a name="fail-over-to-a-geo-replicated-secondary-database"></a>容錯移轉至異地複寫的次要資料庫
-若您使用作用中異地複寫和自動容錯移轉群組 (預覽版) 作為復原機制，則可設定自動容錯移轉原則或使用[手動容錯移轉](sql-database-disaster-recovery.md#fail-over-to-geo-replicated-secondary-server-in-the-failover-group)。 啟動容錯移轉後，次要資料庫就會成為新的主要資料庫，並準備好記錄新的交易以及回應查詢 - 只會遺失尚未複寫的資料。 如需關於設計容錯移轉程序的資訊，請參閱[設計雲端災害復原應用程式](sql-database-designing-cloud-solutions-for-disaster-recovery.md)。
+若您使用主動式異地複寫和自動容錯移轉群組做為復原機制，則可設定自動容錯移轉原則或使用[手動容錯移轉](sql-database-disaster-recovery.md#fail-over-to-geo-replicated-secondary-server-in-the-failover-group)。 啟動容錯移轉後，次要資料庫就會成為新的主要資料庫，並準備好記錄新的交易以及回應查詢 - 只會遺失尚未複寫的資料。 如需關於設計容錯移轉程序的資訊，請參閱[設計雲端災害復原應用程式](sql-database-designing-cloud-solutions-for-disaster-recovery.md)。
 
 > [!NOTE]
 > 資料中心恢復連線時，舊的主要複本會自動重新連線至新的主要複本，且會成為次要資料庫。 若您需要將主要複本重新定位至原始區域，可手動啟動規劃的容錯移轉 (容錯回復)。 

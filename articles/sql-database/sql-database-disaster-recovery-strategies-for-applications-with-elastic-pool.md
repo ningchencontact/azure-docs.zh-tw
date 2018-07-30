@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 07/16/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 5de8aebb6ffc5763dd7f0b8852c31923914e4c55
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6952e26898e4ff27dd7c2f6780dcb9b8b224460b
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645526"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092540"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>使用 SQL Database 彈性集區之應用程式的災害復原策略
 多年來，我們已了解雲端服務不是萬無一失的作法，災難性事件還是會發生。 SQL Database 提供許多功能，以在這些事件發生時提供應用程式的商務持續性。 [彈性集區](sql-database-elastic-pool.md)和單一資料庫支援相同類型的災害復原功能。 本文說明利用這些 SQL Database 商務持續性功能之彈性集區的數種 DR 策略。
@@ -27,12 +27,12 @@ ms.locfileid: "34645526"
 本文會討論涵蓋各種案例 (從成本導向創業應用程式以至具有嚴格可用性需求的應用程式) 的 DR 策略。
 
 > [!NOTE]
-> 如果您目前使用進階或業務關鍵 (預覽) 資料庫和彈性集區，您可以將它們轉換成區域備援部署組態 (目前為預覽版) 來使它們具備區域中斷復原能力。 請參閱[區域備援資料庫](sql-database-high-availability.md)。
+> 如果您目前使用進階或業務關鍵資料庫和彈性集區，您可以將它們轉換成區域備援部署組態，使它們具備區域中斷復原能力。 請參閱[區域備援資料庫](sql-database-high-availability.md)。
 
 ## <a name="scenario-1-cost-sensitive-startup"></a>案例 1. 成本導向創業
 <i>我想要創業，而且成本極為有限。我想要簡化應用程式的部署和管理，而且我可以為個別客戶提供受限的 SLA。但是我想要確保整個應用程式絕不會離線。</i>
 
-若要滿足簡單性需求，請將所有租用戶資料庫部署到您所選擇 Azure 區域中的單一彈性集區，並將管理資料庫部署為異地複寫的單一資料庫。 對於租用戶的災害復原，請使用異地還原，這不需要額外成本。 若要確保管理資料庫的可用性，請使用自動容錯移轉群組 (預覽版) 將它們異地複寫到另一個區域 (步驟 1)。 此案例中災害復原組態的持續成本等於次要資料庫的總成本。 下圖說明此組態。
+若要滿足簡單性需求，請將所有租用戶資料庫部署到您所選擇 Azure 區域中的單一彈性集區，並將管理資料庫部署為異地複寫的單一資料庫。 對於租用戶的災害復原，請使用異地還原，這不需要額外成本。 若要確保管理資料庫的可用性，請使用自動容錯移轉群組將它們異地複寫到另一個區域 (步驟 1)。 此案例中災害復原組態的持續成本等於次要資料庫的總成本。 下圖說明此組態。
 
 ![圖 1](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-1.png)
 

@@ -1,6 +1,6 @@
 ---
 title: 以雲端服務提供者身分管理 Azure Stack 的使用量和帳單 | Microsoft Docs
-description: 以雲端提供者身分註冊 Azure Stack 及新增客戶的逐步解說。
+description: 以雲端提供者 (CSP) 身分註冊 Azure Stack 及新增要列入計費的客戶。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
-ms.author: mabrigg
+ms.date: 07/12/2018
+ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: 21a52af4943004789b0a9bdbe4695ab1a603c046
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: f119c2803148d68c9c08cbc6a61a3c8733bc1da4
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796694"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090337"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>以雲端服務提供者身分管理 Azure Stack 的使用量和帳單 
 
@@ -27,9 +27,9 @@ ms.locfileid: "34796694"
 
 本文會逐步引導您以雲端提供者 (CSP) 身分註冊 Azure Stack 及新增客戶。
 
-身為 CSP，您可能會有許多不同的客戶在使用您的 Azure Stack。 每個客戶在 Azure 中都有 CSP 訂用帳戶，您必須將您 Azure Stack 的使用量導向至每個使用者的訂用帳戶。
+身為 CSP，您會與不同客戶一起使用您的 Azure Stack。 每個客戶在 Azure 中都有 CSP 訂用帳戶。 您必須從 Azure Stack 管理每個使用者訂用帳戶的使用量。
 
-下圖顯示您在選擇共用服務帳戶及使用該帳戶註冊 Azure 帳戶時所需進行的步驟。 這項作業完成時，您可以將終端客戶上架。
+下圖顯示您在選擇共用服務帳戶及使用 Azure Stack 帳戶註冊 Azure 帳戶時，所需進行的步驟。 註冊後，您就可以讓終端使用者上線。
 
 **以 CSP 身分新增使用量追蹤的步驟**
 
@@ -48,7 +48,7 @@ ms.locfileid: "34796694"
 
 直接 CSP 或 CSP 散發者在營運 Azure Stack 時，會偏好使用雲端服務提供者共用服務 (CSPSS) 訂用帳戶來進行註冊。
 
-CSPSS 訂用帳戶與共用服務租用戶相關聯。 當您註冊 Azure Stack 時，必須提供屬於訂用帳戶擁有者之帳戶的認證。 您用來註冊 Azure Stack 的帳戶可以不同於您用於部署的系統管理員帳戶；這兩者「不必」屬於相同的網域。 換句話說，您可以使用您已使用的租用戶進行部署。 例如，您可以使用 ContosoCSP.onmicrosoft.com，然後使用不同的租用戶進行註冊，例如 IURContosoCSP.onmicrosoft.com。 當您進行日常 Azure Stack 管理時，必須記住您要使用 ContosoCSP.onmicrosoft.com 來登入。 當您必須執行註冊作業時，請使用 IURContosoCSP.onmicrosoft.com 來登入 Azure。
+CSPSS 訂用帳戶與共用服務租用戶相關聯。 當您註冊 Azure Stack 時，必須提供屬於訂用帳戶擁有者之帳戶的認證。 您用來註冊 Azure Stack 的帳戶可以不同於用於部署的系統管理員帳戶。 此外，這兩個帳戶「不必」屬於相同網域。 換句話說，您可以使用您已使用的租用戶進行部署。 例如，您可以使用 ContosoCSP.onmicrosoft.com，然後使用不同的租用戶進行註冊，例如 IURContosoCSP.onmicrosoft.com。 當您進行日常 Azure Stack 管理時，必須記住您要使用 ContosoCSP.onmicrosoft.com 來登入。 當您必須執行註冊作業時，請使用 IURContosoCSP.onmicrosoft.com 來登入 Azure。
 
 請參考下列資訊以取得 CSPSS 訂用帳戶的說明，以及如何建立訂用帳戶的指示：[新增 Azure 合作夥伴共用服務](https://msdn.microsoft.com/partner-center/shared-services)。
 
@@ -66,21 +66,19 @@ CSPSS 訂用帳戶與共用服務租用戶相關聯。 當您註冊 Azure Stack 
 
 ## <a name="charge-the-right-subscriptions"></a>向正確的訂用帳戶收取費用
 
-Azure Stack 會使用稱為「註冊」的功能。 註冊是儲存在 Azure 中的物件，其中會記載要使用哪個 Azure 訂用帳戶來收取特定 Azure Stack 的費用。 本節說明註冊的重要性。
+Azure Stack 會使用稱為「註冊」的功能。 註冊是儲存在 Azure 中的物件。 註冊物件會記載要使用哪個 Azure 訂用帳戶來收取特定 Azure Stack 的費用。 本節說明註冊的重要性。
 
 透過註冊，Azure Stack 可以：
  - 將 Azure Stack 使用量資料轉送給 Azure Commerce，並向 Azure 訂用帳戶收費。
  - 使用多租用戶 Azure Stack 部署報告每個客戶在不同訂用帳戶上的使用量。 多租用戶可讓 Azure Stack 在相同的 Azure Stack 執行個體上支援不同的組織。
 
-對於每個 Azure Stack，會有一個預設的訂用帳戶，以及所需數量的租用戶訂用帳戶。 如果沒有任何租用戶特定的訂用帳戶，則預設訂用帳戶就是計費的 Azure 訂用帳戶。 它必須是第一個要註冊的項目。 若要讓多租用戶使用量報告生效，訂用帳戶必須為 CSP 或 CSPSS 訂用帳戶。
+對於每個 Azure Stack，會有一個預設的訂用帳戶，以及多個租用戶訂用帳戶。 如果沒有任何租用戶特定的訂用帳戶，則預設訂用帳戶就是計費的 Azure 訂用帳戶。 它必須是第一個註冊的訂用帳戶。 若要讓多租用戶使用量報告生效，訂用帳戶必須為 CSP 或 CSPSS 訂用帳戶。
 
 然後，會使用 Azure 訂用帳戶針對每個要使用 Azure Stack 的租用戶更新註冊。 租用戶訂用帳戶必須為 CSP 類型，且必須積存至擁有預設訂用帳戶的合作夥伴。 換句話說，您無法註冊其他人的客戶。
 
 當 Azure Stack 將使用量資訊轉送至全域 Azure 時，Azure 中的服務會查閱註冊，並將每個租用戶的使用量對應至適當的租用戶訂用帳戶。 如果租用戶尚未註冊，該使用量會進入其來源 Azure Stack 執行個體的預設訂用帳戶中。
 
 由於租用戶訂用帳戶是 CSP 訂用帳戶，其帳單會傳送至 CSP 合作夥伴，且終端客戶看不到使用量資訊。
-
-
 
 ## <a name="next-steps"></a>後續步驟
 

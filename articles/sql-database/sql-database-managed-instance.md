@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 07/16/2018
 ms.author: bonova
-ms.openlocfilehash: 1dec40871b8842cb5e41d48c759d1f4fa85d7b66
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 0951281a584d3c534d82ec5760d29f4b80616d2d
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082500"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091988"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>什麼是受控執行個體 (預覽)？
 
@@ -64,13 +64,13 @@ Azure SQL Database 受控執行個體 (預覽) 是 Azure SQL Database 的新功�
 | --- | --- |
 |無須硬體採購和管理 <br>沒有管理基礎結構的管理負擔 <br>快速佈建和服務調整 <br>自動修補和版本升級 <br>與其他 PaaS 資料服務整合 |99.99% 的 SLA 運作時間  <br>內建高可用性 <br>使用自動備份保護資料 <br>客戶可設定備份保留期限 (在公開預覽階段中固定是 7 天) <br>使用者起始的備份 <br>資料庫還原時間點功能 |
 |**安全性與合規性** | **管理**|
-|隔離的環境 (VNet 整合、單一租用戶服務、專用的運算和儲存體) <br>傳輸中資料加密 <br>Azure AD 驗證、單一登入支援 <br>與 Azure SQL 資料庫遵循相同的合規性標準 <br>SQL 稽核 <br>威脅偵測 |用於自動化服務佈建與調整的 Azure Resource Manager API <br>用於手動服務佈建與調整的 Azure 入口網站功能 <br>資料移轉服務 
+|隔離的環境 (VNet 整合、單一租用戶服務、專用的運算和儲存體) <br>透明資料加密<br>Azure AD 驗證、單一登入支援 <br>與 Azure SQL 資料庫遵循相同的合規性標準 <br>SQL 稽核 <br>威脅偵測 |用於自動化服務佈建與調整的 Azure Resource Manager API <br>用於手動服務佈建與調整的 Azure 入口網站功能 <br>資料移轉服務 
 
 ![單一登入](./media/sql-database-managed-instance/sso.png) 
 
-## <a name="vcore-based-purchasing-model-preview"></a>以虛擬核心為基礎的購買模型 (預覽)
+## <a name="vcore-based-purchasing-model"></a>以虛擬核心為基礎的購買模型
 
-以虛擬核心為基礎的購買模型 (預覽) 提供彈性、可控制、透明及直接的方法，讓您將內部部署工作負載需求平移到雲端。 此模型可讓您根據工作負載需求，進行計算、記憶體和儲存體調整。 虛擬核心模型也能夠透過[適用於 SQL Server 的 Azure Hybrid Use Benefit](../virtual-machines/windows/hybrid-use-benefit-licensing.md)，最多節省 30% 的成本。
+虛擬核心形式的購買模型提供彈性、可控制、透明及直接的方法，讓您將內部部署工作負載需求平移到雲端。 此模型可讓您根據工作負載需求，進行計算、記憶體和儲存體調整。 虛擬核心模型也能夠透過[適用於 SQL Server 的 Azure Hybrid Use Benefit](../virtual-machines/windows/hybrid-use-benefit-licensing.md)，最多節省 30% 的成本。
 
 虛擬核心代表可以選擇使用的邏輯 CPU，可在各硬體世代間進行選擇。
 - 「第 4 代」邏輯 CPU 是以 Intel E5-2673 v3 (Haswell) 2.4-GHz 處理器為基礎。
@@ -81,13 +81,20 @@ Azure SQL Database 受控執行個體 (預覽) 是 Azure SQL Database 的新功�
 ||Gen 4|Gen 5|
 |----|------|-----|
 |硬體|Intel E5 2673 v3 (Haswell) 2.4 GHz 處理器，附加 SSD 虛擬核心 = 1 PP (實體核心)|Intel E5 2673 v4 (Broadwell) 2.3 GHz 處理器，快速 eNVM SSD，虛擬核心 = 1 LP (超執行緒)|
-|效能層級|8 個、16 個、24 個虛擬核心|8 個、16 個、24 個、32 個、40 個虛擬核心|
+|效能層級|8 個、16 個、24 個虛擬核心|8 個、16 個、24 個、32 個、40 個、64 個、80 個虛擬核心|
 |記憶體|每個虛擬核心 7GB|每個虛擬核心 5.5GB|
 ||||
 
-## <a name="managed-instance-service-tier"></a>受控執行個體服務層
+## <a name="managed-instance-service-tiers"></a>受控執行個體服務層
 
-受控執行個體初期可在「一般用途」的單一服務層中取得，該服務層適用於具有標準可用性和一般 IO 延遲需求的應用程式。
+有兩個服務層可使用受控執行個體：
+- **一般用途**：為具有標準可用性和一般 IO 延遲需求的應用程式所設計。
+- **業務關鍵**：為具有高可用性和低 IO 延遲需求的應用程式所設計。
+ 
+> [!IMPORTANT]
+> 公開預覽版本不支援將服務層級從一般用途變更為業務關鍵，反之亦然。 如果您想要將資料庫遷移至不同服務層中的執行個體，您可以建立新執行個體，並透過原始執行個體的還原時間點來還原資料庫，然後捨棄原始執行個體 (如果已不再需要)。 
+
+### <a name="general-purpose-service-tier"></a>一般用途服務層
 
 下列清單說明一般用途服務層的主要特色： 
 
@@ -101,29 +108,58 @@ Azure SQL Database 受控執行個體 (預覽) 是 Azure SQL Database 的新功�
  
 ![一般用途服務層](./media/sql-database-managed-instance/general-purpose-service-tier.png) 
 
-以下列出一般用途服務層的主要功能：
+下列清單概述一般用途服務層的主要特色：
 
 |功能 | 說明|
 |---|---|
-| 虛擬核心數* | 8 個、16 個、24 個 (第 4 代)<br>8 個、16 個、24 個、32 個、40 (第 5 代)|
+| 虛擬核心數* | 8 個、16 個、24 個 (第 4 代)<br>8 個、16 個、24 個、32個、40 個、64個、80 個 (第 5 代)|
 | SQL Server 版本/組建 | SQL Server (最新的可用版本) |
 | 儲存體大小下限 | 32 GB |
 | 儲存體大小上限 | 8 TB |
-| 每個資料庫的儲存體上限 | 8 TB |
+| 每個資料庫的儲存體上限 | 取決於每個執行個體的最大儲存體大小 |
 | 預期的儲存體 IOPS | 每個資料檔案 500-7500 IOPS (視資料檔案而定)。 請參閱[進階儲存體](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes) |
 | 每個資料庫的資料檔案 (ROWS) 數目 | 多個 | 
 | 每個資料庫的記錄檔 (LOG) 數目 | 1 | 
-| 受控自動化備份 | yes |
+| 受控自動化備份 | 是 |
 | HA | 以遠端儲存體和 [Azure Service Fabric](../service-fabric/service-fabric-overview.md)為基礎 |
-| 內建執行個體和資料庫的監視與計量 | yes |
-| 自動軟體修補 | yes |
-| VNet - Azure Resource Manager 部署 | yes |
+| 內建執行個體和資料庫的監視與計量 | 是 |
+| 自動軟體修補 | 是 |
+| VNet - Azure Resource Manager 部署 | 是 |
 | VNet - 傳統部署模型 | 否 |
-| 入口網站支援 | yes|
+| 入口網站支援 | 是|
 |||
 
 
   \*虛擬核心代表可以選擇使用的邏輯 CPU，可在各硬體世代間進行選擇。 第四代邏輯 CPU 的基礎為 E5-2673 v3 (Haswell) 2.4 GHz 處理器，第五代邏輯 CPU 的基礎為 Intel E5-2673 v4 (Broadwell) 2.3 GHz 處理器。 
+
+### <a name="business-critical-service-tier"></a>業務關鍵服務層
+
+業務關鍵服務層是為具有高 IO 需求的應用程式所建置。 該服務層使用數個分開的 Always On 複本，可在發生失敗時提供最高的復原能力。 下圖說明此服務層基礎架構：
+
+![業務關鍵服務層](./media/sql-database-managed-instance/business-critical-service-tier.png)  
+
+下列清單概述業務關鍵服務層的主要特色： 
+-   專為具有極高效能和 HA 需求的商務應用程式所設計 
+-   提供超級快速的 SSD 儲存體 (在第 4 代上可達 1 TB，而在第 5 代上可達 4 TB) - 可針對每個執行個體支援多達 100 個資料庫 
+
+|功能 | 說明|
+|---|---|
+| 虛擬核心數* | 8 個、16 個、24 個 (第 4 代)<br>8 個、16 個、24 個、32個、40 個、64個、80 個 (第 5 代)|
+| SQL Server 版本/組建 | SQL Server (最新的可用版本) |
+| 其他功能 | [記憶體內部 OLTP](sql-database-in-memory.md)<br> 1 個額外的唯讀複本 ([讀取縮放](sql-database-read-scale-out.md))
+| 儲存體大小下限 | 32 GB |
+| 儲存體大小上限 | 第 4 代：1 TB (適用於所有虛擬核心大小)<br> 第 5 代：<ul><li>1 TB (適用於 8 個、16 個虛擬核心)</li><li>2 TB (適用於 24 個虛擬核心)</li><li>4 TB (適用於 40 個、60 個、80 個虛擬核心)</ul>|
+| 每個資料庫的儲存體上限 | 取決於每個執行個體的最大儲存體大小 |
+| 每個資料庫的資料檔案 (ROWS) 數目 | 多個 | 
+| 每個資料庫的記錄檔 (LOG) 數目 | 1 | 
+| 受控自動化備份 | 是 |
+| HA | 根據 [Always On 可用性群組](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)和 [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
+| 內建執行個體和資料庫的監視與計量 | 是 |
+| 自動軟體修補 | 是 |
+| VNet - Azure Resource Manager 部署 | 是 |
+| VNet - 傳統部署模型 | 否 |
+| 入口網站支援 | 是|
+|||
 
 ## <a name="advanced-security-and-compliance"></a>進階安全性與合規性 
 
@@ -135,9 +171,15 @@ Azure SQL Database 受控執行個體 (預覽) 是 Azure SQL Database 的新功�
 - SQL 端點只會透過私人 IP 位址公開，並允許來自私人 Azure 或混合式網路的安全連線
 - 單一租用戶具有專用的基礎結構 (計算、儲存體)
 
-下圖概述隔離設計： 
+下圖概述您應用程式的各種連線選項： 
 
 ![高可用性](./media/sql-database-managed-instance/application-deployment-topologies.png)  
+
+如需深入了解子網路層級的 VNet 整合和網路原則強制施行，請參閱[設定 Azure SQL Database 受控執行個體的 VNet](sql-database-managed-instance-vnet-configuration.md) 和[將應用程式連線到 Azure SQL Database受控執行個體](sql-database-managed-instance-connect-app.md)。 
+
+> [!IMPORTANT]
+> 將多個受控執行個體放在相同子網路中 (如果您的安全性需求允許的話)，因為這會帶來額外的好處。 將執行個體放在相同子網路中，可大幅簡化網路基礎結構的維護工作，並且可減少執行個體的佈建時間，因為長時間的佈建期間與在子網路中部署第一個受控執行個體的成本有關。
+
 
 ### <a name="auditing-for-compliance-and-security"></a>合規性和安全性稽核 
 
@@ -148,6 +190,11 @@ Azure SQL Database 受控執行個體 (預覽) 是 Azure SQL Database 的新功�
 受控執行個體會使用傳輸層安全性對移動中的資料加密，藉此保護您的資料。
 
 除了傳輸層安全性，SQL Database 受控執行個體會使用 [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) 來保護傳輸中、待用和查詢處理期間的敏感性資料。 Always Encrypted 是業界優先，可提供無與倫比的資料安全性，以對抗涉及重要資料竊取的入侵。 例如，透過 Always Encrypted，信用卡號碼會永遠加密儲存在資料庫中，即使在查詢處理期間，都允許需要處理該資料的已授權人員或應用程式在使用時解密。 
+
+### <a name="data-encryption-at-rest"></a>待用資料加密 
+[透明資料加密 (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) 會將 Azure SQL 受控執行個體的資料檔案加密，也稱為「待用資料加密」。 TDE 會執行資料和記錄檔的即時 I/O 加密和解密。 加密會使用資料庫加密金鑰 (DEK)，此金鑰會儲存在資料庫開機記錄中，以在復原期間提供可用性。 您可以使用透明資料加密來保護受控執行個體中的所有資料庫。 TDE 是 SQL 經實證的靜態加密技術，許多合規性標準都需要這項奇數才能防禦儲存媒體的竊取。 公開預覽版支援自動金鑰管理模型 (由 PaaS 平台執行)。 
+
+透過 Azure 資料庫移轉服務 (DMS) 或原生還原，可支援將加密的資料庫遷移到 SQL 受控執行個體。 如果您打算使用原生還原來遷移加密的資料庫，必須執行將現有 TDE 憑證從 SQL Server 內部部署或 SQL Server VM 移轉至受控執行個體的步驟。 如需移轉選項的詳細資訊，請參閱[將 SQL Server 執行個體移轉至 Azure SQL Database 受控執行個體](sql-database-managed-instance-migrate.md)。
 
 ### <a name="dynamic-data-masking"></a>動態資料遮罩 
 
@@ -226,3 +273,4 @@ Azure 資料庫移轉服務是一個完全受控的服務，能夠從多個資�
 - 如需 VPN 組態的詳細資訊，請參閱[受控執行個體 VNet 組態](sql-database-managed-instance-vnet-configuration.md)。
 - 如需建立受控執行個體，並從備份檔案還原資料庫的教學課程，請參閱[建立受控執行個體](sql-database-managed-instance-create-tutorial-portal.md)。
 - 如需使用 Azure 資料庫移轉服務 (DMS) 進行移轉的教學課程，請參閱[使用 DMS 的受控執行個體移轉](../dms/tutorial-sql-server-to-managed-instance.md)。
+- 如需價格資訊，請參閱 [SQL Database 受控執行個體的價格](https://azure.microsoft.com/pricing/details/sql-database/managed/)。
