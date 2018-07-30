@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: laviswa
-ms.openlocfilehash: ee804ddc9e8fe9901173bb3d9357a273ea28057d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: f6829d497c85ef1b4e74e26befe42d5d6fa87e36
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056812"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205964"
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>適用於 Azure Cosmos DB 的 SQL 查詢
 
@@ -522,7 +522,7 @@ Undefined </td>
 
 如果篩選中純量運算式的結果是 Undefined，則不會將對應的文件併入結果中，因為 Undefined 邏輯上不會等於 "true"。
 
-### <a name="between-keyword"></a>BETWEEN 關鍵字
+## <a name="between-keyword"></a>BETWEEN 關鍵字
 您也可以使用 BETWEEN 關鍵字來表示像對 ANSI SQL 中的值範圍執行查詢。 BETWEEN 可用於字串或數字。
 
 例如，此查詢會傳回其長子的成績介於 1-5 (兩者皆含) 之間的所有家族文件。 
@@ -561,7 +561,7 @@ Undefined </td>
 | False |True |
 | Undefined |Undefined |
 
-### <a name="in-keyword"></a>IN 關鍵字
+## <a name="in-keyword"></a>IN 關鍵字
 IN 關鍵字可用來檢查指定的值是否符合清單中的任何值。 例如，此查詢會傳回所有的家族文件，其中 id 是 "WakefieldFamily" 或 "AndersenFamily" 其中一個。 
 
     SELECT *
@@ -574,7 +574,7 @@ IN 關鍵字可用來檢查指定的值是否符合清單中的任何值。 例�
     FROM Families 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 
-### <a name="ternary--and-coalesce--operators"></a>三元 (?) 和聯合 (??) 運算子
+## <a name="ternary--and-coalesce--operators"></a>三元 (?) 和聯合 (??) 運算子
 三元和聯合運算子可用來建立條件運算式，與熱門程式設計語言 (如 C# 和 JavaScript) 類似。 
 
 快速建構新的 JSON 屬性時，三元 (?) 運算子可以說非常好用。 比方說，您現在可以撰寫查詢將類別層級分類為一般人可判讀的格式 (例如初級/中級/進階)，如下所示。
@@ -594,7 +594,7 @@ IN 關鍵字可用來檢查指定的值是否符合清單中的任何值。 例�
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
 
-### <a id="EscapingReservedKeywords"></a>加上引號的屬性存取子
+## <a id="EscapingReservedKeywords"></a>加上引號的屬性存取子
 您也可以使用加上引號的屬性運算子 `[]`存取屬性。 例如， `SELECT c.grade` and `SELECT c["grade"]` 是相等的。 當您需要逸出包含空格、特殊字元的屬性，或剛好要共用和 SQL 關鍵字或保留字相同的名稱時，此語法很有用。
 
     SELECT f["lastName"]
@@ -682,7 +682,7 @@ SELECT 子句 (**`SELECT <select_list>`**) 是必要項目，並指定要從查�
     }]
 
 
-### <a name="aliasing"></a>別名
+## <a name="aliasing"></a>別名
 現在，讓我們使用值的明確別名處理來擴充上面的範例。 AS 是用來加上別名的關鍵字。 它在將第二個值投射為 `NameInfo` 時是選用項目 (如下所示)。 
 
 如果查詢具有兩個同名的屬性，則必須使用別名處理來重新命名一或兩個屬性，使其在投射的結果中變得更為明確。
@@ -708,7 +708,7 @@ SELECT 子句 (**`SELECT <select_list>`**) 是必要項目，並指定要從查�
     }]
 
 
-### <a name="scalar-expressions"></a>純量運算式
+## <a name="scalar-expressions"></a>純量運算式
 除了屬性參考之外，SELECT 子句也支援純量運算式 (例如常數、算術運算式、邏輯運算式等)。例如，以下是簡單 "Hello World" 查詢。
 
 **查詢**
@@ -754,7 +754,7 @@ SELECT 子句 (**`SELECT <select_list>`**) 是必要項目，並指定要從查�
     ]
 
 
-### <a name="object-and-array-creation"></a>物件和陣列建立
+## <a name="object-and-array-creation"></a>物件和陣列建立
 SQL API 的另一個重要功能是建立陣列/物件。 在前一個範例中，請注意，我們已建立新的 JSON 物件。 同樣地，您也可以建構陣列 (如下列範例所示)：
 
 **查詢**
@@ -779,7 +779,7 @@ SQL API 的另一個重要功能是建立陣列/物件。 在前一個範例中�
       }
     ]
 
-### <a id="ValueKeyword"></a>VALUE 關鍵字
+## <a id="ValueKeyword"></a>VALUE 關鍵字
 **VALUE** 關鍵字提供可傳回 JSON 值的方法。 例如，下面顯示的查詢會傳回純量 `"Hello World"` 而非 `{$1: "Hello World"}`。
 
 **查詢**
@@ -830,7 +830,7 @@ SQL API 的另一個重要功能是建立陣列/物件。 在前一個範例中�
     ]
 
 
-### <a name="-operator"></a>* 運算子
+## <a name="-operator"></a>* 運算子
 支援使用特殊運算子 (*) 來依原樣投射文件。 使用時，它必須是唯一投射的欄位。 `SELECT * FROM Families f` 之類的查詢有效，`SELECT VALUE * FROM Families f ` 和 `SELECT *, f.id FROM Families f ` 則無效。
 
 **查詢**
@@ -859,7 +859,7 @@ SQL API 的另一個重要功能是建立陣列/物件。 在前一個範例中�
         "isRegistered": true
     }]
 
-### <a id="TopKeyword"></a>TOP 運算子
+## <a id="TopKeyword"></a>TOP 運算子
 TOP 關鍵字可以用來限制來自查詢的值數目。 當 TOP 與 ORDER BY 子句一起使用時，結果集會限制於前 N 個已排序的值。否則，它會以未定義的順序傳回前 N 個結果。 最佳做法是在 SELECT 陳述式中，一律搭配 TOP 子句來使用 ORDER BY 子句。 這是唯一能如預期般指出哪些資料列會受到 TOP 影響的方式。 
 
 **查詢**
@@ -889,7 +889,7 @@ TOP 關鍵字可以用來限制來自查詢的值數目。 當 TOP 與 ORDER BY 
 
 TOP 可以與常數值 (如上所示) 或使用參數化查詢的變數值搭配使用 。 如需詳細資訊，請參閱下方的參數化查詢。
 
-### <a id="Aggregates"></a>彙總函式
+## <a id="Aggregates"></a>彙總函式
 您也可以在 `SELECT` 子句中執行彙總。 彙總函式會執行一組值的計算，然後傳回單一值。 例如，下列查詢會傳回集合內的系列文件計數。
 
 **查詢**
