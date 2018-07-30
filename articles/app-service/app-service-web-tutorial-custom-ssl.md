@@ -1,6 +1,6 @@
 ---
 title: 將現有的自訂 SSL 憑證繫結至 Azure Web Apps | Microsoft Docs
-description: 了解如何將自訂 SSL 憑證繫結至 Azure App Service 中的 web 應用程式、行動裝置應用程式後端或 API 應用程式。
+description: 了解如何將自訂 SSL 憑證繫結至 Azure App Service 中的 Web 應用程式、行動應用程式後端或 API 應用程式。
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/19/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9ba8eae0fe9e68e4931bcdda989e59c59fd65edd
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 6e3679a994a7340fc38bf98f370efd359785fd90
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293324"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214960"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>教學課程：將現有的自訂 SSL 憑證繫結至 Azure Web Apps
 
@@ -41,7 +41,7 @@ Azure Web Apps 提供可高度擴充、自我修復的 Web 主機服務。 本�
 > [!NOTE]
 > 如果您需要自訂 SSL 憑證，可以直接在 Azure 入口網站取得，並將它繫結至 web 應用程式。 遵循 [App Service 憑證教學課程](web-sites-purchase-ssl-web-site.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程：
 
@@ -94,7 +94,7 @@ Azure Web Apps 提供可高度擴充、自我修復的 Web 主機服務。 本�
 
 ### <a name="scale-up-your-app-service-plan"></a>相應增加您的 App Service 方案
 
-選取任何非免費層 (**B1**、**B2****B3**或「生產」類別中的任何一層)。 如需其他選項，按一下 [查看其他選項]。
+選取任何非免費層 (**B1**、**B2****B3**或「生產」類別中的任何一層)。 如需其他選項，請按一下 [查看其他選項]。
 
 按一下 [套用]。
 

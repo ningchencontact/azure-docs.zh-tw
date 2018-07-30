@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 593f89071f03cb2e2b8ed9d7eda2cc7cb3971128
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: dd9c6f2969bfbcd1b2170c0685ab69b8b2ce70da
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38317985"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224308"
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建置 PHP 和 MySQL Web 應用程式
 
@@ -41,7 +41,7 @@ ms.locfileid: "38317985"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程：
 
@@ -152,7 +152,7 @@ php artisan serve
 
 ## <a name="create-mysql-in-azure"></a>在 Azure 中建立 MySQL
 
-在此步驟中，您會在[適用於 MySQL 的 Azure 資料庫 (預覽)](/azure/mysql) 中建立 MySQL 資料庫。 稍後，您要將 PHP 應用程式設定為連線至此資料庫。
+在此步驟中，您會在[適用於 MySQL 的 Azure 資料庫](/azure/mysql)中建立 MySQL 資料庫。 稍後，您要將 PHP 應用程式設定為連線至此資料庫。
 
 ### <a name="create-a-resource-group"></a>建立資源群組
 
@@ -160,7 +160,7 @@ php artisan serve
 
 ### <a name="create-a-mysql-server"></a>建立 MySQL 伺服器
 
-使用 [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) 命令，在適用於 MySQL 的 Azure 資料庫 (預覽) 中建立伺服器。
+使用 [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) 命令，在適用於 MySQL 的 Azure 資料庫中建立伺服器。
 
 在下列命令中，在您看見 _&lt;mysql_server_name>_ 預留位置的地方，取代成您自己的 MySQL 伺服器名稱 (有效字元有 `a-z`、`0-9`、`-`)。 這個名稱是 MySQL 伺服器主機名稱 (`<mysql_server_name>.database.windows.net`) 的一部分，必須是全域唯一的。
 
@@ -230,7 +230,7 @@ quit
 
 ## <a name="connect-app-to-azure-mysql"></a>將應用程式連線至 Azure MySQL
 
-在此步驟中，您要將 PHP 應用程式連線至您在適用於 MySQL 的 Azure 資料庫 (預覽) 中建立的 MySQL 資料庫。
+在此步驟中，您會將 PHP 應用程式連線至您在適用於 MySQL 的 Azure 資料庫中建立的 MySQL 資料庫。
 
 <a name="devconfig"></a>
 
@@ -254,7 +254,7 @@ MYSQL_SSL=true
 儲存變更。
 
 > [!TIP]
-> 為了保護您的 MySQL 連接資訊，Git 存放庫中已經排除此檔案 (請看 _.gitignore_ 存放庫的根目錄)。 稍後，您將了解如何設定 App Service 中的環境變數，來連線至適用於 MySQL 的 Azure 資料庫 (預覽)。 使用環境變數，您在 App Service 中就不需要 *.env* 檔案。
+> 為了保護您的 MySQL 連接資訊，Git 存放庫中已經排除此檔案 (請看 _.gitignore_ 存放庫的根目錄)。 稍後，您將了解如何設定 App Service 中的環境變數，以連線至適用於 MySQL 的 Azure 資料庫。 使用環境變數，您在 App Service 中就不需要 *.env* 檔案。
 >
 
 ### <a name="configure-ssl-certificate"></a>設定 SSL 憑證
@@ -277,7 +277,7 @@ MYSQL_SSL=true
 
 ### <a name="test-the-application-locally"></a>在本機測試應用程式
 
-使用 _.env.production_ 作為環境檔案來執行 Laravel 資料庫移轉，可在適用於 MySQL 的 Azure 資料庫 (預覽) 中建立資料表。 請記住，_.env.production_ 中有連線至您在 Azure 中的 MySQL 資料庫的連線資訊。
+使用 _.env.production_ 作為環境檔案以執行 Laravel 資料庫移轉，可在適用於 MySQL 的 Azure 資料庫中建立資料表。 請記住，_.env.production_ 中有連線至您在 Azure 中的 MySQL 資料庫的連線資訊。
 
 ```bash
 php artisan migrate --env=production --force
@@ -299,7 +299,7 @@ php artisan serve --env=production
 
 在頁面中新增幾項工作。
 
-![PHP 順利連線至適用於 MySQL 的 Azure 資料庫 (預覽)](./media/tutorial-php-mysql-app/mysql-connect-success.png)
+![PHP 順利連線至適用於 MySQL 的 Azure 資料庫](./media/tutorial-php-mysql-app/mysql-connect-success.png)
 
 若要停止 PHP，請在終端機中輸入 `Ctrl + C`。
 

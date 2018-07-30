@@ -1,6 +1,6 @@
 ---
 title: 使用 Linux VM 的受控服務識別來存取 Azure Data Lake Store
-description: 本教學課程示範如何使用 Linux VM 的受控服務識別 (MSI) 來存取 Azure Data Lake Store。
+description: 本教學課程示範如何使用 Linux VM 的受控服務識別來存取 Azure Data Lake Store。
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: ce38dabbe9aa69f7c54bb49888ad83e01a7c9522
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 6854b0a6c72b44bcd3f778e0c46cb109b34ce826
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004875"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258825"
 ---
 # <a name="tutorial-use-managed-service-identity-for-a-linux-vm-to-access-azure-data-lake-store"></a>教學課程：使用 Linux VM 的受控服務識別來存取 Azure Data Lake Store
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-本教學課程示範如何使用 Linux 虛擬機器 (VM) 的受控服務身分識別來存取 Azure Data Lake Store。 Azure 會自動管理您透過 MSI 所建立的身分識別。 您可以使用 MSI 向支援 Azure Active Directory (Azure AD) 驗證的服務進行驗證，而不需要將認證插入您的程式碼中。 
+本教學課程示範如何使用 Linux 虛擬機器 (VM) 的受控服務身分識別來存取 Azure Data Lake Store。 Azure 會自動管理您透過受控服務識別所建立的身分識別。 您可以使用受控服務識別向支援 Azure Active Directory (Azure AD) 驗證的服務進行驗證，而不需要將認證插入您的程式碼中。 
 
 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
-> * 在 Linux VM 上啟用 MSI。 
+> * 在 Linux VM 上啟用受控服務識別。 
 > * 將您的 VM 存取權授與 Azure Data Lake Store。
 > * 使用 VM 身分識別取得存取權杖，並使用它來存取 Azure Data Lake Store。
 
@@ -58,13 +58,13 @@ ms.locfileid: "39004875"
 5. 若要選取需要在其中建立虛擬機器的新資源群組，請選擇 [資源群組] > [新建]。 完成時，請選取 [確定]。
 6. 選取 VM 的大小。 若要查看更多大小，請選取 [檢視全部] 或變更 [支援的磁碟類型] 篩選條件。 在 [設定] 窗格中，保留預設值並選取 [確定]。
 
-## <a name="enable-msi-on-your-vm"></a>在您的 VM 上啟用 MSI
+## <a name="enable-managed-service-identity-on-your-vm"></a>在 VM 上啟用受控服務識別
 
-VM MSI 可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您的程式碼。 在 VM 上啟用受控服務識別可執行兩項工作：在 Azure Active Directory 註冊您的 VM 以建立其受控身分識別，它就會在 VM 上設定身分識別。
+VM 受控服務識別可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您的程式碼。 在 VM 上啟用受控服務識別可執行兩項工作：在 Azure Active Directory 註冊您的 VM 以建立其受控身分識別，它就會在 VM 上設定身分識別。
 
-1. 在 [虛擬機器] 中，選取您需要在其中啟用 MSI 的虛擬機器。
+1. 針對 [虛擬機器]，選取您想要在其上啟用受控服務識別的虛擬機器。
 2. 在左窗格中，選取 [設定]。
-3. 您會看到**受控服務識別**。 若要註冊並啟用 MSI，請選取 [是]。 如果您需要將它停用，請選取 [否]。
+3. 您會看到**受控服務識別**。 若要註冊並啟用受控服務識別，請選取 [是]。 如果您需要將它停用，請選取 [否]。
    ![「向 Azure Active Directory 註冊」選取項目](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 4. 選取 [ **儲存**]。
 
@@ -72,7 +72,7 @@ VM MSI 可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您
 
 現在您可以將您的 VM 存取權授與 Azure Data Lake Store 中的檔案和資料夾。 在這個步驟，您可以使用現有的 Data Lake Store 執行個體或建立新的執行個體。 若要使用 Azure 入口網站建立 Data Lake Store 執行個體，請遵循 [Azure Data Lake Store 快速入門](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)。 在 [Azure Data Lake Store 文件](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview)中，也有使用 Azure CLI 和 Azure PowerShell 的快速入門做法。
 
-在 Data Lake Store 中建立新資料夾，並將該資料夾中的讀取、寫入和執行檔案權限授與 MSI：
+在 Data Lake Store 中建立新的資料夾，並將在該資料夾中讀取、寫入和執行檔案的權限授與受控服務識別：
 
 1. 在 Azure 入口網站中，選取左側窗格的 [Data Lake Store]。
 2. 選取您需要使用的 Data Lake Store 執行個體。
@@ -90,7 +90,7 @@ MSI 現在可以對您所建立之資料夾中的檔案執行所有作業。 如
 
 ## <a name="get-an-access-token-and-call-the-data-lake-store-file-system"></a>取得存取權杖，並呼叫 Data Lake Store 檔案系統
 
-Azure Data Lake Store 原生支援 Azure AD 驗證，因此可以直接接受透過 MSI 取得的存取權杖。 為了向 Data Lake Store 檔案系統進行驗證，您要將 Azure AD 所簽發的存取權杖傳送至 Data Lake Store 檔案系統端點。 存取權杖位於授權標頭，格式為 "Bearer \<ACCESS_TOKEN_VALUE\>"。  若要深入了解 Data Lake Store 的 Azure AD 驗證支援，請參閱[使用 Azure Active Directory 向 Data Lake Store 進行驗證](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)。
+Azure Data Lake Store 原生支援 Azure AD 驗證，因此可以直接接受透過受控服務識別取得的存取權杖。 為了向 Data Lake Store 檔案系統進行驗證，您要將 Azure AD 所簽發的存取權杖傳送至 Data Lake Store 檔案系統端點。 存取權杖位於授權標頭，格式為 "Bearer \<ACCESS_TOKEN_VALUE\>"。  若要深入了解 Data Lake Store 的 Azure AD 驗證支援，請參閱[使用 Azure Active Directory 向 Data Lake Store 進行驗證](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)。
 
 在本教學課程中，您使用 cURL 向 Data Lake Store 檔案系統驗證 REST API，以提出 REST 要求。
 
@@ -101,7 +101,7 @@ Azure Data Lake Store 原生支援 Azure AD 驗證，因此可以直接接受透
 
 1. 在入口網站中，瀏覽至您的 Linux VM。 在 [概觀] 中，選取 [連線]。  
 2. 使用您所選擇的 SSH 用戶端來連線到 VM。 
-3. 在終端機視窗中使用 cURL 向本機 MSI 端點提出要求，來取得 Data Lake Store 檔案系統的存取權杖。 Data Lake Store 的資源識別碼是 "https://datalake.azure.net/"。  請務必包含資源識別項中的結尾斜線。
+3. 在終端機視窗中使用 cURL 向本機受控服務識別端點提出要求，來取得 Data Lake Store 檔案系統的存取權杖。 Data Lake Store 的資源識別碼是 "https://datalake.azure.net/"。  請務必包含資源識別項中的結尾斜線。
     
    ```bash
    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -H Metadata:true   
@@ -180,7 +180,7 @@ Azure Data Lake Store 原生支援 Azure AD 驗證，因此可以直接接受透
 
 您可以使用 Data Lake Store 檔案系統的其他 API，來附加至檔案及下載檔案等。
 
-恭喜！ 您已經使用 Linux VM 的 MSI 向 Data Lake Store 檔案系統進行驗證。
+恭喜！ 您已經使用 Linux VM 的受控服務識別向 Data Lake Store 檔案系統進行驗證。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,6 +1,6 @@
 ---
-title: 使用 Windows VM MSI 存取 Azure SQL
-description: 此教學課程引導您使用 Windows VM 受控服務身分識別 (MSI) 來存取 Azure SQL 的程序。
+title: 使用 Windows VM 存取 Azure SQL
+description: 此教學課程引導您使用 Windows VM 受控服務識別來存取 Azure SQL 的程序。
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 72452382c4fd2f9c1acb0d773da5c7ed014f9bda
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: ace7f11eeea081077855a409824272b4b55f3c33
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001927"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247222"
 ---
-# <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>教學課程：使用 Windows VM 受控服務識別 (MSI) 來存取 Azure SQL
+# <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-sql"></a>教學課程：使用 Windows VM 受控服務識別來存取 Azure SQL
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-本教學課程示範如何使用 Windows 虛擬機器 (VM) 的受控服務身分識別 (MSI) 來存取 Azure SQL 伺服器。 受控服務身分識別由 Azure 自動管理，並可讓您驗證支援 Azure AD 驗證的服務，而不需要將認證插入程式碼中。 您會了解如何：
+本教學課程示範如何使用 Windows 虛擬機器 (VM) 的受控服務識別來存取 Azure SQL 伺服器。 受控服務身分識別由 Azure 自動管理，並可讓您驗證支援 Azure AD 驗證的服務，而不需要將認證插入程式碼中。 您會了解如何：
 
 > [!div class="checklist"]
-> * 在 Windows VM 上啟用 MSI 
+> * 在 Windows VM 上啟用受控服務識別 
 > * 將您的 VM 存取權授與 Azure SQL 伺服器
 > * 使用 VM 身分識別取得存取權杖，並使用它查詢 Azure SQL 伺服器
 
@@ -44,7 +44,7 @@ ms.locfileid: "39001927"
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>在新的資源群組中建立 Windows 虛擬機器
 
-此教學課程中，我們會建立新的 Windows VM。  您也可以在現有的 VM 中啟用 MSI。
+此教學課程中，我們會建立新的 Windows VM。  您也可以在現有的 VM 上啟用受控服務識別。
 
 1.  按一下 Azure 入口網站左上角的 [建立資源] 按鈕。
 2.  選取 [計算]，然後選取 [Windows Server 2016 Datacenter]。 
@@ -55,13 +55,13 @@ ms.locfileid: "39001927"
 
     ![替代映像文字](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>在您的 VM 上啟用 MSI 
+## <a name="enable-managed-service-identity-on-your-vm"></a>在您的 VM 上啟用受控服務識別 
 
-VM MSI 可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您的程式碼。 啟用 MSI 會告訴 Azure 為您的 VM 建立受控身分識別。 實際上，啟用 MSI 會執行兩項工作：在 Azure Active Directory 註冊您的 VM 以建立其受控身分識別，它就會在 VM 上設定身分識別。
+VM 受控服務識別可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您的程式碼。 啟用受控服務識別會告訴 Azure 為您的 VM 建立受控識別。 實際上，啟用受控服務識別可執行兩項工作：在 Azure Active Directory 註冊您的 VM 以建立其受控識別，它就會在 VM 上設定身分識別。
 
-1.  選取您想要在其中啟用 MSI 的 [虛擬機器]。  
-2.  在左側的導覽列上，按一下 [設定] 。 
-3.  您會看到**受控服務識別**。 若要註冊並啟用 MSI，請選取 [是]，如果您想要將它停用，則請選擇 [否]。 
+1.  選取您想要在上面啟用受控服務識別的 [虛擬機器]。  
+2.  在左側的導覽列上，按一下 [設定]。 
+3.  您會看到**受控服務識別**。 若要註冊並啟用受控服務識別，請選取 [是]，如果您想要將它停用，則請選擇 [否]。 
 4.  按一下 [儲存] 確認儲存設定。  
     ![替代映像文字](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
@@ -70,38 +70,38 @@ VM MSI 可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您
 現，在您可以將 VM 存取權授與 Azure SQL 伺服器中的資料庫。  在這個步驟，您可以使用現有的 SQL 伺服器或建立新的。  若要使用 Azure 入口網站建立新的伺服器和資料庫，請遵循此 [Azure SQL 快速入門](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal)的作法。 在 [Azure SQL 文件](https://docs.microsoft.com/azure/sql-database/)中也有使用 Azure CLI 和 Azure PowerShell 的快速入門作法。
 
 將 VM 存取權授與資料庫有三個步驟：
-1.  在 Azure AD 中建立群組，並讓 VM MSI 成為此群組的成員。
+1.  在 Azure AD 中建立群組，並讓 VM 受控服務識別成為此群組的成員。
 2.  啟用 SQL Server 的 Azure AD 驗證。
 3.  在代表 Azure AD 群組的資料庫中建立**包含的使用者**。
 
 > [!NOTE]
-> 通常您會建立直接對應到 VM MSI 的「包含的使用者」。  現階段，Azure SQL 不允許代表 VM MSI 的 Azure AD 服務主體對應到包含的使用者。  支援的因應做法是，讓 VM 的 MSI 成為 Azure AD 群組的成員，然後在代表該 群組的資料庫中建立包含的使用者。
+> 通常您會建立直接對應到 VM 受控服務識別的「包含的使用者」。  現階段，Azure SQL 不允許代表 VM 受控服務識別的 Azure AD 服務主體對應到包含的使用者。  支援的因應措施是，讓 VM 受控服務識別成為 Azure AD 群組的成員，然後在代表該群組的資料庫中建立包含的使用者。
 
 
-### <a name="create-a-group-in-azure-ad-and-make-the-vm-msi-a-member-of-the-group"></a>在 Azure AD 中建立群組，並讓 VM MSI 成為此群組的成員
+### <a name="create-a-group-in-azure-ad-and-make-the-vm-managed-service-identity-a-member-of-the-group"></a>在 Azure AD 中建立群組，並讓 VM 受控服務識別成為此群組的成員
 
 您可以使用現有的 Azure AD 群組，或使用 Azure AD PowerShell 建立一個新群組。  
 
 首先，安裝 [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) 模組。 然後使用 `Connect-AzureAD` 登入，執行下列命令來建立群組，並將它儲存在變數中：
 
 ```powershell
-$Group = New-AzureADGroup -DisplayName "VM MSI access to SQL" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
+$Group = New-AzureADGroup -DisplayName "VM Managed Service Identity access to SQL" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
 ```
 
 輸出看起來像下面這樣，它也會檢查變數的值：
 
 ```powershell
-$Group = New-AzureADGroup -DisplayName "VM MSI access to SQL" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
+$Group = New-AzureADGroup -DisplayName "VM Managed Service Identity access to SQL" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
 $Group
 ObjectId                             DisplayName          Description
 --------                             -----------          -----------
-6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 VM MSI access to SQL
+6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 VM Managed Service Identity access to SQL
 ```
 
-接下來，將 VM 的 MSI 新增至群組。  您需要的 MSI 的 **ObjectId**，可以使用 Azure PowerShell 取得此值。  首先，下載 [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 然後使用 `Connect-AzureRmAccount` 登入，執行下列命令來達成這些事項︰
+接下來，將 VM 受控服務識別新增至群組。  您需要的受控服務識別的 **ObjectId**，可以使用 Azure PowerShell 取得此值。  首先，下載 [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 然後使用 `Connect-AzureRmAccount` 登入，執行下列命令來達成這些事項︰
 - 確定工作階段內容設為所需的 Azure 訂用帳戶 (如果您有多個訂用帳戶)。
 - 列出 Azure 訂用帳戶中的可用資源，確認資源群組和 VM 名稱正確。
-- 使用適當的 `<RESOURCE-GROUP>`和 `<VM-NAME>` 值取得 MSI VM 的屬性。
+- 使用適當的 `<RESOURCE-GROUP>` 和 `<VM-NAME>` 值，取得受控服務識別 VM 的屬性。
 
 ```powershell
 Set-AzureRMContext -subscription "bdc79274-6bb9-48a8-bfd8-00c140fxxxx"
@@ -109,14 +109,14 @@ Get-AzureRmResource
 $VM = Get-AzureRmVm -ResourceGroup <RESOURCE-GROUP> -Name <VM-NAME>
 ```
 
-輸出看起來像下面這樣，它也會檢查VM MSI 的服務主體物件識別碼：
+輸出看起來像下面這樣，它也會檢查VM 受控服務識別的服務主體物件識別碼：
 ```powershell
 $VM = Get-AzureRmVm -ResourceGroup DevTestGroup -Name DevTestWinVM
 $VM.Identity.PrincipalId
 b83305de-f496-49ca-9427-e77512f6cc64
 ```
 
-現在，將 VM MSI 新增至群組。  使用 Azure AD PowerShell，可以只將一個服務主體新增至群組。  請執行這個命令：
+現在將 VM 受控服務識別新增至群組。  使用 Azure AD PowerShell，可以只將一個服務主體新增至群組。  請執行這個命令：
 ```powershell
 Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId $VM.Identity.PrincipalId
 ```
@@ -134,7 +134,7 @@ b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTes
 
 ### <a name="enable-azure-ad-authentication-for-the-sql-server"></a>啟用 SQL Server 的 Azure AD 驗證
 
-現在，您已建立群組並將 VM MSI 新增為成員，可以使用下列步驟[設定 SQL Server 的 Azure AD 驗證](/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-azure-sql-server)：
+現在，您已建立群組並將 VM 受控服務識別新增為成員，可以使用下列步驟[設定 SQL Server 的 Azure AD 驗證](/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-azure-sql-server)：
 
 1.  在 Azure 入口網站中，選取左側導覽中的 [SQL 伺服器]。
 2.  按一下要啟用 Azure AD 驗證的 SQL 伺服器。
@@ -162,25 +162,25 @@ b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTes
 10.  在查詢視窗中，輸入下列這一行，然後按一下工具列中的 [執行]︰
     
      ```
-     CREATE USER [VM MSI access to SQL] FROM EXTERNAL PROVIDER
+     CREATE USER [VM Managed Service Identity access to SQL] FROM EXTERNAL PROVIDER
      ```
     
      命令應該會順利完成，為群組建立包含的使用者。
 11.  清除查詢視窗，輸入下列這一行，然後按一下工具列中的 [執行]︰
      
      ```
-     ALTER ROLE db_datareader ADD MEMBER [VM MSI access to SQL]
+     ALTER ROLE db_datareader ADD MEMBER [VM Managed Service Identity access to SQL]
      ```
 
      命令應該會順利完成，將讀取整個資料庫的能力授與包含的使用者。
 
-在 VM 中執行的程式碼現在可以從 MSI 取得權杖，並使用權杖來向 SQL 伺服器進行驗證。
+在 VM 中執行的程式碼現在可以從受控服務識別取得權杖，並使用權杖來向 SQL 伺服器進行驗證。
 
 ## <a name="get-an-access-token-using-the-vm-identity-and-use-it-to-call-azure-sql"></a>使用 VM 身分識別取得存取權杖，並使用它來呼叫 Azure SQL 
 
-Azure SQL 原生支援 Azure AD 驗證，因此可以直接接受使用 MSI 取得的存取權杖。  您使用 **access token** 方法來建立 SQL 連線。  這是 Azure AD 與 Azure SQL 整合的一部分，與在連接字串上提供認證不同。
+Azure SQL 原生支援 Azure AD 驗證，因此可以直接接受使用受控服務識別取得的存取權杖。  您使用 **access token** 方法來建立 SQL 連線。  這是 Azure AD 與 Azure SQL 整合的一部分，與在連接字串上提供認證不同。
 
-以下是使用存取權杖開啟 SQL 連線的 .Net 程式碼範例。  此程式碼必須在 VM 上執行，才能夠存取 VM MSI 端點。  需使用 **.Net framework 4.6** 或更高版本，才可使用的 access token 方法。  將 AZURE-SQL-SERVERNAME 和 DATABASE 的值取代為實際值。  請注意，Azure SQL 資源識別碼是「https://database.windows.net/」。
+以下是使用存取權杖開啟 SQL 連線的 .Net 程式碼範例。  此程式碼必須在 VM 上執行，才能夠存取 VM 受控服務識別端點。  需使用 **.Net framework 4.6** 或更高版本，才可使用的 access token 方法。  將 AZURE-SQL-SERVERNAME 和 DATABASE 的值取代為實際值。  請注意，Azure SQL 資源識別碼是「https://database.windows.net/」。
 
 ```csharp
 using System.Net;
@@ -198,7 +198,7 @@ string accessToken = null;
 
 try
 {
-    // Call MSI endpoint.
+    // Call Managed Service Identity endpoint.
     HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
     // Pipe response Stream to a StreamReader and extract access token.
@@ -229,7 +229,7 @@ if (accessToken != null) {
 1.  在入口網站中，瀏覽至 [虛擬機器] 並移至您的 Windows 虛擬機器，在 [概觀] 中按一下 [連線]。 
 2.  輸入您建立 Windows VM 時新增的**使用者名稱**和**密碼**。 
 3.  現在您已經建立虛擬機器的**遠端桌面連線**，請在遠端工作階段中開啟 **PowerShell**。 
-4.  使用 Powershell 的 `Invoke-WebRequest`，向本機 MSI 端點提出要求取得 Azure SQL 的存取權杖。
+4.  使用 Powershell 的 `Invoke-WebRequest`，向本機受控服務識別端點提出要求取得 Azure SQL 的存取權杖。
 
     ```powershell
        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatabase.windows.net%2F' -Method GET -Headers @{Metadata="true"}
@@ -268,7 +268,7 @@ if (accessToken != null) {
     $SqlAdapter.Fill($DataSet)
     ```
 
-檢查 `$DataSet.Tables[0]` 的值以檢視查詢的結果。  恭喜，您已成功使用 VM MSI 查詢 資料庫，而且不需要提供認證 ！
+檢查 `$DataSet.Tables[0]` 的值以檢視查詢的結果。  恭喜，您已成功使用 VM 受控服務識別查詢 資料庫，而且不需要提供認證！
 
 ## <a name="next-steps"></a>後續步驟
 

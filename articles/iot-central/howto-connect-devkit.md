@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: d7b92359e8875c281fd460f1f5307a7941c11c1f
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 99d69c7e49179a7849e274c830d539833da33786
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261571"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049447"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>將 MXChip IoT DevKit 裝置連線到您的 Azure IoT Central 應用程式
 
@@ -82,7 +82,8 @@ ms.locfileid: "35261571"
 | 類型            | 顯示名稱 | 欄位名稱 | 資料類型 |
 | --------------- | ------------ | ---------- | --------- |
 | 裝置屬性 | 模具編號   | dieNumber  | number    |
-| 文字            | 位置     | location   | N/A       |
+| 裝置屬性 | 裝置位置   | location  | location    |
+| 文字            | 製造地     | 製造地   | N/A       |
 
 
 ### <a name="add-a-real-device"></a>新增真實裝置
@@ -91,8 +92,8 @@ ms.locfileid: "35261571"
 
 ## <a name="prepare-the-devkit-device"></a>準備 DevKit 裝置
 
-> [!TIP]
-> 如需 DevKit 裝置疑難排解指引，請參閱[開始使用 IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/get-started/)。
+> [!NOTE]
+> 如果您先前已經使用裝置並且已儲存 WiFi 認證，但是想要將裝置重新設定為使用不同的 WiFi 網路、連接字串或遙測度量，請同時按面板上的 **A** 和 **B** 按鈕。 如果沒有作用，請按 [重設] 按鈕，然後再試一次。
 
 若要準備 DevKit 裝置：
 
@@ -127,7 +128,7 @@ ms.locfileid: "35261571"
     - WiFi 網路密碼 
     - 裝置 LCD 上顯示的 PIN CODE 
     - 您裝置的連接字串。 
-      您可以在 `https://apps.iotcentral.com` -> `Device Explorer` -> `Device` -> `Select or Create a new Real Device` -> `Connect this device` (在右上方) 尋找連接字串 
+      您可以在 \@ `https://apps.iotcentral.com` -> `Device Explorer` -> `Device` -> `Select or Create a new Real Device` -> `Connect this device` (在右上方) 尋找連接字串 
     - 選取所有可用的遙測量值！ 
 
 1. 選擇 [設定裝置] 之後，您會看到這個頁面：
@@ -136,8 +137,7 @@ ms.locfileid: "35261571"
 
 1. 按裝置上的 [重設] 按鈕。
 
-> [!NOTE]
-> 若要將裝置重新設定為使用不同的 WiFi 網路、連接字串或遙測量值，請同時按面板上的 **A** 和 **B** 按鈕。 如果沒有作用，請按 [重設] 按鈕，然後再試一次。 
+
 
 ## <a name="view-the-telemetry"></a>檢視遙測資料
 
@@ -153,19 +153,24 @@ ms.locfileid: "35261571"
 
 1. 使用 [裝置總管]，瀏覽至您所新增真實 MXChip 裝置的 [量值] 頁面：
 
-    ![瀏覽至真實裝置](media/howto-connect-devkit/realdevice.png)
+    ![瀏覽至真實裝置](media/howto-connect-devkit/realdevicenew.png)
 
 1. 在 [量值] 頁面上，您可以看到來自 MXChip 裝置的遙測：
 
-    ![從真實裝置檢視遙測](media/howto-connect-devkit/realtelemetry.png)
+    ![從真實裝置檢視遙測](media/howto-connect-devkit/devicetelemetrynew.png)
 
-1. 在 [屬性] 頁面上，您可以檢視裝置所報告的最後一個 Die 數字：
+1. 在 [屬性] 頁面上，您可以檢視裝置所報告的最後一個印模號碼和裝置位置：
 
-    ![檢視裝置屬性](media/howto-connect-devkit/deviceproperties.png)
+    ![檢視裝置屬性](media/howto-connect-devkit/devicepropertynew.png)
 
 1. 在 [設定] 頁面上，您可以在 MXChip 裝置上更新設定：
 
-    ![檢視裝置設定](media/howto-connect-devkit/settings.png)
+    ![檢視裝置設定](media/howto-connect-devkit/devicesettingsnew.png)
+
+1. 在 [儀表板] 頁面上，您可以看到位置地圖
+
+    ![檢視裝置儀表板](media/howto-connect-devkit/devicedashboardnew.png)
+
 
 ## <a name="download-the-source-code"></a>下載原始程式碼
 

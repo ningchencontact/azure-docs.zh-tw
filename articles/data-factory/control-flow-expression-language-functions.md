@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: d862cd0223609d80c511362edbcc0ed6dd512b1f
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 5cdaba2a280221fa5fa9274ebfa6cafa18e7690c
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859142"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39055010"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure Data Factory 中的運算式和函式
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,14 +41,14 @@ ms.locfileid: "37859142"
 ```
 
 ## <a name="expressions"></a>運算式  
-運算式可以出現在 JSON 字串值中的任何一處，並一律產生另一個 JSON 值。 當 JSON 值為運算式時，可透過移除 \@ 符號來擷取運算式的主體。 如果需要的常值字串開頭為 \@\，它必須使用 \@@ 逸出。 下列範例顯示如何評估運算式。  
+運算式可以出現在 JSON 字串值中的任何一處，並一律產生另一個 JSON 值。 當 JSON 值為運算式時，可透過移除 \@ 符號來擷取運算式的主體。 如果需要的常值字串開頭為 \@，就必須使用 \@\@ 逸出。 下列範例顯示如何評估運算式。  
   
 |JSON 值|結果|  
 |----------------|------------|  
 |"parameters"|傳回字元 'parameters'。|  
 |"parameters[1]"|傳回字元 'parameters[1]'。|  
-|"\@@"|傳回包含 \'\@\' 的 1 個字元字串。|  
-|" \@"|傳回包含 '\@\' 的 2 個字元字串。|  
+|"\@\@"|傳回包含 '\@' 的 1 個字元字串。|  
+|" \@"|傳回包含 '\@' 的 2 個字元字串。|  
   
  使用稱為「字串插補」的功能，運算式也可以出現在字串內，其中運算式會包含在 `@{ ... }` 內。 例如：`"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
   
@@ -62,7 +62,7 @@ ms.locfileid: "37859142"
 |"\@{pipeline().parameters.myNumber}"| 傳回 `42` 做為「字串」。|  
 |"Answer is: @{pipeline().parameters.myNumber}"| 傳回字串 `Answer is: 42`。|  
 |"\@concat('Answer is: ', string(pipeline().parameters.myNumber))"| 傳回字串 `Answer is: 42`|  
-|"Answer is: \@@{pipeline().parameters.myNumber}"| 傳回字串 `Answer is: @{pipeline().parameters.myNumber}`。|  
+|"Answer is: \@\@{pipeline().parameters.myNumber}"| 傳回字串 `Answer is: @{pipeline().parameters.myNumber}`。|  
   
 ### <a name="examples"></a>範例
 

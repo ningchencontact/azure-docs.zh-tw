@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/28/2018
 ms.author: daveba
-ms.openlocfilehash: d25d868d8f3542d74de8edf8d7d5d26037409911
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e58ba598df06feddc7b48072dfefd409f31e2445
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006925"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237864"
 ---
 #  <a name="what-is-managed-service-identity-for-azure-resources"></a>什麼是適用於 Azure 資源的受控服務識別？
 
@@ -59,7 +59,7 @@ ms.locfileid: "39006925"
 6. 使用步驟 3 所設定的用戶端識別碼和憑證呼叫 Azure AD，以要求步驟 #5 所指定的存取權杖。 Azure AD 會傳回 JSON Web 權杖 (JWT) 存取權杖。
 7. 您的程式碼會在呼叫上傳送存取權杖給支援 Azure AD 驗證的服務。
 
-使用相同的圖表，以下範例可說明使用者指派的項目如何與 Azure 虛擬機器搭配運作。
+使用相同的圖表，以下範例顯示使用者指派的受控識別如何與 Azure 虛擬機器一起運作。
 
 1. Azure Resource Manager 收到一個要求，要建立使用者指派的身分識別。
 2. Azure Resource Manager 會在 Azure AD 中建立服務主體，以代表使用者指派的身分識別。 服務主體會建立在此訂用帳戶信任的 Azure AD 租用戶中。

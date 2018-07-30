@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/17/2018
+ms.date: 07/10/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 3ceed8b88b9c81954c967d3d7ddd964c532867ab
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 4b45d917118d5be1252c3bb232e4b24e68d7857f
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34301602"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188177"
 ---
 # <a name="tutorial-assign-access-to-cost-management-data"></a>教學課程：指派成本管理資料的存取權
 
@@ -28,12 +28,14 @@ ms.locfileid: "34301602"
 > [!div class="checklist"]
 > * 建立具有系統管理員存取權的使用者
 > * 建立具有使用者存取權的使用者
+> * 刪除使用者
+> * 刪除或匯出個人資料
 > * 建立和管理實體
 
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 您必須具有 Azure 帳號。
 - 您必須有 Azure 成本管理的試用版註冊或付費訂用帳戶。
@@ -42,7 +44,7 @@ ms.locfileid: "34301602"
 
 雖然您已經有系統管理員存取權，但您組織中的同事也可能需要有系統管理員存取權。 在 Cloudyn 入口網站中，按一下右上角的齒輪符號並選取 [使用者管理]。 按一下 [新增使用者] 以新增使用者。
 
-輸入使用者的相關資訊。 登入識別碼必須是有效的電子郵件地址。 選擇允許「使用者管理」的權限，以便使用者建立和修改其他使用者。 「收件者清單管理」可允許使用者編輯收件者清單。 當您選取 [透過電子郵件通知使用者] 時，系統就會透過電子郵件從 Cloudyn 將含有登入資訊的連結傳送給使用者。 第一次登入時，使用者需設定密碼。
+輸入使用者的相關資訊。 **登入識別碼**必須是有效的電子郵件地址。 選擇允許「使用者管理」的權限，以便使用者建立和修改其他使用者。 「收件者清單管理」可允許使用者編輯收件者清單。 當您選取 [透過電子郵件通知使用者] 時，系統就會透過電子郵件從 Cloudyn 將含有登入資訊的連結傳送給使用者。 第一次登入時，使用者需設定密碼。
 
 在 [使用者具有系統管理員存取權] 之下，已選取您組織的根實體。 讓根實體保留已選取狀態，然後儲存使用者資訊。 選取根實體，可讓使用者不只擁有樹狀目錄中根實體的系統管理員權限，也擁有其下所有實體的系統管理員權限。  
   ![新增具有系統管理員存取權的使用者](.\media\tutorial-user-access\new-admin-access.png)
@@ -57,6 +59,24 @@ ms.locfileid: "34301602"
 ![新增具有使用者存取權的使用者](.\media\tutorial-user-access\new-user-access.png)
 
 若要觀看有關新增使用者的教學課程影片，請看[將使用者新增至 Azure 成本管理](https://youtu.be/Nzn7GLahx30)。
+
+## <a name="delete-a-user"></a>刪除使用者
+
+當您刪除使用者時，使用者有權存取的任何實體仍維持不變。 在刪除使用者時，已儲存的*個人*報告會隨之移除。 使用者所建立並儲存的*公用*報告則不會刪除。
+
+您無法移除自己的使用者身分。
+
+> [!WARNING]
+> 在刪除使用者後，就無法還原。
+
+1.  在 Cloudyn 入口網站中按一下右上方的齒輪符號，然後選取 [使用者管理]。
+2.  在使用者清單中選取您要刪除的使用者，然後按一下 [刪除使用者] (垃圾桶符號)。
+3.  在 [刪除使用者] 方塊中按一下 [是]，然後按一下 [確定]。
+
+
+## <a name="delete-or-export-personal-data"></a>刪除或匯出個人資料
+
+如果您要從 Cloudyn 刪除或匯出個人資料，您必須建立支援票證。 支援票證建立後，會以正式要求 (資料主體要求) 的形式運作。 接著，Microsoft 會執行提示動作，以移除帳戶並刪除任何客戶或個人資料。 若要了解如何要求刪除或匯出您的資料，請參閱 [Cloudyn 資料的資料主體要求](https://www.cloudyn.com/cloudyn-gdpr-requests)。
 
 ## <a name="create-and-manage-entities"></a>建立和管理實體
 
@@ -105,6 +125,8 @@ ms.locfileid: "34301602"
 > [!div class="checklist"]
 > * 建立具有系統管理員存取權的使用者
 > * 建立具有使用者存取權的使用者
+> * 刪除使用者
+> * 刪除或匯出個人資料
 > * 建立和管理實體
 
 

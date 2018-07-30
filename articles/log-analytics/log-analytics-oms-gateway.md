@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: a13057769bad7fcad5f95e49102adac234ebcdb4
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: bbb17d1b47c5409d15a15a7461da981fa5e09f7e
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868934"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056829"
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>在無網際網路存取下使用 OMS 閘道連線電腦
 本文件說明如何在直接連線或 Operations Manager 監視的電腦沒有網際網路存取時，設定使用 OMS 閘道與 Azure 自動化和 Log Analytics 的通訊。  OMS 閘道是使用 HTTP CONNECT 命令支援 HTTP 通道的 HTTP 正向 Proxy，可以代表這些電腦收集資料並傳送給 Azure 自動化和 Log Analytics 服務。  
@@ -50,7 +50,7 @@ OMS 閘道支援︰
 
 ![Operations Manager 與 Log Analytics 通訊的圖表](./media/log-analytics-oms-gateway/log-analytics-agent-opsmgrconnect.png)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 指定電腦來執行 OMS 閘道時，這台電腦必須具備下列條件︰
 
@@ -89,8 +89,8 @@ OMS 閘道僅支援傳輸層安全性 (TLS) 1.0、1.1 及 1.2。  不支援安�
 
 |閘道器 |支援的約略代理程式數目|  
 |--------|----------------------------------|  
-|- CPU：Intel XEON CPU E5-2660 v3 @ 2.6GHz 2 核心<br> - 記憶體：4 GB<br> - 網路頻寬：1 Gbps| 600|  
-|- CPU：Intel XEON CPU E5-2660 v3 @ 2.6GHz 4 核心<br> - 記憶體：8 GB<br> - 網路頻寬：1 Gbps| 1000|  
+|- CPU：Intel XEON CPU E5-2660 v3 \@ 2.6GHz 2 核心<br> - 記憶體：4 GB<br> - 網路頻寬：1 Gbps| 600|  
+|- CPU：Intel XEON CPU E5-2660 v3 \@ 2.6GHz 4 核心<br> - 記憶體：8 GB<br> - 網路頻寬：1 Gbps| 1000|  
 
 ## <a name="download-the-oms-gateway"></a>下載 OMS 閘道
 
