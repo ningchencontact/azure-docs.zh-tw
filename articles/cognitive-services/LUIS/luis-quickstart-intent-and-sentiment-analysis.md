@@ -2,19 +2,19 @@
 title: 建立 LUIS 應用程式以傳回情感分析的教學課程 - Azure | Microsoft Docs
 description: 在本教學課程中，了解如何在 LUIS 應用程式中新增情感分析，以分析正面、負面和中性看法的語句。
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 06/25/2018
-ms.author: v-geberr
-ms.openlocfilehash: 8dc6b8d4dd4cbe64841c4b36c498cf9021b4196f
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry
+ms.openlocfilehash: 1fa27cf04e136033c51b951271a3d329a910a720
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930601"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223614"
 ---
 # <a name="tutorial-9--add-sentiment-analysis"></a>教學課程：9.  新增情感分析
 在本教學課程中，建立一個應用程式，示範如何從語句中擷取正面、負面和中性人氣。
@@ -32,7 +32,7 @@ ms.locfileid: "37930601"
 ## <a name="before-you-begin"></a>開始之前
 如果您沒有[預先建置的 keyPhrase 實體](luis-quickstart-intent-and-key-phrase.md)教學課程中的人力資源應用程式，請將 JSON [匯入](luis-how-to-start-new-app.md#import-new-app) [LUIS](luis-reference-regions.md#luis-website) 網站中的新應用程式。 在 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-keyphrase-HumanResources.json) Github 存放庫中可找到要匯入的應用程式。
 
-如果您想要保留原本的人力資源應用程式，在[[設定]](luis-how-to-manage-versions.md#clone-a-version)頁面上複製該版本，並將其命名為 `sentiment`。 複製是使用各種 LUIS 功能的好方法，因為不會影響原始版本。 
+如果您想要保留原始的「人力資源」應用程式，請在 [[設定](luis-how-to-manage-versions.md#clone-a-version)] 頁面上複製該版本，並將其命名為 `sentiment`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 
 
 ## <a name="sentiment-analysis"></a>情感分析
 情感分析可判斷使用者的語句屬於正面、負面還是中性語句。 
@@ -53,9 +53,9 @@ ms.locfileid: "37930601"
 
     [ ![在右上方導覽列中醒目提示 [建置] 的 LUIS 應用程式螢幕擷取畫面](./media/luis-quickstart-intent-and-sentiment-analysis/hr-first-image.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-first-image.png#lightbox)
 
-2. 選取 [建立新意圖]。
+2. 選取 [Create new intent] \(建立新意圖\)。
 
-    [ ![在右上方導覽列中醒目提示 [建置] 的 LUIS 應用程式螢幕擷取畫面](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent.png#lightbox)
+    [ ![右上方導覽列中已醒目提示 [Build] \(建置\) 的 LUIS 應用程式螢幕擷取畫面](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent.png#lightbox)
 
 3. 將新的意圖命名為 `EmployeeFeedback`。
 
@@ -78,10 +78,10 @@ ms.locfileid: "37930601"
 
     [ ![在 EmployeeFeedback 意圖中有範例語句的 LUIS 應用程式螢幕擷取畫面](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
 
-## <a name="train-the-luis-app"></a>訓練 LUIS 應用程式
+## <a name="train-the-luis-app"></a>進行 LUIS 應用程式定型
 LUIS 在定型前，並不知道新的意圖及其範例語句。 
 
-1. 在 LUIS 網站的右上方，選取 [訓練] 按鈕。
+1. 在 LUIS 網站的右上方，選取 [Train] \(定型\) 按鈕。
 
     ![已醒目提示 [訓練] 按鈕的螢幕擷取畫面](./media/luis-quickstart-intent-and-sentiment-analysis/train-button.png)
 
@@ -96,7 +96,7 @@ LUIS 在定型前，並不知道新的意圖及其範例語句。
 
     ![已展開 [發佈] 按鈕的 [意圖] 頁面螢幕擷取畫面 ](./media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-button-in-top-nav-highlighted.png)
 
-2. 選取 [啟用情感分析]。 選取 [生產] 位置和 [發佈] 按鈕。
+2. 選取 [啟用情感分析]。 選取 [Production] \(生產\) 位置和 [Publish] \(發佈\) 按鈕。
 
     [![](media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-to-production-expanded.png "已醒目提示發佈至生產位置按鈕的 [發佈] 頁面螢幕擷取畫面")](media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-to-production-expanded.png#lightbox)
 
@@ -203,16 +203,16 @@ LUIS 在定型前，並不知道新的意圖及其範例語句。
 
 sentimentAnalysis 為正面且分數為 0.86。 
 
-## <a name="what-has-this-luis-app-accomplished"></a>此 LUIS 應用程式有何成就？
+## <a name="what-has-this-luis-app-accomplished"></a>此 LUIS 應用程式有何成果？
 此應用程式 (已啟用情感分析) 已識別出自然語言查詢意圖並傳回所擷取的資料，包括整體情感分數。 
 
 您的聊天機器人現在有足夠的資訊可決定交談的下一個步驟。 
 
 ## <a name="where-is-this-luis-data-used"></a>此 LUIS 資料用於何處？ 
-LUIS 是利用此要求來完成。 呼叫應用程式 (例如聊天機器人) 可以採用 topScoringIntent 結果和語句中的情感資料，進而採取下一個步驟。 LUIS 不會為聊天機器人或呼叫應用程式進行該程式設計工作。 LUIS 只會判斷使用者的用意為何。 
+LUIS 是利用此要求來完成。 呼叫應用程式 (例如聊天機器人) 可以採用 topScoringIntent 結果和語句中的情感資料，進而採取下一個步驟。 LUIS 不會為聊天機器人或呼叫應用程式進行該程式設計工作。 LUIS 只會判斷使用者的意圖為何。 
 
 ## <a name="clean-up-resources"></a>清除資源
-若不再需要，請刪除 LUIS 應用程式。 選取左上方功能表中的 [我的應用程式]。 選取應用程式清單中應用程式名稱右邊的省略符號 (***...***)，然後選取 [刪除]。 在 [刪除應用程式?] 快顯對話方塊中選取 [確定]。
+當不再需要 LUIS 應用程式時，請將其刪除。 選取左上方功能表中的 [我的應用程式]。 選取應用程式清單中應用程式名稱右邊的省略符號 (***...***)，然後選取 [刪除]。 在 [Delete app?] \(刪除應用程式?\) 快顯對話方塊上，選取 [Ok] \(確定\)。
 
 ## <a name="next-steps"></a>後續步驟
 

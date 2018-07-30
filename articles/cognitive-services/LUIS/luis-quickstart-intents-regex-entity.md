@@ -2,19 +2,19 @@
 title: 建立 LUIS 應用程式以取得規則運算式相符資料的教學課程 - Azure | Microsoft Docs
 description: 在本教學課程中，可了解如何使用意圖和規則運算式實體，來建立可擷取資料的簡單 LUIS 應用程式。
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
-ms.author: v-geberr
-ms.openlocfilehash: f51c296b39fda08d0bcc704fb974e71465385d67
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry
+ms.openlocfilehash: 99f796bf26df755ca938c3023057e2e9de1706a1
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929366"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238330"
 ---
 # <a name="tutorial-3-add-regular-expression-entity"></a>教學課程：3. 新增規則運算式實體
 在本教學課程中，使用**規則運算式**實體來建立應用程式，讓其示範如何從語句中擷取格式一致的資料。
@@ -33,7 +33,7 @@ ms.locfileid: "37929366"
 ## <a name="before-you-begin"></a>開始之前
 如果您沒有[預先建置的實體](luis-tutorial-prebuilt-intents-entities.md)教學課程中的人力資源應用程式，請從 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json) Github 存放庫，將 JSON [匯入](luis-how-to-start-new-app.md#import-new-app)到 [LUIS](luis-reference-regions.md#luis-website) 網站中的新應用程式。
 
-如果您想要保留原本的人力資源應用程式，在[[設定]](luis-how-to-manage-versions.md#clone-a-version)頁面上複製該版本，並將其命名為 `regex`。 複製是使用各種 LUIS 功能的好方法，因為不會影響原始版本。 
+如果您想要保留原始的「人力資源」應用程式，請在 [[設定](luis-how-to-manage-versions.md#clone-a-version)] 頁面上複製該版本，並將其命名為 `regex`。 複製是使用各種 LUIS 功能的好方法，因為不會影響原始版本。 
 
 
 ## <a name="purpose-of-the-regular-expression-entity"></a>規則運算式實體的目的
@@ -127,7 +127,7 @@ HRF 代表人力資源表單。
     ![成功通知列的影像](./media/luis-quickstart-intents-regex-entity/trained.png)
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>發佈應用程式以取得端點 URL
-若要在聊天機器人或其他應用程式中取得 LUIS 預測，您必須發佈應用程式。 
+若要在 Chatbot 或其他應用程式中取得 LUIS 預測，您必須發佈應用程式。 
 
 1. 在 LUIS 網站的右上方，選取 [發佈] 按鈕。 
 
@@ -139,8 +139,8 @@ HRF 代表人力資源表單。
 
 3. 當您在網站頂端看到確認成功的綠色狀態列時，就表示發佈完成。
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>利用不同語句查詢端點
-1. 在 [發佈] 頁面上，選取位於頁面底部的**端點**連結。 這個動作會開啟另一個瀏覽器視窗，其中的網址列會顯示此端點 URL。 
+## <a name="query-the-endpoint-with-a-different-utterance"></a>使用不同的語句來查詢端點
+1. 在 [Publish] \(發佈\) 頁面上，選取頁面底部的**端點**連結。 這個動作會開啟另一個瀏覽器視窗，其中的網址列會顯示此端點 URL。 
 
     ![已醒目提示端點 URL 的 [發佈] 頁面螢幕擷取畫面](./media/luis-quickstart-intents-regex-entity/publish-select-endpoint.png)
 
@@ -253,7 +253,7 @@ HRF 代表人力資源表單。
 LUIS 是利用此要求來完成。 呼叫應用程式 (例如聊天機器人) 可以取用 topScoringIntent 結果和表單編號，並且搜尋第三方 API。 LUIS 不會執行此工作。 LUIS 只會判斷使用者的意圖是什麼，並擷取有關該意圖的資料。 
 
 ## <a name="clean-up-resources"></a>清除資源
-若不再需要，請刪除 LUIS 應用程式。 選取左上方功能表中的 [我的應用程式]。 選取應用程式清單中應用程式名稱右邊的省略符號 (***...***)，然後選取 [刪除]。 在 [刪除應用程式?] 快顯對話方塊中選取 [確定]。
+當不再需要 LUIS 應用程式時，請將其刪除。 選取左上方功能表中的 [我的應用程式]。 選取應用程式清單中應用程式名稱右邊的省略符號 (***...***)，然後選取 [刪除]。 在 [Delete app?] \(刪除應用程式?\) 快顯對話方塊上，選取 [Ok] \(確定\)。
 
 ## <a name="next-steps"></a>後續步驟
 

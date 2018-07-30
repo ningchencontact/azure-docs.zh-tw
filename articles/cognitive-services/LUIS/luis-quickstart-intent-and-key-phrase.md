@@ -2,19 +2,19 @@
 title: 教學課程：建立可傳回關鍵片語的 LUIS 應用程式 - Azure | Microsoft Docs
 description: 在本教學課程中，了解如何新增 keyPhrase 實體並傳回至 LUIS 應用程式，以分析重要主題的語句。
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 06/27/2018
-ms.author: v-geberr
-ms.openlocfilehash: ccefb4c2890d74978f340778cfab7cad979c9802
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry
+ms.openlocfilehash: 1cafca2433cd96c0595a6124df82856d0c491a49
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929542"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224257"
 ---
 # <a name="tutorial-8-add-keyphrase-entity"></a>教學課程：8. 新增 KeyPhrase 實體 
 在本教學課程中，使用應用程式來示範如何從語句中擷取重要主題。
@@ -32,7 +32,7 @@ ms.locfileid: "37929542"
 ## <a name="before-you-begin"></a>開始之前
 如果您沒有[簡單實體](luis-quickstart-primary-and-secondary-data.md)教學課程中的人力資源應用程式，請將 JSON [匯入](luis-how-to-start-new-app.md#import-new-app) [LUIS](luis-reference-regions.md#luis-website) 網站中的新應用程式。 在 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-simple-HumanResources.json) Github 存放庫中可找到要匯入的應用程式。
 
-如果您想要保留原本的人力資源應用程式，在[[設定]](luis-how-to-manage-versions.md#clone-a-version)頁面上複製該版本，並將其命名為 `keyphrase`。 複製是使用各種 LUIS 功能的好方法，因為不會影響原始版本。 
+如果您想要保留原始的「人力資源」應用程式，請在 [[設定](luis-how-to-manage-versions.md#clone-a-version)] 頁面上複製該版本，並將其命名為 `keyphrase`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 
 
 ## <a name="keyphrase-entity-extraction"></a>keyPhrase 實體擷取
 預先建立的實體 (**keyPhrase**) 所提供的重要主題。 此實體會在語句中傳回重要主題。
@@ -51,7 +51,7 @@ ms.locfileid: "37929542"
 
 1. 請確定您人力資源應用程式位於 LUIS 的 [建置] 區段。 選取右上方功能表列中的 [建置]，即可變更至此區段。 
 
-    [ ![在右上方導覽列中醒目提示 [建置] 的 LUIS 應用程式螢幕擷取畫面](./media/luis-quickstart-intent-and-key-phrase/hr-first-image.png)](./media/luis-quickstart-intent-and-key-phrase/hr-first-image.png#lightbox)
+    [ ![右上方導覽列中已醒目提示 [Build] \(建置\) 的 LUIS 應用程式螢幕擷取畫面](./media/luis-quickstart-intent-and-key-phrase/hr-first-image.png)](./media/luis-quickstart-intent-and-key-phrase/hr-first-image.png#lightbox)
 
 2. 從左側功能表中選取 [實體]。
 
@@ -72,16 +72,16 @@ ms.locfileid: "37929542"
 
     [ ![語句中已標示 keyPhrases 的 Utilities.Confirm 意圖螢幕擷取畫面](./media/luis-quickstart-intent-and-key-phrase/hr-keyphrase-labeled.png)](./media/luis-quickstart-intent-and-key-phrase/hr-keyphrase-labeled.png#lightbox)
 
-## <a name="train-the-luis-app"></a>訓練 LUIS 應用程式
+## <a name="train-the-luis-app"></a>進行 LUIS 應用程式定型
 應用程式的新版 `keyphrase` 需要進行訓練。  
 
-1. 在 LUIS 網站的右上方，選取 [訓練] 按鈕。
+1. 在 LUIS 網站的右上方，選取 [Train] \(定型\) 按鈕。
 
-    ![訓練應用程式](./media/luis-quickstart-intent-and-key-phrase/train-button.png)
+    ![進行應用程式定型](./media/luis-quickstart-intent-and-key-phrase/train-button.png)
 
-2. 當您在網站頂端看到確認成功的綠色狀態列時，就表示訓練完成。
+2. 當您在網站頂端看到確認成功的綠色狀態列時，就表示定型完成。
 
-    ![訓練成功](./media/luis-quickstart-intent-and-key-phrase/trained.png)
+    ![定型成功](./media/luis-quickstart-intent-and-key-phrase/trained.png)
 
 ## <a name="publish-app-to-endpoint"></a>將應用程式發佈到端點
 
@@ -89,7 +89,7 @@ ms.locfileid: "37929542"
 
     [![](media/luis-quickstart-intent-and-key-phrase/hr-publish-button-top-nav.png "已醒目提示發佈至生產位置按鈕的 [發佈] 頁面螢幕擷取畫面")](media/luis-quickstart-intent-and-key-phrase/hr-publish-button-top-nav.png#lightbox)
 
-2. 選取 [生產] 位置和 [發佈] 按鈕。
+2. 選取 [Production] \(生產\) 位置和 [Publish] \(發佈\) 按鈕。
 
     [![](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png "已醒目提示發佈至生產位置按鈕的 [發佈] 頁面螢幕擷取畫面")](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png#lightbox)
 
@@ -192,16 +192,16 @@ ms.locfileid: "37929542"
 
 在搜尋表單時，使用者所提供的資訊超過尋找表單所需要的資訊。 多餘的資訊會以 **builtin.keyPhrase** 的形式傳回。 用戶端應用程式可以使用這項多餘的資訊來建立後續問題，例如「您是否要和人力資源代表談談新的看牙福利」，也可以提供有更多選項的功能表，包括「更多關於新看牙福利或醫療方案的資訊。」
 
-## <a name="what-has-this-luis-app-accomplished"></a>此 LUIS 應用程式有何成就？
+## <a name="what-has-this-luis-app-accomplished"></a>此 LUIS 應用程式有何成果？
 此應用程式 (具有 keyPhrase 實體偵測) 已識別出自然語言查詢意圖並傳回所擷取的資料，包括主要主題。 
 
 您的聊天機器人現在有足夠的資訊可決定交談的下一個步驟。 
 
 ## <a name="where-is-this-luis-data-used"></a>此 LUIS 資料用於何處？ 
-LUIS 是利用此要求來完成。 呼叫應用程式 (例如聊天機器人) 可以採用 topScoringIntent 結果和語句中的 keyPhrase 資料，進而採取下一個步驟。 LUIS 不會為 bot 或呼叫應用程式進行該程式設計工作。 LUIS 只會判斷使用者的用意為何。 
+LUIS 是利用此要求來完成。 呼叫應用程式 (例如聊天機器人) 可以採用 topScoringIntent 結果和語句中的 keyPhrase 資料，進而採取下一個步驟。 LUIS 不會為 bot 或呼叫應用程式進行該程式設計工作。 LUIS 只會判斷使用者的意圖為何。 
 
 ## <a name="clean-up-resources"></a>清除資源
-若不再需要，請刪除 LUIS 應用程式。 選取左上方功能表中的 [我的應用程式]。 選取應用程式清單中應用程式名稱右邊的省略符號 (***...***) 按鈕，然後選取 [刪除]。 在 [刪除應用程式?] 快顯對話方塊中選取 [確定]。
+當不再需要 LUIS 應用程式時，請將其刪除。 選取左上方功能表中的 [我的應用程式]。 選取應用程式清單中應用程式名稱右邊的省略符號 (***...***) 按鈕，然後選取 [刪除]。 在 [Delete app?] \(刪除應用程式?\) 快顯對話方塊上，選取 [Ok] \(確定\)。
 
 ## <a name="next-steps"></a>後續步驟
 

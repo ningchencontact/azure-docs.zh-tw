@@ -9,14 +9,14 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: e6ab9d1db0144ffa68fe9dc3381ba31d57aa0cae
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: a4bf63b7a2fbbb26b8c121f5360aea0a5ca8a687
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130886"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952380"
 ---
-# <a name="tutorial-6-add-simple-entity-and-phrase-list"></a>教學課程：6. 新增簡單實體和片語清單
+# <a name="tutorial-7-add-simple-entity-and-phrase-list"></a>教學課程：7. 新增簡單實體和片語清單
 在本教學課程中，您可以使用**簡單**實體來建立應用程式，讓其示範如何從語句中擷取機器學習資料。
 
 <!-- green checkmark -->
@@ -32,7 +32,7 @@ ms.locfileid: "37130886"
 在本文中，您需要免費 [LUIS](luis-reference-regions.md#luis-website) 帳戶才能撰寫 LUIS 應用程式。
 
 ## <a name="before-you-begin"></a>開始之前
-如果您沒有[階層式實體](luis-quickstart-intent-and-hier-entity.md)教學課程中的人力資源應用程式，請將 JSON [匯入](create-new-app.md#import-new-app) [LUIS](luis-reference-regions.md#luis-website) 網站中的新應用程式。 在 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json) Github 存放庫中可找到要匯入的應用程式。
+如果您沒有[複合實體](luis-tutorial-composite-entity.md)教學課程中的人力資源應用程式，請將 JSON [匯入](luis-how-to-start-new-app.md#import-new-app) [LUIS](luis-reference-regions.md#luis-website) 網站中的新應用程式。 在 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-composite-HumanResources.json) Github 存放庫中可找到要匯入的應用程式。
 
 如果您想要保留原本的人力資源應用程式，在[[設定]](luis-how-to-manage-versions.md#clone-a-version)頁面上複製該版本，並將其命名為 `simple`。 複製是使用各種 LUIS 功能的好方法，因為不會影響原始版本。  
 
@@ -366,7 +366,7 @@ LUIS 應用程式深信它找到了正確的意圖，並擷取出職位名稱，
     ```
 
 ## <a name="phrase-lists"></a>片語清單
-新增片語清單已提升清單中的字組訊號，但這項新增**並未**作為完全相符項。 片語清單中有數個職位的第一個字組是 `lead`，也有職位 `welder` 但沒有職位 `lead welder`。 此職位片語清單可能並不完整。 當您定期[檢閱端點語句](label-suggested-utterances.md)並找到其他職位字組時，請將這些字組新增至片語清單中。 然後重新訓練並重新發行。
+新增片語清單已提升清單中的字組訊號，但這項新增**並未**作為完全相符項。 片語清單中有數個職位的第一個字組是 `lead`，也有職位 `welder` 但沒有職位 `lead welder`。 此職位片語清單可能並不完整。 當您定期[檢閱端點語句](luis-how-to-review-endoint-utt.md)並找到其他職位字組時，請將這些字組新增至片語清單中。 然後重新訓練並重新發行。
 
 ## <a name="what-has-this-luis-app-accomplished"></a>此 LUIS 應用程式有何成就？
 此應用程式 (具有簡單實體和字組片語清單) 已識別出自然語言查詢意圖並傳回職位資料。 
@@ -377,7 +377,7 @@ LUIS 應用程式深信它找到了正確的意圖，並擷取出職位名稱，
 LUIS 是利用此要求來完成。 呼叫應用程式 (例如聊天機器人) 可以採用 topScoringIntent 結果和實體中的資料，來使用第三方 API 傳送職位訊息給人力資源代表。 如果聊天機器人或呼叫應用程式有其他程式設計選項，LUIS 就不會進行該工作。 LUIS 只會判斷使用者的用意為何。 
 
 ## <a name="clean-up-resources"></a>清除資源
-若不再需要，請刪除 LUIS 應用程式。 選取左上方功能表中的 [我的應用程式]。 選取應用程式清單中應用程式名稱右邊的三個點功能表 (...)，然後選取 [刪除]。 在 [刪除應用程式?] 快顯對話方塊中選取 [確定]。
+若不再需要，請刪除 LUIS 應用程式。 選取左上方功能表中的 [我的應用程式]。 選取應用程式清單中應用程式名稱右邊的省略符號 (***...***)，然後選取 [刪除]。 在 [刪除應用程式?] 快顯對話方塊中選取 [確定]。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure 網路監看員管理封包擷取 - Azure CLI 2.0 | Microsoft Docs
-description: 此頁面說明如何使用 Azure CLI 2.0 管理網路監看員的封包擷取功能
+title: 使用 Azure 網路監看員管理封包擷取 - Azure CLI | Microsoft Docs
+description: 此頁面說明如何使用 Azure CLI 管理網路監看員的封包擷取功能
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,20 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 4c0b65411e9846077036e16204b7a407c6c7ee9e
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 9b40a85cf3c4edd26f2fc15045f3d6862d4ac1ff
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34261764"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090481"
 ---
-# <a name="manage-packet-captures-with-azure-network-watcher-using-azure-cli-20"></a>使用 Azure CLI 2.0，利用 Azure 網路監看員管理封包擷取
+# <a name="manage-packet-captures-with-azure-network-watcher-using-the-azure-cli"></a>使用 Azure CLI，利用 Azure 網路監看員管理封包擷取
 
 > [!div class="op_single_selector"]
 > - [Azure 入口網站](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
-> - [CLI 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-packet-capture-manage-cli.md)
+> - [Azure CLI](network-watcher-packet-capture-manage-cli.md)
 > - [Azure REST API](network-watcher-packet-capture-manage-rest.md)
 
 網路監看員封包擷取可讓您建立擷取工作階段來追蹤虛擬機器的流入和流出流量。 系統會為擷取工作階段提供篩選器，以確保您只會擷取到您想要的流量。 封包擷取有助於被動和主動地診斷網路異常。 其他用途包括收集網路統計資料、取得有關網路入侵的資訊，以及偵錯用戶端與伺服器間的通訊等等。 藉由能夠從遠端觸發封包擷取，這項功能可以減輕在所需機器上手動執行封包擷取的工作負擔，進而省下寶貴的時間。

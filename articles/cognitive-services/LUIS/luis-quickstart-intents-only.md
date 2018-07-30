@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: v-geberr
-ms.openlocfilehash: fea311eb36c0654b45b2354cb283f1699be7257c
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 0668ba050a6918995deb42d8feea5afbbab3b010
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109336"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865806"
 ---
 # <a name="tutorial-1-build-app-with-custom-domain"></a>教學課程：1. 建置具有自訂網域的應用程式
 在本教學課程中建立應用程式，以示範如何使用**意圖**，根據使用者提交給應用程式的語句 (文字) 來判斷使用者的「意圖」。 完成之後，您會擁有一個在雲端中執行的 LUIS 端點。
@@ -99,7 +99,7 @@ ms.locfileid: "37109336"
     在發佈之前或在測試端點 URL 之前，不必先在 Azure 入口網站中建立 LUIS 端點金鑰。 每個 LUIS 應用程式都有可用於撰寫的免費入門金鑰。 它可讓您無限制地撰寫，並提供[幾個端點叫用](luis-boundaries.md#key-limits)。 
 
 ## <a name="query-endpoint-for-getjobinformation-intent"></a>查詢端點的 GetJobInformation 意圖
-1. 在 [發佈] 頁面上，選取位於頁面底部的 [端點] 連結。 這個動作會開啟另一個瀏覽器視窗，其中的網址列會顯示此端點 URL。 
+1. 在 **發佈** 頁面上，選取位於頁面底部的 **端點** 連結。 這個動作會開啟另一個瀏覽器視窗，其中的網址列會顯示此端點 URL。 
 
 2. 移至位址中的 URL 尾端並輸入 `I'm looking for a job with Natual Language Processing`。 最後一個查詢字串參數是 `q`，也就是語句**查詢**。 此語句與步驟 4 中的任何語句範例都不同，因此這是很好的測試，且應該會將 `GetJobInformation` 意圖傳回作為評分最高的意圖。 
 
@@ -188,7 +188,7 @@ JSON 結果會識別評分最高的意圖。 所有分數都介於 1 到 0，分
 LUIS 是利用此要求來完成。 呼叫端應用程式 (例如聊天機器人) 可以取得 topScoringIntent 結果，然後尋找資訊 (未儲存在 LUIS 中) 來回答問題或結束對話。 這些是聊天機器人或呼叫端應用程式的程式設計選項。 LUIS 不會執行此工作。 LUIS 只會判斷使用者的用意為何。 
 
 ## <a name="clean-up-resources"></a>清除資源
-若不再需要，請刪除 LUIS 應用程式。 若要這樣做，請選取左上方功能表中的 [我的應用程式]。 選取應用程式清單中應用程式名稱右邊的三個點功能表 (...)，然後選取 [刪除]。 在 [刪除應用程式?] 快顯對話方塊中選取 [確定]。
+若不再需要，請刪除 LUIS 應用程式。 若要這樣做，請選取左上方功能表中的 [我的應用程式]。 選取應用程式清單中應用程式名稱右邊的省略符號 (***...***)，然後選取 [刪除]。 在 [刪除應用程式?] 快顯對話方塊中選取 [確定]。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -2,19 +2,19 @@
 title: 建立 LUIS 應用程式以取得位置資料的教學課程 - Azure | Microsoft Docs
 description: 在本教學課程中，可了解如何使用意圖和階層式實體，來建立可擷取資料的簡單 LUIS 應用程式。
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 07/04/2018
-ms.author: v-geberr
-ms.openlocfilehash: babfc2f82e17f3745af1d940df89763170a002bd
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry
+ms.openlocfilehash: fb29e0a22331ce279d3dc8fc5a0044ae794d260b
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929581"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226079"
 ---
 # <a name="tutorial-5-add-hierarchical-entity"></a>教學課程：5. 新增階層式實體
 在本教學課程中，您將建立應用程式，示範如何根據內容尋找相關資料片段。 
@@ -32,7 +32,7 @@ ms.locfileid: "37929581"
 ## <a name="before-you-begin"></a>開始之前
 如果您沒有[清單實體](luis-quickstart-intent-and-list-entity.md)教學課程中的人力資源應用程式，請將 JSON [匯入](luis-how-to-start-new-app.md#import-new-app) [LUIS](luis-reference-regions.md#luis-website) 網站中的新應用程式。 在 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-list-HumanResources.json) Github 存放庫中可找到要匯入的應用程式。
 
-如果您想要保留原本的人力資源應用程式，在[[設定]](luis-how-to-manage-versions.md#clone-a-version)頁面上複製該版本，並將其命名為 `hier`。 複製是使用各種 LUIS 功能的好方法，因為不會影響原始版本。 
+如果您想要保留原始的「人力資源」應用程式，請在 [[設定](luis-how-to-manage-versions.md#clone-a-version)] 頁面上複製該版本，並將其命名為 `hier`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 
 
 ## <a name="purpose-of-the-app-with-this-entity"></a>使用此實體的應用程式用途
 此應用程式會判斷員工是否要從原點位置 (建築物和辦公室) 移到目的地位置 (建築物和辦公室)。 它會使用階層式實體來判斷語句中的位置。 
@@ -57,7 +57,7 @@ mv Jill Jones from a-2349 to b-1298
 
 1. 請確定您人力資源應用程式位於 LUIS 的 [建置] 區段。 選取右上方功能表列中的 [建置]，即可變更至此區段。 
 
-    [ ![在右上方導覽列中醒目提示 [建置] 的 LUIS 應用程式螢幕擷取畫面](./media/luis-quickstart-intent-and-hier-entity/hr-first-image.png)](./media/luis-quickstart-intent-and-hier-entity/hr-first-image.png#lightbox)
+    [ ![右上方導覽列中已醒目提示 [Build] \(建置\) 的 LUIS 應用程式螢幕擷取畫面](./media/luis-quickstart-intent-and-hier-entity/hr-first-image.png)](./media/luis-quickstart-intent-and-hier-entity/hr-first-image.png#lightbox)
 
 2. 從左側功能表中選取 [實體]。
 
@@ -126,23 +126,23 @@ LUIS 必須藉由在語句中標記原點和目的地，進而了解位置為何
 
 3. 從預先建立的實體清單中選取 [數字]，然後選取 [完成]。
 
-    ![預先建立的實體對話方塊中已選取數字的螢幕擷取畫面](./media/luis-quickstart-intent-and-hier-entity/hr-add-number-back-ddl.png)
+    ![預先建置的實體對話方塊中已選取 number 的螢幕擷取畫面](./media/luis-quickstart-intent-and-hier-entity/hr-add-number-back-ddl.png)
 
-## <a name="train-the-luis-app"></a>訓練 LUIS 應用程式
-LUIS 在經過訓練前，並不知道意圖和實體 (模型) 的變更。 
+## <a name="train-the-luis-app"></a>進行 LUIS 應用程式定型
+LUIS 在進行定型前並不知道意圖和實體 (模型) 的變更。 
 
-1. 在 LUIS 網站的右上方，選取 [訓練] 按鈕。
+1. 在 LUIS 網站的右上方，選取 [Train] \(定型\) 按鈕。
 
-    ![訓練應用程式](./media/luis-quickstart-intent-and-hier-entity/train-button.png)
+    ![進行應用程式定型](./media/luis-quickstart-intent-and-hier-entity/train-button.png)
 
-2. 當您在網站頂端看到確認成功的綠色狀態列時，就表示訓練完成。
+2. 當您在網站頂端看到確認成功的綠色狀態列時，就表示定型完成。
 
-    ![訓練成功](./media/luis-quickstart-intent-and-hier-entity/trained.png)
+    ![定型成功](./media/luis-quickstart-intent-and-hier-entity/trained.png)
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>發佈應用程式以取得端點 URL
-若要在聊天機器人或其他應用程式中取得 LUIS 預測，您必須發佈應用程式。 
+若要在 Chatbot 或其他應用程式中取得 LUIS 預測，您必須發佈應用程式。 
 
-1. 在 LUIS 網站的右上方，選取 [發佈] 按鈕。 
+1. 在 LUIS 網站的右上方，選取 [Publish] \(發佈\) 按鈕。 
 
 2. 選取 [生產] 位置和 [發佈] 按鈕。
 
@@ -150,12 +150,12 @@ LUIS 在經過訓練前，並不知道意圖和實體 (模型) 的變更。
 
 3. 當您在網站頂端看到確認成功的綠色狀態列時，就表示發佈完成。
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>利用不同語句查詢端點
-1. 在 [發佈] 頁面上，選取位於頁面底部的**端點**連結。 這個動作會開啟另一個瀏覽器視窗，其中的網址列會顯示此端點 URL。 
+## <a name="query-the-endpoint-with-a-different-utterance"></a>使用不同的語句來查詢端點
+1. 在 [Publish] \(發佈\) 頁面上，選取頁面底部的**端點**連結。 這個動作會開啟另一個瀏覽器視窗，其中的網址列會顯示此端點 URL。 
 
     [![](media/luis-quickstart-intent-and-hier-entity/publish-select-endpoint.png "已醒目提示端點 URL 的 [發佈] 頁面螢幕擷取畫面")](media/luis-quickstart-intent-and-hier-entity/publish-select-endpoint.png#lightbox)
 
-2. 移至位址中的 URL 尾端並輸入 `Please relocation jill-jones@mycompany.com from x-2345 to g-23456`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 此語句與任何標示的語句都不同，因此這是很好的測試，且應該傳回具有所擷取階層式實體的 `MoveEmployee` 意圖。
+2. 移至位址中的 URL 尾端並輸入 `Please relocation jill-jones@mycompany.com from x-2345 to g-23456`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 此語句與任何已標記的語句都不同，因此這是一個良好的測試，而應該會將 `MoveEmployee` 意圖與所擷取的階層式實體一起傳回。
 
 ```JSON
 {
@@ -259,16 +259,16 @@ LUIS 在經過訓練前，並不知道意圖和實體 (模型) 的變更。
 
 此範例中的位置 (例如 `a-1234`) 會遵循特定格式：一或兩個子母加上破折號，後面接著一系列 4 或 5 個數字。 此資料的描述為每個位置各有一個角色的規則運算式實體。 這些角色適用於模式。 您可以根據這些語句建立模式，然後建立位置格式的規則運算式，並將它新增至模式。 <!-- Go to this tutorial to see how that is done -->
 
-## <a name="what-has-this-luis-app-accomplished"></a>此 LUIS 應用程式有何成就？
+## <a name="what-has-this-luis-app-accomplished"></a>此 LUIS 應用程式有何成果？
 此應用程式 (只有一些意圖和一個階層式實體) 已識別出自然語言查詢意圖並傳回所擷取的資料。 
 
 您的聊天機器人現在有足夠資訊可判斷主要動作 `MoveEmployee` 和話語中找到的資訊。 
 
 ## <a name="where-is-this-luis-data-used"></a>此 LUIS 資料用於何處？ 
-LUIS 是利用此要求來完成。 呼叫應用程式 (例如聊天機器人) 可以採用 topScoringIntent 結果和實體中的資料，進而採取下一個步驟。 LUIS 不會為聊天機器人或呼叫應用程式進行該程式設計工作。 LUIS 只會判斷使用者的用意為何。 
+LUIS 在此要求的工作已完成。 呼叫應用程式 (例如 Chatbot) 可以採用 topScoringIntent 結果和來自實體的資料，來進行下一個步驟。 LUIS 不會為 Bot 或呼叫應用程式進行該程式設計工作。 LUIS 只會判斷使用者的意圖為何。 
 
 ## <a name="clean-up-resources"></a>清除資源
-若不再需要，請刪除 LUIS 應用程式。 若要這麼做，請選取應用程式清單中應用程式名稱右邊的省略符號 (***...***) 按鈕，然後選取 [刪除]。 在 [刪除應用程式?] 快顯對話方塊中選取 [確定]。
+當不再需要 LUIS 應用程式時，請將其刪除。 若要這麼做，請選取應用程式清單中應用程式名稱右邊的省略符號 (***...***) 按鈕，然後選取 [刪除]。 在 [Delete app?] \(刪除應用程式?\) 快顯對話方塊上，選取 [Ok] \(確定\)。
 
 ## <a name="next-steps"></a>後續步驟
 > [!div class="nextstepaction"] 

@@ -2,19 +2,19 @@
 title: 在 Language Understanding 中新增預先建置的意圖和實體來擷取常見的資料 - Azure | Microsoft Docs
 description: 了解如何使用預先建置的意圖和實體來擷取不同類型的實體資料。
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
-ms.author: v-geberr
-ms.openlocfilehash: 387f20d2080a67041c90ec1af93e791716839dd9
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry
+ms.openlocfilehash: 3fc2040e66f6fc649448d3241b01678b7bb7f214
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929044"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39239030"
 ---
 # <a name="tutorial-2-add-prebuilt-intents-and-entities"></a>教學課程：2. 新增預先建置的意圖和實體
 將預先建置的意圖和實體新增至「人力資源」教學課程應用程式，以快速預測意圖及擷取資料。 
