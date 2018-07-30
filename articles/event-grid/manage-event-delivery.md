@@ -6,14 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/26/2018
+ms.date: 07/12/2018
 ms.author: tomfitz
-ms.openlocfilehash: 65e79f492e96c418502e096b60992ba992868dd7
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: e91ee640d18e2cf804be33fd130bf48737c9efb1
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034541"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035664"
 ---
 # <a name="manage-event-grid-delivery-settings"></a>管理事件方格傳遞設定
 
@@ -36,7 +36,7 @@ az eventgrid event-subscription create \
   -g gridResourceGroup \
   --topic-name <topic_name> \
   --name <event_subscription_name> \
-  --endpoint <endpoint_URL>
+  --endpoint <endpoint_URL> \
   --event-ttl 720
 ```
 
@@ -47,7 +47,7 @@ az eventgrid event-subscription create \
   -g gridResourceGroup \
   --topic-name <topic_name> \
   --name <event_subscription_name> \
-  --endpoint <endpoint_URL>
+  --endpoint <endpoint_URL> \
   --max-delivery-attempts 18
 ```
 
@@ -77,11 +77,13 @@ az eventgrid event-subscription create \
   -g gridResourceGroup \
   --topic-name <topic_name> \
   --name <event_subscription_name> \
-  --endpoint <endpoint_URL>
+  --endpoint <endpoint_URL> \
   --deadletter-endpoint $storageid/blobServices/default/containers/$containername
 ```
 
 若要使用事件方格來回應未傳遞事件，請為無效信件 Blob 儲存體[建立事件訂用帳戶](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)。 每當您的無效信件 Blob 儲存體收到未傳遞事件時，事件方格就會通知您的處理常式。 處理常式會以您希望採取的動作來回應，以便協調未傳遞事件。 
+
+若要關閉無效信件處理，請重新執行命令以建立事件訂閱，但是不提供 `deadletter-endpoint` 的值。 您不需要刪除事件訂閱。
 
 ## <a name="next-steps"></a>後續步驟
 

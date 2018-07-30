@@ -9,18 +9,18 @@ ms.author: xshi
 ms.date: 06/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 4e9aac5f19fa75613dee2aba3853a0243d7d966b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 31fe210b87a052438956d813db0d104e0f2cdb6e
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048255"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041241"
 ---
 # <a name="develop-an-iot-edge-solution-with-multiple-modules-in-visual-studio-code"></a>使用 Visual Studio Code 中的多個模組來開發 IoT Edge 解決方案
 
 您可以使用 Visual Studio Code，利用多個模組來開發 Azure IoT Edge 解決方案。 本文說明如何建立、更新和部署 IoT Edge 解決方案，該解決方案會在 VS Code 中於模擬的 IoT Edge 裝置上透過管道傳送感應器資料。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本文中的步驟，請先準備好下列先決條件︰
 
@@ -74,5 +74,7 @@ ms.locfileid: "37048255"
 
 了解在 Visual Studio Code 中使用 Azure IoT Edge 進行開發的其他案例：
 
-* [在 VS Code 中開發 C# 模組](how-to-develop-csharp-module.md)
-* [在 VS Code 中開發 C# 函式](how-to-develop-csharp-function.md)
+* 在 VS Code 中使用 [C#](how-to-develop-csharp-module.md) 或 [Node.js](how-to-develop-node-module.md) 來開發模組。
+* 在 VS Code 中使用 [C#](how-to-develop-csharp-function.md) 來開發 Azure Functions。
+
+若要為您的 IoT Edge 裝置開發模組，請[了解及使用 Azure IoT 中樞 SDK](../iot-hub/iot-hub-devguide-sdks.md)。

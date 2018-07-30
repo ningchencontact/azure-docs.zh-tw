@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 07/06/2018
 ms.topic: conceptual
 ms.author: rayne
-ms.openlocfilehash: 905798acd5836c31953714d7984cfb19f16cecab
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: b615ffa3571730ef9607893882f509b2fa490f35
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920792"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056336"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>使用 Azure Site Recovery 規劃容量並調整 Azure 中的 VMware 複寫
 
@@ -34,9 +34,9 @@ ms.locfileid: "37920792"
 
 **CPU** | **記憶體** | **快取磁碟大小** | **資料變更率** | **受保護的機器**
 --- | --- | --- | --- | ---
-8 個 vCPU (2 個插槽 * 4 核心 @ 2.5GHz) | 16 GB | 300 GB | 500 GB 或更少 | 複寫少於 100 部機器。
-12 個 vCPU (2 個插槽 * 6 核心 @ 2.5GHz) | 18 GB | 600 GB | 500 GB 至 1 TB | 複寫 100-150 部機器。
-16 個 vCPU (2 個插槽 * 8 核心 @ 2.5GHz) | 32 GB | 1 TB | 1 TB 至 2 TB | 複寫 150-200 部機器。
+8 個 vCPU (2 個插槽 * 4 核心 \@ 2.5GHz) | 16 GB | 300 GB | 500 GB 或更少 | 複寫少於 100 部機器。
+12 個 vCPU (2 個插槽 * 6 核心 \@ 2.5GHz) | 18 GB | 600 GB | 500 GB 至 1 TB | 複寫 100-150 部機器。
+16 個 vCPU (2 個插槽 * 8 核心 \@ 2.5GHz) | 32 GB | 1 TB | 1 TB 至 2 TB | 複寫 150-200 部機器。
 部署另一個處理序伺服器 | | | > 2 TB | 如果您要複寫 200 部以上的機器，或如果每日資料變更率超過 2 TB，部署額外的處理序伺服器。
 
 其中：
@@ -60,9 +60,9 @@ ms.locfileid: "37920792"
 
 **組態伺服器** | **額外處理序伺服器** | **快取磁碟大小** | **資料變更率** | **受保護的機器**
 --- | --- | --- | --- | ---
-8 個 vCPU (2 個通訊端 * 四核心 @ 2.5 GHz)，16 GB 記憶體 | 4 個 vCPU (2 個通訊端 * 雙核心 @ 2.5 GHz)，8 GB 記憶體 | 300 GB | 250 GB 或更少 | 複寫 85 部或更少的機器。
-8 個 vCPU (2 個通訊端 * 四核心 @ 2.5 GHz)，16 GB 記憶體 | 8 個 vCPU (2 個通訊端 * 四核心 @ 2.5 GHz)，12 GB 記憶體 | 600 GB | 250 GB 至 1 TB | 複寫 85-150 部機器。
-12 個 vCPU (2 個通訊端 * 六核心 @ 2.5 GHz)，18 GB 記憶體 | 12 個 vCPU (2 個通訊端 * 六核心 @ 2.5 GHz)，24 GB 記憶體 | 1 TB | 1 TB 至 2 TB | 複寫 150-225 部機器。
+8 個 vCPU (2 個插槽 * 4 核心 \@ 2.5 GHz)，16 GB 記憶體 | 4 個 vCPU (2 個插槽 * 2 核心 \@ 2.5 GHz)，8 GB 記憶體 | 300 GB | 250 GB 或更少 | 複寫 85 部或更少的機器。
+8 個 vCPU (2 個插槽 * 4 核心 \@ 2.5 GHz)，16 GB 記憶體 | 8 個 vCPU (2 個插槽 * 4 核心 \@ 2.5 GHz)，12 GB 記憶體 | 600 GB | 250 GB 至 1 TB | 複寫 85-150 部機器。
+12 個 vCPU (2 個插槽 * 6 核心 \@ 2.5 GHz)，18 GB 記憶體 | 12 個 vCPU (2 個插槽 * 6 核心 \@ 2.5 GHz)，24 GB 記憶體 | 1 TB | 1 TB 至 2 TB | 複寫 150-225 部機器。
 
 您調整伺服器的方式取決於相應增加或相應放大模型的喜好設定。  您部署幾個高階組態和處理序伺服器以相應增加，或使用較少的資源部署更多伺服器以相應放大。 例如，如果您需要保護 220 部機器，您可以執行下列任一項：
 

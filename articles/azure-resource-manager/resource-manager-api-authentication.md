@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/15/2017
+ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: ba2466f58b3af0ef208474adb3e4c7ff184ceccc
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 7833147e455d5f43f05d87261287061db4291e45
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018641"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036841"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>使用 Resource Manager 驗證 API 來存取訂用帳戶
 ## <a name="introduction"></a>簡介
@@ -73,15 +73,21 @@ Web 應用程式：
 
 下列範例示範如何使用 Azure PowerShell 註冊應用程式。 您必須擁有最新版 (2016 年 8 月) Azure PowerShell 才能讓此命令生效。
 
-    $app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
+```azurepowershell-interactive
+$app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
+```
 
-若要登入為 AD 應用程式，您需要應用程式的識別碼和密碼。 若要查看前一個命令所傳回的應用程式識別碼，請使用︰
+若要以 AD 應用程式的身分登入，您需要應用程式的識別碼和密碼。 若要查看前一個命令所傳回的應用程式識別碼，請使用︰
 
-    $app.ApplicationId
+```azurepowershell-interactive
+$app.ApplicationId
+```
 
 下列範例示範如何使用 Azure CLI 註冊應用程式。
 
-    azure ad app create --name {app name} --home-page https://{your domain}/{app name} --identifier-uris https://{your domain}/{app name} --password {your password} --available true
+```azurecli-interactive
+az ad app create --display-name {app name} --homepage https://{your domain}/{app name} --identifier-uris https://{your domain}/{app name} --password {your password} --available-to-other-tenants true
+```
 
 結果內包含 AppId，以應用程式的形式進行驗證時會需要此資料。
 

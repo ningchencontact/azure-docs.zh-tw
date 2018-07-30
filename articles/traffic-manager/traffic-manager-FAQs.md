@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 29c7994485eeb2b3fdde52d1794704ecb51d65e5
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 1c8fad4b2c66515af05996395a53a7d8b5dba97f
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301060"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036916"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>流量管理員常見問題集 (FAQ)
 
@@ -63,9 +63,9 @@ ms.locfileid: "35301060"
 
 ### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>我是否可以在流量管理員中使用「裸」網域名稱？
 
-編號 DNS 標準不允許 CNAME 與同名的其他 DNS 記錄並存。 DNS 區域的頂點 (或根) 永遠包含兩筆預先存在的 DNS 記錄：SOA 和授權 NS 記錄。 這表示在區域頂點建立 CNAME 記錄就違反 DNS 標準。
+否。 DNS 標準不允許 CNAME 與同名的其他 DNS 記錄並存。 DNS 區域的頂點 (或根) 永遠包含兩筆預先存在的 DNS 記錄：SOA 和授權 NS 記錄。 這表示在區域頂點建立 CNAME 記錄就違反 DNS 標準。
 
-流量管理員需要 DNS CNAME 記錄來對應虛名 DNS 名稱。 例如，您將 www.contoso.com 對應至流量管理員設定檔的 DNS 名稱 contoso.trafficmanager.net。 此外，流量管理員設定檔會傳回第二筆 DNS CNAME，以指出用戶端應該連接至哪一個端點。
+流量管理員需要 DNS CNAME 記錄來對應虛名 DNS 名稱。 例如，您將 `www.contoso.com` 對應至流量管理員設定檔 DNS 名稱 `contoso.trafficmanager.net`。 此外，流量管理員設定檔會傳回第二筆 DNS CNAME，以指出用戶端應該連接至哪一個端點。
 
 為了解決此問題，我們建議使用 HTTP 重新導向，將流量從裸網域名稱導向不同的 URL，這樣就可以使用流量管理員。 例如，裸網域 'contoso.com' 可以將使用者重新導向 CNAME 'www.contoso.com'，後者指向流量管理員 DNS 名稱。
 
@@ -370,7 +370,7 @@ Azure Resource Manager 需要所有資源群組指定位置，這會決定部署
 
 ### <a name="is-there-a-performance-impact-for-nested-profiles"></a>巢狀設定檔是否會對效能造成影響？
 
-編號 使用巢狀設定檔不會影響效能。
+否。 使用巢狀設定檔不會影響效能。
 
 在處理每個 DNS 查詢時，流量管理員名稱伺服器會周遊設定檔階層內部。 父設定檔的 DNS 查詢可能會收到從子設定檔傳回端點的 DNS 回應。 不論您使用單一設定檔或巢狀設定檔，都只會使用單一 CNAME 記錄。 不需要為階層中的每個設定檔建立 CNAME 記錄。
 

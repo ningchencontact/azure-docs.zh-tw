@@ -6,20 +6,20 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 07/13/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 61d267898bab5e5df394d4097eacb33ada809518
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 489d9c430db000710368a65f3100bb175ad00eae
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355945"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041172"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure 自動化的 Runbook 和模組資源庫
 您可以存取各種已由 Microsoft 和社群建置的案例，而不是在 Azure 自動化中建立您自己的 Runbook 和模組。  您可以不加修改地使用這些案例，或者使用它們做為起點並針對您的特定需求進行編輯。
 
-您可以從 [Runbook 資源庫](#runbooks-in-runbook-gallery)取得 Runbook，從 [PowerShell 資源庫](#modules-in-powerShell-gallery)取得模組。  您也可以藉由共用您開發的案例來參與社群。
+您可以從 [Runbook 資源庫](#runbooks-in-runbook-gallery)取得 Runbook，從 [PowerShell 資源庫](#modules-in-powerShell-gallery)取得模組。  您也可以藉由共用您開發的案例來參與社群，請參閱[將 Runbook 新增至資源庫](automation-runbook-gallery.md#adding-a-runbook-to-the-runbook-gallery)
 
 ## <a name="runbooks-in-runbook-gallery"></a>Runbook 資源庫中的 Runbook
 [Runbook 資源庫](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=RootCategory&f\[0\].Value=WindowsAzure&f\[1\].Type=SubCategory&f\[1\].Value=WindowsAzure_automation&f\[1\].Text=Automation)提供各種來自 Microsoft 和社群的 Runbook，您可以匯入至 Azure 自動化。 您可以從 [TechNet 指令碼中心](https://gallery.technet.microsoft.com/scriptcenter/site/upload)託管的資源庫下載 Runbook，或者，您可以直接從 Azure 入口網站的資源庫匯入 Runbook。
@@ -54,7 +54,7 @@ Microsoft 鼓勵您將您認為可能有助於其他客戶的 Runbook 新增至 
 * 上傳的摘要會顯示在 Runbook 資源庫結果中，因此，您應該提供詳細資訊，幫助使用者識別 Runbook 的功能。
 * 您應該對上傳項目指派 1 到 3 個下列標記。  在精靈中，Runbook 會列在符合其標記的類別底下。  精靈會略過不在此清單上的任何標記。 如果您未指定任何相符的標記，Runbook 會列在 [其他] 類別底下。
   
-  * 備份
+  * Backup 
   * 產能管理
   * 變更控制
   * 法規遵循

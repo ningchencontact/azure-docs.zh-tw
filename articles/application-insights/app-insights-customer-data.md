@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/18/2018
 ms.reviewer: Evgeny.Ternovsky
 ms.author: mbullwin
-ms.openlocfilehash: 95e421278b46015e761764792e11dec0351b9785
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: a59b57c546f18a7d91160f2ae7282af82fc42160
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294416"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044708"
 ---
 # <a name="guidance-for-personal-data-stored-in-application-insights"></a>儲存在 Application Insights 中的個人資料指引
 
@@ -82,7 +82,8 @@ Application Insights 是具有充分彈性的存放區，在指定資料結構�
    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/microsoft.insights/components/[ComponentName]/operations/purge-[PurgeOperationId]?api-version=2015-05-01
    ```
 
-雖然絕大多數清除作業的完成速度應該都遠遠超過 SLA，但由於這些作業會對 Application Insights 所使用的資料平台產生重大影響，所以清除作業的正式完成 SLA 是設定為 30 天。
+> [!IMPORTANT]
+>  雖然絕大多數清除作業的完成速度應該都遠遠超過 SLA，但由於這些作業會對 Application Insights 所使用的資料平台產生重大影響，所以**清除作業的正式完成 SLA 是設定為 30 天**。
 
 ## <a name="next-steps"></a>後續步驟
 若要深入了解資料的收集、處理和保護方式，請參閱 [Application Insights 資料安全性](app-insights-data-retention-privacy.md)。

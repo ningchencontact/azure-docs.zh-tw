@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: c173f4f224c7021c0a0db057cb65aa9c6f900528
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 55fc1bf9d59c82abc76e40e834f67aa49942db44
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915566"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056693"
 ---
 # <a name="test-failover-to-azure-in-site-recovery"></a>在 Site Recovery 中測試容錯移轉到 Azure
 
@@ -72,7 +72,7 @@ ms.locfileid: "37915566"
     * storflt
     * intelide
     * atapi
-* 沒有啟用 DHCP 的 VMware VM，無論其是否正在使用 DHCP 或靜態 IP 位址。
+* 未啟用 DHCP 的 VMware 虛擬機器，無論其是否正在使用 DHCP 或靜態 IP 位址。
 
 在其他所有情況下則不需要任何中繼步驟，且容錯移轉所花費的時間非常少。
 

@@ -11,37 +11,42 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2018
+ms.date: 07/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: b06f53b0169e3afd140be81d9d633844a5876c09
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f53b1e08da1cb2d0dc02381bf47c27e8f84cb1d0
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38487642"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044827"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>在 Azure Stack 上部署 SQL Server 資源提供者
-
 使用 Azure Stack SQL Server 資源提供者將 SQL 資料庫公開成 Azure Stack 服務。 SQL 資源提供者在 Windows Server 2016 Server Core 虛擬機器 (VM) 上會以服務的形式執行。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您必須先滿足數個先決條件，才能部署 Azure Stack SQL 資源提供者。 為了滿足這些需求，請在能夠存取具特殊權限端點 VM 的電腦上完成下列步驟：
 
-- 如果您尚未這麼做，請向 Azure [註冊 Azure Stack](.\azure-stack-registration.md)，以便下載 Azure Marketplace 項目。
+- 如果您尚未這麼做，請向 Azure [註冊 Azure Stack](azure-stack-registration.md)，以便下載 Azure Marketplace 項目。
 - 您必須在將執行此安裝所在的系統上，安裝 Azure 和 Azure Stack PowerShell 模組。 該系統必須是包含最新版 .NET 執行階段的 Windows 10 或 Windows Server 2016 映像。 請參閱[安裝適用於 Azure Stack 的 PowerShell](.\azure-stack-powershell-install.md)。
 - 透過下載 **Windows Server 2016 Datacenter - Server Core** 映像，將必要的 Windows Server Core VM 新增到 Azure Stack Marketplace。 
-
-  >[!NOTE]
-  >如果您需要安裝某個更新，可以將單一 MSU 套件放在本機相依性路徑中。 如果找到多個 MSU 檔案，SQL 資源提供者安裝將會失敗。
-
-- 下載 SQL 資源提供者二進位檔，然後執行自我解壓縮程式，以將內容解壓縮到至暫存目錄。 資源提供者會有最低限度的相對應 Azure Stack 組建。 請務必為您正在執行的 Azure Stack 版本下載正確的二進位檔。
+- 下載 SQL 資源提供者二進位檔，然後執行自我解壓縮程式，以將內容解壓縮到至暫存目錄。 資源提供者會有最低限度的相對應 Azure Stack 組建。 請務必為您正在執行的 Azure Stack 版本，下載正確的二進位檔：
 
     |Azure Stack 版本|SQL RP 版本|
     |-----|-----|
     |1804 版 (1.0.180513.1)|[SQL RP 1.1.24.0 版](https://aka.ms/azurestacksqlrp1804)
     |1802 版 (1.0.180302.1)|[SQL RP 版本 1.1.18.0](https://aka.ms/azurestacksqlrp1802)|
+    |     |     |
+
+- 請確定已符合資料中心整合必要條件：
+
+    |必要條件|參考|
+    |-----|-----|
+    |條件式 DNS 轉送已正確設定。|[Azure Stack 資料中心整合 - DNS](azure-stack-integrate-dns.md)|
+    |資源提供者的輸入連接埠已開啟。|[Azure Stack 資料中心整合 - 發佈端點](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
+    |PKI 憑證主體和 SAN 已正確設定。|[Azure Stack 部署必要 PKI 必要條件](azure-stack-pki-certs.md#mandatory-certificates)<br>[Azure Stack 部署 PaaS 憑證必要條件](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |     |     |
 
 ### <a name="certificates"></a>憑證
 
@@ -51,7 +56,7 @@ _僅適用於整合式系統安裝_。 您必須提供 [Azure Stack 部署 PKI �
 
 安裝妥所有先決條件項目之後，請執行 **DeploySqlProvider.ps1** 指令碼來部署 SQL 資源提供者。 DeploySqlProvider.ps1 指令碼是從您針對 Azure Stack 版本下載的 SQL 資源提供者二進位檔中解壓縮而來。
 
-若要部署 SQL 資源提供者，請開啟**新的**已提升權限 PowerShell 主控台視窗，然後變更至您解壓縮 SQL 資源提供者二進位檔的目錄。 建議您使用新的 PowerShell 視窗，以避免已載入的 PowerShell 模組可能造成的問題。
+若要部署 SQL 資源提供者，請開啟**新的**已提升權限 PowerShell 視窗 (不是 PowerShell ISE)，然後變更至您解壓縮 SQL 資源提供者二進位檔的目錄。 建議您使用新的 PowerShell 視窗，以避免已載入的 PowerShell 模組可能造成的問題。
 
 請執行 DeploySqlProvider.ps1 script 指令碼，這會完成下列工作：
 
@@ -60,8 +65,7 @@ _僅適用於整合式系統安裝_。 您必須提供 [Azure Stack 部署 PKI �
 - 發佈用於部署主控伺服器的資源庫套件。
 - 使用您已下載的 Windows Server 2016 核心映像來部署 VM，然後安裝 SQL 資源提供者。
 - 註冊與您資源提供者 VM 對應的本機 DNS 記錄。
-- 針對操作員和使用者帳戶，向本機 Azure Resource Manager 註冊您的資源提供者。
-- 視需要在安裝資源提供者的期間，安裝單一 Windows Server 更新。
+- 針對操作員帳戶，向本機 Azure Resource Manager 註冊您的資源提供者。
 
 > [!NOTE]
 > 當 SQL 資源提供者部署開始時，會建立 **system.local.sqladapter** 資源群組。 最多可能需要 75 分鐘的時間，才能完成對此資源群組的必要部署。

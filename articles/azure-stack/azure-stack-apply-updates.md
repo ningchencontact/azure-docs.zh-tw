@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 0f23216c6aced60dc651a0f10179281bc9a29c2c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: da8261d27ae7fad3c5ff30e4e1cce3f1bca2b70a
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29802646"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035328"
 ---
 # <a name="apply-updates-in-azure-stack"></a>在 Azure Stack 中套用更新
 
 「適用於：Azure Stack 整合系統」
 
-身為 Azure Stack 操作員，您可以使用系統管理員入口網站中的 [更新] 圖格來為 Azure Stack 套用 Microsoft 更新套件。 您必須下載 Microsoft 更新套件、將套件檔案匯入至 Azure Stack，然後安裝該更新套件。 
+身為 Azure Stack 操作員，您可以使用系統管理員入口網站中的 [更新] 圖格來為 Azure Stack 套用 Microsoft 或 OEM 更新套件。 您必須下載更新套件、將套件檔案匯入至 Azure Stack，然後安裝該更新套件。 
 
 ## <a name="download-the-update-package"></a>下載更新套件
 
-當有適用於 Azure Stack 的 Microsoft 更新套件可用時，請將該套件下載到可從 Azure Stack 存取的位置，然後檢閱套件內容。 更新套件通常是由下列檔案所組成：
+當有適用於 Azure Stack 的 Microsoft 或 OEM 更新套件可用時，請將該套件下載到可從 Azure Stack 存取的位置，然後檢閱套件內容。 更新套件通常是由下列檔案所組成：
 
 - 自我解壓縮的 *PackageName*.exe 檔案。 此檔案包含更新的承載，例如 Windows Server 的最新累積更新。   
 - 對應的 *PackageName*.bin 檔案。 這些檔案提供與 *PackageName*.exe 檔案相關的承載壓縮。 

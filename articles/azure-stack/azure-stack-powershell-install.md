@@ -14,33 +14,41 @@ ms.topic: article
 ms.date: 07/10/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: e2785b0beeab042d4b1ad9a9eb5f545dbb58b8b9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 09d5842f349917be0e5d94d919b0e9630347284b
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38487496"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035474"
 ---
 # <a name="install-powershell-for-azure-stack"></a>安裝適用於 Azure Stack 的 PowerShell
 
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
-您需要與 Azure Stack 相容的 Azure PowerShell 模組，才能搭配 Azure Stack 使用。 在本指南中，我們引導您安裝 Azure Stack 的 PowerShell 所需要的步驟。
+您需要與 Azure Stack 相容的 Azure PowerShell 模組，才能搭配 Azure Stack 使用。 在本指南中，我們引導您安裝 Azure Stack 的 PowerShell 所需要的步驟。 下列步驟適用於已連線到網際網路的環境。 針對未連線的環境，請捲動到頁面底部。
 
 這篇文章有安裝 Azure Stack 的 PowerShell 的詳細指示。
 
 > [!Note]  
-> 下列步驟需要 PowerShell 5.0。 若要檢查您的版本，請執行 $PSVersionTable.PSVersion 並比較**主要**版本。
+> 下列步驟至少需要 PowerShell 5.0。 若要檢查您的版本，請執行 $PSVersionTable.PSVersion 並比較**主要**版本。 如果您沒有 PowerShell 5.0，請遵循[連結](https://docs.microsoft.com/en-us/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)以升級至 PowerShell 5.0。
 
 Azure Stack 的 PowerShell 命令是透過 PowerShell 資源庫進行安裝。 您可以使用下列程序來驗證 PSGallery 是否已註冊為存放庫，請開啟提升權限的 PowerShell 工作階段，並執行下列命令：
 
-```PowerShell  
+```PowerShell
+#requires -Version 5
+#requires -RunAsAdministrator
+#requires -Module PowerShellGet
+
+Import-Module -Name PowerShellGet -ErrorAction Stop
+Import-Module -Name PackageManagement -ErrorAction Stop 
+
 Get-PSRepository -Name "PSGallery"
 ```
 
 如果存放庫未註冊，請開啟提升權限的 PowerShell 工作階段，並執行下列命令：
 
-```PowerShell  
+```PowerShell
+Register-PsRepository -Default
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 ```
 > [!Note]  
@@ -97,24 +105,22 @@ Get-Module -ListAvailable | where-Object {$_.Name -like "Azs*"}
 
 1. 登入具有網際網路連線的電腦並使用下列指令碼，將 AzureRM 及 AzureStack 套件下載到您的本機電腦：
 
-   ```PowerShell  
+   ```PowerShell 
+  #requires -Version 5
+  #requires -RunAsAdministrator
+  #requires -Module PowerShellGet
+  #requires -Module PackageManagement
+  
+  Import-Module -Name PowerShellGet -ErrorAction Stop
+  Import-Module -Name PackageManagement -ErrorAction Stop
+
    $Path = "<Path that is used to save the packages>"
 
-   Save-Package `
-     -ProviderName NuGet `
-     -Source https://www.powershellgallery.com/api/v2 `
-     -Name AzureRM `
-     -Path $Path `
-     -Force `
-     -RequiredVersion 1.2.11
+   Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 `
+     -Name AzureRM -Path $Path -Force -RequiredVersion 1.2.11
 
-   Save-Package `
-     -ProviderName NuGet `
-     -Source https://www.powershellgallery.com/api/v2 `
-     -Name AzureStack `
-     -Path $Path `
-     -Force `
-     -RequiredVersion 1.3.0 
+   Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 `
+     -Name AzureStack -Path $Path -Force -RequiredVersion 1.3.0 
    ```
 
   > [!Important]  
@@ -127,19 +133,19 @@ Get-Module -ListAvailable | where-Object {$_.Name -like "Azs*"}
 4. 現在您必須註冊此位置作為預設存放庫，並從此存放庫安裝 AzureRM 與 AzureStack 模組：
 
    ```PowerShell
+   #requires -Version 5
+   #requires -RunAsAdministrator
+   #requires -Module PowerShellGet
+   #requires -Module PackageManagement
+
    $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
    $RepoName = "MyNuGetSource"
 
-   Register-PSRepository `
-     -Name $RepoName `
-     -SourceLocation $SourceLocation `
-     -InstallationPolicy Trusted
+   Register-PSRepository -Name $RepoName -SourceLocation $SourceLocation  -InstallationPolicy Trusted
 
-   Install-Module AzureRM `
-     -Repository $RepoName
+   Install-Module AzureRM -Repository $RepoName
 
-   Install-Module AzureStack `
-     -Repository $RepoName 
+   Install-Module AzureStack -Repository $RepoName 
    ```
 
 ## <a name="configure-powershell-to-use-a-proxy-server"></a>設定 PowerShell 使用 Proxy 伺服器

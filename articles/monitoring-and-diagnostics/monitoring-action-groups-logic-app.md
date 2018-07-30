@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 14e562234152d2f1f2f2d2b57b34cd5724d3dd14
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 51d47b87f898aa65fe4ee76c312240a50d45231d
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753088"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049182"
 ---
 # <a name="create-a-logic-app-action"></a>建立邏輯應用程式動作
 
@@ -109,7 +109,7 @@ Azure 監視器警示會在觸發時呼叫[動作群組](monitoring-action-group
 
     ![動作](media/monitoring-action-groups/microsoft-teams-actions.png "動作")
 
-12. 設定 Microsoft Teams 動作。 [Logic Apps 設計工具] 會要求您向 Office 365 帳戶進行驗證。 選擇要對其傳送訊息的 [團隊識別碼] 和 [通道識別碼]。
+12. 設定 Microsoft Teams 動作。 [Logic Apps 設計工具] 會要求您向 Office 365 帳戶進行驗證。 選擇要對其傳送訊息的 [小組識別碼] 和 [通道識別碼]。
 
 13. 使用靜態文字與對動態內容中 \<欄位\> 之參考的組合來設定訊息。 將下列文字複製並貼到 [訊息] 欄位中：
 
@@ -133,7 +133,7 @@ Azure 監視器警示會在觸發時呼叫[動作群組](monitoring-action-group
 
     ![更新動作群組](media/monitoring-action-groups/update-action-group.png "更新動作群組")
 
-下一次警示叫用您的動作群組時，系統就會呼叫您的邏輯應用程式。
+下一次警示呼叫您的動作群組時，系統就會呼叫您的邏輯應用程式。
 
 ## <a name="create-a-service-health-alert"></a>建立服務健康狀態警示
 
@@ -187,10 +187,10 @@ Azure 監視器警示會在觸發時呼叫[動作群組](monitoring-action-group
 -  步驟 9 和 10 相同。
 -  針對步驟 11 至 14，請使用下列程序：
 
-   1. 選取 [+ 新增步驟]，然後選擇 [新增條件]。 設定下列條件，以確保只有當輸入資料符合這些值時，邏輯應用程式才會執行：
+   1. 選取 [+ 新增步驟]，然後選擇 [新增條件]。 設定下列條件，只有當輸入資料符合下列值的時候，邏輯應用程式才會執行。  將版本值輸入到文字方塊時，在值的周圍加上引號 ("0.1.1")，以確保系統會將值評估為字串，而不是數值類型。  如果您返回頁面，但是基礎程式碼仍然維持字串類型，則系統不會顯示引號。   
        - `schemaId == Microsoft.Insights/activityLogs`
        - `eventSource == ServiceHealth`
-       - `version == 0.1.1`
+       - `version == "0.1.1"`
 
       ![「服務健康狀態承載條件」](media/monitoring-action-groups/service-health-payload-condition.png "服務健康狀態承載條件")
 
@@ -275,10 +275,10 @@ Azure 監視器警示會在觸發時呼叫[動作群組](monitoring-action-group
 - 步驟 9 和 10 相同。
 - 針對步驟 11 至 14，請使用下列程序：
 
-   1. 選取 [+ 新增步驟]，然後選擇 [新增條件]。 設定下列條件，以確保只有當輸入資料符合這些值時，邏輯應用程式才會執行：
+   1. 選取 [+ 新增步驟]，然後選擇 [新增條件]。 設定下列條件，只有當輸入資料符合下列值的時候，邏輯應用程式才會執行。 將版本值輸入到文字方塊時，在值的周圍加上引號 ("2.0")，以確保系統會將值評估為字串，而不是數值類型。  如果您返回頁面，但是基礎程式碼仍然維持字串類型，則系統不會顯示引號。 
        - `schemaId == AzureMonitorMetricAlert`
-       - `version == 2.0`
-
+       - `version == "2.0"`
+       
        ![「計量警示承載條件」](media/monitoring-action-groups/metric-alert-payload-condition.png "計量警示承載條件")
 
    1. 在 [若為 true] 條件中，新增 **For each** 迴圈和 Microsoft Teams 動作。 使用 HTML 與動態內容的組合來定義訊息。

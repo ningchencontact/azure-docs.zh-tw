@@ -11,24 +11,65 @@ ms.topic: article
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
 manager: douge
-ms.openlocfilehash: 371bb9195266f3511d115de2532e6b64f49ef26f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4dee39b56cf0f6494f6e79c70b85bbf711d33d65
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199291"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044589"
 ---
 # <a name="troubleshooting-guide"></a>疑難排解指南
 
 本指南包含您在使用 Azure Dev Spaces 時可能會遇到的常見問題相關資訊。
 
+## <a name="error-service-cannot-be-started"></a>錯誤：「服務無法啟動。」
+
+當您的服務程式碼無法啟動時，您可能會看到此錯誤訊息。 通常是使用者程式碼所造成的。 若要取得更詳細的診斷資訊，請對您的命令與設定進行下列變更：
+
+在命令列上：
+
+1. 使用 _azds.exe_ 時，請使用 --verbose 命令列選項並使用 --output 命令列選項，來指定輸出格式。
+ 
+    ```cmd
+    azds up --verbose --output json
+    ```
+
+在 Visual Studio 中：
+
+1. 開啟 [工具 > 選項]，然後在 [專案和解決方案] 底下選擇 [建置並執行]。
+2. 將 **MSBuild 專案建置輸出詳細資訊**的設定變更為 [詳細] 或 [診斷]。
+
+    ![工具選項對話方塊的螢幕擷取畫面](media/common/VerbositySetting.PNG)
+
+## <a name="error-required-tools-and-configurations-are-missing"></a>錯誤：「遺失必要的工具和組態」
+
+啟動 VS Code 時可能會發生下列錯誤：「[Azure Dev Spaces] 遺失建置 '[專案名稱]' 及對其進行偵錯的必要工具和組態」。
+此錯誤訊息表示 azds.exe 不在 PATH 環境變數中，如同 VS Code 中所示。
+
+### <a name="try"></a>請嘗試︰
+
+在已正確設定 PATH 環境變數的前提下，請從命令提示字元啟動 VS Code。
+
+## <a name="error-azds-is-not-recognized-as-an-internal-or-external-command-operable-program-or-batch-file"></a>錯誤：'azds' 未辨識為內部或外部命令、可執行程式或批次檔
+ 
+如果未安裝或正確設定 azds.exe，您可能會看到此錯誤訊息。
+
+### <a name="try"></a>請嘗試︰
+
+1. 請檢查位置 %ProgramFiles%/Microsoft SDKs\Azure\Azure Dev Spaces CLI (預覽) 中是否有 azds.exe。 如果有的話，請將該位置新增至 PATH 環境變數中。
+2. 如果未安裝 azds.exe，請執行下列命令：
+
+    ```cmd
+    az aks use-dev-spaces -n <cluster-name> -g <resource-group>
+    ```
+
 ## <a name="error-upstream-connect-error-or-disconnectreset-before-headers"></a>錯誤「上游連線錯誤或是在標頭前中斷連線/重設」
 您在嘗試存取服務時，可能會看到這個錯誤。 例如，當您在瀏覽器中移至服務的 URL 時。 
 
 ### <a name="reason"></a>原因 
-容器連接埠無法使用。 可能原因是： 
-* 容器仍處於建置和部署程序。 如果您執行 `azds up` 或啟動偵錯工具，然後在容器成功部署之前嘗試存取容器，就有可能發生這種情形。
-* 您的 Dockerfile、Helm 圖表及開啟連接埠的任何伺服器代碼之間的連接埠組態不一致。
+容器連接埠無法使用。 這個問題發生的原因： 
+* 容器仍處於建置和部署程序。 如果您執行 `azds up` 或啟動偵錯工具，然後在容器成功部署之前嘗試存取容器，就有可能發生這個問題。
+* 您的 _Dockerfile_、Helm 圖表及開啟連接埠的任何伺服器代碼之間的連接埠組態不一致。
 
 ### <a name="try"></a>請嘗試︰
 1. 如果容器處於建置/部署程序，您可以等待 2-3 秒，然後再次嘗試存取服務。 
@@ -46,7 +87,7 @@ ms.locfileid: "34199291"
 
 ### <a name="try"></a>請嘗試︰
 1. 將目前目錄變更為內含服務程式碼的根資料夾。 
-1. 如果您在程式碼資料夾中沒有 azds.yaml 檔案，請執行 `azds prep` 以產生 Docker、Kubernetes 及 Azure Dev Spaces 資產。
+1. 如果您在程式碼資料夾中沒有 _azds.yaml_ 檔案，請執行 `azds prep` 以產生 Docker、Kubernetes 及 Azure Dev Spaces 資產。
 
 ## <a name="error-the-pipe-program-azds-exited-unexpectedly-with-code-126"></a>錯誤：「管道程式 'azds' 非預期地結束，代碼 126」。
 啟動 VS Code 偵錯工具有時候可能會導致這個錯誤。 這是已知的問題。
@@ -72,33 +113,33 @@ ms.locfileid: "34199291"
 
 ### <a name="try"></a>請嘗試︰
 必須執行什麼動作：
-1. 修改 azds.yaml 檔案以將建置內容設定到解決方案層級。
-2. 修改 Dockerfile 和 Dockerfile.develop 檔案，以相對於新建置內容的方式，正確參考 csproj 檔案。
-3. 將 .dockerignore 檔案放在 .sln 檔案旁邊，並且視需要加以修改。
+1. 修改 _azds.yaml_ 檔案以將建置內容設定到解決方案層級。
+2. 修改 _Dockerfile_ 和 _Dockerfile.develop_ 檔案，以相對於新建置內容的方式，正確參考專案 (_.csproj_) 檔案。
+3. 將 _.dockerignore_ 檔案放在 .sln 檔案旁邊，並且視需要加以修改。
 
 您可以在 https://github.com/sgreenmsft/buildcontextsample 中找到範例
 
-## <a name="microsoftconnectedenvironmentregisteraction-authorization-error"></a>'Microsoft.ConnectedEnvironment/register/action' 授權錯誤
+## <a name="microsoftdevspacesregisteraction-authorization-error"></a>'Microsoft.DevSpaces/register/action' 授權錯誤
 當您管理 Azure Dev Spaces，以及在您沒有「擁有者」或「參與者」存取權的 Azure 訂用帳戶中工作時，可能會看到下列錯誤。
-`The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.ConnectedEnvironment/register/action' over scope '/subscriptions/<Subscription Id>'.`
+`The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.`
 
 ### <a name="reason"></a>原因
-選取的 Azure 訂用帳戶尚未註冊 Microsoft.ConnectedEnvironment 命名空間。
+選取的 Azure 訂用帳戶尚未註冊 `Microsoft.DevSpaces` 命名空間。
 
 ### <a name="try"></a>請嘗試︰
-擁有 Azure 訂用帳戶「擁有者」或「參與者」存取權的某位使用者，可以執行下列 Azure CLI 命令，手動註冊 Microsoft.ConnectedEnvironment 命名空間：
+擁有 Azure 訂用帳戶「擁有者」或「參與者」存取權的使用者，可以執行下列 Azure CLI 命令，手動註冊 `Microsoft.DevSpaces` 命名空間：
 
 ```cmd
-az provider register --namespace Microsoft.ConnectedEnvironment
+az provider register --namespace Microsoft.DevSpaces
 ```
 
 ## <a name="azure-dev-spaces-doesnt-seem-to-use-my-existing-dockerfile-to-build-a-container"></a>Azure Dev Spaces 似乎未使用我現有的 Dockerfile 來建置容器 
 
 ### <a name="reason"></a>原因
-Azure Dev Spaces 可以設定為指向您專案中的特定 Dockerfile。 如果發生 Azure Dev Spaces 未使用您預期的 Dockerfile 來建置容器的情形，您可能需要明確告訴 Azure Dev Spaces 該檔案的位置。 
+Azure Dev Spaces 可以設定為指向您專案中的特定 _Dockerfile_。 如果發生 Azure Dev Spaces 未使用您預期的 _Dockerfile_ 來建置容器的情形，您可能需要明確告訴 Azure Dev Spaces 該檔案的位置。 
 
 ### <a name="try"></a>請嘗試︰
-在專案中開啟由 Azure Dev Spaces 產生的 `azds.yaml` 檔案。 請使用 `configurations->develop->build->dockerfile` 指示詞，以指向您想要使用的 Dockerfile：
+在專案中開啟由 Azure Dev Spaces 產生的 _azds.yaml_ 檔案。 請使用 `configurations->develop->build->dockerfile` 指示詞，以指向您想要使用的 Dockerfile：
 
 ```
 ...

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
-ms.date: 05/11/2018
-ms.author: twooley
-author: twooley
+ms.date: 07/10/2018
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 7dddc41d35ae466f7c1392450fbda3c86a72a538
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: f654aaa6d44011a089008558849d37bf6cdfa6f6
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34267022"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39037222"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>在 Azure 入口網站中新增 Azure Active Directory B2B 共同作業使用者
 
@@ -32,16 +32,16 @@ ms.locfileid: "34267022"
 
 1. 以 Azure AD 系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在導覽窗格中，選取 [Azure Active Directory]。
-3. 在 [管理] 下選取 [使用者和群組] > [所有使用者]。
+3. 在 [管理] 底下選取 [使用者]。
 4. 選取 [新增來賓使用者]。
 
    ![顯示 [新增來賓使用者] 在 UI 中的位置](./media/add-users-administrator/NewGuestUser-Directory.png) 
  
-7. 在 [邀請來賓] 下，輸入外部使用者的電子郵件地址。 您也可以選擇納入歡迎訊息。 例如︰
+5. 在 [使用者名稱] 下，輸入外部使用者的電子郵件地址。 您也可以選擇納入歡迎訊息。 例如︰
 
    ![顯示 [新增來賓使用者] 在 UI 中的位置](./media/add-users-administrator/InviteGuest.png) 
 
-8. 選取 [邀請] 即可自動對來賓使用者傳送邀請。 在 [通知] 區域中尋找**已成功邀請使用者**的訊息。 
+6. 選取 [邀請] 即可自動對來賓使用者傳送邀請。 
  
 在傳送邀請之後，系統就會自動將使用者帳戶以來賓身分新增至目錄。
 
@@ -53,18 +53,15 @@ ms.locfileid: "34267022"
 
 1. 以 Azure AD 系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在導覽窗格中，選取 [Azure Active Directory]。
-3. 在 [管理] 下選取 [使用者和群組] > [所有群組]。
+3. 在 [管理] 底下選取 [群組]。
 4. 選取群組 (或按一下 [新增群組] 以建立新的群組)。 您不妨納入群組描述，說明該群組包含 B2B 來賓使用者。
-5. 選取 [成員] > [新增成員]。 
+5. 選取 [成員]。 
 6. 執行下列其中一項：
-   - 如果目錄中已有來賓使用者，請搜尋 B2B 使用者。 選取使用者 > 按一下 [選取] 將使用者新增至群組。
-   - 如果目錄中還沒有來賓使用者，請選取 [邀請]。
-   ![用來新增來賓成員的新增邀請按鈕](./media/add-users-administrator/GroupInvite.png)
+   - 如果目錄中已有來賓使用者，請搜尋 B2B 使用者。 選取使用者，然後按一下 [選取] 將使用者新增至群組中。
+   - 如果目錄中尚未有來賓使用者存在，請藉由在搜尋方塊中鍵入使用者的電子郵件地址、選擇性鍵入個人訊息，然後按一下 [選取]，來邀請他們加入群組。 邀請會自動傳送給受邀的使用者。
+     
+     ![用來新增來賓成員的新增邀請按鈕](./media/add-users-administrator/GroupInvite.png)
    
-      在 [邀請來賓] 下輸入電子郵件地址，並選擇是否輸入個人訊息 > 選取 [邀請]。 按一下 [選取] 將使用者新增至群組。
-
-      邀請會自動傳送給受邀的使用者。 在 [通知] 區域中尋找**已邀請使用者**的成功訊息。 
-
 您也可以搭配使用動態群組與 Azure AD B2B 共同作業。 如需詳細資訊，請參閱[動態群組與 Azure Active Directory B2B 共同作業](use-dynamic-groups.md)。
 
 ## <a name="add-guest-users-to-an-application"></a>將來賓使用者新增到應用程式
@@ -75,20 +72,25 @@ ms.locfileid: "34267022"
 2. 在導覽窗格中，選取 [Azure Active Directory]。
 3. 在 [管理] 下選取 [企業應用程式] > [所有應用程式]。
 4. 選取要對其新增來賓使用者的應用程式。
-5. 在 [管理] 下選取 [使用者和群組]。
+5. 在應用程式的儀表板上，選取 [使用者總數] 以開啟 [使用者和群組] 窗格。
+
+    ![用來開啟使用者和群組的使用者總數按鈕](./media/add-users-administrator/AppUsersAndGroups.png)
+
 6. 選取 [新增使用者]。
 7. 在 [新增指派] 下，選取 [使用者和群組]。
 8. 執行下列其中一項：
-   - 如果目錄中已有來賓使用者，請搜尋 B2B 使用者。 選取使用者，然後按一下 [選取] 將使用者新增至應用程式。
+   - 如果目錄中已有來賓使用者，請搜尋 B2B 使用者。 選取使用者，按一下 [選取]，然後按一下 [指派] 將使用者新增至應用程式中。
    - 如果目錄中還沒有來賓使用者，請選取 [邀請]。
-   ![用來新增來賓成員的新增邀請按鈕](./media/add-users-administrator/AppInviteUsers.png)
+           
+       ![用來新增來賓成員的新增邀請按鈕](./media/add-users-administrator/AppInviteUsers.png)
    
-      在 [邀請來賓] 下輸入電子郵件地址，並選擇是否輸入個人訊息 > 選取 [邀請]。 按一下 [選取] 將使用者新增至應用程式。
+      在 [邀請來賓] 下輸入電子郵件地址，選擇性鍵入輸入個人訊息，然後選取 [邀請]。 按一下 [選取]，然後按一下 [指派] 將使用者新增至應用程式中。 邀請會自動傳送給受邀的使用者。
 
-      邀請會自動傳送給受邀的使用者。 在 [通知] 區域中尋找**已邀請使用者**的成功訊息。
-
-9. 在 [新增指派] 下，按一下 [選取角色] > 選取要套用至所選使用者的角色 (如適用) > 選取 [確定]。
-10. 按一下 [指派]。
+9. 來賓使用者會出現在應用程式的 [使用者和群組] 清單中，具有 [預設存取] 的指派角色。 如果您想要變更角色，請執行下列作業：
+   - 選取來賓使用者，然後選取 [編輯]。 
+   - 在 [編輯指派] 底下按一下 [選取角色]，然後選取您想要指派給所選使用者的角色。
+   - 按一下 [選取] 。
+   - 按一下 [指派]。
  
 ## <a name="resend-invitations-to-guest-users"></a>將邀請重新傳送給來賓使用者
 
@@ -96,8 +98,7 @@ ms.locfileid: "34267022"
 
 1. 以 Azure AD 系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在導覽窗格中，選取 [Azure Active Directory]。
-3. 在 [管理] 下選取 [使用者和群組]。
-4. 選取 [所有使用者]。
+3. 在 [管理] 底下選取 [使用者]。
 5. 選取使用者帳戶。
 6. 在 [管理] 底下選取 [設定檔]。
 7. 如果使用者尚未接受邀請，則 [重新傳送邀請] 選項會是可供使用的狀態。 選取此按鈕即可重新傳送。

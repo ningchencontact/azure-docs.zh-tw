@@ -17,12 +17,12 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 5597d75da50853e85d6e94f1a5c7b5114068f671
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4bba72e0761553c81acda7609898c1b032bdf28a
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916991"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044414"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>使用 Azure AD Connect 管理和自訂 Active Directory Federation Services
 本文說明如何使用 Azure Active Directory (Azure AD) Connect 管理及自訂 Active Directory Federation Services (AD FS)。 它也包含您可能需要進行以完整設定 AD FS 伺服器陣列的其他常見 AD FS 工作。
@@ -189,7 +189,7 @@ AD FS 替代登入識別碼的設定作業包含兩個主要步驟︰
 若要變更 [登入] 頁面上顯示的公司標誌，請使用下列 Windows PowerShell Cmdlet 和語法。
 
 > [!NOTE]
-> 建議的標誌尺寸為 260 x 35 @ 96 dpi，檔案大小不超過 10 KB。
+> 建議的標誌尺寸為 260 x 35 \@ 96 dpi，檔案大小不超過 10 KB。
 
     Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.PNG"}
 

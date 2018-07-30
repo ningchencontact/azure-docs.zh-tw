@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 96ca5a7ec8b0c87984ea2c76af446d7a8b5504a1
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 96a0443a66bb826496c6af42fe6479c0a53ac964
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344295"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036079"
 ---
 # <a name="create-a-windows-iot-edge-device-that-acts-as-a-transparent-gateway"></a>建立作為透明閘道的 Windows IoT Edge 裝置
 
@@ -22,7 +22,7 @@ ms.locfileid: "37344295"
 >[!NOTE]
 >目前狀況：
 > * 如果閘道與 IoT 中樞中斷連線，則下游裝置無法透過閘道進行驗證。
-> * IoT Edge 裝置無法連線到 IoT Edge 閘道。
+> * 已啟用 Edge 的裝置無法連線到 IoT Edge 閘道。 
 > * 下游裝置無法使用檔案上傳。
 
 建立透明閘道的困難之處，在於必須安全地將閘道連線至下游裝置。 Azure IoT Edge 可讓您使用 PKI 基礎結構，設定這些裝置之間的安全 TLS 連線。 在此案例中，我們將允許下游裝置連線至作為透明閘道的 IoT Edge 裝置。  為了維護適當的安全性，下游裝置應確認 Edge 裝置的身分識別，因為您應該只希望讓裝置連線至自己的閘道，而不是可能的惡意閘道。
@@ -35,7 +35,7 @@ ms.locfileid: "37344295"
 
 下列步驟會逐步引導您在正確的位置建立憑證並且加以安裝。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 1.  在您想要作為透明閘道的 Windows 裝置上[安裝 Azure IoT Edge 執行階段][lnk-install-windows-x64]。
 
 1. 取得 Windows 的 OpenSSL。 您可以透過多種方式來安裝 OpenSSL：

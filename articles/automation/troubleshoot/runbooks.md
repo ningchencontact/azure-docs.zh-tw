@@ -4,16 +4,16 @@ description: 了解如何針對 Azure 自動化 Runbook 的錯誤進行疑難排
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b96d723f6c7ca423343c0586f59770abb55ada9f
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 286a777e16dea72e38b316e86ba57e1811888eec
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929344"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044861"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>針對 Runbook 的錯誤進行疑難排解
 
@@ -94,6 +94,31 @@ Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is re
 若要搭配 Azure 傳統部署模型 Cmdlet 使用憑證，請參閱 [creating and adding a certificate to manage Azure services](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) (建立及新增憑證來管理 Azure 服務)。 若要搭配 Azure Resource Manager Cmdlet 來使用服務主體，請參閱[使用 Azure 入口網站來建立服務主體](../../azure-resource-manager/resource-group-create-service-principal-portal.md)和[使用 Azure Resource Manager 驗證服務主體](../../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 ## <a name="common-errors-when-working-with-runbooks"></a>使用 Runbook 時的常見錯誤
+
+### <a name="not-recognized-as-cmdlet"></a>案例：因為遺失 Cmdlet，所以 Runbook 失敗
+
+#### <a name="issue"></a>問題
+
+您的 Runbook 失敗，並具有類似下列範例的錯誤：
+
+```
+The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, function, script file, or operable program.  Check the spelling of the name, or if the path was included verify that the path is correct and try again.
+```
+
+#### <a name="cause"></a>原因
+
+這個錯誤可能是下列原因所造成：
+
+1. 包含 Cmdlet 的模組未匯入到自動化帳戶
+2. 包含 Cmdlet 的模組已匯入，但已過期
+
+#### <a name="resolution"></a>解決方案
+
+藉由完成下列其中一項工作，就可以解決此錯誤：
+
+如果模組是 Azure 模組，請參閱[如何更新 Azure 自動化中的 Azure PowerShell 模組](../automation-update-azure-modules.md)以了解如何在您的自動化帳戶中更新模組。
+
+如果是個別的模組，請確定模組已匯入到您的自動化帳戶中。
 
 ### <a name="job-attempted-3-times"></a>案例：已嘗試啟動 Runbook 作業三次，但無法每次都順利啟動
 

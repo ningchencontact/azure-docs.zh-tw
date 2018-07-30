@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: ade47c59a8db673869ce8c60a062a2a6a6656ca2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6d3fe519729bd56dafd11720a3662eb00b916a98
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38688995"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056604"
 ---
 # <a name="set-up-additional-process-servers-for-scalability"></a>設定額外處理序伺服器以獲得延展性
 
@@ -31,11 +31,11 @@ ms.locfileid: "38688995"
 
 | **額外處理序伺服器** | **快取磁碟大小** | **資料變更率** | **受保護的機器** |
 | --- | --- | --- | --- |
-|4 個 vCPU (2 個通訊端 * 雙核心 @ 2.5 GHz)，8 GB 記憶體 |300 GB |250 GB 或更少 |複寫 85 部或更少的機器。 |
-|8 個 vCPU (2 個通訊端 * 四核心 @ 2.5 GHz)，12 GB 記憶體 |600 GB |250 GB 至 1 TB |複寫 85-150 部機器。 |
-|12 個 vCPU (2 個通訊端 * 六核心 @ 2.5 GHz)，24 GB 記憶體 |1 TB |1 TB 至 2 TB |複寫 150-225 部機器。 |
+|4 個 vCPU (2 個插槽 * 2 核心 \@ 2.5 GHz)，8 GB 記憶體 |300 GB |250 GB 或更少 |複寫 85 部或更少的機器。 |
+|8 個 vCPU (2 個插槽 * 4 核心 \@ 2.5 GHz)，12 GB 記憶體 |600 GB |250 GB 至 1 TB |複寫 85-150 部機器。 |
+|12 個 vCPU (2 個插槽 * 6 核心 \@ 2.5 GHz)，24 GB 記憶體 |1 TB |1 TB 至 2 TB |複寫 150-225 部機器。 |
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
 下表為額外處理序伺服器的必要條件摘要。
 

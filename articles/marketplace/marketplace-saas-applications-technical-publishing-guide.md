@@ -3,35 +3,27 @@ title: Azure Marketplace SaaS 應用程式技術發行指南
 description: 將 SaaS 應用程式發行至 Azure Marketplace 的逐步指南與發行檢查清單
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
 documentationcenter: ''
-author: BrentL-Collabera
-manager: ''
-editor: BrentL-Collabera
+author: keithcharlie
+manager: nunoc
+editor: keithcharlie
 ms.assetid: ''
 ms.service: marketplace
 ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 05/09/2018
-ms.author: pabutler
-ms.openlocfilehash: 2ac8119e36843e38e334fb5772ea4ade9962b4f9
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.date: 07/09/2018
+ms.author: keithcharlie
+ms.openlocfilehash: 69f11c77d01f546aecdcb5f0560f6f89483ac204
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809466"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056397"
 ---
-# <a name="saas-applications-technical-publishing-guide"></a>SaaS 應用程式技術發行指南
+# <a name="saas-applications-offer-publishing-guide"></a>SaaS 應用程式供應項目發行指南
 
-歡迎使用 Azure Marketplace SaaS 應用程式技術發行指南。 本指南旨在協助候選發行者和現有發行者，讓其能夠使用 SaaS 應用程式供應項目來列出其在 Azure Marketplace 中的應用程式和服務。 
-
-為了讓您更了解如將發行 SaaS 供應項目，本指南分為下列各節：
-* 供應項目概觀
-* 商業需求
-* 技術需求
-* 發佈程序
-* 使用 Azure Active Directory 啟用試用版
-* 向 Marketplace 證明您的 Azure Active Directory 整合
+SaaS 應用程式可以在市集中透過三種不同的呼籲行動來發行：「與我連絡」、「立即試用」和「立即取得」。 本指南說明這三個選項，包括每個選項的需求。 
 
 ## <a name="offer-overview"></a>供應項目概觀  
 
@@ -47,24 +39,33 @@ ms.locfileid: "34809466"
 
 | SaaS 應用程式供應項目 | 商業需求 | 技術需求 |  
 | --- | --- | --- |  
-| **與我們連絡** | yes | 否 |  
-| **PowerBI / Dynamics** | yes | 是 (Azure AD 整合) |  
-| **SaaS 應用程式**| yes | 是 (Azure AD 整合) |     
+| **與我們連絡** | 是 | 否 |  
+| **PowerBI / Dynamics** | 是 | 是 (Azure AD 整合) |  
+| **SaaS 應用程式**| 是 | 是 (Azure AD 整合) |     
 
-如需有關 Marketplace 店面和每個發行選項說明的詳細資訊，請參閱 [Marketplace 發行者指南](https://aka.ms/sellerguide)和[發行選項](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide#select-a-publishing-option)。
+## <a name="saas-list"></a>SaaS 清單
 
-## <a name="business-requirements"></a>商業需求
-您可以平行完成 SaaS 供應項目的商業需求與技術需求。 大部分業務需求與資訊都會在您從 Cloud Partner 入口網站中建置 SaaS 供應項目時進行收集。 商業需求如下所示： 
-* 同意參與原則
-* 與 Microsoft 整合 
-* 識別供應項目的對象
-* 定義與決定要使用的前置管理
-* 設定隱私權原則及使用規定
-* 定義支援連絡人  
+對於沒有試用版也沒有計費功能的 SaaS 列出清單呼籲行動是「與我連絡」。 
 
-您可以在 [Marketplace 發行的必要條件](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide#prerequisites-for-marketplace-publishing)主題中找到詳細資訊
+您不需要設定 Azure Active Directory 就可以列出 SaaS 應用程式。 
 
-## <a name="technical-requirements"></a>技術需求
+|需求  |詳細資料  |
+|---------|---------|
+|您的應用程式是 SaaS 供應項目  |   您的解決方案是 SaaS 供應項目，且您提供多租用戶 SaaS 產品。      |
+
+
+## <a name="saas-trial"></a>SaaS 試用版
+
+您提供使用免費試用、軟體即服務 (SaaS) 型試用版的解決方案或應用程式。 您可以採用有限用途或有期限試用帳戶的形式，提供免費試用供應項目。 
+
+
+|需求  |詳細資料  |
+|---------|---------|
+|您的應用程式是 SaaS 供應項目  |   您的解決方案是 SaaS 供應項目，且您提供多租用戶 SaaS 產品。      |
+|您的應用程式已啟用 AAD     |   系統會將客戶重新導向到您的網域，讓您直接與客戶進行交易       |
+
+
+## <a name="saas-trial-technical-requirements"></a>SaaS 試用版技術需求
 
 SaaS 應用程式的技術需求很簡單。 發行者只需要與 Azure Active Directory (Azure AD) 整合即可發行。 Azure AD 與應用程式的整合已有完善的記載，Microsoft 會提供多個 SDK 和資源來完成這項作業。  
 
@@ -96,32 +97,7 @@ SaaS 應用程式的技術需求很簡單。 發行者只需要與 Azure Active 
 * [IT 專業人員的 Microsoft Azure 內容系列：Azure Active Directory](https://mva.microsoft.com/en-US/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
 
 此外，Azure Active Directory 提供可檢查服務更新的網站   
-* [Azure AD 服務更新](https://azure.microsoft.com/updates/?product=active-directory)
-
-如需支援，您可以使用下列資源：
-* [MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
-* [StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
-
-## <a name="publishing-process"></a>發佈程序
-
-SaaS 發行程序分為技術和商業步驟。  大部分用於開發和整合 Azure Active Directory 的工作，都可以平行用來完成供應項目的商業需求。 大量商業需求都屬於 Cloud Partner 入口網站中的 SaaS 應用程式供應項目組態。  
-下圖顯示試用版/交易供應項目的主要發行步驟：  
-
-![SaaS 發行步驟](./media/marketplace-saas-applications-technical-publishing-guide/saaspublishingsteps.png)  
-
-每個主要發行步驟的說明如下表所示：  
-
-| 發行步驟 | 說明 |   
-| --- | --- |  
-| **建立 SaaS 應用程式** | 登入 Cloud Partner 入口網站，選取 [新增]，然後選取 **SaaS 應用程式**供應項目。 |  
-| **建立與 Azure AD 的整合** | 請遵循前一節所述的技術需求，將您的 SaaS 供應項目與 Azure AD 整合。 |  
-| **配置供應項目的設定**| 輸入所有 SaaS 供應項目初始資訊。 您想要使用的供應項目識別碼和供應項目名稱。 |     
-| **設定技術資訊** | 輸入供應項目的技術資訊。 針對 SaaS 應用程式，供應項目取得按鈕 (免費、追蹤或與我連絡) 的解決方案 URI 與類型是必要項目。 |  
-| **試用產品 (選擇性)** | 這是試用版的選擇性類型，大部分其他類型的 Marketplace 供應項目皆需要此項目。 它可讓您在發行者 (不是終端消費者) 的訂用帳戶中部署試用版。 |  
-| **設定供應項目的店面素材**| 在這一節中，發行者將連結和上傳標誌、行銷素材、法律文件，以及設定潛在客戶管理系統。 |
-| **設定供應項目連絡人** | 輸入 SaaS 供應項目的工程連絡人和支援連絡資訊。 |  
-| **確認 SaaS 應用程式已與 Azure AD 整合** | 在提交您的 SaaS 應用程式以進行發行之前，您必須確認應用程式已與 Azure AD 整合 |  
-| **發行供應項目**| 完成供應項目和技術的資產之後，您就可以提交供應項目。 這會啟動發行程序，其中解決方案範本需經過測試、驗證、認證和核准後，才能發行。 |
+* [Azure AD 服務更新](https://azure.microsoft.com/updates/?product=active-directory)|
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>使用 Azure Active Directory 啟用試用版  
 
@@ -154,3 +130,25 @@ Microsoft 可使用 Azure AD 來驗證所有 Marketplace 使用者，因此已�
 * 開發每個客戶的「試用產品」
 * 建置使用 SSO 的多租用戶範例示範應用程式
 
+## <a name="saas-subscriptions"></a>SaaS 訂用帳戶
+
+您可以使用「SaaS 應用程式」供應項目類型，讓客戶以訂用帳戶的形式購買您的 SaaS 型技術解決方案。 您的 SaaS 應用程式必須符合下列需求：
+- 定價和計費採用均一的每月費率。
+- 提供可隨時升級或取消服務的方法。
+Microsoft 主控商務交易。 Microsoft 代表您向客戶收費。 若要將 SaaS 應用程式以訂用帳戶的形式計費，您必須啟用您自己的訂用帳戶管理服務 API。 您的訂用帳戶管理服務 API 必須直接與 Azure Resource Manager API 進行通訊。 您的訂用帳戶管理服務 API 必須支援服務佈建、升級和取消。
+
+| 需求 | 詳細資料 |  
+|:--- |:--- |  
+|計費和計量 | 您供應項目的定價為每月均一價。 目前不支援以用量計價及根據用量調整的功能。 |  
+|取消 | 客戶可隨時取消您的供應項目。 |  
+|交易登陸頁面 | 您裝載 Azure 共同品牌的交易登陸頁面，使用者能夠在頁面上建立並管理其 SaaS 服務帳戶。 |   
+| 訂用帳戶 API | 您公開一項服務，能與 SaaS 訂用帳戶互動，以建立、更新及刪除使用者帳戶與服務方案。 必須在 24 小時內支援重大的 API 變更。 需定期發行非重大的 API 變更。 |  
+
+## <a name="next-steps"></a>後續步驟
+如果您還沒有這麼做，請 
+
+- 在市集中[註冊](https://azuremarketplace.microsoft.com/sell)
+
+如果您已註冊，且要建立新供應項目或使用現有供應項目，請
+
+- [登入 Cloud Partner 入口網站](https://cloudpartner.azure.com)以建立或完成您的供應項目

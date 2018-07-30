@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 0174aa2288bbb95cc5cfc796446893fde00a8964
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 477fa7e10fab0afadb28d7749009f87e82d9b6ba
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344346"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035389"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>在 Linux (x64) 上安裝 Azure IoT Edge 執行階段
 
@@ -56,9 +56,7 @@ sudo apt-get upgrade
 
 ## <a name="install-the-container-runtime"></a>安裝容器執行階段 
 
-Azure IoT Edge 依賴 [OCI 相容][lnk-oci] 容器執行階段 (例如 Docker)。 如果您已在 Edge 裝置上安裝 Docker CE/EE，則可以繼續使用它，透過 Azure IoT Edge 進行開發與測試。 
-
-針對生產案例，強烈建議您使用下方所提供的 [Moby 型][lnk-moby]引擎。 它是 Azure IoT Edge 正式支援的唯一容器引擎。 Docker CE/EE 容器映像與 Moby 執行階段完全相容。
+Azure IoT Edge 會依賴 [OCI 相容][lnk-oci]的容器執行階段。 針對生產案例，強烈建議您使用下方所提供的 [Moby 型][lnk-moby]引擎。 它是 Azure IoT Edge 正式支援的唯一容器引擎。 Docker CE/EE 容器映像與 Moby 執行階段相容。
 
 更新 apt-get。
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/05/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: 6b6e4afa7c8b18c8ce9af8c6abd371b4321e3343
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: b71e6d41dcdd7efb2d179486f9195c14dae97194
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34852036"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39037750"
 ---
 | 資源 | 上限 |注意|
 | --- | --- |---|
@@ -23,8 +23,9 @@ ms.locfileid: "34852036"
 | 模組的大小上限 |100 MB ||
 | 工作執行時間 - 免費層 |每個訂用帳戶每行事曆月份 500 分鐘 ||
 | 每個沙箱所允許的磁碟空間最大數量**<sup>1</sup>** |1 GB |僅適用於 Azure 沙箱|
-| 提供給沙箱的記憶體大小上限**<sup>1</sup>** |400 MB |僅適用於 Azure 沙箱|
-| 每個沙箱所允許的網路通訊端數目上限**<sup>1</sup>** |1000 |僅適用於 Azure 沙箱|
+| 提供給沙箱的記憶體大小上限 **<sup>1</sup>** |400 MB |僅適用於 Azure 沙箱|
+| 每個沙箱所允許的網路通訊端數目上限 **<sup>1</sup>** |1000 |僅適用於 Azure 沙箱|
+| 每個 Runbook 所允許的執行階段上限 **<sup>1</sup>** |3 小時 |僅適用於 Azure 沙箱|
 | 訂用帳戶中自動化帳戶的最大數目 |沒有限制 ||
 |在單一混合式 Runbook 背景工作角色上執行的並行作業最大數目|50 ||
 

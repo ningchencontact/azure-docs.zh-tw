@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: a8d5465a2a9aaf9cf686a8e135a1f537cc60c6b5
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: e7ca3bcb3c3322c0eba12d7f9eb2ee2bc7b7600c
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129246"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049842"
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>在 Log Analytics 中執行跨資源記錄搜尋  
 
@@ -32,7 +32,7 @@ ms.locfileid: "37129246"
 若要在查詢中參考另一個工作區，請使用 [*workspace*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()) 識別項，而若要查詢來自 Application Insights 的應用程式，請使用 [*app*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app()) 識別項。  
 
 ### <a name="identifying-workspace-resources"></a>識別工作區資源
-下列範例示範對 Log Analytics 工作區的查詢，從名為 *contosoretail-it* 的工作區上的 Update 資料表，傳回更新項目彙總計數。 
+下列範例示範對 Log Analytics 工作區的查詢，從名為 contosoretail-it 工作區上的 Update 資料表，傳回記錄彙總計數。 
 
 您可以下列數種方式之一來完成識別工作區：
 
@@ -45,7 +45,7 @@ ms.locfileid: "37129246"
 
 * 限定名稱 - 是工作區的「完整名稱」，由訂用帳戶名稱、資源群組及元件名稱所組成，格式如下：*subscriptionName/resourceGroup/componentName*。 
 
-    `workspace('contoso/contosoretail/development').requests | count `
+    `workspace('contoso/contosoretail/contosoretail-it').Update | count `
 
     >[!NOTE]
     >由於 Azure 訂用帳戶名稱並非唯一，因此這個識別碼可能語意模糊。 
@@ -59,7 +59,7 @@ ms.locfileid: "37129246"
 
     例如︰
     ``` 
-    workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail").Event | count
+    workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail").Update | count
     ```
 
 ### <a name="identifying-an-application"></a>識別應用程式
@@ -88,6 +88,17 @@ ms.locfileid: "37129246"
     例如︰
     ```
     app("/subscriptions/b459b4f6-912x-46d5-9cb1-b43069212ab4/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
+    ```
+
+### <a name="performing-a-query-across-multiple-resources"></a>跨多個資源執行查詢
+您可以查詢任何資源執行個體的多個資源，資源執行個體可以是合併的工作區和應用程式。
+    
+跨兩個工作區的查詢範例：    
+    ```
+    union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d5-9cb1-p43069212nb4").Update
+    | where TimeGenerated >= ago(1h)
+    | where UpdateState == "Needed"
+    | summarize dcount(Computer) by Classification
     ```
 
 ## <a name="next-steps"></a>後續步驟

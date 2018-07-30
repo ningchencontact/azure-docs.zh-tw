@@ -12,20 +12,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/19/2018
+ms.date: 07/11/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9cb7a076ea922b9868bd439d160aec96f044e3b6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 02c068fc70748584583b2c71659b1a1abdc0a46d
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32157470"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035766"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Durable Functions 中的監視器案例 - 天氣監看員範例
 
 監視器模式指的是工作流程中的彈性「週期性」程序，例如，輪詢直到符合特定條件。 本文會說明使用 [Durable Functions](durable-functions-overview.md) 來實作監視的範例。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * [安裝 Durable Functions](durable-functions-install.md)。
 * 完成 [Hello 序列](durable-functions-sequence.md)逐步解說。
@@ -65,7 +65,7 @@ ms.locfileid: "32157470"
 * `E3_GetIsClear`：會檢查某地點目前天氣狀況的活動函式。
 * `E3_SendGoodWeatherAlert`：會透過 Twilio 傳送手機簡訊的活動函式。
 
-下列各節說明用於 C# 指令碼的設定和程式碼。 適用於 Visual Studio 開發的程式碼顯示在本文結尾。
+下列各節說明用於 C# 指令碼和 JavaScript 的設定和程式碼。 適用於 Visual Studio 開發的程式碼顯示在本文結尾。
  
 ## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>天氣監視協調流程 (Visual Studio Code 和 Azure 入口網站程式碼範例)
 
@@ -75,7 +75,13 @@ ms.locfileid: "32157470"
 
 以下是實作函式的程式碼：
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Monitor/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript (僅限 Functions v2)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/index.js)]
 
 此協調器函式會執行下列動作：
 
@@ -88,11 +94,13 @@ ms.locfileid: "32157470"
 
 您可以藉由傳送多個 **MonitorRequests** 來同時執行多個協調器執行個體。 您可以指定要監視的地點以及要作為簡訊通知傳送目的地的電話號碼。
 
-## <a name="strongly-typed-data-transfer"></a>強型別資料轉送
+## <a name="strongly-typed-data-transfer-net-only"></a>強型別資料轉送 (僅限 .NET)
 
-協調器需要許多資料，因此會使用[共用 POCO 物件](functions-reference-csharp.md#reusing-csx-code)來進行強型別資料轉送：[!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
+協調器需要許多資料，因此會使用[共用 POCO 物件](functions-reference-csharp.md#reusing-csx-code)在 C# 和 C# 指令碼中進行強型別資料轉送：[!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/Location.csx)]
+
+JavaScript 範例會使用一般 JSON 物件作為參數。
 
 ## <a name="helper-activity-functions"></a>協助程式活動函式
 
@@ -100,9 +108,15 @@ ms.locfileid: "32157470"
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/function.json)]
 
-實作如下。 就像用於資料轉送的 POCO，用來處理 API 呼叫和剖析回應 JSON 的邏輯會抽取為共用類別。 您可以在 [Visual Studio 程式碼範例](#run-the-sample)中找到此邏輯。
+實作如下。 就像用於資料轉送的 POCO，用來處理 API 呼叫和剖析回應 JSON 的邏輯，在經過抽象化之後會成為 C# 中的共用類別。 您可以在 [Visual Studio 程式碼範例](#run-the-sample)中找到此邏輯。
+
+### <a name="c"></a>C#
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript (僅限 Functions v2)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
 
 **E3_SendGoodWeatherAlert** 函式會使用 Twilio 繫結來傳送手機簡訊，通知使用者這是散步的好時機。 其 function.json 很簡單：
 
@@ -110,7 +124,13 @@ ms.locfileid: "32157470"
 
 以下是傳送手機簡訊的程式碼：
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript (僅限 Functions v2)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/index.js)]
 
 ## <a name="run-the-sample"></a>執行範例
 
@@ -131,6 +151,9 @@ RetryAfter: 10
 
 {"id": "f6893f25acf64df2ab53a35c09d52635", "statusQueryGetUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "sendEventPostUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/raiseEvent/{eventName}?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "terminatePostUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason={text}&taskHub=SampleHubVS&connection=Storage&code={systemKey}"}
 ```
+
+   > [!NOTE]
+   > 目前，JavaScript 協調流程入門函式無法傳回執行個體管理 URI。 這項功能會在未來版本中新增。
 
 **E3_Monitor** 執行個體會啟動並查詢所要求地點的目前天氣狀況。 如果天氣晴朗，它會呼叫活動函式來傳送警示。否則，它會設定計時器。 當計時器時間結束時，協調流程會恢復執行。
 

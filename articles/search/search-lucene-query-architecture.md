@@ -9,11 +9,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
-ms.openlocfilehash: 4382c3001f6b0a9227407beccb483347bccb387c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 55d361e90dbc5fe48bc118088a6f859d096048ff
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036865"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>全文檢索搜尋如何在 Azure 搜尋服務中運作
 
@@ -184,7 +185,7 @@ Spacious,||air-condition*+"Ocean view"
 
 ### <a name="exceptions-to-lexical-analysis"></a>語彙分析的例外狀況 
 
-語彙分析只適用於需要完整詞彙 (詞彙查詢或片語查詢) 的查詢類型。 它不會套用至詞彙不完整的查詢類型 – 前置詞查詢、萬用字元查詢、Regex 查詢 – 或不會套用至模糊查詢。 這些查詢類型 (包括範例中具有 air-condition*\** 詞彙的前置詞查詢) 會直接新增至查詢樹狀結構，並略過分析階段。 針對這些類型之查詢詞彙所執行的唯一轉換就是小寫。
+語彙分析只適用於需要完整詞彙 (詞彙查詢或片語查詢) 的查詢類型。 它不會套用至詞彙不完整的查詢類型 – 前置詞查詢、萬用字元查詢、Regex 查詢 – 或不會套用至模糊查詢。 這些查詢類型 (包括範例中具有 `air-condition*` 詞彙的前置詞查詢) 會直接新增至查詢樹狀結構，並略過分析階段。 針對這些類型之查詢詞彙所執行的唯一轉換就是小寫。
 
 <a name="stage3"></a>
 

@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 628d1bd3c38237db1d49826646bba989e158ed99
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0ae05456d957c6ebabe0faec7da4175618b191ef
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644431"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036763"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database 連線架構 
 
@@ -49,6 +49,9 @@ ms.locfileid: "34644431"
 如果您從 Azure 外部連線，該連線預設的連線原則為 [Proxy]。 [Proxy] 原則代表會透過 Azure SQL Database 閘道建立 TCP 工作階段，且所有後續封包都會流經閘道。 下圖說明此流量。
 
 ![架構概觀](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
+
+> [!IMPORTANT]
+> 搭配 Azure SQL Database 使用服務端點時，您的預設原則會是**重新導向**。 因此，若要從 Vnet 內進行連線，您必須允許連出到所有 Azure SQL Database IP 位址，而不只是閘道 IP。 這個操作可以透過 NSG (網路安全性群組) 服務標記的協助來完成，如果您只想要允許連出到閘道 IP，請將您的設定變更為 **Proxy**。
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Azure SQL Database 閘道 IP 位址
 

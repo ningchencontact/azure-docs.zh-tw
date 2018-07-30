@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: laviswa
-ms.openlocfilehash: f0fd1b57be07eda13655b5a6c0dcb5b412e8a248
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: ee804ddc9e8fe9901173bb3d9357a273ea28057d
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798316"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056812"
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>適用於 Azure Cosmos DB 的 SQL 查詢
 
@@ -1360,7 +1360,7 @@ Cosmos DB 藉由作為 JSON 資料庫，可將 JavaScript 運算子與其評估�
 不同於 JavaScript，SQL API 不會執行隱含轉換。 例如，類似 `SELECT * FROM Person p WHERE p.Age = 21` 的查詢會針對包含 Age 屬性且值為 21 的文件進行比對。 任何其他 Age 屬性符合字串 "21" 或其他可能之無限制變化 (例如 "021"、"21.0"、"0021"、"00021" 等等) 的文件，則不會成為比對的結果。 這與 JavaScript 形成對比，在 JavaScript 中，會將字串值隱含地轉換成數字 (根據運算子，例如：==)。 這項選擇對 SQL API 中有效率的索引比對十分重要。 
 
 ## <a name="parameterized-sql-queries"></a>參數化 SQL 查詢
-Cosmos DB 支援含有以常見的 @ 標記法表示之參數的查詢。 參數化 SQL 提供使用者輸入的健全處理和逸出，防止透過 SQL 插入式意外洩露資料。 
+Cosmos DB 支援以含有常見 \@ 標記法表示的參數進行查詢。 參數化 SQL 提供使用者輸入的健全處理和逸出，防止透過 SQL 插入式意外洩露資料。 
 
 比方說，您可以撰寫查詢，將姓氏和地址 (州) 做為參數，然後根據使用者輸入，使用各種不同姓氏和地址 (州) 的值執行查詢。
 

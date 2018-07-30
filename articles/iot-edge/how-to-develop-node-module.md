@@ -9,18 +9,18 @@ ms.author: xshi
 ms.date: 06/26/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 6b217690b88f303268f5abe66abb7868711d3125
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 8032fd2a0150597c55178648511c80233e63a911
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045087"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054721"
 ---
 # <a name="develop-and-debug-nodejs-modules-with-azure-iot-edge-for-visual-studio-code"></a>使用適用於 Visual Studio Code 的 Azure IoT Edge 來開發 Node.js 模組以及針對其進行偵錯
 
 您可以將商務邏輯轉換成 Azure IoT Edge 的模組，以將您的商務邏輯傳送到邊緣來運作。 本文提供詳細指示，說明如何使用 Visual Studio Code (VS Code) 作為主要開發工具來開發 C# 模組。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 本文假設您使用執行 Windows 或 Linux 的電腦或虛擬機器作為開發電腦。 您的 IoT Edge 裝置可以是其他實體裝置，或是您也可以在開發機器上模擬 IoT Edge 裝置。
 
 > [!NOTE]
@@ -28,7 +28,7 @@ ms.locfileid: "37045087"
 
 因為本文使用 Visual Studio Code 作為主要開發工具，因此請安裝 VS Code，然後新增必要的擴充：
 * [Visual Studio Code](https://code.visualstudio.com/) 
-* [Azure IoT Edge 擴充](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
+* [Azure IoT Edge 擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
 * [Docker 擴充](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 
 若要建立模組，您需要 Node.js ，它包含 npm 可以建置專案資料夾，另外還需要 Docker 來建置模組映像，最後需要容器登錄來保存模組映像：
@@ -39,7 +39,7 @@ ms.locfileid: "37045087"
    >[!TIP]
    >您可以使用本機 Docker 登錄作為原型並用於測試，而非使用雲端登錄。 
 
-若要在裝置上測試您的模組，您需要一個作用中 IoT 中樞，而且該中樞中至少必須有一個 IoT Edge 裝置。 如果要使用您的電腦作為 IoT Edge 裝置，您可以依照 [Windows](quickstart.md) 或 [Linux](quickstart-linux.md) 教學課程中的步驟執行。 
+若要在裝置上測試您的模組，您需要一個作用中 IoT 中樞，而且該中樞內至少必須有一個 IoT Edge 裝置。 如果要使用您的電腦作為 IoT Edge 裝置，您可以遵循 [Windows](quickstart.md) 或 [Linux](quickstart-linux.md) 教學課程中的步驟執行。 
 
 ## <a name="create-a-new-solution-template"></a>建立新的解決方案範本
 
@@ -60,15 +60,25 @@ ms.locfileid: "37045087"
 6. 提供解決方案的名稱。 
 7. 選擇 [Node.js 模組] 作為解決方案中第一個模組的範本。
 8. 提供模組的名稱。 選擇容器登錄內唯一的名稱。 
-9. 提供模組的映像存放庫。 VS Code 會自動填寫模組名稱，因此您只需要將 **localhost:5000** 取代為您自己的登錄資訊即可。 如果您使用本機 Docker 登錄來進行測試，則可以使用 localhost。 如果您使用 Azure Container Registry，則使用登錄設定中的登入伺服器。 登入伺服器看起來像**\<登錄名稱\>.azurecr.io**。
+9. 提供模組的映像存放庫。 VS Code 會自動填寫模組名稱，因此您只需要將 **localhost:5000** 取代為自己的登錄資訊即可。 如果您使用本機 Docker 登錄來進行測試，則可以使用 localhost。 如果您使用 Azure Container Registry，則請使用登錄設定中的登入伺服器。 登入伺服器看起來像**\<登錄名稱\>.azurecr.io**。
 
 VS Code 會採用您提供的資訊、建立 IoT Edge 解決方案，然後將它載入至新的視窗。
 
 在解決方案中，您有三個項目： 
 * 一個包含偵錯組態的 **.vscode** 資料夾。
-* 一個 **modules** 資料夾，它包含每個模組的子資料夾。 現在您只有一個模組資料夾，但是您可以在命令選擇區中，使用命令 **Azure IoT Edge: Add IoT Edge Module** 來新增更多模組資料夾。 
+* 一個 **modules** 資料夾，它包含每個模組的子資料夾。 現在您只有一個模組資料夾，但是可以在命令選擇區中，使用命令 **Azure IoT Edge: Add IoT Edge Module** 來新增更多模組資料夾。 
 * 一個 **.env** 檔案，它會列出您的環境變數。 如果您將 ACR 作為自己的登錄，現在裡面會有 ACR 使用者名稱和密碼。 
+
+   >[!NOTE]
+   >環境檔案只會在您為模組提供了映像存放庫時才會建立。 如果您接受 localhost 預設值，並且在本機進行測試和偵錯，則不需要宣告環境變數。 
+
 * 一個 **deployment.template.json** 檔案，它會列出新的模組以及一個範例 **tempSensor** 模組，此範例模組會模擬可用於測試的資料。 如需部署資訊清單運作方式的詳細資訊，請參閱[了解如何使用、設定以及重複使用 IoT Edge 模組](module-composition.md)。
+
+## <a name="devlop-your-module"></a>開發您的模組
+
+解決方案隨附的預設 Azure Function 程式碼位於：[模組] > \<[您的模組名稱]\> > [app.js]。 系統會設定模組和 deployment.template.json 檔案，讓您可以建置解決方案、將其推送至容器登錄，然後部署到裝置以開始測試，而不需要觸碰到任何程式碼。 模組是建置為僅採用來源的輸入 (在此案例中，是會模擬資料的 tempSensor 模組)，並且將其傳送到 IoT 中樞。 
+
+當您準備要使用自己的程式碼自訂 Node.js 範本時，請使用 [Azure IoT 中樞 SDK](../iot-hub/iot-hub-devguide-sdks.md) 以建置模組，該模組會解決 IoT 解決方案的主要需求，例如安全性、裝置管理和可靠性。 
 
 ## <a name="build-and-deploy-your-module-for-debugging"></a>建置及部署您的模組來進行偵錯
 
@@ -81,7 +91,7 @@ VS Code 會採用您提供的資訊、建立 IoT Edge 解決方案，然後將�
 
 2. 在 VS Code 命令選擇區中，輸入並執行命令 **Azure IoT Edge: Build IoT Edge solution**。
 3. 從命令選擇區中，為您的解決方案選取 `deployment.template.json` 檔案。 
-4. 在 Azure IoT 中樞裝置總管中，以滑鼠右鍵按一下 IoT Edge 裝置識別碼，然後選取 [針對 Edge 裝置建立部署]。 
+4. 在 Azure IoT 中樞裝置總管中，以滑鼠右鍵按一下 IoT Edge 裝置識別碼，然後選取 [針對 IoT Edge 裝置建立部署]。 
 5. 開啟解決方案的 **config** 資料夾，然後選取 `deployment.json` 檔案。 按一下 [選取 Edge 部署資訊清單]。 
 
 接著，您可以看到已順利建立部署，而且 VS Code 整合式終端機中會有部署識別碼。
@@ -106,3 +116,4 @@ VS Code 會將偵錯設定資訊保留在您工作區中之 `.vscode` 資料夾�
 
 建置模組之後，了解如何[從 Visual Studio Code 部署 Azure IoT Edge 模組](how-to-deploy-modules-vscode.md)
 
+若要為您的 IoT Edge 裝置開發模組，請[了解及使用 Azure IoT 中樞 SDK](../iot-hub/iot-hub-devguide-sdks.md)。

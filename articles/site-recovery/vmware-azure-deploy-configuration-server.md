@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 240f5270d083fa5f4742f3ed2cd61feee2b635ec
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7bbcaa82b1072b8cbdea015195a8da03ceb3a25f
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38718952"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056754"
 ---
 # <a name="deploy-a-configuration-server"></a>部署設定伺服器
 
@@ -26,7 +26,7 @@ ms.locfileid: "38718952"
 
 設定伺服器必須搭配特定的最基本硬體和大小需求來設定為高可用性 VMware VM。 為了能夠便利且輕鬆地進行部署，Site Recovery 提供一個可下載的 OVA (開放式虛擬化應用程式) 範本，以設定能符合下列所有規定需求的設定伺服器。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 下表彙總了設定伺服器的最基本硬體需求。
 
@@ -38,9 +38,9 @@ ms.locfileid: "38718952"
 
 | **CPU** | **記憶體** | **快取磁碟大小** | **資料變更率** | **受保護的機器** |
 | --- | --- | --- | --- | --- |
-| 8 個 vCPU (2 個插槽 * 4 核心 @ 2.5GHz) |16 GB |300 GB |500 GB 或更少 |複寫少於 100 部電腦。 |
-| 12 個 vCPU (2 個插槽 * 6 核心 @ 2.5GHz) |18 GB |600 GB |500 GB 至 1 TB |複寫 100-150 部機器。 |
-| 16 個 vCPU (2 個插槽 * 8 核心 @ 2.5GHz) |32 GB |1 TB |1 TB 至 2 TB |複寫 150-200 部機器。 |
+| 8 個 vCPU (2 個插槽 * 4 核心 \@ 2.5GHz) |16 GB |300 GB |500 GB 或更少 |複寫少於 100 部電腦。 |
+| 12 個 vCPU (2 個插槽 * 6 核心 \@ 2.5GHz) |18 GB |600 GB |500 GB 至 1 TB |複寫 100-150 部機器。 |
+| 16 個 vCPU (2 個插槽 * 8 核心 \@ 2.5GHz) |32 GB |1 TB |1 TB 至 2 TB |複寫 150-200 部機器。 |
 
 如果您要複寫多個 VMware VM，請參閱[容量規劃考量](/site-recovery-plan-capacity-vmware.md)。 執行用於 VMware 複寫的[部署規劃工具](site-recovery-deployment-planner.md)。
 

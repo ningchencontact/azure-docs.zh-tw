@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: 04fa23e059ee676ba0e7c48eeea3361b85af5415
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: e6d2d8dfd6f7a40158b098983bd34bbd5d8271f0
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261198"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049308"
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Azure Active Directory 中的宣告對應 (公開預覽)
 
@@ -357,7 +357,7 @@ ms.locfileid: "35261198"
 |TransformationMethod|預期的輸入|預期的輸出|說明|
 |-----|-----|-----|-----|
 |Join|string1、string2、分隔符號|outputClaim|可在輸入字串之間使用分隔符號來聯結這些字串。 例如：string1:"foo@bar.com" , string2:"sandbox" , separator:"." 會導致 outputClaim:"foo@bar.com.sandbox"|
-|ExtractMailPrefix|mail|outputClaim|擷取電子郵件地址的本機部分。 例如：mail:"foo@bar.com" 會導致 outputClaim:"foo"。 如果沒有 @ 符號，則原始輸入字串會以現狀傳回。|
+|ExtractMailPrefix|mail|outputClaim|擷取電子郵件地址的本機部分。 例如：mail:"foo@bar.com" 會導致 outputClaim:"foo"。 如果沒有 \@ 符號，則原始輸入字串會以現狀傳回。|
 
 **InputClaims：** 使用 InputClaims 元素可從宣告結構描述項目將資料傳遞至轉換。 它有兩個屬性：**ClaimTypeReferenceId** 和 **TransformationClaimType**。
 
@@ -420,7 +420,7 @@ ms.locfileid: "35261198"
 
 在 Azure AD 中，當您可以為特定的服務主體自訂權杖中所發出的宣告時，許多案例便可能實現。 在本節中，我們將逐步解說一些常見案例，以協助您掌握如何使用宣告對應原則類型。
 
-#### <a name="prerequisites"></a>先決條件
+#### <a name="prerequisites"></a>必要條件
 在下列範例中，您會為服務主體建立、更新、連結和刪除原則。 如果您是 Azure AD 的新手，我們建議您先深入了解如何取得 Azure AD 租用戶，然後再利用這些範例繼續進行。 
 
 若要開始使用，請執行下列步驟：

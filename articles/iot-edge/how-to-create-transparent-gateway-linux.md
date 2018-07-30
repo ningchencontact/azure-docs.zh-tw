@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 45179f8f1f46be764144bdc22d5bab3548e9401d
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 2b4e2a19b5d5f6491ff3db24489b361040a52280
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346054"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035569"
 ---
 # <a name="create-a-linux-iot-edge-device-that-acts-as-a-transparent-gateway"></a>建立作為透明閘道的 Linux IoT Edge 裝置
 
@@ -22,7 +22,7 @@ ms.locfileid: "37346054"
 >[!NOTE]
 >目前狀況：
 > * 如果閘道與 IoT 中樞中斷連線，則下游裝置無法透過閘道進行驗證。
-> * IoT Edge 裝置無法連線到 IoT Edge 閘道。
+> * 已啟用 Edge 的裝置無法連線到 IoT Edge 閘道。 
 > * 下游裝置無法使用檔案上傳。
 
 建立透明閘道的困難之處，在於必須安全地將閘道連線至下游裝置。 Azure IoT Edge 可讓您使用 PKI 基礎結構，設定這些裝置之間的安全 TLS 連線。 在此案例中，我們將允許下游裝置連線至作為透明閘道的 IoT Edge 裝置。  為了維護適當的安全性，下游裝置應確認 Edge 裝置的身分識別，因為您應該只希望讓裝置連線至自己的閘道，而不是可能的惡意閘道。
@@ -35,7 +35,7 @@ ms.locfileid: "37346054"
 
 下列步驟會逐步引導您在正確的位置建立憑證並且加以安裝。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 1.  在您想要作為透明閘道的 Linux 裝置上安裝 Azure IoT Edge 執行階段。
    * [Linux x64][lnk-install-linux-x64]
    * [Linux ARM32][lnk-install-linux-arm]
@@ -175,13 +175,13 @@ Azure IoT Edge 的主要功能之一，是能夠從雲端將模組部署到您�
    >openssl s_client -connect mygateway.contoso.com:8883 -CAfile $CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem -showcerts
 
 ## <a name="routing-messages-from-downstream-devices"></a>從下游裝置路由傳送訊息
-IoT Edge 執行階段可以路由傳送從下游裝置送來的訊息，就像路由傳送從模組送來的訊息一樣。 這可讓您在將任何資料傳送到雲端之前，在執行於閘道的模組中執行分析。 以下路由會用來將來自名為 `sensor` 的下游裝置訊息，傳送到名為 `ai_insights` 的模組。
+IoT Edge 執行階段可以路由傳送從下游裝置送來的訊息，就像路由傳送從模組送來的訊息一樣。 這可讓您在將任何資料傳送到雲端之前，在執行於閘道的模組中執行分析。 以下路由會用來將下游裝置 `sensor` 送來的訊息，傳送到名為 `ai_insights` 的模組。
 
    ```json
    { "routes":{ "sensorToAIInsightsInput1":"FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO BrokeredEndpoint(\"/modules/ai_insights/inputs/input1\")", "AIInsightsToIoTHub":"FROM /messages/modules/ai_insights/outputs/output1 INTO $upstream" } }
    ```
 
-請參閱 [模組組合文章][lnk-module-composition] 以取得訊息路由的詳細資訊。
+請參閱[模組組合文章][lnk-module-composition]，以取得訊息路由的詳細資訊。
 
 ## <a name="next-steps"></a>後續步驟
 [了解開發 IoT Edge 模組的需求和工具][lnk-module-dev]。
@@ -192,6 +192,7 @@ IoT Edge 執行階段可以路由傳送從下游裝置送來的訊息，就像�
 <!-- Links -->
 [lnk-install-linux-x64]: ./how-to-install-iot-edge-linux.md
 [lnk-install-linux-arm]: ./how-to-install-iot-edge-linux-arm.md
+[lnk-module-composition]: ./module-composition.md
 [lnk-devicesdk]: ../iot-hub/iot-hub-devguide-sdks.md
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md
 [lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
