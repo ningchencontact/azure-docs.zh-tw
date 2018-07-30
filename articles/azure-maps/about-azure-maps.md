@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 93fe8dc3f8ff991cd6c48923d9e2073e4e93f1ad
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d0ec146d276f72abf4cbbe3da4d11c0d5539df6d
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040842"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144188"
 ---
 # <a name="what-is-azure-maps"></a>什麼是 Azure 地圖服務？
 Azure 地圖服務是地理空間服務的集合，以最新的地圖資料作為後盾，因此您可以為 Web 和行動裝置應用程式提供準確的地理內容。 此服務包含 REST API 來轉譯地圖、搜尋景點、規劃景點路線、交通狀況、時區及位置服務的 IP。 您可以搭配熟悉的工具使用這些 API，快速開發和調整解決方案，進而將位置資訊整合到 Azure 解決方案中。 此服務與 REST API 搭配運作時，會提供 Web 式 JavaScript 控制項，讓開發作業更加輕鬆、有彈性且可在多個媒介中轉移。 
@@ -92,6 +92,7 @@ Azure 地圖服務是由下列六個服務組成，可以為 Azure 應用程式�
 
 「IP 到地點」是預覽服務，可讓您針對指定 IP 位址擷取兩個字母的國家/地區代碼。 這項服務可協助您量身訂做您的應用程式，以符合特殊地緣政治條件約束，以及藉由根據地理位置變更應用程式的內容，來強化使用者體驗。 
 
+如需與「IP 到地點」服務的 REST API 有關的資訊，請瀏覽 [Azure 地圖服務地理位置 API](https://docs.microsoft.com/rest/api/maps/geolocation) 頁面。
 
 ## <a name="programming-model"></a>程式設計模型
 

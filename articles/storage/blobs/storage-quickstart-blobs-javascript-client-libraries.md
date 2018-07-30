@@ -10,12 +10,12 @@ ms.service: storage
 ms.author: cshoe
 ms.date: 04/06/2018
 ms.topic: quickstart
-ms.openlocfilehash: 3d01788050779ea5d6e67b345f048775f8e98e9e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8bde281eab22fc720e2e2420f22ff4eb0a610b93
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31419091"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216578"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -49,7 +49,7 @@ ms.locfileid: "31419091"
 [!INCLUDE [Open the Azure cloud shell](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-shared-access-signature"></a>建立共用存取簽章
-在瀏覽器中執行的程式碼會使用共用存取簽章 (SAS) 來驗證對 Blob 儲存體的要求。 藉由使用 SAS，用戶端不需要帳戶存取金鑰或連接字串即可進行驗證。 如需 SAS 的詳細資訊，請參閱[使用共用存取簽章 (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md)。
+在瀏覽器中執行的程式碼會使用共用存取簽章 (SAS) 為 Blob 儲存體的要求授權。 藉由使用 SAS，用戶端不需要帳戶存取金鑰或連接字串，即可為儲存體資源的存取授權。 如需 SAS 的詳細資訊，請參閱[使用共用存取簽章 (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md)。
 
 您可以透過 Azure Cloud Shell 或 Azure 儲存體總管使用 Azure CLI 建立 SAS。 下表說明為使用 CLI 產生 SAS 而需為其提供值的參數。
 
@@ -254,4 +254,4 @@ document.getElementById('delete-button').addEventListener('click', () => {
 瀏覽範例以了解如何下載 Blob，並在檔案上傳期間報告進度。
 
 > [!div class="nextstepaction"]
-> [Blob 儲存體用戶端資料庫](https://github.com/Azure/azure-storage-node/tree/master/browser)
+> [Blob 儲存體用戶端程式庫](https://github.com/Azure/azure-storage-node/tree/master/browser)

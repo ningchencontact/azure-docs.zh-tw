@@ -1,6 +1,6 @@
 ---
 title: 將用於使用量與帳單的租用戶新增至 Azure Stack | Microsoft Docs
-description: 必要步驟會將終端使用者新增至雲端服務提供者所管理的 Azure Stack。
+description: 必要步驟會將終端使用者新增至由雲端服務提供者 (CSP) 所管理的 Azure Stack 中。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
-ms.author: mabrigg
+ms.date: 07/12/2018
+ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: 27473ce4057fdb06ab9faf0f46dede62b4ee2246
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: d5f775761def1c06063cd02b4141c5de2a752cce
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048834"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39089905"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>將用於使用量與帳單的租用戶新增至 Azure Stack
 
@@ -27,11 +27,11 @@ ms.locfileid: "37048834"
 
 本文說明必要步驟會將終端使用者新增至雲端服務提供者 (CSP) 所管理的 Azure Stack。 當新的租用戶使用資源時，Azure Stack 將會向其 CSP 訂用帳戶報告使用量。
 
-CSP 通常會為其 Azure Stack 部署上的多個客戶 (租用戶) 提供服務。 將租用戶新增到 Azure Stack 註冊可確保系統會報告每個租用戶的使用量，且費用會計入相對應的 CSP 訂用帳戶。 如果您未完成本文中的步驟，租用戶使用量費用會計入 Azure Stack 初始註冊所使用的訂用帳戶。 您必須先將 Azure Stack 設定為 CSP 後，才能將終端客戶新增至 Azure Stack，以進行使用量追蹤並管理其租用戶。 如需步驟和資源，請參閱[以雲端服務提供者身分管理 Azure Stack 的使用量和帳單](azure-stack-add-manage-billing-as-a-csp.md)。
+CSP 通常會為其 Azure Stack 部署上的多位終端客戶 (租用戶) 提供服務。 將租用戶新增到 Azure Stack 註冊可確保系統會報告每個租用戶的使用量，且費用會計入相對應的 CSP 訂用帳戶。 如果您未完成本文中的步驟，租用戶使用量費用會計入 Azure Stack 初始註冊所使用的訂用帳戶。 您必須先將 Azure Stack 設定為 CSP 後，才能將終端客戶新增至 Azure Stack，以進行使用量追蹤並管理其租用戶。 如需步驟和資源，請參閱[以雲端服務提供者身分管理 Azure Stack 的使用量和帳單](azure-stack-add-manage-billing-as-a-csp.md)。
 
 下圖顯示 CSP 要讓新客戶能夠使用 Azure Stack 以及設定客戶使用量追蹤所必須遵循的步驟。 透過新增終端客戶，您也將能夠管理 Azure Stack 中的資源。 您有兩個選項可管理其資源：
 
-1. 您可以維護終端客戶租用戶，並將本機 Azure Stack 訂用帳戶的認證提供給終端客戶。  
+1. 您可以保有終端客戶，並將本機 Azure Stack 訂用帳戶的認證提供給終端客戶。  
 2. 或者終端客戶可在本機使用其訂用帳戶，並將 CSP 新增為具有擁有者權限的來賓。  
 
 **新增終端客戶的步驟**

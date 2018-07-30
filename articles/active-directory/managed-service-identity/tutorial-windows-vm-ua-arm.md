@@ -1,6 +1,6 @@
 ---
-title: 使用 Windows VM 使用者指派的 MSI 存取 Azure Resource Manager
-description: 本教學課程引導您使用 Windows VM 上使用者指派的受控服務身分識別 (MSI)，來存取 Azure Resource Manager 的程序。
+title: 使用 Windows VM 使用者指派的受控服務識別來存取 Azure Resource Manager
+description: 此教學課程會引導您使用 Windows VM 上使用者指派的受控服務識別，來存取 Azure Resource Manager 的程序。
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
 ms.author: daveba
-ms.openlocfilehash: 67bb45f7bd27a142b978bedb48925cc41e8d1287
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 9cc7683b260a9afbe4aee006a22af9c4834c4eb1
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904368"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248382"
 ---
-# <a name="tutorial-use-a-user-assigned-managed-service-identity-msi-on-a-windows-vm-to-access-azure-resource-manager"></a>教學課程：使用 Windows VM 上使用者指派的受控服務識別 (MSI) 來存取 Azure Resource Manager
+# <a name="tutorial-use-a-user-assigned-managed-service-identity-on-a-windows-vm-to-access-azure-resource-manager"></a>教學課程：使用 Windows VM 上使用者指派的受控服務識別來存取 Azure Resource Manager
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
@@ -37,7 +37,7 @@ ms.locfileid: "37904368"
 > * 使用使用者指派的身分識別來取得存取權杖，並用其呼叫 Azure Resource Manager 
 > * 讀取資源群組的屬性
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 如果您不熟悉受控服務識別，請參閱[概觀](overview.md)一節。 **請務必檢閱[系統和使用者指派之身分識別其間的差異](overview.md#how-does-it-work)**。
 - 如果您還沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com/free/)，再繼續進行。
@@ -111,9 +111,9 @@ $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
 Update-AzureRmVM -ResourceGroupName TestRG -VM $vm -IdentityType "UserAssigned" -IdentityID "/subscriptions/<SUBSCRIPTIONID>/resourcegroups/myResourceGroupVM/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"
 ```
 
-## <a name="grant-your-user-assigned-msi-access-to-a-resource-group-in-azure-resource-manager"></a>在 Azure Resource Manager 中，將使用者指派的 MSI 存取權授與資源群組 
+## <a name="grant-your-user-assigned-managed-service-identity-access-to-a-resource-group-in-azure-resource-manager"></a>在 Azure Resource Manager 中將使用者指派受控服務識別的存取權授與資源群組 
 
-受控服務識別 (MSI) 提供的身分識別可使用您的程式碼要求存取權杖，以針對支援 Azure AD 驗證的資源 API 進行驗證。 在本教學課程中，您的程式碼將存取 Azure Resource Manager API。 
+受控服務識別提供的身分識別可使用您的程式碼來要求存取權杖，以向支援 Azure AD 驗證的資源 API 進行驗證。 在本教學課程中，您的程式碼將存取 Azure Resource Manager API。 
 
 您必須先將身分識別存取權授與 Azure Resource Manager 中的資源，您的程式碼才能存取 API。 在此情況下，是包含 VM 的資源群組。 將 `<SUBSCRIPTION ID>` 的值更新為適用於環境的值。
 
@@ -148,7 +148,7 @@ CanDelegate: False
 
 4. 現在您已經建立虛擬機器的**遠端桌面連線**，請在遠端工作階段中開啟 **PowerShell**。
 
-5. 使用 PowerShell 的 `Invoke-WebRequest`，向本機 MSI 端點提出要求取得 Azure Resource Manager 的存取權杖。
+5. 使用 Powershell 的 `Invoke-WebRequest`，向本機受控服務識別端點提出要求，取得 Azure Resource Manager 的存取權杖。
 
     ```azurepowershell
     $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&client_id=73444643-8088-4d70-9532-c3a0fdc190fz&resource=https://management.azure.com' -Method GET -Headers @{Metadata="true"}

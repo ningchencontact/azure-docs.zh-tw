@@ -1,26 +1,21 @@
 ---
-title: Azure 訂用帳戶限制與配額 | Microsoft Docs
+title: Azure 訂用帳戶限制與配額
 description: 提供通用的 Azure 訂用帳戶和服務限制、配額和條件約束的清單。 這包括如何增加限制和最大值的詳細資訊。
-services: ''
-documentationcenter: ''
+services: multiple
 author: rothja
 manager: jeffreyg
-editor: ''
 tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 07/13/2018
 ms.author: byvinyal
-ms.openlocfilehash: 1d67266bf599a4dc57fc2e9e0d1c5f9f2562346c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8b023540f57cb69fc1d2773ef533364f64820359
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38610767"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069534"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 訂用帳戶和服務限制、配額與限制
 本文件列出一些最常見的 Microsoft Azure 限制，有時也稱為配額。 本文件目前未涵蓋所有 Azure 服務。 清單將隨著時間擴展並更新以涵蓋更多平台。
@@ -52,6 +47,8 @@ ms.locfileid: "38610767"
 * [Application Insights](#application-insights-limits)
 * [自動化](#automation-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
+* [適用於 MySQL 的 Azure 資料庫](#azure-database-for-mysql)
+* [適用於 PostgreSQL 的 Azure 資料庫](#azure-database-for-postgresql)
 * [事件格線](#azure-event-grid-limits)
 * [Azure 地圖服務](#azure-maps-limits)
 * [Azure Redis 快取](#azure-redis-cache-limits)
@@ -69,6 +66,7 @@ ms.locfileid: "38610767"
 * [Database Migration Service](#database-migration-service-limits)
 * [DNS](#dns-limits)
 * [事件中樞](#event-hubs-limits)
+* [Azure 防火牆](#azure-firewall-limits)
 * [IoT 中心](#iot-hub-limits)
 * [IoT 中樞裝置佈建服務](#iot-hub-device-provisioning-service-limits)
 * [金鑰保存庫](#key-vault-limits)
@@ -153,6 +151,9 @@ ms.locfileid: "38610767"
 #### <a name="dns-limits"></a>DNS 限制
 [!INCLUDE [dns-limits](../includes/dns-limits.md)]
 
+#### <a name="azure-firewall-limits"></a>Azure 防火牆限制
+[!INCLUDE [azure-firewall-limits](../includes/firewall-limits.md)]
+
 ### <a name="storage-limits"></a>儲存體限制
 如需儲存體帳戶限制的其他詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](storage/common/storage-scalability-targets.md)。
 
@@ -215,6 +216,12 @@ ms.locfileid: "38610767"
 
 ### <a name="azure-cosmos-db-limits"></a>Azure Cosmos DB 限制
 Azure Cosmos DB 是一個全域調整資料庫，可以調整輸送量和儲存體來因應您應用程式的需要。 如果您有關於 Azure Cosmos DB 調整的問題，請傳送電子郵件給 askcosmosdb@microsoft.com。
+
+### <a name="azure-database-for-mysql"></a>適用於 MySQL 的 Azure 資料庫
+如需適用於 MySQL 的 Azure 資料庫限制詳細資訊，請參閱[適用於 MySQL 的 Azure 資料庫中的限制](mysql/concepts-limits.md)。
+
+### <a name="azure-database-for-postgresql"></a>適用於 PostgreSQL 的 Azure 資料庫
+如需適用於 PostgreSQL 的 Azure 資料庫限制詳細資訊，請參閱[適用於 PostgreSQL 的 Azure 資料庫中的限制](postgresql/concepts-limits.md)。
 
 ### <a name="mobile-engagement-limits"></a>Mobile Engagement 限制
 [!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]

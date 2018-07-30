@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
 manager: douge
-ms.openlocfilehash: 93c9f42df1136f242a5a04dc3056e0b1595cfb02
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: facf2de40c555ccd79fe73543a85f0b5cc150450
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37933437"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247478"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>使用 Azure Dev Spaces 進行小組開發
 
@@ -127,7 +127,7 @@ ms.locfileid: "37933437"
 
     ![](media/get-started-netcore-visualstudio/Settings.png)
 
-6. 在 [新增空間] 對話方塊中輸入空間的名稱，然後按一下 [確定]。 您可以為新空間使用您的名稱 (例如 "scott")，讓您的同事知道您正在使用哪個空間。
+6. 在 [新增空間] 對話方塊中，將父代空間設為**預設**，並輸入新空間的名稱。 您可以為新空間使用您的名稱 (例如 "scott")，讓您的同事知道您正在使用哪個空間。 按一下 [確定]。
 
     ![](media/get-started-netcore-visualstudio/AddSpace.png)
 

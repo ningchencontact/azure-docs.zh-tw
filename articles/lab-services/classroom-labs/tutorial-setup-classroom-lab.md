@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/17/2018
+ms.date: 07/23/2018
 ms.author: spelluru
-ms.openlocfilehash: 163763bf1203a045326c7163b5f6da9aa417d8cf
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: d1315753baf08cc80fda5811bd43bf59609781b7
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081851"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216018"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>教學課程：設定教室實驗室 
 您將在本教學課程中設定教室實驗室，且其中包含教室中學生所使用的虛擬機器。  
@@ -31,14 +31,14 @@ ms.locfileid: "37081851"
 > * 設定教室實驗室
 > * 將註冊連結傳送給學生
 
-## <a name="prerequisites"></a>先決條件
-若要在實驗室帳戶中設定教室實驗室，您必須是實驗室帳戶中 [實驗室建立者] 角色的成員。 實驗室擁有者可以使用下列文章中的步驟，將使用者新增至 [實驗室建立者] 角色：[將使用者新增至實驗室建立者角色](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role)。
+## <a name="prerequisites"></a>必要條件
+若要在實驗室帳戶中設定教室實驗室，您必須是實驗室帳戶中 [實驗室建立者] 角色的成員。 您用來建立實驗室帳戶的帳戶會自動新增至此角色。 實驗室擁有者可以使用下列文章中的步驟，將其他使用者新增至「實驗室建立者」角色：[將使用者新增至實驗室建立者角色](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role)。
 
 
 ## <a name="create-a-classroom-lab"></a>建立教室實驗室
 
-1. 瀏覽至 [Azure 實驗室服務網站](https://labs.azure.com)。
-2. 選取 [登入]，然後輸入您的認證。 
+1. 瀏覽至 [Azure 實驗室服務網站](https://labs.azure.com)。 
+2. 選取 [登入]，然後輸入您的認證。 Azure 實驗室服務支援組織帳戶和 Microsoft 帳戶。 
 3. 在 [新增實驗室] 視窗中，執行下列動作： 
     1. 指定教室實驗室的**名稱**。 
     2. 選取您打算要在教室中使用的虛擬機器**大小**。

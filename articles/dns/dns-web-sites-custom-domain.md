@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: kumud
-ms.openlocfilehash: 00a56a2683e95e70bb13acd6b936e766f044e1cd
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 7ee3dbdcd4d8b2627273a871aec94583b6c5dd6a
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32771968"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39058120"
 ---
 # <a name="create-dns-records-for-a-web-app-in-a-custom-domain"></a>在自訂網域中建立 Web 應用程式的 DNS 記錄
 
@@ -42,7 +42,7 @@ ms.locfileid: "32771968"
 
 ## <a name="1-create-an-a-record-for-your-custom-domain"></a>1.建立自訂網域的 A 記錄
 
-A 記錄可用來將名稱對應到其 IP 位址。 在下列範例中，我們會將 @ 當成 A 記錄指派給 IPv4 位址：
+A 記錄可用來將名稱對應到其 IP 位址。 在下列範例中，我們會將 \@ 做為 A 記錄指派給 IPv4 位址：
 
 ### <a name="step-1"></a>步驟 1
 
@@ -54,7 +54,7 @@ $rs= New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -
 
 ### <a name="step-2"></a>步驟 2
 
-使用指派的 $rs 變數，將 IPv4 值新增至先前建立的記錄集 "\@\"。 指派的 IPv4 值將是您 Web 應用程式的 IP 位址。
+使用指派的 $rs 變數，將 IPv4 值新增至先前建立的記錄集 "\@"。 指派的 IPv4 值將是您 Web 應用程式的 IP 位址。
 
 若要尋找 Web 應用程式的 IP 位址，請依照[在 Azure App Service 中設定自訂網域名稱](../app-service/app-service-web-tutorial-custom-domain.md)的步驟進行。
 

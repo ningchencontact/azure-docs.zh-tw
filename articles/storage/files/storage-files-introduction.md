@@ -12,17 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/08/2017
+ms.date: 07/19/2018
 ms.author: renash
-ms.openlocfilehash: 83096e15b26b0edfd47df36fe368fd5c9c846f12
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: b331a6fcc6efd07bf63135e917f9fe55560e4ec7
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737277"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158279"
 ---
 # <a name="introduction-to-azure-files"></a>Azure 檔案服務簡介
-Azure 檔案提供雲端中完全受控的檔案共用，可透過業界標準[伺服器訊息區 (SMB) 通訊協定](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)存取。 Windows、Linux 和 macOS 的雲端部署或內部部署可同時掛接 Azure 檔案共用。 此外，透過 Azure 檔案同步 (預覽) 可以在 Windows Server 上快取 Azure 檔案共用，以便在資料的使用位置附近快速存取。
+Azure 檔案提供雲端中完全受控的檔案共用，可透過業界標準[伺服器訊息區 (SMB) 通訊協定](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)存取。 Windows、Linux 和 macOS 的雲端部署或內部部署可同時掛接 Azure 檔案共用。 此外，透過 Azure 檔案同步可以在 Windows Server 上快取 Azure 檔案共用，以便在資料的使用位置附近快速存取。
 
 ## <a name="videos"></a>影片
 | Azure 檔案同步簡介 (2 分鐘) | 同步的 Azure 檔案 (Ignite 2017) (85 分鐘)  |

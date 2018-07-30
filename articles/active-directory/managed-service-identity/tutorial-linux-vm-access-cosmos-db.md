@@ -1,6 +1,6 @@
 ---
-title: 使用 Linux VM MSI 存取 Azure Cosmos DB
-description: 本教學課程引導您使用 Linux VM 上系統所指派的受控服務識別 (MSI) 來存取 Azure Cosmos DB 的程序。
+title: 使用 Linux VM 受控服務識別來存取 Azure Cosmos DB
+description: 此教學課程會引導您使用 Linux VM 上系統指派的受控服務識別，來存取 Azure Cosmos DB 的程序。
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: daveba
-ms.openlocfilehash: 30962827d0a7fbc70c2ed4c642d9bb8a586124da
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: af148cd8b3eececb258057a8bf6a78216ec0e50a
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904419"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258325"
 ---
-# <a name="tutorial-use-a-linux-vm-msi-to-access-azure-cosmos-db"></a>教學課程：使用 Linux VM MSI 存取 Azure Cosmos DB 
+# <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-cosmos-db"></a>教學課程：使用 Linux VM 受控服務識別來存取 Azure Cosmos DB 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 
-本教學課程會示範如何建立和使用 Linux VM MSI。 您會了解如何：
+本教學課程會示範如何建立和使用 Linux VM 受控服務識別。 您會了解如何：
 
 > [!div class="checklist"]
-> * 建立已啟用 MSI 的 Linux 虛擬機器
+> * 建立已啟用的 Linux 虛擬機器
 > * 建立 Cosmos DB 帳戶
 > * 在 Cosmos DB 帳戶中建立集合
-> * 將 MSI 存取權授與 Azure Cosmos DB 執行個體
-> * 擷取 Linux VM MSI 的 `principalID`
+> * 將受控服務識別存取權授與 Azure Cosmos DB 執行個體
+> * 擷取 Linux VM 受控服務識別的 `principalID`
 > * 取得存取權杖，並使用它來呼叫 Azure Resource Manager
 > * 從 Azure Resource Manager 取得存取金鑰以進行 Cosmos DB 呼叫
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 如果您還沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com)，再繼續進行。
 
@@ -54,9 +54,9 @@ ms.locfileid: "37904419"
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>在新的資源群組中建立 Linux 虛擬機器
 
-此教學課程會建立已啟用 MSI 的新 Linux VM。
+此教學課程會建立已啟用受控服務識別的新 Linux VM。
 
-若要建立啟用 MSI 的虛擬機器：
+若要建立已啟用受控服務識別的 VM：
 
 1. 如果您要在本機主控台中使用 Azure CLI，請先使用 [az login](/cli/azure/reference-index#az_login) 登入 Azure。 使用您想部署 VM 且已與 Azure 訂用帳戶相關聯的帳戶：
 
@@ -70,7 +70,7 @@ ms.locfileid: "37904419"
    az group create --name myResourceGroup --location westus
    ```
 
-3. 使用 [az vm create](/cli/azure/vm/#az_vm_create) 建立 VM。 下列範例會依要求使用 `--assign-identity` 參數，建立具有 MSI 且名為 *myVM* 的 VM。 `--admin-username` 和 `--admin-password` 參數會指定登入虛擬機器的系統管理使用者名稱和密碼帳戶。 請針對您的環境適當地更新這些值： 
+3. 使用 [az vm create](/cli/azure/vm/#az_vm_create) 建立 VM。 下列範例會根據 `--assign-identity` 參數的要求，建立具有受控服務識別且名為 myVM 的 VM。 `--admin-username` 和 `--admin-password` 參數會指定登入虛擬機器的系統管理使用者名稱和密碼帳戶。 請針對您的環境適當地更新這些值： 
 
    ```azurecli-interactive 
    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12
@@ -95,14 +95,14 @@ ms.locfileid: "37904419"
 2. 在 [概觀] 索引標籤上按一下 [+/新增集合] 按鈕，[新增集合] 面板隨即顯示。
 3. 為集合指定資料庫識別碼和集合識別碼、選取儲存容量、輸入分割區索引鍵、輸入輸送量值，然後按一下 [確定]。  在本教學課程中，以 "Test" 作為資料庫識別碼和集合識別碼，並選取固定的儲存容量和最小輸送量 (400 RU/s)，即足堪使用。  
 
-## <a name="retrieve-the-principalid-of-the-linux-vms-msi"></a>擷取 Linux VM MSI 的 `principalID`
+## <a name="retrieve-the-principalid-of-the-linux-vms-managed-service-identity"></a>擷取 Linux VM 受控服務識別的 `principalID`
 
-在下一節中，若要從資源管理員中取得 Cosmos DB 帳戶存取金鑰的存取權，您需要擷取 Linux VM MSI 的 `principalID`。  請務必以您自己的值取代 `<SUBSCRIPTION ID>`、`<RESOURCE GROUP>` (VM 所在的資源群組) 和 `<VM NAME>`。
+在下一節中，若要從 Resource Manager 中取得 Cosmos DB 帳戶存取金鑰的存取權，您必須擷取 Linux VM 受控服務識別的 `principalID`。  請務必以您自己的值取代 `<SUBSCRIPTION ID>`、`<RESOURCE GROUP>` (VM 所在的資源群組) 和 `<VM NAME>`。
 
 ```azurecli-interactive
 az resource show --id /subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAMe> --api-version 2017-12-01
 ```
-回應中包含系統所指派 MSI 的詳細資料 (請記下 principalID，以供下一節使用)：
+回應中包含系統所指派受控服務識別的詳細資料 (請記下 principalID，以供下一節使用)：
 
 ```bash  
 {
@@ -114,11 +114,11 @@ az resource show --id /subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE 
  }
 
 ```
-## <a name="grant-your-linux-vm-msi-access-to-the-cosmos-db-account-access-keys"></a>將 Linux VM MSI 存取權授與 Cosmos DB 帳戶存取金鑰
+## <a name="grant-your-linux-vm-managed-service-identity-access-to-the-cosmos-db-account-access-keys"></a>將 Linux VM 受控服務識別存取權授與 Cosmos DB 帳戶存取金鑰
 
-Cosmos DB 原生並不支援 Azure AD 驗證。 不過，您可以使用 MSI 從資源管理員中擷取 Cosmos DB 存取金鑰，然後使用該金鑰來存取 Cosmos DB。 在此步驟中，您會將 MSI 存取權授與 Cosmos DB 帳戶的金鑰。
+Cosmos DB 原生並不支援 Azure AD 驗證。 不過，您可以使用受控服務識別，從 Resource Manager 中擷取 Cosmos DB 存取金鑰，然後使用該金鑰來存取 Cosmos DB。 在此步驟中，您會將 Cosmos DB 帳戶的金鑰存取權授與您的受控服務識別。
 
-若要在 Azure Resource Manager 中使用 Azure CLI 將 MSI 識別存取權授與 Cosmos DB 帳戶，請更新您環境的 `<SUBSCRIPTION ID>`、`<RESOURCE GROUP>` 和 `<COSMOS DB ACCOUNT NAME>` 值。 將 `<MSI PRINCIPALID>` 取代為[擷取 Linux VM MSI 的 principalID](#retrieve-the-principalID-of-the-linux-VM's-MSI) 時，`az resource show` 命令所傳回的 `principalId` 屬性。  使用存取金鑰時，Cosmos DB 支援兩種層級的資料細微性：對帳戶的讀取/寫入存取，以及對帳戶的唯讀存取。  如果您想要取得帳戶的讀取/寫入金鑰，請指派 `DocumentDB Account Contributor` 角色；如果要取得帳戶的唯讀金鑰，請指派 `Cosmos DB Account Reader Role` 角色：
+若要在 Azure Resource Manager 中使用 Azure CLI 將受控服務識別識別存取權授與 Cosmos DB 帳戶，請更新您環境的 `<SUBSCRIPTION ID>`、`<RESOURCE GROUP>` 和 `<COSMOS DB ACCOUNT NAME>` 值。 將 `<MSI PRINCIPALID>` 取代為[擷取 Linux VM MSI 的 principalID](#retrieve-the-principalID-of-the-linux-VM's-MSI) 時，`az resource show` 命令所傳回的 `principalId` 屬性。  使用存取金鑰時，Cosmos DB 支援兩種層級的資料細微性：對帳戶的讀取/寫入存取，以及對帳戶的唯讀存取。  如果您想要取得帳戶的讀取/寫入金鑰，請指派 `DocumentDB Account Contributor` 角色；如果要取得帳戶的唯讀金鑰，請指派 `Cosmos DB Account Reader Role` 角色：
 
 ```azurecli-interactive
 az role assignment create --assignee <MSI PRINCIPALID> --role '<ROLE NAME>' --scope "/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.DocumentDB/databaseAccounts/<COSMODS DB ACCOUNT NAME>"
@@ -140,7 +140,7 @@ az role assignment create --assignee <MSI PRINCIPALID> --role '<ROLE NAME>' --sc
 }
 ```
 
-## <a name="get-an-access-token-using-the-linux-vms-msi-and-use-it-to-call-azure-resource-manager"></a>使用 Linux VM 的 MSI 來取得存取權杖，並使用它來呼叫 Azure Resource Manager
+## <a name="get-an-access-token-using-the-linux-vms-managed-service-identity-and-use-it-to-call-azure-resource-manager"></a>使用 Linux VM 的受控服務識別來取得存取權杖，並使用它來呼叫 Azure Resource Manager
 
 其餘課程要從稍早建立的 VM 繼續進行。
 

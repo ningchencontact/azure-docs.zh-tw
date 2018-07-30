@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/09/2018
+ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: f6452d8f88b91fe0cbf144ce951b84ba4cec0047
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: bd446923f84d22537b7a49a8ef6124f343141d73
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33939816"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069905"
 ---
 # <a name="outbound-connections-classic"></a>輸出連線 (傳統)
 
@@ -40,9 +40,9 @@ Azure 提供三種不同的方法來達成輸出連線傳統部署。  並非所
 
 | 案例 | 方法 | IP 通訊協定 | 說明 | Web 背景工作角色 | IaaS | 
 | --- | --- | --- | --- | --- | --- |
-| [1.VM 具有執行個體層級的公用 IP 位址](#ilpip) | SNAT，未使用連接埠偽裝 | TCP、UDP、ICMP、ESP | Azure 會使用指派了公用 IP 的虛擬機器。 執行個體有所有可用的暫時連接埠。 | 否 | yes |
-| [2. 負載平衡的公用端點](#publiclbendpoint) | SNAT 與連接埠偽裝 (PAT)，連至公用端點 | TCP、UDP | Azure 會與多個私人端點共用公用 IP 位址的公用端點。 Azure 使用公用端點的暫時連接埠來進行 PAT。 | yes | yes |
-| [3.獨立 VM](#defaultsnat) | SNAT 與連接埠偽裝 (PAT) | TCP、UDP | Azure 會自動指定 SNAT 的公用 IP 位址，與整個部署共用此公用 IP 位址，並使用此公用端點 IP 位址的暫時連接埠來進行 PAT。 這是上述案例的後援案例。 如果您需要可見性和控制權，則不建議使用此方式。 | yes | yes |
+| [1.VM 具有執行個體層級的公用 IP 位址](#ilpip) | SNAT，未使用連接埠偽裝 | TCP、UDP、ICMP、ESP | Azure 會使用指派了公用 IP 的虛擬機器。 執行個體有所有可用的暫時連接埠。 | 否 | 是 |
+| [2. 負載平衡的公用端點](#publiclbendpoint) | SNAT 與連接埠偽裝 (PAT)，連至公用端點 | TCP、UDP | Azure 會與多個私人端點共用公用 IP 位址的公用端點。 Azure 使用公用端點的暫時連接埠來進行 PAT。 | 是 | 是 |
+| [3.獨立 VM](#defaultsnat) | SNAT 與連接埠偽裝 (PAT) | TCP、UDP | Azure 會自動指定 SNAT 的公用 IP 位址，與整個部署共用此公用 IP 位址，並使用此公用端點 IP 位址的暫時連接埠來進行 PAT。 這是上述案例的後援案例。 如果您需要可見性和控制權，則不建議使用此方式。 | 是 | 是 |
 
 這是 Azure 中 Resource Manager 部署可使用之輸出連線功能的子集。  
 
@@ -121,6 +121,8 @@ Azure 會使用演算法在使用連接埠偽裝 SNAT ([PAT](#pat)) 時，根據
 變更部署的大小可能會影響您已建立的部分流程。 如果後端集區大小增加並轉換到下一層，在轉換至下一個較大後端集區層的期間，會回收您預先配置的一半 SNAT 連接埠。 與已回收 SNAT 連接埠關聯的流程會逾時，而必須重新建立。 嘗試建立新流程時，只要預先配置的連接埠可用，流程就會立即成功。
 
 如果部署大小縮減並轉換成較低的層級，可用的 SNAT 連接埠數目就會增加。 在此情況下，現有已配置 SNAT 連接埠及其各自流程都不會受到影響。
+
+如果將雲端服務重新部署或變更，基礎結構可能會暫時將後端集區報告為實際的兩倍，而 Azure 則會在每個執行個體預先配置比預期較少的 SNAT 連接埠。  這可以暫時增加 SNAT 連接埠耗盡的機率。 集區的大小終究會轉換成實際大小，且 Azure 會根據上表將預先配置的 SNAT 連接埠自動增加至預期的數目。  這是設計上就會進行的行為，且不可設定。
 
 SNAT 連接埠配置為 IP 傳輸通訊協定專屬 (TCP 和 UDP 會個別維護)，並且在下列條件之下釋出：
 

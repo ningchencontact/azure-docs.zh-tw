@@ -6,16 +6,16 @@ ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 05/25/2017
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 65fd23ecf81aebdb1fe74f800d20df6414c18317
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 0cfd7888acf942e4af875c37c2472ff086f9119b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259529"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39057890"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Azure Active Directory B2B 共同作業使用者的屬性
 
@@ -25,7 +25,7 @@ Azure Active Directory (Azure AD) 企業對企業 (B2B) 共同作業使用者是
 
 - 狀態 1：位於 Azure AD 的外部執行個體並表示為提出邀請之組織中的來賓使用者。 在此情況下，B2B 使用者會使用屬於受邀租用戶的 Azure AD 帳戶登入。 如果夥伴組織未使用 Azure AD，仍會在 Azure AD 中建立來賓使用者。 他們必須兌換其邀請，而且 Azure AD 必須確認其電子郵件地址。 此排列也稱為 Just-In-Time (JIT) 租用或「熱門」租用。
 
-- 狀態 2：位於 Microsoft 帳戶並表示為主機組織中的來賓使用者。 在此情況下，來賓使用者會以 Microsoft 帳戶登入。 受邀使用者的社交身分識別 (google.com 或類似項目，但不是 Microsoft 帳戶) 會在優惠兌換期間建立為 Microsoft 帳戶。
+- 狀態 2：位於 Microsoft 帳戶並表示為主機組織中的來賓使用者。 在此情況下，來賓使用者會以 Microsoft 帳戶登入。 受邀使用者的社交身分識別 (google.com 或類似項目，但不是 Microsoft 帳戶) 會在供應項目兌換期間建立為 Microsoft 帳戶。
 
 - 狀態 3：位於主機組織的內部部署 Active Directory 並與主機組織的 Azure AD 同步處理。 在此版本中，您必須使用 PowerShell 手動變更雲端中這類使用者的 UserType。
 
@@ -38,11 +38,11 @@ Azure Active Directory (Azure AD) 企業對企業 (B2B) 共同作業使用者是
 
 ### <a name="before-invitation-redemption"></a>邀請兌換之前
 
-![優惠兌換之前](media/user-properties/before-redemption.png)
+![供應項目兌換之前](media/user-properties/before-redemption.png)
 
 ### <a name="after-invitation-redemption"></a>邀請兌換之後
 
-![優惠兌換之後](media/user-properties/after-redemption.png)
+![供應項目兌換之後](media/user-properties/after-redemption.png)
 
 ## <a name="key-properties-of-the-azure-ad-b2b-collaboration-user"></a>Azure AD B2B 共同作業使用者的金鑰屬性
 ### <a name="usertype"></a>UserType
@@ -85,6 +85,9 @@ Azure Active Directory (Azure AD) 企業對企業 (B2B) 共同作業使用者是
 可以關閉預設來賓使用者限制，如此公司目錄中的來賓使用者便可獲得與成員使用者相同的權限。
 
 ![移除來賓使用者限制](media/user-properties/remove-guest-limitations.png)
+
+## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>能否在 Exchange 全域通訊清單中顯示來賓使用者？
+是。 根據預設，來賓物件不會在貴組織的全域通訊清單中顯示，但您可以使用 Azure Active Directory PowerShell 加以顯示。 如需詳細資訊，請參閱 [Office 365 群組的來賓存取](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6#PickTab=FAQ)中的**能否在 Exchange 全域通訊清單中顯示來賓物件？**。 
 
 ## <a name="next-steps"></a>後續步驟
 

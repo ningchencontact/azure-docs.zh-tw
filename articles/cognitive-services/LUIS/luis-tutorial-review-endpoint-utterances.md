@@ -2,19 +2,19 @@
 title: 關於在 Language Understanding (LUIS) 中檢閱端點語句的教學課程 - Azure | Microsoft Docs
 description: 在本教學課程中，了解如何在 LUIS 的人力資源 (HR) 領域中檢閱端點語句。
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 07/03/2018
-ms.author: v-geberr
-ms.openlocfilehash: cd8374b3804594f96212dbe741f99ba22d33a4e8
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.author: diberry
+ms.openlocfilehash: 1f1e3310e0d02983aaecc3f87ba9c116d65b751b
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970501"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237208"
 ---
 # <a name="tutorial-review-endpoint-utterances"></a>教學課程：檢閱端點語句
 在本教學課程中，藉由驗證或更正透過 LUIS HTTP 端點所收到的語句來改善應用程式的預測。 
@@ -23,7 +23,7 @@ ms.locfileid: "38970501"
 > [!div class="checklist"]
 > * 了解如何檢閱端點語句 
 > * 針對人力資源 (HR) 領域使用 LUIS 應用程式 
-> * 檢閱端點表達方式
+> * 檢閱端點語句
 > * 訓練和發佈應用程式
 > * 查詢應用程式端點來查看 LUIS JSON 回應
 
@@ -34,7 +34,7 @@ ms.locfileid: "38970501"
 
    [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
 
-如果您想要保留原本的人力資源應用程式，在[[設定]](luis-how-to-manage-versions.md#clone-a-version)頁面上複製該版本，並將其命名為 `review`。 複製是使用各種 LUIS 功能的好方法，因為不會影響原始版本。 
+如果您想要保留原始的「人力資源」應用程式，請在 [[設定](luis-how-to-manage-versions.md#clone-a-version)] 頁面上複製該版本，並將其命名為 `review`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 
 
 如果您透過一系列教學課程而擁有所有版本的應用程式，您可能會驚訝地發現**檢閱端點語句**清單並不會因為版本不同而有所變更。 不論您正在編輯的語句版本為何，也不論在端點上發佈的應用程式版本為何，都只有一個要檢閱的語句集區。 
 
@@ -47,9 +47,9 @@ ms.locfileid: "38970501"
 
 藉由檢閱端點語句，您可以確認或更正語句的預測意圖。 您也可以將未預測的自訂實體加上標籤。 
 
-## <a name="review-endpoint-utterances"></a>檢閱端點表達方式
+## <a name="review-endpoint-utterances"></a>檢閱端點語句
 
-1. 請確定您人力資源應用程式位於 LUIS 的 [建置] 區段。 選取右上方功能表列中的 [建置]，即可變更至此區段。 
+1. 請確定您人力資源應用程式位於 LUIS 的 [建置] 區段。 選取右上方功能表列中的 [Build] \(建置\)，即可變更至此區段。 
 
     [ ![在右上方導覽列中醒目提示 [建置] 的 LUIS 應用程式螢幕擷取畫面](./media/luis-tutorial-review-endpoint-utterances/first-image.png)](./media/luis-tutorial-review-endpoint-utterances/first-image.png#lightbox)
 
@@ -102,28 +102,28 @@ ms.locfileid: "38970501"
 
 3. 新增 `Natural Language Processing` 值，然後選取 [儲存]。 
 
-## <a name="train-the-luis-app"></a>訓練 LUIS 應用程式
+## <a name="train-the-luis-app"></a>進行 LUIS 應用程式定型
 LUIS 在定型過後才會知道變更。 
 
-1. 在 LUIS 網站的右上方，選取 [訓練] 按鈕。
+1. 在 LUIS 網站的右上方，選取 [Train] \(定型\) 按鈕。
 
-2. 當您在網站頂端看到確認成功的綠色狀態列時，就表示訓練完成。
+2. 當您在網站頂端看到確認成功的綠色狀態列時，就表示定型完成。
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>發佈應用程式以取得端點 URL
 若要在聊天機器人或其他應用程式中取得 LUIS 應用程式的更新後模型，您必須發佈應用程式。 
 
-1. 在 LUIS 網站的右上方，選取 [發佈] 按鈕。 
+1. 在 LUIS 網站的右上方，選取 [Publish] \(發佈\) 按鈕。 
 
 2. 如果您已匯入此應用程式，則必須選取 [情感分析]。 
 
-3. 選取 [生產] 位置和 [發佈] 按鈕。
+3. 選取 [Production] \(生產\) 位置和 [Publish] \(發佈\) 按鈕。
 
 4. 當您在網站頂端看到確認成功的綠色狀態列時，就表示發佈完成。
 
 ## <a name="query-the-endpoint-with-an-utterance"></a>利用語句查詢端點
 嘗試與更正後的語句接近的語句。 
 
-1. 在 **發佈** 頁面上，選取位於頁面底部的 **端點** 連結。 這個動作會開啟另一個瀏覽器視窗，其中的網址列會顯示此端點 URL。 
+1. 在 [Publish] \(發佈\) 頁面上，選取頁面底部的**端點**連結。 此動作會開啟另一個瀏覽器視窗，其中網址列會顯示端點 URL。 
 
 2. 移至位址中的 URL 尾端並輸入 `Are there any natural language processing jobs in my department right now?`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 
 
@@ -236,7 +236,7 @@ LUIS 在定型過後才會知道變更。
 藉由檢閱來自端點的語句，此應用程式的預測精確度已提高。 
 
 ## <a name="clean-up-resources"></a>清除資源
-若不再需要，請刪除 LUIS 應用程式。 選取左上方功能表中的 [我的應用程式]。 選取應用程式清單中應用程式名稱右邊的省略符號 **...**，然後選取 [刪除]。 在 [刪除應用程式?] 快顯對話方塊中選取 [確定]。
+當不再需要 LUIS 應用程式時，請將其刪除。 選取左上方功能表中的 [我的應用程式]。 選取應用程式清單中應用程式名稱右邊的省略符號 **...**，然後選取 [刪除]。 在 [Delete app?] \(刪除應用程式?\) 快顯對話方塊上，選取 [Ok] \(確定\)。
 
 ## <a name="next-steps"></a>後續步驟
 

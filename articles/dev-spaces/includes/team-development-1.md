@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 23b5373f4986c4a3d113baebe9e04ce65b9a9df0
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ab6fdbcd3d1a6a5e611809ccee2343fced05d1e0
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39063010"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39189272"
 ---
 目前為止，您已如同您是應用程式唯一的開發人員一般，執行您的應用程式程式碼。 在本節中，您將會了解 Azure Dev Spaces 如何簡化小組開發：
 * 讓開發人員小組能夠依需求在共用的開發人員空間中或相異的開發人員空間中工作，而在相同的環境中工作。
@@ -48,13 +48,14 @@ ms.locfileid: "39063010"
 讓我們進一步查看目前執行中的服務。 執行 `azds list-up` 命令，您會看到如下的輸出：
 
 ```
-Name         Space     Chart              Ports   Updated     Access Points
------------  --------  -----------------  ------  ----------  -------------------------
-mywebapi     default  mywebapi-0.1.0     80/TCP  2m ago     <not attached>
-webfrontend  default  webfrontend-0.1.0  80/TCP  1m ago     http://webfrontend-contosodev.1234abcdef.eastus.aksapp.io
+Name                          DevSpace  Type     Updated      Status
+----------------------------  --------  -------  -----------  ----------------
+mywebapi                      default   Service  10m 1s ago   Running
+mywebapi-54f9cf5b59-bjnkm     default   Pod      10m 4s ago   Running
+webfrontend-5b697958d6-b6v96  default   Pod      26m 38s ago  Init:1/3:mindaro-build
 ```
 
-「空間」資料行會顯示在名為 `default` 的空間中所執行的兩個服務。 開啟公用 URL 並瀏覽至 Web 應用程式的任何人，都會叫用您先前撰寫、透過兩個服務執行的程式碼路徑。 現在假設您想要繼續開發 `mywebapi`。 您要如何使用開發環境進行程式碼變更及測試，又不會打斷其他開發人員？ 為此，您應設定自己的空間。
+DevSpace 資料行會顯示在名為 `default` 的空間中所執行的兩個服務。 開啟公用 URL 並瀏覽至 Web 應用程式的任何人，都會叫用您先前撰寫、透過兩個服務執行的程式碼路徑。 現在假設您想要繼續開發 `mywebapi`。 您要如何使用開發環境進行程式碼變更及測試，又不會打斷其他開發人員？ 為此，您應設定自己的空間。
 
 ### <a name="create-a-dev-space"></a>建立開發人員空間
 若要在 `default` 以外的空間執行您自己的 `mywebapi` 版本，您可以使用下列命令建立您自己的空間：

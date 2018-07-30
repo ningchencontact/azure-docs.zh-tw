@@ -1,37 +1,41 @@
 ---
-title: Windows 10 登入畫面中的 Azure AD SSPR | Microsoft Docs
-description: 設定 Windows 10 登入畫面 Azure AD 密碼重設和我忘記 PIN 碼
+title: Windows 10 登入畫面中的 Azure AD SSPR
+description: 在本教學課程中，您會在 Windows 10 登入畫面中啟用密碼重設，以避免使用技術服務。
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 04/27/2018
+ms.topic: tutorial
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 2a6fbd9e52e07141ae1d8c630bde6ab23801fb18
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e4e94567cf978631be52a3304b47b68f61ac3fff
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054496"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161158"
 ---
-# <a name="azure-ad-password-reset-from-the-login-screen"></a>從登入畫面重設 Azure AD 密碼
+# <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>教學課程：從登入畫面重設 Azure AD 密碼
 
-您已經部署 Azure AD 自助式密碼重設 (SSPR)，但您的使用者仍會在忘記其密碼時打電話給技術服務人員。 他們因為無法取得網頁瀏覽器來存取 SSPR，所以才會打電話給技術服務人員。
+在本教學課程中，您會讓使用者從 Windows 10 登入畫面重設其密碼。 透過新的 Windows 10 2018 年 4 月更新，使用者若具有**已加入 Azure AD** 或**已加入混合式 Azure AD** 的裝置，即可在其登入畫面上使用 [重設密碼] 連結。 使用者按一下此連結時，就可以享受熟悉的相同自助式密碼重設 (SSPR) 體驗。
 
-透過新的 Windows 10 2018 年 4 月更新，具有**已加入 Azure AD** 或**已加入混合式 Azure AD** 之裝置的使用者，可以在其登入畫面上看到及使用 [重設密碼] 連結。 當使用者按一下此連結時，他們就可以享受熟悉的相同自助式密碼重設 (SSPR) 體驗。
+> [!div class="checklist"]
+> * 使用 Intune 來設定重設密碼連結
+> * 選擇性地使用 Windows 登錄進行設定
+> * 了解使用者會看到的內容
 
-若要讓使用者能夠從 Windows 10 登入畫面重設其 Azure AD 密碼，必須符合下列需求：
+## <a name="prerequisites"></a>必要條件
 
-* Windows 10 2018 年 4 月更新，或者[已加入 Azure AD](../device-management-azure-portal.md) 或[已加入混合式 Azure AD](../device-management-hybrid-azuread-joined-devices-setup.md) 的較新用戶端。
+* Windows 10 2018 年 4 月更新，或符合下列條件的較新用戶端：
+   * [已加入 Azure AD](../device-management-azure-portal.md) 或 
+   * [已加入混合式 Azure AD](../device-management-hybrid-azuread-joined-devices-setup.md)
 * 必須啟用 Azure AD 自助式密碼重設。
-* 設定及部署設定，以透過下列其中一種方法來啟用 [重設密碼] 連結：
-   * [Intune 裝置組態設定檔](tutorial-sspr-windows.md#configure-reset-password-link-using-intune)。 必須完成裝置的 Intune 註冊，才能使用此方法。
-   * [登錄機碼](tutorial-sspr-windows.md#configure-reset-password-link-using-the-registry)
 
 ## <a name="configure-reset-password-link-using-intune"></a>使用 Intune 來設定重設密碼連結
+
+使用 Intune 部署組態變更，以啟用從登入畫面重設密碼的功能，是最具彈性的方法。 Intune 可讓您將組態變更部署至您所定義的特定機器群組。 必須完成裝置的 Intune 註冊，才能使用此方法。
 
 ### <a name="create-a-device-configuration-policy-in-intune"></a>在 Intune 中建立裝置設定原則
 
@@ -85,7 +89,7 @@ ms.locfileid: "39054496"
 
 我們建議僅使用此方法來測試設定變更。
 
-1. 使用系統管理認證來登入已加入 Azure AD 的裝置
+1. 使用系統管理認證登入 Windows PC
 2. 以系統管理員身分執行 **regedit**
 3. 設定下列登錄機碼
    * `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AzureADAccount`
@@ -93,11 +97,12 @@ ms.locfileid: "39054496"
 
 ## <a name="what-do-users-see"></a>使用者看到的內容
 
-現已設定和指派原則，使用者有哪些變更？ 他們如何知道可以在登入畫面重設其密碼？
+現已設定和指派原則，使用者有哪些變更？ 他們如何得知可在登入畫面重設其密碼？
 
 ![LoginScreen][LoginScreen]
 
-當使用者嘗試登入時，即可看到 [重設密碼] 連結，該連結可開啟登入畫面上的自助式密碼重設體驗。 這項功能可讓使用者重設其密碼，而不需使用另一個裝置來存取網頁瀏覽器。
+現在，使用者在嘗試登入時即會看到 [重設密碼] 連結，該連結可開啟登入畫面上的自助式密碼重設體驗。 這項功能可讓使用者重設其密碼，而不需使用另一個裝置來存取網頁瀏覽器。
+現在，使用者在嘗試登入時即會看到 [重設密碼] 連結，該連結可開啟登入畫面上的自助式密碼重設體驗。 這項功能可讓使用者重設其密碼，而不需使用另一個裝置來存取網頁瀏覽器。
 
 您的使用者將在[重設您的工作或學校密碼](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)中發現使用這項功能的指引
 
@@ -111,14 +116,17 @@ ms.locfileid: "39054496"
 
 * 目前不支援從遠端桌面進行密碼重設。
 
+## <a name="clean-up-resources"></a>清除資源
+
+如果您決定不再使用您在本教學課程中設定的功能，請刪除您所建立的 Intune 裝置組態設定檔或登錄機碼。
+
 ## <a name="next-steps"></a>後續步驟
 
-下列連結提供有關使用 Azure AD 重設密碼的其他資訊
+在本教學課程中，您讓使用者能夠從 Windows 10 登入畫面重設其密碼。 請繼續進行下一個教學課程，以了解如何將 Azure Identity Protection 整合到自助式密碼重設和 Multi-Factor Authentication 體驗中。
 
-* [如何部署 SSPR？](howto-sspr-deployment.md)
-* [如何啟用從登入畫面重設 PIN 碼](https://docs.microsoft.com/intune/device-windows-pin-reset)
-* [MDM 驗證原則的詳細資訊](https://docs.microsoft.com/windows/client-management/mdm/policy-csp-authentication)
+> [!div class="nextstepaction"]
+> [在登入時評估風險](tutorial-risk-based-sspr-mfa.md)
 
-[CreateProfile]: ./media/tutorial-sspr-windows/create-profile.png "建立 Intune 裝置組態設定檔，以便在 Windows 10 登入畫面上啟用 [重設密碼] 連結"
+[CreateProfile]: ./media/tutorial-sspr-windows/create-profile.png "建立 Intune 裝置組態設定檔，以便在 Windows 10 登入畫面上啟用重設密碼連結"
 [Assignment]: ./media/tutorial-sspr-windows/profile-assignment.png "將 Intune 裝置設定原則指派給 Windows 10 裝置群組"
 [LoginScreen]: ./media/tutorial-sspr-windows/logon-reset-password.png "Windows 10 登入畫面上的重設密碼連結"

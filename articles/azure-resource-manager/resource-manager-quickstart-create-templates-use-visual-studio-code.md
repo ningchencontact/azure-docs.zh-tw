@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 07/17/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: a66d845fcf7507613cda475bbc96225f8a7cc7eb
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: bb0e3ee685d5a52a9f372e99d97f3608f67c17c0
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126842"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185392"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>快速入門：使用 Visual Studio Code 建立 Azure Resource Manager 範本
 
@@ -144,7 +144,7 @@ ms.locfileid: "39126842"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何使用 Visual Studio Code 建立範本，以及如何使用 Azure 入口網站 Cloud Shell 部署範本。 本快速入門中使用的範本僅包含一個 Azure 資源。  在下一個教學課程中，您會開發具有多個資源的範本。  某些資源有相依的資源。
+在本教學課程中，您已了解如何使用 Visual Studio Code 建立範本，以及如何使用 Azure 入口網站 Cloud Shell 部署範本。 在下一個教學課程中，您將了解如何開發範本，以及如何使用範本參考。
 
 > [!div class="nextstepaction"]
-> [使用 Visual Studio 建立範本](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
+> [建立加密的儲存體帳戶](./resource-manager-tutorial-create-encrypted-storage-accounts.md)

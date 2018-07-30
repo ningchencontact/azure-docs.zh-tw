@@ -6,15 +6,15 @@ author: rboucher
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 07/13/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: b4ec82112ea0defcea4f687abaad7d96627cb902
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: b00d774ec59755288b8660d238c7b8dfc9a89eab
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267674"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39089888"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>什麼是 Azure 診斷延伸模組
 Azure 診斷延伸模組是 Azure 中的代理程式，可對部署的應用程式收集診斷資料。 您可以使用來自許多不同來源的診斷延伸模組。 目前支援 Azure 雲端服務 (傳統) Web 和背景工作角色、虛擬機器、虛擬機器擴展集和 Service Fabric。 其他 Azure 服務有不同的診斷方法。 請參閱 [Azure 中的監視概觀](monitoring-overview.md)。 
@@ -32,10 +32,12 @@ Azure 診斷延伸模組可以收集下列類型的資料：
 | Windows 事件記錄檔 |傳送至 Windows 事件記錄系統的資訊 |
 | .NET 事件來源 |使用 .NET [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 類別的程式碼編寫事件 |
 | IIS 記錄檔 |IIS 網站的相關資訊 |
-| 以資訊清單為基礎的 ETW |針對任何程序所產生之 Windows 事件所進行的事件追蹤 |
+| 以資訊清單為基礎的 ETW |針對任何程序所產生之 Windows 事件所進行的事件追蹤。(1) |
 | 損毀傾印 |應用程式損毀時之程序狀態的相關資訊 |
 | 自訂錯誤記錄檔 |您的應用程式或服務所建立的記錄檔 |
 | Azure 診斷基礎結構記錄檔 |診斷本身的相關資訊 |
+
+(1) 若要取得 ETW 提供者的清單，請在您要從中收集資訊的電腦上，在主控台視窗中執行 `c:\Windows\System32\logman.exe query providers`。 
 
 ## <a name="data-storage"></a>資料儲存體
 延伸模組會將其資料儲存在您指定的 [Azure 儲存體帳戶](azure-diagnostics-storage.md)中。 

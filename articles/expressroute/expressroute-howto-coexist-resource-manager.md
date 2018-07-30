@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: charwen,cherylmc
-ms.openlocfilehash: 9b0e19ac859d3f0185c42a79353651996fcbf631
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: cdeda7d72461f35c138f12ca9b2758cdba44d5f6
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823558"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259250"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>設定 ExpressRoute 和站對站並存連線
 > [!div class="op_single_selector"]
@@ -75,7 +75,7 @@ ms.locfileid: "34823558"
     如果您還沒有虛擬網路，這個程序將引導您使用 Resource Manager 部署模型來建立新的虛擬網路，並建立新的 ExpressRoute 和站對站 VPN 連線。 若要設定虛擬網路，請依照[建立新的虛擬網路和並存的連線](#new)中的步驟進行。
 * 我已經有一個 Resource Manager 部署模型 VNet。
   
-    您可能已經有虛擬網路，而且使用現有的站對站 VPN 連線或 ExpressRoute 連線。 在這個案例中，如果閘道子網路遮罩是 /28 或更大，您必須刪除現有的閘道。 [為已經存在的 VNet 設定並存的連線](#add)一節會引導您刪除閘道，然後建立新的 ExpressRoute 和站對站 VPN 連線。
+    您可能已經有虛擬網路，而且使用現有的站對站 VPN 連線或 ExpressRoute 連線。 在這個案例中，如果閘道子網路遮罩是 /28 或更小 (/28、/29 等等)，您就必須刪除現有的閘道。 [為已經存在的 VNet 設定並存的連線](#add)一節會引導您刪除閘道，然後建立新的 ExpressRoute 和站對站 VPN 連線。
   
     如果您刪除後重建閘道，您的跨單位連線將會停止。 不過，您的 VM 和服務仍能透過負載平衡器對外通訊，而您能夠在這兩者設定為這樣做時進行閘道器設定。
 
@@ -91,7 +91,7 @@ ms.locfileid: "34823558"
   Select-AzureRmSubscription -SubscriptionName 'yoursubscription'
   $location = "Central US"
   $resgrp = New-AzureRmResourceGroup -Name "ErVpnCoex" -Location $location
-  $VNetASN = 65010
+  $VNetASN = 65515
   ```
 3. 建立包含閘道子網路的虛擬網路。 如需有關建立虛擬網路的詳細資訊，請參閱[建立虛擬網路](../virtual-network/manage-virtual-network.md#create-a-virtual-network)。 如需有關建立子網路的詳細資訊，請參閱[建立子網路](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)。
    

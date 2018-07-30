@@ -1,119 +1,76 @@
 ---
-title: 自助式密碼重設快速入門 - Azure Active Directory
-description: 快速部署 Azure AD 自助式密碼重設
+title: 快速入門︰Azure AD 自助式密碼重設
+description: 在本快速入門中，您將快速設定 Azure AD 自助式密碼重設，以允許使用者重設自己的密碼
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 01/11/2018
+ms.topic: quickstart
+ms.date: 07/17/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: c99ae755705dddf501609c8f199d1977d0bde415
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c40cb3192d514d990ea2a5d66e1484ff204e9b10
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39057356"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223552"
 ---
-# <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>快速部署 Azure AD 自助式密碼重設
+# <a name="quickstart-self-service-password-reset"></a>快速入門：自助式密碼重設
 
-> [!IMPORTANT]
-> **您有登入問題嗎？** 若是如此，請參閱[忘記 Azure AD 密碼的說明](../user-help/active-directory-passwords-update-your-own-password.md)。
+在本快速入門中，您會逐步設定自助式密碼重設 (SSPR) 以提供簡單的方法，讓 IT 系統管理員允許使用者重設密碼或解除鎖定帳戶。
 
-自助式密碼重設 (SSPR) 提供了簡單的方法，讓 IT 系統管理員准許使用者重設或解除鎖定其密碼或帳戶。 系統包含詳細的報告，可追蹤使用者何時存取系統與通知來警示您誤用或濫用。
+## <a name="prerequisites"></a>必要條件
 
-本指南假設您已經有有效的試用或經過授權的 Azure Active Directory (Azure AD) 租用戶。 如果您需要設定 Azure AD 的說明，請參閱[開始使用 Azure AD](../fundamentals/get-started-azure-ad.md)。
+* 可運作且至少已啟用試用版授權的 Azure AD 租用戶。
+* 具有全域系統管理員權限的帳戶。
+* 您已知其密碼的非系統管理員測試使用者；如果您需要建立使用者，請參閱[快速入門：將新的使用者新增至 Azure Active Directory](../add-users-azure-active-directory.md) 一文。
+* 該名非系統管理員測試使用者所屬的測試用試驗群組；如果您需要建立群組，請參閱[在 Azure Active Directory 中建立群組和新增使用者](../active-directory-groups-create-azure-portal.md)一文。
 
-## <a name="enable-sspr-for-your-azure-ad-tenant"></a>啟用 Azure AD 租用戶的 SSPR
+## <a name="enable-self-service-password-reset"></a>啟用自助式密碼重設
 
 > [!VIDEO https://www.youtube.com/embed/Pa0eyqjEjvQ]
 
-1. 從您現有的 Azure AD 租用戶，在 [Azure 入口網站] 上的 [Azure Active Directory] 下選取 [密碼重設]。
+1. 從您現有的 Azure AD 租用戶，在 [Azure 入口網站] 的 [Azure Active Directory] 下選取 [密碼重設]。
 
-2. 從 [屬性] 頁面的 [已啟用自助式密碼重設] 之下，選擇下列其中一項：
-   * **無**：沒有人能夠使用 SSPR 功能。
-   * **已選取**：只有您所選的特定 Azure AD 群組成員可以使用 SSPR 功能。 我們建議您定義使用者群組，並在部署此功能以用於概念證明時，使用這項設定。 這裡支援安全性群組的巢狀。
-   * **全部**：在您的 Azure AD 租用戶中具有帳戶的所有使用者都可以使用 SSPR 功能。 我們建議當您完成概念證明之後，準備要將此功能部署至整個租用戶時，使用這項設定。
+2. 在 [屬性] 頁面的 [已啟用自助式密碼重設] 下方，選擇 [已選取]。
+    * 在 [選取群組] 中，選擇您在本文的先決條件一節中建立的試驗群組。
+    * 按一下 [檔案] 。
 
-   > [!IMPORTANT]
-   > Azure 系統管理員帳戶一律能夠重設其密碼，無論這個選項如何設定。 
+3. 在 [驗證方法] 頁面中，選擇下列項目：
+   * 需要重設的方法數：**1**
+   * 使用者可用方法：
+      * **行動電話**
+      * **辦公室電話**
+   * 按一下 [檔案] 。
 
-3. 從 [驗證方法] 頁面，選擇下列項目：
-   * **需要重設的方法數**：我們最少支援一種方法或最多支援兩種方法。
-   * **使用者可用的方法**：我們至少需要一種方法，但是有額外的選擇可用也沒關係。
-      * **電子郵件**：將具有代碼的電子郵件傳送至使用者設定的驗證電子郵件地址。
-      * **行動電話**：讓使用者選擇使用其設定的行動電話號碼代碼來接收電話或簡訊。
-      * **辦公室電話**：透過使用者設定的辦公室電話號碼代碼打電話給使用者。
-      * **安全性問題**：要求您選擇：
-         * **註冊所需的問題數目**：成功註冊的最小值。 使用者可以選擇回答更多問題，以建立可提取的問題集區。 這個選項可以設定為 3 到 5 個問題，而且必須大於或等於重設其密碼所需的問題數目。 當使用者選取其安全性問題時，如果他們選取 [自訂] 按鈕，即可新增自訂問題。
-         * **重設所需的問題數**：可以設定為在允許重設或解除鎖定使用者密碼之前，需正確回答的 3 到 5 個問題。
-            
     ![驗證][Authentication]
 
-4. 建議︰在 [自訂] 之下，您可以變更「連絡系統管理員」連結，以指向您定義的網頁或電子郵件地址。 建議您將此連結設為諸如您的使用者已用於支援問題的電子郵件地址或網站等項目。
+4. 在 [註冊] 頁面中，選擇下列項目：
+   * 登入時要求使用者註冊：**是**
+   * 設定要求使用者重新確認其驗證資訊的等候天數：**365**
 
-5. 選擇性︰[註冊] 頁面會提供系統管理員下列選項︰
-   * 登入時要求使用者註冊。
-   * 設定要求使用者重新確認其驗證資訊的等候天數。
+## <a name="test-self-service-password-reset"></a>測試自助式密碼重設
 
-6. 選擇性︰[通知] 頁面會提供系統管理員下列選項︰
-   * 通知使用者密碼重設。
-   * 當其他系統管理員重設其密碼時通知所有系統管理員。
+接著我們將以測試使用者測試您的 SSPR 組態。 由於 Microsoft 會強制執行 Azure 系統管理員帳戶的強式驗證需求，使用系統管理員帳戶的測試可能會有不同的結果。 如需有關系統管理員密碼原則的詳細資訊，請參閱我們的[密碼原則](concept-sspr-policy.md)一文。
 
-此時，您已為 Azure AD 租用戶設定 SSPR。 您的使用者現在可以使用[註冊自助式密碼重設](../user-help/active-directory-passwords-reset-register.md)和[重設或變更密碼](../user-help/active-directory-passwords-update-your-own-password.md)文章中的指示，來更新他們的密碼，而不需要系統管理員介入。 如果您只要在雲端上設定，您可以在此停止。 或者繼續下一節，以設定將密碼同步處理至內部部署 Active Directory 網域。
+1. 在 InPrivate 或 Incognito 模式中開啟新的瀏覽器視窗，並瀏覽至 [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)。
+2. 以非系統管理員測試使用者的身分登入，並註冊您的驗證電話。
+3. 完成後，按一下標示為**狀況良好**的按鈕，然後關閉瀏覽器視窗。
+4. 在 InPrivate 或 Incognito 模式中開啟新的瀏覽器視窗，並瀏覽至 [https://aka.ms/sspr](https://aka.ms/sspr)。
+5. 輸入非系統管理員測試使用者的使用者識別碼，以及 CAPTCHA 中的字元，然後按 [下一步]。
+6. 依照驗證步驟重設您的密碼
 
-> [!TIP]
-> 以使用者而非系統管理員測試 SSPR，因為 Microsoft 會強制執行 Azure 系統管理員帳戶的強式驗證需求。 如需有關系統管理員密碼原則的詳細資訊，請參閱我們的[密碼原則](concept-sspr-policy.md#administrator-password-policy-differences)一文。
-
-## <a name="configure-synchronization-to-an-existing-identity-source"></a>設定現有身分識別來源的同步處理
-
-若要啟用內部部署身分識別同步處理至 Azure AD，您必須在您組織中的伺服器上安裝及設定 [Azure AD Connect](./../connect/active-directory-aadconnect.md)。 此應用程式會將您現有身分識別來源的使用者和群組同步處理到您的 Azure AD 租用戶。 如需詳細資訊，請參閱
-
-* [從 DirSync 或 Azure AD Sync 升級至 Azure AD Connect](./../connect/active-directory-aadconnect-dirsync-deprecated.md)
-* [使用快速設定來開始使用 Azure AD Connect](./../connect/active-directory-aadconnect-get-started-express.md)
-* [設定密碼回寫](howto-sspr-writeback.md#configure-password-writeback)以將密碼從 Azure AD 回寫到您的內部部署目錄
-
-### <a name="on-premises-policy-change"></a>內部部署原則變更
-
-如果您同步處理內部部署 Active Directory 網域的使用者，而且想要讓使用者立即重設他們的密碼，請在內部部署密碼原則中執行下列變更：
-
-1. 瀏覽到 [電腦組態] > [原則] > [Windows 設定] > [安全性設定] > [帳戶原則] > [密碼原則]。
-
-2. 將 [密碼有效期最小值] 設定為 [0 天]。
-
-此安全性設定會決定在使用者可以變更密碼前，必須使用密碼的期間 (天數)。 如果您將最小使用量設為 [0 天]，使用者即可在他們的密碼被其支援小組變更後使用 SSPR。
-
-![原則][Policy]
-
-## <a name="disable-self-service-password-reset"></a>啟用自助式密碼重設
+## <a name="clean-up-resources"></a>清除資源
 
 要停用自助式密碼重設很容易。 開啟您的 Azure AD 租用戶並移至 [密碼重設] > [屬性]，然後選取 [已啟用自助式密碼重設] 之下的 [無]。
 
-### <a name="learn-more"></a>深入了解
-下列文章提供有關透過 Azure AD 重設密碼的其他資訊：
-
-* [如何完成 SSPR 成功首度發行？](howto-sspr-deployment.md)
-* [重設或變更您的密碼](../user-help/active-directory-passwords-update-your-own-password.md)
-* [註冊自助式密碼重設](../user-help/active-directory-passwords-reset-register.md)
-* [您有授權問題嗎？](concept-sspr-licensing.md)
-* [SSPR 使用哪些資料，以及您應該為使用者填入哪些資料？](howto-sspr-authenticationdata.md)
-* [哪些驗證方法可供使用者使用？](concept-sspr-howitworks.md#authentication-methods)
-* [使用 SSPR 的原則選項有哪些？](concept-sspr-policy.md)
-* [什麼是密碼回寫，且為什麼我需要了解它？](howto-sspr-writeback.md)
-* [如何回報 SSPR 中的活動？](howto-sspr-reporting.md)
-* [SSPR 中的所有選項有哪些，以及它們有何意義？](concept-sspr-howitworks.md)
-* [我認為有中斷。如何針對 SSPR 進行疑難排解？](active-directory-passwords-troubleshoot.md)
-* [在其他某處並未涵蓋我的問題](active-directory-passwords-faq.md)
-
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已學到如何為您的使用者設定自助式密碼重設。 若要完成下列步驟，請繼續使用 Azure 入口網站：
+在本快速入門中，您已了解如何為僅限雲端的使用者快速設定自助式密碼重設。 若要了解如何完成更詳盡的推出，請繼續進行我們的推出指南。
 
 > [!div class="nextstepaction"]
-> [啟用自助密碼重設](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
+> [推出自助式密碼重設](howto-sspr-deployment.md)
 
 [Authentication]: ./media/quickstart-sspr/sspr-authentication-methods.png "可供使用的 Azure AD 驗證方法和所需的數量"
-[Policy]: ./media/quickstart-sspr/password-policy.png "內部部署密碼的群組原則設定為 0 天"
-

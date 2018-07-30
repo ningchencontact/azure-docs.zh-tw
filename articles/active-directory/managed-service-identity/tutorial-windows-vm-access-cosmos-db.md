@@ -1,6 +1,6 @@
 ---
-title: 使用 Windows VM MSI 存取 Azure Cosmos DB
-description: 本教學課程引導您使用 Windows VM 上系統指派的受控服務識別 (MSI) 來存取 Azure Cosmos DB 的程序。
+title: 使用 Windows VM 受控服務識別來存取 Azure Cosmos DB
+description: 此教學課程會引導您使用 Windows VM 上系統指派的受控服務識別，來存取 Azure Cosmos DB 的程序。
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
 ms.author: daveba
-ms.openlocfilehash: cee3a1425d7c3ad8f680394831175165203b4839
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 05b31dffbe51dcbcd76c13a17f6ecc640b63569b
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005640"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248963"
 ---
-# <a name="tutorial-use-a-windows-vm-msi-to-access-azure-cosmos-db"></a>教學課程：使用 Windows VM MSI 存取 Azure Cosmos DB
+# <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-cosmos-db"></a>教學課程：使用 Windows VM 受控服務識別來存取 Azure Cosmos DB
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-本教學課程會示範如何建立和使用 Windows VM MSI 存取 Cosmos DB。 您會了解如何：
+本教學課程會示範如何建立和使用 Windows VM 受控服務識別來存取 Cosmos DB。 您會了解如何：
 
 > [!div class="checklist"]
-> * 建立已啟用 MSI 的 Windows VM 
+> * 建立已啟用受控服務識別的 Windows VM 
 > * 建立 Cosmos DB 帳戶
-> * 將 Windows VM MSI 存取權授與 Cosmos DB 帳戶存取金鑰
-> * 使用 Windows VM 的 MSI 來取得存取權杖，並使用它來呼叫 Azure Resource Manager
+> * 將 Windows VM 受控服務識別存取權授與 Cosmos DB 帳戶存取金鑰
+> * 使用 Windows VM 的受控服務識別來取得存取權杖，並使用它來呼叫 Azure Resource Manager
 > * 從 Azure Resource Manager 取得存取金鑰以進行 Cosmos DB 呼叫
 
 ## <a name="prerequisites"></a>必要條件
@@ -47,7 +47,7 @@ ms.locfileid: "39005640"
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>在新的資源群組中建立 Windows 虛擬機器
 
-此教學課程中，我們會建立新的 Windows VM。  您也可以在現有的 VM 中啟用 MSI。
+此教學課程中，我們會建立新的 Windows VM。  您也可以在現有的 VM 上啟用受控服務識別。
 
 1. 按一下 Azure 入口網站左上角的 [建立資源] 按鈕。
 2. 選取 [計算]，然後選取 [Windows Server 2016 Datacenter]。 
@@ -58,13 +58,13 @@ ms.locfileid: "39005640"
 
    ![替代映像文字](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>在您的 VM 上啟用 MSI 
+## <a name="enable-managed-service-identity-on-your-vm"></a>在 VM 上啟用受控服務識別 
 
-虛擬機器 MSI 可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您的程式碼。 實際上，透過 Azure 入口網站在虛擬機器上啟用 MSI 會執行兩項工作：向 Azure AD 註冊您的 VM 以建立受控身分識別，以及在 VM 上設定身分識別。
+虛擬機器受控服務識別可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您的程式碼。 實際上，透過 Azure 入口網站在虛擬機器上啟用受控服務識別會執行兩項工作：向 Azure AD 註冊您的虛擬機器以建立受控身分識別，以及在虛擬機器上設定身分識別。
 
-1. 選取您想要在其中啟用 MSI 的 [虛擬機器]。  
-2. 在左側的導覽列上，按一下 [設定] 。 
-3. 您會看到**受控服務識別**。 若要註冊並啟用 MSI，請選取 [是]，如果您想要將它停用，則請選擇 [否]。 
+1. 選取您想要在其上啟用受控服務識別的 [虛擬機器]。  
+2. 在左側的導覽列上，按一下 [設定]。 
+3. 您會看到**受控服務識別**。 若要註冊並啟用受控服務識別，請選取 [是]，如果您想要將停用，則請選擇 [否]。 
 4. 按一下 [儲存] 確認儲存設定。  
    ![替代映像文字](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
@@ -87,18 +87,18 @@ ms.locfileid: "39005640"
 2. 在 [概觀] 索引標籤上按一下 [+/新增集合] 按鈕，[新增集合] 面板隨即顯示。
 3. 為集合指定資料庫識別碼和集合識別碼、選取儲存容量、輸入分割區索引鍵、輸入輸送量值，然後按一下 [確定]。  在本教學課程中，以 "Test" 作為資料庫識別碼和集合識別碼，並選取固定的儲存容量和最小輸送量 (400 RU/s)，即足堪使用。  
 
-## <a name="grant-windows-vm-msi-access-to-the-cosmos-db-account-access-keys"></a>將 Windows VM MSI 存取權授與 Cosmos DB 帳戶存取金鑰
+## <a name="grant-windows-vm-managed-service-identity-access-to-the-cosmos-db-account-access-keys"></a>將 Windows VM 受控服務識別存取權授與 Cosmos DB 帳戶存取金鑰
 
-Cosmos DB 原生並不支援 Azure AD 驗證。 不過，您可以使用 MSI 從資源管理員中擷取 Cosmos DB 存取金鑰，然後使用該金鑰來存取 Cosmos DB。 在此步驟中，您會將 MSI 存取權授與 Cosmos DB 帳戶的金鑰。
+Cosmos DB 原生並不支援 Azure AD 驗證。 不過，您可以使用受控服務識別從 Resource Manager 中擷取 Cosmos DB 存取金鑰，然後使用該金鑰來存取 Cosmos DB。 在此步驟中，您會將 Cosmos DB 帳戶的金鑰存取權授與您的受控服務識別。
 
-若要在 Azure Resource Manager 中使用 PowerShell 將 MSI 識別存取權授與 Cosmos DB 帳戶，請更新您環境的 `<SUBSCRIPTION ID>`、`<RESOURCE GROUP>` 和 `<COSMOS DB ACCOUNT NAME>` 值。 將 `<MSI PRINCIPALID>` 取代為[擷取 Linux VM MSI 的 principalID](#retrieve-the-principalID-of-the-linux-VM's-MSI) 時，`az resource show` 命令所傳回的 `principalId` 屬性。  使用存取金鑰時，Cosmos DB 支援兩種層級的資料細微性：對帳戶的讀取/寫入存取，以及對帳戶的唯讀存取。  如果您想要取得帳戶的讀取/寫入金鑰，請指派 `DocumentDB Account Contributor` 角色；如果要取得帳戶的唯讀金鑰，請指派 `Cosmos DB Account Reader Role` 角色：
+若要在 Azure Resource Manager 中使用 PowerShell 將受控服務識別識別存取權授與 Cosmos DB 帳戶，請更新您環境的 `<SUBSCRIPTION ID>`、`<RESOURCE GROUP>` 和 `<COSMOS DB ACCOUNT NAME>` 值。 將 `<MSI PRINCIPALID>` 取代為[擷取 Linux VM MSI 的 principalID](#retrieve-the-principalID-of-the-linux-VM's-MSI) 時，`az resource show` 命令所傳回的 `principalId` 屬性。  使用存取金鑰時，Cosmos DB 支援兩種層級的資料細微性：對帳戶的讀取/寫入存取，以及對帳戶的唯讀存取。  如果您想要取得帳戶的讀取/寫入金鑰，請指派 `DocumentDB Account Contributor` 角色；如果要取得帳戶的唯讀金鑰，請指派 `Cosmos DB Account Reader Role` 角色：
 
 ```azurepowershell
 $spID = (Get-AzureRMVM -ResourceGroupName myRG -Name myVM).identity.principalid
 New-AzureRmRoleAssignment -ObjectId $spID -RoleDefinitionName "Reader" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/<myStorageAcct>"
 ```
 
-## <a name="get-an-access-token-using-the-windows-vms-msi-to-call-azure-resource-manager"></a>使用 Windows VM 的 MSI 來取得存取權杖，並使用它來呼叫 Azure Resource Manager
+## <a name="get-an-access-token-using-the-windows-vms-managed-service-identity-to-call-azure-resource-manager"></a>使用 Windows VM 的受控服務識別來取得存取權杖，並使用它來呼叫 Azure Resource Manager
 
 其餘課程要從稍早建立的 VM 繼續進行。 
 
@@ -109,7 +109,7 @@ New-AzureRmRoleAssignment -ObjectId $spID -RoleDefinitionName "Reader" -Scope "/
 1. 在 Azure 入口網站中，瀏覽至 [虛擬機器]，移至您的 Windows 虛擬機器，然後在 [概觀] 頁面中，按一下頂端的 [連線]。 
 2. 輸入您建立 Windows VM 時新增的**使用者名稱**和**密碼**。 
 3. 現在您已經建立虛擬機器的**遠端桌面連線**，請在遠端工作階段中開啟 PowerShell。
-4. 使用 Powershell 的 Invoke-WebRequest，向本機 MSI 端點提出要求來取得 Azure Resource Manager 的存取權杖。
+4. 使用 Powershell 的 Invoke-WebRequest，向本機受控服務識別端點提出要求，來取得 Azure Resource Manager 的存取權杖。
 
     ```powershell
         $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}

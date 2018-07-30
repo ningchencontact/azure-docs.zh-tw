@@ -9,14 +9,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 07/16/2018
 ms.author: bonova
-ms.openlocfilehash: 1015600343886333655a921f2e0944ebb676f3e6
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: e0de9a1494641fef87d11545b99e5e7275f6b614
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050121"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069258"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>將 SQL Server 遷移至 Azure SQL Database 受控執行個體
 
@@ -91,11 +91,11 @@ SQL Database 受控執行個體是現有 SQL Data 服務的擴充項目，提供
 
 從 SQL Server 內部部署環境或[虛擬機器上的 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/) 產生的原生備份 (.bak 檔案) (可從 [Azure 儲存體](https://azure.microsoft.com/services/storage/)取得) 進行還原，是 SQL DB 受控執行個體上的重要功能之一，讓您可以快速且輕鬆地進行離線資料庫移轉。 
 
-下圖概略說明此程序：
+下圖會提供程序的高階概觀：
 
 ![移轉流程](./media/sql-database-managed-instance-migration/migration-flow.png)
 
-下表詳述根據您執行的來源 SQL Server 版本，您可以使用的方法：
+下表詳述根據您執行的來源 SQL Server 版本，可以使用的方法：
 
 |步驟|SQL 引擎和版本|備份 / 還原方法|
 |---|---|---|
@@ -105,7 +105,8 @@ SQL Database 受控執行個體是現有 SQL Data 服務的擴充項目，提供
 |從 Azure 儲存體還原至受控執行個體|[使用 SAS 認證從 URL 還原](sql-database-managed-instance-restore-from-backup-tutorial.md)|
 
 > [!IMPORTANT]
-> 不支援系統資料庫還原。 若要移轉執行個體層級物件 (儲存在 master 或 msdb 資料庫中)，我們建議透過指令碼來找出這些物件，並在目的地執行個體上執行 T-SQL 指令碼。
+> - 使用原生還原選項將受到[透明資料加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption)保護的資料庫遷移到 Azure SQL 受控執行個體時，來自內部部署或 IaaS SQL Server 的對應憑證必須在資料庫還原之前進行遷移。 如需詳細步驟，請參閱[將 TDE 憑證遷移至受控執行個體](sql-database-managed-instance-migrate-tde-certificate.md)
+> - 不支援系統資料庫還原。 若要移轉執行個體層級物件 (儲存在 master 或 msdb 資料庫中)，我們建議透過指令碼來找出這些物件，並在目的地執行個體上執行 T-SQL 指令碼。
 
 如需包含使用 SAS 認證將資料庫備份還原至受控執行個體的完整教學課程，請參閱[從備份還原至受控執行個體](sql-database-managed-instance-restore-from-backup-tutorial.md)。
 

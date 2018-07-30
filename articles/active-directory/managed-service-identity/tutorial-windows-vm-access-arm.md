@@ -1,6 +1,6 @@
 ---
 title: 使用 Windows VM MSI 存取 Azure Resource Manager
-description: 此教學課程引導您使用 Windows VM 受控服務身分識別 (MSI) 來存取 Azure Resource Manager 的程序。
+description: 此教學課程引導您使用 Windows VM 受控服務識別來存取 Azure Resource Manager 的程序。
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 7e2033310a30499cf862fb4d399cb0180ac9b713
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: bd314dd1543280cf2533e45f156ca634d15d1d2a
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006959"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247239"
 ---
-# <a name="use-a-windows-vm-managed-service-identity-msi-to-access-resource-manager"></a>使用 Windows VM 受控服務身分識別 (MSI) 來存取 Azure Resource Manager
+# <a name="use-a-windows-vm-managed-service-identity-to-access-resource-manager"></a>使用 Windows VM 受控服務識別來存取 Azure Resource Manager
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-本教學課程會示範如何為 Windows 虛擬機器 (VM) 啟用受控服務身分識別 (MSI)。 接著，您便可以使用該身分識別來存取 Azure Resource Manager API。 受控服務身分識別由 Azure 自動管理，並可讓您驗證支援 Azure AD 驗證的服務，而不需要將認證插入程式碼中。 您會了解如何：
+本教學課程會示範如何為 Windows 虛擬機器 (VM) 啟用受控服務識別。 接著，您便可以使用該身分識別來存取 Azure Resource Manager API。 受控服務身分識別由 Azure 自動管理，並可讓您驗證支援 Azure AD 驗證的服務，而不需要將認證插入程式碼中。 您會了解如何：
 
 > [!div class="checklist"]
-> * 在 Windows VM 上啟用 MSI 
+> * 在 Windows VM 上啟用受控服務識別 
 > * 在 Azure Resource Manager 中將您的 VM 存取權授與資源群組 
 > * 使用 VM 身分識別取得存取權杖，並使用它來呼叫 Azure Resource Manager
 
@@ -43,7 +43,7 @@ ms.locfileid: "39006959"
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>在新的資源群組中建立 Windows 虛擬機器
 
-此教學課程中，我們會建立新的 Windows VM。  您也可以在現有的 VM 中啟用 MSI。
+此教學課程中，我們會建立新的 Windows VM。  您也可以在現有的 VM 上啟用受控服務識別。
 
 1.  按一下 Azure 入口網站左上角的 [建立資源] 按鈕。
 2.  選取 [計算]，然後選取 [Windows Server 2016 Datacenter]。 
@@ -54,18 +54,18 @@ ms.locfileid: "39006959"
 
     ![替代映像文字](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>在您的 VM 上啟用 MSI 
+## <a name="enable-managed-service-identity-on-your-vm"></a>在您的 VM 上啟用受控服務識別 
 
-VM MSI 可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您的程式碼。 在 VM 上啟用受控服務識別可執行兩項工作：在 Azure Active Directory 註冊您的 VM 以建立其受控身分識別，它就會在 VM 上設定身分識別。
+VM 受控服務識別可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您的程式碼。 在 VM 上啟用受控服務識別可執行兩項工作：在 Azure Active Directory 註冊您的 VM 以建立其受控身分識別，它就會在 VM 上設定身分識別。
 
-1.  選取您想要在其中啟用 MSI 的 [虛擬機器]。  
-2.  在左側的導覽列上，按一下 [設定] 。 
-3.  您會看到**受控服務識別**。 若要註冊並啟用 MSI，請選取 [是]，如果您想要將它停用，則請選擇 [否]。 
+1.  選取您想要在上面啟用受控服務識別的 [虛擬機器]。  
+2.  在左側的導覽列上，按一下 [設定]。 
+3.  您會看到**受控服務識別**。 若要註冊並啟用受控服務識別，請選取 [是]，如果您想要將它停用，則請選擇 [否]。 
 4.  按一下 [儲存] 確認儲存設定。  
     ![替代映像文字](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-resource-manager"></a>在 Resource Manager 中將您的 VM 存取權授與資源群組
-您的程式碼可以使用 MSI 來取得存取權杖，來向支援 Azure AD 驗證的資源進行驗證。  Azure Resource Manager 支援 Azure AD 驗證。  首先，我們需要在 Resource Manager 中將這個 VM 的身分識別存取權授與資源，此情況下就是包含 VM 的資源群組。  
+您的程式碼可以使用受控服務識別來取得存取權杖，向支援 Azure AD 驗證的資源進行驗證。  Azure Resource Manager 支援 Azure AD 驗證。  首先，我們需要在 Resource Manager 中將這個 VM 的身分識別存取權授與資源，此情況下就是包含 VM 的資源群組。  
 
 1.  瀏覽至**資源群組**的索引標籤。 
 2.  選取您為 **Windows VM**所建立的特定 [資源群組]。 
@@ -84,7 +84,7 @@ VM MSI 可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您
 1.  在入口網站中，瀏覽至 [虛擬機器] 並移至您的 Windows 虛擬機器，在 [概觀] 中按一下 [連線]。 
 2.  輸入您建立 Windows VM 時新增的**使用者名稱**和**密碼**。 
 3.  現在您已經建立虛擬機器的**遠端桌面連線**，請在遠端工作階段中開啟 **PowerShell**。 
-4.  使用 Powershell 的 Invoke-WebRequest，向本機 MSI 端點提出要求來取得 Azure Resource Manager 的存取權杖。
+4.  使用 Powershell 的 Invoke-WebRequest，向本機受控服務識別端點提出要求來取得 Azure Resource Manager 的存取權杖。
 
     ```powershell
        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}

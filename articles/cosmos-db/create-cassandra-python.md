@@ -11,12 +11,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 0adabc3561ee989e0ce383a5d995a12c144b19b7
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8f662f1d7b39e1757786193911e9fd2623b0a09a
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38237783"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214580"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-and-azure-cosmos-db"></a>快速入門：使用 Python 和 Azure Cosmos DB 建置 Cassandra 應用程式
 
@@ -24,7 +24,7 @@ ms.locfileid: "38237783"
 
 Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、資料表、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Azure Cosmos DB 核心的全域散發和水平調整功能。   
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]或者，您可以[免費試用 Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)，無須 Azure 訂用帳戶，也無須任何費用和約定付款。
 
@@ -117,7 +117,7 @@ Azure Cosmos DB Cassandra API 預覽版程式的存取權。 如果您尚未申�
     session.execute(batch)
     ```
 
-* 用來取得所有索引鍵/值的查詢。
+* 用來取得所有索引鍵值的查詢。
 
     ```Python
     rows = session.execute('SELECT * FROM uprofile.user')

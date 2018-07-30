@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 8c92b45cd3949e56515286c963b035e3c449835b
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 192992917432a64c2f9f81761e22bf7d9205703a
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37967317"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205556"
 ---
 # <a name="create-a-cicd-pipeline-for-your-existing-code-with-the-azure-devops-project"></a>使用 Azure DevOps Project 為現有的程式碼建立 CI/CD 管線
 
@@ -38,7 +38,7 @@ Azure DevOps Project 提供簡化的體驗，讓您可以自備現有程式碼�
 > * 檢查 VSTS CI/CD 管線
 > * 設定 Azure Application Insights 監視
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶。 您可以透過 [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/) 取得免費的訂用帳戶。
 * 可存取其中包含 .NET、Java、PHP、Node、Python 或靜態 Web 程式碼的 GitHub 或外部 Git 存放庫。
@@ -101,7 +101,7 @@ Azure DevOps 專案會在您的 VSTS 帳戶中自動設定完整的 VSTS CI/CD �
 
 1. 將您組建定義的**名稱**變得更具有描述性。  選取 [儲存並排入佇列]，然後選取 [儲存]。
 
-1. 在您的組建定義名稱下，選取 [歷程記錄]。  您會看到組建最近變更的稽核線索。  VSTS 會追蹤對組建定義進行的任何變更，並可讓您比較版本。
+1. 在您的組建定義名稱下，選取 [記錄]。  您會看到組建最近變更的稽核線索。  VSTS 會追蹤對組建定義進行的任何變更，並可讓您比較版本。
 
 1. 選取 [觸發程序]。  Azure DevOps 專案已自動建立 CI 觸發程序，且每次對存放庫的認可都會啟動新的組建。  您可以選擇性地選擇要在 CI 程序中包含還是排除分支。
 
@@ -141,8 +141,8 @@ Azure Application Insights 可讓您輕鬆監視應用程式的效能和使用�
 
 1. 輸入警示的 [名稱]。
 
-1. 選取 [來源變更位置] 的下拉式清單。  選擇您的 [App Service 資源]。
-
+1. 選取 [來源變更位置] 的下拉式清單。  選擇您的 [App Service 資源]
+<!-- Could you please confirm if this should be "Source Alter on" instead of "Source Alert on"? -->。
 1. 預設警示是**伺服器回應時間大於 1 秒**的警示。  選取 [計量] 下拉式清單，以檢查各種警示計量。  您可以輕鬆地設定各種警示，以改善應用程式的監視功能。
 
 1. 選取 [透過電子郵件擁有者、參與者和讀取者進行通知] 的核取方塊。  您也可以選擇性地執行 Azure 邏輯應用程式，以在警示引發時執行其他動作。

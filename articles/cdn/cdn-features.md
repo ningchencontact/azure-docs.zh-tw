@@ -15,18 +15,18 @@ ms.topic: overview
 ms.date: 05/09/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: dee6a77fb85b2ac882103ba58a19ac4fce59c188
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 7ec4961a78b2207c9990b787c4a0f9cc9c2e7931
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301439"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237109"
 ---
 # <a name="compare-azure-cdn-product-features"></a>比較 Azure CDN 產品功能
 
 Azure 內容傳遞網路 (CDN) 包含四種產品：**來自 Microsoft 的標準 Azure CDN** (預覽狀態)、**來自 Akamai 的 Azure CDN 標準**、**來自 Verizon 的 Azure CDN 標準**和**來自 Verizon 的 Azure CDN 進階**。 
 
-如需將 [來自 Verizon 的標準 Azure CDN] 設定檔移轉至 [來自 Verizon 的進階 Azure CDN] 的相關資訊，請參閱[將 Azure CDN 設定檔從標準 Verizon 移轉至高階 Verizon](cdn-migrate.md)。
+如需將 [來自 Verizon 的標準 Azure CDN] 設定檔移轉至 [來自 Verizon 的進階 Azure CDN] 的相關資訊，請參閱[將 Azure CDN 設定檔從標準 Verizon 移轉至進階 Verizon](cdn-migrate.md)。
 
 下表將比較各項產品的可用功能。
 
@@ -46,7 +46,7 @@ Azure 內容傳遞網路 (CDN) 包含四種產品：**來自 Microsoft 的標準
 | IPv4/IPv6 雙重堆疊 | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [HTTP/2 支援](cdn-http2.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 ||||
- **Security** | **標準 Microsoft (預覽)** | **標準 Akamai** | **標準 Verizon** | **進階 Verizon** | 
+ **安全性** | **標準 Microsoft (預覽)** | **標準 Akamai** | **標準 Verizon** | **進階 Verizon** | 
 | CDN 端點的 HTTPS 支援 | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [自訂網域 HTTPS](cdn-custom-ssl.md)  | **&#x2713;** | |**&#x2713;** |**&#x2713;** |
 | [自訂網域名稱支援](cdn-map-content-to-custom-domain.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |

@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 05736495d0d4a0c3a5072d29ad27801b6d4a7241
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 2f894549951a0ef23a95acaab48ab20ce6646443
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37967675"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39189473"
 ---
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>建立已針對 Azure Dev Spaces 啟用的 Kubernetes 叢集
 
@@ -32,7 +32,11 @@ ms.locfileid: "37967675"
 
    ![Kubernetes 組態設定](../media/common/Kubernetes-Create-Cluster-2.PNG)
 
-   完成時，請選取 [下一步: 網路功能]。
+   完成時，選取 [下一步: 驗證]。
+
+1. 選擇您想要的角色型存取控制 (RBAC) 設定。 Azure Dev Spaces 會在啟用或停用 RBAC 的情況下支援叢集。
+
+    ![RBAC 設定](../media/common/k8s-RBAC.PNG)
 
 1. 確定已啟用 [Http 應用程式路由]。
 
@@ -40,9 +44,5 @@ ms.locfileid: "37967675"
 
     > [!IMPORTANT]
     > 您務必要在建立 AKS 叢集時啟用 [Http 應用程式路由]。 您之後無法變更此設定。
-
-1. 選擇您想要的角色型存取控制 (RBAC) 設定。 Azure Dev Spaces 會在啟用或停用 RBAC 的情況下支援叢集。
-
-    ![RBAC 設定](../media/common/k8s-RBAC.PNG)
 
 1. 選取 [檢閱 + 建立]，然後在完成時選取 [建立]。

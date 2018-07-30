@@ -6,23 +6,23 @@ ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 05/11/2018
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: bc63e320053ec4e8dbb9f166a9a69bb24d91fa02
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 1ff2332e2867f99492d3da254282498d1627a5bf
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259537"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39058260"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B 共同作業常見問題集
 
 這些有關 Azure Active Directory (Azure AD) 企業對企業 (B2B) 共同作業的常見問題集 (FAQ) 會定期更新來包含新的主題。
 
 ### <a name="can-we-customize-our-sign-in-page-so-it-is-more-intuitive-for-our-b2b-collaboration-guest-users"></a>我們是否可以自訂登入頁面，讓我們的 B2B 共同作業來賓使用者感到更直覺式？
-當然！ 請參閱我們[有關這項功能的部落格文章](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/)。 如需有關如何自訂組織登入頁面的詳細資訊，請參閱[將公司商標新增至登入和存取面板頁面](../customize-branding.md)。
+當然！ 請參閱我們[有關這項功能的部落格文章](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/)。 如需有關如何自訂組織登入頁面的詳細資訊，請參閱[將公司商標新增至登入和存取面板頁面](../fundamentals/customize-branding.md)。
 
 ### <a name="can-b2b-collaboration-users-access-sharepoint-online-and-onedrive"></a>B2B 共同作業的使用者可以存取 SharePoint Online 和 OneDrive 嗎？
 是。 不過，在 SharePoint Online 中使用人員選擇器搜尋現有來賓使用者的功能，預設為**關閉**。 若要開啟搜尋現有來賓使用者的選項，請將 **ShowPeoplePickerSuggestionsForGuestUsers** 設定為 **On**。 您可以在租用戶等級或網站集合等級開啟這項設定。 您可以使用 Set-SPOTenant 和 Set-SPOSite Cmdlet 變更此設定。 透過這些 Cmdlet，成員可以搜尋目錄中所有現有的來賓使用者。 租用戶範圍中的變更不會影響已佈建的 SharePoint Online 網站。
@@ -44,6 +44,9 @@ ms.locfileid: "34259537"
 
 ### <a name="how-can-i-use-delayed-invitations"></a>我如何使用延遲的邀請？
 組織可能想要新增 B2B 共同作業使用者，依需要將他們佈建至應用程式，然後送出邀請。 您可以使用 B2B 共同作業邀請 API 自訂登入工作流程。
+
+### <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>能否在 Exchange 全域通訊清單中顯示來賓使用者？
+是。 根據預設，來賓物件不會在貴組織的全域通訊清單中顯示，但您可以使用 Azure Active Directory PowerShell 加以顯示。 如需詳細資訊，請參閱 [Office 365 群組的來賓存取](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6#PickTab=FAQ)中的**能否在 Exchange 全域通訊清單中顯示來賓物件？**。
 
 ### <a name="can-i-make-a-guest-user-a-limited-administrator"></a>我是否可以將來賓使用者設為受限的管理員？
 當然。 如需詳細資訊，請參閱[將來賓使用者新增至角色](add-guest-to-role.md)。

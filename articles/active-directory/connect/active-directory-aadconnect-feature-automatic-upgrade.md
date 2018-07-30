@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/13/2017
+ms.date: 06/16/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: adfce1195a6a322e0225ee09a45148001d0167c8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1cc58832d5f863f5bbfa6fc20d38b4be81ddad8f
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592124"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39089956"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect：自動升級
-此功能是隨組建 1.1.105.0 (於 2016 年 2 月發行) 一起導入。
+此功能已隨組建 [1.1.105.0 (於 2016 年 2 月發行)](active-directory-aadconnect-version-history.md#111050) 一起推出。  這項功能已在[組建 1.1.561](active-directory-aadconnect-version-history.md#115610) 中更新，且現在支援先前未支援的其他案例。
 
 ## <a name="overview"></a>概觀
 使用「自動升級」  功能是可確保您 Azure AD Connect 安裝永遠維持在最新狀態的最簡單方式。 此功能預設為啟用，以供進行快速安裝及 DirSync 升級。 新版本發行時，您的安裝會自動升級。

@@ -1,20 +1,20 @@
 ---
-title: 管理 Azure 型遠端監視解決方案中的裝置 | Microsoft Docs
+title: 在 Azure 型遠端監視解決方案中管理裝置的教學課程 | Microsoft Docs
 description: 本教學課程會示範如何管理連線到遠端監視解決方案加速器的裝置。
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 06/12/2018
+ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 63baf6397b2542311525bac740c50b5eacbd35cf
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: cd8e8c1fe1b77113968b7af635f45f9e0e077b7c
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097422"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159192"
 ---
 # <a name="tutorial-configure-and-manage-devices-connected-to-your-monitoring-solution"></a>教學課程：設定和管理連線到監視解決方案的裝置
 
@@ -33,11 +33,9 @@ Contoso 已排序新的機制來延伸其中一個設備。 在等待新機制�
 > * 重新設定裝置。
 > * 組織裝置。
 
-## <a name="prerequisites"></a>先決條件
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-若要依循本教學課程進行操作，您需要在 Azure 訂用帳戶中有一個已部署的遠端監視解決方案加速器執行個體。
-
-如果您尚未部署遠端監視解決方案加速器，則應該先完成[部署雲端式遠端監視解決方案](quickstart-remote-monitoring-deploy.md)快速入口。
+[!INCLUDE [iot-iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
 ## <a name="add-a-simulated-device"></a>新增模擬裝置
 
@@ -51,23 +49,21 @@ Contoso 已排序新的機制來延伸其中一個設備。 在等待新機制�
 
 ## <a name="test-the-simulated-device"></a>測試模擬的裝置
 
-若要測試模擬裝置是否會傳送遙測資料並報告屬性值，請在 [裝置] 頁面上的裝置清單中選取該裝置。 裝置的相關即時資訊會顯示在 [裝置詳細資料] 面板中：
+若要測試模擬的引擎裝置是否會傳送遙測資料並報告屬性值，請在 [裝置] 頁面上的裝置清單中選取該裝置。 引擎的相關即時資訊會顯示在 [裝置詳細資料] 面板中：
 
 [![檢視新的模擬引擎裝置](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-expanded.png#lightbox)
 
-在 [裝置詳細資料] 中，確認新的裝置正在傳送遙測。 若要檢視裝置的不同震動遙測資料串流，請按一下 [震動]：
+在 [裝置詳細資料] 中，確認新的裝置正在傳送遙測。 若要檢視裝置的震動遙測資料串流，請按一下 [震動]：
 
 [![選取要檢視的遙測資料串流](./media/iot-accelerators-remote-monitoring-manage/devicesvibration-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesvibration-expanded.png#lightbox)
 
 [裝置詳細資料] 面板會顯示關於裝置的其他資訊 (例如標記值)、它支援的方法，以及裝置所報告的屬性。
 
-若要檢視詳細的診斷，請向下捲動以檢視 [診斷]：
-
-[![檢視裝置診斷](./media/iot-accelerators-remote-monitoring-manage/devicediagnostics-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicediagnostics-expanded.png#lightbox)
+若要檢視詳細的診斷，請在 [裝置詳細資料] 面板中向下捲動，以檢視 [診斷] 區段。
 
 ## <a name="act-on-a-device"></a>在裝置上採取行動
 
-若要測試模擬的引擎裝置是否會正確回應解決方案加速器所起始的動作，請執行 **FirmwareUpdate** 方法。 若要執行方法以對裝置採取行動，請在裝置清單中選取裝置，然後按一下 [作業]。 如果您想要對多個裝置採取行動，則可以選取多個裝置。 在 [作業] 面板中，選取 [執行方法]。 [引擎] 裝置模型會指定三種方法：**FirmwareUpdate**、**FillTank** 和 **EmptyTank**：
+若要測試模擬的引擎裝置是否會正確回應從儀表板起始的動作，請執行 **FirmwareUpdate** 方法。 若要執行方法以對裝置採取行動，請在裝置清單中選取裝置，然後按一下 [作業]。 如果您想要對多個裝置採取行動，則可以選取多個裝置。 在 [作業] 面板中，選取 [執行方法]。 [引擎] 裝置模型會指定三種方法：**FirmwareUpdate**、**FillTank** 和 **EmptyTank**：
 
 [![引擎方法](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-expanded.png#lightbox)
 
@@ -103,7 +99,7 @@ Contoso 已排序新的機制來延伸其中一個設備。 在等待新機制�
 
 ## <a name="organize-your-devices"></a>組織裝置
 
-若要讓操作員能更輕鬆組織及管理您的裝置，您需要使用適當的小組名稱將它們標記。 Contoso 有兩個不同的小組會提供現場服務活動：
+若要讓操作員能更輕鬆地組織及管理您的裝置，您可以使用小組名稱為裝置加上標記。 Contoso 有兩個不同的小組會提供現場服務活動：
 
 * Smart Vehicle 小組會管理卡車和原型裝置。
 * Smart Building 小組會管理 chiller、電梯和引擎。
@@ -114,21 +110,17 @@ Contoso 已排序新的機制來延伸其中一個設備。 在等待新機制�
 
 ### <a name="add-tags"></a>新增標記
 
-選取所有的**卡車**和**原型**裝置。 然後按一下 [作業]：
+選取所有的**卡車**和**原型**裝置。 然後，按一下 [作業]。
 
-[![選取原型和卡車裝置](./media/iot-accelerators-remote-monitoring-manage/devicesmultiselect-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmultiselect-expanded.png#lightbox)
-
-選取 [標記]、將作業名稱設定為 [AddConnectedVehicleTag]，然後使用 [ConnectedVehicle] 值來新增名為 [FieldService] 的文字標記。 然後，按一下 [套用]：
+在 [作業] 面板中選取 [標記]，將作業名稱設定為 **AddConnectedVehicleTag**，然後使用 **ConnectedVehicle** 值新增名為 **FieldService** 的文字標記。 然後，按一下 [套用]：
 
 [![將標記新增至原型和卡車裝置](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag-expanded.png#lightbox)
 
-在 [裝置] 頁面中，選取所有的**冷卻器**、**電梯**和**引擎**裝置。 然後按一下 [作業]：
+在 [裝置] 頁面中，選取所有的**冷卻器**、**電梯**和**引擎**裝置。 然後，按一下 [作業]。
 
-[![選取冷卻器、電梯和引擎裝置](./media/iot-accelerators-remote-monitoring-manage/devicesmultiselect2-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmultiselect2-expanded.png#lightbox)
+在 [作業] 面板中選取 [標記]，將作業名稱設定為 **AddSmartBuildingTag**，然後使用 **SmartBuilding** 值新增名為 **FieldService** 的文字標記。 然後，按一下 [套用]：
 
-選取 [標記]、將作業名稱設定為 [AddSmartBuildingTag]、然後使用 **SmartBuilding** 值來新增名為 **FieldService** 的文字標記。 然後，按一下 [套用]：
-
-[![對冷卻器、電梯和引擎裝置新增標記](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag2-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag2-expanded.png#lightbox)
+[![為冷卻器、電梯和引擎裝置新增標記](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag2-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag2-expanded.png#lightbox)
 
 ### <a name="create-filters"></a>建立篩選器
 
@@ -148,17 +140,7 @@ Contoso 已排序新的機制來延伸其中一個設備。 在等待新機制�
 
 [![建立已連線的車輛篩選條件](./media/iot-accelerators-remote-monitoring-manage/filterinaction-inline.png)](./media/iot-accelerators-remote-monitoring-manage/filterinaction-expanded.png#lightbox)
 
-## <a name="clean-up-resources"></a>清除資源
-
-如果您打算繼續進行下一個教學課程，請將已部署的遠端監視解決方案加速器保留下來。 若要在未使用解決方案加速器時減少其執行成本，您可以在 [設定] 面板中停止模擬裝置：
-
-[![暫停遙測](./media/iot-accelerators-remote-monitoring-manage/togglesimulation-inline.png)](./media/iot-accelerators-remote-monitoring-manage/togglesimulation-expanded.png#lightbox)
-
-當您準備好開始下一個教學課程時，便可重新啟動模擬裝置。
-
-如果您不再需要解決方案加速器，則請從 [已佈建的解決方案][](https://www.azureiotsolutions.com/Accelerators#dashboard) 頁面中刪除：
-
-![刪除解決方案](media/iot-accelerators-remote-monitoring-manage/deletesolution.png)
+[!INCLUDE [iot-iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

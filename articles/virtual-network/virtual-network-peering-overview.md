@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: jdial
-ms.openlocfilehash: 27eaa6582a355198b61e996cce0a4acce48061cb
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 63ea834401e5c6798b6f84b6f09a964005d14306
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267123"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257866"
 ---
 # <a name="virtual-network-peering"></a>虛擬網路對等互連
 
@@ -85,7 +85,9 @@ ms.locfileid: "35267123"
 
 ## <a name="pricing"></a>價格
 
-我們會針對使用虛擬網路對等互連連線的輸入和輸出流量收取少許費用。 如需詳細資訊，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/virtual-network)。
+我們會針對使用虛擬網路對等互連連線的輸入和輸出流量收取少許費用。 如需有關 VNet 對等互連和全域 VNet 對等互連定價的詳細資訊，請參閱[定價頁面](https://azure.microsoft.com/pricing/details/virtual-network)。
+
+閘道傳輸是一個對等互連的屬性，可讓虛擬網路利用對等虛擬網路中的 VPN 閘道，來進行跨部署或 VNet 對 VNet 連線。 在此案例中，通過遠端閘道的流量需收取 [VPN 閘道費用](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/)，且不會產生 [VNet 對等互連費用](https://azure.microsoft.com/pricing/details/virtual-network)。 例如，如果 VNetA 具有 VPN 閘道可供內部部署連線，且 VNetB 會對等互連至 VNetA，並設定適當的屬性，則從 VNetB 到內部部署的流量只會依 VPN 閘道輸出定價收費。 VNet 對等互連費用將不適用。 了解如何[為虛擬網路對等互連設定 VPN 閘道傳輸](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
 ## <a name="next-steps"></a>後續步驟
 

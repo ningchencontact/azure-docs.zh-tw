@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 04/30/2018
 ms.author: estfan
-ms.openlocfilehash: 6a4e113c6816540e303210c3f1c96d81146cf5db
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: babe21db6acc2f7154857b4eb0a02356e89a8ca7
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300176"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39059230"
 ---
 # <a name="logic-apps-workflow-definitions-with-the-workflow-definition-language-schema"></a>使用工作流程定義語言撰寫 Logic Apps 工作流程定義
 
@@ -44,7 +44,7 @@ ms.locfileid: "35300176"
   
 | 元素 | 必要 | 說明 | 
 |---------|----------|-------------| 
-| 定義 | yes | 工作流程定義的起始元素 | 
+| 定義 | 是 | 工作流程定義的起始元素 | 
 | $schema | 只有在外部參考工作流程定義時 | JSON 結構描述檔案的位置，該檔案說明工作流程定義語言版本，您可以在此找到此版本： <p>`https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json`</p> |   
 | contentVersion | 否 | 您的工作流程定義版本號碼，預設為 "1.0.0.0"。 若要在部署工作流程時協助識別及確認正確的定義，請指定要使用的值。 | 
 | parameters | 否 | 一或多個參數的定義，此參數可將資料傳入您的工作流程中 <p><p>參數上限：50 | 
@@ -76,7 +76,7 @@ ms.locfileid: "35300176"
 
 | 元素 | 必要 | 類型 | 說明 |  
 |---------|----------|------|-------------|  
-| type | yes | int、float、string、securestring、bool、array、JSON 物件、secureobject <p><p>**注意**：對於所有密碼、金鑰和祕密，使用 `securestring` 和 `secureobject` 類型，因為 `GET` 作業不會傳回這些類型。 | 參數的類型 |
+| type | 是 | int、float、string、securestring、bool、array、JSON 物件、secureobject <p><p>**注意**：對於所有密碼、金鑰和祕密，使用 `securestring` 和 `secureobject` 類型，因為 `GET` 作業不會傳回這些類型。 | 參數的類型 |
 | defaultValue | 否 | 與 `type` 相同 | 在工作流程具現化時，未指定任何值時的預設參數值 | 
 | allowedValues | 否 | 與 `type` 相同 | 具有參數可接受值的陣列 |  
 | 中繼資料 | 否 | JSON 物件 | 任何參數詳細資訊，例如：邏輯應用程式的名稱或可讀取描述，或是 Visual Studio 或其他工具所使用的設計階段資料 |  
@@ -106,9 +106,9 @@ ms.locfileid: "35300176"
 
 | 元素 | 必要 | 類型 | 說明 | 
 |---------|----------|------|-------------| 
-| <*key-name*> | yes | 字串 | 輸出傳回值的索引鍵名稱 |  
-| type | yes | int、float、string、securestring、bool、array、JSON 物件 | 輸出傳回值的類型 | 
-| value | yes | 與 `type` 相同 | 輸出傳回值 |  
+| <*key-name*> | 是 | 字串 | 輸出傳回值的索引鍵名稱 |  
+| type | 是 | int、float、string、securestring、bool、array、JSON 物件 | 輸出傳回值的類型 | 
+| value | 是 | 與 `type` 相同 | 輸出傳回值 |  
 ||||| 
 
 若要取得工作流程執行的輸出，請在 Azure 入口網站中或使用 [Workflow REST API](https://docs.microsoft.com/rest/api/logic/workflows) 檢閱邏輯應用程式的執行歷程記錄和詳細資料。 您也可以將輸出傳遞至外部系統 (例如 PowerBI)，以便建立儀表板。 
@@ -125,7 +125,7 @@ ms.locfileid: "35300176"
 "rainbowColorsCount": 7 
 ```
 
-您也可以擁有在執行階段才存在的值。 若要表示這些值，您可以使用會在執行階段評估的「運算式」。 運算式是一個序列，可包含一或多個[函式](#functions)[運算子](#operators)、變數、明確值或常數。 在工作流程定義中，您可以在 JSON 字串值中的任意處使用運算式，方法是在運算式前面加上 @ 符號。 在評估代表 JSON 值的運算式時，移除 @ 字元即可擷取運算式主體，而且一律會產生其他 JSON 值。 
+您也可以擁有在執行階段才存在的值。 若要表示這些值，您可以使用會在執行階段評估的「運算式」。 運算式是一個序列，可包含一或多個[函式](#functions)[運算子](#operators)、變數、明確值或常數。 在工作流程定義中，您可以在運算式前面加上 (\@) 符號，以便在 JSON 字串值中的任何地方使用運算式。 在評估代表 JSON 值的運算式時，移除 \@ 字元即可擷取運算式主體，而且一律會產生其他 JSON 值。 
 
 例如，對於先前定義的 `customerName` 屬性，您可以在運算式中使用 [parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) 函式來取得此屬性值，並將該值指派給 `accountName` 屬性：
 
@@ -134,7 +134,7 @@ ms.locfileid: "35300176"
 "accountName": "@parameters('customerName')"
 ```
 
-「字串插補」也可讓您在字串內使用多個運算式，其以 @ 字元和大括號 ({}) 圍住。 語法如下：
+「字串內插補點」也可讓您在字串內使用多個運算式，以 \@ 字元和大括號 ({}) 圍住。 語法如下：
 
 ```json
 @{ "<expression1>", "<expression2>" }
@@ -146,7 +146,7 @@ ms.locfileid: "35300176"
 "customerName": "First name: @{parameters('firstName')} Last name: @{parameters('lastName')}"
 ```
 
-如果您有開頭為 @ 字元的常值字串，請在 @ 字元前面加上另一個 @ 字元作為逸出字元：@@
+如果您有開頭為 \@ 字元的常值字串，請在 \@ 字元前面加上另一個 \@ 字元作為逸出字元：\@\@
 
 下列範例顯示如何評估運算式：
 
@@ -154,8 +154,8 @@ ms.locfileid: "35300176"
 |------------|--------| 
 | "Sophia Owen" | 傳回這些字元：'Sophia Owen' |
 | "array[1]" | 傳回這些字元：'array[1]' |
-| "\@@\" | 以一個字元的字串形式傳回這些字元：\'\@\' |   
-| \" \@\" | 以兩個字元的字串形式傳回這些字元：\' \@\' |
+| 「\@\@」 | 以一個字元的字串形式傳回這些字元：'\@' |   
+| " \@" | 以兩個字元的字串形式傳回這些字元：'\@' |
 |||
 
 在這些範例中，假設您定義 "myBirthMonth" 等於 "January" 以及 "myAge" 等於數字 42：  
@@ -169,13 +169,13 @@ ms.locfileid: "35300176"
 
 | JSON 運算式 | 結果 |
 |-----------------|--------| 
-| "@parameters('myBirthMonth')" | 傳回這個字串："January" |  
-| "@{parameters('myBirthMonth')}" | 傳回這個字串："January" |  
-| "@parameters('myAge')" | 傳回這個數字：42 |  
-| "@{parameters('myAge')}" | 以字串形式傳回這個數字："42" |  
-| "My age is @{parameters('myAge')}" | 傳回這個字串："My age is 42" |  
-| "@concat('My age is ', string(parameters('myAge')))" | 傳回這個字串："My age is 42" |  
-| "My age is @@{parameters('myAge')}" | 傳回這個字串，其中包含運算式："My age is @{parameters('myAge')}` | 
+| "\@parameters('myBirthMonth')" | 傳回這個字串："January" |  
+| "\@{parameters('myBirthMonth')}" | 傳回這個字串："January" |  
+| "\@parameters('myAge')" | 傳回這個數字：42 |  
+| "\@{parameters('myAge')}" | 以字串形式傳回這個數字："42" |  
+| "My age is \@{parameters('myAge')}" | 傳回這個字串："My age is 42" |  
+| "\@concat('My age is ', string(parameters('myAge')))" | 傳回這個字串："My age is 42" |  
+| "My age is \@\@{parameters('myAge')}" | 傳回這個字串，其中包含運算式："My age is \@{parameters('myAge')}` | 
 ||| 
 
 當您在 Logic Apps 設計工具中以視覺化方式運作時，您可以透過運算式產生器建立運算式，例如： 
@@ -241,10 +241,10 @@ ms.locfileid: "35300176"
 
 | Task | 運算式中的函式語法 | 
 | ---- | -------------------------------- | 
-| 將該項目傳遞至函式，以執行項目處理。 | "@<*functionName*>(<*item*>)" | 
-| 1.使用巢狀 `parameters()` 函式來取得 parameterName 的值。 </br>2.將該值傳遞至 functionName，以執行結果處理。 | "@<*functionName*>(parameters('<*parameterName*>'))" | 
-| 1.從巢狀內部函式 functionName 取得結果。 </br>2.將結果傳遞至外部函式 functionName2。 | "@<*functionName2*>(<*functionName*>(<*item*>))" | 
-| 1.從 functionName 取得結果。 </br>2.假設結果是具有 propertyName 屬性的物件，則會取得該屬性的值。 | "@<*functionName*>(<*item*>).<*propertyName*>" | 
+| 將該項目傳遞至函式，以執行項目處理。 | "\@<functionName>(<item>)" | 
+| 1.使用巢狀 `parameters()` 函式來取得 parameterName 的值。 </br>2.將該值傳遞至 functionName，以執行結果處理。 | "\@<functionName>(parametersparameterName('<>'))" | 
+| 1.從巢狀內部函式 functionName 取得結果。 </br>2.將結果傳遞至外部函式 functionName2。 | "\@<functionName2>(<functionName>(<item>))" | 
+| 1.從 functionName 取得結果。 </br>2.假設結果是具有 propertyName 屬性的物件，則會取得該屬性的值。 | "\@<functionName>(<item>).<propertyName>" | 
 ||| 
 
 例如，`concat()` 函式可以採用兩個或多個字串值作為參數。 此函式會將這些字串合併成一個字串。 您可以傳入字串常值，例如，"Sophia" 和 "Owen"，以便取得合併字串 "SophiaOwen"：

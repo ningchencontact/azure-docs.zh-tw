@@ -11,12 +11,12 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: ghogen
-ms.openlocfilehash: 55b083ac5384e749098338d2f3b7b24bfe16fe8f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fd13dc94e0199aac04ae86aaf003ea9a70fa50d5
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696560"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070550"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>開始使用 Azure Blob 儲存體和 Visual Studio 已連線服務 (ASP.NET)
 
@@ -30,7 +30,7 @@ Azure Blob 儲存體是可將非結構化資料儲存在雲端作為物件或 Bl
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 
@@ -135,11 +135,11 @@ Blob 容器是 blob 和資料夾的巢狀階層。 本文件中剩餘的步驟�
 
 1. 在 [方案總管] 中，於 [檢視] 資料夾上按一下滑鼠右鍵。
 
-2. 從快顯功能表中，選取 [新增] > [新增資料夾]。 將新資料夾命名為 Blobs。 
+1. 如果沒有 **Blob** 資料夾，請建立一個。 從快顯功能表中，選取 [新增] > [新增資料夾]。 將新資料夾命名為 Blobs。 
  
 1. 在 [方案總管] 中，展開 [檢視] 資料夾，然後在 [Blobs] 上按一下滑鼠右鍵。
 
-4. 從快顯功能表中，選取 [新增] > [檢視]。
+1. 從快顯功能表中，選取 [新增] > [檢視]。
 
 1. 在 [新增檢視] 對話方塊中，針對檢視名稱輸入 **CreateBlobContainer**，然後選取 [新增]。
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 122fe9be768341716fb423a58560885c7d3035fe
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: a8f081ca9a0868bee11b27e1065a72806cb8c2c9
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920632"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214588"
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>將 Azure VM 移轉到另一個區域
 
@@ -32,7 +32,7 @@ ms.locfileid: "37920632"
 
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 請確定 Azure 區域中有 Azure VM，以便您從中進行遷移。
 - 請確定您了解[情節架構和元件](azure-to-azure-architecture.md)。

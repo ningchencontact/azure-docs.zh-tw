@@ -3,7 +3,7 @@ title: Azure 資訊安全中心的自適性應用程式控制 | Microsoft Docs
 description: 本文件協助您了解如何使用 Azure 資訊安全中心的自適性應用程式控制，將在 Azure VM 中執行的應用程式列入允許清單。
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
-ms.openlocfilehash: fa2f3c10687a02c5d0be8d7bb0ae88b2b0c38e19
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.date: 07/19/2018
+ms.author: rkarlin
+ms.openlocfilehash: 27e013ad9e94bb025cfad87cc68b244882a207b3
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989960"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161927"
 ---
-# <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Azure 資訊安全中心的自適性應用程式控制 (預覽)
+# <a name="adaptive-application-controls-in-azure-security-center"></a>Azure 資訊安全中心的自適性應用程式控制
 了解如何利用此逐步解說，在 Azure 資訊安全中心設定應用程式控制。
 
 ## <a name="what-are-adaptive-application-controls-in-security-center"></a>什麼是 Azure 資訊安全中心的自適性應用程式控制？
@@ -35,7 +35,7 @@ ms.locfileid: "38989960"
 - 讓 IT 能夠透過應用程式使用量來控制敏感性資料的存取。
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>如何啟用自適性應用程式控制？
-自適性應用程式控制可協助您定義一組可以在設定之資源群組上執行的應用程式。 這項功能只適用於 Windows 電腦 (所有版本，傳統或 Azure Resource Manager)。 可以使用下列步驟在資訊安全中心設定應用程式允許清單：
+自適性應用程式控制可協助您定義一組可以對已設定的群組執行的應用程式。 這項功能只適用於 Windows 電腦 (所有版本，傳統或 Azure Resource Manager)。 可以使用下列步驟在資訊安全中心設定應用程式允許清單：
 
 1. 開啟 [資訊安全中心] 儀表板。
 2. 在左側窗格中，選取位於 [進階雲端防禦] 之下的 [自適性應用程式控制]。
@@ -87,12 +87,12 @@ ms.locfileid: "38989960"
 
 5. 一旦完成您的選擇，請選取 [建立]。
 
-根據預設，資訊安全中心一律在「稽核」模式啟用應用程式控制。 驗證允許清單對您的工作負載沒有任何不良影響之後，即可變更為「強制」模式。
-
-資訊安全中心會依賴至少兩週的資料，以建立基準，並且在每個虛擬機器群組填入唯一建議。 資訊安全中心標準層的新客戶預期會有標準行為，也就是他們的虛擬機器群組一開始會出現在 [不推薦] 索引標籤底下。
-
+6. 資訊安全中心會使用 Windows 伺服器的 AppLocker 內建功能，對每個選取的 VM 套用適當的規則。 此外，資訊安全中心依預設一律會在「稽核」模式中啟用應用程式控制。 在驗證允許清單對您的工作負載沒有任何不良影響之後，即可切換為「強制」模式。 如需詳細資訊，請參閱 [AppLocker 的運作方式](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/how-applocker-works-techref)。
+ 
 > [!NOTE]
-> 最佳的安全性作法就是，資訊安全中心一律嘗試為應列入允許清單的應用程式建立發行者規則，且只有在應用程式沒有發行者資訊 (也就是未簽署) 時，才會針對特定 EXE 的完整路徑建立路徑規則。
+> - 資訊安全中心會依賴至少兩週的資料，以建立基準，並且在每個虛擬機器群組填入唯一建議。 資訊安全中心標準層的新客戶預期會有標準行為，也就是他們的虛擬機器群組一開始會出現在 [不推薦] 索引標籤底下。
+> - 資訊安全中心的自適性應用程式控制不支援已由 GPO 或本機安全性原則啟用 AppLocker 原則的 VM。
+> -  最佳的安全性作法就是，資訊安全中心一律嘗試為應列入允許清單的應用程式建立發行者規則，且只有在應用程式沒有發行者資訊 (也就是未簽署) 時，才會針對特定 EXE 的完整路徑建立路徑規則。
 >   
 
 ### <a name="editing-and-monitoring-a-group-configured-with-application-control"></a>編輯和監視已設定應用程式控制的群組

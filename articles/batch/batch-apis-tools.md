@@ -8,18 +8,18 @@ ms.service: batch
 ms.topic: get-started-article
 ms.date: 05/15/2018
 ms.author: danlep
-ms.openlocfilehash: 4a47c7355e8dfea97f7dee6787da87444a7642c3
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 1e7ec091bb2e4ceee84b9451456b1e5b386dc648
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359317"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173923"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Batch API 和工具的概觀
 
 使用 Azure Batch 處理平行工作負載通常會透過其中一個 [Batch API](#batch-development-apis)，以程式設計方式進行。 用戶端應用程式或服務可使用 Batch API 來與 Batch 服務進行通訊。 Batch API 可讓您建立和管理計算節點 (虛擬機器或雲端服務) 集區。 您可以接著排程要在這些節點上執行的作業及工作。 
 
-您可以為組織有效率地處理大量工作負載，或提供前端服務給客戶，讓他們可以在一個、數百個或甚至數千個節點上，依需要或依排程執行作業和工作。 您也可以在 [Azure Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)之類的工具所管理的大型工作流程中使用 Azure Batch。
+您可以為組織有效率地處理大量工作負載，或提供前端服務給客戶，讓他們可以在一個、數百個或甚至數千個節點上，依需要或依排程執行作業和工作。 您也可以在 [Azure Data Factory](../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json)之類的工具所管理的大型工作流程中使用 Azure Batch。
 
 > [!TIP]
 > 當您準備鑽研 Batch API 以深入了解它所提供的功能時，請參閱 [適用於開發人員的 Batch 功能概觀](batch-api-basics.md)。
@@ -67,7 +67,7 @@ ms.locfileid: "34359317"
 以下是其他一些可能有助於建置及偵錯 Batch 應用程式和服務的工具︰
 
 * [Azure 入口網站][portal]︰您可以在 Azure 入口網站中建立、監視和刪除 Batch 集區、作業和工作。 您可以在執行作業時檢視上述和其他資源的狀態資訊，甚至從您集區中的計算節點下載檔案。 例如，您可以在進行疑難排解時下載失敗的工作 `stderr.txt`。 您也可以下載可用來登入計算節點的遠端桌面 (RDP) 檔案。
-* [Azure BatchLabs][batch_labs]BatchLabs 是免費、功能豐富、獨立用戶端的工具，可以協助建立、偵錯及監視 Azure Batch 應用程式。 下載適用於 Mac、Linux 或 Windows 的[安裝套件](https://azure.github.io/BatchLabs/)。
+* [Azure Batch Explorer][batch_labs]：Batch Explorer (先前稱為 BatchLabs) 是免費、功能豐富、獨立用戶端的工具，可協助您建立、偵錯及監視 Azure Batch 應用程式。 下載適用於 Mac、Linux 或 Windows 的[安裝套件](https://azure.github.io/BatchExplorer/)。
 * [Microsoft Azure 儲存體總管][storage_explorer]：嚴格來說，雖然儲存體總管不算是 Azure Batch 工具，但卻是您開發和偵錯 Batch 解決方案時的另一個很實用的工具。
 
 ## <a name="additional-resources"></a>其他資源
@@ -88,7 +88,7 @@ ms.locfileid: "34359317"
 [api_java_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-batch%22
 [api_java_mgmt_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-mgmt-batch%22
 [api_net]: /dotnet/api/overview/azure/batch/
-[api_net_nuget]: https://www.nuget.org/packages/Azure.Batch/
+[api_net_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Batch/
 [api_rest_mgmt]: /rest/api/batchmanagement/
 [api_net_mgmt]: /dotnet/api/overview/azure/batch/management
 [api_net_mgmt_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/
@@ -108,6 +108,6 @@ ms.locfileid: "34359317"
 [free_account]: https://azure.microsoft.com/free/
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [msdn_benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
-[batch_labs]: https://azure.github.io/BatchLabs/
+[batch_labs]: https://azure.github.io/BatchExplorer/
 [storage_explorer]: http://storageexplorer.com/
 [portal]: https://portal.azure.com

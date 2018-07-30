@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
 ms.topic: conceptual
-ms.date: 07/01/2018
+ms.date: 07/16/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 56117953c6cd11b952a312e15cd4515895021e10
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 81616522f479175dc58188bd6acc4db4f9007756
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342652"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069365"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>使用 SQL 資料同步，跨多個雲端和內部部署資料庫同步資料
 
@@ -24,6 +24,16 @@ ms.locfileid: "37342652"
 ## <a name="architecture-of-sql-data-sync"></a>SQL 資料同步的架構
 
 資料同步以「同步群組」的概念為基礎。 「同步群組」是您想要同步的資料庫群組。
+
+資料同步使用中樞和輪輻拓撲來同步資料。 您可以將同步群組中的其中一個資料庫定義為「中樞資料庫」。 其餘的資料庫則是成員資料庫。 只有中樞和個別成員之間才會進行同步。
+-   **中樞資料庫**必須是 Azure SQL Database。
+-   **成員資料庫**可以是 SQL 資料庫、內部部署 SQL Server 資料庫，或是在 Azure 虛擬機器上的 SQL Server 執行個體。
+-   **同步處理資料庫**包含「資料同步」的中繼資料和記錄。「同步處理資料庫」必須是與「中樞資料庫」位於相同區域的 Azure SQL Database。 「同步處理資料庫」是由客戶建立，並由客戶擁有。
+
+> [!NOTE]
+> 如果您使用內部部署資料庫當做成員資料庫，則必須[安裝和設定本機同步代理程式](sql-database-get-started-sql-data-sync.md#add-on-prem)。
+
+![資料庫之間的同步資料](media/sql-database-sync-data/sync-data-overview.png)
 
 同步群組具有下列屬性：
 
@@ -35,16 +45,6 @@ ms.locfileid: "37342652"
 
 -   **衝突解決原則**是群組層級原則，可以是*中樞獲勝*或*成員獲勝*。
 
-資料同步使用中樞和輪輻拓撲來同步資料。 您可以將群組中的其中一個資料庫定義為「中樞資料庫」。 其餘的資料庫則是成員資料庫。 只有中樞和個別成員之間才會進行同步。
--   **中樞資料庫**必須是 Azure SQL Database。
--   **成員資料庫**可以是 SQL 資料庫、內部部署 SQL Server 資料庫，或是在 Azure 虛擬機器上的 SQL Server 執行個體。
--   **同步處理資料庫**包含「資料同步」的中繼資料和記錄。「同步處理資料庫」必須是與「中樞資料庫」位於相同區域的 Azure SQL Database。 「同步處理資料庫」是由客戶建立，並由客戶擁有。
-
-> [!NOTE]
-> 如果您使用內部部署資料庫當做成員資料庫，則必須[安裝和設定本機同步代理程式](sql-database-get-started-sql-data-sync.md#add-on-prem)。
-
-![資料庫之間的同步資料](media/sql-database-sync-data/sync-data-overview.png)
-
 ## <a name="when-to-use-data-sync"></a>使用資料同步的時機
 
 如果您需要讓多個 Azure SQL Database 或 SQL Server 資料庫之間的資料保持在最新狀態，資料同步就很有用。 以下是資料同步主要的使用案例：
@@ -55,7 +55,7 @@ ms.locfileid: "37342652"
 
 -   **全域散發的應用程式：** 許多企業的業務橫跨多個區域，甚至多個國家/地區。 若要盡可能降低網路延遲，最好讓資料靠近您所在的區域。 使用資料同步，您就可以輕鬆地讓全世界各個區域中的資料庫保持同步。
 
-資料同步並非最適合下列案例使用的解決方案：
+資料同步並非適合下列案例使用的解決方案：
 
 | 案例 | 某些建議的解決方案 |
 |----------|----------------------------|

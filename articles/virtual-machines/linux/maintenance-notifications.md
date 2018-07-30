@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shants
-ms.openlocfilehash: 12a3c4556de21bb0c0dd6b09458943fb03092532
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 543c30b4d2c960f3c7453369162a62dc4606d06e
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866122"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068622"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>處理 Linux 虛擬機器預定進行的維修作業通知
 
@@ -50,12 +50,12 @@ ms.locfileid: "37866122"
 > 自助式維護可能不適用於所有的虛擬機器。 若要判斷主動式重新部署是否可供您的虛擬機器使用，請在維護狀態中尋找 [立即開始]。 雲端服務 (Web/背景工作角色) 和 Service Fabric 目前無法使用自助維護。
 
 
-不建議將自助維護用於採用**可用性設定組**的部署，因為這些都是高可用性安裝，在任何指定的時間，其中只有一個更新網域會受影響。 
+不建議將自助式維護用於採用**可用性設定組**的部署，因為這些都是高可用性安裝，在任何指定的時間，其中只有一個更新網域會受影響。 
 - 讓 Azure 觸發維護工作。 針對需要重新開機的維護，請注意，維護將會逐個更新網域完成，更新網域不一定會循序接受維護，而且更新網域之間會暫停 30 分鐘。 
 - 如果擔心暫時無法使用某些容量 (1/更新網域計數)，在維護期間配置其他執行個體，即可輕鬆補足。 
 - 針對不需要重新開機的維護，系統會在容錯網域層級套用更新。 
 
-在下列情況中，**請勿**使用自助維護： 
+在下列情況，**請勿**使用自助式維護： 
 - 如果您經常關閉 VM (不論是手動、使用 DevTest Labs、使用自動關機，或依照排程)，都可能還原維護狀態，因而造成額外的停機時間。
 - 在您知道將會在維護波段結束前被刪除的短期存留虛擬機器上。 
 - 在具有大量狀態的工作負載中，其大量狀態儲存在想要於更新時進行維護的本機 (暫時) 磁碟中。 
@@ -101,7 +101,7 @@ az vm get-instance-view -g rgName -n vmName
 如果 `IsCustomerInitiatedMaintenanceAllowed` 設為 true，則下列呼叫會在 VM 上起始維修。
 
 ```azure-cli
-az vm perform-maintenance rgName vmName 
+az vm perform-maintenance -g rgName -n vmName 
 ```
 
 [!INCLUDE [virtual-machines-common-maintenance-notifications](../../../includes/virtual-machines-common-maintenance-notifications.md)]
@@ -160,7 +160,7 @@ azure compute virtual-machine initiate-maintenance --service-name myService --na
 
 **問：虛擬機器擴展集的體驗是什麼？**
 
-**答：** 計劃性維護現在可供虛擬機器擴展集使用。 如需有關如何起始自助維護的指示，請參閱虛擬機器擴展集文件中的＜如何管理計劃性維護＞一節。
+**答：** 計劃性維護現在可供虛擬機器擴展集使用。 如需有關如何起始自助式維護的指示，請參閱 [VMSS 的計劃性維護](../../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md)文件。
 
 **問：雲端服務 (Web/背景工作角色) 和 Service Fabric 的體驗是什麼？**
 

@@ -12,19 +12,33 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/26/2017
+ms.date: 07/23/2018
 ms.author: barclayn
-ms.openlocfilehash: 1fd39cf6363cb028b2f933934c95ea2b635b754a
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: b34b05ae86aed199d80a86c8e1a073cb54b5e75f
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089300"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226708"
 ---
 # <a name="what-is-azure-key-vault"></a>什麼是 Azure 金鑰保存庫？
+
 Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和密碼。 使用 Key Vault 之後，您可以使用受硬體安全模組 (HSM) 保護的金鑰來加密金鑰和密碼 (例如驗證金鑰、儲存體帳戶金鑰、資料加密金鑰、.PFX 檔案和密碼)。 為了加強保證，您可以在 HSM 中匯入或產生金鑰。 如果您選擇這麼做，Microsoft 會在進行過 FIPS 140-2 Level 2 驗證的 HSM (硬體和韌體) 中處理您的金鑰。  
 
 金鑰保存庫簡化了金鑰管理程序，並可讓您控管存取和加密資料的金鑰。 開發人員可以在幾分鐘內建立開發和測試的金鑰，然後順利地將他們移轉至生產金鑰。 安全性系統管理員可以視需要授與 (和撤銷) 存取金鑰的權限。
+
+## <a name="basic-concepts"></a>基本概念
+
+Azure Key Vault 是可安全儲存及存取祕密的工具。 祕密是指任何需受到嚴密存取控制的項目，例如 API 金鑰、密碼或憑證。
+以下提供部分主要詞彙：
+- **租用戶** - 租用戶是擁有並且可管理特定 Microsoft 雲端服務執行個體的組織。 租用戶最常以明確的方式用來參照組織的 Azure 和 Office 365 服務集合
+- **保存庫擁有者** - 可以建立具有完整存取權的 Key Vault 並加以控制。 保存庫擁有者也可以設定稽核，以記錄存取祕密和金鑰的人員。 系統管理員可控制金鑰的生命週期。 他們可將金鑰變換為新版本，以及備份金鑰等等。
+- **保存庫取用者** - 可在保存庫擁有者根據取用者獲得的授權為其授與存取權時，對 Key Vault 內的資產執行動作。
+- **[Azure Active Directory](../active-directory/active-directory-whatis.md)** 是給定租用戶的 Azure AD 服務。 每個目錄都有一或多個網域。 一個目錄可以有多個相關聯的訂用帳戶，但只能有一個租用戶。 
+- **Azure 租用戶識別碼** - 這是對 Azure 訂用帳戶內的 Azure Active Directory 進行識別的唯一方法。 
+- **受控服務識別** - Azure Key Vault 可讓您安全地儲存認證和其他金鑰及秘密，但是您的程式碼必須向 Key Vault 進行驗證，才可取得這些項目。 受控服務識別 (MSI) 可在 Azure Active Directory (Azure AD) 中將自動受控的身分識別提供給 Azure 服務，而降低解決此問題的難度。 您可以使用此身分識別向 Key Vault 或任何支援 Azure AD 驗證的服務進行驗證，而無須在程式碼中使用任何認證。 您可以在[此處](../active-directory/managed-service-identity/overview.md)閱讀 MSI 的相關資訊
+
+## <a name="key-vault-roles"></a>金鑰保存庫角色
 
 使用下表將有助於瞭解金鑰保存庫可以如何協助達到開發人員和安全性系統管理員的需求。
 
@@ -49,6 +63,7 @@ Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密�
 開發人員也可透過使用 API 直接管理金鑰。 如需詳細資訊，請參閱 [金鑰保存庫開發人員指南](key-vault-developers-guide.md)。
 
 ## <a name="next-steps"></a>後續步驟
+
 如需適用於系統管理員的開始使用教學課程，請參閱 [開始使用 Azure 金鑰保存庫](key-vault-get-started.md)。
 
 如需金鑰保存庫使用方法記錄的詳細資訊，請參閱 [Azure 金鑰保存庫記錄](key-vault-logging.md)。

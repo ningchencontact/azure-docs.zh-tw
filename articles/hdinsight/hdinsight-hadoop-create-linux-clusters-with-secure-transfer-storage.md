@@ -1,9 +1,9 @@
 ---
-title: 在 Azure HDInsight 中使用安全傳輸儲存體帳戶建立 Hadoop 叢集 | Microsoft Docs
+title: 在 Azure HDInsight 中使用安全傳輸儲存體帳戶建立 Hadoop 叢集
 description: 了解如何使用已啟用安全傳輸的 Azure 儲存體帳戶建立 HDInsight 叢集。
-keywords: hadoop 使用者入門,hadoop linux,hadoop 快速入門,安全傳輸,azure 儲存體帳戶
 services: hdinsight
 author: mumian
+ms.author: jgao
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -11,20 +11,19 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: hero-article
 ms.workload: big-data
-ms.date: 07/09/2018
-ms.author: jgao
-ms.openlocfilehash: 1a905d574d67b5965325dba80c03d75901f97fef
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.date: 07/24/2018
+ms.openlocfilehash: b4dd6f0f5f44e128e0ae15db69b2f36f8e4c5600
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952189"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247154"
 ---
 # <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>在 Azure HDInsight 中使用安全傳輸儲存體帳戶建立 Hadoop 叢集
 
 [需要安全傳輸](../storage/common/storage-require-secure-transfer.md)功能透過安全連線來強制對您帳戶的所有要求，以增強 Azure 儲存體帳戶的安全性。 只有 HDInsight 叢集 3.6 版或更新版本支援這項功能和 wasbs 配置。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 開始進行本教學課程之前，您必須具備：
 
 * **Azure 訂用帳戶**︰若要建立一個月的免費試用帳戶，請瀏覽至 [azure.microsoft.com/free](https://azure.microsoft.com/free)。
@@ -36,7 +35,7 @@ ms.locfileid: "37952189"
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
-在本節中，您會在 HDInsight 中使用 [Azure Resource Manager 範本](../azure-resource-manager/resource-group-template-deploy.md)建立 Hadoop 叢集。 這個範本位於 [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-existing-default-storage-account/) 中。 進行本教學課程並不需要具備 Resource Manager 範本經驗。 如需其他叢集建立方法及了解本教學課程中使用的屬性，請參閱 [建立 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md)。
+在本節中，您會在 HDInsight 中使用 [Azure Resource Manager 範本](../azure-resource-manager/resource-group-template-deploy.md)建立 Hadoop 叢集。 這個範本位於 [Github](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-existing-default-storage-account/) 中。 進行本教學課程並不需要具備 Resource Manager 範本經驗。 如需其他叢集建立方法及了解本教學課程中使用的屬性，請參閱 [建立 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md)。
 
 1. 按一下以下影像，在 Azure 入口網站中登入 Azure 並開啟 Resource Manager 範本。 
    
@@ -97,5 +96,3 @@ ms.locfileid: "37952189"
 [hdinsight-use-mapreduce]:hadoop/hdinsight-use-mapreduce.md
 [hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
 [hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
-
-

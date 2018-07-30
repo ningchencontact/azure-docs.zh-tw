@@ -6,15 +6,15 @@ author: seanmck
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
-ms.date: 03/29/2018
+ms.date: 07/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 2da61d52e43857237f6e231c03ea62ba5eefdadd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 953d1dfd633f2fee52a2e6d197c6f32e7ab053f7
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33767966"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160445"
 ---
 # <a name="azure-container-instances"></a>Azure Container Instances
 
@@ -47,6 +47,8 @@ Azure Container Instances 可讓您利用 IP 位址和完整網域名稱 (FQDN)�
 Azure Container Instances 可讓您使用相同的 API 來排程 Windows 和 Linux 容器。 當您建立[容器群組](container-instances-container-groups.md)時，只須指定 OS 類型。
 
 某些功能目前僅限於 Linux 容器。 雖然我們致力於將類似的功能帶入 Windows 容器，但是您可以在 [Azure Container Instances 配額和區域可用性](container-instances-quotas.md)中找到目前的平台差異。
+
+Azure 容器執行個體支援以長期維護通道 (LTSC) 版本為基礎的 Windows 映像。 Windows 半年通道 (SAC) 版本 (例如 1709 和 1803) 不受支援。
 
 ## <a name="co-scheduled-groups"></a>共同排程的群組
 

@@ -9,12 +9,12 @@ ms.date: 06/27/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 12a17edc74ef0fbc573be0fc167aa7921e599341
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 2293390684a8dcdf5f32bbae8f04fe7317d389e2
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005861"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258943"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>教學課程：開發 C# IoT Edge 模組並部署至模擬裝置
 
@@ -57,15 +57,15 @@ ms.locfileid: "39005861"
 
 ## <a name="create-an-iot-edge-module-project"></a>建立 IoT Edge 模組專案
 下列步驟會使用 Visual Studio Code 和 Azure IoT Edge 擴充功能，建立以 .NET Core 2.0 SDK 為基礎的 IoT Edge 模組專案。
-1. 在 Visual Studio Code 中，選取 [檢視] > [整合式終端機] 以開啟 VS Code 整合式終端機。
-2. 選取 [檢視] > [命令選擇區]，以開啟 VS Code 命令選擇區。 
-3. 請在命令選擇區中，輸入並執行命令 **Azure: Sign in**，然後依照指示登入您的 Azure 帳戶。 如果您已登入，則可以略過此步驟。
-4. 在 [命令選擇區] 中，輸入並執行命令 **Azure IoT Edge: New IoT Edge solution**。 在命令選擇區中提供下列資訊，以建立解決方案： 
+
+1. 在 Visual Studio Code 中，選取 [檢視] > [命令選擇區]，以開啟 VS Code 命令選擇區。 
+2. 請在命令選擇區中，輸入並執行命令 **Azure: Sign in**，然後依照指示登入您的 Azure 帳戶。 如果您已登入，則可以略過此步驟。
+3. 在 [命令選擇區] 中，輸入並執行命令 **Azure IoT Edge: New IoT Edge solution**。 在命令選擇區中提供下列資訊，以建立解決方案： 
 
    1. 選取要用來建立解決方案的資料夾。 
    2. 為解決方案提供名稱，或是接受預設值 **EdgeSolution**。
    3. 選擇 [C# 模組] 作為模組範本。 
-   4. 將模組命名為 **CSharpModule**。 
+   4. 將預設模組名稱取代為 **CSharpModule**。 
    5. 將您在上一節所建立的 Azure 容器登錄，指定為第一個模組的映像存放庫。 將 **localhost:5000** 取代為您所複製的登入伺服器值。 最終字串看起來會類似於：\<登錄名稱\>.azurecr.io/csharpmodule。
 
 4.  VS Code 視窗會載入您的 IoT Edge 解決方案工作區：模組資料夾、\.vscode 資料夾、部署資訊清單範本檔案，以及 \.env 檔案。 請在 VS Code 總管中，開啟 [modules] > [CSharpModule] > [Program.cs]。
@@ -105,6 +105,16 @@ ms.locfileid: "39005861"
     }
     ```
 
+8. **Init** 方法會宣告通訊協定以供模組使用。 將 MQTT 設定取代為 AMPQ 設定。 
+
+   ```csharp
+   // MqttTransportSettings mqttSetting = new MqttTransportSettings(TransportType.Mqtt_Tcp_Only);
+   // ITransportSettings[] settings = { mqttSetting };
+
+   AmqpTransportSettings amqpSetting = new AmqpTransportSettings(TransportType.Amqp_Tcp_Only);
+   ITransportSettings[] settings = {amqpSetting};
+   ```
+
 8. 在 **Init** 方法中，該程式碼會建立並設定 **ModuleClient** 物件。 此物件可允許模組連線至本機的 Azure IoT Edge 執行階段，以便傳送和接收訊息。 **Init** 方法中使用的連接字串，將會由 IoT Edge 執行階段提供給模組。 在建立 **ModuleClient** 之後，程式碼會從模組對應項所需的屬性中讀取 **temperatureThreshold** 值。 程式碼會註冊回撥，以透過 **input1** 端點接收來自 IoT Edge 中樞的訊息。 將 **SetInputMessageHandlerAsync** 方法取代為新的方法，並將更新的 **SetDesiredPropertyUpdateCallbackAsync** 方法新增至所需的屬性。 若要進行這項變更，請使用下列程式碼取代 **Init** 方法的最後一行：
 
     ```csharp
@@ -121,7 +131,7 @@ ms.locfileid: "39005861"
     }
 
     // Attach a callback for updates to the module twin's desired properties.
-    await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync(onDesiredPropertiesUpdate, null);
+    await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertiesUpdate, null);
 
     // Register a callback for messages that are received by the module.
     await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessages, ioTHubModuleClient);
@@ -226,7 +236,11 @@ ms.locfileid: "39005861"
    ```
    使用您在第一節中從 Azure 容器登錄複製而來的使用者名稱、密碼及登入伺服器。 您也可以在 Azure 入口網站中，從登錄的 [存取金鑰] 區段擷取這些資料。
 
-2. 在 VS Code 總管中，於 IoT Edge 解決方案工作區中開啟 deployment.template.json 檔案。 這個檔案會指示 **$edgeAgent** 部署兩個模組：**tempSensor** 和 **CSharpModule**。 **CSharpModule.image** 值會設定為映像的 Linux amd64 版本。 若要深入了解部署資訊清單，請參閱[了解如何使用、設定以及重複使用 IoT Edge 模組](module-composition.md)。
+2. 在 VS Code 總管中，於 IoT Edge 解決方案工作區中開啟 deployment.template.json 檔案。 這個檔案會指示 **$edgeAgent** 部署兩個模組：**tempSensor** 和 **CSharpModule**。 **CSharpModule.image** 值會設定為映像的 Linux amd64 版本。 
+
+   確認範本具有正確的模組名稱，而不是您在建立 IoT Edge 解決方案時變更的預設 **SampleModule** 名稱。
+
+   若要深入了解部署資訊清單，請參閱[了解如何使用、設定以及重複使用 IoT Edge 模組](module-composition.md)。
 
 3. 在 deployment.template.json 檔案中，**registryCredentials** 區段會儲存您的 Docker 登錄認證。 實際的使用者名稱和密碼組，會儲存在 git 所忽略的 .env 檔案中。  
 

@@ -2,24 +2,25 @@
 title: 從 Web 應用程式使用 Azure 金鑰保存庫的教學課程 | Microsoft Docs
 description: 使用本教學課程來幫助您了解如何從 Web 應用程式使用 Azure 金鑰保存庫。
 services: key-vault
-author: adhurwit
+author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/29/2018
-ms.author: adhurwit
-ms.openlocfilehash: 5cd764395e91a82973318da7284b28d7a43d35ea
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.date: 07/20/2018
+ms.author: barclayn
+ms.openlocfilehash: ff59e39e54433aa673b093e2ee1fbe8c74010e54
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37115053"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171318"
 ---
 # <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>教學課程：從 Web 應用程式使用 Azure Key Vault
-使用此教學課程來幫助您了解如何從 Azure 中的 Web 應用程式使用 Azure 金鑰保存庫。 其中示範從 Azure Key Vault 存取祕密以便在 Web 應用程式中使用的程序。 本教學課程接著會以此程序為基礎，並且使用憑證，而不是用戶端祕密。 本教學課程是針對 Web 開發人員所設計，這些開發人員必須了解在 Azure 上建立 Web 應用程式的基本概念。 
+
+使用此教學課程來幫助您了解如何從 Azure 中的 Web 應用程式使用 Azure 金鑰保存庫。 其中示範從 Azure Key Vault 存取祕密以便在 Web 應用程式中使用的程序。 本教學課程接著會以此程序為基礎，並且使用憑證，而不是用戶端祕密。 本教學課程是針對 Web 開發人員所設計，這些開發人員必須了解在 Azure 上建立 Web 應用程式的基本概念。
 
 在本教學課程中，您了解如何： 
 
@@ -27,11 +28,11 @@ ms.locfileid: "37115053"
 > * 將應用程式設定新增至 web.config 檔案
 > * 新增方法以取得存取權杖
 > * 在應用程式啟動時擷取權杖
-> * 使用憑證進行驗證 
+> * 使用憑證進行驗證
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，您必須具備下列項目：
 
@@ -41,7 +42,7 @@ ms.locfileid: "37115053"
 
 完成[開始使用 Azure Key Vault](key-vault-get-started.md)中的步驟來取得祕密、用戶端識別碼、用戶端祕密的 URI，並註冊應用程式。 Web 應用程式會存取保存庫，而且必須在 Azure Active Directory 中註冊。 它還必須具有 Key Vault 的存取權限。 如果並非如此，請回到開始使用教學課程中的註冊應用程式，並重複列出的步驟。 如需有關建立 Azure Web Apps 的詳細資訊，請參閱 [Web Apps 概觀](../app-service/app-service-web-overview.md)。
 
-此範例取決於手動佈建 Azure Active Directory 身分識別。 目前，有一個稱為[受控服務識別 (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview) 的預覽版新功能，可用來自動佈建 Azure AD 身分識別。 如需詳細資訊，請參閱 [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) 上的範例以及相關的 [MSI 與 App Service 及 Functions 教學課程](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity)。 
+此範例取決於手動佈建 Azure Active Directory 身分識別。 但您應改用[受控服務識別 (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview)。 MSI 可自動佈建 Azure AD 身分識別。 如需詳細資訊，請參閱 [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) 上的範例以及相關的 [MSI 與 App Service 及 Functions 教學課程](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity)。 您也可以查看 Key Vault 的特定 [MSI 教學課程](tutorial-web-application-keyvault.md)
 
 
 ## <a id="packages"></a>新增 NuGet 套件

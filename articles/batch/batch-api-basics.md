@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 04/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9de4b00b2fff1feabcaee4e30667dfbdc75d9266
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: d404e3a300a953ccc1cfb691cbde6f6d7ee54b26
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114434"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216303"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>使用 Batch 開發大規模的平行運算解決方案
 
@@ -505,7 +505,7 @@ Batch 可處理使用 Azure 儲存體將應用程式封裝儲存及部署到計�
 ## <a name="next-steps"></a>後續步驟
 * 了解可用來建置 Batch 解決方案的 [Batch API 和工具](batch-apis-tools.md)。
 * 了解使用 [Batch .NET 用戶端程式庫](quick-run-dotnet.md)或 [Python](quick-run-python.md) 開發啟用 Batch 之應用程式的基本概念。 這些快速入門會介紹使用 Batch 服務在多個計算節點上執行工作負載的範例應用程式，並說明如何使用 Azure 儲存體進行工作負載檔案的預備和擷取。
-* 下載並安裝 [BatchLabs][batch_labs] 以在開發 Batch 解決方案時使用。 您可以使用 BatchLabs 來協助建立、偵錯和監視 Azure Batch 應用程式。 
+* 下載並安裝 [Batch Explorer][batch_labs]，以在開發 Batch 解決方案時使用。 使用 Batch Explorer 有助於建立、偵錯和監視 Azure Batch 應用程式。 
 * 請參閱社群資源，包括[Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)、[Batch 社群存放庫](https://github.com/Azure/Batch)以及 MSDN 上的 [Azure Batch 論壇][batch_forum]。 
 
 [1]: ./media/batch-api-basics/node-folder-structure.png
@@ -516,7 +516,7 @@ Batch 可處理使用 Azure 儲存體將應用程式封裝儲存及部署到計�
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_sample_taskdeps]:  https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
-[batch_labs]: https://azure.github.io/BatchLabs/
+[batch_labs]: https://azure.github.io/BatchExplorer/
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [msdn_env_vars]: https://msdn.microsoft.com/library/azure/mt743623.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx

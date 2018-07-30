@@ -11,15 +11,15 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/21/2018
+ms.date: 07/20/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 42f7d767162f2f403b2cf921e31a38b711a3c773
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a785a18ac4aec3006397b6d681c476f8acf982a7
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38477689"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205668"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-governance-with-azure-powershell"></a>教學課程：了解如何使用 Azure PowerShell 來控管 Windows 虛擬機器
 
@@ -76,13 +76,9 @@ New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
 
 通常您需要針對網路參與者和儲存體帳戶參與者重複進行此程序，以確保已指派使用者來管理已部署的資源。 在本文中，您可以略過這些步驟。
 
-## <a name="azure-policies"></a>Azure 原則
+## <a name="azure-policy"></a>Azure 原則
 
-[!INCLUDE [Resource Manager governance policy](../../../includes/resource-manager-governance-policy.md)]
-
-### <a name="apply-policies"></a>套用原則
-
-您的訂用帳戶已經有數個原則定義。 若要查看可用的原則定義，請使用 [Get-AzureRmPolicyDefinition](/powershell/module/AzureRM.Resources/Get-AzureRmPolicyDefinition) 命令：
+[Azure 原則](../../azure-policy/azure-policy-introduction.md)會協助您確認訂用帳戶中的所有資源均符合公司標準。 您的訂用帳戶已經有數個原則定義。 若要查看可用的原則定義，請使用 [Get-AzureRmPolicyDefinition](/powershell/module/AzureRM.Resources/Get-AzureRmPolicyDefinition) 命令：
 
 ```azurepowershell-interactive
 (Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType

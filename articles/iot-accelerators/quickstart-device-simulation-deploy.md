@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 上部署及執行裝置模擬解決方案 | Microsoft Docs
+title: 在 Azure 上試用及執行裝置模擬解決方案 | Microsoft Docs
 description: 在本快速入門中，您要部署裝置模擬 Azure IoT 解決方案加速器。 您要使用解決方案儀表板來建立模擬。
 author: dominicbetts
 manager: timlt
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/05/2018
 ms.author: dobett
-ms.openlocfilehash: fd4a637ebb05493bf0c0a940c3ff0cb56ad94c54
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 549a1b867ad35c6de42969722ba5a2bd28c8f99a
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005028"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213151"
 ---
 # <a name="quickstart-deploy-and-run-a-cloud-based-device-simulation-solution"></a>快速入門：部署和執行雲端型裝置模擬解決方案
 

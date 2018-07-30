@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/22/2018
+ms.date: 07/16/2018
 ms.author: magoedte
-ms.openlocfilehash: 23109a74fa707759cc3300896392dcc129f3e28c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1fd5ac0f9994a4dbf4365c21ac4f31ba0eccbb15
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335749"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069146"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>監視 Azure Kubernetes Service (AKS) 容器健康情況 (預覽)
 
@@ -38,7 +38,7 @@ ms.locfileid: "36335749"
 開始之前，請檢閱下列詳細資料，以了解支援的必要條件。
 
 - 新的或現有的 AKS 叢集
-- 適用於 Linux 的 OMS 代理程式容器化版本 microsoft/oms:ciprod04202018 與更新版本。 此代理程式會在容器健康情況上線期間自動安裝。  
+- 適用於 Linux 的 OMS 代理程式容器化版本 microsoft/oms:ciprod04202018 與更新版本。 版本號碼的表示方式為日期後接下列格式 - mmddyyyy。  它會在容器健康情況上線期間自動安裝。  
 - Log Analytics 工作區。  它可在您啟用新 AKS 叢集的監視功能時建立，或您可以透過 [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md)、[PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json) 或從 [Azure 入口網站](../log-analytics/log-analytics-quick-create-workspace.md)來建立。
 - 用於啟用容器監視的 Log Analytics 參與者角色成員。  如需有關如何控制 Log Analytics 工作區存取的詳細資訊，請參閱[管理工作區](../log-analytics/log-analytics-manage-access.md)。
 
@@ -54,7 +54,7 @@ ms.locfileid: "36335749"
 在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。 
 
 ## <a name="enable-container-health-monitoring-for-a-new-cluster"></a>啟用新叢集的容器健康情況監視
-只有當您從 Azure 入口網站部署 AKS 叢集，才能啟用監視。  請依照快速入門文章[部署 Azure Kubernetes Service (AKS) 叢集](../aks/kubernetes-walkthrough-portal.md)中的步驟執行。  當您在 [監視] 頁面上時，在 [啟用監視] 選項選取 [是] 即可啟用，然後可以選取現有或建立新的 Log Analytics 工作區。  
+您可以在部署期間從 Azure 入口網站啟用對新 AKS 叢集的監視。  請依照快速入門文章[部署 Azure Kubernetes Service (AKS) 叢集](../aks/kubernetes-walkthrough-portal.md)中的步驟執行。  當您在 [監視] 頁面上時，在 [啟用監視] 選項選取 [是] 即可啟用，然後可以選取現有的或建立新的 Log Analytics 工作區。  
 
 啟用監視之後，可以順利完成所有設定工作，您可以透過兩種方式來監視叢集效能：
 
@@ -66,7 +66,7 @@ ms.locfileid: "36335749"
 啟用監視之後，大約需要 15 分鐘的時間，您才能看到該叢集的作業資料。  
 
 ## <a name="enable-container-health-monitoring-for-existing-managed-clusters"></a>啟用現有受控叢集的容器健康情況監視
-您可以從 Azure 入口網站或透過 PowerShell Cmdlet **New-AzureRmResourceGroupDeployment** 或 Azure CLI 使用提供的 Azure Resource Manager 範本，來完對已部署的 AKS 容器啟用監視。  
+您可以從 Azure 入口網站或透過 PowerShell Cmdlet **New-AzureRmResourceGroupDeployment** 或 Azure CLI 使用提供的 Azure Resource Manager 範本，來完成對已部署的 AKS 叢集啟用監視。  
 
 
 ### <a name="enable-from-azure-portal"></a>從 Azure 入口網站啟用
@@ -75,13 +75,11 @@ ms.locfileid: "36335749"
 1. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中輸入**容器**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Kubernetes 服務]。<br><br> ![Azure 入口網站](./media/monitoring-container-health/azure-portal-01.png)<br><br>  
 2. 在容器清單中選取容器。
 3. 在容器的概觀頁面上，選取 [監視容器健康情況]，然後 [上線以進行容器健康情況與記錄] 頁面隨即出現。
-4. 在 [上線以進行容器健康情況與記錄] 頁面上，如果相同訂用帳戶中有現有 Log Analytics 工作區可作為叢集，請從下拉式清單中加以選取。  清單會預先選取訂用帳戶中可部署 AKS 容器的預設工作區和位置。 您可以選取 [新建]，並在相同訂用帳戶中指定新的工作區。<br><br> ![啟用 AKS 容器健康情況監視](./media/monitoring-container-health/container-health-enable-brownfield.png) 
+4. 在 [上線以進行容器健康情況與記錄] 頁面上，如果相同訂用帳戶中有現有 Log Analytics 工作區可作為叢集，請從下拉式清單中加以選取。  清單會預先選取訂用帳戶中可部署 AKS 容器的預設工作區和位置。<br><br> ![啟用 AKS 容器健康情況監視](./media/monitoring-container-health/container-health-enable-brownfield-02.png) 
 
-    如果您選取 [新建]，[建立新工作區] 窗格會隨即出現。 [區域] 預設值是建立容器資源所在的區域，您可以接受預設值或選取不同的區域，然後指定工作區的名稱。  按一下 [建立] 以接受您的選取。<br><br> ![定義容器監視的工作區](./media/monitoring-container-health/create-new-workspace-01.png)  
-
-    >[!NOTE]
-    >在現階段，您無法在「美國中西部」區域建立新的工作區，您只能選取該區域中預先存在的工作區。  即使您可以從清單中選取該區域並讓部署啟動，但不久之後就會失敗。  
-    >
+>[!NOTE]
+>如果您想要建立新的 Log Analytics 工作區來儲存叢集中的監視資料，請依照[建立 Log Analytics 工作區](../log-analytics/log-analytics-quick-create-workspace.md)中的步驟，並確定在部署 AKS 容器所在的相同訂用帳戶中建立工作區。  
+>
  
 啟用監視之後，大約需要 15 分鐘的時間，您才能看到該叢集的作業資料。 
 
@@ -243,8 +241,15 @@ Log Analytics 工作區必須手動建立。  您可以從 [Azure 入口網站](
         ```
 啟用監視之後，大約需要 15 分鐘的時間，您才能看到該叢集的作業資料。  
 
-## <a name="verify-agent-deployed-successfully"></a>請確認已成功部署代理程式
-若要確認已正確部署 OMS 代理程式，請執行下列命令：`kubectl get ds omsagent --namespace=kube-system`。
+## <a name="verify-agent-and-solution-deployment"></a>驗證代理程式和解決方案部署
+使用代理程式版本 06072018 和更新版本時，您就可以確認代理程式和解決方案已成功部署。  使用舊版的代理程式時，您只能確認代理程式部署。
+
+### <a name="agent-version-06072018-and-higher"></a>代理程式版本 06072018 和更新版本
+請執行下列命令，以確認成功部署了代理程式。   
+
+```
+kubectl get ds omsagent --namespace=kube-system
+```
 
 輸出應像下面這樣，才表示確實正確部署：
 
@@ -254,22 +259,72 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR 
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
 ```  
 
-## <a name="view-performance-utilization"></a>檢視效能使用率
-當您開啟容器健康情況時，頁面會立即顯示叢集節點的效能使用率。  關於 AKS 叢集的檢視資訊會組織成三個檢視方塊：
+若要確認解決方案的部署，請執行下列命令：
 
+```
+kubectl get deployment omsagent-rs -n=kube-system
+```
+
+輸出應像下面這樣，才表示確實正確部署：
+
+```
+User@aksuser:~$ kubectl get deployment omsagent-rs -n=kube-system 
+NAME       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE    AGE
+omsagent   1         1         1            1            3h
+```
+
+### <a name="agent-version-earlier-than-06072018"></a>早於 06072018 的代理程式版本
+
+若要確認已正確部署 06072018 版以前發行的 OMS 代理程式，請執行下列命令：  
+
+```
+kubectl get ds omsagent --namespace=kube-system
+```
+
+輸出應像下面這樣，才表示確實正確部署：  
+
+```
+User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
+NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
+omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
+```  
+
+## <a name="view-performance-utilization"></a>檢視效能使用率
+當您開啟容器健康情況時，頁面會立即顯示整個叢集的效能使用率。  關於 AKS 叢集的檢視資訊，會組織成四個檢視方塊：
+
+- 叢集
 - 節點 
 - Controllers  
 - 容器
 
-Kubernetes 物件後面的資料列階層會從叢集中的節點開始。  展開節點後，您會看到節點上有一或多個 Pod 在執行中，如果有多個容器分組至 Pod，則會顯示在階層中的最後一個資料列。<br><br> ![效能檢視中的範例 Kubernetes 節點階層](./media/monitoring-container-health/container-performance-and-health-view-03.png)
+在 [叢集] 索引標籤中，效能折線圖會顯示您叢集的關鍵效能計量。  
 
-您可以從頁面頂端選取控制器或容器，然後檢閱那些物件的狀態與資源使用率。  使用畫面頂端的下拉式方塊，依據命名空間、服務及節點進行篩選。 如果您想要改為檢閱記憶體使用率，請從 [計量] 下拉式清單中選取 [記憶體 RSS] 或 [記憶體工作集]。  Kubernetes 1.8 和更新版本才支援**記憶體 RSS**。 否則，您會看見 **AVG %** 的值顯示為 *NaN%*，其為數值資料類型值，代表未定義或無法顯示的值。 
+![[叢集] 索引標籤上的範例效能圖表](./media/monitoring-container-health/container-health-cluster-perfview.png)
 
-![容器效能節點效能檢視](./media/monitoring-container-health/container-performance-and-health-view-04.png)
+以下是所呈現效能計量的細分：
 
-根據預設，效能資料是以過去六小時的資料為基礎，但您可以使用頁面右上角的 [時間範圍] 下拉式清單來變更視窗。 此時，頁面不會不自動重新整理，因此您必須手動重新整理。 
+- 節點 CPU 使用率 % - 這張圖表是表示在整個叢集中 CPU 使用率的彙總檢視方塊。  您可以從圖表上方的百分位數選取器中，個別或合併選取 Avg、Min、Max、50th、90th 和 95th，來篩選時間範圍的結果。 
+- 節點記憶體使用率 % - 這張圖表是表示在整個叢集中記憶體使用率的彙總檢視方塊。  您可以從圖表上方的百分位數選取器中，個別或合併選取 Avg、Min、Max、50th、90th 和 95th，來篩選時間範圍的結果。 
+- 節點計數 - 此圖表代表 Kubernetes 中的節點計數和狀態。  所表示的叢集節點狀態為「所有」、「就緒」和「尚未就緒」，且可以個別篩選或結合圖表上方的選取器。    
+- 活動 Pod 計數 - 此圖表代表 Kubernetes 中的 Pod 計數和狀態。  所表示的叢集節點狀態為「所有」、「擱置」、「執行中」和「未知」，且可以個別篩選或結合圖表上方的選取器。  
 
-在下列範例中，您會注意到*aks agentpool 3402399-0* 節點，[容器] 的值為 10，其為累計的部署容器總數。<br><br> ![每個節點範例的積存容器數](./media/monitoring-container-health/container-performance-and-health-view-07.png)<br><br> 這可幫助您快速識別叢集中節點之間的容器是否出現不平衡的情況。  
+請切換至 [節點] 索引標籤，Kubernetes 物件後面的資料列階層會從叢集中的節點開始。  展開節點後，您會看到節點上有一或多個 Pod 在執行中，如果有多個容器分組至 Pod，則會顯示在階層中的最後一個資料列。 當主機有處理器或記憶體的壓力時，您也可看到主機上有多少非 Pod 相關的工作負載在執行。
+
+![效能檢視中的範例 Kubernetes 節點階層](./media/monitoring-container-health/container-health-nodes-view.png)
+
+您可以從頁面頂端選取控制器或容器，然後檢閱那些物件的狀態與資源使用率。  使用畫面頂端的下拉式方塊，依據命名空間、服務及節點進行篩選。 如果您想要改為檢閱記憶體使用率，請從 [計量] 下拉式清單中選取 [記憶體 RSS] 或 [記憶體工作集]。  Kubernetes 1.8 和更新版本才支援**記憶體 RSS**。 否則，您會看見 **MIN %** 的值顯示為 NaN%，這是數值資料類型值，代表未定義或無法顯示的值。 
+
+![容器節點效能檢視](./media/monitoring-container-health/container-health-node-metric-dropdown.png)
+
+根據預設，效能資料是以過去六小時的資料為基礎，但您可以使用頁面右上角的 [時間範圍] 下拉式清單來變更視窗。 此時，頁面不會不自動重新整理，因此您必須手動重新整理。 您也可以從百分位數選取器中選取 Avg、MinMax、、50th、90th 和 95th，來篩選時間範圍內的結果。 
+
+![資料篩選的百分位數選取範圍](./media/monitoring-container-health/container-health-metric-percentile-filter.png)
+
+在下列範例中，您會注意到 aks-nodepool-3977305 節點，[容器] 的值為 5，這是彙總的部署容器總數。
+
+![每個節點範例的彙總容器數](./media/monitoring-container-health/container-health-nodes-containerstotal.png)
+
+這可幫助您快速識別叢集中節點之間的容器是否出現不平衡的情況。  
 
 下表描述當您檢視「節點」時所顯示的資訊。
 
@@ -277,54 +332,80 @@ Kubernetes 物件後面的資料列階層會從叢集中的節點開始。  展�
 |--------|-------------|
 | Name | 主機的名稱 |
 | 狀態 | 節點狀態的 Kubernetes 檢視 |
-| AVG % | 根據選取的時間期間內所選取計量的平均節點百分比。 |
-| AVERAGE | 根據選取的時間期間內所選取計量的平均節點實際值。  從為節點設定的 CPU/記憶體限制測量所得的平均值；對於 Pod 與容器而言，則是主機所報告的平均值。 |
+| AVG%、MIN%、MAX%、50TH%、90TH% | 根據所選取時間的期間內百分位數的平均節點百分比。 |
+| AVG、MIN、MAX、50TH、90TH | 根據所選取時間的期間內百分位數的平均節點實際值。  從為節點設定的 CPU/記憶體限制測量所得的平均值；對於 Pod 與容器而言，則是主機所報告的平均值。 |
 | 容器 | 容器的數目。 |
 | Uptime | 呈現自節點啟動或重新啟動以來經過的時間。 |
-| Pod | 僅適用於容器。 顯示它位在哪個 Pod 之中。 |
 | Controllers | 僅適用於容器與 Pod。 顯示它位在哪個控制器之中。 並非所有 Pod 都位在控制器之中，因此有些可能會顯示 N/A。 | 
-| Trend AVG% | 根據容器與節點的平均計量百分比顯示的橫條圖趨勢。 |
+| Trend AVG%、MIN%、MAX%、50TH%、90TH% | 代表控制器百分位數計量百分比的橫條圖趨勢。 |
 
 
-從選取器選擇 [控制器]。<br><br> ![選取控制器檢視](./media/monitoring-container-health/container-performance-and-health-view-08.png)
+從選取器選擇 [控制器]。
 
-您可在這裡查看控制器的效能健康情況。<br><br> ![<Name> 控制器效能檢視](./media/monitoring-container-health/container-performance-and-health-view-05.png)
+![選取控制器檢視](./media/monitoring-container-health/container-health-controllers-tab.png)
 
-資料列階層會以控制器開始，展開控制器後，您會看到一或多個 Pod 或一或多個容器。  展開 Pod 與最後一個資料夾，可顯示分組至 Pod 的容器。  
+您可在這裡查看控制器的效能健康情況。
+
+![<Name> 控制器效能檢視](./media/monitoring-container-health/container-health-controllers-view.png)
+
+資料列階層會以控制器開始，展開控制器後，您會看到一或多個容器。  展開 Pod 與最後一個資料夾，可顯示分組至 Pod 的容器。  
 
 下表描述當您檢視「控制器」時所顯示的資訊。
 
 | 欄 | 說明 | 
 |--------|-------------|
 | Name | 控制器的名稱|
-| 狀態 | 容器的狀態，就是當其完成執行後的狀態，例如終止、失敗、停止或暫停。 如果容器在執行中，但狀態卻未正確呈現或未由代理程式收取，而且超過 30 分鐘都沒有回應時，狀態為不明。 |
-| AVG % | 針對所選取計量的每個實體，積存其平均百分比的平均值。 |
-| AVERAGE | 積存容器的平均 CPU millicore 或記憶體效能。  從為 Pod 設定的 CPU/記憶體限制測量所得的平均值。 |
+| 狀態 | 容器的彙總狀態，就是當其完成執行後的狀態，例如「確定」、「終止」、「失敗」、「停止」或「暫停」。 如果容器在執行中，但狀態卻未正確呈現或未由代理程式擷取，而且超過 30 分鐘都沒有回應時，則狀態為「未知」。 下表中提供狀態圖示的其他詳細資料。|
+| AVG%、MIN%、MAX%、50TH%、90TH% | 針對所選取計量和百分位數的每個實體，彙總其平均百分比的平均值。 |
+| AVG、MIN、MAX、50TH、90TH  | 彙總容器所選百分位數的平均 CPU millicore 或記憶體效能。  從為 Pod 設定的 CPU/記憶體限制測量所得的平均值。 |
 | 容器 | 該控制器或 Pod 的容器總數。 |
 | Restarts | 積存容器中的重新啟動計數。 |
 | Uptime | 代表自容器啟動以來經過的時間。 |
-| Pod | 僅適用於容器。 顯示它位在哪個 Pod 之中。 |
 | 節點 | 僅適用於容器與 Pod。 顯示它位在哪個控制器之中。 | 
-| Trend AVG% | 呈現容器平均計量百分比的橫條圖趨勢。 |
+| Trend AVG%、MIN%、MAX%、50TH%、90TH%| 代表控制器百分位數計量百分比的橫條圖趨勢。 |
 
-從選取器選擇 [容器]。<br><br> ![選取容器檢視](./media/monitoring-container-health/container-performance-and-health-view-09.png)
+在 [狀態] 欄位中的圖示會指出容器的線上狀態：
+ 
+| 圖示 | 狀態 | 
+|--------|-------------|
+| ![準備好執行的狀態圖示](./media/monitoring-container-health/container-health-ready-icon.png) | 執行中 (就緒)|
+| ![等候中或已暫停狀態圖示](./media/monitoring-container-health/container-health-waiting-icon.png) | 等候中或已暫停|
+| ![上次回報的執行狀態圖示](./media/monitoring-container-health/container-health-grey-icon.png) | 上次回報的執行，但尚未回應超過 30 分鐘|
+| ![終止的狀態圖示](./media/monitoring-container-health/container-health-green-icon.png) | 已成功停止或無法停止|
 
-我們可在這裡查看容器的效能健康情況。<br><br> ![<Name> 控制器效能檢視](./media/monitoring-container-health/container-performance-and-health-view-06.png)
+狀態圖示會根據 Pod 所提供的功能顯示計數。 它會顯示較差的兩個狀態，且當您停留在狀態上時，會顯示容器中所有 Pod 的彙總狀態。  如果沒有就緒狀態，則狀態值將會顯示 **(0)**。  
+
+從選取器選擇 [容器]。
+
+![選取容器檢視](./media/monitoring-container-health/container-health-containers-tab.png)
+
+我們可在這裡查看容器的效能健康情況。
+
+![<Name> 控制器效能檢視](./media/monitoring-container-health/container-health-containers-view.png)
 
 下表描述當您檢視「容器」時所顯示的資訊。
 
 | 欄 | 說明 | 
 |--------|-------------|
 | Name | 控制器的名稱|
-| 狀態 | 積存容器的狀態，若有的話。 |
-| AVG % | 針對所選取計量的每個實體，積存其平均百分比的平均值。 |
-| AVERAGE | 積存容器的平均 CPU millicore 或記憶體效能。 從為 Pod 設定的 CPU/記憶體限制測量所得的平均值。 |
-| 容器 | 該控制器的容器總數。|
+| 狀態 | 容器的狀態，若有的話。 下表中提供狀態圖示的其他詳細資料。|
+| AVG%、MIN%、MAX%、50TH%、90TH% | 針對所選取計量和百分位數的每個實體，彙總其平均百分比的平均值。 |
+| AVG、MIN、MAX、50TH、90TH  | 彙總容器所選百分位數的平均 CPU millicore 或記憶體效能。  從為 Pod 設定的 CPU/記憶體限制測量所得的平均值。 |
+| Pod | Pod 所在的容器。| 
+| 節點 |  容器所在的節點。 | 
 | Restarts | 代表自容器啟動以來經過的時間。 |
 | Uptime | 代表自容器啟動或重新啟動以來經過的時間。 |
-| Pod | Pod 所在位置的資訊。 |
-| 節點 |  容器所在的節點。  | 
-| Trend AVG% | 呈現容器平均計量百分比的橫條圖趨勢。 |
+| Trend AVG%、MIN%、MAX%、50TH%、90TH% | 代表容器平均計量百分比的橫條圖趨勢。 |
+
+在 [狀態] 欄位中的圖示會指出 Pod 的線上狀態：
+ 
+| 圖示 | 狀態 | 
+|--------|-------------|
+| ![準備好執行的狀態圖示](./media/monitoring-container-health/container-health-ready-icon.png) | 執行中 (就緒)|
+| ![等候中或已暫停狀態圖示](./media/monitoring-container-health/container-health-waiting-icon.png) | 等候中或已暫停|
+| ![上次回報的執行狀態圖示](./media/monitoring-container-health/container-health-grey-icon.png) | 上次回報的執行，但尚未回應超過 30 分鐘|
+| ![終止的狀態圖示](./media/monitoring-container-health/container-health-terminated-icon.png) | 已成功停止或無法停止|
+| ![失敗狀態圖示](./media/monitoring-container-health/container-health-failed-icon.png) | 失敗狀態 |
 
 ## <a name="container-data-collection-details"></a>容器資料收集詳細資料
 容器健康情況會從容器主機和容器收集各種效能計量和記錄資料。 每隔三分鐘會收集一次資料。
@@ -352,7 +433,9 @@ Kubernetes 物件後面的資料列階層會從叢集中的節點開始。  展�
 ## <a name="search-logs-to-analyze-data"></a>搜尋記錄來分析資料
 Log Analytics 可協助您找出趨勢、診斷瓶頸、預測或讓將資料相互關聯，協助您判斷目前叢集設定是否以最佳方式運作。  提供可立即開始使用的預先定義記錄搜尋，或自訂以您想要的方式傳回資訊。 
 
-您可以在展開容器時選取位在最右邊的 [檢視記錄] 選項，在工作區中對資料執行互動式分析。  在入口網站上，[記錄搜尋] 頁面會顯示在您所在頁面的正上方。<br><br> ![在 Log Analytics 中分析資料](./media/monitoring-container-health/container-performance-and-health-view-logs-01.png)   
+您在展開控制器或容器時，可以選取位在最右邊的 [檢視記錄] 選項，在工作區中對資料執行互動式分析。  在入口網站上，[記錄搜尋] 頁面會顯示在您所在頁面的正上方。
+
+![在 Log Analytics 中分析資料](./media/monitoring-container-health/container-health-view-logs.png)   
 
 轉送至 Log Analytics 的容器記錄輸出為 STDOUT 與 STDERR。 因為容器健康情況會監視 Azure 受控 Kubernetes (AKS)，而今天不會收集 Kube-system，因為已產生大量資料。     
 
@@ -435,7 +518,9 @@ Log Analytics 可協助您找出趨勢、診斷瓶頸、預測或讓將資料相
     }
     ```
 
-4. 以您在所選取叢集的 [屬性] 頁面所找到 AKS 叢集的值來編輯 **aksResourceId** 與 **aksResourceLocation** 的值。<br><br> ![容器屬性頁面](./media/monitoring-container-health/container-properties-page.png)<br>
+4. 以您在所選取叢集的 [屬性] 頁面所找到 AKS 叢集的值來編輯 **aksResourceId** 與 **aksResourceLocation** 的值。
+
+    ![容器屬性頁面](./media/monitoring-container-health/container-properties-page.png)
 
     當您在 [屬性] 頁面上時，亦請複製 [工作區資源識別碼]。  如果您稍後決定要刪除 Log Analytics 工作區 (不會在此過程中執行)，必須要有這個值。  
 
@@ -477,16 +562,30 @@ Log Analytics 可協助您找出趨勢、診斷瓶頸、預測或讓將資料相
 
 如果成功啟用容器健康情況，但當您執行記錄搜尋時，在 Log Analytics 中看不到任何狀態資訊或結果，則可以執行下列步驟來協助診斷問題。   
 
-1. 執行下列命令來檢查代理程式的狀態：`kubectl get ds omsagent --namespace=kube-system`
+1. 請執行下列命令來檢查代理程式的狀態： 
 
-    輸出應像下面這樣，才表示代理程式在叢集中的所有節點上執行中。  例如，此叢集有兩個節點，而您應預期該值等於節點數目。  
+    `kubectl get ds omsagent --namespace=kube-system`
+
+    輸出應像下面這樣，才表示確實正確部署：
 
     ```
-    User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
+    User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
     NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
     omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
+    ```  
+2. 請執行下列命令，使用代理程式版本 06072018 或更高版本，來檢查解決方案部署狀態：
+
+    `kubectl get deployment omsagent-rs -n=kube-system`
+
+    輸出應像下面這樣，才表示確實正確部署：
+
     ```
-2. 執行下列命令以檢查 Pod 的狀態，確認其是否在執行中：`kubectl get pods --namespace=kube-system`
+    User@aksuser:~$ kubectl get deployment omsagent-rs -n=kube-system 
+    NAME       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE    AGE
+    omsagent   1         1         1            1            3h
+    ```
+
+3. 執行下列命令以檢查 Pod 的狀態，確認其是否在執行中：`kubectl get pods --namespace=kube-system`
 
     輸出應像下面這樣，omsagent 的狀態為「執行中」：
 
@@ -500,7 +599,8 @@ Log Analytics 可協助您找出趨勢、診斷瓶頸、預測或讓將資料相
     omsagent-fkq7g                      1/1       Running   0          1d 
     ```
 
-3. 檢查代理程式記錄。 容器化的代理程式完成部署時，它會執行 OMI 命令並顯示代理程式版本與 Docker 提供者，以執行快速檢查。 請執行下列命令，以查看代理程式是否順利上線：`kubectl logs omsagent-484hw --namespace=kube-system`
+4. 檢查代理程式記錄。 容器化的代理程式完成部署時，會執行 OMI 命令並顯示代理程式和 
+5.  提供者版本，以執行快速檢查。 請執行下列命令，以查看代理程式是否順利上線：`kubectl logs omsagent-484hw --namespace=kube-system`
 
     狀態應該如以下所示：
 

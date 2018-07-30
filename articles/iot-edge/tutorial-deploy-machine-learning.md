@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 47db87bf734674bd424fecd0f0f22bff9e2df5d5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 62ca816f7bdc183727eb22806ba9e733c8b97c44
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299249"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173500"
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>將 Azure Machine Learning 部署為 IoT Edge 模組 - 預覽
 
-您可以使用 IoT Edge 模組來部署程式碼，將您的商務邏輯直接實作到您的 IoT Edge 裝置。 本教學課程會逐步引導您部署 Azure Machine Learning 模組，以根據模擬機器的溫度資料來預測裝置何時會故障。 
+您可以使用 IoT Edge 模組來部署程式碼，將您的商務邏輯直接實作到您的 IoT Edge 裝置。 本教學課程會逐步引導您部署 Azure Machine Learning 模組，以根據模擬機器的溫度資料來預測裝置何時會故障。 如需與 IoT Edge 上的 Azure ML 有關的詳細資訊，請參閱 [Azure Machine Learning 文件](../machine-learning/desktop-workbench/use-azure-iot-edge-ai-toolkit.md)。
 
 您在本教學課程中建立的 Azure Machine Learning 模組會讀取裝置所產生的環境資料，並將訊息標示為異常或非異常。
 
@@ -33,7 +33,7 @@ ms.locfileid: "38299249"
 >[!NOTE]
 >Azure IoT Edge 上的 Azure Machine Learning 模組目前為公開預覽版。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要測試您在本教學課程中建置的 Machine Learning 模組，您必須要有 IoT Edge 裝置。 您可以使用您在 [Linux](quickstart-linux.md) 或 [Windows 裝置](quickstart.md)快速入門中所設定的裝置。 
 
@@ -41,16 +41,16 @@ Azure Machine Learning 模組不支援 ARM 處理器。
 
 您的開發電腦必須符合下列先決條件： 
 * Azure Machine Learning 帳戶。 請遵循[建立 Azure Machine Learning 帳戶，並安裝 Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts) 中的指示。 您不需要針對此教學課程安裝 Workbench 應用程式。 
-* 在您的電腦上的 Azure ML 模組管理。 若要設定您的環境並建立帳戶，請遵循[模型管理設定](../machine-learning/desktop-workbench/deployment-setup-configuration.md)中的指示。
+* 電腦上的 Azure ML 模型管理。 若要設定您的環境並建立帳戶，請遵循[模型管理設定](../machine-learning/desktop-workbench/deployment-setup-configuration.md)中的指示。 在部署設定期間，建議盡可能選擇本機步驟，而不是叢集步驟。
 
 ### <a name="disable-process-identification"></a>停用程序識別
 
 >[!NOTE]
 >
 > 預覽版的 Azure Machine Learning 不支援 IoT Edge 所預設啟用的程序識別安全性功能。 
-> 以下是此功能的停用步驟。 不過，這不適合生產環境使用。
+> 以下是此功能的停用步驟。 不過，這不適合生產環境使用。 這些步驟只須在 Linux 上執行，因為在執行 Windows Edge 執行階段設定步驟時，此步驟已於先前完成。
 
-若要停用程序識別，您必須在 IoT Edge 精靈設定的 [連線] 區段中，對 **workload_uri** 和 **management_uri** 提供 IP 位址和連接埠。
+若要在 IoT Edge 裝置上停用程序識別，您必須在 IoT Edge 精靈設定的 [連線] 區段中，對 **workload_uri** 和 **management_uri** 提供 IP 位址和連接埠。
 
 先取得 IP 位址。 在命令列中輸入 `ifconfig`，然後複製 **docker0** 介面的 IP 位址。
 
@@ -131,7 +131,7 @@ az ml service create realtime --model-file model.pkl -f iot_score.py -n machinel
 
 1. 新增您建立的機器學習模組。
 
-    1. 按一下 [新增]，然後選取 [Azure Machine Learning 模組]。
+    1. 按一下 [新增]，然後選取 [IoT Edge 模組]。
     1. 在 [名稱] 欄位中，輸入 `machinelearningmodule`
     1. 在 [映像] 欄位中，輸入您的映像地址，例如`<registry_name>.azurecr.io/machinelearningmodule:1`。
     1. 選取 [ **儲存**]。

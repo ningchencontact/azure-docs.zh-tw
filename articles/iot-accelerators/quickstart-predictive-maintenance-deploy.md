@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 上部署雲端式 IoT 預測性維護解決方案 | Microsoft Docs
+title: 在 Azure 上試用雲端式 IoT 預測性維護解決方案 | Microsoft Docs
 description: 在本快速入門中，您會部署預測性維護 Azure IoT 解決方案加速器，然後登入和使用解決方案儀表板。
 author: dominicbetts
 manager: timlt
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/12/2018
 ms.author: dobett
-ms.openlocfilehash: 65c10f393efbeaa111e2b413a0568da053c04567
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 10ff6565ed8997a5cb87394aa0d743a0d94b67e0
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001122"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144307"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>快速入門：嘗試以雲端式解決方案對我的連線裝置執行預測性維護分析
 
@@ -76,7 +76,7 @@ Fabrikam 的飛機引擎由各種感應器進行檢測，而這些感應器會�
 
 如果您打算進一步探索，請讓預測性維護解決方案加速器維持部署。
 
-如果您不再需要解決方案加速器，可加以選取，然後按一下 [刪除解決方案]，從[已佈建的解決方案](https://www.azureiotsolutions.com/Accelerators#dashboard) 頁面中加以刪除：
+如果您不再需要解決方案加速器，可加以選取，然後按一下 [刪除解決方案]，從[已佈建的解決方案](https://www.azureiotsolutions.com/Accelerators#dashboard)頁面中加以刪除：
 
 ![刪除解決方案](media/quickstart-predictive-maintenance-deploy/deletesolution.png)
 

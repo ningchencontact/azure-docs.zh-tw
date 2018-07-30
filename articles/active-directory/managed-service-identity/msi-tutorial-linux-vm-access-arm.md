@@ -1,6 +1,6 @@
 ---
-title: 使用 Linux VM 使用者指派的 MSI 存取 Azure Resource Manager
-description: 本教學課程引導您使用 Linux VM 上使用者指派的受控服務身分識別 (MSI) 來存取 Azure Resource Manager 的程序。
+title: 使用 Linux VM 使用者指派的受控服務識別來存取 Azure Resource Manager
+description: 此教學課程會引導您使用 Linux VM 上使用者指派的受控服務識別來存取 Azure Resource Manager 的程序。
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 06abd7867a99c20597ed17faf6fa61b91f70baaa
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: c2735d385b0a3c2201ec2dad83c0c32fe44d458c
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007701"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258238"
 ---
 # <a name="tutorial-use-a-user-assigned-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>教學課程：使用 Linux 虛擬機器上使用者指派的身分識別，來存取 Azure Resource Manager
 
@@ -72,7 +72,7 @@ ms.locfileid: "39007701"
     az login
     ```
 
-2. 使用 [az identity create](/cli/azure/identity#az_identity_create)，建立使用者指派的身分識別。 `-g` 參數會指定要建立 MSI 的資源群組，而 `-n` 參數則指定其名稱。 請務必以您自己的值取代 `<RESOURCE GROUP>` 和 `<MSI NAME>` 參數的值：
+2. 使用 [az identity create](/cli/azure/identity#az_identity_create)，建立使用者指派的身分識別。 `-g` 參數會指定要在其中建立受控服務識別的資源群組，而 `-n` 參數會指定其名稱。 請務必以您自己的值取代 `<RESOURCE GROUP>` 和 `<MSI NAME>` 參數的值：
     
 [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -102,7 +102,7 @@ az identity create -g <RESOURCE GROUP> -n <MSI NAME>
 
 使用者指派的身分識別可以由多個 Azure 資源上的用戶端使用。 使用下列命令以將使用者指派的身分識別指派至單一虛擬機器。 針對 `-IdentityID` 參數，請使用前一個步驟中所傳回的 `Id` 屬性。
 
-使用 [az vm assign-identity](/cli/azure/vm#az_vm_assign_identity)，將使用者指派的 MSI 指派給 Linux VM。 請務必以您自己的值取代 `<RESOURCE GROUP>` 和 `<VM NAME>` 參數的值。 至於 `--identities` 參數值，請使用前一個步驟中所傳回的 `id` 屬性。
+請使用 [az vm assign-identity](/cli/azure/vm#az_vm_assign_identity)，將使用者指派的受控服務識別指派給 Linux VM。 請務必以您自己的值取代 `<RESOURCE GROUP>` 和 `<VM NAME>` 參數的值。 至於 `--identities` 參數值，請使用前一個步驟中所傳回的 `id` 屬性。
 
 ```azurecli-interactive
 az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"

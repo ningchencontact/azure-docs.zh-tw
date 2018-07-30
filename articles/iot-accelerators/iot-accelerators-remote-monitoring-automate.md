@@ -1,20 +1,20 @@
 ---
-title: 在 Azure 型遠端監視解決方案中偵測裝置問題 | Microsoft Docs
+title: 在 Azure 型遠端監視解決方案中偵測裝置問題的教學課程 | Microsoft Docs
 description: 本教學課程會示範如何使用規則和動作，來自動偵測遠端監視解決方案中的閾值型裝置問題。
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 06/08/2018
+ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 1e3eaeec1d2eae3c36f285a3e4c536657504cbb8
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 29d4289f5b83e37cddec652b976aeb5aa255ed4c
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098476"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158872"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>教學課程：偵測與監視解決方案連線的裝置問題
 
@@ -33,29 +33,19 @@ ms.locfileid: "37098476"
 > * 編輯現有的規則
 > * 開啟和關閉規則
 
-## <a name="prerequisites"></a>先決條件
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-若要依循本教學課程進行操作，您需要在 Azure 訂用帳戶中有一個已部署的遠端監視解決方案加速器執行個體。
+[!INCLUDE [iot-iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
-如果您尚未部署遠端監視解決方案加速器，則應該先完成[部署雲端式遠端監視解決方案](quickstart-remote-monitoring-deploy.md)快速入口。
-
-## <a name="view-the-existing-rules"></a>檢視現有的規則
+## <a name="review-the-existing-rules"></a>檢閱現有的規則
 
 解決方案加速器中的 [規則] 頁面會顯示所有目前規則的清單：
 
 [![規則頁面](./media/iot-accelerators-remote-monitoring-automate/rulesactions_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactions_v2-expanded.png#lightbox)
 
-若只要檢視適用於冷卻器裝置的規則，請套用篩選條件：
-
-[![篩選規則清單](./media/iot-accelerators-remote-monitoring-automate/rulesactionsfilter_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsfilter_v2-expanded.png#lightbox)
-
-當您從清單中選取某個規則時，即可檢視該規則的詳細資訊並進行編輯：
+若只要檢視適用於冷卻器裝置的規則，請套用篩選條件。 當您從清單中選取某個規則時，即可檢視該規則的詳細資訊並進行編輯：
 
 [![檢視規則詳細資料](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdetail_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdetail_v2-expanded.png#lightbox)
-
-若要停用或啟用一或多個規則，請選取清單中的一或多個規則：
-
-[![選取多個規則](./media/iot-accelerators-remote-monitoring-automate/rulesactionsmultiselect_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsmultiselect_v2-expanded.png#lightbox)
 
 ## <a name="create-a-rule"></a>建立規則
 
@@ -80,7 +70,7 @@ ms.locfileid: "37098476"
 
 [![觸發的警告規則](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-inline.png)](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-expanded.png#lightbox)
 
-## <a name="create-a-rule-with-multiple-conditions"></a>建立具有多個條件的規則
+## <a name="create-an-advanced-rule"></a>建立進階規則
 
 若要建立具有多個條件的規則，以便在冷卻器裝置過去 5 分鐘內的平均濕度大於 80% 且平均溫度大於華氏 75 度時產生重大警示，請按一下 [新增規則]。 使用下列值來建立規則：
 
@@ -128,23 +118,7 @@ ms.locfileid: "37098476"
 
 如果您從清單中選取多個規則，便可以同時啟用和停用多個規則。
 
-<!-- ## Delete a rule
-
-To permanently delete a rule, choose the rule in the list of rules and then choose **Delete**.
-
-You can delete multiple rules at the same time if you select multiple rules in the list.-->
-
-## <a name="clean-up-resources"></a>清除資源
-
-如果您打算繼續進行下一個教學課程，請將已部署的遠端監視解決方案加速器保留下來。 若要在未使用解決方案加速器時減少其執行成本，您可以在 [設定] 面板中停止模擬裝置：
-
-[![暫停遙測](./media/iot-accelerators-remote-monitoring-automate/togglesimulation-inline.png)](./media/iot-accelerators-remote-monitoring-automate/togglesimulation-expanded.png#lightbox)
-
-當您準備好開始下一個教學課程時，便可重新啟動模擬裝置。
-
-如果您不再需要解決方案加速器，則請從 [已佈建的解決方案][](https://www.azureiotsolutions.com/Accelerators#dashboard) 頁面中刪除：
-
-![刪除解決方案](media/iot-accelerators-remote-monitoring-automate/deletesolution.png)
+[!INCLUDE [iot-iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

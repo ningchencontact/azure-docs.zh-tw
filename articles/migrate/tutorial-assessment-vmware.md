@@ -4,15 +4,15 @@ description: 說明如何使用 Azure Migrate 服務，探索及評估要移轉�
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/09/2018
+ms.date: 07/20/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0b1070e29c8dc9f088297622d16fb816a10a55c0
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: fab8e4f09062f671714dabd1dae86a1979e356d2
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970780"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172342"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>探索及評估要移轉到 Azure 的內部部署 VMware VM
 
@@ -30,7 +30,7 @@ ms.locfileid: "38970780"
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - **VMWare**：您計劃移轉的虛擬機器必須透過執行版本 5.5、6.0 或 6.5 的 vCenter Server 來管理。 此外，您還需要一部執行版本 5.0 或更新版本的 ESXi 主機來部署收集器 VM。
 - **vCenter Server 帳戶**：您需要一個唯讀帳戶來存取 vCenter Server。 Azure Migrate 會使用此帳戶來探索內部部署 VM。
@@ -227,9 +227,9 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
 
 #### <a name="confidence-rating"></a>信賴評等
 
-Azure Migrate 中的每個評量會與信賴評等連結，信賴評等的範圍從 1 顆星到 5 顆星 (1 顆星最低，5 顆星最高)。 根據計算評量所需的資料點可用性，每個評量都會指派信賴評等。 評量的信賴評等可協助您評估 Azure Migrate 提供的大小建議之可靠性。
+Azure Migrate 中的每個效能型評量會與信賴評等相關聯，信賴評等的範圍從 1 顆星到 5 顆星 (1 顆星最低，5 顆星最高)。 根據計算評量所需的資料點可用性，每個評量都會指派信賴評等。 評量的信賴評等可協助您評估 Azure Migrate 提供的大小建議之可靠性。 信賴評等不適用內部評估。
 
-對於調整大小準則為「以效能為基礎調整大小」的評估，評估的信賴評等更實用。 對於以效能為基礎的大小調整，Azure Migrate 需要 VM 的 CPU、記憶體使用量資料。 此外，對於連結至 VM 的每個磁碟，它都需要磁碟 IOPS 和輸送量資料。 同樣地，對於連接至虛擬機器的每個網路介面卡，Azure Migrate 需要輸入/輸出網路以進行以效能為基礎的大小調整。 如果上述的任何使用量數字在 vCenter Server 中無法取得，則 Azure Migrate 所完成的大小建議可能不可靠。 根據可用資料點的百分比提供評量的信賴評等如下：
+對於以效能為基礎的大小調整，Azure Migrate 需要 VM 的 CPU、記憶體使用量資料。 此外，對於連結至 VM 的每個磁碟，它都需要磁碟 IOPS 和輸送量資料。 同樣地，對於連接至虛擬機器的每個網路介面卡，Azure Migrate 需要輸入/輸出網路以進行以效能為基礎的大小調整。 如果上述的任何使用量數字在 vCenter Server 中無法取得，則 Azure Migrate 所完成的大小建議可能不可靠。 根據可用資料點的百分比提供評量的信賴評等如下：
 
    **資料點的可用性** | **信賴評等**
    --- | ---

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: get-started-article
 ms.date: 07/11/2018
 ms.author: tamram
-ms.openlocfilehash: 30741e48adbdb621317c13ec286b419bed2f9ea1
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e6a3ff22d6224ff0accdf39ad098505626659688
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001536"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238245"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure 儲存體簡介
 
@@ -23,7 +23,7 @@ Azure 儲存體是 Microsoft 針對最新資料儲存體環境推出的雲端儲
 - **安全。** 所有寫入 Azure 儲存體的資料皆會由服務進行加密。 Azure 儲存體在存取您資料的人員控管上，提供更細微的控制。
 - **可調整。** Azure 儲存體設計為可大幅調整，以符合現今應用程式的資料儲存和效能需求。 
 - **受控。** Microsoft Azure 會為您處理維護作業和任何重大問題。
-- **可存取。** 您可以從世界各地透過 HTTP 或 HTTPS 存取 Azure 儲存體中的資料。 Microsoft 提供多種語言的 Azure 儲存體 SDK (.NET、Java、Node.js、Python、PHP、Ruby、Go 等) 和成熟的 REST API。 Azure 儲存體支援 Azure PowerShell 或 Azure CLI 的描述。 而且在使用資料方面，Azure 入口網站和 Azure 儲存體總管提供簡易的視覺式解決方案。  
+- **可存取。** 您可以從世界各地透過 HTTP 或 HTTPS 存取 Azure 儲存體中的資料。 Microsoft 提供多種語言的 Azure 儲存體 SDK (.NET、Java、Node.js、Python、PHP、Ruby、Go 等) 和成熟的 REST API。 Azure 儲存體支援在 Azure PowerShell 或 Azure CLI 中使用指令碼。 而且在使用資料方面，Azure 入口網站和 Azure 儲存體總管提供簡易的視覺式解決方案。  
 
 ## <a name="azure-storage-services"></a>Azure 儲存體服務
 

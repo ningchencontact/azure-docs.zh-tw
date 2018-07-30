@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shants
-ms.openlocfilehash: 32d61367790a2b0b43e92c427a366f58e3c12ae9
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 609a688ba2915e57916a6e5e9ea0cbdc66ccdd6a
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888978"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069551"
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>處理 Windows 虛擬機器預定進行的維修作業通知
 
@@ -55,7 +55,7 @@ ms.locfileid: "37888978"
 - 如果擔心暫時無法使用某些容量 (1/更新網域計數)，在維護期間配置其他執行個體，即可輕鬆補足。
 - 針對不需要重新開機的維護，系統會在容錯網域層級套用更新。
     
-在下列情況中，**請勿**使用自助維護： 
+在下列情況，**請勿**使用自助式維護： 
 - 如果您經常關閉 VM (不論是手動、使用 DevTest Labs、使用自動關機，或依照排程)，都可能還原維護狀態，因而造成額外的停機時間。
 - 在您知道將會在維護波段結束前被刪除的短期存留虛擬機器上。 
 - 在具有大量狀態的工作負載中，其大量狀態儲存在想要於更新時進行維護的本機 (暫時) 磁碟中。 
@@ -187,7 +187,7 @@ Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 
 **問：虛擬機器擴展集的體驗是什麼？**
 
-**答：** 計劃性維護現在可供虛擬機器擴展集使用。 如需有關如何起始自助維護的指示，請參閱虛擬機器擴展集文件中的＜如何管理計劃性維護＞一節。
+**答：** 計劃性維護現在可供虛擬機器擴展集使用。 如需有關如何起始自助式維護的指示，請參閱 [VMSS 的計劃性維護](../../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md)文件。
 
 **問：雲端服務 (Web/背景工作角色) 和 Service Fabric 的體驗是什麼？**
 

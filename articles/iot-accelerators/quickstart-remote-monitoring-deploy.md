@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 上部署雲端式 IoT 遠端監視解決方案 | Microsoft Docs
+title: 在 Azure 上試用雲端式 IoT 遠端監視解決方案 | Microsoft Docs
 description: 在本快速入門中，您會部署遠端監視 Azure IoT 解決方案加速器，然後登入和使用解決方案儀表板。
 author: dominicbetts
 manager: timlt
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/12/2018
 ms.author: dobett
-ms.openlocfilehash: 8dd630650498f3698fea3ed03882fe8c5c3d338e
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 50005e38214bf22aa664c2d2b0cc4f86da412818
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004313"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144489"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>快速入門：嘗試雲端式遠端監視解決方案
 

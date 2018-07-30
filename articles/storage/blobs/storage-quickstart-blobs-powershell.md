@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: rogarana
-ms.openlocfilehash: f028d37a98cecf14706773a2eb7cb601481435d1
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2ae0fee410c93911546e5cbeef1378e6f7ebbc39
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307910"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205192"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-azure-powershell"></a>快速入門：使用 Azure PowerShell 上傳、下載及列出 Blob
 
@@ -113,13 +113,15 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已了解如何在本機磁碟和 Azure Blob 儲存體之間傳輸檔案。 若要深入了解 Blob 儲存體的用法，請繼續閱讀 Blob 儲存體操作說明。
+在本快速入門中，您已了解如何在本機磁碟和 Azure Blob 儲存體之間傳輸檔案。 若要深入了解如何透過 PowerShell 使用 Blob 儲存體，請繼續參閱「如何搭配使用 Azure PowerShell 與 Azure 儲存體」。
 
 > [!div class="nextstepaction"]
-> [Blob 儲存體作業操作說明](storage-how-to-use-blobs-powershell.md)
+> [搭配使用 Azure PowerShell 與 Azure 儲存體](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets-reference"></a>Microsoft Azure PowerShell 儲存體 Cmdlet 參考
+
 * [儲存體 PowerShell Cmdlet](/powershell/module/azurerm.storage#storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure 儲存體總管
+
 * [Microsoft Azure 儲存體總管](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 是一個免費的獨立應用程式，可讓您在 Windows、MacOS 和 Linux 上以視覺化方式處理 Azure 儲存體資料。
