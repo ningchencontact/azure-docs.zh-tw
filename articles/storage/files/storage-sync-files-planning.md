@@ -1,6 +1,6 @@
 ---
-title: 規劃 Azure 檔案同步 (預覽) | Microsoft Docs
-description: 了解規劃 Azure 檔案部署時的考量事項。
+title: 規劃 Azure 檔案同步部署 | Microsoft Docs
+description: 了解規劃 Azure 檔案服務部署時的考量事項。
 services: storage
 documentationcenter: ''
 author: wmgries
@@ -12,17 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: 1927ab29e82836c60b2ba36c3eec0acf49778082
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 79f3787713d7615d8f5c42d1747dfa5ed96780cd
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335834"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214878"
 ---
-# <a name="planning-for-an-azure-file-sync-preview-deployment"></a>規劃 Azure 檔案同步 (預覽) 部署
-使用 Azure 檔案同步 (預覽版)，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的靈活度、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
+# <a name="planning-for-an-azure-file-sync-deployment"></a>規劃 Azure 檔案同步部署
+使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的靈活度、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
 
 本文章說明 Azure 檔案同步部署的重要考量。 建議您另行閱讀[規劃 Azure 檔案服務部署](storage-files-planning.md)。 
 
@@ -180,13 +180,13 @@ Azure 檔案共用已知無法用於：
 
 - NTFS 加密檔案系統 (EFS)
 
-一般來說，Azure 檔案同步應該會支援與位於檔案系統下的加密解決方案 (例如 BitLocker)，以及實作於檔案格式中的解決方案 (例如 BitLocker) 之間的互通性。 對於位於檔案系統之上的解決方案 (例如 NTFS EFS)，並沒有做出任何特殊的互通性。
+一般來說，Azure 檔案同步應該會支援與位於檔案系統下的加密解決方案 (例如 BitLocker)，以及實作於檔案格式中的解決方案 (例如 Azure 資訊保護) 之間的互通性。 對於位於檔案系統之上的解決方案 (例如 NTFS EFS)，並沒有做出任何特殊的互通性。
 
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>其他階層式存放裝置管理 (HSM) 解決方案
 不應該搭配 Azure 檔案同步使用其他 HSM 解決方案。
 
 ## <a name="region-availability"></a>區域可用性
-Azure 檔案同步僅於下列區域以預覽的形式提供：
+Azure 檔案同步僅於下列區域提供：
 
 | 區域 | 資料中心位置 |
 |--------|---------------------|
@@ -205,7 +205,29 @@ Azure 檔案同步僅於下列區域以預覽的形式提供：
 | 西歐 | 荷蘭 |
 | 美國西部 | California |
 
-在預覽版中，僅支援與位於和儲存體同步服務相同之區域中的 Azure 檔案共用進行同步。
+Azure 檔案同步僅支援與位於和儲存體同步服務相同之區域中的 Azure 檔案共用進行同步。
+
+### <a name="azure-disaster-recovery"></a>Azure 災害復原
+為防範遺失 Azure 區域，Azure 檔案同步會與[異地備援儲存體備援](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS) 選項整合。 GRS 儲存體的運作方式是在主要區域中您通常與其互動的儲存體，與配對的次要區域中的儲存體之間，使用非同步區塊複寫。 發生導致 Azure 區域暫時或永久離線的災害時，Microsoft 會將儲存體容錯移轉到配對的區域。 
+
+為支援異地備援儲存體和 Azure 檔案同步之間的容錯移轉整合，所有 Azure 檔案同步區域都會與符合儲存體所使用之次要區域的次要區域配對。 這些配對如下：
+
+| 主要區域      | 配對的區域      |
+|---------------------|--------------------|
+| 澳洲東部      | 澳洲東南部 |
+| 澳大利亞東南部 | 澳洲東部     |
+| 加拿大中部      | 加拿大東部        |
+| 加拿大東部         | 加拿大中部     |
+| 美國中部          | 美國東部 2          |
+| 東亞           | 東南亞     |
+| 美國東部             | 美國西部            |
+| 美國東部 2           | 美國中部         |
+| 北歐        | 西歐        |
+| 東南亞      | 東亞          |
+| 英國南部            | 英國西部            |
+| 英國西部             | 英國南部           |
+| 西歐         | 北歐       |
+| 美國西部             | 美國東部            |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Azure 檔案同步代理程式更新原則
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

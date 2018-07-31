@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/16/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 0cf389c9443a9cff477b884c277d72de27769afc
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b55bc7f6aab522a6313498b6fdccc88870796224
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29974148"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213022"
 ---
 # <a name="download-and-extract-the-azure-stack-development-kit-asdk"></a>下載 Azure Stack 開發套件 (ASDK) 並解壓縮
 確認您的開發套件主機電腦符合安裝 ASDK 的基本需求後，下一個步驟是下載 ASDK 部署套件並解壓縮以取得 Cloudbuilder.vhdx。
@@ -47,7 +47,7 @@ ms.locfileid: "29974148"
 6. 將 CloudBuilder.vhdx 檔案複製或移動至 ASDK 主機電腦上的 C:\ 磁碟機根目錄 (C:\CloudBuilder.vhdx)。
 
 > [!NOTE]
-> 將檔案解壓縮之後，您可以刪除 .EXE 和 .BIN 檔案來恢復硬碟空間。 您也可以備份這些檔案，而如果您需要重新部署 ASDK，就不需要下載這些檔案。
+> 將檔案解壓縮之後，您可以刪除 .EXE 和 .BIN 檔案來恢復硬碟空間。 或者，您也可以備份這些檔案，如此一來，如果您需要重新部署 ASDK，就不需要下載這些檔案。
 
 
 ## <a name="next-steps"></a>後續步驟

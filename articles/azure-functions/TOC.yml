@@ -91,6 +91,8 @@
       href: functions-best-practices.md
     - name: 函式 Proxy
       href: functions-proxies.md
+    - name: IP 位址
+      href: ip-addresses.md
     - name: 內部部署函式
       href: functions-runtime-overview.md
     - name: 長期函式

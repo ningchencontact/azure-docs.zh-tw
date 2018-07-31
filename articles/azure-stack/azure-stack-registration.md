@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 07/25/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 65525ffe33ddc100dd3066e7c2b52ef8a856fbc3
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: a5e31df435d5e9af8543301e7a4540faa3d6410f
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37933486"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258060"
 ---
 # <a name="register-azure-stack-with-azure"></a>向 Azure 註冊 Azure Stack
 
@@ -29,7 +29,7 @@ ms.locfileid: "37933486"
 > [!IMPORTANT]  
 > 必須註冊才能支援完整的 Azure Stack 功能，包括 Marketplace 摘要整合。 此外，如果您在使用隨用隨付計費模型時未註冊，則會違反 Azure Stack 授權條款。 若要深入了解 Azure Stack 授權模型，請參閱[如何購買頁面](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 使用 Azure 註冊 Azure Stack 之前，您必須：
 
@@ -47,7 +47,7 @@ ms.locfileid: "37933486"
 
 若要成功註冊 Azure Stack，PowerShell 語言模式必須設定為 **FullLanguageMode**。  若要確認目前的語言模式設定為完整，請開啟已提升權限的 PowerShell 視窗，並執行下列 PowerShell 命令：
 
-```powershell
+```PowerShell  
 $ExecutionContext.SessionState.LanguageMode
 ```
 
@@ -78,7 +78,7 @@ Azure Stack 工具 GitHub 存放庫包含可支援 Azure Stack 功能 (包括註
 
 1. 新增您用來註冊 Azure Stack 的 Azure 帳戶。 若要新增帳戶，請執行 **Add-AzureRmAccount** Cmdlet。 當系統提示您輸入 Azure 全域系統管理員帳戶認證時，您可能需要根據帳戶的組態使用雙因素驗證。
 
-   ```PowerShell
+   ```PowerShell  
       Add-AzureRmAccount -EnvironmentName "<Either AzureCloud or AzureChinaCloud>"
    ```
 
@@ -89,13 +89,13 @@ Azure Stack 工具 GitHub 存放庫包含可支援 Azure Stack 功能 (包括註
 
 2. 如果您有多個訂用帳戶，請執行下列命令以選取您要使用的訂用帳戶：  
 
-   ```PowerShell
+   ```PowerShell  
       Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    ```
 
 3. 如需在您的 Azure 訂用帳戶中註冊 Azure Stack 資源提供者，請執行下列命令：
 
-   ```PowerShell
+   ```PowerShell  
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
@@ -105,24 +105,26 @@ Azure Stack 工具 GitHub 存放庫包含可支援 Azure Stack 功能 (包括註
 
 1. 以系統管理員身分啟動 PowerShell ISE，並瀏覽至您[下載 Azure Stack 工具](#bkmk_tools)時所建 **AzureStack-Tools-master** 目錄中的 **Registration** 資料夾。 使用 PowerShell 匯入 **RegisterWithAzure.psm1** 模組：
 
-   ```powershell
+   ```PowerShell  
    Import-Module .\RegisterWithAzure.psm1
    ```
 
 2. 接下來，在相同的 PowerShell 工作階段中，確定您已登入正確的 Azure PowerShell 環境。 這是用來註冊上述 Azure Stack 資源提供者的 Azure 帳戶。 要執行的 Powershell：
 
-   ```powershell
+   ```PowerShell  
    Add-AzureRmAccount -Environment "<Either AzureCloud or AzureChinaCloud>"
    ```
 
 3. 在相同的 PowerShell 工作階段中，執行 **Set-AzsRegistration** Cmdlet。 要執行的 PowerShell：  
 
-   ```powershell
+   ```PowerShell  
    $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
+   $RegistrationName = "<unique-registration-name>"
    Set-AzsRegistration `
       -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
       -BillingModel PayAsYouUse
+      -RegistrationName $RegistrationName
    ```
 
   |參數|說明|
@@ -130,7 +132,7 @@ Azure Stack 工具 GitHub 存放庫包含可支援 Azure Stack 功能 (包括註
   |PrivilegedEndpointCredential|用來[存取具有特殊權限的端點](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)的認證。 使用者名稱的格式為 **AzureStackDomain\CloudAdmin**。|
   |PrivilegedEndpoint|一個預先設定的遠端 PowerShell 主控台，可為您提供記錄收集和其他後續部署工作之類的功能。 若要深入了解，請參閱[使用具有特殊權限的端點](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)一文。|
   |BillingModel|您的訂用帳戶所使用的計費模型。 此參數允許的值：Capacity、PayAsYouUse 和 Development。|
-  |  |  |
+  | RegistrationName | 如果您要在多個 Azure Stack 執行個體上，使用相同的 Azure 訂用帳戶識別碼執行註冊指令碼，請為註冊設定唯一的名稱。 此參數的預設值是 **AzureStackRegistration**。 不過，如果您在多個 Azure Stack 執行個體上使用相同的名稱，指令碼將會失敗。 |
 
   處理程序將需要 10 到 15 分鐘的時間。 當命令完成時，您會看到此訊息：**「您的環境現在已使用提供的參數註冊並啟動」**。
 
@@ -140,13 +142,15 @@ Azure Stack 工具 GitHub 存放庫包含可支援 Azure Stack 功能 (包括註
 
 要執行的 PowerShell：
 
-```powershell
+```PowerShell  
 $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
+$RegistrationName = "<unique-registration-name>"
 Set-AzsRegistration `
     -PrivilegedEndpointCredential $CloudAdminCred `
     -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
     -AgreementNumber <EA agreement number> `
     -BillingModel Capacity
+    -RegistrationName $RegistrationName
 ```
 
 ## <a name="register-azure-stack-in-disconnected-environments"></a>在已中斷連線的環境中註冊 Azure Stack
@@ -156,7 +160,7 @@ Set-AzsRegistration `
 
 1. 以系統管理員身分啟動 PowerShell ISE，並瀏覽至您[下載 Azure Stack 工具](#bkmk_tools)時所建 **AzureStack-Tools-master** 目錄中的 **Registration** 資料夾。 匯入 **RegisterWithAzure.psm1** 模組：  
 
-   ```powershell
+   ```PowerShell  
    Import-Module .\RegisterWithAzure.psm1
    ```
 
@@ -174,18 +178,19 @@ Set-AzsRegistration `
 
 ### <a name="connect-to-azure-and-register"></a>連線至 Azure 並註冊
 
-在連線至網際網路的電腦上，執行相同步驟以匯入 RegisterWithAzure.psm1 模組，並登入正確的 Azure Powershell 環境。 然後呼叫 Register-AzsEnvironment，並指定要向 Azure 註冊的註冊權杖：
+在連線至網際網路的電腦上，執行相同的步驟，以匯入 RegisterWithAzure.psm1 模組，並登入正確的 Azure Powershell 環境。 接著，呼叫 Register-AzsEnvironment。 指定要向 Azure 註冊的註冊權杖。 如果您要使用相同的 Azure 訂用帳戶識別碼註冊多個 Azure Stack 執行個體，請指定一個唯一的註冊名稱。 執行下列 Cmdlet：
 
-  ```Powershell  
+  ```PowerShell  
   $registrationToken = "<Your Registration Token>"
-  Register-AzsEnvironment -RegistrationToken $registrationToken  
+  $RegistrationName = "<unique-registration-name>"
+  Register-AzsEnvironment -RegistrationToken $registrationToken  -RegistrationName $RegistrationName
   ```
 
 (選擇性) 您可以使用 Get-content cmdlet 來指向包含您註冊權杖的檔案：
 
-  ```Powershell  
+  ```PowerShell  
   $registrationToken = Get-Content -Path '<Path>\<Registration Token File>'
-  Register-AzsEnvironment -RegistrationToken $registrationToken  
+  Register-AzsEnvironment -RegistrationToken $registrationToken -RegistrationName $RegistrationName
   ```
 
   > [!NOTE]  
@@ -248,18 +253,18 @@ Set-AzsRegistration `
 
 如果要變更您所使用的訂用帳戶，就必須先執行 **Remove-AzsRegistration** Cmdlet，然後確保您已登入正確的 Azure PowerShell 內容，最後使用任何已變更的參數來執行 **Set-AzsRegistration**：
 
-  ```powershell
+  ```PowerShell  
   Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
   Set-AzureRmContext -SubscriptionId $NewSubscriptionId
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse -RegistrationName $RegistrationName
   ```
 
 #### <a name="change-the-billing-model-or-syndication-features"></a>變更計費模式或摘要整合功能
 
 如果您要變更安裝的計費模式或摘要整合功能，可以呼叫註冊函式來設定新的值。 您不需要先移除目前的註冊：
 
-  ```powershell
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse
+  ```PowerShell  
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse -RegistrationName $RegistrationName
   ```
 
 ### <a name="renew-or-change-registration-in-disconnected-environments"></a>在已中斷連線的環境中更新或變更註冊

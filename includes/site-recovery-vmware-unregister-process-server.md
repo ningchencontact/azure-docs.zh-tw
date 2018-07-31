@@ -19,4 +19,4 @@
     ```
     perl Unregister-ASRComponent.pl -IPAddress <IP_of_Process_Server> -Component PS
     ```
-4. 這將會從系統清除處理序伺服器的詳細資料。
+4. 成功移除處理序伺服器時，就會發出此訊息：**已成功取消註冊伺服器名稱 > (伺服器 IP 位址)**。

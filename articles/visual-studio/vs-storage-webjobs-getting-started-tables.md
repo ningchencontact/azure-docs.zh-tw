@@ -11,18 +11,18 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 78ef7d98d9e11ba9b2c52bfc88d6ecb050cafa84
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: dd1d6ca6d43a7c1054b822336d23b4b6be392788
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31793295"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39212971"
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>開始使用 Azure 儲存體 (Azure WebJob 專案)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## <a name="overview"></a>概觀
-本文提供了 C# 程式碼範例，示範如何透過 Azure 資料表儲存體服務使用 Azure WebJobs SDK 1.x 版。 此程式碼範例會使用 [WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) 1.x 版。
+本文提供 C# 程式碼範例，示範如何搭配 Azure 資料表儲存體服務使用 Azure WebJobs SDK 1.x 版。 此程式碼範例會使用 [WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) 1.x 版。
 
 Azure 資料表儲存體服務可讓您儲存大量的結構化資料。 此服務是一個 NoSQL 資料存放區，接受來自 Azure 雲端內外經過驗證的呼叫。 Azure 資料表很適合儲存結構化、非關聯式資料。  如需詳細資訊，請參閱 [以 .NET 開始使用 Azure 資料表儲存體](../cosmos-db/table-storage-how-to-use-dotnet.md#create-a-table) 。
 

@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 9ea7f4652aff07282c9c106f3894db807f341210
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 4663da6d28d62230ced937cdb5e597a1236c7f99
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072533"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258939"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>適用於 Windows 的 Azure 效能診斷 VM 擴充功能
 
 Azure 效能診斷 VM 擴充功能可協助從 Windows VM 收集效能診斷資料。 此擴充功能可執行分析和提供結果與建議報告，以識別並解決虛擬機器上的效能問題。 此擴充功能會安裝名為 [PerfInsights](http://aka.ms/perfinsights) 的疑難排解工具。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 此擴充功能可安裝於 Windows Server 2008 R2、Windows Server 2012、Windows Server 2012 R2 及 Windows Server 2016。 它也可以安裝於 Windows 8.1 和 Windows 10。
 
@@ -52,7 +52,8 @@ Azure 效能診斷 VM 擴充功能可協助從 Windows VM 收集效能診斷資�
             "xperfTrace": "[parameters('xperfTrace')]",
             "storPortTrace": "[parameters('storPortTrace')]",
             "srNumber": "[parameters('srNumber')]",
-            "requestTimeUtc":  "[parameters('requestTimeUtc')]"
+            "requestTimeUtc":  "[parameters('requestTimeUtc')]",
+            "resourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
         },
         "protectedSettings": {
             "storageAccountKey": "[parameters('storageAccountKey')]"        
@@ -77,6 +78,7 @@ Azure 效能診斷 VM 擴充功能可協助從 Windows VM 收集效能診斷資�
 |storPortTrace|s|啟用 StorPort 追蹤的選項。 有效值為 **s** 或空值。 如果您不想要擷取此追蹤，請將值保持空白即可。
 |srNumber|123452016365929|支援票證號碼 (若可用)。 如果您沒有此值，請保持空白。
 |requestTimeUtc|2017-09-28T22:08:53.736Z|目前的日期時間 (UTC)。 如果您使用入口網站來安裝此擴充功能，就不需提供此值。
+|ResourceId|/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}|VM 的唯一識別碼。
 |storageAccountName|mystorageaccount|要儲存診斷記錄和結果的儲存體帳戶名稱。
 |storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|儲存體帳戶的金鑰。
 
@@ -192,10 +194,11 @@ Azure 效能診斷 VM 擴充功能可協助從 Windows VM 收集效能診斷資�
             "xperfTrace": "[parameters('xperfTrace')]",
             "storPortTrace": "[parameters('storPortTrace')]",
             "srNumber": "[parameters('srNumber')]",
-            "requestTimeUtc":  "[parameters('requestTimeUtc')]"
+            "requestTimeUtc":  "[parameters('requestTimeUtc')]",
+            "resourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
         },
-        "protectedSettings": {            
-            "storageAccountKey": "[parameters('storageAccountKey')]"        
+        "protectedSettings": {
+            "storageAccountKey": "[parameters('storageAccountKey')]"
         }
       }
     }
@@ -209,7 +212,7 @@ Azure 效能診斷 VM 擴充功能可協助從 Windows VM 收集效能診斷資�
 PowerShell
 
 ````
-$PublicSettings = @{ "storageAccountName"="mystorageaccount";"performanceScenario"="basic";"traceDurationInSeconds"=300;"perfCounterTrace"="p";"networkTrace"="";"xperfTrace"="";"storPortTrace"="";"srNumber"="";"requestTimeUtc"="2017-09-28T22:08:53.736Z" }
+$PublicSettings = @{ "storageAccountName"="mystorageaccount";"performanceScenario"="basic";"traceDurationInSeconds"=300;"perfCounterTrace"="p";"networkTrace"="";"xperfTrace"="";"storPortTrace"="";"srNumber"="";"requestTimeUtc"="2017-09-28T22:08:53.736Z";"resourceId"="VMResourceId" }
 $ProtectedSettings = @{"storageAccountKey"="mystoragekey" }
 
 Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
