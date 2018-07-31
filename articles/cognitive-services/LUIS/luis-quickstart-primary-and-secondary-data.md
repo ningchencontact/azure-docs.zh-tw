@@ -2,19 +2,19 @@
 title: 建立 LUIS 應用程式來擷取資料的教學課程 - Azure | Microsoft Docs
 description: 在本教學課程中，可了解如何使用意圖和簡單實體，來建立可擷取機器學習資料的簡單 LUIS 應用程式。
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
-ms.author: v-geberr
-ms.openlocfilehash: a4bf63b7a2fbbb26b8c121f5360aea0a5ca8a687
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: diberry
+ms.openlocfilehash: aafbf7d1b4a624d42e2caa96f9d3ebdfaee4efe6
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952380"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238000"
 ---
 # <a name="tutorial-7-add-simple-entity-and-phrase-list"></a>教學課程：7. 新增簡單實體和片語清單
 在本教學課程中，您可以使用**簡單**實體來建立應用程式，讓其示範如何從語句中擷取機器學習資料。
@@ -34,7 +34,7 @@ ms.locfileid: "37952380"
 ## <a name="before-you-begin"></a>開始之前
 如果您沒有[複合實體](luis-tutorial-composite-entity.md)教學課程中的人力資源應用程式，請將 JSON [匯入](luis-how-to-start-new-app.md#import-new-app) [LUIS](luis-reference-regions.md#luis-website) 網站中的新應用程式。 在 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-composite-HumanResources.json) Github 存放庫中可找到要匯入的應用程式。
 
-如果您想要保留原本的人力資源應用程式，在[[設定]](luis-how-to-manage-versions.md#clone-a-version)頁面上複製該版本，並將其命名為 `simple`。 複製是使用各種 LUIS 功能的好方法，因為不會影響原始版本。  
+如果您想要保留原始的「人力資源」應用程式，請在 [[設定](luis-how-to-manage-versions.md#clone-a-version)] 頁面上複製該版本，並將其命名為 `simple`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。  
 
 ## <a name="purpose-of-the-app"></a>應用程式的用途
 此應用程式可示範如何從語句中提取出資料。 請考慮下列來自聊天機器人的語句：
@@ -69,7 +69,7 @@ ms.locfileid: "37952380"
 
 ## <a name="create-job-simple-entity"></a>建立職位的簡單實體
 
-1. 請確定您人力資源應用程式位於 LUIS 的 [建置] 區段。 選取右上方功能表列中的 [建置]，即可變更至此區段。 
+1. 請確定您人力資源應用程式位於 LUIS 的 [建置] 區段。 選取右上方功能表列中的 [Build] \(建置\)，即可變更至此區段。 
 
     [ ![在右上方導覽列中醒目提示 [建置] 的 LUIS 應用程式螢幕擷取畫面](./media/luis-quickstart-primary-and-secondary-data/hr-first-image.png)](./media/luis-quickstart-primary-and-secondary-data/hr-first-image.png#lightbox)
 
@@ -98,15 +98,15 @@ ms.locfileid: "37952380"
     |我要應徵研發部門的項目經理職位|項目經理|
     |以下是我的幫廚應用程式。|幫廚|
     |隨附我的夏令營輔導員履歷。|夏令營輔導員|
-    |這是我的行政助理簡歷。 for administrative assistant.|行政助理|
+    |這是我的履歷， 應徵的職位是行政助理。|行政助理|
     |我想要應徵銷售部門的管理職位。|管理、銷售部門|
     |這是我的新會計職位履歷。|會計|
     |內附我的吧檯助理應徵文件。|吧檯助理|
     |我要提交屋頂工和創作者的應徵文件。|屋頂工、創作者|
-    |這是我的公車司機簡歷。 for bus driver is here.|公車司機|
+    |這是我的的履歷， 我想應徵公車司機。|公車司機|
     |我是合格護士。 這是我的履歷。|合格護士|
     |我想要提交我在報上看到的教學職位文件。|教書|
-    |這是我的蔬果裝料工簡歷。 for the stocker post in fruits and vegetables.|裝料工|
+    |這是我的履歷， 我想應徵蔬果裝料工。|裝料工|
     |應徵貼瓷磚工作。|圖格|
     |已隨附景觀設計師履歷。|景觀設計師|
     |已隨附我的生物學教授履歷。|生物學教授|
@@ -127,8 +127,8 @@ ms.locfileid: "37952380"
 
     尚有其他語句範例，但這些語句未包含職位字組。
 
-## <a name="train-the-luis-app"></a>訓練 LUIS 應用程式
-LUIS 在經過訓練前，並不知道意圖和實體 (模型) 的變更。 
+## <a name="train-the-luis-app"></a>進行 LUIS 應用程式定型
+LUIS 在進行定型前並不知道意圖和實體 (模型) 的變更。 
 
 1. 在 LUIS 網站的右上方，選取 [訓練] 按鈕。
 
@@ -139,9 +139,9 @@ LUIS 在經過訓練前，並不知道意圖和實體 (模型) 的變更。
     ![訓練成功通知](./media/luis-quickstart-primary-and-secondary-data/trained.png)
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>發佈應用程式以取得端點 URL
-若要在聊天機器人或其他應用程式中取得 LUIS 預測，您必須發佈應用程式。 
+若要在 Chatbot 或其他應用程式中取得 LUIS 預測，您必須發佈應用程式。 
 
-1. 在 LUIS 網站的右上方，選取 [發佈] 按鈕。 
+1. 在 LUIS 網站的右上方，選取 [Publish] \(發佈\) 按鈕。 
 
 2. 選取 [生產] 位置和 [發佈] 按鈕。
 
@@ -149,7 +149,7 @@ LUIS 在經過訓練前，並不知道意圖和實體 (模型) 的變更。
 
 3. 當您在網站頂端看到確認成功的綠色狀態列時，就表示發佈完成。
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>利用不同語句查詢端點
+## <a name="query-the-endpoint-with-a-different-utterance"></a>使用不同的語句來查詢端點
 在 [發佈] 頁面上，選取位於頁面底部的 [端點] 連結。 
 
 [![](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png "已醒目提示端點的 [發佈] 頁面螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png#lightbox)
@@ -368,16 +368,16 @@ LUIS 應用程式深信它找到了正確的意圖，並擷取出職位名稱，
 ## <a name="phrase-lists"></a>片語清單
 新增片語清單已提升清單中的字組訊號，但這項新增**並未**作為完全相符項。 片語清單中有數個職位的第一個字組是 `lead`，也有職位 `welder` 但沒有職位 `lead welder`。 此職位片語清單可能並不完整。 當您定期[檢閱端點語句](luis-how-to-review-endoint-utt.md)並找到其他職位字組時，請將這些字組新增至片語清單中。 然後重新訓練並重新發行。
 
-## <a name="what-has-this-luis-app-accomplished"></a>此 LUIS 應用程式有何成就？
+## <a name="what-has-this-luis-app-accomplished"></a>此 LUIS 應用程式有何成果？
 此應用程式 (具有簡單實體和字組片語清單) 已識別出自然語言查詢意圖並傳回職位資料。 
 
 聊天機器人現在有足夠資訊可判斷主要的應徵職位動作和該動作的參數 (供職位參考)。 
 
 ## <a name="where-is-this-luis-data-used"></a>此 LUIS 資料用於何處？ 
-LUIS 是利用此要求來完成。 呼叫應用程式 (例如聊天機器人) 可以採用 topScoringIntent 結果和實體中的資料，來使用第三方 API 傳送職位訊息給人力資源代表。 如果聊天機器人或呼叫應用程式有其他程式設計選項，LUIS 就不會進行該工作。 LUIS 只會判斷使用者的用意為何。 
+LUIS 在此要求的工作已完成。 呼叫應用程式 (例如聊天機器人) 可以採用 topScoringIntent 結果和實體中的資料，來使用第三方 API 傳送職位訊息給人力資源代表。 如果聊天機器人或呼叫應用程式有其他程式設計選項，LUIS 就不會進行該工作。 LUIS 只會判斷使用者的意圖為何。 
 
 ## <a name="clean-up-resources"></a>清除資源
-若不再需要，請刪除 LUIS 應用程式。 選取左上方功能表中的 [我的應用程式]。 選取應用程式清單中應用程式名稱右邊的省略符號 (***...***)，然後選取 [刪除]。 在 [刪除應用程式?] 快顯對話方塊中選取 [確定]。
+當不再需要 LUIS 應用程式時，請將其刪除。 選取左上方功能表中的 [我的應用程式]。 選取應用程式清單中應用程式名稱右邊的省略符號 (***...***)，然後選取 [刪除]。 在 [Delete app?] \(刪除應用程式?\) 快顯對話方塊上，選取 [Ok] \(確定\)。
 
 ## <a name="next-steps"></a>後續步驟
 

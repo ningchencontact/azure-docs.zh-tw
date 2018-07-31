@@ -2,19 +2,19 @@
 title: 建立具有兩個意圖的簡單應用程式 - Azure | Microsoft Docs
 description: 了解如何使用兩個意圖和零個實體建立簡單的 LUIS 應用程式，以在本快速入門中識別使用者語句。
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 06/27/2018
-ms.author: v-geberr
-ms.openlocfilehash: 0668ba050a6918995deb42d8feea5afbbab3b010
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.author: diberry
+ms.openlocfilehash: 4be36e9d5b34c46138a657429680689014d0fd3d
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865806"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237769"
 ---
 # <a name="tutorial-1-build-app-with-custom-domain"></a>教學課程：1. 建置具有自訂網域的應用程式
 在本教學課程中建立應用程式，以示範如何使用**意圖**，根據使用者提交給應用程式的語句 (文字) 來判斷使用者的「意圖」。 完成之後，您會擁有一個在雲端中執行的 LUIS 端點。
@@ -53,7 +53,7 @@ ms.locfileid: "37865806"
     [![](media/luis-quickstart-intents-only/intents-list.png "[意圖] 清單頁面的螢幕擷取畫面")](media/luis-quickstart-intents-only/intents-list.png#lightbox)
 
 ## <a name="create-getjobinformation-intention"></a>建立 GetJobInformation 意圖
-1. 選取 [建立新意圖]。 輸入新的意圖名稱 `GetJobInformation`。 每當使用者想要知道公司內職缺的相關資訊時，系統就會預測此意圖。
+1. 選取 [Create new intent] \(建立新意圖\)。 輸入新的意圖名稱 `GetJobInformation`。 每當使用者想要知道公司內職缺的相關資訊時，系統就會預測此意圖。
 
     ![](media/luis-quickstart-intents-only/create-intent.png "[新增意圖] 對話方塊的螢幕擷取畫面")
 
@@ -73,7 +73,7 @@ ms.locfileid: "37865806"
 
     [![](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "針對 MyStore 意圖輸入新語句的螢幕擷取畫面")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
 
-3. LUIS 應用程式目前沒有任何針對 [無] 意圖的語句。 它需要應用程式沒有回答的語句。 請勿將它空白。 選取左面板中的 [意圖]。 
+3. LUIS 應用程式目前沒有任何針對 [無] 意圖的語句。 它需要應用程式沒有回答的語句。 請勿將它保留空白。 選取左面板中的 [意圖]。 
 
 4. 選取 [無] 意圖。 新增您的使用者可能輸入但與您的應用程式無關的三個語句。 如果應用程式與職位公告有關，以下是一些良好的**無**語句：
 
@@ -85,23 +85,23 @@ ms.locfileid: "37865806"
 
     在 LUIS 呼叫應用程式 (例如聊天機器人) 中，如果 LUIS 針對語句傳回 [無] 意圖時，您的聊天機器人可以詢問使用者是否想要結束交談。 如果使用者不想要結束交談，聊天機器人也可以提供更多指示，以便繼續交談。 
 
-## <a name="train-and-publish-the-app"></a>訓練和發佈應用程式
-1. 在 LUIS 網站的右上方，選取 [訓練] 按鈕。 
+## <a name="train-and-publish-the-app"></a>將應用程式定型並發佈
+1. 在 LUIS 網站的右上方，選取 [Train] \(定型\) 按鈕。 
 
-    ![[訓練] 按鈕](./media/luis-quickstart-intents-only/train-button.png)
+    ![[Train] \(定型\) 按鈕](./media/luis-quickstart-intents-only/train-button.png)
 
-    當您在網站頂端看到確認成功的綠色狀態列時，就表示訓練完成。
+    當您在網站頂端看到確認成功的綠色狀態列時，就表示定型完成。
 
-    ![[已訓練] 狀態列](./media/luis-quickstart-intents-only/trained.png)
+    ![已定型狀態列](./media/luis-quickstart-intents-only/trained.png)
 
-2. 在 LUIS 網站的右上方，選取 [發佈] 按鈕以開啟 [發佈] 頁面。 預設會選取生產位置。 選取 [生產位置] 選項旁的 [發佈] 按鈕。 當您在網站頂端看到確認成功的綠色狀態列時，就表示發佈完成。
+2. 在 LUIS 網站的右上方，選取 [Publish] \(發佈\) 按鈕以開啟 [Publish] \(發佈\)頁面。 預設會選取生產位置。 選取生產位置選項旁的 [Publish] \(發佈\) 按鈕。 當您在網站頂端看到確認成功的綠色狀態列時，就表示發佈完成。
 
     在發佈之前或在測試端點 URL 之前，不必先在 Azure 入口網站中建立 LUIS 端點金鑰。 每個 LUIS 應用程式都有可用於撰寫的免費入門金鑰。 它可讓您無限制地撰寫，並提供[幾個端點叫用](luis-boundaries.md#key-limits)。 
 
 ## <a name="query-endpoint-for-getjobinformation-intent"></a>查詢端點的 GetJobInformation 意圖
-1. 在 **發佈** 頁面上，選取位於頁面底部的 **端點** 連結。 這個動作會開啟另一個瀏覽器視窗，其中的網址列會顯示此端點 URL。 
+1. 在 [Publish] \(發佈\) 頁面上，選取頁面底部的**端點**連結。 此動作會開啟另一個瀏覽器視窗，其中網址列會顯示端點 URL。 
 
-2. 移至位址中的 URL 尾端並輸入 `I'm looking for a job with Natual Language Processing`。 最後一個查詢字串參數是 `q`，也就是語句**查詢**。 此語句與步驟 4 中的任何語句範例都不同，因此這是很好的測試，且應該會將 `GetJobInformation` 意圖傳回作為評分最高的意圖。 
+2. 移至位址中的 URL 結尾並輸入 `I'm looking for a job with Natual Language Processing`。 最後一個查詢字串參數是 `q`，也就是語句**查詢**。 此語句與步驟 4 中的任何語句範例都不同，因此這是很好的測試，且應該會將 `GetJobInformation` 意圖傳回作為評分最高的意圖。 
 
     ```
     {
@@ -142,7 +142,7 @@ ms.locfileid: "37865806"
     |我想要應徵新的會計職位|
     |填寫職位 123456 的應徵文件|
     |投遞履歷以應徵工程師職缺|
-    |這是我的 654234 職缺簡歷 for position 654234|
+    |這是我的履歷， 應徵的職位是 654234|
     |職位 567890 和我的文件|
 
     [![](media/luis-quickstart-intents-only/utterance-applyforjob.png "針對 ApplyForJob 意圖輸入新語句的螢幕擷取畫面")](media/luis-quickstart-intents-only/utterance-applyforjob.png#lightbox)
@@ -179,16 +179,16 @@ ms.locfileid: "37865806"
     }
     ```
 
-## <a name="what-has-this-luis-app-accomplished"></a>此 LUIS 應用程式有何成就？
+## <a name="what-has-this-luis-app-accomplished"></a>此 LUIS 應用程式有何成果？
 此應用程式 (只有一些意圖) 已識別出屬於相同意圖但用字不同的自然語言查詢。 
 
 JSON 結果會識別評分最高的意圖。 所有分數都介於 1 到 0，分數越好者越接近 1。 `GetJobInformation` 和 `None` 意圖的分數相當接近 0。 
 
 ## <a name="where-is-this-luis-data-used"></a>此 LUIS 資料用於何處？ 
-LUIS 是利用此要求來完成。 呼叫端應用程式 (例如聊天機器人) 可以取得 topScoringIntent 結果，然後尋找資訊 (未儲存在 LUIS 中) 來回答問題或結束對話。 這些是聊天機器人或呼叫端應用程式的程式設計選項。 LUIS 不會執行此工作。 LUIS 只會判斷使用者的用意為何。 
+LUIS 在此要求的工作已完成。 呼叫端應用程式 (例如聊天機器人) 可以取得 topScoringIntent 結果，然後尋找資訊 (未儲存在 LUIS 中) 來回答問題或結束對話。 這些是聊天機器人或呼叫端應用程式的程式設計選項。 LUIS 不會執行此工作。 LUIS 只會判斷使用者的意圖為何。 
 
 ## <a name="clean-up-resources"></a>清除資源
-若不再需要，請刪除 LUIS 應用程式。 若要這樣做，請選取左上方功能表中的 [我的應用程式]。 選取應用程式清單中應用程式名稱右邊的省略符號 (***...***)，然後選取 [刪除]。 在 [刪除應用程式?] 快顯對話方塊中選取 [確定]。
+當不再需要 LUIS 應用程式時，請將其刪除。 若要這樣做，請選取左上方功能表中的 [我的應用程式]。 選取應用程式清單中應用程式名稱右邊的省略符號 (***...***)，然後選取 [刪除]。 在 [Delete app?] \(刪除應用程式?\) 快顯對話方塊上，選取 [Ok] \(確定\)。
 
 ## <a name="next-steps"></a>後續步驟
 
