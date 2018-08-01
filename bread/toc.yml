@@ -24,6 +24,9 @@
         - name: 受控服務識別
           tocHref: /azure/active-directory/managed-service-identity/
           topicHref: /azure/active-directory/managed-service-identity/
+        - name: 使用者說明
+          tocHref: /azure/active-directory/user-help/
+          topicHref: /azure/active-directory/user-help/
         - name: B2C
           tocHref: /azure/active-directory-b2c/
           topicHref: /azure/active-directory-b2c/
@@ -426,7 +429,7 @@
     - name: 網路監看員
       tocHref: /azure/network-watcher/
       topicHref: /azure/network-watcher/
-    - name: 網路功能
+    - name: 網路
       tocHref: /azure/networking/
       topicHref: /azure/networking/networking-overview
     - name: 通知中樞

@@ -214,6 +214,8 @@
           items:
             - name: 使用 Azure 入口網站
               href: iot-hub-create-through-portal.md
+            - name: 使用適用於 VS Code 的 Azure IoT 工具組
+              href: iot-hub-create-use-iot-toolkit.md
             - name: 使用 Azure PowerShell
               href: iot-hub-create-using-powershell.md
             - name: 使用 Azure CLI

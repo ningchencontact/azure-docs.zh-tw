@@ -3,45 +3,45 @@
 - name: 概觀
   items:
     - name: 什麼是 Power BI Embedded
-      href: what-is-power-bi-embedded.md
+      href: 'https://docs.microsoft.com/power-bi/developer/azure-pbie-what-is-power-bi-embedded'
 - name: 教學課程
   items:
     - name: 為客戶範例內嵌內容
-      href: 'https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/'
+      href: 'https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers'
 - name: 概念
   items:
-    - name: 開始使用 Power BI Embedded
-      href: get-started.md
+    - name: 資料列層級安全性 (RLS)
+      href: 'https://docs.microsoft.com/power-bi/developer/embedded-row-level-security'
+    - name: 常見問題集
+      href: 'https://docs.microsoft.com/power-bi/developer/embedded-faq'
+    - name: Power BI 使用權限
+      href: 'https://docs.microsoft.com/power-bi/developer/power-bi-permissions'
 - name: 作法
   items:
-    - name: 管理容量
+    - name: 註冊應用程式
+      href: 'https://docs.microsoft.com/power-bi/developer/register-app'
+    - name: 驗證 Power BI 服務
+      href: 'https://docs.microsoft.com/power-bi/developer/get-azuread-access-token'
+    - name: 內嵌問與答
+      href: 'https://docs.microsoft.com/power-bi/developer/qanda'
+    - name: 針對內嵌應用程式進行疑難排解
+      href: 'https://docs.microsoft.com/power-bi/developer/embedded-troubleshoot'
+    - name: 管理 Azure 中的容量
       items:
-        - name: 建立容量
-          href: create-capacity.md
-        - name: 縮放容量
-          href: scale-capacity.md
-        - name: 暫停及啟動容量
-          href: pause-start.md
-    - name: 註冊 Azure AD 應用程式
-      href: 'https://powerbi.microsoft.com/documentation/powerbi-developer-register-app/'
-    - name: 內嵌 Power BI 內容
-      href: 'https://powerbi.microsoft.com/documentation/powerbi-developer-embedding-content/'
-    - name: 移轉
+        - name: 在 Azure 中建立容量
+          href: 'https://docs.microsoft.com/power-bi/developer/azure-pbie-create-capacity'
+        - name: 在 Azure 中縮放容量
+          href: 'https://docs.microsoft.com/power-bi/developer/azure-pbie-scale-capacity'
+        - name: 在 Azure 中暫停和啟動容量
+          href: 'https://docs.microsoft.com/power-bi/developer/azure-pbie-pause-start'
+    - name: 從工作區集合遷移
       items:
         - name: 如何從 Power BI 工作區集合進行遷移
-          href: migrate-from-power-bi-workspace-collections.md
+          href: 'https://docs.microsoft.com/power-bi/developer/migrate-from-powerbi-embedded'
         - name: 移轉工具
-          href: migrate-tool.md
+          href: 'https://docs.microsoft.com/power-bi/developer/migrate-tool'
         - name: 移轉程式碼片段
-          href: migrate-code-snippets.md
-- name: 範例
-  items:
-    - name: 程式碼範例
-      href: 'https://github.com/Microsoft/PowerBI-Developer-Samples'
-    - name: 範例逐步解說
-      href: 'https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/'
-    - name: JavaScript 內嵌範例
-      href: 'https://microsoft.github.io/PowerBI-JavaScript/demo/'
+          href: 'https://docs.microsoft.com/power-bi/developer/migrate-code-snippetsd'
 - name: 參考
   items:
     - name: API
@@ -52,17 +52,31 @@
           href: 'https://msdn.microsoft.com/library/mt147898.aspx'
 - name: 資源
   items:
-    - name: Power BI 社群
-      href: 'http://community.powerbi.com/t5/Developer/bd-p/Developer'
+    - name: 開發人員中心
+      href: 'https://powerbi.microsoft.com/developers/'
+    - name: 適用於內嵌的上架體驗工具
+      href: 'https://aka.ms/embedsetup'
+    - name: 程式碼範例
+      href: 'https://github.com/Microsoft/PowerBI-Developer-Samples'
     - name: .NET SDK 下載
       href: 'https://www.nuget.org/packages/Microsoft.PowerBI.Api/'
     - name: JavaScript SDK 下載
       href: 'https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/'
+    - name: 適用於 Power BI 的 .NET
+      href: 'https://github.com/Microsoft/PowerBI-CSharp'
+    - name: 適用於 Power BI 的 JavaScript
+      href: 'https://github.com/Microsoft/PowerBI-JavaScript'
+    - name: JavaScript Playground 範例
+      href: 'https://go.microsoft.com/fwlink/?linkid=848279'
+    - name: Power BI JavaScript Wiki
+      href: 'https://github.com/Microsoft/powerbi-javascript/wiki'
+    - name: JavaScript Git 存放庫
+      href: 'https://go.microsoft.com/fwlink/?linkid=848276'
+    - name: 'Power BI C# Git 存放庫'
+      href: 'https://go.microsoft.com/fwlink/?linkid=848273'
     - name: 定價計算機
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: GitHub 存放庫
-      items:
-        - name: 適用於 Power BI 的 .NET
-          href: 'https://github.com/Microsoft/PowerBI-CSharp'
-        - name: 適用於 Power BI 的 JavaScript
-          href: 'https://github.com/Microsoft/PowerBI-JavaScript'
+      href: 'https://azure.microsoft.com/pricing/calculator/#power-bi-embedded88e5eed8-6a98-4891-a739-15b602b4fb34'
+    - name: Power BI 社群
+      href: 'http://community.powerbi.com/t5/Developer/bd-p/Developer'
+    - name: 堆疊溢位
+      href: 'https://go.microsoft.com/fwlink/?linkid=848281'

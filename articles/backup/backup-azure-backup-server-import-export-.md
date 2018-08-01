@@ -98,7 +98,7 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 ### <a name="prepare-sata-drives-and-ship-to-azure"></a>準備 SATA 磁碟機並寄送到 Azure
 *AzureOfflineBackupDiskPrep* 公用程式可用來準備要送到最鄰近之 Azure 資料中心的 SATA 磁碟機。 此公用程式位於「復原服務」代理程式之安裝目錄的以下路徑中：
 
-   *\Microsoft* *Azure* *Recovery* *Services* *Agent\Utils\*
+   *\Microsoft* *Azure* *Recovery* *Services* \*Agent\Utils\*
 
 1. 移至該目錄，然後將 [AzureOfflineBackupDiskPrep] 目錄複製到已連接要準備之 SATA 磁碟機的複本電腦。 確認下列與複本電腦有關的事項：
 

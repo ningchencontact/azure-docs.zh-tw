@@ -9,12 +9,12 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: 01bbf4ca19b0fb702aa76d5149fb0e38389fe455
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 9dd7479ae95f74123d9b762e42ec95e8dbf25818
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054818"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346434"
 ---
 # <a name="batch-transcription"></a>批次轉譯
 
@@ -40,7 +40,7 @@ wav |  立體聲  |
 
 針對立體聲音訊資料流，批次轉譯會在轉譯期間分割左右聲道。 這會建立兩個 JSON 結果檔案，每個聲道各建立一個。 每個語句的時間戳記可讓開發人員建立排序的最終文字記錄。 下列 JSON 範例顯示聲道的輸出。
 
-    ```
+```json
        {
         "recordingsUrl": "https://mystorage.blob.core.windows.net/cris-e2e-datasets/TranscriptionsDataset/small_sentence.wav?st=2018-04-19T15:56:00Z&se=2040-04-21T15:56:00Z&sp=rl&sv=2017-04-17&sr=b&sig=DtvXbMYquDWQ2OkhAenGuyZI%2BYgaa3cyvdQoHKIBGdQ%3D",
         "resultsUrls": {
@@ -53,10 +53,10 @@ wav |  立體聲  |
         "status": "Succeeded",
         "locale": "en-US"
     },
-    ```
+```
 
 > [!NOTE]
-> 批次轉譯 API 使用 REST 服務來要求轉譯、其狀態及相關結果。 它以 .NET 為基礎，而且沒有任何外部相依性。 下一節描述其使用方式。
+> 批次轉譯 API 使用 REST 服務來要求轉譯、其狀態及相關結果。 任何語言都可以使用 API。 下一節描述其使用方式。
 
 ## <a name="authorization-token"></a>授權權杖
 
@@ -77,7 +77,24 @@ wav |  立體聲  |
 
 ## <a name="sample-code"></a>範例程式碼
 
-使用 API 相當簡單。 您需要使用訂用帳戶金鑰和 API 金鑰來自訂下列範例程式碼。
+使用 API 相當簡單。 下列範例程式碼必須使用訂用帳戶金鑰和 API 金鑰自訂，才能讓開發人員取得持有人權杖，如下列程式碼片段所示：
+
+```cs
+    public static async Task<CrisClient> CreateApiV1ClientAsync(string username, string key, string hostName, int port)
+        {
+            var client = new HttpClient();
+            client.Timeout = TimeSpan.FromMinutes(25);
+            client.BaseAddress = new UriBuilder(Uri.UriSchemeHttps, hostName, port).Uri;
+
+            var tokenProviderPath = "/oauth/ctoken";
+            var clientToken = await CreateClientTokenAsync(client, hostName, port, tokenProviderPath, username, key).ConfigureAwait(false);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", clientToken.AccessToken);
+
+            return new CrisClient(client);
+        }
+```
+
+一旦取得權杖之後，開發人員必須指定指向需要轉譯之音訊檔案的 SAS Uri。 其餘的程式碼只會逐一查看狀態，並顯示結果。
 
 ```cs
    static async Task TranscribeAsync()
@@ -93,7 +110,7 @@ wav |  立體聲  |
             var newLocation = 
                 await client.PostTranscriptionAsync(
                     "<selected locale i.e. en-us>", // Locale 
-                    "<your subscripition key>", // Subscription Key
+                    "<your subscription key>", // Subscription Key
                     new Uri("<SAS URI to your file>")).ConfigureAwait(false);
 
             var transcription = await client.GetTranscriptionAsync(newLocation).ConfigureAwait(false);

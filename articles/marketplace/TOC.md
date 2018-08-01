@@ -11,6 +11,7 @@
 ##### [建立 Microsoft 帳戶](./guidelines.md)
 ##### [在開發人員中心註冊](./register-dev-center.md) 
 ##### [適用於 Azure Marketplace 的計費選項](./billing-options-azure-marketplace.md)  
+##### [Azure 合作夥伴客戶使用量屬性](./azure-partner-customer-usage-attribution.md)
 
 ### 依供應項目類型的發行指南 
 #### [虛擬機器](./marketplace-virtual-machines.md)

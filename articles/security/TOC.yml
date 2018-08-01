@@ -39,8 +39,16 @@
         - name: 資料靜態加密
           href: azure-security-encryption-atrest.md
         - name: 為 IaaS 虛擬機器進行磁碟加密
-          href: azure-security-disk-encryption.md
+          href: azure-security-disk-encryption-overview.md
           items:
+            - name: 磁碟加密必要條件
+              href: azure-security-disk-encryption-prerequisites.md
+            - name: 適用於 Windows VM 的磁碟加密
+              href: azure-security-disk-encryption-windows.md
+            - name: 適用於 Linux VM 的磁碟加密
+              href: azure-security-disk-encryption-linux.md
+            - name: 磁碟加密附錄
+              href: azure-security-disk-encryption-appendix.md
             - name: 磁碟加密常見問題
               href: azure-security-disk-encryption-faq.md
             - name: 疑難排解
@@ -198,6 +206,16 @@
       items:
         - name: 健康情況資料和 AI
           href: ./blueprints/azure-health.md
+    - name: NIST SP 800-171
+      items:
+        - name: 資料分析
+          href: ./blueprints/nist171-analytics-overview.md
+        - name: 資料倉儲
+          href: ./blueprints/nist171-datawarehouse-overview.md
+        - name: IaaS Web 應用程式
+          href: ./blueprints/nist171-iaaswa-overview.md
+        - name: PaaS Web 應用程式
+          href: ./blueprints/nist171-paaswa-overview.md
     - name: PCI DSS
       items:
         - name: 資料分析

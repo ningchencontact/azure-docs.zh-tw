@@ -111,8 +111,12 @@
           href: memory-and-concurrency-limits.md
         - name: 資料行存放區壓縮
           href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
-    - name: 監視
-      href: sql-data-warehouse-manage-monitor.md
+    - name: 管理性與監視
+      items:
+        - name: 監視
+          href: sql-data-warehouse-manage-monitor.md
+        - name: 建議
+          href: sql-data-warehouse-concept-recommendations.md
     - name: 開發資料倉儲
       items:
         - name: 概觀

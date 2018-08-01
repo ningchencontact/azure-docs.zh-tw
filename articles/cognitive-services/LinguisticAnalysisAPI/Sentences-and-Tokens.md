@@ -9,12 +9,12 @@ ms.component: linguistic-analysis
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: davl
-ms.openlocfilehash: 4681098a0e56640e95463272be44f7432be26839
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 78e539f365728ad540308e9cfb07af44bf6d8fe7
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368015"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084037"
 ---
 # <a name="sentence-separation-and-tokenization"></a>分句和 Token 化
 
@@ -68,4 +68,4 @@ ms.locfileid: "35368015"
 ## <a name="specification"></a>規格
 
 在決定句子和 Token 的構成時請務必保持一致。
-我們所依賴的是來自 [Penn Treebank](https://www.cis.upenn.edu/~treebank/) 的規格 (下面位置有提供其他詳細資料：[https://www.cis.upenn.edu/~treebank/tokenization.html])。
+我們信賴 [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42) (其他詳細資料可在 ftp://ftp.cis.upenn.edu/pub/treebank/public_html/tokenization.html 找到) 的規格。

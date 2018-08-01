@@ -175,16 +175,20 @@
               href: search-indexer-field-mappings.md
     - name: 正在搜尋資料
       items:
-        - name: 基本查詢建構
+        - name: 查詢基礎
           href: search-query-overview.md
         - name: 搜尋總管 (入口網站)
           href: search-explorer.md
-        - name: 簡單查詢語法
-          href: 'https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search'
-        - name: Lucene 查詢語法
-          href: 'https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search'
-        - name: Lucene 查詢範例
+        - name: 簡單語法的範例
+          href: search-query-simple-examples.md
+        - name: 完整語法的範例
           href: search-query-lucene-examples.md
+        - name: 查詢參考
+          items:
+            - name: 簡單查詢語法
+              href: 'https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search'
+            - name: Lucene 查詢語法
+              href: 'https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search'
         - name: 分頁結果
           href: search-pagination-page-layout.md
         - name: 相關性微調

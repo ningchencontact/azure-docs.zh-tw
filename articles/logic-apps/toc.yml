@@ -49,6 +49,8 @@
               href: logic-apps-control-flow-run-steps-group-scopes.md
         - name: 建立用來儲存值的變數
           href: logic-apps-create-variables-store-values.md
+        - name: 執行資料作業
+          href: logic-apps-perform-data-operations.md
         - name: 使用 Azure Functions 新增自訂程式碼
           href: logic-apps-azure-functions.md
         - name: 使用 Azure Functions 呼叫邏輯應用程式
@@ -282,6 +284,8 @@
     - name: 範例、案例和逐步解說
       href: logic-apps-examples-and-scenarios.md
       items:
+        - name: 資料作業 - 程式碼範例
+          href: logic-apps-data-operations-code-samples.md
         - name: 監視社交媒體
           href: logic-apps-scenario-social-serverless.md
         - name: 建置無伺服器應用程式 - Visual Studio
