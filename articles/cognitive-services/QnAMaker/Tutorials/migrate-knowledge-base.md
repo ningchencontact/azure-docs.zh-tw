@@ -29,7 +29,7 @@ QnA Maker 現在有[定價模型](https://azure.microsoft.com/en-us/pricing/deta
 
 ## <a name="migrate-a-knowledge-base-from-qna-maker-preview-portal"></a>從 QnA Maker 預覽入口網佔移轉知識庫
 1. 巡覽至 [QnA Maker 預覽入口網站](https://aka.ms/qnamaker-old-portal
-)，然後按一下 [我的服務]****。
+)，然後按一下 **[我的服務]** 。
 2. 按一下 [編輯] 圖示，選取您想要移轉的知識庫。
 
     ![編輯知識庫](../media/qnamaker-how-to-migrate-kb/preview-editkb.png)
