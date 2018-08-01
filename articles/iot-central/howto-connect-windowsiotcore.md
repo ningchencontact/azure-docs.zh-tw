@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: c36a9798718c37fba889323830b76cf8201785cf
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 39eb6f137750f7f741c88dcdf9a55f34d24eaa59
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261894"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205743"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>將 Windows IoT 核心版裝置連線到 Azure IoT 中心應用程式
 
@@ -24,33 +24,19 @@ ms.locfileid: "35261894"
 若要完成這篇文章中的步驟，您需要下列項目︰
 
 1. Azure IoT Central 應用程式是從**範例 Devkits** 應用程式範本建立而來。 如需詳細資訊，請參閱[建立 Azure IoT Central 應用程式](howto-create-application.md)。
-2. 執行 Windows 10 IoT 核心版作業系統的裝置。 在此逐步解說中，我們將使用 Raspberry Pi
-
-從**範例 Devkits** 應用程式範本建立的應用程式包含具有下列特性的 **Windows IoT 核心版**裝置範本：
-
-### <a name="telemetry-measurements"></a>遙測量測
-
-| 欄位名稱     | Units  | 最小值 | 最大值 | 小數位數 |
-| -------------- | ------ | ------- | ------- | -------------- |
-| 溼度       | %      | 0       | 100     | 0              |
-| temp           | °C     | -40     | 120     | 0              |
-| pressure       | hPa    | 260     | 1260    | 0              |
-
-### <a name="settings"></a>設定
-
-數值設定
-
-| 顯示名稱 | 欄位名稱 | Units | 小數位數 | 最小值 | 最大值 | Initial |
-| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
-| 風扇速度    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+2. 執行 Windows 10 IoT 核心版作業系統的裝置。 在此逐步解說中，我們將使用 Raspberry Pi。
 
 
-### <a name="properties"></a>properties
+## <a name="sample-devkits-application"></a>**範例 Devkits** 應用程式
 
-| 類型            | 顯示名稱 | 欄位名稱 | 資料類型 |
-| --------------- | ------------ | ---------- | --------- |
-| 裝置屬性 | 模具編號   | dieNumber  | number    |
-| 文字            | 位置     | location   | N/A       |
+從**範例 Devkits** 應用程式範本建立的應用程式包含具有下列特性的 **Windows IoT 核心版**裝置範本： 
+
+- 包含裝置**溼度**、**溫度**和**壓力**等測量值的遙測。 
+- 顯示**風扇速度**的設定。
+- 包含裝置屬性**骰子數字**和**位置**雲端屬性的屬性。
+
+
+如需裝置範本的詳細設定資訊，請參閱 [Windows IoT 核心版裝置範本詳細資料](howto-connect-windowsiotcore.md#windows-iot-core-device-template-details)
 
 ## <a name="add-a-real-device"></a>新增真實裝置
 
@@ -106,3 +92,31 @@ ms.locfileid: "35261894"
 
 > [!NOTE]
 > 如果您的開發環境中未安裝 **git**，您可以從 [https://git-scm.com/download](https://git-scm.com/download) 下載它。
+
+## <a name="windows-iot-core-device-template-details"></a>Windows IoT 核心版裝置範本詳細資料
+
+從**範例 Devkits** 應用程式範本建立的應用程式包含具有下列特性的 **Windows IoT 核心版**裝置範本：
+
+### <a name="telemetry-measurements"></a>遙測量測
+
+| 欄位名稱     | Units  | 最小值 | 最大值 | 小數位數 |
+| -------------- | ------ | ------- | ------- | -------------- |
+| 溼度       | %      | 0       | 100     | 0              |
+| temp           | °C     | -40     | 120     | 0              |
+| pressure       | hPa    | 260     | 1260    | 0              |
+
+### <a name="settings"></a>設定
+
+數值設定
+
+| 顯示名稱 | 欄位名稱 | Units | 小數位數 | 最小值 | 最大值 | Initial |
+| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
+| 風扇速度    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+
+
+### <a name="properties"></a>properties
+
+| 類型            | 顯示名稱 | 欄位名稱 | 資料類型 |
+| --------------- | ------------ | ---------- | --------- |
+| 裝置屬性 | 模具編號   | dieNumber  | number    |
+| 文字            | 位置     | location   | N/A       |

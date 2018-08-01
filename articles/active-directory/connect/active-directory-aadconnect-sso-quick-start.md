@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 07/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f8639cbb5c7ba86b4786f3d0b913d64bad59ad66
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: df936c697f500f5ab98becd1529cd321f9f3f5c4
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917511"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259114"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory 無縫單一登入：快速入門
 
@@ -41,9 +41,15 @@ ms.locfileid: "37917511"
     >[!NOTE]
     >Azure AD Connect 版本 1.1.557.0、1.1.558.0、1.1.561.0 和 1.1.614.0 具有與密碼雜湊同步處理相關的問題。 如果您_不_想要使用密碼雜湊同步處理搭配傳遞驗證，請閱讀 [Azure AD Connect 版本資訊](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470)，以深入了解。
 
+* **使用支援的 Azure AD Connect 拓撲**：確定您會使用[這裡](active-directory-aadconnect-topologies.md)所述的 Azure AD Connect 支援技術之一。
+
 * **設定網域管理員員認證**：下列情況的每個 Active Directory 樹系，均需擁有網域管理員認證：
     * 透過 Azure AD Connect 同步至 Azure AD。
     * 包含您要啟用無縫 SSO 的使用者。
+    
+* **啟用新式驗證**：您必須在租用戶上啟用[新式驗證](https://aka.ms/modernauthga)，此功能才能運作。
+
+* **使用最新版的 Office 365 用戶端**：若要使用 Office 365 用戶端 (Outlook、Word、Excel 和其他產品) 來取得無訊息登入體驗，您需要 16.0.8730.xxxx 版或更新版本。
 
 ## <a name="step-2-enable-the-feature"></a>步驟 2︰啟用功能
 
@@ -77,21 +83,27 @@ ms.locfileid: "37917511"
 
 ## <a name="step-3-roll-out-the-feature"></a>步驟 3：推出功能
 
-若要對使用者推出功能，您必須使用 Active Directory 中的群組原則，將下列 Azure AD URL 新增至使用者的內部網路區域設定：
+您可以使用下面提供的指示，為使用者逐步推出無縫 SSO。 您一開始可以使用 Active Directory 中的群組原則，將下列 Azure AD URL 新增至所有或已選取之使用者的內部網路區域設定：
 
 - https://autologon.microsoftazuread-sso.com
-
 
 此外，您也需要透過「群組原則」，啟用內部網路區域原則設定，稱為**允許透過指令碼更新狀態列**。 
 
 >[!NOTE]
-> 下列指示僅適用於 Windows 上的 Internet Explorer 和 Google Chrome (如果它與 Internet Explorer 共用一組受信任的網站 URL)。 如需如何在 Mac 上設定 Mozilla Firefox 和 Google Chrome 的指示，請閱讀下節。
+> 下列指示僅適用於 Windows 上的 Internet Explorer 和 Google Chrome (如果它與 Internet Explorer 共用一組受信任的網站 URL)。 如需如何在 macOS 上設定 Mozilla Firefox 和 Google Chrome 的指示，請閱讀下一節。
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>為什麼需要修改使用者的內部網路區域設定？
 
 瀏覽器預設會自動從指定的 URL 計算正確的區域 (網際網路或內部網路)。 例如，"http://contoso/" 會對應到內部網路區域，而 "http://intranet.contoso.com/" 則會對應到網際網路區域 (因為 URL 包含句點)。 除非將 URL 明確地新增至瀏覽器的內部網路區域，否則瀏覽器不會將 Kerberos 票證傳送給雲端端點 (例如 Azure AD URL)。
 
-### <a name="detailed-steps"></a>詳細步驟
+有兩種方式可修改使用者的內部網路區域設定：
+
+| 選項 | 管理考量 | 使用者體驗 |
+| --- | --- | --- |
+| 群組原則 | 管理員鎖定內部網路區域設定的編輯 | 使用者無法修改自己的設定 |
+| 群組原則喜好設定 |  管理員允許在內部網路區域設定上進行編輯 | 使用者可以修改自己的設定 |
+
+### <a name="group-policy-option---detailed-steps"></a>「群組原則」選項 - 詳細步驟
 
 1. 開啟群組原則管理編輯器工具。
 2. 編輯套用至部分或所有使用者的群組原則。 此範例使用**預設網域原則**。
@@ -123,6 +135,32 @@ ms.locfileid: "37917511"
 
     ![單一登入](./media/active-directory-aadconnect-sso/sso12.png)
 
+### <a name="group-policy-preference-option---detailed-steps"></a>「群組原則喜好設定」選項 - 詳細步驟
+
+1. 開啟群組原則管理編輯器工具。
+2. 編輯套用至部分或所有使用者的群組原則。 此範例使用**預設網域原則**。
+3. 瀏覽至 [使用者設定] > [喜好設定] > [Windows 設定] > [登錄] > [新增] > [登錄項目]。
+
+    ![單一登入](./media/active-directory-aadconnect-sso/sso15.png)
+
+4. 在適當欄位中輸入下列值，然後按一下 [確定]。
+   - **機碼路徑**：***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
+   - **值名稱**：***https***。
+   - **值類型**：***REG_DWORD***。
+   - **數值資料**︰***00000001***。
+ 
+    ![單一登入](./media/active-directory-aadconnect-sso/sso16.png)
+ 
+    ![單一登入](./media/active-directory-aadconnect-sso/sso17.png)
+
+6. 瀏覽至 [使用者設定] > [系統管理範本] > [Windows 元件] > [Internet Explorer] > [網際網路控制台] > [安全性頁面] > [內部網路區域]。 然後選取 [允許透過指令碼更新狀態列]。
+
+    ![單一登入](./media/active-directory-aadconnect-sso/sso11.png)
+
+7. 啟用原則設定，然後選取 [確定]。
+
+    ![單一登入](./media/active-directory-aadconnect-sso/sso12.png)
+
 ### <a name="browser-considerations"></a>瀏覽器考量
 
 #### <a name="mozilla-firefox-all-platforms"></a>Mozilla Firefox (所有平台)
@@ -134,15 +172,15 @@ Mozilla Firefox 不會自動使用 Kerberos 驗證。 每個使用者都必須�
 4. 在欄位中輸入 https://autologon.microsoftazuread-sso.com。
 5. 選取 [確定]，然後重新開啟瀏覽器。
 
-#### <a name="safari-mac-os"></a>Safari (Mac OS)
+#### <a name="safari-macos"></a>Safari (macOS)
 
-確定執行 Mac OS 的機器已加入 AD。 如需加入 AD 的相關說明，請參閱[整合 OS X 與 Active Directory 的最佳做法](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf)。
+確定執行 macOS 的電腦已加入 AD。 如需加入 AD 的相關說明，請參閱[整合 OS X 與 Active Directory 的最佳做法](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf)。
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (所有平台)
 
-如果您已覆寫環境中的 [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) \(英文\) 或 [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) \(英文\) 原則設定，請確定也將 Azure AD 的 URL (https://autologon.microsoftazuread-sso.com) 新增到這些設定。
+如果您已覆寫環境中的 [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) \(英文\) 或 [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) \(英文\) 原則設定，請確定您也會將 Azure AD 的 URL (https://autologon.microsoftazuread-sso.com) 新增到這些設定。
 
-#### <a name="google-chrome-mac-os-only"></a>Google Chrome (僅限 Mac OS)
+#### <a name="google-chrome-macos-only"></a>Google Chrome (僅限 macOS)
 
 針對 Mac OS 和其他非 Windows 平台上的 Google Chrome，請參閱 [Chromium 專案原則清單](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist)，以了解如何將 Azure AD URL 設為允許清單以進行整合式驗證的資訊。
 
@@ -169,7 +207,12 @@ Mozilla Firefox 不會自動使用 Kerberos 驗證。 每個使用者都必須�
 
 ## <a name="step-5-roll-over-keys"></a>步驟 5：變換金鑰
 
-在步驟 2 中，Azure AD Connect 會在您已啟用無縫 SSO 的所有 Active Directory 樹系中建立電腦帳戶 (代表 Azure AD)。 若要深入了解，請參閱 [Azure Active Directory 無縫單一登入：技術深入探討](active-directory-aadconnect-sso-how-it-works.md)。 為了提升安全性，建議您定期變換這些電腦帳戶的 Kerberos 解密金鑰。 如需如何變換金鑰的指示，請參閱 [Azure Active Directory 無縫單一登入：常見問題集](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account)。
+在步驟 2 中，Azure AD Connect 會在您已啟用無縫 SSO 的所有 Active Directory 樹系中建立電腦帳戶 (代表 Azure AD)。 若要深入了解，請參閱 [Azure Active Directory 無縫單一登入：技術深入探討](active-directory-aadconnect-sso-how-it-works.md)。
+
+>[!IMPORTANT]
+>如果電腦帳戶上的 Kerberos 解密金鑰外洩，則可用來針對其 AD 樹系中的任何使用者產生 Kerberos 票證。 惡意執行者接著可針對遭到入侵的使用者模擬行 Azure AD 登入。 強烈建議您定期變換這些 Kerberos 解密金鑰 (至少每隔 30 天一次)。
+
+如需如何變換金鑰的指示，請參閱 [Azure Active Directory 無縫單一登入：常見問題集](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account)。 我們正致力於引進自動變換金鑰的功能。
 
 >[!IMPORTANT]
 >您不需要在啟用此功能後「立即」執行此步驟。 至少每隔 30 天變換一次 Kerberos 解密金鑰。

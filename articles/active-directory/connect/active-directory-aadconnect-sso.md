@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ad7c412ee92db53dd797e38df2fc6db0a762fe78
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 88869fbeef0475f2c674e0f154a3624545182363
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916161"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213226"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory 無縫單一登入
 
@@ -55,17 +55,17 @@ ms.locfileid: "37916161"
 - 如果應用程式 (例如 https://myapps.microsoft.com/contoso.com)) 在其 Azure AD 登入要求中轉送 `domain_hint` (OpenID Connect) 或 `whr` (SAML) 參數來識別您的租用戶，或是轉送 `login_hint` 參數來識別使用者，則會自動將使用者登入，而不需要輸入使用者名稱或密碼。
 - 如果應用程式 (例如，https://contoso.sharepoint.com)) 將登入要求傳送至 Azure AD 的租用戶端點 (也就是 https://login.microsoftonline.com/contoso.com/<..> 或 https://login.microsoftonline.com/<tenant_ID>/<..>) 而不是 Azure AD 的一般端點 (也就是 https://login.microsoftonline.com/common/<...>)，使用者也可獲得無訊息登入體驗。
 - 支援登出。 這可讓使用者選擇使用另一個 Azure AD 帳戶來進行登入，而不自動使用「無縫 SSO」來自動登入。
-- 使用非互動式流程可支援 Office 365 用戶端 (16.0.8730.xxxx 和更新版本)。
+- 使用非互動式流程，來支援 Office 365 Win32 用戶端 (Outlook、Word、Excel 和其他產品) 16.0.8730.xxxx 版和更新版本。 針對 OneDrive，您必須啟用 [OneDrive 無訊息設定功能](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) \(英文\) 以獲得無訊息登入體驗。
 - 您可以透過 Azure AD Connect 啟用它。
 - 這是免費功能，您不需要任何付費的 Azure AD 版本即可使用。
 - 它是在能夠使用 Kerberos 驗證的平台和瀏覽器上，支援[新式驗證](https://aka.ms/modernauthga)的網頁瀏覽器型用戶端和 Office 用戶端來支援：
 
 | 作業系統\瀏覽器 |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|yes|否|yes|是\*|N/A
-|Windows 8.1|yes|N/A|yes|是\*|N/A
-|Windows 8|yes|N/A|yes|是\*|N/A
-|Windows 7|yes|N/A|yes|是\*|N/A
+|Windows 10|是|否|是|是\*|N/A
+|Windows 8.1|是|N/A|是|是\*|N/A
+|Windows 8|是|N/A|是|是\*|N/A
+|Windows 7|是|N/A|是|是\*|N/A
 |Mac OS X|N/A|N/A|是\*|是\*|是\*
 
 \*需要[其他設定](active-directory-aadconnect-sso-quick-start.md#browser-considerations)

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0b1940894ffb01595d11bc49889c6ec01714816b
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 6507158a63de508164fc74bcafe39785046a2c79
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918249"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213345"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory 無縫單一登入：技術性深入探討
 
@@ -36,8 +36,8 @@ ms.locfileid: "37918249"
 ### <a name="how-does-set-up-work"></a>設定如何運作？
 
 無縫 SSO 是使用 Azure AD Connect 所啟用，如[這裏](active-directory-aadconnect-sso-quick-start.md)所示。 啟用此功能時，會執行下列步驟：
-- 名為 `AZUREADSSOACC` 的電腦帳戶 (代表 Azure AD) 是在您的內部部署 Active Directory (AD) 中建立。
-- 電腦帳戶的 Kerberos 解密金鑰可安全地與 Azure AD 共用。
+- 系統會在每個 AD 樹系中，於您的內部部署 Active Directory (AD) 內建立名為 `AZUREADSSOACC` 的電腦帳戶 (代表 Azure AD)。
+- 電腦帳戶的 Kerberos 解密金鑰可安全地與 Azure AD 共用。 如果有多個 AD 樹系，每個樹系都會有它自己的 Kerberos 解密金鑰。
 - 此外，系統會建立兩個 Kerberos 服務主體名稱 (SPN)，以代表 Azure AD 登入期間所使用的兩個 URL。
 
 >[!NOTE]
