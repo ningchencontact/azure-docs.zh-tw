@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/18/2018
 ms.author: trinadhk
-ms.openlocfilehash: c9dff77f6b9fffc02ec94caa3454500772651195
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 787c4b0f6e8d5ed76260582bfa3d6c49574bd102
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136892"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205335"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>升級至 Azure VM 備份堆疊 V2
 
@@ -48,7 +48,7 @@ ms.locfileid: "39136892"
 
 * 快照集會儲存在本機上，以利於建立復原點，也可加快還原作業的速度。 因此，您將看見儲存體成本會隨著在七天期間內取得的快照集而增減。
 
-* 增量快照會儲存為分頁 Blob。 使用非受控磁碟的所有客戶，將必須為儲存在客戶本機儲存體帳戶中的快照集付費 7 天。 根據目前的定價模式，使用受控磁碟的客戶無須付費。
+* 增量快照會儲存為分頁 Blob。 使用非受控磁碟的所有客戶，將必須為儲存在客戶本機儲存體帳戶中的快照集付費 7 天。 因為由受控 VM 備份所使用的還原點集合會於基礎儲存體層級使用 Blob 快照集，因此針對受控磁碟，您將會看見對應到 [Blob 快照集定價](https://docs.microsoft.com/rest/api/storageservices/understanding-how-snapshots-accrue-charges) \(英文\) 的成本，而且它們會持續累加。 
 
 * 如果您從快照集復原點還原進階 VM，便會在建立 VM 時使用暫存位置。
 
@@ -56,7 +56,7 @@ ms.locfileid: "39136892"
 
 ## <a name="upgrade"></a>升級
 ### <a name="the-azure-portal"></a>Azure 入口網站
-如果您使用 Azure 入口網站，將會在保存庫儀表板上看到通知。 此通知乃是關於大型磁碟支援，以及備份和還原速度的改進。
+如果您使用 Azure 入口網站，將會在保存庫儀表板上看到通知。 此通知乃是關於大型磁碟支援，以及備份和還原速度的改進。 或者，您可以前往保存庫的 [屬性] 頁面以取得升級選項。
 
 ![VM 備份堆疊 Resource Manager 部署模型的備份作業 -- 支援通知](./media/backup-azure-vms/instant-rp-banner.png) 
 
@@ -72,13 +72,13 @@ ms.locfileid: "39136892"
     PS C:> Connect-AzureRmAccount
     ```
 
-2.  選取您想要註冊預覽的訂用帳戶：
+2.  選取您要註冊的訂用帳戶：
 
     ```
     PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
     ```
 
-3.  註冊此訂用帳戶以使用私人預覽：
+3.  註冊此訂用帳戶：
 
     ```
     PS C:>  Register-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
@@ -101,13 +101,13 @@ Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNa
 
 如果您升級至 V2，並不會影響到您目前的備份，而且不需重新設定您的環境。 升級和您的備份環境都會繼續正常運作。
 
-### <a name="what-does-it-cost-to-upgrade-to-azure-backup-stack-v2"></a>升級至 Azure 備份堆疊 V2 的成本為何？
+### <a name="what-does-it-cost-to-upgrade-to-azure-vm-backup-stack-v2"></a>升級至 Azure VM 備份堆疊 V2 的成本為何？
 
-升級至 Azure 備份堆疊 V2 不需任何成本。 快照集會儲存在本機上，以加快建立復原點和還原作業的速度。 因此，您將看見儲存體成本會隨著在七天期間內取得的快照集而增減。
+將堆疊升級至 V2 不需要任何成本。 快照集會儲存在本機上，以加快建立復原點和還原作業的速度。 因此，您將看見儲存體成本會隨著在七天期間內取得的快照集而增減。
 
 ### <a name="does-upgrading-to-stack-v2-increase-the-premium-storage-account-snapshot-limit-by-10-tb"></a>升級至堆疊 V2 是否可將進階儲存體帳戶的快照集限制提高到 10 TB？
 
-否。
+以 V2 堆疊之一部分的形式取得的快照集，會計入針對非受控磁碟之進階儲存體帳戶的 10 TB 快照集限制。 
 
 ### <a name="in-premium-storage-accounts-do-snapshots-taken-for-instant-recovery-point-occupy-the-10-tb-snapshot-limit"></a>在進階儲存體帳戶中，針對立即復原點取得的快照集是否會佔用 10 TB 的快照集限制？
 
@@ -117,14 +117,6 @@ Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNa
 
 每天都會取得新的快照集。 有七個個別的快照集。 服務**不會**在第一天取得複本，然後在接下來的六天內新增變更。
 
-### <a name="what-happens-if-the-default-resource-group-is-deleted-accidentally"></a>如果不小心刪除了預設資源群組，會發生什麼事？
-
-如果資源群組遭到刪除，該區域中適用於所有受保護 VM 的立即復原點都將遺失。 進行下一次備份時，即會重新建立資源群組，而備份會如預期般繼續。 此功能不是立即復原點專屬的。
-
-### <a name="can-i-delete-the-default-resource-group-created-for-instant-recovery-points"></a>我可以刪除針對立即復原點建立的預設資源群組嗎？
-
-Azure 備份服務會建立受控的資源群組。 目前，您無法變更或修改資源群組。 此外，您不應鎖定資源群組。 本指南並非 V2 堆疊專用的。
- 
 ### <a name="is-a-v2-snapshot-an-incremental-snapshot-or-full-snapshot"></a>V2 快照集是增量快照集，還是完整的快照集？
 
-增量快照集適用於非受控磁碟。 針對受控磁碟，此快照集為完整的快照集。
+增量快照集適用於非受控磁碟。 針對受控磁碟，Azure 備份所建立的還原點集合會使用 Blob 快照集，因此會持續累加。 

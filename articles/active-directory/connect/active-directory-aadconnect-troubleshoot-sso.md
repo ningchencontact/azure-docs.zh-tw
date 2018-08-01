@@ -9,15 +9,15 @@ ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 06/28/2018
+ms.date: 07/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4df60668f6b9aa0afb2203fa59788c47e2ffaefb
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 563958458979d0a0a28046ce35d21bd58be631ce
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110884"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259291"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>針對 Azure Active Directory 無縫單一登入進行疑難排解
 
@@ -28,12 +28,12 @@ ms.locfileid: "37110884"
 - 在某些情況下，啟用無縫 SSO 最久可能需要 30 分鐘。
 - 如果您在租用戶上將「無縫 SSO」停用再重新啟用，使用者將必須等到他們的已快取 Kerberos 票證到期 (有效期通常為 10 小時) 之後，才能使用單一登入體驗。
 - 不支援 Edge 瀏覽器。
-- 如果無縫 SSO 成功，使用者就沒有機會選取 [讓我保持登入]。 由於這個行為，SharePoint 和 OneDrive 對應情節無法運作。
-- 版本低於 16.0.8730.xxxx 的 Office 用戶端不支援使用「無縫 SSO」進行非互動式登入。 在這些用戶端上，使用者必須輸入其使用者名稱 (但不需輸入密碼) 來進行登入。
+- 如果無縫 SSO 成功，使用者就沒有機會選取 [讓我保持登入]。 由於這個行為而使得 [SharePoint 和 OneDrive 對應案例](https://support.microsoft.com/help/2616712/how-to-configure-and-to-troubleshoot-mapped-network-drives-that-connec) \(機器翻譯\) 無法運作。
+- 使用非互動式流程，來支援 Office 365 Win32 用戶端 (Outlook、Word、Excel 和其他產品) 16.0.8730.xxxx 版和更新版本。 不支援其他版本；在那些版本中，使用者將輸入其使用者名稱 (但不輸入密碼) 來登入。 針對 OneDrive，您必須啟用 [OneDrive 無訊息設定功能](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) \(英文\) 以獲得無訊息登入體驗。
 - 在 Firefox 的私用瀏覽模式中，無法使用無縫 SSO。
 - Internet Explorer 在開啟「增強保護」模式時也無法使用無縫 SSO。
 - iOS 和 Android 上的行動瀏覽器無法使用無縫 SSO。
-- 如果使用者是 Active Directory 中過多群組的成員之一，該使用者的 Kerberos 票證可能會太大而無法處理，並且會導致無縫式 SSO 失敗。 Azure AD HTTPS 要求可以有大小上限為 16KB 的標頭；Kerberos 票證必須遠小於該數字，以容納其他 Azure AD 成品，例如 Cookie。 建議您降低使用者的群組成員資格，然後再試一次。
+- 如果使用者是 Active Directory 中過多群組的成員之一，該使用者的 Kerberos 票證可能會太大而無法處理，並且會導致無縫式 SSO 失敗。 Azure AD HTTPS 要求可以有大小上限為 50 KB 的標頭；Kerberos 票證必須小於該限制，才能容納其他 Azure AD 成品 (通常是 2 - 5 KB)，例如 Cookie。 建議您降低使用者的群組成員資格，然後再試一次。
 - 如果您正在同步處理 30 個或更多的 Active Directory 樹系，便無法透過 Azure AD Connect 啟用無縫 SSO。 您可以在租用戶上[手動啟用](#manual-reset-of-azure-ad-seamless-sso)此功能，以解決這個問題。
 - 將 Azure AD 服務 URL (https://autologon.microsoftazuread-sso.com)) 新增至「信任的網站區域」而非「近端內部網路區域」，會「阻止使用者登入」。
 - 針對您 Active Directory 設定中的 Kerberos 停用 **RC4_HMAC_MD5** 加密類型會中斷「無縫 SSO」。 在您的「群組原則管理編輯器」工具中，請確定在 [電腦設定] -> [Windows 設定] -> [安全性設定] -> [本機原則] -> [安全性選項] -> [網路安全性: 設定 Kerberos 允許的加密類型] 底下，[RC4_HMAC_MD5] 的原則值為 [已啟用]。
@@ -81,7 +81,7 @@ ms.locfileid: "37110884"
 - 確定使用者帳戶是來自已設定無縫 SSO 的 Active Directory 樹系。
 - 確定裝置已連線到公司網路。
 - 確定裝置的時間已經與 Active Directory 和網域控制站的時間同步，且彼此的時間差不到五分鐘。
-- 請確認在您想要啟用無縫 SSO 的每個 AD 樹系中，`AZUREADSSOACCT` 電腦帳戶存在且已啟用。 
+- 請確認在您想要啟用無縫 SSO 的每個 AD 樹系中，`AZUREADSSOACCT` 電腦帳戶存在且已啟用。 如果電腦帳戶已遭刪除或遺失，您可以使用 [PowerShell Cmdlet](#manual-reset-of-the-feature) 來重新建立它們。
 - 從命令提示字元使用 `klist` 命令，列出裝置上現有的 Kerberos 票證。 確認是否有核發給 `AZUREADSSOACCT` 電腦帳戶的票證。 使用者的 Kerberos 票證有效期通常為 10 個小時。 您的 Active Directory 可能有不同的設定。
 - 如果您在租用戶上將「無縫 SSO」停用再重新啟用，使用者將必須等到他們的已快取 Kerberos 票證到期之後，才能使用單一登入體驗。
 - 使用 `klist purge` 命令從裝置中清除現有的 Kerberos 票證，然後再試一次。
@@ -119,12 +119,20 @@ ms.locfileid: "37110884"
 ### <a name="step-3-disable-seamless-sso-for-each-active-directory-forest-where-youve-set-up-the-feature"></a>步驟 3：已設定此功能的每個 Active Directory 樹系，均停用無縫 SSO
 
 1. 呼叫 `$creds = Get-Credential`。 出現提示時，輸入預定 Active Directory 樹系的網域管理員認證。
+
+>[!NOTE]
+>我們會使用網域系統管理員的使用者名稱 (以使用者主體名稱 (UPN) (johndoe@contoso.com) 格式或網域限定的 SAM 帳戶名稱 (contoso\johndoe 或 contoso.com\johndoe) 格式提供)，來尋找預定的 AD 樹系。 如果您使用網域限定的 SAM 帳戶名稱，我們就會利用使用者名稱的網域部分，[使用 DNS 來尋找網域系統管理員的網域控制站](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx) \(英文\)。 如果您改用 UPN，我們就會先[將其轉譯成網域限定的 SAM 帳戶名稱](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) \(英文\)，然後再尋找適當的網域控制站。
+
 2. 呼叫 `Disable-AzureADSSOForest -OnPremCredentials $creds`。 此命令會從此特定 Active Directory 樹系的內部部署網域控制站中移除 `AZUREADSSOACCT` 電腦帳戶。
 3. 您已設定此功能的每個 Active Directory 樹系，均重複上述步驟。
 
 ### <a name="step-4-enable-seamless-sso-for-each-active-directory-forest"></a>步驟 4：為每個 Active Directory 樹系啟用無縫 SSO
 
 1. 呼叫 `Enable-AzureADSSOForest`。 出現提示時，輸入預定 Active Directory 樹系的網域管理員認證。
+
+>[!NOTE]
+>我們會使用網域系統管理員的使用者名稱 (以使用者主體名稱 (UPN) (johndoe@contoso.com) 格式或網域限定的 SAM 帳戶名稱 (contoso\johndoe 或 contoso.com\johndoe) 格式提供)，來尋找預定的 AD 樹系。 如果您使用網域限定的 SAM 帳戶名稱，我們就會利用使用者名稱的網域部分，[使用 DNS 來尋找網域系統管理員的網域控制站](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx) \(英文\)。 如果您改用 UPN，我們就會先[將其轉譯成網域限定的 SAM 帳戶名稱](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) \(英文\)，然後再尋找適當的網域控制站。
+
 2. 已設定此功能的每個 Active Directory 樹系，均重複上述步驟。
 
 ### <a name="step-5-enable-the-feature-on-your-tenant"></a>步驟 5。 啟用租用戶上的功能

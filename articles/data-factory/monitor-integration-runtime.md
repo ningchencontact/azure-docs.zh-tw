@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 4da9696761747874395ec90cb3b446e3621650ba
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 9c45b428a6d2060243f1eba9a284c7eb1b1b21c0
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113252"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259097"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>在 Azure Data Factory 中監視整合執行階段  
 **整合執行階段**是 Azure Data Factory 所使用的計算基礎結構，可提供跨不同網路環境的各種資料整合功能。 Data Factory 提供三種類型的整合執行階段：
@@ -45,7 +45,7 @@ Cmdlet 會為不同類型的整合執行階段傳回不同的資訊。 本文說
 -------- | ------------- | 
 | Name | Azure 整合執行階段的名稱。 |  
 | State | Azure 整合執行階段的狀態。 | 
-| 位置 | Azure 整合執行階段的位置。 如需 Azure 整合執行階段的位置詳細資訊，請參閱[整合執行階段簡介](concepts-integration-runtime.md)。 |
+| Location | Azure 整合執行階段的位置。 如需 Azure 整合執行階段的位置詳細資訊，請參閱[整合執行階段簡介](concepts-integration-runtime.md)。 |
 | DataFactoryName | Azure 整合執行階段所屬的資料處理站名稱。 | 
 | resourceGroupName | 資料處理站所屬的資源群組名稱。  |
 | 說明 | 整合執行階段的說明。  |
@@ -76,10 +76,18 @@ Cmdlet 會為不同類型的整合執行階段傳回不同的資訊。 本文說
 | 可用的記憶體 | 自我裝載整合執行階段節點上的可用記憶體。 這個值是近乎即時的快照集。 | 
 | CPU 使用率 | 自我裝載整合執行階段節點的 CPU 使用率。 這個值是近乎即時的快照集。 |
 | 網路功能 (輸入/輸出) | 自我裝載整合執行階段節點的網路使用率。 這個值是近乎即時的快照集。 | 
-| 並行作業 (執行中/限制) | 每個節點上執行的作業或工作數目。 這個值是近乎即時的快照集。 限制表示每個節點的最大並行作業數。 這個值會根據機器大小來定義。 您可以提高限制以在進階案例 (CPU/記憶體/網路並未充分使用，但活動會逾時的案例) 中相應增加並行作業執行能力。這項功能也可與單一節點的自我裝載整合執行階段搭配使用。 |
+| 並行作業 (執行中/限制) | **執行中**。 每個節點上執行的作業或工作數目。 這個值是近乎即時的快照集。 <br/><br/>**限制**。 限制表示每個節點的最大並行作業數。 這個值會根據機器大小來定義。 您可以提高限制以在進階案例 (即便 CPU、記憶體或網路並未充分使用，而活動照樣會逾時的案例) 中相應增加並行作業執行能力。 這項功能也可與單一節點的自我裝載整合執行階段搭配使用。 |
 | 角色 | 多節點的自我裝載整合執行階段中的角色有兩種 – 發送器和背景工作角色。 所有節點都是背景工作角色，這表示它們全都能用來執行作業。 發送器節點只有一個，可用來提取雲端服務中的工作/作業，並發送到不同的背景工作節點。 發送器節點也是背景工作角色節點。 |
 
-當自我裝載整合執行階段中有兩個或多個節點 (相應放大情節) 時，屬性的某些設定會比較合理。 
+當自我裝載整合執行階段中有兩個或多個節點 (也就是相應放大的案例) 時，屬性的某些設定會比較合理。
+
+#### <a name="concurrent-jobs-limit"></a>並行作業數限制
+
+並行作業數限制的預設值取決於機器大小。 用來計算此值的因素取決於 RAM 的數量和機器的 CPU 核心數目。 因此，核心和記憶體越多時，並行作業數預設限制就越大。
+
+您可以增加節點數目來相應放大。 當您增加節點數目時，並行作業數限制是所有可用的節點的並行作業數限制值的總和。  例如，有一個節點可讓您執行最多十二個並行作業，然後再新增三個類似的節點之後，您能執行的並行作業數最多為 48 個 (也就是 4 x 12)。 我們建議您只有在看到每個節點上的預設值會造成資源使用率偏低的狀況時，才增加並行作業數限制。
+
+您可以覆寫 Azure 入口網站中計算得出的預設值。 依序選取 [作者] > [連線] > [整合執行階段] > [編輯] > [節點] > [修改每個節點的並行作業值]。 您也可以使用 PowerShell [update-azurermdatafactoryv2integrationruntimenode](https://docs.microsoft.com/en-us/powershell/module/azurerm.datafactoryv2/update-azurermdatafactoryv2integrationruntimenode?view=azurermps-6.4.0#examples) \(英文\) 命令。
   
 ### <a name="status-per-node"></a>狀態 (每個節點)
 下表提供自我裝載整合執行階段節點的可能狀態：

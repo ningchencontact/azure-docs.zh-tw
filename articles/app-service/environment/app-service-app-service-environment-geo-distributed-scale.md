@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2016
 ms.author: stefsch
-ms.openlocfilehash: 21f747239e565aba79a84c8e946a71e306b64968
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bc85139dfa3589baf6505fac2269f8755dcaddc8
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22986783"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213243"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>App Service 環境的異地分散調整
 ## <a name="overview"></a>概觀
@@ -95,7 +95,7 @@ App Service 環境是水平相應放大的理想平台。在選取可支援已�
 
 ![自訂網域][CustomDomain] 
 
-如需向 Azure App Service 應用程式註冊自訂網域的概述，請參閱下列有關[註冊自訂網域][RegisterCustomDomain]的文章。
+如需向 Azure App Service 應用程式註冊自訂網域的重點回顧，請參閱下列有關[註冊自訂網域][RegisterCustomDomain]的文章。
 
 ## <a name="trying-out-the-distributed-topology"></a>嘗試使用分散式拓撲
 使用流量管理員及 DNS 組態的最終結果，是 *www.scalableasedemo.com* 的要求會歷經下列順序的流程：

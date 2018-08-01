@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: robb
 ms.component: ''
-ms.openlocfilehash: 571e4707cd89f1d159928845eca955801ffb9209
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: dfc9a65325d25889c9d8d3c10aa0dcda2b5a9980
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971640"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213201"
 ---
 # <a name="azure-monitor-cli-20-quick-start-samples"></a>Azure 監視器 CLI 2.0 快速入門範例
 本文說明可協助您存取 Azure 監視器 功能的命令列介面 (CLI) 命令範例。 Azure 監視器可讓您根據設定的遙測資料值、自動調整雲端服務、虛擬機器和 Web Apps，以及傳送警示通知，或呼叫 Web URL。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-如果您尚未安裝 Azure CLI，請遵循[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli) 中的指示。 您也可以使用 [Azure Cloud Shell](/azure/cloud-shell) 執行 CLI，作為您瀏覽器中的互動式體驗。 請在 [Azure 監視器 CLI 參考](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest)中參閱所有可用命令的完整參考。 
+如果您尚未安裝 Azure CLI，請遵循[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli) 中的指示。 您也可以使用 [Azure Cloud Shell](/azure/cloud-shell) 執行 CLI，作為您瀏覽器中的互動式體驗。 請在 [Azure 監視器 CLI 參考](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest) \(英文\) 中查看所有可用命令的完整參考。 
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 第一步是登入您的 Azure 帳戶。

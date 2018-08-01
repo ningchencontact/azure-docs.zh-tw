@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/06/2017
 ms.author: robb
 ms.component: metrics
-ms.openlocfilehash: 878ba004e7572ad78f574c15fd76c8868b281117
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 44daf6461a062e75435ec6f70fbc3cf10327e799
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35262251"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213039"
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Microsoft Azure 中的計量概觀
 所有的 Azure 服務都會追蹤重要計量，可讓您監視服務的健全狀況、效能、可用性和使用情況。 您可以在 Azure 入口網站中檢視這些計量，而且您也可以使用 [REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx) 或 [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) 以程式設計方式存取完整的計量集合。
@@ -43,7 +43,7 @@ ms.locfileid: "35262251"
 
 1. 在刀鋒視窗頂端的 [...] 功能表中，按一下 [新增圖格]：  
     ![新增功能表](./media/insights-how-to-customize-monitoring/Insights_AddMenu.png)
-2. 然後，您可以從右側螢幕上的 [資源庫] 中選取圖表：![資源庫](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
+2. 然後，您可以從畫面上右側的 [資源庫] 中選取圖表：![資源庫](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
 3. 如果您沒有看到所需的計量，您可以隨時新增其中一個預設計量，並 **編輯** 圖表以顯示所需的計量。
 
 ## <a name="monitoring-usage-quotas"></a>監視使用量配額

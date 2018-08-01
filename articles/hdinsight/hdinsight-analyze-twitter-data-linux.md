@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 0c6643e167f43c2524a4d00a209c5a5db22076a8
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: cca015c1af9a10d2214ab972aff339b781e4fd44
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865309"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214528"
 ---
 # <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>在 HDInsight 上使用 Hive 與 Hadoop 分析 Twitter 資料
 
@@ -52,17 +52,17 @@ Twitter 可讓您透過 REST API 抓取每則推文資料，作為 JavaScript �
 
 5. 按一下 [權限]  索引標籤。預設權限為 [唯讀] 。
 
-6. 按一下 **[金鑰和存取權杖** ] 索引標籤。
+6. 按一下 [金鑰和存取權杖] 索引標籤。
 
-7. 按一下 [Create my access token] 。
+7. 按一下 [建立我的存取指令碼]。
 
 8. 按一下位於頁面右上角的 [測試 OAuth]  。
 
-9. 記下**消費者金鑰**、**消費者祕密**、**存取權杖**和**存取權杖祕密**。
+9. 記下**取用者金鑰**、**取用者祕密**、**存取權杖**和**存取權杖祕密**。
 
-### <a name="download-tweets"></a>下載的推文
+### <a name="download-tweets"></a>下載推文
 
-下列 Python 程式碼會從 Twitter 下載 10,000 則推文，並儲存到名為 **tweets.txt**的檔案。
+下列 Python 程式碼會從 Twitter 下載 10,000 則推文，並儲存到名為 **tweets.txt** 的檔案。
 
 > [!NOTE]
 > 由於已安裝 Python，下列步驟會在 HDInsight 叢集上執行。
@@ -75,7 +75,7 @@ Twitter 可讓您透過 REST API 抓取每則推文資料，作為 JavaScript �
 
     如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-3. 使用下列命令來安裝 [Tweepy (英文)](http://www.tweepy.org/)、[Progressbar (英文)](https://pypi.python.org/pypi/progressbar/2.2) 和其他必要的套件：
+3. 使用下列命令來安裝 [Tweepy (英文)](http://www.tweepy.org/)、[Progressbar (英文)](https://pypi.python.org/pypi/progressbar/2.2) 和其他必要套件：
 
    ```bash
    sudo apt install python-dev libffi-dev libssl-dev

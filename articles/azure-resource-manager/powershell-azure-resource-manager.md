@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/16/2018
+ms.date: 07/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5f7c569eabcf6e4b743f1b6616161787764e8f84
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7cda2a406c6c49e9252bfd5840e8f943e5b7043f
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723490"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205794"
 ---
 # <a name="manage-resources-with-azure-powershell"></a>使用 Azure PowerShell 管理資源
 
@@ -72,13 +72,9 @@ New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
 
 通常您需要針對**網路參與者**和**儲存體帳戶參與者**重複程序，以確保已指派使用者來管理已部署的資源。 在本文中，您可以略過這些步驟。
 
-## <a name="azure-policies"></a>Azure 原則
+## <a name="azure-policy"></a>Azure 原則
 
-[!INCLUDE [Resource Manager governance policy](../../includes/resource-manager-governance-policy.md)]
-
-### <a name="apply-policies"></a>套用原則
-
-您的訂用帳戶已經有數個原則定義。 若要查看可使用的原則定義，請使用：
+[Azure 原則](../azure-policy/azure-policy-introduction.md)可協助您確認訂用帳戶中的所有資源均符合公司標準。 您的訂用帳戶已經有數個原則定義。 若要查看可使用的原則定義，請使用：
 
 ```azurepowershell-interactive
 (Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType

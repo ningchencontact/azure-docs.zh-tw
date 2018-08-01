@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 07/20/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: abe439cc91a003137c116f57c0cc8bbb61430114
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5d62eb4d5f43625b336ade68532cf734ef0cde6a
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593447"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214688"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>使用 Azure AD Connect 同步來實作密碼雜湊同步處理
 本文提供您所需資訊，以讓您將使用者密碼從內部部署 Active Directory 執行個體同步處理至雲端式 Azure Active Directory (Azure AD) 執行個體。
@@ -68,7 +68,7 @@ Active Directory 網域服務是以代表使用者實際密碼的雜湊值格式
 密碼同步處理不會影響目前已登入的使用者。
 目前的雲端服務工作階段不會立即受到同步處理的密碼變更之影響，會在您登入雲端服務時才會受到影響。 不過，當雲端服務要求您重新驗證時，就需要提供新的密碼。
 
-使用者必須輸入其公司認證第二次對 Azure AD 進行驗證，不論他們是否登入其公司網路。 不過，如果使用者在登入時選取 [讓我保持登入 (KMSI)] 核取方塊，這些模式可以最小化。 此選取動作會設定工作階段 Cookie 在短期間內略過驗證。 KMSI 行為可以由 Azure AD 系統管理員啟用或停用。
+使用者必須輸入其公司認證第二次對 Azure AD 進行驗證，不論他們是否登入其公司網路。 不過，如果使用者在登入時選取 [讓我保持登入 (KMSI)] 核取方塊，這些模式可以最小化。 選取此方塊會設定在 180 天內略過驗證的工作階段 Cookie。 KMSI 行為可以由 Azure AD 系統管理員啟用或停用。 此外，您可以藉由開啟[無縫 SSO](active-directory-aadconnect-sso.md) 來減少密碼提示，此功能會在使用者位於連線到您公司網路的公司裝置時自動將他們登入。
 
 > [!NOTE]
 > 只有 Active Directory 的物件類型使用者才支援密碼同步。 不支援 iNetOrgPerson 物件類型。
@@ -99,10 +99,6 @@ Active Directory 網域服務是以代表使用者實際密碼的雜湊值格式
 
 使用者驗證是針對 Azure AD 進行，而不是針對組織自己的 Active Directory 執行個體進行。 如果您的組織對於離開內部部署之任何表單中的密碼資料有疑慮，請考量事實上儲存在 Azure AD 中的 SHA256 資料密碼 (原始 MD4 雜湊的雜湊) 比起儲存在 Active Directory 中的安全許多。 此外，因為此 SHA256 雜湊無法解密，所以無法帶回組織的 Active Directory 環境，並且在傳遞雜湊攻擊中顯示為有效的使用者密碼。
 
-
-
-
-
 ### <a name="password-policy-considerations"></a>密碼原則考量
 啟用密碼雜湊同步處理會影響兩種類型的密碼原則：
 
@@ -121,7 +117,7 @@ Active Directory 網域服務是以代表使用者實際密碼的雜湊值格式
 您可以使用內部部署環境中已過期的同步處理密碼，繼續登入雲端服務。 您的雲端密碼會於下一次您在內部部署環境中變更密碼時更新。
 
 #### <a name="account-expiration"></a>帳戶到期
-如果您的組織使用 accountExpires 屬性作為使用者帳戶管理的一部分，請注意這個屬性不會同步處理至 Azure AD。 如此一來，在針對密碼雜湊同步處理設定之環境中已到期的 Active Directory 帳戶在 Azure AD 將仍然為作用中。 我們的建議是，如果帳戶已到期，工作流程動作就應該觸發 PowerShell 指令碼，以停用使用者的 Azure AD 帳戶。 相反地，當帳戶開啟時，Azure AD 執行個體也應開啟。
+如果您的組織使用 accountExpires 屬性作為使用者帳戶管理的一部分，請注意這個屬性不會同步處理至 Azure AD。 如此一來，在針對密碼雜湊同步處理設定之環境中已到期的 Active Directory 帳戶在 Azure AD 將仍然為作用中。 我們的建議是，如果帳戶到期，工作流程動作應觸發 PowerShell 指令碼，以停用使用者的 Azure AD 帳戶 (使用 [Set-AzureADUser](https://docs.microsoft.com/powershell/module/azuread/set-azureaduser?view=azureadps-2.0) \(英文\) Cmdlet)。 相反地，當帳戶開啟時，Azure AD 執行個體也應開啟。
 
 ### <a name="overwrite-synchronized-passwords"></a>覆寫已同步的密碼
 系統管理員可以使用 Windows PowerShell 手動重設您的密碼。
@@ -134,21 +130,14 @@ Active Directory 網域服務是以代表使用者實際密碼的雜湊值格式
 
 ### <a name="additional-advantages"></a>其他優點
 
-- 一般而言，密碼雜湊同步處理比同盟服務更容易實作。 它不需要任何額外的伺服器，並且會排除高可用性同盟服務的相依性以驗證使用者。 
+- 一般而言，密碼雜湊同步處理比同盟服務更容易實作。 它不需要任何額外的伺服器，並且會排除高可用性同盟服務的相依性以驗證使用者。
 - 您也可以除了同盟之外，再啟用密碼雜湊同步處理。 您可以將它作為同盟服務發生中斷時的後援服務。
 
-
-
-
-
-
-
-
-
-
-
-
 ## <a name="enable-password-hash-synchronization"></a>啟用密碼雜湊同步處理
+
+>[!IMPORTANT]
+>如果您要從 AD FS (或其他同盟技術) 遷移至密碼雜湊同步處理，強烈建議您遵循我們在[此處](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Password%20Hash%20Synchronization.docx) \(英文\) 發佈的詳細部署指南。
+
 當您使用 [快速設定] 選項來安裝 Azure AD Connect 時，系統會自動啟用密碼雜湊同步處理。 如需詳細資訊，請參閱[使用快速設定開始使用 Azure AD Connect](active-directory-aadconnect-get-started-express.md)。
 
 如果您在安裝 Azure AD Connect 時使用自訂設定，在使用者登入頁面上便會提供密碼雜湊同步處理。 如需詳細資訊，請參閱[自訂 Azure AD Connect 安裝](active-directory-aadconnect-get-started-custom.md)。

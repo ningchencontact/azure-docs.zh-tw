@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2d88bf5d20beb9de9bf4a0cdcb43548d0d582779
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: dfee42f813989da2333720ac92313344343d57a7
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917273"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214024"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>使用 Azure Active Directory 傳遞驗證來進行使用者登入
 
@@ -30,7 +30,7 @@ Azure Active Directory (Azure AD) 傳遞驗證可讓您的使用者以相同密�
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-這是 [Azure AD 密碼雜湊同步處理](active-directory-aadconnectsync-implement-password-hash-synchronization.md)的替代功能，可為組織提供相同的雲端驗證好處。 不過，某些組織的安全性與合規性原則不會允許這些組織將使用者的密碼傳送到其內部界限之外，即使密碼採用雜湊格式也是如此。 傳遞驗證便是最適合這類組織的解決方案。
+這是 [Azure AD 密碼雜湊同步處理](active-directory-aadconnectsync-implement-password-hash-synchronization.md)的替代功能，可為組織提供相同的雲端驗證好處。 不過，某些想要強制執行其內部部署 Active Directory 安全性和密碼原則的組織，可以選擇改用傳遞驗證。 如需各種 Azure AD 登入方法的比較，以及如何為組織選擇正確的登入方法，請檢閱[這份指南](https://docs.microsoft.com/azure/security/azure-ad-choose-authn)。
 
 ![Azure AD 傳遞驗證](./media/active-directory-aadconnect-pass-through-authentication/pta1.png)
 
@@ -49,7 +49,7 @@ Azure Active Directory (Azure AD) 傳遞驗證可讓您的使用者以相同密�
 - *安全*
   - 內部部署密碼絕對不會以任何形式儲存在雲端。
   - 代理程式只會從您的網路內進行輸出連線。 因此，不需要將代理程式安裝在周邊網路 (又稱做 DMZ) 中。
-  - 與 [Azure AD 條件式存取原則](../active-directory-conditional-access-azure-portal.md) (包括 Multi-Factor Authentication (MFA)) 緊密配合，並[篩除暴力密碼破解攻擊](../authentication/howto-password-smart-lockout.md)，藉此保護您的使用者帳戶。
+  - 與 [Azure AD 條件式存取原則](../active-directory-conditional-access-azure-portal.md) (包括 Multi-Factor Authentication (MFA)) 緊密配合、[封鎖舊版驗證](../active-directory-conditional-access-conditions.md)，並[篩除暴力密碼破解攻擊](../authentication/howto-password-smart-lockout.md)，藉此保護您的使用者帳戶。
 - *高可用性*
   - 可以在多部內部部署伺服器上安裝其他代理程式，以提供高可用性的登入要求。
 
@@ -68,12 +68,13 @@ Azure Active Directory (Azure AD) 傳遞驗證可讓您的使用者以相同密�
 
 ## <a name="next-steps"></a>後續步驟
 
-- [**快速入門**](active-directory-aadconnect-pass-through-authentication-quick-start.md) - 開始使用 Azure AD 傳遞驗證。
-- [**智慧鎖定**](../authentication/howto-password-smart-lockout.md) - 在租用戶中設定智慧鎖定功能來保護使用者帳戶。
-- [**目前的限制**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - 了解支援的情節和不支援的情節。
-- [**技術性深入探討**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) - 了解這項功能的運作方式。
-- [**常見問題集**](active-directory-aadconnect-pass-through-authentication-faq.md) - 常見問題集的答案。
-- [**疑難排解**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) - 了解如何解決此功能的常見問題。
-- [**安全性深入探討**](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) - 關於此功能的其他深入技術資訊。
-- [**Azure AD 無縫 SSO**](active-directory-aadconnect-sso.md) - 深入了解此互補功能。
-- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 用於提出新的功能要求。
+- [快速入門](active-directory-aadconnect-pass-through-authentication-quick-start.md)：開始執行 Azure AD 傳遞驗證。
+- [從 AD FS 遷移到傳遞驗證](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) \(英文\)：從 AD FS (或其他同盟技術) 遷移到傳遞驗證的詳細指南。
+- [智慧鎖定](../authentication/howto-password-smart-lockout.md)：在租用戶中設定智慧鎖定功能來保護使用者帳戶。
+- [目前的限制](active-directory-aadconnect-pass-through-authentication-current-limitations.md)：了解支援與不支援的案例。
+- [技術性深入探討](active-directory-aadconnect-pass-through-authentication-how-it-works.md) - 了解這項功能的運作方式。
+- [常見問題集](active-directory-aadconnect-pass-through-authentication-faq.md) - 常見問題集的答案。
+- [疑難排解](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) - 了解如何解決此功能的常見問題。
+- [安全性深入探討](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md)：關於此功能的其他深入技術資訊。
+- [Azure AD 無縫 SSO](active-directory-aadconnect-sso.md)：深入了解此互補功能。
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 用於提出新的功能要求。

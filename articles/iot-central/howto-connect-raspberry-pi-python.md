@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: e9c2d18a518bd5c98fcc35efdb0dff36970a49b2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a3d6ad9f2f442481908bc02252fcc8ab1a74419e
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629060"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205583"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>將 Raspberry Pi 連線到 Azure IoT Central 應用程式 (Python)
 
@@ -28,6 +28,62 @@ ms.locfileid: "34629060"
 * Azure IoT Central 應用程式是從**範例 Devkits** 應用程式範本建立而來。 如需詳細資訊，請參閱[建立 Azure IoT Central 應用程式](howto-create-application.md)。
 * 執行 Raspbian 作業系統的 Raspberry Pi 裝置。 您需要在 Raspberry Pi 接上監視器、鍵盤和滑鼠以便存取 GUI 環境。 Raspberry Pi 必須能夠[連線到網際網路](https://www.raspberrypi.org/learning/software-guide/wifi/)。
 * (選擇性) 適用於 Raspberry Pi 的 [Sense Hat](https://www.raspberrypi.org/products/sense-hat/) 附加元件面板。 此面板會收集各種感應器的遙測資料，以傳送至 Azure IoT Central 應用程式。 如果您沒有 **Sense Hat** 面板，則可以改用模擬器。
+
+## <a name="sample-devkits-application"></a>**範例 Devkits** 應用程式
+
+從**範例 Devkits** 應用程式範本建立的應用程式包含具有下列特性的 **Raspberry Pi**  裝置範本： 
+
+- 包含裝置**溼度**、**溫度**、**壓力**、**磁強計** (沿著 X、Y、Z 軸測量)、**加速計** (沿著 X、Y、Z 軸測量) 和**陀螺儀** (沿著 X、Y、Z 軸測量) 等測量值的遙測。
+- 顯示**電壓**、**電流**、**風扇速度**和 **IR** 切換的設定。
+- 包含裝置屬性**骰子數字**和**位置**雲端屬性的屬性。
+
+
+如需裝置範本的詳細設定資訊，請參閱 [Raspberry PI 裝置範本詳細資料](howto-connect-raspberry-pi-python.md#raspberry-pi-device-template-details)
+    
+
+## <a name="add-a-real-device"></a>新增真實裝置
+
+在 Azure IoT Central 應用程式中，從 **Raspberry Pi**  裝置範本新增真實裝置，並記下裝置連接字串。 如需詳細資訊，請參閱[將真實裝置新增至 Azure IoT Central 應用程式](tutorial-add-device.md)。
+
+### <a name="configure-the-raspberry-pi"></a>設定 Raspberry Pi
+
+下列步驟說明如何從 GitHub 下載 Python 應用程式範例並進行設定。 此應用程式範例會：
+
+* 將遙測和屬性值傳送至 Azure IoT Central。
+* 回應在 Azure IoT Central 中所做的設定變更。
+
+> [!NOTE]
+> 如需 Raspberry Pi Python 範例的詳細資訊，請參閱 GitHub 上的[讀我檔案](https://github.com/Microsoft/microsoft-iot-central-firmware/blob/master/RaspberryPi/README.md)。
+
+1. 在 Raspberry Pi 桌面中使用網頁瀏覽器，瀏覽至 [Azure IoT Central 韌體版次](https://github.com/Microsoft/microsoft-iot-central-firmware/releases)頁面。
+
+1. 下載包含最新韌體的 ZIP 檔案至 Raspberry Pi 上的主資料夾。 檔案名稱會像 `RaspberryPi-IoTCentral-X.X.X.zip`。
+
+1. 若要將韌體檔案解壓縮，請使用 Raspberry Pi 桌面中的 [檔案管理員]。 以滑鼠右鍵按一下 ZIP 檔案，然後選擇 [解壓縮到這裡]。 此作業會在主資料夾中建立名為 `RaspberryPi-IoTCentral-X.X.X` 的資料夾。
+
+1. 如果您沒有對 Raspberry Pi 連接 **Sense Hat** 面板，則必須啟用模擬器：
+    1. 在 [檔案管理員] 中，以滑鼠右鍵按一下 `RaspberryPi-IoTCentral-X.X.X` 資料夾中的 **config.iot** 檔案，然後選擇 [文字編輯器]。
+    1. 將 `"simulateSenseHat": false,` 這一行變更為 `"simulateSenseHat": true,`。
+    1. 儲存變更並關閉 [文字編輯器]。
+
+1. 啟動 [終端機] 工作階段，然後使用 `cd` 命令來瀏覽至您於上一個步驟所建立的資料夾。
+
+1. 若要讓應用程式範例開始執行，請在 [終端機] 視窗中輸入 `./start.sh`。 如果您使用的是 **Sense HAT 模擬器**，其 GUI 會隨即顯示。 您可以使用 GUI，來變更傳送至 Azure IoT Central 應用程式的遙測值。
+
+1. [終端機] 視窗會顯示訊息，內容會像 `Device information being served at http://192.168.0.60:8080`。 在您的環境中，此 URL 可能會不同。 複製 URL，並使用網頁瀏覽器瀏覽至組態頁面：
+
+    ![設定裝置](media/howto-connect-raspberry-pi-python/configure.png)
+
+1. 輸入您在對 Azure IoT Central 應用程式新增真實裝置時，所記下的裝置連接字串。 然後選擇 [設定裝置]。 您會看到一則訊息：**裝置已設定好，您的裝置應該會立即開始將資料傳送至 Azure IoT Central**。
+
+1. 在 Azure IoT Central 應用程式中，您會看到在 Raspberry Pi 上執行的程式碼如何與應用程式互動：
+
+    * 在真實裝置的 [量測] 頁面上，您會看到從 Raspberry Pi 傳送過來的遙測。 如果您使用的是 **Sense HAT 模擬器**，則可以在 Raspberry Pi 的 GUI 中修改遙測值。
+    * 在 [屬性] 頁面上，您可以看到所報告 [模具編號] 屬性的值。
+    * 在 [設定] 頁面上，您可以變更 Raspberry Pi 的各種設定，例如電壓和風扇。 當 Raspberry Pi 確認變更時，Azure IoT Central 中的設定便會顯示為 [已同步]。
+
+
+## <a name="raspberry-pi-device-template-details"></a>Raspberry PI 裝置範本詳細資料
 
 從**範例 Devkits** 應用程式範本建立的應用程式包含具有下列特性的 **Raspberry Pi**  裝置範本：
 
@@ -70,47 +126,6 @@ ms.locfileid: "34629060"
 | --------------- | ------------ | ---------- | --------- |
 | 裝置屬性 | 模具編號   | dieNumber  | number    |
 | 文字            | 位置     | location   | N/A       |
-
-### <a name="add-a-real-device"></a>新增真實裝置
-
-在 Azure IoT Central 應用程式中，從 **Raspberry Pi**  裝置範本新增真實裝置，並記下裝置連接字串。 如需詳細資訊，請參閱[將真實裝置新增至 Azure IoT Central 應用程式](tutorial-add-device.md)。
-
-## <a name="configure-the-raspberry-pi"></a>設定 Raspberry Pi
-
-下列步驟說明如何從 GitHub 下載 Python 應用程式範例並進行設定。 此應用程式範例會：
-
-* 將遙測和屬性值傳送至 Azure IoT Central。
-* 回應在 Azure IoT Central 中所做的設定變更。
-
-> [!NOTE]
-> 如需 Raspberry Pi Python 範例的詳細資訊，請參閱 GitHub 上的[讀我檔案](https://github.com/Microsoft/microsoft-iot-central-firmware/blob/master/RaspberryPi/README.md)。
-
-1. 在 Raspberry Pi 桌面中使用網頁瀏覽器，瀏覽至 [Azure IoT Central 韌體版次](https://github.com/Microsoft/microsoft-iot-central-firmware/releases)頁面。
-
-1. 下載包含最新韌體的 ZIP 檔案至 Raspberry Pi 上的主資料夾。 檔案名稱會像 `RaspberryPi-IoTCentral-X.X.X.zip`。
-
-1. 若要將韌體檔案解壓縮，請使用 Raspberry Pi 桌面中的 [檔案管理員]。 以滑鼠右鍵按一下 ZIP 檔案，然後選擇 [解壓縮到這裡]。 此作業會在主資料夾中建立名為 `RaspberryPi-IoTCentral-X.X.X` 的資料夾。
-
-1. 如果您沒有對 Raspberry Pi 連接 **Sense Hat** 面板，則必須啟用模擬器：
-    1. 在 [檔案管理員] 中，以滑鼠右鍵按一下 `RaspberryPi-IoTCentral-X.X.X` 資料夾中的 **config.iot** 檔案，然後選擇 [文字編輯器]。
-    1. 將 `"simulateSenseHat": false,` 這一行變更為 `"simulateSenseHat": true,`。
-    1. 儲存變更並關閉 [文字編輯器]。
-
-1. 啟動 [終端機] 工作階段，然後使用 `cd` 命令來瀏覽至您於上一個步驟所建立的資料夾。
-
-1. 若要讓應用程式範例開始執行，請在 [終端機] 視窗中輸入 `./start.sh`。 如果您使用的是 **Sense HAT 模擬器**，其 GUI 會隨即顯示。 您可以使用 GUI，來變更傳送至 Azure IoT Central 應用程式的遙測值。
-
-1. [終端機] 視窗會顯示訊息，內容會像 `Device information being served at http://192.168.0.60:8080`。 在您的環境中，此 URL 可能會不同。 複製 URL，並使用網頁瀏覽器瀏覽至組態頁面：
-
-    ![設定裝置](media/howto-connect-raspberry-pi-python/configure.png)
-
-1. 輸入您在對 Azure IoT Central 應用程式新增真實裝置時，所記下的裝置連接字串。 然後選擇 [設定裝置]。 您會看到一則訊息：**裝置已設定好，您的裝置應該會立即開始將資料傳送至 Azure IoT Central**。
-
-1. 在 Azure IoT Central 應用程式中，您會看到在 Raspberry Pi 上執行的程式碼如何與應用程式互動：
-
-    * 在真實裝置的 [量測] 頁面上，您會看到從 Raspberry Pi 傳送過來的遙測。 如果您使用的是 **Sense HAT 模擬器**，則可以在 Raspberry Pi 的 GUI 中修改遙測值。
-    * 在 [屬性] 頁面上，您可以看到所報告 [模具編號] 屬性的值。
-    * 在 [設定] 頁面上，您可以變更 Raspberry Pi 的各種設定，例如電壓和風扇。 當 Raspberry Pi 確認變更時，Azure IoT Central 中的設定便會顯示為 [已同步]。
 
 ## <a name="next-steps"></a>後續步驟
 

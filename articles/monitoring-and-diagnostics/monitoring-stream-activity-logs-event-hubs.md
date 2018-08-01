@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 03/02/2018
+ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 45352c1cf4aca9043c23bbe12e94ba770a38c01b
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 7a5372174fcc7cd9552c00c9d283772c9863b815
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436700"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257993"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>將 Azure 活動記錄檔串流至事件中樞
 您可以藉由下列任一方式，將 [Azure 活動記錄](monitoring-overview-activity-logs.md)近乎即時地串流至任何應用程式：
@@ -34,7 +34,7 @@ ms.locfileid: "37436700"
 
 共用存取原則會定義串流機制具有的權限。 目前，串流至「事件中樞」需要**管理**、**傳送**及**接聽**權限。 您可以在 Azure 入口網站中您「事件中樞」命名空間的 [設定] 索引標籤下，為「事件中樞」命名空間建立或修改共用存取原則。 
 
-若要更新「活動記錄」記錄設定檔以包含串流，進行變更的使用者必須擁有該「事件中樞」授權規則的 ListKey 權限。 「事件中樞」命名空間不一定要和發出記錄檔的訂用帳戶屬於相同訂用帳戶，只要進行設定的使用者有這兩個訂用帳戶的適當 RBAC 存取權即可。
+若要更新「活動記錄」記錄設定檔以包含串流，進行變更的使用者必須擁有該「事件中樞」授權規則的 ListKey 權限。 事件中樞命名空間不一定要和發出記錄檔的訂用帳戶屬於相同的訂用帳戶，只要進行設定的使用者有這兩個訂用帳戶的適當 RBAC 存取權，而且這兩個訂用帳戶都屬於同一個 ADD 租用戶。
 
 ### <a name="via-the-azure-portal"></a>透過 Azure 入口網站
 1. 藉由使用入口網站左側的 [所有服務] 搜尋，瀏覽至 [活動記錄] 區段。
@@ -53,8 +53,9 @@ ms.locfileid: "37436700"
    > 如果您選取 [所有區域] 以外的選項，則會遺漏您預期接收的重要事件。 「活動記錄」是一個全域 (非區域性) 記錄，因此大多數事件都沒有關聯的區域。 
    >
 
-4. 選取 [儲存] 以儲存這些設定。 設定會立即套用至您的訂用帳戶。
-5. 如果您有數個訂用帳戶，請重複執行此動作，並將所有資料傳送給相同的事件中樞。
+4. 按一下 [Azure 事件中樞]  選項，然後選取中樞命名空間來將記錄檔傳送給它，然後按一下 [確定]。
+5. 選取 [儲存] 以儲存這些設定。 設定會立即套用至您的訂用帳戶。
+6. 如果您有數個訂用帳戶，請重複執行此動作，並將所有資料傳送給相同的事件中樞。
 
 ### <a name="via-powershell-cmdlets"></a>透過 PowerShell Cmdlet
 如果記錄設定檔已經存在，您必須先移除現有的記錄設定檔，然後再建立新的記錄設定檔。

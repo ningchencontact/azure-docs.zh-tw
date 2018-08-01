@@ -1,6 +1,6 @@
 ---
-title: 如何使用 Azure 入口網站設定 Azure VM 上的 MSI
-description: 使用 Azure 入口網站在 Azure VM 上設定「受控服務身分識別 (MSI)」的逐步指示。
+title: 如何使用 Azure 入口網站在 Azure VM 上設定受控服務識別
+description: 使用 Azure 入口網站在 Azure VM 上設定受控服務識別的逐步指示。
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: daveba
-ms.openlocfilehash: 27ecb00bddb41ae45e790a54702c058ff3f1d24b
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 6ba090065b18a44cc1f01a62eefb5dcf52bcf356
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035936"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213260"
 ---
-# <a name="configure-a-vm-managed-service-identity-msi-using-the-azure-portal"></a>使用 Azure 入口網站設定「VM 受控服務身分識別 (MSI)」
+# <a name="configure-a-vm-managed-service-identity-using-the-azure-portal"></a>使用 Azure 入口網站設定 VM 受控服務識別
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -36,6 +36,8 @@ ms.locfileid: "39035936"
 
 - 如果您不熟悉受控服務識別，請參閱[概觀](overview.md)一節。
 - 如果您還沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com/free/)，再繼續進行。
+- 若要執行本文中的管理作業，您的帳戶需要下列角色指派：
+    - [虛擬機器參與者](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)，可從 Azure VM 啟用和移除系統指派的識別。
 
 ## <a name="managed-service-identity-during-creation-of-an-azure-vm"></a>在 Azure vm 建立期間的受控服務識別
 
@@ -50,14 +52,14 @@ ms.locfileid: "39035936"
 
 若要在原本佈建時沒有使用系統指派身分識別的 VM 上啟用此身分識別：
 
-1. 使用與包含虛擬機器的 Azure 訂用帳戶相關聯的帳戶，登入 [Azure 入口網站](https://portal.azure.com)。 此外也請確定您的帳戶屬於在 VM 上具有寫入權限的角色，例如「虛擬機器參與者」。
+1. 使用與包含虛擬機器的 Azure 訂用帳戶相關聯的帳戶，登入 [Azure 入口網站](https://portal.azure.com)。
 
 2. 瀏覽至所需的虛擬機器，然後選取 [組態] 頁面。
 
 3. 藉由在 [受控服務識別] 下選取 [是]，以在虛擬機器上啟用系統指派的身分識別，然後按一下 [儲存]。 此作業可能需要 60 秒以上才能完成：
 
-    > [!NOTE]
-    > 不支援透過 Azure 入口網站將使用者指派的身分識別新增至虛擬機器。
+   > [!NOTE]
+   > 不支援透過 Azure 入口網站將使用者指派的身分識別新增至虛擬機器。
 
    ![組態頁面螢幕擷取畫面](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
@@ -65,7 +67,7 @@ ms.locfileid: "39035936"
 
 如果您的虛擬機器不再需要系統指派的身分識別：
 
-1. 使用與包含虛擬機器的 Azure 訂用帳戶相關聯的帳戶，登入 [Azure 入口網站](https://portal.azure.com)。 此外也請確定您的帳戶屬於在 VM 上具有寫入權限的角色，例如「虛擬機器參與者」。
+1. 使用與包含虛擬機器的 Azure 訂用帳戶相關聯的帳戶，登入 [Azure 入口網站](https://portal.azure.com)。 
 
 2. 瀏覽至所需的虛擬機器，然後選取 [組態] 頁面。
 
@@ -82,5 +84,5 @@ ms.locfileid: "39035936"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 使用 Azure 入口網站，提供 Azure VM 的 MSI[ 存取權給另一個 Azure 資源](howto-assign-access-portal.md)。
+- 使用 Azure 入口網站，提供 Azure VM 的受控服務識別[存取權給另一個 Azure 資源](howto-assign-access-portal.md)。
 

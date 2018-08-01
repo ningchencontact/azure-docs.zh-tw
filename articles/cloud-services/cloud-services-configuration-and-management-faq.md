@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 6cdfb40ce02cc5f80e3347b921e2b2c75ae3d8ea
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 5b8c7e8880f7e467b1b5a305cc7381e6499571f5
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37437132"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238616"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 雲端服務之設定和管理問題：常見問題集 (FAQ)
 
@@ -41,8 +41,9 @@ ms.locfileid: "37437132"
 
 - [即將在 Azure 入口網站推出的雲端服務功能有哪些可協助管理和監視應用程式？](#what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications)
 - [為什麼 IIS 會停止寫入記錄目錄？](#why-does-iis-stop-writing-to-the-log-directory)
+- [如何啟用雲端服務的 WAD 記錄？](#how-do-i-enable-wad-logging-for-cloud-services)
 
-**網路組態**
+**網路設定**
 
 - [如何設定 Azure 負載平衡器的閒置逾時？](#how-do-i-set-the-idle-timeout-for-azure-load-balancer)
 - [如何將靜態 IP 位址關聯到我的雲端服務？](#how-do-i-associate-a-static-ip-address-to-my-cloud-service)
@@ -139,7 +140,16 @@ Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $pass
 * [在 Azure 儲存體中儲存和檢視診斷資料](cloud-services-dotnet-diagnostics-storage.md)
 * [IIS 記錄會停止在雲端服務中寫入](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
 
-## <a name="network-configuration"></a>網路組態
+### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>如何為雲端服務啟用 WAD 記錄？
+您可以透過下列選項來啟用 Windows Azure 診斷 (WAD) 記錄：
+1. [從 Visual Studio 啟用](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+2. [透過 .Net 程式碼啟用](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
+3. [透過 PowerShell 啟用](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
+
+若要取得雲端服務的目前 WAD 設定，您可以使用 [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) ps cmd 或您可以從入口網站的 [雲端服務] --> [延伸模組] 刀鋒視窗中檢視它。
+
+
+## <a name="network-configuration"></a>網路設定
 
 ### <a name="how-do-i-set-the-idle-timeout-for-azure-load-balancer"></a>如何設定 Azure Load Balancer 的閒置逾時？
 您可以在服務定義 (csdef) 檔中指定逾時，就像這樣：

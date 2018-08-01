@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 41548c3395fa0c8f56e62cfcfb7338a2d53f040f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 6aff9e9599d31942f994f3cb4e5e9219f33dc7e1
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212886"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205515"
 ---
 # <a name="implementing-service-level-features-in-your-actor-service"></a>在動作項目服務中實作服務層級功能
 如[服務分層](service-fabric-reliable-actors-platform.md#service-layering)所述，動作項目服務本身是可靠的服務。  您可以自行撰寫衍生自 `ActorService` 的服務，並以您在繼承 StatefulService 時所使用的相同方式來實作服務層級功能，例如︰
@@ -149,24 +149,53 @@ public class Program
 ## <a name="implementing-actor-backup-and-restore"></a>實作動作項目備份與還原
 自訂動作項目服務會利用已經存在於 `ActorService`中的遠端處理接聽程式，藉以公開用來備份動作項目資料的方法。  如需範例，請參閱[備份與還原動作項目](service-fabric-reliable-actors-backup-and-restore.md)。
 
+## <a name="actor-using-remoting-v2interfacecompatible-stack"></a>使用 Remoting V2(InterfaceCompatible) 堆疊的動作項目
+Remoting V2(InterfaceCompatible 也稱為 V2_1) 堆疊具有 V2 Remoting 堆疊的所有功能，此外，它是 Remoting V1 堆疊的介面相容堆疊，但與 V2 和 V1 不具有回溯相容性。 若要從 V1 升級到 V2_1 而不會影響服務可用性，請按照下列[文章](#actor-service-upgrade-to-remoting-v2interfacecompatible-stack-without-impacting-service-availability)中的操作方法執行。
+
+若要使用 Remoting V2_1 堆疊，必須進行下列變更。
+ 1. 在動作項目介面上新增下列組件屬性。
+   ```csharp
+   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
+   ```
+
+ 2. 建置和升級 ActorService 和動作項目用戶端專案來開始使用 V2 堆疊。
+
+#### <a name="actor-service-upgrade-to-remoting-v2interfacecompatible-stack-without-impacting-service-availability"></a>動作項目服務升級至 Remoting V2(InterfaceCompatible) 堆疊，不會影響服務可用性。
+此項變更是 2 個步驟的升級作業。 依照列出的步驟順序進行。
+
+1.  在動作項目介面上新增下列組件屬性。 此屬性將會為 ActorService 啟動兩個接聽程式：V1 (現有) 與 V2_1 接聽程式。 透過下列變更升級 ActorService。
+
+  ```csharp
+  [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
+  ```
+
+2. 完成上述升級之後，升級 ActorClients。
+此步驟可確保動作項目 Proxy 使用 Remoting V2_1 堆疊。
+
+3. 此為選用步驟。 變更上述屬性以移除 V1 接聽程式。
+
+    ```csharp
+    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
+    ```
+
 ## <a name="actor-using-remoting-v2-stack"></a>使用 Remoting V2 堆疊的動作項目
 透過 2.8 NuGet 套件，使用者現在可以使用 Remoting V2 堆疊，它的效能更好，並提供像是自訂序列化等功能。 Remoting V2 與現有的 Remoting 堆疊 (我們稱現在的是 V1 Remoting 堆疊) 不相容。
 
 若要使用 Remoting V2 堆疊，必須進行下列變更。
  1. 在動作項目介面上新增下列組件屬性。
    ```csharp
-   [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
+   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
    ```
 
  2. 建置和升級 ActorService 和動作項目用戶端專案來開始使用 V2 堆疊。
 
-### <a name="actor-service-upgrade-to-remoting-v2-stack-without-impacting-service-availability"></a>動作項目服務升級至 Remoting V2 堆疊，不會影響服務可用性。
+#### <a name="actor-service-upgrade-to-remoting-v2-stack-without-impacting-service-availability"></a>動作項目服務升級至 Remoting V2 堆疊，不會影響服務可用性。
 此項變更是 2 個步驟的升級作業。 依照列出的步驟順序進行。
 
 1.  在動作項目介面上新增下列組件屬性。 此屬性將會為 ActorService 啟動兩個接聽程式：V1 (現有) 與 V2 接聽程式。 透過下列變更升級 ActorService。
 
   ```csharp
-  [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.CompatListener,RemotingClient = RemotingClient.V2Client)]
+  [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
   ```
 
 2. 完成上述升級之後，升級 ActorClients。
@@ -175,7 +204,7 @@ public class Program
 3. 此為選用步驟。 變更上述屬性以移除 V1 接聽程式。
 
     ```csharp
-    [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
+    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
     ```
 
 ## <a name="next-steps"></a>後續步驟

@@ -4,14 +4,14 @@ description: 概括介紹 Azure Migrate 服務中的評量計算。
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/05/2018
+ms.date: 07/25/2018
 ms.author: raynew
-ms.openlocfilehash: 6d5a0b959b25c0ee294b22b3f4066d006806b524
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 7900a02ba9112b910589d04850a4cd5d52e044d2
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920918"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249184"
 ---
 # <a name="assessment-calculations"></a>評量計算
 
@@ -40,7 +40,7 @@ Azure Migrate 檢閱內部部署 VM 的下列屬性，以識別 VM 是否可以�
 --- | --- | ---
 **開機類型** | Azure 支援開機類型為 BIOS (而非 UEFI) 的 VM。 | 如果開機類型為 UEFI，則可有條件地供 Azure 使用。
 **核心** | 機器的核心數目必須等於或小於 Azure VM 支援的核心數目上限 (32)。<br/><br/> 如果有提供效能記錄，則 Azure Migrate 會將已使用的核心納入考量，進行比較。 如果評量設定已指定緩和因數，則會將使用的核心數目乘以緩和因數。<br/><br/> 如果沒有效能記錄，Azure Migrate 會使用配置的核心，而不套用緩和因數。 | 如果核心數目大於 32，則未就緒。
-**記憶體** | 機器的記憶體大小必須等於或小於 Azure VM 允許的記憶體上限 (448 GB)。 <br/><br/> 如果有提供效能記錄，Azure Migrate 會將已使用的記憶體納入考量，進行比較。 如果已指定緩和因數，則會將使用的記憶體乘以緩和因數。<br/><br/> 如果沒有記錄，則會使用配置的記憶體，而不套用緩和因數。<br/><br/> | 如果記憶體大小大於 448 GB，則未就緒。
+**記憶體** | 機器的記憶體大小必須等於或小於 Azure VM 允許的記憶體上限 (Azure M 系列 Standard_M128m 上 3892 GB &nbsp;<sup>2</sup>)。 [深入了解](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-memory.md#m-series)。<br/><br/> 如果有提供效能記錄，Azure Migrate 會將已使用的記憶體納入考量，進行比較。 如果已指定緩和因數，則會將使用的記憶體乘以緩和因數。<br/><br/> 如果沒有記錄，則會使用配置的記憶體，而不套用緩和因數。<br/><br/> | 如果記憶體大小大於 448 GB，則未就緒。
 **存放磁碟** | 已配置的磁碟大小必須小於或等於 4 TB (4096 GB)。<br/><br/> 附加至機器的磁碟數目必須小於或等於 65，作業系統磁碟亦包含在內。 | 如果任何磁碟大小超過 4 TB，或如果機器有附加超過 65 個磁碟，則未就緒。
 **網路功能** | 機器必須附加 32 個以內的網路介面卡。 | 如果機器有超過 32 個 NIC，則未就緒
 
@@ -58,7 +58,8 @@ Windows Server 2016 與所有 SP | Azure 提供完整支援。 | 可供 Azure �
 Windows Server 2012 R2 與所有 SP | Azure 提供完整支援。 | 可供 Azure 使用
 Windows Server 2012 與所有 SP | Azure 提供完整支援。 | 可供 Azure 使用
 Windows Server 2008 R2，含所有 SP | Azure 提供完整支援。| 可供 Azure 使用
-Windows Server 2003-2008 | 這些作業系統已經過其支援結束的日期，需要[自訂支援合約 (CSA)](https://aka.ms/WSosstatement) 才能在 Azure 中獲得支援。 | 可有條件地供 Azure 使用，在移轉到 Azure 之前，請考慮升級作業系統。
+Windows Server 2008 (32 位元和 64 位元) | Azure 提供完整支援。 | 可供 Azure 使用
+Windows Server 2003、2003 R2 | 這些作業系統已經過其支援結束的日期，需要[自訂支援合約 (CSA)](https://aka.ms/WSosstatement) 才能在 Azure 中獲得支援。 | 可有條件地供 Azure 使用，在移轉到 Azure 之前，請考慮升級作業系統。
 Windows 2000、98、95、NT、3.1、MS-DOS | 這些作業系統已經過其支援結束的日期，機器可能可以在 Azure 中開機，但 Azure 不會提供作業系統支援。 | 可有條件地供 Azure 使用，建議在移轉到 Azure 之前升級作業系統。
 Windows Client 7、8 及 10 | Azure 僅對 Visual Studio 訂用帳戶提供支援。 | 可有條件地供 Azure 使用
 Windows Vista、XP Professional | 這些作業系統已經過其支援結束的日期，機器可能可以在 Azure 中開機，但 Azure 不會提供作業系統支援。 | 可有條件地供 Azure 使用，建議在移轉到 Azure 之前升級作業系統。
@@ -106,10 +107,9 @@ Linux | Azure 認同這些 [Linux 作業系統](../virtual-machines/linux/endors
 如果調整大小準則是*作為內部部署調整大小*，Azure Migrate 不會考慮 VM 和磁碟的效能歷程記錄，並且會根據內部部署所配置的大小在 Azure 中配置 VM SKU。 與調整磁碟大小類似，這會查看評估內容中指定的儲存類型 (標準/進階)，並據此建議磁碟類型。 預設儲存體類型為進階磁碟。
 
 ### <a name="confidence-rating"></a>信賴評等
+Azure Migrate 中的每個效能型評量會與信賴評等連結，信賴評等的範圍從 1 顆星到 5 顆星 (1 顆星最低，5 顆星最高)。 根據計算評量所需的資料點可用性，每個評量都會指派信賴評等。 評量的信賴評等可協助您評估 Azure Migrate 提供的大小建議之可靠性。 信賴評等不適用內部部署評估。
 
-Azure Migrate 中的每個評量會與信賴評等連結，信賴評等的範圍從 1 顆星到 5 顆星 (1 顆星最低，5 顆星最高)。 根據計算評量所需的資料點可用性，每個評量都會指派信賴評等。 評量的信賴評等可協助您評估 Azure Migrate 提供的大小建議之可靠性。
-
-對於調整大小準則為「以效能為基礎調整大小」的評估，評估的信賴評等更實用。 對於以效能為基礎的大小調整，Azure Migrate 需要 VM 的 CPU、記憶體使用量資料。 此外，對於連結至 VM 的每個磁碟，它都需要磁碟 IOPS 和輸送量資料。 同樣地，對於連接至虛擬機器的每個網路介面卡，Azure Migrate 需要輸入/輸出網路以進行以效能為基礎的大小調整。 如果上述的任何使用量數字在 vCenter Server 中無法取得，則 Azure Migrate 所完成的大小建議可能不可靠。 根據可用資料點的百分比提供評量的信賴評等如下：
+對於以效能為基礎的大小調整，Azure Migrate 需要 VM 的 CPU、記憶體使用量資料。 此外，對於連結至 VM 的每個磁碟，它都需要磁碟 IOPS 和輸送量資料。 同樣地，對於連接至虛擬機器的每個網路介面卡，Azure Migrate 需要輸入/輸出網路以進行以效能為基礎的大小調整。 如果上述的任何使用量數字在 vCenter Server 中無法取得，則 Azure Migrate 所完成的大小建議可能不可靠。 根據可用資料點的百分比提供評量的信賴評等如下：
 
    **資料點的可用性** | **信賴評等**
    --- | ---

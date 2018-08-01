@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 07/23/2018
 ms.author: marsma
-ms.openlocfilehash: cb7b27b178197cde040e1d106ed5a5ee20905823
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: cfe034d6dcac48d7c9e4b2ce17e4926a81a27886
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115790"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216099"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 中的網路組態
 
@@ -50,9 +50,10 @@ ms.locfileid: "39115790"
 
 * 適用於 AKS 叢集的 VNet 必須允許輸出網際網路連線。
 * 請勿在相同子網路中建立多個 AKS 叢集。
-* 適用於 AKS 的進階網路功能不支援使用 Azure 私人 DNS 區域的 VNet。
 * AKS 叢集可能不會針對 Kubernetes 服務位址範圍使用 `169.254.0.0/16`、`172.30.0.0/16` 或 `172.31.0.0/16`。
-* 用於 AKS 叢集的服務主體必須具有包含現有 VNet 之資源群組的 `Contributor` 權限。
+* AKS 叢集所使用的服務主體在您 VNet 內的子網路上必須至少具有[網路參與者](../role-based-access-control/built-in-roles.md#network-contributor)權限。 如果您想要定義[自訂角色](../role-based-access-control/custom-roles.md)，而不使用內建的網路參與者角色，則需要下列權限：
+  * `Microsoft.Network/virtualNetworks/subnets/join/action`
+  * `Microsoft.Network/virtualNetworks/subnets/read`
 
 ## <a name="plan-ip-addressing-for-your-cluster"></a>規劃叢集的 IP 位址
 

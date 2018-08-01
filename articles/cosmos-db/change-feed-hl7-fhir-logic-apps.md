@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: sngun
-ms.openlocfilehash: 9d05c41e7ebf9d1cc0735da8853e4ad1617eb810
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d40ab5d6bb29878c633a2645810d6256ac661071
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34610492"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213695"
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>使用 Logic Apps 與 Azure Cosmos DB 對 HL7 FHIR 病患的醫療保健記錄變更發出通知
 
@@ -206,7 +206,7 @@ API 應用程式會連線到 Azure Cosmos DB，並依資源類型查詢新的或
 
 ### <a name="testing-the-fhirnotificationapi"></a>測試 FhirNotificationApi 
 
-下圖示範如何使用 Swagger 來測試 [FhirNotificationApi](#api-app-source)。
+以下影像示範如何使用 Swagger 來測試 [FhirNotificationApi](#api-app-source)。
 
 ![用來測試 API 應用程式的 Swagger 檔案](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-testing-app.png)
 

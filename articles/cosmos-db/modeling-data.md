@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2016
 ms.author: sngun
-ms.openlocfilehash: ef40bcb473e4d7dbe51f9d8d9ca20265c04d0df6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: acd3fa3367f68d5cc98a4ace82508f028d5fdbf8
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34612678"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214740"
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>將 NoSQL 資料庫的文件資料模型化
 雖然無結構描述的資料庫 (像是 Azure Cosmos DB)，讓您極容易運用資料模型變更，但是您仍然應該花一些時間來思考資料。 
@@ -281,7 +281,7 @@ ms.locfileid: "34612678"
     ...
     {"id": "1000","name": "Deep Dive in to Azure Cosmos DB", "pub-id": "mspress"}
 
-在上述範例中，我們在發行者文件上捨棄無限制的集合。 而我們在每個書籍文件上只有發行者的參考。
+在上述範例中，我們在發行者文件上捨棄無限制的集合。 我們在每個書籍文件上只有發行者的參考。
 
 ### <a name="how-do-i-model-manymany-relationships"></a>如何建立多對多關聯性的模型？
 在關聯式資料庫 *多對多* 關聯性中，通常是與聯結資料表模型化，其只是將記錄從其他資料表聯結在一起。 
@@ -389,6 +389,6 @@ ms.locfileid: "34612678"
 
 正如同沒有單一方法可表示螢幕上的資料片段，沒有單一方法可為您的資料建立模型。 您需要了解您的應用程式，以及它將如何產生、取用及處理資料。 然後，藉由套用一些此處所提供的指導方針，您可以設定相關的建立模型，來處理您的應用程式的立即需求。 當您的應用程式需要進行變更時，您可以利用無結構描述之資料庫的彈性來納入變更，並輕鬆進化您的資料模型。 
 
-若要深入了解 Azure Cosmos DB，請參閱服務的[文件 (英文)](https://azure.microsoft.com/documentation/services/cosmos-db/)頁面。 
+若要深入了解 Azure Cosmos DB，請參閱服務的[文件](https://azure.microsoft.com/documentation/services/cosmos-db/) \(英文\) 頁面。 
 
-若要了解如何跨多個分割將您的資料分區，請參閱[在 Azure Cosmos DB 中分割資料](sql-api-partition-data.md)。 
+若要了解如何跨多個分割區將您的資料分區，請參閱[在 Azure Cosmos DB 中分割資料](sql-api-partition-data.md)。 

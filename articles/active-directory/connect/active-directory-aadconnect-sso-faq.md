@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 07/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8e4cc67af4276bc244d402258a90dfec01d61add
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 2d49164748079346f24aeeebe216b2668a4e3aed
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919014"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258483"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory 無縫單一登入：常見問題集
 
@@ -93,6 +93,12 @@ ms.locfileid: "37919014"
 ### <a name="step-2-update-the-kerberos-decryption-key-on-each-ad-forest-that-it-was-set-it-up-on"></a>步驟 2. 在已設定 Kerberos 解密金鑰的每個 AD 樹系上更新該金鑰
 
 1. 呼叫 `$creds = Get-Credential`。 出現提示時，輸入預定 Azure AD 樹系的網域系統管理員認證。
+
+>[!NOTE]
+>我們會使用網域系統管理員的使用者名稱 (以使用者主體名稱 (UPN) (johndoe@contoso.com) 格式或網域限定的 SAM 帳戶名稱 (contoso\johndoe 或 contoso.com\johndoe) 格式提供)，來尋找預定的 AD 樹系。 如果您使用網域限定的 SAM 帳戶名稱，我們就會利用使用者名稱的網域部分，[使用 DNS 來尋找網域系統管理員的網域控制站](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx) \(英文\)。 如果您改用 UPN，我們就會先[將其轉譯成網域限定的 SAM 帳戶名稱](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) \(英文\)，然後再尋找適當的網域控制站。
+
+使用 UPN，我們會轉譯 
+
 2. 呼叫 `Update-AzureADSSOForest -OnPremCredentials $creds`。 此命令會更新此特定 AD 樹系中 `AZUREADSSOACC` 電腦帳戶的 Kerberos 解密金鑰，並且在 Azure AD 中更新它。
 3. 針對您已設定此功能的每個 AD 樹系，重複上述步驟。
 

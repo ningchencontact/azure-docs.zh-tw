@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ea7fb5951cd0b2925aa3dd5ae14b452292ba582c
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: ad4567ffb927694872d5b86dd38833466f944ca8
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917987"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215079"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory 傳遞驗證安全性深入探討
 
@@ -37,14 +37,14 @@ ms.locfileid: "37917987"
 以下是此功能的重要安全性層面：
 - 此功能建置在安全的多租用戶架構上，可隔離租用戶之間的登入要求。
 - 內部部署密碼絕對不會以任何形式儲存在雲端。
-- 接聽並回應密碼驗證要求的內部部署驗證代理程式，只會從網路內建立輸出連線。 不需要在周邊網路 (DMZ) 安裝這些驗證代理程式。
+- 接聽並回應密碼驗證要求的內部部署驗證代理程式，只會從網路內建立輸出連線。 不需要在周邊網路 (DMZ) 安裝這些驗證代理程式。 最佳做法是將執行驗證代理程式的所有伺服器視為階層 0 的系統 (請參閱[參考](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) \(機器翻譯\))。
 - 只有標準連接埠 (80 和 443) 會用於驗證代理程式至 Azure AD 的輸出通訊。 您不需要在防火牆上開放輸入連接埠。 
   - 連接埠 443 會用於所有經過驗證的輸出通訊。
   - 連接埠 80 僅用於下載憑證撤銷清單 (CRL)，以確保此功能所使用的任何憑證都沒有被撤銷。
   - 如需網路需求的完整清單，請參閱 [Azure Active Directory 傳遞驗證：快速入門](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites)。
 - 使用者在登入期間所提供的密碼在雲端會經過加密，內部部署驗證代理程式才會接受密碼，對 Active Directory 進行驗證。
 - Azure AD 和內部部署驗證代理程式之間的 HTTPS 通道可使用相互驗證受到保護。
-- 此功能可與 Azure AD 的雲端保護功能緊密整合，例如條件式存取原則 (包括 Azure Multi-Factor Authentication)、Identity Protection 與智慧鎖定。
+- 與 [Azure AD 條件式存取原則](../active-directory-conditional-access-azure-portal.md) (包括 Multi-Factor Authentication (MFA)) 緊密配合、[封鎖舊版驗證](../active-directory-conditional-access-conditions.md)，並[篩除暴力密碼破解攻擊](../authentication/howto-password-smart-lockout.md)，藉此保護您的使用者帳戶。
 
 ## <a name="components-involved"></a>涉及的元件
 
@@ -156,7 +156,7 @@ ms.locfileid: "37917987"
 
 若要透過 Azure AD 更新驗證代理程式的信任：
 
-1. 驗證代理程式會定期 Ping Azure AD (每隔幾小時)，以檢查是否應更新其憑證。 
+1. 驗證代理程式會定期 Ping Azure AD (每隔幾小時)，以檢查是否應更新其憑證。 憑證會在其到期日前 30 天更新。
     - 此檢查是透過相互驗證的 HTTPS 通道，使用註冊期間所核發的相同憑證執行的。
 2. 如果服務指出應進行更新，驗證代理程式便會產生一個新的金鑰組：公開金鑰和私密金鑰。
     - 這些金鑰是透過標準 RSA 2048 位元加密產生的。
@@ -209,6 +209,7 @@ Azure AD 會將新版的軟體當作已簽署的 **Windows Installer 套件 (MSI
 ## <a name="next-steps"></a>後續步驟
 - [目前的限制](active-directory-aadconnect-pass-through-authentication-current-limitations.md)：了解支援的情節和不支援的情節。
 - [快速入門](active-directory-aadconnect-pass-through-authentication-quick-start.md)：開始使用 Azure AD 傳遞驗證。
+- [從 AD FS 遷移到傳遞驗證](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) \(英文\)：從 AD FS (或其他同盟技術) 遷移到傳遞驗證的詳細指南。
 - [智慧鎖定](../authentication/howto-password-smart-lockout.md)：在租用戶中設定智慧鎖定功能以保護使用者帳戶。
 - [運作方式](active-directory-aadconnect-pass-through-authentication-how-it-works.md)：了解 Azure AD 傳遞驗證運作方式的基本概念。
 - [常見問題集](active-directory-aadconnect-pass-through-authentication-faq.md)：常見問題集的答案。

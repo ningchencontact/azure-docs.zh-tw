@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2018
+ms.date: 07/23/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: e955973008f1ba3900deb691426d0409440ad08a
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: be76965e99a20c1f7164187255e26f6463926c2f
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917722"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214722"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Azure Active Directory 傳遞驗證：將預覽驗證代理程式升級
 
@@ -51,7 +51,7 @@ ms.locfileid: "37917722"
 
 1. 移至內部部署伺服器上的 [控制台]-> [程式]-> [程式和功能]。
 2. 如果有「Microsoft Azure AD Connect 驗證代理程式」項目，您就不需要在此伺服器上採取任何動作。
-3. 如果有「Microsoft Azure AD Application Proxy Connector」項目 (版本 1.5.132.0 或更早版本)，您需要在此伺服器上以手動方式進行升級。
+3. 如果有適用於「**Microsoft Azure AD 應用程式 Proxy 連接器**」的項目，您需要在此伺服器上以手動方式進行升級。
 
 ![驗證代理程式的預覽版本](./media/active-directory-aadconnect-pass-through-authentication/pta6.png)
 
@@ -60,7 +60,7 @@ ms.locfileid: "37917722"
 升級之前，請確定您已備妥下列項目：
 
 1. **建立僅限雲端的全域管理員帳戶**：在傳遞驗證代理程式無法正常運作的緊急情況下，若沒有僅限雲端的全域管理員帳戶可使用，則不要升級。 了解如何[新增僅限雲端管理員帳戶 (英文)](../active-directory-users-create-azure-portal.md)。 這是確保您不會被租用戶封鎖的關鍵步驟。
-2.  **確保高可用性**：如果先前未完成，則使用相關[指示](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability)來安裝第二個獨立驗證代理程式，以提供高可用性來滿足登入要求。
+2.  **確保高可用性**：如果先前未完成，則使用相關[指示](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability)來安裝第二個獨立驗證代理程式，以提供高可用性來滿足登入要求。
 
 ## <a name="upgrading-the-authentication-agent-on-your-azure-ad-connect-server"></a>將 Azure AD Connect 伺服器上的驗證代理程式升級
 

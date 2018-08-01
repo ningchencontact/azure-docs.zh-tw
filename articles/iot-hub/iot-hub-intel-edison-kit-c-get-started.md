@@ -10,24 +10,24 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 4/11/2018
 ms.author: rangv
-ms.openlocfilehash: 2efea8054320323df0e0eb603a20a5773d03cad8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0138b44141bb64671ed2feb522c4b7fa14cab696
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38676616"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213311"
 ---
 # <a name="connect-intel-edison-to-azure-iot-hub-c"></a>將 Intel Edison 連線到 Azure IoT 中樞 (C)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-在本教學課程中，您一開始會先了解使用 Intel Edison 的基本知識。 接著會了解如何使用 [Azure IoT 中樞](iot-hub-what-is-iot-hub.md)讓您的裝置順暢地與雲端連線。
+在本教學課程中，您一開始會先了解使用 Intel Edison 的基本知識。 接著會了解如何使用 [Azure IoT 中樞](about-iot-hub.md)讓您的裝置順暢地與雲端連線。
 
 還沒有套件嗎？ 從[這裡](https://azure.microsoft.com/develop/iot/starter-kits)開始
 
 ## <a name="what-you-do"></a>您要做什麼
 
-* 設置 Intel Edison 和 Grove 模組。
+* 安裝 Intel Edison 和 Grove 模組。
 * 建立 IoT 中樞。
 * 在 IoT 中樞註冊 Edison 的裝置。
 * 在 Edison 上執行範例應用程式，將感應器資料傳送至 IoT 中樞。

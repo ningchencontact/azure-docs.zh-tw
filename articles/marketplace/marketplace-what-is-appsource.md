@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: ellacroi
-ms.openlocfilehash: 7da3ae1ca0fc59b0d606a22e9c00b8e7b58674ba
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2814e5f8641e9287b94eb23b719601c75afe9c9f
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335086"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214827"
 ---
 # <a name="what-is-appsource"></a>什麼是 AppSource
 AppSource 可讓 Microsoft 合作夥伴透過 Microsoft 支援的線上店面，讓客戶找到他們的技術與服務。 身為 AppSource 發行者，您可讓商務使用者參與 AppSource 以尋找、嘗試及取得企業營運 SaaS 應用程式與實作服務，以協助推動商務成果並縮短創造價值的時程： 
@@ -73,7 +73,7 @@ AppSource 可讓 Microsoft 合作夥伴透過 Microsoft 支援的線上店面，
 | Dynamics NAV 受控服務 | 否 | 授權型供應項目不需要 Azure AD 整合 |
 | Power BI | 否 | 授權型供應項目不需要 Azure AD 整合 |
 | 諮詢供應項目 | 否 | 服務是透過合作夥伴協調，而不是透過 Web 體驗 |
-| Cortana Intelligence | yes | Azure AD 是確保無縫式客戶經驗及促進最高品質潛在客戶的最佳做法 |
+| Cortana Intelligence | 是 | Azure AD 是確保無縫式客戶經驗及促進最高品質潛在客戶的最佳做法 |
 | SaaS 應用程式 (前身為 Web Apps) | 慣用 | Azure AD 是確保無縫式客戶經驗及促進最高品質潛在客戶的最佳做法 |
 ###### <a name="table-appsource-offerings-that-require-azure-active-directory-integration"></a>表格：需要 Azure Active Directory 整合的 AppSource 供應項目
 

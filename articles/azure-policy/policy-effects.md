@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: a3267d8f2f088c93a8f69f949dc928437a80f455
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 17ad631e2441e4b8d6314557c17be143fd2f3de0
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856941"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248721"
 ---
 # <a name="understanding-policy-effects"></a>了解原則效果
 
@@ -26,7 +26,7 @@ ms.locfileid: "37856941"
 - 稽核
 - AuditIfNotExists
 - 拒絕
-- DeployIfNotExists
+- DeployIfNotExists (僅適用於**內建**原則)
 
 ## <a name="order-of-evaluation"></a>評估順序
 
@@ -213,6 +213,9 @@ AuditIfNotExists 效果的 **details** 屬性含有定義所要比對相關資�
 ## <a name="deployifnotexists"></a>DeployIfNotExists
 
 DeployIfNotExists 與 AuditIfNotExists 類似，也會在符合條件時執行範本部署。
+
+> [!WARNING]
+> DeployIfNotExists 僅適用於**內建**原則。
 
 ### <a name="deployifnotexists-evaluation"></a>DeployIfNotExists 評估
 

@@ -4,18 +4,18 @@ description: 報告 Azure AD 自助式密碼重設事件
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: e2c4c59e52f277358027f5d228fdf43822822992
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 2560296c088491b7ae0cd414f88ae337c1383c9a
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044523"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258791"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD 密碼管理的報告選項
 
@@ -54,6 +54,10 @@ ms.locfileid: "39044523"
 6. 若要篩選此檢視以只查看密碼重設的相關事件，請按一下窗格頂端的 [篩選] 按鈕。
 7. 從 [篩選] 功能表中，選取 [類別] 下拉式清單，然後將它變更為 [自助式密碼管理] 類別類型。
 8. 另可選擇您有興趣的特定 [活動]，以進一步篩選清單。
+
+### <a name="converged-registration-preview"></a>聚合式註冊 (預覽)
+
+如果您參與聚合式註冊的公開預覽，則可在**驗證方法**的類別下方找到稽核記錄中有關使用者活動的資訊。
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Azure 入口網站中報告資料行的說明
 

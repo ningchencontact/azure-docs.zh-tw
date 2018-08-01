@@ -6,18 +6,18 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: d7814b976529bf7032edd54e4afd574ce766e5dd
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4bcb6734c33d70e4045860a2c0f0acfedfa06eff
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919857"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215174"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>探索及評定大型 VMware 環境
 
 Azure Migrate 具有每個專案 1500 部機器的限制，本文說明如何使用 [Azure Migrate](migrate-overview.md) 來評定大量內部部署虛擬機器 (VM)。   
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - **VMware**：您計劃移轉的虛擬機器必須透過 vCenter Server 5.5、6.0 或 6.5 版來管理。 此外，您還需要一部執行 5.0 版或更新版本的 ESXi 主機來部署收集器虛擬機器。
 - **vCenter 帳戶**：您需要一個唯讀帳戶來存取 vCenter Server。 Azure Migrate 會使用此帳戶來探索內部部署 VM。
@@ -142,7 +142,7 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此虛�
     SHA1 | d6179b5bfe84e123fabd37f8a1e4930839eeb0e5
     SHA256 | 09c68b168719cb93bd439ea6a5fe21a3b01beec0e15b84204857061ca5b116ff
 
-    若為 OVA 1.0.9.7 版
+    針對 OVA 1.0.9.7 版
 
     **演算法** | **雜湊值**
     --- | ---
@@ -150,7 +150,7 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此虛�
     SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
     SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
 
-    若為 OVA 1.0.9.5 版
+    針對 OVA 1.0.9.5 版
 
     **演算法** | **雜湊值**
     --- | ---
@@ -158,7 +158,7 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此虛�
     SHA1 | 5bee071a6334b6a46226ec417f0d2c494709a42e
     SHA256 | b92ad637e7f522c1d7385b009e7d20904b7b9c28d6f1592e8a14d88fbdd3241c  
 
-    若為 OVA 1.0.9.2 版
+    針對 OVA 1.0.9.2 版
 
     **演算法** | **雜湊值**
     --- | ---

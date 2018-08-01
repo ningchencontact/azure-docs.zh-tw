@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/13/2018
+ms.date: 07/20/2018
 ms.author: kumud
-ms.openlocfilehash: dd92fca89e3bdb123be46a52708feec1c939f7cc
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 8d354e3f409a51bdbb03ad340c951c39cc6137e1
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112717"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186438"
 ---
 # <a name="understand-load-balancer-probes"></a>了解 Load Balancer 探查
 
@@ -28,7 +28,7 @@ Azure Load Balancer 會使用健康情況探查，來決定哪一個後端集區
 
 健康情況探查控管新流量是否能與狀況良好的後端執行個體建立連線。 當健康情況探查失敗時，Load Balancer 就會停止傳送新流量給狀況不良的個別執行個體。  健康情況探查失敗之後，已建立的 TCP 連線會繼續。  現有的 UDP 流量將會從狀況不良的執行個體移至後端集區中另一個狀況良好的執行個體。
 
-如果後端集區的所有探查都失敗，Basic Load Balancer 會終止流向後端集區的所有現有 TCP 流量，而 Standard Load Balancer 則會允許已建立的 TCP 流量繼續傳送；沒有任何新流量會傳送到後端集區。  當後端集區的所有探查都失敗時，Basic 和 Standard Load Balancer 會終止所有現有的 UDP 流量。
+如果後端集區的所有探查都失敗，Basic Load Balancer 會終止流向後端集區的所有現有 TCP 流量，而 Standard Load Balancer 則會允許已建立的 TCP 流量繼續傳送；沒有任何新流量會傳送到後端集區。  當後端集區的所有探查都失敗時，Basic 和 Standard Load Balancer 會終止所有現有的 UDP 流量。  UDP 是不需連線的，因此 UDP 沒有流程狀態追蹤。  只要雜湊會產生相同的結果，資料包的流程將會維持在特定的執行個體上。  後端集區中的健康狀態探查若有變更，則會將新的資料包移至後端集區中的不同執行個體。
 
 雲端服務角色 (背景工作角色和 Web 角色) 會使用客體代理程式進行探查監視。 當您在 Load Balancer 後方使用雲端服務搭配 IaaS VM 時，必須設定 TCP 或 HTTP 自訂健康情況探查。
 

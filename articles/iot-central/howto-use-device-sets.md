@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: ef1fa64a276926a35dbf98646317bfe29200bb22
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: d0b802842d60d68bab36e87913a84c5e40b8e431
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261673"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39206066"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>在 Azure IoT Central 應用程式中使用裝置集合
 
@@ -112,13 +112,13 @@ ms.locfileid: "35261673"
     ![儲存儀表板地圖](media/howto-use-device-sets/LocationMaps3.png)
 
 
-5. 現在，當操作員檢視裝置集合儀表板時，就可以看到您設定的所有磚 (包括位置圖格)，一眼就能看到以視覺化方式呈現的所有裝置位置！
+5. 現在，當操作員檢視裝置集合儀表板時，就可以看到您設定的所有磚 (包括位置圖格)，一眼就能看到以視覺化方式呈現的所有裝置位置！ 
 
     ![儀表板地圖操作員檢視](media/howto-use-device-sets/LocationMaps4.png)
 
     您可以將地圖調整為需要的大小。
 
-
+    按一下地圖中的大頭針，即會顯示裝置資訊、名稱和位置。 您可以按一下快顯視窗，然後開啟裝置屬性頁。  
 
 
 ## <a name="configure-the-list-for-your-device-set"></a>設定裝置集合的清單

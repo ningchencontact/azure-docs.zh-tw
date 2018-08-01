@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure 入口網站在 Azure 虛擬機器擴展集上設定 MSI
-description: 使用 Azure 入口網站在 Azure VMSS 上設定「受控服務身分識別 (MSI)」的逐步指示。
+title: 使用 Azure 入口網站在 Azure 虛擬機器擴展集上設定受控服務識別
+description: 使用 Azure 入口網站在 Azure VMSS 上設定受控服務識別的逐步指示。
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 8779600f2c85a8bb309f7b2a8874608170de8877
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 93c532cf2864db28b580303ecefec8b6dbed65f6
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035236"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257754"
 ---
-# <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-the-azure-portal"></a>使用 Azure 入口網站設定虛擬機器擴展集的「受控服務識別 (MSI)」
+# <a name="configure-a-virtual-machine-scale-set-managed-service-identity-using-the-azure-portal"></a>使用 Azure 入口網站設定虛擬機器擴展集的受控服務識別
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -34,9 +34,10 @@ ms.locfileid: "39035236"
 
 ## <a name="prerequisites"></a>必要條件
 
-
 - 如果您不熟悉受控服務識別，請參閱[概觀](overview.md)一節。
 - 如果您還沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com/free/)，再繼續進行。
+- 若要執行本文中的管理作業，您的帳戶需要下列角色指派：
+    - [虛擬機器參與者](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)，可從虛擬機器擴展集啟用和移除系統指派的受控識別。
 
 ## <a name="managed-service-identity-during-creation-of-an-azure-virtual-machine-scale-set"></a>在 Azure 虛擬機器擴展集建立期間使用受控服務識別
 
@@ -44,7 +45,7 @@ ms.locfileid: "39035236"
 
 - [在 Azure 入口網站建立虛擬機器擴展集](../../virtual-machine-scale-sets/quick-create-portal.md)  
 
-然後進入下一節，取得在虛擬機器擴展集上啟用 MSI 的詳細資料。
+然後進入下一節，取得在虛擬機器擴展集上啟用受控服務識別的詳細資料。
 
 ## <a name="enable-managed-service-identity-on-an-existing-azure-vmms"></a>在現有的 Azure VMMS 上啟用受控服務識別
 
@@ -60,7 +61,7 @@ ms.locfileid: "39035236"
 
 ## <a name="remove-managed-service-identity-from-an-azure-virtual-machine-scale-set"></a>從 Azure 虛擬機器擴展集移除受控服務識別
 
-如果您的虛擬機器擴展集不再需要 MSI：
+如果您的虛擬機器擴展集不再需要受控服務識別：
 
 1. 使用與包含虛擬機器擴展集的 Azure 訂用帳戶相關聯的帳戶，登入 [Azure 入口網站](https://portal.azure.com)。 此外也請確定您的帳戶屬於在虛擬機器擴展集上具有寫入權限的角色。
 
@@ -76,6 +77,6 @@ ms.locfileid: "39035236"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 使用 Azure 入口網站，提供虛擬機器擴展集的 MSI [存取權給另一個 Azure 資源](howto-assign-access-portal.md)。
+- 使用 Azure 入口網站，提供虛擬機器擴展集的受控服務識別[存取權給另一個 Azure 資源](howto-assign-access-portal.md)。
 
 使用下列意見區段來提供意見反應，並協助我們改善及設計我們的內容。

@@ -12,21 +12,21 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 07/24/2018
 ms.author: juluk
-ms.openlocfilehash: 4ee02bc2a1956994da0ba49a24eefabf9608565c
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 9588bebdc827760f0e0d3e2aadccbff5f24723f1
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856455"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258920"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure Cloud Shell 的概觀
 Azure Cloud Shell 是可經由瀏覽器存取的互動式殼層，應用在 Azure 資源管理上。
 它可讓您彈性地選擇最適合您工作方式的殼層體驗。
 Linux 使用者可以選擇 Bash 體驗，而 Windows 使用者可以選擇 PowerShell。
 
-請使用此按鈕，從 shell.azure.com 進行嘗試。
+按一下下列項目，從 shell.azure.com 嘗試。
 
 [![](https://shell.azure.com/images/launchcloudshell.png "啟動 Azure Cloud Shell")](https://shell.azure.com)
 
@@ -49,7 +49,12 @@ Linux 使用者可在 Cloud Shell 中使用 Bash，Windows 使用者則可在 Cl
 ### <a name="authenticated-and-configured-azure-workstation"></a>驗證及設定 Azure 工作站
 Cloud Shell 由 Microsoft 管理，因此隨附受歡迎的命令列工具和語言支援。 Cloud Shell 也可安全地自動驗證，讓您可透過 Azure CLI 2.0 或 Azure PowerShell Cmdlet 快速存取您的資源。
 
-檢視完整[工具清單](features.md#tools)。
+檢視[安裝在 Cloud Shell 中的完整工具清單](features.md#tools)
+
+### <a name="integrated-cloud-shell-editor"></a>整合式 Cloud Shell 編輯器
+Cloud Shell 提供一種以開放原始碼 Monaco Editor 為基礎的整合式圖形化文字編輯器。 只需執行 `code .` 來透過 Azure CLI 2.0 或 Azure PowerShell 順暢地部署，即可建立和編輯設定。
+
+[深入了解 Cloud Shell 編輯器](using-cloud-shell-editor.md)。
 
 ### <a name="multiple-access-points"></a>多個存取點
 您可以從下列位置使用 Cloud Shell 這個彈性的工具：

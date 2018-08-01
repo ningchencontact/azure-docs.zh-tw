@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2018
+ms.date: 07/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 04fa1f9a23a7c93426b45305302e3f77d16ab8c0
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 7495ac8b1414412dba9d62d0fb5668c6db364997
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726256"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215045"
 ---
 # <a name="what-is-azure-load-balancer"></a>什麼是 Azure Load Balancer？
 
@@ -114,7 +114,7 @@ Load Balancer 支援基本和標準 SKU，兩者在案例規模、功能、價�
 不過，根據選擇的 SKU 不同，完整的案例設定可能稍有不同。 當文章僅適用於特定 SKU 時，Load Balancer 文件才會加以標注。 若要比較並了解其中的差異，請參閱下表。 如需詳細資訊，請參閱[標準 Load Balancer 概觀](load-balancer-standard-overview.md)。
 
 >[!NOTE]
-> 如果您使用的設計案例較新，請考慮使用標準 Load Balancer。 
+> 新的設計應該使用標準 Load Balancer。 
 
 獨立 VM、可用性設定組和虛擬機器擴展集都只能和一個 SKU 連線，永遠不能和兩者同時連線。 與公用 IP 位址搭配使用時，Load Balancer 和公用 IP 位址的 SKU 必須相符。 Load Balancer 和公用 IP 的 SKU 不可變動。
 
@@ -123,19 +123,20 @@ Load Balancer 支援基本和標準 SKU，兩者在案例規模、功能、價�
 >[!IMPORTANT]
 >標準 Load Balancer 是新的 Load Balancer 產品，大體上是基本 Load Balancer 的超集。 兩種產品間有重要且刻意製造的差別。 任何可在基本 Load Balancer 建立的端對端案例，也可以使用標準 Load Balancer 來建立。 如果您已經習慣使用基本 Load Balancer，請讓自己熟悉標準 Load Balancer，以了解標準和基本在行為上的最新變更以及其影響。 請仔細檢閱這一節。
 
-| | [標準 SKU](load-balancer-standard-overview.md) | 基本 SKU |
+| | 標準 SKU | 基本 SKU |
 | --- | --- | --- |
-| 後端集區大小 | 最多 1000 個執行個體。 | 最多 100 個執行個體。 |
-| 後端集區端點 | 在單一虛擬網路中的任何 VM，包括 VM 混合、可用性設定組、虛擬機器擴展集。 | 在單一可用性設定組或虛擬機器擴展集中的 VM。 |
-| Azure 可用性區域 | 輸入和輸出的區域備援和區域性前端、輸出流程對應存活區域失敗、跨區域負載平衡。 | / |
-| 診斷 | Azure 監視器、多維度計量 (包括位元組和封包計數器)、健康情況探查狀態、連線嘗試 (TCP SYN)、輸出連線的健康情況 (SNAT 成功和失敗的流程)、使用中資料層測量。 | 僅適用於公用負載平衡器的 Azure Log Analytics、SNAT 耗盡警示、後端集區健康情況計數。 |
-| HA 連接埠 | 內部 Load Balancer。 | / |
-| 預設保護 | 預設已關閉公用 IP 與 Load Balancer 端點。 至於流量至流程，則必須使用網路安全性群組，明確地將實體列入白名單。 | 預設為開啟，網路安全性群組為選擇性。 |
-| 輸出連線 | 多個可選擇退出個別規則的前端。_必須_明確建立輸出案例，VM 才能使用輸出連線能力。 不用輸出連線能力即可與 [虛擬網路服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)連線，且不會計入已處理的資料。 必須透過輸出連線能力連線到任何公用 IP 位址 (包括無法作為虛擬網路服務端點的 Azure PaaS 服務)，並計入已處理的資料。 只有內部 Load Balancer 在提供 VM 時，就無法透過預設 SNAT 進行輸出連線。 輸出 SNAT 的程式設計依傳輸通訊協定而異，以輸入負載平衡規則的通訊協定為依據。 | 單一前端，有多個前端時會隨機選取。 只有內部 Load Balancer 在提供 VM 時，會使用預設 SNAT。 |
-| 多個前端 | 輸入和輸出。 | 僅輸入。 |
-| 管理作業 | 大部分的作業 < 30 秒。 | 通常是 60-90+ 秒。 |
-| SLA | 99.99% (當資料路徑具有兩個狀況良好的 VM 時)。 | 內含在 VM SLA 中。 | 
-| 價格 | 根據規則數量以及與資源相關的傳入或傳出處理資料量來計費。  | 不收費。 |
+| 後端集區大小 | 最多 1000 個執行個體 | 最多 100 個執行個體 |
+| 後端集區端點 | 在單一虛擬網路中的任何虛擬機器，包括虛擬機器混合、可用性設定組、虛擬機器擴展集。 | 在單一可用性設定組或虛擬機器擴展集中的虛擬機器 |
+| 可用性區域 | 輸入和輸出的區域備援和區域性前端、輸出流程對應存活區域失敗、跨區域負載平衡 | / |
+| 診斷 | Azure 監視器、多維度計量 (包括位元組和封包計數器)、健康情況探查狀態、連線嘗試 (TCP SYN)、輸出連線的健康情況 (SNAT 成功和失敗的流程)、使用中資料層測量 | 僅適用於公用 Load Balancer 的 Azure Log Analytics、SNAT 耗盡警示、後端集區健康情況計數 |
+| HA 連接埠 | 內部 Load Balancer | / |
+| 預設保護 | 針對公用 IP 和 Load Balancer 端點的保護預設為關閉，必須使用網路安全性群組明確地將流程的流量加入白名單 | 預設為開啟，網路安全性群組為選擇性 |
+| [輸出連線](load-balancer-outbound-connections.md) | 多個可選擇退出個別負載平衡規則的前端。「必須」明確建立輸出案例，虛擬機器才能使用輸出連線能力。  不用輸出連線能力即可與 [VNet 服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)連線，且不會計入已處理的資料。  必須透過輸出連線能力連線到任何公用 IP 位址 (包括無法作為 VNet 服務端點的 Azure PaaS 服務)，並計入已處理的資料。 只有內部 Load Balancer 在提供虛擬機器時，就無法透過預設 SNAT 進行輸出連線。 輸出 SNAT 的程式設計依傳輸通訊協定而異，以輸入負載平衡規則的通訊協定為依據。 | 單一前端，有多個前端時會隨機選取。  只有內部 Load Balancer 在提供虛擬機器時，會使用預設 SNAT。 |
+| [多個前端](load-balancer-multivip-overview.md) | 輸入和[輸出](load-balancer-outbound-connections.md) | 僅輸入 |
+| [健康狀態探查關閉行為](load-balancer-custom-probe-overview.md) | 執行個體探查關閉__和__所有探查關閉時，TCP 連線保持作用中 | 執行個體探查關閉時，TCP 連線保持作用中。 所有探查關閉時，所有 TCP 連線都終止 |
+| 管理作業 | 大部分的作業 < 30 秒 | 通常是 60-90+ 秒 |
+| SLA | 99.99% (當資料路徑具有兩個狀況良好的虛擬機器時) | 內含在 VM SLA 中 | 
+| 價格 | 根據規則數目、與資源相關聯的輸入或輸出所處理的資料來計費  | 不收費 |
 
 如需詳細資訊，請參閱 [Load Balancer 的服務限制](https://aka.ms/lblimits)。 如需標準 Load Balancer 詳細資料，請參閱[概觀](load-balancer-standard-overview.md)、[定價](https://aka.ms/lbpricing)及 [SLA](https://aka.ms/lbsla)。
 

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: fc98f15303f23937d58131de971d5c60017c9034
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 280d62f127c333ff195e921de380721170fd6a96
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917705"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214977"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory 傳遞驗證：快速入門
 
@@ -29,9 +29,9 @@ ms.locfileid: "37917705"
 Azure Active Directory (Azure AD) 傳遞驗證可讓您的使用者以相同密碼登入內部部署和雲端式應用程式。 傳遞驗證會直接向內部部署 Active Directory 驗證使用者的密碼，以決定是否讓使用者登入。
 
 >[!IMPORTANT]
->如果您透過預覽版本使用這項功能，請務必使用 [Azure Active Directory 傳遞驗證：將預覽驗證代理程式升級](./active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md)提供的指示，升級預覽版本驗證代理程式。
+>如果您要從 AD FS (或其他同盟技術) 遷移至傳遞驗證，強烈建議您遵循我們在[此處](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) \(英文\) 發佈的詳細部署指南。
 
-請依照下列指示部署傳遞驗證：
+請依照下列指示，在您的租用戶上部署傳遞驗證：
 
 ## <a name="step-1-check-the-prerequisites"></a>步驟 1：檢查必要條件
 
@@ -50,7 +50,11 @@ Azure Active Directory (Azure AD) 傳遞驗證可讓您的使用者以相同密�
     >[!NOTE]
     >Azure AD Connect 版本 1.1.557.0、1.1.558.0、1.1.561.0 和 1.1.614.0 具有與密碼雜湊同步處理相關的問題。 如果您「不」想要使用密碼雜湊同步處理搭配傳遞驗證，請閱讀 [Azure AD Connect 版本資訊](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470)。
 
-3. 識別額外的伺服器 (執行 Windows Server 2012 R2 或更新版本) 來執行獨立驗證代理程式。 驗證代理程式版本必須是 1.5.193.0 或更新版本。 這部額外的伺服器可用來確保高可用性，滿足登入要求的需求。 根據需要驗證密碼之使用者所在的 Active Directory 樹系，將伺服器新增至同一個樹系。
+3. 識別一或多部額外的伺服器 (執行 Windows Server 2012 R2 或更新版本) 來執行獨立驗證代理程式。 需要有這些額外的伺服器，才能確保登入要求的高可用性。 根據需要驗證密碼之使用者所在的 Active Directory 樹系，將伺服器新增至同一個樹系。
+
+    >[!IMPORTANT]
+    >在生產環境中，我們建議至少要有 3 個驗證代理程式在您的租用戶上執行。 系統限制每個租用戶只能有 12 個驗證代理程式。 因此，最佳做法是將執行驗證代理程式的所有伺服器視為階層 0 的系統 (請參閱[參考](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) \(機器翻譯\))。
+
 4. 如果您的伺服器和 Azure AD 之間有防火牆，請設定下列項目：
    - 確定驗證代理程式會透過以下連接埠對 Azure AD 提出*輸出*要求：
    
@@ -62,32 +66,14 @@ Azure Active Directory (Azure AD) 傳遞驗證可讓您的使用者以相同密�
     如果您的防火牆會根據原始使用者強制執行規則，請開啟這些連接埠，讓來自以網路服務形式執行之 Windows 服務的流量得以通行。
    - 如果您的防火牆或 Proxy 允許建立 DNS 允許清單，便可將對 **\*.msappproxy.net** 與 **\*.servicebus.windows.net** 的連線加入允許清單。 如果不允許建立，請允許存取每週更新的 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。
    - 您的驗證代理程式必須存取 **login.windows.net** 與 **login.microsoftonline.com**才能進行初始註冊， 因此也請針對這些 URL 開啟您的防火牆。
-   - 為了驗證憑證，請解除封鎖以下 URL：**mscrl.microsoft.com:80**、**crl.microsoft.com:80**、**ocsp.msocsp.com:80** 和 **www.microsoft.com:80**。 這些 URL 會用於其他 Microsoft 產品的憑證驗證， 因此您可能已將這些 URL 解除封鎖。
+   - 為了驗證憑證，請解除封鎖以下 URL：**mscrl.microsoft.com:80**、**crl.microsoft.com:80**、**ocsp.msocsp.com:80** 和 **www.microsoft.com:80**。 由於這些 URL 會用於其他 Microsoft 產品的憑證驗證，因此您可能已將這些 URL 解除封鎖。
 
-## <a name="step-2-enable-exchange-activesync-support-optional"></a>步驟 2：啟用 Exchange ActiveSync 支援 (選擇性)
-
-遵循以下指示啟用 Exchange ActiveSync 支援：
-
-1. 使用 [Exchange PowerShell](https://technet.microsoft.com/library/mt587043(v=exchg.150).aspx) 執行下列命令：
-```
-Get-OrganizationConfig | fl per*
-```
-
-2. 檢查 `PerTenantSwitchToESTSEnabled` 設定的值。 如果值為 **true**，代表租用戶的設定正確。 大多數的客戶都會是這種情況。 如果值為**false**，請執行下列命令：
-```
-Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true
-```
-
-3. 驗證 `PerTenantSwitchToESTSEnabled` 設定的值現在設為 **true**。 等候一小時，再開始下一個步驟。
-
-如果您在此步驟中遭遇任何問題，請參閱[疑難排解指南](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#exchange-activesync-configuration-issues)。
-
-## <a name="step-3-enable-the-feature"></a>步驟 3︰啟用功能
+## <a name="step-2-enable-the-feature"></a>步驟 2︰啟用功能
 
 透過 [Azure AD Connect](active-directory-aadconnect.md) 啟用傳遞驗證。
 
 >[!IMPORTANT]
->您可以在 Azure AD Connect 主要或暫存伺服器上啟用傳遞驗證。 您應該從主要伺服器啟用。
+>您可以在 Azure AD Connect 主要或暫存伺服器上啟用傳遞驗證。 建議您從主要伺服器啟用此功能。
 
 如果您是第一次安裝 Azure AD Connect，請選擇[自訂安裝路徑](active-directory-aadconnect-get-started-custom.md)。 在 [使用者登入] 頁面上，選擇 [傳遞驗證] 作為 [登入方法]。 成功完成時，傳遞驗證代理程式會安裝在 Azure AD Connect 所在的同一部伺服器上。 此外，您的租用戶上也會啟用傳遞驗證功能。
 
@@ -98,9 +84,9 @@ Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true
 ![Azure AD Connect：變更使用者登入](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
 >[!IMPORTANT]
->傳遞驗證是租用戶層級的功能。 開啟此功能會影響租用戶中「所有」受控網域的使用者登入。 如果您從 Active Directory Federation Services (AD FS) 改為使用傳遞驗證，應等候至少 12 個小時再關閉 AD FS 基礎結構。 這裡的等候時間可確保使用者在轉換期間依然可以繼續登入 Exchange ActiveSync。
+>傳遞驗證是租用戶層級的功能。 開啟此功能會影響租用戶中「所有」受控網域的使用者登入。 如果您從 Active Directory Federation Services (AD FS) 改為使用傳遞驗證，應等候至少 12 個小時再關閉 AD FS 基礎結構。 這裡的等候時間可確保使用者在轉換期間依然可以繼續登入 Exchange ActiveSync。 如需從 AD FS 遷移到傳遞驗證的詳細說明，請查看我們在[此處](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) \(英文\) 發佈的詳細部署指南。
 
-## <a name="step-4-test-the-feature"></a>步驟 4：測試功能
+## <a name="step-3-test-the-feature"></a>步驟 3：測試功能
 
 請遵循下列指示來確認您已正確啟用傳遞驗證：
 
@@ -116,9 +102,12 @@ Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true
 
 在此階段，租用戶中所有受控網域的使用者都可以使用傳遞驗證來登入。 不過，同盟網域的使用者會繼續使用 ADFS 或您先前設定的其他同盟提供者來登入。 如果您將同盟網域轉換成受控網域，該網域中的所有使用者都會自動開始使用傳遞驗證來登入。 傳遞驗證功能不會影響僅限雲端的使用者。
 
-## <a name="step-5-ensure-high-availability"></a>步驟 5：確保高可用性
+## <a name="step-4-ensure-high-availability"></a>步驟 4：確保高可用性
 
-如果您打算在生產環境中部署「傳遞驗證」，您應該至少再多安裝一個獨立「驗證代理程式」。 請在執行 Azure AD Connect「以外」的伺服器上安裝這些「驗證代理程式」。 此設定可提供高可用性來滿足使用者登入要求。
+如果您打算在生產環境中部署傳遞驗證，您應該安裝額外的獨立驗證代理程式。 請在執行 Azure AD Connect「以外」的伺服器上安裝這些「驗證代理程式」。 此設定可提供高可用性來滿足使用者登入要求。
+
+>[!IMPORTANT]
+>在生產環境中，我們建議至少要有 3 個驗證代理程式在您的租用戶上執行。 系統限制每個租用戶只能有 12 個驗證代理程式。 因此，最佳做法是將執行驗證代理程式的所有伺服器視為階層 0 的系統 (請參閱[參考](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) \(機器翻譯\))。
 
 請依照下列指示來下載「驗證代理程式」軟體：
 
@@ -132,7 +121,7 @@ Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true
 ![Azure Active Directory 管理中心：下載代理程式窗格](./media/active-directory-aadconnect-pass-through-authentication/pta10.png)
 
 >[!NOTE]
->您也可以直接從[這裡](https://aka.ms/getauthagent)下載「驗證代理程式」軟體。 請在安裝「驗證代理程式」_之前_，先檢閱並接受「驗證代理程式」的[服務條款](https://aka.ms/authagenteula) \(英文\)。
+>您也可以直接[下載驗證代理程式軟體](https://aka.ms/getauthagent)。 請在安裝「驗證代理程式」_之前_，先檢閱並接受「驗證代理程式」的[服務條款](https://aka.ms/authagenteula) \(英文\)。
 
 部署獨立「驗證代理程式」的方式有兩種：
 
@@ -152,6 +141,7 @@ Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 
 ## <a name="next-steps"></a>後續步驟
+- [從 AD FS 遷移到傳遞驗證](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) \(英文\)：從 AD FS (或其他同盟技術) 遷移到傳遞驗證的詳細指南。
 - [智慧鎖定](../authentication/howto-password-smart-lockout.md)：了解如何在租用戶中設定智慧鎖定功能以保護使用者帳戶。
 - [目前的限制](active-directory-aadconnect-pass-through-authentication-current-limitations.md)：了解傳遞驗證支援的情節和不支援的情節。
 - [技術深入探討](active-directory-aadconnect-pass-through-authentication-how-it-works.md)：了解傳遞驗證功能的運作方式。
