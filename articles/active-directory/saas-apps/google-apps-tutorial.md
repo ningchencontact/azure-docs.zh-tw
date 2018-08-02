@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: jeedes
-ms.openlocfilehash: a8478436bfae20ee729ce41bcb134bd3a77fb26e
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c8ec2b8e312b9bedbd19cb203c0a59177c7fd6a5
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39053466"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39265007"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>教學課程：Azure Active Directory 與 G Suite 整合
 
@@ -133,7 +133,7 @@ G Suite 與 Azure AD 整合提供下列優點：
 
     ![G Suite 網域與 URL 單一登入資訊](./media/google-apps-tutorial/tutorial_googleapps_urlgmail.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列格式輸入 URL︰`https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
     b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： 
     | |
@@ -150,7 +150,7 @@ G Suite 與 Azure AD 整合提供下列優點：
 
     ![G Suite 網域與 URL 單一登入資訊](./media/google-apps-tutorial/tutorial_googleapps_url1.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列格式輸入 URL︰`https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
 
     b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： 
     | |

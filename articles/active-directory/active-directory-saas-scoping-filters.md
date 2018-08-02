@@ -3,23 +3,23 @@ title: 使用範圍篩選條件佈建應用程式 | Microsoft Docs
 description: 在支援使用者佈建自動化的應用程式中，了解如何使用範圍篩選條件來防止佈建不符合商務需求的物件。
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
-ms.assetid: bcfbda74-e4d4-4859-83bc-06b104df3918
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/31/2017
-ms.author: markvi
+ms.topic: conceptual
+ms.date: 07/30/2018
+ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d6f4f257d380d6521774afd23dbeaf6a94711c6d
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 9f28c97fed2a5fa4990c1310e8389868c6b7dc20
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293070"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39368546"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>含範圍篩選器的屬性型應用程式佈建
 本文的目標在於說明如何使用範圍篩選條件來定義以屬性為基礎的規則，以決定將哪些使用者佈建到應用程式。
@@ -35,7 +35,7 @@ ms.locfileid: "35293070"
     >[!TIP]
     > 您可以根據企業應用程式的指派，將 [範圍](active-directory-saas-app-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) 功能表中的佈建設定底下的設定，變更為 **同步所有使用者與群組**，以停用佈建。 使用此選項再加上屬性型範圍篩選器時，可提供比使用群組型指派更快的效能。  
 
-* **從 HCM 應用程式向內佈建到 Azure AD 和 Active Directory**。 當 [HCM 應用程式 (例如 Workday)](active-directory-saas-workday-tutorial.md) 為來源系統時，範圍篩選條件是決定應該將哪些使用者從 HCM 應用程式佈建到 Active Directory 或 Azure AD 的主要方法。
+* **從 HCM 應用程式向內佈建到 Azure AD 和 Active Directory**。 當 [HCM 應用程式 (例如 Workday)](saas-apps/workday-tutorial.md) 為來源系統時，範圍篩選條件是決定應該將哪些使用者從 HCM 應用程式佈建到 Active Directory 或 Azure AD 的主要方法。
 
 根據預設，Azure AD 佈建連接器尚未設定任何屬性型範圍篩選器。 
 
@@ -61,7 +61,7 @@ Azure AD 佈建服務所處理的每個使用者或群組，一律會根據每�
 * 他們的職稱不能是 Null 或空白。
 
 ## <a name="create-scoping-filters"></a>建立範圍篩選條件
-系統會針對每個 Azure AD 使用者佈建連接器，將範圍篩選器設定為屬性對應的一部分。 下列程序假設您已經針對[其中一個支援的應用程式](active-directory-saas-tutorial-list.md)設定自動佈建，而現在要新增範圍篩選條件。
+系統會針對每個 Azure AD 使用者佈建連接器，將範圍篩選器設定為屬性對應的一部分。 下列程序假設您已經針對[其中一個支援的應用程式](saas-apps/tutorial-list.md)設定自動佈建，而現在要新增範圍篩選條件。
 
 ### <a name="create-a-scoping-filter"></a>建立範圍篩選條件
 1. 在 [Azure 入口網站](https://portal.azure.com)中，移至 [Azure Active Directory] > [企業應用程式] > [所有應用程式] 區段。
@@ -117,5 +117,5 @@ Azure AD 佈建服務所處理的每個使用者或群組，一律會根據每�
 * [撰寫屬性對應的運算式](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [帳戶佈建通知](active-directory-saas-account-provisioning-notifications.md)
 * [使用 SCIM 以啟用將使用者和群組從 Azure Active Directory 自動佈建到應用程式](manage-apps/use-scim-to-provision-users-and-groups.md)
-* [如何整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
+* [如何整合 SaaS 應用程式的教學課程清單](saas-apps/tutorial-list.md)
 

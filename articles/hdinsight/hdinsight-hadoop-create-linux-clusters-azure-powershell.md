@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 11e98117a93f541f6f88b213f59dcf4aba3e7f36
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 57ae7c3cab6c0084bb43585f65d79ae6cc265356
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045206"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263721"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>使用 Azure PowerShell 在 HDInsight 中建立以 Linux 為基礎的叢集
 
@@ -30,7 +30,7 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Microsoft Azur
 > [!NOTE]
 > Azure PowerShell 僅適用於 Windows 用戶端。 如果您使用 Linux、Unix 或 Mac OS X 用戶端，請參閱 [使用 Azure CLI 建立以 Linux 為基礎的 HDInsight 叢集](hdinsight-hadoop-create-linux-clusters-azure-cli.md) ，以取得使用 Azure CLI 建立叢集的相關資訊。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 開始進行此程序之前，您必須先具備下列項目：
 
 * Azure 訂用帳戶。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
@@ -71,7 +71,7 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Microsoft Azur
 
 您也可以使用 `New-AzureRmHDInsightClusterConfig` Cmdlet 建立 HDInsight 設定物件。 然後，您可以修改此設定物件來啟用叢集的其他設定選項。 最後，請使用 `New-AzureRmHDInsightCluster` Cmdlet 的 `-Config` 參數以使用設定。
 
-下列指令碼會建立可在 HDInsight 叢集類型上設定 ML 服務的組態物件。 此設定可啟用邊緣節點、RStudio 和其他儲存體帳戶。
+下列指令碼會建立可在 HDInsight 叢集類型上設定 R 伺服器的設定物件。 此設定可啟用邊緣節點、RStudio 和其他儲存體帳戶。
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/create-cluster/create-cluster-with-config.ps1?range=59-98)]
 

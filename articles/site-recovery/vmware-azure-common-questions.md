@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 07/06/2018
+ms.date: 07/19/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: dc316df754ea0b8630abe341dc5ce6b0adffa685
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: e8d30ae6cde7c787f1aa950506e0eb74bac0c12d
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920030"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238803"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>常見問題 - VMware 到 Azure 的複寫
 
@@ -95,8 +95,12 @@ Site Recovery 可透過公用端點將資料從內部部署環境複寫至 Azure
 ### <a name="can-i-replicate-vms-with-dynamic-disks"></a>是否可使用動態磁碟來複寫 VM？
 動態磁碟可以複寫。 作業系統磁碟必須是基本磁碟。
 
-### <a name="can-i-add-a-new-vm-to-an-existing-replication-group"></a>是否可將新的 VM 新增至現有的複寫群組？
-是。
+### <a name="if-i-use-replication-groups-for-multi-vm-consistency-can-i-add-a-new-vm-to-an-existing-replication-group"></a>如果我使用複寫群組以獲取多 VM 一致性，我是否可將新的 VM 新增至現有的複寫群組？
+是，您可以將新的 VM 新增至現有的複寫群組，為這些 VM 啟用複寫。 您無法在複寫起始後將 VM 新增至現有的複寫群組，且無法為現有的 VM 建立複寫群組。
+
+### <a name="can-i-modify-vms-that-are-replicating-by-adding-or-resizing-disks"></a>我是否可藉由新增磁碟或調整其大小來修改要複寫的 VM？
+
+對於從 VMware 到 Azure 的複寫，您可以修改磁碟大小。 如果您想要新增磁碟，您必須新增磁碟，並重新啟用對 VM 的保護。
 
 ## <a name="configuration-server"></a>組態伺服器
 

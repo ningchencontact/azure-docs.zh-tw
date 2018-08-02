@@ -3,7 +3,7 @@ title: Windows 的 Azure 自訂指令碼延伸模組 | Microsoft Docs
 description: 使用「自訂指令碼擴充功能」來自動執行 Windows VM 組態工作
 services: virtual-machines-windows
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/24/2018
-ms.author: danis
-ms.openlocfilehash: 80f9ecd40c5b9504a6554b95bf374046d8253933
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.author: roiyz
+ms.openlocfilehash: 5c105c6adba1a5fca52a85f6d54751e1b54fd721
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809772"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412826"
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows 的自訂指令碼延伸模組
 
@@ -28,7 +28,7 @@ ms.locfileid: "34809772"
 
 本文件詳細說明如何透過 Azure PowerShell 模組、Azure Resource Manager 範本使用自訂指令碼擴充功能，同時也詳細說明 Windows 系統上的疑難排解步驟。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 > [!NOTE]  
 > 請勿使用自訂指令碼擴充功能以相同的 VM 執行 Update-AzureRmVM 作為其參數，因為它會等候其本身。  

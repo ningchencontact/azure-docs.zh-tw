@@ -11,17 +11,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: b6da8eed16b67db098ceb90079b7da7dfadcd5e3
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: fde6d5fa2488d86af542f409df7c5b76d2510f08
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35302235"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39368646"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>在 Azure Active Directory 中從企業應用程式移除使用者或群組指派
 在 Azure Active Directory (Azure AD) 中，針對已獲指派其中一個企業應用程式存取權的使用者或群組，您可以輕鬆移除已指派的存取權。 您必須具備適當的權限，才能管理企業應用程式，而且必須是目錄的全域管理員。
@@ -69,7 +69,7 @@ ms.locfileid: "35302235"
     ``` 
 ## <a name="next-steps"></a>後續步驟
 
-- [查看我的所有群組](../active-directory-groups-view-azure-portal.md)
+- [查看我的所有群組](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [將使用者或群組指派給企業應用程式](assign-user-or-group-access-portal.md)
 - [停用企業應用程式的使用者登入](disable-user-sign-in-portal.md)
 - [變更企業應用程式的名稱或標誌](change-name-or-logo-portal.md)

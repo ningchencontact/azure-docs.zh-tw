@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 1c8fad4b2c66515af05996395a53a7d8b5dba97f
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: bac3747f3f410e63454f543c035d7e04c20fac2a
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036916"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399172"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>流量管理員常見問題集 (FAQ)
 
@@ -27,23 +27,23 @@ ms.locfileid: "39036916"
 
 ### <a name="what-ip-address-does-traffic-manager-use"></a>「流量管理員」使用什麼 IP 位址？
 
-如[流量管理員的運作方式](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works)所述，流量管理員是在 DNS 層級運作。 它會傳送 DNS 回應，將用戶端導向適當的服務端點。 用戶端會接著直接連線到服務端點，而不會透過「流量管理員」。
+如[流量管理員的運作方式](../traffic-manager/traffic-manager-how-it-works.md)所述，流量管理員是在 DNS 層級運作。 它會傳送 DNS 回應，將用戶端導向適當的服務端點。 用戶端會接著直接連線到服務端點，而不會透過「流量管理員」。
 
 因此，「流量管理員」並不提供端點或 IP 位址來供用戶端連線。 如果您的服務需要靜態 IP 位址，就必須在服務上設定，而不是在「流量管理員」中設定。
 
 ### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>哪種類型的流量可以使用流量管理員路由傳送？
-如[流量管理員的運作方式](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works)中所述，流量管理員端點可以是 Azure 內部或外部裝載的任何網際網路對向服務。 因此，流量管理員可以將源自公用網際網路的流量路由傳送至一組也是網際網路面向的端點。 如果您的端點是在私人網路內部 (例如，內部版本的 [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer))，或是讓使用者從這類內部網路提出 DNS 要求，則無法將流量管理員用於這些流量。
+如[流量管理員的運作方式](../traffic-manager/traffic-manager-how-it-works.md)中所述，流量管理員端點可以是 Azure 內部或外部裝載的任何網際網路對向服務。 因此，流量管理員可以將源自公用網際網路的流量路由傳送至一組也是網際網路面向的端點。 如果您的端點是在私人網路內部 (例如，內部版本的 [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer))，或是讓使用者從這類內部網路提出 DNS 要求，則無法將流量管理員用於這些流量。
 
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>流量管理員是否支援「黏性」工作階段？
 
-如[流量管理員的運作方式](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works)所述，流量管理員是在 DNS 層級運作。 它會使用 DNS 回應將用戶端導向到適當的服務端點。 用戶端會直接連接至服務端點，而不會透過流量管理員。 因此，流量管理員看不到用戶端與伺服器之間的 HTTP 流量。
+如[流量管理員的運作方式](../traffic-manager/traffic-manager-how-it-works.md)所述，流量管理員是在 DNS 層級運作。 它會使用 DNS 回應將用戶端導向到適當的服務端點。 用戶端會直接連接至服務端點，而不會透過流量管理員。 因此，流量管理員看不到用戶端與伺服器之間的 HTTP 流量。
 
 此外，流量管理員收到之 DNS 查詢的來源 IP 位址屬於遞迴 DNS 服務，而不是用戶端。 因此，流量管理員無法追蹤個別的用戶端，也就無法實作「黏性」工作階段。 不是只有流量管理員才受此限制，所有 DNS 型流量管理系統都是如此。
 
 ### <a name="why-am-i-seeing-an-http-error-when-using-traffic-manager"></a>我在使用流量管理員時為何看到 HTTP 錯誤？
 
-如[流量管理員的運作方式](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works)所述，流量管理員是在 DNS 層級運作。 它會使用 DNS 回應將用戶端導向到適當的服務端點。 用戶端會接著直接連線到服務端點，而不會透過「流量管理員」。 流量管理員看不到用戶端與伺服器之間的 HTTP 流量。 因此，您看到的任何 HTTP 錯誤必定來自您的應用程式。 為了讓用戶端連接至應用程式，所有 DNS 解析步驟都已完成。 這包括流量管理員在應用程式流量流程上的任何互動。
+如[流量管理員的運作方式](../traffic-manager/traffic-manager-how-it-works.md)所述，流量管理員是在 DNS 層級運作。 它會使用 DNS 回應將用戶端導向到適當的服務端點。 用戶端會接著直接連線到服務端點，而不會透過「流量管理員」。 流量管理員看不到用戶端與伺服器之間的 HTTP 流量。 因此，您看到的任何 HTTP 錯誤必定來自您的應用程式。 為了讓用戶端連接至應用程式，所有 DNS 解析步驟都已完成。 這包括流量管理員在應用程式流量流程上的任何互動。
 
 因此，進一步的調查應該將焦點放在應用程式上。
 
@@ -51,7 +51,7 @@ ms.locfileid: "39036916"
 
 ### <a name="what-is-the-performance-impact-of-using-traffic-manager"></a>使用「流量管理員」對效能有什麼影響？
 
-如[流量管理員的運作方式](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works)所述，流量管理員是在 DNS 層級運作。 由於用戶端會直接連線到服務端點，因此在連線建立之後，使用「流量管理員」時並不會造成任何效能影響。
+如[流量管理員的運作方式](../traffic-manager/traffic-manager-how-it-works.md)所述，流量管理員是在 DNS 層級運作。 由於用戶端會直接連線到服務端點，因此在連線建立之後，使用「流量管理員」時並不會造成任何效能影響。
 
 因為流量管理員會在 DNS 層級與應用程式整合，所以它確實需要在 DNS 解析鏈結中插入額外的 DNS 查閱。 「流量管理員」對 DNS 解析時間的影響極小。 流量管理員使用全球網路上的名稱伺服器，並使用[任一傳播](https://en.wikipedia.org/wiki/Anycast)網路功能，以確保一律將 DNS 查詢路由傳送至最靠近的可用名稱伺服器。 此外，快取 DNS 回應意謂著因使用「流量管理員」而造成的額外 DNS 延遲僅適用於一小部分工作階段。
 
@@ -59,7 +59,7 @@ ms.locfileid: "39036916"
 
 ### <a name="what-application-protocols-can-i-use-with-traffic-manager"></a>我可以搭配「流量管理員」使用哪些應用程式通訊協定？
 
-如[流量管理員的運作方式](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works)所述，流量管理員是在 DNS 層級運作。 完成 DNS 查閱之後，用戶端就會直接連線到應用程式端點，而不會透過「流量管理員」。 因此，連線可以使用任何應用程式通訊協定。 如果您選取 TCP 作為監視通訊協定，流量管理員的端點健康情況監視可以在不使用任何應用程式通訊協定的情況下完成。 如果您選擇使用應用程式通訊協定來驗證健康情況，端點必須能夠回應 HTTP 或 HTTPS GET 要求。
+如[流量管理員的運作方式](../traffic-manager/traffic-manager-how-it-works.md)所述，流量管理員是在 DNS 層級運作。 完成 DNS 查閱之後，用戶端就會直接連線到應用程式端點，而不會透過「流量管理員」。 因此，連線可以使用任何應用程式通訊協定。 如果您選取 TCP 作為監視通訊協定，流量管理員的端點健康情況監視可以在不使用任何應用程式通訊協定的情況下完成。 如果您選擇使用應用程式通訊協定來驗證健康情況，端點必須能夠回應 HTTP 或 HTTPS GET 要求。
 
 ### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>我是否可以在流量管理員中使用「裸」網域名稱？
 

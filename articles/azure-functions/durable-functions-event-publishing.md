@@ -2,7 +2,7 @@
 title: 發佈至 Azure 事件方格 (預覽) 的 Durable Functions
 description: 了解如何針對 Durable Functions 設定自動 Azure 事件方格發佈。
 services: functions
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/20/2018
-ms.author: tdykstra
-ms.openlocfilehash: 020a775c45ef3c46f9dfc5da7d4a7e470def4705
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.author: glenga
+ms.openlocfilehash: 691f00b0f05d8c91ae6f4409ba9eeeb50b0cd53b
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969906"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343690"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>發佈至 Azure 事件方格 (預覽) 的 Durable Functions
 
@@ -33,7 +33,7 @@ ms.locfileid: "38969906"
 
 * **長時間執行的背景活動**：如果您使用 Durable Functions 進行長時間執行的背景活動，這項功能可協助您知道目前的狀態。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 在您的 Durable Functions 專案中安裝 [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) 1.3.0-rc 或更新版本。
 * 安裝 [Azure 儲存體模擬器](https://docs.microsoft.com/azure/storage/common/storage-use-emulator)。
@@ -211,7 +211,7 @@ namespace LifeCycleEventSpike
 }
 ```
 
-如果您使用 Postman 或您的瀏覽器呼叫 `Sample_HttpStart`，Durable Function 就會開始傳送生命週期事件。 端點通常是用於本機偵錯的 `http://localhost:7071/api/Sample_HttpStart` 。
+如果您使用 Postman 或您的瀏覽器呼叫 `Sample_HttpStart`，Durable Function 就會開始傳送生命週期事件。 端點通常是用於本機偵錯的 `http://localhost:7071/api/Sample_HttpStart`。
 
 請參閱您在 Azure 快速入門中建立的函式所提供的記錄。
 

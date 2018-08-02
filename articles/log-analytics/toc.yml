@@ -55,8 +55,10 @@
           href: log-analytics-log-search-portals.md
 - name: 使用說明指南
   items:
-    - name: 建立 Log Analytics 工作區
-      href: log-analytics-quick-create-workspace.md
+    - name: 建立工作區
+      items:
+        - name: 使用 Azure 入口網站
+          href: log-analytics-quick-create-workspace.md
     - name: 收集資料
       items:
         - name: 連接的來源

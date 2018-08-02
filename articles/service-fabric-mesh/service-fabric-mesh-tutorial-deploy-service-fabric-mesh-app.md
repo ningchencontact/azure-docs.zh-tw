@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2018
+ms.date: 07/26/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: f9dea759f6556bc521dda4efbd27176f1e06452b
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 350749161260768071afbb47b854cb2e9184bd9d
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126570"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284722"
 ---
 # <a name="tutorial-deploy-a-service-fabric-mesh-web-application"></a>教學課程：部署 Service Fabric Mesh Web 應用程式
 
@@ -106,26 +106,9 @@ The application was deployed successfully and it can be accessed at http://10.00
 
 開啟網頁瀏覽器，並瀏覽至 URL 以檢視在 Azure 中執行的網站。
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="set-up-service-fabric-mesh-cli"></a>設定 Service Fabric Mesh CLI 
+您可以使用 Azure Cloud Shell 或安裝在本機的 Azure CLI 來完成其餘步驟。 請依照下列[指示](service-fabric-mesh-howto-setup-cli.md)安裝 Azure Service Fabric Mesh CLI 擴充功能模組。
 
-您可以使用 Azure Cloud Shell 或安裝在本機的 Azure CLI 來完成其餘步驟。
-
-如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.35 版或更新版本。 執行 `az --version` 以尋找版本。 若要安裝或升級至最新版本的 CLI，請參閱[安裝 Azure CLI 2.0][azure-cli-install]。
-
-## <a name="install-the-az-mesh-cli"></a>安裝 az mesh cli
-在 CLI 提示字元上
-
-1) 請移除任何先前安裝的 Azure Service Fabric Mesh CLI 模組。
-
-```cli
-az extension remove --name mesh
-```
-
-2)  安裝 Azure Service Fabric Mesh CLI 擴充功能模組。 在預覽版本中，Azure Service Fabric Mesh CLI 是以 Azure CLI 擴充功能的形式撰寫，但在公開預覽版則會隨 Azure CLI 提供。
-
-```cli
-az extension add --source https://sfmeshcli.blob.core.windows.net/cli/mesh-0.8.1-py2.py3-none-any.whl
-```
 
 ## <a name="check-application-deployment-status"></a>檢查應用程式部署狀態
 

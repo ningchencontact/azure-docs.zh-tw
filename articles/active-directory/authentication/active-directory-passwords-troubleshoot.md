@@ -4,18 +4,18 @@ description: 針對 Azure AD 自助式密碼重設進行疑難排解
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: e24f5070a793f62481bdc80044c97163c5b5c79f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 95ec87d2fdc34864b90a6596e7100cc6c1387631
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045184"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161985"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>針對自助式密碼重設進行疑難排解
 
@@ -80,7 +80,7 @@ ms.locfileid: "39045184"
 
 | Error | 解決方法 |
 | --- | --- |
-| 無法內部部署啟動密碼重設服務。 Azure AD Connect 電腦的應用程式事件記錄中出現錯誤 6800。 <br> <br> 上架之後，同盟、傳遞驗證或密碼雜湊同步使用者無法重設其密碼。 | 啟用「密碼回寫」時，同步處理引擎會透過與雲端上線服務通訊，呼叫回寫程式庫來執行設定 (上線)。 在上線期間或啟動 Windows Communication Foundation (WCF) 端點來進行「密碼回寫」時，如果發生任何錯誤，都會導致 Azure AD Connect 電腦的登入事件出現錯誤。 <br> <br> 在 Azure AD Sync (ADSync) 服務重新啟動期間，若已設定回寫，就會啟動 WCF 端點。 不過，如果端點啟動失敗，我們會記錄事件 6800，並讓同步處理服務啟動。 出現此事件即表示「密碼回寫」端點並未啟動。 此事件 (6800) 的事件記錄詳細資料，以及 PasswordResetService 元件所產生的事件記錄項目會指出為何無法啟動端點。 如果「密碼回寫」仍然無法運作，請檢閱這些事件記錄錯誤，然後嘗試重新啟動 Azure AD Connect。 如果此問題持續發生，請嘗試先將「密碼回寫」停用再重新啟用。
+| 無法內部部署啟動密碼重設服務。 Azure AD Connect 電腦的應用程式事件記錄中出現錯誤 6800。 <br> <br> 上架之後，同盟、傳遞驗證或密碼雜湊同步使用者無法重設其密碼。 | 啟用「密碼回寫」時，同步處理引擎會透過與雲端上線服務通訊，呼叫回寫程式庫來執行設定 (上線)。 在上線期間或啟動 Windows Communication Foundation (WCF) 端點來進行「密碼回寫」時，如果發生任何錯誤，都會導致 Azure AD Connect 電腦的事件記錄中出現錯誤。 <br> <br> 在 Azure AD Sync (ADSync) 服務重新啟動期間，若已設定回寫，就會啟動 WCF 端點。 不過，如果端點啟動失敗，我們會記錄事件 6800，並讓同步處理服務啟動。 出現此事件即表示「密碼回寫」端點並未啟動。 此事件 (6800) 的事件記錄詳細資料，以及 PasswordResetService 元件所產生的事件記錄項目會指出為何無法啟動端點。 如果「密碼回寫」仍然無法運作，請檢閱這些事件記錄錯誤，然後嘗試重新啟動 Azure AD Connect。 如果此問題持續發生，請嘗試先將「密碼回寫」停用再重新啟用。
 | 當使用者嘗試在已啟用密碼回寫時重設密碼或解除鎖定帳戶，作業會失敗。 <br> <br> 此外，在解除鎖定作業發生之後，您會在 Azure AD Connect 事件記錄中看到事件，其中包含：「Synchronization Engine returned an error hr=800700CE, message=The filename or extension is too long」。 | 尋找 Azure AD Connect 的 Active Directory 帳戶，並將密碼重設，讓它包含不超過 127 個字元。 然後從 [開始] 功能表開啟 [同步處理服務]。 瀏覽至 [連接器]，然後尋找 [Active Directory 連接器]。 選取它，然後選取 [屬性]。 瀏覽至 [認證] 頁面，然後輸入新密碼。 選取 [確定] 以關閉頁面。 |
 | 在 Azure AD Connect 安裝程序的最後一個步驟，您會看到一個錯誤，指出無法設定「密碼回寫」。 <br> <br> Azure AD Connect 應用程式事件記錄包含錯誤 32009，以及「取得授權權杖時發生錯誤」文字。 | 下列兩種情況會發生此錯誤： <br><ul><li>針對在 Azure AD Connect 安裝程序開始時所指定的全域系統管理員帳戶，指定了錯誤的密碼。</li><li>針對在 Azure AD Connect 安裝程序開始時所指定的全域系統管理員帳戶，嘗試使用同盟使用者。</li></ul> 若要修正此問題，請確定您並未針對在安裝程序開始時所指定的全域系統管理員使用同盟帳戶。 也請確定所指定的密碼正確。 |
 | Azure AD Connect 電腦的事件記錄包含透過執行 PasswordResetService 所擲回的錯誤 32002。 <br> <br> 此錯誤指出：「連線到服務匯流排時發生錯誤。 權杖提供者無法提供安全性權杖。」 | 您的內部部署環境無法連線到雲端的 Azure 服務匯流排端點。 這個錯誤是因為防火牆規則封鎖連往特定連接埠或網址的輸出連線所導致。 如需詳細資訊，請參閱[連線必要條件](./../connect/active-directory-aadconnect-prerequisites.md)。 在您更新這些規則之後，請重新啟動 Azure AD Connect 電腦，「密碼回寫」應該就會再次開始運作。 |

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: fdadc29aa1d25e90afe088053ae4fe2139fa7f16
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 77dca29b0c60726f0a072dd662aba0d12730502a
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034153"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413683"
 ---
 # <a name="create-mysql-databases"></a>建立 MySQL 資料庫
 
@@ -35,7 +35,7 @@ ms.locfileid: "37034153"
 
 4. 在 [建立資料庫] 底下，選取 [SKU]。 在 [選取 MySQL SKU] 底下，選取資料庫的 SKU。
 
-    ![選取 MySQL SKU](./media/azure-stack-mysql-rp-deploy/mysql-select-a-sku.png)
+    ![選取 MySQL SKU](./media/azure-stack-mysql-rp-deploy/mysql-select-sku.png)
 
     >[!Note]
     >將主控伺服器新增至 Azure Stack 時，系統會指派一個 SKU 給它們。 並會在 SKU 的主控伺服器集區中建立資料庫。

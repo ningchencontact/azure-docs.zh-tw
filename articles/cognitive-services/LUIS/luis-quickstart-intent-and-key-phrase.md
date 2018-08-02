@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: diberry
-ms.openlocfilehash: 1cafca2433cd96c0595a6124df82856d0c491a49
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 53f8f9ea5b3fea20202dd5aaa001a789d66f5a11
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224257"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282733"
 ---
 # <a name="tutorial-8-add-keyphrase-entity"></a>教學課程：8. 新增 KeyPhrase 實體 
 在本教學課程中，使用應用程式來示範如何從語句中擷取重要主題。
@@ -27,7 +27,7 @@ ms.locfileid: "39224257"
 > * 訓練和發佈應用程式
 > * 查詢的應用程式的端點，以查看包括關鍵片語的 LUIS JSON 回應
 
-在本文中，您可以使用免費 [LUIS](luis-reference-regions.md#publishing-regions) 帳戶來撰寫 LUIS 應用程式。
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>開始之前
 如果您沒有[簡單實體](luis-quickstart-primary-and-secondary-data.md)教學課程中的人力資源應用程式，請將 JSON [匯入](luis-how-to-start-new-app.md#import-new-app) [LUIS](luis-reference-regions.md#luis-website) 網站中的新應用程式。 在 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-simple-HumanResources.json) Github 存放庫中可找到要匯入的應用程式。
@@ -49,9 +49,7 @@ ms.locfileid: "39224257"
 ## <a name="add-keyphrase-entity"></a>新增 KeyPhrase 實體 
 新增預先建立的 keyPhrase 實體，從語句中擷取主題。
 
-1. 請確定您人力資源應用程式位於 LUIS 的 [建置] 區段。 選取右上方功能表列中的 [建置]，即可變更至此區段。 
-
-    [ ![右上方導覽列中已醒目提示 [Build] \(建置\) 的 LUIS 應用程式螢幕擷取畫面](./media/luis-quickstart-intent-and-key-phrase/hr-first-image.png)](./media/luis-quickstart-intent-and-key-phrase/hr-first-image.png#lightbox)
+1. 請確定您人力資源應用程式位於 LUIS 的 [建置] 區段。 選取右上方功能表列中的 [Build] \(建置\)，即可變更至此區段。 
 
 2. 從左側功能表中選取 [實體]。
 
@@ -85,23 +83,14 @@ ms.locfileid: "39224257"
 
 ## <a name="publish-app-to-endpoint"></a>將應用程式發佈到端點
 
-1. 選取右上方導覽列中的 [發佈]。
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-    [![](media/luis-quickstart-intent-and-key-phrase/hr-publish-button-top-nav.png "已醒目提示發佈至生產位置按鈕的 [發佈] 頁面螢幕擷取畫面")](media/luis-quickstart-intent-and-key-phrase/hr-publish-button-top-nav.png#lightbox)
-
-2. 選取 [Production] \(生產\) 位置和 [Publish] \(發佈\) 按鈕。
-
-    [![](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png "已醒目提示發佈至生產位置按鈕的 [發佈] 頁面螢幕擷取畫面")](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png#lightbox)
-
-3. 當您在網站頂端看到確認成功的綠色狀態列時，就表示發佈完成。
 
 ## <a name="query-the-endpoint-with-an-utterance"></a>利用語句查詢端點
 
-1. 在 [發佈] 頁面上，選取位於頁面底部的 [端點] 連結。 這個動作會開啟另一個瀏覽器視窗，其中的網址列會顯示此端點 URL。 
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-    ![已醒目提示端點 url 的 [發佈] 頁面螢幕擷取畫面](media/luis-quickstart-intent-and-key-phrase/hr-endpoint-url-inline.png )
-
-2. 移至位址中的 URL 尾端並輸入 `does form hrf-123456 cover the new dental benefits and medical plan`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 
+2. 移至位址中的 URL 結尾並輸入 `does form hrf-123456 cover the new dental benefits and medical plan`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 
 
 ```
 {

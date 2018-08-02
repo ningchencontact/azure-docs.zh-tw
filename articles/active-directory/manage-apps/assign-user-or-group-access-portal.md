@@ -11,16 +11,16 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: barbkess
 ms.reviewer: luleon
-ms.openlocfilehash: 487312cb79c5c278849668a472acfda7823e4bc1
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: f23c9976dacc1ca696772d6bf02b5d59e3e0b4d5
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35302183"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39368686"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>在 Azure Active Directory 中將使用者或群組指派給企業應用程式
 若要將使用者或群組指派給企業應用程式，您必須具備適當的權限，才能管理企業應用程式，而且必須是目錄的全域管理員。
@@ -120,7 +120,7 @@ ms.locfileid: "35302183"
     ```
 
 ## <a name="next-steps"></a>後續步驟
-* [查看我的所有群組](../active-directory-groups-view-azure-portal.md)
+* [查看我的所有群組](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [從企業應用程式中移除使用者或群組指派](remove-user-or-group-access-portal.md)
 * [停用企業應用程式的使用者登入](disable-user-sign-in-portal.md)
 * [變更企業應用程式的名稱或標誌](change-name-or-logo-portal.md)

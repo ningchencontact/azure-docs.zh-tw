@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 04cb658da6a22643e21104f5673a3f211f48b7fc
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 1b410b2832d856f80d640aab2096fef270156c81
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916474"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346674"
 ---
 # <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>從 Azure 在內部部署網站中重新保護機器
 
@@ -63,7 +63,7 @@ ms.locfileid: "37916474"
 主要目標伺服器會接收容錯回復資料。 根據預設，主要目標伺服器會在內部部署組態伺服器上執行。 不過，您可能必須根據容錯回復流量的大小，另外建立一部用來容錯回復的主要目標伺服器。 以下是建立伺服器的方式：
 
 * [建立 Linux 主要目標伺服器](vmware-azure-install-linux-master-target.md)以便進行 Linux VM 的容錯回復。 這是必填欄位。
-* (選擇性) 建立個別的主要目標伺服器以進行 Windows VM 容錯回復。 若要這樣做，請再次執行「整合安裝」，然後選擇建立主要目標伺服器。 [深入了解](physical-azure-set-up-source.md#run-azure-site-recovery-unified-setup)。
+* (選擇性) 建立個別的主要目標伺服器以進行 Windows VM 容錯回復。 若要這樣做，請再次執行「整合安裝」，然後選擇建立主要目標伺服器。 [深入了解](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers)。
 
 在建立主要目標伺服器之後，請執行下列工作：
 

@@ -3,24 +3,24 @@ title: 使用 GPO 部署適用於 IE 的 Azure 存取面板延伸模組 | Micros
 description: 如何使用群組原則針對我的 app 入口網站部署 Internet Explorer 附加元件。
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
-ms.assetid: 7c2d49c8-5be0-4e7e-abac-332f9dfda736
 ms.service: active-directory
+ms.component: app-mgmt
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/31/2017
-ms.author: markvi
+ms.date: 07/30/2018
+ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d719a31700e8d693dd7edb7de603682daae14ea
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 70552e982ff4c21d02b5f52ea48f108ce7f3b97e
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308529"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366804"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>如何使用群組原則部署 Internet Explorer 的存取面板延伸模組
 本教學課程示範如何使用群組原則，在您的使用者電腦上遠端安裝 Internet Explorer 的存取面板延伸模組。 需要登入使用 [密碼單一登入](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on)設定的應用程式的 Internet Explorer 使用者，都需要此延伸模組。
@@ -29,7 +29,7 @@ ms.locfileid: "36308529"
 
 存取面板延伸模組也可供 [Chrome](https://go.microsoft.com/fwLink/?LinkID=311859) 和 [Firefox](https://go.microsoft.com/fwLink/?LinkID=626998) 使用，兩者都不需要系統管理員權限即可安裝。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * 您已設定了 [Active Directory 網域服務](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)，並且已將使用者的電腦加入網域。
 * 您必須擁有「編輯設定」權限，才能編輯群組原則物件 (GPO)。 根據預設，下列安全性群組的成員擁有此權限：網域系統管理員、企業系統管理員及群組原則建立者擁有者。 [深入了解。](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
 

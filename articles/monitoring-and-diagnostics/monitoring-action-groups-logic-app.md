@@ -1,21 +1,21 @@
 ---
-title: 如何透過「Azure 監視器」警示和動作群組觸發複雜動作
+title: 如何透過「Azure 監視器」警示觸發複雜動作
 description: 了解如何建立邏輯應用程動作來處理「Azure 監視器」警示。
 author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/30/2018
+ms.date: 07/18/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 51d47b87f898aa65fe4ee76c312240a50d45231d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 034e708b79bbdf15d7fa628f388402998f49c0d9
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049182"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161501"
 ---
-# <a name="create-a-logic-app-action"></a>建立邏輯應用程式動作
+# <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>如何透過「Azure 監視器」警示觸發複雜動作
 
 本文示範如何設定及觸發邏輯應用程式，以在引發警示時於 Microsoft Teams 中建立交談。
 
@@ -290,6 +290,9 @@ Azure 監視器警示會在觸發時呼叫[動作群組](monitoring-action-group
        ![「計量警示的 False 條件張貼動作」](media/monitoring-action-groups/metric-alert-false-condition-post-action.png "計量警示的 False 條件張貼動作")
 
 - 步驟 15 相同。 請依照指示來儲存邏輯應用程式並更新動作群組。
+
+## <a name="calling-other-applications-besides-microsoft-teams"></a>呼叫 Microsoft Teams 以外的其他應用程式
+Logic Apps 有許多不同的連接器，可讓您在各種應用程式和資料庫中觸發動作。 Slack、SQL Server、Oracle、Salesforce 都只是一部分的範例。 如需有關連接器的詳細資訊，請參閱 [Logic App 連接器](../connectors/apis-list.md)。  
 
 ## <a name="next-steps"></a>後續步驟
 * 取得 [Azure 活動記錄警示的概觀](monitoring-overview-alerts.md)，並了解如何接收警示。  

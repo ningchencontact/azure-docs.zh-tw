@@ -45,10 +45,11 @@
       href: traffic-manager-metrics-alerts.md
     - name: 使用 Azure DNS 和流量管理員進行災害復原
       href: ../networking/disaster-recovery-dns-traffic-manager.md
+    - name: 流量管理員的運作方式
+      href: traffic-manager-how-it-works.md
     - name: 常見問題集
       href: traffic-manager-FAQs.md
-- name: |
-    作法
+- name: 作法
   items:
     - name: 將真實使用者度量單位傳送至流量管理員
       items:
@@ -96,7 +97,7 @@
   items:
     - name: 應用程式閘道
       href: /azure/application-gateway/
-    - name: Load Balancer
+    - name: 負載平衡器
       href: /azure/load-balancer/
     - name: Azure DNS
       href: /azure/dns/

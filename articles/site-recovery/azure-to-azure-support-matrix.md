@@ -7,14 +7,14 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 07/19/2018
 ms.author: sujayt
-ms.openlocfilehash: 3825183fa7e8ca15a86935b5b96ff8d25d7bef14
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: c2892d51c6eb5e71c0b1af400b78e993742fede0
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070854"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173045"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>從一個 Azure 區域複寫至另一個區域的支援矩陣
 
@@ -27,34 +27,21 @@ ms.locfileid: "39070854"
 **使用者介面** |  **支援 / 不支援**
 --- | ---
 **Azure 入口網站** | 支援
-**傳統入口網站** | 不支援
 **PowerShell** | [使用 PowerShell 進行 Azure 到 Azure 複寫](azure-to-azure-powershell.md)
 **REST API** | 目前不支援
 **CLI** | 目前不支援
 
 
-## <a name="resource-move-support"></a>資源移動支援
+## <a name="resource-support"></a>資源支援
 
-**資源移動類型** | **支援 / 不支援** | **備註**  
+**資源移動類型** | **詳細資料** 
 --- | --- | ---
-**在資源群組間移動保存庫** | 不支援 |您無法跨越資源群組移動復原服務保存庫。
-**跨越資源群組移動計算、儲存體和網路** | 不支援 |如果您在啟用複寫之後移動虛擬機器 (或其相關聯的元件，例如儲存體和網路)，則您需要對於虛擬機器停用複寫，並再次啟用複寫。
+**在資源群組間移動保存庫** | 不支援<br/><br/> 您無法跨資源群組移動復原服務保存庫。
+**跨資源群組移動計算/儲存體/網路資源** | 不支援。<br/><br/> 如果您在 VM 或是相關聯的元件 (例如儲存體/網路) 複寫之後移動它們，您必須停用複寫，然後重新啟用該 VM 的複寫。
+**將 Azure VM 從某個訂用帳戶複寫至另一個以進行災害復原** | 不支援。
+**跨訂用帳戶移轉 VM** | 不支援。
+**在相同區域內移轉 VM** | 不支援。
 
-
-
-## <a name="support-for-deployment-models"></a>部署模型的支援
-
-**部署模型** | **支援 / 不支援** | **備註**  
---- | --- | ---
-**傳統** | 支援 | 您只能複寫傳統的虛擬機器，並將它復原為傳統的虛擬機器。 您無法將它復原為資源管理員虛擬機器。 不使用虛擬網路部署傳統 VM，而直接部署到 Azure 地區，是不受支援的做法。
-**Resource Manager** | 支援 |
-
->[!NOTE]
->
-> 1. 若為嚴重損壞修復案例，不支援從一個訂用帳戶將 Azure 虛擬機器複寫至另一個訂用帳戶。
-> 2. 不支援在訂用帳戶之間移轉 Azure 虛擬機器。
-> 3. 不支援在同一個區域內移轉 Azure 虛擬機器。
-> 4. 不支援從傳統部署模型將 Azure 虛擬機器移轉至資源管理員部署模型。
 
 ## <a name="support-for-replicated-machine-os-versions"></a>支援多種複寫機器作業系統版本
 
@@ -138,13 +125,20 @@ SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | 9.17 | SP1 3.12.49-11-defaul
 歐洲 | 英國西部、英國南部、北歐、西歐、法國中部、法國南部
 亞洲 | 印度南部、印度中部、東南亞、東亞、日本東部、日本西部、南韓中部、南韓南部
 澳大利亞   | 澳大利亞東部、澳大利亞東南部
-Azure Government    | 美國維吉尼亞州政府、美國愛荷華州政府、美國亞歷桑那州政府、美國德州政府、美國國防部東部、美國國防部中部
+Azure Government    | US Gov 維吉尼亞州、US Gov 愛荷華州、US Gov 亞利桑那州、US Gov 德克薩斯州、US DoD 東部、US DoD 中部
 德國 | 德國中部、德國東北部
 中國 | 中國東部、中國北部
 
 >[!NOTE]
 >
 > 對於巴西南部區域，您只能複寫及容錯移轉至美國中南部、美國中西部、美國東部、美國東部 2、美國西部、美國西部 2 和美國中北部區域的其中一個區域，並進行容錯回復。
+
+## <a name="support-for-vmdisk-management"></a>VM/磁碟管理的支援
+
+**動作** | **詳細資料**
+-- | ---
+在複寫的 VM 上調整磁碟大小 | 支援
+在複寫的 VM 上新增磁碟 | 不支援。 您需要停用 VM 的複寫、新增磁碟，然後重新啟用複寫。
 
 
 ## <a name="support-for-compute-configuration"></a>計算設定的支援

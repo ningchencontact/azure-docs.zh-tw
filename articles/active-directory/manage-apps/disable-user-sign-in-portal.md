@@ -11,17 +11,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 86ff34bb0780811663d437a9183d0b688b69073d
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 39e926a392cbd87eff23e25d9708792ec7c40a2c
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35302223"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39368706"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>在 Azure Active Directory 中停用企業應用程式的使用者登入
 在 Azure Active Directory (Azure AD) 中，您可以輕鬆停用企業應用程式，讓任何使用者都無法登入它。 您必須具備適當的權限，才能管理企業應用程式，而且必須是目錄的全域管理員。
@@ -41,7 +41,7 @@ ms.locfileid: "35302223"
 8. 選取 [儲存]  命令。
 
 ## <a name="next-steps"></a>後續步驟
-* [查看我的所有群組](../active-directory-groups-view-azure-portal.md)
+* [查看我的所有群組](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [將使用者或群組指派給企業應用程式](assign-user-or-group-access-portal.md)
 * [從企業應用程式中移除使用者或群組指派](remove-user-or-group-access-portal.md)
 * [變更企業應用程式的名稱或標誌](change-name-or-logo-portal.md)

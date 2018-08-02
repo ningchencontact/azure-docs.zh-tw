@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: c0413678aad16105f732ef23fb60c61fddcdad45
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 361905b4c1e0c9e596cb7cf1cd5a730268d81bd0
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365707"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413404"
 ---
 # <a name="azure-operational-security-overview"></a>Azure 作業安全性概觀
 [Azure 作業安全性](https://docs.microsoft.com/azure/security/azure-operational-security)是指使用者可在 Microsoft Azure 中用來保護其資料、應用程式和其他資產的服務、控制措施與功能。 它是一個架構，其中包含透過各種 Microsoft 特有功能所獲得的知識。 這些功能包括 Microsoft 安全性開發週期 (SDL)、Microsoft Security Response Center 程式，以及對網路安全性威脅環境的深層認知。
@@ -37,7 +37,7 @@ IT 作業小組負責管理資料中心基礎結構、應用程式和資料，�
 ### <a name="automation"></a>自動化
 [Azure 自動化](https://docs.microsoft.com/azure/automation/automation-intro)提供方法，讓您將通常會在雲端和企業環境中執行的手動、長時間執行、易發生錯誤且重複性高的工作加以自動化。 它可以節省時間並提高管理工作的可靠性。 甚至還能為這些工作設定排程以定期自動執行。 您可以使用 Runbook 來將程序自動化，或使用 Desired State Configuration 來將設定管理自動化。
 
-### <a name="backup"></a>備份
+### <a name="backup"></a>Backup 
 [Azure 備份](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup)是以 Azure 為基礎的服務，可用來備份 (或保護) 和還原 Microsoft Cloud 中的資料。 Azure 備份會以一個可靠、安全且具成本競爭力的雲端式解決方案，來取代您的現有內部部署或異地備份解決方案。 
 
 Azure 備份提供元件，讓您可以下載並部署於適當的電腦或伺服器上，或是雲端中。 您部署的元件或代理程式，取決於您想要保護的項目。 所有 Azure 備份元件 (無論您要保護的是內部部署或雲端中的資料) 都可用來將資料備份至 Azure 中的 Azure 復原服務保存庫。 
@@ -57,9 +57,8 @@ Azure 備份提供元件，讓您可以下載並部署於適當的電腦或伺�
 Azure AD 還隨附一套完整的[身分識別管理功能](https://docs.microsoft.com/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports)，其中包括：
 
 - [Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication)
-- [裝置註冊]( https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-overview)
 - [自助密碼管理](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/)
-- [自助群組管理](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password)
+- [自助式群組管理](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password)
 - [具有特殊權限的帳戶管理](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure)
 - [角色型存取控制](https://docs.microsoft.com/azure/role-based-access-control/overview)
 - [應用程式使用情況監視](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health)
@@ -81,7 +80,7 @@ Azure AD 還隨附一套完整的[身分識別管理功能](https://docs.microso
 
 資訊安全中心會使用[角色型存取控制 (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)。 RBAC 會提供[內建角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)，可指派給 Azure 中的使用者、群組與服務。
 
-資訊安全中心會評估資源的設定，以識別安全性問題與弱點。 在資訊安全中心，只有當您獲指派為資源所屬訂用帳戶或資源群組的擁有者、參與者或讀取者角色時，才能看到與資源相關的資訊。
+資訊安全中心會評估資源的組態，以識別安全性問題與弱點。 在資訊安全中心，只有當您獲指派為資源所屬訂用帳戶或資源群組的擁有者、參與者或讀取者角色時，才能看到與資源相關的資訊。
 
 >[!Note]
 >如需角色與資訊安全中心所允許動作的詳細資訊，請參閱 [Azure 資訊安全中心的權限](https://docs.microsoft.com/azure/security-center/security-center-permissions)。
@@ -89,7 +88,7 @@ Azure AD 還隨附一套完整的[身分識別管理功能](https://docs.microso
 資訊安全中心會使用 Microsoft Monitoring Agent。 這是與 Operations Management Suite 和 Log Analytics 服務所使用代理程式相同的代理程式。 從這個代理程式收集的資料會儲存在與您 Azure 訂用帳戶相關聯的現有 Log Analytics [工作區](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access)或新的工作區中 (將 VM 的地理位置納入考量)。
 
 ## <a name="azure-monitor"></a>Azure 監視器
-您雲端應用程式中的效能問題可能會對企業產生影響。 在有多個互連的元件和頻繁的發行的情況下，隨時都可能導致效能降低。 此外，如果您正在開發應用程式，您的使用者通常會探索到您在測試時未發現的問題。 您應該立即知道這些問題，並應具備可用以診斷和修正問題的工具。
+您雲端應用程式中的效能問題可能會對企業產生影響。 透過多個互連的元件和頻繁的發行，隨時都可能導致效能降低。 此外，如果您正在開發應用程式，您的使用者通常會探索到您在測試時未發現的問題。 您應該立即知道這些問題，並應具備可用以診斷和修正問題的工具。
 
 [Azure 監視器](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor)是用以監視 Azure 上執行之服務的基本工具。 它會提供關於服務輸送量及周遭環境之基礎結構等級的資料。 如果您在 Azure 中管理所有應用程式，並決定要相應增加或減少資源，Azure 監視器就是起點。
 
@@ -97,7 +96,7 @@ Azure AD 還隨附一套完整的[身分識別管理功能](https://docs.microso
 
 Azure 監視器包括下列元件。
 
-### <a name="azure-activity-log"></a>Azure 活動記錄
+### <a name="azure-activity-log"></a>Azure 活動記錄檔
 [Azure 活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)能讓您了解在訂用帳戶中資源上執行的作業。 它先前稱為「稽核記錄」或「作業記錄」，因為它會回報訂用帳戶中控制層面的事件。
 
 ### <a name="azure-diagnostic-logs"></a>Azure 診斷記錄
@@ -105,17 +104,17 @@ Azure 監視器包括下列元件。
 
 Windows 事件系統記錄是適用於 VM 的診斷記錄類別之一。 Blob、資料表和佇列記錄均為適用於儲存體帳戶的診斷記錄類別。
 
-診斷記錄與[活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)不同。 活動記錄能讓您了解在訂用帳戶中之資源上執行的作業。 診斷記錄能讓您了解您的資源自行執行的作業。
+診斷記錄與[活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)不同。 活動記錄能讓您了解訂用帳戶中的資源所執行之作業。 診斷記錄能讓您了解您的資源自行執行的作業。
 
 ### <a name="metrics"></a>度量
-Azure 監視器提供遙測功能，讓您可以在 Azure 上查看工作負載的效能與健康情況。 Azure 遙測資料最重要的類型是由大多數 Azure 資源所發出的[計量](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) (也稱為效能計數器)。 Azure 監視器提供數種方式讓您設定及取用這些度量進行監視與疑難排解。
+Azure 監視器提供遙測功能，讓您可以在 Azure 上查看工作負載的效能與健康情況。 Azure 遙測資料最重要的類型是由大多數 Azure 資源所發出的[計量](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) (也稱為效能計數器)。 Azure 監視器提供數種方式可設定及取用這些度量進行監視與疑難排解。
 
 ### <a name="azure-diagnostics"></a>Azure 診斷
 Azure 診斷會啟用為部署的應用程式收集診斷資料的功能。 您可以使用來自各種來源的診斷延伸模組。 目前支援的項目包括 [Azure 雲端服務角色](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service)、執行 Microsoft Windows 的 [Azure 虛擬機器](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service)，以及 [Azure Service Fabric](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)。
 
 
 ## <a name="azure-network-watcher"></a>Azure 網路監看員
-客戶可以透過協調和組合個別網路資源 (例如虛擬網路、Azure ExpressRoute、Azure 應用程式閘道及負載平衡器)，在 Azure 中建置端對端網路。 可以針對每個網路資源進行監視。
+客戶可以透過協調和組合個別網路資源 (例如虛擬網路、Azure ExpressRoute、Azure 應用程式閘道及負載平衡器)，在 Azure 中建置端對端網路。 每個網路資源都可進行監視。
 
 端對端網路可具備複雜的設定並在資源之間進行互動。 結果會產生需要透過 [Azure 網路監看員](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)進行案例型監視的複雜案例。
 
@@ -127,7 +126,7 @@ Azure 診斷會啟用為部署的應用程式收集診斷資料的功能。 您�
 網路監看員目前具有下列功能︰
 
 - [拓撲](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-overview)：提供資源群組中網路資源之間各種互相連線和關聯的檢視。
--   [變數封包擷取](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview)：擷取進出虛擬機器的封包資料。 進階篩選選項和微調控制項 (例如能夠設定時間和大小限制) 可讓您靈活擷取資料。 封包資料能以 .cap 格式儲存在 Blob 存放區或本機磁碟上。
+-   [變數封包擷取](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview)：擷取進出虛擬機器的封包資料。 進階篩選選項和微調控制項 (例如能夠設定時間和大小限制) 可讓您靈活擷取資料。 封包資料可以 .cap 格式儲存在 Blob 存放區或本機磁碟上。
 -   [IP 流量驗證](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview)：根據流量資訊的 5-Tuple 封包參數 (目的地 IP、來源 IP、目的地連接埠、來源連接埠和通訊協定) 檢查允許或拒絕封包。 如果安全性群組拒絕了封包，則會傳回拒絕封包的規則和群組。
 -   [下一個躍點](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview)：決定在 Azure 網路網狀架構中路由傳送封包的下一個躍點，讓您可以診斷任何設定錯誤的使用者定義路由。
 -   [安全性群組檢視](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview)：取得要在 VM 上套用的有效和已套用安全性規則。

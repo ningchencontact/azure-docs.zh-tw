@@ -8,12 +8,12 @@ ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 209f159d9003838edb36728828758b76730118ff
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: ddeee70d29f54a0691b0a13ad299003b3da338a1
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098459"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345013"
 ---
 # <a name="learn-how-to-use-deployment-manifests-to-deploy-modules-and-establish-routes"></a>了解如何使用部署資訊清單來部署模組及建立路由
 
@@ -39,7 +39,7 @@ ms.locfileid: "37098459"
 
 ```json
 {
-    "moduleContent": {
+    "modulesContent": {
         "$edgeAgent": {
             "properties.desired": {
                 // desired properties of the Edge agent
@@ -182,7 +182,7 @@ IoT Edge 提供至少一次的保證。 Edge 中樞會將訊息儲存在本機�
 
 ```json
 {
-  "moduleContent": {
+  "modulesContent": {
     "$edgeAgent": {
       "properties.desired": {
         "schemaVersion": "1.0",

@@ -3,7 +3,7 @@ title: Azure Functions Twilio 繫結
 description: 了解如何搭配使用 Twilio 繫結與 Azure Functions。
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,14 +14,14 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 07/09/2018
-ms.author: tdykstra
+ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a391c411d0d3608d30309927875a62b366899367
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 580dd0409c2210de786723736128d489e5a93aa9
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929496"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345825"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Azure Functions 的 Twilio 繫結
 

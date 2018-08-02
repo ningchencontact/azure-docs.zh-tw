@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: protection
-ms.date: 07/14/2018
+ms.date: 07/24/2018
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
-ms.openlocfilehash: 6c329554b5854f113fb216f874fa5a918110f9c5
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ffac7768fefece24cb69789558ce500e1ff64d98
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39058090"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257889"
 ---
 # <a name="email-notifications-in-azure-ad-pim"></a>Azure AD PIM 中的電子郵件通知
 
@@ -32,7 +32,7 @@ ms.locfileid: "39058090"
 - 當指派特殊權限角色時
 - 當 Azure AD PIM 啟用時
 
-從 2018 年 7 月底開始，透過 PIM 傳送的電子郵件通知會有新的寄件者電子郵件地址，以及新的視覺化設計。 此更新會影響 Azure AD 的 PIM 和 Azure 資源的 PIM。 先前已觸發電子郵件通知的所有事件，都會繼續傳送電子郵件。 此更新僅為視覺化變更，對功能沒有進行任何變更。
+從 2018 年 7 月底開始，透過 PIM 傳送的電子郵件通知會有新的寄件者電子郵件地址，以及新的視覺化設計。 此更新會影響 Azure AD 的 PIM 和 Azure 資源的 PIM。 先前已觸發電子郵件通知的所有事件，都會繼續傳送電子郵件。 某些電子郵件將會有更新的內容，提供更精準的資訊。
 
 ## <a name="sender-email-address"></a>寄件者電子郵件地址
 
@@ -45,6 +45,12 @@ ms.locfileid: "39058090"
 
 - 電子郵件地址：**azureadnotifications@microsoft.com**
 - 顯示名稱：Microsoft Azure AD 通知服務
+
+## <a name="email-subject-line"></a>電子郵件主旨列
+
+從 2018 年 7 月底開始，Azure AD 和 Azure 資源角色的電子郵件通知將會在主旨列上加上 **PIM** 前置詞。 以下是範例：
+
+- PIM：Alain Charon 已獲永久指派「備份讀者」角色。
 
 ## <a name="pim-emails-for-azure-ad-roles"></a>Azure AD 角色的 PIM 電子郵件
 

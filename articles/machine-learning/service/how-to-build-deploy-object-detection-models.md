@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 06/01/2018
-ms.openlocfilehash: 62cc37d8c462d0fc1831de7b50a85738d6e63a17
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 44059de5a0ef0667b4268d9cdc2997162bab474a
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726637"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295255"
 ---
 # <a name="build-and-deploy-object-detection-models-with-azure-machine-learning"></a>使用 Azure Machine Learning 來建置和部署物件偵測模型
 
@@ -34,7 +34,7 @@ ms.locfileid: "34726637"
 
 如需每個模組和類別的詳細參考資訊，請參閱[套件參考文件](https://aka.ms/aml-packages/vision) \(英文\)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 1. 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -68,26 +68,21 @@ ms.locfileid: "34726637"
 
 必須提供已標註物件位置，才能進行物件偵測器定型和評估。 [LabelImg](https://tzutalin.github.io/labelImg) 是一個可用來標註影像的開放原始碼註解工具。 LabelImg 會以 Pascal-VOC 格式為每個影像撰寫一個此套件可讀取的 xml 檔案。 
 
-## <a name="storage-context"></a>儲存體內容
-儲存體內容可用來判斷各種不同輸出檔案 (例如 DNN 模型檔案) 的儲存位置。 如需詳細資訊，請參閱 [StorageContext 文件](https://docs.microsoft.com/en-us/python/api/cvtk.core.context.storagecontext?view=azure-ml-py-latest) \(英文\)。 一般來說，您不需要明確地設定儲存體內容。 不過，為了避免 25 MB 的 Workbench 專案大小限制，請將輸出目錄設定為指向 AML 專案 ("../../../../cvtk_output") 以外的位置。 一旦不再需要 "cvtk_output" 目錄，請務必移除該目錄。
-
 
 ```python
 import warnings
 warnings.filterwarnings("ignore")
 import os, time
 from cvtk.core import Context, ObjectDetectionDataset, TFFasterRCNN
+from cvtk.evaluation import DetectionEvaluation
+from cvtk.evaluation.evaluation_utils import graph_error_counts
 from cvtk.utils import detection_utils
-from matplotlib import pyplot as plt
 
 # Disable printing of logging messages
 from azuremltkbase.logging import ToolkitLogger
 ToolkitLogger.getInstance().setEnabled(False)
 
-# Initialize the context object
-out_root_path = "../../../cvtk_output"
-Context.create(outputs_path=out_root_path, persistent_path=out_root_path, temp_path=out_root_path)
-
+from matplotlib import pyplot as plt
 # Display the images
 %matplotlib inline
 ```
@@ -98,7 +93,7 @@ Context.create(outputs_path=out_root_path, persistent_path=out_root_path, temp_p
 
 
 ```python
-image_folder = "../sample_data/foods/train"
+image_folder = "detection/sample_data/foods/train"
 data_train = ObjectDetectionDataset.create_from_dir(dataset_name='training_dataset', data_dir=image_folder,
                                                     annotations_dir="Annotations", image_subdirectory='JPEGImages')
 
@@ -202,7 +197,7 @@ TensorBoard 應該看起來如以下螢幕擷取畫面。 填入定型資料夾�
 
 
 ```python
-image_folder = "../sample_data/foods/test"
+image_folder = "detection/sample_data/foods/test"
 data_val = ObjectDetectionDataset.create_from_dir(dataset_name='val_dataset', data_dir=image_folder)
 eval_result = my_detector.evaluate(dataset=data_val)
 ```
@@ -280,7 +275,7 @@ print("tensorboard --logdir={} --port=8008".format(my_detector.eval_dir))
 ```python
 image_path = data_val.images[1].storage_path
 detections_dict = my_detector.score(image_path)
-path_save = out_root_path + "/scored_images/scored_image_preloaded.jpg"
+path_save = "./scored_images/scored_image_preloaded.jpg"
 ax = detection_utils.visualize(image_path, detections_dict, image_size=(8, 12))
 path_save_dir = os.path.dirname(os.path.abspath(path_save))
 os.makedirs(path_save_dir, exist_ok=True)
@@ -295,7 +290,7 @@ ax.get_figure().savefig(path_save)
 
 
 ```python
-save_model_path = out_root_path + "/frozen_model/faster_rcnn.model" # Please save your model to outside of your AML workbench project folder because of the size limit of AML project
+save_model_path = "./frozen_model/faster_rcnn.model"
 my_detector.save(save_model_path)
 ```
 
@@ -355,7 +350,7 @@ print("\nFound {} objects in image {}.".format(n_obj, image_path))
 
 
 ```python
-path_save = out_root_path + "/scored_images/scored_image_frozen_graph.jpg"
+path_save = "./scored_images/scored_image_frozen_graph.jpg"
 ax = detection_utils.visualize(image_path, detections_dict, path_save=path_save, image_size=(8, 12))
 # ax.get_figure() # use this code extract the returned image
 ```
@@ -596,7 +591,7 @@ print("Parsed result:", parsed_result)
 
 ```python
 ax = detection_utils.visualize(image_path, parsed_result)
-path_save = "../../../cvtk_output/scored_images/scored_image_web.jpg"
+path_save = "./scored_images/scored_image_web.jpg"
 path_save_dir = os.path.dirname(os.path.abspath(path_save))
 os.makedirs(path_save_dir, exist_ok=True)
 ax.get_figure().savefig(path_save)

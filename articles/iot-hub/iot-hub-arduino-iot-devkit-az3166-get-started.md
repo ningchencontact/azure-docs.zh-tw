@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: cf9ee5339c53eb4f9c74f6b5f251a7963555d676
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 34088440bf723fc65f4ff5c49f62182f405fa35a
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928744"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344540"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>將 IoT DevKit AZ3166 連線到雲端中的 Azure IoT 中樞
 
@@ -297,12 +297,4 @@ DevKit 會重新開機，然後開始執行程式碼。
 
 您已成功將 MXChip IoT DevKit 連線到 IoT 中樞，並將擷取到的感應器資料傳送至 IoT 中樞。
 
-若要繼續開始使用 Azure IoT 中樞以及瀏覽其他 IoT 案例，請參閱︰
-
-- [透過 iothub-explorer 管理雲端裝置傳訊](https://docs.microsoft.com/azure/iot-hub/iot-hub-explorer-cloud-device-messaging)
-- [將 IoT 中樞IoT 中樞儲存至 Azure 資料儲存體](https://docs.microsoft.com//azure/iot-hub/iot-hub-store-data-in-azure-table-storage)
-- [使用 Power BI 將來自 Azure IoT 中樞的即時感應器資料視覺化](https://docs.microsoft.com//azure/iot-hub/iot-hub-live-data-visualization-in-power-bi)
-- [使用 Web Apps 將來自 Azure IoT 中樞的即時感應器資料視覺化](https://docs.microsoft.com//azure/iot-hub/iot-hub-live-data-visualization-in-web-apps)
-- [在 Azure Machine Learning 中使用 IoT 中樞的感應器資料進行天氣預測](https://docs.microsoft.com/azure/iot-hub/iot-hub-weather-forecast-machine-learning)
-- [透過 iothub-explorer進行裝置管理](https://docs.microsoft.com/azure/iot-hub/iot-hub-device-management-iothub-explorer)
-- [搭配 Logic Apps 進行遠端監視和通知](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps)
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

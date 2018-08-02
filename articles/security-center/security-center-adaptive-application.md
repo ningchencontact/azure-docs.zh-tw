@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2018
+ms.date: 07/31/2018
 ms.author: rkarlin
-ms.openlocfilehash: 27e013ad9e94bb025cfad87cc68b244882a207b3
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 6dd971ff8cd51435978ab80db006f6494dff8a94
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161927"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389322"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Azure 資訊安全中心的自適性應用程式控制
 了解如何利用此逐步解說，在 Azure 資訊安全中心設定應用程式控制。
@@ -87,8 +87,7 @@ ms.locfileid: "39161927"
 
 5. 一旦完成您的選擇，請選取 [建立]。
 
-6. 資訊安全中心會使用 Windows 伺服器的 AppLocker 內建功能，對每個選取的 VM 套用適當的規則。 此外，資訊安全中心依預設一律會在「稽核」模式中啟用應用程式控制。 在驗證允許清單對您的工作負載沒有任何不良影響之後，即可切換為「強制」模式。 如需詳細資訊，請參閱 [AppLocker 的運作方式](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/how-applocker-works-techref)。
- 
+
 > [!NOTE]
 > - 資訊安全中心會依賴至少兩週的資料，以建立基準，並且在每個虛擬機器群組填入唯一建議。 資訊安全中心標準層的新客戶預期會有標準行為，也就是他們的虛擬機器群組一開始會出現在 [不推薦] 索引標籤底下。
 > - 資訊安全中心的自適性應用程式控制不支援已由 GPO 或本機安全性原則啟用 AppLocker 原則的 VM。

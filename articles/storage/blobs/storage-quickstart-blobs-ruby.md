@@ -3,24 +3,23 @@ title: Azure 快速入門 - 使用 Ruby 在物件儲存體中建立 Blob | Micro
 description: 在本快速入門中，您會在物件 (Blob) 儲存體中建立儲存體帳戶和容器。 然後，使用 Ruby 的儲存體用戶端程式庫將 blob 上傳至 Azure 儲存體、下載 blob，以及列出容器中的 blob。
 services: storage
 author: tamram
-manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: seguler
-ms.openlocfilehash: 7ef74fe59400ff38a96e7b1b652393eef60eac81
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9b0a7047cf7e5eab55c8a56acae42dd95fd61d94
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38606621"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398065"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>快速入門：使用 Ruby 上傳、下載及列出 Blob
 
 在本快速入門中，您會了解如何使用 Ruby 在 Azure Blob 儲存體容器中上傳、下載及列出區塊 Blob。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本快速入門： 
 * 安裝 [Ruby](https://www.ruby-lang.org/en/downloads/)

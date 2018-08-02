@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ad8920ac01ce62eb676b495dcde2aae6b076cbe2
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: d14420a363cfea23c86f63533a4ea89c5f2fd06f
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125498"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412911"
 ---
 # <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>快速入門：建立 Web 應用程式並部署至 Azure Service Fabric Mesh
 
@@ -36,7 +36,7 @@ Azure Service Fabric Mesh 是一個受到完整管理的服務，讓開發人員
 
 開啟 Visual Studio，然後選取 [檔案] > [新增] > [專案]。
 
-在 [新增專案] 對話方塊頂端的 [搜尋] 方塊中，輸入 `mesh`。 選取 **Service Fabric Mesh Application** 範本。 如果您未看到此範本，請確定已安裝 Mesh SDK 和 VS 工具預覽版，如[設定您的開發環境](service-fabric-mesh-howto-setup-developer-environment-sdk.md)中所說明。 
+在 [新增專案] 對話方塊頂端的 [搜尋] 方塊中，輸入 `mesh`。 選取 **Service Fabric Mesh 應用程式**範本。 如果您未看到此範本，請確定已安裝 Mesh SDK 和 VS 工具預覽版，如[設定您的開發環境](service-fabric-mesh-howto-setup-developer-environment-sdk.md)中所說明。 
 
 在 [名稱] 方塊中，輸入 **ServiceFabricMesh1**，然後在 [位置] 方塊中，設定專案檔儲存所在的資料夾路徑。
 
@@ -80,20 +80,7 @@ Visual Studio 會建立 Service Fabric Mesh 應用程式專案和 ASP.NET Core �
 
 ![Visual Studio 的 Service Fabric Mesh 新增資源群組對話方塊](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-resource-group-dialog.png)
 
-返回 [發行 Service Fabric 應用程式] 對話方塊，在 [Azure Container Registry] 下方，選取 [\<建立新的容器登錄...>]。 在 [建立容器登錄] 對話方塊中，請針對**容器登錄名稱**使用唯一的名稱。 指定**位置** (本快速入門使用**美國東部**)。 從下拉式清單中選取您在上一個步驟中建立的**資源群組**，例如 **sfmeshTutorial1RG**。 將 **SKU** 設定為 [基本]，然後按一下 [建立] 以返回發行對話方塊。
-
-如果出現資源提供者尚未在您的訂用帳戶上註冊的錯誤，則您可加以註冊。 先查看資源提供者是否可供您的訂用帳戶使用：
-
-```Powershell
-Connect-AzureRmAccount
-Get-AzureRmResourceProvider -ListAvailable
-```
-
-如果容器登錄提供者 (`Microsoft.ContainerRegistry`) 可供使用，請從 PowerShell 來加以註冊：
-
-```Powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ContainerRegistry
-```
+返回 [發佈 Service Fabric 應用程式] 對話方塊，在 [Azure Container Registry] 下方，選取 [\<建立新的容器登錄...>]。 在 [建立容器登錄] 對話方塊中，請針對**容器登錄名稱**使用唯一的名稱。 指定**位置** (本快速入門使用**美國東部**)。 從下拉式清單中選取您在上一個步驟中建立的**資源群組**，例如 **sfmeshTutorial1RG**。 將 **SKU** 設定為 [基本]，然後按一下 [建立] 以返回發行對話方塊。
 
 ![Visual Studio 的 Service Fabric Mesh 新增資源群組對話方塊](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-container-registry-dialog.png)
 

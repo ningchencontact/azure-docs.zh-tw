@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
-ms.author: danis
-ms.openlocfilehash: f9b8c64aadf813ab1157820fc4051d48989e48c4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.author: ejarvi
+ms.openlocfilehash: 11ec26729b2239279dddc8cd62f6b658a4f7ed20
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448828"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413785"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>適用於 Windows 的 Azure 磁碟加密 (Microsoft.Azure.Security.AzureDiskEncryption)
 
@@ -27,19 +27,19 @@ ms.locfileid: "37448828"
 
 Azure 磁碟加密會利用 Bitlocker 在執行 Windows 的 Azure 虛擬機器上提供完整的磁碟加密。  此解決方案與 Azure Key Vault 整合，可讓您管理金鑰保存庫訂用帳戶中的磁碟加密金鑰與祕密。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 如需先決條件的完整清單，請參閱 [Azure 磁碟加密先決條件](
-../../security/azure-security-disk-encryption.md#prerequisites)。
+../../security/azure-security-disk-encryption-prerequisites.md)。
 
 ### <a name="operating-system"></a>作業系統
 
-如需目前的 Windows 版本清單，請參閱 [Azure 磁碟加密先決條件](../../security/azure-security-disk-encryption.md#prerequisites)。
+如需目前的 Windows 版本清單，請參閱 [Azure 磁碟加密先決條件](../../security/azure-security-disk-encryption-prerequisites.md)。
 
 ### <a name="internet-connectivity"></a>網際網路連線
 
 Azure 磁碟加密需要網際網路連線以存取 Active Directory、Key Vault、儲存體和套件管理端點。  如需網路安全性設定的詳細資訊，請參閱 [Azure 磁碟加密先決條件](
-../../security/azure-security-disk-encryption.md#prerequisites)。
+../../security/azure-security-disk-encryption-prerequisites.md)。
 
 ## <a name="extension-schema"></a>擴充功能結構描述
 

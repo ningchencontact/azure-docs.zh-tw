@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.openlocfilehash: 725b7e1e37ffca38cf439cc62b053f13dfd6397d
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 7a90a8f05082e2c0731f9f112d3e56ecaf4ea55b
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903025"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398796"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>在 Azure Machine Learning Studio 中使用範例資料集
 [top]: #machine-learning-sample-datasets
@@ -333,7 +333,7 @@ National Institute of Diabetes and Digestive and Kidney Diseases 資料庫中的
 <tr>
   <td>天氣資料集</td>
   <td>
-NOAA 提供的每小時起降天候觀測值 (<a href="http://cdo.ncdc.noaa.gov/qclcd_ascii/, merged data from 201304 to 201310">將 201304 的資料合併至 201310</a>)。
+NOAA 提供的每小時起降天候觀測值 (<a href="http://az754797.vo.msecnd.net/data/WeatherDataset.csv">將 201304 的資料合併至 201310</a>)。
 <p></p>
 天氣資料涵蓋從機場天候觀測站進行的觀測，涵蓋期間為 2013 年 4 月至 10 月。 上傳至 Azure Machine Learning Studio 之前，資料集已經過下列處理：
 <ul>

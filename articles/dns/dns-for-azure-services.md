@@ -16,12 +16,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 09/21/2016
 ms.author: victorh
-ms.openlocfilehash: 2f5ff425eadc4572f5e109f503c57969ab310f6b
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 39fe23d7289dc78736dd5a85d4100af82b1d7b4a
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171801"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398210"
 ---
 # <a name="how-azure-dns-works-with-other-azure-services"></a>Azure DNS 如何與其他 Azure 服務搭配運作
 
@@ -36,7 +36,7 @@ Azure DNS 是一種託管的 DNS 管理與名稱解析服務。 這可讓您為�
 | --- | --- | --- |
 | 應用程式閘道 |[前端公用 IP](dns-custom-domain.md#public-ip-address) |您可以建立 DNS A 或 CNAME 記錄。 |
 | 負載平衡器 |[前端公用 IP](dns-custom-domain.md#public-ip-address)  |您可以建立 DNS A 或 CNAME 記錄。 負載平衡器可以有動態指派的 IPv6 公用 IP 位址。 因此，您必須建立用於 IPv6 位址的 CNAME 記錄。 |
-| 流量管理員 |公開名稱 |您只能建立對應至指派給您的流量管理員設定檔之 trafficmanager.net 名稱的 CNAME。 如需詳細資訊，請參閱 [流量管理員的運作方式](../traffic-manager/traffic-manager-overview.md#traffic-manager-example)。 |
+| 流量管理員 |公開名稱 |您只能建立對應至指派給您的流量管理員設定檔之 trafficmanager.net 名稱的 CNAME。 如需詳細資訊，請參閱 [流量管理員的運作方式](../traffic-manager/traffic-manager-how-it-works.md)。 |
 | 服務雲端 |[公用 IP](dns-custom-domain.md#public-ip-address) |若使用靜態配置的 IP 位址，您可以建立 DNS A 記錄。 若使用動態配置的 IP 位址，您必須建立對應至 *cloudapp.net* 名稱的 CNAME 記錄。|
 | App Service 方案 | [外部 IP](dns-custom-domain.md#app-service-web-apps) |若使用外部 IP 位址，您可以建立 DNS A 記錄。 若不是，則必須建立對應至 azurewebsites.net 名稱的 CNAME 記錄。 如需詳細資訊，請參閱 [將自訂網域名稱對應至 Azure 應用程式](../app-service/app-service-web-tutorial-custom-domain.md) |
 | Resource Manager VM |[公用 IP](dns-custom-domain.md#public-ip-address) |Resource Manager VM 可以有公用 IP 位址。 帶有公用 IP 位址的 VM 也可能擺在負載平衡器後。 您可以為公用位址建立 DNS A 或 CNAME 記錄。 這個自訂名稱可以用來略過負載平衡器上的 VIP。 |

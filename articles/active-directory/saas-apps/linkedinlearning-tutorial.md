@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: ffa689e9556e57560138d9629c616bd3a284f9b6
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0050613f4a92380f48a93cdf1f82ed91dc34f6a4
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222302"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343513"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-learning"></a>教學課程：Azure Active Directory 與 LinkedIn Learning 整合
 
@@ -33,7 +33,7 @@ LinkedIn Learning 與 Azure AD 整合提供下列優點：
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 如要設定 Azure AD 與 LinkedIn Learning 的整合，您需要下列項目：
 
@@ -214,7 +214,7 @@ LinkedIn Learning 與 Azure AD 整合提供下列優點：
 
 ### <a name="creating-a-linkedin-learning-test-user"></a>建立 LinkedIn Learning 測試使用者
 
-LinkedIn Learning 應用程式支援及時使用者佈建，且在驗證後會在應用程式中自動建立使用者。 在 LinkedIn Learning 入口網站的系統管理設定頁面上，將 [自動指派授權] 切換成啟用及時佈建，這個動作也會將授權指派給使用者。 LinkedIn Learning 也支援自動使用者佈建，您可以在[這裡](linkedinlearning-provisioning-tutorial.md)找到更多關於如何設定自動使用者佈建的詳細資料。
+LinkedIn Learning 應用程式支援及時使用者佈建，且在驗證後會在應用程式中自動建立使用者。 在 LinkedIn Learning 入口網站的系統管理設定頁面上，將 [自動指派授權] 切換成啟用及時佈建，這個動作也會將授權指派給使用者。
 
    ![建立 Azure AD 測試使用者](./media/linkedinlearning-tutorial/LinkedinUserprovswitch.png)
 
@@ -258,7 +258,6 @@ LinkedIn Learning 應用程式支援及時使用者佈建，且在驗證後會�
 
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](tutorial-list.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../manage-apps/what-is-single-sign-on.md)
-* [設定使用者佈建](linkedinlearning-provisioning-tutorial.md)
 
 <!--Image references-->
 

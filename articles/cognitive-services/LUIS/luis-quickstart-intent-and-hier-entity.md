@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 07/04/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: fb29e0a22331ce279d3dc8fc5a0044ae794d260b
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: f4e03271f45c29ed2556256346e29c297be563cc
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226079"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345353"
 ---
 # <a name="tutorial-5-add-hierarchical-entity"></a>教學課程：5. 新增階層式實體
 在本教學課程中，您將建立應用程式，示範如何根據內容尋找相關資料片段。 
@@ -27,7 +27,7 @@ ms.locfileid: "39226079"
 > * 訓練和發佈應用程式
 > * 查詢的應用程式的端點，以查看包括階層式子系的 LUIS JSON 回應 
 
-在本文中，您需要免費 [LUIS](luis-reference-regions.md#luis-website) 帳戶才能撰寫 LUIS 應用程式。
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>開始之前
 如果您沒有[清單實體](luis-quickstart-intent-and-list-entity.md)教學課程中的人力資源應用程式，請將 JSON [匯入](luis-how-to-start-new-app.md#import-new-app) [LUIS](luis-reference-regions.md#luis-website) 網站中的新應用程式。 在 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-list-HumanResources.json) Github 存放庫中可找到要匯入的應用程式。
@@ -55,14 +55,9 @@ mv Jill Jones from a-2349 to b-1298
 ## <a name="remove-prebuilt-number-entity-from-app"></a>從應用程式中移除預先建立的數字實體
 若要查看整個語句並標記階層式子系，請暫時移除預先建立的數字實體。
 
-1. 請確定您人力資源應用程式位於 LUIS 的 [建置] 區段。 選取右上方功能表列中的 [建置]，即可變更至此區段。 
-
-    [ ![右上方導覽列中已醒目提示 [Build] \(建置\) 的 LUIS 應用程式螢幕擷取畫面](./media/luis-quickstart-intent-and-hier-entity/hr-first-image.png)](./media/luis-quickstart-intent-and-hier-entity/hr-first-image.png#lightbox)
+1. 請確定您人力資源應用程式位於 LUIS 的 [建置] 區段。 選取右上方功能表列中的 [Build] \(建置\)，即可變更至此區段。 
 
 2. 從左側功能表中選取 [實體]。
-
-    [ ![在左功能表中醒目提示 [實體] 按鈕的 LUIS 應用程式螢幕擷取畫面](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png#lightbox)
-
 
 3. 選取清單中數字實體右邊的省略符號 (***...***) 按鈕。 選取 [刪除] 。 
 
@@ -72,8 +67,6 @@ mv Jill Jones from a-2349 to b-1298
 ## <a name="add-utterances-to-moveemployee-intent"></a>將語句新增至 MoveEmployee 意圖
 
 1. 選取左功能表中的 [意圖]。
-
-    [ ![在左功能表中醒目提示 [意圖] 的 LUIS 應用程式螢幕擷取畫面](./media/luis-quickstart-intent-and-hier-entity/hr-select-intents-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-intents-button.png#lightbox)
 
 2. 從意圖清單中選取 [MoveEmployee]。
 
@@ -89,10 +82,9 @@ mv Jill Jones from a-2349 to b-1298
     |Begin paperwork to set x12345 **leaving** a-3459 **headed to** f-34567|
     |Displace 425-555-0000 **away from** g-2323 **toward** hh-2345|
 
-    在[清單實體](luis-quickstart-intent-and-list-entity.md)教學課程中，無法依照名稱、電子郵件地址、電話分機、行動電話號碼或美國聯邦社會安全號碼指定員工。 這些員工編號會使用於語句中。 先前的範例語句包含不同的方式可記下原點和目的地位置 (以粗體顯示標記)。 有些語句特意只有目的地。 這有助於 LUIS 了解如何在未指定原點時將這些位置放在語句中。
-
     [ ![MoveEmployee 意圖中有新語句的 LUIS 螢幕擷取畫面](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
-     
+
+    在[清單實體](luis-quickstart-intent-and-list-entity.md)教學課程中，無法依照名稱、電子郵件地址、電話分機、行動電話號碼或美國聯邦社會安全號碼指定員工。 這些員工編號會使用於語句中。 先前的範例語句包含不同的方式可記下原點和目的地位置 (以粗體顯示標記)。 有些語句特意只有目的地。 這有助於 LUIS 了解如何在未指定原點時將這些位置放在語句中。     
 
 ## <a name="create-a-location-entity"></a>建立位置實體
 LUIS 必須藉由在語句中標記原點和目的地，進而了解位置為何。 如果您需要在語彙基元 (原始) 檢視中查看語句，請在導覽列中選取標示為 [實體檢視] 的語句上方的切換鍵。 切換參數之後，控制項會標示為 [語彙基元檢視]。
@@ -116,11 +108,9 @@ LUIS 必須藉由在語句中標記原點和目的地，進而了解位置為何
 ## <a name="add-prebuilt-number-entity-to-app"></a>將預先建立的數字實體新增至應用程式
 將預先建立的數字實體新增回應用程式。
 
-1. 從左側導覽功能表中選取 [實體]。
+1. 從左側導覽功能表中選取 [Entities] \(實體\)。
 
-    [![左導覽列中已醒目提示 [實體] 按鈕的螢幕擷取畫面](./media/luis-quickstart-intent-and-hier-entity/hr-select-entity-button-from-intent-page.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-entity-button-from-intent-page.png#lightbox)
-
-2. 選取 [管理預先建立的實體] 按鈕。
+2. 選取 [Manage prebuilt entities] \(管理預先建置的實體\) 按鈕。
 
     [ ![已醒目提示 [管理預先建立的實體] 的 [實體] 清單螢幕擷取畫面](./media/luis-quickstart-intent-and-hier-entity/hr-manage-prebuilt-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-manage-prebuilt-button.png#lightbox)
 
@@ -140,119 +130,112 @@ LUIS 在進行定型前並不知道意圖和實體 (模型) 的變更。
     ![定型成功](./media/luis-quickstart-intent-and-hier-entity/trained.png)
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>發佈應用程式以取得端點 URL
-若要在 Chatbot 或其他應用程式中取得 LUIS 預測，您必須發佈應用程式。 
 
-1. 在 LUIS 網站的右上方，選取 [Publish] \(發佈\) 按鈕。 
-
-2. 選取 [生產] 位置和 [發佈] 按鈕。
-
-    [![](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png "已醒目提示發佈至生產位置按鈕的 [發佈] 頁面螢幕擷取畫面")](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png#lightbox)
-
-3. 當您在網站頂端看到確認成功的綠色狀態列時，就表示發佈完成。
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-a-different-utterance"></a>使用不同的語句來查詢端點
-1. 在 [Publish] \(發佈\) 頁面上，選取頁面底部的**端點**連結。 這個動作會開啟另一個瀏覽器視窗，其中的網址列會顯示此端點 URL。 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/publish-select-endpoint.png "已醒目提示端點 URL 的 [發佈] 頁面螢幕擷取畫面")](media/luis-quickstart-intent-and-hier-entity/publish-select-endpoint.png#lightbox)
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+
 
 2. 移至位址中的 URL 尾端並輸入 `Please relocation jill-jones@mycompany.com from x-2345 to g-23456`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 此語句與任何已標記的語句都不同，因此這是一個良好的測試，而應該會將 `MoveEmployee` 意圖與所擷取的階層式實體一起傳回。
 
-```JSON
-{
-  "query": "Please relocation jill-jones@mycompany.com from x-2345 to g-23456",
-  "topScoringIntent": {
-    "intent": "MoveEmployee",
-    "score": 0.9966052
-  },
-  "intents": [
-    {
+  ```JSON
+  {
+    "query": "Please relocation jill-jones@mycompany.com from x-2345 to g-23456",
+    "topScoringIntent": {
       "intent": "MoveEmployee",
       "score": 0.9966052
     },
-    {
-      "intent": "Utilities.Stop",
-      "score": 0.0325253047
-    },
-    {
-      "intent": "FindForm",
-      "score": 0.006137873
-    },
-    {
-      "intent": "GetJobInformation",
-      "score": 0.00462633232
-    },
-    {
-      "intent": "Utilities.StartOver",
-      "score": 0.00415637763
-    },
-    {
-      "intent": "ApplyForJob",
-      "score": 0.00382325822
-    },
-    {
-      "intent": "Utilities.Help",
-      "score": 0.00249120337
-    },
-    {
-      "intent": "None",
-      "score": 0.00130756292
-    },
-    {
-      "intent": "Utilities.Cancel",
-      "score": 0.00119622645
-    },
-    {
-      "intent": "Utilities.Confirm",
-      "score": 1.26910036E-05
-    }
-  ],
-  "entities": [
-    {
-      "entity": "jill - jones @ mycompany . com",
-      "type": "Employee",
-      "startIndex": 18,
-      "endIndex": 41,
-      "resolution": {
-        "values": [
-          "Employee-45612"
-        ]
+    "intents": [
+      {
+        "intent": "MoveEmployee",
+        "score": 0.9966052
+      },
+      {
+        "intent": "Utilities.Stop",
+        "score": 0.0325253047
+      },
+      {
+        "intent": "FindForm",
+        "score": 0.006137873
+      },
+      {
+        "intent": "GetJobInformation",
+        "score": 0.00462633232
+      },
+      {
+        "intent": "Utilities.StartOver",
+        "score": 0.00415637763
+      },
+      {
+        "intent": "ApplyForJob",
+        "score": 0.00382325822
+      },
+      {
+        "intent": "Utilities.Help",
+        "score": 0.00249120337
+      },
+      {
+        "intent": "None",
+        "score": 0.00130756292
+      },
+      {
+        "intent": "Utilities.Cancel",
+        "score": 0.00119622645
+      },
+      {
+        "intent": "Utilities.Confirm",
+        "score": 1.26910036E-05
       }
-    },
-    {
-      "entity": "x - 2345",
-      "type": "Locations::Origin",
-      "startIndex": 48,
-      "endIndex": 53,
-      "score": 0.8520272
-    },
-    {
-      "entity": "g - 23456",
-      "type": "Locations::Destination",
-      "startIndex": 58,
-      "endIndex": 64,
-      "score": 0.974032
-    },
-    {
-      "entity": "-2345",
-      "type": "builtin.number",
-      "startIndex": 49,
-      "endIndex": 53,
-      "resolution": {
-        "value": "-2345"
+    ],
+    "entities": [
+      {
+        "entity": "jill - jones @ mycompany . com",
+        "type": "Employee",
+        "startIndex": 18,
+        "endIndex": 41,
+        "resolution": {
+          "values": [
+            "Employee-45612"
+          ]
+        }
+      },
+      {
+        "entity": "x - 2345",
+        "type": "Locations::Origin",
+        "startIndex": 48,
+        "endIndex": 53,
+        "score": 0.8520272
+      },
+      {
+        "entity": "g - 23456",
+        "type": "Locations::Destination",
+        "startIndex": 58,
+        "endIndex": 64,
+        "score": 0.974032
+      },
+      {
+        "entity": "-2345",
+        "type": "builtin.number",
+        "startIndex": 49,
+        "endIndex": 53,
+        "resolution": {
+          "value": "-2345"
+        }
+      },
+      {
+        "entity": "-23456",
+        "type": "builtin.number",
+        "startIndex": 59,
+        "endIndex": 64,
+        "resolution": {
+          "value": "-23456"
+        }
       }
-    },
-    {
-      "entity": "-23456",
-      "type": "builtin.number",
-      "startIndex": 59,
-      "endIndex": 64,
-      "resolution": {
-        "value": "-23456"
-      }
-    }
-  ]
-}
-```
+    ]
+  }
+  ```
 
 ## <a name="could-you-have-used-a-regular-expression-for-each-location"></a>是否已針對每個位置使用規則運算式？
 是，使用原點和目的地角色建立規則運算式，並在模式中使用它。

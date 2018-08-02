@@ -11,17 +11,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: ad424d6ca8ea8c35aa502a3d1bd98940591c38e8
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 47a53adb583ede0618321d9146362e4f663b0066
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35302207"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39368756"
 ---
 # <a name="change-the-name-or-logo-of-an-enterprise-app-in-azure-active-directory"></a>在 Azure Active Directory 中變更企業應用程式的名稱或標誌
 在 Azure Active Directory (Azure AD) 中，您可以輕鬆變更自訂企業應用程式的名稱或標誌。 您必須具備適當的權限，才能進行這些變更，而且必須是自訂應用程式的建立者。
@@ -43,7 +43,7 @@ ms.locfileid: "35302207"
 8. 選取 [儲存]  命令。
 
 ## <a name="next-steps"></a>後續步驟
-* [查看我的所有群組](../active-directory-groups-view-azure-portal.md)
+* [查看我的所有群組](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [將使用者或群組指派給企業應用程式](assign-user-or-group-access-portal.md)
 * [從企業應用程式中移除使用者或群組指派](remove-user-or-group-access-portal.md)
 * [停用企業應用程式的使用者登入](disable-user-sign-in-portal.md)

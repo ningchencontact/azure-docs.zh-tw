@@ -10,17 +10,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: cb4620babd3a1ba5087ae9ebd2870c1ef404bb58
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 090df19861e00a99f0bb63bf20eb2f26dc6761fd
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156478"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39368476"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 中的自訂網域
 
@@ -35,10 +35,10 @@ ms.locfileid: "34156478"
 
 ## <a name="configure-a-custom-domain"></a>設定自訂網域
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
 設定自訂網域之前，請確定您已備妥下列需求： 
-- [新增至 Azure Active Directory 的已驗證網域](../add-custom-domain.md)。
+- [新增至 Azure Active Directory 的已驗證網域](../fundamentals/add-custom-domain.md)。
 - 網域的自訂憑證 (採用 PFX 檔格式)。 
 - [透過應用程式 Proxy 發佈](application-proxy-publish-azure-portal.md)的內部部署應用程式。
 
@@ -72,7 +72,7 @@ ms.locfileid: "34156478"
 只要萬用字元符合所需的外部 URL，便可使用萬用字元憑證。 
 
 ### <a name="changing-the-domain"></a>變更網域
-所有已驗證的網域會出現在您應用程式的外部 URL 下拉式清單中。 若要變更的網域，只要更新應用程式的該欄位。 如果您想要的網域不在清單中，請[將它新增為已驗證的網域](../add-custom-domain.md)。 如果您選取的網域還沒有相關聯的憑證，請遵循步驟 5-7 來新增憑證。 接著，務必更新 DNS 記錄以從新的外部 URL 重新導向。 
+所有已驗證的網域會出現在您應用程式的外部 URL 下拉式清單中。 若要變更的網域，只要更新應用程式的該欄位。 如果您想要的網域不在清單中，請[將它新增為已驗證的網域](../fundamentals/add-custom-domain.md)。 如果您選取的網域還沒有相關聯的憑證，請遵循步驟 5-7 來新增憑證。 接著，務必更新 DNS 記錄以從新的外部 URL 重新導向。 
 
 ### <a name="certificate-management"></a>憑證管理
 除非應用程式共用外部主機，否則您可以將相同的憑證使用於多個應用程式。 
@@ -84,6 +84,6 @@ ms.locfileid: "34156478"
 ## <a name="next-steps"></a>後續步驟
 * [啟用單一登入](application-proxy-configure-single-sign-on-with-kcd.md)以登入您使用 Azure AD 驗證發佈的應用程式。
 * [啟用條件式存取](application-proxy-integrate-with-sharepoint-server.md)以存取您發佈的應用程式。
-* [將自訂網域名稱新增至 Azure AD](../add-custom-domain.md)
+* [將自訂網域名稱新增至 Azure AD](../fundamentals/add-custom-domain.md)
 
 

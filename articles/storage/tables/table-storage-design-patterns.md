@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/23/2018
 ms.author: sngun
-ms.openlocfilehash: 0d098b7befe5426db4aff503e9633623b1249dbf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: db621cdd6d38cb2f235c45c9bfcb76677ed6ba17
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659270"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39227807"
 ---
 # <a name="table-design-patterns"></a>資料表設計模式
 本文將說明一些適用於表格服務方案的模式。 此外，您會了解如何有效處理其他表格儲存體設計文章中討論的一些問題和取捨。 下圖摘要說明不同模式之間的關聯性：  
@@ -142,7 +142,7 @@ ms.locfileid: "34659270"
 ### <a name="context-and-problem"></a>內容和問題
 EGT 可讓您在共用相的資料分割索引鍵的多個實體之間執行不可部分完成的交易。 基於效能和擴充性的考量，您可能會決定在個別的磁碟分割或不同的儲存體系統中儲存有一致性需求的實體：在這種情況下，您無法使用 EGT 維護一致性。 例如，您可能必須在下列項目間維護最終一致性：  
 
-* 儲存在相同資料表的兩個不同資料分割中、不同的資料表中、不同儲存體帳戶中的實體。  
+* 儲存在相同資料表的兩個不同分割區中、不同的資料表中或不同儲存體帳戶中的實體。  
 * 儲存在資料表服務中的實體和儲存在 Blob 服務中的 Blob。  
 * 儲存在資料表服務中的實體和檔案系統中的檔案。  
 * 儲存在資料表服務中、但使用 Azure 搜尋服務編製索引的實體。  
@@ -1022,7 +1022,7 @@ employeeTable.Execute(TableOperation.Merge(department));
 ```
 
 ## <a name="controlling-access-with-shared-access-signatures"></a>使用共用存取簽章控制存取
-您可以使用共用存取簽章 (SAS) 權杖讓用戶端應用程式能夠修改 (和查詢) 資料表實體，而不需要直接使用資料表服務進行驗證。 一般而言，在您的應用程式中使用 SAS 有三大優點：  
+您可以使用共用存取簽章 (SAS) 權杖，讓用戶端應用程式能夠直接修改 (和查詢) 資料表實體，而不需要在您的程式碼中納入儲存體帳戶金鑰。 一般而言，在您的應用程式中使用 SAS 有三大優點：  
 
 * 您不需要為了要讓裝置可存取和修改資料表服務中的實體，而將儲存體帳戶金鑰散發至不安全的平台 (例如行動裝置)。  
 * 您可以將 Web 和背景工作角色為了管理實體而執行的某些工作，卸載至使用者電腦和行動裝置之類的用戶端裝置。  

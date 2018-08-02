@@ -3,17 +3,17 @@ title: Azure 儲存體中的靜態網站託管 (預覽) | Microsoft Docs
 description: Azure 儲存體現在推出靜態網站託管 (預覽)，提供符合成本效益且可延展的解決方案來託管新式 Web 應用程式。
 services: storage
 author: MichaelHauss
-manager: vamshik
 ms.service: storage
 ms.topic: article
 ms.date: 06/26/18
 ms.author: mihauss
-ms.openlocfilehash: df1661b5fe7a2c0e37deef5259d6b5842ed6ee5e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: blobs
+ms.openlocfilehash: e53b573a27f0b1462ccf1170bbde2f8af01d0d3a
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131604"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397470"
 ---
 # <a name="static-website-hosting-in-azure-storage-preview"></a>Azure 儲存體中的靜態網站託管 (預覽)
 Azure 儲存體現在推出靜態網站託管 (預覽)，讓您可以在 Azure 上部署符合成本效益且可延展的新式 Web 應用程式。 在靜態網站中，網頁會包含靜態內容和 JavaScript，或是其他用戶端程式碼。 相反地，動態網站取決於伺服器端程式碼，並可使用 [Azure Web Apps](/app-service/app-service-web-overview.md) 來託管。
@@ -27,7 +27,7 @@ Web 服務端點一律允許匿名的讀取存取，並會傳回格式化的 HTM
 
 靜態網站的內容會託管於名為 "$web" 的特殊容器中。 作為啟用程序的一部分，如果尚未建立 "$web"，系統會為您建立一個。 "$web" 中的內容可以使用 Web 端點在帳戶根目錄中加以存取。 例如，`https://contoso.z4.web.core.windows.net/` 會傳回您為網站設定的索引文件，前提是 $web 的根目錄中有該名稱的文件。
 
-將內容上傳至您的網站時，請使用 Blob 儲存體端點。 若要上傳可在帳戶根目錄存取且名為 'image.jpg' 的 Blob，請使用下列 URL `https://contoso.blob.core.windows.net/$web/image.jpg` 。 您可以在網頁瀏覽器中檢視上傳的影像，位於對應的 Web 端點 `https://contoso.z4.web.core.windows.net/image.jpg` 上。
+將內容上傳至您的網站時，請使用 Blob 儲存體端點。 若要上傳可在帳戶根目錄存取且名為 'image.jpg' 的 Blob，請使用下列 URL `https://contoso.blob.core.windows.net/$web/image.jpg`。 您可以在網頁瀏覽器中檢視上傳的影像，位於對應的 Web 端點 `https://contoso.z4.web.core.windows.net/image.jpg` 上。
 
 
 ## <a name="custom-domain-names"></a>自訂網域名稱

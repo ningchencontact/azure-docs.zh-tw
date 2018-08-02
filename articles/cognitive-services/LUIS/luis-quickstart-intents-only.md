@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 06/27/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: 4be36e9d5b34c46138a657429680689014d0fd3d
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 578fdb5593e75e3584e81d73d7643162f7af5cbc
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237769"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358133"
 ---
 # <a name="tutorial-1-build-app-with-custom-domain"></a>教學課程：1. 建置具有自訂網域的應用程式
 在本教學課程中建立應用程式，以示範如何使用**意圖**，根據使用者提交給應用程式的語句 (文字) 來判斷使用者的「意圖」。 完成之後，您會擁有一個在雲端中執行的 LUIS 端點。
@@ -32,7 +32,7 @@ ms.locfileid: "39237769"
 > * 在 ApplyForJob 意圖中新增語句範例 
 > * 訓練、發行和重新查詢端點 
 
-在本文中，您需要免費 [LUIS](luis-reference-regions.md#luis-website) 帳戶才能撰寫 LUIS 應用程式。
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="purpose-of-the-app"></a>應用程式的用途
 此應用程式有幾個意圖。 第一個意圖 **`GetJobInformation`** 可識別出使用者想要知道公司內部職缺的相關資訊。 第二個意圖 **`None`** 可識別出語句的每個其他類型。 稍後在快速入門中會新增第三個意圖 `ApplyForJob`。 
@@ -49,8 +49,6 @@ ms.locfileid: "39237769"
     ![LUIS 新增應用程式](./media/luis-quickstart-intents-only/create-app.png)
 
 4. 當該程序完成時，應用程式會顯示意圖為 [無] 的 [意圖] 頁面。 
-
-    [![](media/luis-quickstart-intents-only/intents-list.png "[意圖] 清單頁面的螢幕擷取畫面")](media/luis-quickstart-intents-only/intents-list.png#lightbox)
 
 ## <a name="create-getjobinformation-intention"></a>建立 GetJobInformation 意圖
 1. 選取 [Create new intent] \(建立新意圖\)。 輸入新的意圖名稱 `GetJobInformation`。 每當使用者想要知道公司內職缺的相關資訊時，系統就會預測此意圖。
@@ -90,16 +88,16 @@ ms.locfileid: "39237769"
 
     ![[Train] \(定型\) 按鈕](./media/luis-quickstart-intents-only/train-button.png)
 
-    當您在網站頂端看到確認成功的綠色狀態列時，就表示定型完成。
+2. 當您在網站頂端看到確認成功的綠色狀態列時，就表示定型完成。
 
     ![已定型狀態列](./media/luis-quickstart-intents-only/trained.png)
 
-2. 在 LUIS 網站的右上方，選取 [Publish] \(發佈\) 按鈕以開啟 [Publish] \(發佈\)頁面。 預設會選取生產位置。 選取生產位置選項旁的 [Publish] \(發佈\) 按鈕。 當您在網站頂端看到確認成功的綠色狀態列時，就表示發佈完成。
+## <a name="publish-app-to-endpoint"></a>將應用程式發佈到端點
 
-    在發佈之前或在測試端點 URL 之前，不必先在 Azure 入口網站中建立 LUIS 端點金鑰。 每個 LUIS 應用程式都有可用於撰寫的免費入門金鑰。 它可讓您無限制地撰寫，並提供[幾個端點叫用](luis-boundaries.md#key-limits)。 
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
 ## <a name="query-endpoint-for-getjobinformation-intent"></a>查詢端點的 GetJobInformation 意圖
-1. 在 [Publish] \(發佈\) 頁面上，選取頁面底部的**端點**連結。 此動作會開啟另一個瀏覽器視窗，其中網址列會顯示端點 URL。 
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. 移至位址中的 URL 結尾並輸入 `I'm looking for a job with Natual Language Processing`。 最後一個查詢字串參數是 `q`，也就是語句**查詢**。 此語句與步驟 4 中的任何語句範例都不同，因此這是很好的測試，且應該會將 `GetJobInformation` 意圖傳回作為評分最高的意圖。 
 
@@ -152,7 +150,10 @@ ms.locfileid: "39237769"
     重新[訓練和發佈](#train-and-publish-the-app)。 
 
 ## <a name="query-endpoint-for-applyforjob-intent"></a>查詢端點的 ApplyForJob 意圖
-在 **發佈** 頁面上，選取位於頁面底部的 **端點** 連結。 在新的瀏覽器視窗中，於 URL 結尾輸入 `Can I submit my resume for job 235986`。 
+
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+
+2. 在新的瀏覽器視窗中，於 URL 結尾輸入 `Can I submit my resume for job 235986`。 
 
     ```
     {

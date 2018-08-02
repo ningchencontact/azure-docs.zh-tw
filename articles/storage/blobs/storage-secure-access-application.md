@@ -3,18 +3,17 @@ title: 使用 Azure 儲存體安全存取雲端中的應用程式資料 | Micros
 description: 使用 SAS 權杖、加密和 HTTPS 保護雲端中的應用程式資料。
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: tutorial
 ms.date: 05/30/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: bfc5085374759290701f49cdf25698827c0779e7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 71eec62f4468b6b74a15a30be3e472b41c4d45b0
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650089"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397766"
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>安全存取雲端中的應用程式資料
 
@@ -29,7 +28,7 @@ ms.locfileid: "34650089"
 
 [Azure Blob 儲存體](../common/storage-introduction.md#blob-storage)提供強固的服務來儲存應用程式的檔案。 本教學課程延伸[上一個主題][previous-tutorial]，說明如何從 Web 應用程式安全存取您的儲存體帳戶。 當您完成時，影像會經過加密，而 Web 應用程式會使用安全的 SAS 權杖來存取縮圖影像。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，您必須已完成上一個儲存體教學課程：[使用 Event Grid 自動調整已上傳影像的大小][previous-tutorial]。 
 

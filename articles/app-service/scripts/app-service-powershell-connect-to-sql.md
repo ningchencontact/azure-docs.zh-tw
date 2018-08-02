@@ -16,12 +16,12 @@ ms.workload: web
 ms.date: 03/20/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: ffd907d14265a43fd769aaa751fb3678c3c30dea
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: be9a1f138ce858465ba8ded85365043cd823dac1
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31586682"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324740"
 ---
 # <a name="connect-a-web-app-to-a-sql-database"></a>將 Web 應用程式連接至 SQL Database
 
@@ -31,7 +31,7 @@ ms.locfileid: "31586682"
 
 ## <a name="sample-script"></a>範例指令碼
 
-[!code-powershell[main](../../../powershell_scripts/app-service/connect-to-sql/connect-to-sql.ps1?highlight=13 "Connect a web app to a SQL database")]
+[!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/connect-to-sql/connect-to-sql.ps1?highlight=13 "Connect a web app to a SQL database")]
 
 ## <a name="clean-up-deployment"></a>清除部署 
 

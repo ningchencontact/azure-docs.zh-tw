@@ -1,5 +1,5 @@
 ---
-title: 機器學習演算法小祕技 | Microsoft Docs
+title: 機器學習演算法小祕技 - Azure | Microsoft Docs
 description: 可列印的機器學習演算法小密技可協助您在 Azure Machine Learning Studio 中選擇適合您預測模型的演算法。
 keywords: 演算法小祕技,小祕技,機器學習演算法
 services: machine-learning
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: a448d6931330f7b2f0730add65473097bb2b5a57
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: b080a739aa73e3c8ef95c7db9a6358d942e94bba
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833558"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238381"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-microsoft-azure-machine-learning-studio"></a>適用於 Microsoft Azure Machine Learning Studio 的機器學習演算法小祕技
 **Microsoft Azure Machine Learning 演算法小祕技** 可協助您針對預測性分析模型選擇正確的演算法。

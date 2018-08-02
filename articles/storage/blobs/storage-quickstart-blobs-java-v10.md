@@ -3,18 +3,17 @@ title: Azure 快速入門：使用 Java Storage SDK V10 在物件儲存體中建
 description: 在本快速入門中，您會使用 Java Storage SDK 在物件 (Azure Blob) 儲存體中建立容器、上傳檔案、列出物件，並進行下載。
 services: storage
 author: roygara
-manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 07/02/2018
 ms.author: rogarana
-ms.openlocfilehash: 749badbc0bf5286c06da02f092933abbefda7ceb
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 6e15f31ed0e9f6bfcbc41277fcf90e9444bac661
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185409"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397042"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10-preview"></a>快速入門：使用 Java Storage SDK V10 (預覽) 上傳、下載及列出 Blob
 

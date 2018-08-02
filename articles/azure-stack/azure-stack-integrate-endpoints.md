@@ -10,12 +10,12 @@ ms.date: 07/16/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: bfb50a3e1b2276a63d79f5a6b8b1ab721f039d9d
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: f8d8c46128206c77ee055e125aabdae34995e5b9
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090543"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413302"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack 資料中心整合 - 發佈端點
 Azure Stack 會為其基礎結構角色設定虛擬 IP 位址 (VIP)。 這些 VIP 是從公用 IP 位址集區配置的。 針對每個 VIP，都會藉由軟體定義網路層中的存取控制清單 (ACL) 來提供保護。 ACL 也用於各個實體交換器 (TOR 和 BMC) 來進一步強化解決方案。 系統會針對在部署階段所指定外部 DNS 區域中的每個端點，都建立一個 DNS 項目。
@@ -67,7 +67,7 @@ Azure Stack 僅支援 Transparent Proxy 伺服器。 在 Transparent Proxy 上�
 |目的|URL|通訊協定|連接埠|
 |---------|---------|---------|---------|
 |身分識別|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https://secure.aadcdn.microsoftonline-p.com|HTTP<br>HTTPS|80<br>443|
-|Marketplace 摘要整合|https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|
+|Marketplace |https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|
 |修補程式和更新|https://&#42;.azureedge.net|HTTPS|443|
 |註冊|https://management.azure.com|HTTPS|443|
 |使用量|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net|HTTPS|443|

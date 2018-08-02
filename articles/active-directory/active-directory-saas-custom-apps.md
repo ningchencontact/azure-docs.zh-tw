@@ -2,25 +2,25 @@
 title: 設定應用程式的 Azure AD SSO | Microsoft Docs
 description: 了解如何使用 SAML 和密碼 SSO 以自助方式將應用程式連接到 Azure Active Directory
 services: active-directory
-author: asmalser-msft
+author: barbkess
 documentationcenter: na
 manager: mtillman
-ms.assetid: 0d42eb0c-6d3f-4557-9030-e88e86709a19
 ms.service: active-directory
+ms.component: app-mgmt
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/20/2018
-ms.author: asmalser
-ms.reviewer: luleon
+ms.date: 07/30/2018
+ms.author: barbkess
+ms.reviewer: asmalser,luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aeb67a73a69684b89609c6b04160357b244f62b7
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 640df9659dfa65d0eb2a65066085dd7dff7031ca
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36754121"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365548"
 ---
 # <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>為不在 Azure Active Directory 應用程式庫中的應用程式設定單一登入
 

@@ -6,15 +6,15 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/19/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: f40fe3da6874d8656c9c0a0ddce9fed602cb25f9
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 33d23de2cd0ddae95a34c2c9f7acabdc7315cd36
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091910"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160024"
 ---
 # <a name="azure-sql-database-purchasing-models-and-resources"></a>Azure SQL Database 購買模型和資源 
 
@@ -58,7 +58,7 @@ ms.locfileid: "39091910"
 
 ## <a name="dtu-based-purchasing-model"></a>以 DTU 為基礎的購買模型
 
-資料庫輸送量單位 (DTU) 代表混合了 CPU、記憶體、讀取和寫入的量值。 以 DTU 為基礎的購買模型會提供一組預先設定好的計算資源組合和所包含的儲存體，以期達成不同的應用程式效能等級。 想要簡單一點，使用已預先設定好的組合並每月支付固定費用的客戶，可能會發現以 DTU 為基礎的模型更適合他們的需求。 在以 DTU 為基礎的購買模型中，客戶可以就[單一資料庫](sql-database-single-database-scale.md)與[彈性集區](sql-database-elastic-pool.md)選擇**基本**、**標準**和**進階**服務層。 
+資料庫交易單位 (DTU) 代表混合了 CPU、記憶體、讀取和寫入的量值。 以 DTU 為基礎的購買模型會提供一組預先設定好的計算資源組合和所包含的儲存體，以期達成不同的應用程式效能等級。 想要簡單一點，使用已預先設定好的組合並每月支付固定費用的客戶，可能會發現以 DTU 為基礎的模型更適合他們的需求。 在以 DTU 為基礎的購買模型中，客戶可以就[單一資料庫](sql-database-single-database-scale.md)與[彈性集區](sql-database-elastic-pool.md)選擇**基本**、**標準**和**進階**服務層。 
 
 ### <a name="what-are-database-transaction-units-dtus"></a>何謂資料庫交易單位 (DTU)？
 針對[服務層](sql-database-single-database-scale.md)中特定效能等級的單一 Azure SQL Database，Microsoft 保證該資料庫具備特定的資源層級 (與 Azure 雲端的其他任何資料庫無關)，並提供可預測的效能等級。 資源數量會計算為資料庫交易單位 (DTU) 數量，且為計算、儲存體和 I/O 資源的配套測量。 這些資源的比率，原本是由專為一般實際 OLTP 工作負載所設計的 [OLTP 基準測試工作負載](sql-database-benchmark-overview.md)來判定。 若您的工作負載超過這些任一資源的數量，系統即會節流處理輸送量，因而導致效能變慢和逾時。 您工作負載使用的資源，不會影響到 Azure 雲端中其他 SQL Database 的可用資源，且其他工作負載所用的資源亦不會影響到您 SQL Database 的可用資源。
@@ -190,4 +190,4 @@ ASDB 可測量基本資料庫作業混合的效能，這些作業最常發生在
 ## <a name="next-steps"></a>後續步驟
 
 - 針對虛擬核心形式的購買模型，請參閱[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)
-- 如需 DTU 形式的購買模型，請參閱 [DTU 形式的購買模型](sql-database-service-tiers-dtu.md)。
+- 如需以 DTU 為基礎的購買模型，請參閱[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)。

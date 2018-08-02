@@ -9,19 +9,20 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: c96e9825cddd0b60e67cd4752fab8f440ceaae76
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 482f0403cfd4bbd6587ba7e3e936cdac7f82b54a
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39227739"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>了解及調整串流單位
 
-Azure 串流分析會將執行一個作業的效能「權重」彙總為串流單位 (SU)。 SU 代表用在執行作業的計算資源。 SU 會根據 CPU、記憶體，以及讀寫率的混合量值，提供一個方式來描述相關的事件處理容量。 這個容量可讓您專注於查詢邏輯，並以及時的方式摘要出管理硬體以執行串流分析作業的需求。
+串流單位 (SU) 代表配置用來執行作業的計算資源。 SU 的數目愈大，為您的作業配置的 CPU 和記憶體資源就愈多。 這個容量可讓您專注於查詢邏輯，並以及時的方式摘要出管理硬體以執行串流分析作業的需求。
 
 為了達到低延遲的串流處理，Azure 串流分析作業會在記憶體中執行所有處理。 當記憶體用完時，串流工作將會失敗。 因此，對於生產作業來說，請務必監視串流作業的資源使用狀況，並配置足夠的資源讓作業保持全天候運作。
 
-計量是從 0% 到 100% 的百分比數值。 對於使用量最少的串流作業來說，SU % 使用量度量通常介於 10% 到 20% 間。 建議您最好將計量保持低於 80%，以因應偶發的尖峰使用量。 Microsoft 建議對 80% 的 SU 使用量計量設定警示，以避免資源耗盡。 如需詳細資訊，請參閱[教學課程：設定 Azure 串流分析作業的警示](stream-analytics-set-up-alerts.md)。
+SU % 使用率計量介於 0% 到 100% 的範圍間，可說明工作負載的記憶體耗用量。 就使用量最低的串流作業而言，此計量通常會介於 10% 到 20% 之間。 如果 SU % 使用率偏低，且有輸入事件待處理，您的工作負載就可能需要更多計算資源，而您就必須增加 SU 數目。 建議您最好將 SU 計量保持低於 80%，以因應偶發的尖峰使用量。 Microsoft 建議對 80% 的 SU 使用量計量設定警示，以避免資源耗盡。 如需詳細資訊，請參閱[教學課程：設定 Azure 串流分析作業的警示](stream-analytics-set-up-alerts.md)。
 
 ## <a name="configure-stream-analytics-streaming-units-sus"></a>設定串流分析串流單位 (SU)
 1. 登入 [Azure 入口網站](http://portal.azure.com/)
@@ -45,7 +46,7 @@ Azure 串流分析會將執行一個作業的效能「權重」彙總為串流�
 
 選擇特定作業所需的 SU 數量取決於輸入的磁碟分割組態以及作業內定義的查詢。 [調整] 頁面可讓您設定正確的 SU 數目。 最好作法是配置比所需數目還多的 SU。 串流處理引擎會不惜分派額外的記憶體，針對延遲和輸送量進行最佳化。
 
-一般情況下，最佳的作法是對不是使用 **PARTITION BY** 的查詢使用 6 個 SU 開始。 然後使用反覆嘗試的方法來決定最佳配置，這方法就是您可以在傳送代表的資料總數後修改 SU 數目，並且檢查 SU% 使用率計量。
+一般情況下，最佳的作法是對不是使用 **PARTITION BY** 的查詢使用 6 個 SU 開始。 然後使用反覆嘗試的方法來決定最佳配置，這方法就是您可以在傳送代表的資料總數後修改 SU 數目，並且檢查 SU% 使用率計量。 串流分析作業可使用的串流單位數目上限，取決於為作業定義的查詢中包含的步驟數目，和每個步驟中的分割區數目。 您可以在[這裡](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-parallelization#calculate-the-maximum-streaming-units-of-a-job)深入了解限制。
 
 如需選擇正確 SU 數目的詳細資訊，請參閱頁面：[調整 Azure 串流分析工作以增加輸送量](stream-analytics-scale-jobs.md)
 

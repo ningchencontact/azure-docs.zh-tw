@@ -3,17 +3,17 @@ title: 如何使用 C++ 的物件 (Blob) 儲存體 - Azure | Microsoft Docs
 description: 使用 Azure Blob (物件) 儲存體在雲端中儲存非結構化資料。
 services: storage
 author: MichaelHauss
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: michaelhauss
-ms.openlocfilehash: d3297ae7bc4a5ac7e2a43d9d44a05365004b685f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.component: blobs
+ms.openlocfilehash: 0564d8406a0ce885ec5d75377f6a165901a8aa25
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38298991"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397160"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>如何使用 C++ 的 Blob 儲存體
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2017
 ms.author: kumud
-ms.openlocfilehash: c9bd9b4913e38ed5c1f7f4ec8ee7e3210fa3be8f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 03f1cc3a34fa8a472dcab9654b65cc97b8473993
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30245357"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398612"
 ---
 # <a name="traffic-manager-routing-methods"></a>流量管理員路由方法
 
@@ -83,7 +83,7 @@ Azure 流量管理員支援四種流量路由方法，以決定如何將網路�
 
 流量管理員會在「網際網路延遲資料表」中查閱傳入 DNS 要求的來源 IP 位址。 流量管理員會在 Azure 資料中心內選擇該 IP 位址範圍內延遲最低的可用端點，然後在 DNS 回應中傳回該端點。
 
-如[流量管理員的運作方式](traffic-manager-overview.md#how-traffic-manager-works)中所述，流量管理員不會直接從用戶端接收 DNS 查詢。 相反地，DNS 查詢是來自用戶端已設定使用的遞迴 DNS 服務。 因此，用來判斷「最靠近」端點的 IP 位址不是用戶端的 IP 位址，而是遞迴 DNS 服務的 IP 位址。 實際上，此 IP 位址是用戶端的理想 Proxy。
+如[流量管理員的運作方式](traffic-manager-how-it-works.md)中所述，流量管理員不會直接從用戶端接收 DNS 查詢。 相反地，DNS 查詢是來自用戶端已設定使用的遞迴 DNS 服務。 因此，用來判斷「最靠近」端點的 IP 位址不是用戶端的 IP 位址，而是遞迴 DNS 服務的 IP 位址。 實際上，此 IP 位址是用戶端的理想 Proxy。
 
 
 流量管理員會定期更新「網際網路延遲資料表」，以反映全球網際網路的變動和新的 Azure 區域。 不過，隨著網際網路上即時的負載變化，應用程式效能會改變。 效能流量路由不會監視特定服務端點上的負載。 不過，如果端點變得無法使用，流量管理員就不會將它加入 DNS 查詢回應中。
@@ -122,7 +122,7 @@ Azure 流量管理員支援四種流量路由方法，以決定如何將網路�
 - 如果端點顯示**已停用**狀態，則區域比對過程不會考慮此端點。 對於巢狀端點類型，當端點處於**已停用**狀態時，此行為也適用。
 - 如果查詢的來源地理區域在該設定檔中沒有對應，流量管理員會傳回 NODATA 回應。 因此，強烈建議客戶使用地理路由搭配一個端點，最好是「巢狀」類型，且子設定檔內至少有兩個端點，並指派區域**世界**。 這也可確保會處理未對應到區域的任何 IP 位址。
 
-如[流量管理員的運作方式](traffic-manager-how-traffic-manager-works.md)中所述，流量管理員不會直接從用戶端接收 DNS 查詢。 相反地，DNS 查詢是來自用戶端已設定使用的遞迴 DNS 服務。 因此，用來判斷區域的 IP 位址不是用戶端的 IP 位址，而是遞迴 DNS 服務的 IP 位址。 實際上，此 IP 位址是用戶端的理想 Proxy。
+如[流量管理員的運作方式](traffic-manager-how-it-works.md)中所述，流量管理員不會直接從用戶端接收 DNS 查詢。 相反地，DNS 查詢是來自用戶端已設定使用的遞迴 DNS 服務。 因此，用來判斷區域的 IP 位址不是用戶端的 IP 位址，而是遞迴 DNS 服務的 IP 位址。 實際上，此 IP 位址是用戶端的理想 Proxy。
 
 
 ## <a name="next-steps"></a>後續步驟

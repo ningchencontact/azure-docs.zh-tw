@@ -3,24 +3,23 @@ title: Azure 快速入門 - 使用 Go 在物件儲存體中建立 Blob | Microso
 description: 在本快速入門中，您會在物件 (Blob) 儲存體中建立儲存體帳戶和容器。 然後，使用 Go 的儲存體用戶端程式庫將 blob 上傳至 Azure 儲存體、下載 blob，以及列出容器中的 blob。
 services: storage
 author: seguler
-manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: seguler
-ms.openlocfilehash: 1ce3debd8b04cf6c799dd7d6a3c87f843f1e0338
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 90858501cbf20af032c98ca8703f9e74b475e9c1
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38707558"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398571"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>快速入門：使用 Go 上傳、下載及列出 Blob
 
 在本快速入門中，您會了解如何使用 Go 程式設計語言在 Azure Blob 儲存體容器中上傳、下載及列出區塊 Blob。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本快速入門： 
 * [安裝 Go 1.8 或更新版本](https://golang.org/dl/)

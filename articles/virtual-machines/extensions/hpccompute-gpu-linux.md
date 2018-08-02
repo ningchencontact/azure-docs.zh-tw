@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/03/2018
-ms.author: danis
-ms.openlocfilehash: 1febf81745ed804de59113da4f48376e9564b68f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.author: roiyz
+ms.openlocfilehash: d95a1b510411f913a05762494dd48d6a5b6f84fd
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448936"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413666"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>適用於 Linux 的 NVIDIA GPU 驅動程式擴充功能
 
@@ -31,7 +31,7 @@ ms.locfileid: "37448936"
 
 NVIDIA 使用者授權合約條款位於此處 - https://go.microsoft.com/fwlink/?linkid=874330
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 ### <a name="operating-system"></a>作業系統
 

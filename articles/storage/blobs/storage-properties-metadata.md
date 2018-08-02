@@ -2,24 +2,17 @@
 title: 在 Azure 儲存體中設定和擷取物件屬性與中繼資料 | Microsoft Docs
 description: 將物件的自訂中繼資料儲存在Azure 儲存體中，並設定和擷取系統屬性。
 services: storage
-documentationcenter: ''
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 036f9006-273e-400b-844b-3329045e9e1f
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: tamram
-ms.openlocfilehash: d2c95139d42f42e43e2fa6e587d5b1b13afdf1e9
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 2641e1653e14a7c101d95b02b8a5af71ceb9fdc6
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112438"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398169"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>設定並擷取屬性和中繼資料
 

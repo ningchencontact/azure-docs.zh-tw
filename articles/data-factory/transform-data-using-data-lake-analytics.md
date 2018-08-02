@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 08/01/2018
 ms.author: abnarain
-ms.openlocfilehash: b82353418931c872f8ec90f381b27bbb5d5781e9
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: d406c7f7714e011126be67ad3f65938db62e7bbe
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046950"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412843"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>在 Azure Data Lake Analytics 上執行 U-SQL 指令碼來轉換資料 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,11 +37,11 @@ Azure Data Factory 中的「管線」會使用連結的計算服務，來處理�
 
 | 屬性                 | 說明                              | 必要                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| **type**                 | type 屬性應設為： **AzureDataLakeAnalytics**。 | yes                                      |
-| **accountName**          | Azure Data Lake Analytics 帳戶名稱。  | yes                                      |
+| **type**                 | type 屬性應設為： **AzureDataLakeAnalytics**。 | 是                                      |
+| **accountName**          | Azure Data Lake Analytics 帳戶名稱。  | 是                                      |
 | **dataLakeAnalyticsUri** | Azure Data Lake Analytics URI。           | 否                                       |
-| **subscriptionId**       | Azure 訂用帳戶識別碼                    | 否 (如果未指定，便會使用 Data Factory 的訂用帳戶)。 |
-| **resourceGroupName**    | Azure 資源群組名稱                | 否 (若未指定，便會使用 Data Factory 的資源群組)。 |
+| **subscriptionId**       | Azure 訂用帳戶識別碼                    | 否                                       |
+| **resourceGroupName**    | Azure 資源群組名稱                | 否                                       |
 
 ### <a name="service-principal-authentication"></a>服務主體驗證
 Azure Data Lake Analytics 已連結的服務需要服務主體驗證，才能連接到 Azure Data Lake Analytics 服務。 若要使用服務主體驗證，請在 Azure Active Directory (Azure AD) 中註冊應用程式實體，並授與其使用之 Data Lake Analytics 和 Data Lake Store 存取權。 如需詳細的步驟，請參閱[服務對服務驗證](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)。 請記下以下的值，您可以使用這些值來定義連結服務：
@@ -56,9 +56,9 @@ Azure Data Lake Analytics 已連結的服務需要服務主體驗證，才能連
 
 | 屬性                | 說明                              | 必要 |
 | :---------------------- | :--------------------------------------- | :------- |
-| **servicePrincipalId**  | 指定應用程式的用戶端識別碼。     | yes      |
-| **servicePrincipalKey** | 指定應用程式的金鑰。           | yes      |
-| **tenant**              | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | yes      |
+| **servicePrincipalId**  | 指定應用程式的用戶端識別碼。     | 是      |
+| **servicePrincipalKey** | 指定應用程式的金鑰。           | 是      |
+| **tenant**              | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | 是      |
 
 **範例：服務主體驗證**
 ```json
@@ -120,12 +120,12 @@ Azure Data Lake Analytics 已連結的服務需要服務主體驗證，才能連
 
 | 屬性            | 說明                              | 必要 |
 | :------------------ | :--------------------------------------- | :------- |
-| name                | 管線中的活動名稱     | yes      |
+| name                | 管線中的活動名稱     | 是      |
 | 說明         | 說明活動用途的文字。  | 否       |
-| type                | 對於 Data Lake Analytics U-SQL 活動，活動類型為 **DataLakeAnalyticsU-SQL**。 | yes      |
-| 預設容器   | Azure Data Lake Analytics 之已連結的服務。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。  |yes       |
-| scriptPath          | 包含 U-SQL 指令碼的資料夾的路徑。 檔案的名稱有區分大小寫。 | yes      |
-| scriptLinkedService | 連結服務會將包含指令碼的 **Azure Data Lake Store** 或 **Azure 儲存體**連結至資料處理站 | yes      |
+| type                | 對於 Data Lake Analytics U-SQL 活動，活動類型為 **DataLakeAnalyticsU-SQL**。 | 是      |
+| 預設容器   | Azure Data Lake Analytics 之已連結的服務。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。  |是       |
+| scriptPath          | 包含 U-SQL 指令碼的資料夾的路徑。 檔案的名稱有區分大小寫。 | 是      |
+| scriptLinkedService | 連結服務會將包含指令碼的 **Azure Data Lake Store** 或 **Azure 儲存體**連結至資料處理站 | 是      |
 | degreeOfParallelism | 同時用來執行作業的節點數目上限。 | 否       |
 | 優先順序            | 判斷應該選取排入佇列的哪些工作首先執行。 編號愈低，優先順序愈高。 | 否       |
 | parameters          | 要傳遞到 U-SQL 指令碼的參數。    | 否       |

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7e75f2ff5e2df3189683d084a315ad6c8730be84
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 5867012e0322e520b4ef234599fa25a2ec08138d
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034498"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325763"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>從 Visual Studio Code 部署 Azure IoT Edge 模組
 
@@ -22,7 +22,7 @@ ms.locfileid: "37034498"
 
 本文說明如何建立 JSON 部署資訊清單，然後使用該檔案將部署發送到 IoT Edge 裝置。 如需根據裝置共用標籤，建立目標為多個裝置的部署資訊，請參閱[大規模部署和監視 IoT Edge 模組](how-to-deploy-monitor.md) (英文)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶中的 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。 
 * 已安裝 IoT Edge 執行階段的 [IoT Edge 裝置](how-to-register-device-portal.md)。 
@@ -39,7 +39,7 @@ ms.locfileid: "37034498"
 
    ```json
    {
-     "moduleContent": {
+     "modulesContent": {
        "$edgeAgent": {
          "properties.desired": {
            "schemaVersion": "1.0",
@@ -48,13 +48,8 @@ ms.locfileid: "37034498"
              "settings": {
                "minDockerVersion": "v1.25",
                "loggingOptions": "",
-               "registryCredentials": {
-                 "registryName": {
-                   "username": "",
-                   "password": "",
-                   "address": ""
-                 }
-               }
+               "registryCredentials": {}
+             }
            },
            "systemModules": {
              "edgeAgent": {
@@ -70,7 +65,7 @@ ms.locfileid: "37034498"
                "restartPolicy": "always",
                "settings": {
                  "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-                 "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
+                 "createOptions": "{}"
                }
              }
            },
@@ -105,7 +100,7 @@ ms.locfileid: "37034498"
      }
    }
    ```
-
+   
 ## <a name="sign-in-to-access-your-iot-hub"></a>登入以存取 IoT 中樞
 
 您可以使用適用於 Visual Studio Code 的 Azure IoT 擴充功能來透過 IoT 中樞執行各種操作。 為了讓這些作業發揮作用，您需要登入 Azure 帳戶，並選取現用的 IoT 中樞。
@@ -120,7 +115,7 @@ ms.locfileid: "37034498"
 
 4. 選擇 [選取 IoT 中樞]。
 
-5. 如果您未登入 Azure 帳戶，請依照提示登入。 
+5. 如果您未登入 Azure 帳戶，請依照提示執行。 
 
 6. 選取 Azure 訂用帳戶。 
 

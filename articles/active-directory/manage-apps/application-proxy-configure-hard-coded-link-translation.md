@@ -10,17 +10,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 8c3cd66a376c1526f50201b7fd662c4faf650df5
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 618df9b4bcc4a1b6f44d9cabc29c797a2cabcc80
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161601"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366787"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>重新導向使用 Azure AD Application Proxy 發佈之應用程式的硬式編碼連結
 
@@ -33,9 +33,9 @@ Azure AD Application Proxy 讓您的內部部署應用程式可供遠端使用�
 
 **選項 1：使用 Managed Browser** – 這個解決方案只有在您打算建議或要求使用者透過 Intune Managed Browser 存取應用程式時才適用。 它將會處理所有已發佈的 URL。 
 
-**選項 2：使用 MyApps 擴充功能** – 這個解決方案會要求使用者安裝用戶端瀏覽器擴充功能，但它將會處理所有已發佈的 URL，而且適用於最熱門的瀏覽器。 
+**選項 2：使用 MyApps 延伸模組** – 這個解決方案會要求使用者安裝用戶端瀏覽器延伸模組，但它將會處理所有已發佈的 URL，而且適用於最熱門的瀏覽器。 
 
-**選項 3：使用連結轉譯設定** – 這是使用者看不到的管理員端設定。 不過，它將只會處理 HTML 和 CSS 中的 URL。 透過 JavaScript (舉例來說) 產生之硬式編碼的內部 URL 將無法運作。  
+**選項 3：使用連結轉譯設定** – 這是使用者看不到的管理員端設定。 不過，它將只會處理 HTML 和 CSS 中的 URL。 透過 JavaScript (舉例來說) 所產生硬式編碼的內部 URL 將無法運作。  
 
 不論您的使用者位於何處，這三個功能都會讓您的連結保持運作。 當您有直接指向內部端點或連接埠的應用程式時，您可以將這些內部 URL 對應至已發佈的外部 Application Proxy URL。 
 
@@ -52,11 +52,11 @@ Azure AD Application Proxy 讓您的內部部署應用程式可供遠端使用�
 
 如需深入了解 (包括如何設定這個選項)，請參閱 [Managed Browser](https://docs.microsoft.com/intune/app-configuration-managed-browser) \(機器翻譯\) 文件。  
 
-### <a name="option-2-myapps-browser-extension"></a>選項 2：MyApps 瀏覽器擴充功能 
+### <a name="option-2-myapps-browser-extension"></a>選項 2：MyApps 瀏覽器延伸模組 
 
-使用 MyApps 瀏覽器擴充功能，此擴充功能會辨識出以應用程式 Proxy 發佈的所有內部 URL，並將其重新導向至對應的外部 URL。 這樣可以確保所有硬式編碼的內部 URL 均會運作，而且，如果使用者前往瀏覽器的網址列並直接輸入內部 URL，即便使用者位於遠端，它還是會運作。  
+使用 MyApps 瀏覽器延伸模組，此延伸模組會辨識出以應用程式 Proxy 發佈的所有內部 URL，並將其重新導向至對應的外部 URL。 這樣可以確保所有硬式編碼的內部 URL 均會運作，而且，如果使用者前往瀏覽器的網址列並直接輸入內部 URL，即便使用者位於遠端，它還是會運作。  
 
-若要使用此功能，使用者必須下載擴充功能並登入。 管理員或使用者不需要任何其他設定。 
+若要使用此功能，使用者必須下載延伸模組並登入。 管理員或使用者不需要任何其他設定。 
 
  
 

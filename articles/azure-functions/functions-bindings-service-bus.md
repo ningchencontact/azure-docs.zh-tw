@@ -3,7 +3,7 @@ title: Azure Functions 的 Azure 服務匯流排繫結
 description: 瞭解如何在 Azure Functions 中使用「Azure 服務匯流排」觸發程序和繫結。
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,13 +15,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
-ms.author: tdykstra
-ms.openlocfilehash: 0e9e7dcab208d1ffd8410a02a7c1cd713d11b277
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.author: glenga
+ms.openlocfilehash: eee60718bf848154b0097294b3c7eb325e96214b
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753484"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346254"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions 的 Azure 服務匯流排繫結
 

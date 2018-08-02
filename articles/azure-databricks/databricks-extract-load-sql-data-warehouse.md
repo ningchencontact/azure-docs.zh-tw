@@ -10,13 +10,13 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
-ms.date: 07/23/2018
-ms.openlocfilehash: 7f0354413932aef8a27b09ebac542ad1b8f375e1
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.date: 07/26/2018
+ms.openlocfilehash: 11046089bd25e1ca9e117d5d8908471858450e6d
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223825"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308791"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>教學課程：使用 Azure Databrick 擷取、轉換和載入資料
 
@@ -344,7 +344,7 @@ ms.locfileid: "39223825"
 2.  您可以進一步轉換此資料，將 **level** 資料行重新命名為 **subscription_type**。
 
         val renamedColumnsDf = specificColumnsDf.withColumnRenamed("level", "subscription_type")
-        renamedColumnsDF.show()
+        renamedColumnsDf.show()
 
     您會取得如下列程式碼片段所示的輸出。
 
@@ -387,7 +387,7 @@ ms.locfileid: "39223825"
 
 2. 指定在 Azure Databricks 與 Azure SQL 資料倉儲之間移動資料所用的暫存資料夾。
 
-        val tempDir = "wasbs://" + blobContainer + "\@" + blobStorage +"/tempDirs"
+        val tempDir = "wasbs://" + blobContainer + "@" + blobStorage +"/tempDirs"
 
 3. 執行下列程式碼片段，儲存組態中的 Azure Blob 儲存體存取金鑰。 這可確保您不必在 Notebook 中以純文字保留存取金鑰。
 

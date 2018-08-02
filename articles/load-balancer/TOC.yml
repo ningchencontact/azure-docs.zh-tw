@@ -40,7 +40,7 @@
   items:
     - name: 何謂 Load Balancer 標準？
       href: load-balancer-standard-overview.md
-    - name: 負載平衡器探查
+    - name: 健康狀態探查
       href: load-balancer-custom-probe-overview.md
     - name: 高可用性連接埠
       href: load-balancer-ha-ports-overview.md

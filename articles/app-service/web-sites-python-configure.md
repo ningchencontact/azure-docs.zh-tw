@@ -4,7 +4,7 @@ description: 本教學課程描述在 Azure App Service Web Apps 上編寫與設
 services: app-service
 documentationcenter: python
 tags: python
-author: huguesv
+author: cephalin
 manager: erikre
 editor: ''
 ms.assetid: fd00dc91-9935-4331-b955-4bd71e66d518
@@ -15,12 +15,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/26/2016
 ms.author: huvalo
-ms.openlocfilehash: 32d9cd6c42387b67881877a1165dfcbcaef405ba
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f1859660d2370093ab582c417233b25d363ce952
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598635"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39227813"
 ---
 # <a name="configuring-python-with-azure-app-service-web-apps"></a>使用 Azure App Service Web Apps 設定 Python
 本教學課程描述在 [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714)上編寫與設定基本的 Web 伺服器閘道介面 (WSGI) 相容之 Python 應用程式的選項。
@@ -30,9 +30,11 @@ ms.locfileid: "34598635"
 ## <a name="bottle-django-or-flask"></a>Bottle、Django 或 Flask？
 Azure Marketplace 包含 Bottle、Django 和 Flask 架構的範本。 如果您正在開發 Azure App Service 中的第一個 Web 應用程式，您可以從 Azure 入口網站快速地建立一個應用程式：
 
-* [採用 Bottle 的 Web 應用程式](https://portal.azure.com/#create/PTVS.Bottle)
-* [採用 Django 的 Web 應用程式](https://portal.azure.com/#create/PTVS.Django)
+* [Linux 上採用 Bottle 的 Web 應用程式](https://portal.azure.com/#create/PTVS.BottleLinux)
+* [Linux 上採用 Django 的 Web 應用程式](https://portal.azure.com/#create/PTVS.DjangoLinux)
 * [Linux 上採用 Flask 的 Web 應用程式](https://portal.azure.com/#create/PTVS.FlaskLinux)
+
+或者，您可以[自行瀏覽 Azure Marketplace](https://portal.azure.com/#create/hub)。
 
 ## <a name="web-app-creation-on-azure-portal"></a>在 Azure 入口網站上建立 Web 應用程式
 本教學課程假設有現有的 Azure 訂用帳戶，而且能夠存取 Azure 入口網站。
@@ -350,8 +352,11 @@ Python 3.4 的 `web.config` 範例：
 ## <a name="troubleshooting---virtual-environment"></a>疑難排解 - 虛擬環境
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
+## <a name="troubleshooting---startup-errors"></a>疑難排解 - 啟動錯誤
+[!INCLUDE [web-sites-python-troubleshooting-wsgi-error-log](../../includes/web-sites-python-troubleshooting-wsgi-error-log.md)]
+
 ## <a name="next-steps"></a>後續步驟
-如需詳細資訊，請參閱 [Python 開發人員中心](/develop/python/)。
+如需詳細資訊，請參閱 [Python 開發人員中心](/python/azure/)。
 
 > [!NOTE]
 > 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至 [試用 App Service](https://azure.microsoft.com/try/app-service/)，即可在 App Service 中立即建立短期入門 Web 應用程式。 不需要信用卡；無需承諾。

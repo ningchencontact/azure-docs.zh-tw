@@ -3,7 +3,7 @@ title: Azure 虛擬機器擴充功能和功能 | Microsoft Docs
 description: 了解 Azure VM 擴充功能，以及如何搭配 Azure 虛擬機器使用
 services: virtual-machines-linux
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
-ms.author: danis
-ms.openlocfilehash: 1fd4e1a67b6aa4cc66e62822c34606e2769890f8
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.author: roiyz
+ms.openlocfilehash: ec201f7f82aea97b9927b85a6b185fad51f6081d
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866486"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412595"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Azure 虛擬機器擴充功能和功能
 Azure 虛擬機器 (VM) 擴充功能是在 Azure VM 上提供部署後設定和自動化工作的小型應用程式。您可以使用現有的映像，然後將其自訂為部署的一部分，就不必建置自訂映像。

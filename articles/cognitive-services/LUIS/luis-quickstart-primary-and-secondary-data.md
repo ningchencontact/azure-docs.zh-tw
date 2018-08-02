@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/29/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: aafbf7d1b4a624d42e2caa96f9d3ebdfaee4efe6
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 2e100f2019c3bb99e3909e64305ebe641e2a637e
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238000"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308964"
 ---
 # <a name="tutorial-7-add-simple-entity-and-phrase-list"></a>教學課程：7. 新增簡單實體和片語清單
 在本教學課程中，您可以使用**簡單**實體來建立應用程式，讓其示範如何從語句中擷取機器學習資料。
@@ -29,7 +29,7 @@ ms.locfileid: "39238000"
 > * 新增可提升職位字組訊號的片語清單
 > * 訓練、發行應用程式和重新查詢端點
 
-在本文中，您需要免費 [LUIS](luis-reference-regions.md#luis-website) 帳戶才能撰寫 LUIS 應用程式。
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>開始之前
 如果您沒有[複合實體](luis-tutorial-composite-entity.md)教學課程中的人力資源應用程式，請將 JSON [匯入](luis-how-to-start-new-app.md#import-new-app) [LUIS](luis-reference-regions.md#luis-website) 網站中的新應用程式。 在 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-composite-HumanResources.json) Github 存放庫中可找到要匯入的應用程式。
@@ -70,8 +70,6 @@ ms.locfileid: "39238000"
 ## <a name="create-job-simple-entity"></a>建立職位的簡單實體
 
 1. 請確定您人力資源應用程式位於 LUIS 的 [建置] 區段。 選取右上方功能表列中的 [Build] \(建置\)，即可變更至此區段。 
-
-    [ ![在右上方導覽列中醒目提示 [建置] 的 LUIS 應用程式螢幕擷取畫面](./media/luis-quickstart-primary-and-secondary-data/hr-first-image.png)](./media/luis-quickstart-primary-and-secondary-data/hr-first-image.png#lightbox)
 
 2. 在 [意圖] 頁面上，選取 [ApplyForJob] 意圖。 
 
@@ -139,22 +137,14 @@ LUIS 在進行定型前並不知道意圖和實體 (模型) 的變更。
     ![訓練成功通知](./media/luis-quickstart-primary-and-secondary-data/trained.png)
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>發佈應用程式以取得端點 URL
-若要在 Chatbot 或其他應用程式中取得 LUIS 預測，您必須發佈應用程式。 
 
-1. 在 LUIS 網站的右上方，選取 [Publish] \(發佈\) 按鈕。 
-
-2. 選取 [生產] 位置和 [發佈] 按鈕。
-
-    [![](media/luis-quickstart-primary-and-secondary-data/publish-to-production.png "已醒目提示發佈至生產位置按鈕的 [發佈] 頁面螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/publish-to-production.png#lightbox)
-
-3. 當您在網站頂端看到確認成功的綠色狀態列時，就表示發佈完成。
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-a-different-utterance"></a>使用不同的語句來查詢端點
-在 [發佈] 頁面上，選取位於頁面底部的 [端點] 連結。 
 
-[![](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png "已醒目提示端點的 [發佈] 頁面螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png#lightbox)
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-這個動作會開啟另一個瀏覽器視窗，其中的網址列會顯示此端點 URL。 移至位址中的 URL 尾端並輸入 `Here is my c.v. for the programmer job`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 此語句與任何標示的語句都不同，因此這是很好的測試，且應該傳回 `ApplyForJob` 語句。
+2. 移至位址中的 URL 結尾並輸入 `Here is my c.v. for the programmer job`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 此語句與任何標示的語句都不同，因此這是很好的測試，且應該傳回 `ApplyForJob` 語句。
 
 ```JSON
 {

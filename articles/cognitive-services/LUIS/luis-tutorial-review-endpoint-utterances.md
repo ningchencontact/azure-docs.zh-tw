@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 07/03/2018
+ms.date: 07/30/2018
 ms.author: diberry
-ms.openlocfilehash: 1f1e3310e0d02983aaecc3f87ba9c116d65b751b
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: a04c8987bc2e16a41196286e3260b4b7ec11f3c4
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237208"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39357836"
 ---
 # <a name="tutorial-review-endpoint-utterances"></a>教學課程：檢閱端點語句
 在本教學課程中，藉由驗證或更正透過 LUIS HTTP 端點所收到的語句來改善應用程式的預測。 
@@ -27,7 +27,7 @@ ms.locfileid: "39237208"
 > * 訓練和發佈應用程式
 > * 查詢應用程式端點來查看 LUIS JSON 回應
 
-在本文中，您需要免費 [LUIS](luis-reference-regions.md#luis-website) 帳戶才能撰寫 LUIS 應用程式。
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>開始之前
 如果您沒有[人氣](luis-quickstart-intent-and-sentiment-analysis.md)教學課程中的人力資源應用程式，請從 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-sentiment-HumanResources.json) Github 存放庫匯入應用程式。 如果您使用本教學課程作為新的已匯入應用程式，則您也需要訓練和發佈端點，然後將語句新增至具有[指令碼](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js)的端點，或從瀏覽器中的端點新增語句。 要新增的語句為：
@@ -51,13 +51,11 @@ ms.locfileid: "39237208"
 
 1. 請確定您人力資源應用程式位於 LUIS 的 [建置] 區段。 選取右上方功能表列中的 [Build] \(建置\)，即可變更至此區段。 
 
-    [ ![在右上方導覽列中醒目提示 [建置] 的 LUIS 應用程式螢幕擷取畫面](./media/luis-tutorial-review-endpoint-utterances/first-image.png)](./media/luis-tutorial-review-endpoint-utterances/first-image.png#lightbox)
-
-1. 從左側導覽選取 [檢閱端點語句]。 此清單已針對 **ApplyForJob** 意圖進行篩選。 
+2. 從左側導覽選取 [檢閱端點語句]。 此清單已針對 **ApplyForJob** 意圖進行篩選。 
 
     [ ![[檢閱端點語句] 按鈕在左側導覽中的螢幕擷取畫面](./media/luis-tutorial-review-endpoint-utterances/entities-view-endpoint-utterances.png)](./media/luis-tutorial-review-endpoint-utterances/entities-view-endpoint-utterances.png#lightbox)
 
-2. 切換 [實體檢視] 以查看加上標籤的實體。 
+3. 切換 [實體檢視] 以查看加上標籤的實體。 
     
     [ ![已醒目提示 [實體檢視] 開關的 [檢閱端點語句] 螢幕擷取畫面](./media/luis-tutorial-review-endpoint-utterances/select-entities-view.png)](./media/luis-tutorial-review-endpoint-utterances/select-entities-view.png#lightbox)
 
@@ -69,27 +67,27 @@ ms.locfileid: "39237208"
 
     當您位於 [語彙基元檢視] 時，您可以將滑鼠停留在語句的任何藍色文字上，以查看預測的實體名稱。 
 
-3. 對於 `I'm looking for a job with Natual Language Processing` 意圖，請在 [一致的意圖] 資料行中選取正確的意圖 **GetJobInformation**。 
+4. 對於 `I'm looking for a job with Natual Language Processing` 意圖，請在 [一致的意圖] 資料行中選取正確的意圖 **GetJobInformation**。 
 
     [ ![讓語句與意圖一致的 [檢閱端點語句] 螢幕擷取畫面](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png)](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png#lightbox)
 
-4. 在同一個語句中，`Natural Language Processing` 的實體是 keyPhrase。 這反而應該是**職位**實體。 從清單中依序選取 [`Natural Language Processing`] 和 [職位] 實體。
+5. 在同一個語句中，`Natural Language Processing` 的實體是 keyPhrase。 這反而應該是**職位**實體。 從清單中依序選取 [`Natural Language Processing`] 和 [職位] 實體。
 
     [ ![將語句中實體加上標籤的 [檢閱端點語句] 螢幕擷取畫面](./media/luis-tutorial-review-endpoint-utterances/label-entity.png)](./media/luis-tutorial-review-endpoint-utterances/label-entity.png#lightbox)
 
-5. 在同一行中，於 [新增至一致的意圖] 資料行中選取圈選核取記號。 
+6. 在同一行中，於 [新增至一致的意圖] 資料行中選取圈選核取記號。 
 
     [ ![正在完成讓意圖中的語句一致的螢幕擷取畫面](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png)](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png#lightbox)
 
     此動作會將語句從 [檢閱端點語句] 移到 [GetJobInformation] 意圖。 端點語句現在是該意圖的語句範例。 
 
-6. 檢閱此意圖中剩餘的語句，如果這些語句不正確，請將語句加上標籤並更正 [一致的意圖]。
+7. 檢閱此意圖中剩餘的語句，如果這些語句不正確，請將語句加上標籤並更正 [一致的意圖]。
 
-7. 當所有語句都正確無誤時，請選取每個資料列的核取方塊，然後選取 [新增選取項目] 讓語句變得正確。 
+8. 當所有語句都正確無誤時，請選取每個資料列的核取方塊，然後選取 [新增選取項目] 讓語句變得正確。 
 
     [ ![正在完成剩餘語句以成為一致意圖的螢幕擷取畫面](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
 
-8. 此清單應該不會再有這些語句。 如果出現更多語句，請繼續檢查清單，更正意圖並將遺漏的實體加上標籤，直到將清單清空。 選取 [篩選] 清單中的下一個意圖，然後繼續更正語句並將實體加上標籤。 請記住，每個意圖的最後一個步驟都是選取語句資料列上的 [新增至一致的意圖] 或核取每個意圖旁的方塊，然後選取資料表上方的 [新增選取項目]。 
+9. 此清單應該不會再有這些語句。 如果出現更多語句，請繼續檢查清單，更正意圖並將遺漏的實體加上標籤，直到將清單清空。 選取 [篩選] 清單中的下一個意圖，然後繼續更正語句並將實體加上標籤。 請記住，每個意圖的最後一個步驟都是選取語句資料列上的 [新增至一致的意圖] 或核取每個意圖旁的方塊，然後選取資料表上方的 [新增選取項目]。 
 
     這是非常小型的應用程式。 檢閱程序只會花上幾分鐘的時間。
 
@@ -103,128 +101,123 @@ ms.locfileid: "39237208"
 3. 新增 `Natural Language Processing` 值，然後選取 [儲存]。 
 
 ## <a name="train-the-luis-app"></a>進行 LUIS 應用程式定型
+
 LUIS 在定型過後才會知道變更。 
 
-1. 在 LUIS 網站的右上方，選取 [Train] \(定型\) 按鈕。
-
-2. 當您在網站頂端看到確認成功的綠色狀態列時，就表示定型完成。
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>發佈應用程式以取得端點 URL
-若要在聊天機器人或其他應用程式中取得 LUIS 應用程式的更新後模型，您必須發佈應用程式。 
 
-1. 在 LUIS 網站的右上方，選取 [Publish] \(發佈\) 按鈕。 
+如果您已匯入此應用程式，則必須選取 [情感分析]。
 
-2. 如果您已匯入此應用程式，則必須選取 [情感分析]。 
-
-3. 選取 [Production] \(生產\) 位置和 [Publish] \(發佈\) 按鈕。
-
-4. 當您在網站頂端看到確認成功的綠色狀態列時，就表示發佈完成。
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-an-utterance"></a>利用語句查詢端點
+
 嘗試與更正後的語句接近的語句。 
 
-1. 在 [Publish] \(發佈\) 頁面上，選取頁面底部的**端點**連結。 此動作會開啟另一個瀏覽器視窗，其中網址列會顯示端點 URL。 
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. 移至位址中的 URL 尾端並輸入 `Are there any natural language processing jobs in my department right now?`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 
+2. 移至位址中的 URL 結尾並輸入 `Are there any natural language processing jobs in my department right now?`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 
 
-```JSON
-{
-  "query": "are there any natural language processing jobs in my department right now?",
-  "topScoringIntent": {
-    "intent": "GetJobInformation",
-    "score": 0.9247605
-  },
-  "intents": [
-    {
+  ```JSON
+  {
+    "query": "are there any natural language processing jobs in my department right now?",
+    "topScoringIntent": {
       "intent": "GetJobInformation",
       "score": 0.9247605
     },
-    {
-      "intent": "ApplyForJob",
-      "score": 0.129989788
-    },
-    {
-      "intent": "FindForm",
-      "score": 0.006438211
-    },
-    {
-      "intent": "EmployeeFeedback",
-      "score": 0.00408575451
-    },
-    {
-      "intent": "Utilities.StartOver",
-      "score": 0.00194211153
-    },
-    {
-      "intent": "None",
-      "score": 0.00166400627
-    },
-    {
-      "intent": "Utilities.Help",
-      "score": 0.00118593348
-    },
-    {
-      "intent": "MoveEmployee",
-      "score": 0.0007885918
-    },
-    {
-      "intent": "Utilities.Cancel",
-      "score": 0.0006373631
-    },
-    {
-      "intent": "Utilities.Stop",
-      "score": 0.0005980781
-    },
-    {
-      "intent": "Utilities.Confirm",
-      "score": 3.719905E-05
-    }
-  ],
-  "entities": [
-    {
-      "entity": "right now",
-      "type": "builtin.datetimeV2.datetime",
-      "startIndex": 64,
-      "endIndex": 72,
-      "resolution": {
-        "values": [
-          {
-            "timex": "PRESENT_REF",
-            "type": "datetime",
-            "value": "2018-07-05 15:23:18"
-          }
-        ]
+    "intents": [
+      {
+        "intent": "GetJobInformation",
+        "score": 0.9247605
+      },
+      {
+        "intent": "ApplyForJob",
+        "score": 0.129989788
+      },
+      {
+        "intent": "FindForm",
+        "score": 0.006438211
+      },
+      {
+        "intent": "EmployeeFeedback",
+        "score": 0.00408575451
+      },
+      {
+        "intent": "Utilities.StartOver",
+        "score": 0.00194211153
+      },
+      {
+        "intent": "None",
+        "score": 0.00166400627
+      },
+      {
+        "intent": "Utilities.Help",
+        "score": 0.00118593348
+      },
+      {
+        "intent": "MoveEmployee",
+        "score": 0.0007885918
+      },
+      {
+        "intent": "Utilities.Cancel",
+        "score": 0.0006373631
+      },
+      {
+        "intent": "Utilities.Stop",
+        "score": 0.0005980781
+      },
+      {
+        "intent": "Utilities.Confirm",
+        "score": 3.719905E-05
       }
-    },
-    {
-      "entity": "natural language processing",
-      "type": "Job",
-      "startIndex": 14,
-      "endIndex": 40,
-      "score": 0.9869922
-    },
-    {
-      "entity": "natural language processing jobs",
-      "type": "builtin.keyPhrase",
-      "startIndex": 14,
-      "endIndex": 45
-    },
-    {
-      "entity": "department",
-      "type": "builtin.keyPhrase",
-      "startIndex": 53,
-      "endIndex": 62
+    ],
+    "entities": [
+      {
+        "entity": "right now",
+        "type": "builtin.datetimeV2.datetime",
+        "startIndex": 64,
+        "endIndex": 72,
+        "resolution": {
+          "values": [
+            {
+              "timex": "PRESENT_REF",
+              "type": "datetime",
+              "value": "2018-07-05 15:23:18"
+            }
+          ]
+        }
+      },
+      {
+        "entity": "natural language processing",
+        "type": "Job",
+        "startIndex": 14,
+        "endIndex": 40,
+        "score": 0.9869922
+      },
+      {
+        "entity": "natural language processing jobs",
+        "type": "builtin.keyPhrase",
+        "startIndex": 14,
+        "endIndex": 45
+      },
+      {
+        "entity": "department",
+        "type": "builtin.keyPhrase",
+        "startIndex": 53,
+        "endIndex": 62
+      }
+    ],
+    "sentimentAnalysis": {
+      "label": "positive",
+      "score": 0.8251864
     }
-  ],
-  "sentimentAnalysis": {
-    "label": "positive",
-    "score": 0.8251864
   }
-}
-}
-```
+  }
+  ```
 
-系統會預測出具有高分的正確意圖，並將**職位**實體偵測為 `natural language processing`。 
+  系統會預測出具有高分的正確意圖，並將**職位**實體偵測為 `natural language processing`。 
 
 ## <a name="can-reviewing-be-replaced-by-adding-more-utterances"></a>可否藉由新增更多語句來取代檢閱？ 
 您可能會納悶，為什麼不新增更多的語句範例。 檢閱端點語句的目的為何？ 在真實世界的 LUIS 應用程式中，端點語句來自於使用者，而其字組選擇和排列方式皆是您未曾用過的。 如果您使用過相同的字組選擇和排列方式，則原始的預測會有較高的百分比。 
@@ -236,7 +229,8 @@ LUIS 在定型過後才會知道變更。
 藉由檢閱來自端點的語句，此應用程式的預測精確度已提高。 
 
 ## <a name="clean-up-resources"></a>清除資源
-當不再需要 LUIS 應用程式時，請將其刪除。 選取左上方功能表中的 [我的應用程式]。 選取應用程式清單中應用程式名稱右邊的省略符號 **...**，然後選取 [刪除]。 在 [Delete app?] \(刪除應用程式?\) 快顯對話方塊上，選取 [Ok] \(確定\)。
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

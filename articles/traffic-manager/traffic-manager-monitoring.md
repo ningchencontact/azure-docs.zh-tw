@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: 6d07bd333e4d1663e37a840975cde2d9c73cec9c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0124c70916d1c9a6f6b818a68f13d7a189a1b70f
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211713"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398830"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>流量管理員端點監視
 
@@ -156,7 +156,7 @@ Azure 流量管理員包含內建的端點監視和自動端點容錯移轉。 �
 
 ## <a name="next-steps"></a>後續步驟
 
-了解 [流量管理員的運作方式](traffic-manager-how-traffic-manager-works.md)
+了解 [流量管理員的運作方式](traffic-manager-how-it-works.md)
 
 深入了解流量管理員支援的 [流量路由方法](traffic-manager-routing-methods.md)
 

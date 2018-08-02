@@ -10,23 +10,23 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 832d37e6c168a7b25adecee967b6523f6cea5554
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 7cace1af527c1c7c80bf0e23f7a88aa9ac9f9d03
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35302220"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365017"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Azure Active Directory 應用程式 Proxy 與 Tableau 
 
 Azure Active Directory 應用程式 Proxy 和 Tableau 已互相合作，可確保能夠輕鬆使用「應用程式 Proxy」為 Tableau 部署提供遠端存取能力。 本文會說明如何設定此情節。  
 
-## <a name="prerequisites"></a>先決條件 
+## <a name="prerequisites"></a>必要條件 
 
 本文中的情節假設您已完成以下事項：
 

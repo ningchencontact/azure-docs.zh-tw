@@ -5,27 +5,27 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 05/05/2018
+ms.date: 06/28/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: df4765fc92e78dbb5ee43be3cc09c2b96d834080
-ms.sourcegitcommit: 39f4911b5933f7062dcf5d57af94eab8a0740b2b
+ms.openlocfilehash: 359f0ef4cd402b587f1ed2db9fa41141ab8dff1d
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/16/2018
-ms.locfileid: "35683146"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008530"
 ---
 | 類別 | 資料存放區 |
 |:--- |:--- |
 | **Azure** |[Azure Blob 儲存體](../articles/data-factory/connector-azure-blob-storage.md) |
 | &nbsp; |[Azure Cosmos DB](../articles/data-factory/connector-azure-cosmos-db.md) |
-| &nbsp; |[Azure Data Lake Store](../articles/data-factory/connector-azure-data-lake-store.md) |
+| &nbsp; |[Azure Data Lake Storage Gen1](../articles/data-factory/connector-azure-data-lake-store.md) |
 | &nbsp; |[適用於 MySQL 的 Azure 資料庫](../articles/data-factory/connector-azure-database-for-mysql.md) |
 | &nbsp; |[適用於 PostgreSQL 的 Azure 資料庫](../articles/data-factory/connector-azure-database-for-postgresql.md) |
-| &nbsp; |[Azure 檔案儲存體](../articles/data-factory/connector-azure-file-storage.md) |
+| &nbsp; |[Azure 檔案](../articles/data-factory/connector-azure-file-storage.md) |
 | &nbsp; |[Azure SQL Database](../articles/data-factory/connector-azure-sql-database.md) |
 | &nbsp; |[Azure SQL 資料倉儲](../articles/data-factory/connector-azure-sql-data-warehouse.md) |
-| &nbsp; |[Azure 資料表儲存體](../articles/data-factory/connector-azure-table-storage.md) |
+| &nbsp; |[Azure 表格儲存體](../articles/data-factory/connector-azure-table-storage.md) |
 | **資料庫** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |
 | &nbsp; |[Drill (預覽)](../articles/data-factory/connector-drill.md) |

@@ -14,12 +14,12 @@ ms.component: fundamentals
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: b052613161b4fee9a01def966fb02cbf8a7a483c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 118f8258673c8a19d5f06e5fc62ff56d0fb44ea1
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056931"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398359"
 ---
 # <a name="understand-azure-identity-solutions"></a>了解 Azure 身分識別解決方案
 Microsoft Azure Active Directory (Azure AD) 是一個身分識別和存取管理的雲端解決方案，可提供目錄服務、身分識別治理及應用程式存取管理。 Azure AD 可在 [Azure AD 應用程式庫](https://azure.microsoft.com/marketplace/active-directory/all/)中，快速[啟用單一登入 (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) 至 1,000 個預先整合的商業和自訂應用程式。 您可能已經使用這其中有許多應用程式，例如 Office 365、Salesforce.com、Box、ServiceNow 及 Workday。
@@ -103,7 +103,7 @@ Microsoft Azure 提供數種方式可供您管理使用者的身分識別，不�
 |我的組織已大量投資於內部部署 Windows Server Active Directory，但是我們想要將身分識別擴充到雲端。| 最常用的 Azure 身分識別解決方案是[混合式身分識別](https://docs.microsoft.com/azure/active-directory/active-directory-hybrid-identity-design-considerations-overview)。 如果您已投資於內部部署 AD DS，可以使用 Azure AD Connect，輕鬆地將身分識別擴充至雲端。|
 |我的企業是在雲端中創立，因此並未投資於內部部署身分識別解決方案。| 對於只有雲端而無內部部署投資的企業，[Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) 是最佳的選擇。|
 |我需要輕量型 Azure VM 設定和控制，以符合進行應用程式開發與測試時的內部部署身分識別需求。|如果您需要將 AD DS 用於輕量型 Azure VM 設定控制，或是計畫將舊式的目錄感知內部部署應用程式加以開發或移轉至雲端，[Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) 會是不錯的選擇。|  
-|我在 Azure 中需要支援數部虛擬機器，但我的公司仍然大量投資於內部部署 Active Directory (AD DS)。|當您只需支援數部虛擬機器，卻大量投資於內部部署 AD DS 時，可透過 [DIY AD DS](https://msdn.microsoft.com/library/azure/jj156090.aspx) 來使用 Azure VM。 |
+|我在 Azure 中需要支援數部虛擬機器，但我的公司仍然大量投資於內部部署 Active Directory (AD DS)。|當您只需支援數部虛擬機器，卻大量投資於內部部署 AD DS 時，可透過 [DIY AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison#do-it-yourself-diy-ad-deployment-options) 來使用 Azure VM。 |
 
 ## <a name="where-can-i-learn-more"></a>哪裡可以深入了解？
 我們有無數的絕佳線上資源，協助您詳細了解 Azure AD。 以下是一些很棒的文章，讓您快速入門：
@@ -126,5 +126,3 @@ Microsoft Azure 提供數種方式可供您管理使用者的身分識別，不�
 [深入了解 Azure 混合式身分識別解決方案](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution)
 
 [深入了解 Azure 概念證明環境中的其他資訊](https://aka.ms/aad-poc)
-
-[在生產環境中部署 Azure AD](https://aka.ms/aad-onboard)

@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/29/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: 4ba2ba5d947a112f780579bf4b31ba38cb26ae03
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 4b842f9a00587e8a9771e6ca92806c09e711e6db
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222965"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345775"
 ---
 # <a name="tutorial-4-add-list-entity"></a>教學課程：4. 新增清單實體
 在本教學課程中，建立一個應用程式，示範如何取得與預先定義的清單相符的資料。 
@@ -27,7 +27,7 @@ ms.locfileid: "39222965"
 > * 訓練和發佈應用程式
 > * 查詢應用程式端點來查看 LUIS JSON 回應
 
-在本文中，您需要免費 [LUIS](luis-reference-regions.md#luis-website) 帳戶才能撰寫 LUIS 應用程式。
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>開始之前
 如果您沒有[規則運算式實體](luis-quickstart-intents-regex-entity.md)教學課程中的人力資源應用程式，請將 JSON [匯入](luis-how-to-start-new-app.md#import-new-app) [LUIS](luis-reference-regions.md#luis-website) 網站中的新應用程式。 在 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json) Github 存放庫中可找到要匯入的應用程式。
@@ -69,13 +69,9 @@ mv john.w.smith@mycompany from office b-1234 to office h-4452
 
 ## <a name="add-moveemployee-intent"></a>新增 MoveEmployee 意圖
 
-1. 請確定您人力資源應用程式位於 LUIS 的 [建置] 區段。 選取右上方功能表列中的 [建置]，即可變更至此區段。 
+1. 請確定您人力資源應用程式位於 LUIS 的 [建置] 區段。 選取右上方功能表列中的 [Build] \(建置\)，即可變更至此區段。 
 
-    [ ![在右上方導覽列中醒目提示 [建置] 的 LUIS 應用程式螢幕擷取畫面](./media/luis-quickstart-intent-and-list-entity/hr-first-image.png)](./media/luis-quickstart-intent-and-list-entity/hr-first-image.png#lightbox)
-
-2. 選取 [建立新意圖]。 
-
-    [已醒目提示 [建立新意圖] 按鈕的 [意圖] 頁面螢幕擷取畫面![](./media/luis-quickstart-intent-and-list-entity/hr-create-new-intent-button.png) ](./media/luis-quickstart-intent-and-list-entity/hr-create-new-intent-button.png#lightbox)
+2. 選取 [Create new intent] \(建立新意圖\)。 
 
 3. 在快顯對話方塊方塊中輸入 `MoveEmployee`，然後選取 [完成]。 
 
@@ -103,11 +99,7 @@ mv john.w.smith@mycompany from office b-1234 to office h-4452
 
 1. 在左側面板中選取 [實體]。
 
-    [ ![左導覽列中已醒目提示 [實體] 按鈕的 [意圖] 頁面螢幕擷取畫面](./media/luis-quickstart-intent-and-list-entity/hr-select-entity-button.png) ](./media/luis-quickstart-intent-and-list-entity/hr-select-entity-button.png#lightbox)
-
-2. 選取 [建立新實體]。
-
-    [![已醒目提示 [建立新實體] 的 [實體] 頁面螢幕擷取畫面](./media/luis-quickstart-intent-and-list-entity/hr-create-new-entity-button.png)](./media/luis-quickstart-intent-and-list-entity/hr-create-new-entity-button.png#lightbox)
+2. 選取 [Create new entity] \(建立新實體\)。
 
 3. 在實體快顯對話方塊中，輸入 `Employee` 作為實體名稱，以及輸入 [清單] 作為實體類型。 選取 [完成] 。  
 
@@ -153,136 +145,126 @@ LUIS 在進行定型前並不知道意圖和實體 (模型) 的變更。
     ![定型成功](./media/luis-quickstart-intent-and-list-entity/trained.png)
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>發佈應用程式以取得端點 URL
-若要在 Chatbot 或其他應用程式中取得 LUIS 預測，您必須發佈應用程式。 
 
-1. 在 LUIS 網站的右上方，選取 [發佈] 按鈕。 
-
-    [![](media/luis-quickstart-intent-and-list-entity/publish.png "選取發佈按鈕的螢幕擷取畫面")](media/luis-quickstart-intent-and-list-entity/publish.png#lightbox)
-
-2. 選取 [生產] 位置和 [發佈] 按鈕。 
-
-    [![](media/luis-quickstart-intent-and-list-entity/publish-to-production.png "選取發佈至生產位置按鈕的螢幕擷取畫面")](media/luis-quickstart-intent-and-list-entity/publish-to-production.png#lightbox)
-
-3. 當您在網站確認成功的頂端看到綠色狀態列時，就表示發佈完成。
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-a-different-utterance"></a>使用不同的語句來查詢端點
-1. 在 [Publish] \(發佈\) 頁面上，選取頁面底部的**端點**連結。 這個動作會開啟另一個瀏覽器視窗，其中的網址列會顯示此端點 URL。 
 
-    [![](media/luis-quickstart-intent-and-list-entity/publish-select-endpoint.png "[發佈] 頁面上端點 url 的螢幕擷取畫面")](media/luis-quickstart-intent-and-list-entity/publish-select-endpoint.png#lightbox)
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
-2. 移至位址中的 URL 尾端並輸入 `shift 123-45-6789 from Z-1242 to T-54672`。 最後一個 querystring 參數是 `q`，也就是 **q**uery 語句。 此語句與任何標示的語句都不同，因此這是很好的測試，且應該傳回 `MoveEmployee` 意圖及所擷取的 `Employee`。
+2. 移至位址中的 URL 結尾並輸入 `shift 123-45-6789 from Z-1242 to T-54672`。 最後一個 querystring 參數是 `q`，也就是 **q**uery 語句。 此語句與任何標示的語句都不同，因此這是很好的測試，且應該傳回 `MoveEmployee` 意圖及所擷取的 `Employee`。
 
-```JSON
-{
-  "query": "shift 123-45-6789 from Z-1242 to T-54672",
-  "topScoringIntent": {
-    "intent": "MoveEmployee",
-    "score": 0.9882801
-  },
-  "intents": [
-    {
+  ```JSON
+  {
+    "query": "shift 123-45-6789 from Z-1242 to T-54672",
+    "topScoringIntent": {
       "intent": "MoveEmployee",
       "score": 0.9882801
     },
-    {
-      "intent": "FindForm",
-      "score": 0.016044287
-    },
-    {
-      "intent": "GetJobInformation",
-      "score": 0.007611245
-    },
-    {
-      "intent": "ApplyForJob",
-      "score": 0.007063288
-    },
-    {
-      "intent": "Utilities.StartOver",
-      "score": 0.00684710965
-    },
-    {
-      "intent": "None",
-      "score": 0.00304174074
-    },
-    {
-      "intent": "Utilities.Help",
-      "score": 0.002981
-    },
-    {
-      "intent": "Utilities.Confirm",
-      "score": 0.00212222221
-    },
-    {
-      "intent": "Utilities.Cancel",
-      "score": 0.00191026414
-    },
-    {
-      "intent": "Utilities.Stop",
-      "score": 0.0007461446
-    }
-  ],
-  "entities": [
-    {
-      "entity": "123 - 45 - 6789",
-      "type": "Employee",
-      "startIndex": 6,
-      "endIndex": 16,
-      "resolution": {
-        "values": [
-          "Employee-24612"
-        ]
+    "intents": [
+      {
+        "intent": "MoveEmployee",
+        "score": 0.9882801
+      },
+      {
+        "intent": "FindForm",
+        "score": 0.016044287
+      },
+      {
+        "intent": "GetJobInformation",
+        "score": 0.007611245
+      },
+      {
+        "intent": "ApplyForJob",
+        "score": 0.007063288
+      },
+      {
+        "intent": "Utilities.StartOver",
+        "score": 0.00684710965
+      },
+      {
+        "intent": "None",
+        "score": 0.00304174074
+      },
+      {
+        "intent": "Utilities.Help",
+        "score": 0.002981
+      },
+      {
+        "intent": "Utilities.Confirm",
+        "score": 0.00212222221
+      },
+      {
+        "intent": "Utilities.Cancel",
+        "score": 0.00191026414
+      },
+      {
+        "intent": "Utilities.Stop",
+        "score": 0.0007461446
       }
-    },
-    {
-      "entity": "123",
-      "type": "builtin.number",
-      "startIndex": 6,
-      "endIndex": 8,
-      "resolution": {
-        "value": "123"
+    ],
+    "entities": [
+      {
+        "entity": "123 - 45 - 6789",
+        "type": "Employee",
+        "startIndex": 6,
+        "endIndex": 16,
+        "resolution": {
+          "values": [
+            "Employee-24612"
+          ]
+        }
+      },
+      {
+        "entity": "123",
+        "type": "builtin.number",
+        "startIndex": 6,
+        "endIndex": 8,
+        "resolution": {
+          "value": "123"
+        }
+      },
+      {
+        "entity": "45",
+        "type": "builtin.number",
+        "startIndex": 10,
+        "endIndex": 11,
+        "resolution": {
+          "value": "45"
+        }
+      },
+      {
+        "entity": "6789",
+        "type": "builtin.number",
+        "startIndex": 13,
+        "endIndex": 16,
+        "resolution": {
+          "value": "6789"
+        }
+      },
+      {
+        "entity": "-1242",
+        "type": "builtin.number",
+        "startIndex": 24,
+        "endIndex": 28,
+        "resolution": {
+          "value": "-1242"
+        }
+      },
+      {
+        "entity": "-54672",
+        "type": "builtin.number",
+        "startIndex": 34,
+        "endIndex": 39,
+        "resolution": {
+          "value": "-54672"
+        }
       }
-    },
-    {
-      "entity": "45",
-      "type": "builtin.number",
-      "startIndex": 10,
-      "endIndex": 11,
-      "resolution": {
-        "value": "45"
-      }
-    },
-    {
-      "entity": "6789",
-      "type": "builtin.number",
-      "startIndex": 13,
-      "endIndex": 16,
-      "resolution": {
-        "value": "6789"
-      }
-    },
-    {
-      "entity": "-1242",
-      "type": "builtin.number",
-      "startIndex": 24,
-      "endIndex": 28,
-      "resolution": {
-        "value": "-1242"
-      }
-    },
-    {
-      "entity": "-54672",
-      "type": "builtin.number",
-      "startIndex": 34,
-      "endIndex": 39,
-      "resolution": {
-        "value": "-54672"
-      }
-    }
-  ]
-}
-```
+    ]
+  }
+  ```
 
-找到員工並以 `Employee` 類型傳回，其解析值是 `Employee-24612`。
+  找到員工並以 `Employee` 類型傳回，其解析值是 `Employee-24612`。
 
 ## <a name="where-is-the-natural-language-processing-in-the-list-entity"></a>自然語言在 [清單] 實體中的何處處理？ 
 因為清單實體是全文相符的項目，所以不會依賴自然語言處理 (或機器學習)。 LUIS 會使用自然語言處理 (或機器學習) 來選取正確的最高評分意圖。 此外，語句可以混合多個實體或甚至是多種實體。 每個語句都會針對應用程式中的所有實體進行處理，包括自然語言處理 (或機器學習) 實體。

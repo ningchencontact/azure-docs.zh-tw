@@ -4,17 +4,16 @@ description: 適用於 Xamarin 的 Azure 儲存體用戶端程式庫可讓開發
 services: storage
 documentationcenter: xamarin
 author: michaelhauss
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: michaelhauss
-ms.openlocfilehash: 31dbaeb1dd998d8d27af5eff0fa293117ef7f471
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b35bec31035c0219bf34a31cb34e20f7dc3a72c5
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31414203"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397024"
 ---
 # <a name="how-to-use-blob-storage-from-xamarin"></a>如何使用 Xamarin 的 Blob 儲存體
 

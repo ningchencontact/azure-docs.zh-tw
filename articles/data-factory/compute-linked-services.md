@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/06/2018
+ms.date: 07/31/2018
 ms.author: douglasl
-ms.openlocfilehash: 4a4ec63d41f013ebfef8a78eddc88a6131a960fc
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 127438e1e65400daac75cec525197a5cfc8cd46a
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070037"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390206"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory 支援的計算環境
 本文說明您可用來處理或轉換資料的各種計算環境。 其中還提供在設定將這些計算環境連結至 Azure Data Factory 的連結服務時，Data Factory 所支援的不同組態 (隨選與自備) 的詳細資料。
@@ -429,8 +429,8 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 | type                 | type 屬性應設為： **AzureDataLakeAnalytics**。 | 是                                      |
 | accountName          | Azure Data Lake Analytics 帳戶名稱。  | 是                                      |
 | dataLakeAnalyticsUri | Azure Data Lake Analytics URI。           | 否                                       |
-| subscriptionId       | Azure 訂用帳戶識別碼                    | 否 (如果未指定，便會使用 Data Factory 的訂用帳戶)。 |
-| resourceGroupName    | Azure 資源群組名稱                | 否 (若未指定，便會使用 Data Factory 的資源群組)。 |
+| subscriptionId       | Azure 訂用帳戶識別碼                    | 否                                       |
+| resourceGroupName    | Azure 資源群組名稱                | 否                                       |
 | servicePrincipalId   | 指定應用程式的用戶端識別碼。     | 是                                      |
 | servicePrincipalKey  | 指定應用程式的金鑰。           | 是                                      |
 | tenant               | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | 是                                      |
@@ -505,15 +505,6 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 
 ## <a name="sql-server-linked-service"></a>SQL Server 連結服務
 您可以建立 SQL Server 連結服務，並將其與 [預存程序活動](transform-data-using-stored-procedure.md) 搭配使用，以叫用 Data Factory 管線中的預存程序。 如需此連結服務的詳細資料，請參閱 [SQL Server 連接器](connector-sql-server.md#linked-service-properties) 一文。
-
-## <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - 命名規則
-下表提供 Data Factory 購件命名規則。
-
-| Name                             | 名稱唯一性                          | 驗證檢查                        |
-| :------------------------------- | :--------------------------------------- | :--------------------------------------- |
-| Data Factory                     | 在 Microsoft Azure 中是唯一的。 名稱不區分大小寫，亦即 `MyDF` 和 `mydf` 會指相同的 Data Factory。 | <ul><li>每個 Data Factory 只會繫結至一個 Azure 訂用帳戶。</li><li>物件名稱必須以字母或數字開頭，並且只能包含字母、數字和虛線 (-) 字元。</li><li>每個虛線 (-) 字元的前面和後面必須緊接字母或數字。 容器名稱中不允許使用連續虛線。</li><li>名稱長度可以介於 3-63 個字元。</li></ul> |
-| 連結服務/資料表/管線 | 在 Data Factory 中是唯一的。 名稱不區分大小寫。 | <ul><li>資料表名稱的字元數目上限︰260。</li><li>物件名稱開頭必須為字母、數字或底線 (_)。</li><li>不允許使用下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\\”</li></ul> |
-| 資源群組                   | 在 Microsoft Azure 中是唯一的。 名稱不區分大小寫。 | <ul><li>字元數目上限︰1000。</li><li>名稱可包含字母、數字及下列字元：“-”、“_”、“,” 和 “.”。</li></ul> |
 
 ## <a name="next-steps"></a>後續步驟
 關於 Azure Data Factory 支援的轉換活動清單，請參閱[轉換資料](transform-data.md)。

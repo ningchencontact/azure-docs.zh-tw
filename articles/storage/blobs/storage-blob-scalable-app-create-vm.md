@@ -2,22 +2,20 @@
 title: 在 Azure 中為可擴充的應用程式建立 VM 和儲存體帳戶 | Microsoft Docs
 description: 了解如何部署 VM，以用來執行使用 Azure Blob 儲存體的可擴充應用程式
 services: storage
-documentationcenter: ''
 author: roygara
-manager: jeconnoc
 ms.service: storage
-ms.workload: web
-ms.devlang: csharp
+ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: 7434de9fa176f608655606772e079cb7631dde93
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.component: blobs
+ms.openlocfilehash: fddf35f4d2a2bc7abef891ee508eaecc9ffb4719
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38698647"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39396908"
 ---
 # <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>為可擴充的應用程式建立虛擬機器和儲存體帳戶
 

@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: de5ccd62a9624ad463a51fa204c0b5dca19992ef
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: fb4ac675462cf9946a0667e2956c4c0c75b591bf
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226164"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390342"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>使用 Azure Active Directory 裝置註冊來設定內部部署條件式存取
 當您要求使用者在工作場所將其個人裝置加入至 Azure Active Directory (Azure AD) 裝置註冊服務時，他們的裝置便可標示為組織已知的裝置。 以下是一個逐步指南，說明如何在 Windows Server 2012 R2 中使用 Active Directory Federation Services (AD FS)，來啟用對內部部署應用程式的條件式存取。
@@ -165,7 +165,7 @@ Azure Active Directory 裝置註冊針對 iOS 裝置會使用「空中下載設�
 ### <a name="join-a-windows-7-device-by-using-azure-active-directory-device-registration"></a>使用 Azure Active Directory 裝置註冊來加入 Windows 7 裝置
 若要註冊已加入網域的 Windows 7 裝置，您必須部署[裝置註冊軟體套件](https://www.microsoft.com/download/details.aspx?id=53554)。
 
-如需如何使用套件的相關指示，請參閱[非 Windows 10 電腦的 Windows Installer 套件](device-management-hybrid-azuread-joined-devices-setup.md#windows-installer-packages-for-non-windows-10-computers)。
+如需如何使用套件的相關指示，請參閱[非 Windows 10 電腦的 Windows Installer 套件](devices/hybrid-azuread-join-manual-steps.md#windows-installer-packages-for-non-windows-10-computers)。
 
 ## <a name="verify-that-registered-devices-are-written-back-to-active-directory"></a>確認將已註冊的裝置寫回至 Active Directory
 您可以使用 LDP.exe 或「ADSI 編輯」來檢視及確認裝置物件已寫回至 Active Directory。 兩者都是透過 Active Directory 系統管理工具提供的工具。

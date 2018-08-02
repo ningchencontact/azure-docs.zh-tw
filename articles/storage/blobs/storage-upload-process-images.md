@@ -4,20 +4,18 @@ description: 使用 Azure Blob 儲存體與 Web 應用程式儲存應用程式�
 services: storage
 documentationcenter: ''
 author: tamram
-manager: jeconnoc
 ms.service: storage
-ms.workload: web
-ms.devlang: csharp
+ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 307ccc6f5fce703b786708196779f0cf3d71ae96
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1756ac4ddbbc6d93307839e8447da84deb0716f7
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38461498"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398722"
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>使用 Azure 儲存體在雲端中上傳影像資料
 

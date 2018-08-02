@@ -2,25 +2,22 @@
 title: 什麼是 Azure Active Directory 中的存取面板？ | Microsoft Docs
 description: 了解如何使用各種存取面板 (網頁瀏覽器、Android 應用程式、iPhone 和 iPad 應用程式) 存取 SaaS 應用程式。
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
+author: eross-msft
 manager: mtillman
 ms.assetid: c0252d01-7e6e-4f79-a70e-600479577dfd
 ms.service: active-directory
+ms.component: user-help
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/11/18
-ms.author: markvi
+ms.author: lizross
 ms.reviewer: asteen
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 31b6741163c9808c32d0f1ae3da8f6f1ffe794eb
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a5b96279993c35aad4cc49c52950576f12dd15ce
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39058420"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345938"
 ---
 # <a name="what-is-the-access-panel"></a>什麼是存取面板？
 

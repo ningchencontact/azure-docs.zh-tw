@@ -28,6 +28,7 @@
       maintainContext: true
     - name: 使用事件中樞將資料串流至 Azure Databricks
       href: ../azure-databricks/databricks-stream-from-eventhubs.md
+      maintainContext: true
     - name: 適用於 Apache Kafka 的事件中樞
       items:
         - name: 具有事件中樞的 Apache Kafka MirrorMaker

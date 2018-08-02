@@ -9,14 +9,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/24/2018
 ms.author: bonova
-ms.openlocfilehash: e0de9a1494641fef87d11545b99e5e7275f6b614
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: a9a02f9007c174024028305746682f9ac07dab22
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069258"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247205"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>將 SQL Server 遷移至 Azure SQL Database 受控執行個體
 
@@ -24,7 +24,7 @@ ms.locfileid: "39069258"
 
 SQL Database 受控執行個體是現有 SQL Data 服務的擴充項目，提供單一資料庫與彈性集區以外的第三種部署選項。  其設計用來讓資料庫可隨即轉移至完全受控的 PaaS，而不必重新設計應用程式。 SQL Database 受控執行個體對內部部署 SQL Server 程式設計模型提供極高的相容性，並為大多數的 SQL Server 功能，提供立即可用的支援，同時隨附工具與服務。
 
-整體而言，應用程式移轉程序看起來就如下圖所示：
+概括而言，應用程式移轉程序看起來像這樣：
 
 ![移轉程序](./media/sql-database-managed-instance-migration/migration-process.png)
 

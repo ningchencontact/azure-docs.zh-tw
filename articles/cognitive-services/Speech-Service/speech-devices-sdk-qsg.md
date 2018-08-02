@@ -1,20 +1,19 @@
 ---
-title: 開始使用 Speech Devices SDK | Microsoft Docs
+title: 開始使用 Speech Devices SDK
 description: 開始使用 Speech Devices SDK 的先決條件和指示。
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 32dd295132e26e46d64b01b194b557cae26575ad
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 266315a731eec8a2c0ab0a880ce9e1db58331184
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750789"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283131"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>開始使用 Speech Devices SDK
 
@@ -22,7 +21,7 @@ ms.locfileid: "36750789"
 
 範例應用程式的原始程式碼包含在 Speech Devices SDK 中，而且您也可以[在 GitHub 上找到](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 在使用 Speech Devices SDK 開始開發之前，請收集您需要的資訊和軟體。
 

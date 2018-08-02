@@ -1,6 +1,6 @@
 ---
-title: Azure 儲存體 Blob 的虛刪除 (預覽) | Microsoft Docs
-description: Azure 儲存體現在提供 Blob 物件的虛刪除功能 (預覽)，因此，當應用程式或其他儲存體帳戶使用者錯誤地修改或刪除您的資料時，您將可更輕鬆地復原資料。
+title: Azure 儲存體 Blob 的虛刪除 | Microsoft Docs
+description: Azure 儲存體現在提供 Blob 物件的虛刪除功能，因此，當應用程式或其他儲存體帳戶使用者錯誤地修改或刪除您的資料時，您將可更輕鬆地復原資料。
 services: storage
 author: MichaelHauss
 manager: vamshik
@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: mihauss
-ms.openlocfilehash: 408e2167e60cbdfa2b4eee136bf3ac4321ae8121
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 37ae52b34cc87a7d78524f893a3b1577a5a59f7e
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091726"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248820"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Azure 儲存體 Blob 的虛刪除
 Azure 儲存體現在提供 Blob 物件的虛刪除功能，因此，當應用程式或其他儲存體帳戶使用者錯誤地修改或刪除您的資料時，您將可更輕鬆地復原資料。

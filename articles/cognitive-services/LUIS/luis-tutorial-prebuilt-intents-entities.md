@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: diberry
-ms.openlocfilehash: 3fc2040e66f6fc649448d3241b01678b7bb7f214
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 0ec6f002b35b1224118b62accda1f69e7be22fb8
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239030"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358517"
 ---
 # <a name="tutorial-2-add-prebuilt-intents-and-entities"></a>教學課程：2. 新增預先建置的意圖和實體
 將預先建置的意圖和實體新增至「人力資源」教學課程應用程式，以快速預測意圖及擷取資料。 
@@ -27,6 +27,8 @@ ms.locfileid: "39239030"
 * 定型和發佈
 * 查詢 LUIS 並接收預測回應
 
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
 ## <a name="before-you-begin"></a>開始之前
 如果您沒有上一個教學課程中的[人力資源](luis-quickstart-intents-only.md)應用程式，請從 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json) Github 存放庫，將 JSON [匯入](luis-how-to-start-new-app.md#import-new-app)到 [LUIS](luis-reference-regions.md#luis-website) 網站中的新應用程式。
 
@@ -36,8 +38,6 @@ ms.locfileid: "39239030"
 LUIS 提供數個預先建置的意圖來協助處理常見的使用者意圖。  
 
 1. 確定您的應用程式位於 LUIS 的 [Build] \(建置\) 區段中。 選取右上方功能表列中的 [Build] \(建置\)，即可變更至此區段。 
-
-    [ ![在右上方導覽列中醒目提示 [建置] 的 LUIS 應用程式螢幕擷取畫面](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png)](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png#lightbox)
 
 2. 選取 [Add prebuilt domain intent] \(新增預先建置的定義域意圖\)。 
 
@@ -72,24 +72,20 @@ LUIS 提供數個預先建置的實體來擷取常見的資料。
     ![預先建置的實體對話方塊中已選取 number 的螢幕擷取畫面](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
 ## <a name="train-and-publish-the-app"></a>將應用程式定型並發佈
-1. 在 LUIS 網站的右上方，選取 [Train] \(定型\) 按鈕。 
 
-    ![[Train] \(定型\) 按鈕](./media/luis-quickstart-intents-only/train-button.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-    當您在網站頂端看到確認成功的綠色狀態列時，就表示定型完成。
+## <a name="publish-app-to-endpoint"></a>將應用程式發佈到端點
 
-    ![已定型狀態列](./media/luis-quickstart-intents-only/trained.png)
-
-2. 在 LUIS 網站的右上方，選取 [Publish] \(發佈\) 按鈕以開啟 [Publish] \(發佈\)頁面。 
-
-3. 預設會選取生產位置。 選取生產位置選項旁的 [Publish] \(發佈\) 按鈕。 當您在網站頂端看到確認成功的綠色狀態列時，就表示發佈完成。
-
-    在發佈之前或在測試端點 URL 之前，不必先在 Azure 入口網站中建立 LUIS 端點金鑰。 每個 LUIS 應用程式都有可用於撰寫的免費入門金鑰。 它提供您無限制的撰寫功能，以及[幾次端點叫用](luis-boundaries.md#key-limits)。 
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-endpoint-with-an-utterance"></a>使用語句來查詢端點
-在 [Publish] \(發佈\) 頁面上，選取頁面底部的**端點**連結。 此動作會開啟另一個瀏覽器視窗，其中網址列會顯示端點 URL。 移至位址中的 URL 結尾並輸入 `I want to cancel on March 3`。 最後一個查詢字串參數是 `q`，也就是語句**查詢**。 
 
-結果預測出 Utilities.Cancel 意圖，並擷取了 3 月 3 日的日期和數字 3。 
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+
+2. 移至位址中的 URL 結尾並輸入 `I want to cancel on March 3`。 最後一個查詢字串參數是 `q`，也就是語句**查詢**。 
+
+    結果預測出 Utilities.Cancel 意圖，並擷取了 3 月 3 日的日期和數字 3。 
 
     ```
     {
@@ -166,12 +162,13 @@ LUIS 提供數個預先建置的實體來擷取常見的資料。
     }
     ```
 
-3 月 3 日有兩個值，原因是語句中並未指出 3 月 3 日是在過去還是未來。 如有需要，LUIS 呼叫應用程式要自行決定是要做出假設還是問清楚。 
+    3 月 3 日有兩個值，原因是語句中並未指出 3 月 3 日是在過去還是未來。 如有需要，LUIS 呼叫應用程式要自行決定是要做出假設還是問清楚。 
 
-藉由輕鬆快速地新增預先建置的意圖和實體，用戶端應用程式便可新增對話管理並擷取常見的資料類型。 
+    藉由輕鬆快速地新增預先建置的意圖和實體，用戶端應用程式便可新增對話管理並擷取常見的資料類型。 
 
 ## <a name="clean-up-resources"></a>清除資源
-當不再需要 LUIS 應用程式時，請將其刪除。 若要這樣做，請選取左上方功能表中的 [我的應用程式]。 選取應用程式清單中應用程式名稱右邊的省略符號 (***...***)，然後選取 [刪除]。 在 [Delete app?] \(刪除應用程式?\) 快顯對話方塊上，選取 [Ok] \(確定\)。
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>後續步驟
 
