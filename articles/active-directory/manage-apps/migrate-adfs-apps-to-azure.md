@@ -6,17 +6,18 @@ author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
+ms.topic: conceptual
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: d3548e7640fa8ab59f7b11c66cf1d9492f23cf99
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: feb90f599a07275584cc300b371e8159d47e2ced
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044363"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364337"
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>將 AD FS 內部部署應用程式移轉至 Azure AD 
 
@@ -97,7 +98,7 @@ AD FS 與 Azure AD 的運作方式相似，所以設定信任、登入及登出 
 |應用程式組態元素|說明|AD FS 組態中的位置|Azure AD 組態中的相對應位置|SAML 權杖元素|
 |-----|-----|-----|-----|-----|
 |應用程式登入 URL|此應用程式的登入頁面 URL。 在 SP 所起始的 SAML 流程中，使用者會前往此處以登入應用程式。|N/A|在 Azure AD 中，登入 URL 會在 Azure 入口網站內應用程式的 [單一登入] 屬性中設定為登入 URL。</br></br>(您可能必須選取 [顯示進階 URL 設定] 才能看到登入 URL)。|N/A|
-|應用程式回覆 URL|以識別提供者 (IdP) 觀點看待的應用程式 URL。 使用者在 IdP 登入後，使用者和權杖會被送往此 URL。</br></br> 有時候，這稱為「SAML 判斷提示消費者端點」。|可在應用程式的 AD FS 信賴憑證者信任中找到此項目。 以滑鼠右鍵按一下信賴憑證者，選取 [屬性]，然後選取 [端點] 索引標籤。|在 Azure AD 中，此回覆 URL 會在 Azure 入口網站內應用程式的 [單一登入] 屬性中設定為回覆 URL。</br></br>(您可能必須選取 [顯示進階 URL 設定] 才能看到回覆 URL)。|對應至 SAML 權杖中的 [目的地] 元素。</br></br> 值範例：https://contoso.my.salesforce.com|
+|應用程式回覆 URL|以識別提供者 (IdP) 觀點看待的應用程式 URL。 使用者在 IdP 登入後，使用者和權杖會被送往此 URL。</br></br> 有時候，這稱為「SAML 判斷提示消費者端點」。|可在應用程式的 AD FS 信賴憑證者信任中找到此項目。 以滑鼠右鍵按一下信賴憑證者，選取 [屬性]，然後選取 [端點] 索引標籤。|在 Azure AD 中，此回覆 URL 會在 Azure 入口網站內應用程式的 [單一登入] 屬性中設定為回覆 URL。</br></br>(您可能必須選取 [顯示進階 URL 設定] 才能看到回覆 URL)。|對應至 SAML 權杖中的 [目的地] 元素。</br></br> 值範例： https://contoso.my.salesforce.com|
 |應用程式登出 URL|當使用者登出某個應用程式時，該 URL 會收到「登出清除」要求，也就是要從 IdP 讓使用者登入的其他所有應用程式登出。|可在 AD FS 管理的 [信賴憑證者信任] 下找到此項目。 以滑鼠右鍵按一下信賴憑證者，選取 [屬性]，然後選取 [端點] 索引標籤。|N/A。 Azure AD 不支援「單一登出」(表示登出所有的應用程式)。 它只會讓使用者登出 Azure AD 本身。|N/A|
 |應用程式識別碼|以 IdP 觀點看待的應用程式識別碼。 登入 URL 值經常用於此識別碼 (但並不一定)。</br></br> 有時候，應用程式會將此稱為「實體識別碼」。|在 AD FS 中，這是信賴憑證者識別碼。 以滑鼠右鍵按一下信賴憑證者信任，選取 [屬性]，然後選取 [識別碼] 索引標籤。|在 Azure AD 中，此識別碼會在 Azure 入口網站內應用程式的 [單一登入] 屬性中設定為 [網域及 URL] 之下的識別碼。 (您可能必須選取 [顯示進階 URL 設定] 核取方塊)。|對應到 SAML 權杖中的 [對象] 元素。|
 |應用程式同盟中繼資料|應用程式的同盟中繼資料位置。 IdP 會使用此位置來自動更新特定組態設定，例如端點或加密憑證。|在應用程式的 AD FS 信賴憑證者信任中尋找應用程式的同盟中繼資料 URL。 以滑鼠右鍵按一下信任，選取 [屬性]，然後選取 [監視] 索引標籤。|N/A。 Azure AD 不支援直接取用應用程式同盟中繼資料。|N/A|

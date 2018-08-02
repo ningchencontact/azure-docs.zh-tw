@@ -10,17 +10,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 0a004ee6e5dbdd2ceb8546a4b7ce20b2b551fac9
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 61ac0d823322b919952b7ea426c447e070a09fc1
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084060"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39363191"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 發佈遠端桌面
 
@@ -126,8 +126,8 @@ ms.locfileid: "37084060"
 預先驗證流程的安全性優點多於通道流程。 使用預先驗證，您可以使用內部部署資源的 Azure AD 驗證功能，例如單一登入、條件式存取和雙步驟驗證。 您也可以確定只有驗證過的流量到達您的網路。
 
 若要使用通道驗證，只需要對本文中所列的步驟進行兩項修改：
-1. 在 [[Publish the RD host endpoint] (發佈 RD 主機端點)](#publish-the-rd-host-endpoint) 步驟 1 中，請將預先驗證方法設為 [通道]。
-2. 在 [[Direct RDS traffic to Application Proxy] (將 RDS 流量導向應用程式 Proxy)](#direct-rds-traffic-to-application-proxy) 中，完全略過步驟 8。
+1. 在 [Publish the RD host endpoint] (發佈 RD 主機端點)[](#publish-the-rd-host-endpoint) 步驟 1 中，請將預先驗證方法設為 [通道]。
+2. 在 [Direct RDS traffic to Application Proxy] (將 RDS 流量導向應用程式 Proxy)[](#direct-rds-traffic-to-application-proxy) 中，完全略過步驟 8。
 
 ## <a name="next-steps"></a>後續步驟
 

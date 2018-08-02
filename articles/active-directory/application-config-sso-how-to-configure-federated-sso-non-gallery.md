@@ -11,15 +11,15 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 916261de1f53c7b859378e83e423dea44b58af9b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: badbec991230ca13a85088a79fb6e67eb2d71e68
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331937"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39367210"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>如何為不在資源庫內的應用程式設定同盟單一登入
 
@@ -138,7 +138,7 @@ ms.locfileid: "36331937"
 
 8.  移至 [SAML 簽署憑證] 區段，然後按一下 [下載] 資料行值。 根據應用程式設定單一登入時所需的項目，您會看到下載中繼資料 XML 或憑證的選項。
 
-Azure AD 也會提供用來取得中繼資料的 URL。 請遵循此模式來取得應用程式特有的中繼資料 URL：https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>。
+Azure AD 也會提供用來取得中繼資料的 URL。 請遵循此模式來取得應用程式特有的中繼資料 URL： https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>。
 
 ## <a name="assign-users-to-the-application"></a>將使用者指派給應用程式
 
