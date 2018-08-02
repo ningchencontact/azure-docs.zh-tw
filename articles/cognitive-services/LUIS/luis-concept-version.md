@@ -2,19 +2,19 @@
 title: 了解 LUIS 中的版本設定 - Azure | Microsoft Docs
 description: 了解如何在 Language Understanding (LUIS) 中使用版本來管理變更
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/13/2018
-ms.author: v-geberr
-ms.openlocfilehash: dabe7def2766770b686be3c43d4af4f331dd9577
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: 17abe383d3074d636605c3b1b91927f89f7dd896
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266068"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225722"
 ---
 # <a name="versions"></a>版本
 使用[版本](luis-how-to-manage-versions.md)來建立相同應用程式的不同模型。 
@@ -26,7 +26,7 @@ ms.locfileid: "36266068"
 初始版本 (0.1) 是預設的作用中版本。 
 
 ## <a name="active-version"></a>作用中版本
-將[版本設定](luis-how-to-manage-versions.md#set-active-version)為作用中意謂著它目前在 [LUIS][LUIS] 網站中處於編輯和測試狀態。 將版本設定為作用中來存取其資料、進行更新，以及測試和發佈它。
+將[版本設定為作用中](luis-how-to-manage-versions.md#set-active-version)，意謂著它目前在 [LUIS](luis-reference-regions.md) 網站中處於編輯和測試狀態。 將版本設定為作用中來存取其資料、進行更新，以及測試和發佈它。
 
 目前作用中版本的名稱會顯示在左上方面板應用程式名稱的後面。 
 
@@ -52,7 +52,7 @@ ms.locfileid: "36266068"
 您可以從 [Settings] \(設定\) 頁面上的 [Versions] \(版本\) 清單中刪除作用中版本以外的所有版本。 
 
 ## <a name="version-availability-at-the-endpoint"></a>端點上的版本可用性
-系統會自動在您的應用程式[端點](luis-glossary.md#endpoint)上提供已定型的版本。 若要在您的應用程式端點上提供某個版本，您必須[發佈](PublishApp.md)或重新發佈該版本。 您可以發佈成 [Staging] \(預備\) 和 [Production] \(生產\)，這可在端點上最多為您提供兩個應用程式版本。 如果您需要在端點上提供更多應用程式版本，則應該將版本匯出，然後再重新匯入至新的應用程式。 新應用程式會有不同的應用程式識別碼。
+系統會自動在您的應用程式[端點](luis-glossary.md#endpoint)上提供已定型的版本。 若要在您的應用程式端點上提供某個版本，您必須[發佈](luis-how-to-publish-app.md)或重新發佈該版本。 您可以發佈成 [Staging] \(預備\) 和 [Production] \(生產\)，這可在端點上最多為您提供兩個應用程式版本。 如果您需要在端點上提供更多應用程式版本，則應該將版本匯出，然後再重新匯入至新的應用程式。 新應用程式會有不同的應用程式識別碼。
 
 ## <a name="collaborators"></a>共同作業者
 擁有者和所有[共同作業者](luis-how-to-collaborate.md)都具備所有應用程式版本的完整存取權。
@@ -62,5 +62,3 @@ ms.locfileid: "36266068"
 了解如何在應用程式設定頁面上新增[版本設定](luis-how-to-manage-versions.md)。 
 
 了解如何將[意圖](luis-concept-intent.md)設計成模型。
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

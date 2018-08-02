@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/17/2018
+ms.date: 7/13/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: e226aadbe499d5905b1814bec5d042f67d898c18
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 57b610b40edff56207617e212d0eb6e591ad50d4
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294844"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224291"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>部署 Azure Blockchain Workbench
 
@@ -213,9 +213,13 @@ Blockchain Workbench 會以 Azure AD 作為主要身分識別管理系統，供�
 
 8.  按一下 [確定]，以完成 [Azure AD 參數組態] 區段。
 
-9.  完成 [網路大小和效能] 設定。
+9.  在 [網路設定和效能] 中，選擇您是否要建立新的區塊鏈網路，或使用現有的權威證明 (proof-of-authority) 區塊鏈網路。
 
-    ![網路和效能設定](media/blockchain-workbench-deploy/blockchain-workbench-settings-network.png)
+    **新建**：
+
+    [新建] 選項會在單一成員的訂用帳戶內，建立一組以太坊權威證明 (PoA) 節點。 
+
+    ![網路設定和效能](media/blockchain-workbench-deploy/blockchain-workbench-settings-network-new.png)
 
     | 設定 | 說明  |
     |---------|--------------|
@@ -223,7 +227,23 @@ Blockchain Workbench 會以 Azure AD 作為主要身分識別管理系統，供�
     | 儲存體效能 | 選擇您的區塊鏈網路慣用的 VM 儲存體效能。 |
     | 虛擬機器大小 | 選擇您的區塊鏈網路慣用的 VM 大小。 |
 
-10. 選取 [確定]，以完成 [網路大小和效能] 區段。
+    **使用現有項目**：
+
+    [使用現有項目] 選項可讓您指定以太坊權威證明 (PoA) 區塊鏈網路。 端點具有下列需求。
+
+    * 端點必須是以太坊權威證明 (PoA) 區塊鏈網路。
+    * 端點必須是可透過網路公開存取的。
+    * 在 PoA 區塊鏈網路的設定中，應將 Gas Price 設為零 (注意：Blockchain Workbench 帳戶沒有資金。 如果需要資金，則交易會失敗)。
+
+    ![網路設定和效能](media/blockchain-workbench-deploy/blockchain-workbench-settings-network-existing.png)
+
+    | 設定 | 說明  |
+    |---------|--------------|
+    | 以太坊 RPC 端點 | 提供現有 PoA 區塊鏈網路的 RPC 端點。 端點以 http:// 開頭，並以連接埠號碼結尾。 例如， `http://contoso-chain.onmicrosoft.com:8545` |
+    | 儲存體效能 | 選擇您的區塊鏈網路慣用的 VM 儲存體效能。 |
+    | 虛擬機器大小 | 選擇您的區塊鏈網路慣用的 VM 大小。 |
+
+10. 選取 [確定]，完成網路設定和效能。
 
 11. 完成 [Azure 監視器] 設定。
 

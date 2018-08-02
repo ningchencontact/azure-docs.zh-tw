@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 84baf01ce6eeed8dc569d7a856189aefba788126
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 246943b7e3df955394a6a79f9b3130633fe4ec50
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096470"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186608"
 ---
 # <a name="continuous-deployment-with-jenkins-and-azure-kubernetes-service"></a>透過 Jenkins 與 Azure Kubernetes Service 持續部署
 
@@ -29,7 +29,7 @@ ms.locfileid: "37096470"
 > * 此映像會推送至 Azure Container Registry (ACR)。
 > * 在 AKS 叢集中執行的應用程式會更新成新的容器映像。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您需要下列項目，才能完成本文中的步驟。
 
@@ -149,6 +149,9 @@ azure-vote-front   10.0.34.242   13.90.150.118   80:30676/TCP   2m
 
 請執行下列命令來下載及執行指令碼。 以下 URL 也可用來檢閱指令碼的內容。
 
+> [!WARNING]
+> 此範例指令碼僅用於示範，說明如何快速佈建可在 Azure VM 上執行的 Jenkins 環境。 它會使用 Azure 自訂指令碼擴充功能來設定 VM，然後顯示所需的認證。 您的 ~/.kube/config 會複製到 Jenkins VM。
+
 ```console
 curl https://raw.githubusercontent.com/Azure-Samples/azure-voting-app-redis/master/jenkins-tutorial/deploy-jenkins-vm.sh > azure-jenkins.sh
 sh azure-jenkins.sh
@@ -263,12 +266,11 @@ kubectl set image deployment/azure-vote-front azure-vote-front=$WEB_IMAGE_NAME -
 接下來，請將應用程式存放庫連結至 Jenkins 組建伺服器，以便在進行任何認可時，觸發新的組建。
 
 1. 瀏覽至派生的 GitHub 存放庫。
-2. 選取 [設定]，然後選取左側的 [整合與服務]。
-3. 選擇 [Add Service] \(新增服務\)，在篩選方塊中輸入 `Jenkins (GitHub plugin)`，然後選取該外掛程式。
-4. 針對 Jenkins 連結 URL，輸入 `http://<publicIp:8080>/github-webhook/`，其中 `publicIp` 是 Jenkins 伺服器的 IP 位址。 請務必包含尾端的斜線 (/)。
-5. 選取 [Add service] \(新增服務\)。
+2. 選取 [設定]，然後選取左側的 [Webhook]。
+3. 選擇 [新增 Webhook]。 針對「承載 URL」，輸入 `http://<publicIp:8080>/github-webhook/`，其中 `publicIp` 是 Jenkins 伺服器的 IP 位址。 請務必包含尾端的斜線 (/)。 保留內容類型的其他預設值，並針對「推送」事件觸發。
+4. 選取 [新增 Webhook]。
 
-![GitHub webhook](media/aks-jenkins/webhook.png)
+    ![GitHub webhook](media/aks-jenkins/webhook.png)
 
 ## <a name="test-cicd-process-end-to-end"></a>進行 CI/CD 程序端對端測試
 

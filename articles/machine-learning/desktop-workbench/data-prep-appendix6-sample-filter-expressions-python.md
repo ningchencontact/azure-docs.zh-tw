@@ -1,24 +1,24 @@
 ---
 title: 可用於 Azure Machine Learning 資料準備之篩選條件運算式的範例 | Microsoft Docs
-description: 本文件提供可用於 Azure Machine Learning 資料準備之篩選條件運算式的一組範例
+description: 本文件提供可用於 Azure Machine Learning 資料準備的一組篩選條件運算式範例
 services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 434da595762a077b94ff034325d5bdb156585884
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: a960197c89e1d051de0e9b8b73cbab231982cf52
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830355"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216692"
 ---
 # <a name="sample-of-filter-expressions-python"></a>篩選條件運算式的範例 (Python) 
 閱讀本附錄之前，請先參閱 [Python 擴充性概觀](data-prep-python-extensibility-overview.md)。

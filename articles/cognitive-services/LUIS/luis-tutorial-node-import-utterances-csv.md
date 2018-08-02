@@ -3,27 +3,27 @@ title: 使用 Node.js 以程式設計方式建置 LUIS 應用程式 | Microsoft 
 titleSuffix: Azure
 description: 了解如何使用「LUIS 撰寫 API」，從 CSV 格式的既有資料，以程式設計方式建置 LUIS 應用程式。
 services: cognitive-services
-author: DeniseMak
-manager: rstand
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
-ms.author: v-geberr
-ms.openlocfilehash: 09c9d4da835b7b30fd132770f9d13b33fa80a3f5
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: 42b9800c94171ecbd2dadf30bb2ce2f342063552
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268309"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238500"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>使用 Node.js 以程式設計方式建置 LUIS 應用程式
 
-LUIS 提供一個具備 [LUIS][LUIS] 網站所有功能的程式設計 API。 當您已有既有資料時，這可節省時間，而且以程式設計方式建立 LUIS 應用程式會比手動輸入資訊快速。 
+LUIS 提供一個具備 [LUIS](luis-reference-regions.md) 網站所有功能的程式設計 API。 當您已有既有資料時，這可節省時間，而且以程式設計方式建立 LUIS 應用程式會比手動輸入資訊快速。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-* 登入 [LUIS][LUIS] 網站，然後在 [Account Settings] \(帳戶設定\) 中尋找您的[撰寫金鑰](luis-concept-keys.md#authoring-key)。 您可以使用此金鑰來呼叫「撰寫 API」。
+* 登入 [LUIS](luis-reference-regions.md) 網站，然後在 [帳戶設定] 中尋找您的[撰寫金鑰](luis-concept-keys.md#authoring-key)。 您可以使用此金鑰來呼叫「撰寫 API」。
 * 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 * 本教學課程會從一個假設性公司的使用者要求記錄 CSV 檔開始著手。 在 [這裡](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/IoT.csv)下載。
 * 安裝含有 NPM 的最新 Node.js。 請從[這裡](https://nodejs.org/en/download/)下載。
@@ -81,7 +81,7 @@ LUIS 提供一個具備 [LUIS][LUIS] 網站所有功能的程式設計 API。 �
    [!code-javascript[Node.js code for creating a LUIS app](~/samples-luis/examples/build-app-programmatically-csv/_create.js)]
 
 
-## <a name="add-intents"></a>新增意圖
+## <a name="add-intents"></a>新增對應方式
 有了應用程式之後，您必須將意圖新增至應用程式。 下列程式碼會建立 LUIS 應用程式。 請複製或[下載](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_intents.js)此程式碼，並將其儲存成 `_intents.js`。
 
    [!code-javascript[Node.js code for creating a series of intents](~/samples-luis/examples/build-app-programmatically-csv/_intents.js)]
@@ -94,7 +94,7 @@ LUIS 提供一個具備 [LUIS][LUIS] 網站所有功能的程式設計 API。 �
    
 
 
-## <a name="add-utterances"></a>新增語句
+## <a name="add-utterances"></a>新增表達方式
 在 LUIS 應用程式中定義實體和意圖之後，您可以新增語句。 下列程式碼會使用 [Utterances_AddBatch](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) API，這可讓您一次最多新增 100 個語句。  請複製或[下載](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_upload.js)此程式碼，並將其儲存成 `_upload.js`。
 
    [!code-javascript[Node.js code for adding utterances](~/samples-luis/examples/build-app-programmatically-csv/_upload.js)]
@@ -111,7 +111,7 @@ LUIS 提供一個具備 [LUIS][LUIS] 網站所有功能的程式設計 API。 �
 ````
 
 ### <a name="change-configuration-settings"></a>變更組態設定
-若要使用此應用程式，您必須將 index.js 檔案中的值變更成自己的訂用帳戶金鑰，然後提供想要讓應用程式擁有的名稱。 您也可以設定應用程式的文化特性，或變更版本號碼。
+若要使用此應用程式，您必須將 index.js 檔案中的值變更成自己的端點金鑰，然後提供想要讓應用程式擁有的名稱。 您也可以設定應用程式的文化特性，或變更版本號碼。
 
 開啟 index.js 檔案，然後變更位於檔案頂端的這些值。
 
@@ -163,7 +163,7 @@ upload done
 
 
 ## <a name="open-the-luis-app"></a>開啟 LUIS 應用程式
-指令碼執行完成之後，您可以登入 [LUIS][LUIS]，然後在 [My Apps] \(我的應用程式\)底下查看您建立的 LUIS 應用程式。 您應該能夠在 [TurnOn]、[TurnOff] 及 [None] 意圖底下看到您所新增的語句。
+當指令碼完成之後，您可以登入 [LUIS](luis-reference-regions.md)，然後在 [我的應用程式] 底下查看您建立的 LUIS 應用程式。 您應該能夠在 [TurnOn]、[TurnOff] 及 [None] 意圖底下看到您所新增的語句。
 
 ![TurnOn 意圖](./media/luis-tutorial-node-import-utterances-csv/imported-utterances-661.png)
 
@@ -171,7 +171,7 @@ upload done
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [在 LUIS 網站中進行應用程式測試和定型](interactive-test.md)
+> [在 LUIS 網站中進行應用程式測試和定型](luis-interactive-test.md)
 
 ## <a name="additional-resources"></a>其他資源
 
@@ -179,7 +179,4 @@ upload done
 - [建立應用程式](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)
 - [新增意圖](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0c)
 - [新增實體](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0e) 
-- [新增語句](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) 
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
-
+- [新增語句](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09)

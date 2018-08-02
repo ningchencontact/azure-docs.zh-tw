@@ -10,16 +10,20 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 2214436b193932e5b3b80c190f7754a0436b7ed8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8d3b3f419ceacbb9a6fe2b19cf68ea6873de536f
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369667"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171012"
 ---
 # <a name="how-to-use-alternative-inputs"></a>如何使用替代輸入
 
 本教學課程顯示如何在教學介面中使用使用者輸入的「替代輸入」欄位。
+
+## <a name="video"></a>影片
+
+[![教學課程 8 預覽](http://aka.ms/cl-tutorial-08-preview)](http://aka.ms/blis-tutorial-08)
 
 ## <a name="requirements"></a>需求
 本教學課程需要執行一般教學課程聊天機器人
@@ -31,9 +35,9 @@ ms.locfileid: "35369667"
 
 ## <a name="steps"></a>步驟
 
-### <a name="create-the-application"></a>建立應用程式
+### <a name="create-the-model"></a>建立模型
 
-1. 在 Web UI 中，按一下 [新增應用程式]
+1. 在 Web UI 中，按一下 [新增模型]
 2. 在 [名稱] 中，輸入 AlternativeInputs。 然後按一下 [建立]。
 
 ### <a name="create-an-entity"></a>建立實體
@@ -75,7 +79,7 @@ ms.locfileid: "35369667"
 3. 按兩下 [丹佛]，並選取城市。
     - 這會將它標示為城市實體。
 5. 按一下 [Score Actions]\(評分動作\)
-    - 請注意，丹佛現在出現在城市實體中。 
+    - 「丹佛」現在會出現在城市實體中。 
 6. 選取 [$city is probably sunny]\($city 的天氣可能是晴天\)。
 7. 按一下 [Done Teaching]\(完成教學\)。
 
@@ -88,7 +92,7 @@ ms.locfileid: "35369667"
 3. 按兩下 [Seattle]\(西雅圖\)，並選取 [city]\(城市\)。
     - 這會將它標示為城市實體。
 5. 按一下 [Score Actions]\(評分動作\)
-    - 請注意，西雅圖現在出現在城市實體中。 
+    - 「西雅圖」現在會出現在城市實體中。 
 6. 選取 [$city is probably sunny]\($city 的天氣可能是晴天\)。
 7. 按一下 [Done Teaching]\(完成教學\)。
 
@@ -97,7 +101,7 @@ ms.locfileid: "35369667"
 1. 按一下 [新增動作]，然後按一下 [New Train Dialog]\(新增訓練對話\)。
 2. 鍵入「help」(協助)。
 3. 按一下 [Score Actions]\(評分動作\)。
-    - 請注意，兩個可能回應的分數非常接近。 這表示模型不清楚兩個動作之間的界限。
+    - 這兩個可能回應的分數非常接近。 這表示模型不清楚兩個動作之間的界限。
 6. 按一下 [Abandon Teaching]\(放棄教學\) 和 [確認]。
 
 ![](../media/tutorial8_closescores.png)
@@ -117,7 +121,7 @@ ms.locfileid: "35369667"
 
 2. 現在按一下 [西雅圖的天氣如何]。
     1. 在 [Add alternative input]\(新增替代輸入\) 中，輸入「forecast for seattle」(西雅圖的天氣預報)。
-    2. 按兩下 [Seattle]\(西雅圖\)，並選取 [city]\(城市\)。 請注意，替代輸入的實體應該會出現，而且有相同的實體集合。 如果實體的內容不同，也不會有問題。
+    2. 按兩下 [Seattle]\(西雅圖\)，並選取 [city]\(城市\)。 適用於替代輸入的實體應該會出現，而且具有相同的實體集合。 如果實體的內容不同，也不會有問題。
     3. 在 [Add alternative input]\(新增替代輸入\) 中，輸入「'will it rain today in denver」(丹佛今天 會下雨嗎)。
     4. 按一下 [denver]\(丹佛\)，並選取 [city]\(城市\)。
     5. 按一下 [送出變更] 和 [完成]。
@@ -134,7 +138,7 @@ ms.locfileid: "35369667"
 4. 按一下以選取左窗格中的 [denver]\(丹佛\)：
     1. 在 [Add alternative input]\(新增替代輸入\) 中，輸入「for denver」(丹佛的)。
     2. 輸入「forecast for austin」(奧斯汀的天氣預報)。
-        - 請注意整個詞會反白顯示。 按一下整個詞，然後按一下紅色 x。 選取 [austin]\(奧斯汀\)，然後按一下 [city]\(城市\)。
+        - 整個片語都會反白顯示。 按一下整個詞，然後按一下紅色 x。 選取 [austin]\(奧斯汀\)，然後按一下 [city]\(城市\)。
         - 按一下 [送出變更]
     1. 按一下 [完成]，使模型重新訓練。
 
@@ -145,7 +149,7 @@ ms.locfileid: "35369667"
 1. 按一下 [New Train Dialog]\(新增訓練對話\)。
 2. 鍵入「what are you capabilities」(您有什麼才能)。
 3. 按一下 [Score Actions]\(評分動作\)。
-    - 請注意，分數現在更明確指出達到模型確定性的下一個動作。
+    - 分數現在會在下一個動作中更明確地指出模型的確定性。
 2. 選取「Try asking for weather」(嘗試詢問天氣)。
 6. 按一下 [Done Teaching]\(完成教學\)
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2018
+ms.date: 07/20/2018
 ms.author: kumud
-ms.openlocfilehash: 20897137c617ddf9a33a8f4966bcd7e30ac7c60c
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 1a7f37d3f95701779a16cf5dc6844fb67ee7f956
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261928"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215096"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Azure Load Balancer Standard 概觀
 
@@ -49,7 +49,7 @@ Load Balancer 資源是一種物件，而您可以在其中表示 Azure 應如�
 請檢閱下表，大致了解標準 Load Balancer 與基本 Load Balancer 之間的差異：
 
 >[!NOTE]
-> 新的設計應考慮使用標準 Load Balancer。 
+> 新的設計應該使用 Standard Load Balancer。 
 
 | | 標準 SKU | 基本 SKU |
 | --- | --- | --- |
@@ -59,8 +59,9 @@ Load Balancer 資源是一種物件，而您可以在其中表示 Azure 應如�
 | 診斷 | Azure 監視器、多維度計量 (包括位元組和封包計數器)、健康情況探查狀態、連線嘗試 (TCP SYN)、輸出連線的健康情況 (SNAT 成功和失敗的流程)、使用中資料層測量 | 僅適用於公用 Load Balancer 的 Azure Log Analytics、SNAT 耗盡警示、後端集區健康情況計數 |
 | HA 連接埠 | 內部 Load Balancer | / |
 | 預設保護 | 針對公用 IP 和 Load Balancer 端點的保護預設為關閉，必須使用網路安全性群組明確地將流程的流量加入白名單 | 預設為開啟，網路安全性群組為選擇性 |
-| 輸出連線 | 多個可選擇退出個別規則的前端。「必須」明確建立輸出案例，虛擬機器才能使用輸出連線能力。  不用輸出連線能力即可與 [VNet 服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)連線，且不會計入已處理的資料。  必須透過輸出連線能力連線到任何公用 IP 位址 (包括無法作為 VNet 服務端點的 Azure PaaS 服務)，並計入已處理的資料。 只有內部 Load Balancer 在提供虛擬機器時，就無法透過預設 SNAT 進行輸出連線。 輸出 SNAT 的程式設計依傳輸通訊協定而異，以輸入負載平衡規則的通訊協定為依據。 | 單一前端，有多個前端時會隨機選取。  只有內部 Load Balancer 在提供虛擬機器時，會使用預設 SNAT。 |
-| 多個前端 | 輸入和輸出 | 僅輸入 |
+| [輸出連線](load-balancer-outbound-connections.md) | 多個可選擇退出個別負載平衡規則的前端。「必須」明確建立輸出案例，虛擬機器才能使用輸出連線能力。  不用輸出連線能力即可與 [VNet 服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)連線，且不會計入已處理的資料。  必須透過輸出連線能力連線到任何公用 IP 位址 (包括無法作為 VNet 服務端點的 Azure PaaS 服務)，並計入已處理的資料。 只有內部 Load Balancer 在提供虛擬機器時，就無法透過預設 SNAT 進行輸出連線。 輸出 SNAT 的程式設計依傳輸通訊協定而異，以輸入負載平衡規則的通訊協定為依據。 | 單一前端，有多個前端時會隨機選取。  只有內部 Load Balancer 在提供虛擬機器時，會使用預設 SNAT。 |
+| [多個前端](load-balancer-multivip-overview.md) | 輸入和[輸出](load-balancer-outbound-connections.md) | 僅輸入 |
+| [健康狀態探查關閉行為](load-balancer-custom-probe-overview.md) | 執行個體探查關閉__和__所有探查關閉時，TCP 連線保持作用中 | 執行個體探查關閉時，TCP 連線保持作用中。 所有探查關閉時，所有 TCP 連線都終止 |
 | 管理作業 | 大部分的作業 < 30 秒 | 通常是 60-90+ 秒 |
 | SLA | 99.99% (當資料路徑具有兩個狀況良好的虛擬機器時) | 內含在 VM SLA 中 | 
 | 價格 | 根據規則數目、與資源相關聯的輸入或輸出所處理的資料來計費  | 不收費 |

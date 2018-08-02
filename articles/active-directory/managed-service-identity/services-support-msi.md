@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.component: msi
 manager: mtillman
-ms.openlocfilehash: 462ec359b8c29488a913d036a14b21b28ba27cdc
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f63832723a2c33b88d0e5fc9c6a38a0cad63fa38
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005209"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259172"
 ---
 # <a name="services-that-support-managed-service-identity"></a>支援受控服務識別的服務 
 
-在 Azure Active Directory 中，「受控服務身分識別」會提供自動受控身分給 Azure 服務。 您可以使用受控身分識別，向任何支援 Azure AD 驗證的服務進行驗證，而不需要您程式碼中的任何認證。 我們正在努力整合 MSI 和整個 Azure 的 Azure AD 驗證。 請經常回來檢查更新。
+在 Azure Active Directory 中，「受控服務身分識別」會提供自動受控身分給 Azure 服務。 您可以使用受控身分識別，向任何支援 Azure AD 驗證的服務進行驗證，而不需要您程式碼中的任何認證。 我們正在努力整合受控服務識別和整個 Azure 的 Azure AD 驗證。 請經常回來檢查更新。
 
 ## <a name="azure-services-that-support-managed-service-identity"></a>支援「受控服務身分識別」的 Azure 服務
 

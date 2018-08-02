@@ -2,19 +2,19 @@
 title: Language Understanding (LUIS) API Service 的詞彙 | Microsoft Docs
 description: 此詞彙說明使用 LUIS API Service 時可能遇到的字詞。
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: 7cfcc5b907b28a877bea57ea869e17f01aae00cb
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: f6606a3a09698f236f9ebe2c21ec784ca84bb149
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265382"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225501"
 ---
 # <a name="glossary"></a>詞彙
 
@@ -72,7 +72,7 @@ ms.locfileid: "36265382"
 
 ## <a name="endpoint"></a>端點
 
-[LUIS 端點](https://aka.ms/luis-endpoint-apis) URL 是您編寫和發佈 [LUIS 應用程式](#luis-app)之後，送出 LUIS 查詢的位置。 端點 URL 包含已發佈應用程式的區域，以及應用程式識別碼。 您可以在應用程式**[發佈](publishapp.md)** 頁面的 [資源和金鑰] 表格中找到端點，或者可以從 [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API 取得端點 URL。
+[LUIS 端點](https://aka.ms/luis-endpoint-apis) URL 是您編寫和發佈 [LUIS 應用程式](#luis-app)之後，送出 LUIS 查詢的位置。 端點 URL 包含已發佈應用程式的區域，以及應用程式識別碼。 您可以在應用程式**[發佈](luis-how-to-publish-app.md)** 頁面的 [資源和金鑰] 表格中找到端點，或者可以從 [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API 取得端點 URL。
 
 範例端點看起來像：
 
@@ -82,9 +82,9 @@ ms.locfileid: "36265382"
 |--|--|
 |region| [發佈的區域](luis-reference-regions.md#publishing-regions) |
 |appID | LUIS 應用程式識別碼 |
-|subscriptionID | 在 Azure 入口網站中建立的 LUIS 訂用帳戶金鑰 |
+|subscriptionID | 在 Azure 入口網站中建立的 LUIS 端點 (訂用帳戶) 金鑰 |
 |q | 語句 |
-|timezoneOffset| 分鐘|
+|timezoneOffset| minutes|
 
 ## <a name="entity"></a>實體
 
@@ -92,15 +92,15 @@ ms.locfileid: "36265382"
 
 ## <a name="f-measure"></a>F 量值
 
-在[批次測試][batch-testing]中，是指測試精確度的量值。
+在[批次測試](luis-interactive-test.md#batch-testing)中，是指測試精確度的量值。
 
 ## <a name="false-negative"></a>漏判 (TN)
 
-在[批次測試][batch-testing]中，資料點代表您的應用程式不正確預測了不存在目標意圖/實體的語句。
+在[批次測試](luis-interactive-test.md#batch-testing)中，資料點代表您的應用程式不正確預測了不存在目標意圖/實體的語句。
 
 ## <a name="false-positive"></a>誤判 (TP)
 
-在[批次測試][batch-testing]中，資料點代表您的應用程式不正確預測了存在目標意圖/實體的語句。
+在[批次測試](luis-interactive-test.md#batch-testing)中，資料點代表您的應用程式不正確預測了存在目標意圖/實體的語句。
 
 ## <a name="features"></a>特性
 
@@ -135,10 +135,10 @@ LUIS 應用程式是一種適用於自然語言處理的定型資料模型，包
 
 ## <a name="prebuilt-entity"></a>預先建置的實體
 
-[預先建置的實體](pre-builtentities.md)是 LUIS 針對一般的資訊類型 (例如數字、URL 和電子郵件) 提供的實體。 您可以選擇在您的應用程式中加入預先建置的實體。 
+[預先建置的實體](luis-prebuilt-entities.md)是 LUIS 針對一般的資訊類型 (例如數字、URL 和電子郵件) 提供的實體。 您可以選擇在您的應用程式中加入預先建置的實體。 
 
 ## <a name="precision"></a>精確度
-在[批次測試][batch-testing]中，精確度 (也稱為肯定預測值) 是相關語句在擷取的語句之間的比例。
+在[批次測試](luis-interactive-test.md#batch-testing)中，精確度 (也稱為陽性預測值) 是相關語句在所擷取語句之間的比例。
 
 ## <a name="programmatic-key"></a>程式設計金鑰
 
@@ -153,7 +153,7 @@ LUIS 應用程式是一種適用於自然語言處理的定型資料模型，包
 LUIS 配額是 [Azure 訂用帳戶層](https://aka.ms/luis-price-tier)的限制。 LUIS 配額會受到每秒要求數 (HTTP 狀態 429) 和一個月的要求總數 (HTTP 狀態 403) 兩者的限制。 
 
 ## <a name="recall"></a>記憶
-在[批次測試][batch-testing]中，記憶 (也稱為敏感度) 是 LUIS 一般化的功能。 
+在[批次測試](luis-interactive-test.md#batch-testing)中，記憶 (也稱為敏感度) 是 LUIS 一般化的功能。 
 
 ## <a name="semantic-dictionary"></a>語意字典
 [清單實體] 頁面和 [片語清單] 頁面都提供語意字典。 語意字典根據目前的範圍提供單字的建議。
@@ -163,11 +163,11 @@ LUIS 配額是 [Azure 訂用帳戶層](https://aka.ms/luis-price-tier)的限制�
 
 ## <a name="speech-priming"></a>語音預備
 
-語音預備可讓您的語音服務準備好與您的 LUIS 模型搭配運作。 請參閱[啟用語音預備](publishapp.md#enable-speech-priming)。
+語音預備可讓您的語音服務準備好與您的 LUIS 模型搭配運作。 請參閱[啟用語音預備](luis-how-to-publish-app.md#enable-speech-priming)。
 
 ## <a name="spelling-correction"></a>拼字校正
 
-在 [發佈] 頁面上，啟用 [Bing 拼字檢查工具](publishapp.md#enable-bing-spell-checker)，可在預測之前更正語句中拼字錯誤的單字。 
+在 [發佈] 頁面上，啟用 [Bing 拼字檢查工具](luis-how-to-publish-app.md#enable-bing-spell-checker)，可在預測之前更正語句中拼字錯誤的單字。 
 
 ## <a name="starter-key"></a>入門金鑰
 
@@ -175,11 +175,11 @@ LUIS 配額是 [Azure 訂用帳戶層](https://aka.ms/luis-price-tier)的限制�
 
 ## <a name="subscription-key"></a>訂用帳戶金鑰
 
-訂用帳戶金鑰是與[您在 Azure 中建立](luis-how-to-azure-subscription.md)之 LUIS 服務相關聯的金鑰。 這個金鑰不是[編寫金鑰](#programmatic-key)。 如果您有訂用帳戶金鑰，則應該在任何端點要求使用，而不是使用編寫金鑰。 您可以在 [LUIS](luis-reference-regions.md) 網站的[**發佈應用程式**頁面](publishapp.md)底部的端點 URL 內，查看您目前的訂用帳戶金鑰。 這是 **subscription-key** 名稱/值組的值。 
+訂用帳戶金鑰是與[您在 Azure 中建立](luis-how-to-azure-subscription.md)之 LUIS 服務相關聯的**端點**金鑰。 這個金鑰不是[編寫金鑰](#programmatic-key)。 如果您有端點金鑰，則應該針對任何端點要求使用，而不是針對撰寫金鑰使用。 您可以在 [LUIS](luis-reference-regions.md) 網站中[發佈應用程式 頁面](luis-how-to-publish-app.md)底部的端點 URL 內，查看您目前的端點金鑰。 這是 **subscription-key** 名稱/值組的值。 
 
 ## <a name="test"></a>測試
 
-[測試](interactive-test.md#test-your-app) LUIS 應用程式表示將語句傳入 LUIS 並檢視 JSON 結果。
+[測試](luis-interactive-test.md#test-your-app) LUIS 應用程式表示將語句傳入 LUIS 並檢視 JSON 結果。
 
 ## <a name="timezoneoffset"></a>時區位移
 
@@ -196,11 +196,11 @@ LUIS 配額是 [Azure 訂用帳戶層](https://aka.ms/luis-price-tier)的限制�
 
 ## <a name="true-negative"></a>真否定 (TN)
 
-在[批次測試][batch-testing]中，資料點代表您的應用程式正確預測了不存在目標意圖/實體的語句。
+在[批次測試](luis-interactive-test.md#batch-testing)中，資料點代表您的應用程式正確預測了不存在目標意圖/實體的語句。
 
 ## <a name="true-positive"></a>真肯定 (TP)
 
-在[批次測試][batch-testing]中，資料點代表您的應用程式正確預測了存在目標意圖/實體的語句。
+在[批次測試](luis-interactive-test.md#batch-testing)中，資料點代表您的應用程式正確預測了存在目標意圖/實體的語句。
 
 ## <a name="utterance"></a>語句
 
@@ -209,5 +209,3 @@ LUIS 配額是 [Azure 訂用帳戶層](https://aka.ms/luis-price-tier)的限制�
 ## <a name="version"></a>版本
 
 LUIS [版本](luis-how-to-manage-versions.md)是與 LUIS 應用程式識別碼和已發佈端點相關聯的特定資料模型。 每個 LUIS 應用程式至少會有一個版本。
-
-[batch-testing]: https://docs.microsoft.com/azure/cognitive-services/luis/interactive-test#batch-testing

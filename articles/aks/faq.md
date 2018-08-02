@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 07/20/2018
 ms.author: iainfou
-ms.openlocfilehash: 915f74df69596b1677a0e03770e076ae50efc609
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: ea22b33233f85da117de54829e5a16bd7dcab36a
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001240"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205243"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 的常見問題集
 
@@ -37,7 +37,7 @@ Azure 會透過夜間排程將安全性修補程式自動套用至叢集中的�
 
 ## <a name="does-aks-support-kubernetes-role-based-access-control-rbac"></a>AKS 是否支援 Kubernetes 角色型存取控制 (RBAC)？
 
-是，從 Azure CLI 或 Azure Resource Manager 範本部署 AKS 叢集時，可以啟用 RBAC。 這項功能即將在 Azure 入口網站推出。
+是，[從 Azure CLI 或 Azure Resource Manager 範本部署 AKS 叢集時](https://docs.microsoft.com/en-us/azure/aks/aad-integration)，可以啟用 RBAC。 這項功能即將在 Azure 入口網站推出。
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-this-be-configured"></a>AKS 支援哪些 Kubernetes 許可控制器？ 可以設定這個項目嗎？
 
@@ -59,6 +59,10 @@ AKS 支援下列[許可控制器][admission-controllers]：
 ## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>可以將 AKS 部署到我現有的虛擬網路嗎？
 
 是，您可以使用[進階網路功能](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/aks/networking-overview.md) \(英文\)，將 AKS 叢集部署到現有的虛擬網路。
+
+## <a name="can-i-restrict-the-kubernetes-api-server-to-only-be-accessible-within-my-virtual-network"></a>我可以將 Kubernetes API 伺服器限制為只能從我的虛擬網路存取嗎？
+
+目前沒有。 Kubernetes API 伺服器會以公用完整網域名稱 (FQDN) 公開。 您應使用 [Kubernetes 角色型存取控制 (RBAC) 和 Azure Active Directory (AAD)](https://docs.microsoft.com/en-us/azure/aks/aad-integration) 來控制叢集的存取權。
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure Key Vault 是否會與 AKS 整合？
 

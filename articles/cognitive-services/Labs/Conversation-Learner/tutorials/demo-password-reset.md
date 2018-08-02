@@ -1,7 +1,7 @@
 ---
-title: 示範對話學習模組應用程式，密碼重設 - Microsoft 認知服務 | Microsoft Docs
+title: 示範對話學習模組模型：密碼重設 - Microsoft 認知服務 | Microsoft Docs
 titleSuffix: Azure
-description: 學習如何建立示範對話學習模組應用程式。
+description: 了解如何建立示範對話學習模組模型。
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,17 +10,21 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 24d61787a79ee1a1a9737c417aa966cc8fd75930
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f633dd375d690a1c3e66a2a6e02ae69665dbe960
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369583"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170628"
 ---
 # <a name="demo-password-reset"></a>示範：密碼重設
 這個示範呈現可協助密碼重設的簡單支援小組聊天機器人。 
 
 其中顯示對話學習模組如何學習非一般對話流程、多次序列，包括領域外類別。 這個示範不使用任何程式碼或實體。
+
+## <a name="video"></a>影片
+
+[![示範密碼預覽](http://aka.ms/cl-demo-password-preview)](http://aka.ms/blis-demo-password)
 
 ## <a name="requirements"></a>需求
 本教學課程需要執行密碼重設聊天機器人
@@ -29,7 +33,7 @@ ms.locfileid: "35369583"
 
 ### <a name="open-the-demo"></a>開啟示範
 
-在 Web UI 的應用程式清單中，按一下 [教學課程示範密碼重設]。 
+在 Web UI 的模型清單中，按一下 [教學課程示範密碼重設]。 
 
 ### <a name="actions"></a>動作
 

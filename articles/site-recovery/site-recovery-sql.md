@@ -2,24 +2,16 @@
 title: 使用 SQL Server 和 Azure Site Recovery 複寫應用程式 | Microsoft Docs
 description: 本文說明如何使用適用於 SQL Server 災害復原功能的 Azure Site Recovery 來複寫 SQL Server。
 services: site-recovery
-documentationcenter: ''
-author: prateek9us
-manager: gauravd
-editor: ''
-ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: pratshar
-ms.openlocfilehash: c877f4bbc0ed14e859ff39f1d719a9cd0b787118
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.topic: conceptual
+ms.date: 07/22/2018
+ms.author: raynew
+ms.openlocfilehash: fecf7366417a8a592578a425d8b028249c2681d7
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920826"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216354"
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>使用 SQL Server 災害復原和 Azure Site Recovery 保護 SQL Server
 
@@ -48,10 +40,10 @@ ms.locfileid: "37920826"
 
 **案例** | **至次要網站** | **至 Azure**
 --- | --- | ---
-**Hyper-V** | yes | yes
-**VMware** | yes | yes
-**實體伺服器** | yes | yes
-**Azure**|NA| yes
+**Hyper-V** | 是 | 是
+**VMware** | 是 | 是
+**實體伺服器** | 是 | 是
+**Azure**|NA| 是
 
 ### <a name="supported-sql-server-versions"></a>支援的 SQL Server 版本
 在支援的案例中，支援這些 SQL Server 版本：
@@ -78,7 +70,7 @@ Site Recovery 可以與資料表中摘要說明的原生 SQL Server BCDR 技術�
 
 | **版本** | **版本** | **部署** | **內部部署到內部部置** | **內部部署到 Azure** |
 | --- | --- | --- | --- | --- |
-| SQL Server 2014 或 2012 |Enterprise |容錯移轉叢集執行個體 |Always On 可用性群組 |Always On 可用性群組 |
+| SQL Server 2016、2014 或 2012 |Enterprise |容錯移轉叢集執行個體 |Always On 可用性群組 |Always On 可用性群組 |
 || Enterprise |高可用性的 Always On 可用性群組 |Always On 可用性群組 |Always On 可用性群組 | |
 || 標準 |容錯移轉叢集執行個體 (FCI) |包含本機鏡像的 Site Recovery 複寫 |包含本機鏡像的 Site Recovery 複寫 | |
 || Enterprise 或 Standard |獨立 |Site Recovery 複寫 |Site Recovery 複寫 | |

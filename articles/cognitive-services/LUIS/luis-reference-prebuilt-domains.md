@@ -3,29 +3,29 @@ title: 預先建立的定義域參考 - Azure| Microsoft Docs
 titleSuffix: Azure
 description: 預先建立的定義域參考是從 Language Understanding Intelligent Service (LUIS) 預先建立的意圖和實體集合。
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 14c53bd25913922a0cd7cc438ad0fbe8b4663dd1
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: diberry
+ms.openlocfilehash: 36e527f9afdce58475ca4c3c6e54ce393c48c983
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061959"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238891"
 ---
 # <a name="prebuilt-domain-reference"></a>預先建置的網域參考
 此參考提供[預先建立的定義域](luis-how-to-use-prebuilt-domains.md)相關資訊，這是 LUIS 提供之預先建立的意圖和實體集合。
 
-相反地，[自訂網域](create-new-app.md)一開始沒有任何意圖和模型。 您可以將任何預先建立的定義域意圖和實體新增至自訂模型。
+相反地，[自訂網域](luis-how-to-start-new-app.md)一開始沒有任何意圖和模型。 您可以將任何預先建立的定義域意圖和實體新增至自訂模型。
 
 ## <a name="list-of-prebuilt-domains"></a>預先建立的定義域清單
 LUIS 提供 20 個預先建立的定義域。 
 
-| 預先建立的定義域 | 說明 | 支援的語言 |
+| 預建網域 | 說明 | 支援的語言 |
 | ---------------- |-----------------------|:------:|
 | 行事曆 | Calendar 定義域提供新增、刪除或編輯約會，檢查參與者是否可與會，以及尋找行事曆事件相關資訊的意圖和實體。| zh-TW<br/> zh-CN |
 | Camera | Camera 定義域提供拍照、錄製視訊及廣播視訊到應用程式的意圖和實體。| zh-TW |
@@ -36,10 +36,10 @@ LUIS 提供 20 個預先建立的定義域。
 | 玩遊戲 | 處理與多玩家遊戲中遊戲陣營相關的要求。| zh-TW |
 | HomeAutomation | 控制燈光與家電用品等智慧型家電裝置。| zh-TW<br/> zh-CN |
 | MovieTickets | 預約電影院的電影票。| zh-TW |
-| Music | 在音樂播放程式上播放音樂。| zh-TW<br/> zh-CN |
+| 音樂 | 在音樂播放程式上播放音樂。| zh-TW<br/> zh-CN |
 | 附註 | Note 定義域提供與建立、編輯及尋找筆記相關的意圖和實體。| zh-TW<br/> zh-CN |
 | OnDevice | OnDevice 定義域提供與控制裝置相關的意圖和實體。| zh-TW<br/> zh-CN |
-| Places  | 處理與公司、機構、餐廳、公共空間和地址等地點相關的查詢。| zh-TW<br/> zh-CN |
+| 地點  | 處理與公司、機構、餐廳、公共空間和地址等地點相關的查詢。| zh-TW<br/> zh-CN |
 | 提醒 | 處理與建立、編輯及尋找提醒相關的要求。| zh-TW<br/> zh-CN |
 | RestaurantReservation | 處理管理餐廳預約的要求。| zh-TW<br/> zh-CN |
 | Taxi | 處理計程車的預約。| zh-TW<br/> zh-CN |
@@ -102,7 +102,7 @@ Communication 定義域提供與電子郵件、訊息和電話相關的意圖和
 | AssignContactNickname| 為連絡人指派暱稱。|將 Isaac 變更為爸爸 <br/>編輯 Jim 的暱稱<br/>新增 Patti Owens 的暱稱|
 | CallVoiceMail| 連線到使用者的語音信箱。|讓我連線到自己的語音信箱 <br/>語音信箱<br/>撥打語音信箱|
 | CheckIMStatus| 檢查 Skype 中的連絡人狀態。|Jim 的連線狀態是否設定為離開？ <br/>Carol 是否有空交談？|
-| 確認| 確認動作。|yes<br/>確定<br/>好的<br/>我確認要傳送此電子郵件。<br/>|
+| 確認| 確認動作。|是<br/>確定<br/>好的<br/>我確認要傳送此電子郵件。<br/>|
 | 撥號| 撥打電話。|撥打電話給 Jim<br/>請撥打 311<br/>|
 | FindContact| 依名稱尋找連絡人資訊。|尋找 Carol 的號碼<br/>顯示 Carol 的號碼<br/>|
 | FindSpeedDial| 尋找電話號碼設成的快速撥號，或尋找設為快速撥號的電話號碼。|我的撥號 5 為何？<br/>我是否已設定快速撥號？<br/>941-5555-333 的快速撥號為何？|
@@ -154,7 +154,7 @@ Entertainment 定義域提供與搜尋電影、音樂、遊戲和電視節目相
 | ContentRating | 媒體內容分級，例如電影的 G 或 R。|適合兒童的視訊。<br/>分級為 PG。|
 | Genre | 電影、遊戲、應用程式或歌曲的內容類型。|喜劇<br/>戲劇<br/>有趣|
 | 關鍵字| 一般搜尋關鍵字，指定更明確的媒體位置中不存在的屬性。|原聲帶<br/>Moon River<br/>Amelia Earhart|
-| 語言 | 媒體內容分級，例如電影的 G 或 R。|法文<br/>English<br/>韓文|
+| 語言 | 媒體中所使用的語言，例如，電影或歌曲的口語語言。|法文<br/>英文<br/>韓文|
 | MediaFormat | 用來格式化媒體的其他特殊技術類型。|HD 電影<br/>3D 電影<br/>可下載|
 | MediaSource | 取得媒體的網上商店或市集。|Netflix<br/>Prime|
 | MediaSubTypes| 小於電影和遊戲的媒體類型。|示範<br/>Dlc<br/>預告片|
@@ -171,7 +171,7 @@ Events 定義域提供與預約演唱會、慶典、運動賽事和喜劇表演�
 ### <a name="intents"></a>對應方式
 | 意圖名稱 | 說明 | 範例 |
 | ---------------- |-----------------------|----|
-| Book| 購買活動門票。|我想要購買本週的交響樂門票。|
+| 書籍| 購買活動門票。|我想要購買本週的交響樂門票。|
 
 
 ### <a name="entities"></a>實體
@@ -250,7 +250,7 @@ When is Captain Omar showing?
 ### <a name="intents"></a>對應方式
 | 意圖名稱 | 說明 | 範例 |
 | ---------------- |-----------------------|----|
-| Book | 購買電影票。|我想要預約 Captain Omar 和 The Two Musketeers 兩張電影票<br/>我想要購買明天的電影票<br/>我想要下週三的 Captian Omar Part 2 電影票|
+| 書籍 | 購買電影票。|我想要預約 Captain Omar 和 The Two Musketeers 兩張電影票<br/>我想要購買明天的電影票<br/>我想要下週三的 Captian Omar Part 2 電影票|
 |GetShowTime| 取得電影放映時間。|Captain Omar 何時放映？|
 
 
@@ -444,7 +444,7 @@ restart|
 | RouteAvoidanceCriteria | 避免特定路線 (例如避免事故、施工或通行費) 的準則 | 通行費 <br/>施工<br/>Route 11|
 | ServiceProvided | 這是公司或地點提供的服務，例如剪髮、剷雪、造景。 | 剪髮<br/>技師<br/>水管工|
 | TransportationCompany | 運輸服務提供者的名稱。|Amtrak<br/>Acela<br/>Greyhound|
-| TransportationType | 交通工具類型。|公車<br/>訓練<br/>開車|
+| TransportationType | 交通工具類型。|公車<br/>定型<br/>開車|
 
 ## <a name="reminder"></a>提醒 
 Reminder 定義域提供建立、編輯及尋找提醒的意圖和實體。
@@ -491,7 +491,7 @@ Table for 3 in Palo Alto at 7
 | Amenities | 描述某個地點之便利設施的屬性。|海景<br/>非吸煙|
 | AppName | 預約的應用程式名稱。|OpenTable<br/>Yelp<br/>TripAdvisor|
 | Atmosphere | 餐廳或其他地點的氣氛描述。|浪漫<br/>休閒<br/>適合團體|
-| Cuisine | 食物類型、料理或料理國籍。 |中式<br/>義大利文<br/>墨西哥|
+| Cuisine | 食物類型、料理或料理國籍。 |中文<br/>義大利文<br/>墨西哥|
 | MealType | 與預約建立關聯的飲食類型。|早餐<br/>正餐<br/>午餐<br/>晚餐|
 | PlaceName | 當地公司、餐廳、公共遊樂設施或機構的名稱。|IHOP<br/>Cheesecake Factory<br/>羅浮宮|
 | PlaceType | 當地公司、餐廳、公共遊樂設施或機構的類型。|餐廳<br/>歌劇<br/>電影院|
@@ -511,7 +511,7 @@ Cancel my Uber
 ### <a name="intents"></a>對應方式
 | 意圖名稱 | 說明 | 範例 |
 | ---------------- |-----------------------|----|
-| Book | 叫計程車。 |替我叫計程車<br/>尋找計程車<br/>替我預約 uber x|
+| 書籍 | 叫計程車。 |替我叫計程車<br/>尋找計程車<br/>替我預約 uber x|
 | 取消 | 取消與預約計程車相關的動作。|取消我的計程車<br/>取消我的 Uber|
 | Track | 追蹤計程車路線。|我還要等多久才能坐到計程車？<br/>我的 Uber 在哪裡？|
 
@@ -525,7 +525,7 @@ Cancel my Uber
 | PlaceName | 當地公司、餐廳、公共遊樂設施或機構的名稱。 |Central Park<br/>Safeway<br/>Walmart|
 | PlaceType| 預約計程車要求中的地點類型。|餐廳<br/>Opera<br/>電影院|
 | TransportationCompany | 運輸服務提供者的名稱。|Amtrak<br/>Acela<br/>Greyhound|
-| TransportationType | 交通工具類型。|公車<br/>訓練<br/>開車|
+| TransportationType | 交通工具類型。|公車<br/>定型<br/>開車|
 
 ## <a name="translate"></a>翻譯 
 Translate 定義域提供與將文字翻譯成目標語言相關的意圖和實體。

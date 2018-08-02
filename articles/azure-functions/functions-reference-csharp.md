@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 42b9f574d09429d95fbf79da02c137e1079ac369
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 984fd61eeedf988e5378fd9e1e1d386b09505939
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006942"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161682"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C# 指令碼 (.csx) 開發人員參考
 
@@ -247,6 +247,8 @@ public async static Task ProcessQueueMessageAsync(
     await blobInput.CopyToAsync(blobOutput, 4096);
 }
 ```
+
+您無法在非同步函式中使用 `out` 參數。 針對輸出繫結，請改為使用[函式傳回值](#binding-to-method-return-value)或[收集器物件](#writing-multiple-output-values)。
 
 ## <a name="cancellation-tokens"></a>取消權杖
 

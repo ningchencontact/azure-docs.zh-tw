@@ -2,19 +2,19 @@
 title: 了解 LUIS 所傳回的預測分數 - Azure | Microsoft Docs
 description: 了解 LUIS 中的預測分數意義
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: 31c101a23892df8599b8cdc0f67647fefb969490
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: cee7243531857f07dec2e968352ffb54aef16bf1
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265983"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224581"
 ---
 # <a name="prediction-score"></a>預測分數
 預測分數表示 LUIS 對預測結果的信賴程度。 
@@ -28,7 +28,7 @@ ms.locfileid: "36265983"
 |0.01|低信賴度|
 |0|明確不相符|
 
-當語句產生低信賴度分數時，LUIS 會在 [LUIS][LUIS] 網站的 [Intent] \(意圖\) 頁面上，將所識別的**已標記的意圖**以紅色框線標示來醒目提示。 
+當語句產生低信賴度分數時，LUIS 會在 [LUIS](luis-reference-regions.md) 網站的 [意圖] 頁面上，將所識別的**已標示的意圖**以紅色框線標示來醒目提示。 
 
 ![分數差異](./media/luis-concept-score/score-discrepancy.png)
 
@@ -58,8 +58,9 @@ ms.locfileid: "36265983"
 
 如果您的 Chatbot 需要有特定的 LUIS 分數，才能指出對某個意圖的信賴度，您就應該改為使用兩個最高分意圖之間的分數差異。 這樣可以在定型中提供變化的彈性。 
 
+## <a name="punctuation"></a>標點符號
+標點符號在 LUIS 中是個別的語彙基元。 結尾包含句點的語句與未包含句點的語句是兩個不同的語句，而且可能會收到兩個不同的預測。 請確定模型會在[範例語句](luis-concept-utterance.md) (含標點符號和不含標點符號) 或在更容易使用特殊語法來忽略標點符號的 [patterns}(luis-concept-patterns.md) 中處理標點符號：`I am applying for the {Job} position[.]`
+
 ## <a name="next-steps"></a>後續步驟
 
 請參閱[新增實體](luis-how-to-add-entities.md)，以深入了解如何將實體新增至 LUIS 應用程式。
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

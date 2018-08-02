@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 59ae7e83bc2b76cb679b0baf1f5739f28ec7046c
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: d868a59dd5d00dea410cbe8c373263e13903d3ba
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248275"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413139"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的條件？ 
 
@@ -152,7 +152,7 @@ ms.locfileid: "39248275"
 
 - 封鎖來自任何 Web 應用程式的存取，但允許來自行動應用程式和桌面應用程式的存取。
 
-您可以將此條件套用至 Web SSO 和新式驗證通訊協定。 您也可以將其套用至使用 Microsoft Exchange ActiveSync 的郵件應用程式。 範例包括大部分智慧型手機上的原生郵件應用程式。 目前，必須使用 Azure AD 同盟服務來保護使用傳統通訊協定的用戶端應用程式。
+您可以將此條件套用至 Web SSO 和新式驗證通訊協定。 您也可以將其套用至使用 Microsoft Exchange ActiveSync 的郵件應用程式。 範例包括大部分智慧型手機上的原生郵件應用程式。 
 
 只有在 Microsoft Office 365 Exchange Online 是您唯一選取的雲端應用程式時，才可以選取用戶端應用程式條件。
 

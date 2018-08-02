@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.author: barbkess
 ms.reviewer: richagi
-ms.openlocfilehash: abf7d571097aefd47c90cbd0ce4aab941c4e24c4
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: b89ab77b1cd97fd501a754dbf41d1aa74ef118d9
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126655"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144987"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>使用租用戶限制來管理對 SaaS 雲端應用程式的存取
 
@@ -97,7 +97,7 @@ Azure Active Directory 對這項挑戰所提出的解決方案是一個稱為「
 
 雖然設定「租用戶限制」時是在公司 Proxy 基礎結構上完成設定，但系統管理員可以直接在 Azure 入口網站中存取「租用戶限制」報告。 若要檢視這些報告，請移至 Azure Active Directory 的 [概觀] 頁面，然後查看 [其他功能] 底下。
 
-租用戶如果被指定為 Restricted-Access-Context 租用戶，其系統管理員便可以使用此報告來查看所有因「租用戶限制」原則而遭封鎖的登入，包括所使用的身分識別及租用戶目錄識別碼。
+如果將租用戶指定為 Restricted-Access-Context 租用戶，其系統管理員便可以使用此報告來查看因「租用戶限制」原則而遭封鎖的登入，包括所使用的身分識別及租用戶目錄識別碼。 如果設定限制的租用戶為登入的使用者租用戶或資源租用戶，則會包含登入。
 
 ![使用 Azure 入口網站來檢視受限制的登入嘗試](./media/tenant-restrictions/portal-report.png)
 

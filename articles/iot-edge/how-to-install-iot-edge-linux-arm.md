@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 5b5212d5e1663fee01ff87642432818071d4f4dd
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: e814785af7041ba762f7c383a0cfdc434fce9dce
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988529"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213867"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>在 Linux (ARM32v7/armhf) 上安裝 Azure IoT Edge 執行階段
 
@@ -101,6 +101,10 @@ Edge 裝置可以使用[裝置連接字串][lnk-dcs]手動設定，或[透過裝
      scope_id: "{scope_id}"
      registration_id: "{registration_id}"
    ```
+
+儲存並關閉檔案。 
+
+   `CTRL + X`、`Y`, `Enter`
 
 在組態中輸入佈建資訊之後，請重新啟動精靈：
 

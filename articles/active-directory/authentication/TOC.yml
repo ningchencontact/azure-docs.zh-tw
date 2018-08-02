@@ -25,6 +25,8 @@
   items:
     - name: 驗證方法
       href: concept-authentication-methods.md
+    - name: 聚合式註冊
+      href: concept-registration-mfa-sspr-converged.md
     - name: 自助式密碼重設
       items:
         - name: 密碼重設如何運作

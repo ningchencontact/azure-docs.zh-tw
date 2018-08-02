@@ -71,6 +71,8 @@
           href: create-ssl-portal.md
         - name: 使用 Azure PowerShell 進行 SSL 終止
           href: tutorial-ssl-powershell.md
+        - name: 使用 Azure PowerShell 進行端對端 SSL 終止
+          href: application-gateway-end-to-end-ssl-powershell.md
         - name: 更新憑證
           href: renew-certificates.md
         - name: 設定 SSL 原則

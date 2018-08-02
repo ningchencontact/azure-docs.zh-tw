@@ -11,14 +11,14 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/11/2018
+ms.date: 07/23/2018
 ms.author: bsiva
-ms.openlocfilehash: 0d3f28f0a9f1e9862fabb6ce5e96597f1534abd8
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 552a0d131f630db7b3a73293d330377ee350d2a9
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011396"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214613"
 ---
 # <a name="migrate-servers-running-windows-server-2008-2008-r2-to-azure"></a>將執行 Windows Server 2008、2008 R2 的伺服器遷移至 Azure
 
@@ -110,15 +110,47 @@ ms.locfileid: "39011396"
 ## <a name="prepare-your-on-premises-environment-for-migration"></a>準備內部部署環境以便進行移轉
 
 - 從下列位置下載組態伺服器安裝程式 (整合安裝程式)：[https://aka.ms/asr-w2k8-migration-setup](https://aka.ms/asr-w2k8-migration-setup)
-- 使用上一個步驟所下載的安裝程式檔案[設定](physical-azure-disaster-recovery.md#set-up-the-source-environment)來源環境。
+- 請遵循下列所述步驟，使用上一個步驟所下載的安裝程式檔案設定來源環境。
 
 > [!IMPORTANT]
-> 請務必使用上面第一個步驟中所下載的安裝程式檔案，來安裝和註冊組態伺服器。 請勿從 Azure 入口網站下載安裝程式檔案。 [https://aka.ms/asr-w2k8-migration-setup](https://aka.ms/asr-w2k8-migration-setup) 所提供的安裝程式檔案，是唯一支援 Windows Server 2008 移轉的版本。
+> - 請務必使用上面第一個步驟中所下載的安裝程式檔案，來安裝和註冊組態伺服器。 請勿從 Azure 入口網站下載安裝程式檔案。 [https://aka.ms/asr-w2k8-migration-setup](https://aka.ms/asr-w2k8-migration-setup) 所提供的安裝程式檔案，是唯一支援 Windows Server 2008 移轉的版本。
 >
-> 您無法使用現有組態伺服器來遷移執行 Windows Server 2008 的機器。 您必須使用上面提供的連結來設定新的組態伺服器。
+> - 您無法使用現有組態伺服器來遷移執行 Windows Server 2008 的機器。 您必須使用上面提供的連結來設定新的組態伺服器。
+>
+> - 請遵循下列步驟來安裝組態伺服器。 請勿嘗試直接執行統一安裝來使用以 GUI 為基礎的安裝程序。 這麼做會導致安裝失敗，並出現沒有網際網路連線的錯誤訊息。
+
+ 
+1) 從入口網站下載保存庫認證檔案：在 Azure 入口網站中，選取在上一個步驟中建立的復原服務保存庫。 從保存庫頁面上的功能表中，選取 [Site Recovery 基礎結構] > [組態伺服器]。 然後按一下 [+伺服器]。 在開啟的頁面上，從下拉式清單中選取 [實體的組態伺服器]。 按一下步驟 4 中的 [下載] 按鈕，下載保存庫認證檔案。
 
  ![下載保存庫註冊金鑰](media/migrate-tutorial-windows-server-2008/download-vault-credentials.png) 
- 
+
+2) 複製上一個步驟中下載的保存庫認證檔案，以及先前下載到組態伺服器機器 (要在其中安裝組態伺服器軟體的 Windows Server 2012 R2 或 Windows Server 2016 機器) 桌面的統一安裝檔。
+
+3) 請確定組態伺服器有網際網路連線，並已正確設定機器上的系統時鐘和時區設定。 下載 [MySQL 5.7](https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi) 安裝程式，並將它放在 C:\Temp\ASRSetup (如果沒有此目錄，請建立一個)。 
+
+4) 以下列幾行建立 MySQL 認證檔案，並將它放在桌面上的 **C:\Users\Administrator\MySQLCreds.txt**。 使用適當的強式密碼取代下方的 "Password~1"：
+
+```
+[MySQLCredentials]
+MySQLRootPassword = "Password~1"
+MySQLUserPassword = "Password~1"
+```
+
+5) 執行下列命令，以將下載的統一安裝檔內容擷取到桌面：
+
+```
+cd C:\Users\Administrator\Desktop
+
+MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Users\Administrator\Desktop\9.18
+```
+  
+6) 執行下列命令，使用擷取的內容來安裝組態伺服器軟體：
+
+```
+cd C:\Users\Administrator\Desktop\9.18.1
+
+UnifiedSetup.exe /AcceptThirdpartyEULA /ServerMode CS /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /MySQLCredsFilePath "C:\Users\Administrator\Desktop\MySQLCreds.txt" /VaultCredsFilePath <vault credentials file path> /EnvType VMWare /SkipSpaceCheck
+```
 
 ## <a name="set-up-the-target-environment"></a>設定目標環境
 

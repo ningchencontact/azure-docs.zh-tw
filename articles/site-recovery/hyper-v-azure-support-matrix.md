@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 3204329dc7c9efe2b0ba0ae05d17bc93d51620b4
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 709afe03570ca4cf81718fb071778439444d6bf6
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37923466"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171978"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Hyper-V 複寫至 Azure 的支援矩陣
 
@@ -48,22 +48,27 @@ VM 設定 | 複寫到 Azure 的 VM 必須符合 [Azure 需求](#failed-over-azur
 客體作業系統 | Azure 支援的任何客體作業系統。<br/><br/> 不支援 Windows Server 2016 Nano Server。
 
 
+## <a name="vmdisk-management"></a>VM/磁碟管理
 
+**Action** | **詳細資料**
+--- | ---
+在複寫的 Hyper-V VM 上調整磁碟大小 | 不支援。 停用複寫、進行變更，然後重新啟用 VM 的複寫。
+在複寫的 Hyper-V VM 上新增磁碟 | 不支援。 停用複寫、進行變更，然後重新啟用 VM 的複寫。
 
 ## <a name="hyper-v-network-configuration"></a>Hyper-V 網路組態
 
 **元件** | **Hyper-V (有 Virtual Machine Manager)** | **Hyper-V (不含 Virtual Machine Manager)**
 --- | --- | ---
-主機網路：NIC 小組 | yes
-主機網路：VLAN | yes
-主機網路：IPv4 | yes
+主機網路：NIC 小組 | 是
+主機網路：VLAN | 是
+主機網路：IPv4 | 是
 主機網路：IPv6 | 否
 客體 VM 網路：NIC 小組 | 否
-客體 VM 網路：IPv4 | yes
+客體 VM 網路：IPv4 | 是
 客體 VM 網路：IPv6 | 否
-客體 VM 網路：靜態 IP (Windows) | yes
+客體 VM 網路：靜態 IP (Windows) | 是
 客體 VM 網路：靜態 IP (Linux) | 否
-客體 VM 網路：多重 NIC | yes
+客體 VM 網路：多重 NIC | 是
 
 
 
@@ -71,15 +76,15 @@ VM 設定 | 複寫到 Azure 的 VM 必須符合 [Azure 需求](#failed-over-azur
 
 **元件** | **Hyper-V (有 Virtual Machine Manager)** | **Hyper-V (不含 Virtual Machine Manager)**
 --- | --- | ---
-Azure ExpressRoute | yes | yes
-ILB | yes | yes
-ELB | yes | yes
-Azure 流量管理員 | yes | yes
-多個 NIC | yes | yes
-保留的 IP | yes | yes
-IPv4 | yes | yes
-保留來源 IP 位址 | yes | yes
-Azure 虛擬網路服務端點<br/> (不含 Azure 儲存體防火牆) | yes | yes
+Azure ExpressRoute | 是 | 是
+ILB | 是 | 是
+ELB | 是 | 是
+Azure 流量管理員 | 是 | 是
+多個 NIC | 是 | 是
+保留的 IP | 是 | 是
+IPv4 | 是 | 是
+保留來源 IP 位址 | 是 | 是
+Azure 虛擬網路服務端點<br/> (不含 Azure 儲存體防火牆) | 是 | 是
 加速網路 | 否 | 否
 
 
@@ -88,18 +93,18 @@ Azure 虛擬網路服務端點<br/> (不含 Azure 儲存體防火牆) | yes | ye
 **儲存體** | **Hyper-V (有 Virtual Machine Manager)** | **Hyper-V (不含 Virtual Machine Manager)**
 --- | --- | --- | ---
 NFS | NA | NA
-SMB 3.0 | yes | yes
-SAN (ISCSI) | yes | yes
-多重路徑 (MPIO)。 測試工具：<br></br> Microsoft DSM、EMC PowerPath 5.7 SP4<br/><br/> EMC PowerPath DSM for CLARiiON | yes | yes
+SMB 3.0 | 是 | 是
+SAN (ISCSI) | 是 | 是
+多重路徑 (MPIO)。 測試工具：<br></br> Microsoft DSM、EMC PowerPath 5.7 SP4<br/><br/> EMC PowerPath DSM for CLARiiON | 是 | 是
 
 ## <a name="hyper-v-vm-guest-storage"></a>Hyper-V VM 客體儲存體
 
 **儲存體** | **Hyper-V (有 Virtual Machine Manager)** | **Hyper-V (不含 Virtual Machine Manager)**
 --- | --- | ---
 VMDK | NA | NA
-VHD/VHDX | yes | yes
-第 2 代 VM | yes | yes
-EFI/UEFI| yes | yes
+VHD/VHDX | 是 | 是
+第 2 代 VM | 是 | 是
+EFI/UEFI| 是 | 是
 共用叢集磁碟 | 否 | 否
 已加密磁碟 | 否 | 否
 NFS | NA | NA
@@ -107,25 +112,25 @@ SMB 3.0 | 否 | 否
 RDM | NA | NA
 磁碟 > 1 TB | 是，最多 4,095 GB | 是，最多 4,095 GB
 磁碟：4k 邏輯與實體磁區 | 不支援：第 1 代/第 2 代 | 不支援：第 1 代/第 2 代
-磁碟：4K 邏輯與 512 位元組實體磁區 | yes |  yes
-使用等量磁碟的磁碟區 > 1 TB<br/><br/> 邏輯磁碟區管理 (LVM) | yes | yes
-儲存空間 | yes | yes
+磁碟：4K 邏輯與 512 位元組實體磁區 | 是 |  是
+使用等量磁碟的磁碟區 > 1 TB<br/><br/> 邏輯磁碟區管理 (LVM) | 是 | 是
+儲存空間 | 是 | 是
 熱新增/移除磁碟 | 否 | 否
-排除磁碟 | yes | yes
-多重路徑 (MPIO) | yes | yes
+排除磁碟 | 是 | 是
+多重路徑 (MPIO) | 是 | 是
 
 ## <a name="azure-storage"></a>Azure 儲存體
 
 **元件** | **Hyper-V (有 Virtual Machine Manager)** | **Hyper-V (不含 Virtual Machine Manager)**
 --- | --- | ---
-本地備援儲存體 | yes | yes
-異地備援儲存體 | yes | yes
-讀取權限異地備援儲存體 | yes | yes
+本地備援儲存體 | 是 | 是
+異地備援儲存體 | 是 | 是
+讀取權限異地備援儲存體 | 是 | 是
 非經常性儲存體 | 否 | 否
 經常性存取儲存體| 否 | 否
 區塊 Blob | 否 | 否
-待用加密 (SSE)| yes | yes
-進階儲存體 | yes | yes
+待用加密 (SSE)| 是 | 是
+進階儲存體 | 是 | 是
 匯入/匯出服務 | 否 | 否
 設定在目標儲存體/快取儲存體帳戶 (用於儲存複寫資料) 上適用於虛擬網路的 Azure 儲存體防火牆 | 否 | 否
 
@@ -134,8 +139,8 @@ RDM | NA | NA
 
 **功能** | **Hyper-V (有 Virtual Machine Manager)** | **Hyper-V (不含 Virtual Machine Manager)**
 --- | --- | ---
-可用性設定組 | yes | yes
-中樞 | yes | yes  
+可用性設定組 | 是 | 是
+中樞 | 是 | 是  
 受控磁碟 | 是，適用於容錯移轉。<br/><br/> 不支援受控磁碟的容錯回復。 | 是，適用於容錯移轉。<br/><br/> 不支援受控磁碟的容錯回復。
 
 ## <a name="azure-vm-requirements"></a>Azure VM 需求

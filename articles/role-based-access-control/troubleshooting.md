@@ -11,29 +11,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 07/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 186bcf26639f5cff2dcbf1e805913ac7edab7df4
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: d1a0e46fe348bbc60a4d02a4727a9bb27cb26742
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437360"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223291"
 ---
-# <a name="troubleshooting-rbac-in-azure"></a>針對 Azure 的各種 RBAC 問題進行疑難排解
+# <a name="troubleshoot-rbac-in-azure"></a>針對 Azure 的各種 RBAC 問題進行疑難排解
 
-本文將回答常見的角色型存取控制 (RBAC) 問題，讓您知道在 Azure 入口網站中使用角色時會有什麼樣的結果，以及如何解決存取權相關問題。 這三種角色涵蓋了所有資源類型︰
+本文將回答常見的角色型存取控制 (RBAC) 問題，讓您知道在 Azure 入口網站中使用角色時會有什麼樣的結果，以及如何解決存取權相關問題。
 
-* 擁有者  
-* 參與者  
-* 讀取者  
+## <a name="web-app-features-that-require-write-access"></a>需要寫入存取權的 Web 應用程式功能
 
-擁有者與參與者都擁有完整的管理功能，但參與者無法將存取權限授與其他使用者或群組。 讀取者角色則是比較有趣，因此我們會在本文中多花點時間介紹。 如需深入了解如何授與存取權，請參閱[使用 RBAC 和 Azure 入口網站來管理存取權](role-assignments-portal.md)。
-
-## <a name="app-service"></a>App Service 方案
-### <a name="write-access-capabilities"></a>寫入存取功能
 如果您授與對單一 Web 應用程式授與使用者唯讀存取權限，部分功能可能會在未預期的情況下停用。 以下管理功能需要 Web 應用程式的**寫入**存取權限 (參與者或擁有者)，而且無法在任何唯讀情況中使用。
 
 * 命令 (像是開始、停止等)
@@ -49,7 +43,8 @@ ms.locfileid: "37437360"
 
 如果您無法存取上述任何一個磚，請洽詢您的系統管理員，取得 Web 應用程式的參與者存取權限。
 
-### <a name="dealing-with-related-resources"></a>處理相關資源
+## <a name="web-app-resources-that-require-write-access"></a>需要寫入存取權的 Web 應用程式資源
+
 Web 應用程式因為幾個互有關聯的資源而顯得複雜。 以下是具有多個網站的典型資源群組：
 
 ![Web 應用程式資源群組](./media/troubleshooting/website-resource-model.png)
@@ -70,15 +65,9 @@ Web 應用程式因為幾個互有關聯的資源而顯得複雜。 以下是具
 * 應用程式見解元件  
 * Web 測試  
 
-## <a name="azure-functions"></a>Azure Functions
-[Azure Functions](../azure-functions/functions-overview.md) 的某些功能需要寫入存取權。 例如，如果指派使用者讀者角色，他們將無法檢視函數應用程式內的函數。 入口網站將顯示 **(無存取權)**。
+## <a name="virtual-machine-features-that-require-write-access"></a>需要寫入存取權的虛擬機器功能
 
-![函數應用程式無存取權](./media/troubleshooting/functionapps-noaccess.png)
-
-讀者可以按一下 [平台功能] 索引標籤，然後按一下 [所有設定] 以檢視與函數應用程式相關的一些設定 (類似於 Web 應用程式)，但他們不能修改這些設定。
-
-## <a name="virtual-machine"></a>虛擬機器
-差不多與 Web 應用程式相同的是，虛擬機器分頁上的某些功能需要具備虛擬機器 (或是資源群組中的其他資源) 的寫入存取權限。
+類似於 Web 應用程式，虛擬機器刀鋒視窗上的某些功能需要具備虛擬機器 (或是資源群組中的其他資源) 的寫入存取權限。
 
 虛擬機器與網域名稱、虛擬網路、儲存體帳戶及警示規則相關。
 
@@ -96,6 +85,18 @@ Web 應用程式因為幾個互有關聯的資源而顯得複雜。 以下是具
 * 警示規則  
 
 如果您無法存取上述任何一個磚，請洽詢您的系統管理員，以取得資源群組的參與者存取權限。
+
+## <a name="azure-functions-and-write-access"></a>Azure Functions 和寫入權限
+
+[Azure Functions](../azure-functions/functions-overview.md) 的某些功能需要寫入存取權。 例如，如果指派使用者讀者角色，他們將無法檢視函數應用程式內的函數。 入口網站將顯示 **(無存取權)**。
+
+![函數應用程式無存取權](./media/troubleshooting/functionapps-noaccess.png)
+
+讀者可以按一下 [平台功能] 索引標籤，然後按一下 [所有設定] 以檢視與函數應用程式相關的一些設定 (類似於 Web 應用程式)，但他們不能修改這些設定。
+
+## <a name="rbac-changes-are-not-being-detected"></a>偵測不到 RBAC 的變更
+
+Azure Resource Manager 有時候會快取組態和資料來改善效能。 建立或刪除角色指派時，這些變更可能需要 30 分鐘的時間才會生效。 如果您使用 Azure 入口網站、Azure PowerShell 或 Azure CLI，您可以藉由登出再登入，來強制重新整理角色指派變更。 如果您使用 REST API 呼叫來變更角色指派，您可以重新整理存取權杖來強制重新整理。
 
 ## <a name="next-steps"></a>後續步驟
 * [使用 RBAC 和 Azure 入口網站來管理存取權](role-assignments-portal.md)

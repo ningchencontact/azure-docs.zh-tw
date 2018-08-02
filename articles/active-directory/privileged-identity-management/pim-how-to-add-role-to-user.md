@@ -1,6 +1,6 @@
 ---
-title: 如何新增或移除使用者角色 | Microsoft Docs
-description: 了解如何使用 Azure Active Directory Privileged Identity Management 應用程式來將角色新增到特殊權限身分識別。
+title: 使用 Azure AD PIM 將目錄角色指派給使用者 | Microsoft Docs
+description: 了解如何使用 Azure Active Directory Privileged Identity Management 和 Azure 入口網站將目錄角色指派給使用者。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,57 +10,106 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: protection
-ms.date: 01/03/2018
+ms.date: 07/23/2018
 ms.author: rolyon
-ms.openlocfilehash: eac0869c0f4a7dd780d6988ff9bc4362458a7e3d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1834addb4e51030afda43a2d7acad5d7ffc1889a
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723330"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226691"
 ---
-# <a name="azure-ad-privileged-identity-management-how-to-add-or-remove-a-user-role"></a>Azure AD Privileged Identity Management：如何新增或移除使用者角色
-使用 Azure Active Directory (AD)，全域系統管理員 (或公司系統管理員) 可以更新哪些使用者獲 **永久** 指派 Azure AD 的角色。 做法是使用 PowerShell Cmdlet，如 `Add-MsolRoleMember` 和 `Remove-MsolRoleMember`。 或是可以依照[在 Azure Active Directory 中指派系統管理員角色](../users-groups-roles/directory-assign-admin-roles.md)所述，使用 Azure 入口網站。
+# <a name="assign-directory-roles-to-users-using-azure-ad-pim"></a>使用 Azure AD PIM 將目錄角色指派給使用者
 
-Azure AD Privileged Identity Management 應用程式也允許特殊權限角色管理員指派永久的角色。 此外，特殊權限角色系統管理員可以讓使用者 **有資格**扮演系統管理員角色。 合格系統管理員可在需要時啟用角色，而在完成工作之後，其權限就隨即失效。
+透過 Azure Active Directory (Azure AD)，全域系統管理員可設定**永久的**目錄角色指派。 您可以使用 [Azure 入口網站](../users-groups-roles/directory-assign-admin-roles.md)或使用 [PowerShell 命令](/powershell/module/azuread#directory_roles)來建立這些角色指派。
 
-## <a name="manage-roles-with-pim-in-the-azure-portal"></a>在 Azure 入口網站管理使用 PIM 的角色
-在您的組織中，您可以將使用者指派給 Azure AD、Office 365 及其他 Microsoft 服務和應用程式中不同的系統管理角色。  如需可用角色的詳細資訊，請參閱 [Azure AD PIM 中的角色](pim-roles.md)。
+Azure AD Privileged Identity Management (PIM) 服務也允許特殊權限角色管理員指派永久的目錄角色。 此外，特殊權限角色系統管理員可以讓使用者**有資格**獲派目錄角色。 合格系統管理員可在需要時啟用角色，而在完成工作之後，其權限就隨即失效。 如需您可以使用 PIM 管理的角色相關資訊，請參閱[您可以使用 Azure AD PIM 管理的目錄角色](pim-roles.md)。
 
-若要新增或移除使用者使用 Privileged Identity Management 的角色，請啟動 PIM 儀表板。 然後按一下 [系統管理員角色的使用者]  按鈕，或從角色資料表中選取特定角色 (例如全域系統管理員)。
+## <a name="make-a-user-eligible-for-a-role"></a>讓使用者有資格獲派角色
 
-> [!NOTE]
-> 如果您還沒有在 Azure 入口網站中啟用 PIM，請移至 [開始使用 Azure AD Privileged Identity Management](pim-getting-started.md) 以取得詳細資訊。
+請遵循下列步驟來讓使用者有資格獲派 Azure AD 目錄角色。
 
-如果您想要讓其他使用者存取 PIM 本身，請參閱 [How to give access to manage Azure AD Privileged Identity Management (如何提供管理  Azure AD Privileged Identity Management 的存取權)](pim-how-to-give-access-to-pim.md)，進一步了解 PIM 需要使用者具有哪些角色。
+1. 以屬於[特殊權限角色管理員](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)角色一員的使用者身分登入 [Azure 入口網站](https://portal.azure.com/)。
 
-## <a name="add-a-user-to-a-role"></a>將使用者新增至角色
-1. 在 [Azure 入口網站](https://portal.azure.com/)中，於儀表板上選取 [Azure AD Privileged Identity Management] 圖格。
-2. 選取 [管理特殊權限角色] 。
-3. 在 [角色摘要]  表格中，選取您想要管理的角色。
-4. 在 [角色] 刀鋒視窗中，選取 [加入] 。
-5. 按一下 [選取使用者]，然後在 [選取使用者] 刀鋒視窗上搜尋使用者。  
-6. 從搜尋結果清單中選取使用者，然後按一下 [完成] 。
-7. 按一下 [確定]  以儲存您的選取項目。 您已選取的使用者將會在清單中顯示為該角色的合格使用者。
+    如需如何授與其他使用者存取權來管理 PIM 的資訊，請參閱[如何授與 PIM 的存取權](pim-how-to-give-access-to-pim.md)。
 
-> [!NOTE]
-> 角色中的新使用者預設僅是該角色的合格使用者。 如果想要讓角色變成永久，請按一下清單中的使用者。 該使用者的資訊即會出現在新的刀鋒視窗中。 在使用者資訊功能表中，選取 [設為永久]  。  
-> 如果使用者無法註冊 Azure Multi-Factor Authentication (MFA)，或使用者使用的是 Microsoft 帳戶 (通常是 @outlook.com)，您就需要將他們的所有角色設為永久。 系統會要求合格系統管理員在啟用啟用期間註冊 MFA。
+1. 開啟 **Azure AD Privileged Identity Management**。
 
-既然使用者有資格扮演某個角色，請讓他們知道他們可以根據[如何啟用或停用角色](pim-how-to-activate-role.md)中的指示來啟用角色。
+    如果您還沒有在 Azure 入口網站中啟用 PIM，請移至 [開始使用 Azure AD PIM](pim-getting-started.md)。
+
+1. 按一下 [Azure AD 目錄角色]。
+
+1. 按一下 [角色 (預覽)] 或 [成員]。
+
+    ![Azure AD 目錄角色](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
+
+1. 按一下 [新增成員] 以開啟 [新增受控成員]。
+
+1. 按一下 [選取角色]，按一下您想要管理的角色，然後按一下 [選取]。
+
+    ![選取角色](./media/pim-how-to-add-role-to-user/pim-select-a-role.png)
+
+1. 按一下 [選取成員]，選取您想要指派給角色的使用者，然後按一下 [選取]。
+
+    ![選取角色](./media/pim-how-to-add-role-to-user/pim-select-members.png)
+
+1. 在 [新增受控成員] 中，按一下 [確定] 以將使用者新增至角色。
+
+     指派角色之後，您選取的使用者將會在成員清單中顯示為該角色的**合格**使用者。
+
+    ![角色的合格使用者](./media/pim-how-to-add-role-to-user/pim-directory-role-eligible.png)
+
+1. 既然使用者有資格扮演某個角色，請讓他們知道他們可以根據[如何啟用或停用角色](pim-how-to-activate-role.md)中的指示來啟用角色。
+
+    啟用期間，系統會要求合格的系統管理員註冊 Azure Multi-factor Authentication (MFA)。 如果使用者無法註冊MFA，或使用者使用的是 Microsoft 帳戶 (通常是 @outlook.com)，您就需要將他們的所有角色設為永久。
+
+## <a name="make-a-role-assignment-permanent"></a>設定永久角色指派
+
+根據預設，新的使用者只有獲派目錄角色的資格。 如果您想要設定永久角色指派，請遵循下列步驟。
+
+1. 開啟 **Azure AD Privileged Identity Management**。
+
+1. 按一下 [Azure AD 目錄角色]。
+
+1. 按一下 [成員]。
+
+    ![成員的清單](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
+
+1. 按一下您想要設為永久的 [合格] 角色。
+
+1. 按一下 [更多]，然後按一下 [設為永久]。
+
+    ![設定永久角色指派](./media/pim-how-to-add-role-to-user/pim-make-perm.png)
+
+    角色現在會列為**永久**。
+
+    ![永久變更的成員清單](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members-permanent.png)
 
 ## <a name="remove-a-user-from-a-role"></a>從角色移除使用者
-您可以將使用者從合格角色指派中移除，但請務必一律至少保留一個永久全域系統管理員使用者。
 
-請遵循下列步驟移除角色中的特定使用者︰
+您可以將使用者從角色指派中移除，但請務必一律至少保留一個永久全域系統管理員使用者。 如果您不確定哪些使用者仍然需要其角色指派，您可以[開始進行角色的存取權檢閱](pim-how-to-start-security-review.md)。
 
-1. 在 Azure AD PIM 儀表板中選取一個角色，或按一下 [系統管理員角色的使用者]  按鈕，來瀏覽至角色清單中的角色。
-2. 按一下使用者清單中的使用者。
-3. 按一下 [移除] 。 會出現訊息要求您確認。
-4. 按一下 [是]  ，即可從使用者中移除角色。
+請遵循下列步驟移除目錄角色中的特定使用者。
 
-如果您不確定哪些使用者仍然需要其角色指派，您可以 [開始角色的存取權檢閱](pim-how-to-start-security-review.md)。
+1. 開啟 **Azure AD Privileged Identity Management**。
+
+1. 按一下 [Azure AD 目錄角色]。
+
+1. 按一下 [成員]。
+
+    ![成員的清單](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
+
+1. 按一下您想要移除的角色指派。
+
+1. 按一下 [更多]，然後按一下 [移除]。
+
+    ![移除角色](./media/pim-how-to-add-role-to-user/pim-remove-role.png)
+
+1. 在要求您確認的訊息中，按一下 [是]。
+
+    ![移除角色](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
+
+    已移除角色指派。
 
 ## <a name="next-steps"></a>後續步驟
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
-

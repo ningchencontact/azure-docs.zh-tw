@@ -2,19 +2,19 @@
 title: 在 Azure 中使用適用於 Node.js 的 Bot 產生器 SDK 來整合 LUIS 與 Bot | Microsoft Docs
 description: 使用 Bot Framework 來建置與 LUIS 應用程式整合的 Bot。
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/06/2018
-ms.author: v-geberr
-ms.openlocfilehash: 5d9b78977457f818b964adb16ebb5e9e5872aa2c
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: 6d6937105b11d94138b51660dc9f3c5e682e19bc
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264968"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224070"
 ---
 # <a name="integrate-luis-with-a-bot-using-the-bot-builder-sdk-for-nodejs"></a>使用適用於 Node.js 的 Bot 產生器 SDK 來整合 LUIS 與 Bot
 
@@ -68,7 +68,7 @@ Bot 會回應來自 LUIS 應用程式中 HomeAutomation 定義域的意圖。 �
 
 2. 一個新的第二瀏覽器視窗隨即開啟。 選取 [開啟線上程式碼編輯器]。
 
-3. 在頂端導覽列中，選取 Web 應用程式 Bot 名稱 `homeautomationluisbot`。 
+3. 在頂端瀏覽列中，選取 Web 應用程式 Bot 名稱 `homeautomationluisbot`。 
 
 4. 在下拉式清單中，選取 [開啟 Kudu 主控台]。
 
@@ -101,7 +101,7 @@ Bot 會說出 "You have reached Greeting. You said: hello" 來作為回應。 �
 
 3. 如果您尚未進行應用程式定型，請選取右上方的 [Train] \(定型\) 按鈕來進行應用程式定型。
 
-4. 如果您尚未發佈應用程式，請選取頂端導覽列中的 [PUBLISH] \(發佈\) 來開啟 [Publish] \(發佈\) 頁面。 選取 [Production] \(生產\) 位置和 [Publish] \(發佈\) 按鈕。
+4. 如果您尚未發佈應用程式，請選取頂端瀏覽列中的 [PUBLISH] \(發佈\) 來開啟 [Publish] \(發佈\) 頁面。 選取 [Production] \(生產\) 位置和 [Publish] \(發佈\) 按鈕。
 
 ## <a name="modify-the-bot-code"></a>修改 Bot 程式碼
 
@@ -235,7 +235,7 @@ bot.dialog('TurnOff',
    ![在網路聊天中測試 HomeAutomation Bot](./media/luis-tutorial-node-bot/bot-service-chat-results.png)
 
 > [!TIP]
-> 如果您發現 Bot 並未總是辨識出正確的意圖或實體，請提供更多範例語句來進行 LUIS 應用程式定型，以改善應用程式的效能。 您無須對 Bot 程式碼進行任何修改，即可將 LUIS 應用程式重新定型。 請參閱[新增範例語句](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) \(英文\) 和[對您的 LUIS 應用程式進行定型和測試](https://docs.microsoft.com/azure/cognitive-services/LUIS/interactive-test) \(英文\)。
+> 如果您發現 Bot 並未總是辨識出正確的意圖或實體，請提供更多範例語句來進行 LUIS 應用程式定型，以改善應用程式的效能。 您無須對 Bot 程式碼進行任何修改，即可將 LUIS 應用程式重新定型。 請參閱[新增範例語句](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) \(英文\) 和[對您的 LUIS 應用程式進行定型和測試](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-interactive-test) \(英文\)。
 
 ## <a name="learn-more-about-bot-framework"></a>深入了解 Bot Framework
 深入了解 [Bot Framework](https://dev.botframework.com/)，以及 [3.x](https://github.com/Microsoft/BotBuilder) 和 [4.x](https://github.com/Microsoft/botbuilder-js) SDK。

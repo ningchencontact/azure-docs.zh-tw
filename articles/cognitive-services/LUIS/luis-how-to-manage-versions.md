@@ -2,19 +2,19 @@
 title: 在 Azure 的 LUIS 應用程式中管理版本 | Microsoft Docs
 description: 了解如何在 Language Understanding (LUIS) 應用程式中管理版本。
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/29/2017
-ms.author: v-geberr
-ms.openlocfilehash: 672f7991be0fc236e39daf7d1ce1d6080b31815b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: diberry
+ms.openlocfilehash: 4941cf533f1b860ead07a416d5af6f62a1978305
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368055"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226589"
 ---
 # <a name="manage-versions"></a>管理版本
 
@@ -28,7 +28,7 @@ ms.locfileid: "35368055"
 [設定] 頁面可讓您設定整個應用程式的設定，包括版本和共同作業者。 
 
 ## <a name="clone-a-version"></a>複製版本
-1. 在 [設定] 頁面上，於 [應用程式設定] 和 [共同作業者] 區段之後，尋找有所要複製版本的資料列。 選取最右側的三個點 (...)。 
+1. 在 [設定] 頁面上，於 [應用程式設定] 和 [共同作業者] 區段之後，尋找有所要複製版本的資料列。 選取最右側的省略符號 (***...***) 按鈕。 
 
     ![版本資料列屬性](./media/luis-how-to-manage-versions/version-section.png)
 
@@ -51,7 +51,7 @@ ms.locfileid: "35368055"
  > 如上圖所示，已發行的版本會有相關聯的彩色標記，以指出其發行時所在位置的類型：生產 (綠色)、暫存 (紅色)、兼具 (黑色)。 每個已發行的版本都會顯示訓練和發行日期。
 
 ## <a name="set-active-version"></a>設定使用中版本
-1. 在 [設定] 頁面上的 [版本] 清單中，選取最右側的三個點 (...)。
+1. 在 [設定] 頁面上的 [版本] 清單中，選取最右側的省略符號 (***...***) 按鈕。
 
 2. 從快顯清單中，選取 [設定為使用中]。
 
@@ -82,14 +82,14 @@ ms.locfileid: "35368055"
 
 **若要匯出版本：**
 
-1. 在 [設定] 頁面上的 [版本] 清單中，選取最右側的三個點 (...)。
+1. 在 [設定] 頁面上的 [版本] 清單中，選取最右側的省略符號 (***...***) 按鈕。
 
 2. 在動作的快顯清單中選取 [匯出]，然後選取檔案的儲存位置。
 
 ## <a name="delete-a-version"></a>刪除版本
 您可以刪除版本，但至少必須保留一個應用程式版本。 您可以刪除使用中版本以外的所有版本。 
 
-1. 在 [設定] 頁面上的 [版本] 清單中，選取最右側的三個點 (...)。
+1. 在 [設定] 頁面上的 [版本] 清單中，選取最右側的省略符號 (***...***) 按鈕。
 
 2. 在動作的快顯清單中選取 [刪除]，然後選取檔案的儲存位置。
 
@@ -99,7 +99,7 @@ ms.locfileid: "35368055"
 ## <a name="rename-a-version"></a>重新命名版本
 您可以重新命名版本 (只要該版本名稱還未使用)。  
 
-1. 在 [設定] 頁面上的 [版本] 清單中，選取最右側的三個點 (...)。
+1. 在 [設定] 頁面上的 [版本] 清單中，選取最右側的省略符號 (***...***) 按鈕。
 
 2. 在動作的快顯清單中選取 [重新命名]。
 

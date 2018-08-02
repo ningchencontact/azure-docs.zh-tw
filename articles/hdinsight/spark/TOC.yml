@@ -319,6 +319,8 @@
       items:
         - name: 為 Spark 工作偵錯
           href: apache-spark-job-debugging.md
+        - name: 透過作業圖表對 Spark 工作進行偵錯
+          href: apache-azure-spark-history-server.md
         - name: 使用 IntelliJ 對 Spark 作業進行偵錯
           href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
         - name: 針對速度變慢或失敗的 HDInsight 叢集進行疑難排解

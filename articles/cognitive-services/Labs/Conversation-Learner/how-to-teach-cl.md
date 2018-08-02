@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 639fea64fc8eeb2c1f6e6240c4eb26efc68febbd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 41fe350fd712f6c521a9020af9a540e554abe94b
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369567"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170594"
 ---
 # <a name="how-to-teach-with-conversation-learner"></a>如何教導對話學習模組 
 
@@ -56,9 +56,10 @@ ms.locfileid: "35369567"
 在目前回合之前的回合中存在的實體 | 4 | 
 目前回合之前的使用者語句 | 5 | 
 
-請注意，動作選取會採用系統動作的內容 -- 文字、卡片內容，或 API 名稱或行為 -- 僅限系統動作的識別。  因此，變更動作的內容並不會改變動作選取模型的行為。
-
-此外也請注意，並不會使用實體的內容/值 -- 而只會使用其存在性/不存在性。
+> [!NOTE]
+> 動作選取不會採用系統動作的內容 -- 文字、卡片內容，或是 API 名稱或行為 -- 僅限系統動作的識別。  因此，變更動作的內容並不會改變動作選取模型的行為。
+>
+> 此外，不會使用實體的內容/值，只會使用其存在性/不存在性。
 
 如果動作選取的行為不符合預期，可能的解決方式如下：
 

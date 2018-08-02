@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: d4b84904db703d1e8e78240cb971250672ef9615
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 69e0e8282ee0b8503fe11a57b8ba6037247822dd
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753280"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160496"
 ---
 # <a name="restore-an-app-in-azure"></a>在 Azure 中還原應用程式
 本文說明如何在 [Azure App Service](../app-service/app-service-web-overview.md) 中還原您先前備份的應用程式 (請參閱[在 Azure 中備份應用程式](web-sites-backup.md))。 您可以依需求將應用程式及其連結的資料庫還原到先前的狀態，或是根據您的其中一個原始應用程式備份來建立新的應用程式。 Azure App Service 支援使用下列資料庫來進行備份與還原︰
@@ -49,6 +49,11 @@ ms.locfileid: "36753280"
    
    > [!WARNING]
    > 如果您選擇 [覆寫]，則目前應用程式中的所有現有資料都將被清除並覆寫。 按一下 [確定] 之前，請確定這確實是您想要執行的動作。
+   > 
+   > 
+   
+   > [!WARNING]
+   > 如果 App Service 在您還原資料庫時將資料寫入資料庫，則可能會導致主索引鍵違規和資料遺失等徵兆。 建議您在開始還原資料庫之前，先停止 App Service。
    > 
    > 
    

@@ -1,31 +1,31 @@
 ---
-title: 自助式密碼重設原則 - Azure Active Directory
-description: Azure AD 自助式密碼重設原則選項
+title: Azure AD 自助式密碼重設原則
+description: 設定 Azure AD 自助式密碼重設原則選項
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: a851b3842e44dbb81ef80bacde645ebafdb48d86
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 8396db3a45c2b6f2c88a9fd6bbf0b8e5a7df4efb
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054755"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39162043"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>密碼原則和 Azure Active Directory 中的限制
 
 本文說明與儲存在 Azure Active Directory (Azure AD) 租用戶中的使用者帳戶相關聯的密碼原則和複雜性需求。
 
-## <a name="administrator-password-policy-differences"></a>系統管理員密碼原則差異
+## <a name="administrator-reset-policy-differences"></a>系統管理員重設原則差異
 
-Microsoft 會針對任何 Azure 管理員角色強制執行強式預設*兩個閘道*密碼重設原則。 
+**Microsoft 會對任何 Azure 系統管理員角色強制執行預設的強式*雙閘道*密碼重設原則。** 此原則可能會不同於您已為使用者定義的原則，且無法加以變更。 請一律要以未指派任何 Azure 系統管理員角色的使用者身分測試密碼重設功能。
 
-利用兩個閘道原則，系統管理員不需有能力使用安全性問題。
+利用雙閘道原則，**系統管理員就不需要有使用安全性問題的能力**。
 
  兩個閘道原則需要兩項驗證資料，例如電子郵件地址*和*電話號碼。 兩個閘道原則適用於下列情況：
 
@@ -49,7 +49,7 @@ Microsoft 會針對任何 Azure 管理員角色強制執行強式預設*兩個�
   * 應用程式 Proxy 服務管理員
   * CRM 服務管理員
   * Power BI 服務管理員
-  
+
 * 如果試用版訂用帳戶已經過 30 天
 
   或
@@ -61,18 +61,18 @@ Microsoft 會針對任何 Azure 管理員角色強制執行強式預設*兩個�
 * Azure AD Connect 正在同步處理內部部署目錄中的身分識別
 
 ### <a name="exceptions"></a>例外狀況
+
 一個閘道原則需要一項驗證資料，例如電子郵件地址*或*電話號碼。 一個閘道原則適用於下列情況：
 
 * 處於試用訂用帳戶的第一個 30 天內
 
   或
 
-* 不存在虛名網域 (*.onmicrosoft.com) 
+* 不存在虛名網域 (*.onmicrosoft.com)
 
-  和 
+  和
 
   Azure AD Connect 未同步身分識別
-
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>適用於所有使用者帳戶的 UserPrincipalName 原則
 
@@ -109,13 +109,13 @@ Microsoft 雲端服務的全域管理員可以使用「適用於 Windows PowerSh
 > [!NOTE]
 > 您僅可將未透過目錄同步作業執行同步處理的使用者帳戶密碼，設定為不會到期。 如需目錄同步作業的詳細資訊，請參閱 [Connect AD 與 Azure AD](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect)。
 >
->
 
 ## <a name="set-or-check-the-password-policies-by-using-powershell"></a>使用 PowerShell 設定或檢查密碼原則
 
 首先，您必須[下載並安裝 Azure AD PowerShell 模組](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0)。 安裝之後，您可以使用下列步驟來設定每個欄位。
 
-### <a name="how-to-check-the-expiration-policy-for-a-password"></a>如何檢查密碼到期原則
+### <a name="check-the-expiration-policy-for-a-password"></a>檢查密碼的到期原則
+
 1. 使用您公司的管理員認證連線至 Windows PowerShell。
 2. 執行下列其中一個命令：
 

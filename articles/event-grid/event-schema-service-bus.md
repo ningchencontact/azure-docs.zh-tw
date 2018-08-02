@@ -6,14 +6,14 @@ author: banisadr
 manager: darosa
 ms.service: event-grid
 ms.topic: reference
-ms.date: 02/21/2018
+ms.date: 07/23/2018
 ms.author: babanisa
-ms.openlocfilehash: 991679eeb0f7c98606133750b193a5895f39178f
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 39bf8df69f491aace546386b1b3aabce9ea6c696
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303312"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226538"
 ---
 # <a name="azure-event-grid-event-schema-for-service-bus"></a>服務匯流排的 Azure Event Grid 事件結構描述
 
@@ -93,7 +93,7 @@ ms.locfileid: "34303312"
 
 | 屬性 | 類型 | 說明 |
 | -------- | ---- | ----------- |
-| nameSpaceName | 字串 | 資源所在的服務匯流排命名空間。 |
+| namespaceName | 字串 | 資源所在的服務匯流排命名空間。 |
 | requestUri | 字串 | 要發出此事件的特定佇列或訂用帳戶 URI。 |
 | entityType | 字串 | 發出事件 (佇列或訂閱) 的服務匯流排實體類型。 |
 | queueName | 字串 | 如果訂閱佇列則為作用中訊息佇列。 如果使用主題 / 訂用帳戶則為 null 值。 |

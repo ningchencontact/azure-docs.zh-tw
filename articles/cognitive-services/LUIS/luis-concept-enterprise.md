@@ -2,19 +2,19 @@
 title: LUIS 應用程式的企業概念 - Azure | Microsoft Docs
 description: 了解大型 LUIS 應用程式的設計概念。
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/05/2018
-ms.author: v-geberr
-ms.openlocfilehash: 1f501981dd4b45f4d36188ef4c2aaa6cb11881a2
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: fda4a089866950688d88f9f47988c1540abe1cc0
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263748"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224855"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>LUIS 應用程式的企業策略
 檢閱您企業應用程式的這些設計策略。
@@ -27,17 +27,17 @@ ms.locfileid: "36263748"
 
 為了在所有應用程式之間都獲得相同的最高分意圖，請確定第一個與第二個意圖之間的意圖預測有足夠的差距，讓 LUIS 不致產生混淆，而能針對語句中的微小變化在應用程式之間提供不同結果。 
 
-請指定單一應用程式作為主要應用程式。 系統建議檢閱的所有語句都應該新增至主要應用程式，然後再移回至所有其他應用程式。 這會完整匯出應用程式，或將所標記的語句從主要應用程式載入至子應用程式。 載入時，可以從 [LUIS][LUIS] 網頁或撰寫 API，針對[單一語句](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08)或針對一個[批次](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09)進行載入。 
+請指定單一應用程式作為主要應用程式。 系統建議檢閱的所有語句都應該新增至主要應用程式，然後再移回至所有其他應用程式。 這會完整匯出應用程式，或將所標記的語句從主要應用程式載入至子應用程式。 您可以針對[單一語句](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08) \(英文\) 或[批次](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) \(英文\)，從 [LUIS](luis-reference-regions.md) 網站或撰寫 API 完成載入。 
 
-請排定定期 (例如每隔兩週) 的[端點語句檢閱](label-suggested-utterances.md)來進行主動式學習，然後再重新定型並重新發佈。 
+請排定定期 (例如每隔兩週) 的[端點語句檢閱](luis-how-to-review-endoint-utt.md)來進行主動式學習，然後再重新定型並重新發佈。 
 
 ### <a name="assign-multiple-luis-keys-to-same-app"></a>將多個 LUIS 金鑰指派給相同的應用程式
-如果您 LUIS 應用程式所收到的端點叫用次數超出單一金鑰配額允許的次數，請建立更多金鑰並指派給 LUIS 應用程式。 請建立流量管理員或負載平衡器，以管理所有訂用帳戶金鑰的端點查詢。 
+如果您 LUIS 應用程式所收到的端點叫用次數超出單一金鑰配額允許的次數，請建立更多金鑰並指派給 LUIS 應用程式。 請建立流量管理員或負載平衡器，來管理所有端點金鑰上的端點查詢。 
 
 ## <a name="when-your-monolithic-app-returns-wrong-intent"></a>當您的整合型應用程式傳回錯誤意圖時
 如果您的應用程式是用來預測各種使用者語句，請考慮實作[分派模型](#dispatch-tool-and-model)。 分解整合型應用程式可讓 LUIS 成功地專注於意圖間的偵測，而不會在跨父應用程式與子應用程式的意圖間產生混淆。 
 
-請排定定期 (例如每隔兩週) 的[端點語句檢閱](label-suggested-utterances.md)來進行主動式學習，然後再重新定型並重新發佈。 
+請排定定期 (例如每隔兩週) 的[端點語句檢閱](luis-how-to-review-endoint-utt.md)來進行主動式學習，然後再重新定型並重新發佈。 
 
 ## <a name="when-you-need-to-have-more-than-500-intents"></a>當您所需的意圖超過 500 個時
 例如，假設您要開發一個有超過 500 個意圖的辦公室助理。 如果有 200 個意圖與安排會議有關、200 個與提醒有關、200 個與取得同事相關資訊有關，以及 200 個用於傳送電子郵件，則請將這些意圖分組，讓每個群組都在單一應用程式中，然後建立一個包含每個意圖的最上層應用程式。 請使用[分派工具和架構](#dispatch-tool-and-model)來建置最上層應用程式。 然後將您的 Bot 變更成使用階層式呼叫，如[分派教學課程][dispatcher-application-tutorial]中所示。 
@@ -65,6 +65,5 @@ Chatbot 會接收語句，然後將其傳送給父 LUIS 應用程式來進行預
 
 * 了解如何[測試批次](luis-how-to-batch-test.md)
 
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
 [dispatcher-application-tutorial]: https://aka.ms/bot-dispatch
 [dispatch-tool]: https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch

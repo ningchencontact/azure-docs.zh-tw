@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 6039ea482b0968d48fc21ff3dfec82a2ff0db43d
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: ff2968f8e2fa9a705817b020f2daa6582d78029c
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715321"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225297"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>管理 Azure 實驗室服務中的實驗室帳戶 
 在 Azure 實驗室服務中，實驗室帳戶是受控實驗室 (例如教室實驗室) 的容器。 系統管理員會使用 Azure 實驗室服務來設定實驗室帳戶，並向可以在帳戶中建立實驗室的實驗室擁有者提供存取權。 本文說明如何建立實驗室帳戶、檢視所有實驗室帳戶，或刪除實驗室帳戶。
@@ -45,7 +45,7 @@ ms.locfileid: "34715321"
     ![[實驗室帳戶] 頁面](../media/how-to-manage-lab-accounts/lab-account-page.png)
 
 ## <a name="add-a-user-to-the-lab-creator-role"></a>將使用者新增至實驗室建立者角色
-若要提供授課者為其班級建立實驗室的權限，請將他們新增到實驗室建立者角色：
+若要在實驗室帳戶中設定教室實驗室，使用者必須是實驗室帳戶中的 [實驗室建立者] 角色的成員。 您用來建立實驗室帳戶的帳戶會自動新增至此角色。 如果您打算使用相同的使用者帳戶建立教室實驗室，您可以略過此步驟。 若要使用其他使用者帳戶來建立教室實驗室，請執行下列步驟： 
 
 1. 在 [實驗室帳戶] 頁面上，選取 [存取控制] \(IAM\)，然後按一下工具列上的 [+新增]。 
 
@@ -54,6 +54,22 @@ ms.locfileid: "34715321"
 
     ![將使用者新增至實驗室建立者角色](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
 
+## <a name="specify-marketplace-images-available-to-lab-owners"></a>指定適用於實驗室擁有者的 Marketplace 映像
+在本節中，您會指定實驗室擁有者可用來建立教室實驗室的 Marketplace 映像。 
+
+1. 選取左側功能表上的 [Marketplace 映像]。 根據預設，您會看到映像 (包括已啟用和停用) 的完整清單。 您可以從頂端的下拉式清單中選取 [僅限已啟用]/[僅限已停用] 選項來篩選清單，而僅檢視已啟用/已停用的映像。 
+
+    ![Marketplace 映像頁面](../media/tutorial-setup-lab-account/marketplace-images-page.png)
+2. 若要**停用**已啟用的 Marketplace 映像，請執行下列其中一個動作： 
+    1. 選取最後一個資料行中的 [...] (省略符號)，然後選取 [停用映像]。 
+
+        ![停用一個映像](../media/tutorial-setup-lab-account/disable-one-image.png) 
+    2. 在清單中選取映像名稱前面的核取方塊，以選取清單中的一或多個映像，然後選取 [停用選取的映像]。 
+
+        ![停用多個映像](../media/tutorial-setup-lab-account/disable-multiple-images.png) 
+1. 同樣地，若要**啟用** Marketplace 映像，請執行下列其中一個動作： 
+    1. 選取最後一個資料行中的 [...] (省略符號)，然後選取 [啟用映像]。 
+    2. 在清單中選取映像名稱前面的核取方塊，以選取清單中的一或多個映像，然後選取 [啟用選取的映像]。 
 
 ## <a name="view-lab-accounts"></a>檢視實驗室帳戶
 1. 登入 [Azure 入口網站](https://portal.azure.com)。

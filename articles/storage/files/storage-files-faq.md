@@ -11,17 +11,17 @@ ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 05/31/2018
+ms.date: 07/19/2018
 ms.author: renash
-ms.openlocfilehash: d11ddb0bc15798187ccea22fe1a80a9c86162dcd
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 89c1bb0404e1fbff9241fe42404123288fffea71
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866465"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160224"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>關於 Azure 檔案服務的常見問題集 (FAQ)
-[Azure 檔案](storage-files-introduction.md)提供雲端中完全受控的檔案共用，可透過業界標準[伺服器訊息區 (SMB) 通訊協定](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)來存取。 您可以同時在 Windows、Linux 和 macOS 的雲端或內部部署上掛接 Azure 檔案共用。 您也可以使用 Azure 檔案同步 (預覽)，在接近使用資料之處進行快速存取，藉以在 Windows Server 電腦上快取 Azure 檔案共用。
+[Azure 檔案](storage-files-introduction.md)提供雲端中完全受控的檔案共用，可透過業界標準[伺服器訊息區 (SMB) 通訊協定](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)來存取。 您可以同時在 Windows、Linux 和 macOS 的雲端或內部部署上掛接 Azure 檔案共用。 您也可以使用 Azure 檔案同步，在接近使用資料之處進行快速存取，藉以在 Windows Server 電腦上快取 Azure 檔案共用。
 
 本文將回答有關 Azure 檔案服務特性與功能 (包括將 Azure 檔案同步與 Azure 檔案搭配使用) 的常見問題。 如果您找不到問題的答案，可透過下列管道 (依先後順序) 和我們連絡：
 
@@ -90,8 +90,8 @@ ms.locfileid: "37866465"
 ## <a name="azure-file-sync"></a>Azure 檔案同步
 
 * <a id="afs-region-availability"></a>
-**哪些區域支援 Azure 檔案同步 (預覽)？**  
-    Azure 檔案同步目前適用於澳大利亞東部、澳大利亞東南部、加拿大中部、加拿大東部、美國中部、東亞、美國東部、美國東部 2、北歐、東南亞、英國南部、英國西部、西歐和美國西部。 未來將新增對更多區域的支援，因為我們正朝著正式運作的目標努力。 如需詳細資訊，請參閱 [區域可用性](storage-sync-files-planning.md#region-availability)。
+**哪些區域支援 Azure 檔案同步？**  
+    如需可用區域的清單，請參閱 Azure 檔案同步規劃指南的[區域可用性](storage-sync-files-planning.md#region-availability)一節。 我們會持續新增其他區域的支援，包括非公用區域。
 
 * <a id="cross-domain-sync"></a>
 **相同的同步群組中是否可以同時有已加入網域和未加入網域的伺服器？**  
@@ -371,4 +371,4 @@ ms.locfileid: "37866465"
 ## <a name="see-also"></a>另請參閱
 * [針對 Windows 中的 Azure 檔案服務進行疑難排解](storage-troubleshoot-windows-file-connection-problems.md)
 * [針對 Linux 中的 Azure 檔案服務進行疑難排解](storage-troubleshoot-linux-file-connection-problems.md)
-* [針對 Azure 檔案同步 (預覽) 進行移難排解](storage-sync-files-troubleshoot.md)
+* [針對 Azure 檔案同步進行移難排解](storage-sync-files-troubleshoot.md)

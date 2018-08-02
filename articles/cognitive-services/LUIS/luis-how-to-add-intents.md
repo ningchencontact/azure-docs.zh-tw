@@ -2,19 +2,19 @@
 title: 在 LUIS 應用程式中新增意圖 | Microsoft Docs
 description: 使用 Language Understanding (LUIS) 來新增意圖，協助應用程式理解使用者要求並適當地進行回應。
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
+ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 6e013e994a3bcb60c3104aa10cd7bad1535706f1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0ebf15ea49467674ab3c56aa7983131593cf5c9a
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35370763"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225881"
 ---
 # <a name="manage-intents"></a>管理意圖 
 將[意圖](luis-concept-intent.md)新增至 LUIS 應用程式，以識別具有相同意圖的問題或命令群組。 
@@ -75,9 +75,9 @@ ms.locfileid: "35370763"
 
 ## <a name="edit-an-utterance-on-intent-page"></a>在意圖頁面上編輯語句
 
-若要編輯語句，請選取該語句行右端的三點 (...) 圖示，然後選取 [編輯]。 修改文字，然後按鍵盤上的 Enter 鍵。
+若要編輯語句，請選取該語句行右端的省略符號 (***...***) 按鈕，然後選取 [編輯]。 修改文字，然後按鍵盤上的 Enter 鍵。
 
-![意圖詳細資料頁面的螢幕擷取畫面 (已醒目提示三點圖示)](./media/luis-how-to-add-intents/edit-utterance.png) 
+![意圖詳細資料頁面的螢幕擷取畫面 (已醒目提示省略符號按鈕)](./media/luis-how-to-add-intents/edit-utterance.png) 
 
 ## <a name="reassign-utterances-on-intent-page"></a>在意圖頁面上重新指派語句
 將一或多個語句重新指派給另一個意圖，即可變更這些語句的意圖。 
@@ -92,7 +92,7 @@ ms.locfileid: "35370763"
 
 ## <a name="delete-utterances-on-intent-page"></a>在意圖頁面上刪除語句
 
-若要刪除語句，請選取該語句行右端的三點 (...) 圖示，然後選取 [刪除]。 此語句會從清單和 LUIS 應用程式中移除。
+若要刪除語句，請選取該語句行右端的省略符號 (***...***) 按鈕，然後選取 [刪除]。 此語句會從清單和 LUIS 應用程式中移除。
 
 ![意圖詳細資料頁面的螢幕擷取畫面 (已醒目提示 [刪除] 選項)](./media/luis-how-to-add-intents/delete-utterance-ddl.png)
 
@@ -139,7 +139,7 @@ ms.locfileid: "35370763"
 ![意圖頁面的螢幕擷取畫面 (已醒目提示 [語彙基元檢視])](./media/luis-how-to-add-intents/toggle-tokens-view.png)
 
 ## <a name="train-your-app-after-changing-model-with-intents"></a>在利用意圖變更模型後訓練您的應用程式
-在您新增、編輯或移除意圖之後，[訓練](luis-how-to-train.md)並[發佈](PublishApp.md)您的應用程式，變更才會影響端點查詢。 
+在您新增、編輯或移除意圖之後，[訓練](luis-how-to-train.md)並[發佈](luis-how-to-publish-app.md)您的應用程式，變更才會影響端點查詢。 
 
 ## <a name="next-steps"></a>後續步驟
 

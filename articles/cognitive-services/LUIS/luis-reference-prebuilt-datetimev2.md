@@ -3,19 +3,19 @@ title: LUIS 預先建置的實體 datetimeV2 參考 - Azure| Microsoft Docs
 titleSuffix: Azure
 description: 本文包含 Language Understanding (LUIS) 中 datetimeV2 預先建置的實體資訊。
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 261f6f27c39c280efdcd070888d735374a473c85
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: 13f62e98a33aac51eae86d5ce1b802d4701ef3f6
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321570"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236766"
 ---
 # <a name="datetimev2-entity"></a>DatetimeV2 實體
 
@@ -51,7 +51,7 @@ DatetimeV2 可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Te
 
 |屬性名稱 |屬性類型和描述|
 |---|---|
-|Entity|**string** - 以日期、時間、日期範圍或時間範圍的類型從語句中擷取的文字。|
+|實體|**string** - 以日期、時間、日期範圍或時間範圍的類型從語句中擷取的文字。|
 |type|**string** - 其中一個 [datetimeV2 子類型](#subtypes-of-datetimev2)
 |startIndex|**int** - 實體開始的語句中的索引。|
 |endIndex|**int** - 實體結束的語句中的索引。|
@@ -71,10 +71,10 @@ DatetimeV2 可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Te
 
 ## <a name="values-of-resolution"></a>解析值
 * 如果語句中指定的日期或時間完整且明確，陣列會有一個元素。
-* 如果 datetimeV2 值語意模糊，陣列會有兩個元素。 語意模糊包括缺少特定年份、時間或時間範圍。 如需範例，請參閱[語意模糊的日期](#ambiguous-dates)。 當上午或下午的時間語意模糊， 則兩個值都會包含在內。
+* 如果 datetimeV2 值語意模糊，陣列會有兩個元素。 語意模糊包括缺少特定年份、時間或時間範圍。 如需範例，請參閱[語意模糊的日期](#ambiguous-dates)。 若時間的上午 或下午語意模糊，即會包含這兩個值。
 * 如果語句有兩個語意模糊的元素，陣列會有四個元素。 這包括以下語意模糊的元素：
   * 日期或日期範圍的年份語意模糊
-  * 時間或時間範圍的上午或下午 語意模糊 例如，4 月 3 日 3:00。
+  * 時間或時間範圍的上午或下午 語意模糊。 例如，4 月 3 日 3:00。
 
 `values` 陣列的每個元素可能都有下列欄位： 
 
@@ -88,7 +88,7 @@ DatetimeV2 可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Te
 
 **datetimeV2** 支援的日期範圍如下：
 
-| 最小值 | 最大值 |
+| Min | max |
 |----------|-------------|
 | 1900 年 1 月 1 日   | 2099 年 12 月 31 日 |
 
@@ -190,7 +190,7 @@ DatetimeV2 可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Te
   ]
 ```
 ## <a name="ambiguous-time"></a>語意模糊的時間
-如果時間或時間範圍的語意模糊，值陣列會有兩個時間元素。 當有語意模糊的時間時，則會有上午與下午 兩個 時間值。
+如果時間或時間範圍的語意模糊，值陣列會有兩個時間元素。 有語意模糊的時間時，就會有上午 與下午 兩個時間值。
 
 ## <a name="time-range-resolution-example"></a>時間範圍解析範例
 
@@ -219,7 +219,7 @@ DatetimeV2 可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Te
 
 ## <a name="deprecated-prebuilt-datetime"></a>已被取代的預先建置 datetime
 
-`datetime` 預先建置的實體已淘汰，並由 [`datetimeV2`](#builtindatetimev2) 取代。 
+`datetime` 預先建置的實體已過時 ，並由 **datetimeV2** 取代。 
 
 若要在 LUIS 應用程式中以 `datetimeV2` 取代 `datetime`，請完成下列步驟：
 

@@ -219,7 +219,7 @@
           href: luis-how-to-manage-keys.md
         - name: 管理版本
           href: luis-how-to-manage-versions.md
-        - name: 與其他建立者共同作業
+        - name: 管理建立者及共同作業者
           href: luis-how-to-collaborate.md
         - name: 管理撰寫金鑰
           href: luis-how-to-account-settings.md

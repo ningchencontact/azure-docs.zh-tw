@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 35b8536b944df39d0d47bf3529698fc94e51110e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 460c7d24b2810de41e20ea803ded2ea988613f10
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34633939"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223791"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>排程多個裝置上的作業
 
@@ -84,7 +84,7 @@ queryCondition = "deviceId IN ['MyDevice1']
     }
 
 ## <a name="querying-for-progress-on-jobs"></a>查詢作業的進度
-以下程式碼片段顯示 HTTPS 1.1 要求詳細資料，適用於[查詢作業][lnk-query]的情況：
+以下程式碼片段顯示 HTTPS 1.1 要求詳細資料，適用於查詢作業的情況：
 
     GET /jobs/v2/query?api-version=2016-11-14[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
 
@@ -94,6 +94,8 @@ queryCondition = "deviceId IN ['MyDevice1']
     User-Agent: <sdk-name>/<sdk-version>
 
 ContinuationToken 會從回應來提供。  
+
+您可以使用[裝置對應項、作業和訊息路由的 IoT 中樞查詢語言][lnk-query]，查詢每個裝置上的作業執行狀態。
 
 ## <a name="jobs-properties"></a>作業屬性
 以下清單顯示屬性和對應的描述，可在查詢作業或作業結果時使用。
@@ -143,7 +145,7 @@ IoT 中樞開發人員指南中的其他參考主題包括︰
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 [lnk-jobs-tutorial]: iot-hub-node-node-schedule-jobs.md
-[lnk-c2d-methods]: iot-hub-node-node-direct-methods.md
+[lnk-c2d-methods]: quickstart-control-device-node.md
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
 [lnk-get-started-twin]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-devguide]: iot-hub-devguide-device-twins.md

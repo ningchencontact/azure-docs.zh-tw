@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
 ms.author: subramar
-ms.openlocfilehash: a5b75a7069375f503cbe25554eb7c04cba868413
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 9bd370e8070816d62b22c1e3d5ad4b6cdd2da30a
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969600"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144946"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Service Fabric Azure 檔案服務磁碟區驅動程式 (預覽)
 Azure 檔案服務磁碟區外掛程式為 [Docker 磁碟區外掛程式](https://docs.docker.com/engine/extend/plugins_volume/) \(英文\)，針對 Docker 容器提供以 [Azure 檔案服務](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)為基礎的磁碟區。 此 Docker 磁碟區外掛程式會封裝為可部署至 Service Fabric 叢集的 Service Fabric 應用程式。 其目的是為部署至叢集的其他 Service Fabric 容器應用程式，提供以 Azure 檔案服務為基礎的磁碟區。
@@ -28,7 +28,7 @@ Azure 檔案服務磁碟區外掛程式為 [Docker 磁碟區外掛程式](https:
 > 6.255.389.9494 版的 Azure 檔案服務磁碟區外掛程式為預覽版，只在此文件中提供。 因為是預覽版本，此版本並**不**支援在生產環境中使用。
 >
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * Azure 檔案服務磁碟區外掛程式的 Windows 版本只能在 [Windows Server 1709 版](https://docs.microsoft.com/windows-server/get-started/whats-new-in-windows-server-1709)、[Windows 10 1709 版](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709)或更新版本的作業系統上運作。 Azure 檔案服務磁碟區外掛程式的 Linux 版本可在 Service Fabric 所支援的所有作業系統版本上運作。
 
 * Azure 檔案磁碟區外掛程式只適用於 Service Fabric 6.2 版及更新版本。
@@ -36,6 +36,33 @@ Azure 檔案服務磁碟區外掛程式為 [Docker 磁碟區外掛程式](https:
 * 請依照 [Azure 檔案服務文件](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share) \(英文\) 中的指示，為 Service Fabric 容器應用程式建立一個檔案共用作為磁碟區使用。
 
 * 您將會需要安裝[包含 Service Fabric 模組的 Powershell](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started) 或 [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)。
+
+* 如果您使用 hyperv 容器，則必須在 ClusterManifest (本機叢集) 或在 ARM 範本 (Azure 叢集) 或 ClusterConfig.json (獨立叢集) 的 fabricSettings 區段中新增下列程式碼片段。 您需要磁碟區名稱，以及磁碟區在叢集上接聽的連接埠。 
+
+在 ClusterManifest 中，必須在 Hosting 區段中新增下列內容。 在此範例中，磁碟區名稱是 **sfazurefile**，而它在叢集上接聽的連接埠為 **19300**。  
+
+``` xml 
+<Section Name="Hosting">
+  <Parameter Name="VolumePluginPorts" Value="sfazurefile:19300" />
+</Section>
+```
+
+在 ARM 範本 (適用於 Azure 部署) 或 ClusterConfig.json (適用於獨立部署) 的 fabricSettings 區段中 中，必須新增下列程式碼片段。 
+
+```json
+"fabricSettings": [
+  {
+    "name": "Hosting",
+    "parameters": [
+      {
+          "name": "VolumePluginPorts",
+          "value": "sfazurefile:19300"
+      }
+    ]
+  }
+]
+```
+
 
 ## <a name="deploy-the-service-fabric-azure-files-application"></a>部署 Service Fabric Azure 檔案服務應用程式
 

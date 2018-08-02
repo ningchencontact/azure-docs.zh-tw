@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 9ddf44ef933270c08b42f67387866cd7a3b34719
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: ce95a2177260e97113fd5e639671075eb6ad40cd
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004074"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215011"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中對實驗室新增 VM
 如果您已經[建立您的第一個 VM](devtest-lab-create-first-vm.md)，您很有可能是透過預先載入的 [Marketplace 映像](devtest-lab-configure-marketplace-images.md)來完成的。 現在，如果您想要將後續的 VM 新增至您的實驗室，您也可以選擇一個「基底」，它可以是[自訂映像](devtest-lab-create-template.md)或[公式](devtest-lab-manage-formulas.md)。 本教學課程會逐步引導您使用 Azure 入口網站，在 DevTest Labs 中對實驗室新增 VM。
@@ -35,17 +35,21 @@ ms.locfileid: "39004074"
     ![加入 VM 按鈕](./media/devtest-lab-add-vm/devtestlab-home-blade-add-vm.png)
 
 1. 在 [選擇基底] 窗格中，選取 VM 的基底。
-1. 在 [虛擬機器] 窗格的 [虛擬機器名稱] 文字方塊中，輸入新虛擬機器的名稱。
+1. 在 [虛擬機器] 窗格中，**虛擬機器名稱**中已預先填入自動產生的唯一名稱。 此名稱會對應至您電子郵件地址中的使用者名稱，並在其後方加上唯一的 3 位數數字。 這項功能可節省您思考機器名稱的時間，以及每次建立機器時輸入名稱的時間。 如果您想要的話，也可以使用您選擇的名稱來覆寫此自動填入的欄位。 若要覆寫自動填入的 VM 名稱，請在 [虛擬機器名稱] 文字方塊中輸入名稱。 
 
     ![[實驗室 VM] 窗格](./media/devtest-lab-add-vm/devtestlab-lab-vm-blade.png)
 
-1. 輸入**使用者名稱**，此名稱會被授與虛擬機器上的系統管理員權限。  
-1. 如果您想使用儲存在 [Azure 金鑰保存庫](devtest-lab-store-secrets-in-key-vault.md) 中的密碼，請選取 [使用儲存的祕密]，並指定與祕密 (密碼) 對應的金鑰值。 否則，請在標示為 [輸入值] 的文字欄位中輸入密碼。 若要深入了解如何在金鑰保存庫中儲存祕密以及在建立實驗室資源時使用它們，請參閱[在 Azure Key Vault 中儲存祕密](devtest-lab-store-secrets-in-key-vault.md)。
-1. [虛擬機器磁碟類型] 會決定實驗室中的虛擬機器所允許的儲存磁碟類型。
-2. 選取 [虛擬機器大小]  ，然後選取其中一個預先定義的項目，這些項目可以指定處理器核心、RAM 大小，以及要建立的 VM 的硬碟大小。
-3. 選取 [構件]，然後從構件清單中，選取並設定您想要新增到基本映像中的構件。
+1. 機器的**使用者名稱**會預先填入自動產生的唯一名稱。 此名稱會對應至您電子郵件地址中的使用者名稱。 這項功能可節省您每次建立新機器時，決定使用者名稱的時間。 同樣地，如果您想要的話，也可以使用您選擇的使用者名稱來覆寫此自動填入的欄位。 若要覆寫使用者名稱的自動填入值，請在 [使用者名稱] 文字方塊中輸入值。 此使用者會獲得虛擬機器上的**系統管理員**權限。     
+1. 針對 [密碼]：
+    
+    如果您要在實驗室中建立第一個 VM，請在 [輸入值] 文字方塊中輸入密碼。 若要讓此密碼以預設密碼的形式，儲存在與實驗室相關聯的 Azure 金鑰保存庫中，請選取 [儲存為預設密碼]。 預設密碼會以下列名稱儲存在金鑰保存庫中：**VmPassword**。 當您嘗試在實驗室中建立後續的 VM 時，系統會自動選取 **VmPassword** 作為**密碼**。 若要覆寫此值，請清除 [使用儲存的祕密] 核取方塊，然後輸入密碼。 
+
+    您可以也先將祕密儲存在金鑰保存庫中，然後在實驗室中建立 VM 時使用此祕密。 如需詳細資訊，請參閱[在金鑰保存庫中儲存祕密](devtest-lab-store-secrets-in-key-vault.md)。 若要使用儲存在金鑰保存庫中的密碼，請選取 [使用儲存的祕密]，並指定與祕密 (密碼) 對應的金鑰值。 
+3. [虛擬機器磁碟類型] 會決定實驗室中的虛擬機器所允許的儲存磁碟類型。
+4. 選取 [虛擬機器大小]  ，然後選取其中一個預先定義的項目，這些項目可以指定處理器核心、RAM 大小，以及要建立的 VM 的硬碟大小。
+5. 選取 [構件]，然後從構件清單中，選取並設定您想要新增到基本映像中的構件。
     **附註：** 如果您對 DevTest Labs 或設定構件並不熟悉，請參閱[將現有的構件加入至 VM](#add-an-existing-artifact-to-a-vm) 一節，完成該節之後再返回此處。
-4. 選取 [進階設定] 以設定 VM 的網路選項和到期日選項。 
+6. 選取 [進階設定] 以設定 VM 的網路選項和到期日選項。 
 
    若要設定到期選項，選擇行事曆圖示，以指定 VM 將會自動刪除的日期。  根據預設，VM 永遠不會到期。 
 1. 如果您想要檢視或複製 Azure Resource Manager 範本，請參閱[儲存 Azure Resource Manager 範本](#save-azure-resource-manager-template)一節，然後在完成時回到這裡。
@@ -102,7 +106,7 @@ ms.locfileid: "39004074"
 Azure Resource Manager 範本提供宣告式方法來定義可重複的部署。 下列步驟說明如何為建立的 VM 儲存 Azure Resource Manager 範本。
 儲存之後，您便可以使用 Azure Resource Manager 範本[透過 Azure PowerShell 部署新的 VM](../azure-resource-manager/resource-group-overview.md#template-deployment)。
 
-1. 在 [虛擬機器] 窗格上，選取 [檢視 ARM 範本]。
+1. 在 [虛擬機器] 窗格中，選取 [檢視 Azure Resource Manager 範本]。
 2. 在 [檢視 Azure Resource Manager 範本] 窗格中，選取範本文字。
 3. 將選取的文字複製到剪貼簿。
 4. 選取 [確定] 以關閉 [檢視 Azure Resource Manager 範本] 窗格。

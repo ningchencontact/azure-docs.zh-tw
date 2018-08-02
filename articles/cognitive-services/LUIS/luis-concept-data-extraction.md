@@ -2,19 +2,19 @@
 title: 了解 LUIS 中的資料擷取概念 - Azure | Microsoft Docs
 description: 了解可以從 Language Understanding (LUIS) 擷取哪些類型的資料
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr;
-ms.openlocfilehash: 28fde09fa9291fbcd64ce4542a008f48dd0018d1
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: f57e7cb85e6d183a59b358e347d70d4d185868a7
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265247"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225677"
 ---
 # <a name="data-extraction"></a>資料擷取
 LUIS 可讓您從使用者的自然語言語句取得資訊。 此資訊的擷取方式使得它可供程式、應用程式或 Chatbot 用來執行動作。
@@ -26,9 +26,9 @@ LUIS 會從已發佈的[端點](luis-glossary.md#endpoint)提供資料。 **HTTP
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
-當您編輯 LUIS 應用程式時，從該 LUIS 應用程式的 [Settings] \(設定\) 頁面，以及從您 URL 的一部分 (在 `/apps/` 之後)，都可以取得 `appID`。 `subscription-key` 是用來查詢您應用程式的端點金鑰。 在學習 LUIS 的期間，雖然您可以使用免費的撰寫/入門金鑰，但請務必將訂用帳戶金鑰變更為支援[預期的 LUIS 使用方式](luis-boundaries.md#key-limits)的金鑰。 `timezoneOffset` 單位為分鐘。
+當您編輯 LUIS 應用程式時，從該 LUIS 應用程式的 [Settings] \(設定\) 頁面，以及從您 URL 的一部分 (在 `/apps/` 之後)，都可以取得 `appID`。 `subscription-key` 是用來查詢您應用程式的端點金鑰。 在學習 LUIS 期間，雖然您可以使用免費的撰寫/入門金鑰，但請務必將端點金鑰變更為支援[預期的 LUIS 使用方式](luis-boundaries.md#key-limits)的金鑰。 `timezoneOffset` 單位為分鐘。
 
-**HTTPS 回應**包含 LUIS 可以根據目前已發佈之預備或生產環境端點模型來判斷的所有意圖和實體資訊。 您可以在 [LUIS][LUIS] 網站的 [Publish] \(發佈\) 頁面上找到端點 URL。 
+**HTTPS 回應**包含 LUIS 可以根據目前已發佈之預備或生產環境端點模型來判斷的所有意圖和實體資訊。 您可以在 [LUIS](luis-reference-regions.md) 網站的 [發佈] 頁面上找到端點 URL。 
 
 ## <a name="data-from-intents"></a>來自意圖的資料
 主要資料是最高分的**意圖名稱**。 使用 `MyStore` [快速入門](luis-quickstart-intents-only.md) 時，端點回應為：
@@ -201,7 +201,7 @@ LUIS 會從已發佈的[端點](luis-glossary.md#endpoint)提供資料。 **HTTP
 
 `book 2 tickets to paris`
 
-請注意，數字 `2` 與 ToLocation `paris` 之間有不屬於任何實體的單字。 [LUIS][LUIS] 網站中用於所標記語句的綠色底線表示複合實體。
+請注意，數字 `2` 與 ToLocation `paris` 之間有不屬於任何實體的單字。 [LUIS](luis-reference-regions.md) 網站中用於所標示語句的綠色底線表示複合實體。
 
 ![複合實體](./media/luis-concept-data-extraction/composite-entity.png)
 
@@ -426,13 +426,13 @@ LUIS 會從已發佈的[端點](luis-glossary.md#endpoint)提供資料。 **HTTP
 從語句中取得名稱相當困難，因為名稱幾乎可以是字母與單字的任何組合。 視所要擷取的名稱類型而定，您會有數個選項。 這些並非規則，而比較像是指導方針。 
 
 ### <a name="names-of-people"></a>人名
-人名可依據語言和文化特性而有些微的格式。 請使用以名字和姓氏作為子系的階層式實體，或使用含有名字和姓氏角色的簡單實體。 請務必提供在語句的不同部分、在不同長度的語句中及在所有意圖 (包括 None 意圖) 的語句中使用名字和姓氏的範例。 請定期[檢閱](label-suggested-utterances.md)端點語句，以標記任何未正確預測的名稱。 
+人名可依據語言和文化特性而有些微的格式。 請使用以名字和姓氏作為子系的階層式實體，或使用含有名字和姓氏角色的簡單實體。 請務必提供在語句的不同部分、在不同長度的語句中及在所有意圖 (包括 None 意圖) 的語句中使用名字和姓氏的範例。 請定期[檢閱](luis-how-to-review-endoint-utt.md)端點語句，以標記任何未正確預測的名稱。 
 
 ### <a name="names-of-places"></a>地名
-地名是已設定且已知的名稱，例如城市、郡縣、州、省及國家/地區。 如果您的應用程式使用一組已知的地點，請考慮使用清單實體。 如果您需要尋找所有地名，請建立一個簡單實體，然後提供各種範例。 請新增一個地名片語清單來強調地名在您應用程式中看起來的樣子。 請定期[檢閱](label-suggested-utterances.md)端點語句，以標記任何未正確預測的名稱。 
+地名是已設定且已知的名稱，例如城市、郡縣、州、省及國家/地區。 如果您的應用程式使用一組已知的地點，請考慮使用清單實體。 如果您需要尋找所有地名，請建立一個簡單實體，然後提供各種範例。 請新增一個地名片語清單來強調地名在您應用程式中看起來的樣子。 請定期[檢閱](luis-how-to-review-endoint-utt.md)端點語句，以標記任何未正確預測的名稱。 
 
 ### <a name="new-and-emerging-names"></a>全新和新興的名稱
-有些應用程式需要能夠尋找全新和新興的名稱，例如產品或公司。 這是難度最高類型的資料擷取。 請從簡單實體開始著手，並新增一個片語清單。 請定期[檢閱](label-suggested-utterances.md)端點語句，以標記任何未正確預測的名稱。 
+有些應用程式需要能夠尋找全新和新興的名稱，例如產品或公司。 這是難度最高類型的資料擷取。 請從簡單實體開始著手，並新增一個片語清單。 請定期[檢閱](luis-how-to-review-endoint-utt.md)端點語句，以標記任何未正確預測的名稱。 
 
 ## <a name="pattern-roles-data"></a>模式角色資料
 角色是實體的內容相關差異。 
@@ -710,5 +710,3 @@ LUIS 端點可以探索不同實體中的相同資料：
 ## <a name="next-steps"></a>後續步驟
 
 請參閱[新增實體](luis-how-to-add-entities.md)，以深入了解如何將實體新增至 LUIS 應用程式。
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

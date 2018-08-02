@@ -3,386 +3,233 @@ title: 使用批次測試來改善 LUIS 預測 | Microsoft Docs
 titleSuffix: Azure
 description: 載入批次測試、檢閱結果，然後進行變更來改善 LUIS 預測。
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/19/2018
-ms.author: v-geberr
-ms.openlocfilehash: 5788f17f2724a0354a1db506971c2343c1800f01
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.date: 07/16/2018
+ms.author: diberry
+ms.openlocfilehash: 0e1f5d29917ba381d4767faffb65847cd2ff210f
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266391"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237803"
 ---
-# <a name="use-batch-testing-to-find-prediction-accuracy-issues"></a>使用批次測試來找出預測準確性問題
+# <a name="improve-app-with-batch-test"></a>使用批次測試來改善應用程式
 
 本教學課程示範如何使用批次測試來找出語句預測問題。  
 
 在本教學課程中，您了解如何：
 
+<!-- green checkmark -->
 > [!div class="checklist"]
 * 建立批次測試檔案 
 * 執行批次測試
 * 檢閱測試結果
-* 修正意圖錯誤
+* 修正錯誤 
 * 重新測試批次
 
-## <a name="prerequisites"></a>先決條件
+在本文中，您需要免費 [LUIS](luis-reference-regions.md#luis-website) 帳戶才能撰寫 LUIS 應用程式。
 
-> [!div class="checklist"]
-> * 針對本文，您還需要一個免費的 [LUIS][LUIS] 帳戶，才能撰寫 LUIS 應用程式。
+## <a name="before-you-begin"></a>開始之前
+如果您沒有[檢閱端點語句](luis-tutorial-review-endpoint-utterances.md)教學課程中的人力資源應用程式，請將 JSON [匯入](luis-how-to-start-new-app.md#import-new-app)到 [LUIS](luis-reference-regions.md#luis-website) 網站中的新應用程式。 在 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-review-HumanResources.json) Github 存放庫中可找到要匯入的應用程式。
 
-> [!Tip]
-> 如果您還沒有訂用帳戶，可以註冊一個[免費帳戶](https://azure.microsoft.com/free/)。
+如果您想要保留原始的「人力資源」應用程式，請在 [[設定](luis-how-to-manage-versions.md#clone-a-version)] 頁面上複製該版本，並將其命名為 `batchtest`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 
 
-## <a name="create-new-app"></a>建立新的應用程式
-本文使用預先建置的定義域 HomeAutomation。 預先建置的定義域包含用於控制 HomeAutomation 裝置 (例如電燈) 的意圖、實體及語句。 建立應用程式、新增定義域、進行定型，然後發佈。
+將應用程式定型。
 
-1. 在 [LUIS] 網站中，於 [MyApps] 頁面上選取 [Create new app] \(建立新應用程式\) 來建立新應用程式。 
+## <a name="purpose-of-batch-testing"></a>批次測試的用途
+批次測試可讓您使用一組已標示的已知語句和實體來驗證作用中且已定型的模型狀態。 在 JSON 格式的批次檔中新增語句，並在語句內設定您需要預測的實體標籤。 
 
-    ![建立新的應用程式](./media/luis-tutorial-batch-testing/create-app-1.png)
+<!--The recommended test strategy for LUIS uses three separate sets of data: example utterances provided to the model, batch test utterances, and endpoint utterances. --> 使用本教學課程以外的應用程式時，請確定您「未」使用已新增到某個意圖的範例語句。 若要針對範例語句確認您的批次測試語句，請[匯出](luis-how-to-start-new-app.md#export-app)應用程式。 將應用程式範例語句與批次測試語句進行比較。 
 
-2. 在對話方塊中輸入名稱 `Batchtest-HomeAutomation`。
+批次測試的需求：
 
-    ![輸入應用程式名稱](./media/luis-tutorial-batch-testing/create-app-2.png)
+* 每個測試最多 1000 個語句。 
+* 沒有重複項目。 
+* 允許的實體類型：僅限簡單、階層式 (僅限父代) 及複合的機器學習實體。 批次測試僅適用於機器學習的意圖和實體。
 
-3. 選取左下角中的 [Prebuilt Domains] \(預先建置的定義域\)。 
+## <a name="create-a-batch-file-with-utterances"></a>建立含有語句的批次檔
+1. 在文字編輯器 (例如 [VSCode](https://code.visualstudio.com/)) 中建立 `HumanResources-jobs-batch.json`。 
 
-    ![選取 [Prebuilt Domains] \(預先建置的定義域\)](./media/luis-tutorial-batch-testing/prebuilt-domain-1.png)
+2. 在 JSON 格式的批次檔中，新增具有您想要在測試中預測之**意圖**的語句。 
 
-4. 針對 HomeAutomation 選取 [Add Domain] \(新增定義域\)。
-
-    ![新增 HomeAutomation 定義域](./media/luis-tutorial-batch-testing/prebuilt-domain-2.png)
-
-5. 選取右上方導覽列中的 [Train] \(定型\)。
-
-    ![選取 [Train] \(定型\) 按鈕](./media/luis-tutorial-batch-testing/train-button.png)
-
-## <a name="batch-test-criteria"></a>批次測試準則
-批次測試一次最多可以測試 1000 個語句。 批次中不應該有重複項目。 [匯出](create-new-app.md#export-app)應用程式以查看目前的語句清單。  
-
-LUIS 的測試策略使用三組個別的資料模型語句、批次測試語句及端點語句。 針對本教學課程，請確定您不是使用來自模型語句 (已新增至意圖) 或端點語句的語句。 
-
-請勿使用任何已經在應用程式中的語句來進行批次測試：
-
-```
-'breezeway on please',
-'change temperature to seventy two degrees',
-'coffee bar on please',
-'decrease temperature for me please',
-'dim kitchen lights to 25 .',
-'fish pond off please',
-'fish pond on please',
-'illuminate please',
-'living room lamp on please',
-'living room lamps off please',
-'lock the doors for me please',
-'lower your volume',
-'make camera 1 off please',
-'make some coffee',
-'play dvd',
-'set lights bright',
-'set lights concentrate',
-'set lights out bedroom',
-'shut down my work computer',
-'silence the phone',
-'snap switch fan fifty percent',
-'start master bedroom light .',
-'theater on please',
-'turn dimmer off',
-'turn off ac please',
-'turn off foyer lights',
-'turn off living room light',
-'turn off staircase',
-'turn off venice lamp',
-'turn on bathroom heater',
-'turn on external speaker',
-'turn on my bedroom lights .',
-'turn on the furnace room lights',
-'turn on the internet in my bedroom please',
-'turn on thermostat please',
-'turn the fan to high',
-'turn thermostat on 70 .' 
-```
-
-## <a name="create-a-batch-to-test-intent-prediction-accuracy"></a>建立批次以測試意圖預測精準性
-1. 在文字編輯器 (例如 [VSCode](https://code.visualstudio.com/)) 中建立 `homeauto-batch-1.json`。 
-
-2. 新增具有您想要在測試中預測之**意圖**的語句。 針對本教學課程，為了簡單起見，請採用 `HomeAutomation.TurnOn` 和 `HomeAutomation.TurnOff` 中的語句，然後切換語句中的 `on` 和 `off` 文字。 針對 `None` 意圖，新增一些不屬於[定義域](luis-glossary.md#domain) (主題) 領域的語句。 
-
-    為了了解批次測試結果如何與批次 JSON 相互關聯，請只新增六個意圖。
-
-    ```JSON
-    [
-        {
-          "text": "lobby on please",
-          "intent": "HomeAutomation.TurnOn",
-          "entities": []
-        },
-        {
-          "text": "change temperature to seventy one degrees",
-          "intent": "HomeAutomation.TurnOn",
-          "entities": []
-        },
-        {
-          "text": "where is my pizza",
-          "intent": "None",
-          "entities": []
-        },
-        {
-          "text": "help",
-          "intent": "None",
-          "entities": []
-        },
-        {
-          "text": "breezeway off please",
-          "intent": "HomeAutomation.TurnOff",
-          "entities": []
-        },
-        {
-          "text": "coffee bar off please",
-          "intent": "HomeAutomation.TurnOff",
-          "entities": []
-        }
-    ]
-    ```
+   [!code-json[Add the intents to the batch test file](~/samples-luis/documentation-samples/tutorial-batch-testing/HumanResources-jobs-batch.json "Add the intents to the batch test file")]
 
 ## <a name="run-the-batch"></a>執行批次
-1. 選取頂端導覽列中的 [Test] \(測試\)。 
 
-    ![選取導覽列中的 [Test] \(測試\)](./media/luis-tutorial-batch-testing/test-1.png)
+1. 選取頂端瀏覽列中的 [Test] \(測試\)。 
+
+    [ ![已在右上方瀏覽列中醒目提示 [測試] 的 LUIS 應用程式螢幕擷取畫面](./media/luis-tutorial-batch-testing/hr-first-image.png)](./media/luis-tutorial-batch-testing/hr-first-image.png#lightbox)
 
 2. 選取右側面板中的 [Batch testing panel] \(批次測試面板\) 
 
-    ![選取 [Batch testing panel] \(批次測試面板\)](./media/luis-tutorial-batch-testing/test-2.png)
+    [ ![已醒目提示 [批次測試] 面板的 LUIS 應用程式螢幕擷取畫面](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png)](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png#lightbox)
 
 3. 選取 [Import dataset] \(匯入資料集\)。
 
-    ![選取 [Import dataset] \(匯入資料集\)](./media/luis-tutorial-batch-testing/test-3.png)
+    [ ![已醒目提示 [匯入資料集] 的 LUIS 應用程式螢幕擷取畫面](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png#lightbox)
 
-4. 選擇 `homeauto-batch-1.json` 檔案的檔案系統位置。
+4. 選擇 `HumanResources-jobs-batch.json` 檔案的檔案系統位置。
 
-5. 將資料集命名為 `set 1`。
+5. 將資料集命名為 `intents only`，然後選取 [完成]。
 
-    ![選取檔案](./media/luis-tutorial-batch-testing/test-4.png)
+    ![選取檔案](./media/luis-tutorial-batch-testing/hr-import-new-dataset-ddl.png)
 
 6. 選取 [執行] 按鈕。 等候測試完成。
 
-    ![選取 [Run] \(執行\)](./media/luis-tutorial-batch-testing/test-5.png)
+    [ ![已醒目提示 [執行] 的 LUIS 應用程式螢幕擷取畫面](./media/luis-tutorial-batch-testing/hr-run-button.png)](./media/luis-tutorial-batch-testing/hr-run-button.png#lightbox)
 
 7. 選取 [See results] \(查看結果\)。
 
-    ![查看結果](./media/luis-tutorial-batch-testing/test-6.png)
-
 8. 檢閱圖表和圖例中的結果。
 
-    ![批次結果](./media/luis-tutorial-batch-testing/batch-result-1.png)
+    [ ![含有批次測試結果的 LUIS 應用程式螢幕擷取畫面](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png)](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png#lightbox)
 
 ## <a name="review-batch-results"></a>檢閱批次結果
-批次結果分成兩個區段。 上方區段包含圖表和圖例。 下方區段會在您選取圖表的區域名稱時顯示語句。
+批次圖表會顯示四個象限的結果。 圖表的右邊是一個篩選條件。 根據預設，會將該篩選條件設定為清單中第一個意圖。 該篩選條件會包含所有意圖，而且只包含簡單、階層式 (僅限父代) 及複合實體。 當您選取某個[圖表區段](luis-concept-batch-test.md#batch-test-results)或圖表內的某一點時，相關聯的語句即會顯示於圖表下方。 
 
-所有錯誤都會以紅色指示。 圖表分成四個區段，其中兩個區段以紅色顯示。 **這些是要關注的區段**。 
+將滑鼠停留在圖表上方時，滑鼠滾輪可以放大或縮小圖表中的顯示。 當圖表上有許多點緊密聚集在一起時，這非常有用。 
 
-右上方區段指出此測試不正確地預測出有某個意圖或實體存在。 左下方區段指出此測試不正確地預測出缺少某個意圖或實體。
+此圖表分成四個象限，其中兩個區段會以紅色顯示。 **這些是要關注的區段**。 
 
-### <a name="homeautomationturnoff-test-results"></a>HomeAutomation.TurnOff 測試結果
-在圖例中，選取 `HomeAutomation.TurnOff` 意圖。 圖例中其名稱左邊有一個綠色成功圖示。 此意圖沒有任何錯誤。 
+### <a name="getjobinformation-test-results"></a>GetJobInformation 測試結果
+篩選條件中顯示的 **GetJobInformation** 測試結果顯示四個預測中有 2 個成功。 在右上方象限上選取**誤判**的名稱，以查看圖表下方的語句。 
 
-![批次結果](./media/luis-tutorial-batch-testing/batch-result-1.png)
+![LUIS 批次測試語句](./media/luis-tutorial-batch-testing/hr-applyforjobs-false-positive-results.png)
 
-### <a name="homeautomationturnon-and-none-intents-have-errors"></a>HomeAutomation.TurnOn 和 None 意圖有錯誤
-其他兩個意圖有錯誤，這意謂著測試預測不符合批次檔案預期。 請選取圖例中的 `None` 意圖來檢閱第一個錯誤。 
+為什麼這兩個語句會被預測為 **ApplyForJob**，而不是正確的意圖 **GetJobInformation**？ 這兩個意圖在選字選與字詞排列方面非常密切相關。 此外，適用於 **ApplyForJob** 的範例幾乎是 **GetJobInformation** 的三倍。 範例語句的這個不對稱性在 **ApplyForJob** 意圖中相當重要。 
 
-![None 意圖](./media/luis-tutorial-batch-testing/none-intent-failures.png)
+請注意，這兩個意圖具有相同的錯誤計數。 一個意圖中不正確的預測也會影響另一個意圖。 這兩者都有錯誤，因為針對一個意圖不正確地預測了語句，而且也不會針對另一個意圖進行不正確的預測。 
 
-失敗會顯示在圖表上的紅色區段中：[False Positive] \(誤肯定\) 和 [False Negative] \(誤否定\)。 請選取圖表中的 [False Negative] \(誤否定\) 區段名稱，以在圖表下方查看失敗的語句。 
+![LUIS 批次測試篩選錯誤](./media/luis-tutorial-batch-testing/hr-intent-error-count.png)
 
-![誤否定失敗](./media/luis-tutorial-batch-testing/none-intent-false-negative.png)
-
-失敗語句 `help` 應該是 `None` 意圖，但此測試預測出 `HomeAutomation.TurnOn` 意圖。  
-
-有兩個失敗，一個在 HomeAutomation.TurnOn 中，一個在 None 中。 兩者都是由語句 `help` 所造成，因為它未能符合 None 中的預期，而與 HomeAutomation.TurnOn 意圖則是意外相符。 
-
-為了判斷 `None` 語句失敗的原因，請檢閱目前 `None` 中的語句。 
-
-## <a name="review-none-intents-utterances"></a>檢閱 None 意圖的語句
-
-1. 選取頂端導覽列上的 [Test] \(測試\) 按鈕，來關閉 [Test] \(測試\) 面板。 
-
-2. 從頂端導覽列中選取 [Build] \(建置\)。 
-
-3. 從意圖清單中選取 [None] 意圖。
-
-4. 選取 Control+E 以查看語句的語彙基元檢視 
-    
-    |None 意圖的語句|預測分數|
-    |--|--|
-    |「請幫我調降溫度」|0.44|
-    |「將廚房電燈亮度調降到 25。」|0.43|
-    |「降低您的音量」|0.46|
-    |「請開啟我臥室中的網際網路」|0.28|
-
-## <a name="fix-none-intents-utterances"></a>修正 None 意圖的語句
-    
-`None` 中的所有語句都應該在應用程式定義域之外。 這些語句與 HomeAutomation 相關，因此它們所在的意圖錯誤。 
-
-此外，LUIS 給這些語句的預測分數低於 50% (<.50)。 如果您查看其他兩個意圖中的語句，就會發現預測分數高出許多。 當範例語句的 LUIS 分數偏低時，即很顯然表示 LUIS 在目前意圖與其他意圖之間混淆不清。 
-
-若要修正應用程式，必須將目前 `None` 意圖中的語句移至正確的意圖，而 `None` 意圖則需要新的適當意圖。 
-
-`None` 意圖中有三個語句是用來調降自動化裝置設定。 它們使用了 `dim`、`lower` 或 `decrease` 等字眼。 第四個語句則要求開啟網際網路。 由於這四個語句全部都是有關開啟裝置電源或變更裝置電源強弱，因此應該移至 `HomeAutomation.TurnOn` 意圖。 
-
-這只是一個解決方案。 您也可以建立一個新意圖 `ChangeSetting`，然後將使用 dim、lower 及 decrease 的語句移至這個新意圖。 
+對應 [誤判] 區段中之頂點的語句為 `Can I apply for any database jobs with this resume?` 和 `Can I apply for any database jobs with this resume?`。 針對第一個語句，`resume` 這個字只適用於 **ApplyForJob**。 針對第二個語句，`apply` 這個字只適用於 **ApplyForJob** 意圖。
 
 ## <a name="fix-the-app-based-on-batch-results"></a>根據批次結果修正應用程式
-請將四個語句移至 `HomeAutomation.TurnOn` 意圖。 
+本節目標是藉由修正應用程式，針對 **GetJobInformation** 正確預測所有語句。 
 
-1. 選取語句清單上方的核取方塊，以便選取所有語句。 
+有個看似快速的修正是將這些批次檔語句新增到正確的意圖。 但那不是您想要做的。 您想要 LUIS 正確預測這些語句，而不需將它們新增為範例。 
 
-2. 在 [Reassign intent] \(重新指派意圖\) 下拉式清單中，選取 `HomeAutomation.TurnOn`。 
+您可能也會想要從 **ApplyForJob** 移除語句，直到語句數量與 **GetJobInformation** 一樣為止。 那樣做可能會修正測試結果，但會妨礙 LUIS 下一次準確預測該意圖。 
 
-    ![移動語句](./media/luis-tutorial-batch-testing/move-utterances.png)
+第一個修正是將更多語句新增到 **GetJobInformation**。 第二個修正是減少字組對於 **ApplyForJob** 意圖的比重，例如 `resume` 和 `apply`。 
 
-    重新指派這四個語句之後，`None` 意圖的語句清單就會空白。
+### <a name="add-more-utterances-to-getjobinformation"></a>將更多語句新增到 **GetJobInformation**
+1. 選取上方瀏覽面板中的 [測試] 按鈕來關閉批次測試面板。 
 
-3. 為 None 意圖新增四個意圖：
+    [ ![已醒目提示 [測試] 按鈕的 LUIS 螢幕擷取畫面](./media/luis-tutorial-batch-testing/hr-close-test-panel.png)](./media/luis-tutorial-batch-testing/hr-close-test-panel.png#lightbox)
 
-    ```
-    "fish"
-    "dogs"
-    "beer"
-    "pizza"
-    ```
+2. 從意圖清單中選取 [GetJobInformation]。 
 
-    這些語句都明確在 HomeAutomation 定義域的範圍之外。 輸入每個語句時，請監看其分數。 分數可能偏低，或甚至非常低 (以紅框標示)。 在您於步驟 8 進行應用程式定型之後，分數將會高出許多。 
+    [ ![已醒目提示 [測試] 按鈕的 LUIS 螢幕擷取畫面](./media/luis-tutorial-batch-testing/hr-select-intent-to-fix-1.png)](./media/luis-tutorial-batch-testing/hr-select-intent-to-fix-1.png#lightbox)
 
-7. 選取語句中的藍色標籤並選取 [Remove label] \(移除標籤\)，以移除任何標籤。
+3. 新增更多會隨著長度、選字及字組排列而變動的語句，確定會包含 `resume`、`c.v.` 和 `apply` 等字詞：
 
-8. 選取右上方導覽列中的 [Train] \(定型\)。 每個語句的分數會變得高出許多。 `None` 意圖的所有分數現在應該都已高於 80。 
+    |適用於 **GetJobInformation** 意圖的範例語句|
+    |--|
+    |Does the new job in the warehouse for a stocker require that I apply with a resume? (我需要使用履歷表來申請倉庫中適合補貨員的新工作嗎？)|
+    |Where are the roofing jobs today? (今天要在哪裡進行蓋屋頂的工作？)|
+    |I heard there was a medical coding job that requires a resume. (我聽說有個需要履歷表的醫療編碼工作。)|
+    |I would like a job helping college kids write their c.v.s. (我想要找一份可協助大學生撰寫其履歷表的工作。) |
+    |Here is my resume, looking for a new post at the community college using computers. (這是我的履歷表，在社區大學中使用電腦尋找新職位。)|
+    |What positions are available in child and home care? (有哪些關於孩童與居家照護的職位？)|
+    |Is there an intern desk at the newspaper? (該報社有實習生編輯部嗎？)|
+    |My C.v. shows I'm good at analyzing procurement, budgets, and lost money. (我在履歷表上表明我擅長分析採購、預算及財富上的損益。) Is there anything for this type of work? (有任何適合這種類型工作的職位嗎？)|
+    |Where are the earth drilling jobs right now? (現在哪裡有地質鑽探的工作？)|
+    |I've worked 8 years as an EMS driver. (我已經做了 8 年的 EMS 司機。) Any new jobs? (有任何新工作嗎？)|
+    |New food handling jobs require application? (新的食物處理工作需要申請嗎？)|
+    |How many new yard work jobs are available? (目前有多少個新的庭園工作職位？)|
+    |Is there a new HR post for labor relations and negotiations? (有任何關於勞資關係和協商的新人力資源職位嗎？)|
+    |I have a masters in library and archive management. (我具備有關圖書館與檔案管理的碩士學位。) Any new positions? (有任何新職務嗎？)|
+    |Are there any babysitting jobs for 13 year olds in the city today? (今天在這個城市中有任何照顧 13 歲孩童的保姆工作嗎？)|
+
+    不要在語句中標示 **Job** 實體。 教學課程的這一節只會將重點放在意圖預測。
+
+4. 藉由在右上方瀏覽列中選取 [定型] 來將應用程式定型。
 
 ## <a name="verify-the-fix-worked"></a>確認修正有效
-為了確認會將批次測試中的語句正確預測為 **None** 意圖，請重新執行批次測試。
+為了確認會正確預測批次測試中的語句，請重新執行批次測試。
 
-1. 選取頂端導覽列中的 [Test] \(測試\)。 
+1. 選取頂端瀏覽列中的 [Test] \(測試\)。 如果批次結果仍處於開放狀態，請選取 [返回清單]。  
+
+2. 選取批次名稱右邊的省略符號 (***...***) 按鈕，然後選取 [執行資料集]。 等候批次測試完成。 請注意，[查看結果] 按鈕現在是綠色。 這表示整個批次已成功執行。
+
+3. 選取 [See results] \(查看結果\)。 這些意圖的意圖名稱左邊應該都會有綠色圖示。 
+
+    ![已醒目提示批次結果按鈕的 LUIS 螢幕擷取畫面](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)
+
+## <a name="create-batch-file-with-entities"></a>建立含有實體的批次檔 
+為了在批次測試中確認實體，必須在批次 JSON 檔案中標示實體。 僅使用機器學習的實體：簡單、階層式 (僅限父代) 及複合實體。 不要新增非機器學習的實體，因為一律可透過規則運算式或明確的文字相符項目找到它們。
+
+適用於文字 ([語彙基元](luis-glossary.md#token)) 總計數的實體變化可能會影響預測品質。 若已將定型資料提供給含有已標示語句的意圖，請確定這類資料包括各種實體長度。 
+
+第一次撰寫和測試批次檔時，最好從您熟悉的一些語句和實體以及您認為可能不會正確預測的一些語句和實體開始。 這可協助您快速專注於問題領域。 使用數個無法預測的不同作業名稱來測試 **GetJobInformation** 和 **ApplyForJob** 意圖之後，開發了這個批次測試檔來查看是否有任何包含 **Job** 實體之特定值的預測問題。 
+
+測試語句中提供的 **Job** 實體值，通常是一或兩個文字，以及一些有更多文字的範例。 如果「您自己」的人力資源應用程式的作業名稱通常會有許多文字，則應用程式中已使用 **Job** 實體標示的範例語句就無法正常運作。
+
+1. 在文字編輯器 (例如 [VSCode](https://code.visualstudio.com/)) 中建立 `HumanResources-entities-batch.json`。 或者，從 LUIS-Samples Github 存放庫下載[這個檔案](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json)。
+
+
+2. 在 JSON 格式的批次檔中，新增一個物件陣列，其中包含語句和您想要在測試中預測的**意圖**，以及語句中任何實體的位置。 由於實體會以語彙基元為基礎，因此，請確定會在字元上啟動和停止每個實體。 不要以空格開始或結束語句。 這會在批次檔匯入期間造成錯誤。  
+
+   [!code-json[Add the intents and entities to the batch test file](~/samples-luis/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json "Add the intents and entities to the batch test file")]
+
+<!--TBD: when will the patterns fix be in for batch testing? -->
+## <a name="run-the-batch-with-entities"></a>使用實體執行批次
+
+1. 選取頂端瀏覽列中的 [Test] \(測試\)。 
 
 2. 選取右側面板中的 [Batch testing panel] \(批次測試面板\) 
 
-3. 選取批次名稱右邊的三個點 (...)，然後選取 [Run Dataset] \(執行資料集\)。 等候批次測試完成。
+3. 選取 [Import dataset] \(匯入資料集\)。
 
-    ![執行資料集](./media/luis-tutorial-batch-testing/run-dataset.png)
+4. 選擇 `HumanResources-entities-batch.json` 檔案的檔案系統位置。
 
-4. 選取 [See results] \(查看結果\)。 這些意圖的意圖名稱左邊應該都會有綠色圖示。 在將右側篩選條件設定為 `HomeAutomation.Turnoff` 意圖的情況下，選取右上方面板中最靠近圖表中央的綠色點。 該語句的名稱會顯示在圖表下方的表格中。 `breezeway off please` 的分數非常低。 您可以選擇將更多語句新增至該意圖來提高此分數。 
+5. 將資料集命名為 `entities`，然後選取 [完成]。
 
-    ![執行資料集](./media/luis-tutorial-batch-testing/turnoff-low-score.png)
+6. 選取 [執行] 按鈕。 等候測試完成。
 
-<!--
-    The Entities section of the legend may have errors. That is the next thing to fix.
+    [ ![已醒目提示 [執行] 的 LUIS 應用程式螢幕擷取畫面](./media/luis-tutorial-batch-testing/hr-run-button.png)](./media/luis-tutorial-batch-testing/hr-run-button.png#lightbox)
 
-## Create a batch to test entity detection
-1. Create `homeauto-batch-2.json` in a text editor such as [VSCode](https://code.visualstudio.com/). 
+7. 選取 [See results] \(查看結果\)。
 
-2. Utterances have entities identified with `startPos` and `endPost`. These two elements identify the entity before [tokenization](luis-glossary.md#token), which happens in some [cultures](luis-supported-languages.md#tokenization) in LUIS. If you plan to batch test in a tokenized culture, learn how to [extract](luis-concept-data-extraction.md#tokenized-entity-returned) the non-tokenized entities.
+## <a name="review-entity-batch-results"></a>檢閱實體批次結果
+圖表隨即開啟，並顯示已正確預測的所有意圖。 在右側篩選條件中向下捲動，以尋找發生錯誤的實體預測。 
 
-    Copy the following JSON into the file:
+1. 在篩選條件中選取 [作業] 實體。
 
-    ```JSON
-    [
-        {
-          "text": "lobby on please",
-          "intent": "HomeAutomation.TurnOn",
-          "entities": [
-            {
-              "entity": "HomeAutomation.Room",
-              "startPos": 0,
-              "endPos": 4
-            }
-          ]
-        },
-        {
-          "text": "change temperature to seventy one degrees",
-          "intent": "HomeAutomation.TurnOn",
-          "entities": [
-            {
-              "entity": "HomeAutomation.Operation",
-              "startPos": 7,
-              "endPos": 17
-            }
-          ]
-        },
-        {
-          "text": "where is my pizza",
-          "intent": "None",
-          "entities": []
-        },
-        {
-          "text": "help",
-          "intent": "None",
-          "entities": []
-        },
-        {
-          "text": "breezeway off please",
-          "intent": "HomeAutomation.TurnOff",
-          "entities": [
-            {
-              "entity": "HomeAutomation.Room",
-              "startPos": 0,
-              "endPos": 9
-            }
-          ]
-        },
-        {
-          "text": "coffee bar off please",
-          "intent": "HomeAutomation.TurnOff",
-          "entities": [
-            {
-              "entity": "HomeAutomation.Device",
-              "startPos": 0,
-              "endPos": 10
-            }
-          ]
-        }
-      ]
-    ```
+    ![篩選條件中發生錯誤的實體預測](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
 
-3. Import the batch file, following the [same instructions](#run-the-batch) as the first import, and name the dataset `set 2`. Run the test.
+    此圖表會變更以顯示實體預測。 
 
-## Possible entity errors
-Since the intents in the right-side filter of the test panel still pass the test, this section focuses on correct entity identification. 
+2. 在圖表的左下象限中，選取 [誤判]。 然後，使用鍵盤組合 Ctrl + E 鍵來切換至語彙基元檢視。 
 
-Entity testing is diferrent than intents. An utterance will have only one top scoring intent, but it may have several entities. An utterance's entity may be correctly identified, may be incorrectly identified as an entity other than the one in the batch test, may overlap with other entities, or not identified at all. 
+    [ ![實體預測的語彙基元檢視](./media/luis-tutorial-batch-testing/token-view-entities.png)](./media/luis-tutorial-batch-testing/token-view-entities.png#lightbox)
+    
+    檢閱圖表下方的語句，會在 Job 名稱包含 `SQL` 時顯示一致的錯誤。 檢閱範例語句和 Job 片語清單時，只會使用 SQL 一次，而且只會作為較長作業名稱 `sql/oracle database administrator` 的一部分。
 
-## Review entity errors
-1. Select `HomeAutomation.Device` in the filter panel. The chart changes to show a single false positive and several true negatives. 
+## <a name="fix-the-app-based-on-entity-batch-results"></a>根據實體批次結果修正應用程式
+修正應用程式，需要 LUIS 正確判斷 SQL 作業的變化。 您有數個適用於該修正的選項。 
 
-2. Select the False positive section name. The utterance for this chart point is displayed below the chart. The labeled intent and the predicted intent are the same, which is consistent with the test -- the intent prediction is correct. 
+* 明確地新增更多範例語句，它會使用 SQL 並將那些文字標示為 Job 實體。 
+* 明確地將更多 SQL 作業新增到片語清單
 
-    The issue is that the HomeAutomation.Device was detected but the batch expected HomeAutomation.Room for the utterance "coffee bar off please". `Coffee bar` could be a room or a device, depending on the environment and context. As the model designer, you can either enforce the selection as `HomeAutomation.Room` or change the batch file to use `HomeAutomation.Device`. 
+這些工作會留給您來做。
 
-    If you want to reinforce that coffee bar is a room, you nee to add an utterances to LUIS that help LUIS decide a coffee bar is a room. 
+在正確預測實體之前新增[模式](luis-concept-patterns.md)，將不會修正此問題。 這是因為在偵測到模式中的所有實體之前，模式將不會比對。 
 
-    The most direct route is to add the utterance to the intent but that to add the utterance for every entity detection error is not the machine-learned solution. Another fix would be to add an utterance with `coffee bar`.
+## <a name="what-has-this-tutorial-accomplished"></a>本教學課程有何成果？
+應用程式預測的精確度會因為在批次中尋找錯誤並更正模型而提高。 
 
-## Add utterance to help extract entity
-1. Select the **Test** button on the top navigation to close the batch test panel.
+## <a name="clean-up-resources"></a>清除資源
+當不再需要 LUIS 應用程式時，請將其刪除。 選取左上方功能表中的 [我的應用程式]。 選取應用程式清單中應用程式名稱右邊的省略符號 **...**，然後選取 [刪除]。 在 [Delete app?] \(刪除應用程式?\) 快顯對話方塊上，選取 [Ok] \(確定\)。
 
-2. On the `HomeAutomation.TurnOn` intent, add the utterance, `turn coffee bar on please`. The uttterance should have all three entities detected after you select enter. 
 
-3. Select **Train** on the top navigation panel. Wait until training completes successfully.
-
-3. Select **Test** on the top navigation panel to open the Batch testing pane again. 
-
-4. If the list of datasets is not visible, select **Back to list**. Select the three dots (...) at the end of `Set 2` and select `Run Dataset`. Wait for the test to complete.
-
-5. Select **See results** to review the test results.
-
-6. 
--->
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [深入了解範例語句](luis-how-to-add-example-utterances.md)
+> [了解模式](luis-tutorial-pattern.md)
 
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

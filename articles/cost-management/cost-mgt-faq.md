@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 07/20/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 0742e1e96e03840f138dde2bca7b2bcda1e49dfe
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 255056390cdbdbee49eba47f8168618929b386c8
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298404"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187252"
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Azure 成本管理的常見問題集
 
@@ -139,6 +139,14 @@ Cloudyn 有下列資料重新整理時間軸：
 
 如果從 Azure 傳送資料到 Cloudyn 時發生延遲，資料仍會記錄在 Azure 中。 連線恢復時，資料就會傳送至 Cloudyn。
 
+## <a name="cost-fluctuations-in-cloudyn-cost-reports"></a>Cloudyn 成本報表中的成本變動
+
+每當雲端服務提供者傳送更新的計費檔案時，成本報告中就會顯示成本變動。 如果在一般的每日或每月報告排程外，收到來自雲端服務提供者的新檔案，就會發生成本變動。 Cloudyn 重新計算不會造成成本變更。 
+
+雲端服務提供者在整個月中傳送的所有計費檔案都是每日成本的估計。 有時資料會頻繁地更新，偶爾會一天更新多次。 AWS 的更新會比 Azure 更頻繁。 當上個月的計費計算完畢，並且收到最後的計費檔案時，成本總計應該就會保持穩定。 通常會在當月 10 日前完成。
+
+當您從雲端服務提供者收到成本調整時，就會發生變更。 收到信用額度即是一例。 變更可能會在相關月份結束後的幾個月中發生。 每當雲端服務提供者進行重新計算時，即會出現變更。 Cloudyn 會更新其歷史資料，以確保所有調整都會重新計算。 它也會驗證報告中顯示的成本是否正確。
+
 ## <a name="how-can-a-direct-csp-configure-cloudyn-access-for-indirect-csp-customers-or-partners"></a>直接雲端解決方案提供者如何設定間接雲端解決方案提供者客戶或合作夥伴的 Cloudyn 存取？
 
 如需指示，請參閱[設定 Cloudyn 中的間接 CSP 存取](quick-register-csp.md#configure-indirect-csp-access-in-cloudyn)。
@@ -149,7 +157,7 @@ Cloudyn 有下列資料重新整理時間軸：
 
 ## <a name="is-cost-managementcloudyn-agent-based"></a>是否會使用成本管理/Cloudyn 代理程式？
 
-編號 不會使用代理程式。 VM 的 Azure 虛擬機器計量資料，是從 Microsoft Insights API 收集而來。 如果您想要收集來自 Azure VM 的計量資料，便必須啟用它們的診斷設定。
+否。 不會使用代理程式。 VM 的 Azure 虛擬機器計量資料，是從 Microsoft Insights API 收集而來。 如果您想要收集來自 Azure VM 的計量資料，便必須啟用它們的診斷設定。
 
 ## <a name="do-cloudyn-reports-show-more-than-one-ad-tenant-per-report"></a>每份 Cloudyn 報告是否能顯示超過一個 AD 租用戶的資料？
 

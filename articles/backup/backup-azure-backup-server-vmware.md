@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
-ms.openlocfilehash: 9cf3c9d5df11e19045cd47a41d7ab9ac93bdf700
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ce7b255359c076ddae642ed44f056e444b655e25
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605418"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216405"
 ---
 # <a name="back-up-a-vmware-server-to-azure"></a>將 VMware 伺服器備份到 Azure
 
@@ -151,8 +151,8 @@ Azure 備份伺服器會使用使用者名稱和密碼來驗證 vCenter Server�
 
   在按一下 [確定] 後，[角色] 面板上的清單中就會出現新的角色。
 
-|Vcenter 6.0 的權限| Vcenter 5.5 的權限|
-|--------------------------|---------------------------|
+|vCenter 6.0 和 6.5 的權限| Vcenter 5.5 的權限|
+|----------------------------------|---------------------------|
 |Datastore.AllocateSpace   | Datastore.AllocateSpace|
 |Global.ManageCustomFields | Global.ManageCustomerFields|
 |Global.SetCustomFields    |   |

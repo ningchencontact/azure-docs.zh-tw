@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/07/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3f723d716a652e64527310a499d6b06a6cf6bc6f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 21bc8c27a44c940279b0c5bdcdbe04e579dc4bfa
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627226"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188658"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally"></a>本機部署遠端監視解決方案加速器
 
 本文會示範如何將遠端監視解決方案加速器部署到本機電腦，以進行測試和開發。 這種方法會將微服務部署到本機 Docker 容器，並在雲端中使用 IoT 中樞、Cosmos DB 和 Azure 儲存體服務。 您會使用解決方案加速器 (PCS) CLI 來部署 Azure 雲端服務。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要部署遠端監視解決方案加速器所使用的 Azure 服務，您需要一個有效的 Azure 訂用帳戶。
 
@@ -134,6 +134,6 @@ docker-compose up
 > * 部署解決方案加速器
 > * 登入解決方案加速器
 
-既然您已部署遠端監視解決方案，下一步便是[探索解決方案儀表板的功能](iot-accelerators-remote-monitoring-deploy.md)。
+既然您已部署遠端監視解決方案，下一步便是[探索解決方案儀表板的功能](quickstart-remote-monitoring-deploy.md)。
 
 <!-- Next tutorials in the sequence -->

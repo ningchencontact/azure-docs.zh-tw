@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/31/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: bbd826b636bebca90eacba43ca879a725cddf7d2
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: aab03c92bee0d3b69062cdcb179eebbb5c0fc8f8
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971069"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160241"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Azure Active Directory 入口網站中的登入活動報告錯誤碼
 
@@ -59,6 +59,7 @@ ms.locfileid: "38971069"
 
 |Error|說明|
 |---|---|
+|16000|這是內部實作詳細資料，而不是錯誤狀況。 您可以放心地忽略此參考。|
 |20001|同盟識別提供者有問題。 請連絡 IDP 以解決此問題。|
 |20012|同盟識別提供者有問題。 請連絡 IDP 以解決此問題。|
 |20033|同盟識別提供者有問題。 請連絡 IDP 以解決此問題。|
@@ -174,6 +175,7 @@ ms.locfileid: "38971069"
 |81001|使用者的 Kerberos 票證太大。 如果使用者位於過多群組，以致於 Kerberos 票證包含過多群組成員資格，便會發生此錯誤。 降低使用者的群組成員資格，並再試一次。|
 |81005|驗證套件不受支援|
 |81007|租用戶未啟用無縫 SSO|
+|81012|這不是錯誤狀況。 這表示嘗試登入 Azure AD 的使用者與登入裝置的使用者不同。 您可以放心地忽略記錄中此錯誤碼。|
 |90010|基於各種不同的原因而不支援該要求。 例如，該要求是使用不支援的要求方法 (僅支援 POST 方法)，或不支援所要求的權杖簽章演算法。 請連絡應用程式開發人員。|
 |90014| 遺漏通訊協定訊息的必要欄位，請連絡應用程式擁有者。 如果您是應用程式擁有者，請確定擁有登入要求的所有必要參數。 |
 |90072| 必須先在租用戶中將帳戶新增為外部使用者。 登出後再使用不同的 Azure AD 帳戶登入。|

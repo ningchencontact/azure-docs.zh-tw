@@ -2,25 +2,25 @@
 title: 了解對 LUIS 應用程式的存取權 - Azure | Microsoft Docs
 description: 了解如何存取 LUIS 撰寫。
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: 44380e12e6d095e8d40675af0b6b2fddc5e4c4e9
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: 13b769a0b5a940e0f3dd5f2e0cc3567d9879ee0d
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264262"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223774"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>撰寫和端點的使用者存取權
 撰寫存取權適用於擁有者和共同作業者。 就私人應用程式而言，端點存取權適用於擁有者和共同作業者。 就公用應用程式而言，端點存取權適用於擁有自己 LUIS 帳戶且擁有公用應用程式識別碼的所有使用者。 
 
 ## <a name="access-to-authoring"></a>存取撰寫
-從 [LUIS][LUIS] 網站或[撰寫 API](https://aka.ms/luis-authoring-apis) 存取應用程式時，會受到應用程式擁有者控管。 
+從 [LUIS](luis-reference-regions.md#luis-website) 網站或[撰寫 API](https://aka.ms/luis-authoring-apis) 存取應用程式時，會受到應用程式擁有者所控制。 
 
 擁有者和所有共同作業者都具備可撰寫應用程式的存取權。 
 
@@ -33,7 +33,7 @@ ms.locfileid: "36264262"
 |將應用程式設定為公用|當應用程式為公用時，任何具有撰寫或端點金鑰的使用者都可查詢該應用程式。|
 |修改模型|
 |發佈|
-|檢閱用於[主動式學習](label-suggested-utterances.md)的端點語句|
+|檢閱用於[主動式學習](luis-how-to-review-endoint-utt.md)的端點語句|
 |定型|
 
 ## <a name="access-to-endpoint"></a>存取端點
@@ -50,7 +50,7 @@ ms.locfileid: "36264262"
 |--|--|--|
 |擁有者的撰寫金鑰| 最多 1000 次端點叫用|
 |共同作業者的撰寫金鑰| 最多 1000 次端點叫用|
-|從**[發佈](publishapp.md)** 頁面新增的端點金鑰|擁有者和共同作業者可以新增端點金鑰|
+|從**[發佈](luis-how-to-publish-app.md)** 頁面新增的端點金鑰|擁有者和共同作業者可以新增端點金鑰|
 
 其他撰寫金鑰或端點金鑰則**無**存取權。
 
@@ -61,6 +61,8 @@ ms.locfileid: "36264262"
 
 ## <a name="microsoft-user-accounts"></a>Microsoft 使用者帳戶
 作者和共同作業者可以在 [Publish] \(發佈\) 頁面上將金鑰新增至 LUIS。 在 Azure 入口網站中建立 LUIS 金鑰的 Microsoft 使用者帳戶必須是應用程式擁有者，或應用程式共同作業者。 
+
+若要深入了解 Active Directory 使用者帳戶，請參閱 [Azure Active Directory 租用戶使用者](luis-how-to-account-settings.md#azure-active-directory-tenant-user)。 
 
 <!--
 ### Individual consent
@@ -78,5 +80,3 @@ LUIS 已成功完成 ISO 27001:2013 和 ISO 27018:2014 稽核，稽核報告中�
 ## <a name="next-steps"></a>後續步驟
 
 請參閱[最佳做法](luis-concept-best-practices.md)，以了解如何使用意圖和圖示來獲得最佳預測。
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

@@ -1,7 +1,7 @@
 ---
-title: 如何將實體用於對話學習模組應用程式 - Microsoft 認知服務 | Microsoft Docs
+title: 如何搭配對話學習模組模型使用實體 - Microsoft 認知服務 | Microsoft Docs
 titleSuffix: Azure
-description: 了解如何將實體用於對話學習模組應用程式。
+description: 了解如何搭配對話學習模組模型使用實體。
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,20 +10,24 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 85df31c2e2ff3ca81698921a1f17f415daefb6c5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f851d43d69999a848dea01c9457a379adb63353b
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369590"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172376"
 ---
 # <a name="introduction-to-entities"></a>實體簡介
 
 本教學課程介紹實體，並說明如何在動作中使用 [不合格的實體] 和 [必要實體] 欄位。
 
+## <a name="video"></a>影片
+
+[![教學課程 3 預覽](http://aka.ms/cl-tutorial-03-preview)](http://aka.ms/blis-tutorial-03)
+
 ## <a name="requirements"></a>需求
 
-本教學課程需要執行一般教學課程 Bot
+本教學課程需要執行一般教學課程聊天機器人
 
     npm run tutorial-general
 
@@ -37,9 +41,9 @@ ms.locfileid: "35369590"
 
 ## <a name="steps"></a>步驟
 
-### <a name="create-the-application"></a>建立應用程式
+### <a name="create-the-model"></a>建立模型
 
-1. 在 Web UI 中，按一下 [新增應用程式]
+1. 在 Web UI 中，按一下 [新增模型]
 2. 在 [名稱] 中，輸入 IntroToEntities。 接著，按一下 [建立]。
 
 ### <a name="create-entity"></a>建立實體
@@ -48,7 +52,8 @@ ms.locfileid: "35369590"
 2. 在 [實體名稱] 中，輸入城市。
 3. Click Create
 
-請注意，實體類型是「自訂」，這表示實體是可訓練的。  另外也有預先建置的實體，這表示無法調整其行為，另一個教學課程將說明這些實體。
+> [!NOTE]
+> 實體類型是「自訂」，這表示實體可以定型。  另外有一些預先建立的實體，代表其行為無法調整，會在另一篇教學課程內加以說明。
 
 ### <a name="create-two-actions"></a>建立兩個動作
 
@@ -58,28 +63,28 @@ ms.locfileid: "35369590"
     - 這表示，如果此實體定義於 Bot 的記憶體中，這個動作即*無法*使用。
 2. 按一下 [動作]，然後按一下 [新增動作] 以建立第二個動作。
 3. 在 [回應] 中，輸入「'$city 的天氣可能是晴天」。
-4. 在 [必要實體] 中，留意到城市實體已自動新增，因為它受到參照。
+4. 在 [必要實體] 中，已自動新增城市實體，因為會參考它。
 5. 按一下 [Save] \(儲存)。
 
 現在您有兩個動作。
 
 ![](../media/tutorial3_actions.PNG)
 
-### <a name="train-the-bot"></a>訓練 Bot
+### <a name="train-the-bot"></a>將 Bot 定型
 
-1. 按一下 [訓練對話]，然後按一下 [新增訓練對話]。
+1. 按一下 [Train Dialogs]\(訓練對話\)，然後按一下 [New Train Dialog]\(新增訓練對話\)。
 2. 輸入「您好」。
 3. 按一下 [評分動作]，並選取 [我不知道您要選擇的城市?]
-    - 請注意，您無法選取需要城市實體的回應，因為城市實體未定義於 Bot 的記憶體中。
+    - 您無法選取需要城市實體的回應，因為城市實體並未定義於聊天機器人的記憶體中。
 2. 選取 [我不知道您要的城市]。
 4. 輸入「西雅圖」。 將西雅圖醒目提示，然後按一下城市。
-5. 按一下 [評分動作]
-    - 請注意，城市值現已在 Bot 的記憶體中。
+5. 按一下 [Score Actions]\(評分動作\)
+    - 城市值現在會在聊天機器人的記憶體中。
     - 「'$city 的天氣可能是晴天」現在已是可用的回應。 
 6. 選取 ['$city 的天氣可能是晴天]。
 
 我們假設使用者輸入「加以重複」。 
-1. 輸入這些文字。 留意到城市實體及其值已在記憶體中，並可供使用。
+1. 輸入這些文字。 城市實體及其值會在記憶體中且可供使用。
 2. 選取 ['$city 的天氣可能是晴天]。
 
 ![](../media/tutorial3_entities.PNG)

@@ -1,7 +1,7 @@
 ---
-title: 如何建立「Hello World」對話學習模組應用程式 - Microsoft 認知服務 | Microsoft Docs
+title: 如何建立 "Hello World" 對話學習模組模型 - Microsoft 認知服務 | Microsoft Docs
 titleSuffix: Azure
-description: 學習如何建立「Hello World」對話學習模組應用程式。
+description: 了解如何建立 "Hello World" 對話學習模組模型。
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,16 +10,21 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 30026285ac6dda45d2f5e3718aae741b928cf242
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 70b8f25bd699cbdb069892d65bf766ef3953f59d
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369654"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170866"
 ---
-# <a name="how-to-create-a-hello-world-application-with-conversation-learner"></a>如何使用對話學習模組建立「Hello World」應用程式
+# <a name="how-to-create-a-hello-world-model-with-conversation-learner"></a>如何使用對話學習模組建立 "Hello World" 模型
 
 本教學課程顯示如何開始使用對話學習模組，包括建立動作、以互動方式進行教導，以及修正終端使用者記錄的對話。
+
+## <a name="video"></a>影片
+
+[![教學課程 1 預覽](http://aka.ms/cl-tutorial-01-preview)](http://aka.ms/blis-tutorial-01)
+
 
 ## <a name="requirements"></a>需求
 如果尚未準備好，請先確定所有安裝步驟均已完成，包括使用 LUIS 撰寫金鑰建立 `.env` 檔案。  如需詳細資訊，請參閱[快速入門](https://github.com/Microsoft/ConversationLearner-Samples)。
@@ -32,14 +37,14 @@ ms.locfileid: "35369654"
 
 在 Web UI 中的首頁開始。
 
-### <a name="create-the-app"></a>建立應用程式
-1. 按一下 [新增應用程式]
+### <a name="create-the-model"></a>建立模型
+1. 按一下 [新增模型]
 2. 在 [名稱] 欄位中，輸入 Hello World
 3. Click Create
 
 ### <a name="create-an-action"></a>建立動作
 
-1. 按一下 Hello World 應用程式加以啟動
+1. 按一下 Hello World 模型加以啟動
 2. 按一下 [動作]，然後按一下 [新增動作]
     - 動作可以是對話學習模組傳回給使用者、API 呼叫或卡片的文字訊息。
 3. 在 [回應] 中，鍵入「Hello World!」

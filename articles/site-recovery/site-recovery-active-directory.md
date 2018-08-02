@@ -7,14 +7,14 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 07/19/2018
 ms.author: manayar
-ms.openlocfilehash: e8094c582af6ea03f5ffcc4f61914488891cb556
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 3a2ad35a5382394a6886ed14dcc4f659762f2833
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920884"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172233"
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>使用 Azure Site Recovery 保護 Active Directory 和 DNS
 
@@ -24,20 +24,17 @@ ms.locfileid: "37920884"
 
 本文說明如何建立 Active Directory 的災害復原解決方案。 其中包括先決條件，以及容錯移轉指示。 開始之前，您應該先熟悉 Active Directory 與 Site Recovery。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 如果您要複寫至 Azure，請[準備 Azure 資源](tutorial-prepare-azure.md)，包括訂用帳戶、Azure 虛擬網路、儲存體帳戶和復原服務保存庫。
 * 檢閱所有元件的[支援需求](site-recovery-support-matrix-to-azure.md)。
 
 ## <a name="replicate-the-domain-controller"></a>複寫網域控制站
 
-您必須在至少一個裝載網域控制站和 DNS 的 VM 上設定 [Site Recovery 複寫](#enable-protection-using-site-recovery)。 如果您的環境中有[多個網域控制站](#environment-with-multiple-domain-controllers)，則您也必須在目標站台上設定[額外的網域控制站](#protect-active-directory-with-active-directory-replication)。 額外的網域控制站可位於 Azure 中，或位於次要內部部署資料中心。
-
-### <a name="single-domain-controller"></a>單一網域控制站
-如果您有只有少數幾個應用程式和一個網域控制站，您可以將整個站台一併容錯移轉。 在此情況下，建議您使用 Site Recovery 將網域控制站複寫至目標站台 (位於 Azure 或次要內部部署資料中心)。 相同的複寫網域控制站或 DNS 虛擬機器也可用於[測試容錯移轉](#test-failover-considerations)。
-
-### <a name="multiple-domain-controllers"></a>多個網域控制站
-如果您的環境中有許多應用程式和多個網域控制站，或您打算一次容錯移轉數個應用程式，建議您除了使用 Site Recovery 複寫網域控制站虛擬機器之外，也應在目標站台 (位於 Azure 或次要內部部署資料中心) 上設定[額外的網域控制站](#protect-active-directory-with-active-directory-replication)。 對於[測試容錯移轉](#test-failover-considerations)，您可以使用 Site Recovery 所複寫的網域控制站。 對於容錯移轉，您可以在目標站台上使用額外的網域控制站。
+- 您必須在至少一個裝載網域控制站和 DNS 的 VM 上設定 [Site Recovery 複寫](#enable-protection-using-site-recovery)。
+- 如果您的環境中有[多個網域控制站](#environment-with-multiple-domain-controllers)，則您也必須在目標站台上設定[額外的網域控制站](#protect-active-directory-with-active-directory-replication)。 額外的網域控制站可位於 Azure 中，或位於次要內部部署資料中心。
+- 如果您有只有少數幾個應用程式和一個網域控制站，您可以將整個站台一併容錯移轉。 在此情況下，建議您使用 Site Recovery 將網域控制站複寫至目標站台 (位於 Azure 或次要內部部署資料中心)。 相同的複寫網域控制站或 DNS 虛擬機器也可用於[測試容錯移轉](#test-failover-considerations)。
+- - 如果您的環境中有許多應用程式和多個網域控制站，或您打算一次容錯移轉數個應用程式，建議您除了使用 Site Recovery 複寫網域控制站虛擬機器之外，也應在目標站台 (位於 Azure 或次要內部部署資料中心) 上設定[額外的網域控制站](#protect-active-directory-with-active-directory-replication)。 對於[測試容錯移轉](#test-failover-considerations)，您可以使用 Site Recovery 所複寫的網域控制站。 對於容錯移轉，您可以在目標站台上使用額外的網域控制站。
 
 ## <a name="enable-protection-with-site-recovery"></a>使用 Site Recovery 啟用保護
 
@@ -186,9 +183,11 @@ ms.locfileid: "37920884"
     如需詳細資訊，請參閱[停用讓通用類別目錄伺服器可用來驗證使用者登入的需求](http://support.microsoft.com/kb/241789)。
 
 ### <a name="dns-and-domain-controller-on-different-machines"></a>不同電腦上的 DNS 和網域控制站
-如果 DNS 與網域控制站不在相同的虛擬機器上，您必須為測試容錯移轉建立 DNS 虛擬機器。 如果 DNS 和網域控制站不在相同的虛擬機器上，您可以略過本節。
 
-您可以使用全新的 DNS 伺服器，並建立所有的必要區域。 例如，如果 Active Directory 網域是 contoso.com，您可以使用 contoso.com 的名稱來建立 DNS 區域。 DNS 中對應至 Active Directory 的項目必須更新，如下所示：
+如果您在相同的 VM 上執行網域控制站和 DNS，您可以略過此程序。
+
+
+如果 DNS 與網域控制站不在相同的 VM 上，您必須為測試容錯移轉建立 DNS VM。 您可以使用全新的 DNS 伺服器，並建立所有的必要區域。 例如，如果 Active Directory 網域是 contoso.com，您可以使用 contoso.com 的名稱來建立 DNS 區域。 DNS 中對應至 Active Directory 的項目必須更新，如下所示：
 
 1. 確定在復原計劃中的任何其他虛擬機器啟動之前，下列設定均已完成：
    * 區域必須在樹系根名稱之後命名。

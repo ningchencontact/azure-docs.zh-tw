@@ -1,7 +1,7 @@
 ---
-title: 如何將多重值實體用於對話學習模組應用程式 - Microsoft 認知服務 | Microsoft Docs
+title: 如何搭配對話學習模組模型使用多重值實體 - Microsoft 認知服務 | Microsoft Docs
 titleSuffix: Azure
-description: 了解如何將多重值實體用於對話學習模組應用程式。
+description: 了解如何搭配對話學習模組模型使用多重值實體。
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,18 +10,22 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 865b50747b2c9574b5f88d4902bea9e4c8e0e032
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6193a515f0d8136e0d420b7554cf26fee8f50953
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369594"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173096"
 ---
-# <a name="how-to-use-multi-value-entities-with-a-conversation-learner-application"></a>如何將多重值實體用於對話學習模組應用程式
+# <a name="how-to-use-multi-value-entities-with-a-conversation-learner-model"></a>如何搭配對話學習模組模型使用多重值實體
 本教學課程說明實體的「多重值」屬性。
 
+## <a name="video"></a>影片
+
+[![教學課程 6 預覽](http://aka.ms/cl-tutorial-06-preview)](http://aka.ms/blis-tutorial-06)
+
 ##<a name="requirements"></a>需求
-本教學課程需要執行一般教學課程 Bot
+本教學課程需要執行一般教學課程聊天機器人
 
     npm run tutorial-general
 
@@ -32,9 +36,9 @@ ms.locfileid: "35369594"
 
 ## <a name="steps"></a>步驟
 
-### <a name="create-the-application"></a>建立應用程式
+### <a name="create-the-model"></a>建立模型
 
-1. 在 Web UI 中，按一下 [新增應用程式]
+1. 在 Web UI 中，按一下 [新增模型]
 2. 在 [名稱] 中輸入 MultiValueEntities。 接著，按一下 [建立]。
 
 ### <a name="create-an-entity"></a>建立實體
@@ -66,25 +70,25 @@ ms.locfileid: "35369594"
 
 ![](../media/tutorial6_actions.PNG)
 
-### <a name="train-the-bot"></a>訓練 Bot
+### <a name="train-the-bot"></a>將 Bot 定型
 
-1. 按一下 [訓練對話]，然後按一下 [新增訓練對話]。
+1. 按一下 [Train Dialogs]\(訓練對話\)，然後按一下 [New Train Dialog]\(新增訓練對話\)。
 2. 輸入「您好」。
 3. 按一下 [評分動作]，然後選取 [您想要哪些配料?]
 2. 輸入「蘑菇和起士」。 
     - 您可以標示零個、一個或多個實體。
 3. 按一下 [蘑菇]，然後選取 [配料]。
 4. 按一下 [起司]，然後選取 [配料]。
-5. 按一下 [評分動作]
-    - 留意到「配料」實體中現在會有兩個值。 
+5. 按一下 [Score Actions]\(評分動作\)
+    - 這兩個值現在會存在於配料實體中。 
 6. 選取 [以下是您的配料：$Toppings]。
 
 我們可以新增更多項目：
 
 7. 輸入「新增辣椒」。
     - 在 [實體偵測] 下按一下 [辣椒]，並選取 [配料]。
-3. 按一下 [評分動作]。
-    - 留意到辣椒現在會顯示為 [配料] 中新加入的值。
+3. 按一下 [Score Actions]\(評分動作\)。
+    - 「辣椒」現在會在配料中顯示為新加入的值。
 6. 選取 [以下是您的配料：$Toppings]。
 
 接下來我們要移除一項配料，並新增一項配料：
@@ -92,18 +96,18 @@ ms.locfileid: "35369594"
 2. 輸入「移除辣椒並新增臘腸」。
 1. 按一下 [辣椒]，然後按一下紅色的 x 加以移除。
 2. 按一下 [辣椒]，然後選取 [-配料]。
-3. 按一下 [評分動作]。
-    - 留意到此時已刪除「辣椒」，並新增「臘腸」。
+3. 按一下 [Score Actions]\(評分動作\)。
+    - 已刪除「辣椒」，並已新增「臘腸」。
 6. 選取 [以下是您的配料：$Toppings]。
 
 現在我們要試著移除所有項目：
 
 6. 輸入「移除蘑菇、移除起司和移除臘腸」。
 7. 分別按一下以上三項，然後選取 [-配料]。
-7. 按一下 [評分動作]。
-    - 留意到所有配料皆已清除。
+7. 按一下 [Score Actions]\(評分動作\)。
+    - 所有配料皆已清除。
 2. 選取 [您想要哪些配料？]
-3. 按一下 [完成教導]
+3. 按一下 [Done Teaching]\(完成教學\)
 
 ![](../media/tutorial6_dialogs.PNG)
 

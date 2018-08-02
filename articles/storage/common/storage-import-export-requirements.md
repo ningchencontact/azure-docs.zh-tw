@@ -6,14 +6,14 @@ manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 07/19/2018
 ms.author: alkohli
-ms.openlocfilehash: 4c6e22f50f4550cb4a6e25960bcc13a4d92e9819
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 68e31f6b88a772ad67e3c58e11925f46f1cc37e9
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825062"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188668"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure 匯入/匯出系統需求
 
@@ -56,7 +56,7 @@ Azure 匯入/匯出服務支援下列 Azure 儲存體帳戶。
 
 ## <a name="supported-hardware"></a>支援的硬體 
 
-對於 Azure 匯入/匯出服務，您需要支援的磁碟與支援 SATA 連接器才能複製資料。
+對於 Azure 匯入/匯出服務，您需要支援的磁碟才能複製資料。
 
 ### <a name="supported-disks"></a>支援的磁碟
 
@@ -73,18 +73,9 @@ Azure 匯入/匯出服務支援下列 Azure 儲存體帳戶。
 - 最多 10 個 HDD/SSD。
 - 混用任何尺寸的 HDD/SSD。
 
-您可以將大量的磁碟機分散到多個作業，而且可建立的作業數目並無限制。 
+您可以將大量的磁碟機分散到多個作業，而且可建立的作業數目並無限制。 若為匯入工作，則只會處理磁碟機上的第一個資料磁碟區。 此資料磁碟區必須以 NTFS 格式化。
 
-若為匯入工作，則只會處理磁碟機上的第一個資料磁碟區。 此資料磁碟區必須以 NTFS 格式化。
-
-### <a name="supported-external-usb-adaptors"></a>支援外接式 USB 轉接器
-
-當使用 WAImportExport 工具來準備硬碟和複製資料時，您可以使用下列 (現成的) 外接式 USB 轉接器： 
-- Anker 68UPSATAA-02BU
-- Anker 68UPSHHDS-BU
-- Startech SATADOCK22UE
-- Orico 6628SUS3-C-BK (6628 系列)
-- Thermaltake BlacX Hot-Swap SATA External Hard Drive Docking Station (USB 2.0 & eSATA)
+當使用 WAImportExport 工具來準備硬碟和複製資料時，您可以使用外接式 USB 轉接器。 大部分現成可用的 USB 3.0 或更新版配接器應都可使用。 
 
 
 ## <a name="next-steps"></a>後續步驟

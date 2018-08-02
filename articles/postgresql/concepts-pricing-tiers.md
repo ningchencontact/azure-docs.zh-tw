@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 07/21/2018
-ms.openlocfilehash: 3637ee63c94ea54145d99b9d5632f0a77c95d2f4
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 7494f139f824d3794fced3a0eb4f8d676f3961f5
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970256"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173702"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>適用於 PostgreSQL 的 Azure 資料庫定價層
 
@@ -97,6 +97,8 @@ ms.locfileid: "38970256"
 當伺服器設定為唯讀時，所有現有的工作階段都將中斷連接，並且回復未認可的交易。 任何後續的寫入作業和交易認可均失敗。 所有後續的讀取查詢將不會中斷。  
 
 您可以增加伺服器的已佈建儲存體數量，也可以讀寫模式啟動新的工作階段，並刪除資料以回收可用的儲存體。 執行 `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;` 會將目前工作階段設定為讀取寫入模式。 為了避免資料損毀，請勿在伺服器仍處於唯讀狀態時執行任何寫入作業。
+
+我們建議您設定警示，讓系統可在伺服器儲存容量接近閾值時發出通知，以避免進入唯讀狀態。 如需詳細資訊，請參閱[如何設定警示](howto-alert-on-metric.md)的文件。
 
 ## <a name="backup"></a>Backup 
 

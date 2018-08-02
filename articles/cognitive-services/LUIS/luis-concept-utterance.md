@@ -2,19 +2,19 @@
 title: LUIS 應用程式在 Azure 中的語句 | Microsoft Docs
 description: 在 Language Understanding Intelligent Service (LUIS) 應用程式中新增語句。
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/13/2018
-ms.author: v-geberr
-ms.openlocfilehash: 66a23876eebe177c767b20f60f86891c35da3385
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.author: diberry
+ms.openlocfilehash: 6f962d0aaf631051c841be29d2854a89bf58ac25
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301857"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224410"
 ---
 # <a name="utterances-in-luis"></a>LUIS 中的語句
 
@@ -23,7 +23,7 @@ ms.locfileid: "36301857"
 收集您認為使用者會輸入的片語。 納入意義相同但以不同單字長度和單字位置建構的語句。 
 
 ## <a name="how-to-choose-varied-utterances"></a>如何選擇各種語句
-當您剛開始為 LUIS 模型[新增範例語句][add-example-utterances]時，請將以下幾個原則謹記在心。
+當您剛開始為 LUIS 模型[新增範例語句](luis-how-to-add-example-utterances.md)時，請將以下幾個原則謹記在心。
 
 ### <a name="utterances-arent-always-well-formed"></a>語句不見得格式正確
 它可能是一個句子，如「幫我預訂飛往巴黎的機票」，或句子片段，如「預訂」或「巴黎的班機」。  使用者常發生拼字錯誤。 在規劃應用程式時，請考慮是否要先檢查使用者輸入的拼字，再將它傳遞至 LUIS。 [Bing 拼字檢查 API][BingSpellCheck] 與 LUIS 整合。 當您發行 LUIS 應用程式時，可將它與 Bing 拼字檢查 API 的外部金鑰相關聯。 如果未檢查使用者語句的拼字，您應該針對包含錯字與拼字錯誤的語句將 LUIS 定型。
@@ -47,11 +47,11 @@ When can I have a computer?
 每個意圖都必須至少要有 10 到 15 個範例語句。 如果是沒有任何範例語句的意圖，則無法將 LUIS 定型。 如果是有一個或少數範例語句的意圖，LUIS 會無法準確地預測該意圖。 
 
 ## <a name="add-small-groups-of-10-15-utterances-for-each-authoring-iteration"></a>對每個製作的反覆項目都少量新增多組 10-15 個語句
-請不要在模型的每個反覆項目中新增大量語句。 新增數十個語句。 再次[定型](luis-how-to-train.md)、[發佈](publishapp.md)及[測試](interactive-test.md)。  
+請不要在模型的每個反覆項目中新增大量語句。 新增數十個語句。 再次[定型](luis-how-to-train.md)、[發佈](luis-how-to-publish-app.md)及[測試](luis-interactive-test.md)。  
 
 LUIS 會利用精挑細選的語句來建置有效的模型。 新增太多語句只會導致產生混淆，並沒有用。  
 
-最好從少量語句開始，然後[檢閱端點語句](label-suggested-utterances.md)，以正確地預測意圖和擷取實體。
+最好從少量語句開始，然後[檢閱端點語句](luis-how-to-review-endoint-utt.md)，以正確地預測意圖和擷取實體。
 
 ## <a name="ignoring-words-and-punctuation"></a>忽略單字和標點符號
 如果您想要忽略範例語句中的特定單字或標點符號，請搭配「忽略」語法使用[模式](luis-concept-patterns.md#pattern-syntax)。 
@@ -61,16 +61,15 @@ LUIS 會利用精挑細選的語句來建置有效的模型。 新增太多語�
 
 ## <a name="testing-utterances"></a>測試語句 
 
-開發人員應該透過將語句傳送至端點，以實際流量測試其 LUIS 應用程式。 這些語句可用來改善使用[檢閱語句](label-suggested-utterances.md)的意圖和實體效能。 使用 LUIS 網站測試窗格提交的測試，不會透過端點傳送，因此也不會提供給主動學習。 
+開發人員應該透過將語句傳送至端點，以實際流量測試其 LUIS 應用程式。 這些語句可用來改善使用[檢閱語句](luis-how-to-review-endoint-utt.md)的意圖和實體效能。 使用 LUIS 網站測試窗格提交的測試，不會透過端點傳送，因此也不會提供給主動學習。 
 
 ## <a name="review-utterances"></a>檢閱語句
-在將模型定型、發佈及接收[端點](luis-glossary.md#endpoint)查詢之後，請[檢閱 LUIS 所建議的語句](label-suggested-utterances.md)。 LUIS 會選取對意圖或實體而言分數低的端點語句。 
+在將模型定型、發佈及接收[端點](luis-glossary.md#endpoint)查詢之後，請[檢閱 LUIS 所建議的語句](luis-how-to-review-endoint-utt.md)。 LUIS 會選取對意圖或實體而言分數低的端點語句。 
 
-## <a name="best-practices"></a>最佳做法
+## <a name="best-practices"></a>最佳作法
 檢閱[最佳作法](luis-concept-best-practices.md)以深入了解。
 
 ## <a name="next-steps"></a>後續步驟
-如需將 LUIS 應用程式定型以了解使用者語句的詳細資訊，請參閱[新增範例語句][add-example-utterances]。
+如需將 LUIS 應用程式定型以了解使用者語句的詳細資訊，請參閱[新增範例語句](luis-how-to-add-example-utterances.md)。
 
-[add-example-utterances]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-add-example-utterances
 [BingSpellCheck]: https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/proof-text

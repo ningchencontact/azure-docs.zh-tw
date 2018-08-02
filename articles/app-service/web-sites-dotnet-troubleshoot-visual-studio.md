@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: 7973f4311095b7c87ccd2394b048ec92c50f32a9
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 522bc9e757abeae930e47eaf53bb6da4bd9d0531
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30266133"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224104"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>使用 Visual Studio 疑難排解 Azure App Service 中的 Web 應用程式
 ## <a name="overview"></a>概觀
@@ -39,7 +39,7 @@ ms.locfileid: "30266133"
 如果您有 Visual Studio Ultimate，您也可以使用 [IntelliTrace](http://msdn.microsoft.com/library/vstudio/dd264915.aspx) 進行偵錯。 本教學課程未涵蓋 IntelliTrace。
 
 ## <a name="prerequisites"></a>必要條件
-本教學課程可運用於開發環境、Web 專案與您在[開始使用 Azure 和 ASP.NET][GetStarted] 中所設定的 Azure Web 應用程式。 針對 WebJobs 區段，您將會用到您在[開始使用 Azure WebJobs SDK][GetStartedWJ] 中建立的應用程式。
+本教學課程可運用於開發環境、Web 專案與您在[開始使用 Azure 和 ASP.NET](app-service-web-get-started-dotnet-framework.md) 中所設定的 Azure Web 應用程式。 針對 WebJobs 區段，您將會用到您在[開始使用 Azure WebJobs SDK][GetStartedWJ] 中建立的應用程式。
 
 本教學課程中所提供的程式碼範例適用於 C# MVC Web 應用程式，但是疑難排解程序則是與 Visual Basic 和 Web Form 應用程式一樣。
 
@@ -61,7 +61,7 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
 
     如需從 Visual Studio 連線至 Azure 資源的詳細資訊，請參閱 [管理帳戶、訂閱和系統管理角色](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert)。
 2. 在 [伺服器總管] 中，展開 [Azure]，然後展開 [App Service]。
-3. 展開資源群組 (其包含您[在 Azure 中建立 ASP.NET Web 應用程式][app-service-web-get-started-dotnet.md]中建立的 Web 應用程式)，以滑鼠右鍵按一下 Web 應用程式節點，然後按一下 [檢視設定]。
+3. 展開包含 Web 應用程式的資源群組，該 Web 應用程式是您在＜[在 Azure 中建立 ASP.NET Web 應用程式](app-service-web-get-started-dotnet-framework.md)＞中建立的，然後使用滑鼠右鍵按一下 Web 應用程式節點，然後按一下 [檢視設定]。
 
     ![在伺服器總管中檢視設定](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewsettings.png)
 
@@ -118,9 +118,9 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
 
 遠端偵錯無法在 Visual Studio 的 Express 版本中運作。
 
-本節示範如何使用您在[在 Azure 中建立 ASP.NET Web 應用程式](app-service-web-get-started-dotnet.md)中建立的專案進行遠端偵錯。
+本節示範如何使用您在[在 Azure 中建立 ASP.NET Web 應用程式](app-service-web-get-started-dotnet-framework.md)中建立的專案進行遠端偵錯。
 
-1. 開啟您在[在 Azure 中建立 ASP.NET Web 應用程式](app-service-web-get-started-dotnet.md)中建立的 Web 專案。
+1. 開啟您在[在 Azure 中建立 ASP.NET Web 應用程式](app-service-web-get-started-dotnet-framework.md)中建立的 Web 專案。
 
 2. 開啟 *Controllers\HomeController.cs*。
 
@@ -138,7 +138,7 @@ public ActionResult About()
 
 5. 在 [方案總管] 中，於專案上按一下滑鼠右鍵，再按一下 [發行]。
 
-6. 在 [設定檔] 下拉式清單中，選取您在[在 Azure 中建立 ASP.NET Web 應用程式](app-service-web-get-started-dotnet.md)中所使用的同一設定檔。 然後，按一下 [設定]。
+6. 在 [設定檔] 下拉式清單中，選取您在[在 Azure 中建立 ASP.NET Web 應用程式](app-service-web-get-started-dotnet-framework.md)中所使用的同一設定檔。 然後，按一下 [設定]。
 
 7. 在 [發佈] 對話方塊中，按一下 [設定] 索引標籤，然後將 [設定] 變更為 [偵錯]，接著按一下 [儲存]。
 
@@ -273,7 +273,7 @@ public ActionResult About()
 ## <a name="apptracelogs"></a>建立並檢視應用程式追蹤記錄
 在本節中，您將會執行下列工作：
 
-* 將追蹤陳述式新增至您在[開始使用 Azure 和 ASP.NET][GetStarted] 中建立的 Web 專案。
+* 將追蹤陳述式新增至您在[開始使用 Azure 和 ASP.NET](app-service-web-get-started-dotnet-framework.md) 中建立的 Web 專案。
 * 當您在本機上執行專案時檢視記錄。
 * 依原樣檢視 Azure 中執行的應用程式所產生的記錄。
 

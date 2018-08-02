@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 93532f4b0b2d527a4d5c79e2ee1b2810394b2f11
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: ce8630f5718a849f460b372d9e15b03902ac2117
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442078"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159674"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>開始使用 Azure Active Directory 報告 API
 
@@ -34,7 +34,7 @@ Azure Active Directory 提供各種[報告](active-directory-reporting-azure-por
 如果您遇到問題，請參閱[如何取得 Azure Active Directory 支援](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)。
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要存取報告 API，即使您打算使用指令碼來存取此 API，也必須：
 
@@ -49,7 +49,7 @@ Azure Active Directory 提供各種[報告](active-directory-reporting-azure-por
 
 ## <a name="apis-with-graph-explorer"></a>API 與 Graph 總管
 
-您可以使用 [MSGraph 總管](https://developer.microsoft.com/en-us/graph/graph-explorer)來確認登入並稽核 API 資料。 請務必同時使用 Graph 總管 UI 中的兩個登入按鈕來登入帳戶，並如下所示地設定租用戶的 **Tasks.ReadWrite** 和 **Directory.ReadAll** 權限。   
+您可以使用 [MSGraph 總管](https://developer.microsoft.com/en-us/graph/graph-explorer)來確認登入並稽核 API 資料。 請務必同時使用 Graph 總管 UI 中的兩個登入按鈕來登入帳戶，並如下所示地設定租用戶的 **AuditLog.Read.All** 和 **Directory.ReadAll** 權限。   
 
 ![Graph 總管](./media/active-directory-reporting-api-getting-started-azure-portal/graph-explorer.png)
 

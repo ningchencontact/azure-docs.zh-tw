@@ -2,19 +2,19 @@
 title: 在 Azure 中使用適用於 C# 的 Bot 產生器 SDK 來整合 LUIS 與 Bot | Microsoft Docs
 description: 使用 Bot Framework 來建置與 LUIS 應用程式整合的 Bot。
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/06/2018
-ms.author: v-geberr
-ms.openlocfilehash: 273fca51d83f25e2657b51b68179e46f4295f92b
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: ca893dadfed04c90a4d89087299bf1cc2bf55eb9
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263875"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225953"
 ---
 # <a name="web-app-bot-using-the-luis-template-for-c"></a>使用適用於 C# 之 LUIS 範本的 Web 應用程式 Bot
 
@@ -47,7 +47,7 @@ ms.locfileid: "36263875"
     * 將 [應用程式名稱] 設定為您 Bot 的名稱。 將 Bot 部署到雲端時，此名稱會用來作為子網域 (例如 mynotesbot.azurewebsites.net)。 <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
     * 選取訂用帳戶、[資源群組](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)、App Service 方案，以及[位置](https://azure.microsoft.com/regions/)。
     * 針對 [Bot 範本] 欄位，選取 [Language Understanding (C#)] 範本。
-    * 選取 [LUIS 應用程式位置]。 這是用來建立應用程式的撰寫[區域][LUIS]。
+    * 選取 [LUIS 應用程式位置]。 這是用來建立應用程式的撰寫[區域](luis-reference-regions.md)。
     * 選取法律聲明的確認核取方塊。 法律聲明的條款在此核取方塊下方。
 
     ![Bot 服務](./media/luis-tutorial-cscharp-web-bot/bot-service-setting-callout-template.png)
@@ -72,7 +72,7 @@ Bot 會說出 "You have reached Greeting. You said: hello" 來作為回應。  �
 
 ## <a name="connect-your-luis-app-to-the-bot"></a>將您的 LUIS 應用程式連線至 Bot
 
-開啟 [應用程式設定]，然後編輯 [LuisAppId] 欄位以包含您 LUIS 應用程式的應用程式識別碼。 如果您是在美國西部以外的區域建立 HomeAutomation LUIS 應用程式，則也必須變更 [LuisAPIHostName]。 [LuisAPIKey] 目前設定為您的撰寫金鑰。 當您的流量超出免費層配額時，請將此金鑰變更為您的訂用帳戶金鑰。 
+開啟 [應用程式設定]，然後編輯 [LuisAppId] 欄位以包含您 LUIS 應用程式的應用程式識別碼。 如果您是在美國西部以外的區域建立 HomeAutomation LUIS 應用程式，則也必須變更 [LuisAPIHostName]。 [LuisAPIKey] 目前設定為您的撰寫金鑰。 當您的流量超出免費層配額時，請將此金鑰變更為您的端點金鑰。 
 
   ![在 Azure 中更新 LUIS 應用程式識別碼](./media/luis-tutorial-cscharp-web-bot/bot-service-app-settings.png)
 
@@ -80,7 +80,7 @@ Bot 會說出 "You have reached Greeting. You said: hello" 來作為回應。  �
 > 如果您沒有[家庭自動化應用程式](luis-get-started-create-app.md)的 LUIS 應用程式識別碼，請使用您用來登入 Azure 的相同帳戶來登入 [LUIS](luis-reference-regions.md) 網站。 
 > 1. 按一下 [My apps] \(我的應用程式\)。 
 > 2. 尋找您先前建立並包含來自 HomeAutomation 定義域之意圖和實體的 LUIS 應用程式。
-> 3. 在 LUIS 應用程式的 [Settings] \(設定\) 頁面中，尋找並複製應用程式識別碼。 確定該應用程式已[定型](interactive-test.md)並[發佈](PublishApp.md)。 
+> 3. 在 LUIS 應用程式的 [Settings] \(設定\) 頁面中，尋找並複製應用程式識別碼。 確定該應用程式已[定型](luis-interactive-test.md)並[發佈](luis-how-to-publish-app.md)。 
 
     > [!WARNING]
     > If you delete your app ID or LUIS key, the bot will stop working.
@@ -145,7 +145,7 @@ Bot 會說出 "You have reached Greeting. You said: hello" 來作為回應。  �
    ![在網路聊天中測試 HomeAutomation Bot](./media/luis-tutorial-cscharp-web-bot/bot-service-chat-results.png)
 
 > [!TIP]
-> 您無須對 Bot 程式碼進行任何修改，即可將 LUIS 應用程式重新定型。 請參閱[新增範例語句](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) \(英文\) 和[對您的 LUIS 應用程式進行定型和測試](https://docs.microsoft.com/azure/cognitive-services/LUIS/interactive-test) \(英文\)。 
+> 您無須對 Bot 程式碼進行任何修改，即可將 LUIS 應用程式重新定型。 請參閱[新增範例語句](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) \(英文\) 和[對您的 LUIS 應用程式進行定型和測試](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-interactive-test) \(英文\)。 
 
 ## <a name="download-the-bot-to-debug"></a>下載 Bot 來進行偵錯
 如果您的 Bot 無法運作，請將專案下載到您的本機電腦，然後繼續[偵錯](https://docs.microsoft.com/bot-framework/bot-service-debug-bot#debug-an-azure-app-service-web-app-c-bot)。 
@@ -170,7 +170,6 @@ Bot 會說出 "You have reached Greeting. You said: hello" 來作為回應。  �
 [BFPortal]: https://dev.botframework.com/
 [RegisterInstructions]: https://docs.microsoft.com/bot-framework/portal-register-bot
 [BotFramework]: https://docs.microsoft.com/bot-framework/
-[AssignedEndpointDoc]: https://docs.microsoft.com/azure/cognitive-services/LUIS/manage-keys
 [VisualStudio]: https://www.visualstudio.com/
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+
 <!-- tested on Win10 -->

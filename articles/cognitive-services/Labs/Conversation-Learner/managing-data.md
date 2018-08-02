@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 8d42f903559a1e07b42ded33972be4b552f21b5e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f9de4377857188a8cf483321654fb857e428c7f5
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369571"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171634"
 ---
 # <a name="managing-user-data"></a>管理使用者資料
 
@@ -27,7 +27,7 @@ ms.locfileid: "35369571"
 
 ## <a name="how-to-disable-logging"></a>如何停用記錄
 
-您可以控制與終端使用者進行的對話是否出現在對話學習模組應用程式的 [設定] 頁面上。  有 [記錄對話] 的核取方塊。  取消核取此方塊時，將不會記錄與使用者的對話。
+您可以控制與終端使用者進行的對話是否會出現在對話學習模組模型的 [設定] 頁面上。  有 [記錄對話] 的核取方塊。  取消核取此方塊時，將不會記錄與使用者的對話。
 
 ## <a name="what-is-logged"></a>會記錄什麼內容 
 
@@ -81,9 +81,10 @@ Ocp-Apim-Subscription-Key=<LUIS_AUTHORING_KEY>
 GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/logdialog/<logDialogId>
 ```
 
-其中 `<appId>` 是此對話學習模組應用程式的 GUID，`<logDialgoId>` 是您要擷取的記錄對話識別碼。  
+其中 `<appId>` 是此對話學習模組模型的 GUID，而 `<logDialgoId>` 是您要擷取的記錄對話識別碼。  
 
-請注意開發人員可能編輯記錄對話，然後另存為訓練對話。  完成後，對話學習模組會連同訓練對話儲存「來源」記錄識別碼。  此外，訓練對話可在 UI 中「分支」；如果訓練對話有相關聯的來源記錄對話識別碼，則訓練對話的分支將標示相同的記錄對話識別碼。
+> [!NOTE]
+> 開發人員可能會編輯記錄對話，然後另存為定型對話。  完成後，對話學習模組會連同訓練對話儲存「來源」記錄識別碼。  此外，訓練對話可在 UI 中「分支」；如果訓練對話有相關聯的來源記錄對話識別碼，則訓練對話的分支將標示相同的記錄對話識別碼。
 
 若要取得記錄對話衍生的所有訓練對話，請遵循下列步驟。
 
@@ -93,7 +94,7 @@ GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<app
 GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/traindialogs
 ```
 
-其中 `<appId>` 是此對話學習模組應用程式的 GUID。  
+其中 `<appId>` 是此對話學習模組模型的 GUID。  
 
 這會傳回所有訓練對話。  搜尋此清單中相關聯的 `sourceLogDialogId`，並記下相關聯的 `trainDialogId`。 
 
@@ -103,7 +104,7 @@ GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<app
 GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/traindialog/<trainDialogId>
 ```
 
-其中 `<appId>` 是此對話學習模組應用程式的 GUID，`<trainDialogId>` 是您要擷取的訓練對話識別碼。  
+其中 `<appId>` 是此對話學習模組模型的 GUID，而 `<trainDialogId>` 是您要擷取的定型對話識別碼。  
 
 ## <a name="how-to-delete-a-logged-dialog"></a>如何刪除記錄對話
 
@@ -113,7 +114,7 @@ GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<app
 DELETE https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/logdialog/<logDialogId>
 ```
 
-其中 `<appId>` 是此對話學習模組應用程式的 GUID，`<logDialogId>` 是您要刪除的記錄對話識別碼。 
+其中 `<appId>` 是此對話學習模組模型的 GUID，而 `<logDialogId>` 是您要刪除的記錄對話識別碼。 
 
 如果您想要刪除特定識別碼的訓練對話，您可以使用這個 HTTP 呼叫：
 
@@ -121,4 +122,4 @@ DELETE https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<
 DELETE https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/traindialog/<trainDialogId>
 ```
 
-其中 `<appId>` 是此對話學習模組應用程式的 GUID，`<trainDialogId>` 是您要刪除的訓練對話識別碼。 
+其中 `<appId>` 是此對話學習模組模型的 GUID，而 `<trainDialogId>` 是您要刪除的定型對話識別碼。 

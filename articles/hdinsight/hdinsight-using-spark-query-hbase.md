@@ -1,30 +1,28 @@
 ---
-title: 使用 Spark 以讀取及寫入 HBase 資料 - Azure HDInsight | Microsoft Docs
+title: 使用 Spark 以讀取及寫入 HBase 資料 - Azure HDInsight
 description: 使用 Spark HBase Connector 將資料從 Spark 叢集讀取及寫入至 HBase 叢集。
 services: hdinsight
-documentationcenter: ''
 author: maxluk
+ms.author: maxluk
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.date: 01/11/2018
-ms.author: maxluk
-ms.openlocfilehash: 7cfc7f586e8a92c29736a7c4cff0b12796be430a
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.topic: conceptual
+ms.date: 07/18/2018
+ms.openlocfilehash: 5123a95852fae58adf0b4a4684b012d3b9c71e3b
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161170"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144766"
 ---
 # <a name="use-spark-to-read-and-write-hbase-data"></a>使用 Spark 來讀取和寫入 HBase 資料
 
 Apache HBase 通常會使用其低階 API (scan、get、put) 或者使用 Phoenix 以 SQL 語法來查詢。 Apache 也提供 Spark HBase Connector，這是查詢及修改 HBase 儲存之資料的方便且高效能替代方式。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 兩個個別 HDInsight 叢集，一個 HBase，以及一個已安裝 Spark 2.1 (HDInsight 3.6) 的 Spark。
 * Spark 叢集必須以最少的延遲直接與 HBase 叢集通訊，因此建議的設定是在相同的虛擬網路中同時部署兩個叢集。 如需詳細資訊，請參閱[使用 Azure 入口網站在 HDInsight 中建立以 Linux 為基礎的叢集](hdinsight-hadoop-create-linux-clusters-portal.md)。
@@ -130,7 +128,7 @@ Apache HBase 通常會使用其低階 API (scan、get、put) 或者使用 Phoeni
 1. 使用 SSH 連線到 Spark 叢集的前端節點。
 2. 啟動 Spark Shell，指定 Spark HBase Connector 套件：
 
-        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11 --repositories http://repo.hortonworks.com/coroups/public/
+        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11 --repositories http://repo.hortonworks.com/content/groups/public/
 
 3. 讓此 Spark Shell 執行個體保持開啟，並且繼續進行下一個步驟。
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 9795beca93ab4dbbeb1e0e99a50952ea23ca1568
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: fb3f307642dc6f4607a626e0b320949306129759
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005480"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172308"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>成為雲端市集發行者
 
@@ -28,11 +28,11 @@ ms.locfileid: "39005480"
 
 |  | 註冊步驟 | Duration | 詳細資料 |  
 |:--- |:--- |:--- |:--- |  
-| 1 | 在 Microsoft 合作夥伴網路中註冊 | 15 分鐘 | [在 Microsoft 合作夥伴網路中註冊](#register-in-microsoft-partner-network) |  
-| 2 | 建立 Microsoft 帳戶 <ul>(對於 Azure Marketplace 交易供應項目而言是必要的；對於其他項目則是建議)</ul> | 15 分鐘 | [建立 Microsoft ID](#create-a-microsoft-id) |  
-| 3 | 提交市集註冊表單 | 15 分鐘 | [提交市集提名表單](#submit-the-marketplace-nomination-form) |  
-| 4 |  登入 Cloud Partner 入口網站 | 1-3 天 | [登入 Cloud Partner 入口網站](#sign-into-cloud-partner-portal) |  
-| 5 | 在 Microsoft 開發人員中心內註冊 (適用於 Azure Marketplace 交易供應項目) | 5-10 天 | [在開發人員中心註冊](#register-in-dev-center) |  
+| 1 | 在 Microsoft 合作夥伴網路中註冊 | 15 分鐘 | [在 Microsoft 合作夥伴網路中註冊](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
+| 2 | 建立 Microsoft 帳戶 <ul>(對於 Azure Marketplace 交易供應項目而言是必要的；對於其他項目則是建議)</ul> | 15 分鐘 | [建立 Microsoft ID](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
+| 3 | 提交市集註冊表單 | 15 分鐘 | [提交市集提名表單](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#3-submit-the-marketplace-registration-form) |  
+| 4 |  登入 Cloud Partner 入口網站 | 1-3 天 | [登入 Cloud Partner 入口網站](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#4-sign-into-cloud-partner-portal) |  
+| 5 | 在 Microsoft 開發人員中心內註冊 (適用於 Azure Marketplace 交易供應項目) | 5-10 天 | [在開發人員中心註冊](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#5-register-in-dev-center-for-transact-publishing-option-only) |  
 
 
 ## <a name="1-register-in-microsoft-partner-network"></a>1.在 Microsoft 合作夥伴網路中註冊  
@@ -65,7 +65,7 @@ Microsoft 帳戶 (例如 @outlook.com或 @live.com) 可用來存取許多 Micros
 
 ## <a name="3-submit-the-marketplace-registration-form"></a>3.提交市集註冊表單  
 | 15 分鐘 |  
-完成此簡短的註冊表單，以成為市集發行者。 透過此表單提交的資訊，將會用來在 Cloud Partner 入口網站中建立發行者帳戶，以允許您建立、發行及管理市集供應項目。
+完成此簡短的[註冊表單](https://azuremarketplace.microsoft.com/en-us/sell/signup)，以成為市集發行者。 透過此表單提交的資訊，將會用來在 Cloud Partner 入口網站中建立發行者帳戶，以允許您建立、發行及管理市集供應項目。
 
 您必須包含下列資訊：
 *   您組織的詳細資料，包括 Microsoft 合作夥伴網路識別碼 (可以在[合作夥伴中心](https://partnercenter.microsoft.com/partner/home)或 [Partner Membership Center](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx) 中查閱)
@@ -99,7 +99,7 @@ Microsoft 帳戶 (例如 @outlook.com或 @live.com) 可用來存取許多 Micros
 >若要免除 $99 的開發人員中心註冊費用，請填寫市集註冊表單，您便會收到包含促銷代碼的電子郵件。 
 
 >[!Important]
->建立 Microsoft 開發人員中心帳戶之前，請確認組織還沒有開發人員中心帳戶，以避免重複的帳戶。 如需詳細資訊，請瀏覽[如何在開發人員中心註冊](https://review.docs.microsoft.com/en-us/azure/marketplace/become-publisher?branch=pr-en-us-44571#how-to-register-in-dev-center)一節。
+>建立 Microsoft 開發人員中心帳戶之前，請確認組織還沒有開發人員中心帳戶，以避免重複的帳戶。 如需詳細資訊，請瀏覽[在開發人員中心註冊](https://docs.microsoft.com/en-us/azure/marketplace/register-dev-center)一節。
 
 
 ## <a name="next-steps"></a>後續步驟

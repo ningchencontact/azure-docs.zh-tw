@@ -314,6 +314,10 @@
               href: iot-hub-device-management-iot-extension-azure-cli-2-0.md
             - name: 搭配 Logic Apps 進行遠端監視和通知
               href: iot-hub-monitoring-notifications-with-azure-logic-apps.md
+    - name: 疑難排解
+      items:
+        - name: 裝置連線中斷
+          href: iot-hub-troubleshoot-connectivity.md
 - name: 參考
   items:
     - name: Azure CLI

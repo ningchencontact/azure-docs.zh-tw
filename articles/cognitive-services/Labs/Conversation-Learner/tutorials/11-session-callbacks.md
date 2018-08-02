@@ -1,7 +1,7 @@
 ---
-title: 如何搭配對話學習模組應用程式使用工作階段回呼 - Microsoft 認知服務 | Microsoft Docs
+title: 如何搭配對話學習模組模型使用工作階段回呼 - Microsoft 認知服務 | Microsoft Docs
 titleSuffix: Azure
-description: 學習如何搭配對話學習模組應用程式使用工作階段回呼。
+description: 了解如何搭配對話學習模組模型使用工作階段回呼。
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,19 +10,23 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f8970620c1f0f87ccae13d031092a048144ffb19
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0f51b232470e4e4da3f25d40d025dd3b09dd1204
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369599"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171910"
 ---
-# <a name="how-to-use-session-callbacks-with-a-conversation-learner-application"></a>如何搭配對話學習模組應用程式使用工作階段回呼
+# <a name="how-to-use-session-callbacks-with-a-conversation-learner-model"></a>如何搭配對話學習模組模型使用工作階段回呼
 
 本教學課程說明 onSessionStart 和 onSessionEnd 回呼。
 
+## <a name="video"></a>影片
+
+[![教學課程 11 預覽](http://aka.ms/cl-tutorial-11-preview)](http://aka.ms/blis-tutorial-11)
+
 ## <a name="requirements"></a>需求
-本教學課程需要「tutorialSessionCallbacks.ts」聊天機器人正在執行。
+本教學課程要求 `tutorialSessionCallbacks` 聊天機器人必須為執行中狀態。
 
     npm run tutorial-session-callbacks
 
@@ -35,19 +39,19 @@ ms.locfileid: "35369599"
 
 ### <a name="open-the-demo"></a>開啟示範
 
-在應用程式清單中，按一下 [Tutorial-11-SessionCallbacks]。 
+在模型清單中，按一下 [Tutorial-11-SessionCallbacks]。 
 
 ### <a name="entities"></a>實體
 
-我們已在應用程式中定義 4 個實體。
+在模型中定義四個實體。
 
 ![](../media/tutorial11_entities.PNG)
 
-必須注意 BotName 是程式設計實體。  這會由聊天機器人在工作階段開始時設定。
+必須注意 BotName 是程式設計實體。  這個實體將會由聊天機器人在工作階段開始時設定。
 
 ### <a name="actions"></a>動作
 
-我們已經建立 4 個動作。 
+在模型中定義四個動作。
 
 ![](../media/tutorial11_actions.PNG)
 
@@ -70,7 +74,7 @@ ms.locfileid: "35369599"
 這兩種方法都是選用方法。
 
 - OnSessionStartCallback：這個方法會設定 BotName 實體。
-- OnSessionEndCallback：您可以指定您想要清除的實體。 這將清除使用者名稱和使用者電話以外的所有實體。
+- OnSessionEndCallback：您可以指定要保留的實體。 這將清除使用者名稱和使用者電話以外的所有實體。
 
 ### <a name="try-the-bot"></a>測試聊天機器人
 

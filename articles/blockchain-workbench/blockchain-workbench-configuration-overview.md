@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/16/2018
+ms.date: 7/12/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 178c2c1d4f727241338d6d933cd5eecbbffe65bb
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 60a84609c6ec8c1733f0938c69ab683f01ecb975
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303809"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224529"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Azure Blockchain Workbench 組態參考
 
@@ -41,11 +41,11 @@ ms.locfileid: "34303809"
 
 | 欄位 | 說明 | 必要 |
 |-------|-------------|:--------:|
-| ApplicationName | 唯一的應用程式名稱。 對應的智慧合約必須針對適用的合約類別使用相同的 **ApplicationName**。  | yes |
-| DisplayName | 應用程式的易記顯示名稱。 | yes |
+| ApplicationName | 唯一的應用程式名稱。 對應的智慧合約必須針對適用的合約類別使用相同的 **ApplicationName**。  | 是 |
+| DisplayName | 應用程式的易記顯示名稱。 | 是 |
 | 說明 | 應用程式的說明。 | 否 |
-| ApplicationRoles | [ApplicationRoles](#application-roles) 的集合。 可在應用程式中採取行動或參與的使用者角色。  | yes |
-| 工作流程 | [工作流程](#workflows)的集合。 每個工作流程都可作為狀態機器以控制商務邏輯的流程。 | yes |
+| ApplicationRoles | [ApplicationRoles](#application-roles) 的集合。 可在應用程式中採取行動或參與的使用者角色。  | 是 |
+| 工作流程 | [工作流程](#workflows)的集合。 每個工作流程都可作為狀態機器以控制商務邏輯的流程。 | 是 |
 
 如需範例，請參閱[組態檔範例](#configuration-file-example)。
 
@@ -55,15 +55,15 @@ ms.locfileid: "34303809"
 
 | 欄位 | 說明 | 必要 |
 |-------|-------------|:--------:|
-| Name | 唯一的工作流程名稱。 對應的智慧合約必須針對適用的合約類別使用相同的**名稱**。 | yes |
-| DisplayName | 工作流程的易記顯示名稱。 | yes |
+| Name | 唯一的工作流程名稱。 對應的智慧合約必須針對適用的合約類別使用相同的**名稱**。 | 是 |
+| DisplayName | 工作流程的易記顯示名稱。 | 是 |
 | 說明 | 工作流程的說明。 | 否 |
-| Initiators | [ApplicationRoles](#application-roles) 的集合。 對已獲授權可在工作流程中建立合約的使用者所指派的角色。 | yes |
-| StartState | 工作流程初始狀態的名稱。 | yes |
-| properties | [識別碼](#identifiers)的集合。 代表可在使用者體驗工具中進行鏈結關閉讀取或視覺化的資料。 | yes |
-| 建構函式 | 定義用於建立工作流程執行個體的輸入參數。 | yes |
-| Functions | 可在工作流程中執行的[函式](#functions)集合。 | yes |
-| 狀態 | 工作流程[狀態](#states)的集合。 | yes |
+| Initiators | [ApplicationRoles](#application-roles) 的集合。 對已獲授權可在工作流程中建立合約的使用者所指派的角色。 | 是 |
+| StartState | 工作流程初始狀態的名稱。 | 是 |
+| properties | [識別碼](#identifiers)的集合。 代表可在使用者體驗工具中進行鏈結關閉讀取或視覺化的資料。 | 是 |
+| 建構函式 | 定義用於建立工作流程執行個體的輸入參數。 | 是 |
+| Functions | 可在工作流程中執行的[函式](#functions)集合。 | 是 |
+| 狀態 | 工作流程[狀態](#states)的集合。 | 是 |
 
 如需範例，請參閱[組態檔範例](#configuration-file-example)。
 
@@ -76,6 +76,7 @@ ms.locfileid: "34303809"
 | 位址  | 區塊鏈位址類型，例如「合約」或「使用者」 |
 | 布林     | 布林值資料類型 |
 | 合約 | 合約類型的位址 |
+| 列舉     | 列舉的具名值組。 使用列舉類型時，您也可以指定一份 EnumValues 清單。 每個值的上限為 255 個字元。 有效值的字元包括大小寫字母 (A-Z、a-z) 和數字 (0-9)。 |
 | int      | 整數資料類型 |
 | money    | 金錢資料類型 |
 | state    | 工作流程狀態 |
@@ -84,13 +85,71 @@ ms.locfileid: "34303809"
 | 分析     | 時間資料類型 |
 |`[ Application Role Name ]`| 應用程式角色中所指定的任何名稱。 限制使用者只能成為該角色類型。 |
 
+### <a name="example-configuration-of-type-string"></a>字串類型的組態範例
+
+``` json
+{
+  "Name": "description",
+  "Description": "Descriptive text",
+  "DisplayName": "Description",
+  "Type": {
+    "Name": "string"
+  }
+}
+```
+
+### <a name="example-configuration-of-type-enum"></a>列舉類型的組態範例
+
+``` json
+{
+  "Name": "PropertyType",
+  "DisplayName": "Property Type",
+  "Description": "The type of the property",
+  "Type": {
+    "Name": "enum",
+    "EnumValues": ["House", "Townhouse", "Condo", "Land"]
+  }
+}
+```
+
+#### <a name="using-enumeration-type-in-solidity"></a>在 Solidity 中使用列舉類型
+
+一旦列舉定義於組態中，您就可以在 Solidity 中使用列舉類型。 例如，您可以定義稱為 PropertyTypeEnum 的列舉。
+
+```
+enum PropertyTypeEnum {House, Townhouse, Condo, Land} PropertyTypeEnum public PropertyType; 
+```
+
+字串清單必須在組態和智慧合約之間進行比對，以成為 Blockchain Workbench 中有效且一致的宣告。
+
+指派範例：
+
+```
+PropertyType = PropertyTypeEnum.Townhouse;
+```
+
+函式參數範例： 
+
+``` 
+function AssetTransfer(string description, uint256 price, PropertyTypeEnum propertyType) public
+{
+    InstanceOwner = msg.sender;
+    AskingPrice = price;
+    Description = description;
+    PropertyType = propertyType;
+    State = StateType.Active;
+    ContractCreated();
+}
+
+```
+
 ## <a name="constructor"></a>建構函式
 
 定義工作流程執行個體的輸入參數。
 
 | 欄位 | 說明 | 必要 |
 |-------|-------------|:--------:|
-| 參數 | 需要起始智慧合約的[識別碼](#identifiers)集合。 | yes |
+| 參數 | 需要起始智慧合約的[識別碼](#identifiers)集合。 | 是 |
 
 ### <a name="constructor-example"></a>建構函式範例
 
@@ -123,10 +182,10 @@ ms.locfileid: "34303809"
 
 | 欄位 | 說明 | 必要 |
 |-------|-------------|:--------:|
-| Name | 函式的唯一名稱。 對應的智慧合約必須針對適用的函式使用相同的**名稱**。 | yes |
-| DisplayName | 函式的易記顯示名稱。 | yes |
+| Name | 函式的唯一名稱。 對應的智慧合約必須針對適用的函式使用相同的**名稱**。 | 是 |
+| DisplayName | 函式的易記顯示名稱。 | 是 |
 | 說明 | 函式的說明 | 否 |
-| 參數 | 對應至函式參數的[識別碼](#identifiers)集合。 | yes |
+| 參數 | 對應至函式參數的[識別碼](#identifiers)集合。 | 是 |
 
 ### <a name="functions-example"></a>函式範例
 
@@ -171,11 +230,11 @@ ms.locfileid: "34303809"
 
 | 欄位 | 說明 | 必要 |
 |-------|-------------|:--------:|
-| Name | 狀態的唯一名稱。 對應的智慧合約必須針對適用的狀態使用相同的**名稱**。 | yes |
-| DisplayName | 狀態的易記顯示名稱。 | yes |
+| Name | 狀態的唯一名稱。 對應的智慧合約必須針對適用的狀態使用相同的**名稱**。 | 是 |
+| DisplayName | 狀態的易記顯示名稱。 | 是 |
 | 說明 | 狀態的說明。 | 否 |
-| PercentComplete | Blockchain Workbench 使用者介面中所顯示的整數值，用來顯示商務邏輯控制流程內的進度。 | yes |
-| Style | 指出狀態是表示成功還是失敗狀態的視覺提示。 有效值有兩個：`Success` 或 `Failure`。 | yes |
+| PercentComplete | Blockchain Workbench 使用者介面中所顯示的整數值，用來顯示商務邏輯控制流程內的進度。 | 是 |
+| Style | 指出狀態是表示成功還是失敗狀態的視覺提示。 有效值有兩個：`Success` 或 `Failure`。 | 是 |
 | 轉換 | 可從目前狀態進入到下一組狀態的[轉換](#transitions)集合。 | 否 |
 
 ### <a name="states-example"></a>狀態範例
@@ -242,10 +301,10 @@ ms.locfileid: "34303809"
 |-------|-------------|:--------:|
 | AllowedRoles | 允許起始轉換的應用程式角色清單。 屬於指定角色的所有使用者都可執行該動作。 | 否 |
 | AllowedInstanceRoles | 參與或指定於智慧合約中、允許起始轉換的使用者角色清單。 執行個體角色會定義在工作流程的**屬性**中。 AllowedInstanceRoles 代表參與智慧合約執行個體的使用者。 AllowedInstanceRoles 可讓您對合約執行個體中的使用者角色限制採取動作。  例如，如果您只想讓建立合約的使用者 (InstanceOwner) 可以執行終止作業，而不是讓角色類型 (Owner) 中的所有使用者可這麼做，您可以在 AllowedRoles 中指定該角色。 | 否 |
-| DisplayName | 轉換的易記顯示名稱。 | yes |
+| DisplayName | 轉換的易記顯示名稱。 | 是 |
 | 說明 | 轉換的說明。 | 否 |
-| 函式 | 要起始轉換的函式名稱。 | yes |
-| NextStates | 成功轉換之後下一個可能狀態的集合。 | yes |
+| 函式 | 要起始轉換的函式名稱。 | 是 |
+| NextStates | 成功轉換之後下一個可能狀態的集合。 | 是 |
 
 ### <a name="transitions-example"></a>轉換範例
 
@@ -285,7 +344,7 @@ ms.locfileid: "34303809"
 
 | 欄位 | 說明 | 必要 |
 |-------|-------------|:--------:|
-| Name | 應用程式角色的唯一名稱。 對應的智慧合約必須針對適用的角色使用相同的**名稱**。 系統會保留基底類型名稱。 您不能使用和[類型](#type)相同的名稱來為應用程式角色命名| yes |
+| Name | 應用程式角色的唯一名稱。 對應的智慧合約必須針對適用的角色使用相同的**名稱**。 系統會保留基底類型名稱。 您不能使用和[類型](#type)相同的名稱來為應用程式角色命名| 是 |
 | 說明 | 應用程式角色的說明。 | 否 |
 
 ### <a name="application-roles-example"></a>應用程式角色範例
@@ -308,8 +367,8 @@ ms.locfileid: "34303809"
 
 | 欄位 | 說明 | 必要 |
 |-------|-------------|:--------:|
-| Name | 屬性或參數的唯一名稱。 對應的智慧合約必須針對適用的屬性或參數使用相同的**名稱**。 | yes |
-| DisplayName | 屬性或參數的易記顯示名稱。 | yes |
+| Name | 屬性或參數的唯一名稱。 對應的智慧合約必須針對適用的屬性或參數使用相同的**名稱**。 | 是 |
+| DisplayName | 屬性或參數的易記顯示名稱。 | 是 |
 | 說明 | 屬性或參數的說明。 | 否 |
 
 ### <a name="identifiers-example"></a>識別碼範例
@@ -337,7 +396,7 @@ ms.locfileid: "34303809"
 
 ## <a name="configuration-file-example"></a>組態檔範例
 
-資產轉送是購買和銷售高價值資產的智慧合約案例，而這需要檢查員和評鑑員。 賣方可以藉由具現化資產轉送智慧合約來列出其資產。 買方可以藉由在智慧合約上採取動作來取得優惠，而其他合作對象可以採取動作來檢查或評鑑資產。 一旦資產標記為已檢查和已評鑑，買方與賣方會再次確認此銷售，然後將合約設定為完成。 在處理程序中的每一個位置上，所有參與者都可看見合約更新時的狀態。 
+資產轉送是購買和銷售高價值資產的智慧合約案例，而這需要檢查員和評鑑員。 賣方可以藉由具現化資產轉送智慧合約來列出其資產。 買方可以藉由在智慧合約上採取動作來取得供應項目，而其他合作對象可以採取動作來檢查或評鑑資產。 一旦資產標記為已檢查和已評鑑，買方與賣方會再次確認此銷售，然後將合約設定為完成。 在處理程序中的每一個位置上，所有參與者都可看見合約更新時的狀態。 
 
 如需詳細資訊 (包括在程式碼檔案)，請參閱 [Azure Blockchain Workbench 的資產轉送範例](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer)
 

@@ -2,19 +2,19 @@
 title: 在 Azure 中的 LUIS 應用程式上與其他參與者共同作業 | Microsoft Docs
 description: 了解如何在 Language Understanding (LUIS) 應用程式上與其他參與者共同作業。
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/05/2018
-ms.author: v-geberr
-ms.openlocfilehash: c0451f7621a3c18dbf365f3a03934924c030092f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: diberry
+ms.openlocfilehash: 9ea0269439b3d00bf36186cf2fd5c73311526bec
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369926"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225596"
 ---
 # <a name="collaborate-with-others-on-language-understanding-luis-apps"></a>在 Language Understanding (LUIS) 應用程式上與其他人共同作業  
 
@@ -31,6 +31,8 @@ ms.locfileid: "35369926"
 
 * 共同作業者可在您使用 LUIS 應用程式的同時登入及編輯該應用程式。 <!--If a collaborator edits the LUIS app, you see a notification at the top of the browser.-->
 * 共同作業者無法新增其他共同作業者。
+
+若要深入了解 Active Directory 使用者帳戶，請參閱 [Azure Active Directory 租用戶使用者](luis-how-to-account-settings.md#azure-active-directory-tenant-user)。 
 
 ## <a name="set-application-as-public"></a>將應用程式設為公用
 如需詳細資訊，請參閱[公用應用程式端點存取](luis-concept-security.md#public-app-endpoint-access)。

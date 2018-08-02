@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 07/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 64b94baeaede9b05e953b69324648c63d97cea8e
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a453e2d16edecda9753c2940a745b260a3a2b893
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045433"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160258"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>教學課程：Azure Active Directory 與 Salesforce 整合
 
@@ -60,14 +60,14 @@ Salesforce 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 Salesforce，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
     ![Azure Active Directory 按鈕][1]
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![企業應用程式刀鋒視窗][2]
-    
+
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![新增應用程式按鈕][3]
@@ -103,26 +103,26 @@ Salesforce 與 Azure AD 整合提供下列優點：
     ![設定單一登入連結][4]
 
 2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
- 
+
     ![單一登入對話方塊](./media/salesforce-tutorial/tutorial_salesforce_samlbase.png)
 
 3. 在 [Salesforce 網域及 URL] 區段中，執行下列步驟：
 
     ![Salesforce 網域和 URL 單一登入資訊](./media/salesforce-tutorial/tutorial_salesforce_url.png)
-    
+
     a. 在 [登入 URL] 文字方塊中，以下列模式輸入值：
-    
+
     企業帳戶： `https://<subdomain>.my.salesforce.com`
 
     開發人員帳戶： `https://<subdomain>-dev-ed.my.salesforce.com`
-    
+
     b. 在 [識別碼] 文字方塊中，使用下列模式將值輸入：
-    
+
     企業帳戶： `https://<subdomain>.my.salesforce.com`
 
     開發人員帳戶： `https://<subdomain>-dev-ed.my.salesforce.com`
-    
-    > [!NOTE] 
+
+    > [!NOTE]
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Salesforce 用戶端支援小組](https://help.salesforce.com/support)以取得這些值。
 
 4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證]，然後將憑證檔案儲存在您的電腦上。
@@ -170,14 +170,14 @@ Salesforce 與 Azure AD 整合提供下列優點：
     b. 在 [簽發者] 欄位中，貼上您從 Azure 入口網站複製的 [SAML 實體識別碼] 值。
 
     c. 在 [實體識別碼] 文字方塊中，使用下列形式輸入您的 Salesforce 網域名稱：
-      
+
       * 企業帳戶： `https://<subdomain>.my.salesforce.com`
       * 開發人員帳戶： `https://<subdomain>-dev-ed.my.salesforce.com`
-      
+
     d. 若要上傳 [識別提供者憑證]，按一下 [選擇檔案] 以瀏覽及選取您從 Azure 入口網站下載的憑證檔案。
 
     e. 作為 **SAML 識別類型**，選擇下列其中一個選項：
-    
+
       * 如果使用者的 Salesforce 使用者名稱傳入 SAML 判斷提示，選取 [判斷提示包含使用者的 Salesforce 使用者名稱]
 
       * 如果使用者物件的同盟識別碼傳入 SAML 判斷提示，選取 [判斷提示包含使用者物件的同盟識別碼]
@@ -189,7 +189,7 @@ Salesforce 與 Azure AD 整合提供下列優點：
     g. 對於 [服務提供者起始的要求繫結]，請選取 [HTTP 重新導向]。
 
     h. 在 [識別提供者登入 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [單一登入服務 URL] 值
-    
+
     i. 最後，按一下 [儲存]  套用您的 SAML 單一登入設定。
 
 14. 在 Salesforce 的左方導覽窗格中，按一下 [公司設定] 以展開相關的區段，然後按一下 [我的網域]。
@@ -200,7 +200,7 @@ Salesforce 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/salesforce-tutorial/sf-edit-auth-config.png)
 
-16. 在 [驗證設定] 區段中，核取 [登入頁面] 作為 SAML SSO 設定的 [驗證服務]，然後按一下 [儲存]。
+16. 在 [驗證組態] 區段中，核取 [AzureSSO] 作為 SAML SSO 設定的 [驗證服務]，然後按一下 [儲存]。
 
     ![設定單一登入](./media/salesforce-tutorial/sf-auth-config.png)
 

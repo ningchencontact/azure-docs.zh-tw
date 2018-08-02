@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: 1c33a75363eec2b4e338ba64e3d1ad877d8b1610
-ms.sourcegitcommit: 15bfce02b334b67aedd634fa864efb4849fc5ee2
+ms.openlocfilehash: 82a7449bf75cd31f8da5bb93618c4e6977ed312b
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "34757222"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144929"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>診斷虛擬機器網路流量篩選問題
 
@@ -40,38 +40,40 @@ NSG 可讓您針對流入和流出 VM 的流量，控制流量的類型。 您�
 2. 在 Azure 入口網站頂端的搜尋方塊中輸入 VM 的名稱。 當 VM 的名稱出現在搜尋結果中時，請選取它。
 3. 在 [設定] 下方，選取 [網路]，如下圖所示：
 
-    ![檢視安全性規則](./media/diagnose-network-traffic-filter-problem/view-security-rules.png)
+   ![檢視安全性規則](./media/diagnose-network-traffic-filter-problem/view-security-rules.png)
 
-    上圖所列的規則適用於名為 **myVMVMNic** 的網路介面。 其中有來自兩個不同網路安全性群組的網路介面 [輸入連接埠規則]：**mySubnetNSG**：關聯至網路介面所在的子網路。
-        - **myVMNSG**：關聯至名為 **myVMVMNic** 的 VM 中網路介面。
+   上圖所列的規則適用於名為 **myVMVMNic** 的網路介面。 其中有來自兩個不同網路安全性群組的網路介面 [輸入連接埠規則]：
+   
+   - **mySubnetNSG**：關聯至網路介面所在的子網路。
+   - **myVMNSG**：關聯至名為 **myVMVMNic** 的 VM 中網路介面。
 
-    名為 **DenyAllInBound** 的規則是防止從網際網路透過連接埠 80 與 VM 進行輸入通訊的規則，如[案例](#scenario)中所述。 此規則針對 [來源] 列出 *0.0.0.0/0*，這包括網際網路。 沒有其他具較高優先順序 (較低數字) 的規則允許透過連接埠 80 進行輸入。 若要允許從網際網路透過連接埠 80 對 VM 進行輸入，請參閱[解決問題](#resolve-a-problem)。 若要深入了解安全性規則及 Azure 套用它們的方式，請參閱[網路安全性群組](security-overview.md)。
+   名為 **DenyAllInBound** 的規則是防止從網際網路透過連接埠 80 與 VM 進行輸入通訊的規則，如[案例](#scenario)中所述。 此規則針對 [來源] 列出 *0.0.0.0/0*，這包括網際網路。 沒有其他具較高優先順序 (較低數字) 的規則允許透過連接埠 80 進行輸入。 若要允許從網際網路透過連接埠 80 對 VM 進行輸入，請參閱[解決問題](#resolve-a-problem)。 若要深入了解安全性規則及 Azure 套用它們的方式，請參閱[網路安全性群組](security-overview.md)。
 
-    您也會在圖片底部看到 [輸出連接埠規則]。 位於其下方的是適用於網路介面的輸出連接埠規則。 雖然圖片針對每個 NSG 只有顯示四個輸入規則，您的 NSG 可能會具有四個以上的規則。 在圖中，您會在 [來源] 和 [目的地] 下方看到 [VirtualNetwork]，並在 [來源] 下方看到 [AzureLoadBalancer]。 [VirtualNetwork] 和 [AzureLoadBalancer] 為[服務標籤](security-overview.md#service-tags)。 服務標籤代表一組 IP 位址前置詞，有助於降低建立安全性規則的複雜性。
+   您也會在圖片底部看到 [輸出連接埠規則]。 位於其下方的是適用於網路介面的輸出連接埠規則。 雖然圖片針對每個 NSG 只有顯示四個輸入規則，您的 NSG 可能會具有四個以上的規則。 在圖中，您會在 [來源] 和 [目的地] 下方看到 [VirtualNetwork]，並在 [來源] 下方看到 [AzureLoadBalancer]。 [VirtualNetwork] 和 [AzureLoadBalancer] 為[服務標籤](security-overview.md#service-tags)。 服務標籤代表一組 IP 位址前置詞，有助於降低建立安全性規則的複雜性。
 
 4. 確認 VM 處於執行中狀態，然後選取 [有效的安全性規則] (如上圖所示)，以查看有效的安全性規則 (如下圖所示)：
 
-    ![檢視有效的安全性規則](./media/diagnose-network-traffic-filter-problem/view-effective-security-rules.png)
+   ![檢視有效的安全性規則](./media/diagnose-network-traffic-filter-problem/view-effective-security-rules.png)
 
-    列出的規則與您在步驟 3 中看到的一樣，不過針對關聯至網路介面和子網路的 NSG 則有不同的索引標籤。 如同您可以在圖中看到的，系統只會顯示前 50 個的規則。 若要下載包含所有規則的 .csv 檔案，請選取 [下載]。
+   列出的規則與您在步驟 3 中看到的一樣，不過針對關聯至網路介面和子網路的 NSG 則有不同的索引標籤。 如同您可以在圖中看到的，系統只會顯示前 50 個的規則。 若要下載包含所有規則的 .csv 檔案，請選取 [下載]。
 
-    若要查看每個服務標籤所代表的前置詞，請選取其中一個規則 (例如名為 **AllowAzureLoadBalancerInbound** 的規則)。 下圖顯示適用於 **AzureLoadBalancer** 服務標籤的前置詞：
+   若要查看每個服務標籤所代表的前置詞，請選取其中一個規則 (例如名為 **AllowAzureLoadBalancerInbound** 的規則)。 下圖顯示適用於 **AzureLoadBalancer** 服務標籤的前置詞：
 
-    ![檢視有效的安全性規則](./media/diagnose-network-traffic-filter-problem/address-prefixes.png)
+   ![檢視有效的安全性規則](./media/diagnose-network-traffic-filter-problem/address-prefixes.png)
 
-    雖然 **AzureLoadBalancer** 服務標籤只代表一個前置詞，其他服務標籤可能會代表數個前置詞。
+   雖然 **AzureLoadBalancer** 服務標籤只代表一個前置詞，其他服務標籤可能會代表數個前置詞。
 
-4. 先前的步驟示範 **myVMVMNic** 網路介面的安全性規則，但您也在先前某些圖片中看過 **myVMVMNic2** 的網路介面。 此範例中的 VM 具有兩個附加的網路介面。 針對每個網路介面的有效安全性規則可能會不同。
+5. 先前的步驟示範 **myVMVMNic** 網路介面的安全性規則，但您也在先前某些圖片中看過 **myVMVMNic2** 的網路介面。 此範例中的 VM 具有兩個附加的網路介面。 針對每個網路介面的有效安全性規則可能會不同。
 
-    若要查看適用於 **myVMVMNic2** 網路介面的規則，請選取它。 如下圖所示，與該網路介面的子網路關聯規則與 **myVMVMNic** 網路介面相同，因為這兩個網路介面都位於相同的子網路。 當您將 NSG 關聯至子網路時，系統會將其規則套用至子網路中的所有網路介面。
+   若要查看適用於 **myVMVMNic2** 網路介面的規則，請選取它。 如下圖所示，與該網路介面的子網路關聯規則與 **myVMVMNic** 網路介面相同，因為這兩個網路介面都位於相同的子網路。 當您將 NSG 關聯至子網路時，系統會將其規則套用至子網路中的所有網路介面。
 
-    ![檢視安全性規則](./media/diagnose-network-traffic-filter-problem/view-security-rules2.png)
+   ![檢視安全性規則](./media/diagnose-network-traffic-filter-problem/view-security-rules2.png)
 
-    不同於 **myVMVMNic** 網路介面，**myVMVMNic2** 網路介面沒有與它相關聯的網路安全性群組。 每個網路介面和子網路皆可有零個或一個與它相關聯的 NSG。 與每個網路介面或子網路相關聯的 NSG 可以是相同或不同的。 您可以將相同的網路安全性群組關聯至任意數目的網路介面和子網路。
+   不同於 **myVMVMNic** 網路介面，**myVMVMNic2** 網路介面沒有與它相關聯的網路安全性群組。 每個網路介面和子網路皆可有零個或一個與它相關聯的 NSG。 與每個網路介面或子網路相關聯的 NSG 可以是相同或不同的。 您可以將相同的網路安全性群組關聯至任意數目的網路介面和子網路。
 
-雖然可以透過 VM 檢視有效的安全性規則，您也可以透過下列各項來檢視有效的安全性規則：
-- **個別的網路介面**：了解如何[檢視網路介面](virtual-network-network-interface.md#view-network-interface-settings)。
-- **個別的 NSG**：了解如何[檢視 NSG](manage-network-security-group.md#view-details-of-a-network-security-group)。
+雖然可以透過 VM 檢視有效的安全性規則，您也可以透過下列個別的項目來檢視有效的安全性規則：
+- **網路介面**：了解如何[檢視網路介面](virtual-network-network-interface.md#view-network-interface-settings)。
+- **NSG**：了解如何[檢視 NSG](manage-network-security-group.md#view-details-of-a-network-security-group)。
 
 ## <a name="diagnose-using-powershell"></a>使用 PowerShell 進行診斷
 

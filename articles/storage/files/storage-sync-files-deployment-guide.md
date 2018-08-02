@@ -1,5 +1,5 @@
 ---
-title: 部署 Azure 檔案同步 (預覽) | Microsoft Docs
+title: 部署 Azure 檔案同步 | Microsoft Docs
 description: 了解部署 Azure 檔案同步的完整程序。
 services: storage
 documentationcenter: ''
@@ -12,21 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: 808bc3908790c8d6dedf1d9f00a4c70b42c7c490
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: d3ff80391214dbc5d29f04c4a1972b46e68d73d4
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867064"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215140"
 ---
-# <a name="deploy-azure-file-sync-preview"></a>部署 Azure 檔案同步 (預覽)
-使用 Azure 檔案同步 (預覽版)，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的靈活度、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
+# <a name="deploy-azure-file-sync"></a>部署 Azure 檔案同步
+使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
 
 強烈建議您先閱讀[規劃 Azure 檔案服務部署](storage-files-planning.md)和[規劃 Azure 檔案同步部署](storage-sync-files-planning.md)，再完成本文章中描述的步驟。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * Azure 儲存體帳戶和 Azure 檔案共用，須位於您要部署 Azure 檔案同步的區域中。如需詳細資訊，請參閱
     - Azure 檔案同步的[區域可用性](storage-sync-files-planning.md#region-availability)。
     - 如需如何建立儲存體帳戶的逐步說明，請參閱[建立儲存體帳戶](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。
@@ -135,7 +135,7 @@ Remove-Item -Path ".\StorageSyncAgent.exe", ".\afstemp" -Recurse -Force
 > 部署至訂用帳戶和資源群組的儲存體同步服務會從訂用帳戶和資源群組中繼承存取權限。 我們建議您仔細檢查誰可以存取此服務。 具有寫入存取權的實體可以開始將新的一組檔案從已註冊伺服器同步到此儲存體同步服務，並讓資料流向實體可存取的 Azure 儲存體。
 
 # <a name="portaltabportal"></a>[入口網站](#tab/portal)
-若要部署儲存體同步服務，請移至 [Azure 入口網站](https://portal.azure.com/)，按一下 [新增] 並搜尋 Azure 檔案同步。在搜尋結果中，選取 [Azure 檔案同步 (預覽)]，然後選取 [建立] 以開啟 [部署儲存體同步] 索引標籤。
+若要部署儲存體同步服務，請移至 [Azure 入口網站](https://portal.azure.com/)，按一下 [新增] 並搜尋 Azure 檔案同步。在搜尋結果中，選取 [Azure 檔案同步]，然後選取 [建立] 以開啟 [部署儲存體同步] 索引標籤。
 
 在開啟的窗格中，輸入下列資訊：
 

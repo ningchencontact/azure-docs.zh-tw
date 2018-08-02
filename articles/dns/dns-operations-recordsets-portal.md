@@ -3,7 +3,7 @@ title: 使用 Azure DNS 管理 DNS 記錄集和記錄 |Microsoft Docs
 description: Azure DNS 可在裝載您的網域時，提供管理 DNS 記錄集和記錄的功能。
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
-ms.author: kumud
-ms.openlocfilehash: da7d2118a0fb6bc5004856d994a01a932094ca45
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: victorh
+ms.openlocfilehash: b95ec9b4b5077b236c5f3a7183820552b7ccac49
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32772325"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39174309"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>使用 Azure 入口網站管理 DNS 記錄和記錄集
 
@@ -107,7 +107,7 @@ ms.locfileid: "32772325"
 
 ### <a name="modify-soa-records"></a>修改 SOA 記錄
 
-您無法在區域頂點 (名稱 = "\@\") 自動建立的 SOA 記錄集中新增或移除記錄。 不過，您可以修改 SOA 記錄 (「主機」除外) 和記錄集 TTL 內的任何參數。
+您無法在區域頂點 (名稱 = "\@") 自動建立的 SOA 記錄集中新增或移除記錄。 不過，您可以修改 SOA 記錄 (「主機」除外) 和記錄集 TTL 內的任何參數。
 
 ### <a name="modify-ns-records-at-the-zone-apex"></a>在區域頂點修改 NS 記錄
 
@@ -119,7 +119,7 @@ ms.locfileid: "32772325"
 
 ### <a name="delete-soa-or-ns-record-sets"></a>刪除 SOA 或 NS 記錄集
 
-您無法在建立區域時所自動建立的區域頂點 (名稱 = "\@\") 刪除 SOA 和 NS 記錄集。 當您刪除該區域時，就會自動刪除它們。
+您無法在建立區域時所自動建立的區域頂點 (名稱 = "\@") 刪除 SOA 和 NS 記錄集。 當您刪除該區域時，就會自動刪除它們。
 
 ## <a name="next-steps"></a>後續步驟
 

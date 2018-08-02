@@ -3,19 +3,19 @@ title: Language Understanding (LUIS) 界線 | Microsoft Docs
 titleSuffix: Azure
 description: 本文包含 LUIS 的已知限制。
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: 7f46e55e11c4eb68b515a743b0f51392ffc1269e
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: ea4f31094e27f1abbe57c212f262845fd16dd984
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266799"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225273"
 ---
 # <a name="luis-boundaries"></a>LUIS 界線
 LUIS 句有數個界線領域。 第一個是[模型界線](#model-boundaries)，其控制 LUIS 中的意圖、實體和功能。 第二個領域是以金鑰類型為基礎的[配額限制](#key-limits)。 第三個界線領域是用來控制 LUIS 網站的[鍵盤組合](#keyboard-controls)。 第四個領域是 LUIS 撰寫網站和 LUIS [端點](luis-glossary.md#endpoint) API 之間的[世界區域對應](luis-reference-regions.md)。 
@@ -35,8 +35,8 @@ LUIS 句有數個界線領域。 第一個是[模型界線](#model-boundaries)�
 | [模式](luis-concept-patterns.md)|每個應用程式 500 個模式。<br>模式的長度上限為 400 個字元。<br>每個模式 3 個 pattern.any 實體<br>模式中最多有 2 個巢狀選擇性文字|
 | [Pattern.any](./luis-concept-entity-types.md)|每個應用程式 100 個，每個模式 3 個 pattern.any 實體 |
 | [片語清單][phrase-list]|10 個片語清單，每個清單 5,000 個項目|
-| [預先建置實體](./Pre-builtEntities.md) | 沒有限制|
-| [規則運算式實體](./luis-concept-entity-types.md)|20 個實體<br>每個規則運算式實體模式具有 500 個字元的上限|
+| [預先建置實體](./luis-prebuilt-entities.md) | 沒有限制|
+| [規則運算式實體](./luis-concept-entity-types.md)|20 個實體<br>每個規則運算式實體模式 具有 500 個字元的上限|
 | [角色](luis-concept-roles.md)|每個應用程式 300 個角色。 每個實體 10 個角色|
 | **[簡單](./luis-concept-entity-types.md)| 100 個實體|
 | [語句][utterances] | 500 個字元|
@@ -59,14 +59,14 @@ LUIS 句有數個界線領域。 第一個是[模型界線](#model-boundaries)�
 |`\`|反斜線|
 
 ## <a name="key-limits"></a>金鑰限制
-撰寫金鑰針對撰寫及端點具有不同的限制。 LUIS 服務訂用帳戶金鑰僅針對端點查詢有效。
+撰寫金鑰針對撰寫及端點具有不同的限制。 LUIS 服務端點金鑰僅針對端點查詢有效。
 
 |Key|編寫|端點|目的|
 |--|--|--|--|
 |撰寫/入門|1 百萬個/月，5 個/秒|1 千個/月，5 個/秒|撰寫 LUIS 應用程式|
 |[訂用帳戶][pricing] - F0 - 免費層 |無效|1 萬個/月，5 個/秒|查詢 LUIS 端點|
 |[訂用帳戶][pricing] - S0 - 基本層|無效|50 個/秒|查詢 LUIS 端點|
-|[情感分析整合](publishapp.md#enable-sentiment-analysis)|無效|不收費|新增情感資訊，包括關鍵片語資料擷取 |
+|[情感分析整合](luis-how-to-publish-app.md#enable-sentiment-analysis)|無效|不收費|新增情感資訊，包括關鍵片語資料擷取 |
 |語音整合|無效|$5.50 美元/1 千個端點要求|將口語語句轉換成文字語句並傳回 LUIS 結果|
 
 ## <a name="keyboard-controls"></a>鍵盤控制項

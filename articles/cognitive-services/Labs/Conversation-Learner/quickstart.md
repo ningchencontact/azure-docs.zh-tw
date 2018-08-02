@@ -1,7 +1,7 @@
 ---
-title: 如何使用 Node.js 建立對話學習模組應用程式 - Microsoft 認知服務 | Microsoft Docs
+title: 如何使用 Node.js 建立對話學習模組模型 - Microsoft 認知服務 | Microsoft Docs
 titleSuffix: Azure
-description: 了解如何使用 Node.js 建立對話學習模組應用程式。
+description: 了解如何使用 Node.js 建立對話學習模組模型。
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,16 +10,16 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a3a51aa86a30b060c8dc4113da69462904d7df54
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 68ff9c5402c3fa409999e9933a6c1f7bf6d5a089
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370311"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172325"
 ---
-# <a name="create-a-conversation-learner-application-using-nodejs"></a>使用 Node.js 建立對話學習模組應用程式
+# <a name="create-a-conversation-learner-model-using-nodejs"></a>如何使用 Node.js 建立對話學習模組模型
 
-對話學習模組可降低建置 Bot 的複雜度。 它可讓混合式開發工作流程允許使用手動撰寫的程式碼和機器學習，以減少撰寫 Bot 所需的程式碼數量。 您仍然可以編輯應用程式的某些固定部分，例如檢查使用者是否已登入，或發出 API 要求來檢查商店庫存。 不過，狀態與動作選取項目的其他變更則可以自領域專家或開發人員所提供的範例對話方塊中學習。
+對話學習模組可降低建置 Bot 的複雜度。 它可讓混合式開發工作流程允許使用手動撰寫的程式碼和機器學習，以減少撰寫 Bot 所需的程式碼數量。 您仍然可以為模型的某些固定部分撰寫程式碼，例如，檢查使用者是否已登入，或發出 API 要求來檢查商店庫存。 不過，狀態與動作選取項目的其他變更則可以自領域專家或開發人員所提供的範例對話方塊中學習。
 
 ## <a name="invitation-required"></a>需要邀請
 
@@ -27,7 +27,7 @@ ms.locfileid: "35370311"
 
 專案對話學習模組包含已新增至 Bot 的 SDK，以及 SDK 用以存取機器學習的雲端服務。  目前，存取專案對話學習模組雲端服務需要邀請。  如果您尚未獲得邀請，請[申請邀請](https://aka.ms/conversation-learner-request-invite)。  如果您尚未收到邀請，則無法存取雲端 API。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - Node 8.5.0 或更高版本及 npm 5.3.0 或更高版本。 請從 [https://nodejs.org](https://nodejs.org) 安裝。
   
@@ -96,7 +96,7 @@ ms.locfileid: "35370311"
 
 上述指示啟動了一般空白 Bot。  若要改為執行教學課程或示範 Bot：
 
-1. 如果您已開啟對話學習模組 Web UI，請返回至 http://localhost:5050/home 上的應用程式清單。
+1. 如果您已開啟對話學習模組 Web UI，請返回位於 http://localhost:5050/home 的模型清單。
     
 2. 如果正在執行另一個 Bot (如 `npm start` 或 `npm run demo-pizza`)，請將其停止。  您不需要停止 UI 處理序，或關閉網頁瀏覽器。
 
@@ -123,7 +123,7 @@ ms.locfileid: "35370311"
 
 ## <a name="create-a-bot-which-includes-back-end-code"></a>建立包括後端程式碼的 Bot
 
-1. 如果您已開啟對話學習模組 Web UI，請返回至 http://localhost:5050/home 上的應用程式清單。
+1. 如果您已開啟對話學習模組 Web UI，請返回位於 http://localhost:5050/home 的模型清單。
     
 2. 如果正在執行 Bot (如 `npm run demo-pizza`)，請將其停止。  您不需要停止 UI 處理序，或關閉網頁瀏覽器。
 
@@ -138,7 +138,7 @@ ms.locfileid: "35370311"
 
 5. 如果您尚未開啟，請在 Chrome 中載入 http://localhost:5050/home，以切換到對話學習模組 Web UI。 
 
-6. 在 UI 中建立新的對話學習模組應用程式，並開始進行教導。
+6. 在 UI 中建立新的對話學習模組模型，並開始進行教導。
 
 7. 若要在 `cl-bot-01/src/app.ts` 中變更程式碼，請從步驟 2 開始重複上述步驟。
 

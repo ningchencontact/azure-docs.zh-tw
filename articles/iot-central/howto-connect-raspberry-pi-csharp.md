@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 58f363c522f3e5abe6bf49a2aebafe4e953e00df
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 63843797cca7fe84cdb9ce91d2282b1c0c288f0c
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628584"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205131"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>將 Raspberry Pi 連線到 Azure IoT Central 應用程式 (C#)
 
@@ -29,53 +29,24 @@ ms.locfileid: "34628584"
 * Azure IoT Central 應用程式是從**範例 Devkits** 應用程式範本建立而來。 如需詳細資訊，請參閱[建立 Azure IoT Central 應用程式](howto-create-application.md)。
 * 執行 Raspbian 作業系統的 Raspberry Pi 裝置。
 
-從**範例 Devkits** 應用程式範本建立的應用程式包含具有下列特性的 **Raspberry Pi**  裝置範本：
 
-### <a name="telemetry-measurements"></a>遙測量測
+## <a name="sample-devkits-application"></a>**範例 Devkits** 應用程式
 
-| 欄位名稱     | Units  | 最小值 | 最大值 | 小數位數 |
-| -------------- | ------ | ------- | ------- | -------------- |
-| 溼度       | %      | 0       | 100     | 0              |
-| temp           | °C     | -40     | 120     | 0              |
-| pressure       | hPa    | 260     | 1260    | 0              |
-| magnetometerX  | mgauss | -1000   | 1000    | 0              |
-| magnetometerY  | mgauss | -1000   | 1000    | 0              |
-| magnetometerZ  | mgauss | -1000   | 1000    | 0              |
-| accelerometerX | mg     | -2000   | 2000    | 0              |
-| accelerometerY | mg     | -2000   | 2000    | 0              |
-| accelerometerZ | mg     | -2000   | 2000    | 0              |
-| gyroscopeX     | mdps   | -2000   | 2000    | 0              |
-| gyroscopeY     | mdps   | -2000   | 2000    | 0              |
-| gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
+從**範例 Devkits** 應用程式範本建立的應用程式包含具有下列特性的 **Raspberry Pi**  裝置範本： 
 
-### <a name="settings"></a>設定
+- 包含裝置**溼度**、**溫度**、**壓力**、**Magnometer** (沿著 X、Y、Z 軸測量)、**加速器** (沿著 X、Y、Z 軸測量) 和**陀螺儀** (沿著 X、Y、Z 軸測量) 等測量值的遙測。
+- 顯示**電壓**、**電流****風扇速度**和 **IR** 切換的設定。
+- 包含裝置屬性**骰子數字**和**位置**雲端屬性的屬性。
 
-數值設定
 
-| 顯示名稱 | 欄位名稱 | Units | 小數位數 | 最小值 | 最大值 | Initial |
-| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
-| 電壓      | setVoltage | 伏特 | 0              | 0       | 240     | 0       |
-| Current      | setCurrent | 安培  | 0              | 0       | 100     | 0       |
-| 風扇速度    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+如需裝置範本的詳細設定資訊，請參閱 [Raspberry PI 裝置範本詳細資料](howto-connect-raspberry-pi-csharp.md#raspberry-pi-device-template-details)
 
-切換設定
 
-| 顯示名稱 | 欄位名稱 | 開啟文字 | 關閉文字 | Initial |
-| ------------ | ---------- | ------- | -------- | ------- |
-| IR           | activateIR | 開啟      | 關      | 關閉     |
-
-### <a name="properties"></a>properties
-
-| 類型            | 顯示名稱 | 欄位名稱 | 資料類型 |
-| --------------- | ------------ | ---------- | --------- |
-| 裝置屬性 | 模具編號   | dieNumber  | number    |
-| 文字            | 位置     | location   | N/A       |
-
-### <a name="add-a-real-device"></a>新增真實裝置
+## <a name="add-a-real-device"></a>新增真實裝置
 
 在 Azure IoT Central 應用程式中，從 **Raspberry Pi**  裝置範本新增真實裝置，並記下裝置連接字串。 如需詳細資訊，請參閱[將真實裝置新增至 Azure IoT Central 應用程式](tutorial-add-device.md)。
 
-## <a name="create-your-net-application"></a>建立 .NET 應用程式
+### <a name="create-your-net-application"></a>建立 .NET 應用程式
 
 您可以在桌面機器上建立和測試裝置應用程式。
 
@@ -335,6 +306,51 @@ ms.locfileid: "34628584"
     下列螢幕擷取畫面顯示 Raspberry Pi 正在接收設定變更：
 
     ![Raspberry Pi 收到設定變更](./media/howto-connect-raspberry-pi-csharp/device_switch.png)
+
+
+## <a name="raspberry-pi-device-template-details"></a>Raspberry PI 裝置範本詳細資料
+
+從**範例 Devkits** 應用程式範本建立的應用程式包含具有下列特性的 **Raspberry Pi**  裝置範本：
+
+### <a name="telemetry-measurements"></a>遙測量測
+
+| 欄位名稱     | Units  | 最小值 | 最大值 | 小數位數 |
+| -------------- | ------ | ------- | ------- | -------------- |
+| 溼度       | %      | 0       | 100     | 0              |
+| temp           | °C     | -40     | 120     | 0              |
+| pressure       | hPa    | 260     | 1260    | 0              |
+| magnetometerX  | mgauss | -1000   | 1000    | 0              |
+| magnetometerY  | mgauss | -1000   | 1000    | 0              |
+| magnetometerZ  | mgauss | -1000   | 1000    | 0              |
+| accelerometerX | mg     | -2000   | 2000    | 0              |
+| accelerometerY | mg     | -2000   | 2000    | 0              |
+| accelerometerZ | mg     | -2000   | 2000    | 0              |
+| gyroscopeX     | mdps   | -2000   | 2000    | 0              |
+| gyroscopeY     | mdps   | -2000   | 2000    | 0              |
+| gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
+
+### <a name="settings"></a>設定
+
+數值設定
+
+| 顯示名稱 | 欄位名稱 | Units | 小數位數 | 最小值 | 最大值 | Initial |
+| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
+| 電壓      | setVoltage | 伏特 | 0              | 0       | 240     | 0       |
+| Current      | setCurrent | 安培  | 0              | 0       | 100     | 0       |
+| 風扇速度    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+
+切換設定
+
+| 顯示名稱 | 欄位名稱 | 開啟文字 | 關閉文字 | Initial |
+| ------------ | ---------- | ------- | -------- | ------- |
+| IR           | activateIR | 開啟      | 關      | 關閉     |
+
+### <a name="properties"></a>properties
+
+| 類型            | 顯示名稱 | 欄位名稱 | 資料類型 |
+| --------------- | ------------ | ---------- | --------- |
+| 裝置屬性 | 模具編號   | dieNumber  | number    |
+| 文字            | 位置     | location   | N/A       |
 
 ## <a name="next-steps"></a>後續步驟
 

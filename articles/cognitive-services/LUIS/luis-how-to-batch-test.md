@@ -2,19 +2,19 @@
 title: 批次測試 LUIS 應用程式 - Azure | Microsoft Docs
 description: 使用 Language Understanding (LUIS) 批次測試以找出具有錯誤意圖和實體的語句。
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: v-geberr
-ms.openlocfilehash: 822fb1e2d5b13941527d242e8501b423bd6b81cb
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: 2c648cdd82f89a9646fa0b311a7f1f68dd4bc4a9
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265508"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223576"
 ---
 # <a name="batch-testing"></a>批次測試
  批次測試是針對您目前已定型模型的完整測試，以測量其於 LUIS 中的效能。 
@@ -26,7 +26,7 @@ ms.locfileid: "36265508"
 
     ![批次測試連結](./media/luis-how-to-batch-test/batch-testing-link.png)
 
-2. 選取 [匯入資料集]。 [匯入新資料集] 對話方塊隨即出現。 選取 [選擇檔案]，並找出包含*不超過 1,000 個*要測試語句的 [JSON](luis-concept-batch-test.md#batch-file-format) 檔案。
+2. 選取 [匯入資料集]。 [匯入新資料集] 對話方塊隨即出現。 選取 [選擇檔案]，並找出具備正確 [JSON 格式](luis-concept-batch-test.md#batch-file-format)且包含*不超過 1,000 個*要測試語句的 JSON 檔案。
 
     ![匯入資料集檔案](./media/luis-how-to-batch-test/batchtest-importset.png)
 
@@ -37,7 +37,7 @@ ms.locfileid: "36265508"
 4. 選取 [完成] 。 系統會新增資料集檔案。
 
 ## <a name="run-rename-export-or-delete-dataset"></a>執行、重新命名、匯出或刪除資料集
-若要執行、重新命名、匯出或刪除資料集，請使用位於資料集列尾端的三個點 (**...**)。
+若要執行、重新命名、匯出或刪除資料集，請使用位於資料集列尾端的省略符號 (***...***) 按鈕。
 
 ![資料集動作](./media/luis-how-to-batch-test/batch-testing-options.png)
 
@@ -82,13 +82,6 @@ The filtering panel on the right side of the screen displays a list of all inten
  
 ![視覺化的批次測試結果](./media/luis-how-to-batch-test/filter-by-entity.png) 
 
-<!--
-## Investigate false sections
-Data points on the **[False Positive][false-positive]** and **[False Negative][false-negative]** sections indicate errors, which should be investigated. If all data points are on the **[True Positive][true-positive]** and **[True Negative][true-negative]** sections, then your application's performance is perfect on this dataset.
-
-
-The graph indicates [F-measure][f-measure], [recall][recall], and [precision][precision].  
--->
 ## <a name="view-single-point-utterance-data"></a>檢視單一點語句資料
 在圖表中，將滑鼠暫留於資料點上，以查看其預測的確定性分數。 選取資料點以擷取它在頁面底部語句清單中的相對應語句。 
 
@@ -112,16 +105,7 @@ The graph indicates [F-measure][f-measure], [recall][recall], and [precision][pr
 
 若測試顯示出您的 LUIS 應用程式無法識別正確的意圖和實體，則您可以透過標示更多語句或新增功能，以提升 LUIS 應用程式的效能。 
 
-* [使用 LUIS 標示建議的語調](Label-Suggested-Utterances.md) 
+* [使用 LUIS 標示建議的語調](luis-how-to-review-endoint-utt.md) 
 * [使用功能來改善 LUIS 應用程式效能](luis-how-to-add-features.md) 
 * [透過此教學課程來了解批次測試](luis-tutorial-batch-testing.md)
 * [了解批次測試概念](luis-concept-batch-test.md).
-
-[true-positive]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#true-positive
-[true-negative]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#true-negative
-[false-positive]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#false-positive
-[false-negative]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#false-negative
-[f-measure]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#f-measure
-[recall]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#recall
-[precision]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#precision
-

@@ -6,15 +6,15 @@ author: seanmck
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 07/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 39c43c079ea4d10686bd656ba2d451ff42aac9f6
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 550b53cf40133c8a67306c61cbfa7dae21be4648
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34700225"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39163523"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>在 Azure 容器執行個體中針對常見問題進行疑難排解
 
@@ -22,8 +22,7 @@ ms.locfileid: "34700225"
 
 ## <a name="naming-conventions"></a>命名慣例
 
-定義您的容器規格時，特定參數需要遵循命名限制。 以下資料表具有容器群組屬性的特定需求。
-如需 Azure 命名慣例的詳細資訊，請參閱 Azure Architecture Center 中的[命名慣例](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions)。
+定義您的容器規格時，特定參數需要遵循命名限制。 以下資料表具有容器群組屬性的特定需求。 如需 Azure 命名慣例的詳細資訊，請參閱 Azure Architecture Center 中的[命名慣例][azure-name-restrictions]。
 
 | 影響範圍 | 長度 | 大小寫 | 有效字元 | 建議模式 | 範例 |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -31,16 +30,35 @@ ms.locfileid: "34700225"
 | 容器名稱 | 1-64 |不區分大小寫 |除了第一個或最後一個字元以外，都可以使用英數字元和連字號 |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | 容器連接埠 | 介於 1 到 65535 之間 |整數  |介於 1 到 65535 之間的整數 |`<port-number>` |`443` |
 | DNS 名稱標籤 | 5-63 |不區分大小寫 |除了第一個或最後一個字元以外，都可以使用英數字元和連字號 |`<name>` |`frontend-site1` |
-| 環境變數 | 1-63 |不區分大小寫 |除了第一個或最後一個字元以外，都可以使用英數字元和 '_' 字元 |`<name>` |`MY_VARIABLE` |
+| 環境變數 | 1-63 |不區分大小寫 |除了第一個或最後一個字元以外，都可以使用英數字元和底線 (_) |`<name>` |`MY_VARIABLE` |
 | 磁碟區名稱 | 5-63 |不區分大小寫 |除了第一個或最後一個字元以外，都可以使用小寫字母、數字和連字號。 不能包含兩個連續連字號。 |`<name>` |`batch-output-volume` |
 
-## <a name="image-version-not-supported"></a>不支援映像版本
+## <a name="os-version-of-image-not-supported"></a>不支援映像的 OS 版本
 
-如果您指定 Azure 容器執行個體無法支援的映像，則會傳回 `ImageVersionNotSupported` 錯誤。 錯誤的值是 `The version of image '{0}' is not supported.`，且目前會發生於 Windows 1709 映像。 若要解決這個問題，請使用 LTS Windows 映像。 Windows 1709 映像支援正在進行中。
+如果您指定 Azure 容器執行個體不支援的映像，則會傳回 `OsVersionNotSupported` 錯誤。 錯誤會類似下面內容，其中 `{0}` 是您嘗試部署的映像名稱：
+
+```json
+{
+  "error": {
+    "code": "OsVersionNotSupported",
+    "message": "The OS version of image '{0}' is not supported."
+  }
+}
+```
+
+部署以半年通道 (SAC) 版本為基礎的 Windows 映像時，最常發生此錯誤。 比方說，Windows 1709 和 1803 版都是 SAC 版本，並且會在部署時產生此錯誤。
+
+Azure 容器執行個體僅支援以長期維護通道 (LTSC) 版本為基礎的 Windows 映像。 若要解決部署 Windows 容器時發生的這個問題，請一律部署以 LTSC 為基礎的映像。
+
+如需 Windows LTSC 和 SAC 版的詳細資訊，請參閱 [Windows Server 半年通道概觀][windows-sac-overview]。
 
 ## <a name="unable-to-pull-image"></a>無法提取映像
 
-如果 Azure Container Instances 一開始無法提取您的映像，它會先重試一段時間，最後才會失敗。 如果它無法提取映像，系統便會顯示如 [az container show][az-container-show] 輸出中所示的事件：
+如果 Azure 容器執行個體一開始無法提取您的映像，它會重試一段時間。 如果映像提取作業持續發生失敗，ACI 最終會停止部署，而且您可能會看到 `Failed to pull image` 錯誤。
+
+若要解決此問題，請刪除容器執行個體並重試您的部署。 請確定此映像存在在登錄中，而且您已輸入正確的映像名稱。
+
+如果無法提取映像，系統便會顯示如 [az container show][az-container-show] 輸出中所示的事件：
 
 ```bash
 "events": [
@@ -71,13 +89,11 @@ ms.locfileid: "34700225"
 ],
 ```
 
-若要解決，請刪除容器並重試部署，特別注意您所輸入的映像名稱是否正確。
-
 ## <a name="container-continually-exits-and-restarts"></a>容器不斷結束又重新啟動
 
 如果您的容器執行到完成又自動重新啟動，可能需要設定 **OnFailure** 或 **Never** 的 [restart policy](container-instances-restart-policy.md) (重新啟動原則)。 如果指定 **OnFailure** 後仍持續重新啟動，可能是容器中執行的應用程式或指令碼的問題。
 
-容器執行個體 API 有一個 `restartCount` 屬性。 若要檢查容器的重新啟動次數，可以在 Azure CLI 2.0 中使用 [az container show][az-container-show] 命令。 在下列範例輸出中 (為簡潔起見已截斷畫面)，您可以在輸出的結尾看到 `restartCount` 屬性。
+容器執行個體 API 有一個 `restartCount` 屬性。 若要檢查容器的重新啟動次數，可以在 Azure CLI 中使用 [az container show][az-container-show] 命令。 在下列範例輸出中 (為簡潔起見已截斷畫面)，您可以在輸出的結尾看到 `restartCount` 屬性。
 
 ```json
 ...
@@ -173,10 +189,16 @@ Azure 中有各種不同的地區資源負載，因此您在嘗試部署容器�
 * 部署至其他 Azure 地區
 * 過一段時間再部署
 
+## <a name="cannot-connect-to-underlying-docker-api-or-run-privileged-containers"></a>無法連線到基礎 Docker API 或執行具有特殊權限的容器
+
+Azure 容器執行個體不會公開基礎結構 (其中裝載容器群組) 的直接存取。 這包括 Docker API 的存取權，Docker API 可在容器主機上執行，並且可執行具有特殊權限的容器。 如果您需要 Docker 互動，請查閱 [REST 參考文件](https://aka.ms/aci/rest)，以了解 ACI API 支援的內容。 如果有遺漏的項目，請在 [ACI 意見反應論壇](https://aka.ms/aci/feedback)上提交要求。
+
 ## <a name="next-steps"></a>後續步驟
 深入了解如何[擷取容器記錄和事件](container-instances-get-logs.md)以協助針對您的容器進行偵錯。
 
 <!-- LINKS - External -->
+[azure-name-restrictions]: https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions
+[windows-sac-overview]: https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview
 [docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
 [docker-hub-windows-core]: https://hub.docker.com/r/microsoft/windowsservercore/
 [docker-hub-windows-nano]: https://hub.docker.com/r/microsoft/nanoserver/

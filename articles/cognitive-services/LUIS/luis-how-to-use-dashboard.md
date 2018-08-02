@@ -2,19 +2,19 @@
 title: LUIS 應用程式的應用程式儀表板 | Microsoft Docs
 description: 了解應用程式儀表板，這個視覺化報告工具可讓您以速覽方式監視您的應用程式。
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: v-geberr
-ms.openlocfilehash: 4e117aa734c551f76c3602f81e3e2ebc6aa9f337
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: diberry
+ms.openlocfilehash: 518227d9f4165a08fafefa357de255d97c710f61
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35370774"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224495"
 ---
 # <a name="application-dashboard"></a>應用程式儀表板
 應用程式儀表板可讓您以速覽方式監視您的應用程式。 [儀表板] 會在您開啟應用程式時顯示，做法是在 [我的應用程式] 頁面上按一下應用程式名稱，然後從頂端面板中選取 [儀表板]。 
@@ -69,7 +69,7 @@ At the top of the **Dashboard** page, a contextual notification bar constantly d
 2. 從清單中選取一個期間，然後按一下返回箭頭 ![返回箭頭](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) 以顯示圖表。
 
 ### <a name="key-usage"></a>金鑰使用量
-從應用程式的訂用帳戶金鑰取用的叫用次數。 如需訂用帳戶金鑰的詳細資訊，請參閱 [LUIS 中的金鑰](luis-concept-keys.md)。 
+從應用程式的端點金鑰取用的叫用次數。 如需端點金鑰的詳細資訊，請參閱 [LUIS 中的金鑰](luis-concept-keys.md)。 
   
 ## <a name="intent-breakdown"></a>意圖分解
 [意圖分解] 會根據標示的語句或端點叫用來顯示意圖分解。 此摘要圖表會顯示應用程式中每個意圖的相對重要性。 當您將滑鼠指標暫留在配量時，會看到意圖名稱以及它在標示的語句/端點叫用總數中所代表的百分比。 

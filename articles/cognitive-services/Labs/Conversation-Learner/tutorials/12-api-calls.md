@@ -1,7 +1,7 @@
 ---
-title: 如何搭配對話學習模組應用程式使用 API 呼叫 - Microsoft 認知服務 | Microsoft Docs
+title: 如何搭配對話學習模組模型使用 API 呼叫 - Microsoft 認知服務 | Microsoft Docs
 titleSuffix: Azure
-description: 學習如何搭配對話學習模組應用程式使用 API 呼叫。
+description: 了解如何搭配對話學習模組模型使用 API 呼叫。
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,16 +10,20 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: ec752cbadfac7a47e08ed7b0ffe8bb475969fac5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1d4013d736d8cfcb75874bc0c86d20b86ab4dd62
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369611"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215834"
 ---
-# <a name="how-to-add-api-calls-to-a-conversation-learner-application"></a>如何將 API 呼叫新增到對話學習模組應用程式
+# <a name="how-to-add-api-calls-to-a-conversation-learner-model"></a>如何將 API 呼叫新增到對話學習模組模型
 
-本教學課程顯示如何將 API 呼叫加入到您的應用程式。 API 呼叫是您在聊天機器人中定義並寫入的函式，而且對話學習模組可以呼叫。
+本教學課程示範如何將 API 呼叫新增到您的模型。 API 呼叫是您在聊天機器人中定義並寫入的函式，而且對話學習模組可以呼叫。
+
+## <a name="video"></a>影片
+
+[![教學課程 12 預覽](http://aka.ms/cl-tutorial-12-preview)](http://aka.ms/blis-tutorial-12)
 
 ## <a name="requirements"></a>需求
 本教學課程需要「tutorialAPICalls.ts」聊天機器人正在執行。
@@ -34,11 +38,11 @@ ms.locfileid: "35369611"
 
 ### <a name="open-the-demo"></a>開啟示範
 
-在 Web UI 的應用程式清單中，按一下 [Tutorial-12-APICalls]。 
+在 Web UI 的模型清單中，按一下 [Tutorial-12-APICalls]。 
 
 ### <a name="entities"></a>實體
 
-我們已在應用程式呼叫的號碼中定義一個實體。
+我們已在模型呼叫的數字中定義一個實體。
 
 ![](../media/tutorial12_entities.PNG)
 
@@ -73,16 +77,16 @@ API 旁邊的重新整理按鈕可用來停止聊天機器人，並且對於 API
 
 讓我們逐步進行教學對話。
 
-1. 按一下 [Train Dialogs]\(訓練對話\)，然後按一下 [New Train Dialog]\(新增訓練對話\)。
+1. 按一下 [Train Dialogs] \(訓練對話\)，然後按一下 [New Train Dialog] \(新增訓練對話\)。
 1. 輸入「hi」\(嗨\)。
-2. 按一下 [Score Actions]\(評分動作\)。
+2. 按一下 [Score Actions] \(評分動作\)。
 3. 按一下以選取 RandomGreeting。 這將執行隨機問候語 API 呼叫。
-3. 按一下以選取 [What number to do you want to multiply by 12?]\(您想要哪個數字乘以 12？\)
-4. 輸入「8」。 然後按一下 [Score Actions]\(評分動作\)。
-4. 選取 [Multiply $number 12]\($number 和 12 相乘\)。 請注意相乘的結果。
-5. 選取 [Clear Entities]\(清除實體\)。
-    - 請注意，數字實體的值已遭清除。
-3. 按一下以選取 [What number to do you want to multiply by 12?]\(您想要哪個數字乘以 12？\)
+3. 按一下以選取 [What number to do you want to multiply by 12?] \(您想要哪個數字乘以 12?\)
+4. 輸入 '8'。 然後按一下 [Score Actions] \(評分動作\)。
+4. 選取 [Multiply $number 12] \($number 和 12 相乘\)。 請注意相乘的結果。
+5. 選取 [Clear Entities] \(清除實體\)。
+    - `number` 實體的值已被清除。
+3. 按一下以選取 [What number to do you want to multiply by 12?] \(您想要哪個數字乘以 12？\)
 4. 按一下 [完成測試]。
 
 ![](../media/tutorial12_dialog.PNG)

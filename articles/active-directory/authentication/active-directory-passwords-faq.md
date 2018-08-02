@@ -4,18 +4,18 @@ description: 有關 Azure AD 自助式密碼重設的常見問題集。
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: c006e448b8da1acaf51c8339cbcd0b6170f29874
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 92f9732adadc4eb580d89f8a43cf76177450aeb7
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054806"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160737"
 ---
 # <a name="password-management-frequently-asked-questions"></a>密碼管理常見問題集
 
@@ -115,7 +115,7 @@ ms.locfileid: "39054806"
   >
 * **問：如何教育我的使用者要在哪裡重設其密碼？**
 
-  > **答：** 請試試 [SSPR 部署](howto-sspr-deployment.md#email-based-rollout)一文中的一些建議。
+  > **答：** 請試試 [SSPR 部署](howto-sspr-deployment.md#sample-communication)一文中的一些建議。
   >
   >
 * **問：我是否可以從行動裝置使用此頁面？**
@@ -170,7 +170,7 @@ ms.locfileid: "39054806"
   >
 * **問：我已將原則設定為要求使用者使用安全性問題進行重設，但 Azure 系統管理員似乎是以不同方式設定。**
 
-  > **答：** 這是預期中的行為。 Microsoft 會針對任何 Azure 系統管理員角色強制執行強式預設雙閘道密碼重設原則。 這會讓系統管理員無法使用安全性問題。 如需有關此原則的詳細資訊，請參閱 [Azure Active Directory 中的密碼原則和限制](concept-sspr-policy.md#administrator-password-policy-differences)一文。
+  > **答：** 這是預期中的行為。 Microsoft 會針對任何 Azure 系統管理員角色強制執行強式預設雙閘道密碼重設原則。 這會讓系統管理員無法使用安全性問題。 如需有關此原則的詳細資訊，請參閱 [Azure Active Directory 中的密碼原則和限制](concept-sspr-policy.md)一文。
   >
   >
 * **問：如果使用者註冊的問題數目超過重設所需的問題數目上限，在重設期間會如何選取安全性問題？**
@@ -274,7 +274,7 @@ ms.locfileid: "39054806"
   >
 * **問：密碼回寫是否安全？我要如何確定不會受到駭客入侵？**
 
-  > **答：** 是，密碼回寫很安全。 若要深入了解密碼回寫服務所實作的四層安全性，請參閱[密碼回寫概觀](howto-sspr-writeback.md)一文中的[密碼回寫的安全性模型](howto-sspr-writeback.md#password-writeback-security-model)一節。
+  > **答：** 是，密碼回寫很安全。 若要深入了解密碼回寫服務所實作的多層安全性，請參閱[密碼回寫概觀](howto-sspr-writeback.md)一文中的[密碼回寫安全性](concept-sspr-writeback.md#password-writeback-security)一節。
   >
   >
 

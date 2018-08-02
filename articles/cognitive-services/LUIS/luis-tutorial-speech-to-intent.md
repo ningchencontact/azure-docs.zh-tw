@@ -3,19 +3,19 @@ title: 將語音 C# SDK 搭配 LUIS 使用 - Azure | Microsoft Docs
 titleSuffix: Azure
 description: 使用語音 C# SDK 範例對麥克風說話，並取得傳回的 LUIS 意圖與實體預測。
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/26/2018
-ms.author: v-geberr;
-ms.openlocfilehash: b681598f953d217ca636fb5c0adc3de4ddbebd60
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.author: diberry;
+ms.openlocfilehash: 286efcd97c0c9ab95a8241215bc36799c486a8b6
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031782"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247710"
 ---
 # <a name="integrate-speech-service"></a>整合語音服務
 [語音服務](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/)可讓您使用單一要求接收音訊並傳回 LUIS 預測 JSON 物件。
@@ -28,7 +28,7 @@ ms.locfileid: "37031782"
 在 Azure 入口網站中，[建立 ](luis-how-to-azure-subscription.md#create-luis-endpoint-key)**Language Understanding** (LUIS) 金鑰。 
 
 ## <a name="import-human-resources-luis-app"></a>匯入 Human Resources LUIS 應用程式
-本文中的意圖和語句，皆來自位於 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github 存放庫中的 Human Resources LUIS 應用程式。 下載 [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json) 檔案、以 *.json 副檔名儲存該檔案，然後將它[匯入](create-new-app.md#import-new-app) LUIS。 
+本文中的意圖和語句，皆來自位於 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github 存放庫中的 Human Resources LUIS 應用程式。 下載 [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json) 檔案、以 *.json 副檔名儲存該檔案，然後將它[匯入](luis-how-to-start-new-app.md#import-new-app) LUIS。 
 
 此應用程式具有與人力資源領域相關的意圖、實體和語句。 語句範例包括：
 
@@ -43,7 +43,7 @@ Do I have any paid time off?
 匯入應用程式後，選取 [實體]，然後再選取 [管理預先建立的實體]。 新增 **KeyPhrase** 實體。 KeyPhrase 實體會從語句中擷取金鑰主題。
 
 ## <a name="train-and-publish-the-app"></a>訓練和發佈應用程式
-1. 在頂端右側的導覽列中，選取 [訓練] 按鈕以訓練 LUIS 應用程式。
+1. 在頂端右側的瀏覽列中，選取 [訓練] 按鈕以訓練 LUIS 應用程式。
 
 2. 選取 [發佈] 以移至 [發佈] 頁面。 
 
@@ -120,7 +120,7 @@ Recognition done. Your Choice:
 語音 SDK 會傳回整個 LUIS 回應。 
 
 ## <a name="clean-up-resources"></a>清除資源
-若不再需要 LUIS HumanResources 應用程式，請予以刪除。 若要這麼做，請選取應用程式清單中應用程式名稱右邊的三個點功能表 (...)，然後選取 [刪除]。 在 [刪除應用程式?] 快顯對話方塊中選取 [確定]。
+若不再需要 LUIS HumanResources 應用程式，請予以刪除。 若要這麼做，請選取應用程式清單中應用程式名稱右邊的省略符號 (***...***) 按鈕，然後選取 [刪除]。 在 [Delete app?] \(刪除應用程式?\) 快顯對話方塊上，選取 [Ok] \(確定\)。
 
 用完範例程式碼後，請記得刪除 LUIS-Samples 目錄。
 

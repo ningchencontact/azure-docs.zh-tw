@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 0414fa16f277c7495cc7fe4bdd7a51fc3a23ad93
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: ad9e9e893dc831530b69a30cc3dd930e879e9d7b
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988617"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185113"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>為 DevTest Labs 虛擬機器建立自訂構件
 
@@ -113,7 +113,7 @@ ms.locfileid: "38988617"
 1. 安裝 JSON 編輯器。 您需要 JSON 編輯器才能使用構件定義檔。 建議您使用 [Visual Studio 程式碼](https://code.visualstudio.com/)，這適用於 Windows、Linux 和 OS X。
 2. 取得 artifactfile.json 定義檔範例。 請參閱 [GitHub 存放庫](https://github.com/Azure/azure-devtestlab)中由 DevTest Labs 小組所建立的構件。 我們已建立了豐富的構件庫，以協助您建立您自己的構件。 下載構件定義檔，並對它進行變更以建立您自己的構件。
 3. 利用 IntelliSense。 使用 IntelliSense 來查看可用於建構構件定義檔的有效元素。 您也可以看到適用於元素值的不同選項。 例如，當您編輯 **targetOsType** 元素時，IntelliSense 會顯示 Windows 或 Linux 這兩個選項。
-4. 將成品儲存在[適用於 DevTest Labs 的公開 Git 存放庫](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts)或[您自己的 Git 存放庫](devtest-lab-add-artifact-repo.md)中。
+4. 將成品儲存在[適用於 DevTest Labs 的公開 Git 存放庫](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts)或[您自己的 Git 存放庫](devtest-lab-add-artifact-repo.md)中。 在公用存放庫中，您可以檢視其他人分享的成品，並且可以直接使用這些成品，或根據您的需求來自訂這些成品。 
    
    1. 為每個構件建立個別的目錄。 目錄名稱應該和構件名稱相同。
    2. 將構件定義檔 (artifactfile.json) 儲存於您建立的目錄中。

@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 07/11/2018
-ms.openlocfilehash: 547839234e15455f3e268bad4d92972ea1f47e4c
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 70891e4c1425badb43dac66ada9c0b3a43b8fb0d
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971932"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173668"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>適用於 MySQL 的 Azure 資料庫定價層
 
@@ -94,6 +94,8 @@ ms.locfileid: "38971932"
 當可用的儲存體數量低於 5 GB 或 5% 的佈建儲存體時 (以較低者為準)，伺服器會標記為唯讀狀態。 例如，如果您已佈建 100 GB 的儲存體，並且實際的使用率超過 95 GB，伺服器會標示為唯讀。 或者，如果您已佈建 5 GB 的儲存體，則當可用儲存體小於 250 MB時，伺服器會標示為唯讀。  
 
 當服務嘗試讓伺服器變為唯讀時，會封鎖所有新的寫入交易要求，而現有的使用中交易會繼續執行。 當伺服器設為唯讀時，所有後續的寫入作業和交易認可都會失敗。 讀取查詢將會繼續運作，不會中斷。 當您增加佈建的儲存體之後，伺服器就可以再次接受寫入交易。
+
+我們建議您設定警示，讓系統可在伺服器儲存容量接近閾值時發出通知，以避免進入唯讀狀態。 如需詳細資訊，請參閱[如何設定警示](howto-alert-on-metric.md)的文件。
 
 ## <a name="backup"></a>Backup 
 

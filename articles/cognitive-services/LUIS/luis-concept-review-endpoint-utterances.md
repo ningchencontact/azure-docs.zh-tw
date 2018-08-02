@@ -2,28 +2,31 @@
 title: 檢閱端點語句以在 Language Understanding (LUIS) 中使用主動式學習 | Microsoft Docs
 description: 使用名為 [檢閱端點語句] 的主動式學習功能，更快改善效能預測。
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: v-geberr;
-ms.openlocfilehash: b9672e8e63fb601d4411a342b7f3c00e30f9e002
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.author: diberry
+ms.openlocfilehash: 05b3404d318359c6966df44bfab9baff3ded980f
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35371090"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222608"
 ---
 # <a name="enable-active-learning-by-reviewing-endpoint-utterances"></a>檢閱端點語句以啟用主動式學習
 主動式學習是改善預測精確度且最簡單實作的三種策略之一。 
 
 ## <a name="what-is-active-learning"></a>何謂主動式學習
-主動式學習是一個兩步驟程序。 首先，LUIS 會選取它在需要驗證的應用程式端點收到的語句。 第二個步驟是由應用程式擁有者或共同作業者來驗證可供[檢閱](label-suggested-utterances.md)的所選語句，包括正確的意圖和意圖內的任何實體。 在檢閱語句之後，訓練並重新發佈應用程式。 
+主動式學習是一個兩步驟程序。 首先，LUIS 會選取它在需要驗證的應用程式端點收到的語句。 第二個步驟是由應用程式擁有者或共同作業者來驗證可供[檢閱](luis-how-to-review-endoint-utt.md)的所選語句，包括正確的意圖和意圖內的任何實體。 在檢閱語句之後，訓練並重新發佈應用程式。 
 
 ## <a name="which-utterances-are-on-the-review-list"></a>檢閱清單上有哪個語句
 當熱門引發意圖的分數很低或前兩個意圖的分數太接近時，LUIS 會將語句新增至檢閱清單。 
+
+## <a name="single-pool-for-utterances-per-app"></a>每個應用程式中適用於語句的單一集區
+**檢閱端點語句**清單不會根據版本來變更。 不論您正在編輯的語句版本為何，也不論在端點上發佈的應用程式版本為何，都只有一個要檢閱的語句集區。 
 
 ## <a name="where-are-the-utterances-from"></a>語句來自何處
 端點語句取自一般使用者在應用程式的 HTTP 端點上進行的查詢。 如果您的應用程式並未發佈，或尚未接獲叫用，則表示您沒有任何要檢閱的語句。 如果未收到特定意圖或實體的端點叫用，則表示您沒有包含該意圖或實體而要檢閱的語句。 
@@ -36,4 +39,4 @@ ms.locfileid: "35371090"
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如何[檢閱](Label-Suggested-Utterances.md)端點語句
+* 如何[檢閱](luis-how-to-review-endoint-utt.md)端點語句

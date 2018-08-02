@@ -1,45 +1,47 @@
 ---
-title: 授權自助式密碼重設 - Azure Active Directory
+title: 授權 Azure Active Directory 自助式密碼
 description: Azure AD 自助式密碼重設授權需求
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/17/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: e185b67ae73b86b5f1c3b6cda884de05eb89c6fd
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 83054c505689768c14d168841764a4557c3e1f8b
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049079"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158993"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Azure AD 自助式密碼重設的授權需求
 
-若要讓 Azure Active Directory (Azure AD) 密碼重設為函式，您必須在組織中為該使用者至少指派一個授權。 必須有適當的授權，使用者才能直接或間接從該授權所涵蓋的任何功能獲益。
+Azure Active Directory (Azure AD) 共有四種版本：Free、Basic、Premium P1 及 Premium P2。 有幾個構成自助式密碼重設的不同功能 (包括變更、重設、解除鎖定和回寫)，可在不同的 Azure AD 版本中提供。 本文嘗試說明差異。 如需每個 Azure AD 版本中包含的功能詳細資料，請參閱 [Azure Active Directory 定價頁面](https://azure.microsoft.com/pricing/details/active-directory/)。
 
-* **僅限雲端使用者**：Office 365 任何付費的 SKU，或 Azure AD Basic
-* **雲端**或**內部部署使用者**：Azure AD Premium P1 或 P2、Enterprise Mobility + Security (EMS) 或 Microsoft 365
+## <a name="compare-editions-and-features"></a>比較版本和功能
 
-## <a name="licensing-requirements-for-password-writeback"></a>密碼回寫的授權需求
+Azure AD 自助式密碼重設會依使用者授權來維持合規性，而組織必須將適當的授權指派給其使用者。
 
-**自助式密碼重設/變更/使用內部部署回寫來解除鎖定是 Azure AD 的進階功能**。 如需授權的詳細資訊，請參閱 [Azure Active Directory 價格網站](https://azure.microsoft.com/pricing/details/active-directory/)。
+* 雲端使用者的自助式密碼變更
+   * 我是**僅限雲端的使用者**而且知道我的密碼。
+      * 我想要將我的密碼**變更**為新密碼。
+   * 這項功能包含在所有的 Azure AD 版本中。
 
-若要使用密碼回寫，您的租用戶中必須已指派下列其中一項授權：
+* 雲端使用者的自助式密碼重設
+   * 我是**僅限雲端的使用者**而且忘了我的密碼。
+      * 我想要將我的密碼**重設**為我所知道的密碼。
+   * 這項功能包含在 Azure AD Basic、Premium P1 或 Premium P2 版本中。
 
-* Azure AD Premium P1
-* Azure AD Premium P2
-* Enterprise Mobility + Security E3 或 A3
-* Enterprise Mobility + Security E5 或 A5
-* Microsoft 365 E3 或 A3
-* Microsoft 365 E5 或 A5
-* Microsoft 365 F1
+* 自助式密碼重設/變更/**使用內部部署回寫**來解鎖
+   * 我是**混合式使用者**，我的內部部署 Active Directory 使用者帳戶已使用 Azure AD Connect 與我的 Azure AD 帳戶同步處理。 我想要變更我的密碼、忘了我的密碼，或已鎖定。
+      * 我想要變更我的密碼或將它重設為我知道的，或將我的帳戶解除鎖定，**以及**將該變更同步處理回到內部部署 Active Directory。
+   * 這項功能包含在 Azure AD Premium P1 或 Premium P2 版本中。
 
 > [!WARNING]
-> 獨立的 Office 365 授權方案不支援密碼回寫，而且需要您具備上述其中一個方案，這項功能才能運作。
+> 獨立的 Office 365 授權方案**不支援密碼回寫**，而且需要 Azure AD Premium P1, or Premium P2 選項，這項功能才能運作。
 >
 
 在下列分頁可以找到額外的授權資訊 (包括成本)：

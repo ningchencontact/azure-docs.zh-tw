@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4eee1f2c9ca37227ca2cea0ef5e2ff25f6fad828
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 00d2f37068c5bedb17ba9a4064d1f5058f5ab72c
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443404"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185773"
 ---
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>使用 Azure AD B2C 識別體驗架構定義信任架構
 
@@ -90,7 +90,7 @@ TF 規格是一或多份文件，可供您參考如何對管制社群內數位�
 
 - 用於在參與者之間建立網路通訊的中繼資料。 在交易過程中，此中繼資料以及技術設定檔會用來在信賴憑證者和其他社群參與者之間檢測「線上」互通性。
 
-- 通訊協定轉換 (例如，SAML、OAuth2、WS-同盟和 OpenID Connect)，如果有的話。
+- 通訊協定轉換 (例如，SAML 2.0、OAuth2、WS-同盟和 OpenID Connect)，如果有的話。
 
 - 驗證需求。
 

@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 07/19/2018
 ms.author: marsma
-ms.openlocfilehash: bc30352f50344031f8356d2be1b800dd035f12ad
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7a3d521d4382e3d9b5b1b1cf4eb3e43fa02c9a40
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830457"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159544"
 ---
 # <a name="set-environment-variables"></a>設定環境變數
 
@@ -25,7 +25,7 @@ ms.locfileid: "34830457"
 
 *MinLength*：列入計算之字詞中的字元數上限。 較高的數目會略過常用字詞，例如 "of" 和 "the"。
 
-如果您需要將祕密當成環境變數來傳遞，Azure 容器執行個體支援適用於 Windows 和 Linux 容器的[安全值](#secure-values)安全值。
+如果您需要將祕密當成環境變數來傳遞，Azure 容器執行個體支援適用於 Windows 和 Linux 容器的[安全值](#secure-values)。
 
 ## <a name="azure-cli-example"></a>Azure CLI 的範例
 
@@ -156,9 +156,10 @@ Azure:\
 ![顯示容器記錄輸出的入口網站][portal-env-vars-02]
 
 ## <a name="secure-values"></a>安全值
+
 具有安全值的物件可用來保存機密資訊，例如您應用程式的密碼或金鑰。 針對環境變數使用安全值，會比將其包含於容器映像中更安全且更具彈性。 另一個選項是使用祕密磁碟區，如[在 Azure 容器執行個體中掛接祕密磁碟區](container-instances-volume-secret.md)中所述。
 
-具有安全值的安全環境變數將不會在容器屬性中顯示安全值，因此只能從您的容器內存取該值。 例如，在 Azure 入口網站或 Azure CLI 中檢視的容器屬性不會顯示具有安全值的環境變數。
+在容器的屬性中看不到具有安全值的環境變數 - 只能從容器內存取其值。 例如，在 Azure 入口網站或 Azure CLI 中檢視的容器屬性只會顯示安全變數的名稱，而非其值。
 
 藉由針對變數的類型指定 `secureValue` 屬性而不是一般的 `value` 來設定安全的環境變數。 下列 YAML 中定義的兩個變數會示範這兩個變數類型。
 
@@ -168,17 +169,17 @@ Azure:\
 
 ```yaml
 apiVersion: 2018-06-01
-location: westus
+location: eastus
 name: securetest
 properties:
   containers:
   - name: mycontainer
     properties:
       environmentVariables:
-        - "name": "SECRET"
-          "secureValue": "my-secret-value"
         - "name": "NOTSECRET"
           "value": "my-exposed-value"
+        - "name": "SECRET"
+          "secureValue": "my-secret-value"
       image: nginx
       ports: []
       resources:
@@ -191,43 +192,50 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-執行下列命令，使用 YAML 來部署容器群組。
+執行下列命令，使用 YAML 來部署容器群組 (視需要調整資源群組名稱)：
 
 ```azurecli-interactive
-az container create --resource-group myRG --name securetest -f secure-env.yaml
+az container create --resource-group myResourceGroup --file secure-env.yaml
 ```
 
 ### <a name="verify-environment-variables"></a>確認環境變數
 
-執行下列命令來查詢容器的環境變數。
+執行 [az container show][az-container-show] 命令來查詢容器的環境變數：
 
 ```azurecli-interactive
-az container show --resource-group myRG --name securetest --query 'containers[].environmentVariables`
+az container show --resource-group myResourceGroup --name securetest --query 'containers[].environmentVariables'
 ```
 
-具有這個容器詳細資料的 JSON 回應將只會顯示非安全的環境變數及安全環境變數的索引鍵。
+JSON 回應會顯示非安全環境變數的索引鍵與值，但只會顯示安全環境變數的名稱：
 
 ```json
-  "environmentVariables": [
+[
+  [
     {
       "name": "NOTSECRET",
+      "secureValue": null,
       "value": "my-exposed-value"
     },
     {
-      "name": "SECRET"
+      "name": "SECRET",
+      "secureValue": null,
+      "value": null
     }
+  ]
+]
 ```
 
-您可以檢閱安全的環境變數是使用 `exec` 命令所設定的，讓您能夠從執行中的容器內執行命令。 
+使用 [az container exec][az-container-exec] 命令 (能夠在執行中的容器中執行命令)，您可以驗證是否已設定安全的環境變數。 執行下列命令，以在容器中啟動互動式 Bash 工作階段：
 
-執行下列命令，以啟動與容器互動的 Bash 工作階段。
 ```azurecli-interactive
-az container exec --resource-group myRG --name securetest --exec-command "/bin/bash"
+az container exec --resource-group myResourceGroup --name securetest --exec-command "/bin/bash"
 ```
 
-從您的容器內，使用下列 Bash 命令來列印環境變數。
-```bash
-echo $SECRET
+一旦在容器內開啟互動式殼層，您就可以存取`SECRET` 變數的值：
+
+```console
+root@caas-ef3ee231482549629ac8a40c0d3807fd-3881559887-5374l:/# echo $SECRET
+my-secret-value
 ```
 
 ## <a name="next-steps"></a>後續步驟
@@ -243,6 +251,7 @@ echo $SECRET
 
 <!-- LINKS Internal -->
 [az-container-create]: /cli/azure/container#az-container-create
+[az-container-exec]: /cli/azure/container#az-container-exec
 [az-container-logs]: /cli/azure/container#az-container-logs
 [az-container-show]: /cli/azure/container#az-container-show
 [azure-cli-install]: /cli/azure/

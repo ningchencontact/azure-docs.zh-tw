@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 07/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 28a334cc43f8c14d2bf639b715e891cc6bb8c1cd
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: cccbe2052336012b9ac98b3e28dc6481cbf9aefb
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36214445"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144527"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshservice"></a>教學課程：Azure Active Directory 與 Freshservice 整合
 
@@ -33,7 +33,7 @@ Freshservice 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Freshservice 整合，您需要下列項目：
 
@@ -112,16 +112,16 @@ Freshservice 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/freshservice-tutorial/tutorial_freshservice_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<democompany>.freshservice.com`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<democompany>.freshservice.com`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<democompany>.freshservice.com`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<democompany>.freshservice.com`
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Freshservice 用戶端支援小組](https://support.freshservice.com/)以取得這些值。 
  
 4. 在 [SAML 簽署憑證] 區段上，複製憑證的 [指紋] 值。
 
-    ![設定單一登入](./media/freshservice-tutorial/tutorial_freshservice_certificate.png) 
+    ![設定單一登入](./media/freshservice-tutorial/tutorial_freshservice_certificate.png)
 
 5. 按一下 [儲存]  按鈕。
 
@@ -149,17 +149,13 @@ Freshservice 與 Azure AD 整合提供下列優點：
 
     b. 選取 [SAML SSO] 。
 
-    c. 在 [SAML 登入 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 **「SAML 單一登入服務 URL」** 值。
+    c. 在 [SAML 登入 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 單一登入服務 URL] 值。
 
     d. 在 [登出 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL] 值。
 
     e. 在 [安全性憑證指紋] 文字方塊中，貼上您從 Azure 入口網站複製的憑證 [指紋] 值。
 
     f. 按一下 [儲存] 
-   
-> [!TIP]
-> 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="creating-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。

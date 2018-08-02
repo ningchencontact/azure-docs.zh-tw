@@ -1,7 +1,7 @@
 ---
-title: 如何將預先建立的實體新增至對話學習模組應用程式 - Microsoft 認知服務 | Microsoft Docs
+title: 如何將預先建置的實體新增至對話學習模組模型 - Microsoft 認知服務 | Microsoft Docs
 titleSuffix: Azure
-description: 了解如何將預先建立的實體新增至對話學習模組應用程式。
+description: 了解如何將預先建置的實體新增至對話學習模組模型。
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,18 +10,22 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f014464419bfac39a9e57e679fcd28a737e9ebdb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 84d73add5586aaaf130253a8122a4152e39bcbe9
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370314"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171362"
 ---
 # <a name="how-to-add-pre-built-entities"></a>如何新增預先建立的實體
-本教學課程示範如何將「預先建立」的實體新增至對話學習模組應用程式。
+本教學課程示範如何將「預先建置」的實體新增至對話學習模組模型。
+
+## <a name="video"></a>影片
+
+[![教學課程 7 預覽](http://aka.ms/cl-tutorial-07-preview)](http://aka.ms/blis-tutorial-07)
 
 ## <a name="requirements"></a>需求
-本教學課程需要執行一般教學課程 Bot
+本教學課程需要執行一般教學課程聊天機器人
 
     npm run tutorial-general
 
@@ -31,9 +35,9 @@ ms.locfileid: "35370314"
 
 ## <a name="steps"></a>步驟
 
-### <a name="create-the-application"></a>建立應用程式
+### <a name="create-the-model"></a>建立模型
 
-1. 在 Web UI 中，按一下 [新增應用程式]
+1. 在 Web UI 中，按一下 [新增模型]
 2. 在 [名稱] 中，輸入 BuiltInEntities。 然後按一下 [建立]。
 
 ### <a name="create-an-entity"></a>建立實體
@@ -66,7 +70,7 @@ ms.locfileid: "35370314"
 
 ### <a name="train-the-bot"></a>將 Bot 定型
 
-1. 按一下 [定型] 對話方塊，然後按一下 [新增定型] 對話方塊。
+1. 按一下 [Train Dialogs]\(訓練對話\)，然後按一下 [New Train Dialog]\(新增訓練對話\)。
 2. 鍵入「您好」。
 3. 按一下 [分數動作]，並選取 [日期為何？]
 2. 輸入「今天」。 
@@ -75,7 +79,7 @@ ms.locfileid: "35370314"
     - 請注意，日期現在會出現在 [實體記憶體] 區段中。 
     - 如果您將滑鼠移到日期上，則會看到 LUIS 所提供的其他資料，這些資料可供使用，而且可以進一步在程式碼中操作。 
 6. 選取「日期是 $luis-datetimev2」。
-7. 按一下 [完成教學]
+7. 按一下 [Done Teaching]\(完成教學\)
 
 ## <a name="next-steps"></a>後續步驟
 

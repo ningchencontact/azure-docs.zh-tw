@@ -3,26 +3,26 @@ title: 管理您在 LUIS 中的帳戶設定 | Microsoft Docs
 description: 使用 LUIS 網站來管理您的帳戶設定。
 titleSuffix: Azure
 services: cognitive-services
-author: v-geberr
-manager: Kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/04/2018
-ms.author: v-geberr
-ms.openlocfilehash: 1f22112a38bf32af03ffaf0493db16839b3fe794
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.date: 07/08/2018
+ms.author: diberry
+ms.openlocfilehash: 963a7f8c196702ea899ddfe31e6187a15eb5f683
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36749958"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223203"
 ---
-# <a name="manage-your-luis-account"></a>管理您的 LUIS 帳戶
-LUIS 帳戶的兩個重要資訊為使用者帳戶和撰寫金鑰。 您的登入資訊是在 [account.microsoft.com](https://account.microsoft.com) 進行管理的。 您的撰寫金鑰是從 [LUIS][LUIS] 網站**設定**頁面進行管理的。 
+# <a name="manage-account-and-authoring-key"></a>管理帳戶和撰寫金鑰
+LUIS 帳戶的兩個重要資訊為使用者帳戶和撰寫金鑰。 您的登入資訊是在 [account.microsoft.com](https://account.microsoft.com) 進行管理的。 您的撰寫金鑰是從 [LUIS](luis-reference-regions.md) 網站的 [設定] 頁面進行管理的。 
 
 ## <a name="authoring-key"></a>撰寫金鑰
 
-在 [設定] 頁面上的這個單一、特定地區的撰寫金鑰，可讓您從 [LUIS][LUIS] 網站和[撰寫 API](https://aka.ms/luis-authoring-api) 撰寫所有應用程式。 為了方便起見，允許撰寫金鑰每個月建立[有限](luis-boundaries.md)數量的端點查詢。 
+這個單一且區域專屬的撰寫金鑰位於 [設定] 頁面上，可讓您從 [LUIS](luis-reference-regions.md) 網站以及[撰寫 API](https://aka.ms/luis-authoring-api) 撰寫所有應用程式。 為了方便起見，允許撰寫金鑰每個月建立[有限](luis-boundaries.md)數量的端點查詢。 
 
 ![LUIS 設定頁面](./media/luis-how-to-account-settings/account-settings.png)
 
@@ -32,7 +32,7 @@ LUIS 帳戶的兩個重要資訊為使用者帳戶和撰寫金鑰。 您的登�
 不同的[撰寫區域](luis-reference-regions.md#publishing-regions)有自己特有的撰寫金鑰。 這種金鑰無法在不同的區域中使用。 
 
 ## <a name="reset-authoring-key"></a>重設撰寫金鑰
-如果您的撰寫金鑰已被盜用，請重設金鑰。 該金鑰會在 [LUIS] 網站的所有應用程式上重設。 如果您透過撰寫 API 來撰寫您的應用程式，則需要將 `Ocp-Apim-Subscription-Key` 的值變更成新的金鑰。 
+如果您的撰寫金鑰已被盜用，請重設金鑰。 該金鑰會在 [LUIS](luis-reference-regions.md) 網站的所有應用程式上重設。 如果您透過撰寫 API 來撰寫您的應用程式，則需要將 `Ocp-Apim-Subscription-Key` 的值變更成新的金鑰。 
 
 ## <a name="delete-account"></a>刪除帳戶
 如需刪除帳戶時會刪除哪些資料的相關資訊，請參閱[資料儲存和移除](luis-concept-data-storage.md#accounts)。 
@@ -60,4 +60,3 @@ LUIS 使用標準 Azure Active Directory (Azure AD) 同意流程。
 
 深入了解您的[撰寫金鑰](luis-concept-keys.md#authoring-key)。 
 
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

@@ -1,7 +1,7 @@
 ---
-title: 如何在對話學習模組應用程式中記錄對話 - Microsoft 認知服務 | Microsoft Docs
+title: 如何在對話學習模組模型中記錄對話 - Microsoft 認知服務 | Microsoft Docs
 titleSuffix: Azure
-description: 學習如何在對話學習模組應用程式中記錄對話。
+description: 了解如何在對話學習模組模型中記錄對話。
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,16 +10,20 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 477545c48aeca05d56fdae28ac65a8f381a482fe
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6ceeb9683a979256a8a52347fc74ab758fd1d348
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369663"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171430"
 ---
-# <a name="how-to-log-dialogs-in-a-conversation-learner-application"></a>如何在對話學習模組應用程式中記錄對話。
+# <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>如何在對話學習模組模型中記錄對話
 
 本教學課程顯示如何在對話學習模組介面內執行終端使用者測試、如何記錄對話，以及如何修正記錄的對話來改進您的模型。
+
+## <a name="video"></a>影片
+
+[![教學課程 9 預覽](http://aka.ms/cl-tutorial-09-preview)](http://aka.ms/blis-tutorial-09)
 
 ## <a name="requirements"></a>需求
 本教學課程需要執行一般教學課程聊天機器人
@@ -31,9 +35,9 @@ ms.locfileid: "35369663"
 
 ## <a name="steps"></a>步驟
 
-### <a name="create-the-application"></a>建立應用程式
+### <a name="create-the-model"></a>建立模型
 
-1. 在 Web UI 中，按一下 [新增應用程式]
+1. 在 Web UI 中，按一下 [新增模型]
 2. 在 [名稱] 中，輸入 LogDialogs。 然後按一下 [建立]。
 
 ### <a name="create-an-entity"></a>建立實體
@@ -117,7 +121,7 @@ ms.locfileid: "35369663"
 
 1. 按一下 [Log Dialogs]\(記錄對話方塊\) 之下的 [hello]\(哈囉\)。
     - 這會開啟對話。
-3. 請注意「哈囉」的回應為「哪座城市」。 但是，我們想要將它變更為更有意義的回應。 更好的答案會是「哈囉，我是天氣聊天機器人」之類的回應。 不過由於沒有動作這麼做，因此我們必須建立一個動作。
+3. 'hello' (哈囉) 的回應為 'which city' (哪座城市)。 但是，我們想要將它變更為更有意義的回應。 更好的答案會是「哈囉，我是天氣聊天機器人」之類的回應。 不過由於沒有動作這麼做，因此我們必須建立一個動作。
 4. 按一下 [動作]。
     - 在 [回應] 中，鍵入「I'm the weather bot. I can help with forecasts.」(我是天氣聊天機器人。我可以協助進行天氣預報。)
 6. 取消勾選 [等候回應] 核取方塊使其成為非等候動作。

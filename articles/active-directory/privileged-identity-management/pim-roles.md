@@ -10,25 +10,22 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: protection
-ms.date: 03/04/2018
+ms.date: 07/23/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: bbc87f529cb70b6f4b21984199ed87427b4e3108
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6553fdba463144c6eda1e35c0967e92a3c44aff6
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38506408"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225571"
 ---
-# <a name="different-administrative-role-in-azure-active-directory-pim"></a>Azure Active Directory PIM 中不同的系統管理角色
+# <a name="directory-roles-you-can-manage-using-azure-ad-pim"></a>可以使用 Azure AD PIM 管理的目錄角色
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
 
 您可以將組織中的使用者指派給 Azure AD 內的不同系統管理角色。 這些角色指派控制使用者可以在 Azure AD、Office 365 和其他 Microsoft Online Services 與連線的應用程式執行哪些工作，像是新增或移除使用者或變更服務設定。  
 
-> [!IMPORTANT]
-> Microsoft 建議您使用 Azure 入口網站中的 [Azure AD 系統管理中心](https://aad.portal.azure.com)來管理 Azure AD。
-
-全域管理員可以使用 PowerShell Cmdlet (例如 `Add-MsolRoleMember` 和 `Remove-MsolRoleMember`) 或如[在 Azure Active Directory 中指派系統管理員角色](../users-groups-roles/directory-assign-admin-roles.md)中所述透過入口網站，更新要將哪些使用者「永久」指派給 Azure AD 中的角色。
+全域管理員可以透過入口網站 (如在 [Azure Active Directory 中指派系統管理員角色中所述](../users-groups-roles/directory-assign-admin-roles.md))，或使用 [PowerShell 命令](/powershell/module/azuread#directory_roles)，更新要將哪些使用者**永久**指派給 Azure AD 中的角色。
 
 Azure AD Privileged Identity Management (PIM) 可管理以特殊權限存取 Azure AD 中之使用者的原則。 PIM 會將使用者指派給 Azure AD 中的一或多個角色，您可以指派某位使用者永久擔任該角色，或是將其指派成符合該角色資格。 將使用者永久指派給某個角色或是啟用合格角色指派時，他們便可以使用指派給他們角色的權限來管理 Azure Active Directory、Office 365 及其他應用程式。
 
@@ -66,7 +63,7 @@ Privileged Identity Management 可讓您將使用者指派給常見的系統管�
 ## <a name="roles-not-managed-in-pim"></a>PIM 中未管理的角色
 Exchange Online 或 SharePoint Online 內的角色 (除了前面提及的角色外) 並不會出現在 Azure AD 中，因此您不會在 PIM 中看到。 如需有關在這些 Office 365 服務中變更細部角色指派的詳細資訊，請參閱 [Office 365 中的權限](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d)。
 
-Azure 訂用帳戶和資源群組也不會出現在 Azure AD 中。 若要管理 Azure 訂用帳戶，請參閱 [如何新增或變更 Azure 管理員角色](../../billing/billing-add-change-azure-subscription-administrator.md)，如需有關 Azure RBAC 的詳細資訊，請參閱 [Azure 角色型存取控制](../../role-based-access-control/role-assignments-portal.md)。
+Azure 訂用帳戶和資源群組也不會出現在 Azure AD 中。 若要管理 Azure 訂用帳戶，請參閱[如何新增或變更 Azure 管理員角色](../../billing/billing-add-change-azure-subscription-administrator.md)，如需有關 Azure RBAC 的詳細資訊，請參閱 [Azure 角色型存取控制](../../role-based-access-control/role-assignments-portal.md)。
 
 <!--**The above links might be replaced by ones that are from within this documentation repository **-->
 
@@ -82,7 +79,7 @@ Azure 訂用帳戶和資源群組也不會出現在 Azure AD 中。 若要管理
 1. 使用全域管理員帳戶或共同管理員帳戶登入 [Azure 入口網站](http://portal.azure.com)。
 3. 選取 Azure AD 以及您想要使用且有相關授權的目錄。
 4. 選取左邊的 [授權]。 隨即會出現可用的授權清單。
-5. 選取包含您要散發之授權的授權方案。
+5. 針對您要散發的授權，選取包含此授權的授權方案。
 6. 選取 [指派使用者] 。
 7. 選取您想要指派授權的使用者。
 8. 按一下 [指派]  按鈕。  使用者現在已可以登入 Azure。

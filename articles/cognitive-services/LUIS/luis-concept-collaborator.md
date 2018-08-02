@@ -2,19 +2,19 @@
 title: 了解 LUIS 應用程式共同作業 - Azure | Microsoft Docs
 description: LUIS 應用程式要求只能有一個擁有者，共同作業者則為選擇性。
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: 51b3958f83cd110ace27f6ee42571c05843f5aa2
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: 684507b58e5ac766e9b42d3aa53cb0867a131a93
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265060"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222667"
 ---
 # <a name="collaborating"></a>共同作業
 
@@ -24,6 +24,8 @@ LUIS 提供共同作業，可允許一群人撰寫應用程式。
 LUIS 帳戶會與單一 [Microsoft Live](https://login.live.com/) 帳戶關聯。 每個 LUIS 帳戶都會獲得一個免費的[撰寫金鑰](luis-concept-keys.md#authoring-key)，可用來撰寫該帳戶可存取的所有 LUIS 應用程式。 
 
 一個 LUIS 帳戶可以有許多 LUIS 應用程式。
+
+若要深入了解 Active Directory 使用者帳戶，請參閱 [Azure Active Directory 租用戶使用者](luis-how-to-account-settings.md#azure-active-directory-tenant-user)。 
 
 ## <a name="luis-app-owner"></a>LUIS 應用程式擁有者
 建立應用程式的帳戶即為擁有者。 每個應用程式都有單一擁有者。 該擁有者會列在應用程式 [[Settings](luis-how-to-collaborate.md)] \(設定\) 上。 這是可以刪除應用程式的帳戶。 這也是端點配額達到每月限制的 75% 時，會收到電子郵件通知的帳戶。 
@@ -37,7 +39,7 @@ LUIS 不提供擁有權轉移，不過任何共同作業者都可以匯出應用
 如果您想要與共同作業者共用多個應用程式，則須為每個應用程式新增共同作業者的電子郵件。 
 
 ## <a name="managing-multiple-authors"></a>管理多個作者
-[LUIS][LUIS] 網站目前不提供交易層級撰寫。 您可以允許作者在來自基底版本的獨立版本上作業。 下列各節將說明兩種不同的方法。
+[LUIS](luis-reference-regions.md#luis-website) 網站目前不提供交易層級撰寫。 您可以允許作者在來自基底版本的獨立版本上作業。 下列各節將說明兩種不同的方法。
 
 ### <a name="manage-multiple-versions-inside-the-same-app"></a>管理相同應用程式內的多個版本
 針對每個作者，一開始先從基底版本[複製](luis-how-to-manage-versions.md#clone-a-version)。 
@@ -60,6 +62,3 @@ LUIS 不提供擁有權轉移，不過任何共同作業者都可以匯出應用
 請參閱[應用程式設定](luis-how-to-collaborate.md)，以了解如何管理您 LUIS 應用程式中的共同作業者。
 
 請參閱如何使用「撰寫 API」[將電子郵件新增至存取清單](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58fcccdd5aca2f08a4104342)。
-
-[luis-reference-prebuilt-domains]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-domains
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

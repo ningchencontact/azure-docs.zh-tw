@@ -1,21 +1,21 @@
 ---
-title: 自助式密碼重設自訂 - Azure Active Directory
+title: 自訂 Azure AD 自助式密碼重設
 description: Azure AD 自助式密碼重設的自訂選項
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 23a2897142f5cba90513e8b79e4cd461f1dd25b7
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 69f6ed7814feacbd5adf60325aae123d388ffb61
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054585"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222783"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>自訂 Azure AD 的自助式密碼重設功能
 
@@ -24,8 +24,9 @@ ms.locfileid: "39054585"
 ## <a name="customize-the-contact-your-administrator-link"></a>自訂 [請連絡您的系統管理員] 連結
 
 即使未啟用 SSPR，使用者在密碼重設入口網站上仍然會有 [請連絡您的系統管理員] 連結。 如果使用者選取此連結，它將會執行下列其中一項操作：
-   * 傳送電子郵件給系統管理員，請他們協助關變更使用者密碼。 
-   * 將使用者傳送到您所指定的 URL 以取得協助。 
+
+   * 傳送電子郵件給系統管理員，請他們協助關變更使用者密碼。
+   * 將使用者傳送到您所指定的 URL 以取得協助。
 
 建議您將此連絡人設定為使用者已針對支援問題使用的電子郵件地址或網站等項目。
 
@@ -45,9 +46,7 @@ ms.locfileid: "39054585"
 
 如果您的組織不想傳送密碼重設要求通知給系統管理員，則您可以啟用下列設定：
 
-* 對所有使用者啟用自助式密碼重設。 此選項位於 [密碼重設] > [屬性] 底下。
-  
-  如果您不想讓使用者重設其自己的密碼，可以將存取範圍設定為空群組。 不建議使用此選項。
+* 對所有使用者啟用自助式密碼重設。 此選項位於 [密碼重設] > [屬性] 底下。 如果您不想讓使用者重設其自己的密碼，可以將存取範圍設定為空群組。 不建議使用此選項。
 * 自訂技術服務人員連結，以提供可讓使用者取得協助的 Web URL 或 mailto︰位址。 此選項位於 [密碼重設] > [自訂] > [自訂的技術服務人員電子郵件或 URL] 底下。
 
 ## <a name="customize-the-ad-fs-sign-in-page-for-sspr"></a>自訂 SSPR 的 AD FS 登入頁面
@@ -56,7 +55,7 @@ ms.locfileid: "39054585"
 
 若要新增 AD FS 登入頁面的連結，請在您的 AD FS 伺服器上使用下列命令。 使用者可以使用此頁面來進入 SSPR 工作流程。
 
-``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href=’https://passwordreset.microsoftonline.com’>Can’t access your account?</A></p>" ```
+``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwordreset.microsoftonline.com' target='_blank'>Can’t access your account?</A></p>" ```
 
 ## <a name="customize-the-sign-in-page-and-access-panel-look-and-feel"></a>自訂登入頁面和存取面板的外觀與風格
 

@@ -1,20 +1,20 @@
 ---
 title: Azure 常見問題集中的 Language Understanding (LUIS) | Microsoft Docs
 description: 獲得 Language Understanding (LUIS) 常見問題集的解答
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: fd63ffd312e3ac17a6376eb3c9bef8f1978e3935
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: diberry
+ms.openlocfilehash: 8e0d834b94ff902eb0c1e0ada2fb32d374cee12b
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333610"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39239112"
 ---
 # <a name="language-understanding-faq"></a>Language Understanding 常見問題集
 
@@ -53,21 +53,25 @@ ms.locfileid: "36333610"
 ### <a name="should-variations-of-an-example-utterance-include-punctuation"></a>範例語句的變化應該包括標點符號嗎？ 
 將不同的變化當成範例語句新增至意圖，或使用[略過標點符號語法](luis-concept-patterns.md#pattern-syntax)新增範例語句模式。 
 
+### <a name="does-luis-currently-support-cortana"></a>LUIS 目前支援 Cortana 嗎？
+
+Cortana 預先建置的應用程式已在 2017 年被取代。 它們不再受到支援。 
+
 ## <a name="luis-endpoint"></a>LUIS 端點
 
 ### <a name="why-does-luis-add-spaces-to-the-query-around-or-in-the-middle-of-words"></a>為什麼 LUIS 在查詢周圍或字組中間新增空格？
 LUIS 會根據[文化特性 (Culture)](luis-supported-languages.md#tokenization) 將語句[權杖化](luis-glossary.md#token)。 原始值和權杖化值可供[資料擷取](luis-concept-data-extraction.md#tokenized-entity-returned)。
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>如何建立和指派 LUIS 端點金鑰？
-Azure 中針對[服務](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)層級[建立端點金鑰](luis-how-to-azure-subscription.md#create-luis-endpoint-key)。 **[發佈](publishapp.md)** 頁面上的[指派金鑰](Manage-keys.md#assign-endpoint-key)。 此動作沒有任何對應的 API。 您接著必須將 HTTP 要求變更為端點，以[使用新端點金鑰](luis-concept-keys.md#use-endpoint-key-in-query)。
+Azure 中針對[服務](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)層級[建立端點金鑰](luis-how-to-azure-subscription.md#create-luis-endpoint-key)。 **[發佈](luis-how-to-publish-app.md)** 頁面上的[指派金鑰](luis-how-to-manage-keys.md#assign-endpoint-key)。 此動作沒有任何對應的 API。 您接著必須將 HTTP 要求變更為端點，以[使用新端點金鑰](luis-concept-keys.md#use-endpoint-key-in-query)。
 
 ### <a name="how-do-i-interpret-luis-scores"></a>如何解譯 LUIS 分數？ 
 您的系統應該使用最高分數意圖，而不論其值為何。 例如，低於 0.5 (小於 50%) 的分數不一定表示 LUIS 具有低的信賴度。 提供更多訓練資料有助於提高最可能意圖的分數。
 
 ### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>為什麼在應用程式儀表板中看不到我的端點叫用？
-定期更新應用程式儀表板中的總端點叫用，但會更頻繁地更新與 Azure 入口網站中 LUIS 訂用帳戶金鑰建立關聯的計量。 
+應用程式儀表板中的端點叫用總數均會定期更新，但會更頻繁地更新 Azure 入口網站中與 LUIS 端點金鑰相關聯的計量。 
 
-若您在儀表板中看不到已更新的端點叫用，請登入 Azure 入口網站，並找到與您 LUIS 訂用帳戶金鑰建立關聯的資源，然後開啟 [計量] 選取 [Total Calls] \(呼叫總數\) 計量。 若將訂用帳戶金鑰用於多個 LUIS 應用程式，則 Azure 入口網站中的計量會顯示使用計量之所有 LUIS 應用程式的彙總呼叫次數。
+若您在儀表板中看不到已更新的端點叫用，請登入 Azure 入口網站，並找到與您 LUIS 端點金鑰相關聯的資源，然後開啟 [計量] 來選取 [呼叫總計] 計量。 若將端點金鑰用於多個 LUIS 應用程式，Azure 入口網站中的計量會顯示使用該計量之所有 LUIS 應用程式的呼叫彙總次數。
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>LUIS 應用程式昨天還可以運作，但現在我收到 403 錯誤。 我未變更應用程式。 如何修正問題？ 
 遵循下一個常見問題集中的[指示](#how-do-i-create-and-assign-a-luis-endpoint-key)來建立 LUIS 端點金鑰，並將它指派給應用程式。 您接著必須將 HTTP 要求變更為端點，以[使用新端點金鑰](luis-concept-keys.md#use-endpoint-key-in-query)。
@@ -115,8 +119,9 @@ Azure 中針對[服務](https://azure.microsoft.com/pricing/details/cognitive-se
 
 ![Azure 入口網站中的租用戶識別碼](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
-### <a name="why-are-there-more-subscription-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>為什麼我應用程式發佈頁面上的訂用帳戶金鑰數目大於我指派給應用程式的訂用帳戶金鑰數目？ 
-每個 LUIS 應用程式都會有撰寫/起始金鑰。 在您的發佈頁面上會顯示於 GA 時間範圍期間所建立的 LUIS 訂用帳戶金鑰，不論您是否已將它們新增至應用程式。 完成這項作業，即可簡化 GA 移轉。 任何新的 LUIS 訂用帳戶金鑰都不會顯示在發佈頁面上。 
+<a name="why-are-there-more-subscription-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>
+### <a name="why-are-there-more-endpoint-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>為什麼我應用程式發佈頁面上的端點金鑰數目大於我指派給應用程式的端點金鑰數目？ 
+每個 LUIS 應用程式都會有撰寫/起始金鑰。 您的發佈頁面上會顯示在 GA 時間範圍內所建立的 LUIS 端點金鑰，而不論您是否已將它們新增至應用程式。 完成這項作業，即可簡化 GA 移轉。 任何新的 LUIS 端點金鑰都不會出現在發佈頁面上。 
 
 ## <a name="app-management"></a>應用程式管理
 
@@ -153,7 +158,7 @@ LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳�
 ## <a name="app-notification"></a>應用程式通知
 
 ### <a name="why-did-i-get-an-email-saying-im-almost-out-of-quota"></a>為什麼收到指出幾乎超出配額的電子郵件？
-撰寫/起始金鑰每個月只允許 1000 次端點查詢。 建立 LUIS 訂用帳戶金鑰 (免費或付費)，並在查詢端點時使用該金鑰。 若您要從 Bot 或另一個用戶端應用程式查詢端點，則需要在該處變更 LUIS 端點金鑰。 
+撰寫/起始金鑰每個月只允許 1000 次端點查詢。 建立 LUIS 端點金鑰 (免費或付費)，並在查詢端點時使用該金鑰。 若您要從 Bot 或另一個用戶端應用程式查詢端點，則需要在該處變更 LUIS 端點金鑰。 
 
 ## <a name="integrating-luis"></a>整合 LUIS
 
@@ -167,7 +172,7 @@ LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳�
 
 ## <a name="luis-service"></a>LUIS 服務 
 
-### <a name="is-luis-available-on-premise-or-in-private-cloud"></a>LUIS 可在內部部署還是私人雲端使用？
+### <a name="is-luis-available-on-premises-or-in-private-cloud"></a>LUIS 可以在內部部署或私人雲端中使用嗎？
 否。 
 
 ## <a name="changes-to-the-docs"></a>文件的變更
@@ -182,7 +187,7 @@ LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳�
 |使用 [Node.js](luis-tutorial-node-import-utterances-csv.md) 以程式設計方式建置 LUIS 應用程式|
 |使用[複合實體](luis-tutorial-composite-entity.md)擷取已分組的資料|
 |使用 Node.js 新增[清單實體](luis-tutorial-list-entity.md)來提高實體偵測|
-|使用[片語清單](luis-tutorial-interchangeable-phrase-list.md)、[模式](luis-tutorial-pattern.md)和[批次測試](luis-tutorial-batch-testing.md)改善預測精確度|
+|使用[片語清單](luis-quickstart-primary-and-secondary-data.md)、[模式](luis-tutorial-pattern.md)和[批次測試](luis-tutorial-batch-testing.md)改善預測精確度|
 |使用 Bing 拼字檢查 API v7 [更正拼字](luis-tutorial-batch-testing.md)
 
 ### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>在組建 2018 會議中，我聽到一種 Language Understanding 功能或示範，但不記得它的名稱為何？ 
@@ -193,7 +198,7 @@ LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳�
 |--|--|
 |增強功能|[規則運算式](luis-concept-data-extraction.md##regular-expression-entity-data)實體和[關鍵片語](luis-concept-data-extraction.md#key-phrase-extraction-entity-data)實體
 |模式|模式[概念](luis-concept-patterns.md)、[教學課程](luis-tutorial-pattern.md)、[做法](luis-how-to-model-intent-pattern.md)<br>[Patterns.Any](luis-concept-entity-types.md) 實體概念 (包括例外狀況[明確清單](luis-concept-patterns.md#explicit-lists))<br>[角色](luis-concept-roles.md)概念|
-|整合|[文字分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/)與[情感分析](publishapp.md#enable-sentiment-analysis)的整合<br>[語音](https://docs.microsoft.com/azure/cognitive-services/speech)與[語音預備](publishapp.md#enable-speech-priming)的整合搭配[語音 SDK](https://aka.ms/SpeechSDK)|
+|整合|[文字分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/)與[情感分析](luis-how-to-publish-app.md#enable-sentiment-analysis)的整合<br>[語音](https://docs.microsoft.com/azure/cognitive-services/speech)與[語音預備](luis-how-to-publish-app.md#enable-speech-priming)的整合搭配[語音 SDK](https://aka.ms/SpeechSDK)|
 |分派工具|在 [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools) 期間，分派命令列[工具](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps)以將多個 LUIS 和 QnA Maker 應用程式合併為單一 LUIS 應用程式，以在 Bot 中更恰當地辨識意圖
 
 已包括其他撰寫 [API 路由](https://github.com/Microsoft/LUIS-Samples/blob/master/authoring-routes.md)。 
@@ -212,5 +217,3 @@ LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳�
 若要深入了解 LUIS，請參閱下列資源：
 * [Stack Overflow questions tagged with LUIS](https://stackoverflow.com/questions/tagged/luis) (使用 LUIS 加上標籤的 Stack Overflow 問題)
 * [MSDN Language Understanding Intelligent Services (LUIS) Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS) (MSDN Language Understanding Intelligent Services (LUIS) 論壇) 
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

@@ -8,12 +8,12 @@ ms.date: 04/16/2018
 ms.topic: article
 ms.prod: microsoft-iot-central
 manager: timlt
-ms.openlocfilehash: 083410c6407ce7aa83c3829f884890561b0b44b8
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 42516e4dd6a85e0d07d4a8e70e958b2ec6e84aad
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008207"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225195"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-an-action-in-your-azure-iot-central-application"></a>在 Azure IoT Central 應用程式中建立遙測規則並設定動作
 
@@ -60,7 +60,9 @@ Azure IoT Central 使用[遙測量測](howto-set-up-template.md)來擷取裝置�
 
 ### <a name="add-an-action"></a>新增動作
 
-本節會說明如何在規則中新增動作。 這會說明如何新增電子郵件動作，但您也可以在規則中[新增 Microsoft Flow 動作](howto-add-microsoft-flow.md)，以在觸發規則時啟動 Microsoft Flow 中的工作流程。
+此範例會說明如何在規則中新增動作。 這會示範如何新增電子郵件動作，但您也可以新增其他動作：
+-  觸發規則時，[Microsoft Flow 動作](howto-add-microsoft-flow.md)會啟動 Microsoft Flow 中的工作流程
+- 而 [Webhook 動作](howto-create-webhooks.md)會在觸發規則時，通知其他服務
 
 > [!NOTE]
 > 此時，一個規則只能有 1 個關聯動作。

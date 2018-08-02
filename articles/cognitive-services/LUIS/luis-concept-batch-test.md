@@ -2,19 +2,19 @@
 title: 批次測試 LUIS 應用程式 - Azure | Microsoft Docs
 description: 使用批次測試持續調整您的應用程式，改良應用程式及其語言理解能力。
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
-ms.author: v-geberr
-ms.openlocfilehash: 3803df32d6431b8413e8df0837ed62b2e4344cdc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 07/06/2018
+ms.author: diberry
+ms.openlocfilehash: bba3f2ff942fbe5dffc9b694990964e4e3078dbe
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369154"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222648"
 ---
 # <a name="batch-testing-in-luis"></a>LUIS 的批次測試
 
@@ -34,14 +34,99 @@ ms.locfileid: "35369154"
 
 *重複項目會被視為完全相同的相符字串項目，而不是先權杖化的相符項目。 
 
+## <a name="entities-allowed-in-batch-tests"></a>批次測試中允許的實體
+實體包含簡單、階層式父代及複合。 即使批次檔中沒有對應的實體，這些類型的所有實體還是都會出現在批次測試實體篩選條件中。
+
+
 <a name="json-file-with-no-duplicates"></a>
 <a name="example-batch-file"></a>
 ## <a name="batch-file-format"></a>批次檔格式
 批次檔由語句組成。 每個語句都必須有預期的意圖預測，以及您想要偵測的[機器學習實體](luis-concept-entity-types.md#types-of-entities)。 
 
-範例批次檔如下：
+以下是使用適當語法的批次檔範例：
 
-   [!code-json[Valid batch test](~/samples-luis/documentation-samples/batch-testing/travel-agent-1.json)]
+```JSON
+[
+  {
+    "text": "Are there any janitorial jobs currently open?",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 14,
+            "endPos": 23
+        }
+    ]
+  },
+  {
+    "text": "I would like a fullstack typescript programming with azure job",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 15,
+            "endPos": 46
+        }
+    ]
+  },
+  {
+    "text": "Is there a database position open in Los Colinas?",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 11,
+            "endPos": 18
+        }
+    ]
+  },
+  {
+    "text": "Please find database jobs open today in Seattle",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 12,
+            "endPos": 19
+        }
+    ]
+  }
+]
+```
+
+## <a name="batch-syntax-template"></a>批次語法範本
+
+使用下列範本來啟動您的批次檔：
+
+```JSON
+[
+  {
+    "text": "example utterance goes here",
+    "intent": "intent name goes here",
+    "entities": 
+    [
+        {
+            "entity": "entity name 1 goes here",
+            "startPos": 14,
+            "endPos": 23
+        },
+        {
+            "entity": "entity name 2 goes here",
+            "startPos": 14,
+            "endPos": 23
+        }
+    ]
+  }
+]
+```
+
+批次檔會使用 **startPos** 和 **endPos** 屬性，來記錄實體的開頭與結尾。 值是以零為起始的，而且不應以空格作為開頭或結尾。 
+
+這與查詢記錄不同，後者使用 startIndex 與 endIndex 屬性。 
 
 
 ## <a name="common-errors-importing-a-batch"></a>匯入批次的常見錯誤
@@ -49,6 +134,7 @@ ms.locfileid: "35369154"
 
 > * 超過 1000 個語句
 > * 沒有實體屬性的語句 JSON 物件
+> * 在多個實體中標示的文字
 
 ## <a name="batch-test-state"></a>批次測試狀態
 LUIS 會追蹤每個資料集的最後一次測試所呈現的狀態。 這包括大小 (批次中的語句數目)、上次執行日期及最後結果 (成功預測的語句數目)。
@@ -75,4 +161,4 @@ LUIS 會追蹤每個資料集的最後一次測試所呈現的狀態。 這包�
 
 ## <a name="next-steps"></a>後續步驟
 
-* 深入了解如何[測試批次](luis-how-to-batch-test.md)
+* 了解如何[測試批次](luis-how-to-batch-test.md)

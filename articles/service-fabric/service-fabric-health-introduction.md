@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: fc0bb56e85c2a9cf7a458b0f6d97887d392ee65f
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 6cba4e1fd9c9fe5fdaa7ff4513218a606a4eace9
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114311"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215225"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Service Fabric 健康狀態監視簡介
 Azure Service Fabric 導入了健康狀態模型，提供豐富、彈性且可延伸的健康狀態評估與報告。 此模型允許幾乎即時地監視叢集狀態以及其中所執行的服務。 您可以輕鬆地取得健康狀態資訊，並在潛在問題引起連鎖反應和造成大規模中斷之前，予以更正。 在一般模型中，服務會根據其本機檢視傳送報告，且該資訊會進行彙總以提供整體叢集層級檢視。
@@ -186,8 +186,8 @@ Service Fabric 會使用三種健康狀態來描述實體的健康狀態是否�
 
 * 若所有子系都具有「OK」狀態，則子系已彙總的健康狀態為「OK」。
 * 若子系同時具有「OK」和「Warning」狀態，則子系已彙總的健康狀態會是「Warning」。
-* 若具有「Error」狀態的子系不符合狀況不良子系的最大允許百分比，則已彙總的健康狀態為「Error」。
-* 若具有「Error」狀態的子系符合狀況不良子系的最大允許百分比，則已彙總的健康狀態為「Warning」。
+* 若具有「Error」狀態的子系不符合狀況不良子系的最大允許百分比，則已彙總的父系健康狀態為「Error」。
+* 若具有「Error」狀態的子系符合狀況不良子系的最大允許百分比，則已彙總的父系健康狀態為「Warning」。
 
 ## <a name="health-reporting"></a>健康狀態報告
 系統元件、System Fabric 應用程式和內部/外部看門狗可以報告 Service Fabric 實體。 報告程式會依照其所監視的條件，來決定「本機」  受監視實體的健康狀態。 回報者不需查看任何全域狀態或彙總資料。 最好是使用簡單的報告程式，因為太複雜的有機體需要查看許多項目，才能推斷所要傳送的資訊。

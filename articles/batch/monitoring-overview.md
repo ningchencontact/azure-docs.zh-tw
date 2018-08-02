@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: fd4226254e076957ac8651f9172f1f3f82427a60
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 5a321ef7dca86993a913a283fe7b9b076c127d94
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001825"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171250"
 ---
 # <a name="monitor-batch-solutions"></a>監視 Batch 解決方案
 
@@ -63,7 +63,7 @@ Azure 與 Batch 服務提供一系列服務、工具和 API 來監視您的 Batc
   > 使用 Application Insights 可能會產生額外費用。 請參閱[定價選項](https://azure.microsoft.com/pricing/details/application-insights/)。 
   >
 
-* [BatchLabs](https://github.com/Azure/BatchLabs) 是免費、功能豐富、獨立用戶端的工具，可以協助建立、偵錯及監視 Azure Batch 應用程式。 下載適用於 Mac、Linux 或 Windows 的[安裝套件](https://azure.github.io/BatchLabs/)。 (選擇性) 將您的 Batch 解決方案設定為[顯示 Application Insights 資料](https://github.com/Azure/batch-insights)，例如 BatchLabs 中的 VM 效能計數器。
+* [Batch Explorer](https://github.com/Azure/BatchExplorer)是免費、功能豐富、獨立用戶端的工具，可以協助建立、偵錯及監視 Azure Batch 應用程式。 下載適用於 Mac、Linux 或 Windows 的[安裝套件](https://azure.github.io/BatchExplorer/)。 (選擇性) 將您的 Batch 解決方案設定為[顯示 Application Insights 資料](https://github.com/Azure/batch-insights)，例如 Batch Explorer 中的 VM 效能計數器。
 
 
 ## <a name="next-steps"></a>後續步驟

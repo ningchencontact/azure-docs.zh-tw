@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: jeffya
-ms.openlocfilehash: a5030c7363d02fe9600183e058f2ff3cc23e9475
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 300bde27f956b449d1e0e73f7efb54a13df27b0c
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750361"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145660"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>使用 Azure IoT 中樞裝置佈建服務的自動佈建向 IoT 中樞註冊 MXChip IoT DevKit
 
@@ -67,7 +67,7 @@ ms.locfileid: "36750361"
 19e25a259d0c2be03a02d416c05c48ccd0cc7d1743458aae1cb488b074993eae
 ```
 
-每兩個字元會用來作為安全性計算中的十六進位值。 上述範例 UDS 會解析成：`0x19`、`0xe2`、`0x5a`、`0x25`、`0x9d`、`0x0c`、`0x2b`、`0xe0`、`0x3a`、`0x02`、`0xd4`、`0x16`、`0xc0`、`0x5c`、`0x48`、`0xcc`、`0xd0`、`0xcc`、`0x7d`、`0x17`、`0x43`、`0x45`、`0x8a`、`0xae`、`0x1c`、`0xb4`、`0x88`、`0xb0`、`0x74`、`0x99`、`0x3e`、`0xae`。
+此字串會分成數個字元組並使用於安全性計算中。 上述範例 UDS 會解析成：`0x19`、`0xe2`、`0x5a`、`0x25`、`0x9d`、`0x0c`、`0x2b`、`0xe0`、`0x3a`、`0x02`、`0xd4`、`0x16`、`0xc0`、`0x5c`、`0x48`、`0xcc`、`0xd0`、`0xcc`、`0x7d`、`0x17`、`0x43`、`0x45`、`0x8a`、`0xae`、`0x1c`、`0xb4`、`0x88`、`0xb0`、`0x74`、`0x99`、`0x3e`、`0xae`。
 
 將唯一裝置祕密儲存在 DevKit 上：
 
@@ -90,7 +90,7 @@ ms.locfileid: "36750361"
 
 ### <a name="windows"></a>Windows
 
-1. 開啟檔案總管，並移至包含您稍早複製之裝置佈建服務範例程式碼的資料夾。 在 **.build** 資料夾中，尋找 **DPS.ino.bin** 和 **DPS.ino.map** 並將其複製到包含程式碼的資料夾。
+1. 開啟檔案總管，並移至包含您稍早複製之裝置佈建服務範例程式碼的資料夾。 在 **.build** 資料夾中，尋找 **DPS.ino.bin** 和 **DPS.ino.map**。
   ![產生的檔案](./media/how-to-connect-mxchip-iot-devkit/generated-files.png)
   > [!NOTE]
   > 如果您將 Arduino 的 `built.path` 組態變更到另一個資料夾，請您設定的資料夾中尋找那些檔案。

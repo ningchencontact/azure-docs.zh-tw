@@ -3,19 +3,19 @@ title: 在 LUIS 應用程式中新增模式範本 | Microsoft Docs
 titleSuffix: Azure
 description: 了解如何在 Language Understanding (LUIS) 應用程式中新增模式範本，以改善預測準確度。
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: v-geberr;
-ms.openlocfilehash: 68c0ea1fd3f2e60e0adec631f33c8bd09a3d9960
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.author: diberry;
+ms.openlocfilehash: bf1931355fd873eaeac6c313b70717dfa99814c6
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35371066"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222591"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>如何新增模式以改善預測準確度
 在 LUIS 應用程式收到端點語句之後，請使用模式的[概念](luis-concept-patterns.md)，以針對在字組順序和字組選擇中顯露模式的語句，改善預測準確度。 模式使用[實體](luis-concept-entity-types.md)及其角色，擷取使用特定模式語法的資料。 
@@ -57,7 +57,7 @@ ms.locfileid: "35371066"
 <!-- TBD: should I be able to click on the magnifying glass again to close the search box? It doesn't reset the list. -->
 
 ## <a name="edit-a-pattern"></a>編輯模式
-1. 若要編輯模式，請選取該模式行右端的三點 (...) 圖示，然後選取 [編輯]。 
+1. 若要編輯模式，請選取該模式行右端的省略符號 (***...***) 按鈕，然後選取 [編輯]。 
 
     ![模式列中編輯功能表項目的螢幕擷取畫面](./media/luis-how-to-model-intent-pattern/patterns-three-dots.png) 
 
@@ -79,7 +79,7 @@ ms.locfileid: "35371066"
 
 ## <a name="delete-a-single-pattern"></a>刪除單一模式
 
-1. 若要刪除模式，請選取該模式行右端的三點 (...) 圖示，然後選取 [刪除]。 
+1. 若要刪除模式，請選取該模式行右端的省略符號 (***...***) 按鈕，然後選取 [刪除]。 
 
     ![刪除語句的螢幕擷取畫面](./media/luis-how-to-model-intent-pattern/patterns-three-dots-ddl.png)
 
@@ -123,7 +123,7 @@ ms.locfileid: "35371066"
 ## <a name="add-pattern-from-existing-utterance-on-intent-or-entity-page"></a>在意圖或實體頁面上從現有的語句新增模式
 您可以在 [意圖] 或 [實體] 頁面上從現有的語句新增模式。 任何意圖或實體頁面上的所有語句都會顯示在一份清單中，其右邊資料行可供存取語句層級的選項，例如 [編輯]、[刪除] 和 [新增為模式]。
 
-1. 在語句的所選資料列上，選取語句右邊的三個點 (...)，然後選取 [新增為模式]。
+1. 在語句的所選資料列上，選取語句右邊的省略符號 (***...***) 按鈕，然後選取 [新增為模式]。
 
     [![](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "語句資料表的螢幕擷取畫面 (已醒目提示 [選項] 功能表中的 [新增模式])")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
 
@@ -132,7 +132,7 @@ ms.locfileid: "35371066"
     ![依實體篩選模式的螢幕擷取畫面](./media/luis-how-to-model-intent-pattern/confirm-patterns-modal.png)
 
 ## <a name="train-your-app-after-changing-model-with-patterns"></a>在利用模式變更模型後訓練您的應用程式
-在您新增、編輯、移除或重新指派模式之後，[訓練](luis-how-to-train.md)並[發佈](PublishApp.md)您的應用程式，您的變更才會影響端點查詢。 
+在您新增、編輯、移除或重新指派模式之後，[訓練](luis-how-to-train.md)並[發佈](luis-how-to-publish-app.md)您的應用程式，您的變更才會影響端點查詢。 
 
 ## <a name="next-steps"></a>後續步驟
 

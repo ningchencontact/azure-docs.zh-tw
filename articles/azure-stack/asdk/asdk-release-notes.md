@@ -11,46 +11,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 06/04/2018
 ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: 86ac1f1b5433104faa89e1f107fa36fc1da5f70e
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: d86f0e96f64a56644b3161725f7f6a430568a72f
+ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989889"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39242694"
 ---
-# <a name="azure-stack-development-kit-release-notes"></a>Azure Stack 開發套件版本資訊  
+# <a name="azure-stack-development-kit-release-notes"></a>Azure Stack 開發套件版本資訊
 這些版本資訊提供 Azure Stack 開發套件中的增強功能、修正和已知問題的相關資訊。 如果您不確定所執行的版本，可以使用[入口網站來進行檢查](.\.\azure-stack-updates.md#determine-the-current-version)。
 
 > 請訂閱 [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [摘要](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#)，以便隨時收到 ASDK 的最新訊息。
 
-## <a name="build-11805147"></a>組建 1.1805.1.47
+## <a name="build-11805142"></a>組建 1.1805.1.42
 
-> [!TIP]  
-> 根據客戶的意見反應，Microsoft Azure Stack 所使用的版本結構描述會進行更新。 從 1805 這個更新開始，新的結構描述將更能代表現行的雲端版本。  
-> 
-> 版本結構描述目前為 Version.YearYearMonthMonth.MinorVersion.BuildNumber，其中的第二和第三個集合代表版本和版次。 例如，1805.1 代表 1805 製造 (RTM) 版的版次。  
-
-
-### <a name="new-features"></a>新功能 
-此組建包含下列適用於 Azure Stack 的改良功能與修正。  
-
-- <!-- 2297790 - IS, ASDK --> **Azure Stack 現已將 Syslog 用戶端**納入為預覽功能。 此用戶端允許將與 Azure Stack 基礎結構相關的稽核和安全性記錄，轉寄到 Azure Stack 外的 Syslog 伺服器或安全性資訊與事件管理 (SIEM) 軟體。 目前，Syslog 用戶端只支援透過預設連接埠 514 的未驗證 UDP 連線。 每個 Syslog 訊息的承載會以通用事件格式 (CEF) 來設定格式。 
-
-  若要設定 Syslog 用戶端，請使用特殊權限端點中所公開的 **Set-SyslogServer** Cmdlet。 
-
-  在此預覽版中，您可能會看到下列三種警示。 當 Azure Stack 顯示這些警示時，警示會內含「描述」和「補救」指導方針。 
-  - 標題：程式碼完整性關閉  
-  - 標題：程式碼完整性處於稽核模式 
-  - 標題：已建立使用者帳戶
-
-  此功能目前還是預覽版，所以不應在生產環境中仰賴此功能。   
+<!-- ### New features 
+This build includes the following improvements and fixes for Azure Stack.  
+-->
 
 
 ### <a name="fixed-issues"></a>已修正的問題
-- 我們已修正下列問題：無法在系統管理員入口網站中，[從下拉式清單開啟新的支援要求](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support)。 此選項目前已可正常運作。 
 
 - 針對效能、穩定性、安全性和 Azure Stack 所使用的作業系統提供了**多項修正**
 
@@ -64,14 +47,6 @@ ms.locfileid: "38989889"
 ### <a name="known-issues"></a>已知問題
  
 #### <a name="portal"></a>入口網站
-- <!-- 2551834 - IS, ASDK --> 當您在系統管理員或使用者入口網站中選取儲存體帳戶的 [概觀] 時，[基本資訊] 窗格中並未顯示資訊。  [基本資訊] 窗格會顯示帳戶相關資訊，例如其*資源群組*、*位置*和*訂用帳戶識別碼*。  [概觀] 中有其他選項可供存取，例如 [服務] 和 [監視]，以及用來 [在 Explorer 中開啟] 或 [刪除儲存體帳戶] 的選項。  
-
-  若要檢視未能看到的資訊，請使用 [Get-azureRMstorageaccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount?view=azurermps-6.2.0) PowerShell Cmdlet。 
-
-- <!-- 2551834 - IS, ASDK --> 當您在系統管理員或使用者入口網站中選取儲存體帳戶的 [標籤] 時，資訊無法載入因此並未顯示。  
-
-  若要檢視未能看到的資訊，請使用 [Get-AzureRmTag](https://docs.microsoft.com/powershell/module/azurerm.tags/get-azurermtag?view=azurermps-6.2.0) PowerShell Cmdlet。
-
 - <!-- TBD - IS ASDK --> 請勿使用新系統管理訂用帳戶類型的「計量訂用帳戶」和「取用訂用帳戶」。 這些新的訂用帳戶類型已於 1804 版導入，但還未就緒以供使用。 請繼續使用「預設提供者」訂用帳戶類型。  
 
 - <!-- 2403291 - IS ASDK --> 您可能還無法使用系統管理員和使用者入口網站底部的水平捲軸。 如果您無法存取水平捲軸，請使用階層連結來瀏覽至入口網站中的上一個刀鋒視窗，方法是從入口網站左上角的階層連結清單中，選取您想要檢視的刀鋒視窗名稱。
@@ -97,40 +72,9 @@ ms.locfileid: "38989889"
    - COMPONENT：健康情況控制器
    - DESCRIPTION：健康情況控制器錯誤掃描器無法使用。 這可能會影響健康情況報告和計量。
 
-  您可以放心地忽略 #1 和 #2 的警示，這兩個警示會在一段時間過後自動關閉。 
-
-  您也可能會看到下列「容量」警示。 針對此警示，描述中識別的可用記憶體百分比可能不同：  
-
-  警示 #3：
-   - NAME：低記憶體容量
-   - 嚴重性：嚴重
-   - 元件：容量
-   - 描述：區域已取用超過 80.00% 的可用記憶體。 使用大量記憶體建立虛擬機器可能會失敗。  
-
-  在此版本的 Azure Stack 中，此警示可能會不正確地引發。 如果租用戶虛擬機器仍可成功地繼續部署，您就可以放心地忽略此警示。 
-  
-  警示 #3 並不會自動關閉。 如果您關閉此警示，Azure Stack 會在 15 分鐘內建立同一個警示。  
-
-- <!-- 2368581 - IS ASDK --> 身為 Azure Stack 操作員，如果您收到記憶體不足的警示，而且租用戶虛擬機器無法部署並出現「Fabric VM 建立錯誤」，則可能表示 Azure Stack 戳記的可用記憶體不足。 請使用 [Azure Stack 容量規劃工具](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822)來充分了解可供工作負載使用的容量。 
-
+  您可以放心地忽略這兩個警示。 這兩個警示會在一段時間過後自動關閉。  
 
 #### <a name="compute"></a>計算
-- <!-- TBD - IS, ASDK --> 在為虛擬機器部署選取虛擬機器大小時，某些 F 系列的 VM 大小不會在您建立 VM 時顯示在大小選取器中。 選取器中不會顯示下列 VM 大小：*F8s_v2*、*F16s_v2*、*F32s_v2* 和 *F64s_v2*。  
-  因應措施是使用下列其中一個方法來部署虛擬機器。 在每個方法中，您需要指定想要使用的虛擬機器大小。
-
-  - **Azure Resource Manager 範本：** 當您使用範本時，請將範本中的 *vmSize* 設定為等於您想要使用的虛擬機器大小。 例如，使用以下項目來部署會使用 *F32s_v2* 大小的虛擬機器：  
-
-    ```
-        "properties": {
-        "hardwareProfile": {
-                "vmSize": "Standard_F32s_v2"
-        },
-    ```  
-  - **Azure CLI：** 您可以使用 [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create) 命令，並且指定虛擬機器大小作為參數，類似於 `--size "Standard_F32s_v2"`。
-
-  - **PowerShell：** 使用 PowerShell，您可以使用 [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) 搭配指定虛擬機器大小的參數，類似於 `-VMSize "Standard_F32s_v2"`。
-
-
 - <!-- TBD -  IS ASDK --> 無法在入口網站中使用虛擬機器擴展集的調整設定。 您可以使用 [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set) 作為因應措施。 由於 PowerShell 版本差異，您必須使用 `-Name` 參數，而不是 `-VMScaleSetName`。
 
 - <!-- TBD -  IS ASDK --> 當您在 Azure Stack 使用者入口網站上建立虛擬機器時，入口網站所顯示可連結 D 系列 VM 的資料磁碟數目會不正確。 所有受支援的 D 系列 VM 均可容納與 Azure 設定數目一樣多的資料磁碟。
@@ -146,16 +90,13 @@ ms.locfileid: "38989889"
 - <!-- 1662991 - IS ASDK --> Azure Stack 不支援 Linux VM 診斷。 當您部署啟用了 VM 診斷的 Linux VM 時，部署會失敗。 如果您透過診斷設定啟用 Linux VM 基本計量，部署也會失敗。 
 
 #### <a name="networking"></a>網路功能
-- <!-- TBD - IS ASDK --> 您無法在系統管理員或使用者入口網站中建立使用者定義的路由。 請使用 [Azure PowerShell](https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell) 作為因應措施。
-
 - <!-- 1766332 - IS, ASDK --> 如果您在 [網路] 下按一下 [建立 VPN 閘道] 來設定 VPN 連線，系統就會將 [原則式] 列為 VPN 類型。 請勿選取此選項。 Azure Stack 只支援 [路由式] 選項。
 
 - <!-- 2388980 -  IS ASDK --> 在建立 VM 並與公用 IP 位址建立關聯之後，您就無法將 VM 與該 IP 位址取消關聯。 取消關聯看似可以運作，但先前指派的公用 IP 位址會繼續與原始 VM 保持關聯。
 
   目前，您只能將新的公用 IP 位址用於新建立的 VM。
 
-  即使您將 IP 位址重新指派給新的 VM (通常稱為 *VIP 交換*)，還是會發生這種行為。 之後透過此 IP 位址連線的所有嘗試都會導致連線到原始 VM，而不是新的 VM。
-
+  即使您將 IP 位址重新指派給新的 VM (通常稱為 *VIP 交換*)，還是會發生這種行為。 之後透過此 IP 位址連線的所有嘗試都會導致連線到原先關聯的 VM，而不是新的 VM。
 
 - <!-- 2292271 - IS ASDK --> 如果供應項目和方案與租用戶訂用帳戶相關聯，而您將屬於供應項目和方案一部分的網路資源提高其配額限制，則新的限制不會套用到該訂用帳戶。 不過，新的限制會套用到配額增加後所建立的新訂用帳戶中。 
 
@@ -284,7 +225,7 @@ ms.locfileid: "38989889"
 
   目前，您只能將新的公用 IP 位址用於新建立的 VM。
 
-  即使您將 IP 位址重新指派給新的 VM (通常稱為 *VIP 交換*)，還是會發生這種行為。 之後透過此 IP 位址連線的所有嘗試都會導致連線到原始 VM，而不是新的 VM。
+  即使您將 IP 位址重新指派給新的 VM (通常稱為 *VIP 交換*)，還是會發生這種行為。 之後透過此 IP 位址連線的所有嘗試都會導致連線到原先關聯的 VM，而不是新的 VM。
 
 - <!-- 2292271 - IS ASDK --> 如果供應項目和方案與租用戶訂用帳戶相關聯，而您將屬於供應項目和方案一部分的網路資源提高其配額限制，則新的限制不會套用到該訂用帳戶。 不過，新的限制會套用到配額增加後所建立的新訂用帳戶中。 
 
@@ -414,7 +355,7 @@ ms.locfileid: "38989889"
 
   目前，您只能將新的公用 IP 位址用於新建立的 VM。
 
-  即使您將 IP 位址重新指派給新的 VM (通常稱為 *VIP 交換*)，還是會發生這種行為。 之後透過此 IP 位址連線的所有嘗試都會導致連線到原始 VM，而不是新的 VM。
+  即使您將 IP 位址重新指派給新的 VM (通常稱為 *VIP 交換*)，還是會發生這種行為。 之後透過此 IP 位址連線的所有嘗試都會導致連線到原先關聯的 VM，而不是新的 VM。
 
 
 
@@ -451,8 +392,3 @@ ms.locfileid: "38989889"
   之所以發生此錯誤，是因為新近的 GitHub 支援取代 Tlsv1 和 Tlsv1.1 密碼編譯標準 (PowerShell 的預設值)。 如需詳細資訊，請參閱[弱式密碼編譯標準移除通知](https://githubengineering.com/crypto-removal-notice/)。
 
   若要解決此問題，請將 `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12` 新增至指令碼頂端，以強制 PowerShell 主控台在從 GitHub 存放庫下載時使用 TLSv1.2。
-
-
-
-
-

@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: c20ad02f962fbee22bb16653c5eab351d9f3de17
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3ea4ebbd95237b50054fb0e344f260120d597ab5
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598720"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225229"
 ---
 # <a name="use-databricks-cli-from-azure-cloud-shell"></a>從 Azure Cloud Shell 使用 Databricks CLI
 
 了解如何從 Azure Cloud Shell 使用 Databricks CLI，進而在 Databricks 上執行作業。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure Databricks 工作區和叢集。 如需指示，請參閱[開始使用 Azure Databricks](quickstart-create-databricks-workspace-portal.md)。 
 
@@ -36,13 +36,13 @@ ms.locfileid: "34598720"
  
 2. 從右上角，按一下 [Cloud Shell] 圖示。
 
-   ![啟動 Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/launch-azure-cloud-shell.png "從 Excel 啟動 ODBC")
+   ![啟動 Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/launch-azure-cloud-shell.png "啟動 Azure Cloud Shell")
 
 3. 請確定您選取適用於 Cloud Shell 環境的 **Bash**。 您可以從下拉式選項中選取，如下列螢幕擷取畫面所示。
 
-   ![啟動 Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/select-bash-for-shell.png "從 Excel 啟動 ODBC") 
+   ![選取適用於 Cloud Shell 環境的 Bash](./media/databricks-cli-from-azure-cloud-shell/select-bash-for-shell.png "選取 Bash") 
 
-4. 建立可以在其中安裝 Databtricks CLI 的虛擬環境。 在下列程式碼片段中，您會建立名為 `databrickscli` 的虛擬環境。
+4. 建立可以在其中安裝 Databricks CLI 的虛擬環境。 在下列程式碼片段中，您會建立名為 `databrickscli` 的虛擬環境。
 
        virtualenv -p /usr/bin/python2.7 databrickscli
 
@@ -60,11 +60,9 @@ ms.locfileid: "34598720"
 
     您會收到下列提示：
 
-    * 系統會提示您輸入 Databricks 主機。 請以 `https://eastus2.azuredatabricks.net` 格式輸入值。 在這裡，**美國東部 2** 是您用來建立 Azure Databricks 工作區的 Azure 地區。
+    * 首先，系統會提示您輸入 Databricks 主機。 請以 `https://eastus2.azuredatabricks.net` 格式輸入值。 在這裡，**美國東部 2** 是您用來建立 Azure Databricks 工作區的 Azure 地區。
 
-    * 系統會提示您輸入使用者名稱。 輸入 **token**。
-
-    * 最後，系統會提示您輸入密碼。 輸入您稍早建立的權杖。
+    * 接下來，系統會提示您輸入權杖。 輸入您稍早建立的權杖。
 
 完成這些步驟後，您就可以開始從 Azure Cloud Shell 使用 Databricks CLI。
 

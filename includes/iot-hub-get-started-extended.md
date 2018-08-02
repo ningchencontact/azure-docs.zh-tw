@@ -5,6 +5,7 @@
 | 案例                                                   | Azure 服務或工具              |
 |----------------------------------------------------------- |------------------------------------|
 | [管理 IoT 中樞訊息][Mg_IoT_Hub_Msg]                  | iothub-explorer 工具               |
+| [管理 IoT 中樞訊息][Mg_IoT_Toolkit]                  | VS Code 的 Azure IoT 工具組擴充功能|
 | [管理 IoT 裝置][Mg_IoT_Dv]                        | Azure CLI 2.0 和 IoT 擴充功能|
 | [將 IoT 中樞訊息儲存至 Azure 儲存體][Sv_IoT_Msg_Stor]  | Azure 表格儲存體                |
 | [將感應器資料視覺化][Vis_Data_PBI]                      | Microsoft Power BI                 |
@@ -18,6 +19,7 @@
 
 
 [Mg_IoT_Hub_Msg]: ../articles/iot-hub/iot-hub-explorer-cloud-device-messaging.md
+[Mg_IoT_Toolkit]: ../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
 [Mg_IoT_Dv]: ../articles/iot-hub/iot-hub-device-management-iot-extension-azure-cli-2-0.md
 [Sv_IoT_Msg_Stor]: ../articles/iot-hub/iot-hub-store-data-in-azure-table-storage.md
 [Vis_Data_Web]: ../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md

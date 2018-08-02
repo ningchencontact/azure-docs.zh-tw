@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/08/2017
+ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 531ca6d781ae62aacd85dce600e3ea8b46ccf360
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: eeb23b52d5910c3da39d29d3a9c47f598ed5fc5a
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32777072"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188678"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 儲存體總管疑難排解指南
 
@@ -60,17 +60,35 @@ Microsoft Azure 儲存體總管是一個獨立應用程式，可讓您在 Window
 
 ## <a name="sign-in-issues"></a>登入問題
 
-如果您無法登入，請嘗試下列疑難排解方法：
+### <a name="reauthentication-loop-or-upn-change"></a>重新驗證迴圈或 UPN 變更
+如果您處於重新驗證的迴圈中，或已變更其中一個帳戶的 UPN，請嘗試下列方法：
+1. 移除所有的帳戶，然後關閉 [儲存體總管]
+2. 從您的機器中刪除 .IdentityService 資料夾。 在 Windows 中，該資料夾位於 `C:\users\<username>\AppData\Local`。 對於 Mac 和 Linux，您可以在使用者目錄的根目錄中找到此資料夾。
+3. 如果您使用 Mac 或 Linux，您也必須從您的作業系統金鑰儲存區中刪除 Microsoft.Developer.IdentityService 項目。 在 Mac 上，金鑰儲存區會是 "Gnome Keychain" 應用程式。 針對 Linux，此應用程式通常稱為 "Keyring"，但此名稱可能會因為您的散發版本不同而有差異。
 
-* 如果您位於 macOS 上，且登入視窗不曾出現在「正在等候驗證...」對話方塊中，請嘗試[這些步驟](#Resetting-the-Mac-Keychain)
+## <a name="mac-keychain-errors"></a>Mac Keychain 錯誤
+macOS 鑰匙圈有時會進入導致 [儲存體總管] 的驗證程式庫發生問題的狀態。 若要使鑰匙圈脫離這種狀態，請嘗試下列步驟：
+1. 關閉 [儲存體總管]。
+2. 開啟鑰匙圈 (**cmd + 空格鍵**，鍵入 keychain，按 Enter)。
+3. 選取 [登入] 鑰匙圈。
+4. 按一下掛鎖圖示以鎖定鑰匙圈 (完成時，掛鎖會以動畫方式顯示到鎖定的位置，視您所開啟的應用程式而定，它可能需要幾秒鐘的時間)。
+
+    ![映像](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
+
+5. 啟動儲存體總管。
+6. 快顯視窗應該會隨即出現，並包含類似「服務中樞想要存取 keychain」的訊息。 若有出現此快顯視窗，請輸入您的 Mac 系統管理員帳戶密碼，並按一下 [一律允許] (或是，如果沒有 [一律允許]，則按一下 [允許])。
+7. 嘗試登入。
+
+### <a name="general-sign-in-troubleshooting-steps"></a>一般登入疑難排解步驟
+* 如果您位於 macOS 上，且登入視窗不曾出現在「正在等候驗證...」對話方塊中，請嘗試[這些步驟](#Mac-Keychain-Errors)
 * 重新啟動儲存體總管
 * 如果驗證視窗空白，請在關閉驗證對話方塊之前先等待至少一分鐘。
-* 確認您的機器和儲存體總管都已正確設定 Proxy 和憑證設定
-* 如果您是在 Windows 上，而且能夠在相同機器上存取 Visual Studio 2017 並登入，請嘗試登入 Visual Studio 2017
+* 確認您的機器和儲存體總管都已正確設定 Proxy 和憑證設定。
+* 如果您是在 Windows 上，而且能夠在相同機器上存取 Visual Studio 2017 並登入，請嘗試登入 Visual Studio 2017。 成功登入 Visual Studio 2017 之後，您應該能夠開啟 [儲存體總管]，並在 [帳戶] 面板中查看您的帳戶。 
 
 如果這些方法都沒有用，請[在 GitHub 上開立問題](https://github.com/Microsoft/AzureStorageExplorer/issues)。
 
-## <a name="unable-to-retrieve-subscriptions"></a>無法擷取訂用帳戶
+### <a name="missing-subscriptions-and-broken-tenants"></a>訂用帳戶遺失和租用戶損毀
 
 如果成功登入後無法擷取您的訂用帳戶，請嘗試下列疑難排解方法：
 
@@ -78,7 +96,7 @@ Microsoft Azure 儲存體總管是一個獨立應用程式，可讓您在 Window
 * 確定已使用正確的 Azure 環境 (Azure、Azure 中國、Azure 德國、Azure 美國政府或自訂環境) 來登入。
 * 如果您是在 proxy 背景，請確定已正確設定儲存體總管的 proxy。
 * 嘗試移除再重新新增帳戶。
-* 在儲存體總管載入訂用帳戶的同時，監看開發人員工具主控台 ([說明] > [切換開發人員工具])。 查看錯誤訊息 (紅色文字)，或包含「無法載入租用戶的訂用帳戶」文字的任何訊息。 如果您看到任何相關訊息，請[在 GitHub 上開立問題](https://github.com/Microsoft/AzureStorageExplorer/issues)。
+* 如果有 [詳細資訊] 連結，請查看針對失敗租用戶回報的錯誤訊息內容。 如果您不確定該如何處理看到的錯誤訊息，歡迎您在 [GitHub 上提出問題](https://github.com/Microsoft/AzureStorageExplorer/issues)。
 
 ## <a name="cannot-remove-attached-account-or-storage-resource"></a>無法移除連結的帳戶或儲存體資源
 
@@ -155,19 +173,6 @@ Microsoft Azure 儲存體總管是一個獨立應用程式，可讓您在 Window
 * 最新的 GCC
 
 依據您的散發版本，您可能需要安裝其他套件。 儲存體總管[版本資訊](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409)包含某些散發版本的特定步驟。
-
-## <a name="resetting-the-mac-keychain"></a>重設 Mac 鑰匙圈
-macOS 鑰匙圈有時會進入導致 [儲存體總管] 的驗證程式庫發生問題的狀態。 若要使鑰匙圈脫離這種狀態，請嘗試下列步驟：
-1. 關閉 [儲存體總管]。
-2. 開啟鑰匙圈 (**cmd + 空格鍵**，鍵入 keychain，按 Enter)。
-3. 選取 [登入] 鑰匙圈。
-4. 按一下掛鎖圖示以鎖定鑰匙圈 (完成時，掛鎖會以動畫方式顯示到鎖定的位置，視您所開啟的應用程式而定，它可能需要幾秒鐘的時間)。
-
-    ![映像](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
-
-5. 啟動儲存體總管。
-6. 應會隨即出現一個快顯視窗，指出「服務中樞想要存取鑰匙圈」等內容，請輸入 Mac 系統管理員帳戶的密碼，然後按一下 [一律允許] (或在未提供 [一律允許] 時按一下 [允許])。
-7. 嘗試登入。
 
 ## <a name="next-steps"></a>後續步驟
 

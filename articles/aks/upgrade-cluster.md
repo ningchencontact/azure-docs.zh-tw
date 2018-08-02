@@ -6,15 +6,15 @@ author: gabrtv
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 07/18/2018
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: f6b8e964f4277150e104cd6d77db092aaa8553b4
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9557311c97ea0fde66790c37b08d1a22d1197405
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33933269"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144579"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>升級 Azure Kubernetes Service (AKS) 叢集
 
@@ -36,10 +36,10 @@ Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
 default  mytestaks007     1.8.10           1.8.10             1.9.1, 1.9.2, 1.9.6
 ```
 
-我們有三個版本可進行升級：1.9.1、1.9.2 和 1.9.6。 我們可以使用 `az aks upgrade` 命令，升級為最新的可用版本。  在升級過程中，會將節點仔細地[隔離並清空][kubernetes-drain] \(英文\)，以將對執行中應用程式造成的中斷情況降到最低。  開始進行叢集升級之前，請確定您有足夠的額外計算容量可處理新增和移除叢集節點時的工作負載。
+我們有三個版本可進行升級：1.9.1、1.9.2 和 1.9.6。 我們可以使用 `az aks upgrade` 命令，升級為最新的可用版本。  在升級過程中，AKS 會將新節點新增至叢集，然後仔細地[隔離並清空][kubernetes-drain]節點 (一次一個)，將中斷執行中應用程式的情況降到最低。
 
 > [!NOTE]
-> 升級 AKS 叢集時，無法略過 Kubernetes 次要版本。 例如，允許 1.7.x > 1.8.x 或 1.8.x > 1.9.x 之間的升級，但不允許 1.7 > 1.9 的升級。
+> 升級 AKS 叢集時，無法略過 Kubernetes 次要版本。 例如，允許 1.8.x -> 1.9.x 或 1.9.x -> 1.10.x 之間的升級，但不允許 1.8 -> 1.10 的升級。
 
 ```azurecli-interactive
 az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.9.6

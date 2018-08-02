@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: dsc
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
 ms.topic: conceptual
+ms.date: 07/20/2018
 manager: carmonm
-ms.openlocfilehash: 4493f9da0de12fbdfffdf0f4da0dd581ac3b589f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 907bb9b998012a5b907c041b3eba061036289cc1
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195551"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186980"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>上架由 Azure 自動化 DSC 管理的機器
 
@@ -24,9 +24,8 @@ ms.locfileid: "34195551"
 
 Azure 自動化 DSC 可以用來管理各種不同的機器：
 
-* Azure 虛擬機器 (傳統)
-* Azure 虛擬機器
-* Amazon Web Services (AWS) 虛擬機器
+* Azure 虛擬機器 (部署在傳統和 Azure Resource Manager 部署模型)
+* Amazon Web Services (AWS) EC2 執行個體 
 * 位於內部部署或 Azure/AWS 以外之雲端中的實體/虛擬 Windows 電腦
 * 位於內部部署、Azure 或 Azure 以外之雲端中的實體/虛擬 Linux 機器
 
