@@ -1,6 +1,6 @@
 ---
-title: 使用 Windows VM MSI 透過 SAS 認證存取 Azure 儲存體
-description: 該教學課程說明如何使用 Windows VM 受控服務識別 (MSI) 存取 Azure 儲存體，所用的是 SAS 認證而非儲存體帳戶存取金鑰。
+title: 使用 Windows VM 受控識別透過 SAS 認證存取 Azure 儲存體
+description: 該教學課程說明如何使用 Windows VM 受控服務識別存取 Azure 儲存體，所用的是 SAS 認證而非儲存體帳戶存取金鑰。
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 89bbf0bff107cd297f69c0bf5a4017959ea238cd
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 983cecdcdb95dca398f728dbdbe5feac69075d6a
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39043970"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248365"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>教學課程：使用 Windows VM 受控服務識別透過 SAS 認證存取 Azure 儲存體
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-本教學課程說明如何為 Windows 虛擬機器啟用受控服務識別 (MSI)，並使用 MSI 取得儲存體共用存取簽章 (SAS) 認證。 具體而言，即[服務 SAS 認證](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures)。 
+本教學課程說明如何為 Windows 虛擬機器啟用受控服務識別，然後使用受控服務識別取得儲存體共用存取簽章 (SAS) 認證。 具體而言，即[服務 SAS 認證](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures)。 
 
 服務 SAS 可以針對時間限制和特定服務 (在此例為 Blob 服務) 授與有限的存取權限，以供使用儲存體帳戶內的物件，而不需公開帳戶存取金鑰。 在執行儲存體作業時 (例如使用儲存體 SDK)，您可以如往常般使用 SAS 認證。 此教學課程中，我們會示範使用 Azure 儲存體 PowerShell 上傳和下載 Blob。 您將了解如何：
 
 
 > [!div class="checklist"]
-> * 在 Windows 虛擬機器上啟用 MSI 
+> * 在 Windows 虛擬機器上啟用受控服務身分識別 
 > * 在資源管理員中將 VM 存取權限授與儲存體帳戶 SAS 
 > * 使用 VM 身分識別取得存取權杖，並將其用於從資源管理員取出 SAS 
 
@@ -47,7 +47,7 @@ ms.locfileid: "39043970"
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>在新的資源群組中建立 Windows 虛擬機器
 
-此教學課程中，我們會建立新的 Windows VM。 您也可以在現有的 VM 中啟用 MSI。
+此教學課程中，我們會建立新的 Windows VM。 您也可以在現有的 VM 上啟用受控服務識別。
 
 1.  按一下 Azure 入口網站左上角的 [+/建立新服務] 按鈕。
 2.  選取 [計算]，然後選取 [Windows Server 2016 Datacenter]。 
@@ -58,20 +58,20 @@ ms.locfileid: "39043970"
 
     ![替代映像文字](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>在您的 VM 上啟用 MSI
+## <a name="enable-managed-service-identity-on-your-vm"></a>在 VM 上啟用受控服務識別
 
-虛擬機器 MSI 可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您的程式碼。 實際上，啟用 MSI 會執行兩項工作：在 Azure Active Directory 註冊您的 VM 以建立其受控身分識別，它就會在 VM 上設定身分識別。
+虛擬機器受控服務識別可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您的程式碼。 實際上，啟用受控服務識別會執行兩項工作：在 Azure Active Directory 註冊您的 VM 以建立其受控識別，以及在虛擬機器上設定身分識別。
 
 1. 巡覽 至新虛擬機器的資源群組，並選取您在上一個步驟中建立的虛擬機器。
 2. 在左側面板的 VM [設定] 下，按一下 [組態]。
-3. 若要註冊並啟用 MSI，請選取 [是]，如果您想要將它停用，則請選擇 [否]。
+3. 若要註冊並啟用受控服務識別，請選取 [是]，如果您想要將停用，則請選擇 [否]。
 4. 按一下 [儲存] 確認儲存設定。
 
     ![替代映像文字](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="create-a-storage-account"></a>建立儲存體帳戶 
 
-如果您還沒有帳戶，您現在將建立一個儲存體帳戶。 您也可以略過此步驟，並將 VM MSI 存取權限授與現有儲存體帳戶的 SAS 認證。 
+如果您還沒有帳戶，您現在將建立一個儲存體帳戶。 您也可以略過此步驟，並將現有儲存體帳戶的 SAS 認證存取權授與您的 VM 受控服務識別。 
 
 1. 按一下 Azure 入口網站左上角的 [+/建立新服務] 按鈕。
 2. 按一下 [儲存體]，然後按一下 [儲存體帳戶]，就會顯示新的 [建立儲存體帳戶] 面板。
@@ -93,9 +93,9 @@ ms.locfileid: "39043970"
 
     ![建立儲存體容器](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## <a name="grant-your-vms-msi-access-to-use-a-storage-sas"></a>授與 VM 的 MSI 存取權來使用儲存體 SAS 
+## <a name="grant-your-vms-managed-service-identity-access-to-use-a-storage-sas"></a>授與 VM 受控服務識別存取權來使用儲存體 SAS 
 
-Azure 儲存體原生並不支援 Azure AD 驗證。  不過，您可以使用 MSI 從資源管理員取出儲存體 SAS，然後使用該 SAS 存取儲存體。  在此步驟中，您會將 VM MSI 存取權限授與儲存體帳戶 SAS。   
+Azure 儲存體原生並不支援 Azure AD 驗證。  不過，您可以使用受控服務識別從 Resource Manager 擷取儲存體 SAS，然後使用該 SAS 存取儲存體。  在此步驟中，您會將 VM 受控服務識別存取權授與您的儲存體帳戶 SAS。   
 
 1. 巡覽回到您新建立的儲存體帳戶。   
 2. 按一下左側面板中的 [存取控制 (IAM)] 連結。  
@@ -116,7 +116,7 @@ Azure 儲存體原生並不支援 Azure AD 驗證。  不過，您可以使用 M
 1. 在 Azure 入口網站中，瀏覽至 [虛擬機器]，移至您的 Windows 虛擬機器，然後在 [概觀] 頁面中，按一下頂端的 [連線]。
 2. 輸入您建立 Windows VM 時新增的**使用者名稱**和**密碼**。 
 3. 現在您已經建立虛擬機器的**遠端桌面連線**，請在遠端工作階段中開啟 PowerShell。 
-4. 使用 Powershell 的 Invoke-WebRequest，向本機 MSI 端點提出要求來取得 Azure Resource Manager 的存取權杖。
+4. 使用 Powershell 的 Invoke-WebRequest，向本機受控服務識別端點提出要求，來取得 Azure Resource Manager 的存取權杖。
 
     ```powershell
        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}

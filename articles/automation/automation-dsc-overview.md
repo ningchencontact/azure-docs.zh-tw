@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 83d5b89422a0181c06dbfe3b2bd8975ef7214b9d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f6d49ffa59ed53c0a1966a4132fd5fe1689a13ce
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193252"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247344"
 ---
 # <a name="azure-automation-dsc-overview"></a>Azure 自動化 DSC 概觀
 
@@ -27,7 +27,7 @@ Azure Automation DSC 提供在 Azure 外部使用 DSC 的數個優點。
 
 ### <a name="built-in-pull-server"></a>內建提取伺服器
 
-Azure 自動化提供 [DSC 提取伺服器](https://msdn.microsoft.com/powershell/dsc/pullserver)，因此目標節點會自動接收設定、符合期望狀態，並回報其相容性。
+Azure 自動化提供類似於 [Windows 功能 DSC-Service](/powershell/dsc/pullserver) 的 DSC 提取伺服器，因此目標節點會自動接收設定、符合期望狀態，並回報其相容性。
 Azure 自動化中的內建提取伺服器可讓您不需要設定和維護自己的提取伺服器。
 Azure 自動化會以位於雲端或內部部署的虛擬或實體 Windows 或 Linux 機器為目標。
 

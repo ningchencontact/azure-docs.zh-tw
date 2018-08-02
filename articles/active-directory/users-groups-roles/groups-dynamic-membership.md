@@ -10,19 +10,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 07/05/2018
+ms.date: 07/24/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: a48dcff6eedc2aa6e8bb6cd5b0668af72259493b
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: e49da237584a48c01e72552abae01da2514da3c1
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869082"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248884"
 ---
-# <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>在 Azure Active Directory 中針對動態群組成員資格建立以屬性為基礎的規則
-在 Azure Active Directory (Azure AD) 中，您可以建立自訂規則，以對群組啟用複雜屬性動態成員資格。 本文將詳細說明用以建立適用於使用者或裝置之動態成員資格規則的屬性和語法。 您可以為安全性群組或 Office 365 群組的動態成員資格設定規則。
+# <a name="create-dynamic-groups-with-attribute-based-membership-in-azure-active-directory"></a>在 Azure Active Directory 中使用以屬性為基礎的成員資格建立動態群組
+
+在 Azure Active Directory (Azure AD) 中，您可以建立以複雜屬性為基礎的規則，來啟用群組的動態成員資格。 本文將詳細說明用以建立適用於使用者或裝置之動態成員資格規則的屬性和語法。 您可以為安全性群組或 Office 365 群組的動態成員資格設定規則。
 
 當使用者或裝置的任何屬性變更時，系統會評估目錄中的所有動態群組規則，以查看變更是否會觸發任何的群組新增或移除。 如果使用者或裝置滿足群組上的規則，就會將他們新增為該群組的成員。 如果他們不再符合此規則，則會予以移除。
 
@@ -34,6 +35,7 @@ ms.locfileid: "37869082"
 > 目前無法依據擁有使用者的屬性建立裝置群組。 裝置成員資格規則只能參考目錄中裝置物件的直接屬性。
 
 ## <a name="to-create-an-advanced-rule"></a>建立進階規則
+
 1. 使用具備全域管理員或使用者帳戶管理員身分的帳戶來登入 [Azure AD 系統管理中心](https://aad.portal.azure.com)。
 2. 選取 [使用者和群組]。
 3. 選取 [所有群組]，然後選取 [新增群組]。
@@ -58,6 +60,7 @@ ms.locfileid: "37869082"
 
 
 可能會針對**成員資格處理**狀態顯示下列狀態訊息：
+
 * **評估中**：已收到群組變更，而且正在評估更新。
 * **處理中**：正在處理更新。
 * **更新完成**：處理已完成，並已建立所有適用的更新。
@@ -65,6 +68,7 @@ ms.locfileid: "37869082"
 * **已暫停更新**：系統管理員已暫停動態成員資格規則更新。 MembershipRuleProcessingState 設定為「已暫停」。
 
 可能會針對**成員資格上次更新**狀態顯示下列狀態訊息：
+
 * &lt;**日期和時間**&gt;：上次更新成員資格的時間。
 * **進行中**：目前正在更新。
 * **未知**：無法擷取上次更新時間。 原因可能是正在新建立群組。
@@ -74,6 +78,7 @@ ms.locfileid: "37869082"
 ![處理錯誤訊息](./media/groups-dynamic-membership/processing-error.png)
 
 ## <a name="constructing-the-body-of-an-advanced-rule"></a>建構進階規則的主體
+
 您可以為群組的動態成員資格建立的進階規則基本上是一個二進位運算式，其中包含三個部分，且會產生 true 或 false 的結果。 這三個部分包括：
 
 * 左側的參數
@@ -96,6 +101,7 @@ ms.locfileid: "37869082"
 > 包含引號 " 的字串應該使用 ' 字元逸出，例如 user.department -eq \`"Sales"。
 
 ## <a name="supported-expression-rule-operators"></a>支援的運算式規則運算子
+
 下表列出所有支援的運算式規則運算子及其用於進階規則主體中的語法：
 
 | 運算子 | 語法 |
@@ -114,6 +120,7 @@ ms.locfileid: "37869082"
 ## <a name="operator-precedence"></a>運算子優先順序
 
 所有運算子都會列在下面 (由高至低排定優先順序)。 同一行上運算子的優先順序相等：
+
 ````
 -any -all
 -or
@@ -121,15 +128,20 @@ ms.locfileid: "37869082"
 -not
 -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
 ````
+
 不管有沒有連字號前置詞，均可使用所有運算子。 優先順序不符合您的需求時，才需要括號。
 例如︰
+
 ```
    user.department –eq "Marketing" –and user.country –eq "US"
 ```
+
 相當於：
+
 ```
    (user.department –eq "Marketing") –and (user.country –eq "US")
 ```
+
 ## <a name="using-the--in-and--notin-operators"></a>使用 -In 和 -notIn 運算子
 
 如果您想要針對許多不同的值比較使用者屬性的值，您可以使用 -In 或 -notIn 運算子。 使用 -In 運算子的範例如下︰
@@ -140,6 +152,7 @@ ms.locfileid: "37869082"
 
 
 ## <a name="query-error-remediation"></a>查詢錯誤補救
+
 下表列出一般的錯誤及其更正方式
 
 | 查詢剖析錯誤 | 錯誤的使用方式 | 更正的使用方式 |
@@ -149,9 +162,11 @@ ms.locfileid: "37869082"
 | 錯誤：查詢編譯錯誤。 |1. (user.department -eq "Sales") (user.department -eq "Marketing")<br/><br/>2. (user.userPrincipalName -match "*@domain.ext") |1.缺少運算子。 使用這兩個 -and 或 -or 聯結述詞<br/><br/>(user.department -eq "Sales") -or (user.department -eq "Marketing")<br/><br/>2. 使用 -match 的規則運算式發生錯誤<br/><br/>(user.userPrincipalName -match ".*@domain.ext")，此外：(user.userPrincipalName -match "\@domain.ext$")|
 
 ## <a name="supported-properties"></a>支援的屬性
+
 以下是您可以在進階規則中使用的所有使用者屬性：
 
 ### <a name="properties-of-type-boolean"></a>布林型別的屬性
+
 允許的運算子
 
 * -eq
@@ -163,6 +178,7 @@ ms.locfileid: "37869082"
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>字串類型的屬性
+
 允許的運算子
 
 * -eq
@@ -206,6 +222,7 @@ ms.locfileid: "37869082"
 | userType |member guest *null* |(user.userType -eq "Member") |
 
 ### <a name="properties-of-type-string-collection"></a>字串集合類型的屬性
+
 允許的運算子
 
 * -contains
@@ -217,6 +234,7 @@ ms.locfileid: "37869082"
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
 ## <a name="multi-value-properties"></a>多重值屬性
+
 允許的運算子
 
 * -any (集合中至少有一個項目符合條件時滿足)
@@ -225,6 +243,7 @@ ms.locfileid: "37869082"
 | properties | 值 | 使用量 |
 | --- | --- | --- |
 | assignedPlans |集合中的每個物件都會公開下列字串屬性：capabilityStatus、service、servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
+| proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |
 
 多重值屬性是相同類型之物件的集合。 您可以使用 -any 和 -all 運算子，分別將條件套用至集合中的一個或所有項目。 例如︰
 
@@ -239,9 +258,19 @@ user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df
 > [!NOTE]
 > 如果您想要識別已啟用 Office 365 (或其他 Microsoft Online 服務) 功能的所有使用者，例如以一組特定原則鎖定他們，此屬性非常有用。
 
-下列運算式將會選取有任何服務方案與 Intune 服務 (透過服務名稱 "SCO" 來識別) 相關聯的所有使用者：
+下列運算式會選取有任何服務方案與 Intune 服務 (透過服務名稱 "SCO" 來識別) 相關聯的所有使用者：
 ```
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
+```
+
+### <a name="using-the-underscore--syntax"></a>使用底線 (\_) 語法
+
+底線 (\_) 語法會比對發生在其中一個多重值字串集合屬性中的特定值，以將使用者或裝置新增至動態群組。 會搭配使用 -any 或 -all 運算子。
+
+以下範例是在規則中使用底線 (\_)，根據 user.proxyAddress (與 user.otherMails 有相同的效果) 來新增成員。 此規則會將 Proxy 位址中包含 "contoso" 的任何使用者新增至群組。
+
+```
+(user.proxyAddresses -any (_ -contains "contoso"))
 ```
 
 ## <a name="use-of-null-values"></a>使用 Null 值
@@ -256,14 +285,17 @@ user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabi
 
 擴充屬性會從內部部署 Windows Server AD 進行同步處理，並採用 "ExtensionAttributeX" 格式，其中 X 等於 1-15。
 以下是使用擴充屬性的規則範例：
+
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
-自訂屬性會從內部部署 Windows Server AD 或從連線的 SaaS 應用程式進行同步處理，並採用 "user.extension_[GUID]\__[Attribute]" 格式，其中 [GUID] 是 AAD 中的唯一識別碼 (適用於在 AAD 中建立屬性的應用程式)，而 [Attribute] 是其建立的屬性名稱。
-以下是使用自訂屬性的規則範例：
+
+自訂屬性會從內部部署 Windows Server AD 或從連線的 SaaS 應用程式進行同步處理，並採用 "user.extension_[GUID]\__[Attribute]" 格式，其中 [GUID] 是 AAD 中的唯一識別碼 (適用於在 Azure AD 中建立屬性的應用程式)，而 [Attribute] 是其建立的屬性名稱。 以下是使用自訂屬性的規則範例：
+
 ```
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 ```
+
 使用 [Graph 總管] 查詢使用者的屬性並搜尋屬性名稱，即可在目錄中找到自訂屬性名稱。
 
 ## <a name="direct-reports-rule"></a>「直屬員工」規則

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 07/12/2018
 ms.author: rclaus
 ms.custom: ''
-ms.openlocfilehash: d1d2bd74a5118b48f7ed79a77ca2d7b6545607c6
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: f293adc6a25ef9e6ed916043c40233f9dd7bfbc1
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072375"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171272"
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>於 Microsoft Azure 上執行的 SAP 認證和設定
 
@@ -36,13 +36,13 @@ SAP 和 Microsoft 是已合作多年的穩固合作夥伴，能互相為彼此�
 | SAP 產品 | 支援的 OS | Azure 供應項目 |
 | --- | --- | --- |
 | SAP HANA Developer Edition (包括由 SQLODBC、Windows 專用版的 ODBO、ODBC、JDBC 驅動程式、HANA Studio 及 HANA 資料庫組成的 HANA 用戶端軟體) | Red Hat Enterprise Linux、SUSE Linux Enterprise | D 系列 VM 系列 |
-| Business One on HANA | SUSE Linux Enterprise | DS14_v2 |
-| SAP S/4 HANA | Red Hat Enterprise Linux、SUSE Linux Enterprise | GS5 管制性運作、M64s、M64ms、M128s、M128ms、SAP HANA on Azure (大型執行個體) |
-| Suite on HANA (OLTP) | Red Hat Enterprise Linux、SUSE Linux Enterprise | GS5 (針對非實際執行案例)、M64s、M64ms、M128s、M128ms、SAP HANA on Azure (大型執行個體) |
-| HANA Enterprise for BW (OLAP) | Red Hat Enterprise Linux、SUSE Linux Enterprise | GS5、M64s、M64ms、M128s、M128ms、SAP HANA on Azure (大型執行個體) |
-| SAP BW/4 HANA | Red Hat Enterprise Linux、SUSE Linux Enterprise | GS5、M64s、M64ms、M128s、M128ms、SAP HANA on Azure (大型執行個體) |
+| Business One on HANA | SUSE Linux Enterprise | DS14_v2 <br /> [SAP Hana 認證 IaaS 平台](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure%23SAP%20Business%20One) |
+| SAP S/4 HANA | Red Hat Enterprise Linux、SUSE Linux Enterprise | 受控制的 GS5 可用性。 M64s、M64ms、M128s、M128ms、SAP HANA on Azure (大型執行個體) 的完整支援 <br /> [SAP Hana 認證 IaaS 平台](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
+| Suite on HANA (OLTP) | Red Hat Enterprise Linux、SUSE Linux Enterprise | M64s、M64ms、M128s、M128ms、SAP HANA on Azure (大型執行個體) <br /> [SAP Hana 認證 IaaS 平台](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
+| HANA Enterprise for BW (OLAP) | Red Hat Enterprise Linux、SUSE Linux Enterprise | GS5、M64s、M64ms、M128s、M128ms、SAP HANA on Azure (大型執行個體) <br /> [SAP Hana 認證 IaaS 平台](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
+| SAP BW/4 HANA | Red Hat Enterprise Linux、SUSE Linux Enterprise | GS5、M64s、M64ms、M128s、M128ms、SAP HANA on Azure (大型執行個體) <br /> [SAP Hana 認證 IaaS 平台](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
 
-所有 Azure VM 已獲認證，可用於到目前為止相應增加的 SAP HANA。
+請注意，SAP 在 [SAP HANA 認證 IaaS 平台](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)中使用「叢集」一詞是作為「相應放大」的同義字，而「不是」作為高可用性「叢集」
 
 ## <a name="sap-netweaver-certifications"></a>SAP NetWeaver 認證
 Microsoft Azure 已獲認證可用於下列 SAP 產品，因此具備 Microsoft 和 SAP 的完整支援。

@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 07/16/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: ee1c48c4a33d699dcb3da24b2e9a3d6e001b16c5
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 706afa7cb79b7b5c2afcd729f36ff150b87dd6df
+ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801468"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39242932"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 資料中心整合 - 身分識別
 您可以使用 Azure Active Directory (Azure AD) 或 Active Directory Federation Services (AD FS) 作為識別提供者來部署 Azure Stack。 請先選擇識別提供者，才能部署 Azure Stack。 使用 AD FS 的部署也稱為在中斷連線模式中部署 Azure Stack。
@@ -162,7 +162,7 @@ Azure Stack 中的 Graph 服務會使用下列通訊協定和連接埠來與目�
 |參數|說明|範例|
 |---------|---------|---------|
 |CustomAdfsName|宣告提供者的名稱。 在 AD FS 登陸頁面上的顯示方式。|Contoso|
-|CustomADFSFederationMetadataFile|同盟中繼資料檔案|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
+|CustomADFSFederationMetadataFileContent|中繼資料內容|$using:federationMetadataFileContent|
 
 ### <a name="create-federation-metadata-file"></a>建立同盟中繼資料檔案
 
@@ -176,27 +176,22 @@ Azure Stack 中的 Graph 服務會使用下列通訊協定和連接埠來與目�
    $Metadata.outerxml|out-file c:\metadata.xml
    ```
 
-2. 將中繼資料檔案複製到可從特殊權限端點存取的共用。
-
+2. 將中繼資料複製到能夠與具特殊權限端點通訊的電腦。
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>觸發自動化以在 Azure Stack 中設定宣告提供者信任
 
-針對此程序，請使用能夠與 Azure Stack 中具特殊權限端點通訊的電腦。
+在此程序中，請使用可與 Azure Stack 中具特殊權限端點通訊、且可存取您在上一個步驟中所建立中繼資料檔案的電腦。
 
-1. 開啟已提高權限的 Windows PowerShell 工作階段，然後連線到特殊權限端點。
+1. 開啟已提高權限的 [Windows PowerShell] 工作階段。
 
    ```PowerShell  
+   $federationMetadataFileContent = get-content c:\metadata.cml
    $creds=Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
+   Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataFileContent $using:federationMetadataFileContent
    ```
 
-2. 既然您已連接到特殊權限端點，請使用適用於您環境的參數執行下列命令：
-
-   ```PowerShell  
-   Register-CustomAdfs -CustomAdfsName Contoso – CustomADFSFederationMetadataFile \\share\metadataexample.xml
-   ```
-
-3. 使用適用於您環境的參數，執行下列命令來更新預設提供者訂用帳戶的擁有者：
+2. 使用適用於您環境的參數，執行下列命令來更新預設提供者訂用帳戶的擁有者：
 
    ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"

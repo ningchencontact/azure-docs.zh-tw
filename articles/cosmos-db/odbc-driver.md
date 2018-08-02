@@ -10,18 +10,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: e93b241c79a50380f4ef1538dfbf7615232e6c49
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: ffd13f5077ca91537d8397c1940521f475133a03
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096504"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248867"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>使用 BI 分析工具搭配 ODBC 驅動程式連線到 Azure Cosmos DB
 
 Azure Cosmos DB ODBC 驅動程式可讓您使用 BI 分析工具 (例如 SQL Server 整合服務、Power BI Desktop 和 Tableau) 連線到 Azure Cosmos DB，讓您可以在那些解決方案中分析和建立您的 Azure Cosmos DB 資料視覺效果。
 
 Azure Cosmos DB ODBC 驅動程式符合 ODBC 3.8 規範，且支援 ANSI SQL-92 語法。 該驅動程式提供豐富的功能，可協助您重新標準化 Azure Cosmos DB 中的資料。 您可以使用驅動程式將 Azure Cosmos DB 中的資料以資料表或檢視來表示。 該驅動程式可讓您針對資料表和檢視執行 SQL 作業，包括依查詢、插入、更新和刪除分組。
+
+> [!NOTE]
+> 目前僅支援 Azure Cosmos DB SQL API 帳戶的 Azure Cosmos DB 與 ODBC 驅動程式連線。
 
 ## <a name="why-do-i-need-to-normalize-my-data"></a>為什麼需要將我的資料標準化？
 Azure Cosmos DB 是一種無結構描述的資料庫，因此它會透過讓應用程式即時逐一查看其資料模型，且不以嚴格的結構描述限制應用程式，來快速開發應用程式。 單一 Azure Cosmos DB 資料庫可以包含各種結構的 JSON 文件。 這非常適合快速應用程式開發，但是當您想要使用資料分析和 BI 工具分析和建立資料報告時，資料通常都需要壓平合併，並遵循特定的結構描述。

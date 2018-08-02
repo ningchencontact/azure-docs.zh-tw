@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 99d69c7e49179a7849e274c830d539833da33786
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ea9ff8f93ede3b9ec5e7eed83c6049b0c23de7e8
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049447"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205454"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>將 MXChip IoT DevKit 裝置連線到您的 Azure IoT Central 應用程式
 
@@ -26,76 +26,38 @@ ms.locfileid: "39049447"
 1. Azure IoT Central 應用程式是從**範例 Devkits** 應用程式範本建立而來。 如需詳細資訊，請參閱[建立 Azure IoT Central 應用程式](howto-create-application.md)。
 1. DevKit 裝置。 若要購買 DevKit 裝置，請造訪 [MXChip IoT DevKit](http://mxchip.com/az3166)。
 
-從**範例 Devkits** 應用程式範本建立的應用程式包含具有下列特性的 **MXChip** 裝置範本：
 
-### <a name="measurements"></a>量測
+## <a name="sample-devkits-application"></a>**範例 Devkits** 應用程式
 
-#### <a name="telemetry"></a>遙測 
+從**範例 Devkits** 應用程式範本建立的應用程式包含具有下列特性的 **MXChip** 裝置範本： 
 
-| 欄位名稱     | Units  | 最小值 | 最大值 | 小數位數 |
-| -------------- | ------ | ------- | ------- | -------------- |
-| 溼度       | %      | 0       | 100     | 0              |
-| temp           | °C     | -40     | 120     | 0              |
-| pressure       | hPa    | 260     | 1260    | 0              |
-| magnetometerX  | mgauss | -1000   | 1000    | 0              |
-| magnetometerY  | mgauss | -1000   | 1000    | 0              |
-| magnetometerZ  | mgauss | -1000   | 1000    | 0              |
-| accelerometerX | mg     | -2000   | 2000    | 0              |
-| accelerometerY | mg     | -2000   | 2000    | 0              |
-| accelerometerZ | mg     | -2000   | 2000    | 0              |
-| gyroscopeX     | mdps   | -2000   | 2000    | 0              |
-| gyroscopeY     | mdps   | -2000   | 2000    | 0              |
-| gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
-
-#### <a name="states"></a>狀態 
-
-| Name          | 顯示名稱   | 正常 | 警告 | 危險 | 
-| ------------- | -------------- | ------ | ------- | ------ | 
-| DeviceState   | 裝置狀態   | 綠色  | 橙色  | 紅色    | 
-
-#### <a name="events"></a>活動 
-
-| Name             | 顯示名稱      | 
-| ---------------- | ----------------- | 
-| ButtonBPressed   | 按下按鈕 B  | 
+- 包含裝置**溼度**、**溫度**、**壓力**、**Magnometer** (沿著 X、Y、Z 軸測量)、**加速器** (沿著 X、Y、Z 軸測量) 和**陀螺儀** (沿著 X、Y、Z 軸測量) 等測量值的遙測。
+- 包含**裝置狀態**範例度量的狀態。
+- 包含 **按下按鈕 B** 事件的事件度量。 
+- 顯示**電壓**、**電流**、**風扇速度**和 **IR** 切換等設定。
+- 屬性包含裝置屬性**印模編號**和**裝置位置**，這是位置屬性，也可在**製造地點**雲端屬性中找到。 
 
 
-
-### <a name="settings"></a>設定
-
-數值設定
-
-| 顯示名稱 | 欄位名稱 | Units | 小數位數 | 最小值 | 最大值 | Initial |
-| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
-| 電壓      | setVoltage | 伏特 | 0              | 0       | 240     | 0       |
-| Current      | setCurrent | 安培  | 0              | 0       | 100     | 0       |
-| 風扇速度    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
-
-切換設定
-
-| 顯示名稱 | 欄位名稱 | 開啟文字 | 關閉文字 | Initial |
-| ------------ | ---------- | ------- | -------- | ------- |
-| IR           | activateIR | 開啟      | 關      | 關閉     |
-
-### <a name="properties"></a>properties
-
-| 類型            | 顯示名稱 | 欄位名稱 | 資料類型 |
-| --------------- | ------------ | ---------- | --------- |
-| 裝置屬性 | 模具編號   | dieNumber  | number    |
-| 裝置屬性 | 裝置位置   | location  | location    |
-| 文字            | 製造地     | 製造地   | N/A       |
+如需組態的完整詳細資料，請參閱 [MXChip 裝置範本詳細資料](howto-connect-devkit.md#mxchip-device-template-details)
 
 
-### <a name="add-a-real-device"></a>新增真實裝置
+## <a name="add-a-real-device"></a>新增真實裝置
 
 在 Azure IoT 中心應用程式中，從 **MXChip** 裝置範本新增真實裝置，並記下裝置連接字串。 如需詳細資訊，請參閱[將真實裝置新增至 Azure IoT 中心應用程式](tutorial-add-device.md)。
 
-## <a name="prepare-the-devkit-device"></a>準備 DevKit 裝置
+### <a name="prepare-the-devkit-device"></a>準備 DevKit 裝置
 
 > [!NOTE]
 > 如果您先前已經使用裝置並且已儲存 WiFi 認證，但是想要將裝置重新設定為使用不同的 WiFi 網路、連接字串或遙測度量，請同時按面板上的 **A** 和 **B** 按鈕。 如果沒有作用，請按 [重設] 按鈕，然後再試一次。
 
-若要準備 DevKit 裝置：
+#### <a name="before-you-start-configuring-the-device"></a>在開始設定裝置之前：
+1. 在您的 IoT Central **範例 Devkits** 中前往 `Device Explorer`-> `select MXChip Template` -> `Click on +New and choose **Real** Device` -> `Connect this device` (在右上方) 
+2. 複製主要連接字串
+3. 請務必儲存連接字串，因為在準備 DevKit 裝置時會暫時中斷與網際網路的連線。 
+
+
+#### <a name="to-prepare-the-devkit-device"></a>若要準備 DevKit 裝置：
+
 
 1. 從 GitHub 上的[版本](https://github.com/Azure/iot-central-firmware/releases)頁面下載適用於 MXChip 的最新預先建置 Azure IoT 中心韌體。 [版本] 頁面上的下載檔案名稱看起來像 `AZ3166-IoT-Central-X.X.X.bin`。
 
@@ -113,7 +75,7 @@ ms.locfileid: "39049447"
     ```
 
     > [!NOTE]
-    > 如果畫面顯示任何其他項目，請按裝置上的 [重設] 按鈕。 
+    > 如果畫面顯示任何其他項目，請同時按下裝置上的 **A** 和 **B** 按鈕重新啟動裝置。 
 
 1. 裝置現在處於存取點 (AP) 模式。 您可以從您的電腦或行動裝置連線到此 WiFi 存取點。
 
@@ -125,10 +87,9 @@ ms.locfileid: "39049447"
 
     在網頁中： 
     - 新增 WiFi 網路的名稱 
-    - WiFi 網路密碼 
+    - WiFi 網路密碼
     - 裝置 LCD 上顯示的 PIN CODE 
-    - 您裝置的連接字串。 
-      您可以在 \@ `https://apps.iotcentral.com` -> `Device Explorer` -> `Device` -> `Select or Create a new Real Device` -> `Connect this device` (在右上方) 尋找連接字串 
+    - 裝置的連接字串 (您應該已遵循步驟儲存了連接字串) 您可以在 `https://apps.iotcentral.com`->`Device Explorer`->`Device`->`Select or Create a new Real Device`->`Connect this device` (在右上方) 找到連接字串
     - 選取所有可用的遙測量值！ 
 
 1. 選擇 [設定裝置] 之後，您會看到這個頁面：
@@ -206,6 +167,66 @@ git clone https://github.com/Azure/iot-central-firmware
 **iotHubClient.cpp** 來源檔案中的程式碼會使用[適用於 C 的 Microsoft Azure IoT SDK 和程式庫](https://github.com/Azure/azure-iot-sdk-c)中的函式，來與 IoT 中樞互動。
 
 如需如何修改、建置範例程式碼以及將其上傳到裝置的相關資訊，請參閱 `AZ3166` 資料夾中的 **readme.md** 檔案。
+
+## <a name="mxchip-device-template-details"></a>MXChip 裝置範本詳細資料 
+
+從範例 Devkits 應用程式範本建立的應用程式包含具有下列特性的 MXChip 裝置範本：
+
+### <a name="measurements"></a>量測
+
+#### <a name="telemetry"></a>遙測 
+
+| 欄位名稱     | Units  | 最小值 | 最大值 | 小數位數 |
+| -------------- | ------ | ------- | ------- | -------------- |
+| 溼度       | %      | 0       | 100     | 0              |
+| temp           | °C     | -40     | 120     | 0              |
+| pressure       | hPa    | 260     | 1260    | 0              |
+| magnetometerX  | mgauss | -1000   | 1000    | 0              |
+| magnetometerY  | mgauss | -1000   | 1000    | 0              |
+| magnetometerZ  | mgauss | -1000   | 1000    | 0              |
+| accelerometerX | mg     | -2000   | 2000    | 0              |
+| accelerometerY | mg     | -2000   | 2000    | 0              |
+| accelerometerZ | mg     | -2000   | 2000    | 0              |
+| gyroscopeX     | mdps   | -2000   | 2000    | 0              |
+| gyroscopeY     | mdps   | -2000   | 2000    | 0              |
+| gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
+
+
+#### <a name="states"></a>狀態 
+| Name          | 顯示名稱   | 正常 | 警告 | 危險 | 
+| ------------- | -------------- | ------ | ------- | ------ | 
+| DeviceState   | 裝置狀態   | 綠色  | 橙色  | 紅色    | 
+
+#### <a name="events"></a>活動 
+| Name             | 顯示名稱      | 
+| ---------------- | ----------------- | 
+| ButtonBPressed   | 按下按鈕 B  | 
+
+### <a name="settings"></a>設定
+
+數值設定
+
+| 顯示名稱 | 欄位名稱 | Units | 小數位數 | 最小值 | 最大值 | Initial |
+| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
+| 電壓      | setVoltage | 伏特 | 0              | 0       | 240     | 0       |
+| Current      | setCurrent | 安培  | 0              | 0       | 100     | 0       |
+| 風扇速度    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+
+切換設定
+
+| 顯示名稱 | 欄位名稱 | 開啟文字 | 關閉文字 | Initial |
+| ------------ | ---------- | ------- | -------- | ------- |
+| IR           | activateIR | 開啟      | 關      | 關閉     |
+
+### <a name="properties"></a>properties
+
+| 類型            | 顯示名稱 | 欄位名稱 | 資料類型 |
+| --------------- | ------------ | ---------- | --------- |
+| 裝置屬性 | 模具編號   | dieNumber  | number    |
+| 裝置屬性 | 裝置位置   | location  | location    |
+| 文字            | 製造地     | 製造地   | N/A       |
+
+
 
 ## <a name="next-steps"></a>後續步驟
 

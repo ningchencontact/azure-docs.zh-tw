@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: c320f27dd53f0545ff5074d2d4f5a7bdd445fd89
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: f2af7c65d42cbbec28fd511be18c72a6cd3c3d0c
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866173"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249014"
 ---
 # <a name="configure-stateful-reliable-services"></a>設定具狀態可靠服務
 有兩組組態設定可供 Reliable Services 使用。 一組是適用於叢集中的所有 Reliable Services，而另一組專屬於特定的 Reliable Services。
@@ -124,6 +124,7 @@ ReplicatorConfig
 | SharedLogId |GUID |"" |指定用於識別此複本共用記錄檔的唯一 GUID。 服務通常不應使用此設定。 不過，如果有指定 SharedLogId，則也必須指定 SharedLogPath。 |
 | SharedLogPath |完整路徑名稱 |"" |指定建立此複本共用記錄檔的完整路徑。 服務通常不應使用此設定。 不過，如果有指定 SharedLogPath，則也必須指定 SharedLogId。 |
 | SlowApiMonitoringDuration |秒 |300 |設定受控 API 呼叫的監視間隔。 範例︰使用者提供的備份回呼函式。 經過這段間隔後，警告健全狀況報告會傳送到健全狀況管理員。 |
+| LogTruncationIntervalSeconds |秒 |0 |會在每個複本中起始記錄截斷的可設定間隔。 它可用來確保記錄也會根據時間而不只是記錄大小進行截斷。 這項設定也會強制在可靠的字典中清除已刪除的項目。 因此，它可用來確保適時將已刪除的項目清除。 |
 
 ### <a name="sample-configuration-via-code"></a>透過程式碼的範例組態
 ```csharp

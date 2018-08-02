@@ -5,19 +5,19 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 7/06/2018
+ms.date: 7/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: f4bf77f07bd8f6b8172798ec3faf8c0bdaf3d3f5
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: c1189e1b120f0bd1b3169618bebdb929d1cee18e
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921224"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248783"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 診斷記錄支援的服務、結構描述和類別
 
-[Azure 資源診斷記錄](monitoring-overview-of-diagnostic-logs.md)是您 Azure 資源所發出的記錄，會描述該資源的作業。 透過 Azure 監視器提供的所有診斷記錄都會共用通用最上層結構描述，並且具有每個服務發出其專屬事件之唯一屬性的彈性。
+[Azure 監視器診斷記錄](monitoring-overview-of-diagnostic-logs.md)是 Azure 服務所發出的記錄，會描述這些服務或資源的作業。 透過 Azure 監視器提供的所有診斷記錄都會共用通用最上層結構描述，並且具有每個服務發出其專屬事件之唯一屬性的彈性。
 
 資源類型 (適用於 `resourceId` 屬性) 與 `category` 的組合可唯一識別結構描述。 本文描述每個服務結構描述之診斷記錄和連結的最上層結構描述。
 
@@ -26,7 +26,8 @@ ms.locfileid: "37921224"
 | Name | 必要/選用 | 說明 |
 |---|---|---|
 | 分析 | 必要 | 事件的時間戳記 (UTC)。 |
-| ResourceId | 必要 | 發出事件之資源的資源識別碼。 |
+| ResourceId | 必要 | 發出事件之資源的資源識別碼。 對於租用戶服務，這是 /tenants/tenant-id/providers/provider-name 的格式。 |
+| tenantId | 租用戶記錄所需的 | 此事件所繫結 Active Directory 租用戶的租用戶識別碼。 這個屬性只能用於租用戶層級記錄，並不會出現在資源層級記錄中。 |
 | operationName | 必要 | 此事件所代表的作業名稱。 如果事件代表 RBAC 作業，則這是 RBAC 作業名稱 (例如 Microsoft.Storage/storageAccounts/BlobServices/Blobs/Read)。 通常以 Resource Manager 作業形式建模，即使它們不是實際記載的 Resource Manager 作業也是一樣 (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
 | operationVersion | 選用 | 與作業建立關聯的 api-version，如果使用 API 執行 operationName (例如 http://myservice.windowsazure.net/object?api-version=2016-06-01)。 如果沒有對應至此作業的 API，則版本代表該作業的版本，以防與作業建立關聯的屬性在未來變更。 |
 | category | 必要 | 事件的記錄類別。 類別是您可在特定資源上啟用或停用記錄的資料粒度。 事件之屬性 Blob 內顯示的屬性，會與特定記錄類別和資源類型內的屬性相同。 典型記錄類別是「稽核」、「作業」、「執行」和「要求」。 |
@@ -46,6 +47,7 @@ ms.locfileid: "37921224"
 
 | 服務 | 結構描述與文件 |
 | --- | --- |
+| Azure Active Directory | [概觀](../active-directory/reporting-azure-monitor-diagnostics-overview.md)、[稽核記錄結構描述](../active-directory/reporting-azure-monitor-diagnostics-audit-log-schema.md)和[登入結構描述](../active-directory/reporting-azure-monitor-diagnostics-sign-in-log-schema.md) |
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | API 管理 | [API 管理診斷記錄](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | 應用程式閘道 |[應用程式閘道的診斷記錄功能](../application-gateway/application-gateway-diagnostics.md) |

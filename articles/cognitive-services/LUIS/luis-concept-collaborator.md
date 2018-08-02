@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: diberry
-ms.openlocfilehash: 684507b58e5ac766e9b42d3aa53cb0867a131a93
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: fe5e35c2dcb08cdff9d92142558cf8d7ec81c36c
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222667"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399566"
 ---
 # <a name="collaborating"></a>共同作業
 
@@ -25,7 +25,7 @@ LUIS 帳戶會與單一 [Microsoft Live](https://login.live.com/) 帳戶關聯�
 
 一個 LUIS 帳戶可以有許多 LUIS 應用程式。
 
-若要深入了解 Active Directory 使用者帳戶，請參閱 [Azure Active Directory 租用戶使用者](luis-how-to-account-settings.md#azure-active-directory-tenant-user)。 
+若要深入了解 Active Directory 使用者帳戶，請參閱 [Azure Active Directory 租用戶使用者](luis-how-to-collaborate.md#azure-active-directory-tenant-user)。 
 
 ## <a name="luis-app-owner"></a>LUIS 應用程式擁有者
 建立應用程式的帳戶即為擁有者。 每個應用程式都有單一擁有者。 該擁有者會列在應用程式 [[Settings](luis-how-to-collaborate.md)] \(設定\) 上。 這是可以刪除應用程式的帳戶。 這也是端點配額達到每月限制的 75% 時，會收到電子郵件通知的帳戶。 

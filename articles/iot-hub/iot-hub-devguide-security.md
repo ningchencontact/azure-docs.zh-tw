@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 754449dcf759820c8bb99d082c3a5ba2792f02c8
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 227723ecea1401247f0df87bccfe058fb2273647
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126318"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145344"
 ---
 # <a name="control-access-to-iot-hub"></a>控制 IoT 中樞的存取權
 
@@ -91,7 +91,7 @@ HTTPS 實作驗證的方式是在 **Authorization** 要求標頭中包含有效�
 
 使用者名稱 (DeviceId 區分大小寫)︰ `iothubname.azure-devices.net/DeviceId`
 
-密碼 (您可以使用 [Device Explorer][lnk-device-explorer] 工具或 CLI 擴充功能命令 [az iot hub generate-sas-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token) 來產生 SAS 權杖)：
+密碼 (您可以使用 [Device Explorer][lnk-device-explorer] 工具或 CLI 擴充功能命令 [az iot hub generate-sas-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token)，或是[適用於 Visual Studio Code 的 Azure IoT Toolkit 擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)來產生 SAS 權杖)：
 
 `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
@@ -270,7 +270,7 @@ var token = generateSasToken(endpoint, deviceKey, null, 60);
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> 您可以使用 .NET [Device Explorer][lnk-device-explorer] 工具或跨平台 Python 型[適用於 Azure CLI 2.0 的 IoT 擴充功能][lnk-IoT-extension-CLI-2.0]命令列公用程式，或[適用於 Visual Studio Code 的 Azure IoT 工具組擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)來產生 SAS 權杖。
+> 您可以使用 [Device Explorer][lnk-device-explorer] 工具或 CLI 擴充功能命令 [az iot hub generate-sas-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token)，或是[適用於 Visual Studio Code 的 Azure IoT Toolkit 擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)來產生 SAS 權杖。
 
 ### <a name="use-a-shared-access-policy"></a>使用共用存取原則
 
@@ -415,7 +415,7 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 
 權杖服務可以視需要設定權杖到期日。 權杖到期時，IoT 中樞會切斷裝置/模組連線。 然後，裝置/模組必須向權杖服務要求新權杖。 使用過短的到期時間會增加裝置/模組與權杖服務上的負載。
 
-為了讓裝置/模組連線至中樞，即使其使用權杖而不是金鑰來連線，您仍必須將它加入 IoT 中樞身分識別登錄。 因此，您可以利用在[身分識別登錄][lnk-identity-registry]中啟用或停用裝置/模組身分識別，繼續使用依裝置/依模組存取控制。 此方法可減輕使用較長到期時間權杖的風險。
+為了讓裝置/模組連線至中樞，即使其使用權杖而不是金鑰來連線，您仍必須將它新增至 IoT 中樞身分識別登錄。 因此，您可以利用在[身分識別登錄][lnk-identity-registry]中啟用或停用裝置/模組身分識別，繼續使用依裝置/依模組存取控制。 此方法可減輕使用較長到期時間權杖的風險。
 
 ### <a name="comparison-with-a-custom-gateway"></a>和自訂閘道器的比較
 
@@ -492,8 +492,6 @@ IoT 中樞開發人員指南中的其他參考主題包括︰
 [lnk-service-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service
 [lnk-client-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
-[lnk-IoT-extension-CLI-2.0]: https://github.com/Azure/azure-iot-cli-extension
-
-[lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
+[lnk-getstarted-tutorial]: quickstart-send-telemetry-node.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 [lnk-d2c-tutorial]: tutorial-routing.md

@@ -5,19 +5,21 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 7/06/2018
+ms.date: 7/24/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 5e8d8947643494e06faaabb5335c52df5908303e
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 0376fc3eb3ad0b98f1d98ecd35683b08e08090da
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902984"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248091"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>將 Azure 監視資料串流至事件中樞以供外部工具取用
 
 Azure 監視器有提供單一管道以存取 Azure 環境的所有監視資料，讓您輕鬆設定夥伴 SIEM 和監視工具來取用該資料。 本文會逐步解說如何設定 Azure 環境的不同資料層，使其傳送至單一事件中樞命名空間或事件中樞，再由外部工具收集。
+
+> [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
 ## <a name="what-data-can-i-send-into-an-event-hub"></a>我可以將哪些資料傳送至事件中樞？ 
 
@@ -27,8 +29,9 @@ Azure 環境內有數個「層級」的監視資料，而存取每一層資料�
   - 透過使用 [Application Insights SDK](../application-insights/app-insights-overview.md) 之類的 SDK 來檢測程式碼。
   - 透過執行會在執行應用程式的電腦上接聽新應用程式記錄的監視代理程式，例如 [Windows Azure 診斷代理程式](./azure-diagnostics.md)或 [Linux Azure 診斷代理程式](../virtual-machines/linux/diagnostic-extension.md)。
 - **客體 OS 監視資料：** 有關執行應用程式之作業系統的資料。 客體 OS 監視資料的範例為 Linux syslog 或 Windows 系統事件。 若要收集這類資料，您必須安裝像是 [Windows Azure 診斷代理程式](./azure-diagnostics.md)或 [Linux Azure 診斷代理程式](../virtual-machines/linux/diagnostic-extension.md) 這類的代理程式。
-- **Azure 資源監視資料：** 有關 Azure 資源之作業的資料。 針對某些 Azure 資源類型 (例如虛擬機器)，在該 Azure 服務內會有要監視的客體 OS 與應用程式。 針對其他 Azure 資源 (例如網路安全性群組)，資源監視資料是最高層級的可用資料 (因為在那些資源中沒有執行任何客體 OS 或應用程式)。 這類資料可使用[資源診斷設定](./monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)來收集。
-- **Azure 平台監視資料：** 有關 Azure 訂用帳戶或租用戶之作業和管理的資料，以及有關 Azure 本身之健康情況和作業的資料。 [活動記錄](./monitoring-overview-activity-logs.md)包括服務健康情況資料，而 Active Directory 稽核則是平台監視資料的範例。 這類資料也可以使用診斷設定來收集。
+- **Azure 資源監視資料：** 有關 Azure 資源之作業的資料。 針對某些 Azure 資源類型 (例如虛擬機器)，在該 Azure 服務內會有要監視的客體 OS 與應用程式。 針對其他 Azure 資源 (例如網路安全性群組)，資源監視資料是最高層級的可用資料 (因為在那些資源中沒有執行任何客體 OS 或應用程式)。 這類資料可使用[資源診斷設定](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)來收集。
+- **Azure 訂用帳戶監視資料：** 有關 Azure 訂用帳戶作業和管理的資料，以及有關 Azure 本身健康情況和作業的資料。 [活動記錄](./monitoring-overview-activity-logs.md)包含大部分的訂用帳戶監視資料，例如服務健康情況事件和 Azure Resource Manager 稽核。 您可以使用記錄設定檔收集此資料。
+- **Azure 租用戶監視資料：** 租用戶層級 Azure 服務的作業相關資料，例如 Azure Active Directory。 Azure Active Directory 稽核和登入是租用戶監視資料的範例。 您也可以使用租用戶診斷設定來收集此資料。
 
 來自任何層的資料都能傳送至事件中樞，然後再提取至夥伴工具。 以下幾節說明如何設定來自每一層的資料，以串流至事件中樞。 當中的步驟均假設您在要監視的層級皆已具有資產。
 
@@ -45,11 +48,17 @@ Azure 環境內有數個「層級」的監視資料，而存取每一層資料�
 
 另請參閱 [Azure 事件中樞常見問題集](../event-hubs/event-hubs-faq.md)。
 
-## <a name="how-do-i-set-up-azure-platform-monitoring-data-to-be-streamed-to-an-event-hub"></a>我要如何設定 Azure 平台監視資料，以將它串流至事件中樞？
+## <a name="how-do-i-set-up-azure-tenant-monitoring-data-to-be-streamed-to-an-event-hub"></a>我要如何設定 Azure 租用戶監視資料，以將它串流至事件中樞？
 
-Azure 平台監視資料的主要來源有二：
-1. [Azure 活動記錄](./monitoring-overview-activity-logs.md)：其中包含來自 Resource Manager 的建立、更新及刪除作業、可能會影響訂用帳戶中資源的 [Azure 服務健康情況](../service-health/service-health-overview.md)變更、[資源健康情況](../service-health/resource-health-overview.md)在狀態上的轉換，以及數種其他類型的訂用帳戶層級事件。 [本文詳細說明 Azure 活動記錄中所出現事件的所有類別](./monitoring-activity-log-schema.md)。
-2. [Azure Active Directory 報告](../active-directory/active-directory-reporting-azure-portal.md)：其中包含在特定租用戶內所進行之登入活動的歷程記錄和所做變更的稽核記錄。 目前還不能將 Azure Active Directory 資料串流至事件中樞。
+Azure 租用戶監視資料目前只適用於 Azure Active Directory。 您可以使用 [Azure Active Directory 報告](../active-directory/active-directory-reporting-azure-portal.md)中的資料，其中包含在特定租用戶內所進行登入活動的歷程記錄，和所做變更的稽核記錄。
+
+### <a name="stream-azure-active-directory-data-into-an-event-hub"></a>將 Azure Active Directory 記錄資料串流至事件中樞
+
+若要將資料從 Azure Active Directory 記錄傳送到事件中樞命名空間，您要設定 AAD 租用戶上的租用戶診斷設定。 [遵循本指南](../active-directory/reporting-azure-monitor-diagnostics-azure-event-hub.md)來設定租用戶診斷設定。
+
+## <a name="how-do-i-set-up-azure-subscription-monitoring-data-to-be-streamed-to-an-event-hub"></a>我要如何設定 Azure 訂用帳戶監視資料，以將它串流至事件中樞？
+
+Azure 訂用帳戶監視資料可用於 [Azure 活動記錄](./monitoring-overview-activity-logs.md)。 這包含來自 Resource Manager 的建立、更新及刪除作業、可能會影響訂用帳戶中資源的 [Azure 服務健康情況](../service-health/service-health-overview.md)變更、[資源健康情況](../service-health/resource-health-overview.md)在狀態上的轉換，以及數種其他類型的訂用帳戶層級事件。 [本文詳細說明 Azure 活動記錄中所出現事件的所有類別](./monitoring-activity-log-schema.md)。
 
 ### <a name="stream-azure-activity-log-data-into-an-event-hub"></a>將 Azure 活動記錄資料串流至事件中樞
 

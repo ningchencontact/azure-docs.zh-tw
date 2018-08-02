@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: diberry
-ms.openlocfilehash: ace4aa48d3bfce5f88bce8947ab568f0990d67fa
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: b0b5852a223a77e33a288bb8061c1ce374018ec1
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226606"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282274"
 ---
 # <a name="entities-in-luis"></a>LUIS 中的實體
 
@@ -70,7 +70,7 @@ LUIS 提供許多類型的實體；預先建置的實體、自訂的機器學習
 | **簡單** <br/>[機器學習](#machine-learned) | ✔ | **定義**<br>簡單實體是描述單一概念並從機器學習內容學習到的一般實體。 內容包括單字選擇、單字位置及語句長度。<br/><br/>這適用於未以一致方式格式化但表示相同事物的單字或片語。 <br/><br/>[快速入門](luis-quickstart-primary-and-secondary-data.md)<br/>[實體的範例回應](luis-concept-data-extraction.md#simple-entity-data)|  
 | **清單** <br/>[完全相符](#exact-match)|| **定義**<br>清單實體代表系統中一組固定的封閉式相關單字及其同義字。 <br><br>每個清單實體可以有一或多種形式。 最適用於代表相同概念的一組已知變化。<br/><br/>LUIS 並不會探索清單實體的額外值。 使用**建議**功能，以根據目前的清單查看適用於新字組的建議。<br/><br>如果有多個清單實體具有相同的值，則在端點查詢中會傳回每個實體。 <br/><br/>[快速入門](luis-quickstart-intent-and-list-entity.md)<br>[實體的範例回應](luis-concept-data-extraction.md#list-entity-data)| 
 | **Pattern.any** <br/>[混合](#mixed) | ✔|**定義**<br>Patterns.any 是僅用於模式範本語句的可變長度預留位置，用來標記實體開始及結束的位置。  <br><br>**範例**<br>根據標題說出語句來搜尋書籍時，pattern.any 會擷取完整的標題。 使用 pattern.any 的範本語句是 `Who wrote {BookTitle}[?]`。<br/><br/>[教學課程](luis-tutorial-pattern.md)<br>[實體的範例回應](luis-concept-data-extraction.md#composite-entity-data)|  
-| **複合** <br/>[機器學習](#machine-learned) | ✔|**定義**<br>複合實體是由預先建置的實體、簡單、RegEx、清單、階層式等其他實體所組成的。 個別實體會構成一個完整的提體。 複合實體中不允許有清單實體。 <br><br>**範例**<br>名為 PlaneTicketOrder 的複合實體可能會有預先建置的 `number` 和 `ToLocation` 子實體。 <br/><br/>[教學課程](luis-tutorial-composite-entity.md)<br>[實體的範例回應](luis-concept-data-extraction.md#composite-entity-data)|  
+| **複合** <br/>[機器學習](#machine-learned) | ✔|**定義**<br>複合實體是由預先建置的實體、簡單、RegEx、清單、階層式等其他實體所組成的。 個別實體會構成一個完整的提體。 <br><br>**範例**<br>名為 PlaneTicketOrder 的複合實體可能會有預先建置的 `number` 和 `ToLocation` 子實體。 <br/><br/>[教學課程](luis-tutorial-composite-entity.md)<br>[實體的範例回應](luis-concept-data-extraction.md#composite-entity-data)|  
 | **階層式** <br/>[機器學習](#machine-learned) |✔ | **定義**<br>階層式實體是一個依內容學習之簡單實體的分類。<br><br>**範例**<br>假設有一個子系為 `ToLocation` 和 `FromLocation` 的階層式實體 `Location`，便可根據語句內的**內容**來判斷每個子系。 在 `Book 2 tickets from Seattle to New York` 語句中，`ToLocation` 和 `FromLocation` 會根據其周圍的單字而有內容上的不同。 <br/><br/>**不應使用此實體的情況**<br>如果您要尋找不論內容為何只要子系全文相符即可的實體，則應該使用「清單」實體。 如果您要尋找與其他實體類型的父子關係，您應該使用「複合」實體。<br/><br/>[快速入門](luis-quickstart-intent-and-hier-entity.md)<br>[實體的範例回應](luis-concept-data-extraction.md#hierarchical-entity-data)|
 
 <a name="prebuilt"></a>

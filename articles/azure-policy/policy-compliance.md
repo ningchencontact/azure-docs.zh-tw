@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: d36ecb18811901fb781e151c06badc0697c2d769
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 390935d80e903631287b1a4b9f1075e547298d99
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659061"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39250189"
 ---
 # <a name="getting-compliance-data"></a>取得合規性資料
 
@@ -224,14 +224,13 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 如需有關查詢原則事件的詳細資訊，請參閱[原則事件](/rest/api/policy-insights/policyevents)參考文章。
 
-### <a name="azure-powershell-preview"></a>Azure PowerShell (預覽)
+### <a name="azure-powershell"></a>Azure PowerShell
 
-適用於原則的 Azure PowerShell 模組還不是最終狀態，目前在 PowerShell 資源庫中是以[預覽版本](https://www.powershellgallery.com/packages/AzureRM.PolicyInsights)形式提供。
-如果 PowerShellGet 至少為 1.6.0 版 (必須有此版本才能支援發行前版本項目)，您可以使用 `Install-Module` (確定您已安裝最新版 [Azure PowerShell](/powershell/azure/install-azurerm-ps)) 來下載預覽版本：
+在 PowerShell 資源庫中，會以 [AzureRM.PolicyInsights](https://www.powershellgallery.com/packages/AzureRM.PolicyInsights) 形式提供適用於原則的 Azure PowerShell 模組。 您可以使用 PowerShellGet，透過 `Install-Module -Name AzureRM.PolicyInsights` 來安裝模組 (請確定您已安裝最新的 [Azure PowerShell](/powershell/azure/install-azurerm-ps))：
 
 ```powershell
-# Download preview from PowerShell Gallery via PowerShellGet
-Install-Module -Name AzureRM.PolicyInsights -AllowPrerelease
+# Install from PowerShell Gallery via PowerShellGet
+Install-Module -Name AzureRM.PolicyInsights
 
 # Import the downloaded module
 Import-Module AzureRM.PolicyInsights
@@ -240,7 +239,7 @@ Import-Module AzureRM.PolicyInsights
 Connect-AzureRmAccount
 ```
 
-預覽模組有三個 Cmdlet：
+模組有三個 Cmdlet：
 
 - `Get-AzureRmPolicyStateSummary`
 - `Get-AzureRmPolicyState`

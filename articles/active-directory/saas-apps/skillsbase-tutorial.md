@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 07/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 84aac0017496c50f0006fd6e184537e4c14f10c7
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e11ba8ca9c4ad17b2ade909bb474ad2d1fcf4410
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39057610"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205369"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>教學課程：Azure Active Directory 與 Skills Base 整合
 
@@ -110,7 +110,7 @@ Skills Base 與 Azure AD 整合提供下列優點：
     在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://app.skills-base.com/o/<customer-unique-key>`
 
     > [!NOTE] 
-    > [登入 URL] 的值不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [Skills Base 用戶端支援小組](mailto:support@skills-base.com)以取得此值。
+    > 您可以從技能基本應用程式中取得登入 URL。 請以系統管理員的身分登入，並前往 [系統管理] -> [設定] -> [執行個體詳細資料] -> [捷徑連結]。 複製登入 URL，並將它貼在上方的文字方塊中。
 
 4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
@@ -141,7 +141,6 @@ Skills Base 與 Azure AD 整合提供下列優點：
 
     b. 按一下 [檔案] 。
     
-
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
@@ -179,7 +178,7 @@ Skills Base 與 Azure AD 整合提供下列優點：
 本節目標是在 Skills Base 中建立名為 Britta Simon 的使用者。 Skills Base 支援預設啟用的 Just-In-Time 佈建。 在這一節沒有您需要進行的動作項目。 嘗試存取 Skills Base 時若尚無使用者，則會建立新使用者。
 
 >[!Note]
->如果您需要手動建立使用者，請連絡 [Skills Base 用戶端支援小組](mailto:support@skills-base.com)。
+>若要手動建立使用者，請依[此處](http://wiki.skills-base.net/index.php?title=Adding_people_and_enabling_them_to_log_in)的指示進行。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 

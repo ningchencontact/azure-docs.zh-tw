@@ -15,21 +15,22 @@ ms.component: compliance-reports
 ms.date: 05/10/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 8d627abfe7b686eeeb5a65c4515e184f4ce62f4e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d069d0e74c1bc10baa4d14cdb91c137203495ae2
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335052"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247403"
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Azure Active Directory 報告常見問題集
 
 本文會回答有關 Azure Active Directory (Azure AD) 報告的常見問題。 如需詳細資訊，請參閱 [Azure Active Directory 報告](active-directory-reporting-azure-portal.md)。 
 
+## <a name="getting-started"></a>開始使用 
+
 **問：我目前使用 https://graph.windows.net/&lt租用戶名稱&gt;/reports/ 端點 API，並以程式設計方式將 Azure AD 稽核和整合的應用程式使用方式報告提取到我們的報告系統中。我該切換至什麼項目？**
 
 **答：** 請查閱 [API 參考文件](https://developer.microsoft.com/graph/)，查看您可以如何使用新的 API 來存取[活動報告](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal)。 此端點有兩個報告 (稽核和登入)，提供您在舊有 API 端點中取得的所有資料。 這個新端點也有 Azure AD Premium 授權的登入報告，您可以用它來取得應用程式使用方式、裝置使用方式，以及使用者登入資訊。
-
 
 --- 
 
@@ -38,6 +39,34 @@ ms.locfileid: "36335052"
 **答：** 您可以使用[Identity Protection 風險事件 API](active-directory-identityprotection-graph-getting-started.md) 來透過 Microsoft Graph 存取安全性偵測。 這個新的格式包含進階篩選和欄位選取等功能，讓您可以更靈活地查詢資料，並且將風險事件標準化為一種類型，以便更輕易地整合至 SIEM 和其他資料收集工具。 由於資料的格式不同，您無法以新查詢替換舊查詢。 不過，[新 API 會使用 Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent)，這是 O365 或 Azure AD 這類 API 的 Microsoft 標準格式。 因此該要求工作可以擴充您目前的 MS Graph 投資，或協助您開始轉換至新的標準平台。
 
 --- 
+
+**問：我要如何取得進階授權？**
+
+**答：** 如需此問題的解答，請參閱[開始使用 Azure Active Directory Premium](fundamentals/active-directory-get-started-premium.md)。
+
+---
+
+**問：在取得進階授權之後，我應該多快能看見活動資料？**
+
+**答：** 如果您在使用免費授權時即已經有活動資料，您便可以看見相同的資料。 如果您沒有任何資料，則必須花一或兩天的時間。
+
+---
+
+**問：在取得 Azure AD 進階授權之後，我是否會看見上個月的資料？**
+
+**答：** 如果您是最近切換到進階版 (包括試用版)，一開始最多可以看見 7 天的資料。 當資料累積之後，您將最多可以看見 30 天的資料。
+
+---
+
+**問：我是否必須是全域系統管理員，才能看到登入 Azure 入口網站的活動，或是透過 API 取得資料？**
+
+**答：** 否。 您必須是「安全性讀取者」、「安全性系統管理員」或「全域系統管理員」，便能從 Azure 入口網站或透過 API 存取報告資料。
+
+---
+
+
+## <a name="activity-logs"></a>活動記錄
+
 
 **問：Azure 入口網站中活動記錄 (稽核和登入) 的資料保留期是多長？** 
 
@@ -51,11 +80,6 @@ ms.locfileid: "36335052"
 
 ---
 
-**問：我是否必須是全域系統管理員，才能看到登入 Azure 入口網站的活動，或是透過 API 取得資料？**
-
-**答：** 否。 您必須是「安全性讀取者」、「安全性系統管理員」或「全域系統管理員」，便能從 Azure 入口網站或透過 API 存取報告資料。
-
----
 
 **問：我是否可以透過 Azure 入口網站取得 Office 365 活動記錄資訊？**
 
@@ -82,23 +106,7 @@ ms.locfileid: "36335052"
 
 ---
 
-**問：我要如何取得進階授權？**
-
-**答：** 如需此問題的解答，請參閱[開始使用 Azure Active Directory Premium](fundamentals/active-directory-get-started-premium.md)。
-
----
-
-**問：在取得進階授權之後，我應該多快能看見活動資料？**
-
-**答：** 如果您在使用免費授權時即已經有活動資料，您便可以看見相同的資料。 如果您沒有任何資料，則必須花一或兩天的時間。
-
----
-
-**問：在取得 Azure AD 進階授權之後，我是否會看見上個月的資料？**
-
-**答：** 如果您是最近切換到進階版 (包括試用版)，一開始最多可以看見 7 天的資料。 當資料累積之後，您將最多可以看見 30 天的資料。
-
----
+## <a name="risky-sign-ins"></a>有風險的登入
 
 **問：Identity Protection 有風險事件，但是我在所有登入中看不到對應的登入。這是預期行為嗎？**
 
@@ -129,3 +137,35 @@ ms.locfileid: "36335052"
 **答：** 為讓您深入了解您環境中所有具有風險的登入，「登入時偵測到其他風險」可作為 Azure AD Identity Protection 訂閱者專屬偵測的登入預留位置。
 
 ---
+
+## <a name="conditional-access"></a>條件式存取
+
+**問：這項功能有什麼新增功能？**
+
+**答：** 客戶現在可以透過所有的登入報告來針對條件式存取原則進行疑難排解。 客戶可以檢閱條件式存取狀態，並探索套用至每個原則登入和結果的原則詳細資料。
+
+**問：如何開始使用？**
+
+**答：** 開始進行之前：
+    * 巡覽至 [Azure 入口網站](https://portal.azure.com)中的登入報告。 
+    * 按一下您想要進行疑難排解的登入。
+    * 巡覽至 [條件式存取] 索引標籤。您可以在此處檢視所有原則，這些原則會影響每個原則的登入和結果。 
+    
+**問：條件式存取狀態所有可能的值為何？**
+
+**答：** 條件式存取狀態可能會包含下列值：
+    * **不適用**：這表示沒有任何 CA 原則包含範圍中的使用者和應用程式。 
+    * **成功**：這表示有一個 CA 原則包含範圍中的使用者和應用程式，且成功地符合 CA 原則。 
+    * **失敗**：這表示有一個 CA 原則包含範圍中的使用者和應用程式，且不符合 CA 原則。 
+    
+**問：條件式存取原則結果所有可能的值為何？**
+
+**答：** 條件式存取原則可能會包含下列結果：
+    * **成功**：已成功地符合原則。
+    * **失敗**：不符合原則。
+    * **不適用**：這可能是因為不符合原則條件。
+    * **未啟用**：這是因為原則處於停用狀態。 
+    
+**問：所有登入報告中的原則名稱與 CA 中的原則名稱不符。原因為何？**
+
+**答：** 所有登入報告中的原則名稱是以登入時的 CA 原則名稱為基礎。 如果您稍後 (也就是登入之後) 更新原則名稱，這可能會與 CA 中的原則名稱不一致。
