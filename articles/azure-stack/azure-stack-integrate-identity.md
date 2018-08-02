@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 08/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 706afa7cb79b7b5c2afcd729f36ff150b87dd6df
-ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
+ms.openlocfilehash: c22831ae781239f2474720ee9cd1b58f6e14fe41
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39242932"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412860"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 資料中心整合 - 身分識別
 您可以使用 Azure Active Directory (Azure AD) 或 Active Directory Federation Services (AD FS) 作為識別提供者來部署 Azure Stack。 請先選擇識別提供者，才能部署 Azure Stack。 使用 AD FS 的部署也稱為在中斷連線模式中部署 Azure Stack。
@@ -26,7 +26,7 @@ ms.locfileid: "39242932"
 |---------|---------|---------|
 |計費|必須是容量<br> 僅限 Enterprise 合約 (EA)|容量或預付型方案<br>EA 或雲端解決方案提供者 (CSP)|
 |身分識別|必須是 AD FS|Azure AD 或 AD FS|
-|Marketplace 摘要整合|支援<br>BYOL 授權|支援<br>BYOL 授權|
+|Marketplace |支援<br>BYOL 授權|支援<br>BYOL 授權|
 |註冊|建議，需要卸除式媒體<br> 及個別的連接裝置。|自動化|
 |修補和更新|必要，需要卸除式媒體<br> 及個別的連接裝置。|可以直接從網際網路將更新套件<br> 下載到 Azure Stack。|
 

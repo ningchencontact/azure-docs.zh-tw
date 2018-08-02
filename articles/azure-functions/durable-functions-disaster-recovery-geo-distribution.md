@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 8eb42a60045304416ec6aa1099a84b1e264c692d
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: bbfbf351b8976f4140b6dd98a9a54ba982c3d865
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33206354"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399392"
 ---
 # <a name="disaster-recovery-and-geo-distribution"></a>災難復原和異地複寫
 
@@ -50,7 +50,7 @@ ms.locfileid: "33206354"
 - 此案例涵蓋計算基礎結構的中斷，但儲存體帳戶仍然會是函式應用程式的單一失敗點。 如果沒有儲存體中斷，則應用程式會遭遇停機狀況。
 - 如果已容錯移轉函式應用程式，則會增加延遲時間，因為它會跨區域存取其儲存體帳戶。
 - 從不同的所在區域存取儲存體服務，會因為網路傳出流量而造成較高的成本。
-- 此案例取決於流量管理員。 考量到[流量管理員的運作方式](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works)，在取用 Durable Function 的用戶端應用程式需要從流量管理員再次查詢函式應用程式位址之前，可能會經過一些時間。 
+- 此案例取決於流量管理員。 考量到[流量管理員的運作方式](../traffic-manager/traffic-manager-how-it-works.md)，在取用 Durable Function 的用戶端應用程式需要從流量管理員再次查詢函式應用程式位址之前，可能會經過一些時間。 
 
 
 ## <a name="scenario-2---load-balanced-compute-with-regional-storage"></a>案例 2 - 具有區域性儲存體的負載平衡計算
