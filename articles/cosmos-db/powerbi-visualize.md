@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: sngun
-ms.openlocfilehash: 67ea7a9ea1a1be4fd0780f8b8ce22f1a133615e0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3734c30dad0735164d4501d1d63d8ffe301396a3
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34615864"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249109"
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Azure Cosmos DB 的 Power BI 教學課程：使用 Power BI 連接器將資料視覺化
 [PowerBI.com](https://powerbi.microsoft.com/) 是一項線上服務，您可以在其中建立及共用具有您和組織之重要資料的儀表板和報告。  Power BI Desktop 是一項專用的報告撰寫工具，可讓您從各種資料來源擷取資料、合併和轉換資料、建立功能強大的報告和視覺效果，以及將報告發佈至 Power BI。  有了最新版的 Power BI Desktop，您現在可以透過 Power BI 的 Azure Cosmos DB 連接器連線到 Azure Cosmos DB 帳戶。   
@@ -34,15 +34,15 @@ ms.locfileid: "34615864"
 > 適用於 Azure Cosmos DB 的 Power BI 連接器會連線到 Power BI Desktop 以擷取和轉換資料。 在 Power BI Desktop 中建立的報告接著可以發行至 PowerBI.com。 您無法在 PowerBI.com 中直接擷取和轉換 Azure Cosmos DB 資料。 
 
 > [!NOTE]
-> 若要使用 MongoDB API 將 Azure Cosmos DB 連線至 Power BI，您必須使用 [Simba MongoDB ODBC 驅動程式](http://www.simba.com/drivers/mongodb-odbc-jdbc/)。
+> 目前僅支援 Azure Cosmos DB SQL 和 MongoDB API 帳戶的 Azure Cosmos DB 與 Power BI 連接器連線。 若要使用 MongoDB API 將 Azure Cosmos DB 連線至 Power BI，您必須使用 [Simba MongoDB ODBC 驅動程式](http://www.simba.com/drivers/mongodb-odbc-jdbc/)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 在依照本 Power BI 教學課程中的指示進行之前，請先確定您可以存取下列資源：
 
 * [最新版的 Power BI Desktop](https://powerbi.microsoft.com/desktop)
 * 存取我們的示範帳戶或您 Azure Cosmos DB 帳戶中的資料。
   * 示範帳戶會填入此教學課程中所顯示的火山資料。 此示範帳戶未受限於任何 SLA，而是僅供示範之用。  我們保留對此示範帳戶隨時進行修改的權利，包括 (但不限於) 終止帳戶、變更金鑰、限制存取權、變更和刪除資料，不事先通知或告知原因。
-    * URL：https://analytics.documents.azure.com
+    * URL： https://analytics.documents.azure.com
     * 唯讀金鑰：MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==
   * 或者，若要建立您自己的帳戶，請參閱[使用 Azure 入口網站建立 Azure Cosmos DB 資料庫帳戶](https://azure.microsoft.com/documentation/articles/create-account/)。 然後，若要取得類似於本教學課程所使用的範例火山資料 (但不包含 GeoJSON 區塊)，請參閱 [NOAA 網站](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5)，然後使用 [Azure Cosmos DB 資料移轉工具](import-data.md)匯入資料。
 

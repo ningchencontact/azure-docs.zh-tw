@@ -1,21 +1,20 @@
 ---
-title: 語音裝置 SDK 授權合約 | Microsoft Docs
+title: 語音裝置 SDK 授權合約
 description: 語音裝置 SDK 授權合約。
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: a601c0307045ef3db8666c705e5b24fb365f532d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5d9fd0669302dbfbd4f1c3082643d6c03abc7019
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369683"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39281958"
 ---
 # <a name="speech-devices-sdk-license-agreement"></a>語音裝置 SDK 授權合約
 
@@ -51,7 +50,7 @@ e) 分享、發佈或出借軟體 (上述適用的條款所規範之任何可散
 
 f) 貴用戶僅能將此軟體與 Microsoft Azure 認知服務、語音服務搭配使用
 
-**3\. 資料收集。** 此軟體可能會與其他會收集傳輸至 Microsoft 之資料的 Microsoft 產品有所互動。 如欲深入了解 Microsoft 如何處理收集到的個人資料，請參閱 Microsoft 隱私權聲明：http://go.microsoft.com/fwlink/?LinkId=248681。
+**3\. 資料收集。**  此軟體可能會與其他會收集傳輸至 Microsoft 之資料的 Microsoft 產品有所互動。 如欲深入了解 Microsoft 如何處理收集到的個人資料，請參閱 Microsoft 隱私權聲明：http://go.microsoft.com/fwlink/?LinkId=248681。
 
 **4\. 發行前版本軟體。** 此軟體為發行前版本， 可能無法正常運作， 可能與正式發行版本不同。
 

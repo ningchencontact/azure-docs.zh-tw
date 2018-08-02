@@ -11,17 +11,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 101b6531601458c33b8cede72f3a63f586df08bb
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: a152ce2b9d59587aa3d4a05aecccbe12f03d3f37
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224821"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364228"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>使用 System for Cross-Domain Identity Management (SCIM) 自動將使用者和群組從 Azure Active Directory 佈建到應用程式
 
@@ -345,7 +345,7 @@ Azure AD 可以設定為將已指派的使用者和群組佈建至實作 [System
 ## <a name="user-and-group-schema"></a>使用者和群組結構描述
 Azure Active Directory 可以佈建兩種類型的資源至 SCIM Web 服務。  這些類型的資源是使用者和群組。  
 
-用結構描述識別碼 "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" 識別使用者資源，此識別碼包含在下列通訊協定規格中：http://tools.ietf.org/html/draft-ietf-scim-core-schema。  以下的表 1 提供相對於 "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" 資源的屬性，Azure Active Directory 中使用者屬性的預設對應。  
+用結構描述識別碼 "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" 識別使用者資源，此識別碼包含在下列通訊協定規格中： http://tools.ietf.org/html/draft-ietf-scim-core-schema 。  以下的表 1 提供相對於 "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" 資源的屬性，Azure Active Directory 中使用者屬性的預設對應。  
 
 用結構描述識別碼 http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group 識別群組資源。  下面的表 2 顯示 Azure Active Directory 中的群組屬性與 http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group 資源屬性的預設對應。  
 

@@ -3,19 +3,19 @@ title: 將 Bing 拼字檢查 API v7 新增至 LUIS 查詢 | Microsoft Docs
 titleSuffix: Azure
 description: 將 Bing 拼字檢查 API V7 新增至 LUIS 端點查詢，可更正語句中拼錯的字組。
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/27/2018
-ms.author: v-geberr
-ms.openlocfilehash: 340fb34c234a12f93fcfc3182ac3fd44fce324fe
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.author: diberry
+ms.openlocfilehash: 87882052ed7faf0a7d2a665d51afb20db7ee839c
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35370970"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39239146"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>使用 Bing 拼字檢查更正拼錯的字組
 
@@ -26,8 +26,9 @@ ms.locfileid: "35370970"
 
 ![建立免費金鑰](./media/luis-tutorial-bing-spellcheck/free-key.png)
 
-## <a name="create-subscription-key"></a>建立訂用帳戶金鑰
-如果您的免費金鑰過期，請建立訂用帳戶金鑰。
+<a name"create-subscription-key"></a>
+## <a name="create-endpoint-key"></a>建立端點金鑰
+如果您的免費金鑰過期，請建立端點金鑰。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。 
 
@@ -45,7 +46,7 @@ ms.locfileid: "35370970"
 
     ![輸入服務設定](./media/luis-tutorial-bing-spellcheck/subscription-settings.png)
 
-7. 選取左側導覽列上 [我的最愛] 標題底下的 [所有資源]。
+7. 選取左側瀏覽列上 [我的最愛] 標題底下的 [所有資源]。
 
 8. 選取新服務。 其類型為 [認知服務] 且位置為 [全域]。 
 
@@ -56,7 +57,7 @@ ms.locfileid: "35370970"
 10. 複製第一個金鑰。 您只需要兩個金鑰中的其中一個。 
 
 ## <a name="using-the-key-in-luis-test-panel"></a>在 LUIS 測試面板中使用金鑰
-LUIS 中有兩個地點可使用金鑰。 第一個是在[測試面板](train-test.md#view-bing-spell-check-corrections-in-test-panel)中。 金鑰不會儲存到 LUIS 中，但卻是工作階段變數。 每次您希望測試面板將 Bing 拼字檢查 API v7 服務套用至語句時，都需要設定金鑰。 請參閱測試面板中有關設定金鑰的[指示](train-test.md#view-bing-spell-check-corrections-in-test-panel)。
+LUIS 中有兩個地點可使用金鑰。 第一個是在[測試面板](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel)中。 金鑰不會儲存到 LUIS 中，但卻是工作階段變數。 每次您希望測試面板將 Bing 拼字檢查 API v7 服務套用至語句時，都需要設定金鑰。 請參閱測試面板中有關設定金鑰的[指示](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel)。
 
 ## <a name="adding-the-key-to-the-endpoint-url"></a>將金鑰新增至端點 URL
 對於您想要套用拼字校正的每項查詢，端點查詢需要以查詢字串參數傳入的金鑰。 您可能有可呼叫 LUIS 的聊天機器人，或者您可以直接呼叫 LUIS 端點 API。 不論端點的呼叫方式為何，每次呼叫都必須包含所需的資訊，拼字校正才能正常運作。
@@ -90,7 +91,7 @@ https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appID}?subscription
 如果您不想使用 Bing 拼字檢查 API v7 服務，您也可以標示有拼字錯誤的語句，以便 LUIS 學習正確的拼法及錯字。 相較於使用拼字檢查工具，此選項需要更多標記工作。
 
 ## <a name="publishing-page"></a>發佈頁面
-[發佈][](publishapp.md) 頁面具有 [啟用 Bing 拼字檢查工具] 核取方塊。 這方便於建立金鑰並理解如何變更端點 URL。 您仍然必須使用正確的端點參數，以便更正每個語句的拼字。 
+[發佈][](luis-how-to-publish-app.md) 頁面具有 [啟用 Bing 拼字檢查工具] 核取方塊。 這方便於建立金鑰並理解如何變更端點 URL。 您仍然必須使用正確的端點參數，以便更正每個語句的拼字。 
 
 > [!div class="nextstepaction"]
 > [深入了解範例語句](luis-how-to-add-example-utterances.md)

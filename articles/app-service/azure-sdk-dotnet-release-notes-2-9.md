@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: 30013c0bd8ded31ccaf3cdc142bbf8dc6b375031
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 01b8ccc9fe6b5469408131bce68a903f15382998
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32150952"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222523"
 ---
 # <a name="azure-sdk-for-net-29-release-notes"></a>Azure SDK for .NET 2.9 版本資訊
 
@@ -32,7 +32,7 @@ Azure SDK 2.9 在此版本中沒有重大變更。 在現有的雲端服務專�
 
 ### <a name="visual-studio-2017-release-candidate"></a>Visual Studio 2017 候選版
 
-- 在 Visual Studio 2017 RC 中，這個版本的 Azure SDK for .NET 內建於 Azure 工作負載。 未來將會在 Visual Studio 2017 RC 中提供您開發 Azure 所需的一切工具。 在 Visual Studio 2015 和 Visual Studio 2013 中，將仍然可以透過 WebPI 使用這套 SDK。 當 Visual Studio 2017 以最終產品發行時，我們就不再提供適用於 Visual Studio 2013 的 Azure SDK for .NET 版本。 請依照此連結下載 Visual Studio 2017 RC：https://www.visualstudio.com/vs/visual-studio-2017-rc/
+- Visual Studio 2017 RC 中已內建這個版本的 Azure SDK for .NET，以便用於 Azure 工作負載。 未來將會在 Visual Studio 2017 RC 中提供您開發 Azure 所需的一切工具。 在 Visual Studio 2015 和 Visual Studio 2013 中，將仍然可以透過 WebPI 使用這套 SDK。 當 Visual Studio 2017 以最終產品發行時，我們就不再提供適用於 Visual Studio 2013 的 Azure SDK for .NET 版本。 請依照此連結下載 Visual Studio 2017 RC： https://www.visualstudio.com/vs/visual-studio-2017-rc/
 
 ### <a name="azure-diagnostics"></a>Azure 診斷
 
