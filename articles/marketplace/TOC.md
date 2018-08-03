@@ -8,7 +8,7 @@
 #### [適用於 Azure Marketplace 的計費選項](./billing-options-azure-marketplace.md)  
 #### [Azure 合作夥伴客戶使用情況屬性](./azure-partner-customer-usage-attribution.md)
 
-### 店面 [ 比較 AppSource 和 Azure Marketplace](./comparing-appsource-azure-marketplace.md)  
+### [店面](./comparing-appsource-azure-marketplace.md)  
 
 ### [判斷解決方案的發行選項](./determine-your-listing-type.md)  
 
@@ -25,6 +25,6 @@
 ### [透過 Marketplace 拓展業務](./grow-your-business-with-azure-marketplace.md)  
 #### [慣用的解決方案](./preferred-solutions.md) 
 
-### 支援 [支援 Azure Marketplace 和 AppSource](./support-azure-marketplace.md)  
+### [支援 Azure Marketplace 和 AppSource](./support-azure-marketplace.md)  
 
 ## [雲端合作夥伴入口網站](./cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md)  

@@ -47,8 +47,34 @@
   items:
     - name: Azure CLI
       href: cli-samples.md
+      items:
+        - name: 建立自訂主題
+          href: scripts/event-grid-cli-create-custom-topic.md
+        - name: 訂閱 Azure 訂用帳戶
+          href: scripts/event-grid-cli-azure-subscription.md
+        - name: 訂閱 Blob 儲存體
+          href: scripts/event-grid-cli-blob.md
+        - name: 訂閱自訂主題
+          href: scripts/event-grid-cli-subscribe-custom-topic.md
+        - name: 訂閱資源群組
+          href: scripts/event-grid-cli-resource-group.md
+        - name: 訂閱和篩選資源群組的事件
+          href: scripts/event-grid-cli-resource-group-filter.md
     - name: Azure PowerShell
       href: powershell-samples.md
+      items:
+        - name: 建立自訂主題
+          href: scripts/event-grid-powershell-create-custom-topic.md
+        - name: 訂閱 Azure 訂用帳戶
+          href: scripts/event-grid-powershell-azure-subscription.md
+        - name: 訂閱 Blob 儲存體
+          href: scripts/event-grid-powershell-blob.md
+        - name: 訂閱自訂主題
+          href: scripts/event-grid-powershell-subscribe-custom-topic.md
+        - name: 訂閱資源群組
+          href: scripts/event-grid-powershell-resource-group.md
+        - name: 訂閱和篩選資源群組的事件
+          href: scripts/event-grid-powershell-resource-group-filter.md
     - name: Resource Manager 範本
       href: template-samples.md
     - name: 程式碼範例
@@ -71,7 +97,7 @@
       href: post-to-custom-topic.md
     - name: 接收 HTTP 端點的事件
       href: receive-events.md
-    - name: 管理事件傳遞
+    - name: 無法寄出信件並重試
       href: manage-event-delivery.md
     - name: 監視事件傳遞
       href: monitor-event-delivery.md

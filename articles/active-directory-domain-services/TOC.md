@@ -36,6 +36,9 @@
 #### [工作 1 - 取得安全 LDAP 的憑證](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [工作 2 - 匯出安全 LDAP 憑證](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
 #### [工作 3：使用 Azure 入口網站，為受控網域啟用安全 LDAP](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+#### [工作 4：設定 DNS 以從網際網路存取受控網域](active-directory-ds-ldaps-configure-dns.md)
+#### [工作 5：繫結至受控網域，並鎖定安全 LDAP 存取](active-directory-ds-ldaps-bind-lockdown.md)
+#### [針對安全 LDAP 進行疑難排解](active-directory-ds-ldaps-troubleshoot.md)
 
 ### [在受控網域上建立 OU](active-directory-ds-admin-guide-create-ou.md)
 ### [在受控網域上建立群組受控服務帳戶](active-directory-ds-create-gmsa.md)

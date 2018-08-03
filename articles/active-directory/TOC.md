@@ -102,11 +102,13 @@
 ### [檢視全部群組](fundamentals/active-directory-groups-view-azure-portal.md)
 ### [新增 SaaS 應用程式的群組存取權](users-groups-roles/groups-saasapps.md)
 ### [還原已刪除的 Office 365 群組](fundamentals/active-directory-groups-restore-azure-portal.md)
-### [管理群組設定](fundamentals/active-directory-groups-settings-azure-portal.md) 
-### 建立進階規則
-#### [Azure 入口網站](users-groups-roles/groups-dynamic-membership.md)
+### [管理群組設定](fundamentals/active-directory-groups-settings-azure-portal.md)
 ### [設定自助式群組](users-groups-roles/groups-self-service-management.md)
-### [疑難排解](users-groups-roles/groups-troubleshooting.md)
+### 動態群組
+#### [建立動態群組](users-groups-roles/groups-create-rule.md)
+#### [規則語法和屬性](users-groups-roles/groups-dynamic-membership.md)
+#### [變更群組成員資格](users-groups-roles/groups-change-type.md)
+#### [疑難排解](users-groups-roles/groups-troubleshooting.md)
 
 ## [管理報告](active-directory-reporting-azure-portal.md)
 ### [登入活動](active-directory-reporting-activity-sign-ins.md)

@@ -308,6 +308,8 @@
               href: iot-hub-live-data-visualization-in-web-apps.md
             - name: 使用 Azure Machine Learning 進行天氣預測
               href: iot-hub-weather-forecast-machine-learning.md
+            - name: 使用適用於 VS Code 的 Azure IoT 工具組管理裝置
+              href: iot-hub-device-management-iot-toolkit.md
             - name: 透過 iothub-explorer 進行裝置管理
               href: iot-hub-device-management-iothub-explorer.md
             - name: 透過適用於 Azure CLI 2.0 的 IoT 延伸模組進行裝置管理

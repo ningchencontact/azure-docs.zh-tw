@@ -61,6 +61,8 @@
           href: devtest-lab-create-lab.md
         - name: 在實驗室中建立虛擬機器
           href: devtest-lab-create-first-vm.md
+        - name: 在實驗室中刪除實驗或 VM
+          href: devtest-lab-delete-lab-vm.md
         - name: 為實驗室設定原則
           href: devtest-lab-get-started-with-lab-policies.md
         - name: 將祕密儲存在 Azure Key Vault 中

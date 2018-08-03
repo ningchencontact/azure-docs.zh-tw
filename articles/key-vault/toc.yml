@@ -6,15 +6,15 @@
       href: key-vault-overview.md
 - name: 快速入門
   items:
-    - name: 建立 Key Vault - CLI
+    - name: 設定和擷取祕密 - CLI
       href: quick-create-cli.md
-    - name: 建立 Key Vault - PowerShell
+    - name: 設定和擷取祕密 - PowerShell
       href: quick-create-powershell.md
-    - name: 建立 Key Vault - 入口網站
+    - name: 設定和擷取祕密 - 入口網站
       href: quick-create-portal.md
-    - name: 從 Key Vault 讀取 - .NET
+    - name: 設定和擷取祕密 - .NET
       href: quick-create-net.md
-    - name: 從 Key Vault 讀取 - Node.js
+    - name: 設定和擷取祕密 - Node.js
       href: quick-create-node.md
 - name: 教學課程
   items:
@@ -82,6 +82,8 @@
       href: /javascript/api/overview/azure/key-vault?view=azure-node-latest
     - name: Python
       href: /python/api/overview/azure/key-vault?view=azure-python
+    - name: REST
+      href: /rest/api/keyvault
     - name: 開發
       items:
         - name: 開發人員快速入門影片
@@ -143,3 +145,5 @@
       href: 'https://azure.microsoft.com/pricing/details/key-vault/'
     - name: 定價計算機
       href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: 產品意見反應
+      href: 'https://feedback.azure.com/forums/906355-azure-key-vault'

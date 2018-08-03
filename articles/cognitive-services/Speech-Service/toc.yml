@@ -1,13 +1,13 @@
 # displayName: additional text for filtering down the ToC in meaningful way.
-- name: 語音服務 API 文件
+- name: 語音服務和 SDK 文件
   href: index.yml
 - name: 概觀
   items:
     - name: 語音案例
       href: speech-scenarios.md
-    - name: 什麼是語音服務？
-      href: overview.md
       expanded: true
+    - name: 語音服務
+      href: overview.md
     - name: 語音 SDK
       href: speech-sdk.md
       displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows, NuGet, Maven, download, install, sample'
@@ -107,7 +107,7 @@
       displayName: 'roobo, speech devices sdk, wake word, keyword spotting, kws'
 - name: 概念
   items:
-    - name: 語音轉換文字
+    - name: 語音轉文字
       href: speech-to-text.md
       displayName: 'recognize speech, speech recognition, speech to text, stt'
     - name: 文字轉語音

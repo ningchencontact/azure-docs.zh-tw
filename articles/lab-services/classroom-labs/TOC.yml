@@ -14,6 +14,8 @@
       href: tutorial-setup-classroom-lab.md
     - name: 3. 存取教室實驗室
       href: tutorial-connect-virtual-machine-classroom-lab.md
+    - name: 4. 追蹤教室實驗的使用情況
+      href: tutorial-track-usage.md
 - name: 使用說明指南
   items:
     - name: 管理實驗室帳戶

@@ -211,6 +211,8 @@
           href: virtual-network-troubleshoot-connectivity-problem-between-vms.md
         - name: 設定 PTR 以進行 SMTP Banner 檢查
           href: create-ptr-for-smtp-service.md
+        - name: 為虛擬設備的檢查清單進行疑難排解
+          href: virtual-network-troubleshoot-nva.md
     - name: 傳統
       items:
         - name: 建立和管理虛擬網路
