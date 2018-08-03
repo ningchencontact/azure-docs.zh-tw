@@ -77,7 +77,7 @@ Microsoft 提供多種類型的雲端服務。 您可以透過公用網際網路
 | 如果您使用的服務會將連線起始回到內部部署裝置，且您的安全性原則需要它，在內部部署網路與 Azure 之間可能就需要防火牆。 | |
 
 * *檢視[已驗證的 VPN 裝置清單](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable)。
-* **深入了解使用[使用者定義的路由](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md)或 [BGP](../vpn-gateway/vpn-gateway-bgp-overview.md) 強制從 Azure VNet 路由至內部部署裝置。
+* \*\*深入了解使用[使用者定義的路由](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md)或 [BGP](../vpn-gateway/vpn-gateway-bgp-overview.md) 強制從 Azure VNet 路由至內部部署裝置。
 
 ## <a name="connecting-with-a-dedicated-private-connection"></a>連線專用的私人連線
 這種連線類型會透過 Microsoft 的專用私人連線，以不周遊網際網路的方式存取所有的 Microsoft 雲端服務，如下所示。
@@ -92,11 +92,11 @@ Microsoft 提供多種類型的雲端服務。 您可以透過公用網際網路
 | 每個 ExpressRoute 電路最高每秒 10 Gb 的頻寬，和每個閘道最多每秒 2 Gb 的輸送量。 |需要連線服務提供者的專用連線。 |
 | 由於 Microsoft 專用連線不會周遊網際網路，因此可預測延遲。 |可能需要在一或多個 Azure VPN 閘道進行最基本的管理 (如果連線到 VNet 的電路)。 |
 | 不需要將通訊加密，但您可以視需要將流量加密。 |如果您使用的雲端服務會將連線起始回到內部部署裝置，在內部部署網路與 Azure 之間可能就需要防火牆。 |
-| 能夠直接連線到所有的 Microsoft 雲端服務，但有少數例外狀況*。 |對於無法連線至 VNet 的服務，內部部署 IP 位址的網路位址轉譯 (NAT) 必須進入 Microsoft 資料中心。** |
+| 能夠直接連線到所有的 Microsoft 雲端服務，但有少數例外狀況*。 |對於無法連線至 VNet 的服務，內部部署 IP 位址的網路位址轉譯 (NAT) 必須進入 Microsoft 資料中心。\*\* |
 | 可以強制透過內部部署網路從雲端虛擬機器起始的輸出流量，利用 BGP 進行檢查和記錄。 | |
 
 * *檢視無法與 ExpressRoute 搭配使用的[服務清單](../expressroute/expressroute-faqs.md#supported-services)。 您的 Azure 訂用帳戶必須受到核准，才能連線到 Office 365。  如需詳細資料，請參閱 [Azure ExpressRoute for Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd?ui=en-US&rs=en-US&ad=US&fromAR=1) 一文。
-* **深入了解 ExpressRoute [NAT](../expressroute/expressroute-nat.md) 需求。
+* \*\*深入了解 ExpressRoute [NAT](../expressroute/expressroute-nat.md) 需求。
 
 深入了解 [ExpressRoute](../expressroute/expressroute-introduction.md)，及其相關聯[定價](https://azure.microsoft.com/pricing/details/expressroute)和[連線提供者](../expressroute/expressroute-locations.md#locations)。
 
