@@ -9,12 +9,12 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: ashmaka
-ms.openlocfilehash: d9c61a83450844461f621ff16354881a029f7ad6
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 94847adf761652a25fd3e2d594c7169776fefc89
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266289"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125120"
 ---
 # <a name="quickstart-for-text-analytics-api-with-c"></a>文字分析 API 與 C# 的快速入門 
 <a name="HOLTop"></a>
@@ -23,7 +23,7 @@ ms.locfileid: "36266289"
 
 如需 API 的技術文件，請參閱 [API 定義](//go.microsoft.com/fwlink/?LinkID=759346)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您必須有具備**文字分析 API** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 您可以使用 **5,000 次交易/月的免費層**來完成此快速入門。
 
@@ -48,7 +48,7 @@ ms.locfileid: "36266289"
 ## <a name="call-the-text-analytics-api-using-the-sdk"></a>使用 SDK 呼叫文字分析 API
 1. 將 Program.cs 取代為下面提供的程式碼。 此程式以 3 個區段 (語言擷取、關鍵片語擷取和情感分析) 示範文字分析 API 的功能。
 1. 以對您訂用帳戶有效的存取金鑰取代 `Ocp-Apim-Subscription-Key` 標頭值。
-1. 以您註冊的區域取代 `client.AzureRegion` 中的位置 (目前為 `AzureRegions.Westus`)。
+1. 將 `client.BaseUri` 中的位置取代為您註冊的端點。 您可以在 Azure 入口網站資源中尋找端點。 端點通常看起來像 "https://[region].api.cognitive.microsoft.com/text/analytics/v2.0"。
 1. 執行程式。
 
 ```csharp
@@ -81,8 +81,8 @@ namespace ConsoleApp1
         {
 
             // Create a client.
-            ITextAnalyticsAPI client = new TextAnalyticsAPI(new ApiKeyServiceClientCredentials());
-            client.AzureRegion = AzureRegions.Westus;
+            ITextAnalyticsClient client = new TextAnalyticsClient(new ApiKeyServiceClientCredentials());
+            client.BaseUri = new Uri("https://westus.api.cognitive.microsoft.com/text/analytics/v2.0");
 
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 

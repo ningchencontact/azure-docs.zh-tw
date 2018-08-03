@@ -10,12 +10,12 @@ ms.component: bing-entity-search
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: scottwhi
-ms.openlocfilehash: f1b87c07d5b56307fd6b3fc68999598aeab6eb82
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 275430bc6ee8f935978243e61f68713974648189
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370186"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008105"
 ---
 # <a name="what-is-bing-entity-search"></a>什麼是 Bing 實體搜尋？
 
@@ -45,6 +45,8 @@ Bing 實體搜尋 API 會將搜尋查詢傳送至 Bing，並取得包含實體�
 ## <a name="the-response"></a>回應
 
 回應包含 [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse) 物件。 若 Bing 找到相關的實體或地點，物件會包含 `entities` 欄位、`places` 欄位或兩者。 否則，回應物件不包含任一欄位。
+> [!NOTE]
+> 實體回應支援多個市場，但地點回應支援僅美國公司地點。 
 
 `entities` 欄位是包含 [Entity](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity) 物件清單的 [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entityanswer) 物件 (請參閱 `value` 欄位)。 此清單可能包含單一主控實體、多個去除混淆實體或兩者。 
 
@@ -189,6 +191,8 @@ Bing 實體搜尋 API 會將搜尋查詢傳送至 Bing，並取得包含實體�
     "Restaurant"]
 }, ...
 ```
+> [!NOTE]
+> 實體回應支援多個市場，但地點回應支援僅美國公司地點。 
 
 本地感知實體查詢 (例如「我附近的餐廳」) 需要使用者的位置以提供精確的結果。 您的要求應該一律使用 X-Search-Location 和 X-MSEdge-ClientIP 標頭來指定使用者的位置。 若 Bing 認為使用者的位置對查詢有利，則會將 [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#querycontext) 的 `askUserForLocation` 欄位設定為 **true**。 
 

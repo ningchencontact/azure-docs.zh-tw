@@ -9,12 +9,12 @@ ms.technology: qna-maker
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 36d8e5a1d9f86da94fbdbe4ff01e93ba32ce6af6
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: d8df77d43441331bdda38814e4bddfb29d1576c1
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301456"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868393"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-java"></a>使用 JAVA 搭配 Microsoft QnA Maker API 的快速入門 
 <a name="HOLTop"></a>
@@ -24,7 +24,7 @@ ms.locfileid: "36301456"
 - [建立新的知識庫。](#Create)
 - [更新現有的知識庫。](#Update)
 - [取得建立或更新知識庫要求的狀態。](#Status)
-- [發行現有的知識庫。](#Publish)
+- [發佈現有的知識庫。](#Publish)
 - [取代現有知識庫的內容。](#Replace)
 - [下載知識庫的內容。](#GetQnA)
 - [使用知識庫來取得問題的答案。](#GetAnswers)
@@ -38,7 +38,7 @@ ms.locfileid: "36301456"
 
 ## <a name="prerequisites"></a>先決條件
 
-您將需要 [JDK 7 或 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 才能編譯和執行這段程式碼。 若您有特別喜愛的 Java IDE 也可以使用，但是文字編輯器就夠了。
+您將需要有 [JDK 7 或 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)，才能編譯和執行此程式碼。 若您有特別喜愛的 Java IDE 也可以使用，但是文字編輯器就夠了。
 
 您必須擁有包含 **Microsoft QnA Maker API** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 您將需要來自 [Azure 儀表板](https://portal.azure.com/#create/Microsoft.CognitiveServices)的付費訂用帳戶金鑰。
 
@@ -604,7 +604,7 @@ Press any key to continue.
 
 <a name="Publish"></a>
 
-## <a name="publish-knowledge-base"></a>發行知識庫
+## <a name="publish-knowledge-base"></a>發佈知識庫
 
 以下程式碼使用 [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) 方法來發行現有的知識庫。
 
@@ -719,7 +719,7 @@ public class PublishKB {
 }
 ```
 
-**發行知識庫的回應**
+**發佈知識庫的回應**
 
 如以下範例所示，成功的回應會以 JSON 格式來傳回： 
 

@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: e7c09eee1634c52e78a523a7cc65641ea99f23e6
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: adfc854fc24b9e285c405f3038a21ec84cd2f4c2
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35370994"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989330"
 ---
 # <a name="what-is-the-speech-service-preview"></a>什麼是語音服務 (預覽)？
 
@@ -38,8 +38,8 @@ ms.locfileid: "35370994"
 
 |<br>方法|語音<br>轉換文字|文字轉換<br>語音|語音<br>翻譯|<br>說明|
 |-|-|-|-|-|
-|[SDK](speech-sdk.md)|yes|否|yes|可簡化開發作業且適用於特定程式設計語言的程式庫。|
-|[REST](rest-apis.md)|yes|yes|否|以 HTTP 為基礎的簡單 API，可讓您輕鬆地將語音新增至您的應用程式。|
+|[SDK](speech-sdk.md)|是|否|是|可簡化開發作業且適用於特定程式設計語言的程式庫。|
+|[REST](rest-apis.md)|是|yes|否|以 HTTP 為基礎的簡單 API，可讓您輕鬆地將語音新增至您的應用程式。|
 
 ## <a name="speech-to-text"></a>語音轉換文字
 
@@ -47,7 +47,7 @@ ms.locfileid: "35370994"
 
 語音轉換文字已分別針對互動式、對話和聽寫案例進行最佳化。 以下是語音轉換文字 API 常見的使用案例。 
 
-* 識別簡短的語句 (如命令)，而無過渡期結果
+* 辨識簡短的語句 (如命令)，而無暫時結果
 * 轉譯先前記錄的長篇談話，如語音郵件訊息
 * 即時轉譯串流語音，將部分結果用於聽寫
 * 根據口語的自然語言要求，判斷使用者想要做什麼
@@ -60,7 +60,7 @@ ms.locfileid: "35370994"
 
 透過[文字轉換語音](text-to-speech.md) (TTS) 或語音合成，API 可將純文字轉換成自然發音語音，並以音訊檔案傳遞到您的應用程式。 針對多種支援的語言提供多種聲音 (因性別或腔調而異)。
 
-此 API 支援語音合成標記語言 (SSML) 標記，因此您可以為麻煩的字組指定確切的語音發音。 SSML 也可以在文字中表示語音特性 (包含強調、速率、音量、性別及音高)。
+此 API 支援[語音合成標記語言 (SSML)](speech-synthesis-markup.md) 標記，因此您可以為麻煩的單字指定確切的語音發音。 SSML 也可以在文字中表示語音特性 (包含強調、速率、音量、性別及音高)。
 
 以下是文字轉換語音 API 的常見使用案例。
 
@@ -68,7 +68,7 @@ ms.locfileid: "35370994"
 * 車內應用程式的語音提示，例如導航
 * 對話使用者介面搭配語音轉換文字 API
 
-如果希望應用程式能夠辨識不支援的方言或獨特的語音，則文字轉換語音 API 可支援自訂語音模型。
+如果希望應用程式能夠辨識不支援的方言或獨特的語音，則文字轉換語音 API 可支援[自訂語音模型](how-to-customize-voice-font.md)。
 
 ## <a name="speech-translation"></a>語音翻譯
 
@@ -84,6 +84,8 @@ ms.locfileid: "35370994"
 在推出統一語音服務後，Microsoft 和合作夥伴會提供整合式硬體/軟體平台，此平台已針對開發語音裝置進行最佳化：[語音裝置 SDK](speech-devices-sdk.md)。 此 SDK 適用於開發所有類型應用程式的智慧型語音裝置。
 
 語音裝置 SDK 可讓您以自訂的喚醒字打造自己的周邊裝置，用以觸發您的品牌獨有的音訊擷取。 它也提供多聲道來源的上層音訊處理，以進行更精確的語音辨識，包括噪音抑制、遠場語音和波束成形。
+
+SDK 是以使用連接埠 443 的 Web 通訊端為基礎。
 
 ## <a name="next-steps"></a>後續步驟
 

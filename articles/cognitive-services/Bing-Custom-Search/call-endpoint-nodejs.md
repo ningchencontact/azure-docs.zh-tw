@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 48fc234e15ce3b9172d766f6fae11b51a017ce70
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5d9391cc486dc868a1a291ccc7095291cddd3e4c
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35370742"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858454"
 ---
 # <a name="call-bing-custom-search-endpoint-nodejs"></a>呼叫 Bing 自訂搜尋端點 (Node.js)
 
@@ -34,13 +34,17 @@ ms.locfileid: "35370742"
 若要呼叫 Bing 自訂搜尋端點，請遵循下列步驟：
 
 1. 建立程式碼的資料夾。
+
 2. 從命令提示字元或終端機，瀏覽至您剛剛建立的資料夾。
+
 3. 安裝**要求**節點模組：
     <pre>
     npm install request
     </pre>
-4. 會建立 BingCustomSearch.js 檔案，並將下列程式碼複製到該檔案。
-5. 將 **YOUR-SUBSCRIPTION-KEY** 和 **YOUR-CUSTOM-CONFIG-ID** 取代為您的金鑰和組態識別碼 (請參閱步驟 1)。
+    
+4. 建立 BingCustomSearch.js 檔案，並將下列程式碼複製到該檔案。
+
+5. 將 **YOUR-SUBSCRIPTION-KEY** 和 **YOUR-CUSTOM-CONFIG-ID** 取代為您的金鑰和設定識別碼 (請參閱步驟 1)。
 
     ``` javascript
     var request = require("request");

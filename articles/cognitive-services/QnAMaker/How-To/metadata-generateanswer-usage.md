@@ -9,12 +9,12 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: pchoudh
-ms.openlocfilehash: 94e3632884d7033971ff1c45b455afb9a09ee798
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 82e3ee460309f293c9bd7eadebe139f85e241f71
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "35370930"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113346"
 ---
 # <a name="using-metadata-and-the-generateanswer-api"></a>搭配使用中繼資料與 GenerateAnswer API
 
@@ -57,7 +57,7 @@ QnA Maker 可讓您將索引鍵/值組形式的中繼資料新增至問答集。
     - **QnAMaker 端點** (字串)：您的 Azure 訂用帳戶中部署之端點的主機名稱。
 - **要求標頭**
     - **Content-Type** (字串)：傳送至 API 的本文媒體類型。
-    - **授權** (字串)：您的端點識別碼。
+    - **授權** (字串)：您的端點金鑰 (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)。
 - **要求本文**
     - **問題** (字串)：要對您的知識庫查詢的使用者問題。
     - **top** (選擇性，整數)：要包含在輸出中的排名結果數目。 預設值為 1。
@@ -82,6 +82,7 @@ QnA Maker 可讓您將索引鍵/值組形式的中繼資料新增至問答集。
     - **解答** - 使用者查詢的解答清單，依排名分數的遞減順序排序。
         - **分數**：0 和 100 之間的排名分數。
         - **問題**：使用者所提供的問題。
+        - **答案**：問題的答案。
         - **來源**：從中擷取解答或將其儲存在知識庫中的來源名稱。
         - **中繼資料**：與解答相關聯的中繼資料。
             - 名稱：中繼資料名稱。 (字串，最大長度：100，必要)

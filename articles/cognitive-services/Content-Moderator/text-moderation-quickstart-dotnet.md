@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/04/2018
 ms.author: sajagtap
-ms.openlocfilehash: 238d086e87b0e52f0887af5c4db58e8f72796b49
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7320286e186d7e6ba4041d3ed52f19e573b4d7e3
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368715"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049876"
 ---
 # <a name="moderate-text-using-net"></a>使用 .NET 來仲裁文字
 
@@ -119,7 +119,7 @@ ms.locfileid: "35368715"
 > [!NOTE]
 > 您的 Content Moderator 服務金鑰會有每秒要求數目 (RPS) 的速率限制。如果超出此限制，SDK 就會擲回錯誤碼為 429 的例外狀況。
 >
-> 免費層金鑰有一個 RPS 速率限制。
+> 使用免費層金鑰時，要求速率限制為每秒一個要求。
 
 ## <a name="run-the-program-and-review-the-output"></a>執行程式並檢閱輸出
 

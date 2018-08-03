@@ -10,12 +10,12 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: dd7531004759cdaeb59f4706dc2650d0db3c0cdb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 930a89e3b1996c44f12bd3773565eda40e93ca9c
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370339"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070921"
 ---
 # <a name="your-first-bing-visual-search-query-in-c"></a>使用 C# 的第一個 Bing 圖像式搜尋查詢
 
@@ -37,9 +37,9 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 範例程式只使用 .NET Core 類別，然後使用 .NET CLR 在 Windows 上執行，或使用 [Mono](http://www.mono-project.com/) 在 Linux 或 macOS 上執行。
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-您將需要 [Visual Studio 2017](https://www.visualstudio.com/downloads/) 以在 Windows 上執行此程式碼 (可使用免費的 Community Edition)。
+您將需要 [Visual Studio 2017](https://www.visualstudio.com/downloads/) 以在 Windows 上執行此程式碼。 (可使用免費的 Community Edition)。
 
 在本快速入門中，您可以使用[免費試用](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)的訂用帳戶金鑰或付費的訂用帳戶金鑰。
 
@@ -387,6 +387,7 @@ namespace VisualSearchUpload
 ## <a name="next-steps"></a>後續步驟
 
 [使用見解權杖取得影像的相關見解](../use-insights-token.md)  
+[Bing 圖像式搜尋影像上傳教學課程](../tutorial-visual-search-image-upload.md)
 [Bing 圖像式搜尋單頁應用程式教學課程](../tutorial-bing-visual-search-single-page-app.md)
 [Bing 圖像式搜尋概觀](../overview.md)  
 [試試看](https://aka.ms/bingvisualsearchtryforfree)  

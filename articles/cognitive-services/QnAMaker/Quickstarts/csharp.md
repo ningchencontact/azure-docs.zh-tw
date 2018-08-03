@@ -9,12 +9,12 @@ ms.technology: qna-maker
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 15f0415819bc0ae51e8160bb2b4a12c409b13baa
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 4bcc52547b5610bcb8dfa9b0cc56b2afc40e3c32
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301318"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866078"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-c"></a>搭配使用 Microsoft QnA Maker API 與 C# 的快速入門 
 <a name="HOLTop"></a>
@@ -23,13 +23,13 @@ ms.locfileid: "36301318"
 
 - [建立新的知識庫。](#Create)
 - [更新現有的知識庫。](#Update)
-- [取得要建立或更新知識庫要求的狀態。](#Status)
+- [取得建立或更新知識庫要求的狀態。](#Status)
 - [發佈現有的知識庫。](#Publish)
 - [取代現有知識庫的內容。](#Replace)
 - [下載知識庫的內容。](#GetQnA)
-- [使用知識庫取得問題的答案。](#GetAnswers)
+- [使用知識庫來取得問題的答案。](#GetAnswers)
 - [取得知識庫的相關資訊。](#GetKB)
-- [取得屬於指定使用者的所有知識庫的相關資訊。](#GetKBsByUser)
+- [取得屬於指定使用者的所有知識庫相關資訊。](#GetKBsByUser)
 - [刪除知識庫。](#Delete)
 - [取得目前的端點金鑰。](#GetKeys)
 - [重新產生目前的端點金鑰。](#PutKeys)
@@ -40,7 +40,7 @@ ms.locfileid: "36301318"
 
 您將需要 [Visual Studio 2017](https://www.visualstudio.com/downloads/) 以在 Windows 上執行此程式碼。 (可使用免費的 Community Edition)。
 
-您必須有具備 **Microsoft QnA Maker API** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 您將需要一個來自 [Azure 儀表板](https://portal.azure.com/#create/Microsoft.CognitiveServices)的付費訂用帳戶金鑰。
+您必須有具備 **Microsoft QnA Maker API** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 您將需要來自 [Azure 儀表板](https://portal.azure.com/#create/Microsoft.CognitiveServices)的付費訂用帳戶金鑰。
 
 <a name="Create"></a>
 
@@ -50,7 +50,7 @@ ms.locfileid: "36301318"
 
 1. 在您最愛的 IDE 中建立新的 C# 專案。
 2. 新增下方提供的程式碼。
-3. 以您訂用帳戶的有效存取金鑰取代 `key` 值。
+3. 以訂用帳戶有效的存取金鑰來取代 `key` 值。
 4. 執行程式。
 
 ```csharp
@@ -208,7 +208,7 @@ namespace QnAMaker
 
 **建立知識庫的回應**
 
-以 JSON 傳回成功的回應，如下列範例所示： 
+如以下範例所示，成功的回應會以 JSON 格式來傳回： 
 
 ```json
 {
@@ -247,7 +247,7 @@ namespace QnAMaker
 
 1. 在您最愛的 IDE 中建立新的 C# 專案。
 2. 新增下方提供的程式碼。
-3. 以您訂用帳戶的有效存取金鑰取代 `key` 值。
+3. 以訂用帳戶有效的存取金鑰來取代 `key` 值。
 4. 執行程式。
 
 ```csharp
@@ -409,7 +409,7 @@ namespace QnAMaker
 
 **更新知識庫的回應**
 
-以 JSON 傳回成功的回應，如下列範例所示： 
+如以下範例所示，成功的回應會以 JSON 格式來傳回： 
 
 ```json
 {
@@ -437,7 +437,7 @@ Press any key to continue.
 
 ## <a name="get-request-status"></a>取得要求狀態
 
-您可以呼叫 [Operation](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) 方法來取得要建立或更新知識庫要求的狀態。 若要了解如何使用這個方法，請參閱 [Create](#Create) 或 [Update](#Update) 方法的範例程式碼。
+您可以呼叫 [Operation](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) 方法，以查看建立或更新知識庫要求的狀態。 若要了解如何使用此方法，請參閱 [Create](#Create) 或 [Update](#Update) 方法的範例程式碼。
 
 [回到頁首](#HOLTop)
 
@@ -449,7 +449,7 @@ Press any key to continue.
 
 1. 在您最愛的 IDE 中建立新的 C# 專案。
 2. 新增下方提供的程式碼。
-3. 以您訂用帳戶的有效存取金鑰取代 `key` 值。
+3. 以訂用帳戶有效的存取金鑰來取代 `key` 值。
 4. 執行程式。
 
 ```csharp
@@ -526,7 +526,7 @@ namespace QnAMaker
 
 **發佈知識庫的回應**
 
-以 JSON 傳回成功的回應，如下列範例所示： 
+如以下範例所示，成功的回應會以 JSON 格式來傳回： 
 
 ```json
 {
@@ -544,7 +544,7 @@ namespace QnAMaker
 
 1. 在您最愛的 IDE 中建立新的 C# 專案。
 2. 新增下方提供的程式碼。
-3. 以您訂用帳戶的有效存取金鑰取代 `key` 值。
+3. 以訂用帳戶有效的存取金鑰來取代 `key` 值。
 4. 執行程式。
 
 ```csharp
@@ -643,7 +643,7 @@ namespace QnAMaker
 
 **取代知識庫的回應**
 
-以 JSON 傳回成功的回應，如下列範例所示： 
+如以下範例所示，成功的回應會以 JSON 格式來傳回： 
 
 ```json
 {
@@ -661,7 +661,7 @@ namespace QnAMaker
 
 1. 在您最愛的 IDE 中建立新的 C# 專案。
 2. 新增下方提供的程式碼。
-3. 以您訂用帳戶的有效存取金鑰取代 `key` 值。
+3. 以訂用帳戶有效的存取金鑰來取代 `key` 值。
 4. 執行程式。
 
 ```csharp
@@ -735,7 +735,7 @@ namespace QnAMaker
 
 **下載知識庫的回應**
 
-以 JSON 傳回成功的回應，如下列範例所示： 
+如以下範例所示，成功的回應會以 JSON 格式來傳回： 
 
 ```json
 {
@@ -772,15 +772,15 @@ namespace QnAMaker
 
 <a name="GetAnswers"></a>
 
-## <a name="get-answers-to-a-question-by-using-a-knowledge-base"></a>藉由使用知識庫取得問題的答案
+## <a name="get-answers-to-a-question-by-using-a-knowledge-base"></a>藉由使用知識庫來取得問題的答案
 
 以下程式碼使用 **Generate answers** 方法，來使用特定知識庫取得問題的答案。
 
 1. 在您最愛的 IDE 中建立新的 C# 專案。
 1. 新增下方提供的程式碼。
-1. 將 `host` 值取代為您的 QnA Maker 訂閱的網站名稱。 如需詳細資訊，請參閱[建立 QnA Maker 服務](../How-To/set-up-qnamaker-service-azure.md)。
-1. 將 `endpoint_key` 值取代為對您訂用帳戶有效的端點金鑰。 請注意，這和您的訂用帳戶金鑰是不一樣的。 您可以使用 [Get endpoint keys](#GetKeys) 方法取得您的端點金鑰。
-1. 將 `kb` 值取代為您要查詢答案知識庫的識別碼。 請注意此知識庫必須已使用 [Publish](#Publish) 方法發佈。
+1. 以 QnA Maker 訂用帳戶的網站名稱來取代 `host` 值。 如需詳細資訊，請參閱[建立 QnA Maker 服務](../How-To/set-up-qnamaker-service-azure.md)。
+1. 以訂用帳戶的有效端點金鑰來取代 `endpoint_key` 值。 請注意，此金鑰不同於您的訂用帳戶金鑰。 您可以使用 [Get endpoint keys](#GetKeys) 方法來取得端點金鑰。
+1. 針對要查詢答案的知識庫，以知識庫的識別碼來取代 `kb` 值。 請注意此知識庫必須已使用 [Publish](#Publish) 方法來發行。
 1. 執行程式。
 
 ```csharp
@@ -851,7 +851,7 @@ namespace QnAMaker
 
 **取得答案的回應**
 
-以 JSON 傳回成功的回應，如下列範例所示： 
+如以下範例所示，成功的回應會以 JSON 格式來傳回： 
 
 ```json
 {
@@ -881,7 +881,7 @@ namespace QnAMaker
 
 1. 在您最愛的 IDE 中建立新的 C# 專案。
 2. 新增下方提供的程式碼。
-3. 以您訂用帳戶的有效存取金鑰取代 `key` 值。
+3. 以訂用帳戶有效的存取金鑰來取代 `key` 值。
 4. 執行程式。
 
 ```csharp
@@ -951,7 +951,7 @@ namespace QnAMaker
 
 **取得知識庫詳細資料的回應**
 
-以 JSON 傳回成功的回應，如下列範例所示： 
+如以下範例所示，成功的回應會以 JSON 格式來傳回： 
 
 ```json
 {
@@ -981,7 +981,7 @@ namespace QnAMaker
 
 1. 在您最愛的 IDE 中建立新的 C# 專案。
 2. 新增下方提供的程式碼。
-3. 以您訂用帳戶的有效存取金鑰取代 `key` 值。
+3. 以訂用帳戶有效的存取金鑰來取代 `key` 值。
 4. 執行程式。
 
 ```csharp
@@ -1048,7 +1048,7 @@ namespace QnAMaker
 
 **取得使用者知識庫的回應**
 
-以 JSON 傳回成功的回應，如下列範例所示： 
+如以下範例所示，成功的回應會以 JSON 格式來傳回： 
 
 ```json
 {
@@ -1094,7 +1094,7 @@ Press any key to continue.
 
 1. 在您最愛的 IDE 中建立新的 C# 專案。
 2. 新增下方提供的程式碼。
-3. 以您訂用帳戶的有效存取金鑰取代 `key` 值。
+3. 以訂用帳戶有效的存取金鑰來取代 `key` 值。
 4. 執行程式。
 
 ```csharp
@@ -1170,7 +1170,7 @@ namespace QnAMaker
 
 **刪除知識庫的回應**
 
-以 JSON 傳回成功的回應，如下列範例所示： 
+如以下範例所示，成功的回應會以 JSON 格式來傳回： 
 
 ```json
 {
@@ -1188,7 +1188,7 @@ namespace QnAMaker
 
 1. 在您最愛的 IDE 中建立新的 C# 專案。
 2. 新增下方提供的程式碼。
-3. 以您訂用帳戶的有效存取金鑰取代 `key` 值。
+3. 以訂用帳戶有效的存取金鑰來取代 `key` 值。
 4. 執行程式。
 
 ```csharp
@@ -1254,7 +1254,7 @@ namespace QnAMaker
 
 **取得端點金鑰的回應**
 
-以 JSON 傳回成功的回應，如下列範例所示： 
+如以下範例所示，成功的回應會以 JSON 格式來傳回： 
 
 ```json
 {
@@ -1273,7 +1273,7 @@ namespace QnAMaker
 
 1. 在您最愛的 IDE 中建立新的 C# 專案。
 2. 新增下方提供的程式碼。
-3. 以您訂用帳戶的有效存取金鑰取代 `key` 值。
+3. 以訂用帳戶有效的存取金鑰來取代 `key` 值。
 4. 執行程式。
 
 ```csharp
@@ -1342,7 +1342,7 @@ namespace QnAMaker
 
 **重新整理端點金鑰的回應**
 
-以 JSON 傳回成功的回應，如下列範例所示： 
+如以下範例所示，成功的回應會以 JSON 格式來傳回： 
 
 ```json
 {
@@ -1361,7 +1361,7 @@ namespace QnAMaker
 
 1. 在您最愛的 IDE 中建立新的 C# 專案。
 2. 新增下方提供的程式碼。
-3. 以您訂用帳戶的有效存取金鑰取代 `key` 值。
+3. 以訂用帳戶有效的存取金鑰來取代 `key` 值。
 4. 執行程式。
 
 ```csharp
@@ -1427,7 +1427,7 @@ namespace QnAMaker
 
 **取得文字變異形式的回應**
 
-以 JSON 傳回成功的回應，如下列範例所示： 
+如以下範例所示，成功的回應會以 JSON 格式來傳回： 
 
 ```json
 {
@@ -1452,7 +1452,7 @@ namespace QnAMaker
 
 1. 在您最愛的 IDE 中建立新的 C# 專案。
 2. 新增下方提供的程式碼。
-3. 以您訂用帳戶的有效存取金鑰取代 `key` 值。
+3. 以訂用帳戶有效的存取金鑰來取代 `key` 值。
 4. 執行程式。
 
 ```csharp
@@ -1551,7 +1551,7 @@ namespace QnAMaker
 
 **取代文字變異形式的回應**
 
-以 JSON 傳回成功的回應，如下列範例所示： 
+如以下範例所示，成功的回應會以 JSON 格式來傳回： 
 
 ```json
 {

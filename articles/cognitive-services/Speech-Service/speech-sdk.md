@@ -8,28 +8,22 @@ manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/17/2018
 ms.author: v-jerkin
-ms.openlocfilehash: b9b7b8af5ce3d75788fd2c4f5e0309b5ca561a8f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ed523493f456e65f7aa5d3ad33914e3e52cd7044
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370686"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113384"
 ---
 # <a name="about-the-cognitive-services-speech-sdk"></a>關於認知服務語音 SDK
 
 認知服務語音軟體開發套件 (SDK) 提供您應用程式對語音服務功能的原生存取權，以更輕鬆地開發軟體。 目前，SDK 提供對**語音轉換文字**、**語音翻譯**和**意圖辨識**的存取權。
 
-本表列出目前支援的程式設計語言和作業系統。
+[!include[Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
-|支援的作業系統|程式設計語言|
-|-|-|
-|Windows|C/C++、C#|
-|Linux|C/C++|
-|裝置|Java\*|
-
-\* *Java SDK 是[語音裝置 SDK](speech-devices-sdk.md) 的一部分。*
+[!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 ## <a name="get-the-windows-sdk"></a>取得 Windows SDK
 
@@ -61,9 +55,25 @@ sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
 
 ## <a name="get-the-java-sdk"></a>取得 Java SDK
 
-Java SDK 是[語音裝置 SDK](speech-devices-sdk.md) 的一部分。
+適用於 Android 的 Java SDK 封裝成 [AAR (Android 程式庫)](https://developer.android.com/studio/projects/android-library)，其中包含必要的程式庫，以及使用它的必要 Android 權限。
+它在 `https://csspeechstorage.blob.core.windows.net/maven/` 的 Maven 存放庫中以套件 `com.microsoft.cognitiveservices.speech:client-sdk:0.5.0` 的形式裝載。
+從 Android Studio 專案取用套件會進行下列變更：
+
+* 在專案層級的 `build.gradle` 檔案中，將下列內容加入至 `repository` 區段：
+
+  ```text
+  maven { url 'https://csspeechstorage.blob.core.windows.net/maven/' }
+  ```
+
+* 在模組層級的 `build.gradle` 檔案中，將下列內容加入至 `dependencies` 區段：
+
+  ```text
+  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:0.5.0'
+  ```
+
+Java SDK 也是[語音裝置 SDK](speech-devices-sdk.md) 的一部分。
 
 ## <a name="next-steps"></a>後續步驟
 
-* [取得語音試用版訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)
-* [了解如何以 C# 辨識語音](quickstart-csharp-windows.md)
+* [試用認知服務](https://azure.microsoft.com/try/cognitive-services/)
+* [了解如何以 C# 辨識語音](quickstart-csharp-dotnet-windows.md) (英文)

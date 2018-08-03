@@ -10,12 +10,12 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 8160302faa373d69b65afe6b68a8efb44442850d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 41e0855b126ca6e54d0a487a88fe59a0be6f72f6
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370343"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071990"
 ---
 # <a name="your-first-bing-visual-search-query-in-java"></a>使用 Java 的第一個 Bing 圖像式搜尋查詢
 
@@ -35,9 +35,9 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 本文包含簡單的主控台應用程式，它會傳送 Bing 圖像式搜尋 API 要求，並顯示 JSON 搜尋結果。 雖然此應用程式是以 Java 撰寫，但 API 是一種與任何程式語言相容的 RESTful Web 服務，可產生 HTTP 要求，並剖析 JSON。 
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-您將需要 [JDK 7 或 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 才能編譯和執行這段程式碼。 若您有特別喜愛的 Java IDE 也可以使用，但是文字編輯器就夠了。
+您將需要有 [JDK 7 或 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)，才能編譯和執行此程式碼。 若您有特別喜愛的 Java IDE 也可以使用，但是文字編輯器就夠了。
 
 在本快速入門中，您可以使用[免費試用](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)的訂用帳戶金鑰或付費的訂用帳戶金鑰。
 
@@ -48,7 +48,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 若要執行此應用程式，請遵循下列步驟：
 
 1. 下載或安裝 [gson 程式庫](https://github.com/google/gson)。 您也可以透過 Maven 取得。
-2. 在您最愛的 IDE 或編輯器中建立新的 Java 專案。
+2. 在您愛用的 IDE 或編輯器中建立新的 Java 專案。
 3. 在名為 `VisualSearch.java` 的檔案中新增提供的程式碼。
 4. 以您的訂用帳戶金鑰取代 `subscriptionKey` 值。
 4. 以要上傳之影像的路徑取代 `imagePath` 值。
@@ -147,6 +147,7 @@ public class UploadImage2 {
 ## <a name="next-steps"></a>後續步驟
 
 [使用見解權杖取得影像的相關見解](../use-insights-token.md)  
+[Bing 圖像式搜尋影像上傳教學課程](../tutorial-visual-search-image-upload.md)
 [Bing 圖像式搜尋單頁應用程式教學課程](../tutorial-bing-visual-search-single-page-app.md)  
 [Bing 圖像式搜尋概觀](../overview.md)  
 [試試看](https://aka.ms/bingvisualsearchtryforfree)  

@@ -9,12 +9,12 @@ ms.component: emotion-api
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: anroth
-ms.openlocfilehash: 2578b0212f9b4a6483402074d7c9eff73e51ca6b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: fb9cc2335582c4ec75ec45635e519346d65d7e08
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368522"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072087"
 ---
 # <a name="emotion-api-javascript-quick-start"></a>表情 API JavaScript 快速入門
 
@@ -36,7 +36,7 @@ ms.locfileid: "35368522"
 
 ![API 訂用帳戶金鑰](../Images/keys.png)
 
-然後，將要求主體變更為所要使用影像的位置。 若要執行這個範例，請將該檔案拖曳到您的瀏覽器。
+將要求主體變更為您要使用影像的位置。 若要執行這個範例，請將該檔案拖曳到您的瀏覽器。
 
 ```html
 <!DOCTYPE html>

@@ -9,12 +9,12 @@ ms.technology: qna-maker
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jaswel
-ms.openlocfilehash: fcb44a4c737f85941b33c278cfbae3f128df8207
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: d68ff91d74a6c43c6d492aa07e916a842b50e96f
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301286"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867584"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-go"></a>使用 Go 搭配 Microsoft QnA Maker API 的快速入門 
 <a name="HOLTop"></a>
@@ -24,7 +24,7 @@ ms.locfileid: "36301286"
 - [建立新的知識庫。](#Create)
 - [更新現有的知識庫。](#Update)
 - [取得建立或更新知識庫要求的狀態。](#Status)
-- [發行現有的知識庫。](#Publish)
+- [發佈現有的知識庫。](#Publish)
 - [取代現有知識庫的內容。](#Replace)
 - [下載知識庫的內容。](#GetQnA)
 - [使用知識庫來取得問題的答案。](#GetAnswers)
@@ -406,7 +406,7 @@ Press any key to continue.
 
 <a name="Publish"></a>
 
-## <a name="publish-knowledge-base"></a>發行知識庫
+## <a name="publish-knowledge-base"></a>發佈知識庫
 
 以下程式碼使用 [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) 方法來發行現有的知識庫。
 
@@ -482,7 +482,7 @@ func main() {
 }
 ```
 
-**發行知識庫的回應**
+**發佈知識庫的回應**
 
 如以下範例所示，成功的回應會以 JSON 格式來傳回： 
 

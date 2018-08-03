@@ -10,12 +10,12 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: dd28c829d8d24980a746244dc6aca880d2d69224
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 60b1dc9b8ea9eda258e9776b8967df38c97d964e
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370315"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071697"
 ---
 # <a name="your-first-bing-visual-search-query-in-javascript"></a>使用 JavaScript 的第一個 Bing 圖像式搜尋查詢
 
@@ -34,9 +34,9 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
 本文包含簡單的主控台應用程式，它會傳送 Bing 圖像式搜尋 API 要求，並顯示 JSON 搜尋結果。 雖然此應用程式是以 JavaScript 撰寫，但 API 是一種與任何程式語言相容的 RESTful Web 服務，可提出 HTTP 要求並剖析 JSON。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-您需要 [Node.js 6](https://nodejs.org/en/download/) 以執行此程式碼。
+您需要有 [Node.js 6](https://nodejs.org/en/download/)，才能執行此程式碼。
 
 在本快速入門中，您可以使用[免費試用](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)的訂用帳戶金鑰或付費的訂用帳戶金鑰。
 
@@ -95,6 +95,7 @@ function requestCallback(err, res, body) {
 ## <a name="next-steps"></a>後續步驟
 
 [使用見解權杖取得影像的相關見解](../use-insights-token.md)  
+[Bing 圖像式搜尋影像上傳教學課程](../tutorial-visual-search-image-upload.md)
 [Bing 圖像式搜尋單頁應用程式教學課程](../tutorial-bing-visual-search-single-page-app.md)  
 [Bing 圖像式搜尋概觀](../overview.md)  
 [試試看](https://aka.ms/bingvisualsearchtryforfree)  

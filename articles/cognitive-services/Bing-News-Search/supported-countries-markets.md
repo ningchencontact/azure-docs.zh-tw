@@ -1,6 +1,6 @@
 ---
-title: Azure 上 Bing 新聞搜尋 API 的支援國家/地區和語言 | Microsoft Docs
-description: 了解 Bing 影像搜尋 API 支援哪一個國家/地區和語言。
+title: Azure 上的 Bing 新聞搜尋 API 所支援的國家/地區和語言 | Microsoft Docs
+description: 了解 Bing 影像搜尋 API 支援哪些國家/地區和語言。
 services: cognitive-services
 author: MikeDodaro
 manager: rosh
@@ -9,18 +9,18 @@ ms.component: bing-news-search
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: v-gedod
-ms.openlocfilehash: 80326d66e509b64efd5d386fe793bc9942b29ae3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1cdacc82b680407814ff2d88e8ed43deacfb17d0
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368187"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001655"
 ---
-# <a name="bing-news-search-countries-and-languages"></a>Bing 新聞搜尋國家/地區和語言
+# <a name="bing-news-search-countriesregions-and-languages"></a>Bing 新聞搜尋國家/地區和語言
 
-Bing 新聞搜尋 API 支援多個國家/地區，許多國家/地區具有一個以上的語言。 透過查詢指定國家/地區主要用於根據該國家/地區的興趣縮小搜尋結果範圍。 此外，結果可能包含 Bing 的連結，這些連結可能會根據指定的國家/地區或語言將 Bing 的使用者體驗當地語系化。
+Bing 新聞搜尋 API 支援多個國家/地區，許多國家/地區具有一個以上的語言。 使用查詢指定國家/地區，主要是為了根據該國家/地區的興趣，縮小搜尋結果範圍。 此外，結果可能包含 Bing 的連結，而且這些連結可能會根據指定的國家/地區或語言，將 Bing 的使用者體驗當地語系化。
 
-您可以使用 `cc` 查詢參數指定國家/地區。 如果您指定國家/地區，也必須使用 `Accept-Language` HTTP 標頭指定一或多個語言代碼。 支援的語言視國家/地區而異；市場表格中提供針對每個國家/地區支援的語言。
+您可以使用 `cc` 查詢參數指定國家/地區。 如果您指定國家/地區，您也必須使用 `Accept-Language` HTTP 標頭指定一或多個語言代碼。 支援的語言視國家/地區而異；「市場」表格中提供針對每個國家/地區支援的語言。
 
 或者，您可以使用 `mkt` 查詢參數和**市場**表格的代碼來指定市場。 指定市場同時會指定國家/地區和慣用的語言。 此時，`setLang` 查詢參數可能會設定為語言代碼，這通常與 `mkt` 所指定的語言相同，除非使用者偏好以另一種語言查看 Bing。
 
@@ -28,7 +28,7 @@ Bing 新聞搜尋 API 支援多個國家/地區，許多國家/地區具有一�
 
 針對 `/news/search` 端點，下表列出您可以用來指定 `mkt` 查詢參數的市場代碼值。 Bing 只會傳回這些市場的內容。 清單會隨時變動。  
   
-如需 `cc` 查詢參數中能夠指定的國家/地區代碼，請參閱[國家/地區代碼](#countrycodes)。  
+如需可在 `cc` 查詢參數中指定的國家/地區代碼，請參閱[國家/地區代碼](#countrycodes)。  
   
 |國家/區域|語言|市場代碼|  
 |---------------------|--------------|-----------------| 
@@ -37,19 +37,19 @@ Bing 新聞搜尋 API 支援多個國家/地區，許多國家/地區具有一�
 |瑞士|德文|de-CH|
 |德國|德文|de-DE|
 |澳大利亞|英文|en-AU|
-|加拿大|English|en-CA|
-|英國|English|en-GB|
-|印尼|English|en-ID|
-|愛爾蘭|English|en-IE|
-|印度|English|en-IN|
-|馬來西亞|English|en-MY|
-|紐西蘭|English|en-NZ|
-|菲律賓共和國|English|en-PH|
-|新加坡|English|en-SG|
-|美國|English|en-US|
-|English|一般|en-WW|
-|English|一般|en-XA|
-|南非|English|en-ZA|
+|加拿大|英文|en-CA|
+|英國|英文|en-GB|
+|印尼|英文|en-ID|
+|愛爾蘭|英文|en-IE|
+|印度|英文|en-IN|
+|馬來西亞|英文|en-MY|
+|紐西蘭|英文|en-NZ|
+|菲律賓共和國|英文|en-PH|
+|新加坡|英文|en-SG|
+|美國|英文|zh-TW|
+|英文|一般|en-WW|
+|英文|一般|en-XA|
+|南非|英文|en-ZA|
 |阿根廷|西班牙文|es-AR|
 |智利|西班牙文|es-CL|
 |西班牙|西班牙文|es-ES|
@@ -77,16 +77,16 @@ Bing 新聞搜尋 API 支援多個國家/地區，許多國家/地區具有一�
 ## <a name="supported-markets-for-news-endpoint"></a>支援新聞端點的市場
 針對 `/news` 端點，下表列出您可以用來指定 `mkt` 查詢參數的市場代碼值。 Bing 只會傳回這些市場的內容。 清單會隨時變動。  
   
-如需 `cc` 查詢參數中能夠指定的國家/地區代碼，請參閱[國家/地區代碼](#countrycodes)。  
+如需可在 `cc` 查詢參數中指定的國家/地區代碼，請參閱[國家/地區代碼](#countrycodes)。  
   
 |國家/區域|語言|市場代碼|  
 |---------------------|--------------|-----------------| 
 |丹麥|丹麥文|da-DK|
 |德國|德文|de-DE|
-|澳大利亞|English|en-AU|
-|英國|English|en-GB|
-|美國|English|zh-TW|
-|English|一般|en-WW|
+|澳大利亞|英文|en-AU|
+|英國|英文|en-GB|
+|美國|英文|zh-TW|
+|英文|一般|en-WW|
 |智利|西班牙文|es-CL|
 |墨西哥|西班牙文|es-MX|
 |美國|西班牙文|es-US| 
@@ -100,16 +100,16 @@ Bing 新聞搜尋 API 支援多個國家/地區，許多國家/地區具有一�
 ## <a name="supported-markets-for-news-trending-endpoint"></a>支援新聞趨勢端點的市場
 針對 `/news/trendingtopics` 端點，下表列出您可以用來指定 `mkt` 查詢參數的市場代碼值。 Bing 只會傳回這些市場的內容。 清單會隨時變動。  
   
-如需 `cc` 查詢參數中能夠指定的國家/地區代碼，請參閱[國家/地區代碼](#countrycodes)。  
+如需可在 `cc` 查詢參數中指定的國家/地區代碼，請參閱[國家/地區代碼](#countrycodes)。  
   
 |國家/區域|語言|市場代碼|  
 |---------------------|--------------|-----------------| 
 |德國|德文|de-DE|
-|澳大利亞|English|en-AU|
-|英國|English|en-GB|
-|美國|English|zh-TW|
-|加拿大|English|en-CA|
-|印度|English|en-IN|
+|澳大利亞|英文|en-AU|
+|英國|英文|en-GB|
+|美國|英文|zh-TW|
+|加拿大|英文|en-CA|
+|印度|英文|en-IN|
 |法國|法文|fr-FR|
 |加拿大|法文|fr-CA|
 |巴西|葡萄牙文|pt-BR|
@@ -119,7 +119,7 @@ Bing 新聞搜尋 API 支援多個國家/地區，許多國家/地區具有一�
 <a name="countrycodes"></a>   
 ### <a name="country-codes"></a>國碼  
 
-以下是在 `cc` 查詢參數中能夠指定的國家/地區代碼。 清單會隨時變動。  
+以下是可以在 `cc` 查詢參數中指定的國家/地區代碼。 清單會隨時變動。  
   
 |國家/區域|國碼 (地區碼)|  
 |---------------------|------------------|  
@@ -144,7 +144,7 @@ Bing 新聞搜尋 API 支援多個國家/地區，許多國家/地區具有一�
 |墨西哥|MX|  
 |荷蘭|NL|  
 |紐西蘭|NZ|  
-|挪威|否|  
+|挪威|NO|  
 |中華人民共和國|CN|  
 |波蘭|PL|  
 |葡萄牙|PT|  

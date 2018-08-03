@@ -8,16 +8,56 @@ manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 07/17/2018
 ms.author: wolfma
-ms.openlocfilehash: 0b1559d288380cf3d0c180a225278cc13d22a5d0
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 50a8c183bd7f2711847ce6d0acade4cb498ef2fc
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "35371034"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39116090"
 ---
 # <a name="release-notes"></a>版本資訊
+
+## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>認知服務語音 SDK 0.5.0：2018 年 7 月版
+
+**新功能**
+
+* 支援 Android 平台 (API 23: Android 6.0 Marshmallow 或更新版本)。
+  請參閱 [Android 快速入門](quickstart-java-android.md)。
+* 在 Windows 上支援 .NET Standard 2.0。
+  請參閱 [.NET Core 快速入門](quickstart-csharp-dotnetcore-windows.md)。
+* 實驗性：在 Windows 上支援 UWP (1709 版或更新版本)
+  * 請參閱 [UWP 快速入門](quickstart-csharp-uwp.md)。
+  * 注意：使用語音 SDK 建置的 UWP 應用程式尚未通過 Windows 應用程式認證套件 (WACK) 的認證。
+* 支援使用自動重新連線長時間執行辨識。
+
+**功能性變更**
+
+* `StartContinuousRecognitionAsync()` 支援長時間執行辨識
+* 辨識結果包含多個欄位：從已辨識文字的音訊開頭和持續時間的位移 (兩者都以刻度為單位)、表示辨識狀態的其他值，例如 `InitialSilenceTimeout`、`InitialBabbleTimeout`。
+* 支援 AuthorizationToken 以建立處理站執行個體。
+
+**重大變更**
+
+* 辨識事件：NoMatch 事件類型會合併到錯誤事件中。
+* C# 中的 SpeechOutputFormat 已重新命名為 OutputFormat，以便與 C++ 保持一致。
+* `AudioInputStream` 介面部分方法的傳回型別稍有變更：
+   * 在 Java 中，`read` 方法現在會傳回 `long` 而不是 `int`。
+   * 在 C# 中，`Read` 方法現在會傳回 `uint` 而不是 `int`。
+   * 在 C++ 中，`Read` 和 `GetFormat` 方法現在會傳回 `size_t` 而不是 `int`。
+* C++：音訊輸入串流的執行個體現在只能當作 `shared_ptr` 傳遞。
+
+**錯誤修正**
+
+* 修正 `RecognizeAsync()` 逾時的時候，結果中不正確的傳回值。
+* 已移除 Windows 上，媒體基礎程式庫的相依性。 SDK 現在使用 Core Audio API。
+* 文件修正：已加入區域頁面，來描述支援的區域。
+
+**已知問題**
+
+* 適用於 Android 的語音 SDK 不會報告用於轉譯的語音合成結果。
+  這將在下一版中修正。
 
 ## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>認知服務語音 SDK 0.4.0：2018 年 6 月版本
 

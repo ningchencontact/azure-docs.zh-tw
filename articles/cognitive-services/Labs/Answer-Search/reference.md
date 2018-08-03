@@ -9,12 +9,12 @@ ms.technology: project-answer-search
 ms.topic: article
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 8c95fac0c031ec62a9d98d6c3278bd3b3f345140
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a12761c2d913cd7ffaa2cbc2cd42576c6bc96434
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369698"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866979"
 ---
 # <a name="project-answer-search-v7-reference"></a>專案答案搜尋 v7 參考
 
@@ -40,7 +40,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 
 以下幾節將提供關於影響搜尋結果的回應物件、查詢參數和標頭的技術詳細資料。 
   
-若想了解要求所應包含的標頭，請參閱[標頭](#headers)。  
+關於要求所應包含之標頭的相關資訊，請參閱[標頭](#headers)。  
   
 如需要求所應包含的查詢參數相關資訊，請參閱[查詢參數](#query-parameters)。  
   
@@ -48,7 +48,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 
 查詢 URL 長度上限是 2,048 個字元。 若要確保您的 URL 長度不超過限制，查詢參數的最大長度應小於 1,500 個字元。 如果 URL 超過 2,048 個字元，則伺服器會傳回「404 找不到」。  
 
-如需允許使用和顯示結果的相關資訊，請參閱[使用和顯示需求](use-display-requirements.md)。 
+如需使用允許和顯示結果方式的相關資訊，請參閱[使用和顯示需求](use-display-requirements.md)。 
 
 > [!NOTE]
 > 某些對其他搜尋 API 有意義的要求標頭不會影響 URL 預覽
@@ -63,15 +63,15 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
   
 |頁首|說明|  
 |------------|-----------------|  
-|Accept|選擇性的要求標頭。<br /><br /> 預設媒體類型為 application/json。 若要指定回應必須使用 [JSON-LD](http://json-ld.org/)，請將 Accept 標頭設定為 application/ld+json。|  
+|Accept|選擇性要求標頭。<br /><br /> 預設媒體類型為 application/json。 若要指定回應必須使用 [JSON-LD](http://json-ld.org/)，請將 Accept 標頭設定為 application/ld+json。|  
 |<a name="acceptlanguage" />Accept-Language|選擇性的要求標頭。<br /><br /> 要用於使用者介面字串語言的逗號分隔清單。 清單採用喜好設定的遞減順序。 如需詳細資訊 (包括預期的格式)，請參閱 [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html)。<br /><br /> 此標頭和 [setLang](#setlang) 查詢參數彼此互斥 &mdash; 請勿同時指定。<br /><br /> 若您設定此標頭，則您也必須指定 [cc](#cc) 查詢參數。 若要決定要傳回結果的市場，Bing 會使用它從清單中找到的第一個支援的語言，然後將其與 `cc` 參數值結合。 如果清單中未包含支援的語言，Bing 會就近尋找支援要求的語言和市場，或將彙總或預設的市場用於結果。 若要判斷 Bing 所使用的市場，請參閱 BingAPIs-Market 標頭。<br /><br /> 只有在指定了多種語言時，才需要使用此標頭和 `cc` 查詢參數。 否則，請使用 [mkt](#mkt) 和 [setLang](#setlang) 查詢參數。<br /><br /> 使用者介面字串是在使用者介面中作為標籤的字串。 JSON 回應物件中有幾個使用者介面字串。 回應物件中 Bing.com 屬性的任何連結都會套用指定的語言。|  
 |<a name="market" />BingAPIs-Market|回應標頭。<br /><br /> 要求所使用的市場。 格式為 \<languageCode\>-\<countryCode\>。 例如：en-US。|  
 |<a name="traceid" />BingAPIs-TraceId|回應標頭。<br /><br /> 包含要求詳細資料記錄項目的識別碼。 發生錯誤時，會擷取這個識別碼。 如果您無法判定並解決問題，請將此識別碼與其他資訊一併提供給支援小組。|  
 |<a name="subscriptionkey" />Ocp-Apim-Subscription-Key|必要的要求標頭。<br /><br /> 您在[認知服務](https://www.microsoft.com/cognitive-services/)中註冊此服務時收到的訂用帳戶金鑰。|  
 |<a name="pragma" />Pragma|選擇性的要求標頭<br /><br /> 根據預設，Bing 會傳回快取的內容 (如果有的話)。 若要防止 Bing 傳回快取的內容，請將 Pragma 標頭設定為 no-cache (例如，Pragma: no-cache)。
 |<a name="useragent" />User-Agent|選擇性的要求標頭。<br /><br /> 提出要求的使用者代理程式。 Bing 會利用使用者代理程式為行動使用者提供最佳體驗。 雖然是選擇性的，但我們仍建議您一律指定此標頭。<br /><br /> 「使用者代理程式」應為任何常用瀏覽器所傳送的相同字串。 如需使用者代理程式的相關資訊，請參閱 [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html)。<br /><br /> 以下是使用者代理程式字串的範例。<br /><ul><li>Windows Phone&mdash;Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)<br /><br /></li><li>Android&mdash;Mozilla/5.0 (Linux; U; Android 2.3.5; en-us; SCH-I500 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML; like Gecko) Version/4.0 Mobile Safari/533.1<br /><br /></li><li>iPhone&mdash;Mozilla/5.0 (iPhone; CPU iPhone OS 6_1 like Mac OS X) AppleWebKit/536.26 (KHTML; like Gecko) Mobile/10B142 iPhone4;1 BingWeb/3.03.1428.20120423<br /><br /></li><li>PC&mdash;Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; Touch; rv:11.0) like Gecko<br /><br /></li><li>iPad&mdash;Mozilla/5.0 (iPad; CPU OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53</li></ul>|
-|<a name="clientid" />X-MSEdge-ClientID|選擇性的要求和回應標頭。<br /><br /> Bing 使用此標頭在 Bing API 所有呼叫之間為使用者提供一致的行為。 Bing 經常推出新功能和改善項目，且會以用戶端識別碼作為不同測試版指派流量的金鑰。 如果在多個要求中，未讓使用者使用相同的用戶端識別碼，Bing 可能會將使用者指派至多個衝突的測試版。 若指派給多個衝突的測試版，可能會導致使用者體驗不一致。 例如若第二個要求與第一個要求指派的測試版不同，可能會產生意料外的體驗。 此外，Bing 可以使用用戶端識別碼將 Web 結果調整為該用戶端識別碼的搜尋記錄，為使用者提供更豐富的體驗。<br /><br /> Bing 也會使用此標頭分析用戶端識別碼產生的活動，協助改善結果的順位。 相關性改進功能有助於 Bing API 提供更高品質的結果，進而為 API 取用者提供更高的點擊率。<br /><br /> **重要事項：** 雖然是選擇性的，但您仍應將此標頭視為必要項目。 為相同的使用者和裝置組合跨多個要求保存用戶端識別碼，可讓 1) API 取用者獲得一致的使用者體驗，以及 2) 透過 Bing API 更理想的結果品質獲得較高的點擊率。<br /><br /> 以下是適用於此標頭的基本使用規則。<br /><ul><li>在裝置上使用您應用程式的每個使用者必須具有 Bing 產生的唯一用戶端識別碼。<br /><br/>如果您未在要求中包含此標頭，Bing 會產生一個識別碼，並於 X-MSEdge-ClientID 回應標頭傳回該識別碼。 不應在要求中包含此標頭的唯一時機是使用者初次在該裝置上使用您的應用程式時。<br /><br/></li><li>您的應用程式每次為該裝置上的該名使用者提出 Bing API 請求時，均需使用此用戶端識別碼。<br /><br/></li><li>**注意：** 您必須確保此用戶端識別碼不能連結到任何可辨識身分的使用者帳戶資訊。</li><br/><li>保存用戶端識別碼。 若要在瀏覽器應用程式中保存識別碼，請使用永續性的 HTTP Cookie，以確保在所有工作階段均使用該識別碼。 請勿使用工作階段 Cookie。 若為其他應用程式 (例如行動裝置應用程式)，請使用裝置本身的永久儲存裝置保存識別碼。<br /><br/>使用者下次在該裝置上使用您的應用程式時，會取得您保存的用戶端識別碼。</li></ul><br /> **注意：** Bing 回應不一定會包含此標頭。 如果回應包含此標頭，請擷取用戶端識別碼，並將其用於該裝置上使用者的所有後續 Bing 要求。<br /><br /> **注意：** 如果您包含 X-MSEdge-ClientID，則不得在要求中加入 Cookie。|  
-|<a name="clientip" />X-MSEdge-ClientIP|選擇性的要求標頭。<br /><br /> 用戶端裝置的 IPv4 或 IPv6 位址。 IP 位址用於探索使用者的位置。 Bing 使用位置資訊來判斷安全搜尋行為。<br /><br /> **注意：** 雖然是選擇性的，但我們仍建議您一律指定此標頭和 X-Search-Location 標頭。<br /><br /> 請勿混淆位址 (例如，藉由將最後一個八位元變更為 0)。 混淆位址會導致位置不在裝置的實際位置附近，這可能會造成 Bing 產生錯誤結果。|  
+|<a name="clientid" />X-MSEdge-ClientID|選擇性要求和回應標頭。<br /><br /> Bing 使用此標頭在 Bing API 所有呼叫之間為使用者提供一致的行為。 Bing 經常推出新功能和改善項目，且會以用戶端識別碼作為不同測試版指派流量的金鑰。 如果在多個要求中，未讓使用者使用相同的用戶端識別碼，Bing 可能會將使用者指派至多個衝突的測試版。 若指派給多個衝突的測試版，可能會導致使用者體驗不一致。 例如若第二個要求與第一個要求指派的測試版不同，可能會產生意料外的體驗。 此外，Bing 可以使用用戶端識別碼將 Web 結果調整為該用戶端識別碼的搜尋記錄，為使用者提供更豐富的體驗。<br /><br /> Bing 也會使用此標頭分析用戶端識別碼產生的活動，協助改善結果的順位。 相關性改進功能有助於 Bing API 提供更高品質的結果，進而為 API 取用者提供更高的點擊率。<br /><br /> **重要事項：** 雖然是選擇性的，但您仍應將此標頭視為必要項目。 為相同的使用者和裝置組合跨多個要求保存用戶端識別碼，可讓 1) API 取用者獲得一致的使用者體驗，以及 2) 透過 Bing API 更理想的結果品質獲得較高的點擊率。<br /><br /> 以下是適用於此標頭的基本使用規則。<br /><ul><li>在裝置上使用您應用程式的每個使用者必須具有 Bing 產生的唯一用戶端識別碼。<br /><br/>如果您未在要求中包含此標頭，Bing 會產生一個識別碼，並於 X-MSEdge-ClientID 回應標頭傳回該識別碼。 不應在要求中包含此標頭的唯一時機是使用者初次在該裝置上使用您的應用程式時。<br /><br/></li><li>您的應用程式每次為該裝置上的該名使用者提出 Bing API 請求時，均需使用此用戶端識別碼。<br /><br/></li><li>**注意：** 您必須確保此用戶端識別碼不能連結到任何可辨識身分的使用者帳戶資訊。</li><br/><li>保存用戶端識別碼。 若要在瀏覽器應用程式中保存識別碼，請使用永續性的 HTTP Cookie，以確保在所有工作階段均使用該識別碼。 請勿使用工作階段 Cookie。 若為其他應用程式 (例如行動裝置應用程式)，請使用裝置本身的永久儲存裝置保存識別碼。<br /><br/>使用者下次在該裝置上使用您的應用程式時，會取得您保存的用戶端識別碼。</li></ul><br /> **注意：** Bing 回應不一定會包含此標頭。 如果回應包含此標頭，請擷取用戶端識別碼，並將其用於該裝置上使用者的所有後續 Bing 要求。<br /><br /> **注意：** 如果您包含 X-MSEdge-ClientID，則不得在要求中加入 Cookie。|  
+|<a name="clientip" />X-MSEdge-ClientIP|選擇性要求標頭。<br /><br /> 用戶端裝置的 IPv4 或 IPv6 位址。 此 IP 位址可用來探索使用者的位置。 Bing 會使用位置資訊來判斷安全搜尋行為。<br /><br /> **注意：** 雖然是選擇性的，但我們仍建議您一律指定此標頭和 X-Search-Location 標頭。<br /><br /> 請勿混淆位址 (例如，藉由將最後一個八位元變更為 0)。 混淆位址會導致位置不在裝置的實際位置附近，這可能會造成 Bing 產生錯誤結果。|  
 |<a name="location" />X-Search-Location|選擇性的要求標頭。<br /><br /> 以分號分隔的索引鍵/值組清單，用以說明用戶端的地理位置。 Bing 會使用位置資訊來判斷安全的搜尋行為，以及傳回相關的區域內容。 請將索引鍵/值組指定為 \<key\>:\<value\>。 以下是您用來指定使用者位置的索引鍵。<br /><br /><ul><li>lat &mdash; 用戶端所在位置的緯度，以度為單位。 緯度必須大於或等於 -90.0 且小於或等於 +90.0。 負數值表示南半球的緯度，正數值表示北半球的緯度。<br /><br /></li><li>long &mdash; 用戶端所在位置的經度，以度為單位。 經度必須大於或等於 -180.0 且小於或等於 +180.0。 負數值表示東半球的經度，正數值表示西半球的經度。<br /><br /></li><li>re &mdash; 以公尺為單位的半徑，指定座標的水平精確度。 請傳遞裝置的位置服務所傳回的值。 常見的值可能是 22m (用於 GPS/Wi-Fi)、380m (用於無線訊號基地台三角網定位)，和 18,000m (用於保留 IP 查閱)。<br /><br /></li><li>ts &mdash; 用戶端位於該位置的 UTC UNIX 時間戳記。 (UNIX 時間戳記是自 1970 年 1 月 1 日起經過的秒數)。<br /><br /></li><li>head &mdash; 選擇性。 用戶端移動的相對走向或方向。 指定 0 到 360 度的的移動方向為，計算相對於正北的順時針偏移角度。 只有在 `sp` 索引鍵為非零值時，才需要指定此索引鍵。<br /><br /></li><li>sp &mdash; 用戶端裝置移動的水平速度，以公尺/秒為單位。<br /><br /></li><li>alt &mdash; 用戶端裝置的海拔高度，以公尺為單位。<br /><br /></li><li>are &mdash; 選擇性。 以公尺為單位的半徑，指定座標的垂直精確度。 半徑預設為 50 公里。 只有在指定了 `alt` 索引鍵時，才需要指定此索引鍵。<br /><br /></li></ul> **注意：** 雖然這些索引鍵是選擇性的，但您提供的資訊愈詳細，位置結果就愈精確。<br /><br /> **注意：** 建議您一律指定使用者的地理位置。 如果用戶端的 IP 位址未精確反映使用者的實體位置 (例如，如果用戶端使用 VPN)，提供位置就益發重要。 若要獲得最佳結果，您應加入此標頭和 X-MSEdge-ClientIP 標頭，但加入此標頭是最基本的要求。|
 
 > [!NOTE] 
@@ -267,12 +267,12 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 
 ## <a name="error-codes"></a>錯誤碼
 
-以下是要求可能傳回的 HTTP 狀態碼。  
+以下是要求傳回的可能 HTTP 狀態碼。  
   
 |狀態碼|說明|  
 |-----------------|-----------------|  
 |200|成功。|  
-|400|缺少其中一個查詢參數或無效。|  
+|400|缺少其中一個查詢參數，或查詢參數無效。|  
 |401|缺少訂用帳戶金鑰或無效。|  
 |403|使用者已通過身分驗證 (例如已使用有效的訂用帳戶金鑰)，但並未擁有所要求的資源的權限。<br /><br /> 如果呼叫者超過其每月查詢配額，Bing 可能也會傳回此狀態。|  
 |410|要求所用的是 HTTP 而非 HTTPS 通訊協定。 HTTPS 是唯一支援的通訊協定。|  
@@ -309,7 +309,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 
 以下是可能的錯誤碼和子錯誤碼值。
 
-|代碼|SubCode|說明
+|代碼|子代碼|說明
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|HTTP 狀態碼為 500。
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Blocked|只要要求的任何部分無效，Bing 就會傳回 InvalidRequest。 例如缺少必要的參數或參數值無效。<br/><br/>如果錯誤是 ParameterMissing 或 ParameterInvalidValue，則 HTTP 狀態碼為 400。<br/><br/>如果您使用的是 HTTP 通訊協定，而不是 HTTPS，Bing 會傳回 HttpNotAllowed，且 HTTP 狀態碼為 410。

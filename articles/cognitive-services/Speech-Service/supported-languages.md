@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 5a90f298e80ec4ca1b17e2d3aa4079aebcd38a83
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 06350decd9d9f15db7226b6f2c3580feb49a59d1
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370402"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069569"
 ---
 # <a name="supported-languages-for-speech-service"></a>語音服務所支援的語言
 
@@ -25,13 +25,18 @@ ms.locfileid: "35370402"
 
 Microsoft 語音辨識 API 支援下列語言。 
 
-| 代碼 | 語言 | 代碼 | 語言 |
-|-----|-----|-----|-----|
-| ar-EG | 阿拉伯文 (埃及)，現代標準 | It-IT | 義大利文 (義大利) |
-| de-DE | 德文 (德國) | ja-JP | 日文 (日本) |
-| zh-TW | 英文 (美國) | pt-BR | 葡萄牙文 (巴西) |
-| es-ES | 西班牙文 (西班牙) | ru-RU | 俄文 (俄羅斯) |
-| fr-FR | 法文 (法國) | zh-CN | 中文 (普通話、簡體) |
+  代碼 | 語言 | 採用原音 | 採用語言 | 採用發音
+ ------|----------|---------------------|---------------------|-------------------------
+ ar-EG | 阿拉伯文 (埃及)，現代標準 | 否 | 是 | 否
+ It-IT | 義大利文 (義大利) | 否 | 是 | 否 
+ de-DE | 德文 (德國) | 否 | yes | 是
+ ja-JP | 日文 (日本) | 否 | 是 | 否
+ zh-TW | 英文 (美國) | 是 | yes | 是
+ pt-BR | 葡萄牙文 (巴西) | 否 | 是 | 否
+ es-ES | 西班牙文 (西班牙) | 否 | 是 | 否
+ ru-RU | 俄文 (俄羅斯) | 否 | 是 | 否
+ fr-FR | 法文 (法國) | 否 | 是 | 否
+ zh-CN | 中文 (普通話，簡體) | 否 | 是 | 否
 
 ## <a name="text-to-speech"></a>文字轉語音
 
@@ -154,9 +159,9 @@ zh-TW | 中文 (台灣)|女性 | "Microsoft Server Speech Text to Speech Voice (
 | 南非荷蘭文      | `af`          |
 | 阿拉伯文       | `ar`          |
 | 孟加拉文      | `bn`          |
-| 波士尼亞文 (拉丁)      | `bs`          |
+| 波士尼亞文 (拉丁文)      | `bs`          |
 | 保加利亞文      | `bg`          |
-| 廣東話 (繁體)      | `yue`          |
+| 粵語 (繁體中文)      | `yue`          |
 | 卡達隆尼亞文      | `ca`          |
 | 簡體中文      | `zh-Hans`          | 
 | 繁體中文      | `zh-Hant`          |
@@ -172,7 +177,7 @@ zh-TW | 中文 (台灣)|女性 | "Microsoft Server Speech Text to Speech Voice (
 | 法文      | `fr`          |
 | 德文      | `de`          |
 | 希臘文      | `el`          |
-| 海地克里奧爾文      | `ht`          |
+| 海地克裏奧爾文      | `ht`          |
 | 希伯來文      | `he`          |
 | 北印度文      | `hi`          |
 | 白苗文      | `mww`          |
@@ -193,7 +198,7 @@ zh-TW | 中文 (台灣)|女性 | "Microsoft Server Speech Text to Speech Voice (
 | 波斯文      | `fa`          |
 | 波蘭文      | `pl`          |
 | 葡萄牙文      | `pt`          |
-| 克雷塔羅歐托文      | `otq`          |
+| 奎雷塔洛歐多米文      | `otq`          |
 | 羅馬尼亞文      | `ro`          |
 | 俄文      | `ru`          |
 | 薩摩亞文      | `sm`          |
@@ -217,5 +222,5 @@ zh-TW | 中文 (台灣)|女性 | "Microsoft Server Speech Text to Speech Voice (
 
 ## <a name="next-steps"></a>後續步驟
 
-* [取得語音試用訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)
-* [了解如何以 C# 辨識語音](quickstart-csharp-windows.md)
+* [試用認知服務](https://azure.microsoft.com/try/cognitive-services/)
+* [了解如何以 C# 辨識語音](quickstart-csharp-dotnet-windows.md) (英文)
