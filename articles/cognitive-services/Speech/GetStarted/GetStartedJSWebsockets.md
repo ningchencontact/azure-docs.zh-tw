@@ -9,18 +9,18 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: zhouwang
-ms.openlocfilehash: 56c41fd7f6a00d80bc6bccd61894654e057e926e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 04332c453d22122e65a758a65b09e17300e07f02
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368379"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39040533"
 ---
 # <a name="get-started-with-the-speech-recognition-api-in-javascript"></a>以 JavaScript 開始使用語音辨識 API
 
 您可以使用「語音辨識 API」來開發將語音轉換成文字的應用程式。 JavaScript 用戶端程式庫使用[語音服務 WebSocket 通訊協定](../API-Reference-REST/websocketprotocol.md)，這可讓您在說話的同時接收轉譯的文字。 本文將協助您以 JavaScript 開始使用「語音辨識 API」。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 ### <a name="subscribe-to-the-speech-recognition-api-and-get-a-free-trial-subscription-key"></a>訂閱語音辨識 API 並取得免費試用訂用帳戶金鑰
 
@@ -38,7 +38,7 @@ Speech API 是「認知服務」的組件。 您可以從[認知服務訂用帳�
 
 ### <a name="open-the-sample-directly"></a>直接開啟範例
 
-如以上所述，取得訂用帳戶金鑰。 然後開啟[範例連結](https://htmlpreview.github.io/?https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/preview/samples/browser/Sample.html)。 這會將頁面載入您的預設瀏覽器 (使用 [htmlPreview](https://github.com/htmlpreview/htmlpreview.github.com) 來轉譯)。
+如以上所述，取得訂用帳戶金鑰。 然後開啟 [範例連結](https://htmlpreview.github.io/?https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/preview/samples/browser/Sample.html)。 這會將頁面載入您的預設瀏覽器 (使用 [htmlPreview](https://github.com/htmlpreview/htmlpreview.github.com) 來轉譯)。
 
 ### <a name="open-the-sample-from-a-local-copy"></a>從本機複本開啟範例
 
@@ -48,7 +48,7 @@ Speech API 是「認知服務」的組件。 您可以從[認知服務訂用帳�
 git clone https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript
 ```
 
-編譯 TypeScript 來源，然後將它們組合/封裝成單一 JavaScript 檔案 (必須在您的電腦上安裝 [npm](https://www.npmjs.com/))。 變更至所複製存放庫的根目錄，然後執行下列命令：
+編譯 TypeScript 來源，然後將它們組合成單一 JavaScript 檔案 (必須在您的電腦上安裝 [npm](https://www.npmjs.com/))。 變更至所複製存放庫的根目錄，然後執行下列命令：
 
 ```
 cd SpeechToText-WebSockets-Javascript && npm run bundle

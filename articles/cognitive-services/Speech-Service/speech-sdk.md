@@ -1,21 +1,20 @@
 ---
-title: 關於認知服務語音 SDK | Microsoft Docs
+title: 關於認知服務語音 SDK
 description: 提供語音服務的 SDK 概觀。
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 07/17/2018
 ms.author: v-jerkin
-ms.openlocfilehash: ed523493f456e65f7aa5d3ad33914e3e52cd7044
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: c7eaa2aa37b05bd0e125e1841357979af4f6763a
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113384"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39326054"
 ---
 # <a name="about-the-cognitive-services-speech-sdk"></a>關於認知服務語音 SDK
 
@@ -25,11 +24,13 @@ ms.locfileid: "39113384"
 
 [!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-## <a name="get-the-windows-sdk"></a>取得 Windows SDK
+## <a name="get-the-sdk"></a>取得 SDK
+
+### <a name="get-the-windows-sdk"></a>取得 Windows SDK
 
 Windows 版本的語音 SDK 包括 32 位元和 64 位元 C/C++ 用戶端程式庫，以及受控 (.NET) 程式庫以與 C# 搭配使用。 使用 NuGet，可以在 Visual Studio 中安裝 SDK；只要搜尋 `Microsoft.CognitiveServices.Speech`。
 
-## <a name="get-the-linux-sdk"></a>取得 Linux SDK
+### <a name="get-the-linux-sdk"></a>取得 Linux SDK
 
 請執行下列殼層命令，確定您具有必要的編譯器和程式庫：
 
@@ -53,7 +54,7 @@ sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
 
 若要建立應用程式，請將所需的二進位檔 (和程式庫) 複製或移至您的開發環境，並將它們包含為建置程序的必要項目。
 
-## <a name="get-the-java-sdk"></a>取得 Java SDK
+### <a name="get-the-java-sdk"></a>取得 Java SDK
 
 適用於 Android 的 Java SDK 封裝成 [AAR (Android 程式庫)](https://developer.android.com/studio/projects/android-library)，其中包含必要的程式庫，以及使用它的必要 Android 權限。
 它在 `https://csspeechstorage.blob.core.windows.net/maven/` 的 Maven 存放庫中以套件 `com.microsoft.cognitiveservices.speech:client-sdk:0.5.0` 的形式裝載。
@@ -72,6 +73,8 @@ sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
   ```
 
 Java SDK 也是[語音裝置 SDK](speech-devices-sdk.md) 的一部分。
+
+[!include[Get the samples](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,21 +1,20 @@
 ---
-title: 語音 SDK 參考 | Microsoft Docs
+title: 語音 SDK 參考
 description: 語音 SDK 的參考。
 services: cognitive-services
 titleSuffix: Microsoft Cognitive Services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 9ee7cc2db7ad6e2914d3916ad1aa578a9746e287
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 8b66156f147e9806ad648c95d65aee6912f29494
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072226"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282787"
 ---
 # <a name="speech-sdk-reference"></a>語音 SDK 參考
 
