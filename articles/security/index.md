@@ -2,8 +2,8 @@
 title: Azure 安全性文件 | Microsoft Docs
 description: Azure 將安全性納入了的每個層面。 Azure 提供獨特的資訊安全優勢，這些優勢衍生自全域安全性智慧、複雜的客戶型控制項以及安全強化基礎結構。 這項功能強大的組合能協助您保護應用程式和資料、支援您的合規性用途，並為各種規模的組織提供符合成本效益的安全性。
 services: security
-author: czeumault
-manager: carolz
+author: arob98
+manager: angrobe
 layout: LandingPage
 ms.assetid: ''
 ms.service: security
@@ -11,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 03/30/2018
-ms.author: carolz
-ms.openlocfilehash: ceabc623963acd469a2e4694cb412828dc511100
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.author: angrobe
+ms.openlocfilehash: 9f190ab5b17fbead9a9d88bc37fc8b35d8c9f45c
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113787"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505455"
 ---
 # <a name="azure-security-documentation"></a>Azure 安全性文件
 
