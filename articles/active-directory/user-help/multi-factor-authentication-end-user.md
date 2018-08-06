@@ -1,26 +1,23 @@
 ---
-title: 開始使用雙步驟驗證 - Azure AD |Microsoft Docs
+title: 開始使用雙步驟驗證 - Azure Active Directory |Microsoft Docs
 description: 這是可協助使用者開始使用 Azure Multi-Factor Authentication 的 Azure Multi-Factor Authentication 頁面。
-services: multi-factor-authentication
-documentationcenter: ''
+services: active-directory
 author: eross-msft
 manager: mtillman
 ms.assetid: e02cc045-2ac0-41ff-b07f-e9255e320383
-ms.service: multi-factor-authentication
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: user-help
 ms.topic: overview
 ms.date: 06/15/2017
 ms.author: lizross
 ms.reviewer: richagi
-ms.custom: end-user
-ms.openlocfilehash: 87bab39827bdd8e16869cf60ecebf8790330590f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: f084433efa2476a75714da6eaef674911006bb76
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056982"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344761"
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>Azure Multi-Factor Authentication 對我有何意義？
 您從某個 IT 人員或老闆取得一封電子郵件，他們表示已對您的帳戶新增其他安全性驗證。  因此這代表什麼？

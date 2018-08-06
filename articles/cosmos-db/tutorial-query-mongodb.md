@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/29/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 539e41dbd4d9e115c2d8daf90405d7683bcaa462
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: e941eb27e9c55f9a4b0e7af8d4cd8efa0220616b
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763182"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264455"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-mongodb-api"></a>教學課程：使用 MongoDB API 查詢 Azure Cosmos DB
 
@@ -27,9 +27,7 @@ Azure Cosmos DB [適用於 MongoDB 的 API](mongodb-introduction.md) 支援 [Mon
 > [!div class="checklist"]
 > * 使用 MongoDB 來查詢資料
 
-您可以從與 Azure Cosmos DB 程式管理員 Andy Hoh 一起觀賞這段有關查詢 MongoDB 的影片開始：
-
->[!VIDEO https://www.youtube.com/tVk8S7lFWMA]
+您可以開始使用此文件中的範例，並觀看[使用 MongoDB 殼層查詢 Azure Cosmos DB](https://azure.microsoft.com/resources/videos/query-azure-cosmos-db-data-by-using-the-mongodb-shell/)的視訊。
 
 ## <a name="sample-document"></a>範例文件
 

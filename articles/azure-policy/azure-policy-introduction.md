@@ -4,17 +4,17 @@ description: Azure 原則是 Azure 中的一個服務，您可以在 Azure 環�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/24/2018
+ms.date: 07/31/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 51fd0c625ad7e600d54999ddd86e5e49a7c4f14d
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: e00af59c39219cf6efd14a1c6b2d831fc8addf5a
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249857"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364423"
 ---
 # <a name="what-is-azure-policy"></a>什麼是 Azure 原則？
 
@@ -126,11 +126,11 @@ Azure 原則的每個物件類型都有最大計數。 _範圍_的項目表示�
 | 影響範圍 | 原則定義 | 250 |
 | 影響範圍 | 計畫定義 | 100 |
 | 租用戶 | 計畫定義 | 1000 |
-| 影響範圍 | 原則指派 | 100 |
+| 影響範圍 | 原則/方案指派 | 100 |
 | 原則定義 | 參數 | 20 |
 | 計畫定義 | 原則 | 100 |
 | 計畫定義 | 參數 | 100 |
-| 原則指派 | 排除項目 (notScopes) | 100 |
+| 原則/方案指派 | 排除項目 (notScopes) | 100 |
 | 原則規則 | 巢狀的條件 | 512 |
 
 ## <a name="recommendations-for-managing-policies"></a>管理原則的建議

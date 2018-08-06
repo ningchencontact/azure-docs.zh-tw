@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: jdial
-ms.openlocfilehash: 30bed569887ce4b25d0b464e9f14a1491c38c736
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: f55dfa8ffadc4ddee1ff3861682e5596b675f0d0
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32767853"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325280"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure 中的 IP 位址類型及配置方法
 
@@ -97,7 +97,7 @@ ms.locfileid: "32767853"
 * 您使用已連結到 IP 位址的 SSL 憑證。
 
 > [!NOTE]
-> Azure 會從對每個 Azure 區域來說都是唯一的範圍來配置公用 IP 位址。 如需詳細資訊，請參閱 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。
+> 在每個 Azure 雲端中，Azure 會從對每個區域來說都是唯一的範圍來配置公用 IP 位址。 您可以針對 Azure [公開](https://www.microsoft.com/download/details.aspx?id=56519)、[美國政府](https://www.microsoft.com/download/details.aspx?id=57063)、[中國](https://www.microsoft.com/download/details.aspx?id=57062)及[德國](https://www.microsoft.com/download/details.aspx?id=57064)雲端，下載範圍 (前置詞) 清單。
 >
 
 ### <a name="dns-hostname-resolution"></a>DNS 主機名稱解析
@@ -128,10 +128,10 @@ ms.locfileid: "32767853"
 
 | 最上層資源 | IP 位址關聯 | 動態 | 靜態 |
 | --- | --- | --- | --- |
-| 虛擬機器 |Linux |yes |yes |
-| 網際網路對應負載平衡器 |前端組態 |yes |yes |
-| VPN 閘道 |閘道 IP 組態 |yes |否 |
-| 應用程式閘道 |前端組態 |yes |否 |
+| 虛擬機器 |Linux |是 |是 |
+| 網際網路對應負載平衡器 |前端組態 |是 |是 |
+| VPN 閘道 |閘道 IP 組態 |是 |否 |
+| 應用程式閘道 |前端組態 |是 |否 |
 
 ## <a name="private-ip-addresses"></a>私人 IP 位址
 私人 IP 位址可讓 Azure 資源透過 VPN 閘道或 ExpressRoute 電路，與 [虛擬網路](virtual-networks-overview.md) 中或內部部署網路中的其他資源進行通訊，而不必使用可網際網路連線的 IP 位址。
@@ -176,9 +176,9 @@ ms.locfileid: "32767853"
 
 | 最上層資源 | IP 位址關聯 | 動態 | 靜態 |
 | --- | --- | --- | --- |
-| 虛擬機器 |Linux |yes |yes |
-| 負載平衡器 |前端組態 |yes |yes |
-| 應用程式閘道 |前端組態 |yes |yes |
+| 虛擬機器 |Linux |是 |是 |
+| 負載平衡器 |前端組態 |是 |是 |
+| 應用程式閘道 |前端組態 |是 |是 |
 
 ## <a name="limits"></a>限制
 加諸於 IP 位址上的限制，如在 Azure 中的完整[網路限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)所示。 這些限制是針對每一區域和每一訂用帳戶。 您可以 [連絡支援人員](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ，以根據您的業務需求將預設上限調升到最高上限。

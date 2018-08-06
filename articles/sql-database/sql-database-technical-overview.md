@@ -7,18 +7,27 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.topic: overview
-ms.date: 07/16/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 8e5518e0a2be98cc080a76cdf0697d6812ab22f8
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: f7a314b3de112ad1fa7a5a356c2325846e9371b1
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092098"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413377"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>什麼是 Azure SQL Database 服務？ 
 
-SQL Database 是 Microsoft Azure 中的一般用途關聯式資料庫受控服務，可支援關聯式資料、JSON、空間和 XML 等結構。 SQL Database 提供可包含[單一 SQL 資料庫](sql-database-servers-databases.md)和[彈性集區](sql-database-elastic-pool.md)的邏輯伺服器，以及包含系統和使用者資料庫的[受控執行個體](sql-database-managed-instance.md) (處於公開預覽狀態)。 SQL Database 會在兩個不同的購買模型內提供可動態擴充的效能：[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)和[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)。 SQL Database 還會提供各種選項，例如用於極限分析和報告的[資料行存放區索引](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview)，以及用來處理極限交易的[記憶體內部 OLTP](sql-database-in-memory.md)。 Microsoft 可順暢地處理 SQL 程式碼基底的所有修補和更新，並抽走基礎結構的所有管理功能。 
+SQL Database 是 Microsoft Azure 中的一般用途關聯式資料庫受控服務，可支援關聯式資料、JSON、空間和 XML 等結構。 SQL Database 會在兩個不同的購買模型內提供可動態擴充的效能：[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)和[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)。 SQL Database 還會提供各種選項，例如用於極限分析和報告的[資料行存放區索引](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview)，以及用來處理極限交易的[記憶體內部 OLTP](sql-database-in-memory.md)。 Microsoft 可順暢地處理 SQL 程式碼基底的所有修補和更新，並抽走基礎結構的所有管理功能。 
+
+Azure SQL Database 為 Azure SQL Database 提供下列部署選項：
+- 以單一資料庫形式，內含透過邏輯伺服器管理的自有資源集 
+- 以[彈性集區](sql-database-elastic-pool.md)中的集區資料庫形式，內 含透過邏輯伺服器管理的共用資源集
+- 以資料庫集合的一部分形式，也稱為[受控執行個體](sql-database-managed-instance.md) (公開預覽狀態)，其中包含系統與使用者資料庫並共用一組資源
+
+下圖顯示這些部署選項：
+
+![deployment-options](./media/sql-database-technical-overview/deployment-options.png) 
 
 SQL Database 與 [Microsoft SQL Server 資料庫引擎](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation)共用其程式碼基底。 依據 Microsoft 的雲端優先策略，SQL Server 的最新功能會先在 SQL Database 中發行，然後在 SQL Server 本身發行。 這種方法可為您提供最新的 SQL Server 功能，但沒有修補或升級的額外負荷，而這些新功能已在數百萬個資料庫上進行測試。 當新功能宣佈時，如需其相關資訊，請參閱：
 

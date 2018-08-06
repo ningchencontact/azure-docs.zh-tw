@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure IoT Edge 部署 Azure Function | Microsoft Docs
-description: 將 Azure Function 作為模組部署至邊緣裝置。
+description: 在本教學課程中，將 Azure Function 當作模組部署至邊緣裝置。
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 3f3ba0ccb1cb8961344b605e7ec386b6d6692262
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: d37e08f58986a1318e6b379d2efeb71bc58d4583
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006872"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413722"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules-preview"></a>教學課程：將 Azure Functions 部署為 IoT Edge 模組 (預覽)
 
@@ -35,14 +35,21 @@ ms.locfileid: "39006872"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要測試您在本教學課程中建立的函式模組，您必須要有 IoT Edge 裝置。 您可以使用您在 [Linux](quickstart-linux.md) 或 [Windows](quickstart.md) 快速入門中設定的裝置。
+Azure IoT Edge 裝置：
 
-您的開發電腦上必須具備下列先決條件： 
+* 您可以遵循 [Linux](quickstart-linux.md) 或 [Windows 裝置](quickstart.md)快速入門中的步驟，使用您的開發電腦或虛擬機器作為邊緣裝置。
+
+雲端資源：
+
+* Azure 中的標準層 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。 
+
+開發資源：
+
 * [Visual Studio Code](https://code.visualstudio.com/)。 
 * [C# for Visual Studio Code (採用 OmniSharp 技術) 擴充功能](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)。
 * 適用於 Visual Studio Code 的 [Azure IoT Edge 擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)。 
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download)。
-* 開發電腦上的 [Docker CE](https://docs.docker.com/install/)。 
+* [Docker CE](https://docs.docker.com/install/)。 
 
 ## <a name="create-a-container-registry"></a>建立容器登錄庫
 在本教學課程中，您會使用適用於 VS Code 的 Azure IoT Edge 擴充功能來建置模組，並從檔案建立**容器映像**。 接著，您會將此映像推送至儲存並管理映像的**登錄**。 最後，您會從登錄部署該映像，以在 IoT Edge 裝置上執行。  
@@ -153,7 +160,7 @@ ms.locfileid: "39006872"
     Login Succeeded
     ```
 
-2. 在 VS Code 總管中，於 IoT Edge 解決方案工作區中開啟 deployment.template.json 檔案。 此檔案會指示 IoT Edge 執行階段應將哪些模組部署至裝置。 若要深入了解部署資訊清單，請參閱[了解如何使用、設定以及重複使用 IoT Edge 模組](module-composition.md)。
+2. 在 VS Code 總管中，於 IoT Edge 解決方案工作區開啟 deployment.template.json 檔案。 此檔案會指示 IoT Edge 執行階段應將哪些模組部署至裝置。 若要深入了解部署資訊清單，請參閱[了解如何使用、設定以及重複使用 IoT Edge 模組](module-composition.md)。
 
 3. 尋找部署資訊清單中的 **registryCredentials** 區段。 以容器登錄中的認證更新**使用者名稱**、**密碼**和**位址**。 本節將為您裝置上的 IoT Edge 執行階段提供相關權限，使其能夠提取您儲存在私人登錄中的容器映像。 實際的使用者名稱和密碼組，會儲存在 git 所忽略的 .env 檔案中。
 
@@ -161,7 +168,7 @@ ms.locfileid: "39006872"
 
 6. 在 VS Code 總管中，以滑鼠右鍵按一下 deployment.template.json 檔案，然後選取 [建置 IoT Edge 解決方案]。 
 
-當您指示 Visual Studio Code 建置解決方案時，它會先擷取部署範本中的資訊，再於名為 **config** 的新資料夾中產生 deployment.json 檔案。然後，它會在整合式終端機中執行兩個命令：`docker build` 和 `docker push`。 這兩個命令會建置程式碼、將函式容器化，再將程式碼推送至您在初始化解決方案時所指定的容器登錄。 
+當您指示 Visual Studio Code 建置解決方案時，它會先擷取部署範本中的資訊，再於名為 **config** 的新資料夾中，產生 deployment.json 檔案。然後，它會在整合式終端機中執行兩個命令：`docker build` 和 `docker push`。 這兩個命令會建置程式碼、將函式容器化，再將程式碼推送至您在初始化解決方案時所指定的容器登錄。 
 
 ## <a name="view-your-container-image"></a>檢視容器映像
 

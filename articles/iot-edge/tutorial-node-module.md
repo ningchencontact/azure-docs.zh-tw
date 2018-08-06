@@ -9,12 +9,12 @@ ms.date: 06/26/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: cdcd30ea29c5c7066a6ae05f64b5bf0720572599
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9ab441bdd30e7598dacfec8dd74702aef0299e1b
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299201"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413485"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>教學課程：開發 Node.js IoT Edge 模組並部署到模擬裝置
 
@@ -29,15 +29,25 @@ ms.locfileid: "38299201"
 
 您於此教學課程中建立的 IoT Edge 模組，能夠篩選由您的裝置所產生的溫度資料。 它只有在溫度超過指定的閾值時，才會將訊息往上游傳送。 這類於邊緣所進行的分析，對於減少針對雲端所傳輸及儲存的資料量相當有幫助。 
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free)。
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-* 您在 [Linux](quickstart-linux.md) 或 [Windows 裝置](quickstart.md)的快速入門中建立的 Azure IoT Edge 裝置。
+Azure IoT Edge 裝置：
+
+* 您可以遵循 [Linux](quickstart-linux.md) 或 [Windows 裝置](quickstart.md)快速入門中的步驟，使用您的開發電腦或虛擬機器作為邊緣裝置。
+* Azure Machine Learning 模組不支援 ARM 處理器。
+
+雲端資源：
+
+* Azure 中的標準層 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。 
+
+開發資源：
+
 * [Visual Studio Code](https://code.visualstudio.com/)。 
-* [適用於 Visual Studio Code 的 Azure IoT Edge 擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
-* 在具有 Visual Studio Code 的電腦上也已安裝 [Docker](https://docs.docker.com/engine/installation/)。 針對本教學課程，使用 Community Edition (CE) 便已足夠。 
-* [Node.js 和 npm](https://nodejs.org)。 npm 會隨 Node.js 一起散發，這表示當您下載 Node.js 時，就會自動將 npm 安裝到電腦上。
+* 適用於 Visual Studio Code 的 [Azure IoT Edge 擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)。 
+* [Docker CE](https://docs.docker.com/engine/installation/)。 
+* [Node.js 和 npm](https://nodejs.org)。 npm 套件會隨著 Node.js 一起散發，這表示當您下載 Node.js 時，就會自動將 npm 安裝到電腦上。
 
 ## <a name="create-a-container-registry"></a>建立容器登錄庫
 在本教學課程中，您會使用適用於 VS Code 的 Azure IoT Edge 擴充功能來建置模組，並從檔案建立**容器映像**。 接著，您會將此映像推送至儲存並管理映像的**登錄**。 最後，您會從登錄部署該映像，以在 IoT Edge 裝置上執行。  

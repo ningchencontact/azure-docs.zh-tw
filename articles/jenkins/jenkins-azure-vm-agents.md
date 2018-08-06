@@ -1,22 +1,19 @@
 ---
 title: 使用 Azure VM 代理程式調整 Jenkins 部署。
 description: 使用有 Jenkins Azure VM 代理程式外掛程式的 Azure 虛擬機器，增加 Jenkins 管線的容量。
-services: multiple
-documentationcenter: ''
-author: rloutlaw
-manager: justhe
-ms.service: multiple
-ms.workload: multiple
-ms.topic: article
-ms.date: 8/25/2017
-ms.author: mlearned
-ms.custom: Jenkins
-ms.openlocfilehash: 4d45ed14be499ed927f1433e134a029066146eea
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.topic: tutorial
+ms.author: tarcher
+author: tomarcher
+manager: jpconnock
+ms.service: devops
+ms.custom: jenkins
+ms.date: 07/31/2018
+ms.openlocfilehash: 7f3facbc1bca51061d49ca99778c60d58c525144
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29392635"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391269"
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>使用 Azure VM 代理程式調整 Jenkins 部署以滿足需求
 
@@ -34,7 +31,7 @@ ms.locfileid: "29392635"
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-Integration-with-Jenkins-Using-Azure-VM-Agents/player]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶
 * Jenkins 主要伺服器。 如果沒有，請參閱[快速入門](install-jenkins-solution-template.md)，在 Azure 中設定一個。
@@ -142,6 +139,10 @@ ms.locfileid: "29392635"
 3. 當建置完成之後，請移至 [主控台輸出]。 您會看到該組建在 Azure 代理程式上遠端執行。
 
 ![主控台輸出](./media/jenkins-azure-vm-agents/console-output.png)
+
+## <a name="troubleshooting-the-jenkins-plugin"></a>針對 Jenkins 外掛程式進行疑難排解
+
+如果您遇到任何有關 Jenkins 外掛程式的錯誤，請在 [Jenkins JIRA](https://issues.jenkins-ci.org/) 的特定元件中提交問題。
 
 ## <a name="next-steps"></a>後續步驟
 

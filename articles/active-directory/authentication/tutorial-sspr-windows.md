@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: e4e94567cf978631be52a3304b47b68f61ac3fff
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: eefb07136215d79b7c351dd4498bfeb79b6833de
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161158"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413725"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>教學課程：從登入畫面重設 Azure AD 密碼
 
@@ -112,9 +112,11 @@ ms.locfileid: "39161158"
 
 * 移至您用來測試的 VM，按一下 [檢視]，然後取消核取 [增強的工作階段]。
 
-使用遠端桌面測試這項功能時，不會出現 [重設密碼] 連結
+使用遠端桌面測試這項功能時，不會出現 [重設密碼] 連結。
 
 * 目前不支援從遠端桌面進行密碼重設。
+
+如果使用登錄機碼或群組原則停用 Windows 鎖定畫面，將無法使用 [重設密碼]。
 
 ## <a name="clean-up-resources"></a>清除資源
 

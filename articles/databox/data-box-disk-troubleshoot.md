@@ -1,6 +1,6 @@
 ---
 title: 針對 Azure 資料箱磁碟進行疑難排解 | Microsoft Docs
-description: 說明如何察覺在 Azure 資料箱磁碟中的問題。
+description: 說明如何針對在 Azure 資料箱磁碟中察覺的問題進行疑難排解。
 services: databox
 documentationcenter: NA
 author: alkohli
@@ -13,20 +13,20 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/12/2018
+ms.date: 07/30/2018
 ms.author: alkohli
-ms.openlocfilehash: f63eadc9a6ab834e02d62be9a209b504d76d3c8e
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 1ae6d3dbd01d2623fef511ed0663270ac605f257
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090770"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39362655"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk-preview"></a>針對 Azure 資料箱磁碟 (預覽) 中的問題進行疑難排解
 
 本文適用於執行預覽版本的 Microsoft Azure 資料箱。 本文說明一些可以在資料箱和資料箱磁碟上執行的複雜工作流程和管理工作。 
 
-您可以使用資料箱服務 UI (又稱為入口網站 UI) 和裝置的本機 Web UI 來管理資料箱。 資料箱磁碟只能透過 Azure 入口網站進行管理。 本文著重於可使用 Azure 入口網站執行的工作。 使用 Azure 入口網站來管理訂單、管理裝置，並且在進行到終端機階段時追蹤訂單狀態。
+您可以透過 Azure 入口網站管理資料箱磁碟。 本文著重於可使用 Azure 入口網站執行的工作。 使用 Azure 入口網站來管理訂單、管理裝置，並且在進行到完成時追蹤訂單狀態。
 
 本文包含下列教學課程：
 

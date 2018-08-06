@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/07/2018
+ms.date: 07/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d58418b45192a6c1e31b4c3c918a27fe253d8c34
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: dcde63c4bce17993ec9e1a9d83889a001d7880e1
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38473981"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264431"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>自訂 Azure AD Connect 安裝
 當您想要更多安裝選項時，可使用 Azure AD Connect **自訂設定** 。 如果您有多個樹系，或如果您想要設定未涵蓋在快速安裝中的選用功能，可使用它。 只要是[**快速安裝**](active-directory-aadconnect-get-started-express.md)選項不能滿足部署或拓撲的情況，就可使用它。
@@ -41,7 +41,7 @@ ms.locfileid: "38473981"
 | 選用組態 | 說明 |
 | --- | --- |
 | 使用現有的 SQL Server |可讓您指定 SQL Server 名稱和執行個體名稱。 如果您已經有想要使用的 ad 資料庫伺服器，請選擇這個選項。 如果您的 SQL Server 未啟用瀏覽，請在 [執行個體名稱]  中輸入執行個體名稱加上逗號及連接埠號碼。 |
-| 使用現有的服務帳戶 |Azure AD Connect 預設會使用虛擬服務帳戶，以供同步處理服務使用。 如果您是使用遠端 SQL Server 或需要驗證的 Proxy，則需要使用**受控服務帳戶**，或使用網域中知道密碼的服務帳戶。 在這類情況下，請輸入要使用的帳戶。 請確定執行安裝的使用者為 SQL 中的 SA，才可建立服務帳戶的登入。  請參閱 [Azure AD Connect 帳戶與權限](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account)。 </br></br>使用最新的組建，SQL 管理員即可執行頻外資料庫佈建，然後由具有資料庫擁有者權限的 Azure AD Connect 管理員進行安裝。  如需詳細資訊，請參閱[使用 SQL 委派的管理員權限安裝 Azure AD Connect](active-directory-aadconnect-sql-delegation.md)。|
+| 使用現有的服務帳戶 |Azure AD Connect 預設會使用虛擬服務帳戶，以供同步處理服務使用。 如果您是使用遠端 SQL Server 或需要驗證的 Proxy，則需要使用**受控服務帳戶**，或使用網域中知道密碼的服務帳戶。 在這類情況下，請輸入要使用的帳戶。 請確定執行安裝的使用者為 SQL 中的 SA，才可建立服務帳戶的登入。  請參閱 [Azure AD Connect 帳戶與權限](active-directory-aadconnect-accounts-permissions.md#adsync-service-account)。 </br></br>使用最新的組建，SQL 管理員即可執行頻外資料庫佈建，然後由具有資料庫擁有者權限的 Azure AD Connect 管理員進行安裝。  如需詳細資訊，請參閱[使用 SQL 委派的管理員權限安裝 Azure AD Connect](active-directory-aadconnect-sql-delegation.md)。|
 | 指定自訂同步群組 |Azure AD Connect 預設會在安裝同步處理服務時，建立四個伺服器的本機群組。 這些群組如下：[系統管理員] 群組、[操作員] 群組、[瀏覽] 群組和 [密碼重設群組]。 您可以在此指定自己的群組。 群組必須位於伺服器本機上，不能位於網域中。 |
 
 ### <a name="user-sign-in"></a>使用者登入
@@ -83,14 +83,14 @@ ms.locfileid: "38473981"
 | 選項 | 說明 |
 | --- | --- |
 | 建立新帳戶 | 如果您想要 Azure AD Connect 精靈建立 Azure AD Connect 在目錄同步處理期間連線至 AD 樹系所需的 AD DS 帳戶，請選取此選項。 選取此選項後，輸入企業管理帳戶的使用者名稱和密碼。 Azure AD Connect 精靈將會使用提供的企業管理帳戶來建立所需的 AD DS 帳戶。 您可以用 NetBios 或 FQDN 格式輸入網域部分，也就是 FABRIKAM\administrator 或 fabrikam.com\administrator。 |
-| 使用現有帳戶 | 如果您想要提供現有的 AD DS 帳戶，以便 Azure AD Connect 在目錄同步處理期間用於連線至 AD 樹系，請選取此選項。 您可以用 NetBios 或 FQDN 格式輸入網域部分，也就是 FABRIKAM\syncuser 或 fabrikam.com\syncuser。 此帳戶可以是一般使用者帳戶，因為我們只需要預設的讀取權限。 不過，視您的情況而定，也可能需要更多權限。 如需詳細資訊，請參閱 [Azure AD Connect 帳戶與權限](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account)。 |
+| 使用現有帳戶 | 如果您想要提供現有的 AD DS 帳戶，以便 Azure AD Connect 在目錄同步處理期間用於連線至 AD 樹系，請選取此選項。 您可以用 NetBios 或 FQDN 格式輸入網域部分，也就是 FABRIKAM\syncuser 或 fabrikam.com\syncuser。 此帳戶可以是一般使用者帳戶，因為我們只需要預設的讀取權限。 不過，視您的情況而定，也可能需要更多權限。 如需詳細資訊，請參閱 [Azure AD Connect 帳戶與權限](active-directory-aadconnect-accounts-permissions.md##create-the-ad-ds-connector-account)。 |
 
 ![連線目錄](./media/active-directory-aadconnect-get-started-custom/connectdir02.png)
 
 ### <a name="azure-ad-sign-in-configuration"></a>Azure AD 登入組態
 此頁面可讓您檢閱內部部署 AD DS 中存在的 UPN 網域，以及已在 Azure AD 中驗證的 UPN 網域。 此頁面也可讓您設定要用於 userPrincipalName 的屬性。
 
-![未驗證的網域](./media/active-directory-aadconnect-get-started-custom/aadsigninconfig.png)  
+![未驗證的網域](./media/active-directory-aadconnect-get-started-custom/aadsigninconfig2.png)  
 檢閱每一個標示為**未新增**和**未驗證**的網域。 確定您所使用的網域皆已在 Azure AD 中完成驗證。 驗證好網域時，按一下 [重新整理] 符號。 如需詳細資訊，請參閱[新增並驗證網域](../active-directory-domains-add-azure-portal.md)
 
 **UserPrincipalName** ：屬性 userPrincipalName 是使用者登入 Azure AD 和 Office 365 時會使用的屬性。 使用的網域 (也稱為 UPN 尾碼)，應該會在同步處理使用者前於 Azure AD 中進行驗證。 Microsoft 建議保留預設屬性 userPrincipalName。 如果此屬性不可路由傳送且無法驗證，則可以選取另一個屬性。 例如，您可以選取電子郵件做為保存登入識別碼的屬性。 使用 userPrincipalName 之外的其他屬性稱為 **替代 ID**。 替代 ID 屬性值必須遵循 RFC822 標準。 替代 ID 可以搭配密碼同步和同盟來使用。 此屬性不得在 Active Directory 中定義為多重值 (即使它只有單一值)。
@@ -121,7 +121,7 @@ ms.locfileid: "38473981"
 #### <a name="select-how-users-should-be-identified-in-your-on-premises-directories"></a>選取在內部部署目錄中要如何識別使用者
 跨樹系比對功能可讓您定義 AD DS 樹系中的使用者在 Azure AD 中的顯示方式。 使用者可能會在整個樹系中只顯示一次，或是具有啟用和停用帳戶的組合。 使用者也可能顯示為某些樹系中的連絡人。
 
-![唯一](./media/active-directory-aadconnect-get-started-custom/unique.png)
+![唯一](./media/active-directory-aadconnect-get-started-custom/unique2.png)
 
 | 設定 | 說明 |
 | --- | --- |
@@ -156,7 +156,7 @@ ms.locfileid: "38473981"
 ### <a name="optional-features"></a>選用功能
 此畫面可讓您針對特定情況選取選用功能。
 
-![選用功能](./media/active-directory-aadconnect-get-started-custom/optional.png)
+![選用功能](./media/active-directory-aadconnect-get-started-custom/optional2.png)
 
 > [!WARNING]
 > 如果您目前啟用 DirSync 或 Azure AD Sync，請不要在 Azure AD Connect 中啟動任何回寫功能。
@@ -378,6 +378,28 @@ Azure AD Connect 會嘗試驗證在上一個步驟中從 PingFederate 中繼資�
 * 驗證您可以在內部網路中從已加入網域的電腦使用瀏覽器進行登入：連線至 https://myapps.microsoft.com，並使用您已登入的帳戶驗證登入。 內建的 AD DS 系統管理員帳戶未同步處理，不能用於驗證。
 * 驗證您可以從外部網路的裝置登入。 在家用電腦或行動裝置上連線至 https://myapps.microsoft.com，並提供您的認證。
 * 驗證豐富型用戶端登入。 連線至 https://testconnectivity.microsoft.com，選擇 [Office 365] 索引標籤，然後選擇 [Office 365 單一登入測試]。
+
+## <a name="troubleshooting"></a>疑難排解
+下一節包含遇到 Azure AD Connect 安裝問題時，您可以使用的疑難排解和資訊。
+
+### <a name="the-adsync-database-already-contains-data-and-cannot-be-overwritten"></a>「ADSync 資料庫已包含資料，而且無法覆寫」 
+如果您使用 Azure AD Connect 自訂安裝，並在 [安裝必要元件] 頁面上選取 [使用現有 SQL 伺服器] 選項，則可能會出現錯誤，其中指出 **ADSync 資料庫已包含資料，而且無法覆寫。請移除現有資料庫，然後再試一次。**
+
+![Error](media/active-directory-aadconnect-get-started-custom/error1.png)
+
+這是因為對於上述文字方塊中指定的 SQL 伺服器而言，其 SQL 執行個體上已經有名為 **ADSync** 的現有資料庫。
+
+這通常會在您解除安裝 Azure AD Connect 之後發生。  當您解除安裝時，資料庫不會從 SQL Server 中刪除。
+
+若要修正此問題，請先確認 Azure AD Connect 在解除安裝前所使用的 **ADSync** 資料庫已不會再使用。
+
+接下來，建議您在刪除資料庫前先加以備份。 
+
+最後，您必須刪除資料庫。  您可以使用 **Microsoft SQL Server Management Studio** 並連線至 SQL 執行個體，來完成此動作。 尋找 **ADSync** 資料庫，以滑鼠右鍵按一下該項目，然後從捷徑功能表中選取 [刪除]。  按一下 [確定] 按鈕來將其刪除。
+
+![Error](media/active-directory-aadconnect-get-started-custom/error2.png)
+
+當您刪除 **ADSync** 資料庫之後，您可以按一下 [安裝] 按鈕來重試安裝。
 
 ## <a name="next-steps"></a>後續步驟
 安裝完成之後，請先登出 Windows 再重新登入，才能使用 Synchronization Service Manager 或同步處理規則編輯器。

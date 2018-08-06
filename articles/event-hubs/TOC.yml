@@ -4,7 +4,7 @@
   items:
     - name: 何謂事件中樞？
       href: event-hubs-about.md
-    - name: 適用於 Apache Kafka 的事件中樞
+    - name: 適用於 Apache Kafka 的事件中樞 (預覽)
       href: event-hubs-for-kafka-ecosystem-overview.md
     - name: 事件中樞擷取
       href: event-hubs-capture-overview.md

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 54a8b5f14cc2f9fb0ac887da8995623353e73ac9
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 28d50ac3a4c080062c12c11977eebb61b0e52eed
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115580"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412530"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>快速入門：從 Azure 入口網站將您的第一個 IoT Edge 模組部署至 Windows 裝置 - 預覽
 
@@ -179,8 +179,14 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 它有三個元件
      workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
-8. 尋找 [Moby 容器執行階段設定] 區段，並確認 [網路] 的值設定為 `nat`。
+8. 尋找 [Moby 容器執行階段設定] 區段，並確認 [網路] 的值已取消註解並設定為 **azure-iot-edge**
 
+   ```yaml
+   moby_runtime:
+     docker_uri: "npipe://./pipe/docker_engine"
+     network: "azure-iot-edge"
+   ```
+   
 9. 儲存組態檔。 
 
 10. 在 PowerShell 中，重新啟動 IoT Edge 服務。
@@ -210,7 +216,8 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 它有三個元件
     -FilterHashtable @{ProviderName= "iotedged";
       LogName = "application"; StartTime = [datetime]::Today} |
     select TimeCreated, Message |
-    sort-object @{Expression="TimeCreated";Descending=$false}
+    sort-object @{Expression="TimeCreated";Descending=$false} |
+    format-table -autosize -wrap
    ```
 
 3. 檢視所有在 IoT Edge 裝置上執行的模組。 由於服務只是第一次啟動，您應該只會看到 **edgeAgent** 模組正在執行。 EdgeAgent 模組依預設會執行，且有助於安裝及啟動您部署至裝置的任何其他模組。 

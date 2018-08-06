@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/23/2018
+ms.date: 07/26/2018
 ms.author: barclayn
-ms.openlocfilehash: b34b05ae86aed199d80a86c8e1a073cb54b5e75f
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: cd9dd4d400177e511f23c2677b77198a50420a35
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226708"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282991"
 ---
 # <a name="what-is-azure-key-vault"></a>什麼是 Azure 金鑰保存庫？
 
@@ -37,6 +37,8 @@ Azure Key Vault 是可安全儲存及存取祕密的工具。 祕密是指任何
 - **[Azure Active Directory](../active-directory/active-directory-whatis.md)** 是給定租用戶的 Azure AD 服務。 每個目錄都有一或多個網域。 一個目錄可以有多個相關聯的訂用帳戶，但只能有一個租用戶。 
 - **Azure 租用戶識別碼** - 這是對 Azure 訂用帳戶內的 Azure Active Directory 進行識別的唯一方法。 
 - **受控服務識別** - Azure Key Vault 可讓您安全地儲存認證和其他金鑰及秘密，但是您的程式碼必須向 Key Vault 進行驗證，才可取得這些項目。 受控服務識別 (MSI) 可在 Azure Active Directory (Azure AD) 中將自動受控的身分識別提供給 Azure 服務，而降低解決此問題的難度。 您可以使用此身分識別向 Key Vault 或任何支援 Azure AD 驗證的服務進行驗證，而無須在程式碼中使用任何認證。 您可以在[此處](../active-directory/managed-service-identity/overview.md)閱讀 MSI 的相關資訊
+
+    ![MSI 圖形](./media/key-vault-whatis/msi.png)
 
 ## <a name="key-vault-roles"></a>金鑰保存庫角色
 

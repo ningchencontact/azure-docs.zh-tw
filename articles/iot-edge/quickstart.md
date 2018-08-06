@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 19fd671514da0dbfb1704c37d4347e870763d41b
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 1437c3552a7af5d5474cf3bdaabe95d5415af603
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091808"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414206"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>快速入門：從 Azure 入口網站將您的第一個 IoT Edge 模組部署至 Windows 裝置 - 預覽
 
@@ -36,18 +36,6 @@ ms.locfileid: "39091808"
 
 如果您沒有使用中的 Azure 訂用帳戶，請在開始前建立[免費帳戶][lnk-account]。
 
-## <a name="prerequisites"></a>必要條件
-
-本快速入門會讓 Windows 電腦或虛擬機器成為 IoT Edge 裝置。 如果您在虛擬機器中執行 Windows，請啟用[巢狀虛擬化][lnk-nested]並配置至少 2GB 的記憶體。 
-
-您要用於 IoT Edge 裝置的電腦必須符合下列先決條件：
-
-1. 請確定您使用的是受支援的 Windows 版本：
-   * Windows 10 或更新版本
-   * Windows Server 2016 或更新版本
-2. 安裝[適用於 Windows 的 Docker][lnk-docker] 並確定它正在執行。
-3. 設定 Docker 容器以使用 [Linux 容器](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 您可以使用 Azure CLI 來完成本快速入門中的許多步驟，而且 Azure IoT 有擴充功能可供啟用其他功能。 
@@ -58,24 +46,40 @@ ms.locfileid: "39091808"
    az extension add --name azure-cli-iot-ext
    ```
 
-## <a name="create-an-iot-hub"></a>建立 IoT 中樞
+## <a name="prerequisites"></a>必要條件
 
-在 Azure 入口網站中建立 IoT 中樞，以開始進行此快速入門。
-![建立 IoT 中樞][3]
+雲端資源： 
 
-此快速入門適用於 IoT 中樞的免費層級。 如果您在過去已使用過 IoT 中樞，並已建立可用的中樞，您可以使用該 IoT 中樞。 每個訂用帳戶只能有一個免費的 IoT 中樞。 
-
-1. 在 Azure Cloud Shell 中建立資源群組。 下列程式碼會在**美國西部**區域建立名為 **IoTEdgeResources** 的資源群組。 將快速入門和教學課程的所有資源放同一個群組中，可一併加以管理。 
+* 一個資源群組，用以管理本快速入門中使用的所有資源。 
 
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus
    ```
 
-1. 在您的新資源群組中建立 IoT 中樞。 下列程式碼會在資源群組 **IoTEdgeResources** 中建立免費的 **F1** 中樞。 請以 IoT 中樞的唯一名稱取代 {hub_name}。
+一部 Windows 電腦或虛擬機器，可當作您的 IoT Edge 裝置： 
+
+* 使用不支援的 Windows 版本：
+   * Windows 10 或更新版本
+   * Windows Server 2016 或更新版本
+* 如果這是虛擬機器，請啟用[巢狀虛擬化][lnk-nested]並配置至少 2GB 的記憶體。 
+* 安裝[適用於 Windows 的 Docker][lnk-docker] 並確定它正在執行。
+* 設定 Docker 容器以使用 [Linux 容器](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)
+
+## <a name="create-an-iot-hub"></a>建立 IoT 中樞
+
+使用 Azure CLI 建立 IoT 中樞，開始進行此快速入門。 
+
+![建立 IoT 中樞][3]
+
+此快速入門適用於 IoT 中樞的免費層級。 如果您在過去已使用過 IoT 中樞，並已建立可用的中樞，您可以使用該 IoT 中樞。 每個訂用帳戶只能有一個免費的 IoT 中樞。 
+
+下列程式碼會在資源群組 **IoTEdgeResources** 中建立免費的 **F1** 中樞。 請以 IoT 中樞的唯一名稱取代 {hub_name}。
 
    ```azurecli-interactive
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 
    ```
+
+   如果因您的訂用帳戶中已有免費中樞而發生錯誤，請將 SKU 變更為 **S1**。 
 
 ## <a name="register-an-iot-edge-device"></a>註冊 IoT Edge 裝置
 
@@ -206,7 +210,13 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 它有三個元件
      workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
-8. 尋找 [Moby 容器執行階段設定] 區段，並確認 [網路] 的值設定為 `nat`。
+8. 尋找 [Moby 容器執行階段設定] 區段，並確認 [網路] 的值已取消註解並設定為 **azure-iot-edge**
+
+   ```yaml
+   moby_runtime:
+     docker_uri: "npipe://./pipe/docker_engine"
+     network: "azure-iot-edge"
+   ```
 
 9. 儲存組態檔。 
 
@@ -237,7 +247,8 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 它有三個元件
     -FilterHashtable @{ProviderName= "iotedged";
       LogName = "application"; StartTime = [datetime]::Today} |
     select TimeCreated, Message |
-    sort-object @{Expression="TimeCreated";Descending=$false}
+    sort-object @{Expression="TimeCreated";Descending=$false} |
+    format-table -autosize -wrap
    ```
 
 3. 檢視所有在 IoT Edge 裝置上執行的模組。 由於服務只是第一次啟動，您應該只會看到 **edgeAgent** 模組正在執行。 EdgeAgent 模組依預設會執行，且有助於安裝及啟動您部署至裝置的任何其他模組。 

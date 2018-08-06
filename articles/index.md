@@ -6,12 +6,12 @@ description: 了解如何使用 Microsoft Azure 雲端服務建置和管理功�
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 7db35731a7a95a1ba327445a2044050c28fafb4c
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 323b0118d4635b141b2a0f3fb2692d082929c201
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224199"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495470"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1044,6 +1044,12 @@ Azure DevOps Project </a>
                                             <a href="/azure/storage/files/storage-files-introduction/">
                                                 <img src="media/index/logo_azure-storage-file.svg" alt="" />
                                                 <p>檔案儲存體</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/databox/">
+                                                <img src="media/index/Service-icon.png" alt="" />
+                                                <p>資料箱</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2237,7 +2243,7 @@ Azure DevOps Project </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Storage Gen2</h3>
-                                                    <p>超高擴充性、安全的 Data Lake Storage</p>
+                                                    <p>可大幅調整、安全的 Data Lake 儲存體與 Blob 儲存體整合</p>
                                                 </div>
                                             </div>
                                         </div>

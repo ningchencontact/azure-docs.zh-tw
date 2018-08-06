@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/13/2018
+ms.date: 07/27/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 73f8616449141ca91f96e9fcebede74597bc4fe3
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 418b2f6b156853c1a2820271808bdba922d41a87
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044912"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412894"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>將市集項目從 Azure 下載到 Azure Stack
 
@@ -148,26 +148,7 @@ ms.locfileid: "39044912"
 ### <a name="import-the-download-and-publish-to-azure-stack-marketplace"></a>匯入下載並發佈至 Azure Stack Marketplace
 1. 您[先前下載的](#use-the-marketplace-syndication-tool-to-download-marketplace-items)虛擬機器映像檔案或解決方案範本檔案，必須可在本機提供給您的 Azure Stack 環境使用。  
 
-2. 使用 **Add-AzsPlatformimage** Cmdlet 將 VHD 映像匯入至 Azure Stack。 使用此 Cmdlet 時，請以您所匯入映像的值，取代 publisher、offer 及其他參數值。 
-
-   您可以從與 AZPKG 檔案一起下載的文字檔案中，取得映像的 publisher、offer 和 sku 值。 文字檔案會儲存在目的地位置。
- 
-   下列範例指令碼中會使用 Windows Server 2016 Datacenter - Server Core 虛擬機器的值。 
-
-   ```PowerShell  
-   Add-AzsPlatformimage `
-    -publisher "MicrosoftWindowsServer" `
-    -offer "WindowsServer" `
-    -sku "2016-Datacenter-Server-Core" `
-    -osType Windows `
-    -Version "2016.127.20171215" `
-    -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Windows-Server-2016-DatacenterCore-20171215-en.us-127GB.vhd" `
-   ```
-   **關於解決方案範本：** 某些範本可以包含名稱為 **fixed3.vhd** 的小型 3 MB .VHD 檔案。 您不需要將該檔案匯入到 Azure Stack。 Fixed3.vhd。  這個檔案隨附於一些解決方案範本，以符合 Azure Marketplace 的發佈需求。
-
-   檢閱範本描述並下載，然後匯入其他需求，例如使用解決方案範本所需的 VHD。
-
-3. 使用管理入口網站，將市集項目套件 (.azpkg 檔案) 上傳至 Azure Stack Blob 儲存體。 上傳套件使其可供 Azure Stack 使用，以便您稍後將項目發佈至 Azure Stack Marketplace。
+2. 使用管理入口網站，將市集項目套件 (.azpkg 檔案) 上傳至 Azure Stack Blob 儲存體。 上傳套件使其可供 Azure Stack 使用，以便您稍後將項目發佈至 Azure Stack Marketplace。
 
    上傳時，您需要有具備可公開存取容器的儲存體帳戶 (請參閱這個案例的先決條件)   
    1. 在 Azure Stack 管理入口網站中，前往 [更多服務] > [儲存體帳戶]。  
@@ -183,6 +164,33 @@ ms.locfileid: "39044912"
 
    5. 您上傳的檔案會出現在 [容器] 窗格中。 選取檔案並從 [Blob 屬性] 窗格複製 URL。 當您將市集項目匯入 Azure Stack 時，您將在下一個步驟中使用此 URL。  在下圖中，容器是 blob-test-storage，而檔案是 Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg。  檔案 URL 是 *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*。  
       ![Blob 屬性](media/azure-stack-download-azure-marketplace-item/blob-storage.png)  
+
+3. 使用 **Add-AzsPlatformimage** Cmdlet 將 VHD 映像匯入至 Azure Stack。 使用此 Cmdlet 時，請以您所匯入映像的值，取代 publisher、offer 及其他參數值。 
+
+   您可以從與 AZPKG 檔案一起下載的文字檔案中，取得映像的 publisher、offer 和 sku 值。 文字檔案會儲存在目的地位置。 version 值是在上一個程序中從 Azure 下載項目時所記下的版本。 
+ 
+   下列範例指令碼中會使用 Windows Server 2016 Datacenter - Server Core 虛擬機器的值。 以項目的 blob 儲存體位置路徑取代 URI_path。
+
+   ```PowerShell  
+   Add-AzsPlatformimage `
+    -publisher "MicrosoftWindowsServer" `
+    -offer "WindowsServer" `
+    -sku "2016-Datacenter-Server-Core" `
+    -osType Windows `
+    -Version "2016.127.20171215" `
+    -OsUri "URI_path"  
+   ```
+   **關於解決方案範本：** 某些範本可以包含名稱為 **fixed3.vhd** 的小型 3 MB .VHD 檔案。 您不需要將該檔案匯入到 Azure Stack。 Fixed3.vhd。  這個檔案隨附於一些解決方案範本，以符合 Azure Marketplace 的發佈需求。
+
+   檢閱範本描述並下載，然後匯入其他需求，例如使用解決方案範本所需的 VHD。  
+   
+   **關於擴充功能：** 當您使用虛擬機器映像擴充功能時，請使用下列參數：
+   - *發行者*
+   - *類型*
+   - *版本*  
+
+   您不會將 Offer 使用於擴充功能。   
+
 
 4.  使用 **Add-AzsGalleryItem** Cmdlet，透過 PowerShell 將市集項目發佈至 Azure Stack。 例如︰  
     ```PowerShell  

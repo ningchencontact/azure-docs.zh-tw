@@ -156,22 +156,27 @@
 
 ## 管理裝置
 ### [概觀](devices/overview.md)
-### [使用 Azure 入口網站](devices/device-management-azure-portal.md)
-### [規劃 Azure AD Join](devices/azureadjoin-plan.md)
-### [常見問題集](devices/faq.md)
-### 工作
-#### [如何規劃混合式 Azure Active Directory Join 實作](devices/hybrid-azuread-join-plan.md)
-#### [設定適用於受控網域的混合式 Azure Active Directory Join](devices/hybrid-azuread-join-managed-domains.md)
-#### [設定適用於同盟網域的混合式 Azure Active Directory Join](devices/hybrid-azuread-join-federated-domains.md)
-#### [如何控制裝置的混合式 Azure AD Join](devices/hybrid-azuread-join-control.md)
+
+### 快速入門
 #### [設定 10 部已註冊 Azure AD 的 Windows 10 裝置](user-help/device-management-azuread-registered-devices-windows10-setup.md)
 #### [設定 Azure AD 已加入裝置](user-help/device-management-azuread-joined-devices-setup.md)
-#### [設定混合式 Azure AD 已加入裝置](devices/hybrid-azuread-join-manual-steps.md)
-#### [部署內部部署](active-directory-device-registration-on-premises-setup.md)
-#### [在第一次執行 Windows 10 時加入 Azure AD 的體驗](devices/azuread-joined-devices-frx.md)
-### 疑難排解
-#### [混合式 Azure AD 已加入 Windows 10 和 Windows Server 2016 裝置](devices/troubleshoot-hybrid-join-windows-current.md)
-#### [混合式 Azure AD 已加入舊版 Windows 裝置](devices/troubleshoot-hybrid-join-windows-legacy.md)
+
+### 教學課程
+#### [設定適用於受控網域的混合式 Azure AD 聯結](devices/hybrid-azuread-join-managed-domains.md)
+#### [設定適用於同盟網域的混合式 Azure AD 聯結](devices/hybrid-azuread-join-federated-domains.md)
+#### [手動設定混合式 Azure AD 聯結](devices/hybrid-azuread-join-manual-steps.md)
+#### [在前十次執行 Windows 10 體驗時設定 Azure AD 聯結](devices/azuread-joined-devices-frx.md)
+
+### 使用指南
+#### [規劃 Azure AD 聯結](devices/azureadjoin-plan.md)
+#### [規劃混合式 Azure AD 聯結實作](devices/hybrid-azuread-join-plan.md)
+#### [控制裝置的混合式 Azure AD 聯結](devices/hybrid-azuread-join-control.md)
+#### [針對目前與混合式 Azure AD 聯結的 Windows 裝置進行疑難排解](devices/troubleshoot-hybrid-join-windows-current.md)
+#### [針對已與混合式 Azure AD 聯結的舊版 Windows 裝置進行疑難排解](devices/troubleshoot-hybrid-join-windows-legacy.md)
+
+### 概念
+### [使用 Azure 入口網站管理裝置](devices/device-management-azure-portal.md)
+### [常見問題集](devices/faq.md)
 
 ## 管理應用程式
 ### [概觀](manage-apps/what-is-application-management.md)
@@ -472,6 +477,7 @@
 ## [Azure AD Privileged Identity Management](./privileged-identity-management/pim-configure.md)
 
 # 資源
+## [Azure AD 部署規劃](./fundamentals/active-directory-deployment-plans.md)
 ## [Azure 意見反應論壇](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)

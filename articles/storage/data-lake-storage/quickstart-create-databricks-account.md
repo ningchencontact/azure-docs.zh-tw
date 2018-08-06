@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.custom: mvc
-ms.openlocfilehash: 6e3515cba449826389fbff35765de9631728de5d
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: d341b0590dce65228958572365bb2773f8f13129
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063420"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324301"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站在 Azure Databricks 上執行 Spark 作業
 
@@ -29,15 +29,16 @@ ms.locfileid: "37063420"
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - [建立 Azure Data Lake Storage Gen2 帳戶](quickstart-create-account.md)
 
 ## <a name="set-aside-storage-account-configuration"></a>設定儲存體帳戶組態
 
-本教學課程進行期間，您必須能夠存取儲存體帳戶名稱和存取金鑰。 在 Azure 入口網站中，選取 [所有服務]，然後篩選 [儲存體]。 選取 [儲存體帳戶]，並找出您針對本教學課程所建立的帳戶。
-
-從 [概觀] 將儲存體帳戶的名稱複製到文字編輯器中。 接下來，選取 [存取金鑰]，並將 [key1] 的值複製到文字編輯器，以供後續命令使用。
+> [!IMPORTANT]
+> 本教學課程進行期間，您必須能夠存取儲存體帳戶名稱和存取金鑰。 在 Azure 入口網站中，選取 [所有服務]，然後篩選 [儲存體]。 選取 [儲存體帳戶]，並找出您針對本教學課程所建立的帳戶。
+>
+> 從 [概觀] 將儲存體帳戶的**名稱**複製到文字編輯器中。 接下來，選取 [存取金鑰]，並將 [key1] 的值複製到文字編輯器，以供後續命令使用。
 
 ## <a name="create-an-azure-databricks-workspace"></a>建立 Azure Databricks 工作區
 
@@ -105,7 +106,7 @@ ms.locfileid: "37063420"
 
     選取 [建立] 。
 
-4. 在第一個資料格中輸入下列程式碼，然後將預留位置值取代為帳戶名稱、金鑰和檔案系統名稱。
+4. 在下列程式碼中，使用您在本快速入門開頭中保留的值取代 **ACCOUNT_NAME** 和 **ACCOUNT_KEY** 文字。 並以您想要的檔案系統名稱取代 **FILE_SYSTEM_NAME** 文字。 然後在第一個儲存格中，輸入程式碼。
 
     ```scala
     spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_KEY>") 
@@ -122,17 +123,17 @@ ms.locfileid: "37063420"
 
 開始本節之前，您必須先完成下列必要條件：
 
-* [從 Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) 下載 **small_radio_json.json**。
-* 使用 **AzCopy 第 10 版**將 JSON 檔案範例上傳至您所建立的 Azure Blob 儲存體帳戶和檔案系統：
+在 Notebook 資料格中輸入下列程式碼：
 
-    ```bash
-    set ACCOUNT_NAME=<ACCOUNT_NAME>
-    set ACCOUNT_KEY=<ACCOUNT_KEY>
-    azcopy cp "<LOCAL_FILE_PATH>\small_radio_json.json" https://<ACCOUNT_NAME>.dfs.core.windows.net/<CONTAINER_NAME> --recursive 
-    ```
+    %sh wget -P /tmp https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json
 
-> [!NOTE]
-> AzCopy 第 10 版僅供預覽版客戶使用。
+在資料格中，按 `Shift` + `Enter` 來執行程式碼。
+
+現在，在以下這一個新的資料格中，輸入下列程式碼 (以您稍早使用的相同值取代 **FILE_SYSTEM** 和 **ACCOUNT_NAME**)：
+
+    dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfs://<FILE_SYSTEM>@<ACCOUNT_NAME>.dfs.core.windows.net/")
+
+在資料格中，按 `Shift` + `Enter` 來執行程式碼。
 
 ## <a name="run-a-spark-sql-job"></a>執行 Spark SQL 作業
 

@@ -9,14 +9,14 @@ services: iot-accelerators
 ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: acff6586f35f1c86cba8d519586d72247255ccd7
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 3138f0ebb6316e69c873a37d479ddc0279a361ef
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159378"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285068"
 ---
-# <a name="troubleshoot-and-fix-device-issues"></a>對裝置問題進行疑難排解並加以修正
+# <a name="tutorial-troubleshoot-and-fix-device-issues"></a>教學課程：對裝置問題進行疑難排解並加以修正
 
 在本教學課程中，您可使用遠端監視解決方案加速器，來找出並修正已連線的 IoT 裝置問題。 您可在解決方案加速器儀表板中使用警示來找出問題，然後執行遠端作業來修正這些問題。
 
@@ -30,7 +30,7 @@ Contoso 會在現場測試新的**原型**裝置。 身為 Contoso 操作員，�
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-[!INCLUDE [iot-iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
+[!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
 ## <a name="investigate-an-alert"></a>調查警示
 
@@ -80,7 +80,7 @@ Contoso 會在現場測試新的**原型**裝置。 身為 Contoso 操作員，�
 
 [![檢視溫度下降](./media/iot-accelerators-remote-monitoring-maintain/jobresult-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/jobresult-expanded.png#lightbox)
 
-[!INCLUDE [iot-iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
+[!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

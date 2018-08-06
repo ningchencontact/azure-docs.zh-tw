@@ -1,6 +1,6 @@
 ---
 title: 教學課程 - 將 ASA 作業部署至 Azure IoT Edge 裝置 | Microsoft Docs
-description: 將 Azure 串流分析作為模組部署至 IoT Edge 裝置
+description: 在本教學課程中，將 Azure 串流分析作為模組部署至 IoT Edge 裝置
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 0790f504c978b4302812cffc9b655e817c156da3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f2ef53ee53eb2e95d84fc11f3190f62d0e3c2455
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38540167"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413870"
 ---
-# <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>教學課程：將 Azure 串流分析部署為 IoT Edge 模組 - 預覽
+# <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>教學課程：將 Azure 串流分析部署為 IoT Edge 模組 (預覽)
 
 許多 IoT 解決方案皆使用分析服務，來深入了解資料從 IoT 裝置送達雲端時的相關情形。 透過 Azure IoT Edge，您可以採取 [Azure 串流分析][azure-stream]邏輯並將其運用於裝置本身。 藉由處理 Edge 上的遙測資料流，您將可減少上傳的資料量，並縮短將見解付諸行動的所需時間。
 
@@ -36,10 +36,19 @@ Azure 串流分析針對雲端中或 IoT Edge 上的資料，提供了豐富結�
 >[!NOTE]
 >IoT Edge 上的 Azure 串流分析模組目前為[公開預覽版](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-## <a name="prerequisites"></a>先決條件
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-* IoT 中樞
-* 您在 [Windows][lnk-quickstart-win] 或 [Linux][lnk-quickstart-lin] 的快速入門中建立和設定的 IoT Edge 裝置。 
+## <a name="prerequisites"></a>必要條件
+
+Azure IoT Edge 裝置：
+
+* 您可以遵循 [Linux](quickstart-linux.md) 或 [Windows 裝置](quickstart.md)快速入門中的步驟，使用您的開發電腦或虛擬機器作為邊緣裝置。
+* Azure Machine Learning 模組不支援 ARM 處理器。
+
+雲端資源：
+
+* Azure 中的標準層 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。 
+
 
 ## <a name="create-an-azure-stream-analytics-job"></a>建立 Azure 串流分析作業
 

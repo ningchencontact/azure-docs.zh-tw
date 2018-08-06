@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/03/2018
+ms.date: 07/31/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: na
-ms.openlocfilehash: 6b25712d660c26f2e7206b361c443b8f97aad361
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 31e9e6b173a578b09f656850271ed5a8f0f2baa8
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867608"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391326"
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>檢視或分析以 Log Analytics 記錄搜尋所收集的資料
 
@@ -43,7 +43,7 @@ ms.locfileid: "37867608"
 從開啟記錄搜尋入口網站開始。   
 
 1. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中輸入 [監視器]。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [監視器]。
-2. 在 [監視器] 導覽功能表中，選取 [Log Analytics]，然後選取工作區
+2. 在 [監視器] 導覽功能表上，選取 [Log Analytics]，然後選取工作區。
 
 ## <a name="create-a-simple-search"></a>建立簡單搜尋
 若要擷取某些資料來使用，最快的方式是使用會傳回資料表中所有記錄的簡單查詢。  如果有任何 Windows 或 Linux 用戶端連線到您的工作區，則您會擁有事件 (Windows) 或 Syslog (Linux) 資料表中的資料。

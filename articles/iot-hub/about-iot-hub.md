@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-hub
 services: iot-hub
 manager: briz
-ms.openlocfilehash: 0e54c48eb63c5b70626e72f83de6d3676710d4c4
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: f4254cd90d8cf3b9f4cd206b729a3d44784b377a
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860151"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343622"
 ---
 # <a name="what-is-azure-iot-hub"></a>何謂 Azure IoT 中心？
 
@@ -26,18 +26,24 @@ IoT 中樞的功能可協助您建置可調整規模且功能完整的 IoT 解�
 
 ## <a name="scale-your-solution"></a>調整您的解決方案規模
 
-IoT 中樞可以調整規模以因應數百萬個同時連線的裝置，以及每秒數百萬個事件，以支援您的 IoT 工作負載。 IoT 中樞提供了多種服務級別，以滿足您的擴充需求。 [深入了解](https://azure.microsoft.com/pricing/details/iot-hub/)。
+IoT 中樞可以調整規模以因應數百萬個同時連線的裝置，以及每秒數百萬個事件，以支援您的 IoT 工作負載。 IoT 中樞提供了多種服務級別，以滿足您的擴充需求。 若要深入了解，請查看[定價頁面](https://azure.microsoft.com/pricing/details/iot-hub/)。
 
 ## <a name="secure-your-communications"></a>保護您的通訊
 
 IoT 中樞提供了安全的通訊通道，以便讓裝置傳送資料。
 
 * 針對裝置的驗證可讓每個裝置安全地連線到 IoT 中樞，並安全地管理每個裝置。
+
 * 您可以完全控制裝置存取，並且可以控制裝置層級的連線。
+
 * 裝置第一次開機時，[IoT 中樞裝置佈建服務](https://docs.microsoft.com/azure/iot-dps/)會自動將裝置佈建到正確的 IoT 中樞。
+
 * 多個驗證類型可支援各式各樣的裝置功能：
+
   * 可快速開始使用 IoT 解決方案的 SAS 權杖型驗證。
+
   * 可用於安全標準式驗證的個別 X.509 憑證驗證。
+
   * 可用於簡單標準式註冊的 X.509 CA 驗證。
 
 ## <a name="route-device-data"></a>路由裝置資料
@@ -45,7 +51,9 @@ IoT 中樞提供了安全的通訊通道，以便讓裝置傳送資料。
 內建訊息路由功能可讓您彈性地設定自動化規則型訊息展開傳送：
 
 * 使用訊息路由來控制中樞傳送裝置遙測的位置。
+
 * 將訊息路由傳送至多個端點不會有額外成本。
+
 * 無程式碼路由規則取代了自訂訊息發送器程式碼。
 
 ## <a name="integrate-with-other-services"></a>與其他服務整合
@@ -65,7 +73,9 @@ IoT 中樞提供了安全的通訊通道，以便讓裝置傳送資料。
 您可以使用一系列內建功能來管理連線到 IoT 中樞的裝置。
 
 * 針對您的所有裝置，儲存、同步處理，以及查詢裝置中繼資料與狀態資訊。
+
 * 依裝置或根據裝置一般特性來設定裝置狀態。
+
 * 透過訊息路由整合，自動回應裝置回報的狀態變更。
 
 ## <a name="make-your-solution-highly-available"></a>讓您的解決方案保持高可用性
@@ -95,6 +105,7 @@ IoT 中樞和裝置 SDK 支援下列連線裝置的通訊協定：
 如果您的解決方案無法使用任一種支援的通訊協定，則您可以擴充 IoT 中樞以支援自訂通訊協定：
 
 * 使用 [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) 建立一個現場閘道，以在 Edge 上執行通訊協定轉譯。
+
 * 自訂 [Azure IoT 通訊協定閘道](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)，以在雲端中執行通訊協定轉譯。
 
 ## <a name="quotas-and-limits"></a>配額和限制
@@ -102,6 +113,7 @@ IoT 中樞和裝置 SDK 支援下列連線裝置的通訊協定：
 每個 Azure 訂用帳戶都有預設的配額限制，以避免濫用服務。而這些限制會對 IoT 解決方案的範圍造成影響。 依訂用帳戶而定的目前限制是每一訂用帳戶 10 個 IoT 中樞。 您可以連絡支援人員，以要求增加此配額。 如需有關配額限制的詳細資料：
 
 * [Azure 訂用帳戶服務限制](../azure-subscription-service-limits.md)
+
 * [IoT 中樞節流與您](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/) \(英文\)
 
 ## <a name="next-steps"></a>後續步驟

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5e0da540b2784ef13986c6089d31f22df992ee59
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: dfcb764d75b7328d1234d47d82afdae8d6a0deef
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005810"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413009"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>快速入門：將您的第一個 IoT Edge 模組部署至 Linux x64 裝置
 
@@ -43,18 +43,18 @@ Azure IoT Edge 會將雲端的強大功能移至您的物聯網裝置。 在本�
    ```azurecli-interactive
    az extension add --name azure-cli-iot-ext
    ```
-
+   
 ## <a name="prerequisites"></a>必要條件
 
-本快速入門會以 Linux 機器作為 IoT Edge 裝置。 如果您目前沒有可用於測試的裝置，您可以使用 Azure CLI 來建立。 
+雲端資源： 
 
-建立新的資源群組。 您可以將此資源群組用於您在此快速入門中建立的其他 Azure 資源，以便於管理。  
+* 一個資源群組，用以管理本快速入門中使用的所有資源。 
 
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus
    ```
 
-建立虛擬機器。 測試 IoT Edge 並不需要非常大型的虛擬機器。 **B1ms** 的大小即已足夠。
+* 一部 Linux 虛擬機器，可當作您的 IoT Edge 裝置。 
 
    ```azurecli-interactive
    az vm create --resource-group IoTEdgeResources --name EdgeVM --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_B1ms
@@ -62,18 +62,13 @@ Azure IoT Edge 會將雲端的強大功能移至您的物聯網裝置。 在本�
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
 
-在 Azure 入口網站中建立 IoT 中樞，以開始進行此快速入門。
+使用 Azure CLI 建立 IoT 中樞，開始進行此快速入門。 
+
 ![建立 IoT 中樞][3]
 
 此快速入門適用於 IoT 中樞的免費層級。 如果您在過去已使用過 IoT 中樞，並已建立可用的中樞，您可以使用該 IoT 中樞。 每個訂用帳戶只能有一個免費的 IoT 中樞。 
 
-1. 如果您尚未建立資源群組以符合先決條件，請在 Azure Cloud Shell 中建立。 將快速入門和教學課程的所有資源放同一個群組中，可一併加以管理。 
-
-   ```azurecli-interactive
-   az group create --name IoTEdgeResources --location westus
-   ```
-
-1. 在您的新資源群組中建立 IoT 中樞。 下列程式碼會在資源群組 **IoTEdgeResources** 中建立免費的 **F1** 中樞。 請以 IoT 中樞的唯一名稱取代 {hub_name}。
+下列程式碼會在資源群組 **IoTEdgeResources** 中建立免費的 **F1** 中樞。 請以 IoT 中樞的唯一名稱取代 {hub_name}。
 
    ```azurecli-interactive
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 

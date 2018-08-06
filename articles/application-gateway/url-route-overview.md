@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/23/2018
 ms.author: victorh
-ms.openlocfilehash: eaecb731d6f64bf7dd15d9a9b11739fd3fbc983e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f706e267675dbb3d5465977157f40824efc96e48
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32160540"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389237"
 ---
 # <a name="azure-application-gatewaty-url-path-based-routing-overview"></a>Azure 應用程式閘道 URL 路徑型路由概觀
 
@@ -29,7 +29,7 @@ URL 路徑型路由可讓您根據要求的 URL 路徑，將流量路由傳送�
 
 ![imageURLroute](./media/url-route-overview/figure1.png)
 
-對 http://contoso.com/video/* 的要求會路由傳送至 VideoServerPool，而對 http://contoso.com/images/* 的要求則會路由傳送至 ImageServerPool。 如果沒有任何路徑模式相符，則會選取 DefaultServerPool。
+對 http://contoso.com/video/* 的要求會路由至 VideoServerPool，而對 http://contoso.com/images/* 的要求則會路由至 ImageServerPool。 如果沒有任何路徑模式相符，則會選取 DefaultServerPool。
 
 > [!IMPORTANT]
 > 規則會依照其列在入口網站中的順序進行處理。 強烈建議纖設定多站台接聽程式，再設定基本接聽程式。  這可確保流量路由傳送到右邊後端。 如果先列出了基本接聽程式，且該接聽程式符合傳入的要求，就會由該接聽程式處理。
