@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/29/2018
+ms.date: 07/30/2018
 ms.author: diberry
-ms.openlocfilehash: 99f796bf26df755ca938c3023057e2e9de1706a1
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 9da2454afa130c4c2ccab458099a90d78354b3e2
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238330"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358265"
 ---
 # <a name="tutorial-3-add-regular-expression-entity"></a>教學課程：3. 新增規則運算式實體
 在本教學課程中，使用**規則運算式**實體來建立應用程式，讓其示範如何從語句中擷取格式一致的資料。
@@ -28,7 +28,7 @@ ms.locfileid: "39238330"
 > * 訓練和發佈應用程式
 > * 查詢應用程式端點來查看 LUIS JSON 回應
 
-在本文中，您需要免費 [LUIS](luis-reference-regions.md#luis-website) 帳戶才能撰寫 LUIS 應用程式。
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>開始之前
 如果您沒有[預先建置的實體](luis-tutorial-prebuilt-intents-entities.md)教學課程中的人力資源應用程式，請從 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json) Github 存放庫，將 JSON [匯入](luis-how-to-start-new-app.md#import-new-app)到 [LUIS](luis-reference-regions.md#luis-website) 網站中的新應用程式。
@@ -65,13 +65,9 @@ HRF 代表人力資源表單。
 
 ## <a name="add-findform-intent"></a>新增 FindForm 意圖
 
-1. 請確定您人力資源應用程式位於 LUIS 的 [建置] 區段。 選取右上方功能表列中的 [建置]，即可變更至此區段。 
+1. 請確定您人力資源應用程式位於 LUIS 的 [建置] 區段。 選取右上方功能表列中的 [Build] \(建置\)，即可變更至此區段。 
 
-    [ ![在右上方導覽列中醒目提示 [建置] 的 LUIS 應用程式螢幕擷取畫面](./media/luis-quickstart-intents-regex-entity/first-image.png)](./media/luis-quickstart-intents-regex-entity/first-image.png#lightbox)
-
-2. 選取 [建立新意圖]。 
-
-    [已醒目提示 [建立新意圖] 按鈕的 [意圖] 頁面螢幕擷取畫面![](./media/luis-quickstart-intents-regex-entity/create-new-intent-button.png) ](./media/luis-quickstart-intents-regex-entity/create-new-intent-button.png#lightbox)
+2. 選取 [Create new intent] \(建立新意圖\)。 
 
 3. 在快顯對話方塊方塊中輸入 `FindForm`，然後選取 [完成]。 
 
@@ -96,14 +92,12 @@ HRF 代表人力資源表單。
 
     應用程式有從上一個教學課程中新增的預先建置編號實體，因此每個表單編號都已加上標記。 這對您的用戶端應用程式而言可能已足夠，但編號不會標示編號類型。 以適當的名稱建立新實體，可讓用戶端應用程式正確地處理 LUIS 所傳回的實體。
 
-## <a name="create-a-hrf-number-regular-expression-entity"></a>建立 HRF-編號的規則運算式實體 
+## <a name="create-an-hrf-number-regular-expression-entity"></a>建立 HRF-編號的規則運算式實體 
 使用下列步驟建立規則運算式實體，以向 LUIS 告知 HRF-編號的格式：
 
 1. 在左側面板中選取 [實體]。
 
 2. 選取 [實體] 頁面上的 [建立新實體]按鈕。 
-
-    [![已醒目提示 [建立新實體] 按鈕的 [實體] 頁面螢幕擷取畫面](./media/luis-quickstart-intents-regex-entity/create-new-entity-1.png)](./media/luis-quickstart-intents-regex-entity/create-new-entity-1.png#lightbox)
 
 3. 在快顯對話方塊中，輸入新的實體名稱 `HRF-number`，選取 **RegEx** 作為實體類型，然後輸入 `hrf-[0-9]{6}` 作為 Regex，最後選取 [完成]。
 
@@ -127,24 +121,14 @@ HRF 代表人力資源表單。
     ![成功通知列的影像](./media/luis-quickstart-intents-regex-entity/trained.png)
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>發佈應用程式以取得端點 URL
-若要在 Chatbot 或其他應用程式中取得 LUIS 預測，您必須發佈應用程式。 
 
-1. 在 LUIS 網站的右上方，選取 [發佈] 按鈕。 
-
-    ![在頂端導覽列中醒目提示 [發佈] 按鈕的 FindKnowledgeBase 螢幕擷取畫面](./media/luis-quickstart-intents-regex-entity/publish-button.png)
-
-2. 選取 [生產] 位置和 [發佈] 按鈕。
-
-    ![已醒目提示發佈至生產位置按鈕的 [發佈] 頁面螢幕擷取畫面](./media/luis-quickstart-intents-regex-entity/publish-to-production.png)
-
-3. 當您在網站頂端看到確認成功的綠色狀態列時，就表示發佈完成。
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-a-different-utterance"></a>使用不同的語句來查詢端點
-1. 在 [Publish] \(發佈\) 頁面上，選取頁面底部的**端點**連結。 這個動作會開啟另一個瀏覽器視窗，其中的網址列會顯示此端點 URL。 
 
-    ![已醒目提示端點 URL 的 [發佈] 頁面螢幕擷取畫面](./media/luis-quickstart-intents-regex-entity/publish-select-endpoint.png)
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. 移至位址中的 URL 尾端並輸入 `When were HRF-123456 and hrf-234567 published in the last year?`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 此語句與任何標示的語句都不同，因此這是很好的測試，且應該傳回具有兩種表單編號 `HRF-123456` 和 `hrf-234567` 的 `FindForm` 意圖。
+2. 移至位址中的 URL 結尾並輸入 `When were HRF-123456 and hrf-234567 published in the last year?`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 此語句與任何標示的語句都不同，因此這是很好的測試，且應該傳回具有兩種表單編號 `HRF-123456` 和 `hrf-234567` 的 `FindForm` 意圖。
 
     ```
     {
