@@ -6,7 +6,7 @@
     - name: 驗證基本概念
       href: authentication-scenarios.md
     - name: 應用程式類型
-      href: 'active-directory-authentication-scenarios.md#application-types-and-scenarios'
+      href: 'authentication-scenarios.md#application-types-and-scenarios'
 - name: 開始使用
   items:
     - name: 行動和桌面應用程式
@@ -22,7 +22,7 @@
         - name: .NET (Xamarin)
           href: quickstart-v1-xamarin.md
         - name: OAuth 2.0
-          href: active-directory-protocols-oauth-code.md
+          href: v1-protocols-oauth-code.md
     - name: Web 應用程式
       items:
         - name: 概觀
@@ -38,13 +38,13 @@
         - name: NodeJS
           href: quickstart-v1-openid-connect-code.md
         - name: OpenID Connect
-          href: active-directory-protocols-openid-connect-code.md
+          href: v1-protocols-openid-connect-code.md
     - name: 單一頁面應用程式
       items:
         - name: 概觀
           href: 'active-directory-authentication-scenarios.md#single-page-application-spa'
         - name: Angular JS
-          href: active-directory-devquickstarts-angular.md
+          href: quickstart-v1-angularjs-spa.md
         - name: Javascript
           href: 'https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi'
     - name: Web API
@@ -52,35 +52,35 @@
         - name: 概觀
           href: 'active-directory-authentication-scenarios.md#web-application-to-web-api'
         - name: ASP.NET
-          href: active-directory-devquickstarts-webapi-dotnet.md
+          href: quickstart-v1-dotnet-webapi.md
         - name: NodeJS
-          href: active-directory-devquickstarts-webapi-nodejs.md
+          href: quickstart-v1-nodejs-webapi.md
     - name: 服務對服務
       items:
         - name: 概觀
           href: 'active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api'
         - name: .NET
-          href: 'active-directory-code-samples.md#server-or-daemon-application-to-web-api'
+          href: 'sample-v1-code.md#server-or-daemon-application-to-web-api'
         - name: OAuth 2.0 用戶端認證
-          href: active-directory-protocols-oauth-service-to-service.md
+          href: v1-oauth2-client-creds-grant-flow.md
 - name: 手冊
   items:
     - name: 應用程式註冊
       href: quickstart-v1-integrate-apps-with-azure-ad.md
     - name: 多租用戶應用程式
-      href: active-directory-devhowto-multi-tenant-overview.md
+      href: howto-convert-app-to-be-multi-tenant.md
     - name: 條件式存取
-      href: active-directory-conditional-access-developer.md
+      href: conditional-access-dev-guide.md
     - name: 權限
-      href: active-directory-permissions.md
+      href: v1-permissions-and-consent.md
     - name: OAuth 和 OpenID Connect
       items:
         - name: OpenID Connect 通訊協定
-          href: active-directory-protocols-openid-connect-code.md
+          href: v1-protocols-openid-connect-code.md
         - name: OAuth 2.0 驗證碼授與
-          href: active-directory-protocols-oauth-code.md
+          href: v1-protocols-oauth-code.md
         - name: OAuth 2.0 隱含授與
-          href: active-directory-dev-understanding-oauth2-implicit-grant.md
+          href: v1-oauth2-implicit-grant-flow.md
     - name: SAML 2.0
       href: active-directory-saml-protocol-reference.md
       items:
@@ -89,23 +89,23 @@
         - name: 自訂宣告
           href: active-directory-saml-claims-customization.md
         - name: 偵錯 SAML 型 SSO
-          href: active-directory-saml-debugging.md
+          href: howto-v1-debug-saml-sso-issues.md
         - name: 單一登入 SAML 通訊協定
-          href: active-directory-single-sign-on-protocol-reference.md
+          href: single-sign-on-saml-protocol.md
         - name: 單一登出 SAML 通訊協定
-          href: active-directory-single-sign-out-protocol-reference.md
+          href: single-sign-out-saml-protocol.md
     - name: 建立租用戶
       href: quickstart-create-new-tenant.md
     - name: 服務條款和隱私權聲明
-      href: active-directory-app-terms-service-privacy-statement.md
+      href: howto-add-terms-of-service-privacy-statement.md
     - name: 商標方針
-      href: active-directory-branding-guidelines.md
+      href: howto-add-branding-in-azure-ad-apps.md
     - name: 行動和桌面 SSO
       items:
         - name: 在 Android 上啟用 SSO
-          href: active-directory-sso-android.md
+          href: howto-v1-enable-sso-on-android.md
         - name: 在 iOS 上啟用 SSO
-          href: active-directory-sso-ios.md
+          href: howto-v1-enable-sso-on-ios.md
     - name: Azure AD B2B
       href: ../active-directory-b2b-what-is-azure-ad-b2b.md
     - name: 以 SCIM 進行使用者佈建
@@ -148,32 +148,32 @@
     - name: 驗證程式庫 (ADAL)
       href: active-directory-authentication-libraries.md
     - name: 依據案例的程式碼範例
-      href: active-directory-code-samples.md
+      href: sample-v1-code.md
     - name: 詞彙
       href: active-directory-dev-glossary.md
     - name: 驗證通訊協定
       href: active-directory-authentication-protocols.md
       items:
         - name: OpenID Connect
-          href: active-directory-protocols-openid-connect-code.md
+          href: v1-protocols-openid-connect-code.md
         - name: OAuth
-          href: active-directory-protocols-oauth-code.md
+          href: v1-protocols-oauth-code.md
         - name: 服務對服務呼叫
-          href: active-directory-protocols-oauth-service-to-service.md
+          href: v1-oauth2-client-creds-grant-flow.md
         - name: 代理者流程
-          href: active-directory-protocols-oauth-on-behalf-of.md
+          href: v1-oauth2-on-behalf-of-flow.md
         - name: 支援的權杖和宣告類型
-          href: active-directory-token-and-claims.md
+          href: v1-id-and-access-tokens.md
         - name: 設定應用程式選擇性和自訂宣告
           href: active-directory-optional-claims.md
         - name: 簽署金鑰變換
           href: active-directory-signing-key-rollover.md
         - name: 同盟中繼資料
-          href: active-directory-federation-metadata.md
+          href: azure-ad-federation-metadata.md
         - name: 憑證認證
           href: active-directory-certificate-credentials.md
     - name: 應用程式物件
-      href: active-directory-application-objects.md
+      href: app-objects-and-service-principals.md
       items:
         - name: 應用程式和 Azure AD
           href: active-directory-how-applications-are-added.md
@@ -193,7 +193,7 @@
         - name: 限制
           href: active-directory-v2-limitations.md
         - name: v1-v2 比較
-          href: active-directory-v2-compare.md
+          href: azure-ad-endpoint-comparison.md
     - name: 開始使用
       items:
         - name: 行動和桌面應用程式
@@ -241,28 +241,28 @@
         - name: 驗證程式庫
           href: active-directory-v2-libraries.md
         - name: 依據案例的 v2.0 程式碼範例
-          href: active-directory-v2-code-samples.md
+          href: sample-v2-code.md
         - name: v2.0 驗證通訊協定
           href: active-directory-v2-protocols.md
           items:
             - name: OpenID Connect
-              href: active-directory-v2-protocols-oidc.md
+              href: v2-protocols-oidc.md
             - name: OAuth 2.0 授權碼授與
-              href: active-directory-v2-protocols-oauth-code.md
+              href: v2-oauth2-auth-code-flow.md
             - name: OAuth 2.0 隱含授與
-              href: active-directory-v2-protocols-implicit.md
+              href: v2-oauth2-implicit-grant-flow.md
             - name: OAuth 2.0 用戶端認證授與
-              href: active-directory-v2-protocols-oauth-client-creds.md
+              href: v2-oauth2-client-creds-grant-flow.md
             - name: OAuth 2.0 代理者流程
-              href: active-directory-v2-protocols-oauth-on-behalf-of.md
+              href: v2-oauth2-on-behalf-of-flow.md
             - name: 憑證認證
               href: active-directory-certificate-credentials.md
             - name: Oauth 2.0 範例程式碼
               href: active-directory-protocols-oauth-get-jwt-token.md
         - name: 權杖
-          href: active-directory-v2-tokens.md
+          href: v2-id-and-access-tokens.md
         - name: 範圍與同意
-          href: active-directory-v2-scopes.md
+          href: v2-permissions-and-consent.md
 - name: 資源
   items:
     - name: 取得說明

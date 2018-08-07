@@ -81,38 +81,36 @@
 - name: 概念
   items:
     - name: 儲存體帳戶
+      href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Authorization
+      href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       items:
-        - name: 儲存體帳戶概觀
-          href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Authorization
-          href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 使用 Azure AD 進行驗證
+          href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           items:
-            - name: 使用 Azure AD 進行驗證
-              href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-              items:
-                - name: 使用 RBAC 管理存取權限
-                  href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: 從應用程式進行驗證
-                  href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: 從受控服務識別進行驗證
-                  href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: 使用搭配 CLI 或 PowerShell 的 Azure AD 身分識別
-                  href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: 使用共用金鑰進行授權
-              href: /rest/api/storageservices/authorize-with-shared-key
-            - name: 使用 SAS 進行授權
-              href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: 匿名存取 Blob
-              href: storage-manage-access-to-resources.md
-        - name: 資料備援
-          href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          items:
-            - name: 本地備援儲存體
-              href: ../common/storage-redundancy-lrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: 區域備援儲存體
-              href: ../common/storage-redundancy-zrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: 異地備援儲存體
-              href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: 使用 RBAC 管理存取權限
+              href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: 從應用程式進行驗證
+              href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: 從受控服務識別進行驗證
+              href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: 使用搭配 CLI 或 PowerShell 的 Azure AD 身分識別
+              href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 使用共用金鑰進行授權
+          href: /rest/api/storageservices/authorize-with-shared-key
+        - name: 使用 SAS 進行授權
+          href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 匿名存取 Blob
+          href: storage-manage-access-to-resources.md
+    - name: 資料備援
+      href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      items:
+        - name: 本地備援儲存體
+          href: ../common/storage-redundancy-lrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 區域備援儲存體
+          href: ../common/storage-redundancy-zrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 異地備援儲存體
+          href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 存取層級
           href: storage-blob-storage-tiers.md
         - name: 管理 Azure Blob 儲存體生命週期
