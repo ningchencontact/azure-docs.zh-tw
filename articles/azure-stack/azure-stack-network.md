@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 08/01/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: b39a1f7b0de01c50b04072cc0de011928c6af786
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f54849b9fef8ff09aa9b5b6254c92fc3c452ef4a
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003608"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414420"
 ---
 # <a name="network-connectivity"></a>網路連線
 本文提供 Azure Stack 網路基礎架構資訊，可協助您決定如何以最佳方式將 Azure Stack 整合至現有的網路環境。 
@@ -85,7 +85,7 @@ HLH 也會裝載部署 VM (DVM)。 DVM 會在 Azure Stack 部署期間使用，�
 ### <a name="ports-and-urls"></a>連接埠和 URL
 若要讓外部網路使用 Azure Stack 服務 (例如入口網站、Azure Resource Manager、DNS 等)，您必須允許針對特定 URL、連接埠和通訊協定允許至這些端點的輸入流量。
  
-在上行連結至傳統 Proxy 伺服器的 Transparent Proxy 部署中，您必須允許特定連接埠和 URL 進行[輸入](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound)和[出](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound)通訊。 其中包括用於身分識別、Marketplace 摘要整合、修補和更新、註冊和使用資料的連接埠和 URL。
+在上行連結至傳統 Proxy 伺服器的 Transparent Proxy 部署中，您必須允許特定連接埠和 URL 進行[輸入](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound)和[出](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound)通訊。 其中包括用於身分識別、Marketplace、修補和更新、註冊和使用狀況資料的連接埠和 URL。
 
 ## <a name="next-steps"></a>後續步驟
 [邊界連線能力](azure-stack-border-connectivity.md)

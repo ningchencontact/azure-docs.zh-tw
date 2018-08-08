@@ -6,16 +6,16 @@ ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 19e8e9d22938fa8a18299d67aa77824aaae3f6da
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: b59dba541394c105370cfd3af0768a8477ddb4e6
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34267001"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39347697"
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>比較 Azure Active Directory 的 B2B 共同作業和 B2C
 
@@ -29,7 +29,7 @@ B2B 共同作業 |     Azure AD B2C 獨立供應項目
 合作夥伴使用者位於哪個目錄︰外部組織的合作夥伴使用者與員工在相同的管理目錄中，但特別註解。 管理他們的方式可和員工相同，可以加入到相同的群組等等  | 客戶使用者實體位於哪個目錄︰在應用程式目錄中。 和組織的員工及合作夥伴目錄 (若有) 分開管理。
 支援單一登入 (SSO) 至所有和 Azure AD 連線的應用程式。 例如，您可以提供 Office 365 或內部部署應用程式的存取權，以及其他 SaaS 應用程式 (例如 Salesforce 或 Workday) 的存取權。  |  支援 SSO 至客戶在 Azure AD B2C 租用戶內擁有的應用程式。 不支援 SSO 至 Office 365 或其他 Microsoft 和非 Microsoft SaaS 應用程式。
 合作夥伴生命週期︰由主控/邀請組織管理。  | 客戶生命週期︰自助式管理或由應用程式管理。
-安全性原則和合規性︰由主控/邀請組織管理。  | 安全性原則和合規性︰由應用程式管理。
+安全性原則和合規性︰由主控/邀請組織管理 (例如，使用[條件式存取原則](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access))。  | 安全性原則和合規性︰由應用程式管理。
 商標︰使用主控/邀請組織的品牌。  |    商標︰由應用程式管理。 通常多半會是產品品牌加上組織在背景淡出的效果。
 其他資訊：[部落格文章](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/)、[文件](what-is-b2b.md)  | 其他資訊：[產品頁面](https://azure.microsoft.com/services/active-directory-b2c/)、[文件](https://docs.microsoft.com/azure/active-directory-b2c/)
 

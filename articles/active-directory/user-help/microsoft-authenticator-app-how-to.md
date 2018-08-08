@@ -1,110 +1,118 @@
 ---
-title: 適用於行動電話的 Microsoft Authenticator 應用程式 - Azure AD | Microsoft Docs
-description: 了解如何升級至最新版的 Azure Authenticator。
-services: multi-factor-authentication
-documentationcenter: ''
+title: 開始使用 Microsoft Authenticator 應用程式 - Azure Active Directory | Microsoft Docs
+description: 了解如何升級至最新版的 Microsoft Authenticator。
+services: active-directory
 author: eross-msft
 manager: mtillman
 ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba
-ms.service: multi-factor-authentication
+ms.service: active-directoary
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: user-help
 ms.topic: conceptual
-ms.date: 10/17/2017
+ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.custom: H1Hack27Feb2017, end-user
-ms.openlocfilehash: 8241dcaaf5623a22f4fc485f021766276472fb51
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 8afd743f6010822709bf3d49f7a3bbcd51b19edf
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39058150"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346482"
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>開始使用 Microsoft 驗證器應用程式
-Microsoft Authenticator 應用程式可以為您的工作或學校帳戶 (例如 bsimon@contoso.com) 或 Microsoft 帳戶 (例如 bsimon@outlook.com) 提供額外一層安全性。
 
-此應用程式可以下列兩種方式之一運作︰
+Microsoft Authenticator 應用程式可藉由為您的公司或學校帳戶 (例如 alain@contoso.com) 或是個人 Microsoft 帳戶 (例如 alain@outlook.com) 提供一層額外的安全性，協助防止未經授權存取帳戶，以及停止詐騙交易。 您可以使用它作為第二個驗證方法，或在使用手機登入時取代您的密碼。 如需如何設定和使用無密碼手機登入的詳細資訊，請參閱[使用您的電話而不是您的密碼登入](microsoft-authenticator-app-phone-signin-faq.md)。
 
-* **通知**。 此應用程式可協助防止未經授權即存取帳戶，並藉由推播通知到您的手機或平板電腦來停止詐騙交易。 只需檢視通知，如果合法，則選取 [驗證] 。 否則，您可以選取 [拒絕] 。
-* **驗證碼**。 此應用程式可以作為軟體權杖來產生 OATH 驗證碼。 在您輸入使用者名稱和密碼後，必須在登入畫面出現提示時輸入應用程式提供的驗證碼。 驗證碼提供第二種形式的驗證。
+使用應用程式進行雙步驟驗證時，它可以下列兩種方式之一來運作：
 
-Microsoft Authenticator 應用程式會取代 Azure Authenticator 應用程式。 Azure 驗證器應用程式仍可運作，但如果您決定改用新的 Microsoft Authenticator 應用程式，本文可協助您。  
+- **通知。** 應用程式會將通知傳送到您的裝置。 請確定通知正確，然後選取 [驗證]。 如果您無法辨識通知，請選取 [拒絕]。
+
+- **驗證碼。** 輸入您的使用者名稱和密碼之後，您可以開啟應用程式，然後將 [帳戶] 畫面上提供的驗證碼複製到登入畫面。 驗證碼會以第二種形式的驗證來運作。
 
 ## <a name="opt-in-for-two-step-verification"></a>選擇雙步驟驗證
 
-Microsoft Authenticator 無法自行運作。 將您的每個帳戶設定為在以您的使用者名稱和密碼登入之後，提示您選擇第二個驗證方法。
+您的組織會決定您是否要搭配公司或學校帳戶來使用雙步驟驗證。 您的系統管理員將會讓您知道需要設定並使用哪些驗證方法。 如需詳細資訊，請參閱 [Azure Multi-Factor Authentication 對我有何意義](multi-factor-authentication-end-user.md)。
 
-如果是公司或學校帳戶，您通常不需要自行選擇此功能。 相反地，安全性系統管理員會代替您選擇，然後通知您為您的帳戶註冊驗證方法。 如果此案例適用於您，請參閱 [Azure Multi-Factor Authentication 對我有何意義](multi-factor-authentication-end-user.md)以深入了解。
+針對您的個人 Microsoft 帳戶，您可以為自己設定雙步驟驗證。 如需詳細資訊和指示，請參閱[關於雙步驟驗證](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification)。
 
-如果是個人帳戶，您必須自行設定雙步驟驗證。 如果您有 Microsoft 帳戶，[關於雙步驟驗證](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification)中說明這些步驟。
-
-您也可以搭配非 Microsoft 帳戶使用 Microsoft Authenticator。 它們可能不是將此功能叫做雙步驟驗證，但您應該能夠在安全性或登入設定下找到它。
+您也可以搭配非 Microsoft 帳戶使用 Microsoft Authenticator 應用程式。 那些帳戶可能不是將此功能稱為雙步驟驗證，但您應該能夠在安全性或登入設定內找到它。 如需如何設定這些非 Microsoft 帳戶的詳細資訊，請參閱 [Microsoft 客戶支援影片](https://www.youtube.com/playlist?list=PLyhj1WZ29G65QdD9NxTOAm8HwOS-OBUrX) \(英文\)。
 
 ## <a name="install-the-app"></a>安裝應用程式
-Microsoft Authenticator 應用程式適用於 [Android](https://go.microsoft.com/fwlink/?linkid=866594)、[iOS](https://go.microsoft.com/fwlink/?linkid=866594) 和 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)。
+
+Microsoft Authenticator 應用程式適用於 [Android](https://go.microsoft.com/fwlink/?linkid=866594)、[iOS](https://go.microsoft.com/fwlink/?linkid=866594) 和 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)。 若要取得最佳體驗，您應該讓應用程式在要求您時收到通知。 
 
 ## <a name="add-accounts-to-the-app"></a>將帳戶新增至應用程式
-針對每個想要新增至 Microsoft Authenticator 應用程式的帳戶，請使用下列其中一個程序：
 
-### <a name="add-a-personal-microsoft-account-to-the-app"></a>將個人的 Microsoft 帳戶新增至應用程式
+您可以將公司或學校帳戶或是個人帳戶新增至 Microsoft Authenticator 應用程式。 
+
+### <a name="add-a-personal-microsoft-account"></a>新增個人的 Microsoft 帳戶
 
 針對個人的 Microsoft 帳戶 (您用來登入 Outlook.com、Xbox、Skype 等的帳戶)，您只需要登入在 Microsoft Authenticator應用程式中的帳戶。
 
-### <a name="add-a-work-or-school-account-to-the-app-using-the-qr-code-scanner"></a>使用 QR 代碼掃描器將工作或學校帳戶新增至應用程式
-1. 移至安全性驗證設定畫面。  如需如何進入此畫面的詳細資訊，請參閱 [變更安全性設定](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page)。
-2. 核取 **Authenticator 應用程式**旁的方塊，然後選取 [設定]。
+### <a name="add-a-work-or-school-account"></a>新增公司或學校帳戶
 
-    ![安全性驗證設定畫面上的設定按鈕](./media/microsoft-authenticator-app-how-to/azureauthe.png)
+1. 如果可能，請前往另一部電腦或裝置上的[其他安全性驗證](http://aka.ms/mfasetup)畫面。 如需如何進入此畫面的詳細資訊，請參閱[變更安全性設定](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page)或連絡您的系統管理員。
 
-    這會顯示有 QR 代碼的畫面。
+    >[!Note]
+    >如果您的系統管理員已開啟安全性資訊預覽體驗，您就可以遵循[將安全性資訊設定為使用驗證器應用程式](security-info-setup-auth-app.md)一節中的指示。
 
-    ![提供 QR 代碼的畫面](./media/microsoft-authenticator-app-how-to/barcode2.png)
-3. 開啟 Microsoft 驗證器應用程式。 在 [帳戶] 畫面上，選取 [+]，然後指定您要新增工作帳戶或學校帳戶。
-4. 使用相機來掃描 QR 代碼，然後選取 [完成]  關閉 QR 代碼畫面。
+2. 核取 [驗證器應用程式] 旁的方塊，然後選取 [設定]。
 
-    如果相機運作不正常，您可以[手動輸入 QR 代碼和 URL](#add-an-account-to-the-app-manually)。
+    ![安全性驗證設定畫面上的設定按鈕](./media/microsoft-authenticator-app-how-to/auth-app-configure.png)
 
-5. 當應用程式顯示您的帳戶名稱與下面的六位數代碼時，則您已完成。
+    [設定行動裝置應用程式] 畫面隨即出現，並提供 QR 代碼，讓您可使用驗證器應用程式進行掃描。
 
-    ![帳戶畫面](./media/microsoft-authenticator-app-how-to/accounts.png)
+    ![提供 QR 代碼的畫面](./media/microsoft-authenticator-app-how-to/auth-app-barcode.png)
+
+3. 開啟 Microsoft 驗證器應用程式。 在 [帳戶] 畫面上，選取 [新增帳戶]，然後選取 [公司或學校帳戶]。
+
+4. 使用裝置的相機來掃描 QR 代碼，然後選取 [完成]  以關閉 QR 代碼畫面。
+
+    >[!Note]
+    >如果相機無法正常運作，您可以[手動輸入 QR 代碼和 URL](#add-an-account-to-the-app-manually)。
+
+    應用程式的 [帳戶] 畫面會顯示您的帳戶名稱和六位數的驗證碼。 為了提高安全性，驗證碼每隔 30 秒就會變更，讓您無法使用同一個驗證碼兩次。  
+
+    ![帳戶畫面](./media/microsoft-authenticator-app-how-to/auth-app-accounts.png)
 
 ### <a name="add-an-account-to-the-app-manually"></a>手動新增帳戶至應用程式
-1. 移至安全性驗證設定畫面。  如需如何進入此畫面的詳細資訊，請參閱 [變更安全性設定](multi-factor-authentication-end-user-manage-settings.md)。
-2. 選取 [設定] 。
 
-    ![安全性驗證設定畫面上的設定按鈕](./media/microsoft-authenticator-app-how-to/azureauthe.png)
+1. 移至 [其他安全性驗證] 畫面。 如需如何進入此畫面的詳細資訊，請參閱 [變更安全性設定](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page)。
 
-    這會顯示有 QR 代碼的畫面。  記下代碼和 URL。
+2. 核取 [驗證器應用程式] 旁的方塊，然後選取 [設定]。
 
-    ![提供 QR 代碼與 URL 的畫面](./media/microsoft-authenticator-app-how-to/barcode2.png)
-3. 開啟 Microsoft 驗證器應用程式。 在 [帳戶] 畫面上，選取 [+]，然後指定您要新增工作帳戶或學校帳戶。
+    [設定行動裝置應用程式] 畫面隨即出現。
 
-4. 在掃描器上，選取 [手動輸入代碼] 。
+3. 從 [設定行動裝置應用程式] 畫面複製代碼和 URL 資訊，讓您可以將它們手動輸入到 QR 掃描器。
 
-    ![掃描 QR 代碼的畫面](./media/microsoft-authenticator-app-how-to/scan2.png)
-5. 在應用程式的適當方塊中輸入代碼和 URL，然後選取 [完成]。
+4. 開啟 Microsoft 驗證器應用程式。 在 [帳戶] 畫面上，選取 [新增帳戶]，然後選取 [公司或學校帳戶]。
 
-    ![輸入代碼和 URL 的畫面](./media/microsoft-authenticator-app-how-to/manual.png)
+5. 在 QR 掃描器畫面上，選取 [手動輸入代碼]。
 
-6. 當應用程式顯示您的帳戶名稱與下面的六位數代碼時，則您已完成。
+    ![掃描 QR 代碼的畫面](./media/microsoft-authenticator-app-how-to/auth-app-manual-code.png)
+   
+6. 從含有 QR 代碼的畫面中將代碼和 URL 輸入到 [新增帳戶] 畫面，然後選取 [完成]。
 
-    ![帳戶畫面](./media/microsoft-authenticator-app-how-to/accounts.png)
+    ![輸入代碼和 URL 的畫面](./media/microsoft-authenticator-app-how-to/auth-app-code-url.png)
 
-### <a name="add-an-account-to-the-app-using-your-devices-fingerprint-or-facial-recognition-capabilities"></a>將帳戶新增至使用您裝置之指紋或臉部辨識功能的應用程式
-您的組織可能需要 PIN 才能完成驗證挑戰。 Microsoft Authenticator 應用程式可以使用您裝置的指紋或臉部辨識功能，而非 PIN。 若要在應用程式中針對第一個驗證設定此功能，您會看到使用 Touch ID (適用於 iOS) 或是改為指紋識別的選項。 
+    應用程式的 [帳戶] 畫面會顯示您的帳戶名稱和六位數的驗證碼。 為了提高安全性，驗證碼每隔 30 秒就會變更，讓您無法使用同一個驗證碼兩次。
 
-若要設定 Microsoft Authenticator 的 Touch ID，您需要使用 PIN 完成一般驗證挑戰。 Microsoft Authenticator 將會針對支援 Touch ID 的裝置自動設定它。 
+### <a name="using-your-devices-fingerprint-or-facial-recognition-capabilities"></a>使用裝置的指紋或臉部辨識功能
 
-![Touch ID 安裝程式的驗證](./media/microsoft-authenticator-app-how-to/touchid1.png)
-
-往後當您被要求驗證登入時，您只要選取收到的推播通知並且掃描您的指紋即可，不需要輸入您的 PIN。
-
-![推播通知](./media/microsoft-authenticator-app-how-to/touchid2.png)
+您的組織可能需要 PIN，才能完成您的身分識別驗證。 您可以設定 Microsoft Authenticator 應用程式來使用裝置的指紋或臉部辨識功能，而非 PIN。 您可以藉由選取選項來使用裝置的生物識別功能 (而非 PIN) 作為身分識別，在首次使用驗證器應用程式來驗證帳戶時設定此動作。
 
 ## <a name="use-the-app-when-you-sign-in"></a>當您登入時使用應用程式
 
-當您的帳戶新增至應用程式後，可能會提示您執行測試驗證，以確保一切都已正確設定。 之後，就大功告成了！ 直到下次再登入之前，您不需要採取任何動作。
+將帳戶新增到應用程式之後，您可以使用此應用程式來登入帳戶。
 
-如果您選擇在應用程式中使用驗證碼，您會開始在首頁上看到它們。 它們每 30 秒變更一次，所以當您需要時，一定可以獲得新的驗證碼。 但在您登入並接獲提示輸入驗證碼之前，不必理會它們。  
+如果您選擇在應用程式中使用驗證碼，您將會開始在 [帳戶] 頁面上看到它們。 驗證碼每隔 30 秒就會變更，所以當您需要驗證碼時，永遠都可取得新的驗證碼。 但在您登入並接獲提示輸入驗證碼之前，不必理會它們。
+
+## <a name="next-steps"></a>後續步驟
+
+- 如果您有更多關於應用程式的一般問題，請參閱 [Microsoft Authenticator 常見問題集](microsoft-authenticator-app-faq.md)
+
+- 如果您有關於如何使用手機登入的問題，請參閱[使用您的電話而不是您的密碼登入](microsoft-authenticator-app-phone-signin-faq.md)
+
+- 如果您需要雙步驟驗證的詳細資訊，請參閱[對我的帳戶進行雙步驟驗證設定](multi-factor-authentication-end-user-first-time.md)
+
+- 如果您想要關於安全性資訊的詳細資訊，請參閱[管理安全性資訊](security-info-manage-settings.md)

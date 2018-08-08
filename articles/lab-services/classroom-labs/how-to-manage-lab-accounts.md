@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: ff2968f8e2fa9a705817b020f2daa6582d78029c
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: fd43c62f1a291a59d5d373437a49b263d6af4cb3
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225297"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345883"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>管理 Azure 實驗室服務中的實驗室帳戶 
 在 Azure 實驗室服務中，實驗室帳戶是受控實驗室 (例如教室實驗室) 的容器。 系統管理員會使用 Azure 實驗室服務來設定實驗室帳戶，並向可以在帳戶中建立實驗室的實驗室擁有者提供存取權。 本文說明如何建立實驗室帳戶、檢視所有實驗室帳戶，或刪除實驗室帳戶。
@@ -55,11 +55,17 @@ ms.locfileid: "39225297"
     ![將使用者新增至實驗室建立者角色](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
 
 ## <a name="specify-marketplace-images-available-to-lab-owners"></a>指定適用於實驗室擁有者的 Marketplace 映像
-在本節中，您會指定實驗室擁有者可用來建立教室實驗室的 Marketplace 映像。 
+身為實驗室帳戶擁有者的您，可以指定實驗室建立者可用來在實驗室帳戶中建立實驗室的 Marketplace 映像。 
 
 1. 選取左側功能表上的 [Marketplace 映像]。 根據預設，您會看到映像 (包括已啟用和停用) 的完整清單。 您可以從頂端的下拉式清單中選取 [僅限已啟用]/[僅限已停用] 選項來篩選清單，而僅檢視已啟用/已停用的映像。 
-
+    
     ![Marketplace 映像頁面](../media/tutorial-setup-lab-account/marketplace-images-page.png)
+
+    在清單中顯示的是滿足下列條件的 Marketplace 映像：
+        
+    - 建立單一 VM。
+    - 使用 Azure Resource Manager 來佈建 VM
+    - 不需要購買額外的授權方案
 2. 若要**停用**已啟用的 Marketplace 映像，請執行下列其中一個動作： 
     1. 選取最後一個資料行中的 [...] (省略符號)，然後選取 [停用映像]。 
 

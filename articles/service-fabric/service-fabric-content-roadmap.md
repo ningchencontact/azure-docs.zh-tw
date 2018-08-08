@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: 1c3ea5b041cf2a961ef57bc168ae86b83412e044
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9f37a7665521b69634329078258b00cb9f53c407
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212818"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358713"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>您想要了解 Service Fabric 嗎？
 Azure Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署及管理可調整和可信賴的微服務。  Service Fabric 有相當大的介面區，不過，要了解的方面很多。  本文提供 Service Fabric 的概述，並描述核心概念、程式設計模型、應用程式生命週期、測試、叢集及健康情況監視。 如需相關簡介及了解如何使用 Service Fabric 來建立微服務，請參閱[概觀](service-fabric-overview.md)和[什麼是微服務？](service-fabric-overview-microservices.md)。 本文並未包含完整的內容清單，但有連結到 Service Fabric 每個領域的概觀與入門文章。 
@@ -55,7 +55,7 @@ Azure Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署�
 
 在建立具名應用程式之後，您可藉由指定服務類型 (使用其名稱/版本)，在叢集內建立它其中一種服務類型的執行個體。 需為每個服務類型執行個體指派一個 URI (名稱範圍需在其具名應用程式的 URI 之下)。 例如，如果您在 "MyNamedApp" 具名應用程式內建立 "MyDatabase" 具名服務，URI 看起來會像這樣：*fabric:/MyNamedApp/MyDatabase*。 您可以在具名應用程式內建立一或多個具名服務。 每個具名服務可以有自己的分割配置和執行個體/複本計數。 
 
-服務類型有兩種：無狀態和具狀態。 無狀態服務可以將持續狀態儲存外部儲存體服務中，例如 Azure 儲存體、Azure SQL Database 或 Azure Cosmos DB。 當服務完全沒有持續性儲存體時，請使用無狀態服務。 具狀態服務會使用 Service Fabric 透過其 Reliable Collections 或 Reliable Actors 程式設計模型來管理您的服務狀態。 
+服務類型有兩種：無狀態和具狀態。 無狀態服務不會在服務內儲存狀態。 無狀態服務完全沒有持續性儲存體或可以將持續狀態儲存外部儲存體服務中，例如 Azure 儲存體、Azure SQL Database 或 Azure Cosmos DB。 具狀態服務會將狀態儲存在服務內並使用 Reliable Collections 或 Reliable Actors 程式設計模型來管理狀態。 
 
 建立具名服務時，您需指定資料分割配置。 含有大量狀態的服務會跨資料分割切割其資料。 每個資料分割會負責服務完整狀態的一部分，其會分散至全體叢集的節點。  
 
@@ -99,7 +99,7 @@ Service Fabric 與 [ASP.NET Core](service-fabric-reliable-services-communication
 - 在 Reliable Service 內部執行。 這可與 Service Fabric 執行階段更緊密整合，並可允許具狀態 ASP.NET Core 服務。
 
 ### <a name="guest-executables"></a>客體可執行檔
-[客體可執行檔](service-fabric-guest-executables-introduction.md)是以任何語言所撰寫，且與其他服務一同裝載於 Service Fabric 叢集的現有任意可執行檔。 客體可執行檔未直接與 Service Fabric API 整合。 不過，它們仍然受惠於功能和平台提供項目，例如自訂健康情況和負載報告，以及透過呼叫 REST API 來探索服務。 它們也具備完整的應用程式生命週期支援。 
+[客體可執行檔](service-fabric-guest-executables-introduction.md)是以任何語言所撰寫，且與其他服務一同裝載於 Service Fabric 叢集的現有任意可執行檔。 客體可執行檔未直接與 Service Fabric API 整合。 不過，它們仍然受惠於功能和平台供應項目，例如自訂健康情況和負載報告，以及透過呼叫 REST API 來探索服務。 它們也具備完整的應用程式生命週期支援。 
 
 ## <a name="application-lifecycle"></a>應用程式生命週期
 如同其他平台，Service Fabric 上的應用程式通常會經歷下列階段：設計、開發、測試、部署、升級、維護和移除。 從開發到部署、到每日管理、維護，以及最終的解除委任，Service Fabric 為雲端應用程式的完整應用程式生命週期提供第一等的支援。 服務模型可以啟用數個不同的角色，在應用程式生命週期中獨立參與。 [Service Fabric 應用程式生命週期](service-fabric-application-lifecycle.md)說明 API 的概觀，以及不同的角色如何在 Service Fabric 應用程式生命週期的各個階段使用 API。 

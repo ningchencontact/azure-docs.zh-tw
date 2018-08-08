@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: ''
-ms.date: 06/07/2018
+ms.date: 08/01/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 91b8a936215e906e6e5b7e6a4fcd0dc88bef6009
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: d166916ca54f3b8c26a418ff83093e53dcdbe515
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850315"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413727"
 ---
 # <a name="redeploy-the-asdk"></a>重新部署 ASDK
 在本文中，您會了解如何在非生產環境中重新部署 Azure Stack 開發套件 (ASDK)。 因為不支援升級 ASDK，您需要將其完全重新部署到較新的版本。 若您想要從頭開始，也可以隨時重新部署 ASDK。
@@ -30,7 +30,7 @@ ms.locfileid: "34850315"
 > 不支援將 ASDK 升級到新版本。 每當您想要評估新版本的 Azure Stack，都必須在開發套件主機電腦上重新部署 ASDK。
 
 ## <a name="remove-azure-registration"></a>移除 Azure 註冊 
-若您先前已向 Azure 註冊您的 ASDK 安裝，請先移除註冊資源，再重新部署 ASDK。 重新部署 ASDK 時，請重新註冊 ASDK 以啟用市集摘要整合。 若您先前未使用您的 Azure 訂用帳戶註冊過 ASDK，可略過本節。
+若您先前已向 Azure 註冊您的 ASDK 安裝，請先移除註冊資源，再重新部署 ASDK。 重新部署 ASDK 時，請重新註冊 ASDK 以啟用市集中的項目可用性。 若您先前未使用您的 Azure 訂用帳戶註冊過 ASDK，可略過本節。
 
 若要移除註冊資源，請使用 **Remove-AzsRegistration** Cmdlet 來取消註冊 Azure Stack。 然後，使用 **Remove-AzureRMRsourceGroup** Cmdlet，從您的 Azure 訂用帳戶中刪除 Azure Stack 資源群組：
 

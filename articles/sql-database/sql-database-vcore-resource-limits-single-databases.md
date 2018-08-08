@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: ac9070e328ef867a0b0e8d7d81f5147a50357928
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 603a6e2f3ce744d792ad9c9be20622c65a37dda3
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126403"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414601"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>適用於單一資料庫的 Azure SQL Database 以虛擬核心為基礎的購買模型限制
 
@@ -22,9 +22,13 @@ ms.locfileid: "39126403"
 
 如需以 DTU 為基礎的購買模型限制，請參閱 [SQL Database 以 DTU 為基礎的資源限制](sql-database-dtu-resource-limits.md)。
 
+> [!IMPORTANT]
+> 在某些情況下，您可能需要壓縮資料庫來回收未使用的空間。 如需詳細資訊，請參閱[管理 Azure SQL Database 中的檔案空間](sql-database-file-space-management.md)。
+
+
 ## <a name="single-database-storage-sizes-and-performance-levels"></a>單一資料庫：儲存體大小與效能層級
 
-對於單一資料庫，下表顯示了單一資料庫在每個服務層和效能層級的可用資源。 您可以使用 [Azure 入口網站](sql-database-servers-databases-manage.md#azure-portal-manage-logical-servers-and-databases)、[TRANSACT-SQL](sql-database-servers-databases-manage.md#transact-sql-manage-logical-servers-and-databases)、[PowerShell](sql-database-servers-databases-manage.md#powershell-manage-logical-servers-and-databases)、[Azure CLI](sql-database-servers-databases-manage.md#azure-cli-manage-logical-servers-and-databases) 或 [REST API](sql-database-servers-databases-manage.md#rest-api-manage-logical-servers-and-databases) 來為單一資料庫設定服務層、效能層級和儲存體數量。
+對於單一資料庫，下表顯示了單一資料庫在每個服務層和效能層級的可用資源。 您可以使用 [Azure 入口網站](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases)、[TRANSACT-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases)、[PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases)、[Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases) 或 [REST API](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases) 來為單一資料庫設定服務層、效能層級和儲存體數量。
 
 ### <a name="general-purpose-service-tier"></a>一般用途服務層
 

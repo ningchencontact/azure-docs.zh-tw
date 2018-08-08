@@ -1,25 +1,22 @@
 ---
-title: 使用 Microsoft Authenticator 應用程式進行備份和復原 - Azure AD | Microsoft Docs
+title: 使用 Microsoft Authenticator 應用程式進行備份與復原 - Azure Active Directory | Microsoft Docs
 description: 瞭解如何使用 Microsoft Authenticator 應用程式來備份和復原您的帳戶認證。
-services: multi-factor-authentication
-documentationcenter: ''
+services: active-directory
 author: eross-msft
 manager: mtillman
-ms.service: multi-factor-authentication
+ms.component: user-help
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: lizross
 ms.reviewer: olhaun
-ms.custom: end-user
-ms.openlocfilehash: a9c950ecafd2eb5f3aed1bee3707f57be6ec3b62
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 29226f0645a772ffe02e378c9b4df0a87909731a
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39058550"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358115"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>使用 Microsoft Authenticator 應用程式保來備份和復原帳戶認證
 
@@ -51,7 +48,7 @@ Microsoft Authenticator 應用程式會將您的帳戶認證和相關應用程�
 ## <a name="recover-your-account-credentials-on-your-new-device"></a>在您的新裝置上復原您的帳戶認證
 您可以從您的 iCloud 帳戶復原帳戶認證，方法是使用您在備份您的資訊時的相同 Microsoft 復原帳戶。
 
-**復原您的資訊**
+### <a name="to-recover-your-information"></a>復原您的資訊
 1.  在您的 iOS 裝置上開啟 Microsoft Authenticator 應用程式，然後選取畫面底部的 [開始復原]。
 
     ![Microsoft Authenticator 應用程式，其中顯示可按一下 [開始復原] 的位置](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-begin-recovery.png)
@@ -67,7 +64,7 @@ Microsoft Authenticator 應用程式會將您的帳戶認證和相關應用程�
 
 對於個人 Microsoft 帳戶，您可輸入您的密碼以及替代電子郵件或電話號碼來證明您的身分識別。 針對公司或學校帳戶，您必須掃描帳戶提供者提供給您的 QR 代碼。
 
-**提供額外的個人帳戶驗證**
+### <a name="to-provide-additional-verification-for-personal-accounts"></a>提供額外的個人帳戶驗證
 1.  在 Microsoft Authenticator 應用程式的 [帳戶] 畫面中，選取您要復原的帳戶旁的下拉式箭號。
 
     ![Microsoft Authenticator 應用程式，其中顯示可用的帳戶及其相關聯的下拉式箭號](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-arrow.png)
@@ -76,7 +73,7 @@ Microsoft Authenticator 應用程式會將您的帳戶認證和相關應用程�
 
     ![Microsoft Authenticator 應用程式，可讓您輸入您的登入資訊](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-sign-in.png)
 
-**提供額外的公司或學校帳戶驗證**
+### <a name="to-provide-additional-verification-for-work-or-school-accounts"></a>提供額外的公司或學校帳戶驗證
 1.  在 Microsoft Authenticator 應用程式的 [帳戶] 畫面中，選取您要復原的帳戶旁的下拉式箭號。
 
     ![Microsoft Authenticator 應用程式，其中顯示可用的帳戶及其相關聯的下拉式箭號](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-additonal-accts.png)
@@ -86,7 +83,7 @@ Microsoft Authenticator 應用程式會將您的帳戶認證和相關應用程�
     ![Microsoft Authenticator 應用程式，可讓您掃描您的 QR 代碼](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-scan-qr-code.png)
 
     >[!NOTE]
-    >如需有關如何取得 QR 代碼的詳細資訊，請參閱[開始使用 Microsoft Authenticator 應用程式](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/end-user/microsoft-authenticator-app-how-to)一文。
+    >如需如何取得 QR 代碼的詳細資訊，請參閱[＜開始使用 Microsoft Authenticator 應用程式＞一文的「如何新增帳戶」一節](https://docs.microsoft.com/azure/active-directory/user-help/microsoft-authenticator-app-how-to#add-accounts-to-the-app)。
 
 ## <a name="troubleshooting-backup-and-recovery-problems"></a>針對備份和復原問題進行疑難排解
 您的備份無法使用的可能原因如下：

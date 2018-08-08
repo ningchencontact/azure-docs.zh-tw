@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: renash
-ms.openlocfilehash: d4f77460ea6b0a31ed40286f33aa4296bafc9087
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: eda06fbb63352dd71cb0183ebdf683dc2f3a4a4c
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007283"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413836"
 ---
 # <a name="use-azure-files-with-linux"></a>搭配 Linux 使用 Azure 檔案
 [Azure 檔案服務](storage-files-introduction.md)是 Microsoft 易於使用的雲端檔案系統。 可以使用 [SMB 核心用戶端](https://wiki.samba.org/index.php/LinuxCIFS)將 Azure 檔案共用裝載在 Linux 發行版本中。 本文將說明掛接 Azure 檔案共用的兩種方式：使用 `mount` 命令的隨選掛接，以及建立項目 `/etc/fstab` 的開機掛接。
@@ -34,7 +34,7 @@ ms.locfileid: "39007283"
     
     SMB 3.0 加密支援是在 Linux 核心版本 4.11 導入，並且針對熱門的 Linux 發行版本反向導入到舊版核心版本。 在本文件發行時，Azure 資源庫的下列發行版本支援掛接此資料表標頭中指定的選項。 
 
-* **最低建議版本與對應的掛接功能 (SMB 2.1 版與 SMB 3.0 版)。**    
+* **具有對應掛接功能的最低建議版本 (SMB 2.1 版與 SMB 3.0 版)。**    
     
     |   | SMB 2.1 <br>(掛接在相同 Azure 區域內的 VM 上) | SMB 3.0 <br>(從內部部署環境和跨區域掛接) |
     | --- | :---: | :---: |

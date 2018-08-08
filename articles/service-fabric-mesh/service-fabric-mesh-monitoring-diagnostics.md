@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 06/22/2018
 ms.author: srrengar
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 79e5622dd73e53854204675b435e99d187a3ab26
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 9f857c23b5500bc7790a0ff7fcf81eaec51f37c9
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075475"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358263"
 ---
 # <a name="monitoring-and-diagnostics"></a>監視和診斷
 Azure Service Fabric Mesh 是一個受到完整管理的服務，讓開發人員能夠部署微服務應用程式，而不需管理虛擬機器、儲存體或網路功能。 Service Fabric Mesh 的監視和診斷可歸類為三種主要診斷資料類型：
@@ -40,7 +40,7 @@ az mesh code-package-log get --resource-group <nameOfRG> --app-name <nameOfApp> 
 ```
 
 > [!NOTE]
-> 您可以使用 "az mesh servicereplica" 命令來取得複本名稱。 複本名稱是從 0 遞增的數字。*
+> 您可以使用 "az mesh service-replica" 命令來取得複本名稱。 複本名稱是從 0 遞增的數字。*
 
 從投票應用程式的 VotingWeb.Code 容器查看記錄時，其外觀如下所示：
 

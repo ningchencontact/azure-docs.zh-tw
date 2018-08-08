@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: efc62243370ff2cc5214a4ae235139bdb5965486
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 8c0810c4a1b92f14e510d005eaf1b6945a058dd7
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248214"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413098"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>運作方式：Azure AD 自助式密碼重設
 
@@ -50,6 +50,7 @@ ms.locfileid: "39248214"
        * 如果未設定驗證方法，便會建議使用者連絡其管理員來重設其密碼。
      * 如果原則需要兩項方法，則表示使用者必定已針對管理員原則所啟用、至少兩項驗證方法定義適當的資料。
        * 如果未設定驗證方法，便會建議使用者連絡其管理員來重設其密碼。
+     * 如果將 Azure 系統管理員角色指派給使用者，則會強制執行強式雙閘道密碼原則。 如需關於此原則的詳細資訊，請參閱[系統管理員重設原則差異](concept-sspr-policy.md#administrator-reset-policy-differences)一節。
    * 查看使用者的密碼是否會在內部部署進行管理 (同盟、傳遞驗證或密碼雜湊同步處理)。
      * 如果在內部部署中有部署回寫和管理使用者的密碼，則允許使用者進行驗證及重設其密碼。
      * 如果在內部部署中未部署回寫但有管理使用者的密碼，則會要求使用者連絡其管理員來重設其密碼。
@@ -68,6 +69,9 @@ ms.locfileid: "39248214"
 
 使用者只有在系統管理員已啟用的驗證方法中有資料存在時，才能夠重設其密碼。
 
+> [!WARNING]
+> 已指派 Azure 系統管理員角色的帳戶將必須使用[系統管理員重設原則差異](concept-sspr-policy.md#administrator-reset-policy-differences)一節中所定義的方法。
+
 ![驗證][Authentication]
 
 ### <a name="number-of-authentication-methods-required"></a>必要驗證方法數目
@@ -80,13 +84,16 @@ ms.locfileid: "39248214"
 
 #### <a name="mobile-app-and-sspr-preview"></a>行動應用程式和 SSPR (預覽)
 
-當您使用行動應用程式 (例如 Microsoft Authenticator 應用程式) 時，使用者需注意下列事項來做為密碼重設的方法。 對於自助式密碼重設，當重設只需要一個方法時，驗證程式碼是使用者唯一的可用選項。 需要兩種方法時，使用者除了任何其他已啟用的方法之外，將能夠使用通知**或**驗證碼。
+使用行動應用程式 (例如 Microsoft Authenticator 應用程式) 時，若要作為重設密碼的方法，則您應該注意下列各項：
+
+* 當系統管理員需要一個可用來重設密碼的方法時，驗證碼是唯一可用的選項。
+* 當系統管理員需要兩種可用來重設密碼的方法時，使用者除了任何其他已啟用的方法之外，還能夠使用通知**或**驗證碼。
 
 | 需要重設的方法數 | 一個 | 兩個 |
 | :---: | :---: | :---: |
 | 可用的行動應用程式功能 | 代碼 | 程式碼或通知 |
 
-使用者在註冊自助式密碼重設時，不可選擇註冊其行動應用程式。 相反地，使用者可以在 aka.ms/mfasetup，或在 aka.ms/mfasetup 的安全性資訊註冊預覽版中，註冊其行動應用程式。 
+使用者在從 [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) 註冊自助式密碼重設時，不可選擇註冊其行動應用程式。 使用者可以在 [https://aka.ms/mfasetup](https://aka.ms/mfasetup) 上，或在 [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo) 上新的安全性資訊註冊預覽中，註冊其行動應用程式。
 
 ### <a name="change-authentication-methods"></a>變更驗證方法
 

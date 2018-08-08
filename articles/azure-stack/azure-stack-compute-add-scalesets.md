@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: brenduns
 ms.reviewer: kivenkat
-ms.openlocfilehash: ddde2e6bad8a373df405ac05e78a5dbccd0257fc
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 4e77e187d969af7ea2a12754b18d4a218daceed6
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "34800635"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39411901"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>在 Azure Stack 中提供虛擬機器擴展集
 
@@ -31,10 +31,10 @@ Azure Stack 上的虛擬機器擴展集就像是 Azure 上的虛擬機器擴展�
 
 在 Azure Stack 上，虛擬機器擴展集不支援自動擴展。 您可以使用 Resource Manager 範本、CLI 或 PowerShell 將更多執行個體新增到擴展集。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-- **Marketplace 摘要整合**  
-    向全域 Azure 註冊 Azure Stack 以啟用 Marketplace 摘要整合。 請遵循[向 Azure 註冊 Azure Stack](azure-stack-registration.md) 中的指示。
+- **Marketplace**  
+    向全域 Azure 註冊 Azure Stack 以在 Marketplace 中啟用項目的可用性。 請遵循[向 Azure 註冊 Azure Stack](azure-stack-registration.md) 中的指示。
 - **作業系統映像**  
     如果您尚未在 Azure Stack Marketplace 中新增作業系統映像，請參閱[從 Azure 新增 Azure Stack 市集項目](asdk/asdk-marketplace-item.md)。
 

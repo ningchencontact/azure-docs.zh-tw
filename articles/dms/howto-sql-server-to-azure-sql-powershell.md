@@ -10,13 +10,13 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 04/05/2018
-ms.openlocfilehash: d70d39f027df1fba7934c4b752b1dd2100f2e8b9
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 08/02/2018
+ms.openlocfilehash: 9b182b0efad16f74c21b04712143b70071943c1e
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30905369"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412547"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>使用 Azure PowerShell 將 SQL Server 內部部署移轉至 Azure SQL DB
 在本文中，您會使用 Microsoft Azure PowerShell，將已還原至內部部署 SQL Server 2016 (或更新版本) 執行個體的 **Adventureworks2012** 資料庫移轉至 Azure SQL Database。 您可以使用 Microsoft Azure PowerShell 中的 `AzureRM.DataMigration` 模組，將資料庫從內部部署 SQL Server 執行個體移轉至 Azure SQL Database。
@@ -28,7 +28,7 @@ ms.locfileid: "30905369"
 > * 在 Azure 資料庫移轉服務執行個體中建立移轉專案。
 > * 執行移轉。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要完成這些步驟，您需要：
 
 - [SQL Server 2016 或更新版本](https://www.microsoft.com/sql-server/sql-server-downloads)(任何版本)
@@ -41,7 +41,7 @@ ms.locfileid: "30905369"
 - 使用 [Install-Module PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1) \(英文\)，從 PowerShell 資源庫下載並安裝 AzureRM.DataMigration 模組
 - 用來連線至來源 SQL Server 執行個體的認證必須具有 [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) \(機器翻譯\) 權限。
 - 用來連線至目標 Azure SQL DB 執行個體的認證，必須在目標 Azure SQL Database 資料庫上具有 CONTROL DATABASE 權限。
-- 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
+- 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="log-in-to-your-microsoft-azure-subscription"></a>登入您的 Microsoft Azure 訂用帳戶
 根據[登入 Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.4.1)一文中的指示，使用 PowerShell 來登入您的 Azure 訂用帳戶。

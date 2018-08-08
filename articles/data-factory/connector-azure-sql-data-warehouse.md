@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/28/2018
+ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 42ffdbf117b3f522e27e6e46628231ddb8221018
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 70615726ed313884a977ae1b338d3c484fc32a1a
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051622"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39326168"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL 資料倉儲或從該處複製資料 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -59,8 +59,8 @@ ms.locfileid: "37051622"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設為 **AzureSqlDW**。 | yes |
-| connectionString | 針對 **connectionString** 屬性指定連線到 Azure SQL 資料倉儲執行個體所需的資訊。 將此欄位標記為 **SecureString**，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | yes |
+| type | 類型屬性必須設為 **AzureSqlDW**。 | 是 |
+| connectionString | 針對 **connectionString** 屬性指定連線到 Azure SQL 資料倉儲執行個體所需的資訊。 將此欄位標記為 **SecureString**，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | servicePrincipalId | 指定應用程式的用戶端識別碼。 | 當您搭配服務主體使用 Azure AD 驗證時為是。 |
 | servicePrincipalKey | 指定應用程式的金鑰。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 當您搭配服務主體使用 Azure AD 驗證時為是。 |
 | tenant | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | 當您搭配服務主體使用 Azure AD 驗證時為是。 |
@@ -105,7 +105,7 @@ ms.locfileid: "37051622"
     - 應用程式金鑰
     - 租用戶識別碼
 
-2. 如果您尚未這麼做，請在 Azure 入口網站上針對您的 Azure SQL 伺服器**[佈建 Azure Active Directory 系統管理員](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**。 Azure AD 系統管理員可以是 Azure AD 使用者或 Azure AD 群組。 如果您對具有 MSI 的群組授與系統管理員角色，請略過步驟 3 和 4。 系統管理員將擁有完整的資料庫存取權。
+2. 如果您尚未這麼做，請在 Azure 入口網站上針對您的 Azure SQL 伺服器**[佈建 Azure Active Directory 系統管理員](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**。 Azure AD 系統管理員可以是 Azure AD 使用者或 Azure AD 群組。 如果您已對具有 MSI 的群組授與系統管理員角色，請略過步驟 3 和 4。 系統管理員將擁有完整的資料庫存取權。
 
 3. 為服務主體**[建立自主資料庫使用者](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**。 以至少具有 ALTER ANY USER 權限的 AAD 身分識別，使用 SSMS 這類工具連線至您想要從中來回複製資料的資料倉儲。 執行下列 T-SQL：
     
@@ -113,7 +113,7 @@ ms.locfileid: "37051622"
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. 像您一般對 SQL 使用者或其他人所做的一樣，**授與服務主體所需的權限**。 執行下列程式碼：
+4. 如同您一般對 SQL 使用者或其他人所做的一樣，**將所需的權限授與服務主體**。 執行下列程式碼：
 
     ```sql
     EXEC sp_addrolemember [role name], [your application name];
@@ -160,7 +160,7 @@ ms.locfileid: "37051622"
 
 1. **在 Azure AD 中建立群組。** 讓處理站 MSI 成為群組成員。
 
-    a. 從 Azure 入口網站尋找資料處理站服務識別。 移至資料處理站的 [屬性]。 複製服務識別的識別碼。
+    a. 從 Azure 入口網站尋找資料處理站服務識別。 移至資料處理站的 [屬性]。 複製 SERVICE IDENTITY ID。
 
     b. 安裝 [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) 模組。 使用 `Connect-AzureAD` 命令登入。 執行下列命令來建立群組，並將資料處理站 MSI 新增為成員。
     ```powershell
@@ -213,8 +213,8 @@ ms.locfileid: "37051622"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的**類型**屬性必須設定為 **AzureSqlDWTable**。 | yes |
-| tableName | 「Azure SQL 資料倉儲」執行個體中連結服務所參考的資料表或檢視名稱。 | yes |
+| type | 資料集的**類型**屬性必須設定為 **AzureSqlDWTable**。 | 是 |
+| tableName | 「Azure SQL 資料倉儲」執行個體中連結服務所參考的資料表或檢視名稱。 | 是 |
 
 #### <a name="dataset-properties-example"></a>資料集屬性範例
 
@@ -245,10 +245,10 @@ ms.locfileid: "37051622"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的**類型**屬性必須設定為 **SqlDWSource**。 | yes |
+| type | 複製活動來源的**類型**屬性必須設定為 **SqlDWSource**。 | 是 |
 | SqlReaderQuery | 使用自訂 SQL 查詢來讀取資料。 範例： `select * from MyTable`. | 否 |
 | sqlReaderStoredProcedureName | 從來源資料表讀取資料的預存程序名稱。 最後一個 SQL 陳述式必須是預存程序中的 SELECT 陳述式。 | 否 |
-| storedProcedureParameters | 預存程序的參數。<br/>允許的值為名稱或值的組合。 參數的名稱和大小寫必須符合預存程序參數的名稱和大小寫。 | 否 |
+| storedProcedureParameters | 預存程序的參數。<br/>允許的值為名稱或值組。 參數的名稱和大小寫必須符合預存程序參數的名稱和大小寫。 | 否 |
 
 ### <a name="points-to-note"></a>注意事項
 
@@ -349,7 +349,7 @@ GO
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動接收端的**類型**屬性必須設定為 **SqlDWSink**。 | yes |
+| type | 複製活動接收端的**類型**屬性必須設定為 **SqlDWSink**。 | 是 |
 | allowPolyBase | 指出是否使用 PolyBase (適用的話) 而不是使用 BULKINSERT 機制。 <br/><br/> 建議使用 PolyBase 將資料載入 SQL 資料倉儲。 請參閱[使用 PolyBase 將資料載入 Azure SQL 資料倉儲](#use-polybase-to-load-data-into-azure-sql-data-warehouse)一節中的條件約束和詳細資料。<br/><br/>允許的值為 **True** 和 **False** (預設值)。  | 否 |
 | polyBaseSettings | 可以在 **allowPolybase** 屬性設定為 **true** 時指定的一組屬性。 | 否 |
 | rejectValue | 指定在查詢失敗前可以拒絕的資料列數目或百分比。<br/><br/>在 [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx)的＜引數＞一節中，深入了解 PolyBase 的拒絕選項。 <br/><br/>允許的值為 0 (預設值)、1、2 等其他值。 |否 |
@@ -401,9 +401,9 @@ SQL 資料倉儲 PolyBase 直接支援 Azure Blob 和 Azure Data Lake Store。 �
 2. **輸入資料集**類型為 **AzureBlob** 或 **AzureDataLakeStoreFile**。 `type` 屬性下方的格式類型為 **OrcFormat**、**ParquetFormat** 或 **TextFormat**，並且具備下列組態：
 
    1. `rowDelimiter` 必須為 **\n**。
-   2. `nullValue` 設定為「空字串」 ("") 或將 `treatEmptyAsNull` 設定為 **true**。
+   2. `nullValue` 是設定為**空字串** ("") 或保留預設值，且 `treatEmptyAsNull` 不是設定為 false。
    3. `encodingName` 會設定為 **utf-8**，也就是預設值。
-   4. 不會指定 `escapeChar`、`quoteChar`、`firstRowAsHeader` 和 `skipLineCount`。
+   4. 未指定 `escapeChar`、`quoteChar` 與 `skipLineCount`。 PolyBase 支援略過標頭列，這在 ADF 中可設定為 `firstRowAsHeader`。
    5. `compression` 可以是「無壓縮」、**GZip** 或 **Deflate**。
 
     ```json
@@ -414,7 +414,8 @@ SQL 資料倉儲 PolyBase 直接支援 Azure Blob 和 Azure Data Lake Store。 �
            "columnDelimiter": "<any delimiter>",
            "rowDelimiter": "\n",
            "nullValue": "",
-           "encodingName": "utf-8"
+           "encodingName": "utf-8",
+           "firstRowAsHeader": <any>
        },
        "compression": {
            "type": "GZip",
@@ -422,9 +423,6 @@ SQL 資料倉儲 PolyBase 直接支援 Azure Blob 和 Azure Data Lake Store。 �
        }
     },
     ```
-
-3. 管線中複製活動的 **BlobSource** 或 **AzureDataLakeStore** 之下沒有 `skipHeaderLineCount` 設定。
-4. 管線中複製活動的 **SqlDWSink** 之下沒有 `sliceIdentifierColumnName` 設定。 PolyBase 保證所有資料都已更新，或在單一執行未更新任何項目。 若要達到「重複性」，請使用 `sqlWriterCleanupScript`。
 
 ```json
 "activities":[

@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 5503ffaf8a429221a0a0730fc999cb7a90f43785
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 5a7e00e84e5165296bcad83c515fc2af315954be
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092115"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414437"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>針對彈性集區，Azure SQL Database 虛擬核心形式的購買模型限制
 
@@ -22,6 +22,8 @@ ms.locfileid: "39092115"
 
 如需以 DTU 為基礎的購買模型限制，請參閱 [SQL Database 以 DTU 為基礎的資源限制 - 彈性集區](sql-database-dtu-resource-limits-elastic-pools.md)。
 
+> [!IMPORTANT]
+> 在某些情況下，您可能需要壓縮資料庫來回收未使用的空間。 如需詳細資訊，請參閱[管理 Azure SQL Database 中的檔案空間](sql-database-file-space-management.md)。
 
 ## <a name="elastic-pool-storage-sizes-and-performance-levels"></a>彈性集區：儲存體大小與效能層級
 

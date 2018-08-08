@@ -13,15 +13,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/19/2018
+ms.date: 7/30/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 3d19b42e339e9776d0fdbbf7cfcfba07d69549ad
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 430490859e6d8a58a54eea267e0c3f16991f74c8
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249075"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364371"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>將 SQL Server 資料庫備份到 Azure
 
@@ -258,7 +258,7 @@ Azure 備份會探索 SQL Server 執行個體上的所有資料庫。 您可以�
 
     ![選取 VM 和資料庫](./media/backup-azure-sql-database/registration-errors.png)
 
-## <a name="configure-backup-for-sql-server-databases"></a>設定 SQL Server 資料庫的備份 
+## <a name="configure-backup-for-sql-server-databases"></a>設定 SQL Server 資料庫的備份
 
 Azure 備份提供管理服務來保護您的 SQL Server 資料庫及管理備份工作。 管理和監視功能取決於您的復原服務保存庫。 
 
@@ -317,6 +317,9 @@ Azure 備份提供管理服務來保護您的 SQL Server 資料庫及管理備�
 
 8. 在 [選擇備份原則] 下拉式清單方塊中，選擇備份原則，然後選取 [確定]。 如需如何建立備份原則的資訊，請參閱[定義備份原則](backup-azure-sql-database.md#define-a-backup-policy)。
 
+   > [!NOTE]
+   > 在預覽期間，您無法編輯備份原則。 若您想要使用清單上沒有提供的原則，便必須建立該原則。 如需建立新備份原則的相關資訊，請參閱[定義備份原則](backup-azure-sql-database.md#define-a-backup-policy)一節。
+
     ![從清單中選擇備份原則](./media/backup-azure-sql-database/select-backup-policy-steptwo.png)
 
     在 [備份原則] 功能表的 [選擇備份原則] 下拉式清單方塊中，您可以： 
@@ -345,21 +348,28 @@ Azure 備份提供管理服務來保護您的 SQL Server 資料庫及管理備�
 * 差異備份：差異備份是以先前最近的完整資料備份為基礎。 差異備份只會擷取自完整備份後已變更的資料。 您每天最多可以觸發一次差異備份。 您無法在同一天設定完整備份和差異備份。
 * 交易記錄備份：記錄備份最高允許特定秒的時間點還原。 您最多可以每隔 15 分鐘設定交易記錄備份一次。
 
-原則會在復原服務保存庫層級建立。 多個保存庫可以使用相同的備份原則，但您必須將備份原則套用至每個保存庫。 建立備份原則時，每日完整備份是預設值。 您可以新增差異備份，但僅限於將完整備份設定為每週進行時。 下列程序說明如何在 Azure 虛擬機器中建立 SQL Server 執行個體的備份原則。
+原則會在復原服務保存庫層級建立。 多個保存庫可以使用相同的備份原則，但您必須將備份原則套用至每個保存庫。 建立備份原則時，每日完整備份是預設值。 您可以新增差異備份，但僅限於將完整備份設定為每週進行時。 下列程序說明如何在 Azure 虛擬機器中建立 SQL Server 執行個體的備份原則。 
 
+> [!NOTE]
+> 在預覽中，您無法編輯備份原則。 您必須改為建立具有所需詳細資料的新原則。  
+ 
 若要建立備份原則：
 
-1. 在 [備份原則] 功能表的 [選擇備份原則] 下拉式清單方塊中，選取 [建立新的]。
+1. 在保護 SQL 資料庫的復原服務保存庫中，按一下 [備份原則]，然後按一下 [新增]。 
 
-   ![建立新的備份原則](./media/backup-azure-sql-database/create-new-backup-policy.png)
+   ![開啟建立新備份原則對話方塊](./media/backup-azure-sql-database/new-policy-workflow.png)
 
-    [備份原則] 功能表會顯示新 SQL Server 備份原則所需的欄位。
+   [新增] 功能表隨即出現。
 
-   ![新的備份原則欄位](./media/backup-azure-sql-database/blank-new-policy.png)
+2. 在 [新增] 功能表中，按一下 [Azure VM 中的 SQL Server]。
 
-2. 在 [原則名稱] 方塊中，輸入名稱。
+   ![針對新備份原則選擇原則類型](./media/backup-azure-sql-database/policy-type-details.png)
 
-3. 必須要有完整備份。 請接受完整備份的預設值，或選取 [完整備份] 以編輯原則。
+   選取 [Azure VM 中的 SQL Server] 會定義原則類型，並開啟 [備份原則] 功能表。 [備份原則] 功能表會顯示新 SQL Server 備份原則所需的欄位。
+
+3. 在 [原則名稱] 中，為新原則輸入名稱。
+
+4. 由於完整備份是必要的，因此您無法關閉 [完整備份] 選項。 按一下 [完整備份] 以檢視及編輯原則。 即使您不對 [備份原則] 進行任何變更，您也應該檢視原則詳細資料。
 
     ![新的備份原則欄位](./media/backup-azure-sql-database/full-backup-policy.png)
 
@@ -371,13 +381,13 @@ Azure 備份提供管理服務來保護您的 SQL Server 資料庫及管理備�
 
    ![每週間隔設定](./media/backup-azure-sql-database/weekly-interval.png)
 
-4. 預設會選取所有 [保留範圍] 選項：每日、每週、每月和每年。 取消選取任何不想要的保留範圍限制。 設定要使用的間隔。 在 [完整備份原則] 功能表中，選取 [確定] 接受設定。
+5. 預設會選取所有 [保留範圍] 選項：每日、每週、每月和每年。 取消選取任何不想要的保留範圍限制。 設定要使用的間隔。 在 [完整備份原則] 功能表中，選取 [確定] 接受設定。
 
    ![保留範圍間隔設定](./media/backup-azure-sql-database/retention-range-interval.png)
 
     復原點會根據其保留範圍標記為保留。 例如，如果您選取每日完整備份，每天只會觸發一次完整備份。 系統會根據每週保留範圍和每週保留設定，標記和保留特定日期的備份。 每月和每年保留範圍會以類似方式運作。
 
-5. 若要新增差異備份原則，請選取 [差異備份]。 [差異備份原則] 功能表隨即開啟。 
+6. 若要新增差異備份原則，請選取 [差異備份]。 [差異備份原則] 功能表隨即開啟。 
 
    ![開啟 [差異備份原則] 功能表](./media/backup-azure-sql-database/backup-policy-menu-choices.png)
 
@@ -391,30 +401,32 @@ Azure 備份提供管理服務來保護您的 SQL Server 資料庫及管理備�
 
     選取 [確定] 以儲存原則，然後返回主要 [備份原則] 功能表。
 
-6. 若要新增交易記錄備份原則，請選取 [記錄備份]。 [記錄備份] 功能表隨即開啟。
+7. 若要新增交易記錄備份原則，請選取 [記錄備份]。 [記錄備份] 功能表隨即開啟。
 
     在 [記錄備份] 功能表中，選取 [啟用]，然後設定頻率和保留控制項。 記錄備份可以每隔 15 分鐘頻繁地出現，而且最多可以保留 35 天。 選取 [確定] 以儲存原則，然後返回主要 [備份原則] 功能表。
 
    ![編輯記錄備份原則](./media/backup-azure-sql-database/log-backup-policy-editor.png)
 
-7. 在 [備份原則] 功能表上，選擇是否要啟用 [SQL 備份壓縮]。 預設會停用壓縮。
+8. 在 [備份原則] 功能表上，選擇是否要啟用 [SQL 備份壓縮]。 預設會停用壓縮。
 
     Azure 備份在後端使用 SQL 原生備份壓縮。
 
-8. 完成備份原則的編輯之後，請選取 [確定]。 
+9. 完成備份原則的編輯之後，請選取 [確定]。 
 
    ![接受新的備份原則](./media/backup-azure-sql-database/backup-policy-click-ok.png)
 
 ## <a name="restore-a-sql-database"></a>還原 SQL 資料庫
-
 Azure 備份提供使用交易記錄備份將個別資料庫還原至特定日期或時間 (以秒計) 的功能。 Azure 備份會根據還原時間，自動決定適當的完整差異和還原資料所需的記錄備份鏈結。
 
 您也可以選取特定完整或差異備份來還原至特定復原點，而不是特定時間。
- > [!Note]
- > 在觸發 "master" 資料庫的還原作業之前，請使用啟動選項 `-m AzureWorkloadBackup` 以單一使用者模式啟動 SQL Server 執行個體。 `-m` 選項的引數是用戶端名稱。 只有此用戶端能夠開啟連線。 針對所有系統資料庫 (模型、master、msdb)，請在觸發還原之前停止 SQL Agent 服務。 關閉可能會嘗試奪取這些資料庫連線的任何應用程式。
->
 
-還原資料庫：
+### <a name="pre-requisite-before-triggering-a-restore"></a>觸發還原的必要條件
+
+1. 您可以將資料庫還原至相同 Azure 區域中的 SQL Server 執行個體。 目的地伺服器必須註冊到和來源相同的復原服務保存庫。  
+2. 若要將 TDE 加密資料庫還原至另一部 SQL 伺服器，請依照[這裡](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server?view=sql-server-2017)所記錄的步驟，先將憑證還原至目的地伺服器。
+3. 在觸發 "master" 資料庫的還原作業之前，請使用啟動選項 `-m AzureWorkloadBackup` 以單一使用者模式啟動 SQL Server 執行個體。 `-m` 選項的引數是用戶端名稱。 只有此用戶端能夠開啟連線。 針對所有系統資料庫 (模型、master、msdb)，請在觸發還原之前停止 SQL Agent 服務。 關閉可能會嘗試奪取這些資料庫連線的任何應用程式。
+
+### <a name="steps-to-restore-a-database"></a>還原資料庫的步驟：
 
 1. 開啟向 SQL 虛擬機器註冊的復原服務保存庫。
 

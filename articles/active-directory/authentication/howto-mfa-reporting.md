@@ -5,17 +5,17 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/30/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: ead1c5a899057bb26154b45c75251e7d9e481147
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: bb5a005ba553d6392bf1427a4c2bba9ac5aad191
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160887"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358661"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 中的報告
 
@@ -29,13 +29,97 @@ Azure Multi-Factor Authentication 提供數個報告，可供您和貴組織透�
 | 已略過的使用者歷程記錄 | Azure AD > MFA Server > 單次許可 | 提供針對使用者許可 Multi-Factor Authentication 之要求的歷程記錄。 |
 | 伺服器狀態 | Azure AD > MFA Server > 伺服器狀態 | 顯示與帳戶相關聯之 Multi-Factor Authentication Server 的狀態。 |
 
-## <a name="view-reports"></a>檢視報告 
+## <a name="view-mfa-reports"></a>檢視 MFA 報告
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在左側，選取 [Azure Active Directory] > [MFA Server]。
 3. 選取您要檢視的報告。
 
    <center>![雲端](./media/howto-mfa-reporting/report.png)</center>
+
+## <a name="azure-ad-sign-ins-report"></a>Azure AD 登入報告
+
+透過 [Azure 入口網站](https://portal.azure.com)中的**登入活動報告**，您可以取得判斷環境執行狀況所需的資訊。
+
+登入報告可為您提供受控應用程式使用方式和使用者登入活動的相關資訊，包括 Multi-Factor Authentication (MFA) 使用方式的相關資訊。 MFA 資料可讓您深入了解 MFA 如何在您的組織中運作。 它可讓您回答問題，例如：
+
+- 是否以 MFA 挑戰登入？
+- 使用者如何完成 MFA？
+- 為何使用者無法完成 MFA？
+- 有多少使用者經過 MFA 挑戰？
+- 有多少使用者無法完成 MFA 挑戰？
+- 使用者會遇到的常見 MFA 問題是什麼？
+
+此資料可透過 [Azure 入口網站](https://portal.azure.com)和[報告 API](../active-directory-reporting-api-getting-started-azure-portal.md) 取得。
+
+![雲端](./media/howto-mfa-reporting/sign-in-report.png)
+
+### <a name="sign-ins-report-structure"></a>登入報告結構
+
+MFA 的登入活動報告可讓您存取下列資訊：
+
+**需要 MFA：** 登入是否需要 MFA。 依據每個使用者的 MFA、條件式存取或其他原因，可能需要 MFA。 可能的值為 [是] 或 [否]。
+
+**MFA 結果：** MFA 是否已滿足或拒絕的詳細資訊：
+
+- 如果已滿足 MFA，此資料行提供如何滿足 MFA 的詳細資訊。
+   - Azure Multi-Factor Authentication
+      - 在雲端中完成
+      - 由於租用戶上設定的原則所以已過期
+      - 註冊提示
+      - 因為在權杖中宣告而滿足
+      - 因為外部提供者提供的宣告而滿足
+      - 因為強式驗證而滿足
+      - 因為運用的流程是 Windows 訊息代理程式登入流程而略過
+      - 因為應用程式密碼而略過
+      - 因為位置而略過
+      - 因為已註冊的裝置而略過
+      - 因為已記住的裝置而略過
+      - 已成功完成
+   - 重新導向至外部提供者以進行多重要素驗證
+
+- 如果已拒絕 MFA，此資料行會提供拒絕的原因。
+   - Azure Multi-Factor Authentication 遭到拒絕；
+      - 驗證進行中
+      - 重複的驗證嘗試
+      - 輸入太多次不正確的代碼
+      - 無效的驗證
+      - 無效的行動應用程式驗證碼
+      - 設定錯誤
+      - 撥打電話轉到語音信箱
+      - 電話號碼的格式無效
+      - 服務錯誤
+      - 無法接通使用者的電話
+      - 無法將行動應用程式通知傳送到裝置
+      - 無法傳送行動應用程式通知
+      - 使用者拒絕驗證
+      - 使用者未回應行動應用程式通知
+      - 使用者沒有任何已註冊的驗證方法
+      - 使用者輸入不正確的代碼
+      - 使用者輸入不正確的 PIN
+      - 使用者未成功驗證即掛斷電話
+      - 使用者遭到封鎖
+      - 使用者從未輸入驗證碼
+      - 找不到使用者
+      - 驗證碼已使用過一次
+
+**MFA 驗證方法：** 使用者用來完成 MFA 的驗證方法。 可能的值包括：
+
+- 簡訊
+- 行動應用程式通知
+- 撥打電話 (驗證電話)
+- 行動應用程式驗證碼
+- 撥打電話 (辦公室電話)
+- 撥打電話 (替代驗證電話)
+
+**MFA 驗證詳細資料：** 電話號碼的清除版本，例如：+X XXXXXXXX64。
+
+**條件式存取**：尋找會影響到登入嘗試的條件式存取原則相關資訊，包括：
+
+- 原則名稱
+- 授與控制
+- 工作階段控制項
+- 結果
 
 ## <a name="powershell-reporting"></a>Powershell 報告
 

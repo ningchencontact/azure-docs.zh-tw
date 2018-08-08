@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 08/01/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 496aea1195885c582d3529d7ddb43210aad5fea1
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 0190298cbf6352feeb71e365f5815e174c9e30cc
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990127"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413509"
 ---
 # <a name="azure-stack-1804-update"></a>Azure Stack 1804 更新
 
@@ -80,7 +80,10 @@ Azure Stack 1804 更新組建編號為 **20180513.1**。
 ## <a name="before-you-begin"></a>開始之前    
 
 ### <a name="prerequisites"></a>必要條件
-- 請先安裝 Azure Stack [1803 更新](azure-stack-update-1803.md)，然後才套用 Azure Stack 1804 更新。    
+- 請先安裝 Azure Stack [1803 更新](azure-stack-update-1803.md)，然後才套用 Azure Stack 1804 更新。  
+  
+- 安裝最新的可用 [1803 版更新或 Hotfix](azure-stack-update-1803.md#post-update-steps)。 
+
 
 ### <a name="known-issues-with-the-update-process"></a>關於更新程序的已知問題   
 - 在安裝 1804 更新期間，您可能會看到警示，標題為「錯誤 - FaultType UserAccounts.New 的範本已遺失」。  您可以放心地忽略這些警示。 在 1804 更新完成之後，這些警示會自動關閉。   
@@ -99,6 +102,8 @@ Azure Stack 1804 更新組建編號為 **20180513.1**。
 以下是組建 **20180513.1**的安裝後已知問題。
 
 #### <a name="portal"></a>入口網站
+- <!-- TBD - IS ASDK --> 您無法搭配此版本的 Azure Stack 使用 OEM 延伸模組套件來套用驅動程式更新。  此問題目前沒有因應方式。
+
 - <!-- 1272111 - IS --> 在安裝或更新為此 Azure Stack 版本之後，您可能無法在管理入口網站中檢視 Azure Stack 縮放單位。  
   因應措施：使用 PowerShell 來檢視縮放單位的相關資訊。 如需詳細資訊，請參閱 Azure Stack 模組 1.3.0 的[說明](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0)內容。 
 
@@ -180,7 +185,7 @@ Azure Stack 1804 更新組建編號為 **20180513.1**。
 - <!-- 1662991 IS ASDK --> Azure Stack 不支援 Linux VM 診斷。 當您部署啟用了 VM 診斷的 Linux VM 時，部署會失敗。 如果您透過診斷設定啟用 Linux VM 基本計量，部署也會失敗。  
 
 
-#### <a name="networking"></a>網路功能
+#### <a name="networking"></a>網路
 - <!-- 1766332 - IS ASDK --> 如果您在 [網路] 下按一下 [建立 VPN 閘道] 來設定 VPN 連線，系統就會將 [原則式] 列為 VPN 類型。 請勿選取此選項。 Azure Stack 只支援 [路由式] 選項。
 
 - <!-- 2388980 - IS ASDK --> 在建立 VM 並與公用 IP 位址建立關聯之後，您就無法將 VM 與該 IP 位址取消關聯。 取消關聯看似可以運作，但先前指派的公用 IP 位址會繼續與原始 VM 保持關聯。
@@ -285,7 +290,7 @@ Azure Stack 1804 更新組建編號為 **20180513.1**。
 
 - <!-- TBD - IS ASDK --> 為了向外延展基礎結構 (背景工作、管理、前端角色)，您必須如「計算」的版本資訊所述，使用 PowerShell。
 
-- <!-- TBD - IS ASDK --> 目前，App Service 只能部署到「預設提供者訂用帳戶」。  在未來的更新中，App Service 會部署至 Azure Stack 1804 所導入的新計量訂用帳戶，而且現有部署也全都會遷移至這個新的訂用帳戶。
+- <!-- TBD - IS ASDK --> 目前，App Service 只能部署到「預設提供者訂用帳戶」。  在未來的更新中，App Service 會部署至 Azure Stack 1804 所導入的新計量訂用帳戶，而且現有部署也全都會移轉至這個新的訂用帳戶。
 
 #### <a name="usage"></a>使用量  
 - <!-- TBD - IS ASDK --> 使用量公用 IP 位址使用計量資料會針對每一筆記錄顯示相同的 EventDateTime 值，而不是建立記錄時顯示的 TimeDate 時間戳記。 目前，您無法使用這項資料來執行公用 IP 位址使用狀況的正確計量。

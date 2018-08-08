@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 07/27/2018
 ms.author: iainfou
-ms.openlocfilehash: ea22b33233f85da117de54829e5a16bd7dcab36a
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: b64c770bca84fba8cbed98e420abf649897f7a17
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205243"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345849"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 的常見問題集
 
@@ -29,7 +29,7 @@ Azure 會透過夜間排程將安全性修補程式自動套用至叢集中的�
 
 - 手動、透過 Azure 入口網站，或透過 Azure CLI。
 - 藉由升級 AKS 叢集。 叢集會自動升級 [cordon 和 drain 節點](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/)，然後使用最新的 Ubuntu 映像加以備份。 在節點上更新作業系統映像，無需透過在 `az aks upgrade` 指定目前叢集版本以變更 Kubernetes 版本。
-- 使用 [Kured](https://github.com/weaveworks/kured)，這是一款針對 Kubernetes 所推出的的開放原始碼重新啟動精靈。 Kured 會以 [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) 執行，並監視每個節點，查看是否有檔案指示需重新啟動。 然後按照先前所述的相同 cordon 和 drain 程序，在整個叢集中協調重新啟動作業。
+- 使用 [Kured](https://github.com/weaveworks/kured)，這是一款針對 Kubernetes 所推出的的開放原始碼重新啟動精靈。 Kured 會以 [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) 執行，並監視每個節點，查看是否有檔案指示需重新啟動。 它接著會按照先前所述的相同 cordon 和 drain 程序，管理橫跨整個叢集的 OS 重新啟動作業。
 
 ## <a name="does-aks-support-node-autoscaling"></a>AKS 是否支援節點自動調整？
 
@@ -39,7 +39,7 @@ Azure 會透過夜間排程將安全性修補程式自動套用至叢集中的�
 
 是，[從 Azure CLI 或 Azure Resource Manager 範本部署 AKS 叢集時](https://docs.microsoft.com/en-us/azure/aks/aad-integration)，可以啟用 RBAC。 這項功能即將在 Azure 入口網站推出。
 
-## <a name="what-kubernetes-admission-controllers-does-aks-support-can-this-be-configured"></a>AKS 支援哪些 Kubernetes 許可控制器？ 可以設定這個項目嗎？
+## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>AKS 支援哪些 Kubernetes 許可控制器？ 是否可以新增或移除許可控制器？
 
 AKS 支援下列[許可控制器][admission-controllers]：
 
@@ -66,7 +66,7 @@ AKS 支援下列[許可控制器][admission-controllers]：
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure Key Vault 是否會與 AKS 整合？
 
-AKS 目前並未原生整合到 Azure Key Vault。 不過，有一些社群解決方案，例如 [Hexadite 的 acs-keyvault-agent t][hexadite]。
+AKS 目前並未原生整合到 Azure Key Vault。 不過，[KeyVault Flex Volume 專案](https://github.com/Azure/kubernetes-keyvault-flexvol) \(英文\) 能讓 Kubernetes Pod 直接與 KeyVault 祕密進行整合。
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>我是否可以在 AKS 上執行 Windows Server 容器？
 
@@ -76,11 +76,11 @@ AKS 目前並未原生整合到 Azure Key Vault。 不過，有一些社群解�
 
 每個 AKS 部署皆跨越兩個資源群組。 第一個是您所建立的資源群組，其中僅包含 Kubernetes 服務資源。 AKS 資源提供者會在部署期間自動建立第二個資源群組，例如 *MC_myResourceGRoup_myAKSCluster_eastus*。 第二個資源群組包含所有與該叢集相關聯的基礎結構資源，例如虛擬機器、網路功能，以及儲存體。 建立該資源群組是為了簡化資源清除。
 
-如果您想建立與 AKS 叢集搭配使用的資源，例如儲存體帳戶或保留的公用 IP 位址，您應該將這些資源置於自動產生的資源群組中。
+如果您想建立與 AKS 叢集搭配使用的資源 (例如儲存體帳戶或保留的公用 IP 位址)，您應該將這些資源置於自動產生的資源群組中。
 
 ## <a name="does-aks-offer-a-service-level-agreement"></a>AKS 是否提供服務等級協定？
 
-在服務等級協定 (SLA) 中，提供者同意就未達到服務等級的情況，補償該項服務費用。 由於 AKS 本身即免費，因此我們並不提供補償費用，亦無任何正式的 SLA。 不過，我們會盡量將 Kubernetes API 伺服器的可用性維持在至少 99.5%。
+在服務等級協定 (SLA) 中，提供者同意就未達到服務等級的情況，補償該項服務費用。 由於 AKS 本身即免費，因此我們並不提供補償費用，亦無任何正式的 SLA。 不過，AKS 會嘗試將 Kubernetes API 伺服器的可用性維持在至少 99.5%。
 
 <!-- LINKS - internal -->
 

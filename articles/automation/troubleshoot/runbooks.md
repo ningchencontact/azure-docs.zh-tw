@@ -8,12 +8,12 @@ ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: ea134cde8b174d020a0adf73256aec3a6c406eaa
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 48b2aab9d2a3937fb53a2e63efa26efc18a894f8
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237592"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413853"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>針對 Runbook 的錯誤進行疑難排解
 
@@ -94,6 +94,26 @@ Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is re
 若要搭配 Azure 傳統部署模型 Cmdlet 使用憑證，請參閱 [creating and adding a certificate to manage Azure services](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) (建立及新增憑證來管理 Azure 服務)。 若要搭配 Azure Resource Manager Cmdlet 來使用服務主體，請參閱[使用 Azure 入口網站來建立服務主體](../../azure-resource-manager/resource-group-create-service-principal-portal.md)和[使用 Azure Resource Manager 驗證服務主體](../../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 ## <a name="common-errors-when-working-with-runbooks"></a>使用 Runbook 時的常見錯誤
+
+### <a name="task-was-cancelled"></a>案例：Runbook 失敗，錯誤為：工作已取消
+
+#### <a name="issue"></a>問題
+
+您的 Runbook 失敗，並具有類似下列範例的錯誤：
+
+```
+Exception: A task was canceled.
+```
+
+#### <a name="cause"></a>原因
+
+此錯誤可能是因為使用過期的 Azure 模組所造成。
+
+#### <a name="resolution"></a>解決方案
+
+此錯誤可以透過將 Azure 模組更新至最新版本來解決。
+
+在您的自動化帳戶中，按一下 [模組]，然後按一下 [更新 Azure 模組]。 更新需要花費大約 15 分鐘的時間。完成之後，請重新執行先前失敗的 Runbook。
 
 ### <a name="not-recognized-as-cmdlet"></a>案例：因為遺失 Cmdlet，所以 Runbook 失敗
 

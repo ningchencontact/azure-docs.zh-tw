@@ -3,7 +3,7 @@ title: Azure Functions 的計時器觸發程序
 description: 了解如何在 Azure Functions 中使用計時器觸發程序。
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,14 +15,14 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/27/2017
-ms.author: tdykstra
+ms.author: glenga
 ms.custom: ''
-ms.openlocfilehash: a4895c0c58d1cdb0430b7418ba24dd85157ecdd3
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 8459c08866fb71e755663aaddd32015af8b0d1df
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308154"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345237"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions 的計時器觸發程序 
 
@@ -205,7 +205,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWr
 
 ## <a name="cron-expressions"></a>CRON 運算式 
 
-Azure Functions 計時器觸發程序的 CRON 運算式包含六個欄位： 
+Azure Functions 會使用 [NCronTab](https://github.com/atifaziz/NCrontab) \(英文\) 程式庫來解譯 CRON 運算式。 CRON 運算式包含六個欄位：
 
 `{second} {minute} {hour} {day} {month} {day-of-week}`
 
@@ -219,7 +219,12 @@ Azure Functions 計時器觸發程序的 CRON 運算式包含六個欄位：
 |一組值 (`,` 運算子)|<nobr>"5,8,10 * * * * *"</nobr>|於 hh:mm:05、hh:mm:08 和 hh:mm:10，其中 hh: mm 是每小時的每一分鐘 (一分鐘 3 次)|
 |間隔值 (`/` 運算子)|<nobr>"0 */5 * * * *"</nobr>|於 hh:05:00、hh:10:00、hh:15:00 以此類推，直到 hh:55:00，其中 hh 是每小時 (一小時 12 次)|
 
-若要指定月或日，您可以使用三個字母的縮寫，而不使用數值。 例如，以 Jan 表示一月，或以 Sun 表示星期日。
+若要指定月或日，您可以使用數值、名稱，或是名稱的縮寫：
+
+* 針對日，數值必須為 0 到 6，其中 0 為星期日。
+* 名稱必須為英文。 例如：`Monday`, `January`。
+* 名稱不區分大小寫。
+* 名稱可為縮寫。 建議的縮寫長度為三個字母。  例如：`Mon`, `Jan`。 
 
 ### <a name="cron-examples"></a>CRON 範例
 
@@ -227,13 +232,13 @@ Azure Functions 計時器觸發程序的 CRON 運算式包含六個欄位：
 
 |範例|觸發時間  |
 |---------|---------|
-|"0 */5 * * * *"|每隔 5 分鐘一次|
-|"0 0 * * * *"|每小時開始時一次|
-|"0 0 */2 * * *"|每隔 2 小時一次|
-|"0 0 9-17 * * *"|上午 9 點到下午 5 點之間每隔一小時一次|
-|"0 30 9 * * *"|每天上午 9:30|
-|"0 30 9 * * 1-5"|每個工作日上午 9:30|
-
+|`"0 */5 * * * *"`|每隔 5 分鐘一次|
+|`"0 0 * * * *"`|每小時開始時一次|
+|`"0 0 */2 * * *"`|每隔 2 小時一次|
+|`"0 0 9-17 * * *"`|上午 9 點到下午 5 點之間每隔一小時一次|
+|`"0 30 9 * * *"`|每天上午 9:30|
+|`"0 30 9 * * 1-5"`|每個工作日上午 9:30|
+|`"0 30 9 * Jan Mon"`|一月每個星期一上午 9:30|
 >[!NOTE]   
 >您可以在線上找到 CRON 運算式範例，但其中大部分都會省略 `{second}` 欄位。 如果您複製其中一個運算式，請新增遺漏的 `{second}` 欄位。 通常您在該欄位中需要零，而非星號。
 
@@ -246,13 +251,13 @@ CRON 運算式使用的預設時區是國際標準時間 (UTC)。 若要讓 CRON
 例如，*美加東部標準時間*是 UTC-05:00。 若要讓計時器觸發程序在每天上午 10:00 (美加東部標準時間) 觸發，您可以使用說明 UTC 時區的下列 CRON 運算式︰
 
 ```json
-"schedule": "0 0 15 * * *",
+"schedule": "0 0 15 * * *"
 ``` 
 
 或者為名為 `WEBSITE_TIME_ZONE` 的函式應用程式建立應用程式設定，並將值設為**美加東部標準時間**。  然後使用下列 CRON 運算式： 
 
 ```json
-"schedule": "0 0 10 * * *",
+"schedule": "0 0 10 * * *"
 ``` 
 
 ## <a name="timespan"></a>時間範圍

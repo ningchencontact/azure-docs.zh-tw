@@ -8,23 +8,36 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: afc48a36b8c26bde4d86ff6277bb2c511d14bace
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: a6d6a7639d3db0cc7d194ca9fae126ad9a2cc3ba
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091859"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413649"
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>選擇雲端 SQL Server 選項：Azure SQL (PaaS) Database 或 Azure VM 上的 SQL Server (IaaS)
 
 在 Azure 中，您可以讓 SQL Server 工作負載在託管基礎結構 (IaaS) 中執行或以託管服務 ([PaaS](https://azure.microsoft.com/overview/what-is-paas/)) 形式執行：
 
-* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)：以 SQL Server 企業版為基礎的 SQL 資料庫引擎已針對新式應用程式開發最佳化。 Azure SQL Database 提供兩個 SQL 版本作為託管服務：邏輯伺服器和 [Azure SQL Database 受控執行個體 (預覽)](sql-database-managed-instance.md)。 透過這兩個版本，Azure SQL Database 可新增 SQL Server 中無法使用的額外功能，例如內建智慧和管理功能。 使用第一個版本，您可以有包含[單一資料庫](sql-database-servers-databases.md)的邏輯伺服器，而且可以將伺服器分組為[彈性集區](sql-database-elastic-pool.md)以共用資源和降低成本。 含有單一和集區資料庫的 Azure SQL Database 邏輯伺服器可提供 SQL Server 大多數的資料庫範圍功能。 Azure SQL Database 可透過 Azure SQL Database 受控執行個體，提供資料庫的共用資源以及其他執行個體範圍功能。 Azure SQL Database 受控執行個體支援資料庫移轉，幾乎無需進行任何資料庫變更。
-* [Azure 虛擬機器上的 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)：SQL Server 會安裝並託管於雲端或 Azure 上執行的 Windows Server 或 Linux 虛擬機器 (VM)，也稱為基礎結構即服務 (IaaS)。 Azure 虛擬機器上的 SQL Server 是移轉內部部署 SQL Server 資料庫和應用程式的理想選項，無需進行任何資料庫變更。 所有近期的 SQL Server 版本均可安裝在 IaaS 虛擬機器中。 SQL Server VM 與 SQL Database 的最明顯差異就是允許完全控制資料庫引擎。 您可以選擇開始進行維護/修補的時間，將復原模式變更為簡單或大量記錄以便更快速載入少量記錄，視需要暫停或啟動引擎，而且可以完全自訂 SQL Server 資料庫引擎。 此額外控制項伴隨著管理虛擬機器的附加責任。
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)：以 SQL Server 企業版為基礎的 SQL 資料庫引擎已針對新式應用程式開發最佳化。 Azure SQL Database 提供數個部署選項：
+  - 您可以將單一資料庫部署到[邏輯伺服器](sql-database-logical-servers.md)。
+  - 您可以部署到[邏輯伺服器](sql-database-logical-servers.md)上的[彈性集區](sql-database-elastic-pool.md)以共用資源並降低成本。 
 
-瞭解每個選項如何搭配 Microsoft 資料平台一起運作，並在比對適合您的商業需求的選項時獲得協助。 無論您是以節省成本為優先考量，或將精簡管理視為首要條件，本文可依據您最重視的商務需求進行比較，以協助您決定要提供的方法。
+      > [!NOTE]
+      > 含有單一和集區資料庫的 Azure SQL Database 可提供 SQL Server 大多數的資料庫範圍功能。
+
+      下圖顯示這些部署選項：
+
+      ![deployment-options](./media/sql-database-technical-overview/deployment-options.png) 
+  - 您可以部署到 [Azure SQL Database 受控執行個體 (預覽)](sql-database-managed-instance.md)。 
+
+      > [!NOTE]
+      > 透過這兩個版本，Azure SQL Database 可新增 SQL Server 中無法使用的額外功能，例如內建智慧和管理功能。 使用第一個版本時，Azure SQL Database 可透過 Azure SQL Database 受控執行個體，提供資料庫的共用資源以及其他執行個體範圍功能。 Azure SQL Database 受控執行個體支援資料庫移轉，幾乎無需進行任何資料庫變更。
+- [Azure 虛擬機器上的 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)：SQL Server 會安裝並託管於雲端或 Azure 上執行的 Windows Server 或 Linux 虛擬機器 (VM)，也稱為基礎結構即服務 (IaaS)。 Azure 虛擬機器上的 SQL Server 是移轉內部部署 SQL Server 資料庫和應用程式的理想選項，無需進行任何資料庫變更。 所有近期的 SQL Server 版本均可安裝在 IaaS 虛擬機器中。 SQL Server VM 與 SQL Database 的最明顯差異就是允許完全控制資料庫引擎。 您可以選擇開始進行維護/修補的時間，將復原模式變更為簡單或大量記錄以便更快速載入少量記錄，視需要暫停或啟動引擎，而且可以完全自訂 SQL Server 資料庫引擎。 此額外控制項伴隨著管理虛擬機器的附加責任。
+
+了解每個部署選項如何搭配 Microsoft 資料平台一起運作，並在比對適合您的商業需求的選項時獲得協助。 無論您是以節省成本為優先考量，或將精簡管理視為首要條件，本文可依據您最重視的商務需求進行比較，以協助您決定要提供的方法。
 
 ## <a name="microsofts-sql-data-platform"></a>Microsoft 的 SQL 資料平台
 
@@ -45,7 +58,7 @@ ms.locfileid: "39091859"
 
 ## <a name="a-closer-look-at-azure-sql-database-and-sql-server-on-azure-vms"></a>仔細看看 Azure SQL Database 和 Azure VM 上的 SQL Server
 
-**Azure SQL Database** 是裝載在 Azure 雲端的關聯式資料庫即服務 (DBaaS)，其產業類別屬於「軟體即服務 (SaaS)」。 [SQL Database](sql-database-technical-overview.md) 會建立在 Microsoft 所擁有、代管及維護的標準化硬體和軟體上。 透過 SQL Database，您可以使用需要在 SQL Server 中進行大量設定的內建功能。 使用 SQL Database 時，您可以隨用隨付，並使用相應增加或相應放大選項以取得不需中斷的更強大功能。 Azure SQL Database 是雲端中開發新應用程式的理想環境，可同時支援[單一資料庫](sql-database-servers-databases.md)和[彈性集區](sql-database-elastic-pool.md)以便共用資源。 而且，使用 [Azure SQL Database 受控執行個體](sql-database-managed-instance.md)，也可以自備授權。 此外，此選項還會提供 Azure SQL Database 的所有 PaaS 優勢，但會新增先前只在 SQL VM 中提供的功能。 這包括原生虛擬網路 (VNet) 以及與內部部署 SQL Server 接近 100% 的相容性。 [受控執行個體](sql-database-managed-instance.md)非常適合在需要最少變更，用於將內部部署資料庫移轉至 Azure。 
+**Azure SQL Database** 是裝載在 Azure 雲端的關聯式資料庫即服務 (DBaaS)，其產業類別屬於「軟體即服務 (SaaS)」。 [SQL Database](sql-database-technical-overview.md) 會建立在 Microsoft 所擁有、代管及維護的標準化硬體和軟體上。 透過 SQL Database，您可以使用需要在 SQL Server 中進行大量設定的內建功能。 使用 SQL Database 時，您可以隨用隨付，並使用相應增加或相應放大選項以取得不需中斷的更強大功能。 Azure SQL Database 是在雲端開發新應用程式的理想環境。 而且，使用 [Azure SQL Database 受控執行個體](sql-database-managed-instance.md)，也可以自備授權。 此外，此選項還會提供 Azure SQL Database 的所有 PaaS 優勢，但會新增先前只在 SQL VM 中提供的功能。 這包括原生虛擬網路 (VNet) 以及與內部部署 SQL Server 接近 100% 的相容性。 [受控執行個體](sql-database-managed-instance.md)非常適合在需要最少變更，用於將內部部署資料庫移轉至 Azure。 
 
 **Azure 虛擬機器 (VM) 中的 SQL Server** 屬於 *基礎結構即服務 (IaaS)* 產業類別，可讓您在雲端的虛擬機器中執行 SQL Server。 [SQL Server 虛擬機器](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)也會在 Microsoft 所擁有、主控及維護的標準化硬體上執行。 在 VM 上使用 SQL Server 時，您可以隨收隨付以取得已經包含在 SQL Server 映像中的 SQL Server 授權或者輕鬆使用現有的授權。 您也可以視需要停止或繼續執行 VM。
 
@@ -76,7 +89,7 @@ ms.locfileid: "39091859"
 
 #### <a name="billing-and-licensing-basics"></a>計費和授權基本概念
 
-目前，我們在數個服務層中以服務形式銷售和提供 **SQL Database** (各項資源的價格不同)，並根據您所選擇的服務層和效能層級，以固定費率計算每小時的費用。 使用 SQL Database 受控執行個體，您也可以自備授權。 如需採用自己的授權的詳細資訊，請參閱 [Azure 上透過軟體保證的授權機動性](https://azure.microsoft.com/pricing/license-mobility/)。 此外，傳出的網際網路流量也會以一般 [資料傳輸費率](https://azure.microsoft.com/pricing/details/data-transfers/)計費。 您可以動態調整服務層和效能層級，以滿足應用程式的不同輸送量需求。 如需目前支援服務層的最新資訊，請參閱 [DTU 形式的購買模型](sql-database-service-tiers-dtu.md)和[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)。 您也可以建立[彈性集區](sql-database-elastic-pool.md)以在資料庫執行個體間共用資源，進而降低成本及因應使用尖峰。
+目前，我們在數個服務層中以服務形式銷售和提供 **SQL Database** (各項資源的價格不同)，並根據您所選擇的服務層和效能層級，以固定費率計算每小時的費用。 使用 SQL Database 受控執行個體，您也可以自備授權。 如需採用自己的授權的詳細資訊，請參閱 [Azure 上透過軟體保證的授權機動性](https://azure.microsoft.com/pricing/license-mobility/)。 此外，傳出的網際網路流量也會以一般 [資料傳輸費率](https://azure.microsoft.com/pricing/details/data-transfers/)計費。 您可以動態調整服務層和效能層級，以滿足應用程式的不同輸送量需求。 如需目前支援服務層的最新資訊，請參閱 [DTU 型購買模型](sql-database-service-tiers-dtu.md)和 [vCore 型購買模型](sql-database-service-tiers-vcore.md)。 您也可以建立[彈性集區](sql-database-elastic-pool.md)以在資料庫執行個體間共用資源，進而降低成本及因應使用尖峰。
 
 有了 **SQL Database**，Microsoft 便會自動設定、修補和升級資料庫軟體，以降低您的系統管理成本。 此外，它 [內建的備份](sql-database-automated-backups.md) 功能可協助您達到有效節省成本，尤其是當您擁有為數眾多的資料庫時效果更為顯著。 
 

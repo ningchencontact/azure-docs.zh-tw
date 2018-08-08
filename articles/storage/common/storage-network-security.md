@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: 52d904e7a7e8e5d520d2abd799ef0ae7e99b9894
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7c0675f78f11bf1e493683fa474cce20c2b2a288
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32192871"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39326110"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>設定 Azure 儲存體防火牆和虛擬網路
 Azure 儲存體提供多層式的安全性模型，讓您保護特定允許網路集合的儲存體帳戶。  設定網路規則時，只有來自允許網路的應用程式可以存取儲存體帳戶。  從允許的網路呼叫時，應用程式仍然需要適當的權限 (有效的存取金鑰或 SAS 權杖) 才能存取儲存體帳戶。
@@ -99,7 +99,7 @@ az storage account update --name "mystorageaccount" --resource-group "myresource
 每個儲存體帳戶最多可支援 100 個虛擬網路規則，它們也可以結合 [IP 網路規則](#grant-access-from-an-internet-ip-range)。
 
 ### <a name="available-virtual-network-regions"></a>可用的虛擬網路區域
-一般情況下，服務端點是在虛擬網路與相同 Azure 區域的服務執行個體之間運作。  當服務端點搭配 Azure 儲存體使用時，此範圍會擴充包含[配對的區域](/azure/best-practices-availability-paired-regions)。  這允許持續性的地區性容錯移轉，以及無縫存取唯讀的異地備援儲存體 (RA-GRS) 執行個體。  將虛擬網路存取權授與儲存體帳戶的網路規則，也會將存取權授與任何 RA-GRS 執行個體。
+一般情況下，服務端點是在虛擬網路與相同 Azure 區域的服務執行個體之間運作。  當服務端點搭配 Azure 儲存體使用時，此範圍會擴充包含[配對的區域](/azure/best-practices-availability-paired-regions)。  這可在地區性容錯移轉期間維持持續性，而且能讓您順暢存取唯讀的異地備援儲存體 (RA-GRS) 執行個體。  將虛擬網路存取權授與儲存體帳戶的網路規則，也會將存取權授與任何 RA-GRS 執行個體。
 
 規劃地區服務中斷期間的災害復原時，應該事先在配對區域中佈建虛擬網路。 應該啟用 Azure 儲存體的服務端點，而授與這些替代虛擬網路存取權的網路規則應該套用至您的異地備援儲存體帳戶。
 

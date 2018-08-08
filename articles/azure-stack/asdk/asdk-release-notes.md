@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 07/30/2018
 ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: d86f0e96f64a56644b3161725f7f6a430568a72f
-ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
+ms.openlocfilehash: 2f732dfdfe9bf4aff2753114c3041f8f646421c2
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39242694"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344727"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Azure Stack 開發套件版本資訊
 這些版本資訊提供 Azure Stack 開發套件中的增強功能、修正和已知問題的相關資訊。 如果您不確定所執行的版本，可以使用[入口網站來進行檢查](.\.\azure-stack-updates.md#determine-the-current-version)。
@@ -47,6 +47,8 @@ This build includes the following improvements and fixes for Azure Stack.
 ### <a name="known-issues"></a>已知問題
  
 #### <a name="portal"></a>入口網站
+- <!-- TBD - IS ASDK --> 您無法搭配此版本的 Azure Stack 使用 OEM 延伸模組套件來套用驅動程式更新。  此問題目前沒有因應方式。
+ 
 - <!-- TBD - IS ASDK --> 請勿使用新系統管理訂用帳戶類型的「計量訂用帳戶」和「取用訂用帳戶」。 這些新的訂用帳戶類型已於 1804 版導入，但還未就緒以供使用。 請繼續使用「預設提供者」訂用帳戶類型。  
 
 - <!-- 2403291 - IS ASDK --> 您可能還無法使用系統管理員和使用者入口網站底部的水平捲軸。 如果您無法存取水平捲軸，請使用階層連結來瀏覽至入口網站中的上一個刀鋒視窗，方法是從入口網站左上角的階層連結清單中，選取您想要檢視的刀鋒視窗名稱。
@@ -89,7 +91,7 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- 1662991 - IS ASDK --> Azure Stack 不支援 Linux VM 診斷。 當您部署啟用了 VM 診斷的 Linux VM 時，部署會失敗。 如果您透過診斷設定啟用 Linux VM 基本計量，部署也會失敗。 
 
-#### <a name="networking"></a>網路功能
+#### <a name="networking"></a>網路
 - <!-- 1766332 - IS, ASDK --> 如果您在 [網路] 下按一下 [建立 VPN 閘道] 來設定 VPN 連線，系統就會將 [原則式] 列為 VPN 類型。 請勿選取此選項。 Azure Stack 只支援 [路由式] 選項。
 
 - <!-- 2388980 -  IS ASDK --> 在建立 VM 並與公用 IP 位址建立關聯之後，您就無法將 VM 與該 IP 位址取消關聯。 取消關聯看似可以運作，但先前指派的公用 IP 位址會繼續與原始 VM 保持關聯。
@@ -122,7 +124,7 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- TBD - IS ASDK --> 為了向外延展基礎結構 (背景工作、管理、前端角色)，您必須如「計算」的版本資訊所述，使用 PowerShell。  
 
-- <!-- TBD - IS ASDK --> 目前，App Service 只能部署到「預設提供者訂用帳戶」。 在未來的更新中，App Service 會部署至 Azure Stack 1804 所導入的新「計量訂用帳戶」。 當系統支援使用計量時，現有部署就會全部遷移至這個新的訂用帳戶類型。
+- <!-- TBD - IS ASDK --> 目前，App Service 只能部署到「預設提供者訂用帳戶」。 在未來的更新中，App Service 會部署至 Azure Stack 1804 所導入的新「計量訂用帳戶」。 當系統支援使用計量時，現有部署就會全部移轉至這個新的訂用帳戶類型。
 
 #### <a name="usage"></a>使用量  
 - <!-- TBD -  IS ASDK --> 使用量公用 IP 位址使用計量資料會針對每一筆記錄顯示相同的 EventDateTime 值，而不是建立記錄時顯示的 TimeDate 時間戳記。 目前，您無法使用這項資料來執行公用 IP 位址使用狀況的正確計量。
@@ -168,6 +170,8 @@ This build includes the following improvements and fixes for Azure Stack.
 ### <a name="known-issues"></a>已知問題
  
 #### <a name="portal"></a>入口網站
+- <!-- TBD - IS ASDK --> 您無法搭配此版本的 Azure Stack 使用 OEM 延伸模組套件來套用驅動程式更新。  此問題目前沒有因應方式。
+ 
 - <!-- TBD - IS ASDK --> 無法在系統管理員入口網站內，[從下拉式清單開啟新的支援要求](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support)。 請改用下列連結：     
     - 針對 Azure Stack 開發套件，請使用 https://aka.ms/azurestackforum。    
 
@@ -218,7 +222,7 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- 1662991 - IS ASDK --> Azure Stack 不支援 Linux VM 診斷。 當您部署啟用了 VM 診斷的 Linux VM 時，部署會失敗。 如果您透過診斷設定啟用 Linux VM 基本計量，部署也會失敗。 
 
-#### <a name="networking"></a>網路功能
+#### <a name="networking"></a>網路
 - <!-- 1766332 - IS, ASDK --> 如果您在 [網路] 下按一下 [建立 VPN 閘道] 來設定 VPN 連線，系統就會將 [原則式] 列為 VPN 類型。 請勿選取此選項。 Azure Stack 只支援 [路由式] 選項。
 
 - <!-- 2388980 -  IS ASDK --> 在建立 VM 並與公用 IP 位址建立關聯之後，您就無法將 VM 與該 IP 位址取消關聯。 取消關聯看似可以運作，但先前指派的公用 IP 位址會繼續與原始 VM 保持關聯。
@@ -348,7 +352,7 @@ This build includes the following improvements and fixes for Azure Stack.
 - <!-- 1662991 --> Azure Stack 不支援 Linux VM 診斷。 當您部署啟用了 VM 診斷的 Linux VM 時，部署會失敗。 如果您透過診斷設定啟用 Linux VM 基本計量，部署也會失敗。 
 
 
-#### <a name="networking"></a>網路功能
+#### <a name="networking"></a>網路
 - 如果您在 [網路] 下按一下 [連線] 來設定 VPN 連線，就會列出 **VNet 對 VNet** 作為可能的連線類型。 請勿選取此選項。 目前，僅支援**站對站 (IPsec)** 選項。
 
 - 在建立 VM 並與公用 IP 位址建立關聯之後，您就無法將 VM 與該 IP 位址取消關聯。 取消關聯看似可以運作，但先前指派的公用 IP 位址會繼續與原始 VM 保持關聯。

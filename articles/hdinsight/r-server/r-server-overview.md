@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 9633a7df1cb72f3e9e5ee79be0c332565e7e8f2a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c952d64229102f99dde393bc9a6efda45fc1c717
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054097"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358846"
 ---
 # <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>HDInsight 上的 ML 服務與開放原始碼 R 功能簡介
 
@@ -106,7 +106,7 @@ HDInsight 叢集 HDFS 檔案系統的預設儲存體可以與 Azure 儲存體帳
 
 ### <a name="score-on-premises"></a>內部部署評分
 
-若要在建立模型之後進行內部部署評分，可以在 R 中將模型序列化，下載它、將它還原序列化，然後使用它進行新資料的評分。 您可以使用上述[在 HDInsight 中評分](#scoring-in-hdinsight)所描述的方法，或使用 [DeployR](https://deployr.revolutionanalytics.com/) 進行新資料的評分。
+若要在建立模型之後進行內部部署評分，可以在 R 中將模型序列化，下載它、將它還原序列化，然後使用它進行新資料的評分。 您可以使用稍早在[在 HDInsight 中評分](#scoring-in-hdinsight)中所述的方法，或使用 [Web 服務](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services) \(英文\) 進行新資料的評分。
 
 ## <a name="maintain-the-cluster"></a>維護叢集
 

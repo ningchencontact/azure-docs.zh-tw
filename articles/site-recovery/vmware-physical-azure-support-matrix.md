@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: raynew
-ms.openlocfilehash: 516cb69042e923a46168c7655dc3e3010d9557e6
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 96fc44ad7f69b4de0ec5ea3967fe5495086ba53a
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173787"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413598"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>將 VMware 和實體伺服器複寫至 Azure 的支援對照表
 
@@ -62,14 +62,14 @@ Site Recovery 支援複寫任何執行於所支援機器上的工作負載。
 --- | ---
 機器設定 | 複寫到 Azure 的電腦必須符合 [Azure 需求](#azure-vm-requirements)。
 Windows 作業系統 | 64 位元 Windows Server 2016 (Server Core，使用桌面體驗的伺服器)、Windows Server 2012 R2、Windows Server 2012、Windows Server 2008 R2 (至少加裝 SP1)。 </br></br>  [至少含 SP2 的 Windows Server 2008 -32 位元和 64 位元](migrate-tutorial-windows-server-2008.md) (僅限移轉)。 </br></br> 不支援 Windows 2016 Nano Server。
-Linux 作業系統 | Red Hat Enterprise Linux：5.2 至 5.11、6.1 至 6.9、7.0 至 7.5 <br/><br/>CentOS：5.2 至 5.11、6.1 至 6.9、7.0 至 7.5 <br/><br/>Ubuntu 14.04 LTS 伺服器 [(支援的核心版本)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS 伺服器 [(支援的核心版本)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (支援的核心版本)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1、SP2、SP3 [ (支援的核心版本)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3、SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Enterprise Linux 6.4、6.5，執行 Red Hat 相容核心或 Unbreakable Enterprise Kernel 第 3 版 (UEK3) <br/><br/></br>* *不支援將複寫的機器從 SUSE Linux Enterprise Server 11 SP3 升級到 SP4。若要升級，請停用複寫，然後在升級之後再次加以啟用。*
+Linux 作業系統 | Red Hat Enterprise Linux：5.2 至 5.11<b>\*\*</b>、6.1 至 6.9<b>\*\*</b>、7.0 至 7.5 <br/><br/>CentOS：5.2 至 5.11<b>\*\*</b>、6.1 至 6.9<b>\*\*</b>、7.0 至 7.5 <br/><br/>Ubuntu 14.04 LTS 伺服器 [(支援的核心版本)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS 伺服器 [(支援的核心版本)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (支援的核心版本)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1、SP2、SP3 [ (支援的核心版本)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>、SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Enterprise Linux 6.4、6.5，執行 Red Hat 相容核心或 Unbreakable Enterprise Kernel 第 3 版 (UEK3) <br/><br/></br>* *不支援將複寫的機器從 SUSE Linux Enterprise Server 11 SP3 升級到 SP4。若要升級，請停用複寫，然後在升級之後再次加以啟用。*</br></br><b>\*\*</b> *請參閱 [Azure 中的 Linux 虛擬機器支援](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure)以了解 Azure 中的 Linux 與開放原始碼技術支援。Azure Site Recovery 可讓您在 Azure 中容錯移轉並執行 Linux 伺服器，不過 Linux 廠商可能會限制只支援其發行版本尚未到達生命週期結尾的版本。*
 
 
 >[!NOTE]
 >
-> - 在 Linux 散發套件上，僅支援屬於散發套件次要版本/更新的庫存核心。
+> - 在 Linux 發行版本上，僅支援屬於發行版本次要版本/更新的庫存核心。
 >
-> - 不支援升級各主要 Linux 散發套件版本的受保護機器。 若要升級，請停用複寫、升級作業系統，然後再次啟用複寫。
+> - 不支援升級各主要 Linux 發行版本的受保護機器。 若要升級，請停用複寫、升級作業系統，然後再次啟用複寫。
 >
 > - 執行 Red Hat Enterprise Linux 5.2 至 5.11 或 CentOS 5.2 至 5.11 的伺服器應該安裝 Linux Integration Services (LIS) 元件，以便機器在 Azure 中啟動。
 

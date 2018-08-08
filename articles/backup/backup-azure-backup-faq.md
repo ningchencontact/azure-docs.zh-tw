@@ -7,14 +7,14 @@ manager: carmonm
 keywords: 備份和災害復原; 備份服務
 ms.service: backup
 ms.topic: conceptual
-ms.date: 5/9/2018
+ms.date: 8/1/2018
 ms.author: markgal
-ms.openlocfilehash: ac3c90fef602c5f840fff9ccd03efc360ca16200
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 33a3a1c0fd375f6ed88e13f910c46e71f216b892
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605819"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412946"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>關於 Azure 備份服務的問題
 本文提供 Azure 備份元件的常見問題解答。 在某些答案中，有具有完整資訊的文章連結。 按一下 [註解] \(位於右側)，即可詢問 Azure 備份的相關問題。 註解會出現於文末。 需有 Livefyre 帳戶才能使用註解。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。
@@ -33,8 +33,11 @@ ms.locfileid: "34605819"
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>如果我的組織有一個備份保存庫，如何在還原資料時隔離某一部伺服器與另一部伺服器的資料？<br/>
 所有向相同保存庫註冊的伺服器都可以復原由「使用相同複雜密碼」 之其他伺服器所備份的資料。 如果您想要隔離您伺服器中的備份資料與您組織中的其他伺服器，請使用這些伺服器的指定複雜密碼。 例如，人力資源伺服器可能使用一組加密複雜密碼，而會計伺服器使用另一組，並且儲存體伺服器使用第三組。
 
-### <a name="can-i-migrate-my-backup-data-or-vault-between-subscriptions-br"></a>我可以在訂用帳戶之間「移轉」備份資料或保存庫嗎？ <br/>
-編號 保存庫會建立在訂用帳戶層級，並且在建立之後無法重新指派至其他訂用帳戶。
+### <a name="can-i-migrate-my-vault-between-subscriptions-br"></a>我是否可以在訂用帳戶之間移轉保存庫？ <br/>
+否。 保存庫是於訂用帳戶層級上建立，且無法重新指派至其他訂用帳戶。
+
+### <a name="can-i-migrate-backup-data-to-another-vault-br"></a>我是否可以將備份資料移轉至另一個保存庫？ <br/>
+否。 儲存在保存庫中的備份資料無法移至不同的保存庫。
 
 ### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-still-supported-br"></a>復原服務保存庫是以 Resource Manager 為基礎。 仍然支援備份保存庫嗎？ <br/>
 備份保存庫都已轉換為復原服務保存庫。 如果您未將備份保存庫轉換為復原服務保存庫，則系統會為您將備份保存庫轉換為復原服務保存庫。 
@@ -60,7 +63,7 @@ ms.locfileid: "34605819"
 是。
 
 ### <a name="can-i-register-my-dpm-server-to-multiple-vaults-br"></a>可以將我的 DPM 伺服器註冊至多個保存庫嗎？ <br/>
-編號 DPM 或 MABS 伺服器只能註冊至一個保存庫。
+否。 DPM 或 MABS 伺服器只能註冊至一個保存庫。
 
 ### <a name="which-version-of-system-center-data-protection-manager-is-supported"></a>支援的 System Center Data Protection Manager 版本為何？
 
@@ -74,11 +77,11 @@ ms.locfileid: "34605819"
 
 ### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>可以使用 DPM 備份 Azure Stack 中的應用程式嗎？
 
-編號 雖然您可以使用 Azure 備份來保護 Azure Stack，但 Azure 備份目前不支援使用 DPM 來備份 Azure Stack 中的應用程式。
+否。 雖然您可以使用 Azure 備份來保護 Azure Stack，但 Azure 備份目前不支援使用 DPM 來備份 Azure Stack 中的應用程式。
 
 ## <a name="how-azure-backup-works"></a>Azure 備份的運作方式
 ### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted-br"></a>如果我在備份作業開始後予以取消，是否會刪除已傳輸的備份資料？ <br/>
-編號 在備份作業取消之前﹐傳輸到保存庫的所有資料均保留於保存庫中。 Azure 備份會使用檢查點機制，在備份期間偶爾將檢查點加入至備份資料。 因為備份資料中有檢查點，所以下一個備份程序才可驗證檔案的完整性。 下一個備份工作將會增量到先前備份的資料。 增量備份只會傳輸新資料或變更的資料，相當於具有較佳的頻寬使用率。
+否。 在備份作業取消之前﹐傳輸到保存庫的所有資料均保留於保存庫中。 Azure 備份會使用檢查點機制，在備份期間偶爾將檢查點加入至備份資料。 因為備份資料中有檢查點，所以下一個備份程序才可驗證檔案的完整性。 下一個備份工作將會增量到先前備份的資料。 增量備份只會傳輸新資料或變更的資料，相當於具有較佳的頻寬使用率。
 
 如果您取消 Azure VM 的備份工作，則會忽略任何傳輸的資料。 下一個備份工作會傳輸自最後一個成功備份工作之後的增量資料。
 
@@ -147,7 +150,7 @@ Azure 備份會強制執行資料來源的大小上限，不過，來源的限�
 是的，Azure 備份保留結構讓您可以依照您的需求，彈性定義保留原則。
 
 ### <a name="can-i-schedule-a-backup-at-6pm-and-specify-retention-policies-at-a-different-timebr"></a>我可以在下午 6:00「排程備份」，並在不同的時間指定「保留原則」嗎？<br/>
-編號 保留原則僅能套用在復原點上。 在以下影像中，將於上午 12:00 和下午 6:00 進行備份時指定保留原則。 <br/>
+否。 保留原則僅能套用在復原點上。 在以下影像中，將於上午 12:00 和下午 6:00 進行備份時指定保留原則。 <br/>
 
 ![排程備份和保留](./media/backup-azure-backup-faq/Schedule.png)
 <br/>
@@ -165,7 +168,7 @@ Azure 備份會強制執行資料來源的大小上限，不過，來源的限�
 從 Azure 備份進行復原的次數沒有任何限制。
 
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure-br"></a>還原資料時，我需要支付來自 Azure 的輸出流量嗎？ <br/>
-編號 您的復原作業完全免費，且輸出流量不計費。
+否。 您的復原作業完全免費，且輸出流量不計費。
 
 ### <a name="what-happens-when-i-change-my-backup-policy"></a>變更我的備份原則時會發生什麼狀況？
 套用新原則後，就會遵循新原則的排程和保留期。 如果延長保留期，會標示現有的復原點，以依據新的原則加以保留。 如果縮短保留期，則會標示現有的復原點，以便在下次清除作業中剪除然後刪除。

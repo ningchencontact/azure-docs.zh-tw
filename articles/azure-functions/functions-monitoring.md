@@ -2,7 +2,7 @@
 title: 監視 Azure Functions
 description: 了解如何使用 Azure Application Insights 搭配 Azure Functions 來監視函式執行。
 services: functions
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,18 +14,20 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
-ms.author: tdykstra
-ms.openlocfilehash: cbdb4691bac01843a451c988e09d77dd10f97461
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: glenga
+ms.openlocfilehash: ba820c594b5afb34c050c74de30300b0dfc8c3a6
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344050"
 ---
 # <a name="monitor-azure-functions"></a>監視 Azure Functions
 
 ## <a name="overview"></a>概觀 
 
-[Azure Functions](functions-overview.md) 提供與 [Azure Application Insights](../application-insights/app-insights-overview.md) 的內建整合來監視函式。 本文示範如何設定 Functions，以將遙測資料傳送至 Application Insights。
+
+  [Azure Functions](functions-overview.md) 提供與 [Azure Application Insights](../application-insights/app-insights-overview.md) 的內建整合來監視函式。 本文示範如何設定 Functions，以將遙測資料傳送至 Application Insights。
 
 ![Application Insights 計量瀏覽器](media/functions-monitoring/metrics-explorer.png)
 
@@ -222,7 +224,7 @@ Azure Functions 記錄器也包含具有每個記錄的「記錄層級」。 [Lo
       "categoryLevels": {
         "Host.Results": "Error",
         "Function": "Error",
-        "Host.Aggregator": "Information"
+        "Host.Aggregator": "Trace"
       }
     }
   }
@@ -232,7 +234,7 @@ Azure Functions 記錄器也包含具有每個記錄的「記錄層級」。 [Lo
 此範例會設定下列規則：
 
 1. 針對類別為 "Host.Results" 或 "Function" 的記錄，只會將 `Error` 層級和以上層級傳送至 Application Insights。 `Warning` 層級和以下層級的記錄均會被忽略。
-2. 針對類別為 Host 的記錄。 彙總工具，只會將 `Information` 層級和以上層級傳送至 Application Insights。 `Debug` 層級和以下層級的記錄均會被忽略。
+2. 針對類別為 Host.Aggregator 的記錄，將所有記錄傳送至 Application Insights。 `Trace` 記錄層級和某些記錄器稱為 `Verbose` 的記錄層級相同，但會在 *host.json* 檔案中使用 `Trace`。
 3. 針對所有其他記錄，只會將 `Information` 層級和以上層級傳送至 Application Insights。
 
 *Host.json* 中的類別值會控制以相同值開頭之所有類別的記錄。 例如，*host.json* 中的 "Host" 會控制 "Host.General"、"Host.Executor"、"Host.Results" 等的記錄。
@@ -558,7 +560,7 @@ module.exports = function (context, req) {
 az login
 az account list
 az account set <subscriptionNameOrId>
-az appservice web log tail --resource-group <resource group name> --name <function app name>
+az webapp log tail --resource-group <resource group name> --name <function app name>
 ```
 
 如果您使用 Azure PowerShell，請使用下列命令來新增 Azure 帳戶、選擇訂用帳戶及串流處理記錄檔：

@@ -10,12 +10,12 @@ ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: tdykstra
-ms.openlocfilehash: 31c0d8c43a1a7614ff1965853b8ce0a3997db6f4
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 5d30357e5308de0224590703bb5e68fbe73b882b
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37343144"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343430"
 ---
 # <a name="how-to-prepare-for-an-inbound-ip-address-change"></a>如何為輸入 IP 位址變更進行準備
 
@@ -40,6 +40,8 @@ ms.locfileid: "37343144"
 2.  在左側導覽功能表中選取 [應用程式服務]。
 
 3.  從清單中選取 App Service 應用程式。
+
+4.  若該應用程式為函式應用程式，請參閱[函式應用程式輸入 IP 位址](../azure-functions/ip-addresses.md#function-app-inbound-ip-address)。
 
 4.  在 [設定] 標題底下，按一下左側導覽中的 [屬性]，並找到標示為 [虛擬 IP 位址] 的區段。
 

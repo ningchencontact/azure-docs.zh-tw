@@ -9,12 +9,12 @@ ms.workload: storage
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
-ms.openlocfilehash: 9721935f005bbd9a5dc261fe801ecc14744b004f
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: ec314925635d34baa7b3edeeb397805964b6353d
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752787"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413122"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>管理 Azure Blob 儲存體生命週期 (預覽)
 
@@ -70,7 +70,7 @@ az feature register –-namespace Microsoft.Storage –-name DLM
 
 ## <a name="add-or-remove-policies"></a>新增或移除原則 
 
-您可以使用 Azure 入口網站、[PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview)、REST API 或下列語言的用戶端工具，來新增、編輯或移除原則：[.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview)、[Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/)、[Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0)、[Ruby]( https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2)。 
+您可以使用 Azure 入口網站、[PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview)、[REST API](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts/createorupdatemanagementpolicies) 或下列語言的用戶端工具，來新增、編輯或移除原則：[.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview)、[Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/)、[Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0)、[Ruby]( https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2)。 
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
@@ -121,7 +121,7 @@ Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName]
 | 參數名稱 | 參數類型 | 注意 |
 |----------------|----------------|-------|
 | version        | 以 `x.x` 表示的字串 | 預覽版本號碼為 0.5 |
-| 規則          | 規則物件的陣列 | 每個原則至少需要一項規則。 在預覽期間，每個原則最多可以指定 4 項規則。 |
+| rules          | 規則物件的陣列 | 每個原則至少需要一項規則。 在預覽期間，每個原則最多可以指定 4 項規則。 |
 
 規則所需的參數包括：
 
@@ -129,11 +129,11 @@ Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName]
 |----------------|----------------|-------|
 | Name           | 字串 | 規則名稱可包含英數字元的任意組合。 規則名稱會區分大小寫。 它在原則內必須是唯一的。 |
 | type           | 列舉值 | 預覽的有效值為 `Lifecycle` |
-| 定義     | 定義生命週期規則的物件 | 每個定義是由篩選集和動作集組成。 |
+| definition     | 定義生命週期規則的物件 | 每個定義是由篩選集和動作集組成。 |
 
 ## <a name="rules"></a>規則
 
-每個規則定義包含篩選集和動作集。 下列範例規則會修改前置詞為 `foo` 的基底區塊 Blob 層。 在原則中，這些規則的定義如下：
+每個規則定義包含篩選集和動作集。 下列範例規則會修改前置詞為 `container1/foo` 的基底區塊 Blob 層。 在原則中，這些規則的定義如下：
 
 - 上次修改 30 天後將 Blob 分層到非經常性儲存體
 - 上次修改 90 天後將 Blob 分層到封存儲存體
@@ -150,7 +150,7 @@ Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName]
       "definition": {
         "filters": {
           "blobTypes": [ "blockBlob" ],
-          "prefixMatch": [ "foo" ]
+          "prefixMatch": [ "container1/foo" ]
         },
         "actions": {
           "baseBlob": {
@@ -177,8 +177,8 @@ Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName]
 
 | 篩選名稱 | 篩選類型 | 注意 | 必要 |
 |-------------|-------------|-------|-------------|
-| blobTypes   | 預先定義的列舉值陣列。 | 預覽版本僅支援 `blockBlob`。 | yes |
-| prefixMatch | 要比對前置詞的字串陣列。 | 如果未定義，此規則會套用至帳戶內的所有 Blob。 | 否 |
+| blobTypes   | 預先定義的列舉值陣列。 | 預覽版本僅支援 `blockBlob`。 | 是 |
+| prefixMatch | 要比對前置詞的字串陣列。 前置詞字串必須以容器名稱開頭。 例如，如果 "https://myaccount.blob.core.windows.net/mycontainer/mydir/..." 下的所有 Blob 都應與規則相符，則前置詞為 "mycontainer/mydir"。 | 如果未定義，此規則會套用至帳戶內的所有 Blob。 | 否 |
 
 ### <a name="rule-actions"></a>規則動作
 
@@ -207,7 +207,7 @@ Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName]
 
 ### <a name="move-aging-data-to-a-cooler-tier"></a>將過時資料移至較少存取的階層
 
-下列範例示範如何轉換前置詞為 `foo` 或 `bar` 的區塊 Blob。 該原則會將超過 30 天未修改的 Blob 轉換到非經常性儲存體，並將 90 天內未修改的 Blob 轉換到封存層：
+下列範例示範如何轉換前置詞為 `container1/foo` 或 `container2/bar` 的區塊 Blob。 該原則會將超過 30 天未修改的 Blob 轉換到非經常性儲存體，並將 90 天內未修改的 Blob 轉換到封存層：
 
 ```json
 {
@@ -220,7 +220,7 @@ Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName]
         {
           "filters": {
             "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "foo", "bar" ]
+            "prefixMatch": [ "container1/foo", "container2/bar" ]
           },
           "actions": {
             "baseBlob": {
@@ -236,7 +236,7 @@ Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName]
 
 ### <a name="archive-data-at-ingest"></a>封存內嵌資料 
 
-有些資料在雲端維持閒置，而且儲存後就很少存取。 此資料最好在內嵌後立即封存。 下列生命週期原則已設定為封存內嵌資料。 此範例會將儲存體帳戶中前置詞為 `archive` 的區塊 Blob 立即轉換到封存層。 您可以在上次修改時間後不到一天對 Blob 採取動作來完成立即轉換：
+有些資料在雲端維持閒置，而且儲存後就很少存取。 此資料最好在內嵌後立即封存。 下列生命週期原則已設定為封存內嵌資料。 此範例會將容器 `archivecontainer` 內儲存體帳戶中的區塊 Blob 立即轉換到封存層。 您可以在上次修改時間後不到一天對 Blob 採取動作來完成立即轉換：
 
 ```json
 {
@@ -249,7 +249,7 @@ Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName]
         {
           "filters": {
             "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "archive" ]
+            "prefixMatch": [ "archivecontainer" ]
           },
           "actions": {
             "baseBlob": { 
@@ -292,7 +292,7 @@ Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName]
 
 ### <a name="delete-old-snapshots"></a>刪除舊的快照集
 
-針對在其生命週期內定期修改及存取的資料，通常會使用快照集來追蹤舊版資料。 您可以建立原則，根據快照集存在時間來刪除舊的快照集。 快照集存在時間是透過評估快照集建立時間來判斷。 此原則規則會刪除前置詞為 `activeData` 且快照集建立後超過 90 天 (含) 的區塊 Blob 快照集。
+針對在其生命週期內定期修改及存取的資料，通常會使用快照集來追蹤舊版資料。 您可以建立原則，根據快照集存在時間來刪除舊的快照集。 快照集存在時間是透過評估快照集建立時間來判斷。 此原則規則會將快照集建立後超過 90 天 (含) 的容器 `activedata` 內區塊 Blob 快照集刪除。
 
 ```json
 {
@@ -305,7 +305,7 @@ Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName]
         {
           "filters": {
             "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "activeData" ]
+            "prefixMatch": [ "activedata" ]
           },
           "actions": {            
             "snapshot": {

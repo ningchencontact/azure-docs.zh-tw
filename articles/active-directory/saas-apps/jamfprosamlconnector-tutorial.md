@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 07/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 794039ee1a5b1cf3b382e0f0769383b1e033e982
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b003f29db699d89f0d3cec76ee3562ffad08b40f
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046931"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346329"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>教學課程：Azure Active Directory 與 Jamf Pro 整合
 
@@ -139,7 +139,21 @@ Jamf Pro 與 Azure AD 整合提供下列優點：
 
     ![Jamf Pro 設定](./media/jamfprosamlconnector-tutorial/configure2.png)
 
-10. 向下捲動至 [單一登入] 區段下方的 [身分識別提供者]，然後執行下列步驟：
+10. 在 [單一登入] 頁面上，執行下列步驟：
+
+    ![Jamf Pro 單一登入](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_single.png)
+
+    a. 選取 [Jamf Pro 伺服器] 來啟用單一登入存取。
+
+    b. 選取 [允許所有使用者略過]，就不會將使用者重新導向至識別提供者登入頁面來進行驗證，但可改為直接登入 Jamf Pro。 當使用者嘗試透過識別提供者存取 Jamf Pro 時，就會進行 IdP 啟始的 SSO 驗證和授權。
+
+    c. 從 [使用者對應：SAML] 中選取 [NameID] 選項。 根據預設，此設定會設定為 [NameID]，但您可以定義自訂屬性。
+
+    d. 針對 [使用者對應：JAMF PRO] 選取 [電子郵件]。 Jamf Pro 會以下列方式對應由 IdP 所傳送的 SAML 屬性：依使用者或依群組。 當使用者嘗試存取 Jamf Pro，Jamf Pro 預設會從識別提供者中取得該使用者的相關資訊，並比對 Jamf Pro 使用者帳戶。 如果傳入的使用者帳戶不存在於 Jamf Pro 中，則會進行群組名稱比對。
+
+    e. 將值 `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups` 貼到 [群組屬性名稱] 文字方塊中。
+ 
+11. 在同一個頁面上，向下捲動至 [單一登入] 區段下方的 [識別提供者]，然後執行下列步驟：
 
     ![Jamf Pro 設定](./media/jamfprosamlconnector-tutorial/configure3.png)
 
@@ -152,7 +166,7 @@ Jamf Pro 與 Azure AD 整合提供下列優點：
     d. 複製**實體識別碼**值，並將它貼到 Azure 入口網站上 [Jamf Pro 網域及 URL] 區段中的 [識別碼 (實體識別碼)]  文字方塊。
 
     >[!NOTE]
-    > 這裡的 `aadsso` 為子網域組件 (僅供參考)。 使用此值來完成 Azure 入口網站上 [Jamf Pro 網域及 URL] 區段中的登入 URL 和回覆 URL。
+    > 此處的模糊值為子網域部分。請使用此值來完成 Azure 入口網站上 [Jamf Pro 網域及 URL] 區段中的登入 URL 和回覆 URL。
 
     e. 按一下 [檔案] 。
 

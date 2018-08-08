@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/02/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 62b0639f134a134739b09593a0b21b47d06699dc
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 6f6fa1ebc086530f138d32ee5a9c799b5bfbbdeb
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39236919"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412105"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Azure SQL Database 資源限制概觀 
 
@@ -28,10 +28,12 @@ ms.locfileid: "39236919"
 | 任何區域中每個訂用帳戶的伺服器預設數目 | 20 |
 | 任何區域中每個訂用帳戶的伺服器最大數目 | 200 |
 | 每一伺服器的 DTU/eDTU 配額 | 54,000 |
+| 每一伺服器的 vCore 配額 | 540 |
+| 每一伺服器的集區數目上限 | 受限於 DTU 或 vCore 數目 |
 |||
 
 > [!NOTE]
-> 若要獲得大於預設數量的 DTU/eDTU 配額或伺服器，可以在 Azure 入口網站中，針對訂用帳戶使用問題類型「配額」來提交新的支援要求。 每一伺服器的 DTU/eDTU 配額和資料庫限制會限制每一部伺服器的彈性集區數目。 
+> 若要獲得大於預設數量的 DTU/eDTU 配額、vCore 配額或伺服器，可以在 Azure 入口網站中，針對訂用帳戶使用問題類型「配額」提交新的支援要求。 每一伺服器的 DTU/eDTU 配額和資料庫限制會限制每一部伺服器的彈性集區數目。 
 
 > [!IMPORTANT]
 > 每當資料庫數量接近每台伺服器的限制時，可能會出現下列情況：
@@ -40,9 +42,9 @@ ms.locfileid: "39236919"
 
 ## <a name="what-happens-when-database-resource-limits-are-reached"></a>達到資料庫資源限制時，會發生什麼事？
 
-### <a name="compute-dtus-and-edtus--vcores"></a>計算 (DTU 和 eDTU / 虛擬核心)
+### <a name="compute-dtus-and-edtus--vcores"></a>計算 (DTU 和 eDTU / vCore)
 
-當資料庫計算使用率 (根據 DTU 和 eDTU 或虛擬核心測量) 變高時，查詢延遲會增加，甚至可能逾時。在下列情況下，查詢可能會透過服務排入佇列，並在資源變成可用時，提供資源以供執行。
+當資料庫計算使用率 (根據 DTU 和 eDTU 或 vCore 測量) 變高時，查詢延遲會增加，甚至可能逾時。在下列情況下，查詢可能會透過服務排入佇列，並在資源變成可用時，提供資源以供執行。
 遇到高計算使用率時，緩和選項包括：
 
 - 提高資料庫或彈性集區的效能等級，以提供更多計算資源給資料庫。 請參閱[調整單一資料庫資源](sql-database-single-database-scale.md)和[調整彈性集區資源](sql-database-elastic-pool-scale.md)。
@@ -56,6 +58,7 @@ ms.locfileid: "39236919"
 
 - 提高資料庫或彈性集區的大小上限，或增加更多儲存空間。 請參閱[調整單一資料庫資源](sql-database-single-database-scale.md)和[調整彈性集區資源](sql-database-elastic-pool-scale.md)。
 - 如果資料庫在彈性集區，也可以將資料庫移出集區，如此便不會與其他資料庫共用儲存空間。
+- 壓縮資料庫以回收未使用的空間。 如需詳細資訊，請參閱[管理 Azure SQL Database 中的檔案空間](sql-database-file-space-management.md)。
 
 ### <a name="sessions-and-workers-requests"></a>工作階段和背景工作角色 (要求) 
 

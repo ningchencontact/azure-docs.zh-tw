@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 7/24/2018
+ms.date: 7/31/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 0376fc3eb3ad0b98f1d98ecd35683b08e08090da
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: a43b70d2ce7a8205903fb877ea056dea88ac8bb5
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248091"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389604"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>將 Azure 監視資料串流至事件中樞以供外部工具取用
 
@@ -113,6 +113,7 @@ Azure 資源會發出兩種監視資料：
     1. [適用於 Splunk 的 Azure 監視器附加元件](https://splunkbase.splunk.com/app/3534/) \(英文\) 可從 Splunkbase 和開放原始碼專案中取得。 [文件在此](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk) \(英文\)。
     2. 如果您無法在 Splunk 執行個體中安裝附加元件 (例如， 如果使用 Proxy 或在 Splunk Cloud 上執行)，您可以使用[由事件中樞中的新訊息觸發的這個功能](https://github.com/Microsoft/AzureFunctionforSplunkVS)，將這些事件轉寄給 Splunk HTTP Event Collector。
 * **SumoLogic** - 設定 SumoLogic 以從事件中樞取用資料的指示[可從這裡取得](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub) \(英文\)
+* **Syslog 伺服器** - 若要直接將 Azure 監視器資料串流到 syslog 伺服器，您可以查看[此 github 存放庫](https://github.com/miguelangelopereira/azuremonitor2syslog/) \(英文\)。
 
 ## <a name="next-steps"></a>後續步驟
 * [將活動記錄檔封存至儲存體帳戶](monitoring-archive-activity-log.md)

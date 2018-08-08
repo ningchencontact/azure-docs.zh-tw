@@ -1,5 +1,5 @@
 ---
-title: 使用 Kafka MirrorMaker 搭配適用於 Kafka 生態系統的 Azure 事件中樞 | Microsoft Docs
+title: 使用 Apache Kafka MirrorMaker 搭配適用於 Kafka 生態系統的 Azure 事件中樞 | Microsoft Docs
 description: 使用 Kafka MirrorMaker 鏡像事件中樞中的 Kafka 叢集。
 services: event-hubs
 documentationcenter: .net
@@ -10,27 +10,37 @@ ms.topic: mirror-maker
 ms.custom: mvc
 ms.date: 05/07/2018
 ms.author: bahariri
-ms.openlocfilehash: 0693fc2fff5735fb2b3c0a9b8f1d3d256746f40d
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: eee090e7d539e0dd21f078039b8448cee5440340
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298316"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412190"
 ---
-# <a name="using-kafka-mirrormaker-with-event-hubs-for-kafka-ecosystems"></a>使用 Kafka MirrorMaker 搭配適用於 Kafka 生態系統的事件中樞
+# <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>使用 Kafka MirrorMaker 搭配適用於 Apache Kafka 的事件中樞
+
+此教學課程說明如何使用 Kafka MirrorMaker，在啟用 Kafka 的事件中樞內鏡像 Kafka 訊息代理程式。
+
+   ![具有事件中樞的 Kafka MirrorMaker](./media/event-hubs-kafka-mirror-maker-tutorial/evnent-hubs-mirror-maker1.png)
 
 > [!NOTE]
-> 您可在 [GitHub](https://github.com/Azure/azure-event-hubs) 上取得此範例
+> 您可以在 [GitHub](https://github.com/Azure/azure-event-hubs) 上取得此範例
 
+
+在本教學課程中，您了解如何：
+> [!div class="checklist"]
+> * 建立事件中樞命名空間
+> * 複製範例專案
+> * 設定 Kafka 叢集
+> * 設定 Kafka MirrorMaker
+> * 執行 Kafka MirrorMaker
+
+## <a name="introduction"></a>簡介
 新式雲端規模應用程式的一個主要考量在於能夠更新、改善，以及變更基礎結構，而不會中斷服務。 本教學課程示範啟用 Kafka 的事件中樞及 Kafka MirrorMaker 如何在事件中樞服務中「鏡像」Kafka 輸入資料流，以將現有的 Kafka 管線整合到 Azure 中。 
 
 Azure 事件中樞 Kafka 端點可讓您使用 Kafka 通訊協定 (亦即 Kafka 用戶端) 連線到 Azure 事件中樞。 幾乎不需要變更 Kafka 應用程式，您就可以連線到 Azure 事件中樞，並享受 Azure 生態系統的優點。 啟用 Kafka 的事件中樞目前支援 Kafka 1.0 版和更新版本。
 
-此範例示範如何使用 Kafka MirrorMaker，在啟用 Kafka 的事件中樞內鏡像 Kafka 訊息代理程式。
-
-   ![具有事件中樞的 Kafka MirrorMaker](./media/event-hubs-kafka-mirror-maker-tutorial/evnent-hubs-mirror-maker1.png)
-
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，請確定您具有下列項目︰
 
@@ -60,13 +70,11 @@ cd azure-event-hubs/samples/kafka/mirror-maker
 
 使用 [Kafka 快速入門指南](https://kafka.apache.org/quickstart) \(英文\) 使用所需的設定來設定叢集 (或使用現有的 Kafka 叢集)。
 
-## <a name="kafka-mirrormaker"></a>Kafka MirrorMaker
+## <a name="configure-kafka-mirrormaker"></a>設定 Kafka MirrorMaker
 
 Kafka MirrorMaker 可以「鏡像」資料流。 假設有來源和目的地 Kafka 叢集，MirrorMaker 可確保來源和目的地叢集都會收到傳送至來源叢集的所有訊息。 此範例示範如何使用啟用 Kafka 的目的地事件中樞來鏡像 Kafka 來源叢集。 此案例可用來將資料從現有的 Kafka 管線傳送至事件中樞，而不會中斷資料流程。 
 
 如需有關 Kafka MirrorMaker 的詳細資訊，請參閱 [Kafka 鏡像/MirrorMaker 指南](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330)。
-
-### <a name="configuration"></a>組態
 
 若要設定 Kafka MirrorMaker，請為它提供一個 Kafka 叢集作為其取用者/來源，並提供一個啟用 Kafka 的事件中樞作為其生產者/目的地。
 
@@ -99,7 +107,7 @@ security.protocol=SASL_SSL
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
 ```
 
-### <a name="run-mirrormaker"></a>執行 MirrorMaker
+## <a name="run-kafka-mirrormaker"></a>執行 Kafka MirrorMaker
 
 使用剛更新的設定檔，從 Kafka 根目錄中執行 Kafka MirrorMaker 指令碼。 請務必將設定檔複製到 Kafka 根目錄，或更新它在下列命令中的路徑。
 
@@ -113,7 +121,15 @@ bin/kafka-mirror-maker.sh --consumer.config source-kafka.config --num.streams 1 
 
 ## <a name="next-steps"></a>後續步驟
 
-* [了解事件中樞](event-hubs-what-is-event-hubs.md)
-* [了解適用於 Kafka 生態系統的事件中樞](event-hubs-for-kafka-ecosystem-overview.md)
-* 深入了解 [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330)，以便將事件從 Kafka 內部部署串流至雲端上啟用 Kafka 的事件中樞。
-* 了解如何使用[原生的 Kafka 應用程式](event-hubs-quickstart-kafka-enabled-event-hubs.md)、[Apache Flink](event-hubs-kafka-flink-tutorial.md) 或 [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md) 串流至已啟用 Kafka 的事件中樞。
+在本教學課程中，您了解如何：
+> [!div class="checklist"]
+> * 建立事件中樞命名空間
+> * 複製範例專案
+> * 設定 Kafka 叢集
+> * 設定 Kafka MirrorMaker
+> * 執行 Kafka MirrorMaker
+
+請前往下一篇文章，以深入了解適用於 Apache Kafka 的事件中樞：
+
+> [!div class="nextstepaction"]
+> [使用 Apache Flink 搭配適用於 Kafka 的 Azure 事件中樞](event-hubs-kafka-flink-tutorial.md)

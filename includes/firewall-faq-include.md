@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 7/19/2018
+ms.date: 7/30/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 1db5f0a62a21d040949c9f4e4c42f80c86e76506
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: e23579479c61810d651bebae7b486b53aaaf0d42
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39163674"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39361447"
 ---
 ### <a name="what-is-azure-firewall"></a>何謂 Azure 防火牆？
 
@@ -66,7 +66,7 @@ Azure 防火牆會與 Azure 監視器整合，以檢視和分析防火牆記錄�
 
 ### <a name="how-does-azure-firewall-work-relative-to-existing-like-nvas-in-the-marketplace"></a>相對於現有類似 Marketplace 中的 NVA，Azure 防火牆如何運作？
 
-Azure 防火牆是一種基本防火牆服務，可以處理特定的客戶案例。 我們希望客戶混合使用第三方 NVA 和 Azure 防火牆，並與我們的合作夥伴共同開展更多更好的合作機會。 
+Azure 防火牆是一種基本防火牆服務，可以處理特定的客戶案例。 預期的使用情況是您會混合使用協力廠商 NVA 與 Azure 防火牆。 使用上，首重相輔相成。
  
 ### <a name="what-is-the-difference-between-application-gateway-waf-and-azure-firewall"></a>應用程式閘道 WAF 與 Azure 防火牆有什麼不同？
 
@@ -74,7 +74,7 @@ Web 應用程式防火牆 (WAF) 是應用程式閘道的一個功能，可提供
 
 ### <a name="what-is-the-difference-between-network-security-groups-nsg-and-azure-firewall"></a>網路安全性群組 (NSG) 和 Azure 防火牆有什麼不同？
 
-Azure 防火牆服務可補足我們現有的網路安全性群組功能，結合在一起可提供更佳的深度防禦網路安全性。 NSG 提供分散式網路層流量篩選，以限制每個訂用帳戶中虛擬網路內資源的流量。  Azure 防火牆是完全具狀態的集中式網路防火牆即服務，可跨不同的訂用帳戶和虛擬網路 (VNet)，提供網路和應用程式層級的保護。 
+Azure 防火牆服務可補足「網路安全性群組」功能，結合在一起可提供更好的深度防禦網路安全性。 NSG 提供分散式網路層流量篩選，以限制每個訂用帳戶中虛擬網路內資源的流量。  Azure 防火牆是完全具狀態的集中式網路防火牆即服務，可跨不同的訂用帳戶和虛擬網路 (VNet)，提供網路和應用程式層級的保護。 
 
 ### <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>如何使用我的服務端點設定 Azure 防火牆？
 
@@ -84,4 +84,5 @@ Azure 防火牆服務可補足我們現有的網路安全性群組功能，結�
 
 * Azure 防火牆的軟性限制為每個月每個防火牆 1000 TB。 
 * 在中央 VNET 中執行的 Azure 防火牆受限於 VNET 對等互連限制：最多 50 個支點 VNET。  
-* Azure 防火牆無法搭配全域對等互連使用，因此客戶應該每個區域至少部署一個防火牆。
+* Azure 防火牆無法搭配全球對等互連使用，因此您應該在每個區域都至少部署一個防火牆。
+* Azure 防火牆可支援 1 萬個應用程式規則與 1 萬個網路規則。

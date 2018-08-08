@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/19/2018
+ms.date: 07/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fbcd2ccb90b2c8b1b478e83fa7e55c46891f126b
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 81b510c2dc5d65af5e8a7f2b6b78f45f3bdced68
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172393"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344346"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>使用 Azure 來裝載和執行 SAP 工作負載案例
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -304,6 +304,13 @@ Azure 擁有原生的 Azure 虛擬機器供應項目，這些供應項目的 CPU
 Azure for SAP HANA 是獨一無二的供應項目，可讓 Azure 在競爭中顯得與眾不同。 為了讓涉及 SAP HANA 並裝載更嚴苛之記憶體和 CPU 資源的 SAP 案例能夠成真，Azure 可讓您使用客戶專用的裸機硬體來執行 SAP HANA 部署，以便應付最多需要 20 TB (可相應放大為 60 TB) 記憶體的 S/4HANA 或其他 SAP HANA 工作負載。 SAP HANA on Azure (大型執行個體) 的此一獨特 Azure 解決方案可讓您在專用的裸機硬體 (在原生 Azure 虛擬機器上裝載了 SAP 應用程式層或工作負載中介軟體層) 上執行 SAP HANA。 此解決方案記載於＜SAP HANA on Azure (大型執行個體)＞一節中的多份文件。   
 
 在 Azure 中裝載 SAP 工作負載案例也會讓不同的 SAP 元件與 SAP SaaS (或 PaaS) 供應項目需要身分識別整合和單一登入 (使用 Azure Active Directory)。 這類使用 Azure Active Directory (AAD) 和 SAP 實體之整合和單一登入案例的清單會在＜AAD SAP 身分識別整合及單一登入＞一節中說明並加以記載。
+
+## <a name="latest-changes"></a>最新變更
+
+有關 Azure VM M128s 上 SAP HANA 相應放大的記載已新增到：
+
+- [SAP HANA 在 Azure 上的基礎結構組態和作業](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
+- [單一 Azure 區域中的 SAP HANA 可用性](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-one-region)
 
 
 ## <a name="sap-hana-on-sap-hana-on-azure-large-instances"></a>SAP HANA on Azure (大型執行個體) 上的 SAP HANA

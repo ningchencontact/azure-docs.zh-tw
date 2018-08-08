@@ -7,24 +7,27 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/29/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 2d6660e1064959f2d04424ae1c3e9bc668231c92
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: effb09cfc68961065ad0b4e4be52255bcd1fe4e0
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131316"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414162"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>使用以 DTU 為基礎的購買模型的單一資料庫資源限制 
 
 本文使用以 DTU 為基礎的購買模型，來提供 Azure SQL Database 彈性集區的詳細資源限制。
 
-如需適用於彈性集區的「以 DTU 為基礎的購買模型資源限制」，請參閱[以 DTU 為基礎的資源限制 - 彈性集區](sql-database-vcore-resource-limits-elastic-pools.md)。 如需以虛擬核心為基礎的資源限制，請參閱[以虛擬核心為基礎的資源限制 - 單一資料庫](sql-database-vcore-resource-limits-single-databases.md)和[以虛擬核心為基礎的資源限制 - 彈性集區](sql-database-vcore-resource-limits-elastic-pools.md)。
+如需適用於彈性集區的「以 DTU 為基礎的購買模型資源限制」，請參閱[以 DTU 為基礎的資源限制 - 彈性集區](sql-database-vcore-resource-limits-elastic-pools.md)。 如需 vCore 型資源限制，請參閱 [vCore 型資源限制 - 單一資料庫](sql-database-vcore-resource-limits-single-databases.md)和 [vCore 型資源限制 - 彈性集區](sql-database-vcore-resource-limits-elastic-pools.md)。
+
+> [!IMPORTANT]
+> 在某些情況下，您可能需要壓縮資料庫來回收未使用的空間。 如需詳細資訊，請參閱[管理 Azure SQL Database 中的檔案空間](sql-database-file-space-management.md)。
 
 ## <a name="single-database-storage-sizes-and-performance-levels"></a>單一資料庫：儲存體大小與效能層級
 
-對於單一資料庫，下表顯示了單一資料庫在每個服務層和效能層級的可用資源。 您可以使用 [Azure 入口網站](sql-database-servers-databases-manage.md#azure-portal-manage-logical-servers-and-databases)、[PowerShell](sql-database-servers-databases-manage.md#powershell-manage-logical-servers-and-databases)、[Azure CLI](sql-database-servers-databases-manage.md#azure-cli-manage-logical-servers-and-databases) 或 [REST API](sql-database-servers-databases-manage.md#rest-api-manage-logical-servers-and-databases) 來為單一資料庫設定服務層、效能層級和儲存體數量。
+對於單一資料庫，下表顯示了單一資料庫在每個服務層和效能層級的可用資源。 您可以使用 [Azure 入口網站](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases)、[PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases)、[Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases) 或 [REST API](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases) 來為單一資料庫設定服務層、效能層級和儲存體數量。
 
 ### <a name="basic-service-tier"></a>基本服務層
 | **效能等級** | **基本** |
@@ -77,12 +80,12 @@ ms.locfileid: "37131316"
 ## <a name="single-database-change-storage-size"></a>單一資料庫：變更儲存體大小
 
 - 單一資料庫的 DTU 價格包含一定數量不額外收費的儲存體。 佈建超過內含量的額外儲存體會產生額外費用，以 250 GB 為單位最多增加到大小上限 1 TB，超過 1 TB 則以 256 GB 為單位增加。 如需了解內含儲存體數量和大小上限，請參閱[單一資料庫：儲存體大小與效能層級](#single-database-storage-sizes-and-performance-levels)。
-- 可藉由使用 [Azure 入口網站](sql-database-servers-databases-manage.md#azure-portal-manage-logical-servers-and-databases)、[Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples)、[PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase)、[Azure CLI](/cli/azure/sql/db#az_sql_db_update) 或 [REST API](/rest/api/sql/databases/update) 增加其大小上限，以佈建單一資料庫的額外儲存體。
+- 可藉由使用 [Azure 入口網站](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases)、[Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples)、[PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase)、[Azure CLI](/cli/azure/sql/db#az_sql_db_update) 或 [REST API](/rest/api/sql/databases/update) 增加其大小上限，以佈建單一資料庫的額外儲存體。
 - 單一資料庫之額外儲存體的價格為額外儲存體數量乘以服務層的額外儲存體單價。 如需有關額外儲存體的價格詳細資訊，請參閱 [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)。
 
 ## <a name="single-database-change-dtus"></a>單一資料庫：變更 DTU
 
-一開始選取服務層、效能層級和儲存體數量之後，您可以根據實際經驗，使用 [Azure 入口網站](sql-database-servers-databases-manage.md#azure-portal-manage-logical-servers-and-databases)、[Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples)、[PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase)、[Azure CLI](/cli/azure/sql/db#az_sql_db_update) 或 [REST API](/rest/api/sql/databases/update) 來動態地相應增加或相應減少單一資料庫。 
+一開始選取服務層、效能層級和儲存體數量之後，您可以根據實際經驗，使用 [Azure 入口網站](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases)、[Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples)、[PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase)、[Azure CLI](/cli/azure/sql/db#az_sql_db_update) 或 [REST API](/rest/api/sql/databases/update) 來動態地相應增加或相應減少單一資料庫。 
 
 下列影片示範了如何動態變更效能層以增加單一資料庫的可用 DTU。
 

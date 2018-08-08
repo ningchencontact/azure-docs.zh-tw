@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: f8cd78e63099f864c5fc54b6268f6e558d738626
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9f7fee71fb2b80be93d978569791dbb57f137949
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38724891"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346829"
 ---
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
 
@@ -21,15 +21,14 @@ ms.locfileid: "38724891"
 
 既然您已經建立 IoT 中樞，請找出您用來將裝置和應用程式與 IoT 中樞連線的重要資訊。 
 
-在您的 IoT 中樞導覽功能表中，開啟 [共用存取原則]。
-選取 [iothubowner] 原則，然後複製 IoT 中樞的**連接字串---主索引鍵**。 如需詳細資訊，請參閱[控制 IoT 中樞的存取權](../articles/iot-hub/iot-hub-devguide-security.md)。
+在您的 IoT 中樞導覽功能表中，開啟 [共用存取原則]。 選取 [iothubowner] 原則，然後複製 IoT 中樞的**連接字串---主索引鍵**。 如需詳細資訊，請參閱[控制 IoT 中樞的存取權](../articles/iot-hub/iot-hub-devguide-security.md)。
 
    > [!NOTE] 
-   > 在此設定教學課程中，您不需要此 iothubowner 連接字串。 不過，在您完成此設定之後，可能需要在一些教學課程或不同 IoT 案例用到它。
+   > 在此設定教學課程中，您不需要 iothubowner 連接字串。 不過，在您完成此設定之後，可能需要在一些教學課程或不同 IoT 案例用到它。
 
    ![取得 IoT 中樞連接字串](./media/iot-hub-get-started-create-hub-and-device/create-iot-hub5.png)
 
-## <a name="register-a-device-in-the-iot-hub-for-your-device"></a>在裝置的 IoT 中樞中註冊裝置
+## <a name="register-your-device-in-the-iot-hub"></a>在 IoT 中樞註冊您的裝置
 
 1. 在您的 IoT 中樞導覽功能表中，開啟 [IoT 裝置]，然後按一下 [新增] 在 IoT 中樞註冊裝置。
 
@@ -39,8 +38,10 @@ ms.locfileid: "38724891"
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-4. 按一下 [檔案] 。
-5. 建立裝置之後，請在 [IoT 裝置] 窗格中的清單開啟裝置。
-6. 複製**連接字串---主索引鍵**，以供日後使用。
+3. 按一下 [檔案] 。
+
+4. 建立裝置之後，請在 [IoT 裝置] 窗格中的清單開啟裝置。
+
+5. 複製**連接字串---主索引鍵**，以供日後使用。
 
    ![取得裝置連接字串](./media/iot-hub-get-started-create-hub-and-device/device-connection-string.png)

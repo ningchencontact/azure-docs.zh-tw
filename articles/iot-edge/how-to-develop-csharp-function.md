@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3176a3a4acc6e9ca486d409d861f2ed0e63473ec
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: bf2d1af66cc3ecc35dafe3bcd43bf10399d71641
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056499"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346710"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-azure-functions-for-azure-iot-edge"></a>使用 Visual Studio Code 來開發適用於 Azure IoT Edge 的 Azure 函式並對其進行偵錯
 
@@ -23,7 +23,7 @@ ms.locfileid: "39056499"
 本文假設您使用執行 Windows 或 Linux 的電腦或虛擬機器作為開發電腦。 您的 IoT Edge 裝置可以是另一部實體裝置。 您也可以在開發電腦上模擬 IoT Edge 裝置。
 
 > [!NOTE]
-> 本偵錯文章示範如何在模組容器中附加一個流程，並使用 VS Code 進行偵錯。 您只能在 Linux amd64 容器中進行 C# 模組偵錯。 如果您不熟悉 Visual Studio Code 的偵錯功能，請參閱[偵錯](https://code.visualstudio.com/Docs/editor/debugging)。 
+> 本偵錯文章示範如何在模組容器中附加一個流程，並使用 VS Code 進行偵錯。 您只能在 Linux amd64 容器中針對 C# 函式進行偵錯。 如果您不熟悉 Visual Studio Code 的偵錯功能，請參閱[偵錯](https://code.visualstudio.com/Docs/editor/debugging)。 
 
 本文使用 Visual Studio Code 作為主要開發工具。 安裝 VS Code。 然後新增必要的擴充功能： 
 
@@ -71,7 +71,7 @@ VS Code 會採用您提供的資訊、使用 Azure Functions 專案建立 IoT Ed
 
 * 一個 **deployment.template.json** 檔案，會列出新的模組以及一個範例 **tempSensor** 模組，此範例模組會模擬可用於測試的資料。 如需部署資訊清單運作方式的詳細資訊，請參閱[了解如何使用部署資訊清單以部署模組和建立路由](module-composition.md)。
 
-## <a name="devlop-your-module"></a>開發您的模組
+## <a name="develop-your-module"></a>開發您的模組
 
 解決方案隨附的預設 Azure Function 程式碼位於：[模組] > \<[您的模組名稱]\> > [EdgeHubTrigger-Csharp] > [run.csx]。 系統會設定模組和 deployment.template.json 檔案，讓您可以建置解決方案、將其推送至容器登錄，然後部署到裝置以開始測試，而不需要觸碰到任何程式碼。 模組是建置為僅採用來源的輸入 (在此案例中，是會模擬資料的 tempSensor 模組)，並且將其傳送到 IoT 中樞。 
 

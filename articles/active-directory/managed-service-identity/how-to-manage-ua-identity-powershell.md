@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: def5788b83116ce0843f1fdd86933830cabc9ee2
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: a9f684eccefab3e43d9b2b7a364b245a53519f76
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187990"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389674"
 ---
 # <a name="create-list-or-delete-a-user-assigned-identity-using-azure-powershell"></a>使用 Azure PowerShell 建立、列出和刪除使用者指派的身分識別
 
@@ -38,6 +38,12 @@ ms.locfileid: "39187990"
 - 若要執行本文中的管理作業，您的帳戶需要下列角色指派：
     - [受控識別參與者](/azure/role-based-access-control/built-in-roles#managed-identity-contributor)角色，可建立、讀取 (列出)、更新和刪除使用者指派的身份識別。
     - [受控識別操作員](/azure/role-based-access-control/built-in-roles#managed-identity-operator)角色，可讀取 (列出) 使用者指派身分識別的屬性。
+
+> [!NOTE]
+> 若使用者指派的身分識別仍處於預覽狀態，您就必須先使用下列命令來手動安裝 AzureRM.ManagedServiceIdentity 模組。 
+```azurepowershell-interactive
+Install-Module -Name AzureRM.ManagedServiceIdentity -AllowPrerelease
+```
 
 ## <a name="create-a-user-assigned-identity"></a>建立使用者指派的身分識別
 

@@ -3,7 +3,7 @@ title: 監視 Azure Kubernetes Service (AKS) 健康情況 (預覽) | Microsoft D
 description: 本文說明如何輕鬆檢閱 AKS 容器效能，快速了解已裝載 Kubernetes 環境的使用率。
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/18/2018
+ms.date: 07/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 806487ec731a1b7fe02ccdfe6b285f5b2e119787
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: f84452af9c2c731d69d5805961266c46351a7687
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249092"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366091"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>監視 Azure Kubernetes Service (AKS) 容器健康情況 (預覽)
 
@@ -39,7 +39,7 @@ ms.locfileid: "39249092"
 
 - 新的或現有的 AKS 叢集。
 - 適用於 Linux 的 OMS 代理程式容器化版本 microsoft/oms:ciprod04202018 或更新版本。 版本號碼以具有下列格式的日期呈現：*mmddyyyy*。 此代理程式會在容器健康情況上線期間自動安裝。 
-- Log Analytics 工作區。 您可以在啟用新 AKS 叢集的監視功能時建立它，或您可以透過 [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md)、透過 [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json)，或是在 [Azure 入口網站](../log-analytics/log-analytics-quick-create-workspace.md)中建立它。
+- Log Analytics 工作區。 您可以在啟用新 AKS 叢集的監視時建立它，或是讓上線體驗在 AKS 叢集訂用帳戶的預設資源群組中建立預設工作區。 若選擇自行建立它 ，您可以透過 [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md)、透過 [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json)，或是在 [Azure 入口網站](../log-analytics/log-analytics-quick-create-workspace.md)中建立它。
 - 用於啟用容器監視的 Log Analytics 參與者角色。 如需有關如何控制 Log Analytics 工作區存取的詳細資訊，請參閱[管理工作區](../log-analytics/log-analytics-manage-access.md)。
 
 ## <a name="components"></a>元件 
@@ -47,14 +47,20 @@ ms.locfileid: "39249092"
 您監視效能的能力需依賴容器化適用於 Linux 的 OMS 代理程式，它會收集叢集中所有節點的效能與事件資料。 在您啟用容器監視之後，會自動部署並向指定的記錄分析工作區註冊此代理程式。 
 
 >[!NOTE] 
->如果您已部署 AKS 叢集，則可以使用提供的 Azure Resource Manager 範本來啟用監視，如本文稍後所示。 您無法使用 `kubectl` 來生集、刪除、重新部署或部署此代理程式。 
+>如果您已部署 AKS 叢集，則可以使用 Azure CLI 或提供的 Azure Resource Manager 範本來啟用監視，如此文章稍後所示。 您無法使用 `kubectl` 來升級、刪除、重新部署或部署此代理程式。 
 >
 
 ## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 登入 [Azure 入口網站](https://portal.azure.com)。 
 
 ## <a name="enable-container-health-monitoring-for-a-new-cluster"></a>啟用新叢集的容器健康情況監視
-在部署期間，您可以從 Azure 入口網站啟用對新 AKS 叢集的監視。 請依照快速入門文章[部署 Azure Kubernetes Service (AKS) 叢集](../aks/kubernetes-walkthrough-portal.md)中的步驟執行。 在 [監視] 頁面上，針對 [啟用監視] 選項，請選取 [是]，然後選取現有的 Log Analytics 工作區，或是建立新的 Log Analytics 工作區。 
+在部署期間，您可以在 Azure 入口網站中或使用 Azure CLI 來啟用對新 AKS 叢集的監視。 若要從入口網站啟用，請依照快速入門文章[部署 Azure Kubernetes Service (AKS) 叢集](../aks/kubernetes-walkthrough-portal.md)中的步驟執行。 在 [監視] 頁面上，針對 [啟用監視] 選項，請選取 [是]，然後選取現有的 Log Analytics 工作區，或是建立新的 Log Analytics 工作區。 
+
+若要使用 Azure CLI 針對建立的新 AKS 叢集啟用監視，請依照快速入門文章中[建立 AKS 叢集](../aks/kubernetes-walkthrough.md#create-aks-cluster)一節下的步驟執行。  
+
+>[!NOTE]
+>如果您選擇使用 Azure CLI，必須先在本機安裝並使用 CLI。 您必須執行 Azure CLI 2.0.27 版或更新版本。 若要知道您使用的版本，請執行 `az --version`。 如果您需要安裝或升級 Azure CLI，請參閱[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
+>
 
 啟用監視並順利完成所有設定工作之後，您可以透過兩種方式來監視叢集效能：
 
@@ -66,7 +72,20 @@ ms.locfileid: "39249092"
 在啟用監視之後，可能需要約 15 分鐘的時間才能檢視叢集的作業資料。 
 
 ## <a name="enable-container-health-monitoring-for-existing-managed-clusters"></a>啟用現有受控叢集的容器健康情況監視
-您可以在 Azure 入口網站中或是透過使用 PowerShell Cmdlet `New-AzureRmResourceGroupDeployment` 或 Azure CLI 所提供的 Azure Resource Manager 範本，來對已部署的 AKS 叢集啟用監視。 
+您可以使用 Azure CLI、從入口網站或是透過使用 PowerShell Cmdlet `New-AzureRmResourceGroupDeployment` 所提供的 Azure Resource Manager 範本，來對已部署的 AKS 叢集啟用監視。 
+
+### <a name="enable-monitoring-using-azure-cli"></a>使用 Azure CLI 來啟用監視
+下列步驟會使用 Azure CLI 來啟用對 AKS 叢集的監視。 在此範例中，您不需要預先建立或指定現有的工作區。 此命令透過在 AKS 叢集預設資源群組中建立預設工作區 (若該區域中沒有預設工作區) 來為您簡化程序。  所建立的預設工作區格式類似 *DefaultWorkspace-<GUID>-<Region>* 格式。  
+
+```azurecli
+az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG  
+```
+
+輸出看起來會像下面這樣：
+
+```azurecli
+provisioningState       : Succeeded
+```
 
 ### <a name="enable-monitoring-in-the-azure-portal"></a>在 Azure 入口網站中啟用監視
 若要在 Azure 入口網站中啟用 AKS 容器的監視，請執行下列步驟：
@@ -268,7 +287,7 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR 
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
 ```  
 
-若要確認方案的部署，請執行下列命令：
+若要確認解決方案的部署，請執行下列命令：
 
 ```
 kubectl get deployment omsagent-rs -n=kube-system
@@ -298,12 +317,32 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR 
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
 ```  
 
+## <a name="view-configuration-with-cli"></a>使用 CLI 來檢視設定
+使用 `aks show` 命令來取得詳細資料，例如解決方案是否已啟用、Log Analytics 工作區 resourceID 為何，以及有關叢集的詳細資料。  
+
+```azurecli
+az aks show -g <resoourceGroupofAKSCluster> -n <nameofAksCluster>
+```
+
+在幾分鐘之後，此命令就會完成，並以 JSON 格式傳回叢集的相關資訊。  此命令的結果應該會顯示監視附加元件設定檔，而且應該會類似下列命令輸出：
+
+```
+"addonProfiles": {
+    "omsagent": {
+      "config": {
+        "logAnalyticsWorkspaceResourceID": "/subscriptions/<WorkspaceSubscription>/resourceGroups/<DefaultWorkspaceRG>/providers/Microsoft.OperationalInsights/workspaces/<defaultWorkspaceName>"
+      },
+      "enabled": true
+    }
+  }
+```
+
 ## <a name="view-performance-utilization"></a>檢視效能使用率
 當您開啟容器健康情況時，頁面會立即顯示整個叢集的效能使用率。 關於 AKS 叢集的檢視資訊，會組織成四個檢視方塊：
 
 - 叢集
 - 節點 
-- 控制器  
+- Controllers  
 - 容器
 
 在 [叢集] 索引標籤上，四個效能折線圖會顯示您叢集的關鍵效能計量。 
@@ -343,7 +382,7 @@ omsagent   2         2         2         2            2           beta.kubernete
 | 狀態 | 節點狀態的 Kubernetes 檢視。 |
 | Avg&nbsp;%、Min&nbsp;%、Max&nbsp;%、50th&nbsp;%、90th&nbsp;% | 根據選取期間內百分位數的平均節點百分比。 |
 | Avg、Min、Max、50th、90th | 根據所選取時間的期間內百分位數的平均節點實際值。 從為節點設定的 CPU/記憶體限制測量所得的平均值；對於 Pod 與容器而言，則是主機所報告的平均值。 |
-| Containers | 容器的數目。 |
+| 容器 | 容器的數目。 |
 | Uptime | 呈現自節點啟動或重新啟動以來經過的時間。 |
 | Controllers | 僅適用於容器與 Pod。 顯示它位在哪個控制器之中。 並非所有 Pod 都位在控制器之中，因此有些可能會顯示 **N/A**。 | 
 | Trend Avg&nbsp;%、Min&nbsp;%、Max&nbsp;%、50th&nbsp;%、90th&nbsp;% | 代表控制器百分位數計量百分比的橫條圖趨勢。 |
@@ -364,10 +403,10 @@ omsagent   2         2         2         2            2           beta.kubernete
 | 欄 | 說明 | 
 |--------|-------------|
 | Name | 控制器的名稱。|
-| Status | 容器的彙總狀態，就是當其完成執行後的狀態，例如 [確定]、[終止]、[失敗]、[停止] 或 [暫停]。 如果容器在執行中，但狀態卻未正確呈現或未由代理程式擷取，而且超過 30 分鐘都沒有回應時，則狀態為 [未知]。 下表中提供狀態圖示的其他詳細資料。|
+| 狀態 | 容器的彙總狀態，就是當其完成執行後的狀態，例如 [確定]、[終止]、[失敗]、[停止] 或 [暫停]。 如果容器在執行中，但狀態卻未正確呈現或未由代理程式擷取，而且超過 30 分鐘都沒有回應時，則狀態為 [未知]。 下表中提供狀態圖示的其他詳細資料。|
 | Avg&nbsp;%、Min&nbsp;%、Max&nbsp;%、50th&nbsp;%、90th&nbsp;% | 針對選取計量和百分位數之每個實體的平均百分比彙總平均值。 |
 | Avg、Min、Max、50th、90th  | 容器針對選取百分位數的平均 CPU millicore 或記憶體效能彙總。 平均值是從為 Pod 設定的 CPU/記憶體限制測量所得。 |
-| Containers | 該控制器或 Pod 的容器總數。 |
+| 容器 | 該控制器或 Pod 的容器總數。 |
 | Restarts | 容器重新啟動計數的匯總。 |
 | Uptime | 代表自容器啟動以來經過的時間。 |
 | 節點 | 僅適用於容器與 Pod。 顯示它位在哪個控制器之中。 | 
@@ -397,11 +436,11 @@ omsagent   2         2         2         2            2           beta.kubernete
 | 欄 | 說明 | 
 |--------|-------------|
 | Name | 控制器的名稱。|
-| Status | 容器的狀態，若有的話。 下一個表格會提供狀態圖示的其他詳細資料。|
+| 狀態 | 容器的狀態，若有的話。 下一個表格會提供狀態圖示的其他詳細資料。|
 | Avg&nbsp;%、Min&nbsp;%、Max&nbsp;%、50th&nbsp;%、90th&nbsp;% | 針對選取計量和百分位數之每個實體的平均百分比彙總。 |
 | Avg、Min、Max、50th、90th  | 彙總容器所選百分位數的平均 CPU millicore 或記憶體效能。 平均值是從為 Pod 設定的 CPU/記憶體限制測量所得。 |
 | Pod | Pod 所在的容器。| 
-| Node |  容器所在的節點。 | 
+| 節點 |  容器所在的節點。 | 
 | Restarts | 代表自容器啟動以來經過的時間。 |
 | Uptime | 代表自容器啟動或重新啟動以來經過的時間。 |
 | Trend Avg&nbsp;%、Min&nbsp;%、Max&nbsp;%、50th&nbsp;%、90th&nbsp;% | 代表容器平均計量百分比的橫條圖趨勢。 |

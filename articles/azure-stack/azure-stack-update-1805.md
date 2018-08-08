@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 08/01/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: ba162a04d41d9ce6f0bf00e377b7717f78967e7f
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: abc96497c95397a6fab72672f1525462301c5cf9
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091767"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414628"
 ---
 # <a name="azure-stack-1805-update"></a>Azure Stack 1805 更新
 
@@ -72,7 +72,8 @@ Azure Stack 1805 更新組建編號為 **1.1805.1.47**。
 ## <a name="before-you-begin"></a>開始之前    
 
 ### <a name="prerequisites"></a>必要條件
-- 請先安裝 Azure Stack [1804 更新](azure-stack-update-1804.md)，然後才套用 Azure Stack 1805 更新。    
+- 請先安裝 Azure Stack [1804 更新](azure-stack-update-1804.md)，然後才套用 Azure Stack 1805 更新。  
+- 安裝最新的可用 [1804 版更新或 Hotfix](azure-stack-update-1804.md#post-update-steps)。   
 - 開始安裝更新 1805 之前，請先執行 [Test-AzureStack](azure-stack-diagnostic-test.md) 來驗證 Azure Stack 的狀態，並解決所發現的一切運作問題。 也請檢閱作用中警示，並將所有需要採取動作的警示解決。 
 
 ### <a name="known-issues-with-the-update-process"></a>關於更新程序的已知問題   
@@ -90,6 +91,8 @@ Azure Stack 1805 更新組建編號為 **1.1805.1.47**。
 以下是此組建版本的安裝後已知問題。
 
 ### <a name="portal"></a>入口網站  
+- <!-- TBD - IS ASDK --> 您無法搭配此版本的 Azure Stack 使用 OEM 延伸模組套件來套用驅動程式更新。  此問題目前沒有因應方式。
+
 - <!-- 2551834 - IS, ASDK --> 當您在系統管理員或使用者入口網站中選取儲存體帳戶的 [概觀] 時，[基本資訊] 窗格中並未顯示資訊。  [基本資訊] 窗格會顯示帳戶相關資訊，例如其*資源群組*、*位置*和*訂用帳戶識別碼*。  [概觀] 中有其他選項可供存取，例如 [服務] 和 [監視]，以及用來 [在 Explorer 中開啟] 或 [刪除儲存體帳戶] 的選項。 
 
   若要檢視未能看到的資訊，請使用 [Get-azureRMstorageaccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount?view=azurermps-6.2.0) PowerShell Cmdlet。 
@@ -182,7 +185,7 @@ Azure Stack 1805 更新組建編號為 **1.1805.1.47**。
 - <!-- 1662991 IS ASDK --> Azure Stack 不支援 Linux VM 診斷。 當您部署啟用了 VM 診斷的 Linux VM 時，部署會失敗。 如果您透過診斷設定啟用 Linux VM 基本計量，部署也會失敗。  
 
 
-### <a name="networking"></a>網路功能
+### <a name="networking"></a>網路
 - <!-- TBD - IS ASDK --> 您無法在系統管理員或使用者入口網站中建立使用者定義的路由。 請使用 [Azure PowerShell](https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell) 作為因應措施。
 
 - <!-- 1766332 - IS ASDK --> 如果您在 [網路] 下按一下 [建立 VPN 閘道] 來設定 VPN 連線，系統就會將 [原則式] 列為 VPN 類型。 請勿選取此選項。 Azure Stack 只支援 [路由式] 選項。
@@ -290,7 +293,7 @@ Azure Stack 1805 更新組建編號為 **1.1805.1.47**。
 
 - <!-- 2489178 - IS ASDK --> 為了向外延展基礎結構 (背景工作、管理、前端角色)，您必須如「計算」的版本資訊所述，使用 PowerShell。
 
-- <!-- TBD - IS ASDK --> 目前，App Service 只能部署到「預設提供者訂用帳戶」。 在未來的更新中，App Service 會部署至 Azure Stack 1804 所導入的新「計量訂用帳戶」。 當系統支援使用計量時，現有部署就會全部遷移至這個新的訂用帳戶類型。
+- <!-- TBD - IS ASDK --> 目前，App Service 只能部署到「預設提供者訂用帳戶」。 在未來的更新中，App Service 會部署至 Azure Stack 1804 所導入的新「計量訂用帳戶」。 當系統支援使用計量時，現有部署就會全部移轉至這個新的訂用帳戶類型。
 
 
 ### <a name="usage"></a>使用量  

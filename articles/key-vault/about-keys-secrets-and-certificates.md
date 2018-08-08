@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: 77675b3c0b2ed9fcdb923c92638384d215bddc40
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 8597b2d995b68e9ccff9b856b2ef6bd325cd2439
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972395"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39359184"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>關於金鑰、祕密與憑證
 Azure Key Vault 可讓使用者在 Microsoft Azure 環境中儲存和使用密碼編譯金鑰。 Key Vault 支援多種金鑰類型和演算法，並可針對高價值金鑰使用硬體安全模組 (HSM)。 此外，Key Vault 可讓使用者安全地儲存秘密。 秘密是有大小限制的八位元物件，其中不包含特定語意。 Key Vault 也支援建立於金鑰和秘密之上，且會新增自動更新功能的憑證。
@@ -117,15 +117,36 @@ Azure Key Vault 內的物件會使用 URL 來進行唯一識別，因此，系�
 
 Azure Key Vault 中的密碼編譯金鑰會表示為 JSON Web 金鑰 [JWK] 物件。 您也可以藉由擴充基本 JWK/JWA 規格，讓金鑰類型專屬於 Azure Key Vault 實作，例如將金鑰匯入至 Azure Key Vault 時，可以使用 HSM 廠商 (Thales) 專用的封裝來啟用金鑰的安全傳輸，如此一來，這些金鑰只可用於 Azure Key Vault HSM。  
 
-初始 Azure Key Vault 版本僅支援 RSA 金鑰；未來版本可能會支援其他金鑰類型，例如「對稱」和「橢圓曲線」。  
-
--   **RSA**：2048 位元的 RSA 金鑰。 這是「軟式」金鑰，由 Key Vault 在軟體中進行處理，但會在待用期間使用 HSM 中的系統金鑰來加密儲存。 用戶端可能會匯入現有的 RSA 金鑰，或要求 Azure Key Vault 產生此金鑰。  
--   **RSA-HSM**：在 HSM 中處理的 RSA 金鑰。 RSA-HSM 金鑰會在其中一個 Azure Key Vault HSM Security World 中受到保護 (為保有獨立性，每個地理位置中會有一個 Security World)。 用戶端若要匯入 RSA 金鑰，可以透過軟式形式或從相容的 HSM 裝置匯出 RSA 金鑰，或要求 Azure Key Vault 產生此金鑰。 此金鑰類型會將 T 屬性新增至為執行 HSM 金鑰內容而取得的 JWK。  
+- **「軟式」金鑰**：由 Key Vault 在軟體中進行處理，但會在待用期間使用 HSM 中的系統金鑰來加密儲存。 用戶端可能會匯入現有的 RSA 或 EC 金鑰，或要求 Azure Key Vault 產生此金鑰。
+- **「硬式」金鑰**：在 HSM (硬體安全模組) 中處理的金鑰。 這些金鑰會在其中一個 Azure Key Vault HSM Security Worlds 中受到保護 (為保有獨立性，每個地理位置中會有一個 Security World)。 用戶端若要匯入 RSA 或 EC 金鑰，可以透過軟式形式或從相容的 HSM 裝置匯出 RSA 金鑰，或要求 Azure Key Vault 產生此金鑰。 此金鑰類型會將 T 屬性新增至為執行 HSM 金鑰內容而取得的 JWK。
 
      如需地理界限的詳細資訊，請參閱 [Microsoft Azure 信任中心](https://azure.microsoft.com/support/trust-center/privacy/)  
 
+Azure Key Vault 只支援 RSA 與橢圓曲線 (EC) 金鑰；未來版本可能會支援其他金鑰類型，例如「對稱」。
+
+-   **EC**：「軟式」橢圓曲線金鑰。
+-   **EC-HSM**：「硬式」橢圓曲線金鑰。
+-   **RSA**：「軟式」RSA 金鑰。
+-   **RSA-HSM**：「硬式」RSA 金鑰。
+
+Azure Key Vault 支援大小為 2048、3072 與 4096 的 RSA 金鑰，以及類型為 P-256、P-384、P-521 與 P-256K 的橢圓曲線金鑰。
+
+### <a name="BKMK_Cryptographic"></a>密碼編譯保護
+
+Azure Key Vault 使用的密碼編譯模組 (HSM 或軟體) 皆經過 FIPS 驗證。 您不需要在 FIPS 模式中執行任何特殊動作。 如果您在**建立**或**匯入**金鑰時是使用 HSM 進行保護，則這些金鑰保證會在以 FIPS 140-2 層級 2 或更高層級驗證的 HSM 內進行處理。 如果您在**建立**或**匯入**金鑰時是使用軟體進行保護，則這些金鑰會在以 FIPS 140-2 層級 1 或更高層級驗證的加密模組內進行處理。 如需詳細資訊，請參閱[金鑰與金鑰類型](about-keys-secrets-and-certificates.md#BKMK_KeyTypes)。
+
+###  <a name="BKMK_ECAlgorithms"></a> EC 演算法
+ Azure Key Vault 中的 EC 與 EC-HSM 金鑰支援下列演算法識別碼。 
+
+#### <a name="signverify"></a>SIGN/VERIFY
+
+-   **ES256** - 適用於 SHA-256 摘要的 ECDSA 與使用曲線 P-256 建立的金鑰。 [RFC7518] 說明此演算法。
+-   **ES256K** - 適用於 SHA-256 摘要的 ECDSA 與使用曲線 P-256K 建立的金鑰。 此演算法尚待標準化。
+-   **ES384** - 適用於 SHA-384 摘要的 ECDSA 與使用曲線 P-384 建立的金鑰。 [RFC7518] 說明此演算法。
+-   **ES512** - 適用於 SHA-512 摘要的 ECDSA 與使用曲線 P-521 建立的金鑰。 [RFC7518] 說明此演算法。
+
 ###  <a name="BKMK_RSAAlgorithms"></a>RSA 演算法  
- Azure Key Vault 中的 RSA 金鑰支援下列演算法識別碼。  
+ Azure Key Vault 中的 RSA 與 RSA-HSM 金鑰支援下列演算法識別碼。  
 
 #### <a name="wrapkeyunwrapkey-encryptdecrypt"></a>包裝金鑰/解除包裝金鑰、加密/解密
 
@@ -138,25 +159,6 @@ Azure Key Vault 中的密碼編譯金鑰會表示為 JSON Web 金鑰 [JWK] 物�
 -   **RS384** - 使用 SHA-384 的 RSASSA-PKCS-v1_5。 提供摘要值的應用程式必須使用 SHA-384 計算，而且長度必須是 48 個位元組。  
 -   **RS512** - 使用 SHA-512 的 RSASSA-PKCS-v1_5。 提供摘要值的應用程式必須使用 SHA-512 計算，而且長度必須是 64 個位元組。  
 -   **RSNULL** - 請參閱啟用特定 TLS 案例的特殊使用案例 [RFC2437]。  
-
-###  <a name="BKMK_RSA-HSMAlgorithms"></a> RSA-HSM 演算法  
-Azure Key Vault 中的 RSA-HSM 金鑰支援下列演算法識別碼。  
-
-### <a name="BKMK_Cryptographic"></a>密碼編譯保護
-
-Azure Key Vault 使用的密碼編譯模組 (HSM 或軟體) 皆經過 FIPS 驗證。 您不需要在 FIPS 模式中執行任何特殊動作。 如果您在**建立**或**匯入**金鑰時是使用 HSM 進行保護，則這些金鑰保證會在以 FIPS 140-2 層級 2 或更高層級驗證的 HSM 內進行處理。 如果您在**建立**或**匯入**金鑰時是使用軟體進行保護，則這些金鑰會在以 FIPS 140-2 層級 1 或更高層級驗證的加密模組內進行處理。 如需詳細資訊，請參閱[金鑰與金鑰類型](about-keys-secrets-and-certificates.md#BKMK_KeyTypes)。
-
-#### <a name="wrapunwrap-encryptdecrypt"></a>包裝/解除包裝、加密/解密
-
--   **RSA1_5** - RSAES-PKCS1-V1_5 [RFC3447] 金鑰加密。  
--   **RSA-OAEP** - RSAES 使用「最佳非對稱加密填補 (OAEP)」[RFC3447]，並利用 A.2.1 節中 RFC 3447 所指定的預設參數。 這些預設參數會使用 SHA-1 的雜湊函數及搭配 SHA-1 的 MGF1 遮罩產生函數。  
-
- #### <a name="signverify"></a>SIGN/VERIFY  
-
--   **RS256** - 使用 SHA-256 的 RSASSA-PKCS-v1_5。 提供摘要值的應用程式必須使用 SHA-256 計算，而且長度必須是 32 個位元組。  
--   **RS384** - 使用 SHA-384 的 RSASSA-PKCS-v1_5。 提供摘要值的應用程式必須使用 SHA-384 計算，而且長度必須是 48 個位元組。  
--   **RS512** - 使用 SHA-512 的 RSASSA-PKCS-v1_5。 提供摘要值的應用程式必須使用 SHA-512 計算，而且長度必須是 64 個位元組。  
--   RSNULL：請參閱啟用特定 TLS 案例的特殊使用案例 [RFC2437]。  
 
 ###  <a name="BKMK_KeyOperations"></a>金鑰作業
 

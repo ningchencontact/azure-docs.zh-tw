@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: raynew
-ms.openlocfilehash: 2415812a62fc000ddb18318ac52b764c1b5de51b
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 0cfb583f9d16039249aaffe18f71039e91dc3705
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008428"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39359201"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Contoso 移轉：在 Azure VM 和 SQL Server AlwaysOn 可用性群組上重新裝載內部部署應用程式
 
@@ -28,18 +28,18 @@ ms.locfileid: "39008428"
 [文章 3：評估內部部署資源](contoso-migration-assessment.md)  | 顯示 Contoso 如何評估在 VMware 上執行的內部部署兩層式 SmartHotel 應用程式。 Contoso 利用 [Azure Migrate](migrate-overview.md) 服務來評估應用程式 VM，並利用 [Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) 來評估應用程式 SQL Server 資料庫。 | 可用
 [文章 4：在 Azure VM 和 SQL 受控執行個體上重新裝載應用程式](contoso-migration-rehost-vm-sql-managed-instance.md) | 說明 Contoso 如何為 SmartHotel 應用程式執行隨即移轉至 Azure 的作業。 Contoso 使用 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) 來移轉應用程式前端 VM，並使用 [Azure 資料庫移轉服務](https://docs.microsoft.com/azure/dms/dms-overview)將應用程式資料庫移轉至 SQL 受控執行個體。 | 可用
 [文章 5：在 Azure VM 上重新裝載應用程式](contoso-migration-rehost-vm.md) | 說明 Contoso 如何單純憑藉 Site Recovery 來移轉 SmartHotel 應用程式 VM。 | 可用
-文章 6：在 Azure VM 和 SQL Server AlwaysOn 可用性群組上重新裝載應用程式 | 說明 Contoso 如何遷移 SmartHotel 應用程式。 Contoso 使用 Site Recovery 來移轉應用程式 VM，並使用資料庫移轉服務，將應用程式資料庫移轉至受到 SQL Server 可用性群組保護的 SQL Server 叢集。 | 本文
+文章 6：在 Azure VM 和 SQL Server AlwaysOn 可用性群組上重新裝載應用程式 | 說明 Contoso 如何移轉 SmartHotel 應用程式。 Contoso 使用 Site Recovery 來移轉應用程式 VM，並使用資料庫移轉服務，將應用程式資料庫移轉至受到 SQL Server 可用性群組保護的 SQL Server 叢集。 | 本文
 [文章 7：將 Linux 應用程式重新裝載至 Azure VM](contoso-migration-rehost-linux-vm.md) | 說明 Contoso 如何使用 Site Recovery 執行將 Linux osTicket 應用程式隨即移轉至 Azure VM 的作業 | 可用
 [文章 8：在 Azure VM 和 Azure MySQL Server 上重新裝載 Linux 應用程式](contoso-migration-rehost-linux-vm-mysql.md) | 說明 Contoso 如何使用 Site Recovery 將 Linux osTicket 應用程式移轉至 Azure VM，並使用 MySQL Workbench 將應用程式資料庫移轉至 Azure MySQL Server 執行個體。 | 可用
-[文章 9：在 Azure Web 應用程式和 Azure SQL 資料庫上重構應用程式](contoso-migration-refactor-web-app-sql.md) | 示範 Contoso 如何將 SmartHotel 應用程式遷移至 Azure Web 應用程式，以及如何將應用程式資料庫遷移至 Azure SQL Server 執行個體 | 可用
-[文章 10：在 Azure Web Apps 和 Azure MySQL 上重構 Linux 應用程式](contoso-migration-refactor-linux-app-service-mysql.md) | 示範 Contoso 如何將 Linux osTicket 應用程式遷移至多個網站中的 Azure Web Apps (與 GitHub 整合以達到持續傳遞)。 它們會將應用程式資料庫遷移至 Azure MySQL 執行個體。 | 可用
-[文章 11：在 VSTS 上重構 TFS](contoso-migration-tfs-vsts.md) | 示範 Contoso 如何將其內部部署 Team Foundation Server (TFS) 部署遷移至 Azure 中的 Visual Studio Team Services (VSTS)，以便進行遷移。 | 可用
-[文章 12：在 Azure 容器 和 Azure SQL Database 上重新建構應用程式](contoso-migration-rearchitect-container-sql.md) | 示範 Contoso 如何將其 SmartHotel 應用程式遷移和重新架構至 Azure。 它們會將應用程式的 Web 層重新架構為 Windows 容器及 Azure SQL Database 中的應用程式資料庫。 | 可用
+[文章 9：在 Azure Web 應用程式和 Azure SQL 資料庫上重構應用程式](contoso-migration-refactor-web-app-sql.md) | 說明 Contoso 如何將 SmartHotel 應用程式移轉至 Azure Web 應用程式，以及如何將應用程式資料庫移轉至 Azure SQL Server 執行個體 | 可用
+[文章 10：在 Azure Web Apps 和 Azure MySQL 上重構 Linux 應用程式](contoso-migration-refactor-linux-app-service-mysql.md) | 說明 Contoso 如何將 Linux osTicket 應用程式移轉至多個網站中的 Azure Web Apps (與 GitHub 整合以進行持續傳遞)。 他們會將應用程式資料庫移轉至 Azure MySQL 執行個體。 | 可用
+[文章 11：在 VSTS 上重構 TFS](contoso-migration-tfs-vsts.md) | 說明 Contoso 如何將其內部部署 Team Foundation Server (TFS) 部署移轉至 Azure 中的 Visual Studio Team Services (VSTS)，以進行移轉。 | 可用
+[文章 12：在 Azure 容器和 Azure SQL Database 上重新建構應用程式](contoso-migration-rearchitect-container-sql.md) | 說明 Contoso 如何將其 SmartHotel 應用程式移轉和重新建構至 Azure。 他們會將應用程式的 Web 層重新建構為 Windows 容器及 Azure SQL Database 中的應用程式資料庫。 | 可用
 [文章 13：在 Azure 中重建應用程式](contoso-migration-rebuild.md) | 示範 Contoso 如何使用各種 Azure 功能和服務 (包括 App Services、Azure Kubernetes、Azure Functions、認知服務及 Cosmos DB) 重建 SmartHotel 應用程式。 | 可用
 
 
 
-在本文中，Contoso 會將在 VMware VM 上執行的兩層式 Windows .NET SmartHotel 應用程式移轉至 Azure。 如果您想使用此應用程式，您可以從 [GitHub](https://github.com/Microsoft/SmartHotel360) 下載其開放原始碼。
+在此文章中，Contoso 會將在 VMware VM 上執行的兩層 Windows .NET SmartHotel 應用程式移轉到 Azure。 如果您想使用此應用程式，您可以從 [GitHub](https://github.com/Microsoft/SmartHotel360) 下載其開放原始碼。
 
 ## <a name="business-drivers"></a>商業動機
 
@@ -534,7 +534,7 @@ Contoso 會使用 DMA 將 SmartHotel 資料庫移轉至 Azure VM **SQLAOG1**。 
 
     ![DMA](media/contoso-migration-rehost-vm-sql-ag/dma-5.png)
 
-DMS 會透過 Contoso 資料中心與 Azure 之間的站對站 VPN 連線來連線至內部部署 SQL Server VM，然後再遷移資料庫。
+DMS 會透過 Contoso 資料中心與 Azure 之間的站對站 VPN 連線來連線至內部部署 SQL Server VM，然後再移轉資料庫。
 
 ## <a name="step-7-protect-the-database"></a>步驟 7：保護資料庫
 

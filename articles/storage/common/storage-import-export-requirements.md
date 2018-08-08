@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: alkohli
-ms.openlocfilehash: 68e31f6b88a772ad67e3c58e11925f46f1cc37e9
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: a86d5c1513594f5bc0df03b8ca7671a1f9541b4d
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188668"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308049"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure 匯入/匯出系統需求
 
@@ -30,15 +30,14 @@ ms.locfileid: "39188668"
 |Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012、Windows Server 2012 R2         |
 
 
-
 ## <a name="supported-storage-accounts"></a>支援的儲存體帳戶
 
-Azure 匯入/匯出服務支援下列 Azure 儲存體帳戶。
-- 傳統
+Azure 匯入/匯出服務支援下列 [Azure 儲存體帳戶](storage-account-options.md)。
+- 一般用途 v1 儲存體帳戶 (傳統或 Azure Resource Manager 部署)
 - Blob 儲存體帳戶
-- 一般用途 v1 的儲存體帳戶。 
+- 一般用途 v2 儲存體帳戶
 
-每項工作都只能從僅只一個儲存體帳戶收送資料。 換句話說，單一匯入/匯出作業不能跨越多個儲存體帳戶。 如需建立新儲存體帳戶的詳細資訊，請參閱 [如何建立儲存體帳戶](storage-create-storage-account.md#create-a-storage-account)(英文)。
+每個工作都只能從僅只一個儲存體帳戶收送資料。 換句話說，單一匯入/匯出作業不能跨越多個儲存體帳戶。 如需建立新儲存體帳戶的詳細資訊，請參閱 [如何建立儲存體帳戶](storage-create-storage-account.md#create-a-storage-account)(英文)。
 
 > [!IMPORTANT] 
 > Azure 匯入/匯出服務不支援已啟用[虛擬網路服務端點](../../virtual-network/virtual-network-service-endpoints-overview.md)功能的儲存體帳戶。 
@@ -48,10 +47,10 @@ Azure 匯入/匯出服務支援下列 Azure 儲存體帳戶。
 以下是使用 Azure 匯入/匯出服務時支援的儲存類型清單。
 
 
-|工作 (Job)  |儲存體  |支援  |不支援  |
+|工作 (Job)  |儲存體服務 |支援  |不支援  |
 |---------|---------|---------|---------|
-|Import     |  Azure Blob 儲存體。 <br>支援區塊 Blob、分頁 Blob。 <br> 支援 Azure 檔案。       |         |
-|匯出     |   Azure Blob 儲存體。 <br>支援區塊 Blob、分頁 Blob 及附加 Blob。       | 不支援 Azure 檔案。        |
+|Import     |  Azure Blob 儲存體 <br><br> Azure 檔案儲存體       | 支援區塊 Blob 與分頁 Blob <br><br> 支援檔案服務          |
+|匯出     |   Azure Blob 儲存體       | 支援區塊 Blob、分頁 Blob 及附加 Blob         | 不支援 Azure 檔案服務
 
 
 ## <a name="supported-hardware"></a>支援的硬體 
@@ -82,5 +81,5 @@ Azure 匯入/匯出服務支援下列 Azure 儲存體帳戶。
 
 * [設定 WAImportExport 工具](storage-import-export-tool-how-to.md)
 * [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md)
-* [Azure 匯入匯出 REST API 範例 (英文)](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
+* [Azure 匯入匯出 REST API 範例](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/) \(英文\)
 

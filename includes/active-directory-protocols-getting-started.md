@@ -13,18 +13,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/18/2018
 ms.author: priyamo
-ms.openlocfilehash: 72fb594265e69eb1dc16cb29ad4df6acb3a87720
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: cb31bb91c80e4d5dd032b009b40d8e3fc435e0c8
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34663622"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39359454"
 ---
 ## <a name="register-your-application-with-your-ad-tenant"></a>向 AD 租用戶註冊應用程式
 首先，您必須向您的 Azure Active Directory (Azure AD) 租用戶註冊應用程式。 這會讓應用程式獲得應用程式識別碼，以及讓它可以接收權杖。
 
 * 登入 [Azure 入口網站](https://portal.azure.com)。
-* 在頁面右上角按一下您的帳戶來選擇您的 Azure AD 租用戶。
+* 在頁面的右上角按一下您的帳戶，接著按一下 [切換目錄] 瀏覽，然後選取適當的租用戶，以選擇您的 Azure AD 租用戶。 
+  * 如果您的帳戶底下只有一個 Azure AD 租用戶，或如果您已選取適當的 Azure AD 租用戶，請略過此步驟。
 * 在左瀏覽窗格中，按一下 [Azure Active Directory]。
 * 按一下 [應用程式註冊]，然後按一下 [新應用程式註冊]。
 * 遵照提示進行，並建立新的應用程式。 在本教學課程中，不論它是 Web 應用程式或原生應用程式都沒關係，但如果您想要 Web 應用程式或原生應用程式的特定範例，請查看我們的[快速入門](../articles/active-directory/develop/active-directory-developers-guide.md)。

@@ -7,20 +7,20 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 0d15382f413485ccc287bac945b3c88eb748a9f6
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 0f63739c8718ed7d6625bd18de4fdfff4df60276
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311332"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412333"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>在 Azure SQL Database 中調整彈性集區
 
 本文說明如何在 Azure SQL Database 中調整彈性集區和集區資料庫可用的計算和儲存資源。 
 
-## <a name="vcore-based-purchasing-model-change-elastic-pool-storage-size"></a>以虛擬核心為基礎的購買模型：變更彈性集區儲存體大小
+## <a name="vcore-based-purchasing-model-change-elastic-pool-storage-size"></a>vCore 型購買模型：變更彈性集區儲存體大小
 
 - 可以將儲存體佈建到大小上限： 
  - 針對標準儲存體，以 10 GB 為增量單位增加或減少大小
@@ -28,20 +28,26 @@ ms.locfileid: "36311332"
 - 增加或減少其大小上限，即可佈建彈性集區的儲存體。
 - 彈性集區儲存體的價格為儲存體數量乘以服務層的儲存體單價。 如需有關額外儲存體的價格詳細資訊，請參閱 [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)。
 
-## <a name="vcore-based-purchasing-model-change-elastic-pool-compute-resources-vcores"></a>以虛擬核心為基礎的購買模型：變更彈性集區計算資源 (虛擬核心)
+> [!IMPORTANT]
+> 在某些情況下，您可能需要壓縮資料庫來回收未使用的空間。 如需詳細資訊，請參閱[管理 Azure SQL Database 中的檔案空間](sql-database-file-space-management.md)。
+
+## <a name="vcore-based-purchasing-model-change-elastic-pool-compute-resources-vcores"></a>vCore 型購買模型：變更彈性集區計算資源 (vCore)
 
 您可以使用 [Azure 入口網站](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases)、[PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)、[Azure CLI](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update) 或 [REST API](/rest/api/sql/elasticpools/update)，根據資源需求來增加或減少彈性集區的效能層級。
 
-- 重新調整集區虛擬核心時，會短暫中斷資料庫連線。 在為單一資料庫 (而非在集區中) 重新調整 DTU 時，也會發生相同的行為。 如需重新調整作業期間，資料庫中斷連線的持續時間和影響的詳細資訊，請參閱[重新調整單一資料庫的 DTU](#single-database-change-storage-size)。 
-- 重新調整集區虛擬核心的持續時間可能取決於集區中所有資料庫使用的儲存空間總量。 一般情況下，重新調整延遲時間平均為每 100 GB 在 90 分鐘以內。 舉例來說，如果集區中所有資料庫使用的總空間為 200 GB，則重新調整集區的預期延遲時間為 3 小時內。 在標準層或基本層內的某些情況下，不論使用的空間量多寡，重新調整延遲時間可能會少於五分鐘。
-- 一般而言，變更每個資料庫之虛擬核心下限或每個資料庫的虛擬核心上限的持續時間會在五分鐘內。
-- 縮減集區虛擬核心的大小時，集區使用的空間必須小於目標服務層和集區虛擬核心允許的大小上限。
+- 重新調整集區 vCore 時，會短暫中斷資料庫連線。 在為單一資料庫 (而非在集區中) 重新調整 DTU 時，也會發生相同的行為。 如需重新調整作業期間，資料庫中斷連線的持續時間和影響的詳細資訊，請參閱[重新調整單一資料庫的 DTU](#single-database-change-storage-size)。 
+- 重新調整集區 vCore 的持續時間可能取決於集區中所有資料庫使用的儲存空間總量。 一般情況下，重新調整延遲時間平均為每 100 GB 在 90 分鐘以內。 舉例來說，如果集區中所有資料庫使用的總空間為 200 GB，則重新調整集區的預期延遲時間為 3 小時內。 在標準層或基本層內的某些情況下，不論使用的空間量多寡，重新調整延遲時間可能會少於五分鐘。
+- 一般而言，變更每個資料庫之 vCore 下限或每個資料庫的 vCore 上限的持續時間會在五分鐘內。
+- 縮減集區 vCore 的大小時，集區使用的空間必須小於目標服務層和集區 vCore 允許的大小上限。
 
 ## <a name="dtu-based-purchasing-model-change-elastic-pool-storage-size"></a>以 DTU 為基礎的購買模型：變更彈性集區儲存體大小
 
 - 彈性集區的 eDTU 價格包含一定數量不額外收費的儲存體。 佈建超過內含量的額外儲存體會產生額外費用，以 250 GB 為單位最多增加到大小上限 1 TB，超過 1 TB 則以 256 GB 為單位增加。 如需了解內含儲存體數量和大小上限，請參閱[彈性集區：儲存體大小與效能層級](#elastic-pool-storage-sizes-and-performance-levels)。
 - 可藉由使用 [Azure 入口網站](sql-database-elastic-pool-scale.md#azure-portal-manage-elastic-pools-and-pooled-databases)、[PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)、[Azure CLI](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update) 或 [REST API](/rest/api/sql/elasticpools/update) 增加其大小上限，以佈建彈性集區的額外儲存體。
 - 彈性集區之額外儲存體的價格為額外儲存體數量乘以服務層的額外儲存體單價。 如需有關額外儲存體的價格詳細資訊，請參閱 [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)。
+
+> [!IMPORTANT]
+> 在某些情況下，您可能需要壓縮資料庫來回收未使用的空間。 如需詳細資訊，請參閱[管理 Azure SQL Database 中的檔案空間](sql-database-file-space-management.md)。
 
 ## <a name="dtu-based-purchasing-model-change-elastic-pool-compute-resources-edtus"></a>以 DTU 為基礎的購買模型：變更彈性集區計算資源 (eDTU)
 
@@ -55,4 +61,4 @@ ms.locfileid: "36311332"
 
 ## <a name="next-steps"></a>後續步驟
 
-如需整體資源限制，請參閱[SQL Database 以虛擬核心為基礎的資源限制 - 彈性集區](sql-database-vcore-resource-limits-elastic-pools.md)和[SQL Database 以 DTU 為基礎的資源限制 - 彈性集區](sql-database-dtu-resource-limits-elastic-pools.md)。
+如需整體資源限制，請參閱[SQL Database vCore 型資源限制 - 彈性集區](sql-database-vcore-resource-limits-elastic-pools.md)和[SQL Database 以 DTU 為基礎的資源限制 - 彈性集區](sql-database-dtu-resource-limits-elastic-pools.md)。

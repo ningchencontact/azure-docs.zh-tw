@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ce8630f5718a849f460b372d9e15b03902ac2117
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 89562e6a2bfb977585cec1925a5f306c69c3d1e8
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159674"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390665"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>開始使用 Azure Active Directory 報告 API
 
@@ -43,8 +43,6 @@ Azure Active Directory 提供各種[報告](active-directory-reporting-azure-por
 3. 授與權限
 4. 收集組態設定
 
-
- 
 如需詳細指示，請參閱[存取 Azure Active Directory 報告 API 的必要條件](active-directory-reporting-api-prerequisites-azure-portal.md)。
 
 ## <a name="apis-with-graph-explorer"></a>API 與 Graph 總管
@@ -55,9 +53,9 @@ Azure Active Directory 提供各種[報告](active-directory-reporting-azure-por
 
 ![修改權限 UI](./media/active-directory-reporting-api-getting-started-azure-portal/modify-permissions.png)
 
-## <a name="recommendation"></a>建議 
+## <a name="use-certificates-to-access-the-azure-ad-reporting-api"></a>使用憑證存取 Azure AD 報告 API 
 
-如果您打算在不需使用者介入的情況下擷取報告資料，您應該考慮使用 Azure AD 報告 API 搭配憑證。
+如果您打算在不需使用者介入的情況下擷取報告資料，請考慮使用 Azure AD 報告 API 搭配憑證。
 
 如需詳細指示，請參閱[使用 Azure AD 報告 API 搭配憑證來取得資料](active-directory-reporting-api-with-certificates.md)。
 
@@ -67,17 +65,13 @@ Azure Active Directory 提供各種[報告](active-directory-reporting-azure-por
 取得報告 API 的第一印象：
    
    - [使用稽核 API 的範例](active-directory-reporting-api-audit-samples.md) 
- 
    - [使用登入活動報告 API 的範例](active-directory-reporting-api-sign-in-activity-samples.md)
 
 
-## <a name="customize"></a>自訂  
+## <a name="next-steps"></a>後續步驟
 
-建立您自己的解決方案： 
-   
-   - [使用稽核 API 參考](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
-
-   - [使用登入活動報告 API 參考](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
-
+ * [稽核 API 參考](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) \(英文\) 
+ * [登入活動報告 API 參考](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin) \(英文\)
+ * [針對 Azure AD 報告 API 中的錯誤進行疑難排解](active-directory-reporting-troubleshoot-graph-api.md)
 
 

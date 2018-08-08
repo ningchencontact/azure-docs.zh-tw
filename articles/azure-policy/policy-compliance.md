@@ -4,17 +4,17 @@ description: Azure 原則評估和效果會決定合規性。 了解如何取得
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/24/2018
+ms.date: 07/29/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 390935d80e903631287b1a4b9f1075e547298d99
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: f2283125aff705aae87b6260b48deee01aa12f0d
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39250189"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343547"
 ---
 # <a name="getting-compliance-data"></a>取得合規性資料
 
@@ -35,7 +35,7 @@ Azure 原則的其中一個最大優點，就是能夠針對訂用帳戶中的�
 
 - 將新的原則或計畫指派給範圍。 發生此情況時，需要約 30 分鐘的時間讓指派套用至定義的範圍。 套用之後，就會對新指派的原則或計畫開始該範圍內資源的評估週期，並根據原則或計畫所使用的效果，將資源標示為相容或不相容。 對範圍很大的資源評估大型原則或計畫可能需要一些時間，因此沒有預期何時將完成評估週期的預先定義。 完成之後，會在入口網站和 SDK 中提供更新的合規性結果。
 - 更新已指派給範圍的原則或計畫。 此案例的評估週期和時間與範圍的新指派相同。
-- 資源會透過 Resource Manager、REST、Azure CLI 或 Azure PowerShell 部署到具有指派的範圍。 在此案例中，效果事件 (附加、稽核、拒絕、部署) 和相容狀態資訊約 15 分鐘後會在入口網站和 SDK 中變成可用。
+- 資源會透過 Resource Manager、REST、Azure CLI 或 Azure PowerShell 部署到具有指派的範圍。 在此案例中，個別資源的效果事件 (附加、稽核、拒絕、部署) 和合規性狀態資訊，約 15 分鐘後會在入口網站和 SDK 中變成可用。 此事件不會造成對其他資源的評估。
 - 標準合規性評估週期。 每 24 小時會自動重新評估指派一次。 對範圍很大的資源評估大型原則或計畫可能需要一些時間，因此沒有預期何時將完成評估週期的預先定義。 完成之後，會在入口網站和 SDK 中提供更新的合規性結果。
 
 ## <a name="how-compliance-works"></a>合規性的運作方式
@@ -51,8 +51,6 @@ Azure 原則的其中一個最大優點，就是能夠針對訂用帳戶中的�
 
 \* Append、DeployIfNotExist 和 AuditIfNotExist 效果需要 IF 陳述式為 TRUE。
 這些效果也需要存在條件為 FALSE，以呈現不符合規範。 若為 TRUE，IF 條件會觸發相關資源的存在條件評估。
-
-為了進一步了解資源如何標示為不符合規範，讓我們使用上面建立的原則指派範例。
 
 例如，假設您有資源群組 – ContosoRG，且部分的儲存體帳戶 (以紅色醒目提示) 會公開至公用網路。
 

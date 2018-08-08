@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 297a213fe4219b834187f977e3281eb939352f60
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: ea8d8d0adbc7cf5a8dfb6e9af51257b9d2ba8db2
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249058"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264077"
 ---
 # <a name="advisor-high-availability-recommendations"></a>建議程式高可用性建議
 
@@ -66,6 +66,14 @@ Advisor 會識別使用標準磁碟的虛擬機器，並建議升級為進階磁
 如果流量管理員設定檔中設定為近接路由的所有端點都在相同的區域中，則其他區域中的使用者可能會發生連線延遲。 如果一個區域中的所有端點都失敗，則將端點新增或移動到另一個區域會改善整體效能，並提供更佳的可用性。 Advisor 會識別設定為近接路由 (其中所有的端點都位於相同區域) 的流量管理員設定檔，並建議將端點新增或移動到另一個 Azure 區域。
 
 如果流量管理員設定檔設定為地理路由，則流量會根據定義的區域路由傳送至端點。 如果區域失敗，則沒有任何預先定義的容錯移轉。 若您擁有區域群組設定為「所有 (全球)」的端點，將可避免流量卸除，並改善服務可用性。 Advisor 會識別設定為地理路由 (其中沒有任何端點會設為具有「所有 (全球)」的區域群組) 的流量管理員設定檔，並建議進行該設定變更。
+
+## <a name="remove-data-skew-on-your-sql-data-warehouse-table-to-increase-query-performance"></a>在 SQL 資料倉儲資料表上移除資料扭曲以提升查詢效能
+
+執行工作負載時，資料扭曲可能會造成不必要的資料移動或資源瓶頸。 Advisor 將偵測到大於 15% 的散發資料扭曲，且會建議您重新散發資料，並重新檢視您的資料表散發金鑰選取項目。 若要深入了解如何識別和移除扭曲，請參閱[針對扭曲進行疑難排解](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice)。
+
+## <a name="create-or-update-outdated-table-statistics-on-your-sql-data-warehouse-table-to-increase-query-performance"></a>在 SQL 資料倉儲資料表上建立或更新過期的資料表統計資料以提升查詢效能
+
+Advisor 會識別不含最新[資料表統計資料](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics)的資料表，以及建立或更新資料表統計資料的建議。 SQL 資料倉儲查詢最佳化工具會使用最新的統計資料，來估計基數或查詢結果中的資料列數目，以利其建立高品質的查詢計劃來取得更快速的效能。
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>如何存取建議程式中的高可用性建議
 

@@ -3,8 +3,8 @@ title: 成為市集中店面的發行者 | Azure
 description: 本文將說明如何成為市集上的發行者。
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
-author: jm-aditi-ms
-manager: pabutler
+author: ellacroi
+manager: nunoc
 editor: ''
 ms.assetid: ''
 ms.service: marketplace
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: fb3f307642dc6f4607a626e0b320949306129759
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 4d37aba665fd9b6de89f683ce2785a14b1b6f60b
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172308"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412010"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>成為雲端市集發行者
 
@@ -103,8 +103,8 @@ Microsoft 帳戶 (例如 @outlook.com或 @live.com) 可用來存取許多 Micros
 
 
 ## <a name="next-steps"></a>後續步驟
-* 深入了解市集店面：AppSource 和 Azure Marketplace
-*   決定市集的供應項目
+* 深入了解市集店面：[比較 AppSource 和 Azure Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/comparing-appsource-azure-marketplace)
+*   [決定您解決方案的清單類型](https://docs.microsoft.com/en-us/azure/marketplace/determine-your-listing-type)
 
  
 ---  

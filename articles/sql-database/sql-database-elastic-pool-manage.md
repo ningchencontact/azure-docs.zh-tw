@@ -7,16 +7,16 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.date: 06/20/2018
+ms.date: 08/01/2018
 ms.author: ninarn
 ms.topic: conceptual
 ms.reviewer: carlrab
-ms.openlocfilehash: 3cdc82d71c05298aa5822b87c22edcc5d8e73385
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 96ea965ac383ae449afffa62c5e9950c6fd4e4da
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311352"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39411928"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>建立和管理 Azure SQL Database 中的彈性集區
 
@@ -28,7 +28,7 @@ ms.locfileid: "36311352"
 
 您可以從這裡進行下列任何變更並將變更全部儲存在一個批次中：
 1. 變更集區的服務層
-2. 相應放大或縮小效能 (DTU 或虛擬核心) 和儲存體
+2. 相應放大或縮小效能 (DTU 或 vCore) 和儲存體
 3. 在集區中新增或移除資料庫
 4. 為集區中的資料庫設定最小 (保證) 和最大效能限制
 5. 檢閱成本摘要，以檢視因為您的新選擇所造成的任何帳單變更
@@ -37,7 +37,7 @@ ms.locfileid: "36311352"
 
 ## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell：管理彈性集區和集區資料庫 
 
-若要使用 Azure PowerShell 建立和管理 SQL Database 彈性集區和集區資料庫，請使用下列 PowerShell Cmdlet。 如果您需要安裝或升級 PowerShell，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 若要建立和管理資料庫、伺服器和防火牆規則，請參閱[使用 PowerShell 建立和管理 Azure SQL Database 伺服器和資料庫](sql-database-servers-databases.md#manage-azure-sql-servers-databases-and-firewalls-using-powershell)。
+若要使用 Azure PowerShell 建立和管理 SQL Database 彈性集區和集區資料庫，請使用下列 PowerShell Cmdlet。 如果您需要安裝或升級 PowerShell，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 若要建立及管理彈性集區的邏輯伺服器，請參閱[建立及管理邏輯伺服器](sql-database-logical-servers.md)。 若要建立及管理防火牆規則，請參閱[使用 PowerShell 建立及管理防火牆規則](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell)。
 
 > [!TIP]
 > 如需 PowerShell 範例指令碼，請參閱[使用 PowerShell 建立彈性集區並在集區之間移動資料庫以及將其移出集區](scripts/sql-database-move-database-between-pools-powershell.md)和[使用 PowerShell 在 Azure SQL Database 中監視和調整 SQL 彈性集區](scripts/sql-database-monitor-and-scale-pool-powershell.md)。
@@ -79,7 +79,7 @@ ms.locfileid: "36311352"
 
 ## <a name="transact-sql-manage-pooled-databases"></a>Transact-SQL：管理集區資料庫
 
-若要在現有彈性集區中建立並移動資料庫，或傳回 SQL Database 彈性集區與 Transact-SQL 的資訊，請使用下列 T-SQL 命令。 您可以使用 Azure 入口網站、[SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio)、[Visual Studio Code](https://code.visualstudio.com/docs)，或任何可連線到 Azure SQL Database 伺服器並傳遞 Transact-SQL 命令的其他程式來發出這些命令。 若要建立和管理資料庫、伺服器和防火牆規則，請參閱[使用 Transact-SQL 建立和管理 Azure SQL Database 伺服器和資料庫](sql-database-servers-databases.md#manage-azure-sql-servers-databases-and-firewalls-using-transact-sql)。
+若要在現有彈性集區中建立並移動資料庫，或傳回 SQL Database 彈性集區與 Transact-SQL 的資訊，請使用下列 T-SQL 命令。 您可以使用 Azure 入口網站、[SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio)、[Visual Studio Code](https://code.visualstudio.com/docs)，或任何可連線到 Azure SQL Database 伺服器並傳遞 Transact-SQL 命令的其他程式來發出這些命令。 若要使用 T-SQL 建立及管理防火牆規則，請參閱[使用 Transact-SQL 管理防火牆規則](sql-database-firewall-configure.md#manage-firewall-rules-using-transact-sql)。
 
 > [!IMPORTANT]
 > 您無法使用 Transact-SQL 建立、更新或刪除 Azure SQL Database 彈性集區。 您可以新增或移除彈性集區中的資料庫，也可以使用 DMV 傳回現有彈性集區的資訊。

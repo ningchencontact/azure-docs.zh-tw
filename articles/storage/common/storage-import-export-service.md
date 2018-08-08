@@ -8,18 +8,20 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: alkohli
-ms.openlocfilehash: c435e21d85ae0ab35bc2fa99f7006e841eaecec0
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: e9fc74e6cd145cbba5b620b9db6db9635a0c4c77
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248769"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364520"
 ---
 # <a name="what-is-azure-importexport-service"></a>什麼是 Azure 匯入/匯出服務？
 
-Azure 匯入/匯出服務可用來將硬碟運送到 Azure 資料中心，安全地將大量資料匯入 Azure Blob 儲存體和 Azure 檔案服務中。 這項服務也能用來將資料從 Azure Blob 儲存體傳輸到磁碟機，然後運送到您的內部部署網站。 來自一個或多個磁碟機的資料可匯入 Azure Blob 儲存體或 Azure 檔案服務中。 
+Azure 匯入/匯出服務可用來將硬碟運送到 Azure 資料中心，安全地將大量資料匯入 Azure Blob 儲存體和 Azure 檔案服務中。 這項服務也能用來將資料從 Azure Blob 儲存體傳輸到磁碟機，然後運送到您的內部部署網站。 來自一或多個磁碟機的資料可匯入 Azure Blob 儲存體或 Azure 檔案服務中。 
 
-Azure 匯入/匯出服務會要求您提供自有磁碟。 如果您想要使用由 Microsoft 所提供的磁碟來傳輸資料，則可以使用 Azure 資料箱磁碟將資料匯入到 Azure。 Microsoft 會透過區域電訊廠商，將每筆訂單最多 5 個包含 40 TB 容量的加密固態硬碟 (SSD) 寄送至您的資料中心。 您可快速設定磁碟、透過 USB 3.0 連線將資料複製到磁碟，並將磁碟寄回 Azure。 如需詳細資訊，請移至 [Azure 資料箱磁碟概觀](https://docs.microsoft.com/azure/databox/data-box-disk-overview)。
+提供您自己的磁碟機，並使用 Azure 匯入/匯出服務來傳輸資料。 您也可以使用由 Microsoft 提供的磁碟機。 
+
+如果您想要使用由 Microsoft 提供的磁碟機來傳輸資料，則可以使用 [Azure 資料箱磁碟](../../databox/data-box-disk-overview.md)將資料匯入到 Azure。 Microsoft 會透過區域貨運廠商，將每筆訂單最多 5 個包含 40 TB 總容量的加密固態硬碟機 (SSD) 寄送至您的資料中心。 您可快速設定磁碟機、透過 USB 3.0 連線將資料複製到磁碟機，並將磁碟機寄回 Azure。 如需詳細資訊，請移至 [Azure 資料箱磁碟概觀](../../databox/data-box-disk-overview.md)。
 
 ## <a name="azure-importexport-usecases"></a>Azure 匯入/匯出使用案例
 
@@ -34,7 +36,7 @@ Azure 匯入/匯出服務會要求您提供自有磁碟。 如果您想要使用
 
 匯入/匯出服務會使用下列元件：
 
-- **匯入/匯出**服務：Azure 入口網站中提供的這項服務可協助使用者建立及追蹤匯入和匯出作業。  
+- **匯入/匯出服務**：Azure 入口網站中提供的這個服務可協助使用者建立及追蹤資料匯入 (上傳) 和匯出 (下載) 作業。  
 
 - **WAImportExport 工具**：此為執行下列項目的命令列工具： 
     - 將運送的磁碟機準備好進行匯入。
@@ -42,15 +44,15 @@ Azure 匯入/匯出服務會要求您提供自有磁碟。 如果您想要使用
     - 使用 BitLocker 將磁碟機上的資料加密。
     - 產生匯入建立期間所使用的磁碟機日誌檔案。
     - 協助識別匯出作業所需的磁碟機數目。
+    
+> [!NOTE]
+> WAImportExport 工具提供兩個版本，第 1 版與第 2 版。 建議您使用：
+> - 第 1 版來匯入/匯出到 Azure Blob 儲存體。 
+> - 第 2 版將資料匯入 Azure 檔案中。
+>
+> WAImportExport 工具只與 64 位元 Windows 作業系統相容。 如需了解支援的特定作業系統版本，請移至 [Azure 匯入/匯出需求](storage-import-export-requirements.md#supported-operating-systems)。
 
-    此工具會提供兩個版本，第 1 版與第 2 版。 建議您使用：
-
-    - 第 1 版來匯入/匯出到 Azure Blob 儲存體。 
-    - 第 2 版將資料匯入 Azure 檔案中。
-
-    WAImportExport 工具只與 64 位元 Windows 作業系統相容。 如需了解支援的特定作業系統版本，請移至 [Azure 匯入/匯出需求](storage-import-export-requirements.md#supported-operating-systems)。
-
-- **磁碟**：您可以將固態硬碟 (SSD) 或硬碟 (HDD) 運送至 Azure 資料中心。 當您建立匯入作業時，要運送包含您資料的磁碟機。 當您建立匯出作業時，要將空的磁碟機運送至 Azure 資料中心。 如需了解特定的磁碟類型，請移至[支援的磁碟類型](storage-import-export-requirements.md#supported-hardware)。
+- **磁碟機**：您可以將固態硬碟 (SSD) 或硬碟 (HDD) 運送至 Azure 資料中心。 當您建立匯入作業時，要運送包含您資料的磁碟機。 當您建立匯出作業時，要將空的磁碟機運送至 Azure 資料中心。 如需了解特定的磁碟類型，請移至[支援的磁碟類型](storage-import-export-requirements.md#supported-hardware)。
 
 ## <a name="how-does-importexport-work"></a>匯入/匯出的運作方式為何？
 
@@ -58,18 +60,12 @@ Azure 匯入/匯出服務可讓您建立作業，將資料轉送到 Azure Blob �
 
 作業可以是匯入或匯出作業。 匯入作業可讓您將資料匯入 Azure Blob 或 Azure 檔案，而匯出作業可讓您從 Azure Blob 中匯出資料。 若為匯入作業，您要運送包含您資料的磁碟機。 當您建立匯出作業時，要將空的磁碟機運送至 Azure 資料中心。 在每個案例中，您可以針對每個作業運送最多 10 個硬碟。
 
-> [!IMPORTANT]
-> 不支援將資料匯出到 Azure 檔案服務。
-
-在本節中，會說明與匯入和匯出作業有關的高階步驟。 
-
-
 ### <a name="inside-an-import-job"></a>匯入作業之內
 
 概括而言，匯入工作包含下列步驟︰
 
 1. 決定要匯入的資料、您所需的磁碟機數目、您 Azure 儲存體中資料的目的地 blob 位置。
-2. 請使用 WAImportExport 工具，將資料複製到磁碟機。 使用 BitLocker 將磁碟加密。
+2. 請使用 WAImportExport 工具，將資料複製到磁碟機。 使用 BitLocker 將磁碟機加密。
 3. 請在 Azure 入口網站的目標儲存體帳戶中建立匯入作業。 上傳磁碟機日誌檔案。
 4. 提供送回的寄件地址和貨運公司客戶編號，以便將磁碟機送回給您。
 5. 將磁碟機運送到建立作業期間所提供的運送地址。
@@ -82,7 +78,7 @@ Azure 匯入/匯出服務可讓您建立作業，將資料轉送到 Azure Blob �
 >
 > 對於國外 (在資料中心所在國家/地區之外) 的貨物運送，請提供國際貨運業者帳戶
 
- ![圖 1: 匯入工作流程](./media/storage-import-export-service/importjob.png)
+ ![圖 1：匯入工作流程](./media/storage-import-export-service/importjob.png)
 
 如需有關資料匯入的逐步指示，請移至：
 
@@ -123,7 +119,7 @@ Azure 匯入/匯出服務支援與所有 Azure 儲存體帳戶相互複製資料
 ### <a name="supported-shipping-locations"></a>支援的運送位置
 
 
-|國家 (地區)  |國家 (地區)  |國家 (地區)  |國家 (地區)  |
+|國家/地區  |國家/地區  |國家/地區  |國家/地區  |
 |---------|---------|---------|---------|
 |美國東部    | 北歐        | 印度中部        |US Gov 愛荷華州         |
 |美國西部     |西歐         | 印度南部        | 美國 DoD 東部        |

@@ -3,7 +3,7 @@ title: 從 GitHub 更新 Azure Linux 代理程式 | Microsoft Docs
 description: 了解如何更新 Azure 中 Linux VM 的 Azure Linux 代理程式
 services: virtual-machines-linux
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
-ms.author: danis
-ms.openlocfilehash: b5a482ef6d15f1c6b1942a6128a807d7c6189918
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: roiyz
+ms.openlocfilehash: ef8668527974b7249f2f9c94e563ae5336d290d6
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944960"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39416051"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>如何更新虛擬機器上的 Azure Linux 代理程式
 
@@ -162,7 +162,7 @@ sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 sudo systemctl restart walinuxagent.service
 ```
 
-## <a name="redhat--centos"></a>Redhat/CentOS
+## <a name="red-hat--centos"></a>Red Hat / CentOS
 
 ### <a name="rhelcentos-6"></a>RHEL/CentOS 6
 
@@ -395,7 +395,7 @@ sudo yum update WALinuxAgent
 
 ## <a name="update-the-linux-agent-when-no-agent-package-exists-for-distribution"></a>若沒有代理程式封裝可發佈，請更新 Linux 代理程式
 
-在命令列輸入 `sudo yum install wget` 來安裝 wget (有一些散發版本預設為不安裝，例如 Redhat、CentOS、Oracle Linux 6.4 和 6.5 版)。
+在命令列輸入 `sudo yum install wget` 來安裝 wget (有一些發行版本預設為不安裝，例如 Red Hat、CentOS、Oracle Linux 6.4 和 6.5 版)。
 
 ### <a name="1-download-the-latest-version"></a>1.下載最新版本
 在網頁中開啟 [Github 中的 Azure Linux 代理程式版本](https://github.com/Azure/WALinuxAgent/releases) ，然後查明最新的版本號碼。 (您可以輸入 `waagent --version`，即可找到目前的版本 )。

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 34248d75c190aa4636c39f087d399d946b589d58
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: dc5b5cbe9b1f000d8ddf9d38cfe13f5275e698f2
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355894"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39347708"
 ---
 # <a name="create-an-external-app-service-environment"></a>建立外部 App Service 環境 #
 
@@ -41,7 +41,7 @@ Azure App Service Environment (ASE) 是將 Azure App Service 部署到客戶 Azu
 - 子網路大小
 
 > [!NOTE]
-> 選取 VNet 並指定子網路時，請確定它足夠大以容納未來的成長。 我們建議使用包含 128 個位址的 `/25` 大小。
+> 選取 VNet 並指定子網路時，請確定它足夠大以容納未來的成長及規模調整需求。 我們建議使用包含 256 個位址的 `/24` 大小。
 >
 
 ## <a name="three-ways-to-create-an-ase"></a>建立 ASE 有三種方式 ##
@@ -68,10 +68,7 @@ App Service 方案是應用程式的容器。 當您在 App Service 中建立應
 
 3. 選取或建立資源群組。 您可以使用資源群組來管理相關的一組 Azure 資源。 當您為應用程式建立角色型存取控制規則時，資源群組也十分實用。 如需詳細資訊，請參閱 [Azure Resource Manager 概觀][ARMOverview]。
 
-4. 選取您的作業系統。 
-
-    * 在 ASE 中裝載 Linux 應用程式是新的預覽功能，因此建議您不要將 Linux 應用程式新增到目前執行生產工作負載的 ASE。 
-    * 將 Linux 應用程式新增至 ASE，表示 ASE 也會處於預覽模式。 
+4. 選取您的 OS (Windows、Linux 或 Docker)。 
 
 5. 選取 App Service 方案，然後選取 [新建]。 Linux Web 應用程式和 Windows Web 應用程式不能在相同的 App Service 方案中，但可位於相同的 App Service Environment 中。 
 
@@ -79,13 +76,7 @@ App Service 方案是應用程式的容器。 當您在 App Service 中建立應
 
 6. 在 [位置] 下拉式清單中，選取您需要建立 ASE 的區域。 如果您選取現有的 ASE，就不會建立新的 ASE。 會在您選取的 ASE 中建立 App Service 方案。 
 
-    > [!NOTE]
-    > Linux 版 ASE 目前只能在 6 個區域中使用：**美國西部、美國東部、西歐、北歐、澳洲東部以及東南亞。** 由於 Linux 版 ASE 是預覽功能，請勿選取您在此預覽之前建立的 ASE。
-    >
-
 7. 選取**定價層**，然後選擇其中一個**隔離的**定價 SKU。 如果您選擇**隔離** SKU 卡以及非 ASE 的位置，就會在該位置中建立新的 ASE。 若要啟動建立 ASE 的流程，請選取 [選取]。 **隔離** SKU 僅供與 ASE 搭配使用。 您也無法在 ASE 中使用**隔離**以外的其他任何定價 SKU。 
-
-    * 在 Linux 版 ASE 預覽中，隔離的 SKU 會套用 50% 折扣 (ASE 本身的一般費用沒有任何折扣)。
 
     ![定價層選取項目][3]
 
@@ -121,13 +112,7 @@ App Service 方案是應用程式的容器。 當您在 App Service 中建立應
 
 5. 在 [位置] 下拉式清單中，選取您需要建立 ASE 的區域。 如果您選取現有的 ASE，就不會建立新的 ASE。 會在您選取的 ASE 中建立 App Service 方案。 
 
-    > [!NOTE]
-    > Linux 版 ASE 目前只能在 6 個區域中使用：**美國西部、美國東部、西歐、北歐、澳洲東部以及東南亞。** 由於 Linux 版 ASE 是預覽功能，請勿選取您在此預覽之前建立的 ASE。
-    >
-
 6. 選取**定價層**，然後選擇其中一個**隔離的**定價 SKU。 如果您選擇**隔離** SKU 卡以及非 ASE 的位置，就會在該位置中建立新的 ASE。 若要啟動建立 ASE 的流程，請選取 [選取]。 **隔離** SKU 僅供與 ASE 搭配使用。 您也無法在 ASE 中使用**隔離**以外的其他任何定價 SKU。 
-
-    * 在 Linux 版 ASE 預覽中，隔離的 SKU 會套用 50% 折扣 (ASE 本身的一般費用沒有任何折扣)。
 
     ![定價層選取項目][3]
 
@@ -171,7 +156,7 @@ App Service 方案是應用程式的容器。 當您在 App Service 中建立應
 
 5. 選取您的 VNet 和位置。 您可以建立新的 VNet 或選取現有的 VNet： 
 
-    * 如果您選取新的 VNet，就可以指定名稱和位置。 如果您打算在此 ASE 上裝載 Linux 應用程式，目前只支援 6 個區域：**美國西部、美國東部、西歐、北歐、澳洲東部以及東南亞。** 
+    * 如果您選取新的 VNet，就可以指定名稱和位置。 
     
     * 新的 VNet 會有位址範圍 192.168.250.0/23，和名為 default 的子網路。 子網路定義為 192.168.250.0/24。 您只能選取 Resource Manager VNet。 [VIP 類型] 選取項目會決定您的 ASE 是否可以從網際網路 (外部) 直接存取，或者它是使用 ILB。 若要深入了解這些選項，請參閱[在 App Service 環境中建立及使用內部負載平衡器][MakeILBASE]。 
 
@@ -196,7 +181,7 @@ App Service 方案是應用程式的容器。 當您在 App Service 中建立應
 [6]: ./media/how_to_create_an_external_app_service_environment/createexternalase-network.png
 [7]: ./media/how_to_create_an_external_app_service_environment/createexternalase-createwafc.png
 [8]: ./media/how_to_create_an_external_app_service_environment/createexternalase-aspcreatewafc.png
-[8]: ./media/how_to_create_an_external_app_service_environment/createexternalase-configurecontainer.png
+[9]: ./media/how_to_create_an_external_app_service_environment/createexternalase-configurecontainer.png
 
 
 

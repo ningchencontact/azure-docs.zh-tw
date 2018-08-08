@@ -1,27 +1,24 @@
 ---
-title: 設定雙步驟驗證 - Azure AD |Microsoft Docs
+title: 設定雙步驟驗證 - Azure Active Directory | Microsoft Docs
 description: 當您的公司設定 Azure Multi-Factor Authentication 時，系統會提示您註冊雙步驟驗證。 了解如何進行設定。
-services: multi-factor-authentication
+services: active-directory
 keywords: 如何使用 Azure Directory, 雲端中的 Active Directory, Active Directory 教學課程
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.reviewer: richagi
 ms.assetid: 46f83a6a-dbdd-4375-8dc4-e7ea77c16357
-ms.service: multi-factor-authentication
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: user-help
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
-ms.custom: end-user
-ms.openlocfilehash: 1d0c60dedcb5eefb4ab9167b40c06c3616790719
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d4ebecd11f4ca3d12a55cf25db31e31d7f528db8
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39058520"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343724"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>對我的帳戶進行雙步驟驗證設定
 雙步驟驗證是額外的安全性步驟，可協助保護您的帳戶使其他人更難以破解。 如果您正在閱讀這篇文章，可能會收到一封來自您工作或學校的系統管理員關於 Multi-Factor Authentication 的電子郵件。 或者也許您嘗試登入並收到訊息，要求您設定其他安全性驗證。 如果是這個情況，**則您在完成自動註冊程序之前將無法登入**。
