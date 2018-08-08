@@ -103,9 +103,9 @@
     - name: 行動和桌面 SSO
       items:
         - name: 在 Android 上啟用 SSO
-          href: howto-v1-enable-sso-on-android.md
+          href: howto-v1-enable-sso-android.md
         - name: 在 iOS 上啟用 SSO
-          href: howto-v1-enable-sso-on-ios.md
+          href: howto-v1-enable-sso-ios.md
     - name: Azure AD B2B
       href: ../active-directory-b2b-what-is-azure-ad-b2b.md
     - name: 以 SCIM 進行使用者佈建
@@ -116,9 +116,9 @@
         - name: 開始使用 AAD Graph
           href: active-directory-graph-api-quickstart.md
     - name: AppSource 認證
-      href: active-directory-devhowto-appsource-certified.md
+      href: howto-get-appsource-certified.md
     - name: Azure AD 應用程式資源庫
-      href: active-directory-app-gallery-listing.md
+      href: howto-app-gallery-listing.md
     - name: Office 365 賣方儀表板
       href: 'https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard'
     - name: 使用 Visual Studio
@@ -150,7 +150,7 @@
     - name: 依據案例的程式碼範例
       href: sample-v1-code.md
     - name: 詞彙
-      href: active-directory-dev-glossary.md
+      href: developer-glossary.md
     - name: 驗證通訊協定
       href: active-directory-authentication-protocols.md
       items:
@@ -178,7 +178,7 @@
         - name: 應用程式和 Azure AD
           href: active-directory-how-applications-are-added.md
     - name: 應用程式資訊清單
-      href: active-directory-application-manifest.md
+      href: reference-app-manifest.md
     - name: 權杖存留期
       href: ../active-directory-configurable-token-lifetimes.md
     - name: 服務限制
@@ -189,7 +189,7 @@
       href: active-directory-appmodel-v2-overview.md
       items:
         - name: 應用程式類型
-          href: active-directory-v2-flows.md
+          href: v2-app-types.md
         - name: 限制
           href: active-directory-v2-limitations.md
         - name: v1-v2 比較
@@ -239,7 +239,7 @@
     - name: 參考
       items:
         - name: 驗證程式庫
-          href: active-directory-v2-libraries.md
+          href: reference-v2-libraries.md
         - name: 依據案例的 v2.0 程式碼範例
           href: sample-v2-code.md
         - name: v2.0 驗證通訊協定
@@ -266,7 +266,7 @@
 - name: 資源
   items:
     - name: 取得說明
-      href: active-directory-develop-help-support.md
+      href: developer-support-help-options.md
     - name: Azure 藍圖
       href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
     - name: 定價計算機

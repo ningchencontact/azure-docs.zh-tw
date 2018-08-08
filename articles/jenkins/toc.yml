@@ -9,6 +9,7 @@
   items:
     - name: 建立 Jenkins 伺服器
       href: /azure/jenkins/install-jenkins-solution-template
+      maintainContext: true
 - name: 教學課程
   items:
     - name: App Service 中的 CI/CD

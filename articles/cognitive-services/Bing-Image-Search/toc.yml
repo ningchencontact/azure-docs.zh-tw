@@ -47,8 +47,6 @@
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Image+Search'
 - name: 使用說明指南
   items:
-    - name: 使用和顯示結果
-      href: UseAndDisplayRequirements.md
     - name: 取得影像深入解析
       href: image-insights.md
     - name: 取得 .gif 影像
@@ -91,5 +89,7 @@
       href: image-search-endpoint.md
     - name: 支援的國家/地區與市場
       href: supported-countries-markets.md
+    - name: 使用和顯示需求
+      href: UseAndDisplayRequirements.md
     - name: Bing 影像搜尋 API 的分析
       href: bing-image-stats.md
