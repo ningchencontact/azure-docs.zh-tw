@@ -171,12 +171,13 @@
 #### [規劃 Azure AD 聯結](devices/azureadjoin-plan.md)
 #### [規劃混合式 Azure AD 聯結實作](devices/hybrid-azuread-join-plan.md)
 #### [控制裝置的混合式 Azure AD 聯結](devices/hybrid-azuread-join-control.md)
+#### [將本機系統管理員指派給已加入 Azure AD 的裝置](devices/assign-local-admin.md)
 #### [針對目前與混合式 Azure AD 聯結的 Windows 裝置進行疑難排解](devices/troubleshoot-hybrid-join-windows-current.md)
 #### [針對已與混合式 Azure AD 聯結的舊版 Windows 裝置進行疑難排解](devices/troubleshoot-hybrid-join-windows-legacy.md)
 
 ### 概念
-### [使用 Azure 入口網站管理裝置](devices/device-management-azure-portal.md)
-### [常見問題集](devices/faq.md)
+#### [使用 Azure 入口網站管理裝置](devices/device-management-azure-portal.md)
+#### [常見問題集](devices/faq.md)
 
 ## 管理應用程式
 ### [概觀](manage-apps/what-is-application-management.md)
@@ -403,30 +404,30 @@
 ### [條件式存取](active-directory-conditional-access-azure-portal.md)
 #### [開始使用](active-directory-conditional-access-azure-portal-get-started.md)
 #### 快速入門
-##### [設定每個雲端應用程式 MFA](active-directory-conditional-access-app-based-mfa.md)
-##### [接受的使用條款](active-directory-conditional-access-tou.md)
-##### [偵測到工作階段風險時封鎖存取](active-directory-conditional-access-app-sign-in-risk.md)
+##### [設定每個雲端應用程式 MFA](conditional-access/app-based-mfa.md)
+##### [接受的使用條款](conditional-access/require-tou.md)
+##### [偵測到工作階段風險時封鎖存取](conditional-access/app-sign-in-risk.md)
 #### 教學課程
-##### [移轉傳統 MFA 原則](active-directory-conditional-access-migration-mfa.md)
+##### [移轉傳統 MFA 原則](conditional-access/policy-migration-mfa.md)
 #### 概念
-##### [基準保護](active-directory-conditional-access-baseline-protection.md)
-##### [條件](active-directory-conditional-access-conditions.md)
-##### [位置條件](active-directory-conditional-access-locations.md)
-##### [控制項](active-directory-conditional-access-controls.md)
-##### [假設工具](active-directory-conditional-access-whatif.md)
+##### [基準保護](conditional-access/baseline-protection.md)
+##### [條件](conditional-access/conditions.md)
+##### [位置條件](conditional-access/location-condition.md)
+##### [控制項](conditional-access/controls.md)
+##### [假設工具](conditional-access/what-if-tool.md)
 ##### [了解 Office 365 服務的裝置原則](active-directory-conditional-access-device-policies.md)
 #### 使用說明指南
-##### [最佳做法](active-directory-conditional-access-best-practices.md)
+##### [最佳做法](conditional-access/best-practices.md)
 ##### [為來自不信任的網路存取嘗試設定條件式存取原則](active-directory-conditional-access-untrusted-networks.md)
 ##### [設定裝置型條件式存取](active-directory-conditional-access-policy-connected-applications.md)
 ##### [設定應用程式型條件式存取](active-directory-conditional-access-mam.md)
 ##### [為使用者和應用程式提供使用規定](active-directory-tou.md)
-##### [移轉傳統原則](active-directory-conditional-access-migration.md)
+##### [移轉傳統原則](conditional-access/policy-migration.md)
 ##### [設定 VPN 連線能力](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
 ##### [設定 SharePoint 和 Exchange Online](active-directory-conditional-access-no-modern-authentication.md)
 ##### [補救](active-directory-conditional-access-device-remediation.md)
 #### [技術參考](active-directory-conditional-access-technical-reference.md)
-#### [常見問題集](active-directory-conditional-faqs.md)
+#### [常見問題集](conditional-access/faqs.md)
 
 ### 憑證式驗證
 #### [Android](active-directory-certificate-based-authentication-android.md)

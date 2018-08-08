@@ -7,16 +7,16 @@ ms.author: aashishb
 manager: hjerez
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/6/2017
-ms.openlocfilehash: bf96a6986abe858074decaaecfe38b3807822aab
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 150114184f6f04f22aa9da409758daa6a0d175b5
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830236"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39368496"
 ---
 # <a name="model-management-setup"></a>模型管理安裝
 
@@ -36,6 +36,14 @@ CLI 已預先安裝於 Azure Machine Learning Workbench 和 [Azure DSVM](https:/
 在資料科學虛擬機器上，連接並開啟命令提示字元。 輸入 `az ml -h` 查看選項。 如需有關命令的詳細資訊，請使用 --help 旗標。
 
 在其他所有系統上，您必須安裝 CLI。
+
+>[!NOTE]
+> 在 Linux DSVM 上的 Jupyter Notebook 中，您可以使用下列命令格式存取 Azure CLI 和 Azure ML CLI。  **這特別適用於 Linux DSVM 上的 Jupyter Notebook**。  這些命令會存取 Notebook 中目前的 Python 核心 (例如 conda `py35` 環境)
+>```
+>import sys
+>! {sys.executable} -m azure.cli login
+>! {sys.executable} -m azure.cli ml -h
+>```
 
 ### <a name="installing-or-updating-on-windows"></a>在 Windows 上安裝 (或更新)
 

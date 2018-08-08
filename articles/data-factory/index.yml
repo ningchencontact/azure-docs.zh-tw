@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 2bce3a11d3f9b88b9e6e054e022ddbf1a5573453
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578257"
 documentType: LandingData
 title: Azure Data Factory 文件
 metadata:
@@ -11,30 +17,24 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/08/2017
+  ms.date: 08/06/2018
   ms.author: douglasl
-  ms.openlocfilehash: 624b2f0968776115f35698710cdc930a9a824922
-  ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
-  ms.translationtype: HT
-  ms.contentlocale: zh-TW
-  ms.lasthandoff: 06/27/2018
-  ms.locfileid: "37047195"
 abstract:
-  description: 了解如何使用 Data Factory (雲端資料整合服務)，將資料儲存、移動及處理服務組合成自動化資料管線。 教學課程和其他文件會示範如何設定和管理資料管線，以及移動和轉換資料以供分析。 <p>如果您使用 Data Factory 服務 V1 版，請參閱 <a href=/azure/data-factory/v1/data-factory-introduction>V1 文件</a>。</p>
+  description: 了解如何使用 Data Factory (雲端資料整合服務)，將資料儲存、移動及處理服務組合成自動化資料管線。 教學課程和其他文件會示範如何設定和管理資料管線，以及如何移動和轉換資料以供分析。 <p>如果您使用 Data Factory 服務 V1 版，請參閱 <a href=/azure/data-factory/v1/data-factory-introduction>V1 文件</a>。</p>
   aside:
     image:
       alt: 
       height: 110
       src: media/index/video.png
       width: 250
-    title: 以視覺化方式建置 Azure Data Factory 的管線 (19:31)
-    href: https://azure.microsoft.com/en-us/resources/videos/azure-friday-visually-build-pipelines-for-azure-data-factory-v2
+    title: 新式雲端資料整合的新功能 (1:19:22)
+    href: https://channel9.msdn.com/Events/Build/2018/BRK2204/player
     width: 250
 sections:
 - title: 5 分鐘快速入門
   items:
   - type: paragraph
-    text: 了解如何使用下列各項來建立資料處理站：
+    text: 了解如何建立 Data Factory 管線來移動資料，並透過下列其中一種快速入門來處理資料：
   - type: list
     style: icon48
     items:
@@ -71,16 +71,16 @@ sections:
   - type: paragraph
     text: 了解如何建立和監視資料處理站：
   - type: list
-    style: ordered
+    style: unordered
     items:
-    - html: 將 SSIS 套件部署到 Azure - <a href="/azure/data-factory/tutorial-create-azure-ssis-runtime-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure PowerShell</a>
     - html: 在雲端中複製資料 - <a href="/azure/data-factory/tutorial-copy-data-tool">複製資料工具</a> | <a href="/azure/data-factory/tutorial-copy-data-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-copy-data-dot-net">.NET</a>
     - html: 將內部部署資料複製到雲端 - <a href="/azure/data-factory/tutorial-hybrid-copy-data-tool">複製資料工具 | <a href="/azure/data-factory/tutorial-hybrid-copy-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-hybrid-copy-powershell">Azure PowerShell</a>
     - html: 大量複製資料 - <a href="/azure/data-factory/tutorial-bulk-copy-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-bulk-copy">Azure PowerShell</a>
     - html: 以累加方式複製資料 - <a href="/azure/data-factory/tutorial-incremental-copy-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-incremental-copy-powershell">Azure PowerShell</a>
     - html: 使用 Spark 轉換雲端中的資料 - <a href="/azure/data-factory/tutorial-transform-data-spark-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-transform-data-spark-powershell">Azure PowerShell</a>
     - html: 在虛擬網路中轉換資料 - <a href="/azure/data-factory/tutorial-transform-data-hive-virtual-network-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-transform-data-hive-virtual-network">Azure PowerShell</a>
-    - html: 控制流程 - <a href="/azure/data-factory/tutorial-control-flow-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-control-flow">.NET</a>
+    - html: 新增分支和鏈結 - <a href="/azure/data-factory/tutorial-control-flow-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-control-flow">.NET</a>
+    - html: 在 Azure 中執行 SSIS 套件 - <a href="/azure/data-factory/tutorial-create-azure-ssis-runtime-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure PowerShell</a>
 - title: 範例
   items:
   - type: paragraph

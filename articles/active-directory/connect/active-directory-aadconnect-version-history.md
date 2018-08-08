@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/31/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e808d4bf116dcab344308c3dd2aa06c72e0318ba
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 6ca32d51a52cf636b1c41667e20872cfe49fa7e2
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049512"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390148"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect︰版本發行歷程記錄
 Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 Azure AD Connect。 並非所有新增項目都適用於所有的對象。
@@ -36,6 +36,45 @@ Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 
 所需的權限 | 如需套用更新所需權限的詳細資訊，請參閱[帳戶和權限](./active-directory-aadconnect-accounts-permissions.md#upgrade)。
 
 下載 | [下載 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)。
+
+## <a name="118800"></a>1.1.880.0
+
+### <a name="release-status"></a>發行狀態
+
+7/20/2018：已發行而可供自動升級。 可供下載的版本將在近期推出。
+
+### <a name="new-features-and-improvements"></a>新功能和改進
+
+- Azure AD Connect 中的 Ping Federate 整合現已正式運作。 [深入了解如何將 Azure AD 與 Ping Federate 同盟](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#federation-with-pingfederate)
+- 現在，每當進行更新時，Azure AD Connect 都會在 AD FS 中建立 Azure AD 信任的備份，並將其儲存在個別的檔案中，以備必要時可輕易還原。 [深入了解 Azure AD Connect 中的新功能與 Azure AD 信任管理](https://aka.ms/fedtrustinaadconnect)。
+- 新的疑難排解工具可協助您進行變更主要電子郵件地址和在全域通訊清單中隱藏帳戶方面的疑難排解
+- Azure AD Connect 已更新，而包含最新的 SQL Server 2012 Native Client
+- 當您在「變更使用者登入」工作中將使用者登入切換為 [密碼雜湊同步處理] 或 [傳遞驗證] 時，依預設會啟用 [無縫單一登入] 核取方塊。
+- 已新增 Windows Server Essentials 2019 的支援
+- Azure AD Connect Health 代理程式已更新為最新版本 3.1.7.0
+- 在升級期間，如果安裝程式偵測到預設同步規則的變更，將會先對管理員顯示警告，才覆寫修改過的規則。 這可讓使用者採取更正動作再繼續作業。 舊的行為：如果有任何修改過的預設規則，則會直接以手動升級覆寫這些規則，而不會對使用者顯示任何警告，並直接停用同步排程器而不通知使用者。 新的行為：使用者會在覆寫修改過的預設同步規則之前看到提示的警告。 使用者將可選擇停止升級程序，並在採取更正動作後再繼續作業。
+- 提供更完善的 FIPS 合規性問題處理、針對 FIPS 相容環境中產生的 MD5 雜湊提供錯誤訊息，並以文件的連結提供此問題的因應措施。
+- UI 更新可改善精靈中的同盟工作，這些工作現已可在個別的子群組中進行同盟。 
+- 所有其他的同盟工作現在都分組在單一子功能表下，以方便使用。
+- 全新設計的 ADSyncConfig Posh Module (AdSyncConfig.psm1) 具有來自舊版 ADSyncPrep.psm1 (可能於近期淘汰) 的新式 AD 權限功能
+
+### <a name="fixed-issues"></a>已修正的問題 
+
+- 已修正 AAD Connect 伺服器在升級至 .Net 4.7.2 之後會出現 CPU 使用率偏高狀況的 Bug
+- 已修正會間歇性對自動解決的 SQL 死結問題產生錯誤訊息的 Bug
+- 已修正 Sync Rules Editor 和 Sync Service Manager 的數個協助工具問題  
+- 已修正 Azure AD Connect 無法取得登錄設定資訊的 Bug
+- 已修正在使用者繼續使用/返回精靈時會產生問題的 Bug
+- 已修正因在精靈中不當處理多執行緒而發生錯誤的 Bug
+- 現在，[群組同步篩選] 頁面若在解析安全性群組時發生 LDAP 錯誤，Azure AD Connect 已會傳回完整的例外狀況。  轉介例外狀況的根本原因仍未知，且將視同個別的 Bug 來解決。
+-  已修正 SDK 和 NGC 金鑰 (WHfB 使用者/裝置物件的 msDS-KeyCredentialLink 屬性) 的權限未正確設定的 Bug。     
+- 已修正 'Set-ADSyncRestrictedPermissions’ 未正確呼叫的 Bug
+-  新增對 AADConnect 安裝精靈中的群組回寫授與權限的支援
+- 當登入方法從「密碼雜湊同步」變更為 AD FS 時，「密碼雜湊同步」不會停用。
+- 已新增 AD FS 組態中的 IPv6 位址驗證
+- 已更新通知訊息，以通知有現有的組態存在。
+- 裝置回寫無法偵測不受信任樹系中的容器。 此行為已更新，而會提供更明確的錯誤訊息，以及適當文件的連結
+- 取消選取 OU 後，對應於該 OU 的同步處理/回寫會產生一般同步錯誤。 此行為已變更，而會產生更容易了解的錯誤訊息。
 
 ## <a name="118190"></a>1.1.819.0
 

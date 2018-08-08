@@ -15,12 +15,12 @@ ms.component: compliance-reports
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0da0e5d4b7dd8ff000d6c56716bea1b36935af01
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 44ec19721ba59898915f6547231fb586cb44eb30
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928901"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389747"
 ---
 # <a name="get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>使用 Azure Active Directory 報告 API 搭配憑證來取得資料
 
@@ -85,10 +85,9 @@ ms.locfileid: "37928901"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [取得報告 API 的第一印象](active-directory-reporting-api-getting-started-azure-portal.md#explore)
-
-- [建立您自己的解決方案](active-directory-reporting-api-getting-started-azure-portal.md#customize)
-
+* [取得報告 API 的第一印象](active-directory-reporting-api-getting-started-azure-portal.md)
+* [稽核 API 參考](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
+* [登入活動報告 API 參考](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
 
 
 

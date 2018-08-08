@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/04/2017
+ms.date: 07/30/2018
 ms.author: juliako
-ms.openlocfilehash: 894b403b59624b6c42ce947169e9c9ac30ec76b9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 81fab8903c0101d0e4aae8a392f05129651cd762
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785847"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39368626"
 ---
 # <a name="scaling-media-processing-overview"></a>調整媒體處理概觀
 此頁面提供調整媒體處理的方式及原因的概觀。 
@@ -35,7 +35,8 @@ ms.locfileid: "33785847"
 | 案例 | **S1** | **S2** | **S3** |
 | --- | --- | --- | --- |
 | 預定的使用案例 |單一位元速率編碼。 <br/>在 SD或如下解決方法的檔案、對時間不敏感、低成本。 |單一位元速率和多重位元速率編碼。<br/>SD 和 HD 編碼的一般使用方式。 |單一位元速率和多重位元速率編碼。<br/>Full HD 和 4K 解析度影片。 對時間敏感、周轉時間更快的編碼。 |
-| 基準測試 |[輸入檔案︰長度 5 分鐘，每秒 29.97 格畫面的解析度為 640x360p](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_360p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D)。<br/><br/>編碼為相同解析度的單一位元速率 MP4 檔案，大約需要 11 分鐘。 |[輸入檔案︰長度 5 分鐘，每秒 29.97 格畫面的解析度為 1280x720p](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_720p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D)<br/><br/>具有「H264 單一位元速率 720p」預設值的編碼會花大約 5 分鐘。<br/><br/>具有「H264 多重位元速率 720p」預設值的編碼會花大約 11.5 分鐘。 |[輸入檔案︰長度 5 分鐘，每秒 29.97 格畫面的解析度為 1920x1080p](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_1080p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D)。 <br/><br/>具有「H264 單一位元速率 1080p」預設值的編碼會花大約 2.7 分鐘。<br/><br/>具有「H264 多重位元速率 1080p」預設值的編碼會花大約 5.7 分鐘。 |
+| 基準測試 |編碼為相同解析度的單一位元速率 MP4 檔案，大約需要 11 分鐘。 |具有「H264 單一位元速率 720p」預設值的編碼會花大約 5 分鐘。<br/><br/>具有「H264 多重位元速率 720p」預設值的編碼會花大約 11.5 分鐘。 |具有「H264 單一位元速率 1080p」預設值的編碼會花大約 2.7 分鐘。<br/><br/>具有「H264 多重位元速率 1080p」預設值的編碼會花大約 5.7 分鐘。 |
+
 
 ## <a name="considerations"></a>考量
 > [!IMPORTANT]
@@ -43,7 +44,7 @@ ms.locfileid: "33785847"
 > 
 > 
 
-* 保留單元用於平行化所有媒體處理，包括使用 Azure 媒體索引器的索引工作。  不過，與編碼不同，索引工作的處理速度不會因為使用較快的保留單元而變快。
+* 針對由媒體服務 v3 或影片索引子觸發的音訊分析和影片分析作業，強烈建議您使用 S3 單元類型。
 * 如果使用共用的集區，也就是沒有任何保留單元，則編碼工作會和 S1 RU 有相同的效能。 不過，您的工作在已排入佇列的狀態下可以花費的時間沒有上限，而且在任何時候，最多只會執行一個工作。
 
 ## <a name="billing"></a>計費

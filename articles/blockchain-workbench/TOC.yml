@@ -49,7 +49,6 @@
     - name: REST API
       href: 'https://docs.microsoft.com/rest/api/azure-blockchain-workbench'
 - name: 資源
-  expanded: true
   items:
     - name: 部落格
       href: 'https://azure.microsoft.com/blog/topics/blockchain/'
@@ -60,10 +59,12 @@
     - name: 論壇
       href: 'https://aka.ms/workbenchforum'
     - name: 產品意見反應
-      href: 'https://feedback.azure.com/forums/586780-blockchain'
-    - name: 解決方案範本
-      items:
-        - name: 以太坊工作量證明聯盟
-          href: ethereum-deployment-guide.md
-        - name: Hyperledger Fabric 聯盟
-          href: hyperledger-fabric-single-member-blockchain.md
+      href: 'https://aka.ms/blockchainuservoice'
+- name: 以太坊權威證明聯盟
+  href: ethereum-poa-deployment.md
+- name: 解決方案範本
+  items:
+    - name: 以太坊工作量證明聯盟
+      href: ethereum-deployment-guide.md
+    - name: Hyperledger Fabric 聯盟
+      href: hyperledger-fabric-single-member-blockchain.md
