@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: f73b6f594403ce51fcff4d757990afb3ce4a82bc
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 5ae7a0d3aa0606fd02bfbaa0dcebdfaed5d11eb7
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004841"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283084"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本建立多個 VM 環境和 PaaS 資源
 
-[Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)可讓您輕鬆地[建立，並將 VM 新增至實驗室](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm)。 這適用於一次建立一個 VM。 不過，如果環境包含多個 VM，則必須分別建立每個 VM。 針對多層式 Web 應用程式或 SharePoint 伺服器陣列的情況，需要有機制以允許在單一步驟中建立多個 VM。 使用 Azure Resource Manager 範本，您現在可以定義 Azure 方案的基礎結構和組態，並在一致的狀態中重複部署多個 VM。 此功能可提供下列優點：
+[Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)可讓您輕鬆地[一次新增一個 VM 至實驗室](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm)。 不過，如果環境包含多個 VM，則必須分別建立每個 VM。 針對多層式 Web 應用程式或 SharePoint 伺服器陣列的情況，需要有機制以允許在單一步驟中建立多個 VM。 使用 Azure Resource Manager 範本，您現在可以定義 Azure 方案的基礎結構和組態，並在一致的狀態中重複部署多個 VM。 此功能可提供下列優點：
 
 - Azure Resource Manager 範本會直接從您的原始檔控制儲存機制 (GitHub 或 Team Services Git) 載入。
 - 一旦設定後，您的使用者就可以藉由從 Azure 入口網站挑選 Azure Resource Manager 範本來建立環境，就像他們使用其他類型的 [VM 基底](./devtest-lab-comparing-vm-base-image-types.md)所做的一樣。
@@ -43,6 +43,8 @@ ms.locfileid: "39004841"
 
 做為基礎結構即程式碼與組態即程式碼的其中一個最佳作法，應在原始檔控制中管理環境範本。 Azure DevTest Labs 採用這種作法，並直接從您的 GitHub 或 VSTS Git 儲存機制載入所有 Azure Resource Manager 範本。 因此，可以在測試環境到生產環境的整個發行週期使用 Resource Manager 範本。
 
+請參閱[公用 GitHub 存放庫](https://github.com/Azure/azure-devtestlab/tree/master/Environments)中由 DevTest Labs 小組所建立的範本。 在公用存放庫中，您可以檢視其他人分享的範本，並且可以直接使用這些範本，或根據您的需求來自訂這些範本。 建立範本之後，請將它儲存在這個存放庫以與他人分享。 您也可以使用可用來在雲端中設定環境的範本，來設定您自己的 Git 存放庫。 
+
 您可以遵循幾個規則，以在存放庫中組織 Azure Resource Manager 範本︰
 
 - 主要的範本檔案必須命名為 `azuredeploy.json`。 
@@ -53,15 +55,15 @@ ms.locfileid: "39004841"
 - 您可以使用 `_artifactsLocation` 和 `_artifactsLocationSasToken` 參數來建構 parametersLink URI 值，讓 DevTest Labs 自動管理巢狀範本。 如需詳細資訊，請參閱 [How Azure DevTest Labs makes nested Resource Manager template deployments easier for testing environments](https://blogs.msdn.microsoft.com/devtestlab/2017/05/23/how-azure-devtest-labs-makes-nested-arm-template-deployments-easier-for-testing-environments/) (Azure DevTest Labs 如何簡化測試環境的巢狀 Resource Manager 範本部署)。
 - 可以定義中繼資料來指定範本顯示名稱和描述。 此中繼資料必須在名為 `metadata.json` 的檔案中。 下列範例中繼資料檔案說明如何指定顯示名稱和描述︰ 
 
-```json
-{
+    ```json
+    {
  
-"itemDisplayName": "<your template name>",
+        "itemDisplayName": "<your template name>",
  
-"description": "<description of the template>"
+        "description": "<description of the template>"
  
-}
-```
+    }
+    ```
 
 下列步驟將引導您使用 Azure 入口網站將儲存機制新增至您的實驗室。 
 
@@ -150,7 +152,7 @@ ms.locfileid: "39004841"
 
 - 當您部署 Resource Manager 範本時，大部分的原則都不會進行評估。
 
-   例如，您的實驗室原則可能指定使用者只能建立 5 個 VM。 不過，如果使用者部署一個 Resource Manager 範本來建立數十個 VM，則該動作是被允許的。 不會評估的原則包括：
+   例如，您的實驗室原則可能指定使用者只能建立 5 個 VM。 不過，使用者可以部署會建立數十個 VM 的 Resource Manager 範本。 不會評估的原則包括：
 
    - 每位使用者的 VM 數目
    - 每位實驗室使用者的進階 VM 數目

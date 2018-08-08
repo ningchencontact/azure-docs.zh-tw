@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 32feac32af01e518ad6cede43cc4b4f00c097d3b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e07ed8f131697d6340b899ef76c988aed215556b
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041274"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283406"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>教學課程：Azure Active Directory 與 SmarterU 整合
 
@@ -126,11 +126,11 @@ SmarterU 與 Azure AD 整合提供下列優點：
 
 7. 在上方工具列中按一下 [帳戶設定] 。
    
-    ![帳戶設定](./media/smarteru-tutorial/IC777326.png "帳戶設定")
+    ![帳戶設定](./media/smarteru-tutorial/accountsettings.png)
 
 8. 在 [帳戶組態] 頁面上，執行下列步驟：
    
-    ![外部授權](./media/smarteru-tutorial/IC777327.png "外部授權") 
+    ![外部授權](./media/smarteru-tutorial/externalauthorizationconfiguration.png) 
  
       a. 選取 [啟用外部授權] 。
   
@@ -138,11 +138,13 @@ SmarterU 與 Azure AD 整合提供下列優點：
   
       c. 在 [使用者預設登入] 區段中，選取 [SmarterU] 索引標籤。
   
-      d. 選取 [啟用 Okta] 。
+      d. 選取 [啟用 SAML] 。
   
-      e. 複製下載的中繼資料檔案內容，然後貼到 [Okta 中繼資料]  文字方塊中。
+      e. 複製下載的中繼資料檔案內容，然後貼到 [IdP 中繼資料] 文字方塊中。
+      
+      f. 選取 [識別碼屬性/宣告]。
   
-      f. 按一下 [檔案] 。
+      g. 按一下 [檔案] 。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -193,7 +195,7 @@ SmarterU 需以手動方式佈建。
 
 3. 在 [使用者] 區段中，執行下列步驟：
    
-    ![新增使用者](./media/smarteru-tutorial/IC777329.png "新增使用者")  
+    ![新增使用者](./media/smarteru-tutorial/adduser.png)  
 
     a. 按一下 [新增使用者] 。
     

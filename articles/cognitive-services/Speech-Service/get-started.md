@@ -1,21 +1,20 @@
 ---
-title: 免費試用語音服務 | Microsoft Docs
+title: 免費試用語音服務
 description: 探索如何免費試用語音服務。
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 3feef04694336d9173b419285a96fcaef543e18f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: ff9a258d42f25ded82545909cdeade119548148e
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "35371019"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325202"
 ---
 # <a name="try-the-speech-service-for-free"></a>免費試用語音服務
 
@@ -130,10 +129,8 @@ ms.locfileid: "35371019"
 
 ## <a name="next-steps"></a>後續步驟
 
-下載 SDK 和一些範例程式碼來體驗語音服務。
+完成個我們的任何一個 10 分鐘快速入門，或查看我們的 SDK 範例。
 
 > [!div class="nextstepaction"]
-> [語音 SDK](speech-sdk.md)
-
-> [!div class="nextstepaction"]
-> [範例程式碼](samples.md)
+> [快速入門：以 C# 辨識語音](quickstart-csharp-dotnet-windows.md)
+> [語音 SDK 範例](speech-sdk.md#get-the-samples)

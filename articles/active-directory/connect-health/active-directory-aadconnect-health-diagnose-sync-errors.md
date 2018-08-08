@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: zhiweiw
-ms.openlocfilehash: 4a6e0924492c26c9bad4ed0af207ad9764c3cc5c
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 3659572f46ae82d39a6c53246db2b6a536be32c8
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831892"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282935"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>對重複屬性同步處理錯誤進行診斷和修復
 
@@ -127,6 +127,12 @@ ms.locfileid: "34831892"
 
 完成前述步驟後，使用者即可存取連結至現有物件的原始資源。 清單檢視中的 [診斷狀態] 值會更新為 [待同步]。同步處理錯誤會在下一次同步處理後獲得解決。Connect Health 不會再於清單檢視中顯示已解決的同步處理錯誤。
 
+## <a name="failures-and-error-messages"></a>失敗和錯誤訊息
+**具衝突屬性的使用者在 Azure Active Directory 中未確實刪除。請先確認使用者已確實刪除後再重試。**  
+應先清除 Azure AD 中具有衝突屬性的使用者，才能套用修正程式。 請參閱[如何在 Azure AD 中永久刪除使用者](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore)，再重試此修正程式。 進入虛刪除狀態 30 天後，也會自動永久刪除使用者。 
+
+**不支援對租用戶中的雲端式使用者更新來源錨點。**  
+Azure AD 中的雲端式使用者不應擁有來源錨點。 在此情況下，不支援更新來源錨點。 必須從內部部署環境手動修正。 
 
 ## <a name="faq"></a>常見問題集
 **問：** 如果**套用修正**執行失敗，會發生什麼狀況？  

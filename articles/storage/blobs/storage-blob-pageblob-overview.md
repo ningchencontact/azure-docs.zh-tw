@@ -3,16 +3,17 @@ title: Azure 分頁 Blob 的獨特功能 | Microsoft Docs
 description: Azure 分頁 Blob 和其優點的概觀，包括具有範例指令碼的使用案例。
 services: storage
 author: anasouma
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: wielriac
-ms.openlocfilehash: 79590e1987ee29ca06f9fb103f548518b2c1c57e
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.component: blobs
+ms.openlocfilehash: a215771b0126e9048b7d9da4ed1d6073c8e960a4
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39266939"
 ---
 # <a name="unique-features-of-azure-page-blobs"></a>Azure 分頁 Blob 的獨特功能
 
@@ -41,7 +42,7 @@ Azure 分頁 Blob 的主要功能包括其 REST 介面、基礎儲存體的持�
 ![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure1.png)
 
 #### <a name="creating-an-empty-page-blob-of-a-specified-size"></a>建立指定大小的空分頁 Blob
-若要建立分頁 Blob，首先需建立 **CloudBlobClient** 物件，搭配用來存取您儲存體帳戶 (圖 1 中的 *pbaccount*) 之 Blob 儲存體的基底 URI，以及 **StorageCredentialsAccountAndKey** 物件，如下列範例所示。 然後，此範例會建立 **CloudBlobContainer** 物件的參照，然後建立容器 (*testvhds*) (如果它尚未存在)。 然後，透過 **CloudBlobContainer** 物件，建立 **CloudPageBlob** 物件的參照，方法是指定要存取的分頁 Blob 名稱 (os4.vhd)。 若要建立分頁 Blob，請呼叫 [CloudPageBlob.Create](/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.create?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_Create_System_Int64_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 傳入要建立之 Blob 的大小上限。 *blobSize* 必須是 512 位元組的倍數。
+若要建立分頁 Blob，首先需建立 **CloudBlobClient** 物件，搭配用來存取您儲存體帳戶 (圖 1 中的 *pbaccount*) 之 Blob 儲存體的基底 URI，以及 **StorageCredentialsAccountAndKey** 物件，如下列範例所示。 然後，此範例會建立 **CloudBlobContainer** 物件的參照，然後建立容器 (testvhds) (如果它尚未存在)。 然後，透過 **CloudBlobContainer** 物件，建立 **CloudPageBlob** 物件的參照，方法是指定要存取的分頁 Blob 名稱 (os4.vhd)。 若要建立分頁 Blob，請呼叫 [CloudPageBlob.Create](/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.create?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_Create_System_Int64_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 傳入要建立之 Blob 的大小上限。 *blobSize* 必須是 512 位元組的倍數。
 
 ```csharp
 using Microsoft.WindowsAzure.StorageClient;

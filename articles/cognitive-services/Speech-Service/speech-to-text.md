@@ -1,21 +1,20 @@
 ---
-title: 關於語音轉換文字 | Microsoft Docs
+title: 關於語音轉換文字
 description: 語音轉換文字 API 的功能概觀。
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 2ed00377db80849a8355ccc895db12d006bea642
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: ba6710c8b5b8de1c63fa6778ea3853ab52365254
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069922"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325331"
 ---
 # <a name="about-the-speech-to-text-api"></a>關於語音轉換文字 API
 
@@ -51,4 +50,5 @@ ms.locfileid: "39069922"
 ## <a name="next-steps"></a>後續步驟
 
 * [試用認知服務](https://azure.microsoft.com/try/cognitive-services/)
-* [了解如何以 C# 辨識語音](quickstart-csharp-dotnet-windows.md) (英文)
+* [快速入門：如何以 C# 辨識語音](quickstart-csharp-dotnet-windows.md)
+* [了解如何以 C# 從語音辨識意圖](how-to-recognize-intents-from-speech-csharp.md)

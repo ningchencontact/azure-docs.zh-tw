@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/25/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 5d4062ff2c21deeb56eb4ae6e8386452608f85fa
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: fa6048800aad04b45b72c4da61ad9e8b94541502
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158799"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308471"
 ---
 # <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>預覽：強制執行 Windows Server Active Directory 的 Azure AD 密碼保護
 
@@ -37,6 +37,7 @@ Azure AD 密碼保護由三項軟體元件所組成：
 ## <a name="requirements"></a>需求
 
 * 安裝 Azure AD 密碼保護元件的所有機器 (包括網域控制站)，都必須執行 Windows Server 2012 或更新版本。
+* 安裝 Azure AD 密碼保護元件的所有機器 (包括網域控制站)，都必須安裝 Universal C 執行階段。 透過 Windows Update 來完整修補此機器，是達到此需求的較佳做法。 否則，可能會安裝適當的 OS 專屬更新套件 - 請參閱[更新 Windows 中的 Universal C 執行階段](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)
 * 每個網域中至少要有一個網域控制站有網路連線，且至少要有一部伺服器裝載 Azure AD 密碼保護 Proxy 服務。
 * 執行 DC 代理程式服務軟體的任何 Active Directory 網域，都必須使用 DFSR 進行 sysvol 複寫。
 * 一個全域系統管理員帳戶，用以向 Azure AD 註冊 Azure AD 密碼保護 Proxy 服務。
@@ -48,7 +49,7 @@ Azure Active Directory (Azure AD) 的所有使用者均可受益於全域禁用�
 
 自訂禁用密碼清單需要 Azure AD Basic 授權。
 
-Windows Server Active Directory 的 Azure AD 密碼保護需要 Azure AD Premium 授權。 
+Windows Server Active Directory 的 Azure AD 密碼保護需要 Azure AD Premium 授權。
 
 在 [Azure Active Directory 價格網站](https://azure.microsoft.com/pricing/details/active-directory/)上可以找到其他授權資訊 (包括成本)。
 
@@ -61,7 +62,7 @@ Azure AD 密碼保護有兩個可從 [Microsoft 下載](https://www.microsoft.co
 * 網域控制站不需要網際網路連線。 只有執行 Azure AD 密碼保護 Proxy 服務的機器才需要網際網路連線。
 * 在網域控制站上不會開啟任何網路連接埠。
 * 不需要 Active Directory 結構描述變更。
-   * 軟體會使用現有的 Active Directory 容器和 serviceConnectionPoint 結構描述物件。
+* 軟體會使用現有的 Active Directory 容器和 serviceConnectionPoint 結構描述物件。
 * 沒有基本的 Active Directory 網域或樹系功能層級 (DFL\FFL) 需求。
 * 軟體在其保護的 Active Directory 網域中不會建立或需要任何帳戶。
 * 支援依權衡方式僅對安裝網域控制站代理程式的機器強制執行密碼原則的累加部署。

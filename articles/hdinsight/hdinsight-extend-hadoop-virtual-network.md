@@ -1,26 +1,22 @@
 ---
-title: 使用虛擬網路延伸 HDInsight - Azure | Microsoft Docs
+title: 使用虛擬網路延伸 HDInsight - Azure
 description: 了解如何使用 Azure 虛擬網路將 HDInsight 連接到其他雲端資源或您的資料中心內的資源
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
 ms.assetid: 37b9b600-d7f8-4cb1-a04a-0b3a827c6dcc
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/21/2018
-ms.author: larryfr
-ms.openlocfilehash: 842746561b74860e674fbaa298c78bb0ac58bd68
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.date: 07/26/2018
+ms.openlocfilehash: bcfbe3b8ff198f9905fe6f36b18a9474cf987bba
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112128"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284630"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虛擬網路延伸 Azure HDInsight
 
@@ -290,6 +286,7 @@ HDInsight 會在數個連接埠上公開服務。 使用虛擬設備防火牆時
     | 德國 | 德國中部 | 51.4.146.68</br>51.4.146.80 | 443 | 輸入 |
     | &nbsp; | 德國東北部 | 51.5.150.132</br>51.5.144.101 | 443 | 輸入 |
     | 印度 | 印度中部 | 52.172.153.209</br>52.172.152.49 | 443 | 輸入 |
+    | &nbsp; | 印度南部 | 104.211.223.67<br/>104.211.216.210 | 443 | 輸入 |
     | 日本 | 日本東部 | 13.78.125.90</br>13.78.89.60 | 443 | 輸入 |
     | &nbsp; | 日本西部 | 40.74.125.69</br>138.91.29.150 | 443 | 輸入 |
     | 南韓 | 南韓中部 | 52.231.39.142</br>52.231.36.209 | 433 | 輸入 |

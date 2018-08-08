@@ -1,23 +1,24 @@
 ---
-title: 快速入門：使用認知服務語音 SDK 在 Windows 桌面上以 C++ 辨識語音 | Microsoft Docs
+title: 快速入門：使用認知服務語音 SDK 在 Windows 桌面上以 C++ 辨識語音
 titleSuffix: Microsoft Cognitive Services
 description: 了解如何使用認知服務語音 SDK 在 Windows 桌面上以 C++ 辨識語音
 services: cognitive-services
 author: wolfma61
-manager: onano
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 4a8c5f7053c1976233bf9de6a0c142885b73c8aa
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 7c93f9f450cc2d244a0d716401171cde02abf70b
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39071193"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324566"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-desktop-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 Windows 桌面上以 C++ 辨識語音
+
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 我們會說明如何建立適用於 Windows 桌面的 C++ 型主控台應用程式，它會使用語音 SDK。
 應用程式是以 [Microsoft 認知服務語音 SDK NuGet 套件](https://aka.ms/csspeech/nuget) \(英文\) 和 Microsoft Visual Studio 2017 為基礎。
@@ -36,7 +37,7 @@ ms.locfileid: "39071193"
 
 ## <a name="create-a-visual-studio-project"></a>建立 Visual Studio 專案
 
-在 Visual Studio 2017 中，建立一個新的 Visual C++ Windows 桌面 Windows 主控台應用程式。 在 [新增專案] 對話方塊中，從左窗格展開 [已安裝] \> [Visual C++] \> [Windows 桌面]，然後選取 [Windows 主控台應用程式]。 輸入 *helloworld* 作為專案名稱。
+在 Visual Studio 2017 中，建立一個新的 Visual C++ Windows 桌面 Windows 主控台應用程式。 在 [新增專案] 對話方塊中，從左窗格展開 [已安裝] \> [Visual C++] \> [Windows 桌面]，然後選取 [Windows 主控台應用程式]。 針對專案名稱，請輸入 *helloworld*。
 
 ![建立 Visual C++ Windows 桌面 Windows 主控台應用程式](media/sdk/qs-cpp-windows-01-new-console-app.png)
 
@@ -70,7 +71,7 @@ ms.locfileid: "39071193"
 
 1. 將字串 `YourSubscriptionKey` 取代為您的訂用帳戶金鑰。
 
-1. 將字串 `YourServiceRegion` 取代為與您的訂用帳戶 (例如，免費試用訂用帳戶的 `westus`) 相關聯的[區域](regions.md)。
+1. 以與您的訂用帳戶 (例如，免費試用訂用帳戶的 `westus`) 相關聯的[區域](regions.md)取代 `YourServiceRegion` 字串。
 
 1. 儲存專案的變更。
 
@@ -94,4 +95,4 @@ ms.locfileid: "39071193"
 
 ## <a name="next-steps"></a>後續步驟
 
-* 造訪[範例頁面](samples.md)以取得其他範例。
+* [取得我們的範例](speech-sdk.md#get-the-samples)

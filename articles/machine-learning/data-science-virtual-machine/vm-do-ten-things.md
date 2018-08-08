@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: gokuma
-ms.openlocfilehash: a5f0961a99eac805e82cbc5e5d61c485f8661ba0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8d633a1d3d56f33aad24ca15aea08b5180a6be32
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31595747"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39368536"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>您可以在 Windows Data Science Virtual Machine 上做的十件事
 
@@ -64,9 +64,9 @@ Windows Data Science Virtual Machine (DSVM) 是強大的資料科學開發環境
 
 ![PTVS 設定](./media/vm-do-ten-things/PTVSSetup.png)
 
-如需有關如何建立 Python 環境的詳細資訊，請參閱 [PTVS 文件](https://github.com/Microsoft/PTVS/wiki/Selecting-and-Installing-Python-Interpreters#hey-i-already-have-an-interpreter-on-my-machine-but-ptvs-doesnt-seem-to-know-about-it) 。
+如需有關如何建立 Python 環境的詳細資訊，請參閱 [PTVS 文件](http://aka.ms/ptvsdocs) 。
 
-現在您將建立新的 Python 專案。 瀏覽至 [檔案] -> [新增] -> [專案] -> [Python]，然後選取您要建置的 Python 應用程式類型。 您可以在 [Python 環境] 上按一下滑鼠右鍵、選取 [新增/移除 Python 環境]，然後選取所需的環境，以將目前專案的 Python 環境設定為所需的版本 (Anaconda 2.7 或 3.6)。 您可以在 [文件](https://github.com/Microsoft/PTVS/wiki) 頁面找到在產品上使用 PTVS 的詳細資訊。
+現在您將建立新的 Python 專案。 瀏覽至 [檔案] -> [新增] -> [專案] -> [Python]，然後選取您要建置的 Python 應用程式類型。 您可以在 [Python 環境] 上按一下滑鼠右鍵、選取 [新增/移除 Python 環境]，然後選取所需的環境，以將目前專案的 Python 環境設定為所需的版本 (Anaconda 2.7 或 3.6)。 您可以在產品[文件](http://aka.ms/ptvsdocs)中找到關於使用 PTVS 的詳細資訊。
 
 ## <a name="2-using-a-jupyter-notebook-to-explore-and-model-your-data-with-python-or-r"></a>2.使用 Jupyter Notebook 來探索您的資料，並以 Python 或 R 進行模型分析
 Jupyter Notebook 是一個強大的環境，可提供以瀏覽器為基礎的 "IDE" 進行資料探索和模型分析。 您可以在 Jupyter Notebook 使用 Python 2、Python 3 或 R (開放原始碼和 Microsoft R Server)。
@@ -251,7 +251,7 @@ DSVM 已在命令列和 GUI 上載入用戶端工具，以便存取 GitHub 存�
 
 ![Visual Studio 中的 Git](./media/vm-do-ten-things/VSGit.PNG)
 
-從 github.com 上提供的幾個資源，即可找到透過 Git 使用 GitHub 存放庫的詳細資訊。[功能提要](https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf) 是有用的參考資料。
+從 github.com 上提供的幾個資源，即可找到透過 Git 使用 GitHub 存放庫的詳細資訊。 [功能提要](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf) 是有用的參考資料。
 
 ## <a name="7-access-various-azure-data-and-analytics-services"></a>7.存取各種 Azure 資料和分析服務
 ### <a name="azure-blob"></a>Azure Blob

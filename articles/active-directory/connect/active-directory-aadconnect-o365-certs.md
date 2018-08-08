@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/20/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e8f6b30bb7cbe82159e86fa48721afce3f9477d8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4de24608ba9db174f343bf0d78029913e4b7868f
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34591492"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325678"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>更新 Office 365 和 Azure Active Directory 的同盟憑證
 ## <a name="overview"></a>概觀
@@ -69,13 +69,19 @@ Azure AD 會嘗試監視同盟中繼資料，並依照此中繼資料的指示�
 >如果您使用 AD FS 2.0，請先執行 Add-Pssnapin Microsoft.Adfs.Powershell。
 
 ### <a name="step-2-confirm-that-ad-fs-and-azure-ad-are-in-sync"></a>步驟 2︰確認 AD FS 和 Azure AD 已同步
-在 AD FS 伺服器上開啟 Azure AD Powershell 提示字元，並連線到 Azure AD。
+在 AD FS 伺服器上開啟 MSOnline PowerShell 提示字元，並連線到 Azure AD。
 
 > [!NOTE]
-> 您可以從 [這裡](https://technet.microsoft.com/library/jj151815.aspx)下載 Azure AD PowerShell。
->
+> MSOL-Cmdlet 屬於 MSOnline PowerShell 模組。
+> 您可以直接從 PowerShell 資源庫下載 MSOnline PowerShell 模組。
+> 
 >
 
+    Install-Module MSOnline
+
+使用 MSOnline PowerShell 模組連線至 Azure AD。
+
+    Import-Module MSOnline
     Connect-MsolService
 
 檢查 AD FS 和 Azure AD 信任屬性中針對指定網域所設定的憑證。
@@ -91,8 +97,8 @@ Azure AD 會嘗試監視同盟中繼資料，並依照此中繼資料的指示�
 
 | AutoCertificateRollover | 憑證與 Azure AD 同步 | 可公開取得同盟中繼資料 | 有效期 | 動作 |
 |:---:|:---:|:---:|:---:|:---:|
-| yes |yes |yes |- |不需採取動作。 請參閱 [自動更新權杖簽署憑證](#autorenew)。 |
-| yes |否 |- |小於 15 天 |立即更新。 請參閱 [手動更新權杖簽署憑證](#manualrenew)。 |
+| 是 |yes |是 |- |不需採取動作。 請參閱 [自動更新權杖簽署憑證](#autorenew)。 |
+| 是 |否 |- |小於 15 天 |立即更新。 請參閱 [手動更新權杖簽署憑證](#manualrenew)。 |
 | 否 |- |- |少於 30 天 |立即更新。 請參閱 [手動更新權杖簽署憑證](#manualrenew)。 |
 
 \[-]  無關緊要

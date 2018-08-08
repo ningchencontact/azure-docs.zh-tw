@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 81a404a19dc1604f0aa87ef86883d0c18edac5cd
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: bb2210619e481189fc88ca3bb6b8044a8f5d7e14
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224882"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39262943"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>在 Azure Active Directory 中啟用企業狀態漫遊
 任何具有 Azure AD Premium 或 Enterprise Mobility + Security (EMS) 授權的組織都可以使用企業狀態漫遊。 如需有關如何取得 Azure AD 訂用帳戶的詳細資訊，請參閱 [Azure AD 產品頁面](https://azure.microsoft.com/services/active-directory)。
@@ -56,7 +56,7 @@ EMEA 國家/地區，例如，法國或尚比亞 | 歐洲內的一個或多個 A
 
 1. 登入 [Azure AD 系統管理中心](https://aad.portal.azure.com/)。
 
-2. 選取 [Azure Active Directory] &gt; [使用者和群組] &gt; [所有使用者]。
+2. 選取 [Azure Active Directory] &gt; [使用者] &gt; [所有使用者]。
 
 3. 選取使用者，然後選取 [裝置]。
 

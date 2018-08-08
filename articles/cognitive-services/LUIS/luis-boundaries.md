@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/31/2018
 ms.author: diberry
-ms.openlocfilehash: ea4f31094e27f1abbe57c212f262845fd16dd984
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 0a75c113f619aa70ba6c504f07afc8dc8a35b694
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225273"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399826"
 ---
 # <a name="luis-boundaries"></a>LUIS 界線
 LUIS 句有數個界線領域。 第一個是[模型界線](#model-boundaries)，其控制 LUIS 中的意圖、實體和功能。 第二個領域是以金鑰類型為基礎的[配額限制](#key-limits)。 第三個界線領域是用來控制 LUIS 網站的[鍵盤組合](#keyboard-controls)。 第四個領域是 LUIS 撰寫網站和 LUIS [端點](luis-glossary.md#endpoint) API 之間的[世界區域對應](luis-reference-regions.md)。 
@@ -31,7 +31,7 @@ LUIS 句有數個界線領域。 第一個是[模型界線](#model-boundaries)�
 | 明確清單 | 每個應用程式 50 個|
 | **[階層式](./luis-concept-entity-types.md) |100 個，最多 10 個子系 |
 | [意圖][intents]|每個應用程式 500 個<br>[發送型](https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch) \(英文\) 應用程式具有相對應的 500 個發送來源|
-| [清單實體](./luis-concept-entity-types.md) | 父系：50 個項目，子系：20,000 個項目。 正式名稱為*預設字元上限。同義字沒有長度限制。 |
+| [清單實體](./luis-concept-entity-types.md) | 父系：50 個項目，子系：20,000 個項目。 正式名稱為*預設字元上限。同義值沒有長度限制。 |
 | [模式](luis-concept-patterns.md)|每個應用程式 500 個模式。<br>模式的長度上限為 400 個字元。<br>每個模式 3 個 pattern.any 實體<br>模式中最多有 2 個巢狀選擇性文字|
 | [Pattern.any](./luis-concept-entity-types.md)|每個應用程式 100 個，每個模式 3 個 pattern.any 實體 |
 | [片語清單][phrase-list]|10 個片語清單，每個清單 5,000 個項目|
@@ -41,6 +41,7 @@ LUIS 句有數個界線領域。 第一個是[模型界線](#model-boundaries)�
 | **[簡單](./luis-concept-entity-types.md)| 100 個實體|
 | [語句][utterances] | 500 個字元|
 | [語句][utterances] | 每個應用程式 15,000 個|
+| [版本](luis-concept-version.md)| 沒有限制 |
 | [版本名稱][luis-how-to-manage-versions] | 10 個字元，限制為英數字元和句號 (.) |
 
 *預設字元上限為 50 個字元。 

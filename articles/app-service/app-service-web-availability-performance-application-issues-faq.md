@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 9c8eda1c4a65465a93b9c3f9caf23a6663073f26
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 06fe9f1fd65f70e41d528a513e44e61edb4a7e4f
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34159284"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307903"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure Web 應用程式的應用程式效能常見問題集
 
@@ -158,7 +158,7 @@ ms.locfileid: "34159284"
 
 如需詳細資訊，請參閱 [在 App Service 中設定 Web 應用程式](web-sites-configure.md)。
 
-## <a name="why-does-my-request-time-out-after-240-seconds"></a>為何我的要求在 240 秒後逾時？
+## <a name="why-does-my-request-time-out-after-230-seconds"></a>為何我的要求在 230 秒後逾時？
 
 Azure Load Balancer 有預設四分鐘的閒置逾時設定。 這通常對於 Web 要求是合理的回應時間限制。 如果您的 Web 應用程式需要幕後處理，我們建議您使用 Azure WebJobs。 Azure Web 應用程式可以呼叫 WebJobs，並且在幕後處理完成時收到通知。 您可以從使用 WebJobs 的多個方法中選擇，包括佇列和觸發程序。
 

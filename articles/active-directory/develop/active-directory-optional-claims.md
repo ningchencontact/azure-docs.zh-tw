@@ -16,12 +16,12 @@ ms.date: 07/12/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: e2b8b1f63e4c23c0beeaff6fd246fa2ba8afe106
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 6e0b00117c35cd5222c69e72819afb37f9ec14dd
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036746"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39265059"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Azure AD 中的選擇性宣告 (預覽)
 
@@ -41,8 +41,8 @@ ms.locfileid: "39036746"
 
 | 帳戶類型 | V1.0 端點                      | V2.0 端點  |
 |--------------|------------------------------------|----------------|
-| MSA          | N/A - 改用 RPS 票證 | 即將支援 |
-| AAD          | 支援                          | 支援      |
+| 個人 Microsoft 帳戶  | N/A - 改用 RPS 票證 | 即將支援 |
+| Azure AD 帳戶          | 支援                          | 支援      |
 
 ## <a name="standard-optional-claims-set"></a>標準選擇性宣告集
 以下列出預設可供應用程式使用的一組選擇性宣告。  若要為您的應用程式新增自訂選擇性宣告，請參閱下方的[目錄延伸模組](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions)。 

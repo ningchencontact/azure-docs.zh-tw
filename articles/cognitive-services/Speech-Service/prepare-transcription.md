@@ -1,21 +1,20 @@
 ---
-title: 語音訓練的轉譯指導方針 | Microsoft Docs
+title: 語音訓練的轉譯指導方針
 description: 了解如何準備文字，針對語音服務自訂原音和語言模型以及語音字型。
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: PanosPeriorellis
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 07/01/2018
 ms.author: panosper
-ms.openlocfilehash: 6043d01e26d9f28f90e45c2cc194863b3a9cd017
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: a219db14d659348ef3ed4de1dffa640a948f1954
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072277"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283329"
 ---
 # <a name="transcription-guidelines-for-using-speech-service"></a>使用語音服務的轉譯指導方針
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 81616522f479175dc58188bd6acc4db4f9007756
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 042db9bcadb470b2dc5e0095072e4ca06747ec5d
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069365"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283619"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>使用 SQL 資料同步，跨多個雲端和內部部署資料庫同步資料
 
@@ -117,7 +117,9 @@ ms.locfileid: "39069365"
 
 -   資料表不能有非主索引鍵的識別欄位。
 
--   主索引鍵的資料類型不能是日期時間。
+-   主索引鍵不能有下列資料類型：sql_variant、binary、varbinary、image、xml。 
+
+-   當您使用下列資料類型作為主要索引鍵時請務必謹慎，原因是支援的有效位數只到秒：time、datetime、datetime2、datetimeoffset。
 
 -   物件 (資料庫、資料表和資料行) 的名稱不能包含可列印的字元句點 (.)、左括弧 (\[\)，或右括弧 (\]\)。
 
@@ -131,7 +133,7 @@ ms.locfileid: "39069365"
 
 -   XMLSchemaCollection (支援 XML)
 
--   Cursor、Timestamp、Hierarchyid
+-   Cursor、RowVersion、Timestamp、Hierarchyid
 
 #### <a name="unsupported-column-types"></a>不支援的資料行類型
 

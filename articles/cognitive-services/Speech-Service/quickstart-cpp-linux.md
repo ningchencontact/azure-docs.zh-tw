@@ -1,23 +1,24 @@
 ---
-title: 快速入門：使用認知服務語音 SDK 在 Linux 上以 C++ 辨識語音 | Microsoft Docs
+title: 快速入門：使用認知服務語音 SDK 在 Linux 上以 C++ 辨識語音
 titleSuffix: Microsoft Cognitive Services
 description: 了解如何使用認知服務語音 SDK 在 Linux 上以 C++ 辨識語音
 services: cognitive-services
 author: wolfma61
-manager: onano
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: b5f5cdbe202b406c724a9f4f5787e566b432a66c
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 8f794f1d29b5fde9acd43fa4a018ccb39a8ccd25
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116141"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324773"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 Linux 上以 C++ 辨識語音
+
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 在本文中，您將了解如何使用認知服務語音 SDK 將語音轉譯成文字，以在 Linux (Ubuntu 16.04) 上建立 C++ 主控台應用程式。
 
@@ -80,7 +81,7 @@ ms.locfileid: "39116141"
 
 1. 將字串 `YourSubscriptionKey` 取代為您的訂用帳戶金鑰。
 
-1. 將字串 `YourServiceRegion` 取代為與您的訂用帳戶 (例如，免費試用訂用帳戶的 `westus`) 相關聯的[區域](regions.md)。
+1. 以與您的訂用帳戶 (例如，免費試用訂用帳戶的 `westus`) 相關聯的[區域](regions.md)取代 `YourServiceRegion` 字串。
 
 ## <a name="building"></a>建置
 
@@ -133,4 +134,4 @@ ms.locfileid: "39116141"
 
 ## <a name="next-steps"></a>後續步驟
 
-* 造訪[範例頁面](samples.md)以取得其他範例。
+* [取得我們的範例](speech-sdk.md#get-the-samples)

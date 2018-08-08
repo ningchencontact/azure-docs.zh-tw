@@ -7,14 +7,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: 8e0d834b94ff902eb0c1e0ada2fb32d374cee12b
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 93ced2d0c79d80a631ad90aa3f5d2dc9f8c79c7e
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239112"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390189"
 ---
 # <a name="language-understanding-faq"></a>Language Understanding 常見問題集
 
@@ -147,6 +147,12 @@ LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳�
 * 您可以在 [Review endpoint utterances] \(檢閱端點語句\) 頁面中，從 LUIS 所建議的使用者語句清單中刪除語句。 刪除此清單中的語句可防止建議它們，但並不會從記錄中刪除它們。
 * 若您刪除帳戶，則會刪除所有應用程式，以及其範例語句和記錄。 資料會在伺服器上保留 60 天後再永久刪除。
 
+### <a name="does-microsoft-access-my-luis-app-data-for-its-own-purposes-for-example-to-enhance-luis-or-microsoft-in-general"></a>Microsoft 會針對本身用途來存取我的 LUIS 應用程式資料嗎？例如，一般的 LUIS 或 Microsoft 改善？ 
+
+否。 LUIS 不會使用 LUIS 應用程式的資料模型來改善作為平台的 LUIS，也不會以任何方式讓 Microsoft 使用。 每個應用程式資料皆各自獨立，而且只有使用者及共同作業者可擁有。 
+
+深入了解[使用者隱私權](luis-reference-gdpr.md)、[其他安全性規範](luis-concept-security.md#security-compliance)及[資料儲存體](luis-concept-data-storage.md)。
+
 ## <a name="language-and-translation-support"></a>語言和翻譯支援 
 
 ### <a name="i-have-an-app-in-one-language-and-want-to-create-a-parallel-app-in-another-language-what-is-the-easiest-way-to-do-so"></a>我有某種語言的應用程式，且想要建立另一種語言的平行應用程式。 若要這麼做的最簡單方式為何？
@@ -175,20 +181,6 @@ LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳�
 ### <a name="is-luis-available-on-premises-or-in-private-cloud"></a>LUIS 可以在內部部署或私人雲端中使用嗎？
 否。 
 
-## <a name="changes-to-the-docs"></a>文件的變更
-
-### <a name="where-did-the-tutorials-go"></a>教學課程位在何處？ 
-先前在＜教學課程＞一節中的文章現在會在文件的＜做法＞一節中。 
-
-|教學課程|
-|--|
-|使用 [C#](luis-csharp-tutorial-build-bot-framework-sample.md) 和 [Node.js](luis-nodejs-tutorial-build-bot-framework-sample.md) 整合 LUIS 與 Bot|
-|使用 [C#](luis-tutorial-bot-csharp-appinsights.md) 和 [Node.js](luis-tutorial-function-appinsights.md) 將 Application Insights 新增至 Bot|
-|使用 [Node.js](luis-tutorial-node-import-utterances-csv.md) 以程式設計方式建置 LUIS 應用程式|
-|使用[複合實體](luis-tutorial-composite-entity.md)擷取已分組的資料|
-|使用 Node.js 新增[清單實體](luis-tutorial-list-entity.md)來提高實體偵測|
-|使用[片語清單](luis-quickstart-primary-and-secondary-data.md)、[模式](luis-tutorial-pattern.md)和[批次測試](luis-tutorial-batch-testing.md)改善預測精確度|
-|使用 Bing 拼字檢查 API v7 [更正拼字](luis-tutorial-batch-testing.md)
 
 ### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>在組建 2018 會議中，我聽到一種 Language Understanding 功能或示範，但不記得它的名稱為何？ 
 
@@ -198,7 +190,7 @@ LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳�
 |--|--|
 |增強功能|[規則運算式](luis-concept-data-extraction.md##regular-expression-entity-data)實體和[關鍵片語](luis-concept-data-extraction.md#key-phrase-extraction-entity-data)實體
 |模式|模式[概念](luis-concept-patterns.md)、[教學課程](luis-tutorial-pattern.md)、[做法](luis-how-to-model-intent-pattern.md)<br>[Patterns.Any](luis-concept-entity-types.md) 實體概念 (包括例外狀況[明確清單](luis-concept-patterns.md#explicit-lists))<br>[角色](luis-concept-roles.md)概念|
-|整合|[文字分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/)與[情感分析](luis-how-to-publish-app.md#enable-sentiment-analysis)的整合<br>[語音](https://docs.microsoft.com/azure/cognitive-services/speech)與[語音預備](luis-how-to-publish-app.md#enable-speech-priming)的整合搭配[語音 SDK](https://aka.ms/SpeechSDK)|
+|整合|[文字分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/)與[情感分析](luis-how-to-publish-app.md#enable-sentiment-analysis)的整合<br>[語音](https://docs.microsoft.com/azure/cognitive-services/speech)與語音預備的整合搭配[語音 SDK](https://aka.ms/SpeechSDK)|
 |分派工具|在 [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools) 期間，分派命令列[工具](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps)以將多個 LUIS 和 QnA Maker 應用程式合併為單一 LUIS 應用程式，以在 Bot 中更恰當地辨識意圖
 
 已包括其他撰寫 [API 路由](https://github.com/Microsoft/LUIS-Samples/blob/master/authoring-routes.md)。 

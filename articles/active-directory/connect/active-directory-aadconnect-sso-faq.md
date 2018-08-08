@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2d49164748079346f24aeeebe216b2668a4e3aed
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 9c59db56ad78818d9b6165d27fd2e64f0bfd902c
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258483"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283218"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory 無縫單一登入：常見問題集
 
@@ -94,10 +94,8 @@ ms.locfileid: "39258483"
 
 1. 呼叫 `$creds = Get-Credential`。 出現提示時，輸入預定 Azure AD 樹系的網域系統管理員認證。
 
->[!NOTE]
->我們會使用網域系統管理員的使用者名稱 (以使用者主體名稱 (UPN) (johndoe@contoso.com) 格式或網域限定的 SAM 帳戶名稱 (contoso\johndoe 或 contoso.com\johndoe) 格式提供)，來尋找預定的 AD 樹系。 如果您使用網域限定的 SAM 帳戶名稱，我們就會利用使用者名稱的網域部分，[使用 DNS 來尋找網域系統管理員的網域控制站](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx) \(英文\)。 如果您改用 UPN，我們就會先[將其轉譯成網域限定的 SAM 帳戶名稱](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) \(英文\)，然後再尋找適當的網域控制站。
-
-使用 UPN，我們會轉譯 
+    >[!NOTE]
+    >我們會使用網域系統管理員的使用者名稱 (以使用者主體名稱 (UPN) (johndoe@contoso.com) 格式或網域限定的 SAM 帳戶名稱 (contoso\johndoe 或 contoso.com\johndoe) 格式提供)，來尋找預定的 AD 樹系。 如果您使用網域限定的 SAM 帳戶名稱，我們就會利用使用者名稱的網域部分，[使用 DNS 來尋找網域系統管理員的網域控制站](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx) \(英文\)。 如果您改用 UPN，我們就會先[將其轉譯成網域限定的 SAM 帳戶名稱](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) \(英文\)，然後再尋找適當的網域控制站。
 
 2. 呼叫 `Update-AzureADSSOForest -OnPremCredentials $creds`。 此命令會更新此特定 AD 樹系中 `AZUREADSSOACC` 電腦帳戶的 Kerberos 解密金鑰，並且在 Azure AD 中更新它。
 3. 針對您已設定此功能的每個 AD 樹系，重複上述步驟。
@@ -107,17 +105,36 @@ ms.locfileid: "39258483"
 
 ## <a name="how-can-i-disable-seamless-sso"></a>如何停用無縫 SSO？
 
-您可以使用 Azure AD Connect 停用無縫 SSO。
+### <a name="step-1-disable-the-feature-on-your-tenant"></a>步驟 1. 在租用戶上停用功能
 
-執行 Azure AD Connect，選擇 [變更使用者登入頁面]，然後按一下 [下一步]。 然後取消選取 [啟用單一登入] 選項。 繼續執行精靈。 完成精靈之後，無縫 SSO 就會在您的租用戶上停用。
+#### <a name="option-a-disable-using-azure-ad-connect"></a>選項 A：使用 Azure AD Connect 來停用
 
-但是，您會在畫面上看到一個包含以下內容的訊息：
+1. 執行 Azure AD Connect，選擇 [變更使用者登入頁面]，然後按 [下一步]。
+2. 取消選取 [啟用單一登入] 選項。 繼續執行精靈。
+
+完成精靈之後，租用戶就會停用無縫 SSO。 但是，您會在畫面上看到一個包含以下內容的訊息：
 
 「單一登入現已停用，但還要執行其他手動步驟才可完成清理。 深入了解」
 
-若要完成此程序，請在執行 Azure AD Connect 的內部部署伺服器上依照下列手動步驟操作：
+若要完成清理程序，請在執行 Azure AD Connect 的內部部署伺服器上依照步驟 2 和 3 來操作。
 
-### <a name="step-1-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>步驟 1. 取得已啟用無縫 SSO 的 AD 樹系清單
+#### <a name="option-b-disable-using-powershell"></a>選項 B：使用 PowerShell 來停用
+
+請在執行 Azure AD Connect 的內部部署伺服器上執行下列步驟：
+
+1. 首先，下載並安裝 [Microsoft Online Services 登入小幫手](http://go.microsoft.com/fwlink/?LinkID=286152)。
+2. 接著下載並安裝 [適用於 Windows PowerShell 的 64 位元 Azure Active Directory 模組](http://go.microsoft.com/fwlink/p/?linkid=236297)。
+3. 瀏覽到 `%programfiles%\Microsoft Azure Active Directory Connect` 資料夾。
+4. 使用此命令匯入順暢 SSO PowerShell 模組：`Import-Module .\AzureADSSO.psd1`。
+5. 以系統管理員身分執行 PowerShell。 在 PowerShell 中，呼叫 `New-AzureADSSOAuthenticationContext`。 此命令應提供一個快顯視窗，以便輸入租用戶的全域管理員認證。
+6. 呼叫 `Enable-AzureADSSO -Enable $false`。
+
+>[!IMPORTANT]
+>使用 PowerShell 停用無縫 SSO 不會變更 Azure AD Connect 中的狀態。 在 [變更使用者登入] 頁面中，無縫 SSO 會顯示為已啟用。
+
+### <a name="step-2-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>步驟 2. 取得已啟用無縫 SSO 的 AD 樹系清單
+
+如果您已使用 Azure AD Connect 停用無縫 SSO，請遵循下面的步驟 1 到 5 來操作。 如果您改為使用 PowerShell 停用無縫 SSO，請往前跳至下面的步驟 6。
 
 1. 首先，下載並安裝 [Microsoft Online Services 登入小幫手](http://go.microsoft.com/fwlink/?LinkID=286152)。
 2. 接著下載並安裝 [適用於 Windows PowerShell 的 64 位元 Azure Active Directory 模組](http://go.microsoft.com/fwlink/p/?linkid=236297)。
@@ -126,7 +143,7 @@ ms.locfileid: "39258483"
 5. 以系統管理員身分執行 PowerShell。 在 PowerShell 中，呼叫 `New-AzureADSSOAuthenticationContext`。 此命令應提供一個快顯視窗，以便輸入租用戶的全域管理員認證。
 6. 呼叫 `Get-AzureADSSOStatus`。 此命令會提供已啟用這項功能的 AD 樹系清單 (查看 [網域] 清單)。
 
-### <a name="step-2-manually-delete-the-azureadssoacct-computer-account-from-each-ad-forest-that-you-see-listed"></a>步驟 2. 從您看到的每個列出 AD 樹系，手動刪除 `AZUREADSSOACCT` 電腦帳戶。
+### <a name="step-3-manually-delete-the-azureadssoacct-computer-account-from-each-ad-forest-that-you-see-listed"></a>步驟 3. 從您看到的每個列出 AD 樹系，手動刪除 `AZUREADSSOACCT` 電腦帳戶。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,80 +1,234 @@
 ---
-title: 透過 Azure Functions 的適用於 Azure Logic Apps 的自訂程式碼 | Microsoft Docs
-description: 使用 Azure Functions 建立並執行適用於 Azure Logic Apps 的自訂程式碼
-services: logic-apps,functions
-documentationcenter: .net,nodejs,java
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
+title: 使用 Azure Functions 在 Azure Logic Apps 中新增和執行自訂程式碼 | Microsoft Docs
+description: 了解如何使用 Azure Functions 在 Azure Logic Apps 中新增和執行自訂程式碼片段
+services: logic-apps
 ms.service: logic-apps
-ms.devlang: multiple
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.custom: H1Hack27Feb2017
-ms.date: 10/18/2016
-ms.author: LADocs; jehollan
-ms.openlocfilehash: d8d07e2ba58b7067d59baf5f0a4ea3228d6aabbc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 07/25/2018
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 20ad738541554279ff9fd6dd6babe90a38676c00
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331167"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263185"
 ---
-# <a name="add-and-run-custom-code-for-logic-apps-through-azure-functions"></a>透過 Azure Functions 新增並執行適用於 Logic Apps 的自訂程式碼
+# <a name="add-and-run-custom-code-snippets-in-azure-logic-apps-with-azure-functions"></a>使用 Azure Functions 在 Azure Logic Apps 中新增和執行自訂程式碼片段
 
-若要在邏輯應用程式中執行 C# 或 node.js 的自訂程式碼片段，您可以透過 Azure Functions 建立自訂函式。 
+當您想要建立和執行剛剛好能夠解決邏輯應用程式中特定問題的程式碼時，您可以使用 [Azure Functions](../azure-functions/functions-overview.md) 建立自己的函式。 此服務可讓您在邏輯應用程式中建立和執行以 Node.js 或 C# 所撰寫的自訂程式碼片段，而不必煩惱要如何建立整個應用程式或基礎結構以便執行程式碼。 Azure Functions 可提供在雲端進行的無伺服器運算，適合用來執行以下舉例的各種工作：
 
-  [Azure Functions](../azure-functions/functions-overview.md) 提供 Microsoft Azure 中無伺服器運算的功能，並有助於執行下列工作：
+* 使用 Node.js 或 C# 所支援的函式來擴充邏輯應用程式的行為。
+* 在邏輯應用程式工作流程中執行計算。
+* 在邏輯應用程式中套用進階格式設定或計算欄位。
 
-* 邏輯應用程式中欄位的進階格式設定或計算
-* 在工作流程中執行計算。
-* 利用 C# 或 node.js 中支援的函式來擴充邏輯應用程式功能
+您也可以[從 Azure 函式內呼叫邏輯應用程式](#call-logic-app)。
 
-## <a name="create-custom-functions-for-your-logic-apps"></a>建立邏輯應用程式的自訂函式
+## <a name="prerequisites"></a>必要條件
 
-建議您在 Azure Functions 入口網站中，從**一般 Webhook - 節點**或**一般 Webhook - C#** 範本建立新的函式。 結果會建立自動填入以接受來自邏輯應用程式之 `application/json` 的範本。 系統即會自動偵測您從這些範本建立的函式，並顯示於邏輯應用程式設計工具的 [我的區域中的 Azure Functions] 下方。
+若要依照本文進行操作，以下是您需要的項目：
 
-在 Azure 入口網站中函式的 [整合] 窗格上，您的範本應該會顯示將 [模式] 設為 [Webhook]，以及將 [Webhook 類型] 設為 [一般 JSON]。 
+* 如果您還沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。 
 
-Webhook 函數會接受要求，並透過 `data` 變數將它傳入方法。 您可以使用點標記法 (例如 `data.function-name`) 來存取承載的屬性。 例如，將日期時間值轉換為日期字串的簡單 JavaScript 函數看起來如以下範例︰
+* 要在其中新增函式的邏輯應用程式
 
-```
-function start(req, res){
-    var data = req.body;
-    res = {
-        body: data.date.ToDateString();
-    }
+  如果您還不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)和[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
+
+* 作為邏輯應用程式中第一個步驟的[觸發程序](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
+
+  邏輯應用程式必須以觸發程序作為開頭，才能新增用於執行函式的動作。
+
+* Azure 函式應用程式 (也就是，Azure 函式的容器) 和 Azure 函式。 如果您沒有函式應用程式，則必須[先建立函式應用程式](../azure-functions/functions-create-first-azure-function.md)。 然後，您可以在邏輯應用程式設計工具中建立函式，不論是要[在邏輯應用程式外另外](#create-function-external)建立，還是要[從邏輯應用程式內部](#create-function-designer)建立都行。
+
+  新的和現有的 Azure 函式應用程式與函式對於使用邏輯應用程式有相同的需求：
+
+  * 函式應用程式必須屬於和邏輯應用程式相同的 Azure 訂用帳戶。
+
+  * 函式必須使用適用於 **JavaScript** 或 **C#** 的**一般 Webhook** 函式範本。 此範本可以接受內容中有來自邏輯應用程式的 `application/json` 類型。 當您將使用這些範本所建立的自訂函式新增至邏輯應用程式時，這些範本也有助於邏輯應用程式設計工具尋找和顯示這些函式。
+
+  * 確認函式範本的 [模式] 屬性已設定為 [Webhook]，[Webhook 類型] 屬性已設定為 [一般 JSON]。
+
+    1. 登入 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>。
+    2. 在主要 Azure 功能表上，選取 [函式應用程式]。 
+    3. 在 [函式應用程式] 清單中，選取您的函式應用程式，展開該函式，然後選取 [整合]。 
+    4. 確認範本的 [模式] 屬性已設定為 [Webhook]，[Webhook 類型] 屬性已設定為 [一般 JSON]。 
+
+  * 如果函式有 [API 定義](../azure-functions/functions-openapi-definition.md) (先前稱為 [Swagger 檔案](http://swagger.io/))，邏輯應用程式設計工具會提供更豐富的函式參數使用體驗。 
+  邏輯應用程式若要尋找和存取具有 Swagger 描述的函式，必須先[遵循下列步驟來設定函式應用程式](#function-swagger)。
+
+<a name="create-function-external"></a>
+
+## <a name="create-functions-outside-logic-apps"></a>在邏輯應用程式外部建立函式
+
+在 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>中建立 Azure 函式應用程式 (必須有和邏輯應用程式相同的 Azure 訂用帳戶)，然後建立 Azure 函式。 如果您還不熟悉 Azure Functions，請了解如何[在 Azure 入口網站中建立您的第一個函式](../azure-functions/functions-create-first-azure-function.md)，但請注意下列需求，滿足後才能建立 Azure 函式以供新增和從邏輯應用程式呼叫。
+
+* 確定您有選取適用於 **JavaScript** 或 **C#** 的**一般 Webhook** 函式範本。
+
+  ![一般 Webhook - JavaScript 或 C#](./media/logic-apps-azure-functions/generic-webhook.png)
+
+* 建立 Azure 函式之後，確認範本的 [模式] 和 [Webhook 類型] 屬性已正確設定。
+
+  1. 在 [函式應用程式] 清單中展開該函式，然後選取 [整合]。 
+
+  2. 確認範本的 [模式] 屬性已設定為 [Webhook]，[Webhook 類型] 屬性已設定為 [一般 JSON]。 
+
+     ![函式範本的 [整合] 屬性](./media/logic-apps-azure-functions/function-integrate-properties.png)
+
+<a name="function-swagger"></a>
+
+* (選擇性) 如果您為函式[產生 API 定義](../azure-functions/functions-openapi-definition.md) (先前稱為 [Swagger 檔案](http://swagger.io/))，當您在邏輯應用程式設計工具中使用函式參數時將可獲得更豐富的體驗。 若要設定函式應用程式，讓邏輯應用程式可以尋找和存取具有 Swagger 描述的函式：
+
+  * 確定函式應用程式正在執行。
+
+  * 在函式應用程式中設定[跨原始資源共用 (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)，以允許所有來源：
+
+    1. 從 [函式應用程式] 清單開始，選取您的函式應用程式 > [平台功能] > [CORS]。
+
+       ![選取您的函式應用程式 > [平台功能] > [CORS]](./media/logic-apps-azure-functions/function-platform-features-cors.png)
+
+    2. 在 [CORS] 底下新增 `*` 萬用字元，但在清單中移除所有其他來源，然後選擇 [儲存]。
+
+       ![選取您的函式應用程式 > [平台功能] > [CORS]](./media/logic-apps-azure-functions/function-platform-features-cors-origins.png)
+
+### <a name="access-property-values-inside-http-requests"></a>存取 HTTP 要求內的屬性值
+
+Webhook 函式可以透過輸入接受 HTTP 要求，並將這些要求傳遞給其他函式。 例如，雖然 Logic Apps 有[會轉換日期時間值的函式](../logic-apps/workflow-definition-language-functions-reference.md)，但這個基本範例 JavaScript 函式會說明如何存取傳遞給函式的要求物件內所含的屬性，並對該屬性值執行作業。 為了存取物件內的屬性，這個範例使用[點 (.) 運算子](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/Property_accessors)： 
+
+```javascript
+function convertToDateString(request, response){
+   var data = request.body;
+   response = {
+      body: data.date.ToDateString();
+   }
 }
 ```
 
-## <a name="call-azure-functions-from-logic-apps"></a>從 Logic Apps 呼叫 Azure Functions
+以下是此函式內部的運作情形：
 
-若要列出您訂用帳戶中的容器，並選取您想要呼叫的函式，可在邏輯應用程式設計工具中，按一下 [動作] 功能表，然後從 [我的區域中的 Azure Functions] 中選取。
+1. 函式會建立 `data` 變數，並將 `request` 物件內的 `body` 物件指派給該變數。 此函式會使用點 (.) 運算子來參考 `request` 物件內的 `body` 物件： 
 
-選取函式之後，系統會要求您指定輸入承載物件。 這個物件是邏輯應用程式要傳送到函式的訊息，且必須是 JSON 物件。 例如，如果我想要傳入 Salesforce 觸發程序的**上次修改**日期，函式承載可能看起來如下範例：
+   ```javascript
+   var data = request.body;
+   ```
 
-![上次修改日期][1]
+2. 此函式現在可以透過 `data` 變數存取 `date` 屬性，並藉由呼叫 `ToDateString()` 函式將該屬性值從 DateTime 類型轉換為 DateString 類型。 此函式也會透過函式回應中的 `body` 屬性傳回結果： 
 
-## <a name="trigger-logic-apps-from-a-function"></a>從函數觸發 Logic Apps
+   ```javascript
+   body: data.date.ToDateString();
+   ```
 
-您可以從函式內部觸發邏輯應用程式。 請參閱[做為可呼叫端點的邏輯應用程式](logic-apps-http-endpoint.md)。 建立含有手動觸發程序的邏輯應用程式，然後從您的函式內，產生 HTTP POST 到手動觸發程序 URL，其中包含您想要傳送到邏輯應用程式的承載。
+您已建立 Azure 函式，接下來請遵循如何[將函式新增至邏輯應用程式](#add-function-logic-app)的步驟。
 
-### <a name="create-a-function-from-logic-app-designer"></a>從邏輯應用程式設計工具建立函式
+<a name="create-function-designer"></a>
 
-您也可以從設計工具中建立 node.js webhook 函式。 首先，選取 [我的區域中的 Azure Functions]  ，然後選擇適用於您的函數的容器。 如果您還沒有容器，就必須從 [Azure Functions 入口網站](https://functions.azure.com/)建立一個。 然後選取 建立新的) 。  
+## <a name="create-functions-inside-logic-apps"></a>在邏輯應用程式內部建立函式
 
-若要根據您想要計算的資料來產生範本，請指定您打算傳入函數的內容物件。 這個物件必須是 JSON 物件。 例如，如果您從 FTP 動作傳入檔案內容，內容承載可能看起來如下範例：
+若要在邏輯應用程式設計工具中從邏輯應用程式內部開始建立 Azure 函式，您必須先擁有 Azure 函式應用程式，以作為函式的容器。 如果您沒有函式應用程式，請先建立該函式應用程式。 請參閱[在 Azure 入口網站中建立您的第一個函式](../azure-functions/functions-create-first-azure-function.md)。 
 
-![內容承載][2]
+1. 在 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>的邏輯應用程式設計工具中，開啟邏輯應用程式。 
 
-> [!NOTE]
-> 因為此物件無法轉換為字串，所以會直接將內容新增至 JSON 承載。 不過，如果物件不是 JSON 權杖 (也就是字串或 JSON 物件/陣列)，即會發生錯誤。 若要將物件轉換為字串，請加上引號，如本文的第一個圖例所示。
-> 
+2. 在想要建立和新增函式的步驟底下，選擇 [新增步驟] > [新增動作]。 
 
-設計工具接著會產生您可以內嵌建立的函數範本。 變數會根據您想要傳入函數的內容預先建立。
+3. 在搜尋方塊中，輸入「azure functions」作為篩選條件。
+從動作清單中選取此動作：**選擇 Azure 函式 – Azure Functions** 
 
-<!--Image references-->
-[1]: ./media/logic-apps-azure-functions/callfunction.png
-[2]: ./media/logic-apps-azure-functions/createfunction.png
+   ![尋找 "Azure functions"](./media/logic-apps-azure-functions/find-azure-functions-action.png)
+
+4. 從函式應用程式清單中，選取您的函式應用程式。 動作清單開啟後，請選取此動作：**Azure Functions - 建立新函式**
+
+   ![選取函式應用程式](./media/logic-apps-azure-functions/select-function-app-create-function.png)
+
+5. 在函式定義編輯器中，定義您的函式：
+
+   1. 在 [函式名稱] 方塊中，為您的函式提供名稱。 
+
+   2. 在 [程式碼] 方塊中，於範本內新增函式程式碼，包括要在函式執行完成後傳回給邏輯應用程式的回應和承載。 
+   範本程式碼中的內容物件會描述邏輯應用程式傳遞給函式的訊息和內容，例如：
+
+      ![定義函式](./media/logic-apps-azure-functions/function-definition.png)
+
+      在函式內部，您可以使用下列語法來參考內容物件中的屬性：
+
+      ```text
+      context.<token-name>.<property-name>
+      ```
+      針對此範例，以下是您會使用的語法：
+
+      ```text
+      context.body.content
+      ```
+
+   3. 完成之後，請選擇 [建立]。
+
+6. 在 [要求本文] 方塊中，指定要傳遞作為函式輸入的內容物件 (必須以 JavaScript 物件標記法 (JSON) 進行格式化)。 當您在 [要求本文] 方塊內按一下時，會開啟動態內容清單，以供您選取前面步驟所提供屬性的權杖。 
+
+   這個範例會在來自電子郵件觸發程序的 [本文] 權杖中傳遞物件：  
+
+   ![「要求本文」範例 - 內容物件承載](./media/logic-apps-azure-functions/function-request-body-example.png)
+
+   根據內容物件中的內容，邏輯應用程式設計工具會產生函式範本供您之後進行內嵌編輯。 
+   Logic Apps 也會根據輸入內容物件建立變數。
+
+   在此範例中，內容物件不會轉換為字串，所以內容會直接新增至 JSON 承載。 
+   不過，如果物件不是 JSON 權杖 (必須是字串、JSON 物件或 JSON 陣列)，您就會收到錯誤。 
+   若要將內容物件轉換為字串，請新增雙引號，例如：
+
+   ![將物件轉換為字串](./media/logic-apps-azure-functions/function-request-body-string-cast-example.png)
+
+7. 若要指定其他詳細資料 (例如，要使用的方法、要求標頭或查詢參數)，請選擇 [顯示進階選項]。
+
+<a name="add-function-logic-app"></a>
+
+## <a name="add-existing-functions-to-logic-apps"></a>在邏輯應用程式中新增現有函式
+
+若要從邏輯應用程式呼叫現有 Azure 函式，您可以在邏輯應用程式設計工具中新增 Azure 函式，例如任何其他動作。 
+
+1. 在 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>的邏輯應用程式設計工具中，開啟邏輯應用程式。 
+
+2. 在想要新增函式的步驟底下，選擇 [新增步驟] > [新增動作]。 
+
+3. 在搜尋方塊中，輸入「azure functions」作為篩選條件。
+從動作清單中選取此動作：**選擇 Azure 函式 – Azure Functions** 
+
+   ![尋找 "Azure functions"](./media/logic-apps-azure-functions/find-azure-functions-action.png)
+
+4. 從函式應用程式清單中，選取您的函式應用程式。 函式清單出現後，選取您的函式。 
+
+   ![選取函式應用程式和 Azure 函式](./media/logic-apps-azure-functions/select-function-app-existing-function.png)
+
+   函式若具有 API 定義 (Swagger 描述)，並已[進行設定以讓邏輯應用程式可以尋找和存取這些函式](#function-swagger)，您就可以選取 [Swagger 動作]：
+
+   ![選取函式應用程式、「Swagger 動作」和 Azure 函式](./media/logic-apps-azure-functions/select-function-app-existing-function-swagger.png)
+
+5. 在 [要求本文] 方塊中，指定要傳遞作為函式輸入的內容物件 (必須以 JavaScript 物件標記法 (JSON) 進行格式化)。 此內容物件會描述邏輯應用程式傳送給函式的訊息和內容。 
+
+   當您在 [要求本文] 方塊內按一下時，會開啟動態內容清單，以供您選取前面步驟所提供屬性的權杖。 
+   這個範例會在來自電子郵件觸發程序的 [本文] 權杖中傳遞物件：
+
+   ![「要求本文」範例 - 內容物件承載](./media/logic-apps-azure-functions/function-request-body-example.png)
+
+   在此範例中，內容物件不會轉換為字串，所以內容會直接新增至 JSON 承載。 
+   不過，如果物件不是 JSON 權杖 (必須是字串、JSON 物件或 JSON 陣列)，您就會收到錯誤。 
+   若要將內容物件轉換為字串，請新增雙引號，例如：
+
+   ![將物件轉換為字串](./media/logic-apps-azure-functions/function-request-body-string-cast-example.png)
+
+6. 若要指定其他詳細資料 (例如，要使用的方法、要求標頭或查詢參數)，請選擇 [顯示進階選項]。
+
+<a name="call-logic-app"></a>
+
+## <a name="call-logic-apps-from-functions"></a>從函式呼叫邏輯應用程式
+
+若要從 Azure 函式內觸發邏輯應用程式，該邏輯應用程式必須具有可呼叫的端點，更具體地說，要具有**要求**觸發程序。 然後，從函式內部將 HTTP POST 要求傳送給該**要求**觸發程序的 URL，並包含您想要讓該邏輯應用程式處理的承載。 如需詳細資訊，請參閱[呼叫、觸發或巢狀邏輯應用程式](../logic-apps/logic-apps-http-endpoint.md)。 
+
+## <a name="get-support"></a>取得支援
+
+* 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
+* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](http://aka.ms/logicapps-wish)。
+
+## <a name="next-steps"></a>後續步驟
+
+* 了解[Logic Apps 連接器](../connectors/apis-list.md)

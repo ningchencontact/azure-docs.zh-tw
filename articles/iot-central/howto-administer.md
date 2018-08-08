@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 0bdd798f9bc8fdaef54abd721a986c607c6323a5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a43febf1e78f80451b6aeed19e095b2c313d3216
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628550"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284848"
 ---
 # <a name="how-to-administer-your-application"></a>如何管理您的應用程式
 
@@ -55,6 +55,25 @@ ms.locfileid: "34628550"
 ## <a name="change-the-application-image"></a>變更應用程式影像
 
 如需在 Azure IoT Central 應用程式中使用影像的詳細資訊，請參閱[準備及上傳影像至您的 Azure IoT Central 應用程式](howto-prepare-images.md)。
+
+## <a name="copy-an-application"></a>複製應用程式
+
+您可以建立任何應用程式複本，並減去其中的任何裝置執行個體、裝置資料歷程記錄和使用者資料。 這個複本會是付費應用程式，所以您必須支付費用。 您無法藉由複製另一個應用程式來建立試用版應用程式。
+
+若要複製應用程式，請瀏覽至 [應用程式設定] 頁面，然後按一下 [複製] 按鈕。
+
+![[應用程式設定] 頁面](media\howto-administer\appCopy1.png)
+
+按一下 [複製] 按鈕會開啟一個對話方塊，您可以在其中針對藉由複製應用程式所建立的新應用程式，選取其名稱、URL、AAD 目錄、訂用帳戶和 Azure 區域。 選取上述每個欄位的值，然後按一下 [複製] 按鈕，以確認您要繼續進行。 您可以在關於[如何建立應用程式](howto-create-application.md)的文章中，深入了解要對這些值輸入什麼內容。
+
+![[應用程式設定] 頁面](media\howto-administer\appCopy2.png)
+
+應用程式複製作業成功之後，您就能夠藉由按一下 [應用程式設定] 頁面上所出現的連結，來瀏覽至透過複製應用程式所建立的新應用程式。
+
+![[應用程式設定] 頁面](media\howto-administer\appCopy3.png)
+
+> [!Note]
+> 複製應用程式時會複製規則或動作的定義。 不過，由於有原始應用程式存取權的使用者不會複製到您所複製的應用程式，您必須手動將使用者新增至動作，例如向必要使用者寄送電子郵件。
 
 ## <a name="delete-an-application"></a>刪除應用程式
 

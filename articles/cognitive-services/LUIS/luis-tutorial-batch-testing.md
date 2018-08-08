@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 07/25/2018
 ms.author: diberry
-ms.openlocfilehash: 0e1f5d29917ba381d4767faffb65847cd2ff210f
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: de33b4618eb31707d324098e894682dd254c8ee4
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237803"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358366"
 ---
 # <a name="improve-app-with-batch-test"></a>使用批次測試來改善應用程式
 
@@ -31,9 +31,10 @@ ms.locfileid: "39237803"
 * 修正錯誤 
 * 重新測試批次
 
-在本文中，您需要免費 [LUIS](luis-reference-regions.md#luis-website) 帳戶才能撰寫 LUIS 應用程式。
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>開始之前
+
 如果您沒有[檢閱端點語句](luis-tutorial-review-endpoint-utterances.md)教學課程中的人力資源應用程式，請將 JSON [匯入](luis-how-to-start-new-app.md#import-new-app)到 [LUIS](luis-reference-regions.md#luis-website) 網站中的新應用程式。 在 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-review-HumanResources.json) Github 存放庫中可找到要匯入的應用程式。
 
 如果您想要保留原始的「人力資源」應用程式，請在 [[設定](luis-how-to-manage-versions.md#clone-a-version)] 頁面上複製該版本，並將其命名為 `batchtest`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 
@@ -41,6 +42,7 @@ ms.locfileid: "39237803"
 將應用程式定型。
 
 ## <a name="purpose-of-batch-testing"></a>批次測試的用途
+
 批次測試可讓您使用一組已標示的已知語句和實體來驗證作用中且已定型的模型狀態。 在 JSON 格式的批次檔中新增語句，並在語句內設定您需要預測的實體標籤。 
 
 <!--The recommended test strategy for LUIS uses three separate sets of data: example utterances provided to the model, batch test utterances, and endpoint utterances. --> 使用本教學課程以外的應用程式時，請確定您「未」使用已新增到某個意圖的範例語句。 若要針對範例語句確認您的批次測試語句，請[匯出](luis-how-to-start-new-app.md#export-app)應用程式。 將應用程式範例語句與批次測試語句進行比較。 
@@ -52,6 +54,7 @@ ms.locfileid: "39237803"
 * 允許的實體類型：僅限簡單、階層式 (僅限父代) 及複合的機器學習實體。 批次測試僅適用於機器學習的意圖和實體。
 
 ## <a name="create-a-batch-file-with-utterances"></a>建立含有語句的批次檔
+
 1. 在文字編輯器 (例如 [VSCode](https://code.visualstudio.com/)) 中建立 `HumanResources-jobs-batch.json`。 
 
 2. 在 JSON 格式的批次檔中，新增具有您想要在測試中預測之**意圖**的語句。 
@@ -60,17 +63,15 @@ ms.locfileid: "39237803"
 
 ## <a name="run-the-batch"></a>執行批次
 
-1. 選取頂端瀏覽列中的 [Test] \(測試\)。 
-
-    [ ![已在右上方瀏覽列中醒目提示 [測試] 的 LUIS 應用程式螢幕擷取畫面](./media/luis-tutorial-batch-testing/hr-first-image.png)](./media/luis-tutorial-batch-testing/hr-first-image.png#lightbox)
+1. 選取頂端導覽列中的 [Test] \(測試\)。 
 
 2. 選取右側面板中的 [Batch testing panel] \(批次測試面板\) 
 
-    [ ![已醒目提示 [批次測試] 面板的 LUIS 應用程式螢幕擷取畫面](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png)](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png#lightbox)
+    [![已醒目提示 [批次測試] 面板的 LUIS 應用程式螢幕擷取畫面](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png)](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png#lightbox)
 
 3. 選取 [Import dataset] \(匯入資料集\)。
 
-    [ ![已醒目提示 [匯入資料集] 的 LUIS 應用程式螢幕擷取畫面](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png#lightbox)
+    [![已醒目提示 [匯入資料集] 的 LUIS 應用程式螢幕擷取畫面](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png#lightbox)
 
 4. 選擇 `HumanResources-jobs-batch.json` 檔案的檔案系統位置。
 
@@ -80,15 +81,14 @@ ms.locfileid: "39237803"
 
 6. 選取 [執行] 按鈕。 等候測試完成。
 
-    [ ![已醒目提示 [執行] 的 LUIS 應用程式螢幕擷取畫面](./media/luis-tutorial-batch-testing/hr-run-button.png)](./media/luis-tutorial-batch-testing/hr-run-button.png#lightbox)
-
 7. 選取 [See results] \(查看結果\)。
 
 8. 檢閱圖表和圖例中的結果。
 
-    [ ![含有批次測試結果的 LUIS 應用程式螢幕擷取畫面](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png)](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png#lightbox)
+    [![含有批次測試結果的 LUIS 應用程式螢幕擷取畫面](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png)](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png#lightbox)
 
 ## <a name="review-batch-results"></a>檢閱批次結果
+
 批次圖表會顯示四個象限的結果。 圖表的右邊是一個篩選條件。 根據預設，會將該篩選條件設定為清單中第一個意圖。 該篩選條件會包含所有意圖，而且只包含簡單、階層式 (僅限父代) 及複合實體。 當您選取某個[圖表區段](luis-concept-batch-test.md#batch-test-results)或圖表內的某一點時，相關聯的語句即會顯示於圖表下方。 
 
 將滑鼠停留在圖表上方時，滑鼠滾輪可以放大或縮小圖表中的顯示。 當圖表上有許多點緊密聚集在一起時，這非常有用。 
@@ -96,6 +96,7 @@ ms.locfileid: "39237803"
 此圖表分成四個象限，其中兩個區段會以紅色顯示。 **這些是要關注的區段**。 
 
 ### <a name="getjobinformation-test-results"></a>GetJobInformation 測試結果
+
 篩選條件中顯示的 **GetJobInformation** 測試結果顯示四個預測中有 2 個成功。 在右上方象限上選取**誤判**的名稱，以查看圖表下方的語句。 
 
 ![LUIS 批次測試語句](./media/luis-tutorial-batch-testing/hr-applyforjobs-false-positive-results.png)
@@ -109,6 +110,7 @@ ms.locfileid: "39237803"
 對應 [誤判] 區段中之頂點的語句為 `Can I apply for any database jobs with this resume?` 和 `Can I apply for any database jobs with this resume?`。 針對第一個語句，`resume` 這個字只適用於 **ApplyForJob**。 針對第二個語句，`apply` 這個字只適用於 **ApplyForJob** 意圖。
 
 ## <a name="fix-the-app-based-on-batch-results"></a>根據批次結果修正應用程式
+
 本節目標是藉由修正應用程式，針對 **GetJobInformation** 正確預測所有語句。 
 
 有個看似快速的修正是將這些批次檔語句新增到正確的意圖。 但那不是您想要做的。 您想要 LUIS 正確預測這些語句，而不需將它們新增為範例。 
@@ -118,13 +120,10 @@ ms.locfileid: "39237803"
 第一個修正是將更多語句新增到 **GetJobInformation**。 第二個修正是減少字組對於 **ApplyForJob** 意圖的比重，例如 `resume` 和 `apply`。 
 
 ### <a name="add-more-utterances-to-getjobinformation"></a>將更多語句新增到 **GetJobInformation**
+
 1. 選取上方瀏覽面板中的 [測試] 按鈕來關閉批次測試面板。 
 
-    [ ![已醒目提示 [測試] 按鈕的 LUIS 螢幕擷取畫面](./media/luis-tutorial-batch-testing/hr-close-test-panel.png)](./media/luis-tutorial-batch-testing/hr-close-test-panel.png#lightbox)
-
 2. 從意圖清單中選取 [GetJobInformation]。 
-
-    [ ![已醒目提示 [測試] 按鈕的 LUIS 螢幕擷取畫面](./media/luis-tutorial-batch-testing/hr-select-intent-to-fix-1.png)](./media/luis-tutorial-batch-testing/hr-select-intent-to-fix-1.png#lightbox)
 
 3. 新增更多會隨著長度、選字及字組排列而變動的語句，確定會包含 `resume`、`c.v.` 和 `apply` 等字詞：
 
@@ -151,9 +150,10 @@ ms.locfileid: "39237803"
 4. 藉由在右上方瀏覽列中選取 [定型] 來將應用程式定型。
 
 ## <a name="verify-the-fix-worked"></a>確認修正有效
+
 為了確認會正確預測批次測試中的語句，請重新執行批次測試。
 
-1. 選取頂端瀏覽列中的 [Test] \(測試\)。 如果批次結果仍處於開放狀態，請選取 [返回清單]。  
+1. 選取頂端導覽列中的 [Test] \(測試\)。 如果批次結果仍處於開放狀態，請選取 [返回清單]。  
 
 2. 選取批次名稱右邊的省略符號 (***...***) 按鈕，然後選取 [執行資料集]。 等候批次測試完成。 請注意，[查看結果] 按鈕現在是綠色。 這表示整個批次已成功執行。
 
@@ -162,6 +162,7 @@ ms.locfileid: "39237803"
     ![已醒目提示批次結果按鈕的 LUIS 螢幕擷取畫面](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)
 
 ## <a name="create-batch-file-with-entities"></a>建立含有實體的批次檔 
+
 為了在批次測試中確認實體，必須在批次 JSON 檔案中標示實體。 僅使用機器學習的實體：簡單、階層式 (僅限父代) 及複合實體。 不要新增非機器學習的實體，因為一律可透過規則運算式或明確的文字相符項目找到它們。
 
 適用於文字 ([語彙基元](luis-glossary.md#token)) 總計數的實體變化可能會影響預測品質。 若已將定型資料提供給含有已標示語句的意圖，請確定這類資料包括各種實體長度。 
@@ -177,10 +178,10 @@ ms.locfileid: "39237803"
 
    [!code-json[Add the intents and entities to the batch test file](~/samples-luis/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json "Add the intents and entities to the batch test file")]
 
-<!--TBD: when will the patterns fix be in for batch testing? -->
+
 ## <a name="run-the-batch-with-entities"></a>使用實體執行批次
 
-1. 選取頂端瀏覽列中的 [Test] \(測試\)。 
+1. 選取頂端導覽列中的 [Test] \(測試\)。 
 
 2. 選取右側面板中的 [Batch testing panel] \(批次測試面板\) 
 
@@ -192,11 +193,10 @@ ms.locfileid: "39237803"
 
 6. 選取 [執行] 按鈕。 等候測試完成。
 
-    [ ![已醒目提示 [執行] 的 LUIS 應用程式螢幕擷取畫面](./media/luis-tutorial-batch-testing/hr-run-button.png)](./media/luis-tutorial-batch-testing/hr-run-button.png#lightbox)
-
 7. 選取 [See results] \(查看結果\)。
 
 ## <a name="review-entity-batch-results"></a>檢閱實體批次結果
+
 圖表隨即開啟，並顯示已正確預測的所有意圖。 在右側篩選條件中向下捲動，以尋找發生錯誤的實體預測。 
 
 1. 在篩選條件中選取 [作業] 實體。
@@ -207,11 +207,12 @@ ms.locfileid: "39237803"
 
 2. 在圖表的左下象限中，選取 [誤判]。 然後，使用鍵盤組合 Ctrl + E 鍵來切換至語彙基元檢視。 
 
-    [ ![實體預測的語彙基元檢視](./media/luis-tutorial-batch-testing/token-view-entities.png)](./media/luis-tutorial-batch-testing/token-view-entities.png#lightbox)
+    [![實體預測的語彙基元檢視](./media/luis-tutorial-batch-testing/token-view-entities.png)](./media/luis-tutorial-batch-testing/token-view-entities.png#lightbox)
     
     檢閱圖表下方的語句，會在 Job 名稱包含 `SQL` 時顯示一致的錯誤。 檢閱範例語句和 Job 片語清單時，只會使用 SQL 一次，而且只會作為較長作業名稱 `sql/oracle database administrator` 的一部分。
 
 ## <a name="fix-the-app-based-on-entity-batch-results"></a>根據實體批次結果修正應用程式
+
 修正應用程式，需要 LUIS 正確判斷 SQL 作業的變化。 您有數個適用於該修正的選項。 
 
 * 明確地新增更多範例語句，它會使用 SQL 並將那些文字標示為 Job 實體。 
@@ -222,11 +223,12 @@ ms.locfileid: "39237803"
 在正確預測實體之前新增[模式](luis-concept-patterns.md)，將不會修正此問題。 這是因為在偵測到模式中的所有實體之前，模式將不會比對。 
 
 ## <a name="what-has-this-tutorial-accomplished"></a>本教學課程有何成果？
+
 應用程式預測的精確度會因為在批次中尋找錯誤並更正模型而提高。 
 
 ## <a name="clean-up-resources"></a>清除資源
-當不再需要 LUIS 應用程式時，請將其刪除。 選取左上方功能表中的 [我的應用程式]。 選取應用程式清單中應用程式名稱右邊的省略符號 **...**，然後選取 [刪除]。 在 [Delete app?] \(刪除應用程式?\) 快顯對話方塊上，選取 [Ok] \(確定\)。
 
+當不再需要 LUIS 應用程式時，請將其刪除。 選取左上方功能表中的 [我的應用程式]。 選取應用程式清單中應用程式名稱右邊的省略符號 **...**，然後選取 [刪除]。 在 [Delete app?] \(刪除應用程式?\) 快顯對話方塊上，選取 [Ok] \(確定\)。
 
 ## <a name="next-steps"></a>後續步驟
 

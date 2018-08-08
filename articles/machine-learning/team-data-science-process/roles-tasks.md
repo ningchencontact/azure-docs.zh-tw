@@ -5,6 +5,7 @@ documentationcenter: ''
 author: deguhath
 manager: cgronlun
 editor: cgronlun
+services: machine-learning
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
@@ -14,22 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 275c1d1dad9030da776900c4e2b97152c8d2d581
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 8cec2c2b72b88a27c4a6c15b197e859b879bef43
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839127"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308519"
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Team Data Science Process 角色和工作
 
 Team Data Science Process 是一種由 Microsof 開發的架構，可提供結構化方法來有效建立預測分析解決方案和智慧型應用程式。 本文概述重要人員角色，以及對此程序進行標準化之資料科學小組所處理的相關工作。 
 
-本簡介會連結至教學課程，其中提供如何針對整個資料科學團隊、資料科學小組和專案設定 TDSP 環境的相關指示。 我們在教學課程中提供詳細的指引，說明如何使用 Visual Studio Team Services (VSTS) 作為程式碼託管平台和敏捷式規劃工具來管理小組工作、控制存取權，以及管理存放庫。 
+本簡介會連結至教學課程，其中提供如何針對整個資料科學團隊、資料科學小組和專案設定 TDSP 環境的相關指示。 提供在教學課程中使用 Visual Studio Team Services (VSTS) 的詳細指引。  VSTS 提供程式碼託管平台和敏捷式規劃工具，以便您管理小組工作、控制存取權及管理存放庫。 
 
-您也可以使用此資訊在自己的程式碼託管和敏捷式規劃工具上實作 TDSP。 
+您可以使用此資訊在自己的程式碼託管和敏捷式規劃工具上實作 TDSP。 
 
 ## <a name="structures-of-data-science-groups-and-teams"></a>資料科學團隊和小組的結構
+
 企業中的資料科學功能通常會組成下列階層：
 
 1. ***資料科學團隊***
@@ -39,7 +41,7 @@ Team Data Science Process 是一種由 Microsof 開發的架構，可提供結�
 在這種結構中，將會有團隊和小組負責人。 一般而言，資料科學專案是由資料科學小組進行，小組成員可能包含專案負責人 (負責專案管理和控管工作) 和資料科學家或工程師 (個別參與者 / 技術人員，將會執行專案的資料科學和資料工程部分)。 在執行之前，設定和控管是由團隊、小組或專案負責人進行。
 
 ## <a name="definition-of-four-tdsp-roles"></a>四個 TDSP 角色定義
-在上述假設下，我們已經為小組人員指定四個不同的角色：
+在上述假設下，小組人員有四個不同的角色：
 
 1. ***團隊管理員***。 團隊管理員是在企業中整個資料科學單位的管理員。 資料科學單位可能有多個小組，而每個小組負責不同商業垂直市場中的多個資料科學專案。 團隊管理員可能會將他們的工作委派給代理人，但是與角色相關的工作會改變。
 
@@ -50,7 +52,8 @@ Team Data Science Process 是一種由 Microsof 開發的架構，可提供結�
 4. ***專案個別參與者***。 資料科學家、商務分析師、資料工程師、架構師等。專案個別參與者可執行資料科學專案。 
 
 
-**[AZURE.NOTE]**：視企業結構而定，一個人可能扮演一個以上的角色，或可能有多個人扮演同一個角色。 這種情況常見於小型企業，或資料科學組織人員很少的企業。
+> [!NOTE]
+> 視企業結構而定，一個人可能扮演一個以上的角色，或可能有多個人扮演同一個角色。 這種情況常見於小型企業，或資料科學組織人員很少的企業。
 
 ## <a name="tasks-to-be-completed-by-four-personnel"></a>由上述四種人完成的工作
 
@@ -60,9 +63,10 @@ Team Data Science Process 是一種由 Microsof 開發的架構，可提供結�
 
 此結構描述以及指派給 TDSP 中每個角色之工作的下列詳細概述，可協助您根據您在組織中的職責選擇適當的教學課程。
 
->[AZURE.NOTE] 在下列指示中，我們說明如何設定 TDSP 環境以及在 Visual Studio Team Services (VSTS) 中完成其他資料科學工作的步驟。 我們會指定如何使用 VSTS 完成這些工作，因為我們將它用來在 Microsoft 實作 TDSP。 VSTS 藉由整合工作項目的管理以追蹤各項工作和程式碼託管服務 (其用於共用公用程式、組織版本及提供角色型安全性)，來達成共同作業。 您也可以視情況選擇其他平台來實作 TDSP 所述的工作。 但視您的平台而定，我們利用的某些 VSTS 功能可能無法使用。 
+> [!NOTE]
+> 下列指示會說明如何設定 TDSP 環境，以及在 Visual Studio Team Services (VSTS) 中完成其他資料科學工作的步驟。 我們會指定如何使用 VSTS 完成這些工作，因為我們將它用來在 Microsoft 實作 TDSP。 VSTS 藉由整合工作項目的管理以追蹤各項工作和程式碼託管服務 (其用於共用公用程式、組織版本及提供角色型安全性)，來達成共同作業。 您也可以視情況選擇其他平台來實作 TDSP 所述的工作。 但視您的平台而定，某些透過 VSTS 使用的功能可能無法使用。 
 >
->我們也會在 Azure 雲端使用[資料科學虛擬機器 (DSVM)](http://aka.ms/dsvm)作為分析桌面，該桌面已預先設定數個熱門的資料科學工具並與各種 Microsoft 軟體和 Azure 服務整合。 您可以使用 DSVM 或任何其他開發環境來實作 TDSP。 
+>這裡的指示也會使用 Azure 雲端上的[資料科學虛擬機器 (DSVM)](http://aka.ms/dsvm)作為分析桌面，該桌面已預先設定數個熱門的資料科學工具並與各種 Microsoft 軟體和 Azure 服務整合。 您可以使用 DSVM 或任何其他開發環境來實作 TDSP。 
 
 
 ## <a name="group-manager-tasks"></a>團隊管理員工作
@@ -70,8 +74,11 @@ Team Data Science Process 是一種由 Microsof 開發的架構，可提供結�
 團隊管理員 (或指定的 TDSP 系統管理員) 會完成下列工作以採用 TDSP：
 
 - 在程式碼託管平台 (如 Github、Git、VSTS 或其他平台) 上建立**團隊帳戶**。
-- 在團隊帳戶上建立**專案範本存放庫**，並從 Microsoft TDSP 小組所開發的專案範本存放庫植入該存放庫。 Microsoft 的 TDSP 專案範本存放庫會提供**標準化目錄結構** (其中包括資料、程式碼和文件的目錄)，並提供一組**標準化文件範本**來引導有效率的資料科學程序。 
-- 建立**公用程式存放庫**，並從 Microsoft TDSP 小組所開發的公用程式存放庫植入該存放庫。 Microsoft 的 TDSP 公用程式存放庫會提供一組實用的公用程式，讓資料科學家的工作更有效率，其中包括用於互動式資料探勘、分析和報告，以及基準模型化和報告的公用程式。
+- 在團隊帳戶上建立**專案範本存放庫**，並從 Microsoft TDSP 小組所開發的專案範本存放庫植入該存放庫。 Microsoft 的 TDSP 專案範本存放庫 
+    - 提供**標準化目錄結構**，包括資料、程式碼和文件的目錄。 
+    - 提供一組**標準化文件範本**，以引導有效率的資料科學程序。 
+- 建立**公用程式存放庫**，並從 Microsoft TDSP 小組所開發的公用程式存放庫植入該存放庫。 Microsoft 的 TDSP 公用程式存放庫會提供 
+    - 一組實用的公用程式，讓資料科學家的工作更有效率，其中包括用於互動式資料探勘、分析和報告，以及基準模型化和報告的公用程式。
 - 在團隊帳戶上設定這兩個存放庫的**安全性控制原則**。  
 
 如需詳細的逐步指示，請參閱[資料科學小組的團隊管理員工作](group-manager-tasks.md)。 
@@ -132,9 +139,13 @@ Team Data Science Process 是一種由 Microsof 開發的架構，可提供結�
 
 如需專案執行工作流程的詳細逐步指示，請參閱[執行資料科學專案](project-execution.md)。
 
+## <a name="project-structure"></a>專案結構
+
+使用此[專案範本存放庫](https://github.com/Azure/Azure-TDSP-ProjectTemplate)來支援有效率的專案執行和共同作業。 此存放庫提供可用於自有 TDSP 專案的標準化目錄結構和文件範本。
+
 ## <a name="next-steps"></a>後續步驟
 
-以下是 Team 資料科學程序定義之角色和工作更詳細描述的連結：
+深入探索 Team Data Science Process 定義的角色和工作描述：
 
 - [資料科學小組的群組管理員工作](group-manager-tasks.md)
 - [資料科學小組的小組負責人工作](team-lead-tasks.md)

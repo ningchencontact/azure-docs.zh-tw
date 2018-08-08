@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/16/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1cc58832d5f863f5bbfa6fc20d38b4be81ddad8f
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: cfb09718c545d55b31250070fed0c8adff9d3fed
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089956"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263941"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect：自動升級
 此功能已隨組建 [1.1.105.0 (於 2016 年 2 月發行)](active-directory-aadconnect-version-history.md#111050) 一起推出。  這項功能已在[組建 1.1.561](active-directory-aadconnect-version-history.md#115610) 中更新，且現在支援先前未支援的其他案例。
@@ -95,8 +95,8 @@ ms.locfileid: "39089956"
 | UpgradeNotSupportedInvalidPersistedState |安裝不是快速設定或 DirSync 升級。 |
 | UpgradeNotSupportedMetaverseSizeExceeeded |Metaverse 中的物件超過 100,000 個。 |
 | UpgradeNotSupportedMultiForestSetup |您正連接到多個樹系。 快速安裝只會連接到一個樹系。 |
-| UpgradeNotSupportedNonLocalDbInstall |您不是使用 SQL Server Express LocalDB 資料庫。 |
-| UpgradeNotSupportedNonMsolAccount |[AD 連接器帳戶](active-directory-aadconnect-accounts-permissions.md#active-directory-account)已不再是預設的 MSOL_ 帳戶。 |
+| UpgradeNotSupportedNonLocalDbInstall |您不是使用 SQL Server Express LocalDB 資料庫。 |d
+| UpgradeNotSupportedNonMsolAccount |[AD DS 連接器帳戶](active-directory-aadconnect-accounts-permissions.md#ad-ds-connector-account)已不再是預設的 MSOL_ 帳戶。 |
 | UpgradeNotSupportedNotConfiguredSignInMethod | 若要設定 AAD Connect，請在選取登入方法時，選擇 [不設定]。 | 
 | UpgradeNotSupportedPtaSignInMethod | 您已選取 [傳遞驗證] 作為登入方法。 |
 | UpgradeNotSupportedStagingModeEnabled |伺服器設定為 [預備模式](active-directory-aadconnectsync-operations.md#staging-mode)。 |

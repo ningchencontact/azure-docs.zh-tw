@@ -1,20 +1,21 @@
 ---
-title: 在 Azure Container Instances 中執行容器化工作
+title: 在 Azure Container Instances 中使用重新啟動原則執行容器化工作
 description: 了解如何使用 Azure Container Instances 來執行工作，該工作會執行到完成為止，例如建置、測試或映像轉譯作業。
 services: container-instances
 author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 07/26/2018
 ms.author: marsma
-ms.openlocfilehash: 3bbe3e891423b6ad62a1d1093daef304206f3d76
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: dd411ff38411c71cce2a8a63cc453c34e665a385
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39262730"
 ---
-# <a name="run-a-containerized-task-in-azure-container-instances"></a>在 Azure Container Instances 中執行容器化工作
+# <a name="run-containerized-tasks-with-restart-policies"></a>使用重新啟動原則執行容器化工作
 
 在 Azure Container Instances 中部署容器的簡易和快速，提供令人信服的平台，可以用來進行執行一次的工作，例如在容器執行個體中建置、測試和映像轉譯。
 

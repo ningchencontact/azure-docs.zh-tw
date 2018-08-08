@@ -5,6 +5,7 @@ documentationcenter: ''
 author: deguhath
 manager: cgronlun
 editor: cgronlun
+services: machine-learning
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
@@ -14,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: deguhath
-ms.openlocfilehash: aaa965c507faba344ca717a76b3fb3a0a01fa0ee
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 1ebd640191ffbb1b3ea70ca07081522b370e4e2d
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838563"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308182"
 ---
 # <a name="team-data-science-process-project-planning"></a>Team Data Science Process 專案規劃
 
@@ -55,9 +56,13 @@ Team Data Science Process (TDSP) 會提供建構資料科學專案開發的生�
 
 使用這些範本時請自行承擔風險。 適用[一般免責聲明](https://www.gnu.org/licenses/gpl-3.0.en.html)。
 
+## <a name="repository-template"></a>存放庫範本
+
+使用此[專案範本存放庫](https://github.com/Azure/Azure-TDSP-ProjectTemplate)來支援有效率的專案執行和共同作業。 此存放庫提供可用於自有 TDSP 專案的標準化目錄結構和文件範本。
+
 ## <a name="next-steps"></a>後續步驟
 
 [資料科學專案](agile-development.md) 本文件說明藉由使用 Team Data Science Process，在專案小組中以系統化、版本控制，以及共同作業的方式執行資料科學專案。
 
-也會提供逐步解說，說明**特定案例**之程序中的所有步驟。 [範例逐步解說](walkthroughs.md)主題中會列出這些逐步解說以及簡短說明的連結。 這些逐步解說說明如何將雲端、內部部署工具及服務組合成工作流程或管線，以建立智慧型應用程式。 
+也會提供逐步解說，說明**特定案例**之程序中的所有步驟。 [範例逐步解說](walkthroughs.md)文章中會列出這些逐步解說以及簡短說明的連結。 這些逐步解說說明如何將雲端、內部部署工具及服務組合成工作流程或管線，以建立智慧型應用程式。 
 

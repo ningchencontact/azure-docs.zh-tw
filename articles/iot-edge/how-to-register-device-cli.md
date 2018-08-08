@@ -4,17 +4,17 @@ description: 使用適用於 Azure CLI 2.0 的 IoT 擴充功能來註冊新的 I
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 05/30/2018
+ms.date: 07/27/2018
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a6935dfe5b32364e402017cd3005ab17969ce1ce
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 451f4df31cd1c520b14227829923f72fe80c38c3
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034511"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325491"
 ---
 # <a name="register-a-new-azure-iot-edge-device-with-azure-cli-20"></a>使用 Azure CLI 2.0 來註冊新的 Azure IoT Edge 裝置
 
@@ -24,11 +24,11 @@ ms.locfileid: "37034511"
 
 本文說明如何使用 Azure CLI 2.0 來註冊新的 IoT Edge 裝置。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶中的 [IoT 中樞](../iot-hub/iot-hub-create-using-cli.md)。 
 * 您環境中的 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。 您的 Azure CLI 2.0 版本至少必須是 2.0.24 或更新版本。 使用 `az –-version` 進行驗證。 這個版本支援 az 擴充命令並引進 Knack 命令架構。 
-* [適用於 Azure CLI 2.0 的 IoT 擴充功能](https://github.com/Azure/azure-iot-cli-extension)。
+* [Azure CLI 2.0 的 IoT 擴充功能](https://github.com/Azure/azure-iot-cli-extension)。
 
 ## <a name="create-a-device"></a>建立一個裝置
 
@@ -63,7 +63,7 @@ ms.locfileid: "37034511"
    az iot hub device-identity show-connection-string --device-id [device id] --hub-name [hub name] 
    ```
 
-device id 參數區分大小寫。 
+device id 參數區分大小寫。 請勿複製連接字串兩旁的引號。 
 
 ## <a name="next-steps"></a>後續步驟
 

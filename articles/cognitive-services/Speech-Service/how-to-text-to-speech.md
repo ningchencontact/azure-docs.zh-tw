@@ -1,27 +1,26 @@
 ---
-title: 透過語音服務使用文字轉換語音 | Microsoft Docs
+title: 透過語音服務使用文字轉換語音
 description: 了解如何使用語音服務中的文字轉換語音。
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 84b577cd00d333717a7a5ad1f66182605429f9f1
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 21157af9ad6361234ffa9b927da64baab505f624
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213328"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39281509"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>使用語音服務中的文字轉換語音
 
 語音服務可透過簡單的 HTTP 要求提供文字轉換語音功能。 您可以將要說出的文字張貼 (POST) 到適當的端點，服務就會傳回包含合成語音的音訊檔案 (`.wav`)。 接著，您的應用程式可以視需要使用此音訊。
 
-文字轉換語音的 POST 要求本文可以是純文字 (ASCII 或 UTF8) 或 [SSML](speech-synthesis-markup.md) 文件。 系統會使用預設語音說出純文字要求。 在大部分情況下，您想要使用 SSML 本文。 HTTP 要求必須包含[授權](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#authentication)權杖。 
+文字轉換語音的 POST 要求本文可以是純文字 (ASCII 或 UTF8) 或 [SSML](speech-synthesis-markup.md) 文件。 系統會使用預設語音說出純文字要求。 在大部分情況下，您想要使用 SSML 本文。 HTTP 要求必須包含[授權](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#authentication)權杖。 
 
 以下會顯示區域性文字轉換語音端點。 請使用適合您訂用帳戶的端點。
 
@@ -45,7 +44,7 @@ ms.locfileid: "39213328"
 
 以 POST 模式發出文字轉換語音的 HTTP 要求，該要求的本文中包含要說出的文字。 HTTP 要求本文的長度上限是 1024 個字元。 要求必須具有下列標頭： 
 
-標頭|值|註解
+頁首|值|註解
 -|-|-
 |`Content-Type` | `application/ssml+xml` | 輸入文字格式。
 |`X-Microsoft-OutputFormat`|     `raw-16khz-16bit-mono-pcm`<br>`audio-16khz-16kbps-mono-siren`<br>`riff-16khz-16kbps-mono-siren`<br>`riff-16khz-16bit-mono-pcm`<br>`audio-16khz-128kbitrate-mono-mp3`<br>`audio-16khz-64kbitrate-mono-mp3`<br>`audio-16khz-32kbitrate-mono-mp3`<br>`raw-24khz-16bit-mono-pcm`<br>`riff-24khz-16bit-mono-pcm`<br>`audio-24khz-160kbitrate-mono-mp3`<br>`audio-24khz-96kbitrate-mono-mp3`<br>`audio-24khz-48kbitrate-mono-mp3` | 輸出音訊格式。
@@ -97,5 +96,5 @@ Response audio payload
 
 - [試用認知服務](https://azure.microsoft.com/try/cognitive-services/)
 - [以 C++ 辨識語音](quickstart-cpp-windows.md)
-- [以 C++ 辨識語音](quickstart-csharp-dotnet-windows.md)
+- [以 C# 辨識語音](quickstart-csharp-dotnet-windows.md)
 - [以 Java 辨識語音](quickstart-java-android.md)

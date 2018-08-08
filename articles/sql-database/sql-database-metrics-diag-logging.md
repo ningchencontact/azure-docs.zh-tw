@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: c7a5031fab10f44809f9533e43c3596d46dc77e3
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: c0c2e1748518b794916f1950c288ed1f4df628aa
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346020"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39309056"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 計量和診斷記錄 
 Azure SQL Database 可以發出計量和診斷記錄，以便進行監視。 您可以將 SQL Database 設定為將資源使用量、背景工作與工作階段及連線儲存到下列其中一項 Azure 資源：
@@ -267,6 +267,8 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |彈性集區|eDTU 百分比、使用的 eDTU、eDTU 限制、CPU 百分比、實體資料讀取百分比、記錄寫入百分比、工作階段百分比、背景工作百分比、儲存體、儲存體百分比、儲存體限制、XTP 儲存體百分比 |
 |||
 
+### <a name="logs"></a>記錄檔
+
 ### <a name="query-store-runtime-statistics"></a>查詢存放區執行階段統計資料
 
 |屬性|說明|
@@ -460,6 +462,57 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |resource_owner_type_s|鎖定擁有者。|
 |blocked_process_filtered_s|已封鎖的處理序報告 XML。|
 |duration_d|鎖定的持續時間 (微秒)。|
+
+### <a name="deadlocks-dataset"></a>死結 (Deadlock) 資料集
+
+|屬性|說明|
+|---|---|
+|TenantId|您的租用戶識別碼。|
+|SourceSystem|一律：Azure|
+|TimeGenerated [UTC] |記錄檔記錄時的時間戳記。|
+|類型|一律：AzureDiagnostics|
+|ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL|
+|類別|類別名稱。 一律：Deadlocks|
+|OperationName|作業名稱。 一律：DeadlockEvent|
+|資源|資源名稱。|
+|ResourceType|資源類型名稱。 一律：SERVERS/DATABASES|
+|SubscriptionId|資料庫所屬的訂用帳戶 GUID。|
+|ResourceGroup|資料庫所屬的資源群組名稱。|
+|LogicalServerName_s|資料庫所屬的伺服器名稱。|
+|ElasticPoolName_s|資料庫所屬的彈性集區名稱 (如果有的話)。|
+|DatabaseName_s|資料庫名稱。 |
+|ResourceId|資源 URI。|
+|deadlock_xml_s|死結報表 XML。|
+
+### <a name="automatic-tuning-dataset"></a>自動調整資料集
+
+|屬性|說明|
+|---|---|
+|TenantId|您的租用戶識別碼。|
+|SourceSystem|一律：Azure|
+|TimeGenerated [UTC]|記錄檔記錄時的時間戳記。|
+|類型|一律：AzureDiagnostics|
+|ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL|
+|類別|類別名稱。 一律：AutomaticTuning|
+|資源|資源名稱。|
+|ResourceType|資源類型名稱。 一律：SERVERS/DATABASES|
+|SubscriptionId|資料庫所屬的訂用帳戶 GUID。|
+|ResourceGroup|資料庫所屬的資源群組名稱。|
+|LogicalServerName_s|資料庫所屬的伺服器名稱。|
+|LogicalDatabaseName_s|資料庫名稱。|
+|ElasticPoolName_s|資料庫所屬的彈性集區名稱 (如果有的話)。|
+|DatabaseName_s|資料庫名稱。|
+|ResourceId|資源 URI。|
+|RecommendationHash_s|自動調整建議的唯一雜湊。|
+|OptionName_s|自動調整作業。|
+|Schema_s|資料庫結構描述。|
+|Table_s|受影響的資料表。|
+|IndexName_s|索引名稱。|
+|IndexColumns_s|資料行名稱。|
+|IncludedColumns_s|包含的資料行。|
+|EstimatedImpact_s|自動調整建議 JSON 的預估影響。|
+|Event_s|自動調整事件的類型。|
+|Timestamp_t|上一次更新的時間戳記。|
 
 ### <a name="intelligent-insights-dataset"></a>Intelligent Insights 資料集
 深入了解 [Intelligent Insights 記錄格式](sql-database-intelligent-insights-use-diagnostics-log.md)。

@@ -1,21 +1,20 @@
 ---
-title: 認知服務語音 SDK 文件 | Microsoft Docs
+title: 認知服務語音 SDK 文件
 description: 版本資訊 - 最近版本中的變更
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: wolfma61
-manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 07/17/2018
 ms.author: wolfma
-ms.openlocfilehash: 50a8c183bd7f2711847ce6d0acade4cb498ef2fc
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: a28df7faaf98e5cba8ad4afe7aa1a829195d7828
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116090"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39281485"
 ---
 # <a name="release-notes"></a>版本資訊
 

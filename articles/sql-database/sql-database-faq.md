@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/27/2018
 ms.author: carlrab
-ms.openlocfilehash: 2e4f2bf4303d2a6f52f6dac7e8d71eca24800f53
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 6c43a52309a6f41d73ead19fc5f5b7df2f06d6f6
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092064"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308808"
 ---
 # <a name="sql-database-faq"></a>SQL Database 常見問題集
 
@@ -90,7 +90,7 @@ SQL Database 客戶將會有下列與適用於 SQL Server 的 Azure Hybrid Benef
 您可以為備份保留設定 7 到 35 天的 PITR。 如果實際儲存體用量超過等同於資料大小上限的儲存體數量時，將會根據該實際用量收取備份儲存體的費用。 在預覽期間，預設的 PITR 保留期限設為 7 天。 在多數情況下，資料大小上限皆足以儲存 7 天的備份。
 
 ## <a name="why-do-you-allow-selection-of-the-hardware-generation-for-compute"></a>用於計算的硬體世代為何可供選取？
-我們的目標是要提供最大的彈性，讓您能夠選擇最符合應用程式需求的效能組態。 上表顯示 Gen4 和 Gen5 之間的差異。 特別是，Gen4 硬體提供的每一 vCore 記憶體會高出許多。 不過，Gen5 硬體可讓您大幅相應增加計算資源。 我們想要清楚顯示這些差異，以協助您讓應用程式達到最理想的性價比。
+我們的目標是要提供最大的彈性，讓您能夠選擇最符合應用程式需求的效能組態。 在 Gen4 硬體中，每個虛擬核心的記憶體會高出許多。 不過，Gen5 硬體可讓您大幅相應增加計算資源。 如需詳細資訊，請參閱[虛擬核心購買模型](sql-database-service-tiers-vcore.md)
 
 ## <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>是否需要先讓應用程式離線，才能從以 DTU 為基礎的資料庫轉換為以 vCore 為基礎的服務層？ 
 新的服務層提供簡單的線上轉換方法，類似現在將資料庫從標準版升級為進階版服務層的程序，反之亦然。 這項轉換可使用 Azure 入口網站、PowerShell、Azure CLI、T-SQL 或 REST API 來起始。 請參閱[管理單一資料庫](sql-database-single-database-scale.md)和[管理彈性集區](sql-database-elastic-pool.md)。

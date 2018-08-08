@@ -1,23 +1,24 @@
 ---
-title: 快速入門：使用認知服務語音 SDK 在 Android 上以 Java 辨識語音 | Microsoft Docs
+title: 快速入門：使用認知服務語音 SDK 在 Android 上以 Java 辨識語音
 titleSuffix: Microsoft Cognitive Services
 description: 了解如何使用認知服務語音 SDK 在 Android 上以 Java 辨識語音
 services: cognitive-services
 author: fmegen
-manager: wolfma
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: fmegen
-ms.openlocfilehash: fb52bc3fa398cbe5ba4cbea7c1908ee1fece876e
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: ad1bf15f198529487dbed92d8f8639704b0c5fc7
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114697"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325120"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 Android 上以 Java 辨識語音
+
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 在本文中，您將了解如何使用認知服務語音 SDK 將語音轉譯成文字，建立適用於 Android 的 Java 應用程式。
 應用程式以 Microsoft 認知服務語音 SDK Maven 套件 0.5.0 版和 Android Studio 3.1 為基礎。
@@ -25,7 +26,7 @@ ms.locfileid: "39114697"
 > [!NOTE]
 > 針對語音裝置 SDK 和 Roobo 裝置，請瀏覽[語音裝置 SDK](speech-devices-sdk.md) 頁面。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 語音服務適用的訂用帳戶金鑰。 請參閱[免費試用語音服務](get-started.md)。
 * 能夠執行 Android Studio 的電腦 (Windows、Linux、Mac)。
@@ -132,7 +133,7 @@ UI 的文字和圖形化版本現在看起來應該像下面這樣：
 
 1. 將字串 `YourSubscriptionKey` 取代為您的訂用帳戶金鑰。
 
-1. 將字串 `YourServiceRegion` 取代為與您的訂用帳戶 (例如，免費試用訂用帳戶的 `westus`) 相關聯的[區域](regions.md)。
+1. 以與您的訂用帳戶 (例如，免費試用訂用帳戶的 `westus`) 相關聯的[區域](regions.md)取代 `YourServiceRegion` 字串。
 
 ## <a name="build-and-run-the-sample"></a>建置並執行範例
 
@@ -158,4 +159,4 @@ UI 的文字和圖形化版本現在看起來應該像下面這樣：
 
 ## <a name="next-steps"></a>後續步驟
 
-* 瀏覽[範例頁面](samples.md)以取得其他範例。
+* [取得我們的範例](speech-sdk.md#get-the-samples)

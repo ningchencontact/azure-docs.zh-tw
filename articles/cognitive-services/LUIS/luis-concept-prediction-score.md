@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: cee7243531857f07dec2e968352ffb54aef16bf1
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 7412459fca179e7a13d6933f27c2c9ac2d770f33
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224581"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358098"
 ---
 # <a name="prediction-score"></a>預測分數
 預測分數表示 LUIS 對預測結果的信賴程度。 
@@ -36,6 +36,8 @@ ms.locfileid: "39224581"
 每個語句預測都會傳回一個最高分的意圖。 這是預測分數的數值比較。 最高的兩個分數之間可能差異很小。 LUIS 並不會指出此微小差異，而只會傳回分數。  
 
 如果您在意最高分數的微小差異，則應該傳回所有意圖的分數。 您可以將以單字選擇和排列來表示其差異的語句新增至該兩個意圖，或是讓 LUIS 呼叫應用程式 (例如 Chatbot) 透過程式設計方式選擇如何處理這兩個最高分意圖。 
+
+兩個分數過於接近的意圖可能會因為非決定性訓練而反轉。 第一高分可能會變成第二高分，而第二高分可能會變成第一高分。 若要避免此問題，可一一對該語句的兩個高分意圖新增範例語句，而其中需具有可區分這兩個意圖的文字選擇和內容。 兩個意圖應具有相同數目的範例語句。 若要避免因為訓練而發生反轉，區隔語句的經驗法則是分數上要有 15% 的差異。
 
 ## <a name="return-prediction-score-for-all-intents"></a>傳回所有意圖的預測分數
 測試或端點結果可以包含所有意圖。 若要進行此設定，請在[端點](https://aka.ms/v1-endpoint-api-docs)上以 `verbose=true` 查詢字串名稱/值組來設定。 

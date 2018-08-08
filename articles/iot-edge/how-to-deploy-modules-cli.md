@@ -4,17 +4,17 @@ description: 使用 Azure CLI 2.0 的 IoT 擴充功能將模組部署至 IoT Edg
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/08/2018
+ms.date: 07/27/2018
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 98a4be02188f7e0462979792a6061d535a64a18d
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 29c11139a2c773db2d26bf44984ad4dc72f2d870
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37095967"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324600"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli-20"></a>使用 Azure CLI 2.0 部署 Azure IoT Edge 模組
 
@@ -24,7 +24,7 @@ ms.locfileid: "37095967"
 
 本文說明如何建立 JSON 部署資訊清單，然後使用該檔案將部署發送到 IoT Edge 裝置。 如需根據裝置共用標籤，建立目標為多個裝置的部署資訊，請參閱[大規模部署和監視 IoT Edge 模組](how-to-deploy-monitor-cli.md) (英文)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶中的 [IoT 中樞](../iot-hub/iot-hub-create-using-cli.md)。 
 * 已安裝 IoT Edge 執行階段的 [IoT Edge 裝置](how-to-register-device-cli.md)。
@@ -35,13 +35,13 @@ ms.locfileid: "37095967"
 
 部署資訊清單為 JSON 文件，說明應部署的模組、資料如何在模組之間流動，以及想要的模組對應項需要的屬性。 如需部署資訊清單的功能，以及如何建立此類清單的詳細資訊，請參閱[了解如何使用、設定以及重複使用 IoT Edge 模組](module-composition.md) (英文)。
 
-若要使用 Azure CLI 2.0 部署模組，請在本機上將部署資訊清單儲存成 .txt 檔案。 若要執行命令以將設定套用至裝置，您會使用到下一節中的檔案路徑。 
+若要使用 Azure CLI 2.0 部署模組，請在本機上將部署資訊清單儲存成 .json 檔案。 若要執行命令以將設定套用至裝置，您會使用到下一節中的檔案路徑。 
 
 下面以具有一個模組的基本部署資訊清單為例：
 
    ```json
    {
-     "moduleContent": {
+     "modulesContent": {
        "$edgeAgent": {
          "properties.desired": {
            "schemaVersion": "1.0",
@@ -50,13 +50,8 @@ ms.locfileid: "37095967"
              "settings": {
                "minDockerVersion": "v1.25",
                "loggingOptions": "",
-               "registryCredentials": {
-                 "registryName": {
-                   "username": "",
-                   "password": "",
-                   "address": ""
-                 }
-               }
+               "registryCredentials": {}
+             }
            },
            "systemModules": {
              "edgeAgent": {
@@ -112,6 +107,8 @@ ms.locfileid: "37095967"
 
 您可以透過套用您運用模組資訊設定的部署資訊清單，將模組部署到裝置上。 
 
+將目錄變更為儲存您部署資訊清單的資料夾。 如果您使用其中一個 VS Code IoT Edge 範本，請使用 `deployment.json` 檔案，此檔案位在解決方案目錄的 **config** 資料夾中。 請勿使用 `deployment.template.json` 檔案。 
+
 使用下列命令，將組態套用至 IoT Edge 裝置：
 
    ```cli
@@ -119,6 +116,8 @@ ms.locfileid: "37095967"
    ```
 
 device id 參數區分大小寫。 內容參數會指向您已儲存的部署資訊清單檔案。 
+
+   ![設定模組](./media/how-to-deploy-cli/set-modules.png)
 
 ## <a name="view-modules-on-your-device"></a>在裝置上檢視模組
 

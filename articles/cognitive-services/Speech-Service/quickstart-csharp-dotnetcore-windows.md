@@ -1,23 +1,24 @@
 ---
-title: 快速入門：使用認知服務語音 SDK 在 Windows 上根據 .NET Core 以 C# 辨識語音 | Microsoft Docs
+title: 快速入門：使用認知服務語音 SDK 在 Windows 上根據 .NET Core 以 C# 辨識語音
 titleSuffix: Microsoft Cognitive Services
 description: 了解如何使用認知服務語音 SDK 在 Windows 上根據 .NET Core 以 C# 辨識語音
 services: cognitive-services
 author: wolfma61
-manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 50cf1bbbe529b30da6bfe39281d11eee1c788dd8
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 7790920b6553ba0e2738d693710bfc3a1d3b4f89
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259155"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325096"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-core-on-windows-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 Windows 上根據 .NET Core 以 C# 辨識語音
+
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 在本文中，您將學習到如何透過使用認知服務語音 SDK 將語音轉譯成文字，在 Windows 上的 .NET Core 建立 C# 主控台應用程式。
 應用程式是利用 [Microsoft 認知服務 SDK NuGet 套件](https://aka.ms/csspeech/nuget)與 Microsoft Visual Studio 2017 所建置的。
@@ -40,13 +41,13 @@ ms.locfileid: "39259155"
 
     ![建立 Visual C# 主控台應用程式 (.NET Core)](media/sdk/qs-csharp-dotnetcore-windows-01-new-console-app.png "建立 Visual C# 主控台應用程式 (.NET Core)")
 
-1. 安裝並參考 [Speech SDK NuGet 套件](https://aka.ms/csspeech/nuget)。 在 [方案總管] 中，以滑鼠右鍵按一下解決方案，然後選取 [管理解決方案的 NuGet 套件]。
+1. 安裝並參考 [Speech SDK NuGet 封裝](https://aka.ms/csspeech/nuget)。 在 [方案總管] 中，以滑鼠右鍵按一下解決方案，然後選取 [管理解決方案的 NuGet 套件]。
 
-    ![以滑鼠右鍵按一下解決方案的管理 NuGet 套件](media/sdk/qs-csharp-dotnetcore-windows-02-manage-nuget-packages.png "管理解決方案的 NuGet 套件")
+    ![以滑鼠右鍵按一下解決方案的管理 NuGet 封裝](media/sdk/qs-csharp-dotnetcore-windows-02-manage-nuget-packages.png "管理解決方案的 NuGet 封裝")
 
 1. 在右上角的 [套件來源] 欄位中，選取 [Nuget.org]。搜尋並安裝 `Microsoft.CognitiveServices.Speech` 套件，然後將它安裝到 **helloworld** 專案。
 
-    ![安裝 Microsoft.CognitiveServices.Speech NuGet 套件](media/sdk/qs-csharp-dotnetcore-windows-03-nuget-install-0.5.0.png "安裝 Nuget 套件")
+    ![安裝 Microsoft.CognitiveServices.Speech NuGet 封裝](media/sdk/qs-csharp-dotnetcore-windows-03-nuget-install-0.5.0.png "安裝 Nuget 封裝")
 
 1. 在出現的對話方塊中接受授權。
 
@@ -83,6 +84,6 @@ ms.locfileid: "39259155"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [轉譯語音](how-to-translate-speech.md)
+- [轉譯語音](how-to-translate-speech-csharp.md)
 - [自訂原音模型](how-to-customize-acoustic-models.md)
 - [自訂語言模型](how-to-customize-language-model.md)

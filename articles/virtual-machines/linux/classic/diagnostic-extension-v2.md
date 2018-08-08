@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
-ms.openlocfilehash: f1415e2cfbe48b287db5851bb8ebef1ff9251280
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 13d7594c15959661f3f9c3ab2165739719beac07
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "32193019"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308216"
 ---
 # <a name="use-the-linux-diagnostic-extension-to-monitor-the-performance-and-diagnostic-data-of-a-linux-vm"></a>使用 Linux 診斷擴充功能監視 Linux VM 的效能和診斷資料
 
@@ -60,7 +60,7 @@ Linux 診斷延伸模組可協助使用者監視在 Microsoft Azure 上執行的
 
 請注意，此處描述的設定方法無法用於 Azure 入口網站。 若要直接從 Azure 入口網站檢視和設定系統及效能資料，就必須透過 Azure 入口網站啟用此延伸模組。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * **Azure Linux Agent 2.0.6 版或更新版本**。
 
@@ -89,7 +89,7 @@ Linux 診斷延伸模組可協助使用者監視在 Microsoft Azure 上執行的
         "storageAccountKey" : "the key of the account"
     }
 
-步驟 2. 執行 *azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2。 --private-config-path PrivateConfig.json**。
+步驟 2. 執行 **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.\* --private-config-path PrivateConfig.json**。
 
 ### <a name="scenario-2-customize-the-performance-monitor-metrics"></a>案例 2. 自訂效能監視器計量
 

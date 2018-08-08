@@ -1,5 +1,5 @@
 ---
-title: 使用 Apache Flink 搭配適用於 Kafka 生態系統的 Azure 事件中樞 | Microsoft Docs
+title: 使用 Apache Flink 搭配適用於 Apache Kafka 的 Azure 事件中樞 | Microsoft Docs
 description: 將 Apache Flink 連線到已啟用 Kafka 的事件中樞
 services: event-hubs
 documentationcenter: ''
@@ -10,20 +10,20 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 06/06/2018
 ms.author: bahariri
-ms.openlocfilehash: cb7ef0e9b6a612e3f4116cb626903770e4035368
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: ce1665c3cfd58d0d5aa8e253b5db317505b1959e
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35302328"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284572"
 ---
-# <a name="apache-flink-with-event-hubs-for-the-kafka-ecosystem"></a>Apache Flink 搭配適用於 Kafka 生態系統的事件中樞
+# <a name="use-apache-flink-with-azure-event-hubs-for-apache-kafka"></a>使用 Apache Flink 搭配適用於 Apache Kafka 的 Azure 事件中樞
 
 使用 Apache Kafka 的其中一項優點，便是能夠連線之架構的生態系統。 已啟用 Kafka 的事件中樞結合了 Kafka 的彈性與 Azure 生態系統的延展性、一致性和支援度。
 
-本教學課程說明如何將 Apache Flink 連線至已啟用 Kafka 的事件中樞，而不需要變更通訊協定用戶端或執行您自己的叢集。 適用於 Kafka 生態系統的 Azure 事件中樞支援 [Apache Kafka 1.0 版](https://kafka.apache.org/10/documentation.html)。
+本教學課程說明如何將 Apache Flink 連線至已啟用 Kafka 的事件中樞，而不需要變更通訊協定用戶端或執行您自己的叢集。 Azure 事件中樞支援 [Apache Kafka 1.0 版](https://kafka.apache.org/10/documentation.html)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，請確定您具有下列必要條件：
 
@@ -116,6 +116,6 @@ mvn exec:java -Dexec.mainClass="FlinkTestConsumer"
 ## <a name="next-steps"></a>後續步驟
 
 * [了解事件中樞](event-hubs-what-is-event-hubs.md)
-* [了解適用於 Kafka 生態系統的事件中樞](event-hubs-for-kafka-ecosystem-overview.md)
+* [了解適用於 Kafka 的事件中樞](event-hubs-for-kafka-ecosystem-overview.md)
 * 使用 [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330)，[將事件從 Kafka 內部部署串流至雲端上已啟用 Kafka 的事件中樞](event-hubs-kafka-mirror-maker-tutorial.md)。
 * 了解如何使用[原生的 Kafka 應用程式](event-hubs-quickstart-kafka-enabled-event-hubs.md)或 [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md) 串流至已啟用 Kafka 的事件中樞。

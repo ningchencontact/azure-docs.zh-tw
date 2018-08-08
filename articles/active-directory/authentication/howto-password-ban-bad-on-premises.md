@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/25/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 9c0519181ec03394e7d732a8eb608501d6dd6657
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 5928896ab3c89972b7912f686be045afc988b1cd
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161825"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308870"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>預覽：部署 Azure AD 密碼保護
 
@@ -56,7 +56,7 @@ Azure AD 密碼保護有兩個可從 [Microsoft 下載](https://www.microsoft.co
 
 1. 選擇一或多個要裝載 Azure AD 密碼保護 Proxy 服務的伺服器。
    * 每個這類服務只能為一個樹系提供密碼原則，而且主機電腦必須已加入該樹系中某個網域 (同時支援根網域和子網域) 的網域。 為了讓 Azure AD 密碼保護 Proxy 服務完成其任務，樹系的每個網域中必須至少有一個 DC 與 Azure AD 密碼保護 Proxy 主機電腦之間有網路連線。
-   * 支援在網域控制站上安裝並執行 Azure AD 密碼保護 Proxy 服務來進行測試，但必須要有網際網路連線能力。
+   * 支援在網域控制站上安裝並執行 Azure AD 密碼保護 Proxy 服務來進行測試，但網域控制站必須要有網際網路連線能力。
 
    > [!NOTE]
    > 公開預覽版支援每一樹系最多 2 個 Proxy 伺服器。
@@ -110,6 +110,9 @@ Azure AD 密碼保護有兩個可從 [Microsoft 下載](https://www.microsoft.co
 
    > [!NOTE]
    > Active Directory 樹系的註冊步驟在樹系的生命週期中應該只需執行一次。 之後，在樹系中執行的網域控制站代理程式就會自動執行所有其他必要的維護。 所指定樹系的註冊成功之後，額外的 `Register-AzureADPasswordProtectionForest` 引動過程也會跟著執行成功，但並非必要。
+
+   > [!NOTE]
+   > 為了讓 `Register-AzureADPasswordProtectionForest` 可成功執行，Proxy 伺服器的網域中至少要有一個 Windows Server 2012 或更新版本的網域控制站可用。 不過，在此步驟之前，不需要在任何網域控制站上安裝 DC 代理程式軟體。
 
 6. 選擇性：將 Azure AD 密碼保護 Proxy 服務設定成在特定連接埠上進行接聽。
    * 網域控制站上的 Azure AD 密碼保護 DC 代理程式軟體會使用「透過 TCP 的 RPC」與 Azure AD 密碼保護 Proxy 服務進行通訊。 Azure AD 密碼保護密碼原則 Proxy 服務預設會在任何可用的動態 RPC 端點上進行接聽。 因網路拓撲或防火牆需求而有必要時，可以改為將服務設定為在特定的 TCP 連接埠上進行接聽。

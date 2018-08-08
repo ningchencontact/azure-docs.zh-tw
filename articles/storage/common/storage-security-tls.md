@@ -14,22 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 06/25/2018
 ms.author: fryu
-ms.openlocfilehash: 6c313b6015a8a6dcc4ca5befb5fef70b047d0410
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 232af6ec08152d18db86a7b6373da0d281a74a91
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866520"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39262512"
 ---
 # <a name="enable-secure-tls-for-azure-storage-client"></a>為 Azure 儲存體用戶端啟用安全的 TLS
 
-當您需要根據最新的相容性和安全性需求稽核使用 Azure 儲存體的服務時，SSL 1.0、2.0、3.0 和 TLS 1.0 會被視為不相容的通訊協定。
-
-目前已確認 SSL 1.0、2.0 和 3.0 易遭受攻擊。 RFC 已加以禁用。 TLS 1.0 因使用不安全的區塊編碼器 (DES CBC 和 RC2 CBC) 和資料流編碼器 (RC4) 而缺乏安全性。 PCI 委員會也建議移轉至更高的 TLS 版本。 如需詳細資訊，請參閱[傳輸層安全性 (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0)。
+傳輸層安全性 (TLS) 和安全通訊端層 (SSL) 是密碼編譯通訊協定，可透過電腦網路提供通訊安全性。 目前已確認 SSL 1.0、2.0 和 3.0 易遭受攻擊。 RFC 已加以禁用。 TLS 1.0 因使用不安全的區塊編碼器 (DES CBC 和 RC2 CBC) 和資料流編碼器 (RC4) 而缺乏安全性。 PCI 委員會也建議移轉至更高的 TLS 版本。 如需詳細資訊，請參閱[傳輸層安全性 (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0)。
 
 Azure 儲存體自 2015 年起即停止使用 SSL 3.0，並在公用 HTTPS 端點上使用 TLS 1.2，但仍支援 TLS 1.0 和 TLS 1.1 以維持回溯相容性。
 
-為了確保安全且相容的 Azure 儲存體連線，您必須先在用戶端啟用 TLS 1.2，再傳送操作 Azure 儲存體服務的要求。
+為了確保安全且相容的 Azure 儲存體連線，您必須先在用戶端啟用 TLS 1.2 或更新版本，再傳送操作 Azure 儲存體服務的要求。
 
 ## <a name="enable-tls-12-in-net-client"></a>在 .NET 用戶端啟用 TLS 1.2
 
@@ -86,4 +84,5 @@ $listOfContainers
 ## <a name="see-also"></a>另請參閱
 
 * [傳輸層安全性 (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0)
+* [TLS 上的 PCI 合規性](https://blog.pcisecuritystandards.org/migrating-from-ssl-and-early-tls)
 * [在 Java 用戶端中啟用 TLS](https://www.java.com/en/configure_crypto.html)

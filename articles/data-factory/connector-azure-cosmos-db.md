@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 92b45c1038fd099926360dc80802ababf0e8ee93
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 6c0921a466864bf2b07711cfcd1eac397c5ced83
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37052761"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325348"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure Cosmos DB 或從該處複製資料
 
@@ -51,8 +51,8 @@ ms.locfileid: "37052761"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**CosmosDb**。 | yes |
-| connectionString |指定連接到 Azure Cosmos DB 資料庫所需的資訊。 請注意，您必須如以下範例所示，在連接字串中指定資料庫資訊。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |yes |
+| type | 類型屬性必須設定為：**CosmosDb**。 | 是 |
+| connectionString |指定連接到 Azure Cosmos DB 資料庫所需的資訊。 請注意，您必須如以下範例所示，在連接字串中指定資料庫資訊。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 **範例：**
@@ -84,8 +84,8 @@ ms.locfileid: "37052761"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**DocumentDbCollection** |yes |
-| collectionName |Cosmos DB 文件集合的名稱。 |yes |
+| type | 資料集的類型屬性必須設定為：**DocumentDbCollection** |是 |
+| collectionName |Cosmos DB 文件集合的名稱。 |是 |
 
 **範例：**
 
@@ -122,7 +122,7 @@ ms.locfileid: "37052761"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**DocumentDbCollectionSource** |yes |
+| type | 複製活動來源的類型屬性必須設定為：**DocumentDbCollectionSource** |是 |
 | query |指定 Cosmos DB 查詢來讀取資料。<br/><br/>範例： `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |否 <br/><br/>如果未指定，執行的 SQL 陳述式：`select <columns defined in structure> from mycollection` |
 | nestingSeparator |用來指出文件為巢狀文件及如何將結果集壓平合併的特殊字元。<br/><br/>例如，如果 Cosmos DB 查詢傳回巢狀結果 `"Name": {"First": "John"}`，當 nestedSeparator 是點號時，複製活動會將資料行名稱識別為 "Name.First" 且值為 "John"。 |否 (預設為點號 `.`) |
 
@@ -164,7 +164,9 @@ ms.locfileid: "37052761"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動接收的 type 屬性必須設定為：**DocumentDbCollectionSink** |yes |
+| type | 複製活動接收的 type 屬性必須設定為：**DocumentDbCollectionSink** |是 |
+| writeBehavior |說明如何將資料寫入 Cosmos DB。 允許的值為 `insert` 和 `upsert`。<br/>如果存在具有相同識別碼的文件時，**upsert** 的行為會用來取代文件；否則使用 insert。 請注意，如果原始文件中沒指定文件識別碼，或沒有透過資料行對應來指定文件識別碼，則 ADF 會自動產生識別碼，這表示您必須先確定文件有「識別碼」，才能讓 upsert 正常運作。 |否，預設值為 Insert |
+| writeBatchSize | Data Factory 會使用 [Cosmos DB 大量執行程式](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)將資料寫入 Cosmos DB。 "writeBatchSize" 可用來控制每次提供給程式庫的文件大小。 您可以嘗試增加 writeBatchSize 來改善效能。 |否 |
 | nestingSeparator |來源資料行名稱中用來表示需要巢狀文件的特殊字元。 <br/><br/>例如，當 nestedSeparator 是點號時，輸出資料集結構中的 `Name.First` 會在 Cosmos DB 文件中產生下列 JSON 結構：`"Name": {"First": "[value maps to this column from source]"}`。 |否 (預設為點號 `.`) |
 
 **範例：**
@@ -191,7 +193,8 @@ ms.locfileid: "37052761"
                 "type": "<source type>"
             },
             "sink": {
-                "type": "DocumentDbCollectionSink"
+                "type": "DocumentDbCollectionSink",
+                "writeBehavior": "upsert"
             }
         }
     }

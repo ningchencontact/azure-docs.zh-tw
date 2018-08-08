@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/08/2018
 ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: 18b34af8dc383cfa86017162ec48782f156156bc
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: efd1c1eafbff8bf56b16131e44cff6b03ce7338a
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092691"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264805"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>管理 Azure Stack 中的租用戶註冊
 
@@ -35,6 +35,13 @@ ms.locfileid: "39092691"
 
 請注意，您只能將一個 Azure 訂用帳戶與租用戶相關聯。 如果您嘗試將第二個訂用帳戶新增至現有租用戶，系統就會覆寫第一個訂用帳戶。 
 
+### <a name="use-api-profiles"></a>使用 API 設定檔
+
+本文中的 Cmdlet 會要求您在執行 PowerShell 時指定 API 設定檔。 API 設定檔代表一組 Azure 資源提供者和其 API 版本。 這些設定檔可協助您在與多個 Azure 雲端互動時使用正確的 API 版本，例如，在使用全域 Azure 和 Azure Stack 時。 設定檔的指定是透過與其發行日期相符的名稱來完成。 在本文中，您必須使用 **2017-09-03** 設定檔。
+
+如需 Azure Stack 和 API 設定檔的詳細資訊，請參閱[管理 Azure Stack 中的 API 版本設定檔](user/azure-stack-version-profiles.md)。 如需有關在 PowerShell 中使用 API 設定檔來啟動並執行的指示，請參閱[在 Azure Stack 中使用適用於 PowerShell 的 API 版本設定檔](user/azure-stack-version-profiles-powershell.md)。
+
+### <a name="parameters"></a>參數
 
 | 參數                  | 說明 |
 |---                         | --- |

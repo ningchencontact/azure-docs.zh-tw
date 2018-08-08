@@ -9,12 +9,12 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: ashmaka
-ms.openlocfilehash: 94847adf761652a25fd3e2d594c7169776fefc89
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 59e2254054f51a8d5f30e1b38dc5e6c23899c054
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125120"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284316"
 ---
 # <a name="quickstart-for-text-analytics-api-with-c"></a>文字分析 API 與 C# 的快速入門 
 <a name="HOLTop"></a>
@@ -48,7 +48,7 @@ ms.locfileid: "39125120"
 ## <a name="call-the-text-analytics-api-using-the-sdk"></a>使用 SDK 呼叫文字分析 API
 1. 將 Program.cs 取代為下面提供的程式碼。 此程式以 3 個區段 (語言擷取、關鍵片語擷取和情感分析) 示範文字分析 API 的功能。
 1. 以對您訂用帳戶有效的存取金鑰取代 `Ocp-Apim-Subscription-Key` 標頭值。
-1. 將 `client.BaseUri` 中的位置取代為您註冊的端點。 您可以在 Azure 入口網站資源中尋找端點。 端點通常看起來像 "https://[region].api.cognitive.microsoft.com/text/analytics/v2.0"。
+1. 將 `Endpoint` 中的位置取代為您註冊的端點。 您可以在 Azure 入口網站資源中尋找端點。 端點通常會以 "https://[region].api.cognitive.microsoft.com" 開頭，在這裡，請只包含通訊協定和主機名稱。
 1. 執行程式。
 
 ```csharp
@@ -81,8 +81,10 @@ namespace ConsoleApp1
         {
 
             // Create a client.
-            ITextAnalyticsClient client = new TextAnalyticsClient(new ApiKeyServiceClientCredentials());
-            client.BaseUri = new Uri("https://westus.api.cognitive.microsoft.com/text/analytics/v2.0");
+            ITextAnalyticsClient client = new TextAnalyticsClient(new ApiKeyServiceClientCredentials())
+            {
+                Endpoint = "https://westus.api.cognitive.microsoft.com"
+            };
 
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 

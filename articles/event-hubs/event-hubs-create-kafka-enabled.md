@@ -1,5 +1,5 @@
 ---
-title: 建立已啟用 Kafka 的 Azure 事件中樞 | Microsoft Docs
+title: 建立已啟用 Apache Kafka 的 Azure 事件中樞 | Microsoft Docs
 description: 使用 Azure 入口網站來建立「已啟用 Kafka 的 Azure 事件中樞」命名空間
 services: event-hubs
 documentationcenter: .net
@@ -10,22 +10,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: shvija
-ms.openlocfilehash: 7a05a89fdf99efb6470ee9c8695f349cf22b8ebb
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 79b6b879bd2332c044ce871e2c9a938c6b9c900c
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442122"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285072"
 ---
-# <a name="create-kafka-enabled-event-hubs"></a>建立已啟用 Kafka 的 Azure 事件中樞
+# <a name="create-apache-kafka-enabled-event-hubs"></a>建立已啟用 Apache kafka 的事件中樞
 
 Azure 事件中樞是一種巨量資料串流平台即服務 (PaaS)，每秒可內嵌數百萬個事件，並為即時分析和視覺效果提供低延遲性和高輸送量。
 
-Kafka 生態系統的 Azure 事件中樞為您提供端點。 此端點可讓您的事件中樞命名空間在原生狀態下了解 [Apache Kafka](https://kafka.apache.org/intro) 訊息通訊協定和 API。 您可使用這項功能，像使用 Kafka 主題一樣與您的事件中樞通訊，而無須變更通訊協定用戶端或執行自己的叢集。 Kafka 生態系統的事件中樞支援 [Apache Kafka 1.0 版](https://kafka.apache.org/10/documentation.html)及更新版本。
+Azure 事件中樞為您提供 Kafka 端點。 此端點可讓您的事件中樞命名空間在原生狀態下了解 [Apache Kafka](https://kafka.apache.org/intro) 訊息通訊協定和 API。 您可使用這項功能，像使用 Kafka 主題一樣與您的事件中樞通訊，而無須變更通訊協定用戶端或執行自己的叢集。 事件中樞支援 [Apache Kafka 1.0 版](https://kafka.apache.org/10/documentation.html)和更新版本。
 
 本文說明如何建立事件中樞命名空間，以及取得將 Kafka 應用程式連線至已啟用 Kafka 之事件中樞所需的連接字串。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
 
@@ -58,7 +58,7 @@ Kafka 生態系統的 Azure 事件中樞為您提供端點。 此端點可讓您
 若要深入了解事件中樞，請造訪下列連結：
 
 * [從您的 Kafka 應用程式串流到事件中樞](event-hubs-quickstart-kafka-enabled-event-hubs.md)
-* [了解適用於 Kafka 生態系統的事件中樞](event-hubs-for-kafka-ecosystem-overview.md)
+* [了解適用於 Kafka 的事件中樞](event-hubs-for-kafka-ecosystem-overview.md)
 * [了解事件中樞](event-hubs-what-is-event-hubs.md)
 
 

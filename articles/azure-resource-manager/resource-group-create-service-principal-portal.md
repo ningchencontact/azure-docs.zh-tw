@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7a1b6aa9afd26116253482a2e1a9c6a25bdf3c55
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 57d017e2320e5cfea15f1716bc3b6518606e2ea4
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441568"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282235"
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>使用入口網站來建立可存取資源的 Active Directory 應用程式和服務主體
 
-如果您擁有需要存取或修改資源的程式碼，您就必須設定一個 Active Directory (AD) 應用程式。 您可以將必要的權限指派給 AD 應用程式。 此方法適用於在您自己的認證下執行應用程式，因為您可以將自有權限以外的權限指派給應用程式識別碼。 一般而言，這些權限只會限制為 App 必須執行的確切權限。
+如果您擁有需要存取或修改資源的程式碼，您就必須設定一個 Active Directory (AD) 應用程式。 然後，您可以將必要的權限指派給 AD 應用程式。 此方法適用於在您自己的認證下執行應用程式，因為您可以將自有權限以外的權限指派給應用程式識別碼。 一般而言，這些權限只會限制為 App 必須執行的確切權限。
 
 本文說明如何透過入口網站執行這些步驟。 其中著重在說明單一租用戶應用程式，此應用程式的目的是只在一個組織內執行。 您通常會將單一租用戶應用程式用在組織內執行的企業營運系統應用程式。
 
@@ -156,7 +156,7 @@ ms.locfileid: "37441568"
 
    ![選取 [新增]](./media/resource-group-create-service-principal-portal/select-add.png)
 
-1. 選取您想要將應用程式指派給哪個角色。 下圖顯示**讀者**角色：
+1. 選取您想要將應用程式指派給哪個角色。 為了允許應用程式執行動作 (例如，**重新啟動**、**開始**和**停止**執行個體)，您必須選取**參與者**角色。 下圖顯示**讀者**角色：
 
    ![選取角色](./media/resource-group-create-service-principal-portal/select-role.png)
 

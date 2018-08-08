@@ -1,24 +1,23 @@
 ---
-title: Azure 上的語音轉換文字服務常見問題集 | Microsoft Docs
+title: Azure 上的語音轉換文字服務常見問題集
 description: 以下是有關語音轉換文字最熱門問題的解答。
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 543e8d6fb68a351dfe75c962debaf15eeb080a3f
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: e5ba01c25646578da22f054659051be3515e9e4b
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223882"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39281825"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>語音轉換文字常見問題集
 
-如果在此常見問題集中找不到問題的解答，請嘗試詢問 [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) 和 [UserVoice](https://cognitive.uservoice.com/) 上的自訂語音服務社群
+如果您在此常見問題集中找不到問題的解答，請參閱[此處](support.md)的其他支援選項。
 
 ## <a name="general"></a>一般
 

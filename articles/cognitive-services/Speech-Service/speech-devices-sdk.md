@@ -1,21 +1,20 @@
 ---
-title: 語音裝置 SDK | Microsoft Docs
+title: 關於語音裝置 SDK
 description: 語音裝置 SDK 簡介。
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: c4451dd2e4d868bd7f604fb8002c3a758a530136
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 4607c997f6c274f6b367fe3e99bf8d21deceef0d
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "35371028"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285488"
 ---
 # <a name="about-the-speech-devices-sdk-preview"></a>關於語音裝置 SDK (預覽)
 
@@ -37,8 +36,8 @@ SDK 有助於促成各種已啟用語音功能的案例，例如得來速訂購�
 
 ## <a name="next-steps"></a>後續步驟
 
-若要開始，請取得[免費的 Azure 帳戶](https://azure.microsoft.com/free/ai/)及註冊語音裝置 SDK。
+若要開始，請取得[免費的 Azure 帳戶](https://azure.microsoft.com/free/ai/)並註冊 Speech Devices SDK。
 
 > [!div class="nextstepaction"]
-> [註冊語音裝置 SDK](get-speech-devices-sdk.md)
+> [註冊 Speech Devices SDK](get-speech-devices-sdk.md)
 

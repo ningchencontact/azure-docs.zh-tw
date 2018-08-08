@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/09/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 65525114f46002c5b9300f6bbabcee06cc27ef3a
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: af48af596e86e0eb09fe45deabe13beedef57cd2
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091133"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307920"
 ---
 # <a name="access-the-kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>存取 Azure Kubernetes Service (AKS) 中的 Kubernetes 儀表板
 
@@ -38,12 +38,14 @@ az aks browse --resource-group myResourceGroup --name myAKSCluster
 
 ### <a name="for-rbac-enabled-clusters"></a>對於已啟用 RBAC 的叢集
 
-如果您的 AKS 叢集已使用 RBAC，必須先建立 ClusterRoleBinding，才能正確地存取儀表板。 若要建立繫結，請使用 [kubectl create clusterrolebinding][kubectl-create-clusterrolebinding] 命令，如下列範例所示。 
+如果您的 AKS 叢集已使用 RBAC，必須先建立 ClusterRoleBinding，才能正確地存取儀表板。 根據預設，Kubernetes 儀表板會部署最低限度的讀取權限，並且會顯示 RBAC 存取錯誤。 Kubernetes 儀表板目前不支援透過使用者提供的認證，來決定存取層級，而是使用授與服務帳戶的角色。 叢集系統管理員可選擇將其他存取權授與 kubernetes-dashboard 服務帳戶，但這可能是權限提高的向量。 您也可以整合 Azure Active Directory 驗證，以提供更細微的存取層級。
+
+若要建立繫結，請使用 [kubectl create clusterrolebinding][kubectl-create-clusterrolebinding] 命令，如下列範例所示。 
 
 > [!WARNING]
 > 此範例繫結不會套用任何額外的驗證元件，並且可能導致不安全的使用方式。 可存取此 URL 的任何人都可使用 Kubernetes 儀表板。 請不要讓 Kubernetes 儀表板可公開使用。
 >
-> 您可以使用機制 (例如持有人權杖或使用者名稱/密碼) 來控制存取儀表板的人員，以及他們可擁有的權限。 這可讓您更安全地使用儀表板。 如需有關使用不同驗證方法的詳細資訊，請參閱 Kubernetes 儀表板 Wiki 上的[存取控制][dashboard-authentication]。
+> 如需有關使用不同驗證方法的詳細資訊，請參閱 Kubernetes 儀表板 Wiki 上的[存取控制][dashboard-authentication]。
 
 ```console
 kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard

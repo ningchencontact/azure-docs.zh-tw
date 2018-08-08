@@ -4,15 +4,15 @@ description: 提供收集器設備的概觀及其設定方式。
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 07/27/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 8cc5863489c58a0603d8aa464911031a22dba8f3
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: c99d0f74dbb8cc28cabebae60fe10645f4bdb3b6
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951034"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308454"
 ---
 # <a name="collector-appliance"></a>收集器設備
 
@@ -188,7 +188,7 @@ Azure Migrate 收集器服務應在機器上執行。 此服務會在機器開�
 
 您可以在不需再次下載 OVA 的情況下，將收集器升級為最新版本。
 
-1. 下載最新的[升級套件](https://aka.ms/migrate/col/upgrade_9_11) (1.0.9.11 版)。
+1. 下載最新的[升級套件](https://aka.ms/migrate/col/upgrade_9_13) (1.0.9.13 版)。
 2. 若要確保下載的 Hotfix 是安全的，請開啟系統管理員命令視窗並執行下列命令來產生 ZIP 檔案的雜湊。 產生的雜湊應該符合針對特定版本所述的雜湊：
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
@@ -199,6 +199,16 @@ Azure Migrate 收集器服務應在機器上執行。 此服務會在機器開�
 5. 以滑鼠右鍵按一下 Setup.ps1 並選取 [使用 PowerShell 執行]，然後遵循螢幕上的指示安裝更新。
 
 ### <a name="list-of-updates"></a>更新清單
+
+#### <a name="upgrade-to-version-10913"></a>升級為 1.0.9.13 版
+
+升級[套件 1.0.9.13](https://aka.ms/migrate/col/upgrade_9_13) 的雜湊值
+
+**演算法** | **雜湊值**
+--- | ---
+MD5 | 739f588fe7fb95ce2a9b6b4d0bf9917e
+SHA1 | 9b3365acad038eb1c62ca2b2de1467cb8eed37f6
+SHA256 | 7a49fb8286595f39a29085534f29a623ec2edb12a3d76f90c9654b2f69eef87e
 
 #### <a name="upgrade-to-version-10911"></a>升級為 1.0.9.11 版
 

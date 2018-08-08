@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: b7fd880683eed9e742007d6e595e1f275467b664
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 4cf04ceeb8650b2978389cefb561ae31e88bc853
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990110"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282431"
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics 資料安全性
 本文件旨在提供 Azure Log Analytics 的特定資訊，以補充 [Azure 信任中心](../security/security-microsoft-trust-center.md)上的資訊。  
@@ -176,7 +176,7 @@ Windows 或管理伺服器代理程式的快取資料會受到作業系統的認
 ## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3.Log Analytics 服務接收和處理資料
 Log Analytics 服務會確保內送資料是來自信任的來源，方法是驗證憑證和與 Azure 驗證的資料完整性。 接著，未經處理的資料會儲存在 Azure 事件中樞，在資料最終會待用儲存的區域中。 所儲存的資料類型取決於匯入和用來收集資料的解決方案類型。 然後，Log Analytics 服務會處理未經處理的資料，並將這些資料內嵌至資料庫內。
 
-儲存在資料庫中已收集資料的保留期，會取決於所選的定價方案。 對於*免費*層，收集的資料可使用 7 天。 對於*付費*層，收集的資料根據預設可供使用 31 天，但可以延長為 720 天。 資料會以加密方式靜態儲存在 Azure 儲存體中，以確保資料機密性。 過去兩週的資料也會儲存在以 SSD 為基礎的快取，而且此快取目前未加密。  我們計劃在 2018 年後半年支援這類加密。  
+儲存在資料庫中已收集資料的保留期，會取決於所選的定價方案。 對於*免費*層，收集的資料可使用 7 天。 對於「付費」層，收集的資料根據預設可供使用 31 天，但可以延長為 730 天。 資料會以加密方式靜態儲存在 Azure 儲存體中，以確保資料機密性。 過去兩週的資料也會儲存在以 SSD 為基礎的快取，而且此快取目前未加密。  我們計劃在 2018 年後半年支援這類加密。  
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4.使用 Log Analytics 來存取資料
 如需存取 Log Analytics 工作區，請使用組織帳戶或您先前設定的 Microsoft 帳戶來登入 Azure 入口網站。 入口網站與 Log Analytics 服務之間的所有流量都會透過安全的 HTTPS 通道傳送。 在使用入口網站時，使用者用戶端 (網頁瀏覽器) 上會產生工作階段識別碼，且資料會儲存在本機快取中，直到工作階段終止為止。 終止時便會刪除快取。 未包含個人識別資訊的用戶端 Cookie 不會自動移除。 工作階段 Cookie 會標示為 HTTPOnly，並受到保護。 經過預先決定的閒置時間後，Azure 入口網站工作階段就會終止。

@@ -9,18 +9,18 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: luisca
-ms.openlocfilehash: dd9bb4cb2622651c2d1979166ad838b3b337d583
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: b428e6e7738c8a9052c3fcfe2ad5284bfd5293d6
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37343146"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307988"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>範例：建立使用文字翻譯 API 的自訂技能
 
 在此範例中，了解如何建立可接受任何語言文字並翻譯為英文的 Web API 自訂技能。 此範例使用 [Azure 函式](https://azure.microsoft.com/services/functions/)來包裝[翻譯文字 API](https://azure.microsoft.com/services/cognitive-services/translator-text-api/)，以便實作自訂的技能介面。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 + 如果您不熟悉自訂技能應實作的輸入/輸出介面，請閱讀[自訂技能介面](cognitive-search-custom-skill-interface.md)一文。
 
@@ -244,6 +244,13 @@ POST https://localhost:7071/api/Translate
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至資源群組，並尋找您發佈的翻譯函式。 在 [管理] 區段下，應該會看到主機金鑰。 選取 [預設] 主機金鑰的 [複製] 圖示。  
 
+## <a name="update-ssl-settings"></a>更新 SSL 設定
+
+2018 年 6 月 30 日之後建立的所有 Azure Functions 都已停用 TLS 1.0，TLS 1.0 目前無法與自訂技術相容。
+
+1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至資源群組，並尋找您發佈的翻譯函式。 在 [平台功能] 區段中，您應該會看到 SSL。
+
+1. 選取 SSL 之後，您應該將**最低的 TLS 版本**變更為 1.0。 TLS 1.2 函式尚無法作為自訂技術。
 
 ## <a name="test-the-function-in-azure"></a>在 Azure 測試函式
 

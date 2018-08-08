@@ -1,19 +1,18 @@
 ---
-title: 什麼是自訂語音？ - Azure 認知服務 | Microsoft Docs
+title: 什麼是自訂語音？ - Azure 認知服務
 description: 本文概述 Microsoft 文字轉換語音的語音自訂功能，該功能可讓您建立足以辨識且獨一無二的品牌語音。
 services: cognitive-services
 author: noellelacharite
-manager: nolach
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 7c4abb6832a030c2cb3cc2088dc5d0f1350a6ab8
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 84493ae83515c0458bf5b9e9cf44603300a8b4f7
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258842"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284882"
 ---
 # <a name="creating-custom-voice-fonts"></a>建立客製化聲音音調
 
@@ -78,7 +77,7 @@ Microsoft 文字轉換語音 (TTS) 的語音自訂功能可讓您建立足以辨
 
 ### <a name="transcripts"></a>文字記錄
 
-謄寫檔案是純文字檔案 (ANSI/UTF-8/UTF-8-BOM/UTF-16-LE/UTF-16-BE)。 謄寫檔案的每一行都必須具有音訊檔案的名稱，後面接著定位字元 (字碼指標 9)，最後是其文字記錄。 不允許空白行。
+謄寫檔案是純文字檔案 (ANSI/UTF-8/UTF-8-BOM/UTF-16-LE/UTF-16-BE)。 轉譯檔案的每一行都必須具有音訊檔案的名稱，後面接著定位字元 (字碼指標 9)，最後是其文字記錄。 不允許空白行。
 
 例如︰
 

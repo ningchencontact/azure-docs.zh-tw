@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 88869fbeef0475f2c674e0f154a3624545182363
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 41e75fcfd0b88d5c37bb8dd6fcc16b1767b34dba
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213226"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285352"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory 無縫單一登入
 
@@ -30,12 +30,12 @@ ms.locfileid: "39213226"
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-無縫 SSO 可以與[密碼雜湊同步處理](active-directory-aadconnectsync-implement-password-hash-synchronization.md)或[傳遞驗證](active-directory-aadconnect-pass-through-authentication.md)登入方法合併使用。
+無縫 SSO 可以與[密碼雜湊同步處理](active-directory-aadconnectsync-implement-password-hash-synchronization.md)或[傳遞驗證](active-directory-aadconnect-pass-through-authentication.md)登入方法合併使用。 無縫 SSO 不適用於 Active Directory 同盟服務 (ADFS)。
 
 ![無縫單一登入](./media/active-directory-aadconnect-sso/sso1.png)
 
 >[!IMPORTANT]
->無縫 SSO 不適用於 Active Directory 同盟服務 (ADFS)。
+>無縫 SSO 需要將使用者的裝置**加入網域**，但不需要將裝置[加入 Azure AD](../active-directory-azureadjoin-overview.md)。
 
 ## <a name="key-benefits"></a>主要權益
 
@@ -76,7 +76,9 @@ ms.locfileid: "39213226"
 ## <a name="next-steps"></a>後續步驟
 
 - [**快速入門**](active-directory-aadconnect-sso-quick-start.md) - 開始使用 Azure AD 無縫 SSO。
+- [**部署方案**](https://aka.ms/AuthenticationDeploymentPlan) - 逐步部署方案。
 - [**技術性深入探討**](active-directory-aadconnect-sso-how-it-works.md) - 了解這項功能的運作方式。
 - [**常見問題集**](active-directory-aadconnect-sso-faq.md) - 常見問題集的答案。
 - [**疑難排解**](active-directory-aadconnect-troubleshoot-sso.md) - 了解如何解決此功能的常見問題。
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 用於提出新的功能要求。
+

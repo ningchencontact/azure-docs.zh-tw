@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 07/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: df936c697f500f5ab98becd1529cd321f9f3f5c4
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 24bda501f88d4f96fb558eeb6b21e437edd6d862
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259114"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325382"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory 無縫單一登入：快速入門
 
@@ -49,7 +49,7 @@ ms.locfileid: "39259114"
     
 * **啟用新式驗證**：您必須在租用戶上啟用[新式驗證](https://aka.ms/modernauthga)，此功能才能運作。
 
-* **使用最新版的 Office 365 用戶端**：若要使用 Office 365 用戶端 (Outlook、Word、Excel 和其他產品) 來取得無訊息登入體驗，您需要 16.0.8730.xxxx 版或更新版本。
+* **使用最新版的 Office 365 用戶端**：若要使用 Office 365 用戶端 (Outlook、Word、Excel 和其他產品) 來取得無訊息登入體驗，您的使用者需要 16.0.8730.xxxx 版或更新版本。
 
 ## <a name="step-2-enable-the-feature"></a>步驟 2︰啟用功能
 
@@ -80,6 +80,9 @@ ms.locfileid: "39259114"
 4. 確認 [無縫單一登入] 功能顯示為 [已啟用]。
 
 ![Azure 入口網站：Azure AD Connect 窗格](./media/active-directory-aadconnect-sso/sso10.png)
+
+>[!IMPORTANT]
+> 無縫 SSO 會在每個 AD 樹系中的內部部署 Active Directory (AD) 中，建立名為 `AZUREADSSOACC` 的電腦帳戶 (代表 Azure AD)。 需要此電腦帳戶才能讓該功能運作。 將 `AZUREADSSOACC` 電腦帳戶移至儲存其他電腦帳戶的組織單位 (OU)，確保它是透過相同方式進行管理，而且不會予以刪除。
 
 ## <a name="step-3-roll-out-the-feature"></a>步驟 3：推出功能
 
@@ -194,7 +197,7 @@ Mozilla Firefox 不會自動使用 Kerberos 驗證。 每個使用者都必須�
 
 若要測試特定使用者的功能，請確認已具備下列所有條件：
   - 使用者是在公司裝置上登入。
-  - 裝置已加入您的 Active Directory 網域。
+  - 裝置已加入您的 Active Directory 網域。 裝置「不」需要[加入 Azure AD](../active-directory-azureadjoin-overview.md)。
   - 裝置能夠直接連線至網域控制站 (DC)，不論是在公司的有線或無線網路上進行，還是透過遠端存取連線 (例如 VPN 連線) 來進行。
   - 您已透過群組原則，向這位使用者[推出功能](##step-3-roll-out-the-feature)。
 

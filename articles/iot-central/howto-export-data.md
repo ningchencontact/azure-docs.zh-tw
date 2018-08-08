@@ -8,12 +8,12 @@ ms.date: 07/3/2018
 ms.topic: article
 ms.prod: azure-iot-central
 manager: peterpr
-ms.openlocfilehash: 6d35e3cfefcefef0b4ff40364cbdab92d486b769
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 5b9564dfe40f292d289ee9ed680e816771d0b0ed
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011456"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282869"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>匯出 Azure IoT Central 中的資料
 
@@ -584,4 +584,7 @@ function load(filePath) {
 
 ## <a name="next-steps"></a>後續步驟
 
-了解如何在 Device Explorer 中[管理裝置](howto-manage-devices.md)。 
+現在您已了解如何匯出資料，以下是建議執行的下一個步驟：
+
+> [!div class="nextstepaction"]
+> [如何在 Power BI 中將資料視覺化](howto-connect-powerbi.md)

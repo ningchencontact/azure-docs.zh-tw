@@ -9,15 +9,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: On Demand
-ms.date: 07/16/2018
+ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: dfea1587cddbf7440771ca7007928f7e4054f61a
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 46ab4a177cc7d86e5d967ff8e219dae96f82a0dc
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092285"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263141"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>使用 Azure SQL Database 的商務持續性概觀
 
@@ -33,7 +33,7 @@ SQL Database 提供幾種商務持續性功能，包括自動備份和選用的�
 | --- | --- | --- | --- |--- |--- |
 | 從備份進行時間點還原 |7 天內的任何還原點 |35 天內的任何還原點 |35 天內的任何還原點 |設定期間內的任何還原點 (最多 35 天)|設定期間內的任何還原點 (最多 35 天)|
 | 從異地複寫備份進行異地還原 |ERT < 12 小時，RPO < 1 小時 |ERT < 12 小時，RPO < 1 小時 |ERT < 12 小時，RPO < 1 小時 |ERT < 12 小時，RPO < 1 小時|ERT < 12 小時，RPO < 1 小時|
-| 從 Azure 備份保存庫還原 |ERT < 12 小時，RPO < 1 週 |ERT < 12 小時，RPO < 1 週 |ERT < 12 小時，RPO < 1 週 |ERT < 12 小時，RPO < 1 週|ERT < 12 小時，RPO < 1 週|
+| 從 SQL 長期保留還原 |ERT < 12 小時，RPO < 1 週 |ERT < 12 小時，RPO < 1 週 |ERT < 12 小時，RPO < 1 週 |ERT < 12 小時，RPO < 1 週|ERT < 12 小時，RPO < 1 週|
 | 主動式異地複寫 |ERT < 30 秒，RPO < 5 秒 |ERT < 30 秒，RPO < 5 秒 |ERT < 30 秒，RPO < 5 秒 |ERT < 30 秒，RPO < 5 秒|ERT < 30 秒，RPO < 5 秒|
 
 ### <a name="use-point-in-time-restore-to-recover-a-database"></a>使用時間點還原來復原資料庫
@@ -102,7 +102,7 @@ SQL Database 會每週自動執行完整資料庫備份、每小時自動執行�
 
 ### <a name="restore-backups-from-long-term-retention"></a>從長期保留還原備份
 
-如果在自動備份的目前保留期間外發生資料遺失，且您的資料庫設定為長期保留，則可以從 LTR 儲存體的完整備份還原至新的資料庫。 目前，您可以將原始資料庫取代為還原的資料庫，或從還原的資料庫將所需的資料複製到原始資料庫。 如果您需要在主要應用程式升級之前擷取舊版資料庫，請滿足稽核員或合法順序的要求，您可以使用 Azure 備份保存庫中儲存的完整備份來建立資料庫。  如需詳細資訊，請參閱[長期保存](sql-database-long-term-retention.md)。
+如果在自動備份的目前保留期間外發生資料遺失，且資料庫使用 Azure Blob 儲存體來設定長期保留，則可以從 Azure Blob 儲存體的完整備份還原至新的資料庫。 目前，您可以將原始資料庫取代為還原的資料庫，或從還原的資料庫將所需的資料複製到原始資料庫。 如果您需要在主要應用程式升級之前擷取舊版資料庫，請滿足稽核員或合法順序的要求，您可以使用 Azure Blob 儲存體中儲存的完整備份來建立資料庫。  如需詳細資訊，請參閱[長期保存](sql-database-long-term-retention.md)。
 
 ## <a name="recover-a-database-to-another-region-from-an-azure-regional-data-center-outage"></a>將資料庫從 Azure 區域資料中心中斷復原到另一個區域
 <!-- Explain this scenario -->

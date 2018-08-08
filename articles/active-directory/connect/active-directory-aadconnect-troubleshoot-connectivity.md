@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d30006fae8a0d495909b9a53cf0bffb5cc824433
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 793a65347552782c4a3482b29d10e4c94ef85663
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38295391"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263226"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>對 Azure AD Connect 的連線問題進行疑難排解
 這篇文章說明 Azure AD Connect 與 Azure AD 之間的連線的運作方式，以及如何疑難排解連線問題。 這些問題最有可能出現在具有 Proxy 伺服器的環境中。
@@ -52,7 +52,7 @@ Proxy 伺服器也必須開啟必要的 URL。 如需官方清單，請參閱 [O
 | \*.microsoftonline.com |HTTPS/443 |用來設定您的 Azure AD 目錄及匯入/匯出資料。 |
 
 ## <a name="errors-in-the-wizard"></a>精靈中的錯誤
-安裝精靈會使用兩種不同的安全性內容。 在 [連線到 Azure AD]  頁面上，使用的是目前登入的使用者。 在 [設定] 頁面上，它會變更為[執行同步處理引擎服務的帳戶](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account)。 如果發生問題，問題最有可能已經出現在精靈中的 [連線到 Azure AD] 頁面，因為 Proxy 組態是全域組態。
+安裝精靈會使用兩種不同的安全性內容。 在 [連線到 Azure AD]  頁面上，使用的是目前登入的使用者。 在 [設定] 頁面上，它會變更為[執行同步處理引擎服務的帳戶](active-directory-aadconnect-accounts-permissions.md#adsync-service-account)。 如果發生問題，問題最有可能已經出現在精靈中的 [連線到 Azure AD] 頁面，因為 Proxy 組態是全域組態。
 
 下列問題是您會在安裝精靈中遇到的最常見錯誤。
 
@@ -161,28 +161,28 @@ Azure AD 目錄找不到或無法解析。 可能是您嘗試以未驗證網域�
 ### <a name="user-password-expired"></a>使用者密碼過期
 您的認證已過期。 請變更密碼。
 
-### <a name="authorizationfailure"></a>AuthorizationFailure
-未知的問題。
+### <a name="authorization-failure"></a>授權失敗
+無法授權使用者在 Azure AD 中執行動作。
 
 ### <a name="authentication-cancelled"></a>驗證取消
 已取消 Multi-Factor Authentication (MFA) 查問。
 
-### <a name="connecttomsonline"></a>ConnectToMSOnline
+### <a name="connect-to-ms-online-failed"></a>連線到 MS Online 失敗
 驗證成功，但 Azure AD PowerShell 發生驗證問題。
 
-### <a name="azurerolemissing"></a>AzureRoleMissing
-驗證成功。 您不是全域管理員。
+### <a name="azure-ad-global-admin-role-needed"></a>需要 Azure AD 全域系統管理員角色
+已成功驗證使用者。 不過，未對使用者指派全域系統管理員角色。 這是對使用者[指派全域系統管理員角色的方式](../users-groups-roles/directory-assign-admin-roles.md)。 
 
-### <a name="privilegedidentitymanagement"></a>PrivilegedIdentityManagement
+### <a name="privileged-identity-management-enabled"></a>已啟用 Privileged Identity Management
 驗證成功。 已啟用 Privileged Identity Management，而且您目前不是全域管理員。 如需詳細資訊，請參閱 [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md)。
 
-### <a name="companyinfounavailable"></a>CompanyInfoUnavailable
+### <a name="company-information-unavailable"></a>無法取得公司資訊
 驗證成功。 無法從 Azure AD 擷取公司資訊。
 
-### <a name="retrievedomains"></a>RetrieveDomains
+### <a name="domain-information-unavailable"></a>無法取得網域資訊
 驗證成功。 無法從 Azure AD 擷取網域資訊。
 
-### <a name="unexpected-exception"></a>未預期的例外狀況
+### <a name="unspecified-authentication-failure"></a>未指定的驗證失敗
 在安裝精靈中顯示為未預期的錯誤。 如果您嘗試使用 **Microsoft 帳戶**而不是**學校或組織帳戶**，就可能發生此錯誤。
 
 ## <a name="troubleshooting-steps-for-previous-releases"></a>舊版的疑難排解步驟

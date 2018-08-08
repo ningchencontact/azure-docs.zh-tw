@@ -1,21 +1,20 @@
 ---
-title: 認知服務語音 SDK 疑難排解 | Microsoft Docs
+title: 認知服務語音 SDK 疑難排解
 description: 疑難排解認知服務語音 SDK
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: wolfma61
-manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 16eaebcf9494ab57521068a9418ccf2ac7f5a8fe
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ff8aba562cfd2d6d54c708ee7fdc4c6ca7185f29
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369954"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284117"
 ---
 # <a name="troubleshooting-speech-services-sdk"></a>疑難排解語音服務 SDK
 
