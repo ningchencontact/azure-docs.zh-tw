@@ -1,29 +1,25 @@
 ---
-title: 工作流程定義語言結構描述 - Azure Logic Apps | Microsoft Docs
+title: 工作流程定義語言的結構描述參考 - Azure Logic Apps | Microsoft Docs
 description: 使用工作流程定義語言撰寫 Azure Logic Apps 的自訂工作流程定義
 services: logic-apps
-author: ecfan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: ''
-ms.devlang: ''
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.topic: reference
 ms.date: 04/30/2018
-ms.author: estfan
-ms.openlocfilehash: babe21db6acc2f7154857b4eb0a02356e89a8ca7
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 0ac191f1191357ecc7292d51b298567f7f4e4786
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059230"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391219"
 ---
-# <a name="logic-apps-workflow-definitions-with-the-workflow-definition-language-schema"></a>使用工作流程定義語言撰寫 Logic Apps 工作流程定義
+# <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps 中工作流程定義語言的結構描述參考
 
-當您使用 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 建立邏輯應用程式工作流程時，您工作流程的基礎定義會描述針對您的邏輯應用程式執行的實際邏輯。 此描述會遵循工作流程定義語言結構描述所定義和驗證的結構，其使用 [JavaScript 物件標記法 (JSON)](https://www.json.org/) 格式。 
+當您使用 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 建立邏輯應用程式工作流程時，您工作流程的基礎定義會描述針對您的邏輯應用程式執行的實際邏輯。 此描述會遵循工作流程定義語言結構描述所定義和驗證的結構，其使用 [JavaScript 物件標記法 (JSON)](https://www.json.org/)。 
   
 ## <a name="workflow-definition-structure"></a>工作流程定義結構
 
@@ -154,7 +150,7 @@ ms.locfileid: "39059230"
 |------------|--------| 
 | "Sophia Owen" | 傳回這些字元：'Sophia Owen' |
 | "array[1]" | 傳回這些字元：'array[1]' |
-| 「\@\@」 | 以一個字元的字串形式傳回這些字元：'\@' |   
+| "\@\@" | 以一個字元的字串形式傳回這些字元：'\@' |   
 | " \@" | 以兩個字元的字串形式傳回這些字元：'\@' |
 |||
 
@@ -226,7 +222,7 @@ ms.locfileid: "39059230"
 以下是您可以使用函式執行的幾個範例工作： 
 
 | Task | 函式語法 | 結果 | 
-| ---- | --------------- | -------------- | 
+| ---- | --------------- | ------ | 
 | 傳回小寫格式的字串。 | toLower('<*text*>') <p>例如：toLower('Hello') | "hello" | 
 | 傳回全域唯一識別碼 (GUID)。 | guid() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" | 
 |||| 

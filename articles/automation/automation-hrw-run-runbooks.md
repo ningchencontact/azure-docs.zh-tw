@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cd2578f2fd8217d513a693ef348a5c26a4b18623
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 118f9d7865728177f323078c036aee1884a61431
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126502"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390291"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>在混合式 Runbook 背景工作角色上執行 Runbook
 
@@ -172,7 +172,7 @@ Get-AzureRmAutomationAccount | Select-Object AutomationAccountName
 下列範例會建立可用於簽署 Runbook 的自我簽署憑證。 此範例會建立憑證並將它匯出。 稍後會將該憑證匯入到混合式 Runbook 背景工作角色。 同時也會傳回指紋，這稍後將用來參考憑證。
 
 ```powershell
-# Create a self signed runbook that can be used for code signing
+# Create a self-signed certificate that can be used for code signing
 $SigningCert = New-SelfSignedCertificate -CertStoreLocation cert:\LocalMachine\my `
                                         -Subject "CN=contoso.com" `
                                         -KeyAlgorithm RSA `
@@ -211,14 +211,14 @@ Set-HybridRunbookWorkerSignatureValidation -Enable $true -TrustedCertStoreLocati
 
 ### <a name="sign-your-runbooks-using-the-certificate"></a>使用憑證簽署您的 Runbook
 
-利用已設定為僅使用已簽署 Runbook 的混合式 Runbook 背景工作角色。 您必須簽署要在混合式 Runbook 背景工作角色上使用的 Runbook。 請使用下列範例 PowerShell 來簽署您的 Runbook。
+將混合式 Runbook 背景工作角色設定為僅使用已簽署的 Runbook，您就必須簽署要在混合式 Runbook 背景工作角色上使用的 Runbook。 請使用下列範例 PowerShell 來簽署您的 Runbook。
 
 ```powershell
 $SigningCert = ( Get-ChildItem -Path cert:\LocalMachine\My\<CertificateThumbprint>)
 Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
 ```
 
-一旦簽署 Runbook 之後，就必須將它匯入到您的自動化帳戶，並與簽章區塊一起發佈。 若要了解如何匯入 Runbook，請參閱[將 Runbook 從檔案匯入 Azure 自動化](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation)。
+簽署 Runbook 後，就必須將它匯入到您的自動化帳戶，並與簽章區塊一起發佈。 若要了解如何匯入 Runbook，請參閱[將 Runbook 從檔案匯入 Azure 自動化](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation)。
 
 ## <a name="troubleshoot"></a>疑難排解
 

@@ -12,12 +12,12 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 7717c026b4c09f47159fe62640f9a2eedf409d30
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: d321e82560f7676f77ed9161c1bce0304b7d5914
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247676"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397102"
 ---
 # <a name="how-to-manage-connectivity-and-reliable-messaging-using-azure-iot-hub-device-sdks"></a>如何使用 Azure IoT 中樞裝置 SDK 來管理連線能力和可靠傳訊
 
@@ -116,3 +116,4 @@ Azure IoT 中樞裝置 SDK 的目標是藉由提供穩固的連線和全面性�
 - [使用適用於 C 的 IoT 裝置 SDK](.\iot-hub-device-sdk-c-intro.md)
 - [為受限裝置而開發](.\iot-hub-devguide-develop-for-constrained-devices.md)
 - [為行動裝置而開發](.\iot-hub-how-to-develop-for-mobile-devices.md)
+- [針對裝置連線中斷進行疑難排解](iot-hub-troubleshoot-connectivity.md)

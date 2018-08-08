@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/25/2018
+ms.date: 07/30/2018
 ms.author: juliako
-ms.openlocfilehash: 1568ea3431f18b7a7a020d34d803f883904e18b4
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 600068113fec0549f3993ac57c1daa93577c6be6
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115225"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399748"
 ---
 # <a name="content-protection-overview"></a>內容保護概觀
 
@@ -30,7 +30,7 @@ ms.locfileid: "39115225"
 
 &#42; *動態加密支援 AES-128 「清除金鑰」、CBCS 和 CENC。如需詳細資訊，請參閱[這裡](#streaming-protocols-and-encryption-types)的支援矩陣。*
 
-本文說明可了解如何使用媒體服務進行內容保護的相關概念與術語。 本文也會提供討論如何保護內容的文章連結。 
+本文說明可了解如何使用媒體服務進行內容保護的相關概念與術語。 本文還有[常見問題集](#faq)小節並提供可說明如何保護內容的文章連結。 
 
 ## <a name="main-components-of-the-content-protection-system"></a>內容保護系統的主要元件
 
@@ -125,6 +125,65 @@ ms.locfileid: "39115225"
 
 設定權杖限制的原則時，您必須指定主要驗證金鑰、簽發者和對象參數。 主要驗證金鑰包含簽署權杖用的金鑰。 簽發者為發行權杖的安全性權杖服務。 對象 (有時稱為「範圍」) 描述權杖或權杖獲授權存取之資源的用途。 媒體服務金鑰傳遞服務會驗證權杖中的這些值符合在範本中的值。
 
+## <a name="a-idfaqfrequently-asked-questions"></a><a id="faq"/>常見問題集
+
+### <a name="question"></a>問題
+
+如何使用 Azure 媒體服務 (AMS) v3 以及使用 AMS 授權/金鑰傳遞服務，實作多重 DRM (PlayReady、Widevine 和 FairPlay) 系統？
+
+### <a name="answer"></a>Answer
+
+如需對於端對端案例，請參閱[下列程式碼範例](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs)。 
+
+下列範例示範如何：
+
+1. 建立並設定 ContentKeyPolicies。
+
+  此範例包含可設定 [PlayReady](playready-license-template-overview.md)、[Widevine](widevine-license-template-overview.md) 和 [FairPlay](fairplay-license-overview.md) 授權的函式。
+
+    ```
+    ContentKeyPolicyPlayReadyConfiguration playReadyConfig = ConfigurePlayReadyLicenseTemplate();
+    ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
+    ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
+    ```
+
+2. 建立已設定為要串流處理已加密資產的 StreamingLocator。 
+
+  在此範例中，我們會將 **StreamingPolicyName** 設定為 **PredefinedStreamingPolicy.SecureStreaming**，它可支援信封和 cenc 加密，並可在 StreamingLocator 上設定兩個內容金鑰。 
+
+  如果您也想要使用 FairPlay 進行加密，請將 **StreamingPolicyName** 設定為 **PredefinedStreamingPolicy.SecureStreamingWithFairPlay**。
+
+3. 建立測試權杖。
+
+  **GetTokenAsync** 方法顯示如何建立測試權杖。
+  
+4. 建置串流 URL。
+
+  **GetDASHStreamingUrlAsync** 方法說明如何建置串流 URL。 在此案例中，URL 會串流處理 **DASH** 內容。
+
+### <a name="question"></a>問題
+
+如何以及在何處取得 JWT 權杖，再用來要求授權或金鑰？
+
+### <a name="answer"></a>Answer
+
+1. 用於生產時，您需要有 Security Token Service (STS) (Web 服務)，才能根據 HTTPS 要求發出 JWT 權杖。 用於測試時，您可以使用 [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) 中定義的 **GetTokenAsync** 方法所示的程式碼。
+2. 播放器必須在使用者經過驗證之後，向 STS 提出此類權杖的要求，並將它指派為權杖的值。 您可以使用 [Azure 媒體播放器 API](https://amp.azure.net/libs/amp/latest/docs/)。
+
+* 如需執行 STS (使用對稱和非對稱金鑰) 的範例，請參閱 [http://aka.ms/jwt](http://aka.ms/jwt)。 
+* 如需以使用這類 JWT 權杖的 Azure 媒體播放器為基礎的播放器範例，請參閱 [http://aka.ms/amtest](http://aka.ms/amtest) (展開 "player_settings" 連結以查看權杖輸入)。
+
+### <a name="question"></a>問題
+
+如何授權要求以使用 AES 加密來串流處理影片？
+
+### <a name="answer"></a>Answer
+
+正確的方法是利用 STS (Secure Token Service)：
+
+在 STS 中，根據使用者設定檔，新增不同的宣告 (例如「進階使用者」、「基本使用者」、「免費試用使用者」)。 在 JWT 中使用不同的宣告，使用者可以看見不同的內容。 當然，對於不同的內容/資產，ContentKeyPolicyRestriction 會有對應的 RequiredClaims。
+
+使用 Azure 媒體服務 API 來設定授權/金鑰傳遞並將您的資產加密 (請參考[這個範例](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)。
 
 ## <a name="next-steps"></a>後續步驟
 

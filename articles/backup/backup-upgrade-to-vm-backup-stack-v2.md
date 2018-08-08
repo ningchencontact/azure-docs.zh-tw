@@ -7,14 +7,14 @@ manager: vijayts
 tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/18/2018
+ms.date: 8/1/2018
 ms.author: trinadhk
-ms.openlocfilehash: 787c4b0f6e8d5ed76260582bfa3d6c49574bd102
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 1021900620272cc5476d8972daf9d7e0a161797a
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205335"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397996"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>升級至 Azure VM 備份堆疊 V2
 
@@ -107,7 +107,7 @@ Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNa
 
 ### <a name="does-upgrading-to-stack-v2-increase-the-premium-storage-account-snapshot-limit-by-10-tb"></a>升級至堆疊 V2 是否可將進階儲存體帳戶的快照集限制提高到 10 TB？
 
-以 V2 堆疊之一部分的形式取得的快照集，會計入針對非受控磁碟之進階儲存體帳戶的 10 TB 快照集限制。 
+否，每個儲存體帳戶的總計快照集限制仍維持 10TB。 
 
 ### <a name="in-premium-storage-accounts-do-snapshots-taken-for-instant-recovery-point-occupy-the-10-tb-snapshot-limit"></a>在進階儲存體帳戶中，針對立即復原點取得的快照集是否會佔用 10 TB 的快照集限制？
 

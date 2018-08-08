@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 07/18/2018
+ms.date: 07/31/2018
 ms.author: rolyon
-ms.openlocfilehash: b1a11fdb685b8b4e5c513931269c479506d943a0
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 970e748d7174a9b443fc96f52ac94e082a6c9d44
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136650"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398949"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory 使用規定特性
 Azure AD 使用規定提供一種簡單的方法，組織可用來將資訊呈現給終端使用者。 此呈現可確保使用者看到合法或合規性需求的相關免責聲明。 本文將說明如何開始使用 Azure AD 使用規定。
@@ -138,6 +138,42 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 
 1. 您可以在此檢閱您已接受的使用規定。 
 
+## <a name="edit-terms-of-use-details"></a>編輯使用規定詳細資料
+您可以編輯使用規定的一些詳細資料，但無法修改現有的文件。 下列程序說明如何編輯詳細資料。
+
+1. 登入 Azure 並瀏覽至 [https://aka.ms/catou](https://aka.ms/catou) 上的 [使用規定]。
+
+1. 選取您要編輯的使用規定。
+
+1. 按一下 [編輯使用規定]。
+
+1. 在 [編輯使用規定] 窗格中，變更名稱、顯示名稱，或要求使用者展開值。
+
+    ![新增 TOU](media/active-directory-tou/edit-tou.png)
+
+1. 按一下 [確定] 儲存變更。
+
+    儲存您的變更後，使用者就必須接受新的規定。
+
+## <a name="add-a-terms-of-use-language"></a>新增使用規定語言
+下列程序說明如何新增使用規定語言。
+
+1. 登入 Azure 並瀏覽至 [https://aka.ms/catou](https://aka.ms/catou) 上的 [使用規定]。
+
+1. 選取您要編輯的使用規定。
+
+1. 在 [詳細資料] 窗格中，按一下 [語言] 索引標籤。
+
+    ![新增 TOU](media/active-directory-tou/languages-tou.png)
+
+1. 按一下 [新增語言]。
+
+1. 在 [新增使用規定語言] 窗格中，上傳當地語系化的 PDF 並選取的語言。
+
+    ![新增 TOU](media/active-directory-tou/language-add-tou.png)
+
+1. 按一下 [新增] 來新增語言。
+
 ## <a name="delete-terms-of-use"></a>刪除使用規定
 您可以使用下列程序，刪除舊的使用規定。
 
@@ -175,8 +211,11 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 **問：為什麼我在使用規定報表與 Azure AD 稽核記錄中看到同意數目不同？**</br>
 答：使用規定報表會儲存到該使用規定的存留期結束，而 Azure AD 稽核記錄會儲存 30 天。 此外，使用規定報表只會顯示使用者目前的同意狀態。 例如，如果使用者先拒絕，然後接受，則使用規定報表將只會顯示該使用者的接受。 如果您需要查看歷程記錄，您可以使用 Azure AD 稽核記錄。
 
-**問：如果變更使用規定的規定，是否需要使用者重新接受？**</br>
-答：是的，系統管理員可以變更使用規定，而且需要使用者重新接受新規定。
+**問：如果我編輯使用規定的詳細資料，使用者是否需要重新接受？**</br>
+答：是，如果系統管理員編輯使用規定的詳細資料，使用者就需要重新接受新的規定。
+
+**問：是否可以更新現有的使用規定文件？**</br>
+答︰您目前無法更新現有的使用規定文件。 若要變更使用規定文件，您必須建立新的使用規定執行個體。
 
 **問：如果超連結位於使用規定 PDF 文件中，終端使用者將能點選這些超連結嗎？**</br>
 答：此 PDF 預設會以 JPEG 形式呈現，因此無法點選超連結。 使用者可以選取**檢視時發生問題嗎？請按一下這裡**的選項，這樣就會以原生方式呈現支援超連結的 PDF。

@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/01/2018
 ms.author: ninarn
-ms.openlocfilehash: 62b5f7470491027dbf5a1c60ee478268e969d1a8
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 1da4e8d94007653a43f187322c1d0e4077e337fa
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113489"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398932"
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>排解、診斷和防止 SQL Database 的 SQL 連接錯誤和暫時性錯誤
 本文描述如何防止、排解、診斷和減少您的用戶端應用程式在與 Azure SQL Database 互動時發生的連接錯誤和暫時性錯誤。 了解如何設定重試邏輯、建置連接字串和調整其他連接設定。
@@ -181,17 +181,21 @@ Connection Timeout = ConnectRetryCount * ConnectionRetryInterval
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
-### <a name="connection-adonet-461"></a>連接：ADO.NET 4.6.1
-如果您的程式使用 **System.Data.SqlClient.SqlConnection** 之類的 ADO.NET 類別來連線到 SQL Database，建議您使用 .NET Framework 4.6.1 版或更新版本。
+### <a name="connection-adonet-462-or-later"></a>連線：ADO.NET 4.6.2 或更新版本
+如果您的程式使用 **System.Data.SqlClient.SqlConnection** 之類的 ADO.NET 類別來連線到 SQL Database，建議您使用 .NET Framework 4.6.2 版或更新版本。
 
-ADO.NET 4.6.1：
+開頭是 ADO.NET 4.6.2：
+
+- 要立即針對 Azure SQL Database 重試的連線開啟嘗試，因而提升雲端式應用程式的效能。
+
+開頭是 ADO.NET 4.6.1：
 
 * 對於 SQL Database，使用 **SqlConnection.Open** 方法來開啟連線時，可靠性更高。 針對連線逾時期間內的特定錯誤，**Open** 方法現在包含最佳重試機制來因應暫時性錯誤。
 * 支援連線集區，包括其提供給您的程式的連線物件是否能運作的有效驗證。
 
 當您使用連線集區中的連線物件時，建議您的程式若未立即使用連線，則暫時將它關閉。 重新開啟連線並不會耗費很多資源，但是會建立新的連線。
 
-如果您使用 ADO.NET 4.0 或更舊版本，建議您升級到最新的 ADO.NET。 從 2015 年 11 月開始，您可以 [下載 ADO.NET 4.6.1](http://blogs.msdn.com/b/dotnet/archive/2015/11/30/net-framework-4-6-1-is-now-available.aspx)。
+如果您使用 ADO.NET 4.0 或更舊版本，建議您升級到最新的 ADO.NET。 從 2018 年 8 月起，您可以[下載 ADO.NET 4.6.2](https://blogs.msdn.microsoft.com/dotnet/2018/04/30/announcing-the-net-framework-4-7-2/)。
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
 

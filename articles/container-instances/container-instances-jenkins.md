@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 08/31/2018
 ms.author: marsma
-ms.openlocfilehash: d8ac5850a61c1dec9daa508236ef56836876c3fe
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 6419753a48e1356b2d94592fca72cee1f848dcdb
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072070"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390648"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>使用 Azure 容器執行個體作為 Jenkins 建置代理程式
 
@@ -127,6 +127,10 @@ Jenkins 現在已設定並準備要建置和部署程式碼。 在此範例中�
 4. 完成所有建置作業後，就會移除容器執行個體。
 
    ![已移除容器執行個體的資源群組](./media/container-instances-jenkins/jenkins-aci-none.png)
+
+## <a name="troubleshooting-the-jenkins-plugin"></a>針對 Jenkins 外掛程式進行疑難排解
+
+如果您遇到任何有關 Jenkins 外掛程式的錯誤，請在 [Jenkins JIRA](https://issues.jenkins-ci.org/) 的特定元件中提交問題。
 
 ## <a name="next-steps"></a>後續步驟
 

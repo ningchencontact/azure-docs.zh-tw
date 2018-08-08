@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: 99cd7fe6f9f46ff4d6dbbf6a6e024b3b32679724
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 5f022f366c0247fade4cc39925e116a09b3d08de
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444256"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399085"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>設定及取得 Azure Cosmos DB 容器和資料庫的輸送量
 
@@ -153,7 +153,7 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 3000 });
 ```
 
-### <a name="set-throughput-at-the-for-a-set-of-containers-or-at-the-database-level"></a>針對一組容器或在資料庫層級設定輸送量
+### <a name="set-throughput-for-a-set-of-containers-at-the-database-level"></a>在資料庫層級為一組容器設定輸送量
 
 以下程式碼片段會使用 SQL API 的 .NET SDK，在一組容器間佈建每秒 100,000 個要求單位：
 
@@ -226,7 +226,16 @@ offer.getContent().put("offerThroughput", newThroughput);
 client.replaceOffer(offer);
 ```
 
-## <a id="GetLastRequestStatistics"></a>使用 MongoDB API 的 GetLastRequestStatistics 命令取得輸送量
+## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>使用 MongoDB API 入口網站計量取得輸送量
+
+若要準確估計 MongoDB API 資料庫的要求單位費用，最簡單的方法就是使用 [Azure 入口網站](https://portal.azure.com)計量。 利用 [要求數目] 和 [要求費用] 圖表，您可以估計每個作業耗用多少要求單位，以及它們彼此之間相對耗用多少要求單位。
+
+![MongoDB API 入口網站計量][1]
+
+### <a id="RequestRateTooLargeAPIforMongoDB"></a> 超過 MongoDB API 中保留的輸送量限制
+超過為容器或一組容器佈建之輸送量的應用程式會受到速率限制，直取用速率降到佈建的輸送量速率以下為止。 發生速率限制時，後端會結束要求，並傳回 `16500` 錯誤碼 - `Too Many Requests`。 根據預設，在傳回 `Too Many Requests` 錯誤碼之前，MongoDB API 會自動重試最多 10 次。 如果您收到很多 `Too Many Requests` 錯誤碼，您可以考慮在應用程式的錯誤處理常式中新增重試行為，或[提高容器的佈建輸送量](set-throughput.md)。
+
+## <a id="GetLastRequestStatistics"></a>使用 MongoDB API 的 GetLastRequestStatistics 命令取得要求費用
 
 MongoDB API 支援自訂命令 getLastRequestStatistics，可擷取指定作業的要求費用。
 
@@ -254,14 +263,19 @@ MongoDB API 支援自訂命令 getLastRequestStatistics，可擷取指定作業�
 > 
 > 
 
-## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>使用 MongoDB API 入口網站計量取得輸送量
+## <a id="RequestchargeGraphAPI"></a>取得 Gremlin API 帳戶的要求費用 
 
-若要準確估計 MongoDB API 資料庫的要求單位費用，最簡單的方法就是使用 [Azure 入口網站](https://portal.azure.com)計量。 利用 [要求數目] 和 [要求費用] 圖表，您可以估計每個作業耗用多少要求單位，以及它們彼此之間相對耗用多少要求單位。
+以下範例有關於如何使用 Gremlin.Net 程式庫來取得 Gremlin API 帳戶的要求費用。 
 
-![MongoDB API 入口網站計量][1]
+```csharp
 
-### <a id="RequestRateTooLargeAPIforMongoDB"></a> 超過 MongoDB API 中保留的輸送量限制
-超過為容器或一組容器佈建之輸送量的應用程式會受到速率限制，直取用速率降到佈建的輸送量速率以下為止。 發生速率限制時，後端會結束要求，並傳回 `16500` 錯誤碼 - `Too Many Requests`。 根據預設，在傳回 `Too Many Requests` 錯誤碼之前，MongoDB API 會自動重試最多 10 次。 如果您收到很多 `Too Many Requests` 錯誤碼，您可以考慮在應用程式的錯誤處理常式中新增重試行為，或[提高容器的佈建輸送量](set-throughput.md)。
+var response = await gremlinClient.SubmitAsync<int>(requestMsg, bindings);
+                var resultSet = response.AsResultSet();
+                var statusAttributes= resultSet.StatusAttributes;
+```
+
+除了上述方法，您也可以使用 “x-ms-total-request-charge” 標頭進行要求單位計算。
+
 
 ## <a name="throughput-faq"></a>輸送量常見問題集
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: mcollier
 ms.component: ''
-ms.openlocfilehash: d916191ec6b475f9a19a48c62d69e4c8990a2d4c
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 9524d471388e69166191b6197fb295532b068092
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264420"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390549"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure 監視 REST API 逐步解說
 本文將說明如何執行驗證，讓您的程式碼可以使用 [Microsoft Azure 監視器 REST API 參考](https://msdn.microsoft.com/library/azure/dn931943.aspx)。         
@@ -231,7 +231,7 @@ Invoke-RestMethod -Uri $request `
 
 **方法**：GET
 
-**要求 URI**：https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metric=*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&resultType=metadata&api-version=*{apiVersion}*
+**要求 URI**：https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metricnames=*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&resultType=metadata&api-version=*{apiVersion}*
 
 例如，若要擷取 'Transactions' 計量之 'API Name dimension' 中發出的維度值清單，其中指定時間範圍內的 GeoType 維度 = 'Primary'，要求將如下所示：
 
@@ -302,7 +302,7 @@ Invoke-RestMethod -Uri $request `
 
 **方法**：GET
 
-**要求 URI**：https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metric=*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&interval=*{timeGrain}*&aggregation=*{aggreation}*&api-version=*{apiVersion}*
+**要求 URI**：https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metricnames=*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&interval=*{timeGrain}*&aggregation=*{aggreation}*&api-version=*{apiVersion}*
 
 例如，若要根據 5 分鐘範圍內的 'Transactions' 數量 (其中 GeotType 是 'Primary')，擷取排名前 3 個 API (依遞減值排列)，要求如下所示：
 

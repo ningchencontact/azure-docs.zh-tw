@@ -6,15 +6,15 @@ author: sachinpMSFT
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/28/2018
+ms.date: 08/01/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: d6dc641123e2bf840940f6246245a89fdd792db5
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 5d16763fc8f3331082b98216d25190b945d95b60
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131832"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39411815"
 ---
 # <a name="choosing-a-dtu-based-service-tier-performance-level-and-storage-resources"></a>選擇以 DTU 為基礎的服務層、效能等級和儲存體資源 
 
@@ -48,6 +48,9 @@ ms.locfileid: "37131832"
 | DTU 上限 | 5 | 3000 | 4000 | |
 ||||||
 
+> [!IMPORTANT]
+> 在某些情況下，您可能需要壓縮資料庫來回收未使用的空間。 如需詳細資訊，請參閱[管理 Azure SQL Database 中的檔案空間](sql-database-file-space-management.md)。
+
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>彈性集區 eDTU、儲存體及集區資料庫限制
 
 | | **基本** | **標準** | **高級** | 
@@ -61,6 +64,9 @@ ms.locfileid: "37131832"
 
 > [!IMPORTANT]
 > 所有區域目前均可取得進階層中超過 1 TB 的儲存體，下列區域除外：美國中西部、中國東部、USDoDCentral、德國中部、USDoDEast、US Gov (西南部)、US Gov (愛荷華州)、德國東北部、中國北部。 在其他區域，進階層中的儲存空間上限為 1 TB。 請參閱 [P11-P15 目前限制](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
+
+> [!IMPORTANT]
+> 在某些情況下，您可能需要壓縮資料庫來回收未使用的空間。 如需詳細資訊，請參閱[管理 Azure SQL Database 中的檔案空間](sql-database-file-space-management.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

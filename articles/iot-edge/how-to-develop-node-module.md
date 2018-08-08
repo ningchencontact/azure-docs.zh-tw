@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 06/26/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 8032fd2a0150597c55178648511c80233e63a911
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a5ab49beed79a8ea3a7ded0848c09acad27a5fb1
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054721"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390532"
 ---
 # <a name="develop-and-debug-nodejs-modules-with-azure-iot-edge-for-visual-studio-code"></a>使用適用於 Visual Studio Code 的 Azure IoT Edge 來開發 Node.js 模組以及針對其進行偵錯
 
@@ -84,7 +84,8 @@ VS Code 會採用您提供的資訊、建立 IoT Edge 解決方案，然後將�
 
 在每個模組資料夾中，有不同容器類型的多個 Docker 檔案。 您可以使用任何副檔名為 **.debug** 的檔案來建置測試用模組。 目前，C# 模組只支援在 linux-amd64 容器中進行偵錯。
 
-1. 在 VS Code 中，瀏覽至 `deployment.template.json` 檔案。 將 **deployment.template.json** 中的 Node.js 模組 createOptions 取代為以下內容並儲存此檔案： 
+1. 在 VS Code 中，瀏覽至 `deployment.template.json` 檔案。 在結尾加上 **.debug**，以更新您的模組映像 URL。
+2. 將 **deployment.template.json** 中的 Node.js 模組 createOptions 取代為以下內容並儲存此檔案： 
     ```json
     "createOptions": "{\"ExposedPorts\":{\"9229/tcp\":{}},\"HostConfig\":{\"PortBindings\":{\"9229/tcp\":[{\"HostPort\":\"9229\"}]}}}"
     ```

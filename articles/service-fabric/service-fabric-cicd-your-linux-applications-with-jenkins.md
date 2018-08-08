@@ -4,22 +4,20 @@ description: 使用 Jenkins 連續建置和整合 Service Fabric Linux 應用程
 services: service-fabric
 documentationcenter: java
 author: sayantancs
-manager: timlt
-editor: ''
-ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
+manager: jpconnock
 ms.service: service-fabric
 ms.devlang: java
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 3/9/2018
+ms.date: 07/31/2018
 ms.author: saysa
-ms.openlocfilehash: efdbfa9664e180031926982adedfcf94a4184081
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0de62b6fa05ccad1977e7d98a614e8d601409f5b
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972243"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390172"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>使用 Jenkins 建置和部署您的 Linux 應用程式
 Jenkins 是連續整合和部署應用程式的熱門工具。 以下是使用 Jenkins 建置和部署 Azure Service Fabric 應用程式的方式。
@@ -37,7 +35,7 @@ Jenkins 是連續整合和部署應用程式的熱門工具。 以下是使用 J
    * 對於開發和測試環境，請使用[使用叢集管理觀點設定部署](#configure-deployment-using-cluster-management-endpoint)。 這是最簡單的設定部署方法。
    * 對於生產環境，請使用[使用 Azure 認證設定部署](#configure-deployment-using-azure-credentials)。 Microsoft 建議針對生產環境使用此方法，因為使用 Azure 認證，您就可以限制 Jenkins 工作對 Azure 資源的存取權。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 確定已在本機安裝 Git。 您可以根據您的作業系統，從 [Git 下載頁面](https://git-scm.com/downloads)安裝適當的 Git 版本。 如果您不熟悉 Git，請從 [Git 文件](https://git-scm.com/docs)深入了解。
 - 本文針對要建置和部署的應用程式，使用 GitHub 的 *Service Fabric 使用者入門範例*：[https://github.com/Azure-Samples/service-fabric-java-getting-started](https://github.com/Azure-Samples/service-fabric-java-getting-started)。 您可以為此儲存機制建立分支來據以進行作業，或對指示稍微做一些修改，以使用您自己的 GitHub 專案。
@@ -64,7 +62,7 @@ Jenkins 是連續整合和部署應用程式的熱門工具。 以下是使用 J
 
 您可以在 Service Fabric 叢集內部或外部設定 Jenkins。 下列小節說明如何在叢集內設定它，同時又使用 Azure 儲存體帳戶來儲存容器執行個體的狀態。
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 - 在 Service Fabric Linux 叢集中安裝 Docker。 Azure 中執行的 Service Fabric 叢集已經安裝 Azure。 如果您在本機執行叢集 (OneBox dev environment)，請檢查 Docker 是否已經使用 `docker info` 命令在電腦上安裝。 如果未安裝，請使用以下命令安裝：
 
    ```sh
@@ -166,7 +164,7 @@ Jenkins 是連續整合和部署應用程式的熱門工具。 以下是使用 J
 
 您可以在 Service Fabric 叢集內部或外部設定 Jenkins。 下列各節顯示如何在叢集外設定。
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 - 確定您的電腦上已安裝 Docker。 使用下列命令可從終端機安裝 Docker︰
 
   ```sh
@@ -325,6 +323,10 @@ Jenkins 是連續整合和部署應用程式的熱門工具。 以下是使用 J
 11. 在 [應用程式組態] 底下，設定 [應用程式名稱]、[應用程式類型]，和 (相關) [應用程式資訊清單路徑] 欄位。
     ![Service Fabric Jenkins 建置後動作設定 Azure 認證](./media/service-fabric-cicd-your-linux-application-with-jenkins/post-build-credentials.png)
 12. 按一下 [驗證組態 ]。 在驗證成功之後，按一下 [儲存]。 您的 Jenkins 作業管線現在已完整設定。 繼續至 [後續步驟](#next-steps) 以測試部署。
+
+## <a name="troubleshooting-the-jenkins-plugin"></a>針對 Jenkins 外掛程式進行疑難排解
+
+如果您遇到任何有關 Jenkins 外掛程式的錯誤，請在 [Jenkins JIRA](https://issues.jenkins-ci.org/) 的特定元件中提交問題。
 
 ## <a name="next-steps"></a>後續步驟
 現在已設定 GitHub 和 Jenkins。 請考慮在您儲存機制分支中的 `reliable-services-actor-sample/Actors/ActorCounter` 專案中 https://github.com/Azure-Samples/service-fabric-java-getting-started \(英文\) 中進行一些範例變更。 將您的變更推送至遠端 `master` 分支 (或您已經設定使用的任何分支)。 這會觸發您設定的 Jenkins 作業 `MyJob`。 它會從 GitHub 擷取變更、建置它們並且將應用程式部署至您在建置後動作中指定的叢集。  

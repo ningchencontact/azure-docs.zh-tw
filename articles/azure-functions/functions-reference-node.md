@@ -3,7 +3,7 @@ title: 適用於 Azure Functions 的 JavaScript 開發人員參考 | Microsoft D
 description: 了解如何使用 JavaScript 開發函式。
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,13 +15,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/04/2018
-ms.author: tdykstra
-ms.openlocfilehash: 78f29cd4a20861e40bb7f7f398979b8d93387a7b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: glenga
+ms.openlocfilehash: b0e078e3e7f18e3370ff1bcd90935e7fece265f0
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936621"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391175"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 開發人員指南
 
@@ -271,7 +271,7 @@ HTTP 和 Webhook 觸發程序以及 HTTP 輸出繫結會使用要求和回應物
 | Functions 版本 | Node.js 版本 | 
 |---|---|
 | 1.x | 6.11.2 (由執行階段鎖定) |
-| 2.x  |>=8.4.0，建議使用目前的 LTS 8.9.4。 使用 WEBSITE_NODE_DEFAULT_VERSION [應用程式設定](functions-how-to-use-azure-function-app-settings.md#settings)來設定版本。|
+| 2.x  | _作用中 LTS_ 和 _目前_的 Node.js 版本 (建議使用 8.11.1 和 10.6.0)。 使用 WEBSITE_NODE_DEFAULT_VERSION [應用程式設定](functions-how-to-use-azure-function-app-settings.md#settings)來設定版本。|
 
 您可以藉由從任何函式列印 `process.version`，來查看執行階段目前正在使用的版本。
 

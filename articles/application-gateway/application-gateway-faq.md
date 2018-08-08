@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 6/20/2018
 ms.author: victorh
-ms.openlocfilehash: 989ecf209dc5093b5e4c73f01f9e382fc1ad21e8
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: b8b5b1da902a854dacea7e3019e3fa1116f04212
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295523"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399136"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>應用程式閘道的常見問題集
 
@@ -92,6 +92,8 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 **問：應用程式閘道是否支援 x-forwarded-for 標頭？**
 
 是，應用程式閘道會將 x-forwarded-for、x-forwarded-proto 和 x-forwarded-port 標頭插入已轉寄至後端的要求。 x-forwarded-for 標頭的格式是以逗號分隔的 IP:Port 清單。 x-forwarded-proto 的有效值為 http 或 https。 X-forwarded-port 指定要求送達應用程式閘道的連接埠。
+
+應用程式閘道也會插入 X-Original-Host 標頭，其中包含隨著要求送達的原始 Host 標頭。 此標頭適合用於 Azure 網站整合等案例，其中的傳入 host 標頭會在流量路由傳送到後端之前先行修改。
 
 **問：部署應用程式閘道需要多久的時間？進行更新時，我的應用程式閘道是否仍有作用？**
 

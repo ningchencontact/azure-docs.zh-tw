@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6d842b1af74c1b276f367e0ff15703880f7560aa
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: a9dc30f1d303c6849ed016d0bc81ce1bf3d3d9d5
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36224781"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390614"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>存取 Azure Active Directory 報告 API 的必要條件
 
@@ -230,9 +230,7 @@ ms.locfileid: "36224781"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [使用 Azure Active Directory 報告 API 搭配憑證來取得資料](active-directory-reporting-api-with-certificates.md)。
-
-- [取得報告 API 的第一印象](active-directory-reporting-api-getting-started-azure-portal.md#explore)
-
-- [建立您自己的解決方案](active-directory-reporting-api-getting-started-azure-portal.md#customize)
-
+* [使用 Azure Active Directory 報告 API 搭配憑證來取得資料](active-directory-reporting-api-with-certificates.md)
+* [取得報告 API 的第一印象](active-directory-reporting-api-getting-started-azure-portal.md)
+* [稽核 API 參考](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
+* [登入活動報告 API 參考](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)

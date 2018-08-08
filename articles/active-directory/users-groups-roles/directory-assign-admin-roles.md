@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 07/25/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 34b56c7435e2995f806828dce34f3d6bf425ca75
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 5d6254efbb6051bf4fcd01abd4fbf858b0211319
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448873"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399935"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>在 Azure Active Directory 中指派系統管理員角色
 
@@ -48,8 +48,6 @@ ms.locfileid: "37448873"
   > [!NOTE]
   > 若要在 Azure 中部署 Exchange ActiveSync 條件式存取原則，使用者也必須是全域系統管理員。
   
-* **[Dynamics 365 服務管理員/CRM 服務管理員](#crm-service-administrator)**︰具備此角色的使用者在有 Microsoft CRM Online 服務時，於該服務內具有全域權限，以及管理支援票證和監控服務健康情況的能力。 如需詳細資訊，請參閱[使用服務管理員角色管理您的租用戶](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant)。
-
 * **[裝置系統管理員](#device-administrators)**︰具備此角色的使用者會在所有已加入 Azure Active Directory 的 Windows 10 裝置上成為本機電腦系統管理員。 它們並沒有在 Azure Active Directory 中管理裝置物件的能力。
 
 * **[目錄讀取者](#directory-readers)**︰這是舊版角色，用來指派給不支援[同意架構](../develop/active-directory-integrating-applications.md)的應用程式。 不應將它指派給任何使用者。
@@ -57,6 +55,8 @@ ms.locfileid: "37448873"
 * **[目錄同步作業帳戶](#directory-synchronization-accounts)**：請勿使用。 此角色會自動指派給 Azure AD Connect 服務，不適用於也不支援任何其他用途。
 
 * **[目錄寫入者](#directory-writers)**︰這是舊版角色，用來指派給不支援[同意架構](../develop/active-directory-integrating-applications.md)的應用程式。 不應將它指派給任何使用者。
+
+* **[Dynamics 365 服務管理員/CRM 服務管理員](#dynamics-365-service-administrator)**︰具備此角色的使用者在有 Microsoft Dynamics 365 Online 服務時，於該服務內具有全域權限，以及管理支援票證和監控服務健康情況的能力。 如需詳細資訊，請參閱[使用服務管理員角色管理您的租用戶](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant)。
 
 * **[Exchange 服務管理員](#exchange-service-administrator)**︰在有 Microsoft Exchange Online 服務時，具備此角色的使用者在該服務內會具有全域權限。 如需詳細資訊，請參閱 [關於 Office 365 管理員角色](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)。
 
@@ -267,11 +267,6 @@ ms.locfileid: "37448873"
 可管理使用 Azure AD 身分識別的 Azure AD 與 Microsoft 服務的所有層面。 在 Microsoft Graph API、Azure AD Graph API 及 Azure AD PowerShell 中，是將此角色識別為「公司系統管理員」。 它是 [Azure 入口網站](https://portal.azure.com)中的「全域管理員」。
 
   > [!NOTE]
-  > 此角色會繼承[使用者角色](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions)的其他權限。
-  >
-  >
-
-  > [!NOTE]
   > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
   >
   >
@@ -357,27 +352,6 @@ ms.locfileid: "37448873"
 | microsoft.aad.directory/ConditionalAccessPolicy/Update | 更新 Azure Active Directory 中 ConditionalAccessPolicys 的標準屬性。 |
 | microsoft.aad.directory/ConditionalAccessPolicy/Update/Owners | 更新 Azure Active Directory 中的 ConditionalAccessPolicys.Owners 屬性。 |
 
-### <a name="crm-service-administrator"></a>CRM 服務管理員
-可管理 Dynamics 365 產品的所有層面。
-
-  > [!NOTE]
-  > 此角色會繼承[使用者角色](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions)的其他權限。
-  >
-  >
-
-  > [!NOTE]
-  > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
-  >
-  >
-
-| **動作** | **說明** |
-| --- | --- |
-| microsoft.aad.directory/Organization/Read/TrustedCAsForPasswordlessAuth | 讀取 Azure Active Directory 中的 Organizations.TrustedCAsForPasswordlessAuth 屬性。 |
-| microsoft.aad.accessservice/AllEntities/AllActions | 建立和刪除所有資源，以及在 Azure 存取控制中讀取和更新標準屬性。 |
-| microsoft.aad.servicehealth/AllEntities/AllActions | 讀取及設定 Office 365 服務健康情況。 |
-| microsoft.aad.supporttickets/AllEntities/AllActions | 建立和管理 Office 365 支援票證。 |
-| microsoft.crm/AllEntities/AllActions | 管理 Dynamics 365 的所有層面。 |
-
 ### <a name="device-administrators"></a>裝置系統管理員
 此角色的成員會新增至已加入 Azure AD 的裝置上的本機系統管理員群組群組。
 
@@ -389,13 +363,8 @@ ms.locfileid: "37448873"
 | **動作** | **說明** |
 | --- | --- |
 
-### <a name="directory-reader"></a>目錄讀取者
-可讀取基本目錄資訊。 用來授與應用程式的存取權
-
-  > [!NOTE]
-  > 此角色會繼承[使用者角色](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions)的其他權限。
-  >
-  >
+### <a name="directory-readers"></a>目錄讀取器
+可讀取基本目錄資訊。 用來授與應用程式的存取權。
 
 | **動作** | **說明** |
 | --- | --- |
@@ -449,11 +418,6 @@ ms.locfileid: "37448873"
 ### <a name="directory-synchronization-accounts"></a>目錄同步處理帳戶
 僅供 Azure AD Connect 服務使用。
 
-  > [!NOTE]
-  > 此角色會繼承[使用者角色](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions)的其他權限。
-  >
-  >
-
 | **動作** | **說明** |
 | --- | --- |
 | microsoft.aad.directory/Policy/Create | 在 Azure Active Directory 中建立原則。 |
@@ -483,11 +447,6 @@ ms.locfileid: "37448873"
 ### <a name="directory-writer"></a>目錄寫入者
 可讀取和寫入基本目錄資訊。 用來授與應用程式的存取權
 
-  > [!NOTE]
-  > 此角色會繼承[使用者角色](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions)的其他權限。
-  >
-  >
-
 | **動作** | **說明** |
 | --- | --- |
 | microsoft.aad.directory/DirectorySetting/Create | 在 Azure Active Directory 中建立 DirectorySettings。 |
@@ -507,6 +466,27 @@ ms.locfileid: "37448873"
 | microsoft.aad.directory/User/Update | 更新 Azure Active Directory 中 Users 的標準屬性。 |
 | microsoft.aad.directory/User/Update/AppRoleAssignments | 更新 Azure Active Directory 中的 Users.AppRoleAssignments 屬性。 |
 | microsoft.aad.directory/User/Update/Manager | 更新 Azure Active Directory 中的 Users.Manager 屬性。 |
+
+### <a name="dynamics-365-service-administrator"></a>Dynamics 365 服務管理員
+可管理 Dynamics 365 產品的所有層面。
+
+  > [!NOTE]
+  > 此角色會繼承[使用者角色](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions)的其他權限。
+  >
+  >
+
+  > [!NOTE]
+  > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
+  >
+  >
+
+| **動作** | **說明** |
+| --- | --- |
+| microsoft.aad.directory/Organization/Read/TrustedCAsForPasswordlessAuth | 讀取 Azure Active Directory 中的 Organizations.TrustedCAsForPasswordlessAuth 屬性。 |
+| microsoft.aad.accessservice/AllEntities/AllActions | 建立和刪除所有資源，以及在 Azure 存取控制中讀取和更新標準屬性。 |
+| microsoft.aad.servicehealth/AllEntities/AllActions | 讀取及設定 Office 365 服務健康情況。 |
+| microsoft.aad.supporttickets/AllEntities/AllActions | 建立和管理 Office 365 支援票證。 |
+| microsoft.crm/AllEntities/AllActions | 管理 Dynamics 365 的所有層面。 |
 
 ### <a name="exchange-service-administrator"></a>Exchange 服務管理員
 可管理 Exchange 產品的所有層面。
@@ -783,6 +763,25 @@ ms.locfileid: "37448873"
 | microsoft.aad.directory/DirectoryRole/Update | 更新 Azure Active Directory 中 DirectoryRoles 的標準屬性。 |
 | microsoft.aad.privilegedrolemanagement/AllEntities/AllActions | 管理特殊權限角色管理服務的所有層面。 |
 
+### <a name="reports-reader"></a>報告讀者
+可讀取登入與稽核報告。
+
+  > [!NOTE]
+  > 此角色會繼承目錄讀取者角色的其他權限。
+  >
+  >
+
+  > [!NOTE]
+  > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
+  >
+  >
+
+| **動作** | **說明** |
+| --- | --- |
+| microsoft.aad.reports/AllEntities/Read | 讀取 Azure AD 報告。 |
+| microsoft.aad.servicehealth/AllEntities/AllActions | 讀取及設定 Office 365 服務健康情況。 |
+| microsoft.office365.usagereports/AllEntities/Read | 讀取 Office 365 使用量報告。 |
+
 ### <a name="security-administrator"></a>安全性系統管理員
 可讀取安全性資訊和報告
 
@@ -810,25 +809,6 @@ ms.locfileid: "37448873"
 | microsoft.aad.privilegedrolemanagement/AllEntities/Read | 讀取 Privileged Identity Management 的所有層面。 |
 | microsoft.protectioncenter/AllEntities/Read | 讀取 Office 365 防護中心的所有層面。 |
 | microsoft.protectioncenter/AllEntities/Update | 管理 Office 365 防護中心。 |
-
-### <a name="reports-reader"></a>報告讀者
-可讀取登入與稽核報告。
-
-  > [!NOTE]
-  > 此角色會繼承目錄讀取者角色的其他權限。
-  >
-  >
-
-  > [!NOTE]
-  > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
-  >
-  >
-
-| **動作** | **說明** |
-| --- | --- |
-| microsoft.aad.reports/AllEntities/Read | 讀取 Azure AD 報告。 |
-| microsoft.aad.servicehealth/AllEntities/AllActions | 讀取及設定 Office 365 服務健康情況。 |
-| microsoft.office365.usagereports/AllEntities/Read | 讀取 Office 365 使用量報告。 |
 
 ### <a name="security-reader"></a>安全性讀取者
 可讀取安全性資訊及 Azure AD 與 Office 365 中的報告。

@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: 1ddf8cd38b4d62dc206a9f27e0620f8c7b232ec3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 2593a9e782298bbd6e40bde611a430844febbce3
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31519377"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398483"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>對 Azure HDInsight 上執行的 Apache Spark 作業進行偵錯
 
 在本文中，您將學習如何使用 YARN UI、Spark UI 和 Spark 歷程記錄伺服器，對 HDInsight 叢集上執行的 Spark 作業進行追蹤和偵錯。 我們會使用 Spark 叢集中可用的 Notebook 啟動 Spark 作業，**機器學習服務︰使用 MLLib 對食物檢查資料進行預測分析**。 您可以使用下列步驟來追蹤您使用任何其他方法提交的應用程式，例如，**spark-submit**。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 您必須滿足以下條件：
 
 * Azure 訂用帳戶。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
@@ -107,6 +107,7 @@ ms.locfileid: "31519377"
 
 ## <a name="see-also"></a>另請參閱
 *  [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](apache-spark-resource-manager.md)
+*  [使用擴充的 Spark 歷程記錄伺服器進行 Spark 作業偵錯](apache-azure-spark-history-server.md)
 
 ### <a name="for-data-analysts"></a>針對資料分析師
 

@@ -1,6 +1,6 @@
 ---
-title: 使用 Load Balancer 自訂探查來監視健全狀況狀態 | Microsoft Docs
-description: 了解如何使用 Azure 負載平衡器的自訂探查，來監視負載平衡器後方的執行個體
+title: 使用 Load Balancer 健康情況探查來保護您的服務 | Microsoft Docs
+description: 了解如何使用健康情況探查來監視 Load Balancer 後方的執行個體
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,26 +13,85 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/20/2018
+ms.date: 07/31/2018
 ms.author: kumud
-ms.openlocfilehash: 8d354e3f409a51bdbb03ad340c951c39cc6137e1
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 7366273e30132daf7dc5ea15072c574180d1bc8b
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186438"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397275"
 ---
-# <a name="understand-load-balancer-probes"></a>了解 Load Balancer 探查
+# <a name="load-balancer-health-probes"></a>Load Balancer 健康情況探查
 
-Azure Load Balancer 會使用健康情況探查，來決定哪一個後端集區執行個體應該接收新流程。   您可以使用健康情況探查來偵測後端執行個體上的應用程式失敗。  您也可以使用來自應用程式的健康情況探查回應，通知 Load Balancer 是否要繼續傳送新流量，或停止將新流量傳送到後端執行個體，藉此管理負載或計畫的停機時間。
+Azure Load Balancer 會使用健康情況探查，來決定哪個後端集區執行個體會接收新流程。 您可以使用健康情況探查來偵測後端執行個體上的應用程式失敗。 您也可以對健康情況探查產生自訂回應，而且將健康情況探查用於流量控制，並通知 Load Balancer 是否要繼續傳送新流量，或停止將新流量傳送到後端執行個體。 這可用來管理負載或計畫性停機。
 
-健康情況探查控管新流量是否能與狀況良好的後端執行個體建立連線。 當健康情況探查失敗時，Load Balancer 就會停止傳送新流量給狀況不良的個別執行個體。  健康情況探查失敗之後，已建立的 TCP 連線會繼續。  現有的 UDP 流量將會從狀況不良的執行個體移至後端集區中另一個狀況良好的執行個體。
+當健康情況探查失敗時，Load Balancer 就會停止傳送新流量給狀況不良的個別執行個體。 新的和現有流量的行為取決於流量為 TCP 或 UDP，以及您目前使用哪個 Load Balancer SKU。  檢閱[探查關閉行為以獲得詳細資訊](#probedown)。
 
-如果後端集區的所有探查都失敗，Basic Load Balancer 會終止流向後端集區的所有現有 TCP 流量，而 Standard Load Balancer 則會允許已建立的 TCP 流量繼續傳送；沒有任何新流量會傳送到後端集區。  當後端集區的所有探查都失敗時，Basic 和 Standard Load Balancer 會終止所有現有的 UDP 流量。  UDP 是不需連線的，因此 UDP 沒有流程狀態追蹤。  只要雜湊會產生相同的結果，資料包的流程將會維持在特定的執行個體上。  後端集區中的健康狀態探查若有變更，則會將新的資料包移至後端集區中的不同執行個體。
+> [!IMPORTANT]
+> Load Balancer 健康情況探查源自於 IP 位址 168.63.129.16，而且不得封鎖探查以將您的執行個體標示為已啟動。  檢閱[探查來源 IP 位址](#probesource)，以取得詳細資料。
 
-雲端服務角色 (背景工作角色和 Web 角色) 會使用客體代理程式進行探查監視。 當您在 Load Balancer 後方使用雲端服務搭配 IaaS VM 時，必須設定 TCP 或 HTTP 自訂健康情況探查。
+## <a name="health-probe-types"></a>健康情況探查類型
 
-## <a name="understand-probe-count-and-timeout"></a>了解探查計數及逾時
+健康情況探查可以觀察後端執行個體上的任何連接埠，包括在其上提供實際服務的連接埠。 健康情況探查支援 TCP 接聽程式或 HTTP 端點。 
+
+若要讓 UDP 負載平衡，您應該為使用 TCP 或 HTTP 健康情況探查的後端執行個體，產生自訂健康情況探查訊號。
+
+使用 [HA 連接埠負載平衡規則](load-balancer-ha-ports-overview.md)搭配 [Standard Load Balancer](load-balancer-standard-overview.md) 時，所有連接埠都會進行負載平衡，而單一健康情況探查回應應反映出整個執行個體的狀態。  
+
+您不應該透過接受健康情況探查的執行個體，將健康情況探查經由 NAT 或 Proxy 傳送到 VNet 中的另一個執行個體，因為這可能導致您的案例發生連鎖性失敗。
+
+如果您想要測試健康情況探查失敗或將個別執行個體標示為已關閉，您可以使用安全性群組來明確封鎖健康情況探查 (目的地或[來源](#probesource))。
+
+### <a name="tcp-probe"></a>TCP 探查
+
+TCP 探查會利用定義的連接埠執行三向開放 TCP 交握，藉此初始化連線。  接著執行四向關閉 TCP 交握。
+
+最小探查間隔為 5 秒，狀況不良的回應數目下限為 2。  總持續時間不能超過 120 秒。
+
+在以下情況，TCP 探查會失敗：
+* 執行個體上的 TCP 接聽程式在逾時期間完全沒有回應。  系統會根據失敗探查要求數目將探查標示為已關閉，而將探查標示為已關閉之前，這些要求會設定為未獲得回應。
+* 探查會從執行個體接收 TCP 重設。
+
+### <a name="http-probe"></a>HTTP 探查
+
+HTTP 探查會建立 TCP 連線，以及發出含有指定路徑的 HTTP GET。 HTTP 探查支援 HTTP GET 的相對路徑。 當執行個體在逾時期限內以 HTTP 狀態 200 回應時，健康情況探查會標示為已啟動。  依預設，HTTP 健康情況探查會每隔 15 秒嘗試檢查一次已設定的健康情況探查連接埠。 最小探查間隔為 5 秒。 總持續時間不能超過 120 秒。 
+
+
+HTTP 探查也很適合在您想要實作自己的邏輯，以從負載平衡器循環中移除執行個體時使用。 例如，如果執行個體使用超過 90% CPU，並傳回非 200 HTTP 狀態，您可以決定移除執行個體。 
+
+如果您使用雲端服務而且有使用 w3wp.exe 的 Web 角色，也能讓網站的監視自動化。 網站程式碼中的失敗，會將非 200 的狀態傳回給負載平衡器探查。  HTTP 探查會覆寫預設的客體代理程式探查。 
+
+在以下情況，HTTP 探查會失敗：
+* HTTP 探查端點會傳回 200 以外的 HTTP 回應碼 (例如，403、404 或 500)。 這會立即將健康情況探查標示為已關閉。 
+* HTTP 探查端點在 31 秒的逾時期間內完全沒有回應。 根據設定的逾時值，在探查標示為非執行中之前 (也就是說，在傳送 SuccessFailCount 探查之前)，多個探查要求並未獲得回應。
+* HTTP 探查端點會透過 TCP 重設關閉連線。
+
+### <a name="guest-agent-probe-classic-only"></a>客體代理程式探查 (僅限傳統)
+
+依預設，雲端服務角色 (背景工作角色和 Web 角色) 會使用客體代理程式進行探查監視。   您應該考慮將這個選項作為最後手段。  您一律應該明確定義採用 TCP 或 HTTP 探查的健康情況探查。 在大部分的應用程式案例中，客體代理程式探查的效果不如明確定義的探查。  
+
+客體代理程式探查是虛擬機器內客體代理程式的檢查。 然後，只有在執行個體處於就緒狀態時，它才會接聽並以「HTTP 200 確定」回應。 (其他狀態為忙碌、正在回收或正在停止。)
+
+如需詳細資訊，請查看[設定適用於健全狀況探查的服務定義檔案 (csdef)](https://msdn.microsoft.com/library/azure/ee758710.aspx) 或[開始為雲端服務建立公用負載平衡器](load-balancer-get-started-internet-classic-cloud.md#check-load-balancer-health-status-for-cloud-services)。
+
+如果客體代理程式無法以「HTTP 200 確定」回應，則負載平衡器會將執行個體標示為沒有回應。 然後，它會停止將流量傳送到該執行個體。 負載平衡器會繼續檢查執行個體。 
+
+如果客體代理程式以 HTTP 200 回應，則負載平衡器會再次將新流量傳送到該執行個體。
+
+使用 Web 角色時，網站程式碼通常會在不受 Azure 網狀架構或客體代理程式監視的 w3wp.exe 中執行。 在 w3wp.exe 中的失敗 (例如 HTTP 500 回應) 不會向客體代理程式報告。 因此，負載平衡器不會將該執行個體從循環中剔除。
+
+## <a name="probe-health"></a>探查健康情況
+
+TCP 和 HTTP 健康情況探查於下列狀況時會視為狀況良好，並將角色執行個體標示為狀況良好：
+
+* 健康情況探查會在 VM 第一次開機時成功。
+* SuccessFailCount 的數目 (如上所述) 可定義將角色執行個體標示為狀況良好所需的成功探查值。 如果已移除角色執行個體，成功且連續的探查數目必須大於或等於 SuccessFailCount 的值才能將角色執行個體標示為執行中。
+
+> [!NOTE]
+> 如果角色執行個體的健全狀況出現變動，負載平衡器會先等候較長的時間，才將角色執行個體重新放回狀況良好的狀態。 此額外等候時間可保護使用者和基礎結構，且為刻意設計的原則。
+
+## <a name="probe-count-and-timeout"></a>探查計數及逾時
 
 探查行為取決於︰
 
@@ -41,61 +100,54 @@ Azure Load Balancer 會使用健康情況探查，來決定哪一個後端集區
 
 在 SuccessFailCount 中設定的逾時和頻率值會決定執行個體是否確認為執行中或非執行中。 在 Azure 入口網站中，逾時設定為頻率值的兩倍。
 
-端點 (也就是負載平衡集) 的所有負載平衡執行個體的探查設定必須相同。 針對位在相同託管服務特定端點組合的各個角色執行個體或 VM，您不能有不同的探查設定。 例如，每個執行個體必須具有相同的本機連接埠和逾時。
+負載平衡規則有已定義個別後端集區的單一健康情況探查。
 
-> [!IMPORTANT]
-> 負載平衡器探查使用 IP 位址 168.63.129.16。 這個公用 IP 位址可促進自備 IP Azure 虛擬網路案例中內部平台資源的通訊。 虛擬公用 IP 位址 168.63.129.16 會使用於所有區域中，且不會變更。 建議您在任何本機防火牆原則中允許此 IP 位址。 它不應被視為安全性風險，因為只有內部 Azure 平台可以從該位址取得訊息來源。 如果您的防火牆原則中不允許此 IP 位址，則會發生各種未預期的行為。 這類行為包括設定 168.63.129.16 相同的 IP 位址範圍，以及重複的 IP 位址。
+## <a name="probedown"></a>探查關閉行為
 
-## <a name="learn-about-the-types-of-probes"></a>深入了解探查類型
+### <a name="tcp-connections"></a>TCP 連線
 
-### <a name="guest-agent-probe"></a>客體代理程式探查
+新的 TCP 連線會接續至狀況良好且其客體作業系統和應用程式能夠接受新流量的後端執行個體。
 
-客體代理程式探查僅供 Azure 雲端服務使用。 Load Balancer 會利用 VM 內部的客體代理程式。 然後，只有在執行個體處於就緒狀態時，它才會接聽並以「HTTP 200 確定」回應。 (其他狀態為忙碌、正在回收或正在停止。)
+如果後端執行個體的健康情況探查失敗，則這個後端執行個體的已建立 TCP 連線會繼續。
 
-如需詳細資訊，請查看[設定適用於健全狀況探查的服務定義檔案 (csdef)](https://msdn.microsoft.com/library/azure/ee758710.aspx) 或[開始為雲端服務建立公用負載平衡器](load-balancer-get-started-internet-classic-cloud.md#check-load-balancer-health-status-for-cloud-services)。
+如果後端集區中所有執行個體的所有探查都失敗，則不會有任何新流量傳送至後端集區。 Standard Load Balancer 將允許已建立的 TCP 流量繼續。  Basic Load Balancer 會終止後端集區的所有現有 TCP 流量。
+ 
+流量一律介於用戶端與 VM 的客體 OS 之間，因此如果沒有狀況良好的後端執行個體可接收流量，則所有探查都已關閉的集區會導致前端對 TCP 連線開啟嘗試沒有回應。
 
-### <a name="what-makes-a-guest-agent-probe-mark-an-instance-as-unhealthy"></a>什麼原因會讓客體代理程式探查將執行個體標示為狀況不良？
+### <a name="udp-datagrams"></a>UDP 資料包
 
-如果客體代理程式無法以「HTTP 200 確定」回應，則負載平衡器會將執行個體標示為沒有回應。 然後，它會停止傳送流量至該執行個體。 負載平衡器會繼續 ping 執行個體。 如果客體代理程式以 HTTP 200 回應，則負載平衡器會再次傳送流量到該執行個體。
+UDP 資料包會傳遞至狀況良好的後端執行個體。
 
-使用 Web 角色時，網站程式碼通常會在不受 Azure 網狀架構或客體代理程式監視的 w3wp.exe 中執行。 在 w3wp.exe 中的失敗 (例如 HTTP 500 回應) 不會向客體代理程式報告。 因此，負載平衡器不會將該執行個體從循環中剔除。
+UDP 是不需連線的，因此 UDP 沒有流程狀態追蹤。 如有任何後端執行個體的健康情況探查失敗，則現有的 UDP 流量可能會移到後端集區中另一個狀況良好的執行個體。
 
-### <a name="http-custom-probe"></a>HTTP 自訂探查
+如果後端集區中所有執行個體的所有探查都失敗，則 Basic 和 Standard Load Balancer 的現有 UDP 流量將會終止。
 
-HTTP 自訂探查會覆寫預設客體代理程式探查。 您可以用來建立自己的自訂邏輯，以判斷角色執行個體的健全狀況。 根據預設，負載平衡器會每隔 15 秒探查您的端點。 如果執行個體在逾時期限內以 HTTP 200 回應，它就會被視為處於負載平衡器循環中。 逾時期限預設為 31 秒。
 
-HTTP 自訂探查很適合在您想要實作自己的邏輯，以從負載平衡器循環中移除執行個體時使用。 例如，如果執行個體使用超過 90% CPU，並傳回非 200 狀態，您可以決定移除執行個體。 如果您有使用 w3wp.exe 的 Web 角色，您也能讓網站的監視自動化。 網站程式碼中的失敗，會將非 200 的狀態傳回給負載平衡器探查。
+## <a name="probesource"></a>探查來源 IP 位址
 
-> [!NOTE]
-> HTTP 自訂探查僅支援相對路徑和 HTTP 通訊協定。 不支援 HTTPS。
+所有 Load Balancer 健康情況探查都源自作為其來源的 IP 位址 168.63.129.16。  當您將自有的 IP 位址帶到 Azure 的虛擬網路時，此健康情況探查來源 IP 位址保證是唯一的，因為它為 Microsoft 全域保留。  此位址在所有區域中皆相同，而且不會變更。 它不應被視為安全性風險，因為只有內部 Azure 平台可以從此 IP 位址取得封包來源。 
 
-### <a name="what-makes-an-http-custom-probe-mark-an-instance-as-unhealthy"></a>什麼原因會讓 HTTP 自訂探查將執行個體標示為狀況不良？
+為了讓 Load Balancer 的健康情況探查將您的執行個體標示為已啟動，您**必須**在任何 Azure [安全性群組](../virtual-network/security-overview.md)和本機防火牆原則中允許此 IP 位址。
 
-* HTTP 應用程式傳回 200 以外的 HTTP 回應碼 (例如，403、404 或 500)。 此正值通知警示您應立即將應用程式執行個體從服務中剔除。
-* HTTP 伺服器在逾時期限之後完全沒有回應。 根據設定的逾時值，在探查標示為非執行中之前 (也就是說，在傳送 SuccessFailCount 探查之前)，多個探查要求並未獲得回應。
-* 伺服器會透過 TCP 重設關閉連線。
+如果您不允許防火牆原則中有此 IP 位址，則健康情況探查將會失敗，因為它無法觸達您的執行個體。  接著，Load Balancer 會因為健康情況探查失敗而將您的執行個體標示為已關閉。  這會導致已負載平衡的服務失敗。 
 
-### <a name="tcp-custom-probe"></a>TCP 自訂探查
+此外，您不得使用 Microsoft 擁有的 IP 位址範圍 (其中包含 168.63.129.16) 來設定您的 VNet。  這會與健康情況探查的 IP 位址相衝突。
 
-TCP 自訂探查透過利用定義的連接埠執行三向交握來初始化連線。
+如果您的 VM 上有多個介面，您必須確保在您接收探查的介面上進行回應。  您可能需要在每個介面上，將 VM 中的這個位址設為唯一來源 NAT。
 
-### <a name="what-makes-a-tcp-custom-probe-mark-an-instance-as-unhealthy"></a>什麼原因會讓 TCP 自訂探查將執行個體標示為狀況不良？
+## <a name="monitoring"></a>監視
 
-* TCP 伺服器在逾時期限之後完全沒有回應。 當探查標示為非執行中時，取決於失敗探查的數目，在探查標示為非執行中之前，這些要求設定為未獲得回應。
-* 探查會從角色執行個體接收 TCP 重設。
+所有 [Standard Load Balancer](load-balancer-standard-overview.md)都會透過 Azure 監視器，以多維度計量形式公開每個執行個體的健康情況探查狀態。
 
-如需有關如何設定 HTTP 健全狀況探查或 TCP 探查的詳細資訊，請參閱[開始使用 PowerShell 在 Resource Manager 中建立公用負載平衡器](load-balancer-get-started-internet-arm-ps.md)。
+Basic Load Balancer 會透過 Log Analytics 公開每個後端集區的健康情況探查狀態。  這只適用於公用 Basic Load Balancer，不適用於內部 Basic Load Balancer。  您可以使用[記錄分析](load-balancer-monitor-log.md)來檢查公用負載平衡器探查健全狀況和探查計數。 記錄可以與 Power BI 或 Azure Operation Insights 搭配使用，以提供負載平衡器健康狀態。
 
-## <a name="add-healthy-instances-back-into-the-load-balancer-rotation"></a>將狀況良好的執行個體重新加入負載平衡器循環
 
-TCP 和 HTTP 探查於下列狀況時會視為狀況良好，並將角色執行個體標示為狀況良好：
+## <a name="limitations"></a>限制
 
-* 負載平衡器在 VM 第一次開機時會取得正面探查。
-* SuccessFailCount 的數目 (如上所述) 可定義將角色執行個體標示為狀況良好所需的成功探查值。 如果已移除角色執行個體，成功且連續的探查數目必須大於或等於 SuccessFailCount 的值才能將角色執行個體標示為執行中。
+-  HTTP 健康情況探查不支援 TLS (HTTPS)。  請改為使用對連接埠 443 的 TCP 探查。
 
-> [!NOTE]
-> 如果角色執行個體的健全狀況出現變動，負載平衡器會先等候較長的時間，才將角色執行個體重新放回狀況良好的狀態。 此額外等候時間可保護使用者和基礎結構，且為刻意設計的原則。
+## <a name="next-steps"></a>後續步驟
 
-## <a name="use-log-analytics-for-a-load-balancer"></a>使用負載平衡器的記錄分析
+- [開始使用 PowerShell 在資源管理員中建立公用負載平衡器](load-balancer-get-started-internet-arm-ps.md)
+- [適用於健康情況探查的 REST API](https://docs.microsoft.com/en-us/rest/api/load-balancer/loadbalancerprobes/get)
 
-您可以使用[記錄分析](load-balancer-monitor-log.md)來檢查負載平衡器探查健全狀況和探查計數。 記錄可以與 Power BI 或 Azure Operation Insights 搭配使用，以提供負載平衡器健康狀態。

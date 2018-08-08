@@ -2,20 +2,17 @@
 title: 如何在 Linux 上將 Azure Blob 儲存體掛接為檔案系統 | Microsoft Docs
 description: 在 Linux 上使用 FUSE 掛接 Azure Blob 儲存體容器
 services: storage
-documentationcenter: linux
 author: seguler
-manager: jahogg
 ms.service: storage
-ms.devlang: bash
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: seguler
-ms.openlocfilehash: 1098eef15b559c30ef436d8e13bbe02bddb78649
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 9964aa4d263e0b75eb59b4e1434a9b3f0aac6ea1
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072087"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39400181"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>如何使用 Blobfuse 將 Blob 儲存體掛接為檔案系統
 
@@ -79,7 +76,7 @@ sudo chown <youruser> /mnt/ramdisk/blobfusetmp
 ```
 
 ### <a name="use-an-ssd-for-temporary-path"></a>將 SSD 當做暫存路徑
-在 Azure 中，您可以使用虛擬機器上的暫時磁碟 (SSD) 來當做低延遲的 Blobfuse 緩衝區。 在 Ubuntu 發行版中，此處的暫時磁碟會掛接於 '/mnt'，在 RedHat 和 CentOS 發行版中則掛接於 '/mnt/resource/'。
+在 Azure 中，您可以使用虛擬機器上的暫時磁碟 (SSD) 來當做低延遲的 Blobfuse 緩衝區。 在 Ubuntu 發行版中，此處的暫時磁碟會掛接於 '/mnt'，在 Red Hat 和 CentOS 發行版中則掛接於 '/mnt/resource/'。
 
 請確認使用者擁有暫存路徑的存取權限：
 ```bash
