@@ -401,10 +401,10 @@
 ### [取出存取權檢閱結果](active-directory-azure-ad-controls-retrieve-access-review.md)
 
 ## 保護您的身分識別
-### [條件式存取](active-directory-conditional-access-azure-portal.md)
-#### [開始使用](active-directory-conditional-access-azure-portal-get-started.md)
+### 條件式存取
+#### [概觀](conditional-access/overview.md)
 #### 快速入門
-##### [設定每個雲端應用程式 MFA](conditional-access/app-based-mfa.md)
+##### [特定應用程式需要 MFA](conditional-access/app-based-mfa.md)
 ##### [接受的使用條款](conditional-access/require-tou.md)
 ##### [偵測到工作階段風險時封鎖存取](conditional-access/app-sign-in-risk.md)
 #### 教學課程
@@ -418,15 +418,16 @@
 ##### [了解 Office 365 服務的裝置原則](active-directory-conditional-access-device-policies.md)
 #### 使用說明指南
 ##### [最佳做法](conditional-access/best-practices.md)
-##### [為來自不信任的網路存取嘗試設定條件式存取原則](active-directory-conditional-access-untrusted-networks.md)
-##### [設定裝置型條件式存取](active-directory-conditional-access-policy-connected-applications.md)
-##### [設定應用程式型條件式存取](active-directory-conditional-access-mam.md)
-##### [為使用者和應用程式提供使用規定](active-directory-tou.md)
+##### [需要 MFA 以便嘗試從不受信任的網路存取](conditional-access/untrusted-networks.md)
+##### [需要受控裝置](conditional-access/require-managed-devices.md)
+##### [需要已經核准的用戶端應用程式](conditional-access/app-based-conditional-access.md)
+##### [需要為使用者和應用程式提供使用規定](active-directory-tou.md)
 ##### [移轉傳統原則](conditional-access/policy-migration.md)
 ##### [設定 VPN 連線能力](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
 ##### [設定 SharePoint 和 Exchange Online](active-directory-conditional-access-no-modern-authentication.md)
 ##### [補救](active-directory-conditional-access-device-remediation.md)
-#### [技術參考](active-directory-conditional-access-technical-reference.md)
+#### [參考](conditional-access/technical-reference.md)
+##### [技術參考](conditional-access/technical-reference.md)
 #### [常見問題集](conditional-access/faqs.md)
 
 ### 憑證式驗證

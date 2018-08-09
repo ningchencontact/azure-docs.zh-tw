@@ -252,7 +252,7 @@ msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 > [!NOTE]
 > **認證管理員應用程式**尚無法為 ADFv2 中的認證加密。 我們會在日後新增這項支援。  
 
-如果您選擇不開啟自我裝載整合執行階段電腦上的連接埠 8060，則請使用「設定認證」****應用程式以外的機制來設定資料存放區認證。 例如，您可以使用 New-AzureRmDataFactoryV2LinkedServiceEncryptCredential PowerShell Cmdlet。 若要了解如何設定資料存放區認證，請參閱＜設定認證和安全性＞一節。
+如果您選擇不開啟自我裝載整合執行階段電腦上的連接埠 8060，則請使用**設定認證**應用程式以外的機制來設定資料存放區認證。 例如，您可以使用 New-AzureRmDataFactoryV2LinkedServiceEncryptCredential PowerShell Cmdlet。 若要了解如何設定資料存放區認證，請參閱＜設定認證和安全性＞一節。
 
 
 ## <a name="next-steps"></a>後續步驟

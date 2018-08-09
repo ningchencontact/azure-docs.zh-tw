@@ -16,7 +16,6 @@
     - name: 建立範本 - Visual Studio
       href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
 - name: 教學課程
-  expanded: true
   items:
     - name: 建立加密的儲存體帳戶
       href: resource-manager-tutorial-create-encrypted-storage-accounts.md
@@ -52,10 +51,12 @@
               href: resource-manager-templates-outputs.md
         - name: 連結和巢狀的範本
           href: resource-group-linked-templates.md
-        - name: 定義資源間的相依性
+        - name: 資源相依性
           href: resource-group-define-dependencies.md
         - name: 建立多個執行個體
           href: resource-group-create-multiple.md
+        - name: 在範本中建立資源群組
+          href: create-resource-group-in-template.md
         - name: 更新資源
           href: /azure/architecture/building-blocks/extending-templates/update-resource
     - name: 部署

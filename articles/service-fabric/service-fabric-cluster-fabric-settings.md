@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/27/2018
+ms.date: 07/25/2018
 ms.author: aljo
-ms.openlocfilehash: 499c7182fba9d8efeebfb22e22a692d431dcb7ac
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 5628315423db1f0064d0e6b77f061d8e674757aa
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888648"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39309148"
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>自訂 Service Fabric 叢集設定和網狀架構升級原則
 本文件將告訴您如何為 Service Fabric 叢集自訂各種網狀架構設定和網狀架構升級原則。 您可以透過 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本來進行自訂。
@@ -59,11 +59,11 @@ ms.locfileid: "37888648"
 ## <a name="applicationgatewayhttp"></a>ApplicationGateway/Http
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
-|ApplicationCertificateValidationPolicy|字串，預設值為 L"None"|靜態| ApplicationCertificateValidationPolicy：None：不驗證伺服器憑證，使要求成功。 ServiceCertificateThumbprints：請參閱 ServiceCertificateThumbprints 組態以取得反向 Proxy 可以信任的逗號分隔遠端憑證指紋清單。 ServiceCommonNameAndIssuer：請參閱 ServiceCommonNameAndIssuer 組態以取得反向 Proxy 可以信任之遠端憑證的主體名稱和簽發者指紋。 |
+|ApplicationCertificateValidationPolicy|字串，預設值為 "None"|靜態| 這不會驗證伺服器憑證；成功的要求。 請參閱 ServiceCertificateThumbprints 組態，以取得反向 Proxy 可以信任的逗號分隔遠端憑證指紋清單。 請參閱 ServiceCommonNameAndIssuer 組態，以取得反向 Proxy 可以信任的遠端憑證主體名稱和簽發者指紋。 若要深入了解，請參閱[反向 Proxy 安全連線](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services)。 |
 |BodyChunkSize |單位，預設值為 16384 |動態| 提供用來讀取主體的區塊大小 (位元組)。 |
 |CrlCheckingFlag|單位，預設值為 0x40000000 |動態| 應用程式/服務信任鏈結驗證旗標，例如 CRL 檢查 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY 設定為 0 會停用 CRL 檢查。CertGetCertificateChain 的 dwFlags 會記載完整的支援值清單：http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |DefaultHttpRequestTimeout |以秒為單位的時間。 預設值為 120 |動態|以秒為單位指定時間範圍。  針對在 http 應用程式閘道中所處理的 http 要求提供預設要求逾時。 |
-|ForwardClientCertificate|布林值，預設值為 FALSE|動態| |
+|ForwardClientCertificate|布林值，預設值為 FALSE|動態|當設為 false 時，反向 Proxy 將不會要求用戶端憑證。當設為 true 時，則反向 Proxy 將會在 SSL 交換期間要求用戶端憑證，並將採用 Base 64 編碼的 PEM 格式字串轉送至名為 X-Client-Certificate 標頭中的服務。這個服務在檢查憑證資料之後，可能會讓要求失敗，並包含適當的狀態碼。 如果為 true 且用戶端未出示憑證，反向 Proxy 會轉送空白標頭，以讓服務處理這種情況。 反向 Proxy 將作為透明圖層。 若要深入了解，請參閱[設定用戶端憑證驗證](service-fabric-reverseproxy-configure-secure-communication.md#setting-up-client-certificate-authentication-through-the-reverse-proxy)。 |
 |GatewayAuthCredentialType |字串，預設值為 "None" |靜態| 表示要在 http 應用程式閘道端點使用的安全性認證類型。有效值為 "None/X509。 |
 |GatewayX509CertificateFindType |字串，預設值為 "FindByThumbprint" |動態| 指出如何搜尋以下列 GatewayX509CertificateStoreName 支援值指定之存放區中的憑證︰FindByThumbprint、FindBySubjectName。 |
 |GatewayX509CertificateFindValue | 字串，預設值為 "" |動態| 搜尋用來找出 http 應用程式閘道憑證的篩選值。 此憑證設定於 https 端點上，如果服務需要，也可用來驗證應用程式的身分識別。 首先會查閱 FindValue，如果不存在，則會查閱 FindValueSecondary。 |
@@ -73,23 +73,23 @@ ms.locfileid: "37888648"
 |IgnoreCrlOfflineError|布林值，預設值為 TRUE|動態|是否要忽略應用程式/服務憑證驗證的 CRL 離線錯誤。 |
 |IsEnabled |布林值，預設值為 false |靜態| 啟用/停用 HttpApplicationGateway。 預設為停用 HttpApplicationGateway，必須設定此組態才能加以啟用。 |
 |NumberOfParallelOperations | 單位，預設值為 5000 |靜態|要張貼到 http 伺服器佇列的讀取數。 這會控制 HttpGateway 滿意的並行要求數目。 |
-|RemoveServiceResponseHeaders|字串，預設值為 L"Date; Server"|靜態|會在轉送到用戶端之前，從服務回應中移除之回應標頭的分號/逗號分隔清單。 如果此參數設定為空字串，則會傳遞由服務依原狀傳回的所有標頭。 亦即 不會覆寫日期和伺服器 |
+|RemoveServiceResponseHeaders|字串，預設值為 "Date; Server"|靜態|會在轉送到用戶端之前，從服務回應中移除之回應標頭的分號/逗號分隔清單。 如果此參數設定為空字串，則會傳遞由服務依原狀傳回的所有標頭。 亦即 不會覆寫日期和伺服器 |
 |ResolveServiceBackoffInterval |時間 (秒)，預設值為 5 |動態|以秒為單位指定時間範圍。  提供在重試失敗的解析服務作業前的預設輪詢間隔。 |
-|SecureOnlyMode|布林值，預設值為 FALSE|動態| SecureOnlyMode：true：反向 Proxy 只會轉送至發行安全端點的服務。 false：反向 Proxy 可以將要求轉送至安全/不安全的端點。  |
-|ServiceCertificateThumbprints|字串，預設值為 L""|動態| |
+|SecureOnlyMode|布林值，預設值為 FALSE|動態| SecureOnlyMode：true：反向 Proxy 只會轉送至發行安全端點的服務。 false：反向 Proxy 可以將要求轉送至安全/不安全的端點。 若要深入了解，請參閱[反向 Proxy 端點選取邏輯](service-fabric-reverseproxy-configure-secure-communication.md#endpoint-selection-logic-when-services-expose-secure-as-well-as-unsecured-endpoints)。  |
+|ServiceCertificateThumbprints|字串，預設值為 ""|動態|反向 Proxy 可以信任的逗號分隔遠端憑證指紋清單。 若要深入了解，請參閱[反向 Proxy 安全連線](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services)。 |
 
 ## <a name="applicationgatewayhttpservicecommonnameandissuer"></a>ApplicationGateway/Http/ServiceCommonNameAndIssuer
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap，預設值為 None|動態|  |
+|PropertyGroup|X509NameMap，預設值為 None|動態| 反向 Proxy 可以信任的遠端憑證主體名稱和簽發者指紋。 若要深入了解，請參閱[反向 Proxy 安全連線](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services)。 |
 
 ## <a name="backuprestoreservice"></a>BackupRestoreService
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |MinReplicaSetSize|int，預設值為 0|靜態|BackupRestoreService 的 MinReplicaSetSize |
-|PlacementConstraints|wstring，預設值為 L""|靜態| BackupRestore 服務的 PlacementConstraints |
-|SecretEncryptionCertThumbprint|wstring，預設值為 L""|動態|祕密加密 X509 憑證的指紋 |
-|SecretEncryptionCertX509StoreName|wstring，預設值為 L"My"|  動態|    這表示要用於認證加密和解密的憑證。用於加密及解密備份還原服務所用存放區認證的 X.509 憑證存放區名稱 |
+|PlacementConstraints|字串，預設值為 ""|靜態|  BackupRestore 服務的 PlacementConstraints |
+|SecretEncryptionCertThumbprint|字串，預設值為 ""|動態|祕密加密 X509 憑證的指紋 |
+|SecretEncryptionCertX509StoreName|字串，預設值為 "My"|   動態|    這表示要用於認證加密和解密的憑證。用於加密及解密備份還原服務所用存放區認證的 X.509 憑證存放區名稱 |
 |TargetReplicaSetSize|int，預設值為 0|靜態| BackupRestoreService 的 TargetReplicaSetSize |
 
 ## <a name="clustermanager"></a>ClusterManager
@@ -157,8 +157,10 @@ ms.locfileid: "37888648"
 ## <a name="dnsservice"></a>DnsService
 | **參數** | **允許的值** |**升級原則**| **指引或簡短描述** |
 | --- | --- | --- | --- |
-|IsEnabled|布林值，預設值為 FALSE|靜態| |
-|InstanceCount|整數，預設值為 -1|靜態|  |
+|InstanceCount|整數，預設值為 -1|靜態|預設值為 -1，表示 DnsService 正在每個節點上執行。 OneBox 需要這個設定為 1，因為 DnsService 會使用熟知的連接埠 53，因此不能在同一部電腦上擁有多個執行個體。|
+|IsEnabled|布林值，預設值為 FALSE|靜態|啟用/停用 DnsService。 預設為停用 DnsService，必須設定此組態才能加以啟用。 |
+|PartitionPrefix|字串，預設值為 "-"|靜態|控制分割服務 DNS 查詢中的分割前置詞字串值。 值： <ul><li>應該要符合 RFC 規範，因為它會包含在 DNS 查詢中。</li><li>不應包含點 '.'，因為點會干擾 DNS 後置詞的行為。</li><li>不得超過 5 個字元。</li><li>不能是空字串。</li><li>如果覆寫 PartitionPrefix 設定，則必須覆寫 PartitionSuffix，反之亦然。</li></ul>如需詳細資訊，請參閱 [Service Fabric DNS 服務](service-fabric-dnsservice.md)。|
+|PartitionSuffix|字串，預設值為 ""|靜態|控制分割服務 DNS 查詢中的分割後置詞字串值。值： <ul><li>應該要符合 RFC 規範，因為它會包含在 DNS 查詢中。</li><li>不應包含點 '.'，因為點會干擾 DNS 後置詞的行為。</li><li>不得超過 5 個字元。</li><li>如果覆寫 PartitionPrefix 設定，則必須覆寫 PartitionSuffix，反之亦然。</li></ul>如需詳細資訊，請參閱 [Service Fabric DNS 服務](service-fabric-dnsservice.md)。 |
 
 ## <a name="fabricclient"></a>FabricClient
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
@@ -221,7 +223,7 @@ ms.locfileid: "37888648"
 |ExpectedReplicaUpgradeDuration|時間範圍，預設值為 Common::TimeSpan::FromSeconds(60.0 * 30)|動態|以秒為單位指定時間範圍。 這是在應用程式升級期間，用來升級節點上所有複本的預期持續時間。 |
 |IsSingletonReplicaMoveAllowedDuringUpgrade|布林值，預設值為 TRUE|動態|如果設為 true，則會允許目標複本集大小為 1 的複本在升級期間移動。 |
 |MinReplicaSetSize|整數，預設值為 3|不允許|這是 FM 的最小複本集大小。 如果作用中 FM 複本數目低於此值，FM 會拒絕對叢集所做的變更，直到複本數目至少恢復到最小值 |
-|PlacementConstraints|字串，預設值為 L""|不允許|容錯移轉管理員複本的任何放置條件約束 |
+|PlacementConstraints|字串，預設值為 ""|不允許|容錯移轉管理員複本的任何放置條件約束 |
 |PlacementTimeLimit|時間範圍，預設值為 Common::TimeSpan::FromSeconds(600)|動態|以秒為單位指定時間範圍。 用來觸達目標複本計數的時間限制，此時間過後，便會起始警告健康情況報告 |
 |QuorumLossWaitDuration |時間 (秒)，預設值為 MaxValue |動態|以秒為單位指定時間範圍。 這是資料分割可處於仲裁遺失狀態的持續時間上限。 如果此持續時間過後，資料分割仍處於仲裁遺失狀態，則會以將停止運作的複本視為遺失的方式，讓資料分割從仲裁遺失狀態復原。 請注意，這可能會造成資料遺失。 |
 |ReconfigurationTimeLimit|時間範圍，預設值為 Common::TimeSpan::FromSeconds(300)|動態|以秒為單位指定時間範圍。 重新設定的時間限制，此時間過後，便會起始警告健康情況報告 |
@@ -251,20 +253,22 @@ ms.locfileid: "37888648"
 ## <a name="federation"></a>同盟
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
+|GlobalTicketLeaseDuration|時間範圍，預設值為 Common::TimeSpan::FromSeconds(300)|靜態|以秒為單位指定時間範圍。 叢集中的節點必須使用投票程式保持全域租用的狀態。 投票程式會提交要在這段期間內跨叢集傳播的全域租用。 如果持續時間到期；則租用將會遺失。 遺失租用的仲裁會導致節點放棄叢集；原因是無法在這段時間收到與節點仲裁的通訊。  這個值必須根據叢集的大小來調整。 |
 |LeaseDuration |時間 (秒)，預設值為 30 |動態|節點與其相鄰節點之間的租用持續時間。 |
 |LeaseDurationAcrossFaultDomain |時間 (秒)，預設值為 30 |動態|所有容錯網域的節點與其相鄰節點之間的租用持續時間。 |
 
 ## <a name="filestoreservice"></a>FileStoreService
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
+|AcceptChunkUpload|布林值，預設值為 TRUE|動態|設定以決定在複製應用程式套件期間，檔案存放區服務是否接受區塊型檔案上傳。 |
 |AnonymousAccessEnabled | 布林值，預設值為 true |靜態|啟用/停用 FileStoreService 共用的匿名存取。 |
-|CommonName1Ntlmx509CommonName|字串，預設值為 L""|靜態| 使用 NTLM 驗證時，用來在 CommonName1NtlmPasswordSecret 上產生 HMAC 的 X509 憑證通用名稱 |
-|CommonName1Ntlmx509StoreLocation|字串，預設值為 L"LocalMachine"|靜態|使用 NTLM 驗證時，用來在 CommonName1NtlmPasswordSecret 上產生 HMAC 之 X509 憑證的存放區位置 |
-|CommonName1Ntlmx509StoreName|字串，預設值為 L"MY"| 靜態|使用 NTLM 驗證時，用來在 CommonName1NtlmPasswordSecret 上產生 HMAC 之 X509 憑證的存放區名稱 |
-|CommonName2Ntlmx509CommonName|字串，預設值為 L""|靜態|使用 NTLM 驗證時，用來在 CommonName2NtlmPasswordSecret 上產生 HMAC 的 X509 憑證通用名稱 |
-|CommonName2Ntlmx509StoreLocation|字串，預設值為 L"LocalMachine"| 靜態|使用 NTLM 驗證時，用來在 CommonName2NtlmPasswordSecret 上產生 HMAC 之 X509 憑證的存放區位置 |
-|CommonName2Ntlmx509StoreName|字串，預設值為 L"MY"|靜態| 使用 NTLM 驗證時，用來在 CommonName2NtlmPasswordSecret 上產生 HMAC 之 X509 憑證的存放區名稱 |
-|CommonNameNtlmPasswordSecret|SecureString，預設值為 Common::SecureString(L"")| 靜態|使用 NTLM 驗證時，用來做為種子以產生相同密碼的密碼祕密 |
+|CommonName1Ntlmx509CommonName|字串，預設值為 ""|靜態| 使用 NTLM 驗證時，用來在 CommonName1NtlmPasswordSecret 上產生 HMAC 的 X509 憑證通用名稱 |
+|CommonName1Ntlmx509StoreLocation|字串，預設值為 "LocalMachine"|靜態|使用 NTLM 驗證時，用來在 CommonName1NtlmPasswordSecret 上產生 HMAC 之 X509 憑證的存放區位置 |
+|CommonName1Ntlmx509StoreName|字串，預設值為 "MY"| 靜態|使用 NTLM 驗證時，用來在 CommonName1NtlmPasswordSecret 上產生 HMAC 之 X509 憑證的存放區名稱 |
+|CommonName2Ntlmx509CommonName|字串，預設值為 ""|靜態|使用 NTLM 驗證時，用來在 CommonName2NtlmPasswordSecret 上產生 HMAC 的 X509 憑證通用名稱 |
+|CommonName2Ntlmx509StoreLocation|字串，預設值為 "LocalMachine"| 靜態|使用 NTLM 驗證時，用來在 CommonName2NtlmPasswordSecret 上產生 HMAC 之 X509 憑證的存放區位置 |
+|CommonName2Ntlmx509StoreName|字串，預設值為 "MY"|靜態| 使用 NTLM 驗證時，用來在 CommonName2NtlmPasswordSecret 上產生 HMAC 之 X509 憑證的存放區名稱 |
+|CommonNameNtlmPasswordSecret|SecureString，預設值為 Common::SecureString("")| 靜態|使用 NTLM 驗證時，用來做為種子以產生相同密碼的密碼祕密 |
 |GenerateV1CommonNameAccount| 布林值，預設值為 TRUE|靜態|指定是否要透過使用者名稱 V1 產生演算法來產生帳戶。 從 Service Fabric 6.1 版開始，一律會建立具有 v2 產生的帳戶。 需要 V1 帳戶，才能升級自/至不支援 V2 產生 (6.1 之前) 的版本。|
 |MaxCopyOperationThreads | 單位，預設值為 0 |動態| 次要複寫器可從主要複寫器複製的平行檔案數上限。 '0' == 核心數目。 |
 |MaxFileOperationThreads | 單位，預設值為 100 |靜態| 允許在主要複寫器執行 FileOperations (複製/移動) 的平行執行緒數目上限。 '0' == 核心數目。 |
@@ -315,8 +319,10 @@ ms.locfileid: "37888648"
 |ActivationTimeout| 時間範圍，預設值為 Common::TimeSpan::FromSeconds(180)|動態| 以秒為單位指定時間範圍。 應用程式的啟用、停用和升級逾時。 |
 |ApplicationHostCloseTimeout| 時間範圍，預設值為 Common::TimeSpan::FromSeconds(120)|動態| 以秒為單位指定時間範圍。 在自我啟動的程序中偵測到網狀架構結束時，FabricRuntime 會關閉使用者主機 (applicationhost) 處理序中的所有複本。 這是關閉作業的逾時值。 |
 |ApplicationUpgradeTimeout| 時間範圍，預設值為 Common::TimeSpan::FromSeconds(360)|動態| 以秒為單位指定時間範圍。 應用程式升級的逾時。 如果逾時值小於「ActivationTimeout」，部署便會失敗。 |
-|ContainerServiceArguments|wstring，預設值為 L"-H localhost:2375 -H npipe://"|靜態|Service Fabric (SF) 會管理 Docker 精靈 (在 Win10 之類的 Windows 用戶端電腦上除外)。 此組態允許使用者指定自訂引數，而這些引數應該在啟動 Docker 精靈時傳遞至該精靈。 若指定了自訂引數，除了 '--pidfile' 引數外，Service Fabric 不會再將任何其他引數傳遞至 Docker 引擎。 因此使用者不得指定 '-pidfile' 引數作為其自訂引數的一部分。 此外，自訂引數也應該確保 Docker 精靈在 Windows 的預設名稱管道 (或在 Linux 上的 Unix 網域通訊端) 上接聽，Service Fabric 才能與它通訊。|
+|ContainerServiceArguments|string，預設值為 "-H localhost:2375 -H npipe://"|靜態|Service Fabric (SF) 會管理 Docker 精靈 (在 Win10 之類的 Windows 用戶端電腦上除外)。 此組態允許使用者指定自訂引數，而這些引數應該在啟動 Docker 精靈時傳遞至該精靈。 若指定了自訂引數，除了 '--pidfile' 引數外，Service Fabric 不會再將任何其他引數傳遞至 Docker 引擎。 因此使用者不得指定 '-pidfile' 引數作為其自訂引數的一部分。 此外，自訂引數也應該確保 Docker 精靈在 Windows 的預設名稱管道 (或在 Linux 上的 Unix 網域通訊端) 上接聽，Service Fabric 才能與它通訊。|
 |CreateFabricRuntimeTimeout|時間範圍，預設值為 Common::TimeSpan::FromSeconds(120)|動態| 以秒為單位指定時間範圍。 同步 FabricCreateRuntime 呼叫的逾時值 |
+|DefaultContainerRepositoryAccountName|字串，預設值為 ""|靜態|用來取代在 ApplicationManifest.xml 中指定認證的預設認證 |
+|DefaultContainerRepositoryPassword|字串，預設值為 ""|靜態|用來取代在 ApplicationManifest.xml 中指定認證的預設密碼認證|
 |DeploymentMaxFailureCount|整數，預設值為 20| 動態|應用程式部署會先重試 DeploymentMaxFailureCount 次數，才讓節點上該應用程式的部署失敗。| 
 |DeploymentMaxRetryInterval| 時間範圍，預設值為 Common::TimeSpan::FromSeconds(3600)|動態| 以秒為單位指定時間範圍。 部署的重試間隔上限。 在每次連續失敗之後，重試間隔的計算方式為 Min( DeploymentMaxRetryInterval; Continuous Failure Count * DeploymentRetryBackoffInterval) |
 |DeploymentRetryBackoffInterval| 時間範圍，預設值為 Common::TimeSpan::FromSeconds(10)|動態|以秒為單位指定時間範圍。 部署失敗的輪詢間隔。 在每個連續的部署失敗發生時，系統最多會將部署重試 MaxDeploymentFailureCount 次。 重試間隔是連續部署失敗和部署輪詢間隔的乘積。 |
@@ -328,9 +334,10 @@ ms.locfileid: "37888648"
 |FirewallPolicyEnabled|布林值，預設值為 FALSE|靜態| 能夠為端點資源開啟防火牆連接埠，並於 ServiceManifest 中明確指定連接埠 |
 |GetCodePackageActivationContextTimeout|時間範圍，預設值為 Common::TimeSpan::FromSeconds(120)|動態|以秒為單位指定時間範圍。 CodePackageActivationContext 呼叫的逾時值。 這不適用於特定服務。 |
 |IPProviderEnabled|布林值，預設值為 FALSE|靜態|能夠管理 IP 位址。 |
-|LinuxExternalExecutablePath|wstring，預設值為 L"/usr/bin/" |靜態|節點上外部可執行命令的主目錄。|
+|IsDefaultContainerRepositoryPasswordEncrypted|布林值，預設值為 FALSE|靜態|DefaultContainerRepositoryPassword 是否已加密。|
+|LinuxExternalExecutablePath|string，預設值為 "/usr/bin/" |靜態|節點上外部可執行命令的主目錄。|
 |NTLMAuthenticationEnabled|布林值，預設值為 FALSE|靜態| 能夠支援執行身分為其他使用者的程式碼套件使用 NTLM，以便機器之間的處理序可以安全地通訊。 |
-|NTLMAuthenticationPasswordSecret|SecureString，預設值為 Common::SecureString(L"")|靜態|是加密的，用來產生 NTLM 使用者的密碼。 如果 NTLMAuthenticationEnabled 為 true，則必須加以設定。 由部署人員驗證。 |
+|NTLMAuthenticationPasswordSecret|SecureString，預設值為 Common::SecureString("")|靜態|是加密的，用來產生 NTLM 使用者的密碼。 如果 NTLMAuthenticationEnabled 為 true，則必須加以設定。 由部署人員驗證。 |
 |NTLMSecurityUsersByX509CommonNamesRefreshInterval|時間範圍，預設值為 Common::TimeSpan::FromMinutes(3)|動態|以秒為單位指定時間範圍。 環境特有的設定。FileStoreService NTLM 設定所要使用的新憑證定期主控掃描間隔。 |
 |NTLMSecurityUsersByX509CommonNamesRefreshTimeout|時間範圍，預設值為 Common::TimeSpan::FromMinutes(4)|動態| 以秒為單位指定時間範圍。 使用憑證通用名稱來設定 NTLM 使用者的逾時。 FileStoreService 共用需要 NTLM 使用者。 |
 |RegisterCodePackageHostTimeout|時間範圍，預設值為 Common::TimeSpan::FromSeconds(120)|動態| 以秒為單位指定時間範圍。 FabricRegisterCodePackageHost 同步呼叫的逾時值。 這僅適用於多程式碼套件應用程式主機，例如 FWP |
@@ -541,9 +548,9 @@ ms.locfileid: "37888648"
 |MaxSecondaryReplicationQueueSize|單位，預設值為 2048|靜態|這是次要複寫佇列中可存在的作業數目上限。 請注意，此值必須是 2 的乘冪。|
 |QueueHealthMonitoringInterval|時間範圍，預設值為 Common::TimeSpan::FromSeconds(30)|靜態|以秒為單位指定時間範圍。 此值會決定複寫器用來監視複寫作業佇列中所發生之任何警告/錯誤健康情況事件的時間週期。 值為 '0' 會停用健康情況監視 |
 |QueueHealthWarningAtUsagePercent|單位，預設值為 80|靜態|此值會決定複寫佇列使用量 (以百分比表示)，一旦超過此使用量，我們便會發出有關佇列使用量偏高的警告。 我們會在 QueueHealthMonitoringInterval 寬限間隔過後這麼做。 如果佇列使用量在寬限期間內低於這個百分比|
-|ReplicatorAddress|字串，預設值為 L"localhost:0"|靜態|-'IP:Port' 字串形式的端點，Windows Fabric 複寫器使用此端點來建立與其他複本的連線，以便傳送/接收作業。|
-|ReplicatorListenAddress|字串，預設值為 L"localhost:0"|靜態|'IP:Port' 字串形式的端點，Windows Fabric 複寫器會使用此端點接收來自其他複本的作業。|
-|ReplicatorPublishAddress|字串，預設值為 L"localhost:0"|靜態|'IP:Port' 字串形式的端點，Windows Fabric 複寫器會使用此端點將作業傳送至其他複本。|
+|ReplicatorAddress|字串，預設值為 "localhost:0"|靜態|-'IP:Port' 字串形式的端點，Windows Fabric 複寫器使用此端點來建立與其他複本的連線，以便傳送/接收作業。|
+|ReplicatorListenAddress|字串，預設值為 "localhost:0"|靜態|'IP:Port' 字串形式的端點，Windows Fabric 複寫器會使用此端點接收來自其他複本的作業。|
+|ReplicatorPublishAddress|字串，預設值為 "localhost:0"|靜態|'IP:Port' 字串形式的端點，Windows Fabric 複寫器會使用此端點將作業傳送至其他複本。|
 |RetryInterval|時間範圍，預設值為 Common::TimeSpan::FromSeconds(5)|靜態|以秒為單位指定時間範圍。 當作業遺失或遭到拒絕，此計時器會決定複寫器重新試著傳送作業的頻率。|
 
 ## <a name="resourcemonitorservice"></a>ResourceMonitorService
@@ -582,42 +589,42 @@ ms.locfileid: "37888648"
 ## <a name="security"></a>安全性
 | **參數** | **允許的值** |**升級原則**| **指引或簡短描述** |
 | --- | --- | --- | --- |
-|AADClientApplication|字串，預設值為 L""|靜態|代表網狀架構用戶端的原生用戶端應用程式名稱或識別碼 |
-|AADClusterApplication|字串，預設值為 L""|靜態|代表叢集的 Web API 應用程式名稱或識別碼 |
-|AADTenantId|字串，預設值為 L""|靜態|租用戶識別碼 (GUID) |
-|AdminClientCertThumbprints|字串，預設值為 L""|動態|系統管理員角色的用戶端所使用的憑證指紋。 這是以逗號分隔的名稱清單。 |
-|AdminClientClaims|字串，預設值為 L""|動態|系統管理員用戶端預期會發出的所有可能宣告，其格式與 ClientClaims 相同，此清單會於內部新增至 ClientClaims，因此不必再將相同的項目新增至 ClientClaims。 |
-|AdminClientIdentities|字串，預設值為 L""|動態|系統管理員角色之網狀架構用戶端的 Windows 身分識別，可用來授權特殊權限的網狀架構作業。 它是以逗號分隔的清單，每個項目都是網域帳戶名稱或群組名稱。 為了方便，系統會自動對執行 fabric.exe 的帳戶指派系統管理員角色，ServiceFabricAdministrators 群組也是如此。 |
+|AADClientApplication|字串，預設值為 ""|靜態|代表網狀架構用戶端的原生用戶端應用程式名稱或識別碼 |
+|AADClusterApplication|字串，預設值為 ""|靜態|代表叢集的 Web API 應用程式名稱或識別碼 |
+|AADTenantId|字串，預設值為 ""|靜態|租用戶識別碼 (GUID) |
+|AdminClientCertThumbprints|字串，預設值為 ""|動態|系統管理員角色的用戶端所使用的憑證指紋。 這是以逗號分隔的名稱清單。 |
+|AdminClientClaims|字串，預設值為 ""|動態|系統管理員用戶端預期會發出的所有可能宣告，其格式與 ClientClaims 相同，此清單會於內部新增至 ClientClaims，因此不必再將相同的項目新增至 ClientClaims。 |
+|AdminClientIdentities|字串，預設值為 ""|動態|系統管理員角色之網狀架構用戶端的 Windows 身分識別，可用來授權特殊權限的網狀架構作業。 它是以逗號分隔的清單，每個項目都是網域帳戶名稱或群組名稱。 為了方便，系統會自動對執行 fabric.exe 的帳戶指派系統管理員角色，ServiceFabricAdministrators 群組也是如此。 |
 |CertificateExpirySafetyMargin|時間範圍，預設值為 Common::TimeSpan::FromMinutes(43200)|靜態|以秒為單位指定時間範圍。 憑證到期日的安全邊際，當到期日接近此邊際值時，憑證健康情況報告的狀態會從「正常」變更為「警告」。 預設值為 30 天。 |
 |CertificateHealthReportingInterval|時間範圍，預設值為 Common::TimeSpan::FromSeconds(3600 * 8)|靜態|以秒為單位指定時間範圍。 指定憑證健康情況報告的間隔，預設為 8 個小時，設定為 0 會停用憑證健康情況報告 |
-|ClientCertThumbprints|字串，預設值為 L""|動態|用戶端用來與叢集通訊的憑證指紋，叢集會使用此指紋來授權連入連線。 這是以逗號分隔的名稱清單。 |
+|ClientCertThumbprints|字串，預設值為 ""|動態|用戶端用來與叢集通訊的憑證指紋，叢集會使用此指紋來授權連入連線。 這是以逗號分隔的名稱清單。 |
 |ClientClaimAuthEnabled|布林值，預設值為 FALSE|靜態|指出是否在用戶端啟用宣告型驗證，將此參數設定為 true 會隱含設定 ClientRoleEnabled。 |
-|ClientClaims|字串，預設值為 L""|動態|用戶端預期會發出之用來連線至閘道的所有可能宣告。 這是 'OR' 清單：ClaimsEntry\|\| ClaimsEntry \|\|ClaimsEntry ... 每個 ClaimsEntry 都是一個 "AND" 清單：ClaimType=ClaimValue && ClaimType=ClaimValue && ClaimType=ClaimValue ... |
-|ClientIdentities|字串，預設值為 L""|動態|FabricClient 的 Windows 身分識別，命名閘道會使用此參數來授權連入連線。 它是以逗號分隔的清單，每個項目都是網域帳戶名稱或群組名稱。 為了方便，系統會自動允許執行 fabric.exe 的帳戶，ServiceFabricAllowedUsers 和 ServiceFabricAdministrators 群組也是如此。 |
+|ClientClaims|字串，預設值為 ""|動態|用戶端預期會發出之用來連線至閘道的所有可能宣告。 這是 'OR' 清單：ClaimsEntry\|\| ClaimsEntry \|\|ClaimsEntry ... 每個 ClaimsEntry 都是一個 "AND" 清單：ClaimType=ClaimValue && ClaimType=ClaimValue && ClaimType=ClaimValue ... |
+|ClientIdentities|字串，預設值為 ""|動態|FabricClient 的 Windows 身分識別，命名閘道會使用此參數來授權連入連線。 它是以逗號分隔的清單，每個項目都是網域帳戶名稱或群組名稱。 為了方便，系統會自動允許執行 fabric.exe 的帳戶，ServiceFabricAllowedUsers 和 ServiceFabricAdministrators 群組也是如此。 |
 |ClientRoleEnabled|布林值，預設值為 FALSE|靜態|指出是否啟用用戶端角色，在設定為 true 時，會根據用戶端的身分識別對其指派角色。 對於 V2，啟用此參數表示不在 AdminClientCommonNames/AdminClientIdentities 內的用戶端只能執行唯讀作業。 |
-|ClusterCertThumbprints|字串，預設值為 L""|動態|允許加入到叢集的憑證指紋，這是以逗號分隔的名稱清單。 |
-|ClusterCredentialType|字串，預設值為 L"None"|不允許|指出為了保護叢集而要使用的安全性認證類型。 有效值為"None/X509/Windows" |
-|ClusterIdentities|字串，預設值為 L""|動態|用於叢集成員資格授權的叢集節點 Windows 身分識別。 它是以逗號分隔的清單，每個項目都是網域帳戶名稱或群組名稱 |
-|ClusterSpn|字串，預設值為 L""|不允許|當網狀架構以單一網域使用者 (gMSA/網域使用者帳戶) 的身分執行時，叢集的服務主體名稱。 它是租用接聽程式和 fabric.exe 中的接聽程式的 SPN：同盟接聽程式、內部複寫接聽程式、執行階段服務接聽程式和命名閘道接聽程式。 當網狀架構以機器帳戶的身分執行時，此參數應該保持空白，在此情況下，來自接聽程式傳輸位址的連線端計算接聽程式 SPN。 |
+|ClusterCertThumbprints|字串，預設值為 ""|動態|允許加入到叢集的憑證指紋，這是以逗號分隔的名稱清單。 |
+|ClusterCredentialType|字串，預設值為 "None"|不允許|指出為了保護叢集而要使用的安全性認證類型。 有效值為"None/X509/Windows" |
+|ClusterIdentities|字串，預設值為 ""|動態|用於叢集成員資格授權的叢集節點 Windows 身分識別。 它是以逗號分隔的清單，每個項目都是網域帳戶名稱或群組名稱 |
+|ClusterSpn|字串，預設值為 ""|不允許|當網狀架構以單一網域使用者 (gMSA/網域使用者帳戶) 的身分執行時，叢集的服務主體名稱。 它是租用接聽程式和 fabric.exe 中的接聽程式的 SPN：同盟接聽程式、內部複寫接聽程式、執行階段服務接聽程式和命名閘道接聽程式。 當網狀架構以機器帳戶的身分執行時，此參數應該保持空白，在此情況下，來自接聽程式傳輸位址的連線端計算接聽程式 SPN。 |
 |CrlCheckingFlag|單位，預設值為 0x40000000|動態|預設信任鏈結驗證旗標，可能會由元件專用的旗標加以覆寫，例如，同盟/X509CertChainFlags 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY 設定為 0 會停用 CRL 檢查。CertGetCertificateChain 的 dwFlags 會記載完整的支援值清單：http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx |
 |CrlDisablePeriod|時間範圍，預設值為 Common::TimeSpan::FromMinutes(15)|動態|以秒為單位指定時間範圍。 如果 CRL 離線錯誤是可忽略的，則在遇到離線錯誤之後，要將給定憑證的 CRL 檢查停用多久。 |
 |CrlOfflineHealthReportTtl|時間範圍，預設值為 Common::TimeSpan::FromMinutes(1440)|動態|以秒為單位指定時間範圍。 |
 |DisableFirewallRuleForDomainProfile| 布林值，預設值為 TRUE |靜態| 指出是否不應該對網域設定檔啟用防火牆規則 |
 |DisableFirewallRuleForPrivateProfile| 布林值，預設值為 TRUE |靜態| 指出是否不應該對私人設定檔啟用防火牆規則 | 
 |DisableFirewallRuleForPublicProfile| 布林值，預設值為 TRUE | 靜態|指出是否不應該對公用設定檔啟用防火牆規則 |
-|FabricHostSpn| 字串，預設值為 L"" |靜態| 當網狀架構以單一網域使用者 (gMSA/網域使用者帳戶) 的身分執行，而且 FabricHost 是在機器帳戶下執行時，FabricHost 的服務主體名稱。 它是 FabricHost 的 IPC 接聽程式 SPN，因為 FabricHost 是在機器帳戶下執行，因此依預設應該保持空白 |
+|FabricHostSpn| 字串，預設值為 "" |靜態| 當網狀架構以單一網域使用者 (gMSA/網域使用者帳戶) 的身分執行，而且 FabricHost 是在機器帳戶下執行時，FabricHost 的服務主體名稱。 它是 FabricHost 的 IPC 接聽程式 SPN，因為 FabricHost 是在機器帳戶下執行，因此依預設應該保持空白 |
 |IgnoreCrlOfflineError|布林值，預設值為 FALSE|動態|是否要在伺服器端驗證內送用戶端憑證時忽略 CRL 離線錯誤 |
 |IgnoreSvrCrlOfflineError|布林值，預設值為 TRUE|動態|是否要在用戶端驗證內送伺服器憑證時忽略 CRL 離線錯誤，預設為 true。 使用已撤銷的伺服器憑證來進行攻擊需要入侵 DNS，其難度比使用已撤銷的用戶端憑證更高。 |
-|ServerAuthCredentialType|字串，預設值為 L"None"|靜態|指出為了保護 FabricClient 和叢集間通訊而要使用的安全性認證類型。 有效值為"None/X509/Windows" |
-|ServerCertThumbprints|字串，預設值為 L""|動態|叢集用來與用戶端通訊的伺服器憑證指紋，用戶端會使用此指紋來驗證叢集。 這是以逗號分隔的名稱清單。 |
-|SettingsX509StoreName| 字串，預設值為 L"MY"| 動態|網狀架構用來保護組態的 X509 憑證存放區 |
+|ServerAuthCredentialType|字串，預設值為 "None"|靜態|指出為了保護 FabricClient 和叢集間通訊而要使用的安全性認證類型。 有效值為"None/X509/Windows" |
+|ServerCertThumbprints|字串，預設值為 ""|動態|叢集用來與用戶端通訊的伺服器憑證指紋，用戶端會使用此指紋來驗證叢集。 這是以逗號分隔的名稱清單。 |
+|SettingsX509StoreName| 字串，預設值為 "MY"| 動態|網狀架構用來保護組態的 X509 憑證存放區 |
 |UseClusterCertForIpcServerTlsSecurity|布林值，預設值為 FALSE|靜態|是否要使用叢集憑證來保護 IPC 伺服器 TLS 傳輸單位 |
 |X509Folder|字串，預設值為 /var/lib/waagent|靜態|X509 憑證和私密金鑰的所在資料夾 |
 
 ## <a name="securityadminclientx509names"></a>Security/AdminClientX509Names
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap，預設值為 None|動態| |
+|PropertyGroup|X509NameMap，預設值為 None|動態|這是「名稱」與「值」組清單。 每個「名稱」都是主體一般名稱或針對系統管理用戶端作業授權之 X509 憑證的 DnsName。 針對給定的「名稱」，「值」是用於簽發者釘選的逗號分隔憑證指紋清單，若不是空的，系統管理用戶端憑證的直接簽發者必須位於此清單中。 |
 
 ## <a name="securityclientaccess"></a>Security/ClientAccess
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
@@ -626,17 +633,19 @@ ms.locfileid: "37888648"
 |CancelTestCommand |字串，預設值為 "Admin" |動態| 取消傳輸中的特定 TestCommand。 |
 |CodePackageControl |字串，預設值為 "Admin" |動態| 用於重新啟動程式碼套件的安全性組態。 |
 |CreateApplication |字串，預設值為 "Admin" | 動態|應用程式建立的安全性組態。 |
-|CreateComposeDeployment|字串，預設值為 L"Admin"| 動態|建立撰寫檔案所描述的撰寫部署 |
+|CreateComposeDeployment|字串，預設值為 "Admin"| 動態|建立撰寫檔案所描述的撰寫部署 |
 |CreateName |字串，預設值為 "Admin" |動態|命名 URI 建立的安全性組態。 |
 |CreateService |字串，預設值為 "Admin" |動態| 服務建立的安全性組態。 |
 |CreateServiceFromTemplate |字串，預設值為 "Admin" |動態|從範本建立服務的安全性組態。 |
+|CreateVolume|字串，預設值為 "Admin"|動態|建立磁碟區 |
 |DeactivateNode |字串，預設值為 "Admin" |動態| 用於停用節點的安全性組態。 |
 |DeactivateNodesBatch |字串，預設值為 "Admin" |動態| 用於停用多個節點的安全性組態。 |
 |刪除 |字串，預設值為 "Admin" |動態| 映像存放區用戶端刪除作業的安全性組態。 |
 |DeleteApplication |字串，預設值為 "Admin" |動態| 應用程式刪除的安全性組態。 |
-|DeleteComposeDeployment|字串，預設值為 L"Admin"| 動態|刪除撰寫部署 |
+|DeleteComposeDeployment|字串，預設值為 "Admin"| 動態|刪除撰寫部署 |
 |DeleteName |字串，預設值為 "Admin" |動態|命名 URI 刪除的安全性組態。 |
 |DeleteService |字串，預設值為 "Admin" |動態|服務刪除的安全性組態。 |
+|DeleteVolume|字串，預設值為 "Admin"|動態|刪除磁碟區。| 
 |EnumerateProperties |字串，預設值為 "Admin\|\|User" | 動態|命名屬性列舉的安全性組態。 |
 |EnumerateSubnames |字串，預設值為 "Admin\|\|User" |動態| 命名 URI 列舉的安全性組態。 |
 |FileContent |字串，預設值為 "Admin" |動態| 映像存放區用戶端檔案傳輸 (叢集外部) 的安全性組態。 |
@@ -654,11 +663,11 @@ ms.locfileid: "37888648"
 |GetServiceDescription |字串，預設值為 "Admin\|\|User" |動態| 用於長時間輪詢服務通知和讀取服務描述的安全性組態。 |
 |GetStagingLocation |字串，預設值為 "Admin" |動態| 映像存放區用戶端預備位置擷取的安全性組態。 |
 |GetStoreLocation |字串，預設值為 "Admin" |動態| 映像存放區用戶端存放區位置擷取的安全性組態。 |
-|GetUpgradeOrchestrationServiceState|字串，預設值為 L"Admin"| 動態|在資料分割上引發 GetUpgradeOrchestrationServiceState |
+|GetUpgradeOrchestrationServiceState|字串，預設值為 "Admin"| 動態|在資料分割上引發 GetUpgradeOrchestrationServiceState |
 |GetUpgradesPendingApproval |字串，預設值為 "Admin" |動態| 在資料分割上引發 GetUpgradesPendingApproval。 |
 |GetUpgradeStatus |字串，預設值為 "Admin\|\|User" |動態| 用於輪詢應用程式升級狀態的安全性組態。 |
 |InternalList |字串，預設值為 "Admin" | 動態|映像存放區用戶端檔案列出作業 (內部) 的安全性組態。 |
-|InvokeContainerApi|wstring，預設值為 L"Admin"|動態|Invoke container API |
+|InvokeContainerApi|string，預設值為 "Admin"|動態|Invoke container API |
 |InvokeInfrastructureCommand |字串，預設值為 "Admin" |動態| 基礎結構工作管理命令的安全性組態。 |
 |InvokeInfrastructureQuery |字串，預設值為 "Admin\|\|User" | 動態|用於查詢基礎結構工作的安全性組態。 |
 |列出 |字串，預設值為 "Admin\|\|User" | 動態|映像存放區用戶端檔案列出作業的安全性組態。 |
@@ -693,7 +702,7 @@ ms.locfileid: "37888648"
 |RollbackApplicationUpgrade |字串，預設值為 "Admin" |動態| 用於復原應用程式升級的安全性組態。 |
 |RollbackFabricUpgrade |字串，預設值為 "Admin" |動態| 用於復原叢集升級的安全性組態。 |
 |ServiceNotifications |字串，預設值為 "Admin\|\|User" |動態| 事件型服務通知的安全性組態。 |
-|SetUpgradeOrchestrationServiceState|字串，預設值為 L"Admin"| 動態|在資料分割上引發 SetUpgradeOrchestrationServiceState |
+|SetUpgradeOrchestrationServiceState|字串，預設值為 "Admin"| 動態|在資料分割上引發 SetUpgradeOrchestrationServiceState |
 |StartApprovedUpgrades |字串，預設值為 "Admin" |動態| 在資料分割上引發 StartApprovedUpgrades。 |
 |StartChaos |字串，預設值為 "Admin" |動態| 啟動尚未啟動的混亂。 |
 |StartClusterConfigurationUpgrade |字串，預設值為 "Admin" |動態| 在資料分割上引發 StartClusterConfigurationUpgrade。 |
@@ -709,7 +718,7 @@ ms.locfileid: "37888648"
 |UnreliableTransportControl |字串，預設值為 "Admin" |動態| 用於新增和移除行為的不可靠傳輸。 |
 |UpdateService |字串，預設值為 "Admin" |動態|服務更新的安全性組態。 |
 |UpgradeApplication |字串，預設值為 "Admin" |動態| 用於啟動或中斷應用程式升級的安全性組態。 |
-|UpgradeComposeDeployment|字串，預設值為 L"Admin"| 動態|升級撰寫部署 |
+|UpgradeComposeDeployment|字串，預設值為 "Admin"| 動態|升級撰寫部署 |
 |UpgradeFabric |字串，預設值為 "Admin" |動態| 用於啟動叢集升級的安全性組態。 |
 |上傳 |字串，預設值為 "Admin" | 動態|映像存放區用戶端上傳作業的安全性組態。 |
 
@@ -721,7 +730,7 @@ ms.locfileid: "37888648"
 ## <a name="securityclientx509names"></a>Security/ClientX509Names
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap，預設值為 None|動態| |
+|PropertyGroup|X509NameMap，預設值為 None|動態|這是「名稱」與「值」組清單。 每個「名稱」都是主體一般名稱或針對用戶端作業授權之 X509 憑證的 DnsName。 針對給定的「名稱」，「值」是用於簽發者釘選的逗號分隔憑證指紋清單，若不是空的，用戶端憑證的直接簽發者必須位於此清單中。|
 
 ## <a name="securityclustercertificateissuerstores"></a>Security/ClusterCertificateIssuerStores
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
@@ -731,7 +740,7 @@ ms.locfileid: "37888648"
 ## <a name="securityclusterx509names"></a>Security/ClusterX509Names
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap，預設值為 None|動態| |
+|PropertyGroup|X509NameMap，預設值為 None|動態|這是「名稱」與「值」組清單。 每個「名稱」都是主體一般名稱或針對叢集作業授權之 X509 憑證的 DnsName。 針對給定的「名稱」，「值」是用於簽發者釘選的逗號分隔憑證指紋清單，若不是空的，叢集憑證的直接簽發者必須位於此清單中。|
 
 ## <a name="securityservercertificateissuerstores"></a>Security/ServerCertificateIssuerStores
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
@@ -741,12 +750,12 @@ ms.locfileid: "37888648"
 ## <a name="securityserverx509names"></a>Security/ServerX509Names
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap，預設值為 None|動態| |
+|PropertyGroup|X509NameMap，預設值為 None|動態|這是「名稱」與「值」組清單。 每個「名稱」都是主體一般名稱或針對伺服器作業授權之 X509 憑證的 DnsName。 針對給定的「名稱」，「值」是用於簽發者釘選的逗號分隔憑證指紋清單，若不是空的，伺服器憑證的直接簽發者必須位於此清單中。|
 
 ## <a name="setup"></a>設定
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
-|ContainerNetworkName|字串，預設值為 L""| 靜態 |要在設定容器網路時使用的網路名稱。|
+|ContainerNetworkName|字串，預設值為 ""| 靜態 |要在設定容器網路時使用的網路名稱。|
 |ContainerNetworkSetup|布林值，預設值為 FALSE| 靜態 |是否要設定容器網路。|
 |FabricDataRoot |字串 | 不允許 |Service Fabric 資料的根目錄。 預設為 Azure d:\svcfab |
 |FabricLogRoot |字串 | 不允許 |Service Fabric 記錄的根目錄。 這是放置 SF 記錄和追蹤的位置。 |
@@ -781,7 +790,10 @@ ms.locfileid: "37888648"
 | **參數** | **允許的值** |**升級原則** |**指引或簡短描述** |
 | --- | --- | --- | --- |
 |ConnectionOpenTimeout|時間範圍，預設值為 Common::TimeSpan::FromSeconds(60)|靜態|以秒為單位指定時間範圍。 內送和接收端 (包括安全模式下的安全性交涉) 的連線設定逾時 |
-|ResolveOption|字串，預設值為 L"unspecified"|靜態|決定 FQDN 的解析方式。  有效值為 "unspecified/ipv4/ipv6"。 |
+|FrameHeaderErrorCheckingEnabled|布林值，預設值為 TRUE|靜態|在非安全模式的框架標題上檢查時發生錯誤的預設設定；元件設定會加以覆寫。 |
+|MessageErrorCheckingEnabled|布林值，預設值為 FALSE|靜態|在非安全模式的訊息標題和本文上檢查時發生錯誤的預設設定；元件設定會加以覆寫。 |
+|ResolveOption|string，預設值為 "unspecified"|靜態|決定 FQDN 的解析方式。  有效值為 "unspecified/ipv4/ipv6"。 |
+|SendTimeout|時間範圍，預設值為 Common::TimeSpan::FromSeconds(300)|動態|以秒為單位指定時間範圍。 偵測停滯連線時傳送逾時。 TCP 失敗報告在某些環境中並不可靠。 這可能必須根據可用的網路頻寬和輸出資料的大小進行調整 (MaxMessageSize\/\*\*SendQueueSizeLimit)。 |
 
 ## <a name="upgradeorchestrationservice"></a>UpgradeOrchestrationService
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |

@@ -49,12 +49,12 @@ Microsoft 實體連結是自然語言處理工具，可用來分析文字並將�
 
 接下來，搜尋 Newtonsoft.Json 並安裝。 如果出現要求您檢閱變更的提示，請按一下 [確定]。 如果出現實體連結的授權條款，請按一下 [我接受]。
 
-實體連結現在已安裝為應用程式的一部分。 您可以透過檢查 ** Microsoft.ProjectOxford.EntityLinking** 參考是否已顯示為 [方案總管] 中專案的一部份來加以確認。
+實體連結現在已安裝為應用程式的一部分。 您可以透過檢查 **Microsoft.ProjectOxford.EntityLinking** 參考是否已顯示為 [方案總管] 中專案的一部份來加以確認。
 
  ![專案中已包含 nuget 程式庫](./Images/NugetLibraryInProject.png)
  
 ### <a name="step-4-add-an-input-and-output-text-block-to-your-apps-xaml">步驟 4：將輸入和輸出文字區塊新增至您應用程式的 XAML</a>
-在 [方案總管] 中瀏覽至 ** MainPage.xaml **，然後連按兩下此檔案，以在新視窗中開啟。 為方便起見，您可以在 [設計工具] 索引標籤中連按兩下 [XAML] 按鈕，這樣會隱藏 [視覺化設計工具]，並保留所有程式碼檢視空間。
+在 [方案總管] 中瀏覽至 **MainPage.xaml**，然後連按兩下此檔案，以在新視窗中開啟。 為方便起見，您可以在 [設計工具] 索引標籤中連按兩下 [XAML] 按鈕，這樣會隱藏 [視覺化設計工具]，並保留所有程式碼檢視空間。
 
  ![專案中已包含 nuget 程式庫](./Images/UWPMainPage.png)
  

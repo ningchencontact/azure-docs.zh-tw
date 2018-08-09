@@ -176,6 +176,8 @@
               href: howto-mfa-nps-extension-errors.md
     - name: 疑難排解
       items:
+        - name: 停用聚合式註冊
+          href: howto-registration-mfa-sspr-converged-troubleshoot.md
         - name: SSPR 疑難排解
           href: active-directory-passwords-troubleshoot.md
         - name: SSPR 常見問題集
