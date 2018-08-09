@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: dc362c89f7bc83c4848c0e857173db1ea2639bc4
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 01b77fc2521c221594a38b3731694115adf82e2c
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39362835"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600800"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>為 Azure AD 資源庫應用程式設定密碼單一登入時遇到的問題
 
@@ -31,7 +31,7 @@ ms.locfileid: "39362835"
 
 雖然 Microsoft 有技術可在整合中斷時進行自動偵測，但無法立即找出這些問題，或者問題需要一些時間來修正。 萬一其中一項整合無法正常運作，請開啟支援案例，如此便能儘速修正問題。
 
-**如果您與此應用程式的廠商有所聯繫，** 請將我們的連絡方式傳送給他們，讓 Microsoft 能夠與他們合作，將其應用程式與 Azure Active Directory 進行原生整合。 您可以將廠商引導到[在 Azure Active Directory 應用程式庫中列出您的應用程式](./develop/active-directory-app-gallery-listing.md)，讓他們可以立即開始。
+**如果您與此應用程式的廠商有所聯繫，** 請將我們的連絡方式傳送給他們，讓 Microsoft 能夠與他們合作，將其應用程式與 Azure Active Directory 進行原生整合。 您可以將廠商引導到[在 Azure Active Directory 應用程式庫中列出您的應用程式](develop/howto-app-gallery-listing.md)，讓他們可以立即開始。
 
 ## <a name="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect"></a>認證會填入並提交，但頁面指出認證不正確
 
@@ -59,7 +59,7 @@ ms.locfileid: "39362835"
 
 雖然 Microsoft 有技術可在應用程式整合中斷時進行自動偵測，但無法立即找出這些問題，或者問題可能需要一些時間來修正。 若整合未正常運作，您可以開啟支援案例，以便儘快修正。 
 
-此外，**如果您與此應用程式的廠商聯繫，****請將我們的連絡方式傳送給他們**，讓我們能夠與他們合作，將其應用程式與 Azure Active Directory 進行原生整合。 您可以將廠商引導到[在 Azure Active Directory 應用程式庫中列出您的應用程式](./develop/active-directory-app-gallery-listing.md)，讓他們可以立即開始。
+此外，**如果您與此應用程式的廠商聯繫，****請將我們的連絡方式傳送給他們**，讓我們能夠與他們合作，將其應用程式與 Azure Active Directory 進行原生整合。 您可以將廠商引導到[在 Azure Active Directory 應用程式庫中列出您的應用程式](develop/howto-app-gallery-listing.md)，讓他們可以立即開始。
 
 ## <a name="the-extension-works-in-chrome-and-firefox-but-not-in-internet-explorer"></a>延伸模組可在 Chrome 和 Firefox 中運作，但無法在 Internet Explorer 中運作
 
@@ -73,7 +73,7 @@ ms.locfileid: "39362835"
 
    * 不幸的是，這種情況會根據瀏覽器版本、電腦速度或瀏覽過的網站而有所不同。 在此情況下，我們建議您連絡支援人員，讓我們能夠修正這個特定應用程式的整合。
 
-此外，**如果您與此應用程式的廠商聯繫，****請將我們的連絡方式傳送給他們**，讓我們能夠與他們合作，將其應用程式與 Azure Active Directory 進行原生整合。 您可以將廠商引導到[在 Azure Active Directory 應用程式庫中列出您的應用程式](./develop/active-directory-app-gallery-listing.md)，讓他們可以立即開始。
+此外，**如果您與此應用程式的廠商聯繫，****請將我們的連絡方式傳送給他們**，讓我們能夠與他們合作，將其應用程式與 Azure Active Directory 進行原生整合。 您可以將廠商引導到[在 Azure Active Directory 應用程式庫中列出您的應用程式](develop/howto-app-gallery-listing.md)，讓他們可以立即開始。
 
 ## <a name="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field"></a>檢查應用程式的登入頁面最近是否已變更或需要額外的欄位
 
@@ -81,7 +81,7 @@ ms.locfileid: "39362835"
 
 雖然 Microsoft 有技術可在應用程式整合中斷時進行自動偵測，但無法立即找出這些問題，或者問題可能需要一些時間來修正。 若整合未正常運作，您可以開啟支援案例，以便儘快修正。 
 
-此外，**如果您與此應用程式的廠商聯繫，****請將我們的連絡方式傳送給他們**，讓我們能夠與他們合作，將其應用程式與 Azure Active Directory 進行原生整合。 您可以將廠商引導到[在 Azure Active Directory 應用程式庫中列出您的應用程式](./develop/active-directory-app-gallery-listing.md)，讓他們可以立即開始。
+此外，**如果您與此應用程式的廠商聯繫，****請將我們的連絡方式傳送給他們**，讓我們能夠與他們合作，將其應用程式與 Azure Active Directory 進行原生整合。 您可以將廠商引導到[在 Azure Active Directory 應用程式庫中列出您的應用程式](develop/howto-app-gallery-listing.md)，讓他們可以立即開始。
 
 ## <a name="how-to-install-the-access-panel-browser-extension"></a>如何安裝存取面板的瀏覽器延伸模組
 

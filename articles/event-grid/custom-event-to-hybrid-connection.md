@@ -8,18 +8,18 @@ ms.author: tomfitz
 ms.date: 06/29/2018
 ms.topic: tutorial
 ms.service: event-grid
-ms.openlocfilehash: ee504f805c536ba9a6186514206546c3df1f0f1a
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 544f5210adbea6791f9224a1e2be0743ce9995d5
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127708"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434141"
 ---
 # <a name="route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>使用 Azure CLI 和事件方格將自訂事件路由至 Azure 轉送混合式連線
 
 Azure Event Grid 是一項雲端事件服務。 Azure 轉送混合式連線是支援的事件處理常式之一。 當您需要從沒有公用端點的應用程式處理事件時，您可以使用混式連線作為事件處理常式。 這些應用程式可能位在您公司的企業網路中。 在本文中，您可使用 Azure CLI 建立自訂主題、訂閱主題，以及觸發事件來檢視結果。 您將事件傳送到混合式連線。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本文假設您已經有混合式連線和接聽項應用程式。 若要開始使用混合式連線，請參閱[開始使用轉送混合式連線 - .NET](../service-bus-relay/relay-hybrid-connections-dotnet-get-started.md) (英文)，或[開始使用轉送混合式連線 - 節點](../service-bus-relay/relay-hybrid-connections-node-get-started.md) (英文)。
 
@@ -29,7 +29,7 @@ Azure Event Grid 是一項雲端事件服務。 Azure 轉送混合式連線是�
 
 Event Grid 為 Azure 資源，必須放入 Azure 資源群組中。 資源群組是在其中部署與管理 Azure 資源的邏輯集合。
 
-使用 [az group create](/cli/azure/group#az_group_create) 命令來建立資源群組。 
+使用 [az group create](/cli/azure/group#az-group-create) 命令來建立資源群組。 
 
 下列範例會在 westus2 位置建立名為 gridResourceGroup 的資源群組。
 

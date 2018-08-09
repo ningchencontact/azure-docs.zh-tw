@@ -2,24 +2,18 @@
 title: 使用 C++ 開發 Azure 檔案服務 | Microsoft Docs
 description: 了解如何開發 C++ 應用程式和服務，以使用 Azure 檔案服務來儲存檔案資料。
 services: storage
-documentationcenter: .net
 author: renashahmsft
-manager: aungoo
-editor: tamram
-ms.assetid: a1e8c99e-47a6-43a9-9541-c9262eb00b38
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renashahmsft
-ms.openlocfilehash: e0b5974780813eb4f3d67c42781db4d95829814d
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.component: files
+ms.openlocfilehash: 4543784c1de85cf86f3dfa912a33641541e0373a
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737566"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39529695"
 ---
 # <a name="develop-for-azure-files-with-c"></a>使用 C++ 開發 Azure 檔案服務
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -37,7 +31,7 @@ ms.locfileid: "34737566"
 * 為使用共用上所定義之共用存取原則的檔案建立共用存取簽章 (SAS 金鑰)。
 
 > [!Note]  
-> 由於 Azure 檔案服務可透過 SMB 存取，因此您可以使用標準 C++ I/O 類別和函式撰寫簡單的應用程式，以存取 Azure 檔案共用。 本文將說明如何撰寫使用 Azure 儲存體 C++ SDK 的應用程式，其會使用 [File REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) 與 Azure 檔案服務通訊。
+> 由於 Azure 檔案服務可透過 SMB 存取，因此您可以使用標準 C++ I/O 類別和函式撰寫簡單的應用程式，以存取 Azure 檔案共用。 本文將說明如何撰寫使用 Azure 儲存體 C++ SDK 的應用程式，其會使用 [File REST API](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api) 與 Azure 檔案服務通訊。
 
 ## <a name="create-a-c-application"></a>建立 C++ 應用程式
 若要建置範例，您必須安裝適用於 C++ 的 Azure 儲存體用戶端程式庫 2.4.0。 您也應該建立 Azure 儲存體帳戶。

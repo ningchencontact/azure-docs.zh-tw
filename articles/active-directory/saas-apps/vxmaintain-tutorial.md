@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 6362bcb701b444c8cd71b270222ce4f87b4cc2e3
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 7e444692dfeab5ca14fbd896043cc28e2cbd8717
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39055853"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433989"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>教學課程：Azure Active Directory 與 vxMaintain 整合
 
@@ -65,19 +65,19 @@ ms.locfileid: "39055853"
 
     ![Azure Active Directory 按鈕][1]
 
-2. 選取 [企業應用程式] > [所有應用程式]。
+1. 選取 [企業應用程式] > [所有應用程式]。
 
     ![[企業應用程式] 窗格][2]
     
-3. 若要新增應用程式，請在 [所有應用程式] 對話方塊中，選取 [新增應用程式]。
+1. 若要新增應用程式，請在 [所有應用程式] 對話方塊中，選取 [新增應用程式]。
 
     ![[新增應用程式] 按鈕][3]
 
-4. 在搜尋方塊中，輸入 **vxMaintain**。
+1. 在搜尋方塊中，輸入 **vxMaintain**。
 
     ![[單一登入模式] 下拉式清單](./media/vxmaintain-tutorial/tutorial_vxmaintain_search.png)
 
-5. 在結果清單中，選取 [vxMaintain]，然後選取 [新增]。
+1. 在結果清單中，選取 [vxMaintain]，然後選取 [新增]。
 
     ![vxMaintain 連結](./media/vxmaintain-tutorial/tutorial_vxmaintain_addfromgallery.png)
 
@@ -98,11 +98,11 @@ ms.locfileid: "39055853"
 
     ![[單一登入] 命令][4]
 
-2. 若要啟用 SSO，請在 [單一登入模式] 下拉式清單中，選取 [SAML 型登入]。
+1. 若要啟用 SSO，請在 [單一登入模式] 下拉式清單中，選取 [SAML 型登入]。
  
     ![[SAML 型登入] 命令](./media/vxmaintain-tutorial/tutorial_vxmaintain_samlbase.png)
 
-3. 在 [vxMaintain 網域與 URL] 中，執行下列動作：
+1. 在 [vxMaintain 網域與 URL] 中，執行下列動作：
 
     ![[vxMaintain 網域與 URL] 區段](./media/vxmaintain-tutorial/tutorial_vxmaintain_url.png)
 
@@ -113,15 +113,15 @@ ms.locfileid: "39055853"
     > [!NOTE] 
     > 上述值並非真正的值。 請使用實際的識別碼和回覆 URL 來更新這些值。 若要取得這些值，請連絡 [vxMaintain 支援小組](https://www.hubspot.com/company/contact)。
  
-4. 在 [SAML 簽署憑證] 下，選取 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
+1. 在 [SAML 簽署憑證] 下，選取 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
     ![[SAML 簽署憑證] 區段](./media/vxmaintain-tutorial/tutorial_vxmaintain_certificate.png) 
 
-5. 選取 [ **儲存**]。
+1. 選取 [ **儲存**]。
 
     ![[儲存] 按鈕](./media/vxmaintain-tutorial/tutorial_general_400.png)
 
-6. 若要設定 **vxMaintain** SSO，將下載的**中繼資料 XML** 檔案傳送至 [vxMaintain 支援小組](https://www.hubspot.com/company/contact)。
+1. 若要設定 **vxMaintain** SSO，將下載的**中繼資料 XML** 檔案傳送至 [vxMaintain 支援小組](https://www.hubspot.com/company/contact)。
 
 > [!TIP]
 > 當您設定應用程式時，您可以在 [Azure 入口網站](https://portal.azure.com)中閱讀精簡版的先前說明。 當您從 [Active Directory] > [企業應用程式] 區段新增應用程式之後，選取 [單一登入] 索引標籤，即可從 [設定] 區段存取內嵌的文件。 
@@ -138,16 +138,16 @@ ms.locfileid: "39055853"
 
     ![[Azure Active Directory] 按鈕](./media/vxmaintain-tutorial/create_aaduser_01.png) 
 
-2. 若要顯示使用者清單，請移至 [使用者和群組] > [所有使用者]。
+1. 若要顯示使用者清單，請移至 [使用者和群組] > [所有使用者]。
     
     ![[所有使用者] 連結](./media/vxmaintain-tutorial/create_aaduser_02.png)  
     [所有使用者] 對話方塊隨即開啟。 
 
-3. 若要開啟 [使用者] 對話方塊，請選取 [新增]。
+1. 若要開啟 [使用者] 對話方塊，請選取 [新增]。
  
     ![[新增] 按鈕](./media/vxmaintain-tutorial/create_aaduser_03.png) 
 
-4. 在 [使用者] 對話方塊中，執行下列動作：
+1. 在 [使用者] 對話方塊中，執行下列動作：
  
     ![[使用者] 對話方塊](./media/vxmaintain-tutorial/create_aaduser_04.png) 
 
@@ -173,21 +173,21 @@ ms.locfileid: "39055853"
 
     ![[所有應用程式] 連結][201] 
 
-2. 在 [應用程式] 清單中，選取 [vxMaintain]。
+1. 在 [應用程式] 清單中，選取 [vxMaintain]。
 
     ![vxMaintain 連結](./media/vxmaintain-tutorial/tutorial_vxmaintain_app.png) 
 
-3. 在左側窗格中，選取 [使用者和群組]。
+1. 在左側窗格中，選取 [使用者和群組]。
 
     ![[使用者和群組] 連結][202] 
 
-4. 選取 [新增]，然後在 [新增指派] 窗格中，選取 [使用者和群組]。
+1. 選取 [新增]，然後在 [新增指派] 窗格中，選取 [使用者和群組]。
 
     ![[使用者和群組] 連結][203]
 
-5. 在 [使用者和群組] 對話方塊的 [使用者] 清單中，選取 [Britta Simon]，然後選取 [選取] 按鈕。
+1. 在 [使用者和群組] 對話方塊的 [使用者] 清單中，選取 [Britta Simon]，然後選取 [選取] 按鈕。
 
-7. 在 [新增指派] 對話方塊中，選取 [指派]。
+1. 在 [新增指派] 對話方塊中，選取 [指派]。
     
 ### <a name="test-your-azure-ad-single-sign-on"></a>測試您的 Azure AD 單一登入
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
 ms.author: daveba
-ms.openlocfilehash: 825f34d174c37c2ee5d4187048f7a31fbaeef226
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 7926944f329665af2df287d120bd9f4a8ee78380
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215924"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433930"
 ---
 # <a name="configure-managed-identity-on-an-azure-vm-using-rest-api-calls"></a>使用 REST API 呼叫在 Azure VM 上設定受控識別
 
@@ -54,7 +54,7 @@ ms.locfileid: "39215924"
 
 若要啟用系統指派的識別來建立 Azure VM，您需要建立虛擬機器，並擷取存取權杖，才能使用 CURL 以系統指派的識別型別值呼叫資源管理員端點。
 
-1. 使用 [az group create](/cli/azure/group/#az_group_create)，為您的 VM 和其相關資源建立[資源群組](../../azure-resource-manager/resource-group-overview.md#terminology)。 如果您已經有想要使用的資源群組，您可以略過此步驟：
+1. 使用 [az group create](/cli/azure/group/#az-group-create)，為您的 VM 和其相關資源建立[資源群組](../../azure-resource-manager/resource-group-overview.md#terminology)。 如果您已經有想要使用的資源群組，您可以略過此步驟：
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus

@@ -3,16 +3,17 @@ title: 決定何時使用 Azure Blob、Azure 檔案服務或 Azure 磁碟
 description: 深入了解在 Azure 中儲存和存取資料的不同方法，協助您決定使用哪種技術。
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 03/28/2018
 ms.author: tamram
-ms.openlocfilehash: ded0884ff83cc214d78f65fed8cefa646f11d952
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.component: common
+ms.openlocfilehash: 3f2609ea57ea5a5a0cce2544a1031c55199d137b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39529105"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>決定何時使用 Azure Blob、Azure 檔案服務或 Azure 磁碟
 
@@ -56,8 +57,8 @@ Azure 檔案服務可補強 Azure 磁碟。 磁碟一次只能連結到一部 Az
 ||||  
 |-|-|-|  
 |**屬性**|**Azure 磁碟**|**Azure 檔案**|  
-|Scope|單一虛擬機器專用|跨多部虛擬機器的共用存取|  
-|快照與複製|yes|否|  
+|影響範圍|單一虛擬機器專用|跨多部虛擬機器的共用存取|  
+|快照與複製|是|是|  
 |組態|在啟動虛擬機器時連線|在虛擬機器啟動之後連線|  
 |驗證|內建|使用 net use 設定|  
 |清除|自動|手動|  

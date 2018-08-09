@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2018
 ms.author: terrylan
-ms.openlocfilehash: 832998a6028a8977b43e343ed778cc0b60388728
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8f1c6aa2e691a11e8920db8ca8bfdef5b8eb61b9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38561359"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434185"
 ---
 # <a name="threat-intelligence-in-azure-security-center"></a>Azure 資訊安全中心內的威脅情報
 這篇文章可協助您使用 Azure 資訊安全中心威脅情報來解決安全性相關問題。
@@ -50,22 +50,22 @@ ms.locfileid: "38561359"
 
 1. 開啟 [資訊安全中心] 儀表板。
 
-2. 在左窗格中的 [威脅防護] 下，選取 [威脅情報]。 對應隨即開啟。
+1. 在左窗格中的 [威脅防護] 下，選取 [威脅情報]。 對應隨即開啟。
 
     ![威脅情報對應](./media/security-center-threat-intel/security-center-threat-intel.png)
 
-3. 在對應的頂端，選取 [檢視傳統威脅情報]。 [威脅情報] 儀表板隨即開啟。
+1. 在對應的頂端，選取 [檢視傳統威脅情報]。 [威脅情報] 儀表板隨即開啟。
 
     ![威脅情報儀表板](./media/security-center-threat-intel/security-center-threat-intel-fig1.png)
 
     > [!NOTE]
     > 如果最右側的資料行顯示 [升級計劃]，則此工作區是使用免費訂用帳戶。 升級至標準以使用此功能。 如果最右側的資料行顯示 [需要更新]，則更新 [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) 以使用這項功能。 如需有關定價方案的詳細資訊，請閱讀 Azure 資訊安全中心定價。
     >
-3. 如果您有多個工作區要調查，則根據 [惡意 IP] 資料行排定調查的優先順序。 它會顯示此工作區中的目前惡意 IP 數目。 選取您需要使用的工作區，[威脅情報] 儀表板隨即出現。
+1. 如果您有多個工作區要調查，則根據 [惡意 IP] 資料行排定調查的優先順序。 它會顯示此工作區中的目前惡意 IP 數目。 選取您需要使用的工作區，[威脅情報] 儀表板隨即出現。
 
     ![威脅情報資訊](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
 
-4. 此儀表板會分成四個圖格︰
+1. 此儀表板會分成四個圖格︰
 
     a.  **威脅類型**。 摘要說明選取工作區中偵測到的威脅類型。
 

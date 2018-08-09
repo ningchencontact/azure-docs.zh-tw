@@ -2,24 +2,19 @@
 title: 使用 Java 開發 Azure 檔案服務 | Microsoft Docs
 description: 了解如何開發使用 Azure 檔案服務來儲存檔案資料的 Java 應用程式和服務。
 services: storage
-documentationcenter: java
 author: wmgries
-manager: aungoo
-editor: tamram
-ms.assetid: 3bfbfa7f-d378-4fb4-8df3-e0b6fcea5b27
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: a9585bc77a73cbd84fb2efa201a5745c62f3360a
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.component: files
+ms.openlocfilehash: aa63a31f7f84502a29aad6b38f454ea1080127e0
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738195"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39529089"
 ---
 # <a name="develop-for-azure-files-with-java"></a>使用 Java 開發 Azure 檔案服務
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -35,7 +30,7 @@ ms.locfileid: "34738195"
 * 上傳、下載及刪除檔案
 
 > [!Note]  
-> 由於 Azure 檔案服務可透過 SMB 存取，因此便可使用標準 Java I/O 類別撰寫應用程式以存取 Azure 檔案共用。 本文將說明如何撰寫使用 Azure 儲存體 Java SDK 的應用程式，它會使用 [Azure 檔案服務 REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) 與 Azure 檔案服務通訊。
+> 由於 Azure 檔案服務可透過 SMB 存取，因此便可使用標準 Java I/O 類別撰寫應用程式以存取 Azure 檔案共用。 本文將說明如何撰寫使用 Azure 儲存體 Java SDK 的應用程式，它會使用 [Azure 檔案服務 REST API](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api) 與 Azure 檔案服務通訊。
 
 ## <a name="create-a-java-application"></a>建立 Java 應用程式
 若要建置範例，您將需要 Java Development Kit (JDK) 和 [Azure Storage SDK for Java](https://github.com/Azure/azure-storage-java)。 您也應該建立 Azure 儲存體帳戶。

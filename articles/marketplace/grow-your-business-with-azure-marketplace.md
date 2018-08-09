@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 094958911435b899773ef4ee11176f538a4c8fe0
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 6c2f20f74ce90f2876ff4040d34a2ede94c92fb1
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399119"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577319"
 ---
 # <a name="grow-your-business-in-the-marketplace"></a>在 Marketplace 上拓展業務 
 您在 AppSource 或 Azure Marketplace 上發行供應項目之後，可以使用您的清單作為 Microsoft 聯合 Go-To-Market (GTM) 活動跳板。 推動您的 Marketplace 供應項目流量並與 Marketplace 潛在客戶加強關係，都是加速業務成長的絕佳範例方式。 
@@ -33,7 +33,7 @@ ms.locfileid: "39399119"
 ### <a name="storefront-offer-details"></a>店面供應項目詳細資料
 | 店面設定 | 最佳做法 |
 |:--- |:--- |  
-| 供應項目名稱 | 提供有力標題：<br>您的應用程式名稱應該傳達客戶收到的核心價值。 在您的應用程式標題中包含搜尋關鍵字，有助於您的應用程式在搜尋引擎結果中獲得更高的順位。<br><br>針對諮詢服務清單依照已設定的標題格式：<br>[供應項目名稱]: [期間] [供應項目類型] \(例如 *Contoso: 2-Week Implementation*)<br><br>遵守品牌指導方針：<br>提及 Microsoft 商標與 Microsoft 軟體、產品和服務的名稱時，請遵循 [Microsoft 商標和品牌指導方針](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx)以及其他相關的特定產品指導方針。 |
+| 供應項目名稱 | 提供有力標題：<br>您的應用程式名稱應該傳達客戶收到的核心價值。 在您的應用程式標題中包含搜尋關鍵字，有助於您的應用程式在搜尋引擎結果中獲得更高的順位。<br><br>針對諮詢服務清單依照已設定的標題格式：<br>[供應項目名稱]: [期間] [供應項目類型] \(例如 *Contoso: 2-Week Implementation*)<br><br>遵守品牌指導方針：<br>提及 Microsoft 商標與 Microsoft 軟體、產品和服務的名稱時，請遵循 [Microsoft 商標和品牌指導方針](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx)以及其他相關的特定產品指導方針。 |
 | 供應項目描述 | 提供清楚的供應項目描述：<br>在您的描述中的前幾個句子清楚描述您供應項目的價值主張。 請記住，前幾個句子可能會顯示在搜尋引擎結果中。 請勿依賴特色與功能來銷售您的產品。 反之，要鎖定在您所提供的價值。 請盡可能使用業界特定詞彙或凸顯優點的字眼。<br><br>您的價值主張核心部分應該包含下列資訊：<ul><li>產品的描述</li><li>可從產品獲益的使用者類型</li><li>客戶需求或產品可解決的問題</li></ul> |
 
 ### <a name="storefront-listing-details"></a>店面清單詳細資料
@@ -107,7 +107,7 @@ ms.locfileid: "39399119"
 
 * 您最近在 Marketplace 推出產品。 在此情況下，您可能會發現最好將行銷資源花費在教育目標對象和開發潛在客戶。 成功與否取決於從市集清單開發而來的潛在客戶數量多寡。 在此情況下，您的行銷策略 (和登陸頁面) 會著重於吸引客戶前往您的市集清單。
 
-* 您已在市集設定試用版，而且在購買您的產品之前，需經過一定程度的業務開發和體驗。 請考慮將試用版的下載次數作為行銷活動目標。 在此情況下，行銷活動策略的呼籲會相當著重於建議使用市集中的試用版。
+* 您已在市集設定試用版，而且在購買您的產品之前，需經過一定程度的業務開發和體驗。 請考慮將試用版的下載次數作為活動目標。 在此情況下，行銷活動策略的呼籲會相當著重於建議使用市集中的試用版。
 
 * 您的產品或類別廣為人知，並已在市集中設定購買功能。 請略過免費試用呼籲，並將目標對象直接導向至市集中的「立即取得」連結。
 

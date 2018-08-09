@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: ab354410ba3b0b37ae630a2b68daec63a9051555
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 6e421aa630dc121589dece789e2e0d7f9a56bbe6
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34700820"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434834"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>教學課程：使用 IoT 中樞設定訊息路由
 
@@ -35,7 +35,7 @@ ms.locfileid: "34700820"
 > * ...在儲存體帳戶中。
 > * ...在 Power BI 視覺效果中。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -80,13 +80,13 @@ ms.locfileid: "34700820"
 
     <!-- When they add the Basic tier, change this to use Basic instead of Standard. -->
 
-2. 在 S1 層建立 IoT 中樞。 將取用者群組新增至 IoT 中樞。 Azure 串流分析會在擷取資料時使用取用者群組。
+1. 在 S1 層建立 IoT 中樞。 將取用者群組新增至 IoT 中樞。 Azure 串流分析會在擷取資料時使用取用者群組。
 
-3. 透過 Standard_LRS 複寫來建立標準 V1 儲存體帳戶。
+1. 透過 Standard_LRS 複寫來建立標準 V1 儲存體帳戶。
 
-4. 建立服務匯流排命名空間與佇列。 
+1. 建立服務匯流排命名空間與佇列。 
 
-5. 為傳送訊息至中樞的模擬裝置建立裝置身分識別。 儲存測試階段的金鑰。
+1. 為傳送訊息至中樞的模擬裝置建立裝置身分識別。 儲存測試階段的金鑰。
 
 ### <a name="azure-cli-instructions"></a>Azure CLI 指示
 
@@ -265,15 +265,15 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
 1. 開啟 [Azure 入口網站](https://portal.azure.com)並登入您的 Azure 帳戶。
 
-2. 按一下 [資源群組] 來選取資源群組。 本教學課程使用 **ContosoResources**。
+1. 按一下 [資源群組] 來選取資源群組。 本教學課程使用 **ContosoResources**。
 
-3. 在資源清單中，按一下您的 IoT 中樞。 本教學課程使用 **ContosoTestHub**。 在 [中樞] 窗格中選取 [IoT 裝置]。
+1. 在資源清單中，按一下您的 IoT 中樞。 本教學課程使用 **ContosoTestHub**。 在 [中樞] 窗格中選取 [IoT 裝置]。
 
-4. 按一下 [+ 新增]。 在 [新增裝置] 窗格中，填入裝置識別碼。 本教學課程使用 **Contoso-Test-Device**。 金鑰的部分保留空白，並勾選 [自動產生金鑰]。 請確定 [將裝置連線到 IoT 中樞] 已啟用。 按一下 [檔案] 。
+1. 按一下 [+ 新增]。 在 [新增裝置] 窗格中，填入裝置識別碼。 本教學課程使用 **Contoso-Test-Device**。 金鑰的部分保留空白，並勾選 [自動產生金鑰]。 請確定 [將裝置連線到 IoT 中樞] 已啟用。 按一下 [檔案] 。
 
    ![顯示新增裝置畫面的螢幕擷取畫面。](./media/tutorial-routing/add-device.png)
 
-5. 現在金鑰已建立，請按一下裝置來查看產生的金鑰。 按一下主要金鑰上的 [複製] 圖示，並將它儲存在「記事本」之類的位置中，以便在本教學課程的測試階段中使用。
+1. 現在金鑰已建立，請按一下裝置來查看產生的金鑰。 按一下主要金鑰上的 [複製] 圖示，並將它儲存在「記事本」之類的位置中，以便在本教學課程的測試階段中使用。
 
    ![顯示裝置詳細資訊 (包括金鑰) 的螢幕擷取畫面。](./media/tutorial-routing/device-details.png)
 
@@ -303,7 +303,7 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
    
    按一下 [確定] 完成新增端點。
    
-2. 按一下 IoT 中樞中上的 [路由]。 您將建立路由規則，將訊息路由至您剛才新增為端點的儲存體容器。 按一下 [路由] 窗格頂端的 [+ 新增]。 填寫畫面上的欄位。 
+1. 按一下 IoT 中樞中上的 [路由]。 您將建立路由規則，將訊息路由至您剛才新增為端點的儲存體容器。 按一下 [路由] 窗格頂端的 [+ 新增]。 填寫畫面上的欄位。 
 
    **名稱**：輸入路由規則的名稱。 本教學課程使用 **StorageRule**。
 
@@ -335,7 +335,7 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
    按一下 [確定] 以儲存端點。 完成之後，關閉 [端點] 窗格。 
     
-2. 按一下 IoT 中樞上的 [路由]。 您將建立路由規則，將訊息路由至您剛才新增為端點的服務匯流排佇列。 按一下 [路由] 窗格頂端的 [+ 新增]。 填寫畫面上的欄位。 
+1. 按一下 IoT 中樞上的 [路由]。 您將建立路由規則，將訊息路由至您剛才新增為端點的服務匯流排佇列。 按一下 [路由] 窗格頂端的 [+ 新增]。 填寫畫面上的欄位。 
 
    **名稱**：輸入路由規則的名稱。 本教學課程使用 **SBQueueRule**。 
 
@@ -373,17 +373,17 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
    按一下頁面底部的 [新增] 。
 
-4. 現在請移至邏輯應用程式。 取得邏輯應用程式最簡單的方式是按一下 [資源群組]，選取您的資源群組 (本教學課程使用 **ContosoResources**)，然後從資源清單中選取邏輯應用程式。 Logic Apps 設計工具頁面隨即顯示 (您可能需要捲動至右側才能看到完整頁面)。 在 Logic Apps 設計工具頁面上，向下捲動直到您看到標示 [空白邏輯應用程式 +] 的圖格，然後按一下它。 
+1. 現在請移至邏輯應用程式。 取得邏輯應用程式最簡單的方式是按一下 [資源群組]，選取您的資源群組 (本教學課程使用 **ContosoResources**)，然後從資源清單中選取邏輯應用程式。 Logic Apps 設計工具頁面隨即顯示 (您可能需要捲動至右側才能看到完整頁面)。 在 Logic Apps 設計工具頁面上，向下捲動直到您看到標示 [空白邏輯應用程式 +] 的圖格，然後按一下它。 
 
-5. 連接器清單隨即顯示。 選取 [服務匯流排]。 
+1. 連接器清單隨即顯示。 選取 [服務匯流排]。 
 
    ![顯示連接器清單的螢幕擷取畫面。](./media/tutorial-routing/logic-app-connectors.png)
 
-6. 觸發程序清單隨即顯示。 選取 [服務匯流排 - 在佇列中收到訊息時] \(自動完成\)。 
+1. 觸發程序清單隨即顯示。 選取 [服務匯流排 - 在佇列中收到訊息時] \(自動完成\)。 
 
    ![顯示服務匯流排觸發程序清單的螢幕擷取畫面。](./media/tutorial-routing/logic-app-triggers.png)
 
-6. 在下一個畫面上，填寫連線名稱。 本教學課程使用 **ContosoConnection**。 
+1. 在下一個畫面上，填寫連線名稱。 本教學課程使用 **ContosoConnection**。 
 
    ![顯示設定服務匯流排佇列連線的螢幕擷取畫面。](./media/tutorial-routing/logic-app-define-connection.png)
 
@@ -391,21 +391,21 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
    
    ![顯示完成設定連線的螢幕擷取畫面。](./media/tutorial-routing/logic-app-finish-connection.png)
 
-7. 在下一個畫面上，從下拉式清單中選取佇列的名稱 (本教學課程使用 **contososbqueue**)。 其他欄位可使用預設值。 
+1. 在下一個畫面上，從下拉式清單中選取佇列的名稱 (本教學課程使用 **contososbqueue**)。 其他欄位可使用預設值。 
 
    ![顯示佇列選項的螢幕擷取畫面。](./media/tutorial-routing/logic-app-queue-options.png)
 
-7. 現在要設定在佇列中收到訊息時會傳送電子郵件的動作。 在 Logic Apps 設計工具中，按一下 [+ 新增步驟] 來新增步驟，然後按一下 [新增動作]。 在 [選擇動作] 窗格中，尋找並按一下 [Office 365 Outlook]。 在觸發程序畫面上，選取 [Office 365 Outlook - 傳送電子郵件]。  
+1. 現在要設定在佇列中收到訊息時會傳送電子郵件的動作。 在 Logic Apps 設計工具中，按一下 [+ 新增步驟] 來新增步驟，然後按一下 [新增動作]。 在 [選擇動作] 窗格中，尋找並按一下 [Office 365 Outlook]。 在觸發程序畫面上，選取 [Office 365 Outlook - 傳送電子郵件]。  
 
    ![顯示 Office365 選項的螢幕擷取畫面。](./media/tutorial-routing/logic-app-select-outlook.png)
 
-8. 接下來，請登入 Office 365 帳戶來設定連線。 指定電子郵件收件者的電子郵件地址。 也請指定主旨，然後在本文中輸入要讓收件者看到的訊息。 為了進行測試，請填寫您自己的電子郵件地址作為收件者。
+1. 接下來，請登入 Office 365 帳戶來設定連線。 指定電子郵件收件者的電子郵件地址。 也請指定主旨，然後在本文中輸入要讓收件者看到的訊息。 為了進行測試，請填寫您自己的電子郵件地址作為收件者。
 
    按一下 [新增動態內容] 會顯示您可以包含的訊息內容。 選取 [內容] -- 訊息將會包含在電子郵件中。 
 
    ![顯示邏輯應用程式電子郵件選項的螢幕擷取畫面。](./media/tutorial-routing/logic-app-send-email.png)
 
-9. 按一下 [檔案] 。 然後關閉 Logic Apps 設計工具。
+1. 按一下 [檔案] 。 然後關閉 Logic Apps 設計工具。
 
 ## <a name="set-up-azure-stream-analytics"></a>設定 Azure 串流分析
 
@@ -415,7 +415,7 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [建立資源] > [物聯網] > [串流分析作業]。
 
-2. 輸入作業的以下資訊。
+1. 輸入作業的以下資訊。
 
    **作業名稱**：作業名稱。 此名稱必須是全域唯一的。 本教學課程使用 **contosoJob**。
 
@@ -425,13 +425,13 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
    ![顯示如何建立串流分析作業的螢幕擷取畫面。](./media/tutorial-routing/stream-analytics-create-job.png)
 
-3. 按一下 [建立] 來建立作業。 若要回到作業，按一下 [資源群組]。 本教學課程使用 **ContosoResources**。 選取資源群組，然後按一下資源清單中的串流分析工作。 
+1. 按一下 [建立] 來建立作業。 若要回到作業，按一下 [資源群組]。 本教學課程使用 **ContosoResources**。 選取資源群組，然後按一下資源清單中的串流分析工作。 
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>將輸入新增至串流分析作業
 
 1. 在 [作業拓撲] 之下，按一下 [輸入]。
 
-2. 在 [輸入] 窗格中，按一下 [新增資料流輸入] 並選取 IoT 中樞。 在顯示的畫面上，填寫下列欄位：
+1. 在 [輸入] 窗格中，按一下 [新增資料流輸入] 並選取 IoT 中樞。 在顯示的畫面上，填寫下列欄位：
 
    **輸入別名**：本教學課程使用 **contosoinputs**。
 
@@ -449,13 +449,13 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
    ![顯示如何為串流分析作業設定輸入的螢幕擷取畫面。](./media/tutorial-routing/stream-analytics-job-inputs.png)
 
-5. 按一下 [檔案] 。
+1. 按一下 [檔案] 。
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>將輸出新增至串流分析作業
 
 1. 在 [作業拓撲] 之下，按一下 [輸出]。
 
-2. 在 [輸出] 窗格中，按一下 [新增]，然後選取 [Power BI]。 在顯示的畫面上，填寫下列欄位：
+1. 在 [輸出] 窗格中，按一下 [新增]，然後選取 [Power BI]。 在顯示的畫面上，填寫下列欄位：
 
    **輸出別名**︰輸出的唯一別名。 本教學課程使用 **contosooutputs**。 
 
@@ -465,25 +465,25 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
    對於其餘欄位，請採用預設值。
 
-3. 按一下 [授權]，然後登入您的 Power BI 帳戶。
+1. 按一下 [授權]，然後登入您的 Power BI 帳戶。
 
    ![顯示如何為串流分析作業設定輸出的螢幕擷取畫面。](./media/tutorial-routing/stream-analytics-job-outputs.png)
 
-4. 按一下 [檔案] 。
+1. 按一下 [檔案] 。
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>設定串流分析作業的查詢
 
 1. 在 [作業拓撲] 之下，按一下 [查詢]。
 
-2. 使用作業的輸入別名取代 `[YourInputAlias]`。 本教學課程使用 **contosoinputs**。
+1. 使用作業的輸入別名取代 `[YourInputAlias]`。 本教學課程使用 **contosoinputs**。
 
-3. 使用作業的輸出別名取代 `[YourOutputAlias]`。 本教學課程使用 **contosooutputs**。
+1. 使用作業的輸出別名取代 `[YourOutputAlias]`。 本教學課程使用 **contosooutputs**。
 
    ![顯示如何為串流分析作業設定查詢的螢幕擷取畫面。](./media/tutorial-routing/stream-analytics-job-query.png)
 
-4. 按一下 [檔案] 。
+1. 按一下 [檔案] 。
 
-5. 關閉 [查詢] 窗格。 您會回到資源群組中的資源檢視。 按一下串流分析作業。 本教學課程將它稱為 **contosoJob**。
+1. 關閉 [查詢] 窗格。 您會回到資源群組中的資源檢視。 按一下串流分析作業。 本教學課程將它稱為 **contosoJob**。
 
 ### <a name="run-the-stream-analytics-job"></a>執行串流分析作業
 
@@ -525,7 +525,7 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
    * 從服務匯流排佇列擷取訊息的邏輯應用程式可正常運作。
    * Outlook 的邏輯應用程式連接器可正常運作。 
 
-2. 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [資源群組]，然後選取您的資源群組。 本教學課程使用 **ContosoResources**。 選取儲存體帳戶，按一下 [Blob]，然後選取 [容器]。 本教學課程使用 **contosoresults**。 您應該會看到資料夾，然後您可以向下鑽研這些目錄，直到您看到一個或多個檔案。 開啟這些檔案的其中一個，其中會包含路由至儲存體帳戶的項目。 
+1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [資源群組]，然後選取您的資源群組。 本教學課程使用 **ContosoResources**。 選取儲存體帳戶，按一下 [Blob]，然後選取 [容器]。 本教學課程使用 **contosoresults**。 您應該會看到資料夾，然後您可以向下鑽研這些目錄，直到您看到一個或多個檔案。 開啟這些檔案的其中一個，其中會包含路由至儲存體帳戶的項目。 
 
    ![顯示儲存體中結果檔案的螢幕擷取畫面。](./media/tutorial-routing/results-in-storage.png)
 
@@ -539,17 +539,17 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
 1. 登入您的 [Power BI](https://powerbi.microsoft.com/) 帳戶。
 
-2. 請移至**工作區**，然後選取建立串流分析作業輸出時所設定的工作區。 本教學課程使用 **My Workspace**。 
+1. 請移至**工作區**，然後選取建立串流分析作業輸出時所設定的工作區。 本教學課程使用 **My Workspace**。 
 
-3. 按一下 [資料集]。
+1. 按一下 [資料集]。
 
    您應該會看到在建立串流分析作業輸出時所指定的資料集。 本教學課程使用 **contosodataset**。 (第一次執行可能需要 5-10 分鐘才會出現資料集)。
 
-4. 在 [動作] 之下，按一下第一個圖示以建立報告。
+1. 在 [動作] 之下，按一下第一個圖示以建立報告。
 
    ![螢幕擷取畫面中顯示 Power BI 工作區與動作，以及醒目提示的報表圖示。](./media/tutorial-routing/power-bi-actions.png)
 
-5. 建立折線圖以顯示一段時間的即時溫度。
+1. 建立折線圖以顯示一段時間的即時溫度。
 
    a. 在報表建立頁面上，按一下折線圖的圖示來新增折線圖。
 
@@ -563,11 +563,11 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
    折線圖已建立。 x 軸會顯示 UTC 時區的日期和時間。 y 軸會顯示感應器的溫度。
 
-7. 建立另一個折線圖以顯示一段時間的即時溼度。 若要設定第二個圖表，請遵循上述相同步驟，並將 **EventEnqueuedUtcTime** 放在 x 軸上，將 **humidity** 放在 y 軸上。
+1. 建立另一個折線圖以顯示一段時間的即時溼度。 若要設定第二個圖表，請遵循上述相同步驟，並將 **EventEnqueuedUtcTime** 放在 x 軸上，將 **humidity** 放在 y 軸上。
 
    ![顯示最終 Power BI 報表與兩個圖表的螢幕擷取畫面。](./media/tutorial-routing/power-bi-report.png)
 
-8. 按一下 [儲存] 以儲存報告。
+1. 按一下 [儲存] 以儲存報告。
 
 您應該會看到兩個圖表的資料。 這表示：
 

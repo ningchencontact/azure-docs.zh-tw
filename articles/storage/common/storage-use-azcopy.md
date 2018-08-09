@@ -2,24 +2,18 @@
 title: 使用 AzCopy on Windows 複製或移動資料到 Azure 儲存體 | Microsoft Docs
 description: 使用 AzCopy on Windows 公用程式來從 Blob、資料表和檔案內容移動或來回複製資料。 從本機檔案複製資料到 Azure 儲存體，或在儲存體帳戶內或之間複製資料。 輕鬆地將資料移轉至 Azure 儲存體。
 services: storage
-documentationcenter: ''
 author: seguler
-manager: jahogg
-editor: tysonn
-ms.assetid: aa155738-7c69-4a83-94f8-b97af4461274
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: seguler
-ms.openlocfilehash: 430979cf197138a9e239eba74e50e9f97d96cbf6
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.component: common
+ms.openlocfilehash: aaae191baaa7b712c77d93303ded777afe97c249
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757599"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39529779"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>使用 AzCopy on Windows 傳送資料
 AzCopy 是個命令列公用程式，專為使用針對最佳效能而設計的簡單命令來將資料複製到/複製出 Microsoft Azure Blob、檔案和表格儲存體所設計。 您可以在檔案系統和儲存體帳戶之間，或者儲存體帳戶之間複製資料。  
@@ -29,7 +23,7 @@ AzCopy 是個命令列公用程式，專為使用針對最佳效能而設計的�
 ## <a name="download-and-install-azcopy-on-windows"></a>在 Windows 上下載並安裝 AzCopy
 
 ### <a name="latest-preview-version-v800"></a>最新預覽版本 (v8.0.0)
-下載 [AzCopy on Windows 的最新預覽版本](http://aka.ms/downloadazcopypr)。 此預覽版本提供顯著的效能提升，並在安裝中封裝 .NET Core。
+下載 [AzCopy on Windows 的最新預覽版本](https://aka.ms/downloadazcopypr)。 此預覽版本提供顯著的效能提升，並在安裝中封裝 .NET Core。
 
 #### <a name="azcopy-on-windows-80-preview-release-notes"></a>AzCopy on Windows 8.0 預覽版本資訊
 - 最新版不再支援資料表服務。 如果您會使用資料表匯出功能，請下載穩定版本。
@@ -37,7 +31,7 @@ AzCopy 是個命令列公用程式，專為使用針對最佳效能而設計的�
 - 上傳和下載情節均有顯著的效能提升
 
 ### <a name="latest-stable-version-v710"></a>最新穩定版本 (v7.1.0)
-下載 [AzCopy on Windows 的最新穩定版本](http://aka.ms/downloadazcopy)。
+下載 [AzCopy on Windows 的最新穩定版本](https://aka.ms/downloadazcopy)。
 
 ### <a name="post-installation-step"></a>後續安裝步驟
 

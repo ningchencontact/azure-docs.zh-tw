@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: cd231a6baad74cd88d82b219e2e58e9252187ff5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c3ba235c60480c38a21ee3264c54b4a4dcdea340
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598992"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434596"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>關於 Azure Databricks 的常見問題
 
@@ -34,8 +34,8 @@ ms.locfileid: "34598992"
 
 請遵循下列步驟：
 1. 在 Azure Active Directory (Azure AD) 中，佈建服務主體並記錄其金鑰。
-2. 在 Data Lake Store 中，將必要權限指派給服務主體。
-3. 若要存取 Data Lake Store 中的檔案，請在 Notebook 中使用服務主體認證。
+1. 在 Data Lake Store 中，將必要權限指派給服務主體。
+1. 若要存取 Data Lake Store 中的檔案，請在 Notebook 中使用服務主體認證。
 
 如需詳細資訊，請參閱[搭配 Azure Databricks 使用 Data Lake Store](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html)。
 
@@ -52,8 +52,8 @@ ms.locfileid: "34598992"
 #### <a name="solution"></a>解決方法
 
 1. 移至 [Azure 入口網站](https://portal.azure.com)。
-2. 依序選取 [訂用帳戶]、您所使用的訂用帳戶及 [資源提供者]。 
-3. 在資源提供者清單中，針對 **Microsoft.Databricks** 選取 [註冊]。 您在訂用帳戶中必須具有參與者或擁有者角色，才能註冊資源提供者。
+1. 依序選取 [訂用帳戶]、您所使用的訂用帳戶及 [資源提供者]。 
+1. 在資源提供者清單中，針對 **Microsoft.Databricks** 選取 [註冊]。 您在訂用帳戶中必須具有參與者或擁有者角色，才能註冊資源提供者。
 
 
 ### <a name="issue-your-account-email-does-not-have-the-owner-or-contributor-role-on-the-databricks-workspace-resource-in-the-azure-portal"></a>問題：您的帳戶 {email} 在 Azure 入口網站的 Databricks 工作區資源中沒有擁有者或參與者角色
@@ -107,8 +107,8 @@ Azure 錯誤碼：MissingSubscriptionRegistration Azure 錯誤訊息：訂用帳
 #### <a name="solution"></a>解決方法
 
 1. 移至 [Azure 入口網站](https://portal.azure.com)。
-2. 依序選取 [訂用帳戶]、您所使用的訂用帳戶及 [資源提供者]。 
-3. 在資源提供者清單中，針對 **Microsoft.Compute** 選取 [註冊]。 您在訂用帳戶中必須具有參與者或擁有者角色，才能註冊資源提供者。
+1. 依序選取 [訂用帳戶]、您所使用的訂用帳戶及 [資源提供者]。 
+1. 在資源提供者清單中，針對 **Microsoft.Compute** 選取 [註冊]。 您在訂用帳戶中必須具有參與者或擁有者角色，才能註冊資源提供者。
 
 如需更多詳細指示，請參閱[資源提供者和類型](../azure-resource-manager/resource-manager-supported-services.md)。
 
