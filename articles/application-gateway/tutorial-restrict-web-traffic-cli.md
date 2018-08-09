@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 48f1a4950365c00b7bff8c804abd95fd7b7ab9b9
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: be6032d8c0ce7c20a080037fad216c4b540c90cb
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069051"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435592"
 ---
 # <a name="tutorial-enable-web-application-firewall-using-the-azure-cli"></a>教學課程：使用 Azure CLI 啟用 Web 應用程式防火牆
 
@@ -41,7 +41,7 @@ ms.locfileid: "39069051"
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-資源群組是在其中部署與管理 Azure 資源的邏輯容器。 使用 [az group create](/cli/azure/group#az_group_create) 建立名為 myResourceGroupAG 的 Azure 資源群組。
+資源群組是在其中部署與管理 Azure 資源的邏輯容器。 使用 [az group create](/cli/azure/group#az-group-create) 建立名為 myResourceGroupAG 的 Azure 資源群組。
 
 ```azurecli-interactive 
 az group create --name myResourceGroupAG --location eastus
@@ -49,7 +49,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>建立網路資源
 
-這些虛擬網路和子網路可用來為應用程式閘道及其相關聯的資源提供網路連線。 使用 [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) 和 [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) 建立名為 myVNet 的虛擬網路，以及名為 myAGSubnet 的子網路。 使用 [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) 建立名為 myAGPublicIPAddress 的公用 IP 位址。
+這些虛擬網路和子網路可用來為應用程式閘道及其相關聯的資源提供網路連線。 使用 [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) 和 [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) 建立名為 myVNet 的虛擬網路，以及名為 myAGSubnet 的子網路。 使用 [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) 建立名為 myAGPublicIPAddress 的公用 IP 位址。
 
 ```azurecli-interactive
 az network vnet create \
@@ -73,7 +73,7 @@ az network public-ip create \
 
 ## <a name="create-an-application-gateway-with-a-waf"></a>建立包含 WAF 的應用程式閘道
 
-您可以使用 [az network application-gateway create](/cli/azure/application-gateway#az_application_gateway_create) 來建立名為 myAppGateway 的應用程式閘道。 當您使用 Azure CLI 建立應用程式閘道時，需要指定設定資訊，例如容量、SKU 和 HTTP 設定。 應用程式閘道會指派給您先前建立的 myAGSubnet 和 myPublicIPSddress。
+您可以使用 [az network application-gateway create](/cli/azure/application-gateway#az-application-gateway-create) 來建立名為 myAppGateway 的應用程式閘道。 當您使用 Azure CLI 建立應用程式閘道時，需要指定設定資訊，例如容量、SKU 和 HTTP 設定。 應用程式閘道會指派給您先前建立的 myAGSubnet 和 myPublicIPSddress。
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -108,7 +108,7 @@ az network application-gateway waf-config set \
 
 ## <a name="create-a-virtual-machine-scale-set"></a>建立虛擬機器擴展集
 
-在此範例中，您會建立虛擬機器擴展集，為應用程式閘道中的後端集區提供兩部伺服器。 擴展集中的虛擬機器會與 myBackendSubnet 子網路相關聯。 若要建立擴展集，您可以使用 [az vmss create](/cli/azure/vmss#az_vmss_create)。
+在此範例中，您會建立虛擬機器擴展集，為應用程式閘道中的後端集區提供兩部伺服器。 擴展集中的虛擬機器會與 myBackendSubnet 子網路相關聯。 若要建立擴展集，您可以使用 [az vmss create](/cli/azure/vmss#az-vmss-create)。
 
 ```azurecli-interactive
 az vmss create \
@@ -144,7 +144,7 @@ az vmss extension set \
 
 ### <a name="create-a-storage-account"></a>建立儲存體帳戶
 
-使用 [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_create) 建立名為 myagstore1 的儲存體帳戶。
+使用 [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) 建立名為 myagstore1 的儲存體帳戶。
 
 ```azurecli-interactive
 az storage account create \
@@ -157,7 +157,7 @@ az storage account create \
 
 ### <a name="configure-diagnostics"></a>設定診斷
 
-設定診斷以將資料記錄到 ApplicationGatewayAccessLog、ApplicationGatewayPerformanceLog 和 ApplicationGatewayFirewallLog 記錄。 使用您的訂用帳戶識別碼來取代 `<subscriptionId>`，然後使用 [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az_monitor_diagnostic_settings_create) 來設定診斷。
+設定診斷以將資料記錄到 ApplicationGatewayAccessLog、ApplicationGatewayPerformanceLog 和 ApplicationGatewayFirewallLog 記錄。 使用您的訂用帳戶識別碼來取代 `<subscriptionId>`，然後使用 [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) 來設定診斷。
 
 ```azurecli-interactive
 appgwid=$(az network application-gateway show --name myAppGateway --resource-group myResourceGroupAG --query id -o tsv)
@@ -171,7 +171,7 @@ az monitor diagnostic-settings create --name appgwdiag --resource $appgwid \
 
 ## <a name="test-the-application-gateway"></a>測試應用程式閘道
 
-若要取得應用程式閘道的公用 IP 位址，請使用 [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show)。 將公用 IP 位址複製並貼到您瀏覽器的網址列。
+若要取得應用程式閘道的公用 IP 位址，請使用 [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show)。 將公用 IP 位址複製並貼到您瀏覽器的網址列。
 
 ```azurepowershell-interactive
 az network public-ip show \

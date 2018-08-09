@@ -1,22 +1,23 @@
 ---
-title: "使用 Logic Apps 自動執行 Azure Application Insights 程序。"
-description: "了解如何透過將 Application Insights Connector 新增到您的邏輯應用程式，快速自動執行重複程序。"
+title: 使用 Logic Apps 自動執行 Azure Application Insights 程序。
+description: 了解如何透過將 Application Insights Connector 新增到您的邏輯應用程式，快速自動執行重複程序。
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: mbullwin
-ms.openlocfilehash: e17d8076a00cab2cf608fe1a690e4a780a69d56f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4ae5adaf37f49e9909fa80fd31f088ed6ee1b081
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39450438"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>使用 Logic Apps 自動執行 Application Insights 程序
 
@@ -32,7 +33,7 @@ ms.lasthandoff: 02/21/2018
 
 ### <a name="step-1-create-a-logic-app"></a>步驟 1：建立邏輯應用程式
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 按一下 [建立資源]，選取 [Web + 行動]，然後選取 [邏輯應用程式]。
+1. 按一下 [建立資源]，選取 [Web + 行動]，然後選取 [邏輯應用程式]。
 
     ![新增邏輯應用程式視窗](./media/automate-with-logic-apps/logicapp1.png)
 
@@ -41,16 +42,16 @@ ms.lasthandoff: 02/21/2018
 
     ![邏輯應用程式設計工具視窗](./media/automate-with-logic-apps/logicapp2.png)
 
-2. 在 [頻率] 方塊中選取 [天]，然後在 [間隔] 方塊中輸入 **1**。
+1. 在 [頻率] 方塊中選取 [天]，然後在 [間隔] 方塊中輸入 **1**。
 
     ![邏輯應用程式設計工具 [參考] 視窗](./media/automate-with-logic-apps/step2b.png)
 
 ### <a name="step-3-add-an-application-insights-action"></a>步驟 3：新增 Application Insights 動作
 1. 按一下 [新增步驟]，然後按一下 [新增動作]。
 
-2. 在 [選擇動作] 搜尋方塊中，輸入 **Azure Application Insights**。
+1. 在 [選擇動作] 搜尋方塊中，輸入 **Azure Application Insights**。
 
-3. 在 [動作] 之下，按一下 [Azure Application Insights – 視覺化 Analytics 查詢預覽]。
+1. 在 [動作] 之下，按一下 [Azure Application Insights – 視覺化 Analytics 查詢預覽]。
 
     ![邏輯應用程式設計工具的「選擇動作」視窗](./media/automate-with-logic-apps/flow2.png)
 
@@ -82,7 +83,7 @@ ms.lasthandoff: 02/21/2018
     | evaluate autocluster()
     ```
 
-2. 在 [圖表類型] 方塊中，選取 [Html 表格]。
+1. 在 [圖表類型] 方塊中，選取 [Html 表格]。
 
     ![Analytics 查詢設定畫面](./media/automate-with-logic-apps/flow4.png)
 
@@ -90,13 +91,13 @@ ms.lasthandoff: 02/21/2018
 
 1. 按一下 [新增步驟]，然後選取 [新增動作]。
 
-2. 在搜尋方塊中，輸入**Office 365 Outlook**。
+1. 在搜尋方塊中，輸入**Office 365 Outlook**。
 
-3. 按一下 [Office 365 Outlook – 傳送電子郵件]。
+1. 按一下 [Office 365 Outlook – 傳送電子郵件]。
 
     ![Office 365 Outlook 選項](./media/automate-with-logic-apps/flow2b.png)
 
-4. 在 [傳送電子郵件]  視窗中，執行下列動作：
+1. 在 [傳送電子郵件]  視窗中，執行下列動作：
 
    a. 輸入收件者的電子郵件地址。
 
@@ -108,7 +109,7 @@ ms.lasthandoff: 02/21/2018
 
       ![Office 365 Outlook 設定](./media/automate-with-logic-apps/flow5.png)
 
-5. 在動態內容功能表上執行下列動作：
+1. 在動態內容功能表上執行下列動作：
 
     a. 選取 [附件名稱]。
 

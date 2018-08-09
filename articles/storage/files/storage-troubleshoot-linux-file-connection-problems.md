@@ -2,24 +2,19 @@
 title: 針對 Linux 中的 Azure 檔案服務問題進行疑難排解 | Microsoft Docs
 description: 針對 Linux 中的 Azure 檔案服務問題進行疑難排解
 services: storage
-documentationcenter: ''
 author: jeffpatt24
-manager: aungoo
-editor: tamram
 tags: storage
 ms.service: storage
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: jeffpatt
-ms.openlocfilehash: 5781a3c2e121b81275683d73eb3047ba949857c7
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.component: files
+ms.openlocfilehash: 0f99913ab252b94d475f920bd734e68ff5f3b3d3
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415711"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525115"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>針對 Linux 中的 Azure 檔案服務問題進行疑難排解
 
@@ -65,9 +60,9 @@ ms.locfileid: "39415711"
 
 此 Linux 核心中的重新連線問題已隨下列變更修正：
 
-- [修正重新連線在通訊端重新連線許久之後不會延遲 SMB3 工作階段重新連線](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93) \(英文\)
-- [在通訊端重新連線之後立即呼叫 Echo 服務](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7) \(英文\)
-- [CIFS：修正重新連線期間可能發生的記憶體損毀](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b) \(英文\)
+- [修正重新連線在通訊端重新連線許久之後不會延遲 SMB3 工作階段重新連線 (英文)](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93)
+- [在通訊端重新連線之後立即呼叫 Echo 服務 (英文)](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7)
+- [CIFS：修正重新連線期間可能發生的記憶體損毀 (英文)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
 - [CIFS：修正重新連線期間可能發生的 Mutex 雙重鎖定 (針對核心 4.9 版與更新版本)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183) \(英文\)
 
 但是，這些變更可能尚未移植到所有 Linux 發行版本。 此修正和其他重新連線修正在下列常見 Linux 核心中進行：4.4.40、4.8.16 和 4.9.1. 您可以升級至其中一個建議的核心版本，以完成此修正。
@@ -156,7 +151,7 @@ COPYFILE 中的強制旗標 **f** 會導致在 Unix 上執行 **cp -p -f**。 �
 - 您正在嘗試透過不支援的 TCP 通訊埠 445 連線到儲存體帳戶。
 - 您正在嘗試從 Azure VM 連線到 Azure 檔案共用，而該 VM 與儲存體帳戶位於不同的區域。
 
-### <a name="solution"></a>解決方式
+### <a name="solution"></a>解決方法
 
 若要解決此問題，請使用[適用於 Linux 上 Azure 檔案服務掛接錯誤的疑難排解工具](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089) \(英文\)。 此工具可協助您驗證用戶端執行環境、偵測可能造成 Azure 檔案服務存取錯誤的不相容用戶端設定、提供自行修正的規範指引，以及收集診斷追蹤。
 
@@ -183,7 +178,7 @@ COPYFILE 中的強制旗標 **f** 會導致在 Unix 上執行 **cp -p -f**。 �
 ln -s linked -n t
 ln: failed to create symbolic link 't': Operation not supported
 ```
-### <a name="solution"></a>解決方式
+### <a name="solution"></a>解決方法
 Linux CIFS 用戶端不支援透過 SMB2/3 通訊協定，建立 Windows 樣式的符號連結。 Linux 用戶端目前支援另一種符號連結樣式，稱為 [Mishall + 法文符號連結] (https://wiki.samba.org/index.php/UNIX_Extensions#Minshall.2BFrench_symlinks)，用於建立和遵循作業。 需要符號連結的客戶可以使用 "mfsymlinks" 掛接選項。 因為這也是 Mac 使用的格式，所以通常會建議使用 "mfsymlinks"。
 
 為了能使用符號連結，請將下列內容新增至 CIFS 掛接命令結尾：

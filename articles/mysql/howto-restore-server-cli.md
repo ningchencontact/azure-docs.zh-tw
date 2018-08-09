@@ -10,19 +10,19 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 5325f23a13a181d912bbc8b26042de72855dc41e
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: f4253d4259d66b0c5746ef61cfc3cf4f4f2caad3
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319083"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448897"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>如何使用 Azure CLI 在適用於 MySQL 的 Azure 資料庫中備份和還原伺服器
 
 ## <a name="backup-happens-automatically"></a>備份會自動進行
 為了能使用還原功能，適用於 MySQL 的 Azure 資料庫伺服器會定期備份。 透過此功能，您可以將伺服器和其所有資料庫還原至更早的時間點 (在新的伺服器上)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要完成本操作說明指南，您需要：
 - [適用於 MySQL 的 Azure 資料庫伺服器和資料庫](quickstart-create-mysql-server-database-using-azure-cli.md)
 
@@ -60,7 +60,7 @@ az mysql server update --name mydemoserver --resource-group myresourcegroup --ba
 ## <a name="server-point-in-time-restore"></a>時間點還原
 您可以將伺服器還原至先前的時間點。 還原的資料會複製到新的伺服器，而現有的伺服器則保持原狀。 例如，如果資料表在今天中午意外卸除，您可以還原到中午之前的時間。 然後，您可從伺服器的還原複本擷取遺失的資料表和資料。 
 
-若要還原伺服器，請使用 Azure CLI [az mysql server restore](/cli/azure/mysql/server#az_mysql_server_restore) 命令。
+若要還原伺服器，請使用 Azure CLI [az mysql server restore](/cli/azure/mysql/server#az-mysql-server-restore) 命令。
 
 ### <a name="run-the-restore-command"></a>執行 restore 命令
 

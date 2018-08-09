@@ -3,25 +3,20 @@ title: 搭配 Azure HDInsight 叢集使用 Azure Data Lake Storage Gen2 預覽
 description: 了解如何從 Azure Data Lake Storage Gen2 預覽查詢資料，並儲存分析的結果。
 keywords: hdfs, 結構化資料, 非結構化資料, data lake store, Hadoop 輸入, Hadoop 輸出, hadoop 儲存體, hdfs 輸入, hdfs 輸出, hdfs 儲存體, wasb azure
 services: hdinsight,storage
-documentationcenter: ''
 tags: azure-portal
 author: jamesbak
-manager: jahogg
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: e4e72d3c5b6b9c96de6a8faafccfcc39fe3c37b8
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 4a9f79b292e58331dcd2f7cb656e24b244aa89ba
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136684"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528503"
 ---
 # <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>搭配 Azure HDInsight 叢集使用 Azure Data Lake Storage Gen2 預覽
 

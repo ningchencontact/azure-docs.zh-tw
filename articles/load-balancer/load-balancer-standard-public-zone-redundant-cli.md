@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: kumud
-ms.openlocfilehash: e469311609909e3453015702fca7d015a4e72398
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: dbefe5324acb699abb0e06b8f3f464a91a6fa2e2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34273961"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431125"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>使用 Azure CLI 來進行跨所有可用性區域的 VM 負載平衡
 
-本文會逐步說明如何在不倚賴多個 DNS 記錄的情況下，建立具有區域備援前端的公用 [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) 來達到區域備援的目的。 單一前端 IP 位址會自動具備區域備援。  現在，藉由將區域備援前端用於您的負載平衡器，您只需要單一 IP 位址，即可跨所有可用性區域連線至某區域內的區域網路中的任何 VM。 萬一整個資料中心失敗或遺失，使用可用性區域可保護您的應用程式和資料免於受害。
+本文會逐步說明如何在不倚賴多個 DNS 記錄的情況下，建立具有區域備援前端的公用 [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) 來達到區域備援的目的。 單一前端 IP 位址會自動具備區域備援。  現在為負載平衡器使用區域備援前端時，只需使用單一 IP 位址即可在單一地區內橫跨所有可用性區域，並連線至該地區內某虛擬網路中的任何 VM。 萬一整個資料中心失敗或遺失，使用可用性區域可保護您的應用程式和資料免於受害。
 
-如需關於搭配使用可用性區域和標準 Load Balancer 的詳細資訊，請參閱[標準 Load Balancer 和可用性區域](load-balancer-standard-availability-zones.md)。
+如需有關搭配標準 Load Balancer 使用可用性區域的詳細資訊，請參閱[標準 Load Balancer 和可用性區域](load-balancer-standard-availability-zones.md)。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -39,7 +39,7 @@ ms.locfileid: "34273961"
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-使用 [az group create](/cli/azure/group#az_group_create) 來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
+使用 [az group create](/cli/azure/group#az-group-create) 來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
 
 下列範例會在 *westeurope* 位置建立名為 *myResourceGroupSLB* 的資源群組：
 
@@ -69,7 +69,7 @@ az network public-ip create \
 - 負載平衡器規則，可定義如何將流量分散至 VM。
 
 ### <a name="create-the-load-balancer"></a>建立負載平衡器
-使用 [az network lb create](/cli/azure/network/lb#az_network_lb_create) 來建立標準負載平衡器。 下列範例會建立名為 *myLoadBalancer* 的負載平衡器，並將 *myPublicIP* 位址指派給前端 IP 設定。
+使用 [az network lb create](/cli/azure/network/lb#az-network-lb-create) 來建立標準負載平衡器。 下列範例會建立名為 *myLoadBalancer* 的負載平衡器，並將 *myPublicIP* 位址指派給前端 IP 設定。
 
 ```azurecli-interactive
 az network lb create \
@@ -83,7 +83,7 @@ az network lb create \
 
 ## <a name="create-health-probe-on-port-80"></a>在連接埠 80 上建立健康狀態探查
 
-健全狀況探查會檢查所有虛擬機器執行個體，確認它們可以傳送網路流量。 探查檢查失敗的虛擬機器執行個體會從負載平衡器上移除，直到其恢復正常運作且探查判斷其健全狀況良好為止。 請使用 az network lb probe create 來建立健康狀態探查，以監視虛擬機器的健康狀態。 若要建立 TCP 健康狀態探查，請使用 [az network lb probe create](/cli/azure/network/lb/probe#az_network_lb_probe_create)。 下列範例會建立名為 myHealthProbe 的健康狀態探查：
+健全狀況探查會檢查所有虛擬機器執行個體，確認它們可以傳送網路流量。 探查檢查失敗的虛擬機器執行個體會從負載平衡器上移除，直到其恢復正常運作且探查判斷其健全狀況良好為止。 請使用 az network lb probe create 來建立健康狀態探查，以監視虛擬機器的健康狀態。 若要建立 TCP 健康狀態探查，請使用 [az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create)。 下列範例會建立名為 myHealthProbe 的健康狀態探查：
 
 ```azurecli-interactive
 az network lb probe create \
@@ -95,7 +95,7 @@ az network lb probe create \
 ```
 
 ## <a name="create-load-balancer-rule-for-port-80"></a>建立用於連接埠 80 的負載平衡器規則
-負載平衡器規則可定義連入流量的前端 IP 組態及接收流量的後端 IP 集區，以及所需的來源和目的地連接埠。 使用 [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create) 建立負載平衡器規則 *myLoadBalancerRuleWeb*，用來接聽前端集區 *myFrontEndPool* 中的連接埠 80，以及用來將負載平衡的網路流量傳送到後端位址集區 *myBackEndPool* (也是使用連接埠 80)。
+負載平衡器規則可定義連入流量的前端 IP 組態及接收流量的後端 IP 集區，以及所需的來源和目的地連接埠。 使用 [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create) 建立負載平衡器規則 *myLoadBalancerRuleWeb*，用來接聽前端集區 *myFrontEndPool* 中的連接埠 80，以及用來將負載平衡的網路流量傳送到後端位址集區 *myBackEndPool* (也是使用連接埠 80)。
 
 ```azurecli-interactive
 az network lb rule create \
@@ -115,7 +115,7 @@ az network lb rule create \
 
 ### <a name="create-a-virtual-network"></a>建立虛擬網路
 
-使用 [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create)，在 myResourceGroup 中建立名為 *myVnet*且子網路名為 *mySubnet* 的虛擬網路。
+使用 [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create)，在 myResourceGroup 中建立名為 *myVnet*且子網路名為 *mySubnet* 的虛擬網路。
 
 
 ```azurecli-interactive
@@ -128,7 +128,7 @@ az network vnet create \
 
 ### <a name="create-a-network-security-group"></a>建立網路安全性群組
 
-使用 [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create).來建立名為 *myNetworkSecurityGroup* 的網路安全性群組，以定義對您虛擬網路的輸入連線。
+使用 [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create).來建立名為 *myNetworkSecurityGroup* 的網路安全性群組，以定義對您虛擬網路的輸入連線。
 
 ```azurecli-interactive
 az network nsg create \
@@ -136,7 +136,7 @@ az network nsg create \
 --name myNetworkSecurityGroup
 ```
 
-使用 [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) 來針對連接埠 80 建立名為 *myNetworkSecurityGroupRule* 的安全性群組規則。
+使用 [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) 來針對連接埠 80 建立名為 *myNetworkSecurityGroupRule* 的安全性群組規則。
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -153,7 +153,7 @@ az network nsg rule create \
 --priority 200
 ```
 ### <a name="create-nics"></a>建立 NIC
-使用 [az network nic create](/cli/azure/network/nic#az_network_nic_create) 來建立三個網路 NIC，並將它們與公用 IP 位址和網路安全性群組建立關聯。 下列範例會建立六個虛擬 NIC。 (您在下列步驟中針對應用程式建立的每部 VM 都有一個虛擬 NIC)。 您可以隨時建立其他虛擬 NIC 和 VM，並將它們新增至負載平衡器︰
+使用 [az network nic create](/cli/azure/network/nic#az-network-nic-create) 來建立三個網路 NIC，並將它們與公用 IP 位址和網路安全性群組建立關聯。 下列範例會建立六個虛擬 NIC。 (您在下列步驟中針對應用程式建立的每部 VM 都有一個虛擬 NIC)。 您可以隨時建立其他虛擬 NIC 和 VM，並將它們新增至負載平衡器︰
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -217,7 +217,7 @@ runcmd:
 ```
 
 ### <a name="create-the-zonal-virtual-machines"></a>建立區域虛擬機器
-使用 [az vm create](/cli/azure/vm#az_vm_create) 在區域 1、區域 2 及區域 3 建立 VM。 下列範例會在每個區域建立 VM 並產生 SSH 金鑰 (如果尚未存在的話)︰
+使用 [az vm create](/cli/azure/vm#az-vm-create) 在區域 1、區域 2 及區域 3 建立 VM。 下列範例會在每個區域建立 VM 並產生 SSH 金鑰 (如果尚未存在的話)︰
 
 在 westeurope 位置的每個區域 (區域 1、區域 2 和區域 3) 中建立 VM。
 
@@ -235,7 +235,7 @@ done
 ```
 ## <a name="test-the-load-balancer"></a>測試負載平衡器
 
-使用 [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) 來取得負載平衡器的公用 IP 位址。 
+使用 [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) 來取得負載平衡器的公用 IP 位址。 
 
 ```azurecli-interactive
   az network public-ip show \

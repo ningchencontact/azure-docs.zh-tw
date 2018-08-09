@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: 494526ae2084053f23bb3a096ac7d089c47a731a
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 176de6f19274dfd8a6cf0335bb4cf16a8baa874b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823430"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525339"
 ---
 # <a name="resolve-not-found-errors-for-azure-resources"></a>解決找不到 Azure 資源的錯誤
 
@@ -60,7 +60,7 @@ Resource Manager 需要擷取資源的屬性，但是無法識別您訂用帳戶
 }
 ```
 
-但是，您要避免設定不需要的相依性。 當您有不必要的相依性時，會阻止未彼此相依的資源以平行方式部署，因而延長部署的時間。 此外，您可以建立封鎖部署的循環相依性。 在同一個範本中部署所參考的資源且依其名稱 (而非資源識別碼) 加以參考時，[reference](resource-group-template-functions-resource.md#reference) 函式和 [list*](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list) 函式會在該資源上建立隱含的相依性。 因此，您的相依性可能會比 **dependsOn** 屬性中指定的相依性還多。 [resourceId](resource-group-template-functions-resource.md#resourceid) 函式不會建立隱含的相依性或驗證資源存在。 依資源的資源識別碼參考資源時，[reference](resource-group-template-functions-resource.md#reference) 函式和 [list*](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list) 函式不會建立隱含的相依性。 若要建立隱含的相依性，請針對部署於相同範本的資源，傳遞資源的名稱。
+但是，您要避免設定不需要的相依性。 當您有不必要的相依性時，會阻止未彼此相依的資源以平行方式部署，因而延長部署的時間。 此外，您可以建立封鎖部署的循環相依性。 在同一個範本中部署所參考的資源且依其名稱 (而非資源識別碼) 加以參考時，[reference](resource-group-template-functions-resource.md#reference) 函式和 [list*](resource-group-template-functions-resource.md#list) 函式會在該資源上建立隱含的相依性。 因此，您的相依性可能會比 **dependsOn** 屬性中指定的相依性還多。 [resourceId](resource-group-template-functions-resource.md#resourceid) 函式不會建立隱含的相依性或驗證資源存在。 依資源的資源識別碼參考資源時，[reference](resource-group-template-functions-resource.md#reference) 函式和 [list*](resource-group-template-functions-resource.md#list) 函式不會建立隱含的相依性。 若要建立隱含的相依性，請針對部署於相同範本的資源，傳遞資源的名稱。
 
 當您看到相依性問題時，應深入了解資源部署的順序。 若要檢視部署作業的順序︰
 

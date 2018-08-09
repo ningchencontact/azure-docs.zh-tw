@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: protection
+ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 483f30a6546cf21d93b96b08eede6afae828d9e4
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 45a2747a60df4d91c2fe1c5247e1d4ac82ff819f
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38548299"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617144"
 ---
 # <a name="activate-roles-for-azure-resources-by-using-privileged-identity-management"></a>使用 Privileged Identity Management 啟用適用於 Azure 資源的角色
 Privileged Identity Management (PIM) 在啟用適用於 Azure 資源的角色方面引進了全新體驗。 符合資格的角色成員可以排程在未來的日期和時間啟用。 他們也可以在最大範圍內選取特定的啟用期間 (由管理員設定)。 如需更多資訊，請參閱 [Azure AD Privileged Identity Management：如何啟用或停用角色](pim-how-to-activate-role.md)。

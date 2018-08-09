@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/14/2016
 ms.author: jjed
-ms.openlocfilehash: d95abab1d1a489deba2ebc260e1e32963aa5639e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 2f52ed0ab302d1c3dad699258287f6edd7197cef
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31799527"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525615"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>開始在 Java 中使用 Azure 搜尋服務
 > [!div class="op_single_selector"]
@@ -159,7 +159,7 @@ USGS 資料集包含與羅德島州相關的記錄。 如果您在空白的搜�
 
 如果您已有一些 Azure 搜尋服務的背景知識，可以利用此範例做為進一步實驗的跳板，例如擴充[搜尋頁面](search-pagination-page-layout.md)或實作[多面向導覽](search-faceted-navigation.md)。 您也可以新增計數和批次處理文件，讓使用者可以逐頁查看結果，藉此改進搜尋結果頁面。
 
-不熟悉 Azure 搜尋服務嗎？ 建議您嘗試學習其他教學課程，深入了解您還可以建立哪些東西。 請瀏覽我們的 [文件頁面](https://azure.microsoft.com/documentation/services/search/) 以尋找更多資源。 您也可以查看我們 [影片和教學課程清單](search-video-demo-tutorial-list.md) 中的連結，以存取更多資訊。
+不熟悉 Azure 搜尋服務嗎？ 建議您嘗試學習其他教學課程，深入了解您還可以建立哪些東西。 請瀏覽我們的 [文件頁面](https://azure.microsoft.com/documentation/services/search/) 以尋找更多資源。 
 
 <!--Image references-->
 [1]: ./media/search-get-started-java/create-search-portal-1.PNG

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev
-ms.openlocfilehash: bd4a32575067b3de94935322ead9a7f0966d2969
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b79dc4a65193b04390f64cfbfc8cedb6758af0f0
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31784127"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492122"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>我的 MVC 專案 (Visual Studio Azure Active Directory 已連線服務) 發生什麼事？
 
@@ -164,5 +164,5 @@ ms.locfileid: "31784127"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [Azure Active Directory 的驗證案例](active-directory-authentication-scenarios.md)
-- [將「使用 Microsoft 登入」新增至 ASP.NET Web 應用程式](guidedsetups/active-directory-aspnetwebapp-v1.md)
+- [Azure Active Directory 的驗證案例](authentication-scenarios.md)
+- [將「使用 Microsoft 登入」新增至 ASP.NET Web 應用程式](quickstart-v1-aspnet-webapp.md)

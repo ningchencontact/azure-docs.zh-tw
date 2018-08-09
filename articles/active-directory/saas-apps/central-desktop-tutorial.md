@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 2c571ebc45875167373b592abc720b045d1835bd
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 82a6911c85dd1438aa8f60cb36194a2916bc91e7
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048750"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429041"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>教學課程：Azure Active Directory 與 Central Desktop 整合
 
@@ -53,7 +53,7 @@ ms.locfileid: "39048750"
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
 
 1. 從資源庫新增 Central Desktop
-2. 設定並測試 Azure AD 單一登入
+1. 設定並測試 Azure AD 單一登入
 
 ## <a name="add-central-desktop-from-the-gallery"></a>從資源庫新增 Central Desktop
 若要設定將 Central Desktop 整合到 Azure AD 中，您需要將 Central Desktop 從資源庫新增到受控 SaaS 應用程式清單。
@@ -64,15 +64,15 @@ ms.locfileid: "39048750"
 
     ![Azure Active Directory 按鈕][1]
 
-2. 移至 [企業應用程式]。 然後移至 [所有應用程式]。
+1. 移至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![企業應用程式刀鋒視窗][2]
     
-3. 若要新增新的應用程式，請選取對話方塊頂端的 [新增應用程式] 按鈕。
+1. 若要新增新的應用程式，請選取對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![新增應用程式按鈕][3]
 
-4. 在搜尋方塊中，輸入 **Central Desktop**。 從結果面板中選取 [Central Desktop]，然後選取 [新增] 按鈕以新增應用程式。
+1. 在搜尋方塊中，輸入 **Central Desktop**。 從結果面板中選取 [Central Desktop]，然後選取 [新增] 按鈕以新增應用程式。
 
     ![結果清單中的 Central Desktop](./media/central-desktop-tutorial/tutorial_centraldesktop_addfromgallery.png)
 
@@ -87,10 +87,10 @@ ms.locfileid: "39048750"
 若要設定及測試與 Central Desktop 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. [設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)，讓您的使用者能夠使用此功能。
-2. [建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)，以使用 Britta Simon 測試 Azure AD 單一登入。
-3. [建立 Central Desktop 測試使用者](#create-a-central-desktop-test-user)，以在 Central Desktop 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
-4. [指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)，讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. [測試單一登入](#test-single-sign-on)，以驗證組態是否能運作。
+1. [建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)，以使用 Britta Simon 測試 Azure AD 單一登入。
+1. [建立 Central Desktop 測試使用者](#create-a-central-desktop-test-user)，以在 Central Desktop 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
+1. [指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)，讓 Britta Simon 能夠使用 Azure AD 單一登入。
+1. [測試單一登入](#test-single-sign-on)，以驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -102,11 +102,11 @@ ms.locfileid: "39048750"
 
     ![設定單一登入連結][4]
 
-2. 若要啟用單一登入，請在 [單一登入] 對話方塊的 [模式] 下拉式清單中，選取 [SAML 登入]。
+1. 若要啟用單一登入，請在 [單一登入] 對話方塊的 [模式] 下拉式清單中，選取 [SAML 登入]。
  
     ![單一登入對話方塊](./media/central-desktop-tutorial/tutorial_centraldesktop_samlbase.png)
 
-3. 在 [Central Desktop 網域及 URL] 區段中，執行下列步驟：
+1. 在 [Central Desktop 網域及 URL] 區段中，執行下列步驟：
 
     ![Central Desktop 網域及 URL 單一登入資訊](./media/central-desktop-tutorial/tutorial_centraldesktop_url.png)
 
@@ -123,25 +123,25 @@ ms.locfileid: "39048750"
     > [!NOTE] 
     > 這些都不是真正的值。 請使用實際的識別碼、回覆 URL 及登入 URL 來更新這些值。 請連絡 [Central Desktop 用戶端支援小組](https://imeetcentral.com/contact-us) \(英文\) 以取得這些值。 
 
-4. 在 [SAML 簽署憑證] 區段中，選取 [憑證]。 然後將憑證檔案儲存在您的電腦上。
+1. 在 [SAML 簽署憑證] 區段中，選取 [憑證]。 然後將憑證檔案儲存在您的電腦上。
 
     ![憑證下載連結](./media/central-desktop-tutorial/tutorial_centraldesktop_certificate.png) 
 
-5. 選取 [儲存] 按鈕。
+1. 選取 [儲存] 按鈕。
 
     ![設定單一登入儲存按鈕](./media/central-desktop-tutorial/tutorial_general_400.png)
     
-6. 在 [Central Desktop 設定] 區段中，選取 [設定 Central Desktop] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
+1. 在 [Central Desktop 設定] 區段中，選取 [設定 Central Desktop] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
 
     ![Central Desktop 設定](./media/central-desktop-tutorial/tutorial_centraldesktop_configure.png) 
 
-7. 登入您的 **Central Desktop** 租用戶。
+1. 登入您的 **Central Desktop** 租用戶。
 
-8. 移至 [設定] 。 選取 [Advanced] \(進階\)，然後選取 [Single Sign On] \(單一登入\)。
+1. 移至 [設定] 。 選取 [Advanced] \(進階\)，然後選取 [Single Sign On] \(單一登入\)。
 
     ![設定 - 進階](./media/central-desktop-tutorial/ic769563.png "設定 - 進階")
 
-9. 在 [Single Sign On Settings] \(單一登入設定\) 頁面上，執行下列步驟：
+1. 在 [Single Sign On Settings] \(單一登入設定\) 頁面上，執行下列步驟：
 
     ![單一登入設定](./media/central-desktop-tutorial/ic769564.png "單一登入設定")
     
@@ -153,7 +153,7 @@ ms.locfileid: "39048750"
     
     d. 在 [SSO Logout URL] \(SSO 登出 URL\) 方塊中，貼上您從 Azure 入口網站複製的**登出 URL**。
 
-10. 在 [Message Signature Verification Method] \(訊息簽章驗證方法\) 區段中，執行下列步驟：
+1. 在 [Message Signature Verification Method] \(訊息簽章驗證方法\) 區段中，執行下列步驟：
 
     ![訊息簽章驗證方法](./media/central-desktop-tutorial/ic769565.png "訊息簽章驗證方法") 選取 [憑證] 。
     
@@ -180,15 +180,15 @@ ms.locfileid: "39048750"
 
     ![Azure Active Directory 按鈕](./media/central-desktop-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]。 然後選取 [所有使用者]。
+1. 若要顯示使用者清單，請移至 [使用者和群組]。 然後選取 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/central-desktop-tutorial/create_aaduser_02.png)
 
-3. 若要開啟 [使用者] 對話方塊，請選取 [所有使用者] 對話方塊頂端的 [新增]。
+1. 若要開啟 [使用者] 對話方塊，請選取 [所有使用者] 對話方塊頂端的 [新增]。
 
     ![[新增] 按鈕](./media/central-desktop-tutorial/create_aaduser_03.png)
 
-4. 在 [使用者] 對話方塊中，採取下列步驟：
+1. 在 [使用者] 對話方塊中，採取下列步驟：
 
     ![[使用者] 對話方塊](./media/central-desktop-tutorial/create_aaduser_04.png)
 
@@ -211,17 +211,17 @@ ms.locfileid: "39048750"
 
 1. 登入您的 Central Desktop 租用戶。
 
-2. 移至 [People] \(人員\) > [Internal Members] \(內部成員\)。
+1. 移至 [People] \(人員\) > [Internal Members] \(內部成員\)。
 
-3. 選取 [Add Internal Members] \(新增內部成員\)。
+1. 選取 [Add Internal Members] \(新增內部成員\)。
 
     ![People](./media/central-desktop-tutorial/ic781051.png "People")
     
-4. 在 [Email Address of New Members] \(新成員的電子郵件地址\) 方塊中，輸入您想要佈建的 Azure AD 帳戶，然後選取 [Next] \(下一步\)。
+1. 在 [Email Address of New Members] \(新成員的電子郵件地址\) 方塊中，輸入您想要佈建的 Azure AD 帳戶，然後選取 [Next] \(下一步\)。
 
     ![新成員的電子郵件地址](./media/central-desktop-tutorial/ic781052.png "新成員的電子郵件地址")
 
-5. 選取 [Add Internal member(s)] \(新增內部成員\)。
+1. 選取 [Add Internal member(s)] \(新增內部成員\)。
 
     ![新增內部成員](./media/central-desktop-tutorial/ic781053.png "新增內部成員")
    
@@ -238,27 +238,27 @@ ms.locfileid: "39048750"
 
 1. 在 Azure 入口網站中，開啟應用程式檢視。 移至目錄檢視，然後移至 [企業應用程式]。
 
-2. 選取 [所有應用程式]。
+1. 選取 [所有應用程式]。
 
     ![指派使用者][201] 
 
-2. 在應用程式清單中，選取 [Central Desktop]。
+1. 在應用程式清單中，選取 [Central Desktop]。
 
     ![應用程式清單中的 Central Desktop 連結](./media/central-desktop-tutorial/tutorial_centraldesktop_app.png)  
 
-3. 在左側功能表中，選取 [使用者和群組]。
+1. 在左側功能表中，選取 [使用者和群組]。
 
     ![[使用者和群組] 連結][202]
 
-4. 選取 [新增] 按鈕。 然後，在 [新增指派] 對話方塊中，選取 [使用者和群組]。
+1. 選取 [新增] 按鈕。 然後，在 [新增指派] 對話方塊中，選取 [使用者和群組]。
 
     ![[新增指派] 窗格][203]
 
-5. 在 [使用者和群組] 對話方塊中，選取 [使用者] 清單中的 [Britta Simon]。
+1. 在 [使用者和群組] 對話方塊中，選取 [使用者] 清單中的 [Britta Simon]。
 
-6. 在 [使用者和群組] 對話方塊中，按一下 [選取] 按鈕。
+1. 在 [使用者和群組] 對話方塊中，按一下 [選取] 按鈕。
 
-7. 在 [新增指派] 對話方塊中，選取 [指派] 按鈕。
+1. 在 [新增指派] 對話方塊中，選取 [指派] 按鈕。
     
 ### <a name="test-single-sign-on"></a>測試單一登入
 

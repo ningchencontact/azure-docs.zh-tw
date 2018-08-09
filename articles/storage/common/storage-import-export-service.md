@@ -2,18 +2,18 @@
 title: 使用 Azure 匯入/匯出將資料傳入和傳出 Azure 儲存體 | Microsoft Docs
 description: 了解如何在 Azure 入口網站中建立匯入和匯出作業，以將資料傳入和傳出 Azure 儲存體。
 author: alkohli
-manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: alkohli
-ms.openlocfilehash: e9fc74e6cd145cbba5b620b9db6db9635a0c4c77
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.component: common
+ms.openlocfilehash: 480d67917abf3a8aaca64aa9aae30be5acf55e11
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364520"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528551"
 ---
 # <a name="what-is-azure-importexport-service"></a>什麼是 Azure 匯入/匯出服務？
 
@@ -78,7 +78,7 @@ Azure 匯入/匯出服務可讓您建立作業，將資料轉送到 Azure Blob �
 >
 > 對於國外 (在資料中心所在國家/地區之外) 的貨物運送，請提供國際貨運業者帳戶
 
- ![圖 1：匯入工作流程](./media/storage-import-export-service/importjob.png)
+ ![圖 1: 匯入工作流程](./media/storage-import-export-service/importjob.png)
 
 如需有關資料匯入的逐步指示，請移至：
 
@@ -119,7 +119,7 @@ Azure 匯入/匯出服務支援與所有 Azure 儲存體帳戶相互複製資料
 ### <a name="supported-shipping-locations"></a>支援的運送位置
 
 
-|國家/地區  |國家/地區  |國家/地區  |國家/地區  |
+|國家 (地區)  |國家 (地區)  |國家 (地區)  |國家 (地區)  |
 |---------|---------|---------|---------|
 |美國東部    | 北歐        | 印度中部        |US Gov 愛荷華州         |
 |美國西部     |西歐         | 印度南部        | 美國 DoD 東部        |

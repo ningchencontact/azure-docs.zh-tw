@@ -7,17 +7,17 @@ ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 7a76322d70f6b54d65a4b751a7187425cb4be821
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 5c1a884ebe6216c4e8099f2ada2182ccff68b63e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834537"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39450328"
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>使用資料收集來收集模型資料
 
@@ -56,7 +56,7 @@ ms.locfileid: "34834537"
     from azureml.datacollector import ModelDataCollector
     ```
 
-2. 將下列程式碼行新增至 `init()` 函式：
+1. 將下列程式碼行新增至 `init()` 函式：
     
     ```python
     global inputs_dc, prediction_dc
@@ -64,7 +64,7 @@ ms.locfileid: "34834537"
     prediction_dc = ModelDataCollector('model.pkl', identifier="prediction")
     ```
 
-3. 將下列程式碼行新增至 `run(input_df)` 函式：
+1. 將下列程式碼行新增至 `run(input_df)` 函式：
     
     ```python
     global inputs_dc, prediction_dc
@@ -74,13 +74,13 @@ ms.locfileid: "34834537"
 
     請確定變數 `input_df` 和 `pred` (來自 `model.predict()` 的預測值) 會先初始化，然後您才能在其上呼叫 `collect()` 函式。
 
-4. 使用 `az ml service create realtime` 命令搭配 `--collect-model-data true` 參數，以建立即時 Web 服務。 此步驟可確保會在服務執行時收集模型資料。
+1. 使用 `az ml service create realtime` 命令搭配 `--collect-model-data true` 參數，以建立即時 Web 服務。 此步驟可確保會在服務執行時收集模型資料。
 
      ```batch
     c:\temp\myIris> az ml service create realtime -f iris_score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
     ```
     
-5. 若要測試資料收集，請執行 `az ml service run realtime` 命令：
+1. 若要測試資料收集，請執行 `az ml service run realtime` 命令：
 
     ```
     C:\Temp\myIris> az ml service run realtime -i irisapp -d "ADD YOUR INPUT DATA HERE!!" 
@@ -90,15 +90,15 @@ ms.locfileid: "34834537"
 檢視 Blob 儲存體中收集的資料：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 選取 [所有服務]。
-3. 在 [搜尋] 方塊中，輸入**儲存體帳戶**，然後選取 Enter 鍵。
-4. 從 [儲存體帳戶] 搜尋刀鋒視窗中，選取 [儲存體帳戶] 資源。 若要判斷您的儲存體帳戶，請使用下列步驟：
+1. 選取 [所有服務]。
+1. 在 [搜尋] 方塊中，輸入**儲存體帳戶**，然後選取 Enter 鍵。
+1. 從 [儲存體帳戶] 搜尋刀鋒視窗中，選取 [儲存體帳戶] 資源。 若要判斷您的儲存體帳戶，請使用下列步驟：
 
     a. 移至 Azure Machine Learning Workbench，選取您正在處理的專案，然後從 [檔案] 功能表開啟命令提示字元。
     
     b. 輸入 `az ml env show -v`，並檢查 *storage_account* 值。 這是您儲存體帳戶的名稱。
 
-5. 選取 [資源] 刀鋒視窗功能表上的 [容器]，然後選取名為 **modeldata** 的容器。 若要看到資料開始傳播至儲存體帳戶，您可能需要在第一個 Web 服務要求之後最多等候 10 分鐘。 資料會透過下列容器路徑流入 Blob：
+1. 選取 [資源] 刀鋒視窗功能表上的 [容器]，然後選取名為 **modeldata** 的容器。 若要看到資料開始傳播至儲存體帳戶，您可能需要在第一個 Web 服務要求之後最多等候 10 分鐘。 資料會透過下列容器路徑流入 Blob：
 
     `/modeldata/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<day>/data.csv`
 

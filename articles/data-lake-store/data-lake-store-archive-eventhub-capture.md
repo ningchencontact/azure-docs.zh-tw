@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 57c4d9ccc64c9644c3d333fad1262c997aeff5d1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bda52acc12aad3cad20143c319f557f11d760c42
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624656"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435147"
 ---
 # <a name="use-azure-data-lake-store-to-capture-data-from-event-hubs"></a>使用 Azure Data Lake Store 從事件中樞擷取資料
 
 了解如何使用 Azure Data Lake Store 來擷取 Azure 事件中樞所收到的資料。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
@@ -39,11 +39,11 @@ ms.locfileid: "34624656"
 
     ![Data Lake Store 資料總管](./media/data-lake-store-archive-eventhub-capture/data-lake-store-open-data-explorer.png "Data Lake Store 資料總管")
 
-2.  按一下 [新增資料夾]，然後輸入您要擷取資料的目的地資料夾名稱。
+1.  按一下 [新增資料夾]，然後輸入您要擷取資料的目的地資料夾名稱。
 
     ![在 Data Lake Store 中建立新的資料夾](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-new-folder.png "在 Data Lake Store 中建立新的資料夾")
 
-3. 在 Data Lake Store 根目錄指派權限。 
+1. 在 Data Lake Store 根目錄指派權限。 
 
     a. 按一下**資料總管**，選取 Data Lake Store 帳戶的根目錄，然後按一下 [存取]。
 
@@ -64,7 +64,7 @@ ms.locfileid: "34624656"
 
     按一下 [確定]。
 
-4. 為 Data Lake Store 帳戶下要擷取資料的目的地資料夾指派權限。
+1. 為 Data Lake Store 帳戶下要擷取資料的目的地資料夾指派權限。
 
     a. 按一下**資料總管**，選取 Data Lake Store 帳戶中的資料夾，然後按一下 [存取]。
 
@@ -86,11 +86,11 @@ ms.locfileid: "34624656"
 
 在本節中，您會在事件中樞命名空間內建立事件中樞。 您也會設定事件中樞，以將資料擷取到 Azure Data Lake Store 帳戶。 本節假設您已建立事件中樞命名空間。
 
-2. 從事件中樞命名空間的 [概觀] 窗格，按一下 [+ 事件中樞]。
+1. 從事件中樞命名空間的 [概觀] 窗格，按一下 [+ 事件中樞]。
 
     ![建立事件中樞](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-event-hub.png "建立事件中樞")
 
-3. 提供下列值來設定事件中樞，以將資料擷取到 Data Lake Store。
+1. 提供下列值來設定事件中樞，以將資料擷取到 Data Lake Store。
 
     ![建立事件中樞](./media/data-lake-store-archive-eventhub-capture/data-lake-store-configure-eventhub.png "建立事件中樞")
 

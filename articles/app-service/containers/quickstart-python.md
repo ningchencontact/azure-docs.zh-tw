@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/13/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 5686266774603413fc255c53a0d1ad30f9baa8eb
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 6d328d8a3556f565e7eac8ee079bd191b7dcadef
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173855"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433437"
 ---
 # <a name="deploy-a-python-web-app-in-web-app-for-containers"></a>在 Web App for Containers 中部署 Python Web 應用程式
 
@@ -96,7 +96,7 @@ docker push <dockerhub_id>/flask-quickstart
 
 ## <a name="create-a-web-app"></a>建立 Web 應用程式
 
-使用 [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) 命令，在 `myAppServicePlan` App Service 方案中建立 [Web 應用程式](../app-service-web-overview.md)。 請將 *\<app name>* 取代為全域唯一的應用程式名稱，並將 *\<dockerhub_id>* 取代為您的 Docker Hub 識別碼。
+使用 [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) 命令，在 `myAppServicePlan` App Service 方案中建立 [Web 應用程式](../app-service-web-overview.md)。 請將 *\<app name>* 取代為全域唯一的應用程式名稱，並將 *\<dockerhub_id>* 取代為您的 Docker Hub 識別碼。
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name <dockerhub_id>/flask-quickstart
@@ -125,7 +125,7 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 
 如 _Dockerfile_ 中所指定，您的容器會在連接埠 8000 上接聽。 若要讓 App Service 將您的要求路由至正確的連接埠，您必須設定 *WEBSITES_PORT* 應用程式設定。
 
-在 Cloud Shell 中，執行 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) 命令。
+在 Cloud Shell 中，執行 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 命令。
 
 
 ```azurecli-interactive

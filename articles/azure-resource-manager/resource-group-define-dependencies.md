@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 475e1f0d481678f53c191a887c7cc56c28c4b361
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 5b4d8317d565528f896bf6823ddaefd010d0a845
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887424"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528624"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>定義 Azure Resource Manager 範本中部署資源的順序
 針對指定的資源，可能會有部署資源之前必須存在的其他資源。 例如，SQL Server 必須存在，才能嘗試部署 SQL 資料庫。 您可以將一個資源標示為相依於其他資源，來定義此關聯性。 您可以使用 **dependsOn** 元素或使用 **reference** 函式定義相依性。 
@@ -108,7 +108,7 @@ resources 屬性可讓您指定與所定義的資源相關的子資源。 定義
 ```
 
 ## <a name="reference-and-list-functions"></a>reference 和 list 函式
-[reference 函式](resource-group-template-functions-resource.md#reference) 可讓運算式從其他 JSON 名稱和值組或執行階段資源衍生其值。 [list* 函式](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list)會從清單作業傳回資源的值。  當所參考的資源部署於同一個範本且依其名稱 (而非資源識別碼) 加以參考時，reference 和 list 運算式都會隱含地宣告某一個資源相依於另一個資源。 如果您將資源識別碼傳遞到 reference 或 list 函式，就不會建立隱含參考。
+[reference 函式](resource-group-template-functions-resource.md#reference) 可讓運算式從其他 JSON 名稱和值組或執行階段資源衍生其值。 [list* 函式](resource-group-template-functions-resource.md#list)會從清單作業傳回資源的值。  當所參考的資源部署於同一個範本且依其名稱 (而非資源識別碼) 加以參考時，reference 和 list 運算式都會隱含地宣告某一個資源相依於另一個資源。 如果您將資源識別碼傳遞到 reference 或 list 函式，就不會建立隱含參考。
 
 reference 函式的一般格式為：
 

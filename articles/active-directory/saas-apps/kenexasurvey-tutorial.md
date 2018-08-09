@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: bca5d5111f5cfc3bcf2720af855f44d1928bcfd6
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 6828617e0ae61a3784e4db3d1c2ecf4ce9862ce2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221011"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39449470"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ibm-kenexa-survey-enterprise"></a>教學課程：Azure Active Directory 與 IBM Kenexa Survey Enterprise 整合
 
@@ -33,7 +33,7 @@ IBM Kenexa Survey Enterprise 與 Azure AD 整合提供下列優點：
 
 若您想深入了解軟體即服務 (SaaS) 應用程式與 Azure AD 整合，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 IBM Kenexa Survey Enterprise 整合，您需要下列項目：
 
@@ -63,19 +63,19 @@ IBM Kenexa Survey Enterprise 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕][1]
 
-2. 選取 [企業應用程式]，然後選取 [所有應用程式]。
+1. 選取 [企業應用程式]，然後選取 [所有應用程式]。
 
     ![企業應用程式刀鋒視窗][2]
     
-3. 若要新增應用程式，請按一下 [新增應用程式] 按鈕。
+1. 若要新增應用程式，請按一下 [新增應用程式] 按鈕。
 
     ![新增應用程式按鈕][3]
 
-4. 在搜尋方塊中輸入 **IBM Kenexa Survey Enterprise**。
+1. 在搜尋方塊中輸入 **IBM Kenexa Survey Enterprise**。
 
     ![建立 Azure AD 測試使用者](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_search.png)
 
-5. 在結果清單中，選取 [IBM Kenexa Survey Enterprise]，然後按一下 [新增] 按鈕以新增應用程式。
+1. 在結果清單中，選取 [IBM Kenexa Survey Enterprise]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![結果清單中的 IBM Kenexa Survey Enterprise](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_addfromgallery.png)
 
@@ -96,11 +96,11 @@ IBM Kenexa Survey Enterprise 與 Azure AD 整合提供下列優點：
 
     ![IBM Kenexa Survey Enterprise 設定單一登入連結][4]
 
-2. 在 [單一登入] 對話方塊的 [模式] 方塊中，選取 [SAML 登入] 來啟用 SSO。
+1. 在 [單一登入] 對話方塊的 [模式] 方塊中，選取 [SAML 登入] 來啟用 SSO。
  
     ![單一登入對話方塊](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_samlbase.png)
 
-3. 在 [IBM Kenexa Survey Enterprise 網域及 URL] 區段中，執行下列步驟：
+1. 在 [IBM Kenexa Survey Enterprise 網域及 URL] 區段中，執行下列步驟：
 
     ![IBM Kenexa Survey Enterprise 網域及 URL 單一登入資訊](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_url.png)
 
@@ -111,7 +111,7 @@ IBM Kenexa Survey Enterprise 與 Azure AD 整合提供下列優點：
     > [!NOTE] 
     > 上述值並非真正的值。 請使用實際的識別碼和回覆 URL 來更新這些值。 若要取得實際的值，請連絡 [IBM Kenexa Survey Enterprise 支援小組](https://www.ibm.com/support/home/?lnk=fcw)。
 
-4. 在 [SAML 簽署憑證] 下，按一下 [憑證 (Base64/)]，然後將憑證檔案儲存到您的電腦。
+1. 在 [SAML 簽署憑證] 下，按一下 [憑證 (Base64/)]，然後將憑證檔案儲存到您的電腦。
 
     ![憑證 (Base64) 下載連結](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_certificate.png) 
 
@@ -121,19 +121,19 @@ IBM Kenexa Survey Enterprise 與 Azure AD 整合提供下列優點：
     
     ![[使用者屬性] 對話方塊](./media/kenexasurvey-tutorial/tutorial_attribute.png) 
 
-5. 按一下 [檔案] 。
+1. 按一下 [檔案] 。
 
     ![設定單一登入儲存按鈕](./media/kenexasurvey-tutorial/tutorial_general_400.png)
 
-6. 若要開啟 [設定登入] 視窗，請在 [IBM Kenexa Survey Enterprise 組態] 下，按一下 [設定 IBM Kenexa Survey Enterprise]。 
+1. 若要開啟 [設定登入] 視窗，請在 [IBM Kenexa Survey Enterprise 組態] 下，按一下 [設定 IBM Kenexa Survey Enterprise]。 
  
     ![設定 IBM Kenexa Survey Enterprise 連結](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_configure.png)
 
-7. 從 [快速參考] 區段中，複製 [登出 URL]、[SAML 實體識別碼] 和 [SAML 單一登入服務 URL] 值。
+1. 從 [快速參考] 區段中，複製 [登出 URL]、[SAML 實體識別碼] 和 [SAML 單一登入服務 URL] 值。
 
-8. 在 [設定登入] 視窗的 [快速參考] 下，複製 [登出 URL]、[SAML 實體識別碼] 和 [SAML 單一登入服務 URL] 值。
+1. 在 [設定登入] 視窗的 [快速參考] 下，複製 [登出 URL]、[SAML 實體識別碼] 和 [SAML 單一登入服務 URL] 值。
 
-9. 若要在 **IBM Kenexa Survey Enterprise** 端設定 SSO，請將已下載的**憑證 (Base64)**、**登出 URL**、**SAML 實體識別碼**和 **SAML 單一登入服務 URL** 值，傳送給 [IBM Kenexa Survey Enterprise 支援小組](https://www.ibm.com/support/home/?lnk=fcw)。
+1. 若要在 **IBM Kenexa Survey Enterprise** 端設定 SSO，請將已下載的**憑證 (Base64)**、**登出 URL**、**SAML 實體識別碼**和 **SAML 單一登入服務 URL** 值，傳送給 [IBM Kenexa Survey Enterprise 支援小組](https://www.ibm.com/support/home/?lnk=fcw)。
 
 > [!TIP]
 > 當您設定應用程式時，您可以在 [Azure 入口網站](https://portal.azure.com)中參考這些指示的簡要版本。 當您從 [Active Directory] > [企業應用程式] 區段新增應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過最後的 [設定] 區段存取內嵌的文件。 若要深入了解內嵌文件功能，請參閱 [Azure AD 內嵌文件](https://go.microsoft.com/fwlink/?linkid=845985)。
@@ -148,15 +148,15 @@ IBM Kenexa Survey Enterprise 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/kenexasurvey-tutorial/create_aaduser_01.png) 
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+1. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
     
     ![[使用者和群組] 與 [所有使用者] 連結](./media/kenexasurvey-tutorial/create_aaduser_02.png) 
 
-3. 若要開啟 [使用者] 對話方塊，按一下 [所有使用者] 對話方塊頂端的 [新增]。
+1. 若要開啟 [使用者] 對話方塊，按一下 [所有使用者] 對話方塊頂端的 [新增]。
  
     ![[新增] 按鈕](./media/kenexasurvey-tutorial/create_aaduser_03.png) 
 
-4. 在 [使用者] 對話方塊中，執行下列步驟：
+1. 在 [使用者] 對話方塊中，執行下列步驟：
  
     ![[使用者] 對話方塊](./media/kenexasurvey-tutorial/create_aaduser_04.png) 
 
@@ -186,23 +186,23 @@ IBM Kenexa Survey Enterprise 與 Azure AD 整合提供下列優點：
 
     ![[企業應用程式] 和 [所有應用程式] 連結][201] 
 
-2. 在 [應用程式] 清單中，選取 [IBM Kenexa Survey Enterprise]。
+1. 在 [應用程式] 清單中，選取 [IBM Kenexa Survey Enterprise]。
 
     ![[應用程式] 清單中的 IBM Kenexa Survey Enterprise 連結](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_app.png) 
 
-3. 在左窗格中，按一下 [使用者和群組]。
+1. 在左窗格中，按一下 [使用者和群組]。
 
     ![[使用者和群組] 連結][202] 
 
-4. 按一下 [新增] 按鈕，然後在 [新增指派] 窗格中，選取 [使用者和群組]。
+1. 按一下 [新增] 按鈕，然後在 [新增指派] 窗格中，選取 [使用者和群組]。
 
     ![[新增指派] 窗格][203]
 
-5. 在 [使用者和群組] 對話方塊的 [使用者] 清單中，選取 [Britta Simon]。
+1. 在 [使用者和群組] 對話方塊的 [使用者] 清單中，選取 [Britta Simon]。
 
-6. 在 [使用者和群組] 對話方塊中，按一下 [選取] 按鈕。
+1. 在 [使用者和群組] 對話方塊中，按一下 [選取] 按鈕。
 
-7. 在 [新增指派] 對話方塊中，按一下 [指派] 按鈕。
+1. 在 [新增指派] 對話方塊中，按一下 [指派] 按鈕。
     
 ### <a name="test-single-sign-on"></a>測試單一登入
 

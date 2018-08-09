@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: nini
 ms.component: na
-ms.openlocfilehash: 8296f0756aef7180efa777795cb361e653c0e4e3
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 9bc1f7d9eab73a086e664dcc520ecf26befbbf0e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128008"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432886"
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>使用 Azure 入口網站評估 Service Fabric 應用程式和微服務
 
@@ -39,15 +39,15 @@ Service Fabric 解決方案會從 Service Fabric VM 使用 Azure 診斷資料，
 若要開始使用解決方案，您必須將 Service Fabric 叢集連接到 Log Analytics 工作區。 以下是三個要考量的案例：
 
 1. 如果您尚未部署 Service Fabric 叢集，使用***部署連接至 Log Analytics 工作區的 Service Fabric 叢集***中的步驟，以部署新的叢集，並將它設定為 Log Analytics 的報告。
-2. 如果需要從主機收集效能計數器，以在 Service Fabric 叢集上使用其他管理解決方案 (例如安全性)，請遵循***針對已安裝 VM 擴充的 Log Analytics 工作區，部署連接至工作區的 Service Fabric 叢集***中的步驟。
-3. 如果您已部署您的 Service Fabric 叢集，並且想要將它連接到 Log Analytics，請依照***將現有的儲存體帳戶新增至 Log Analytics*** 中的步驟。
+1. 如果需要從主機收集效能計數器，以在 Service Fabric 叢集上使用其他管理解決方案 (例如安全性)，請遵循***針對已安裝 VM 擴充的 Log Analytics 工作區，部署連接至工作區的 Service Fabric 叢集***中的步驟。
+1. 如果您已部署您的 Service Fabric 叢集，並且想要將它連接到 Log Analytics，請依照***將現有的儲存體帳戶新增至 Log Analytics*** 中的步驟。
 
 ## <a name="deploy-a-service-fabric-cluster-connected-to-a-log-analytics-workspace"></a>部署連接至 Log Analytics 工作區的 Service Fabric 叢集。
 此範本會執行以下動作：
 
 1. 部署已連接至 Log Analytics 工作區的 Azure Service Fabric 叢集。 您可以選擇在部署範本時建立新的工作區，或輸入現有 Log Analytics 工作區的名稱。
-2. 將診斷儲存體帳戶新增至 Log Analytics 工作區。
-3. 在 Log Analytics 工作區中啟用 Service Fabric 解決方案。
+1. 將診斷儲存體帳戶新增至 Log Analytics 工作區。
+1. 在 Log Analytics 工作區中啟用 Service Fabric 解決方案。
 
 [![部署至 Azure](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-oms%2F%2Fazuredeploy.json)
 
@@ -66,9 +66,9 @@ Service Fabric 解決方案會從 Service Fabric VM 使用 Azure 診斷資料，
 此範本會執行以下動作：
 
 1. 部署已連接至 Log Analytics 工作區的 Azure Service Fabric 叢集。 您可以建立新的工作區，或是使用現有的工作區。
-2. 將診斷儲存體帳戶新增至 Log Analytics 工作區。
-3. 在 Log Analytics 工作區中啟用 Service Fabric 解決方案。
-4. 在 Service Fabric 叢集中，於每個虛擬機器擴展集中安裝 MMA 代理程式擴充。 安裝 MMA 代理程式之後，您就可以檢視節點的效能度量。
+1. 將診斷儲存體帳戶新增至 Log Analytics 工作區。
+1. 在 Log Analytics 工作區中啟用 Service Fabric 解決方案。
+1. 在 Service Fabric 叢集中，於每個虛擬機器擴展集中安裝 MMA 代理程式擴充。 安裝 MMA 代理程式之後，您就可以檢視節點的效能度量。
 
 [![部署至 Azure](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-vmss-oms%2F%2Fazuredeploy.json)
 

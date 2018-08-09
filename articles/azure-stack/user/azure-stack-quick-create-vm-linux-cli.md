@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 04/24/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 90b36183ba32e75e06d434098d26cb10f3736373
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f6f2860b1ae1e88495e2dad3916a0216bf5d0726
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32156686"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39428786"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>快速入門：在 Azure Stack 中使用 Azure CLI 建立 Linux 伺服器虛擬機器
 
@@ -32,7 +32,7 @@ ms.locfileid: "32156686"
 * 安裝 NGINX 網頁伺服器，並且檢視預設首頁。
 * 清除未使用的資源。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * **Azure Stack 市集中的 Linux 映像**
 
@@ -44,7 +44,7 @@ ms.locfileid: "32156686"
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-資源群組是您可以在其中部署與管理 Azure Stack 資源的邏輯容器。 從您的開發套件或 Azure Stack 整合系統，執行 [az group create](/cli/azure/group#az_group_create) 命令來建立資源群組。
+資源群組是您可以在其中部署和管理 Azure Stack 資源的邏輯容器。 從您的開發套件或 Azure Stack 整合系統，執行 [az group create](/cli/azure/group#az-group-create) 命令來建立資源群組。
 
 >[!NOTE]
  系統會為程式碼範例中的所有變數指派值。 不過，您可以視需要指派新值。
@@ -57,7 +57,7 @@ az group create --name myResourceGroup --location local
 
 ## <a name="create-a-virtual-machine"></a>建立虛擬機器
 
-使用 [az vm create](/cli/azure/vm#az_vm_create) 命令來建立虛擬機器。 下列範例會建立名為 myVM 的 VM。 此範例會使用 Demouser 作為系統管理使用者名稱，並使用 Demouser@123 作為使用者密碼。 將這些值變更為適合您環境的值。
+使用 [az vm create](/cli/azure/vm#az-vm-create) 命令來建立虛擬機器。 下列範例會建立名為 myVM 的 VM。 此範例會使用 Demouser 作為系統管理使用者名稱，並使用 Demouser@123 作為使用者密碼。 將這些值變更為適合您環境的值。
 
 ```cli
 az vm create \
@@ -104,13 +104,13 @@ apt-get -y install nginx
 
 ## <a name="view-the-nginx-welcome-page"></a>檢視 NGINX 歡迎使用頁面
 
-在您的虛擬機器上安裝 NGINX 並開啟連接埠 80，即可使用虛擬機器的公用 IP 位址存取網頁伺服器。 請開啟網頁瀏覽器，然後瀏覽至 ```http://<public IP address>```。
+在已於虛擬機器上安裝 NGINX 並開啟連接埠 80 的情況下，您可以使用虛擬機器的公用 IP 位址存取網頁伺服器。 請開啟網頁瀏覽器，然後瀏覽至 ```http://<public IP address>```。
 
 ![NGINX 網頁伺服器歡迎頁面](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 
 ## <a name="clean-up-resources"></a>清除資源
 
-清除您不再需要的資源。 您可以使用 [az group delete](/cli/azure/group#az_group_delete) 命令來移除這些資源。 若要刪除資源群組和其所有資源，請執行下列命令︰
+清除您不再需要的資源。 您可以使用 [az group delete](/cli/azure/group#az-group-delete) 命令來移除這些資源。 若要刪除資源群組和其所有資源，請執行下列命令︰
 
 ```cli
 az group delete --name myResourceGroup

@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: ff9cfd0f1f3d8ee62b7f93d88023b3dedce3e7be
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 18db911782e03d17f0b2e2ace3f8b00ddfdebf70
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711727"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599926"
 ---
 # <a name="tutorial-enable-desktop-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>教學課程：讓傳統型應用程式能夠使用 Azure Active Directory B2C 向帳戶進行驗證
 
@@ -30,14 +30,14 @@ ms.locfileid: "34711727"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 建立您自己的 [Azure AD B2C 租用戶](active-directory-b2c-get-started.md)
 * 安裝 [Visual Studio 2017](https://www.visualstudio.com/downloads/)，其中包含 **.NET 傳統型開發**以及 **ASP.NET 和 Web 開發**工作負載。
 
 ## <a name="register-desktop-app"></a>註冊傳統型應用程式
 
-應用程式必須[註冊](../active-directory/develop/active-directory-dev-glossary.md#application-registration)於您的租用戶中，才能接收來自 Azure Active Directory 的[存取權杖](../active-directory/develop/active-directory-dev-glossary.md#access-token)。 應用程式註冊會在您的租用戶中建立應用程式的[應用程式識別碼](../active-directory/develop/active-directory-dev-glossary.md#application-id-client-id)。 
+應用程式必須[註冊](../active-directory/develop/developer-glossary.md#application-registration)於您的租用戶中，才能接收來自 Azure Active Directory 的[存取權杖](../active-directory/develop/developer-glossary.md#access-token)。 應用程式註冊會在您的租用戶中建立應用程式的[應用程式識別碼](../active-directory/develop/developer-glossary.md#application-id-client-id)。 
 
 以 Azure AD B2C 租用戶的全域管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
 
@@ -55,7 +55,7 @@ ms.locfileid: "34711727"
     | ------------ | ------- | -------------------------------------------------- |
     | **名稱** | 我的範例 WPF 應用程式 | 輸入向取用者描述您的應用程式的 [名稱]。 | 
     | **包含 Web 應用程式 / Web API** | 否 | 針對傳統型應用程式選取 [否]。 |
-    | **包含原生用戶端** | yes | 這是傳統型應用程式，因此會被視為原生用戶端。 |
+    | **包含原生用戶端** | 是 | 這是傳統型應用程式，因此會被視為原生用戶端。 |
     | **重新導向 URI** | 預設值 | 在 OAuth 2.0 回應中 Azure AD B2C 將使用者代理程式重新導向至的唯一識別碼。 |
     | **自訂重新導向 URI** | `com.onmicrosoft.contoso.appname://redirect/path` | 輸入 `com.onmicrosoft.<your tenant name>.<any app name>://redirect/path` 原則會將權杖傳送到此 URI。 |
     
@@ -86,7 +86,7 @@ Azure AD B2C 原則會定義使用者工作流程。 例如，登入、註冊、
     | **名稱** | SiUpIn | 輸入原則的 [名稱]。 原則名稱前面會加上 **B2C_1_**。 您在範例程式碼中會使用完整的原則名稱 **B2C_1_SiUpIn**。 | 
     | **身分識別提供者** | 電子郵件註冊 | 用來唯一識別使用者的身分識別提供者。 |
     | **註冊屬性** | 顯示名稱和郵遞區號 | 選取在註冊期間要對使用者收集的屬性。 |
-    | **應用程式宣告** | 顯示名稱、郵遞區號、使用者是新的、使用者的物件識別碼 | 選取要包含在[存取權杖](../active-directory/develop/active-directory-dev-glossary.md#access-token)中的[宣告](../active-directory/develop/active-directory-dev-glossary.md#claim)。 |
+    | **應用程式宣告** | 顯示名稱、郵遞區號、使用者是新的、使用者的物件識別碼 | 選取要包含在[存取權杖](../active-directory/develop/developer-glossary.md#access-token)中的[宣告](../active-directory/develop/developer-glossary.md#claim)。 |
 
 2. 按一下 [建立] 以建立原則。 
 
@@ -103,7 +103,7 @@ Azure AD B2C 原則會定義使用者工作流程。 例如，登入、註冊、
     | **名稱** | SiPe | 輸入原則的 [名稱]。 原則名稱前面會加上 **B2C_1_**。 您在範例程式碼中會使用完整的原則名稱 **B2C_1_SiPe**。 | 
     | **身分識別提供者** | 本機帳戶登入 | 用來唯一識別使用者的身分識別提供者。 |
     | **設定檔屬性** | 顯示名稱和郵遞區號 | 選取使用者在設定檔編輯期間可修改的屬性。 |
-    | **應用程式宣告** | 顯示名稱、郵遞區號、使用者的物件識別碼 | 選取在設定檔編輯成功後要包含在[存取權杖](../active-directory/develop/active-directory-dev-glossary.md#access-token)中的[宣告](../active-directory/develop/active-directory-dev-glossary.md#claim)。 |
+    | **應用程式宣告** | 顯示名稱、郵遞區號、使用者的物件識別碼 | 選取在設定檔編輯成功後要包含在[存取權杖](../active-directory/develop/developer-glossary.md#access-token)中的[宣告](../active-directory/develop/developer-glossary.md#claim)。 |
 
 2. 按一下 [建立] 以建立原則。 
 
@@ -119,7 +119,7 @@ Azure AD B2C 原則會定義使用者工作流程。 例如，登入、註冊、
     | ------------ | ------- | -------------------------------------------------- |
     | **名稱** | SSPR | 輸入原則的 [名稱]。 原則名稱前面會加上 **B2C_1_**。 您在範例程式碼中會使用完整的原則名稱 **B2C_1_SSPR**。 | 
     | **身分識別提供者** | 使用電子郵件地址重設密碼 | 這是用來唯一識別使用者的身分識別提供者。 |
-    | **應用程式宣告** | 使用者的物件識別碼 | 選取在密碼重設成功後要包含在[存取權杖](../active-directory/develop/active-directory-dev-glossary.md#access-token)中的[宣告](../active-directory/develop/active-directory-dev-glossary.md#claim)。 |
+    | **應用程式宣告** | 使用者的物件識別碼 | 選取在密碼重設成功後要包含在[存取權杖](../active-directory/develop/developer-glossary.md#access-token)中的[宣告](../active-directory/develop/developer-glossary.md#claim)。 |
 
 2. 按一下 [建立] 以建立原則。 
 

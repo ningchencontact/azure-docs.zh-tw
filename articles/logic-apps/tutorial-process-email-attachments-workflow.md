@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
-ms.openlocfilehash: 2b0420302bc74d4534d712de618959ef68c76514
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 133cc9d8fa52bb655e9baaad53ee157fdc7524f7
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126363"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429409"
 ---
 # <a name="process-emails-and-attachments-with-azure-logic-apps"></a>使用 Azure Logic Apps 來處理電子郵件和附件
 
@@ -82,7 +82,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
       ![複製並儲存儲存體帳戶名稱和金鑰](./media/tutorial-process-email-attachments-workflow/copy-save-storage-name-key.png)
 
-   若要取得儲存體帳戶的存取金鑰，您也可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccountkey) 或 [Azure CLI](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az_storage_account_keys_list)。 
+   若要取得儲存體帳戶的存取金鑰，您也可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccountkey) 或 [Azure CLI](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list)。 
 
 3. 建立電子郵件附件的 Blob 儲存體容器。
    
@@ -100,7 +100,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
       ![已完成的儲存體容器](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
 
-   若要建立儲存體容器，您也可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer) 或 [Azure CLI](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az_storage_container_create)。 
+   若要建立儲存體容器，您也可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer) 或 [Azure CLI](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create)。 
 
 接著，將儲存體總管連線至您的儲存體帳戶。
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 12a6e34db4134ffdb38428c0a38d94351747cc48
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: ccc0836a296bb392e60dd0c973516a7087ff6ea5
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37900553"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429321"
 ---
 # <a name="deploy-a-dcos-cluster"></a>部署 DC/OS 叢集
 
@@ -26,7 +26,7 @@ DC/OS 所提供的分散式平台可執行現代及容器化的應用程式。 �
 
 ## <a name="log-in-to-azure"></a>登入 Azure 
 
-使用 [az login](/cli/azure/reference-index#az_login) 命令登入 Azure 訂用帳戶並遵循畫面上的指示。
+使用 [az login](/cli/azure/reference-index#az-login) 命令登入 Azure 訂用帳戶並遵循畫面上的指示。
 
 ```azurecli
 az login
@@ -34,7 +34,7 @@ az login
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-使用 [az group create](/cli/azure/group#az_group_create) 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 
+使用 [az group create](/cli/azure/group#az-group-create) 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 
 
 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組。
 
@@ -44,7 +44,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-dcos-cluster"></a>建立 DC/OS 叢集
 
-使用 [az acs create](/cli/azure/acs#az_acs_create) 命令來建立 DC/OS 叢集。
+使用 [az acs create](/cli/azure/acs#az-acs-create) 命令來建立 DC/OS 叢集。
 
 下列範例會建立名為 myDCOSCluster 的 DC/OS 叢集，並建立 SSH 金鑰 (如果它們尚未存在)。 若要使用一組特定金鑰，請使用 `--ssh-key-value` 選項。  
 
@@ -52,7 +52,7 @@ az group create --name myResourceGroup --location eastus
 az acs create --orchestrator-type dcos --resource-group myResourceGroup --name myDCOSCluster --generate-ssh-keys
 ```
 
-在有限試用之類的某些情況下，Azure 訂用帳戶只擁有 Azure 資源的有限存取權。 如果部署因可用核心受限而失敗，請將 `--agent-count 1` 加入 [az acs create](/cli/azure/acs#az_acs_create) 命令來減少預設代理程式的數量。 
+在有限試用之類的某些情況下，Azure 訂用帳戶只擁有 Azure 資源的有限存取權。 如果部署因可用核心受限而失敗，請將 `--agent-count 1` 加入 [az acs create](/cli/azure/acs#az-acs-create) 命令來減少預設代理程式的數量。 
 
 幾分鐘之後，此命令就會完成，且會傳回部署的相關資訊。
 
@@ -157,7 +157,7 @@ az network public-ip list --resource-group myResourceGroup --query "[?contains(n
 
 ## <a name="delete-dcos-cluster"></a>刪除 DC/OS 叢集
 
-若不再需要，您可以使用 [az group delete](/cli/azure/group#az_group_delete) 命令將資源群組、DC/OS 叢集和所有相關資源移除。
+若不再需要，您可以使用 [az group delete](/cli/azure/group#az-group-delete) 命令將資源群組、DC/OS 叢集和所有相關資源移除。
 
 ```azurecli
 az group delete --name myResourceGroup --no-wait

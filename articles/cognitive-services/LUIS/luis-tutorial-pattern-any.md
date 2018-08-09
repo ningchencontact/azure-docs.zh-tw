@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: ca4ed4444cd753c0fe22c6596dfd34d033b7b0cf
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 1587debecd82072c29d4caffc2b81629b1f52b0e
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39236997"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527359"
 ---
 # <a name="tutorial-improve-app-with-patternany-entity"></a>教學課程：使用 pattern.any 實體來改善應用程式
 
@@ -26,7 +26,7 @@ ms.locfileid: "39236997"
 * 建立使用 pattern.any 的模式
 * 如何確認預測改善
 
-在本文中，您需要免費 [LUIS](luis-reference-regions.md) 帳戶才能撰寫 LUIS 應用程式。
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>開始之前
 如果您沒有來自[模式角色](luis-tutorial-pattern-roles.md)教學課程中的人力資源應用程式，請將 JSON [匯入](luis-how-to-start-new-app.md#import-new-app)到 [LUIS](luis-reference-regions.md#luis-website) 網站中的新應用程式。 您可以在 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-roles-HumanResources.json) GitHub 存放庫中找到要匯入的應用程式。
@@ -79,7 +79,7 @@ Pattern.any 實體可讓您尋找自由格式的資料，其中實體的用字�
 ## <a name="create-a-patternany-entity"></a>建立 Pattern.any 實體
 Pattern.any 實體可擷取各種不同長度的實體。 它僅適用於模式，因為模式會標示實體的開頭和結尾。 如果您發現模式在包含 Pattern.any 時所擷取的實體不正確，請使用[明確清單](luis-concept-patterns.md#explicit-lists)來更正此問題。 
 
-1. 從左側瀏覽窗格中選取 [Entities] \(實體\)。
+1. 從左側導覽窗格中選取 [Entities] \(實體\)。
 
 2. 選取 [建立新實體]、輸入名稱 `FormName`，然後選取 [Pattern.any] 作為類型。 選取 [完成] 。 
 
@@ -89,7 +89,7 @@ Pattern.any 實體可擷取各種不同長度的實體。 它僅適用於模式�
 
 ## <a name="add-a-pattern-that-uses-the-patternany"></a>新增使用 Pattern.any 的模式
 
-1. 從左側瀏覽窗格中選取 [Patterns] \(模式\)。
+1. 從左側導覽窗格中選取 [Patterns] \(模式\)。
 
 2. 選取 [FindForm] 意圖。
 
@@ -106,8 +106,9 @@ Pattern.any 實體可擷取各種不同長度的實體。 它僅適用於模式�
 
 4. 如果您移除了 keyPhrase 實體，請將它新增回應用程式。 
 
-5. 將應用程式定型。
+## <a name="train-the-luis-app"></a>進行 LUIS 應用程式定型
 
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="test-the-new-pattern-for-free-form-data-extraction"></a>測試新模式以擷取自由格式資料
 1. 從頂端列選取 [Test] \(測試\) 來開啟測試面板。 
@@ -120,10 +121,11 @@ Pattern.any 實體可擷取各種不同長度的實體。 它僅適用於模式�
 
     系統會先尋找實體 `FormName`，然後才尋找可判斷意圖的模式。 如果您的測試結果未偵測到實體，因而未找到模式，您就必須針對意圖新增更多範例語句 (而非模式)。
 
-4. 選取頂端瀏覽列中的 [Test] \(測試\) 按鈕。
+4. 選取頂端導覽列中的 [Test] \(測試\) 按鈕。
 
 ## <a name="clean-up-resources"></a>清除資源
-當不再需要 LUIS 應用程式時，請將其刪除。 若要執行此動作，請選取應用程式清單中應用程式名稱右邊的省略符號 (***...***)，然後選取 [刪除]。 在 [Delete app?] \(刪除應用程式?\) 快顯對話方塊上，選取 [Ok] \(確定\)。
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

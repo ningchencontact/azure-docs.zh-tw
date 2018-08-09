@@ -1,25 +1,20 @@
 ---
-title: 將 Azure HDInsight 中的 Hive 查詢最佳化 | Microsoft Docs
+title: 將 Azure HDInsight 中的 Hive 查詢最佳化
 description: 了解如何在 HDInsight 中最佳化 Hadoop 的 Hive 查詢。
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: d6174c08-06aa-42ac-8e9b-8b8718d9978e
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: e844b4f1e9898347da6af589dbfe41bf2ad3ab69
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: 5142f2d2c3828a5311a67ac4a7e5abd3cc434801
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199889"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594670"
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>將 Azure HDInsight 中的 Hive 查詢最佳化
 

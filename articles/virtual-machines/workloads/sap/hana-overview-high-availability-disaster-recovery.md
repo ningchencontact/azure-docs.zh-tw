@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d2445713aa5d6a839950ca0fe9567133c06d1ffa
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 554991c7c0f11a095a11ae24dbb693a1a3ba50fd
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062236"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39430115"
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Azure 上 SAP Hana (大型執行個體) 的高可用性和災害復原 
 
@@ -169,12 +169,12 @@ SAP HANA on Azure (大型執行個體) 隨附固定的磁碟區大小供 SAP HAN
 
 若要使用 HANA 大型執行個體來設定儲存體快照集，請遵循下列步驟：
 1. 確定 HANA (大型執行個體) 伺服器的 Linux 作業系統上已安裝 Perl。
-2. 修改 /etc/ssh/ssh\_config 以新增 _MACs hmac-sha1_ 這一行。
-3. 針對您目前執行的每個 SAP HANA 執行個體，在主要節點上建立 SAP HANA 備份使用者帳戶 (如果適用)。
-4. 在所有 SAP HANA (大型執行個體) 伺服器上安裝 SAP HANA HDB 用戶端。
-5. 在每個區域的第一部 SAP HANA (大型執行個體) 伺服器上，建立一個公開金鑰，以便存取其底下控制快照集建立的儲存體基礎結構。
-6. 將指令碼和組態檔從 [ GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts) 複製到 SAP HANA 安裝中的 **hdbsql** 位置。
-7. 視需要修改 HANABackupDetails.txt 檔案以符合適當的客戶規格。
+1. 修改 /etc/ssh/ssh\_config 以新增 _MACs hmac-sha1_ 這一行。
+1. 針對您目前執行的每個 SAP HANA 執行個體，在主要節點上建立 SAP HANA 備份使用者帳戶 (如果適用)。
+1. 在所有 SAP HANA (大型執行個體) 伺服器上安裝 SAP HANA HDB 用戶端。
+1. 在每個區域的第一部 SAP HANA (大型執行個體) 伺服器上，建立一個公開金鑰，以便存取其底下控制快照集建立的儲存體基礎結構。
+1. 將指令碼和組態檔從 [ GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts) 複製到 SAP HANA 安裝中的 **hdbsql** 位置。
+1. 視需要修改 HANABackupDetails.txt 檔案以符合適當的客戶規格。
 
 從 [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts) 取得最新快照集指令碼和文件。 
 
@@ -384,7 +384,7 @@ testHANAConnection.pl
 
    送交 HANA 大型執行個體單位時，已提供儲存體使用者名稱和儲存體 IP 位址。
 
-2. 執行測試指令碼：
+1. 執行測試指令碼：
    ```
     ./testStorageSnapshotConnection.pl
    ```
@@ -488,8 +488,8 @@ For snapshot of the volume storing the boot LUN
 執行 `azure_hana_backup.pl` 指令碼會以下列三個階段建立儲存體快照集：
 
 1. 執行 SAP HANA 快照集
-2. 執行儲存體快照集
-3. 先移除已建立的 SAP HANA 快照集，再執行儲存體快照集
+1. 執行儲存體快照集
+1. 先移除已建立的 SAP HANA 快照集，再執行儲存體快照集
 
 若要執行指令碼，您可從複製指令碼過去的 HDB 可執行檔資料夾中呼叫它。 
 
@@ -701,44 +701,44 @@ HANA Backup ID:
 
 1. 決定要還原哪一個快照。 除非另有指示，否則只會還原 hana/data 磁碟區。 
 
-2. 關閉 HANA 執行個體。
+1. 關閉 HANA 執行個體。
 
  ![關閉 HANA 執行個體](./media/hana-overview-high-availability-disaster-recovery/image7-shutdown-hana.png)
 
-3. 將每個 HANA 資料庫節點上的資料磁碟區卸載。 如果資料磁碟區仍掛接至作業系統，快照集還原會失敗。
+1. 將每個 HANA 資料庫節點上的資料磁碟區卸載。 如果資料磁碟區仍掛接至作業系統，快照集還原會失敗。
  ![將每個 HANA 資料庫節點上的資料磁碟區卸載](./media/hana-overview-high-availability-disaster-recovery/image8-unmount-data-volumes.png)
 
-4. 提出 Azure 支援要求，以及包含還原特定快照集的指示。
+1. 提出 Azure 支援要求，以及包含還原特定快照集的指示。
 
  - 還原期間︰「SAP HANA on Azure 服務管理」可能會要求您參加電話會議，確保您會協調、驗證和確認所還原的儲存體快照集是正確的。 
 
  - 還原之後：還原儲存體快照集之後，「SAP HANA on Azure 服務管理」會通知您。
 
-5. 在還原程序完成後，重新掛接所有資料磁碟區。
+1. 在還原程序完成後，重新掛接所有資料磁碟區。
 
  ![重新掛接所有資料磁碟區](./media/hana-overview-high-availability-disaster-recovery/image9-remount-data-volumes.png)
 
-6. 當您透過 SAP HANA Studio 重新連接到 HANA DB 時，如果沒有自動出現復原選項，請選取 SAP HANA Studio 內的復原選項。 以下範例顯示還原到最後一個 HANA 快照集。 儲存體快照集會內嵌一個 HANA 快照集。 如果您要復原到最近的儲存體快照集，它應該是最近的 HANA 快照集。 (如果您要復原到較舊的儲存體快照，您就必須根據儲存體快照的建立時間找出 HANA 快照)。
+1. 當您透過 SAP HANA Studio 重新連接到 HANA DB 時，如果沒有自動出現復原選項，請選取 SAP HANA Studio 內的復原選項。 以下範例顯示還原到最後一個 HANA 快照集。 儲存體快照集會內嵌一個 HANA 快照集。 如果您要復原到最近的儲存體快照集，它應該是最近的 HANA 快照集。 (如果您要復原到較舊的儲存體快照，您就必須根據儲存體快照的建立時間找出 HANA 快照)。
 
  ![選取 SAP HANA Studio 內的復原選項](./media/hana-overview-high-availability-disaster-recovery/image10-recover-options-a.png)
 
-7. 選取 [將資料庫復原到特定資料備份或儲存體快照集]。
+1. 選取 [將資料庫復原到特定資料備份或儲存體快照集]。
 
  ![[指定復原類型] 視窗](./media/hana-overview-high-availability-disaster-recovery/image11-recover-options-b.png)
 
-8. 選取 [指定不含目錄的備份]。
+1. 選取 [指定不含目錄的備份]。
 
  ![[指定備份位置] 視窗](./media/hana-overview-high-availability-disaster-recovery/image12-recover-options-c.png)
 
-9. 在 [目的地類型] 清單中，選取 [快照集]。
+1. 在 [目的地類型] 清單中，選取 [快照集]。
 
  ![[指定要復原的備份] 視窗](./media/hana-overview-high-availability-disaster-recovery/image13-recover-options-d.png)
 
-10. 選取 [完成] 以開始復原程序。
+1. 選取 [完成] 以開始復原程序。
 
  ![選取 [完成] 以開始復原程序。](./media/hana-overview-high-availability-disaster-recovery/image14-recover-options-e.png)
 
-11. HANA 資料庫會還原並復原到儲存體快照集所包含的 HANA 快照集。
+1. HANA 資料庫會還原並復原到儲存體快照集所包含的 HANA 快照集。
 
  ![HANA 資料庫會還原並復原到 HANA 快照集](./media/hana-overview-high-availability-disaster-recovery/image15-recover-options-f.png)
 
@@ -751,23 +751,23 @@ HANA Backup ID:
 
 1. 完成[復原到最近的 HANA 快照集](#recovering-to-the-most-recent-hana-snapshot)中的步驟 1-6。
 
-2. 選取 [將資料庫復原到最近狀態]。
+1. 選取 [將資料庫復原到最近狀態]。
 
  ![選取 [將資料庫復原到最近狀態]。](./media/hana-overview-high-availability-disaster-recovery/image16-recover-database-a.png)
 
-3. 指定最近 HANA 記錄備份的位置。 此位置必須包含從 HANA 快照集到最近狀態的所有 HANA 交易記錄備份。
+1. 指定最近 HANA 記錄備份的位置。 此位置必須包含從 HANA 快照集到最近狀態的所有 HANA 交易記錄備份。
 
  ![指定最近 HANA 記錄備份的位置](./media/hana-overview-high-availability-disaster-recovery/image17-recover-database-b.png)
 
-4. 選取一個備份作為基礎來從中復原資料庫。 在此範例中，螢幕擷取畫面中的 HANA 快照集是儲存體快照集所包含的 HANA 快照集。 
+1. 選取一個備份作為基礎來從中復原資料庫。 在此範例中，螢幕擷取畫面中的 HANA 快照集是儲存體快照集所包含的 HANA 快照集。 
 
  ![選取一個備份作為基礎來從中復原資料庫](./media/hana-overview-high-availability-disaster-recovery/image18-recover-database-c.png)
 
-5. 如果 HANA 快照集快時間與最近狀態之間沒有差異，請清除 [使用差異備份] 核取方塊。
+1. 如果 HANA 快照集快時間與最近狀態之間沒有差異，請清除 [使用差異備份] 核取方塊。
 
  ![如果沒有差異，請清除 [使用差異備份] 核取方塊](./media/hana-overview-high-availability-disaster-recovery/image19-recover-database-d.png)
 
-6. 在摘要畫面上，選取 [完成] 以開始還原程序。
+1. 在摘要畫面上，選取 [完成] 以開始還原程序。
 
  ![在摘要頁面上按一下 [完成]](./media/hana-overview-high-availability-disaster-recovery/image20-recover-database-e.png)
 
@@ -775,21 +775,21 @@ HANA Backup ID:
 若要復原到介於 HANA 快照集 (包含在儲存體快照集中) 與晚於 HANA 快照集時間點復原的快照集之間的時間點，請執行下列步驟：
 
 1. 確定您擁有包含從 HANA 快照到想要復原之時間在內的所有 HANA 交易記錄備份。
-2. 開始執行[復原到最近狀態](#recovering-to-the-most-recent-state)下的程序。
-3. 在程序的步驟 2 中，於 [指定復原類型] 視窗選取 [將資料庫復原到下列時間點]，然後指定時間點。 
-4. 完成步驟 3-6。
+1. 開始執行[復原到最近狀態](#recovering-to-the-most-recent-state)下的程序。
+1. 在程序的步驟 2 中，於 [指定復原類型] 視窗選取 [將資料庫復原到下列時間點]，然後指定時間點。 
+1. 完成步驟 3-6。
 
 ### <a name="monitor-the-execution-of-snapshots"></a>監視快照集的執行
 
 當您使用 HANA 大型執行個體的儲存體快照集時，您也需要監視這些快照集的執行情形。 執行儲存體快照集的指令碼會將輸出寫入檔案，然後儲存至與 Perl 指令碼相同的位置。 針對每個儲存體快照集都會寫入一個個別的檔案。 每個檔案的輸出會顯示快照集指令碼所執行的各階段︰
 
 1. 尋找需要建立快照集的磁碟區。
-2. 尋找從這些磁碟區建立的快照集。
-3. 刪除最後存在的快照集以符合您指定的快照集數目。
-4. 建立 SAP HANA 快照集。
-5. 建立磁碟區的儲存體快照集。
-6. 刪除 SAP HANA 快照集。
-7. 將最近的快照集重新命名為 **.0**。
+1. 尋找從這些磁碟區建立的快照集。
+1. 刪除最後存在的快照集以符合您指定的快照集數目。
+1. 建立 SAP HANA 快照集。
+1. 建立磁碟區的儲存體快照集。
+1. 刪除 SAP HANA 快照集。
+1. 將最近的快照集重新命名為 **.0**。
 
 此指令碼 cab 最重要的部分如下：
 ```
@@ -884,10 +884,10 @@ HANA 大型執行個體提供了能在不同 Azure 區域的 HANA 大型執行�
 若要在災害復原案例中達成更好的 RPO，您可以從 SAP HANA on Azure (大型執行個體) 將 HANA 交易記錄備份複製到其他 Azure 區域。 若要再縮減此 RPO，請執行下列步驟：
 
 1. 儘可能經常將 HANA 交易記錄複製到 /hana/logbackups。
-2. 使用 rsync 將交易記錄備份複製到 NFS 共用裝載的 Azure 虛擬機器。 VM 位於 Azure 生產區域和 DR 區域中的 Azure 虛擬網路。 您需要將這兩個 Azure 虛擬網路連線到可將生產 HANA 大型執行個體連線到 Azure 的線路。 請參閱[使用 HANA 大型執行個體進行災害復原的網路考量](#Network-considerations-for-disaster recovery-with-HANA-Large-Instances)一節中的圖形。 
-3. 將交易記錄備份保留在該區域內 VM 所連結的 NFS 匯出儲存體中。
-4. 在災害容錯移轉案例中，為您在 /hana/logbackups 磁碟區所找到的交易記錄備份，補充您在災害復原網站的 NFS 共用上所擷取的較新交易記錄備份。 
-5. 可以開始將交易記錄備份還原至可能儲存到 DR 區域的最新備份。
+1. 使用 rsync 將交易記錄備份複製到 NFS 共用裝載的 Azure 虛擬機器。 VM 位於 Azure 生產區域和 DR 區域中的 Azure 虛擬網路。 您需要將這兩個 Azure 虛擬網路連線到可將生產 HANA 大型執行個體連線到 Azure 的線路。 請參閱[使用 HANA 大型執行個體進行災害復原的網路考量](#Network-considerations-for-disaster recovery-with-HANA-Large-Instances)一節中的圖形。 
+1. 將交易記錄備份保留在該區域內 VM 所連結的 NFS 匯出儲存體中。
+1. 在災害容錯移轉案例中，為您在 /hana/logbackups 磁碟區所找到的交易記錄備份，補充您在災害復原網站的 NFS 共用上所擷取的較新交易記錄備份。 
+1. 可以開始將交易記錄備份還原至可能儲存到 DR 區域的最新備份。
 
 當 HANA 大型執行個體作業確認已設定複寫關聯性並開始執行儲存體快照集備份時，資料就會開始進行複寫。
 
@@ -909,15 +909,15 @@ HANA 大型執行個體提供了能在不同 Azure 區域的 HANA 大型執行�
 若要還原到最新複寫的儲存體快照集，請執行下列步驟： 
 
 1. 在您執行的 HANA 大型執行個體災害復原單位上，關閉非生產的 HANA 執行個體。 這是因為已預先安裝休眠中的 HANA 生產執行個體。
-2. 確定沒有任何 SAP HANA 程序處於執行狀態。 使用下列命令進行這項檢查：`/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`。 您應該會從輸出中看到 **hdbdaemon** 程序處於已停止狀態，而且已沒有其他 HANA 程序處於執行中或已啟動狀態。
-3. 在 DR 網站 HANA 大型執行個體單位上，執行指令碼 azure_hana_dr_failover.pl。 該指令碼要求還原 SAP HANA SID。 執行要求時，請輸入一個或唯一的 SAP HANA SID，其已複寫並保留在 DR 網站中 HANA 大型執行個體單位上的 HANABackupCustomerDetails.txt 檔案。 
+1. 確定沒有任何 SAP HANA 程序處於執行狀態。 使用下列命令進行這項檢查：`/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`。 您應該會從輸出中看到 **hdbdaemon** 程序處於已停止狀態，而且已沒有其他 HANA 程序處於執行中或已啟動狀態。
+1. 在 DR 網站 HANA 大型執行個體單位上，執行指令碼 azure_hana_dr_failover.pl。 該指令碼要求還原 SAP HANA SID。 執行要求時，請輸入一個或唯一的 SAP HANA SID，其已複寫並保留在 DR 網站中 HANA 大型執行個體單位上的 HANABackupCustomerDetails.txt 檔案。 
 
       如果您想要容錯移轉多個 SAP HANA 執行個體，您需要多次執行指令碼。 執行要求時，輸入您想要容錯移轉及還原的 SAP HANA SID。 完成時，指令碼會顯示新增至 HANA 大型執行個體單位的磁碟區掛接點清單。 此清單也包含還原的 DR 磁碟區。
 
-4. 透過使用 Linux 作業系統命令，將還原的災害復原磁碟區掛接到災害復原網站中的 HANA 大型執行個體單位。 
-6. 啟動休眠的 SAP HANA 生產執行個體。
-7. 如果您選擇複製交易記錄備份的記錄以降低 RPO 時間，必須將這些交易記錄備份合併到新掛接 DR 的 /hana/logbackups 目錄。 請勿覆寫現有的備份。 複製尚未隨著儲存體快照集的最新複寫一起複寫的較新備份。
-8. 您也可以從已複寫到 DR Azure 區域中 /hana/shared/PRD 磁碟區的快照集，還原單一檔案。 
+1. 透過使用 Linux 作業系統命令，將還原的災害復原磁碟區掛接到災害復原網站中的 HANA 大型執行個體單位。 
+1. 啟動休眠的 SAP HANA 生產執行個體。
+1. 如果您選擇複製交易記錄備份的記錄以降低 RPO 時間，必須將這些交易記錄備份合併到新掛接 DR 的 /hana/logbackups 目錄。 請勿覆寫現有的備份。 複製尚未隨著儲存體快照集的最新複寫一起複寫的較新備份。
+1. 您也可以從已複寫到 DR Azure 區域中 /hana/shared/PRD 磁碟區的快照集，還原單一檔案。 
 
 您也可以測試 DR 容錯移轉，而不會影響實際的複寫關係。 若要執行測試容錯移轉，請遵循上述步驟 1 和 2，然後繼續進行下列的步驟 3。
 
@@ -935,10 +935,10 @@ HANA 大型執行個體提供了能在不同 Azure 區域的 HANA 大型執行�
    >[!NOTE]
    >如果您需要容錯移轉至 DR 網站以救援幾小時前已刪除的部分資料，且需要將 DR 磁碟區設定為較早的快照集，則會套用此程序。 
 
-4. 在您執行的 HANA 大型執行個體災害復原單位上，關閉非生產的 HANA 執行個體。 這是因為已預先安裝休眠中的 HANA 生產執行個體。
-5. 確定沒有任何 SAP HANA 程序處於執行狀態。 使用下列命令進行這項檢查：`/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`。 您應該會從輸出中看到 **hdbdaemon** 程序處於已停止狀態，而且已沒有其他 HANA 程序處於執行中或已啟動狀態。
-6. 決定要讓災害復原網站還原到哪個快照集名稱或 SAP HANA 備份識別碼。 在真實的災害復原案例中，此快照集通常會是最新的快照集。 如果您需要復原遺失的資料，請挑選較早的快照集。
-7. 透過高優先順序的支援要求連絡 Azure 支援。 要求快照集 (具有快照集名稱和日期) 的還原或 DR 網站上的 HANA 備份識別碼。 預設值是作業端只會還原 /hana/data 磁碟區。 如果您也想要有 / hana/logbackups 磁碟區，您需要特別指明。 請勿還原 /hana/shared 磁碟區。 相反地，在您針對 PRD 重新掛接 /hana/shared 之後，您應該選擇特定的檔案，例如 **.snapshot** 目錄及其子目錄中的 global.ini。 
+1. 在您執行的 HANA 大型執行個體災害復原單位上，關閉非生產的 HANA 執行個體。 這是因為已預先安裝休眠中的 HANA 生產執行個體。
+1. 確定沒有任何 SAP HANA 程序處於執行狀態。 使用下列命令進行這項檢查：`/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`。 您應該會從輸出中看到 **hdbdaemon** 程序處於已停止狀態，而且已沒有其他 HANA 程序處於執行中或已啟動狀態。
+1. 決定要讓災害復原網站還原到哪個快照集名稱或 SAP HANA 備份識別碼。 在真實的災害復原案例中，此快照集通常會是最新的快照集。 如果您需要復原遺失的資料，請挑選較早的快照集。
+1. 透過高優先順序的支援要求連絡 Azure 支援。 要求快照集 (具有快照集名稱和日期) 的還原或 DR 網站上的 HANA 備份識別碼。 預設值是作業端只會還原 /hana/data 磁碟區。 如果您也想要有 / hana/logbackups 磁碟區，您需要特別指明。 請勿還原 /hana/shared 磁碟區。 相反地，在您針對 PRD 重新掛接 /hana/shared 之後，您應該選擇特定的檔案，例如 **.snapshot** 目錄及其子目錄中的 global.ini。 
 
    在作業端，系統將會進行下列步驟：
 
@@ -948,26 +948,26 @@ HANA 大型執行個體提供了能在不同 Azure 區域的 HANA 大型執行�
    
    c. 還原後，災害復原磁碟區即可供掛接到災害復原區域中的 HANA 大型執行個體單位。
       
-8. 將災害復原磁碟區掛接至災害復原網站中的 HANA 大型執行個體單位。 
-9. 啟動休眠的 SAP HANA 生產執行個體。
-10. 如果您選擇複製交易記錄備份的記錄以降低 RPO 時間，必須將這些交易記錄備份合併到新掛接 DR 的 /hana/logbackups 目錄。 請勿覆寫現有的備份。 複製尚未隨著儲存體快照集的最新複寫一起複寫的較新備份。
-11. 您也可以從已複寫到 DR Azure 區域中 /hana/shared/PRD 磁碟區的快照集，還原單一檔案。
+1. 將災害復原磁碟區掛接至災害復原網站中的 HANA 大型執行個體單位。 
+1. 啟動休眠的 SAP HANA 生產執行個體。
+1. 如果您選擇複製交易記錄備份的記錄以降低 RPO 時間，必須將這些交易記錄備份合併到新掛接 DR 的 /hana/logbackups 目錄。 請勿覆寫現有的備份。 複製尚未隨著儲存體快照集的最新複寫一起複寫的較新備份。
+1. 您也可以從已複寫到 DR Azure 區域中 /hana/shared/PRD 磁碟區的快照集，還原單一檔案。
 
 後續步驟涉及根據所還原的儲存體快照集和可用的交易記錄備份來復原 SAP HANA 生產執行個體：
 
 1. 使用 SAP HANA Studio，將備份位置變更為 **/hana/logbackups**。
    ![變更 DR 復原的備份位置](./media/hana-overview-high-availability-disaster-recovery/change_backup_location_dr1.png)
 
-2. SAP HANA 會掃描所有備份檔案位置，並建議可作為還原目的地的最新交易記錄備份。 掃描可能需要幾分鐘的時間，完成後會出現如下所示的畫面：![DR 復原的交易記錄備份清單](./media/hana-overview-high-availability-disaster-recovery/backup_list_dr2.PNG)
+1. SAP HANA 會掃描所有備份檔案位置，並建議可作為還原目的地的最新交易記錄備份。 掃描可能需要幾分鐘的時間，完成後會出現如下所示的畫面：![DR 復原的交易記錄備份清單](./media/hana-overview-high-availability-disaster-recovery/backup_list_dr2.PNG)
 
-3. 調整某些預設設定：
+1. 調整某些預設設定：
 
       - 清除 [使用差異備份]。
       - 選取 [初始化記錄區域]。
 
    ![設定初始化記錄區域](./media/hana-overview-high-availability-disaster-recovery/initialize_log_dr3.PNG)
 
-4. 選取 [完成]。
+1. 選取 [完成]。
 
    ![完成 DR 還原](./media/hana-overview-high-availability-disaster-recovery/finish_dr4.PNG)
 
@@ -984,11 +984,11 @@ HANA 大型執行個體提供了能在不同 Azure 區域的 HANA 大型執行�
 這是要採取的步驟順序：
 
 1. SAP HANA on Azure 營運小組取得觸發程序，以從災害復原存放磁碟區 (目前代表生產狀態) 同步處理生產存放磁碟區。 處於此狀態時，生產網站中的 HANA 大型執行個體單位會關閉。
-2. SAP HANA on Azure 營運小組會監視複寫程序，並確保能趕上通知您的時間。
-3. 您會關閉使用災害復原網站中生產 HANA 執行個體的應用程式。 接著執行 HANA 交易記錄備份。 然後將在災害復原網站中 HANA 大型執行個體單位上執行的 HANA 執行個體停止。
-4. 在災害復原網站中 HANA 大型執行個體單位上執行的 HANA 執行個體關閉之後，營運小組必須再次手動同步處理磁碟區。
-5. SAP HANA on Azure 營運小組會再次啟動生產網站中的 HANA 大型執行個體單位，然後將它轉交給您。 確定在您啟動 HANA 大型執行個體單位時，SAP HANA 執行個體是處於關閉狀態。
-6. 您可執行和先前容錯移轉至災害復原網站時所執行的相同資料庫還原步驟。
+1. SAP HANA on Azure 營運小組會監視複寫程序，並確保能趕上通知您的時間。
+1. 您會關閉使用災害復原網站中生產 HANA 執行個體的應用程式。 接著執行 HANA 交易記錄備份。 然後將在災害復原網站中 HANA 大型執行個體單位上執行的 HANA 執行個體停止。
+1. 在災害復原網站中 HANA 大型執行個體單位上執行的 HANA 執行個體關閉之後，營運小組必須再次手動同步處理磁碟區。
+1. SAP HANA on Azure 營運小組會再次啟動生產網站中的 HANA 大型執行個體單位，然後將它轉交給您。 確定在您啟動 HANA 大型執行個體單位時，SAP HANA 執行個體是處於關閉狀態。
+1. 您可執行和先前容錯移轉至災害復原網站時所執行的相同資料庫還原步驟。
 
 ### <a name="monitor-disaster-recovery-replication"></a>監視災害復原複寫
 

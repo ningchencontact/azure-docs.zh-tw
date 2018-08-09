@@ -1,25 +1,21 @@
 ---
-title: 快速入門：使用 Resource Manager 範本在 Azure HDInsight 中開始使用 Hadoop 和 Hive | Microsoft Docs
+title: '快速入門：使用 Resource Manager 範本在 Azure HDInsight 中開始使用 Hadoop 和 Hive '
 description: 了解如何建立 HDInsight 叢集，以及使用 Hive 查詢資料。
 keywords: 開始使用,hadoop linux,hadoop 快速入門,開始使用 hive,hive 快速入門
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: cgronlun
-editor: cgronlun
-ms.assetid: 6a12ed4c-9d49-4990-abf5-0a79fdfca459
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive,hdiseo17may2017,mvc
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.author: jgao
-ms.openlocfilehash: c49371d194b3b6f94076cb00595ec9feaeb3fb44
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 4f41dd2fafb65c5fe4fa38cafb63d3d691a953d4
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096395"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595608"
 ---
 # <a name="quickstart-get-started-with-hadoop-and-hive-in-azure-hdinsight-using-resource-manager-template"></a>快速入門：使用 Resource Manager 範本在 Azure HDInsight 中開始使用 Hadoop 和 Hive
 

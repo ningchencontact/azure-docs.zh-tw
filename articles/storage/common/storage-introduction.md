@@ -3,17 +3,17 @@ title: Azure 儲存體簡介 - Azure 中的雲端儲存體 | Microsoft Docs
 description: Azure 儲存體是 Microsoft 的雲端儲存體解決方案。 Azure 儲存體提供了高可用性、安全、持久、可大幅調整且具有備援的資料物件儲存體。
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: get-started-article
 ms.date: 07/11/2018
 ms.author: tamram
-ms.openlocfilehash: e6a3ff22d6224ff0accdf39ad098505626659688
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.component: common
+ms.openlocfilehash: 5e9d105e0824eac6052f4ea3f99a09c19a668294
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238245"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525564"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure 儲存體簡介
 

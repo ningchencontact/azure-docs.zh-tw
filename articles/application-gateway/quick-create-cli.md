@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 99c3975c6ab2c7a20dfbab519dae575a2a61465f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 282f6d965ea85b25f1eada1a63897734c6c7b298
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32160353"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435259"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>快速入門：使用 Azure 應用程式閘道引導網路流量 - Azure CLI
 
 您可以使用 Azure 應用程式閘道，透過將接聽程式指派給連接埠、建立規則以及將資源新增至後端集區，將您的應用程式網路流量導向至特定資源。
 
-本快速入門示範如何使用 Azure CLI，快速建立在其後端集區中具有兩部虛擬機器的應用程式閘道。 然後您會進行測試，確保它運作正常。
+本快速入門示範如何使用 Azure CLI，快速建立在其後端集區中具有兩部虛擬機器的應用程式閘道。 然後進行測試以確定它正常運作。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -34,7 +34,7 @@ ms.locfileid: "32160353"
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-您必須一律在資源群組中建立資源。 使用 [az group create](/cli/azure/group#az_group_create) 建立資源群組。 
+您必須一律在資源群組中建立資源。 使用 [az group create](/cli/azure/group#az-group-create) 建立資源群組。 
 
 下列範例會在 eastus 位置建立名為 myResourceGroupAG 的資源群組。
 
@@ -46,7 +46,7 @@ az group create --name myResourceGroupAG --location eastus
 
 您必須為應用程式閘道建立虛擬網路，應用程式閘道才能與其他資源通訊。 您建立應用程式閘道時，可以同時建立虛擬網路。 這個範例中會建立兩個子網路：一個用於應用程式閘道，另一個用於虛擬機器。 
 
-使用 [az network vnet create](/cli/azure/vnet#az_vnet_create) 建立虛擬網路和子網路。 使用 [az network public-ip create](/cli/azure/public-ip#az_public_ip_create) 建立公用 IP 位址。
+使用 [az network vnet create](/cli/azure/vnet#az-vnet-create) 建立虛擬網路和子網路。 使用 [az network public-ip create](/cli/azure/public-ip#az-public-ip-create) 建立公用 IP 位址。
 
 ```azurecli-interactive
 az network vnet create \
@@ -118,7 +118,7 @@ runcmd:
   - nodejs index.js
 ```
 
-使用 [az network nic create](/cli/azure/network/nic#az_network_nic_create) 建立網路介面。 使用 [az vm create](/cli/azure/vm#az_vm_create) 建立虛擬機器。
+使用 [az network nic create](/cli/azure/network/nic#az-network-nic-create) 建立網路介面。 使用 [az vm create](/cli/azure/vm#az-vm-create) 建立虛擬機器。
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -140,7 +140,7 @@ done
 
 ## <a name="create-the-application-gateway"></a>建立應用程式閘道
 
-使用 [az network application-gateway create](/cli/azure/application-gateway#az_application_gateway_create) 建立應用程式閘道。 當您使用 Azure CLI 建立應用程式閘道時，需要指定設定資訊，例如容量、SKU 和 HTTP 設定。 系統會新增網路介面的私人 IP 位址，作為應用程式閘道後端集區中的伺服器。
+使用 [az network application-gateway create](/cli/azure/application-gateway#az-application-gateway-create) 建立應用程式閘道。 當您使用 Azure CLI 建立應用程式閘道時，需要指定設定資訊，例如容量、SKU 和 HTTP 設定。 系統會新增網路介面的私人 IP 位址，作為應用程式閘道後端集區中的伺服器。
 
 ```azurecli-interactive
 address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')
@@ -168,7 +168,7 @@ az network application-gateway create \
 
 ## <a name="test-the-application-gateway"></a>測試應用程式閘道
 
-建立應用程式閘道時不需要安裝 NGINX，但是您會在本快速入門中安裝它，以確認是否已成功建立應用程式閘道。 若要取得應用程式閘道的公用 IP 位址，請使用 [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show)。 將公用 IP 位址複製並貼到您瀏覽器的網址列。
+建立應用程式閘道時不需要安裝 NGINX，但是您會在本快速入門中安裝它，以確認是否已成功建立應用程式閘道。 若要取得應用程式閘道的公用 IP 位址，請使用 [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show)。 將公用 IP 位址複製並貼到您瀏覽器的網址列。
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -184,7 +184,7 @@ az network public-ip show \
 
 ## <a name="clean-up-resources"></a>清除資源
 
-首先探索使用應用程式閘道建立的資源，若不再需要，您可以使用 [az group delete](/cli/azure/group#az_group_delete) 命令來移除資源群組、應用程式閘道和所有相關資源。
+首先探索使用應用程式閘道建立的資源，若不再需要，您可以使用 [az group delete](/cli/azure/group#az-group-delete) 命令來移除資源群組、應用程式閘道和所有相關資源。
 
 ```azurecli-interactive 
 az group delete --name myResourceGroupAG
@@ -193,5 +193,5 @@ az group delete --name myResourceGroupAG
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [使用 Azure CLI 透過應用程式閘道管理網路流量](./tutorial-manage-web-traffic-cli.md)
+> [使用 Azure CLI 以應用程式閘道管理網路流量](./tutorial-manage-web-traffic-cli.md)
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/30/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: afdee938145dacf50538ceb186957933fe7ec3bd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 379878e261007eca13a4e455ef2b97237c81eeba
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33768187"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39450023"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>教學課程：準備異地複寫的 Azure Container Registry
 
@@ -32,7 +32,7 @@ Azure Container Registry 是一種部署在 Azure 中的私人 Docker 登錄，�
 
 ## <a name="before-you-begin"></a>開始之前
 
-本教學課程需要 Azure CLI (2.0.31 版或更新版本) 的本機安裝。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
+本教學課程需要 Azure CLI (2.0.31 版或更新版本) 的本機安裝。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
 
 您應熟悉核心 Docker 概念，例如容器、容器映像和基本 Docker CLI 命令。 如需容器基本概念的入門參考資料，請參閱[開始使用 Docker]( https://docs.docker.com/get-started/)。
 
@@ -90,7 +90,7 @@ Azure Cloud Shell 不包括完成本教學課程每個步驟所需的 Docker 元
 
 現在，您已設定異地複寫、建置容器映像，並將它推送到您的登錄。 您必須先登入 ACR 執行個體，再將映像推送至該處。
 
-使用 [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login) 命令，驗證並快取登錄的認證。 將 `<acrName>` 取代為您先前建立的登錄名稱。
+使用 [az acr login](https://docs.microsoft.com/cli/azure/acr#az-acr-login) 命令，驗證並快取登錄的認證。 將 `<acrName>` 取代為您先前建立的登錄名稱。
 
 ```azurecli
 az acr login --name <acrName>

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: ee4702733e775051cbbcace109bd1a7ffdf50e9c
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 42ac1cc7dd50f46ada263089437740e680928e70
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325450"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39596047"
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>如何使用 Azure 虛擬機器受控服務識別 (MSI) 來取得權杖 
 
@@ -44,7 +44,7 @@ ms.locfileid: "39325450"
 
 ## <a name="overview"></a>概觀
 
-用戶端應用程式可以要求用於存取指定資源的受控服務識別：[僅限應用程式的存取權杖](../develop/active-directory-dev-glossary.md#access-token)。 此權杖是[以 MSI 服務主體為基礎](overview.md#how-does-it-work)。 因此，用戶端不需要自行註冊就能取得本身服務主體下的存取權杖。 權杖在[需要用戶端認證的服務對服務呼叫](../develop/active-directory-protocols-oauth-service-to-service.md)中適合作為持有人權杖。
+用戶端應用程式可以要求用於存取指定資源的受控服務識別：[僅限應用程式的存取權杖](../develop/developer-glossary.md#access-token)。 此權杖是[以 MSI 服務主體為基礎](overview.md#how-does-it-work)。 因此，用戶端不需要自行註冊就能取得本身服務主體下的存取權杖。 權杖在[需要用戶端認證的服務對服務呼叫](../develop/v1-oauth2-client-creds-grant-flow.md)中適合作為持有人權杖。
 
 |  |  |
 | -------------- | -------------------- |

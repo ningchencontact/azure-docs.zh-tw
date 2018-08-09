@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: douglasl
-ms.openlocfilehash: 26ab8c0547bb533a032dec59183f8152be9180cf
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: c3aeb57bf9c613da3edb8c5dda0e88aa308a4b6e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364540"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448436"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Azure Data Factory 中的持續整合和部署
 
@@ -53,15 +53,15 @@ ms.locfileid: "39364540"
 
 1.  使用可讓所有開發人員撰寫 Data Factory 資源 (例如管線、資料集等等) 的 VSTS 設定開發資料處理站。
 
-2.  接著，開發人員可以修改管線之類的資源。 在進行修改時，他們可以選取 [偵錯] 以查看管線在經過最新變更之後的執行情況。
+1.  接著，開發人員可以修改管線之類的資源。 在進行修改時，他們可以選取 [偵錯] 以查看管線在經過最新變更之後的執行情況。
 
-3.  如果開發人員滿意其變更，他們可以從其分支建立對主要分支 (或共同作業分支) 的提取要求，讓同事檢閱其變更。
+1.  如果開發人員滿意其變更，他們可以從其分支建立對主要分支 (或共同作業分支) 的提取要求，讓同事檢閱其變更。
 
-4.  變更送至主要分支後，相關人員可藉由選取 [發行] 將其發行至開發處理站。
+1.  變更送至主要分支後，相關人員可藉由選取 [發行] 將其發行至開發處理站。
 
-5.  當小組準備好要將變更升階至測試處理站和生產處理站時，他們可以從主要分支匯出 Resource Manager 範本，或者，若其主要分支支援即時開發 Data Factory，則可從任何其他分支匯出。
+1.  當小組準備好要將變更升階至測試處理站和生產處理站時，他們可以從主要分支匯出 Resource Manager 範本，或者，若其主要分支支援即時開發 Data Factory，則可從任何其他分支匯出。
 
-6.  匯出的 Resource Manager 範本可使用不同的參數檔案部署至測試處理站和生產處理站。
+1.  匯出的 Resource Manager 範本可使用不同的參數檔案部署至測試處理站和生產處理站。
 
 ## <a name="automate-continuous-integration-with-vsts-releases"></a>透過 VSTS 發行自動執行持續整合
 
@@ -81,19 +81,19 @@ ms.locfileid: "39364540"
 
 1.  移至您以 Data Factory 設定之相同專案中的 VSTS 頁面。
 
-2.  按一下頂層功能表的 [建置及發行] &gt; [發行] &gt; [建立發行定義]。
+1.  按一下頂層功能表的 [建置及發行] &gt; [發行] &gt; [建立發行定義]。
 
     ![](media/continuous-integration-deployment/continuous-integration-image6.png)
 
-3.  選取 [空白流程] 範本。
+1.  選取 [空白流程] 範本。
 
-4.  輸入您的環境名稱。
+1.  輸入您的環境名稱。
 
-5.  新增 Git 成品，並選取以 Data Factory 設定的相同存放庫。 選擇 `adf_publish` 作為具有最新預設版本的預設分支。
+1.  新增 Git 成品，並選取以 Data Factory 設定的相同存放庫。 選擇 `adf_publish` 作為具有最新預設版本的預設分支。
 
     ![](media/continuous-integration-deployment/continuous-integration-image7.png)
 
-7.  新增 Azure Resource Manager 部署工作：
+1.  新增 Azure Resource Manager 部署工作：
 
     a.  建立新的工作、搜尋 **Azure 資源群組部署**，並加以新增。
 
@@ -109,9 +109,9 @@ ms.locfileid: "39364540"
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
-8.  儲存發行定義。
+1.  儲存發行定義。
 
-9.  從這個發行定義建立新發行。
+1.  從這個發行定義建立新發行。
 
     ![](media/continuous-integration-deployment/continuous-integration-image10.png)
 
@@ -144,7 +144,7 @@ ms.locfileid: "39364540"
 
     -   參數檔案也必須位於發行分支中。
 
-2.  在上一節中所述的 Azure Resource Manager 部署之前，新增 [Azure Key Vault 工作](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault)：
+1.  在上一節中所述的 Azure Resource Manager 部署之前，新增 [Azure Key Vault 工作](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault)：
 
     -   選取 [工作] 索引標籤、建立新的工作、搜尋 **Azure Key Vault**，並加以新增。
 
@@ -160,9 +160,9 @@ Azure Key Vault 工作第一次執行時可能會失敗，並發生拒絕存取�
 
 1.  在 [VSTS 發行] 的 [工作] 索引標籤中，搜尋 **Azure Powershell** 並加以新增。
 
-2.  選擇 **Azure Resource Manager** 作為連線類型，然後選取您的訂用帳戶。
+1.  選擇 **Azure Resource Manager** 作為連線類型，然後選取您的訂用帳戶。
 
-3.  選擇 [內嵌指令碼] 作為指令碼類型，然後提供您的程式碼。 下列範例會停止觸發程序：
+1.  選擇 [內嵌指令碼] 作為指令碼類型，然後提供您的程式碼。 下列範例會停止觸發程序：
 
     ```powershell
     $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName

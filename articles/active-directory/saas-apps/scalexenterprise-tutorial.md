@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 3b2da2680adbc92655030351cc9e1269a4cccccd
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 04708806b9e1ba224e7b438f11c68dca82d6320e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040972"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448813"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>教學課程：Azure Active Directory 與 ScaleX Enterprise 整合
 
@@ -52,7 +52,7 @@ ScaleX Enterprise 與 Azure AD 整合提供下列優點：
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 ScaleX Enterprise
-2. 設定並測試 Azure AD 單一登入
+1. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-scalex-enterprise-from-the-gallery"></a>從資源庫新增 ScaleX Enterprise
 若要設定將 ScaleX Enterprise 整合到 Azure AD 中，您需要從資源庫將 ScaleX Enterprise 新增到受控 SaaS 應用程式清單。
@@ -63,19 +63,19 @@ ScaleX Enterprise 與 Azure AD 整合提供下列優點：
 
     ![Active Directory][1]
 
-2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
+1. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![[應用程式]][2]
     
-3. 按一下對話方塊頂端的 [新增] 按鈕。
+1. 按一下對話方塊頂端的 [新增] 按鈕。
 
     ![[應用程式]][3]
 
-4. 在搜尋方塊中，輸入 **ScaleX Enterprise**。
+1. 在搜尋方塊中，輸入 **ScaleX Enterprise**。
 
     ![建立 Azure AD 測試使用者](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_search.png)
 
-5. 在結果窗格中，選取 [ScaleX Enterprise]，然後按一下 [新增] 按鈕以新增應用程式。
+1. 在結果窗格中，選取 [ScaleX Enterprise]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_addfromgallery.png)
 
@@ -89,10 +89,10 @@ ScaleX Enterprise 與 Azure AD 整合提供下列優點：
 若要設定及測試與 ScaleX Enterprise 搭配運作的 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 ScaleX Enterprise 測試使用者](#creating-a-scalex-enterprise-test-user)** - 使 ScaleX Enterprise 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
-4. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
+1. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
+1. **[建立 ScaleX Enterprise 測試使用者](#creating-a-scalex-enterprise-test-user)** - 使 ScaleX Enterprise 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
+1. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+1. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -104,11 +104,11 @@ ScaleX Enterprise 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入][4]
 
-2. 在 [單一登入] 對話方塊上，選取 [以 SAML 為基礎的登入] 作為 [模式]，以啟用單一登入。
+1. 在 [單一登入] 對話方塊上，選取 [以 SAML 為基礎的登入] 作為 [模式]，以啟用單一登入。
  
     ![設定單一登入](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_samlbase.png)
 
-3. 如果您想要以 **IDP** 起始模式設定應用程式，請在 [ScaleX Enterprise 網域和 URL] 區段上執行下列步驟：
+1. 如果您想要以 **IDP** 起始模式設定應用程式，請在 [ScaleX Enterprise 網域和 URL] 區段上執行下列步驟：
 
     ![設定單一登入](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_url1.png)
 
@@ -116,7 +116,7 @@ ScaleX Enterprise 與 Azure AD 整合提供下列優點：
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://platform.rescale.com/saml2/<company id>/acs/`
 
-4. 如果您想要以 **SP** 起始模式設定應用程式，請勾選 [顯示進階 URL 設定]：
+1. 如果您想要以 **SP** 起始模式設定應用程式，請勾選 [顯示進階 URL 設定]：
 
     ![設定單一登入](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_url2.png)
 
@@ -125,7 +125,7 @@ ScaleX Enterprise 與 Azure AD 整合提供下列優點：
     > [!NOTE] 
     > 這些不是真正的值。 使用實際的識別碼、回覆 URL 或登入 URL 來更新這些值。 請連絡 [ScaleX Enterprise 用戶端支援小組](http://info.rescale.com/contact_sales)以取得這些值。 
 
-5. ScaleX 應用程式會預期要有特定格式的 SAML 判斷提示，需要您修改自訂屬性以對應到您的 SAML 權杖屬性設定。 按一下 [檢視和編輯所有其他使用者屬性] 核取方塊，以開啟自訂屬性的設定。
+1. ScaleX 應用程式會預期要有特定格式的 SAML 判斷提示，需要您修改自訂屬性以對應到您的 SAML 權杖屬性設定。 按一下 [檢視和編輯所有其他使用者屬性] 核取方塊，以開啟自訂屬性的設定。
 
     ![設定單一登入](./media/scalexenterprise-tutorial/scalex_attributes.png)
     
@@ -137,32 +137,32 @@ ScaleX Enterprise 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/scalexenterprise-tutorial/edit_email_attribute.png) 
     
-5. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
+1. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
     ![設定單一登入](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_certificate.png) 
 
-6. 按一下 [儲存]  按鈕。
+1. 按一下 [儲存]  按鈕。
 
     ![設定單一登入](./media/scalexenterprise-tutorial/tutorial_general_400.png)
     
-7. 在 [ScaleX Enterprise 組態] 區段上，按一下 [設定 ScaleX Enterprise] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [SAML 實體 ID] 和 [SAML 單一登入服務 URL]。
+1. 在 [ScaleX Enterprise 組態] 區段上，按一下 [設定 ScaleX Enterprise] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [SAML 實體 ID] 和 [SAML 單一登入服務 URL]。
 
     ![設定單一登入](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_configure.png) 
 
-8. 若要在 **ScaleX Enterprise** 端設定單一登入，請以系統管理員身分登入 ScaleX Enterprise 公司網站。
+1. 若要在 **ScaleX Enterprise** 端設定單一登入，請以系統管理員身分登入 ScaleX Enterprise 公司網站。
 
-9. 按一下右上角的功能表，然後選取 [Contoso 管理]。
+1. 按一下右上角的功能表，然後選取 [Contoso 管理]。
 
     > [!NOTE] 
     > Contoso 只是一個範例。 這應該是您實際的公司名稱。 
 
     ![設定單一登入](./media/scalexenterprise-tutorial/Test_Admin.png) 
 
-10. 從頂端功能表選取 [整合]，然後選取 [單一登入]。
+1. 從頂端功能表選取 [整合]，然後選取 [單一登入]。
 
     ![設定單一登入](./media/scalexenterprise-tutorial/admin_sso.png) 
 
-11. 完成表單，如下所示：
+1. 完成表單，如下所示：
 
     ![設定單一登入](./media/scalexenterprise-tutorial/scalex_admin_save.png) 
     
@@ -197,15 +197,15 @@ ScaleX Enterprise 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/scalexenterprise-tutorial/create_aaduser_01.png) 
 
-2. 移至 [使用者和群組]，然後按一下 [所有使用者] 以顯示使用者清單。
+1. 移至 [使用者和群組]，然後按一下 [所有使用者] 以顯示使用者清單。
     
     ![建立 Azure AD 測試使用者](./media/scalexenterprise-tutorial/create_aaduser_02.png) 
 
-3. 在對話方塊的頂端，按一下 [新增] 以開啟 [使用者] 對話方塊。
+1. 在對話方塊的頂端，按一下 [新增] 以開啟 [使用者] 對話方塊。
  
     ![建立 Azure AD 測試使用者](./media/scalexenterprise-tutorial/create_aaduser_03.png) 
 
-4. 在 [使用者]  對話頁面上，執行下列步驟：
+1. 在 [使用者]  對話頁面上，執行下列步驟：
  
     ![建立 Azure AD 測試使用者](./media/scalexenterprise-tutorial/create_aaduser_04.png) 
 
@@ -233,23 +233,23 @@ ScaleX Enterprise 與 Azure AD 整合提供下列優點：
 
     ![指派使用者][201] 
 
-2. 在應用程式清單中，選取 [ScaleX Enterprise]。
+1. 在應用程式清單中，選取 [ScaleX Enterprise]。
 
     ![設定單一登入](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_app.png) 
 
-3. 在左側功能表中，按一下 [使用者和群組]。
+1. 在左側功能表中，按一下 [使用者和群組]。
 
     ![指派使用者][202] 
 
-4. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
+1. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
 
     ![指派使用者][203]
 
-5. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
+1. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
 
-6. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
+1. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
 
-7. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
+1. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
 
 ### <a name="testing-single-sign-on"></a>測試單一登入
 

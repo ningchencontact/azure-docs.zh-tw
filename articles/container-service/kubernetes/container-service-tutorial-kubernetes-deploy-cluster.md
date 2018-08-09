@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 29a5cc67ab4d515809d00e5f0b4277f95bfb08e6
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 8403e5d8dd3bad07e412b08709dcb8c28201bcdf
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100163"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434419"
 ---
 # <a name="deploy-a-kubernetes-cluster-in-azure-container-service"></a>在 Azure Container Service 中部署 Kubernetes 叢集
 
@@ -35,7 +35,7 @@ Kubernetes 會提供容器化應用程式的分散式平台。 透過 Azure Cont
 
 ## <a name="create-kubernetes-cluster"></a>建立 Kubernetes 叢集
 
-使用 [az acs create](/cli/azure/acs#az_acs_create) 命令，在 Azure Container Service 中建立 Kubernetes 叢集。 
+使用 [az acs create](/cli/azure/acs#az-acs-create) 命令，在 Azure Container Service 中建立 Kubernetes 叢集。 
 
 下列範例會在名為 `myResourceGroup` 的資源群組中，建立名為 `myK8sCluster` 的叢集。 我們已在[先前的教學課程](./container-service-tutorial-kubernetes-prepare-acr.md)中建立此資源群組。
 
@@ -43,7 +43,7 @@ Kubernetes 會提供容器化應用程式的分散式平台。 透過 Azure Cont
 az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8SCluster --generate-ssh-keys 
 ```
 
-在有限試用之類的某些情況下，Azure 訂用帳戶只擁有 Azure 資源的有限存取權。 如果部署因可用核心受限而失敗，請將 `--agent-count 1` 加入 [az acs create](/cli/azure/acs#az_acs_create) 命令來減少預設代理程式的數量。 
+在有限試用之類的某些情況下，Azure 訂用帳戶只擁有 Azure 資源的有限存取權。 如果部署因可用核心受限而失敗，請將 `--agent-count 1` 加入 [az acs create](/cli/azure/acs#az-acs-create) 命令來減少預設代理程式的數量。 
 
 幾分鐘之後，部署就會完成，並以 json 格式傳回 ACS 部署的相關資訊。
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: a4ea4272b11c167d95840b45b39634abea8c1cea
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b2d5acfcb722845d7f346668597c073319f273f0
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051593"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448779"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-recognize"></a>教學課程：Azure Active Directory 與 Recognize 整合
 
@@ -52,7 +52,7 @@ ms.locfileid: "39051593"
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Recognize
-2. 設定並測試 Azure AD 單一登入
+1. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-recognize-from-the-gallery"></a>從資源庫新增 Recognize
 若要設定將 Recognize 整合至 Azure AD，您必須將資源庫中的 Recognize 新增至您的受控 SaaS 應用程式清單中。
@@ -63,19 +63,19 @@ ms.locfileid: "39051593"
 
     ![Active Directory][1]
 
-2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
+1. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![[應用程式]][2]
     
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+1. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![[應用程式]][3]
 
-4. 在搜尋方塊中輸入 **Recognize**。
+1. 在搜尋方塊中輸入 **Recognize**。
 
     ![建立 Azure AD 測試使用者](./media/recognize-tutorial/tutorial_recognize_search.png)
 
-5. 在結果面板中，選取 [Recognize]，然後按一下 [新增] 按鈕以新增應用程式。
+1. 在結果面板中，選取 [Recognize]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/recognize-tutorial/tutorial_recognize_addfromgallery.png)
 
@@ -89,10 +89,10 @@ ms.locfileid: "39051593"
 若要使用 Recognize 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 Recognize 測試使用者](#creating-a-recognize-test-user)** - 使 Recognize 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
-4. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
+1. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
+1. **[建立 Recognize 測試使用者](#creating-a-recognize-test-user)** - 使 Recognize 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
+1. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+1. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -104,11 +104,11 @@ ms.locfileid: "39051593"
 
     ![設定單一登入][4]
 
-2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
+1. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
  
     ![設定單一登入](./media/recognize-tutorial/tutorial_recognize_samlbase.png)
 
-3. 在 [Recognize 網域及 URL] 區段中，執行下列步驟：
+1. 在 [Recognize 網域及 URL] 區段中，執行下列步驟：
 
     ![設定單一登入](./media/recognize-tutorial/tutorial_recognize_url.png)
 
@@ -119,29 +119,29 @@ ms.locfileid: "39051593"
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Recognize 客戶支援小組](mailto:support@recognizeapp.com)以取得登入 URL，而且您可以從 [SSO 設定] 區段 (本教學課程稍後會說明) 中開啟 [服務提供者中繼資料 URL] 以取得識別碼值。 . 
  
-4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
+1. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
     ![設定單一登入](./media/recognize-tutorial/tutorial_recognize_certificate.png) 
 
-5. 按一下 [儲存]  按鈕。
+1. 按一下 [儲存]  按鈕。
 
     ![設定單一登入](./media/recognize-tutorial/tutorial_general_400.png)
 
-6. 在 [Recognize 組態] 區段上，按一下 [設定 Recognize] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
+1. 在 [Recognize 組態] 區段上，按一下 [設定 Recognize] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
 
     ![設定單一登入](./media/recognize-tutorial/tutorial_recognize_configure.png) 
 
-7. 在不同的網頁瀏覽器視窗中，以管理員身分登入您的 Recognize 租用戶。
+1. 在不同的網頁瀏覽器視窗中，以管理員身分登入您的 Recognize 租用戶。
 
-8. 按一下右上角的 [功能表]。 移至 [Company Admin] (公司管理員)。
+1. 按一下右上角的 [功能表]。 移至 [Company Admin] (公司管理員)。
    
     ![在應用程式端設定單一登入](./media/recognize-tutorial/tutorial_recognize_000.png)
 
-9. 在左側的導覽窗格上，按一下 [設定] 。
+1. 在左側的導覽窗格上，按一下 [設定] 。
    
     ![在應用程式端設定單一登入](./media/recognize-tutorial/tutorial_recognize_001.png)
 
-10. 在 [SSO Settings] \(SSO 設定) 區段下執行下列步驟。
+1. 在 [SSO Settings] \(SSO 設定) 區段下執行下列步驟。
    
     ![在應用程式端設定單一登入](./media/recognize-tutorial/tutorial_recognize_002.png)
     
@@ -157,11 +157,11 @@ ms.locfileid: "39051593"
     
     f. 按一下 [儲存設定]  按鈕。 
 
-11. 在 [SSO Settings] 區段中，複製 [Service Provider Metadata url] 下方的 URL。
+1. 在 [SSO Settings] 區段中，複製 [Service Provider Metadata url] 下方的 URL。
    
     ![在應用程式端設定單一登入](./media/recognize-tutorial/tutorial_recognize_003.png)
 
-12. 在空白瀏覽器下方開啟**中繼資料 URL 連結**，以下載中繼資料文件。 然後，從檔案中複製 EntityDescriptor 值 (entityID) 值，然後貼到 Azure 入口網站中 [Recognize 網域及 URL] 區段的 [識別碼] 文字方塊中。
+1. 在空白瀏覽器下方開啟**中繼資料 URL 連結**，以下載中繼資料文件。 然後，從檔案中複製 EntityDescriptor 值 (entityID) 值，然後貼到 Azure 入口網站中 [Recognize 網域及 URL] 區段的 [識別碼] 文字方塊中。
     
     ![在應用程式端設定單一登入](./media/recognize-tutorial/tutorial_recognize_004.png)
 
@@ -180,15 +180,15 @@ ms.locfileid: "39051593"
 
     ![建立 Azure AD 測試使用者](./media/recognize-tutorial/create_aaduser_01.png) 
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+1. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
     
     ![建立 Azure AD 測試使用者](./media/recognize-tutorial/create_aaduser_02.png) 
 
-3. 若要開啟 [使用者] 對話方塊，按一下對話方塊頂端的 [新增]。
+1. 若要開啟 [使用者] 對話方塊，按一下對話方塊頂端的 [新增]。
  
     ![建立 Azure AD 測試使用者](./media/recognize-tutorial/create_aaduser_03.png) 
 
-4. 在 [使用者]  對話頁面上，執行下列步驟：
+1. 在 [使用者]  對話頁面上，執行下列步驟：
  
     ![建立 Azure AD 測試使用者](./media/recognize-tutorial/create_aaduser_04.png) 
 
@@ -210,11 +210,11 @@ ms.locfileid: "39051593"
 
 1. 以管理員身分登入您的 Recognize 公司網站。
 
-2. 按一下右上角的 [功能表]。 移至 [Company Admin] \(公司管理員)。
+1. 按一下右上角的 [功能表]。 移至 [Company Admin] \(公司管理員)。
 
-3. 在左側的導覽窗格上，按一下 [設定] 。
+1. 在左側的導覽窗格上，按一下 [設定] 。
 
-4. 在 [使用者同步處理] 區段中執行下列步驟。
+1. 在 [使用者同步處理] 區段中執行下列步驟。
    
    ![新增使用者](./media/recognize-tutorial/tutorial_recognize_005.png "新增使用者")
    
@@ -236,23 +236,23 @@ ms.locfileid: "39051593"
 
     ![指派使用者][201] 
 
-2. 在應用程式清單中，選取 [Recognize] 。
+1. 在應用程式清單中，選取 [Recognize] 。
 
     ![設定單一登入](./media/recognize-tutorial/tutorial_recognize_app.png) 
 
-3. 在左側功能表中，按一下 [使用者和群組]。
+1. 在左側功能表中，按一下 [使用者和群組]。
 
     ![指派使用者][202] 
 
-4. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
+1. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
 
     ![指派使用者][203]
 
-5. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
+1. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
 
-6. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
+1. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
 
-7. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
+1. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
     
 ### <a name="testing-single-sign-on"></a>測試單一登入
 

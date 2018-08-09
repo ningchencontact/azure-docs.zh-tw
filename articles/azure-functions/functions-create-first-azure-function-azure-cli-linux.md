@@ -11,12 +11,12 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: 49931155339660fc7a0a39f5b60dc9443374b8b0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f4285b3e02176f6f734e6de4d02d3c9c26e5524c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38467776"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429708"
 ---
 # <a name="create-your-first-function-running-on-linux-using-the-azure-cli-preview"></a>使用 Azure CLI 建立第一個在 Linux 上執行的函式 (預覽)
 
@@ -26,7 +26,7 @@ Azure Functions 可讓您在 Linux 上預設的 Azure App Service 容器中裝�
 
 下列步驟適用於 Mac、Windows 或 Linux 電腦。 
 
-## <a name="prerequisites"></a>先決條件 
+## <a name="prerequisites"></a>必要條件 
 
 若要完成本快速入門，您需要：
 
@@ -50,7 +50,7 @@ Azure Functions 可讓您在 Linux 上預設的 Azure App Service 容器中裝�
 
 ## <a name="create-a-function-app-on-linux"></a>在 Linux 上建立函式應用程式
 
-您必須擁有函式應用程式以便在 Linux 上主控函式的執行。 函式應用程式會提供環境來讓您的函式程式碼進行執行。 它可讓您將多個函式群組為邏輯單位，以方便您管理、部署和共用資源。 使用 [az functionapp create](/cli/azure/functionapp#az_functionapp_create) 命令與 Linux App Service 方案來建立函式應用程式。 
+您必須擁有函式應用程式以便在 Linux 上主控函式的執行。 函式應用程式會提供環境來讓您的函式程式碼進行執行。 它可讓您將多個函式群組為邏輯單位，以方便您管理、部署和共用資源。 使用 [az functionapp create](/cli/azure/functionapp#az-functionapp-create) 命令與 Linux App Service 方案來建立函式應用程式。 
 
 在下列命令中，使用唯一函式應用程式名稱來替代您看見 `<app_name>` 預留位置的地方，並使用儲存體帳戶名稱來替代 `<storage_name>`。 `<app_name>` 會作為函式應用程式的預設 DNS 網域，所以此名稱在 Azure 的所有應用程式中都必須是唯一的名稱。 _deployment-source-url_ 參數是 GitHub 中的範例存放庫，其中包含 "Hello World" HTTP 觸發函式。
 

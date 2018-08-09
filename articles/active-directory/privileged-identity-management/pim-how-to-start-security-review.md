@@ -9,16 +9,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: protection
+ms.component: pim
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 3ead2fe01c932c76a83e989d8908de4c9bfa541b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0c6c1d48d0a78781528b08b3c1d1e9438bf865ee
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38506418"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617348"
 ---
 # <a name="how-to-start-an-access-review-in-azure-ad-privileged-identity-management"></a>如何在 Azure AD Privileged Identity Management 中開始存取權檢閱
 當使用者擁有不再需要的特殊存取權時，角色指派就會變成「過時」。 為了降低與這些過時角色指派相關聯的風險，特殊權限角色管理員或全域管理員應該定期建立存取檢閱，要求管理員檢閱使用者獲派的角色。 本文件涵蓋在 Azure AD Privileged Identity Management (PIM) 中開始存取權檢閱的步驟。

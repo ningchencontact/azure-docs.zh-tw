@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/19/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 5cd4ce6b04f9257de13aad6e59eb772fbe2fa558
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 8dfec4c30a9610d8f30ceea131ebd7d2e1d64aa1
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31789294"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432723"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>教學課程：使用 Azure Batch 轉譯場景 
 
@@ -31,19 +31,19 @@ Azure Batch 提供了按使用次數付費的雲端規模轉譯功能。 Batch �
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 此教學課程中的範例 3ds Max 場景 (連同範例 Bash 指令碼和 JSON 設定檔) 位於 [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene) 上。 3ds Max 場景來自 [Autodesk 3ds Max 範例檔案](http://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe)。 (在 Creative Commons Attribution-NonCommercial-Share Alike 授權之下可取得 Autodesk 3ds Max 範例檔案。 Copyright © Autodesk, Inc.)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.20 版或更新版本。 執行 `az --version` 以找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。
+如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.20 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。
 
 ## <a name="create-a-batch-account"></a>建立批次帳戶：
 
 如果您還沒有 Batch 帳戶，請在您的訂用帳戶中建立資源群組、Batch 帳戶，以及已連結的儲存體帳戶。 
 
-使用 [az group create](/cli/azure/group#az_group_create) 命令來建立資源群組。 下列範例會在 eastus2 位置建立名為 myResourceGroup 的資源群組。
+使用 [az group create](/cli/azure/group#az-group-create) 命令來建立資源群組。 下列範例會在 eastus2 位置建立名為 myResourceGroup 的資源群組。
 
 ```azurecli-interactive 
 az group create \
@@ -51,7 +51,7 @@ az group create \
     --location eastus2
 ```
 
-使用 [az storage account create](/cli/azure/storage/account#az_storage_account_create) 命令在資源群組中建立 Azure 儲存體帳戶。 在本教學課程中，您會使用此儲存體帳戶來存放輸入 3ds Max 場景和已轉譯的輸出。
+使用 [az storage account create](/cli/azure/storage/account#az-storage-account-create) 命令在資源群組中建立 Azure 儲存體帳戶。 在本教學課程中，您會使用此儲存體帳戶來存放輸入 3ds Max 場景和已轉譯的輸出。
 
 ```azurecli-interactive
 az storage account create \
@@ -60,7 +60,7 @@ az storage account create \
     --location eastus2 \
     --sku Standard_LRS
 ```
-使用 [az batch account create](/cli/azure/batch/account#az_batch_account_create) 命令建立 Batch 帳戶。 下列範例會在 myResourceGroup 中建立名為 mybatchaccount 的 Batch 帳戶，並連結您所建立的儲存體帳戶。  
+使用 [az batch account create](/cli/azure/batch/account#az-batch-account-create) 命令建立 Batch 帳戶。 下列範例會在 myResourceGroup 中建立名為 mybatchaccount 的 Batch 帳戶，並連結您所建立的儲存體帳戶。  
 
 ```azurecli-interactive 
 az batch account create \
@@ -70,7 +70,7 @@ az batch account create \
     --location eastus2
 ```
 
-若要建立及管理計算集區和作業，您需要向 Batch 進行驗證。 使用 [az batch account login](/cli/azure/batch/account#az_batch_account_login) 命令登入帳戶。 登入之後，`az batch` 命令會使用此帳戶內容。 下列範例會根據 Batch 帳戶名稱和金鑰，使用共用金鑰驗證。 Batch 也支援透過 [Azure Active Directory](batch-aad-auth.md) 進行驗證，以便驗證個別使用者或自動執行的應用程式。
+若要建立及管理計算集區和作業，您需要向 Batch 進行驗證。 使用 [az batch account login](/cli/azure/batch/account#az-batch-account-login) 命令登入帳戶。 登入之後，`az batch` 命令會使用此帳戶內容。 下列範例會根據 Batch 帳戶名稱和金鑰，使用共用金鑰驗證。 Batch 也支援透過 [Azure Active Directory](batch-aad-auth.md) 進行驗證，以便驗證個別使用者或自動執行的應用程式。
 
 ```azurecli-interactive 
 az batch account login \
@@ -80,7 +80,7 @@ az batch account login \
 ```
 ## <a name="upload-a-scene-to-storage"></a>將場景上傳至儲存體
 
-若要將輸入場景上傳至儲存體，您必須先存取儲存體帳戶，並建立 blob 的目的地容器。 若要存取 Azure 儲存體帳戶，請匯出 `AZURE_STORAGE_KEY` 和 `AZURE_STORAGE_ACCOUNT` 環境變數。 第一個 Bash Shell 命令會使用 [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) 命令來取得第一個帳戶金鑰。 設定這些環境變數之後，您的儲存體命令就會使用此帳戶內容。
+若要將輸入場景上傳至儲存體，您必須先存取儲存體帳戶，並建立 blob 的目的地容器。 若要存取 Azure 儲存體帳戶，請匯出 `AZURE_STORAGE_KEY` 和 `AZURE_STORAGE_ACCOUNT` 環境變數。 第一個 Bash Shell 命令會使用 [az storage account keys list](/cli/azure/storage/account/keys#az-storage-account-keys-list) 命令來取得第一個帳戶金鑰。 設定這些環境變數之後，您的儲存體命令就會使用此帳戶內容。
 
 ```azurecli-interactive
 export AZURE_STORAGE_KEY=$(az storage account keys list --account-name mystorageaccount --resource-group myResourceGroup -o tsv --query [0].value)
@@ -88,7 +88,7 @@ export AZURE_STORAGE_KEY=$(az storage account keys list --account-name mystorage
 export AZURE_STORAGE_ACCOUNT=mystorageaccount
 ```
 
-現在，在儲存體帳戶中建立場景檔案的 Blob 容器。 下列範例會使用 [az storage container create](/cli/azure/storage/container#az_storage_container_create) 命令建立名為 scenefiles 且允許公用讀取存取的 blob 容器。
+現在，在儲存體帳戶中建立場景檔案的 Blob 容器。 下列範例會使用 [az storage container create](/cli/azure/storage/container#az-storage-container-create) 命令建立名為 scenefiles 且允許公用讀取存取的 blob 容器。
 
 ```azurecli-interactive
 az storage container create \
@@ -102,7 +102,7 @@ az storage container create \
 wget -O MotionBlur-DragonFlying.max https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max
 ```
 
-將本機工作目錄中的場景檔案上傳到 blob 容器。 下列範例會使用 [az storage blob upload-batch](/cli/azure/storage/blob#az_storage_blob_upload_batch) 命令，該命令可以上傳多個檔案：
+將本機工作目錄中的場景檔案上傳到 blob 容器。 下列範例會使用 [az storage blob upload-batch](/cli/azure/storage/blob#az-storage-blob-upload-batch) 命令，該命令可以上傳多個檔案：
 
 ```azurecli-interactive
 az storage blob upload-batch \
@@ -112,7 +112,7 @@ az storage blob upload-batch \
 
 ## <a name="create-a-rendering-pool"></a>建立轉譯集區
 
-使用 [az batch pool create](/cli/azure/batch/pool#az_batch_pool_create) 命令建立 Batch 集區以供轉譯。 在此範例中，您會在 JSON 檔案中指定集區設定。 在您目前的 Shell 中，建立名為 mypool.json 的檔案，然後複製並貼上下列內容。 請務必正確地複製所有文字。 (您可以從 [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/mypool.json) 下載此檔案。)
+使用 [az batch pool create](/cli/azure/batch/pool#az-batch-pool-create) 命令建立 Batch 集區以供轉譯。 在此範例中，您會在 JSON 檔案中指定集區設定。 在您目前的 Shell 中，建立名為 mypool.json 的檔案，然後複製並貼上下列內容。 請務必正確地複製所有文字。 (您可以從 [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/mypool.json) 下載此檔案。)
 
 
 ```json
@@ -148,7 +148,7 @@ Batch 支援專用節點和[低優先順序節點](batch-low-pri-vms.md)，而�
 az batch pool create \
     --json-file mypool.json
 ``` 
-佈建集區需要幾分鐘的時間。 若要查看集區的狀態，請執行 [az batch pool show](/cli/azure/batch/pool#az_batch_pool_show) 命令。 下列命令可取得集區的配置狀態：
+佈建集區需要幾分鐘的時間。 若要查看集區的狀態，請執行 [az batch pool show](/cli/azure/batch/pool#az-batch-pool-show) 命令。 下列命令可取得集區的配置狀態：
 
 ```azurecli-interactive
 az batch pool show \
@@ -160,7 +160,7 @@ az batch pool show \
 
 ## <a name="create-a-blob-container-for-output"></a>建立輸入的 Blob 容器
 
-在本教學課程的範例中，轉譯作業中的每項工作都會建立輸出檔案。 在排程作業之前，請在您的儲存體帳戶中建立 blob 容器作為輸出檔案的目的地。 下列範例會使用 [az storage container create](/cli/azure/storage/container#az_storage_container_create) 命令建立具有公用讀取存取權的 job-myrenderjob 容器。 
+在本教學課程的範例中，轉譯作業中的每項工作都會建立輸出檔案。 在排程作業之前，請在您的儲存體帳戶中建立 blob 容器作為輸出檔案的目的地。 下列範例會使用 [az storage container create](/cli/azure/storage/container#az-storage-container-create) 命令建立具有公用讀取存取權的 job-myrenderjob 容器。 
 
 ```azurecli-interactive
 az storage container create \
@@ -168,7 +168,7 @@ az storage container create \
     --name job-myrenderjob
 ```
 
-為了將輸出檔案寫入容器，Batch 需要使用共用存取簽章 (SAS) 權杖。 使用 [az storage account generate-sas](/cli/azure/storage/account#az_storage_account_generate_sas) 命令建立權杖。 此範例會建立可寫入帳戶中任何 blob 容器的權杖，而該權杖會在 2018 年 11 月 15 日到期：
+為了將輸出檔案寫入容器，Batch 需要使用共用存取簽章 (SAS) 權杖。 使用 [az storage account generate-sas](/cli/azure/storage/account#az-storage-account-generate-sas) 命令建立權杖。 此範例會建立可寫入帳戶中任何 blob 容器的權杖，而該權杖會在 2018 年 11 月 15 日到期：
 
 ```azurecli-interactive
 az storage account generate-sas \
@@ -188,7 +188,7 @@ se=2018-11-15&sp=rw&sv=2017-04-17&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ### <a name="create-a-job"></a>建立工作
 
-使用 [az batch job create](/cli/azure/batch/job#az_batch_job_create) 命令建立要在集區上執行的轉譯作業。 一開始作業沒有任何工作。
+使用 [az batch job create](/cli/azure/batch/job#az-batch-job-create) 命令建立要在集區上執行的轉譯作業。 一開始作業沒有任何工作。
 
 ```azurecli-interactive
 az batch job create \
@@ -198,7 +198,7 @@ az batch job create \
 
 ### <a name="create-a-task"></a>建立工作
 
-使用 [az batch task create](/cli/azure/batch/task#az_batch_task_create) 命令在作業中建立轉譯工作。 在此範例中，您會在 JSON 檔案中指定工作設定。 在您目前的 Shell 中，建立名為 myrendertask.json 的檔案，然後複製並貼上下列內容。 請務必正確地複製所有文字。 (您可以從 [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask.json) 下載此檔案。)
+使用 [az batch task create](/cli/azure/batch/task#az-batch-task-create) 命令在作業中建立轉譯工作。 在此範例中，您會在 JSON 檔案中指定工作設定。 在您目前的 Shell 中，建立名為 myrendertask.json 的檔案，然後複製並貼上下列內容。 請務必正確地複製所有文字。 (您可以從 [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask.json) 下載此檔案。)
 
 此工作會指定 3ds Max 命令，以轉譯 MotionBlur-DragonFlying.max 場景的單一框架。
 
@@ -256,7 +256,7 @@ Batch 會排程工作，而集區中的節點一旦可用，此工作就會執�
 
 ### <a name="view-task-output"></a>檢視工作輸出
 
-此工作需花費數分鐘的時間來執行。 使用 [az batch task show](/cli/azure/batch/task#az_batch_task_show) 命令來檢視工作的詳細資訊。
+此工作需花費數分鐘的時間來執行。 使用 [az batch task show](/cli/azure/batch/task#az-batch-task-show) 命令來檢視工作的詳細資訊。
 
 ```azurecli-interactive
 az batch task show \
@@ -264,7 +264,7 @@ az batch task show \
     --task-id myrendertask
 ```
 
-此工作會在計算節點上產生 dragon0001.jpg，並將它上傳至您儲存體帳戶中的 job-myrenderjob 容器。 若要檢視輸出，請使用 [az storage blob download](/cli/azure/storage/blob#az_storage_blob_download) 命令，將此檔案從儲存體下載到您的本機電腦。
+此工作會在計算節點上產生 dragon0001.jpg，並將它上傳至您儲存體帳戶中的 job-myrenderjob 容器。 若要檢視輸出，請使用 [az storage blob download](/cli/azure/storage/blob#az-storage-blob-download) 命令，將此檔案從儲存體下載到您的本機電腦。
 
 ```azurecli-interactive
 az storage blob download \
@@ -281,7 +281,7 @@ az storage blob download \
 
 ## <a name="scale-the-pool"></a>調整集區
 
-立即修改集區，以準備進行較大型的轉譯作業(具有多個框架)。 Batch 提供數種方式來調整計算資源，包括[自動調整](batch-automatic-scaling.md)，此種方式會隨著工作需求變化來新增或移除節點。 在此基本範例中，使用 [az batch pool resize](/cli/azure/batch/pool#az_batch_pool_resize) 命令，將集區中的低優先順序節點數目增加至 6：
+立即修改集區，以準備進行較大型的轉譯作業(具有多個框架)。 Batch 提供數種方式來調整計算資源，包括[自動調整](batch-automatic-scaling.md)，此種方式會隨著工作需求變化來新增或移除節點。 在此基本範例中，使用 [az batch pool resize](/cli/azure/batch/pool#az-batch-pool-resize) 命令，將集區中的低優先順序節點數目增加至 6：
 
 ```azurecli-interactive
 az batch pool resize --pool-id myrenderpool --target-dedicated-nodes 0 --target-low-priority-nodes 6
@@ -291,7 +291,7 @@ az batch pool resize --pool-id myrenderpool --target-dedicated-nodes 0 --target-
 
 ## <a name="render-a-multiframe-scene"></a>轉譯多框架場景
 
-如同在單一框架的範例中，使用 [az batch task create](/cli/azure/batch/task#az_batch_task_create) 命令，在名為 myrenderjob 的作業中建立轉譯工作。 在此，請在名為 myrendertask_multi.json 的 JSON 檔案中指定工作設定。 (您可以從 [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json) 下載此檔案。)這六項工作會各自指定 Arnold 命令列，以轉譯 3ds Max 場景 MotionBlur-DragonFlying.max 的一個框架。
+如同在單一框架的範例中，使用 [az batch task create](/cli/azure/batch/task#az-batch-task-create) 命令，在名為 myrenderjob 的作業中建立轉譯工作。 在此，請在名為 myrendertask_multi.json 的 JSON 檔案中指定工作設定。 (您可以從 [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json) 下載此檔案。)這六項工作會各自指定 Arnold 命令列，以轉譯 3ds Max 場景 MotionBlur-DragonFlying.max 的一個框架。
 
 在您目前的 Shell 中，建立名為 myrendertask_multi.json 的檔案，然後複製並貼上所下載檔案的內容。 修改 JSON 檔案中的 `blobSource` 和 `containerURL` 元素，使其包含您的儲存體帳戶名稱和 SAS 權杖。 請務必變更這六項工作各自的設定。 儲存檔案，然後執行下列命令以將工作排入佇列：
 
@@ -301,7 +301,7 @@ az batch task create --job-id myrenderjob --json-file myrendertask_multi.json
 
 ### <a name="view-task-output"></a>檢視工作輸出
 
-此工作需花費數分鐘的時間來執行。 使用 [az batch task list](/cli/azure/batch/task#az_batch_task_list) 命令來檢視工作的狀態。 例如︰
+此工作需花費數分鐘的時間來執行。 使用 [az batch task list](/cli/azure/batch/task#az-batch-task-list) 命令來檢視工作的狀態。 例如︰
 
 ```azurecli-interactive
 az batch task list \
@@ -309,7 +309,7 @@ az batch task list \
     --output table
 ```
 
-使用 [az batch task show](/cli/azure/batch/task#az_batch_task_show) 命令來檢視個別工作的詳細資訊。 例如︰
+使用 [az batch task show](/cli/azure/batch/task#az-batch-task-show) 命令來檢視個別工作的詳細資訊。 例如︰
 
 ```azurecli-interactive
 az batch task show \
@@ -317,7 +317,7 @@ az batch task show \
     --task-id mymultitask1
 ```
  
-此工作會在計算節點上產生名為 dragon0002.jpg - dragon0007.jpg 的輸出檔案，並將它們上傳至您儲存體帳戶中的 job-myrenderjob 容器。 若要檢視輸出，請使用 [az storage blob download-batch](/cli/azure/storage/blob#az_storage_blob_download_batch) 命令，將檔案下載到本機電腦上的資料夾。 例如︰
+此工作會在計算節點上產生名為 dragon0002.jpg - dragon0007.jpg 的輸出檔案，並將它們上傳至您儲存體帳戶中的 job-myrenderjob 容器。 若要檢視輸出，請使用 [az storage blob download-batch](/cli/azure/storage/blob#az-storage-blob-download_batch) 命令，將檔案下載到本機電腦上的資料夾。 例如︰
 
 ```azurecli-interactive
 az storage blob download-batch \
@@ -332,7 +332,7 @@ az storage blob download-batch \
 
 ## <a name="clean-up-resources"></a>清除資源
 
-若不再需要，您可以使用 [az group delete](/cli/azure/group#az_group_delete) 命令將資源群組、Batch 帳戶、集區和所有相關資源移除。 刪除資源，如下所示：
+若不再需要，您可以使用 [az group delete](/cli/azure/group#az-group-delete) 命令將資源群組、Batch 帳戶、集區和所有相關資源移除。 刪除資源，如下所示：
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

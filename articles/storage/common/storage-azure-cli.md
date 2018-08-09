@@ -2,24 +2,19 @@
 title: 使用 Azure CLI 2.0 搭配 Azure 儲存體 | Microsoft Docs
 description: 了解如何使用「Azure 命令列介面」(Azure CLI) 2.0 搭配「Azure 儲存體」來建立和管理儲存體帳戶，以及處理 Azure Blob 和檔案。 Azure CLI 2.0 是一種以 Python 撰寫的跨平台工具。
 services: storage
-documentationcenter: na
 author: roygara
-manager: jeconnoc
-editor: tysonn
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
-ms.openlocfilehash: b7cb8b1ca2f377964f3613ad8e0549418cb2abec
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: common
+ms.openlocfilehash: 12b383267cb90d9305043b52450572add0c1c202
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131866"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527485"
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>使用 Azure CLI 2.0 搭配 Azure 儲存體
 
@@ -31,7 +26,7 @@ ms.locfileid: "37131866"
 
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 本指南假設您已了解 Azure 儲存體的基本概念。 而且假設您可以滿足針對 Azure 和儲存體服務所指定的帳戶建立需求。
 
 ### <a name="accounts"></a>帳戶

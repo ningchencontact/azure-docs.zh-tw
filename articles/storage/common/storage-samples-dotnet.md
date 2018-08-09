@@ -2,24 +2,19 @@
 title: 使用 .NET 的 Azure 儲存體範例 | Microsoft Docs
 description: 檢視、下載及執行 Azure 儲存體的範例程式碼和應用程式。 探索使用 .NET 儲存體用戶端程式庫之 Blob、佇列、資料表和檔案的入門範例。
 services: storage
-documentationcenter: na
 author: seguler
-manager: jahogg
-editor: tysonn
-ms.assetid: ''
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 ms.date: 01/12/2017
 ms.author: seguler
-ms.openlocfilehash: 1e6973f0decc448657d869afb8823dd03c62d272
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: common
+ms.openlocfilehash: 663df77a7fb574f05cfaa9378dff53ca5db21c49
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32191242"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526104"
 ---
 # <a name="azure-storage-samples-using-net"></a>使用 .NET 的 Azure 儲存體範例
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 01d4f3873c854776078986918e6ece55017c9193
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: d5b3bf62999c197c437e55a66ee6ba935bdc6ea8
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917467"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39428525"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Azure Site Recovery 部署規劃工具的成本估計報告 
 
@@ -105,7 +105,7 @@ DR 總成本是根據兩個不同的狀態來分類的：複寫和 DR 演練。
 
 1. 選取 [插入資料列]，在 [開始] 與 [結束] 資料列之間插入新資料列。
 
-2. 根據符合此組態的約略 VM 大小和 VM 數目，填入下列資料行： 
+1. 根據符合此組態的約略 VM 大小和 VM 數目，填入下列資料行： 
 
     a. **VM 數目**
 
@@ -125,9 +125,9 @@ DR 總成本是根據兩個不同的狀態來分類的：複寫和 DR 演練。
 
     i. **Azure Hybrid Use Benefit**
 
-3. 針對 [一年中的 DR 演練次數]、[每次 DR 演練持續時間 (天)]、[資料備援] 及 [Azure Hybrid Use Benefit]，選取 [全部套用]，即可將同一個值套用至表格中的所有 VM。
+1. 針對 [一年中的 DR 演練次數]、[每次 DR 演練持續時間 (天)]、[資料備援] 及 [Azure Hybrid Use Benefit]，選取 [全部套用]，即可將同一個值套用至表格中的所有 VM。
 
-4. 選取 [重新計算成本] 以更新成本。
+1. 選取 [重新計算成本] 以更新成本。
 
 **VM 名稱**：VM 的名稱。
 

@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 08/03/2018
 ms.author: diberry
-ms.openlocfilehash: 80f2d482a660992011549fe8dc76a09740da6ab1
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 2fd473226dca2576be79b90bc05d66599f759713
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237820"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524139"
 ---
 # <a name="tutorial-improve-app-with-pattern-roles"></a>教學課程：使用模式角色來改善應用程式
 
@@ -27,7 +27,7 @@ ms.locfileid: "39237820"
 * 使用含有角色的簡單實體來建立適用於語句的模式
 * 如何確認模式預測改進情況
 
-在本文中，您需要免費 [LUIS](luis-reference-regions.md) 帳戶才能撰寫 LUIS 應用程式。
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>開始之前
 如果您沒有來自[模式](luis-tutorial-pattern.md)教學課程中的人力資源應用程式，請將 JSON [匯入](luis-how-to-start-new-app.md#import-new-app)到 [LUIS](luis-reference-regions.md#luis-website) 網站中的新應用程式。 您可以在 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-patterns-HumanResources-v2.json) GitHub 存放庫中找到要匯入的應用程式。
@@ -78,11 +78,11 @@ ms.locfileid: "39237820"
 
 2. 從左側瀏覽列中，選取 [實體]。 
 
-3. 選取 [建立新實體]。
+3. 選取 [Create new entity] \(建立新實體\)。
 
 4. 在快顯視窗中，輸入 `NewEmployee` 作為**簡單**實體。
 
-5. 選取 [建立新實體]。
+5. 選取 [Create new entity] \(建立新實體\)。
 
 6. 在快顯視窗中，輸入 `NewEmployeeRelocation` 作為**簡單**實體。
 
@@ -95,7 +95,7 @@ ms.locfileid: "39237820"
 ## <a name="create-new-intent"></a>建立新意圖
 如果預先建置的 keyPhrase 實體已在開始之前移除，接著在您完成本節中的步驟之後新增回來，則在這些步驟中標示實體可能比較簡單。 
 
-1. 從左側瀏覽窗格中，選取 [Intents] \(意圖\)。
+1. 從左側導覽窗格中，選取 [Intents] \(意圖\)。
 
 2. 選取 [Create new intent] \(建立新意圖\)。 
 
@@ -125,25 +125,18 @@ ms.locfileid: "39237820"
     如果您移除了 keyPhrase 實體，請立即將它新增回應用程式。
 
 ## <a name="train-the-luis-app"></a>進行 LUIS 應用程式定型
-新的意圖和語句需要定型。 
 
-1. 在 LUIS 網站的右上方，選取 [Train] \(定型\) 按鈕。
-
-2. 當您在網站頂端看到確認成功的綠色狀態列時，就表示定型完成。
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>發佈應用程式以取得端點 URL
-若要在 Chatbot 或其他應用程式中取得 LUIS 預測，您必須發佈應用程式。 
 
-1. 在 LUIS 網站的右上方，選取 [Publish] \(發佈\) 按鈕。 
-
-2. 選取 [Production] \(生產\) 位置和 [Publish] \(發佈\) 按鈕。
-
-3. 當您在網站頂端看到確認成功的綠色狀態列時，就表示發佈完成。
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-without-pattern"></a>不使用模式來查詢端點
-1. 在 [Publish] \(發佈\) 頁面上，選取頁面底部的**端點**連結。 此動作會開啟另一個瀏覽器視窗，其中網址列會顯示端點 URL。 
 
-2. 移至位址中的 URL 尾端並輸入 `Move Wayne Berry from Miami to Mount Vernon`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
+
+2. 移至位址中的 URL 結尾並輸入 `Move Wayne Berry from Miami to Mount Vernon`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 
 
     ```JSON
     {
@@ -256,11 +249,11 @@ ms.locfileid: "39237820"
     |Seattle|
     |San Diego|
     |New York City|
-    |Los Angeles|
+    |洛杉磯|
     |Portland|
     |Philadephia|
-    |Miami|
-    |Dallas|
+    |邁阿密|
+    |達拉斯|
 
     請勿新增世界上的每個城市，也不要新增區域中的每個城市。 LUIS 必須能夠從清單中推論出城市的概況。 
 
@@ -388,7 +381,8 @@ ms.locfileid: "39237820"
 意圖分數現在會高出許多，而且角色名稱為實體回應的一部分。
 
 ## <a name="clean-up-resources"></a>清除資源
-當不再需要 LUIS 應用程式時，請將其刪除。 若要執行此動作，請選取應用程式清單中應用程式名稱右邊的省略符號 (***...***)，然後選取 [刪除]。 在 [Delete app?] \(刪除應用程式?\) 快顯對話方塊上，選取 [Ok] \(確定\)。
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

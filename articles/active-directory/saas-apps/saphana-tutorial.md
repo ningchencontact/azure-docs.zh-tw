@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: c466e811d868403c59d6615882422996442d792a
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e498b0ca4b9efe09c2fe2f2bfcdcb3cc68b9c2c4
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045822"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39430248"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>教學課程：Azure Active Directory 與 SAP HANA 整合
 
@@ -55,7 +55,7 @@ ms.locfileid: "39045822"
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
 
 1. 從資源庫新增 SAP HANA
-2. 設定並測試 Azure AD 單一登入
+1. 設定並測試 Azure AD 單一登入
 
 ## <a name="add-sap-hana-from-the-gallery"></a>從資源庫新增 SAP Hana
 若要設定將 SAP Hana 整合到 Azure AD 中，請從資源庫將 SAP Hana 新增到受控 SaaS 應用程式清單。
@@ -66,15 +66,15 @@ ms.locfileid: "39045822"
 
     ![Azure Active Directory 按鈕][1]
 
-2. 移至 [企業應用程式]。 然後移至 [所有應用程式]。
+1. 移至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![企業應用程式刀鋒視窗][2]
     
-3. 若要新增新的應用程式，請選取對話方塊頂端的 [新增應用程式] 按鈕。
+1. 若要新增新的應用程式，請選取對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![新增應用程式按鈕][3]
 
-4. 在搜尋方塊中，輸入 **SAP Hana**。 然後從結果面板中選取 [SAP Hana]。 最後，選取 [新增] 按鈕以新增應用程式。 
+1. 在搜尋方塊中，輸入 **SAP Hana**。 然後從結果面板中選取 [SAP Hana]。 最後，選取 [新增] 按鈕以新增應用程式。 
 
     ![新的應用程式](./media/saphana-tutorial/tutorial_saphana_addfromgallery.png)
 
@@ -88,10 +88,10 @@ ms.locfileid: "39045822"
 若要使用 SAP Hana 設定及測試 Azure AD 單一登入，請完成下列建構元素：
 
 1. [設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)，讓您的使用者能夠使用此功能。
-2. [建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)，以使用 Britta Simon 測試 Azure AD 單一登入。
-3. [建立 SAP Hana 測試使用者](#creating-a-sap-hana-test-user)使 SAP Hana 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
-4. [指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)，讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. [測試單一登入](#testing-single-sign-on)，驗證設定是否能運作。
+1. [建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)，以使用 Britta Simon 測試 Azure AD 單一登入。
+1. [建立 SAP Hana 測試使用者](#creating-a-sap-hana-test-user)使 SAP Hana 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
+1. [指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)，讓 Britta Simon 能夠使用 Azure AD 單一登入。
+1. [測試單一登入](#testing-single-sign-on)，驗證設定是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -103,11 +103,11 @@ ms.locfileid: "39045822"
 
     ![設定單一登入][4]
 
-2. 在 [單一登入] 對話方塊中，於 [SAML 型登入] 下，選取 [模式]。
+1. 在 [單一登入] 對話方塊中，於 [SAML 型登入] 下，選取 [模式]。
  
     ![單一登入對話方塊](./media/saphana-tutorial/tutorial_saphana_samlbase.png)
 
-3. 在 [SAP Hana 網域與 URL] 區段上，執行下列步驟：
+1. 在 [SAP Hana 網域與 URL] 區段上，執行下列步驟：
 
     ![網域與 URL 單一登入資訊](./media/saphana-tutorial/tutorial_saphana_url.png)
 
@@ -118,35 +118,35 @@ ms.locfileid: "39045822"
     > [!NOTE] 
     > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [SAP Hana 客戶支援小組](https://cloudplatform.sap.com/contact.html)以取得這些值。 
 
-4. 在 [SAML 簽章憑證] 區段中，選取 [中繼資料 XML]。 然後，將中繼資料檔案儲存在您的電腦上。
+1. 在 [SAML 簽章憑證] 區段中，選取 [中繼資料 XML]。 然後，將中繼資料檔案儲存在您的電腦上。
 
     ![憑證下載連結](./media/saphana-tutorial/tutorial_saphana_certificate.png) 
 
     >[!Note]
     >如果憑證沒有作用，請選取 Azure AD 中的 [啟用新憑證] 核取方塊來啟用該憑證。 
 
-5. SAP Hana 應用程式需要特定格式的 SAML 判斷提示。 以下螢幕擷取畫面顯示了此格式的範例。 
+1. SAP Hana 應用程式需要特定格式的 SAML 判斷提示。 以下螢幕擷取畫面顯示了此格式的範例。 
 
     我們已將**使用者識別碼**對應至 **user.mail** 的 **ExtractMailPrefix()** 函數。 如此一來，使用者電子郵件的首碼值便會是唯一的使用者識別碼。 在每次成功的回應中，此使用者識別碼都會傳送至 SAP Hana 應用程式。
 
     ![設定單一登入](./media/saphana-tutorial/attribute.png)
 
-6. 在 [單一登入] 對話方塊的 [使用者屬性] 區段中，採取下列步驟：
+1. 在 [單一登入] 對話方塊的 [使用者屬性] 區段中，採取下列步驟：
 
     a. 在 [使用者識別碼] 下拉式清單中，選取 [ExtractMailPrefix]。
     
     b. 在 [郵件] 下拉式清單中，選取 [user.mail]。
 
-7. 選取 [儲存] 按鈕。
+1. 選取 [儲存] 按鈕。
 
     ![設定單一登入儲存按鈕](./media/saphana-tutorial/tutorial_general_400.png)
     
-8. 若要在 SAP Hana 端設定單一登入，請瀏覽至個別的 HTTPS 端點以登入您的 **HANA XSA Web 主控台**。
+1. 若要在 SAP Hana 端設定單一登入，請瀏覽至個別的 HTTPS 端點以登入您的 **HANA XSA Web 主控台**。
 
     > [!NOTE]
     > 在預設組態中，URL 會將要求重新導向至登入畫面，這需要已通過驗證之 SAP Hana 資料庫使用者的認證。 登入的使用者必須擁有執行 SAML 管理工作的權限。
 
-9. 前往 XSA Web 介面中的 [SAML 識別提供者]。 在畫面底部選取 **+** 按鈕，以顯示 [新增識別提供者資訊] 窗格。 然後採取下列步驟：
+1. 前往 XSA Web 介面中的 [SAML 識別提供者]。 在畫面底部選取 **+** 按鈕，以顯示 [新增識別提供者資訊] 窗格。 然後採取下列步驟：
 
     ![新增識別提供者](./media/saphana-tutorial/sap1.png)
 
@@ -163,11 +163,11 @@ ms.locfileid: "39045822"
     > [!NOTE]
     > SAML IDP 名稱為必填，且不可重複。 當您選取 SAML 作為 SAP Hana XS 應用程式要使用的驗證方法時，該名稱會出現在可用的 SAML IDP 清單中。 例如，您可以在 XS Artifact Administration 工具的 [驗證] 畫面區域中執行此操作。
 
-10. 選取 [儲存]，以儲存 SAML 識別提供者的詳細資料，並將新的 SAML IDP 新增至已知 SAML IDP 的清單。
+1. 選取 [儲存]，以儲存 SAML 識別提供者的詳細資料，並將新的 SAML IDP 新增至已知 SAML IDP 的清單。
 
     ![[儲存] 按鈕](./media/saphana-tutorial/sap4.png)
 
-11. 在 HANA Studio 之 [設定] 索引標籤的系統屬性中，依 **saml** 篩選設定。 然後將 **assertion_timeout** 從 **10 秒**調整為 **120 秒**。
+1. 在 HANA Studio 之 [設定] 索引標籤的系統屬性中，依 **saml** 篩選設定。 然後將 **assertion_timeout** 從 **10 秒**調整為 **120 秒**。
 
     ![assertion_timeout 設定](./media/saphana-tutorial/sap7.png)
 
@@ -186,15 +186,15 @@ ms.locfileid: "39045822"
 
     ![Azure Active Directory 按鈕](./media/saphana-tutorial/create_aaduser_01.png) 
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]。 然後選取 [所有使用者]。
+1. 若要顯示使用者清單，請移至 [使用者和群組]。 然後選取 [所有使用者]。
     
     ![[使用者和群組] 與 [所有使用者] 連結](./media/saphana-tutorial/create_aaduser_02.png) 
 
-3. 若要開啟 [使用者] 對話方塊，請在對話方塊的頂端選取 [新增]。
+1. 若要開啟 [使用者] 對話方塊，請在對話方塊的頂端選取 [新增]。
  
     ![[新增] 按鈕](./media/saphana-tutorial/create_aaduser_03.png) 
 
-4. 在 [使用者] 對話方塊中，採取下列步驟：
+1. 在 [使用者] 對話方塊中，採取下列步驟：
  
     ![[使用者] 對話方塊](./media/saphana-tutorial/create_aaduser_04.png) 
 
@@ -220,23 +220,23 @@ SAP Hana 支援預設啟用的 Just-In-Time 佈建。
 
     ![建立使用者](./media/saphana-tutorial/sap5.png)
 
-2. 選取 [SAML] 左邊的不可見核取方塊，並選取 [設定] 連結。
+1. 選取 [SAML] 左邊的不可見核取方塊，並選取 [設定] 連結。
 
-3. 選取 [新增] 以新增 SAML IDP。  選取適當的 SAML IDP，然後選取 [確定]。
+1. 選取 [新增] 以新增 SAML IDP。  選取適當的 SAML IDP，然後選取 [確定]。
 
-4. 新增 [外部識別] \(在此情況下為 BrittaSimon)，或選擇 [任何]。 然後選取 [確定]。
+1. 新增 [外部識別] \(在此情況下為 BrittaSimon)，或選擇 [任何]。 然後選取 [確定]。
 
     >[!Note]
     >如果未選取 [任何] 核取方塊，則 HANA 中的使用者名稱必須完全符合 UPN 中網域尾碼前面的使用者名稱。 (舉例而言，BrittaSimon@contoso.com 會在 HANA 中變成 BrittaSimon。)
 
-5. 為了進行測試，請對使用者指派所有 **XS** 角色。
+1. 為了進行測試，請對使用者指派所有 **XS** 角色。
 
     ![指派角色](./media/saphana-tutorial/sap6.png)
 
     > [!TIP]
     > 您只應該提供適用於您使用案例的權限。
 
-6. 儲存使用者。
+1. 儲存使用者。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -250,23 +250,23 @@ SAP Hana 支援預設啟用的 Just-In-Time 佈建。
 
     ![指派使用者][201] 
 
-2. 在應用程式清單中，選取 [SAP HANA]。
+1. 在應用程式清單中，選取 [SAP HANA]。
 
     ![指派使用者](./media/saphana-tutorial/tutorial_saphana_app.png) 
 
-3. 在左側功能表中，選取 [使用者和群組]。
+1. 在左側功能表中，選取 [使用者和群組]。
 
     ![[使用者和群組] 連結][202] 
 
-4. 選取 [新增] 按鈕。 在 [新增指派] 對話方塊中，選取 [使用者和群組]。
+1. 選取 [新增] 按鈕。 在 [新增指派] 對話方塊中，選取 [使用者和群組]。
 
     ![[新增指派] 窗格][203]
 
-5. 在 [使用者和群組] 對話方塊中，選取 [使用者] 清單中的 [Britta Simon]。
+1. 在 [使用者和群組] 對話方塊中，選取 [使用者] 清單中的 [Britta Simon]。
 
-6. 在 [使用者和群組] 對話方塊中，按一下 [選取] 按鈕。
+1. 在 [使用者和群組] 對話方塊中，按一下 [選取] 按鈕。
 
-7. 在 [新增指派] 對話方塊中，選取 [指派] 按鈕。
+1. 在 [新增指派] 對話方塊中，選取 [指派] 按鈕。
     
 ### <a name="test-single-sign-on"></a>測試單一登入
 

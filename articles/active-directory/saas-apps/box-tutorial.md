@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: c15894f8cd559a08a1d75e2ac29cc0da0fc9e963
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f5aa724e9848c9794eef093aef15b0aaed9cae97
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36226573"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435755"
 ---
 # <a name="integrate-azure-active-directory-with-box"></a>整合 Azure Active Directory 與 Box
 
@@ -34,7 +34,7 @@ ms.locfileid: "36226573"
 
 若要了解 SaaS 應用程式與 Azure AD 的整合，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Box 整合，您需要下列項目：
 
@@ -55,7 +55,7 @@ ms.locfileid: "36226573"
 本教學課程中說明的案例由二個主要建置組塊組成：
 
 1. 從資源庫新增 Box
-2. 設定並測試 Azure AD 單一登入
+1. 設定並測試 Azure AD 單一登入
 
 ## <a name="add-box-from-the-gallery"></a>從資源庫新增 Box
 若要設定 Azure AD 與 Box 的整合，請執行下列步驟，從資源庫將 Slack 新增到受控 SaaS 應用程式清單：
@@ -64,15 +64,15 @@ ms.locfileid: "36226573"
 
     ![Azure Active Directory 按鈕][1]
 
-2. 選取 [企業應用程式] > [所有應用程式]。
+1. 選取 [企業應用程式] > [所有應用程式]。
 
     ![企業應用程式視窗][2]
     
-3. 若要新增新的應用程式，請選取視窗頂端的 [新增應用程式] 按鈕。
+1. 若要新增新的應用程式，請選取視窗頂端的 [新增應用程式] 按鈕。
 
     ![[新增應用程式] 按鈕][3]
 
-4. 在搜尋方塊中輸入 **Box**，從結果清單中選取 [Box]，然後選取 [新增]。
+1. 在搜尋方塊中輸入 **Box**，從結果清單中選取 [Box]，然後選取 [新增]。
 
     ![結果清單中的 Box](./media/box-tutorial/tutorial_box_search.png)
 ### <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
@@ -93,11 +93,11 @@ ms.locfileid: "36226573"
 
     ![單一登入連結][4]
 
-2. 在 [單一登入] 視窗的 [單一登入模式] 方塊中，選取 [SAML 登入]。
+1. 在 [單一登入] 視窗的 [單一登入模式] 方塊中，選取 [SAML 登入]。
  
     ![單一登入視窗](./media/box-tutorial/tutorial_box_samlbase.png)
 
-3. 在 [Box 網域及 URL] 下，執行下列操作：
+1. 在 [Box 網域及 URL] 下，執行下列操作：
 
     ![「Box 網域及 URL」單一登入資訊](./media/box-tutorial/url3.png)
 
@@ -108,15 +108,15 @@ ms.locfileid: "36226573"
     > [!NOTE] 
     > 上述值並非真正的值。 請使用實際的登入 URL 及識別碼來更新這些值。 若要取得這些值，請連絡 [Box 用戶端支援小組](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire)。 
 
-4. 在 [SAML 簽署憑證] 下，選取 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
+1. 在 [SAML 簽署憑證] 下，選取 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
     ![憑證下載連結](./media/box-tutorial/tutorial_box_certificate.png) 
 
-5. 選取 [ **儲存**]。
+1. 選取 [ **儲存**]。
 
     ![設定單一登入儲存按鈕](./media/box-tutorial/tutorial_general_400.png)
     
-6. 若要設定應用程式的 SSO，請遵循[自行設定 SSO](https://community.box.com/t5/How-to-Guides-for-Admins/Setting-Up-Single-Sign-On-SSO-for-your-Enterprise/ta-p/1263#ssoonyourown) 中的程序。
+1. 若要設定應用程式的 SSO，請遵循[自行設定 SSO](https://community.box.com/t5/How-to-Guides-for-Admins/Setting-Up-Single-Sign-On-SSO-for-your-Enterprise/ta-p/1263#ssoonyourown) 中的程序。
 
 > [!NOTE] 
 > 如果您無法為 Box 帳戶啟用 SSO 設定，您可能需要連絡 [Box 用戶端支援小組](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire)，並提供下載的 XML 檔案。
@@ -135,17 +135,17 @@ ms.locfileid: "36226573"
 
     ![Azure Active Directory 連結](./media/box-tutorial/create_aaduser_01.png)
 
-2. 若要顯示目前使用者清單，請選取 [使用者和群組]  >  [所有使用者]。
+1. 若要顯示目前使用者清單，請選取 [使用者和群組]  >  [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/box-tutorial/create_aaduser_02.png)
 
-3. 在 [所有使用者] 視窗頂端，選取 [新增]。
+1. 在 [所有使用者] 視窗頂端，選取 [新增]。
 
     ![[新增] 按鈕](./media/box-tutorial/create_aaduser_03.png)
 
     [使用者] 視窗隨即開啟。
 
-4. 在 [使用者] 視窗中，執行下列操作：
+1. 在 [使用者] 視窗中，執行下列操作：
 
     ![[使用者] 視窗](./media/box-tutorial/create_aaduser_04.png)
 
@@ -171,23 +171,23 @@ ms.locfileid: "36226573"
 
     ![[企業應用程式] 和 [所有應用程式] 連結][201] 
 
-2. 在 [應用程式] 清單中，選取 [Box]。
+1. 在 [應用程式] 清單中，選取 [Box]。
 
     ![Box 連結](./media/box-tutorial/tutorial_box_app.png)  
 
-3. 在左側窗格中，選取 [使用者和群組]。
+1. 在左側窗格中，選取 [使用者和群組]。
 
     ![[使用者和群組] 連結][202]
 
-4. 選取 [新增]，然後在 [新增指派] 窗格中，選取 [使用者和群組]。
+1. 選取 [新增]，然後在 [新增指派] 窗格中，選取 [使用者和群組]。
 
     ![[新增指派] 窗格][203]
 
-5. 在 [使用者和群組] 視窗的 [使用者] 清單中，選取 [Britta Simon]。
+1. 在 [使用者和群組] 視窗的 [使用者] 清單中，選取 [Britta Simon]。
 
-6. 選取 [選取] 按鈕。
+1. 選取 [選取] 按鈕。
 
-7. 在 [新增指派] 視窗中，選取 [指派]。
+1. 在 [新增指派] 視窗中，選取 [指派]。
     
 ### <a name="test-single-sign-on"></a>測試單一登入
 

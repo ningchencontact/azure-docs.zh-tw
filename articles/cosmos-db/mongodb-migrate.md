@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: bdaead6fe739d62340ca225aa1a6d8adf9e86cb9
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: a55727c58f8f9d4a05f547100875f18291328ea2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100291"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435317"
 ---
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB：匯入 MongoDB 資料 
 
@@ -36,7 +36,7 @@ ms.locfileid: "37100291"
 > * 使用 mongoimport 匯入 MongoDB 資料
 > * 使用 mongorestore 匯入 MongoDB 資料
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 增加輸送量︰資料移轉的時間長短取決於您為個別集合或一組集合設定的輸送量。 針對較大資料移轉，請務必增加輸送量。 完成移轉之後，再降低輸送量以節省成本。 如需在 [Azure 入口網站](https://portal.azure.com)增加輸送量的詳細資訊，請參閱 [Azure Cosmos DB 中的效能等級和定價層](performance-levels.md)。
 
@@ -45,8 +45,8 @@ ms.locfileid: "37100291"
 ## <a name="find-your-connection-string-information-host-port-username-and-password"></a>找到您的連接字串資訊 (主機、連接埠、使用者名稱、密碼)
 
 1. 在 [Azure 入口網站](https://portal.azure.com)的左窗格中，按一下 [Azure Cosmos DB] 項目。
-2. 在 [訂用帳戶] 窗格中，選取您的帳戶名稱。
-3. 在 [連接字串] 刀鋒視窗中，按一下 [連接字串]。
+1. 在 [訂用帳戶] 窗格中，選取您的帳戶名稱。
+1. 在 [連接字串] 刀鋒視窗中，按一下 [連接字串]。
 
    右窗格中有您成功連接到您的帳戶所需的所有資訊。
 
@@ -102,7 +102,7 @@ ms.locfileid: "37100291"
         }
         ```
 
-2. 估算單一文件消耗的 RU：
+1. 估算單一文件消耗的 RU：
 
     a. 從 MongoDB 殼層連線到您的 Azure Cosmos DB MongoDB 資料庫。 您可以在[將 MongoDB 應用程式連接到 Azure Cosmos DB](connect-mongodb-account.md) 中找到指示。
     
@@ -125,7 +125,7 @@ ms.locfileid: "37100291"
         
     d. 記下要求費用。
     
-3. 判斷從您的電腦到 Azure Cosmos DB 雲端服務的延遲：
+1. 判斷從您的電腦到 Azure Cosmos DB 雲端服務的延遲：
     
     a. 從 MongoDB 殼層使用此命令，以啟用詳細資訊記錄：```setVerboseShell(true)```
     
@@ -135,9 +135,9 @@ ms.locfileid: "37100291"
         Fetched 1 record(s) in 100(ms)
         ```
         
-4. 移轉之前請先移除插入的文件，以確保不會有重複的文件。 您可以使用此命令來移除文件：```db.coll.remove({})```
+1. 移轉之前請先移除插入的文件，以確保不會有重複的文件。 您可以使用此命令來移除文件：```db.coll.remove({})```
 
-5. 估算 *batchSize* 和 *numInsertionWorkers* 值：
+1. 估算 *batchSize* 和 *numInsertionWorkers* 值：
 
     * *batchSize* 的算法是將總佈建的 RU 數，除以步驟 3 中寫入單一文件所花費的 RU 數。
     
@@ -157,7 +157,7 @@ ms.locfileid: "37100291"
     
     *numInsertionWorkers = (10000 RU x 0.1 s) / (24 x 10 RU) = 4.1666*
 
-6. 執行最後的移轉命令：
+1. 執行最後的移轉命令：
 
    ```
    mongoimport.exe --host comsosdb-mongodb-account.documents.azure.com:10255 -u comsosdb-mongodb-account -p wzRJCyjtLPNuhm53yTwaefawuiefhbauwebhfuabweifbiauweb2YVdl2ZFNZNv8IU89LqFVm5U0bw== --ssl --sslAllowInvalidCertificates --jsonArray --db dabasename --collection collectionName --file "C:\sample.json" --numInsertionWorkers 4 --batchSize 24

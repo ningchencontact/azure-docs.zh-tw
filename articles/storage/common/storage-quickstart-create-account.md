@@ -3,18 +3,18 @@ title: Azure 快速入門 - 建立儲存體帳戶 | Microsoft Docs
 description: 快速了解如何使用 Azure 入口網站、Azure PowerShell 或 Azure CLI 建立新的儲存體帳戶。
 services: storage
 author: tamram
-manager: twooley
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: tamram
-ms.openlocfilehash: 92215c759cd51ce429708ec54b17722c486b7ca6
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.component: common
+ms.openlocfilehash: 91e98f74fd6cd88533a5090a383897eaa0e60648
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856523"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524015"
 ---
 # <a name="create-a-storage-account"></a>建立儲存體帳戶
 
@@ -23,7 +23,7 @@ Azure 儲存體帳戶提供雲端中的唯一命名空間，來儲存及存取 A
 若要開始使用 Azure 儲存體，您必須先建立新的儲存體帳戶。 您可以使用 [Azure 入口網站](https://portal.azure.com/)、[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 或 [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) 建立 Azure 儲存體帳戶。 本快速入門示範如何使用各個選項來建立新的儲存體帳戶。 
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/)。
 

@@ -3,17 +3,17 @@ title: Azure 儲存體中的資料複寫 | Microsoft Docs
 description: 系統會 複製Microsoft Azure 儲存體帳戶中的資料，以維持持久性和高可用性。 複寫選項包括本地備援儲存體 (LRS)、區域備援儲存體 (ZRS)、異地備援儲存體 (GRS) 和讀取權限異地備援儲存體 (RA-GRS)。
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 6c2c6979d56eb19ff2ba4fb647c7c51e52e51ac6
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.component: common
+ms.openlocfilehash: 18dfdce827a76d924494e66ceb0d03e2bb3a3ffe
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34076209"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523755"
 ---
 # <a name="azure-storage-replication"></a>Azure 儲存體複寫
 
@@ -34,10 +34,10 @@ Microsoft Azure 儲存體帳戶中的資料一律會進行複寫以確保持久�
 
 | 案例                                                                                                 | LRS                             | ZRS                              | GRS                                  | RA-GRS                               |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| 資料中心內的節點無法供使用                                                                 | yes                             | yes                              | yes                                  | yes                                  |
-| 整個資料中心 (區域或非區域) 變成無法供使用                                           | 否                              | yes                              | yes                                  | yes                                  |
-| 全區域服務中斷                                                                                     | 否                              | 否                               | yes                                  | yes                                  |
-| 在全區域服務無法供使用的情況下對資料 (位於遠端、異地複寫區域) 進行讀取存取 | 否                              | 否                               | 否                                   | yes                                  |
+| 資料中心內的節點無法供使用                                                                 | 是                             | yes                              | yes                                  | 是                                  |
+| 整個資料中心 (區域或非區域) 變成無法供使用                                           | 否                              | yes                              | yes                                  | 是                                  |
+| 全區域服務中斷                                                                                     | 否                              | 否                               | yes                                  | 是                                  |
+| 在全區域服務無法供使用的情況下對資料 (位於遠端、異地複寫區域) 進行讀取存取 | 否                              | 否                               | 否                                   | 是                                  |
 | 設計為可在指定的一年中讓物件持久性達到 ___                                          | 至少 99.999999999% (11 個 9) | 至少 99.9999999999% (12 個 9) | 至少 99.99999999999999% (16 個 9) | 至少 99.99999999999999% (16 個 9) |
 | 支援的儲存體帳戶類型                                                                   | GPv1、GPv2、Blob                | GPv2                             | GPv1、GPv2、Blob                     | GPv1、GPv2、Blob                     |
 
@@ -53,7 +53,7 @@ Microsoft Azure 儲存體帳戶中的資料一律會進行複寫以確保持久�
    > 目前，您無法使用入口網站或 API 將帳戶轉換成 ZRS。 如果您想要將帳戶的複寫轉換成 ZRS，請參閱[區域備援儲存體 (ZRS)](storage-redundancy-zrs.md) 以取得詳細資料。
     
 ### <a name="are-there-any-costs-to-changing-my-accounts-replication-strategy"></a>變更我帳戶的複寫策略是否會產生任何費用？
-這取決於您的轉換途徑。 從費用最低到費用最高的備援方案依序為 LRS、ZRS、GRS 及 RA-GRS。 例如，「從」LRS 傳換成任何方案都會產生額外費用，因為是移至更複雜的備援層級。 移「至」GRS 或 RA-GRS 會產生輸出頻寬費用，因為您的資料 (在您的主要區域中) 會複寫至遠端次要區域。 這是在初始設定時所收取的一次性費用。 在複製資料之後，即沒有任何進一步的轉換費用。 您將只有在複寫任何新資料或對現有資料的更新時，才需支付費用。 如需有關頻寬費用的詳細資料，請參閱 [Azure 儲存體定價頁面](https://azure.microsoft.com/pricing/details/storage/blobs/)找到。
+這取決於您的轉換途徑。 從費用最低到費用最高的備援供應項目依序為 LRS、ZRS、GRS 及 RA-GRS。 例如，「從」LRS 傳換成任何方案都會產生額外費用，因為是移至更複雜的備援層級。 移「至」GRS 或 RA-GRS 會產生輸出頻寬費用，因為您的資料 (在您的主要區域中) 會複寫至遠端次要區域。 這是在初始設定時所收取的一次性費用。 在複製資料之後，即沒有任何進一步的轉換費用。 您將只有在複寫任何新資料或對現有資料的更新時，才需支付費用。 如需有關頻寬費用的詳細資料，請參閱 [Azure 儲存體定價頁面](https://azure.microsoft.com/pricing/details/storage/blobs/)找到。
 
 如果您從 GRS 變更為 LRS，將不會有任何額外的費用，但系統會將您的已複寫資料從次要區位置中刪除。
 

@@ -1,20 +1,20 @@
 ---
 title: 在 Azure 入口網站中設定裝置佈建 | Microsoft Docs
 description: Azure 快速入門 - 在 Azure 入口網站中設定 Azure IoT 中樞裝置佈建服務
-author: dsk-2015
-ms.author: dkshir
+author: wesmc7777
+ms.author: wesmc
 ms.date: 07/12/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 5509027b9c41a021ce8ab5dd468627bd8307d354
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: f4bae9ba41f61223a8e18e88e30b8fbf89eff1a9
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036416"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527587"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>使用 Azure 入口網站設定 IoT 中樞裝置佈建服務
 

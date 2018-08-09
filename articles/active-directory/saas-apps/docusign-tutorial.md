@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 05ec113db5fbdc0f2ea7d1f176c9be654f53a946
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 5d8aef1edf4d7a02686db48d3e788e4f9493c398
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39053337"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448480"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-docusign"></a>教學課程：Azure Active Directory 與 DocuSign 整合
 
@@ -52,7 +52,7 @@ DocuSign 與 Azure AD 整合提供下列優點：
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 DocuSign
-2. 設定並測試 Azure AD 單一登入
+1. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-docusign-from-the-gallery"></a>從資源庫新增 DocuSign
 若要設定將 DocuSign 整合到 Azure AD 中，您需要從資源庫將 DocuSign 新增到受控 SaaS 應用程式清單。
@@ -63,19 +63,19 @@ DocuSign 與 Azure AD 整合提供下列優點：
 
     ![Active Directory][1]
 
-2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
+1. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![[應用程式]][2]
     
-3. 按一下對話方塊頂端的 [新增應用程式] 按鈕。
+1. 按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![[應用程式]][3]
 
-4. 在搜尋方塊中，輸入 **DocuSign**。
+1. 在搜尋方塊中，輸入 **DocuSign**。
 
     ![建立 Azure AD 測試使用者](./media/docusign-tutorial/tutorial_docusign_search.png)
 
-5. 在結果窗格中，選取 [DocuSign]，然後按一下 [新增] 按鈕以新增應用程式。
+1. 在結果窗格中，選取 [DocuSign]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/docusign-tutorial/tutorial_docusign_addfromgallery.png)
 
@@ -89,10 +89,10 @@ DocuSign 與 Azure AD 整合提供下列優點：
 若要設定及測試與 DocuSign 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 DocuSign 測試使用者](#creating-a-docusign-test-user)** - 在 DocuSign 中建立 Britta Simon 的對應項目，且該項目與 Azure AD 中代表使用者的項目連結。
-4. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
+1. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
+1. **[建立 DocuSign 測試使用者](#creating-a-docusign-test-user)** - 在 DocuSign 中建立 Britta Simon 的對應項目，且該項目與 Azure AD 中代表使用者的項目連結。
+1. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+1. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -104,40 +104,40 @@ DocuSign 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入][4]
 
-2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
+1. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
  
     ![設定單一登入](./media/docusign-tutorial/tutorial_docusign_samlbase.png)
 
-3. 在 [SAML 簽署憑證] 區段上，按一下 [\憑證 (Base 64)\]，然後將憑證檔案儲存在您的電腦上。
+1. 在 [SAML 簽署憑證] 區段上，按一下 [\憑證 (Base 64)\]，然後將憑證檔案儲存在您的電腦上。
 
     ![設定單一登入](./media/docusign-tutorial/tutorial_docusign_certificate.png) 
 
-4. 在 Azure 入口網站的 [DocuSign 設定] 區段中，按一下 [設定 DocuSign] 可開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
+1. 在 Azure 入口網站的 [DocuSign 設定] 區段中，按一下 [設定 DocuSign] 可開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
     
     ![設定單一登入](./media/docusign-tutorial/tutorial_docusign_configure.png)
 
-5. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 **DocuSign 系統管理入口網站**。
+1. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 **DocuSign 系統管理入口網站**。
 
-6. 在左側導覽功能表中按一下 [網域] 。
+1. 在左側導覽功能表中按一下 [網域] 。
    
     ![設定單一登入][51]
 
-7. 在右窗格中，按一下 [宣告網域] 。
+1. 在右窗格中，按一下 [宣告網域] 。
    
     ![設定單一登入][52]
 
-8. 在 [宣告網域] 對話方塊，於 [網域名稱] 文字方塊內輸入您的公司網域，然後按一下 [宣告]。 確定您已驗證網域，而且狀態為作用中。
+1. 在 [宣告網域] 對話方塊，於 [網域名稱] 文字方塊內輸入您的公司網域，然後按一下 [宣告]。 確定您已驗證網域，而且狀態為作用中。
    
     ![設定單一登入][53]
 
-9. 在左側的功能表中，按一下 [識別提供者]   
+1. 在左側的功能表中，按一下 [識別提供者]   
    
     ![設定單一登入][54]
-10. 在右窗格中，按一下 [新增識別提供者] 。 
+1. 在右窗格中，按一下 [新增識別提供者] 。 
    
     ![設定單一登入][55]
 
-11. 在 [識別提供者設定]  頁面上執行下列步驟：
+1. 在 [識別提供者設定]  頁面上執行下列步驟：
    
     ![設定單一登入][56]
 
@@ -155,24 +155,24 @@ DocuSign 與 Azure AD 整合提供下列優點：
 
     g. 選取 [GET] 作為 [登出要求傳送方式]。
 
-12. 在 [自訂屬性對應] 區段中，選擇您想要與 Azure AD 宣告對應的欄位。 在此範例中，**emailaddress** 宣告的對應值是 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**。 這是 Azure AD 針對電子郵件宣告所提供的預設宣告名稱。 
+1. 在 [自訂屬性對應] 區段中，選擇您想要與 Azure AD 宣告對應的欄位。 在此範例中，**emailaddress** 宣告的對應值是 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**。 這是 Azure AD 針對電子郵件宣告所提供的預設宣告名稱。 
    
     > [!NOTE]
     > 請使用適當的 **使用者識別碼**，將使用者從 Azure AD 對應到 DocuSign 使用者對應。 選取適當的欄位，並根據組織的設定輸入適當的值。
           
     ![設定單一登入][57]
 
-13. 在 [識別提供者憑證] 區段中按一下 [新增憑證]，然後上傳您已從 Azure AD 入口網站下載的憑證。   
+1. 在 [識別提供者憑證] 區段中按一下 [新增憑證]，然後上傳您已從 Azure AD 入口網站下載的憑證。   
    
     ![設定單一登入][58]
 
-14. 按一下 [檔案] 。
+1. 按一下 [檔案] 。
 
-15. 在 [識別提供者] 區段中，按一下 [動作]，然後按一下 [端點]。   
+1. 在 [識別提供者] 區段中，按一下 [動作]，然後按一下 [端點]。   
    
     ![設定單一登入][59]
  
-16. 在 **DocuSign 系統管理入口網站**的 [檢視 SAML 2.0 端點] 區段中，執行下列步驟：
+1. 在 **DocuSign 系統管理入口網站**的 [檢視 SAML 2.0 端點] 區段中，執行下列步驟：
    
     ![設定單一登入][60]
    
@@ -184,7 +184,7 @@ DocuSign 與 Azure AD 整合提供下列優點：
       
     c.  按一下 [關閉]。
     
-17. 在 Azure 入口網站上，按一下 [儲存]。
+1. 在 Azure 入口網站上，按一下 [儲存]。
     
     ![設定單一登入](./media/docusign-tutorial/tutorial_general_400.png)
 
@@ -202,15 +202,15 @@ DocuSign 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/docusign-tutorial/create_aaduser_01.png) 
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+1. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
     
     ![建立 Azure AD 測試使用者](./media/docusign-tutorial/create_aaduser_02.png) 
 
-3. 在對話方塊的頂端，按一下 [新增] 以開啟 [使用者] 對話方塊。
+1. 在對話方塊的頂端，按一下 [新增] 以開啟 [使用者] 對話方塊。
  
     ![建立 Azure AD 測試使用者](./media/docusign-tutorial/create_aaduser_03.png) 
 
-4. 在 [使用者]  對話頁面上，執行下列步驟：
+1. 在 [使用者]  對話頁面上，執行下列步驟：
  
     ![建立 Azure AD 測試使用者](./media/docusign-tutorial/create_aaduser_04.png) 
 
@@ -238,23 +238,23 @@ DocuSign 與 Azure AD 整合提供下列優點：
 
     ![指派使用者][201] 
 
-2. 在應用程式清單中，選取 [DocuSign]。
+1. 在應用程式清單中，選取 [DocuSign]。
 
     ![設定單一登入](./media/docusign-tutorial/tutorial_docusign_app.png) 
 
-3. 在左側功能表中，按一下 [使用者和群組]。
+1. 在左側功能表中，按一下 [使用者和群組]。
 
     ![指派使用者][202] 
 
-4. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
+1. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
 
     ![指派使用者][203]
 
-5. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
+1. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
 
-6. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
+1. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
 
-7. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
+1. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
     
 ### <a name="testing-single-sign-on"></a>測試單一登入
 
