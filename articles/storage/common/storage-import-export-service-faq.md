@@ -2,18 +2,18 @@
 title: Azure 匯入/匯出服務的常見問題集 | Microsoft Docs
 description: 參閱 Azure 匯入/匯出服務常見問題集的解答。
 author: alkohli
-manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: alkohli
-ms.openlocfilehash: d324025a50346415de8232af4adc487a5d907331
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.component: common
+ms.openlocfilehash: 6a2d067625e96aefdcb0197e1abb13b0c41fbe7f
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031391"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521433"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure 匯入/匯出服務：常見問題集 
 以下是當您使用 Azure 匯入/匯出服務將資料轉送至 Azure 儲存體時可能會遇到的問題與解答。 問題和解答可分為下列幾個類別：

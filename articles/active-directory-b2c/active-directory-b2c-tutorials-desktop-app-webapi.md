@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 01c13b214d40fba278ce788047e2b158adc20287
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 98c86f5613116dce5423aa9ca6a2ff43e5414592
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711591"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594775"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>教學課程：使用 Azure Active Directory B2C 授與從傳統型應用程式存取 Node.js Web API 的權限
 
@@ -31,7 +31,7 @@ ms.locfileid: "34711591"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 完成[在傳統型應用程式中使用 Azure Active Directory B2C 進行使用者驗證](active-directory-b2c-tutorials-desktop-app.md)教學課程。
 * 安裝 [Visual Studio 2017](https://www.visualstudio.com/downloads/)，其中包含 **.NET 傳統型開發**以及 **ASP.NET 和 Web 開發**工作負載。
@@ -39,7 +39,7 @@ ms.locfileid: "34711591"
 
 ## <a name="register-web-api"></a>註冊 Web API
 
-Web API 資源必須先在您的租用戶中註冊，才能接受及回應受到[用戶端應用程式](../active-directory/develop/active-directory-dev-glossary.md#client-application)保護而提供來自 Azure Active Directory 之[存取權杖](../active-directory/develop/active-directory-dev-glossary.md#access-token)的[資源要求](../active-directory/develop/active-directory-dev-glossary.md#resource-server)。 註冊會在您的租用戶中建立[應用程式與服務主體物件](../active-directory/develop/active-directory-dev-glossary.md#application-object)。 
+Web API 資源必須先在您的租用戶中註冊，才能接受及回應受到[用戶端應用程式](../active-directory/develop/developer-glossary.md#client-application)保護而提供來自 Azure Active Directory 之[存取權杖](../active-directory/develop/developer-glossary.md#access-token)的[資源要求](../active-directory/develop/developer-glossary.md#resource-server)。 註冊會在您的租用戶中建立[應用程式與服務主體物件](../active-directory/develop/developer-glossary.md#application-object)。 
 
 以 Azure AD B2C 租用戶的全域管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
 
@@ -56,10 +56,10 @@ Web API 資源必須先在您的租用戶中註冊，才能接受及回應受到
     | 設定      | 建議的值  | 說明                                        |
     | ------------ | ------- | -------------------------------------------------- |
     | **名稱** | 我的範例 Node.js Web API | 輸入向開發人員描述您的 Web API 的 [名稱]。 |
-    | **包含 Web 應用程式 / Web API** | yes | 針對 Web API 選取 [是]。 |
-    | **允許隱含流程** | yes | 請選取 [是]，因為 API 使用 [OpenID Connect 登入](active-directory-b2c-reference-oidc.md)。 |
+    | **包含 Web 應用程式 / Web API** | 是 | 針對 Web API 選取 [是]。 |
+    | **允許隱含流程** | 是 | 請選取 [是]，因為 API 使用 [OpenID Connect 登入](active-directory-b2c-reference-oidc.md)。 |
     | **回覆 URL** | `http://localhost:5000` | 回覆 URL 是 Azure AD B2C 傳回您 API 要求之任何權杖的所在端點。 在本教學課程中，範例 Web API 會在本機執行 (localhost)，並接聽連接埠 5000。 |
-    | **應用程式識別碼 URI** | demoapi | URI 可唯一識別租用戶中的 API。 這可讓您為每個租用戶註冊多個 API。 [範圍](../active-directory/develop/active-directory-dev-glossary.md#scopes)可控管對受保護 API 資源的存取，並就個別的應用程式識別碼 URI 進行定義。 |
+    | **應用程式識別碼 URI** | demoapi | URI 可唯一識別租用戶中的 API。 這可讓您為每個租用戶註冊多個 API。 [範圍](../active-directory/develop/developer-glossary.md#scopes)可控管對受保護 API 資源的存取，並就個別的應用程式識別碼 URI 進行定義。 |
     | **原生用戶端** | 否 | 這是 Web API，而不是原生用戶端，因此請選取 [否]。 |
     
 3. 按一下 [建立]  以註冊您的 API。
@@ -74,7 +74,7 @@ Web API 資源必須先在您的租用戶中註冊，才能接受及回應受到
 
 ## <a name="define-and-configure-scopes"></a>定義及設定範圍
 
-[範圍](../active-directory/develop/active-directory-dev-glossary.md#scopes)可用來控管對受保護資源的存取。 Web API 可使用範圍來實作以範圍為基礎的存取控制。 例如，有些使用者可能同時具有讀取和寫入權限，而有些則可能只有唯讀權限。 在本教學課程中，您會定義 Web API 的讀取和寫入權限。
+[範圍](../active-directory/develop/developer-glossary.md#scopes)可用來控管對受保護資源的存取。 Web API 可使用範圍來實作以範圍為基礎的存取控制。 例如，有些使用者可能同時具有讀取和寫入權限，而有些則可能只有唯讀權限。 在本教學課程中，您會定義 Web API 的讀取和寫入權限。
 
 ### <a name="define-scopes-for-the-web-api"></a>定義 Web API 的範圍
 
@@ -110,7 +110,7 @@ Web API 資源必須先在您的租用戶中註冊，才能接受及回應受到
 
 5. 按一下 [確定]。
 
-您的 [我的範例 WPF 應用程式] 會進行註冊以呼叫受保護的 [我的範例 Node.js Web API]。 使用者會透過 Azure AD B2C 進行[驗證](../active-directory/develop/active-directory-dev-glossary.md#authentication)以使用 WPF 傳統型應用程式。 傳統型應用程式會取得 Azure AD B2C 的[授權授與](../active-directory/develop/active-directory-dev-glossary.md#authorization-grant)，以存取受保護的 Web API。
+您的 [我的範例 WPF 應用程式] 會進行註冊以呼叫受保護的 [我的範例 Node.js Web API]。 使用者會透過 Azure AD B2C 進行[驗證](../active-directory/develop/developer-glossary.md#authentication)以使用 WPF 傳統型應用程式。 傳統型應用程式會取得 Azure AD B2C 的[授權授與](../active-directory/develop/developer-glossary.md#authorization-grant)，以存取受保護的 Web API。
 
 ## <a name="update-web-api-code"></a>更新 Web API 程式碼
 

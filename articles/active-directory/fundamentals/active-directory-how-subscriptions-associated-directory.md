@@ -14,12 +14,12 @@ ms.date: 12/12/2017
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: bcae3f51e2245928c8110d06f3514177d57ac883
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6b0933e9aa732cb9a01a454764fb0425465ec078
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448827"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503306"
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>如何將 Azure 訂用帳戶關聯或新增至 Azure Active Directory
 
@@ -59,7 +59,7 @@ ms.locfileid: "37448827"
 
 ## <a name="next-steps"></a>後續步驟
 
-* 若要深入了解如何免費建立新的 Azure AD 目錄，請參閱[如何取得 Azure Active Directory 租用戶](../develop/active-directory-howto-tenant.md)
+* 若要深入了解如何免費建立新的 Azure AD 目錄，請參閱[如何取得 Azure Active Directory 租用戶](../develop/quickstart-create-new-tenant.md)
 * 若要深入了解如何移轉 Azure 訂用帳戶的帳單擁有權，請參閱[將 Azure 訂用帳戶的擁有權轉移轉至另一個帳戶](../../billing/billing-subscription-transfer.md)
 * 若要深入了解如何在 Microsoft Azure 中控制資源存取，請參閱 [了解 Azure 中的資源存取](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * 如需有關如何在 Azure AD 中指派角色的詳細資訊，請參閱 [在 Azure Active Directory 中指派系統管理員角色](../users-groups-roles/directory-assign-admin-roles.md)

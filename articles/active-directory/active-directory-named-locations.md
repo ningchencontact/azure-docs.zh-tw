@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f739917b201d5255716d22930d7c4bd9e6602f37
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 62a55672a4326df585fc84699dfd72424be362dc
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224512"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627486"
 ---
 # <a name="configure-named-locations-in-azure-active-directory"></a>在 Azure Active Directory 中設定具名位置
 
 您可以使用具名位置，標記組織中受信任的 IP 位址範圍。 Azure Active Directory 會在下列動作的內容中使用具名位置：
 
-- 偵測[風險事件](active-directory-reporting-risk-events.md)以降低報告的誤判數量。  
+- 偵測[風險事件](reports-monitoring/concept-risk-events.md)以降低報告的誤判數量。  
 
-- [位置型條件式存取](active-directory-conditional-access-locations.md)。
+- [位置型條件式存取](conditional-access/location-condition.md)。
 
 
 本文說明如何在您的環境中設定具名位置。
@@ -97,8 +97,8 @@ ms.locfileid: "39224512"
 
 - [Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal.md)。
 
-- [Azure Active Directory 條件式存取中的位置條件](active-directory-conditional-access-locations.md)
+- [Azure Active Directory 條件式存取中的位置條件](conditional-access/location-condition.md)
 
-- [Azure Active Directory 風險事件](active-directory-reporting-risk-events.md)。
+- [Azure Active Directory 風險事件](reports-monitoring/concept-risk-events.md)。
 
-- [Azure Active Directory 入口網站中有風險的登入報告](active-directory-reporting-security-risky-sign-ins.md)。  
+- [Azure Active Directory 入口網站中有風險的登入報告](reports-monitoring/concept-risky-sign-ins.md)。  

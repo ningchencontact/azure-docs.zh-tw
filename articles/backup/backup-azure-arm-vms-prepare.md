@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/21/2018
 ms.author: markgal
-ms.openlocfilehash: 06898877a4f13182230c6d5fb12544f90525d84d
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 40a83b93443ebe1482f89a114505a1ba27b93bd2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960163"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445738"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>準備環境以備份 Resource Manager 部署的虛擬機器
 
@@ -69,29 +69,29 @@ ms.locfileid: "36960163"
 若要建立復原服務保存庫：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 在 [中樞] 功能表上，選取 [瀏覽]，然後輸入 [復原服務]。 當您開始輸入時，您的輸入會篩選資源清單。 選取 [復原服務保存庫]。
+1. 在 [中樞] 功能表上，選取 [瀏覽]，然後輸入 [復原服務]。 當您開始輸入時，您的輸入會篩選資源清單。 選取 [復原服務保存庫]。
 
     ![在方塊中輸入資料並在結果中選取 [復原服務保存庫]](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
 
     隨即會出現 [復原服務保存庫] 清單。
-3. 在 [復原服務保存庫] 功能表上，選取 [新增]。
+1. 在 [復原服務保存庫] 功能表上，選取 [新增]。
 
     ![建立復原服務保存庫的步驟 2](./media/backup-azure-arm-vms-prepare/rs-vault-menu.png)
 
     [復原服務保存庫] 窗格隨即開啟。 該窗格會提示您提供 [名稱]、[訂用帳戶]、[資源群組] 及 [位置] 的資訊。
 
     ![[復原服務保存庫] 窗格](./media/backup-azure-arm-vms-prepare/rs-vault-attributes.png)
-4. 在 [名稱] 中，輸入易記名稱來識別保存庫。 必須是 Azure 訂用帳戶中唯一的名稱。 輸入包含 2 到 50 個字元的名稱。 該名稱必須以字母開頭，而且只可以包含字母、數字和連字號。
-5. 選取 [訂用帳戶] 以查看可用的訂用帳戶清單。 如果您不確定要使用哪個訂用帳戶，請使用預設 (或建議) 的訂用帳戶。 只有在您的公司或學校帳戶與多個 Azure 訂用帳戶相關聯時，才會有多個選擇。
-6. 選取 [資源群組] 以查看可用的資源群組清單，或選取 [新增] 以建立新的資源群組。 如需資源群組的完整資訊，請參閱 [Azure Resource Manager 概觀](../azure-resource-manager/resource-group-overview.md)。
-7. 選取 [位置] 以選取保存庫的地理區域。 保存庫*必須*與您想要保護的虛擬機器位於相同區域。
+1. 在 [名稱] 中，輸入易記名稱來識別保存庫。 必須是 Azure 訂用帳戶中唯一的名稱。 輸入包含 2 到 50 個字元的名稱。 該名稱必須以字母開頭，而且只可以包含字母、數字和連字號。
+1. 選取 [訂用帳戶] 以查看可用的訂用帳戶清單。 如果您不確定要使用哪個訂用帳戶，請使用預設 (或建議) 的訂用帳戶。 只有在您的公司或學校帳戶與多個 Azure 訂用帳戶相關聯時，才會有多個選擇。
+1. 選取 [資源群組] 以查看可用的資源群組清單，或選取 [新增] 以建立新的資源群組。 如需資源群組的完整資訊，請參閱 [Azure Resource Manager 概觀](../azure-resource-manager/resource-group-overview.md)。
+1. 選取 [位置] 以選取保存庫的地理區域。 保存庫*必須*與您想要保護的虛擬機器位於相同區域。
 
    > [!IMPORTANT]
    > 如果您不確定 VM 的所在位置，請關閉保存庫建立對話方塊，並移至入口網站中的虛擬機器清單。 如果您在多個區域中有虛擬機器，您必須在每個區域中建立復原服務保存庫。 請先在第一個位置建立保存庫，再進入下一個位置。 不需要指定用來儲存備份資料的儲存體帳戶。 復原服務保存庫和 Azure 備份服務會自動處理該事宜。
    >
    >
 
-8. 選取 [建立] 。 要等復原服務保存庫建立好，可能需要一些時間。 請監視入口網站右上方區域中的狀態通知。 保存庫建立之後，就會出現在 [復原服務保存庫] 的清單中。 如果您沒有看到保存庫，請選取 [重新整理]。
+1. 選取 [建立] 。 要等復原服務保存庫建立好，可能需要一些時間。 請監視入口網站右上方區域中的狀態通知。 保存庫建立之後，就會出現在 [復原服務保存庫] 的清單中。 如果您沒有看到保存庫，請選取 [重新整理]。
 
     ![備份保存庫的清單](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
@@ -107,13 +107,13 @@ ms.locfileid: "36960163"
 
    ![從備份保存庫清單中選擇您的保存庫](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
 
-2. 在 [設定] 窗格上，使用垂直滑桿向下捲動至 [管理] 區段，然後選取 [備份基礎結構]。 在 [一般] 區段中，選取 [備份設定]。 在 [備份設定]  窗格上，選擇保存庫的儲存體複寫選項。 根據預設，保存庫具有異地備援儲存體。
+1. 在 [設定] 窗格上，使用垂直滑桿向下捲動至 [管理] 區段，然後選取 [備份基礎結構]。 在 [一般] 區段中，選取 [備份設定]。 在 [備份設定]  窗格上，選擇保存庫的儲存體複寫選項。 根據預設，保存庫具有異地備援儲存體。
 
    ![備份保存庫的清單](./media/backup-azure-arm-vms-prepare/full-blade.png)
 
    如果您使用 Azure 作為主要的備份儲存體端點，請繼續使用異地備援儲存體。 如果您要使用 Azure 作為非主要備份儲存體端點，則選擇本地備援儲存體。 在 [Azure 儲存體複寫概觀](../storage/common/storage-redundancy.md)中深入了解儲存體選項。
 
-3. 如果您變更了儲存體複寫類型，請選取 [儲存]。
+1. 如果您變更了儲存體複寫類型，請選取 [儲存]。
     
 選擇好保存庫的儲存體選項後，就可以開始建立 VM 與保存庫的關聯。 若要開始關聯，請探索及註冊 Azure 虛擬機器。
 
@@ -135,20 +135,20 @@ ms.locfileid: "36960163"
       所選保存庫的 [設定] 窗格和保存庫儀表板隨即開啟。
 
       ![設定窗格和保存庫儀表板](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
-2. 在保存庫儀表板功能表上，選取 [備份]。
+1. 在保存庫儀表板功能表上，選取 [備份]。
 
    ![備份按鈕](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
    [備份] 和 [備份目標] 窗格隨即開啟。
 
-3. 在 [備份目標] 窗格上，將 [工作負載的執行位置] 設定為 [Azure]，並將 [欲備份的項目] 設定為 [虛擬機器]。 然後選取 [確定]。
+1. 在 [備份目標] 窗格上，將 [工作負載的執行位置] 設定為 [Azure]，並將 [欲備份的項目] 設定為 [虛擬機器]。 然後選取 [確定]。
 
    ![備份和備份目標窗格](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
    此步驟會向保存庫註冊 VM 擴充功能。 [備份目標] 窗格隨即關閉，然後開啟 [備份原則] 窗格。
 
    ![[備份] 和 [備份原則] 窗格](./media/backup-azure-arm-vms-prepare/select-backup-goal-2.png)
-4. 在 [備份原則] 窗格上，選取您要套用至保存庫的備份原則。
+1. 在 [備份原則] 窗格上，選取您要套用至保存庫的備份原則。
 
    ![選取備份原則](./media/backup-azure-arm-vms-prepare/setting-rs-backup-policy-new.png)
 
@@ -156,13 +156,13 @@ ms.locfileid: "36960163"
     選取 [確定]，讓備份原則與保存庫建立關聯。
 
    [備份原則] 窗格隨即關閉，然後開啟 [選取虛擬機器] 窗格。
-5. 在 [選取虛擬機器] 窗格上，選擇要與指定原則建立關聯的虛擬機器，然後選取 [確定]。
+1. 在 [選取虛擬機器] 窗格上，選擇要與指定原則建立關聯的虛擬機器，然後選取 [確定]。
 
    ![[選取虛擬機器] 窗格](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
    選取的虛擬機器便會接受驗證。 如果沒看到應該要有的虛擬機器，請確認虛擬機器是否位於和復原服務保存庫相同的 Azure 區域。 如果您仍然沒有看到虛擬機器，請檢查其是否已受到另一個保存庫保護。 保存庫儀表板會顯示復原服務保存庫所在的區域。
 
-6. 現在您已定義保存庫的所有設定，接下來在 [備份] 窗格上選取 [啟用備份]。 此步驟會將原則部署到保存庫和 VM。 但不會建立虛擬機器的初始復原點。
+1. 現在您已定義保存庫的所有設定，接下來在 [備份] 窗格上選取 [啟用備份]。 此步驟會將原則部署到保存庫和 VM。 但不會建立虛擬機器的初始復原點。
 
    ![[啟用備份] 按鈕](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
 
@@ -241,15 +241,15 @@ Azure [VM 代理程式](../virtual-machines/extensions/agent-windows.md)必須�
 此程序會設定本機系統帳戶的 Proxy 伺服器設定。
 
 1. 下載 [PsExec](https://technet.microsoft.com/sysinternals/bb897553)。
-2. 從提高權限的命令提示字元中執行下列命令，以開啟 Internet Explorer：
+1. 從提高權限的命令提示字元中執行下列命令，以開啟 Internet Explorer：
 
     ```
     psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"
     ```
 
-3. 在 Internet Explorer 中，移至 [工具] > [網際網路選項] > [連線] > [LAN 設定]。
-4. 確認系統帳戶的 Proxy 設定。 設定 Proxy IP 和連接埠。
-5. 關閉 Internet Explorer。
+1. 在 Internet Explorer 中，移至 [工具] > [網際網路選項] > [連線] > [LAN 設定]。
+1. 確認系統帳戶的 Proxy 設定。 設定 Proxy IP 和連接埠。
+1. 關閉 Internet Explorer。
 
 下列指令碼會設定整部機器的 Proxy 設定，並將它用於任何連出 HTTP 或 HTTPS 流量。 如果您已在目前的使用者帳戶 (非本機系統帳戶) 上設定 Proxy 伺服器，請使用此指令碼將它們套用至 SYSTEMACCOUNT。
 
@@ -283,10 +283,10 @@ HttpProxy.Port=<proxy port>
 
 #### <a name="step-2-allow-incoming-connections-on-the-proxy-server"></a>步驟 2：在 Proxy 伺服器上允許連入連線
 1. 在 Proxy 伺服器上，開啟 [Windows 防火牆]。 存取防火牆最簡單的方式搜尋**具有進階安全性的 Windows 防火牆**。
-2. 在 [具有進階安全性的 Windows 防火牆] 對話方塊中，以滑鼠右鍵按一下 [輸入規則]，然後選取 [新增規則]。
-3. 在 [新增輸入規則精靈] 的 [規則類型] 頁面上，選取 [自訂] 選項，然後選取 [下一步]。
-4. 在 [程式] 頁面上，選取 [所有程式]，然後選取 [下一步]。
-5. 在 [通訊協定和連接埠] 頁面上，輸入下列資訊並選取 [下一步]：
+1. 在 [具有進階安全性的 Windows 防火牆] 對話方塊中，以滑鼠右鍵按一下 [輸入規則]，然後選取 [新增規則]。
+1. 在 [新增輸入規則精靈] 的 [規則類型] 頁面上，選取 [自訂] 選項，然後選取 [下一步]。
+1. 在 [程式] 頁面上，選取 [所有程式]，然後選取 [下一步]。
+1. 在 [通訊協定和連接埠] 頁面上，輸入下列資訊並選取 [下一步]：
    * 針對 [通訊協定類型]，選取 [TCP]。
    * 針對 [本機連接埠]，選取 [特定連接埠]。 在下列方塊中，指定已設定的 Proxy 連接埠數目。
    * 針對 [遠端連接埠]，選取 [所有連接埠]。

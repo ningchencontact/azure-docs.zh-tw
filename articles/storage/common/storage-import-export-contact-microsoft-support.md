@@ -2,24 +2,18 @@
 title: 針對 Azure 匯入/匯出作業建立支援票證或案例 | Microsoft Docs
 description: 了解如何針對與匯入/匯出作業相關的問題，記錄支援要求。
 services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/29/2018
 ms.author: alkohli;
-ms.openlocfilehash: b82adae5854aa836701e299a0aabd2b61e73ca99
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.component: common
+ms.openlocfilehash: 321f59b1fd7b408d13856d7345d5d00608e3d250
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30323651"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521076"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>針對匯入/匯出作業開啟支援票證
 
@@ -56,7 +50,7 @@ ms.locfileid: "30323651"
     4. 為問題提供 [標題] 和更多 [詳細資料]。
     5. 提供問題開始日期與時間。
     6. 在 [檔案上傳] 中，按一下資料夾圖示以瀏覽至任何其他您想要上傳的檔案。
-    7. 勾選 [提供診斷資訊]。
+    7. 勾選 [共用診斷資訊]。
     8. 按 [下一步] 。
 
        ![問題](./media/storage-import-export-contact-microsoft-support/import-export-support5.png)

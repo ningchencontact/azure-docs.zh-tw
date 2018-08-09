@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 11/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 83cd90babaa5bcb396f792c7e933d38b3911cebb
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: cedc13cb18440eee32e333d395494043e2eca9d1
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970351"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39442508"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>快速入門：將 Java Spring Boot 應用程式部署到 Service Fabric
 
@@ -38,7 +38,7 @@ Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理�
 * 跨多個節點相應放大應用程式
 * 無法使用時，執行服務的容錯移轉
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本快速入門：
 
@@ -48,13 +48,13 @@ Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理�
     
     b. [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 
-2. [安裝 Git](https://git-scm.com/)
-3. 安裝 Yeoman
+1. [安裝 Git](https://git-scm.com/)
+1. 安裝 Yeoman
 
     a. [Mac](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
 
     b. [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
-4. 設定 Java 環境
+1. 設定 Java 環境
 
     a. [Mac](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
     
@@ -78,11 +78,11 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 ## <a name="package-the-spring-boot-application"></a>封裝 Spring Boot 應用程式 
 1. 在複本的 `gs-spring-boot` 目錄中，執行 `yo azuresfguest` 命令。 
 
-2. 針對每個提示，輸入下列詳細資料。
+1. 針對每個提示，輸入下列詳細資料。
 
     ![Yeoman 項目](./media/service-fabric-quickstart-java-spring-boot/yeomanspringboot.png)
 
-3. 在 `SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/code` 資料夾中，建立名為 `entryPoint.sh` 的檔案。 將下列項目新增至 `entryPoint.sh` 檔案。 
+1. 在 `SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/code` 資料夾中，建立名為 `entryPoint.sh` 的檔案。 將下列項目新增至 `entryPoint.sh` 檔案。 
 
     ```bash
     #!/bin/bash
@@ -91,7 +91,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
     java -jar gs-spring-boot-0.1.0.jar
     ```
 
-4. 在 `gs-spring-boot/SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/ServiceManifest.xml` 檔案中新增 [端點] 資源
+1. 在 `gs-spring-boot/SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/ServiceManifest.xml` 檔案中新增 [端點] 資源
 
     ```xml 
         <Resources>
@@ -150,19 +150,19 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
     
     ![本機叢集狀況良好](./media/service-fabric-quickstart-java-spring-boot/sfxlocalhost.png)
 
-2. 瀏覽到 `gs-spring-boot/SpringServiceFabric` 資料夾。
-3. 執行下列命令，以連接到本機叢集。
+1. 瀏覽到 `gs-spring-boot/SpringServiceFabric` 資料夾。
+1. 執行下列命令，以連接到本機叢集。
 
     ```bash
     sfctl cluster select --endpoint http://localhost:19080
     ```
-4. 執行 `install.sh` 指令碼。
+1. 執行 `install.sh` 指令碼。
 
     ```bash
     ./install.sh
     ```
 
-5. 開啟您最愛的網頁瀏覽器，並存取 **http://localhost:8080** 以存取應用程式。
+1. 開啟您最愛的網頁瀏覽器，並存取 **http://localhost:8080** 以存取應用程式。
 
     ![本機應用程式前端](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 
@@ -213,18 +213,18 @@ openssl pkcs12 -in party-cluster-1486790479-client-cert.pfx -out party-cluster-1
 既然應用程式和叢集已經就緒，您可以將其直接從命令列部署到叢集。
 
 1. 瀏覽到 `gs-spring-boot/SpringServiceFabric` 資料夾。
-2. 執行下列命令，以連接到 Azure 叢集。
+1. 執行下列命令，以連接到 Azure 叢集。
 
     ```bash
     sfctl cluster select --endpoint https://<ConnectionIPOrURL>:19080 --pem <path_to_certificate> --no-verify
     ```
-3. 執行 `install.sh` 指令碼。
+1. 執行 `install.sh` 指令碼。
 
     ```bash
     ./install.sh
     ```
 
-4. 開啟您的網頁瀏覽器，並存取 **http://\<ConnectionIPOrUrl>:8080** 以存取應用程式。
+1. 開啟您的網頁瀏覽器，並存取 **http://\<ConnectionIPOrUrl>:8080** 以存取應用程式。
 
     ![本機應用程式前端](./media/service-fabric-quickstart-java-spring-boot/springbootsfazure.png)
 
@@ -239,13 +239,13 @@ Service Fabric Explorer 會在所有 Service Fabric 叢集中執行，並可藉�
 若要調整 Web 前端服務，請執行下列動作：
 
 1. 在您的叢集中開啟 Service Fabric Explorer，例如 `http://localhost:19080`。
-2. 按一下樹狀檢視中 **fabric:/SpringServiceFabric/SpringGettingStarted** 節點旁邊的省略符號 (三個點)，然後選擇 [調整服務]。
+1. 按一下樹狀檢視中 **fabric:/SpringServiceFabric/SpringGettingStarted** 節點旁邊的省略符號 (三個點)，然後選擇 [調整服務]。
 
     ![Service Fabric Explorer 的 [調整服務]](./media/service-fabric-quickstart-java-spring-boot/sfxscaleservicehowto.png)
 
     您現在可以選擇調整服務的執行個體數目。
 
-3. 將數字變更為 **3**，然後按一下 [縮放服務]。
+1. 將數字變更為 **3**，然後按一下 [縮放服務]。
 
     使用命令列調整服務的替代方式如下所示。
 
@@ -257,7 +257,7 @@ Service Fabric Explorer 會在所有 Service Fabric 叢集中執行，並可藉�
     sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted' --instance-count 3 --stateless 
     ``` 
 
-4. 按一下樹狀檢視中的 **fabric:/SpringServiceFabric/SpringGettingStarted** 節點，然後展開資料分割節點 (以 GUID 表示)。
+1. 按一下樹狀檢視中的 **fabric:/SpringServiceFabric/SpringGettingStarted** 節點，然後展開資料分割節點 (以 GUID 表示)。
 
     ![Service Fabric Explorer 調整服務完成](./media/service-fabric-quickstart-java-spring-boot/sfxscaledservice.png)
 
@@ -270,10 +270,10 @@ Service Fabric Explorer 會在所有 Service Fabric 叢集中執行，並可藉�
 若要示範服務容錯移轉，可以使用 Service Fabric Explorer 來模擬節點重新啟動。 請確定您的服務只有一個執行個體正在執行。
 
 1. 在您的叢集中開啟 Service Fabric Explorer，例如 `http://localhost:19080`。
-2. 按一下執行您服務執行個體之節點旁邊的省略符號 (三個點)，然後重新啟動節點。
+1. 按一下執行您服務執行個體之節點旁邊的省略符號 (三個點)，然後重新啟動節點。
 
     ![Service Fabric Explorer 重新啟動節點](./media/service-fabric-quickstart-java-spring-boot/sfxhowtofailover.png)
-3. 您服務的執行個體會移至其他節點，而且您的應用程式不會有任何停機時間。
+1. 您服務的執行個體會移至其他節點，而且您的應用程式不會有任何停機時間。
 
     ![Service Fabric Explorer 重新啟動節點成功](./media/service-fabric-quickstart-java-spring-boot/sfxfailedover.png)
 

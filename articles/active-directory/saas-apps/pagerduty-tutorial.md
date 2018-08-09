@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 2ac5dee8fe9a27ffeed717e010cade522b9fefc0
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 0e571880d9893c0027c200c6f49dc704fea09ead
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046486"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39443693"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagerduty"></a>教學課程：Azure Active Directory 與 PagerDuty 整合
 
@@ -52,7 +52,7 @@ ms.locfileid: "39046486"
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 PagerDuty
-2. 設定並測試 Azure AD 單一登入
+1. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-pagerduty-from-the-gallery"></a>從資源庫新增 PagerDuty
 若要設定將 PagerDuty 整合到 Azure AD 中，您需要從資源庫將 PagerDuty 新增到受控 SaaS 應用程式清單。
@@ -63,15 +63,15 @@ ms.locfileid: "39046486"
 
     ![Azure Active Directory 按鈕][1]
 
-2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
+1. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![企業應用程式刀鋒視窗][2]
 
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+1. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![新增應用程式按鈕][3]
 
-4. 在搜尋方塊中，輸入 **PagerDuty**，從結果面板中選取 [PagerDuty]，然後按一下 [新增] 按鈕以新增應用程式。
+1. 在搜尋方塊中，輸入 **PagerDuty**，從結果面板中選取 [PagerDuty]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/pagerduty-tutorial/tutorial_pagerduty_addfromgallery.png)
 
@@ -86,10 +86,10 @@ ms.locfileid: "39046486"
 若要使用 PagerDuty 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 PagerDuty 測試使用者](#create-a-pagerduty-test-user)** - 使 PagerDuty 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
-4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[測試單一登入](#test-single-sign-on)** - 驗證組態是否能運作。
+1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
+1. **[建立 PagerDuty 測試使用者](#create-a-pagerduty-test-user)** - 使 PagerDuty 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
+1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+1. **[測試單一登入](#test-single-sign-on)** - 驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -105,7 +105,7 @@ ms.locfileid: "39046486"
 
     ![單一登入對話方塊](./media/pagerduty-tutorial/tutorial_pagerduty_samlbase.png)
 
-3. 在 [PagerDuty 網域與 URL] 區段上，執行下列步驟：
+1. 在 [PagerDuty 網域與 URL] 區段上，執行下列步驟：
 
     ![PagerDuty 網域及 URL 單一登入資訊](./media/pagerduty-tutorial/tutorial_pagerduty_url.png)
 
@@ -116,29 +116,29 @@ ms.locfileid: "39046486"
     > [!NOTE]
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [PagerDuty 用戶端支援小組](https://www.pagerduty.com/support/)以取得這些值。
 
-4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
+1. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
     ![憑證下載連結](./media/pagerduty-tutorial/tutorial_pagerduty_certificate.png)
 
-5. 按一下 [儲存]  按鈕。
+1. 按一下 [儲存]  按鈕。
 
     ![設定單一登入儲存按鈕](./media/pagerduty-tutorial/tutorial_general_400.png)
 
-6. 在 [PagerDuty 設定] 區段上，按一下 [設定 PagerDuty] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL 和 SAML 單一登入服務 URL]。
+1. 在 [PagerDuty 設定] 區段上，按一下 [設定 PagerDuty] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL 和 SAML 單一登入服務 URL]。
 
     ![PagerDuty 設定](./media/pagerduty-tutorial/tutorial_pagerduty_configure.png)
 
-7. 在不同的 Web 瀏覽器視窗中，以系統管理員身分登入您的 Pagerduty 公司網站。
+1. 在不同的 Web 瀏覽器視窗中，以系統管理員身分登入您的 Pagerduty 公司網站。
 
-8. 在頂端的功能表中，按一下 [帳戶設定] 。
+1. 在頂端的功能表中，按一下 [帳戶設定] 。
 
     ![帳戶設定](./media/pagerduty-tutorial/ic778535.png "帳戶設定")
 
-9. 按一下 [單一登入] 。
+1. 按一下 [單一登入] 。
 
     ![單一登入](./media/pagerduty-tutorial/ic778536.png "單一登入")
 
-10. 在 [啟用單一登入 (SSO)] 頁面上執行下列步驟：
+1. 在 [啟用單一登入 (SSO)] 頁面上執行下列步驟：
 
     ![啟用單一登入](./media/pagerduty-tutorial/ic778537.png "啟用單一登入")
 
@@ -166,15 +166,15 @@ ms.locfileid: "39046486"
 
     ![Azure Active Directory 按鈕](./media/pagerduty-tutorial/create_aaduser_01.png) 
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+1. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
     
     ![[使用者和群組] 與 [所有使用者] 連結](./media/pagerduty-tutorial/create_aaduser_02.png) 
 
-3. 若要開啟 [使用者] 對話方塊，按一下對話方塊頂端的 [新增]。
+1. 若要開啟 [使用者] 對話方塊，按一下對話方塊頂端的 [新增]。
  
     ![[新增] 按鈕](./media/pagerduty-tutorial/create_aaduser_03.png) 
 
-4. 在 [使用者]  對話頁面上，執行下列步驟：
+1. 在 [使用者]  對話頁面上，執行下列步驟：
  
     ![[使用者] 對話方塊](./media/pagerduty-tutorial/create_aaduser_04.png) 
 
@@ -198,13 +198,13 @@ PagerDuty 需以手動方式佈建。
 
 1. 登入您的 **Pagerduty** 租用戶。
 
-2. 在頂端的功能表中，按一下 [使用者] 。
+1. 在頂端的功能表中，按一下 [使用者] 。
 
-3. 按一下 [加入使用者] 。
+1. 按一下 [加入使用者] 。
    
     ![新增使用者](./media/pagerduty-tutorial/ic778539.png "新增使用者")
 
-4.  在 [邀請小組] 對話方塊中，執行下列步驟：
+1.  在 [邀請小組] 對話方塊中，執行下列步驟：
    
     ![邀請團隊成員](./media/pagerduty-tutorial/ic778540.png "邀請團隊成員")
 
@@ -229,23 +229,23 @@ PagerDuty 需以手動方式佈建。
 
     ![指派使用者][201] 
 
-2. 在應用程式清單中，選取 [PagerDuty]。
+1. 在應用程式清單中，選取 [PagerDuty]。
 
     ![應用程式清單中的 PagerDuty 連結](./media/pagerduty-tutorial/tutorial_pagerduty_app.png) 
 
-3. 在左側功能表中，按一下 [使用者和群組]。
+1. 在左側功能表中，按一下 [使用者和群組]。
 
     ![[使用者和群組] 連結][202]
 
-4. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
+1. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
 
     ![[新增指派] 窗格][203]
 
-5. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
+1. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
 
-6. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
+1. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
 
-7. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
+1. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
     
 ### <a name="test-single-sign-on"></a>測試單一登入
 

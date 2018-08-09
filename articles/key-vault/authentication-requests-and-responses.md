@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: 94080fb124478a4b8e196e341c335ca32321ecdf
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: caa2d74ecafe0b0e2508bd97eb4dc21a18e58f51
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011839"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626415"
 ---
 # <a name="authentication-requests-and-responses"></a>驗證、要求和回應
 
 Azure Key Vault 支援 JSON 格式化要求和回應。 搭配使用 HTTPS 與一些 URL 參數以及 JSON 編碼要求和回應本文，以將對 Azure Key Vault 的要求導向至有效的 Azure Key Vault URL。
 
-本主題涵蓋 Azure Key Vault 服務的特性。 如需使用 Azure REST 介面的一般資訊 (包括驗證/授權，以及如何取得存取權杖)，請參閱 [Azure REST API 參考](https://docs.microsoft.com/rest/api/)。
+本主題涵蓋 Azure Key Vault 服務的特性。 如需使用 Azure REST 介面的一般資訊 (包括驗證/授權，以及如何取得存取權杖)，請參閱 [Azure REST API 參考](https://docs.microsoft.com/rest/api/azure)。
 
 ## <a name="request-url"></a>要求 URL  
  金鑰管理作業使用 HTTP DELETE、GET、PATCH、PUT 和 HTTP POST，而對現有金鑰物件的密碼編譯作業則使用 HTTP POST。 無法支援特定 HTTP 指令動詞的用戶端可能也會使用 HTTP POST，方法是使用 X-HTTP-REQUEST 標頭指定所需的指令動詞；在使用 HTTP POST 時 (例如，使用 POST 而非 DELETE 時)，通常不需要本文的要求應該會包含空本文。  
@@ -95,7 +95,7 @@ Azure Key Vault 支援 JSON 格式化要求和回應。 搭配使用 HTTPS 與�
 ## <a name="authentication"></a>驗證  
  必須驗證所有對 Azure Key Vault 的要求。 Azure Key Vault 支援可使用 OAuth2 [[RFC6749](http://tools.ietf.org/html/rfc6749)] 取得的 Azure Active Directory 存取權杖。 
  
- 如需註冊應用程式並使用 Azure Key Vault 驗證的詳細資訊，請參閱[使用 Azure AD 註冊用戶端應用程式](https://docs.microsoft.com/rest/api/index#register-your-client-application-with-azure-ad)。
+ 如需註冊應用程式並使用 Azure Key Vault 驗證的詳細資訊，請參閱[使用 Azure AD 註冊用戶端應用程式](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad)。
  
  存取權杖必須使用 HTTP Authorization 標頭傳送給服務：  
 

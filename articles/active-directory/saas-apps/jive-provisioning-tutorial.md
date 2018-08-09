@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 1a2661797ddae0cc3d5f53a1e40ce22f3728eb17
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: c38623bba4c15add9abae289fae97af33be4f393
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36210734"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39443461"
 ---
 # <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>教學課程︰設定 Jive 來自動佈建使用者
 
 本教學課程旨在說明您需要在 Jive 和 Azure AD 中執行的步驟，以將使用者帳戶從 Azure AD 自動佈建和取消佈建至 Jive。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本教學課程中說明的案例假設您已經具有下列項目：
 
@@ -61,15 +61,15 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至 [Azure Active Directory > 企業應用程式 > 所有應用程式] 區段。
 
-2. 如果您已將 Jive 設定為單一登入，請使用 [搜尋] 欄位搜尋您的 Jive 執行個體。 否則，請選取 [新增]，並在應用程式庫中搜尋 [Jive]。 從搜尋結果中選取 Jive，並將它新增至您的應用程式清單。
+1. 如果您已將 Jive 設定為單一登入，請使用 [搜尋] 欄位搜尋您的 Jive 執行個體。 否則，請選取 [新增]，並在應用程式庫中搜尋 [Jive]。 從搜尋結果中選取 Jive，並將它新增至您的應用程式清單。
 
-3. 選取您的 Jive 執行個體，然後選取 [佈建] 索引標籤。
+1. 選取您的 Jive 執行個體，然後選取 [佈建] 索引標籤。
 
-4. 將 [佈建模式] 設定為 [自動]。 
+1. 將 [佈建模式] 設定為 [自動]。 
 
     ![佈建](./media/jive-provisioning-tutorial/provisioning.png)
 
-5. 在 [管理員認證] 區段下，提供下列組態設定：
+1. 在 [管理員認證] 區段下，提供下列組態設定：
    
     a. 在 [Jive 管理員使用者名稱] 文字方塊中，輸入在 Jive.com 已指派 **System Administrator** 設定檔的 Jive 帳戶名稱。
    
@@ -81,19 +81,19 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
       > Jive 租用戶 URL 是您的組織登入 Jive 所使用的 URL。  
       > 一般來說，該 URL 的格式如下：**www.\<organization\>.jive.com**。          
 
-6. 在 Azure 入口網站中，按一下 [測試連線]，以確保 Azure AD 可以連線至您的 Jive 應用程式。
+1. 在 Azure 入口網站中，按一下 [測試連線]，以確保 Azure AD 可以連線至您的 Jive 應用程式。
 
-7. 在 [通知電子郵件] 欄位中輸入應收到佈建錯誤通知的個人或群組之電子郵件地址，然後勾選下列核取方塊。
+1. 在 [通知電子郵件] 欄位中輸入應收到佈建錯誤通知的個人或群組之電子郵件地址，然後勾選下列核取方塊。
 
-8. 按一下 [儲存]。
+1. 按一下 [儲存]。
 
-9. 在 [對應] 區段下，選取 [同步處理 Azure Active Directory 使用者至 Jive]。
+1. 在 [對應] 區段下，選取 [同步處理 Azure Active Directory 使用者至 Jive]。
 
-10. 在 [屬性對應] 區段中，檢閱從 Azure AD 同步至 Jive 的使用者屬性。 選取為 [比對] 屬性的屬性會用來比對 Jive 中的使用者帳戶，以進行更新作業。 選取 [儲存] 按鈕以認可任何變更。
+1. 在 [屬性對應] 區段中，檢閱從 Azure AD 同步至 Jive 的使用者屬性。 選取為 [比對] 屬性的屬性會用來比對 Jive 中的使用者帳戶，以進行更新作業。 選取 [儲存] 按鈕以認可任何變更。
 
-11. 若要對 Jive 啟用 Azure AD 佈建服務，請在 [設定] 區段中，將 [佈建狀態] 變更為 [開啟]
+1. 若要對 Jive 啟用 Azure AD 佈建服務，請在 [設定] 區段中，將 [佈建狀態] 變更為 [開啟]
 
-12. 按一下 [儲存]。
+1. 按一下 [儲存]。
 
 這會對 [使用者和群組] 區段中指派給 Jive 的任何使用者和/或群組，啟動首次同步處理。 初始同步處理會比後續同步處理花費更多時間執行，只要服務正在執行，這大約每 40 分鐘便會發生一次。 您可以使用 [同步處理詳細資料] 區段來監視進度，並依循連結前往佈建活動記錄，此記錄會描述您 Jive 應用程式上佈建服務所執行的所有動作。
 

@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 7/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: c1189e1b120f0bd1b3169618bebdb929d1cee18e
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: a075b60c525fc3883f4464f19a8964fb64ce15a0
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248783"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627707"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 診斷記錄支援的服務、結構描述和類別
 
@@ -47,7 +47,7 @@ ms.locfileid: "39248783"
 
 | 服務 | 結構描述與文件 |
 | --- | --- |
-| Azure Active Directory | [概觀](../active-directory/reporting-azure-monitor-diagnostics-overview.md)、[稽核記錄結構描述](../active-directory/reporting-azure-monitor-diagnostics-audit-log-schema.md)和[登入結構描述](../active-directory/reporting-azure-monitor-diagnostics-sign-in-log-schema.md) |
+| Azure Active Directory | [概觀](../active-directory/reports-monitoring/overview-activity-logs-in-azure-monitor.md)、[稽核記錄結構描述](../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md)和[登入結構描述](../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | API 管理 | [API 管理診斷記錄](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | 應用程式閘道 |[應用程式閘道的診斷記錄功能](../application-gateway/application-gateway-diagnostics.md) |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: cb23db13d67047225102c6888e27e8f79a3e5abf
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: e12cc37c579c10d3b59197d126589d36e80a8451
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259308"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444516"
 ---
 # <a name="configure-managed-service-identity-on-an-azure-vm-using-azure-cli"></a>使用 Azure CLI 在 Azure VM 上設定受控服務識別
 
@@ -54,19 +54,19 @@ ms.locfileid: "39259308"
 
 若要建立已啟用系統指派身分識別的 Azure VM：
 
-1. 如果您要在本機主控台中使用 Azure CLI，請先使用 [az login](/cli/azure/reference-index#az_login) 登入 Azure。 使用您想部署 VM 且已與 Azure 訂用帳戶相關聯的帳戶：
+1. 如果您要在本機主控台中使用 Azure CLI，請先使用 [az login](/cli/azure/reference-index#az-login) 登入 Azure。 使用您想部署 VM 且已與 Azure 訂用帳戶相關聯的帳戶：
 
    ```azurecli-interactive
    az login
    ```
 
-2. 使用 [az group create](/cli/azure/group/#az_group_create)，為您的 VM 和其相關資源建立[資源群組](../../azure-resource-manager/resource-group-overview.md#terminology)。 如果您已經有想要使用的資源群組，您可以略過此步驟：
+2. 使用 [az group create](/cli/azure/group/#az-group-create)，為您的 VM 和其相關資源建立[資源群組](../../azure-resource-manager/resource-group-overview.md#terminology)。 如果您已經有想要使用的資源群組，您可以略過此步驟：
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
    ```
 
-3. 使用 [az vm create](/cli/azure/vm/#az_vm_create) 建立 VM。 下列範例會根據 `--assign-identity` 參數的要求，建立具有系統指派身分識別且名為 myVM 的 VM。 `--admin-username` 和 `--admin-password` 參數會指定登入虛擬機器的系統管理使用者名稱和密碼帳戶。 請針對您的環境適當地更新這些值： 
+3. 使用 [az vm create](/cli/azure/vm/#az-vm-create) 建立 VM。 下列範例會根據 `--assign-identity` 參數的要求，建立具有系統指派身分識別且名為 myVM 的 VM。 `--admin-username` 和 `--admin-password` 參數會指定登入虛擬機器的系統管理使用者名稱和密碼帳戶。 請針對您的環境適當地更新這些值： 
 
    ```azurecli-interactive 
    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12
@@ -76,13 +76,13 @@ ms.locfileid: "39259308"
 
 如果您需要在現有 VM 上啟用系統指派的身分識別：
 
-1. 如果您要在本機主控台中使用 Azure CLI，請先使用 [az login](/cli/azure/reference-index#az_login) 登入 Azure。 使用與包含虛擬機器的 Azure 訂用帳戶相關聯的帳戶。
+1. 如果您要在本機主控台中使用 Azure CLI，請先使用 [az login](/cli/azure/reference-index#az-login) 登入 Azure。 使用與包含虛擬機器的 Azure 訂用帳戶相關聯的帳戶。
 
    ```azurecli-interactive
    az login
    ```
 
-2. 使用 [az vm identity assign](/cli/azure/vm/identity/#az_vm_identity_assign) 與 `identity assign` 命令在現有的 VM 上啟用系統指派的身分識別：
+2. 使用 [az vm identity assign](/cli/azure/vm/identity/#az-vm-identity-assign) 與 `identity assign` 命令在現有的 VM 上啟用系統指派的身分識別：
 
    ```azurecli-interactive
    az vm identity assign -g myResourceGroup -n myVm
@@ -99,7 +99,7 @@ az vm update -n myVM -g myResourceGroup --set identity.type='UserAssigned'
 如果您的虛擬機器不再需要系統指派的識別，而且沒有使用者指派的識別，請使用下列命令：
 
 > [!NOTE]
-> 值 `none` 會區分大小寫， 而且必須是小寫字母。 
+> 值 `none` 會區分大小寫。 而且必須是小寫字母。 
 
 ```azurecli-interactive
 az vm update -n myVM -g myResourceGroup --set identity.type="none"
@@ -119,13 +119,13 @@ az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentit
 
 本節會逐步引導您建立虛擬機器以及指派使用者指派的身分識別。 如果您已經有想要使用的虛擬機器，請略過本節並繼續進行下一節。
 
-1. 如果您已經有想要使用的資源群組，可以略過此步驟。 使用 [az group create](/cli/azure/group/#az_group_create)，針對受控服務識別的內含項目和部署建立[資源群組](~/articles/azure-resource-manager/resource-group-overview.md#terminology)。 請務必以您自己的值取代 `<RESOURCE GROUP>` 和 `<LOCATION>` 參數的值。 ：
+1. 如果您已經有想要使用的資源群組，可以略過此步驟。 使用 [az group create](/cli/azure/group/#az-group-create)，針對受控服務識別的內含項目和部署建立[資源群組](~/articles/azure-resource-manager/resource-group-overview.md#terminology)。 請務必以您自己的值取代 `<RESOURCE GROUP>` 和 `<LOCATION>` 參數的值。 ：
 
    ```azurecli-interactive 
    az group create --name <RESOURCE GROUP> --location <LOCATION>
    ```
 
-2. 使用 [az identity create](/cli/azure/identity#az_identity_create)，建立使用者指派的身分識別。  `-g` 參數會指定要在其中建立使用者指派身分識別的資源群組，而 `-n` 參數會指定其名稱。    
+2. 使用 [az identity create](/cli/azure/identity#az-identity-create)，建立使用者指派的身分識別。  `-g` 參數會指定要在其中建立使用者指派身分識別的資源群組，而 `-n` 參數會指定其名稱。    
     
    [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -149,7 +149,7 @@ az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentit
    }
    ```
 
-3. 使用 [az vm create](/cli/azure/vm/#az_vm_create) 建立 VM。 下列範例會依 `--assign-identity` 參數的指定內容，建立與新使用者指派身分識別相關聯的虛擬機器。 別忘了以您自己的值取代 `<RESOURCE GROUP>`、`<VM NAME>`、`<USER NAME>`、`<PASSWORD>`、`<MSI ID>` 參數的值。 針對 `<MSI ID>`，請使用使用者指派身分識別的資源 `id` 屬性 (於上個步驟中建立)： 
+3. 使用 [az vm create](/cli/azure/vm/#az-vm-create) 建立 VM。 下列範例會依 `--assign-identity` 參數的指定內容，建立與新使用者指派身分識別相關聯的虛擬機器。 別忘了以您自己的值取代 `<RESOURCE GROUP>`、`<VM NAME>`、`<USER NAME>`、`<PASSWORD>`、`<MSI ID>` 參數的值。 針對 `<MSI ID>`，請使用使用者指派身分識別的資源 `id` 屬性 (於上個步驟中建立)： 
 
    ```azurecli-interactive 
    az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <MSI ID>
@@ -199,7 +199,7 @@ az vm identity remove -g <RESOURCE GROUP> -n <VM NAME> --identities <MSI NAME>
 如果您的 VM 沒有系統指派的識別，而且您想要從其中移除所有使用者指派的識別，請使用下列命令：
 
 > [!NOTE]
-> 值 `none` 會區分大小寫， 而且必須是小寫字母。
+> 值 `none` 會區分大小寫， 它必須是小寫字母。
 
 ```azurecli-interactive
 az vm update -n myVM -g myResourceGroup --set identity.type="none" identity.identityIds=null

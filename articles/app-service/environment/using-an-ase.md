@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 66ef20616df77dc809a79e516a53133a80759dc7
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b3550c771b4c2916987c66f318010e5bb246fa39
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355299"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39446845"
 ---
 # <a name="use-an-app-service-environment"></a>使用 App Service Environment #
 
@@ -51,20 +51,20 @@ Azure App Service Environment (ASE) 是 Azure App Service 到客戶之 Azure 虛
 
 1. 選取 [建立資源]  >  [Web + 行動]  >  [Web 應用程式]。
 
-2. 輸入 Web 應用程式的名稱。 如果您已在 ASE 中選取 App Service 方案，則應用程式的網域名稱會反映 ASE 的網域名稱。
+1. 輸入 Web 應用程式的名稱。 如果您已在 ASE 中選取 App Service 方案，則應用程式的網域名稱會反映 ASE 的網域名稱。
 
     ![選取 Web 應用程式名稱][1]
 
-3. 選取一個訂用帳戶。
+1. 選取一個訂用帳戶。
 
-4. 輸入新資源群組的名稱，或選取 [使用現有] 並從下拉式清單中挑選一個。
+1. 輸入新資源群組的名稱，或選取 [使用現有] 並從下拉式清單中挑選一個。
 
-5. 選取您的作業系統。 
+1. 選取您的作業系統。 
 
     * 在 ASE 中裝載 Linux 應用程式是新的預覽功能，因此建議您不要將 Linux 應用程式新增到目前執行生產工作負載的 ASE。 
     * 將 Linux 應用程式新增至 ASE，表示 ASE 也會處於預覽模式。 
 
-5. 選取 ASE 中現有的 App Service 方案，或透過下列步驟建立一個新的方案：
+1. 選取 ASE 中現有的 App Service 方案，或透過下列步驟建立一個新的方案：
 
     a. 選取 [新建]。
 
@@ -82,7 +82,7 @@ Azure App Service Environment (ASE) 是 Azure App Service 到客戶之 Azure 虛
     > Linux Web 應用程式和 Windows Web 應用程式不能在相同的 App Service 方案中，但可位於相同的 App Service Environment 中。 
     >
 
-6. 選取 [建立] 。
+1. 選取 [建立] 。
 
 ## <a name="how-scale-works"></a>調整方式 ##
 
@@ -160,7 +160,7 @@ ILB ASE 中應用程式的發佈端點會使用用來建立 ILB ASE 的網域。
 
 1. 請使用 [App Service Environment] 刀鋒視窗頂端的 [刪除]。 
 
-2. 輸入 ASE 的名稱以確認您想要將它刪除。 當您刪除 ASE 時，將同時刪除其中包含的所有內容。 
+1. 輸入 ASE 的名稱以確認您想要將它刪除。 當您刪除 ASE 時，將同時刪除其中包含的所有內容。 
 
     ![ASE 刪除][3]
 

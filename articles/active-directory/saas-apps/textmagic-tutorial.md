@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 1769f3d0d86fca784d8d4e7a221a7cf3bde16def
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b8ffd732221604d55c65d4623de89f716bba49eb
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056091"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39427453"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-textmagic"></a>教學課程：Azure Active Directory 與 TextMagic 整合
 
@@ -53,7 +53,7 @@ TextMagic 與 Azure AD 整合提供下列優點：
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 TextMagic
-2. 設定並測試 Azure AD 單一登入
+1. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-textmagic-from-the-gallery"></a>從資源庫新增 TextMagic
 若要設定將 TextMagic 整合到 Azure AD 中，您必須從資源庫將 TextMagic 新增到受控 SaaS 應用程式清單。
@@ -64,15 +64,15 @@ TextMagic 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕][1]
 
-2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
+1. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![企業應用程式刀鋒視窗][2]
     
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+1. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![新增應用程式按鈕][3]
 
-4. 在搜尋方塊中，輸入 **TextMagic**，從結果面板中選取 [TextMagic]，然後按一下 [新增] 按鈕以新增應用程式。
+1. 在搜尋方塊中，輸入 **TextMagic**，從結果面板中選取 [TextMagic]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![結果清單中的 TextMagic](./media/textmagic-tutorial/tutorial_textmagic_addfromgallery.png)
 
@@ -87,10 +87,10 @@ TextMagic 與 Azure AD 整合提供下列優點：
 若要使用 TextMagic 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 TextMagic 測試使用者](#create-a-textmagic-test-user)** - 使 TextMagic 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
-4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
+1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
+1. **[建立 TextMagic 測試使用者](#create-a-textmagic-test-user)** - 使 TextMagic 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
+1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+1. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -102,41 +102,41 @@ TextMagic 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入連結][4]
 
-2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
+1. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
  
     ![單一登入對話方塊](./media/textmagic-tutorial/tutorial_textmagic_samlbase.png)
 
-3. 如果您想要以 **IDP** 起始模式設定應用程式，請在 [TextMagic 網域和 URL] 區段上執行下列步驟：
+1. 如果您想要以 **IDP** 起始模式設定應用程式，請在 [TextMagic 網域和 URL] 區段上執行下列步驟：
 
     ![TextMagic 網域與 URL 單一登入資訊](./media/textmagic-tutorial/tutorial_textmagic_url.png)
 
     在 [識別碼] 文字方塊中，輸入 URL：`https://my.textmagic.com/saml/metadata`
 
-4. 如果您想要以 **SP** 起始模式設定應用程式，請勾選 [顯示進階 URL 設定]，然後執行下列步驟：
+1. 如果您想要以 **SP** 起始模式設定應用程式，請勾選 [顯示進階 URL 設定]，然後執行下列步驟：
 
     ![TextMagic 網域與 URL 單一登入資訊](./media/textmagic-tutorial/url1.png)
 
     在 [登入 URL] 文字方塊中，輸入 URL：`https://my.textmagic.com/login/sso`
 
 
-5. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
+1. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
     ![憑證下載連結](./media/textmagic-tutorial/tutorial_textmagic_certificate.png) 
 
-6. 按一下 [儲存]  按鈕。
+1. 按一下 [儲存]  按鈕。
 
     ![設定單一登入儲存按鈕](./media/textmagic-tutorial/tutorial_general_400.png)
     
-7. 在 [TextMagic 組態] 區段上，按一下 [設定 TextMagic] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
+1. 在 [TextMagic 組態] 區段上，按一下 [設定 TextMagic] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
 
     ![TextMagic 設定](./media/textmagic-tutorial/tutorial_textmagic_configure.png) 
 
-8. 在不同的 Web 瀏覽器視窗中，以系統管理員身分登入您的 TextMagic 公司網站。
+1. 在不同的 Web 瀏覽器視窗中，以系統管理員身分登入您的 TextMagic 公司網站。
 
-9. 選取使用者名稱下的 [帳戶設定]。
+1. 選取使用者名稱下的 [帳戶設定]。
 
     ![TextMagic 設定](./media/textmagic-tutorial/config1.png) 
-10. 按一下 TAB  **「單一登入 (SSO)」** 並填寫下列欄位：  
+1. 按一下 TAB  **「單一登入 (SSO)」** 並填寫下列欄位：  
     
     ![TextMagic 設定](./media/textmagic-tutorial/config2.png)
 
@@ -166,15 +166,15 @@ TextMagic 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/textmagic-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+1. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/textmagic-tutorial/create_aaduser_02.png)
 
-3. 若要開啟 [使用者] 對話方塊，按一下 [所有使用者] 對話方塊頂端的 [新增]。
+1. 若要開啟 [使用者] 對話方塊，按一下 [所有使用者] 對話方塊頂端的 [新增]。
 
     ![[新增] 按鈕](./media/textmagic-tutorial/create_aaduser_03.png)
 
-4. 在 [使用者] 對話方塊中，執行下列步驟：
+1. 在 [使用者] 對話方塊中，執行下列步驟：
 
     ![[使用者] 對話方塊](./media/textmagic-tutorial/create_aaduser_04.png)
 
@@ -203,23 +203,23 @@ TextMagic 與 Azure AD 整合提供下列優點：
 
     ![指派使用者][201] 
 
-2. 在應用程式清單中，選取 [TextMagic]。
+1. 在應用程式清單中，選取 [TextMagic]。
 
     ![應用程式清單中的 TextMagic 連結](./media/textmagic-tutorial/tutorial_textmagic_app.png)  
 
-3. 在左側功能表中，按一下 [使用者和群組]。
+1. 在左側功能表中，按一下 [使用者和群組]。
 
     ![[使用者和群組] 連結][202]
 
-4. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
+1. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
 
     ![[新增指派] 窗格][203]
 
-5. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
+1. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
 
-6. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
+1. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
 
-7. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
+1. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
     
 ### <a name="test-single-sign-on"></a>測試單一登入
 

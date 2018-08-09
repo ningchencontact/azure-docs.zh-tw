@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: b39879cc8548139879a3039c5e0c6b924e83c107
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: fed368c0df265495d9fee764f86825957fae8bab
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046666"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447419"
 ---
 # <a name="integrate-azure-active-directory-with-palo-alto-networks---admin-ui"></a>整合 Azure Active Directory 與 Palo Alto 網路 - 系統管理 UI
 
@@ -64,15 +64,15 @@ ms.locfileid: "39046666"
 
     ![Azure Active Directory 按鈕][1]
 
-2. 選取 [企業應用程式] > [所有應用程式]。
+1. 選取 [企業應用程式] > [所有應用程式]。
 
     ![企業應用程式視窗][2]
     
-3. 若要新增新的應用程式，請選取視窗頂端的 [新增應用程式] 按鈕。
+1. 若要新增新的應用程式，請選取視窗頂端的 [新增應用程式] 按鈕。
 
     ![[新增應用程式] 按鈕][3]
 
-4. 在搜尋方塊中輸入 **Palo Alto 網路 - 系統管理 UI**，從結果清單中選取 [Palo Alto 網路 - 系統管理 UI]，然後選取 [新增]。
+1. 在搜尋方塊中輸入 **Palo Alto 網路 - 系統管理 UI**，從結果清單中選取 [Palo Alto 網路 - 系統管理 UI]，然後選取 [新增]。
 
     ![結果清單中的 [Palo Alto 網路 - 系統管理 UI]](./media/paloaltoadmin-tutorial/tutorial_step4-add-from-the-gallery.png)
 
@@ -94,11 +94,11 @@ ms.locfileid: "39046666"
 
     ![單一登入連結][4]
 
-2. 在 [單一登入] 視窗的 [單一登入模式] 方塊中，選取 [SAML 登入]。
+1. 在 [單一登入] 視窗的 [單一登入模式] 方塊中，選取 [SAML 登入]。
  
     ![單一登入視窗](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_samlbase.png)
 
-3. 在 [Palo Alto 網路 - 系統管理 UI 網域和 URL] 下，執行下列動作：
+1. 在 [Palo Alto 網路 - 系統管理 UI 網域和 URL] 下，執行下列動作：
 
     ![[Palo Alto 網路 - 系統管理 UI 網域和 URL] 單一登入資訊](./media/paloaltoadmin-tutorial/tutorial_general_show_advanced_url.png)
     
@@ -111,7 +111,7 @@ ms.locfileid: "39046666"
     > [!NOTE] 
     > 上述值並非真正的值。 請使用實際的登入 URL 及識別碼來更新這些值。 若要取得這些值，請連絡 [Palo Alto 網路 - 系統管理 UI 用戶端支援小組](https://support.paloaltonetworks.com/support)。 
  
-4. 由於 Palo Alto 網路 - 系統管理 UI 應用程式需要特定格式的 SAML 判斷提示，請依照下圖中的說明設定宣告。 請執行下列動作，管理 [應用程式整合] 頁面的 [使用者屬性] 區段中的屬性值：
+1. 由於 Palo Alto 網路 - 系統管理 UI 應用程式需要特定格式的 SAML 判斷提示，請依照下圖中的說明設定宣告。 請執行下列動作，管理 [應用程式整合] 頁面的 [使用者屬性] 區段中的屬性值：
     
     ![SAML Token 屬性清單](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_attribute.png)
     
@@ -144,23 +144,23 @@ ms.locfileid: "39046666"
     > * [系統管理 UI (accessdomain) 的裝置存取網域](https://www.paloaltonetworks.com/documentation/80/pan-os/web-interface-help/device/device-access-domain)
     >
 
-5. 在 [SAML 簽章憑證] 下選取 [中繼資料 XML]，然後選取 [儲存]。
+1. 在 [SAML 簽章憑證] 下選取 [中繼資料 XML]，然後選取 [儲存]。
 
     ![中繼資料 XML 下載連結](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_certificate.png) 
 
     ![[儲存] 按鈕](./media/paloaltoadmin-tutorial/tutorial_general_400.png)
 
-6. 以系統管理員的身分，在新視窗中開啟 Palo Alto 網路防火牆的系統管理 UI。
+1. 以系統管理員的身分，在新視窗中開啟 Palo Alto 網路防火牆的系統管理 UI。
 
-7. 選取 [裝置] 索引標籤。
+1. 選取 [裝置] 索引標籤。
 
     ![[裝置] 索引標籤](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin1.png)
 
-8. 在左窗格中選取 [SAML 身分識別提供者]，然後選取 [匯入] 以匯入中繼資料檔案。
+1. 在左窗格中選取 [SAML 身分識別提供者]，然後選取 [匯入] 以匯入中繼資料檔案。
 
     ![匯入中繼資料檔案按鈕](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin2.png)
 
-9. 在 [SAML 身分識別提供者伺服器設定檔匯入] 視窗中，執行下列動作：
+1. 在 [SAML 身分識別提供者伺服器設定檔匯入] 視窗中，執行下列動作：
 
     ![[SAML 身分識別提供者伺服器設定檔匯入] 視窗](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_idp.png)
 
@@ -174,11 +174,11 @@ ms.locfileid: "39046666"
     
     e. 若要認可防火牆的組態，請選取 [認可]。
 
-10. 在左窗格中選取 [SAML 身分識別提供者]，然後選取您在先前的步驟中建立的 SAML 身分識別提供者設定檔 (例如 **AzureAD 系統管理 UI**)。 
+1. 在左窗格中選取 [SAML 身分識別提供者]，然後選取您在先前的步驟中建立的 SAML 身分識別提供者設定檔 (例如 **AzureAD 系統管理 UI**)。 
 
     ![SAML 身分識別提供者設定檔](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_idp_select.png)
 
-11. 在 [SAML 身分識別提供者伺服器設定檔] 視窗中，執行下列動作：
+1. 在 [SAML 身分識別提供者伺服器設定檔] 視窗中，執行下列動作：
 
     ![[SAML 身分識別提供者伺服器設定檔] 視窗](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_slo.png)
   
@@ -186,20 +186,20 @@ ms.locfileid: "39046666"
   
     b. 選取 [確定] 。
 
-12. 在 Palo Alto 網路防火牆的系統管理 UI 中選取 [裝置]，然後選取 [管理員角色]
+1. 在 Palo Alto 網路防火牆的系統管理 UI 中選取 [裝置]，然後選取 [管理員角色]
 
-13. 選取 [新增] 按鈕。 
+1. 選取 [新增] 按鈕。 
 
-14. 在 [管理員角色設定檔] 視窗的 [名稱] 方塊中，提供管理員角色的名稱 (例如 **fwadmin**)。  
+1. 在 [管理員角色設定檔] 視窗的 [名稱] 方塊中，提供管理員角色的名稱 (例如 **fwadmin**)。  
     管理員角色名稱應符合身分識別提供者所傳送的 SAML 管理員角色屬性名稱。 在步驟 4 中已建立管理員角色的名稱和值。
 
     ![設定 Palo Alto 網路管理員角色](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_adminrole.png)
   
-15. 在防火牆的系統管理 UI 上選取 [裝置]，然後選取 [驗證設定檔]。
+1. 在防火牆的系統管理 UI 上選取 [裝置]，然後選取 [驗證設定檔]。
 
-16. 選取 [新增] 按鈕。 
+1. 選取 [新增] 按鈕。 
 
-17. 在 [驗證設定檔] 視窗中，執行下列動作： 
+1. 在 [驗證設定檔] 視窗中，執行下列動作： 
 
     ![[驗證設定檔] 視窗](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_authentication_profile.png)
 
@@ -222,17 +222,17 @@ ms.locfileid: "39046666"
 
     g. 選取 [確定] 。
 
-18. 若要使用 Azure 讓管理員能夠使用 SAML SSO，請選取 [裝置] > [設定]。 在 [設定] 窗格中選取 [管理] 索引標籤，然後選取 [驗證設定] 下的 [設定] (「齒輪」) 按鈕。 
+1. 若要使用 Azure 讓管理員能夠使用 SAML SSO，請選取 [裝置] > [設定]。 在 [設定] 窗格中選取 [管理] 索引標籤，然後選取 [驗證設定] 下的 [設定] (「齒輪」) 按鈕。 
 
  ![[設定] 按鈕](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsetup.png)
 
-19. 選取您在步驟 17 中建立的 SAML 驗證設定檔，例如 **AzureSAML_Admin_AuthProfile**。
+1. 選取您在步驟 17 中建立的 SAML 驗證設定檔，例如 **AzureSAML_Admin_AuthProfile**。
 
  ![[驗證設定檔] 欄位](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsettings.png)
 
-20. 選取 [確定] 。
+1. 選取 [確定] 。
 
-21. 若要認可組態，請選取 [認可]。
+1. 若要認可組態，請選取 [認可]。
 
 
 > [!TIP]
@@ -249,17 +249,17 @@ ms.locfileid: "39046666"
 
     ![Azure Active Directory 連結](./media/paloaltoadmin-tutorial/create_aaduser_01.png)
 
-2. 若要顯示目前使用者清單，請選取 [使用者和群組]  >  [所有使用者]。
+1. 若要顯示目前使用者清單，請選取 [使用者和群組]  >  [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/paloaltoadmin-tutorial/create_aaduser_02.png)
 
-3. 在 [所有使用者] 視窗頂端，選取 [新增]。
+1. 在 [所有使用者] 視窗頂端，選取 [新增]。
 
     ![[新增] 按鈕](./media/paloaltoadmin-tutorial/create_aaduser_03.png)
     
     [使用者] 視窗隨即開啟。
 
-4. 在 [使用者] 視窗中，執行下列操作：
+1. 在 [使用者] 視窗中，執行下列操作：
 
     ![[使用者] 視窗](./media/paloaltoadmin-tutorial/create_aaduser_04.png)
 
@@ -285,23 +285,23 @@ Palo Alto 網路 - 系統管理 UI 支援 Just-In-Time 使用者佈建。 如果
 
     ![[企業應用程式] 和 [所有應用程式] 連結][201] 
 
-2. 在 [應用程式] 清單中，選取 [Palo Alto 網路 - 系統管理 UI]。
+1. 在 [應用程式] 清單中，選取 [Palo Alto 網路 - 系統管理 UI]。
 
     ![Palo Alto 網路 - 系統管理 UI](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_app.png)  
 
-3. 在左側窗格中，選取 [使用者和群組]。
+1. 在左側窗格中，選取 [使用者和群組]。
 
     ![[使用者和群組] 連結][202]
 
-4. 選取 [新增]，然後在 [新增指派] 窗格中，選取 [使用者和群組]。
+1. 選取 [新增]，然後在 [新增指派] 窗格中，選取 [使用者和群組]。
 
     ![[新增指派] 窗格][203]
 
-5. 在 [使用者和群組] 視窗的 [使用者] 清單中，選取 [Britta Simon]。
+1. 在 [使用者和群組] 視窗的 [使用者] 清單中，選取 [Britta Simon]。
 
-6. 選取 [選取] 按鈕。
+1. 選取 [選取] 按鈕。
 
-7. 在 [新增指派] 視窗中，選取 [指派]。
+1. 在 [新增指派] 視窗中，選取 [指派]。
     
 ### <a name="test-single-sign-on"></a>測試單一登入
 

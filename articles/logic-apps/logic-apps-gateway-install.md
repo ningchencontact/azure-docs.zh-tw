@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/20/2018
 ms.reviewer: yshoukry, LADocs
 ms.suite: integration
-ms.openlocfilehash: 09e3879ed91a0e9c6d27940cae53f3e3f0397d7b
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 616e3d81d577fd30e65117ec15c65250d3b3e27e
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145201"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503643"
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>安裝 Azure Logic Apps 的內部部署資料閘道
 
@@ -84,7 +84,7 @@ ms.locfileid: "39145201"
   > [!TIP]
   > 如果您已註冊 Office 365 供應項目，但未提供實際的公司電子郵件，您的登入地址會如此範例所示：`username@domain.onmicrosoft.com` 
   >
-  > 若要使用具有 [Visual Studio 標準訂用帳戶](https://visualstudio.microsoft.com/vs/pricing/)的 Microsoft 帳戶，請先使用您的 Microsoft 帳戶，[在 Azure Active Directory 中建立一個目錄 (租用戶)](../active-directory/develop/active-directory-howto-tenant.md)，或使用預設目錄。 
+  > 若要使用具有 [Visual Studio 標準訂用帳戶](https://visualstudio.microsoft.com/vs/pricing/)的 Microsoft 帳戶，請先使用您的 Microsoft 帳戶，[在 Azure Active Directory 中建立一個目錄 (租用戶)](../active-directory/develop/quickstart-create-new-tenant.md)，或使用預設目錄。 
   > 請將使用者和密碼新增至目錄，然後將您訂用帳戶的存取權授與該使用者。 
   > 接著，您就可以在安裝閘道時，使用此使用者名稱和密碼來進行登入。
 

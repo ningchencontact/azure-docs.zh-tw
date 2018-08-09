@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/17/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: f1388843f2c5d3ea607b876ece288db1370329a2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 173588c0200666c52f3ac0a5d2e70d667cfe3294
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38461532"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445556"
 ---
 # <a name="tutorial-secure-sql-database-connection-with-managed-service-identity"></a>教學課程：使用受控服務識別保護 SQL Database 連線
 
@@ -38,7 +38,7 @@ ms.locfileid: "38461532"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本文繼續進行您未完成的[教學課程：在 Azure 中搭配 SQL Database 來建置 ASP.NET 應用程式](app-service-web-tutorial-dotnet-sqldatabase.md)。 如果您還沒這麼做，請先依照該教學課程進行。 或者，您可以使用 SQL Database 針對自己的 ASP.NET 應用程式調整步驟。
 
@@ -48,7 +48,7 @@ ms.locfileid: "38461532"
 
 ## <a name="enable-managed-service-identity"></a>啟用受控服務識別
 
-若要啟用 Azure 應用程式的服務識別，請在 Cloud Shell 中使用 [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az_webapp_identity_assign) 命令。 在下列命令中，取代 *\<app name>*。
+若要啟用 Azure 應用程式的服務識別，請在 Cloud Shell 中使用 [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) 命令。 在下列命令中，取代 *\<app name>*。
 
 ```azurecli-interactive
 az webapp identity assign --resource-group myResourceGroup --name <app name>
@@ -73,7 +73,7 @@ az ad sp show --id <principalid>
 
 ## <a name="grant-database-access-to-identity"></a>將資料庫存取權授與身分識別
 
-接下來，您將在 Cloud Shell 中使用 [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az_sql_server_ad-admin_create) 命令，將資料庫存取權授與您應用程式的服務識別。 在下列命令中，取代 \<server_name> 和 <principalid_from_last_step>。 針對 \<admin_user> 輸入管理員名稱。
+接下來，您將在 Cloud Shell 中使用 [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin_create) 命令，將資料庫存取權授與您應用程式的服務識別。 在下列命令中，取代 \<server_name> 和 <principalid_from_last_step>。 針對 \<admin_user> 輸入管理員名稱。
 
 ```azurecli-interactive
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server_name> --display-name <admin_user> --object-id <principalid_from_last_step>
@@ -83,7 +83,7 @@ az sql server ad-admin create --resource-group myResourceGroup --server-name <se
 
 ## <a name="modify-connection-string"></a>修改連接字串
 
-若要修改您先前為應用程式設定的連線，請在 Cloud Shell 中使用 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) 命令。 在下列命令中，以您的應用程式名稱取代 \<app name>，並以您的 SQL Database 資料取代 \<server_name> 和 \<db_name>。
+若要修改您先前為應用程式設定的連線，請在 Cloud Shell 中使用 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 命令。 在下列命令中，以您的應用程式名稱取代 \<app name>，並以您的 SQL Database 資料取代 \<server_name> 和 \<db_name>。
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='Server=tcp:<server_name>.database.windows.net,1433;Database=<db_name>;' --connection-string-type SQLAzure

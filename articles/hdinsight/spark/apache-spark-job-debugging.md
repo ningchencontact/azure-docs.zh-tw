@@ -1,25 +1,20 @@
 ---
-title: 對 Azure HDInsight 上執行的 Apache Spark 作業進行偵錯 | Microsoft Docs
+title: 對 Azure HDInsight 上執行的 Apache Spark 作業進行偵錯
 description: 使用 YARN UI、Spark UI 和 Spark 歷程記錄伺服器，追蹤和偵錯在 Azure HDInsight 中的 Spark 叢集上執行的作業
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 59af05a7-2bd9-44b0-b55f-2438d294198b
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/20/2017
-ms.author: jgao
-ms.openlocfilehash: 2593a9e782298bbd6e40bde611a430844febbce3
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.author: jasonh
+ms.openlocfilehash: 10d46da66fa6b06089e09816f400eefbe40c0c65
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398483"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622658"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>對 Azure HDInsight 上執行的 Apache Spark 作業進行偵錯
 

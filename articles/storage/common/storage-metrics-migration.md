@@ -2,24 +2,18 @@
 title: Azure 儲存體計量移轉 | Microsoft Docs
 description: 了解如何將舊計量移轉至由 Azure 監視器管理的新計量。
 services: storage
-documentationcenter: na
 author: fhryo-msft
-manager: cbrooks
-editor: fhryo-msft
-ms.assetid: ''
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 ms.date: 03/30/2018
 ms.author: fryu
-ms.openlocfilehash: 9586d0c2b61fe97106378ec684c28be9143b5194
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.component: common
+ms.openlocfilehash: fc11e29b03df617c4b5bb6f4fbb43cd478001d42
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969379"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521416"
 ---
 # <a name="azure-storage-metrics-migration"></a>Azure 儲存體計量移轉
 

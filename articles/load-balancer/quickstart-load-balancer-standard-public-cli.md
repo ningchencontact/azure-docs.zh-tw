@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 48ed4270838a32c8060bf96a63fcfdd8c65f9689
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2b6623b614a254635cb758f615271dac826f08b2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696118"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39439739"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>快速入門：使用 Azure CLI 2.0 建立標準負載平衡器以平衡 VM 的負載
 
@@ -149,7 +149,7 @@ ms.locfileid: "38696118"
 ```
 ### <a name="create-nics"></a>建立 NIC
 
-使用 [az network nic create](/cli/azure/network/nic#az_network_nic_create) 建立三個網路介面，並使其與公用 IP 位址和網路安全性群組產生關聯。 
+使用 [az network nic create](/cli/azure/network/nic#az-network-nic-create) 建立三個網路介面，並使其與公用 IP 位址和網路安全性群組產生關聯。 
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -171,7 +171,7 @@ done
 
 ### <a name="create-an-availability-set"></a>建立可用性設定組
 
-使用 [az vm availabilityset create](/cli/azure/network/nic#az_network_availabilityset_create) 建立可用性設定組
+使用 [az vm availabilityset create](/cli/azure/network/nic#az-network-availabilityset-create) 建立可用性設定組
 
  ```azurecli-interactive
   az vm availability-set create \
@@ -225,7 +225,7 @@ runcmd:
   - nodejs index.js
 ``` 
  
-使用 [az vm create](/cli/azure/vm#az_vm_create) 建立虛擬機器。
+使用 [az vm create](/cli/azure/vm#az-vm-create) 建立虛擬機器。
 
  ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -244,7 +244,7 @@ for i in `seq 1 2`; do
 
 ## <a name="test-the-load-balancer"></a>測試負載平衡器
 
-若要取得負載平衡器的公用 IP 位址，請使用 [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show)。 將公用 IP 位址複製並貼到您瀏覽器的網址列。
+若要取得負載平衡器的公用 IP 位址，請使用 [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show)。 將公用 IP 位址複製並貼到您瀏覽器的網址列。
 
 ```azurecli-interactive
   az network public-ip show \
@@ -257,7 +257,7 @@ for i in `seq 1 2`; do
 
 ## <a name="clean-up-resources"></a>清除資源
 
-若不再需要，您可以使用 [az group delete](/cli/azure/group#az_group_delete) 命令來移除資源群組、負載平衡器和所有相關資源。
+若不再需要，您可以使用 [az group delete](/cli/azure/group#az-group-delete) 命令來移除資源群組、負載平衡器和所有相關資源。
 
 ```azurecli-interactive 
   az group delete --name myResourceGroupSLB

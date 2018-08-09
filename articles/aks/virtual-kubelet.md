@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: iainfou
-ms.openlocfilehash: 0466f416568b2a1a82e264a8508697fc9de87287
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 2730ab1d909ead0431f0dd7fd0061d3080834296
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952473"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39443727"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>將 Virtual Kubelet 與 Azure Kubernetes Service (AKS) 搭配使用
 
@@ -77,9 +77,9 @@ az aks install-connector --resource-group myAKSCluster --name myAKSCluster --con
 
 | 引數： | 說明 | 必要 |
 |---|---|:---:|
-| `--connector-name` | ACI 連接器的名稱。| yes |
-| `--name` `-n` | 受控叢集的名稱。 | yes |
-| `--resource-group` `-g` | 資源群組的名稱。 | yes |
+| `--connector-name` | ACI 連接器的名稱。| 是 |
+| `--name` `-n` | 受控叢集的名稱。 | 是 |
+| `--resource-group` `-g` | 資源群組的名稱。 | 是 |
 | `--os-type` | 容器執行個體的作業系統類型。 允許的值為：兩者、Linux、Windows。 預設值：Linux。 | 否 |
 | `--aci-resource-group` | 要在其中建立 ACI 容器群組的資源群組。 | 否 |
 | `--location` `-l` | 要建立 ACI 容器群組的位置。 | 否 |
@@ -204,7 +204,7 @@ az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --conn
 <!-- LINKS - internal -->
 [aks-quick-start]: ./kubernetes-walkthrough.md
 [aks-remove-connector]: /cli/azure/aks#az-aks-remove-connector
-[az-container-list]: /cli/azure/aks#az_aks_list
+[az-container-list]: /cli/azure/aks#az-aks-list
 [aks-install-connector]: /cli/azure/aks#az-aks-install-connector
 
 <!-- LINKS - external -->

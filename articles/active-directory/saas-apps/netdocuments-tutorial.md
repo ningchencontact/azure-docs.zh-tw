@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 1dbcb2999afedcea03013b258073d39350b4fcdb
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 2da548b0d3a13dfac5d3928d8d692ac8e083bf58
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051664"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421095"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netdocuments"></a>教學課程：Azure Active Directory 與 NetDocuments 整合
 
@@ -52,7 +52,7 @@ NetDocuments 與 Azure AD 整合提供下列優點：
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 NetDocuments
-2. 設定並測試 Azure AD 單一登入
+1. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-netdocuments-from-the-gallery"></a>從資源庫新增 NetDocuments
 若要設定將 NetDocuments 整合到 Azure AD 中，您需要從資源庫將 NetDocuments 新增到受控 SaaS app 清單。
@@ -63,19 +63,19 @@ NetDocuments 與 Azure AD 整合提供下列優點：
 
     ![Active Directory][1]
 
-2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
+1. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![[應用程式]][2]
     
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+1. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![[應用程式]][3]
 
-4. 在搜尋方塊中，輸入 **NetDocuments**。
+1. 在搜尋方塊中，輸入 **NetDocuments**。
 
     ![建立 Azure AD 測試使用者](./media/netdocuments-tutorial/tutorial_netdocuments_search.png)
 
-5. 在結果窗格中，選取 [NetDocuments]，然後按一下 [新增] 按鈕以新增應用程式。
+1. 在結果窗格中，選取 [NetDocuments]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/netdocuments-tutorial/tutorial_netdocuments_addfromgallery.png)
 
@@ -89,10 +89,10 @@ NetDocuments 與 Azure AD 整合提供下列優點：
 若要設定及測試與 NetDocuments 搭配運作的 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 NetDocuments 測試使用者](#creating-a-netdocuments-test-user)** - 使 NetDocuments 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
-4. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
+1. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
+1. **[建立 NetDocuments 測試使用者](#creating-a-netdocuments-test-user)** - 使 NetDocuments 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
+1. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+1. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -104,11 +104,11 @@ NetDocuments 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入][4]
 
-2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
+1. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
  
     ![設定單一登入](./media/netdocuments-tutorial/tutorial_netdocuments_samlbase.png)
 
-3. 在 [NetDocuments 網域與 URL] 區段上，執行下列步驟：
+1. 在 [NetDocuments 網域與 URL] 區段上，執行下列步驟：
 
     ![設定單一登入](./media/netdocuments-tutorial/tutorial_netdocuments_url.png)
 
@@ -119,27 +119,27 @@ NetDocuments 與 Azure AD 整合提供下列優點：
     > [!NOTE] 
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「回覆 URL」來更新這些值。 請連絡 [NetDocuments 支援小組](https://support.netdocuments.com/hc/) 以取得這些值。
  
-4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
+1. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
     ![設定單一登入](./media/netdocuments-tutorial/tutorial_netdocuments_certificate.png) 
 
-5. 按一下 [儲存]  按鈕。
+1. 按一下 [儲存]  按鈕。
 
     ![設定單一登入](./media/netdocuments-tutorial/tutorial_general_400.png)
 
-6. 在不同的 Web 瀏覽器視窗中，以系統管理員身分登入您的 NetDocuments 公司網站。
+1. 在不同的 Web 瀏覽器視窗中，以系統管理員身分登入您的 NetDocuments 公司網站。
 
-7. 移至 [管理] 。
+1. 移至 [管理] 。
 
-8. 按一下 [新增與移除使用者和群組] 。
+1. 按一下 [新增與移除使用者和群組] 。
    
     ![存放庫](./media/netdocuments-tutorial/ic795047.png "存放庫")
 
-9. 按一下 [設定進階驗證選項]。
+1. 按一下 [設定進階驗證選項]。
     
     ![設定進階驗證選項](./media/netdocuments-tutorial/ic795048.png "設定進階驗證選項")
 
-10. 在 [同盟識別身分] 對話方塊上，執行下列步驟：
+1. 在 [同盟識別身分] 對話方塊上，執行下列步驟：
    
     ![同盟識別身分](./media/netdocuments-tutorial/ic795049.png "同盟識別身分")
    
@@ -163,15 +163,15 @@ NetDocuments 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/netdocuments-tutorial/create_aaduser_01.png) 
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+1. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
     
     ![建立 Azure AD 測試使用者](./media/netdocuments-tutorial/create_aaduser_02.png) 
 
-3. 若要開啟 [使用者] 對話方塊，按一下對話方塊頂端的 [新增]。
+1. 若要開啟 [使用者] 對話方塊，按一下對話方塊頂端的 [新增]。
  
     ![建立 Azure AD 測試使用者](./media/netdocuments-tutorial/create_aaduser_03.png) 
 
-4. 在 [使用者]  對話頁面上，執行下列步驟：
+1. 在 [使用者]  對話頁面上，執行下列步驟：
  
     ![建立 Azure AD 測試使用者](./media/netdocuments-tutorial/create_aaduser_04.png) 
 
@@ -192,15 +192,15 @@ NetDocuments 與 Azure AD 整合提供下列優點：
 
 1. 以系統管理員身分登入 **NetDocuments** 公司網站。
 
-2. 在頂端的功能表中，按一下 [系統管理員] 。
+1. 在頂端的功能表中，按一下 [系統管理員] 。
    
     ![管理](./media/netdocuments-tutorial/ic795051.png "管理")
 
-3. 按一下 [新增與移除使用者和群組] 。
+1. 按一下 [新增與移除使用者和群組] 。
    
     ![存放庫](./media/netdocuments-tutorial/ic795047.png "存放庫")
 
-4. 在 [電子郵件地址] 文字方塊中輸入您想要佈建的有效 Azure Active Directory 帳戶電子郵件地址，然後按一下 [新增使用者]。
+1. 在 [電子郵件地址] 文字方塊中輸入您想要佈建的有效 Azure Active Directory 帳戶電子郵件地址，然後按一下 [新增使用者]。
    
     ![電子郵件地址](./media/netdocuments-tutorial/ic795053.png "電子郵件地址")
    
@@ -219,23 +219,23 @@ NetDocuments 與 Azure AD 整合提供下列優點：
 
     ![指派使用者][201] 
 
-2. 在應用程式清單中，選取 [NetDocuments]。
+1. 在應用程式清單中，選取 [NetDocuments]。
 
     ![設定單一登入](./media/netdocuments-tutorial/tutorial_netdocuments_app.png) 
 
-3. 在左側功能表中，按一下 [使用者和群組]。
+1. 在左側功能表中，按一下 [使用者和群組]。
 
     ![指派使用者][202] 
 
-4. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
+1. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
 
     ![指派使用者][203]
 
-5. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
+1. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
 
-6. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
+1. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
 
-7. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
+1. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
     
 ### <a name="testing-single-sign-on"></a>測試單一登入
 

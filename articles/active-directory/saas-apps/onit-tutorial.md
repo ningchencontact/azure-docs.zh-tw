@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 330dbf31a1c1af6146ae1272a42ecc3621271bb1
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a93acc79fc447018b5cf63b2e2456bc394c1f78e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046564"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425964"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-onit"></a>教學課程：Azure Active Directory 與 Onit 整合
 
@@ -54,7 +54,7 @@ Onit 與 Azure AD 整合提供下列優點：
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Onit
-2. 設定並測試 Azure AD 單一登入
+1. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-onit-from-the-gallery"></a>從資源庫新增 Onit
 若要設定將 Onit 整合到 Azure AD 中，您需要從資源庫將 Onit 新增到受控 SaaS 應用程式清單。
@@ -65,15 +65,15 @@ Onit 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕][1]
 
-2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
+1. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![企業應用程式刀鋒視窗][2]
     
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+1. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![新增應用程式按鈕][3]
 
-4. 在搜尋方塊中，輸入 **Onit**，從結果面板中選取 [Onit]，然後按一下 [新增] 按鈕以新增應用程式。
+1. 在搜尋方塊中，輸入 **Onit**，從結果面板中選取 [Onit]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![結果清單中的 Onit](./media/onit-tutorial/tutorial_onit_addfromgallery.png)
 
@@ -88,10 +88,10 @@ Onit 與 Azure AD 整合提供下列優點：
 若要設定及測試與 Onit 搭配運作的 Azure AD 單一登入，您需要完成下列建構元素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 Onit 測試使用者](#create-an-onit-test-user)** - 使 Onit 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
-4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[測試單一登入](#test-single-sign-on)** 驗證組態是否能運作。
+1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
+1. **[建立 Onit 測試使用者](#create-an-onit-test-user)** - 使 Onit 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
+1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+1. **[測試單一登入](#test-single-sign-on)** 驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -103,11 +103,11 @@ Onit 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入連結][4]
 
-2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
+1. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
  
     ![單一登入對話方塊](./media/onit-tutorial/tutorial_onit_samlbase.png)
 
-3. 在 [Onit 網域與 URL] 區段中，執行下列步驟：
+1. 在 [Onit 網域與 URL] 區段中，執行下列步驟：
 
     ![Onit 網域與 URL 單一登入資訊](./media/onit-tutorial/tutorial_onit_url.png)
 
@@ -118,15 +118,15 @@ Onit 與 Azure AD 整合提供下列優點：
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Onit 用戶端支援小組](https://www.onit.com/support)以取得這些值。 
  
-4. 在 [SAML 簽署憑證] 區段上，複製憑證的 [指紋] 值。
+1. 在 [SAML 簽署憑證] 區段上，複製憑證的 [指紋] 值。
 
     ![憑證下載連結](./media/onit-tutorial/tutorial_onit_certificate.png) 
 
-5. Onit 應用程式需要特定格式的 SAML 判斷提示。 請設定此應用程式的下列宣告。 您可以從應用程式的 [屬性]  索引標籤來管理這些屬性的值。 以下螢幕擷取畫面顯示上述的範例。 
+1. Onit 應用程式需要特定格式的 SAML 判斷提示。 請設定此應用程式的下列宣告。 您可以從應用程式的 [屬性]  索引標籤來管理這些屬性的值。 以下螢幕擷取畫面顯示上述的範例。 
 
     ![設定單一登入](./media/onit-tutorial/tutorial_onit_attribute.png) 
 
-6. 在 [單一登入] 對話方塊的 [使用者屬性] 區段中，如圖所示設定 SAML 權杖屬性，然後執行下列步驟：
+1. 在 [單一登入] 對話方塊的 [使用者屬性] 區段中，如圖所示設定 SAML 權杖屬性，然後執行下列步驟：
     
     | 屬性名稱 | 屬性值 |
     | ------------------- | -------------------- |
@@ -146,28 +146,28 @@ Onit 與 Azure AD 整合提供下列優點：
     
     e. 按一下 [確定] 。
 
-7. 按一下 [儲存]  按鈕。
+1. 按一下 [儲存]  按鈕。
 
     ![設定單一登入儲存按鈕](./media/onit-tutorial/tutorial_general_400.png)
 
-8. 在 [Onit 設定] 區段上，按一下 [設定 Onit] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL] 和 [SAML 單一登入服務 URL]。
+1. 在 [Onit 設定] 區段上，按一下 [設定 Onit] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL] 和 [SAML 單一登入服務 URL]。
 
     ![Onit 設定](./media/onit-tutorial/tutorial_onit_configure.png)
 
-9. 在不同的 Web 瀏覽器視窗中，以系統管理員身分登入您的 Onit 公司網站。
+1. 在不同的 Web 瀏覽器視窗中，以系統管理員身分登入您的 Onit 公司網站。
 
-10. 在頂端的功能表中，按一下 [系統管理] 。
+1. 在頂端的功能表中，按一下 [系統管理] 。
    
    ![管理](./media/onit-tutorial/IC791174.png "管理")
-11. 按一下 [編輯公司] 。
+1. 按一下 [編輯公司] 。
    
    ![編輯公司](./media/onit-tutorial/IC791175.png "編輯公司")
    
-12. 按一下 [安全性]  索引標籤。
+1. 按一下 [安全性]  索引標籤。
     
     ![編輯公司資訊](./media/onit-tutorial/IC791176.png "編輯公司資訊")
 
-13. 在 [安全性]  索引標籤上執行下列步驟：。
+1. 在 [安全性]  索引標籤上執行下列步驟：。
 
     ![單一登入](./media/onit-tutorial/IC791177.png "單一登入")
 
@@ -195,15 +195,15 @@ Onit 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/onit-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+1. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/onit-tutorial/create_aaduser_02.png)
 
-3. 若要開啟 [使用者] 對話方塊，按一下 [所有使用者] 對話方塊頂端的 [新增]。
+1. 若要開啟 [使用者] 對話方塊，按一下 [所有使用者] 對話方塊頂端的 [新增]。
 
     ![[新增] 按鈕](./media/onit-tutorial/create_aaduser_03.png)
 
-4. 在 [使用者] 對話方塊中，執行下列步驟：
+1. 在 [使用者] 對話方塊中，執行下列步驟：
 
     ![[使用者] 對話方塊](./media/onit-tutorial/create_aaduser_04.png)
 
@@ -224,15 +224,15 @@ Onit 與 Azure AD 整合提供下列優點：
 **若要設定使用者佈建，請執行下列步驟：**
 
 1. 以系統管理員身分登入您的 **Onit** 公司網站。
-2. 按一下 [新增使用者] 。
+1. 按一下 [新增使用者] 。
    
    ![管理](./media/onit-tutorial/IC791180.png "管理")
-3. 在 [新增使用者]  對話頁面上，執行下列步驟：
+1. 在 [新增使用者]  對話頁面上，執行下列步驟：
    
    ![新增使用者](./media/onit-tutorial/IC791181.png "新增使用者")
    
   1. 在相關的文字方塊中，輸入您想要佈建之有效 Azure AD 帳戶的 [名稱] 與 [電子郵件地址]。
-  2. 按一下頁面底部的 [新增] 。    
+  1. 按一下頁面底部的 [新增] 。    
    
  > [!NOTE]
  > Azure Active Directory 帳戶的持有者會收到一封電子郵件，並依照連結在啟用其帳戶前進行確認。
@@ -249,23 +249,23 @@ Onit 與 Azure AD 整合提供下列優點：
 
     ![指派使用者][201] 
 
-2. 在應用程式清單中，選取 [Onit]。
+1. 在應用程式清單中，選取 [Onit]。
 
     ![應用程式清單中的 Onit 連結](./media/onit-tutorial/tutorial_onit_app.png)  
 
-3. 在左側功能表中，按一下 [使用者和群組]。
+1. 在左側功能表中，按一下 [使用者和群組]。
 
     ![[使用者和群組] 連結][202]
 
-4. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
+1. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
 
     ![[新增指派] 窗格][203]
 
-5. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
+1. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
 
-6. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
+1. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
 
-7. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
+1. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
     
 ### <a name="test-single-sign-on"></a>測試單一登入
 

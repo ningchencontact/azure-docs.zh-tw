@@ -5,13 +5,14 @@ author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 06/14/2018
-ms.author: bryanla
-ms.openlocfilehash: 4442a724cf3e37d5e7271d9c29f99138ab1faa5f
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.author: anshan
+manager: cshankar
+ms.openlocfilehash: 312e15f976a6782e3f39cfcc5ce0721ac6357a16
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295825"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626750"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>教學課程：建立 Azure 時間序列深入解析單一頁面 Web 應用程式
 
@@ -22,7 +23,7 @@ ms.locfileid: "36295825"
 > * 如何向 Azure Active Directory (AD) 註冊您的應用程式
 > * 如何建置、發佈和測試您的 Web 應用程式 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 如果您沒有帳戶，請註冊[免費 Azure 訂用帳戶](https://azure.microsoft.com/free/)。 
 
@@ -42,11 +43,11 @@ ms.locfileid: "36295825"
 在建置應用程式之前，您必須先向 Azure AD 註冊該應用程式。 註冊可提供應用程式的身分識別組態，讓它能夠使用 OAuth 支援進行單一登入。 要使用 OAuth，SPA 必須要使用「隱含」授權，您可以在應用程式資訊清單中加以更新。 應用程式資訊清單是應用程式身分識別組態的 JSON 表示法。 
 
 1. 使用您的 Azure 訂用帳戶登入 [Azure 入口網站](https://portal.azure.com)。  
-2. 在左側導覽窗格中，依序選取 [Azure Active Directory] 資源、[應用程式註冊] 和 [+ 新增應用程式註冊]：  
+1. 在左側導覽窗格中，依序選取 [Azure Active Directory] 資源、[應用程式註冊] 和 [+ 新增應用程式註冊]：  
    
    ![Azure 入口網站 Azure AD 應用程式註冊](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration.png)
 
-3. 在 [建立] 頁面上填入必要參數：
+1. 在 [建立] 頁面上填入必要參數：
    
    參數|說明
    ---|---
@@ -58,27 +59,27 @@ ms.locfileid: "36295825"
 
    ![Azure 入口網站 Azure AD 應用程式註冊 - 建立](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-create.png)
 
-4. 資源應用程式會提供讓其他應用程式使用的 REST API，並且也會向 Azure AD 註冊。 API 可藉由公開「範圍」，提供對用戶端應用程式的細微/安全存取。 由於您的應用程式會呼叫「Azure 時間序列深入解析」API，因此您必須指定 API 和範圍，而其相關權限可在執行階段要求/授與。 依序選取 [設定]、[必要權限] 和 [+ 新增]：
+1. 資源應用程式會提供讓其他應用程式使用的 REST API，並且也會向 Azure AD 註冊。 API 可藉由公開「範圍」，提供對用戶端應用程式的細微/安全存取。 由於您的應用程式會呼叫「Azure 時間序列深入解析」API，因此您必須指定 API 和範圍，而其相關權限可在執行階段要求/授與。 依序選取 [設定]、[必要權限] 和 [+ 新增]：
 
    ![Azure 入口網站 Azure AD 新增權限](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms.png)
 
-5. 在 [新增 API 存取權] 頁面中，按一下 [1 選取 API] 以指定 TSI API。 在 [選取 API] 頁面上，在 [搜尋] 欄位中輸入 "azure time"。 接著，在結果清單中選取「Azure 時間序列深入解析」API，然後按一下 [選取]： 
+1. 在 [新增 API 存取權] 頁面中，按一下 [1 選取 API] 以指定 TSI API。 在 [選取 API] 頁面上，在 [搜尋] 欄位中輸入 "azure time"。 接著，在結果清單中選取「Azure 時間序列深入解析」API，然後按一下 [選取]： 
 
    ![Azure 入口網站 Azure AD 和權限 - API](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api.png)
 
-6. 現在，您可以在 API 上指定範圍。 同樣在 [新增 API 存取權] 頁面上，按一下 [2 選取權限]。 在 [啟用存取] 頁面上，選取 [存取 Azure 時間序列深入解析服務] 範圍。 按一下 [選取]，此時您會返回 [新增 API 存取權] 頁面，請在其中按一下 [完成]：
+1. 現在，您可以在 API 上指定範圍。 同樣在 [新增 API 存取權] 頁面上，按一下 [2 選取權限]。 在 [啟用存取] 頁面上，選取 [存取 Azure 時間序列深入解析服務] 範圍。 按一下 [選取]，此時您會返回 [新增 API 存取權] 頁面，請在其中按一下 [完成]：
 
    ![Azure 入口網站 Azure AD 和權限 - 範圍](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api-scopes.png)
 
-7. 當您返回 [必要權限] 頁面時，請留意此時會列出「Azure 時間序列深入解析」API。 您也需要預先同意權限，應用程式才能存取所有使用者的 API 和範圍。 按一下最上方的 [授與權限] 按鈕，然後選取 [是]：
+1. 當您返回 [必要權限] 頁面時，請留意此時會列出「Azure 時間序列深入解析」API。 您也需要預先同意權限，應用程式才能存取所有使用者的 API 和範圍。 按一下最上方的 [授與權限] 按鈕，然後選取 [是]：
 
    ![Azure 入口網站 Azure AD 必要權限 - 同意](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-required-permissions-consent.png)
 
-8. 如前所述，您也需要更新應用程式資訊清單。 按一下階層連結中的應用程式名稱，返回 [註冊的應用程式] 頁面。 選取 [資訊清單]，將 `oauth2AllowImplicitFlow` 屬性變更為 `true`，然後按一下 [儲存]：
+1. 如前所述，您也需要更新應用程式資訊清單。 按一下階層連結中的應用程式名稱，返回 [註冊的應用程式] 頁面。 選取 [資訊清單]，將 `oauth2AllowImplicitFlow` 屬性變更為 `true`，然後按一下 [儲存]：
 
    ![Azure 入口網站 Azure AD 更新資訊清單](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-update-manifest.png)
 
-9. 最後，按一下階層連結重新回到 [註冊的應用程式] 頁面，並複製應用程式的 [首頁] URL 和 [應用程式識別碼] 屬性。 您將在後續步驟中使用這些屬性：
+1. 最後，按一下階層連結重新回到 [註冊的應用程式] 頁面，並複製應用程式的 [首頁] URL 和 [應用程式識別碼] 屬性。 您將在後續步驟中使用這些屬性：
 
    ![Azure 入口網站 Azure AD 屬性](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-application.png)
 
@@ -92,15 +93,15 @@ ms.locfileid: "36295825"
    - **index.html**：頁面的 HTML 和 JavaScript：https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html
    - **sampleStyles.css**：CSS 樣式表：https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css
     
-2. 啟動並登入 Visual Studio，以建立 Web 應用程式的專案。 在 [檔案] 功能表上，選取 [開啟]、[網站] 選項。 在 [開啟網站] 對話方塊上，選取您用來儲存 HTML 和 CSS 檔案的工作目錄，然後按一下 [開啟]：
+1. 啟動並登入 Visual Studio，以建立 Web 應用程式的專案。 在 [檔案] 功能表上，選取 [開啟]、[網站] 選項。 在 [開啟網站] 對話方塊上，選取您用來儲存 HTML 和 CSS 檔案的工作目錄，然後按一下 [開啟]：
 
    ![VS - 檔案開啟網站](media/tutorial-create-tsi-sample-spa/vs-file-open-web-site.png)
 
-3. 從 Visual Studio [檢視] 功能表中開啟 [方案總管]。 您應該會看到新的方案中包含網站專案 (地球圖示)，其中包含 HTML 和 CSS 檔案：
+1. 從 Visual Studio [檢視] 功能表中開啟 [方案總管]。 您應該會看到新的方案中包含網站專案 (地球圖示)，其中包含 HTML 和 CSS 檔案：
 
    ![VS - 方案總管新增解決方案](media/tutorial-create-tsi-sample-spa/vs-solution-explorer.png)
 
-4. 您必須先在 **index.html** 中更新 JavaScript 程式碼的某些部分，才能夠發佈應用程式： 
+1. 您必須先在 **index.html** 中更新 JavaScript 程式碼的某些部分，才能夠發佈應用程式： 
 
    a. 首先，變更 `<head>` 元素中的 Javascript 和樣式表檔案參考的路徑。 在 Visual Studio 解決方案中開啟 **index.html** 檔案，並尋找 JavaScript 程式碼的以下幾行。 將 "PROD RESOURCE LINKS" 下方的三行取消註解，並註解化 "DEV RESOURCE LINKS" 下方的三行：
    
@@ -133,7 +134,7 @@ ms.locfileid: "36295825"
 
    c. 編輯完成後，請儲存 **index.html**。
 
-5. 現在，將 Web 應用程式發佈至您的 Azure 訂用帳戶作為 Azure App Service：  
+1. 現在，將 Web 應用程式發佈至您的 Azure 訂用帳戶作為 Azure App Service：  
 
    > [!NOTE]
    > 下列對話方塊上的數個欄位會填入您 Azure 訂用帳戶中的資料。 此時，每個對話方塊可能需要幾秒鐘才會完整載入，其後您才能繼續操作。  
@@ -187,7 +188,7 @@ Web 應用程式會載入，但使用無樣式的文字登入頁面，和白色�
 從 Azure 入口網站的左側功能表：
 
 1. 按一下 [資源群組] 圖示，然後選取您為 TSI 環境建立的資源群組。 在頁面頂端按一下 [刪除資源群組]、輸入資源群組的名稱，然後按一下 [刪除]。 
-2. 按一下 [資源群組] 圖示，然後選取裝置模擬解決方案加速器所建立的資源群組。 在頁面頂端按一下 [刪除資源群組]、輸入資源群組的名稱，然後按一下 [刪除]。 
+1. 按一下 [資源群組] 圖示，然後選取裝置模擬解決方案加速器所建立的資源群組。 在頁面頂端按一下 [刪除資源群組]、輸入資源群組的名稱，然後按一下 [刪除]。 
 
 ## <a name="next-steps"></a>後續步驟
 

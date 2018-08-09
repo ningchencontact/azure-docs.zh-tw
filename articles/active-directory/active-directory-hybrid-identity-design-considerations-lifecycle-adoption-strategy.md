@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 911e65719bff0a86e3280482296bbb320fd30377
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: fb52949bf5616c8639caa1f3fab860597648ec89
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801825"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504585"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>判斷混合式身分識別生命週期採用策略
 在這項工作中，您將為混合式身分識別解決方案定義身分識別管理策略，以滿足您在 [判斷混合式身分識別管理工作](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)中定義的商務需求。
@@ -73,7 +73,7 @@ Azure AD 中的群組型授權管理可讓系統管理員將使用者指派到�
 
 ## <a name="integration-with-other-3rd-party-providers"></a>」 與其他協力廠商提供者整合
 
-Azure Active Directory 為數千個 SaaS 應用程式和內部部署 Web 應用程式提供單一登入和增強的應用程式存取安全性。 如需詳細資訊，請參閱[整合應用程式與 Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md)
+Azure Active Directory 為數千個 SaaS 應用程式和內部部署 Web 應用程式提供單一登入和增強的應用程式存取安全性。 如需詳細資訊，請參閱[整合應用程式與 Azure Active Directory](develop/quickstart-v1-integrate-apps-with-azure-ad.md)
 
 ## <a name="define-synchronization-management"></a>定義同步處理管理
 將內部部署目錄與 Azure AD 整合可提供一個通用身分識別來存取雲端和內部部署資源，讓使用者變得更有生產力。 透過此整合，使用者和組織可以享受到下列優點：

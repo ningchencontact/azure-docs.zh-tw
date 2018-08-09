@@ -9,12 +9,12 @@ ms.workload: storage-backup-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 120c78d9adb83ca58ae61700ae70d07ead42ebd0
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 9981db7e2994b9a4f20f99f4997a89b0368d343c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226555"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423669"
 ---
 # <a name="site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Hyper-V 到 Azure 的 Site Recovery 部署規劃工具
 
@@ -96,7 +96,7 @@ Azure Site Recovery 部署規劃工具是一項命令列工具，適用於 Hyper
 
             set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
 
-2.  每個必須進行分析的 Hyper-V 主機應該具有：
+1.  每個必須進行分析的 Hyper-V 主機應該具有：
 
     a. 其 TrustedHosts 清單中要用來執行此工具的 VM。 在 Hyper-V 主機上透過提高權限的 PowerShell 執行下列命令。
 
@@ -111,10 +111,10 @@ Azure Site Recovery 部署規劃工具是一項命令列工具，適用於 Hyper
 1.  下載最新版的 [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner)。
 此工具封裝在 .zip 資料夾中。 同一個工具可同時支援 VMware 到 Azure 和 Hyper-V 到 Azure 災害復原案例。 您也可以將此工具用於 Hyper-V 到次要站台的災害復原案例，但請忽略報告中的 Azure 基礎結構建議。
 
-2.  將 .zip 資料夾複製到您要用來執行此工具的 Windows Server。 您可以在 Windows Server 2012 R2 或 Windows Server 2016 上執行此工具。 伺服器必須能存取網路，以便連線到保有要分析之 VM 的 Hyper-V 叢集或 Hyper-V 主機。 建議您 VM (將用來執行此工具的所在位置) 的硬體設定，要和您想要保護之 Hyper-V 伺服器的硬體設定相同。 這種組態可確保工具報告的達成輸送量符合 Azure Site Recovery 在複寫期間可達到的實際輸送量。 輸送量計算取決於伺服器可用的網路頻寬和伺服器的硬體組態 (CPU、儲存體等等)。 系統會計算從工具執行所在之伺服器到 Azure 的輸送量。 如果該伺服器的硬體設定與 Hyper-V 伺服器的設定不同，工具所報告的達成輸送量不會正確。
+1.  將 .zip 資料夾複製到您要用來執行此工具的 Windows Server。 您可以在 Windows Server 2012 R2 或 Windows Server 2016 上執行此工具。 伺服器必須能存取網路，以便連線到保有要分析之 VM 的 Hyper-V 叢集或 Hyper-V 主機。 建議您 VM (將用來執行此工具的所在位置) 的硬體設定，要和您想要保護之 Hyper-V 伺服器的硬體設定相同。 這種組態可確保工具報告的達成輸送量符合 Azure Site Recovery 在複寫期間可達到的實際輸送量。 輸送量計算取決於伺服器可用的網路頻寬和伺服器的硬體組態 (CPU、儲存體等等)。 系統會計算從工具執行所在之伺服器到 Azure 的輸送量。 如果該伺服器的硬體設定與 Hyper-V 伺服器的設定不同，工具所報告的達成輸送量不會正確。
 建議的 VM 設定：8 個 vCPU、16 GB RAM、300 GB HDD。
 
-3.  將 .zip 資料夾解壓縮。
+1.  將 .zip 資料夾解壓縮。
 此資料夾包含多個檔案和子資料夾。 可執行檔是父資料夾中的 ASRDeploymentPlanner.exe。
 
 範例：將 .zip 檔案複製到 E:\ 磁碟機並將它解壓縮。 E:\ASR Deployment Planner_v2.2.zip

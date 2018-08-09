@@ -2,24 +2,19 @@
 title: 快速入門：使用 Azure 入口網站在 Azure Databricks 上執行 Spark 作業 | Microsoft Docs
 description: 此快速入門會說明如何使用 Azure 入口網站來建立 Azure Databricks 工作區、Apache Spark 叢集和執行 Spark 作業。
 services: storage
-documentationcenter: ''
 author: jamesbak
 ms.author: jamesbak
-manager: jahogg
 ms.component: data-lake-storage-gen2
 ms.service: storage
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.custom: mvc
-ms.openlocfilehash: d341b0590dce65228958572365bb2773f8f13129
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: ded79456934738cd4e3eda584031d14b414c98a6
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39324301"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522742"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站在 Azure Databricks 上執行 Spark 作業
 

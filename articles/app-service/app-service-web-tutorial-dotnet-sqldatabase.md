@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b08033c53185e6229e6fa368a3456749e19eb1f0
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: eeaac4f694c3e7197a5f798d7462b39d42e14e03
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021318"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505826"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>教學課程：在 Azure 中搭配 SQL Database 來建置 ASP.NET 應用程式
 
@@ -40,7 +40,7 @@ ms.locfileid: "37021318"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程：
 
@@ -50,9 +50,8 @@ ms.locfileid: "37021318"
 
 ## <a name="download-the-sample"></a>下載範例
 
-<a name="-download-the-sample-projecthttpsgithubcomazure-samplesdotnet-sqldb-tutorialarchivemasterzip"></a>-[下載範例專案](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
--
-- 解壓縮 dotnet-sqldb-tutorial-master.zip 檔案。
+- [下載範例專案](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip)。
+- 擷取 (解壓縮) dotnet-sqldb-tutorial-master.zip 檔案。
 
 範例專案包含一個使用 [Entity Framework Code First](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application) 的基本 [ASP.NET MVC](https://www.asp.net/mvc) 建立-讀取-更新-刪除 (CRUD) 應用程式。
 

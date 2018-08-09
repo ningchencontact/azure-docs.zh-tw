@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 304f3807a70179e4aab2ede80dc08a1aa85a2e51
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 5c133c61c989bf19be3e84287cb76a7d110dccc8
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098901"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440468"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster"></a>建立 Azure Kubernetes Service (AKS) 叢集
 
@@ -69,5 +69,5 @@ az aks create --resource-group myResourceGroup --name myAKSCluster
 如需有關使用 Azure 入口網站來部署 AKS 叢集的指示，請參閱 Azure Kubernetes Service (AKS) [Azure 入口網站快速入門][aks-portal-quickstart]。
 
 <!-- LINKS - internal -->
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create
+[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [aks-portal-quickstart]: kubernetes-walkthrough-portal.md

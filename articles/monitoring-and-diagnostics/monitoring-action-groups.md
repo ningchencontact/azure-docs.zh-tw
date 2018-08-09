@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/1/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 63216d56fb3acbb954086fbf026441e69073621e
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 091a097fc9fafd5bdc6a2521f4fa2a1b6b77ba4c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263060"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422548"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>在 Azure 入口網站中建立和管理動作群組
 ## <a name="overview"></a>概觀 ##
@@ -33,21 +33,21 @@ ms.locfileid: "35263060"
 1. 在 [入口網站](https://portal.azure.com) 中，選取 **監視**。 [監視] 刀鋒視窗會將所有監視設定和資料合併在一個檢視中。
 
     ![監視」服務](./media/monitoring-action-groups/home-monitor.png)
-2. 在 [設定] 區段上，選取 [動作群組]。
+1. 在 [設定] 區段上，選取 [動作群組]。
 
     ![使用 [動作群組] 索引標籤](./media/monitoring-action-groups/action-groups-blade.png)
-3. 選取 [新增動作群組]，並填寫各欄位。
+1. 選取 [新增動作群組]，並填寫各欄位。
 
     ![「新增動作群組」命令](./media/monitoring-action-groups/add-action-group.png)
-4. 在 [動作群組名稱] 方塊中輸入名稱，然後在 [簡短名稱] 方塊中，輸入名稱。 使用這個群組傳送通知時，會使用簡短名稱來取代完整的動作群組名稱。
+1. 在 [動作群組名稱] 方塊中輸入名稱，然後在 [簡短名稱] 方塊中，輸入名稱。 使用這個群組傳送通知時，會使用簡短名稱來取代完整的動作群組名稱。
 
       ![「新增動作群組」對話方塊](./media/monitoring-action-groups/action-group-define.png)
 
-5. [訂用帳戶] 方塊會自動填入您目前的訂用帳戶。 訂用帳戶是要儲存動作群組的位置。
+1. [訂用帳戶] 方塊會自動填入您目前的訂用帳戶。 訂用帳戶是要儲存動作群組的位置。
 
-6. 選取要在其中儲存動作群組的 [資源群組]。
+1. 選取要在其中儲存動作群組的 [資源群組]。
 
-7. 針對每個動作提供下列資訊，來定義動作的清單：
+1. 針對每個動作提供下列資訊，來定義動作的清單：
 
     a. **名稱**：輸入此動作的唯一識別碼。
 
@@ -55,7 +55,7 @@ ms.locfileid: "35263060"
 
     c. **詳細資料**：根據動作類型，輸入電話號碼、電子郵件地址、Webhook URI、Azure 應用程式、ITSM 連線或自動化 Runbook。 針對 ITSM 動作，請額外指定 [工作項目] 與您 ITSM 工具所需的其他欄位。
 
-8. 選取 [確定] 來建立動作群組。
+1. 選取 [確定] 來建立動作群組。
 
 ## <a name="action-specific-information"></a>動作特定資訊
 <dl>

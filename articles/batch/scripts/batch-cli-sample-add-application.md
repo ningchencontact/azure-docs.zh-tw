@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: danlep
-ms.openlocfilehash: 80b9cb749be942f72459180182e7d74a45f6a943
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 7c38ac560a4fd277e2b19999ab0ac81549a5fa2f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29843097"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445954"
 ---
 # <a name="cli-example-add-an-application-to-an-azure-batch-account"></a>CLI 範例：將應用程式新增到 Azure Batch 帳戶
 
@@ -48,14 +48,14 @@ az group delete --name myResourceGroup
 
 | 命令 | 注意 |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
-| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | 建立儲存體帳戶。 |
-| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | 建立 Batch 帳戶。 |
-| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | 對指定的 Batch 帳戶驗證以進行進一步的 CLI 互動。  |
-| [az batch application create](/cli/azure/batch/application#az_batch_application_create) | 建立應用程式。  |
-| [az batch application package create](/cli/azure/batch/application/package#az_batch_application_package_create) | 將應用程式封裝加入指定的應用程式。  |
-| [az batch application set](/cli/azure/batch/application#az_batch_application_set) | 更新應用程式的屬性。  |
-| [az group delete](/cli/azure/group#az_group_delete) | 刪除資源群組，包括所有的巢狀資源。 |
+| [az group create](/cli/azure/group#az-group-create) | 建立用來存放所有資源的資源群組。 |
+| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | 建立儲存體帳戶。 |
+| [az batch account create](/cli/azure/batch/account#az-batch-account-create) | 建立 Batch 帳戶。 |
+| [az batch account login](/cli/azure/batch/account#az-batch-account-login) | 對指定的 Batch 帳戶驗證以進行進一步的 CLI 互動。  |
+| [az batch application create](/cli/azure/batch/application#az-batch-application-create) | 建立應用程式。  |
+| [az batch application package create](/cli/azure/batch/application/package#az-batch-application-package-create) | 將應用程式封裝加入指定的應用程式。  |
+| [az batch application set](/cli/azure/batch/application#az-batch-application-set) | 更新應用程式的屬性。  |
+| [az group delete](/cli/azure/group#az-group-delete) | 刪除資源群組，包括所有的巢狀資源。 |
 
 ## <a name="next-steps"></a>後續步驟
 

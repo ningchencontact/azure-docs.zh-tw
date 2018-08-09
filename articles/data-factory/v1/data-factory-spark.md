@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e775798dbaaf93d5a9b497323a3b2fa365820550
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: eb46347e82063d2e990b319ab108cf257c7e6b88
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046457"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440621"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>從 Azure Data Factory 叫用 Spark 程式管線
 
@@ -55,41 +55,41 @@ Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-f
 * 建立會參考儲存體已連結服務的資料集。 目前，您必須指定活動的輸出資料集，即使沒有產生任何輸出。 
 * 建立含有 Spark 活動的管線，此活動會參考您所建立的 HDInsight 已連結服務。 此活動已使用您在上一個步驟中建立的資料集設定為輸出資料集。 輸出資料集是驅動排程 (每小時、每天) 的因子。 因此，即使活動並不會真的產生輸出，您仍然必須指定輸出資料集。
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 1. 依照[建立儲存體帳戶](../../storage/common/storage-create-storage-account.md#create-a-storage-account)中的指示，建立一般用途的儲存體帳戶。
 
-2. 依照教學課程[在 HDInsight 中建立 Spark 叢集](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)中的指示，在 HDInsight 中建立 Spark 叢集。 將您在步驟 1 中建立的儲存體帳戶與此叢集產生關聯。
+1. 依照教學課程[在 HDInsight 中建立 Spark 叢集](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)中的指示，在 HDInsight 中建立 Spark 叢集。 將您在步驟 1 中建立的儲存體帳戶與此叢集產生關聯。
 
-3. 下載並檢閱位於 [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py) 的 Python 指令檔 **test.py**。
+1. 下載並檢閱位於 [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py) 的 Python 指令檔 **test.py**。
 
-4. 將 **test.py** 上傳至您 Blob 儲存體 **adfspark** 容器中的 [pyFiles] 資料夾。 建立容器和資料夾 (如果不存在)。
+1. 將 **test.py** 上傳至您 Blob 儲存體 **adfspark** 容器中的 [pyFiles] 資料夾。 建立容器和資料夾 (如果不存在)。
 
 ### <a name="create-a-data-factory"></a>建立 Data Factory
 若要建立資料處理站，請依照下列步驟：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-2. 選取 [新增] > [資料 + 分析] > [資料處理站]。
+1. 選取 [新增] > [資料 + 分析] > [資料處理站]。
 
-3. 在 [新增資料處理站] 刀鋒視窗上的 [名稱] 底下，輸入 **SparkDF**。
+1. 在 [新增資料處理站] 刀鋒視窗上的 [名稱] 底下，輸入 **SparkDF**。
 
    > [!IMPORTANT]
    > Azure Data Factory 的名稱在全域必須是唯一的。 如果您看到「資料處理站名稱 SparkDF 無法使用」錯誤，請變更資料處理站名稱。 例如，使用 yournameSparkDFdate，然後重新建立資料處理站。 如需有關命名規則的詳細資訊，請參閱 [Data Factory - 命名規則](data-factory-naming-rules.md)。
 
-4. 在 [訂用帳戶] 底下，選取您想要建立資料處理站的 Azure 訂用帳戶。
+1. 在 [訂用帳戶] 底下，選取您想要建立資料處理站的 Azure 訂用帳戶。
 
-5. 選取現有的資源群組，或建立 Azure 資源群組。
+1. 選取現有的資源群組，或建立 Azure 資源群組。
 
-6. 選取 [釘選到儀表板] 核取方塊。
+1. 選取 [釘選到儀表板] 核取方塊。
 
-7. 選取 [建立] 。
+1. 選取 [建立] 。
 
    > [!IMPORTANT]
    > 若要建立 Data Factory 執行個體，您必須是訂用帳戶/資源群組層級的 [Data Factory 參與者](../../role-based-access-control/built-in-roles.md#data-factory-contributor)角色成員。
 
-8. 您會在 Azure 入口網站的儀表板中看到所建立的資料處理站。
+1. 您會在 Azure 入口網站的儀表板中看到所建立的資料處理站。
 
-9. 建立資料處理站之後，您會看到 [資料處理站] 頁面，當中會顯示資料處理站的內容。 如果看不到 [資料處理站] 頁面，請在儀表板上選取您資料處理站的圖格。
+1. 建立資料處理站之後，您會看到 [資料處理站] 頁面，當中會顯示資料處理站的內容。 如果看不到 [資料處理站] 頁面，請在儀表板上選取您資料處理站的圖格。
 
     ![Data Factory 刀鋒視窗](./media/data-factory-spark/data-factory-blade.png)
 
@@ -101,17 +101,17 @@ Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-f
 
 1. 在 [資料處理站] 刀鋒視窗上，選取 [編寫及部署]。 隨即會出現「Data Factory 編輯器」。
 
-2. 選取 [新增資料存放區]，然後選擇 [Azure 儲存體]。
+1. 選取 [新增資料存放區]，然後選擇 [Azure 儲存體]。
 
    ![新增資料存放區](./media/data-factory-spark/new-data-store-azure-storage-menu.png)
 
-3. 編輯器中會出現您用來建立儲存體已連結服務的 JSON 指令碼。
+1. 編輯器中會出現您用來建立儲存體已連結服務的 JSON 指令碼。
 
    ![AzureStorageLinkedService](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-4. 將**帳戶名稱**和**帳戶金鑰**取代成您儲存體帳戶的名稱和存取金鑰。 若要了解如何取得您的儲存體存取金鑰，請參閱[管理儲存體帳戶](../../storage/common/storage-create-storage-account.md#manage-your-storage-account)，以了解如何檢視、複製及重新產生儲存體存取金鑰。
+1. 將**帳戶名稱**和**帳戶金鑰**取代成您儲存體帳戶的名稱和存取金鑰。 若要了解如何取得您的儲存體存取金鑰，請參閱[管理儲存體帳戶](../../storage/common/storage-create-storage-account.md#manage-your-storage-account)，以了解如何檢視、複製及重新產生儲存體存取金鑰。
 
-5. 若要部署已連結的服務，請選取命令列上的 [部署]。 成功部署已連結的服務之後，[Draft-1] 視窗就會消失。 您會在左側的樹狀檢視中看到 **AzureStorageLinkedService**。
+1. 若要部署已連結的服務，請選取命令列上的 [部署]。 成功部署已連結的服務之後，[Draft-1] 視窗就會消失。 您會在左側的樹狀檢視中看到 **AzureStorageLinkedService**。
 
 #### <a name="create-an-hdinsight-linked-service"></a>建立 HDInsight 已連結服務
 在此步驟中，您會建立一個 HDInsight 已連結服務，以將 HDInsight Spark 叢集連結至資料處理站。 HDInsight 叢集是用來執行此範例管線的 Spark 活動中指定的 Spark 程式。 
@@ -120,9 +120,9 @@ Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-f
 
     ![建立 HDInsight 連結服務](media/data-factory-spark/new-hdinsight-linked-service.png)
 
-2. 複製下列程式碼片段並貼到 [Draft-1] 視窗。 在 JSON 編輯器中，執行下列步驟：
+1. 複製下列程式碼片段並貼到 [Draft-1] 視窗。 在 JSON 編輯器中，執行下列步驟：
 
-    a. 指定 HDInsight Spark 叢集的 URI。 例如：`https://<sparkclustername>.azurehdinsight.net/`。
+    a. 指定 HDInsight Spark 叢集的 URI。 例如： `https://<sparkclustername>.azurehdinsight.net/` 。
 
     b. 指定能夠存取 Spark 叢集的使用者名稱。
 
@@ -151,14 +151,14 @@ Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-f
 
     如需有關 HDInsight 已連結服務的詳細資訊，請參閱 [HDInsight 已連結服務](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)。
 
-3. 若要部署已連結的服務，請選取命令列上的 [部署]。 
+1. 若要部署已連結的服務，請選取命令列上的 [部署]。 
 
 ### <a name="create-the-output-dataset"></a>建立輸出資料集
 輸出資料集是驅動排程 (每小時、每天) 的因子。 因此，即使管線中的 Spark 活動並不會產生任何輸出，您仍然必須為該活動指定輸出資料集。 為活動指定輸入資料集是選擇性的。
 
 1. 在 Data Factory 編輯器中，選取 [更多] > [新增資料集] > [Azure Blob 儲存體]。
 
-2. 複製下列程式碼片段並貼到 [Draft-1] 視窗。 JSON 程式碼片段會定義名為 **OutputDataset** 的資料集。 此外，指定將結果儲存在名為 **adfspark** 的 Blob 容器及名為 **pyFiles/output** 的資料夾中。 如先前所述，此資料集是一個虛擬資料集。 此範例中的 Spark 程式不會產生任何輸出。 **availability** 區段指定每日產生一次輸出資料集。 
+1. 複製下列程式碼片段並貼到 [Draft-1] 視窗。 JSON 程式碼片段會定義名為 **OutputDataset** 的資料集。 此外，指定將結果儲存在名為 **adfspark** 的 Blob 容器及名為 **pyFiles/output** 的資料夾中。 如先前所述，此資料集是一個虛擬資料集。 此範例中的 Spark 程式不會產生任何輸出。 **availability** 區段指定每日產生一次輸出資料集。 
 
     ```json
     {
@@ -181,7 +181,7 @@ Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-f
         }
     }
     ```
-3. 若要部署資料集，請選取命令列上的 [部署]。
+1. 若要部署資料集，請選取命令列上的 [部署]。
 
 
 ### <a name="create-a-pipeline"></a>建立管線
@@ -189,7 +189,7 @@ Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-f
 
 1. 在 Data Factory 編輯器中，選取 [更多] > [新增管線]。
 
-2. 使用下列指令碼取代 Draft-1 視窗中的指令碼：
+1. 使用下列指令碼取代 Draft-1 視窗中的指令碼：
 
     ```json
     {
@@ -234,37 +234,37 @@ Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-f
 
     如需有關 Spark 活動所支援之屬性的詳細資訊，請參閱 [Spark 活動屬性](#spark-activity-properties)。
 
-3. 若要部署管線，請選取命令列上的 [部署]。
+1. 若要部署管線，請選取命令列上的 [部署]。
 
 ### <a name="monitor-a-pipeline"></a>監視管線
 1. 在 [資料處理站] 刀鋒視窗上，選取 [監視及管理] 以在另一個索引標籤中啟動監視應用程式。
 
     ![監視及管理圖格](media/data-factory-spark/monitor-and-manage-tile.png)
 
-2. 將頂端的 [開始時間] 篩選變更為 **2/1/2017**，然後選取 [套用]。
+1. 將頂端的 [開始時間] 篩選變更為 **2/1/2017**，然後選取 [套用]。
 
-3. 由於管線的開始時間 (2017-02-01) 與結束時間 (2017-02-02) 之間只有一天，因此只會出現一個活動時段。 確認資料配量的狀態為 [就緒]。
+1. 由於管線的開始時間 (2017-02-01) 與結束時間 (2017-02-02) 之間只有一天，因此只會出現一個活動時段。 確認資料配量的狀態為 [就緒]。
 
     ![監視管線](media/data-factory-spark/monitor-and-manage-app.png)
 
-4. 在 [活動時段] 清單中，選取一個活動回合以查看其相關詳細資料。 如果發生錯誤，您會在右窗格中看到它的詳細資訊。
+1. 在 [活動時段] 清單中，選取一個活動回合以查看其相關詳細資料。 如果發生錯誤，您會在右窗格中看到它的詳細資訊。
 
 ### <a name="verify-the-results"></a>驗證結果
 
 1. 移至[這個網站](https://CLUSTERNAME.azurehdinsight.net/jupyter)來啟動您 HDInsight Spark 叢集的 Jupyter Notebook。 您也可以開啟 HDInsight Spark 叢集的叢集儀表板，然後啟動 Jupyter Notebook。
 
-2. 選取 [新增] > [PySpark] 來啟動新的 Notebook。
+1. 選取 [新增] > [PySpark] 來啟動新的 Notebook。
 
     ![Jupyter 新筆記本](media/data-factory-spark/jupyter-new-book.png)
 
-3. 在第二個陳述式的結尾複製並貼上文字，並按 SHIFT+ENTER 來執行下列命令：
+1. 在第二個陳述式的結尾複製並貼上文字，並按 SHIFT+ENTER 來執行下列命令：
 
     ```sql
     %%sql
 
     SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
     ```
-4. 確認您看到來自 hvac 資料表的資料。 
+1. 確認您看到來自 hvac 資料表的資料。 
 
     ![Jupyter 查詢結果](media/data-factory-spark/jupyter-notebook-results.png)
 
@@ -280,11 +280,11 @@ Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-f
 
     ![YARN UI 應用程式](media/data-factory-spark/yarnui-application.png)
 
-2. 選取其中一個執行嘗試的 [Logs] \(記錄\)。
+1. 選取其中一個執行嘗試的 [Logs] \(記錄\)。
 
     ![應用程式頁面](media/data-factory-spark/yarn-applications.png)
 
-3. 您會在記錄頁面中看到下列額外的錯誤資訊：
+1. 您會在記錄頁面中看到下列額外的錯誤資訊：
 
     ![記錄錯誤](media/data-factory-spark/yarnui-application-error.png)
 
@@ -329,12 +329,12 @@ Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-f
 
 | 屬性 | 說明 | 必要 |
 | -------- | ----------- | -------- |
-| name | 管線中的活動名稱。 | yes |
+| name | 管線中的活動名稱。 | 是 |
 | 說明 | 說明活動用途的文字。 | 否 |
-| type | 這個屬性必須設為 HDInsightSpark。 | yes |
-| 預設容器 | Spark 程式執行所在的 HDInsight 連結服務名稱。 | yes |
-| rootPath | 包含 Spark 檔案的 Blob 容器和資料夾。 檔案名稱有區分大小寫。 | yes |
-| entryFilePath | Spark 程式碼/套件之根資料夾的相對路徑。 | yes |
+| type | 這個屬性必須設為 HDInsightSpark。 | 是 |
+| 預設容器 | Spark 程式執行所在的 HDInsight 連結服務名稱。 | 是 |
+| rootPath | 包含 Spark 檔案的 Blob 容器和資料夾。 檔案名稱有區分大小寫。 | 是 |
+| entryFilePath | Spark 程式碼/套件之根資料夾的相對路徑。 | 是 |
 | className | 應用程式的 Java/Spark 主要類別。 | 否 |
 | arguments | Spark 程式的命令列引數清單。 | 否 |
 | proxyUser | 要模擬來執行 Spark 程式的使用者帳戶。 | 否 |
@@ -349,8 +349,8 @@ Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-f
 
 | Path | 說明 | 必要 | 類型 |
 | ---- | ----------- | -------- | ---- |
-| . | Spark 作業在儲存體已連結服務中的根路徑。 | yes | 資料夾 |
-| &lt;使用者定義&gt; | 指向 Spark 作業之輸入檔案的路徑。 | yes | 檔案 |
+| . | Spark 作業在儲存體已連結服務中的根路徑。 | 是 | 資料夾 |
+| &lt;使用者定義&gt; | 指向 Spark 作業之輸入檔案的路徑。 | 是 | 檔案 |
 | ./jars | 此資料夾下的所有檔案都會上傳並放在叢集的 Java 類別路徑中。 | 否 | 資料夾 |
 | ./pyFiles | 此資料夾下的所有檔案都會上傳並放在叢集的 PYTHONPATH 中。 | 否 | 資料夾 |
 | ./files | 此資料夾下的所有檔案都會上傳並放在執行程式工作目錄中。 | 否 | 資料夾 |

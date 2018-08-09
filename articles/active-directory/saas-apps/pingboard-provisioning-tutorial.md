@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 6d9562697c8135ba4b92b1bbf304a41af8c426c0
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: c5cc20b4f20e3a4f746ab15aa5f139c8e7201a2c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220378"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447161"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>教學課程︰設定 Pingboard 來自動佈建使用者
 
 本教學課程旨在說明您需要執行的步驟，以將使用者帳戶從 Azure Active Directory (Azure AD) 自動佈建和取消佈建至 Pingboard。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本教學課程中說明的案例假設您已經具有下列項目：
 
@@ -61,15 +61,15 @@ Azure AD 會使用稱為「指派」的概念，來判斷哪些使用者應收�
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至 [Azure Active Directory] > [企業應用程式] > [所有應用程式] 區段。
 
-2. 如果您已設定單一登入的 Pingboard，請使用搜尋欄位來搜尋您的 Pingboard 執行個體。 否則，請選取 [新增]，並在應用程式資源庫中搜尋 [Pingboard]。 從搜尋結果中選取 [Pingboard]，並將它新增至您的應用程式清單。
+1. 如果您已設定單一登入的 Pingboard，請使用搜尋欄位來搜尋您的 Pingboard 執行個體。 否則，請選取 [新增]，並在應用程式資源庫中搜尋 [Pingboard]。 從搜尋結果中選取 [Pingboard]，並將它新增至您的應用程式清單。
 
-3. 選取您的 Pingboard 執行個體，然後選取 [佈建] 索引標籤。
+1. 選取您的 Pingboard 執行個體，然後選取 [佈建] 索引標籤。
 
-4. 將 [佈建模式] 設定為 [自動]。
+1. 將 [佈建模式] 設定為 [自動]。
 
     ![Pingboard 佈建](./media/pingboard-provisioning-tutorial/pingboardazureprovisioning.png)
     
-5. 在 [管理員認證] 區段底下，執行下列步驟：
+1. 在 [管理員認證] 區段底下，執行下列步驟：
 
     a. 在 [租用戶 URL] 中輸入 `https://your_domain.pingboard.com/scim/v2`，並將 "your_domain" 取代為您實際的網域。
 
@@ -81,19 +81,19 @@ Azure AD 會使用稱為「指派」的概念，來判斷哪些使用者應收�
 
     e. 複製 [OAuth 持有人權杖] 中的權杖，並在 [祕密權杖] 中輸入此權杖。
 
-6. 在 Azure 入口網站中，選取 [測試連線] 以確保 Azure AD 可以連線到您的 Pingboard 應用程式。 如果連線失敗，請確定您的 Pingboard 帳戶具有系統管理員權限，並再試一次**測試連線**步驟。
+1. 在 Azure 入口網站中，選取 [測試連線] 以確保 Azure AD 可以連線到您的 Pingboard 應用程式。 如果連線失敗，請確定您的 Pingboard 帳戶具有系統管理員權限，並再試一次**測試連線**步驟。
 
-7. 在 [通知電子郵件] 中，輸入應收到佈建錯誤通知之個人或群組的電子郵件地址。 選取下方的核取方塊。
+1. 在 [通知電子郵件] 中，輸入應收到佈建錯誤通知之個人或群組的電子郵件地址。 選取下方的核取方塊。
 
-8. 選取 [ **儲存**]。 
+1. 選取 [ **儲存**]。 
 
-9. 在 [對應] 區段之下，選取 [將 Azure Active Directory 使用者同步至 Pingboard]。
+1. 在 [對應] 區段之下，選取 [將 Azure Active Directory 使用者同步至 Pingboard]。
 
-10. 在 [屬性對應] 區段中，檢閱要從 Azure AD 同步至 Pingboard 的使用者屬性。 選取為 [比對] 屬性的屬性會用來比對 Pingboard 中的使用者帳戶，以進行更新作業。 選取 [儲存] 認可任何變更。 如需詳細資訊，請參閱[自訂使用者佈建屬性對應](../active-directory-saas-customizing-attribute-mappings.md)。
+1. 在 [屬性對應] 區段中，檢閱要從 Azure AD 同步至 Pingboard 的使用者屬性。 選取為 [比對] 屬性的屬性會用來比對 Pingboard 中的使用者帳戶，以進行更新作業。 選取 [儲存] 認可任何變更。 如需詳細資訊，請參閱[自訂使用者佈建屬性對應](../active-directory-saas-customizing-attribute-mappings.md)。
 
-11. 若要啟用 Pingboard 的 Azure AD 佈建服務，請在 [設定] 區段中，將 [佈建狀態] 變更為 [開啟]。
+1. 若要啟用 Pingboard 的 Azure AD 佈建服務，請在 [設定] 區段中，將 [佈建狀態] 變更為 [開啟]。
 
-12. 選取 [儲存] 以啟動對指派給 Pingboard 的使用者進行首次同步處理。
+1. 選取 [儲存] 以啟動對指派給 Pingboard 的使用者進行首次同步處理。
 
 初始同步處理會比後續同步處理花費更多時間執行，只要服務正在執行，這大約每 40 分鐘便會發生一次。 請使用 [同步處理詳細資料] 區段來監視進度，並依循連結來佈建活動記錄。 這些記錄會描述在 Pingboard 應用程式上佈建服務執行的所有動作。
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 79a2bc9d517e3c292268a4a70f08936cb0325fbd
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 7f932346cdfd6363bd76f8167b8598d3a1199de3
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39053082"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39427783"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>教學課程：Azure Active Directory 與 GitHub 整合
 
@@ -53,7 +53,7 @@ GitHub 與 Azure AD 整合提供下列優點：
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 GitHub
-2. 設定並測試 Azure AD 單一登入
+1. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-github-from-the-gallery"></a>從資源庫新增 GitHub
 若要設定將 GitHub 整合到 Azure AD 中，您需要從資源庫將 GitHub 新增至受控 SaaS 應用程式清單。
@@ -64,15 +64,15 @@ GitHub 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕][1]
 
-2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
+1. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![企業應用程式刀鋒視窗][2]
     
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+1. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![新增應用程式按鈕][3]
 
-4. 在搜尋方塊中，輸入 **GitHub**，從結果面板中選取 [GitHub]，然後按一下 [新增] 按鈕以新增應用程式。
+1. 在搜尋方塊中，輸入 **GitHub**，從結果面板中選取 [GitHub]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![結果清單中的 GitHub](./media/github-tutorial/tutorial_github_addfromgallery.png)
 
@@ -85,10 +85,10 @@ GitHub 與 Azure AD 整合提供下列優點：
 若要設定及測試與 GitHub 搭配運作的 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 GitHub 測試使用者](#create-a-github-test-user)** - 讓 GitHub 中的 Britta Simon 對應項目得以連結至 Azure AD 中代表該使用者的項目。
-4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
+1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
+1. **[建立 GitHub 測試使用者](#create-a-github-test-user)** - 讓 GitHub 中的 Britta Simon 對應項目得以連結至 Azure AD 中代表該使用者的項目。
+1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+1. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -100,11 +100,11 @@ GitHub 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入連結][4]
 
-2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
+1. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
  
     ![單一登入對話方塊](./media/github-tutorial/tutorial_github_samlbase.png)
 
-3. 在 [GitHub 網域與 URL] 區段中，執行下列步驟：
+1. 在 [GitHub 網域與 URL] 區段中，執行下列步驟：
 
     ![GitHub 網域及 URL 單一登入資訊](./media/github-tutorial/tutorial_github_url.png)
 
@@ -115,33 +115,33 @@ GitHub 與 Azure AD 整合提供下列優點：
     > [!NOTE]
     > 請注意這些不是真正的值。 您必須使用實際的登入 URL 及識別碼來更新這些值。 在此建議您在 [識別碼] 中使用唯一的字串值。 移至 [GitHub 管理] 區段來擷取這些值。
 
-4. 在 [使用者屬性] 區段中，選取 [user.mail] 做為 [使用者識別碼]。
+1. 在 [使用者屬性] 區段中，選取 [user.mail] 做為 [使用者識別碼]。
 
     ![設定單一登入](./media/github-tutorial/tutorial_github_attribute_new01.png)
 
-5. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
+1. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
     ![憑證下載連結](./media/github-tutorial/tutorial_github_certificate.png) 
 
-6. 按一下 [儲存]  按鈕。
+1. 按一下 [儲存]  按鈕。
 
     ![設定單一登入儲存按鈕](./media/github-tutorial/tutorial_general_400.png)
 
-7. 在 [GitHub 組態] 區段上，按一下 [設定 GitHub] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
+1. 在 [GitHub 組態] 區段上，按一下 [設定 GitHub] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
 
     ![GitHub 設定](./media/github-tutorial/tutorial_github_configure.png) 
 
-8. 在不同的 Web 瀏覽器視窗中，以系統管理員身分登入您的 GitHub 組織網站。
+1. 在不同的 Web 瀏覽器視窗中，以系統管理員身分登入您的 GitHub 組織網站。
 
-9. 瀏覽至 [設定]，然後按一下 [安全性]
+1. 瀏覽至 [設定]，然後按一下 [安全性]
 
     ![設定](./media/github-tutorial/tutorial_github_config_github_03.png)
 
-10. 勾選 [啟用 SAML 驗證]方塊，以顯示單一登入設定欄位。 然後，使用單一登入 URL 值來更新 Azure AD 組態上的單一登入 URL。
+1. 勾選 [啟用 SAML 驗證]方塊，以顯示單一登入設定欄位。 然後，使用單一登入 URL 值來更新 Azure AD 組態上的單一登入 URL。
 
     ![設定](./media/github-tutorial/tutorial_github_config_github_13.png)
 
-11. 設定下列欄位：
+1. 設定下列欄位：
 
     a. 在 [登入 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 **SAML 單一登入服務 URL** 值。
 
@@ -151,11 +151,11 @@ GitHub 與 Azure AD 整合提供下列優點：
 
     ![設定](./media/github-tutorial/tutorial_github_config_github_051.png)
 
-12. 按一下 [測試 SAML 組態]，確認 SSO 期間沒有驗證失敗或錯誤。
+1. 按一下 [測試 SAML 組態]，確認 SSO 期間沒有驗證失敗或錯誤。
 
     ![設定](./media/github-tutorial/tutorial_github_config_github_06.png)
 
-13. 按一下 [儲存] 
+1. 按一下 [儲存] 
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -169,15 +169,15 @@ GitHub 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/github-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+1. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/github-tutorial/create_aaduser_02.png)
 
-3. 若要開啟 [使用者] 對話方塊，按一下 [所有使用者] 對話方塊頂端的 [新增]。
+1. 若要開啟 [使用者] 對話方塊，按一下 [所有使用者] 對話方塊頂端的 [新增]。
 
     ![[新增] 按鈕](./media/github-tutorial/create_aaduser_03.png)
 
-4. 在 [使用者] 對話方塊中，執行下列步驟：
+1. 在 [使用者] 對話方塊中，執行下列步驟：
 
     ![[使用者] 對話方塊](./media/github-tutorial/create_aaduser_04.png)
 
@@ -197,15 +197,15 @@ GitHub 與 Azure AD 整合提供下列優點：
 
 1. 以系統管理員身分登入您的 GitHub 公司網站。
 
-2. 按一下 [人員] 。
+1. 按一下 [人員] 。
 
     ![People](./media/github-tutorial/tutorial_github_config_github_08.png "People")
 
-3. 按一下 [邀請成員]。
+1. 按一下 [邀請成員]。
 
     ![邀請使用者](./media/github-tutorial/tutorial_github_config_github_09.png "邀請使用者")
 
-4. 在 [邀請成員] 對話方塊頁面上，執行下列步驟：
+1. 在 [邀請成員] 對話方塊頁面上，執行下列步驟：
 
     a. 在 [電子郵件] 文字方塊中，輸入 Britta Simon 帳戶的電子郵件地址。
 
@@ -230,23 +230,23 @@ GitHub 與 Azure AD 整合提供下列優點：
 
     ![指派使用者][201]
 
-2. 在應用程式清單中，選取 [GitHub]。
+1. 在應用程式清單中，選取 [GitHub]。
 
     ![應用程式清單中的 GitHub 連結](./media/github-tutorial/tutorial_github_app.png)  
 
-3. 在左側功能表中，按一下 [使用者和群組]。
+1. 在左側功能表中，按一下 [使用者和群組]。
 
     ![[使用者和群組] 連結][202]
 
-4. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
+1. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
 
     ![[新增指派] 窗格][203]
 
-5. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
+1. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
 
-6. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
+1. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
 
-7. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
+1. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
     
 ### <a name="test-single-sign-on"></a>測試單一登入
 

@@ -15,11 +15,12 @@ ms.topic: quickstart
 ms.date: 04/23/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 381c1c37b0675d97adc058979a5d9b5c4fd2cc8b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4d062b937eb005b8c30a6f7f59b00f80095a7924
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422285"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>快速入門：在 Azure Stack 中使用 Azure CLI 建立 Windows Server 虛擬機器
 
@@ -31,7 +32,7 @@ ms.lasthandoff: 04/28/2018
 * 安裝 IIS 網頁伺服器，並且檢視預設首頁。
 * 清除資源。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 確定您的 Azure Stack 操作員已將**Windows Server 2016** 映像新增至 Azure Stack Marketplace。
 
@@ -39,7 +40,7 @@ ms.lasthandoff: 04/28/2018
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-資源群組是您可以在其中部署和管理 Azure Stack 資源的邏輯容器。 從 Azure Stack 環境，執行 [az group create](/cli/azure/group#az_group_create) 命令來建立資源群組。
+資源群組是您可以在其中部署和管理 Azure Stack 資源的邏輯容器。 從 Azure Stack 環境，執行 [az group create](/cli/azure/group#az-group-create) 命令來建立資源群組。
 
 >[!NOTE]
  系統會為程式碼範例中的所有變數指派值。 不過，您可以視需要指派新值。
@@ -52,7 +53,7 @@ az group create --name myResourceGroup --location local
 
 ## <a name="create-a-virtual-machine"></a>建立虛擬機器
 
-使用 [az vm create](/cli/azure/vm#az_vm_create) 命令來建立虛擬機器 (VM)。 下列範例會建立名為 myVM 的 VM。 此範例會使用 Demouser 作為系統管理使用者名稱，並使用 Demouser@123 作為使用者密碼。 將這些值變更為適合您環境的值。
+使用 [az vm create](/cli/azure/vm#az-vm-create) 命令來建立虛擬機器 (VM)。 下列範例會建立名為 myVM 的 VM。 此範例會使用 Demouser 作為系統管理使用者名稱，並使用 Demouser@123 作為使用者密碼。 將這些值變更為適合您環境的值。
 
 ```cli
 az vm create \
@@ -101,7 +102,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="clean-up-resources"></a>清除資源
 
-清除您不再需要的資源。 使用 [az group delete](/cli/azure/group#az_group_delete) 命令來移除資源群組、虛擬機器，以及所有相關資源。
+清除您不再需要的資源。 使用 [az group delete](/cli/azure/group#az-group-delete) 命令來移除資源群組、虛擬機器，以及所有相關資源。
 
 ```cli
 az group delete --name myResourceGroup

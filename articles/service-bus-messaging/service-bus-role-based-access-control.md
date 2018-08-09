@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 729d6db6b2fc6495ffb0f4fbe4d545d7ad953cef
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 80c226b4b4295a232a6cefb4da12e1db23adae66
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26783510"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505228"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Active Directory 角色型存取控制 (預覽)
 
@@ -61,7 +61,7 @@ Microsoft Azure 針對以 Azure Active Directory (Azure AD) 為基礎的資源�
 
 由於應用程式範例是一個主控台應用程式，您必須註冊原生應用程式，並將 **Microsoft.ServiceBus** 的 API 權限新增至「所需的權限」集合。 原生應用程式也需要 Azure AD 中的 **redirect-URI** 以作為識別碼；此 URI 不必是網路目的地。 在此範例中使用 `http://servicebus.microsoft.com`，因為程式碼範例已使用該 URI。
 
-[這個教學課程](../active-directory/develop/active-directory-integrating-applications.md)會有詳細註冊步驟的說明。 請遵循這些步驟來註冊**原生**應用程式，然後遵循更新指示將 **Microsoft.ServiceBus** API 新增至所需的權限。 在遵循這些步驟時，請記下 **TenantId** 和 **ApplicationId**，因為您需要有這些值才能執行應用程式。
+[這個教學課程](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)會有詳細註冊步驟的說明。 請遵循這些步驟來註冊**原生**應用程式，然後遵循更新指示將 **Microsoft.ServiceBus** API 新增至所需的權限。 在遵循這些步驟時，請記下 **TenantId** 和 **ApplicationId**，因為您需要有這些值才能執行應用程式。
 
 ### <a name="run-the-app"></a>執行應用程式
 

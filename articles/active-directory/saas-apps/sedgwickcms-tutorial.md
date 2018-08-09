@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 5b1ea8f79865816b7f1602d497b920f90a8b211b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ff9f3186602b9047e53fb78edbf52c2c0d9ee574
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041699"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423584"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sedgwick-cms"></a>教學課程：Azure Active Directory 與 Sedgwick CMS 整合
 
@@ -53,7 +53,7 @@ ms.locfileid: "39041699"
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Sedgwick CMS
-2. 設定並測試 Azure AD 單一登入
+1. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-sedgwick-cms-from-the-gallery"></a>從資源庫新增 Sedgwick CMS
 若要設定將 Sedgwick CMS 整合到 Azure AD 中，您需要將 Sedgwick CMS 從資源庫新增到受控 SaaS 應用程式清單。
@@ -64,15 +64,15 @@ ms.locfileid: "39041699"
 
     ![Azure Active Directory 按鈕][1]
 
-2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
+1. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![企業應用程式刀鋒視窗][2]
     
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+1. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![新增應用程式按鈕][3]
 
-4. 在搜尋方塊中，輸入 **Sedgwick CMS**，從結果面板中選取 [Sedgwick CMS]，然後按一下 [新增] 按鈕以新增應用程式。
+1. 在搜尋方塊中，輸入 **Sedgwick CMS**，從結果面板中選取 [Sedgwick CMS]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![結果清單中的 Sedgwick CMS](./media/sedgwickcms-tutorial/tutorial_sedgwickcms_addfromgallery.png)
 
@@ -87,10 +87,10 @@ ms.locfileid: "39041699"
 若要設定及測試與 Sedgwick CMS 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 Sedgwick CMS 測試使用者](#create-a-sedgwick-cms-test-user)** - 在 Sedgwick CMS 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
-4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
+1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
+1. **[建立 Sedgwick CMS 測試使用者](#create-a-sedgwick-cms-test-user)** - 在 Sedgwick CMS 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
+1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+1. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -102,11 +102,11 @@ ms.locfileid: "39041699"
 
     ![設定單一登入連結][4]
 
-2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
+1. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
  
     ![單一登入對話方塊](./media/sedgwickcms-tutorial/tutorial_sedgwickcms_samlbase.png)
 
-3. 在 [Sedgwick CMS 網域及 URL] 區段上，執行下列步驟：
+1. 在 [Sedgwick CMS 網域及 URL] 區段上，執行下列步驟：
 
     ![Sedgwick CMS 網域及 URL 單一登入資訊](./media/sedgwickcms-tutorial/tutorial_sedgwickcms_url.png)
 
@@ -126,15 +126,15 @@ ms.locfileid: "39041699"
     > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [Sedgwick CMS 支援小組](https://www.sedgwick.com/help) \(英文\) 以取得這些值。
  
 
-4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
+1. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
     ![憑證下載連結](./media/sedgwickcms-tutorial/tutorial_sedgwickcms_certificate.png) 
 
-5. 按一下 [儲存]  按鈕。
+1. 按一下 [儲存]  按鈕。
 
     ![設定單一登入儲存按鈕](./media/sedgwickcms-tutorial/tutorial_general_400.png)
 
-6. 若要在 **Sedgwick CMS** 端設定單一登入，您必須將已下載的**中繼資料 XML** 傳送給 [Sedgwick CMS 支援小組](https://www.sedgwick.com/contact/Pages/contactform.aspx) \(英文\)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+1. 若要在 **Sedgwick CMS** 端設定單一登入，您必須將已下載的**中繼資料 XML** 傳送給 [Sedgwick CMS 支援小組](https://www.sedgwick.com/contact/Pages/contactform.aspx) \(英文\)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -151,15 +151,15 @@ ms.locfileid: "39041699"
 
     ![Azure Active Directory 按鈕](./media/sedgwickcms-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+1. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/sedgwickcms-tutorial/create_aaduser_02.png)
 
-3. 若要開啟 [使用者] 對話方塊，按一下 [所有使用者] 對話方塊頂端的 [新增]。
+1. 若要開啟 [使用者] 對話方塊，按一下 [所有使用者] 對話方塊頂端的 [新增]。
 
     ![[新增] 按鈕](./media/sedgwickcms-tutorial/create_aaduser_03.png)
 
-4. 在 [使用者] 對話方塊中，執行下列步驟：
+1. 在 [使用者] 對話方塊中，執行下列步驟：
 
     ![[使用者] 對話方塊](./media/sedgwickcms-tutorial/create_aaduser_04.png)
 
@@ -187,23 +187,23 @@ ms.locfileid: "39041699"
 
     ![指派使用者][201] 
 
-2. 在應用程式清單中，選取 [Sedgwick CMS]。
+1. 在應用程式清單中，選取 [Sedgwick CMS]。
 
     ![應用程式清單中的 Sedgwick CMS 連結](./media/sedgwickcms-tutorial/tutorial_sedgwickcms_app.png)  
 
-3. 在左側功能表中，按一下 [使用者和群組]。
+1. 在左側功能表中，按一下 [使用者和群組]。
 
     ![[使用者和群組] 連結][202]
 
-4. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
+1. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
 
     ![[新增指派] 窗格][203]
 
-5. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
+1. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
 
-6. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
+1. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
 
-7. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
+1. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
     
 ### <a name="test-single-sign-on"></a>測試單一登入
 

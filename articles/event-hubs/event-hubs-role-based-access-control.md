@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: sethm
-ms.openlocfilehash: 9c38f74cd4499fad1feaadb6c1bbc99da791ebd6
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 76c929f482659bb81e0cabb7fb6bffa5331082bf
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888362"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502131"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Active Directory 角色型存取控制 (預覽)
 
@@ -57,7 +57,7 @@ Microsoft Azure 針對以 Azure Active Directory (Azure AD) 為基礎的資源�
 
 由於應用程式範例是一個主控台應用程式，您必須註冊原生應用程式，並將 **Microsoft.EventHub** 的 API 權限新增至「所需的權限」集合。 原生應用程式也需要 Azure AD 中的 **redirect-URI** 以作為識別碼；此 URI 不必是網路目的地。 在此範例中使用 `http://eventhubs.microsoft.com`，因為程式碼範例已使用該 URI。
 
-[這個教學課程](../active-directory/develop/active-directory-integrating-applications.md)會有詳細註冊步驟的說明。 請遵循這些步驟來註冊**原生**應用程式，然後遵循更新指示將 **Microsoft.EventHub** API 新增至所需的權限。 在遵循這些步驟時，請記下 **TenantId** 和 **ApplicationId**，因為您需要有這些值才能執行應用程式。
+[這個教學課程](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)會有詳細註冊步驟的說明。 請遵循這些步驟來註冊**原生**應用程式，然後遵循更新指示將 **Microsoft.EventHub** API 新增至所需的權限。 在遵循這些步驟時，請記下 **TenantId** 和 **ApplicationId**，因為您需要有這些值才能執行應用程式。
 
 ### <a name="run-the-app"></a>執行應用程式
 

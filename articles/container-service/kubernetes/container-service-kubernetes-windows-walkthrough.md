@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 74ce913548fbcefdc441d0d2b772c864dacd4482
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b20f19c504a7967d01d51d976315fa49c2317885
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38485439"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424797"
 ---
 # <a name="deploy-kubernetes-cluster-for-windows-containers"></a>部署適用於 Windows 容器的 Kubernetes 叢集
 
@@ -34,7 +34,7 @@ Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-使用 [az group create](/cli/azure/group#az_group_create) 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯群組。 
+使用 [az group create](/cli/azure/group#az-group-create) 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯群組。 
 
 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組。
 
@@ -43,7 +43,7 @@ az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-kubernetes-cluster"></a>建立 Kubernetes 叢集
-使用 [az acs create](/cli/azure/acs#az_acs_create) 命令，在 Azure Container Service 中建立 Kubernetes 叢集。 
+使用 [az acs create](/cli/azure/acs#az-acs-create) 命令，在 Azure Container Service 中建立 Kubernetes 叢集。 
 
 下列範例會建立名為 myK8sCluster 的叢集，使用一個 Linux 主要節點和兩個 Windows 代理程式節點。 這個範例會建立連線到 Linux 主機所需的 SSH 金鑰。 此範例會以 azureuser 作為系統管理使用者名稱，並以 myPassword12 作為 Windows 節點上的密碼。 將這些值更新為適合您環境的值。 
 
@@ -184,7 +184,7 @@ iis          10.0.111.25    13.64.158.233   80/TCP         22m
 
 
 ## <a name="delete-cluster"></a>刪除叢集
-若不再需要叢集，您可以使用 [az group delete](/cli/azure/group#az_group_delete) 命令來移除資源群組、容器服務和所有相關資源。
+若不再需要叢集，您可以使用 [az group delete](/cli/azure/group#az-group-delete) 命令來移除資源群組、容器服務和所有相關資源。
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

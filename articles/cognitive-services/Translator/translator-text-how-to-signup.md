@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: nolachar
 ms.openlocfilehash: 2aa293acfa1a9e3fd95a64f6981bd8dc9747b6b6
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
+ms.lasthandoff: 08/02/2018
 ms.locfileid: "36265552"
 ---
 # <a name="how-to-sign-up-for-the-translator-text-api"></a>如何註冊翻譯工具文字 API
@@ -22,7 +22,7 @@ ms.locfileid: "36265552"
 ## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
 - 還沒有帳戶嗎？ 您可以建立[免費帳戶](https://azure.microsoft.com/free/)進行實驗，完全不需付費。
-- 已經有帳戶了嗎？ [登入](https://ms.portal.azure.com/)
+- 已經有帳戶了嗎? [登入](https://ms.portal.azure.com/)
 
 ## <a name="create-a-subscription-to-the-translator-text-api"></a>建立翻譯工具文字 API 的訂用帳戶
 

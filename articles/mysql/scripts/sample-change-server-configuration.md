@@ -11,12 +11,12 @@ ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: 8a119d611d4b2817ad85ebe30b88d11cce6fca9f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 75b1228df8bc19ced1d8377768c08048e6ef9150
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38652839"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441651"
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-mysql-server-using-azure-cli"></a>使用 Azure CLI 列出及更新 Azure Database for MySQL 伺服器的組態
 這個範例 CLI 指令碼會列出所有可用的組態參數，以及其對於 Azure Database for MySQL 伺服器的允許值，並將 innodb_lock_wait_timeout 設定為預設值以外的值。
@@ -38,12 +38,12 @@ ms.locfileid: "38652839"
 
 | **命令** | **注意事項** |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
-| [az mysql server create](/cli/azure/mysql/server#az_msql_server_create) | 建立主控資料庫的 MySQL 伺服器。 |
-| [az mysql server configuration list](/cli/azure/mysql/server/configuration#az_msql_server_configuration_list) | 列出 Azure Database for MySQL 伺服器的組態。 |
-| [az mysql server configuration set](/cli/azure/mysql/server/configuration#az_msql_server_configuration_set) | 更新 Azure Database for MySQL 伺服器的組態。 |
-| [az mysql server configuration show](/cli/azure/mysql/server/configuration#az_msql_server_configuration_show) | 顯示 Azure Database for MySQL 伺服器的組態。 |
-| [az group delete](/cli/azure/group#az_group_delete) | 刪除資源群組，包括所有的巢狀資源。 |
+| [az group create](/cli/azure/group#az-group-create) | 建立用來存放所有資源的資源群組。 |
+| [az mysql server create](/cli/azure/mysql/server#az-msql-server-create) | 建立主控資料庫的 MySQL 伺服器。 |
+| [az mysql server configuration list](/cli/azure/mysql/server/configuration#az-msql-server-configuration-list) | 列出 Azure Database for MySQL 伺服器的組態。 |
+| [az mysql server configuration set](/cli/azure/mysql/server/configuration#az-msql-server-configuration-set) | 更新 Azure Database for MySQL 伺服器的組態。 |
+| [az mysql server configuration show](/cli/azure/mysql/server/configuration#az-msql-server-configuration-show) | 顯示 Azure Database for MySQL 伺服器的組態。 |
+| [az group delete](/cli/azure/group#az-group-delete) | 刪除資源群組，包括所有的巢狀資源。 |
 
 ## <a name="next-steps"></a>後續步驟
 - 了解 Azure CLI 的詳細資訊：[Azure CLI 文件](/cli/azure)。

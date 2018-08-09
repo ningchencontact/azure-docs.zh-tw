@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2018
 ms.author: anwestg
-ms.openlocfilehash: ce57e153dcab6a386150ebefe1ecb4a018514247
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 53766099f283f802482fe8e84144502d386b1d69
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130365"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440146"
 ---
 # <a name="how-to-redistribute-azure-app-service-on-azure-stack-across-fault-domains"></a>如何跨容錯網域，在 Azure Stack 上轉散發 Azure App Service
 
@@ -48,12 +48,12 @@ ms.locfileid: "37130365"
 若要相應放大擴展集，請遵循下列步驟：
 
 1. 登入 Azure Stack 系統管理員入口網站。
-2. 選取 [更多服務]。
-3. 在 [計算] 下選取 [虛擬機器擴展集]。 部署為 App Service 部署一部分的現有擴展集會與執行個體計數資訊一起列出。 下列螢幕擷取畫面顯示擴展集範例。
+1. 選取 [更多服務]。
+1. 在 [計算] 下選取 [虛擬機器擴展集]。 部署為 App Service 部署一部分的現有擴展集會與執行個體計數資訊一起列出。 下列螢幕擷取畫面顯示擴展集範例。
 
       ![列在虛擬機器擴展集 UX 中的 Azure App Service 擴展集][1]
 
-4. 相應放大每個集合。 例如，如果您在擴展集中有 3 個現有執行個體，您必須相應放大為 6 個，以便跨容錯網域部署 3 個新執行個體。 下列 PowerShell 範例顯示如何相應放大擴展集。
+1. 相應放大每個集合。 例如，如果您在擴展集中有 3 個現有執行個體，您必須相應放大為 6 個，以便跨容錯網域部署 3 個新執行個體。 下列 PowerShell 範例顯示如何相應放大擴展集。
 
    ```powershell
    Add-AzureRmAccount -EnvironmentName AzureStackAdmin 
@@ -69,13 +69,13 @@ ms.locfileid: "37130365"
    >[!NOTE]
    >視角色類型和執行個體數目而定，此步驟可能需要幾小時的時間才能完成。
 
-5. 在 [App Service 系統管理角色] 中，監視新角色執行個體的狀態。 若要檢查角色執行個體的狀態，請在清單中選取角色類型
+1. 在 [App Service 系統管理角色] 中，監視新角色執行個體的狀態。 若要檢查角色執行個體的狀態，請在清單中選取角色類型
 
     ![Azure App Service on Azure Stack 角色][2]
 
-6. 當新的角色執行個體狀態為 [就緒] 時，返回 [虛擬機器擴展集] 並**刪除**舊的角色執行個體。
+1. 當新的角色執行個體狀態為 [就緒] 時，返回 [虛擬機器擴展集] 並**刪除**舊的角色執行個體。
 
-7. 針對**每個**虛擬機器擴展集重複這些步驟。
+1. 針對**每個**虛擬機器擴展集重複這些步驟。
 
 ## <a name="next-steps"></a>後續步驟
 

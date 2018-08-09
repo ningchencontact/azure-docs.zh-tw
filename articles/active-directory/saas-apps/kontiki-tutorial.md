@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 876d602366e5c14fa69a43a60581269b85c7abd8
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: e5f29a12de5f82fa13c0c61462db00b2906fdca7
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229466"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444448"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kontiki"></a>教學課程：Azure Active Directory 與 Kontiki 整合
 
@@ -33,7 +33,7 @@ Kontiki 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Kontiki 的整合作業，需要下列項目：
 
@@ -52,7 +52,7 @@ Kontiki 與 Azure AD 整合提供下列優點：
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Kontiki
-2. 設定並測試 Azure AD 單一登入
+1. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-kontiki-from-the-gallery"></a>從資源庫新增 Kontiki
 若要設定將 Kontiki 整合到 Azure AD 中，您需要從資源庫將 Kontiki 加入到受控 SaaS 應用程式清單。
@@ -63,19 +63,19 @@ Kontiki 與 Azure AD 整合提供下列優點：
 
     ![Active Directory][1]
 
-2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
+1. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![[應用程式]][2]
     
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+1. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![[應用程式]][3]
 
-4. 在搜尋方塊中，輸入 **Kontiki**。
+1. 在搜尋方塊中，輸入 **Kontiki**。
 
     ![建立 Azure AD 測試使用者](./media/kontiki-tutorial/tutorial_kontiki_search.png)
 
-5. 在結果窗格中，選取 [Kontiki]，然後按一下 [新增] 按鈕以新增應用程式。
+1. 在結果窗格中，選取 [Kontiki]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/kontiki-tutorial/tutorial_kontiki_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Kontiki 與 Azure AD 整合提供下列優點：
 若要設定及測試與 Kontiki 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 Kontiki 測試使用者](#creating-a-kontiki-test-user)** - 使 Kontiki 中 Britta Simon 的對應使用者連結到該使用者在 Azure AD 中的代表身分。
-4. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
+1. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
+1. **[建立 Kontiki 測試使用者](#creating-a-kontiki-test-user)** - 使 Kontiki 中 Britta Simon 的對應使用者連結到該使用者在 Azure AD 中的代表身分。
+1. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+1. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -104,28 +104,28 @@ Kontiki 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入][4]
 
-2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
+1. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
  
     ![設定單一登入](./media/kontiki-tutorial/tutorial_kontiki_samlbase.png)
 
-3. 在 [Kontiki 網域及 URL] 區段上，執行下列步驟：
+1. 在 [Kontiki 網域及 URL] 區段上，執行下列步驟：
 
     ![設定單一登入](./media/kontiki-tutorial/tutorial_kontiki_url.png)
 
-     在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<companyname>.mc.eval.kontiki.com`
+     在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<companyname>.mc.eval.kontiki.com`
 
     > [!NOTE] 
     > 這不是真實的值。 使用實際的「登入 URL」來更新此值。 請連絡 [Kontiki 用戶端支援小組](http://customersupport.kontiki.com/enterprise/contactsupport.html)以取得值。 
  
-4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
+1. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
     ![設定單一登入](./media/kontiki-tutorial/tutorial_kontiki_certificate.png) 
 
-5. 按一下 [儲存]  按鈕。
+1. 按一下 [儲存]  按鈕。
 
     ![設定單一登入](./media/kontiki-tutorial/tutorial_general_400.png) 
 
-6. 若要在 **Kontiki** 端設定單一登入，您必須將已下載的**中繼資料 XML** 傳送給 [Kontiki 支援小組](http://customersupport.kontiki.com/enterprise/contactsupport.html)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+1. 若要在 **Kontiki** 端設定單一登入，您必須將已下載的**中繼資料 XML** 傳送給 [Kontiki 支援小組](http://customersupport.kontiki.com/enterprise/contactsupport.html)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -142,15 +142,15 @@ Kontiki 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/kontiki-tutorial/create_aaduser_01.png) 
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+1. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
     
     ![建立 Azure AD 測試使用者](./media/kontiki-tutorial/create_aaduser_02.png) 
 
-3. 若要開啟 [使用者] 對話方塊，按一下對話方塊頂端的 [新增]。
+1. 若要開啟 [使用者] 對話方塊，按一下對話方塊頂端的 [新增]。
  
     ![建立 Azure AD 測試使用者](./media/kontiki-tutorial/create_aaduser_03.png) 
 
-4. 在 [使用者]  對話頁面上，執行下列步驟：
+1. 在 [使用者]  對話頁面上，執行下列步驟：
  
     ![建立 Azure AD 測試使用者](./media/kontiki-tutorial/create_aaduser_04.png) 
 
@@ -182,23 +182,23 @@ Kontiki 與 Azure AD 整合提供下列優點：
 
     ![指派使用者][201] 
 
-2. 在應用程式清單中，選取 [Kontiki]。
+1. 在應用程式清單中，選取 [Kontiki]。
 
     ![設定單一登入](./media/kontiki-tutorial/tutorial_kontiki_app.png) 
 
-3. 在左側功能表中，按一下 [使用者和群組]。
+1. 在左側功能表中，按一下 [使用者和群組]。
 
     ![指派使用者][202] 
 
-4. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
+1. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
 
     ![指派使用者][203]
 
-5. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
+1. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
 
-6. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
+1. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
 
-7. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
+1. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
     
 ### <a name="testing-single-sign-on"></a>測試單一登入
 

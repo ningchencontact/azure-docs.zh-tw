@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: rogarana
-ms.openlocfilehash: 8b3a4d7feccc3af55415f54473ae1a2588ad5672
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 96d50260663f00f5ae2e9b2e0495c91ecb5da4b2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936882"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421183"
 ---
 # <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>如何使用 Azure CLI 擴充 Linux VM 上的虛擬硬碟
 在 Azure 中，Linux 虛擬機器 (VM) 上作業系統 (OS) 的預設虛擬硬碟大小通常是 30 GB。 您可以[新增資料磁碟](add-disk.md)來提供更多儲存空間，但您也可能想要擴充既有的資料磁碟。 本文將詳細說明如何使用 Azure CLI 2.0 來擴充 Linux VM 的受控磁碟。 
@@ -43,7 +43,7 @@ ms.locfileid: "36936882"
     > [!NOTE]
     > 必須解除配置 VM，才能擴充虛擬硬碟。 `az vm stop` 不會釋放計算資源。 若要釋放計算資源，請使用 `az vm deallocate`。
 
-2. 使用 [az disk list](/cli/azure/disk#az_disk_list) 來檢視資源群組中的受控磁碟清單。 下列範例會顯示名為 myResourceGroup 之資源群組中的受控磁碟清單：
+1. 使用 [az disk list](/cli/azure/disk#az_disk_list) 來檢視資源群組中的受控磁碟清單。 下列範例會顯示名為 myResourceGroup 之資源群組中的受控磁碟清單：
 
     ```azurecli
     az disk list \
@@ -64,7 +64,7 @@ ms.locfileid: "36936882"
     > [!NOTE]
     > 當您擴充受控磁碟時，更新的大小會對應至最接近的受控磁碟大小。 如需可用受控磁碟大小和階層的表格，請參閱 [Azure 受控磁碟概觀 - 價格和計費](../windows/managed-disks-overview.md#pricing-and-billing)。
 
-3. 使用 [az vm create](/cli/azure/vm#az_vm_start) 啟動 VM。 下列範例會啟動名為 myResourceGroup 資源群組中名為 myVM 的 VM：
+1. 使用 [az vm create](/cli/azure/vm#az_vm_start) 啟動 VM。 下列範例會啟動名為 myResourceGroup 資源群組中名為 myVM 的 VM：
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
@@ -80,7 +80,7 @@ ms.locfileid: "36936882"
     az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
     ```
 
-2. 若要使用展開的硬碟，您需要展開硬碟下的分割區與檔案系統。
+1. 若要使用展開的硬碟，您需要展開硬碟下的分割區與檔案系統。
 
     a. 若磁碟已掛載，則卸載磁碟：
 
@@ -121,25 +121,25 @@ ms.locfileid: "36936882"
 
     d. 若要結束，請輸入 `quit`
 
-3. 分割區調整大小後，使用 `e2fsck` 來確認分割區的一致性：
+1. 分割區調整大小後，使用 `e2fsck` 來確認分割區的一致性：
 
     ```bash
     sudo e2fsck -f /dev/sdc1
     ```
 
-4. 使用 `resize2fs` 來調整檔案系統大小：
+1. 使用 `resize2fs` 來調整檔案系統大小：
 
     ```bash
     sudo resize2fs /dev/sdc1
     ```
 
-5. 將分割區掛載至所需位置，像是 `/datadrive`：
+1. 將分割區掛載至所需位置，像是 `/datadrive`：
 
     ```bash
     sudo mount /dev/sdc1 /datadrive
     ```
 
-6. 若要確認 OS 磁碟已調整大小，請使用 `df -h`。 下列輸出範例顯示資料磁碟 (*/dev/sdc1*) 現在是 200 GB：
+1. 若要確認 OS 磁碟已調整大小，請使用 `df -h`。 下列輸出範例顯示資料磁碟 (*/dev/sdc1*) 現在是 200 GB：
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on

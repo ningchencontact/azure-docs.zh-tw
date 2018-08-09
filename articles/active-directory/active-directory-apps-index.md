@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 5c6a4ac68694c74f9a7ed99a2d7b4939b84dc33f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 9d398d810a2d43b3754fd8950376c605d4654f38
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054874"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621526"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Azure Active Directory 中應用程式管理的文章索引
 本頁面提供一份完整清單，列出撰寫 Azure Active Directory (Azure AD) 中各種應用程式相關功能的所有文章。
@@ -41,7 +41,7 @@ ms.locfileid: "39054874"
 
 | 功能範圍 |  |
 |:---:| --- |
-| 同盟單一登入 |[對 SAML 型單一登入進行疑難排解](active-directory-saml-debugging.md) |
+| 同盟單一登入 |[對 SAML 型單一登入進行疑難排解](develop/howto-v1-debug-saml-sso-issues.md) |
 | 密碼單一登入 |[疑難排解 Internet explorer 的存取面板擴充功能](active-directory-saas-ie-troubleshooting.md) |
 | 應用程式 Proxy |[應用程式 Proxy 疑難排解指南](manage-apps/application-proxy-troubleshoot.md) |
 | 內部部署 AD 與 Azure AD 之間的單一登入 |[針對密碼雜湊同步處理進行疑難排解](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[對密碼回寫進行疑難排解](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
@@ -54,10 +54,10 @@ ms.locfileid: "39054874"
 | 文章指南 |  |
 |:---:| --- |
 | 簡介同盟和其他類型的登入 |[使用 Azure AD 進行單一登入](manage-apps/what-is-single-sign-on.md) |
-| 透過已簡化摸單一登入設定步驟，與 Azure AD 預先整合的數千個 SaaS 應用程式 |[開始使用 Azure AD 應用程式庫](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[支援同盟的預先整合應用程式完整清單](saas-apps/tutorial-list.md)<br /><br />[如何將您的應用程式新增至 Azure AD 應用程式庫](active-directory-app-gallery-listing.md) |
+| 透過已簡化摸單一登入設定步驟，與 Azure AD 預先整合的數千個 SaaS 應用程式 |[開始使用 Azure AD 應用程式庫](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[支援同盟的預先整合應用程式完整清單](saas-apps/tutorial-list.md)<br /><br />[如何將您的應用程式新增至 Azure AD 應用程式庫](develop/howto-app-gallery-listing.md) |
 | 超過 150 個應用程式教學課程，教導您如何為 [Salesforce](saas-apps/salesforce-tutorial.md)、[ServiceNow](saas-apps/servicenow-tutorial.md)、[Google Apps](saas-apps/google-apps-tutorial.md)、[Workday](saas-apps/workday-tutorial.md) 等應用程式設定單一登入 |[如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](saas-apps/tutorial-list.md) |
 | 如何手動設定及自訂您的單一登入設定 |[如何設定對不在 Azure Active Directory 應用程式庫中之應用程式的同盟單一登入](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[如何為預先整合的應用程式自訂在 SAML 權杖中發出的宣告](active-directory-saml-claims-customization.md) |
-| 使用 SAML 通訊協定的同盟應用程式疑難排解指南 |[對 SAML 型單一登入進行疑難排解](active-directory-saml-debugging.md) |
+| 使用 SAML 通訊協定的同盟應用程式疑難排解指南 |[對 SAML 型單一登入進行疑難排解](develop/howto-v1-debug-saml-sso-issues.md) |
 | 如何設定應用程式的憑證到期日，以及如何更新憑證 |[在 Azure Active Directory 中管理同盟單一登入的憑證](manage-apps/manage-certificates-for-federated-single-sign-on.md) |
 
 同盟單一登入適用於所有版本的 Azure AD，每個使用者最多十個應用程式。 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 支援無限多個應用程式。 如果您的組織具有 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 或 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)，您就可以[使用群組來指派對同盟應用程式的存取權](#managing-access-to-applications)。
@@ -109,7 +109,7 @@ Azure AD Connect 適用於 [所有版本的 Azure Active Directory](https://azur
 | 文章指南 |  |
 |:---:| --- |
 | 簡介跨 Azure AD、Office365 和 Intune 提供的條件式存取功能 |[使用條件式存取管理風險](active-directory-conditional-access-azure-portal.md) |
-| 如何為下列類型的資源啟用條件式存取 |[SaaS 應用程式的條件式存取](active-directory-conditional-access-azure-portal-get-started.md)<br /><br />[Office 365 服務的條件式存取](active-directory-conditional-access-device-policies.md)<br /><br />[內部部署應用程式的條件式存取](active-directory-conditional-access-azure-portal.md)<br /><br />[透過 Azure AD 應用程式 Proxy 發佈之內部部署應用程式的條件式存取](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
+| 如何為下列類型的資源啟用條件式存取 |[SaaS 應用程式的條件式存取](conditional-access/app-based-conditional-access.md)<br /><br />[Office 365 服務的條件式存取](active-directory-conditional-access-device-policies.md)<br /><br />[內部部署應用程式的條件式存取](active-directory-conditional-access-azure-portal.md)<br /><br />[透過 Azure AD 應用程式 Proxy 發佈之內部部署應用程式的條件式存取](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
 | 如何向 Azure Active Directory 註冊裝置，以便啟用裝置型條件式存取原則 |[Azure Active Directory 裝置註冊概觀](active-directory-conditional-access-device-registration-overview.md)<br /><br />[如何為加入網域的 Windows 裝置啟用自動註冊裝置](active-directory-conditional-access-automatic-device-registration.md)<br />— [適用於 Windows 8.1 裝置的步驟](active-directory-conditional-access-automatic-device-registration-setup.md)<br />— [適用於 Windows 7 裝置的步驟](active-directory-conditional-access-automatic-device-registration-setup.md) |
 
 | 如何使用 Microsoft Authenticator 應用程式進行雙步驟驗證 | [Microsoft Authenticator](user-help/microsoft-authenticator-app-how-to.md) |
@@ -143,8 +143,8 @@ Cloud Discovery 會針對超過 16,000 個雲端應用程式的 Microsoft Cloud 
 
 | 文章指南 |  |
 |:---:| --- |
-| 有關 IT 專業人員和應用程式開發人員整合應用程式與 Azure AD 的指南 |[開發 Azure AD 應用程式的 IT 專業人員指南](active-directory-applications-guiding-developers-for-lob-applications.md)<br /><br />[Azure Active Directory 的開發人員指南](active-directory-developers-guide.md) |
-| 應用程式廠商如何將其應用程式新增至 Azure AD 應用程式資源庫 |[在 Azure Active Directory 應用程式庫中列出您的應用程式](active-directory-app-gallery-listing.md) |
+| 有關 IT 專業人員和應用程式開發人員整合應用程式與 Azure AD 的指南 |[開發 Azure AD 應用程式的 IT 專業人員指南](active-directory-applications-guiding-developers-for-lob-applications.md)<br /><br />[Azure Active Directory 的開發人員指南](develop/azure-ad-developers-guide.md) |
+| 應用程式廠商如何將其應用程式新增至 Azure AD 應用程式資源庫 |[在 Azure Active Directory 應用程式庫中列出您的應用程式](develop/howto-app-gallery-listing.md) |
 | 如何使用 Azure Active Directory 管理所開發之應用程式的存取 |[如何為開發的應用程式啟用使用者指派](active-directory-applications-guiding-developers-requiring-user-assignment.md)<br /><br />[將使用者指派給應用程式](active-directory-applications-guiding-developers-assigning-users.md)<br /><br />[將群組指派給您的應用程式](active-directory-applications-guiding-developers-assigning-groups.md) |
 
 如果您開發的是消費者對應應用程式，您可能會對使用 [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) 感興趣，這可讓您不必開發自己的身分識別系統，即可管理您的使用者。 [深入了解](../active-directory-b2c/active-directory-b2c-overview.md)。

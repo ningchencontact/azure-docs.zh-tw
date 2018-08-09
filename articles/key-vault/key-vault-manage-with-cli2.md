@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: barclayn
-ms.openlocfilehash: 8c2501b5e89e81709de074c0b0c93b317ecebd7b
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 47a78b71f51e4fe975341b8e9425f47fd8c4d31c
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316589"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503531"
 ---
 # <a name="manage-key-vault-using-cli-20"></a>使用 CLI 2.0 管理 Key Vault
 
@@ -39,7 +39,7 @@ ms.locfileid: "36316589"
 
 如需 Azure Key Vault 的概觀，請參閱[什麼是 Azure Key Vault？](key-vault-whatis.md)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要使用本文中的 Azure CLI 命名，您必須具有下列項目：
 
 * Microsoft Azure 訂用帳戶。 如果您沒有帳戶，您可以註冊[免費試用](https://azure.microsoft.com/pricing/free-trial)。
@@ -186,7 +186,7 @@ az keyvault certificate list --vault-name 'ContosoKeyVault'
 
 應用程式必須向 Azure Active Directory 出示這兩個值才能取得權杖。 設定應用程式以取得權杖的方式取決於應用程式。 在 [Key Vault 範例應用程式](https://www.microsoft.com/download/details.aspx?id=45343)中，應用程式擁有者會在 app.config 檔案中設定這些值。
 
-如需使用 Azure Active Directory 註冊應用程式的詳細步驟，您應檢閱標題為[整合應用程式與 Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md)、[使用入口網站來建立可存取資源的 Active Directory 應用程式和服務主體](../azure-resource-manager/resource-group-create-service-principal-portal.md)和[使用 Azure CLI 2.0 建立 Azure 服務主體](/cli/azure/create-an-azure-service-principal-azure-cli)的文章。
+如需使用 Azure Active Directory 註冊應用程式的詳細步驟，您應檢閱標題為[整合應用程式與 Azure Active Directory](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)、[使用入口網站來建立可存取資源的 Active Directory 應用程式和服務主體](../azure-resource-manager/resource-group-create-service-principal-portal.md)和[使用 Azure CLI 2.0 建立 Azure 服務主體](/cli/azure/create-an-azure-service-principal-azure-cli)的文章。
 
 若要在 Azure Active Directory 中註冊應用程式：
 

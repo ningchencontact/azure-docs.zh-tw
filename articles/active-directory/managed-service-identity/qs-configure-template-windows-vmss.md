@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 562bf5e5239114a8dad16727089f94f378db82ff
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: bee75bcefb370382825c6867ea504e14102aa107
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258859"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628278"
 ---
 # <a name="configure-managed-service-identity-on-virtual-machine-scale-using-a-template"></a>使用範本在虛擬機器擴展集上設定受控服務識別
 
@@ -49,7 +49,7 @@ ms.locfileid: "39258859"
    - 使用本機 [JSON 編輯器 (例如 VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md)，然後使用 PowerShell 或 CLI 上傳和部署。
    - 使用 Visual Studio 的 [Azure 資源群組專案](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)來建立和部署範本。  
 
-不論您選擇的選項，在初始部署和重新部署期間，範本的語法都相同。 在新的或現有 VM 上啟用受控服務識別，是以相同的方式來完成。 此外，根據預設，Azure Resource Manager 會對部署採取[累加式更新](../../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments)。
+不論您選擇的選項，在初始部署和重新部署期間，範本的語法都相同。 在新的或現有 VM 上啟用受控服務識別，是以相同的方式來完成。 此外，根據預設，Azure Resource Manager 會對部署採取[累加式更新](../../azure-resource-manager/deployment-modes.md)。
 
 ## <a name="system-assigned-identity"></a>系統指派的身分識別
 

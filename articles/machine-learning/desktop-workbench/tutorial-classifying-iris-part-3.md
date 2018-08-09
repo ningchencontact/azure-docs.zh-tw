@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/13/2018
-ms.openlocfilehash: 5b751546320ca6728573954290bd2258e837775f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2270080f8612c69a69955202ececab44136f335c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723216"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445531"
 ---
 # <a name="tutorial-3-classify-iris-deploy-a-model"></a>教學課程 3：分類鳶尾花：部署模型
 Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進階分析解決方案，可供專業資料科學家使用。 資料科學家可用來以雲端規模準備資料、開發測試及部署模型。
@@ -34,7 +34,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 
 本教學課程使用不受時間影響的[鳶尾花資料集](https://en.wikipedia.org/wiki/Iris_flower_data_set)。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，您需要：
 - Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
@@ -47,11 +47,11 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 
 1. 開啟 Machine Learning Workbench 應用程式。 然後開啟您在本教學課程系列的先前部分中所建立的 **myIris** 專案。
 
-2. 開啟專案後，請選取左窗格上的 [檔案] 按鈕 (資料夾圖示)，在您的專案資料夾中開啟檔案清單。
+1. 開啟專案後，請選取左窗格上的 [檔案] 按鈕 (資料夾圖示)，在您的專案資料夾中開啟檔案清單。
 
-3. 選取 **iris_sklearn.py** 檔案。 Python 程式碼隨即會在 Workbench 內新的文字編輯器索引標籤中開啟。
+1. 選取 **iris_sklearn.py** 檔案。 Python 程式碼隨即會在 Workbench 內新的文字編輯器索引標籤中開啟。
 
-4. 檢閱 **iris_sklearn.py** 檔案來查看序列化檔案產生的位置。 選擇 Ctrl+F 來開啟 [尋找] 對話方塊，然後在 Python 程式碼中尋找字組 **pickle**。
+1. 檢閱 **iris_sklearn.py** 檔案來查看序列化檔案產生的位置。 選擇 Ctrl+F 來開啟 [尋找] 對話方塊，然後在 Python 程式碼中尋找字組 **pickle**。
 
    這個程式碼片段會示範 pickle 輸出檔案產生的方式。 磁碟上的輸出 pickle 檔案名為 **model.pkl**。 
 
@@ -62,7 +62,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
    f.close()
    ```
 
-5. 在先前執行的輸出檔案中，找出模型序列化檔案。
+1. 在先前執行的輸出檔案中，找出模型序列化檔案。
    
    執行 **iris_sklearn.py** 指令碼時，模型檔案已使用 **model.pkl** 名稱寫入 **outputs** 資料夾。 此資料夾位於您選擇執行指令碼的執行環境中，而不是在您的本機專案資料夾中。 
    
@@ -83,29 +83,29 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 
 1. 開啟 Machine Learning Workbench 應用程式。 然後開啟您在本教學課程系列的前一個部分中所建立的 **myIris** 專案。
 
-2. 開啟專案後，請選取左窗格上的 [檔案] 按鈕 (資料夾圖示)，在您的專案資料夾中開啟檔案清單。
+1. 開啟專案後，請選取左窗格上的 [檔案] 按鈕 (資料夾圖示)，在您的專案資料夾中開啟檔案清單。
 
-3. 選取 **score_iris.py** 檔案。 Python 指令碼隨即開啟。 這個檔案會用作評分檔案。
+1. 選取 **score_iris.py** 檔案。 Python 指令碼隨即開啟。 這個檔案會用作評分檔案。
 
    ![評分檔案](media/tutorial-classifying-iris/model_data_collection.png)
 
-4. 若要取得結構描述檔案，請執行指令碼。 選取命令列中的 **local** 環境和 **score_iris.py** 指令碼，然後選取 [執行]。 
+1. 若要取得結構描述檔案，請執行指令碼。 選取命令列中的 **local** 環境和 **score_iris.py** 指令碼，然後選取 [執行]。 
 
    此指令碼會在 **Outputs**區段中建立 JSON 檔案，它會擷取模型所需的輸入資料結構描述。
 
-6. 請注意 [專案儀表板] 窗格右邊的 [作業] 窗格。 等候最新的 **score_iris.py** 作業顯示綠色 [已完成] 狀態。 然後選取最新作業執行的超連結 **score_iris.py**，以查看執行詳細資料。 
+1. 請注意 [專案儀表板] 窗格右邊的 [作業] 窗格。 等候最新的 **score_iris.py** 作業顯示綠色 [已完成] 狀態。 然後選取最新作業執行的超連結 **score_iris.py**，以查看執行詳細資料。 
 
-7. 在 [執行屬性] 頁面上，於 [輸出] 區段中，選取新建立的 **service_schema.json** 檔案。 選取檔案名稱旁邊的核取方塊，然後選取 [下載]。 將檔案儲存到您的專案根資料夾。
+1. 在 [執行屬性] 頁面上，於 [輸出] 區段中，選取新建立的 **service_schema.json** 檔案。 選取檔案名稱旁邊的核取方塊，然後選取 [下載]。 將檔案儲存到您的專案根資料夾。
 
-8. 返回您開啟 **score_iris.py**指令碼的前一個索引標籤。 使用資料收集可讓您從 Web 服務擷取模型輸入和預測。 下列步驟是資料收集特別有趣的方面。
+1. 返回您開啟 **score_iris.py**指令碼的前一個索引標籤。 使用資料收集可讓您從 Web 服務擷取模型輸入和預測。 下列步驟是資料收集特別有趣的方面。
 
-9. 請檢閱檔案頂端的程式碼，該程式碼因為包含模型資料收集功能，所以可匯入 **ModelDataCollector** 類別：
+1. 請檢閱檔案頂端的程式碼，該程式碼因為包含模型資料收集功能，所以可匯入 **ModelDataCollector** 類別：
 
    ```python
    from azureml.datacollector import ModelDataCollector
    ```
 
-10. 在具現化 **ModelDataCollector** 的 **init()** 函式中檢閱下列幾行程式碼：
+1. 在具現化 **ModelDataCollector** 的 **init()** 函式中檢閱下列幾行程式碼：
 
     ```python
     global inputs_dc, prediction_dc
@@ -113,7 +113,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
     prediction_dc = ModelDataCollector('model.pkl', identifier="prediction")`
     ```
 
-11. 在收集輸入和預測資料的 **run(input_df)** 函式中檢閱下列幾行程式碼：
+1. 在收集輸入和預測資料的 **run(input_df)** 函式中檢閱下列幾行程式碼：
 
     ```python
     inputs_dc.collect(input_df)
@@ -139,7 +139,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
    命令提示字元會在目前的專案資料夾位置 **c:\temp\myIris>** 中開啟。
 
 
-2. 請確定已在訂用帳戶中註冊 Azure 資源提供者 **Microsoft.ContainerRegistry**。 在步驟 3 中建立環境之前，您必須先登錄這個資源提供者。 您可以使用下列命令來查看是否已登錄：
+1. 請確定已在訂用帳戶中註冊 Azure 資源提供者 **Microsoft.ContainerRegistry**。 在步驟 3 中建立環境之前，您必須先登錄這個資源提供者。 您可以使用下列命令來查看是否已登錄：
    ``` 
    az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table 
    ``` 
@@ -169,7 +169,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
    >[!NOTE] 
    如果您要部署至 ACS 叢集，您也必須使用相同的方法來註冊 **Microsoft.ContainerService** 資源提供者。
 
-3. 建立環境。 您必須根據環境執行此步驟一次。 例如，對開發環境和實際執行各執行一次。 對此第一個環境使用_本機模式_。 您可以在下列命令中嘗試 `-c` 或 `--cluster` 參數，稍後在_叢集模式_中設定環境。
+1. 建立環境。 您必須根據環境執行此步驟一次。 例如，對開發環境和實際執行各執行一次。 對此第一個環境使用_本機模式_。 您可以在下列命令中嘗試 `-c` 或 `--cluster` 參數，稍後在_叢集模式_中設定環境。
 
    下列設定命令要求您具有訂用帳戶的參與者存取權。 如果您沒有該權限，您至少需有所要部署到資源群組的參與者存取權。 在後者情況下，您需要使用 `-g` 旗標，將資源群組名稱指定為設定命令的一部分。 
 
@@ -191,17 +191,17 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 
    ![佈建狀態](media/tutorial-classifying-iris/provisioning_state.png)
  
-3. 如果您未在本教學課程的先前部分中建立模型管理帳戶，請立刻建立。 此設定只需要執行一次。
+1. 如果您未在本教學課程的先前部分中建立模型管理帳戶，請立刻建立。 此設定只需要執行一次。
    ```azurecli
    az ml account modelmanagement create --location <e.g. eastus2> -n <new model management account name> -g <existing resource group name> --sku-name S1
    ```
    
-4. 設定模型管理帳戶。
+1. 設定模型管理帳戶。
    ```azurecli
    az ml account modelmanagement set -n <youracctname> -g <yourresourcegroupname>
    ```
 
-5. 設定環境。
+1. 設定環境。
 
    設定完成之後，使用下列命令來設定作業化環境所需的環境變數。 使用您先前在步驟 3 使用的相同環境名稱。 使用當設定程序完成時，在命令視窗中輸出的相同資源群組名稱。
 
@@ -209,7 +209,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
    az ml env set -n <deployment environment name> -g <existing resource group name>
    ```
 
-6. 若要確認您已針對本機 Web 服務部署正確設定您的運作化環境，請輸入下列命令：
+1. 若要確認您已針對本機 Web 服務部署正確設定您的運作化環境，請輸入下列命令：
 
    ```azurecli
    az ml env show
@@ -247,13 +247,13 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
    >[!IMPORTANT]
    >服務名稱 (這也是新的 Docker 映像名稱) 必須全為小寫。 否則，您會收到錯誤。 
 
-2. 執行命令時，模型及評分檔案會上傳到在環境設定時所建立的儲存體帳戶。 部署程序會建置 Docker 映像，其中含有您的模型、結構描述、評分檔案，然後將其推送至 Azure Container Registry：**\<ACR_name\>.azureacr.io/\<imagename\>:\<version\>**。 
+1. 執行命令時，模型及評分檔案會上傳到在環境設定時所建立的儲存體帳戶。 部署程序會建置 Docker 映像，其中含有您的模型、結構描述、評分檔案，然後將其推送至 Azure Container Registry：**\<ACR_name\>.azureacr.io/\<imagename\>:\<version\>**。 
 
    命令會提取該映像到您的電腦本機，然後會啟動以該映像為基礎的 Docker 容器。 如果您的環境是在叢集模式中設定，Docker 容器會改為部署到 Azure 雲端服務 Kubernete 叢集。
 
    作為部署的一部分，會在您的本機電腦上建立 Web 服務適用的 HTTP REST 端點。 幾分鐘後命令應該會完成，並出現成功訊息。 您的 Web 服務已備妥可供使用！
 
-3. 如需查看執行中的 Docker 容器，請使用 **docker ps** 命令：
+1. 如需查看執行中的 Docker 容器，請使用 **docker ps** 命令：
 
    ```azurecli
    docker ps
@@ -271,7 +271,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
    ```
    此命令會產生模型識別碼。
 
-2. 建立資訊清單。
+1. 建立資訊清單。
 
    若要建立資訊清單，請使用下列命令，並提供來自前一個步驟的模型識別碼輸出：
 
@@ -280,7 +280,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
    ```
    此命令會產生資訊清單識別碼。
 
-3. 建立 Docker 映像。
+1. 建立 Docker 映像。
 
    若要建立 Docker 映像，請使用下列命令，並提供來自前一個步驟的資訊清單識別碼值輸出。 您也可以使用 `-c` 參數，選擇性地包含 conda 相依性。
 
@@ -289,7 +289,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
    ```
    此命令會產生 Docker 映像識別碼。
    
-4. 建立服務。
+1. 建立服務。
 
    若要建立服務，請使用下列命令，並提供來自前一個步驟的模型識別碼輸出：
 
@@ -310,7 +310,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
    az ml service usage realtime -i <web service ID>
    ```
 
-2. 若要測試服務，請執行傳回的服務執行命令：
+1. 若要測試服務，請執行傳回的服務執行命令：
     
    ```azurecli
    az ml service run realtime -i <web service ID> -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
@@ -322,20 +322,20 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 找出您的儲存體帳戶。 若要這麼做，請選取 [所有服務]。
+1. 找出您的儲存體帳戶。 若要這麼做，請選取 [所有服務]。
 
-3. 在 [搜尋] 方塊中，輸入**儲存體帳戶**，然後選取 Enter。
+1. 在 [搜尋] 方塊中，輸入**儲存體帳戶**，然後選取 Enter。
 
-4. 從 [儲存體帳戶] 搜尋方塊，選取符合您的環境的**儲存體帳戶**資源。 
+1. 從 [儲存體帳戶] 搜尋方塊，選取符合您的環境的**儲存體帳戶**資源。 
 
    > [!TIP]
    > 若要判斷哪一個儲存體帳戶是在使用中：
    > 1. 開啟 Machine Learning Workbench。
-   > 2. 選取您正在使用的專案。
-   > 3. 從 [檔案] 功能表開啟命令列提示字元。
-   > 4. 在命令列提示字元中，輸入 `az ml env show -v`，並檢查 storage_account 值。 這是您儲存體帳戶的名稱。
+   > 1. 選取您正在使用的專案。
+   > 1. 從 [檔案] 功能表開啟命令列提示字元。
+   > 1. 在命令列提示字元中，輸入 `az ml env show -v`，並檢查 storage_account 值。 這是您儲存體帳戶的名稱。
 
-5. [儲存體帳戶] 窗格開啟之後，請選取 [服務] 區段中的 [Blob]。 找出名為 **modeldata** 的容器。 
+1. [儲存體帳戶] 窗格開啟之後，請選取 [服務] 區段中的 [Blob]。 找出名為 **modeldata** 的容器。 
  
    如果您沒有看見任何資料，在第一個 Web 服務要求之後，可能需要等候最多 10 分鐘，才能看到資料傳播至儲存體帳戶。
 
@@ -345,7 +345,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
    /modeldata/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<day>/data.csv
    ```
 
-6. 您可以從 Azure Blob 儲存體取用此資料。 有各種工具可使用 Microsoft 軟體和開放原始碼，例如：
+1. 您可以從 Azure Blob 儲存體取用此資料。 有各種工具可使用 Microsoft 軟體和開放原始碼，例如：
 
    * Machine Learning：新增 CSV 檔案作為資料來源來開啟 CSV 檔案。
 

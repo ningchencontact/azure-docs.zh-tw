@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: c92b50ee78c100a531a2973181251444b3810967
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 28228755f76f38ef2ed5e50c776a99427118e090
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293765"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424546"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>使用適用於 Microsoft Flow 的連接器自動執行 Azure Application Insights 程序
 
@@ -35,19 +35,19 @@ ms.locfileid: "35293765"
 
 ### <a name="step-1-create-a-flow"></a>步驟 1：建立流程
 1. 登入 [Microsoft Flow](http://flow.microsoft.com)，然後選取 [我的流程]。
-2. 按一下 [從空白建立流程]。
+1. 按一下 [從空白建立流程]。
 
 ### <a name="step-2-create-a-trigger-for-your-flow"></a>步驟 2：建立流程的觸發程序
 1. 依序選取 [排程] 和 [排程 - 重複]。
-2. 在 [頻率] 方塊中選取 [天]，然後在 [間隔] 方塊中輸入 **1**。
+1. 在 [頻率] 方塊中選取 [天]，然後在 [間隔] 方塊中輸入 **1**。
 
     ![Microsoft Flow 觸發程序對話方塊](./media/app-insights-automate-with-flow/flow1.png)
 
 
 ### <a name="step-3-add-an-application-insights-action"></a>步驟 3：新增 Application Insights 動作
 1. 按一下 [新增步驟]，然後按一下 [新增動作]。
-2. 搜尋 **Azure Application Insights**。
-3. 按一下 [Azure Application Insights – 視覺化 Analytics 查詢預覽]。
+1. 搜尋 **Azure Application Insights**。
+1. 按一下 [Azure Application Insights – 視覺化 Analytics 查詢預覽]。
 
     ![執行 Analytics 查詢視窗](./media/app-insights-automate-with-flow/flow2.png)
 
@@ -84,12 +84,12 @@ ms.locfileid: "35293765"
 ### <a name="step-6-configure-the-flow-to-send-email"></a>步驟 6：設定傳送電子郵件的流程
 
 1. 按一下 [新增步驟]，然後按一下 [新增動作]。
-2. 搜尋 **Office 365 Outlook**。
-3. 按一下 [Office 365 Outlook – 傳送電子郵件]。
+1. 搜尋 **Office 365 Outlook**。
+1. 按一下 [Office 365 Outlook – 傳送電子郵件]。
 
     ![Office 365 Outlook 選取視窗](./media/app-insights-automate-with-flow/flow2b.png)
 
-4. 在 [傳送電子郵件]  視窗中，執行下列動作：
+1. 在 [傳送電子郵件]  視窗中，執行下列動作：
 
    a. 輸入收件者的電子郵件地址。
 
@@ -101,7 +101,7 @@ ms.locfileid: "35293765"
 
     ![Office 365 Outlook 設定](./media/app-insights-automate-with-flow/flow5.png)
 
-5. 在動態內容功能表上執行下列動作：
+1. 在動態內容功能表上執行下列動作：
 
     a. 選取 [附件名稱]。
 

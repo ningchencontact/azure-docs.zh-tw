@@ -1,20 +1,20 @@
 ---
 title: 為裝置設定 Azure IoT 中樞裝置佈建服務
 description: 在裝置製造過程中將裝置設定為透過 IoT 中樞裝置佈建服務進行佈建
-author: dsk-2015
-ms.author: dkshir
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/02/2018
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: d589c0ece2b36970a31884aa72ee7ab87941a656
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 6e90d20053a8ccfcafc7648d81c61e9313ec57ab
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39146428"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523354"
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>將裝置設定為使用 Azure IoT 中樞裝置佈建服務進行佈建
 
@@ -55,7 +55,7 @@ ms.locfileid: "39146428"
 
     在開始安裝 `CMake` **之前**，請務必將 Visual Studio 先決條件 (Visual Studio 和「使用 C++ 進行桌面開發」工作負載) 安裝在您的機器上。 在符合先決條件，並且驗證過下載項目之後，請安裝 CMake 建置系統。
 
-2. 開啟命令提示字元或 Git Bash 殼層。 執行下列命令以複製 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 存放庫：
+1. 開啟命令提示字元或 Git Bash 殼層。 執行下列命令以複製 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 存放庫：
     
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
@@ -63,7 +63,7 @@ ms.locfileid: "39146428"
     此存放庫的大小目前約為 220 MB。 預期此作業需要幾分鐘的時間才能完成。
 
 
-3. 在 git 存放庫的根目錄中建立 `cmake` 子目錄，並瀏覽至該資料夾。 
+1. 在 git 存放庫的根目錄中建立 `cmake` 子目錄，並瀏覽至該資料夾。 
 
     ```cmd/sh
     cd azure-iot-sdk-c
@@ -71,7 +71,7 @@ ms.locfileid: "39146428"
     cd cmake
     ```
 
-4. 根據您所將使用的證明機制，建置開發平台的 SDK。 請使用下列其中一個命令 (也請注意應在每個命令結尾處加上兩個句點字元)。 完成時，CMake 會建置出含有您裝置特有內容的 `/cmake` 子目錄：
+1. 根據您所將使用的證明機制，建置開發平台的 SDK。 請使用下列其中一個命令 (也請注意應在每個命令結尾處加上兩個句點字元)。 完成時，CMake 會建置出含有您裝置特有內容的 `/cmake` 子目錄：
  
     - 對於使用 TPM 模擬器進行證明的裝置：
 
@@ -103,7 +103,7 @@ ms.locfileid: "39146428"
 - 針對 X.509 裝置，您必須取得核發給裝置的憑證。 佈建服務會公開兩種類型的註冊項目，用來對使用 X.509 證明機制的裝置進行存取控制。 所需的憑證取決於您要使用的註冊類型。
 
     1. 個別註冊：特定單一裝置的註冊。 此類型的註冊項目需要[終端實體「分葉」憑證](concepts-security.md#end-entity-leaf-certificate)。
-    2. 註冊群組：此類型的註冊項目需要中繼或根憑證。 如需詳細資訊，請參閱[使用 X.509 憑證控制對於佈建服務的裝置存取](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates)。
+    1. 註冊群組：此類型的註冊項目需要中繼或根憑證。 如需詳細資訊，請參閱[使用 X.509 憑證控制對於佈建服務的裝置存取](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates)。
 
 ### <a name="simulated-devices"></a>模擬的裝置
 
@@ -122,21 +122,21 @@ ms.locfileid: "39146428"
       > [!NOTE]
       > 如果在此步驟中您使用 Git Bash 命令提示字元，您必須將反斜線變更為正斜線，例如：`./provisioning_client/deps/utpm/tools/tpm_simulator/Simulator.exe`。
 
-   2. 使用 Visual Studio，開啟在 cmake 資料夾中產生的方案 (名為 `azure_iot_sdks.sln`)，然後使用 [建置] 功能表上的 [建置方案] 命令加以建置。
+   1. 使用 Visual Studio，開啟在 cmake 資料夾中產生的方案 (名為 `azure_iot_sdks.sln`)，然後使用 [建置] 功能表上的 [建置方案] 命令加以建置。
 
-   3. 在 Visual Studio 的 [方案總管] 窗格中，瀏覽至 **Provision\_Tools** 資料夾。 以滑鼠右鍵按一下 **tpm_device_provision** 專案，然後選取 [設為起始專案]。 
+   1. 在 Visual Studio 的 [方案總管] 窗格中，瀏覽至 **Provision\_Tools** 資料夾。 以滑鼠右鍵按一下 **tpm_device_provision** 專案，然後選取 [設為起始專案]。 
 
-   4. 使用 [偵錯] 功能表上的任一 [啟動] 命令來執行方案。 輸出視窗會顯示裝置註冊所需之 TPM 模擬器的 [登錄識別碼] 和 [簽署金鑰]。 複製這些值，供後續使用。 您可以關閉此視窗 (含有註冊識別碼和簽署金鑰)，但是讓您在步驟 1 中啟動的 TPM 模擬器視窗持續執行。
+   1. 使用 [偵錯] 功能表上的任一 [啟動] 命令來執行方案。 輸出視窗會顯示裝置註冊所需之 TPM 模擬器的 [登錄識別碼] 和 [簽署金鑰]。 複製這些值，供後續使用。 您可以關閉此視窗 (含有註冊識別碼和簽署金鑰)，但是讓您在步驟 1 中啟動的 TPM 模擬器視窗持續執行。
 
 - 對於模擬 X.509 裝置：
 
   1. 使用 Visual Studio，開啟在 cmake 資料夾中產生的方案 (名為 `azure_iot_sdks.sln`)，然後使用 [建置] 功能表上的 [建置方案] 命令加以建置。
 
-  2. 在 Visual Studio 的 [方案總管] 窗格中，瀏覽至 **Provision\_Tools** 資料夾。 以滑鼠右鍵按一下 **dice\_device\_enrollment** 專案，然後選取 [設為起始專案]。 
+  1. 在 Visual Studio 的 [方案總管] 窗格中，瀏覽至 **Provision\_Tools** 資料夾。 以滑鼠右鍵按一下 **dice\_device\_enrollment** 專案，然後選取 [設為起始專案]。 
   
-  3. 使用 [偵錯] 功能表上的任一 [啟動] 命令來執行方案。 在輸出視窗中，當出現提示時，針對個別註冊輸入 **i**。 輸出視窗會顯示針對您的模擬裝置在本機產生的 X.509 憑證。 將輸出 (從 -----BEGIN CERTIFICATE----- 開始並於第一個 -----END PUBLIC KEY----- 結束) 複製到剪貼簿，並確定包含這兩行文字。 您只需要輸出視窗中的第一個憑證。
+  1. 使用 [偵錯] 功能表上的任一 [啟動] 命令來執行方案。 在輸出視窗中，當出現提示時，針對個別註冊輸入 **i**。 輸出視窗會顯示針對您的模擬裝置在本機產生的 X.509 憑證。 將輸出 (從 -----BEGIN CERTIFICATE----- 開始並於第一個 -----END PUBLIC KEY----- 結束) 複製到剪貼簿，並確定包含這兩行文字。 您只需要輸出視窗中的第一個憑證。
  
-  4. 建立名為 **X509testcert.pem** 的檔案，在您選擇的文字編輯器中開啟該檔案，並將剪貼簿內容複製到這個檔案。 儲存檔案，因為稍後註冊裝置時會用到它。 當您註冊軟體執行時，它會在自動佈建期間使用相同的憑證。    
+  1. 建立名為 **X509testcert.pem** 的檔案，在您選擇的文字編輯器中開啟該檔案，並將剪貼簿內容複製到這個檔案。 儲存檔案，因為稍後註冊裝置時會用到它。 當您註冊軟體執行時，它會在自動佈建期間使用相同的憑證。    
 
 向裝置佈建服務註冊裝置期間需要這些安全構件。 佈建服務會等候裝置開機，並於稍後的任何時間點與裝置連線。 裝置第一次開機時，用戶端 SDK 邏輯會與晶 (或模擬器) 片互動以從裝置擷取安全構件，並向裝置佈建服務確認註冊情形。 
 
@@ -151,9 +151,9 @@ ms.locfileid: "39146428"
 
     ![從入口網站刀鋒視窗擷取 DPS 端點資訊](./media/tutorial-set-up-device/extract-dps-endpoints.png) 
 
-2. 在您電腦上 Visual Studio 的 [方案總管] 中，瀏覽至 **Provision\_Samples** 資料夾。 選取名為 **prov\_dev\_client\_sample** 的範例專案，並開啟來源檔案 **prov\_dev\_client\_sample.c**。
+1. 在您電腦上 Visual Studio 的 [方案總管] 中，瀏覽至 **Provision\_Samples** 資料夾。 選取名為 **prov\_dev\_client\_sample** 的範例專案，並開啟來源檔案 **prov\_dev\_client\_sample.c**。
 
-3. 將在步驟 1 取得的 [識別碼範圍] 值指派給 `id_scope` 變數 (移除左 `[` 和右 `]` 方括號)： 
+1. 將在步驟 1 取得的 [識別碼範圍] 值指派給 `id_scope` 變數 (移除左 `[` 和右 `]` 方括號)： 
 
     ```c
     static const char* global_prov_uri = "global.azure-devices-provisioning.net";
@@ -162,16 +162,16 @@ ms.locfileid: "39146428"
 
     提供參考，`global_prov_uri` 變數可讓 IoT 中樞用戶端註冊 API`IoTHubClient_LL_CreateFromDeviceAuth` 與指定的裝置佈建服務執行個體進行連線。
 
-4. 在相同檔案的 **main()** 函式中，請註解/取消註解 `hsm_type` 變數，以符合您裝置的註冊軟體 (TPM 或 X.509) 所使用的證明機制： 
+1. 在相同檔案的 **main()** 函式中，請註解/取消註解 `hsm_type` 變數，以符合您裝置的註冊軟體 (TPM 或 X.509) 所使用的證明機制： 
 
     ```c
     hsm_type = SECURE_DEVICE_TYPE_TPM;
     //hsm_type = SECURE_DEVICE_TYPE_X509;
     ```
 
-5. 儲存您的變更，並藉由從 [建置] 功能表選取 [建置方案] 來重建 **prov\_dev\_client\_sample** 範例。 
+1. 儲存您的變更，並藉由從 [建置] 功能表選取 [建置方案] 來重建 **prov\_dev\_client\_sample** 範例。 
 
-6. 以滑鼠右鍵按一下 **Provision\_Samples** 資料夾底下的 **prov\_dev\_client\_sample** 專案，然後選取 [設定為起始專案]。 先不要執行範例應用程式。
+1. 以滑鼠右鍵按一下 **Provision\_Samples** 資料夾底下的 **prov\_dev\_client\_sample** 專案，然後選取 [設定為起始專案]。 先不要執行範例應用程式。
 
 > [!IMPORTANT]
 > 先不要執行/啟動裝置！ 在啟動裝置之前，您必須先向裝置佈建服務註冊裝置，才能完成此程序。 下面的「後續步驟」一節將引導您前往下一篇文章。
@@ -204,7 +204,7 @@ PROV_DEVICE_RESULT Prov_Device_LL_SetOption(PROV_DEVICE_LL_HANDLE handle, const 
 至此，您可能有在入口網站中執行的裝置佈建和 IoT 中樞服務。 如果您想要放棄裝置佈建設定及 (或) 延遲完成本教學課程系列，建議您將其關閉以避免產生不必要的成本。
 
 1. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後選取您的裝置佈建服務。 在 [所有資源] 刀鋒視窗的頂端，按一下 [刪除]。  
-2. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後選取您的 IoT 中樞。 在 [所有資源] 刀鋒視窗的頂端，按一下 [刪除]。  
+1. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後選取您的 IoT 中樞。 在 [所有資源] 刀鋒視窗的頂端，按一下 [刪除]。  
 
 ## <a name="next-steps"></a>後續步驟
 在本教學課程中，您已了解如何：

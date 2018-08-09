@@ -3,17 +3,17 @@ title: 適用於 Azure 儲存體中低成本備援的本地備援儲存體 (LRS)
 description: 新的 Azure 儲存體帳戶預設會使用本地備援儲存體 (LRS) 來進行複寫。 LRS 是費用最低的複寫選項。 它可以針對資料中心內的硬體故障提供防護，但無法針對資料中心層級的災害提供防護。
 services: storage
 author: tolandmike
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: jeking
-ms.openlocfilehash: 8fe851667482d9490554ab895ee50c78cbbdd3ab
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.component: common
+ms.openlocfilehash: 743c3ea89a39e6735ca8b7cbd1c3384c67c13642
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397348"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521378"
 ---
 # <a name="locally-redundant-storage-lrs-low-cost-data-redundancy-for-azure-storage"></a>本地備援儲存體 (LRS)：適用於 Azure 儲存體的低成本資料備援
 

@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: areddish
 ms.openlocfilehash: e3def864267a590c86a2dd6663561d8488081ad6
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
+ms.lasthandoff: 08/06/2018
 ms.locfileid: "36301075"
 ---
 # <a name="use-custom-vision-api-to-build-an-object-detection-project-in-c35"></a>使用 C&#35; 利用自訂視覺 API 來建置物件偵測專案 
 了解如何使用基本 Windows 應用程式，使用電腦視覺 API 來建立物件偵測專案。 建立它之後，您就可以新增標記的區域、上傳影像、為專案定型、取得專案的預設預測端點 URL，並使用端點以程式設計方式測試影像。 使用自訂視覺 API，利用此開放原始碼範例作為範本，來建置您自己適用於 Windows 的應用程式。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 ### <a name="get-the-custom-vision-sdk-and-samples"></a>取得自訂視覺 SDK 與範例
 若要建置此範例，您需要自訂視覺 SDK NuGet 套件：

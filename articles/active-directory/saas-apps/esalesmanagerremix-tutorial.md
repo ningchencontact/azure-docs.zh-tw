@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 235ba5fd1365ed8b400edce3db22420369540cce
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d96fd1eacc98e88dc8578b259781cc661cf85933
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39052664"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39442824"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>整合 Azure Active Directory 與 E Sales Manager Remix
 
@@ -64,15 +64,15 @@ ms.locfileid: "39052664"
 
     ![Azure Active Directory 按鈕][1]
 
-2. 選取 [企業應用程式] > [所有應用程式]。
+1. 選取 [企業應用程式] > [所有應用程式]。
 
     ![企業應用程式視窗][2]
     
-3. 若要新增應用程式，請選取視窗頂端的 [新增應用程式]。
+1. 若要新增應用程式，請選取視窗頂端的 [新增應用程式]。
 
     ![新增應用程式按鈕][3]
 
-4. 在搜尋方塊中，輸入 **E Sales Manager Remix**，從結果清單中選取 [E Sales Manager Remix]，然後選取 [新增]。
+1. 在搜尋方塊中，輸入 **E Sales Manager Remix**，從結果清單中選取 [E Sales Manager Remix]，然後選取 [新增]。
 
     ![結果清單中的 E Sales Manager Remix](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_addfromgallery.png)
 
@@ -92,11 +92,11 @@ ms.locfileid: "39052664"
 
     ![單一登入連結][4]
 
-2. 在 [單一登入] 視窗的 [單一登入模式] 方塊中，選取 [SAML 登入]。
+1. 在 [單一登入] 視窗的 [單一登入模式] 方塊中，選取 [SAML 登入]。
  
     ![單一登入視窗](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_samlbase.png)
 
-3. 在 [E Sales Manager Remix 網域與 URL] 區段下，執行下列步驟：
+1. 在 [E Sales Manager Remix 網域與 URL] 區段下，執行下列步驟：
 
     ![E Sales Manager Remix 網域及 URL 單一登入資訊](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_url.png)
 
@@ -109,47 +109,47 @@ ms.locfileid: "39052664"
     > [!NOTE] 
     > 上述值並非真正的值。 使用實際的登入 URL 及識別碼來更新這些值。 請連絡 [E Sales Manager Remix 用戶端支援小組](mailto:esupport@softbrain.co.jp)以取得這些值。
 
-4. 在 [SAML 簽署憑證] 下，選取 [憑證 (Base64)]，然後將憑證檔案儲存到您的電腦。
+1. 在 [SAML 簽署憑證] 下，選取 [憑證 (Base64)]，然後將憑證檔案儲存到您的電腦。
 
     ![憑證 (Base64) 下載連結](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_certificate.png) 
 
-5. 選取 [檢視及編輯所有其他使用者屬性] 核取方塊，然後選取 **emailaddress** 屬性。
+1. 選取 [檢視及編輯所有其他使用者屬性] 核取方塊，然後選取 **emailaddress** 屬性。
     
     ![使用者屬性視窗](./media/esalesmanagerremix-tutorial/configure1.png)
 
     [編輯屬性] 視窗隨即開啟。
 
-6. 複製 [命名空間] 和 [名稱] 的值。 產生\<命名空間>/\<名稱> 樣式的值，儲存起來供本教學課程稍後使用。
+1. 複製 [命名空間] 和 [名稱] 的值。 產生\<命名空間>/\<名稱> 樣式的值，儲存起來供本教學課程稍後使用。
 
     ![編輯屬性視窗](./media/esalesmanagerremix-tutorial/configure2.png)
 
-7. 在 [E Sales Manager Remix 設定] 下，選取 [設定 E Sales Manager Remix]。
+1. 在 [E Sales Manager Remix 設定] 下，選取 [設定 E Sales Manager Remix]。
 
     ![E Sales Manager Remix 設定](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
 
     [設定登入] 視窗隨即開啟。
 
-8. 在 [快速參考] 區段中，複製登出 URL 和 SAML 單一登入服務 URL。
+1. 在 [快速參考] 區段中，複製登出 URL 和 SAML 單一登入服務 URL。
 
-9. 選取 [ **儲存**]。
+1. 選取 [ **儲存**]。
 
     ![[儲存] 按鈕](./media/esalesmanagerremix-tutorial/tutorial_general_400.png)
 
-10. 以系統管理員身分登入您的 E Sales Manager Remix 應用程式。
+1. 以系統管理員身分登入您的 E Sales Manager Remix 應用程式。
 
-11. 選取右上方的 [到系統管理功能表]。
+1. 選取右上方的 [到系統管理功能表]。
 
     ![到系統管理功能表命令](./media/esalesmanagerremix-tutorial/configure4.png)
 
-12. 在左窗格中，選取 [系統設定]  >  [與外部系統合作]。
+1. 在左窗格中，選取 [系統設定]  >  [與外部系統合作]。
 
     ![系統設定以及與外部系統合作連結](./media/esalesmanagerremix-tutorial/configure5.png)
     
-13. 在 [與外部系統合作] 視窗中，選取 [SAML]。
+1. 在 [與外部系統合作] 視窗中，選取 [SAML]。
 
     ![與外部系統合作視窗](./media/esalesmanagerremix-tutorial/configure6.png)
 
-14. 在 [SAML 驗證設定] 下，執行下列步驟：
+1. 在 [SAML 驗證設定] 下，執行下列步驟：
 
     ![SAML 驗證設定區段](./media/esalesmanagerremix-tutorial/configure3.png)
     
@@ -183,17 +183,17 @@ ms.locfileid: "39052664"
 
     ![Azure Active Directory 連結](./media/paloaltoadmin-tutorial/create_aaduser_01.png)
 
-2. 若要顯示目前使用者清單，請選取 [使用者和群組]  >  [所有使用者]。
+1. 若要顯示目前使用者清單，請選取 [使用者和群組]  >  [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/paloaltoadmin-tutorial/create_aaduser_02.png)
 
-3. 在 [所有使用者] 視窗頂端，選取 [新增]。
+1. 在 [所有使用者] 視窗頂端，選取 [新增]。
 
     ![[新增] 按鈕](./media/paloaltoadmin-tutorial/create_aaduser_03.png)
     
     [使用者] 視窗隨即開啟。
 
-4. 在 [使用者] 視窗中，執行下列操作：
+1. 在 [使用者] 視窗中，執行下列操作：
 
     ![[使用者] 視窗](./media/paloaltoadmin-tutorial/create_aaduser_04.png)
 
@@ -209,15 +209,15 @@ ms.locfileid: "39052664"
 
 1. 以系統管理員身分登入您的 E Sales Manager Remix 應用程式。
 
-2. 從右上方的功能表選取 [到系統管理功能表]。
+1. 從右上方的功能表選取 [到系統管理功能表]。
 
     ![E Sales Manager Remix 設定](./media/esalesmanagerremix-tutorial/configure4.png)
 
-3. 選取 [您的公司設定]  >  [維護部門和員工]，然後選取 [已註冊員工]。
+1. 選取 [您的公司設定]  >  [維護部門和員工]，然後選取 [已註冊員工]。
 
     ![已註冊員工索引標籤](./media/esalesmanagerremix-tutorial/user1.png)
 
-4. 在 [新增員工註冊] 區段中，執行下列步驟：
+1. 在 [新增員工註冊] 區段中，執行下列步驟：
     
     ![新增員工註冊區段](./media/esalesmanagerremix-tutorial/user2.png)
 
@@ -229,7 +229,7 @@ ms.locfileid: "39052664"
 
     d. 選取 [註冊]。
 
-5. 日後若要以系統管理員身分登入，請以具有系統管理員權限的使用者身分登入，然後在右上角選取 [到系統管理功能表]。
+1. 日後若要以系統管理員身分登入，請以具有系統管理員權限的使用者身分登入，然後在右上角選取 [到系統管理功能表]。
 
     ![到系統管理功能表命令](./media/esalesmanagerremix-tutorial/configure4.png)
 
@@ -243,23 +243,23 @@ ms.locfileid: "39052664"
 
     ![[企業應用程式] 和 [所有應用程式] 連結][201] 
 
-2. 在 [應用程式] 清單中，選取 [E Sales Manager Remix]。
+1. 在 [應用程式] 清單中，選取 [E Sales Manager Remix]。
 
     ![E Sales Manager Remix 連結](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_app.png)  
 
-3. 在左側窗格中，選取 [使用者和群組]。
+1. 在左側窗格中，選取 [使用者和群組]。
 
     ![[使用者和群組] 連結][202]
 
-4. 選取 [新增]，然後在 [新增指派] 窗格中，選取 [使用者和群組]。
+1. 選取 [新增]，然後在 [新增指派] 窗格中，選取 [使用者和群組]。
 
     ![[新增指派] 窗格][203]
 
-5. 在 [使用者和群組] 視窗的 [使用者] 清單中，選取 [Britta Simon]。
+1. 在 [使用者和群組] 視窗的 [使用者] 清單中，選取 [Britta Simon]。
 
-6. 選取 [選取] 按鈕。
+1. 選取 [選取] 按鈕。
 
-7. 在 [新增指派] 視窗中，選取 [指派]。
+1. 在 [新增指派] 視窗中，選取 [指派]。
     
 ### <a name="test-single-sign-on"></a>測試單一登入
 

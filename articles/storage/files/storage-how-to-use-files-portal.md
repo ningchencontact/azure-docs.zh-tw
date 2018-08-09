@@ -2,24 +2,18 @@
 title: 使用 Azure 入口網站管理 Azure 檔案共用
 description: 了解使用 Azure 入口網站來管理 Azure 檔案服務。
 services: storage
-documentationcenter: ''
 author: wmgries
-manager: aungoo
-editor: tamram
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
-ms.openlocfilehash: 24996e80d2e75978a814bbf471176d4edcf22549
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.component: files
+ms.openlocfilehash: b2a95eeefcba96dd6cd081b05fa3f796713f998a
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38479167"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520957"
 ---
 # <a name="managing-azure-file-shares-with-the-azure-portal"></a>使用 Azure 入口網站管理 Azure 檔案共用 
 [Azure 檔案](storage-files-introduction.md)是 Microsoft 易於使用的雲端檔案系統。 Azure 檔案共用可在 Windows、Linux 和 macOS 中掛接。 本指南會逐步說明透過 [Azure 入口網站](https://portal.azure.com/)來使用 Azure 檔案共用的基本概念。 了解如何：

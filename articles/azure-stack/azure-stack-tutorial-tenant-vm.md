@@ -16,12 +16,12 @@ ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 9329cb0dbfa24cf239b820573ef7f642cdca9103
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 6bd722801202f5cdff2882c29895ae06fecbbcb8
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248154"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425358"
 ---
 # <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>教學課程：將虛擬機器提供給 Azure Stack 使用者
 
@@ -50,23 +50,23 @@ ms.locfileid: "35248154"
 
    ![新增供應項目](media/azure-stack-tutorial-tenant-vm/image01.png)
 
-2. 在 [新增供應項目] 中，輸入 [顯示名稱] 與 [資源名稱]，然後選取新的或現有的 [資源群組]。 [顯示名稱] 是供應項目的易記名稱。 只有雲端操作員可以看到 [資源名稱]。 它是系統管理員用來處理其他供應項目 (以 Azure Resource Manager 資源方式) 的名稱。
+1. 在 [新增供應項目] 中，輸入 [顯示名稱] 與 [資源名稱]，然後選取新的或現有的 [資源群組]。 [顯示名稱] 是供應項目的易記名稱。 只有雲端操作員可以看到 [資源名稱]。 它是系統管理員用來處理其他供應項目 (以 Azure Resource Manager 資源方式) 的名稱。
 
    ![顯示名稱](media/azure-stack-tutorial-tenant-vm/image02.png)
 
-3. 選取 [基本方案]，然後在 [方案] 區段中，選取 [新增] 以將新方案新增到供應項目中。
+1. 選取 [基本方案]，然後在 [方案] 區段中，選取 [新增] 以將新方案新增到供應項目中。
 
    ![新增方案](media/azure-stack-tutorial-tenant-vm/image03.png)
 
-4. 在 [新增方案] 區段中，填寫 [顯示名稱] 與 [資源名稱]。 [顯示名稱] 是使用者看到的方案易記名稱。 只有雲端操作員可以看到 [資源名稱]。 它是雲端操作員用來處理其他方案 (以 Azure Resource Manager 資源方式) 的名稱。
+1. 在 [新增方案] 區段中，填寫 [顯示名稱] 與 [資源名稱]。 [顯示名稱] 是使用者看到的方案易記名稱。 只有雲端操作員可以看到 [資源名稱]。 它是雲端操作員用來處理其他方案 (以 Azure Resource Manager 資源方式) 的名稱。
 
    ![方案顯示名稱](media/azure-stack-tutorial-tenant-vm/image04.png)
 
-5. 選取 [服務]。 從 [服務] 清單中，選取 [Microsoft.Compute]、[Microsoft.Network] 及 [Microsoft.Storage]。 選擇 [選取] 將這些服務新增至方案。
+1. 選取 [服務]。 從 [服務] 清單中，選取 [Microsoft.Compute]、[Microsoft.Network] 及 [Microsoft.Storage]。 選擇 [選取] 將這些服務新增至方案。
 
    ![方案服務](media/azure-stack-tutorial-tenant-vm/image05.png)
 
-6. 選取 [配額]，然後選取要建立配額的第一項服務。 如果是 IaaS 配額，請使用下列範例作為指南，來設定計算、網路和儲存體服務的配額。
+1. 選取 [配額]，然後選取要建立配額的第一項服務。 如果是 IaaS 配額，請使用下列範例作為指南，來設定計算、網路和儲存體服務的配額。
 
    - 首先，為計算服務建立配額。 在命名空間清單中，選取 [Microsoft.Compute]，然後選取 [建立新的配額]。
 
@@ -82,15 +82,15 @@ ms.locfileid: "35248154"
 
       針對網路和儲存體服務重複這些步驟。 完成時，請選取 [配額] 中的 [確定] 來儲存所有配額。
 
-7. 在 [新增方案] 中，選取 [確定]。
+1. 在 [新增方案] 中，選取 [確定]。
 
-8. 在 [方案] 底下選取新方案，然後 [選取]。
+1. 在 [方案] 底下選取新方案，然後 [選取]。
 
-9. 在 [新增供應項目] 中，選取 [建立]。 您會在供應項目建立完成後看到通知。
+1. 在 [新增供應項目] 中，選取 [建立]。 您會在供應項目建立完成後看到通知。
 
-10. 在儀表板功能表上，選取 [供應項目]，然後選取您所建立的供應項目。
+1. 在儀表板功能表上，選取 [供應項目]，然後選取您所建立的供應項目。
 
-11. 選取 [變更狀態]，然後選擇 [公開]。
+1. 選取 [變更狀態]，然後選擇 [公開]。
 
     ![公開映像](media/azure-stack-tutorial-tenant-vm/image09.png)
 
@@ -124,7 +124,7 @@ ms.locfileid: "35248154"
    >[!NOTE]
    >在訂閱供應項目後，請重新整理入口網站以查看新訂用帳戶所含括的服務。
 
-2. **佈建虛擬機器**
+1. **佈建虛擬機器**
 
    您可以從使用者入口網站中，使用新的訂用帳戶佈建虛擬機器。
 

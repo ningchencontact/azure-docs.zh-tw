@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: accafab55c6c1aa34ccf7aa9cfc4adb2a902f5e3
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 4dcf487afdad899853c97d3d2a1493a6123b3bab
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39043426"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440706"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>教學課程：Azure Active Directory 與 Cisco Webex 整合
 
@@ -53,7 +53,7 @@ ms.locfileid: "39043426"
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Cisco Webex
-2. 設定並測試 Azure AD 單一登入
+1. 設定並測試 Azure AD 單一登入
 
 ## <a name="add-cisco-webex-from-the-gallery"></a>從資源庫新增 Cisco Webex
 若要設定將 Cisco Webex 整合到 Azure AD 中，您需要將 Cisco Webex 從資源庫新增到受控 SaaS 應用程式清單。
@@ -64,17 +64,17 @@ ms.locfileid: "39043426"
 
     ![Azure Active Directory 按鈕][1]
 
-2. 移至 [企業應用程式]。 然後移至 [所有應用程式]。
+1. 移至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![企業應用程式刀鋒視窗][2]
     
-3. 若要新增新的應用程式，請選取對話方塊頂端的 [新增應用程式] 按鈕。
+1. 若要新增新的應用程式，請選取對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![新增應用程式按鈕][3]
 
-4. 在搜尋方塊中，輸入 **Cisco Webex**。 
+1. 在搜尋方塊中，輸入 **Cisco Webex**。 
 
-5. 從結果面板中選取 [Cisco Webex]。 然後選取 [新增] 按鈕以新增應用程式。
+1. 從結果面板中選取 [Cisco Webex]。 然後選取 [新增] 按鈕以新增應用程式。
 
     ![結果清單中的 Cisco Webex](./media/cisco-webex-tutorial/tutorial_ciscowebex_addfromgallery.png)
 
@@ -89,10 +89,10 @@ ms.locfileid: "39043426"
 若要設定及測試與 Cisco Webex 搭配運作的 Azure AD 單一登入，請完成下列構成要素：
 
 1. [設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)，讓您的使用者能夠使用此功能。
-2. [建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)，以使用 Britta Simon 測試 Azure AD 單一登入。
-3. [建立 Cisco Webex 測試使用者](#create-a-cisco-webex-test-user)，以在 Cisco Webex 中建立一個與 Azure AD 中代表 Britta Simon 之項目連結的對應項目。
-4. [指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)，讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. [測試單一登入](#test-single-sign-on)，以驗證組態是否能運作。
+1. [建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)，以使用 Britta Simon 測試 Azure AD 單一登入。
+1. [建立 Cisco Webex 測試使用者](#create-a-cisco-webex-test-user)，以在 Cisco Webex 中建立一個與 Azure AD 中代表 Britta Simon 之項目連結的對應項目。
+1. [指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)，讓 Britta Simon 能夠使用 Azure AD 單一登入。
+1. [測試單一登入](#test-single-sign-on)，以驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -104,11 +104,11 @@ ms.locfileid: "39043426"
 
     ![設定單一登入連結][4]
 
-2. 若要啟用單一登入，請在 [單一登入] 對話方塊的 [模式] 下拉式清單中，選取 [SAML 登入]。
+1. 若要啟用單一登入，請在 [單一登入] 對話方塊的 [模式] 下拉式清單中，選取 [SAML 登入]。
  
     ![單一登入對話方塊](./media/cisco-webex-tutorial/tutorial_ciscowebex_samlbase.png)
 
-3. 在 [Cisco Webex 網域及 URL] 區段中，執行下列步驟：
+1. 在 [Cisco Webex 網域及 URL] 區段中，執行下列步驟：
 
     ![Cisco Webex 網域及 URL 單一登入資訊](./media/cisco-webex-tutorial/tutorial_ciscowebex_url.png)
 
@@ -121,29 +121,29 @@ ms.locfileid: "39043426"
     > [!NOTE] 
     > 這些都不是真正的值。 請使用實際的回覆 URL 和登入 URL 來更新這些值。 請連絡 [Cisco Webex 用戶端支援小組](https://www.webex.co.in/support/support-overview.html) \(英文\) 以取得這些值。 
 
-5. 在 [SAML 簽署憑證] 區段上，選取 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
+1. 在 [SAML 簽署憑證] 區段上，選取 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
     ![憑證下載連結](./media/cisco-webex-tutorial/tutorial_ciscowebex_certificate.png) 
 
-6. 選取 [ **儲存**]。
+1. 選取 [ **儲存**]。
 
     ![設定單一登入 [儲存] 按鈕](./media/cisco-webex-tutorial/tutorial_general_400.png)
     
-6. 在 [Cisco Webex 設定] 區段中，選取 [設定 Cisco Webex] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL]、[SAML 實體識別碼]，以及 [SAML 單一登入服務 URL]。
+1. 在 [Cisco Webex 設定] 區段中，選取 [設定 Cisco Webex] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL]、[SAML 實體識別碼]，以及 [SAML 單一登入服務 URL]。
 
     ![設定單一登入](./media/cisco-webex-tutorial/tutorial_ciscowebex_configure.png) 
 
-7. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Cisco Webex 公司網站。
+1. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Cisco Webex 公司網站。
 
-8. 在頂端的功能表中，選取 [Site Administration] \(網站管理\)。
+1. 在頂端的功能表中，選取 [Site Administration] \(網站管理\)。
 
     ![網站管理](./media/cisco-webex-tutorial/ic777621.png "網站管理")
 
-9. 在 [Manage Site] \(管理網站\) 區段中，選取 [SSO Configuration] \(SSO 設定\)。
+1. 在 [Manage Site] \(管理網站\) 區段中，選取 [SSO Configuration] \(SSO 設定\)。
    
     ![SSO 組態](./media/cisco-webex-tutorial/ic777622.png "SSO 組態")
 
-10. 在 [Federated Web SSO Configuration] \(同盟 Web SSO 設定\) 區段中，執行下列步驟：
+1. 在 [Federated Web SSO Configuration] \(同盟 Web SSO 設定\) 區段中，執行下列步驟：
    
     ![同盟 SSO 組態](./media/cisco-webex-tutorial/ic777623.png "同盟 SSO 組態")  
 
@@ -182,15 +182,15 @@ ms.locfileid: "39043426"
 
     ![Azure Active Directory 按鈕](./media/cisco-webex-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後選取 [所有使用者]。
+1. 若要顯示使用者清單，請移至 [使用者和群組]，然後選取 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/cisco-webex-tutorial/create_aaduser_02.png)
 
-3. 若要開啟 [使用者] 對話方塊，請選取 [所有使用者] 對話方塊頂端的 [新增]。
+1. 若要開啟 [使用者] 對話方塊，請選取 [所有使用者] 對話方塊頂端的 [新增]。
 
     ![[新增] 按鈕](./media/cisco-webex-tutorial/create_aaduser_03.png)
 
-4. 在 [使用者] 對話方塊中，採取下列步驟：
+1. 在 [使用者] 對話方塊中，採取下列步驟：
 
     ![[使用者] 對話方塊](./media/cisco-webex-tutorial/create_aaduser_04.png)
 
@@ -210,11 +210,11 @@ ms.locfileid: "39043426"
 
 1. 登入您的 **Cisco Webex** 租用戶。
 
-2. 移至 [Manage Users] \(管理使用者\) > [Add User] \(加入使用者\)。
+1. 移至 [Manage Users] \(管理使用者\) > [Add User] \(加入使用者\)。
    
     ![新增使用者](./media/cisco-webex-tutorial/ic777625.png "新增使用者")
 
-3. 在 [Add User] \(新增使用者\) 區段中，執行下列步驟：
+1. 在 [Add User] \(新增使用者\) 區段中，執行下列步驟：
    
     ![新增使用者](./media/cisco-webex-tutorial/ic777626.png "新增使用者")   
 
@@ -247,27 +247,27 @@ ms.locfileid: "39043426"
 
 1. 在 Azure 入口網站中，開啟應用程式檢視。 接著，移至目錄檢視，然後移至 [企業應用程式]。  
 
-2. 選取 [所有應用程式]。
+1. 選取 [所有應用程式]。
 
     ![指派使用者][201] 
 
-3. 在應用程式清單中，選取 [Cisco Webex]。
+1. 在應用程式清單中，選取 [Cisco Webex]。
 
     ![應用程式清單中的 [Cisco Webex] 連結](./media/cisco-webex-tutorial/tutorial_ciscowebex_app.png)  
 
-3. 在左側功能表中，選取 [使用者和群組]。
+1. 在左側功能表中，選取 [使用者和群組]。
 
     ![[使用者和群組] 連結][202]
 
-4. 選取 [新增] 按鈕。 然後，在 [新增指派] 對話方塊中，選取 [使用者和群組]。
+1. 選取 [新增] 按鈕。 然後，在 [新增指派] 對話方塊中，選取 [使用者和群組]。
 
     ![[新增指派] 窗格][203]
 
-5. 在 [使用者和群組] 對話方塊中，選取 [使用者] 清單中的 [Britta Simon]。
+1. 在 [使用者和群組] 對話方塊中，選取 [使用者] 清單中的 [Britta Simon]。
 
-6. 在 [使用者和群組] 對話方塊中，按一下 [選取] 按鈕。
+1. 在 [使用者和群組] 對話方塊中，按一下 [選取] 按鈕。
 
-7. 在 [新增指派] 對話方塊中，選取 [指派] 按鈕。
+1. 在 [新增指派] 對話方塊中，選取 [指派] 按鈕。
     
 ### <a name="test-single-sign-on"></a>測試單一登入
 

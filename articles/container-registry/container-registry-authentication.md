@@ -9,11 +9,12 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c8fcebae21d73db75e19bd1091faa8f389f0ba40
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 30ca8fe89105584b1062c5a068e107bdfde154fc
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579515"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>向私用 Docker 容器登錄進行驗證
 
@@ -25,7 +26,7 @@ Azure Container Registry 不支援未經驗證的 Docker 作業或匿名存取�
 
 ## <a name="individual-login-with-azure-ad"></a>使用 Azure AD 進行個人登入
 
-直接與您的登錄搭配運作時 (例如將映像拖曳至開發工作站或從開發工作站推送映像)，請在 [Azure CLI](/cli/azure/install-azure-cli) 中使用 [az acr login](/cli/azure/acr?view=azure-cli-latest#az_acr_login) 命令來進行驗證：
+直接與您的登錄搭配運作時 (例如將映像拖曳至開發工作站或從開發工作站推送映像)，請在 [Azure CLI](/cli/azure/install-azure-cli) 中使用 [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) 命令來進行驗證：
 
 ```azurecli
 az acr login --name <acrName>
@@ -35,7 +36,7 @@ az acr login --name <acrName>
 
 ## <a name="service-principal"></a>服務主體
 
-您可以將[服務主體](../active-directory/develop/active-directory-application-objects.md)指派給登錄，而您的應用程式或服務便可以使用它來進行遠端控制驗證。 服務主體可允許對登錄進行[角色型存取](../role-based-access-control/role-assignments-portal.md)，而您可以將多個服務主體指派給登錄。 多個服務主體可讓您為不同的應用程式定義不同的存取權。
+您可以將[服務主體](../active-directory/develop/app-objects-and-service-principals.md)指派給登錄，而您的應用程式或服務便可以使用它來進行遠端控制驗證。 服務主體可允許對登錄進行[角色型存取](../role-based-access-control/role-assignments-portal.md)，而您可以將多個服務主體指派給登錄。 多個服務主體可讓您為不同的應用程式定義不同的存取權。
 
 可用的角色包括：
 
@@ -50,7 +51,7 @@ az acr login --name <acrName>
   * *參與者*：建立容器映像並將其推送到登錄的連續整合和部署解決方案 (例如 Visual Studio Team Services (VSTS) 或 Jenkins)。
 
 > [!TIP]
-> 您可以執行 [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_reset_credentials) 命令來重新產生服務主體的密碼。
+> 您可以執行 [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-reset-credentials) 命令來重新產生服務主體的密碼。
 >
 
 您也可以使用服務主體來直接登入。 請將應用程式識別碼和服務主體的密碼提供給 `docker login` 命令：
@@ -81,7 +82,7 @@ docker login myregistry.azurecr.io -u myAdminName -p myPassword1
 
 同樣地，為了提升安全性，Docker 會建議您使用 `--password-stdin` 參數，而不要在命令列上提供密碼。 您也可以只指定您的使用者名稱 (不搭配 `-p`)，然後在出現提示時輸入您的密碼。
 
-若要為現有的登錄啟用管理使用者，您可以在 Azure CLI 中使用 [az acr update](/cli/azure/acr?view=azure-cli-latest#az_acr_update) 命令的 `--admin-enabled` 參數：
+若要為現有的登錄啟用管理使用者，您可以在 Azure CLI 中使用 [az acr update](/cli/azure/acr?view=azure-cli-latest#az-acr-update) 命令的 `--admin-enabled` 參數：
 
 ```azurecli
 az acr update -n <acrName> --admin-enabled true

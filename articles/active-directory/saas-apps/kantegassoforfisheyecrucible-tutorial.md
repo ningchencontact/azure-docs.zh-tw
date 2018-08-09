@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 200330421233ed9fb3735a9f68d856efc99c1216
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 833c469f70b60eb0a95e65af17956030eed6ee0b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39052324"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39446033"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-fisheyecrucible"></a>教學課程：Azure Active Directory 與 Kantega SSO for FishEye/Crucible 整合
 
@@ -52,7 +52,7 @@ Kantega SSO for FishEye/Crucible 與 Azure AD 整合提供下列優點：
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Kantega SSO for FishEye/Crucible
-2. 設定並測試 Azure AD 單一登入
+1. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-kantega-sso-for-fisheyecrucible-from-the-gallery"></a>從資源庫新增 Kantega SSO for FishEye/Crucible
 若要設定將 Kantega SSO for FishEye/Crucible 整合到 Azure AD 中，您需要從資源庫將 Kantega SSO for FishEye/Crucible 新增到受控 SaaS 應用程式清單。
@@ -63,19 +63,19 @@ Kantega SSO for FishEye/Crucible 與 Azure AD 整合提供下列優點：
 
     ![Active Directory][1]
 
-2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
+1. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![[應用程式]][2]
     
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+1. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![[應用程式]][3]
 
-4. 在搜尋方塊中，輸入 **Kantega SSO for FishEye/Crucible**。
+1. 在搜尋方塊中，輸入 **Kantega SSO for FishEye/Crucible**。
 
     ![建立 Azure AD 測試使用者](./media/kantegassoforfisheyecrucible-tutorial/tutorial_kantegassoforfisheyecrucible_search.png)
 
-5. 在結果面板中，選取 [Kantega SSO for FishEye/Crucible]，然後按一下 [新增] 按鈕以新增應用程式。
+1. 在結果面板中，選取 [Kantega SSO for FishEye/Crucible]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/kantegassoforfisheyecrucible-tutorial/tutorial_kantegassoforfisheyecrucible_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Kantega SSO for FishEye/Crucible 與 Azure AD 整合提供下列優點：
 若要設定及測試與 Kantega SSO for FishEye/Crucible 搭配運作的 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 Kantega SSO for FishEye/Crucible 測試使用者](#creating-a-kantega-sso-for-fisheyecrucible-test-user)** - 使 Kantega SSO for FishEye/Crucible 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
-4. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
+1. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
+1. **[建立 Kantega SSO for FishEye/Crucible 測試使用者](#creating-a-kantega-sso-for-fisheyecrucible-test-user)** - 使 Kantega SSO for FishEye/Crucible 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
+1. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+1. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -104,11 +104,11 @@ Kantega SSO for FishEye/Crucible 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入][4]
 
-2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
+1. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
  
     ![設定單一登入](./media/kantegassoforfisheyecrucible-tutorial/tutorial_kantegassoforfisheyecrucible_samlbase.png)
 
-3. 在 **IDP** 起始模式下，在 [Kantega SSO for FishEye/Crucible 網域及 URL] 區段中執行下列步驟：
+1. 在 **IDP** 起始模式下，在 [Kantega SSO for FishEye/Crucible 網域及 URL] 區段中執行下列步驟：
 
     ![設定單一登入](./media/kantegassoforfisheyecrucible-tutorial/tutorial_kantegassoforfisheyecrucible_url1.png)
 
@@ -116,7 +116,7 @@ Kantega SSO for FishEye/Crucible 與 Azure AD 整合提供下列優點：
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
-4. 在 **SP** 起始模式下，勾選 [顯示進階 URL 設定]，然後執行下列步驟：
+1. 在 **SP** 起始模式下，勾選 [顯示進階 URL 設定]，然後執行下列步驟：
 
     ![設定單一登入](./media/kantegassoforfisheyecrucible-tutorial/tutorial_kantegassoforfisheyecrucible_url2.png)
 
@@ -125,53 +125,53 @@ Kantega SSO for FishEye/Crucible 與 Azure AD 整合提供下列優點：
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的識別碼、回覆 URL 和登入 URL 來更新這些值。 在設定 FishEye/Crucible 外掛程式 (本教學課程稍後會說明) 期間會收到這些值。
 
-5. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
+1. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
     ![設定單一登入](./media/kantegassoforfisheyecrucible-tutorial/tutorial_kantegassoforfisheyecrucible_certificate.png) 
 
-6. 按一下 [儲存]  按鈕。
+1. 按一下 [儲存]  按鈕。
 
     ![設定單一登入](./media/kantegassoforfisheyecrucible-tutorial/tutorial_general_400.png)
     
-7. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 FishEye/Crucible 內部部署伺服器。
+1. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 FishEye/Crucible 內部部署伺服器。
 
-8. 將滑鼠停留在 cog 上，然後按一下 [附加元件]。
+1. 將滑鼠停留在 cog 上，然後按一下 [附加元件]。
 
     ![設定單一登入](./media/kantegassoforfisheyecrucible-tutorial/addon1.png)
 
-9. 在 [系統設定] 區段下，按一下 [尋找新的附加元件]。 
+1. 在 [系統設定] 區段下，按一下 [尋找新的附加元件]。 
 
     ![設定單一登入](./media/kantegassoforfisheyecrucible-tutorial/add-on2.png)
 
-10. 搜尋 **Kantega SSO for Crucible**，然後按一下 [安裝] 按鈕以安裝新的 SAML 外掛程式。
+1. 搜尋 **Kantega SSO for Crucible**，然後按一下 [安裝] 按鈕以安裝新的 SAML 外掛程式。
 
     ![設定單一登入](./media/kantegassoforfisheyecrucible-tutorial/addon2.png)
 
-11. 外掛程式會開始安裝。 
+1. 外掛程式會開始安裝。 
 
     ![設定單一登入](./media/kantegassoforfisheyecrucible-tutorial/addon33.png)
 
-12. 當安裝完成時。 按一下 [關閉] 。
+1. 當安裝完成時。 按一下 [關閉] 。
 
     ![設定單一登入](./media/kantegassoforfisheyecrucible-tutorial/addon34.png)
 
-13. 按一下 [管理] 。
+1.  按一下 [管理] 。
 
     ![設定單一登入](./media/kantegassoforfisheyecrucible-tutorial/addon35.png)
 
-14. 按一下 [設定] 來設定新的外掛程式。    
+1. 按一下 [設定] 來設定新的外掛程式。 
 
     ![設定單一登入](./media/kantegassoforfisheyecrucible-tutorial/addon3.png)
 
-15. 在 [SAML] 區段中。 從 [新增識別提供者] 下拉式清單中，選取 [Azure Active Directory]\(Azure AD\)。
+1. 在 [SAML] 區段中。 從 [新增識別提供者] 下拉式清單中，選取 [Azure Active Directory]\(Azure AD\)。
 
     ![設定單一登入](./media/kantegassoforfisheyecrucible-tutorial/addon4.png)
 
-16. 選取 [基本] 作為訂用帳戶層級。
+1. 選取 [基本] 作為訂用帳戶層級。
 
     ![設定單一登入](./media/kantegassoforfisheyecrucible-tutorial/addon5.png)
 
-17. 在 [應用程式屬性] 區段中，執行下列步驟：
+1. 在 [應用程式屬性] 區段中，執行下列步驟：
 
     ![設定單一登入](./media/kantegassoforfisheyecrucible-tutorial/addon6.png)
 
@@ -179,7 +179,7 @@ Kantega SSO for FishEye/Crucible 與 Azure AD 整合提供下列優點：
 
     b. 按 [下一步] 。
 
-18. 在 [中繼資料匯入] 區段中，執行下列步驟：
+1. 在 [中繼資料匯入] 區段中，執行下列步驟：
 
     ![設定單一登入](./media/kantegassoforfisheyecrucible-tutorial/addon7.png)
 
@@ -187,7 +187,7 @@ Kantega SSO for FishEye/Crucible 與 Azure AD 整合提供下列優點：
 
     b. 按 [下一步] 。
 
-19. 在 [名稱和 SSO 位置] 區段中，執行下列步驟：
+1. 在 [名稱和 SSO 位置] 區段中，執行下列步驟：
 
     ![設定單一登入](./media/kantegassoforfisheyecrucible-tutorial/addon8.png)
 
@@ -195,11 +195,11 @@ Kantega SSO for FishEye/Crucible 與 Azure AD 整合提供下列優點：
 
     b. 按 [下一步] 。
 
-20. 確認簽署憑證，然後按 [下一步]。  
+1. 確認簽署憑證，然後按 [下一步]。   
 
     ![設定單一登入](./media/kantegassoforfisheyecrucible-tutorial/addon9.png)
 
-21. 在 [FishEye 使用者帳戶] 區段中，執行下列步驟：
+1. 在 [FishEye 使用者帳戶] 區段中，執行下列步驟：
 
     ![設定單一登入](./media/kantegassoforfisheyecrucible-tutorial/addon10.png)
 
@@ -207,11 +207,11 @@ Kantega SSO for FishEye/Crucible 與 Azure AD 整合提供下列優點：
 
     b. 按 [下一步] 。
 
-22. 按一下 [完成] 。
+1. 按一下 [完成] 。
 
     ![設定單一登入](./media/kantegassoforfisheyecrucible-tutorial/addon11.png)
 
-23. 在 [Azure AD 的已知網域] 區段中，執行下列步驟： 
+1. 在 [Azure AD 的已知網域] 區段中，執行下列步驟：  
 
     ![設定單一登入](./media/kantegassoforfisheyecrucible-tutorial/addon12.png)
 
@@ -235,15 +235,15 @@ Kantega SSO for FishEye/Crucible 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/kantegassoforfisheyecrucible-tutorial/create_aaduser_01.png) 
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+1. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
     
     ![建立 Azure AD 測試使用者](./media/kantegassoforfisheyecrucible-tutorial/create_aaduser_02.png) 
 
-3. 若要開啟 [使用者] 對話方塊，按一下對話方塊頂端的 [新增]。
+1. 若要開啟 [使用者] 對話方塊，按一下對話方塊頂端的 [新增]。
  
     ![建立 Azure AD 測試使用者](./media/kantegassoforfisheyecrucible-tutorial/create_aaduser_03.png) 
 
-4. 在 [使用者]  對話頁面上，執行下列步驟：
+1. 在 [使用者]  對話頁面上，執行下列步驟：
  
     ![建立 Azure AD 測試使用者](./media/kantegassoforfisheyecrucible-tutorial/create_aaduser_04.png) 
 
@@ -263,15 +263,15 @@ Kantega SSO for FishEye/Crucible 與 Azure AD 整合提供下列優點：
 
 1. 以系統管理員身分登入您的 Crucible 內部部署伺服器。
 
-2. 將滑鼠停留在齒輪上，然後按一下 [使用者]。
+1. 將滑鼠停留在齒輪上，然後按一下 [使用者]。
 
     ![新增員工](./media/kantegassoforfisheyecrucible-tutorial/user1.png) 
 
-3. 在 [使用者] 索引標籤區段下，按一下 [新增使用者]。
+1. 在 [使用者] 索引標籤區段下，按一下 [新增使用者]。
 
     ![新增員工](./media/kantegassoforfisheyecrucible-tutorial/user2.png)
 
-4. 在 [新增使用者] 對話頁面上，執行下列步驟：
+1. 在 [新增使用者] 對話頁面上，執行下列步驟：
 
     ![新增員工](./media/kantegassoforfisheyecrucible-tutorial/user3.png) 
 
@@ -299,23 +299,23 @@ Kantega SSO for FishEye/Crucible 與 Azure AD 整合提供下列優點：
 
     ![指派使用者][201] 
 
-2. 在應用程式清單中，選取 [Kantega SSO for FishEye/Crucible]。
+1. 在應用程式清單中，選取 [Kantega SSO for FishEye/Crucible]。
 
     ![設定單一登入](./media/kantegassoforfisheyecrucible-tutorial/tutorial_kantegassoforfisheyecrucible_app.png) 
 
-3. 在左側功能表中，按一下 [使用者和群組]。
+1. 在左側功能表中，按一下 [使用者和群組]。
 
     ![指派使用者][202] 
 
-4. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
+1. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
 
     ![指派使用者][203]
 
-5. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
+1. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
 
-6. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
+1. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
 
-7. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
+1. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
     
 ### <a name="testing-single-sign-on"></a>測試單一登入
 

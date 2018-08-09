@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a29379492f4ffd662244c3e42de321f47be13d9f
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 2b0f2b864c5c29e9804239d06afdf23708e52828
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436966"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579607"
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>使用執行身分帳戶更新您的自動化帳戶驗證 
 您可以從 Azure 入口網站或使用 PowerShell 來更新現有的自動化帳戶，前提是：
@@ -36,7 +36,7 @@ ms.locfileid: "37436966"
 * 在指定的自動化帳戶中，建立名為 AzureClassicRunAsCertificate 的自動化憑證資產。 憑證資產會保存管理憑證所使用的憑證私密金鑰。
 * 在指定的自動化帳戶中，建立名為 AzureClassicRunAsConnection 的自動化連線資產。 連線資產會保存訂用帳戶名稱、subscriptionId 和憑證資產名稱。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 如果您選擇[使用 PowerShell 建立執行身分帳戶](#create-run-as-account-using-powershell)，此程序需要：
 
 * 具有 Azure Resource Manager 模組 3.4.1 和更新版本的 Windows 10 與 Windows Server 2016。 PowerShell 指令碼不支援舊版 Windows。
@@ -289,5 +289,5 @@ ms.locfileid: "37436966"
 若要將服務主體新增至資源群組，請在 Azure 入口網站中選取資源群組，然後選取 [存取控制 (IAM)]。 選取 [新增]，這會開啟 [新增權限] 頁面。 針對 [角色]，選取 [參與者]。 在 [選取] 文字方塊中，輸入您執行身分帳戶的服務主體名稱，並從清單中選取。 按一下 [儲存]  儲存變更。 對您想為 Azure 自動化執行身分服務主體提供存取權的資源群組，執行這項操作。
 
 ## <a name="next-steps"></a>後續步驟
-* 如需服務主體的詳細資訊，請參閱[應用程式物件和服務主體物件](../active-directory/active-directory-application-objects.md)。
+* 如需服務主體的詳細資訊，請參閱[應用程式物件和服務主體物件](../active-directory/develop/app-objects-and-service-principals.md)。
 * 如需有關憑證和 Azure 服務的詳細資訊，請參閱 [Azure 雲端服務的憑證概觀](../cloud-services/cloud-services-certs-create.md)。

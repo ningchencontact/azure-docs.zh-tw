@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: 951ce8947d113eaad2ea0e3b5df5e9714aa33dd8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2a50350b9ba49d82a20b92804ffb92ec6906186d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723182"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39439895"
 ---
 # <a name="tutorial-use-azure-machine-learning-workbench-for-advanced-data-preparation-bike-share-data"></a>教學課程：使用 Azure Machine Learning Workbench 進行進階資料準備 (自行車共享資料)
 Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進階分析解決方案，可供專業資料科學家用來以雲端規模準備資料、開發測試以及部署模型。
@@ -34,7 +34,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 在本機安裝 Azure Machine Learning Workbench。 如需詳細資訊，請遵循[安裝快速入門](../service/quickstart-installation.md)。
 * 如果您尚未安裝 Azure CLI，請遵循指示以[安裝最新的 Azure CLI 版本](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。
@@ -60,7 +60,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
       - [201610-hubway-tripdata.zip](https://s3.amazonaws.com/hubway-data/201610-hubway-tripdata.zip)
       - [201701-hubway-tripdata.zip](https://s3.amazonaws.com/hubway-data/201701-hubway-tripdata.zip)
 
-2. 解壓縮下載後的每個 .zip 檔案。
+1. 解壓縮下載後的每個 .zip 檔案。
 
 ## <a name="upload-data-files-to-azure-blob-storage"></a>將資料檔案上傳至 Azure Blob 儲存體
 您可以使用 Azure Blob 儲存體來裝載您的資料檔案。
@@ -69,9 +69,9 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 
     ![HDInsight 叢集儲存體帳戶](media/tutorial-bikeshare-dataprep/hdinsightstorageaccount.png)
 
-2. 建立名為 **data-files** 的新容器以儲存 **BikeShare** 資料檔案。
+1. 建立名為 **data-files** 的新容器以儲存 **BikeShare** 資料檔案。
 
-3. 上傳資料檔案。 將 `BostonWeather.csv` 上傳至名為 `weather` 的資料夾。 將路線資料檔案上傳到名為 `tripdata` 的資料夾。
+1. 上傳資料檔案。 將 `BostonWeather.csv` 上傳至名為 `weather` 的資料夾。 將路線資料檔案上傳到名為 `tripdata` 的資料夾。
 
     ![上傳資料檔案](media/tutorial-bikeshare-dataprep/azurestoragedatafile.png)
 
@@ -91,7 +91,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 
    * **HOURLYWindSpeed**
 
-2. __Hubway__ 資料會依照年份和月份整理成檔案。 例如，名為 `201501-hubway-tripdata.zip` 的檔案包含內有 2015 年 1 月資料的 .csv 檔案。 資料包含下列欄位，而每個資料列都代表一條自行車路線：
+1. __Hubway__ 資料會依照年份和月份整理成檔案。 例如，名為 `201501-hubway-tripdata.zip` 的檔案包含內有 2015 年 1 月資料的 .csv 檔案。 資料包含下列欄位，而每個資料列都代表一條自行車路線：
 
    * **路線持續時間 (以秒為單位)**
 
@@ -114,7 +114,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 ## <a name="create-a-new-project"></a>建立新專案
 1. 從您的開始功能表或啟動程式啟動 **Machine Learning Workbench**。
 
-2. 建立新的 Machine Learning 專案。 選取 [專案] 頁面上的 **+** 按鈕，或選取 [檔案] > [新增]。
+1. 建立新的 Machine Learning 專案。 選取 [專案] 頁面上的 **+** 按鈕，或選取 [檔案] > [新增]。
 
    * 使用 **Bike Share** 範本。
 
@@ -126,7 +126,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 
    ![資料檢視索引標籤](media/tutorial-bikeshare-dataprep/navigatetodatatab.png)
 
-2. 新增資料來源。 選取 **+** 圖示，然後選取 [新增資料來源]。
+1. 新增資料來源。 選取 **+** 圖示，然後選取 [新增資料來源]。
 
    ![新增資料來源選項](media/tutorial-bikeshare-dataprep/newdatasource.png)
 
@@ -136,11 +136,11 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 
    ![檔案/目錄項目](media/tutorial-bikeshare-dataprep/datasources.png)
 
-2. **檔案選擇**：新增天氣資料。 瀏覽並選取您稍早上傳到 Blob 儲存體的 `BostonWeather.csv` 檔案。 選取 [下一步] 。
+1. **檔案選擇**：新增天氣資料。 瀏覽並選取您稍早上傳到 Blob 儲存體的 `BostonWeather.csv` 檔案。 選取 [下一步] 。
 
    ![包含所選 BostonWeater.csv 的檔案選取](media/tutorial-bikeshare-dataprep/azureblobpickweatherdatafile.png)
 
-3. **檔案詳細資料**：確認偵測到的檔案結構描述。 Machine Learning Workbench 會分析檔案中的資料，並推測要使用的結構描述。
+1. **檔案詳細資料**：確認偵測到的檔案結構描述。 Machine Learning Workbench 會分析檔案中的資料，並推測要使用的結構描述。
 
    ![確認檔案詳細資料](media/tutorial-bikeshare-dataprep/fileparameters.png)
 
@@ -170,7 +170,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 
    若要繼續，請選取 [下一步]。
 
-4. **資料類型**：檢閱自動偵測到的資料類型。 Machine Learning Workbench 會分析檔案中的資料，並推測要使用的資料類型。
+1. **資料類型**：檢閱自動偵測到的資料類型。 Machine Learning Workbench 會分析檔案中的資料，並推測要使用的資料類型。
 
    a. 針對此資料，將所有資料行的 [資料類型] 變更為 [字串]。
 
@@ -181,7 +181,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 
    b. 若要繼續，請選取 [下一步]。 
 
-5. **取樣**：若要建立取樣配置，請選取 [編輯]。 選取新增的__前 10000 個__資料列，然後選取 [編輯]。 將__取樣策略__設為**完整檔案**，然後選取 [套用]。
+1. **取樣**：若要建立取樣配置，請選取 [編輯]。 選取新增的__前 10000 個__資料列，然後選取 [編輯]。 將__取樣策略__設為**完整檔案**，然後選取 [套用]。
 
    ![新增取樣策略](media/tutorial-bikeshare-dataprep/weatherdatasamplingfullfile.png)
 
@@ -191,14 +191,14 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 
    若要繼續，請選取 [下一步]。
 
-6. **路徑資料行**：使用 [路徑資料行] 區段將完整檔案路徑納入為匯入資料中的資料行。 選取 [Do Not Include Path Column]\(不包含路徑資料行\)。
+1. **路徑資料行**：使用 [路徑資料行] 區段將完整檔案路徑納入為匯入資料中的資料行。 選取 [Do Not Include Path Column]\(不包含路徑資料行\)。
 
    > [!TIP]
    > 如果您要匯入具有不同檔案名稱的許多檔案資料夾，包含路徑作為資料行是有用的。 如果檔案名稱包含您稍後要解壓縮的資訊，這也會相當有用。
 
    ![設為不包含的路徑資料行](media/tutorial-bikeshare-dataprep/pathcolumn.png)
 
-7. **完成**：若要完成建立資料來源，請選取 [完成]。
+1. **完成**：若要完成建立資料來源，請選取 [完成]。
 
     名稱為 __BostonWeather__ 的新資料來源索引標籤隨即開啟。 資料取樣會顯示在格線檢視中。 此樣本是根據先前指定的使用中取樣配置。
 
@@ -221,17 +221,17 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 
 1. 選取 [準備] 以開始準備資料。 
 
-2. 出現提示時，輸入資料準備套件的名稱，例如 **BikeShare Data Prep**。 
+1. 出現提示時，輸入資料準備套件的名稱，例如 **BikeShare Data Prep**。 
 
-3. 選取 [確定]  以繼續操作。
+1. 選取 [確定]  以繼續操作。
 
    ![準備對話方塊](media/tutorial-bikeshare-dataprep/dataprepdialog.png)
 
-4. 名稱為 **BikeShare Data Prep** 的新封裝隨即出現，位置在 [資料] 索引標籤的 [資料準備] 區段下方。 
+1. 名稱為 **BikeShare Data Prep** 的新封裝隨即出現，位置在 [資料] 索引標籤的 [資料準備] 區段下方。 
 
    若要顯示封裝，請選取此項目。 
 
-5. 選取 **>>** 按鈕，以展開 [資料流程] 並顯示套件中包含的資料流程。 在此範例中，__BostonWeather__ 是唯一的資料流程。
+1. 選取 **>>** 按鈕，以展開 [資料流程] 並顯示套件中包含的資料流程。 在此範例中，__BostonWeather__ 是唯一的資料流程。
 
    > [!IMPORTANT]
    > 一個封裝可以包含多個資料流程。
@@ -241,7 +241,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 ## <a name="filter-data-by-value"></a>依值篩選資料
 1. 若要篩選資料，請用滑鼠右鍵按一下具有特定值的資料格並選取 [篩選]。 然後選取篩選類型。
 
-2. 在本此教學課程中，請選取包含值 `FM-15` 的資料格。 然後將篩選條件設為 [等於]。  現在資料已篩選為只傳回 __REPORTTYPE__ 為 `FM-15` 的資料列。
+1. 在本此教學課程中，請選取包含值 `FM-15` 的資料格。 然後將篩選條件設為 [等於]。  現在資料已篩選為只傳回 __REPORTTYPE__ 為 `FM-15` 的資料列。
 
    ![篩選對話方塊](media/tutorial-bikeshare-dataprep/weatherfilterinfm15.png)
 
@@ -263,17 +263,17 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 
    * **HOURLYWindSpeed**
 
-2. 以滑鼠右鍵按一下其中一個選取的資料行標頭，並選取 [將欄位類型轉換成數值]。 此選項會將資料行的資料類型轉換成數值。
+1. 以滑鼠右鍵按一下其中一個選取的資料行標頭，並選取 [將欄位類型轉換成數值]。 此選項會將資料行的資料類型轉換成數值。
 
    ![將多個資料行轉換成數值](media/tutorial-bikeshare-dataprep/weatherconverttonumeric.png)
 
-3. 篩選掉錯誤值。 某些資料行具有資料類型轉換問題。 此問會在資料行的__資料品質列__中，以紅色標示。
+1. 篩選掉錯誤值。 某些資料行具有資料類型轉換問題。 此問會在資料行的__資料品質列__中，以紅色標示。
 
    若要移除帶有錯誤的資料列，請用滑鼠右鍵按一下 **HOURLYDRYBULBTEMPF** 資料行標題。 選取 [篩選資料行]。 使用預設的 [我想要] 作為 [保留資料列]。 變更 [條件] 下拉式清單，以選取 [不是錯誤]。 選取 [確定] 以套用篩選條件。
 
    ![開選錯誤值](media/tutorial-bikeshare-dataprep/filtererrorvalues.png)
 
-4. 若要排除其他資料行中剩餘的錯誤資料列，請針對 **HOURLYRelativeHumidity** 和 **HOURLYWindSpeed** 資料行重覆此篩選程序。
+1. 若要排除其他資料行中剩餘的錯誤資料列，請針對 **HOURLYRelativeHumidity** 和 **HOURLYWindSpeed** 資料行重覆此篩選程序。
 
 ## <a name="use-by-example-transformations"></a>使用實例化轉換
 
@@ -291,9 +291,9 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 
    ![分割資料行實例化項目](media/tutorial-bikeshare-dataprep/weathersplitcolumnbyexample.png)
 
-2. Machine Learning Workbench 會自動識別有意義的分隔符號，並藉由將資料分割成日期和時間值，以建立兩個資料行。 
+1. Machine Learning Workbench 會自動識別有意義的分隔符號，並藉由將資料分割成日期和時間值，以建立兩個資料行。 
 
-3. 選取 [確定] 以接受分割作業結果。
+1. 選取 [確定] 以接受分割作業結果。
 
    ![分割 DATE_1 和 DATE_2 資料行](media/tutorial-bikeshare-dataprep/weatherdatesplitted.png)
 
@@ -305,7 +305,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 
    新的空白資料行隨即新增 Null 值。
 
-2. 選取新資料行中第一個空白資料格。 若要提供所需時間範圍的範例，請在新資料行中輸入 **12AM-2AM**，然後選取 Enter。
+1. 選取新資料行中第一個空白資料格。 若要提供所需時間範圍的範例，請在新資料行中輸入 **12AM-2AM**，然後選取 Enter。
 
    ![包含 12AM-2AM 值的新資料行](media/tutorial-bikeshare-dataprep/weathertimerangeexample.png)
 
@@ -315,26 +315,26 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
    > [!IMPORTANT]
    > 識別邊緣案例可能無法在 Mac 的目前版本 Workbench 上運作。 在 Mac 上略過下列步驟 3 和步驟 4。 而在所有資料列都已填入衍生值之後，選取 [確定]。
    
-3. 格線上方的文字**分析資料**表示 Workbench 正嘗試偵測的邊緣案例。 完成時，狀態會變更為 [檢閱下一個建議的資料列] 或 [沒有建議]。 在此範例中，會傳回**檢閱下一個建議的資料列**。
+1. 格線上方的文字**分析資料**表示 Workbench 正嘗試偵測的邊緣案例。 完成時，狀態會變更為 [檢閱下一個建議的資料列] 或 [沒有建議]。 在此範例中，會傳回**檢閱下一個建議的資料列**。
 
-4. 若要檢閱建議的變更，請選取 [檢閱下一個建議的資料列]。 顯示畫面上會醒目提示您應該檢閱並 (視需要) 更正的資料列。
+1. 若要檢閱建議的變更，請選取 [檢閱下一個建議的資料列]。 顯示畫面上會醒目提示您應該檢閱並 (視需要) 更正的資料列。
 
    ![檢閱下一個建議的資料列](media/tutorial-bikeshare-dataprep/weatherreviewnextsuggested.png)
 
     選取 [確定] 以接受轉換。
  
-5. 您會返回 __BostonWeather__ 的資料格線檢視。 格線現在包含先前新增的三個資料行。
+1. 您會返回 __BostonWeather__ 的資料格線檢視。 格線現在包含先前新增的三個資料行。
 
    ![包含新增資料列的格線檢視](media/tutorial-bikeshare-dataprep/timerangecomputed.png)
 
    > [!TIP]
    > 您所做的所有變更都會都保存在 [步驟] 窗格中。 請移至您在 [步驟] 窗格中建立的步驟，選取向下箭頭，然後選取 [編輯]。 隨即顯示 [衍生資料行實例化] 的進階視窗。 您的所有範例會保留在這裡。 您也可以按兩下下方格線中的資料列，以手動新增範例。 選取 [取消] 以返回主要格線，而不套用變更。 您也可以在執行 [衍生資料行實例化] 轉換時選取 [進階模式]，以存取此檢視。
 
-6. 若要重新命名資料行，請按兩下資料行標頭，然後輸入 **Hour Range**。 選取 Enter 以儲存變更。
+1. 若要重新命名資料行，請按兩下資料行標頭，然後輸入 **Hour Range**。 選取 Enter 以儲存變更。
 
    ![將資料行重新命名](media/tutorial-bikeshare-dataprep/weatherhourrangecolumnrename.png)
 
-7. 若要衍生日期和小時範圍，請複選 **Date\_1** 和 **Hour Range** 資料行，按一下滑鼠右鍵，然後選取 [衍生資料行實例化]。
+1. 若要衍生日期和小時範圍，請複選 **Date\_1** 和 **Hour Range** 資料行，按一下滑鼠右鍵，然後選取 [衍生資料行實例化]。
 
    ![衍生資料行實例化](media/tutorial-bikeshare-dataprep/weatherderivedatehourrange.png)
 
@@ -350,7 +350,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
    > * 移至包含 **Feb 01, 2015 12AM-2AM** 的第一個資料格。 它應該是資料列 15。 將此值更正為 **Jan 02, 2015 12AM-2AM**，然後選取 Enter。 
    
 
-8. 等待狀態從**分析資料**變更至**檢閱下一個建議的資料列**。 此辯稱可能需要數秒鐘的時間。 選取狀態連結，以移至建議的資料列。 
+1. 等待狀態從**分析資料**變更至**檢閱下一個建議的資料列**。 此辯稱可能需要數秒鐘的時間。 選取狀態連結，以移至建議的資料列。 
 
    ![待檢閱的建議資料列](media/tutorial-bikeshare-dataprep/wetherdatehourrangedisambiguate.png)
 
@@ -358,7 +358,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 
    ![正確格式化的資料](media/tutorial-bikeshare-dataprep/wetherdatehourrangedisambiguated.png)
 
-9. 選取 [確定] 以接受轉換。
+1. 選取 [確定] 以接受轉換。
 
    ![已完成轉換格線](media/tutorial-bikeshare-dataprep/weatherdatehourrangecomputed.png)
 
@@ -366,9 +366,9 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
    > 若要針對此步驟使用 [衍生資料行實例化] 的 [進階模式]， 請選取 [步驟] 窗格中的向下箭號。 在資料格線中，**DATE\_1** 和 **Hour Range** 資料行旁有核取方塊。 清除 **Hour Range** 資料行旁的核取方塊，以查看輸出的變化。 如果輸入項目中沒有 **Hour Range** 資料行，則會將 **12AM-2AM** 視為常數，並附加至衍生的值。 選取 [取消] 以返回主要格線，而不套用變更。
    ![進階模式](media/tutorial-bikeshare-dataprep/derivedcolumnadvancededitdeselectcolumn.png)
 
-10. 若要重新命名資料行，請按兩下標頭。 將名稱變更為 **Date Hour Range**，然後選取 Enter。
+1. 若要重新命名資料行，請按兩下標頭。 將名稱變更為 **Date Hour Range**，然後選取 Enter。
 
-11. 複選 **DATE**、**DATE\_1**、**DATE\_2**，以及 **Hour Range** 資料行。 按一下滑鼠右鍵，然後選取 [移除資料行]。
+1. 複選 **DATE**、**DATE\_1**、**DATE\_2**，以及 **Hour Range** 資料行。 按一下滑鼠右鍵，然後選取 [移除資料行]。
 
 ## <a name="summarize-data-mean"></a>總結資料 (平均值)
 
@@ -378,7 +378,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 
     ![轉換功能表](media/tutorial-bikeshare-dataprep/weathersummarizemenu.png)
 
-2. 若要摘要資料，請將資料行從頁面底部拖曳至頂端的左邊和右邊窗格。 左窗格包含文字**拖曳資料行到這裡以分組資料**。 右窗格包含文字**拖曳資料行到這裡以總結資料**。 
+1. 若要摘要資料，請將資料行從頁面底部拖曳至頂端的左邊和右邊窗格。 左窗格包含文字**拖曳資料行到這裡以分組資料**。 右窗格包含文字**拖曳資料行到這裡以總結資料**。 
 
     a. 將 **Date Hour Range** 資料行從底部格線拖曳至左窗格。 拖曳 **HOURLYDRYBULBTEMPF**、**HOURLYRelativeHumidity** 和 **HOURLYWindSpeed** 至右窗格。 
 
@@ -392,7 +392,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 
 1. 在 [轉換] 功能表上，選取 [轉換資料流程 (指令碼)]。
 
-2. 在出現的文字方塊中輸入下列程式碼。 如果您已使用該資料行名稱，程式碼應該不會修改而直接運作。 您使用 Python 撰寫簡單的最小值-最大值正規化邏輯。
+1. 在出現的文字方塊中輸入下列程式碼。 如果您已使用該資料行名稱，程式碼應該不會修改而直接運作。 您使用 Python 撰寫簡單的最小值-最大值正規化邏輯。
 
     > [!WARNING]
     > 該指令碼預計使用本教學課程中先前使用的資料行名稱。 如果您有不同的資料行名稱，則必須在指令碼中變更名稱。
@@ -421,7 +421,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
     
    ![轉換資料流程 (指令碼) 對話方塊](media/tutorial-bikeshare-dataprep/transformdataflowscript.png)
 
-3. 選取 [確定] 以使用指令碼。 格線中的數值資料行目前包含 0 至 1 範圍中的值。
+1. 選取 [確定] 以使用指令碼。 格線中的數值資料行目前包含 0 至 1 範圍中的值。
 
     ![包含 0 和 1 之間值的格線](media/tutorial-bikeshare-dataprep/datagridwithdecimals.png)
 
@@ -437,13 +437,13 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 
     * __資料類型__：接受預設值。
 
-2. 匯入資料之後，請選取 [準備] 以開始準備資料。 選取現有的 **BikeShare Data Prep.dprep** 封裝，然後選取 [確定]。
+1. 匯入資料之後，請選取 [準備] 以開始準備資料。 選取現有的 **BikeShare Data Prep.dprep** 封裝，然後選取 [確定]。
 
     此程序會將**資料流程**新增至現有的**資料準備**檔案，而不是建立一個新檔案。
 
     ![選取現有的套件](media/tutorial-bikeshare-dataprep/addjandatatodprep.png)
 
-3. 載入格線之後，請展開 [資料流程]。 現在有兩個資料流程：**BostonWeather** 和 **201701-hubway-tripdata**。 選取 **201701-hubway-tripdata** 項目。
+1. 載入格線之後，請展開 [資料流程]。 現在有兩個資料流程：**BostonWeather** 和 **201701-hubway-tripdata**。 選取 **201701-hubway-tripdata** 項目。
 
     ![201701-hubway-tripdata 項目](media/tutorial-bikeshare-dataprep/twodfsindprep.png)
 
@@ -458,11 +458,11 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 
     ![地圖視覺效果](media/tutorial-bikeshare-dataprep/launchMapInspector.png)
 
-2. 若要最大化地圖視覺效果，請選取**最大化**圖示。 若要將地圖大小調整為符合視窗，請選取視覺效果左上方的 **E** 圖示。
+1. 若要最大化地圖視覺效果，請選取**最大化**圖示。 若要將地圖大小調整為符合視窗，請選取視覺效果左上方的 **E** 圖示。
 
     ![最大化映像](media/tutorial-bikeshare-dataprep/maximizedmap.png)
 
-3. 選取 [最小化] 按鈕，以返回格線檢視。
+1. 選取 [最小化] 按鈕，以返回格線檢視。
 
 ## <a name="use-the-column-statistics-inspector"></a>使用資料行統計資料偵測器
 
@@ -491,7 +491,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 
     ![新增資料行 (指令碼) 功能表](media/tutorial-bikeshare-dataprep/computecolscript.png)
 
-2. 在 [新增資料行 (指令碼)] 對話方塊中，使用下列值：
+1. 在 [新增資料行 (指令碼)] 對話方塊中，使用下列值：
 
     * __新增資料行名稱__：logtripduration
 
@@ -503,9 +503,9 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 
    ![新增資料行 (指令碼) 對話方塊](media/tutorial-bikeshare-dataprep/computecolscriptdialog.png)
 
-3. 選取 [確定] 以新增 **logtripduration** 資料行。
+1. 選取 [確定] 以新增 **logtripduration** 資料行。
 
-4. 以滑鼠右鍵按一下資料行，然後選取 [長條圖]。
+1. 以滑鼠右鍵按一下資料行，然後選取 [長條圖]。
 
     ![logtripduration 資料行的長條圖](media/tutorial-bikeshare-dataprep/logtriphistogram.png)
 
@@ -517,7 +517,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 
 1. 以滑鼠右鍵按一下 **logtripduration** 資料行，然後選取 [篩選資料行]。 
 
-2. 在 [編輯] 對話方塊中，使用下列值：
+1. 在 [編輯] 對話方塊中，使用下列值：
 
     * __篩選此數字資料行__：logtripduration
 
@@ -531,7 +531,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 
     ![篩選選項](media/tutorial-bikeshare-dataprep/loftripfilter.png)
 
-3. 選取 [確定] 以套用篩選條件。
+1. 選取 [確定] 以套用篩選條件。
 
     ![套用篩選之後已更新的長條圖](media/tutorial-bikeshare-dataprep/loftripfilteredinspector.png)
 
@@ -550,11 +550,11 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
     > [!NOTE]
     > 相較於上一個，藍色直方圖顯示較短。 此差異是由於自動儲存新範圍內的資料所致。
 
-2. 若要移除光暈效果，請選取 [編輯] 並清除 [顯示光暈]。
+1. 若要移除光暈效果，請選取 [編輯] 並清除 [顯示光暈]。
 
     ![長條圖的選項](media/tutorial-bikeshare-dataprep/uncheckhalo.png)
 
-3. 選取 [確定] 以停用光暈效果。 然後將長條圖最小化。
+1. 選取 [確定] 以停用光暈效果。 然後將長條圖最小化。
 
 ### <a name="remove-columns"></a>移除資料行
 
@@ -570,7 +570,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 
     ![衍生資料行實例化選項](media/tutorial-bikeshare-dataprep/tripdataderivebyexample.png)
 
-2. 例如，為第一個資料列輸入 **Jan 01, 2017 12AM-2AM** 值。
+1. 例如，為第一個資料列輸入 **Jan 01, 2017 12AM-2AM** 值。
 
     > [!IMPORTANT]
     > 在先前衍生資料行的範例中，您已使用多個步驟來衍生包含日期和時間週期的資料行。 在此範例中，您可以看到可藉由提供最終輸出的範例，以單一步驟執行該作業。
@@ -585,19 +585,19 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
    >
    > * 移至包含 **Jan 01, 2017 1AM-2AM** 的第一個資料格。 它應該是資料列 14。 將此值更正為 **Jan 01, 2017 12AM-2AM**，然後選取 Enter。 
 
-3. 等待應用程式計算所有資料列的值。 此程序可能需要數秒鐘的時間。 分析完成後，使用 [檢閱下一個建議的資料列] 連結來檢閱資料。
+1. 等待應用程式計算所有資料列的值。 此程序可能需要數秒鐘的時間。 分析完成後，使用 [檢閱下一個建議的資料列] 連結來檢閱資料。
 
    ![使用檢閱連結完成分析](media/tutorial-bikeshare-dataprep/tripdatabyexanalysiscomplete.png)
 
     請確定計算值正確無誤。 如果不正確，請使用預期的值來更新此值，並選取 Enter。 然後等待分析完成。 完成**檢閱下一個建議的資料列**程序，直到您看見**沒有建議**為止。 [沒有建議] 表示應用程式已檢閱過邊緣案例，並且滿意合成程式。 最佳做法是先對轉換資料進行視覺檢查，再接受轉換。 
 
-4. 選取 [確定] 以接受轉換。 將新建立的資料行重新命名為 **Date Hour Range**。
+1. 選取 [確定] 以接受轉換。 將新建立的資料行重新命名為 **Date Hour Range**。
 
     ![已重新命名的資料行](media/tutorial-bikeshare-dataprep/tripdatasummarize.png)
 
-5. 以滑鼠右鍵按一下 **starttime** 資料行標頭，並選取 [移除資料行]。
+1. 以滑鼠右鍵按一下 **starttime** 資料行標頭，並選取 [移除資料行]。
 
-6. 若要摘要資料，請在 [轉換] 功能表上選取 [摘要]。 若要建立轉換，請使用下列步驟：
+1. 若要摘要資料，請在 [轉換] 功能表上選取 [摘要]。 若要建立轉換，請使用下列步驟：
 
     * 將 __Date Hour Range__ 和 __start station id__ 拖曳至左側 [分組依據] 窗格。
 
@@ -605,7 +605,7 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 
    ![摘要選項](media/tutorial-bikeshare-dataprep/tripdatacount.png)
 
-7. 選取 [確定] 以接受總結結果。
+1. 選取 [確定] 以接受總結結果。
 
 ## <a name="join-dataflows"></a>聯結資料流程
 
@@ -613,15 +613,15 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 
 1. 在 [轉換] 功能表上選取 [聯結]。
 
-2. __資料表__：選取 **BostonWeather** 作為 [左側] 資料流程，並選取 **201701-hubway-tripdata** 作為 [右側] 資料流程。 若要繼續，請選取 [下一步]。
+1. __資料表__：選取 **BostonWeather** 作為 [左側] 資料流程，並選取 **201701-hubway-tripdata** 作為 [右側] 資料流程。 若要繼續，請選取 [下一步]。
 
     ![資料表選取項目](media/tutorial-bikeshare-dataprep/jointableselection.png)
 
-3. __索引鍵資料行__：在兩個資料表中選取 **Date Hour Range** 資料行，然後選取 [下一步]。
+1. __索引鍵資料行__：在兩個資料表中選取 **Date Hour Range** 資料行，然後選取 [下一步]。
 
     ![索引鍵資料行選取項目](media/tutorial-bikeshare-dataprep/joinkeyselection.png)
 
-4. __聯結類型__：選取 [相符資料列] 作為聯結類型，然後選取 [完成]。
+1. __聯結類型__：選取 [相符資料列] 作為聯結類型，然後選取 [完成]。
 
     ![相符資料列聯結類型](media/tutorial-bikeshare-dataprep/joinscreen.png)
 
@@ -633,11 +633,11 @@ Azure Machine Learning (預覽) 是一套整合的端對端資料科學以及進
 
     ![建立星期幾的新資料行](media/tutorial-bikeshare-dataprep/featureweekday.png)
 
-2. 若要建立包含某資料列之時間期間的資料行，請以滑鼠右鍵按一下 **Date Hour Range** 資料行，然後選取 [衍生資料行實例化]。 針對包含 **Jan 01, 2017 12AM-2AM** 的資料列使用值 **12AM-2AM**。 選取 Enter，然後選取 [確定]。 將此資料行重新命名為 **Period**。
+1. 若要建立包含某資料列之時間期間的資料行，請以滑鼠右鍵按一下 **Date Hour Range** 資料行，然後選取 [衍生資料行實例化]。 針對包含 **Jan 01, 2017 12AM-2AM** 的資料列使用值 **12AM-2AM**。 選取 Enter，然後選取 [確定]。 將此資料行重新命名為 **Period**。
 
     ![期間資料行](media/tutorial-bikeshare-dataprep/featurehourrange.png)
 
-3. 若要移除 **Date Hour Range** 和 **r_Date Hour Range** 資料行，請選取 Ctrl (在 Mac 上為 Command ⌘)，然後選取每個資料行標頭。 按一下滑鼠右鍵，並選取 [移除資料行]。
+1. 若要移除 **Date Hour Range** 和 **r_Date Hour Range** 資料行，請選取 Ctrl (在 Mac 上為 Command ⌘)，然後選取每個資料行標頭。 按一下滑鼠右鍵，並選取 [移除資料行]。
 
 ## <a name="read-data-from-python"></a>從 Python 讀取資料
 
@@ -672,7 +672,7 @@ df.head(10)
 
     ![在 Visual Studio Code 中開啟專案](media/tutorial-bikeshare-dataprep/openprojectinvscode.png)
 
-2. 使用下列程式碼來更新 `BikeShare Data Prep.py` 檔案中的 Python 指令碼：
+1. 使用下列程式碼來更新 `BikeShare Data Prep.py` 檔案中的 Python 指令碼：
 
     ```python
     import pyspark
@@ -706,7 +706,7 @@ df.head(10)
     print('done')
     ```
 
-3. 將 `Your Azure Storage blob path` 取代為即將建立之輸出檔案的路徑。 取代 `blobfolder` 和 `csvfiles` 變數。
+1. 將 `Your Azure Storage blob path` 取代為即將建立之輸出檔案的路徑。 取代 `blobfolder` 和 `csvfiles` 變數。
 
 ## <a name="create-an-hdinsight-run-configuration"></a>建立 HDInsight 執行組態
 
@@ -717,7 +717,7 @@ df.head(10)
    >[!IMPORTANT]
    >您必須使用命令列視窗 (從 Workbench 開啟)，來完成後續步驟。
 
-2. 使用命令提示字元登入 Azure。 
+1. 使用命令提示字元登入 Azure。 
 
    對 Azure 資源進行驗證時，Workbench 應用程式和 CLI 會使用獨立的認證快取。 您只需要執行這項操作一次，直到快取的權杖過期為止。 `az account list` 命令會傳回可供您的登入使用的訂用帳戶清單。 如果有一個以上，請使用所需訂用帳戶中的識別碼值。 將該訂用帳戶設為預設帳戶來與 `az account set -s` 命令搭配使用，然後再提供訂用帳戶識別碼值。 然後使用帳戶 `show` 命令來確認設定。
 
@@ -735,7 +735,7 @@ df.head(10)
    az account show
    ```
 
-3. 建立 HDInsight 執行設定。您需要叢集名稱和 `sshuser` 密碼。
+1. 建立 HDInsight 執行設定。您需要叢集名稱和 `sshuser` 密碼。
 
     ```azurecli
     az ml computetarget attach cluster --name hdinsight --address <yourclustername>.azurehdinsight.net --username sshuser --password <your password>
@@ -750,9 +750,9 @@ df.head(10)
 
 1. 選取左側的「首頁」圖示，以返回您專案的主畫面。
 
-2. 從下拉式清單選取 [hdinsight]，以在 HDInsight 叢集中執行指令碼。
+1. 從下拉式清單選取 [hdinsight]，以在 HDInsight 叢集中執行指令碼。
 
-3. 選取 [執行]。 指令碼已提交為作業。 在檔案寫入至儲存體容器中指定的位置之後，作業狀態就會變更為 [已完成]。
+1. 選取 [執行]。 指令碼已提交為作業。 在檔案寫入至儲存體容器中指定的位置之後，作業狀態就會變更為 [已完成]。
 
     ![HDInsight 執行指令碼](media/tutorial-bikeshare-dataprep/hdinsightrunscript.png)
 
@@ -776,13 +776,13 @@ df.head(10)
 
    請儲存此資料來源的名稱，因為在後續步驟中會使用到。
 
-2. 選取資料夾圖示，以檢視專案中的檔案。 展開 __aml\_config__ 目錄，然後選取 `hdinsight.runconfig` 檔案。
+1. 選取資料夾圖示，以檢視專案中的檔案。 展開 __aml\_config__ 目錄，然後選取 `hdinsight.runconfig` 檔案。
 
     ![hdinsight.runconfig 的位置](media/tutorial-bikeshare-dataprep/hdinsightsubstitutedatasources.png) 
 
-3. 選取 [編輯] 按鈕，以在 Visual Studio Code 中開啟檔案。
+1. 選取 [編輯] 按鈕，以在 Visual Studio Code 中開啟檔案。
 
-4. 在 `hdinsight.runconfig` 檔案的結尾新增下列行，然後選取磁碟圖示以儲存檔案。
+1. 在 `hdinsight.runconfig` 檔案的結尾新增下列行，然後選取磁碟圖示以儲存檔案。
 
     ```yaml
     DataSourceSubstitutions:
@@ -827,9 +827,9 @@ df.head(10)
     print('done')
     ```
 
-2. 對訓練資料輸出使用名為 `traindata` 的資料夾。
+1. 對訓練資料輸出使用名為 `traindata` 的資料夾。
 
-3. 若要提交新作業，請選取 [執行]。 確定已選取 [hdinsight]。 使用新的組態提交作業。 此作業的輸出即為訓練資料。 此資料是使用您稍早遵循的相同資料準備步驟所建立。 此作業可能需要幾分鐘才能完成。
+1. 若要提交新作業，請選取 [執行]。 確定已選取 [hdinsight]。 使用新的組態提交作業。 此作業的輸出即為訓練資料。 此資料是使用您稍早遵循的相同資料準備步驟所建立。 此作業可能需要幾分鐘才能完成。
 
 
 ## <a name="clean-up-resources"></a>清除資源

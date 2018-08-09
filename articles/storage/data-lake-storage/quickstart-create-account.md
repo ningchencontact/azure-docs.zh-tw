@@ -3,19 +3,18 @@ title: 建立 Azure Data Lake Storage Gen2 預覽版儲存體帳戶 | Microsoft 
 description: 快速了解如何使用 Azure 入口網站、Azure PowerShell 或 Azure CLI 建立具有 Data Lake Storage Gen2 預覽版存取權的新儲存體帳戶
 services: storage
 author: jamesbak
-manager: twooley
 ms.component: data-lake-storage-gen2
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: cf98d3097128a0f8934fc114bc37a517df118234
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 9d60b85051ff6e24c64f074ccd4fad055ba47ae8
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085383"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523575"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-preview-storage-account"></a>快速入門：建立 Azure Data Lake Storage Gen2 預覽版儲存體帳戶
 
@@ -26,9 +25,9 @@ Azure Data Lake Storage Gen2 預覽版帳戶[支援階層式命名空間服務](
 > [!NOTE]
 > 您通過核准可以建立 Data Lake Storage Gen2 帳戶後，Azure 入口網站中的「建立帳戶」UI 就會更新。 同樣地，在您通過核准可以使用預覽版後，Data Lake Storage Gen2 的相關 PowerShell 和 CLI 引數才會有作用。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/)。
 
 |           | 必要條件 |
 |-----------|--------------|
@@ -211,7 +210,7 @@ az storage account create \
     --location westus2 \
     --sku Standard_LRS \
     --kind StorageV2 \
-    --Enable-hierarchical-namespace true
+    --hierarchical-namespace true
 ```
 
 ### <a name="clean-up-resources"></a>清除資源

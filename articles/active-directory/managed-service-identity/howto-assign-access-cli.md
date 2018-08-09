@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2017
 ms.author: daveba
-ms.openlocfilehash: 947e0140c7943954be5eb285bb7ec514b74e9022
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a5da06eac7f4680282aad305f57cb9ca1c9d5730
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33929637"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424427"
 ---
 # <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-azure-cli"></a>使用 Azure CLI 將受控服務識別 (MSI) 存取權指派給資源
 
@@ -27,7 +27,7 @@ ms.locfileid: "33929637"
 
 一旦已透過 MSI 設定 Azure 資源，您便可以將 MSI 存取權提供給另一個資源，就像任何安全性主體。 此範例將示範如何使用 Azure CLI 將 Azure 虛擬機器或虛擬機器擴展集的 MSI 存取權提供給 Azure 儲存體帳戶。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -43,13 +43,13 @@ ms.locfileid: "33929637"
 
 在 Azure 資源 ([Azure 虛擬機器](qs-configure-cli-windows-vm.md)或 [Azure 虛擬機器擴展集](qs-configure-cli-windows-vmss.md)) 上啟用 MSI 之後： 
 
-1. 如果您要在本機主控台中使用 Azure CLI，請先使用 [az login](/cli/azure/reference-index#az_login) 登入 Azure。 使用您想部署 VM 或虛擬機器擴展集且已與 Azure 訂用帳戶相關聯的帳戶：
+1. 如果您要在本機主控台中使用 Azure CLI，請先使用 [az login](/cli/azure/reference-index#az-login) 登入 Azure。 使用您想部署 VM 或虛擬機器擴展集且已與 Azure 訂用帳戶相關聯的帳戶：
 
    ```azurecli-interactive
    az login
    ```
 
-2. 在此範例中，我們會將 Azure 虛擬機器存取權給予儲存體帳戶。 首先我們使用 [az resource list](/cli/azure/resource/#az_resource_list)取得名為 "myVM" 的虛擬機器服務主體：
+2. 在此範例中，我們會將 Azure 虛擬機器存取權給予儲存體帳戶。 首先我們使用 [az resource list](/cli/azure/resource/#az-resource-list)取得名為 "myVM" 的虛擬機器服務主體：
 
    ```azurecli-interactive
    spID=$(az resource list -n myVM --query [*].identity.principalId --out tsv)
@@ -60,7 +60,7 @@ ms.locfileid: "33929637"
    spID=$(az resource list -n DevTestVMSS --query [*].identity.principalId --out tsv)
    ```
 
-3. 一旦您有服務主體 ID 後，請使用 [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) 將虛擬機器或虛擬機器擴展集「讀取」存取權提供給稱為 "myStorageAcct" 的儲存體帳戶：
+3. 一旦您有服務主體 ID 後，請使用 [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) 將虛擬機器或虛擬機器擴展集「讀取」存取權提供給稱為 "myStorageAcct" 的儲存體帳戶：
 
    ```azurecli-interactive
    az role assignment create --assignee $spID --role 'Reader' --scope /subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/myStorageAcct

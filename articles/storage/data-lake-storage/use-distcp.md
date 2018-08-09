@@ -2,28 +2,24 @@
 title: 使用 Distcp 將資料複製到 Azure Data Lake Storage Gen2 預覽版 | Microsoft Docs
 description: 使用 Distcp 工具將資料複製到 Data Lake Storage Gen2 預覽版或從中複製資料
 services: storage
-documentationcenter: ''
 author: seguler
-manager: jahogg
-editor: seguler
 ms.component: data-lake-storage-gen2
 ms.service: storage
-ms.devlang: na
 ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: seguler
-ms.openlocfilehash: 073d81baca7e174872806301236f547329836c45
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 065c4c4315bda209484cc1b2449980e55d4ac798
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113471"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522691"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-data-lake-storage-gen2-preview"></a>使用 Distcp 在 Azure 儲存體 Blob 與 Data Lake Storage Gen2 預覽版之間複製資料
 
 如果您有可存取 Azure Data Lake Storage Gen2 預覽版的 HDInsight 叢集，就可以使用 [Distcp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) 之類的 Hadoop 生態系統工具，將**送至/來自** HDInsight 叢集儲存體 (WASB) 的資料複製到支援 Data Lake Storage Gen2 的帳戶中。 本文提供如何使用 Distcp 工具的相關指示。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * **啟用 Azure Data Lake Storage (預覽) 功能的 Azure 儲存體帳戶**。 如需如何建立的指示，請參閱[建立 Azure Data Lake Storage Gen2 預覽版儲存體帳戶](quickstart-create-account.md)

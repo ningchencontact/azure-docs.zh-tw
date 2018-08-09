@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2017
 ms.author: jeedes
-ms.openlocfilehash: 3db0a4013c24c8e826eae50d8e9e09b999df9aa4
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 2dff30709fae08ffc17908f3ea9d1f540f5e79ed
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221122"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39442491"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lecorpio"></a>教學課程：Azure Active Directory 與 Lecorpio 整合
 
@@ -33,7 +33,7 @@ ms.locfileid: "36221122"
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Lecorpio 整合，您需要下列項目：
 
@@ -52,7 +52,7 @@ ms.locfileid: "36221122"
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Lecorpio
-2. 設定並測試 Azure AD 單一登入
+1. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-lecorpio-from-the-gallery"></a>從資源庫新增 Lecorpio
 若要設定將 Lecorpio 整合到 Azure AD 中，您需要從資源庫將 Lecorpio 新增到受控 SaaS 應用程式清單。
@@ -63,19 +63,19 @@ ms.locfileid: "36221122"
 
     ![Active Directory][1]
 
-2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
+1. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![[應用程式]][2]
     
-3. 按一下對話方塊頂端的 [新增應用程式] 按鈕。
+1. 按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![[應用程式]][3]
 
-4. 在搜尋方塊中，輸入 **Lecorpio**。
+1. 在搜尋方塊中，輸入 **Lecorpio**。
 
     ![建立 Azure AD 測試使用者](./media/lecorpio-tutorial/tutorial_lecorpio_search.png)
 
-5. 在結果窗格中，選取 [Lecorpio]，然後按一下 [新增] 按鈕以新增應用程式。
+1. 在結果窗格中，選取 [Lecorpio]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/lecorpio-tutorial/tutorial_lecorpio_addfromgallery.png)
 
@@ -89,10 +89,10 @@ ms.locfileid: "36221122"
 若要設定及測試 Azure AD 與 Lecorpio 的單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 Lecorpio 測試使用者](#creating-a-lecorpio-test-user)** - 使 Lecorpio 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
-4. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
+1. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
+1. **[建立 Lecorpio 測試使用者](#creating-a-lecorpio-test-user)** - 使 Lecorpio 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
+1. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+1. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -104,30 +104,30 @@ ms.locfileid: "36221122"
 
     ![設定單一登入][4]
 
-2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
+1. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
  
     ![設定單一登入](./media/lecorpio-tutorial/tutorial_lecorpio_samlbase.png)
 
-3. 在 [Lecorpio 網域與 URL] 區段上，執行下列步驟：
+1. 在 [Lecorpio 網域與 URL] 區段上，執行下列步驟：
 
     ![設定單一登入](./media/lecorpio-tutorial/tutorial_lecorpio_url.png)
 
     a. 在 [登入 URL] 文字方塊中，以下列模式輸入值：`https://<instance name>.lecorpio.com/<customer name>`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<instance name>.lecorpio.com/<customer name>`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<instance name>.lecorpio.com/<customer name>`
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 在此建議您在 [識別碼] 中使用唯一的字串值。 請連絡 [Lecorpio 客戶支援小組](mailto:info@lecorpio.com)以取得這些值。 
  
-4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
+1. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
     ![設定單一登入](./media/lecorpio-tutorial/tutorial_lecorpio_certificate.png) 
 
-5. 按一下 [儲存]  按鈕。
+1. 按一下 [儲存]  按鈕。
 
     ![設定單一登入](./media/lecorpio-tutorial/tutorial_general_400.png)
 
-6. 若要在 **Lecorpio** 端設定單一登入，您必須將已下載的**中繼資料 XML** 傳送給 [Lecorpio 支援小組](mailto:info@lecorpio.com)。
+1. 若要在 **Lecorpio** 端設定單一登入，您必須將已下載的**中繼資料 XML** 傳送給 [Lecorpio 支援小組](mailto:info@lecorpio.com)。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -143,15 +143,15 @@ ms.locfileid: "36221122"
 
     ![建立 Azure AD 測試使用者](./media/lecorpio-tutorial/create_aaduser_01.png) 
 
-2. 移至 [使用者和群組]，然後按一下 [所有使用者] 以顯示使用者清單。
+1. 移至 [使用者和群組]，然後按一下 [所有使用者] 以顯示使用者清單。
     
     ![建立 Azure AD 測試使用者](./media/lecorpio-tutorial/create_aaduser_02.png) 
 
-3. 在對話方塊的頂端，按一下 [新增] 以開啟 [使用者] 對話方塊。
+1. 在對話方塊的頂端，按一下 [新增] 以開啟 [使用者] 對話方塊。
  
     ![建立 Azure AD 測試使用者](./media/lecorpio-tutorial/create_aaduser_03.png) 
 
-4. 在 [使用者]  對話頁面上，執行下列步驟：
+1. 在 [使用者]  對話頁面上，執行下列步驟：
  
     ![建立 Azure AD 測試使用者](./media/lecorpio-tutorial/create_aaduser_04.png) 
 
@@ -181,23 +181,23 @@ ms.locfileid: "36221122"
 
     ![指派使用者][201] 
 
-2. 在應用程式清單中，選取 [Lecorpio]。
+1. 在應用程式清單中，選取 [Lecorpio]。
 
     ![設定單一登入](./media/lecorpio-tutorial/tutorial_lecorpio_app.png) 
 
-3. 在左側功能表中，按一下 [使用者和群組]。
+1. 在左側功能表中，按一下 [使用者和群組]。
 
     ![指派使用者][202] 
 
-4. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
+1. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
 
     ![指派使用者][203]
 
-5. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
+1. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
 
-6. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
+1. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
 
-7. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
+1. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
     
 ### <a name="testing-single-sign-on"></a>測試單一登入
 

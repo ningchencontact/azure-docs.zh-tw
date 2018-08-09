@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: juliako
-ms.openlocfilehash: 8603716d30e1061ca9d600f2c053e90ff50c2433
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c46faf2298ebaac4f40fb1d18cbfca83076e0d4f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785877"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423531"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>使用 Azure 入口網站設定內容保護原則
  您可以透過 Azure 媒體服務來保護媒體從離開電腦到進行儲存、處理和傳遞時的安全。 您可以利用媒體服務傳遞，使用進階加密標準 (AES) (使用 128 位元加密金鑰) 所動態加密的內容。 您也可以將它與一般加密 (CENC) 搭配使用，方法是使用 PlayReady 和/或 Widevine 數位版權管理 (DRM) 和 Apple FairPlay。 
@@ -33,7 +33,7 @@ ms.locfileid: "33785877"
 
 1. 在[入口網站](https://portal.azure.com/)中，選取您的媒體服務帳戶。
 
-2. 選取 [設定] > [內容保護]。
+1. 選取 [設定] > [內容保護]。
 
     ![內容保護](./media/media-services-portal-content-protection/media-services-content-protection001.png)
 
@@ -110,11 +110,11 @@ AES 清除金鑰加密會在所有串流通訊協定上啟用︰Smooth Streaming
     
     e. **FairPlay 僅與 HLS** 會使用 FairPlay 將您的 HLS 串流動態加密。
 
-2. 若要啟用 FairPlay 加密，請在 [內容保護全域設定] 刀鋒視窗中選取 [FairPlay 設定]。 然後選取 [應用程式憑證]，並輸入**應用程式秘密金鑰**。
+1. 若要啟用 FairPlay 加密，請在 [內容保護全域設定] 刀鋒視窗中選取 [FairPlay 設定]。 然後選取 [應用程式憑證]，並輸入**應用程式秘密金鑰**。
 
     ![加密類型](./media/media-services-portal-content-protection/media-services-content-protection009.png)
 
-3. 您進行加密選取後，請選取 [套用]。
+1. 您進行加密選取後，請選取 [套用]。
 
 >[!NOTE] 
 >如果您計劃在 Safari 中播放 AES 加密的 HLS，請參閱 [Safari 中加密的 HLS](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)。

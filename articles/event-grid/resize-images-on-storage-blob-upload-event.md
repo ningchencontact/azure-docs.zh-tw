@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 06/20/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: f1f10e0cb552dfa938b85280f3acb302b4591426
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 922c87f2d577aff86d51a1fde53f221ebd2fa82c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295944"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39446685"
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>使用 Event Grid 自動調整已上傳映像的大小
 
@@ -36,7 +36,7 @@ ms.locfileid: "36295944"
 > * 使用 Azure Functions 部署無伺服器程式碼
 > * 在 Event Grid 中建立 Blob 儲存體事件訂閱
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程：
 
@@ -52,7 +52,7 @@ ms.locfileid: "36295944"
 
 ## <a name="create-an-azure-storage-account"></a>建立 Azure 儲存體帳戶
 
-Azure Functions 需要一般的儲存體帳戶。 使用 [az storage account create](/cli/azure/storage/account#az_storage_account_create) 命令，在資源群組中建立單獨的一般儲存體帳戶。
+Azure Functions 需要一般的儲存體帳戶。 使用 [az storage account create](/cli/azure/storage/account#az-storage-account-create) 命令，在資源群組中建立單獨的一般儲存體帳戶。
 
 儲存體帳戶名稱必須介於 3 到 24 個字元的長度，而且只能包含數字和小寫字母。 
 
@@ -66,7 +66,7 @@ az storage account create --name <general_storage_account> \
 
 ## <a name="create-a-function-app"></a>建立函數應用程式  
 
-您必須擁有函式應用程式以便主控函式的執行。 函式應用程式會提供環境來讓您的函式程式碼進行無伺服器執行。 使用 [az functionapp create](/cli/azure/functionapp#az_functionapp_create) 命令來建立函式應用程式。 
+您必須擁有函式應用程式以便主控函式的執行。 函式應用程式會提供環境來讓您的函式程式碼進行無伺服器執行。 使用 [az functionapp create](/cli/azure/functionapp#az-functionapp-create) 命令來建立函式應用程式。 
 
 在下列命令中，使用您自己唯一的函式應用程式名稱來替代您看見 `<function_app>` 預留位置的地方。 函式應用程式會作為函式應用程式的預設 DNS 網域，所以此名稱在 Azure 的所有應用程式中都必須是唯一的名稱。 以您所建立之一般儲存體帳戶的名稱替代 `<general_storage_account>`。
 

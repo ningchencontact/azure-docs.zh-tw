@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: eae350f751788eb09271e70f71f79b12e27c4e16
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: aa723fb765d4432d9bcdd56e4b520bf00660f84c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061396"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444844"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>將 Azure-SSIS 整合執行階段加入虛擬網路
 在下列案例中，將 Azure-SSIS 整合執行階段 (IR) 加入 Azure 虛擬網路： 
@@ -131,19 +131,19 @@ ms.locfileid: "37061396"
 
 1. 啟動 Microsoft Edge 或 Google Chrome。 目前只有這些網頁瀏覽器支援 Data Factory UI。 
 
-2. 登入 [Azure 入口網站](https://portal.azure.com)。 
+1. 登入 [Azure 入口網站](https://portal.azure.com)。 
 
-3. 選取 [更多服務]。 篩選並選取 [虛擬網路]。 
+1. 選取 [更多服務]。 篩選並選取 [虛擬網路]。 
 
-4. 篩選並選取清單中的 [虛擬網路]。 
+1. 篩選並選取清單中的 [虛擬網路]。 
 
-5. 在 [虛擬網路] 頁面上，選取 [屬性]。 
+1. 在 [虛擬網路] 頁面上，選取 [屬性]。 
 
-6. 選取 [資源識別碼] 的 [複製] 按鈕，將虛擬網路的資源識別碼複製到剪貼簿。 將剪貼簿中的識別碼儲存至 OneNote 或檔案中。 
+1. 選取 [資源識別碼] 的 [複製] 按鈕，將虛擬網路的資源識別碼複製到剪貼簿。 將剪貼簿中的識別碼儲存至 OneNote 或檔案中。 
 
-7. 選取左側功能表上的 [子網路]。 確定 [可用的位址] 數目大於 Azure-SSIS 整合執行階段中的節點數。 
+1. 選取左側功能表上的 [子網路]。 確定 [可用的位址] 數目大於 Azure-SSIS 整合執行階段中的節點數。 
 
-8. 確認已在具有虛擬網路的 Azure 訂用帳戶中註冊 Azure Batch 提供者。 或者，註冊 Azure Batch 提供者。 如果您的訂用帳戶中已經有 Azure Batch 帳戶，則會註冊 Azure Batch 的訂用帳戶。 (若在 Data Factory 入口網站中建立 Azure-SSIS IR，便會自動註冊 Azure Batch 提供者)。 
+1. 確認已在具有虛擬網路的 Azure 訂用帳戶中註冊 Azure Batch 提供者。 或者，註冊 Azure Batch 提供者。 如果您的訂用帳戶中已經有 Azure Batch 帳戶，則會註冊 Azure Batch 的訂用帳戶。 (若在 Data Factory 入口網站中建立 Azure-SSIS IR，便會自動註冊 Azure Batch 提供者)。 
 
    a. 在 Azure 入口網站中，選取左側功能表上的 [訂用帳戶]。 
 
@@ -160,23 +160,23 @@ ms.locfileid: "37061396"
 
 1. 啟動 Microsoft Edge 或 Google Chrome。 目前只有這些網頁瀏覽器支援 Data Factory UI。 
 
-2. 登入 [Azure 入口網站](https://portal.azure.com)。 
+1. 登入 [Azure 入口網站](https://portal.azure.com)。 
 
-3. 選取 [更多服務]。 篩選並選取 [虛擬網路 (傳統)]。 
+1. 選取 [更多服務]。 篩選並選取 [虛擬網路 (傳統)]。 
 
-4. 篩選並選取清單中的 [虛擬網路]。 
+1. 篩選並選取清單中的 [虛擬網路]。 
 
-5. 在 [虛擬網路 (傳統)] 頁面上，選取 [屬性]。 
+1. 在 [虛擬網路 (傳統)] 頁面上，選取 [屬性]。 
 
    ![傳統虛擬網路資源識別碼](media/join-azure-ssis-integration-runtime-virtual-network/classic-vnet-resource-id.png)
 
-6. 選取 [資源識別碼] 的 [複製] 按鈕，將傳統網路的資源識別碼複製到剪貼簿。 將剪貼簿中的識別碼儲存至 OneNote 或檔案中。 
+1. 選取 [資源識別碼] 的 [複製] 按鈕，將傳統網路的資源識別碼複製到剪貼簿。 將剪貼簿中的識別碼儲存至 OneNote 或檔案中。 
 
-7. 選取左側功能表上的 [子網路]。 確定 [可用的位址] 數目大於 Azure-SSIS 整合執行階段中的節點數。 
+1. 選取左側功能表上的 [子網路]。 確定 [可用的位址] 數目大於 Azure-SSIS 整合執行階段中的節點數。 
 
    ![虛擬網路中的可用位址數目](media/join-azure-ssis-integration-runtime-virtual-network/number-of-available-addresses.png)
 
-8. 將 **MicrosoftAzureBatch** 加入虛擬網路的**傳統虛擬機器參與者**角色。 
+1. 將 **MicrosoftAzureBatch** 加入虛擬網路的**傳統虛擬機器參與者**角色。 
 
     a. 選取左側功能表上的 [存取控制 (IAM)]，然後選取工具列上的 [新增]。 
 
@@ -194,7 +194,7 @@ ms.locfileid: "37061396"
 
     ![確認 Azure Batch 存取](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-in-list.png)
 
-9. 確認已在具有虛擬網路的 Azure 訂用帳戶中註冊 Azure Batch 提供者。 或者，註冊 Azure Batch 提供者。 如果您的訂用帳戶中已經有 Azure Batch 帳戶，則會註冊 Azure Batch 的訂用帳戶。 (若在 Data Factory 入口網站中建立 Azure-SSIS IR，便會自動註冊 Azure Batch 提供者)。 
+1. 確認已在具有虛擬網路的 Azure 訂用帳戶中註冊 Azure Batch 提供者。 或者，註冊 Azure Batch 提供者。 如果您的訂用帳戶中已經有 Azure Batch 帳戶，則會註冊 Azure Batch 的訂用帳戶。 (若在 Data Factory 入口網站中建立 Azure-SSIS IR，便會自動註冊 Azure Batch 提供者)。 
 
    a. 在 Azure 入口網站中，選取左側功能表上的 [訂用帳戶]。 
 
@@ -209,35 +209,35 @@ ms.locfileid: "37061396"
 ### <a name="join-the-azure-ssis-ir-to-a-virtual-network"></a>將 Azure-SSIS IR 加入虛擬網路
 1. 啟動 Microsoft Edge 或 Google Chrome。 目前只有這些網頁瀏覽器支援 Data Factory UI。 
 
-2. 在 [Azure 入口網站](https://portal.azure.com)中，選取左側功能表中的 [資料處理站]。 如果在功能表上未看到 [資料處理站]，請選取 [更多服務]，然後選取 [智慧 + 分析] 區段中的 [資料處理站]。 
+1. 在 [Azure 入口網站](https://portal.azure.com)中，選取左側功能表中的 [資料處理站]。 如果在功能表上未看到 [資料處理站]，請選取 [更多服務]，然後選取 [智慧 + 分析] 區段中的 [資料處理站]。 
 
    ![資料處理站清單](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
 
-3. 在清單中選取具有 Azure-SSIS 整合執行階段的資料處理站。 您會看到資料處理站的首頁。 選取 [編寫與部署] 圖格。 您會在個別的索引標籤上看到 Data Factory UI。 
+1. 在清單中選取具有 Azure-SSIS 整合執行階段的資料處理站。 您會看到資料處理站的首頁。 選取 [編寫與部署] 圖格。 您會在個別的索引標籤上看到 Data Factory UI。 
 
    ![Data Factory 首頁](media/join-azure-ssis-integration-runtime-virtual-network/data-factory-home-page.png)
 
-4. 在 Data Factory UI 中，切換至 [編輯] 索引標籤，選取 [連線]，然後切換至 [整合執行階段] 索引標籤。 
+1. 在 Data Factory UI 中，切換至 [編輯] 索引標籤，選取 [連線]，然後切換至 [整合執行階段] 索引標籤。 
 
    ![[整合執行階段] 索引標籤](media/join-azure-ssis-integration-runtime-virtual-network/integration-runtimes-tab.png)
 
-5. 如果您的 Azure-SSIS 整合執行階段正在執行，在整合執行階段清單中，請在 [動作] 資料行中針對您的 Azure SSIS IR 選取 [停止] 按鈕。 您必須停止整合執行階段才能進行編輯。 
+1. 如果您的 Azure-SSIS 整合執行階段正在執行，在整合執行階段清單中，請在 [動作] 資料行中針對您的 Azure SSIS IR 選取 [停止] 按鈕。 您必須停止整合執行階段才能進行編輯。 
 
    ![停止 IR](media/join-azure-ssis-integration-runtime-virtual-network/stop-ir-button.png)
 
-6. 在整合執行階段清單中，在 [動作] 資料行中針對您的 Azure-SSIS IR 選取 [編輯] 按鈕。 
+1. 在整合執行階段清單中，在 [動作] 資料行中針對您的 Azure-SSIS IR 選取 [編輯] 按鈕。 
 
    ![編輯整合執行階段](media/join-azure-ssis-integration-runtime-virtual-network/integration-runtime-edit.png)
 
-7. 在 [整合執行階段設定] 視窗的 [一般設定] 頁面上，選取 [下一步]。 
+1. 在 [整合執行階段設定] 視窗的 [一般設定] 頁面上，選取 [下一步]。 
 
    ![IR 設定的一般設定](media/join-azure-ssis-integration-runtime-virtual-network/ir-setup-general-settings.png)
 
-8. 在 [SQL 設定] 頁面上，輸入系統管理員密碼，然後選取 [下一步]。 
+1. 在 [SQL 設定] 頁面上，輸入系統管理員密碼，然後選取 [下一步]。 
 
    ![IR 設定的 SQL Server 設定](media/join-azure-ssis-integration-runtime-virtual-network/ir-setup-sql-settings.png)
 
-9. 在 [進階設定] 頁面上，執行下列動作： 
+1. 在 [進階設定] 頁面上，執行下列動作： 
 
    a. 選取 [選取您的 Azure-SSIS 整合執行階段要加入的 VNet 並允許 Azure 服務設定 VNet 權限/設定] 核取方塊。 
 
@@ -251,7 +251,7 @@ ms.locfileid: "37061396"
 
    ![IR 設定的進階設定](media/join-azure-ssis-integration-runtime-virtual-network/ir-setup-advanced-settings.png)
 
-10. 現在，您可以針對您的 Azure-SSIS IR 使用 [動作] 資料行中的 [啟動] 按鈕，以啟動 IR。 啟動 Azure-SSIS IR 需要約 20 至 30 分鐘。 
+1. 現在，您可以針對您的 Azure-SSIS IR 使用 [動作] 資料行中的 [啟動] 按鈕，以啟動 IR。 啟動 Azure-SSIS IR 需要約 20 至 30 分鐘。 
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -284,8 +284,8 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 ### <a name="join-an-existing-azure-ssis-ir-to-a-virtual-network"></a>將現有的 Azure-SSIS IR 加入虛擬網路
 [建立 Azure-SSIS 整合執行階段](create-azure-ssis-integration-runtime.md)一文中的指令碼會說明如何以相同的指令碼建立 Azure-SSIS IR 並將其加入虛擬網路。 如果您有現有的 Azure-SSIS IR，請執行下列步驟將其加入虛擬網路： 
 1. 停止 Azure-SSIS IR。 
-2. 設定要加入虛擬網路的 Azure-SSIS IR。 
-3. 啟動 Azure-SSIS IR。 
+1. 設定要加入虛擬網路的 Azure-SSIS IR。 
+1. 啟動 Azure-SSIS IR。 
 
 ### <a name="define-the-variables"></a>定義變數
 ```powershell

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.openlocfilehash: c90c0c2f831a622b54a56db5c9a3d4efb2f57eaa
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 118ab72c9afc13c5792f229f9c7bc61d226553d5
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041852"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39420569"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-samanage"></a>教學課程：Azure Active Directory 與 Samanage 整合
 
@@ -52,7 +52,7 @@ Samanage 與 Azure AD 整合提供下列優點：
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Samanage
-2. 設定並測試 Azure AD 單一登入
+1. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-samanage-from-the-gallery"></a>從資源庫新增 Samanage
 若要設定 Samanage 與 Azure AD 的整合作業，您必須從資源庫將 Samanage 新增至受控 SaaS 應用程式清單。
@@ -63,19 +63,19 @@ Samanage 與 Azure AD 整合提供下列優點：
 
     ![Active Directory][1]
 
-2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
+1. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![[應用程式]][2]
     
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+1. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![[應用程式]][3]
 
-4. 在搜尋方塊中，輸入 **Samanage**。
+1. 在搜尋方塊中，輸入 **Samanage**。
 
     ![建立 Azure AD 測試使用者](./media/samanage-tutorial/tutorial_samanage_search.png)
 
-5. 在結果面板中，選取 [Samanage]，然後按一下 [新增] 按鈕以新增應用程式。
+1. 在結果面板中，選取 [Samanage]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/samanage-tutorial/tutorial_samanage_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Samanage 與 Azure AD 整合提供下列優點：
 若要使用 Samanage 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 Samanage 測試使用者](#creating-a-samanage-test-user)** - 使 Samanage 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
-4. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
+1. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
+1. **[建立 Samanage 測試使用者](#creating-a-samanage-test-user)** - 使 Samanage 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
+1. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+1. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -104,11 +104,11 @@ Samanage 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入][4]
 
-2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
+1. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
  
     ![設定單一登入](./media/samanage-tutorial/tutorial_samanage_samlbase.png)
 
-3. 在 [Samanage 網域及 URL] 區段中，執行下列步驟：
+1. 在 [Samanage 網域及 URL] 區段中，執行下列步驟：
 
     ![設定單一登入](./media/samanage-tutorial/tutorial_samanage_url.png)
 
@@ -119,29 +119,29 @@ Samanage 與 Azure AD 整合提供下列優點：
     > [!NOTE] 
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值 (本教學課程稍後會說明)。 如需詳細資料，請連絡 [Samanage 客戶支援小組](https://www.samanage.com/support)。    
  
-4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
+1. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
     ![設定單一登入](./media/samanage-tutorial/tutorial_samanage_certificate.png) 
 
-5. 按一下 [儲存]  按鈕。
+1. 按一下 [儲存]  按鈕。
 
     ![設定單一登入](./media/samanage-tutorial/tutorial_general_400.png)
 
-6. 在 [Samanage 組態] 區段上，按一下 [設定 Samanage] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL] 和 [SAML 實體識別碼]。
+1. 在 [Samanage 組態] 區段上，按一下 [設定 Samanage] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL] 和 [SAML 實體識別碼]。
 
     ![設定單一登入](./media/samanage-tutorial/tutorial_samanage_configure.png) 
 
-7. 在不同的 Web 瀏覽器視窗中，以系統管理員身分登入您的 Samanage 公司網站。
+1. 在不同的 Web 瀏覽器視窗中，以系統管理員身分登入您的 Samanage 公司網站。
 
-8. 按一下 [儀表板] 並選取左側導覽窗格中的 [安裝]。
+1. 按一下 [儀表板] 並選取左側導覽窗格中的 [安裝]。
    
     ![儀表板](./media/samanage-tutorial/tutorial_samanage_001.png "儀表板")
 
-9. 按一下 [單一登入] 。
+1. 按一下 [單一登入] 。
    
     ![單一登入](./media/samanage-tutorial/tutorial_samanage_002.png "單一登入")
 
-10. 瀏覽至 [使用 SAML 登入]  區段，執行下列步驟︰
+1. 瀏覽至 [使用 SAML 登入]  區段，執行下列步驟︰
    
     ![使用 SAML 登入](./media/samanage-tutorial/tutorial_samanage_003.png "使用 SAML 登入")
  
@@ -175,15 +175,15 @@ Samanage 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/samanage-tutorial/create_aaduser_01.png) 
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+1. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
     
     ![建立 Azure AD 測試使用者](./media/samanage-tutorial/create_aaduser_02.png) 
 
-3. 若要開啟 [使用者] 對話方塊，按一下對話方塊頂端的 [新增]。
+1. 若要開啟 [使用者] 對話方塊，按一下對話方塊頂端的 [新增]。
  
     ![建立 Azure AD 測試使用者](./media/samanage-tutorial/create_aaduser_03.png) 
 
-4. 在 [使用者]  對話頁面上，執行下列步驟：
+1. 在 [使用者]  對話頁面上，執行下列步驟：
  
     ![建立 Azure AD 測試使用者](./media/samanage-tutorial/create_aaduser_04.png) 
 
@@ -204,19 +204,19 @@ Samanage 與 Azure AD 整合提供下列優點：
 
 1. 以系統管理員身分登入您的 Samanage 公司網站。
 
-2. 按一下 [儀表板] 並選取左側導覽窗格中的 [安裝]。
+1. 按一下 [儀表板] 並選取左側導覽窗格中的 [安裝]。
    
     ![設定](./media/samanage-tutorial/tutorial_samanage_001.png "設定")
 
-3. 按一下 [使用者]  索引標籤
+1. 按一下 [使用者]  索引標籤
    
     ![使用者](./media/samanage-tutorial/tutorial_samanage_006.png "使用者")
 
-4. 按一下 [新使用者] 。
+1. 按一下 [新使用者] 。
    
     ![新增使用者](./media/samanage-tutorial/tutorial_samanage_007.png "新增使用者")
 
-5. 輸入您想要佈建之 Azure Active Directory 帳戶的 [名稱] 和 [電子郵件地址]，然後按一下 [建立使用者]。
+1. 輸入您想要佈建之 Azure Active Directory 帳戶的 [名稱] 和 [電子郵件地址]，然後按一下 [建立使用者]。
    
     ![建立使用者](./media/samanage-tutorial/tutorial_samanage_008.png "建立使用者")
    
@@ -235,23 +235,23 @@ Samanage 與 Azure AD 整合提供下列優點：
 
     ![指派使用者][201] 
 
-2. 在應用程式清單中，選取 [Samanage] 。
+1. 在應用程式清單中，選取 [Samanage] 。
 
     ![設定單一登入](./media/samanage-tutorial/tutorial_samanage_app.png) 
 
-3. 在左側功能表中，按一下 [使用者和群組]。
+1. 在左側功能表中，按一下 [使用者和群組]。
 
     ![指派使用者][202] 
 
-4. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
+1. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
 
     ![指派使用者][203]
 
-5. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
+1. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
 
-6. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
+1. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
 
-7. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
+1. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
     
 ### <a name="testing-single-sign-on"></a>測試單一登入
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: a538b23e829e309c10e745beef4fc8512c3294de
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 6ba37a026a3c8f50fa47b0775a2ad49ee75f2769
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131422"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424641"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Log Analytics 中的 VMware 監視 (預覽) 解決方案
 
@@ -49,29 +49,29 @@ vSphere ESXi 主機 5.5、6.0 和 6.5
 ### <a name="configure-syslog-collection"></a>設定 syslog 收集
 1. 設定 VSphere 的 syslog 轉送。 如需協助設定 syslog 轉送的詳細資訊，請參閱[設定 ESXi 5.0 和更新版本上的 syslog (2003322)](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322)。 移至 [ESXi 主機組態]  >  [軟體]  >  [進階設定]  >  [Syslog]。
    ![vsphereconfig](./media/log-analytics-vmware/vsphere1.png)  
-2. 在 [Syslog.global.logHost] 欄位中，新增您的 Linux 伺服器和連接埠號碼 1514。 例如，`tcp://hostname:1514` 或 `tcp://123.456.789.101:1514`。
-3. 為 syslog 開啟 ESXi 主機防火牆。 [ESXi 主機組態]  >  [軟體]  >  [安全性設定檔]  >  [防火牆]，然後開啟 [屬性]。  
+1. 在 [Syslog.global.logHost] 欄位中，新增您的 Linux 伺服器和連接埠號碼 1514。 例如，`tcp://hostname:1514` 或 `tcp://123.456.789.101:1514`。
+1. 為 syslog 開啟 ESXi 主機防火牆。 [ESXi 主機組態]  >  [軟體]  >  [安全性設定檔]  >  [防火牆]，然後開啟 [屬性]。  
 
     ![vspherefw](./media/log-analytics-vmware/vsphere2.png)  
 
     ![vspherefwproperties](./media/log-analytics-vmware/vsphere3.png)  
-4. 檢查 vSphere 主控台，確認 syslog 設定正確。 確認 ESXI 主機上已設定連接埠 **1514**。
-5. 在 Linux 伺服器上下載並安裝 OMS Agent for Linux。 如需詳細資訊，請參閱 [OMS Agent for Linux 的文件](https://github.com/Microsoft/OMS-Agent-for-Linux)。
-6. 安裝 OMS Agent for Linux 後，移至 /etc/opt/microsoft/omsagent/sysconf/omsagent.d 目錄，將 vmware_esxi.conf 檔複製到 /etc/opt/microsoft/omsagent/conf/omsagent.d directory 目錄，並變更檔案的擁有者/群組和權限。 例如︰
+1. 檢查 vSphere 主控台，確認 syslog 設定正確。 確認 ESXI 主機上已設定連接埠 **1514**。
+1. 在 Linux 伺服器上下載並安裝 OMS Agent for Linux。 如需詳細資訊，請參閱 [OMS Agent for Linux 的文件](https://github.com/Microsoft/OMS-Agent-for-Linux)。
+1. 安裝 OMS Agent for Linux 後，移至 /etc/opt/microsoft/omsagent/sysconf/omsagent.d 目錄，將 vmware_esxi.conf 檔複製到 /etc/opt/microsoft/omsagent/conf/omsagent.d directory 目錄，並變更檔案的擁有者/群組和權限。 例如︰
 
     ```
     sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/vmware_esxi.conf /etc/opt/microsoft/omsagent/conf/omsagent.d
    sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf
     ```
-7. 執行 `sudo /opt/microsoft/omsagent/bin/service_control restart` 啟動 OMS Agent for Linux。
-8. 在 ESXi 主機上使用 `nc`命令測試 Linux 伺服器和 ESXi 主機之間的連線。 例如︰
+1. 執行 `sudo /opt/microsoft/omsagent/bin/service_control restart` 啟動 OMS Agent for Linux。
+1. 在 ESXi 主機上使用 `nc`命令測試 Linux 伺服器和 ESXi 主機之間的連線。 例如︰
 
     ```
     [root@ESXiHost:~] nc -z 123.456.789.101 1514
     Connection to 123.456.789.101 1514 port [tcp/*] succeeded!
     ```
 
-9. 在 Azure 入口網站中，執行 `VMware_CL` 的記錄搜尋。 Log Analytics 在收集 syslog 資料時，會保留 syslog 格式。 在入口網站中，會擷取某些特定欄位，例如 Hostname 和 ProcessName。  
+1. 在 Azure 入口網站中，執行 `VMware_CL` 的記錄搜尋。 Log Analytics 在收集 syslog 資料時，會保留 syslog 格式。 在入口網站中，會擷取某些特定欄位，例如 Hostname 和 ProcessName。  
 
     ![type](./media/log-analytics-vmware/type.png)  
 
@@ -191,11 +191,11 @@ syslog 時間戳記有一個 ESXi 主機錯誤。 如需詳細資訊，請參閱
   1. 若要確認，請使用 SSH 登入 ESXi 主機並執行以下命令：`nc -z ipaddressofVM 1514`
 
       如果這沒有成功，表示進階組態中的 vSphere 設定可能不正確。 請參閱[設定 syslog 集合](#configure-syslog-collection)，以瞭解如何設定 ESXi 主機來進行 syslog 轉送的相關資訊。
-  2. 如果 syslog 連接埠連線成功，但您還是沒有看到任何資料，請使用 ssh 並執行以下命令來於 ESXi 主機上重新載入 syslog：` esxcli system syslog reload`
+  1. 如果 syslog 連接埠連線成功，但您還是沒有看到任何資料，請使用 ssh 並執行以下命令來於 ESXi 主機上重新載入 syslog：` esxcli system syslog reload`
 * 未正確設定具有 OMS 代理程式的 VM。 若要測試，請執行下列步驟：
 
   1. Log Analytics 會接聽連接埠 1514。 若要確認它是否已經開啟，請執行以下命令：`netstat -a | grep 1514`
-  2. 您應該會看到連接埠 `1514/tcp` 已開啟。 如果沒有，請確認是否已正確安裝 OMS 代理程式。 如果您沒有看到連接埠資訊，表示 VM 上沒有開啟 syslog 連接埠。
+  1. 您應該會看到連接埠 `1514/tcp` 已開啟。 如果沒有，請確認是否已正確安裝 OMS 代理程式。 如果您沒有看到連接埠資訊，表示 VM 上沒有開啟 syslog 連接埠。
 
     a. 請使用 `ps -ef | grep oms` 確認 OMS 代理程式是否在執行中。 如果它沒有執行，請執行命令 ` sudo /opt/microsoft/omsagent/bin/service_control start`
 

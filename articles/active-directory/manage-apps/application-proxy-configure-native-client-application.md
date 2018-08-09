@@ -15,12 +15,12 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 589cf1d297a335c36725917dd7012d877d1dcaeb
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 85a7b133655a3b1e4ca60c28e695e3057b293fdc
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363072"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504510"
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>如何讓原生用戶端應用程式與 Proxy 應用程式互動
 
@@ -30,7 +30,7 @@ ms.locfileid: "39363072"
 
 ![使用者、Azure Active Directory 和已發佈應用程式之間的關係](./media/application-proxy-configure-native-client-application/richclientflow.png)
 
-請使用 Azure AD 驗證程式庫來發佈原生應用程式，該程式庫會處理驗證並支援許多用戶端環境。 應用程式 Proxy 融入 [原生應用程式到 Web API 案例](../develop/active-directory-authentication-scenarios.md#native-application-to-web-api)。 
+請使用 Azure AD 驗證程式庫來發佈原生應用程式，該程式庫會處理驗證並支援許多用戶端環境。 應用程式 Proxy 融入 [原生應用程式到 Web API 案例](../develop/authentication-scenarios.md#native-application-to-web-api)。 
 
 本文引導您完成使用應用程式 Proxy 和 Azure AD 驗證程式庫發佈原生應用程式的四個步驟。 
 
@@ -48,7 +48,7 @@ ms.locfileid: "39363072"
    ![建立新的應用程式註冊](./media/application-proxy-configure-native-client-application/create.png)
 5. 選取 [建立] 。
 
-如需建立新應用程式註冊的詳細資訊，請參閱[整合應用程式與 Azure Active Directory](./../develop/active-directory-integrating-applications.md)。
+如需建立新應用程式註冊的詳細資訊，請參閱[整合應用程式與 Azure Active Directory](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)。
 
 
 ## <a name="step-3-grant-access-to-other-applications"></a>步驟 3：授與其他應用程式存取權
@@ -96,6 +96,6 @@ HttpResponseMessage response = await httpClient.GetAsync("< Proxy App API Url >"
 
 ## <a name="next-steps"></a>後續步驟
 
-如需原生應用程式流程的詳細資訊，請參閱[原生應用程式到 Web API](../develop/active-directory-authentication-scenarios.md#native-application-to-web-api)。
+如需原生應用程式流程的詳細資訊，請參閱[原生應用程式到 Web API](../develop/authentication-scenarios.md#native-application-to-web-api)。
 
 深入了解設定[應用程式 Proxy 的單一登入](application-proxy-single-sign-on.md)

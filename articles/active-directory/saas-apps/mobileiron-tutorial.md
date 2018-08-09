@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/9/2017
 ms.author: jeedes
-ms.openlocfilehash: 25bb4ba9cfb15657cf28f7018ad622c9dfee9458
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 53cec59841fbda49e4e410f069882ea76996f9fb
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051917"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39428286"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>教學課程：Azure Active Directory 與 MobileIron 整合
 
@@ -53,7 +53,7 @@ MobileIron 與 Azure AD 整合提供下列優點：
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 MobileIron
-2. 設定並測試 Azure AD 單一登入
+1. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-mobileiron-from-the-gallery"></a>從資源庫新增 MobileIron
 若要設定 MobileIron 與 Azure AD 整合，您需要從資源庫將 MobileIron 新增至受控 SaaS 應用程式清單。
@@ -64,15 +64,15 @@ MobileIron 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕][1]
 
-2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
+1. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![企業應用程式刀鋒視窗][2]
     
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+1. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![新增應用程式按鈕][3]
 
-4. 在搜尋方塊中，輸入 **MobileIron**，從結果面板中選取 [MobileIron]，然後按一下 [新增] 按鈕以新增應用程式。
+1. 在搜尋方塊中，輸入 **MobileIron**，從結果面板中選取 [MobileIron]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![結果清單中的 MobileIron](./media/mobileiron-tutorial/tutorial_mobileiron_addfromgallery.png)
 
@@ -87,10 +87,10 @@ MobileIron 與 Azure AD 整合提供下列優點：
 若要設定及測試與 MobileIron 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 MobileIron 測試使用者](#create-a-mobileiron-test-user)** - 在 MobileIron 中建立 Britta Simon 的對應項目，且該項目與 Azure AD 中代表該使用者的項目連結。
-4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
+1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
+1. **[建立 MobileIron 測試使用者](#create-a-mobileiron-test-user)** - 在 MobileIron 中建立 Britta Simon 的對應項目，且該項目與 Azure AD 中代表該使用者的項目連結。
+1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+1. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -102,11 +102,11 @@ MobileIron 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入連結][4]
 
-2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
+1. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
  
     ![單一登入對話方塊](./media/mobileiron-tutorial/tutorial_mobileiron_samlbase.png)
 
-3. 如果您想要以 **IDP** 起始模式設定應用程式，請在 [MobileIron 網域及 URL] 區段上執行下列步驟：
+1. 如果您想要以 **IDP** 起始模式設定應用程式，請在 [MobileIron 網域及 URL] 區段上執行下列步驟：
 
     ![MobileIron 網域及 URL 單一登入資訊](./media/mobileiron-tutorial/tutorial_mobileiron_url.png)
 
@@ -114,7 +114,7 @@ MobileIron 與 Azure AD 整合提供下列優點：
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<host>.mobileiron.com/saml/SSO/alias/<key>`
 
-4. 如果您想要以 **SP** 起始模式設定應用程式，請勾選 [顯示進階 URL 設定]，然後執行下列步驟：
+1. 如果您想要以 **SP** 起始模式設定應用程式，請勾選 [顯示進階 URL 設定]，然後執行下列步驟：
 
     ![MobileIron 網域及 URL 單一登入](./media/mobileiron-tutorial/tutorial_mobileiron_url1.png)
 
@@ -123,27 +123,27 @@ MobileIron 與 Azure AD 整合提供下列優點：
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的識別碼、回覆 URL 和登入 URL 來更新這些值。 您將會從 MobileIron 的系統管理入口網站取得 key 和 host 的值 (本教學課程稍後說明)。
 
-5. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
+1. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
     ![憑證下載連結](./media/mobileiron-tutorial/tutorial_mobileiron_certificate.png) 
 
-6. 按一下 [儲存]  按鈕。
+1. 按一下 [儲存]  按鈕。
 
     ![設定單一登入儲存按鈕](./media/mobileiron-tutorial/tutorial_general_400.png)
 
-7. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 MobileIron 公司網站。
+1. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 MobileIron 公司網站。
 
-8. 移至 [管理員] > [身分識別]。
+1. 移至 [管理員] > [身分識別]。
 
    * 在 [雲端 IDP 設定的相關資訊] 欄位中，選取 [AAD] 選項。
 
     ![設定單一登入管理員按鈕](./media/mobileiron-tutorial/tutorial_mobileiron_admin.png)
 
-9. 複製 [金鑰] 和 [主機] 的值，並貼到 Azure 入口網站的 [MobileIron 網域及 URL] 區段中來補齊 URL。
+1. 複製 [金鑰] 和 [主機] 的值，並貼到 Azure 入口網站的 [MobileIron 網域及 URL] 區段中來補齊 URL。
 
     ![設定單一登入管理員按鈕](./media/mobileiron-tutorial/key.png)
 
-10. 在 [從 AAD 匯出中繼資料檔案並匯入至 MobileIron 雲端] 欄位中，按一下 [選擇檔案]，上傳從 Azure 入口網站下載的中繼資料。 上傳之後，按一下 [完成]。
+1. 在 [從 AAD 匯出中繼資料檔案並匯入至 MobileIron 雲端] 欄位中，按一下 [選擇檔案]，上傳從 Azure 入口網站下載的中繼資料。 上傳之後，按一下 [完成]。
  
     ![設定單一登入管理員中繼資料按鈕](./media/mobileiron-tutorial/tutorial_mobileiron_adminmetadata.png)
 
@@ -162,15 +162,15 @@ MobileIron 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/mobileiron-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+1. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/mobileiron-tutorial/create_aaduser_02.png)
 
-3. 若要開啟 [使用者] 對話方塊，按一下 [所有使用者] 對話方塊頂端的 [新增]。
+1. 若要開啟 [使用者] 對話方塊，按一下 [所有使用者] 對話方塊頂端的 [新增]。
 
     ![[新增] 按鈕](./media/mobileiron-tutorial/create_aaduser_03.png)
 
-4. 在 [使用者] 對話方塊中，執行下列步驟：
+1. 在 [使用者] 對話方塊中，執行下列步驟：
 
     ![[使用者] 對話方塊](./media/mobileiron-tutorial/create_aaduser_04.png)
 
@@ -191,11 +191,11 @@ MobileIron 需以手動方式佈建。
 
 1. 以系統管理員身分登入您的 MobileIron 公司網站。
 
-2. 移至 [使用者]，然後按一下 [新增] > [單一使用者]。
+1. 移至 [使用者]，然後按一下 [新增] > [單一使用者]。
 
     ![設定單一登入使用者按鈕](./media/mobileiron-tutorial/tutorial_mobileiron_user.png)
 
-3. 在 [使用者] 對話方塊頁面上，執行下列步驟：
+1. 在 [使用者] 對話方塊頁面上，執行下列步驟：
 
     ![設定單一登入使用者新增按鈕](./media/mobileiron-tutorial/tutorial_mobileiron_useradd.png)
 
@@ -219,23 +219,23 @@ MobileIron 需以手動方式佈建。
 
     ![指派使用者][201] 
 
-2. 在應用程式清單中，選取 [MobileIron]。
+1. 在應用程式清單中，選取 [MobileIron]。
 
     ![應用程式清單中的 MobileIron 連結](./media/mobileiron-tutorial/tutorial_mobileiron_app.png)  
 
-3. 在左側功能表中，按一下 [使用者和群組]。
+1. 在左側功能表中，按一下 [使用者和群組]。
 
     ![[使用者和群組] 連結][202]
 
-4. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
+1. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
 
     ![[新增指派] 窗格][203]
 
-5. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
+1. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
 
-6. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
+1. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
 
-7. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
+1. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
     
 ### <a name="test-single-sign-on"></a>測試單一登入
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/12/2018
 ms.author: ryanwi,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 601742d82c1bd9a0e691de28ff9c4a09f12b538e
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 81cd4d247ba6153fd205ead36f29a52b420bb427
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186374"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502823"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>教學課程：將 Service Fabric 應用程式部署到 Azure 中的叢集
 
@@ -65,7 +65,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 * 發佈至您訂用帳戶中的現有叢集。  您可以透過 [Azure 入口網站](https://portal.azure.com)，並使用 [PowerShel](./scripts/service-fabric-powershell-create-secure-cluster-cert.md) 或 [Azure CLI](./scripts/cli-create-cluster.md) 指令碼，或者從 [Azure Resource Manager 範本](service-fabric-tutorial-create-vnet-and-windows-cluster.md)建立 Service Fabric 叢集。
 
 > [!NOTE]
-> 許多服務會使用反向 Proxy 彼此通訊。 從 Visual Studio 和合作對象叢集建立的叢集預設都已啟用反向 Proxy。  如果使用現有叢集，您必須[在叢集中啟用反向 Proxy](service-fabric-reverseproxy.md#setup-and-configuration)。
+> 許多服務會使用反向 Proxy 彼此通訊。 從 Visual Studio 和合作對象叢集建立的叢集預設都已啟用反向 Proxy。  如果使用現有叢集，您必須[在叢集中啟用反向 Proxy](service-fabric-reverseproxy-setup.md#)。
 
 
 ### <a name="find-the-votingweb-service-endpoint-for-your-azure-subscription"></a>尋找 Azure 訂用帳戶中的 VotingWeb 服務端點

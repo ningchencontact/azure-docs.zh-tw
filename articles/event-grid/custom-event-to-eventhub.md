@@ -8,12 +8,12 @@ ms.author: tomfitz
 ms.date: 07/05/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 7b2cf18aa2bbce1fcaf8b26dbca00d7fd352c3b1
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: b5be37ede208ba14fbfe8270bff317a782bf655a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867227"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425879"
 ---
 # <a name="route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>使用 Azure CLI 和事件方格將自訂事件路由至 Azure 事件中樞
 
@@ -25,7 +25,7 @@ Azure Event Grid 是一項雲端事件服務。 Azure 事件中樞是其中一�
 
 Event Grid 為 Azure 資源，必須放入 Azure 資源群組中。 資源群組是在其中部署與管理 Azure 資源的邏輯集合。
 
-使用 [az group create](/cli/azure/group#az_group_create) 命令來建立資源群組。 
+使用 [az group create](/cli/azure/group#az-group-create) 命令來建立資源群組。 
 
 下列範例會在 westus2 位置建立名為 gridResourceGroup 的資源群組。
 

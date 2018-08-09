@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/26/2018
 ms.author: sethm
-ms.openlocfilehash: 77acad8bd0a7ada13979db539b138e03d42dc031
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 3e4689aa4ef5cdbd52aa2c70b8ba754013cab3db
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37132088"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425947"
 ---
 # <a name="quickstart-process-event-streams-using-azure-cli-and-java"></a>快速入門：使用 Azure CLI 和 Java 處理事件串流
 
@@ -23,7 +23,7 @@ Azure 事件中樞是可高度調整的資料串流平台和擷取服務，每�
 
 若要完成本快速入門，您需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶][]。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -294,5 +294,5 @@ public void onEvents(PartitionContext context, Iterable<EventData> events) throw
 
 [免費帳戶]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install Azure CLI 2.0]: /cli/azure/install-azure-cli
-[az group create]: /cli/azure/group#az_group_create
+[az group create]: /cli/azure/group#az-group-create
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

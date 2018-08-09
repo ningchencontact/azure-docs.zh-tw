@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
-ms.openlocfilehash: 57ad5d5d2e7e068f47d51408527f1f7553917279
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2d4091d8ad6a778405ee6bb916c399e0b144f21d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441522"
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>開始在 Azure 中的 HPC Pack 叢集使用 Linux 運算節點
 在 Azure 中設定 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029.aspx) 叢集，其中包含一個執行 Windows Server 的前端節點，以及數個執行支援之 Linux 散發套件的計算節點。 探索叢集的 Linux 節點與 Windows 前端節點之間移動資料的一些選項。 了解如何將 Linux HPC 作業提交至叢集。
@@ -40,7 +41,7 @@ ms.lasthandoff: 04/05/2018
 
 如需 Azure 中的 HPC Pack 叢集部署選項有關的詳細資訊，請參閱[使用 Microsoft HPC Pack 在 Azure 中建立及管理高效能運算 (HPC) 叢集的選項](../hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 * **Azure 訂用帳戶** - 您可以使用「Azure 全球」或「Azure 中國」服務中的訂用帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/) 。
 * **核心配額** - 您可能需要增加核心的配額，特別是如果您選擇部署多核心 VM 大小的數個叢集節點。 若要增加配額，您可以免費開立線上客戶支援要求。
 * **Linux 散發** - 目前 HPC Pack 針對計算節點支援下列 Linux 發佈。 您可以使用這些發佈的 Marketplace 版本，或提供您自己的版本。
@@ -63,24 +64,24 @@ ms.lasthandoff: 04/05/2018
 
 ### <a name="deployment-option-1-use-a-resource-manager-template"></a>部署選項 1。 使用 Resource Manager 範本
 1. 前往 Azure Marketplace 的 [HPC Pack cluster for Linux workloads (處理 Linux 工作負載的 HPC Pack 叢集)](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) 範本，按一下 [部署]。
-2. 檢閱 Azure 入口網站中的資訊，然後按一下 [建立] 。
+1. 檢閱 Azure 入口網站中的資訊，然後按一下 [建立] 。
    
     ![建立入口網站][portal]
-3. 在 [基本]  刀鋒視窗中，輸入叢集的名稱，這也會指定前端節點 VM 的名稱。 您可以選擇現有的資源群組或建立新的資源群組，以便在您可用的位置進行部署。 位置會影響特定 VM 大小和其他 Azure 服務的可用性 (請參閱[依區域提供的產品](https://azure.microsoft.com/regions/services/))。
-4. 如果是第一次部署，通常可接受 [Head node settings] \(前端節點設定)  刀鋒視窗中的預設值。 
+1. 在 [基本]  刀鋒視窗中，輸入叢集的名稱，這也會指定前端節點 VM 的名稱。 您可以選擇現有的資源群組或建立新的資源群組，以便在您可用的位置進行部署。 位置會影響特定 VM 大小和其他 Azure 服務的可用性 (請參閱[依區域提供的產品](https://azure.microsoft.com/regions/services/))。
+1. 如果是第一次部署，通常可接受 [Head node settings] \(前端節點設定)  刀鋒視窗中的預設值。 
    
    > [!NOTE]
    > **[Post-configuration script URL]** \(組態後指令碼 URL) 是選擇性的設定，可指定您想要在前端節點 VM 執行後，於其上執行的公開的 Windows PowerShell 指令碼。 
    > 
    > 
-5. 在 [計算節點設定]  刀鋒視窗中，選取節點的命名模式、節點數目與大小，以及要部署的 Linux 散發。
-6. 在 [Infrastructure settings] \(基礎結構設定)  刀鋒視窗中，輸入虛擬網路和 Active Directory 網域的名稱、網域和 VM 系統管理員認證，以及儲存體帳戶的命名模式。
+1. 在 [計算節點設定]  刀鋒視窗中，選取節點的命名模式、節點數目與大小，以及要部署的 Linux 散發。
+1. 在 [Infrastructure settings] \(基礎結構設定)  刀鋒視窗中，輸入虛擬網路和 Active Directory 網域的名稱、網域和 VM 系統管理員認證，以及儲存體帳戶的命名模式。
    
    > [!NOTE]
    > HPC Pack 會使用 Active Directory 網域來驗證叢集使用者。 
    > 
    > 
-7. 當驗證測試執行完畢，且您已檢閱使用條款之後，按一下 [購買] 。
+1. 當驗證測試執行完畢，且您已檢閱使用條款之後，按一下 [購買] 。
 
 ### <a name="deployment-option-2-use-the-iaas-deployment-script"></a>部署選項 2。 使用 IaaS 部署指令碼
 使用 HPC Pack IaaS 部署指令碼部署叢集的其他必要條件如下：
@@ -134,12 +135,12 @@ HPC Pack IaaS 部署指令碼會使用 XML 組態檔作為輸入，以描述 HPC
 **執行 HPC Pack IaaS 部署指令碼**
 
 1. 在用戶端電腦上以系統管理員身分開啟 Windows PowerShell。
-2. 將目錄變更為安裝指令碼的資料夾 (在本範例中為 E:\IaaSClusterScript)。
+1. 將目錄變更為安裝指令碼的資料夾 (在本範例中為 E:\IaaSClusterScript)。
    
     ```powershell
     cd E:\IaaSClusterScript
     ```
-3. 執行下列命令來部署 HPC Pack 叢集。 這個範例假設組態檔位於 E:\HPCDemoConfig.xml
+1. 執行下列命令來部署 HPC Pack 叢集。 這個範例假設組態檔位於 E:\HPCDemoConfig.xml
    
     ```powershell
     .\New-HpcIaaSCluster.ps1 –ConfigFile E:\HPCDemoConfig.xml –AdminUserName MyAdminName
@@ -222,7 +223,7 @@ clusrun /nodegroup:LinuxNodes mount -t cifs //allvhdsje.file.core.windows.net/rd
     ![檔案共用權限][fileshareperms]
    
     ![檔案共用][filesharing]
-2. 開啟 Windows PowerShell 視窗並執行下列命令：
+1. 開啟 Windows PowerShell 視窗並執行下列命令：
    
     ```powershell
     clusrun /nodegroup:LinuxNodes mkdir -p /openfoam
@@ -251,7 +252,7 @@ NFS 服務可讓您使用 SMB 通訊協定在執行 Windows Server 2012 作業�
     ![NFS NTFS 權限][nfsperm]
    
     ![NFS 管理屬性][nfsmanage]
-2. 開啟 Windows PowerShell 視窗並執行下列命令：
+1. 開啟 Windows PowerShell 視窗並執行下列命令：
    
     ```powershell
     clusrun /nodegroup:LinuxNodes mkdir -p /nfsshare

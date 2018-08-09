@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 67b8e35f0ddafd0a39bf29757927f4ace6230547
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 7ca0e8eb2d496bdcd8eff7dbee2af2e549f123dd
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048912"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626850"
 ---
 # <a name="data-management-gateway"></a>資料管理閘道
 > [!NOTE]
-> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱 [Data Factory 中的自我裝載整合執行階段](../create-self-hosted-integration-runtime.md)。 
+> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱 [自我裝載整合執行階段](../create-self-hosted-integration-runtime.md)。 
 
 > [!NOTE]
 > 資料管理閘道現已更名為「自我裝載整合執行階段」。  
@@ -53,7 +53,7 @@ ms.locfileid: "37048912"
 
 利用資料閘道來進行複製的高階資料流程和步驟摘要如下：![使用閘道的資料流程](./media/data-factory-data-management-gateway/data-flow-using-gateway.png)
 
-1. 資料開發人員會使用 [Azure 入口網站](https://portal.azure.com)或 [PowerShell Cmdlet](https://msdn.microsoft.com/library/dn820234.aspx)，為 Azure Data Factory 建立閘道器。
+1. 資料開發人員會使用 [Azure 入口網站](https://portal.azure.com)或 [PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.datafactories/)，為 Azure Data Factory 建立閘道器。
 2. 資料開發人員會藉由指定閘道，建立內部部署資料存放區的連結服務。 在設定連結服務資料的過程中，開發人員會使用 [設定認證] 應用程式來指定驗證類型和認證。  [設定認證] 應用程式對話方塊將會與資料存放區進行通訊，以測試要儲存認證的連線與閘道。
 3. 在雲端中儲存認證之前，閘道會利用與閘道 (由資料開發人員提供) 相關聯的憑證加密認證。
 4. Data Factory 服務會和閘道進行通訊，以透過使用共用 Azure 服務匯流排佇列的控制通道，進行工作的排程和管理。 必須開始複製活動作業時，Data Factory 會將要求和認證資訊一起排入佇列。 輪詢佇列之後，閘道器隨即啟動。
@@ -71,7 +71,7 @@ ms.locfileid: "37048912"
 * 您必須**使用閘道**，即使資料存放區位於 **Azure IaaS VM** 上的雲端中。
 
 ## <a name="installation"></a>安裝
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 * 支援的 **作業系統** 版本包括 Windows 7、Windows 8/8.1、Windows 10、Windows Server 2008 R2、Windows Server 2012、Windows Server 2012 R2。 目前不支援在網域控制站上安裝資料管理閘道。
 * 必須有 .NET Framework 4.5.1 或更新版本。 如果您要在 Windows 7 電腦上安裝閘道，請安裝 .NET Framework 4.5 或更新版本。 如需詳細資訊，請參閱 [.NET Framework 系統需求](https://msdn.microsoft.com/library/8z6watww.aspx) 。
 * 建議的閘道機器「組態」  為至少 2 GHz、4 核心、8 GB RAM 和 80 GB 磁碟。
@@ -247,7 +247,7 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。 如果沒有，�
 
     msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
-如果您選擇不開啟閘道機器上的連接埠 8050，則請使用「設定認證」  應用程式以外的機制來設定資料存放區認證。 例如，您可以使用 [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell Cmdlet。 如需了解如何設定資料存放區認證，請參閱 [設定認證和安全性](#set-credentials-and-securityy) 一節。
+如果您選擇不開啟閘道機器上的連接埠 8050，則請使用「設定認證」  應用程式以外的機制來設定資料存放區認證。 例如，您可以使用 [New-AzureRmDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) PowerShell Cmdlet。 如需了解如何設定資料存放區認證，請參閱 [設定認證和安全性](#set-credentials-and-securityy) 一節。
 
 ## <a name="update"></a>更新
 根據預設，資料管理閘道會在有更新版本的閘道時自動進行更新。 在所有排定的工作完成前，閘道不會進行更新。 更新作業完成後，閘道才會處理後續的工作。 如果更新失敗，閘道會回復為舊版本。
@@ -470,7 +470,7 @@ CPU 使用率 | 閘道節點的 CPU 使用率。 這個值是近乎即時的快�
 
 當您使用**設定認證**應用程式時，入口網站會使用在閘道機器上**閘道組態管理員**的 [憑證] 索引標籤中指定的憑證來加密認證。
 
-如果您要尋找以 API 為基礎的方法來加密認證，可以使用 [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell Cmdlet 來加密認證。 此 cmdlet 會使用閘道器設定用來加密認證的憑證。 您需將加密認證新增到 JSON 中 **connectionString** 的 **EncryptedCredential** 元素中。 您需搭配 [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) Cmdlet 或在「Data Factory 編輯器」中使用 JSON。
+如果您要尋找以 API 為基礎的方法來加密認證，可以使用 [New-AzureRmDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) PowerShell Cmdlet 來加密認證。 此 cmdlet 會使用閘道器設定用來加密認證的憑證。 您需將加密認證新增到 JSON 中 **connectionString** 的 **EncryptedCredential** 元素中。 您需搭配 [New-AzureRmDataFactoryLinkedService](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactorylinkedservice) Cmdlet 或在「Data Factory 編輯器」中使用 JSON。
 
 ```JSON
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2018
 ms.author: ccompy
-ms.openlocfilehash: 31aea1d19ed6da856bb5fc634a919819513cb6b2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 749b554b8cf99ce849e0e3ab7b3a9478d8705e54
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30833579"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422989"
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>整合 ILB App Service Environment 與 Azure 應用程式閘道 #
 
@@ -39,7 +39,7 @@ Azure 應用程式閘道是一個虛擬設備，可提供第 7 層負載平衡�
 * 將應用程式設定為採用自訂網域名稱。
 * 編輯指向應用程式閘道的公用 DNS 主機名稱。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 為了整合應用程式閘道與 ILB App Service Environment，您需要：
 
@@ -64,7 +64,7 @@ Azure 應用程式閘道是一個虛擬設備，可提供第 7 層負載平衡�
 
 1. 在 Azure 入口網站中，移至 [新增] > [網路] > [應用程式閘道]。
 
-2. 在 [基本資料] 區域中：
+1. 在 [基本資料] 區域中：
 
    a. 於 [名稱] 中輸入應用程式閘道的名稱。
 
@@ -78,7 +78,7 @@ Azure 應用程式閘道是一個虛擬設備，可提供第 7 層負載平衡�
 
    ![新應用程式閘道的建立基本概念][2]
 
-3. 在 [設定] 區設中：
+1. 在 [設定] 區設中：
 
    a. 於 [虛擬網路] 中選取 App Service Environment 虛擬網路。
 
@@ -94,25 +94,25 @@ Azure 應用程式閘道是一個虛擬設備，可提供第 7 層負載平衡�
 
    ![新應用程式閘道的建立設定][3]
     
-4. 在 [摘要] 區段中檢閱設定，然後選取 [確定]。 應用程式閘道可能需要 30 多分鐘才能完成設定。  
+1. 在 [摘要] 區段中檢閱設定，然後選取 [確定]。 應用程式閘道可能需要 30 多分鐘才能完成設定。  
 
-5. 在應用程式閘道完成設定後，請移至應用程式閘道入口網站。 選取 [後端集區]。 新增 ILB App Service Environment 的 ILB 位址。
+1. 在應用程式閘道完成設定後，請移至應用程式閘道入口網站。 選取 [後端集區]。 新增 ILB App Service Environment 的 ILB 位址。
 
    ![設定後端集區][4]
 
-6. 後端集區的設定程序完成後，選取 [健康情況探查]。 針對要用於應用程式的網域名稱建立健康情況探查。 
+1. 後端集區的設定程序完成後，選取 [健康情況探查]。 針對要用於應用程式的網域名稱建立健康情況探查。 
 
    ![設定健全狀態探查][5]
     
-7. 健康情況探查的設定程序完成後，選取 [HTTP 設定]。 編輯現有設定、選取 [使用自訂探查]，然後挑選您設定的探查。
+1. 健康情況探查的設定程序完成後，選取 [HTTP 設定]。 編輯現有設定、選取 [使用自訂探查]，然後挑選您設定的探查。
 
    ![進行 HTTP 設定][6]
     
-8. 移至應用程式閘道的 [概觀] 區段，然後複製應用程式閘道所使用的公用 IP 位址。 將該 IP 位址設定為應用程式網域名稱的 A 記錄，或在 CNAME 記錄中使用該位址的 DNS 名稱。 相較於從應用程式閘道 [概觀] 區段中的連結複製位址，從公用 IP 位址的 UI 選取公用 IP 位址並加以複製會比較容易。 
+1. 移至應用程式閘道的 [概觀] 區段，然後複製應用程式閘道所使用的公用 IP 位址。 將該 IP 位址設定為應用程式網域名稱的 A 記錄，或在 CNAME 記錄中使用該位址的 DNS 名稱。 相較於從應用程式閘道 [概觀] 區段中的連結複製位址，從公用 IP 位址的 UI 選取公用 IP 位址並加以複製會比較容易。 
 
    ![應用程式閘道入口網站][7]
 
-9. 在 ILB App Service Environment 中設定應用程式的自訂網域名稱。 在入口網站中移至應用程式，並在 [設定] 下選取 [自訂網域]。
+1. 在 ILB App Service Environment 中設定應用程式的自訂網域名稱。 在入口網站中移至應用程式，並在 [設定] 下選取 [自訂網域]。
 
    ![在應用程式上設定自訂網域名稱][8]
 

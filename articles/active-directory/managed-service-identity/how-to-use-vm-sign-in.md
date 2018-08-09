@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 4a811c5354a9ff2aaa48a300d9b2655f91fdab23
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 205938bbf615face0768028717a333c13c1fafa1
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901087"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590308"
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in"></a>如何使用 Azure 虛擬機器受控服務識別 (MSI) 來登入 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
 本文提供使用 MSI 服務主體進行登入的 PowerShell 和 CLI 指令碼範例，以及錯誤處理等重要主題的指引。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -38,7 +38,7 @@ ms.locfileid: "37901087"
 
 ## <a name="overview"></a>概觀
 
-MSI 提供[服務主體物件](../develop/active-directory-dev-glossary.md#service-principal-object)，這是在虛擬機器上[啟用 MSI 時所建立](overview.md#how-does-it-work)。 服務主體可以獲得 Azure 資源的存取權，並可讓指令碼/命令列用戶端用來作為登入及存取資源時的身分識別。 傳統上，若要以受保護資源本身的身分識別來存取該資源，指令碼用戶端需要：  
+MSI 提供[服務主體物件](../develop/developer-glossary.md#service-principal-object)，這是在虛擬機器上[啟用 MSI 時所建立](overview.md#how-does-it-work)。 服務主體可以獲得 Azure 資源的存取權，並可讓指令碼/命令列用戶端用來作為登入及存取資源時的身分識別。 傳統上，若要以受保護資源本身的身分識別來存取該資源，指令碼用戶端需要：  
 
    - 向 Azure AD 註冊並獲得同意成為機密/Web 用戶端應用程式
    - 在其服務主體下登入，並使用應用程式的認證 (這可能會內嵌於指令碼中)

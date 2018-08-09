@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: bwren
-ms.openlocfilehash: 262099bbe45e483efd269445aa8042b30668ebe3
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 48cbfac78b41b47419799584837e094d45757628
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036518"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627452"
 ---
 # <a name="sources-of-monitoring-data-in-azure"></a>監視 Azure 資料的來源
 本文描述可用於監視 Azure 資源 (以及在資源上執行的應用程式) 健康情況和效能的資料。  使用[收集 Azure 中的監視資料](monitoring-data-collection.md)中所述的工具來收集和分析此資料
@@ -42,7 +42,7 @@ Azure 中的監視資料來自各種來源，可分為多層，最高層是您�
 
 
 ### <a name="azure-active-directory-audit-logs"></a>Azure Active Directory 稽核記錄
-[Azure Active Directory 報告](../active-directory/active-directory-reporting-azure-portal.md)包含在特定租用戶內所進行登入活動的歷程記錄，以及所做變更的稽核線索。 您目前無法將 Azure Active Directory 稽核資料與其他監視資料合併在一起，因為它只能透過 Azure Active Directory 和 [Azure Active Directory 報告 API](../active-directory/active-directory-reporting-api-getting-started-azure-portal.md) 進行存取。
+[Azure Active Directory 報告](../active-directory/reports-monitoring/overview-reports.md)包含在特定租用戶內所進行登入活動的歷程記錄，以及所做變更的稽核線索。 您目前無法將 Azure Active Directory 稽核資料與其他監視資料合併在一起，因為它只能透過 Azure Active Directory 和 [Azure Active Directory 報告 API](../active-directory/reports-monitoring/concept-reporting-api.md) 進行存取。
 
 
 ## <a name="azure-services"></a>Azure 服務

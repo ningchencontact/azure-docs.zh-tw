@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: mattbriggs
 ms.reviewer: shnatara
-ms.openlocfilehash: acf850bdc56e55d13b13a40ef343f2f20c4a77ca
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 9feb2e538d3578fe259aa3fbc693a1e953f2f894
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969107"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440346"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>在 Azure Stack 中部署 Service Fabric 叢集
 
@@ -27,7 +27,7 @@ ms.locfileid: "38969107"
 
 如需有關使用 Service Fabric 的詳細資訊，請參閱 Azure 文件中的 [Azure Service Fabric 概觀](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)和 [Service Fabric 叢集安全性案例](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 部署 Service Fabric 叢集時需要下列各項：
 1. **叢集憑證**  
@@ -39,9 +39,9 @@ ms.locfileid: "38969107"
     > [!NOTE]  
     > 您可以使用自我簽署的憑證代替 x.509 伺服器憑證進行測試。 自我簽署的憑證不需要符合叢集的 FQDN。
 
-2.  **管理用戶端憑證** – 這是用戶端用來驗證 Service Fabric 叢集的憑證，其可自我簽署。 請參閱建立此用戶端憑證的[需求](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)。
+1.  **管理用戶端憑證** – 這是用戶端用來驗證 Service Fabric 叢集的憑證，其可自我簽署。 請參閱建立此用戶端憑證的[需求](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)。
 
-3.  **Azure Stack Marketplace 中必須可取得下列項目：**
+1.  **Azure Stack Marketplace 中必須可取得下列項目：**
      - **Windows Server 2016** – 範本使用 Windows Server 2016 映像來建立叢集。  
      - **客戶指令碼擴充功能** - 來自 Microsoft 的虛擬機器擴充功能。  
      - **PowerShell 所需階段組態**-來自 Microsoft 的虛擬機器擴充功能。
@@ -124,15 +124,15 @@ ms.locfileid: "38969107"
 
    ![選取 Service Fabric 叢集](./media/azure-stack-solution-template-service-fabric-cluster/image2.png)
 
-2. 針對每個頁面 (如「基本概念」)，填妥部署表單。 如果您不確定值為何，請使用預設值。 選取 [確定] 前進到下一個頁面：
+1. 針對每個頁面 (如「基本概念」)，填妥部署表單。 如果您不確定值為何，請使用預設值。 選取 [確定] 前進到下一個頁面：
 
    ![基本概念](media/azure-stack-solution-template-service-fabric-cluster/image3.png)
 
-3. 在 [網路設定] 頁面上，您可以指定要對您的應用程式開啟的特定連接埠：
+1. 在 [網路設定] 頁面上，您可以指定要對您的應用程式開啟的特定連接埠：
 
    ![網路設定](media/azure-stack-solution-template-service-fabric-cluster/image4.png)
 
-4. 在 [安全性] 頁面上，新增您經由[建立 Azure KeyVault](#add-a-secret-to-key-vault) 和上傳祕密所得到的值。
+1. 在 [安全性] 頁面上，新增您經由[建立 Azure KeyVault](#add-a-secret-to-key-vault) 和上傳祕密所得到的值。
 
    針對 [管理用戶端憑證指紋]，輸入 [管理用戶端憑證] 的指紋。 (請參閱[必要條件](#prerequisites)。)
    
@@ -145,7 +145,7 @@ ms.locfileid: "38969107"
 
    ![安全性](media/azure-stack-solution-template-service-fabric-cluster/image6.png)
 
-5. 完成精靈，然後選取 [建立] 來部署 Service Fabric 叢集。
+1. 完成精靈，然後選取 [建立] 來部署 Service Fabric 叢集。
 
 
 
@@ -169,7 +169,7 @@ ms.locfileid: "38969107"
 
     d. 在 [憑證存放區] 頁面上，選取 [個人]，然後完成精靈。  
        ![憑證存放區](media/azure-stack-solution-template-service-fabric-cluster/image9.png)  
-2. 若要尋找 Service Fabric 叢集的 FQDN：  
+1. 若要尋找 Service Fabric 叢集的 FQDN：  
 
     a. 請移至與 Service Fabric 叢集相關聯的資源群組，並找出 [公用 IP 位址] 資源。 選取與公用 IP 位址相關聯的物件，以開啟 [公用 IP 位址] 刀鋒視窗。  
 
@@ -179,12 +179,12 @@ ms.locfileid: "38969107"
 
       ![DNS 名稱](media/azure-stack-solution-template-service-fabric-cluster/image11.png)  
 
-3. 若要尋找 Service Fabric Explorer 和用戶端連線端點的 URL，請檢閱範本部署的結果。
+1. 若要尋找 Service Fabric Explorer 和用戶端連線端點的 URL，請檢閱範本部署的結果。
 
-4. 在瀏覽器中，前往 https://*FQDN*:19080。 使用步驟 2 中 Service Fabric 叢集的 FQDN 來取代 *FQDN*。   
+1. 在瀏覽器中，前往 https://*FQDN*:19080。 使用步驟 2 中 Service Fabric 叢集的 FQDN 來取代 *FQDN*。   
    如果您已使用自我簽署的憑證，您會收到連線不安全的警告。 若要前往網站，請選取 [更多資訊]，然後 [前往網頁]。 
 
-5. 若要向網站進行驗證，您必須選取要使用的憑證。 選取 [更多選擇]，挑選適當的憑證，然後按一下 [確定] 以連線到 Service Fabric Explorer。 
+1. 若要向網站進行驗證，您必須選取要使用的憑證。 選取 [更多選擇]，挑選適當的憑證，然後按一下 [確定] 以連線到 Service Fabric Explorer。 
 
    ![驗證](media/azure-stack-solution-template-service-fabric-cluster/image14.png)
 
@@ -194,7 +194,7 @@ ms.locfileid: "38969107"
 
 1. 從 Azure Service Fabric 文件中的[在 Windows 上準備開發環境](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started#install-the-sdk-and-tools)，安裝 Microsoft Azure Service Fabric SDK。  
 
-2. 完成安裝之後，設定系統環境變數，以確保可從 PowerShell 存取 Service Fabric Cmdlet。  
+1. 完成安裝之後，設定系統環境變數，以確保可從 PowerShell 存取 Service Fabric Cmdlet。  
     
     a. 移至 [控制台] > [系統及安全性] > [系統]，然後選取 [進階系統設定]。  
     
@@ -206,7 +206,7 @@ ms.locfileid: "38969107"
 
       ![環境變數清單](media/azure-stack-solution-template-service-fabric-cluster/image16.png)
 
-3. 變更環境變數的順序之後，重新啟動 PowerShell，然後執行下列 PowerShell 指令碼來存取 Service Fabric 叢集：
+1. 變更環境變數的順序之後，重新啟動 PowerShell，然後執行下列 PowerShell 指令碼來存取 Service Fabric 叢集：
 
    ````PowerShell  
     Connect-ServiceFabricCluster -ConnectionEndpoint "\[Service Fabric

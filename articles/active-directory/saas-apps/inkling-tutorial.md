@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 7cb925c3ed3cef1cd90cb5cb1835b047440c941d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: cd7f8871cedb36157f3a16f093b09073576fe56e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228052"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39443846"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-inkling"></a>教學課程：Azure Active Directory 與 Inkling 整合
 
@@ -33,7 +33,7 @@ Inkling 與 Azure AD 整合提供下列優點：
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Inkling 整合，您需要下列項目：
 
@@ -55,7 +55,7 @@ Inkling 與 Azure AD 整合提供下列優點：
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Inkling
-2. 設定並測試 Azure AD 單一登入
+1. 設定並測試 Azure AD 單一登入
 
 
 ## <a name="adding-inkling-from-the-gallery"></a>從資源庫新增 Inkling
@@ -67,19 +67,19 @@ Inkling 與 Azure AD 整合提供下列優點：
 
     ![Active Directory][1]
 
-2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
+1. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![[應用程式]][2]
     
-3. 按一下對話方塊頂端的 [新增] 按鈕。
+1. 按一下對話方塊頂端的 [新增] 按鈕。
 
     ![[應用程式]][3]
 
-4. 在搜尋方塊中，輸入 **Inkling**。
+1. 在搜尋方塊中，輸入 **Inkling**。
 
     ![建立 Azure AD 測試使用者](./media/inkling-tutorial/tutorial_inkling_001.png)
 
-5. 在結果窗格中，選取 [Inkling]，然後按一下 [新增] 按鈕以新增應用程式。
+1. 在結果窗格中，選取 [Inkling]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/inkling-tutorial/tutorial_inkling_0001.png)
 
@@ -94,10 +94,10 @@ Inkling 與 Azure AD 整合提供下列優點：
 若要設定及測試與 Inkling 搭配運作的 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 Inkling 測試使用者](#creating-an-inkling-test-user)** - 在 Inkling 中建立 Britta Simon 的對應項目，且該項目必須與 Azure AD 中代表 Britta Simon 的項目連結。
-4. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
+1. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
+1. **[建立 Inkling 測試使用者](#creating-an-inkling-test-user)** - 在 Inkling 中建立 Britta Simon 的對應項目，且該項目必須與 Azure AD 中代表 Britta Simon 的項目連結。
+1. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+1. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -109,42 +109,42 @@ Inkling 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入][4]
 
-2. 在 [單一登入] 對話方塊上，選取 [SAML 型登入] 做為 [模式]，以啟用單一登入。
+1. 在 [單一登入] 對話方塊上，選取 [SAML 型登入] 做為 [模式]，以啟用單一登入。
  
     ![設定單一登入](./media/inkling-tutorial/tutorial_general_300.png)
     
-3. 在 [Inkling 網域及 URL] 區段上，執行下列步驟：
+1. 在 [Inkling 網域及 URL] 區段上，執行下列步驟：
     
     ![設定單一登入](./media/inkling-tutorial/tutorial_inkling_01.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://api.inkling.com/saml/v2/metadata/<user-id>`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://api.inkling.com/saml/v2/metadata/<user-id>`
 
-    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://api.inkling.com/saml/v2/acs/<user-id>`
+    b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://api.inkling.com/saml/v2/acs/<user-id>`
 
     > [!NOTE] 
     > 請注意這些不是真正的值。 您必須使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [Inkling 支援小組](mailto:press@inkling.com)以取得這些值。
 
-4. 在 [SAML 簽署憑證] 區段上，按一下 [建立新憑證]。
+1. 在 [SAML 簽署憑證] 區段上，按一下 [建立新憑證]。
 
     ![設定單一登入](./media/inkling-tutorial/tutorial_general_400.png)  
 
-5. 在 [建立新憑證] 對話方塊中，按一下行事曆圖示並選取 [到期日]。 然後按一下 [儲存] 按鈕。
+1. 在 [建立新憑證] 對話方塊中，按一下行事曆圖示並選取 [到期日]。 然後按一下 [儲存] 按鈕。
 
     ![設定單一登入](./media/inkling-tutorial/tutorial_general_500.png)
 
-6. 在 [SAML 簽署憑證] 區段中，選取 [啟用新憑證] 並按一下 [儲存] 按鈕。
+1. 在 [SAML 簽署憑證] 區段中，選取 [啟用新憑證] 並按一下 [儲存] 按鈕。
 
     ![設定單一登入](./media/inkling-tutorial/tutorial_inkling_02.png)
 
-7. 在 [變換憑證] 快顯視窗上，按一下 [確定]。
+1. 在 [變換憑證] 快顯視窗上，按一下 [確定]。
 
     ![設定單一登入](./media/inkling-tutorial/tutorial_general_600.png)
 
-8. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
+1. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
     ![設定單一登入](./media/inkling-tutorial/tutorial_inkling_03.png) 
 
-9. 若要為您的應用程式設定 SSO，請連絡 [Inkling 支援小組](mailto:press@inkling.com)並提供所下載的「中繼資料」。 
+1. 若要為您的應用程式設定 SSO，請連絡 [Inkling 支援小組](mailto:press@inkling.com)並提供所下載的「中繼資料」。 
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
@@ -158,15 +158,15 @@ Inkling 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/inkling-tutorial/create_aaduser_01.png) 
 
-2. 移至 [使用者和群組]，然後按一下 [所有使用者] 以顯示使用者清單。
+1. 移至 [使用者和群組]，然後按一下 [所有使用者] 以顯示使用者清單。
     
     ![建立 Azure AD 測試使用者](./media/inkling-tutorial/create_aaduser_02.png) 
 
-3. 在對話方塊的頂端，按一下 [新增] 以開啟 [使用者] 對話方塊。
+1. 在對話方塊的頂端，按一下 [新增] 以開啟 [使用者] 對話方塊。
  
     ![建立 Azure AD 測試使用者](./media/inkling-tutorial/create_aaduser_03.png) 
 
-4. 在 [使用者]  對話頁面上，執行下列步驟：
+1. 在 [使用者]  對話頁面上，執行下列步驟：
  
     ![建立 Azure AD 測試使用者](./media/inkling-tutorial/create_aaduser_04.png) 
 
@@ -197,23 +197,23 @@ Inkling 與 Azure AD 整合提供下列優點：
 
     ![指派使用者][201] 
 
-2. 在應用程式清單中，選取 [Inkling] 。
+1. 在應用程式清單中，選取 [Inkling] 。
 
     ![設定單一登入](./media/inkling-tutorial/tutorial_inkling_50.png) 
 
-3. 在左側功能表中，按一下 [使用者和群組]。
+1. 在左側功能表中，按一下 [使用者和群組]。
 
     ![指派使用者][202] 
 
-4. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
+1. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
 
     ![指派使用者][203]
 
-5. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
+1. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
 
-6. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
+1. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
 
-7. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
+1. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
     
 
 

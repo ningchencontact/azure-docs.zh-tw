@@ -2,24 +2,18 @@
 title: 如何監視 Azure 儲存體帳戶 | Microsoft Docs
 description: 了解如何使用 Azure 入口網站來監視 Azure 中的儲存體帳戶。
 services: storage
-documentationcenter: ''
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: b83cba7b-4627-4ba7-b5d0-f1039fe30e78
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: tamram
-ms.openlocfilehash: 931b711d67db2b20c653fe6515735fdedc358b48
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.component: common
+ms.openlocfilehash: bc03a5f43ef65ec8feaccb82fc3d31debbc6e7b9
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364354"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523371"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>在 Azure 入口網站中監視儲存體帳戶
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2017
 ms.author: jeedes
-ms.openlocfilehash: cdb59a7078b3bbce112356b61e19702fb6ed9df1
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0e67e97a68ca333dff366dd5e0222c96a1022557
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228718"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425267"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ilms"></a>教學課程：Azure Active Directory 與 iLMS 整合
 
@@ -33,7 +33,7 @@ iLMS 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 iLMS 整合，您需要下列項目：
 
@@ -52,7 +52,7 @@ iLMS 與 Azure AD 整合提供下列優點：
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 iLMS
-2. 設定並測試 Azure AD 單一登入
+1. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-ilms-from-the-gallery"></a>從資源庫新增 iLMS
 若要設定將 iLMS 整合到 Azure AD 中，您需要從資源庫將 iLMS 新增到受控 SaaS 應用程式清單。
@@ -63,19 +63,19 @@ iLMS 與 Azure AD 整合提供下列優點：
 
     ![Active Directory][1]
 
-2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
+1. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![[應用程式]][2]
     
-3. 若要新增新的應用程式，按一下對話方塊頂端的 [新增應用程式] 按鈕。
+1. 若要新增新的應用程式，按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![[應用程式]][3]
 
-4. 在搜尋方塊中，輸入 **iLMS**。
+1. 在搜尋方塊中，輸入 **iLMS**。
 
     ![建立 Azure AD 測試使用者](./media/ilms-tutorial/tutorial_ilms_search.png)
 
-5. 在結果窗格中，選取 [iLMS]，然後按一下 [新增] 按鈕以新增應用程式。
+1. 在結果窗格中，選取 [iLMS]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/ilms-tutorial/tutorial_ilms_addfromgallery.png)
 
@@ -89,10 +89,10 @@ iLMS 與 Azure AD 整合提供下列優點：
 若要設定及測試與 iLMS 搭配運作的 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 iLMS 測試使用者](#creating-an-ilms-test-user)** - 使 iLMS 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
-4. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
+1. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
+1. **[建立 iLMS 測試使用者](#creating-an-ilms-test-user)** - 使 iLMS 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
+1. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+1. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -104,11 +104,11 @@ iLMS 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入][4]
 
-2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
+1. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
  
     ![設定單一登入](./media/ilms-tutorial/tutorial_ilms_samlbase.png)
 
-3. 如果您想要以 **IDP** 起始模式設定應用程式，請在 [iLMS 網域和 URL] 區段上執行下列步驟：
+1. 如果您想要以 **IDP** 起始模式設定應用程式，請在 [iLMS 網域和 URL] 區段上執行下列步驟：
 
     ![設定單一登入](./media/ilms-tutorial/tutorial_ilms_url.png)
 
@@ -119,13 +119,13 @@ iLMS 與 Azure AD 整合提供下列優點：
     >[!Note]
     >這個 '123456' 是識別項的範例值。
 
-4. 如果您想要以 **SP** 起始模式設定應用程式，請勾選 [顯示進階 URL 設定]：
+1. 如果您想要以 **SP** 起始模式設定應用程式，請勾選 [顯示進階 URL 設定]：
 
     ![設定單一登入](./media/ilms-tutorial/tutorial_ilms_url1.png)
 
     在 [登入 URL] 文字方塊中，將您從 iLMS 系統管理入口網站中 SAML 設定的 [服務提供者] 區段複製的 [端點 (URL)] 值貼上，如同：`https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`     
 
-5. 若要啟用 JIT 佈建，iLMS 應用程式會預期要有特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中，管理這些屬性的值。 以下螢幕擷取畫面顯示上述的範例。
+1. 若要啟用 JIT 佈建，iLMS 應用程式會預期要有特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中，管理這些屬性的值。 以下螢幕擷取畫面顯示上述的範例。
     
     ![設定單一登入](./media/ilms-tutorial/4.png)
     
@@ -134,7 +134,7 @@ iLMS 與 Azure AD 整合提供下列優點：
     > [!NOTE] 
     > 您必須啟用 iLMS 中的 [建立無法辨識的使用者帳戶] 來對應這些屬性。 請依照[這裡](http://support.inspiredelearning.com/customer/portal/articles/2204526)的指示，了解屬性的設定。
 
-6. 在 [單一登入] 對話方塊的 [使用者屬性] 區段中，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
+1. 在 [單一登入] 對話方塊的 [使用者屬性] 區段中，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
     
     | 屬性名稱 | 屬性值 |
     | ---------------| --------------- |    
@@ -154,17 +154,17 @@ iLMS 與 Azure AD 整合提供下列優點：
     
     d. 按一下 [確定]。
 
-7. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將 XML 檔案儲存在您的電腦上。
+1. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將 XML 檔案儲存在您的電腦上。
 
     ![設定單一登入](./media/ilms-tutorial/tutorial_ilms_certificate.png) 
 
-8. 按一下 [儲存]  按鈕。
+1. 按一下 [儲存]  按鈕。
 
     ![設定單一登入](./media/ilms-tutorial/tutorial_general_400.png)
 
-9. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 **iLMS 系統管理入口網站** 。
+1. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 **iLMS 系統管理入口網站** 。
 
-10. 按一下 [設定] 索引標籤下的 [SSO:SAML]，開啟 SAML 設定並執行下列步驟︰
+1. 按一下 [設定] 索引標籤下的 [SSO:SAML]，開啟 SAML 設定並執行下列步驟︰
     
     ![設定單一登入](./media/ilms-tutorial/1.png) 
 
@@ -182,13 +182,13 @@ iLMS 與 Azure AD 整合提供下列優點：
         
        - 請勾選 [建立無法辨識的使用者帳戶]。
        
-       ![設定單一登入](./media/ilms-tutorial/tutorial_ilms_ssoconfig2.png)
+       ![Configure Single Sign-On](./media/ilms-tutorial/tutorial_ilms_ssoconfig2.png)
 
        -  將 Azure AD 中的屬性與 iLMS 中的屬性進行對應。 在屬性資料行中，指定屬性名稱或預設值。
 
     e. 移至 [商務規則] 索引標籤，然後執行下列步驟︰ 
         
-       ![設定單一登入](./media/ilms-tutorial/5.png)
+       ![Configure Single Sign-On](./media/ilms-tutorial/5.png)
 
        - 請勾選 [建立無法辨識的區域、事業處和部門]，來建立單一登入時尚未存在的區域、事業處和部門。
         
@@ -198,7 +198,7 @@ iLMS 與 Azure AD 整合提供下列優點：
         
        - 請勾選 [傳送錯誤通知電子郵件]，並輸入您要接收錯誤通知電子郵件之使用者的電子郵件。
 
-11. 按一下 [儲存] 按鈕以儲存設定。
+1. 按一下 [儲存] 按鈕以儲存設定。
 
     ![設定單一登入](./media/ilms-tutorial/save.png)
 
@@ -216,15 +216,15 @@ iLMS 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/ilms-tutorial/create_aaduser_01.png) 
 
-2. 移至 [使用者和群組]，然後按一下 [所有使用者] 以顯示使用者清單。
+1. 移至 [使用者和群組]，然後按一下 [所有使用者] 以顯示使用者清單。
     
     ![建立 Azure AD 測試使用者](./media/ilms-tutorial/create_aaduser_02.png) 
 
-3. 在對話方塊的頂端，按一下 [新增] 以開啟 [使用者] 對話方塊。
+1. 在對話方塊的頂端，按一下 [新增] 以開啟 [使用者] 對話方塊。
  
     ![建立 Azure AD 測試使用者](./media/ilms-tutorial/create_aaduser_03.png) 
 
-4. 在 [使用者]  對話頁面上，執行下列步驟：
+1. 在 [使用者]  對話頁面上，執行下列步驟：
  
     ![建立 Azure AD 測試使用者](./media/ilms-tutorial/create_aaduser_04.png) 
 
@@ -244,11 +244,11 @@ iLMS 與 Azure AD 整合提供下列優點：
 
 1. 以系統管理員身分登入您的 iLMS 公司網站。
 
-2. 按一下[使用者] 索引標籤下的 [註冊使用者]開啟 [註冊使用者] 頁面。 
+1. 按一下[使用者] 索引標籤下的 [註冊使用者]開啟 [註冊使用者] 頁面。 
    
    ![新增員工](./media/ilms-tutorial/3.png)
 
-3. 在 [註冊使用者] 頁面上，執行下列步驟。
+1. 在 [註冊使用者] 頁面上，執行下列步驟。
 
     ![新增員工](./media/ilms-tutorial/create_testuser_add.png)
 
@@ -281,23 +281,23 @@ iLMS 與 Azure AD 整合提供下列優點：
 
     ![指派使用者][201] 
 
-2. 在應用程式清單中，選取 [iLMS]。
+1. 在應用程式清單中，選取 [iLMS]。
 
     ![設定單一登入](./media/ilms-tutorial/tutorial_ilms_app.png) 
 
-3. 在左側功能表中，按一下 [使用者和群組]。
+1. 在左側功能表中，按一下 [使用者和群組]。
 
     ![指派使用者][202] 
 
-4. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
+1. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
 
     ![指派使用者][203]
 
-5. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
+1. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
 
-6. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
+1. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
 
-7. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
+1. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
     
 ### <a name="testing-single-sign-on"></a>測試單一登入
 

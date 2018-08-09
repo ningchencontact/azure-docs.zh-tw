@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: f4dfc376e49ac26f0c054282994a29d9a7d2b54b
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 2c6db85763b448133d53b22c0600b27b533b2041
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442166"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424223"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 開發人員開始使用指南
 
@@ -163,7 +163,7 @@ Azure 提供數種方式，以在應用程式中使用容器。
 
     >**使用時機**：當您想要提供 SSO 體驗時，請使用 Graph 資料，或驗證網域使用者。
 
-    >**開始使用**：若要深入了解，請參閱 [Azure Active Directory 開發人員指南](../../active-directory/develop/active-directory-developers-guide.md)。
+    >**開始使用**：若要深入了解，請參閱 [Azure Active Directory 開發人員指南](../../active-directory/develop/azure-ad-developers-guide.md)。
 
 -   **App Service 驗證**：當您選擇 App Service 裝載應用程式時，也會取得 Azure AD 的內建驗證支援，以及社交身分識別提供者，包括 Facebook、Google、Microsoft 和 Twitter。
 

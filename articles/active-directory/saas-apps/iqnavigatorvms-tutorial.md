@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: 9b264a7ba1479e485ff528ee242c78c4b39010dc
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: f568f33de348289334c4b4c346e9525e28cce51c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39052511"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445117"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>教學課程：Azure Active Directory 與 IQNavigator VMS 整合
 
@@ -52,7 +52,7 @@ IQNavigator VMS 與 Azure AD 整合提供下列優點：
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 IQNavigator VMS
-2. 設定並測試 Azure AD 單一登入
+1. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-iqnavigator-vms-from-the-gallery"></a>從資源庫新增 IQNavigator VMS
 若要設定將 IQNavigator VMS 整合到 Azure AD 中，您需要從資源庫將 IQNavigator VMS 新增到受控 SaaS 應用程式清單。
@@ -63,19 +63,19 @@ IQNavigator VMS 與 Azure AD 整合提供下列優點：
 
     ![Active Directory][1]
 
-2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
+1. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![[應用程式]][2]
     
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+1. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![[應用程式]][3]
 
-4. 在搜尋方塊中，輸入 **IQNavigator VMS**。
+1. 在搜尋方塊中，輸入 **IQNavigator VMS**。
 
     ![建立 Azure AD 測試使用者](./media/iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_search.png)
 
-5. 在結果面板中，選取 [IQNavigator VMS]，然後按一下 [新增] 按鈕以新增應用程式。
+1. 在結果面板中，選取 [IQNavigator VMS]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_addfromgallery.png)
 
@@ -89,10 +89,10 @@ IQNavigator VMS 與 Azure AD 整合提供下列優點：
 若要設定及測試與 IQNavigator VMS 搭配運作的 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 IQNavigator VMS 測試使用者](#creating-a-iqnavigator-vms-test-user)** - 使 IQNavigator VMS 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
-4. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
+1. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
+1. **[建立 IQNavigator VMS 測試使用者](#creating-a-iqnavigator-vms-test-user)** - 使 IQNavigator VMS 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
+1. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+1. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -104,11 +104,11 @@ IQNavigator VMS 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入][4]
 
-2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
+1. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
 
     ![設定單一登入](./media/iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_samlbase.png)
 
-3. 在 [IQNavigator VMS 網域及 URL] 區段中，執行下列步驟：
+1. 在 [IQNavigator VMS 網域及 URL] 區段中，執行下列步驟：
 
     ![設定單一登入](./media/iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_url.png)
 
@@ -116,7 +116,7 @@ IQNavigator VMS 與 Azure AD 整合提供下列優點：
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<subdomain>.iqnavigator.com/security/login?client_name=https://sts.window.net/<instance name>`
 
-4. 勾選 [顯示進階 URL 設定]，然後執行下列步驟：
+1. 勾選 [顯示進階 URL 設定]，然後執行下列步驟：
 
     ![設定單一登入](./media/iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_url1.png)
 
@@ -125,23 +125,23 @@ IQNavigator VMS 與 Azure AD 整合提供下列優點：
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「回覆 URL」和「轉送狀態」來更新這些值。 請連絡 [IQNavigator VMS 客戶支援小組](https://www.beeline.com/iqn-product-support/)以取得這些值。
 
-5. 在 [SAML 簽署憑證] 區段中，按一下「複製」按鈕複製「應用程式同盟中繼資料 URL」，並將它貼到 [記事本]。
+1. 在 [SAML 簽署憑證] 區段中，按一下「複製」按鈕複製「應用程式同盟中繼資料 URL」，並將它貼到 [記事本]。
     
     ![設定單一登入](./media/iqnavigatorvms-tutorial/tutorial_metadataurl.png)
 
-6. IQNavigator 應用程式需要 [名稱識別碼] 宣告中有唯一的使用者識別碼值。 客戶可以為 [名稱識別碼] 宣告對應正確的值。 在此案例中，為了示範，我們已對應 user.UserPrincipalName。 但是，您應該根據組織的設定，對應正確的值。
+1. IQNavigator 應用程式需要 [名稱識別碼] 宣告中有唯一的使用者識別碼值。 客戶可以為 [名稱識別碼] 宣告對應正確的值。 在此案例中，為了示範，我們已對應 user.UserPrincipalName。 但是，您應該根據組織的設定，對應正確的值。
 
     ![設定單一登入](./media/iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_attribute.png)
 
-7. 按一下 [儲存]  按鈕。
+1. 按一下 [儲存]  按鈕。
 
     ![設定單一登入](./media/iqnavigatorvms-tutorial/tutorial_general_400.png)
 
-8. 在 [IQNavigator VMS 組態] 區段上，按一下 [設定 IQNavigator VMS] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
+1. 在 [IQNavigator VMS 組態] 區段上，按一下 [設定 IQNavigator VMS] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
 
     ![設定單一登入](./media/iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_configure.png)
 
-9. 若要在 **IQNavigator VMS** 端設定單一登入，您必須將**應用程式同盟中繼資料 Url**、**登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL** 傳送給 [IQNavigator VMS 支援小組](https://www.beeline.com/iqn-product-support/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+1. 若要在 **IQNavigator VMS** 端設定單一登入，您必須將**應用程式同盟中繼資料 Url**、**登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL** 傳送給 [IQNavigator VMS 支援小組](https://www.beeline.com/iqn-product-support/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="creating-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
@@ -154,15 +154,15 @@ IQNavigator VMS 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/iqnavigatorvms-tutorial/create_aaduser_01.png) 
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+1. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
     
     ![建立 Azure AD 測試使用者](./media/iqnavigatorvms-tutorial/create_aaduser_02.png)
 
-3. 若要開啟 [使用者] 對話方塊，按一下對話方塊頂端的 [新增]。
+1. 若要開啟 [使用者] 對話方塊，按一下對話方塊頂端的 [新增]。
 
     ![建立 Azure AD 測試使用者](./media/iqnavigatorvms-tutorial/create_aaduser_03.png)
 
-4. 在 [使用者]  對話頁面上，執行下列步驟：
+1. 在 [使用者]  對話頁面上，執行下列步驟：
  
     ![建立 Azure AD 測試使用者](./media/iqnavigatorvms-tutorial/create_aaduser_04.png) 
 
@@ -190,23 +190,23 @@ IQNavigator VMS 與 Azure AD 整合提供下列優點：
 
     ![指派使用者][201]
 
-2. 在應用程式清單中，選取 [IQNavigator VMS]。
+1. 在應用程式清單中，選取 [IQNavigator VMS]。
 
     ![設定單一登入](./media/iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_app.png)
 
-3. 在左側功能表中，按一下 [使用者和群組]。
+1. 在左側功能表中，按一下 [使用者和群組]。
 
     ![指派使用者][202]
 
-4. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
+1. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
 
     ![指派使用者][203]
 
-5. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
+1. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
 
-6. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
+1. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
 
-7. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
+1. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
     
 ### <a name="testing-single-sign-on"></a>測試單一登入
 

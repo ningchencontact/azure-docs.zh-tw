@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 9b37c6d1c1c2e7ec002ac1b4ea5768c8972dd9e8
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ddf22491d7531daecf4448e62e8594c3326d7b77
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39039982"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39420269"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qprism"></a>教學課程：Azure Active Directory 與 QPrism 整合
 
@@ -50,7 +50,7 @@ QPrism 與 Azure AD 整合提供下列優點：
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 QPrism
-2. 設定並測試 Azure AD 單一登入
+1. 設定並測試 Azure AD 單一登入
 
 ## <a name="add-qprism-from-the-gallery"></a>從資源庫新增 QPrism
 若要設定將 QPrism 整合到 Azure AD 中，您需要從資源庫將 QPrism 新增到受控 SaaS 應用程式清單。
@@ -61,15 +61,15 @@ QPrism 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕][1]
 
-2. 瀏覽至 [企業應用程式] > [所有應用程式]。
+1. 瀏覽至 [企業應用程式] > [所有應用程式]。
 
     ![企業應用程式刀鋒視窗][2]
     
-3. 若要新增應用程式，請在對話方塊的頂端，選取 [新增應用程式]。
+1. 若要新增應用程式，請在對話方塊的頂端，選取 [新增應用程式]。
 
     ![新增應用程式按鈕][3]
 
-4. 在 [搜尋] 方塊中，輸入**QPrism**，然後從結果面板中選取 **QPrism**。 然後按一下 [新增] 來新增應用程式。
+1. 在 [搜尋] 方塊中，輸入**QPrism**，然後從結果面板中選取 **QPrism**。 然後按一下 [新增] 來新增應用程式。
 
     ![結果清單中的 QPrism](./media/qprism-tutorial/tutorial_qprism_addfromgallery.png)
 
@@ -84,10 +84,10 @@ QPrism 與 Azure AD 整合提供下列優點：
 若要設定及測試與 QPrism 搭配運作的 Azure AD 單一登入，請完成下列建構元素：
 
 1. [設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)，讓您的使用者能夠使用此功能。
-2. [建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)，以使用 Britta Simon 測試 Azure AD 單一登入。
-3. [建立 QPrism 測試使用者](#create-a-qprism-test-user)，使 QPrism 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
-4. [指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)，讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. [測試單一登入](#test-single-sign-on)，驗證設定是否能運作。
+1. [建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)，以使用 Britta Simon 測試 Azure AD 單一登入。
+1. [建立 QPrism 測試使用者](#create-a-qprism-test-user)，使 QPrism 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
+1. [指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)，讓 Britta Simon 能夠使用 Azure AD 單一登入。
+1. [測試單一登入](#test-single-sign-on)，驗證設定是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -97,11 +97,11 @@ QPrism 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入連結][4]
 
-2. 若要啟用單一登入，請在 [單一登入] 對話方塊中，於 [模式] 選取 [SAML 登入]。
+1. 若要啟用單一登入，請在 [單一登入] 對話方塊中，於 [模式] 選取 [SAML 登入]。
  
     ![單一登入對話方塊](./media/qprism-tutorial/tutorial_qprism_samlbase.png)
 
-3. 在 [QPrism 網域與 URL] 區段中，執行下列操作：
+1. 在 [QPrism 網域與 URL] 區段中，執行下列操作：
 
     ![QPrism 網域與 URL 單一登入資訊](./media/qprism-tutorial/tutorial_qprism_url.png)
 
@@ -112,15 +112,15 @@ QPrism 與 Azure AD 整合提供下列優點：
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際「識別碼」的及「登入 URL」來更新這些值。 請連絡 [QPrism 用戶端支援小組](mailto:qsupport-ce@quatrro.com)以取得這些值。 
 
-4. 在 [SAML 簽署憑證] 區段中，按一下「複製」按鈕複製「應用程式同盟中繼資料 URL」，並將它貼到 [記事本]。
+1. 在 [SAML 簽署憑證] 區段中，按一下「複製」按鈕複製「應用程式同盟中繼資料 URL」，並將它貼到 [記事本]。
 
      ![憑證下載連結](./media/qprism-tutorial/tutorial_qprism_certificate.png)
 
-5. 選取 [ **儲存**]。
+1. 選取 [ **儲存**]。
 
     ![設定單一登入儲存按鈕](./media/qprism-tutorial/tutorial_general_400.png)
     
-6. 若要在 **QPrism** 端設定單一登入，您必須將**應用程式同盟中繼資料 URL** 傳送給 [QPrism 支援小組](mailto:qsupport-ce@quatrro.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+1. 若要在 **QPrism** 端設定單一登入，您必須將**應用程式同盟中繼資料 URL** 傳送給 [QPrism 支援小組](mailto:qsupport-ce@quatrro.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -134,15 +134,15 @@ QPrism 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/qprism-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+1. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/qprism-tutorial/create_aaduser_02.png)
 
-3. 若要開啟 [使用者] 對話方塊，請在 [所有使用者] 對話方塊的頂端，選取 [新增]。
+1. 若要開啟 [使用者] 對話方塊，請在 [所有使用者] 對話方塊的頂端，選取 [新增]。
 
     ![[新增] 按鈕](./media/qprism-tutorial/create_aaduser_03.png)
 
-4. 在 [使用者] 對話方塊中，執行下列動作：
+1. 在 [使用者] 對話方塊中，執行下列動作：
 
     ![[使用者] 對話方塊](./media/qprism-tutorial/create_aaduser_04.png)
 
@@ -170,23 +170,23 @@ QPrism 與 Azure AD 整合提供下列優點：
 
     ![指派使用者][201] 
 
-2. 在應用程式清單中，選取[QPrism]。
+1. 在應用程式清單中，選取[QPrism]。
 
     ![應用程式清單中的 QPrism 連結](./media/qprism-tutorial/tutorial_qprism_app.png)  
 
-3. 在左側功能表中，選取 [使用者和群組]。
+1. 在左側功能表中，選取 [使用者和群組]。
 
     ![[使用者和群組] 連結][202]
 
-4. 選取 [新增] 。 然後，在 [新增指派] 下，選取 [使用者和群組]。
+1. 選取 [新增] 。 然後，在 [新增指派] 下，選取 [使用者和群組]。
 
     ![[新增指派] 窗格][203]
 
-5. 在 [使用者和群組] 對話方塊中，選取 [使用者] 清單中的 [Britta Simon]。
+1. 在 [使用者和群組] 對話方塊中，選取 [使用者] 清單中的 [Britta Simon]。
 
-6. 在 [使用者和群組] 對話方塊中，選取 [選取]。
+1. 在 [使用者和群組] 對話方塊中，選取 [選取]。
 
-7. 在 [新增指派] 下，選取 [指派]。
+1. 在 [新增指派] 下，選取 [指派]。
     
 ### <a name="test-single-sign-on"></a>測試單一登入
 

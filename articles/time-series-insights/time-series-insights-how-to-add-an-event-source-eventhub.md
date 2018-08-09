@@ -4,24 +4,24 @@ description: 本文說明如何將與事件中樞連線的事件來源新增至�
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: edett
-manager: jhubbard
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/21/2017
-ms.openlocfilehash: 8b1fe447cb673b9bc1f4fe4e73f7412a21f701a5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ce4bf1ab74e4203f0deb7b2984ffa6a66d5efd4a
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36330857"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627105"
 ---
 # <a name="how-to-add-an-event-hub-event-source-to-time-series-insights-environment"></a>如何將事件中樞事件來源新增至時間序列深入解析環境
 
 本文說明如何使用 Azure 入口網站，將從事件中樞讀取資料的事件來源新增至時間序列深入解析環境。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 - 建立時間序列深入解析環境。 如需詳細資訊，請參閱[建立 Azure 時間序列深入解析環境](time-series-insights-get-started.md) 
 - 建立事件中樞。 如需事件中樞的詳細資料，請參閱[使用 Azure 入口網站建立事件中樞命名空間和事件中樞](../event-hubs/event-hubs-create.md)
 - 事件中樞必須要有傳入的作用中訊息事件。 如需詳細資訊，請參閱[使用 .NET Framework 將事件傳送至 Azure 事件中樞](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md)。
@@ -98,7 +98,7 @@ ms.locfileid: "36330857"
 
 11. 選取 [建立] 以新增事件來源。
    
-   ![Click Create](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)
+   ![按一下 [建立專案]。](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)
 
    建立事件來源之後，Time Series Insights 會自動開始將資料串流處理至您的環境。
 

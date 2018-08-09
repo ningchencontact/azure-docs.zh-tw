@@ -2,23 +2,18 @@
 title: 設計用於查詢的 Azure 儲存體資料表 | Microsoft Docs
 description: 設計 Azure 表格儲存體中用於查詢的資料表。
 services: storage
-documentationcenter: na
 author: MarkMcGeeAtAquent
-manager: kfile
-ms.assetid: 8e228b0c-2998-4462-8101-9f16517393ca
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
 ms.date: 04/23/2018
 ms.author: sngun
-ms.openlocfilehash: b8d2033b0b29caddf165f4b582c7d0578109480c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: tables
+ms.openlocfilehash: 8b4ae066edc1c62c25762b5c6feebce1ecfff5a2
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659262"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521535"
 ---
 # <a name="design-for-querying"></a>查詢的設計
 資料表服務方案可以是讀取密集、寫入密集或兩者混合的方案。 本文主要說明您在設計表格服務以有效地支援讀取作業時應謹記在心的事項。 一般而言，支援有效讀取作業的設計，也可兼顧寫入作業的效率。 不過，設計支援寫入作業時還有其他考量必須牢記在心，這將在[資料修改的設計](table-storage-design-for-modification.md)一文中說明這些考量。

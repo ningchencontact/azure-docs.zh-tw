@@ -4,23 +4,23 @@ description: 本文說明如何將與 IoT 中樞連線的事件來源新增至�
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: edett
-manager: jhubbard
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/21/2017
-ms.openlocfilehash: 1cc8518e84bd9fe7a1f03a2f5d6ccdbac8fb78e3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b6beecbf64cee925f62ac4c82919926fcb79940a
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36330589"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627367"
 ---
 # <a name="how-to-add-an-iot-hub-event-source-to-time-series-insights-environment"></a>如何將 IoT 中樞事件來源新增至時間序列深入解析環境
 本文說明如何使用 Azure 入口網站，將從 IoT 中樞讀取資料的事件來源新增至時間序列深入解析環境。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 - 建立時間序列深入解析環境。 如需詳細資訊，請參閱[建立 Azure 時間序列深入解析環境](time-series-insights-get-started.md) 
 - 建立 IoT 中樞。 如需有關 IoT 中樞的詳細資訊，請參閱[使用 Azure 入口網站建立 IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)
 - IoT 中樞必須要有傳入的作用中訊息事件。
@@ -93,7 +93,7 @@ ms.locfileid: "36330589"
 
 11. 選取 [建立] 以新增事件來源。
 
-   ![Click Create](media/time-series-insights-how-to-add-an-event-source-iothub/4-create-button.png)
+   ![按一下 [建立專案]。](media/time-series-insights-how-to-add-an-event-source-iothub/4-create-button.png)
 
    建立事件來源之後，Time Series Insights 會自動開始將資料串流處理至您的環境。
 

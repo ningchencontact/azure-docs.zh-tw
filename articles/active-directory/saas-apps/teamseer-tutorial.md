@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 6c13bb4c10adeeba59ff8d0f2c8d7120d6fae43a
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a5910689f34c511c6cf7d8a044ef4358d2e0570d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39050641"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445575"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>教學課程：Azure Active Directory 與 TeamSeer 整合
 
@@ -52,7 +52,7 @@ TeamSeer 與 Azure AD 整合提供下列優點：
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 TeamSeer
-2. 設定並測試 Azure AD 單一登入
+1. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-teamseer-from-the-gallery"></a>從資源庫新增 TeamSeer
 若要設定 TeamSeer 與 Azure AD 整合，您需要從資源庫將 TeamSeer 新增至受控 SaaS 應用程式清單。
@@ -63,19 +63,19 @@ TeamSeer 與 Azure AD 整合提供下列優點：
 
     ![Active Directory][1]
 
-2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
+1. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![[應用程式]][2]
     
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+1. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![[應用程式]][3]
 
-4. 在搜尋方塊中，輸入 **TeamSeer**。
+1. 在搜尋方塊中，輸入 **TeamSeer**。
 
     ![建立 Azure AD 測試使用者](./media/teamseer-tutorial/tutorial_teamseer_search.png)
 
-5. 在結果窗格中，選取 [TeamSeer]，然後按一下 [新增] 按鈕以新增應用程式。
+1. 在結果窗格中，選取 [TeamSeer]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/teamseer-tutorial/tutorial_teamseer_addfromgallery.png)
 
@@ -89,10 +89,10 @@ TeamSeer 與 Azure AD 整合提供下列優點：
 若要設定及測試與 TeamSeer 搭配運作的 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 TeamSeer 測試使用者](#creating-a-teamseer-test-user)** - 使 TeamSeer 中 Britta Simon 的對應使用者連結到該使用者在 Azure AD 中的代表身分。
-4. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
+1. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
+1. **[建立 TeamSeer 測試使用者](#creating-a-teamseer-test-user)** - 使 TeamSeer 中 Britta Simon 的對應使用者連結到該使用者在 Azure AD 中的代表身分。
+1. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+1. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -104,11 +104,11 @@ TeamSeer 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入][4]
 
-2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
+1. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
  
     ![設定單一登入](./media/teamseer-tutorial/tutorial_teamseer_samlbase.png)
 
-3. 在 [TeamSeer 網域及 URL] 區段上，執行下列步驟：
+1. 在 [TeamSeer 網域及 URL] 區段上，執行下列步驟：
 
     ![設定單一登入](./media/teamseer-tutorial/tutorial_teamseer_url.png)
 
@@ -117,33 +117,33 @@ TeamSeer 與 Azure AD 整合提供下列優點：
     > [!NOTE] 
     > 這不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [TeamSeer 客戶支援小組](http://pages.theaccessgroup.com/solutions_business-suite_absence-management_contact.html)以取得這些值。 
  
-4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
+1. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
     ![設定單一登入](./media/teamseer-tutorial/tutorial_teamseer_certificate.png) 
 
-5. 按一下 [儲存]  按鈕。
+1. 按一下 [儲存]  按鈕。
 
     ![設定單一登入](./media/teamseer-tutorial/tutorial_general_400.png)
 
-6. 在 [TeamSeer 組態] 區段上，按一下 [設定 TeamSeer] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [SAML 單一登入服務 URL]。
+1. 在 [TeamSeer 組態] 區段上，按一下 [設定 TeamSeer] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [SAML 單一登入服務 URL]。
 
     ![設定單一登入](./media/teamseer-tutorial/tutorial_teamseer_configure.png)
 
-7. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 TeamSeer 公司網站。
+1. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 TeamSeer 公司網站。
 
-8. 移至 [HR 管理] 。
+1. 移至 [HR 管理] 。
    
     ![HR 管理](./media/teamseer-tutorial/ic789634.png "HR 管理")
 
-9. 按一下 [設定] 。
+1. 按一下 [設定] 。
    
     ![設定](./media/teamseer-tutorial/ic789635.png "設定")
 
-10. 按一下 [設定 SAML 提供者詳細資料] 。
+1. 按一下 [設定 SAML 提供者詳細資料] 。
    
     ![SAML 設定](./media/teamseer-tutorial/ic789636.png "SAML 設定")
 
-11. 在 [SAML 提供者詳細資料] 區段中，執行下列步驟：
+1. 在 [SAML 提供者詳細資料] 區段中，執行下列步驟：
    
     ![SAML 設定](./media/teamseer-tutorial/ic789637.png "SAML 設定")   
 
@@ -151,7 +151,7 @@ TeamSeer 與 Azure AD 整合提供下列優點：
           
     b. 在記事本中開啟 Base-64 編碼的憑證，將其內容複製到剪貼簿，然後貼到 [IdP 公開憑證] 文字方塊。
 
-12. 若要完成 SAML 提供者的設定，請執行下列步驟：
+1. 若要完成 SAML 提供者的設定，請執行下列步驟：
     
     ![SAML 設定](./media/teamseer-tutorial/ic789638.png "SAML 設定") 
 
@@ -176,15 +176,15 @@ TeamSeer 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/teamseer-tutorial/create_aaduser_01.png) 
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+1. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
     
     ![建立 Azure AD 測試使用者](./media/teamseer-tutorial/create_aaduser_02.png) 
 
-3. 若要開啟 [使用者] 對話方塊，按一下對話方塊頂端的 [新增]。
+1. 若要開啟 [使用者] 對話方塊，按一下對話方塊頂端的 [新增]。
  
     ![建立 Azure AD 測試使用者](./media/teamseer-tutorial/create_aaduser_03.png) 
 
-4. 在 [使用者]  對話頁面上，執行下列步驟：
+1. 在 [使用者]  對話頁面上，執行下列步驟：
  
     ![建立 Azure AD 測試使用者](./media/teamseer-tutorial/create_aaduser_04.png) 
 
@@ -204,7 +204,7 @@ TeamSeer 與 Azure AD 整合提供下列優點：
 
 1. 以系統管理員身分登入您的 **TeamSeer** 公司網站。
 
-2. 執行下列步驟：
+1. 執行下列步驟：
    
     ![HR 管理](./media/teamseer-tutorial/ic789640.png "HR 管理")  
  
@@ -212,7 +212,7 @@ TeamSeer 與 Azure AD 整合提供下列優點：
   
     b. 按一下 [執行新增使用者精靈] 。
 
-3. 在 [使用者詳細資料]  區段中，執行下列步驟：
+1. 在 [使用者詳細資料]  區段中，執行下列步驟：
    
     ![使用者詳細資料](./media/teamseer-tutorial/ic789641.png "使用者詳細資料")
 
@@ -220,7 +220,7 @@ TeamSeer 與 Azure AD 整合提供下列優點：
   
     b. 按 [下一步] 。
 
-4. 請遵循畫面上的指示來新增新使用者，然後按一下 [完成]。
+1. 請遵循畫面上的指示來新增新使用者，然後按一下 [完成]。
 
 >[!NOTE]
 >您可以使用任何其他的 TeamSeer 使用者帳戶建立工具或 TeamSeer 提供的 API 來佈建 Azure AD 使用者帳戶。 
@@ -237,23 +237,23 @@ TeamSeer 與 Azure AD 整合提供下列優點：
 
     ![指派使用者][201] 
 
-2. 在應用程式清單中，選取 [TeamSeer]。
+1. 在應用程式清單中，選取 [TeamSeer]。
 
     ![設定單一登入](./media/teamseer-tutorial/tutorial_teamseer_app.png) 
 
-3. 在左側功能表中，按一下 [使用者和群組]。
+1. 在左側功能表中，按一下 [使用者和群組]。
 
     ![指派使用者][202] 
 
-4. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
+1. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
 
     ![指派使用者][203]
 
-5. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
+1. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
 
-6. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
+1. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
 
-7. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
+1. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
     
 ### <a name="testing-single-sign-on"></a>測試單一登入
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 2560296c088491b7ae0cd414f88ae337c1383c9a
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 5931958d17ea119e58c066a78a44169be2b9f451
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258791"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627520"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD 密碼管理的報告選項
 
@@ -40,7 +40,7 @@ ms.locfileid: "39258791"
 
 ## <a name="power-bi-content-pack"></a>Power BI 內容套件
 
-如果您是 Power BI 使用者，可使用 Azure AD 的內容套件，其中包含 SSPR 的易用報告。 如需如何使用和部署內容套件的詳細資訊，請參閱[如何使用 Azure Active Directory Power BI 內容套件](../active-directory-reporting-power-bi-content-pack-how-to.md)。 利用內容套件，您可以建立自己的儀表板，並與貴組織中的其他人共用。
+如果您是 Power BI 使用者，可使用 Azure AD 的內容套件，其中包含 SSPR 的易用報告。 如需如何使用和部署內容套件的詳細資訊，請參閱[如何使用 Azure Active Directory Power BI 內容套件](../reports-monitoring/howto-power-bi-content-pack.md)。 利用內容套件，您可以建立自己的儀表板，並與貴組織中的其他人共用。
 
 ## <a name="how-to-view-password-management-reports-in-the-azure-portal"></a>如何在 Azure 入口網站中檢視密碼管理報告
 

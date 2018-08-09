@@ -2,18 +2,18 @@
 title: 使用 Azure 匯入/匯出將資料轉送至 Azure 檔案服務 | Microsoft Docs
 description: 了解如何在 Azure 入口網站中建立匯入作業，以將資料轉送至 Azure 檔案服務。
 author: alkohli
-manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
 ms.date: 07/17/2018
 ms.author: alkohli
-ms.openlocfilehash: 4f48097fa1ece66dd9e20a7a7939ac43cb0f48b4
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.component: common
+ms.openlocfilehash: d6626b0c27f28f382d0189251fe90879020a69bf
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113472"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523626"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>使用 Azure 匯入/匯出服務將資料匯入 Azure 檔案服務
 

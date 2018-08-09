@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 06/18/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 233129a6ddb655483812fdd222b55a6c3623a9b4
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: dfaee72be883ee8902fe4550890d757f114ff932
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114946"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426100"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>使用 Azure 入口網站建立 Batch 帳戶
 
@@ -34,11 +34,11 @@ ms.locfileid: "39114946"
 
 1. 登入 [Azure 入口網站][azure_portal]。
 
-2. 選取 [建立資源] > [計算] > [Batch 服務]。
+1. 選取 [建立資源] > [計算] > [Batch 服務]。
 
     ![Marketplace 中的批次][marketplace_portal]
 
-3. 輸入 [新增 Batch 帳戶] 設定。 請參閱下列詳細資料。
+1. 輸入 [新增 Batch 帳戶] 設定。 請參閱下列詳細資料。
 
     ![建立批次帳戶：][account_portal]
 
@@ -56,7 +56,7 @@ ms.locfileid: "39114946"
 
     f. **集區配置模式**：在多數情況下，請接受預設的 [Batch 服務]。
 
-4. 選取 [建立] 以建立帳戶。
+1. 選取 [建立] 以建立帳戶。
 
 
 
@@ -85,22 +85,22 @@ ms.locfileid: "39114946"
 
 1. 登入 [Azure 入口網站][azure_portal]。
 
-2. 選取 [更多服務] > [訂用帳戶]，然後選取您想要用於 Batch 帳戶的訂用帳戶。
+1. 選取 [更多服務] > [訂用帳戶]，然後選取您想要用於 Batch 帳戶的訂用帳戶。
 
-3. 在 [訂用帳戶] 頁面中，選取 [資源提供者]，並搜尋 **Microsoft.Batch**。 請檢查 **Microsoft.Batch** 資源提供者是否已在訂用帳戶中註冊。 如果未註冊，請選取**註冊**連結。
+1. 在 [訂用帳戶] 頁面中，選取 [資源提供者]，並搜尋 **Microsoft.Batch**。 請檢查 **Microsoft.Batch** 資源提供者是否已在訂用帳戶中註冊。 如果未註冊，請選取**註冊**連結。
 
     ![註冊 Microsoft.Batch 提供者][register_provider]
 
-3. 在 [訂用帳戶] 頁面中，選取 [存取控制 (IAM)] > [新增]。
+1. 在 [訂用帳戶] 頁面中，選取 [存取控制 (IAM)] > [新增]。
 
     ![訂用帳戶存取控制][subscription_access]
 
-4. 在 [新增權限] 頁面中，選取 [參與者] 角色，並搜尋 Batch API。 搜尋這些字串，直到您找到 API 為止：
+1. 在 [新增權限] 頁面中，選取 [參與者] 角色，並搜尋 Batch API。 搜尋這些字串，直到您找到 API 為止：
     1. **MicrosoftAzureBatch**。
-    2. **Microsoft Azure Batch**。 較新的 Azure AD 租用戶可以使用這個名稱。
-    3. **ddbf3205-c6bd-46ae-8127-60eb93363864** 是 Batch API 的識別碼。 
+    1. **Microsoft Azure Batch**。 較新的 Azure AD 租用戶可以使用這個名稱。
+    1. **ddbf3205-c6bd-46ae-8127-60eb93363864** 是 Batch API 的識別碼。 
 
-5. 一旦您找到 Batch API 之後，請選取它，然後選取 [儲存]。
+1. 一旦您找到 Batch API 之後，請選取它，然後選取 [儲存]。
 
     ![新增 Batch 權限][add_permission]
 
@@ -109,7 +109,7 @@ ms.locfileid: "39114946"
 
 1. 在 [Azure 入口網站][azure_portal]中，選取 [新增] > [安全性] > [Key Vault]。
 
-2. 在 [建立 Key Vault] 頁面中，輸入 Key Vault 的名稱，並在您需要的 Batch 帳戶區域中建立資源群組。 將其餘設定保留為預設值，然後選取 [建立]。
+1. 在 [建立 Key Vault] 頁面中，輸入 Key Vault 的名稱，並在您需要的 Batch 帳戶區域中建立資源群組。 將其餘設定保留為預設值，然後選取 [建立]。
 
 在使用者訂用帳戶模式中建立 Batch 帳戶時，請使用金鑰保存庫的資源群組、指定 [使用者訂用帳戶] 作為集區配置模式，並選取金鑰保存庫。
 

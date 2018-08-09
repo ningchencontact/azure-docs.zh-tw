@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 562e8e49d769f15ba0b965bfb03c0d56076c78f1
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 8da582750b5e20ddd7018f59292e7342f1628c8c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091317"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425378"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>使用 Azure Resource Manager 針對常見的 Azure 部署錯誤進行疑難排解
 
@@ -39,7 +39,7 @@ ms.locfileid: "39091317"
 | 衝突 | 您要求的作業在資源的目前狀態下不允許。 例如，只有在建立 VM 時或解除配置 VM 之後，才可調整磁碟大小。 | |
 | DeploymentActive | 等候此資源群組的並行部署完成。 | |
 | DeploymentFailed | DeploymentFailed 錯誤是一般錯誤，不會提供您解決錯誤所需的詳細資料。 尋找錯誤碼的錯誤詳細資料，以提供更多資訊。 | [尋找錯誤碼](#find-error-code) |
-| DeploymentQuotaExceeded | 如果每個資源群組的部署達到 800 個數量限制，請從歷程記錄中刪除不再需要的部署。 您可以使用 [az group deployment delete](/cli/azure/group/deployment#az_group_deployment_delete) (Azure CLI) 或 [Remove-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/remove-azurermresourcegroupdeployment) (PowerShell) 以從歷程記錄中刪除項目。 從部署歷程記錄中刪除項目時，並不會影響部署資源。 | |
+| DeploymentQuotaExceeded | 如果每個資源群組的部署達到 800 個數量限制，請從歷程記錄中刪除不再需要的部署。 您可以使用 [az group deployment delete](/cli/azure/group/deployment#az-group-deployment-delete) (Azure CLI) 或 [Remove-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/remove-azurermresourcegroupdeployment) (PowerShell) 以從歷程記錄中刪除項目。 從部署歷程記錄中刪除項目時，並不會影響部署資源。 | |
 | DnsRecordInUse | DNS 記錄名稱必須是唯一的。 請提供不同的名稱，或是修改現有的記錄。 | |
 | ImageNotFound | 檢查 VM 映像設定。 |  |
 | InUseSubnetCannotBeDeleted | 當您嘗試更新資源時，可能會遇到這個錯誤，但是藉由刪除和建立資源即可處理要求。 請務必指定所有不變的值。 | [更新資源](/azure/architecture/building-blocks/extending-templates/update-resource) |
@@ -70,7 +70,7 @@ ms.locfileid: "39091317"
 | RequestDisallowedByPolicy | 您的訂用帳戶包含會讓您無法在部署期間嘗試執行某個動作的資源原則。 尋找封鎖動作的原則。 可能的話，請修改您的部署以符合原則的限制。 | [解析原則](resource-manager-policy-requestdisallowedbypolicy-error.md) |
 | ReservedResourceName | 提供不包含保留名稱的資源名稱。 | [唯一的資源名稱](resource-manager-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | 等候刪除完成。 | |
-| ResourceGroupNotFound | 檢查部署的目標資源群組名稱。 它必須已經存在於您的訂用帳戶中。 檢查訂用帳戶內容。 | [Azure CLI](/cli/azure/account?#az_account_set) [PowerShell](/powershell/module/azurerm.profile/set-azurermcontext) |
+| ResourceGroupNotFound | 檢查部署的目標資源群組名稱。 它必須已經存在於您的訂用帳戶中。 檢查訂用帳戶內容。 | [Azure CLI](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/azurerm.profile/set-azurermcontext) |
 | ResourceNotFound | 您的部署會參考無法解析的資源。 確認您使用 **reference** 函式包括案例的必要參數。 | [解析參考](resource-manager-not-found-errors.md) |
 | ResourceQuotaExceeded | 部署嘗試建立資源，這些資源超過訂用帳戶、資源群組或區域的配額。 可能的話，請修改您的基礎結構，以維持在配額內。 否則，請考慮要求變更您的配額。 | [解析配額](resource-manager-quota-errors.md) |
 | SkuNotAvailable | 選取可供您選取之位置使用的 SKU (例如 VM 大小)。 | [解析 SKU](resource-manager-sku-not-available-errors.md) |

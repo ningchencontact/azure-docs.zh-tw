@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: dc5b5cbe9b1f000d8ddf9d38cfe13f5275e698f2
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 0ee2654b313f453f7485c89c789edc8efc068d7b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39347708"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39442644"
 ---
 # <a name="create-an-external-app-service-environment"></a>建立外部 App Service 環境 #
 
@@ -64,27 +64,27 @@ App Service 方案是應用程式的容器。 當您在 App Service 中建立應
 
     ![建立 Web 應用程式][1]
 
-2. 選取您的訂用帳戶。 會在相同的訂用帳戶中建立應用程式和 ASE。
+1. 選取您的訂用帳戶。 會在相同的訂用帳戶中建立應用程式和 ASE。
 
-3. 選取或建立資源群組。 您可以使用資源群組來管理相關的一組 Azure 資源。 當您為應用程式建立角色型存取控制規則時，資源群組也十分實用。 如需詳細資訊，請參閱 [Azure Resource Manager 概觀][ARMOverview]。
+1. 選取或建立資源群組。 您可以使用資源群組來管理相關的一組 Azure 資源。 當您為應用程式建立角色型存取控制規則時，資源群組也十分實用。 如需詳細資訊，請參閱 [Azure Resource Manager 概觀][ARMOverview]。
 
-4. 選取您的 OS (Windows、Linux 或 Docker)。 
+1. 選取您的 OS (Windows、Linux 或 Docker)。 
 
-5. 選取 App Service 方案，然後選取 [新建]。 Linux Web 應用程式和 Windows Web 應用程式不能在相同的 App Service 方案中，但可位於相同的 App Service Environment 中。 
+1. 選取 App Service 方案，然後選取 [新建]。 Linux Web 應用程式和 Windows Web 應用程式不能在相同的 App Service 方案中，但可位於相同的 App Service Environment 中。 
 
     ![新增 App Service 方案][2]
 
-6. 在 [位置] 下拉式清單中，選取您需要建立 ASE 的區域。 如果您選取現有的 ASE，就不會建立新的 ASE。 會在您選取的 ASE 中建立 App Service 方案。 
+1. 在 [位置] 下拉式清單中，選取您需要建立 ASE 的區域。 如果您選取現有的 ASE，就不會建立新的 ASE。 會在您選取的 ASE 中建立 App Service 方案。 
 
-7. 選取**定價層**，然後選擇其中一個**隔離的**定價 SKU。 如果您選擇**隔離** SKU 卡以及非 ASE 的位置，就會在該位置中建立新的 ASE。 若要啟動建立 ASE 的流程，請選取 [選取]。 **隔離** SKU 僅供與 ASE 搭配使用。 您也無法在 ASE 中使用**隔離**以外的其他任何定價 SKU。 
+1. 選取**定價層**，然後選擇其中一個**隔離的**定價 SKU。 如果您選擇**隔離** SKU 卡以及非 ASE 的位置，就會在該位置中建立新的 ASE。 若要啟動建立 ASE 的流程，請選取 [選取]。 **隔離** SKU 僅供與 ASE 搭配使用。 您也無法在 ASE 中使用**隔離**以外的其他任何定價 SKU。 
 
     ![定價層選取項目][3]
 
-8. 輸入 ASE 的名稱。 此名稱是用於應用程式的可定址名稱。 如果 ASE 的名稱是 _appsvcenvdemo_，則網域名稱會是 .appsvcenvdemo.p.azurewebsites.net。 如果您建立名為 mytestapp 的應用程式，則可定址於 mytestapp.appsvcenvdemo.p.azurewebsites.net。 您無法在名稱中使用空白字元。 如果您使用大寫字元，則網域名稱會是該名稱的全小寫版本。
+1. 輸入 ASE 的名稱。 此名稱是用於應用程式的可定址名稱。 如果 ASE 的名稱是 _appsvcenvdemo_，則網域名稱會是 .appsvcenvdemo.p.azurewebsites.net。 如果您建立名為 mytestapp 的應用程式，則可定址於 mytestapp.appsvcenvdemo.p.azurewebsites.net。 您無法在名稱中使用空白字元。 如果您使用大寫字元，則網域名稱會是該名稱的全小寫版本。
 
     ![新增 App Service 方案名稱][4]
 
-9. 指定 Azure 虛擬網路詳細資料。 選取 [新建] 或 [選取現有]。 僅在選取的區域擁有 VNet 時，才可以使用選取現有 VNet 的選項。 如果您選取 [新建]，請輸入 VNet 的名稱。 會建立具有該名稱的 Resource Manager VNet。 它會使用選取區域中的位址空間 `192.168.250.0/23`。 如果您選取 [選取現有]，您需要：
+1. 指定 Azure 虛擬網路詳細資料。 選取 [新建] 或 [選取現有]。 僅在選取的區域擁有 VNet 時，才可以使用選取現有 VNet 的選項。 如果您選取 [新建]，請輸入 VNet 的名稱。 會建立具有該名稱的 Resource Manager VNet。 它會使用選取區域中的位址空間 `192.168.250.0/23`。 如果您選取 [選取現有]，您需要：
 
     a. 如果您有多個位址區塊，請選取 VNet 位址區塊。
 
@@ -94,7 +94,7 @@ App Service 方案是應用程式的容器。 當您在 App Service 中建立應
 
     d. 選取子網路 IP 範圍。
 
-10. 選取 [建立] 以建立 ASE。 此流程也會建立 App Service 方案和應用程式。 ASE、App Service 方案和應用程式會在相同的訂用帳戶底下，同時在相同的資源群組中。 如果您的 ASE 需要個別資源群組，或如果您需要 ILB ASE，請遵循步驟讓 ASE 自行建立。
+1. 選取 [建立] 以建立 ASE。 此流程也會建立 App Service 方案和應用程式。 ASE、App Service 方案和應用程式會在相同的訂用帳戶底下，同時在相同的資源群組中。 如果您的 ASE 需要個別資源群組，或如果您需要 ILB ASE，請遵循步驟讓 ASE 自行建立。
 
 ## <a name="create-an-ase-and-a-linux-web-app-using-a-custom-docker-image-together"></a>使用自訂 Docker 映像一起建立 ASE 和 Linux Web 應用程式
 
@@ -102,25 +102,25 @@ App Service 方案是應用程式的容器。 當您在 App Service 中建立應
 
     ![建立 Web 應用程式][7]
 
-2. 選取您的訂用帳戶。 會在相同的訂用帳戶中建立應用程式和 ASE。
+1. 選取您的訂用帳戶。 會在相同的訂用帳戶中建立應用程式和 ASE。
 
-3. 選取或建立資源群組。 您可以使用資源群組來管理相關的一組 Azure 資源。 當您為應用程式建立角色型存取控制規則時，資源群組也十分實用。 如需詳細資訊，請參閱 [Azure Resource Manager 概觀][ARMOverview]。
+1. 選取或建立資源群組。 您可以使用資源群組來管理相關的一組 Azure 資源。 當您為應用程式建立角色型存取控制規則時，資源群組也十分實用。 如需詳細資訊，請參閱 [Azure Resource Manager 概觀][ARMOverview]。
 
-4. 選取 App Service 方案，然後選取 [新建]。 Linux Web 應用程式和 Windows Web 應用程式不能在相同的 App Service 方案中，但可位於相同的 App Service Environment 中。 
+1. 選取 App Service 方案，然後選取 [新建]。 Linux Web 應用程式和 Windows Web 應用程式不能在相同的 App Service 方案中，但可位於相同的 App Service Environment 中。 
 
     ![新增 App Service 方案][8]
 
-5. 在 [位置] 下拉式清單中，選取您需要建立 ASE 的區域。 如果您選取現有的 ASE，就不會建立新的 ASE。 會在您選取的 ASE 中建立 App Service 方案。 
+1. 在 [位置] 下拉式清單中，選取您需要建立 ASE 的區域。 如果您選取現有的 ASE，就不會建立新的 ASE。 會在您選取的 ASE 中建立 App Service 方案。 
 
-6. 選取**定價層**，然後選擇其中一個**隔離的**定價 SKU。 如果您選擇**隔離** SKU 卡以及非 ASE 的位置，就會在該位置中建立新的 ASE。 若要啟動建立 ASE 的流程，請選取 [選取]。 **隔離** SKU 僅供與 ASE 搭配使用。 您也無法在 ASE 中使用**隔離**以外的其他任何定價 SKU。 
+1. 選取**定價層**，然後選擇其中一個**隔離的**定價 SKU。 如果您選擇**隔離** SKU 卡以及非 ASE 的位置，就會在該位置中建立新的 ASE。 若要啟動建立 ASE 的流程，請選取 [選取]。 **隔離** SKU 僅供與 ASE 搭配使用。 您也無法在 ASE 中使用**隔離**以外的其他任何定價 SKU。 
 
     ![定價層選取項目][3]
 
-7. 輸入 ASE 的名稱。 此名稱是用於應用程式的可定址名稱。 如果 ASE 的名稱是 _appsvcenvdemo_，則網域名稱會是 .appsvcenvdemo.p.azurewebsites.net。 如果您建立名為 mytestapp 的應用程式，則可定址於 mytestapp.appsvcenvdemo.p.azurewebsites.net。 您無法在名稱中使用空白字元。 如果您使用大寫字元，則網域名稱會是該名稱的全小寫版本。
+1. 輸入 ASE 的名稱。 此名稱是用於應用程式的可定址名稱。 如果 ASE 的名稱是 _appsvcenvdemo_，則網域名稱會是 .appsvcenvdemo.p.azurewebsites.net。 如果您建立名為 mytestapp 的應用程式，則可定址於 mytestapp.appsvcenvdemo.p.azurewebsites.net。 您無法在名稱中使用空白字元。 如果您使用大寫字元，則網域名稱會是該名稱的全小寫版本。
 
     ![新增 App Service 方案名稱][4]
 
-8. 指定 Azure 虛擬網路詳細資料。 選取 [新建] 或 [選取現有]。 僅在選取的區域擁有 VNet 時，才可以使用選取現有 VNet 的選項。 如果您選取 [新建]，請輸入 VNet 的名稱。 會建立具有該名稱的 Resource Manager VNet。 它會使用選取區域中的位址空間 `192.168.250.0/23`。 如果您選取 [選取現有]，您需要：
+1. 指定 Azure 虛擬網路詳細資料。 選取 [新建] 或 [選取現有]。 僅在選取的區域擁有 VNet 時，才可以使用選取現有 VNet 的選項。 如果您選取 [新建]，請輸入 VNet 的名稱。 會建立具有該名稱的 Resource Manager VNet。 它會使用選取區域中的位址空間 `192.168.250.0/23`。 如果您選取 [選取現有]，您需要：
 
     a. 如果您有多個位址區塊，請選取 VNet 位址區塊。
 
@@ -130,12 +130,12 @@ App Service 方案是應用程式的容器。 當您在 App Service 中建立應
 
     d. 選取子網路 IP 範圍。
 
-9.  選取 [設定容器]。
+1.  選取 [設定容器]。
     * 輸入您的自訂映像名稱 (您可以使用 Azure Container Registry、Docker Hub 和自己的私人登錄)。 如果您不想使用自己的自訂容器，您可以依照上述指示，只要自備程式碼並且在 Linux 上使用內建映像搭配 App Service。 
 
     ![設定容器][9]
 
-10. 選取 [建立] 以建立 ASE。 此流程也會建立 App Service 方案和應用程式。 ASE、App Service 方案和應用程式會在相同的訂用帳戶底下，同時在相同的資源群組中。 如果您的 ASE 需要個別資源群組，或如果您需要 ILB ASE，請遵循步驟讓 ASE 自行建立。
+1. 選取 [建立] 以建立 ASE。 此流程也會建立 App Service 方案和應用程式。 ASE、App Service 方案和應用程式會在相同的訂用帳戶底下，同時在相同的資源群組中。 如果您的 ASE 需要個別資源群組，或如果您需要 ILB ASE，請遵循步驟讓 ASE 自行建立。
 
 
 ## <a name="create-an-ase-by-itself"></a>由 ASE 本身建立 ##
@@ -144,17 +144,17 @@ App Service 方案是應用程式的容器。 當您在 App Service 中建立應
 
 1. 在 Azure Marketplace 中搜尋「App Service 環境」，或選取 [建立資源]  >  [Web + 行動]  >  [App Service 環境]。 
 
-2. 輸入您的 ASE 名稱。 這個名稱會用於 ASE 中建立的應用程式。 如果名稱是 mynewdemoase，子網域名稱就是 .mynewdemoase.p.azurewebsites.net。 如果您建立名為 mytestapp 的應用程式，則可定址於 mytestapp.mynewdemoase.p.azurewebsites.net。 您無法在名稱中使用空白字元。 如果您使用大寫字元，則網域名稱會是該名稱的全小寫版本。 如果您是使用 ILB，ASE 名稱就不會用於您的子網域中，但是會在 ASE 建立期間明確指定。
+1. 輸入您的 ASE 名稱。 這個名稱會用於 ASE 中建立的應用程式。 如果名稱是 mynewdemoase，子網域名稱就是 .mynewdemoase.p.azurewebsites.net。 如果您建立名為 mytestapp 的應用程式，則可定址於 mytestapp.mynewdemoase.p.azurewebsites.net。 您無法在名稱中使用空白字元。 如果您使用大寫字元，則網域名稱會是該名稱的全小寫版本。 如果您是使用 ILB，ASE 名稱就不會用於您的子網域中，但是會在 ASE 建立期間明確指定。
 
     ![ASE 命名][5]
 
-3. 選取您的訂用帳戶。 此訂用帳戶也是所有應用程式在 ASE 中所使用的。 您無法將 ASE 放在另一個訂用帳戶中的 VNet。
+1. 選取您的訂用帳戶。 此訂用帳戶也是所有應用程式在 ASE 中所使用的。 您無法將 ASE 放在另一個訂用帳戶中的 VNet。
 
-4. 選取或指定新的資源群組。 用於 ASE 的資源群組必須是與用於您 VNet 的相同。 如果您選取現有的 VNet，您 ASE 的資源群組選取項目將會更新，以反映 VNet 的資源群組。 如果您是使用 Resource Manager 範本，可以使用不同於 VNet 資源群組的資源群組來建立 ASE。 若要從範本建立 ASE，請參閱[從範本建立 App Service 環境][MakeASEfromTemplate]。
+1. 選取或指定新的資源群組。 用於 ASE 的資源群組必須是與用於您 VNet 的相同。 如果您選取現有的 VNet，您 ASE 的資源群組選取項目將會更新，以反映 VNet 的資源群組。 如果您是使用 Resource Manager 範本，可以使用不同於 VNet 資源群組的資源群組來建立 ASE。 若要從範本建立 ASE，請參閱[從範本建立 App Service 環境][MakeASEfromTemplate]。
 
     ![資源群組選取項目][6]
 
-5. 選取您的 VNet 和位置。 您可以建立新的 VNet 或選取現有的 VNet： 
+1. 選取您的 VNet 和位置。 您可以建立新的 VNet 或選取現有的 VNet： 
 
     * 如果您選取新的 VNet，就可以指定名稱和位置。 
     

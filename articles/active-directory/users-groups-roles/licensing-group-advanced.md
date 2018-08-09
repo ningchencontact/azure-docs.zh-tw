@@ -14,12 +14,12 @@ ms.component: users-groups-roles
 ms.date: 06/02/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ecb0919b68516fdb886ea745d963349ff29f83b4
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 15b52920774a878cd386ced5966d507768a8af70
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867319"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627384"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>使用群組來管理 Azure Active Directory 授權的案例、限制及已知問題
 
@@ -146,13 +146,13 @@ ms.locfileid: "37867319"
 
 ## <a name="use-audit-logs-to-monitor-group-based-licensing-activity"></a>使用稽核記錄來監視群組型授權活動
 
-您可以使用 [Azure AD 稽核記錄](./../active-directory-reporting-activity-audit-logs.md#audit-logs)來查看與群組型授權相關的所有活動，包括：
+您可以使用 [Azure AD 稽核記錄](../reports-monitoring/concept-audit-logs.md#audit-logs)來查看與群組型授權相關的所有活動，包括：
 - 哪些人變更了群組的授權
 - 系統何時開始處理群組授權變更，以及何時完成
 - 由於群組授權指派而對使用者做了哪些授權變更。
 
 >[!NOTE]
-> 入口網站之 [Azure Active Directory] 區段中的大部分刀鋒視窗都有提供稽核記錄。 根據您存取記錄的位置，可能會預先套用篩選，僅顯示與刀鋒視窗內容相關的活動。 如果您沒有看到預期的結果，請檢查[篩選選項](./../active-directory-reporting-activity-audit-logs.md#filtering-audit-logs)，或在 [[Azure Active Directory] > [活動] > [稽核記錄]](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Audit) 下存取未篩選的稽核記錄。
+> 入口網站之 [Azure Active Directory] 區段中的大部分刀鋒視窗都有提供稽核記錄。 根據您存取記錄的位置，可能會預先套用篩選，僅顯示與刀鋒視窗內容相關的活動。 如果您沒有看到預期的結果，請檢查[篩選選項](../reports-monitoring/concept-audit-logs.md#filtering-audit-logs)，或在 [[Azure Active Directory] > [活動] > [稽核記錄]](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Audit) 下存取未篩選的稽核記錄。
 
 ### <a name="find-out-who-modified-a-group-license"></a>了解哪些人修改了群組授權
 

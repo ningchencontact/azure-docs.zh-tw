@@ -1,8 +1,8 @@
 ---
 title: 使用 Azure IoT 中樞裝置佈建服務 (.NET) 佈建裝置 | Microsoft Docs
 description: 使用 Azure IoT 中樞裝置佈建服務 (.NET) 將裝置佈建到單一 IoT 中樞
-author: bryanla
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 09/05/2017
 ms.topic: tutorial
 ms.service: iot-dps
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: e31c06268245946bd80e1328f4d7176f1e9a660f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1d82ccdf85b34416dc630b9fcad969d87cc53ff1
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629876"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520661"
 ---
 # <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>使用 Azure IoT 中樞佈建服務用戶端 (.NET) 將裝置註冊到 IoT 中樞
 
@@ -26,7 +26,7 @@ ms.locfileid: "34629876"
 > * 啟動裝置
 > * 確認裝置已註冊
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 在繼續之前，請務必依照[將裝置設定為使用 Azure IoT 中樞裝置佈建服務來進行佈建](./tutorial-set-up-device.md)教學課程所討論的方法，來設定裝置和其*硬體安全模組*。
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2017
 ms.author: jeedes
-ms.openlocfilehash: 57c418f686aa956294efeabd831042441c055e56
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 655140fc7f8cc52adf6a13a99cef531f28d5cefc
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041104"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422242"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>教學課程：Azure Active Directory 與 Questetra BPM Suite 整合
 
@@ -53,7 +53,7 @@ Questetra BPM Suite 與 Azure AD 整合提供下列優點：
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫加入 Questetra BPM Suite
-2. 設定和測試 Azure AD 單一登入
+1. 設定和測試 Azure AD 單一登入
 
 ## <a name="add-questetra-bpm-suite-from-the-gallery"></a>從資源庫加入 Questetra BPM Suite
 若要設定 Questetra BPM Suite 與 Azure AD 整合，您需要從資源庫將 Questetra BPM Suite 加入至受控 SaaS 應用程式的清單。
@@ -64,15 +64,15 @@ Questetra BPM Suite 與 Azure AD 整合提供下列優點：
 
     ![Active Directory][1]
 
-2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
+1. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![[應用程式]][2]
     
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+1. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![[應用程式]][3]
 
-4. 在搜尋方塊中，輸入 **Questetra BPM Suite**，從結果面板中選取 [Questetra BPM Suite]，然後按一下 [新增] 按鈕以新增應用程式。
+1. 在搜尋方塊中，輸入 **Questetra BPM Suite**，從結果面板中選取 [Questetra BPM Suite]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![從資源庫新增](./media/questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_addfromgallery.png)
 
@@ -86,10 +86,10 @@ Questetra BPM Suite 與 Azure AD 整合提供下列優點：
 若要使用 Questetra BPM Suite 設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 Questetra BPM Suite 測試使用者](#create-a-questetra-bpm-suite-test-user)** - 使 Questetra BPM Suite 中對應的 Britta Simon 連結到使用者在 Azure AD 中的代表項目。
-4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[測試單一登入](#test-single-sign-on)** - 驗證組態是否能運作。
+1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
+1. **[建立 Questetra BPM Suite 測試使用者](#create-a-questetra-bpm-suite-test-user)** - 使 Questetra BPM Suite 中對應的 Britta Simon 連結到使用者在 Azure AD 中的代表項目。
+1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+1. **[測試單一登入](#test-single-sign-on)** - 驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -101,11 +101,11 @@ Questetra BPM Suite 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入][4]
 
-2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
+1. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
  
     ![SAML 型登入](./media/questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_samlbase.png)
 
-3. 在 [Questetra BPM Suite 網域與 URL] 區段上，執行下列步驟：
+1. 在 [Questetra BPM Suite 網域與 URL] 區段上，執行下列步驟：
 
     ![Questetra BPM Suite 網域與 URL 區段](./media/questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_url.png)
 
@@ -116,35 +116,35 @@ Questetra BPM Suite 與 Azure AD 整合提供下列優點：
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 您可以從 **Questetra BPM Suite** [SP 資訊] 區段取得這些值，本教學課程後續將會加以說明；您也可以連絡 [Questetra BPM Suite 用戶端支援小組](https://www.questetra.com/contact/)。 
  
-4. 在 [SAML 簽署憑證] 區段上，按一下 [\憑證 (Base 64)\]，然後將憑證檔案儲存在您的電腦上。
+1. 在 [SAML 簽署憑證] 區段上，按一下 [\憑證 (Base 64)\]，然後將憑證檔案儲存在您的電腦上。
 
     ![[SAML 簽署憑證] 區段](./media/questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_certificate.png) 
 
-5. 按一下 [儲存]  按鈕。
+1. 按一下 [儲存]  按鈕。
 
     ![[儲存] 按鈕](./media/questetra-bpm-suite-tutorial/tutorial_general_400.png)
 
-6. 在 [Questetra BPM Suite 設定] 區段上，按一下 [設定 Questetra BPM Suite] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
+1. 在 [Questetra BPM Suite 設定] 區段上，按一下 [設定 Questetra BPM Suite] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
 
     ![Questetra BPM Suite 設定區段](./media/questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_configure.png) 
 
-7. 在不同的 Web 瀏覽器視窗中，以系統管理員身分登入您的 **Questetra BPM Suite** 公司網站。
+1. 在不同的 Web 瀏覽器視窗中，以系統管理員身分登入您的 **Questetra BPM Suite** 公司網站。
 
-8. 在頂端的功能表中，按一下 [系統設定] 。 
+1. 在頂端的功能表中，按一下 [系統設定] 。 
    
     ![Azure AD 單一登入][10]
 
-9. 若要開啟 [SingleSignOnSAML] 頁面，按一下 [SSO (SAML)]。 
+1. 若要開啟 [SingleSignOnSAML] 頁面，按一下 [SSO (SAML)]。 
    
     ![Azure AD 單一登入][11]
 
-10. 在 **Questetra BPM Suite** 公司網站的 [SP 資訊] 區段中，執行以下步驟：
+1. 在 **Questetra BPM Suite** 公司網站的 [SP 資訊] 區段中，執行以下步驟：
 
     a. 從 Azure 入口網站複製 **ACS URL**，然後再貼入 [Questetra BPM Suite 網域與 URL] 區段中的 [登入 URL] 文字方塊。
     
     b. 從 Azure 入口網站複製**實體識別碼**，然後再貼入 [Questetra BPM Suite 網域與 URL] 區段中的 [識別碼] 文字方塊。
 
-11. 在您的 **Questetra BPM Suite** 公司網站上，執行下列步驟： 
+1. 在您的 **Questetra BPM Suite** 公司網站上，執行下列步驟： 
    
     ![設定單一登入][15]
    
@@ -177,15 +177,15 @@ Questetra BPM Suite 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/questetra-bpm-suite-tutorial/create_aaduser_01.png) 
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+1. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
     
     ![建立 Azure AD 測試使用者](./media/questetra-bpm-suite-tutorial/create_aaduser_02.png) 
 
-3. 若要開啟 [使用者] 對話方塊，按一下對話方塊頂端的 [新增]。
+1. 若要開啟 [使用者] 對話方塊，按一下對話方塊頂端的 [新增]。
  
     ![建立 Azure AD 測試使用者](./media/questetra-bpm-suite-tutorial/create_aaduser_03.png) 
 
-4. 在 [使用者]  對話頁面上，執行下列步驟：
+1. 在 [使用者]  對話頁面上，執行下列步驟：
  
     ![建立 Azure AD 測試使用者](./media/questetra-bpm-suite-tutorial/create_aaduser_04.png) 
 
@@ -204,8 +204,8 @@ Questetra BPM Suite 與 Azure AD 整合提供下列優點：
 **若要在 Questetra BPM Suite 中建立名為 Britta Simon 的使用者，請執行以下步驟：**
 
 1. 以系統管理員身分登入您的 Questetra BPM Suite 公司網站。
-2. 移至 [系統設定] > [使用者清單] > [新增使用者]。 
-3. 在 [新增使用者] 對話方塊上，執行下列步驟： 
+1. 移至 [系統設定] > [使用者清單] > [新增使用者]。 
+1. 在 [新增使用者] 對話方塊上，執行下列步驟： 
    
     ![建立測試使用者][300] 
    
@@ -229,23 +229,23 @@ Questetra BPM Suite 與 Azure AD 整合提供下列優點：
 
     ![指派使用者][201] 
 
-2. 在應用程式清單中，選取 [Questetra BPM Suite] 。
+1. 在應用程式清單中，選取 [Questetra BPM Suite] 。
 
     ![應用程式清單中的 Questetra BPM Suite](./media/questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_app.png) 
 
-3. 在左側功能表中，按一下 [使用者和群組]。
+1. 在左側功能表中，按一下 [使用者和群組]。
 
     ![指派使用者][202] 
 
-4. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
+1. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
 
     ![指派使用者][203]
 
-5. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
+1. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
 
-6. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
+1. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
 
-7. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
+1. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
     
 ### <a name="test-single-sign-on"></a>測試單一登入
 

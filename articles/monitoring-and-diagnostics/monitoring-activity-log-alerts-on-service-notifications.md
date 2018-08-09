@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
 ms.component: alerts
-ms.openlocfilehash: 1cd82f7ffa9360dbc35f9c9d790df34355d9dd1a
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 6e1a72c428425c73ff0446fc0d41b1b18333c3e3
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035708"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423883"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>建立服務通知的活動記錄警示
 ## <a name="overview"></a>概觀
@@ -43,32 +43,32 @@ ms.locfileid: "39035708"
 
     ![「服務健康情況」服務](./media/monitoring-activity-log-alerts-on-service-notifications/home-servicehealth.png)
 
-2. 在 [警示] 區段中，選取 [健康情況警示]。
+1. 在 [警示] 區段中，選取 [健康情況警示]。
 
     ![[健康情況警示] 索引標籤](./media/monitoring-activity-log-alerts-on-service-notifications/alerts-blades-sh.png)
 
-3. 選取 [建立服務健康情況警示] 並填入欄位。
+1. 選取 [建立服務健康情況警示] 並填入欄位。
 
     ![「建立服務健康情況警示」命令](./media/monitoring-activity-log-alerts-on-service-notifications/service-health-alert.png)
 
-4. 選取您想要警示的**訂用帳戶**、**服務**和**區域**。
+1. 選取您想要警示的**訂用帳戶**、**服務**和**區域**。
 
     ![「新增活動記錄警示」對話方塊](./media/monitoring-activity-log-alerts-on-service-notifications/activity-log-alert-new-ux.png)
 
 > [!NOTE]
 > 此訂用帳戶會用來儲存活動記錄警示。 警示資源會部署到此訂用帳戶，並從中監視活動記錄事件。
 
-5. 選擇您想要警示的**事件類型**：*服務問題*、*計劃性維護*和*健康情況諮詢* 
+1. 選擇您想要警示的**事件類型**：*服務問題*、*計劃性維護*和*健康情況諮詢* 
 
-6. 輸入**警示規則名稱**和**描述**，定義您的警示詳細資料。
+1. 輸入**警示規則名稱**和**描述**，定義您的警示詳細資料。
 
-7. 選取要儲存警示的**資源群組**。
+1. 選取要儲存警示的**資源群組**。
 
-8. 選取**新的動作群組**以建立新的動作群組。 在 [動作群組名稱] 方塊中輸入名稱，然後在 [簡短名稱] 方塊中，輸入名稱。 當此警示發動時，通知中會引用該簡短名稱。
+1. 選取**新的動作群組**以建立新的動作群組。 在 [動作群組名稱] 方塊中輸入名稱，然後在 [簡短名稱] 方塊中，輸入名稱。 當此警示發動時，通知中會引用該簡短名稱。
 
     ![建立新的動作群組](./media/monitoring-activity-log-alerts-on-service-notifications/action-group-creation.png)
 
-9. 請提供接收者的下列各項，以定義接收者的清單：
+1. 請提供接收者的下列各項，以定義接收者的清單：
 
     a. **名稱**：輸入接收者名稱、別名或識別碼。
 
@@ -76,7 +76,7 @@ ms.locfileid: "39035708"
 
     c. **詳細資料**：根據選擇的動作類型，輸入電話號碼、電子郵件地址或 Webhook URI 等。
 
-10. 選取 [確定] 建立動作群組，然後**建立警示規則**完成您的警示。
+1. 選取 [確定] 建立動作群組，然後**建立警示規則**完成您的警示。
 
 在幾分鐘之內會啟用警示，開始根據建立時所指定的條件觸發警示。
 
@@ -91,9 +91,9 @@ ms.locfileid: "39035708"
 
 1. 請遵循上一節的步驟 1 到 7，以建立您的服務健康情況通知。 
 
-2. 在 [定義動作群組] 下，按一下 [選取動作群組] 按鈕。 選取適當的動作群組。
+1. 在 [定義動作群組] 下，按一下 [選取動作群組] 按鈕。 選取適當的動作群組。
 
-3. 選取 [新增] 新增動作群組，然後**建立警示規則**完成您的警示。
+1. 選取 [新增] 新增動作群組，然後**建立警示規則**完成您的警示。
 
 在幾分鐘之內會啟用警示，開始根據建立時所指定的條件觸發警示。
 

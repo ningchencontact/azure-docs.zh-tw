@@ -14,19 +14,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 06/15/2018
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 110e2f611ba8bfc42fe17de6aa4487683db4a414
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 44e4bedd747c5a0010058efee595402448f6a30b
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34069868"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39507149"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>將 Azure 訂用帳戶的擁有權轉移給另一個帳戶
 
-將您的訂用帳戶轉移給帳戶中心的另一位使用者，可變更帳戶管理員，並交出訂用帳戶的帳單擁有權。 若要將您的訂用帳戶變更至不同的優惠，請參閱[切換至不同的 Azure 訂用帳戶優惠](billing-how-to-switch-azure-offer.md)。
+將您的訂用帳戶轉移給帳戶中心的另一位使用者，可變更帳戶管理員，並交出訂用帳戶的帳單擁有權。 若要將您的訂用帳戶變更至不同的供應項目，請參閱[切換至不同的 Azure 訂用帳戶供應項目](billing-how-to-switch-azure-offer.md)。
 
 > [!IMPORTANT]
 > 
@@ -42,9 +42,9 @@ ms.locfileid: "34069868"
 
 1. 選取要移轉的訂用帳戶。
 
-1. 將 [優惠] 和 [優惠識別碼][與支援優惠清單對照](#supported)，確認您的訂閱是否符合自助式移轉的資格。
+1. 將 [供應項目] 和 [供應項目識別碼][與支援供應項目清單對照](#supported)，確認您的訂閱是否符合自助式移轉的資格。
 
-   ![在帳戶中心裡確認訂閱的優惠識別碼](./media/billing-subscription-transfer/image0.png)
+   ![在帳戶中心裡確認訂閱的供應項目識別碼](./media/billing-subscription-transfer/image0.png)
 1. 按一下 [移轉訂用帳戶]。
 
    ![Azure 帳戶的訂用帳戶索引標籤](./media/billing-subscription-transfer/image1.png)
@@ -86,9 +86,9 @@ ms.locfileid: "34069868"
 
 ## <a name="whats-supported"></a>支援的項目：
 
-下表中的優惠和訂閱類型可採用自助式訂閱移轉。 您目前無法移轉免費試用版或 [Azure in Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) 訂閱。 如需因應措施，請參閱[將資源移動到新的資源群組或訂用帳戶](../azure-resource-manager/resource-group-move-resources.md)。 若要移轉[贊助](https://azure.microsoft.com/offers/ms-azr-0036p/)或支援方案等其他訂閱，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
+下表中的供應項目和訂閱類型可採用自助式訂閱移轉。 您目前無法移轉免費試用版或 [Azure in Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) 訂閱。 如需因應措施，請參閱[將資源移動到新的資源群組或訂用帳戶](../azure-resource-manager/resource-group-move-resources.md)。 若要移轉[贊助](https://azure.microsoft.com/offers/ms-azr-0036p/)或支援方案等其他訂閱，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
 
-| 優惠名稱                                                                             | 優惠號碼 |
+| 供應項目名稱                                                                             | 供應項目號碼 |
 |----------------------------------------------------------------------------------------|--------------|
 | [Enterprise 合約 (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*|MS-AZR-0017P        |
 | [Microsoft 合作夥伴網路](https://azure.microsoft.com/offers/ms-azr-0025p/)          | MS-AZR-0025P        |
@@ -116,11 +116,11 @@ ms.locfileid: "34069868"
 
 ### <a name="does-everything-transfer-including-resource-groups-vms-disks-and-other-running-services"></a>所有項目都會移轉嗎？ 包括資源群組、VM、磁碟和其他執行中的服務？
 
-VM、磁碟和網站等所有資源都會轉移給新的擁有者。 不過，不會跨不同目錄轉送您所設定的任何[系統管理員角色](billing-add-change-azure-subscription-administrator.md)和[角色型存取控制 (RBAC)](../role-based-access-control/role-assignments-portal.md) 原則。 此外，[應用程式註冊](../active-directory//develop/active-directory-integrating-applications.md)和其他租用戶特定服務並不會隨之轉移。
+VM、磁碟和網站等所有資源都會轉移給新的擁有者。 不過，不會跨不同目錄轉送您所設定的任何[系統管理員角色](billing-add-change-azure-subscription-administrator.md)和[角色型存取控制 (RBAC)](../role-based-access-control/role-assignments-portal.md) 原則。 此外，[應用程式註冊](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)和其他租用戶特定服務並不會隨之轉移。
 
 ### <a id="no-button"></a> 為什麼看不到 [移轉訂用帳戶] 按鈕？
 
-很抱歉，您的優惠或國家/地區無法使用自助式訂閱移轉。 若要移轉訂閱，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
+很抱歉，您的供應項目或國家/地區無法使用自助式訂閱移轉。 若要移轉訂閱，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
 
 ### <a name="does-a-subscription-transfer-result-in-any-service-downtime"></a>移轉訂閱會造成服務中斷嗎？
 
@@ -153,9 +153,9 @@ Azure 訂用帳戶建立在帳戶管理員所屬的目錄中。 若要變更目�
 
   接受者可用的資訊只有最新帳單的金額，而如果訂用帳戶是在產生第一份帳單之前移轉，則可使用目前餘額。 其餘的使用量及帳單記錄不會隨著訂用帳戶一起移轉。
 
-### <a name="can-the-offer-be-changed-during-a-transfer"></a>可以在移轉期間變更優惠嗎？
+### <a name="can-the-offer-be-changed-during-a-transfer"></a>可以在移轉期間變更供應項目嗎？
 
-優惠必須維持不變。 若要變更優惠，請參閱[切換至不同的 Azure 訂用帳戶優惠](billing-how-to-switch-azure-offer.md)。
+供應項目必須維持不變。 若要變更供應項目，請參閱[切換至不同的 Azure 訂用帳戶供應項目](billing-how-to-switch-azure-offer.md)。
 
 ### <a name="can-i-transfer-a-subscription-to-a-user-account-in-another-country"></a>可以將訂閱移轉給其他國家/地區的使用者帳戶嗎？
 

@@ -9,12 +9,12 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: fcef86a19a77581ff82b64173e2ac68b26ae708a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d3969114323f5675c5e14ab36990b124e84ead37
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368023"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39427562"
 ---
 # <a name="obtain-subscription-keys"></a>取得訂用帳戶金鑰
 若要開始使用 Azure 自訂語音服務，您必須先將使用者帳戶連結至 Azure 訂用帳戶。 您可以取得免費和付費層的訂用帳戶。 如需定價層的相關資訊，請參閱[定價頁面](https://www.microsoft.com/cognitive-services/en-us/pricing)。
@@ -31,7 +31,7 @@ ms.locfileid: "35368023"
         ![認知服務 API](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-subscription2.png)
 
     
-2. 填寫下列必要欄位︰
+1. 填寫下列必要欄位︰
 
       a. **帳戶名稱**。 使用您覺得合適的名稱。 記住此名稱，以便能在資源清單中找到認知服務訂用帳戶。
 
@@ -45,7 +45,7 @@ ms.locfileid: "35368023"
 
       ![認知服務帳戶建立](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-cris-blade.png)
 
-3. 您應該尋找儀表板上的檢視，或是資源清單中具有所提供帳戶名稱的服務。 當您選取該項目時，您就會看到服務的概觀。 在左邊的清單中，於 [資源管理] 下選取 [金鑰]。 複製 [金鑰 1]。
+1. 您應該尋找儀表板上的檢視，或是資源清單中具有所提供帳戶名稱的服務。 當您選取該項目時，您就會看到服務的概觀。 在左邊的清單中，於 [資源管理] 下選取 [金鑰]。 複製 [金鑰 1]。
 
       後續步驟需要有此訂用帳戶金鑰。
 
@@ -57,7 +57,7 @@ ms.locfileid: "35368023"
 
       ![概觀訂用帳戶識別碼](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-cris-keys.png)
 
-4. 若要輸入訂用帳戶金鑰，請在右上方的功能區選取使用者帳戶。 在下拉式功能表中，選取 [訂用帳戶]。
+1. 若要輸入訂用帳戶金鑰，請在右上方的功能區選取使用者帳戶。 在下拉式功能表中，選取 [訂用帳戶]。
 
       ![[訂用帳戶] 功能表項目](../../../media/cognitive-services/custom-speech-service/custom-speech-subscription-selection.png)
 
@@ -65,7 +65,7 @@ ms.locfileid: "35368023"
 
     ![訂用帳戶資料表](../../../media/cognitive-services/custom-speech-service/custom-speech-subscription-list.png)
 
-5. 選取 [新增]。 輸入訂用帳戶的名稱和訂用帳戶金鑰。 此金鑰可以是訂用帳戶中的**金鑰 1** (主要金鑰) 或**金鑰 2** (次要金鑰)。
+1. 選取 [新增]。 輸入訂用帳戶的名稱和訂用帳戶金鑰。 此金鑰可以是訂用帳戶中的**金鑰 1** (主要金鑰) 或**金鑰 2** (次要金鑰)。
 
       ![訂用帳戶金鑰名稱](../../../media/cognitive-services/custom-speech-service/custom-speech-enter-subsciption.png)
 

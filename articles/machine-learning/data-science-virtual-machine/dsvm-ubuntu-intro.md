@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: 18465463e924c10ddc35d619992655773e12cc82
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 19f190c66f7bb4042c640f2cbb82f911746ceb45
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179702"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422370"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>佈建適用於 Linux (Ubuntu) 的資料科學虛擬機器
 
@@ -63,8 +63,8 @@ ms.locfileid: "32179702"
 執行資料科學涉及反覆進行一連串的工作︰
 
 1. 尋找、載入和前置處理資料
-2. 建置和測試模型
-3. 部署要在智慧型應用程式中使用的模型
+1. 建置和測試模型
+1. 部署要在智慧型應用程式中使用的模型
 
 資料科學家使用各種工具來完成這些工作。 尋找適當版本的軟體然後下載、編譯並安裝這些版本是相當耗費時間的工作。
 
@@ -75,15 +75,15 @@ Linux 適用的資料科學虛擬機器可以大幅減輕這樣的負擔。 使�
 ## <a name="other-versions-of-the-data-science-virtual-machine"></a>其他版本的資料科學虛擬機器
 另提供 [CentOS](linux-dsvm-intro.md) 映像，其中包含許多與 Ubuntu 映像相同的工具。 亦提供 [Windows](provision-vm.md) 映像。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 您必須先具有 Azure 訂用帳戶，才可以建立 Linux 適用的資料科學虛擬機器。 若要取得訂用帳戶，請參閱[取得 Azure 免費試用](https://azure.microsoft.com/free/)。
 
 ## <a name="create-your-data-science-virtual-machine-for-linux"></a>建立 Linux 適用的資料科學虛擬機器
 建立 Linux 適用的資料科學虛擬機器執行個體的步驟如下：
 
 1. 瀏覽至 [Azure 入口網站](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu)上的虛擬機器清單。
-2. 按一下底部的 [建立] 以進入 wizard.![configure-data-science-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
-3. 下列各節提供精靈中每個步驟 (列舉於上圖的右邊) 的輸入，可用來建立 Microsoft 資料科學虛擬機器。 以下是設定每個步驟所需的輸入：
+1. 按一下底部的 [建立] 以進入 wizard.![configure-data-science-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
+1. 下列各節提供精靈中每個步驟 (列舉於上圖的右邊) 的輸入，可用來建立 Microsoft 資料科學虛擬機器。 以下是設定每個步驟所需的輸入：
    
    a. **基本**：
    
@@ -118,8 +118,8 @@ Linux 適用的資料科學虛擬機器可以大幅減輕這樣的負擔。 使�
 
 您可以使用三種方法存取 Ubuntu DSVM：
 1. SSH (如果是終端機工作階段)
-2. X2Go (如果是圖形化工作階段)
-3. JupyterHub 和 JupyterLab (如果是 Jupyter 筆記本)
+1. X2Go (如果是圖形化工作階段)
+1. JupyterHub 和 JupyterLab (如果是 Jupyter 筆記本)
 
 ### <a name="ssh"></a>SSH
 
@@ -134,7 +134,7 @@ Linux 適用的資料科學虛擬機器可以大幅減輕這樣的負擔。 使�
 Linux VM 已經佈建了 X2Go 伺服器，並準備接受用戶端連接。 若要連線到 Linux VM 圖形化桌面，請在用戶端上完成下列程序：
 
 1. 從 [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient)下載並安裝您用戶端平台適用的 X2Go 用戶端。    
-2. 執行 X2Go 用戶端，然後選取 [新增工作階段] 。 會開啟具有多個索引標籤的組態視窗。 輸入下列組態參數︰
+1. 執行 X2Go 用戶端，然後選取 [新增工作階段] 。 會開啟具有多個索引標籤的組態視窗。 輸入下列組態參數︰
    * **[工作階段] 索引標籤**：
      * **主機**︰Linux 資料科學 VM 的主機名稱或 IP 位址。
      * **登入**︰Linux VM 上的使用者名稱。
@@ -147,7 +147,7 @@ Linux VM 已經佈建了 X2Go 伺服器，並準備接受用戶端連接。 若�
 
 ### <a name="jupyterhub-and-jupyterlab"></a>JupyterHub 和 JupyterLab
 
-Ubuntu DSVM 執行 [JupyterHub](https://github.com/jupyterhub/jupyterhub)，這是一個多使用者的 Jupyter 伺服器。 若要連線，請在您的膝上型電腦或桌上型電腦瀏覽至 https://your-vm-ip:8000 ，輸入您用來建立 VM 的使用者名稱和密碼，然後登入。 有許多範例筆記本可供您瀏覽和嘗試。
+Ubuntu DSVM 執行 [JupyterHub](https://github.com/jupyterhub/jupyterhub)，這是一個多使用者的 Jupyter 伺服器。 若要連線，請在您的膝上型電腦或桌上型電腦瀏覽至 https://your-vm-ip:8000，輸入您用來建立 VM 的使用者名稱和密碼，然後登入。 有許多範例筆記本可供您瀏覽和嘗試。
 
 也提供 JupyterLab (新一代的 Jupyter 筆記本) 與 JupyterHub。 若要存取，請登入 JupyterHub，然後瀏覽至 URL https://your-vm-ip:8000/lab。 您可以在 /etc/jupyterhub/jupyterhub_config.py 中加入下面這一行，設定 JupyterLab 為預設的筆記本伺服器：
 
@@ -416,16 +416,16 @@ Rattle (**R** **A**nalytical **T**ool **T**o **L**earn **E**asily) 會使用 GUI
 > 
 
 1. 按一下 [Execute (執行)] 。
-2. 隨即會顯示對話方塊，詢問您是否要使用範例天氣資料集。 按一下 [是]  載入範例。
-3. 按一下 [模型]  索引標籤。
-4. 按一下 [執行]  建立決策樹。
-5. 按一下 [繪圖]  顯示決策樹。
-6. 按一下 [樹系] 選項按鈕，然後按一下 [執行] 建置隨機樹系。
-7. 按一下 [評估]  索引標籤。
-8. 按一下 [風險] 選項按鈕，然後按一下 [執行] 顯示兩個風險 (累積) 效能繪圖。
-9. 按一下 [記錄檔] 索引標籤，顯示針對先前作業產生的 R 程式碼。
+1. 隨即會顯示對話方塊，詢問您是否要使用範例天氣資料集。 按一下 [是]  載入範例。
+1. 按一下 [模型]  索引標籤。
+1. 按一下 [執行]  建立決策樹。
+1. 按一下 [繪圖]  顯示決策樹。
+1. 按一下 [樹系] 選項按鈕，然後按一下 [執行] 建置隨機樹系。
+1. 按一下 [評估]  索引標籤。
+1. 按一下 [風險] 選項按鈕，然後按一下 [執行] 顯示兩個風險 (累積) 效能繪圖。
+1. 按一下 [記錄檔] 索引標籤，顯示針對先前作業產生的 R 程式碼。
    (由於目 Rattle 版本中的錯誤，您必須在記錄檔的文字中，於 *Export this log ...* 前面插入 *#* 字元。)
-10. 按一下 [匯出] 按鈕，將名為 weather_script.R 的 R 指令碼檔案儲存到主資料夾。
+1. 按一下 [匯出] 按鈕，將名為 weather_script.R 的 R 指令碼檔案儲存到主資料夾。
 
 您可以結束 Rattle 和 R。現在您可以修改產生的 R 指令碼，或照原樣使用它，隨時執行，以便重複執行在 Rattle UI 中完成的所有動作。 這是特別適合 R 初學者的簡單方式，讓他們得以在簡單的圖形介面中快速進行分析和機器學習，同時自動產生 R 程式碼來修改及/或學習。
 

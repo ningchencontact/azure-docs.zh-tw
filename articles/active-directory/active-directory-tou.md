@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: compliance-reports
+ms.component: compliance
 ms.date: 07/31/2018
 ms.author: rolyon
-ms.openlocfilehash: 970e748d7174a9b443fc96f52ac94e082a6c9d44
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: edf8eccf8c0a1cba70ac178ac5863a68b26f14a3
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398949"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622070"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory 使用規定特性
 Azure AD 使用規定提供一種簡單的方法，組織可用來將資訊呈現給終端使用者。 此呈現可確保使用者看到合法或合規性需求的相關免責聲明。 本文將說明如何開始使用 Azure AD 使用規定。
@@ -73,7 +73,7 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 
 5. 針對 [要求使用者展開使用規定]，選擇開啟或關閉。  如果此設定設為開啟，則使用者必須先閱讀使用規定，再接受這些規定。
 
-6. 在 [條件式存取] 之下，您可以選取下拉式清單中的範本或自訂的條件式存取原則，**強制執行**上傳的使用規定。  自訂的條件式存取原則可讓細微使用條款下降到特定雲端應用程式或使用者群組。  如需詳細資訊，請參閱[設定條件式存取原則](active-directory-conditional-access-best-practices.md)。
+6. 在 [條件式存取] 之下，您可以選取下拉式清單中的範本或自訂的條件式存取原則，**強制執行**上傳的使用規定。  自訂的條件式存取原則可讓細微使用條款下降到特定雲端應用程式或使用者群組。  如需詳細資訊，請參閱[設定條件式存取原則](conditional-access/best-practices.md)。
 
     >[!IMPORTANT]
     >條件式存取原則控制項 (包括使用規定) 不支援服務帳戶的強制執行。  建議您排除條件式存取原則中的所有服務帳戶。
@@ -240,4 +240,4 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 
 ## <a name="next-steps"></a>後續步驟
 
-- [Azure Active Directory 中條件式存取的最佳做法](active-directory-conditional-access-best-practices.md)
+- [Azure Active Directory 中條件式存取的最佳做法](conditional-access/best-practices.md)

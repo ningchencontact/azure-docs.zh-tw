@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: mtillman
 ms.custom: aaddev
-ms.openlocfilehash: eb7e77af86628be7f92de1caf3137ae829511d0a
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 3ec6bbcb9250626f8d6ef75330991c5ebac053a7
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263022"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504712"
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory 圖形 API
 > [!IMPORTANT]
@@ -60,12 +60,12 @@ Azure AD 圖形 API 提供下列功能：
 Azure AD 圖形 API 支援許多應用程式案例。 以下是最常見的案例：
 
 * **企業營運 (單一租用戶) 應用程式**：在此案例中，企業開發人員任職於具有 Office 365 訂用帳戶的組織中。 開發人員正在建置的 Web 應用程式會與 Azure AD 互動來執行工作，例如指派授權給使用者。 這項工作需要存取 Azure AD 圖形 API，所以開發人員在 Azure Ad 中註冊單一租用戶應用程式，並設定 Azure AD 圖形 API 的讀取和寫入權限。 然後，將應用程式設定為使用它自己的認證，或目前登入的使用者認證，以取得權杖來呼叫 Azure AD 圖形 API。
-* **軟體即服務應用程式 (多租用戶)**：在此案例中，獨立軟體廠商 (ISV) 正在開發託管的多租用戶 Web 應用程式，目的是為使用 Azure AD 的其他組織提供使用者管理功能。 這些功能需要存取目錄物件，所以此應用程式需要呼叫 Azure AD 圖形 API。 開發人員在 Azure AD 中註冊此應用程式，將它設定為需要 Azure AD 圖形 API 的讀取和寫入權限，然後啟用外部存取，讓其他組織同意在其目錄中使用此應用程式。 當另一個組織中的使用者第一次向應用程式驗證時，就會出現同意對話方塊及此應用程式所要求的權限。 同意之後，就會給予所要求的權限，讓應用程式在使用者的目錄中存取 Azure AD 圖形 API。 如需同意架構的詳細資訊，請參閱 [同意架構的概觀](active-directory-integrating-applications.md)。
+* **軟體即服務應用程式 (多租用戶)**：在此案例中，獨立軟體廠商 (ISV) 正在開發託管的多租用戶 Web 應用程式，目的是為使用 Azure AD 的其他組織提供使用者管理功能。 這些功能需要存取目錄物件，所以此應用程式需要呼叫 Azure AD 圖形 API。 開發人員在 Azure AD 中註冊此應用程式，將它設定為需要 Azure AD 圖形 API 的讀取和寫入權限，然後啟用外部存取，讓其他組織同意在其目錄中使用此應用程式。 當另一個組織中的使用者第一次向應用程式驗證時，就會出現同意對話方塊及此應用程式所要求的權限。 同意之後，就會給予所要求的權限，讓應用程式在使用者的目錄中存取 Azure AD 圖形 API。 如需同意架構的詳細資訊，請參閱 [同意架構的概觀](quickstart-v1-integrate-apps-with-azure-ad.md)。
 
 ## <a name="see-also"></a>另請參閱
 [Azure AD Graph API 快速入門指南](active-directory-graph-api-quickstart.md)
 
 [Azure AD Graph REST 文件](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 
-[Azure Active Directory 開發人員指南](active-directory-developers-guide.md)
+[Azure Active Directory 開發人員指南](azure-ad-developers-guide.md)
 
