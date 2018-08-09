@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 18673186e80b4d1784fa5b42e622d90dd4c889d4
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 3d2c0d21d0cf4cc0654c8f7ee2debee4f0320461
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859998"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577057"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Azure 資料目錄的新功能
 **Azure 資料目錄** 的更新會定期發行。 並非所有發行版本都會包含新的使用者對應功能，某些版本會著重在後端服務功能。 本頁特別強調已加入 Azure 資料目錄服務的新使用者對應功能。
@@ -27,7 +27,7 @@ ms.locfileid: "37859998"
 自 2017 年 11 月起，Azure 資料目錄已新增下列功能：
 
 * 支援直接連結到資料目錄入口網站中的特定商務詞彙字詞。 使用者可以從商務詞彙複製連結，並將其內嵌在文件、電子郵件、報告或其他位置中，以便直接連結至詞彙的字詞定義。
-* 支援 Azure Active Directory 服務主體。 資料目錄管理員可以授權用戶端應用程式使用服務主體存取類別目錄，並可以授與這些應用程式特定的權限，就像他們可以授與權限給使用者和安全性群組一樣。 如需詳細資訊，請參閱 [Azure Active Directory 中的應用程式和服務主體物件](../active-directory/develop/active-directory-application-objects.md)。
+* 支援 Azure Active Directory 服務主體。 資料目錄管理員可以授權用戶端應用程式使用服務主體存取類別目錄，並可以授與這些應用程式特定的權限，就像他們可以授與權限給使用者和安全性群組一樣。 如需詳細資訊，請參閱 [Azure Active Directory 中的應用程式和服務主體物件](../active-directory/develop/app-objects-and-service-principals.md)。
 * 當使用資料目錄的資料來源註冊工具連線到 Azure SQL Database 和 Azure SQL 資料倉儲資料來源時，支援 Azure Active Directory 驗證。 如需詳細資訊，請參閱[利用 SQL Database 和 SQL 資料倉儲使用 Azure Active Directory 驗證來驗證](../sql-database/sql-database-aad-authentication.md)。
 
 

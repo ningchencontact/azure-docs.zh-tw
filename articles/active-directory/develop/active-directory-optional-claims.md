@@ -16,12 +16,12 @@ ms.date: 07/12/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 6e0b00117c35cd5222c69e72819afb37f9ec14dd
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: d924c1fc9697bff77f12f7f0bf33a1654d1e7d6e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39265059"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597968"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Azure AD 中的選擇性宣告 (預覽)
 
@@ -33,7 +33,7 @@ ms.locfileid: "39265059"
 > [!Note]
 > 這項功能目前為公開預覽版。 您應做好將任何變更還原或移除的準備。 在公開預覽版期間，所有 Azure AD 訂用帳戶中都有提供此功能。 不過，當此功能變成正式運作版時，可能需要 Azure AD Premium 訂用帳戶，才能使用此功能的某些層面。
 
-如需標準宣告的清單及其在權杖中的使用方式，請參閱 [Azure AD 所簽發權杖的基本概念](active-directory-token-and-claims.md)。 
+如需標準宣告的清單及其在權杖中的使用方式，請參閱 [Azure AD 所簽發權杖的基本概念](v1-id-and-access-tokens.md)。 
 
 [v2.0 Azure AD 端點](active-directory-appmodel-v2-overview.md)的其中一個目標是縮小權杖大小，以確保用戶端獲得最佳效能。  因此，數個先前包含在存取和識別碼權杖中的宣告在 v2.0 權杖中已不再提供，而必須依據個別應用程式明確提出要求才會提供。  
 
@@ -126,7 +126,7 @@ ms.locfileid: "39265059"
 
 ## <a name="configuring-optional-claims"></a>設定選擇性宣告
 
-您可以藉由修改應用程式資訊清單，來為應用程式設定選擇性宣告 (請參閱以下範例)。 如需詳細資訊，請參閱[了解 Azure AD 應用程式資訊清單](active-directory-application-manifest.md)一文。
+您可以藉由修改應用程式資訊清單，來為應用程式設定選擇性宣告 (請參閱以下範例)。 如需詳細資訊，請參閱[了解 Azure AD 應用程式資訊清單](reference-app-manifest.md)一文。
 
 **範例結構描述：**
 
@@ -247,4 +247,4 @@ ms.locfileid: "39265059"
 
 
 ## <a name="related-content"></a>相關內容
-* 深入了解 Azure AD 所提供的[標準宣告](active-directory-token-and-claims.md)。 
+* 深入了解 Azure AD 所提供的[標準宣告](v1-id-and-access-tokens.md)。 

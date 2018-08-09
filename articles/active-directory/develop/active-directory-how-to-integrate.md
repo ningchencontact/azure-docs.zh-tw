@@ -17,12 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 79721c2ad0ae83e3c8bd103aee94916f1e2995aa
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: fdc33f4009ce9434b241611851fecec451783a1a
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054632"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495334"
 ---
 # <a name="integrating-with-azure-active-directory"></a>與 Azure Active Directory 整合
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -33,7 +33,7 @@ Azure Active Directory 為組織提供企業等級的雲端應用程式身分識
 整合應用程式與 Azure AD 的方式有幾種。 充分利用適合您應用程式使用的這些案例。
 
 ### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>支援 Azure AD 作為登入應用程式的方式
-**減少登入的不便，並降低支援成本。** 透過使用 Azure AD 來登入您的應用程式，您的使用者會少一個要記住的名稱和密碼。 身為開發人員，您會少一個要儲存及保護的密碼。 單單無需處理忘記密碼重設就可以省下大量時間與金錢。 Azure AD 支援部分世界上最受歡迎雲端應用程式 (包括 Office 365 和 Microsoft Azure) 的登入。 有來自數百萬個組織的數百萬名使用者，可能是您的使用者已經登入 Azure AD。 深入了解[新增 Azure AD 登入支援](active-directory-authentication-scenarios.md)。
+**減少登入的不便，並降低支援成本。** 透過使用 Azure AD 來登入您的應用程式，您的使用者會少一個要記住的名稱和密碼。 身為開發人員，您會少一個要儲存及保護的密碼。 單單無需處理忘記密碼重設就可以省下大量時間與金錢。 Azure AD 支援部分世界上最受歡迎雲端應用程式 (包括 Office 365 和 Microsoft Azure) 的登入。 有來自數百萬個組織的數百萬名使用者，可能是您的使用者已經登入 Azure AD。 深入了解[新增 Azure AD 登入支援](authentication-scenarios.md)。
 
 **簡化應用程式的註冊程序。**  註冊應用程式的過程中，Azure AD 會寄出使用者的基本資訊，讓您可以預先填入註冊表單，或者完全不需要用到。 使用者可以透過類似社交媒體和行動應用程式所使用的常見同意程序，使用其 Azure AD 帳戶來註冊應用程式。 任何使用者都可以註冊並登入已與 Azure AD 整合的應用程式，而無需 IT 人員的介入。 深入了解[註冊應用程式以進行 Azure AD 帳戶登入](../../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md)。
 
@@ -81,7 +81,7 @@ Azure Active Directory 為組織提供企業等級的雲端應用程式身分識
 **Azure AD 會在世界各地的資料中心內進行部署，並受到全天候的管理和監控。**  Azure AD 是適用於 Microsoft Azure 和 Office 365 的身分識別管理系統，並在世界各地的 28 個資料中心內進行部署。 保證將目錄資料複寫到至少三個資料中心。 全域負載平衡器會確保使用者可存取包含其資料的最接近 Azure AD 複本，並在偵測到問題時，自動將要求重新路由到其他資料中心。
 
 ## <a name="next-steps"></a>後續步驟
-[開始撰寫程式碼](active-directory-developers-guide.md#get-started)
+[開始撰寫程式碼](azure-ad-developers-guide.md#get-started)
 
-[使用 Azure AD 登入使用者](active-directory-authentication-scenarios.md)
+[使用 Azure AD 登入使用者](authentication-scenarios.md)
 

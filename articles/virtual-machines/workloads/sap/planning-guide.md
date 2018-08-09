@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f1c2b028521983081ba5f276789af9701b568b7
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: da7d3898e1385119c8241efc89c68a6a60c29994
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972463"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619085"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver 的 Azure 虛擬機器規劃和實作指南
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -1017,7 +1017,7 @@ Microsoft Azure 提供多種方法來部署 VM 和相關聯的磁碟。 因此�
 * 在 Windows 上使用 *sysprep* 或在 Linux 上使用 *waagent -deprovision* 以將您的 VM 一般化 - 請參閱 [Sysprep 技術參考](https://technet.microsoft.com/library/cc766049.aspx) (適用於 Windows) 或[如何擷取 Linux 虛擬機器來作為 Resource Manager 範本使用][capture-image-linux-step-2-create-vm-image] (適用於 Linux)
 * 使用 Powershell 或 Azure CLI 上傳 VHD
 * (選擇性) 使用 Powershell、Azure CLI 或 Azure 入口網站從 VHD 建立受控磁碟映像
-* 如[此 JSON 範本範例](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sap-2-tier-user-image/azuredeploy.json)所示使用參考映像 VHD 的 JSON 範本，或如[此 JSON 範本範例](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json)所示使用受控磁碟映像，來部署 VM。
+* 如[此 JSON 範本範例](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sap-2-tier-user-image/azuredeploy.json)所示使用參考映像 VHD 的 JSON 範本，或如[此 JSON 範本範例](https://github.com/Azure/azure-quickstart-templates/blob/master/sap-2-tier-user-image-md/azuredeploy.json)所示使用受控磁碟映像，來部署 VM。
 
 #### <a name="downloading-vhds-or-managed-disks-to-on-premises"></a>將 VHD 或受控磁碟下載至內部部署
 Azure 基礎結構即服務不只可以單向上傳 VHD 和 SAP 系統， 您也可以將 SAP 系統從 Azure 移回內部部署世界。
@@ -1156,8 +1156,8 @@ az vm disk attach --disk <new disk name or managed disk id> --resource-group <re
 
 PS Cmdlet 邏輯的基本流程如下所示︰
 
-* 使用 *New-AzureStorageContext* 建立**來源**儲存體帳戶的儲存體帳戶內容；請參閱 <https://msdn.microsoft.com/library/dn806380.aspx>
-* 使用 *New-AzureStorageContext* 建立**目標**儲存體帳戶的儲存體帳戶內容；請參閱 <https://msdn.microsoft.com/library/dn806380.aspx>
+* 使用 *New-AzureStorageContext* 建立**來源**儲存體帳戶的儲存體帳戶內容；請參閱 <https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext>
+* 使用 *New-AzureStorageContext* 建立**目標**儲存體帳戶的儲存體帳戶內容；請參閱 <https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext>
 * 如下開始複製
 
 ```powershell

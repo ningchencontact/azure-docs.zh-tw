@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: jeffgo
-ms.openlocfilehash: 82a8da5897d811f80dd18cc199cb31f810a5a438
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 5af8380accc23a62baf04b842430e692fdff3692
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399782"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39443547"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>準備適用於 Azure Stack 的 Red Hat 型虛擬機器
 
@@ -47,16 +47,16 @@ ms.locfileid: "39399782"
 
 1. 在 Hyper-V 管理員中，選取虛擬機器。
 
-2. 按一下 [連接] ，以開啟虛擬機器的主控台視窗。
+1. 按一下 [連接] ，以開啟虛擬機器的主控台視窗。
 
-3. 建立或編輯 `/etc/sysconfig/network` 檔案，然後新增下列文字：
+1. 建立或編輯 `/etc/sysconfig/network` 檔案，然後新增下列文字：
 
     ```sh
     NETWORKING=yes
     HOSTNAME=localhost.localdomain
     ```
 
-4. 建立或編輯 `/etc/sysconfig/network-scripts/ifcfg-eth0` 檔案，然後視需要新增下列文字：
+1. 建立或編輯 `/etc/sysconfig/network-scripts/ifcfg-eth0` 檔案，然後視需要新增下列文字：
 
     ```sh
     DEVICE=eth0
@@ -69,19 +69,19 @@ ms.locfileid: "39399782"
     NM_CONTROLLED=no
     ```
 
-5. 若要確保開機時會啟動網路服務，可執行下列命令：
+1. 若要確保開機時會啟動網路服務，可執行下列命令：
 
     ```sh
     # sudo systemctl enable network
     ```
 
-6. 透過執行以下命令來註冊 Red Hat 訂用帳戶，以便從 RHEL 儲存機制安裝封裝：
+1. 透過執行以下命令來註冊 Red Hat 訂用帳戶，以便從 RHEL 儲存機制安裝封裝：
 
     ```sh
     # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-7. 修改 grub 組態中的核心開機那一行，使其額外包含用於 Azure 的核心參數。 若要執行此修改，請在文字編輯器中開啟 `/etc/default/grub`，然後修改 `GRUB_CMDLINE_LINUX` 參數。 例如︰
+1. 修改 grub 組態中的核心開機那一行，使其額外包含用於 Azure 的核心參數。 若要執行此修改，請在文字編輯器中開啟 `/etc/default/grub`，然後修改 `GRUB_CMDLINE_LINUX` 參數。 例如︰
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -95,32 +95,32 @@ ms.locfileid: "39399782"
     rhgb quiet crashkernel=auto
     ```
 
-8. 完成 `/etc/default/grub`的編輯之後，請執行下列命令以重建 grub 組態：
+1. 完成 `/etc/default/grub`的編輯之後，請執行下列命令以重建 grub 組態：
 
     ```sh
     # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
-9. 確定已安裝 SSH 伺服器，並已設定為在開機時啟動 (這通常為預設值)。 修改 `/etc/ssh/sshd_config` 以包含下面一行：
+1. 確定已安裝 SSH 伺服器，並已設定為在開機時啟動 (這通常為預設值)。 修改 `/etc/ssh/sshd_config` 以包含下面一行：
 
     ```sh
     ClientAliveInterval 180
     ```
 
-10. WALinuxAgent 套件 `WALinuxAgent-<version>` 已推送至 Red Hat extras 儲存機制。 執行下列命令以啟用 extras 儲存機制：
+1. WALinuxAgent 套件 `WALinuxAgent-<version>` 已推送至 Red Hat extras 儲存機制。 執行下列命令以啟用 extras 儲存機制：
 
     ```sh
     # subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
-11. 執行以下命令來安裝 Azure Linux 代理程式：
+1. 執行以下命令來安裝 Azure Linux 代理程式：
 
     ```sh
     # sudo yum install WALinuxAgent
     # sudo systemctl enable waagent.service
     ```
 
-12. 請勿在作業系統磁碟上建立交換空間。
+1. 請勿在作業系統磁碟上建立交換空間。
 
     Azure Linux 代理程式可在虛擬機器佈建於 Azure 後，使用連結至虛擬機器的本機資源磁碟自動設定交換空間。 本機資源磁碟是暫存磁碟，可能會在虛擬機器取消佈建時清空。 在上一個步驟安裝 Azure Linux 代理程式後，請在 `/etc/waagent.conf` 中適當修改下列參數：
 
@@ -132,15 +132,15 @@ ms.locfileid: "39399782"
     ResourceDisk.SwapSizeMB=2048    # NOTE: set this to whatever you need it to be.
     ```
 
-13. 如果您要取消註冊訂用帳戶，請執行下列命令：
+1. 如果您要取消註冊訂用帳戶，請執行下列命令：
 
     ```sh
     # sudo subscription-manager unregister
     ```
 
-14. 如果您使用的系統是使用企業憑證授權單位來部署，RHEL 虛擬機器將不會信任 Azure Stack 根憑證。 您需要將它放入信任的根存放區。 請參閱[將信任的根憑證新增到伺服器](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)。
+1. 如果您使用的系統是使用企業憑證授權單位來部署，RHEL 虛擬機器將不會信任 Azure Stack 根憑證。 您需要將它放入信任的根存放區。 請參閱[將信任的根憑證新增到伺服器](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)。
 
-15. 執行下列命令，以取消佈建虛擬機器，並準備將它佈建於 Azure 上：
+1. 執行下列命令，以取消佈建虛擬機器，並準備將它佈建於 Azure 上：
 
     ```sh
     # sudo waagent -force -deprovision
@@ -148,15 +148,15 @@ ms.locfileid: "39399782"
     # logout
     ```
 
-16. 在 Hyper-V 管理員中，按一下 [動作] > [關閉]。
+1. 在 Hyper-V 管理員中，按一下 [動作] > [關閉]。
 
-17. 使用 Hyper-V 管理員的 [編輯磁碟] 功能或 Convert-VHD PowerShell 命令，將 VHD 轉換為固定大小 VHD。 您現在可以將 Linux VHD 上傳至 Azure。
+1. 使用 Hyper-V 管理員的 [編輯磁碟] 功能或 Convert-VHD PowerShell 命令，將 VHD 轉換為固定大小 VHD。 您現在可以將 Linux VHD 上傳至 Azure。
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-kvm"></a>從 KVM 準備 Red Hat 型虛擬機器
 
 1. 從 Red Hat 網站下載 RHEL 7 的 KVM 映像。 此程序會使用 RHEL 7 做為範例。
 
-2. 設定根密碼。
+1. 設定根密碼。
 
     產生加密的密碼，並複製命令的輸出：
 
@@ -177,16 +177,16 @@ ms.locfileid: "39399782"
 
    將根使用者的第二個欄位從 "!!" 變更為加密的密碼。
 
-3. 在 KVM 中從 qcow2 映像建立虛擬機器。 將磁碟類型設定為 **qcow2**，再將虛擬網路介面裝置模型設定為 **virtio**。 然後啟動虛擬機器並以 root 身分登入。
+1. 在 KVM 中從 qcow2 映像建立虛擬機器。 將磁碟類型設定為 **qcow2**，再將虛擬網路介面裝置模型設定為 **virtio**。 然後啟動虛擬機器並以 root 身分登入。
 
-4. 建立或編輯 `/etc/sysconfig/network` 檔案，然後新增下列文字：
+1. 建立或編輯 `/etc/sysconfig/network` 檔案，然後新增下列文字：
 
     ```sh
     NETWORKING=yes
     HOSTNAME=localhost.localdomain
     ```
 
-5. 建立或編輯 `/etc/sysconfig/network-scripts/ifcfg-eth0` 檔案，然後新增下列文字：
+1. 建立或編輯 `/etc/sysconfig/network-scripts/ifcfg-eth0` 檔案，然後新增下列文字：
 
     ```sh
     DEVICE=eth0
@@ -199,19 +199,19 @@ ms.locfileid: "39399782"
     NM_CONTROLLED=no
     ```
 
-6. 若要確保開機時會啟動網路服務，可執行下列命令：
+1. 若要確保開機時會啟動網路服務，可執行下列命令：
 
     ```sh
     # sudo systemctl enable network
     ```
 
-7. 透過執行以下命令來註冊 Red Hat 訂用帳戶，以便從 RHEL 儲存機制安裝封裝：
+1. 透過執行以下命令來註冊 Red Hat 訂用帳戶，以便從 RHEL 儲存機制安裝封裝：
 
     ```sh
     # subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-8. 修改 grub 組態中的核心開機那一行，使其額外包含用於 Azure 的核心參數。 若要進行此設定，請在文字編輯器中開啟 `/etc/default/grub`，然後修改 `GRUB_CMDLINE_LINUX` 參數。 例如︰
+1. 修改 grub 組態中的核心開機那一行，使其額外包含用於 Azure 的核心參數。 若要進行此設定，請在文字編輯器中開啟 `/etc/default/grub`，然後修改 `GRUB_CMDLINE_LINUX` 參數。 例如︰
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -225,13 +225,13 @@ ms.locfileid: "39399782"
     rhgb quiet crashkernel=auto
     ```
 
-9. 完成 `/etc/default/grub`的編輯之後，請執行下列命令以重建 grub 組態：
+1. 完成 `/etc/default/grub`的編輯之後，請執行下列命令以重建 grub 組態：
 
     ```sh
     # grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
-10. 將 Hyper-V 模組新增至 initramfs。
+1. 將 Hyper-V 模組新增至 initramfs。
 
     編輯 `/etc/dracut.conf` 並加入內容：
 
@@ -245,13 +245,13 @@ ms.locfileid: "39399782"
     # dracut -f -v
     ```
 
-11. 解除安裝 cloud-init：
+1. 解除安裝 cloud-init：
 
     ```sh
     # yum remove cloud-init
     ```
 
-12. 確定您已安裝 SSH 伺服器，並已設定為在開機時啟動：
+1. 確定您已安裝 SSH 伺服器，並已設定為在開機時啟動：
 
     ```sh
     # systemctl enable sshd
@@ -264,13 +264,13 @@ ms.locfileid: "39399782"
     ClientAliveInterval 180
     ```
 
-13. WALinuxAgent 套件 `WALinuxAgent-<version>` 已推送至 Red Hat extras 儲存機制。 執行下列命令以啟用 extras 儲存機制：
+1. WALinuxAgent 套件 `WALinuxAgent-<version>` 已推送至 Red Hat extras 儲存機制。 執行下列命令以啟用 extras 儲存機制：
 
     ```sh
     # subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
-14. 執行以下命令來安裝 Azure Linux 代理程式：
+1. 執行以下命令來安裝 Azure Linux 代理程式：
 
     ```sh
     # yum install WALinuxAgent
@@ -282,7 +282,7 @@ ms.locfileid: "39399782"
     # systemctl enable waagent.service
     ```
 
-15. 請勿在作業系統磁碟上建立交換空間。
+1. 請勿在作業系統磁碟上建立交換空間。
 
     Azure Linux 代理程式可在虛擬機器佈建於 Azure 後，使用連結至虛擬機器的本機資源磁碟自動設定交換空間。 本機資源磁碟是暫存磁碟，可能會在虛擬機器取消佈建時清空。 在上一個步驟安裝 Azure Linux 代理程式後，請在 `/etc/waagent.conf` 中適當修改下列參數：
 
@@ -294,15 +294,15 @@ ms.locfileid: "39399782"
     ResourceDisk.SwapSizeMB=2048    # NOTE: set this to whatever you need it to be.
     ```
 
-16. 執行下列命令以取消註冊訂用帳戶 (如有必要)：
+1. 執行下列命令以取消註冊訂用帳戶 (如有必要)：
 
     ```sh
     # subscription-manager unregister
     ```
 
-17. 如果您使用的系統是使用企業憑證授權單位來部署，RHEL 虛擬機器將不會信任 Azure Stack 根憑證。 您需要將它放入信任的根存放區。 請參閱[將信任的根憑證新增到伺服器](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)。
+1. 如果您使用的系統是使用企業憑證授權單位來部署，RHEL 虛擬機器將不會信任 Azure Stack 根憑證。 您需要將它放入信任的根存放區。 請參閱[將信任的根憑證新增到伺服器](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)。
 
-18. 執行下列命令，以取消佈建虛擬機器，並準備將它佈建於 Azure 上：
+1. 執行下列命令，以取消佈建虛擬機器，並準備將它佈建於 Azure 上：
 
     ```sh
     # sudo waagent -force -deprovision
@@ -310,12 +310,12 @@ ms.locfileid: "39399782"
     # logout
     ```
 
-19. 在 KVM 中關閉虛擬機器。
+1. 在 KVM 中關閉虛擬機器。
 
-20. 將 qcow2 映像轉換成 VHD 格式。
+1. 將 qcow2 映像轉換成 VHD 格式。
 
     > [!NOTE]
-    > qemu-img >=2.2.1 的版本中已知有 Bug 會導致 VHD 的格式不正確。 此問題已在 QEMU 2.6 中修正。 建議使用 qemu-img 2.2.0 或更舊版本，或更新至 2.6 或更新版本。 參考：https://bugs.launchpad.net/qemu/+bug/1490611。
+    > qemu-img >=2.2.1 的版本中已知有 Bug 會導致 VHD 的格式不正確。 此問題已在 QEMU 2.6 中修正。 建議使用 qemu-img 2.2.0 或更舊版本，或更新至 2.6 或更新版本。 參考： https://bugs.launchpad.net/qemu/+bug/1490611。
 
     先將映像轉換成原始格式：
 
@@ -362,7 +362,7 @@ ms.locfileid: "39399782"
     HOSTNAME=localhost.localdomain
     ```
 
-2. 建立或編輯 `/etc/sysconfig/network-scripts/ifcfg-eth0` 檔案，然後新增下列文字：
+1. 建立或編輯 `/etc/sysconfig/network-scripts/ifcfg-eth0` 檔案，然後新增下列文字：
 
     ```sh
     DEVICE=eth0
@@ -375,19 +375,19 @@ ms.locfileid: "39399782"
     NM_CONTROLLED=no
     ```
 
-3. 若要確保開機時會啟動網路服務，可執行下列命令：
+1. 若要確保開機時會啟動網路服務，可執行下列命令：
 
     ```sh
     # sudo chkconfig network on
     ```
 
-4. 透過執行以下命令來註冊 Red Hat 訂用帳戶，以便從 RHEL 儲存機制安裝封裝：
+1. 透過執行以下命令來註冊 Red Hat 訂用帳戶，以便從 RHEL 儲存機制安裝封裝：
 
     ```sh
     # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-5. 修改 grub 組態中的核心開機那一行，使其額外包含用於 Azure 的核心參數。 若要執行此修改，請在文字編輯器中開啟 `/etc/default/grub`，然後修改 `GRUB_CMDLINE_LINUX` 參數。 例如︰
+1. 修改 grub 組態中的核心開機那一行，使其額外包含用於 Azure 的核心參數。 若要執行此修改，請在文字編輯器中開啟 `/etc/default/grub`，然後修改 `GRUB_CMDLINE_LINUX` 參數。 例如︰
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -401,13 +401,13 @@ ms.locfileid: "39399782"
 
     在雲端環境中，我們會將所有記錄傳送到序列埠，因此不適合使用圖形化和無訊息啟動。 您可以視需要保留 `crashkernel` 選項的設定。 請注意，此參數會減少虛擬機器中約 128 MB 或以上的可用記憶體數量，這可能會對小型虛擬機器造成問題。
 
-6. 完成 `/etc/default/grub`的編輯之後，請執行下列命令以重建 grub 組態：
+1. 完成 `/etc/default/grub`的編輯之後，請執行下列命令以重建 grub 組態：
 
     ```sh
     # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
-7. 將 Hyper-V 模組新增至 initramfs。
+1. 將 Hyper-V 模組新增至 initramfs。
 
     編輯 `/etc/dracut.conf`，新增內容：
 
@@ -421,26 +421,26 @@ ms.locfileid: "39399782"
     # dracut -f -v
     ```
 
-8. 確定您已安裝 SSH 伺服器，並已設定為在開機時啟動。 此設定通常是預設值。 修改 `/etc/ssh/sshd_config` 以包含下面一行：
+1. 確定您已安裝 SSH 伺服器，並已設定為在開機時啟動。 此設定通常是預設值。 修改 `/etc/ssh/sshd_config` 以包含下面一行：
 
     ```sh
     ClientAliveInterval 180
     ```
 
-9. WALinuxAgent 套件 `WALinuxAgent-<version>` 已推送至 Red Hat extras 儲存機制。 執行下列命令以啟用 extras 儲存機制：
+1. WALinuxAgent 套件 `WALinuxAgent-<version>` 已推送至 Red Hat extras 儲存機制。 執行下列命令以啟用 extras 儲存機制：
 
     ```sh
     # subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
-10. 執行以下命令來安裝 Azure Linux 代理程式：
+1. 執行以下命令來安裝 Azure Linux 代理程式：
 
     ```sh
     # sudo yum install WALinuxAgent
     # sudo systemctl enable waagent.service
     ```
 
-11. 請勿在作業系統磁碟上建立交換空間。
+1. 請勿在作業系統磁碟上建立交換空間。
 
     Azure Linux 代理程式可在虛擬機器佈建於 Azure 後，使用連結至虛擬機器的本機資源磁碟自動設定交換空間。 請注意，本機資源磁碟是暫存磁碟，可能會在虛擬機器取消佈建時清空。 在上一個步驟安裝 Azure Linux 代理程式後，請在 `/etc/waagent.conf` 中適當修改下列參數：
 
@@ -452,15 +452,15 @@ ms.locfileid: "39399782"
     ResourceDisk.SwapSizeMB=2048    # NOTE: set this to whatever you need it to be.
     ```
 
-12. 如果您要取消註冊訂用帳戶，請執行下列命令：
+1. 如果您要取消註冊訂用帳戶，請執行下列命令：
 
     ```sh
     # sudo subscription-manager unregister
     ```
 
-13. 如果您使用的系統是使用企業憑證授權單位來部署，RHEL 虛擬機器將不會信任 Azure Stack 根憑證。 您需要將它放入信任的根存放區。 請參閱[將信任的根憑證新增到伺服器](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)。
+1. 如果您使用的系統是使用企業憑證授權單位來部署，RHEL 虛擬機器將不會信任 Azure Stack 根憑證。 您需要將它放入信任的根存放區。 請參閱[將信任的根憑證新增到伺服器](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)。
 
-14. 執行下列命令，以取消佈建虛擬機器，並準備將它佈建於 Azure 上：
+1. 執行下列命令，以取消佈建虛擬機器，並準備將它佈建於 Azure 上：
 
     ```sh
     # sudo waagent -force -deprovision
@@ -468,7 +468,7 @@ ms.locfileid: "39399782"
     # logout
     ```
 
-15. 關閉虛擬機器，然後將 VMDK 檔案轉換成 VHD 格式。
+1. 關閉虛擬機器，然後將 VMDK 檔案轉換成 VHD 格式。
 
     > [!NOTE]
     > qemu-img >=2.2.1 的版本中已知有 Bug 會導致 VHD 的格式不正確。 此問題已在 QEMU 2.6 中修正。 建議使用 qemu-img 2.2.0 或更舊版本，或更新至 2.6 或更新版本。 參考：<https://bugs.launchpad.net/qemu/+bug/1490611.>
@@ -626,11 +626,11 @@ ms.locfileid: "39399782"
     %end
     ```
 
-2. 將 kickstart 檔案放在可存取它的安裝系統。
+1. 將 kickstart 檔案放在可存取它的安裝系統。
 
-3. 在 Hyper-V 管理員中建立新的虛擬機器。 在 [連線虛擬硬碟] 頁面上，選取 [稍後連接虛擬硬碟]，並完成 [新增虛擬機器精靈]。
+1. 在 Hyper-V 管理員中建立新的虛擬機器。 在 [連線虛擬硬碟] 頁面上，選取 [稍後連接虛擬硬碟]，並完成 [新增虛擬機器精靈]。
 
-4. 開啟虛擬機器設定：
+1. 開啟虛擬機器設定：
 
     a. 將新的虛擬硬碟連結至虛擬機器。 請務必選取 [VHD 格式] 和 [固定大小]。
 
@@ -638,11 +638,11 @@ ms.locfileid: "39399782"
 
     c. 將 BIOS 設定成從 CD 開機。
 
-5. 啟動虛擬機器。 當安裝指南出現時，請按 **Tab** 鍵以設定開機選項。
+1. 啟動虛擬機器。 當安裝指南出現時，請按 **Tab** 鍵以設定開機選項。
 
-6. 在開機選項結尾輸入 `inst.ks=<the location of the kickstart file>` ，然後按 **Enter**鍵。
+1. 在開機選項結尾輸入 `inst.ks=<the location of the kickstart file>` ，然後按 **Enter**鍵。
 
-7. 等待安裝完成。 完成後，虛擬機器會自動關閉。 您現在可以將 Linux VHD 上傳至 Azure。
+1. 等待安裝完成。 完成後，虛擬機器會自動關閉。 您現在可以將 Linux VHD 上傳至 Azure。
 
 ## <a name="known-issues"></a>已知問題
 

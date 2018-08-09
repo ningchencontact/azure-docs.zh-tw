@@ -2,24 +2,19 @@
 title: Azure 儲存體發生中斷時該怎麼辦 | Microsoft Docs
 description: Azure 儲存體發生中斷時該怎麼辦
 services: storage
-documentationcenter: .net
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 8f040b0f-8926-4831-ac07-79f646f31926
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: tamram
-ms.openlocfilehash: 160fe756458e067125b9d696fd0cdb929774446e
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.component: common
+ms.openlocfilehash: bca4b13ea2a003ea428351bcff44944630387e1b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072029"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528005"
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>如果 Azure 儲存體發生中斷怎麼辦
 在 Microsoft，我們竭力確保我們的服務總是可供用。 有時候會因為不可抗拒之因素，而造成服務在一或多個區域內中斷。 為了協助您處理這類罕見的狀況，我們提供下列 Azure 儲存體服務的高階指引。

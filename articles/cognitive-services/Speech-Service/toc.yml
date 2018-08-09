@@ -159,6 +159,12 @@
           href: third-party-notices.md
     - name: 語音裝置 SDK
       items:
+        - name: 下載
+          href: 'get-speech-devices-sdk.md#download-the-speech-devices-sdk'
+        - name: 範例
+          href: 'https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK'
+        - name: 版本資訊
+          href: devices-sdk-release-notes.md
         - name: 授權
           href: speech-devices-sdk-license.md
           displayName: 'roobo, speech devices sdk'

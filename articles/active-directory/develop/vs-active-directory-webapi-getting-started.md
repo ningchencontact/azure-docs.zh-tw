@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev
-ms.openlocfilehash: 109de9fb78ae3abfc09a37c6b8cb38c554f7613c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 6ddc1e8f7520135092eefbcbf2b4a2b3f1026e66
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31784511"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494708"
 ---
 # <a name="get-started-with-azure-active-directory-webapi-projects"></a>開始使用 Azure Active Directory (WebApi 專案)
 
@@ -35,5 +35,5 @@ ms.locfileid: "31784511"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [Azure Active Directory 的驗證案例](active-directory-authentication-scenarios.md)
-- [將「使用 Microsoft 登入」新增至 ASP.NET Web 應用程式](guidedsetups/active-directory-aspnetwebapp-v1.md)
+- [Azure Active Directory 的驗證案例](authentication-scenarios.md)
+- [將「使用 Microsoft 登入」新增至 ASP.NET Web 應用程式](quickstart-v1-aspnet-webapp.md)

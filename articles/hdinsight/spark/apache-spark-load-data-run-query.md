@@ -1,23 +1,20 @@
 ---
-title: 教學課程：在 Azure HDInsight 中的 Apache Spark 叢集上載入資料和執行查詢 | Microsoft Docs
+title: '教學課程：在 Azure HDInsight 中的 Apache Spark 叢集上載入資料和執行查詢 '
 description: 了解如何在 Azure HDInsight 中的 Spark 叢集上載入資料和執行互動式查詢。
 services: azure-hdinsight
-author: mumian
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
-ms.devlang: na
 ms.topic: tutorial
-ms.author: jgao
+ms.author: jasonh
 ms.date: 05/17/2018
-ms.openlocfilehash: eeb0f8134d21d42c8401f58828160d613e8ef92b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: e83c7a4ed5987108a74153897abe4839dd24418c
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302044"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619425"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>教學課程：在 Azure HDInsight 中的 Apache Spark 叢集上載入資料和執行查詢
 
@@ -30,7 +27,7 @@ ms.locfileid: "34302044"
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 完成[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
 

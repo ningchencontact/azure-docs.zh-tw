@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: a6f63fac85008425f473f431ae85d04f62eed667
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 56ad633807a59eaa7ae75dc334aa630fb3bf94a3
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127586"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436721"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>收集搭配 DNS 分析預覽版解決方案使用 DNS 基礎結構的深入解析
 
@@ -44,9 +44,9 @@ DNS 分析可協助您︰
 
 | **連線的來源** | **支援** | **說明** |
 | --- | --- | --- |
-| [Windows 代理程式](log-analytics-windows-agent.md) | yes | 此解決方案會收集來自 Windows 代理程式的 DNS 資訊。 |
+| [Windows 代理程式](log-analytics-windows-agent.md) | 是 | 此解決方案會收集來自 Windows 代理程式的 DNS 資訊。 |
 | [Linux 代理程式](log-analytics-linux-agents.md) | 否 | 此解決方案不會收集來自直接 Linux 代理程式的 DNS 資訊。 |
-| [System Center Operations Manager 管理群組](log-analytics-om-agents.md) | yes | 此解決方案會收集來自連線 Operations Manager 管理群組的代理程式之中的 DNS 資訊。 Operations Manager 代理程式不需要直接連線到 Operations Management Suite。 資料會從管理群組轉送至 Operations Management Suite 存放庫。 |
+| [System Center Operations Manager 管理群組](log-analytics-om-agents.md) | 是 | 此解決方案會收集來自連線 Operations Manager 管理群組的代理程式之中的 DNS 資訊。 Operations Manager 代理程式不需要直接連線到 Operations Management Suite。 資料會從管理群組轉送至 Operations Management Suite 存放庫。 |
 | [Azure 儲存體帳戶](log-analytics-azure-storage.md) | 否 | 此解決方案沒有使用 Azure 儲存體。 |
 
 ### <a name="data-collection-details"></a>資料收集詳細資料
@@ -133,11 +133,11 @@ DNS 分析可協助您︰
 
 1. 尋找對於用戶端嘗試更新之名稱具有權威性的區域。
 
-2. 使用此解決方案來檢查該區域的清查資訊。
+1. 使用此解決方案來檢查該區域的清查資訊。
 
-3. 確認已啟用該區域的動態更新。
+1. 確認已啟用該區域的動態更新。
 
-4. 檢查該區域是否已設定安全動態更新。
+1. 檢查該區域是否已設定安全動態更新。
 
     ![[動態 DNS 註冊] 刀鋒視窗](./media/log-analytics-dns/dynamic-dns-reg-blade.png)
 
@@ -177,7 +177,7 @@ DNS 分析可協助您︰
 
     c. 若要檢視設定變更的記錄資料，請從左側 facet 控制項選取 **ConfigurationChange** 作為 **Subtype** 篩選條件。 隨即顯示列出所選時間週期之設定變更事件的資料表。
 
-2. 在**搜尋查詢方塊**中，輸入 `DnsInventory` 以檢視此解決方案管理的 DNS 伺服器的所有 DNS 清查相關資料。 結果會列出 DNS 伺服器、DNS 區域和資源記錄的記錄資料。
+1. 在**搜尋查詢方塊**中，輸入 `DnsInventory` 以檢視此解決方案管理的 DNS 伺服器的所有 DNS 清查相關資料。 結果會列出 DNS 伺服器、DNS 區域和資源記錄的記錄資料。
 
     ![DnsInventory 記錄搜尋](./media/log-analytics-dns/log-search-dnsinventory.png)
 

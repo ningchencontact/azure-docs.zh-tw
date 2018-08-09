@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/27/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 53f8f9ea5b3fea20202dd5aaa001a789d66f5a11
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: d5b92681b9677db085b3c271c37490154d781d84
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282733"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494305"
 ---
 # <a name="tutorial-8-add-keyphrase-entity"></a>教學課程：8. 新增 KeyPhrase 實體 
 在本教學課程中，使用應用程式來示範如何從語句中擷取重要主題。
@@ -71,15 +71,8 @@ ms.locfileid: "39282733"
     [ ![語句中已標示 keyPhrases 的 Utilities.Confirm 意圖螢幕擷取畫面](./media/luis-quickstart-intent-and-key-phrase/hr-keyphrase-labeled.png)](./media/luis-quickstart-intent-and-key-phrase/hr-keyphrase-labeled.png#lightbox)
 
 ## <a name="train-the-luis-app"></a>進行 LUIS 應用程式定型
-應用程式的新版 `keyphrase` 需要進行訓練。  
 
-1. 在 LUIS 網站的右上方，選取 [Train] \(定型\) 按鈕。
-
-    ![進行應用程式定型](./media/luis-quickstart-intent-and-key-phrase/train-button.png)
-
-2. 當您在網站頂端看到確認成功的綠色狀態列時，就表示定型完成。
-
-    ![定型成功](./media/luis-quickstart-intent-and-key-phrase/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-app-to-endpoint"></a>將應用程式發佈到端點
 
@@ -190,7 +183,8 @@ ms.locfileid: "39282733"
 LUIS 是利用此要求來完成。 呼叫應用程式 (例如聊天機器人) 可以採用 topScoringIntent 結果和語句中的 keyPhrase 資料，進而採取下一個步驟。 LUIS 不會為 bot 或呼叫應用程式進行該程式設計工作。 LUIS 只會判斷使用者的意圖為何。 
 
 ## <a name="clean-up-resources"></a>清除資源
-當不再需要 LUIS 應用程式時，請將其刪除。 選取左上方功能表中的 [我的應用程式]。 選取應用程式清單中應用程式名稱右邊的省略符號 (***...***) 按鈕，然後選取 [刪除]。 在 [Delete app?] \(刪除應用程式?\) 快顯對話方塊上，選取 [Ok] \(確定\)。
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

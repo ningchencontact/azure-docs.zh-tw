@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 07/26/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 2e100f2019c3bb99e3909e64305ebe641e2a637e
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 87d97b078927800e4e90c39a70e2acc7163a4c84
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308964"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493042"
 ---
 # <a name="tutorial-7-add-simple-entity-and-phrase-list"></a>教學課程：7. 新增簡單實體和片語清單
 在本教學課程中，您可以使用**簡單**實體來建立應用程式，讓其示範如何從語句中擷取機器學習資料。
@@ -126,15 +126,8 @@ ms.locfileid: "39308964"
     尚有其他語句範例，但這些語句未包含職位字組。
 
 ## <a name="train-the-luis-app"></a>進行 LUIS 應用程式定型
-LUIS 在進行定型前並不知道意圖和實體 (模型) 的變更。 
 
-1. 在 LUIS 網站的右上方，選取 [訓練] 按鈕。
-
-    ![選取訓練按鈕](./media/luis-quickstart-primary-and-secondary-data/train-button.png)
-
-2. 當您在網站頂端看到確認成功的綠色狀態列時，就表示訓練完成。
-
-    ![訓練成功通知](./media/luis-quickstart-primary-and-secondary-data/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>發佈應用程式以取得端點 URL
 
@@ -367,7 +360,8 @@ LUIS 應用程式深信它找到了正確的意圖，並擷取出職位名稱，
 LUIS 在此要求的工作已完成。 呼叫應用程式 (例如聊天機器人) 可以採用 topScoringIntent 結果和實體中的資料，來使用第三方 API 傳送職位訊息給人力資源代表。 如果聊天機器人或呼叫應用程式有其他程式設計選項，LUIS 就不會進行該工作。 LUIS 只會判斷使用者的意圖為何。 
 
 ## <a name="clean-up-resources"></a>清除資源
-當不再需要 LUIS 應用程式時，請將其刪除。 選取左上方功能表中的 [我的應用程式]。 選取應用程式清單中應用程式名稱右邊的省略符號 (***...***)，然後選取 [刪除]。 在 [Delete app?] \(刪除應用程式?\) 快顯對話方塊上，選取 [Ok] \(確定\)。
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

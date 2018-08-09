@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: ae670eca3d655e16ddf55da2e2538ba96b7e0115
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 0a5c73728f939fc239f4af79f5f084867856581a
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126046"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494203"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric 叢集容量規劃考量
 對於任何生產部署而言，容量規劃都是一個很重要的步驟。 以下是一些您在該程序中必須考量的項目。
@@ -62,7 +62,7 @@ Service Fabric 系統服務 (例如，叢集管理員服務或映像存放區服
 * 主要節點類型的 **VM 大小下限**取決於您選擇的**持久性層級**。 預設持久性層級為 Bronze。 如需詳細資訊，請參閱[叢集的持久性特性](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster)。  
 * 主要節點類型的 **VM 數目下限**取決於您選擇的**可靠性層級**。 預設可靠性層級為 Silver。 如需詳細資訊，請參閱[叢集的可靠性特性](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster)。  
 
-在 Azure Resource Manager 範本中，主要節點類型會以 `isPrimary` 屬性設定於[節點類型定義](https://docs.microsoft.com/en-us/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object)之下。
+在 Azure Resource Manager 範本中，主要節點類型會以 `isPrimary` 屬性設定於[節點類型定義](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object)之下。
 
 ### <a name="non-primary-node-type"></a>非主要節點類型
 
@@ -110,10 +110,6 @@ Service Fabric 系統服務 (例如，叢集管理員服務或映像存放區服
 - 採用更安全的方式來進行 VM SKU 變更 (相應增加/減少)：變更虛擬機器擴展集的 VM SKU 本身是一種不安全的作業，因此請盡可能避免這種做法。 以下為您可以遵循以避免發生常見問題的程序。
     - **針對非主要節點類型：** 建議您建立新的虛擬機器擴展集，修改服務放置條件約束以包含新的虛擬機器擴展集/節點類型，然後以一次一個節點的方式，將舊的虛擬機器擴展集執行個體計數減少至 0 (這是為了確保移除節點不會影響到叢集的可靠性)。
     - **針對主要節點類型：** 建議您不要變更主要節點類型的 VM SKU。 不支援變更主要節點類型的 SKU。 如果是基於容量的原因而需要新的 SKU，我們建議新增更多執行個體。 如果不能的話，從舊叢集建立新的叢集並[還原應用程式狀態](service-fabric-reliable-services-backup-restore.md) (如果適用的話)。 您不需要還原任何系統服務狀態，它們會在您部署應用程式到新叢集時重新建立。 如果您之前只在叢集上執行無狀態應用程式，那麼您要做的只有部署應用程式到新叢集，不需還原任何東西。 如果您決定採取不支援的做法，並想要變更 VM SKU，請修改虛擬機器擴展集模型定義以反映新的 SKU。 如果您的叢集只有單一節點類型，請確保所有具狀態應用程式會及時回應所有[服務複本生命週期事件](service-fabric-reliable-services-lifecycle.md) (例如當組建中的複本陷入停滯)，且您的服務複本重建期間為少於五分鐘 (針對 Silver 持久性層級)。 
-
-    > [!WARNING]
-    > 不建議對未至少執行 Silver 持久性的虛擬機器擴展集變更 VM SKU 大小。 變更 VM SKU 大小是資料破壞性就地基礎結構作業。 如果沒有至少延遲或監視此變更的某些能力，作業可能會導致具狀態服務的資料遺失，或者甚至對於無狀態工作負載導致其他未預期作業問題。 
-    > 
     
 - 針對所有啟用 Gold 或 Silver 持久性的虛擬機器擴展集維持至少五個節點。
 - 持久性層級為 Silver 或 Gold 的每個 VM 擴展集，必須對應到 Service Fabric 叢集中其自有的節點類型。 將多個 VM 擴展集對應到單一節點類型，會使 Service Fabric 叢集與 Azure 基礎結構之間的協調無法正常運作。

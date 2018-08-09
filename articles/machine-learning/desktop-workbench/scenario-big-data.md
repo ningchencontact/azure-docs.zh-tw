@@ -9,19 +9,19 @@ editor: daden
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: 450c033fbce3544cdc17ddc6d47ff726b01a4d3e
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7a13cafd3dcfb4637a5deae2c678c518019ad168
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832657"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39450668"
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>資料的伺服器工作負載預測 (TB)
 
@@ -44,12 +44,12 @@ ms.locfileid: "34832657"
 在此案例中，您將焦點放在每部機器 (或伺服器) 的工作負載預測。 特別的是，您會使用每部伺服器上的工作階段資料，預測未來伺服器的工作負載類別。 您使用 [Apache Spark ML](https://spark.apache.org/docs/2.1.1/ml-guide.html) 中的隨機樹系分類器，將每個伺服器的負載歸類為低、中、高三類。 在此範例中的機器學習技術和工作流程可以輕易地延伸到其他類似的問題。 
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 要執行此範例所需符合的必要條件如下：
 
 * [Azure 帳戶](https://azure.microsoft.com/free/) (有提供免費試用)。
-* 已安裝 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md)。 若要安裝程式並建立工作區，請參閱[快速入門安裝指南](../service/quickstart-installation.md)。 如果您有多個訂用帳戶，您可以[將所需訂用帳戶設定為目前作用中的訂用帳戶](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set)。
+* 已安裝 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md)。 若要安裝程式並建立工作區，請參閱[快速入門安裝指南](../service/quickstart-installation.md)。 如果您有多個訂用帳戶，您可以[將所需訂用帳戶設定為目前作用中的訂用帳戶](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set)。
 * Windows 10 (本範例中的指示大多與 macOS 系統通用)。
 * 適用於 Linux (Ubuntu) 的資料科學虛擬機器 (DSVM)，最好位於資料所在的美國東部區域。 您可以依照[這些指示](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)來佈建 Ubuntu DSVM。 您也可以參閱[這篇快速入門](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu)。 我們建議使用至少 8 個核心和 32 GB 記憶體的虛擬機器。 
 

@@ -3,8 +3,8 @@ title: Microsoft Azure 上的 Oracle 解決方案 | Microsoft Docs
 description: 了解 Microsoft Azure 上支援的 Oracle 解決方案組態和限制。
 services: virtual-machines-linux
 documentationcenter: ''
+author: romitgirdhar
 manager: jeconnoc
-author: rickstercdn
 tags: azure-resource-management
 ms.assetid: 5d71886b-463a-43ae-b61f-35c6fc9bae25
 ms.service: virtual-machines-windows
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/28/2017
-ms.author: rclaus
-ms.openlocfilehash: daed709b4b4be87ba75f5539bd31c666b3a37414
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 08/02/2018
+ms.author: rogirdh
+ms.openlocfilehash: 6435c866f6cdf5abea3862a718579f3a6e4d7378
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656341"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493059"
 ---
 # <a name="oracle-solutions-and-their-deployment-on-microsoft-azure"></a>Microsoft Azure 上的 Oracle 解決方案及其部署
 本文涵蓋在 Microsoft Azure 上成功部署各種 Oracle 解決方案的必要資訊。 這些解決方案以 Oracle 在 Azure Marketplace 中發佈的虛擬機器映像為基礎。 若要取得目前可用的映像清單，請執行下列命令：

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/25/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 1b59409e43a23dd63a6697a44a20df079a751516
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: e5dd41b34c41c442034e0a7ccb74c8d5b6583753
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866853"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436704"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>在 Azure Stack 中搭配 Azure CLI 2.0 使用 API 版本設定檔
 
@@ -38,7 +38,7 @@ az --version
 
 1. 從 [Azure Stack 操作員](..\azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate)取得 Azure Stack CA 根憑證，並信任該憑證。 若要信任 Azure Stack CA 根憑證，請將它附加到現有的 Python 憑證。
 
-2. 尋找您機器上的憑證位置。 此位置可能會根據您安裝 Python 的位置不同而有所差異。 您必須安裝 [pip](https://pip.pypa.io) 和 [certifi](https://pypi.org/project/certifi/) 模組。 您可以從 Bash 提示中使用下列 Python 命令：
+1. 尋找您機器上的憑證位置。 此位置可能會根據您安裝 Python 的位置不同而有所差異。 您必須安裝 [pip](https://pip.pypa.io) 和 [certifi](https://pypi.org/project/certifi/) 模組。 您可以從 Bash 提示中使用下列 Python 命令：
 
   ```bash  
     python -c "import certifi; print(certifi.where())"
@@ -60,9 +60,9 @@ sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
 
 1. 您必須設定 [VPN 連線來連線到 Azure Stack](azure-stack-connect-azure-stack.md)。
 
-2. 複製從 Azure Stack 操作員那取得的 PEM 憑證，並記下檔案位置 (PATH_TO_PEM_FILE)。
+1. 複製從 Azure Stack 操作員那取得的 PEM 憑證，並記下檔案位置 (PATH_TO_PEM_FILE)。
 
-3. 根據您開發工作站的 OS，執行下列命令。
+1. 根據您開發工作站的 OS，執行下列命令。
 
 #### <a name="linux"></a>Linux
 
@@ -109,7 +109,7 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
 
 ## <a name="get-the-virtual-machine-aliases-endpoint"></a>取得虛擬機器別名端點
 
-使用者在使用 CLI 建立虛擬機器之前，必須連絡 Azure Stack 操作員，並取得虛擬機器別名端點 URI。 例如，Azure 會使用下列 URI：https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json。 雲端系統管理員應該使用 Azure Stack 市集中可用的映像，為 Azure Stack 設定類似的端點。 使用者必須將端點 URI 的 `endpoint-vm-image-alias-doc` 參數傳遞至 `az cloud register` 命令，如下一節中所示。 
+使用者在使用 CLI 建立虛擬機器之前，必須連絡 Azure Stack 操作員，並取得虛擬機器別名端點 URI。 例如，Azure 會使用下列 URI： https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json。 雲端系統管理員應該使用 Azure Stack 市集中可用的映像，為 Azure Stack 設定類似的端點。 使用者必須將端點 URI 的 `endpoint-vm-image-alias-doc` 參數傳遞至 `az cloud register` 命令，如下一節中所示。 
    
 
 ## <a name="connect-to-azure-stack"></a>連線至 Azure Stack
@@ -140,7 +140,7 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
 
-2. 使用下列命令來設定作用中環境。
+1. 使用下列命令來設定作用中環境。
 
    a. 針對「雲端系統管理」環境，請使用：
 
@@ -156,14 +156,14 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
         -n AzureStackUser
       ```
 
-3. 將您的環境組態更新成使用 Azure Stack 特定的 API 版本設定檔。 若要更新組態，請執行下列命令：
+1. 將您的環境組態更新成使用 Azure Stack 特定的 API 版本設定檔。 若要更新組態，請執行下列命令：
 
    ```azurecli
    az cloud update \
      --profile 2017-03-09-profile
    ```
 
-4. 使用 `az login` 命令來登入 Azure Stack 環境。 您可以以使用者身分或以[服務主體](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects)形式登入 Azure Stack 環境。 
+1. 使用 `az login` 命令來登入 Azure Stack 環境。 您可以以使用者身分或以[服務主體](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects)形式登入 Azure Stack 環境。 
 
    * 以「使用者」身分登入：您可以直接在 `az login` 命令內指定使用者名稱和密碼，或使用瀏覽器進行驗證。 如果您的帳戶已啟用多重要素驗證，則必須採用後者方式。
 

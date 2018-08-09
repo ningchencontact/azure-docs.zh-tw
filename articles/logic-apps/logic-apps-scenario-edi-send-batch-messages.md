@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: LADocs; estfan; divswa
-ms.openlocfilehash: 6340d1fc409b64c5e681f9f69e4e2d0895ede61f
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: fb15688968cb29039fc669ed6b8685ba64df9e81
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299285"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432128"
 ---
 # <a name="send-x12-messages-in-batch-to-trading-partners"></a>批次傳送 X12 訊息給交易夥伴
 
@@ -39,7 +39,7 @@ ms.locfileid: "35299285"
 * [建立邏輯應用程式，將項目傳送至批次](#sender)。 這個「傳送者」邏輯應用程式會指定要將項目傳送到哪個位置來進行處理，這個位置必須是現有的接收者邏輯應用程式。
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要遵循此範例，您需要這些項目：
 
@@ -60,11 +60,11 @@ ms.locfileid: "35299285"
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，使用下列名稱來建立一個邏輯應用程式："BatchX12Messages"。
 
-2. 在 Logic Apps 設計工具中，新增**次**觸發程序，它會啟動您的邏輯應用程式工作流程。 在搜尋方塊中，輸入 "batch" 作為篩選條件。 選取此觸發程序：**批次 – 批次訊息**
+1. 在 Logic Apps 設計工具中，新增**次**觸發程序，它會啟動您的邏輯應用程式工作流程。 在搜尋方塊中，輸入 "batch" 作為篩選條件。 選取此觸發程序：**批次 – 批次訊息**
 
    ![新增批次觸發程序](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-receiver-trigger.png)
 
-3. 提供批次的名稱，並指定釋放批次的準則，例如：
+1. 提供批次的名稱，並指定釋放批次的準則，例如：
 
    * **批次名稱**：用來識別批次，在本例中為 "TestBatch"。
 
@@ -81,7 +81,7 @@ ms.locfileid: "35299285"
      ![提供批次觸發程序詳細資料](./media/logic-apps-scenario-EDI-send-batch-messages/receive-batch-schedule-based.png)
 
 
-4. 新增另一個動作，此動作會將已分組或分批的訊息編碼，然後建立 X12 批次處理訊息。 
+1. 新增另一個動作，此動作會將已分組或分批的訊息編碼，然後建立 X12 批次處理訊息。 
 
    a. 選擇 [+ 新步驟] > [新增動作]。
 
@@ -89,7 +89,7 @@ ms.locfileid: "35299285"
 
    ![選取「X12 批次編碼」動作](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-encode-action.png)
    
-5. 設定您剛才新增之動作的屬性。
+1. 設定您剛才新增之動作的屬性。
 
    * 在 [X12 協議名稱] 方塊中，從下拉式清單中選取協議。 如果您的清單是空的，請確定您已與整合帳戶建立連線。
 
@@ -101,17 +101,17 @@ ms.locfileid: "35299285"
 
    ![「批次編碼」動作詳細資料](./media/logic-apps-scenario-EDI-send-batch-messages/batch-encode-action-details.png)
 
-6. 針對測試用途，請新增一個將批次處理訊息傳送給[要求 Bin 服務](https://requestbin.fullcontact.com/) \(英文\) 的 HTTP 動作。 
+1. 針對測試用途，請新增一個將批次處理訊息傳送給[要求 Bin 服務](https://requestbin.fullcontact.com/) \(英文\) 的 HTTP 動作。 
 
    1. 在搜尋方塊中輸入 "HTTP" 作為篩選條件。 選取此動作：**HTTP - HTTP**
     
       ![選取 HTTP 動作](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receive-add-http-action.png)
 
-   2. 從 [方法] 清單中，選取 [POST]。 針對 [Uri] 方塊，為您的要求 Bin 產生一個 URI，然後輸入該 URI。 在 [本文] 方塊中，當動態清單開啟時，選取 [依合約名稱的批次編碼] 區段底下的 [本文] 欄位。 如果您沒有看到 [本文]，請選擇 [依合約名稱的批次編碼]旁邊的 [查看更多]。
+   1. 從 [方法] 清單中，選取 [POST]。 針對 [Uri] 方塊，為您的要求 Bin 產生一個 URI，然後輸入該 URI。 在 [本文] 方塊中，當動態清單開啟時，選取 [依合約名稱的批次編碼] 區段底下的 [本文] 欄位。 如果您沒有看到 [本文]，請選擇 [依合約名稱的批次編碼]旁邊的 [查看更多]。
 
       ![提供 HTTP 動作詳細資料](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receive-add-http-action-details.png)
 
-7.  既然您已建立接收者邏輯應用程式，現在便可儲存您的邏輯應用程式。
+1.  既然您已建立接收者邏輯應用程式，現在便可儲存您的邏輯應用程式。
 
     ![儲存您的邏輯應用程式](./media/logic-apps-scenario-EDI-send-batch-messages/save-batch-receiver-logic-app.png)
 
@@ -131,24 +131,24 @@ ms.locfileid: "35299285"
    
    ![新增「要求」觸發程序](./media/logic-apps-scenario-EDI-send-batch-messages/add-request-trigger-sender.png)
 
-2. 新增新的步驟，將訊息傳送至批次。
+1. 新增新的步驟，將訊息傳送至批次。
 
    1. 選擇 [+ 新步驟] > [新增動作]。
 
-   2. 在搜尋方塊中，輸入 "batch" 作為篩選條件。 
+   1. 在搜尋方塊中，輸入 "batch" 作為篩選條件。 
 
-3. 選取此動作：**將訊息傳送給批次 – 選擇包含批次觸發程序的 Logic Apps 工作流程**
+1. 選取此動作：**將訊息傳送給批次 – 選擇包含批次觸發程序的 Logic Apps 工作流程**
 
    ![選取 [將訊息傳送給批次]](./media/logic-apps-scenario-EDI-send-batch-messages/send-messages-batch-action.png)
 
-4. 現在，選取您先前建立的 "BatchX12Messages" 邏輯應用程式，它現在會顯示為動作。
+1. 現在，選取您先前建立的 "BatchX12Messages" 邏輯應用程式，它現在會顯示為動作。
 
    ![選取「批次接收者」邏輯應用程式](./media/logic-apps-scenario-EDI-send-batch-messages/send-batch-select-batch-receiver.png)
 
    > [!NOTE]
    > 此清單也會顯示有批次觸發程序的任何其他邏輯應用程式。
 
-5. 設定批次屬性。
+1. 設定批次屬性。
 
    * **批次名稱**：接收者邏輯應用程式所定義的批次名稱，在本例中為 "TestBatch"，並會在執行階段進行驗證。
 
@@ -160,7 +160,7 @@ ms.locfileid: "35299285"
    
    ![設定批次屬性](./media/logic-apps-scenario-EDI-send-batch-messages/send-batch-select-batch-properties.png)
 
-6. 儲存您的邏輯應用程式。 傳送者邏輯應用程式現在看起來應該類似這個範例：
+1. 儲存您的邏輯應用程式。 傳送者邏輯應用程式現在看起來應該類似這個範例：
 
    ![儲存您的傳送者邏輯應用程式](./media/logic-apps-scenario-EDI-send-batch-messages/send-batch-finished.png)
 

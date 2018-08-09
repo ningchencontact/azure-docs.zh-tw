@@ -8,12 +8,12 @@ ms.date: 02/15/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9c196ec92fc7997617fa464d676dc93ca9fe84f0
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 261c26290a4a7c4b8bb22ada7f97470a6efa7a91
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029082"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576316"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>了解 Azure IoT Edge 模組
 
@@ -51,13 +51,13 @@ IoT Edge 模組映像包含應用程式，該應用程式會利用 IoT Edge 執�
 模組對應項是 JSON 文件，它會儲存模組資訊和設定屬性。 這個概念與 IoT 中樞的[裝置對應項][lnk-device-twin]概念相同。 模組對應項的結構與裝置對應項完全相同。 用來與這兩種對應項互動的 API 也相同。 兩者之間唯一的差別是用來具現化用戶端 SDK 的身分識別。 
 
 ```csharp
-// Create a DeviceClient object. This DeviceClient will act on behalf of a 
+// Create a ModuleClient object. This ModuleClient will act on behalf of a 
 // module since it is created with a module’s connection string instead 
 // of a device connection string. 
-DeviceClient client = new DeviceClient.CreateFromConnectionString(moduleConnectionString, settings); 
+ModuleClient client = new ModuleClient.CreateFromEnvironmentAsync(settings); 
 await client.OpenAsync(); 
  
-// Get the model twin 
+// Get the module twin 
 Twin twin = await client.GetTwinAsync(); 
 ```
 

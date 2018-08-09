@@ -13,16 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: douglasl
-ms.openlocfilehash: fa19ff6e6293e1d5d082ee40d55b456500fcb1ad
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 17a8e6f6d6d374c6f8620ecb525727e6fee8c4b9
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075148"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39501872"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>在 Azure Databricks 中執行 Python 活動來轉換資料
 
 [Data Factory 管線](concepts-pipelines-activities.md)中的 Azure Databricks Python 活動會在 Azure Databricks 叢集中執行 Python 檔案。 本文是根據 [資料轉換活動](transform-data.md) 一文，它呈現資料轉換和支援的轉換活動的一般概觀。 Azure Databricks 是用於執行 Apache Spark 的受控平台。
+
+如需此功能的簡介與示範，請觀看下列 11 分鐘長的影片：
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Execute-Jars-and-Python-scripts-on-Azure-Databricks-using-Data-Factory/player]
 
 ## <a name="databricks-python-activity-definition"></a>Databricks Python 活動定義
 
@@ -119,4 +123,4 @@ ms.locfileid: "39075148"
 
 #### <a name="copy-library-using-databricks-clihttpsdocsazuredatabricksnetuser-guidedev-toolsdatabricks-clihtmlcopy-a-file-to-dbfs"></a>[使用 Databricks CLI 來複製程式庫](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#copy-a-file-to-dbfs) \(英文\)
 
-範例： *databricks fs cp SparkPi-assembly-0.1.jar dbfs:/FileStore/jars*
+範例：*databricks fs cp SparkPi-assembly-0.1.jar dbfs:/FileStore/jars*

@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 9c84afc231ff4b086e76f50702870e30da7add6e
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 5f11409ff49830be97d9a13a0ab7f033d9cc1041
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364897"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494460"
 ---
 # <a name="tutorial-6-add-composite-entity"></a>教學課程：6. 新增複合實體 
 在本教學課程中新增複合實體，以便將擷取的資料組合為包含實體。
@@ -99,7 +99,6 @@ ms.locfileid: "39364897"
     [![](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "'MoveEmployee' 上已標示所有語句的 LUIS 螢幕擷取畫面")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
 
 ## <a name="train-the-luis-app"></a>進行 LUIS 應用程式定型
-將應用程式定型之前，LUIS 不知道新的複合實體。 
 
 [!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 

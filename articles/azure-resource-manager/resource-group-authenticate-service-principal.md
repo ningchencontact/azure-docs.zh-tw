@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3dc62ba21458cc91d1858e11e7abbb6e96b0d5dd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: aec79655dde48a18891776f40c51aa5a5c859ef8
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358943"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577259"
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>使用 Azure PowerShell 建立具有憑證的服務主體
 
@@ -214,5 +214,5 @@ Get-AzureRmADApplication -DisplayName exampleapp | New-AzureRmADAppCredential `
 ## <a name="next-steps"></a>後續步驟
 * 若要使用密碼設定服務主體，請參閱[使用 Azure PowerShell 建立 Azure 服務主體](/powershell/azure/create-azure-service-principal-azureps)。
 * 如需有關將應用程式整合至 Azure 來管理資源的詳細步驟，請參閱 [利用 Azure Resource Manager API 進行授權的開發人員指南](resource-manager-api-authentication.md)。
-* 如需應用程式和服務主體的詳細說明，請參閱[應用程式物件和服務主體物件](../active-directory/active-directory-application-objects.md)。 
-* 如需 Azure Active Directory 驗證的詳細資訊，請參閱 [Azure AD 的驗證案例](../active-directory/active-directory-authentication-scenarios.md)。
+* 如需應用程式和服務主體的詳細說明，請參閱[應用程式物件和服務主體物件](../active-directory/develop/app-objects-and-service-principals.md)。 
+* 如需 Azure Active Directory 驗證的詳細資訊，請參閱 [Azure AD 的驗證案例](../active-directory/develop/authentication-scenarios.md)。

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/14/2017
 ms.author: lizross
-ms.openlocfilehash: e304242718478cae2670372a06abe07f926fbed2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 787178b2c1582729249fcf549356fa7445f5ecbe
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054738"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494959"
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory 常見問題集
 Azure Active Directory (Azure AD) 是全方位的身分識別即服務 (IDaaS) 解決方案，其涉及範圍橫跨身分識別、存取管理和安全性的所有層面。
@@ -185,7 +185,7 @@ Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別�
 
 如需詳細資訊，請參閱
 
-* [Azure AD 的驗證案例](../develop/active-directory-authentication-scenarios.md)
+* [Azure AD 的驗證案例](../develop/authentication-scenarios.md)
 * [Active Directory 驗證通訊協定](https://msdn.microsoft.com/library/azure/dn151124.aspx)
 * [單一登入如何搭配 Azure Active Directory 運作？](../manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work)
 

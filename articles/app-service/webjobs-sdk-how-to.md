@@ -3,7 +3,7 @@ title: 如何使用 Azure WebJobs SDK
 description: 深入了解如何針對 WebJobs SDK 撰寫程式碼。 建立事件驅動的幕後處理作業，以存取 Azure 服務和協力廠商服務中的資料。
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 ms.service: app-service-web
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
-ms.author: tdykstra
-ms.openlocfilehash: 08272ba7d828f744336723f25b482bf06b9e43dc
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.author: glenga
+ms.openlocfilehash: 3e06dc82baed4043ce490769aa0ec84ab3de8c24
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234645"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577006"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>如何使用 Azure WebJobs SDK 進行事件驅動幕後處理
 
@@ -32,7 +32,7 @@ ms.locfileid: "35234645"
 > 
 > 如需詳細資訊，請參閱[比較 WebJobs SDK 和 Azure Functions](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs) (英文)。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本文假設您已閱讀[開始使用 WebJobs SDK](webjobs-sdk-get-started.md) (英文)。
 
@@ -454,7 +454,7 @@ WebJobs SDK 使用 [Azure 二進位大型物件租用](../storage/common/storage
     
 ## <a name="filters"></a>篩選器 
 
-函式篩選條件 (預覽) 讓您能夠使用自己的邏輯自訂 WebJobs 執行管線。 篩選條件與 [ASP.NET Core 篩選條件](https://docs.microsoft.com/aspnet/core/mvc/controllers/filters) 類似。 它們可以實作為套用到函式或類別上的宣告屬性。 如需詳細資訊，請參閱[函式篩選條件](https://github.com/Azure/azure-webjobs-sdk/wiki/Function-Filters) (英文)。
+函式篩選條件 (預覽) 讓您能夠使用自己的邏輯自訂 WebJobs 執行管線。 篩選條件與 [ASP.NET 核心篩選條件](https://docs.microsoft.com/aspnet/core/mvc/controllers/filters) 類似。 它們可以實作為套用到函式或類別上的宣告屬性。 如需詳細資訊，請參閱[函式篩選條件](https://github.com/Azure/azure-webjobs-sdk/wiki/Function-Filters) (英文)。
 
 ## <a name="logging-and-monitoring"></a>記錄和監視
 

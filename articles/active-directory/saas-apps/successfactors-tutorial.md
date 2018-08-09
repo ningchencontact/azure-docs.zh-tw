@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 8401462ed4bf5ef2ac1ff10cf3f6750cbed7b4e5
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 870a753a8f10255a602616ab54234b295f4d6e13
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39050796"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431478"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-successfactors"></a>教學課程：Azure Active Directory 與 SuccessFactors 整合
 
@@ -53,7 +53,7 @@ SuccessFactors 與 Azure AD 整合提供下列優點：
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 SuccessFactors
-2. 設定並測試 Azure AD 單一登入
+1. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-successfactors-from-the-gallery"></a>從資源庫新增 SuccessFactors
 若要設定 SuccessFactors 與 Azure AD 的整合，您需要從資源庫將 SuccessFactors 新增到受控 SaaS 應用程式清單。
@@ -64,15 +64,15 @@ SuccessFactors 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕][1]
 
-2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
+1. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![企業應用程式刀鋒視窗][2]
     
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+1. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![新增應用程式按鈕][3]
 
-4. 在搜尋方塊中，輸入 **SuccessFactors**，從結果面板中選取 [SuccessFactors]，然後按一下 [新增] 按鈕以新增應用程式。
+1. 在搜尋方塊中，輸入 **SuccessFactors**，從結果面板中選取 [SuccessFactors]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![結果清單中的 SuccessFactors](./media/successfactors-tutorial/tutorial_successfactors_addfromgallery.png)
 
@@ -87,10 +87,10 @@ SuccessFactors 與 Azure AD 整合提供下列優點：
 若要設定及測試對 SuccessFactors 的 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 SuccessFactors 測試使用者](#create-a-successfactors-test-user)** - 在 SuccessFactors 中建立一個與 Azure AD 中代表 Britta Simon 之項目連結的對應項目。
-4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
+1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
+1. **[建立 SuccessFactors 測試使用者](#create-a-successfactors-test-user)** - 在 SuccessFactors 中建立一個與 Azure AD 中代表 Britta Simon 之項目連結的對應項目。
+1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+1. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -102,11 +102,11 @@ SuccessFactors 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入連結][4]
 
-2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
+1. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
  
     ![單一登入對話方塊](./media/successfactors-tutorial/tutorial_successfactors_samlbase.png)
 
-3. 在 [SuccessFactors 網域及 URL] 區段上，執行下列步驟：
+1. 在 [SuccessFactors 網域及 URL] 區段上，執行下列步驟：
 
     ![SuccessFactors 網域及 URL 單一登入資訊](./media/successfactors-tutorial/tutorial_successfactors_url.png)
 
@@ -148,30 +148,30 @@ SuccessFactors 與 Azure AD 整合提供下列優點：
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的識別碼、回覆 URL 和登入 URL 來更新這些值。 請連絡 [SuccessFactors 用戶端支援小組](https://www.successfactors.com/en_us/support.html) \(英文\) 以取得這些值。 
 
-4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
+1. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
     ![憑證下載連結](./media/successfactors-tutorial/tutorial_successfactors_certificate.png) 
 
-5. 按一下 [儲存]  按鈕。
+1. 按一下 [儲存]  按鈕。
 
     ![設定單一登入儲存按鈕](./media/successfactors-tutorial/tutorial_general_400.png)
     
-6. 在 [SuccessFactors 設定] 區段上，按一下 [設定 SuccessFactors] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
+1. 在 [SuccessFactors 設定] 區段上，按一下 [設定 SuccessFactors] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
 
     ![設定單一登入](./media/successfactors-tutorial/tutorial_successfactors_configure.png) 
 
-7. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 **SuccessFactors 管理入口網站**。
+1. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 **SuccessFactors 管理入口網站**。
     
-8. 造訪 [應用程式安全性] 和原生 [單一登入功能]。 
+1. 造訪 [應用程式安全性] 和原生 [單一登入功能]。 
 
-9. 在 [重設權杖] 中放入任何值，然後按一下 [儲存權杖] 以啟用 SAML SSO。
+1. 在 [重設權杖] 中放入任何值，然後按一下 [儲存權杖] 以啟用 SAML SSO。
    
     ![在應用程式端設定單一登入][11]
 
     > [!NOTE] 
     > 此值是用來作為 on/off 開關。 如果儲存了任何值，SAML SSO 為 ON。 如果儲存了空白值，SAML SSO 為 OFF。
 
-10. 瀏覽至以下螢幕擷取畫面，然後執行下列動作：
+1. 瀏覽至以下螢幕擷取畫面，然後執行下列動作：
    
     ![在應用程式端設定單一登入][12]
    
@@ -196,7 +196,7 @@ SuccessFactors 與 Azure AD 整合提供下列優點：
     > [!NOTE] 
     > 憑證內容必須有開始憑證和結束憑證標籤。
 
-11. 瀏覽至 [SAML V2]，然後執行下列步驟：
+1. 瀏覽至 [SAML V2]，然後執行下列步驟：
    
     ![在應用程式端設定單一登入][13]
    
@@ -212,7 +212,7 @@ SuccessFactors 與 Azure AD 整合提供下列優點：
    
     f. 在 [Send request as Company-Wide issuer] \(以全公司簽發者身分傳送要求\) 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 單一登入服務 URL] 值。
 
-12. 如果您想要讓登入使用者名稱不區分大小寫，請執行下列步驟。
+1. 如果您想要讓登入使用者名稱不區分大小寫，請執行下列步驟。
    
     ![設定單一登入][29]
     
@@ -240,15 +240,15 @@ SuccessFactors 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/successfactors-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+1. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/successfactors-tutorial/create_aaduser_02.png)
 
-3. 若要開啟 [使用者] 對話方塊，按一下 [所有使用者] 對話方塊頂端的 [新增]。
+1. 若要開啟 [使用者] 對話方塊，按一下 [所有使用者] 對話方塊頂端的 [新增]。
 
     ![[新增] 按鈕](./media/successfactors-tutorial/create_aaduser_03.png)
 
-4. 在 [使用者] 對話方塊中，執行下列步驟：
+1. 在 [使用者] 對話方塊中，執行下列步驟：
 
     ![[使用者] 對話方塊](./media/successfactors-tutorial/create_aaduser_04.png)
 
@@ -279,23 +279,23 @@ SuccessFactors 需以手動方式佈建。
 
     ![指派使用者][201] 
 
-2. 在應用程式清單中，選取 [SuccessFactors] 。
+1. 在應用程式清單中，選取 [SuccessFactors] 。
 
     ![應用程式清單中的 [SuccessFactors] 連結](./media/successfactors-tutorial/tutorial_successfactors_app.png)  
 
-3. 在左側功能表中，按一下 [使用者和群組]。
+1. 在左側功能表中，按一下 [使用者和群組]。
 
     ![[使用者和群組] 連結][202]
 
-4. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
+1. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
 
     ![[新增指派] 窗格][203]
 
-5. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
+1. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
 
-6. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
+1. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
 
-7. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
+1. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
     
 ### <a name="test-single-sign-on"></a>測試單一登入
 

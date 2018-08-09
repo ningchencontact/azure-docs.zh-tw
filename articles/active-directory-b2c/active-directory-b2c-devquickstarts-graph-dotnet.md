@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: da8aac2968ba020dd2b98253b12e8c9f223966e5
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: ce2c92f984f835c8e8f49ec94d65a9f3390812f9
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442489"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493117"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C：使用 Azure AD 圖形 API
 
@@ -27,7 +27,7 @@ Azure Active Directory (Azure AD) B2C 租用戶通常會很龐大。 這表示�
 對於 B2C 租用戶，與圖形 API 通訊有兩種主要模式。
 
 * 對於互動式、執行一次的工作，您應以 B2C 租用戶中的系統管理員帳戶來執行管理工作。 此模式需要系統管理員先使用認證登入，系統管理員才能對圖形 API進行任何呼叫。
-* 對於自動化、持續的工作，您應使用您提供必要權限的某種服務帳戶來執行管理工作。 在 Azure AD 中，作法上您可以註冊應用程式並向 Azure AD 驗證。 使用採用 **OAuth 2.0 用戶端認證授與** 的 [應用程式識別碼](../active-directory/develop/active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)即可完成。 在此情況下，應用程式會以本身 (而非使用者的身分) 呼叫圖形 API。
+* 對於自動化、持續的工作，您應使用您提供必要權限的某種服務帳戶來執行管理工作。 在 Azure AD 中，作法上您可以註冊應用程式並向 Azure AD 驗證。 使用採用 **OAuth 2.0 用戶端認證授與** 的 [應用程式識別碼](../active-directory/develop/authentication-scenarios.md#daemon-or-server-application-to-web-api)即可完成。 在此情況下，應用程式會以本身 (而非使用者的身分) 呼叫圖形 API。
 
 在本文中，您會了解如何執行自動化使用案例。 您將建置 .NET 4.5 `B2CGraphClient` 來執行使用者建立、讀取、更新和刪除 (CRUD) 作業。 用戶端會有 Windows 命令列介面讓您叫用各種方法。 不過，程式碼會撰寫成以非互動、自動化的方式運作。
 

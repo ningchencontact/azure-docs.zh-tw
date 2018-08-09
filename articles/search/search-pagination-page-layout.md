@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 08/29/2016
 ms.author: heidist
-ms.openlocfilehash: 516760031918c667b39cc8b3dd94d91c42623efc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8953be2be77c14a82294e56ac60b8bc993ec6c2f
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32186873"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527064"
 ---
 # <a name="how-to-page-search-results-in-azure-search"></a>如何在 Azure 搜尋服務中對搜尋結果分頁
 本文提供指引，關於如何使用 Azure 搜尋服務 REST API 來實作搜尋結果頁面的標準項目，例如次數總計、擷取文件、排序次序和導覽。
@@ -102,7 +102,6 @@ ms.locfileid: "32186873"
 * [Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice)
 * [索引作業](https://docs.microsoft.com/rest/api/searchservice/Index-operations)
 * [文件作業](https://docs.microsoft.com/rest/api/searchservice/Document-operations)
-* [Azure 搜尋服務的影片和教學課程](search-video-demo-tutorial-list.md)
 * [Azure 搜尋服務中的多面向導覽](search-faceted-navigation.md)
 
 <!--Image references-->

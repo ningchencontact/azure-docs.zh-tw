@@ -2,24 +2,18 @@
 title: 如何建立 Azure 檔案共用 | Microsoft Docs
 description: 如何使用 Azure 入口網站、PowerShell 和 Azure CLI，在 Azure 檔案服務中建立 Azure 檔案共用。
 services: storage
-documentationcenter: ''
 author: RenaShahMSFT
-manager: aungoo
-editor: tamram
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 85e021d439698e864a26bde9515369ae801c3796
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.component: files
+ms.openlocfilehash: 9ce0bc425836fffb59e804bdbd19f23cfc26c00e
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737855"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527164"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>在 Azure 檔案服務中建立檔案共用
 您可以使用 [Azure 入口網站](https://portal.azure.com/)、Azure 儲存體 PowerShell Cmdlet、Azure 儲存體用戶端程式庫或 Azure 儲存體 REST API 來建立 Azure 檔案共用。 在本教學課程中，您將了解：
@@ -27,7 +21,7 @@ ms.locfileid: "34737855"
 * [如何使用 Powershell 建立 Azure 檔案共用](#create-file-share-through-powershell)
 * [如何使用 CLI 建立 Azure 檔案共用](#create-file-share-through-command-line-interface-cli)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要建立 Azure 檔案共用，您可以使用已經存在的儲存體帳戶，或[建立新的 Azure 儲存體帳戶](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。 若要使用 PowerShell 建立 Azure 檔案共用，您需要儲存體帳戶的名稱與帳戶金鑰。 如果您打算使用 Powershell 或 CLI，您將需要儲存體帳戶金鑰。
 
 ## <a name="create-file-share-through-the-azure-portal"></a>透過 Azure 入口網站建立檔案共用

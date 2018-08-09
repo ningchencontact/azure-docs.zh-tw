@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/30/2018
 ms.author: victorh
-ms.openlocfilehash: 7fd836301ddcb2a39212dcb39a5a8095e5c8e7e7
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: b8a69b44714a24c78bf4077c27b5bf5633cc56d3
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171179"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431761"
 ---
 # <a name="azure-cli-script-example-create-a-dns-zone-and-record"></a>Azure CLI 指令碼範例：建立 DNS 區域和記錄
 
@@ -73,11 +73,11 @@ az group delete -n myResourceGroup
 
 | 命令 | 注意 |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
+| [az group create](/cli/azure/group#az-group-create) | 建立用來存放所有資源的資源群組。 |
 | [az network dns zone create](/cli/azure/network/dns/zone#az-network-dns-zone-create) | 建立 Azure DNS 區域。 |
 | [az network dns record-set a add-record](/cli/azure/network/dns/record-set#az-network-dns-record-set-a-add-record) | 將 A 記錄新增至 DNS 區域。 |
 | [az network dns record-set list](/cli/azure/network/dns/record-set#az-network-dns-record-set-a-list) | 列出 DNS 區域中的所有 A 記錄集。 |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | 刪除資源群組，包括所有的巢狀資源。 |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | 刪除資源群組，包括所有的巢狀資源。 |
 
 ## <a name="next-steps"></a>後續步驟
 

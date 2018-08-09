@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: e606ff09c3b3a867170b783e69879d609b69c11d
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: c125d5a741331d5c9476da23766057ac0c42cdbf
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075155"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493722"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>使用 Azure 媒體服務設計具有存取控制的內容保護系統
 
@@ -225,7 +225,7 @@ DRM 子系統可能包含下列元件：
 
 如需 Azure AD 的資訊：
 
-* 您可以在 [Azure Active Directory 開發人員指南](../../active-directory/active-directory-developers-guide.md)中找到開發人員的資訊。
+* 您可以在 [Azure Active Directory 開發人員指南](../../active-directory/develop/azure-ad-developers-guide.md)中找到開發人員的資訊。
 * 您可以在 [管理 Azure AD 租用戶目錄](../../active-directory/fundamentals/active-directory-administer.md)中找到系統管理員的資訊。
 
 ### <a name="some-issues-in-implementation"></a>實作中的一些問題
@@ -312,9 +312,9 @@ DRM 授權傳遞服務一律會檢查來自 Azure AD 的目前/有效公開金�
 因為金鑰隨時可能會變換，同盟中繼資料文件中一律會有一個以上的有效公開金鑰可用。 媒體服務授權傳遞可使用文件中指定的任何金鑰。 因為一個金鑰可能很快就會變換，另一個金鑰可能會加以取代，以此類推。
 
 ### <a name="where-is-the-access-token"></a>存取權杖在哪裡？
-如果您在[採用 OAuth 2.0 用戶端認證授與的應用程式識別](../../active-directory/develop/active-directory-authentication-scenarios.md#web-application-to-web-api)一節中查看 Web 應用程式如何呼叫 API 應用程式，驗證流程如下：
+如果您在[採用 OAuth 2.0 用戶端認證授與的應用程式識別](../../active-directory/develop/authentication-scenarios.md#web-application-to-web-api)一節中查看 Web 應用程式如何呼叫 API 應用程式，驗證流程如下：
 
-* 使用者在 Web 應用程式中登入 Azure AD。 如需詳細資訊，請參閱 [Web 瀏覽器到 Web 應用程式](../../active-directory/develop/active-directory-authentication-scenarios.md#web-browser-to-web-application)。
+* 使用者在 Web 應用程式中登入 Azure AD。 如需詳細資訊，請參閱 [Web 瀏覽器到 Web 應用程式](../../active-directory/develop/authentication-scenarios.md#web-browser-to-web-application)。
 * Azure AD 授權端點會將使用者代理程式重新導向回到具有授權碼的用戶端應用程式。 使用者代理程式會將授權碼傳回用戶端應用程式的重新導向 URI。
 * Web 應用程式需要取得存取權杖，才能向 Web API 驗證和擷取所需的資源。 它會向 Azure AD 的權杖端點提出要求，並提供認證、用戶端識別碼和 Web API 的應用程式識別碼 URI。 它會呈現授權碼以證明使用者已同意。
 * Azure AD 驗證應用程式，並傳回用來呼叫 Web API 的 JWT 存取權杖。

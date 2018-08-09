@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 0db357194aa4bd4d01b1d445cb407d983214b32b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 843b92c20b2ec930ce67659802a4287328a08650
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054117"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618864"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>使用 Azure 入口網站和 PowerShell 監視和管理 Azure Data Factory 管線
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "37054117"
 > * [使用監視及管理應用程式](data-factory-monitor-manage-app.md)
 
 > [!NOTE]
-> 本文適用於第 1 版的 Data Factory。 如果您使用目前版本的 Data Factory 服務，請參閱[監視和管理 Data Factory 管線](../monitor-visually.md)。
+> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[監視和管理 Data Factory 管線](../monitor-visually.md)。
 
 本文描述如何使用 Azure 入口網站和 PowerShell 來監視、管理和偵錯您的管線。
 
@@ -289,7 +289,7 @@ Azure Data Factory 提供了許多功能供您使用 Azure 入口網站和 Azure
 ![修正錯誤並進行驗證](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### <a name="use-azure-powershell"></a>使用 Azure PowerShell
-您可以使用 **Set-AzureRmDataFactorySliceStatus** Cmdlet 來重新執行失敗。 如需該 Cmdlet 的語法及其他詳細資料，請參閱 [Set-AzureRmDataFactorySliceStatus](https://msdn.microsoft.com/library/mt603522.aspx) 主題。
+您可以使用 **Set-AzureRmDataFactorySliceStatus** Cmdlet 來重新執行失敗。 如需該 Cmdlet 的語法及其他詳細資料，請參閱 [Set-AzureRmDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/azurerm.datafactories/set-azurermdatafactoryslicestatus) 主題。
 
 **範例：**
 

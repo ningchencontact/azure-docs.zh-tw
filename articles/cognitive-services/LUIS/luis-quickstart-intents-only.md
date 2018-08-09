@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 07/26/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 578fdb5593e75e3584e81d73d7643162f7af5cbc
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: de295a93d395cee4c4dfbea4f2e7f7338036feb8
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358133"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494368"
 ---
 # <a name="tutorial-1-build-app-with-custom-domain"></a>教學課程：1. 建置具有自訂網域的應用程式
 在本教學課程中建立應用程式，以示範如何使用**意圖**，根據使用者提交給應用程式的語句 (文字) 來判斷使用者的「意圖」。 完成之後，您會擁有一個在雲端中執行的 LUIS 端點。
@@ -84,19 +84,15 @@ ms.locfileid: "39358133"
     在 LUIS 呼叫應用程式 (例如聊天機器人) 中，如果 LUIS 針對語句傳回 [無] 意圖時，您的聊天機器人可以詢問使用者是否想要結束交談。 如果使用者不想要結束交談，聊天機器人也可以提供更多指示，以便繼續交談。 
 
 ## <a name="train-and-publish-the-app"></a>將應用程式定型並發佈
-1. 在 LUIS 網站的右上方，選取 [Train] \(定型\) 按鈕。 
 
-    ![[Train] \(定型\) 按鈕](./media/luis-quickstart-intents-only/train-button.png)
-
-2. 當您在網站頂端看到確認成功的綠色狀態列時，就表示定型完成。
-
-    ![已定型狀態列](./media/luis-quickstart-intents-only/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-app-to-endpoint"></a>將應用程式發佈到端點
 
 [!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
 ## <a name="query-endpoint-for-getjobinformation-intent"></a>查詢端點的 GetJobInformation 意圖
+
 1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. 移至位址中的 URL 結尾並輸入 `I'm looking for a job with Natual Language Processing`。 最後一個查詢字串參數是 `q`，也就是語句**查詢**。 此語句與步驟 4 中的任何語句範例都不同，因此這是很好的測試，且應該會將 `GetJobInformation` 意圖傳回作為評分最高的意圖。 
@@ -189,7 +185,8 @@ JSON 結果會識別評分最高的意圖。 所有分數都介於 1 到 0，分
 LUIS 在此要求的工作已完成。 呼叫端應用程式 (例如聊天機器人) 可以取得 topScoringIntent 結果，然後尋找資訊 (未儲存在 LUIS 中) 來回答問題或結束對話。 這些是聊天機器人或呼叫端應用程式的程式設計選項。 LUIS 不會執行此工作。 LUIS 只會判斷使用者的意圖為何。 
 
 ## <a name="clean-up-resources"></a>清除資源
-當不再需要 LUIS 應用程式時，請將其刪除。 若要這樣做，請選取左上方功能表中的 [我的應用程式]。 選取應用程式清單中應用程式名稱右邊的省略符號 (***...***)，然後選取 [刪除]。 在 [Delete app?] \(刪除應用程式?\) 快顯對話方塊上，選取 [Ok] \(確定\)。
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

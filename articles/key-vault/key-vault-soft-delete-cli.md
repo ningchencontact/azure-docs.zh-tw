@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: alleonar
-ms.openlocfilehash: a9b80cae69c4e5852341385b98fcccc86d7959e9
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: b25d3d7bd5348d4e4ae5dc33362a9d0a2504236e
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27927969"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578597"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>如何以 CLI 使用金鑰保存庫虛刪除
 
@@ -23,7 +23,7 @@ Azure Key Vault 的虛刪除功能可復原已刪除的保存庫和保存庫物�
 - 可復原的 Key Vault 刪除支援
 - 支援可復原的金鑰保存庫物件刪除；金鑰、密碼和憑證
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - Azure CLI 2.0 - 如果您沒有為您的環境進行此安裝，請參閱[使用 CLI 2.0 管理金鑰保存庫](key-vault-manage-with-cli2.md)。
 
@@ -104,7 +104,7 @@ az keyvault list-deleted
 若要復原金鑰保存庫，您需要指定金鑰保存庫名稱、資源群組和位置。 請記下已刪除之金鑰保存庫的位置和資源群組，因為您需要這些才能進行金鑰保存庫復原程序。
 
 ```azurecli
-az keyvault recover --location westus --name ContosoVault
+az keyvault recover --location westus --resource-group ContosoRG --name ContosoVault
 ```
 
 在金鑰保存庫復原之後，結果會是新的資源，並具有金鑰保存庫的原始資源識別碼。 如果金鑰保存庫存在的資源群組已被移除，則必須先建立具有相同名稱的新資源群組，才能復原金鑰保存庫。

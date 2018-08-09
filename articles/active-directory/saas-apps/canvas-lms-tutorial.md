@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 9811be78bd6260b17c462c077ed299dff8309b83
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: af2c997f0842da751eb93f0788a7402fc7d144ae
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048502"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433284"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas-lms"></a>教學課程：Azure Active Directory 與 Canvas LMS 整合
 
@@ -52,7 +52,7 @@ ms.locfileid: "39048502"
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Canvas
-2. 設定並測試 Azure AD 單一登入
+1. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-canvas-from-the-gallery"></a>從資源庫新增 Canvas
 若要設定將 Canvas 整合到 Azure AD 中，您需要從資源庫將 Canvas 新增到受控 SaaS 應用程式清單。
@@ -63,19 +63,19 @@ ms.locfileid: "39048502"
 
     ![Active Directory][1]
 
-2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
+1. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![[應用程式]][2]
     
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+1. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![[應用程式]][3]
 
-4. 在搜尋方塊中，輸入 **Canvas**。
+1. 在搜尋方塊中，輸入 **Canvas**。
 
     ![建立 Azure AD 測試使用者](./media/canvas-lms-tutorial/tutorial_canvaslms_search.png)
 
-5. 在結果面板中，選取 [Canvas]，然後按一下 [新增] 按鈕以新增該應用程式。
+1. 在結果面板中，選取 [Canvas]，然後按一下 [新增] 按鈕以新增該應用程式。
 
     ![建立 Azure AD 測試使用者](./media/canvas-lms-tutorial/tutorial_canvaslms_addfromgallery.png)
 
@@ -89,10 +89,10 @@ ms.locfileid: "39048502"
 若要設定及測試與 Canvas 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 Canvas 測試使用者](#creating-a-canvas-test-user)** - 在 Canvas 中建立一個與 Azure AD 中代表 Britta Simon 之項目連結的 Britta Simon 對應項目。
-4. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
+1. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
+1. **[建立 Canvas 測試使用者](#creating-a-canvas-test-user)** - 在 Canvas 中建立一個與 Azure AD 中代表 Britta Simon 之項目連結的 Britta Simon 對應項目。
+1. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+1. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -104,11 +104,11 @@ ms.locfileid: "39048502"
 
     ![設定單一登入][4]
 
-2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
+1. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
  
     ![設定單一登入](./media/canvas-lms-tutorial/tutorial_canvaslms_samlbase.png)
 
-3. 在 [Canvas 網域及 URL] 區段上，執行下列步驟：
+1. 在 [Canvas 網域及 URL] 區段上，執行下列步驟：
 
     ![設定單一登入](./media/canvas-lms-tutorial/tutorial_canvaslms_url.png)
 
@@ -119,29 +119,29 @@ ms.locfileid: "39048502"
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Canvas 用戶端支援小組](https://community.canvaslms.com/community/help)以取得這些值。 
  
-4. 在 [SAML 簽署憑證] 區段上，複製憑證的 [指紋] 值。
+1. 在 [SAML 簽署憑證] 區段上，複製憑證的 [指紋] 值。
 
     ![設定單一登入](./media/canvas-lms-tutorial/tutorial_canvaslms_certificate.png) 
 
-5. 按一下 [儲存]  按鈕。
+1. 按一下 [儲存]  按鈕。
 
     ![設定單一登入](./media/canvas-lms-tutorial/tutorial_general_400.png)
 
-6. 在 [Canvas 組態] 區段上，按一下 [設定 Canvas] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製「變更密碼 URL」、「登出 URL」、「SAML 實體識別碼」及「SAML 單一登入服務 URL」。
+1. 在 [Canvas 組態] 區段上，按一下 [設定 Canvas] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製「變更密碼 URL」、「登出 URL」、「SAML 實體識別碼」及「SAML 單一登入服務 URL」。
 
     ![設定單一登入](./media/canvas-lms-tutorial/tutorial_canvaslms_configure.png) 
  
-7. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Canvas 公司網站。
+1. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Canvas 公司網站。
 
-8. 移至 [課程] \> [受控帳戶] \> [Microsoft]。
+1. 移至 [課程] \> [受控帳戶] \> [Microsoft]。
    
     ![Canvas](./media/canvas-lms-tutorial/IC775990.png "Canvas")
 
-9. 在左側瀏覽窗格中，選取 [驗證]，然後按一下 [加入新的 SAML 設定]。
+1. 在左側瀏覽窗格中，選取 [驗證]，然後按一下 [加入新的 SAML 設定]。
    
     ![驗證](./media/canvas-lms-tutorial/IC775991.png "驗證")
 
-10. 在 [目前的整合] 頁面上，執行下列步驟：
+1. 在 [目前的整合] 頁面上，執行下列步驟：
    
     ![目前的整合](./media/canvas-lms-tutorial/IC775992.png "目前的整合")
 
@@ -175,15 +175,15 @@ ms.locfileid: "39048502"
 
     ![建立 Azure AD 測試使用者](./media/canvas-lms-tutorial/create_aaduser_01.png) 
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+1. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
     
     ![建立 Azure AD 測試使用者](./media/canvas-lms-tutorial/create_aaduser_02.png) 
 
-3. 若要開啟 [使用者] 對話方塊，按一下對話方塊頂端的 [新增]。
+1. 若要開啟 [使用者] 對話方塊，按一下對話方塊頂端的 [新增]。
  
     ![建立 Azure AD 測試使用者](./media/canvas-lms-tutorial/create_aaduser_03.png) 
 
-4. 在 [使用者]  對話頁面上，執行下列步驟：
+1. 在 [使用者]  對話頁面上，執行下列步驟：
  
     ![建立 Azure AD 測試使用者](./media/canvas-lms-tutorial/create_aaduser_04.png) 
 
@@ -205,19 +205,19 @@ ms.locfileid: "39048502"
 
 1. 登入您的 **Canvas** 租用戶。
 
-2. 移至 [課程] \> [受控帳戶] \> [Microsoft]。
+1. 移至 [課程] \> [受控帳戶] \> [Microsoft]。
    
    ![Canvas](./media/canvas-lms-tutorial/IC775990.png "Canvas")
 
-3. 按一下 [使用者] 。
+1. 按一下 [使用者] 。
    
    ![使用者](./media/canvas-lms-tutorial/IC775995.png "使用者")
 
-4. 按一下 [新增使用者] 。
+1. 按一下 [新增使用者] 。
    
    ![使用者](./media/canvas-lms-tutorial/IC775996.png "使用者")
 
-5. 在 [新增使用者] 對話頁面上，執行下列步驟：
+1. 在 [新增使用者] 對話頁面上，執行下列步驟：
    
    ![新增使用者](./media/canvas-lms-tutorial/IC775997.png "新增使用者")
    
@@ -246,23 +246,23 @@ ms.locfileid: "39048502"
 
     ![指派使用者][201] 
 
-2. 在應用程式清單中，選取 [Canvas]。
+1. 在應用程式清單中，選取 [Canvas]。
 
     ![設定單一登入](./media/canvas-lms-tutorial/tutorial_canvaslms_app.png) 
 
-3. 在左側功能表中，按一下 [使用者和群組]。
+1. 在左側功能表中，按一下 [使用者和群組]。
 
     ![指派使用者][202] 
 
-4. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
+1. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
 
     ![指派使用者][203]
 
-5. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
+1. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
 
-6. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
+1. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
 
-7. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
+1. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
     
 ### <a name="testing-single-sign-on"></a>測試單一登入
 

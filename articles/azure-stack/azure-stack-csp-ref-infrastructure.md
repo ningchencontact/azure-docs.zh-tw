@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: e38f0a5e8aa911a168ee7f648692c31ecb44d4dd
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 5a38f504a881662c19fe881058622392cf1bced0
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090603"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576350"
 ---
 ## <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>適月於雲端服務提供者的使用方式報告基礎結構
 
@@ -65,5 +65,5 @@ Azure Stack 和 Azure 的服務計價方式有一些差異。 例如，不同於
 
 ## <a name="next-steps"></a>後續步驟
 
- - 若要深入了解 CSP 方案，請參閱[雲端解決方案提供者方案](https://partnercenter.microsoft.com/en-us/partner/programs)。
+ - 若要深入了解 CSP 方案，請參閱[雲端解決方案提供者方案](https://partner.microsoft.com/solutions/microsoft-cloud-solutions)。
  - 若要深入了解如何取出 Azure Stack 的資源使用量資訊，請參閱 [Azure Stack 中的使用量與帳單](azure-stack-billing-and-chargeback.md)。

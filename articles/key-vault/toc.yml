@@ -44,30 +44,24 @@
       href: key-vault-ovw-throttling.md
 - name: 使用說明指南
   items:
-    - name: 管理
-      items:
-        - name: Azure Key Vault 記錄
-          href: key-vault-logging.md
-        - name: 防火牆後的存取
-          href: key-vault-access-behind-firewall.md
-        - name: 可用性與備援
-          href: key-vault-disaster-recovery-guidance.md
-        - name: 變更租用戶識別碼
-          href: key-vault-subscription-move-fix.md
-        - name: 使用 Azure CLI 建立和管理
-          href: key-vault-manage-with-cli2.md
-        - name: 透過 CLI 使用 Key Vault 虛刪除
-          href: key-vault-soft-delete-cli.md
-        - name: 透過 Azure PowerShell 使用 Key Vault 虛刪除
-          href: key-vault-soft-delete-powershell.md
-        - name: 使用群組以授與存取權
-          href: key-vault-group-permissions-for-apps.md
-        - name: 保護您的金鑰保存庫
-          href: key-vault-secure-your-key-vault.md
-    - name: 自動化
-      items:
-        - name: Azure 自動化
-          href: automation-manage-key-vault.md
+    - name: Azure Key Vault 記錄
+      href: key-vault-logging.md
+    - name: 防火牆後的存取
+      href: key-vault-access-behind-firewall.md
+    - name: 可用性與備援
+      href: key-vault-disaster-recovery-guidance.md
+    - name: 變更租用戶識別碼
+      href: key-vault-subscription-move-fix.md
+    - name: 使用 Azure CLI 建立和管理
+      href: key-vault-manage-with-cli2.md
+    - name: 透過 CLI 使用 Key Vault 虛刪除
+      href: key-vault-soft-delete-cli.md
+    - name: 透過 Azure PowerShell 使用 Key Vault 虛刪除
+      href: key-vault-soft-delete-powershell.md
+    - name: 使用群組以授與存取權
+      href: key-vault-group-permissions-for-apps.md
+    - name: 保護您的金鑰保存庫
+      href: key-vault-secure-your-key-vault.md
 - name: 參考
   items:
     - name: Azure PowerShell

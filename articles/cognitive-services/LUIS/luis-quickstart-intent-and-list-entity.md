@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 07/26/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 4b842f9a00587e8a9771e6ca92806c09e711e6db
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: afad3fe725fddd0748cc206517a7274815cf1653
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345775"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495259"
 ---
 # <a name="tutorial-4-add-list-entity"></a>教學課程：4. 新增清單實體
 在本教學課程中，建立一個應用程式，示範如何取得與預先定義的清單相符的資料。 
@@ -134,15 +134,8 @@ mv john.w.smith@mycompany from office b-1234 to office h-4452
     |美國聯邦社會安全碼|234-56-7891|
 
 ## <a name="train-the-luis-app"></a>進行 LUIS 應用程式定型
-LUIS 在進行定型前並不知道意圖和實體 (模型) 的變更。 
 
-1. 在 LUIS 網站的右上方，選取 [Train] \(定型\) 按鈕。
-
-    ![進行應用程式定型](./media/luis-quickstart-intent-and-list-entity/train-button.png)
-
-2. 當您在網站頂端看到確認成功的綠色狀態列時，就表示定型完成。
-
-    ![定型成功](./media/luis-quickstart-intent-and-list-entity/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>發佈應用程式以取得端點 URL
 
@@ -278,7 +271,8 @@ LUIS 在進行定型前並不知道意圖和實體 (模型) 的變更。
 LUIS 在此要求的工作已完成。 呼叫應用程式 (例如 Chatbot) 可以採用 topScoringIntent 結果和來自實體的資料，來進行下一個步驟。 LUIS 不會為 Bot 或呼叫應用程式進行該程式設計工作。 LUIS 只會判斷使用者的意圖為何。 
 
 ## <a name="clean-up-resources"></a>清除資源
-當不再需要 LUIS 應用程式時，請將其刪除。 選取左上方功能表中的 [我的應用程式]。 選取應用程式清單中應用程式名稱右邊的省略符號 (***...***)，然後選取 [刪除]。 在 [Delete app?] \(刪除應用程式?\) 快顯對話方塊上，選取 [Ok] \(確定\)。
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

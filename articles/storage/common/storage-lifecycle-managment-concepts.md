@@ -3,18 +3,17 @@ title: 管理 Azure 儲存體生命週期
 description: 了解如何建立生命週期原則規則，將過時資料從經常性轉換到非經常性和封存層。
 services: storage
 author: yzheng-msft
-manager: jwillis
 ms.service: storage
-ms.workload: storage
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
-ms.openlocfilehash: ec314925635d34baa7b3edeeb397805964b6353d
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.component: common
+ms.openlocfilehash: a3208152ddf198d00c0a158e466c9d024c17b4d6
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413122"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528438"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>管理 Azure Blob 儲存體生命週期 (預覽)
 
@@ -59,11 +58,11 @@ Get-AzureRmProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage
 
 若要提交要求： 
 ```cli
-az feature register –-namespace Microsoft.Storage –-name DLM
+az feature register --namespace Microsoft.Storage --name DLM
 ```
 您可以使用下列命令來檢查註冊核准狀態：
 ```cli
--az feature show –-namespace Microsoft.Storage –-name DLM
+az feature show --namespace Microsoft.Storage --name DLM
 ```
 如果功能經核准且正確註冊，您應該會收到「已註冊」狀態。 
 
@@ -121,7 +120,7 @@ Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName]
 | 參數名稱 | 參數類型 | 注意 |
 |----------------|----------------|-------|
 | version        | 以 `x.x` 表示的字串 | 預覽版本號碼為 0.5 |
-| rules          | 規則物件的陣列 | 每個原則至少需要一項規則。 在預覽期間，每個原則最多可以指定 4 項規則。 |
+| 規則          | 規則物件的陣列 | 每個原則至少需要一項規則。 在預覽期間，每個原則最多可以指定 4 項規則。 |
 
 規則所需的參數包括：
 
@@ -129,7 +128,7 @@ Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName]
 |----------------|----------------|-------|
 | Name           | 字串 | 規則名稱可包含英數字元的任意組合。 規則名稱會區分大小寫。 它在原則內必須是唯一的。 |
 | type           | 列舉值 | 預覽的有效值為 `Lifecycle` |
-| definition     | 定義生命週期規則的物件 | 每個定義是由篩選集和動作集組成。 |
+| 定義     | 定義生命週期規則的物件 | 每個定義是由篩選集和動作集組成。 |
 
 ## <a name="rules"></a>規則
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: danlep
-ms.openlocfilehash: ced93032203c33dc4cda362d30192ee8eb37d944
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 86a04393761b79d76339c111d5c5c8b76dc983c2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38455106"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431203"
 ---
 # <a name="cli-example-create-a-batch-account-in-batch-service-mode"></a>CLI 範例 - 在 Batch 服務模式中建立 Batch 帳戶
 
@@ -47,14 +47,14 @@ az group delete --name myResourceGroup
 
 | 命令 | 注意 |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
-| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | 建立 Batch 帳戶。 |
-| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | 建立儲存體帳戶。 |
-| [az batch account set](/cli/azure/batch/account#az_batch_account_set) | 更新 Batch 帳戶的屬性。  |
-| [az batch account show](/cli/azure/batch/account#az_batch_account_show) | 擷取指定的 Batch 帳戶的詳細資料。  |
-| [az batch account keys list](/cli/azure/batch/account/keys#az_batch_account_keys_list) | 擷取指定的 Batch 帳戶的存取金鑰。  |
-| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | 對指定的 Batch 帳戶驗證以進行進一步的 CLI 互動。  |
-| [az group delete](/cli/azure/group#az_group_delete) | 刪除資源群組，包括所有的巢狀資源。 |
+| [az group create](/cli/azure/group#az-group-create) | 建立用來存放所有資源的資源群組。 |
+| [az batch account create](/cli/azure/batch/account#az-batch-account-create) | 建立 Batch 帳戶。 |
+| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | 建立儲存體帳戶。 |
+| [az batch account set](/cli/azure/batch/account#az-batch-account-set) | 更新 Batch 帳戶的屬性。  |
+| [az batch account show](/cli/azure/batch/account#az-batch-account-show) | 擷取指定的 Batch 帳戶的詳細資料。  |
+| [az batch account keys list](/cli/azure/batch/account/keys#az-batch-account-keys-list) | 擷取指定的 Batch 帳戶的存取金鑰。  |
+| [az batch account login](/cli/azure/batch/account#az-batch-account-login) | 對指定的 Batch 帳戶驗證以進行進一步的 CLI 互動。  |
+| [az group delete](/cli/azure/group#az-group-delete) | 刪除資源群組，包括所有的巢狀資源。 |
 
 ## <a name="next-steps"></a>後續步驟
 

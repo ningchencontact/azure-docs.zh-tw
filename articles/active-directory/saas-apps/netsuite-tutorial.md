@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: jeedes
-ms.openlocfilehash: 5a20af1130d50209b29ad44195c14f30cba30c43
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 511fdcf587d16a59ff2bb11dfc55504b2218a569
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051848"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431399"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>教學課程：Azure Active Directory 與 NetSuite 整合
 
@@ -52,7 +52,7 @@ NetSuite 與 Azure AD 整合提供下列優點：
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 NetSuite
-2. 設定並測試 Azure AD 單一登入
+1. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-netsuite-from-the-gallery"></a>從資源庫新增 NetSuite
 若要設定 NetSuite 與 Azure AD 整合，您需要從資源庫將 NetSuite 新增到受控 SaaS 應用程式清單中。
@@ -63,15 +63,15 @@ NetSuite 與 Azure AD 整合提供下列優點：
 
     ![Active Directory][1]
 
-2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
+1. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![[應用程式]][2]
 
-3. 按一下對話方塊頂端的 [新增應用程式] 按鈕。
+1. 按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![[應用程式]][3]
 
-4. 在搜尋方塊中，鍵入 **NetSuite**，從結果面板中選取 **NetSuite**，然後按一下 [新增] 按鈕以新增應用程式。
+1. 在搜尋方塊中，鍵入 **NetSuite**，從結果面板中選取 **NetSuite**，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![結果清單中的 NetSuite](./media/netsuite-tutorial/tutorial_netsuite_addfromgallery.png)
 
@@ -85,10 +85,10 @@ NetSuite 與 Azure AD 整合提供下列優點：
 若要使用 NetSuite 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 NetSuite 測試使用者](#creating-a-netsuite-test-user)** - 讓 NetSuite 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
-4. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
+1. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
+1. **[建立 NetSuite 測試使用者](#creating-a-netsuite-test-user)** - 讓 NetSuite 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
+1. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+1. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -100,11 +100,11 @@ NetSuite 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入][4]
 
-2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
+1. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
 
     ![設定單一登入](./media/NetSuite-tutorial/tutorial_NetSuite_samlbase.png)
 
-3. 在 [NetSuite 網域及 URL] 區段中，執行下列步驟：
+1. 在 [NetSuite 網域及 URL] 區段中，執行下列步驟：
 
     ![設定單一登入](./media/NetSuite-tutorial/tutorial_NetSuite_url.png)
 
@@ -125,45 +125,45 @@ NetSuite 與 Azure AD 整合提供下列優點：
     > [!NOTE]
     > 這些不是真正的值。 請使用實際的「回覆 URL」來更新這些值。 請連絡 [NetSuite 支援小組](http://www.NetSuite.com/portal/services/support.shtml)以取得這些值。
 
-4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將 XML 檔案儲存在您的電腦上。
+1. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將 XML 檔案儲存在您的電腦上。
 
     ![設定單一登入](./media/NetSuite-tutorial/tutorial_NetSuite_certificate.png) 
 
-5. 按一下 [儲存]  按鈕。
+1. 按一下 [儲存]  按鈕。
 
     ![設定單一登入](./media/NetSuite-tutorial/tutorial_general_400.png)
 
-6. 在 [NetSuite 組態] 區段上，按一下 [設定 NetSuite] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [SAML 單一登入服務 URL]。
+1. 在 [NetSuite 組態] 區段上，按一下 [設定 NetSuite] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [SAML 單一登入服務 URL]。
 
     ![設定單一登入](./media/NetSuite-tutorial/tutorial_NetSuite_configure.png)
 
-7. 在瀏覽器中開啟新索引標籤，以系統管理員的身分登入您的 NetSuite 公司網站。
+1. 在瀏覽器中開啟新索引標籤，以系統管理員的身分登入您的 NetSuite 公司網站。
 
-8. 在頁面頂端的工具列中，按一下 [設定]，巡覽至 [公司]，然後按一下 [啟用功能]。
+1. 在頁面頂端的工具列中，按一下 [設定]，巡覽至 [公司]，然後按一下 [啟用功能]。
 
     ![設定單一登入](./media/NetSuite-tutorial/ns-setupsaml.png)
 
-9. 在頁面中間的工具列中，按一下 [SuiteCloud]。
+1. 在頁面中間的工具列中，按一下 [SuiteCloud]。
 
     ![設定單一登入](./media/NetSuite-tutorial/ns-suitecloud.png)
 
-10. 在 [管理驗證] 區段底下，選取 [SAML 單一登入] 以在 NetSuite 中啟用 [SAML 單一登入] 選項。
+1. 在 [管理驗證] 區段底下，選取 [SAML 單一登入] 以在 NetSuite 中啟用 [SAML 單一登入] 選項。
 
     ![設定單一登入](./media/NetSuite-tutorial/ns-ticksaml.png)
 
-11. 在頁面頂端的工具列上，按一下 [設定]。
+1. 在頁面頂端的工具列上，按一下 [設定]。
 
     ![設定單一登入](./media/NetSuite-tutorial/ns-setup.png)
 
-12. 從 [設定工作] 清單中，按一下 [整合]。
+1. 從 [設定工作] 清單中，按一下 [整合]。
 
     ![設定單一登入](./media/NetSuite-tutorial/ns-integration.png)
 
-13. 在 [管理驗證] 區段中，按一下 [SAML 單一登入]。
+1. 在 [管理驗證] 區段中，按一下 [SAML 單一登入]。
 
     ![設定單一登入](./media/NetSuite-tutorial/ns-saml.png)
 
-14. 在 [SAML 設定] 頁面上的 [NetSuite 組態] 區段底下，執行下列步驟：
+1. 在 [SAML 設定] 頁面上的 [NetSuite 組態] 區段底下，執行下列步驟：
 
     ![設定單一登入](./media/NetSuite-tutorial/ns-saml-setup.png)
   
@@ -173,11 +173,11 @@ NetSuite 與 Azure AD 整合提供下列優點：
 
     c. 按一下 [提交] 。
 
-15. 在 Azure AD 中，按一下 [檢視及編輯所有其他使用者屬性] 核取方塊並新增屬性。
+1. 在 Azure AD 中，按一下 [檢視及編輯所有其他使用者屬性] 核取方塊並新增屬性。
 
     ![設定單一登入](./media/NetSuite-tutorial/ns-attributes.png)
 
-16. 在 [屬性名稱] 欄位中，輸入 `account`。 在 [屬性值]  欄位中，輸入您的 NetSuite 帳戶識別碼。 這個值是常數，並會隨著帳戶變更。 如何找出帳戶識別碼的指示如下：
+1. 在 [屬性名稱] 欄位中，輸入 `account`。 在 [屬性值]  欄位中，輸入您的 NetSuite 帳戶識別碼。 這個值是常數，並會隨著帳戶變更。 如何找出帳戶識別碼的指示如下：
 
     ![設定單一登入](./media/NetSuite-tutorial/ns-add-attribute.png)
 
@@ -191,7 +191,7 @@ NetSuite 與 Azure AD 整合提供下列優點：
 
     c. 將您從 NetSuite 帳戶複製的 [帳戶識別碼] 貼至 Azure AD 中的 [屬性值] 欄位中。 
 
-17. 在使用者可以執行單一登入 NetSuite 之前，必須先在 NetSuite 中指派適當的權限。 請依照下列指示來指派這些權限。
+1. 在使用者可以執行單一登入 NetSuite 之前，必須先在 NetSuite 中指派適當的權限。 請依照下列指示來指派這些權限。
 
     a. 在頂端的導覽功能表上，按一下 [設定]。
 
@@ -246,15 +246,15 @@ NetSuite 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/NetSuite-tutorial/create_aaduser_01.png) 
 
-2.  若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+1.  若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
     
     ![建立 Azure AD 測試使用者](./media/NetSuite-tutorial/create_aaduser_02.png) 
 
-3. 在對話方塊的頂端，按一下 [新增] 以開啟 [使用者] 對話方塊。
+1. 在對話方塊的頂端，按一下 [新增] 以開啟 [使用者] 對話方塊。
  
     ![建立 Azure AD 測試使用者](./media/NetSuite-tutorial/create_aaduser_03.png) 
 
-4. 在 [使用者]  對話頁面上，執行下列步驟：
+1. 在 [使用者]  對話頁面上，執行下列步驟：
  
     ![建立 Azure AD 測試使用者](./media/NetSuite-tutorial/create_aaduser_04.png) 
 
@@ -284,23 +284,23 @@ NetSuite 與 Azure AD 整合提供下列優點：
 
     ![指派使用者][201] 
 
-2. 在應用程式清單中，選取 [NetSuite]。
+1. 在應用程式清單中，選取 [NetSuite]。
 
     ![設定單一登入](./media/NetSuite-tutorial/tutorial_NetSuite_app.png) 
 
-3. 在左側功能表中，按一下 [使用者和群組]。
+1. 在左側功能表中，按一下 [使用者和群組]。
 
     ![指派使用者][202] 
 
-4. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
+1. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
 
     ![指派使用者][203]
 
-5. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
+1. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
 
-6. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
+1. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
 
-7. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
+1. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
     
 ### <a name="testing-single-sign-on"></a>測試單一登入
 

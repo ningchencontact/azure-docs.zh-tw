@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 042db9bcadb470b2dc5e0095072e4ca06747ec5d
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 6bfe2288e239738addb9c97706c5fc1c9b0e72b8
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283619"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617328"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>使用 SQL 資料同步，跨多個雲端和內部部署資料庫同步資料
 
@@ -232,7 +232,3 @@ SQL 資料同步適用於所有公用雲端區域。
 -   [SQL Database 概觀](sql-database-technical-overview.md)
 
 -   [資料庫生命週期管理](https://msdn.microsoft.com/library/jj907294.aspx)
-
-### <a name="developer-reference"></a>開發人員參考
-
--   [下載 SQL 資料同步 REST API 文件](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)

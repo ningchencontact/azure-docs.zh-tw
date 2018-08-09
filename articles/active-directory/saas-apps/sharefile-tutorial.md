@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: jeedes
-ms.openlocfilehash: e27a1c834c48b640ab5ed7ab8d6e54f7d1784abd
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 9919be128ae651b589a37f957cc59ce6d171143f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045935"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431727"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>教學課程：Azure Active Directory 與 Citrix ShareFile 整合
 
@@ -53,7 +53,7 @@ Citrix ShareFile 與 Azure AD 整合提供下列優點：
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Citrix ShareFile
-2. 設定和測試 Azure AD 單一登入
+1. 設定和測試 Azure AD 單一登入
 
 ## <a name="add-citrix-sharefile-from-the-gallery"></a>從資源庫新增 Citrix ShareFile
 若要設定 Citrix ShareFile 與 Azure AD 整合，您需要從資源庫將 Citrix ShareFile 新增到受控 SaaS App 清單。
@@ -64,15 +64,15 @@ Citrix ShareFile 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕][1]
 
-2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
+1. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![企業應用程式刀鋒視窗][2]
     
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+1. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![新增應用程式按鈕][3]
 
-4. 在搜尋方塊中，輸入 **Citrix ShareFile**，從結果面板中選取 **Citrix ShareFile**，然後按一下 [新增] 按鈕以新增應用程式。
+1. 在搜尋方塊中，輸入 **Citrix ShareFile**，從結果面板中選取 **Citrix ShareFile**，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![結果清單中的 Citrix ShareFile](./media/sharefile-tutorial/tutorial_sharefile_addfromgallery.png)
 
@@ -87,10 +87,10 @@ Citrix ShareFile 與 Azure AD 整合提供下列優點：
 若要設定及測試與 Citrix ShareFile 搭配運作的 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 Citrix ShareFile 測試使用者](#create-a-citrix-sharefile-test-user)** - 在 Citrix ShareFile 中建立一個與 Azure AD 中代表 Britta Simon 的項目連結的 Britta Simon 對應項目。
-4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
+1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
+1. **[建立 Citrix ShareFile 測試使用者](#create-a-citrix-sharefile-test-user)** - 在 Citrix ShareFile 中建立一個與 Azure AD 中代表 Britta Simon 的項目連結的 Britta Simon 對應項目。
+1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+1. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -102,11 +102,11 @@ Citrix ShareFile 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入連結][4]
 
-2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
+1. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
  
     ![單一登入對話方塊](./media/sharefile-tutorial/tutorial_sharefile_samlbase.png)
 
-3. 在 [Citrix ShareFile 網域與 URL] 區段上，執行下列步驟：
+1. 在 [Citrix ShareFile 網域與 URL] 區段上，執行下列步驟：
 
     ![Citrix ShareFile 網域與 URL 單一登入資訊](./media/sharefile-tutorial/tutorial_sharefile_url.png)
     
@@ -134,27 +134,27 @@ Citrix ShareFile 與 Azure AD 整合提供下列優點：
     > [!NOTE]
     > 這些都不是真正的值。 使用實際的「單一登入 URL」、「識別碼」及「回覆 URL」來更新這些值。 請連絡 [Citrix ShareFile 用戶端支援小組](https://www.citrix.co.in/products/sharefile/support.html)以取得這些值。
 
-4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
+1. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
     ![憑證下載連結](./media/sharefile-tutorial/tutorial_sharefile_certificate.png)
 
-5. 按一下 [儲存]  按鈕。
+1. 按一下 [儲存]  按鈕。
 
     ![設定單一登入儲存按鈕](./media/sharefile-tutorial/tutorial_general_400.png)
 
-6. 在 [Citrix ShareFile 設定] 區段中，按一下 [設定 Citrix ShareFile] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
+1. 在 [Citrix ShareFile 設定] 區段中，按一下 [設定 Citrix ShareFile] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
 
     ![Citrix ShareFile 設定](./media/sharefile-tutorial/tutorial_sharefile_configure.png)
 
-7. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 **Citrix ShareFile** 公司網站。
+1. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 **Citrix ShareFile** 公司網站。
 
-8. 在頂端工具列中，按一下 [管理] 。
+1. 在頂端工具列中，按一下 [管理] 。
 
-9. 在左側瀏覽窗格中，選取 [設定單一登入] 。
+1. 在左側瀏覽窗格中，選取 [設定單一登入] 。
    
     ![帳戶管理](./media/sharefile-tutorial/ic773627.png "帳戶管理")
 
-10. 在 [單一登入/SAML 2.0 組態] 對話頁面的 [基本設定] 下方，執行下列步驟：
+1. 在 [單一登入/SAML 2.0 組態] 對話頁面的 [基本設定] 下方，執行下列步驟：
    
     ![單一登入](./media/sharefile-tutorial/ic773628.png "單一登入")
    
@@ -168,7 +168,7 @@ Citrix ShareFile 與 Azure AD 整合提供下列優點：
     
     e. 在 [登出 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL] 值。
 
-11. 在 Citrix ShareFile 管理入口網站上，按一下 [儲存]  。
+1. 在 Citrix ShareFile 管理入口網站上，按一下 [儲存]  。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -182,15 +182,15 @@ Citrix ShareFile 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/sharefile-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+1. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/sharefile-tutorial/create_aaduser_02.png)
 
-3. 若要開啟 [使用者] 對話方塊，按一下 [所有使用者] 對話方塊頂端的 [新增]。
+1. 若要開啟 [使用者] 對話方塊，按一下 [所有使用者] 對話方塊頂端的 [新增]。
 
     ![[新增] 按鈕](./media/sharefile-tutorial/create_aaduser_03.png)
 
-4. 在 [使用者] 對話方塊中，執行下列步驟：
+1. 在 [使用者] 對話方塊中，執行下列步驟：
 
     ![[使用者] 對話方塊](./media/sharefile-tutorial/create_aaduser_04.png)
 
@@ -210,11 +210,11 @@ Citrix ShareFile 與 Azure AD 整合提供下列優點：
 
 1. 登入您的 **Citrix ShareFile** 租用戶。
 
-2. 按一下 [管理使用者] \> [管理使用者首頁] \> [+ 建立員工]。
+1. 按一下 [管理使用者] \> [管理使用者首頁] \> [+ 建立員工]。
    
    ![建立員工](./media/sharefile-tutorial/IC781050.png "建立員工")
 
-3. 在 [基本資訊] 區段中，執行下列步驟：
+1. 在 [基本資訊] 區段中，執行下列步驟：
    
    ![基本資訊](./media/sharefile-tutorial/IC799951.png "的基本資訊")
    
@@ -224,7 +224,7 @@ Citrix ShareFile 與 Azure AD 整合提供下列優點：
    
    c. 在 [姓氏] 文字方塊中，輸入 **Simon** 作為使用者的**姓氏**。
 
-4. 按一下 [新增使用者] 。
+1. 按一下 [新增使用者] 。
   
    >[!NOTE]
    >Azure AD 帳戶持有者將收到一封電子郵件，依循連結來確認其帳戶，帳戶就會生效。您可以使用任何其他 Citrix ShareFile 使用者帳戶建立工具或 Citrix ShareFile 所提供的 API 來佈建 Azure AD 使用者帳戶。
@@ -241,23 +241,23 @@ Citrix ShareFile 與 Azure AD 整合提供下列優點：
 
     ![指派使用者][201] 
 
-2. 在應用程式清單中，選取 [Citrix ShareFile]。
+1. 在應用程式清單中，選取 [Citrix ShareFile]。
 
     ![應用程式清單中的 Citrix ShareFile 連結](./media/sharefile-tutorial/tutorial_sharefile_app.png)  
 
-3. 在左側功能表中，按一下 [使用者和群組]。
+1. 在左側功能表中，按一下 [使用者和群組]。
 
     ![[使用者和群組] 連結][202]
 
-4. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
+1. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
 
     ![[新增指派] 窗格][203]
 
-5. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
+1. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
 
-6. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
+1. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
 
-7. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
+1. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
     
 ### <a name="test-single-sign-on"></a>測試單一登入
 

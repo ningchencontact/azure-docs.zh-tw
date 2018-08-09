@@ -11,12 +11,12 @@ ms.workload: Active
 ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 1ddc663e6a7dc2d09a140b148c5297299d30d016
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 8798d0f17918ecce473afe8dc21b3f60bf0fa4b1
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39262842"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620125"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>了解自動 SQL Database 備份
 
@@ -26,7 +26,7 @@ SQL Database 會自動建立資料庫備份，並使用 Azure 讀取權限異地
 
 ## <a name="what-is-a-sql-database-backup"></a>什麼是 SQL Database 備份？
 
-針對還原時間點 (PITR) 目的，SQL Database 會使用 SQL Server 技術來建立[完整](https://msdn.microsoft.com/library/ms186289.aspx)、[差異](http://msdn.microsoft.com/library/ms175526.aspx)及[交易記錄](https://msdn.microsoft.com/library/ms191429.aspx)備份。 根據效能層級和資料庫活動量的頻率，交易記錄備份通常每隔 5-10 分鐘會進行一次，而差異備份通常每隔 12 小時進行一次。 具有完整和差異備份的交易記錄備份可讓您將資料庫還原到特定的時間點，至裝載資料庫相同的伺服器。 在您還原資料庫時，服務會判斷需要還原的完整、差異及交易記錄備份。
+針對還原時間點 (PITR) 目的，SQL Database 會使用 SQL Server 技術來建立[完整](https://msdn.microsoft.com/library/ms186289.aspx)、[差異](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server)及[交易記錄](https://msdn.microsoft.com/library/ms191429.aspx)備份。 根據效能層級和資料庫活動量的頻率，交易記錄備份通常每隔 5-10 分鐘會進行一次，而差異備份通常每隔 12 小時進行一次。 具有完整和差異備份的交易記錄備份可讓您將資料庫還原到特定的時間點，至裝載資料庫相同的伺服器。 在您還原資料庫時，服務會判斷需要還原的完整、差異及交易記錄備份。
 
 
 您可以使用這些備份︰

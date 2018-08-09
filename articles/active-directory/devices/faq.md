@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: e6d223b386aea3ca41931c600d16c16b53765f26
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: fd2505d6262948e193531d91222cdec319f33100
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415681"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597148"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 裝置管理常見問題集
 
@@ -37,7 +37,7 @@ ms.locfileid: "39415681"
 
 **備註：**
 
-- 條件式存取原則包含的使用者需要[支援的 macOS 版 Office](../active-directory-conditional-access-technical-reference.md#client-apps-condition) 才能存取資源。 
+- 條件式存取原則包含的使用者需要[支援的 macOS 版 Office](../conditional-access/technical-reference.md#client-apps-condition) 才能存取資源。 
 
 - 在首次存取嘗試期間，系統會提示使用者使用公司入口網站註冊裝置。
 
@@ -146,7 +146,7 @@ ms.locfileid: "39415681"
 
 **問：我在 Azure 入口網站中的 [使用者資訊] 底下看到裝置記錄，而且可以看到狀態為已在裝置上註冊。我是否已針對使用條件式存取進行正確設定？**
 
-**答：** deviceID 反映出來的裝置加入狀態必須與 Azure AD 上的狀態相符，並滿足所有條件式存取的評估準則。 如需詳細資訊，請參閱[透過條件式存取要求必須從受控裝置存取雲端應用程式](../active-directory-conditional-access-policy-connected-applications.md)。
+**答：** deviceID 反映出來的裝置加入狀態必須與 Azure AD 上的狀態相符，並滿足所有條件式存取的評估準則。 如需詳細資訊，請參閱[透過條件式存取要求必須從受控裝置存取雲端應用程式](../conditional-access/require-managed-devices.md)。
 
 ---
 

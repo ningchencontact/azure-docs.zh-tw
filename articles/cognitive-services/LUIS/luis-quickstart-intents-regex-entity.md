@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 07/30/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 9da2454afa130c4c2ccab458099a90d78354b3e2
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 994bd6f2a041e25d15c7e0b4a216952cec4101fa
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358265"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492818"
 ---
 # <a name="tutorial-3-add-regular-expression-entity"></a>教學課程：3. 新增規則運算式實體
 在本教學課程中，使用**規則運算式**實體來建立應用程式，讓其示範如何從語句中擷取格式一致的資料。
@@ -109,16 +109,9 @@ HRF 代表人力資源表單。
 
     因為實體不是機器學習的實體，標籤建立時即會套用到語句，並顯示在 LUIS 網站中。
 
-## <a name="train-the-luis-app"></a>訓練 LUIS 應用程式
-規則運算式實體不需要訓練，但新意圖和語句需要訓練。 
+## <a name="train-the-luis-app"></a>進行 LUIS 應用程式定型
 
-1. 在 LUIS 網站的右上方，選取 [訓練] 按鈕。
-
-    ![訓練按鈕的影像](./media/luis-quickstart-intents-regex-entity/train-button.png)
-
-2. 當您在網站頂端看到確認成功的綠色狀態列時，就表示訓練完成。
-
-    ![成功通知列的影像](./media/luis-quickstart-intents-regex-entity/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>發佈應用程式以取得端點 URL
 
@@ -237,7 +230,8 @@ HRF 代表人力資源表單。
 LUIS 是利用此要求來完成。 呼叫應用程式 (例如聊天機器人) 可以取用 topScoringIntent 結果和表單編號，並且搜尋第三方 API。 LUIS 不會執行此工作。 LUIS 只會判斷使用者的意圖是什麼，並擷取有關該意圖的資料。 
 
 ## <a name="clean-up-resources"></a>清除資源
-當不再需要 LUIS 應用程式時，請將其刪除。 選取左上方功能表中的 [我的應用程式]。 選取應用程式清單中應用程式名稱右邊的省略符號 (***...***)，然後選取 [刪除]。 在 [Delete app?] \(刪除應用程式?\) 快顯對話方塊上，選取 [Ok] \(確定\)。
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

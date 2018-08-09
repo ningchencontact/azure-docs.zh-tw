@@ -2,24 +2,19 @@
 title: 使用 Microsoft Azure 儲存體資料移動程式庫傳輸資料 | Microsoft Docs
 description: 使用資料移動程式庫從 Blob 和檔案內容移動或來回複製資料。 從本機檔案複製資料到 Azure 儲存體，或在儲存體帳戶內或之間複製資料。 輕鬆地將資料移轉至 Azure 儲存體。
 services: storage
-documentationcenter: ''
 author: seguler
-manager: jahogg
-editor: tysonn
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
-ms.openlocfilehash: eb96f3697d5369ba96a1b0c491e3eacf09e7aac4
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.component: common
+ms.openlocfilehash: ee24a055c6a3c53b9753728e13a7687e722c1c91
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2018
-ms.locfileid: "27564734"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526210"
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>使用 Microsoft Azure 儲存體資料移動程式庫傳輸資料
 

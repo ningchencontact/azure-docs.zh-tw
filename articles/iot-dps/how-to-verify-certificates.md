@@ -1,19 +1,19 @@
 ---
 title: 如何使用 Azure IoT 中樞的裝置佈建服務執行 X.509 CA 憑證擁有權證明 | Microsoft Docs
 description: 如何使用 DPS 服務驗證 X.509 CA 憑證
-author: bryanla
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 02/26/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 7dd4f8cc53d86933d10294dbbf55157d2b1cf290
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 709a53c0fc0814262cd7ce8bb0398be82ef81479
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001774"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526842"
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>如何使用您的裝置佈建服務執行 X.509 CA 憑證擁有權證明
 

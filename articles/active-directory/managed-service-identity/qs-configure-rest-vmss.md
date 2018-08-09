@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
 ms.author: daveba
-ms.openlocfilehash: e6c0fc981030b934cd1b8568946344262936e18c
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: c4ccd75f679e58dd42f136bf1199eda88dc3f087
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215702"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431710"
 ---
 # <a name="configure-managed-identity-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>使用 REST API 呼叫在虛擬機器擴展集上設定受控識別
 
@@ -55,7 +55,7 @@ ms.locfileid: "39215702"
 
 若要啟用系統指派的識別來建立虛擬機器擴展集，您需要建立虛擬機器擴展集，並擷取存取權杖，才能使用 CURL 以系統指派的識別型別值呼叫資源管理員端點。
 
-1. 使用 [az group create](/cli/azure/group/#az_group_create)，為您的虛擬機器擴展集和其相關資源建立[資源群組](../../azure-resource-manager/resource-group-overview.md#terminology)。 如果您已經有想要使用的資源群組，您可以略過此步驟：
+1. 使用 [az group create](/cli/azure/group/#az-group-create)，為您的虛擬機器擴展集和其相關資源建立[資源群組](../../azure-resource-manager/resource-group-overview.md#terminology)。 如果您已經有想要使用的資源群組，您可以略過此步驟：
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus

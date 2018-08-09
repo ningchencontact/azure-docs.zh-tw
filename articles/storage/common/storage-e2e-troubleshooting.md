@@ -2,22 +2,19 @@
 title: 使用診斷與 Message Analyzer 進行 Azure 儲存體的疑難排解 | Microsoft Docs
 description: 示範使用 Azure Storage Analytics、AzCopy 和 Microsoft Message Analyzer 進行端對端疑難排解的教學課程
 services: storage
-documentationcenter: dotnet
 author: tamram
-manager: timlt
-ms.assetid: 643372a3-1c07-4e88-b4ef-042512a43086
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
-ms.openlocfilehash: 324370ae18627a1985e6a40aec11ee2fa871e93b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.component: common
+ms.openlocfilehash: 7a011bf55f70f3fca9e105613f7e359a2b6071c1
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526131"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>使用 Azure 儲存體計量和記錄、AzCopy 和 Message Analyzer 進行端對端疑難排解
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]

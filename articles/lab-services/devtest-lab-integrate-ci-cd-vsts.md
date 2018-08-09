@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 1af195e644fe93e0c59f5e4402dd8942f5fe1aba
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 108abe45b4b296e0d7928f2da00a06ac43e1ccbe
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635501"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39438778"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-vsts-continuous-integration-and-delivery-pipeline"></a>將 Azure DevTest Labs 整合到 VSTS 持續整合和傳遞管線
 您可以使用安裝在 Visual Studio Team Services (VSTS) 中的 *Azure DevTest Labs 工作*延伸模組，輕鬆地整合您的 CI/CD 建置和發行管線與 Azure DevTest Labs。 此延伸模組會安裝三項工作： 
@@ -91,10 +91,10 @@ ms.locfileid: "38635501"
 若要建立發行定義，請執行下列動作：
 
 1. 在 [建置及發行] 中樞的 [發行] 索引標籤上，選取加號 (+) 按鈕。
-2. 在 [建立發行定義] 視窗中，選取 [空白] 範本，然後選取 [下一步]。
-3. 選取 [稍後選擇]，然後選取 [建立]，以使用一個預設的環境、但不使用任何連結的構件來建立新的發行定義。
-4. 若要開啟捷徑功能表，請在新的發行定義中選取環境名稱旁邊的省略符號 (...)，然後選取 [設定變數]。 
-5. 在 [設定 - 環境] 視窗中，為您在發行定義工作中使用的變數輸入下列值：
+1. 在 [建立發行定義] 視窗中，選取 [空白] 範本，然後選取 [下一步]。
+1. 選取 [稍後選擇]，然後選取 [建立]，以使用一個預設的環境、但不使用任何連結的構件來建立新的發行定義。
+1. 若要開啟捷徑功能表，請在新的發行定義中選取環境名稱旁邊的省略符號 (...)，然後選取 [設定變數]。 
+1. 在 [設定 - 環境] 視窗中，為您在發行定義工作中使用的變數輸入下列值：
 
    a. 針對 [VM 名稱]，輸入您在 Azure 入口網站中建立 Resource Manager 範本時指派給 VM 的名稱。
 
@@ -107,7 +107,7 @@ ms.locfileid: "38635501"
 部署的下一個階段，是建立 VM 以作為後續部署的「黃金映像」。 您可以使用特別為此目的開發的工作，在您的 Azure DevTest Lab 執行個體中建立此 VM。 
 
 1. 在發行定義中，選取 [新增工作]。
-2. 在 [部署] 索引標籤上，新增 [Azure DevTest Labs 建立 VM] 工作。 請依照下列方式設定工作：
+1. 在 [部署] 索引標籤上，新增 [Azure DevTest Labs 建立 VM] 工作。 請依照下列方式設定工作：
 
    > [!NOTE]
    > 若要建立用於後續部署的 VM，請參閱 [Azure DevTest Labs 工作](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks)。
@@ -134,8 +134,8 @@ ms.locfileid: "38635501"
    /subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualMachines/{vmName}
    ```
 
-3. 執行您先前建立的指令碼，以收集 DevTest Labs VM 的詳細資料。 
-4. 在發行定義中選取 [新增工作]，然後在 [部署] 索引標籤上新增 [Azure PowerShell] 工作。 請依照下列方式設定工作：
+1. 執行您先前建立的指令碼，以收集 DevTest Labs VM 的詳細資料。 
+1. 在發行定義中選取 [新增工作]，然後在 [部署] 索引標籤上新增 [Azure PowerShell] 工作。 請依照下列方式設定工作：
 
    > [!NOTE]
    > 若要收集 DevTest Labs VM 的詳細資料，請參閱[部署：Azure PowerShell](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/AzurePowerShell)，並執行指令碼。
@@ -156,7 +156,7 @@ ms.locfileid: "38635501"
       ```
     此指令碼會收集所需的值，並將其儲存在發行定義內的環境變數中，以便您在後續的步驟中加以參考。
 
-5. 將您的應用程式部署到新的 DevTest Labs VM。 您通常會使用 *Azure 檔案複製*和*目標電腦上的 PowerShell* 工作來部署應用程式。
+1. 將您的應用程式部署到新的 DevTest Labs VM。 您通常會使用 *Azure 檔案複製*和*目標電腦上的 PowerShell* 工作來部署應用程式。
    這些工作的參數所需的 VM 相關資訊，會儲存在發行定義內名為 **labVmRgName**、**labVMIpAddress** 和 **labVMFqdn** 的三個設定變數中。 如果您只想要試驗性地建立 DevTest Labs VM 和自訂映像，而不為其部署應用程式，則可以略過此步驟。
 
 ### <a name="create-an-image"></a>建立映像
@@ -164,7 +164,7 @@ ms.locfileid: "38635501"
 下一個階段是在您的 Azure DevTest Labs 執行個體中建立新部署之 VM 的映像。 後續當您想要執行開發工作或執行某些測試時，您即可使用此映像隨需建立 VM 的複本。 
 
 1. 在發行定義中，選取 [新增工作]。
-2. 在 [部署] 索引標籤上，新增 [Azure DevTest Labs 建立自訂映像] 工作。 進行下列設定：
+1. 在 [部署] 索引標籤上，新增 [Azure DevTest Labs 建立自訂映像] 工作。 進行下列設定：
 
    > [!NOTE]
    > 若要建立映像，請參閱 [Azure DevTest Labs 工作](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks)。
@@ -194,8 +194,8 @@ ms.locfileid: "38635501"
  
    b. 針對 [實驗室 VM 識別碼]，如果您變更了先前的工作以實驗室 VM 的識別碼自動填入的環境變數預設名稱，請在此處加以編輯。 預設值為 **$(labVMId)**。
 
-2. 輸入發行定義的名稱，並加以儲存。
-3. 建立新版本，選取最新的組建，然後將其部署到定義中的單一環境。
+1. 輸入發行定義的名稱，並加以儲存。
+1. 建立新版本，選取最新的組建，然後將其部署到定義中的單一環境。
 
 在每個階段中，重新整理您的 DevTest Labs 執行個體在 Azure 入口網站中的檢視，以檢視要建立的 VM 和映像，以及要再次刪除的 VM。
 

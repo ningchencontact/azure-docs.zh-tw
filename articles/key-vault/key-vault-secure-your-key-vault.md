@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: ambapat
-ms.openlocfilehash: a3493c9e9ef6a5bafd832510f42f33cc3f07f088
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 8bc2355c5df73d2469cab63bfbf783624228b341
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070374"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576962"
 ---
 # <a name="secure-your-key-vault"></a>保護您的金鑰保存庫
 Azure 金鑰保存庫是用來保護雲端應用程式加密金鑰和密碼 (例如憑證、連接字串、密碼) 的雲端服務。 由於這項資料相當敏感且攸關業務，您會想要保護金鑰保存庫的存取權，讓只有獲得授權的應用程式和使用者可以存取金鑰保存庫。 本文提供金鑰保存庫存取模型概觀、說明驗證和授權，並透過範例描述如何保護雲端應用程式金鑰保存庫的存取權。
@@ -47,7 +47,7 @@ Azure 金鑰保存庫是用來保護雲端應用程式加密金鑰和密碼 (例
 * **使用者 + 應用程式的存取** - 這通常適用於代表登入之使用者存取金鑰保存庫的應用程式。 舉例來說，Azure PowerShell 和 Azure 入口網站便是這類存取。 有兩種方式可對使用者授與存取權︰一種方式是對使用者授與存取權，讓他們可以從任何應用程式存取金鑰保存庫，另一種方式則是，只在使用者使用特定應用程式 (稱為複合身分識別) 時，才對其授與金鑰保存庫的存取權。 
 * **僅應用程式的存取** - 適用於執行精靈服務、背景作業等項目的應用程式。該應用程式的身分識別會被授與金鑰保存庫的存取權。
 
-在這兩種應用程式中，應用程式會使用任何[支援的驗證方法](../active-directory/active-directory-authentication-scenarios.md)向 Azure Active Directory 進行驗證，並取得權杖。 使用何種驗證方法取決於應用程式類型。 然後，應用程式會使用此權杖，對金鑰保存庫傳送 REST API 要求。 如果是管理平面存取，要求會透過 Azure Resource Manager 端點路由傳送。 在存取資料平面時，應用程式則會直接與金鑰保存庫端點通訊。 如需詳細資訊，請參閱[整個驗證流程](../active-directory/active-directory-protocols-oauth-code.md)。 
+在這兩種應用程式中，應用程式會使用任何[支援的驗證方法](../active-directory/develop/authentication-scenarios.md)向 Azure Active Directory 進行驗證，並取得權杖。 使用何種驗證方法取決於應用程式類型。 然後，應用程式會使用此權杖，對金鑰保存庫傳送 REST API 要求。 如果是管理平面存取，要求會透過 Azure Resource Manager 端點路由傳送。 在存取資料平面時，應用程式則會直接與金鑰保存庫端點通訊。 如需詳細資訊，請參閱[整個驗證流程](../active-directory/develop/v1-protocols-oauth-code.md)。 
 
 根據應用程式是存取管理平面還是資料平面，受到應用程式要求權杖的資源名稱會有所不同。 因此，視 Azure 環境而定，資源名稱將是稍後章節所含資料表中所述的管理平面或資料平面端點。
 
@@ -223,7 +223,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureR
 * [來自Ignite 且適用於 Microsoft Azure 的角色型存取控制](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
   
   這個連結會連到 2015 MS Ignite 會議的 Channel 9 上的視訊。 在這個研討會中，他們討論 Azure 中的存取管理和報告功能，並探索使用 Azure Active Directory 安全存取 Azure 訂用帳戶的最佳做法。
-* [使用 OAuth 2.0 和 Azure Active Directory 授權存取 Web 應用程式](../active-directory/active-directory-protocols-oauth-code.md)
+* [使用 OAuth 2.0 和 Azure Active Directory 授權存取 Web 應用程式](../active-directory/develop/v1-protocols-oauth-code.md)
   
   本文說明向 Azure Active Directory 進行驗證的完整 OAuth 2.0 流程。
 * [金鑰保存庫管理 REST API](https://msdn.microsoft.com/library/azure/mt620024.aspx)
@@ -238,7 +238,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureR
 * [密碼存取控制](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
   
   金鑰存取控制參考文件的連結。
-* 使用 PowerShell [設定](https://msdn.microsoft.com/library/mt603625.aspx)和[移除](https://msdn.microsoft.com/library/mt619427.aspx)金鑰保存庫存取原則
+* 使用 PowerShell [設定](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Set-AzureRmKeyVaultAccessPolicy)和[移除](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Remove-AzureRmKeyVaultAccessPolicy)金鑰保存庫存取原則
   
   用來管理金鑰保存庫存取原則之 PowerShell Cmdlet 參考文件的連結。
 

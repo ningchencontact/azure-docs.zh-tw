@@ -2,21 +2,19 @@
 title: 管理已加入網域的 HDInsight 叢集 - Azure
 description: 了解如何管理已加入網域的 HDInsight 叢集
 services: hdinsight
-author: omidm1
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 6ebc4d2f-2f6a-4e1e-ab6d-af4db6b4c87c
 ms.service: hdinsight
+author: omidm1
+ms.author: omidm
+editor: jasonwhowell
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/17/2018
-ms.author: omidm
-ms.openlocfilehash: 31b58176a75918cf68cda695f27216031670493e
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 51feb7099328e366e59519ce108ccd9afc1e277e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34160235"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597670"
 ---
 # <a name="manage-domain-joined-hdinsight-clusters"></a>管理已加入網域的 HDInsight 叢集
 認識已加入網域的 HDInsight 叢集中的使用者和角色，了解如何管理已加入網域的 HDInsight 叢集。

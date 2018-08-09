@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 2b6c4b3598013baaf3277cb7810edc009df27ce2
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 6374fcf1477d56b9803b63476f3fef38fc12def1
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238415"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618891"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB 伺服器端程式設計：預存程序、資料庫觸發程序和 UDF
 
@@ -394,7 +394,7 @@ client.replaceDocumentAsync(docToReplace.self,
 後續觸發程序與預先觸發程序類以，都與文件上的作業相關聯，且未採用任何輸入參數。 它們是在作業完成「之後」  執行，而且可以存取傳送給用戶端的回應訊息。   
 
 下列範例說明起作用的後續觸發程序：
-```
+```javascript
 var updateMetadataTrigger = {
     id: "updateMetadata",
     serverScript: function updateMetadata() {
@@ -434,7 +434,7 @@ var updateMetadataTrigger = {
 
 ```
 觸發程序可以如下列範例所示進行註冊。
-```
+```javascript
 // register post-trigger
 client.createTriggerAsync('dbs/testdb/colls/testColl', updateMetadataTrigger)
     .then(function(createdTrigger) { 
@@ -844,4 +844,3 @@ foreach (Book book in client.CreateDocumentQuery(UriFactory.CreateDocumentCollec
 * [安全和可攜式資料庫擴充性](http://dl.acm.org/citation.cfm?id=276339) 
 * [服務導向資料庫架構](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 * [在 Microsoft SQL Server 中託管 .NET 執行階段](http://dl.acm.org/citation.cfm?id=1007669)
-

@@ -15,16 +15,16 @@ ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser,luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 640df9659dfa65d0eb2a65066085dd7dff7031ca
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: a2b1816a7f972e698d3872e6c252c09a4d5292ef
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365548"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578723"
 ---
 # <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>為不在 Azure Active Directory 應用程式庫中的應用程式設定單一登入
 
-本文是關於可讓系統管理員設定單一登入不存在於 Azure Active Directory 應用程式資源庫的應用程式，而「不需要撰寫程式碼」 的功能。 此功能已在 2015 年 11 月 18 日的技術預覽中發行，並且包含在 [Azure Active Directory Premium](fundamentals/active-directory-whatis.md) 中。 如果您要改為尋找有關如何透過程式碼將自訂應用程式與 Azure AD 整合的開發人員指導方針，請參閱 [Azure AD 的驗證案例](active-directory-authentication-scenarios.md)。
+本文是關於可讓系統管理員設定單一登入不存在於 Azure Active Directory 應用程式資源庫的應用程式，而「不需要撰寫程式碼」 的功能。 此功能已在 2015 年 11 月 18 日的技術預覽中發行，並且包含在 [Azure Active Directory Premium](fundamentals/active-directory-whatis.md) 中。 如果您要改為尋找有關如何透過程式碼將自訂應用程式與 Azure AD 整合的開發人員指導方針，請參閱 [Azure AD 的驗證案例](develop/authentication-scenarios.md)。
 
 Azure Active Directory 應用程式資源庫提供一份已知能支援單一登入搭配 Azure Active Directory 的應用程式清單，如 [本文](manage-apps/what-is-single-sign-on.md)所說明。 在您 (假設您是 IT 專業人員或組織中的系統整合者) 找到所要連接的應用程式之後，就可以依照 Azure 入口網站中展示的逐步指示來啟用單一登入。
 
@@ -148,7 +148,7 @@ Azure Active Directory 應用程式資源庫提供一份已知能支援單一登
 
 ### <a name="test-the-saml-application"></a>測試 SAML 應用程式
 
-測試 SAML 應用程式前，您必須透過 Azure AD 設定應用程式，並將使用者或群組指派至該應用程式。 若要測試 SAML 應用程式，請參閱[如何偵錯 SAML 型單一登入 Azure Active Directory 中的應用程式](develop/active-directory-saml-debugging.md)。
+測試 SAML 應用程式前，您必須透過 Azure AD 設定應用程式，並將使用者或群組指派至該應用程式。 若要測試 SAML 應用程式，請參閱[如何偵錯 SAML 型單一登入 Azure Active Directory 中的應用程式](develop/howto-v1-debug-saml-sso-issues.md)。
 
 ## <a name="password-single-sign-on"></a>密碼單一登入
 

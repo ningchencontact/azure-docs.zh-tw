@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/14/2018
 ms.author: barclayn
-ms.openlocfilehash: 37620e70377e3f1fbeeeb73aaa294c5f54cf5b3d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7c28459aa04c67db8abda54d9f14eb417bd8ed60
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723770"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618592"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure 中 IaaS 工作負載的安全性最佳作法
 
@@ -188,7 +188,7 @@ Security Compliance Manager 可提供已準備好部署的原則和經過測試�
 
 對於與您的生產環境分開裝載的環境，您可以使用反惡意程式碼擴充功能來協助保護虛擬機器和雲端服務。 該擴充功能會與 [Azure 資訊安全中心](../security-center/security-center-intro.md)整合。
 
-[Microsoft Antimalware](azure-security-antimalware.md) 包含下列功能：即時防護、排程掃描、惡意程式碼補救、簽章更新、引擎更新、範例報告、排除事件收集和 [PowerShell 支援](https://msdn.microsoft.com/library/dn771715.aspx)。
+[Microsoft Antimalware](azure-security-antimalware.md) 包含下列功能：即時防護、排程掃描、惡意程式碼補救、簽章更新、引擎更新、範例報告、排除事件收集和 [PowerShell 支援](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureserviceantimalwareextension)。
 
 ![Azure Antimalware](./media/azure-security-iaas/azantimalware.png)
 

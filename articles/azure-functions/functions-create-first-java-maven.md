@@ -11,20 +11,19 @@ ms.devlang: java
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/15/2018
+ms.date: 07/28/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: df3c64938cfc5835fd9eb2f0bbed0135b611347f
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: a1ce9aa87d8f70d3d55daa3a8f46c6a7f706f78e
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341516"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620727"
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>使用 Java 和 Maven 建立您的第一個函式 (預覽)
 
-> [!NOTE] 
-> 適用於 Azure Functions 的 Java 目前為預覽版。
+[!INCLUDE [functions-java-preview-note](../../includes/functions-java-preview-note.md)]
 
 本快速入門引導您使用 Maven 建立[無伺服器](https://azure.microsoft.com/overview/serverless-computing/)函式專案、在本機進行測試，並將它部署到 Azure Functions。 當您完成時，就會有 HTTP 觸發的函式應用程式在 Azure 中執行。
 
@@ -80,7 +79,7 @@ Define value for property 'appName' fabrikam-functions-20170927220323382:
 Confirm properties configuration: Y
 ```
 
-Maven 會以 _artifactId_ 名稱在新資料夾中建立專案檔案，在此例中為 `fabrikam-functions`。 在專案中準備要執行之產生的程式碼是回應要求本文的簡單 [HTTP 觸發](/azure/azure-functions/functions-bindings-http-webhook)函式：
+Maven 會以 _artifactId_ 名稱在新資料夾中建立專案檔案，在此例中為 `fabrikam-functions`。 在本專案中所產生且準備要執行的程式碼是一個簡單的 [HTTP 觸發](/azure/azure-functions/functions-bindings-http-webhook)函式，能回應要求的本文：
 
 ```java
 public class Function {

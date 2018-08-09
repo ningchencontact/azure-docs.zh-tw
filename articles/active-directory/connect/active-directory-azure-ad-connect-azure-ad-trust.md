@@ -4,24 +4,25 @@ description: 由 Azure AD 所處理之 Azure AD 信任的作業詳細資料。
 keywords: AD FS, ADFS, AD FS 管理, AAD Connect, Connect, Azure AD, 信任, AAD, 宣告, 宣告規則, 發行, 轉換, 規則, 備份, 還原
 services: active-directory
 documentationcenter: ''
-author: anandyadavmsft
-manager: samueld
-editor: ''
+ms.reviewer: anandyadavmsft
+manager: mtillman
+ms.component: hybrid
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
-ms.author: anandy
+ms.date: 07/28/2018
+ms.author: billmath
+author: billmath
 ms.custom: ''
-ms.openlocfilehash: 0d7483bbdb06e68e85bae58a70970b9bc0a3b1f8
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: a037414f16c3986370557f389328d36788e2c292
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39330640"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494820"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>使用 Azure AD Connect 管理與 Azure AD 的 AD FS 信任
 

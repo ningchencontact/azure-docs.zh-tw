@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 8e83e6dc66ec6192db589a0964e235c395a26eba
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: cc1ee04c9d614e895c4e8a021564e9b9405fa8c0
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048101"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39438955"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-autotask-workplace"></a>教學課程：Azure Active Directory 與 Autotask Workplace
 
@@ -56,7 +56,7 @@ ms.locfileid: "39048101"
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Autotask Workplace
-2. 設定並測試 Azure AD 單一登入
+1. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-autotask-workplace-from-the-gallery"></a>從資源庫新增 Autotask Workplace
 若要設定將 Autotask Workplace 整合到 Azure AD 中，您需要從資源庫將 Autotask Workplace 新增到受控 SaaS 應用程式清單。
@@ -67,15 +67,15 @@ ms.locfileid: "39048101"
 
     ![Azure Active Directory 按鈕][1]
 
-2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
+1. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![企業應用程式刀鋒視窗][2]
     
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+1. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![新增應用程式按鈕][3]
 
-4. 在搜尋方塊中，輸入 **Autotask Workplace**，從結果面板中選取 [Autotask Workplace]，然後按一下 [新增] 按鈕以新增應用程式。
+1. 在搜尋方塊中，輸入 **Autotask Workplace**，從結果面板中選取 [Autotask Workplace]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![在結果清單中的 Autotask Workplace](./media/autotaskworkplace-tutorial/tutorial_autotaskworkplace_addfromgallery.png)
 
@@ -90,10 +90,10 @@ ms.locfileid: "39048101"
 若要設定及測試與 Autotask Workplace 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 Autotask Workplace 測試使用者](#create-an-autotask-workplace-test-user)** - 在 Autotask Workplace 中建立一個與 Azure AD 中代表 Britta Simon 之項目連結的 Britta Simon 對應項目。
-4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[測試單一登入](#test-single-sign-on)** - 驗證組態是否能運作。
+1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
+1. **[建立 Autotask Workplace 測試使用者](#create-an-autotask-workplace-test-user)** - 在 Autotask Workplace 中建立一個與 Azure AD 中代表 Britta Simon 之項目連結的 Britta Simon 對應項目。
+1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+1. **[測試單一登入](#test-single-sign-on)** - 驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -105,11 +105,11 @@ ms.locfileid: "39048101"
 
     ![設定單一登入連結][4]
 
-2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
+1. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
  
     ![單一登入對話方塊](./media/autotaskworkplace-tutorial/tutorial_autotaskworkplace_samlbase.png)
 
-3. 如果您想要以 **IDP** 起始模式設定應用程式，請在 [Autotask Workplace 網域及 URL] 區段上執行下列步驟：
+1. 如果您想要以 **IDP** 起始模式設定應用程式，請在 [Autotask Workplace 網域及 URL] 區段上執行下列步驟：
 
     ![IDP 的 Autotask Workplace 網域和 URL 單一登入資訊](./media/autotaskworkplace-tutorial/tutorial_autotaskworkplace_url.png)
 
@@ -117,7 +117,7 @@ ms.locfileid: "39048101"
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<subdomain>.awp.autotask.net/singlesignon/saml/SSO`
 
-4. 如果您想要以 **SP** 起始模式設定應用程式，請勾選 [顯示進階 URL 設定]，然後執行下列步驟：
+1. 如果您想要以 **SP** 起始模式設定應用程式，請勾選 [顯示進階 URL 設定]，然後執行下列步驟：
 
     ![SP 的 Autotask Workplace 網域和 URL 單一登入資訊](./media/autotaskworkplace-tutorial/tutorial_autotaskworkplace_url1.png)
 
@@ -126,21 +126,21 @@ ms.locfileid: "39048101"
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的識別碼、回覆 URL 和登入 URL 來更新這些值。 請連絡 [Autotask Workplace 用戶端支援小組](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm)以取得這些值。 
 
-5. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
+1. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
     ![憑證下載連結](./media/autotaskworkplace-tutorial/tutorial_autotaskworkplace_certificate.png) 
 
-6. 按一下 [儲存]  按鈕。
+1. 按一下 [儲存]  按鈕。
 
     ![設定單一登入儲存按鈕](./media/autotaskworkplace-tutorial/tutorial_general_400.png)
 
-7. 在不同的網頁瀏覽器視窗中，使用系統管理員認證登入 Workplace Online。
+1. 在不同的網頁瀏覽器視窗中，使用系統管理員認證登入 Workplace Online。
 
     >[!Note]
     >設定 IdP 時，需要指定子網域。 若要確認正確的子網域，請登入 Workplace Online。 登入後，記下 URL 中的子網域。
     >子網域是 “https://“ 和 “.awp.autotask.net/“ 之間的部分，而且應該是 us、eu、ca 或 au。
 
-8. 移至 [組態] > [單一登入]，並執行下列步驟：
+1. 移至 [組態] > [單一登入]，並執行下列步驟：
 
     ![Autotask 單一登入組態](./media/autotaskworkplace-tutorial/tutorial_autotaskssoconfig1.png)
  
@@ -172,15 +172,15 @@ ms.locfileid: "39048101"
 
     ![Azure Active Directory 按鈕](./media/autotaskworkplace-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+1. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/autotaskworkplace-tutorial/create_aaduser_02.png)
 
-3. 若要開啟 [使用者] 對話方塊，按一下 [所有使用者] 對話方塊頂端的 [新增]。
+1. 若要開啟 [使用者] 對話方塊，按一下 [所有使用者] 對話方塊頂端的 [新增]。
 
     ![[新增] 按鈕](./media/autotaskworkplace-tutorial/create_aaduser_03.png)
 
-4. 在 [使用者] 對話方塊中，執行下列步驟：
+1. 在 [使用者] 對話方塊中，執行下列步驟：
 
     ![[使用者] 對話方塊](./media/autotaskworkplace-tutorial/create_aaduser_04.png)
 
@@ -208,23 +208,23 @@ ms.locfileid: "39048101"
 
     ![指派使用者][201] 
 
-2. 在應用程式清單中，選取 [Autotask Workplace]。
+1. 在應用程式清單中，選取 [Autotask Workplace]。
 
     ![應用程式清單中的 Autotask Workplace 連結](./media/autotaskworkplace-tutorial/tutorial_autotaskworkplace_app.png) 
 
-3. 在左側功能表中，按一下 [使用者和群組]。
+1. 在左側功能表中，按一下 [使用者和群組]。
 
     ![[使用者和群組] 連結][202]
 
-4. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
+1. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
 
     ![[新增指派] 窗格][203]
 
-5. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
+1. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
 
-6. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
+1. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
 
-7. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
+1. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
     
 ### <a name="test-single-sign-on"></a>測試單一登入
 

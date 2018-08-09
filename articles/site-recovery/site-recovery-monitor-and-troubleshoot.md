@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 07/19/2018
 ms.author: bsiva
-ms.openlocfilehash: 747189c7cab2c76c6695bdb8e13f77532adc46d4
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 96f4ecb433277c747ddb1d1dc977bd609f93d5ff
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216068"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578580"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>進行 Site Recovery 的監視和疑難排解
 
@@ -88,7 +88,7 @@ Healthy | 正常複寫中。 未偵測到任何錯誤或警告症狀。
 - 覆蓋有錯誤圖示的紅線表示存在一或多個會影響連線的錯誤症狀。
 -  將滑鼠指標停留在錯誤圖示上，就會顯示錯誤以及受影響的實體數目。 按一下圖示即可取得受影響實體的篩選清單。
 
-    ![Site Recovery infrastructure view (vault)]Re(./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
+    ![Site Recovery 基礎結構檢視 (保存庫)](./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
 
 ## <a name="tips-for-monitoring-the-infrastructure"></a>基礎結構的監視秘訣
 

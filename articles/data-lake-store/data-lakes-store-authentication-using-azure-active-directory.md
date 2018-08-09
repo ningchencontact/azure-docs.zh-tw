@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: bee65fbdc65807ac33ae425ed9d87dbf0c246d9d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7db48b03a6f34655917c82702c12dbc9bc4c987a
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625282"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494172"
 ---
 # <a name="authentication-with-data-lake-store-using-azure-active-directory"></a>使用 Azure Active Directory 向 Data Lake Store 進行驗證
 
@@ -45,7 +45,7 @@ Azure Data Lake Store 使用 Azure Active Directory 進行驗證。 撰寫搭配
 <i>* 按一下<b>✔\* </b>符號。它是連結。</i><br>
 <i>** MFA 是指多重要素驗證</i>
 
-如需如何使用 Azure Active Directory 進行驗證的詳細資訊，請參閱 [Azure Active Directory 的驗證案例](../active-directory/develop/active-directory-authentication-scenarios.md)。
+如需如何使用 Azure Active Directory 進行驗證的詳細資訊，請參閱 [Azure Active Directory 的驗證案例](../active-directory/develop/authentication-scenarios.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

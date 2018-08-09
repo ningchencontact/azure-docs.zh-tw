@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: jeedes
-ms.openlocfilehash: 3423f723b3f4857db44c609cd0e2143b6b04653e
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: d46f2aac5fb16b10f33cccabdcd76d60f0d6dfb9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868624"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39438048"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dropbox-for-business"></a>教學課程：Azure Active Directory 與 Dropbox for Business 整合
 
@@ -34,7 +34,7 @@ Dropbox for Business 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Dropbox for Business 整合，您需要下列項目：
 
@@ -53,7 +53,7 @@ Dropbox for Business 與 Azure AD 整合提供下列優點：
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 Dropbox for Business
-2. 設定並測試 Azure AD 單一登入
+1. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-dropbox-for-business-from-the-gallery"></a>從資源庫新增 Dropbox for Business
 若要設定 Dropbox for Business 與 Azure AD 整合，您需要從資源庫將 SAP Dropbox for Business 新增到受控 SaaS 應用程式清單中。
@@ -64,15 +64,15 @@ Dropbox for Business 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕][1]
 
-2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
+1. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![企業應用程式刀鋒視窗][2]
     
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+1. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![新增應用程式按鈕][3]
 
-4. 在搜尋方塊中，輸入 [商務用 Dropbox]，從結果面板中選取 [商務用 Dropbox]，然後按一下 [新增] 按鈕以新增應用程式。
+1. 在搜尋方塊中，輸入 [商務用 Dropbox]，從結果面板中選取 [商務用 Dropbox]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![結果清單中的商務用 Dropbox](./media/dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_addfromgallery.png)
 
@@ -87,10 +87,10 @@ Dropbox for Business 與 Azure AD 整合提供下列優點：
 若要設定及測試與 Dropbox for Business 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立商務用 Dropbox 測試使用者](#create-a-dropbox-for-business-test-user)** - 在商務用 Dropbox 中建立 Britta Simon 的對應項目，且該項目與 Azure AD 中代表使用者的項目連結。
-4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
+1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
+1. **[建立商務用 Dropbox 測試使用者](#create-a-dropbox-for-business-test-user)** - 在商務用 Dropbox 中建立 Britta Simon 的對應項目，且該項目與 Azure AD 中代表使用者的項目連結。
+1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+1. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -102,15 +102,15 @@ Dropbox for Business 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入連結][4]
 
-2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
+1. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
  
     ![單一登入對話方塊](./media/dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_samlbase.png)
 
-3. 在 [Dropbox for Business 網域與 URL] 區段上，執行下列步驟：
+1. 在 [Dropbox for Business 網域與 URL] 區段上，執行下列步驟：
 
     ![商務用 Dropbox 網域及 URL 單一登入資訊](./media/dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_url1.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://www.dropbox.com/sso/<id>`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://www.dropbox.com/sso/<id>`
 
     b. 在 [識別碼] 文字方塊中，輸入一個值：`Dropbox`
 
@@ -118,19 +118,19 @@ Dropbox for Business 與 Azure AD 整合提供下列優點：
     > 上述登入 URL 值並非真正的值。 您將會使用實際的登入 URL 來更新值，稍後會在本教學課程中說明。 請連絡[商務用 Dropbox 用戶端支援小組](https://www.dropbox.com/business/contact)以取得此值。 
  
 
-4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
+1. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
     ![憑證下載連結](./media/dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_certificate.png) 
 
-5. 按一下 [儲存]  按鈕。
+1. 按一下 [儲存]  按鈕。
 
     ![設定單一登入儲存按鈕](./media/dropboxforbusiness-tutorial/tutorial_general_400.png)
 
-6. 在 [Dropbox for Business 設定] 區段中，按一下 [設定 Dropbox for Business] 可開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [SAML 單一登入服務 URL]。
+1. 在 [Dropbox for Business 設定] 區段中，按一下 [設定 Dropbox for Business] 可開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [SAML 單一登入服務 URL]。
 
     ![商務用 Dropbox 組態](./media/dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_configure.png) 
 
-7. 若要在 [商務用 Dropbox] 端上設定單一登入，請移至商務用 Dropbox 租用戶。
+1. 若要在 [商務用 Dropbox] 端上設定單一登入，請移至商務用 Dropbox 租用戶。
 
     a. 登入您的 Dropbox for Business 租用戶。 
    
@@ -152,7 +152,7 @@ Dropbox for Business 與 Azure AD 整合提供下列優點：
     
     ![設定單一登入](./media/dropboxforbusiness-tutorial/ic769513.png)
     
-8. 在 [驗證] 頁面的 [單一登入] 區段中，執行下列步驟： 
+1. 在 [驗證] 頁面的 [單一登入] 區段中，執行下列步驟： 
    
     ![設定單一登入](./media/dropboxforbusiness-tutorial/IC769516.png "設定單一登入")
    
@@ -180,15 +180,15 @@ Dropbox for Business 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/dropboxforbusiness-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+1. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/dropboxforbusiness-tutorial/create_aaduser_02.png)
 
-3. 若要開啟 [使用者] 對話方塊，按一下 [所有使用者] 對話方塊頂端的 [新增]。
+1. 若要開啟 [使用者] 對話方塊，按一下 [所有使用者] 對話方塊頂端的 [新增]。
 
     ![[新增] 按鈕](./media/dropboxforbusiness-tutorial/create_aaduser_03.png)
 
-4. 在 [使用者] 對話方塊中，執行下列步驟：
+1. 在 [使用者] 對話方塊中，執行下列步驟：
 
     ![[使用者] 對話方塊](./media/dropboxforbusiness-tutorial/create_aaduser_04.png)
 
@@ -221,23 +221,23 @@ Dropbox for Business 與 Azure AD 整合提供下列優點：
 
     ![指派使用者][201] 
 
-2. 在應用程式清單中，選取 [Dropbox for Business]。
+1. 在應用程式清單中，選取 [Dropbox for Business]。
 
     ![應用程式清單中的商務用 Dropbox](./media/dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_app.png)  
 
-3. 在左側功能表中，按一下 [使用者和群組]。
+1. 在左側功能表中，按一下 [使用者和群組]。
 
     ![[使用者和群組] 連結][202]
 
-4. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
+1. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
 
     ![[新增指派] 窗格][203]
 
-5. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
+1. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
 
-6. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
+1. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
 
-7. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
+1. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
     
 ### <a name="test-single-sign-on"></a>測試單一登入
 

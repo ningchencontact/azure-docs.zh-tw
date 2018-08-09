@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: 5e7cf1b28e8f38f0539e0084e1f745e0dab4dec3
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 57a9f0516175b459723a3dcdb2e3766f0fa039c1
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763607"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495419"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
 查詢命令，並將其傳送至修復管理員服務。
@@ -50,7 +50,7 @@ ms.locfileid: "34763607"
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
-| --output -o | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。 |
+| --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
 
@@ -72,7 +72,7 @@ ms.locfileid: "34763607"
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
-| --output -o | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。 |
+| --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
 
@@ -95,9 +95,10 @@ ms.locfileid: "34763607"
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
-| --output -o | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。 |
+| --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+
 
 ## <a name="next-steps"></a>後續步驟
 - [設定](service-fabric-cli.md) Service Fabric CLI。

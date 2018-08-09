@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: brjohnst
-ms.openlocfilehash: 3848f317fd6d760961756f132edf9cbcb5f431ee
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2efe7769f68988f3c0d52c8806b78c1b96d8c639
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32181965"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620224"
 ---
 # <a name="upgrading-to-the-latest-azure-search-service-rest-api-version"></a>升級至最新的 Azure 搜尋服務 REST API 版本
 如果您正在使用舊版的 [Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice/)，本文將協助您升級應用程式，以使用正式推出的最新 API 版本 2017-11-11。
@@ -31,7 +31,7 @@ REST API 的版本 2017-11-11 包含一些較早版本的變更。 這些是大�
 
 * [同義字](search-synonyms.md)。 新的同義字功能可讓您定義對等的詞彙並擴大查詢的範圍。
 * [支援有效率地編製文字 Blob 的索引](https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage#IndexingPlainText)。 Azure Blob 索引子的新 `text` 剖析模式大幅提升編製索引效能。
-* [服務統計資料 API](https://aka.ms/azure-search-stats)。 使用這個新的 API 檢視資源在 Azure 搜尋服務中的目前使用量和限制。
+* [服務統計資料 API](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics)。 使用這個新的 API 檢視資源在 Azure 搜尋服務中的目前使用量和限制。
 
 <a name="UpgradeSteps"></a>
 

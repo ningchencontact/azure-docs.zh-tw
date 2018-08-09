@@ -16,12 +16,12 @@ ms.date: 04/19/2018
 ms.author: hirsin
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 95a3c1d3effe6d4b73354fb3ef871aeb7767bfb4
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0c4edb4fbf7271331affb2559018e53480aa7a85
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228559"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577157"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Azure Active Directory 中可設定的權杖存留期 (公開預覽版)
 您可以指定 Azure Active Directory (Azure AD) 所簽發的權杖存留期。 不論是針對組織中所有的應用程式、針對多租用戶 (多組織) 應用程式，還是針對組織中特定的服務主體，都可以設定權杖存留期。
@@ -49,7 +49,7 @@ ms.locfileid: "36228559"
 用戶端會使用存取權杖來存取受保護的資源。 存取權杖僅可用於特定使用者、用戶端及資源的組合。 存取權杖是不可撤銷的，在到期之前都會一直有效。 惡意執行者若已取得存取權杖，便可在權杖的存留期範圍內使用該權杖。 調整存取權杖存留期是在改進系統效能與增加用戶端在使用者帳戶停用後保留存取權的時間，這兩者之間所做的一項權衡取捨。 系統效能的改進是藉由減少用戶端需要取得新存取權杖的次數來達成。  預設值是 1 小時 - 1 小時後，用戶端必須使用重新整理權杖 (通常以無訊息模式) 取得新的重新整理權杖和存取權杖。 
 
 ### <a name="refresh-tokens"></a>重新整理權杖
-當用戶端取得存取權杖來存取受保護的資源時，用戶端會也會收到重新整理權杖。 當存取權杖到期時，可以使用重新整理權杖來取得一組新的存取/重新整理權杖。 重新整理權杖會繫結至使用者與用戶端組合。 重新整理權杖可以[隨時撤銷](develop/active-directory-token-and-claims.md#token-revocation)，每次使用權杖時，會檢查權杖的有效性。  
+當用戶端取得存取權杖來存取受保護的資源時，用戶端會也會收到重新整理權杖。 當存取權杖到期時，可以使用重新整理權杖來取得一組新的存取/重新整理權杖。 重新整理權杖會繫結至使用者與用戶端組合。 重新整理權杖可以[隨時撤銷](develop/v1-id-and-access-tokens.md#token-revocation)，每次使用權杖時，會檢查權杖的有效性。  
 
 區別機密用戶端與公開用戶端相當重要，因為這會影響可以使用重新整理權杖的時間長度。 如需不同類型用戶端的詳細資訊，請參閱 [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1)。
 
@@ -106,7 +106,7 @@ Azure AD 會使用兩種 SSO 工作階段權杖︰持續性和非持續性。 �
 * 如果未將任何原則明確指派給服務主體或組織，則會強制執行指派給應用程式的原則。
 * 如果未將任何原則明確指派給服務主體、組織或應用程式物件，將會強制執行預設值。 (請參閱[可設定的權杖存留期屬性](#configurable-token-lifetime-properties)中的表格。)
 
-如需有關應用程式物件與服務主體物件之間關係的詳細資訊，請參閱 [Azure Active Directory 中的應用程式和服務主體物件](active-directory-application-objects.md)。
+如需有關應用程式物件與服務主體物件之間關係的詳細資訊，請參閱 [Azure Active Directory 中的應用程式和服務主體物件](develop/app-objects-and-service-principals.md)。
 
 使用權杖時，系統便會評估權杖的有效性。 在所要存取之應用程式上優先順序最高的原則會生效。
 
@@ -202,8 +202,8 @@ Azure AD 會使用兩種 SSO 工作階段權杖︰持續性和非持續性。 �
 * 針對呼叫 Web API 的原生應用程式建立原則
 * 管理進階原則
 
-### <a name="prerequisites"></a>先決條件
-在下列範例中，您建立、更新連結，並刪除應用程式、服務主體和您整體組織的原則。 如果您是 Azure AD 的新手，我們建議您先深入了解[如何取得 Azure AD 租用戶](active-directory-howto-tenant.md)，然後再利用這些範例繼續進行。  
+### <a name="prerequisites"></a>必要條件
+在下列範例中，您建立、更新連結，並刪除應用程式、服務主體和您整體組織的原則。 如果您是 Azure AD 的新手，我們建議您先深入了解[如何取得 Azure AD 租用戶](develop/quickstart-create-new-tenant.md)，然後再利用這些範例繼續進行。  
 
 若要開始使用，請執行下列步驟：
 

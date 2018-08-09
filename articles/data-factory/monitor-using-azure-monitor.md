@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 1d1b21897975717db7b733e33b7700bc76e3e065
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 25bb455ea46fdc96e32e34d434dd844779b0b650
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046542"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495293"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>使用 Azure 監視器提出警示及監視 Data Factory
 雲端應用程式相當複雜，且具有許多移動組件。 監視會提供資料，以確保應用程式持續運作並以健全的狀態執行。 它也可協助您預防潛在問題，或是針對過去所發生的問題進行疑難排解。 除此之外，您還可以使用監視資料來取得應用程式的深入解析。 這項知識可協助您提升應用程式效能或維護性，或是將原本需要手動介入的動作自動化。
@@ -62,7 +62,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 * 將 `{api-version}` 取代為 `2016-09-01`。
 * 將 `{resource-id}` 取代為您要編輯診斷設定之資源的資源識別碼。 如需詳細資訊，請參閱[使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-portal.md)。
 * 將 `Content-Type` 標頭設定為 `application/json`。
-* 將授權標頭設定為您從 Azure Active Directory 取得的 JSON Web 權杖。 如需詳細資訊，請參閱[驗證要求](../active-directory/develop/active-directory-authentication-scenarios.md)。
+* 將授權標頭設定為您從 Azure Active Directory 取得的 JSON Web 權杖。 如需詳細資訊，請參閱[驗證要求](../active-directory/develop/authentication-scenarios.md)。
 
 **內文**
 ```json

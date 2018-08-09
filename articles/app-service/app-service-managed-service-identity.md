@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/25/2018
 ms.author: mahender
-ms.openlocfilehash: 8305a447ac75cf4c72a332910c9c4c90c1d8eac6
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 2e392a3a50cda3daacb5bc358baaea2627eeafc0
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061432"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578825"
 ---
 # <a name="how-to-use-azure-managed-service-identity-in-app-service-and-azure-functions"></a>如何在 App Service 和 Azure Functions 中使用 Azure 受控服務識別
 
@@ -56,7 +56,7 @@ ms.locfileid: "37061432"
 
 下列步驟將逐步引導您建立 web 應用程式，並使用 CLI 指派身分識別給它：
 
-1. 如果您要在本機主控台中使用 Azure CLI，請先使用 [az login](/cli/azure/reference-index#az_login) 登入 Azure。 使用您要部署應用程式且已與 Azure 訂用帳戶相關聯的帳戶：
+1. 如果您要在本機主控台中使用 Azure CLI，請先使用 [az login](/cli/azure/reference-index#az-login) 登入 Azure。 使用您要部署應用程式且已與 Azure 訂用帳戶相關聯的帳戶：
 
     ```azurecli-interactive
     az login
@@ -202,7 +202,7 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServi
 > |token_type|表示權杖類型值。 Azure AD 唯一支援的類型是 Bearer。 如需持有人權杖的詳細資訊，請參閱 [OAuth 2.0 授權架構︰持有人權杖用法 (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt)。|
 
 
-該回應與 [AAD 服務對服務存取權杖要求的回應](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#service-to-service-access-token-response)。
+該回應與 [AAD 服務對服務存取權杖要求的回應](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response)。
 
 > [!NOTE] 
 > 環境變數會在程序初次啟動時進行設定，因此您在應用程式上啟用受控服務識別前，可能需要重新啟動應用程式或重新部署其程式碼，才可讓您的程式碼使用 `MSI_ENDPOINT` 和 `MSI_SECRET`。

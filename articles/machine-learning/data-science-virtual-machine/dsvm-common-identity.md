@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: d6235f3a425481a13e627d683bb4c3943b473b40
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 25d40b6a72ab6da61feb1458f5930eb48ef1d900
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311072"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436296"
 ---
 # <a name="set-up-a-common-identity-on-the-data-science-virtual-machine"></a>在資料科學虛擬機器上設定通用身分識別
 
@@ -60,12 +60,12 @@ Azure AD DS 可透過在 Azure 上提供完全受控的服務，讓您輕鬆地�
     
    h. 將產生的密碼安全地散發給新使用者，以便讓使用者可以登入。
 
-2. 建立 Azure AD DS 執行個體。 請依照[使用 Azure 入口網站啟用 Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started)一文 (工作 1 到 5) 中的指示進行操作。 請務必更新 Active Directory 中現有的使用者密碼，以便同步 Azure AD DS 中的密碼。 也請務必將 DNS 新增至 Azure AD DS，如上文的工作 4 所述。 
+1. 建立 Azure AD DS 執行個體。 請依照[使用 Azure 入口網站啟用 Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started)一文 (工作 1 到 5) 中的指示進行操作。 請務必更新 Active Directory 中現有的使用者密碼，以便同步 Azure AD DS 中的密碼。 也請務必將 DNS 新增至 Azure AD DS，如上文的工作 4 所述。 
 
-3. 在先前步驟工作 2 所建立的虛擬網路中，建立個別的 DSVM 子網路。
-4. 在 DSVM 子網路中建立一或多個「資料科學 VM」執行個體。 
-5. 依照[指示](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm )將 DSVM 新增至 Active Directory。 
-6. 掛接「Azure 檔案服務」共用來裝載您的首頁或筆記本目錄，以便在任何電腦上掛接您的工作區。 (如果您需要嚴格的檔案層級權限，則需要在一或多個 VM 上執行 NFS)。
+1. 在先前步驟工作 2 所建立的虛擬網路中，建立個別的 DSVM 子網路。
+1. 在 DSVM 子網路中建立一或多個「資料科學 VM」執行個體。 
+1. 依照[指示](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm )將 DSVM 新增至 Active Directory。 
+1. 掛接「Azure 檔案服務」共用來裝載您的首頁或筆記本目錄，以便在任何電腦上掛接您的工作區。 (如果您需要嚴格的檔案層級權限，則需要在一或多個 VM 上執行 NFS)。
 
    a. [建立 Azure 檔案服務共用](../../storage/files/storage-how-to-create-file-share.md)。
     
@@ -74,8 +74,8 @@ Azure AD DS 可透過在 Azure 上提供完全受控的服務，讓您輕鬆地�
    ```
    sudo mount -t cifs //[STORAGEACCT].file.core.windows.net/workspace [Your mount point] -o vers=3.0,username=[STORAGEACCT],password=[Access Key or SAS],dir_mode=0777,file_mode=0777,sec=ntlmssp
    ```
-7. 例如，假設您已在 /data/workspace 中掛接「Azure 檔案服務」共用。 現在，請為共用中的每個使用者建立目錄：/data/workspace/user1、/data/workspace/user2 等。 在每個使用者的工作區中建立 `notebooks` 目錄。 
-8. 在 `$HOME/userx/notebooks/remote` 中建立 `notebooks` 的符號連結。   
+1. 例如，假設您已在 /data/workspace 中掛接「Azure 檔案服務」共用。 現在，請為共用中的每個使用者建立目錄：/data/workspace/user1、/data/workspace/user2 等。 在每個使用者的工作區中建立 `notebooks` 目錄。 
+1. 在 `$HOME/userx/notebooks/remote` 中建立 `notebooks` 的符號連結。   
 
 現在，您的使用者便會在裝載於 Azure 的 Active Directory 執行個體中。 藉由使用 Active Directory 認證，使用者將可登入任何已加入 Azure AD DS 的 DSVM (SSH 或 JupyterHub)。 由於使用者工作區位於「Azure 檔案服務」共用上，因此使用者在使用 JupyterHub 時，可以從任何 DSVM 存取其筆記本和其他工作。 
 

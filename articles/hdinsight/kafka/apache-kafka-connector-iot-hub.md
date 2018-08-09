@@ -1,25 +1,20 @@
 ---
-title: 搭配使用 HDInsight 上的 Apache Kafka 與 Azure IoT 中樞 | Microsoft Docs
+title: 搭配使用 HDInsight 上的 Apache Kafka 與 Azure IoT 中樞
 description: 了解如何搭配使用 HDInsight 上的 Apache Kafka 與 Azure IoT 中樞。 Kafka Connect Azure IoT 中樞專案提供 Kafka 的來源和接收連接器。 來源連接器可從 IoT 中樞讀取資料，接收連接器則可寫入 IoT 中樞。
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/15/2018
-ms.author: larryfr
-ms.openlocfilehash: 33fdb5b099efc40fec94a860b21cda75ced44fe9
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: c540e110a12e981aee992348445cd1032ba0ba77
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34267054"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618324"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>搭配使用 HDInsight 上的 Apache Kafka 與 Azure IoT 中樞
 
@@ -35,7 +30,7 @@ Kafka Connect API 可讓您實作持續將資料提取到 Kafka 中，或將資�
 
 如需關於 Connect API 的詳細資訊，請參閱 [https://kafka.apache.org/documentation/#connect](https://kafka.apache.org/documentation/#connect)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 

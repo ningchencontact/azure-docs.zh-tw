@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/31/2018
 ms.author: rithorn
-ms.openlocfilehash: 146ded37dbf517528af23574cd5b9325f4b5f9d0
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: edc57d146ccb034ac3fd627386000a1953b0e558
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358764"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480317"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>使用 Azure 管理群組來組織資源
 
@@ -82,7 +82,7 @@ Azure 管理群組支援對所有的資源存取和角色定義使用 [Azure 角
 
 | RBAC 角色名稱             | 建立 | 重新命名 | 移動 | 刪除 | 指派存取權 | 指派原則 | 讀取  |
 |:-------------------------- |:------:|:------:|:----:|:------:|:-------------:| :------------:|:-----:|
-|擁有者                       | X      | X      | X    | X      | X             |               | X     |
+|擁有者                       | X      | X      | X    | X      | X             | X             | X     |
 |參與者                 | X      | X      | X    | X      |               |               | X     |
 |MG 參與者*             | X      | X      | X    | X      |               |               | X     |
 |讀取者                      |        |        |      |        |               |               | X     |
@@ -104,4 +104,4 @@ Azure 管理群組支援對所有的資源存取和角色定義使用 [Azure 角
 - [如何變更、刪除或管理您的管理群組](management-groups-manage.md)
 - [安裝 Azure PowerShell 模組](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview)
 - [檢閱 REST API 規格](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
-- [安裝 Azure CLI 擴充功能](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)
+- [安裝 Azure CLI 擴充功能](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)

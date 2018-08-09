@@ -15,12 +15,12 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e7976cf0574952fdafbdc8b40db47af3a5420fd5
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: aae73816b883fe782eff27c56174c71f14c253c4
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39368816"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577181"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>使用應用程式 Proxy 與 PingAccess 的單一登入之標頭式驗證
 
@@ -140,7 +140,7 @@ Azure Active Directory 的 PingAccess 是 PingAccess 供應項目，讓您可提
 
 ### <a name="optional---update-graphapi-to-send-custom-fields"></a>選擇性 - 更新 GraphAPI 以傳送自訂欄位
 
-如需 Azure AD 傳送以進行驗證的安全性權杖清單，請參閱 [Azure AD 權杖參考](./../develop/active-directory-token-and-claims.md)。 如果您需要會傳送其他權杖的自訂宣告，請使用 Graph Explorer 或「Azure 入口網站」中的應用程式資訊清單，將應用程式欄位 *acceptMappedClaims* 設定為 **True**。    
+如需 Azure AD 傳送以進行驗證的安全性權杖清單，請參閱 [Azure AD 權杖參考](../develop/v1-id-and-access-tokens.md)。 如果您需要會傳送其他權杖的自訂宣告，請使用 Graph Explorer 或「Azure 入口網站」中的應用程式資訊清單，將應用程式欄位 *acceptMappedClaims* 設定為 **True**。    
 
 此範例使用 Graph Explorer：
 

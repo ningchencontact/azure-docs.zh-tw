@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 210781b36f6215afc925266e597031d772a94002
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e3fe033de05ed42d221795159461048790e1cec8
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059200"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493297"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure 身分識別管理和存取控制安全性最佳作法
 
@@ -133,7 +133,7 @@ ms.locfileid: "39059200"
 
 未強制身分識別控制存取應用程式且不會引導其開發人員如何安全地整合應用程式與其身分識別管理系統的組織，可能更容易遭受認證竊取攻擊類型，例如 [Open Web Application Security Project (OWASP) Top 10 中所述的弱式驗證與工作階段管理](https://www.owasp.org/index.php/OWASP_Top_Ten_Cheat_Sheet)。
 
-您可以閱讀 [Azure AD 的驗證案例](../active-directory/active-directory-authentication-scenarios.md)，進一步了解 SaaS 應用程式的驗證案例。
+您可以閱讀 [Azure AD 的驗證案例](../active-directory/develop/authentication-scenarios.md)，進一步了解 SaaS 應用程式的驗證案例。
 
 ## <a name="actively-monitor-for-suspicious-activities"></a>主動監視可疑的活動
 

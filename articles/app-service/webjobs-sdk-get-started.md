@@ -3,7 +3,7 @@ title: 開始使用 Azure WebJobs SDK
 description: 使用 WebJobs SDK 進行事件驅動幕後處理的簡介。 了解如何存取 Azure 服務和第三方服務中的資料。
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 ms.service: app-service-web
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
-ms.author: tdykstra
-ms.openlocfilehash: 68377ffd53d5f2b99ddc08386529a40dda12e1b2
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.author: glenga
+ms.openlocfilehash: 72f7090c285e629149519920ac82f0fe962abc48
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901546"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577300"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>開始使用 Azure WebJobs SDK 進行事件驅動幕後處理
 
@@ -52,7 +52,7 @@ public static void Run(
 
 [Azure Functions](../azure-functions/functions-overview.md) 是以 WebJobs SDK 為基礎，而且是您不需要直接使用 WebJobs SDK 時的選項。 Azure Functions 1.x 使用 WebJobs SDK 2.x。 如需詳細資訊，請參閱 [Azure Functions 與 WebJobs SDK 的比較](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本文假設您具有 [Azure 帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)以及 [Azure App Service 中的應用程式](app-service-web-overview.md)使用經驗。 若要完成本文中的步驟：
 
@@ -63,9 +63,9 @@ public static void Run(
 
 1. 在 Visual Studio 中，選取 [檔案] -> [新增專案]。
 
-2. 選取 [Windows 傳統桌面] > [主控台應用程式] \(.NET Framework\)。
+1. 選取 [Windows 傳統桌面] > [主控台應用程式] \(.NET Framework\)。
 
-3. 將專案命名為 WebJobsSDKSample，然後選取 [確定]。
+1. 將專案命名為 WebJobsSDKSample，然後選取 [確定]。
 
    ![[新增專案] 對話方塊](./media/webjobs-sdk-get-started/new-project.png)
 
@@ -121,13 +121,13 @@ public static void Run(
    Install-Package Microsoft.Extensions.Logging.Console -version 2.0.1
    ``` 
 
-2. 在 Program.cs 中，新增 `using` 陳述式：
+1. 在 Program.cs 中，新增 `using` 陳述式：
 
    ```cs
    using Microsoft.Extensions.Logging;
    ```
 
-3. 在 `Main` 方法中，新增程式碼以在建立 `JobHost` 之前更新 `JobHostConfiguration`：
+1. 在 `Main` 方法中，新增程式碼以在建立 `JobHost` 之前更新 `JobHostConfiguration`：
  
    ```
    config.DashboardConnectionString = "";
@@ -190,9 +190,9 @@ public static void Run(
 
    ![建立儲存體帳戶功能表](./media/webjobs-sdk-get-started/create-storage-account-menu.png)
 
-2. 在 [建立儲存體帳戶]  對話方塊中，輸入儲存體帳戶的唯一名稱。
+1. 在 [建立儲存體帳戶]  對話方塊中，輸入儲存體帳戶的唯一名稱。
 
-3. 選擇您在其中建立 App Service 應用程式的相同 [區域]，或您附近的區域。
+1. 選擇您在其中建立 App Service 應用程式的相同 [區域]，或您附近的區域。
 
 1. 選取 [建立] 。
 
@@ -202,7 +202,7 @@ public static void Run(
 
    ![連接字串省略符號](./media/webjobs-sdk-get-started/conn-string-ellipsis.png)
 
-2. 複製連接字串，並將此值儲存在某處，您即可隨時再次複製它。
+1. 複製連接字串，並將此值儲存在某處，您即可隨時再次複製它。
 
    ![複製連接字串](./media/webjobs-sdk-get-started/copy-key.png)
 
@@ -218,7 +218,7 @@ WebJobs SDK 會在 [應用程式設定] 集合中尋找儲存體連接字串。 
    </connectionStrings>
    ```
 
-2. 使用您先前複製的連接字串取代 {儲存體連接字串}。
+1. 使用您先前複製的連接字串取代 {儲存體連接字串}。
 
    稍後當您在 Azure 中設定 App Service 應用程式時，您會再度使用連接字串。
 
@@ -243,27 +243,27 @@ WebJobs SDK 會在 [應用程式設定] 集合中尋找儲存體連接字串。 
 
    您可能會看到有關 `ServicePointManager` 設定的警告訊息。 對於您將對這個專案進行的測試，您可以忽略此警告。 如需警告的詳細資訊，請參閱[如何使用 WebJobs SDK](webjobs-sdk-how-to.md#jobhost-servicepointmanager-settings)。
 
-2. 關閉主控台視窗。
+1. 關閉主控台視窗。
 
 1. 在 [伺服器總管] 中，展開新儲存體帳戶的節點，然後以滑鼠右鍵按一下 [佇列]。 
 
-2. 選取 [建立佇列]。 
+1. 選取 [建立佇列]。 
 
-3. 輸入 queue 作為佇列的名稱，然後選取 [建立]。
+1. 輸入 queue 作為佇列的名稱，然後選取 [建立]。
 
    ![建立佇列](./media/webjobs-sdk-get-started/create-queue.png)
 
-4. 以滑鼠右鍵按一下新佇列的節點，然後選取 [檢視佇列]。
+1. 以滑鼠右鍵按一下新佇列的節點，然後選取 [檢視佇列]。
 
-5. 選取 [新增訊息] 圖示。
+1. 選取 [新增訊息] 圖示。
 
    ![建立佇列](./media/webjobs-sdk-get-started/create-queue-message.png)
 
-6. 在 [新增訊息] 對話方塊中，輸入 Hello World! 作為 [訊息文字]，然後選取 [確定]。
+1. 在 [新增訊息] 對話方塊中，輸入 Hello World! 作為 [訊息文字]，然後選取 [確定]。
 
    ![建立佇列](./media/webjobs-sdk-get-started/hello-world-text.png)
 
-7. 再次執行此專案。
+1. 再次執行此專案。
 
    因為您在 `ProcessQueueMessage` 函式中使用 `QueueTrigger` 屬性，所以 WeJobs SDK 執行階段會在啟動時接聽佇列訊息。 它會在名為 queue 的佇列中發現新佇列訊息並呼叫此函式。
 
@@ -288,7 +288,7 @@ WebJobs SDK 會在 [應用程式設定] 集合中尋找儲存體連接字串。 
    Executed 'Functions.ProcessQueueMessage' (Succeeded, Id=ebcb275d-0d7c-4293-a1af-93e0804b9e49)
    ```
 
-8. 關閉主控台視窗。
+1. 關閉主控台視窗。
 
 ## <a name="add-application-insights-logging"></a>新增 Application Insights 記錄
 
@@ -304,9 +304,9 @@ WebJobs SDK 會在 [應用程式設定] 集合中尋找儲存體連接字串。 
 
 1. 如果您還沒有可以使用的 App Service 應用程式，請[建立一個](app-service-web-get-started-dotnet-framework.md)。
 
-2. 如果您還沒有可以使用的 Application Insights 資源，請[建立一個](../application-insights/app-insights-create-new-resource.md)。 將 [應用程式類型] 設定為 [一般]，並略過 [複製檢測金鑰] 後面的各節。
+1. 如果您還沒有可以使用的 Application Insights 資源，請[建立一個](../application-insights/app-insights-create-new-resource.md)。 將 [應用程式類型] 設定為 [一般]，並略過 [複製檢測金鑰] 後面的各節。
 
-3. 如果您已經有想要使用的 Application Insights 資源，請[複製檢測金鑰](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key)。
+1. 如果您已經有想要使用的 Application Insights 資源，請[複製檢測金鑰](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key)。
 
 ### <a name="configure-app-settings"></a>進行應用程式設定 
 
@@ -314,23 +314,23 @@ WebJobs SDK 會在 [應用程式設定] 集合中尋找儲存體連接字串。 
 
 1. 展開 App Service 應用程式所在的資源群組，然後以滑鼠右鍵按一下您的 App Service 應用程式。
 
-3. 選取 [檢視設定]。
+1. 選取 [檢視設定]。
 
-4. 在 [連接字串] 中，新增下列項目。
+1. 在 [連接字串] 中，新增下列項目。
 
    |Name  |連接字串  |資料庫類型|
    |---------|---------|------|
    |AzureWebJobsStorage | {您先前複製的儲存體連接字串}|自訂|
    
-6. 如果 [應用程式設定] 方塊沒有 Application Insights 檢測金鑰，請新增您先前複製的檢測金鑰。 (視您建立 App Service 應用程式的方式而言，檢測金鑰可能已經存在。)
+1. 如果 [應用程式設定] 方塊沒有 Application Insights 檢測金鑰，請新增您先前複製的檢測金鑰。 (視您建立 App Service 應用程式的方式而言，檢測金鑰可能已經存在。)
 
    |Name  |值  |
    |---------|---------|
    |APPINSIGHTS_INSTRUMENTATIONKEY | {檢測金鑰} |
 
-2. 使用來自您所用 Application Insights 資源的檢測金鑰取代 {檢測金鑰}。
+1. 使用來自您所用 Application Insights 資源的檢測金鑰取代 {檢測金鑰}。
 
-2. 選取 [ **儲存**]。
+1. 選取 [ **儲存**]。
 
 1. 將下列 XML 新增至 App.config 檔案中，緊接在連接字串集合的後面。
 
@@ -340,11 +340,11 @@ WebJobs SDK 會在 [應用程式設定] 集合中尋找儲存體連接字串。 
    </appSettings>
    ```
 
-2. 使用來自您所用 Application Insights 資源的檢測金鑰取代 {檢測金鑰}。
+1. 使用來自您所用 Application Insights 資源的檢測金鑰取代 {檢測金鑰}。
 
    將此資料新增至 *App.config* 檔，可讓您在本機執行專案時測試 Application Insights 連線。 
 
-3. 儲存您的變更。
+1. 儲存您的變更。
 
 ### <a name="add-application-insights-logging-provider"></a>新增 Application Insights 記錄提供者
 
@@ -364,13 +364,13 @@ WebJobs SDK 會在 [應用程式設定] 集合中尋找儲存體連接字串。 
    Install-Package System.Configuration.ConfigurationManager -version 4.4.1
    ``` 
 
-2. 開啟 Program.cs 並新增組態管理員的 `using` 陳述式：
+1. 開啟 Program.cs 並新增組態管理員的 `using` 陳述式：
 
    ```csharp
    using System.Configuration;
    ```
 
-2. 使用下列程式碼取代 `Main` 方法中的程式碼：
+1. 使用下列程式碼取代 `Main` 方法中的程式碼：
 
    ```csharp
    using (var loggerFactory = new LoggerFactory())
@@ -406,7 +406,7 @@ WebJobs SDK 會在 [應用程式設定] 集合中尋找儲存體連接字串。 
 
 1. 開啟 [Azure 入口網站](https://portal.azure.com/)，然後移至 Application Insights 資源。
 
-2. 選取 [搜尋]。
+1. 選取 [搜尋]。
 
    ![選取搜尋](./media/webjobs-sdk-get-started/select-search.png)
 
@@ -414,7 +414,7 @@ WebJobs SDK 會在 [應用程式設定] 集合中尋找儲存體連接字串。 
 
    ![Application Insights 中的記錄](./media/webjobs-sdk-get-started/logs-in-ai.png)
 
-3. 關閉主控台視窗。
+1. 關閉主控台視窗。
 
 ## <a name="deploy-as-a-webjob"></a>部署為 WebJob
 
@@ -444,7 +444,7 @@ WebJobs SDK 會在 [應用程式設定] 集合中尋找儲存體連接字串。 
 
 1. 使用 [伺服器總管] 建立佇列訊息，做法如[稍早](#trigger-the-function)一樣，但輸入 Hello Azure!。
 
-7. 在 Visual Studio 中重新整理 [佇列] 頁面，而新訊息會因為在 Azure App Service 中執行的函式進行處理而消失。
+1. 在 Visual Studio 中重新整理 [佇列] 頁面，而新訊息會因為在 Azure App Service 中執行的函式進行處理而消失。
 
    > [!TIP]
    > 當您在 Azure 中測試時，使用[開發模式](webjobs-sdk-how-to.md#jobhost-development-settings)以確保立即叫用佇列觸發程序函式，並且避免因[佇列輪詢指數輪詢](../azure-functions/functions-bindings-storage-queue.md#trigger---polling-algorithm)所造成的延遲。
@@ -453,7 +453,7 @@ WebJobs SDK 會在 [應用程式設定] 集合中尋找儲存體連接字串。 
 
 1. 開啟 [Azure 入口網站](https://portal.azure.com/)，然後移至 Application Insights 資源。
 
-2. 選取 [搜尋]。
+1. 選取 [搜尋]。
 
 1. 如果沒看到 Hello Azure! 訊息，請選取每隔幾分鐘定期 [重新整理]。
 
@@ -477,19 +477,19 @@ WebJobs SDK 會在 [應用程式設定] 集合中尋找儲存體連接字串。 
 
    在此程式碼中，`queueTrigger` 是[繫結運算式](../azure-functions/functions-triggers-bindings.md#binding-expressions-and-patterns)，這表示它會在執行階段解析成不同的值。  在執行階段，它會有佇列訊息的內容。
 
-2. 新增 `using`：
+1. 新增 `using`：
 
    ```cs
    using System.IO;
    ```
 
-3. 在儲存體帳戶中建立 Blob 容器。
+1. 在儲存體帳戶中建立 Blob 容器。
 
    a. 在 [伺服器總管] 中，展開您儲存體帳戶的節點，以滑鼠右鍵按一下 [Blob]，然後選取 [建立 Blob 容器]。
 
    b. 在 [建立 Blob 容器] 對話方塊中，輸入 container 作為容器名稱，然後按一下 [確定]。
 
-4. 將 Program.cs 檔案上傳至 Blob 容器。 (這個檔案在此作為範例；您可以上傳任何文字檔案，並使用檔案的名稱建立佇列訊息。)
+1. 將 Program.cs 檔案上傳至 Blob 容器。 (這個檔案在此作為範例；您可以上傳任何文字檔案，並使用檔案的名稱建立佇列訊息。)
 
    a. 在 [伺服器總管] 中，按兩下您建立之容器的節點。
 
@@ -499,11 +499,11 @@ WebJobs SDK 會在 [應用程式設定] 集合中尋找儲存體連接字串。 
 
    c. 尋找並選取 Program.cs，然後選取 [確定]。
 
-5. 以 Program.cs 作為訊息文字，在您稍早建立的佇列中建立佇列訊息。
+1. 以 Program.cs 作為訊息文字，在您稍早建立的佇列中建立佇列訊息。
 
    ![佇列訊息 Program.cs](./media/webjobs-sdk-get-started/queue-msg-program-cs.png)
 
-6. 執行專案。
+1. 執行專案。
 
    佇列訊息會觸發函式，然後讀取 blob 並且記錄其長度。 主控台輸出如下所示：
 
@@ -535,9 +535,9 @@ WebJobs SDK 會在 [應用程式設定] 集合中尋找儲存體連接字串。 
    }
    ```
 
-5. 以 Program.cs 作為訊息文字，建立另一則佇列訊息。
+1. 以 Program.cs 作為訊息文字，建立另一則佇列訊息。
 
-6. 執行專案。
+1. 執行專案。
 
    佇列訊息會觸發函式，然後讀取 blob、記錄其長度，然後建立新的 Blob。 主控台輸出相同，但是當您移至 blob 容器視窗並選取 [重新整理] 時，您會看到名為 copy-Program.cs 的新 blob。
 

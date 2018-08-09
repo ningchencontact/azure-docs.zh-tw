@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: de33b4618eb31707d324098e894682dd254c8ee4
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: e907a1f5ad8e75e018149e53ae0c2f9faff10a89
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358366"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493100"
 ---
 # <a name="improve-app-with-batch-test"></a>使用批次測試來改善應用程式
 
@@ -228,7 +228,7 @@ ms.locfileid: "39358366"
 
 ## <a name="clean-up-resources"></a>清除資源
 
-當不再需要 LUIS 應用程式時，請將其刪除。 選取左上方功能表中的 [我的應用程式]。 選取應用程式清單中應用程式名稱右邊的省略符號 **...**，然後選取 [刪除]。 在 [Delete app?] \(刪除應用程式?\) 快顯對話方塊上，選取 [Ok] \(確定\)。
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

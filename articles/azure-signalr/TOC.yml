@@ -23,7 +23,7 @@
     - name: SignalR 藍圖
       href: 'https://github.com/aspnet/Home/wiki/Roadmap'
     - name: 價格
-      href: 'https://azure.microsoft.com'
+      href: 'https://azure.microsoft.com/pricing/details/signalr-service/'
     - name: 影片
       href: 'https://www.youtube.com/results?search_query=Azure+SignalR+Core'
     - name: ASP.NET 論壇

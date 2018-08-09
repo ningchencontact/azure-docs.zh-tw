@@ -2,26 +2,20 @@
 title: 如何在 Azure 入口網站中建立、管理或刪除儲存體帳戶 | Microsoft Docs
 description: 在 Azure 入口網站中建立新的儲存體帳戶、管理帳戶存取金鑰，或刪除儲存體帳戶。 了解標準和進階儲存體帳戶。
 services: storage
-documentationcenter: ''
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 87c37da0-6cc6-4d88-a330-ef2896a1531d
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 f1_keywords:
 - sql13.swb.windowsazurestorage.connect.f1
 ms.date: 10/11/2017
 ms.author: tamram
-ms.openlocfilehash: ce561c61d25946a508df3e92c461f1c8e889a07e
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.component: common
+ms.openlocfilehash: 980053adc89cc121f3218233d521c8db4f075eb7
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32776709"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523643"
 ---
 # <a name="about-azure-storage-accounts"></a>關於 Azure 儲存體帳戶
 
@@ -48,17 +42,17 @@ Azure 儲存體帳戶提供唯一命名空間來儲存及存取您的 Azure 儲�
 
 例如，如果您的儲存體帳戶名為 *mystorageaccount*，則儲存體帳戶的預設端點將是：
 
-* Blob 服務：http://*mystorageaccount*.blob.core.windows.net
-* 表格服務：http://*mystorageaccount*.table.core.windows.net
-* 佇列服務：http://*mystorageaccount*.queue.core.windows.net
-* 檔案服務：http://*mystorageaccount.file.core.windows.net*.file.core.windows.net
+* Blob 服務： http://*mystorageaccount*.blob.core.windows.net
+* 表格服務： http://*mystorageaccount*.table.core.windows.net
+* 佇列服務： http://*mystorageaccount*.queue.core.windows.net
+* 檔案服務： http://*mystorageaccount.file.core.windows.net*.file.core.windows.net
 
 > [!NOTE]
 > Blob 儲存體帳戶只會公開 Blob 服務端點。
 > 
 > 
 
-用以存取儲存體帳戶中某物件的 URL，可藉由在端點後附加該物件在儲存體帳戶中的位置來建置。 例如，blob 位址可能會有如下格式︰http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*。
+用以存取儲存體帳戶中某物件的 URL，可藉由在端點後附加該物件在儲存體帳戶中的位置來建置。 例如，blob 位址可能會有如下格式︰ http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*。
 
 您也可以設定與儲存體帳戶搭配使用的自訂網域名稱。 如需詳細資訊，請參閱[針對 Blob 儲存體端點設定自訂網域名稱](../blobs/storage-custom-domain-name.md)。 您也可以使用 PowerShell 加以設定。 如需詳細資訊，請參閱 [Set-AzureRmStorageAccount](/powershell/module/azurerm.storage/set-azurermstorageaccount) cmdlet。  
 

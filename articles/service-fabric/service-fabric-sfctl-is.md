@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: aa1e4d588f367351f0bed10370c7d67d50dd9927
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 53e49099fd3486d51f021528c9354cf32f4952d2
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763046"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492784"
 ---
 # <a name="sfctl-is"></a>sfctl is
 查詢命令，並將其傳送至基礎結構服務。
@@ -42,7 +42,7 @@ ms.locfileid: "34763046"
 | --- | --- |
 | --command [必要] | 要叫用的命令文字。 命令的內容與基礎結構有關。 |
 | --service-id | 基礎結構服務的識別。 <br><br> 這是不含 'fabric' URI 配置的基礎結構服務完整名稱。 只有當叢集中有多個基礎結構服務執行個體正在執行時，才需要提供此參數。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值：60。 |
+| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -50,7 +50,7 @@ ms.locfileid: "34763046"
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
-| --output -o | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。 |
+| --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
 
@@ -65,7 +65,7 @@ ms.locfileid: "34763046"
 | --- | --- |
 | --command [必要] | 要叫用的命令文字。 命令的內容與基礎結構有關。 |
 | --service-id | 基礎結構服務的識別。 <br><br> 這是不含 'fabric\:' URI 配置的基礎結構服務完整名稱。 只有當叢集中有多個基礎結構服務執行個體正在執行時，才需要提供此參數。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值：60。 |
+| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -73,9 +73,10 @@ ms.locfileid: "34763046"
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
-| --output -o | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。 |
+| --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+
 
 ## <a name="next-steps"></a>後續步驟
 - [設定](service-fabric-cli.md) Service Fabric CLI。

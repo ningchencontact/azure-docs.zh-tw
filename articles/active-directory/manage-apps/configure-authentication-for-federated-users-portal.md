@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: barbkess
-ms.openlocfilehash: b8d0a8026c140545a5029d2772fdcbc5090e7b00
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: f24be44b00f9c4e789e8d4797f6a0516dcfe940f
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363576"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494052"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>使用主領域探索原則為應用程式設定 Azure Active Directory 登入行為
 
@@ -261,6 +261,6 @@ Remove-AzureADApplicationPolicy -ObjectId <ObjectId of the Service Principal>  -
 Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 ```
 ## <a name="next-steps"></a>後續步驟
-- 如需如何在 Azure AD 中進行驗證的詳細資訊，請參閱 [Azure AD 的驗證案例](../develop/active-directory-authentication-scenarios.md)。
+- 如需如何在 Azure AD 中進行驗證的詳細資訊，請參閱 [Azure AD 的驗證案例](../develop/authentication-scenarios.md)。
 - 如需使用者單一登入的詳細資訊，請參閱[搭配 Azure Active Directory 的應用程式存取和單一登入](configure-single-sign-on-portal.md)。
-- 如需所有開發人員相關內容的概觀，請瀏覽 [Active Directory 開發人員指南](../develop/active-directory-developers-guide.md)。
+- 如需所有開發人員相關內容的概觀，請瀏覽 [Active Directory 開發人員指南](../develop/azure-ad-developers-guide.md)。

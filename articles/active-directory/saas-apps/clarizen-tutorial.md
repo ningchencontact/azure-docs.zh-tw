@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: jeedes
-ms.openlocfilehash: f1ce8d961666b6abf4d9abe4fd881023afae7a3d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 510bf383848725f3864c40af02c2b309370237f0
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218093"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39438081"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>教學課程：Azure Active Directory 與 Clarizen 整合
 
@@ -32,11 +32,11 @@ ms.locfileid: "36218093"
 本教學課程中的案例由二個主要工作組成：
 
 1. 從資源庫新增 Clarizen。
-2. 設定和測試 Azure AD 單一登入。
+1. 設定和測試 Azure AD 單一登入。
 
 若您想了解軟體即服務 (SaaS) 應用程式與 Azure AD 整合的更多詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要設定與 Clarizen 的 Azure AD 整合，您需要下列項目：
 
 - Azure AD 訂用帳戶
@@ -54,19 +54,19 @@ ms.locfileid: "36218093"
 
     ![Azure Active Directory 圖示][1]
 
-2. 按一下 [企業應用程式]。 然後按一下 [所有應用程式]。
+1. 按一下 [企業應用程式]。 然後按一下 [所有應用程式]。
 
     ![按一下 [企業應用程式] 和 [所有應用程式]][2]
 
-3. 按一下對話方塊頂端的 [新增] 按鈕。
+1. 按一下對話方塊頂端的 [新增] 按鈕。
 
     ![[新增] 按鈕][3]
 
-4. 在搜尋方塊中，輸入 **Clarizen**。
+1. 在搜尋方塊中，輸入 **Clarizen**。
 
     ![在搜尋方塊中，輸入「Clarizen」](./media/clarizen-tutorial/tutorial_clarizen_000.png)
 
-5. 在結果窗格中，選取 [Clarizen]，然後按一下 [新增] 以新增應用程式。
+1. 在結果窗格中，選取 [Clarizen]，然後按一下 [新增] 以新增應用程式。
 
     ![在結果窗格中選取 Clarizen](./media/clarizen-tutorial/tutorial_clarizen_0001.png)
 
@@ -78,10 +78,10 @@ ms.locfileid: "36218093"
 若要設定及測試與 Clarizen 搭配運作的 Azure AD 單一登入，完成下列建構元素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)**，讓您的使用者能夠使用此功能。
-2. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)**，以使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 Clarizen 測試使用者](#create-a-clarizen-test-user)**，使 Clarizen 中對應的 Britta Simon 連結到她在 Azure AD 中的代表項目。
-4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)**，讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[測試單一登入](#test-single-sign-on)** 驗證組態是否能運作。
+1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)**，以使用 Britta Simon 測試 Azure AD 單一登入。
+1. **[建立 Clarizen 測試使用者](#create-a-clarizen-test-user)**，使 Clarizen 中對應的 Britta Simon 連結到她在 Azure AD 中的代表項目。
+1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)**，讓 Britta Simon 能夠使用 Azure AD 單一登入。
+1. **[測試單一登入](#test-single-sign-on)** 驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 在 Azure 入口網站中啟用 Azure AD 單一登入，並在您的 Clarizen 應用程式中設定單一登入。
@@ -90,11 +90,11 @@ ms.locfileid: "36218093"
 
     ![按一下 [單一登入]][4]
 
-2. 在 [單一登入] 對話方塊上，選取 [SAML 登入] 做為 [模式]，以啟用單一登入。
+1. 在 [單一登入] 對話方塊上，選取 [SAML 登入] 做為 [模式]，以啟用單一登入。
 
     ![選取 [SAML 登入]](./media/clarizen-tutorial/tutorial_clarizen_01.png)
 
-3. 在 [Clarizen 網域及 URL] 區段上，執行下列步驟：
+1. 在 [Clarizen 網域及 URL] 區段上，執行下列步驟：
 
     ![識別碼和回覆 URL 方塊](./media/clarizen-tutorial/tutorial_clarizen_02.png)
 
@@ -105,43 +105,43 @@ ms.locfileid: "36218093"
     > [!NOTE]
     > 這些不是真正的值。 您必須使用實際的識別碼和回覆 URL。 在此建議您使用唯一的字串值做為識別碼。 若要取得實際的值，請連絡 [Clarizen 支援小組](https://success.clarizen.com/hc/en-us/requests/new)。
 
-4. 在 [SAML 簽署憑證] 區段上，按一下 [建立新憑證]。
+1. 在 [SAML 簽署憑證] 區段上，按一下 [建立新憑證]。
 
     ![按一下 [建立新的憑證]](./media/clarizen-tutorial/tutorial_clarizen_03.png)    
 
-5. 在 [建立新的憑證] 對話方塊中，按一下行事曆圖示並選取到期日。 然後按一下 [儲存] 。
+1. 在 [建立新的憑證] 對話方塊中，按一下行事曆圖示並選取到期日。 然後按一下 [儲存] 。
 
     ![選取並儲存到期日](./media/clarizen-tutorial/tutorial_general_300.png)
 
-6. 在 [SAML 簽署憑證] 區段上，選取 [啟用新憑證]，然後按一下 [儲存]。
+1. 在 [SAML 簽署憑證] 區段上，選取 [啟用新憑證]，然後按一下 [儲存]。
 
     ![選取核取方塊以啟用新憑證](./media/clarizen-tutorial/tutorial_clarizen_04.png)
 
-7. 在 [變換憑證] 對話方塊中，按一下 [確定]。
+1. 在 [變換憑證] 對話方塊中，按一下 [確定]。
 
     ![按一下 [確定] 確認您想要啟用憑證](./media/clarizen-tutorial/tutorial_general_400.png)
 
-8. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
+1. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
     ![按一下 [憑證 (Base64)] 以開始下載](./media/clarizen-tutorial/tutorial_clarizen_05.png)
 
-9. 在 [Clarizen 組態] 區段上，按一下 [設定 Clarizen] 以開啟 [設定登入] 視窗。
+1. 在 [Clarizen 組態] 區段上，按一下 [設定 Clarizen] 以開啟 [設定登入] 視窗。
 
     ![按一下 [設定 Clarizen]](./media/clarizen-tutorial/tutorial_clarizen_06.png)
 
     ![[登入設定] 視窗，包括檔案和 URL](./media/clarizen-tutorial/tutorial_clarizen_07.png)
 
-10. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Clarizen 公司網站。
+1. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Clarizen 公司網站。
 
-11. 按一下您的使用者名稱，然後按一下 [設定]。
+1. 按一下您的使用者名稱，然後按一下 [設定]。
 
     ![按一下您的使用者名稱底下的 [設定]](./media/clarizen-tutorial/tutorial_clarizen_001.png "設定")
 
-12. 按一下 [全域設定] 索引標籤。然後，在 [同盟驗證] 旁邊，按一下 [編輯]。
+1. 按一下 [全域設定] 索引標籤。然後，在 [同盟驗證] 旁邊，按一下 [編輯]。
 
     ![[全域設定] 索引標籤](./media/clarizen-tutorial/tutorial_clarizen_002.png "全域設定")
 
-13. 在 [同盟驗證] 對話方塊中，執行下列步驟：
+1. 在 [同盟驗證] 對話方塊中，執行下列步驟：
 
     ![[同盟驗證] 對話方塊](./media/clarizen-tutorial/tutorial_clarizen_003.png "同盟驗證")
 
@@ -166,15 +166,15 @@ ms.locfileid: "36218093"
 
     ![Azure Active Directory 圖示](./media/clarizen-tutorial/create_aaduser_01.png)
 
-2. 按一下 [使用者和群組]，然後按一下 [所有使用者] 以顯示使用者清單。
+1. 按一下 [使用者和群組]，然後按一下 [所有使用者] 以顯示使用者清單。
 
     ![按一下 [使用者和群組] 與 [所有使用者]](./media/clarizen-tutorial/create_aaduser_02.png)
 
-3. 在對話方塊的頂端，按一下 [新增] 以開啟 [使用者] 對話方塊。
+1. 在對話方塊的頂端，按一下 [新增] 以開啟 [使用者] 對話方塊。
 
     ![[新增] 按鈕](./media/clarizen-tutorial/create_aaduser_03.png)
 
-4. 在 [使用者] 對話方塊中，執行下列步驟：
+1. 在 [使用者] 對話方塊中，執行下列步驟：
 
     ![在 [使用者] 對話方塊中填入名稱、電子郵件地址和密碼](./media/clarizen-tutorial/create_aaduser_04.png)
 
@@ -196,15 +196,15 @@ ms.locfileid: "36218093"
 
 1. 以系統管理員身分登入您的 Clarizen 公司網站。
 
-2. 按一下 [人員] 。
+1. 按一下 [人員] 。
 
     ![按一下 [人員]](./media/clarizen-tutorial/create_aaduser_001.png "人員")
 
-3. 按一下 [邀請使用者] 。
+1. 按一下 [邀請使用者] 。
 
     ![[邀請使用者] 按鈕](./media/clarizen-tutorial/create_aaduser_002.png "邀請使用者")
 
-4. 在 [邀請人員] 對話方塊中，執行下列步驟：
+1. 在 [邀請人員] 對話方塊中，執行下列步驟：
 
     ![[邀請人員] 對話方塊](./media/clarizen-tutorial/create_aaduser_003.png "邀請人員")
 
@@ -224,23 +224,23 @@ ms.locfileid: "36218093"
 
     ![按一下 [企業應用程式] 和 [所有應用程式]][201]
 
-2. 在應用程式清單中，選取 [Clarizen]。
+1. 在應用程式清單中，選取 [Clarizen]。
 
     ![在清單中選取 Clarizen](./media/clarizen-tutorial/tutorial_clarizen_50.png)
 
-3. 在左窗格中，按一下 [使用者和群組]。
+1. 在左窗格中，按一下 [使用者和群組]。
 
     ![按一下 [使用者和群組]][202]
 
-4. 按一下 [新增]  按鈕。 然後，在 [新增指派] 對話方塊中，選取 [使用者和群組]。
+1. 按一下 [新增]  按鈕。 然後，在 [新增指派] 對話方塊中，選取 [使用者和群組]。
 
     ![[新增] 按鈕和 [新增指派] 對話方塊][203]
 
-5. 在 [使用者和群組] 對話方塊中，在使用者清單中選取 [Britta Simon]。
+1. 在 [使用者和群組] 對話方塊中，在使用者清單中選取 [Britta Simon]。
 
-6. 在 [使用者和群組] 對話方塊中，按一下 [選取] 按鈕。
+1. 在 [使用者和群組] 對話方塊中，按一下 [選取] 按鈕。
 
-7. 在 [新增指派] 對話方塊中，按一下 [指派] 按鈕。
+1. 在 [新增指派] 對話方塊中，按一下 [指派] 按鈕。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 使用存取面板來測試您的 Azure AD 單一登入組態。
