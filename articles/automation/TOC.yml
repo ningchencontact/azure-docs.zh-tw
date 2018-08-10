@@ -131,13 +131,13 @@
           href: automation-linux-hrw-install.md
         - name: 在混合式 Runbook 背景工作上啟動 Runbook
           href: automation-hrw-run-runbooks.md
-    - name: 部署組態管理 (DSC)
+    - name: State Configuration
       items:
-        - name: 期望狀態組態 (DSC) 概觀
+        - name: State Configuration 概觀
           href: automation-dsc-overview.md
         - name: 開始使用
           href: automation-dsc-getting-started.md
-        - name: 使用 Azure 自動化將伺服器設定為所需狀態並管理漂移
+        - name: 將伺服器設定為所需狀態並透過 State Configuration 管理漂移
           href: tutorial-configure-servers-desired-state.md
         - name: 上架管理機器
           href: automation-dsc-onboarding.md
@@ -145,7 +145,7 @@
           href: automation-dsc-compile.md
         - name: 使用 Chocolatey 持續進行部署
           href: automation-dsc-cd-chocolatey.md
-        - name: 將 Azure Automation DSC 報表資料轉送到 OMS Log Analytics
+        - name: 將 State Configuration 報告資料轉送至 Log Analytics
           href: automation-dsc-diagnostics.md
     - name: 管理共用的資源
       items:

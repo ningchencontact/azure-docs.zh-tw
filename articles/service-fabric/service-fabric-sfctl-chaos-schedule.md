@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: 0d09338f71d71d07ab0e037d4736cfaa1f3cff85
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 176b04b9bb16b5f183298c75f16bceb5e885e293
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763933"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492235"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 取得並設定 chaos 排程。
@@ -36,13 +36,19 @@ ms.locfileid: "34763933"
 
 取得使用中的 Chaos 排程版本，以及定義 Chaos 執行時間及執行方式的 Chaos 排程。
 
+### <a name="arguments"></a>引數
+
+|引數|說明|
+| --- | --- |
+| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
+
 ### <a name="global-arguments"></a>全域引數
 
 |引數|說明|
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
-| --output -o | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。 |
+| --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
 
@@ -56,9 +62,10 @@ ms.locfileid: "34763933"
 |引數|說明|
 | --- | --- |
 | --chaos-parameters-dictionary | 針對字串名稱對應於作業所要使用的 ChaosParameters，代表對應關係的 JSON 編碼清單。 |
-| --expiry-date-utc | 何時該停止使用排程來排定 Chaos 的日期和時間。  預設值：9999-12-31T23\:59\:59.999Z。 |
+| --expiry-date-utc | 何時該停止使用排程來排定 Chaos 的日期和時間。  預設值\: 9999-12-31T23\:59\:59.999Z。 |
 | --jobs | 代表何時該執行 Chaos 及要搭配哪些參數來執行 Chaos 的 ChaosScheduleJobs JSON 編碼清單。 |
-| --start-date-utc | 何時該開始使用排程來排定 Chaos 的日期和時間。  預設值：1601-01-01T00\:00\:00.000Z。 |
+| --start-date-utc | 何時該開始使用排程來排定 Chaos 的日期和時間。  預設值\: 1601-01-01T00\:00\:00.000Z。 |
+| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 | --version | 排程的版本號碼。 |
 
 ### <a name="global-arguments"></a>全域引數
@@ -67,7 +74,7 @@ ms.locfileid: "34763933"
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
-| --output -o | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。 |
+| --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
 

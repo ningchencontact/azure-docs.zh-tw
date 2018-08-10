@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: d7066b58330d35e5dba66cfe6ed5cfaddff4b68a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 962bc996a86340bb10a28b90ef6340a98c5d9275
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778057"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39430601"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>企業推送架構指引
 當代的企業正逐漸朝著為使用者 (外部) 或員工 (內部) 建立行動應用程式的方向邁進。 他們擁有現成的後端系統 (無論是大型主機還是某些 LoB 應用程式)，而這些系統必須整合到行動應用程式架構中。 本指南會討論如何以最佳方式進行整合，並針對常見案例建議適用的可行方案。
@@ -40,23 +40,23 @@ ms.locfileid: "33778057"
 1. 後端系統 (LoB/舊版系統)
    * 建立服務匯流排主題
    * 傳送訊息
-2. 行動後端
+1. 行動後端
    * 建立服務訂閱
    * 接收訊息 (來自後端系統)
    * 將通知傳送給用戶端 (透過 Azure 通知中樞)
-3. 行動應用程式
+1. 行動應用程式
    * 接收及顯示通知
 
 ### <a name="benefits"></a>優點：
 1. 接收器 (行動應用程式/透過通知中樞傳送的服務) 與傳送器 (後端系統) 的解離可讓您在變更少量架構的情況下整合額外的後端系統。
-2. 它也能促成讓多個行動應用程式接收來自一或多個後端系統事件的案例。  
+1. 它也能促成讓多個行動應用程式接收來自一或多個後端系統事件的案例。  
 
 ## <a name="sample"></a>範例：
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 完成下列教學課程以熟悉概念，以及常用的建立和設定步驟：
 
 1. [服務匯流排發佈/訂用帳戶程式撰寫]：此教學課程詳細說明如何使用服務匯流排主題/訂用帳戶、如何建立命名空間來包含主題/訂用帳戶、如何傳送和接收來自它們的訊息。
-2. [通知中樞 - Windows Universal 教學課程]：此教學課程說明如何設定 Windows 市集應用程式，以及使用通知中樞來註冊和接收通知。
+1. [通知中樞 - Windows Universal 教學課程]：此教學課程說明如何設定 Windows 市集應用程式，以及使用通知中樞來註冊和接收通知。
 
 ### <a name="sample-code"></a>範例程式碼
 如需完整範例程式碼，請參閱 [通知中樞範例]。 其可劃分為三個元件：
@@ -124,7 +124,7 @@ ms.locfileid: "33778057"
                 System.Threading.Thread.Sleep(new TimeSpan(0, 0, 10));
             }
         }
-2. **ReceiveAndSendNotification**
+1. **ReceiveAndSendNotification**
    
     a. 本專案使用 *WindowsAzure.ServiceBus* 和 *Microsoft.Web.WebJobs.Publish* NuGet 套件，並以[服務匯流排發佈/訂用帳戶程式撰寫]為基礎。
    
@@ -217,7 +217,7 @@ ms.locfileid: "33778057"
     g. 將作業設定為 [連續執行]，如此一來，當您登入 [Azure 入口網站]時，應能看見與以下範例相似的內容：
    
     ![][4]
-3. **EnterprisePushMobileApp**
+1. **EnterprisePushMobileApp**
    
     a. 此應用程式為 Windows 市集應用程式，它能接收行動後端中執行的 WebJob 所發出的快顯通知，並加以顯示。 此程式碼是以[通知中樞 - Windows Universal 教學課程]為基礎。  
    
@@ -243,11 +243,11 @@ ms.locfileid: "33778057"
 
 ### <a name="running-sample"></a>執行範例：
 1. 確認 WebJob 已成功執行，並已排定連續執行。
-2. 執行 **EnterprisePushMobileApp，這將會啟動 Windows 市集應用程式。
-3. 執行 **EnterprisePushBackendSystem** 主控台應用程式來模擬 LoB 後端並開始傳送訊息，您應該會看見與以下影像類似的快顯通知：
+1. 執行 **EnterprisePushMobileApp，這將會啟動 Windows 市集應用程式。
+1. 執行 **EnterprisePushBackendSystem** 主控台應用程式來模擬 LoB 後端並開始傳送訊息，您應該會看見與以下影像類似的快顯通知：
    
     ![][5]
-4. 這些訊息最初是傳送至服務匯流排主題，這些主題是受到您 WebJob 中服務匯流排訂用帳戶所監視。 待服務匯流排主題接收到訊息後，它會建立通知並傳送給行動應用程式。 在 [Azure 入口網站]中，當您前往 WebJob 的 [記錄] 連結時，可以瀏覽 WebJob 記錄來確認處理狀態：
+1. 這些訊息最初是傳送至服務匯流排主題，這些主題是受到您 WebJob 中服務匯流排訂用帳戶所監視。 待服務匯流排主題接收到訊息後，它會建立通知並傳送給行動應用程式。 在 [Azure 入口網站]中，當您前往 WebJob 的 [記錄] 連結時，可以瀏覽 WebJob 記錄來確認處理狀態：
    
     ![][6]
 

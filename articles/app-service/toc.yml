@@ -25,6 +25,8 @@
       href: app-service-web-get-started-java.md
     - name: 建立靜態 HTML 網站
       href: app-service-web-get-started-html.md
+    - name: 執行自訂 Windows 容器
+      href: app-service-web-get-started-windows-container.md
 - name: 教學課程
   items:
     - name: App with DB

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: gokuma
-ms.openlocfilehash: 8d633a1d3d56f33aad24ca15aea08b5180a6be32
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: ce73d1ef5425ee2fe66655571a6d6bbbff372af5
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39368536"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502806"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>您可以在 Windows Data Science Virtual Machine 上做的十件事
 
@@ -807,11 +807,11 @@ Azure Cosmos DB 是雲端中的一種 NoSQL 資料庫。 它可讓您使用 JSON
 1. 已經在 DSVM 上安裝 Azure Cosmos DB Python SDK (從命令提示字元執行 ```pip install pydocumentdb --upgrade``` 來進行更新)
 2. 從 [Azure 入口網站](https://portal.azure.com)建立 Azure Cosmos DB 帳戶和資料庫
 3. 從[這裡](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d)下載「Azure Cosmos DB 移轉工具」並解壓縮至您所選的目錄
-4. 對移轉工具使用下列命令參數 (Cosmos DB 移轉工具安裝目錄中的 dtui.exe)，將儲存在[公用 Blob](https://cahandson.blob.core.windows.net/samples/volcano.json) 的 JSON 資料 (Volcano 資料) 匯入 Cosmos DB。 輸入下面的來源和目標位置參數：
+4. 對移轉工具使用下列命令參數 (Cosmos DB 移轉工具安裝目錄中的 dtui.exe)，將儲存在 [公用 Blob](https://cahandson.blob.core.windows.net/samples/volcano.json) 的 JSON 資料 (Volcano 資料) 匯入 Cosmos DB。 輸入下面的來源和目標位置參數：
    
-    /s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1
+    `/s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1`
 
-匯入資料之後，您即可移至 Jupyter 並開啟標題為 *DocumentDBSample* 且包含 Python 程式碼的筆記本，以存取 Azure Cosmos DB 及進行一些基本查詢。 如需深入了解 Cosmos DB，請參閱服務[文件頁面](https://docs.microsoft.com/azure/cosmos-db/)。
+匯入資料之後，您即可移至 Jupyter 並開啟標題為 *DocumentDBSample*  且包含 Python 程式碼的筆記本，以存取 Azure Cosmos DB 及進行一些基本查詢。 如需深入了解 Cosmos DB，請參閱服務 [文件頁面](https://docs.microsoft.com/azure/cosmos-db/)。
 
 ## <a name="8-build-reports-and-dashboard-using-the-power-bi-desktop"></a>8.使用 Power BI Desktop 建立報表和儀表板
 您可以在 Power BI 中將前述 Cosmos DB 範例中的 Volcano JSON 檔案視覺化，以深入了解資料。 在 [Power BI 文章](../../cosmos-db/powerbi-visualize.md)中可找到詳細的步驟。 高階步驟如下：

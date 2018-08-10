@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: feb90f599a07275584cc300b371e8159d47e2ced
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: d22b86ad33db600eb5273e3ab09e71a1b1fd527b
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364337"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577491"
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>將 AD FS 內部部署應用程式移轉至 Azure AD 
 
@@ -98,7 +98,7 @@ AD FS 與 Azure AD 的運作方式相似，所以設定信任、登入及登出 
 |應用程式組態元素|說明|AD FS 組態中的位置|Azure AD 組態中的相對應位置|SAML 權杖元素|
 |-----|-----|-----|-----|-----|
 |應用程式登入 URL|此應用程式的登入頁面 URL。 在 SP 所起始的 SAML 流程中，使用者會前往此處以登入應用程式。|N/A|在 Azure AD 中，登入 URL 會在 Azure 入口網站內應用程式的 [單一登入] 屬性中設定為登入 URL。</br></br>(您可能必須選取 [顯示進階 URL 設定] 才能看到登入 URL)。|N/A|
-|應用程式回覆 URL|以識別提供者 (IdP) 觀點看待的應用程式 URL。 使用者在 IdP 登入後，使用者和權杖會被送往此 URL。</br></br> 有時候，這稱為「SAML 判斷提示消費者端點」。|可在應用程式的 AD FS 信賴憑證者信任中找到此項目。 以滑鼠右鍵按一下信賴憑證者，選取 [屬性]，然後選取 [端點] 索引標籤。|在 Azure AD 中，此回覆 URL 會在 Azure 入口網站內應用程式的 [單一登入] 屬性中設定為回覆 URL。</br></br>(您可能必須選取 [顯示進階 URL 設定] 才能看到回覆 URL)。|對應至 SAML 權杖中的 [目的地] 元素。</br></br> 值範例： https://contoso.my.salesforce.com|
+|應用程式回覆 URL|以識別提供者 (IdP) 觀點看待的應用程式 URL。 使用者在 IdP 登入後，使用者和權杖會被送往此 URL。</br></br> 有時候，這稱為「SAML 判斷提示消費者端點」。|可在應用程式的 AD FS 信賴憑證者信任中找到此項目。 以滑鼠右鍵按一下信賴憑證者，選取 [屬性]，然後選取 [端點] 索引標籤。|在 Azure AD 中，此回覆 URL 會在 Azure 入口網站內應用程式的 [單一登入] 屬性中設定為回覆 URL。</br></br>(您可能必須選取 [顯示進階 URL 設定] 才能看到回覆 URL)。|對應至 SAML 權杖中的 [目的地] 元素。</br></br> 值範例：https://contoso.my.salesforce.com|
 |應用程式登出 URL|當使用者登出某個應用程式時，該 URL 會收到「登出清除」要求，也就是要從 IdP 讓使用者登入的其他所有應用程式登出。|可在 AD FS 管理的 [信賴憑證者信任] 下找到此項目。 以滑鼠右鍵按一下信賴憑證者，選取 [屬性]，然後選取 [端點] 索引標籤。|N/A。 Azure AD 不支援「單一登出」(表示登出所有的應用程式)。 它只會讓使用者登出 Azure AD 本身。|N/A|
 |應用程式識別碼|以 IdP 觀點看待的應用程式識別碼。 登入 URL 值經常用於此識別碼 (但並不一定)。</br></br> 有時候，應用程式會將此稱為「實體識別碼」。|在 AD FS 中，這是信賴憑證者識別碼。 以滑鼠右鍵按一下信賴憑證者信任，選取 [屬性]，然後選取 [識別碼] 索引標籤。|在 Azure AD 中，此識別碼會在 Azure 入口網站內應用程式的 [單一登入] 屬性中設定為 [網域及 URL] 之下的識別碼。 (您可能必須選取 [顯示進階 URL 設定] 核取方塊)。|對應到 SAML 權杖中的 [對象] 元素。|
 |應用程式同盟中繼資料|應用程式的同盟中繼資料位置。 IdP 會使用此位置來自動更新特定組態設定，例如端點或加密憑證。|在應用程式的 AD FS 信賴憑證者信任中尋找應用程式的同盟中繼資料 URL。 以滑鼠右鍵按一下信任，選取 [屬性]，然後選取 [監視] 索引標籤。|N/A。 Azure AD 不支援直接取用應用程式同盟中繼資料。|N/A|
@@ -124,7 +124,7 @@ AD FS 與 Azure AD 的運作方式相似，所以設定信任、登入及登出 
 |IdP </br>登出 </br>URL|以應用程式觀點看待的 IdP 登出 URL (使用者選擇登出應用程式時會被重新導向)。|在 AD FS 中，登出 URL 與登入 URL 相同，或是附加 “wa=wsignout1.0” 的相同 URL。 例如：https&#58;//fs.contoso.com/adfs/ls/?wa=wsignout1.0|Azure AD 的對應值取決於應用程式是否支援 SAML 2.0 登出。</br></br>如果應用程式支援 SAML 登出，此值會遵循此模式，其中 {tenant-id} 會取代為租用戶識別碼。 此項目即為 Azure 入口網站中 [Azure Active Directory] > [屬性] 下的 [目錄識別碼]：https&#58;//login.microsoftonline.com/{tenant-id}/saml2</br></br>如果應用程式不支援 SAML 登出：https&#58;//login.microsoftonline.com/common/wsfederation?wa=wsignout1.0|
 |token </br>簽署 </br>憑證|IdP 使用其私密金鑰來簽署已發行權杖的憑證。 它會驗證權杖是否來自應用程式設定要信任的相同 IdP。|在 AD FS 管理的 [憑證] 之下可找到 AD FS 權杖簽署憑證。|在 Azure AD 中，您可以在 Azure 入口網站內應用程式的 [單一登入] 屬性中 [SAML 簽署憑證] 標頭之下找到權杖簽署憑證。 您可以在該處下載憑證以便上傳至應用程式。</br></br> 如果應用程式有多個憑證，您可以在同盟中繼資料 XML 檔案中找到所有的憑證。|
 |識別碼/</br>「簽發者」|以應用程式觀點看待的 IdP 識別碼 (有時稱為「簽發者識別碼」)。</br></br>在 SAML 權杖中，此值會顯示為 [簽發者] 元素。|AD FS 的識別碼通常是 AD FS 管理中 [服務] > [編輯同盟服務屬性] 之下的同盟服務識別碼。 例如：http&#58;//fs.contoso.com/adfs/services/trust|Azure AD 的對應值會遵循此模式，其中 {tenant-id} 的值會取代為租用戶識別碼。 此項目即為 Azure 入口網站中 [Azure Active Directory] > [屬性] 下的 [目錄識別碼]：https&#58;//sts.windows.net/{tenant-id}/|
-|IdP </br>同盟 </br>中繼資料|IdP 的公開可用同盟中繼資料位置。 (有些應用程式會使用同盟中繼資料，作為系統管理員個別設定 URL、識別碼和權杖簽署憑證的替代方式)。|在 AD FS 管理的 [服務] > [端點] > [中繼資料] > [類型: 同盟中繼資料] 之下尋找 AD FS 同盟中繼資料 URL。 例如：https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|Azure AD 的對應值會遵循此模式 https&#58;//login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml。 {TenantDomainName} 的值會取代為您的租用戶名稱 (格式為 “contoso.onmicrosoft.com”)。 </br></br>如需詳細資訊，請參閱[同盟中繼資料](../develop/active-directory-federation-metadata.md)。
+|IdP </br>同盟 </br>中繼資料|IdP 的公開可用同盟中繼資料位置。 (有些應用程式會使用同盟中繼資料，作為系統管理員個別設定 URL、識別碼和權杖簽署憑證的替代方式)。|在 AD FS 管理的 [服務] > [端點] > [中繼資料] > [類型: 同盟中繼資料] 之下尋找 AD FS 同盟中繼資料 URL。 例如：https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|Azure AD 的對應值會遵循此模式 https&#58;//login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml。 {TenantDomainName} 的值會取代為您的租用戶名稱 (格式為 “contoso.onmicrosoft.com”)。 </br></br>如需詳細資訊，請參閱[同盟中繼資料](../develop/azure-ad-federation-metadata.md)。
 
 ## <a name="migrating-saas-apps"></a>移轉 SaaS 應用程式
 將 SaaS 應用程式從 AD FS 或其他識別提供者遷移至 Azure AD 目前是手動程序。 如需應用程式專屬的指引，請參閱 [Marketplace 中有關整合 SaaS 應用程式的教學課程清單](../saas-apps/tutorial-list.md)。

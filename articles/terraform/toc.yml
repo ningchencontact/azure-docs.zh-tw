@@ -43,3 +43,9 @@
       href: 'https://registry.terraform.io/modules/Azure'
     - name: Terraform 參考
       href: 'http://aka.ms/terraform'
+- name: 資源
+  items:
+    - name: Azure 與 Terraform
+      href: 'https://azure.microsoft.com/solutions/devops/terraform/'
+    - name: Azure 藍圖
+      href: 'https://azure.microsoft.com/roadmap/'

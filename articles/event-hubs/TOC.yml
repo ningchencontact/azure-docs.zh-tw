@@ -81,6 +81,10 @@
       href: event-hubs-dotnet-framework-getstarted-send.md
     - name: 使用 .NET Framework 接收事件
       href: event-hubs-dotnet-framework-getstarted-receive-eph.md
+    - name: 使用 Go 傳送事件
+      href: event-hubs-go-get-started-send.md
+    - name: 使用 Go 接收事件
+      href: event-hubs-go-get-started-receive-eph.md
     - name: 適用於 Apache Kafka 的事件中樞
       items:
         - name: 建立啟用 Apache kafka 的事件中樞

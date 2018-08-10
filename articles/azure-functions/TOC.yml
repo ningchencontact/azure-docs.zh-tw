@@ -171,6 +171,8 @@
           href: functions-how-to-use-azure-function-app-settings.md
         - name: 設定執行階段版本
           href: set-runtime-version.md
+        - name: 停用函式
+          href: disable-function.md
     - name: 監視
       href: functions-monitoring.md
     - name: 整合

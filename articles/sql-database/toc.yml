@@ -84,6 +84,8 @@
           href: sql-database-service-tiers-dtu.md
         - name: 資源限制
           href: sql-database-resource-limits.md
+        - name: 預付保留容量
+          href: sql-database-reserved-capacity.md
     - name: 邏輯伺服器
       items:
         - name: 建立和管理

@@ -216,9 +216,9 @@
           href: nested-virtualization.md
     - name: 管理成本
       items:
-        - name: 預付 VM - 保留執行個體
+        - name: 預付 VM - Azure 保留項目
           href: prepay-reserved-vm-instances.md
-        - name: 什麼是保留執行個體？
+        - name: 什麼是 Azure 保留項目？
           href: ../../billing/billing-save-compute-costs-reservations.md
         - name: VM 執行個體大小彈性
           href: reserved-vm-instance-size-flexibility.md

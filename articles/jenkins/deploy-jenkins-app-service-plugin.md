@@ -8,12 +8,12 @@ manager: jpconnock
 ms.service: devops
 ms.custom: jenkins
 ms.date: 07/31/2018
-ms.openlocfilehash: 1b01eb760fa36c9f0fb6180c12dc3e5c1bf9de6f
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: f54e4e8f64fe444f264b547d5af475c533c5723f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391481"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441675"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>使用 Jenkins 外掛程式來部署到 Azure App Service 
 
@@ -65,7 +65,7 @@ sudo apt-get install -y maven
 在於 Jenkins 中設定作業之前，您必須要有 Azure App Service 方案和 Web 應用程式，才能執行 Java 應用程式。
 
 
-1. 使用 `az appservice plan create` [Azure CLI 命令](/cli/azure/appservice/plan#az_appservice_plan_create)來建立搭配**免費**定價層的 Azure App Service 方案。 App Service 方案會定義用來裝載您應用程式的實體資源。 指派給 App Service 方案的所有應用程式會共用這些資源。 共用資源可協助您在裝載多個應用程式時節省成本。
+1. 使用 `az appservice plan create` [Azure CLI 命令](/cli/azure/appservice/plan#az-appservice-plan-create)來建立搭配**免費**定價層的 Azure App Service 方案。 App Service 方案會定義用來裝載您應用程式的實體資源。 指派給 App Service 方案的所有應用程式會共用這些資源。 共用資源可協助您在裝載多個應用程式時節省成本。
 2. 建立 Web 應用程式。 您可以使用 [Azure 入口網站](/azure/app-service-web/web-sites-configure) 或下列 `az` Azure CLI 命令：
     ```azurecli-interactive 
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
@@ -84,7 +84,7 @@ sudo apt-get install -y maven
 ### <a name="set-up-the-jenkins-job"></a>設定 Jenkins 作業
 
 1. 在 Jenkins 儀表板上建立新的**自由樣式**專案。
-2. 將 [Source Code Management] \(原始程式碼管理\) 欄位設定為使用您的[適用於 Azure 的簡單 Java Web 應用程式](https://github.com/azure-devops/javawebappsample)本機分支。 提供 [Repository URL] \(儲存機制 URL\) 值。 例如：http://github.com/&ltyour_ID>/javawebappsample。
+2. 將 [Source Code Management] \(原始程式碼管理\) 欄位設定為使用您的[適用於 Azure 的簡單 Java Web 應用程式](https://github.com/azure-devops/javawebappsample)本機分支。 提供 [Repository URL] \(儲存機制 URL\) 值。 例如： http://github.com/&ltyour_ID>/javawebappsample。
 3. 使用 Maven 藉由新增**執行 shell** 命令來新增一個建置專案的步驟。 在此範例中，我們需要一個額外的命令來將目標資料夾中的 \*.war 檔案重新命名為 **ROOT.war**：   
     ```bash
     mvn clean package
@@ -221,7 +221,7 @@ Linux 上的 Web Apps 也支援 Git 和 FTP 等傳統部署方法，但僅適用
 
 3. 移至 http://&lt;your_app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>。 以任意數字取代 &lt;x> 和 &lt;y> 來得出 x + y 的總和。
     
-## <a name="troubleshooting-the-jenkins-plugin"></a>針對 Jenkins 外掛程式進行疑難排解
+## <a name="troubleshooting-the-jenkins-plugin"></a>對 Jenkins 外掛程式進行疑難排解
 
 如果您遇到任何有關 Jenkins 外掛程式的錯誤，請在 [Jenkins JIRA](https://issues.jenkins-ci.org/) 的特定元件中提交問題。
 

@@ -96,6 +96,8 @@
           href: stream-analytics-monitor-and-manage-jobs-use-powershell.md
         - name: 監視作業 Azure .Net SDK
           href: stream-analytics-monitor-jobs.md
+        - name: 監視作業 - Visual Studio
+          href: stream-analytics-monitor-jobs-use-vs.md
     - name: 調整
       items:
         - name: 隨著串流單位縮放
@@ -117,8 +119,10 @@
       items:
         - name: 安裝工具
           href: stream-analytics-tools-for-visual-studio-install.md
-        - name: 開發雲端作業
-          href: stream-analytics-tools-for-visual-studio.md
+        - name: 在本機測試作業
+          href: stream-analytics-vs-tools-local-run.md
+        - name: 檢視 Visual Studio 中的作業
+          href: stream-analytics-vs-tools.md
         - name: 開發 Edge 作業
           href: stream-analytics-tools-for-visual-studio-edge-jobs.md
         - name: 設定 CI/CD 管線

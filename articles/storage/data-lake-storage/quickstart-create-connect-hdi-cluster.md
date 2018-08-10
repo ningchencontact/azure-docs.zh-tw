@@ -3,23 +3,20 @@ title: Hadoop、Spark、Kafka、HBase 或 R 伺服器的叢集設定 - Azure HDI
 description: 從瀏覽器、Azure CLI、Azure PowerShell、REST 或 SDK 設定 HDInsight 的 Hadoop、Kafka、Spark、HBase、R 伺服器或 Storm 叢集。
 keywords: hadoop 叢集設定、kafka 叢集設定、spark 叢集設定、什麼是 hadoop 中的叢集
 services: storage
-documentationcenter: ''
 author: jamesbak
-manager: jahogg
 tags: azure-portal
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 725e79596a919cba4214dba8b3cc86e9bb48cc79
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: e0816e8609ba1ab0ef1b4f685731339378fee844
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136633"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525581"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>快速入門：在 HDInsight 中設定叢集
 

@@ -2,18 +2,18 @@
 title: 探索 Azure 時間序列深入解析 JavaScript 用戶端程式庫
 description: 了解 Azure 時間序列深入解析 JavaScript 用戶端程式庫和相關的程式設計模型。
 author: ashannon7
-manager: timlt
+manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
 ms.date: 06/05/2018
-ms.author: bryanla
-ms.openlocfilehash: 70e29b1a6b8a4443ae6545ec7960f1d2370218e3
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.author: anshan
+ms.openlocfilehash: 445584ef8f9a2534d7f183a4452df19ee87d0025
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969923"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626989"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>教學課程：探索 Azure 時間序列深入解析 JavaScript 用戶端程式庫
 
@@ -28,7 +28,7 @@ ms.locfileid: "38969923"
 > * TSI JavaScript 用戶端程式庫。
 > * 應用程式範例如何使用程式庫來將 TSI 資料視覺化。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本教學課程使用在大多數新式網頁瀏覽器 (包括 [Edge](/microsoft-edge/devtools-guide)、[Chrome](https://developers.google.com/web/tools/chrome-devtools/)、[FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools)、[Safari](https://developer.apple.com/safari/tools/) 等等) 中皆能找到的「開發人員工具」功能 (也稱為 DevTools 或 F12)。 如果您不熟悉此功能，建議您先在瀏覽器中瀏覽這項功能，然後再繼續。
 

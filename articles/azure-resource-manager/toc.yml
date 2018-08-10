@@ -32,6 +32,8 @@
       maintainContext: true
     - name: 雲端一致性範本
       href: templates-cloud-consistency.md
+    - name: 部署模式
+      href: deployment-modes.md
 - name: 作法
   items:
     - name: 建立範本

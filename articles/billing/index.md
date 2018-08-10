@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/24/2018
 ms.author: cwatson
-ms.openlocfilehash: e696f3829ce710ef38957a5f538c1a43f4ba33f5
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: b04cb7ca3e8e7b292efaed66096c206b268a034a
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285843"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626177"
 ---
 # <a name="azure-billing-and-cost-management-documentation"></a>Azure 計費與成本管理文件
 
@@ -101,8 +101,8 @@ ms.locfileid: "36285843"
                         <p>
                         <a href="/azure/billing/billing-manage-access">授與帳單存取權</a><br/>
                         <a href="/azure/billing/billing-how-to-pay-by-invoice">按發票付款</a><br/>
-                        <a href="/azure/billing/billing-manage-reserved-vm-instance">管理保留執行個體</a><br/>
-                        <a href="/azure/billing/billing-understand-reserved-instance-usage-ea">保留執行個體的使用量</a>
+                        <a href="/azure/billing/billing-manage-reserved-vm-instance">管理 Azure 保留項目</a><br/>
+                        <a href="/azure/billing/billing-understand-reserved-instance-usage-ea">Azure 保留項目使用量</a>
                         </p>
                     </div>
                 </div>
@@ -131,11 +131,12 @@ ms.locfileid: "36285843"
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>使用保留的 VM 執行個體節省開支</h3>
+                        <h3>Azure 保留項目為您節省成本</h3>
                         <p>
-                        <a href="/azure/billing/billing-save-compute-costs-reservations">什麼是保留執行個體？</a> <br/>
-                        <a href="/azure/virtual-machines/windows/prepay-reserved-vm-instances?toc=/azure/billing/TOC.json">購買保留執行個體</a><br/>
-                        <a href="/azure/billing/billing-understand-vm-reservation-charges">如何套用折扣</a><br/>
+                        <a href="/azure/billing/billing-save-compute-costs-reservations">什麼是 Azure 保留項目？</a> <br/>
+                        <a href="/azure/virtual-machines/windows/prepay-reserved-vm-instances?toc=/azure/billing/TOC.json">購買保留 VM 執行個體</a><br/>
+                        <a href="/azure/sql-database/sql-database-reserved-capacity?toc=/azure/billing/TOC.json">購買 SQL Database 保留容量</a><br/>
+                        <a href="/azure/billing/billing-understand-vm-reservation-charges">如何套用 VM 折扣</a><br/>
                         <a href="/azure/billing/billing-reserved-instance-windows-software-costs">並未包含軟體成本</a>
                         </p>
                     </div>

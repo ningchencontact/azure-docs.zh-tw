@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: yili
-ms.openlocfilehash: ea2e9d9fd1d9390cdd689b4f33b72cd471feeb8c
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: cd107ddc5ac443daee592c40bbed451c913a8a3b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916851"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444584"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux 上的 Azure App Service 常見問題集
 
@@ -123,7 +123,7 @@ var io = require('socket.io')(server,{
 
 **私人登錄選項中的映像名稱格式為何？**
 
-新增包括私人登錄 URL 的完整映像名稱 (例如 myacr.azurecr.io/dotnet:latest)。 使用自訂連接埠的映像名稱[無法透過入口網站輸入](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650)。 若要設定 `docker-custom-image-name`，請使用 [`az` 命令列工具](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set)。
+新增包括私人登錄 URL 的完整映像名稱 (例如 myacr.azurecr.io/dotnet:latest)。 使用自訂連接埠的映像名稱[無法透過入口網站輸入](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650)。 若要設定 `docker-custom-image-name`，請使用 [`az` 命令列工具](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set)。
 
 **我可以在我的自訂容器映像上公開多個連接埠嗎？**
 
@@ -147,7 +147,7 @@ SCM 網站是在個別的容器中執行。 您無法檢查應用程式容器的
 
 ## <a name="multi-container-with-docker-compose-and-kubernetes"></a>多重容器與 Docker Compose 和 Kubernetes
 
-**如何設定 Azure 容器登錄 (ACR) 與多重容器一起使用？**
+**如何設定 Azure 容器登錄 (ACR) 與多重容器一起使用？** 
 
 為了將 ACR 與多重容器一起使用，**所有容器映像**都必須裝載在相同的 ACR 登錄伺服器上。 一旦它們位於相同的登錄伺服器上，您必須建立應用程式設定，然後更新 Docker Compose 或 Kubernetes 組態檔，以包含 ACR 映像名稱。
 
