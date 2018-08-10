@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: diberry
-ms.openlocfilehash: 87882052ed7faf0a7d2a665d51afb20db7ee839c
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 19774d2a87e9c74f291f030aab09cb21fe4a931b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239146"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525217"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>使用 Bing 拼字檢查更正拼錯的字組
 
@@ -46,7 +46,7 @@ ms.locfileid: "39239146"
 
     ![輸入服務設定](./media/luis-tutorial-bing-spellcheck/subscription-settings.png)
 
-7. 選取左側瀏覽列上 [我的最愛] 標題底下的 [所有資源]。
+7. 選取左側導覽列上 [我的最愛] 標題底下的 [所有資源]。
 
 8. 選取新服務。 其類型為 [認知服務] 且位置為 [全域]。 
 
@@ -64,7 +64,7 @@ LUIS 中有兩個地點可使用金鑰。 第一個是在[測試面板](luis-int
 
 端點 URL 有數個需要正確傳遞的值。 Bing 拼字檢查 API v7 金鑰只是其中一個。 您必須將 **spellCheck** 參數設為 true，而且必須將 **bing-spell-check-subscription-key** 的值設定為金鑰值：
 
-https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appID}?subscription-key={luisKey}&spellCheck=**true**&bing-spell-check-subscription-key=**{bingKey}**&verbose=true&timezoneOffset=0&q={utterance}
+`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appID}?subscription-key={luisKey}&spellCheck=**true**&bing-spell-check-subscription-key=**{bingKey}**&verbose=true&timezoneOffset=0&q={utterance}`
 
 ## <a name="send-misspelled-utterance-to-luis"></a>將拼錯的語句傳送至 LUIS
 1. 在網頁瀏覽器中，複製上述字串，並以您自己的值取代 `region`、`appId`、`luisKey` 和 `bingKey`。 如果端點區域不同於您的發佈[區域](luis-reference-regions.md)，請務必使用端點區域。
@@ -91,7 +91,7 @@ https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appID}?subscription
 如果您不想使用 Bing 拼字檢查 API v7 服務，您也可以標示有拼字錯誤的語句，以便 LUIS 學習正確的拼法及錯字。 相較於使用拼字檢查工具，此選項需要更多標記工作。
 
 ## <a name="publishing-page"></a>發佈頁面
-[發佈][](luis-how-to-publish-app.md) 頁面具有 [啟用 Bing 拼字檢查工具] 核取方塊。 這方便於建立金鑰並理解如何變更端點 URL。 您仍然必須使用正確的端點參數，以便更正每個語句的拼字。 
+[發佈](luis-how-to-publish-app.md) 頁面具有 **啟用 Bing 拼字檢查工具** 核取方塊。 這方便於建立金鑰並理解如何變更端點 URL。 您仍然必須使用正確的端點參數，以便更正每個語句的拼字。 
 
 > [!div class="nextstepaction"]
 > [深入了解範例語句](luis-how-to-add-example-utterances.md)
