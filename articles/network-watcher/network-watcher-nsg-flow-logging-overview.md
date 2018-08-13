@@ -63,7 +63,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 之後的文字是流量記錄範例。 如您所見，有多筆記錄遵循上一節所述的屬性清單。
 
 > [!NOTE]
-> flowTuples 屬性中的值是逗號分隔清單。
+> \*flowTuples 屬性中的值是逗號分隔清單。
  
 ```json
 {
