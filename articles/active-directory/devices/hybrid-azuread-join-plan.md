@@ -16,22 +16,22 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 27068c1154a4cc5776bbcc74922ca31c4f28ced6
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 4e6600d81fedd884cf415d055aedd29d163b3365
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399912"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629645"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>如何規劃混合式 Azure Active Directory Join 實作
 
-以類似的方式，裝置會變成您想要保護的另一個身分識別，也可用來隨時隨地保護您的資源。 您可以使用下列其中一種方法，將您的裝置識別帶到 Azure AD，以完成此目標：
+以類似的方式，裝置會變成您想要保護的另一個身分識別，也可用來隨時隨地保護您的資源。 您可以使用下列其中一種方法將裝置的身分識別導入 Azure AD 中，以達到此目標：
 
 - Azure AD Join
 - 混合式 Azure AD Join
 - Azure AD 註冊
 
-將您的裝置帶到 Azure AD，透過跨雲端和內部部署資源的單一登入 (SSO) 將使用者的生產力最大化。 在此同時，您可以利用[條件式存取](../active-directory-conditional-access-azure-portal.md)來保護雲端和內部部署資源的存取權。
+將您的裝置導入 Azure AD 中，您將可透過跨雲端和內部部署資源的單一登入 (SSO)，將使用者的生產力最大化。 在此同時，您可以利用[條件式存取](../active-directory-conditional-access-azure-portal.md)來保護對雲端和內部部署資源的存取。
 
 如果您有內部部署 Active Directory 環境，而且您想要將加入網域的裝置加入 Azure AD，您可以藉由設定混合式 Azure AD 已加入裝置來完成。 本文提供在您的環境中實作混合式 Azure AD Join 的相關步驟。 
 
@@ -96,6 +96,13 @@ ms.locfileid: "39399912"
 如果您依賴虛擬機器 (VM) 快照集來建立其他 VM，請確定您使用的 VM 快照集尚未針對混合式 Azure AD Join 進行設定。
 
 對於已針對使用者設定檔漫遊或認證漫遊設定的裝置，不支援註冊舊版 Windows 裝置。 如果您倚賴設定檔或設定的漫遊，請使用 Windows 10。
+
+- 在非同盟環境中，**支援**透過無縫單一登入 [Azure Active Directory 無縫單一登入](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start)來註冊舊版 Windows 裝置。 
+ 
+- 使用沒有無縫單一登入的 Azure AD 傳遞驗證時，**不**支援舊版 Windows 裝置的註冊。
+
+- 對於使用漫遊設定檔的裝置，**不支援**註冊舊版 Windows 裝置。 如果您倚賴設定檔或設定的漫遊，請使用 Windows 10。
+
 
 不支援註冊執行網域控制站 (DC) 角色的 Windows Server。
 

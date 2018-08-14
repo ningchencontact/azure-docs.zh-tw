@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 266404a69c691cfbbfabc49e4d78deb11db74b52
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 17b03ee9521ddf1980e27ee9a63d2ba74ea6e6b7
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249150"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629679"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>封存 Azure 診斷記錄
 
@@ -163,5 +163,5 @@ insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/s1id1234
 
 * [下載 blob 以供分析](../storage/storage-dotnet-how-to-use-blobs.md)
 * [將診斷記錄串流至事件中樞命名空間](monitoring-stream-diagnostic-logs-to-event-hubs.md)
-* [使用 Azure 監視器來封存 Azure Active Directory 記錄](../active-directory/reporting-azure-monitor-diagnostics-azure-storage-account.md)
+* [使用 Azure 監視器來封存 Azure Active Directory 記錄](../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 * [深入了解診斷記錄](monitoring-overview-of-diagnostic-logs.md)

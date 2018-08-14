@@ -14,12 +14,12 @@ ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 625894738b6cbf680baef0a1eeeea518586e4506
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 52ae7da666acaf234920a7f03afe3766f29a1e85
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37870311"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629118"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>如何以系統管理員身分接管 Azure Active Directory 中非受控目錄
 本文說明接管 Azure Active Directory (Azure AD) 之非受控目錄中 DNS 網域名稱的兩種方式。 當自助使用者註冊使用 Azure AD 的雲端服務時，系統會根據其電子郵件網域將其新增至非受控 Azure AD 目錄。 如需有關自助式或「病毒式」服務註冊的詳細資訊，請參閱[什麼是自助式 Azure Active Directory 註冊？](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-self-service-signup)
@@ -104,7 +104,7 @@ ms.locfileid: "37870311"
 
 #### <a name="more-information-about-rms-for-individuals"></a>個人版 RMS 的詳細資訊
 
-對於[個人版 RMS](/information-protection/understand-explore/rms-for-individuals)，當非受控租用戶與您擁有的租用戶位於相同區域中時，會額外移動自動建立的 [Azure 資訊保護租用戶金鑰](/information-protection/plan-design/plan-implement-tenant-key)和[預設保護範本](/information-protection/deploy-use/configure-usage-rights#rights-included-in-the-default-templates)並包含網域名稱。 
+對於[個人版 RMS](/azure/information-protection/rms-for-individuals)，當非受控租用戶與您擁有的租用戶位於相同區域中時，會額外移動自動建立的 [Azure 資訊保護租用戶金鑰](/azure/information-protection/plan-implement-tenant-key)和[預設保護範本](/azure/information-protection/configure-usage-rights#rights-included-in-the-default-templates)並包含網域名稱。 
 
 當非受控租用戶位於不同的區域時，金鑰和範本並不會移動。 例如，非受控租用戶位於歐洲，而您擁有的租用戶位於北美洲。 
 
