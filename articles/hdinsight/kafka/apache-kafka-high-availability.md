@@ -1,25 +1,20 @@
 ---
-title: 使用 Apache Kafka 確保高可用性 - Azure HDInsight | Microsoft Docs
+title: 使用 Apache Kafka 確保高可用性 - Azure HDInsight
 description: 了解如何使用 Azure HDInsight 上的 Apache Kafka 確保高可用性。 了解如何重新平衡 Kafka 中的磁碟分割複本，使其位於包含 HDInsight 的 Azure 區域內的不同容錯網域上。
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-editor: cgronlun
-manager: jhubbard
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/01/2018
-ms.author: larryfr
-ms.openlocfilehash: 13b57957bac728befd9c79e7aff262c538b02b54
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: d33fa7a137c44be6040107c6e5d19b7883217f61
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32772444"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622937"
 ---
 # <a name="high-availability-of-your-data-with-apache-kafka-on-hdinsight"></a>使用 HDInsight 上的 Apache Kafka 確保您資料的高可用性
 

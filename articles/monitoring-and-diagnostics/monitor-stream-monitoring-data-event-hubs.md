@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 7/31/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: a43b70d2ce7a8205903fb877ea056dea88ac8bb5
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 2990ba290dfdaf45d8a341138ea515bad16d5b30
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389604"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628166"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>將 Azure 監視資料串流至事件中樞以供外部工具取用
 
@@ -50,11 +50,11 @@ Azure 環境內有數個「層級」的監視資料，而存取每一層資料�
 
 ## <a name="how-do-i-set-up-azure-tenant-monitoring-data-to-be-streamed-to-an-event-hub"></a>我要如何設定 Azure 租用戶監視資料，以將它串流至事件中樞？
 
-Azure 租用戶監視資料目前只適用於 Azure Active Directory。 您可以使用 [Azure Active Directory 報告](../active-directory/active-directory-reporting-azure-portal.md)中的資料，其中包含在特定租用戶內所進行登入活動的歷程記錄，和所做變更的稽核記錄。
+Azure 租用戶監視資料目前只適用於 Azure Active Directory。 您可以使用 [Azure Active Directory 報告](../active-directory/reports-monitoring/overview-reports.md)中的資料，其中包含在特定租用戶內所進行登入活動的歷程記錄，和所做變更的稽核記錄。
 
 ### <a name="stream-azure-active-directory-data-into-an-event-hub"></a>將 Azure Active Directory 記錄資料串流至事件中樞
 
-若要將資料從 Azure Active Directory 記錄傳送到事件中樞命名空間，您要設定 AAD 租用戶上的租用戶診斷設定。 [遵循本指南](../active-directory/reporting-azure-monitor-diagnostics-azure-event-hub.md)來設定租用戶診斷設定。
+若要將資料從 Azure Active Directory 記錄傳送到事件中樞命名空間，您要設定 AAD 租用戶上的租用戶診斷設定。 [遵循本指南](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md)來設定租用戶診斷設定。
 
 ## <a name="how-do-i-set-up-azure-subscription-monitoring-data-to-be-streamed-to-an-event-hub"></a>我要如何設定 Azure 訂用帳戶監視資料，以將它串流至事件中樞？
 

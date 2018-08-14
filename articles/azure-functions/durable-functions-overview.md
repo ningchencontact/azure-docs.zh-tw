@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a760e66d40d7af7178ec9a2d5fc14afec2a55b10
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 25f7cf6de4f217219e510ae00ce21762e755d2e8
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115392"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627401"
 ---
 # <a name="durable-functions-overview"></a>Durable Functions 概觀
 
@@ -44,7 +44,7 @@ Durable Functions 主要用來簡化無伺服器應用程式中複雜的具狀�
 
 Durable Functions 可讓您利用程式碼簡潔地實作此模式。
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>C# 指令碼
 
 ```cs
 public static async Task<object> Run(DurableOrchestrationContext ctx)
@@ -62,6 +62,8 @@ public static async Task<object> Run(DurableOrchestrationContext ctx)
     }
 }
 ```
+> [!NOTE]
+> 以 C# 撰寫先行編譯的永久函式和先前顯示的 C# 指令碼範例有些微的差異。 C# 先行編譯函式要求必須以個別的屬性裝飾永久參數。 例如，`DurableOrchestrationContext` 參數的 `[OrchestrationTrigger]` 屬性。 如果未適當地裝飾參數，執行階段就無法將變數插入函式，因此會產生錯誤。 如需更多範例，請瀏覽[範例](https://github.com/Azure/azure-functions-durable-extension/blob/master/samples) \(英文\)。
 
 #### <a name="javascript-functions-v2-only"></a>JavaScript (僅限 Functions v2)
 
@@ -88,7 +90,7 @@ module.exports = df(function*(ctx) {
 
 在標準函式中，可藉由讓函式傳送多個訊息給佇列來進行展開傳送。 不過，反過來的收合傳送則困難得多。 您必須撰寫程式碼來追蹤佇列所觸發的函式何時結束，並儲存函式的輸出。 Durable Functions 擴充功能會以較簡單的程式碼處理此模式。
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>C# 指令碼
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -203,7 +205,7 @@ public static async Task<HttpResponseMessage> Run(
 
 使用 Durable Functions，只需幾行程式碼即可建立觀察任意端點的多個監視器。 監視器可以在某些條件符合時結束執行，或是由 [DurableOrchestrationClient](durable-functions-instance-management.md) 終止，而且其等候間隔可根據某些條件變更 (也就是指數輪詢)。下列程式碼會實作基本的監視器。
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>C# 指令碼
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -271,7 +273,7 @@ module.exports = df(function*(ctx) {
 
 使用協調器函式即可實作此模式。 協調器會使用[長期計時器](durable-functions-timers.md)來要求核准，並在逾時後向上呈報。 它會等候[外部事件](durable-functions-external-events.md)，例如某些人為互動所產生的通知。
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>C# 指令碼
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)

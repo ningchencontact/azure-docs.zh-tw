@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: b792798c64ed0a2eb12a16d868d8a17302466fea
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 053e72ce81f69b267c72ded572e8912a1a09d2e6
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215351"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579692"
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB 常見問題集
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB 基本概念
@@ -448,7 +448,7 @@ Azure Cosmos DB 是 SLA 型系統，可提供延遲、輸送量、可用性及�
 
 ## <a name="develop-against-the-graph-api"></a>針對圖形 API 進行開發
 ### <a name="how-can-i-apply-the-functionality-of-graph-api-to-azure-cosmos-db"></a>如何將圖形 API 的功能套用到 Azure Cosmos DB？
-您可以使用擴充程式庫套用圖形 API 的功能。 這個程式庫稱為 Microsoft Azure 圖形，您可以在 NuGet 上取得。 
+您可以使用擴充程式庫套用圖形 API 的功能。 這個程式庫稱為 Microsoft Azure Graphs，並可在 [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Graphs) \(英文\) 上取得。 
 
 ### <a name="it-looks-like-you-support-the-gremlin-graph-traversal-language-do-you-plan-to-add-more-forms-of-query"></a>看來你們支援 Gremlin 圖形周遊語言。 您們是否計劃加入更多形式的查詢？
 是，我們計劃在未來加入其他查詢機制。 

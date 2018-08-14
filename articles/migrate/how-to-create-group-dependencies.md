@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: raynew
-ms.openlocfilehash: a91543dcea1fb9fb6a33b5a7bc3892a2bac7b241
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 37c4ce8638c8f0481151449317d6cd387b61b256
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215775"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622893"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>使用群組相依性對應調整群組
 
@@ -56,7 +56,7 @@ ms.locfileid: "36215775"
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-[深入了解](../monitoring/monitoring-service-map-configure.md#supported-operating-systems)相依性代理程式支援的作業系統。 
+深入了解 [Windows](../monitoring/monitoring-service-map-configure.md#supported-windows-operating-systems) 與 [Linux](../monitoring/monitoring-service-map-configure.md#supported-linux-operating-systems) 作業系統的相依性代理程式支援。
 
 ## <a name="refine-the-group-based-on-dependency-visualization"></a>根據相依性視覺效果調整群組
 一旦您已在群組的所有機器上安裝代理程式，您可以將群組的相依性視覺化，並按照下列步驟進行調整。

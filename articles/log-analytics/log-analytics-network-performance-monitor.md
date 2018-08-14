@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: na
-ms.openlocfilehash: 28f5ac882051250903fc2f45def95eb65d1b1ce3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 3640f5bb2c2e9457e269bd189cbec3b627ee7349
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635533"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626867"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure 中的網路效能監控解決方案
 
@@ -48,6 +48,7 @@ NPM 可使用在下列其中一個區域裝載的工作區，監視世界各地�
 * 西歐
 * 美國中西部
 * 美國東部
+* 日本東部
 * 東南亞
 * 澳大利亞東南部
 * 英國南部

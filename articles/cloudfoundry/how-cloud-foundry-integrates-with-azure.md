@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: 0aac3eab8a60dc1e1e15b4656fad9ffea062c08e
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 689730edcc98a23c82373ae8d36c3b831b33c076
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968614"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627435"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>整合 Cloud Foundry 與 Azure
 
@@ -81,8 +81,8 @@ Azure Log Analytics Nozzle 是一個 Cloud Foundry 元件，可將計量從 [Clo
 #### <a name="managed-standard-disk"></a>受控標準磁碟： 
 若要確保在生產環境中獲得可靠的效能，建議使用進階磁碟。  使用[受控磁碟](https://azure.microsoft.com/services/managed-disks/)時，標準儲存體也可以提供類似的可靠性，但效能不同。 對於對效能不敏感的工作負載 (例如開發/測試或非重要環境)，受控標準磁碟提供成本較低的替代選項。  
 ### <a name="cost-saving-in-general"></a>節省一般成本 
-#### <a name="significant-vm-cost-saving-with-reserved-instances"></a>使用保留的執行個體來大幅節省 VM 成本： 
-現今所有 CF VM 都是使用「隨選」價格計費，即使環境通常無限期保持運作也一樣。 現在您能夠以 1 或 3 年為期來保留 VM 容量，然後獲得 45-65% 折扣。 折扣會在計費系統中套用，不會對您的環境收費。 如需詳細資料，請參閱[保留的執行個體如何運作](https://azure.microsoft.com/pricing/reserved-vm-instances/)。 
+#### <a name="significant-vm-cost-saving-with-azure-reservations"></a>使用 Azure 保留來大幅節省 VM 成本： 
+現今所有 CF VM 都是使用「隨選」價格計費，即使環境通常無限期保持運作也一樣。 現在您能夠以 1 或 3 年為期來保留 VM 容量，然後獲得 45-65% 折扣。 折扣會在計費系統中套用，不會對您的環境收費。 如需詳細資料，請參閱 [Azure 保留的運作方式](https://azure.microsoft.com/pricing/reserved-vm-instances/)。 
 #### <a name="managed-premium-disk-with-smaller-sizes"></a>大小較小的受控進階磁碟： 
 受控磁碟針對進階和標準磁碟都可支援較小的磁碟大小，例如 P4 (32 GB) 和 P6 (64 GB)。 如果您有小型工作負載，從標準進階磁碟移轉至受控進階磁碟時，便可節省成本。
 #### <a name="utilizing-azure-first-party-services"></a>利用 Azure 第一方服務： 

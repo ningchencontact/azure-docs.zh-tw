@@ -4,18 +4,18 @@ description: 本文說明如何在 Azure 時間序列深入解析中開發參數
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: MarkMcGeeAtAquent
-manager: jhubbard
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 11/21/2017
-ms.openlocfilehash: 3f201d3773188d49ee83b13ca3109ea788761121
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: dbd717d79230c5dc2fc823484376267e7b7b8ab1
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295106"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628795"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>使用參數化 URL 共用自訂檢視
 

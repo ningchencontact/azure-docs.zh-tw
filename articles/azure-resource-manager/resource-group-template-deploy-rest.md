@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6ae77eb1f619928f43a502cd4631a0895a9e91f4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ae2393d16d2c9c1000b00f5514e63c988303a83c
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603727"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628506"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>使用 Resource Manager 範本和 Resource Manager REST API 部署資源
 
@@ -34,8 +34,6 @@ ms.locfileid: "34603727"
 > 
 
 您的範本可以是本機檔案，或者是透過 URI 提供使用的外部檔案。 當您的範本位於儲存體帳戶中時，您可以限制範本的存取權，並在部署期間提供共用存取簽章 (SAS) Token
-
-[!INCLUDE [resource-manager-deployments](../../includes/resource-manager-deployments.md)]
 
 ## <a name="deploy-with-the-rest-api"></a>使用 REST API 部署
 1. 設定[一般參數和標頭](/rest/api/azure/) (包括驗證權杖)。
@@ -147,9 +145,9 @@ ms.locfileid: "34603727"
 如果您需要提供參數機密的值 (例如密碼)，請將該值加入金鑰保存庫。 在部署期間擷取金鑰保存庫，如先前範例所示。 如需詳細資訊，請參閱 [在部署期間傳遞安全值](resource-manager-keyvault-parameter.md)。 
 
 ## <a name="next-steps"></a>後續步驟
-* 若要了解如何處理非同步 REST 作業，請參閱[追蹤非同步 Azure 作業 (英文)](resource-manager-async-operations.md)。
+* 若要指定如何處理存在於資源群組中但尚未定義於範本中的資源，請參閱 [Azure Resource Manager 部署模式](deployment-modes.md)。
+* 若要了解如何處理非同步 REST 作業，請參閱[追蹤非同步 Azure 作業](resource-manager-async-operations.md) \(英文\)。
 * 如需透過 .NET 用戶端程式庫部署資源的範例，請參閱 [使用 .NET 程式庫與範本部署資源](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 * 若要在範本中定義參數，請參閱 [編寫範本](resource-group-authoring-templates.md#parameters)。
-* 如需將您的方案部署到不同環境的指引，請參閱 [Microsoft Azure 中的開發和測試環境](solution-dev-test-environments.md)。
 * 如需關於企業如何使用 Resource Manager 有效地管理訂用帳戶的指引，請參閱 [Azure 企業 Scaffold - 規定的訂用帳戶治理](/azure/architecture/cloud-adoption-guide/subscription-governance)。
 

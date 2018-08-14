@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: b15fff6e868bfac973f9d2a7277f0fac1e29d845
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 2a6c94d902c639a2529e501347876d63a3f56d7e
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939763"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505604"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>可保護身分識別基礎結構的五個步驟
 
@@ -78,7 +78,7 @@ Azure Active Directory 的[動態禁用密碼](https://docs.microsoft.com/azure/
 
 ### <a name="implement-ad-fs-extranet-lockout"></a>實作 AD FS 外部網路鎖定
 
-將應用程式設定為直接向 Azure AD 進行驗證的組織，可受益於 [Azure AD 智慧鎖定](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords)。 如果您使用 AD FS，請實作 AD FS [外部網路鎖定](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-lockout-protection)。 外部網路鎖定可防範鎖定 AD FS 的暴力密碼破解攻擊，同時防止使用者在 Active Directory 中遭到鎖定。
+將應用程式設定為直接向 Azure AD 進行驗證的組織，可受益於 [Azure AD 智慧鎖定](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords)。 如果您是在 Windows Server 2012R2 中使用 AD FS，請實作 AD FS [外部網路鎖定保護](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection) \(英文\)。 如果您是在 Windows Server 2016 上使用 AD FS，請實作[外部網路智慧鎖定](https://support.microsoft.com/en-us/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016) \(機器翻譯\)。 AD FS 智慧外部網路鎖定可防範以 AD FS 目標的暴力密碼破解攻擊，並防止系統在 Active Directory 中鎖定使用者。
 
 ### <a name="take-advantage-of-intrinsically-secure-easier-to-use-credentials"></a>利用真正安全、更容易使用的認證
 

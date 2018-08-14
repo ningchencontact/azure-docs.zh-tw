@@ -9,17 +9,17 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/22/2018
-ms.openlocfilehash: 94ed603990859d12f709e4a6121e3736221cf10a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e87fc5b91e9e1d5f4f8449e84b17bcdab9c0b6b2
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651173"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39713589"
 ---
 # <a name="install-azure-stream-analytics-tools-for-visual-studio"></a>安裝適用於 Visual Studio 的 Azure 串流分析工具
 Azure 串流分析工具支援 Visual Studio 2017、2015 和 2013。 本文說明如何安裝和解除安裝這些工具。
 
-如需使用工具的詳細資訊，請參閱[適用於 Visual Studio 的串流分析工具](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio)。
+如需使用工具的詳細資訊，請參閱[適用於 Visual Studio 的串流分析工具](stream-analytics-quick-create-vs.md)。
 
 ## <a name="install"></a>Install
 ### <a name="visual-studio-2017"></a>Visual Studio 2017

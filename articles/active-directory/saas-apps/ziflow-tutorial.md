@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 08/07/2018
 ms.author: jeedes
-ms.openlocfilehash: fdde8cbec7fc249eecfcc0c1682bb5eed94c1585
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 460a52f240f6b3723f93e81a11a8cd1ccc6c30c9
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39050484"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626688"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ziflow"></a>教學課程：Azure Active Directory 與 Ziflow 整合
 
@@ -101,20 +101,20 @@ Ziflow 與 Azure AD 整合提供下列優點：
     ![設定單一登入連結][4]
 
 2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
- 
+
     ![單一登入對話方塊](./media/ziflow-tutorial/tutorial_ziflow_samlbase.png)
 
 3. 在 [Ziflow 網域與 URL] 區段上，執行下列步驟：
 
     ![Ziflow 網域與 URL 單一登入資訊](./media/ziflow-tutorial/tutorial_ziflow_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL：`https://<subdomain>.ziflow.io/#/login-sso/<Unique ID>`
+    a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL：`https://ziflow-production.auth0.com/login/callback?connection=<UniqueID>`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `urn:auth0:ziflow-production:<Unique ID>`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `urn:auth0:ziflow-production:<UniqueID>`
 
-    > [!NOTE] 
-    > 上述值並非真正的值。 您將會使用實際值來更新「識別碼」和「登入 URL」中的唯一識別碼值，稍後會在本教學課程中說明。 請連絡 [Ziflow 支援小組](mailto:support@ziflow.com)以取得登入 URL 中的子網域值。
-    
+    > [!NOTE]
+    > 上述值並非真正的值。 您將會使用實際值來更新「識別碼」和「登入 URL」中的唯一識別碼值，稍後會在本教學課程中說明。
+
 4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
     ![憑證下載連結](./media/ziflow-tutorial/tutorial_ziflow_certificate.png) 
@@ -128,7 +128,6 @@ Ziflow 與 Azure AD 整合提供下列優點：
     ![Ziflow 組態](./media/ziflow-tutorial/tutorial_ziflow_configure.png) 
 
 7. 在不同的網頁瀏覽器視窗中，以安全性系統管理員身分登入 Ziflow。
-
 
 8. 按一下右上角的「虛擬人偶」，然後按一下 [管理帳戶]。
 

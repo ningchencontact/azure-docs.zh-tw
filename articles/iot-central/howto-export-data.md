@@ -8,37 +8,37 @@ ms.date: 07/3/2018
 ms.topic: article
 ms.prod: azure-iot-central
 manager: peterpr
-ms.openlocfilehash: 5b9564dfe40f292d289ee9ed680e816771d0b0ed
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 3ca2bc56c03e5bbabbd9b2f17edc621bdd94b02f
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282869"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622478"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>匯出 Azure IoT Central 中的資料
 
-使用「連續資料匯出」可定期將資料匯出至 Azure Blob 儲存體帳戶。 選擇在 [Apache AVRO](https://avro.apache.org/docs/current/index.html) 格式的檔案中匯出**量測**、**裝置**和**裝置範本**。 使用所匯出的資料進行冷路徑分析 (例如，在 Azure Machine Learning 中訓練模型) 或在 Power BI 中進行長期趨勢分析。
+此文章說明如何使用 Azure IoT Central 中的連續資料匯出功能定期將資料匯出到您的 Azure Blob 儲存體帳戶。 您能以 [Apache AVRO](https://avro.apache.org/docs/current/index.html) 格式的檔案匯出**量測**、**裝置**和**裝置範本**。 所匯出的資料可用來進行冷路徑分析 (例如，在 Azure Machine Learning 中為模型定型) 或在 Microsoft Power BI 中進行長期趨勢分析。
 
 > [!Note]
-> 當您開啟「連續資料匯出」時，只會取得從該時刻起所進入的資料。 目前無法在「連續資料匯出」關閉時擷取資料。 請盡早開啟「連續資料匯出」以保留更多歷史資料！
+> 當您開啟「連續資料匯出」時，只會取得從該時刻的資料。 目前，無法擷取「連續資料匯出」時的資料。 若要保留更多歷史資料，請儘早開啟「連續資料匯出」。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 延長的 30 天試用版應用程式或付費應用程式
-- 具有 Azure 訂用帳戶的 Azure 帳戶
-- 同一個 Azure 帳戶也是 IoT Central 應用程式的系統管理員
-- 同一個 Azure 帳戶有權限可以建立儲存體帳戶，或存取相同 Azure 訂用帳戶中的現有儲存體帳戶
+- 延伸麼 30 天 IoT Central 應用程式，或付費應用程式。
+- 具有 Azure 訂用帳戶的 Azure 帳戶。
+- 同一個 Azure 帳戶也是 IoT Central 應用程式中的系統管理員。
+- 同一個 Azure 帳戶有權限可以建立儲存體帳戶，或存取相同 Azure 訂用帳戶中的現有儲存體帳戶。
 
 ## <a name="types-of-data-to-export"></a>要匯出的資料類型
 
 ### <a name="measurements"></a>量測
 
-裝置所傳送的量測會匯出至儲存體帳戶。 量測資料大約一分鐘會匯出一次，其中包含 IoT Central 在該時間範圍內從所有裝置收到的所有新訊息。 所匯出 AVRO 檔案的格式，會和 [IoT 中樞訊息路由](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-csharp-csharp-process-d2c)匯出至 Blob 儲存體的訊息檔案格式相同。
+裝置所傳送的量測每隔一分鐘就會匯出至您的儲存體帳戶。 該資料有 IoT Central 在該時段內從所有裝置接收的所有新訊息。 所匯出 AVRO 檔案的格式，會和 [IoT 中樞訊息路由](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-csharp-csharp-process-d2c)匯出至 Blob 儲存體的訊息檔案格式相同。
 
 > [!NOTE]
-> 傳送量測的裝置會以裝置識別碼來表示 (請參閱下文)。 若要取得裝置的名稱，則還需要匯出裝置快照集。 您可以使用與裝置識別碼相符的 connectionDeviceId 來將每個訊息記錄相互關聯。
+> 傳送量測的裝置會以裝置識別碼來表示 (請參閱以下各節)。 若要取得裝置名稱，請匯出裝置快照集。 使用符合裝置識別碼的 **connectionDeviceId** 來建立每個訊息記錄。
 
-這是已解碼 AVRO 檔案中的記錄範例。
+下列範例顯示已解碼之 AVRO 檔案中的範例：
 
 ```json
 {
@@ -56,23 +56,22 @@ ms.locfileid: "39282869"
 
 ### <a name="devices"></a>裝置
 
-當您第一次開啟「連續資料匯出」時，系統會匯出包含所有裝置的單一快照集。 其中包括：
-- 裝置識別碼
-- 裝置名稱
-- 裝置範本識別碼
-- 屬性值
-- 設定值
+當第一次開啟「連續資料匯出」時，會匯出包含所有裝置的單一快照集。 快照集包括：
+- 裝置識別碼。
+- 裝置名稱。
+- 裝置範本識別碼。
+- 屬性值。
+- 設定值。
 
-系統大約一分鐘會寫入一次包含下列項目的新快照集：
+系統每隔一分鐘就會寫入新的快照集。 快照集包括：
 
-- 自上一個快照集以來所新增的裝置
-- 自上一個快照集以來有變更屬性和設定值的裝置
-
-> [!NOTE]
-> 自上一個快照集以來所刪除的裝置則不會匯出。 在此時刪除的裝置，其快照集中不會有任何指標。
+- 自上一個快照集以來所新增的裝置。
+- 自上一個快照集以來屬性與設定值已變更的裝置。
 
 > [!NOTE]
-> 每個裝置所屬的裝置範本會以裝置範本識別碼來表示。 若要取得裝置範本的名稱，則還需要匯出裝置範本快照集。
+> 自上一個快照集以來所刪除的裝置則不會匯出。 目前，快照集沒有已刪除之裝置的指標。
+>
+> 每個裝置所屬的裝置範本會以裝置範本識別碼來表示。 若要取得裝置範本的名稱，請匯出裝置範本快照集。
 
 已解碼 AVRO 檔案中的每個記錄看起來會像下面這樣：
 
@@ -105,19 +104,19 @@ ms.locfileid: "39282869"
 
 ### <a name="device-templates"></a>裝置範本
 
-當您第一次開啟「連續資料匯出」時，系統會匯出包含所有裝置範本的單一快照集。 其中包括： 
-- 裝置範本識別碼
-- 量測資料類型和最小值/最大值
-- 屬性資料類型和預設值
-- 設定資料類型和預設值
+當第一次開啟「連續資料匯出」時，會匯出包含所有裝置範本的單一快照集。 快照集包括： 
+- 裝置範本識別碼。
+- 量測資料類型和最小值/最大值。
+- 屬性資料類型和預設值。
+- 設定資料類型和預設值。
 
-系統大約一分鐘會寫入一次包含下列項目的新快照集：
+系統每隔一分鐘就會寫入新的快照集。 快照集包括：
 
-- 自上一個快照集以來所新增的裝置範本
-- 自上一個快照集以來有變更量測、屬性和設定定義的裝置範本
+- 自上一個快照集以來所新增的新裝置範本。
+- 自上一個快照集以來量測、屬性與設定定義已變更的裝置範本。
 
 > [!NOTE]
-> 自上一個快照集以來所刪除的裝置範本則不會匯出。 在此時刪除的裝置範本，其快照集中不會有任何指標。
+> 自上一個快照集以來所刪除的裝置範本則不會匯出。 目前，快照集沒有已刪除之裝置範本的指標。
 
 已解碼 AVRO 檔案中的每個記錄看起來會像下面這樣：
 
@@ -195,39 +194,46 @@ ms.locfileid: "39282869"
 }
 ```
 
-## <a name="how-to-set-up-data-export"></a>如何設定資料匯出
+## <a name="set-up-continuous-data-export"></a>設定連續資料匯出
 
-1. 如果您還沒有 Azure 儲存體帳戶，請在**應用程式所在的 Azure 訂用帳戶中**建立帳戶。 [按一下這裡](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)跳至 Azure 入口網站，以建立新的 Azure 儲存體帳戶。
-
-    - 選擇「一般用途」或「Blob 儲存體」帳戶類型
+1. 如果您沒有 Azure 儲存體帳戶，請在 Azure 入口網站中[建立新儲存體帳戶](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)。 **在 IoT Central 應用程式所在的 Azure 訂用帳戶中**建立儲存體帳戶。
+    - 針對帳戶類型，請選擇 [一般用途] 或 [Blob 儲存體]。
     - 選取 IoT Central 應用程式所在的訂用帳戶。 如果您沒有看到訂用帳戶，您可能需要登入不同 Azure 帳戶，或要求訂用帳戶的存取權。
-    - 您可以選擇現有資源群組或建立新群組。 了解[如何建立新的儲存體帳戶](https://aka.ms/blobdocscreatestorageaccount)
+    - 選擇現有的資源群組或建立新群組。 了解[如何建立新的儲存體帳戶](https://aka.ms/blobdocscreatestorageaccount)。
 
-2. 在儲存體帳戶中建立容器以供存放匯出的 IoT Central 資料。 移至 [儲存體帳戶] -> [瀏覽 Blob]，然後建立新的容器。 ![建立容器映像](media/howto-export-data/createcontainer.png)
+2. 在儲存體帳戶中建立容器以供存放匯出的 IoT Central 資料。 移至您的儲存體帳戶。 在 [Blob 服務] 下，選取 [瀏覽 Blob]。 選取 [容器] 以建立新的容器。
+
+   ![建立容器](media/howto-export-data/createcontainer.png)
 
 3. 使用相同的 Azure 帳戶登入 IoT Central 應用程式。
-1. 移至 [系統管理] -> [連續資料匯出]。
-![IoT Central CDE](media/howto-export-data/continuousdataexport.PNG)
-1. 使用下拉式清單挑選儲存體帳戶和容器。 然後，使用開關來開啟或關閉要匯出的不同資料類型。
-1. 最後，使用開關開啟「連續資料匯出」，並點擊 [儲存]。
-1. 等候幾分鐘的時間，然後您應該就會看到資料出現在儲存體帳戶中。 您可以瀏覽至儲存體帳戶、選取 [瀏覽 Blob]、選取容器，然後就會看到三個資料夾。 包含不同資料類型的 AVRO 檔案預設路徑為：
-- 訊息：**{container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro**
-- 裝置：**{container}/devices/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro**
-- 裝置範本：**{container}/deviceTemplates/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro**
 
-## <a name="how-to-read-exported-avro-files"></a>如何讀取匯出的 AVRO 檔案
+4. 在 [系統管理] 下，選取 [資料匯出]。
 
-AVRO 是二進位格式，因此無法以原始狀態讀取檔案。 其可解碼為 JSON 格式。 下列範例說明如何使用上述範例來剖析量測、裝置和裝置範本 AVRO 檔案。
+   ![設定連續資料匯出](media/howto-export-data/continuousdataexport.PNG)
 
-## <a name="python"></a>Python
+5. 在 [儲存體帳戶] 下拉式清單方塊中，選取您的儲存體帳戶。 在 [容器] 下拉式清單方塊中，選取您的容器。 在 [要匯出的資料] 下，透過將類型設定為 [開啟] 以指定每種要匯出的資料類型。
 
-### <a name="install-pandas-and-the-pandaavro-package"></a>安裝 Pandas 和 PandaAvro 套件：
+6. 若要開啟連續資料匯出，請將 [資料匯出] 設定為 [開啟]。 選取 [儲存]。
+
+7. 在幾分鐘之後，您的資料就會出現在您的儲存體帳戶中。 瀏覽您的儲存體帳戶。 選取 [瀏覽 Blob] > 您的容器。 您會看到用於匯出資料的三個資料夾。 具有匯出資料之 AVRO 檔案的預設路徑是：
+    - 訊息：{container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro
+    - 裝置：{container}/devices/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro
+    - 裝置範本：{container}/deviceTemplates/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro
+
+## <a name="read-exported-avro-files"></a>讀取匯出的 AVRO 檔案
+
+AVRO 是二進位格式，因此無法以原始狀態讀取檔案。 該檔案可解碼為 JSON 格式。 下列範例說明如何剖析量測、裝置和裝置範本 AVRO 檔案。 這些範例對應到上一節中所述的範例。
+
+### <a name="read-avro-files-by-using-python"></a>使用 Python 讀取 AVRO 檔案
+
+#### <a name="install-pandas-and-the-pandavro-package"></a>安裝 pandas 與 pandavro 套件
 
 ```python
 pip install pandas
 pip install pandavro
 ```
-### <a name="parse-measurements-avro-file"></a>剖析量測 AVRO 檔案
+
+#### <a name="parse-a-measurements-avro-file"></a>剖析量測 AVRO 檔案
 
 ```python
 import json
@@ -235,28 +241,29 @@ import pandavro as pdx
 import pandas as pd
 
 def parse(filePath):
-    # Pandavro loads the avro file into a pandas DataFrame where each record is
-    # a single row
+    # Pandavro loads the AVRO file into a pandas DataFrame
+    # where each record is a single row.
     measurements = pdx.from_avro(filePath)
 
-    # In this example, we create a new DataFrame and load a series for each
-    # column we map into a column in our new DataFrame.
+    # This example creates a new DataFrame and loads a series
+    # for each column that's mapped into a column in our new DataFrame.
     transformed = pd.DataFrame()
 
-    # The SystemProperties column contains a dictionary with the device id
-    # located under the "connectionDeviceId" key.
+    # The SystemProperties column contains a dictionary
+    # with the device ID located under the connectionDeviceId key.
     transformed["device_id"] = measurements["SystemProperties"].apply(lambda x: x["connectionDeviceId"])
 
-    # The Body column is a series of utf-8 bytes that is stringified and parsed
-    # as json. In this example, we pull the "humidity" property off of each one
-    # to get the humidity field.
+    # The Body column is a series of UTF-8 bytes that is stringified
+    # and parsed as JSON. This example pulls the humidity property
+    # from each column to get the humidity field.
     transformed["humidity"] = measurements["Body"].apply(lambda x: json.loads(bytes(x).decode('utf-8'))["humidity"])
 
-    # Finally, we print the new DataFrame with our device ids and humidities
+    # Finally, print the new DataFrame with our device IDs and humidities.
     print(transformed)
 
 ```
-### <a name="parse-devices-avro-file"></a>剖析裝置 AVRO 檔案
+
+#### <a name="parse-a-devices-avro-file"></a>剖析裝置 AVRO 檔案
 
 ```python
 import json
@@ -264,33 +271,33 @@ import pandavro as pdx
 import pandas as pd
 
 def parse(filePath):
-    # Pandavro loads the avro file into a pandas DataFrame where each record is
-    # a single row
+    # Pandavro loads the AVRO file into a pandas DataFrame
+    # where each record is a single row.
     devices = pdx.from_avro(filePath)
 
-    # In this example, we create a new DataFrame and load a series for each
-    # column we map into a column in our new DataFrame.
+    # This example creates a new DataFrame and loads a series
+    # for each column that's mapped into a column in our new DataFrame.
     transformed = pd.DataFrame()
 
-    # The device id is available directly in the "id" column
+    # The device ID is available in the id column.
     transformed["device_id"] = devices["id"]
 
-    # The template id and version are present in a dictionary under the
-    # deviceTemplate column
+    # The template ID and version are present in a dictionary under
+    # the deviceTemplate column.
     transformed["template_id"] = devices["deviceTemplate"].apply(lambda x: x["id"])
     transformed["template_version"] = devices["deviceTemplate"].apply(lambda x: x["version"])
 
-    # The fanSpeed setting value is located in a nested dictionary under the
-    # settings column
+    # The fanSpeed setting value is located in a nested dictionary
+    # under the settings column.
     transformed["fan_speed"] = devices["settings"].apply(lambda x: x["device"]["fanSpeed"])
 
-    # Finally, we print the new DataFrame with our device and template
-    # information, along with the value of the fan speed
+    # Finally, print the new DataFrame with our device and template
+    # information, along with the value of the fan speed.
     print(transformed)
 
 ```
 
-### <a name="parse-device-templates-avro-file"></a>剖析裝置範本 AVRO 檔案
+#### <a name="parse-a-device-templates-avro-file"></a>剖析裝置範本 AVRO 檔案
 
 ```python
 import json
@@ -298,37 +305,36 @@ import pandavro as pdx
 import pandas as pd
 
 def parse(filePath):
-    # Pandavro loads the avro file into a pandas DataFrame where each record is
-    # a single row
+    # Pandavro loads the AVRO file into a pandas DataFrame
+    # where each record is a single row.
     templates = pdx.from_avro(filePath)
 
-    # In this example, we create a new DataFrame and load a series for each
-    # column we map into a column in our new DataFrame.
+    # This example creates a new DataFrame and loads a series
+    # for each column that's mapped into a column in our new DataFrame.
     transformed = pd.DataFrame()
 
-    # The template and version are available directly in the "id" and "version"
-    # columns, respectively
+    # The template and version are available in the id and version columns.
     transformed["template_id"] = templates["id"]
     transformed["template_version"] = templates["version"]
 
-    # The fanSpeed setting value is located in a nested dictionary under the
-    # settings column
+    # The fanSpeed setting value is located in a nested dictionary
+    # under the settings column.
     transformed["fan_speed"] = templates["settings"].apply(lambda x: x["device"]["fanSpeed"])
 
-    # Finally, we print the new DataFrame with our device and template
-    # information, along with the value of the fan speed
+    # Finally, print the new DataFrame with our device and template
+    # information, along with the value of the fan speed.
     print(transformed)
 ```
 
-## <a name="c"></a>C#
+### <a name="read-avro-files-by-using-c"></a>使用 C# 讀取 AVRO 檔案
 
-### <a name="install-microsofthadoopavro"></a>安裝 Microsoft.Hadoop.Avro
+#### <a name="install-the-microsofthadoopavro-package"></a>安裝 Microsoft.Hadoop.Avro 套件
 
 ```csharp
 Install-Package Microsoft.Hadoop.Avro -Version 1.5.6
 ```
 
-### <a name="parse-measurements-avro-file"></a>剖析量測 AVRO 檔案
+#### <a name="parse-a-measurements-avro-file"></a>剖析量測 AVRO 檔案
 
 ```csharp
 using Microsoft.Hadoop.Avro;
@@ -341,11 +347,11 @@ public static async Task Run(string filePath)
     {
         using (var reader = AvroContainer.CreateGenericReader(fileStream))
         {
-            // For one Avro Container, it may contain multiple blocks
-            // Loop through each block within the container
+            // For one AVRO container, where a container can contain multiple blocks,
+            // loop through each block in the container.
             while (reader.MoveNext())
             {
-                // Loop through Avro record inside the block and extract the fields
+                // Loop through the AVRO records in the block and extract the fields.
                 foreach (AvroRecord record in reader.Current.Objects)
                 {
                     var systemProperties = record.GetField<IDictionary<string, object>>("SystemProperties");
@@ -368,7 +374,7 @@ public static async Task Run(string filePath)
 }
 ```
 
-### <a name="parse-devices-avro-file"></a>剖析裝置 AVRO 檔案
+#### <a name="parse-a-devices-avro-file"></a>剖析裝置 AVRO 檔案
 
 ```csharp
 using Microsoft.Hadoop.Avro;
@@ -380,27 +386,26 @@ public static async Task Run(string filePath)
     {
         using (var reader = AvroContainer.CreateGenericReader(fileStream))
         {
-            // For one Avro Container, it may contains multiple blocks
-            // Loop through each block within the container
+            // For one AVRO container, where a container can contain multiple blocks,
+            // loop through each block in the container.
             while (reader.MoveNext())
             {
-                // Loop through Avro record inside the block and extract the
-                // fields from it
+                // Loop through the AVRO records in the block and extract the fields.
                 foreach (AvroRecord record in reader.Current.Objects)
                 {
                     // Get the field value directly. You can also yield return
-                    // record and make the function IEnumerable<AvroRecord>
+                    // records and make the function IEnumerable<AvroRecord>.
                     var deviceId = record.GetField<string>("id");
 
                     // The device template information is stored in a sub-record
-                    // under the "deviceTemplate" field.
+                    // under the deviceTemplate field.
                     var deviceTemplateRecord = record.GetField<AvroRecord>("deviceTemplate");
                     var templateId = deviceTemplateRecord.GetField<string>("id");
                     var templateVersion = deviceTemplateRecord.GetField<string>("version");
 
-                    // The settings and properties are nested two levels deep,
-                    // with the first level indicating settings or properties
-                    // and the second indicating the kind of setting/property
+                    // The settings and properties are nested two levels deep.
+                    // The first level indicates settings or properties.
+                    // The second level indicates the type of setting or property.
                     var settingsRecord = record.GetField<AvroRecord>("settings");
                     var deviceSettingsRecord = settingsRecord.GetField<IDictionary<string, dynamic>>("device");
                     var fanSpeed = deviceSettingsRecord["fanSpeed"];
@@ -419,7 +424,8 @@ public static async Task Run(string filePath)
 }
 
 ```
-### <a name="parse-device-templates-avro-file"></a>剖析裝置範本 AVRO 檔案
+
+#### <a name="parse-a-device-templates-avro-file"></a>剖析裝置範本 AVRO 檔案
 
 ```csharp
 using Microsoft.Hadoop.Avro;
@@ -431,22 +437,21 @@ public static async Task Run(string filePath)
     {
         using (var reader = AvroContainer.CreateGenericReader(fileStream))
         {
-            // For one Avro Container, it may contains multiple blocks
-            // Loop through each block within the container
+            // For one AVRO container, where a container can contain multiple blocks,
+            // loop through each block in the container.
             while (reader.MoveNext())
             {
-                // Loop through Avro record inside the block and extract the
-                // fields from it
+                // Loop through the AVRO records in the block and extract the fields.
                 foreach (AvroRecord record in reader.Current.Objects)
                 {
                     // Get the field value directly. You can also yield return
-                    // record and make the function IEnumerable<AvroRecord>
+                    // records and make the function IEnumerable<AvroRecord>.
                     var id = record.GetField<string>("id");
                     var version = record.GetField<string>("version");
 
-                    // The settings and properties are nested two levels deep,
-                    // with the first level indicating settings or properties
-                    // and the second indicating the kind of setting/property
+                    // The settings and properties are nested two levels deep.
+                    // The first level indicates settings or properties.
+                    // The second level indicates the type of setting or property.
                     var settingsRecord = record.GetField<AvroRecord>("settings");
                     var deviceSettingsRecord = settingsRecord.GetField<IDictionary<string, dynamic>>("device");
                     var fanSpeed = deviceSettingsRecord["fanSpeed"];
@@ -464,33 +469,33 @@ public static async Task Run(string filePath)
 }
 ```
 
-## <a name="javascript"></a>Javascript
+### <a name="read-avro-files-by-using-javascript"></a>使用 Javascript 讀取 AVRO 檔案
 
-### <a name="install-avsc"></a>安裝 avsc
+#### <a name="install-the-avsc-package"></a>安裝 avsc 套件
 
 ```javascript
 npm install avsc
 ```
 
-### <a name="parse-measurements-avro-file"></a>剖析量測 AVRO 檔案
+#### <a name="parse-a-measurements-avro-file"></a>剖析量測 AVRO 檔案
 
 ```javascript
 const avro = require('avsc');
 
-// Read the avro file and parse the device id and humidity from each record
+// Read the AVRO file. Parse the device ID and humidity from each record.
 async function parse(filePath) {
     const records = await load(filePath);
     for (const record of records) {
-        // Fetch the device id from the system properties
+        // Fetch the device ID from the system properties.
         const deviceId = record.SystemProperties.connectionDeviceId;
 
-        // Convert the Body from a Buffer to a string and parse it
+        // Convert the body from a buffer to a string and parse it.
         const body = JSON.parse(record.Body.toString());
 
-        // Get the humidty property off of the body
+        // Get the humidty property from the body.
         const humidity = body.humidity;
 
-        // Log the device id and humidity we found
+        // Log the retrieved device ID and humidity.
         console.log(`Device ID: ${deviceId}`);
         console.log(`Humidity: ${humidity}`);
     }
@@ -498,8 +503,8 @@ async function parse(filePath) {
 
 function load(filePath) {
     return new Promise((resolve, reject) => {
-        // The file decoder emits each record as a data event on a stream. We
-        // collect them up into an array and return them when we get to the end.
+        // The file decoder emits each record as a data event on a stream.
+        // Collect the records into an array and return them at the end.
         const records = [];
         avro.createFileDecoder(filePath)
             .on('data', record => { records.push(record); })
@@ -509,35 +514,35 @@ function load(filePath) {
 }
 ```
 
-### <a name="parse-devices-avro-file"></a>剖析裝置 AVRO 檔案
+#### <a name="parse-a-devices-avro-file"></a>剖析裝置 AVRO 檔案
 
 ```javascript
 const avro = require('avsc');
 
-// Read the avro file and parse the device and template identification info as
-// well as the fanSpeed setting for each device record.
+// Read the AVRO file. Parse the device and template identification
+// information and the fanSpeed setting for each device record.
 async function parse(filePath) {
     const records = await load(filePath);
     for (const record of records) {
-        // Fetch the device id from the id property
+        // Fetch the device ID from the id property.
         const deviceId = record.id;
 
-        // Fetch the tempalte id and version from the deviceTemplate property
+        // Fetch the template ID and version from the deviceTemplate property.
         const deviceTemplateId = record.deviceTemplate.id;
         const deviceTemplateVersion = record.deviceTemplate.version;
 
-        // Get the fanSpeed off the nested device settings property
+        // Get the fanSpeed from the nested device settings property.
         const fanSpeed = record.settings.device.fanSpeed;
 
-        // Log the device id and humidity we found
+        // Log the retrieved device ID and humidity.
         console.log(`ID: ${deviceId}, Template ID: ${deviceTemplateId}, Template Version: ${deviceTemplateVersion}, Fan Speed: ${fanSpeed}`);
     }
 }
 
 function load(filePath) {
     return new Promise((resolve, reject) => {
-        // The file decoder emits each record as a data event on a stream. We
-        // collect them up into an array and return them when we get to the end.
+        // The file decoder emits each record as a data event on a stream.
+        // Collect the records into an array and return them at the end.
         const records = [];
         avro.createFileDecoder(filePath)
             .on('data', record => { records.push(record); })
@@ -547,32 +552,32 @@ function load(filePath) {
 }
 ```
 
-### <a name="parse-device-templates-avro-file"></a>剖析裝置範本 AVRO 檔案
+#### <a name="parse-a-device-templates-avro-file"></a>剖析裝置範本 AVRO 檔案
 
 ```javascript
 const avro = require('avsc');
 
-// Read the avro file and parse the device and template identification info as
-// well as the fanSpeed setting for each device record.
+// Read the AVRO file. Parse the device and template identification
+// information and the fanSpeed setting for each device record.
 async function parse(filePath) {
     const records = await load(filePath);
     for (const record of records) {
-        // Fetch the template id and version from the id and verison properties
+        // Fetch the template ID and version from the id and verison properties.
         const templateId = record.id;
         const templateVersion = record.version;
 
-        // Get the fanSpeed off the nested device settings property
+        // Get the fanSpeed from the nested device settings property.
         const fanSpeed = record.settings.device.fanSpeed;
 
-        // Log the device id and humidity we found
+        // Log the retrieved device id and humidity.
         console.log(`Template ID: ${templateId}, Template Version: ${templateVersion}, Fan Speed: ${fanSpeed}`);
     }
 }
 
 function load(filePath) {
     return new Promise((resolve, reject) => {
-        // The file decoder emits each record as a data event on a stream. We
-        // collect them up into an array and return them when we get to the end.
+        // The file decoder emits each record as a data event on a stream.
+        // Collect the records into an array and return them at the end.
         const records = [];
         avro.createFileDecoder(filePath)
             .on('data', record => { records.push(record); })
@@ -584,7 +589,7 @@ function load(filePath) {
 
 ## <a name="next-steps"></a>後續步驟
 
-現在您已了解如何匯出資料，以下是建議執行的下一個步驟：
+現在您已經知道如何匯出資料，請繼續下一個步驟：
 
 > [!div class="nextstepaction"]
 > [如何在 Power BI 中將資料視覺化](howto-connect-powerbi.md)

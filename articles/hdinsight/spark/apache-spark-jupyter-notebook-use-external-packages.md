@@ -1,25 +1,20 @@
 ---
-title: 在 Azure HDInsight 上的 Spark 中搭配 Jupyter 使用自訂 Maven 套件 | Microsoft Docs
+title: 在 Azure HDInsight 上的 Spark 中搭配 Jupyter 使用自訂 Maven 套件
 description: 說明如何設定讓 HDInsight Spark 叢集隨附之 Jupyter Notebook 使用自訂 Maven 套件的逐步指示。
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 2a8bc545-064e-436f-8b5f-e67c26cfbf98
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/09/2018
-ms.author: nitinme
-ms.openlocfilehash: dfecdd5c9399c1bd6eb021f097481e3c73f699ad
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: jasonh
+ms.openlocfilehash: 51099f64546acc6f18269b2e7ec05106bb3baa2d
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31520818"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622026"
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>在 HDInsight 上的 Apache Spark 叢集中搭配 Jupyter Notebook 使用外部封裝
 > [!div class="op_single_selector"]
@@ -34,7 +29,7 @@ ms.locfileid: "31520818"
 
 在這篇文章中，您將了解如何搭配 Jupyter Notebook 使用 [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) 套件。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 您必須滿足以下條件：
 
 * HDInsight 上的 Apache Spark 叢集。 如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
@@ -42,7 +37,7 @@ ms.locfileid: "31520818"
 ## <a name="use-external-packages-with-jupyter-notebooks"></a>搭配 Jupyter Notebook 使用外部套件
 1. 在 [Azure 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板)。 您也可以按一下 [瀏覽全部] > [HDInsight 叢集] 來瀏覽至您的叢集。   
 
-2. 在 Spark 叢集刀鋒視窗中按一下 [快速連結]，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Jupyter Notebook]。 出現提示時，輸入叢集的系統管理員認證。
+1. 在 Spark 叢集刀鋒視窗中按一下 [快速連結]，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Jupyter Notebook]。 出現提示時，輸入叢集的系統管理員認證。
 
     > [!NOTE]
     > 您也可以在瀏覽器中開啟下列 URL，來連接到您的叢集的 Jupyter Notebook。 使用您叢集的名稱取代 **CLUSTERNAME** ：
@@ -50,15 +45,15 @@ ms.locfileid: "31520818"
     > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
     > 
 
-3. 建立新的 Notebook。 按一下 [新增]，然後按一下 [Spark]。
+1. 建立新的 Notebook。 按一下 [新增]，然後按一下 [Spark]。
    
     ![建立新的 Jupyter Notebook](./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-create-notebook.png "建立新的 Jupyter Notebook")
 
-4. 系統隨即會建立新 Notebook，並以 Untitled.pynb 的名稱開啟。 在頂端按一下 Notebook 名稱，然後輸入好記的名稱。
+1. 系統隨即會建立新 Notebook，並以 Untitled.pynb 的名稱開啟。 在頂端按一下 Notebook 名稱，然後輸入好記的名稱。
    
     ![提供 Notebook 的名稱](./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-name-notebook.png "提供 Notebook 的名稱")
 
-5. 您將使用 `%%configure` magic 來設定讓 Notebook 使用外部套件。 在使用外部套件的 Notebook 中，確定您在第一個程式碼單元中呼叫 `%%configure` magic。 這可確保將核心設定為在啟動工作階段之前即使用此套件。
+1. 您將使用 `%%configure` magic 來設定讓 Notebook 使用外部套件。 在使用外部套件的 Notebook 中，確定您在第一個程式碼單元中呼叫 `%%configure` magic。 這可確保將核心設定為在啟動工作階段之前即使用此套件。
 
     >[!IMPORTANT] 
     >如果您忘記在第一個單元中設定核心，您可以搭配 `-f` 參數使用 `%%configure`，但這會重新啟動工作階段，而所有進度都將遺失。
@@ -68,7 +63,7 @@ ms.locfileid: "31520818"
     |HDInsight 3.3 和 HDInsight 3.4 | `%%configure` <br>`{ "packages":["com.databricks:spark-csv_2.10:1.4.0"] }`|
     | HDInsight 3.5 和 HDInsight 3.6 | `%%configure`<br>`{ "conf": {"spark.jars.packages": "com.databricks:spark-csv_2.10:1.4.0" }}`|
 
-6. 對於 Maven 中央儲存機制中的外部套件，上述程式碼片段預期會使用 Maven 座標。 在此程式碼片段中， `com.databricks:spark-csv_2.10:1.4.0` 是 **spark-csv** 套件的 maven 座標。 以下說明如何建立套件的座標。
+1. 對於 Maven 中央儲存機制中的外部套件，上述程式碼片段預期會使用 Maven 座標。 在此程式碼片段中， `com.databricks:spark-csv_2.10:1.4.0` 是 **spark-csv** 套件的 maven 座標。 以下說明如何建立套件的座標。
    
     a. 在「Maven 儲存機制」中找出套件。 針對本教學課程，我們使用 [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar)。
    
@@ -80,7 +75,7 @@ ms.locfileid: "31520818"
    
         com.databricks:spark-csv_2.10:1.4.0
 
-7. 以 `%%configure` magic 執行程式碼單元。 這會將基礎 Livy 工作階段設定為使用您提供的套件。 在 Notebook 的後續單元中，您現在已可以使用套件，如以下所示。
+1. 以 `%%configure` magic 執行程式碼單元。 這會將基礎 Livy 工作階段設定為使用您提供的套件。 在 Notebook 的後續單元中，您現在已可以使用套件，如以下所示。
    
         val df = sqlContext.read.format("com.databricks.spark.csv").
         option("header", "true").
@@ -94,7 +89,7 @@ ms.locfileid: "31520818"
         option("inferSchema", "true").
         load("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
-8. 接著，您可以執行程式碼片段 (如以下所示) 以檢視來自您在上一個步驟中所建立之資料框架的資料。
+1. 接著，您可以執行程式碼片段 (如以下所示) 以檢視來自您在上一個步驟中所建立之資料框架的資料。
    
         df.show()
    

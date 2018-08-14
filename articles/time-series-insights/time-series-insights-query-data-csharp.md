@@ -4,19 +4,19 @@ description: 本文說明如何編製以 C# (c-sharp) .NET 語言撰寫的自訂
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: ankryach
-manager: jhubbard
+ms.author: anshan
+manager: cshankar
 reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/23/2018
-ms.openlocfilehash: 19531fc5bde1f833021cf5bd781e4811b2c23155
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 6c4a99096efc95f439d6c9479cb9014957207ea6
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293594"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630852"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-environment-using-c"></a>使用 C# 從 Azure Time Series Insights 環境查詢資料
 

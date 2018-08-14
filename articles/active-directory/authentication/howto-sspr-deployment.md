@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 2371ad00728a47af9e96e8e711aa07cc5170266c
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: f786a20f61c8851c1d50a89edd392b9b974db076
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158857"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622315"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>如何成功推出自助式密碼重設
 
@@ -75,12 +75,13 @@ ms.locfileid: "39158857"
 
 ## <a name="disable-self-service-password-reset"></a>啟用自助式密碼重設
 
-如果您的組織決定停用自助式密碼重設，這是很簡單的程序。 開啟您的 Azure AD 租用戶並移至 [密碼重設] > [屬性]，然後選取 [已啟用自助式密碼重設] 之下的 [無]。 使用者仍將維護其
+如果您的組織決定停用自助式密碼重設，這是很簡單的程序。 開啟您的 Azure AD 租用戶並移至 [密碼重設] > [屬性]，然後選取 [已啟用自助式密碼重設] 之下的 [無]。 使用者仍將維持其已註冊的驗證方法，供日後使用。
 
 ## <a name="next-steps"></a>後續步驟
 
 * [重設或變更您的密碼](../user-help/active-directory-passwords-update-your-own-password.md)
 * [註冊自助式密碼重設](../user-help/active-directory-passwords-reset-register.md)
+* [啟用 Azure Multi-Factor Authentication 的聚合式註冊和 Azure AD 自助密碼重設](concept-registration-mfa-sspr-converged.md)
 * [您有授權問題嗎？](concept-sspr-licensing.md)
 * [SSPR 使用哪些資料，以及您應該為使用者填入哪些資料？](howto-sspr-authenticationdata.md)
 * [使用 SSPR 的原則選項有哪些？](concept-sspr-policy.md)

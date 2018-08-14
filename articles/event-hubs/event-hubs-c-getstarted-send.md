@@ -3,7 +3,7 @@ title: 使用 C 將事件傳送至 Azure 事件中樞 | Microsoft Docs
 description: 使用 C 將事件傳送至 Azure 事件中樞
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: c
 ms.devlang: csharp
 ms.topic: article
 ms.date: 12/4/2017
-ms.author: sethm
-ms.openlocfilehash: e3267b54fa0c8593e0f9366c009656f36e4094ef
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.author: shvija
+ms.openlocfilehash: 25da8255af6a23a4f01db5a1ec4f1ddcd2eeb1bb
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807810"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40002452"
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>使用 C 將事件傳送至 Azure 事件中樞
 

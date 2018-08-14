@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 1d08518a23dfe4a9cc63bf3f35ee69ea1815595f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c8c0f4c3f99aa413531f54c1807883fcd73f039a
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38239946"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627928"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>在 Azure AD 中保護混合式部署和雲端部署的特殊權限存取
 
@@ -380,7 +380,7 @@ Cloud App Security SIEM 代理程式可整合 Cloud App Security 與您的 SIEM 
 
 4. [提出 Azure 支援要求](../../azure-supportability/how-to-create-azure-support-request.md)以取得 Microsoft 的協助。
 
-5. 查看 [Azure AD 登入報告](../active-directory-reporting-azure-portal.md)。 事件在發生後可能需要一段延遲時間才會包含在報告中。
+5. 查看 [Azure AD 登入報告](../reports-monitoring/overview-reports.md)。 事件在發生後可能需要一段延遲時間才會包含在報告中。
 
 6. 在混合式環境中，如果同盟和您的 AD FS 伺服器無法使用，您可能需要暫時從同盟驗證切換為使用密碼雜湊同步。這會使網域同盟還原為受控驗證，直到 AD FS 伺服器恢復可用性為止。
 

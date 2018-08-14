@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 08/07/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9c59db56ad78818d9b6165d27fd2e64f0bfd902c
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 29ed96044ceaa914db3f8b7090a1be5f65827e54
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283218"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627469"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory 無縫單一登入：常見問題集
 
@@ -40,19 +40,20 @@ ms.locfileid: "39283218"
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>哪些應用程式利用無縫 SSO 的 `domain_hint` 或 `login_hint` 參數功能？
 
-以下是一份不完整的應用程式清單，這些應用程式會將這些參數傳送給 Azure AD，因此可使用「無縫 SSO」(亦即，使用者不需要輸入自己的使用者名稱) 為使用者提供無訊息的登入體驗：
+以下是一份不完整的應用程式清單，這些應用程式可以將這些參數傳送給 Azure AD，因此可使用「無縫 SSO」(亦即，使用者不需要輸入自己的使用者名稱或密碼) 為使用者提供無訊息的登入體驗：
 
 | 應用程式名稱 | 要使用的應用程式 URL |
 | -- | -- |
-| 存取面板 | myapps.microsoft.com/contoso.com |
-| 網路版 Outlook | outlook.office365.com/contoso.com |
+| 存取面板 | https://myapps.microsoft.com/contoso.com |
+| 網路版 Outlook | https://outlook.office365.com/contoso.com |
+| Office 365 入口網站 | https://portal.office.com?domain_hint=contoso.com |
 
 此外，如果應用程式將登入要求傳送至 Azure AD 的租用戶端點 (也就是 https://login.microsoftonline.com/contoso.com/<..> 或 https://login.microsoftonline.com/<tenant_ID>/<..>) 而不是 Azure AD 的一般端點 (也就是 https://login.microsoftonline.com/common/<...>)，使用者也可獲得無訊息登入體驗。 以下是一份不完整的應用程式清單，列出會提出這類登入要求的應用程式。
 
 | 應用程式名稱 | 要使用的應用程式 URL |
 | -- | -- |
-| SharePoint Online | contoso.sharepoint.com |
-| Azure 入口網站 | portal.azure.com/contoso.com |
+| SharePoint Online | https://contoso.sharepoint.com |
+| Azure 入口網站 | https://portal.azure.com/contoso.com |
 
 在上表中，請以您的網域名稱取代 "contoso.com"，以連至您租用戶的正確應用程式 URL。
 

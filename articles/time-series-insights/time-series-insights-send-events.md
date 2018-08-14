@@ -4,19 +4,19 @@ description: 本教學課程說明如何建立和設定事件中樞，並執行�
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: venkatja
-manager: jhubbard
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.author: anshan
+manager: cshankar
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: fb550942debf26691a0deac2a1ad8093128e4e63
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 30b83c54d314934f1de170955eec22e7b2a264b8
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294508"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629747"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>使用事件中樞將事件傳送至 Time Series Insights 環境
 本文說明如何建立和設定事件中樞，並執行應用程式範例以推送事件。 如果您現有的事件中樞內含 JSON 格式的事件，請跳過本教學課程，並在[時間序列深入解析](https://insights.timeseries.azure.com)檢視您的環境。

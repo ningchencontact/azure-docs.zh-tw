@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 200b3c36c28cd61ca34e57875d030bf308c387ec
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 765a10a336b908d399f46b2248aab3903c594d24
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049276"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628540"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>使用 Azure Data Factory 從 ODBC 資料存放區移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,13 +66,13 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 ODBC �
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| type |類型屬性必須設為： **OnPremisesOdbc** |yes |
-| connectionString |連接字串的非存取認證部分和選擇性的加密認證。 請參閱下列幾節中的範例。 <br/><br/>您可以用 `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` 模式指定連接字串，或使用您在閘道電腦上以 `"DSN=<name of the DSN>;"` 設定的系統 DSN (資料來源名稱) (仍需要據此指定連結的服務中的認證部分)。 |yes |
+| type |類型屬性必須設為： **OnPremisesOdbc** |是 |
+| connectionString |連接字串的非存取認證部分和選擇性的加密認證。 請參閱下列幾節中的範例。 <br/><br/>您可以用 `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` 模式指定連接字串，或使用您在閘道電腦上以 `"DSN=<name of the DSN>;"` 設定的系統 DSN (資料來源名稱) (仍需要據此指定連結的服務中的認證部分)。 |是 |
 | 認證 |以驅動程式特定「屬性-值」格式指定之連接字串的存取認證部分。 範例： `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |否 |
-| authenticationType |用來連接到 ODBC 資料存放區的驗證類型。 可能的值為：Anonymous 和 Basic。 |yes |
+| authenticationType |用來連接到 ODBC 資料存放區的驗證類型。 可能的值為：Anonymous 和 Basic。 |是 |
 | username |如果您要使用 Basic 驗證，請指定使用者名稱。 |否 |
 | password |指定您為使用者名稱所指定之使用者帳戶的密碼。 |否 |
-| gatewayName |Data Factory 服務應該用來連接到 ODBC 資料存放區的閘道器名稱。 |yes |
+| gatewayName |Data Factory 服務應該用來連接到 ODBC 資料存放區的閘道器名稱。 |是 |
 
 ### <a name="using-basic-authentication"></a>使用基本驗證
 
@@ -94,7 +94,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 ODBC �
 }
 ```
 ### <a name="using-basic-authentication-with-encrypted-credentials"></a>使用基本驗證與加密認證
-您可以使用 [New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) (1.0 版的 Azure PowerShell) Cmdlet 或 [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (0.9 或更舊版的 Azure PowerShell) 來加密認證。  
+您可以使用 [New-AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) (1.0 版的 Azure PowerShell) Cmdlet 或 [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (0.9 或更舊版的 Azure PowerShell) 來加密認證。  
 
 ```json
 {
@@ -139,7 +139,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 ODBC �
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| tableName |ODBC 資料存放區中資料表的名稱。 |yes |
+| tableName |ODBC 資料存放區中資料表的名稱。 |是 |
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 如需定義活動的區段和屬性完整清單，請參閱[建立管線](data-factory-create-pipelines.md)一文。 屬性 (例如名稱、描述、輸入和輸出資料表，以及原則) 適用於所有類型的活動。
@@ -150,7 +150,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 ODBC �
 
 | 屬性 | 說明 | 允許的值 | 必要 |
 | --- | --- | --- | --- |
-| query |使用自訂查詢來讀取資料。 |SQL 查詢字串。 例如：select * from MyTable。 |yes |
+| query |使用自訂查詢來讀取資料。 |SQL 查詢字串。 例如：select * from MyTable。 |是 |
 
 
 ## <a name="json-example-copy-data-from-odbc-data-store-to-azure-blob"></a>JSON 範例：將資料從 ODBC 資料存放區複製到 Azure Blob

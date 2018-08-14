@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: e773435d89a511e6f1f369cc3fd5dc6f06507e45
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 7aa5b00d1497e384377ba4423431eac57c1aa4c9
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808752"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630398"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure 中 Web 應用程式的設定和管理常見問題集
 
@@ -106,7 +106,7 @@ App Service 憑證被視為 Azure 資源。 它們並不適合在 Azure 服務�
 
 ## <a name="why-do-i-see-the-message-partially-succeeded-when-i-try-to-back-up-my-web-app"></a>為什麼當我嘗試備份 Web 應用程式時看到「部分成功」訊息？
 
-備份失敗的常見原因是某些檔案正在由應用程式使用中。 您在執行備份時，使用中的檔案會遭到鎖定。 這樣會避免這些檔案進行備份，因此可能導致「部分成功」狀態。 您也許可以藉由從備份程序排除此檔案來防止這個情形發生。 您可以選擇僅備份需要的項目。 如需詳細資訊，請參閱[僅備份網站與 Azure Web 應用程式的重要部分](http://www.zainrizvi.io/2015/06/05/creating-partial-backups-of-your-site-with-azure-web-apps/)。
+備份失敗的常見原因是某些檔案正在由應用程式使用中。 您在執行備份時，使用中的檔案會遭到鎖定。 這樣會避免這些檔案進行備份，因此可能導致「部分成功」狀態。 您也許可以藉由從備份程序排除此檔案來防止這個情形發生。 您可以選擇僅備份需要的項目。 如需詳細資訊，請參閱[僅備份網站與 Azure Web 應用程式的重要部分](http://zainrizvi.io/blog/creating-partial-backups-of-your-site-with-azure-web-apps/)。
 
 ## <a name="how-do-i-remove-a-header-from-the-http-response"></a>如何從 HTTP 回應移除標題？
 
@@ -288,7 +288,7 @@ Invoke-AzureRmResourceAction -ResourceGroupName "<App Service Certificate Resour
 
 ## <a name="how-do-i-redirect-the-default-azurewebsitesnet-domain-to-my-azure-web-apps-custom-domain"></a>如何將預設 *.azurewebsites.net 網域重新導向至我的 Azure Web 應用程式的自訂網域？
 
-當您使用 Azure 中的 Web 應用程式建立新網站時，預設 sitename.azurewebsites.net 網域會指派至您的網站。 如果您將自訂主機名稱新增至您的網站，且不想讓使用者能夠存取您的預設 *.azurewebsites.net 網域，您可以重新導向預設 URL。 若要深入了解如何將網站預設網域的所有流量重新導向至自訂網域，請參閱[將預設網域重新導向至 Azure Web 應用程式中的自訂網域](http://www.zainrizvi.io/2016/04/07/block-default-azure-websites-domain/)。
+當您使用 Azure 中的 Web 應用程式建立新網站時，預設 sitename.azurewebsites.net 網域會指派至您的網站。 如果您將自訂主機名稱新增至您的網站，且不想讓使用者能夠存取您的預設 *.azurewebsites.net 網域，您可以重新導向預設 URL。 若要深入了解如何將網站預設網域的所有流量重新導向至自訂網域，請參閱[將預設網域重新導向至 Azure Web 應用程式中的自訂網域](http://zainrizvi.io/blog/block-default-azure-websites-domain/)。
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>如何判斷安裝在 App Service 中的是哪一個版本的 .NET？
 

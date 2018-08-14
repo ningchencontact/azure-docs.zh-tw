@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 1aa5c0f259fdb5fce449bc86f9cf293801b4770a
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: cc6d08de74097ba7566037664fd33d9be85ac390
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39368666"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628983"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>教學課程：設定適用於同盟網域的混合式 Azure Active Directory Join
 
@@ -50,6 +50,7 @@ ms.locfileid: "39368666"
 
 -  [如何規劃混合式 Azure Active Directory Join 實作](hybrid-azuread-join-plan.md)
 
+-  [如何控制裝置的混合式 Azure AD Join](hybrid-azuread-join-control.md)
 
 
 若要設定本教學課程中的案例，您需要：
@@ -212,8 +213,8 @@ ms.locfileid: "39368666"
 
 如果您為已加入網域的 Windows 裝置執行混合式 Azure AD Join 時遇到問題，請參閱：
 
-- [對現行 Windows 裝置的混合式 Azure AD Join 進行疑難排解](../device-management-troubleshoot-hybrid-join-windows-current.md)
-- [對舊版 Windows 裝置的混合式 Azure AD Join 進行疑難排解](../device-management-troubleshoot-hybrid-join-windows-legacy.md)
+- [對現行 Windows 裝置的混合式 Azure AD Join 進行疑難排解](troubleshoot-hybrid-join-windows-current.md)
+- [對舊版 Windows 裝置的混合式 Azure AD Join 進行疑難排解](troubleshoot-hybrid-join-windows-legacy.md)
 
 
 
@@ -221,7 +222,7 @@ ms.locfileid: "39368666"
 
 > [!div class="nextstepaction"]
 > [設定適用於受控網域的混合式 Azure Active Directory Join](hybrid-azuread-join-managed-domains.md)
-> [手動設定混合式 Azure Active Directory Join](../device-management-hybrid-azuread-joined-devices-setup.md)
+> [手動設定混合式 Azure Active Directory Join](hybrid-azuread-join-manual-steps.md)
 
 
 

@@ -1,24 +1,20 @@
 ---
-title: 使用 Spark 分析 Application Insights 記錄 - Azure HDInsight | Microsoft Docs
+title: 使用 Spark 分析 Application Insights 記錄 - Azure HDInsight
 description: 了解如何將 Application Insights 記錄檔匯出至 blob 儲存體，並接著使用 HDInsight 上的 Spark 分析記錄檔。
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-ms.assetid: 883beae6-9839-45b5-94f7-7eb0f4534ad5
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/09/2018
-ms.author: larryfr
-ms.openlocfilehash: 31068376e20b240a440432319e65f4e479163ee0
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 60d837737b1b196ebc83fac4165905218e0f3034
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33939595"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621958"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-spark-on-hdinsight"></a>使用 HDInsight 上的 Spark 分析 Application Insights 遙測記錄檔
 
@@ -26,7 +22,7 @@ ms.locfileid: "33939595"
 
 [Visual Studio Application Insights](../../application-insights/app-insights-overview.md) 是一項分析服務，可監視您的 Web 應用程式。 可以將 Application Insights 產生的遙測資料匯出至 Azure 儲存體。 資料一旦位於 Azure 儲存體中，HDInsight 便可用於進行分析。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 設定要使用 Application Insights 的應用程式。
 

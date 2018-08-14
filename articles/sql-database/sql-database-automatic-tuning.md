@@ -2,19 +2,20 @@
 title: Azure SQL Database - 自動調整 | Microsoft Docs
 description: Azure SQL Database 會分析 SQL 查詢，並自動針對使用者的工作負載調整。
 services: sql-database
-author: jovanpop-msft
+author: danimir
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.author: jovanpop
-ms.openlocfilehash: bef8d01bd4c220fac595177089088ff64ee3bc3b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: v-daljep
+ms.reviewer: carlrab
+ms.openlocfilehash: dd6e8f5f46e9fdf6887cc2a0b0c7b15bbd00fabd
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646638"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626194"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Azure SQL Database 中的自動調整
 
@@ -76,6 +77,6 @@ Azure SQL Database 可識別 **CREATE INDEX**、**DROP INDEX** 和 **FORCE LAST 
 
 - 若要在 Azure SQL Database 中啟用自動調整以管理您的工作負載，請參閱[啟用自動調整](sql-database-automatic-tuning-enable.md)。
 - 若要手動檢閱及套用自動調整建議，請參閱[尋找及套用效能建議](sql-database-advisor-portal.md)。
-- 若要了解如何對自動調整建議建置電子郵件通知，請參閱[自動調整的電子郵件通知](sql-database-automatic-tuning-email-notifications.md)
+- 若要了解如何對自動調整建議建置電子郵件通知，請參閱[自動調整的電子郵件通知](sql-database-automatic-tuning-email-notifications.md)。
 - 若要了解自動調整中使用的內建智慧機制，請參閱[透過人工智慧調整 Azure SQL Database](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/)。
 - 若要了解自動調整在 Azure SQL Database 和 SQL Server 2017 中運作的方式，請參閱 [SQL Server 自動調整](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)。

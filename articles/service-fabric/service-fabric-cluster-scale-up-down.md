@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: aljo
-ms.openlocfilehash: c2479dad013bfcb738e61e67cc8cf9584b4d11cc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 1869b25756693a4a3626d713b6bd2adab035cea6
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204809"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39717479"
 ---
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules-or-manually"></a>使用自動調整規則或以手動方式相應縮小或放大 Service Fabric 叢集
 虛擬機器擴展集是一個 Azure 計算資源，可以用來將一組虛擬機器當做一個集合加以部署和管理。 在 Service Fabric 叢集中定義的每個節點類型都會安裝為不同的虛擬機器擴展集。 然後每個節點類型可以獨立相應縮小或放大，可以開啟不同組的連接埠，並可以有不同的容量度量。 若要深入了解，請參閱 [Service Fabric 節點類型](service-fabric-cluster-nodetypes.md) 文件。 因為叢集中的 Service Fabric 節點類型是由後端的虛擬機器擴展集建立，所以您必須為每個節點類型/虛擬機器擴展集設定自動調整規則。
@@ -53,7 +53,7 @@ Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <Virtual Machine sca
 請遵循下列指示[設定每個虛擬機器擴展集的自動調整規模](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md)。
 
 > [!NOTE]
-> 在相應減少的案例中，除非節點類型有 Gold 或 Silver 的持久性層級，否則必須以適當的節點名稱呼叫 [Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate) Cmdlet。
+> 在相應減少的案例中，除非節點類型有 Gold 或 Silver 的持久性層級，否則必須以適當的節點名稱呼叫 [Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate) Cmdlet。針對 Bronze 持久性，不建議一次相應減少超過一個節點。
 > 
 > 
 
@@ -92,7 +92,7 @@ Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <Virtual Machine sca
 4. 視需要重複步驟 1 到 3，但是請永遠不要將主要節點類型的執行個體數目相應減少到少於可靠性層級所需的數目。 請參閱 [可靠性層級的詳細資料](service-fabric-cluster-capacity.md)。
 
 ## <a name="behaviors-you-may-observe-in-service-fabric-explorer"></a>Service Fabric Explorer 可能出現的行為
-當您相應增加叢集時，Service Fabric Explorer 會反映屬於叢集的節點數目 (虛擬機器擴展集執行個體)。  不過，當您相應減少叢集時，除非您以適當的節點名稱呼叫 [Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) Cmdlet，否則會看到已移除的節點/VM 執行個體顯示為健康狀態不良。   
+當您相應增加叢集時，Service Fabric Explorer 會反映屬於叢集的節點數目 (虛擬機器擴展集執行個體)。  不過，當您相應減少叢集時，除非您以適當的節點名稱呼叫 [Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate) Cmdlet，否則會看到已移除的節點/VM 執行個體顯示為健康狀態不良。   
 
 以下是這種行為的說明。
 
@@ -103,7 +103,7 @@ Service Fabric Explorer 列出的節點會反映出 Service Fabric 系統服務 
 1) 為叢集中的節點類型選擇 Gold 或 Silver 持久性層級，提供您基礎結構的整合。 它會在您相應減少時，從我們的系統服務 (FM) 狀態自動移除節點。
 請參閱 [持久性層級的詳細資訊](service-fabric-cluster-capacity.md)
 
-2) VM 執行個體一旦相應減少，您就必須呼叫 [Remove-ServiceFabricNodeState Cmdlet](https://msdn.microsoft.com/library/mt125993.aspx)。
+2) VM 執行個體一旦相應減少，您就必須呼叫 [Remove-ServiceFabricNodeState Cmdlet](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate)。
 
 > [!NOTE]
 > Service Fabric 叢集需要有一定數量的節點隨時都處於啟動，以維持可用性並維持狀態 - 稱為「維持仲裁」。 因此，除非您已先執行 [狀態的完整備份](service-fabric-reliable-services-backup-restore.md)，否則關閉叢集中的所有電腦通常並不安全。

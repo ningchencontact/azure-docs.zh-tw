@@ -10,14 +10,14 @@ ms.service: functions
 ms.workload: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 07/29/2018
 ms.author: glenga
-ms.openlocfilehash: 8ba12f21d76d8deded047f40489c46657c9380b8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6bf6621d650ad590cd1134bc79fcdecdc3fd0963
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38602112"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622631"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions 執行階段版本概觀
 
@@ -26,7 +26,9 @@ ms.locfileid: "38602112"
 | 執行階段 | 狀態 |
 |---------|---------|
 |1.x|正式上市 (GA)|
-|2.x|預覽|
+|2.x|預覽<sup>*</sup>|
+
+<sup>*</sup>若要接收 2.x 版的重要更新 (包括重大變更通知)，請隨時留意 [Azure App Service 通知](https://github.com/Azure/app-service-announcements/issues) \(英文\) 存放庫。
 
 > [!NOTE] 
 > 本文所介紹的是雲端服務 Azure Functions。 如需可執行 Azure Functions 內部部署的詳細資訊，請參閱 [Azure Functions 執行階段概觀](functions-runtime-overview.md)。

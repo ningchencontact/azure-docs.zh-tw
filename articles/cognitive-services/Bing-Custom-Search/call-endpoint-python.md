@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 889762ae0b401438f25546738268c584ddd58389
-ms.sourcegitcommit: 15bfce02b334b67aedd634fa864efb4849fc5ee2
+ms.openlocfilehash: 88bf82805ba46abf79b7899e0428a83485062302
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "35370743"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504962"
 ---
 # <a name="call-bing-custom-search-endpoint-python"></a>呼叫 Bing 自訂搜尋端點 (Python)
 
@@ -34,13 +34,18 @@ ms.locfileid: "35370743"
 若要呼叫 Bing 自訂搜尋端點，請遵循下列步驟：
 
 1. 建立程式碼的資料夾。
+
 2. 從管理員命令提示字元或終端機，瀏覽至您剛剛建立的資料夾。
+
 3. 安裝**要求** Python 模組：
+
     <pre>
     pip install pipenv
     pipenv install requests
     </pre>
-7. 會建立 BingCustomSearch.py 檔案，並將下列程式碼複製到該檔案。
+    
+7. 建立 BingCustomSearch.py 檔案，並將下列程式碼複製到該檔案。
+
 8. 將 **YOUR-SUBSCRIPTION-KEY** 和 **YOUR-CUSTOM-CONFIG-ID** 取代為您的金鑰和組態識別碼 (請參閱步驟 1)。
 
     ``` Python

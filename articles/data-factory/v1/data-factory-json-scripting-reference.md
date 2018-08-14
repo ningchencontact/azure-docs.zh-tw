@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6c96cf220e34f1509375e5314e0b54e175575834
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: c5909c1f511d3a7816ebafc3ea8b326edb7f14e3
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114203"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629492"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON 指令碼參考
 > [!NOTE]
@@ -299,7 +299,7 @@ Azure Data Factory 中的資料集定義如下：
 | --- | --- | --- |
 | name |資料行的名稱。 |是 |
 | type |資料行的資料類型。  |否 |
-| culture |.NET 型文化特性是在已指定類型 (type) 且是 .NET 類型 `Datetime` 或 `Datetimeoffset` 時使用。 預設值為 `en-us`。 |否 |
+| culture |\.NET 型文化特性是在已指定類型 (type) 且是 \.NET 類型 `Datetime` 或 `Datetimeoffset` 時使用。 預設值為 `en-us`。 |否 |
 | format |格式字串是在已指定類型且是 .NET 類型 `Datetime` 或 `Datetimeoffset` 時使用。 |否 |
 
 在下列範例中，資料集有三個資料行 `slicetimestamp`、`projectname` 及 `pageviews`，類型分別為：String、String 及 Decimal。
@@ -3733,7 +3733,7 @@ auto-
 | userName |Windows 驗證的使用者名稱。 |是 (適用於 Windows 驗證) |
 | password |Windows 驗證的密碼。 |是 (適用於 Windows 驗證) |
 | gatewayName |Data Factory 服務應該用來連接到 HDFS 的閘道器名稱。 |是 |
-| encryptedCredential |[New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) 輸出。 |否 |
+| encryptedCredential |[New-AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) 輸出。 |否 |
 
 #### <a name="example-using-anonymous-authentication"></a>範例：使用匿名驗證
 
@@ -4463,7 +4463,7 @@ auto-
 }
 ```
 #### <a name="example---using-basic-authentication-with-encrypted-credentials"></a>範例 - 使用基本驗證搭配加密認證
-您可以使用 [New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) (1.0 版的 Azure PowerShell) Cmdlet 或 [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (0.9 或更舊版的 Azure PowerShell) 來加密認證。  
+您可以使用 [New-AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) (1.0 版的 Azure PowerShell) Cmdlet 或 [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (0.9 或更舊版的 Azure PowerShell) 來加密認證。  
 
 ```json
 {
@@ -4592,7 +4592,7 @@ auto-
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| environmentUrl | 指定 Salesforce 執行個體的 URL。 <br><br> - 預設為「https://login.salesforce.com」。 <br> - 若要從沙箱複製資料，請指定「https://test.salesforce.com」。 <br> - 若要從自訂網域複製資料，舉例來說，請指定 "https://[網域].my.salesforce.com"。 |否 |
+| environmentUrl | 指定 Salesforce 執行個體的 URL。 <br><br> - 預設為「 https://login.salesforce.com 」。 <br> - 若要從沙箱複製資料，請指定「 https://test.salesforce.com 」。 <br> - 若要從自訂網域複製資料，舉例來說，請指定 "https://[網域].my.salesforce.com"。 |否 |
 | username |指定使用者帳戶的使用者名稱。 |是 |
 | password |指定使用者帳戶的密碼。 |是 |
 | securityToken |指定使用者帳戶的安全性權杖。 如需如何重設/取得安全性權杖的指示，請參閱 [取得安全性權杖](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) 。 若要整體了解安全性權杖，請參閱[安全性和 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)。 |是 |

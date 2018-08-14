@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 9c45b428a6d2060243f1eba9a284c7eb1b1b21c0
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 9bcc73d262f4bc455c923fe0eb7c04c7cf090830
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259097"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505356"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>在 Azure Data Factory 中監視整合執行階段  
 **整合執行階段**是 Azure Data Factory 所使用的計算基礎結構，可提供跨不同網路環境的各種資料整合功能。 Data Factory 提供三種類型的整合執行階段：
@@ -45,7 +45,7 @@ Cmdlet 會為不同類型的整合執行階段傳回不同的資訊。 本文說
 -------- | ------------- | 
 | Name | Azure 整合執行階段的名稱。 |  
 | State | Azure 整合執行階段的狀態。 | 
-| Location | Azure 整合執行階段的位置。 如需 Azure 整合執行階段的位置詳細資訊，請參閱[整合執行階段簡介](concepts-integration-runtime.md)。 |
+| 位置 | Azure 整合執行階段的位置。 如需 Azure 整合執行階段的位置詳細資訊，請參閱[整合執行階段簡介](concepts-integration-runtime.md)。 |
 | DataFactoryName | Azure 整合執行階段所屬的資料處理站名稱。 | 
 | resourceGroupName | 資料處理站所屬的資源群組名稱。  |
 | 說明 | 整合執行階段的說明。  |

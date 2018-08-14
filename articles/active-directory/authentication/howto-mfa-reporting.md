@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: bb5a005ba553d6392bf1427a4c2bba9ac5aad191
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: dc4cd28fe61c422f65f47c74c7cbc4686d73ab77
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358661"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628829"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 中的報告
 
@@ -50,7 +50,7 @@ Azure Multi-Factor Authentication 提供數個報告，可供您和貴組織透�
 - 有多少使用者無法完成 MFA 挑戰？
 - 使用者會遇到的常見 MFA 問題是什麼？
 
-此資料可透過 [Azure 入口網站](https://portal.azure.com)和[報告 API](../active-directory-reporting-api-getting-started-azure-portal.md) 取得。
+此資料可透過 [Azure 入口網站](https://portal.azure.com)和[報告 API](../reports-monitoring/concept-reporting-api.md) 取得。
 
 ![雲端](./media/howto-mfa-reporting/sign-in-report.png)
 

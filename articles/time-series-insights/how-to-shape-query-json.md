@@ -3,17 +3,17 @@ title: 在 Azure 時間序列深入解析查詢中成形 JSON 的最佳做法。
 description: 了解如何改善您的時間序列深入解析查詢效率。
 services: time-series-insights
 author: ashannon7
-manager: timlt
+manager: cshankar
 ms.service: time-series-insights
 ms.topic: article
 ms.date: 05/24/2018
-ms.author: bryanla
-ms.openlocfilehash: 29919a3ce8c18982c88f7f0e6bbd774c612e9c44
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: anshan
+ms.openlocfilehash: 11bea78315ff7ebb4b0c167dbb687ce940907527
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659274"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628907"
 ---
 # <a name="how-to-shape-json-to-maximize-query-performance"></a>如何成形 JSON 來將查詢效能最大化 
 
@@ -88,7 +88,7 @@ ms.locfileid: "34659274"
 | FXXX | LINE\_DATA | EU |
 | FYYY | LINE\_DATA | US |
 
-時間序列深入解析事件資料表 (壓平合併後)：
+時間序列見解事件資料表 (壓平合併後)：
 
 | deviceId | messageId | deviceLocation | timestamp | series.Flow Rate ft3/s | series.Engine Oil Pressure psi |
 | --- | --- | --- | --- | --- | --- |

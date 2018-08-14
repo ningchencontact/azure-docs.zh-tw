@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: diberry
-ms.openlocfilehash: 8cafe2be190988cbcbe8da616fe17c9a35c722f3
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: cba156d784bfcdd2586073ab5562faf604569cd8
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226018"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505523"
 ---
 # <a name="plan-your-luis-app"></a>規劃 LUIS 應用程式
 
@@ -65,7 +65,7 @@ LUIS 針對 `Number` 之類的常見類型 (可在訂票中作為訂票數目)�
 
 ![Number 預先建置的實體](./media/luis-plan-your-app/number-entity.png)
 
-請參閱[資料擷取](luis-concept-data-extraction.md#prebuilt-entity-data)，以深入了解如何從端點 JSON 查詢回應擷取規則運算式實體。 
+請參閱[資料擷取](luis-concept-data-extraction.md#prebuilt-entity-data)，以深入了解如何從端點 JSON 查詢回應擷取預先建置的實體。 
 
 ### <a name="list-entity"></a>清單實體 
 清單實體為明確指定的值清單。 每個值都包含一或多個同義字。 以旅遊應用程式為例，您可能會建立代表機場名稱的清單實體。

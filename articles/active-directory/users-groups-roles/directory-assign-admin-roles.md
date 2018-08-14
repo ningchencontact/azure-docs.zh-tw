@@ -14,24 +14,27 @@ ms.date: 07/25/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 5d6254efbb6051bf4fcd01abd4fbf858b0211319
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: c6c388bb98d189d91703c0ce82971b3ec4da4150
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399935"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505506"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>在 Azure Active Directory 中指派系統管理員角色
 
 使用 Azure Active Directory (Azure AD) 時，您可以指定個別的系統管理員來執行不同的功能。 您可以在 Azure AD 入口網站中指定系統管理員以執行多種工作，例如新增或變更使用者、指派系統管理角色、重設使用者密碼、管理使用者授權，以及管理網域名稱等。
 
 ## <a name="details-about-the-global-administrator-role"></a>全域管理員角色的詳細資料
+
 全域管理員可以存取所有系統管理功能。 註冊 Azure 訂用帳戶的人員預設會獲指派目錄的全域管理員角色。 只有全域管理員才能指派其他系統管理員角色。
 
 ## <a name="assign-or-remove-administrator-roles"></a>指派或移除系統管理員角色
+
 若要了解如何將系統管理角色指派給 Azure Active Directory 中的使用者，請參閱[在 Azure Active Directory 中將使用者指派給系統管理員角色](../fundamentals/active-directory-users-assign-role-azure-portal.md)。
 
 ## <a name="available-roles"></a>可用的角色
+
 可用的系統管理員角色如下：
 
 * **[應用程式系統管理員](#application-administrator)**：此角色中的使用者可以建立和管理企業應用程式、應用程式註冊和應用程式 Proxy 設定的所有層面。 此角色也會授與能力來同意委派的權限以及 Microsoft Graph 和 Azure AD Graph 以外的應用程式權限。 建立新的應用程式註冊或企業應用程式時，不會加入此角色的成員作為擁有者。
@@ -48,13 +51,13 @@ ms.locfileid: "39399935"
   > [!NOTE]
   > 若要在 Azure 中部署 Exchange ActiveSync 條件式存取原則，使用者也必須是全域系統管理員。
   
-* **[裝置系統管理員](#device-administrators)**︰具備此角色的使用者會在所有已加入 Azure Active Directory 的 Windows 10 裝置上成為本機電腦系統管理員。 它們並沒有在 Azure Active Directory 中管理裝置物件的能力。
+* **[裝置系統管理員](#device-administrators)**：此角色是只能指派為[裝置設定](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/)中的其他本機系統管理員。 具有此角色的使用者，會在已加入 Azure Active Directory 的所有 Windows 10 裝置上，成為本機電腦系統管理員。 它們並沒有在 Azure Active Directory 中管理裝置物件的能力。 
 
-* **[目錄讀取者](#directory-readers)**︰這是舊版角色，用來指派給不支援[同意架構](../develop/active-directory-integrating-applications.md)的應用程式。 不應將它指派給任何使用者。
+* **[目錄讀取者](#directory-readers)**︰這是舊版角色，用來指派給不支援[同意架構](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)的應用程式。 不應將它指派給任何使用者。
 
 * **[目錄同步作業帳戶](#directory-synchronization-accounts)**：請勿使用。 此角色會自動指派給 Azure AD Connect 服務，不適用於也不支援任何其他用途。
 
-* **[目錄寫入者](#directory-writers)**︰這是舊版角色，用來指派給不支援[同意架構](../develop/active-directory-integrating-applications.md)的應用程式。 不應將它指派給任何使用者。
+* **[目錄寫入者](#directory-writers)**︰這是舊版角色，用來指派給不支援[同意架構](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)的應用程式。 不應將它指派給任何使用者。
 
 * **[Dynamics 365 服務管理員/CRM 服務管理員](#dynamics-365-service-administrator)**︰具備此角色的使用者在有 Microsoft Dynamics 365 Online 服務時，於該服務內具有全域權限，以及管理支援票證和監控服務健康情況的能力。 如需詳細資訊，請參閱[使用服務管理員角色管理您的租用戶](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant)。
 
@@ -353,15 +356,13 @@ ms.locfileid: "39399935"
 | microsoft.aad.directory/ConditionalAccessPolicy/Update/Owners | 更新 Azure Active Directory 中的 ConditionalAccessPolicys.Owners 屬性。 |
 
 ### <a name="device-administrators"></a>裝置系統管理員
-此角色的成員會新增至已加入 Azure AD 的裝置上的本機系統管理員群組群組。
+
+具有此角色的使用者，會在已加入 Azure Active Directory 的所有 Windows 10 裝置上，成為本機電腦系統管理員。 它們並沒有在 Azure Active Directory 中管理裝置物件的能力。
 
   > [!NOTE]
   > 此角色會繼承[使用者角色](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions)的其他權限。
   >
   >
-
-| **動作** | **說明** |
-| --- | --- |
 
 ### <a name="directory-readers"></a>目錄讀取器
 可讀取基本目錄資訊。 用來授與應用程式的存取權。

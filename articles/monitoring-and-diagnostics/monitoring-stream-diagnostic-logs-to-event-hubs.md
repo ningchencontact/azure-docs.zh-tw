@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 5b4a15204a934bf55810fcdccd48a7a15a48c5ed
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 9d4d7633428cd174a31214db2db6b6d9928230bd
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258179"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627911"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>將 Azure 診斷記錄串流至事件中樞
 您可以使用入口網站中內建的「匯出至事件中樞」選項，或透過 Azure PowerShell Cmdlet 或 Azure CLI 2.0 來啟用診斷設定中事件中樞授權規則識別碼的方式，以近乎即時的速度將 **[Azure 診斷記錄](monitoring-overview-of-diagnostic-logs.md)** 串流至任何應用程式。
@@ -195,6 +195,6 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 
 ## <a name="next-steps"></a>後續步驟
 
-* [使用 Azure 監視器來串流 Azure Active Directory 記錄檔](../active-directory/reporting-azure-monitor-diagnostics-azure-event-hub.md)
+* [使用 Azure 監視器來串流 Azure Active Directory 記錄檔](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md)
 * [深入了解 Azure 診斷記錄檔](monitoring-overview-of-diagnostic-logs.md)
 * [開始使用事件中心](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)

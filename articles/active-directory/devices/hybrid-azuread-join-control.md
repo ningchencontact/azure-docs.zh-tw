@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 2332923946e414325b9723a59cf493d9d1060cc6
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 9ffc84009adfca60e9ae6b188b65b15e874e7d9c
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39368676"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622165"
 ---
 # <a name="how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>如何控制裝置的混合式 Azure AD Join
 
@@ -110,6 +110,9 @@ ms.locfileid: "39368676"
     
 
 您必須將此用戶端設定連結至您選擇的位置。 例如，若要為組織中所有的現行 Windows 裝置設定此用戶端設定，請將用戶端設定連結至網域。 若要執行受控制的部署，您可以為屬於組織單位或安全性群組、且已加入網域的現行 Windows 裝置設定此用戶端設定。
+
+> [!Important]
+> 雖然上述組態會處理已加入網域的現有 Windows 10 裝置，但由於加入網域的新 Windows 10 裝置上的群組原則或 Configuration Manager 設定的實際應用程式可能會發生延遲，加入網域的新裝置仍有可能嘗試完整的混合式 Azure AD 加入。 若要避免這個問題，建議您從以前從未加入混合式 Azure AD，且已套用上述群組原則設定或 Configuration Manager 用戶端設定的裝置建立新的 sysprep 映像 (作為佈建方法的範例)。 您還必須使用新的映像來佈建加入組織網域的新電腦。 
 
 ## <a name="control-windows-down-level-devices"></a>控制舊版 Windows 裝置
 

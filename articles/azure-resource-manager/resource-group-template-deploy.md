@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: 714f5f2d4aa1635da8aa62139be5c80e7761ae27
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5d01fcbccb341db7e06a40c882f77d428fa06637
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38486735"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626238"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>使用 Resource Manager 範本與 Azure PowerShell 來部署資源
 
@@ -161,15 +161,6 @@ Test-AzureRmResourceGroupDeployment : After parsing a value an unexpected charac
   ". Path 'variables', line 31, position 3.
 ```
 
-[!INCLUDE [resource-manager-deployments](../../includes/resource-manager-deployments.md)]
-
-若要使用完整模式，請使用 `Mode` 參數︰
-
-```powershell
-New-AzureRmResourceGroupDeployment -Mode Complete -Name ExampleDeployment `
-  -ResourceGroupName ExampleResourceGroup -TemplateFile c:\MyTemplates\storage.json 
-```
-
 ## <a name="sample-template"></a>範例範本
 
 下列範本適用於本文中的範例。 請複製它並另存為名叫 storage.json 的檔案。 若要了解如何建立此範本，請參閱[建立第一個 Azure Resource Manager 範本](resource-manager-create-first-template.md)。  
@@ -221,7 +212,7 @@ New-AzureRmResourceGroupDeployment -Mode Complete -Name ExampleDeployment `
 
 ## <a name="next-steps"></a>後續步驟
 * 本主題中的範例會將資源部署到您預設訂用帳戶中的資源群組。 若要使用不同的訂用帳戶，請參閱[管理多個 Azure 訂用帳戶](/powershell/azure/manage-subscriptions-azureps)。
-* 如需部署範本的完整範例指令碼，請參閱 [Resource Manager 範本部署指令碼](resource-manager-samples-powershell-deploy.md)。
+* 若要指定存在於資源群組中但尚未定義於範本中之資源的處理方式，請參閱 [Azure Resource Manager 部署模式](deployment-modes.md)。
 * 若要了解如何在您的範本中定義參數，請參閱[了解 Azure Resource Manager 範本的結構和語法](resource-group-authoring-templates.md)。
 * 如需解決常見部署錯誤的秘訣，請參閱[使用 Azure Resource Manager 針對常見的 Azure 部署錯誤進行疑難排解](resource-manager-common-deployment-errors.md)。
 * 如需部署需要 SAS 權杖之範本的詳細資訊，請參閱[使用 SAS 權杖部署私人範本](resource-manager-powershell-sas-token.md)。

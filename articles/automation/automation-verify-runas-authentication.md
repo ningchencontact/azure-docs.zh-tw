@@ -6,59 +6,72 @@ ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: af1d05c171eb5544104b12aebb6c7be937061f6a
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 32b73cf4570393ed24ee6d1121aef75aaf193134
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437173"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39713749"
 ---
 # <a name="test-azure-automation-run-as-account-authentication"></a>測試 Azure 自動化執行身分帳戶驗證
-成功建立自動化帳戶之後，您可以執行簡單的測試，確認您能夠在 Azure Resource Manager 或 Azure 傳統部署中使用新建立或已更新的自動化執行身分帳戶成功進行驗證。    
+
+成功建立自動化帳戶之後，您可以執行簡單的測試，確認您能夠在 Azure Resource Manager 或 Azure 傳統部署中使用新建立或已更新的自動化執行身分帳戶成功進行驗證。
 
 ## <a name="automation-run-as-authentication"></a>自動化執行身分驗證
+
 使用下面範例程式碼來[建立 PowerShell Runbook](automation-creating-importing-runbook.md)，以使用執行身分帳戶進行驗證，並且同時在自訂 Runbook 中使用您的自動化帳戶驗證及管理 Resource Manage 資源。
 
-    $connectionName = "AzureRunAsConnection"
-    try
+```powershell
+$connectionName = "AzureRunAsConnection"
+try
+{
+    # Get the connection "AzureRunAsConnection "
+    $servicePrincipalConnection = Get-AutomationConnection -Name $connectionName
+
+    $logonAttempt = 0
+    $logonResult = $False
+
+    while(!($connectionResult) -And ($logonAttempt -le 10))
     {
-        # Get the connection "AzureRunAsConnection "
-        $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
+        $LogonAttempt++
+    # Logging in to Azure...
+    $connectionResult = Connect-AzureRmAccount `
+        -ServicePrincipal `
+        -TenantId $servicePrincipalConnection.TenantId `
+        -ApplicationId $servicePrincipalConnection.ApplicationId `
+        -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint
 
-        "Logging in to Azure..."
-        Connect-AzureRmAccount `
-           -ServicePrincipal `
-           -TenantId $servicePrincipalConnection.TenantId `
-           -ApplicationId $servicePrincipalConnection.ApplicationId `
-           -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
+     Start-Sleep -Seconds 30
     }
-    catch {
-       if (!$servicePrincipalConnection)
-       {
-          $ErrorMessage = "Connection $connectionName not found."
-          throw $ErrorMessage
-      } else{
-          Write-Error -Message $_.Exception
-          throw $_.Exception
-      }
+}
+catch {
+    if (!$servicePrincipalConnection)
+    {
+        $ErrorMessage = "Connection $connectionName not found."
+        throw $ErrorMessage
+    } else{
+        Write-Error -Message $_.Exception
+        throw $_.Exception
     }
+}
 
-    #Get all ARM resources from all resource groups
-    $ResourceGroups = Get-AzureRmResourceGroup 
+#Get all ARM resources from all resource groups
+$ResourceGroups = Get-AzureRmResourceGroup
 
-    foreach ($ResourceGroup in $ResourceGroups)
-    {    
-       Write-Output ("Showing resources in resource group " + $ResourceGroup.ResourceGroupName)
-       $Resources = Find-AzureRmResource -ResourceGroupNameContains $ResourceGroup.ResourceGroupName | Select ResourceName, ResourceType
-       ForEach ($Resource in $Resources)
-       {
-          Write-Output ($Resource.ResourceName + " of type " +  $Resource.ResourceType)
-       }
-       Write-Output ("")
-    } 
+foreach ($ResourceGroup in $ResourceGroups)
+{
+    Write-Output ("Showing resources in resource group " + $ResourceGroup.ResourceGroupName)
+    $Resources = Find-AzureRmResource -ResourceGroupNameContains $ResourceGroup.ResourceGroupName | Select ResourceName, ResourceType
+    ForEach ($Resource in $Resources)
+    {
+        Write-Output ($Resource.ResourceName + " of type " +  $Resource.ResourceType)
+    }
+    Write-Output ("")
+}
+```
 
 請注意，Runbook 中用來驗證的 Cmdlet (**Connect-AzureRmAccount**) 會使用 ServicePrincipalCertificate 參數集。  它藉由使用服務主體憑證 (而非認證) 進行驗證。  
 
@@ -72,34 +85,37 @@ ms.locfileid: "37437173"
 當您對 Runbook 重複使用程式碼時，請記得移除以 `#Get all ARM resources from all resource groups` 註解開頭的程式碼區塊。
 
 ## <a name="classic-run-as-authentication"></a>傳統執行身分驗證
+
 使用下面範例程式碼來[建立 PowerShell Runbook](automation-creating-importing-runbook.md)，以使用傳統執行身分帳戶進行驗證，並且同時在自訂 Runbook 中驗證及管理傳統部署模型中的資源。  
 
-    $ConnectionAssetName = "AzureClassicRunAsConnection"
-    # Get the connection
-    $connection = Get-AutomationConnection -Name $connectionAssetName        
+```powershell
+$ConnectionAssetName = "AzureClassicRunAsConnection"
+# Get the connection
+$connection = Get-AutomationConnection -Name $connectionAssetName
 
-    # Authenticate to Azure with certificate
-    Write-Verbose "Get connection asset: $ConnectionAssetName" -Verbose
-    $Conn = Get-AutomationConnection -Name $ConnectionAssetName
-    if ($Conn -eq $null)
-    {
-       throw "Could not retrieve connection asset: $ConnectionAssetName. Assure that this asset exists in the Automation account."
-    }
+# Authenticate to Azure with certificate
+Write-Verbose "Get connection asset: $ConnectionAssetName" -Verbose
+$Conn = Get-AutomationConnection -Name $ConnectionAssetName
+if ($Conn -eq $null)
+{
+    throw "Could not retrieve connection asset: $ConnectionAssetName. Assure that this asset exists in the Automation account."
+}
 
-    $CertificateAssetName = $Conn.CertificateAssetName
-    Write-Verbose "Getting the certificate: $CertificateAssetName" -Verbose
-    $AzureCert = Get-AutomationCertificate -Name $CertificateAssetName
-    if ($AzureCert -eq $null)
-    {
-       throw "Could not retrieve certificate asset: $CertificateAssetName. Assure that this asset exists in the Automation account."
-    }
+$CertificateAssetName = $Conn.CertificateAssetName
+Write-Verbose "Getting the certificate: $CertificateAssetName" -Verbose
+$AzureCert = Get-AutomationCertificate -Name $CertificateAssetName
+if ($AzureCert -eq $null)
+{
+    throw "Could not retrieve certificate asset: $CertificateAssetName. Assure that this asset exists in the Automation account."
+}
 
-    Write-Verbose "Authenticating to Azure with certificate." -Verbose
-    Set-AzureSubscription -SubscriptionName $Conn.SubscriptionName -SubscriptionId $Conn.SubscriptionID -Certificate $AzureCert
-    Select-AzureSubscription -SubscriptionId $Conn.SubscriptionID
-    
-    #Get all VMs in the subscription and return list with name of each
-    Get-AzureVM | ft Name
+Write-Verbose "Authenticating to Azure with certificate." -Verbose
+Set-AzureSubscription -SubscriptionName $Conn.SubscriptionName -SubscriptionId $Conn.SubscriptionID -Certificate $AzureCert
+Select-AzureSubscription -SubscriptionId $Conn.SubscriptionID
+
+#Get all VMs in the subscription and return list with name of each
+Get-AzureVM | ft Name
+```
 
 當您[執行 Runbook](automation-runbook-execution.md) 來驗證您的執行身分帳戶時，已建立 [Runbook 作業](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal)、顯示 [作業] 刀鋒視窗，而作業狀態會顯示在 **[作業摘要]** 圖格中。 作業狀態一開始會顯示為 [已排入佇列]  ，表示其正在等候雲端中的 Runbook 背景工作變為可用狀態。 然後當背景工作宣告該工作時，狀態將變更為 [正在開始]，然後 Runbook 實際開始執行時再變更為 [執行中]。  Runbook 作業完成時，我們應該會看到 [完成] 狀態。
 
@@ -108,5 +124,6 @@ ms.locfileid: "37437173"
 當您對 Runbook 重複使用程式碼時，請記得移除 **Get-AzureVM** Cmdlet。
 
 ## <a name="next-steps"></a>後續步驟
+
 * 若要開始使用 PowerShell Runbook，請參閱[我的第一個 PowerShell Runbook](automation-first-runbook-textual-powershell.md)。
 * 若要深入了解圖形化編寫，請參閱 [Azure 自動化中的圖形化編寫](automation-graphical-authoring-intro.md)。

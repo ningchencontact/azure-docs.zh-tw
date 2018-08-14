@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 06/15/2018
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fff29f6cfed4989386ca5bbd12184dce525add76
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 3d406d6d8f6432b3555e34876854147c4945f7a8
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2018
-ms.locfileid: "27580366"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39631948"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>針對在 Azure 中建立新 Windows VM 時的部署問題進行疑難排解
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -54,7 +54,7 @@ ms.locfileid: "27580366"
 
 **解決方案**
 
-若要解決這兩個錯誤，請使用 [Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx)搭配與 OS 相同的設定 (一般化/特殊化) 來上傳原始 VHD (可從內部部署環境取得)。 若要以一般化形式上傳，請務必先執行 sysprep。
+若要解決這兩個錯誤，請使用 [Add-AzureRmVhd](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd)搭配與 OS 相同的設定 (一般化/特殊化) 來上傳原始 VHD (可從內部部署環境取得)。 若要以一般化形式上傳，請務必先執行 sysprep。
 
 **擷取錯誤：**
 

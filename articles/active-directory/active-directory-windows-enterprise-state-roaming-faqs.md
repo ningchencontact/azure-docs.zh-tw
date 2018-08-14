@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: ee03ed3159ad2fc1cd8da4a84fd1be34d0b656c8
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: e6cb83eb6aaaea38686c63d0f3f70738efa4bcff
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224325"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630751"
 ---
 # <a name="settings-and-data-roaming-faq"></a>設定和資料漫遊常見問題集
 本文將回答 IT 系統管理員可能會遇到的設定和應用程式資料同步處理的一些問題。
@@ -99,7 +99,7 @@ ms.locfileid: "39224325"
 ## <a name="who-owns-the-data-thats-being-roamed"></a>誰擁有正在進行漫遊的資料？
 企業擁有透過企業狀態漫遊來漫遊的資料。 資料會儲存在 Azure 資料中心。 在傳輸過程中和在雲端待用的所有使用者資料，都會使用來自 Azure 資訊保護的 Azure Rights Management 服務進行加密。 相較於以 Microsoft 帳戶為基礎的設定同步處理 (只會針對某些機密資料 (例如使用者認證) 在其離開裝置前進行加密)，這是一大改進。
 
-Microsoft 致力於保護客戶資料。 企業使用者的設定資料在離開 Windows 10 裝置前會自動由 Azure Microsoft Azure AD Rights Management 服務加密，因此沒有任何其他使用者可以讀取此資料。 如果貴組織擁有 Azure Rights Management 服務的付費訂用帳戶，您可以使用其他保護功能，例如追蹤及撤銷文件、自動保護包含機密資訊的電子郵件，以及管理您自己的金鑰 (「自備金鑰」解決方案，也稱為 BYOK)。 如需有關這些功能以及此保護服務運作方式的詳細資訊，請參閱[什麼是 Azure Rights Management](https://docs.microsoft.com/azure/information-protection/understand-explore/what-is-information-protection)。
+Microsoft 致力於保護客戶資料。 企業使用者的設定資料在離開 Windows 10 裝置前會自動由 Azure Microsoft Azure AD Rights Management 服務加密，因此沒有任何其他使用者可以讀取此資料。 如果貴組織擁有 Azure Rights Management 服務的付費訂用帳戶，您可以使用其他保護功能，例如追蹤及撤銷文件、自動保護包含機密資訊的電子郵件，以及管理您自己的金鑰 (「自備金鑰」解決方案，也稱為 BYOK)。 如需有關這些功能以及此保護服務運作方式的詳細資訊，請參閱[什麼是 Azure Rights Management](/azure/information-protection/what-is-information-protection)。
 
 ## <a name="can-i-manage-sync-for-a-specific-app-or-setting"></a>我可以管理特定應用程式或設定的同步處理嗎？
 在 Windows 10 中，沒有 MDM 或群組原則設定可以停用個別應用程式的漫遊。 租用戶系統管理員可以停用受控裝置上所有應用程式的 AppData 同步處理，但是在每個應用程式或應用程式內的層級並沒有更細微的控制。

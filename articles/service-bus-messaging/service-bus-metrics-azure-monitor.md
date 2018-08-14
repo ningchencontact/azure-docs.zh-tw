@@ -9,18 +9,21 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: sethm
-ms.openlocfilehash: 517c1376415466f5ce0e3c854f6c91f60cdab9f8
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: d27cb7a870a1a03e89ea35aa3ebe3a777483cf67
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247618"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579454"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure 監視器中的 Azure 服務匯流排計量 (預覽)
 
 服務匯流排計量會提供您 Azure 訂用帳戶中的資源狀態。 您可以使用豐富的計量資料集，評估服務匯流排資源的整體健康狀態，不只在命名空間層級，還有實體層級。 這些統計資料相當重要，因為它們可協助您監視服務匯流排的狀態。 計量也可協助針對問題的根本原因進行疑難排解，而不需要連絡 Azure 支援。
 
 「Azure 監視器」提供統一的使用者介面，可供您監視各個不同的 Azure 服務。 如需詳細資訊，請參閱 [Microsoft Azure 中的監視](../monitoring-and-diagnostics/monitoring-overview.md)和 GitHub 上的 [Retrieve Azure Monitor metrics with .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) (使用 .NET 擷取 Azure 監視計量) 範例。
+
+> [!IMPORTANT]
+> 在未與實體互動的時間達 2 小時之後，計量將會開始顯示 "0" 作為值，直到該實體不再閒置為止。
 
 ## <a name="access-metrics"></a>存取計量
 

@@ -3,7 +3,7 @@ title: Azure 事件中樞地理災害復原 | Microsoft Docs
 description: 如何使用地理區域，在 Azure 事件中樞中進行容錯移轉並執行災害復原
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.service: event-hubs
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2018
-ms.author: sethm
-ms.openlocfilehash: 0192f65f394a3bb6d5cffc90639966b5f913b291
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.author: shvija
+ms.openlocfilehash: 8d75e28f48749484dca2060bb16cff75109b5c87
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36302108"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40002959"
 ---
 # <a name="azure-event-hubs-geo-disaster-recovery"></a>Azure 事件中樞地理災害復原
 
@@ -108,7 +108,7 @@ Azure 事件中樞的地理災害復原功能就是一個災害復原解決方�
 > [!NOTE]
 > 只有在**美國中部**、**美國東部 2** 和**法國中部**區域才支援可用性區域預覽。
 
-使用 Azure 入口網站時，只能在新的命名空間上啟用可用性區域。 事件中樞不支援移轉現有的命名空間。 在命名空間上啟用區域備援之後，便無法停用了。
+使用 Azure 入口網站時，只能在新的命名空間上啟用可用性區域。 事件中樞不支援移轉現有的命名空間。 在命名空間上啟用區域備援之後，便無法停用。
 
 ![3][]
 

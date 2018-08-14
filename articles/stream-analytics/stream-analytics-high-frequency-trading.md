@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 11/05/2017
-ms.openlocfilehash: a58b5c315b9f1baa3a0c3fe55917e94a47006f62
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 85f80ef1ea776d48d9c2f8091568d40dbf46db46
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258526"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716465"
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>使用串流分析進行高頻率交易模擬
 Azure 串流分析中的 SQL 語言、JavaScript 使用者定義函式 (UDF) 和使用者定義彙總 (UDA) 組合，讓使用者能夠執行進階分析。 進階分析可能包含線上機器學習訓練和評分，以及可設定狀態的程序模擬。 本文說明如何在 Azure 串流分析作業中執行線性迴歸，以在高頻率的交易案例中進行連續訓練和評分。
@@ -444,7 +444,7 @@ JavaScript UDA 會初始化 `init` 函式中的所有累加器、以新增至視
 ## <a name="summary"></a>總結
 我們可以在 Azure 串流分析中，使用適度複雜的查詢來實作實際高頻率的交易模型。 因為缺少內建線性迴歸變數，所以我們必須將模型從五個輸入變數簡化為兩個。 但是對於下定決心的使用者而言，具有更高維度和複雜度的演算法也可能實作為 JavaScript UDA。 
 
-值得注意的是，JavaScript UDA 以外的大部分查詢，都可以透過[適用於 Visual Studio 的 Azure 串流分析工具](stream-analytics-tools-for-visual-studio.md)在 Visual Studio 中進行測試和偵錯。 寫入初始查詢之後，作者花不到 30 分鐘的時間在 Visual Studio 中進行查詢測試和偵錯。 
+值得注意的是，JavaScript UDA 以外的大部分查詢，都可以透過[適用於 Visual Studio 的 Azure 串流分析工具](stream-analytics-tools-for-visual-studio-install.md)在 Visual Studio 中進行測試和偵錯。 寫入初始查詢之後，作者花不到 30 分鐘的時間在 Visual Studio 中進行查詢測試和偵錯。 
 
 目前，UDA 無法在 Visual Studio 中偵錯。 我們正在研究如何透過逐步執行 JavaScript 程式碼的能力來啟用該功能。 此外，請注意達到 UDA 的欄位具有小寫名稱。 這不是查詢測試期間的明顯行為。 但使用 Azure 串流分析相容性層級 1.1，我們會保留欄位名稱大小寫，所以此行為更加自然。
 
