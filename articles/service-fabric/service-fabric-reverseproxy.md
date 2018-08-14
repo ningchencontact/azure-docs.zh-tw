@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: bec2e443b920a1f163b7b328197d3688d207ed35
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 521a7b90b971ff3ba867945a4713b1f6dc8dbebc
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39309114"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503514"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric 中的反向 Proxy
 Azure Service Fabric 內建的反向 Proxy 可協助在 Service Fabric 叢集中執行的微服務進行探索，並與其他擁有 http 端點的服務通訊。
@@ -146,184 +146,23 @@ Service Fabric 反向 Proxy 會嘗試重新解析服務位址，並在無法連�
 
 此 HTTP 回應標頭表示指出一般的 HTTP 404 情況，即要求的資源不存在，反向 Proxy 將不會嘗試重新解析服務位址。
 
-## <a name="setup-and-configuration"></a>設定和組態
+## <a name="special-handling-for-services-running-in-containers"></a>針對在容器中執行之服務的特殊處理
 
-### <a name="enable-reverse-proxy-via-azure-portal"></a>透過 Azure 入口網站啟用反向 Proxy
+針對在容器內執行的服務，您可以使用環境變數 `Fabric_NodeIPOrFQDN` 來建構[反向 Proxy URL](#uri-format-for-addressing-services-by-using-the-reverse-proxy)，如下列程式碼所示：
 
-Azure 入口網站提供選項，以在建立新的 Service Fabric 叢集時啟用反向 Proxy。
-在**建立 Service Fabric 叢集**下，步驟 2：叢集設定、節點類型設定，選取核取方塊以「啟用反向 Proxy」。
-針對設定安全的反向 Proxy，可以在步驟 3 指定 SSL 憑證：安全性、設定叢集安全性設定，選取核取方塊以「包含反向 Proxy 的 SSL 憑證」，然後輸入憑證詳細資訊。
-
-### <a name="enable-reverse-proxy-via-azure-resource-manager-templates"></a>透過 Azure Resource Manager 範本啟用反向 Proxy
-
-您可以使用 [Azure Resource Manager 範本](service-fabric-cluster-creation-via-arm.md)為叢集啟用 Service Fabric 中的反向 Proxy。
-
-請參閱[在安全的叢集中設定 HTTPS 反向 Proxy](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample/README.md#configure-https-reverse-proxy-in-a-secure-cluster)，以取得使用憑證設定安全反向 Proxy 和處理憑證變換的 Azure Resource Manager 範本範例。
-
-首先，您要取得想要部署之叢集的範本。 您可以使用範例範本或建立自訂的 Resource Manager 範本。 然後，您可以使用下列步驟來啟用反向 Proxy︰
-
-1. 在範本的 [參數區段](../azure-resource-manager/resource-group-authoring-templates.md) 定義反向 Proxy 的連接埠。
-
-    ```json
-    "SFReverseProxyPort": {
-        "type": "int",
-        "defaultValue": 19081,
-        "metadata": {
-            "description": "Endpoint for Service Fabric Reverse proxy"
-        }
-    },
-    ```
-2. 在**叢集**的[資源類型區段](../azure-resource-manager/resource-group-authoring-templates.md)中為每個節點類型物件指定連接埠。
-
-    連接埠是以參數名稱 reverseProxyEndpointPort 識別。
-
-    ```json
-    {
-        "apiVersion": "2016-09-01",
-        "type": "Microsoft.ServiceFabric/clusters",
-        "name": "[parameters('clusterName')]",
-        "location": "[parameters('clusterLocation')]",
-        ...
-       "nodeTypes": [
-          {
-           ...
-           "reverseProxyEndpointPort": "[parameters('SFReverseProxyPort')]",
-           ...
-          },
-        ...
-        ],
-        ...
-    }
-    ```
-3. 若要從 Azure 叢集外部定址反向 Proxy，請為您在步驟 1 指定的連接埠設定 Azure Load Balancer 規則。
-
-    ```json
-    {
-        "apiVersion": "[variables('lbApiVersion')]",
-        "type": "Microsoft.Network/loadBalancers",
-        ...
-        ...
-        "loadBalancingRules": [
-            ...
-            {
-                "name": "LBSFReverseProxyRule",
-                "properties": {
-                    "backendAddressPool": {
-                        "id": "[variables('lbPoolID0')]"
-                    },
-                    "backendPort": "[parameters('SFReverseProxyPort')]",
-                    "enableFloatingIP": "false",
-                    "frontendIPConfiguration": {
-                        "id": "[variables('lbIPConfig0')]"
-                    },
-                    "frontendPort": "[parameters('SFReverseProxyPort')]",
-                    "idleTimeoutInMinutes": "5",
-                    "probe": {
-                        "id": "[concat(variables('lbID0'),'/probes/SFReverseProxyProbe')]"
-                    },
-                    "protocol": "tcp"
-                }
-            }
-        ],
-        "probes": [
-            ...
-            {
-                "name": "SFReverseProxyProbe",
-                "properties": {
-                    "intervalInSeconds": 5,
-                    "numberOfProbes": 2,
-                    "port":     "[parameters('SFReverseProxyPort')]",
-                    "protocol": "tcp"
-                }
-            }  
-        ]
-    }
-    ```
-4. 若要在連接埠上設定反向 Proxy 的 SSL 憑證，請將憑證新增至**叢集**的[資源類型區段](../resource-group-authoring-templates.md)中的 ***reverseProxyCertificate*** 屬性。
-
-    ```json
-    {
-        "apiVersion": "2016-09-01",
-        "type": "Microsoft.ServiceFabric/clusters",
-        "name": "[parameters('clusterName')]",
-        "location": "[parameters('clusterLocation')]",
-        "dependsOn": [
-            "[concat('Microsoft.Storage/storageAccounts/', parameters('supportLogStorageAccountName'))]"
-        ],
-        "properties": {
-            ...
-            "reverseProxyCertificate": {
-                "thumbprint": "[parameters('sfReverseProxyCertificateThumbprint')]",
-                "x509StoreName": "[parameters('sfReverseProxyCertificateStoreName')]"
-            },
-            ...
-            "clusterState": "Default",
-        }
-    }
-    ```
-
-### <a name="supporting-a-reverse-proxy-certificate-thats-different-from-the-cluster-certificate"></a>支援不同於叢集憑證的反向 Proxy 憑證
- 如果反向 Proxy 憑證不同於保護叢集的憑證，則先前指定的憑證應該安裝在虛擬機器上，並新增至存取控制清單 (ACL)，讓 Service Fabric 可以存取它。 這可以在 **virtualMachineScaleSets** 的[資源類型區段](../resource-group-authoring-templates.md)來完成。 若要進行安裝，請將該憑證新增至 osProfile。 範本的延伸模組可以更新 ACL 中的憑證。
-
-  ```json
-  {
-    "apiVersion": "[variables('vmssApiVersion')]",
-    "type": "Microsoft.Compute/virtualMachineScaleSets",
-    ....
-      "osProfile": {
-          "adminPassword": "[parameters('adminPassword')]",
-          "adminUsername": "[parameters('adminUsername')]",
-          "computernamePrefix": "[parameters('vmNodeType0Name')]",
-          "secrets": [
-            {
-              "sourceVault": {
-                "id": "[parameters('sfReverseProxySourceVaultValue')]"
-              },
-              "vaultCertificates": [
-                {
-                  "certificateStore": "[parameters('sfReverseProxyCertificateStoreValue')]",
-                  "certificateUrl": "[parameters('sfReverseProxyCertificateUrlValue')]"
-                }
-              ]
-            }
-          ]
-        }
-   ....
-   "extensions": [
-          {
-              "name": "[concat(parameters('vmNodeType0Name'),'_ServiceFabricNode')]",
-              "properties": {
-                      "type": "ServiceFabricNode",
-                      "autoUpgradeMinorVersion": false,
-                      ...
-                      "publisher": "Microsoft.Azure.ServiceFabric",
-                      "settings": {
-                        "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
-                        "nodeTypeRef": "[parameters('vmNodeType0Name')]",
-                        "dataPath": "D:\\\\SvcFab",
-                        "durabilityLevel": "Bronze",
-                        "testExtension": true,
-                        "reverseProxyCertificate": {
-                          "thumbprint": "[parameters('sfReverseProxyCertificateThumbprint')]",
-                          "x509StoreName": "[parameters('sfReverseProxyCertificateStoreValue')]"
-                        },
-                  },
-                  "typeHandlerVersion": "1.0"
-              }
-          },
-      ]
-    }
-  ```
-> [!NOTE]
-> 當您使用不同於叢集憑證的憑證在現有叢集上啟用反向 Proxy 時，請先在叢集上安裝反向 Proxy 憑證並更新 ACL，再啟用反向 Proxy。 先使用先前所述設定完成 [Azure Resource Manager 範本](service-fabric-cluster-creation-via-arm.md)部署，再開始於步驟 1-4 中啟用反向 Proxy 的部署。
+```csharp
+    var fqdn = Environment.GetEnvironmentVariable("Fabric_NodeIPOrFQDN");
+    var serviceUrl = $"http://{fqdn}:19081/DockerSFApp/UserApiContainer";
+```
+針對本機叢集，預設會將 `Fabric_NodeIPOrFQDN` 設定為 "localhost"。 使用 `-UseMachineName` 參數啟動本機叢集，以確保容器可連線至在節點上執行的反向 Proxy。 如需詳細資訊，請參閱[設定開發人員環境以對容器進行偵錯](service-fabric-how-to-debug-windows-containers.md#configure-your-developer-environment-to-debug-containers)。
 
 ## <a name="next-steps"></a>後續步驟
+* [在叢集上安裝及設定反向 Proxy](service-fabric-reverseproxy-setup.md)。
+* [設定透過反向 Proxy 轉送到安全的 HTTP 服務](service-fabric-reverseproxy-configure-secure-communication.md)
 * 請參閱 [GitHub 上的範例專案](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)中服務之間的 HTTP 通訊範例。
-* [透過反向 Proxy 轉送到安全的 HTTP 服務](service-fabric-reverseproxy-configure-secure-communication.md)
 * [使用 Reliable Services 遠端服務進行遠端程序呼叫](service-fabric-reliable-services-communication-remoting.md)
 * [在 Reliable Services 中使用 OWIN 的 Web API](service-fabric-reliable-services-communication-webapi.md)
 * [使用 Reliable Services 的 WCF 通訊](service-fabric-reliable-services-communication-wcf.md)
-* 如需其他反向 Proxy 組態選項，請參閱[自訂 Service Fabric 叢集設定](service-fabric-cluster-fabric-settings.md)中的ApplicationGateway/Http 一節。
 
 [0]: ./media/service-fabric-reverseproxy/external-communication.png
 [1]: ./media/service-fabric-reverseproxy/internal-communication.png

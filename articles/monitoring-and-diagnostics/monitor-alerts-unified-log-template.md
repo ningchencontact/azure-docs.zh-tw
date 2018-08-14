@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 5afa34a5eadf5367b3ab28749735197ca6ed82bd
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 588a0686eda1966582b82a4673a8b6805453c94c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263196"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441437"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>使用 Resource Manager 範本建立記錄警示
 本文將說明如何透過 [Azure Powershell](../azure-resource-manager/resource-group-template-deploy.md) 和 [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)在 Azure 中使用 [Azure Resource Manager 範本](..//azure-resource-manager/resource-group-authoring-templates.md)，以程式設計方式管理大規模的[記錄警示](monitor-alerts-unified-log.md)。 Azure 警示目前支援來自 [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) 和 [Azure Application Insights](../application-insights/app-insights-analytics-tour.md) 查詢上的記錄警示。
@@ -27,7 +27,7 @@ ms.locfileid: "35263196"
 ### <a name="using-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本
 Log Analytics 的記錄警示是由警示規則所建立，這些規則會定期執行已儲存的搜尋。 如果查詢的結果符合指定的準則，就會建立警示記錄，並執行一或多個動作。 
 
-您可以在文件的 Log Analytics 一節中，取得[記錄分析儲存的搜尋](../log-analytics/log-analytics-log-searches.md)和[記錄分析警示](../log-analytics/log-analytics-alerts.md)資源範本。 深入了解[新增 Log Analytics 的已儲存搜尋和警示](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md)；其中包含說明範例及結構描述詳細資料。
+您可以在文件的 Log Analytics 一節中，取得記錄分析儲存的搜尋和記錄分析警示資源範本。 若要深入了解，請參閱[新增 Log Analytics 的已儲存搜尋和警示](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md)；其中包含說明範例與結構描述詳細資料。
 
 ### <a name="using-resource-template-via-apipowershell"></a>透過 API/Powershell 使用資源範本
 Log Analytics 警示 REST API 是 RESTful，可透過 Azure Resource Manager REST API 來存取。 因此您可以從 PowerShell 命令列存取 API，API 會以 JSON 格式向您輸出搜尋結果，讓您以程式設計方式透過許多不同的方法使用結果。

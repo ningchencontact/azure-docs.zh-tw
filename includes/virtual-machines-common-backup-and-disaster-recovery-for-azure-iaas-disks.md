@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: luywang
 ms.custom: include file
-ms.openlocfilehash: 03db1bf84e200d8b66f0395cbd96813e2248eefe
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 7f093a1878bc3cf7e91cc14ec7a68b1a84764a49
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34806361"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39485906"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Azure IaaS 磁碟的備份和災害復原
 
@@ -148,15 +148,15 @@ Azure 備份在排定的時間起始備份工作時，會觸發 VM 中所安裝�
 
     b. 在 [復原服務保存庫] 功能表上，按一下 [新增]，然後遵循步驟以在與 VM 相同的區域中建立新的保存庫。 例如，如果您的 VM 位於美國西部地區，請選取美國西部作為保存庫。
 
-2.  確認新建立保存庫的儲存體複寫。 在 [復原服務保存庫] 之下存取該保存庫，然後移至 [設定] > [備份設定]。 確定預設已選取 [異地備援儲存體] 選項。 此選項可確保您的保存庫會自動複寫至次要資料中心。 例如，您在美國西部的保存庫會自動複寫至美國東部。
+1.  確認新建立保存庫的儲存體複寫。 在 [復原服務保存庫] 之下存取該保存庫，然後移至 [設定] > [備份設定]。 確定預設已選取 [異地備援儲存體] 選項。 此選項可確保您的保存庫會自動複寫至次要資料中心。 例如，您在美國西部的保存庫會自動複寫至美國東部。
 
-3.  設定備份原則，然後從相同的 UI 中選取 VM。
+1.  設定備份原則，然後從相同的 UI 中選取 VM。
 
-4.  確認已在 VM 上安裝備份代理程式。 如果使用 Azure 資源庫映像建立 VM，則已安裝備份代理程式。 否則 (也就是，如果您使用自訂映像)，請使用相關指示[在虛擬機器上安裝 VM 代理程式](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine)。
+1.  確認已在 VM 上安裝備份代理程式。 如果使用 Azure 資源庫映像建立 VM，則已安裝備份代理程式。 否則 (也就是，如果您使用自訂映像)，請使用相關指示[在虛擬機器上安裝 VM 代理程式](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine)。
 
-5.  確定 VM 允許網路連線，備份服務才能運作正常。 請遵循[網路連線](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity)的指示。
+1.  確定 VM 允許網路連線，備份服務才能運作正常。 請遵循[網路連線](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity)的指示。
 
-6.  完成上述步驟之後，備份就會依照備份原則中指定的間隔定期執行。 如有必要，您可以從 Azure 入口網站上的保存庫儀表板，以手動方式觸發第一個備份。
+1.  完成上述步驟之後，備份就會依照備份原則中指定的間隔定期執行。 如有必要，您可以從 Azure 入口網站上的保存庫儀表板，以手動方式觸發第一個備份。
 
 如需使用指令碼將 Azure 備份自動化，請參閱 [VM 備份的 PowerShell Cmdlet](../articles/backup/backup-azure-vms-automation.md)。
 
@@ -188,9 +188,9 @@ Azure 備份在排定的時間起始備份工作時，會觸發 VM 中所安裝�
 
 1.  凍結所有磁碟。
 
-2.  排清所有擱置的寫入。
+1.  排清所有擱置的寫入。
 
-3.  為所有磁碟[建立 Blob 快照集](../articles/storage/blobs/storage-blob-snapshots.md)。
+1.  為所有磁碟[建立 Blob 快照集](../articles/storage/blobs/storage-blob-snapshots.md)。
 
 某些 Windows 應用程式 (例如 SQL Server) 會透過磁碟區陰影服務提供一致備份機制，以建立應用程式一致備份。 在 Linux 上，您可以使用 fsfreeze 之類的工具來一致處理磁碟。 此工具會提供檔案一致備份，但不提供應用程式一致性快照集。 此程序很複雜，因此您應該考慮使用 [Azure 備份](../articles/backup/backup-azure-vms-introduction.md)，或是已實作此程序的第三方備份解決方案。
 
@@ -202,11 +202,11 @@ Azure 備份在排定的時間起始備份工作時，會觸發 VM 中所安裝�
 
 1. 關閉 VM。
 
-2. 建立每個虛擬硬碟 Blob 的快照集，只需幾秒鐘的時間。
+1. 建立每個虛擬硬碟 Blob 的快照集，只需幾秒鐘的時間。
 
     若要建立快照集，您可以使用 [PowerShell](../articles/storage/common/storage-powershell-guide-full.md)、[Azure 儲存體 REST API](https://msdn.microsoft.com/library/azure/ee691971.aspx)、[Azure CLI](/cli/azure/)，或其中一個 Azure 儲存體用戶端程式庫，例如[適用於 .NET 的儲存體用戶端程式庫](https://msdn.microsoft.com/library/azure/hh488361.aspx)。
 
-3. 啟動 VM，這會結束停機時間。 整個程序通常會在幾分鐘內完成。
+1. 啟動 VM，這會結束停機時間。 整個程序通常會在幾分鐘內完成。
 
 此程序會產生所有磁碟的一致性快照集合，為 VM 提供備份還原點。
 

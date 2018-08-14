@@ -9,18 +9,18 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 2e4100fd7d8e85a6b103c31000176aaaeb3d7151
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c6d33de70fd5b7c03b7af6b85e8ebc567dd2f925
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38317674"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502503"
 ---
 # <a name="anomaly-detection-c-application"></a>異常偵測 C# 應用程式
 
 瀏覽使用異常偵測 API 來偵測輸入異常的基本 Windows 應用程式。 此範例會使用您的訂用帳戶金鑰來將時間序列資料提交到異常偵測 API，然後從該 API 針對每個資料點取得所有異常點和預期的值。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 ### <a name="platform-requirements"></a>平台需求
 
@@ -48,7 +48,7 @@ ms.locfileid: "38317674"
 
 1. 建置完成之後，按 **F5** 或按一下功能區功表上的 [啟動] 來執行範例。
 2. 使用標示 "{your_subscription_key}" 的文字編輯方塊來找出異常偵測使用者介面視窗。
-3. 以您自己的資料取代 request.json 檔案 (其中包含範例資料)，然後按一下 [傳送] 按鈕。 Microsoft 會收到您上傳的資料，並使用它們來偵測它們之間的任何異常點。 您更新的資料將不會保存於 Microsoft 的伺服器中。 若要再次偵測異常點，您需要再上傳資料一次。
+3. 以您自己的資料取代 request.json 檔案 (其中包含範例資料)，然後按一下 [傳送] 按鈕。 Microsoft 會收到您上傳的資料，並使用它們來偵測它們之間的任何異常點。 您載入的資料將不會保存於 Microsoft 的伺服器中。 若要再次偵測異常點，您需要再上傳資料一次。
 4. 如果資料正確，您將會在 [回應] 欄位中找到異常偵測結果。 如果發生任何錯誤，錯誤資訊也將顯示於 [回應] 欄位中。
 
 <a name="Review"></a>

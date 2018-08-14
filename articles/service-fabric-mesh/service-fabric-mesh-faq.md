@@ -9,12 +9,12 @@ ms.date: 06/25/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 07c0347793f6541a3e047f3f357d0d1b05dc3bca
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: d0ae7fbb22f6d98662f83968158182d447a75394
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136176"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39501962"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Service Fabric Mesh 的常見問題
 Azure Service Fabric Mesh 是一個受到完整管理的服務，讓開發人員能夠部署微服務應用程式，而不需管理虛擬機器、儲存體或網路功能。 本文提供常見問題的解答。
@@ -83,7 +83,7 @@ Azure Service Fabric Mesh 是一個受到完整管理的服務，讓開發人員
 
 對於在 Windows 10 上執行 Service Fabric 開發叢集的其他已知 DNS 問題，請參閱此處：[對 Windows 容器進行偵錯](/azure/service-fabric/service-fabric-how-to-debug-windows-containers)。
 
-**使用 CLI 模組 _ImportError 時，會收到此錯誤：無法匯入名稱 'sdk_no_wait'**
+**我在使用 CLI 模組時遇到此錯誤，ImportError: 無法匯入名稱 'sdk_no_wait'**
 
 如果您使用的 CLI 版本比 2.0.30 還舊，就可能收到這個錯誤：
 

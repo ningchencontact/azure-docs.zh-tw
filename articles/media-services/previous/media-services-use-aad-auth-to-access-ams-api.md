@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: a7f20c22b39458134d3dcd42b7e13860c03bad58
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 08b7f50c3051c174158cff0b4c591a2b22fb4ab4
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785907"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502697"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>使用 Azure AD 驗證存取 Azure 媒體服務 API
  
 Azure 媒體服務 API 是一種 RESTful API。 您可以使用 REST API 或使用可用的用戶端 SDK 來執行媒體資源的作業。 Azure 媒體服務提供適用於 Microsoft .NET 的媒體服務用戶端 SDK。 在獲得存取媒體服務資源和媒體服務 API 的授權之前，您必須先進行驗證。 
 
-媒體服務支援 [Azure Active Directory (Azure AD) 型驗證](../../active-directory/active-directory-whatis.md)。 Azure 媒體 REST 服務規定，發出 REST API 要求的使用者或應用程式需具備**參與者**或**擁有者**角色才能存取資源。 如需詳細資訊，請參閱[在 Azure 入口網站中開始使用角色型存取控制](../../role-based-access-control/overview.md)。  
+媒體服務支援 [Azure Active Directory (Azure AD) 型驗證](../../active-directory/fundamentals/active-directory-whatis.md)。 Azure 媒體 REST 服務規定，發出 REST API 要求的使用者或應用程式需具備**參與者**或**擁有者**角色才能存取資源。 如需詳細資訊，請參閱[在 Azure 入口網站中開始使用角色型存取控制](../../role-based-access-control/overview.md)。  
 
 > [!IMPORTANT]
 > 目前，媒體服務支援 Azure 存取控制服務驗證模型。 不過，存取控制授權將在 2018 年 6 月 1 日被取代。 建議您儘速移轉至 Azure AD 驗證模型。
@@ -76,7 +76,7 @@ Azure 媒體 REST 要求若要成功，呼叫的使用者必須擁有嘗試存�
         租用戶資訊可從 Azure 入口網站擷取。 將游標放在右上角登入的使用者名稱上方。
     * 媒體服務資源 URI。 
 
-        同一 Azure 環境中的媒體服務帳戶的這個 URI 都相同 (例如，https://rest.media.azure.net)。
+        同一 Azure 環境中的媒體服務帳戶的這個 URI 都相同 (例如， https://rest.media.azure.net)。
 
     * 媒體服務 (原生) 應用程式用戶端識別碼。
     * 媒體服務 (原生) 應用程式重新導向 URI。
@@ -100,7 +100,7 @@ Azure 媒體 REST 要求若要成功，呼叫的使用者必須擁有嘗試存�
 
 當您使用服務主體驗證方法來建立取用者案例時，驗證通常在中介層 (透過某些 API) 而非直接在行動或傳統型應用程式中處理。 
 
-若要使用此方法，請在其自己的租用戶中建立 Azure AD 應用程式和服務主體。 建立應用程式之後，請將媒體服務帳戶的「參與者」或「擁有者」角色存取權授與應用程式。 您可以在 Azure 入口網站中使用 Azure CLI 或 PowerShell 指令碼執行此動作。 您也可以使用現有的 Azure AD 應用程式。 您可以[在 Azure 入口網站](media-services-portal-get-started-with-aad.md)註冊及管理您的 Azure AD 應用程式和服務主體。 您也可以使用 [Azure CLI 2.0](media-services-use-aad-auth-to-access-ams-api.md) 或 [PowerShell](media-services-powershell-create-and-configure-aad-app.md) 執行此動作。 
+若要使用此方法，請在其自己的租用戶中建立 Azure AD 應用程式和服務主體。 建立應用程式之後，請將媒體服務帳戶的「參與者」或「擁有者」角色存取權授與應用程式。 您可以在 Azure 入口網站中、使用 Azure CLI 或使用 PowerShell 指令碼執行此動作。 您也可以使用現有的 Azure AD 應用程式。 您可以[在 Azure 入口網站](media-services-portal-get-started-with-aad.md)註冊及管理您的 Azure AD 應用程式和服務主體。 您也可以使用 [Azure CLI](media-services-use-aad-auth-to-access-ams-api.md) 或 [PowerShell](media-services-powershell-create-and-configure-aad-app.md) 執行此動作。 
 
 ![中介層應用程式](./media/media-services-use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
 
@@ -118,7 +118,7 @@ Azure 媒體 REST 要求若要成功，呼叫的使用者必須擁有嘗試存�
         租用戶資訊可從 Azure 入口網站擷取。 將游標放在右上角登入的使用者名稱上方。
     * 媒體服務資源 URI。 
 
-        位於同一 Azure 環境中的媒體服務帳戶的這個 URI 都相同 (例如，https://rest.media.azure.net)。
+        位於同一 Azure 環境中的媒體服務帳戶的這個 URI 都相同 (例如， https://rest.media.azure.net)。
 
     * REST 媒體服務的資源 URI。
 
@@ -146,8 +146,8 @@ Azure 媒體 REST 要求若要成功，呼叫的使用者必須擁有嘗試存�
 
 下列文章是 Azure AD 驗證概念的概觀： 
 
-- [Azure AD 的驗證案例](../../active-directory/develop/active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad)
-- [在 Azure AD 新增、更新或移除應用程式](../../active-directory/develop/active-directory-integrating-applications.md)
+- [Azure AD 的驗證案例](../../active-directory/develop/authentication-scenarios.md#basics-of-authentication-in-azure-ad)
+- [在 Azure AD 新增、更新或移除應用程式](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)
 - [使用 PowerShell 設定及 管理角色型存取控制](../../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="next-steps"></a>後續步驟

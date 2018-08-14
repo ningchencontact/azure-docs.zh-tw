@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/25/2018
 ms.author: aljo
-ms.openlocfilehash: 5628315423db1f0064d0e6b77f061d8e674757aa
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 9e4d65875085ec293813e2683acde095ae112b75
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39309148"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503701"
 ---
-# <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>自訂 Service Fabric 叢集設定和網狀架構升級原則
-本文件將告訴您如何為 Service Fabric 叢集自訂各種網狀架構設定和網狀架構升級原則。 您可以透過 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本來進行自訂。
+# <a name="customize-service-fabric-cluster-settings"></a>自訂 Service Fabric 叢集設定
+此文章說明如何自訂 Service Fabric 叢集的各種網狀架構設定。 針對裝載於 Azure 中的叢集，您可以透過 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本來自訂設定。 針對獨立叢集，您會透過更新 ClusterConfig.json 檔案並在叢集上執行設定升級來自訂設定。 
 
 > [!NOTE]
 > 並非所有設定都可以在入口網站中使用。 若下列設定無法透過入口網站使用，請使用 Azure Resource Manager 範本自訂它。
@@ -35,14 +35,14 @@ ms.locfileid: "39309148"
 - **不允許** – 無法修改這些設定。 變更這些設定需要終結叢集並建立新叢集。 
 
 ## <a name="customize-cluster-settings-using-resource-manager-templates"></a>使用 Resource Manager 範本自訂叢集設定
-下列步驟說明如何將新設定 *MaxDiskQuotaInMB* 新增至 *Diagnostics* 區段。
+下列步驟示範如何使用 Azure 資源總管將新設定 *MaxDiskQuotaInMB* 新增至 [Diagnostics] 區段。
 
 1. 移至 https://resources.azure.com。
 2. 瀏覽至您的訂用帳戶，方法為展開 [訂用帳戶] -> **\<您的訂用帳戶>** -> **resourceGroups** -> **\<您的資源群組>** -> [提供者] -> **Microsoft.ServiceFabric** -> [叢集] -> **\<您的叢集名稱>**
 3. 選取右上角的 [讀取/寫入]。
 4. 選取 [編輯]，並更新 `fabricSettings` JSON 元素，然後新增元素：
 
-```
+```json
       {
         "name": "Diagnostics",
         "parameters": [
@@ -54,6 +54,36 @@ ms.locfileid: "39309148"
       }
 ```
 
+您也可以使用 Azure Resource Manager 透過下列其中一種方式自訂叢集設定：
+
+- 使用 [Azure 入口網站](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template)來匯出並更新 Resource Manger 範本。
+- 使用 [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell) 來匯出並更新 Resource Manger 範本。
+- 使用 [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli) 來匯出並更新 Resource Manger 範本。
+- 使用 Azure RM PowerShell [Set-AzureRmServiceFabricSetting](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/Set-AzureRmServiceFabricSetting) 和 [Remove-AzureRmServiceFabricSetting](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/Remove-AzureRmServiceFabricSetting) 命令來直接修改設定。
+- 使用 Azure CLI [az sf cluster setting](https://docs.microsoft.com/cli/azure/sf/cluster/setting) 命令來直接修改設定。
+
+## <a name="customize-cluster-settings-for-standalone-clusters"></a>自訂獨立叢集的叢集設定
+獨立叢集需透過 ClusterConfig.json 檔案來進行設定。 若要深入了解，請參閱[獨立 Windows 叢集的組態設定](./service-fabric-cluster-manifest.md)。
+
+您可以在 ClusterConfig.json 中 [Cluster properties](./service-fabric-cluster-manifest.md#cluster-properties) 區段底下的 `fabricSettings` 區段中新增、更新或移除設定。 
+
+例如，下列 JSON 會將新設定 *MaxDiskQuotaInMB* 新增至 `fabricSettings` 底下的 [Diagnostics] 區段：
+
+```json
+      {
+        "name": "Diagnostics",
+        "parameters": [
+          {
+            "name": "MaxDiskQuotaInMB",
+            "value": "65536"
+          }
+        ]
+      }
+```
+
+在您修改 ClusterConfig.json 檔案中的設定之後，請依照[升級叢集設定](./service-fabric-cluster-upgrade-windows-server.md#upgrade-the-cluster-configuration)中的指示將設定套用至叢集。 
+
+
 下列是您可自訂的網狀架構設定清單，並依區段分組。
 
 ## <a name="applicationgatewayhttp"></a>ApplicationGateway/Http
@@ -61,7 +91,7 @@ ms.locfileid: "39309148"
 | --- | --- | --- | --- |
 |ApplicationCertificateValidationPolicy|字串，預設值為 "None"|靜態| 這不會驗證伺服器憑證；成功的要求。 請參閱 ServiceCertificateThumbprints 組態，以取得反向 Proxy 可以信任的逗號分隔遠端憑證指紋清單。 請參閱 ServiceCommonNameAndIssuer 組態，以取得反向 Proxy 可以信任的遠端憑證主體名稱和簽發者指紋。 若要深入了解，請參閱[反向 Proxy 安全連線](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services)。 |
 |BodyChunkSize |單位，預設值為 16384 |動態| 提供用來讀取主體的區塊大小 (位元組)。 |
-|CrlCheckingFlag|單位，預設值為 0x40000000 |動態| 應用程式/服務信任鏈結驗證旗標，例如 CRL 檢查 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY 設定為 0 會停用 CRL 檢查。CertGetCertificateChain 的 dwFlags 會記載完整的支援值清單：http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
+|CrlCheckingFlag|單位，預設值為 0x40000000 |動態| 應用程式/服務信任鏈結驗證旗標，例如 CRL 檢查 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY 設定為 0 會停用 CRL 檢查。CertGetCertificateChain 的 dwFlags 會記載完整的支援值清單： http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |DefaultHttpRequestTimeout |以秒為單位的時間。 預設值為 120 |動態|以秒為單位指定時間範圍。  針對在 http 應用程式閘道中所處理的 http 要求提供預設要求逾時。 |
 |ForwardClientCertificate|布林值，預設值為 FALSE|動態|當設為 false 時，反向 Proxy 將不會要求用戶端憑證。當設為 true 時，則反向 Proxy 將會在 SSL 交換期間要求用戶端憑證，並將採用 Base 64 編碼的 PEM 格式字串轉送至名為 X-Client-Certificate 標頭中的服務。這個服務在檢查憑證資料之後，可能會讓要求失敗，並包含適當的狀態碼。 如果為 true 且用戶端未出示憑證，反向 Proxy 會轉送空白標頭，以讓服務處理這種情況。 反向 Proxy 將作為透明圖層。 若要深入了解，請參閱[設定用戶端憑證驗證](service-fabric-reverseproxy-configure-secure-communication.md#setting-up-client-certificate-authentication-through-the-reverse-proxy)。 |
 |GatewayAuthCredentialType |字串，預設值為 "None" |靜態| 表示要在 http 應用程式閘道端點使用的安全性認證類型。有效值為 "None/X509。 |
@@ -606,7 +636,7 @@ ms.locfileid: "39309148"
 |ClusterCredentialType|字串，預設值為 "None"|不允許|指出為了保護叢集而要使用的安全性認證類型。 有效值為"None/X509/Windows" |
 |ClusterIdentities|字串，預設值為 ""|動態|用於叢集成員資格授權的叢集節點 Windows 身分識別。 它是以逗號分隔的清單，每個項目都是網域帳戶名稱或群組名稱 |
 |ClusterSpn|字串，預設值為 ""|不允許|當網狀架構以單一網域使用者 (gMSA/網域使用者帳戶) 的身分執行時，叢集的服務主體名稱。 它是租用接聽程式和 fabric.exe 中的接聽程式的 SPN：同盟接聽程式、內部複寫接聽程式、執行階段服務接聽程式和命名閘道接聽程式。 當網狀架構以機器帳戶的身分執行時，此參數應該保持空白，在此情況下，來自接聽程式傳輸位址的連線端計算接聽程式 SPN。 |
-|CrlCheckingFlag|單位，預設值為 0x40000000|動態|預設信任鏈結驗證旗標，可能會由元件專用的旗標加以覆寫，例如，同盟/X509CertChainFlags 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY 設定為 0 會停用 CRL 檢查。CertGetCertificateChain 的 dwFlags 會記載完整的支援值清單：http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx |
+|CrlCheckingFlag|單位，預設值為 0x40000000|動態|預設信任鏈結驗證旗標，可能會由元件專用的旗標加以覆寫，例如，同盟/X509CertChainFlags 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY 設定為 0 會停用 CRL 檢查。CertGetCertificateChain 的 dwFlags 會記載完整的支援值清單： http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx |
 |CrlDisablePeriod|時間範圍，預設值為 Common::TimeSpan::FromMinutes(15)|動態|以秒為單位指定時間範圍。 如果 CRL 離線錯誤是可忽略的，則在遇到離線錯誤之後，要將給定憑證的 CRL 檢查停用多久。 |
 |CrlOfflineHealthReportTtl|時間範圍，預設值為 Common::TimeSpan::FromMinutes(1440)|動態|以秒為單位指定時間範圍。 |
 |DisableFirewallRuleForDomainProfile| 布林值，預設值為 TRUE |靜態| 指出是否不應該對網域設定檔啟用防火牆規則 |

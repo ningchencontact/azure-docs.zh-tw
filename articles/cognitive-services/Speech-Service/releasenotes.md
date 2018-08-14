@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/17/2018
 ms.author: wolfma
-ms.openlocfilehash: a28df7faaf98e5cba8ad4afe7aa1a829195d7828
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: f346241e1d10d16eae08e389296f4be9149ec086
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281485"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502453"
 ---
 # <a name="release-notes"></a>版本資訊
 
@@ -34,7 +34,7 @@ ms.locfileid: "39281485"
 **功能性變更**
 
 * `StartContinuousRecognitionAsync()` 支援長時間執行辨識
-* 辨識結果包含多個欄位：從已辨識文字的音訊開頭和持續時間的位移 (兩者都以刻度為單位)、表示辨識狀態的其他值，例如 `InitialSilenceTimeout`、`InitialBabbleTimeout`。
+* 辨識結果包含多個欄位：從已辨識文字的音訊開頭和持續時間 (兩者都以刻度為單位) 的位移、表示辨識狀態的其他值，例如 `InitialSilenceTimeout`、`InitialBabbleTimeout`。
 * 支援 AuthorizationToken 以建立處理站執行個體。
 
 **重大變更**
