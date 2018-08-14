@@ -1,24 +1,20 @@
 ---
-title: 教學課程：使用 Apache Kafka 串流 API - Azure HDInsight | Microsoft Docs
+title: '教學課程：使用 Apache Kafka 串流 API - Azure HDInsight '
 description: 了解如何搭配 HDInsight 上的 Kafka 使用 Apache Kafka 串流 API。 此 API 可讓您在 Kafka 主題之間執行串流處理。
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/17/2018
-ms.author: larryfr
-ms.openlocfilehash: 5391d6ae101a97e9b62215621267e591b2a995f5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d285575802dd830247533420154f6f5e868272a2
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626389"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621040"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>教學課程：Apache Kafka 串流 API
 
@@ -40,7 +36,7 @@ ms.locfileid: "34626389"
 > * 設定 Kafka 主題
 > * 執行程式碼
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * HDInsight 3.6 叢集上的 Kafka。 若要深入了解如何在 HDInsight 叢集上建立 Kafka，請參閱[開始使用 HDInsight 上的 Kafka](apache-kafka-get-started.md) 文件。
 
@@ -225,7 +221,7 @@ public class Stream
 2. 若要將記錄傳送至 `test` 主題，請使用下列命令啟動產生器應用程式：
 
     ```bash
-    java -jar kafka-producer-consumer.jar producer $KAFKABROKERS
+    java -jar kafka-producer-consumer.jar producer test $KAFKABROKERS
     ```
 
 3. 產生器執行完成後，請使用下列命令檢視 `wordcounts` 主題中儲存的資訊：

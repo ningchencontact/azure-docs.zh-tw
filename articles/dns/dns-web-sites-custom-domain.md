@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 7/20/2018
 ms.author: victorh
-ms.openlocfilehash: 9ebbc955bcb426738db598491266c2a1bcb9dd33
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: b39c2c672869bb446e58134a85130d10491fe047
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39204937"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621108"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>教學課程：在自訂網域中建立 Web 應用程式的 DNS 記錄 
 
@@ -56,7 +56,7 @@ ms.locfileid: "39204937"
 
 ## <a name="create-an-a-record-and-txt-record"></a>建立 A 記錄和 TXT 記錄
 
-A 記錄可用來將名稱對應到其 IP 位址。 在下列範例中，我們會使用您的 Web 應用程式 IPv4 位址將 「@」指派為 A 記錄。 @ 通常代表根網域。
+A 記錄可用來將名稱對應到其 IP 位址。 在下列範例中，我們會使用您的 Web 應用程式 IPv4 位址將 「\@」指派為 A 記錄。 \@ 通常代表根網域。
 
 ### <a name="get-the-ipv4-address"></a>取得 IPV4 位址
 

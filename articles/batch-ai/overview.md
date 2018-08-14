@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 10/13/2017
 ms.author: asutton
 ms.custom: ''
-ms.openlocfilehash: 9834dbbc2232fc286451bcdcd19dfc639f49d3bf
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 504504f278907536e89055cd5c912d2d1f280931
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30903470"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627197"
 ---
 # <a name="what-is-batch-ai-in-azure"></a>Azure 中的 Batch AI 是什麼？
 Batch AI 是一項受控服務，可讓資料科學家和 AI 研究人員在 Azure 虛擬機器 (包括具有 GPU 支援的 VM) 叢集上定型 AI 和其他機器學習模型。 您可描述您的作業需求、尋找輸入和儲存輸出的位置，而 Batch AI 會處理其餘部分。  
@@ -40,7 +40,7 @@ Batch AI 提供專為 AI 訓練和測試特製化的資源管理和作業排程�
 * 使用 GPU 或 CPU 自動或手動調整 VM 叢集 
 * 設定 VM 之間的 SSH 通訊，以供遠端存取 
 * 任何深度學習或機器學習架構的支援，包含熱門工具組 (例如[Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK) (CNTK)、[TensorFlow](https://www.tensorflow.org/), 和 [Chainer](https://chainer.org/)) 的最佳化組態 
-* 以優先順序為基礎的作業佇列，可共用叢集並利用低優先順序的 VM 和保留執行個體  
+* 以優先順序為基礎的作業佇列，可共用叢集並利用低優先順序的 VM 和 Azure 保留項目  
 * 彈性儲存體選項，包括 Azure 檔案服務和受控 NFS 伺服器 
 * 將遠端檔案共用掛接到 VM 和選擇性容器 
 * 提供作業狀態，並可在 VM 失敗時重新啟動 

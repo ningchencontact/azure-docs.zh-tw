@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: a1b34fe75f76d5f615ab33069f3012f22dc7ef2e
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 28b963922b423bb776aa97e9b76392bc484ddcd6
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413068"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627802"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>教學課程：將 Azure Machine Learning 部署為 IoT Edge 模組 (預覽)
 
@@ -46,9 +46,10 @@ Azure IoT Edge 裝置：
 雲端資源：
 
 * Azure 中的標準層 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。 
+* Azure Machine Learning 帳戶。 請遵循[建立 Azure Machine Learning 帳戶，並安裝 Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts) 中的指示。 您不需要針對此教學課程安裝 Workbench 應用程式。 
 
 開發資源：
-* Azure Machine Learning 帳戶。 請遵循[建立 Azure Machine Learning 帳戶，並安裝 Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts) 中的指示。 您不需要針對此教學課程安裝 Workbench 應用程式。 
+
 * Azure ML 的模型管理。 若要設定您的環境並建立帳戶，請遵循[模型管理設定](../machine-learning/desktop-workbench/deployment-setup-configuration.md)中的指示。 在部署設定期間，建議盡可能選擇本機步驟，而不是叢集步驟。
 
 ### <a name="disable-process-identification"></a>停用程序識別
@@ -56,7 +57,7 @@ Azure IoT Edge 裝置：
 >[!NOTE]
 >
 > 預覽版的 Azure Machine Learning 不支援 IoT Edge 所預設啟用的程序識別安全性功能。 
-> 以下是此功能的停用步驟。 不過，這不適合生產環境使用。 這些步驟只須在 Linux 上執行，因為在執行 Windows Edge 執行階段設定步驟時，此步驟已於先前完成。
+> 以下是此功能的停用步驟。 不過，這不適合生產環境使用。 這些步驟只須在 Linux 上執行，因為在執行 Windows Edge 執行階段安裝時，此步驟已於先前完成。
 
 若要在 IoT Edge 裝置上停用程序識別，您必須在 IoT Edge 精靈設定的 [連線] 區段中，對 **workload_uri** 和 **management_uri** 提供 IP 位址和連接埠。
 
@@ -93,7 +94,7 @@ export IOTEDGE_HOST="http://172.17.0.1:15580"
 ## <a name="create-the-azure-ml-container"></a>建立 Azure ML 容器
 在本節中，您會下載定型模型檔案，並將它們轉換成 Azure ML 容器。
 
-在執行 Azure ML 模組管理的電腦上，從 GitHub 上的 Azure ML IoT Toolkit 下載並儲存 [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) 和 [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl)。 這些檔案會定義您將會部署到 IoT Edge 裝置的定型機器學習模型。
+在執行 Azure ML 模型管理的電腦上，從 GitHub 上的 Azure ML IoT Toolkit 下載並儲存 [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) 和 [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl)。 這些檔案會定義您將會部署到 IoT Edge 裝置的定型機器學習模型。
 
 使用定型模型以建立可以部署到 IoT Edge 裝置的容器。 使用下列命令，您可以：
 
@@ -187,7 +188,7 @@ az ml service create realtime --model-file model.pkl -f iot_score.py -n machinel
 
 ### <a name="view-data-arriving-at-your-iot-hub"></a>檢視抵達 IoT 中樞的資料
 
-您可以使用 [IoT 中樞總管](https://github.com/azure/iothub-explorer)或[適用於 Visual Studio Code 的 Azure IoT 工具組擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)，來檢視 IoT 中樞所收到的裝置到雲端訊息。
+您可以使用[適用於 Visual Studio Code 的 Azure IoT 工具組擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)，檢視 IoT 中樞接收的裝置到雲端訊息。
 
 下列步驟說明如何設定 Visual Studio Code 來監視抵達 IoT 中樞的裝置到雲端訊息。 
 
@@ -220,7 +221,7 @@ az ml service create realtime --model-file model.pkl -f iot_score.py -n machinel
 若只要刪除 IoT 中樞，請使用中樞名稱和資源群組名稱執行下列命令：
 
 ```azurecli-interactive
-az iot hub delete --name MyIoTHub --resource-group TestResources
+az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
 ```
 
 
