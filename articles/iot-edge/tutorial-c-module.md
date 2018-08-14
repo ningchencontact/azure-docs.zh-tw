@@ -9,12 +9,12 @@ ms.date: 07/30/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: c9d1931f1b78bb19f5e321a19baca45265ea7ab4
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 31560cbd4d8b4572ce930db7ffb8753f3e4a4bc0
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413156"
+ms.locfileid: "39425913"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>教學課程：開發 C IoT Edge 模組並部署至模擬裝置
 
@@ -49,18 +49,26 @@ Azure IoT Edge 裝置：
 * 適用於 Visual Studio Code 的 [Azure IoT Edge 擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)。
 * [Docker CE](https://docs.docker.com/install/)。 
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-container-registry"></a>建立容器登錄庫
 在本教學課程中，您會使用適用於 VS Code 的 Azure IoT Edge 擴充功能來建置模組，並從檔案建立**容器映像**。 接著，您會將此映像推送至儲存並管理映像的**登錄**。 最後，您會從登錄部署該映像，以在 IoT Edge 裝置上執行。  
 
 您可以此教學課程中使用任何與 Docker 相容的登錄。 於雲端中提供使用的兩個熱門 Docker 登錄服務為 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 和 [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) \(英文\)。 本教學課程使用的是 Azure Container Registry。 
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [建立資源] > [容器] > [Azure Container Registry]。
-2. 為登錄提供名稱，選擇訂用帳戶，選擇資源群組，然後將 SKU 設定為 [基本]。 
-3. 選取 [建立] 。
-4. 建立容器登錄之後，請瀏覽至它並選取 [存取金鑰]。 
-5. 將 [管理使用者] 切換為 [啟用]。
-6. 複製 [登入伺服器]、[使用者名稱] 及 [密碼] 的值。 稍後您在本教學課程中，將 Docker 映像發佈到您的登錄，或將登錄認證新增至 Edge 執行階段時，將會用到這些值。 
+下列 Azure CLI 命令會在名為 **IoTEdgeResources** 的資源群組中建立登錄。 將 **{acr_name}** 更換為登錄的唯一名稱。 
+
+   ```azurecli-interactive
+   az acr create --resource-group IoTEdgeResources --name {acr_name} --sku Basic --admin-enabled true
+   ```
+
+擷取登錄的認證。 
+
+   ```azurecli-interactive
+   az acr credential show --name {acr_name}
+   ```
+
+複製 [使用者名稱] 的值和其中一個密碼。 稍後您在本教學課程中，將 Docker 映像發佈到您的登錄，或將登錄認證新增至 Edge 執行階段時，將會用到這些值。 
 
 ## <a name="create-an-iot-edge-module-project"></a>建立 IoT Edge 模組專案
 下列步驟說明如何使用 Visual Studio Code 和 Azure IoT Edge 擴充功能，建立以 .NET Core 2.0 為基礎的 IoT Edge 模組專案。
@@ -294,32 +302,26 @@ Azure IoT Edge 裝置：
  
 ## <a name="clean-up-resources"></a>清除資源 
 
-<!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
-
 如果您將繼續閱讀下一篇建議的文章，則可以保留您已建立的資源和設定，並加以重複使用。
 
 否則，您可以刪除在本文中建立的本機組態和 Azure 資源，以避免產生費用。 
 
 > [!IMPORTANT]
-> 刪除 Azure 資源和資源群組是無法回復的動作。 一旦刪除，資源群組和其中包含的所有資源都將永久刪除。 請確定您不會不小心刪除錯誤的資源群組或資源。 如果您在現有的資源群組內建立了 IoT 中樞，而該群組中包含您想要保留的資源，則您只需刪除 IoT 中樞本身即可，而不要刪除資源群組。
+> 刪除 Azure 資源群組是無法回復的動作。 一旦刪除，資源群組和其中包含的所有資源都將永久刪除。 請確定您不會不小心刪除錯誤的資源群組或資源。 如果您在現有的資源群組內建立了 IoT 中樞，而該群組中包含您想要保留的資源，則您只需刪除 IoT 中樞本身即可，而不要刪除資源群組。
 >
 
 若只要刪除 IoT 中樞，請使用中樞名稱和資源群組名稱執行下列命令：
 
 ```azurecli-interactive
-az iot hub delete --name MyIoTHub --resource-group TestResources
+az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
 ```
 
 
 若要依名稱刪除整個資源群組：
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [資源群組]。
-
-2. 在 [依名稱篩選...] 文字方塊中，輸入包含 IoT 中樞的資源群組名稱。 
-
-3. 在結果清單中的資源群組右側，按一下 **...**，然後按一下 [刪除資源群組]。
-
-4. 系統將會要求您確認是否刪除資源。 再次輸入您的資源群組名稱進行確認，然後按一下 [刪除]。 片刻過後，系統便會刪除該資源群組及其所有內含的資源。
+   ```azurecli-interactive
+   az group delete --name IoTEdgeResources 
+   ```
 
 
 

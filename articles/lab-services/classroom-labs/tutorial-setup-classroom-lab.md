@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/23/2018
 ms.author: spelluru
-ms.openlocfilehash: d1315753baf08cc80fda5811bd43bf59609781b7
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: fe41728b6f08ba767dbcb40d0595b9f7cdc79615
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216018"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39420194"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>教學課程：設定教室實驗室 
 您將在本教學課程中設定教室實驗室，且其中包含教室中學生所使用的虛擬機器。  
@@ -47,6 +47,9 @@ ms.locfileid: "39216018"
     7. 選取 [ **儲存**]。
 
         ![建立教室實驗室](../media/tutorial-setup-classroom-lab/new-lab-window.png)
+1. 建立實驗室之後，選取 [前往我的實驗室]。 
+
+    ![前往我的實驗室](../media/tutorial-setup-classroom-lab/go-to-my-lab.png)
 1. 您會看到實驗室的**儀表板**。 
     
     ![教室實驗室儀表板](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)

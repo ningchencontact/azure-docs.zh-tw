@@ -8,14 +8,14 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: overview
 ms.custom: mvc
-ms.date: 06/22/2018
+ms.date: 08/01/2018
 ms.author: shvija
-ms.openlocfilehash: d339ad79eb632f1e6fa91b1fca56488c3ae67d86
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: c5cec92094a2e76d02487adff43abf040aedfe0e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435342"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425804"
 ---
 # <a name="what-is-azure-event-hubs"></a>Azure 事件中樞是什麼？
 
@@ -38,25 +38,13 @@ Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可�
 
 事件中樞代表事件管線的「大門」，在方案架構中通常稱為「事件擷取器」。 事件擷取器是介於事件發佈者和事件取用者之間的元件或服務，它能將事件串流的生產與這些事件的取用彼此脫鉤。 事件中樞提供具有時間保留緩衝的統一串流平台，可分開處理事件產生者和事件取用者。 
 
-## <a name="key-features"></a>主要功能
-
-事件中樞提供訊息串流處理能力，但特性迴異於傳統企業傳訊。 事件中樞功能是以高輸送量和事件處理案例為重點。 事件中樞包含下列[重要元件](event-hubs-features.md)：
-
-- **事件產生者**：任何將資料傳送至事件中樞的實體。 事件發佈者可以使用 HTTPS、AMQP 1.0 或 Apache Kafka (1.0 版或更新版本) 發佈事件
-- **分割區**：每一個取用者只會讀取訊息資料流的特定子集或分割區。
-- **取用者群組**：檢視整個事件中樞 (狀態、位置或位移) 的窗口。 取用者群組能讓多個取用應用程式擁有自己的事件串流檢視，以及按照自己的步調及運用自己的位移自行讀取串流。
-- **輸送量單位**：預先購買的容量單位，可控制事件中樞的輸送量容量。
-- **事件接收者**：任何從事件中樞讀取事件資料的實體。 所有事件中樞取用者都透過 AMQP 1.0 工作階段連線，而可供取用的事件都透過工作階段傳遞。
-
-下圖顯示事件中樞串流處理架構︰
-
-![事件中樞](./media/event-hubs-about/event_hubs_architecture.png)
+下列各節會說明 Azure 事件中樞服務的主要功能： 
 
 ## <a name="fully-managed-paas"></a>完全受控 PaaS 
 
 事件中樞是僅需一點設定或管理成本的受控服務，因此您可將重心放在商務解決方案上。 [Apache Kafka 生態系統的事件中樞](event-hubs-for-kafka-ecosystem-overview.md)提供您無須管理、設定或執行叢集的 PaaS Kafka 體驗。
 
-## <a name="real-time-and-batching"></a>即時和批次處理
+## <a name="support-for-real-time-and-batch-processing"></a>支援即時和批次處理
 
 即時內嵌、緩衝、儲存及處理您的資料流，以取得可採取動作的見解。 事件中樞會使用[分割的取用者模型](event-hubs-features.md#partitions)，可讓多個應用程式同時處理資料流，並讓您控制處理的速度。
 
@@ -73,6 +61,21 @@ Azure 事件中樞也整合了 [Azure Functions](/azure/azure-functions/) 來達
 [Apache Kafka 生態系統的事件中樞](event-hubs-for-kafka-ecosystem-overview.md)可讓 [Apache Kafka (1.0 版和更新版本)](https://kafka.apache.org/) 用戶端和應用程式與事件中樞通訊，而且不需要管理任何叢集。
  
 透過適用於各種[語言 (.NET、Java、Python、Go、Node.js)](https://github.com/Azure/azure-event-hubs) 的廣大生態系統，您可以輕鬆地開始處理來自事件中樞的串流。 所有支援的用戶端語言皆提供低階整合。
+
+## <a name="key-architecture-components"></a>重要架構元件
+
+事件中樞提供訊息串流處理能力，但特性迴異於傳統企業傳訊。 事件中樞功能是以高輸送量和事件處理案例為重點。 事件中樞包含下列[重要元件](event-hubs-features.md)：
+
+- **事件產生者**：任何將資料傳送至事件中樞的實體。 事件發佈者可以使用 HTTPS、AMQP 1.0 或 Apache Kafka (1.0 版或更新版本) 發佈事件
+- **分割區**：每一個取用者只會讀取訊息資料流的特定子集或分割區。
+- **取用者群組**：檢視整個事件中樞 (狀態、位置或位移) 的窗口。 取用者群組能讓多個取用應用程式擁有自己的事件串流檢視，以及按照自己的步調及運用自己的位移自行讀取串流。
+- **輸送量單位**：預先購買的容量單位，可控制事件中樞的輸送量容量。
+- **事件接收者**：任何從事件中樞讀取事件資料的實體。 所有事件中樞取用者都透過 AMQP 1.0 工作階段連線，而可供取用的事件都透過工作階段傳遞。
+
+下圖顯示事件中樞串流處理架構︰
+
+![事件中樞](./media/event-hubs-about/event_hubs_architecture.png)
+
 
 ## <a name="next-steps"></a>後續步驟
 
