@@ -1,6 +1,6 @@
 ---
-title: Azure 快速入門 - 使用入口網站建立 Key Vault | Microsoft Docs
-description: 說明如何使用入口網站建立 Azure Key Vault 的快速入門
+title: Azure 快速入門 - 使用 Azure 入口網站從 Key Vault 設定及擷取祕密 | Microsoft Docs
+description: 說明如何使用 Azure 入口網站從 Azure Key Vault 設定及擷取祕密的快速入門
 services: key-vault
 author: barclayn
 manager: mbaldwin
@@ -14,14 +14,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: 251cd7eaba439708e7ef4e1ee8ccbd7efe7d66bb
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 5a203f8c92a1dc03a50415e78e509eafa62ebf4c
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34068875"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480093"
 ---
-# <a name="quickstart-create-a-key-vault-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站來建立 Key Vault
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站從 Azure Key Vault 設定及擷取祕密
 
 Azure Key Vault 是一項雲端服務，可作為安全的祕密存放區。 您也可以安全地儲存金鑰、密碼、憑證和其他祕密。 如需 Key Vault 的詳細資訊，您可以檢閱[概觀](key-vault-overview.md)。 您可以透過 Azure 入口網站建立和管理 Azure 金鑰保存庫。 在本快速入門中，您會建立金鑰保存庫。 一旦完成該作業，您就會儲存祕密。
 

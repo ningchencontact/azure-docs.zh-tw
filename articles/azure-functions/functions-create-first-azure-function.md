@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: 86cc435a7d632f1cc1b9a0e4a2e6508059d4d675
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 3e04f231ad68d3da4b705d1fe78163628bed7c0a
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38602813"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617712"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>在 Azure 入口網站中建立您的第一個函式
 
@@ -30,6 +30,9 @@ Azure Functions 可讓您在[無伺服器](https://azure.microsoft.com/overview/
 ![在 Azure 入口網站中建立函式應用程式](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+> [!NOTE]
+> C# 開發人員應該考慮[在 Visual Studio 2017 中建立第一個函式](functions-create-your-first-function-visual-studio.md)，而不是在入口網站中建立。 
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 

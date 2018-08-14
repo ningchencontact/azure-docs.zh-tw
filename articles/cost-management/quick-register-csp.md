@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/17/2018
+ms.date: 08/06/2018
 ms.topic: quickstart
 ms.custom: ''
 ms.service: cost-management
 manager: dougeby
-ms.openlocfilehash: b71d737f99a82508f9769f89d8172aa02bec817b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e97ac06d5740a793d5f811e1a7ac01fef1a32806
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38542027"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578053"
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>註冊 CSP 合作夥伴計劃並檢視成本資料
 
@@ -43,13 +43,13 @@ ms.locfileid: "38542027"
 3. 在 [成本管理] 頁面上，按一下 [移至成本管理] 以在新視窗開啟 Cloudyn 註冊頁面。
 4. 在 Cloudyn 入口網站試用註冊頁面上，輸入您的公司名稱，選取 [Microsoft CSP 合作夥伴計劃管理員]，然後按一下 [下一步]。  
 5. 輸入 [應用程式識別碼]、[商務識別碼]、[應用程式祕密金鑰 ]，並選取 [預設定價方案]。 如果您無法立即取得該資訊，請使用您的主要系統管理員帳戶從 [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com) 登入合作夥伴中心入口網站，並執行下列步驟：
-  1. 移至 [儀表板] > [帳戶設定] > [應用程式管理]。
+  1. 移至 [儀表板]，然後依序按一下 [設定] 符號、[合作夥伴設定] 和 [應用程式管理]。
   2. 如果您曾經建立過 Web 應用程式，請略過此步驟。 否則，請按一下 [Web 應用程式] 區段中的 [新增 Web 應用程式]。
   3. 從您的 Web 應用程式複製 [應用程式識別碼] GUID。
   4. 從您的 Web 應用程式複製 [商務識別碼] GUID。
   5. 視需要選取一年或兩年的金鑰有效期限。 選取 [新增金鑰]，然後複製並儲存祕密金鑰的值。  
     ![CSP 合作夥伴中心](./media/quick-register-csp/csp-partner-center.png)
-  6. 返回註冊頁面並貼上該資訊。  
+  6. 返回 Cloudyn 註冊頁面並貼上該資訊。  
       ![CSP 帳戶認證](./media/quick-register-csp/csp-reg.png)
 6. 同意「使用條款」，然後驗證您的資訊。 按一下 [下一步] 以授權 Cloudyn 收集 Azure 資源資料。 收集的資料包括您訂用帳戶的使用量、效能、計費和標籤資料。  
 7. 在 [邀請其他利害關係人] 下，您可以輸入電子郵件地址來新增使用者。 完成時，按一下 [下一步]。 您的所有帳單資料需要大約兩個小時才能新增到 Cloudyn。

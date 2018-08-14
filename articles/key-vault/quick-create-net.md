@@ -1,6 +1,6 @@
 ---
-title: Azure 快速入門 - 設定 Azure Web 應用程式，以從 Key Vault 讀取祕密 | Microsoft Docs
-description: 快速入門會示範如何設定 ASP.Net Core 應用程式，以從 Key Vault 讀取祕密
+title: Azure 快速入門 - 設定 Azure Web 應用程式以從 Key Vault 設定及擷取祕密 | Microsoft Docs
+description: 快速入門會示範如何設定 ASP.Net Core 應用程式以從 Key Vault 設定及擷取祕密
 services: key-vault
 author: prashanthyv
 manager: sumedhb
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 07/24/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 07a7bc5713f093e34a775aacab27094780ac6c7e
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 8b5624ae3083d92213b4ee919dc0860bf5ff4ab7
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247820"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480197"
 ---
-# <a name="quickstart-set-and-read-a-secret-from-key-vault-in-a-net-web-app"></a>快速入門：在 .NET Web 應用程式中進行設定並且從 Key Vault 讀取祕密
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-net-web-app"></a>快速入門：使用 .NET Web 應用程式從 Azure Key Vault 設定及擷取祕密
 
 在本快速入門中，我們將引導您完成讓 Azure Web 應用程式使用受控服務識別從 Key Vault 讀取資訊所需的步驟。 您會了解如何：
 
@@ -56,7 +56,7 @@ az login
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-使用 [az group create](/cli/azure/group#az_group_create) 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
+使用 [az group create](/cli/azure/group#az-group-create) 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
 
 請選取資源群組名稱，並填入預留位置。
 下列範例會在 eastus 位置建立名為 <YourResourceGroupName> 的資源群組。

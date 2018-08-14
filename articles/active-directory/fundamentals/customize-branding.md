@@ -14,12 +14,12 @@ ms.date: 07/20/2018
 ms.author: lizross
 ms.reviewer: kexia
 custom: it-pro
-ms.openlocfilehash: 7804d6b0d4a100997fb545e678458424dac6ceed
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 45637122af3df1906a8c3b4b16233f6361eecca3
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39227259"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528321"
 ---
 # <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>快速入門：在 Azure AD 中將公司商標新增至登入頁面
 為了避免混淆，許多公司都想對其管理的所有網站和服務套用一致的外觀與風格。 Azure Active Directory (Azure AD) 是透過讓您利用公司標誌和自訂色彩配置來自訂登入頁面外觀的方式，提供這項功能。 登入頁面會在您登入 Web 型應用程式 (例如使用 Azure AD 作為識別提供者的 Office 365) 時顯示。 您可以與此頁面互動來輸入您的認證。
@@ -71,7 +71,7 @@ ms.locfileid: "39227259"
 ### <a name="square-logo-image"></a>方形標誌影像
 說明 | 條件約束 | 建議
 ------- | ------- | ----------
-此影像會在進行新的企業版 Windows 10 電腦設定時出現。 它會在員工設定其新工作電腦時，為其提供內容。 此影像的顯示對象為使用 [Windows AutoPilot](https://blogs.windows.com/business/2017/06/29/delivering-modern-promise-windows-10/?utm_source=dlvr.it&utm_medium=twitter#gDTp1u6q35bvDWIS.97) 來部署其工作裝置的租用戶，而在其他 Windows 10 體驗中則是會在密碼輸入頁面上顯示。 | 透明的 PNG (慣用) 或 JPG<br>影像尺寸：240 x 240 像素<br>檔案大小：&lt; 10 KB | 在這裡使用您組織的標誌。<br> 使用透明的映像。<br>請勿假設背景為白色。<br>請勿為影像中的標誌加上邊框間距，否則標誌會看起來不成比例且較小。
+此影像會在進行新的企業版 Windows 10 電腦設定時出現。 它會在員工設定其新工作電腦時，為其提供內容。 此影像的顯示對象為使用 [Windows AutoPilot](https://blogs.windows.com/business/2017/06/29/delivering-modern-promise-windows-10/?utm_source=dlvr.it&utm_medium=twitter#gDTp1u6q35bvDWIS.97) 來部署其工作裝置的租用戶，而在其他 Windows 10 體驗中則是會在密碼輸入頁面上顯示。<br>方形標誌專門用於 Windows 驗證。 深色佈景主題版本 已淘汰，不會再於任何地方使用。 | 透明的 PNG (慣用) 或 JPG<br>影像尺寸：240 x 240 像素<br>檔案大小：&lt; 10 KB | 在這裡使用您組織的標誌。<br> 使用透明的映像。<br>請勿假設背景為白色。<br>請勿為影像中的標誌加上邊框間距，否則標誌會看起來不成比例且較小。
 
 ### <a name="show-option-to-remain-signed-in"></a>顯示保持登入的選項
 說明 | 條件約束 | 建議

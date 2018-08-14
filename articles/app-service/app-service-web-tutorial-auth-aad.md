@@ -12,14 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/03/2018
+ms.date: 08/07/2018
 ms.author: cephalin
-ms.openlocfilehash: 4bdb182d93b842bf94e75672b1d7b4cf4f6da253
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e597ba5236fb2d7fea8649f423c4a952b01f87ee
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31589147"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599612"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>教學課程：在 Azure App Service 中端對端驗證和授權使用者
 
@@ -50,7 +50,7 @@ ms.locfileid: "31589147"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程：
 
@@ -241,7 +241,7 @@ git push frontend master
 
 請遵循前端應用程式的相同步驟，但略過最後一個步驟。 您的前端應用程式不需要 [應用程式識別碼]。 將 [Azure Active Directory 設定] 頁面保持開啟。
 
-如果您想要，瀏覽至 `http://<front_end_app_name>.azurewebsites.net`。 它此時應會將您導向至登入頁面。 登入之後，您仍無法從後端應用程式存取資料，因為您還需要完成三項動作：
+如果您想要，瀏覽至 `http://<front_end_app_name>.azurewebsites.net`。 它此時應會將您導向至安全的登入頁面。 登入之後，您仍無法從後端應用程式存取資料，因為您還需要完成三項動作：
 
 - 授與前端對後端的存取權
 - 設定 App Service，以傳回可使用的權杖
@@ -322,7 +322,7 @@ git commit -m "add authorization header for server code"
 git push frontend master
 ```
 
-再次登入 `http://<front_end_app_name>.azurewebsites.net`。 在 [使用者資料使用合約] 頁面上，按一下 [接受]。
+再次登入 `https://<front_end_app_name>.azurewebsites.net`。 在 [使用者資料使用合約] 頁面上，按一下 [接受]。
 
 現在，您應該能夠和之前一樣從後端應用程式建立、讀取、更新和刪除資料。 唯一的差別在於，現在這兩個應用程式都受到 App Service 驗證和授權的保護，包括服務對服務呼叫。
 
@@ -340,7 +340,7 @@ git push frontend master
 
 ### <a name="configure-cors"></a>設定 CORS
 
-在 Cloud Shell 中，使用 [`az resource update`](/cli/azure/resource#az_resource_update) 命令，對您的用戶端 URL 啟用 CORS。 取代 _\<back\_end\_app\_name>_ 和 _\<front\_end\_app\_name>_ 預留位置。
+在 Cloud Shell 中，使用 [`az resource update`](/cli/azure/resource#az-resource-update) 命令，對您的用戶端 URL 啟用 CORS。 取代 _\<back\_end\_app\_name>_ 和 _\<front\_end\_app\_name>_ 預留位置。
 
 ```azurecli-interactive
 az resource update --name web --resource-group myAuthResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<back_end_app_name> --set properties.cors.allowedOrigins="['https://<front_end_app_name>.azurewebsites.net']" --api-version 2015-06-01
@@ -352,7 +352,7 @@ az resource update --name web --resource-group myAuthResourceGroup --namespace M
 
 在本機存放庫中，開啟 wwwroot/index.html。
 
-在第 51 行中，將 `apiEndpoint` 變數設為後端應用程式的 URL (`http://<back_end_app_name>.azurewebsites.net`)。 將 _\<back\_end\_app\_name>_ 取代為您在 App Service 中的應用程式名稱。
+在第 51 行中，將 `apiEndpoint` 變數設為後端應用程式的 URL (`https://<back_end_app_name>.azurewebsites.net`)。 將 _\<back\_end\_app\_name>_ 取代為您在 App Service 中的應用程式名稱。
 
 在本機存放庫中開啟 _wwwroot/app/scripts/todoListSvc.js_，並確認所有 API 呼叫前面都加上了 `apiEndpoint`。 您的 Angular.js 應用程式現在會呼叫後端 API。 
 
@@ -406,9 +406,13 @@ git commit -m "add authorization header for Angular"
 git push frontend master
 ```
 
-再次瀏覽至 `http://<front_end_app_name>.azurewebsites.net`。 現在，您應該能夠直接在 Angular.js 應用程式中從後端應用程式建立、讀取、更新和刪除資料。
+再次瀏覽至 `https://<front_end_app_name>.azurewebsites.net`。 現在，您應該能夠直接在 Angular.js 應用程式中從後端應用程式建立、讀取、更新和刪除資料。
 
 恭喜！ 您的用戶端程式碼現在已可代表已驗證的使用者存取後端資料。
+
+## <a name="when-access-tokens-expire"></a>當存取權杖到期
+
+存取權杖會在一段時間後到期。 若要了解如何重新整理存取權杖，而不需要讓使用者向應用程式重新驗證，請參閱[重新整理存取權杖](app-service-authentication-how-to.md#refresh-access-tokens)。
 
 ## <a name="clean-up-resources"></a>清除資源
 

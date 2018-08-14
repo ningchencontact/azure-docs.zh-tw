@@ -4,17 +4,18 @@ description: 關於如何使用 Active Directory B2C 來保護 ASP.NET Web API�
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
-editor: ''
 ms.author: davidmu
 ms.date: 01/23/2018
 ms.custom: mvc
 ms.topic: tutorial
-ms.service: active-directory-b2c
-ms.openlocfilehash: f61a3b103d8738e1b86fb64aff99dab9c6986fdf
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.service: active-directory
+ms.component: B2C
+ms.openlocfilehash: 469a3662b5bc4db467dde3285d557ac8bbae368e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39609084"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-from-a-web-app-using-azure-active-directory-b2c"></a>教學課程 - 使用 Azure Active Directory B2C 授與從 Web 應用程式存取 ASP.NET Web API 的權限
 
@@ -30,37 +31,43 @@ ms.lasthandoff: 04/18/2018
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 完成[在 ASP.NET Web 應用程式中使用 Azure Active Directory B2C 進行使用者驗證的教學課程](active-directory-b2c-tutorials-web-app.md)。
 * 安裝包含 **ASP.NET 和 Web 開發**工作負載的 [Visual Studio 2017](https://www.visualstudio.com/downloads/)。
 
 ## <a name="register-web-api"></a>註冊 Web API
 
-Web API 資源必須先在您的租用戶中註冊，才能接受及回應受到[用戶端應用程式](../active-directory/develop/active-directory-dev-glossary.md#client-application)保護而提供來自 Azure Active Directory 之[存取權杖](../active-directory/develop/active-directory-dev-glossary.md#access-token)的[資源要求](../active-directory/develop/active-directory-dev-glossary.md#resource-server)。 註冊會在您的租用戶中建立[應用程式與服務主體物件](../active-directory/develop/active-directory-dev-glossary.md#application-object)。 
+Web API 資源必須先在您的租用戶中註冊，才能接受及回應受到[用戶端應用程式](../active-directory/develop/developer-glossary.md#client-application)保護而提供來自 Azure Active Directory 之[存取權杖](../active-directory/develop/developer-glossary.md#access-token)的[資源要求](../active-directory/develop/developer-glossary.md#resource-server)。 註冊會在您的租用戶中建立[應用程式與服務主體物件](../active-directory/develop/developer-glossary.md#application-object)。 
 
-以 Azure AD B2C 租用戶的全域管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
+1. 以 Azure AD B2C 租用戶的全域管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
 
-[!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
+2. 在 Azure 入口網站的右上角切換到您的 Azure AD B2C 租用戶，確定您使用的目錄包含該租用戶。 選取您的訂用帳戶資訊，然後選取 [切換目錄]。
 
-1. 從 Azure 入口網站的服務清單中選取 [Azure AD B2C]。
+    ![切換目錄](./media/active-directory-b2c-tutorials-web-api/switch-directories.png)
 
-2. 在 B2C 設定中按一下 [應用程式]，然後按一下 [新增]。
+3. 選擇包含您租用戶的目錄。
+
+    ![選取目錄](./media/active-directory-b2c-tutorials-web-api/select-directory.png)
+
+4. 選擇 Azure 入口網站左上角的 [所有服務]，搜尋並選取 [Azure AD B2C]。 您現在應使用在前一個教學課程中建立的租用戶。
+
+5. 選取 [應用程式]，然後選取 [新增]。
 
     若要在您的租用戶中註冊範例 Web API，請使用下列設定。
     
-    ![新增 API](media/active-directory-b2c-tutorials-web-api/web-api-registration.png)
+    ![新增 API](./media/active-directory-b2c-tutorials-web-api/web-api-registration.png)
     
     | 設定      | 建議的值  | 說明                                        |
     | ------------ | ------- | -------------------------------------------------- |
     | **名稱** | 我的範例 Web API | 輸入向開發人員描述您的 Web API 的 [名稱]。 |
-    | **包含 Web 應用程式 / Web API** | yes | 針對 Web API 選取 [是]。 |
-    | **允許隱含流程** | yes | 請選取 [是]，因為 API 使用 [OpenID Connect 登入](active-directory-b2c-reference-oidc.md)。 |
+    | **包含 Web 應用程式 / Web API** | 是 | 針對 Web API 選取 [是]。 |
+    | **允許隱含流程** | 是 | 請選取 [是]，因為 API 使用 [OpenID Connect 登入](active-directory-b2c-reference-oidc.md)。 |
     | **回覆 URL** | `https://localhost:44332` | 回覆 URL 是 Azure AD B2C 傳回您 API 要求之任何權杖的所在端點。 在本教學課程中，範例 Web API 會在本機執行 (localhost)，並接聽連接埠 44332。 |
-    | **應用程式識別碼 URI** | myAPISample | URI 可唯一識別租用戶中的 API。 這可讓您為每個租用戶註冊多個 API。 [範圍](../active-directory/develop/active-directory-dev-glossary.md#scopes)可控管對受保護 API 資源的存取，並就個別的應用程式識別碼 URI 進行定義。 |
+    | **應用程式識別碼 URI** | myAPISample | URI 可唯一識別租用戶中的 API。 這可讓您為每個租用戶註冊多個 API。 [範圍](../active-directory/develop/developer-glossary.md#scopes)可控管對受保護 API 資源的存取，並就個別的應用程式識別碼 URI 進行定義。 |
     | **原生用戶端** | 否 | 這是 Web API，而不是原生用戶端，因此請選取 [否]。 |
     
-3. 按一下 [建立]  以註冊您的 API。
+6. 按一下 [建立]  以註冊您的 API。
 
 已註冊的 API 會顯示在 Azure AD B2C 租用戶的應用程式清單中。 從清單中選取 Web API。 Web API 的 [屬性] 窗格隨即顯示。
 
@@ -72,7 +79,7 @@ Web API 資源必須先在您的租用戶中註冊，才能接受及回應受到
 
 ## <a name="define-and-configure-scopes"></a>定義及設定範圍
 
-[範圍](../active-directory/develop/active-directory-dev-glossary.md#scopes)可用來控管對受保護資源的存取。 Web API 可使用範圍來實作以範圍為基礎的存取控制。 例如，有些使用者可能同時具有讀取和寫入權限，而有些則可能只有唯讀權限。 在本教學課程中，您會定義 Web API 的讀取和寫入權限。
+[範圍](../active-directory/develop/developer-glossary.md#scopes)可用來控管對受保護資源的存取。 Web API 可使用範圍來實作以範圍為基礎的存取控制。 例如，Web API 的使用者可以同時具有讀取和寫入權限，Web API 的使用者也可能只具有讀取權限。 在本教學課程中，您會使用範圍來定義 Web API 的讀取和寫入權限。
 
 ### <a name="define-scopes-for-the-web-api"></a>定義 Web API 的範圍
 
@@ -107,9 +114,9 @@ Web API 資源必須先在您的租用戶中註冊，才能接受及回應受到
 
     ![選取應用程式的範圍](media/active-directory-b2c-tutorials-web-api/selecting-scopes-for-app.png)
 
-5. 按一下 [SERVICEPRINCIPAL] 。
+5. 按一下 [確定]。
 
-您的 [我的範例 Web 應用程式] 會進行註冊以呼叫受保護的 [我的範例 Web API]。 使用者會透過 Azure AD B2C 進行[驗證](../active-directory/develop/active-directory-dev-glossary.md#authentication)以使用 Web 應用程式。 Web 應用程式會取得 Azure AD B2C 的[授權授與](../active-directory/develop/active-directory-dev-glossary.md#authorization-grant)，以存取受保護的 Web API。
+您的 [我的範例 Web 應用程式] 會進行註冊以呼叫受保護的 [我的範例 Web API]。 使用者會透過 Azure AD B2C 進行[驗證](../active-directory/develop/developer-glossary.md#authentication)以使用 Web 應用程式。 Web 應用程式會取得 Azure AD B2C 的[授權授與](../active-directory/develop/developer-glossary.md#authorization-grant)，以存取受保護的 Web API。
 
 ## <a name="update-code"></a>更新程式碼
 
@@ -119,9 +126,9 @@ Web API 資源必須先在您的租用戶中註冊，才能接受及回應受到
 
 範例方案中有兩個專案：
 
-**Web 應用程式範例應用程式 (TaskWebApp)：**用來建立和編輯工作清單的 Web 應用程式。 此 Web 應用程式會使用**註冊或登入**原則，以電子郵件地址來註冊或登入使用者。
+**Web 應用程式範例應用程式 (TaskWebApp)：** 用來建立和編輯工作清單的 Web 應用程式。 此 Web 應用程式會使用**註冊或登入**原則，以電子郵件地址來註冊或登入使用者。
 
-**Web API 範例應用程式 (TaskService)：**支援建立、讀取、更新和刪除工作清單功能的 Web API。 此 Web API 會受到 Azure AD B2C 的保護，且由 Web 應用程式呼叫。
+**Web API 範例應用程式 (TaskService)：** 支援建立、讀取、更新和刪除工作清單功能的 Web API。 此 Web API 會受到 Azure AD B2C 的保護，且由 Web 應用程式呼叫。
 
 範例 Web 應用程式和 Web API 會在每個專案的 Web.config 檔案中將組態值定義為應用程式設定。
 

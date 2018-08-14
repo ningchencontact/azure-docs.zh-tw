@@ -9,12 +9,12 @@ ms.date: 06/26/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 49fa81d89fb195e1caedc2348a8b0990022b0d0d
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 5766f9708d2439f42f9ad77169fd1fe7f7dc451e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414261"
+ms.locfileid: "39439107"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>教學課程：開發 Python IoT Edge 模組並部署到您的模擬裝置
 
@@ -34,15 +34,21 @@ ms.locfileid: "39414261"
 
 ## <a name="prerequisites"></a>必要條件
 
-* 您在 [Linux](quickstart-linux.md) 或 Windows 裝置的快速入門中建立的 Azure IoT Edge 裝置。
+Azure IoT Edge 裝置：
 
-   >[!Note]
-   >適用於 Azure IoT Edge 的 Python 模組不支援 Windows 或 ARM 裝置。 
+* 您可以遵循 [Linux](quickstart-linux.md) 快速入門中的步驟，使用開發電腦或虛擬機器作為邊緣裝置。
+* 適用於 IoT Edge 的 Python 模組不支援 ARM 處理器或 Windows 裝置。
+
+雲端資源：
+
+* Azure 中的標準層 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。 
+
+開發資源：
 
 * [Visual Studio Code](https://code.visualstudio.com/)。 
-* [Visual Studio Code 的 Azure IoT Edge 擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)。
+* 適用於 Visual Studio Code 的 [Azure IoT Edge 擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)。
 * [適用於 Visual Studio Code 的 Python 擴充功能](https://marketplace.visualstudio.com/items?itemName=ms-python.python)。 
-* 在具有 Visual Studio Code 的電腦上也已安裝 [Docker](https://docs.docker.com/engine/installation/)。 針對本教學課程，使用 Community Edition (CE) 便已足夠。 
+* [Docker CE](https://docs.docker.com/engine/installation/)。 
 * [Python](https://www.python.org/downloads/)。
 * [Pip](https://pip.pypa.io/en/stable/installing/#installation) 用於安裝 Python 套件 (通常包含在您的 Python 安裝中)。
 
@@ -243,7 +249,7 @@ VS Code 視窗會載入您的 IoT Edge 解決方案工作區：模組資料夾�
 若只要刪除 IoT 中樞，請使用中樞名稱和資源群組名稱執行下列命令：
 
 ```azurecli-interactive
-az iot hub delete --name MyIoTHub --resource-group TestResources
+az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
 ```
 
 

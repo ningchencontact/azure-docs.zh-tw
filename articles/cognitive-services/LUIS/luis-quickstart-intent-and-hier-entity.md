@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 07/26/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: f4e03271f45c29ed2556256346e29c297be563cc
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 41f74ff00e4fad751d4a2b7ae96ebb048bbcdfcd
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345353"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492693"
 ---
 # <a name="tutorial-5-add-hierarchical-entity"></a>教學課程：5. 新增階層式實體
 在本教學課程中，您將建立應用程式，示範如何根據內容尋找相關資料片段。 
@@ -119,15 +119,8 @@ LUIS 必須藉由在語句中標記原點和目的地，進而了解位置為何
     ![預先建置的實體對話方塊中已選取 number 的螢幕擷取畫面](./media/luis-quickstart-intent-and-hier-entity/hr-add-number-back-ddl.png)
 
 ## <a name="train-the-luis-app"></a>進行 LUIS 應用程式定型
-LUIS 在進行定型前並不知道意圖和實體 (模型) 的變更。 
 
-1. 在 LUIS 網站的右上方，選取 [Train] \(定型\) 按鈕。
-
-    ![進行應用程式定型](./media/luis-quickstart-intent-and-hier-entity/train-button.png)
-
-2. 當您在網站頂端看到確認成功的綠色狀態列時，就表示定型完成。
-
-    ![定型成功](./media/luis-quickstart-intent-and-hier-entity/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>發佈應用程式以取得端點 URL
 
@@ -242,6 +235,10 @@ LUIS 在進行定型前並不知道意圖和實體 (模型) 的變更。
 
 此範例中的位置 (例如 `a-1234`) 會遵循特定格式：一或兩個子母加上破折號，後面接著一系列 4 或 5 個數字。 此資料的描述為每個位置各有一個角色的規則運算式實體。 這些角色適用於模式。 您可以根據這些語句建立模式，然後建立位置格式的規則運算式，並將它新增至模式。 <!-- Go to this tutorial to see how that is done -->
 
+## <a name="patterns-with-roles"></a>模式與角色
+
+[!include[LUIS Compare hierarchical entities to patterns with roles](../../../includes/cognitive-services-luis-hier-roles.md)]
+
 ## <a name="what-has-this-luis-app-accomplished"></a>此 LUIS 應用程式有何成果？
 此應用程式 (只有一些意圖和一個階層式實體) 已識別出自然語言查詢意圖並傳回所擷取的資料。 
 
@@ -251,7 +248,8 @@ LUIS 在進行定型前並不知道意圖和實體 (模型) 的變更。
 LUIS 在此要求的工作已完成。 呼叫應用程式 (例如 Chatbot) 可以採用 topScoringIntent 結果和來自實體的資料，來進行下一個步驟。 LUIS 不會為 Bot 或呼叫應用程式進行該程式設計工作。 LUIS 只會判斷使用者的意圖為何。 
 
 ## <a name="clean-up-resources"></a>清除資源
-當不再需要 LUIS 應用程式時，請將其刪除。 若要這麼做，請選取應用程式清單中應用程式名稱右邊的省略符號 (***...***) 按鈕，然後選取 [刪除]。 在 [Delete app?] \(刪除應用程式?\) 快顯對話方塊上，選取 [Ok] \(確定\)。
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>後續步驟
 > [!div class="nextstepaction"] 

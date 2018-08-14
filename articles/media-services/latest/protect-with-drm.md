@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/15/2018
 ms.author: juliako
-ms.openlocfilehash: 2ceae5b530d1967ccca2b33c05c183302684be41
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 8bfe2fb7274fb8c6dcf977e8bd72af525d8ce8a5
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116762"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528165"
 ---
 # <a name="use-drm-dynamic-encryption-and-license-delivery-service"></a>使用 DRM 動態加密與授權傳遞服務
 
@@ -54,7 +54,7 @@ ms.locfileid: "39116762"
     ![使用 DRM 保護](./media/protect-with-drm/playready_encrypted_url.png)
 
 > [!NOTE]
-> 您可以使用多種加密類型 (AES-128、PlayReady、Widevine、FairPlay) 來加密每個資產。 請參閱[串流通訊協定和加密類型](content-protection-overview.md#streaming-protocols-and-encryption-types)，以查看哪些組合可行。
+> 您可以使用多種加密類型 (AES-128、PlayReady、Widevine、FairPlay) 來加密每項資產。 請參閱[串流通訊協定和加密類型](content-protection-overview.md#streaming-protocols-and-encryption-types)，以查看哪些組合可行。
 
 本文中說明的範例會產生下列結果：
 
@@ -65,6 +65,7 @@ ms.locfileid: "39116762"
 需要有下列項目，才能完成教學課程。
 
 * 請檢閱[內容保護概觀](content-protection-overview.md)文章。
+* 檢閱[設計具有存取控制的多重 DRM 內容保護系統](design-multi-drm-system-with-access-control.md)
 * 安裝 Visual Studio Code 或 Visual Studio
 * 建立新的 Azure 媒體服務帳戶，如[此快速入門](create-account-cli-quickstart.md)所述。
 * 藉由遵循[存取 API](access-api-cli-how-to.md) 以取得使用媒體服務 API 所需的認證

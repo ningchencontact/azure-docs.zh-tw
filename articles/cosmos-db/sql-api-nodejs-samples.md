@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: sample
 ms.date: 05/23/2017
 ms.author: moderakh
-ms.openlocfilehash: a4bda45f9a620d70c78b7b4142cd5f152bd5436d
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 8ee5add72845a0540c05bb8353f8d7d4a40cac71
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960384"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600575"
 ---
 # <a name="azure-cosmos-db-nodejs-examples"></a>Azure Cosmos DB Node.js 範例
 > [!div class="op_single_selector"]
@@ -25,6 +25,7 @@ ms.locfileid: "36960384"
 > * [Java 範例](sql-api-java-samples.md)
 > * [非同步 Java 範例](sql-api-async-java-samples.md)
 > * [Node.js 範例](sql-api-nodejs-samples.md)
+> * [Node.js 範例 - v2.0 預覽](sql-api-nodejs-samples-preview.md)
 > * [Python 範例](sql-api-python-samples.md)
 > * [Azure 程式碼範例庫](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
 > 

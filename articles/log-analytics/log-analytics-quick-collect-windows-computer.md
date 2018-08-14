@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Log Analytics 從內部部署 Windows 電腦收集資料 | Microsoft Docs
+title: 設定混合式 Windows 電腦的 Azure Log Analytics 代理程式 | Microsoft Docs
 description: 了解如何針對在 Azure 外部電腦上執行的 Windows 部署 Log Analytics 代理程式，並使用 Log Analytics 來啟用資料收集。
 services: log-analytics
 documentationcenter: log-analytics
@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/02/2018
+ms.date: 08/02/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: na
-ms.openlocfilehash: b3c3e020a685147411fc784c41d9eca8b7dd8db0
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 91a656b055dbe882bdd5e5c208cc5d8955c74041
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130988"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480434"
 ---
-# <a name="collect-data-from-windows-computers-hosted-in-your-environment"></a>從您環境中裝載的 Windows 電腦收集資料
-[Azure Log Analytics](log-analytics-overview.md) 可直接從您的實體或虛擬 Windows 電腦及您環境中的其他資源，將資料收集到單一儲存機制，來進行詳細的分析和相互關聯。  本快速入門向您示範如何以幾個簡單步驟來設定和收集 Windows 電腦的資料。  針對 Azure Windows VM，請參閱下列主題：[收集關於 Azure 虛擬機器的資料](log-analytics-quick-collect-azurevm.md)。  
+# <a name="configure-log-analytics-agent-for-windows-computers-in-a-hybrid-environment"></a>為混合式環境中的 Windows 電腦設定 Log Analytics 代理程式
+[Azure Log Analytics](log-analytics-overview.md) 可直接從資料中心或其他雲端環境內的實體或虛擬 Windows 電腦，將資料收集到單一存放庫，來進行詳細的分析和相互關聯。  本快速入門向您示範如何以幾個簡單步驟來設定和收集 Windows 電腦的資料。  針對 Azure Windows VM，請參閱下列主題：[收集關於 Azure 虛擬機器的資料](log-analytics-quick-collect-azurevm.md)。  
 
 若要了解支援的組態，請檢閱[支援的 Windows 作業系統](log-analytics-concept-hybrid.md#supported-windows-operating-systems)和[網路防火牆組態](log-analytics-concept-hybrid.md#network-firewall-requirements)。
  

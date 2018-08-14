@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/26/2018
+ms.date: 08/02/2018
 ms.author: barclayn
-ms.openlocfilehash: cd9dd4d400177e511f23c2677b77198a50420a35
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 08331a399044eba17060d15f24af1863df38caf5
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282991"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480248"
 ---
 # <a name="what-is-azure-key-vault"></a>什麼是 Azure 金鑰保存庫？
 
@@ -33,6 +33,8 @@ Azure Key Vault 是可安全儲存及存取祕密的工具。 祕密是指任何
 以下提供部分主要詞彙：
 - **租用戶** - 租用戶是擁有並且可管理特定 Microsoft 雲端服務執行個體的組織。 租用戶最常以明確的方式用來參照組織的 Azure 和 Office 365 服務集合
 - **保存庫擁有者** - 可以建立具有完整存取權的 Key Vault 並加以控制。 保存庫擁有者也可以設定稽核，以記錄存取祕密和金鑰的人員。 系統管理員可控制金鑰的生命週期。 他們可將金鑰變換為新版本，以及備份金鑰等等。
+- **資源** - 透過 Azure 提供的可管理項目。 部分常見資源有虛擬機器、儲存體帳戶、Web 應用程式、資料庫和虛擬網路，但這只是其中一小部分。
+- **資源群組** - 保留 Azure 方案相關資源的容器。 資源群組可以包含方案的所有資源，或只包含您要以群組方式管理的資源。 您可決定如何根據對組織最有利的方式，將資源配置到資源群組。 請參閱資源群組。
 - **保存庫取用者** - 可在保存庫擁有者根據取用者獲得的授權為其授與存取權時，對 Key Vault 內的資產執行動作。
 - **[Azure Active Directory](../active-directory/active-directory-whatis.md)** 是給定租用戶的 Azure AD 服務。 每個目錄都有一或多個網域。 一個目錄可以有多個相關聯的訂用帳戶，但只能有一個租用戶。 
 - **Azure 租用戶識別碼** - 這是對 Azure 訂用帳戶內的 Azure Active Directory 進行識別的唯一方法。 
