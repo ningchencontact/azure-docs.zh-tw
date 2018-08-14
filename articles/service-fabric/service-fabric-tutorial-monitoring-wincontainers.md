@@ -210,7 +210,7 @@ ms.locfileid: "37114001"
 
 ![容器解決方案儀表板](./media/service-fabric-tutorial-monitoring-wincontainers/container-metrics.png)
 
-按一下這其中任一個面板，將帶您前往 Log Analytics 查詢，此查詢會產生顯示的值。 將查詢變更為 \*，以查看所挑選記錄的所有不同種類。 您可以從這裡查詢或篩選容器效能、記錄，或是查看 Service Fabric 平台事件。 您的代理程式也會經常從每個節點發出活動訊號，如果您的叢集設定變更，您可以查看以確定仍會從您的所有機器收集資料。
+按一下這其中任一個面板，將帶您前往 Log Analytics 查詢，此查詢會產生顯示的值。 將查詢變更為 *\**，以查看所挑選記錄的所有不同種類。 您可以從這裡查詢或篩選容器效能、記錄，或是查看 Service Fabric 平台事件。 您的代理程式也會經常從每個節點發出活動訊號，如果您的叢集設定變更，您可以查看以確定仍會從您的所有機器收集資料。
 
 ![容器查詢](./media/service-fabric-tutorial-monitoring-wincontainers/query-sample.png)
 
