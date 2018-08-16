@@ -1,25 +1,20 @@
 ---
-title: 在 HDInsight 中搭配使用 Hadoop Hive 與 PowerShell - Azure | Microsoft Docs
+title: 在 HDInsight 中搭配使用 Hadoop Hive 與 PowerShell - Azure
 description: 使用 PowerShell 在 HDInsight 的 Hadoop 中執行 Hive 查詢
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: cb795b7c-bcd0-497a-a7f0-8ed18ef49195
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: larryfr
-ms.openlocfilehash: d72d5223373043648aeb3d783477781dbce35f6d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: jasonh
+ms.openlocfilehash: d074ce2426f2d18a98c018ac9e0dfe07064dadef
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164569"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598471"
 ---
 # <a name="run-hive-queries-using-powershell"></a>使用 PowerShell 執行 Hive 查詢
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -29,7 +24,7 @@ ms.locfileid: "32164569"
 > [!NOTE]
 > 本文件不提供範例中使用的 HiveQL 陳述式所執行的工作詳細的描述。 如需此範例中使用的 HiveQL 的相關資訊，請參閱 [在 HDInsight 上搭配 Hadoop 使用 Hive](hdinsight-use-hive.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * HDInsight 叢集 3.4 版或更新版本上以 Linux 為基礎的 Hadoop。
 

@@ -3,19 +3,19 @@ title: Azure 事件中樞 IP 連線篩選器 | Microsoft Docs
 description: 使用 IP 篩選來封鎖從特定 IP 位址連至 Azure 事件中樞的連線。
 services: event-hubs
 documentationcenter: ''
-author: clemensv
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
-ms.author: clemensv
-ms.openlocfilehash: 425a5b641fbfd2e52e1294c6317b51ff2a584aa3
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.author: shvija
+ms.openlocfilehash: 0ecce667584f522b5bd6aac28291bda427f37608
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034514"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005347"
 ---
 # <a name="use-ip-filters"></a>使用 IP 篩選器
 
@@ -36,7 +36,7 @@ IP 篩選器規則會套用在事件中樞命名空間層級。 因此，規則�
 
 ## <a name="default-setting"></a>預設設定
 
-根據預設，事件中樞入口網站中的 **IP 篩選器**方格是空的。 這個預設設定表示您的事件中樞會接受來自任何 IP 位址的連線。 這個預設設定等同於可接受 0.0.0.0/0 IP 位址範圍的規則。
+根據預設，事件中樞入口網站中的 **IP 篩選器**方格是空的。 這個預設設定表示您的事件中樞會接受來自任何 IP 位址的連線。 這項預設設定等同於可接受 0.0.0.0/0 IP 位址範圍的規則。
 
 ## <a name="ip-filter-rule-evaluation"></a>IP 篩選器規則評估
 
@@ -103,7 +103,7 @@ IP 篩選器規則會依序套用，而且第一個符合 IP 位址的規則會�
 }
 ```
 
-若要部署範本，請依照 [Azure Resource Manager][lnk-deploy] 的指示執行。
+若要部署範本，請依照 [Azure Resource Manager][lnk-deploy] 適用的指示執行。
 
 ## <a name="next-steps"></a>後續步驟
 

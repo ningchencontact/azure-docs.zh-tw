@@ -1,5 +1,5 @@
 ## <a name="automatic-device-management"></a>自動裝置管理
-Azure IoT 中樞中的自動裝置管理，可將管理大群大型裝置的許多重複且複雜的工作自動化，並且管理範圍橫跨裝置的完整生命週期。 使用自動裝置管理時，您可以根據其屬性以一組裝置為目標，定義所需的設定，並讓 IoT 中樞更新進入範圍的裝置。  包含[自動裝置設定](/articles/iot-hub/iot-hub-auto-device-config.md)和 [IoT Edge 自動部署](/articles/iot-edge/how-to-deploy-monitor.md)。
+Azure IoT 中樞中的自動裝置管理，可將管理大群大型裝置的許多重複且複雜的工作自動化，並且管理範圍橫跨裝置的完整生命週期。 使用自動裝置管理時，您可以根據其屬性以一組裝置為目標，定義所需的設定，並讓 IoT 中樞更新進入範圍的裝置。  包含[自動裝置設定](../articles/iot-hub/iot-hub-auto-device-config.md)和 [IoT Edge 自動部署](../articles/iot-edge/how-to-deploy-monitor.md)。
 
 ## <a name="iot-edge"></a>IoT Edge
 Azure IoT Edge 能針對內部部署裝置，實現 Azure 服務的雲端驅動部署及解決方案特定程式碼。 IoT Edge 裝置可以在其他裝置的資料被傳送至雲端之前，對這些資料進行彙總來執行計算和分析。 如需詳細資訊，請參閱 [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/)。

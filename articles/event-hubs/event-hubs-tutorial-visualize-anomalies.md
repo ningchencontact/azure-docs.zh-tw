@@ -2,19 +2,19 @@
 title: 在傳送至 Azure 事件中樞的即時事件中視覺化資料異常 | Microsoft Docs
 description: 教學課程 - 在傳送至 Microsoft Azure 事件中樞的即時事件中視覺化資料異常
 services: event-hubs
-author: robinsh
+author: ShubhaVijayasarathy
 manager: timlt
-ms.author: robinsh
-ms.date: 06/26/2018
+ms.author: shvija
+ms.date: 08/08/2018
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: mvc
-ms.openlocfilehash: 28c03d12954b172388a92dd0c3f6aed2266ffaf7
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 04a9a3b3df44814d680f01595d70ced08a946591
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37132659"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004108"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>教學課程：在傳送至 Azure 事件中樞的即時事件中視覺化資料異常
 
@@ -30,7 +30,7 @@ ms.locfileid: "37132659"
 > * 設定串流分析作業來處理這些交易
 > * 設定 Power BI 視覺效果以顯示結果
 
-若要完成此教學課程，您需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶][]。
+若要完成此教學課程，您需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前[建立免費帳戶][]。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -382,4 +382,4 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 > [!div class="nextstepaction"]
 > [開始在 .NET Standard 中傳送訊息至 Azure 事件中樞](event-hubs-dotnet-standard-getstarted-send.md)
 
-[免費帳戶]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[建立免費帳戶]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

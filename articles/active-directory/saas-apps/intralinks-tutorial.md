@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: b3c74631515301498aedcb035fae32b0a451e308
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 44cae95cfd01f8d6fbd6ddb4a11e9af290042ffa
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424772"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038069"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intralinks"></a>教學課程：Azure Active Directory 與 Intralinks 整合
 
@@ -115,7 +115,7 @@ Intralinks 與 Azure AD 整合提供下列優點：
     在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<company name>.Intralinks.com/?PartnerIdpId=https://sts.windows.net/<AzureADTenantID>`
 
     > [!NOTE] 
-    > 這不是真實的值。 請使用實際的登入 URL 來更新此值。 請連絡 [Intralinks 客戶支援小組](https://www.intralinks.com/contact-1)以取得此值。 
+    > 這不是真實的值。 請使用實際的登入 URL 來更新此值。 請連絡 [Intralinks 客戶支援小組](https://www.intralinks.com/contact)以取得此值。 
  
 1. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
@@ -125,7 +125,7 @@ Intralinks 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/intralinks-tutorial/tutorial_general_400.png)
 
-1. 若要在 **Intralinks** 端設定單一登入，您必須將已下載的**中繼資料 XML** 傳送給 [Intralinks 支援小組](https://www.intralinks.com/contact-1)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+1. 若要在 **Intralinks** 端設定單一登入，您必須將已下載的**中繼資料 XML** 傳送給 [Intralinks 支援小組](https://www.intralinks.com/contact)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -163,7 +163,7 @@ Intralinks 與 Azure AD 整合提供下列優點：
  
 ### <a name="creating-an-intralinks-test-user"></a>建立 Intralinks 測試使用者
 
-在本節中，您要在 Intralinks 中建立名為 Britta Simon 的使用者。 請與 [Intralinks 支援小組](https://www.intralinks.com/contact-1)合作，在 Intralinks 平台中新增使用者。
+在本節中，您要在 Intralinks 中建立名為 Britta Simon 的使用者。 請與 [Intralinks 支援小組](https://www.intralinks.com/contact)合作，在 Intralinks 平台中新增使用者。
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -237,7 +237,7 @@ Intralinks 會針對其他所有 Intralinks 應用程式使用相同的 SSO 身�
  
     ![設定單一登入](./media/intralinks-tutorial/tutorial_intralinks_linkedsignon.png)
 
-1. 從 [Intralinks 小組](https://www.intralinks.com/contact-1)取得其他 Intralinks 應用程式之 SP 起始的 SSO URL，然後在 [設定登入 URL] 中輸入此 URL，如下所示。 
+1. 從 [Intralinks 小組](https://www.intralinks.com/contact)取得其他 Intralinks 應用程式之 SP 起始的 SSO URL，然後在 [設定登入 URL] 中輸入此 URL，如下所示。 
     
      ![設定單一登入](./media/intralinks-tutorial/tutorial_intralinks_customappurl.png)
     

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/3/2018
 ms.author: jonor
-ms.openlocfilehash: 2c8ca8bcce43596d521fa9c81438ac6a16f6dcdf
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: fc3f334771c11d6917e15628557adfb59051f0f6
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445376"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621016"
 ---
 # <a name="azure-virtual-datacenter-a-network-perspective"></a>Azure 虛擬資料中心：網路觀點
 **Microsoft Azure**：移動更為快速、節省成本、在內部部署環境整合應用程式和資料
@@ -266,7 +266,7 @@ Azure 中有兩種主要類型的記錄：
 
 所有記錄都可以儲存在 Azure 儲存體帳戶中，以進行稽核、靜態分析或備份。 將記錄儲存在 Azure 儲存體帳戶中時，客戶就可以使用不同類型的架構來擷取、準備、分析並以視覺化方式檢視這項資料，以報告雲端資源的狀態和健康狀態。
 
-大型企業應該已取得用來監視內部部署系統的標準架構，以及可以延伸該架構以整合雲端部署所產生的記錄。 對於想要在雲端保留所有記錄的組織而言，[Log Analytics][LogAnalytics] 是不錯的選擇。 因為 Log Analytics 實作為雲端型服務，所以您對基礎結構服務進行最小的投資就可以快速啟動並執行它。 Log Analytics 也可以整合 System Center 元件 (例如 System Center Operations Manager)，以將現有管理投資擴充到雲端。
+大型企業應該已取得用來監視內部部署系統的標準架構，以及可以延伸該架構以整合雲端部署所產生的記錄。 對於想要在雲端保留所有記錄的組織而言，[Log Analytics][../log-analytics/log-analytics-overview .md] 是不錯的選擇。 因為 Log Analytics 實作為雲端型服務，所以您對基礎結構服務進行最小的投資就可以快速啟動並執行它。 Log Analytics 也可以整合 System Center 元件 (例如 System Center Operations Manager)，以將現有管理投資擴充到雲端。
 
 Log Analytics 是一項 Azure 服務，可協助收集、相互關聯、搜尋和處理作業系統、應用程式及基礎結構雲端元件所產生的記錄和效能資料。 它可將使用整合式搜尋和自訂儀表板的即時操作深入資訊提供給客戶，以分析 vDC 中所有工作負載的所有記錄。
 

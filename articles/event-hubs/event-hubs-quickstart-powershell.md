@@ -2,7 +2,7 @@
 title: Azure 快速入門 - 使用 PowerShell 處理事件串流 | Microsoft Docs
 description: 本快速入門將說明如何使用 PowerShell 和 .NET 應用程式範例來傳送和接收 Azure 事件中樞的事件。
 services: event-hubs
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.service: event-hubs
@@ -10,21 +10,21 @@ ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/26/2018
-ms.author: sethm
-ms.openlocfilehash: 9216372038db7a6f97cfc8034f715b34de08d83c
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.author: shvija
+ms.openlocfilehash: fd2b8b2e8bd075e029a07519ced186424798fd9c
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37132174"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003605"
 ---
 # <a name="quickstart-process-event-streams-using-powershell-and-net-standard"></a>快速入門：使用 PowerShell 和 .NET Standard 處理事件串流
 
 Azure 事件中樞是可高度調整的資料串流平台和擷取服務，每秒可接收和處理數百萬個事件。 本快速入門將示範如何使用 Azure PowerShell 建立事件中樞，然後使用 .NET Standard SDK 在事件中樞中進行傳送和接收。
 
-若要完成本快速入門，您需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶][]。
+若要完成本快速入門，您需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前[建立免費帳戶][]。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，請確定您具有下列項目︰
 
@@ -55,7 +55,7 @@ New-AzureRmResourceGroup –Name myResourceGroup –Location eastus
 New-AzureRmEventHubNamespace -ResourceGroupName myResourceGroup -NamespaceName namespace_name -Location eastus
 ```
 
-### <a name="create-an-event-hub"></a>建立事件中心
+### <a name="create-an-event-hub"></a>建立事件中樞
 
 現在，您已有事件中樞命名空間，接著在該命名空間內建立事件中樞：
 
@@ -156,7 +156,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 > [!div class="nextstepaction"]
 > [在事件中樞資料流上將資料異常視覺化](event-hubs-tutorial-visualize-anomalies.md)
 
-[免費帳戶]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[建立免費帳戶]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install and Configure Azure PowerShell]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [New-AzureRmResourceGroup]: https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

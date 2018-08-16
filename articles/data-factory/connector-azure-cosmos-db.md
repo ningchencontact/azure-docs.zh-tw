@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 6c0921a466864bf2b07711cfcd1eac397c5ced83
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 1afd64fbd7019164f0e1f5c850f2dcd8250cdbfc
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325348"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600331"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure Cosmos DB 或從該處複製資料
 
@@ -35,9 +35,9 @@ ms.locfileid: "39325348"
 具體而言，這個 Azure Cosmos DB 連接器支援：
 
 - Cosmos DB [SQL API](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction)。
-- 依原樣匯入/匯出 JSON 文件，或是從表格式資料集 (例如 SQL 資料庫、CSV 檔案等) 複製資料或將資料複製到該處。
+- 依原樣匯入/匯出 JSON 文件，或是從表格式資料集 (例如 SQL 資料庫、CSV 檔案等) 複製資料或將資料複製到該處。若要將文件依原樣複製到 JSON 檔案或另一個 Cosmos DB 集合，或從這些檔案或集合依原樣複製文件，請參閱[匯入/匯出 JSON 文件](#importexport-json-documents)。
 
-若要將文件依原樣複製到 JSON 檔案或另一個 Cosmos DB 集合，或從這些檔案或集合依原樣複製文件，請參閱[匯入/匯出 JSON 文件](#importexport-json-documents)。
+Data Factory 可與 [Cosmos DB 大量執行程式庫](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)整合，提供最理想的 Cosmos DB 寫入效能。
 
 ## <a name="getting-started"></a>開始使用
 
@@ -166,7 +166,7 @@ ms.locfileid: "39325348"
 |:--- |:--- |:--- |
 | type | 複製活動接收的 type 屬性必須設定為：**DocumentDbCollectionSink** |是 |
 | writeBehavior |說明如何將資料寫入 Cosmos DB。 允許的值為 `insert` 和 `upsert`。<br/>如果存在具有相同識別碼的文件時，**upsert** 的行為會用來取代文件；否則使用 insert。 請注意，如果原始文件中沒指定文件識別碼，或沒有透過資料行對應來指定文件識別碼，則 ADF 會自動產生識別碼，這表示您必須先確定文件有「識別碼」，才能讓 upsert 正常運作。 |否，預設值為 Insert |
-| writeBatchSize | Data Factory 會使用 [Cosmos DB 大量執行程式](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)將資料寫入 Cosmos DB。 "writeBatchSize" 可用來控制每次提供給程式庫的文件大小。 您可以嘗試增加 writeBatchSize 來改善效能。 |否 |
+| writeBatchSize | Data Factory 會使用 [Cosmos DB 大量執行程式庫](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)將資料寫入 Cosmos DB 中。 "writeBatchSize" 可用來控制每次提供給程式庫的文件大小。 您可以嘗試增加 writeBatchSize 來改善效能。 |否，預設值為 10,000 |
 | nestingSeparator |來源資料行名稱中用來表示需要巢狀文件的特殊字元。 <br/><br/>例如，當 nestedSeparator 是點號時，輸出資料集結構中的 `Name.First` 會在 Cosmos DB 文件中產生下列 JSON 結構：`"Name": {"First": "[value maps to this column from source]"}`。 |否 (預設為點號 `.`) |
 
 **範例：**

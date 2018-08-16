@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: nolachar
-ms.openlocfilehash: 5dc9478516f4e9850543a6ee129fef0f1d3ee4f7
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 353c1d91b7925a84667ef1bb7c38ab87c6a89cc1
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214912"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716367"
 ---
 # <a name="tutorial-write-a-wpf-application-for-translator-text-using-c35"></a>教學課程：使用 C# 撰寫適用於翻譯工具文字的 WPF 應用程式
 
@@ -666,9 +666,9 @@ private async void TranslateButton_Click(object sender, EventArgs e)
 名為 `X-ClientTraceId` 的 HTTP 標頭是選擇性的。 其值應該是一個 GUID。 當程序未如預期般運作時，用戶端所提供的追蹤識別碼會是用來追蹤要求的有用資訊。 不過，用戶端必須記錄 X-ClientTraceID 的值，這項資訊才會有用。 用戶端追蹤識別碼和要求日期可協助 Microsoft 診斷可能發生的問題。
 
 > [!NOTE]
-> 本教學課程將焦點放在 Microsoft 翻譯工具服務，因此並不詳細說明 `DetectLanguage()` 和 `CorrectSpelling()` 方法。 「文字分析」和「Bing 拼字檢查」服務所提供的回應會採用 JSON 而不是 XML 格式，而「文字分析」所需的要求格式也是 JSON。 這些特性說明了與此處討論的方法相左的多數程式碼差異。
+> 本教學課程將焦點放在 Microsoft 翻譯工具服務，因此並不詳細說明 `DetectLanguage()` 和 `CorrectSpelling()` 方法。
 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [Microsoft Translator Text API 參考](http://docs.microsofttranslator.com/text-translate.html)
+> [Microsoft Translator Text API 參考](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)

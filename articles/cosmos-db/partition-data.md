@@ -2,24 +2,24 @@
 title: Azure Cosmos DB 中的資料分割和水平調整 | Microsoft Docs
 description: 了解資料分割在 Azure Cosmos DB 中的運作方式、如何設定資料分割和資料分割索引鍵，以及如何為您的應用程式挑選合適的資料分割索引鍵。
 services: cosmos-db
-author: rimman
+author: aliuy
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/26/2018
-ms.author: rimman
+ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0cb668dba661ce05d6393aec2707b65918f0c2ac
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: c9c1379cd457dcba37246985058b01e85633f968
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344125"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037996"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中進行資料分割和調整
 
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 是全域分散的多重模型資料庫服務，其設計目的是要協助您達成快速且可預測的效能。 它會順暢地隨著應用程式調整規模。 本文概述 Azure Cosmos DB 中所有資料模型的資料分割運作方式的概觀。 它也描述可如何設定 Azure Cosmos DB 容器以有效地調整應用程式規模。
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 是全域分散的多重模型資料庫服務，其設計目的是要協助您達成快速且可預測的效能。 它會順暢地隨著應用程式調整規模。 本文概述 Azure Cosmos DB 中所有資料模型的資料分割運作方式的概觀， 它也描述可如何設定 Azure Cosmos DB 容器以有效地調整應用程式規模。
 
 下列影片將討論資料分割和分割區索引鍵：
 

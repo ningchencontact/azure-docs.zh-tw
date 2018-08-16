@@ -1,25 +1,20 @@
 ---
-title: 適用於 Apache Kafka 的 Log Analytics - Azure HDInsight | Microsoft Docs
+title: 適用於 Apache Kafka 的 Log Analytics - Azure HDInsight
 description: 了解如何在 Azure HDInsight 上使用 Log Analytics 分析 Apache Kafka 叢集的記錄。
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 05/01/2018
-ms.author: larryfr
-ms.openlocfilehash: 9f366631ced4392831ad9ed97898a88b3290cd22
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 06/15/2018
+ms.openlocfilehash: 9421217383f390630687d8416512401487ad3f7e
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32772257"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621383"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>在 HDInsight 上分析 Apache Kafka 的記錄
 
@@ -40,7 +35,7 @@ ms.locfileid: "32772257"
     >
     > * HDInsight 叢集名稱。
     > * Log Analytics 的工作區識別碼。 您可以在 Log Analytics 工作區中找到工作區識別碼。
-    > * Log Analytics 連線的主索引鍵。 若要尋找主索引鍵，請依序選取 Log Analytics 執行個體和 [OMS 入口網站]。 在 OMS 入口網站中，依序選取 [設定]、[連接的來源] 及 [Linux 伺服器]。
+    > * Log Analytics 連線的主索引鍵。 若要尋找主索引鍵，請在 Azure 入口網站中開啟工作區，然後從左側功能表中選取 [進階設定]。 從 [進階設定] 中，選取 [連接的來源]>[Linux 伺服器]。
 
 
 > [!IMPORTANT]

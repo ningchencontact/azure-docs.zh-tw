@@ -1,26 +1,21 @@
 ---
-title: 在 HDInsight 上使用 Hadoop Oozie | Microsoft Docs
+title: 在 HDInsight 上使用 Hadoop Oozie
 description: 在 HDInsight 上使用 Hadoop Oozie：一項巨量資料服務。 了解如何定義 Oozie 工作流程，以及提交 Oozie 工作。
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 870098f0-f416-4491-9719-78994bf4a369
+author: jasonwhowell
+editor: jasonwhowell
+ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: c0558432c0d74e2c9fcec108182a4dbafa332904
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 3e3b3cbbfa8f79908b2ca1ae6a7389bb04034684
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952853"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598893"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>在 HDInsight 上搭配 Hadoop 使用 Oozie 來定義並執行工作流程
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
@@ -57,7 +52,7 @@ Apache Oozie 是可管理 Hadoop 工作的工作流程/協調系統。 它可與
 > 
 > 
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 開始進行本教學課程之前，您必須具備下列項目：
 
 * **具有 Azure PowerShell 的工作站**。 

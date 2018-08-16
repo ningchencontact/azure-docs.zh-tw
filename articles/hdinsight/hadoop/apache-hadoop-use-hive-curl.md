@@ -1,25 +1,20 @@
 ---
-title: 在 HDInsight 中搭配使用 Hadoop Hive 與 Curl - Azure | Microsoft Docs
+title: 在 HDInsight 中搭配使用 Hadoop Hive 與 Curl - Azure
 description: 了解如何使用 Curl 從遠端提交 Pig 工作到 HDInsight。
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 6ce18163-63b5-4df6-9bb6-8fcbd4db05d8
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: larryfr
-ms.openlocfilehash: f602cf45165625ec252f2e29cb9b0e5ed878f3a8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: jasonh
+ms.openlocfilehash: ff1805a68186120049da7ae49d38a0cc4a1a0c16
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32170249"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598921"
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>使用 REST 以 HDInsight 中的 Hadoop 執行 Hive 查詢
 
@@ -27,7 +22,7 @@ ms.locfileid: "32170249"
 
 了解如何使用 WebHCat REST API 以 Azure HDInsight 叢集上的 Hadoop 執行 Hive 查詢。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * HDInsight 叢集 3.4 版或更新版本上以 Linux 為基礎的 Hadoop。
 

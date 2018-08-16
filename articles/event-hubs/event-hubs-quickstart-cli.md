@@ -2,26 +2,26 @@
 title: Azure 快速入門 - 使用 Azure CLI 處理事件串流 | Microsoft Docs
 description: 在本快速入門中，您將了解如何使用 Azure CLI 處理事件串流。
 services: event-hubs
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/26/2018
-ms.author: sethm
-ms.openlocfilehash: 3e4689aa4ef5cdbd52aa2c70b8ba754013cab3db
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: shvija
+ms.openlocfilehash: 7a15b252727589194da90af729a74e1baad7094f
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425947"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004559"
 ---
 # <a name="quickstart-process-event-streams-using-azure-cli-and-java"></a>快速入門：使用 Azure CLI 和 Java 處理事件串流
 
 Azure 事件中樞是可高度調整的資料串流平台和擷取服務，每秒可接收和處理數百萬個事件。 本快速入門會示範如何使用 Azure CLI 建立事件中樞資源，然後使用 Java 程式碼傳送及接收來自事件中樞的事件串流。
 
-若要完成本快速入門，您需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶][]。
+若要完成本快速入門，您需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前[建立免費帳戶][]。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -292,7 +292,7 @@ public void onEvents(PartitionContext context, Iterable<EventData> events) throw
 > [!div class="nextstepaction"]
 > [在事件中樞資料流上將資料異常視覺化](event-hubs-tutorial-visualize-anomalies.md)
 
-[免費帳戶]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[建立免費帳戶]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install Azure CLI 2.0]: /cli/azure/install-azure-cli
 [az group create]: /cli/azure/group#az-group-create
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

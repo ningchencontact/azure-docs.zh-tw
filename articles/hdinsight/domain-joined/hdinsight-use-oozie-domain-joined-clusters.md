@@ -1,25 +1,22 @@
 ---
-title: 已加入網域之 HDInsight 叢集中的 Hadoop Oozie 工作流程
-description: 在已加入網域的 Linux 型 HDInsight 企業安全性套件中，使用 Hadoop Oozie。 了解如何定義 Oozie 工作流程，以及提交 Oozie 作業。
+title: 已加入網域的 Azure HDInsight 叢集中的 Apache Hadoop Oozie 工作流程
+description: 在已加入網域的 Linux 型 HDInsight 企業安全性套件中使用 Hadoop Oozie。 了解如何定義 Oozie 工作流程，以及提交 Oozie 作業。
 services: hdinsight
-author: omidm1
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: d7603471-5076-43d1-8b9a-dbc4e366ce5d
 ms.service: hdinsight
+author: omidm1
+ms.author: omidm
+editor: jasonwhowell
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.author: omidm
-ms.openlocfilehash: 928f6adbb348683a110f7da9b20efaae998290ca
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: a7f17aafd7798c1bada9fef01a6c8f1022d291f4
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972208"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39616845"
 ---
-#<a name="run-apache-oozie-in-domain-joined-hdinsight-hadoop-clusters"></a>在已加入網域的 HDInsight Hadoop 叢集中執行 Apache Oozie
+# <a name="run-apache-oozie-in-domain-joined-hdinsight-hadoop-clusters"></a>在已加入網域的 HDInsight Hadoop 叢集中執行 Apache Oozie
 Oozie 是可管理 Hadoop 作業的工作流程和協調系統。 Oozie 已與 Hadoop 堆疊整合，並支援下列作業：
 - Apache MapReduce
 - Apache Pig
@@ -28,31 +25,34 @@ Oozie 是可管理 Hadoop 作業的工作流程和協調系統。 Oozie 已與 H
 
 您也可以使用 Oozie 來排程系統的特定作業，例如 Java 程式或 Shell 指令碼。
 
-##<a name="prerequisites"></a>先決條件：
-- 已加入網域的 HDInsight Hadoop 叢集。 請參閱[設定已加入網域的 HDInsight 叢集](./apache-domain-joined-configure-using-azure-adds.md)
+## <a name="prerequisite"></a>必要條件
+- 已加入網域的 Azure HDInsight Hadoop 叢集。 請參閱[設定已加入網域的 HDInsight 叢集](./apache-domain-joined-configure-using-azure-adds.md)。
 
     > [!NOTE]
-    > 若要查看有關在未加入網域之叢集上使用 Oozie 的詳細指示，請參閱[此文章](../hdinsight-use-oozie-linux-mac.md)
+    > 如需在未加入網域的叢集上使用 Oozie 的詳細指示，請參閱[在 Linux 型 Azure HDInsight 中使用 Hadoop Oozie 工作流程](../hdinsight-use-oozie-linux-mac.md)。
 
-##<a name="connecting-to-domain-joined-cluster"></a>連線至已加入網域的叢集
-如需有關 SSH 的詳細資訊，請參閱[驗證：已加入網域的 HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)。
-- 使用 SSH 連線到 HDInsight 叢集
-     ```bash
-    ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
-    ```
-若要確認 Kerberos 驗證是否成功，請使用 `klist` 命令。 如果不成功，請使用 `kinit` 來起始 Kerberos 驗證。
+## <a name="connect-to-a-domain-joined-cluster"></a>連線至已加入網域的叢集
 
-- 登入 HDInsight 閘道，以註冊存取 Azure Data Lake Store (ADLS) 所需的 oAuth 權杖
+如需安全殼層 (SSH) 的詳細資訊，請參閱[使用 SSH 連線至 HDInsight (Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md)。
+
+1. 使用 SSH 連線到 HDInsight 叢集：  
+ ```bash
+ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
+ ```
+
+2. 若要確認 Kerberos 驗證是否成功，請使用 `klist` 命令。 如果不成功，請使用 `kinit` 啟動 Kerberos 驗證。
+
+3. 登入 HDInsight 閘道，以註冊存取 Azure Data Lake Storage 所需的 OAuth 權杖：   
      ```bash
      curl -I -u [DomainUserName@Domain.com]:[DomainUserPassword] https://<clustername>.azurehdinsight.net
      ```
 
-    狀態回應碼 _200 OK_ 表示註冊成功。 如果收到未經授權的回應 (401)，請檢查使用者名稱與密碼。
+    狀態回應碼 **200 OK** 表示註冊成功。 如果收到未經授權的回應 (例如 401)，請檢查使用者名稱與密碼。
 
 ## <a name="define-the-workflow"></a>定義工作流程
-Oozie 工作流程定義是以 Hadoop 流程定義語言 (hPDL)，也就是 XML 流程定義語言所撰寫的。 使用下列步驟定義工作流程：
+Oozie 工作流程定義會以 Hadoop 程序定義語言 (hPDL) 撰寫。 hPDL 是一種 XML 流程定義語言。 採用下列步驟定義工作流程：
 
--   設定網域使用者的工作區：
+1.  設定網域使用者的工作區：
  ```bash
 hdfs dfs -mkdir /user/<DomainUser>
 cd /home/<DomainUserPath>
@@ -60,14 +60,14 @@ cp /usr/hdp/<ClusterVersion>/oozie/doc/oozie-examples.tar.gz .
 tar -xvf oozie-examples.tar.gz
 hdfs dfs -put examples /user/<DomainUser>/
  ```
-將 `DomainUser` 取代為網域使用者名稱。 將 `DomainUserPath` 取代為網域使用者的主目錄路徑。 將 `ClusterVersion` 取代為您的叢集 HDP 版本。
+將 `DomainUser` 取代為網域使用者名稱。 將 `DomainUserPath` 取代為網域使用者的主目錄路徑。 將 `ClusterVersion` 取代您的叢集 Hortonworks Data Platform (HDP) 版本。
 
--   使用以下陳述式建立和編輯新的檔案：
+2.  使用以下陳述式建立和編輯新的檔案：
  ```bash
 nano workflow.xml
  ```
 
-- 在 nano 編輯器開啟後，請輸入下列 XML 做為檔案內容：
+3. 在 nano 編輯器開啟後，請輸入下列 XML 做為檔案內容：
  ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <workflow-app xmlns="uri:oozie:workflow:0.4" name="map-reduce-wf">
@@ -164,111 +164,110 @@ nano workflow.xml
        <end name="end" />
     </workflow-app>
  ```
-將 `clustername` 取代為叢集的名稱。 
+4. 將 `clustername` 取代為叢集的名稱。 
 
-若要儲存檔案，請選取 Ctrl+X、輸入 `Y`，然後選取 **Enter**。
+5. 若要儲存檔案，請選取 Ctrl+X。 輸入 `Y`。 然後，選取 **Enter** 鍵。
 
-工作流程分成兩個部分：
-*   [認證] 區段：[認證] 區段會採用將用於驗證 oozie 動作的認證：
+    工作流程分成兩個部分：
+    *   **[認證] 區段。** 此區段會採用將用來驗證 Oozie 動作的認證：
 
-    此範例使用的是 Hive 動作的驗證。 若要深入了解，請參閱[此文章]( https://oozie.apache.org/docs/4.2.0/DG_ActionAuthentication.html)。
+       此範例使用的是 Hive 動作的驗證。 若要深入了解，請參閱[動作驗證](https://oozie.apache.org/docs/4.2.0/DG_ActionAuthentication.html)。
 
-    認證服務允許 oozie 動作模擬使用者存取 Hadoop 服務。
+       認證服務允許 Oozie 動作模擬使用者存取 Hadoop 服務。
 
-*   [動作] 區段：這裡我們有三個動作，分別是 map-reduce、hive server 2 動作和 hive server 1 動作：
+    *   **[動作] 區段。** 此區段會有三個動作：map-reduce、Hive server 2 和 Hive server 1：
 
-    map-reduce 會從 oozie 套件執行輸出彙總字數之 map-reduce 的範例。
+      - map-reduce 動作會從 Oozie 套件為輸出彙總字數的 map-reduce 執行範例。
 
-    hive server 2 和 hive server 1 動作會針對隨 HDInsight 提供的 hivesample 表格，執行簡單的查詢。
+       - Hive server 2 和 Hive server 1 動作會對隨 HDInsight 提供的範例 Hive 資料表執行查詢。
 
-    hive 動作會透過動作元素中的關鍵字 `cred`，使用 [認證] 區段中定義的認證來進行驗證
+        Hive 動作會透過動作元素中的關鍵字 `cred`，使用 [認證] 區段中定義的認證來進行驗證。
 
-- 使用下列命令將 `workflow.xml` 檔案複製到 `/user/<domainuser>/examples/apps/map-reduce/workflow.xml`：
+6. 使用下列命令將 `workflow.xml` 檔案複製到 `/user/<domainuser>/examples/apps/map-reduce/workflow.xml`：
      ```bash
     hdfs dfs -put workflow.xml /user/<domainuser>/examples/apps/map-reduce/workflow.xml
      ```
 
-    將 `domainuser` 取代為您網域的使用者名稱。
+7. 將 `domainuser` 取代為您網域的使用者名稱。
 
 ## <a name="define-the-properties-file-for-the-oozie-job"></a>定義 Oozie 作業的內容檔案
 
-1.  使用以下陳述式建立和編輯作業內容的新檔案：
-     ```bash
-    nano job.properties
-     ```
+1. 使用以下陳述式建立和編輯作業內容的新檔案：
 
-2.   在 nano 編輯器開啟後，請使用下列 XML 做為檔案的內容：
+   ```bash
+   nano job.properties
+   ```
 
-    ```bash
-        nameNode=adl://home
-        jobTracker=headnodehost:8050
-        queueName=default
-        examplesRoot=examples
-        oozie.wf.application.path=${nameNode}/user/[domainuser]/examples/apps/map-reduce/workflow.xml
-        hiveScript1=${nameNode}/user/${user.name}/countrowshive1.hql
-        hiveScript2=${nameNode}/user/${user.name}/countrowshive2.hql
-        oozie.use.system.libpath=true
-        user.name=[domainuser]
-        jdbcPrincipal=hive/hn0-<ClusterShortName>.<Domain>.com@<Domain>.COM
-        jdbcURL=[jdbcurlvalue]
-        hiveOutputDirectory1=${nameNode}/user/${user.name}/hiveresult1
-        hiveOutputDirectory2=${nameNode}/user/${user.name}/hiveresult2
-    ```
-    
+2. 在 nano 編輯器開啟後，請使用下列 XML 做為檔案的內容：
 
-   * 將 `domainuser` 取代為您網域的使用者名稱。
-   * 將 `ClusterShortName` 取代為叢集的簡短名稱。 如果 clustername 為 https://sechadoopcontoso.azurehdisnight.net，則 `clustershortname` 是叢集的前六個字母：sechad
-   * 將 `jdbcurlvalue` 取代為 hive config 中的 JDBC URL。例如，jdbc:hive2://headnodehost:10001/;transportMode=http。
-    
-   * 若要儲存檔案，請選取 Ctrl+X、輸入 `Y`，然後選取 **Enter**。
+   ```bash
+       nameNode=adl://home
+       jobTracker=headnodehost:8050
+       queueName=default
+       examplesRoot=examples
+       oozie.wf.application.path=${nameNode}/user/[domainuser]/examples/apps/map-reduce/workflow.xml
+       hiveScript1=${nameNode}/user/${user.name}/countrowshive1.hql
+       hiveScript2=${nameNode}/user/${user.name}/countrowshive2.hql
+       oozie.use.system.libpath=true
+       user.name=[domainuser]
+       jdbcPrincipal=hive/hn0-<ClusterShortName>.<Domain>.com@<Domain>.COM
+       jdbcURL=[jdbcurlvalue]
+       hiveOutputDirectory1=${nameNode}/user/${user.name}/hiveresult1
+       hiveOutputDirectory2=${nameNode}/user/${user.name}/hiveresult2
+   ```
+  
+   a. 將 `domainuser` 取代為您網域的使用者名稱。  
+   b. 將 `ClusterShortName` 取代為叢集的簡短名稱。 例如，如果叢集名稱為 https:// *[範例連結]* sechadoopcontoso.azurehdisnight.net，則 `clustershortname` 為叢集的前六個字元：**sechad**。  
+   c. 將 `jdbcurlvalue` 取代為 Hive 組態中的 JDBC URL。 範例為 jdbc:hive2://headnodehost:10001/;transportMode=http。      
+   d. 若要儲存檔案，請選取 Ctrl+X、輸入 `Y`，然後選取 **Enter**。
 
-   * 執行 oozie 作業時，此內容檔案必須存在於本機
+   執行 Oozie 作業時，此內容檔案必須存在於本機。
 
-## <a name="creating-custom-hive-scripts-for-the-oozie-job"></a>建立 Oozie 作業的自訂 hive 指令碼
-hive server 1 和 hive server 2 的 2 個 hive 指令碼可以建立如下：
--   Hive Server 1 檔案：
-1.  使用以下陳述式建立和編輯 hive server 1 動作的檔案：
+## <a name="create-custom-hive-scripts-for-oozie-jobs"></a>建立 Oozie 作業的自訂 Hive 指令碼
+您可以為 Hive server 1 和 Hive server 2 建立兩個 Hive 指令碼，如以下幾節所說明。
+### <a name="hive-server-1-file"></a>Hive server 1 檔案
+1.  建立和編輯 Hive server 1 動作的檔案：
     ```bash
     nano countrowshive1.hql
     ```
 
-2.  建立指令碼
+2.  建立指令碼：
     ```sql
     INSERT OVERWRITE DIRECTORY '${hiveOutputDirectory1}' 
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
     select devicemake from hivesampletable limit 2;
     ```
 
-3.  將檔案儲存到 Hdfs
+3.  將檔案儲存至 Hadoop 分散式檔案系統 (HDFS)：
     ```bash
     hdfs dfs -put countrowshive1.hql countrowshive1.hql
     ```
 
--   Hive Server 2 檔案：
-1.  使用以下陳述式建立和編輯 hive server 2 動作的檔案：
+### <a name="hive-server-2-file"></a>Hive server 2 檔案
+1.  建立和編輯 Hive server 2 動作的欄位：
     ```bash
     nano countrowshive2.hql
     ```
 
-2.  建立指令碼
+2.  建立指令碼：
     ```sql
     INSERT OVERWRITE DIRECTORY '${hiveOutputDirectory1}' 
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
     select devicemodel from hivesampletable limit 2;
     ```
 
-3.  將檔案儲存到 Hdfs
+3.  將檔案儲存至 HDFS：
     ```bash
     hdfs dfs -put countrowshive2.hql countrowshive2.hql
     ```
 
-## <a name="submission-of-oozie-jobs"></a>提交 Oozie 作業
-提交已加入網域之叢集的 oozie 作業類似於在未加入網域的叢集中提交 oozie 作業。
+## <a name="submit-oozie-jobs"></a>提交 Oozie 作業
+為已加入網域的叢集提交 Oozie 作業，類似於在未加入網域的叢集中提交 Oozie 作業。
 
-如需詳細資訊，請參閱[提交和管理作業](../hdinsight-use-oozie-linux-mac.md)。
+如需詳細資訊，請參閱[在 Linux 型 Azure HDInsight 上搭配 Hadoop 使用 Oozie 來定義並執行工作流程](../hdinsight-use-oozie-linux-mac.md)。
 
-## <a name="results-from-oozie-job-submission"></a>提交 Oozie 作業的結果
-oozie 作業是代表使用者執行的，因此 Yarn 和 Ranger 稽核記錄會顯示以模擬的使用者身分執行的作業。 oozie 作業的 CLI 輸出如下：
+## <a name="results-from-an-oozie-job-submission"></a>提交 Oozie 作業的結果
+系統會為使用者執行 Oozie 作業。 因此，Apache YARN 和 Apache Ranger 稽核記錄會顯示以模擬使用者身分執行的作業。 Oozie 作業的命令列介面輸出如下列程式碼所示：
 
 
 ```bash
@@ -302,23 +301,23 @@ oozie 作業是代表使用者執行的，因此 Yarn 和 Ranger 稽核記錄會
     -----------------------------------------------------------------------------------------------
 ```
 
-*    hive server 2 動作的 Ranger 稽核記錄會顯示代表使用者執行動作的 oozie。 只有叢集系統管理員可以看到 Ranger 和 Yarn 檢視。
+Hive server 2 動作的 Ranger 稽核記錄會顯示為使用者執行動作的 Oozie。 只有叢集管理員可以看到 Ranger 和 YARN 檢視。
 
-## <a name="configuration-of-user-authorization-in-oozie"></a>Oozie 中的使用者授權設定
-Oozie 本身有一個使用者授權設定，可以防止使用者停止或刪除其他使用者的作業。 將 `oozie.service.AuthorizationService.security.enabled` 設定為 `true` 可啟用此設定。 
+## <a name="configure-user-authorization-in-oozie"></a>設定 Oozie 中的使用者授權
+Oozie 本身即具有使用者授權設定，可以防止使用者停止或刪除其他使用者的作業。 若要啟用此設定，請將 `oozie.service.AuthorizationService.security.enabled` 設定為 `true`。 
 
-如需有關此動作的更多詳細資料，請參閱 Oozie 文件區段：[使用者授權設定]( https://oozie.apache.org/docs/3.2.0-incubating/AG_Install.html)：
+如需詳細資訊，請參閱 [Oozie 安裝和設定](https://oozie.apache.org/docs/3.2.0-incubating/AG_Install.html)。
 
-針對無法使用/支援 Ranger 外掛程式的元件 (例如 hive server 1)，則只能進行粗略的 hdfs 授權。 細微的授權僅透過 Ranger 外掛程式提供。
+針對無法使用或不支援 Ranger 外掛程式的元件 (例如 Hive server 1)，則只能進行粗略的 HDFS 授權。 細微的授權僅透過 Ranger 外掛程式提供。
 
-## <a name="oozie-web-ui"></a>Oozie Web UI
-Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 作業的狀態。 在已加入網域的叢集中，您需要：
+## <a name="get-the-oozie-web-ui"></a>取得 Oozie Web UI
+Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 作業的狀態。 若要取得 Web UI，請在已加入網域的叢集中執行下列步驟：
 
-1. 新增[邊緣節點](../hdinsight-apps-use-edge-node.md)，並啟用 [SSH Kerberos 驗證](../hdinsight-hadoop-linux-use-ssh-unix.md)
+1. 新增[邊緣節點](../hdinsight-apps-use-edge-node.md)，並啟用 [SSH Kerberos 驗證](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 2. 遵循 [Oozie Web UI](../hdinsight-use-oozie-linux-mac.md) 的步驟，啟用邊緣節點的 SSH 通道，並存取 Web UI。
 
 ## <a name="next-steps"></a>後續步驟
-* [在 Linux 型 Azure HDInsight 上搭配 Hadoop 使用 Oozie 來定義並執行工作流程](../hdinsight-use-oozie-linux-mac.md)
-* [使用以時間為基礎的 Oozie 協調器](../hdinsight-use-oozie-coordinator-time.md)
-* [在已加入網域的 HDInsight 叢集上使用 SSH 執行 Hive 查詢](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)。
+* [在 Linux 型 Azure HDInsight 上搭配 Hadoop 使用 Oozie 來定義並執行工作流程](../hdinsight-use-oozie-linux-mac.md)。
+* [使用以時間為基礎的 Oozie 協調器](../hdinsight-use-oozie-coordinator-time.md)。
+* [使用 SSH 連線到 HDInsight (Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)。

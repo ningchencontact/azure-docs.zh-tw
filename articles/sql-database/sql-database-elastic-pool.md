@@ -6,16 +6,17 @@ services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
+ms.subservice: elastic-pool
 ms.custom: DBs & servers
 ms.date: 07/27/2018
 ms.author: ninarn
 ms.topic: conceptual
-ms.openlocfilehash: d350678d80497b44cdd854baf958926150867c01
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: ffc74eafed81c3dad836cfe70050244cb66a820b
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39326093"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003734"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>彈性集區可協助您管理及調整多個 Azure SQL Database
 
@@ -33,7 +34,7 @@ SaaS 開發人員會在由多個資料庫組成的大規模資料層上建置應
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
 
-彈性集區可讓開發人員為由多個資料庫共用的集區購買資源，以容納個別資料庫無法預期的使用量期間。 您可以根據 [DTU 型購買模型](sql-database-service-tiers-dtu.md)或 [vCore 型購買模型](sql-database-service-tiers-vcore.md)，為集區設定資源。 集區的資源需求取決於其資料庫的彙總使用量。 集區可用的資源數量是由開發人員預算控制。 開發人員只需將資料庫新增至集區、設定資料庫的資源下限和上限 (不是 DTU 下限和上限就是 vCore 下限或上限，這取決於您的資源模型選擇)，然後根據其預算設定集區的資源。 開發人員可以使用集區順暢地擴大其服務，以漸增的規模從精簡的新創公司到成熟的企業。
+彈性集區可讓開發人員為由多個資料庫共用的集區購買資源，以容納個別資料庫無法預期的使用量期間。 您可以根據 [DTU 形式的購買模型](sql-database-service-tiers-dtu.md)或[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)，為集區設定資源。 集區的資源需求取決於其資料庫的彙總使用量。 集區可用的資源數量是由開發人員預算控制。 開發人員只需將資料庫新增至集區、設定資料庫的資源下限和上限 (不是 DTU 下限和上限就是虛擬核心下限或上限，這取決於您的資源模型選擇)，然後根據其預算設定集區的資源。 開發人員可以使用集區順暢地擴大其服務，以漸增的規模從精簡的新創公司到成熟的企業。
 
 在集區內，會給予個別資料庫彈性以在設定的參數內自動調整。 負載量大時，資料庫可以取用更多的資源以滿足需求。 負載較輕的資料庫取用較少的資源，而完全無負載的資料庫不會取用任何資源。 針對整個集區佈建資源，而不是針對單一資料庫佈建資源，可簡化管理工作。 此外，您還可以有可預測的集區預算。 資料庫不必停機就可以在現有集區中新增額外的資源，不過可能需要移動資料庫來為新的資源保留項目提供額外的計算資源。 同樣地，如果不再需要額外資源，則隨時可以從現有集區中移除。 您也可以在集區加入或減少資料庫。 如果可以預測資料庫使用少量資源，則將它移出。
 
@@ -102,25 +103,25 @@ SaaS 開發人員會在由多個資料庫組成的大規模資料層上建置應
 
 集區的最佳大小取決於集區中所有資料庫所需的彙總資源。 這牽涉到決定下列各項：
 
-* 集區中所有資料庫利用的資源上限 (DTU 上限或 vCore 上限，這取決於您的資源模型選擇)。
+* 集區中所有資料庫利用的資源上限 (DTU 上限或虛擬核心上限，這取決於您的資源模型選擇)。
 * 集區中所有資料庫使用的最大儲存體位元組。
 
-如需每個資源模型的可用服務層，請參閱 [DTU 型購買模型](sql-database-service-tiers-dtu.md)或 [vCore 型購買模型](sql-database-service-tiers-vcore.md)。
+如需每個資源模型的可用服務層，請參閱 [DTU 形式的購買模型](sql-database-service-tiers-dtu.md)或[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)。
 
 SQL Database 會自動評估現有 SQL Database 伺服器中資料庫過去的資源使用量，並在 Azure 入口網站中建議適當的集區組態。 除了這些建議之外，內建體驗也會預估伺服器上一組自訂資料庫的 eDTU 使用量。 這可讓您以互動方式將資料庫新增至集區並加以移除，藉此進行「假設」分析，以在認可變更前取得資源使用量分析和大小建議。 如需相關作法，請參閱 [監視、管理和估算彈性集區大小](#monitor-an-elastic-pool-and-its-databases)。
 
 在無法使用工具的情況下，下列步驟可協助您預估集區是否比單一資料庫更符合成本效益：
 
-1. 估計集區所需的 eDTU 或 vCore，如下所示：
+1. 估計集區所需的 eDTU 或虛擬核心，如下所示：
 
    針對以 DTU 為基礎的購買模型：最大值(<DB 總數 X 每個 DB 的平均 DTU 使用量>，<br>
    <*並行尖峰 DB 的數目* X *每個 DB 的尖峰 DTU 使用量*)
 
-   針對 vCore 型購買模型：最大值(<DB 總數 X 每個 DB 的平均 vCore 使用量>，<br>
-   <*並行尖峰 DB 的數目* X *每個 DB 的尖峰 vCore 使用量*)
+   針對以虛擬核心為基礎的購買模型：最大值(<DB 總數 X 每個 DB 的平均虛擬核心使用量>，<br>
+   <*並行尖峰 DB 的數目* X *每個 DB 的尖峰虛擬核心使用量*)
 
 2. 加總集區中所有資料庫所需的位元組數目，以估計集區所需的儲存空間。 然後判斷可提供此儲存體數量的 eDTU 集區大小。
-3. 針對以 DTU 為基礎的購買模型，採用步驟 1 和步驟 2 中較大的 eDTU 估計值。 針對 vCore 型購買模型，採用步驟 1 中的 vCore 估計值。
+3. 針對以 DTU 為基礎的購買模型，採用步驟 1 和步驟 2 中較大的 eDTU 估計值。 針對以虛擬核心為基礎的購買模型，採用步驟 1 中的虛擬核心估計值。
 4. 請參閱 [SQL Database 價格頁面](https://azure.microsoft.com/pricing/details/sql-database/)並尋找大於步驟 3 估計值的最小集區大小。
 5. 將步驟 5 的集區價格與單一資料庫適當效能層級的價格相比較。
 
@@ -151,7 +152,7 @@ SQL Database 會自動評估現有 SQL Database 伺服器中資料庫過去的�
 > [!NOTE]
 > 您可以在伺服器上建立多個集區，但無法將來自不同伺服器的資料庫新增到相同的集區。
 
-集區的服務層決定了集區中彈性資料庫可用的功能，以及每個資料庫可用的資源數目上限。 如需詳細資訊，請參閱 [DTU 模型](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels)中彈性集區的資源限制。 如需彈性集區 vCore 型資源限制，請參閱 [vCore 型資源限制 - 彈性集區](sql-database-vcore-resource-limits-elastic-pools.md)。
+集區的服務層決定了集區中彈性資料庫可用的功能，以及每個資料庫可用的資源數目上限。 如需詳細資訊，請參閱 [DTU 模型](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels)中彈性集區的資源限制。 如需彈性集區以虛擬核心為基礎的資源限制，請參閱[以虛擬核心為基礎的資源限制 - 彈性集區](sql-database-vcore-resource-limits-elastic-pools.md)。
 
 若要設定集區的資源和定價，請按一下 [設定集區]。 然後選取服務層、將資料庫新增至集區，以及為集區及其資料庫設定資源限制。
 

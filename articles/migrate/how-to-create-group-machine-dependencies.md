@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: raynew
-ms.openlocfilehash: fc74af2e7f19d05ff53925b2765c1f78fd0b30c1
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4b83380558c10bc4f96d56f89a5cc2b7b53edc2e
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919704"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621074"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>使用機器相依性對應分組機器
 
@@ -55,7 +55,7 @@ ms.locfileid: "37919704"
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-[深入了解](../monitoring/monitoring-service-map-configure.md#supported-operating-systems)相依性代理程式支援的作業系統。
+深入了解 [Windows](../monitoring/monitoring-service-map-configure.md#supported-windows-operating-systems) 與 [Linux](../monitoring/monitoring-service-map-configure.md#supported-linux-operating-systems) 作業系統的相依性代理程式支援。
 
 [深入了解](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples)如何使用指令碼安裝 Dependency 代理程式。
 

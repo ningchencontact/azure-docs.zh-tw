@@ -3,8 +3,8 @@ title: Azure App Service 本機快取概觀 | Microsoft Docs
 description: 本文說明如何啟用、調整大小並查詢 Azure App Service 本機快取功能的狀態
 services: app-service
 documentationcenter: app-service
-author: SyntaxC4
-manager: yochayk
+author: cephalin
+manager: jpconnock
 editor: ''
 tags: optional
 keywords: ''
@@ -15,15 +15,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2016
-ms.author: cfowler
-ms.openlocfilehash: 75f2dcb80514105ed663ba1fe5f7adccc05af1fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cephalin
+ms.openlocfilehash: 59fe70e4d2a710160751ab8e7a83c9f86310dc24
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22985943"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597725"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Azure App Service 本機快取概觀
+
+> [!NOTE]
+> 容器化的 App Service 應用程式中不支援本機快取，例如在[ Linux 上的 App Service](containers/app-service-linux-intro.md) 中。
+
 Azure Web 應用程式的內容儲存在 Azure 儲存體中，並且會持久顯示為內容共用。 這項設計的目的是為了要與各種應用程式搭配使用，而且其具有下列特性︰  
 
 * 內容會由 Web 應用程式的多個虛擬機器 (VM) 執行個體共用。
@@ -44,7 +48,7 @@ Azure App Service 本機快取功能可讓您以 Web 角色檢視您的內容。
 * 本機快取具有讀寫屬性。 不過，當 Web 應用程式移動虛擬機器或重新啟動時，將會捨棄任何修改。 因此，請勿針對會在內容存放區中儲存關鍵任務資料的應用程式使用本機快取。
 * Web 應用程式可以像目前一樣，繼續寫入記錄檔和診斷資料。 不過，記錄檔和資料會儲存在 VM 本機上。 然後再定期將它們複製到共用內容存放區。 複製到共用內容存放區是最好的狀況；回寫可能會因為 VM 執行個體突然當機而遺失。
 * 使用「本機快取」之 Web 應用程式的「記錄檔」和「資料」資料夾的資料夾結構有所變更。 儲存體的「記錄檔」和「資料」資料夾中現在有子資料夾，且這些子資料夾會遵循「唯一識別碼」+ 時間戳記的命名模式。 每個子資料夾都對應到將要用來執行或已用來執行 Web 應用程式的 VM 執行個體。  
-* 透過任何發佈機制將變更發佈至 Web 應用程式時，將會發佈到共用內容存放區。 這是預設行為，因為我們希望發佈的內容具有持久性。 為了重新整理 Web 應用程式的本機快取，就必須重新啟動 Web 應用程式。 這個步驟看起來是多餘的，不是嗎？ 為了讓整個生命週期順暢前進，請參閱本文稍後的資訊。
+* 透過任何發佈機制將變更發佈至 Web 應用程式時，將會發佈到耐久的共用內容存放區。 為了重新整理 Web 應用程式的本機快取，就必須重新啟動 Web 應用程式。 為了讓整個生命週期順暢前進，請參閱本文稍後的資訊。
 * D:\Home 指向本機快取。 D:\local 繼續指向暫存 VM 的特定儲存體。
 * SCM 網站的預設內容檢視將仍是共用內容存放區。
 

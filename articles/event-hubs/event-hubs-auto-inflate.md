@@ -3,7 +3,7 @@ title: 自動相應增加 Azure 事件中樞輸送量單位 | Microsoft Docs
 description: 在命名空間上啟用自動擴充，以自動相應增加輸送量單位。
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2018
-ms.author: sethm
-ms.openlocfilehash: 46ed6acc14356221eaf24b03dfa37dc4c76efcbc
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.author: shvija
+ms.openlocfilehash: 32f99b43a37277e70d209f1f315dcb398c2b5931
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37434635"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004787"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>自動相應增加 Azure 事件中樞輸送量單位
 

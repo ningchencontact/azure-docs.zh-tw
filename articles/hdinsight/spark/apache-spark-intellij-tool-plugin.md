@@ -1,23 +1,20 @@
 ---
-title: 適用於 IntelliJ 的 Azure 工具組：建立適用於 HDInsight 叢集的 Spark 應用程式 | Microsoft Docs
+title: 'Azure Toolkit for IntelliJ：建立適用於 HDInsight 叢集的 Spark 應用程式 '
 description: 使用適用於 IntelliJ 的 Azure 工具組來開發以 Scala 撰寫的 Spark 應用程式，並將它們提交到 HDInsight Spark 叢集。
 services: hdinsight
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 73304272-6c8b-482e-af7c-cd25d95dab4d
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/25/2017
 ms.author: maxluk
-ms.openlocfilehash: a537fc044361ab90a198a528d382a0f85cad5d0a
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: c3442a95bed4f589ca8f939767bb0d0581095927
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952346"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618420"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>使用適用於 IntelliJ 的 Azure 工具組建立適用於 HDInsight 叢集的 Spark 應用程式
 
@@ -33,7 +30,7 @@ ms.locfileid: "37952346"
 > 您可以使用此外掛程式僅針對 Linux 上的 HDInsight Spark 叢集建立並提交應用程式。
 > 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - HDInsight Linux 上的 Apache Spark 叢集。 如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
 - Oracle Java Development Kit。 您可以從 [Oracle 網站](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)下載。
@@ -52,21 +49,21 @@ ms.locfileid: "37952346"
        
    ![[Azure Explorer] 連結](./media/apache-spark-intellij-tool-plugin/show-azure-explorer.png)
 
-2. 以滑鼠右鍵按一下 [Azure] 節點，然後選取 [登入]。
+1. 以滑鼠右鍵按一下 [Azure] 節點，然後選取 [登入]。
 
-3. 在 [Azure 登入] 對話方塊中，選取 [登入]，然後輸入您的 Azure 認證。
+1. 在 [Azure 登入] 對話方塊中，選取 [登入]，然後輸入您的 Azure 認證。
 
     ![[Azure 登入] 對話方塊](./media/apache-spark-intellij-tool-plugin/view-explorer-2.png)
 
-4. 登入之後，[選取訂用帳戶] 對話方塊會列出與認證建立關聯的所有 Azure 訂用帳戶。 選取 [選取] 按鈕。
+1. 登入之後，[選取訂用帳戶] 對話方塊會列出與認證建立關聯的所有 Azure 訂用帳戶。 選取 [選取] 按鈕。
 
     ![[選取訂用帳戶] 對話方塊](./media/apache-spark-intellij-tool-plugin/Select-Subscriptions.png)
 
-5. 在 [Azure Explorer] 索引標籤中展開 [HDInsight]，可檢視您訂用帳戶中的 HDInsight Spark 叢集。
+1. 在 [Azure Explorer] 索引標籤中展開 [HDInsight]，可檢視您訂用帳戶中的 HDInsight Spark 叢集。
    
     ![Azure Explorer 中的 HDInsight Spark 叢集](./media/apache-spark-intellij-tool-plugin/view-explorer-3.png)
 
-6. 若要檢視與叢集建立關聯的資源 (例如儲存體帳戶)，您可以進一步展開叢集名稱節點。
+1. 若要檢視與叢集建立關聯的資源 (例如儲存體帳戶)，您可以進一步展開叢集名稱節點。
    
     ![展開的叢集名稱節點](./media/apache-spark-intellij-tool-plugin/view-explorer-4.png)
 
@@ -78,7 +75,7 @@ ms.locfileid: "37952346"
    ![連結叢集操作功能表](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
 
 
-2. 輸入 [叢集名稱]、[使用者名稱] 和 [密碼]。 如果驗證失敗，您需要檢查使用者名稱和密碼。 您也可以選擇新增 [儲存體帳戶]、[儲存體金鑰]，然後從 [儲存體容器] 選取容器。 儲存體資訊適用於左側樹狀目錄中的儲存體總管
+1. 輸入 [叢集名稱]、[使用者名稱] 和 [密碼]。 如果驗證失敗，您需要檢查使用者名稱和密碼。 您也可以選擇新增 [儲存體帳戶]、[儲存體金鑰]，然後從 [儲存體容器] 選取容器。 儲存體資訊適用於左側樹狀目錄中的儲存體總管
    
    ![連結叢集對話方塊](./media/apache-spark-intellij-tool-plugin/link-a-cluster-dialog.png)
 
@@ -87,11 +84,11 @@ ms.locfileid: "37952346"
    > ![IntelliJ 中的儲存體總管](./media/apache-spark-intellij-tool-plugin/storage-explorer-in-IntelliJ.png)
 
    
-3. 如果輸入資訊正確無誤，您可以在 [HDInsight] 節點中看見連結的叢集。 您現在可以將應用程式提交至此連結的叢集。
+1. 如果輸入資訊正確無誤，您可以在 [HDInsight] 節點中看見連結的叢集。 您現在可以將應用程式提交至此連結的叢集。
 
    ![連結的叢集](./media/apache-spark-intellij-tool-plugin/linked-cluster.png)
 
-4. 您也可以從 [Azure 總管] 取消連結叢集。
+1. 您也可以從 [Azure 總管] 取消連結叢集。
    
    ![取消連結的叢集](./media/apache-spark-intellij-tool-plugin/unlink.png)
 
@@ -108,17 +105,17 @@ ms.locfileid: "37952346"
 
     ![[新增專案] 對話方塊](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
 
-2. 選取 [下一步] 。
+1. 選取 [下一步] 。
 
-3. Scala 專案建立精靈會自動偵測您是否已安裝 Scala 外掛程式。 選取 [安裝]。
+1. Scala 專案建立精靈會自動偵測您是否已安裝 Scala 外掛程式。 選取 [安裝]。
 
    ![Scala 外掛程式檢查](./media/apache-spark-intellij-tool-plugin/Scala-Plugin-check-Reminder.PNG) 
 
-4. 若要下載 Scala 外掛程式，請選取 [確定]。 依指示重新啟動 IntelliJ。 
+1. 若要下載 Scala 外掛程式，請選取 [確定]。 依指示重新啟動 IntelliJ。 
 
    ![Scala 外掛程式安裝對話方塊](./media/apache-spark-intellij-tool-plugin/Choose-Scala-Plugin.PNG)
 
-5. 在 [新增專案] 視窗中，執行下列動作：  
+1. 在 [新增專案] 視窗中，執行下列動作：  
 
     ![選取 Spark SDK](./media/apache-spark-intellij-tool-plugin/hdi-new-project.png)
 
@@ -128,9 +125,9 @@ ms.locfileid: "37952346"
 
    c. 在 [Spark 版本] 下拉式清單中，Scala 專案建立精靈會為 Spark SDK 和 Scala SDK 整合正確的版本。 如果 Spark 叢集是 2.0 以前的版本，請選取 [Spark 1.x]。 否則，請選取 [Spark2.x]。 此範例使用 **Spark 2.0.2 (Scala 2.11.8)**。
 
-6. 選取 [完成]。
+1. 選取 [完成]。
 
-7. Spark 專案會自動為您建立構件。 若要檢視構件，請執行下列動作：
+1. Spark 專案會自動為您建立構件。 若要檢視構件，請執行下列動作：
 
    a. 在 [檔案] 功能表上，選取 [專案結構]。
 
@@ -138,7 +135,7 @@ ms.locfileid: "37952346"
 
       ![對話方塊中的構件資訊](./media/apache-spark-intellij-tool-plugin/default-artifact.png)
       
-8. 若要新增應用程式的原始程式碼，請執行下列動作：
+1. 若要新增應用程式的原始程式碼，請執行下列動作：
 
    a. 在專案總管中，以滑鼠右鍵按一下 [src]、指向 [新增]，然後選取 [Scala 類別]。
       
@@ -168,7 +165,7 @@ ms.locfileid: "37952346"
     
         }
 
-9. 若要在 HDInsight Spark 叢集上執行應用程式，請執行下列動作：
+1. 若要在 HDInsight Spark 叢集上執行應用程式，請執行下列動作：
 
    a. 在 [專案總管] 中，以滑鼠右鍵按一下專案名稱，然後選取 [將 Spark 應用程式提交給 HDInsight]。
       
@@ -207,47 +204,47 @@ ms.locfileid: "37952346"
 
     ![作業檢視節點](./media/apache-spark-intellij-tool-plugin/job-view-node.png)
 
-2. 在右窗格中，[Spark 作業檢視]  索引標籤會顯示已在叢集上執行的所有應用程式。 選取您想要查看更多詳細資料的應用程式名稱。
+1. 在右窗格中，[Spark 作業檢視]  索引標籤會顯示已在叢集上執行的所有應用程式。 選取您想要查看更多詳細資料的應用程式名稱。
 
     ![應用程式詳細資料](./media/apache-spark-intellij-tool-plugin/view-job-logs.png)
     >附註
     >
 
-3. 若要顯示基本的執行作業資訊，請將滑鼠停留在作業圖形上。 若要檢視每項作業產生的階段圖形和資訊，請選取作業圖形上的節點。
+1. 若要顯示基本的執行作業資訊，請將滑鼠停留在作業圖形上。 若要檢視每項作業產生的階段圖形和資訊，請選取作業圖形上的節點。
 
     ![作業階段詳細資料](./media/apache-spark-intellij-tool-plugin/Job-graph-stage-info.png)
 
-4. 若要檢視經常使用的記錄 (例如「驅動程式 Stderr」、「驅動程式 Stdout」和「目錄資訊」)，請選取 [記錄] 索引標籤。
+1. 若要檢視經常使用的記錄 (例如「驅動程式 Stderr」、「驅動程式 Stdout」和「目錄資訊」)，請選取 [記錄] 索引標籤。
 
     ![記錄詳細資料](./media/apache-spark-intellij-tool-plugin/Job-log-info.png)
 
-5. 您也可以選取視窗頂端的連結，在應用程式層級檢視 Spark 歷程記錄 UI 和 YARN UI。
+1. 您也可以選取視窗頂端的連結，在應用程式層級檢視 Spark 歷程記錄 UI 和 YARN UI。
 
 ### <a name="access-the-spark-history-server"></a>存取 Spark 歷程記錄伺服器
 1. 在 [Azure Explorer] 中，展開 [HDInsight]、以滑鼠右鍵按一下您的 Spark 叢集名稱，然後選取 [開啟 Spark 歷程記錄 UI]。 
 
-2. 出現提示時，輸入叢集的系統管理員認證，也就是您在設定叢集時所指定的認證。
+1. 出現提示時，輸入叢集的系統管理員認證，也就是您在設定叢集時所指定的認證。
 
-3. 在 [Spark 歷程記錄伺服器] 儀表板上，您可以使用應用程式名稱，尋找您剛完成執行的應用程式。 在上述程式碼中，您可以使用 `val conf = new SparkConf().setAppName("MyClusterApp")`來設定應用程式名稱。 因此，Spark 應用程式名稱為 **MyClusterApp**。
+1. 在 [Spark 歷程記錄伺服器] 儀表板上，您可以使用應用程式名稱，尋找您剛完成執行的應用程式。 在上述程式碼中，您可以使用 `val conf = new SparkConf().setAppName("MyClusterApp")`來設定應用程式名稱。 因此，Spark 應用程式名稱為 **MyClusterApp**。
 
 ### <a name="start-the-ambari-portal"></a>啟動 Ambari 入口網站
 1. 在 [Azure Explorer] 中，展開 [HDInsight]、以滑鼠右鍵按一下您的 Spark 叢集名稱，然後選取 [開啟叢集管理入口網站 (Ambari)]。 
 
-2. 出現提示時，輸入叢集的系統管理員認證。 您在叢集設定程序期間已指定這些認證。
+1. 出現提示時，輸入叢集的系統管理員認證。 您在叢集設定程序期間已指定這些認證。
 
 ### <a name="manage-azure-subscriptions"></a>管理 Azure 訂用帳戶
 根據預設，適用於 IntelliJ 的 Azure 工具組會列出您所有 Azure 訂用帳戶中的 Spark 叢集。 如有必要，您可以指定要存取的訂用帳戶。 
 
 1. 在 [Azure Explorer] 中，以滑鼠右鍵按一下 [Azure] 根節點，然後選取 [管理訂用帳戶]。 
 
-2. 在對話方塊中，清除您不想要存取之訂用帳戶旁的核取方塊，然後選取 [關閉]。 如果您想要登出 Azure 訂用帳戶，也可以選取 [登出]。
+1. 在對話方塊中，清除您不想要存取之訂用帳戶旁的核取方塊，然後選取 [關閉]。 如果您想要登出 Azure 訂用帳戶，也可以選取 [登出]。
 
 ## <a name="convert-existing-intellij-idea-applications-to-use-azure-toolkit-for-intellij"></a>轉換現有的 IntelliJ IDEA 應用程式，來使用適用於 IntelliJ 的 Azure 工具組
 您可以將 IntelliJ IDEA 中建立的現有 Spark Scala 應用程式轉換成與適用於 IntelliJ 的 Azure 工具組相容。 然後您可以使用外掛程式，將應用程式提交給 HDInsight Spark 叢集。
 
 1. 對於透過 IntelliJ IDEA 建立的現有 Spark Scala 應用程式，請開啟關聯的 .iml 檔案。
 
-2. 根層級中有 **module** 項目，如下所示：
+1. 根層級中有 **module** 項目，如下所示：
    
         <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
 
@@ -255,7 +252,7 @@ ms.locfileid: "37952346"
    
         <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4" UniqueKey="HDInsightTool">
 
-3. 儲存變更。 您的應用程式現在應該可與適用於 IntelliJ 的 Azure 工具組相容。 您可以滑鼠右鍵按一下 [專案總管] 中的專案名稱來進行測試。 現在，快顯功能表提供 [將 Spark 應用程式提交給 HDInsight] 的選項。
+1. 儲存變更。 您的應用程式現在應該可與適用於 IntelliJ 的 Azure 工具組相容。 您可以滑鼠右鍵按一下 [專案總管] 中的專案名稱來進行測試。 現在，快顯功能表提供 [將 Spark 應用程式提交給 HDInsight] 的選項。
 
 ## <a name="troubleshooting"></a>疑難排解
 

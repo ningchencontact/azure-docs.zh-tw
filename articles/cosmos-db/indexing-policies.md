@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: ae2c6b6a53c6a195bbc79a5776161aab07e42f3d
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 79585195cf95e2074a1c455c82faa500af20218a
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215259"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618762"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB 如何為資料編製索引？
 
@@ -323,9 +323,9 @@ Azure Cosmos DB 針對每個路徑也支援空間索引類型 (可針對 Point�
 
 ![編製索引的運作方式 – Azure Cosmos DB 線上索引轉換](./media/indexing-policies/index-transformations.png)
 
-索引轉換是在線上進行。 也就是說，每個舊原則編製的文件索引會根據每個新原則有效率地轉換，「而不會影響集合的寫入可用性或佈建的輸送量」。 使用 REST API、SDK 或從預存程序和觸發程序中建立的讀取和寫入作業一致性在索引轉換期間不會受到影響。 當您變更編制索引原則時，您的應用程式效能不會降低，也不需要停機時間。
+索引轉換是在線上進行。 也就是說，每個舊原則編製的文件索引會根據每個新原則有效率地轉換，「而不會影響集合的寫入可用性或佈建的輸送量」。 使用 REST API、SDK 或從預存程序和觸發程序中建立的讀取和寫入作業一致性在索引轉換期間不會受到影響。 
 
-不過，在索引轉換進行期間，不論索引編製模式設定 (「一致」或「延遲」) 為何，查詢最終會是一致的。 這適用於來自所有介面 (REST API、SDK) 的查詢，以及來自預存程序和觸發程序內的查詢。 索引轉換就像延遲編製索引一樣，是以非同步方式，使用適用於特定複本的備用資源，在複本背景執行。 
+變更索引原則是非同步程序，並完成此作業所需的時間取決於文件數目、佈建的 RU 和文件大小。 正在重新編製索引時，如果查詢使用正在修改的索引，查詢就可能不會傳回所有相符的結果，且查詢不會傳回任何錯誤/失敗。 正在重新編製索引時，不論索引編製模式設定為何 (「一致」或「延遲」)，查詢最終會是一致的。 在索引轉換完成後，您將繼續看見一致的結果。 這適用於來自所有介面 (REST API、SDK) 的查詢，以及來自預存程序和觸發程序內的查詢。 索引轉換就像延遲編製索引一樣，是以非同步方式，使用適用於特定複本的備用資源，在複本背景執行。 
 
 索引轉換也可就地執行。 Azure Cosmos DB 不會維護兩份索引，而是會以新索引交換舊索引。 也就是說，執行索引轉換時，您的集合中不需要也不會耗用其他任何磁碟空間。
 

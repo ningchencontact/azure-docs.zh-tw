@@ -3,12 +3,12 @@ layout: HubPage
 hide_bc: true
 title: Microsoft Azure 文件
 description: 了解如何使用 Microsoft Azure 雲端服務建置和管理功能強大的應用程式。 取得文件、程式碼範例、教學課程等資訊。
-ms.openlocfilehash: c7f46f9b22bd3696b7d281815687cca2b90b22b3
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 103d09b1a71239948c730f8dba47253741bbaa9c
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070053"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038042"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -740,7 +740,7 @@ ms.locfileid: "34070053"
                                         <li>
                                             <a href="/azure/data-lake-analytics/">
                                                 <img src="media/index/DataLakeStore.svg" alt="" />
-                                                <p>Data Lake Analytics</p>
+                                                <p>資料湖分析</p>
                                             </a>
                                         </li>
                                         <li>
@@ -985,7 +985,7 @@ ms.locfileid: "34070053"
                                         <li>
                                             <a href="/azure/backup/">
                                                 <img src="media/index/Backup.svg" alt="" />
-                                                <p>備份</p>
+                                                <p>Backup </p>
                                             </a>
                                         </li>
                                         <li>
@@ -1476,7 +1476,7 @@ ms.locfileid: "34070053"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>備份</h3>
+                                                    <h3>Backup </h3>
                                                     <p>簡單、可靠的伺服器備份到雲端</p>
                                                 </div>
                                             </div>
@@ -2185,7 +2185,7 @@ ms.locfileid: "34070053"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data Lake Analytics</h3>
+                                                    <h3>資料湖分析</h3>
                                                     <p>分散式分析服務讓巨量資料更容易上手</p>
                                                 </div>
                                             </div>
@@ -2894,7 +2894,7 @@ ms.locfileid: "34070053"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>備份</h3>
+                                                    <h3>Backup </h3>
                                                     <p>簡單、可靠的伺服器備份到雲端</p>
                                                 </div>
                                             </div>
@@ -3150,10 +3150,10 @@ ms.locfileid: "34070053"
                                                     <a href="https://pypi.python.org/pypi/azure">取得 Python SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">開始使用</a>
+                                                    <a href="https://docs.microsoft.com/python/azure/?view=azure-python">開始使用</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">API 參考</a>
+                                                    <a href="https://docs.microsoft.com/python/azure/?view=azure-python">API 參考</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/resources/samples/?platform=python">取得範例</a>
@@ -3427,7 +3427,7 @@ ms.locfileid: "34070053"
                                                     <a href="/dotnet/articles/core/docker/visual-studio-tools-for-docker">開始使用</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780680">針對 Visual Studio 下載</a>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=Click2CloudInc.Click2CloudDockerExtensionForVisualStudio2017">針對 Visual Studio 下載</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://go.microsoft.com/fwlink/?LinkId=780681">針對 Visual Studio Code 下載</a>
@@ -3502,13 +3502,13 @@ ms.locfileid: "34070053"
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.visualstudio.com/vs/python">Python 工具</a>
+                                                    <a href="http://aka.ms/ptvs">Python 工具</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://github.com/Microsoft/PTVS/wiki/PTVS-Installation">開始使用 Visual Studio</a>
+                                                    <a href="http://aka.ms/ptvsdocs">開始使用 Visual Studio</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://marketplace.visualstudio.com/items?itemName=donjayamanne.python">開始使用 Visual Studio 程式碼</a>
+                                                    <a href="https://code.visualstudio.com/docs/python/python-tutorial">開始使用 Visual Studio 程式碼</a>
                                                 </p>
                                             </div>
                                         </div>

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/5/2018
 ms.author: adigan
-ms.openlocfilehash: 2fb3bad56de781dd81d4c5f82b734c9420c75dee
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: a9eca3c3aeaa8d9d0d3d7728f8aebd63543cb604
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751699"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617110"
 ---
 # <a name="back-up-files-on-azure-stack"></a>在 Azure Stack 上備份檔案
 您可以使用 Azure 備份在 Azure Stack 上保護 (或備份) 檔案和應用程式。 若要備份檔案和應用程式，請將 Microsoft Azure 備份伺服器安裝成為在 Azure Stack 上執行的虛擬機器。 您可以保護在相同虛擬網路中任何 Azure Stack 伺服器上的檔案。 在您安裝 Azure 備份伺服器後，請新增 Azure 磁碟，以增加可保存短期備份資料的本機存放區。 Azure 備份伺服器會使用 Azure 存放區進行長期保存。
@@ -27,7 +27,7 @@ ms.locfileid: "36751699"
 
 ## <a name="back-up-files-and-folders-in-azure-stack-vms-to-azure"></a>將 Azure Stack VM 中的檔案和資料夾備份至 Azure
 
-若要設定 Azure 備份伺服器來保護 Azure Stack VM 虛擬機器中的檔案，請開啟 Azure 備份伺服器主控台。 您將使用主控台來設定保護群組，以及保護虛擬機器上的資料。
+若要設定 Azure 備份伺服器來保護 Azure Stack 虛擬機器中的檔案，請開啟 Azure 備份伺服器主控台。 您將使用主控台來設定保護群組，以及保護虛擬機器上的資料。
 
 1. 在 Azure 備份伺服器主控台中，按一下 [保護]，然後按一下工具列中的 [新增]，以開啟 [建立新保護群組精靈]。
 
@@ -90,15 +90,13 @@ ms.locfileid: "36751699"
 
 13. 在 [摘要] 上檢閱您的設定。 當您按一下 [建立群組] 時，就會進行首次的資料複寫。 當資料複寫完成時，[狀態] 頁面上的保護群組狀態會顯示為 [正常]。 初始備份作業會根據保護群組設定進行。
 
-需要回答的問題：如何針對 Azure Stack 短期磁碟儲存體擴充磁碟儲存體。 需要用來解說短期磁碟儲存體的準則有哪些？
-
 ## <a name="recover-file-data"></a>復原檔案資料
 
 使用 Azure 備份伺服器主控台，將資料復原到您的虛擬機器。
 
 1. 在 Azure 備份伺服器主控台中，按一下導覽列中的 [復原]，然後瀏覽您想要復原的資料。 在 [結果] 窗格中選取資料。
 
-2. 在 [復原點] 區段的行事曆中，粗體的日期表示復原點可用。 選取復原點的復原日期。
+2. 在 [復原點] 區段的行事曆中，粗體的日期表示復原點可用。 選取要復原的日期。
 
 3. 在 [可復原項目] 窗格中，選取您想要復原的項目。
 

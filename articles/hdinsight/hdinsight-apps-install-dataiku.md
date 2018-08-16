@@ -1,25 +1,20 @@
 ---
-title: 安裝已發佈的應用程式 - Dataiku DDS - Azure HDInsight | Microsoft Docs
+title: 安裝已發佈的應用程式 - Dataiku DDS - Azure HDInsight
 description: 安裝及使用 Dataiku DDS 協力廠商 Hadoop 應用程式。
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: facee9187528fa0c6a74f71ee73636dc23ca35ba
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8d01b94ce4af6e3f5bcdc05ce84ef6deb1d3cae6
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31394613"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598766"
 ---
 # <a name="install-published-application---dataiku-dds"></a>安裝已發佈的應用程式 - Dataiku DDS
 
@@ -35,7 +30,7 @@ Dataiku [Data Science Studio (DSS)](https://www.dataiku.com/dss/features/connect
 
 您可以使用 DSS 來建置專案，然後這些專案將可以產生 MapReduce 或 Spark 作業。 這些作業會在 HDInsight 上以一般 MapReduce 或 Spark 作業的形式執行，因此您可以視需要調整叢集規模。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要在新的 HDInsight 叢集或現有叢集上安裝此應用程式，您必須具有下列設定：
 

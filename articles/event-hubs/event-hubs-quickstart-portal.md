@@ -3,27 +3,27 @@ title: Azure 快速入門 - 使用 Azure 入口網站處理事件串流 | Micros
 description: 在本快速入門中，您將了解如何使用 Azure 入口網站處理事件串流。
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/26/2018
-ms.author: sethm
-ms.openlocfilehash: da48294962dc5af5f9d623c84f9bbff1d49be03e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.author: shvija
+ms.openlocfilehash: 1938f7a8400587f8f0405cb576bfbdfe8bf1dddd
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37132173"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004305"
 ---
 # <a name="quickstart-process-event-streams-using-the-azure-portal-and-net"></a>快速入門：使用 Azure 入口網站和 .NET 處理事件串流
 
 Azure 事件中樞是可高度調整的資料串流平台和擷取服務，每秒可接收和處理數百萬個事件。 本快速入門將示範如何使用 [Azure 入口網站](https://portal.azure.com)建立事件中樞，然後使用 .NET Standard SDK 在事件中樞中進行傳送和接收。
 
-若要完成本快速入門，您需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶][]。
+若要完成本快速入門，您需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前[建立免費帳戶][]。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本快速入門，請確定您具備︰
 
@@ -70,7 +70,7 @@ Azure 事件中樞是可高度調整的資料串流平台和擷取服務，每�
     
 8. 按一下複製按鈕，將 **RootManageSharedAccessKey** 連接字串複製到剪貼簿。 將這個連接字串儲存在暫存位置，例如 [記事本]，供以日後使用。
     
-## <a name="create-an-event-hub"></a>建立事件中心
+## <a name="create-an-event-hub"></a>建立事件中樞
 
 若要在命名空間內建立事件中樞，請執行下列作業：
 
@@ -173,7 +173,7 @@ Azure 事件中樞是可高度調整的資料串流平台和擷取服務，每�
 > [!div class="nextstepaction"]
 > [在事件中樞資料流上將資料異常視覺化](event-hubs-tutorial-visualize-anomalies.md)
 
-[免費帳戶]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[建立免費帳戶]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Azure 入口網站]: https://portal.azure.com/
 [1]: ./media/event-hubs-quickstart-portal/resource-groups1.png
 [2]: ./media/event-hubs-quickstart-portal/resource-groups2.png

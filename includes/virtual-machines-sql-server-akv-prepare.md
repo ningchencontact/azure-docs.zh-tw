@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/30/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 19be449528481b4e35cad4418f82f2250917966b
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 0a5d0f87b31652b1e1ab32c6b1594021937751b6
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32787411"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "40046394"
 ---
 ## <a name="prepare-for-akv-integration"></a>準備進行 AKV 整合
 若要使用 Azure 金鑰保存庫整合以設定 SQL Server VM，有幾項必要條件： 
@@ -49,7 +49,7 @@ ms.locfileid: "32787411"
 
 * 應用程式識別碼和秘密也將用來在 SQL Server 中建立認證。
 
-* 您必須授權讓這個新的用戶端識別碼擁有下列存取權限：**加密**、**解密**、**包裝金鑰**、**解除包裝金鑰**、**簽章** 和 **驗證**。 做法是使用 [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625.aspx) Cmdlet。 如需詳細資訊，請參閱[授權應用程式使用金鑰或祕密](../articles/key-vault/key-vault-get-started.md#authorize)。
+* 您必須授權讓這個新的用戶端識別碼擁有下列存取權限：**取得**、**包裝金鑰**、**解除包裝金鑰**。 做法是使用 [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Set-AzureRmKeyVaultAccessPolicy) Cmdlet。 如需詳細資訊，請參閱[授權應用程式使用金鑰或祕密](../articles/key-vault/key-vault-get-started.md#authorize)。
 
 ### <a id="createkeyvault"></a> 建立金鑰保存庫
 若要使用 Azure 金鑰保存庫來儲存您在 VM 中用於加密的金鑰，您需要金鑰保存庫的存取權。 如果您尚未設定您的金鑰保存庫，請依照[開始使用 Azure 金鑰保存庫](../articles/key-vault/key-vault-get-started.md)一文中的步驟建立一個金鑰保存庫。 完成這些步驟之前，有一些資訊您需要在此安裝期間收集，稍後當您在 SQL VM 上啟用 Azure 金鑰保存庫整合時需要該資訊。

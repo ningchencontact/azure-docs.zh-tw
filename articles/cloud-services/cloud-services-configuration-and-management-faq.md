@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 5b8c7e8880f7e467b1b5a305cc7381e6499571f5
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 30a23010f326189ffd5886407d70e357abb9c53e
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238616"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038002"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 雲端服務之設定和管理問題：常見問題集 (FAQ)
 
@@ -43,7 +43,7 @@ ms.locfileid: "39238616"
 - [為什麼 IIS 會停止寫入記錄目錄？](#why-does-iis-stop-writing-to-the-log-directory)
 - [如何啟用雲端服務的 WAD 記錄？](#how-do-i-enable-wad-logging-for-cloud-services)
 
-**網路設定**
+**網路組態**
 
 - [如何設定 Azure 負載平衡器的閒置逾時？](#how-do-i-set-the-idle-timeout-for-azure-load-balancer)
 - [如何將靜態 IP 位址關聯到我的雲端服務？](#how-do-i-associate-a-static-ip-address-to-my-cloud-service)
@@ -126,7 +126,7 @@ $cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLoc
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
 ```
-即將推出可針對您的 csdef 和 cscfg 上傳位置選擇 Blob 或本機的功能。 使用 [New-AzureDeployment](/powershell/module/azure/new-azuredeployment?view=azuresmps-4.0.0)，您可以設定每個位置的值。
+即將推出可針對您的 csdef 和 cscfg 上傳位置選擇 Blob 或本機的功能。 使用 [New-AzureDeployment](/powershell/module/servicemanagement/azure/new-azuredeployment?view=azuresmps-4.0.0)，您可以設定每個位置的值。
 
 監視執行個體層級計量的功能。 [如何監視雲端服務](cloud-services-how-to-monitor.md)中還有更多其他監視功能。
 
@@ -149,7 +149,7 @@ Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $pass
 若要取得雲端服務的目前 WAD 設定，您可以使用 [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) ps cmd 或您可以從入口網站的 [雲端服務] --> [延伸模組] 刀鋒視窗中檢視它。
 
 
-## <a name="network-configuration"></a>網路設定
+## <a name="network-configuration"></a>網路組態
 
 ### <a name="how-do-i-set-the-idle-timeout-for-azure-load-balancer"></a>如何設定 Azure Load Balancer 的閒置逾時？
 您可以在服務定義 (csdef) 檔中指定逾時，就像這樣：
@@ -295,7 +295,7 @@ Azure 不會將任何內容寫入 %approot% 磁碟機。 一旦從 .cspkg 建立
 您可以在「啟動工作」中使用 PowerShell 指令碼來啟用反惡意程式碼擴充功能。 請遵循下列這些文章中的步驟加以實作： 
  
 - [建立 PowerShell 啟動工作](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
-- [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/Azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
+- [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
 
 如需反惡意程式碼部署情節及如何從入口網站加以啟用的詳細資訊，請參閱[反惡意程式碼部署情節](../security/azure-security-antimalware.md#antimalware-deployment-scenarios)。
 

@@ -1,25 +1,20 @@
 ---
-title: 安裝已發佈的應用程式 - Datameer - Azure HDInsight | Microsoft Docs
+title: 安裝已發佈的應用程式 - Datameer - Azure HDInsight
 description: 安裝及使用 Datameer 第三方 Hadoop 應用程式。
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 5008056ae2274d058706649f286b91b71feadc27
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7b75170349f41b0fa611d5e748353484c7fea2e0
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401304"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598583"
 ---
 # <a name="install-published-application---datameer"></a>安裝已發佈的應用程式 - Datameer
 
@@ -29,7 +24,7 @@ ms.locfileid: "31401304"
 
 Datameer 是 Hadoop 平台的原生應用程式，可擴充現有的 Azure HDInsight 功能，並可快速整合、準備及分析結構化和非結構化的資料。 Datameer 可以存取超過 70 種來源和格式：結構化、半結構化和非結構化。 您可以直接上傳資料，也可以使用其獨特的資料連結來隨需提取資料。 Datameer 的自助式功能和熟悉的試算表介面，可降低巨量資料技術的複雜性並加快深入解析的時間。 此試算表介面可提供簡易機制，讓您輸入宣告式公式，然後轉換成最佳化的 Hadoop 作業。 運用 Datameer 和商業智慧 (BI) 與 Excel 技巧，您即可快速地在雲端中使用 Hadoop。 如需詳細資訊，請參閱 [Datameer 文件](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要在新的 HDInsight 叢集或現有叢集上安裝此應用程式，您必須具有下列設定：
 

@@ -1,39 +1,41 @@
 ---
-title: Azure 搜尋服務中的資料擷取和自然語言處理的認知搜尋 | Microsoft Docs
-description: 可透過認知技能在 Azure 搜尋服務索引中建立可搜尋內容的資料擷取、自然語言處理 (NLP) 和影像處理。
+title: Azure 搜尋服務中的資料擷取和自然語言 AI 處理的認知搜尋 | Microsoft Docs
+description: 可使用認知技能和 AI 演算法在 Azure 搜尋服務索引中建立可搜尋內容的內容擷取、自然語言處理 (NLP) 和影像處理
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 08/07/2018
 ms.author: heidist
-ms.openlocfilehash: 64b4c0a315e206cd260f2f1108362e92f55d1843
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 72d1630ecaeada3acf8b49952a31ccd3ae8634aa
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36304279"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617953"
 ---
 # <a name="what-is-cognitive-search"></a>什麼是認知搜尋？
 
-認知搜尋是 [Azure 搜尋服務](search-what-is-azure-search.md)的預覽功能 (適用於美國中南部和西歐區域的每一層)，可將 AI 新增至索引編製工作負載。 在索引編製期間，資料擷取、自然語言處理和影像處理會在非結構化或無法搜尋的內容中尋找潛在資訊，並使其成為 Azure 搜尋服務中的可搜尋內容。
+認知搜尋可藉由將 AI 演算法附加至索引管線，從不可搜尋的內容建立可搜尋的資訊。 AI 整合是透過*認知技能*執行的，可在使用搜尋索引的過程中擴充來源文件。 
 
-AI 整合是透過*認知技能*執行的，這些技能可透過循序的程序，依照搜尋索引的路由擴充來源文件。 
+**自然語言處理**技能包括[實體辨識](cognitive-search-skill-named-entity-recognition.md)、語言偵測、[關鍵片語擷取](cognitive-search-skill-keyphrases.md)、文字操作和情感偵測。 透過這些技能，非結構化的文字會變成結構化文字，並對應至索引中可搜尋和可篩選的欄位。
+
+**影像處理**包括 [OCR](cognitive-search-skill-ocr.md) 和[視覺功能](cognitive-search-skill-image-analysis.md)的識別，例如臉部偵測、影像轉譯、影像辨識 (名人和地標)，或是色彩或影像方向之類的屬性。 您可以為影像內容建立可使用 Azure 搜尋服務的各種查詢功能來搜尋的文字表示法。
 
 ![認知搜尋管線圖](./media/cognitive-search-intro/cogsearch-architecture.png "認知搜尋管線概觀")
 
-在索引編製期間使用的技能可以是預先定義或自訂的：
+Azure 搜尋服務中的認知技能以認知服務 API 中使用的相同 AI 演算法為基礎：[具名實體辨識 API](cognitive-search-skill-named-entity-recognition.md)、[關鍵片語擷取 API](cognitive-search-skill-keyphrases.md) 和 [OCR API](cognitive-search-skill-ocr.md) 只是其中幾項。 
 
-+ [預先定義的技能](cognitive-search-predefined-skills.md)以認知服務 API 中使用的相同 AI 演算法為基礎：[具名實體辨識](cognitive-search-skill-named-entity-recognition.md)、[關鍵片語擷取](cognitive-search-skill-keyphrases.md)和 [OCR](cognitive-search-skill-ocr.md) 只是其中幾項。 
-
-+ [自訂技能](cognitive-search-create-custom-skill-example.md)可由您針對任何您所需的特殊化處理進行開發。 舉例來說，自訂技能可以是以特定領域為目標 (例如金融、科學出版品或醫藥) 的自訂實體模組或文件分類器。
+在資料擷取階段中會套用自然語言和影像處理，且其結果會在 Azure 搜尋服務的可搜尋索引中成為文件撰寫的一部分。 資料會作為 Azure 資料集的來源，然後使用您所需的[內建技能](cognitive-search-predefined-skills.md)透過索引管線推送出去。 其架構是可延伸的，因此如果內建技能不敷使用，您可以建立及附加[自訂技能](cognitive-search-create-custom-skill-example.md)，以整合自訂處理。 其範例包括以特定領域為目標 (例如金融、科學出版品或醫藥) 的自訂實體模組或文件分類器。
 
 > [!NOTE]
-> 認知搜尋為公開預覽，且目前免費提供技能集執行。 我們將在不久後宣布此功能的定價。
+> 認知搜尋為公開預覽，且目前免費提供技能集執行。 我們將在不久後宣布此功能的定價。 
 
 ## <a name="components-of-cognitive-search"></a>認知搜尋的元件
+
+認知搜尋是 [Azure 搜尋服務](search-what-is-azure-search.md)的預覽功能，適用於美國中南部和西歐區域的每一層。 
 
 認知搜尋管線以會搜耙資料來源並提供端對端索引處理的 [Azure 搜尋服務*索引子*](search-indexer-overview.md)為基礎。 技能現在已連結至索引子，會根據您所定義的技能集攔截及擴充文件。 完成索引編製後，您即可使用 [Azure 搜尋服務所支援的所有查詢類型](search-query-overview.md)，透過搜尋要求來存取內容。  如果您不熟悉索引子，本節將引導您逐步完成相關步驟。
 

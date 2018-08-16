@@ -1,23 +1,20 @@
 ---
-title: 最佳化 Spark 作業的效能 - Azure HDInsight | Microsoft Docs
+title: 最佳化 Spark 作業的效能 - Azure HDInsight
 description: 顯示為了達到 Spark 叢集最佳效能的一般策略。
 services: hdinsight
-documentationcenter: ''
-author: maxluk
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.date: 01/11/2018
+author: maxluk
 ms.author: maxluk
-ms.openlocfilehash: f35ed98efb26dfa0d75a57ca3646f567a7949dae
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+editor: jasonwhowell
+ms.custom: hdinsightactive
+ms.topic: conceptual
+ms.date: 01/11/2018
+ms.openlocfilehash: 7d542a4fe8c63bb44e073f3af05aed926fc4ba81
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619544"
 ---
 # <a name="optimize-spark-jobs"></a>最佳化 Spark 作業
 
@@ -63,8 +60,8 @@ Spark 支援許多格式，例如 csv、json、xml、parquet、orc 和 avro。 S
 
 | 存放區類型 | 檔案系統 | 速度 | 暫時性 | 使用案例 |
 | --- | --- | --- | --- | --- |
-| Azure Blob 儲存體 | **wasb:**//url/ | **標準** | yes | 暫時性叢集 |
-| Azure Data Lake Store | **adl:**//url/ | **更快** | yes | 暫時性叢集 |
+| Azure Blob 儲存體 | **wasb:**//url/ | **標準** | 是 | 暫時性叢集 |
+| Azure Data Lake Store | **adl:**//url/ | **更快** | 是 | 暫時性叢集 |
 | 本機 HDFS | **hdfs:**//url/ | **最快** | 否 | 互動式全天候叢集 |
 
 ## <a name="use-the-cache"></a>使用快取

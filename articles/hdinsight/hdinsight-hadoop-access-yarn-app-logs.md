@@ -1,25 +1,20 @@
 ---
-title: 以程式設計方式存取 Hadoop YARN 應用程式記錄檔 - Azure | Microsoft Docs
+title: 以程式設計方式存取 Hadoop YARN 應用程式記錄檔 - Azure
 description: 在 HDInsight 中的 Hadoop 叢集上以程式設計方式存取應用程式記錄檔
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 0198d6c9-7767-4682-bd34-42838cf48fc5
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jgao
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: aab7865548c034cb550874c31977b05936dc45b9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 42484f2a93ab5effdcafca0f0769c3fb4cdbb926
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31403929"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600178"
 ---
 # <a name="access-yarn-application-logs-on-windows-based-hdinsight"></a>存取以 Windows 為基礎之 HDInsight 上的 YARN 應用程式記錄
 本文件說明針對已在 Azure HDInsight 的以 Windows 為基礎的 Hadoop 叢集上完成的 YARN 應用程式，如何存取其記錄。
@@ -29,7 +24,7 @@ ms.locfileid: "31403929"
 >
 
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 * Windows 型 HDInsight 叢集。  請參閱 [在 HDInsight 中建立 Windows 型 Hadoop 叢集](hdinsight-hadoop-provision-linux-clusters.md)。
 
 ## <a name="yarn-timeline-server"></a>YARN Timeline Server
@@ -51,7 +46,7 @@ ms.locfileid: "31403929"
 
 
 ## <a name="yarn-applications-and-logs"></a>YARN 應用程式和記錄檔
-YARN 藉由將資源管理從應用程式排程/監視分離，支援多種程式設計模型。 YARN 使用全域 *ResourceManager* (RM)、每一背景工作節點 *NodeManagers* (NM) 及每一應用程式 *ApplicationMasters* (AM)。 每一應用程式 AM 會與 RM 交涉用來執行您應用程式的資源 (CPU、記憶體、磁碟、網路)。 RM 會與 NM 合作來授與這些資源 (以「 *容器*」的形式授與)。 AM 則是負責追蹤 RM 指派給它之容器的進度。 視應用程式的本質而定，一個應用程式可能會需要許多容器。
+YARN 藉由將資源管理從應用程式排程/監視分離，支援多種程式設計模型。 YARN 使用全域 *ResourceManager* (RM)、每一背景工作節點 *ResourceManager* (NM) 及每一應用程式 *ResourceManager* (AM)。 每一應用程式 AM 會與 RM 交涉用來執行您應用程式的資源 (CPU、記憶體、磁碟、網路)。 RM 會與 NM 合作來授與這些資源 (以「 *容器*」的形式授與)。 AM 則是負責追蹤 RM 指派給它之容器的進度。 視應用程式的本質而定，一個應用程式可能會需要許多容器。
 
 * 每個應用程式都可能包含多個「應用程式嘗試」。 
 * 系統會將容器授與給特定的應用程式嘗試。 

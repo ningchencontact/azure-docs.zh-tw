@@ -3,17 +3,16 @@ title: Azure Event Grid 概念
 description: 說明 Azure Event Grid 與其概念。 定義 Event Grid 的數個重要元件。
 services: event-grid
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/23/2018
+ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: abc1302f0317c8d5ecdc7ddaf8ca6d3a9e82b582
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2a288cdb96a1e1ff7e261d4782f7e02aee12868f
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626030"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621196"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Azure Event Grid 中的概念
 
@@ -72,6 +71,10 @@ Event Grid 提供訂閱主題和發佈主題的安全性。 訂閱時，您必�
 ## <a name="event-delivery"></a>事件傳遞
 
 如果事件方格無法確認訂閱者端點是否收到事件，則會重新傳遞事件。 如需詳細資訊，請參閱 [Event Grid 訊息傳遞與重試](delivery-and-retry.md)。
+
+## <a name="batching"></a>批次處理
+
+在使用自訂主題時，事件必須一律發佈在陣列中。 在低輸送量的情況下，這可以是單一批次，但在大量的使用案例中，建議您在每次發佈時一併批次處理多個事件，以達到更高的效率。 批次最多可達 1 MB。 每個事件仍不應超過 64 KB。
 
 ## <a name="next-steps"></a>後續步驟
 

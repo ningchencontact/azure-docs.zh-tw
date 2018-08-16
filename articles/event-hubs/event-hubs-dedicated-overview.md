@@ -3,7 +3,7 @@ title: Azure 事件中樞專用容量概觀 | Microsoft Docs
 description: Microsoft Azure 事件中樞專用容量概觀。
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: sethm
-ms.openlocfilehash: 7009710328c96660accdcf9c88313ad92d25d41c
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.author: shvija
+ms.openlocfilehash: 1a7a7593e80f08296e3163e528e880f343366b8a
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32311411"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005699"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>事件中樞專用的概觀
 
@@ -32,12 +32,12 @@ ms.locfileid: "32311411"
 | 輸入事件 | 按百萬個事件付費 | 已包括 |
 | 輸送量單位 (每秒 1 MB 輸入，每秒 2 MB 輸出) | 按小時付費 | 已包括 |
 | 訊息大小 | 256 KB | 1 MB |
-| 發行者原則 | yes | yes |   
+| 發行者原則 | 是 | 是 |   
 | 用戶群組 | 20 | 20 |
-| 訊息重播 | yes | yes |
+| 訊息重播 | 是 | 是 |
 | 最大輸送量單位 | 20 (可通融至 100)   | 1 容量單位 (CU) ≈ 50 |
 | 代理連線 | 包含 1,000 個 | 包含 10 萬個 |
-| 其他代理連線 | yes | yes |
+| 其他代理連線 | 是 | 是 |
 | 訊息保留期 | 含 1 天 | 最多含 7 天 |
 | 擷取 | 按小時付費 | 已包括 |
 

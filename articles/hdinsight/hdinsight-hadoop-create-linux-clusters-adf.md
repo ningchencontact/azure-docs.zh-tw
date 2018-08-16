@@ -1,25 +1,20 @@
 ---
-title: 教學課程：使用 Data Factory 在 Azure HDInsight 中建立隨選 Hadoop 叢集 | Microsoft Docs
+title: '教學課程：使用 Data Factory 在 Azure HDInsight 中建立隨選 Hadoop 叢集 '
 description: 了解如何使用 Azure Data Factory 在 HDInsight 中建立隨選 Handooop 叢集。
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 1f3b3a78-4d16-4d99-ba6e-06f7bb185d6a
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: nitinme
-ms.openlocfilehash: 9d54d3481176b36a0d13a9b8af2fad03349b81be
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.author: jasonh
+ms.openlocfilehash: bddcaa7eb4c5bbb699218e781df848722917ba6e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229248"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599644"
 ---
 # <a name="tutorial-create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>教學課程：使用 Azure Data Factory 在 HDInsight 中建立隨選 Hadoop 叢集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -40,7 +35,7 @@ ms.locfileid: "36229248"
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure PowerShell。 如需指示，請參閱 [安裝並設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0)。
 
@@ -53,10 +48,10 @@ ms.locfileid: "36229248"
 本節會使用 Azure PowerShell 指令碼來建立儲存體帳戶，並複製儲存體帳戶內的必要檔案。 本節中的 Azure PowerShell 範例指令碼會執行下列工作：
 
 1. 登入 Azure。
-2. 建立 Azure 資源群組。
-3. 建立 Azure 儲存體帳戶。
-4. 在儲存體帳戶中建立 Blob 容器
-5. 將下列範例 HiveQL 指令碼 (**hivescript.hql**) 複製到 Blob 容器。 您可以在 [https://hditutorialdata.blob.core.windows.net/adfv2hiveactivity/hivescripts/hivescript.hql](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql) 中找到此指令碼。 此範例指令碼已可在另一個公用 Blob 容器中使用。 下列 PowerShell 指令碼會將這些檔案複製到所建立的 Azure 儲存體帳戶。
+1. 建立 Azure 資源群組。
+1. 建立 Azure 儲存體帳戶。
+1. 在儲存體帳戶中建立 Blob 容器
+1. 將下列範例 HiveQL 指令碼 (**hivescript.hql**) 複製到 Blob 容器。 您可以在 [https://hditutorialdata.blob.core.windows.net/adfv2hiveactivity/hivescripts/hivescript.hql](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql) 中找到此指令碼。 此範例指令碼已可在另一個公用 Blob 容器中使用。 下列 PowerShell 指令碼會將這些檔案複製到所建立的 Azure 儲存體帳戶。
 
 
 **使用 Azure PowerShell 建立儲存體帳戶並複製檔案：**
@@ -140,12 +135,12 @@ Write-host "`nScript completed" -ForegroundColor Green
 **確認已建立儲存體帳戶**
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 選取左側窗格上的 [資源群組]。
-3. 按兩下您在 PowerShell 指令碼中建立的資源群組名稱。 如果列出太多的資源群組，請使用篩選器。
-4. 除非您與其他專案共用資源群組，否則在 [資源] 圖格上會列出一個資源。 該資源是您先前指定名稱的儲存體帳戶。 選取儲存體帳戶名稱。
-5. 選取 [Blob] 圖格。
-6. 選取 [adfgetstarted] 容器。 您會看到名為 **hivescripts** 的資料夾。
-7. 開啟該資料夾，並確定它包含範例指令碼檔案 **hivescript.hql**。
+1. 選取左側窗格上的 [資源群組]。
+1. 按兩下您在 PowerShell 指令碼中建立的資源群組名稱。 如果列出太多的資源群組，請使用篩選器。
+1. 除非您與其他專案共用資源群組，否則在 [資源] 圖格上會列出一個資源。 該資源是您先前指定名稱的儲存體帳戶。 選取儲存體帳戶名稱。
+1. 選取 [Blob] 圖格。
+1. 選取 [adfgetstarted] 容器。 您會看到名為 **hivescripts** 的資料夾。
+1. 開啟該資料夾，並確定它包含範例指令碼檔案 **hivescript.hql**。
 
 ## <a name="understand-the-azure-data-factory-activity"></a>了解 Azure Data Factory 活動
 
@@ -160,22 +155,22 @@ Write-host "`nScript completed" -ForegroundColor Green
 
 1. 系統會適時自動建立 HDInsight Hadoop 叢集來處理配量。 
 
-2. 會在叢集上執行 HiveQL 指令碼以處理輸入資料。 在本教學課程中，與 Hive 活動相關聯的 HiveQL 指令碼會執行下列動作︰
+1. 會在叢集上執行 HiveQL 指令碼以處理輸入資料。 在本教學課程中，與 Hive 活動相關聯的 HiveQL 指令碼會執行下列動作︰
 
     * 使用現有的資料表 (*hivesampletable*) 來建立另一個資料表 **HiveSampleOut**。
     * 在 **HiveSampleOut** 中只填入原始資料表 *hivesampletable* 的特定資料行。
 
-3. 處理完成後，會刪除 HDInsight Hadoop 叢集，且叢集在設定的一段時間會處於閒置狀態 (timeToLive 設定)。 如果下一個資料配量可用於在此 timeToLive 閒置時間中進行處理，相同的叢集會用來處理配量。  
+1. 處理完成後，會刪除 HDInsight Hadoop 叢集，且叢集在設定的一段時間會處於閒置狀態 (timeToLive 設定)。 如果下一個資料配量可用於在此 timeToLive 閒置時間中進行處理，相同的叢集會用來處理配量。  
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-2. 在 Azure 入口網站中，選取 [建立資源] > [資料 + 分析] > [Data Factory]。
+1. 在 Azure 入口網站中，選取 [建立資源] > [資料 + 分析] > [Data Factory]。
 
     ![入口網站上的 Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-azure-portal.png "入口網站上的 Azure Data Factory")
 
-2. 輸入或選取值，如下列螢幕擷取畫面所示：
+1. 輸入或選取值，如下列螢幕擷取畫面所示：
 
     ![使用 Azure 入口網站建立 Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/create-data-factory-portal.png "使用 Azure 入口網站建立 Azure Data Factory")
 
@@ -190,15 +185,15 @@ Write-host "`nScript completed" -ForegroundColor Green
     |**位置**     | 系統會自動將位置設定為您先前在建立資源群組時所指定的位置。 針對本教學課程，位置會設定為 [美國東部 2]。 |
     
 
-3. 選取 [釘選到儀表板]，然後選取 [建立]。 您應該會在入口網站儀表板上看到標題為**正在提交部署**的新圖格。 建立資料處理站可能需要 2 到 4 分鐘的時間。
+1. 選取 [釘選到儀表板]，然後選取 [建立]。 您應該會在入口網站儀表板上看到標題為**正在提交部署**的新圖格。 建立資料處理站可能需要 2 到 4 分鐘的時間。
 
     ![範本部署進度](./media/hdinsight-hadoop-create-linux-clusters-adf/deployment-progress-tile.png "範本部署進度") 
  
-4. 建立資料處理站之後，入口網站就會顯示該資料處理站的概觀。
+1. 建立資料處理站之後，入口網站就會顯示該資料處理站的概觀。
 
     ![Azure Data Factory 概觀](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-portal-overview.png "Azure Data Factory 概觀")
 
-5. 選取 [撰寫與監視] 以啟動 Azure Data Factory 撰寫與監視入口網站。
+1. 選取 [撰寫與監視] 以啟動 Azure Data Factory 撰寫與監視入口網站。
 
 ## <a name="create-linked-services"></a>建立連結的服務
 
@@ -213,15 +208,15 @@ Write-host "`nScript completed" -ForegroundColor Green
 
     ![建立 Azure Data Factory 連結的服務](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-edit-tab.png "建立 Azure Data Factory 連結的服務")
 
-2. 選取視窗左下角的 [連線]，然後選取 [+新增]。
+1. 選取視窗左下角的 [連線]，然後選取 [+新增]。
 
     ![在 Azure Data Factory 中建立連線](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-create-new-connection.png "在 Azure Data Factory 中建立連線")
 
-3. 在 [新增連結服務] 對話方塊中，選取 [Azure Blob 儲存體]，然後選取 [繼續]。
+1. 在 [新增連結服務] 對話方塊中，選取 [Azure Blob 儲存體]，然後選取 [繼續]。
 
     ![建立適用於 Data Factory 的 Azure 儲存體連結服務](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-storage-linked-service.png "建立適用於 Data Factory 的 Azure 儲存體連結服務")
 
-4. 提供儲存體連結服務的名稱、選取您在 PowerShell 指令碼中建立的 Azure 儲存體帳戶，然後選取 [完成]。
+1. 提供儲存體連結服務的名稱、選取您在 PowerShell 指令碼中建立的 Azure 儲存體帳戶，然後選取 [完成]。
 
     ![提供 Azure 儲存體連結服務的名稱](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-storage-linked-service-details.png "提供 Azure 儲存體連結服務的名稱")
 
@@ -229,11 +224,11 @@ Write-host "`nScript completed" -ForegroundColor Green
 
 1. 再次選取 [+新增] 按鈕以建立另一個連結服務。
 
-2. 在 [新增連結服務] 視窗中，選取 [計算] > [Azure HDInsight]，然後選取 [繼續]。
+1. 在 [新增連結服務] 視窗中，選取 [計算] > [Azure HDInsight]，然後選取 [繼續]。
 
     ![建立適用於 Azure Data Factory 的 HDInsight 連結服務](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-linked-service.png "建立適用於 Azure Data Factory 的 HDInsight 連結服務")
 
-3. 在 [新增連結服務] 視窗中提供必要的值。
+1. 在 [新增連結服務] 視窗中提供必要的值。
 
     ![提供 HDInsight 連結服務的值](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-linked-service-details.png "提供 HDInsight 連結服務的值")
 
@@ -261,15 +256,15 @@ Write-host "`nScript completed" -ForegroundColor Green
 
     ![在 Azure Data Factory 中建立管線](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-create-pipeline.png "在 Azure Data Factory 中建立管線")
 
-2. 在 [活動] 工具箱中展開 [HDInsight]，並將 [Hive] 活動拖曳至管線設計工具介面。 在 [一般] 索引標籤上，提供活動的名稱。
+1. 在 [活動] 工具箱中展開 [HDInsight]，並將 [Hive] 活動拖曳至管線設計工具介面。 在 [一般] 索引標籤上，提供活動的名稱。
 
     ![將活動新增至 Data Factory 管線](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-add-hive-pipeline.png "將活動新增至 Data Factory 管線")
 
-3. 確定您已選取 Hive 活動，然後選取 [HDI 叢集] 索引標籤，並從 [HDInsight 連結服務] 下拉式清單中，選取您稍早為 HDInsight 建立的連結服務。
+1. 確定您已選取 Hive 活動，然後選取 [HDI 叢集] 索引標籤，並從 [HDInsight 連結服務] 下拉式清單中，選取您稍早為 HDInsight 建立的連結服務。
 
     ![針對管線提供 HDInsight 叢集詳細資料](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-hive-activity-select-hdinsight-linked-service.png "針對管線提供 HDInsight 叢集詳細資料")
 
-4. 選取 [指令碼] 索引標籤並完成下列步驟：
+1. 選取 [指令碼] 索引標籤並完成下列步驟：
 
     a. 針對 [指令碼連結服務]，選取 [HDIStorageLinkedService]。 這個值是您稍早建立的儲存體連結服務。
 
@@ -281,11 +276,11 @@ Write-host "`nScript completed" -ForegroundColor Green
 
     ![針對 Hive 指令碼提供參數](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-parameters.png "針對 Hive 指令碼提供參數")
 
-5. 選取 [驗證] 來驗證管線。 選取 **>>** (右箭頭) 按鈕以關閉驗證視窗。
+1. 選取 [驗證] 來驗證管線。 選取 **>>** (右箭頭) 按鈕以關閉驗證視窗。
 
     ![驗證 Azure Data Factory 管線](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-validate-all.png "驗證 Azure Data Factory 管線")
 
-5. 最後，選取 [全部發行]，將成品發行至 Azure Data Factory。
+1. 最後，選取 [全部發行]，將成品發行至 Azure Data Factory。
 
     ![發行 Azure Data Factory 管線](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-publish-pipeline.png "發行 Azure Data Factory 管線")
 
@@ -295,7 +290,7 @@ Write-host "`nScript completed" -ForegroundColor Green
 
     ![觸發 Azure Data Factory 管線](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-trigger-pipeline.png "觸發 Azure Data Factory 管線")
 
-2. 在快顯提要欄位中選取 [完成]。
+1. 在快顯提要欄位中選取 [完成]。
 
 ## <a name="monitor-a-pipeline"></a>監視管線
 
@@ -303,9 +298,9 @@ Write-host "`nScript completed" -ForegroundColor Green
 
     ![監視 Azure Data Factory 管線](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-monitor-pipeline.png "監視 Azure Data Factory 管線")
 
-2. 選取 [重新整理] 可重新整理狀態。
+1. 選取 [重新整理] 可重新整理狀態。
 
-3. 您也可以選取 [檢視活動執行] 圖示，以查看與管線相關聯的活動執行。 在下列螢幕擷取畫面中，您只會看到一個活動執行，因為您建立的管線中只有一個活動。 若要切換回上一個檢視，請選取接近頁面頂端的 [管線]。
+1. 您也可以選取 [檢視活動執行] 圖示，以查看與管線相關聯的活動執行。 在下列螢幕擷取畫面中，您只會看到一個活動執行，因為您建立的管線中只有一個活動。 若要切換回上一個檢視，請選取接近頁面頂端的 [管線]。
 
     ![監視 Azure Data Factory 管線活動](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-monitor-pipeline-activity.png "監視 Azure Data Factory 管線活動")
 
@@ -332,14 +327,14 @@ Write-host "`nScript completed" -ForegroundColor Green
 ### <a name="delete-the-resource-group"></a>刪除資源群組
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 選取左側窗格上的 [資源群組]。
-3. 選取您在 PowerShell 指令碼中建立的資源群組名稱。 如果列出太多的資源群組，請使用篩選器。 它會開啟資源群組。
-4. 除非您與其他專案共用資源群組，否則 [資源]  圖格應列出預設儲存體帳戶和 Data Factory。
-5. 選取 [刪除資源群組]。 這麼做會刪除儲存體帳戶和此儲存體帳戶中儲存的資料。
+1. 選取左側窗格上的 [資源群組]。
+1. 選取您在 PowerShell 指令碼中建立的資源群組名稱。 如果列出太多的資源群組，請使用篩選器。 它會開啟資源群組。
+1. 除非您與其他專案共用資源群組，否則 [資源]  圖格應列出預設儲存體帳戶和 Data Factory。
+1. 選取 [刪除資源群組]。 這麼做會刪除儲存體帳戶和此儲存體帳戶中儲存的資料。
 
     ![刪除資源群組](./media/hdinsight-hadoop-create-linux-clusters-adf/delete-resource-group.png "刪除資源群組")
 
-6. 輸入資源群組名稱以確認刪除，然後選取 [刪除]。
+1. 輸入資源群組名稱以確認刪除，然後選取 [刪除]。
 
 
 ## <a name="next-steps"></a>後續步驟

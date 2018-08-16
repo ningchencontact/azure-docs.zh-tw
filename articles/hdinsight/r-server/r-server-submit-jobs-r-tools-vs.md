@@ -1,24 +1,20 @@
 ---
-title: 從 Visual Studio R 工具提交作業 - Azure HDInsight | Microsoft Docs
+title: 從 Visual Studio R 工具提交作業 - Azure HDInsight
 description: 從您的本機 Visual Studio 機器將 R 作業提交至 HDInsight 叢集。
 services: hdinsight
-documentationcenter: ''
-author: maxluk
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
 ms.service: hdinsight
+author: maxluk
+ms.author: maxluk
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: maxluk
-ms.openlocfilehash: eb7b538737e54b2c3d8a32e2ba65f7e0762a302c
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 14618e46dd95dae6b7e5923a43a8eaef5e5c8518
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047151"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617542"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>從 Visual Studio R 工具提交作業
 

@@ -2,20 +2,20 @@
 title: 選擇正確的分割區索引鍵來執行多區域寫入和讀取 | Microsoft Docs
 description: 了解如何設計應用程式架構，使用 Azure Cosmos DB 選擇分割區索引鍵，在多個地理區域進行本機讀取和寫入。
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 06/6/2018
-ms.author: sngun
+ms.author: rimman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 18f036a259bbec98382927ad1d9e8f654b56850b
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 3d38b7cd7d1f28f706e94782602926abc8fc11e3
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850356"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037986"
 ---
 # <a name="perform-multi-region-writes-and-reads-by-choosing-the-right-partitioning-key"></a>選擇正確的分割區索引鍵來執行多區域寫入和讀取
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 0cd31a6acaa248b53fbe90684894b3bb3e7ebf86
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 1606b5e38b79cb535108ca747783a05de1fbc982
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37907038"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40025988"
 ---
 一般用途的虛擬機器大小可讓 CPU 與記憶體比例達到平均。 適用於測試和開發、小型至中型資料庫，以及低至中流量 Web 伺服器。 本文提供 vCPU 數量、資料磁碟和 NIC 的相關資訊，以及此群組中各種大小之儲存體輸送量的相關資訊。 
 
@@ -21,7 +21,7 @@ ms.locfileid: "37907038"
 
 - Dv2 系列是原始 D 系列的延續，擁有更強大的 CPU。 Dv2 系列 CPU 比 D 系列 CPU 快約 35%。 它以最新一代的 Intel Xeon® E5-2673 v3 2.4 GHz (Haswell) 或 E5-2673 v4 2.3 GHz (Broadwell) 處理器為基礎，搭配 Intel Turbo Boost Technology 2.0，最高可達 3.1 GHz。 Dv2 系列的記憶體和磁碟組態和 D 系列一樣。
 
-- Dv3 系列有與 Dv2 系列相同的處理器，但以超執行緒組態搭配，可為多數一般用途的工作負載提供更好的價值主張，並且讓 Dv3 更為符合其他多數雲端的一般用途 VM 的需求。  除了記憶體已擴充 (從 ~3.5 GiB/vCPU 到 4 GiB/vCPU)，磁碟和網路限制也已就個別核心進行調整，以符合移轉至超執行緒的需求。  Dv3 不再擁有 D/Dv2 系列的高記憶體 VM 大小，這些都已移至新的 Ev3 系列。
+- Dv3 系列以超執行緒組態搭配 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 處理器或最新的 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) 處理器，可為大多數一般用途的工作負載提供更好的價值主張。  除了記憶體已擴充 (從 ~3.5 GiB/vCPU 到 4 GiB/vCPU)，磁碟和網路限制也已就個別核心進行調整，以符合移轉至超執行緒的需求。  Dv3 不再擁有 D/Dv2 系列的高記憶體 VM 大小，這些都已移至新的 Ev3 系列。
 
 
 ## <a name="b-series"></a>B 系列

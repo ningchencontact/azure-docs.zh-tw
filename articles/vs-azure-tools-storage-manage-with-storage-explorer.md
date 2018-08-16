@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: b41b1fcb437dac381a17bef4f1e5a7cebe213b98
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 329653e7494d2f993acb462d7d989db07a18f790
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435910"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600858"
 ---
 # <a name="get-started-with-storage-explorer"></a>開始使用儲存體總管
 
@@ -29,7 +29,7 @@ Azure 儲存體總管是一個獨立應用程式，可讓您在 Windows、macOS 
 
 ![Microsoft Azure 儲存體總管][0]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
@@ -125,7 +125,7 @@ Azure 儲存體總管[版本資訊](https://go.microsoft.com/fwlink/?LinkId=8382
 > [!NOTE]
 > 儲存體服務和功能的支援可能會隨著您所選擇的模擬器而有很大的不同。 請確定您的模擬器支援您想要使用的服務和功能。
 
-1. 設定您選擇要在預設端點上接聽的模擬器。
+1. 設定您選擇用來接聽未使用連接埠的模擬器。
 
    模擬的服務 | 預設端點
    -----------------|-------------------------
@@ -134,16 +134,19 @@ Azure 儲存體總管[版本資訊](https://go.microsoft.com/fwlink/?LinkId=8382
    資料表           | `http://127.0.0.1:10002`
 
 2. 啟動模擬器。
+   > [!IMPORTANT]
+   > 儲存體總管不會自動啟動您的模擬器。 您必須自行加以啟動。
 
-3. 在儲存體總管的左窗格中，依序展開 [(本機連結)] > [儲存體帳戶] > [(開發)] 節點。
+3. 在 [儲存體總管] 中，按一下 [新增帳戶] 按鈕。 選取 [附加到本機模擬器]，然後按 [下一步]。
+
+4. 為您先前設定的服務輸入連接埠號碼 (如果您不想要使用該服務，將保留為空白)。 按 [下一步]，然後按一下 [連線] 以建立連線。
+
+5. 展開 [本機與已連結的資源] > [儲存體帳戶] > 節點，然後展開與您的模擬器連線相對應的節點下方的服務節點。
 
    您可以使用此節點來建立及使用本機 Blob、佇列和資料表。 若要了解如何使用每個儲存體帳戶類型，請參閱下列指南：
 
    * [管理 Azure Blob 儲存體資源](vs-azure-tools-storage-explorer-blobs.md)
    * [管理 Azure 檔案儲存體資源](vs-azure-tools-storage-explorer-files.md)
-
-> [!NOTE]
-> 儲存體總管僅支援使用預設端點連線至本機模擬器。 在啟動模擬器時，請確定您僅設定了預設端點。
 
 ## <a name="attach-or-detach-an-external-storage-account"></a>附加或卸離外部儲存體帳戶
 

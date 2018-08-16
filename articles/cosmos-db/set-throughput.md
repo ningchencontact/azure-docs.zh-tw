@@ -2,19 +2,19 @@
 title: Azure Cosmos DB 的佈建輸送量 | Microsoft Docs
 description: 了解如何設定 Azure Cosmos DB 容器、集合、圖表和資料表的佈建輸送量。
 services: cosmos-db
-author: SnehaGunda
+author: aliuy
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
-ms.author: sngun
-ms.openlocfilehash: a454bfc06cf119d43e545a5a911a2f6686fb755b
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.author: andrl
+ms.openlocfilehash: 2c3e4806aef506ef9016699b46eadd5f8a187224
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600154"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037991"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>設定及取得 Azure Cosmos DB 容器和資料庫的輸送量
 
@@ -262,20 +262,6 @@ MongoDB API 支援自訂命令 getLastRequestStatistics，可擷取指定作業�
 > 如果您的項目類型與已編製索引之屬性的大小與數目截然不同，則請記錄與每個一般項目「類型」相關聯的適用作業要求單位費用。
 > 
 > 
-
-## <a id="RequestchargeGraphAPI"></a>取得 Gremlin API 帳戶的要求費用 
-
-以下範例有關於如何使用 Gremlin.Net 程式庫來取得 Gremlin API 帳戶的要求費用。 
-
-```csharp
-
-var response = await gremlinClient.SubmitAsync<int>(requestMsg, bindings);
-                var resultSet = response.AsResultSet();
-                var statusAttributes= resultSet.StatusAttributes;
-```
-
-除了上述方法，您也可以使用 “x-ms-total-request-charge” 標頭進行要求單位計算。
-
 
 ## <a name="throughput-faq"></a>輸送量常見問題集
 

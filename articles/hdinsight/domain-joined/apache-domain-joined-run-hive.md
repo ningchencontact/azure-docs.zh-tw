@@ -1,28 +1,25 @@
 ---
 title: 在已加入網域的 HDInsight 中設定 Hive 原則 - Azure
-description: 了解 ...
+description: 了解如何在加入網域的 Azure HDInsight 服務中針對 Hive 設定 Apache Ranger 原則。
 services: hdinsight
-author: omidm1
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 3fade1e5-c2e1-4ad5-b371-f95caea23f6d
 ms.service: hdinsight
+author: omidm1
+ms.author: omidm
+editor: jasonwhowell
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/17/2018
-ms.author: omidm
-ms.openlocfilehash: bd99e5fda80663b37c60d972742b16c27b92cf55
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8579c3c13ace1f97d2400a4fc6e2e9a63c2c4d26
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31592670"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599685"
 ---
 # <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>在已加入網域的 HDInsight 中設定 Hive 原則
 了解如何針對 Hive 設定 Apache Ranger 原則。 在本文中，您會建立兩個 Ranger 原則來限制 hivesampletable 的存取權。 HDInsight 叢集隨附 hivesampletable。 設定原則之後，您可以使用 Excel 和 ODBC 驅動程式連接到 HDInsight 中的 Hive 資料表。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * 已加入網域的 HDInsight 叢集。 請參閱[設定已加入網域的 HDInsight 叢集](apache-domain-joined-configure.md)。
 * 安裝 Office 2016、Office 2013 Professional Plus、Office 365 Pro Plus、Excel 2013 Standalone 或 Office 2010 Professional Plus 的工作站。
 
@@ -88,7 +85,7 @@ ms.locfileid: "31592670"
  | Hive 伺服器類型 | 選取 [Hive Server 2] |
  | 機制 | 選取 [Azure HDInsight 服務] |
  | HTTP 路徑 | 保留為空白。 |
- | 使用者名稱 | 輸入 hiveuser1@contoso158.onmicrosoft.com。更新網域名稱 (如果不同的話)。 |
+ | 使用者名稱 | 輸入 hiveuser1@contoso158.onmicrosoft.com。 更新網域名稱 (如果不同的話)。 |
  | 密碼 | 輸入 hiveuser1 的密碼。 |
 
 請務必先按一下 [測試]，再儲存資料來源。

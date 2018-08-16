@@ -3,7 +3,7 @@ title: 透過入口網站啟用 Azure 事件中樞擷取功能 | Microsoft Docs
 description: 使用 Azure 入口網站啟用事件中樞擷取功能。
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/19/2017
-ms.author: sethm
-ms.openlocfilehash: 39fbdba404bda9383c9164dd1ecd9cb23bfb5cd7
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: shvija
+ms.openlocfilehash: dbe140163c1cb852befb9347bbbaee819e922104
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "26855006"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003999"
 ---
 # <a name="enable-event-hubs-capture-using-the-azure-portal"></a>使用 Azure 入口網站啟用事件中樞擷取功能
 
@@ -46,7 +46,7 @@ Azure [事件中樞擷取][capture-overview]可讓您將事件中樞內的串流
 1. 遵循[使用 Azure 入口網站開始使用 Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md) 中的指示，建立 Data Lake Store 帳戶。
 2. 請依照[將權限指派給事件中樞](../data-lake-store/data-lake-store-archive-eventhub-capture.md#assign-permissions-to-event-hubs)一節中的指示，在您要從事件中樞擷取資料的 Data Lake Store 帳戶中建立資料夾，並將權限指派給事件中樞，以便將資料寫入 Data Lake Store 帳戶中。  
 
-### <a name="create-an-event-hub"></a>建立事件中心
+### <a name="create-an-event-hub"></a>建立事件中樞
 
 1. 請注意，事件中樞必須位於與您剛建立之 Azure Data Lake Store 相同的 Azure 訂用帳戶中。 按一下 [建立事件中樞] 入口網站頁面中 [擷取] 之下的 [開啟] 按鈕，以建立事件中樞。 
 2. 在 [建立事件中樞] 入口網站頁面中，從 [擷取提供者] 方塊選取 [Azure Data Lake Store]。

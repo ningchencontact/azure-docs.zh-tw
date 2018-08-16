@@ -11,17 +11,18 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 03/23/2018
 ms.author: sngun
-ms.openlocfilehash: d18e6dd9464ef103157a8532215fa797ab282437
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cdf3edf5bfd8d13f71c25b8bf0bbf0ea3d992a5d
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38543848"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628149"
 ---
 # <a name="_Toc395783175"></a>使用 Azure Cosmos DB 來建置 Node.js Web 應用程式
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
+> * [Node.js - v2.0 預覽](sql-api-nodejs-application-preview.md)
 > * [Java](sql-api-java-application.md)
 > * [Python](sql-api-python-application.md)
 > 
@@ -62,15 +63,21 @@ ms.locfileid: "38543848"
 1. 開啟您喜好的終端機，例如 Node.js 命令提示字元。
 2. 瀏覽至您想要在其中儲存新應用程式的目錄。
 3. 使用 Express 產生器來產生名為 **todo**的新應用程式。
-   
-        express todo
+
+   ```bash
+   express todo
+   ```
 4. 開啟您的新 **todo** 目錄並安裝相依性。
-   
-        cd todo
-        npm install
+
+   ```bash
+    cd todo
+    npm install
+   ```
 5. 執行新的應用程式。
-   
-        npm start
+
+   ```bash
+   npm start
+   ```
 6. 您可以檢視新的應用程式，請導覽瀏覽器至 [http://localhost:3000](http://localhost:3000)。
    
     ![了解 Node.js - Hello World 應用程式在瀏覽器視窗中的螢幕擷取畫面](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
@@ -81,11 +88,15 @@ ms.locfileid: "38543848"
 **package.json** 檔案是建立在專案根目錄中的其中一個檔案。 這個檔案包含 Node.js 應用程式所需的其他模組清單。 之後，當您將此應用程式部署至 Azure 網站時，此檔案可用來決定 Azure 上需要安裝哪些模組才能支援您的應用程式。 在本教學課程中，我們還需要再安裝兩個封裝。
 
 1. 返回終端機，透過 npm 安裝 **async** 模組。
-   
-        npm install async --save
+
+   ```bash
+   npm install async --save
+   ```
 2. 透過 npm 安裝 **documentdb** 模組。 這是 Azure Cosmos DB 發揮所有強大功能的模組。
-   
-        npm install documentdb --save
+
+   ```bash
+   npm install documentdb --save
+   ```
 
 ## <a name="_Toc395783180"></a>步驟 4：在節點應用程式中使用 Azure Cosmos DB 服務
 前面的內容在講述所有初始設定和組態，現在讓我們來了解本教學課程的真正目的，也就是使用 Azure Cosmos DB 撰寫一些程式碼。
@@ -377,7 +388,7 @@ ms.locfileid: "38543848"
     var DocumentDBClient = require('documentdb').DocumentClient;
     var config = require('./config');
     var TaskList = require('./routes/tasklist');
-    var TaskModel = require('./models/taskModel');
+    var TaskModel = require('./models/task-model');
     ```
 3. 此程式碼會定義要使用的組態檔，並繼續讀出此檔案中的值到我們即將使用的變數。
 4. 將 **app.js** 檔案中的下列兩行取代為：

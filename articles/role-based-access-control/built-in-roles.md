@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 42a11607c46f77840b14973dd5b7faf4b1734fdc
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 5a373c397df09653395eea7996b19262aee75c7a
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136837"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619044"
 ---
 # <a name="built-in-roles-in-azure"></a>Azure 中的內建角色
 [角色型存取控制 (RBAC)](overview.md) 具有數個內建角色定義，可供您指派給使用者、群組和服務主體。 角色指派是您控制 Azure 資源存取權的方式。 如果內建的角色無法滿足您組織的特定需求，您可以建立自己的[自訂角色](custom-roles.md)。
@@ -63,6 +63,8 @@ ms.locfileid: "39136837"
 | [傳統虛擬機器參與者](#classic-virtual-machine-contributor) | 可讓您管理傳統虛擬機器 (不含虛擬機器所連線的虛擬網路或儲存體帳戶)，但無法存取它們。 |
 | [ClearDB MySQL DB 參與者](#cleardb-mysql-db-contributor) | 可讓您管理 ClearDB MySQL 資料庫，但無法存取它們。 |
 | [Cosmos DB 帳戶讀者角色](#cosmos-db-account-reader-role) | 可以讀取 Azure Cosmos DB 帳戶資料。 請參閱 [DocumentDB 帳戶參與者](#documentdb-account-contributor)以管理 Azure Cosmos DB 帳戶。 |
+| [資料箱參與者](#data-box-contributor) | 可讓您管理資料箱服務下的所有項目，為他人賦予存取權除外。 |
+| [資料箱操作員](#data-box-operator) | 可讓您管理資料箱服務，建立訂單或編輯訂單詳細資料和為他人賦予存取權除外。 |
 | [Data Factory 參與者](#data-factory-contributor) | 可讓您管理 Data Factory，但無法加以存取。 |
 | [Data Lake Analytics 開發人員](#data-lake-analytics-developer) | 可讓您提交、監視及管理您自己的作業，但無法建立或刪除 Data Lake Analytics 帳戶。 |
 | [資料清除者](#data-purger) | 可清除分析資料 |
@@ -76,6 +78,7 @@ ms.locfileid: "39136837"
 | [Log Analytics 讀者](#log-analytics-reader) | 「Log Analytics 讀者」可以檢視和搜尋所有監視資料，以及檢視監視設定，包括檢視所有 Azure 資源上的 Azure 診斷設定。 |
 | [邏輯應用程式參與者](#logic-app-contributor) | 可讓您管理邏輯應用程式，但無法存取它們。 |
 | [邏輯應用程式運算子](#logic-app-operator) | 可讓您讀取、啟用及停用邏輯應用程式。 |
+| [受控應用程式操作員角色](#managed-application-operator-role) | 可讓您讀取受控應用程式資源及對其執行動作 |
 | [受控身分識別參與者](#managed-identity-contributor) | 建立、讀取、更新及刪除使用者指派的身分識別 |
 | [受控身分識別操作員](#managed-identity-operator) | 讀取及指派使用者指派的身分識別 |
 | [管理群組參與者](#management-group-contributor) | 管理群組參與者角色 |
@@ -347,33 +350,34 @@ ms.locfileid: "39136837"
 > | **動作** |  |
 > | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
 > | Microsoft.Network/virtualNetworks/read | 取得虛擬網路定義 |
+> | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp 是服務所使用的內部作業 |
+> | Microsoft.RecoveryServices/Vaults/backupconfig/vaultconfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/* | 管理備份管理上作業的結果 |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/* | 在復原服務保存庫的備份網狀架構內建立和管理備份容器 |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | 建立和管理備份作業 |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | 匯出作業 |
+> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | 傳回匯出作業的作業結果。 |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | 建立和管理與備份管理相關的中繼資料 |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | 建立和管理備份管理作業的結果 |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/* | 建立和管理備份原則 |
 > | Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | 建立和管理可以備份的項目 |
 > | Microsoft.RecoveryServices/Vaults/backupProtectedItems/* | 建立和管理備份項目 |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/* | 建立和管理保存備份項目的容器 |
+> | Microsoft.RecoveryServices/Vaults/backupSecurityPIN/* |  |
+> | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | 傳回復原服務之受保護項目和受保護伺服器的摘要。 |
 > | Microsoft.RecoveryServices/Vaults/certificates/* | 建立和管理備份復原服務保存庫中與備份相關的憑證 |
 > | Microsoft.RecoveryServices/Vaults/extendedInformation/* | 建立和管理與保存庫相關的擴充資訊 |
+> | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | 取得復原服務保存庫的警示。 |
+> | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
 > | Microsoft.RecoveryServices/Vaults/read | 「取得保存庫」作業會取得物件，此物件代表 'vault' 類型的 Azure 資源 |
 > | Microsoft.RecoveryServices/Vaults/refreshContainers/* | 管理擷取新建立容器的探索作業 |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/* | 建立和管理註冊的身分識別 |
+> | Microsoft.RecoveryServices/Vaults/storageConfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/usages/* | 建立和管理復原服務保存庫的使用方式 |
-> | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | 傳回復原服務之受保護項目和受保護伺服器的摘要。 |
 > | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Storage/storageAccounts/read | 傳回儲存體帳戶清單，或取得指定儲存體帳戶的屬性。 |
-> | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp 是服務所使用的內部作業 |
-> | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
-> | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | 取得復原服務保存庫的警示。 |
-> | Microsoft.RecoveryServices/Vaults/storageConfig/* |  |
-> | Microsoft.RecoveryServices/Vaults/backupconfig/vaultconfig/* |  |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | 傳回匯出作業的作業結果。 |
-> | Microsoft.RecoveryServices/Vaults/backupSecurityPIN/* |  |
+> | Microsoft.RecoveryServices/locations/* |  |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 
 ## <a name="backup-operator"></a>備份操作員
@@ -619,7 +623,7 @@ ms.locfileid: "39136837"
 > | Microsoft.ClassicNetwork/virtualNetworks/join/action | 加入虛擬網路。 |
 > | Microsoft.ClassicNetwork/virtualNetworks/read | 取得虛擬網路。 |
 > | Microsoft.ClassicStorage/storageAccounts/disks/read | 傳回儲存體帳戶磁碟。 |
-> | Microsoft.ClassicStorage/storageAccounts/images/read | 傳回儲存體帳戶映像。 (已被取代。 使用 'Microsoft.ClassicStorage/storageAccounts/vmImages') |
+> | Microsoft.ClassicStorage/storageAccounts/images/read | 傳回儲存體帳戶映像。 (已淘汰。 使用 'Microsoft.ClassicStorage/storageAccounts/vmImages') |
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | 列出儲存體帳戶的存取金鑰。 |
 > | Microsoft.ClassicStorage/storageAccounts/read | 傳回具有給定帳戶的儲存體帳戶。 |
 > | Microsoft.Insights/alertRules/* | 建立和管理 Insights 警示規則 |
@@ -657,6 +661,32 @@ ms.locfileid: "39136837"
 > | Microsoft.Insights/Metrics/read | 讀取計量 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
+
+## <a name="data-box-contributor"></a>資料箱參與者
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **說明** | 可讓您管理資料箱服務下的所有項目，為他人賦予存取權除外。 |
+> | **Id** | add466c9-e687-43fc-8d98-dfcf8d720be5 |
+> | **動作** |  |
+> | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | 取得指定範圍中所有資源的可用性狀態 |
+> | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
+> | Microsoft.Support/* | 建立和管理支援票證 |
+> | Microsoft.Databox/* |  |
+
+## <a name="data-box-operator"></a>資料箱操作員
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **說明** | 可讓您管理資料箱服務，建立訂單或編輯訂單詳細資料和為他人賦予存取權除外。 |
+> | **Id** | 028f4ed7-e2a9-465e-a8f4-9c0ffdfdc027 |
+> | **動作** |  |
+> | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | 取得指定範圍中所有資源的可用性狀態 |
+> | Microsoft.Support/* | 建立和管理支援票證 |
+> | Microsoft.Databox/jobs/listsecrets/action | 列出與訂單相關的未加密祕密。 |
 
 ## <a name="data-factory-contributor"></a>Data Factory 參與者
 > [!div class="mx-tableFixed"]
@@ -828,7 +858,7 @@ ms.locfileid: "39136837"
 > | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
 > | Microsoft.LabServices/labAccounts/*/read |  |
 > | Microsoft.LabServices/labAccounts/createLab/action | 在實驗室帳戶中建立實驗室。 |
-> | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action | 取得實驗室帳戶下每個大小類別的區域可用性資訊 |
+> | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action | 取得在實驗室帳戶下設定的每個大小類別的區域可用性資訊 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 
@@ -918,6 +948,15 @@ ms.locfileid: "39136837"
 > | Microsoft.Web/connections/*/read | 讀取「連線」。 |
 > | Microsoft.Web/customApis/*/read | 讀取「自訂 API」。 |
 > | Microsoft.Web/serverFarms/read | 取得 App Service 方案的屬性 |
+
+## <a name="managed-application-operator-role"></a>受控應用程式操作員角色
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **說明** | 可讓您讀取受控應用程式資源及對其執行動作 |
+> | **Id** | c7393b34-138c-406f-901b-d8cf2b17e6ae |
+> | **動作** |  |
+> | Microsoft.Solutions/applications/read | 擷取應用程式清單。 |
 
 ## <a name="managed-identity-contributor"></a>受控身分識別參與者
 > [!div class="mx-tableFixed"]
@@ -1125,6 +1164,7 @@ ms.locfileid: "39136837"
 > | Microsoft.Authorization/policyDefinitions/* | 建立及管理原則定義 |
 > | Microsoft.Authorization/policySetDefinitions/* | 建立及管理原則集合 |
 > | Microsoft.Insights/alertRules/* | 建立及管理警示規則 |
+> | Microsoft.Management/managementGroups/read | 列出已驗證之使用者的管理群組。 |
 > | Microsoft.operationalInsights/workspaces/*/read | 檢視 Log Analytics 資料 |
 > | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
@@ -1134,8 +1174,9 @@ ms.locfileid: "39136837"
 > | Microsoft.Security/locations/tasks/activate/action | 啟用安全性建議 |
 > | Microsoft.Security/locations/tasks/dismiss/action | 關閉安全性建議 |
 > | Microsoft.Security/policies/write | 更新安全性原則 |
+> | Microsoft.Security/securityContacts/write | 更新安全性連絡人 |
+> | Microsoft.Security/securityContacts/delete | 刪除安全性連絡人 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
-> | Microsoft.Management/managementGroups/read | 列出已驗證之使用者的管理群組。 |
 
 ## <a name="security-manager"></a>安全性管理員
 > [!div class="mx-tableFixed"]

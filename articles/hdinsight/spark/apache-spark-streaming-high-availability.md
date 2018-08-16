@@ -1,25 +1,20 @@
 ---
-title: 在 YARN 中建立高可用性 Spark 串流作業 - Azure HDInsight | Microsoft Docs
+title: 在 YARN 中建立高可用性 Spark 串流作業 - Azure HDInsight
 description: 如何針對高可用性案例設定 Spark 串流。
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: ramoha
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
+ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
 ms.date: 01/26/2018
-ms.author: ramoha
-ms.openlocfilehash: bbb4da02cbe4b0685c715c4cd6bd7b15c6b5cce0
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: c49be5cdacdeee66b6eeadb3627c481c0ea517cd
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34165310"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618288"
 ---
 # <a name="create-high-availability-spark-streaming-jobs-with-yarn"></a>使用 YARN 建立高可用性 Spark 串流作業
 
