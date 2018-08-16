@@ -45,7 +45,7 @@ ms.locfileid: "33937570"
 **修復** - 憑證應該包含完整的憑證鏈結。  使用[準備 Azure Stack PKI 憑證以進行部署](azure-stack-prepare-pki-certs.md)中的步驟將憑證重新匯出，並選取 [如果可能的話，包含憑證路徑中的所有憑證] 選項。
 
 ## <a name="dns-names"></a>DNS 名稱
-**失敗** - 憑證上的 DNSNameList 不包含 Azure Stack 服務端點名稱或有效的萬用字元比對。  萬用字元比對僅對 DNS 名稱最左邊的命名空間有效。 例如，*.region.domain.com 僅對 portal.region.domain.com 有效，對 *.table.region.domain.com 則無效。  
+**失敗** - 憑證上的 DNSNameList 不包含 Azure Stack 服務端點名稱或有效的萬用字元比對。  萬用字元比對僅對 DNS 名稱最左邊的命名空間有效。 例如，\*.region.domain.com 僅對 portal.region.domain.com 有效，對 *.table.region.domain.com 則無效。  
 **修復** - 使用「Azure Stack 憑證簽署要求產生」中的步驟，重新產生具有正確 DNS 名稱可支援 Azure Stack 端點的 CSR。 將 CSR 重新提交給憑證授權單位，然後遵循[準備 Azure Stack PKI 憑證以進行部署](azure-stack-prepare-pki-certs.md)中的步驟，從產生 CSR 的電腦匯出憑證。  
 
 ## <a name="key-usage"></a>金鑰使用方式

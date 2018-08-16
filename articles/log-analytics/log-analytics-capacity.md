@@ -50,9 +50,9 @@ ms.locfileid: "37130338"
 
 | 連接的來源 | 支援 | 說明 |
 |---|---|---|
-| [Windows 代理程式](log-analytics-windows-agent.md) | yes | 解決方案會從 Windows 代理程式收集容量和效能資料的資訊。 |
+| [Windows 代理程式](log-analytics-windows-agent.md) | 是 | 解決方案會從 Windows 代理程式收集容量和效能資料的資訊。 |
 | [Linux 代理程式](log-analytics-linux-agents.md) | 否    | 解決方案不會從直接 Linux 代理程式收集容量和效能資料的資訊。|
-| [SCOM 管理群組](log-analytics-om-agents.md) | yes |解決方案會從已連線之 SCOM 管理群組中的代理程式收集容量和效能資料。 不需要從 SCOM 代理程式直接連接到 Log Analytics。|
+| [SCOM 管理群組](log-analytics-om-agents.md) | 是 |解決方案會從已連線之 SCOM 管理群組中的代理程式收集容量和效能資料。 不需要從 SCOM 代理程式直接連接到 Log Analytics。|
 | [Azure 儲存體帳戶](log-analytics-azure-storage.md) | 否 | Azure 儲存體不包含容量和效能資料。|
 
 ## <a name="prerequisites"></a>先決條件

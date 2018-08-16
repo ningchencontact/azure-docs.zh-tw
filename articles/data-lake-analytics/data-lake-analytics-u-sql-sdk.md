@@ -73,7 +73,7 @@ Data Lake U-SQL SDK 需要下列相依性︰
 | | |\_ScopeCodeGenEngine\_.*|編譯器輸出|產生的原生程式碼|
 | | |參考的組件|組件參考|參考的組件檔案|
 | | |deployed_resources|資源部署|資源部署檔案|
-| | |xxxxxxxx.xxx[1..n]\_\*.*|執行記錄檔|執行步驟的記錄檔|
+| | |xxxxxxxx.xxx[1..n]\_\*.\*|執行記錄檔|執行步驟的記錄檔|
 
 
 ## <a name="use-the-sdk-from-the-command-line"></a>從命令列使用 SDK

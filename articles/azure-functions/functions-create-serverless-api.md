@@ -104,7 +104,7 @@ Proxy 可以指向任何 HTTP 資源，例如︰
 
     | 欄位 | 範例值 | 說明 |
     |---|---|---|
-    | Name | HelloProxy | 僅用於管理的易記名稱 |
+    | 名稱 | HelloProxy | 僅用於管理的易記名稱 |
     | 路由範本 | /api/hello | 決定使用什麼路由來叫用此 Proxy |
     | 後端 URL | https://%HELLO_HOST%/api/hello | 指定端點，而其要求應該透過代理 |
     
