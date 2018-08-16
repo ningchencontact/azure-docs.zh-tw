@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: tonguyen
-ms.openlocfilehash: e4db9911697a4d79032b7a6358db642112a5a54e
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: dc516aa64399447973cefa47e913193adce2f8f5
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062156"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528260"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>使用 Azure 計費與成本管理避免非預期的費用
 
@@ -121,7 +121,7 @@ ms.locfileid: "37062156"
 
 ### <a name="turn-on-and-check-out-azure-advisor-recommendations"></a>開啟並查看 Azure 建議程式的建議
 
-[Azure 建議程式](../advisor/advisor-overview.md)是一項預覽功能，可協助您藉由找出低使用率的資源，來降低成本。 在 Azure 入口網站中將它開啟：
+[Azure 建議程式](../advisor/advisor-overview.md)是一項功能，可協助您藉由找出低使用率的資源來降低成本。 在 Azure 入口網站中造訪 Adviso：
 
 ![Azure 入口網站中 Azure 建議程式按鈕的螢幕擷取畫面](./media/billing-getting-started/advisor-button.PNG)
 

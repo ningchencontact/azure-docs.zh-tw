@@ -3,23 +3,23 @@ title: 呼叫包含驗證的 Azure 儲存體服務 REST API 作業 | Microsoft D
 description: 呼叫包含驗證的 Azure 儲存體服務 REST API 作業
 services: storage
 author: tamram
-manager: twooley
 ms.service: storage
 ms.topic: how-to
 ms.date: 05/22/2018
 ms.author: tamram
-ms.openlocfilehash: 6009ebd18eb089b21c98d6f7d9f49044a8d96098
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: common
+ms.openlocfilehash: 78e2620ba6e5e29a1f1ac9719b709d5a2f468122
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650446"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39529037"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>使用 Azure 儲存體 REST API
 
 本文說明如何使用 Blob 儲存體服務 REST API 以及如何驗證對服務的呼叫。 它是從對 REST 一無所知且不知道如何進行 REST 呼叫之開發人員的觀點來撰寫。 我們會查看 REST 呼叫的參考文件，了解如何將它轉譯為實際的 REST 呼叫 – 哪些欄位放到哪裡？ 了解如何設定 REST 呼叫之後，您可以運用此知識來使用任何其他儲存體服務 REST API。
 
-## <a name="prerequisites"></a>先決條件 
+## <a name="prerequisites"></a>必要條件 
 
 應用程式會列出儲存體帳戶的 blob 儲存體中的容器。 若要試用本文中的程式碼，您需要下列項目︰ 
 
@@ -56,17 +56,17 @@ REST 表示*具像狀態傳輸*。 如需特定定義，請查看[維基百科](
 
 範例應用程式會列出儲存體帳戶中的容器。 了解 REST API 文件中的資訊如何與實際的程式碼相互關聯後，就比較容易找出其他 REST 呼叫。 
 
-如果您查看 [Blob 服務 REST API](/rest/api/storageservices/fileservices/Blob-Service-REST-API)，您會看到可以在 blob 儲存體上執行的所有作業。 儲存體用戶端程式庫以 REST API 為主的包裝函式，可讓您輕鬆地存取儲存體，而不需直接使用 REST API。 但如上所述，有時候您想要使用 REST API，而不是儲存體用戶端程式庫。
+如果您查看 [Blob 服務 REST API](/rest/api/storageservices/Blob-Service-REST-API)，您會看到可以在 blob 儲存體上執行的所有作業。 儲存體用戶端程式庫以 REST API 為主的包裝函式，可讓您輕鬆地存取儲存體，而不需直接使用 REST API。 但如上所述，有時候您想要使用 REST API，而不是儲存體用戶端程式庫。
 
 ## <a name="rest-api-reference-list-containers-api"></a>REST API 參考：列出容器 API
 
-讓我們看看 REST API 參考中的 [ListContainers](/rest/api/storageservices/fileservices/List-Containers2) 作業頁面，以便在附有程式碼的下一節中瞭解要求和回應中的某些欄位來自何處。
+讓我們看看 REST API 參考中的 [ListContainers](/rest/api/storageservices/List-Containers2) 作業頁面，以便在附有程式碼的下一節中瞭解要求和回應中的某些欄位來自何處。
 
 **要求方法**：GET。 此動詞命令是您指定作為要求物件屬性的 HTTP 方法。 視您呼叫的 API 而定，此動詞命令的其他值包括 HEAD、PUT 和 DELETE。
 
 **要求 URI**：https://myaccount.blob.core.windows.net/?comp=list 這是從 blob 儲存體帳戶端點 `http://myaccount.blob.core.windows.net` 和資源字串 `/?comp=list` 建立而來。
 
-[URI 參數](/rest/api/storageservices/fileservices/List-Containers2#uri-parameters)：呼叫 ListContainers 時，您有其他查詢參數可以使用。 其中有幾個參數是呼叫的 timeout (以秒為單位) 以及用於篩選的 prefix。
+[URI 參數](/rest/api/storageservices/List-Containers2#uri-parameters)：呼叫 ListContainers 時，您有其他查詢參數可以使用。 其中有幾個參數是呼叫的 timeout (以秒為單位) 以及用於篩選的 prefix。
 
 另一個有用參數是 maxresults:，而如果可用的容器超出這個值，回應主體會包含 NextMarker 元素，以指出要在下一個要求中傳回的下一個容器。 若要使用此功能，您可在提出下一個要求時，於 URI 中提供 NextMarker 值作為 marker 參數。 使用此功能時，類似於逐頁瀏覽結果。 
 
@@ -76,15 +76,15 @@ REST 表示*具像狀態傳輸*。 如需特定定義，請查看[維基百科](
 /?comp=list&timeout=60&maxresults=100
 ```
 
-[要求標頭](/rest/api/storageservices/fileservices/List-Containers2#request-headers)**：** 此區段列出必要及選用的要求標頭。 三個必要標頭：Authorization 標頭、x-ms-date (包含要求的 UTC 時間) 及 x-ms-version (指定要使用的 REST API 版本)。 選擇性地在標頭中包含 *x-ms-client-request-id* – 您可以將此欄位的值設定為任意值；若已啟用記錄功能，則會寫入至儲存體分析記錄中。
+[要求標頭](/rest/api/storageservices/List-Containers2#request-headers)**：** 此區段列出必要及選用的要求標頭。 三個必要標頭：Authorization 標頭、x-ms-date (包含要求的 UTC 時間) 及 x-ms-version (指定要使用的 REST API 版本)。 選擇性地在標頭中包含 *x-ms-client-request-id* – 您可以將此欄位的值設定為任意值；若已啟用記錄功能，則會寫入至儲存體分析記錄中。
 
-[要求主體](/rest/api/storageservices/fileservices/List-Containers2#request-body)**：** ListContainers 沒有要求主體。 要求主體使用於上傳 blob 時的所有 PUT 作業，也會使用於 SetContainerAccessPolicy，其可讓您以要套用之預存存取原則的 XML 清單傳送。 [使用共用存取簽章 (SAS)](storage-dotnet-shared-access-signature-part-1.md) 一文會討論預存存取原則。
+[要求主體](/rest/api/storageservices/List-Containers2#request-body)**：** ListContainers 沒有要求主體。 要求主體使用於上傳 blob 時的所有 PUT 作業，也會使用於 SetContainerAccessPolicy，其可讓您以要套用之預存存取原則的 XML 清單傳送。 [使用共用存取簽章 (SAS)](storage-dotnet-shared-access-signature-part-1.md) 一文會討論預存存取原則。
 
-[回應狀態碼](/rest/api/storageservices/fileservices/List-Containers2#status-code)**：** 告知您需要知道的任何狀態碼。 在此範例中，HTTP 狀態碼 200 表示「正常」。 如需完整的 HTTP 狀態碼清單，請參閱[狀態碼定義](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)。 若要查看儲存體 REST API 特有的錯誤碼，請參閱[常見的 REST API 錯誤碼](/rest/api/storageservices/common-rest-api-error-codes)
+[回應狀態碼](/rest/api/storageservices/List-Containers2#status-code)**：** 告知您需要知道的任何狀態碼。 在此範例中，HTTP 狀態碼 200 表示「正常」。 如需完整的 HTTP 狀態碼清單，請參閱[狀態碼定義](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)。 若要查看儲存體 REST API 特有的錯誤碼，請參閱[常見的 REST API 錯誤碼](/rest/api/storageservices/common-rest-api-error-codes)
 
-[回應標頭](/rest/api/storageservices/fileservices/List-Containers2#response-headers)**：** 包括「內容類型」、x-ms-request-id (您傳入的要求識別碼 (適用的話))、x-ms-version (表示使用的 Blob 服務版本) 和「日期」 (UTC，告知提出要求的時間)。
+[回應標頭](/rest/api/storageservices/List-Containers2#response-headers)**：** 包括「內容類型」、x-ms-request-id (您傳入的要求識別碼 (適用的話))、x-ms-version (表示使用的 Blob 服務版本) 和「日期」 (UTC，告知提出要求的時間)。
 
-[回應主體](/rest/api/storageservices/fileservices/List-Containers2#response-body)：這個欄位是一種 XML 結構，可提供所要求的資料。 在此範例中，回應是容器及其屬性的清單。
+[回應主體](/rest/api/storageservices/List-Containers2#response-body)：這個欄位是一種 XML 結構，可提供所要求的資料。 在此範例中，回應是容器及其屬性的清單。
 
 ## <a name="creating-the-rest-request"></a>建立 REST 要求
 
@@ -102,7 +102,7 @@ REST 表示*具像狀態傳輸*。 如需特定定義，請查看[維基百科](
 您需要的一些基本資訊： 
 
 *  對 ListContainers 而言，**方法**是 `GET`。 此值會在具現化要求時設定。 
-*  **資源**是 URI 的查詢部份，其可指出正在呼叫哪一個 API，所以此值為 `/?comp=list`。 如前文所述，資源位於參考文件頁面上，可顯示 [ListContainers API](/rest/api/storageservices/fileservices/List-Containers2) 的相關資訊。
+*  **資源**是 URI 的查詢部份，其可指出正在呼叫哪一個 API，所以此值為 `/?comp=list`。 如前文所述，資源位於參考文件頁面上，可顯示 [ListContainers API](/rest/api/storageservices/List-Containers2) 的相關資訊。
 *  建立該儲存體帳戶的 Blob 服務端點並串連資源，即可建構 URI。 **要求 URI** 的值最終是 `http://contosorest.blob.core.windows.net/?comp=list`。
 *  對 ListContainers 而言，**requestBody** 為 null，而且沒有額外的**標頭**。
 
@@ -268,7 +268,7 @@ Content-Length: 1511
 > [!TIP]
 > Azure 儲存體現在支援 Blob 和佇列服務的 Azure Active Directory (Azure AD) 整合 (預覽)。 Azure AD 可提供更簡單的 Azure 儲存體要求授權體驗。 如需使用 Azure AD 來授權 REST 作業的詳細資訊，請參閱[使用 Azure Active Directory 進行驗證 (預覽)](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory)。 如需 Azure AD 與 Azure 儲存體整合的概觀，請參閱[使用 Azure Active Directory 來驗證 Azure 儲存體的存取權 (預覽)](storage-auth-aad.md)。
 
-有一篇在概念上說明 (沒有程式碼) 如何執行 [Azure 儲存體服務驗證](/rest/api/storageservices/fileservices/Authentication-for-the-Azure-Storage-Services)的文章。
+有一篇在概念上說明 (沒有程式碼) 如何執行 [Azure 儲存體服務驗證](/rest/api/storageservices/Authorization-for-the-Azure-Storage-Services)的文章。
 讓我們萃取該文章的精華，並顯示程式碼。
 
 首先，使用共用金鑰驗證。 授權標頭格式如下所示：
@@ -431,7 +431,7 @@ AuthorizationHeader 是在張貼回應之前，放在要求標頭中的最後一
 
 讓我們看看如何變更程式碼以對容器 container-1 呼叫 ListBlobs。 這與用於列出容器的程式碼幾乎相同，唯一的差異在於 URI 及剖析回應的方式。 
 
-如果您查看 [ListBlobs](/rest/api/storageservices/fileservices/List-Blobs) 的參考文件，您會發現此方法為 GET 且 RequestURI 為：
+如果您查看 [ListBlobs](/rest/api/storageservices/List-Blobs) 的參考文件，您會發現此方法為 GET 且 RequestURI 為：
 
 ```
 https://myaccount.blob.core.windows.net/container-1?restype=container&comp=list

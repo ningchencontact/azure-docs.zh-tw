@@ -1,24 +1,20 @@
 ---
-title: 在 HDInsight 叢集建立期間新增 Hive 程式庫 - Azure | Microsoft Docs
+title: 在 HDInsight 叢集建立期間新增 Hive 程式庫 - Azure
 description: 了解如何在叢集建立期間將 Hive 程式庫 (jar 檔案) 新增至 HDInsight 叢集。
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 2fd74b8d-c006-45c6-a9e2-72ff5d2d978a
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
+ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 71e2859085dc4a9f4fa327d88faff4fecf5108ef
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: fe7cb2c3990a5aa161665519490ede90be04e1ee
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31400651"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594582"
 ---
 # <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>建立 HDInsight 叢集時新增自訂 Hive 程式庫
 

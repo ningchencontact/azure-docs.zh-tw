@@ -4,16 +4,16 @@ description: 在您的 Windows 機器上使用模擬裝置，以透過裝置佈�
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/27/2018
+ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e149886e1ade80d7751f58eb1f77031c4e432b75
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: e558f44f9271009b92fbf4ece9aa706801e4176c
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307938"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576197"
 ---
 # <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>在 Windows 上建立及佈建模擬 TPM Edge 裝置
 
@@ -58,6 +58,8 @@ Azure IoT Edge 裝置可用[裝置佈建服務](../iot-dps/index.yml)來自動�
 
 ## <a name="install-the-iot-edge-runtime"></a>安裝 IoT Edge 執行階段
 
+完成上一節後，您應該會看到新裝置在 IoT 中樞內列為 IoT Edge 裝置。 現在，您必須在裝置上安裝 IoT Edge 執行階段。 
+
 IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 其元件會在容器中執行，並可讓您將其他容器部署到裝置，以便您在 Edge 上執行程式碼。 在執行 Windows 的裝置上，您可以選擇使用 Windows 容器或 Linux 容器。 選擇您要使用的容器類型，並遵循步驟。 請務必將 IoT Edge 執行階段設定為自動佈建，而不是手動佈建。 
 
 請依照指示，在執行模擬 TPM (已在上一節中建立) 的裝置上安裝 IoT Edge 執行階段。 
@@ -67,30 +69,9 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 其元件會在容
 * [Windows 容器](how-to-install-iot-edge-windows-with-windows.md)
 * [Linux 容器](how-to-install-iot-edge-windows-with-linux.md)
 
-## <a name="create-a-tpm-environment-variable"></a>建立 TPM 環境變數
-
-在執行模擬裝置的機器上，修改 **iotedge** 服務登錄來設定環境變數。
-
-1. 從 [開始] 功能表中，開啟 [regedit]。 
-2. 瀏覽至 **Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\iotedge**。 
-3. 選取 [編輯] > [新增] > [多字串值]。 
-4. 輸入名稱：**Environment**。 
-5. 按兩下新的變數，並將值資料設定為 **IOTEDGE_USE_TPM_DEVICE = ON**。 
-6. 按一下 [確定]  以儲存變更。 
-
-## <a name="restart-the-iot-edge-runtime"></a>重新啟動 IoT Edge 執行階段
-
-重新啟動 IoT Edge 執行階段，使其可取得您對裝置所做的所有組態變更。 
-
-```powershell
-Stop-Service iotedge -NoWait
-sleep 5
-Start-Service iotedge
-```
-
 ## <a name="verify-successful-installation"></a>確認安裝成功
 
-如果執行階段順利啟動，您可以移至您的 IoT 中樞，並看到新裝置已自動佈建，且已可執行 IoT Edge 模組。 
+如果執行階段順利啟動，您可以移至 IoT 中樞，並開始將 IoT Edge 模組部署到您的裝置。 請在您的裝置上使用下列命令，確認執行階段已成功安裝並啟動。  
 
 檢查 IoT Edge 服務的狀態。
 

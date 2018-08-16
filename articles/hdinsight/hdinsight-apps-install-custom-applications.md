@@ -1,25 +1,20 @@
 ---
-title: 在 Azure HDInsight 上安裝您自己的 Hadoop 應用程式 | Microsoft Docs
+title: 在 Azure HDInsight 上安裝您自己的 Hadoop 應用程式
 description: 了解如何在 HDInsight 應用程式上安裝 HDInsight 應用程式。
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: e556b29c-8176-4bc5-a90b-aa01abfd3aee
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: ab0395f9ee9a8950b439f19502ca6cef6c4f4cf2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: 23fbbdc4fc41329efadc4fc7953afa0659e79465
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201630"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595894"
 ---
 # <a name="install-custom-hadoop-applications-on-azure-hdinsight"></a>在 Azure HDInsight 上安裝自訂 Hadoop 應用程式
 
@@ -33,7 +28,7 @@ HDInsight 應用程式是使用者可以在以 Linux 為基礎的 HDInsight 叢�
 * [發佈 HDInsight 應用程式](hdinsight-apps-publish-applications.md)︰了解如何將自訂 HDInsight 應用程式發佈至 Azure Marketplace。
 * [MSDN：安裝 HDInsight 應用程式](https://msdn.microsoft.com/library/mt706515.aspx)︰了解如何定義 HDInsight 應用程式。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 如果您想要在現有的 HDInsight 叢集上安裝 HDInsight 應用程式，您必須有 HDInsight 叢集。 若要建立叢集，請參閱 [建立叢集](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster)。 您也可以在建立 HDInsight 叢集時安裝 HDInsight 應用程式。
 
 ## <a name="install-hdinsight-applications"></a>安裝 HDInsight 應用程式

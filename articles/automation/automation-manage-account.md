@@ -9,17 +9,17 @@ ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: be1b35d2e7dc3d3e2efab825f318983e2943b0d2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5fbdccf4e14ce1201b21f0490e9c890c77c3e2f0
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194354"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577750"
 ---
 # <a name="manage-azure-automation-account"></a>管理 Azure 自動化帳戶
 有時您必須在自動化帳戶到期前更新憑證。 如果您認為執行身分帳戶遭到盜用，您可加以刪除並重新建立。 本節會討論如何執行這些作業。
 
-## <a name="self-signed-certificate-renewal"></a>自我簽署憑證更新
+## <a name="cert-renewal"></a>自我簽署憑證更新
 您為執行身分帳戶建立的自我簽署憑證，會在建立日起算一年後到期。 您可以在該憑證到期前隨時更新憑證。 當您更新憑證時，目前的有效憑證會予以保留，以確保已排入佇列或正在執行以及使用該執行身分帳戶進行驗證的任何 Runbook 不會受到負面影響。 憑證在到期日之前會保持有效。
 
 > [!NOTE]
@@ -77,6 +77,6 @@ ms.locfileid: "34194354"
 您可以藉由刪除並重新建立這些執行身分帳戶，來快速解決帳戶的問題。
 
 ## <a name="next-steps"></a>後續步驟
-* 如需服務主體的詳細資訊，請參閱 [應用程式物件和服務主體物件](../active-directory/active-directory-application-objects.md)。
+* 如需服務主體的詳細資訊，請參閱 [應用程式物件和服務主體物件](../active-directory/develop/app-objects-and-service-principals.md)。
 * 如需 Azure 自動化中角色型存取控制的詳細資訊，請參閱 [Azure 自動化中的角色型存取控制](automation-role-based-access-control.md)。
 * 如需有關憑證和 Azure 服務的詳細資訊，請參考 [Azure 雲端服務的憑證概觀](../cloud-services/cloud-services-certs-create.md)。

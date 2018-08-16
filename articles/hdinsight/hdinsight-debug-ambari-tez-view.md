@@ -1,24 +1,20 @@
 ---
-title: 搭配 HDInsight 來使用 Ambari Tez 檢視 - Azure | Microsoft Docs
+title: 搭配 HDInsight 來使用 Ambari Tez 檢視 - Azure
 description: 了解如何在 HDInsight 上使用 Ambari Tez 檢視來為 Tez 作業偵錯。
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 9c39ea56-670b-4699-aba0-0f64c261e411
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
-ms.openlocfilehash: 98874377f31a435e7dd9736410c123ef623928d0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: de8e40081f92ade236c0c6f3b8d12a77ab13a82a
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401585"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594248"
 ---
 # <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>在 HDInsight 上使用 Ambari 檢視來為 Tez 作業偵錯
 
@@ -27,7 +23,7 @@ ms.locfileid: "31401585"
 > [!IMPORTANT]
 > 此文件中的步驟需要使用 Linux 的 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [HDInsight 元件版本設定](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 以 Linux 為基礎的 HDInsight 叢集。 如需建立叢集的步驟，請參閱[開始使用以 Linux 為基礎的 HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)。
 * 支援 HTML5 的新式網頁瀏覽器。

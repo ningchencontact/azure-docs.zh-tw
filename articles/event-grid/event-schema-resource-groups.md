@@ -6,20 +6,28 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 07/19/2018
+ms.date: 08/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 242a0cee6e76250288f51f75dd695b608fd4d914
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 407d9fd5b6f4d554af37b60edf12422f8816ac00
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173171"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495317"
 ---
 # <a name="azure-event-grid-event-schema-for-resource-groups"></a>Azure Event Grid 資源群組事件結構描述
 
 本文提供資源群組事件的屬性與結構描述。 如需事件結構描述的簡介，請參閱 [Azure Event Grid 事件結構描述](event-schema.md)。
 
-Azure 訂用帳戶和資源群組會發出相同的事件類型。 事件類型與資源中的變更相關聯。 主要的差異在於資源群組所發出的事件是針對資源群組內的資源，而 Azure 訂用帳戶發出的事件是針對整個訂用帳戶上的資源。 
+Azure 訂用帳戶和資源群組會發出相同的事件類型。 事件類型與資源中的變更相關聯。 主要的差異在於資源群組所發出的事件是針對資源群組內的資源，而 Azure 訂用帳戶發出的事件是針對整個訂用帳戶上的資源。
+
+系統會針對傳送至 `management.azure.com` 的 PUT、PATCH 和 DELETE 作業建立資源事件。 POST 與 GET 作業不會建立事件。 傳送至資料平面作的業 (例如 `myaccount.blob.core.windows.net`) 不會建立事件。
+
+當您訂閱資源群組的事件時，您的端點會接收該資源群組的所有事件。 事件可以包含您想要查看的事件，例如更新虛擬機器，也也可以包含對您不重要的事件，例如在部署歷程記錄中寫入新的項目。 您可以在您的端點接收所有事件，以及撰寫程式碼來處理您想要處理的事件，也可以在建立事件訂用帳戶時設定篩選條件。
+
+若要以程式設計方式處理事件，您可藉由查看 `operationName` 值來排序事件。 例如，您的事件端點可能只會處理等於 `Microsoft.Compute/virtualMachines/write` 或 `Microsoft.Storage/storageAccounts/write` 的作業事件。
+
+事件主旨是資源的資源識別碼，而該資源為作業目標。 若要篩選資源的事件，請在建立事件訂用帳戶時提供該資源識別碼。 如需範例指令碼，請參閱[訂閱及篩選資源群組 - PowerShell](scripts/event-grid-powershell-resource-group-filter.md) 或[訂閱及篩選資源群組 - Azure CLI](scripts/event-grid-cli-resource-group-filter.md)。 若要依資源類型進行篩選，請使用以下格式的值：`/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
 
 ## <a name="available-event-types"></a>可用的事件類型
 
@@ -36,7 +44,7 @@ Azure 訂用帳戶和資源群組會發出相同的事件類型。 事件類型�
 
 ## <a name="example-event"></a>事件範例
 
-下列範例顯示資源已建立事件的結構描述： 
+下列範例顯示 **ResourceWriteSuccess** 事件的結構描述。 具有不同 `eventType` 值的 **ResourceWriteFailure** 和 **ResourceWriteCancel** 事件使用相同的結構描述。
 
 ```json
 [{
@@ -96,7 +104,7 @@ Azure 訂用帳戶和資源群組會發出相同的事件類型。 事件類型�
 }]
 ```
 
-資源已刪除事件的結構描述也相當類似：
+下列範例顯示 **ResourceDeleteSuccess** 事件的結構描述。 具有不同 `eventType` 值的 **ResourceDeleteFailure** 和 **ResourceDeleteCancel** 事件使用相同的結構描述。
 
 ```json
 [{
@@ -184,7 +192,7 @@ Azure 訂用帳戶和資源群組會發出相同的事件類型。 事件類型�
 | 授權 | 物件 | 作業的所要求授權。 |
 | claims | 物件 | 宣告的屬性。 如需詳細資訊，請參閱 [JWT 規格](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)。 |
 | correlationId | 字串 | 用於疑難排解的作業識別碼。 |
-| httpRequest | 物件 | 作業的詳細資料。 |
+| httpRequest | 物件 | 作業的詳細資料。 更新現有資源或刪除資源時，只會包含這個物件。 |
 | resourceProvider | 字串 | 執行作業的資源提供者。 |
 | resourceUri | 字串 | 作業中資源的 URI。 |
 | operationName | 字串 | 已執行的作業。 |

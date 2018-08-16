@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/24/2018
+ms.date: 08/03/2018
 ms.author: genli
-ms.openlocfilehash: 8a6256ab9c511342b536919c69faed30d40a256d
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: cb8ba5169a6ebfbb11ba0acfa9b9f463b7cdf6a1
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282585"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520797"
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>執行個體層級公用 IP (Classic) 概觀
 執行個體層級公用 IP (ILPIP) 是您可以直接指派至 VM 或雲端服務角色執行個體的公用 IP 位址，而不是指派至 VM 或角色執行個體所在的雲端服務。 ILPIP 不會取代指派給雲端服務的虛擬 IP (VIP)。 應該說是您可以用來直接連接到 VM 或角色執行個體的其他 IP 位址。
@@ -60,10 +60,26 @@ ms.locfileid: "39282585"
 ```powershell
 New-AzureService -ServiceName FTPService -Location "Central US"
 
-$image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"} `
+$image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
+
+#Set "current" storage account for the subscription. It will be used as the location of new VM disk
+
+Set-AzureSubscription -SubscriptionName <SubName> -CurrentStorageAccountName <StorageAccountName>
+
+#Create a new VM configuration object
+
 New-AzureVMConfig -Name FTPInstance -InstanceSize Small -ImageName $image.ImageName `
 | Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
 | Set-AzurePublicIP -PublicIPName ftpip | New-AzureVM -ServiceName FTPService -Location "Central US"
+
+```
+如果您想要指定其他儲存體帳戶作為新的 VM 磁碟位置，您可以使用 **MediaLocation** 參數：
+
+```powershell
+    New-AzureVMConfig -Name FTPInstance -InstanceSize Small -ImageName $image.ImageName `
+     -MediaLocation https://management.core.windows.net/<SubscriptionID>/services/storageservices/<StorageAccountName> `
+    | Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
+    | Set-AzurePublicIP -PublicIPName ftpip | New-AzureVM -ServiceName FTPService -Location "Central US"
 ```
 
 ### <a name="how-to-retrieve-ilpip-information-for-a-vm"></a>如何擷取 VM 的 ILPIP 資訊

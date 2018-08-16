@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/25/2018
-ms.openlocfilehash: f87337d51b86f6b1eb053c1b618a2fc0696a9eb2
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 888a99cad68f98030d4481cc23cb82123c900ee6
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114502"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480524"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>使用參考資料在串流分析中進行查閱
 參考資料 (也稱為查詢資料表) 基本上是靜態或不常變更的有限資料集，可用來執行查閱或與資料流相互關聯。 Azure 串流分析會將參考資料載入記憶體，以達到低延遲的串流處理。 若要使用 Azure 串流分析作業中的參考資料，您通常會在查詢中使用[參考資料聯結](https://msdn.microsoft.com/library/azure/dn949258.aspx)。 串流分析會使用 Azure Blob 儲存體做為參考資料的儲存層，且可和 Azure Data Factory 參考資料一起轉換和/或複製到來自 [任意數目的雲端架構和內部部署資料存放區](../data-factory/copy-activity-overview.md)的 Azure Blob 儲存體，做為參考資料。 參考資料會依 Blob 名稱中指定之日期/時間的遞增順序，以 Blob 序列的形式建立模型 (在輸入組態中定義)。 它「只」支援使用比序列中最後一個 Blob 指定之日期/時間「大」的日期/時間來新增到序列的結尾。
@@ -46,8 +46,13 @@ ms.locfileid: "39114502"
 |事件序列化格式   | 為了確定您的查詢運作如預期，串流分析需要知道您的內送資料流使用哪一種序列化格式。 參考資料的支援格式為 CSV 和 JSON。  |
 |編碼   | UTF-8 是目前唯一支援的編碼格式。  |
 
+## <a name="static-reference-data"></a>靜態參考資料
+如果您的參考資料不應該變更，則在輸入組態中指定靜態路徑，以便啟用靜態參考資料的支援。 Azure 串流分析會從指定的路徑挑選 blob。 {date} 和 {time} 替代權杖並非必要。 參考資料在串流分析中固定不變。 因此，不建議覆寫靜態參考資料 blob。
+
 ## <a name="generating-reference-data-on-a-schedule"></a>產生排程上的參考資料
 如果您的參考資料是不常變更的資料集，可以啟用重新整理參考資料的支援，方法是使用 {date} 與 {time} 替代權杖指定輸入設定內的路徑模式。 串流分析會根據此路徑模式採用更新的參考資料定義。 例如，日期格式為 **“YYYY-MM-DD”** 且時間格式為 **“HH:mm”** 的模式 `sample/{date}/{time}/products.csv`，會指示串流分析在 UTC 時區 2015 年 4 月 16 日的下午 5:30 採用更新的 Blob `sample/2015-04-16/17-30/products.csv`。
+
+Azure 串流分析會每隔一分鐘自動掃描已重新整理的參考資料 blob。
 
 > [!NOTE]
 > 目前串流分析作業只有在機器時間朝向 Blob 名稱中編碼的時間時，才會尋求 Blob 重新整理。 例如，作業會儘速尋找 `sample/2015-04-16/17-30/products.csv` ，但不早於 UTC 時區 2015 年 4 月 16 日的下午 5:30。 它「決不會」尋找編碼時間早於最後一個探索到的 blob。
@@ -63,8 +68,12 @@ ms.locfileid: "39114502"
 [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) 可用來針對串流分析更新參考資料定義時所需的已更新 Blob，協調建立這些 Blob 的工作。 Data Factory 是雲端架構資料整合服務，用來協調以及自動移動和轉換資料。 Data Factory 可 [連線到大量雲端式和內部部署的資料存放區](../data-factory/copy-activity-overview.md) ，也可根據您指定的定期排程輕鬆移動資料。 如需詳細資訊及逐步解說指南，瞭解該如何設定 Data Factory 管線才能產生依預先定義排程重新整理的「串流分析」參考資料，請查看此 [GitHub 範例](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs)。
 
 ## <a name="tips-on-refreshing-your-reference-data"></a>重新整理參考資料的秘訣
-1. 覆寫參考資料 Blob 並不會造成「串流分析」重新載入 Blob，並且在某些情況下，它可能會造成工作失敗。 若要變更參考資料，建議的方式是藉由使用工作輸入中定義的相同容器和路徑格式，並使用比序列中最後一個 Blob 指定之日期/時間「大」  的日期/時間，加入新的 Blob。
-2. 參考資料 Blob **不是**依 Blob 的「上次修改日期」時間排序，而是只依 Blob 名稱中使用 {date} 和 {time} 替代來指定的時間和日期排序。
+1. 請勿覆寫參考資料 Blob，因為它們是固定不變的。
+2. 重新整理參考資料的建議方式是：
+    * 在路徑模式中使用 {date}/{time}
+    * 使用作業輸入中定義的相同容器和路徑模式來新增 blob
+    * 使用比序列中最後一個 Blob 指定的日期/時間**大**的日期/時間。
+3. 參考資料 Blob **不是**依 Blob 的「上次修改日期」時間排序，而是只依 Blob 名稱中使用 {date} 和 {time} 替代來指定的時間和日期排序。
 3. 若要避免必須列出大量 Blob，請考慮刪除再也不會進行處理且非常舊的 Blob。 請注意，ASA 在某些案例 (例如重新啟動) 中可能需要重新處理很少數舊的 Blob。
 
 ## <a name="next-steps"></a>後續步驟

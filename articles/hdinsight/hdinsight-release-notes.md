@@ -1,24 +1,20 @@
 ---
-title: Azure HDInsight 的版本資訊 | Microsoft Docs
+title: Azure HDInsight 的版本資訊
 description: Azure HDInsight 的最新版本資訊。 取得 Hadoop、Spark、R Server、Hive 等的開發秘訣和詳細資料。
 services: hdinsight
-documentationcenter: ''
-editor: cgronlun
-manager: jhubbard
-author: nitinme
-tags: azure-portal
-ms.assetid: a363e5f6-dd75-476a-87fa-46beb480c1fe
+editor: jasonwhowell
+author: jasonwhowell
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 07/01/2018
-ms.author: nitinme
-ms.openlocfilehash: dd2d2373ee2c871075208672ffb1e374baa12669
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.author: jasonh
+ms.openlocfilehash: c6c320786611e9e2646000fb2272ced8fa90d194
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437819"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39596030"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Azure HDInsight 的版本資訊
 
@@ -1008,7 +1004,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 | BUG-98082              | [HIVE-18597](https://issues.apache.org/jira/browse/HIVE-18597)                                                                         | LLAP︰一律針對 org.apache.log4j 封裝 log4j2 API jar                                           |
 | BUG-99849              | N/A                                                                                                                                    | 從嘗試使用預設資料庫的檔案精靈建立新資料表                                    |
 
-**Security**
+**安全性**
 
 | **Hortonworks 錯誤識別碼** | **Apache JIRA**                                                                                                                                                                                            | **總結**                                                                                                           |
 |------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
@@ -1408,7 +1404,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
         
         2.  找出 renderPolicyCondtion 函式的定義 (行號：404)。
         
-        3.  從該函式移除下面這行，也就是在顯示函式底下 (行號：434) under display function(line no:434)
+        3.  從該函式移除下面這行，也就是 在顯示函式底下 (行號：434)
             
             val = \_.escape(val);//Line No:460
             

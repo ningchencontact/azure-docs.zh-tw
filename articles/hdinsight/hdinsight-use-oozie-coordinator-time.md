@@ -1,26 +1,21 @@
 ---
-title: 在 HDInsight 上使用以時間為基礎的 Hadoop Oozie 協調器 | Microsoft Docs
+title: 在 HDInsight 上使用以時間為基礎的 Hadoop Oozie 協調器
 description: 在 HDInsight 上使用以時間為基礎的 Hadoop Oozie 協調器：一項巨量資料服務。 了解如何定義 Oozie 工作流程和協調器，以及提交工作。
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 00c3a395-d51a-44ff-af2d-1f116c4b1c83
+author: jasonwhowell
+editor: jasonwhowell
+ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/04/2017
-ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: c5819d39bf3ab7c0f4af32171aadea56e4f6a241
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 61d2e03fad5303f6f66633536b2acc8b1fe300cc
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063522"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597271"
 ---
 # <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>在 HDInsight 上將以時間為基礎的 Oozie 協調器與 Hadoop 搭配使用，以定義工作流程和協調工作
 在本文中，您將了解如何定義工作流程和協調器，以及如何觸發以時間為基礎的協調器工作。 閱讀本文之前，建議先看過一遍[搭配 HDInsight 使用 Oozie][hdinsight-use-oozie]。 除了 Oozie，您也可以使用 Azure Data Factory 排定工作。 若要了解 Azure Data Factory，請參閱 [搭配 Data Factory 使用 Pig 和 Hive](../data-factory/transform-data.md)。
@@ -61,7 +56,7 @@ Apache Oozie 是可管理 Hadoop 工作的工作流程/協調系統。 它可與
 >
 >
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 開始進行本教學課程之前，您必須具備下列條件：
 
 * **具有 Azure PowerShell 的工作站**。

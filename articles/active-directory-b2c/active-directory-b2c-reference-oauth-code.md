@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9fb2d2ccabf79a95a108d4ecf39a4957fc9ffff4
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 2452389605db0654fb9d8dc06d89a8195f9ae372
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113669"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480839"
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C：OAuth 2.0 授權碼流程
 在安裝於裝置上的應用程式中，您可以使用 OAuth 2.0 授權碼授與來存取受保護的資源，例如 Web API。 您可以使用 Azure Active Directory B2C (Azure AD B2C) 的 OAuth 2.0 實作，將註冊、登入及其他身分識別管理工作新增至行動及桌面應用程式。 這篇文章是與語言無關。 在本文中，我們將說明如何傳送及接收 HTTP 訊息，但不使用任何開放原始碼程式庫。
 
 <!-- TODO: Need link to libraries -->
 
-如需 OAuth 2.0 授權碼流程的說明，請參閱 [OAuth 2.0 規格的 4.1 節](http://tools.ietf.org/html/rfc6749)。 在大多數[應用程式類型](active-directory-b2c-apps.md) (包括 Web 應用程式和原生安裝的應用程式) 中，您都能利用它來執行驗證及授權作業。 您可以使用 OAuth 2.0 授權碼流程，安全地為您的應用程式取得存取權杖，而這些存取權杖可用來存取[授權伺服器](active-directory-b2c-reference-protocols.md)所保護的資源。
+如需 OAuth 2.0 授權碼流程的說明，請參閱 [OAuth 2.0 規格的 4.1 節](http://tools.ietf.org/html/rfc6749)。 在大多數[應用程式類型](active-directory-b2c-apps.md) (包括 Web 應用程式和原生安裝的應用程式) 中，您都能利用它來執行驗證及授權作業。 您可以使用 OAuth 2.0 授權碼流程，安全地為您的應用程式取得存取權杖和重新整理權杖，而這些存取權杖可用來存取[授權伺服器](active-directory-b2c-reference-protocols.md)所保護的資源。  一旦存取權杖到期 (通常在一小時後)，重新整理權杖即可讓用戶端取得新的存取 (和重新整理) 權杖。
 
 本文著重在**公開用戶端** OAuth 2.0 授權碼流程。 公開用戶端是指不可信任會安全地維護密碼完整性的任何用戶端應用程式。 這包括行動應用程式、桌面應用程式，以及基本上任何在裝置上執行且需要取得存取權杖的應用程式。 
 

@@ -1,25 +1,21 @@
 ---
-title: 在 Azure HDInsight 中使用 Power BI 將互動式查詢 Hive 資料視覺化 | Microsoft Docs
+title: 在 Azure HDInsight 中使用 Power BI 將互動式查詢 Hive 資料視覺化
 description: 了解如何使用 Microsoft Power BI 將 Azure HDInsight 所處理的互動式查詢 Hive 資料視覺化。
 keywords: hdinsight,hadoop,hive,互動式查詢,互動式 hive,LLAP,directquery
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
 ms.service: hdinsight
-ms.custom: hdinsightactive,
-ms.devlang: na
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
+ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/14/2018
-ms.author: jgao
-ms.openlocfilehash: b8da1f17b9e477caf9031cf94ee14f3a181e247e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4dcfcb5e70b9eb6626be1f3528781a8c5b1bd5c4
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31407957"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593021"
 ---
 # <a name="visualize-interactive-query-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>在 Azure HDInsight 中使用直接查詢藉由 Microsoft Power BI 將互動式查詢 Hive 資料視覺化
 
@@ -29,7 +25,7 @@ ms.locfileid: "31407957"
 
 您可以利用 [Hive ODBC 驅動程式](../hadoop/apache-hadoop-connect-hive-power-bi.md)，透過 Power BI Desktop 中的一般 ODBC 連接器執行匯入作業。 不過，BI 工作負載如果具有 Hive 查詢引擎的非互動式本質，則不建議使用此方式。 為發揮其效能，[HDInsight 互動式查詢連接器](./apache-hadoop-connect-hive-power-bi-directquery.md)和 [HDInsight Spark 連接器](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect)會是較好的選擇。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 在閱讀本文之前，您必須有下列各項：
 
 * **HDInsight 叢集**。 此叢集可以是含有 Hive 的 HDInsight 叢集或新發行的互動式查詢叢集。 如需建立叢集，請參閱[建立叢集](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster)。
@@ -53,7 +49,7 @@ ms.locfileid: "31407957"
     - **資料連線模式**：針對此教學課程，請選取 [DirectQuery]。
 
     ![HDInsight 互動式查詢 power bi directquery 連線](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-interactive-query-power-bi-connect.png)
-7. 按一下 [SERVICEPRINCIPAL] 。
+7. 按一下 [確定]。
 8. 輸入 HTTP 使用者認證，然後按一下 [確定]。  預設的使用者名稱為 **admin**
 9. 從左窗格中選取 [hivesampletale]，然後按一下 [載入]。
 

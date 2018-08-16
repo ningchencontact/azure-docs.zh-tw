@@ -7,14 +7,14 @@ manager: carmonm
 keywords: 備份和災害復原; 備份服務
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/1/2018
+ms.date: 8/2/2018
 ms.author: markgal
-ms.openlocfilehash: 33a3a1c0fd375f6ed88e13f910c46e71f216b892
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 5fd0cb92bd35b1f238e4080d2c9e8caf781b8131
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412946"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493863"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>關於 Azure 備份服務的問題
 本文提供 Azure 備份元件的常見問題解答。 在某些答案中，有具有完整資訊的文章連結。 按一下 [註解] \(位於右側)，即可詢問 Azure 備份的相關問題。 註解會出現於文末。 需有 Livefyre 帳戶才能使用註解。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。
@@ -29,6 +29,9 @@ ms.locfileid: "39412946"
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>針對每個保存庫註冊的伺服器/電腦具有數目限制嗎？ <br/>
 每個保存庫可以註冊最多 1000 部 Azure 虛擬機器。 如果您使用的是 MAB 代理程式，則每個保存庫可以註冊最多 50 個 MAB 代理程式。 而且您可以將 50 部 MAB 伺服器/DPM 伺服器註冊至保存庫。
+
+### <a name="can-i-use-a-rest-api-to-query-the-size-of-protected-items-in-a-vault-br"></a>可以使用 REST API 來查詢保存庫中受保護項目的大小嗎？ <br/>
+是，[使用方式 - 依保存庫列出](https://t.co/2lgIrIaF0J)一文列出您可以從復原服務保存庫取得的資訊。
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>如果我的組織有一個備份保存庫，如何在還原資料時隔離某一部伺服器與另一部伺服器的資料？<br/>
 所有向相同保存庫註冊的伺服器都可以復原由「使用相同複雜密碼」 之其他伺服器所備份的資料。 如果您想要隔離您伺服器中的備份資料與您組織中的其他伺服器，請使用這些伺服器的指定複雜密碼。 例如，人力資源伺服器可能使用一組加密複雜密碼，而會計伺服器使用另一組，並且儲存體伺服器使用第三組。
@@ -57,6 +60,8 @@ ms.locfileid: "39412946"
 
 是。 您可以使用 Azure 備份伺服器，將 VMware vCenter 和 ESXi 備份至 Azure。 如需支援 VMware 版本的資訊，請參閱 [Azure 備份伺服器保護矩陣](backup-mabs-protection-matrix.md)一文。 如需逐步指示，請參閱[使用 Azure 備份伺服器來備份 VMware 伺服器](backup-azure-backup-server-vmware.md)。
 
+### <a name="do-i-need-a-separate-license-to-recover-a-full-on-premises-vmwarehyper-v-cluster-from-dpm-or-azure-backup-serverbr"></a>我需要個別授權，才能從 DPM 或 Azure 備份伺服器復原完整的內部部署 VMware/Hyper-V 叢集嗎？<br/>
+您不需要針對 VMware/HYPER-V 保護進行個別授權。 如果您是 System Center 客戶，請使用 DPM 來保護 VMware VM。 如果您不是 System Center 客戶，您可使用 Azure 備份伺服器 (預付型方案) 來保護 VMware VM。
 
 ## <a name="azure-backup-server-and-system-center-data-protection-manager"></a>Azure 備份伺服器和 System Center Data Protection Manager
 ### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>可以使用 Azure 備份伺服器來為實體伺服器建立裸機復原 (BMR) 備份嗎？ <br/>
@@ -90,6 +95,9 @@ ms.locfileid: "39412946"
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-i-backed-upbr"></a>為何傳輸到復原服務保存庫的資料大小會小於我備份的資料？<br/>
  從 Azure 備份代理程式、SCDPM 或 Azure 備份伺服器備份的所有資料都會在傳輸之前，經過壓縮和加密。 一旦套用壓縮和加密，復原服務保存庫中的資料會縮小 30-40%。
+
+### <a name="can-i-delete-individual-files-from-a-recovery-point-in-the-vaultbr"></a>可以從保存庫中的復原點刪除個別的檔案嗎？<br/>
+否，Azure 備份不支援從儲存的備份中刪除或清除個別項目。
 
 ## <a name="what-can-i-back-up"></a>我可以備份什麼
 ### <a name="which-operating-systems-does-azure-backup-support-br"></a>Azure 備份支援哪些作業系統？ <br/>

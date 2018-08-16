@@ -1,24 +1,20 @@
 ---
-title: 在 HDInsight 中使用 Hadoop 分析航班延誤資料 - Azure | Microsoft Docs
+title: 在 HDInsight 上使用 Hadoop 分析航班延誤資料 - Azure
 description: 了解如何使用一個 Windows PowerShell 指令碼建立 HDInsight 叢集、執行 Hive 工作、執行 Sqool 工作和刪除叢集。
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 00e26aa9-82fb-4dbe-b87d-ffe8e39a5412
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jgao
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: eec5d0eb3c9cb0ae6e3e7f4eadfc58c4ab039cfd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7d1ab85f3efeaa17abbe1cc93157e63bbca1a0b9
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33770567"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592249"
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>在 HDInsight 上使用 Hadoop 分析航班延誤資料
 Hive 可透過一種類似 SQL 的指令碼語言 (稱為 *[HiveQL][hadoop-hiveql]*) 來執行 Hadoop MapReduce 作業，可用來彙總、查詢和分析大量資料。
@@ -50,7 +46,7 @@ Azure HDInsight 的其中一個主要優點就是區隔資料儲存和運算。 
 > [!NOTE]
 > 此文件中的步驟是針對以 Windows 為基礎的 HDInsight 叢集。 如需與 Linux 叢集搭配使用的步驟，請參閱[在 HDInsight (Linux) 中使用 Hive 分析航班延誤資料](hdinsight-analyze-flight-delay-data-linux.md)
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 開始進行本教學課程之前，您必須具備下列項目：
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
@@ -708,7 +704,7 @@ HiveQL 指令碼將執行下列作業：
 
     以下是指令碼中使用的一些常數：
 
-   * **$ipAddressRestService** - 預設值是 http://bot.whatismyipaddress.com。這是用來取得外部 IP 位址的公用 IP 位址 REST 服務。 想要的話，您可以使用其他服務。 透過此服務所擷取的外部 IP 位址將用來建立 Azure SQL Database 伺服器的防火牆規則，讓您能夠從工作站存取資料庫 (使用 Windows PowerShell 指令碼)。
+   * **$ipAddressRestService** - 預設值是 http://bot.whatismyipaddress.com。 這是用來取得外部 IP 位址的公用 IP 位址 REST 服務。 想要的話，您可以使用其他服務。 透過此服務所擷取的外部 IP 位址將用來建立 Azure SQL Database 伺服器的防火牆規則，讓您能夠從工作站存取資料庫 (使用 Windows PowerShell 指令碼)。
    * **$fireWallRuleName** - 這是 Azure SQL Database 伺服器的防火牆規則名稱。 預設名稱為 <u>FlightDelay</u>。 想要的話，您可以將它重新命名。
    * **$sqlDatabaseMaxSizeGB** - 只有在建立新的 Azure SQL Database 伺服器時才會使用此值。 預設值為 10GB。 10GB 足夠供本教學課程使用。
    * **$sqlDatabaseName** - 只有在建立新的 Azure SQL Database 時才會使用此值。 預設值為 HDISqoop。 如果將它重新命名，則必須相應地更新 Sqoop Windows PowerShell 指令碼。

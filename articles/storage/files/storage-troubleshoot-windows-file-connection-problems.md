@@ -2,24 +2,19 @@
 title: 針對 Windows 中的 Azure 檔案服務問題進行疑難排解 | Microsoft Docs
 description: 針對 Windows 中的 Azure 檔案服務問題進行疑難排解
 services: storage
-documentationcenter: ''
-author: wmgries
-manager: aungoo
-editor: tamram
+author: jeffpatt24
 tags: storage
 ms.service: storage
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
-ms.author: wgries
-ms.openlocfilehash: 18f594586aa95afaa01bfda712dfc23c8aad3a36
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.author: jeffpatt
+ms.component: files
+ms.openlocfilehash: 935d4a3ba3fc3199177be5bd4e70f82239c3c971
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738542"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39529683"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>針對 Windows 中的 Azure 檔案服務問題進行疑難排解
 

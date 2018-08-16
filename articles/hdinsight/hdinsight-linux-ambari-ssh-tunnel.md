@@ -1,24 +1,20 @@
 ---
-title: 使用 SSH 通道存取 Azure HDInsight | Microsoft Docs
+title: 使用 SSH 通道存取 Azure HDInsight
 description: 了解如何使用 SSH 通道，安全地瀏覽以 Linux 為基礎的 HDInsight 節點上裝載的 Web 資源。
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 879834a4-52d0-499c-a3ae-8d28863abf65
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.author: larryfr
-ms.openlocfilehash: 797538a6d023e1a4b95680057eb0f72489290f40
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.author: jasonh
+ms.openlocfilehash: 75ef1dfecb92ed19925e514812bfc40b6066b0e1
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32311517"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595244"
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>使用 SSH 通道來存取 Ambari Web UI、JobHistory、NameNode、Oozie 及其他 Web UI
 
@@ -45,7 +41,7 @@ Ambari 中的數個功能表只有透過 SSH 通道才能運作。 這些功能�
 
 [Secure Shell (SSH) 通道](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling)能連接本機電腦上的連接埠與 HDInsight 上的前端節點。 傳送到本機連接埠的流量會透過 SSH 連線路由傳送到前端節點。 解析要求的方式就像它是源自前端節點一樣。 接著，透過工作站的通道，將回應路由傳送回去。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * SSH 用戶端。 大多數系統可透過 `ssh` 命令提供 SSH 用戶端。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
@@ -120,7 +116,7 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 
 建立叢集後，請使用下列步驟來確認您可以從 Ambari Web 存取服務 Web UI：
 
-1. 在瀏覽器中，前往 http://headnodehost:8080 。 `headnodehost` 位址會透過通道傳送到叢集，並解析為執行 Ambari 的前端節點。 出現提示時，請輸入您叢集的管理員使用者名稱 (admin) 和密碼。 Ambari Web UI 可能會出現第二次的提示。 若是如此，請重新輸入資訊。
+1. 在瀏覽器中，前往 http://headnodehost:8080。 `headnodehost` 位址會透過通道傳送到叢集，並解析為執行 Ambari 的前端節點。 出現提示時，請輸入您叢集的管理員使用者名稱 (admin) 和密碼。 Ambari Web UI 可能會出現第二次的提示。 若是如此，請重新輸入資訊。
 
    > [!NOTE]
    > 使用 http://headnodehost:8080 位址連線至叢集時，表示您是透過通道進行連線。 通訊是使用 SSH 通道進行保護，而非 HTTPS。 若要透過 HTTPS 與網際網路連接，請使用 https://clustername.azurehdinsight.net，其中 **clustername** 是叢集的名稱。

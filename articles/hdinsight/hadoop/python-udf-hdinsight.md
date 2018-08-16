@@ -1,25 +1,20 @@
 ---
-title: 搭配 Apache Hive 和 Pig 的 Python UDF - Azure HDInsight | Microsoft Docs
+title: 搭配 Apache Hive 和 Pig 的 Python UDF - Azure HDInsight
 description: 了解如何在 HDInsight 中從 Hive 和 Pig (Azure 上的 Hadoop 技術堆疊) 使用 Python 使用者定義函數 (UDF)。
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: c44d6606-28cd-429b-b535-235e8f34a664
 ms.service: hdinsight
-ms.devlang: python
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: c508ffcdd5cccaad5c7b0717d33e2ea1449ab522
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3bb8546ccf15788317370ccfe654fddbd0fb0cf9
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31405488"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592345"
 ---
 # <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>在 HDInsight 上使用 Python 使用者定義函數 (UDF) 與 Hive 和 Pig
 

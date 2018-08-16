@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2018
+ms.date: 08/01/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 24bda501f88d4f96fb558eeb6b21e437edd6d862
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 4710e30ad38485f47c115ac2e0e914e91c96d582
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325382"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522176"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory 無縫單一登入：快速入門
 
@@ -57,9 +57,12 @@ ms.locfileid: "39325382"
 
 如果您要執行 Azure AD Connect 的全新安裝，請選擇[自訂安裝路徑](active-directory-aadconnect-get-started-custom.md)。 在 [使用者登入] 頁面中，選取 [啟用單一登入] 選項。
 
+>[!NOTE]
+> 唯有登入方法為 [密碼雜湊同步] 或 [傳遞驗證] 時，此選項才可供選取。
+
 ![Azure AD Connect：使用者登入](./media/active-directory-aadconnect-sso/sso8.png)
 
-如果您已經安裝 Azure AD Connect，請在 Azure AD Connect 上選取 [變更使用者登入] 頁面，然後選取 [下一步]。
+如果您已經安裝 Azure AD Connect，請在 Azure AD Connect 上選取 [變更使用者登入] 頁面，然後選取 [下一步]。 如果您使用 Azure AD Connect 1.1.880.0 版或更新版本，則預設會選取 [啟用單一登入] 選項。 如果您使用舊版的 Azure AD Connect，請選取 [啟用單一登入] 選項。
 
 ![Azure AD Connect：變更使用者登入](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 

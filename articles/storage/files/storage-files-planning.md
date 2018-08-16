@@ -3,19 +3,21 @@ title: 規劃 Azure 檔案服務部署 | Microsoft Docs
 description: 了解規劃 Azure 檔案服務部署時的考量事項。
 services: storage
 author: wmgries
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 06/12/2018
 ms.author: wgries
-ms.openlocfilehash: 017dd79e2d15fdd98ea020c686857d282bad244e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.component: files
+ms.openlocfilehash: 85a2f0c13d483df40b6de2a158cf5fa43c45b5eb
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/24/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39529102"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>規劃 Azure 檔案服務部署
-[Azure 檔案服務](storage-files-introduction.md)可提供在雲端中完全受控的檔案共用，可透過業界標準 SMB 通訊協定加以存取。 因為 Azure 檔案服務受到完整管理，所以部署於生產環境案例遠易於部署及管理檔案伺服器或 NAS 裝置。 針對在組織中部署生產環境使用的 Azure 檔案共用，本文說明應考慮的主題。
+
+  [Azure 檔案服務](storage-files-introduction.md)可提供在雲端中完全受控的檔案共用，可透過業界標準 SMB 通訊協定加以存取。 因為 Azure 檔案服務受到完整管理，所以部署於生產環境案例遠易於部署及管理檔案伺服器或 NAS 裝置。 針對在組織中部署生產環境使用的 Azure 檔案共用，本文說明應考慮的主題。
 
 ## <a name="management-concepts"></a>管理概念
  下圖說明 Azure 檔案服務管理建構：
@@ -47,7 +49,8 @@ Azure 檔案服務提供兩種方便的內建資料存取方法，您可以個�
 | | 雲端直接存取 | Azure 檔案同步 |
 |------------------------|------------|-----------------|
 | 您需要使用哪些通訊協定？ | Azure 檔案服務支援 SMB 2.1、SMB 3.0 和檔案 REST API。 | 透過 Windows Server 上任何支援的通訊協定 (SMB、NFS、FTPS 等) 存取您的 Azure 檔案共用 |  
-| 您會在何處執行工作負載？ | **Azure 中**：Azure 檔案服務提供對資料的直接存取。 | **低速網路的內部部署**：Windows、Linux 及 macOS 用戶端可掛接區域內部部署的 Windows 檔案共用，作為 Azure 檔案共用的快速快取。 |
+| 您會在何處執行工作負載？ | 
+  **Azure 中**：Azure 檔案服務提供對資料的直接存取。 | **低速網路的內部部署**：Windows、Linux 及 macOS 用戶端可掛接區域內部部署的 Windows 檔案共用，作為 Azure 檔案共用的快速快取。 |
 | 您需要何種 ACL 層級？ | 共用和檔案層級。 | 共用、檔案和使用者層級。 |
 
 ## <a name="data-security"></a>資料安全性
@@ -57,7 +60,7 @@ Azure 檔案服務具有數個內建的選項，可用於確保資料安全性�
     * 支援 SMB 3.0 加密的用戶端可透過加密通道來傳送及接收資料。
     * 不支援 SMB 3.0 的用戶端可以透過 SMB 2.1 或 SMB 3.0 進行無加密的資料中心內部通訊。 請注意，不允許用戶端透過 SMB 2.1 或 SMB 3.0 進行無加密的資料中心之間通訊。
     * 用戶端可以藉由 HTTP 或 HTTPS 透過檔案 REST 進行通訊。
-* 待用加密 ([Azure 儲存體服務加密](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json))：預設會針對所有儲存體帳戶啟用「儲存體服務加密」(SSE)。 靜止資料是使用完全受控金鑰加密。 待用加密不會增加儲存成本或降低效能。 
+* 待用加密 ([Azure 儲存體服務加密](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json))：為所有儲存體帳戶啟用「儲存體服務加密」(SSE)。 靜止資料是使用完全受控金鑰加密。 待用加密不會增加儲存成本或降低效能。 
 * 加密傳輸資料的選擇性需求：選取時，Azure 檔案服務拒絕透過未加密的通道存取資料。 具體來說，只允許具有加密連線的 HTTPS 和 SMB 3.0。 
 
     > [!Important]  

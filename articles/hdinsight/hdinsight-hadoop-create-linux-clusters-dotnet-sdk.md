@@ -1,23 +1,20 @@
 ---
-title: 使用 .NET 建立 Hadoop 叢集 - Azure HDInsight | Microsoft Docs
+title: 使用 .NET 建立 Hadoop 叢集 - Azure HDInsight
 description: 了解如何在 Linux 上使用 HDInsight .NET SDK 為 HDInsight 建立 Hadoop、HBase、Storm 或 Spark 叢集。
 services: hdinsight
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 9c74e3dc-837f-4c90-bbb1-489bc7124a3d
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/09/2018
-ms.author: jgao
-ms.openlocfilehash: a0e5bf4afcd1d02c81597efdab8ff349e6adf856
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: jasonh
+ms.openlocfilehash: 0c7f8e9ea37ac932b152bb90b7a75b3c5b8e90bf
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952921"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590529"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>在 HDInsight 中使用 .NET SDK 建立以 Linux 為基礎的叢集
 
@@ -31,7 +28,7 @@ ms.locfileid: "37952921"
 >
 > 如需節點大小和相關成本的詳細資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 

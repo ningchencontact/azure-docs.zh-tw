@@ -1,25 +1,20 @@
 ---
-title: 使用 Azure 入口網站管理 HDInsight 中的 Windows 型 Hadoop 叢集 | Microsoft Docs
+title: 使用 Azure 入口網站在 HDInsight 中管理 Windows 型 Hadoop 叢集
 description: 了解如何管理 HDInsight 服務。 建立 HDInsight 叢集、開啟互動式 JavaScript 主控台，以及開啟 Hadoop 命令主控台。
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 9295a988-bd88-453a-8c8b-55fa103bf39c
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jgao
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 78541feda8c82be143f91fdde88eac179cf0b1a5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a4cbc0c14d0f6c505b391becf33c56dd95bfc251
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31405359"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592215"
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 入口網站管理 HDInsight 中的 Windows 型 Hadoop 叢集
 
@@ -31,7 +26,7 @@ ms.locfileid: "31405359"
 > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 開始閱讀本文之前，您必須符合下列必要條件：
 
@@ -83,11 +78,12 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
 
    * 若要自訂功能表，請在功能表上的任意處按一下滑鼠右鍵，然後按一下 [自訂] 。
    * **設定**和**所有設定**：顯示該叢集的 [設定] 刀鋒視窗，可讓您存取該叢集的詳細組態資訊。
-   * **儀表板**、**叢集儀表板**和 **URL：這些是存取叢集儀表板 (也就是適用於以 Linux 為基礎之叢集的 Ambari Web) 的所有方法。-** 安全殼層\*\*︰顯示使用安全殼層 (SSH) 連線連接到叢集的指示。
+   * **儀表板**、**叢集儀表板**和 **URL**：這些是存取叢集儀表板 (也就是適用於 Linux 型叢集的 Ambari Web) 的所有方法。
+   * **安全殼層**︰顯示使用安全殼層 (SSH) 連線連接到叢集的指示。
    * **調整叢集**：可讓您變更此叢集的背景工作節點數目。
    * **刪除**：刪除叢集。
    * **快速啟動**：顯示可協助您開始使用 HDInsight 的資訊。
-   * **使用者：可讓您針對 Azure 訂用帳戶的其他使用者，設定此叢集的「入口網站管理」權限。
+   * **使用者**：可讓您為自己 Azure 訂用帳戶的其他使用者設定針對此叢集的「入口網站管理」權限。
 
      > [!IMPORTANT]
      > 這「只」會影響在 Azure 入口網站對此叢集的存取和權限，對於連線到 HDInsight 叢集或將工作提交到 HDInsight 叢集的使用者沒有影響。
@@ -277,7 +273,7 @@ HDInsight 查詢主控台包括下列功能：
 
     ![HDInsight portal job history](./media/hdinsight-administer-use-management-portal/hdinsight-job-history.png)
 
-    按一下 [查詢名稱] 來顯示詳細資料，包括工作屬性、[作業查詢] 和 \*\*[作業輸出]。 您也可以將查詢和輸出下載至您的工作站。
+    按一下 [查詢名稱] 來顯示詳細資料，包括工作屬性、[作業查詢] 和 [作業輸出]。 您也可以將查詢和輸出下載至您的工作站。
 * **檔案瀏覽器**：瀏覽預設的儲存體帳戶和連結的儲存體帳戶。
 
     ![HDInsight portal file browser browse](./media/hdinsight-administer-use-management-portal/hdinsight-file-browser.png)
@@ -287,7 +283,7 @@ HDInsight 查詢主控台包括下列功能：
 
     ![HDInsight portal Hadoop UI](./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-ui.png)
 
-    從\*「Hadoop UI」，您可以瀏覽檔案，並檢查記錄檔。
+    從「Hadoop UI」，您可以瀏覽檔案，並檢查記錄檔。
 * **Yarn UI**。
 
     ![HDInsight portal YARN UI](./media/hdinsight-administer-use-management-portal/hdinsight-yarn-ui.png)

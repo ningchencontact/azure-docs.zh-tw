@@ -1,25 +1,20 @@
 ---
-title: 使用命令列建立 Hadoop 叢集 - Azure HDInsight | Microsoft Docs
+title: 使用命令列建立 Hadoop 叢集 - Azure HDInsight
 description: 了解如何使用跨平台 Azure CLI 1.0 建立 HDInsight 叢集。
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 50b01483-455c-4d87-b754-2229005a8ab9
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
-ms.openlocfilehash: e56829c771ae47933f79c519920a20c1308873fe
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: 7185e492a2cc42835ce1fa7043a963c7d5d0afb4
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31397581"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594792"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>使用 Azure CLI 建立 HDInsight 叢集
 
@@ -32,7 +27,7 @@ ms.locfileid: "31397581"
 >
 > 您也可以使用 Azure PowerShell 來建立和管理 HDInsight 叢集。 如需詳細資訊，請參閱[使用 Azure PowerShell 建立 HDInsight 叢集](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)文件。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 

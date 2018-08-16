@@ -1,25 +1,20 @@
 ---
-title: 使用 HDInsight .NET SDK 提交 MapReduce 作業 - Azure | Microsoft Docs
+title: 使用 HDInsight .NET SDK 提交 MapReduce 工作 - Azure
 description: 了解如何使用 HDInsight .NET SDK 將 MapReduce 作業提交至 Azure HDInsight Hadoop。
-editor: cgronlun
-manager: jhubbard
+editor: jasonwhowell
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-ms.assetid: c85e44b0-85fd-4185-ad1c-c34a9fe5ef44
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jgao
-ms.openlocfilehash: 2b5c265827c30ec9f62cc902aa348e050aec7ba1
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.author: jasonh
+ms.openlocfilehash: a22a2c75f5f520fb74d7ef6a57ff519e95ad273e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37019599"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39596477"
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>使用 HDInsight .NET SDK 執行 MapReduce 作業
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
@@ -31,7 +26,7 @@ ms.locfileid: "37019599"
 > 
 > 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 開始閱讀本文之前，您必須有下列各項：
 
 * **HDInsight 中的 Hadoop 叢集**。 請參閱[開始在 Hdinsight 中使用 Linux 型 Hadoop](apache-hadoop-linux-tutorial-get-started.md)。

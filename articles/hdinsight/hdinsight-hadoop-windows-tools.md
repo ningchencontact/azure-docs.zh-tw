@@ -1,21 +1,19 @@
 ---
-title: 使用 Windows PC 搭配 Hadoop on HDInsight - Azure | Microsoft Docs
+title: 使用 Windows PC 搭配 Hadoop on HDInsight - Azure
 description: 從 Hadoop on HDInsight 中的 Windows PC 作業。 使用 PowerShell、Visual Studio 和 Linux 工具來管理和查詢叢集。 使用 .NET 開發巨量資料解決方案。
 services: hdinsight
-keywords: windows 上的 hadoop,適用於 windows 的 hadoop
-author: cjgronlund
-manager: jhubbard
-ms.author: cgronlun
-ms.date: 05/17/2017
+author: jasonwhowell
+ms.author: jasonh
 ms.topic: conceptual
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 2067e36c931e62e25d0c8dca69a6a81b2afe3f87
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 05/17/2017
+ms.openlocfilehash: a3fbd9cca038547e92c034577042aebbac6fc1fe
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31404974"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593055"
 ---
 # <a name="work-in-the-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>從 Windows PC 在 HDInsight 上的 Hadoop 生態系統中作業
 

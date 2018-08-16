@@ -1,34 +1,27 @@
 ---
-title: 使用 HDInsight 開發 Python 串流處理 MapReduce 工作 - Azure | Microsoft Docs
+title: 使用 HDInsight 開發 Python 串流處理 MapReduce 工作 - Azure
 description: 了解如何在串流處理 MapReduce 工作中使用 Python。 Hadoop 提供適用於 MapReduce 的串流處理 API，可以 Java 以外的語言撰寫。
 services: hdinsight
 keyword: mapreduce python,python map reduce,python mapreduce
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 7631d8d9-98ae-42ec-b9ec-ee3cf7e57fb3
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 04/10/2018
-ms.author: larryfr
-ms.openlocfilehash: b5e19f81c3e869347f21ab3c70a70016196b946d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: 34a270ce321770c3e024580be7b234bfa5f21b22
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31400509"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594452"
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>開發 HDInsight 的 Python 串流處理 MapReduce 程式
 
 了解如何在串流處理 MapReduce 作業中使用 Python。 Hadoop 為 MapReduce 提供一個串流 API，可讓您以 Java 以外的語言撰寫 map 和 reduce 函數。 本文件中的步驟會以 Python 實作對應和歸納元件。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * HDInsight 叢集上的 Linux 型 Hadoop
 

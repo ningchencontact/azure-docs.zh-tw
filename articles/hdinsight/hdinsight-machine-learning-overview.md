@@ -1,25 +1,20 @@
 ---
-title: 機器學習服務概觀 - Azure HDInsight | Microsoft Docs
+title: 機器學習服務概觀 - Azure HDInsight
 description: 描述 HDInsight 中的機器學習服務選項。
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.author: nitinme
-ms.openlocfilehash: 6ccdb1fff5ecdcb61beedf1b12904d3785d4921d
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.author: jasonh
+ms.openlocfilehash: 79c50935d36070b9f6b7cd6dd0af2d09c4a30f68
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048494"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590376"
 ---
 # <a name="machine-learning-on-hdinsight"></a>HDInsight 上的機器學習服務
 

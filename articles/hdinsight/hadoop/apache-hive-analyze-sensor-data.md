@@ -1,25 +1,20 @@
 ---
-title: 使用 Hive 及 Hadoop 分析感應器資料 - Azure HDInsight | Microsoft Docs
+title: 使用 Hive 及 Hadoop 分析感應器資料 - Azure HDInsight
 description: 了解如何使用 Hive 查詢主控台搭配 HDInsight (Hadoop) 分析感應器資料，然後在 Microsoft Excel 中使用 Power View 將資料視覺化。
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: a8ac160c-1cef-45d9-bf36-7beb5a439105
 ms.service: hdinsight
-ms.devlang: na
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.topic: conceptual
 ms.date: 04/14/2017
-ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: eb3dc93d7cb741a8a3099abe13d00f40c9639705
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 412942aa41e7884c6315d921b0b272b033386d17
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31398958"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590240"
 ---
 # <a name="analyze-sensor-data-using-the-hive-query-console-on-hadoop-in-hdinsight"></a>在 HDInsight 的 Hadoop 上使用 Hive 查詢主控台分析感應器資料
 
@@ -38,7 +33,7 @@ ms.locfileid: "31398958"
 
 ![A diagram of the solution architecture](./media/apache-hive-analyze-sensor-data/hvac-architecture.png)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * HDInsight (Hadoop) 叢集：如需建立叢集的相關資訊，請參閱 [在 HDInsight 中建立 Hadoop 叢集](../hdinsight-hadoop-provision-linux-clusters.md)。
 * Microsoft Excel 2013

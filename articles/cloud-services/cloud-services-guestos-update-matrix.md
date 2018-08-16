@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/3/2018
+ms.date: 8/3/2018
 ms.author: raiye
-ms.openlocfilehash: 518e55de440daa93dc0a9a9eebc207ebcde07d57
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 2ee31e0a2d563ddf2aa63498b4ca280e4da26754
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970157"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524853"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure 客體 OS 版次與 SDK 相容性矩陣
 提供適用於雲端服務的最新 Azure 客體作業系統版次的最新資訊。 此資訊協助您在客體 OS停用之前規劃升級路徑。 如果您將角色設定成使用「自動」客體 OS 更新 (如 [Azure 客體 OS 更新設定][Azure Guest OS Update Settings]所述)，就不一定要閱讀此頁面。
@@ -43,6 +43,9 @@ ms.locfileid: "38970157"
 不確定如何更新客體作業系統嗎？ 請查看[這裡][cloud updates]。
 
 ## <a name="news-updates"></a>新聞更新
+
+###### <a name="august-3-2018"></a>**2018 年 8 月 3 日**
+7 月客體 OS 已發行。
 
 ###### <a name="july-3-2018"></a>**2018 年 7 月 3 日**
 6 月客體 OS 已發行。
@@ -90,8 +93,9 @@ ms.locfileid: "38970157"
 
 | 組態字串 | 發行日期 | 停用日期 | 到期日期 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.21_201807-02 |2018 年 8 月 3 日 |Post 5.23 |TBD |
 | WA-GUEST-OS-5.20_201806-01 |2018 年 7 月 3 日 |Post 5.22 |TBD |
-| WA-GUEST-OS-5.19_201805-01 |2018 年 6 月 1 日 |Post 5.21 |TBD |
+|~~WA-GUEST-OS-5.19_201805-01~~ |2018 年 6 月 1 日 |2018 年 8 月 3 日 |TBD |
 |~~WA-GUEST-OS-5.18_201804-01~~ |2018 年 5 月 4 日 |2018 年 7 月 3 日 |TBD |
 |~~WA-GUEST-OS-5.17_201803-01~~ |2018 年 4 月 6 日 |2018 年 6 月 1 日|TBD |
 |~~WA-GUEST-OS-5.16_201802-01~~ |2018 年 3 月 12 日 |2018 年 5 月 4 日 |TBD |
@@ -99,7 +103,6 @@ ms.locfileid: "38970157"
 |~~WA-GUEST-OS-5.14_201712-01~~ |2018 年 1 月 4 日 |2018 年 3 月 12 日 |TBD |
 |~~WA-GUEST-OS-5.13_201711-01~~ |2017 年 12 月 14 日 |2018 年 1 月 4 日|TBD |
 |~~WA-GUEST-OS-5.12_201710-02~~ |2017 年 11 月 8 日 |2018 年 1 月 4 日 |TBD |
-|~~WA-GUEST-OS-5.11_201709-01~~ |2017 年 10 月 6 日 |2017 年 12 月 14 日 |TBD |
 
 
 ## <a name="family-4-releases"></a>系列 4 版次
@@ -114,8 +117,9 @@ ms.locfileid: "38970157"
 
 | 組態字串 | 發行日期 | 停用日期 | 到期日期 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.56_201807-02 |2018 年 8 月 3 日 |Post 4.58 |TBD |
 | WA-GUEST-OS-4.55_201806-01 |2018 年 7 月 3 日 |Post 4.57 |TBD |
-| WA-GUEST-OS-4.54_201805-01 |2018 年 6 月 1 日 |Post 4.56 |TBD |
+|~~WA-GUEST-OS-4.54_201805-01~~ |2018 年 6 月 1 日 |2018 年 8 月 3 日 |TBD |
 |~~WA-GUEST-OS-4.53_201804-01~~ |2018 年 5 月 4 日 |2018 年 7 月 3 日 |TBD |
 |~~WA-GUEST-OS-4.52_201803-01~~ |2018 年 4 月 6 日 |2018 年 6 月 1 日 |TBD |
 |~~WA-GUEST-OS-4.51_201802-01~~ |2018 年 3 月 12 日 |2018 年 5 月 4 日 |TBD |
@@ -123,8 +127,6 @@ ms.locfileid: "38970157"
 |~~WA-GUEST-OS-4.49_201712-01~~ |2018 年 1 月 4 日 |2018 年 3 月 12 日 |TBD |
 |~~WA-GUEST-OS-4.48_201711-01~~ |2017 年 12 月 14 日 |2018 年 1 月 4 日 |TBD |
 |~~WA-GUEST-OS-4.47_201710-02~~ |2017 年 11 月 8 日 |2018 年 1 月 4 日 |TBD |
-|~~WA-GUEST-OS-4.46_201709-01~~ |2017 年 10 月 6 日 |2017 年 12 月 14 日 |TBD |
-
 
 
 ## <a name="family-3-releases"></a>系列 3 版次
@@ -139,8 +141,9 @@ ms.locfileid: "38970157"
 
 | 組態字串 | 發行日期 | 停用日期 | 到期日期 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.63_201807-02 |2018 年 8 月 3 日 |Post 3.65 |TBD |
 | WA-GUEST-OS-3.62_201806-01 |2018 年 7 月 3 日 |Post 3.64 |TBD |
-| WA-GUEST-OS-3.61_201805-01 |2018 年 6 月 1 日 |Post 3.63 |TBD |
+|~~WA-GUEST-OS-3.61_201805-01~~ |2018 年 6 月 1 日 |2018 年 8 月 3 日 |TBD |
 |~~WA-GUEST-OS-3.60_201804-01~~ |2018 年 5 月 4 日 |2018 年 7 月 3 日 |TBD |
 |~~WA-GUEST-OS-3.59_201803-01~~ |2018 年 4 月 6 日 |2018 年 6 月 1 日 |TBD |
 |~~WA-GUEST-OS-3.58_201802-01~~ |2018 年 3 月 19 日 |2018 年 5 月 4 日 |TBD |
@@ -148,8 +151,6 @@ ms.locfileid: "38970157"
 |~~WA-GUEST-OS-3.56_201712-01~~ |2018 年 1 月 4 日 |2018 年 3 月 19 日 |TBD |
 |~~WA-GUEST-OS-3.55_201711-01~~ |2017 年 12 月 14 日 |2018 年 1 月 29 日 |TBD |
 |~~WA-GUEST-OS-3.54_201710-02~~ |2017 年 11 月 8 日 |2018 年 1 月 4 日 |TBD |
-|~~WA-GUEST-OS-3.53_201709-01~~ |2017 年 10 月 6 日 |2017 年 12 月 14 日 |TBD |
-|~~WA-GUEST-OS-3.52_201708-01~~ |2017 年 8 月 24 日 |2017 年 12 月 14 日 |TBD |
 
 
 ## <a name="family-2-releases"></a>系列 2 版次
@@ -164,8 +165,9 @@ ms.locfileid: "38970157"
 
 | 組態字串 | 發行日期 | 停用日期 | 到期日期 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.76_201807-02 |2018 年 8 月 3 日 |Post 2.78 |TBD |
 | WA-GUEST-OS-2.75_201806-01 |2018 年 7 月 3 日 |Post 2.77 |TBD |
-| WA-GUEST-OS-2.74_201805-01 |2018 年 6 月 1 日 |Post 2.76 |TBD |
+|~~WA-GUEST-OS-2.74_201805-01~~ |2018 年 6 月 1 日 |2018 年 8 月 3 日|TBD |
 |~~WA-GUEST-OS-2.73_201804-01~~ |2018 年 5 月 4 日 |2018 年 7 月 3 日 |TBD |
 |~~WA-GUEST-OS-2.72_201803-01~~ |2018 年 4 月 6 日 |2018 年 6 月 1 日 |TBD |
 |~~WA-GUEST-OS-2.71_201802-01~~ |2018 年 3 月 12 日 |2018 年 5 月 4 日 |TBD |

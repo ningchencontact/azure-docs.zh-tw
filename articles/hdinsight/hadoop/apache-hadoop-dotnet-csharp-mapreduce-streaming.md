@@ -1,25 +1,20 @@
 ---
-title: 搭配 HDInsight 的 Hadoop 上的 MapReduce 使用 C# - Azure | Microsoft Docs
+title: 搭配 HDInsight 的 Hadoop 上的 MapReduce 使用 C# - Azure
 description: 了解如何搭配 Azure HDInsight 的 Hadoop 使用 C# 以建立 MapReduce 方案。
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: d83def76-12ad-4538-bb8e-3ba3542b7211
+author: jasonwhowell
+editor: jasonwhowell
 ms.custom: hdinsightactive
 ms.service: hdinsight
-ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
-ms.openlocfilehash: 7287972ccf63f33a8cf08065f8d5d30ee1b1afb5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: 7c9a4a0fdbc362a1c2856e35f112deaabddeb229
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31400872"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594374"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a>搭配 HDInsight 的 Hadoop 上的 MapReduce 串流使用 C#
 
@@ -48,7 +43,7 @@ __以 Linux 為基礎的 HDInsight__ 叢集會使用 [Mono (https://mono-project
 
 如需有關串流的詳細資訊，請參閱 [Hadoop 串流 (https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html)](https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 熟悉如何撰寫和建置以 .NET Framework 4.5 為目標的 C# 程式碼。 本文件中的步驟使用 Visual Studio 2017。
 

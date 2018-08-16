@@ -1,25 +1,20 @@
 ---
-title: 使用 Ambari 檢視與 HDInsight (Hadoop) 上的 Hive 搭配作業 - Azure | Microsoft Docs
+title: 使用 Ambari 檢視與 HDInsight (Hadoop) 上的 Hive 搭配作業 - Azure
 description: 了解如何從網頁瀏覽器使用 Hive 檢視來提交 Hive 查詢。 Hive 檢視是以 Linux 為基礎的 HDInsight 叢集隨附的 Ambari 檢視的一部分。
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 1abe9104-f4b2-41b9-9161-abbc43de8294
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: larryfr
-ms.openlocfilehash: 6c07e9a45cbfbc5e6ed6787277dcfa1bf4cf4b2b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: 933f9f88e4924cba7a3ea71c488e23ce5d647463
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201487"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597485"
 ---
 # <a name="use-ambari-hive-view-with-hadoop-in-hdinsight"></a>在 HDInsight 中搭配 Hadoop 使用 Ambari Hive 檢視
 
@@ -27,7 +22,7 @@ ms.locfileid: "34201487"
 
 了解如何使用 Ambari Hive 檢視執行 Hive 查詢。 Hive 檢視可讓您從網頁瀏覽器編寫、最佳化及執行 Hive 查詢。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * HDInsight 叢集 3.4 版或更新版本上以 Linux 為基礎的 Hadoop。
 

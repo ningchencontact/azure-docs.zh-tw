@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 5a7e00e84e5165296bcad83c515fc2af315954be
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 068ecf8283b92873542a7cb9ab2202212fd2ad2c
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414437"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495504"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>針對彈性集區，Azure SQL Database 虛擬核心形式的購買模型限制
 
@@ -148,4 +148,5 @@ ms.locfileid: "39414437"
 ## <a name="next-steps"></a>後續步驟
 
 - 請參閱 [SQL Database 常見問題集](sql-database-faq.md)以取得常見問題的解答。
+- 如需伺服器或訂用帳戶層級的限制資訊，請參閱 [Azure SQL Database 資源限制概觀](sql-database-resource-limits.md)。
 - 如需一般 Azure 限制的相關資訊，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md)。

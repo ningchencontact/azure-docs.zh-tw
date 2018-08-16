@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 74bb59a8db70d4a01fcd3bd07054f1cbac50bf40
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 08/01/2018
+ms.openlocfilehash: 1e10e3b1b5f4518732408f254eb5767acb8485c6
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266147"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39446902"
 ---
 # <a name="how-to-use-sysschema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>如何使用 sys_schema 在適用於 MySQL 的 Azure 資料庫中進行效能微調和資料庫維護
 
@@ -42,7 +42,7 @@ IO 是資料庫中成本最高的作業。 我們可以藉由查詢 *sys.user_su
 
 ![IO 延遲：125 GB](./media/howto-troubleshoot-sys-schema/io-latency-125GB.png)
 
-由於適用於 MySQL 的 Azure 資料庫會針對儲存體調整 IO，因此將我已佈建的儲存體增加到 1 TB 時，我的 IO 延遲會減少為 571 毫秒，這代表效能提高了 26 倍！
+由於適用於 MySQL 的 Azure 資料庫會針對儲存體調整 IO，因此將我已佈建的儲存體增加到 1 TB 時，我的 IO 延遲會減少為 571 毫秒。
 
 ![IO 延遲：1TB](./media/howto-troubleshoot-sys-schema/io-latency-1TB.png)
 

@@ -5,23 +5,27 @@ services: container-registry
 author: mmacy
 ms.service: container-registry
 ms.topic: include
-ms.date: 04/23/2018
+ms.date: 08/03/2018
 ms.author: marsma
 ms.custom: include file
-ms.openlocfilehash: 6ed114ea6162c9d4888b6f86998cfb422a3944e8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2174ae44f8e78763c1939aee5e6b86c95a0924ce
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32198221"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39514013"
 ---
 ## <a name="create-a-service-principal"></a>建立服務主體
 
-若要建立具容器登錄存取權的服務主體，可以使用以下指令碼。 使用您容器登錄的名稱更新 `ACR_NAME` 變數，並可選擇使用 [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] 命令中的 `--role` 值來授與不同權限。 您必須已安裝 [Azure CLI](/cli/azure/install-azure-cli)，才能使用這個指令碼。
+若要建立具容器登錄存取權的服務主體，請在 [Azure Cloud Shell](../articles/cloud-shell/overview.md) 或本機的 [Azure CLI](/cli/azure/install-azure-cli) 安裝中執行下列指令碼。 此指令碼會針對 Bash 殼層加以格式化。
+
+執行指令碼之前，請使用容器登錄的名稱更新 `ACR_NAME` 變數。 `SERVICE_PRINCIPAL_NAME` 值在 Azure Active Directory 租用戶內必須是唯一的。 如果您收到「`'http://acr-service-principal' already exists.`」錯誤，請為服務主體指定不同的名稱。
+
+(選擇性) 如果您要授與不同權限，則可以修改 [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] 命令中的 `--role` 值。
 
 執行指令碼之後，請記下的服務主體的**識別碼**和**密碼**。 一旦擁有其認證，便可以將您的應用程式和服務設定為以服務主體向您的容器登錄進行驗證。
 
-[!code-azurecli-interactive[acr-sp-create](~/cli_scripts/container-registry/service-principal-create/service-principal-create.sh)]
+<!-- https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh --> [!code-azurecli-interactive[acr-sp-create](~/cli_scripts/container-registry/service-principal-create/service-principal-create.sh)]
 
 ## <a name="use-an-existing-service-principal"></a>使用現有的服務主體
 
@@ -29,7 +33,7 @@ ms.locfileid: "32198221"
 
 以下指令碼使用 [az role assignment create][az-role-assignment-create] 命令，以授與您在 `SERVICE_PRINCIPAL_ID` 變數中所指定的服務主體「提取」權限。 如果您要授與不同層級的存取權，請調整 `--role` 值。
 
-[!code-azurecli-interactive[acr-sp-role-assign](~/cli_scripts/container-registry/service-principal-assign-role/service-principal-assign-role.sh)]
+<!-- https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-assign-role/service-principal-assign-role.sh --> [!code-azurecli-interactive[acr-sp-role-assign](~/cli_scripts/container-registry/service-principal-assign-role/service-principal-assign-role.sh)]
 
 <!-- LINKS - Internal -->
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac

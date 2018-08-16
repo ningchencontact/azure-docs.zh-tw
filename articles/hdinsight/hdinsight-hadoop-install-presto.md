@@ -1,23 +1,20 @@
 ---
-title: 在 Azure HDInsight Linux 叢集上安裝 Presto | Microsoft Docs
+title: 在 Azure HDInsight Linux 叢集上安裝 Presto
 description: 了解如何使用指令碼動作，在以 Linux 為基礎的 HDInsight Hadoop 叢集上安裝 Presto 和 Airpal。
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.author: nitinme
-ms.openlocfilehash: 32b7925b7414f00dfdd7d5c8a45b3601bf58942e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: ea777b13348b84aaeb7cb7628a4d0aac9f5705bd
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401809"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591416"
 ---
 # <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 叢集上安裝和使用 Presto
 
@@ -32,7 +29,7 @@ ms.locfileid: "31401809"
 > [!WARNING]
 > 透過 HDInsight 叢集提供的元件會受到完整支援，且 Microsoft 支援服務將協助釐清與解決這些元件的相關問題。
 > 
-> 自訂元件 (例如 Presto) 會獲得商務上合理的支援，協助您進一步針對問題進行疑難排解。 如此可能會進而解決問題，或要求您利用可用管道，以找出開放原始碼技術，從中了解該技術的深度專業知識。 例如，有許多社群網站可供使用，例如：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight) \(英文\)、[http://stackoverflow.com](http://stackoverflow.com) \(英文\)。此外，Apache 專案在 [http://apache.org](http://apache.org) 上也有專案網站，例如 [Hadoop](http://hadoop.apache.org/)。
+> 自訂元件 (例如 Presto) 會獲得商務上合理的支援，協助您進一步針對問題進行疑難排解。 如此可能會進而解決問題，或要求您利用可用管道，以找出開放原始碼技術，從中了解該技術的深度專業知識。 例如，有許多社群網站可供使用，例如：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight) \(英文\)、[http://stackoverflow.com](http://stackoverflow.com) \(英文\)。 此外，Apache 專案在 [http://apache.org](http://apache.org) 上也有專案網站，例如 [Hadoop](http://hadoop.apache.org/)。
 > 
 > 
 
@@ -43,7 +40,7 @@ ms.locfileid: "31401809"
 
 1. 使用[佈建以 Linux 為基礎的 HDInsight 叢集](hdinsight-hadoop-create-linux-clusters-portal.md)中的步驟，開始佈建叢集。 請確定您是使用**自訂**叢集建立流程來建立叢集。 叢集必須符合下列需求。
 
-    * 必須為隨附 HDInsight 3.5 版的 Hadoop 叢集。
+    * 必須為隨附 HDInsight 3.6 版的 Hadoop 叢集。
 
     * 它必須使用 Azure 儲存體作為資料存放區。 尚未支援在將 Azure Data Lake Store 作為儲存體選項的叢集上使用 Presto。 
 

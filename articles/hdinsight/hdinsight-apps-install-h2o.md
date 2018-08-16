@@ -1,25 +1,20 @@
 ---
-title: 安裝已發佈的應用程式 - H2O Sparkling Water - Azure HDInsight | Microsoft Docs
+title: 安裝已發佈的應用程式 - H2O Sparkling Water - Azure HDInsight
 description: 安裝及使用 H2O Sparkling Water 第三方 Hadoop 應用程式。
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: e3c80fe824d87c15a710b133c8e6cddf4ee0e096
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e1e43bc06b30959bc5e7e692d88bd0d053a03ad4
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856550"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593548"
 ---
 # <a name="install-published-application---h2o-sparkling-water"></a>安裝已發佈的應用程式 - H2O Sparkling Water
 
@@ -44,7 +39,7 @@ H2O Sparkling Water 提供：
 * [H2O.ai 支援](https://support.h2o.ai/)
 * [H2O.ai 開放原始碼程式碼基底](https://github.com/h2oai/)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要在新的 HDInsight 叢集或現有叢集上安裝此應用程式，您必須具有下列設定：
 

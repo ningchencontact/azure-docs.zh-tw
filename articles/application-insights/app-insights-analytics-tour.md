@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 8295abfae8d82a7c7762c6b27a8bac7487f6afff
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 470779f80e998c3908cf28328cfb415d98c5e06c
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335276"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579250"
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Application Insights 中分析的教學課程
 [分析](app-insights-analytics.md)是 [Application Insights](app-insights-overview.md) 的強大搜尋功能。 這些分頁說明 Log Analytics 查詢語言。
@@ -226,7 +226,7 @@ ms.locfileid: "36335276"
 
 ### <a name="convert-to-local-time"></a>轉換為當地時間
 
-時間戳記一律是 UTC 格式。 所以如果您位於美國西岸且正好是冬季，則可能如下所示︰
+時間戳記一律是 UTC 格式。 所以如果您位於美國西岸且正好是冬季，則當地時間會比 UTC 晚 8 小時，您可能會需要︰
 
 ```AIQL
 
@@ -461,7 +461,7 @@ ms.locfileid: "36335276"
 ## <a name="join"></a>Join
 我們可以存取數個資料表，包括要求和例外狀況。
 
-若要尋找傳回失敗回應之要求的相關例外狀況，我們可以聯結 `session_Id`上的資料表：
+若要尋找傳回失敗回應之要求的相關例外狀況，我們可以聯結 `operation_Id`上的資料表：
 
 ```AIQL
 

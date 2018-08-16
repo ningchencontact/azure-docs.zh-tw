@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 4a37ac6cdf5d13556c6a3e293c19c00ad36e4495
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 7f171fa1eb8c91b55119d0308b57fe3d3e70261b
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364160"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578886"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>一般串流分析使用模式的查詢範例
 
@@ -27,8 +27,7 @@ Azure 串流分析的查詢會以類似 SQL 的查詢語言表達。 語言建�
 
 ## <a name="work-with-complex-data-types-in-json-and-avro"></a>在 JSON 和 AVRO 中使用複雜資料類型 
 Azure 串流分析可處理資料格式為 CSV、JSON 和 Avro 的事件。
-JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 若要使用這些複雜的資料類型，請參閱[說明如何使用複雜資料類型 JSON 和 AVRO 的 MSDN 頁面](
-https://msdn.microsoft.com/azure/stream-analytics/reference/complex-data-types-stream-analytics)。
+JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 若要使用這些複雜的資料類型，請參閱[剖析 JSON 和 AVRO 資料](stream-analytics-parsing-json.md)一文。
 
 
 ## <a name="query-example-convert-data-types"></a>查詢範例：轉換資料類型

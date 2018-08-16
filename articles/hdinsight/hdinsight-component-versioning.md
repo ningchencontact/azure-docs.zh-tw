@@ -1,26 +1,21 @@
 ---
-title: Hadoop 元件和版本 - Azure HDInsight | Microsoft Docs
+title: Hadoop 元件和版本 - Azure HDInsight
 description: 了解 HDInsight 中的 Hadoop 元件和版本，以及此 Hortonworks Data Platform 雲端發佈的可用服務層級。
 keywords: hadoop 版本, hadoop 生態系統元件, hadoop 元件, 如何檢查 hadoop 版本
 services: hdinsight
-editor: cgronlun
-manager: asadk
+editor: jasonwhowell
 author: kkampf
-tags: azure-portal
-documentationcenter: ''
-ms.assetid: 367b3f4a-f7d3-4e59-abd0-5dc59576f1ff
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: kakampf
-ms.openlocfilehash: 02f730aaf9f47da564d459577a31377ef63207a4
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: a11d8d8ab255a3e0a6adff3d488bcdaf0716f35e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390631"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594989"
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>可以搭配 HDInsight 使用的 Hadoop 元件和版本有哪些？
 

@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/21/2018
+ms.date: 08/02/2018
 ms.author: alkohli
-ms.openlocfilehash: 524a587c4547808162b36ff9aa6c08b362465b0b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 78ed53e5e2f5d04943e6c32ddfedf037cb9e1f73
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651200"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480949"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>StorSimple Virtual Array 簡介
 
@@ -76,8 +76,8 @@ StorSimple 會在數分鐘內將使用者和伺服器連接到 Azure 儲存體�
 
 |案例     |工作負載     |支援      |限制               |
 |-------------|-------------|---------------|---------------------------|
-|ROBO  |檔案共用     |yes      |請參閱[檔案伺服器的上限](storsimple-ova-limits.md)。<br></br>請參閱[支援 SMB 版的系統需求](storsimple-ova-system-requirements.md)。| 所有版本     |
-|雲端封存  |封存檔案共用     |yes      |請參閱[檔案伺服器的上限](storsimple-ova-limits.md)。<br></br>請參閱[支援 SMB 版的系統需求](storsimple-ova-system-requirements.md)。| 所有版本     |
+|遠端辦公室/分公司 (ROBO)  |檔案共用     |是      |請參閱[檔案伺服器的上限](storsimple-ova-limits.md)。<br></br>請參閱[支援 SMB 版的系統需求](storsimple-ova-system-requirements.md)。| 所有版本     |
+|雲端封存  |封存檔案共用     |是      |請參閱[檔案伺服器的上限](storsimple-ova-limits.md)。<br></br>請參閱[支援 SMB 版的系統需求](storsimple-ova-system-requirements.md)。| 所有版本     |
 
 StorSimple Virtual Array 最適合不常存取的資料。 雖然虛擬陣列具有本機快取可提高效能，但使用者應該假設裝置為儲存體 (雲端) 最低層的檔案提供服務。 每個虛擬陣列都能以大約 100 Mbps 的速度寫入及讀取 Azure 儲存體。 該連結會在進入裝置的所有要求之間共用，並會形成瓶頸，如下圖所示。
 

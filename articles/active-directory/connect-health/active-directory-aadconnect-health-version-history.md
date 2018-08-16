@@ -14,15 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 8907619b802d93cee4463a80155f38ce9030948f
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 682e2969725b6ade39f639c7a9fff95ec64703a2
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129666"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492940"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health︰版本發行歷程記錄
 Azure Active Directory 團隊會定期以新的特性和功能更新 Azure AD Connect Health。 本文列出已發行的版本和功能。
+Azure AD Connect Health for Sync 會與 Azure AD Connect Health 安裝整合。 深入瞭解 [Azure AD Connect 版本發行歷程記錄](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history)
+
+
+## <a name="august-2018"></a>2018 年 8 月 
+*  隨著 Azure AD Connect 1.1.880.0 版發行的 Azure AD Connect Health Agent for Sync (3.1.7.0 版)    
+   1. [發行 KB：使用 .NET Framework 監視代理程式時發生高 CPU 用量問題](https://support.microsoft.com/help/4346822/high-cpu-issue-in-azure-active-directory-connect-health-for-sync)的 Hotfix
 
 ## <a name="june-2018"></a>2018 年 6 月 
 **新的預覽功能：** 
@@ -30,10 +36,10 @@ Azure Active Directory 團隊會定期以新的特性和功能更新 Azure AD Co
 
 **代理程式更新：** 
 *  適用於 AD DS 的 Azure AD Connect Health 代理程式 (3.1.7.0 版)    
-   1. 發行 KB：使用 .NET Framework 監視代理程式時發生高 CPU 用量問題的 Hotfix
-
+   1. [發行 KB：使用 .NET Framework 監視代理程式時發生高 CPU 用量問題](https://support.microsoft.com/help/4346822/high-cpu-issue-in-azure-active-directory-connect-health-for-sync)的 Hotfix
+   
 *   適用於 AD FS 的 Azure AD Connect Health 代理程式 (3.1.7.0 版)  
-   1. 發行 KB：使用 .NET Framework 監視代理程式時發生高 CPU 用量問題的 Hotfix  
+   1. [發行 KB：使用 .NET Framework 監視代理程式時發生高 CPU 用量問題](https://support.microsoft.com/help/4346822/high-cpu-issue-in-azure-active-directory-connect-health-for-sync)的 Hotfix
    2. ADFS Server 2016 次要伺服器上的測試結果修正
    
 *   適用於 AD FS 的 Azure AD Connect Health 代理程式 (3.1.2.0 版)  
@@ -51,7 +57,7 @@ Azure Active Directory 團隊會定期以新的特性和功能更新 Azure AD Co
  2. 代理程式隱私權改進  
  3. Bug 修正和一般改善
 
-* 隨著 Azure AD Connect 1.1.819.0 版發行的 Azure AD Connect Health Agent for Sync (3.0.164.0 版)
+* 隨著 Azure AD Connect 1.1.819.0 版發行的 Azure AD Connect Health Agent for Sync (3.0.164.0 版) 
  1. 代理程式隱私權改進  
  2. Bug 修正和一般改善
 
@@ -68,7 +74,7 @@ Azure Active Directory 團隊會定期以新的特性和功能更新 Azure AD Co
 *   適用於 AD FS 的 Azure AD Connect Health 代理程式 (3.0.176.0 版)
   1. 代理程式可用性改善 
   2. Bug 修正和一般改善
-* 適用於同步處理的 Azure AD Connect Health 代理程式 (3.0.176.0 版)
+* 隨著 Azure AD Connect 1.1.750.0 版發行的 Azure AD Connect Health Agent for Sync (3.0.129.0 版)  
   1. 代理程式可用性改善 
   2. Bug 修正和一般改善
 

@@ -4,7 +4,7 @@ description: 了解支援哪些語言 (GA) 以及哪些語言仍在實驗性或�
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
 ms.service: functions
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/07/2017
+ms.date: 08/02/2018
 ms.author: glenga
-ms.openlocfilehash: 00f291e903948bf43bc997816b6072186cf1f889
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 2de2ebdea41ca35e853b37ab804e516eb7f4df9f
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343078"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494443"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Azure Functions 中支援的語言
 
@@ -41,13 +41,13 @@ ms.locfileid: "39343078"
 
 ### <a name="experimental-languages"></a>實驗性語言
 
-1.x 的實驗性語言並未妥善調整，因此不支援所有繫結。 例如，Python 速度緩慢，因為 Functions 執行階段會在每個函式引動過程中執行 *python.exe*。 而且雖然 Python 支援 HTTP 繫結，但它不能存取要求物件。
+1.x 版的實驗性語言並未妥善調整，因此不支援所有繫結。 例如，Python 速度緩慢，因為 Functions 執行階段會在每個函式引動過程中執行 *python.exe*。 而且雖然 Python 支援 HTTP 繫結，但它不能存取要求物件。
 
-PowerShell 的實驗性支援限於 4.0 版，因為該版本是函式應用程式執行所在之 VM 中所安裝的版本。 如果想要執行 PowerShell 指令碼，請考慮使用 [Azure 自動化](https://azure.microsoft.com/services/automation/)。
-
-2.x 執行階段不支援實驗性語言。 我們只會在語言經過妥善調整且支援進階觸發程序之後，才會在 2.x 中新增對該語言的支援。
+PowerShell 的實驗性支援限於 5.1 版，因為該版本是函式應用程式執行所在 VM 上所安裝的版本。 如果想要執行 PowerShell 指令碼，請考慮使用 [Azure 自動化](https://azure.microsoft.com/services/automation/)。
 
 如果想要使用只有在 1.x 中才能使用的其中一種語言，請繼續維持使用 1.x 執行階段。 但是請勿針對您所依賴的任何項目使用實驗性語言，因為那些語言並未受到正式支援。 您可以透過[建立 GitHub 問題](https://github.com/Azure/azure-webjobs-sdk-script/issues) \(英文\) 要求協助，但不應針對實驗性語言相關問題建立支援案例。 
+
+2.x 版執行階段不支援實驗性語言。 只有在生產環境可支援新語言時，才會新增該語言的支援。 
 
 ### <a name="language-extensibility"></a>語言擴充性
 

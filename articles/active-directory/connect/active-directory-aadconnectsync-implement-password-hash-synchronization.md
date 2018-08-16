@@ -12,23 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 07/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: af9a2e47a5e91d9b32a787f8f40ba06b5a1596e7
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: f6ba0fccc6fadffb5f4d1a22b2c2fbcc38f9f0df
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39265041"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494976"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>使用 Azure AD Connect 同步來實作密碼雜湊同步處理
 本文提供您所需資訊，以讓您將使用者密碼從內部部署 Active Directory 執行個體同步處理至雲端式 Azure Active Directory (Azure AD) 執行個體。
 
 ## <a name="what-is-password-hash-synchronization"></a>什麼是密碼雜湊同步處理
-您因為忘記密碼而無法完成工作的機率，與您必須記住的不同密碼數目有關。 必須記住的密碼越多，將其中之一遺忘的機率就越高。 關於密碼重設和其他密碼相關問題的疑問和來電，佔據了最多的技術服務資源。
+您因為忘記密碼而無法完成工作的可能性，與您必須記住的不同密碼數目有關。 必須記住的密碼越多，將其中之一遺忘的機率就越高。 關於密碼重設和其他密碼相關問題的疑問和來電，佔據了最多的技術服務資源。
 
-密碼雜湊同步處理功能可用來將使用者密碼從內部部署 Active Directory 執行個體同步處理至雲端式 Azure AD 執行個體。
+密碼雜湊同步功能可用來將使用者密碼雜湊從內部部署 Active Directory 執行個體，同步到雲端式 Azure AD 執行個體。
 使用此功能即可登入 Azure AD 服務，例如 Office 365、Microsoft Intune、CRM Online 和 Azure Active Directory Domain Services (Azure AD DS)。 用來登入服務的密碼和您用來登入內部部署 Active Directory 執行個體的密碼相同。
 
 ![何謂 Azure AD Connect](./media/active-directory-aadconnectsync-implement-password-hash-synchronization/arch1.png)

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8d8835bd97b489a730a040e86748c668963c7196
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 9c0c1ba9dd343baa453f10ad82c0cc8b8e69da7b
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187718"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39596149"
 ---
 # <a name="create-a-new-simulated-device"></a>建立新的模擬裝置
 
@@ -140,6 +140,8 @@ ms.locfileid: "39187718"
     ```sh
     az network nsg rule list --nsg-name YOUR-NETWORK-SECURITY-GROUP -o table
     ```
+
+    您只應該在測試和開發期間啟用 SSH 存取。 如果您啟用 SSH，[您應儘速再次加以停用](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-azure-virtual-machines)
 
 1. 若要將虛擬機器的密碼變更為您知道的密碼，請執行下列命令。 使用您先前記下的虛擬機器名稱和您選擇的密碼：
 

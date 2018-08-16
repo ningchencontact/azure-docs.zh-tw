@@ -1,25 +1,21 @@
 ---
-title: 在虛擬網路上建立 HBase 叢集 - Azure | Microsoft Docs
+title: 在虛擬網路上建立 HBase 叢集 - Azure
 description: 開始在 Azure HDInsight 中使用 HBase。 了解如何在 Azure 虛擬網路上建立 HDInsight HBase 叢集。
 keywords: ''
 services: hdinsight,virtual-network
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 8de8e446-f818-4e61-8fad-e9d38421e80d
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.author: jgao
-ms.openlocfilehash: edcfa47eee0f085bad415be0d9b112bbc33c3eca
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: jasonh
+ms.openlocfilehash: 33aba330735c53499a472f7e90d350c4edd54c41
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31521600"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592902"
 ---
 # <a name="create-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>在 Azure 虛擬網路的 HDInsight 上建立 HBase 叢集
 了解如何在 [Azure 虛擬網路][1]中建立 Azure HDInsight HBase 叢集。
@@ -30,7 +26,7 @@ ms.locfileid: "31521600"
 * 透過使流量不須經過多個閘道器及負載平衡器，以提升其效能。
 * 能夠以更安全的方式處理敏感資訊，而不會暴露公用端點。
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 開始進行本教學課程之前，您必須具備下列項目：
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。

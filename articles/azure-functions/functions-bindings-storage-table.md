@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: e5bee65677b85b729a38ce3b902687cfbdb989da
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: f42948f0f3acf1bacf6c80010489890f4b8d122b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345900"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523660"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 資料表儲存體繫結
 
@@ -374,7 +374,7 @@ let Run(myQueueItem: string, personEntity: Person) =
 
 ### <a name="input---javascript-example"></a>輸入 - JavaScript 範例
 
-下列範例所示範的是使用繫結之 *function.json* 檔案，以及 [JavaScript 程式碼] (functions-reference-node.md) 中的資料表輸入繫結。 此函式會使用佇列觸發程序來讀取單一資料表列。 
+下列範例所示範的是使用繫結的 *function.json* 檔案和 [JavaScript 指令碼](functions-reference-node.md)程式碼中的資料表輸入繫結。 此函式會使用佇列觸發程序來讀取單一資料表列。 
 
 *function.json* 檔案會指定 `partitionKey` 和 `rowKey`。 `rowKey` 值 "{queueTrigger}" 表示資料列索引鍵來自佇列訊息字串。
 

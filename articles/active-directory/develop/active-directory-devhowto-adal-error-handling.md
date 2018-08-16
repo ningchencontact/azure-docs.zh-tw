@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.custom: ''
-ms.openlocfilehash: 27315262ff64b640acc3af16a26fc3887d852a00
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: b28e1931b9f615ae0eebe40b101f1959e9fcb40a
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157623"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593038"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Azure Active Directory 驗證程式庫 (ADAL) 用戶端的錯誤處理最佳做法
 
@@ -44,8 +44,8 @@ AcquireTokenSilent 會嘗試取得可保證終端使用者不會看到使用者�
 
 ### <a name="application-scenarios"></a>應用程式案例
 
-- [原生用戶端](active-directory-dev-glossary.md#native-client)應用程式 (iOS、Android、.NET 桌面或 Xamarin)
-- 呼叫[資源](active-directory-dev-glossary.md#resource-server) (.NET) 的 [Web 用戶端](active-directory-dev-glossary.md#web-client)應用程式
+- [原生用戶端](developer-glossary.md#native-client)應用程式 (iOS、Android、.NET 桌面或 Xamarin)
+- 呼叫[資源](developer-glossary.md#resource-server) (.NET) 的 [Web 用戶端](developer-glossary.md#web-client)應用程式
 
 ### <a name="error-cases-and-actionable-steps"></a>錯誤案例和可採取動作的步驟
 
@@ -586,12 +586,7 @@ window.Logging = {
 使用下方的註解區段來提供意見反應，並協助我們改善及設計我們的內容。
 
 [![登入按鈕][AAD-Sign-In]][AAD-Sign-In]
-<!--Reference style links -->
-[AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md
-[AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
-[AAD-Dev-Guide]: ./active-directory-developers-guide.md
-[AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
-[AZURE-portal]: https://portal.azure.com
+<!--Reference style links --> [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md [AAD-Auth-Scenarios]:authentication-scenarios.md [AAD-Dev-Guide]:azure-ad-developers-guide.md [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md [AZURE-portal]: https://portal.azure.com
 
 <!--Image references-->
 [AAD-Sign-In]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png

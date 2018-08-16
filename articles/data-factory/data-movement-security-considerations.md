@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 70225fd59248939c9ea1d5c7c267cdf0da3303e7
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: b05eef79e94cff74b1e02243cd7c8d94e5acbb3c
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342397"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493965"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>在 Azure Data Factory 中資料移動的安全性考量
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,6 +58,9 @@ Azure Data Factory 除了用於雲端資料存放區的連結服務認證 (會�
 
 > [!NOTE]
 > 所有連到 Azure SQL Database 和「Azure SQL 資料倉儲」的連線在資料透過傳輸進出資料庫時，需要加密 (SSL/TLS)。 當您使用 JSON 編輯器來編寫管線時，在連接字串中新增 encryption 屬性，並將它設定為 **true**。 針對「Azure 儲存體」，您可以在連接字串中使用 **HTTPS**。
+
+> [!NOTE]
+> 使用的 TLS 版本為 1.2。
 
 ### <a name="data-encryption-at-rest"></a>待用資料加密
 有些資料存放區支援待用資料加密。 建議您為這些資料存放區啟用資料加密機制。 

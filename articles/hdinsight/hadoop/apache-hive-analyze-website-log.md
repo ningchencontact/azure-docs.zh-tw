@@ -1,25 +1,20 @@
 ---
-title: 使用 Hive 和 Hadoop 進行網站記錄分析 - Azure HDInsight | Microsoft Docs
+title: 使用 Hive 和 Hadoop 進行網站記錄分析 - Azure HDInsight
 description: 了解如何使用 HDInsight 上的 Hive 來分析網站記錄。 您將使用記錄檔做為 HDInsight 資料表的輸入，然後使用 HiveQL 來查詢資料。
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 6fb7b5c2-8df4-40b1-a9e2-6815080004f9
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/17/2016
-ms.author: nitinme
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 53a0560d3bc5a52069d5829b9c3bd353e0c37ef3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a40aef8d0231fcfc0ae0f399440b1fb98367dd2d
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31398152"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595710"
 ---
 # <a name="use-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>使用 Windows 型 HDInsight 上的 Hive 分析網站的記錄
 了解如何使用 HDInsight 上的 HiveQL 來分析網站的記錄。 網站記錄分析可用於根據類似活動來區隔對象、依人口統計將網站造訪者分類，以及找出他們檢視的內容、他們來自的網站等。
@@ -36,7 +31,7 @@ ms.locfileid: "31398152"
 
 ![HDI.Samples.Website.Log.Analysis](./media/apache-hive-analyze-website-log/hdinsight-weblogs-sample.png)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * 您必須已在 Azure HDInsight 上佈建 Hadoop 叢集。 如需指示，請參閱[佈建 HDInsight 叢集](../hdinsight-hadoop-provision-linux-clusters.md)。
 * 您必須已安裝 Microsoft Excel 2013 或 Excel 2010。
 * 您必須有 [Microsoft Hive ODBC 驅動程式](http://www.microsoft.com/download/details.aspx?id=40886) ，才能從 Hive 將資料匯入 Excel 中。

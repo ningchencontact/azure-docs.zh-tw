@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: e1b11d637eec54d43c9f1212936d94b2d7396c97
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 49f6d6ee65ffae71cba8c73301355bfe2bdcd1d6
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34615116"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480551"
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>利用存留時間讓 Azure Cosmos DB 集合中的資料自動過期
 應用程式可以產生並儲存大量資料。 其中有些資料，例如電腦產生的事件資料、記錄檔和使用者工作階段資訊只能在有限的期間內使用。 一旦資料超過應用程式的需求，即可放心清除此資料並減少應用程式的儲存體需求。
@@ -48,7 +48,17 @@ TTL 功能是由兩個層級 (集合層級和文件層級) 的 TTL 屬性所控�
 | 文件上的 TTL = n |文件層級沒有可覆寫的項目。 系統無法解譯文件上的 TTL。 |TTL = n 的文件將在間隔 n (以秒為單位) 之後到期。 其他文件會繼承間隔 -1 且永遠不會過期。 |TTL = n 的文件將在間隔 n (以秒為單位) 之後到期。 其他文件會繼承集合的間隔 "n"。 |
 
 ## <a name="configuring-ttl"></a>設定 TTL
-根據預設，在所有 Cosmos DB 集合中及所有文件上都會停用存留時間。 可以透過程式設計的方式設定 TTL，或至 Azure 入口網站中針對集合的 [設定] 區段進行設定。 
+根據預設，在所有 Cosmos DB 集合中及所有文件上都會停用存留時間。 您可以程式設計方式或使用 Azure 入口網站來設定 TTL。 請使用下列步驟從 Azure 入口網站設定 TTL：
+
+1. 登入 [Azure 入口網站](https://portal.azure.com/)並瀏覽至 Azure Cosmos DB 帳戶。  
+
+2. 瀏覽至您想要設定 TTL 值的集合，開啟 [級別與設定] 窗格。 您可以看見 [存留時間] 預設會設為 [關閉]。 您可以將它變更為 [開啟 (無預設)] 或 [開啟]。
+
+   **關閉** - 不會自動刪除文件。  
+   **開啟 (無預設)** - 此選項會將 TTL 值設定為 "-1" (無限)，這表示文件預設不會過期。  
+   **開啟** - 文件會在上次修改後的 "n" 秒到期。  
+
+   ![設定存留時間](./media/time-to-live/set-ttl-in-portal.png)
 
 ## <a name="enabling-ttl"></a>啟用 TTL
 若要在集合上或集合內的文件上啟用 TTL，您需要將集合的 DefaultTTL 屬性設定為 -1 或非零的正數。 將 DefaultTTL 設定為 -1，表示集合中的所有文件都預設為永遠存留，但 Cosmos DB 服務應監視此集合中已覆寫這個預設值的文件。

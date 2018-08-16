@@ -11,14 +11,14 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
-ms.date: 07/13/2018
+ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: e4712b94be94eb6d4cf363fc120b72c74f29f0a2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 6048a17bf50ecac691c7cf687f87e454c54ee9d9
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39057920"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521878"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>使用 Application Insights 來分析即時 Azure Web 應用程式
 
@@ -33,15 +33,15 @@ Profiler 目前適用於在 Web Apps 上執行的 ASP.NET 和 ASP.NET Core Web �
 一旦您部署 Web 應用程式後，不論您是否在原始程式碼中包含 App Insights SDK，請執行下列作業：
 
 1. 移至 Azure 入口網站中的 [App Service] 窗格。
-2. 巡覽至 [設定 > 監視] 窗格。
+1. 巡覽至 [設定 > 監視] 窗格。
 
    ![在 App Service 入口網站上啟用 Application Insights](./media/app-insights-profiler/AppInsights-AppServices.png)
 
-3. 遵循窗格上的指示以建立新資源，或選取現有 App Insights 資源以監視您的 Web 應用程式。 接受所有預設選項。 預設會開啟 [程式碼層級診斷]，並啟用 Profiler。
+1. 遵循窗格上的指示以建立新資源，或選取現有 App Insights 資源以監視您的 Web 應用程式。 接受所有預設選項。 預設會開啟 [程式碼層級診斷]，並啟用 Profiler。
 
    ![新增 App Insights 網站延伸模組][Enablement UI]
 
-4. Profiler 現在會隨 App Insights 網站延伸模組而安裝，並使用應用程式服務應用程式設定來啟用。
+1. Profiler 現在會隨 App Insights 網站延伸模組而安裝，並使用應用程式服務應用程式設定來啟用。
 
     ![Profiler 的應用程式設定][profiler-app-setting]
 
@@ -167,9 +167,12 @@ Profiler 會在 Web 應用程式中以連續性 Web 作業的形式執行。 您
 * 確定 Web 應用程式已啟用 Application Insights SDK 2.2 Beta 或更新版本。
 * 確定 Web 應用程式的 **APPINSIGHTS_INSTRUMENTATIONKEY** 設定所擁有的檢測金鑰與 Application Insights SDK 所使用的金鑰相同。
 * 確定 Web 應用程式是在 .NET Framework 4.6 上執行。
-* 如果 Web 應用程式是 ASP.NET Core 應用程式，請檢查[所需的相依性](#aspnetcore)。
+* 如果 Web 應用程式是 ASP.NET Core 應用程式，則必須至少執行 ASP.NET Core 2.0。
 
 在啟動 Profiler 之後，會有一小段熱身時間，Profiler 會利用這段時間積極收集幾項效能追蹤資料。 之後，Profiler 會每隔一小時花兩分鐘時間來收集效能追蹤資料。
+
+> [!NOTE]
+> 分析工具代理程式中有一個錯誤，使其無法上傳從在 ASP.NET Core 2.1 上執行的應用程式取得的追蹤資料。 我們正努力修正錯誤，盡快讓它準備就緒。
 
 ### <a name="i-was-using-azure-service-profiler-what-happened-to-it"></a>我之前使用的是 Azure Service 分析工具。 它有什麼改變？
 
@@ -214,14 +217,14 @@ Profiler 會在 Web 應用程式中以連續性 Web 作業的形式執行。 您
 當您設定 Profiler 時，系統會對 Web 應用程式的設定進行更新。 您可以視環境需要，手動套用這些更新。 可能的範例為您的應用程式在 PowerApps 的 Web Apps 環境中執行。
 
 1. 在 [Web 應用程式控制項] 窗格中，開啟 [設定]。
-2. 將 [.Net Framework 版本] 設定為 [v4.6]。
-3. 將 [一律開啟] 設定為 [開啟]。
-4. 新增 **APPINSIGHTS_INSTRUMENTATIONKEY** 應用程式設定，並將值設定為與 SDK 所用相同的檢測金鑰。
-5. 開啟 [進階工具]。
-6. 選取 [執行] 以開啟 Kudu 網站。
-7. 在 Kudu 網站上，選取 [網站延伸模組]。
-8. 從 Azure Web Apps 資源庫安裝 [Application Insights]。
-9. 重新啟動 Web 應用程式。
+1. 將 [.Net Framework 版本] 設定為 [v4.6]。
+1. 將 [一律開啟] 設定為 [開啟]。
+1. 新增 **APPINSIGHTS_INSTRUMENTATIONKEY** 應用程式設定，並將值設定為與 SDK 所用相同的檢測金鑰。
+1. 開啟 [進階工具]。
+1. 選取 [執行] 以開啟 Kudu 網站。
+1. 在 Kudu 網站上，選取 [網站延伸模組]。
+1. 從 Azure Web Apps 資源庫安裝 [Application Insights]。
+1. 重新啟動 Web 應用程式。
 
 ## <a id="profileondemand"></a>手動觸發 Profiler
 
@@ -272,7 +275,7 @@ Profiler 會在 Web 應用程式中以連續性 Web 作業的形式執行。 您
 
 1. 隨選 Profiler 工作階段已成功，但 Application Insights 花費了較長時間來處理所收集的資料。 如果資料未在 15 分鐘內完成處理，入口網站就會顯示逾時訊息。 但一段時間之後，會顯示 Profiler 追蹤。 如果發生這種情況，目前只需忽略錯誤訊息。 我們正積極修正
 
-2. 您的 Web 應用程式中，Profiler 代理程式版本較舊且沒有隨選功能。 如果您先前已啟用 Application Insights 設定檔，則您可能必須更新您的 Profiler 代理程式，才能開始使用隨選功能。
+1. 您的 Web 應用程式中，Profiler 代理程式版本較舊且沒有隨選功能。 如果您先前已啟用 Application Insights 設定檔，則您可能必須更新您的 Profiler 代理程式，才能開始使用隨選功能。
   
 請遵循下列步驟來檢查並安裝最新的 Profiler：
 
@@ -281,25 +284,25 @@ Profiler 會在 Web 應用程式中以連續性 Web 作業的形式執行。 您
     * **APPINSIGHTS_PORTALINFO**：ASP.NET
     * **APPINSIGHTS_PROFILERFEATURE_VERSION**：1.0.0 如果未設定這些設定，請移至 Application Insights 啟用窗格，來安裝最新的網站延伸模組。
 
-2. 請移至應用程式服務入口網站中的 Application Insights 窗格。
+1. 請移至應用程式服務入口網站中的 Application Insights 窗格。
 
     ![從應用程式服務入口網站啟用 Application Insights][enable-app-insights]
 
-3. 如果您在下列頁面中看到 [更新] 按鈕，請按一下以更新 Application Insights 網站延伸模組，這會安裝最新的 Profiler 代理程式。
+1. 如果您在下列頁面中看到 [更新] 按鈕，請按一下以更新 Application Insights 網站延伸模組，這會安裝最新的 Profiler 代理程式。
 ![更新網站延伸模組][update-site-extension]
 
-4. 然後按一下 [變更]，來確定 Profiler 已開啟，並選取 [確定] 以儲存變更。
+1. 然後按一下 [變更]，來確定 Profiler 已開啟，並選取 [確定] 以儲存變更。
 
     ![變更並儲存 App Insights][change-and-save-appinsights]
 
-5. 返回 App Service 的 [應用程式設定] 索引標籤，再次檢查已設定下列應用程式設定項目：
+1. 返回 App Service 的 [應用程式設定] 索引標籤，再次檢查已設定下列應用程式設定項目：
     * **APPINSIGHTS_INSTRUMENTATIONKEY**：取代為 Application Insights 的適當檢測金鑰。
     * **APPINSIGHTS_PORTALINFO**：ASP.NET
     * **APPINSIGHTS_PROFILERFEATURE_VERSION**：1.0.0
 
     ![Profiler 的應用程式設定][app-settings-for-profiler]
 
-6. (選擇性) 請檢查延伸模組版本，並確定沒有可用的更新。
+1. (選擇性) 請檢查延伸模組版本，並確定沒有可用的更新。
 
     ![檢查延伸模組更新][check-for-extension-update]
 

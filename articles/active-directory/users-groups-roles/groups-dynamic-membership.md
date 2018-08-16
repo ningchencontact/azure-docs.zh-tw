@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory 中的屬性動態群組成員資格規則 | Microsoft Docs
-description: 如何建立動態群組成員資格的進階規則，包括支援的運算式規則運算子和參數。
+title: Azure Active Directory 中的自動群組成員資格規則參考 | Microsoft Docs
+description: 如何建立成員資格規則，以自動填入群組和規則參考。
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -10,167 +10,63 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 08/01/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: e49da237584a48c01e72552abae01da2514da3c1
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 9c0bb676cc59820d3ae83612893c8920d5d0aebe
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248884"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424366"
 ---
-# <a name="create-dynamic-groups-with-attribute-based-membership-in-azure-active-directory"></a>在 Azure Active Directory 中使用以屬性為基礎的成員資格建立動態群組
+# <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory 中群組的動態成員資格規則
 
-在 Azure Active Directory (Azure AD) 中，您可以建立以複雜屬性為基礎的規則，來啟用群組的動態成員資格。 本文將詳細說明用以建立適用於使用者或裝置之動態成員資格規則的屬性和語法。 您可以為安全性群組或 Office 365 群組的動態成員資格設定規則。
+在 Azure Active Directory (Azure AD) 中，您可以建立以複雜屬性為基礎的規則，來啟用群組的動態成員資格。 動態群組成員資格可減少新增及移除使用者的額外管理負擔。 本文將詳細說明用以建立適用於使用者或裝置之動態成員資格規則的屬性和語法。 您可以為安全性群組或 Office 365 群組的動態成員資格設定規則。
 
 當使用者或裝置的任何屬性變更時，系統會評估目錄中的所有動態群組規則，以查看變更是否會觸發任何的群組新增或移除。 如果使用者或裝置滿足群組上的規則，就會將他們新增為該群組的成員。 如果他們不再符合此規則，則會予以移除。
+
+* 您可以為裝置或使用者建立動態群組，但無法建立同時包含使用者和裝置的規則。
+* 您無法根據裝置擁有者的屬性來建立裝置群組。 裝置成員資格規則只能參考裝置屬性。
 
 > [!NOTE]
 > 此功能需要一或多個動態群組成員中每個唯一使用者的 Azure AD Premium P1 授權。 您不需要將授權指派給使用者，使用者就能成為動態群組成員，但是您必須在租用戶中有最小數量的授權，才能涵蓋所有這類使用者。 例如，如果您租用戶中的所有動態群組總計有 1,000 位唯一使用者，則需要至少有 Azure AD Premium P1 的 1,000 個授權，才符合授權需求。
 >
-> 您可以為裝置或使用者建立動態群組，但無法建立同時包含使用者和裝置的規則。
-> 
-> 目前無法依據擁有使用者的屬性建立裝置群組。 裝置成員資格規則只能參考目錄中裝置物件的直接屬性。
 
-## <a name="to-create-an-advanced-rule"></a>建立進階規則
+## <a name="constructing-the-body-of-a-membership-rule"></a>建構成員資格規則的本文
 
-1. 使用具備全域管理員或使用者帳戶管理員身分的帳戶來登入 [Azure AD 系統管理中心](https://aad.portal.azure.com)。
-2. 選取 [使用者和群組]。
-3. 選取 [所有群組]，然後選取 [新增群組]。
+自動填入使用者或裝置群組的成員資格規則是可導致 true 或 false 結果的二進位運算式。 簡單規則的三個部分如下：
 
-   ![Add new group](./media/groups-dynamic-membership/new-group-creation.png)
+* 屬性
+* 運算子
+* 值
 
-4. 在 [群組]  刀鋒視窗上，輸入新群組的名稱和描述。 依據您是要為使用者還是裝置建立規則，在 [成員資格類型] 選取 [動態使用者] 或 [動態裝置]，然後選取 [新增動態查詢]。 您可以使用規則建立器來建立簡單的規則，或自行撰寫進階的規則。 這篇文章包含可用的使用者和裝置屬性的詳細資訊，以及進階規則的範例。
+運算式內的部分順序很重要，可避免發生語法錯誤。
 
-   ![新增動態成員資格規則](./media/groups-dynamic-membership/add-dynamic-group-rule.png)
+### <a name="rules-with-a-single-expression"></a>使用單一運算式的規則
 
-5. 建立規則之後，在刀鋒視窗的底部選取 [新增查詢]。
-6. 選取 [更多服務]  on the  來建立群組。
+單一運算式是最簡單的成員資格規則形式，只包含上述三個部分。 具有單一運算式的規則看起來像這樣：`Property Operator Value`，其中屬性的語法是 object.property 的名稱。
 
-> [!TIP]
-> 如果您所輸入規則的格式不正確或無效，則群組建立會失敗。 入口網站右上角會顯示通知，當中包含為何無法處理規則的解釋。 請仔細閱讀，了解您需要如何調整規則而讓規則有效。
-
-## <a name="status-of-the-dynamic-rule"></a>動態規則的狀態
-
-您可以在動態群組的 [概觀] 頁面上看到成員資格處理狀態和上次更新日期。
-  
-  ![動態群組狀態顯示](./media/groups-dynamic-membership/group-status.png)
-
-
-可能會針對**成員資格處理**狀態顯示下列狀態訊息：
-
-* **評估中**：已收到群組變更，而且正在評估更新。
-* **處理中**：正在處理更新。
-* **更新完成**：處理已完成，並已建立所有適用的更新。
-* **處理錯誤**：評估成員資格規則時發生錯誤，因此無法完成處理。
-* **已暫停更新**：系統管理員已暫停動態成員資格規則更新。 MembershipRuleProcessingState 設定為「已暫停」。
-
-可能會針對**成員資格上次更新**狀態顯示下列狀態訊息：
-
-* &lt;**日期和時間**&gt;：上次更新成員資格的時間。
-* **進行中**：目前正在更新。
-* **未知**：無法擷取上次更新時間。 原因可能是正在新建立群組。
-
-如果處理特定群組的成員資格規則時發生錯誤，則會在群組的 [概觀] 頁面頂端顯示警示。 如果無法處理租用戶內所有群組 24 小時內的暫止動態成員資格更新，則會在 [所有群組] 頂端顯示警示。
-
-![處理錯誤訊息](./media/groups-dynamic-membership/processing-error.png)
-
-## <a name="constructing-the-body-of-an-advanced-rule"></a>建構進階規則的主體
-
-您可以為群組的動態成員資格建立的進階規則基本上是一個二進位運算式，其中包含三個部分，且會產生 true 或 false 的結果。 這三個部分包括：
-
-* 左側的參數
-* 二進位運算子
-* 右側的常數
-
-完整的進階規則外觀如下：(leftParameter binaryOperator "RightConstant")，其中可選擇性地使用左右括號來括住整個二進位運算式，也可以選擇性地使用雙引號、只有在其為字串時需要括住右側常數，且左側參數的語法是 user.property。 進階規則可以包含多個二進位運算式，並以 -and、 -or 和 -not 邏輯運算子分隔。
-
-以下是正確建構的進階規則的範例：
-```
-(user.department -eq "Sales") -or (user.department -eq "Marketing")
-(user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
-```
-如需支援的參數和運算式規則運算子的完整清單，請參閱下列各節。 如需了解有哪些用於裝置規則的屬性，請參閱 [使用屬性來建立裝置物件的規則](#using-attributes-to-create-rules-for-device-objects)。
-
-進階規則主體的總長度不得超過 2048 個字元。
-
-> [!NOTE]
-> 字串和 regex 運算都不區分大小寫。 您也可以使用 *null* 作為常數來執行 Null 檢查，例如 user.department -eq *null*。
-> 包含引號 " 的字串應該使用 ' 字元逸出，例如 user.department -eq \`"Sales"。
-
-## <a name="supported-expression-rule-operators"></a>支援的運算式規則運算子
-
-下表列出所有支援的運算式規則運算子及其用於進階規則主體中的語法：
-
-| 運算子 | 語法 |
-| --- | --- |
-| Not Equals |-ne |
-| Equals |-eq |
-| Not Starts With |-notStartsWith |
-| 開頭為 |-startsWith |
-| Not Contains |-notContains |
-| Contains |-contains |
-| Not Match |-notMatch |
-| Match |-match |
-| 在 | -in |
-| 不在 | -notIn |
-
-## <a name="operator-precedence"></a>運算子優先順序
-
-所有運算子都會列在下面 (由高至低排定優先順序)。 同一行上運算子的優先順序相等：
-
-````
--any -all
--or
--and
--not
--eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
-````
-
-不管有沒有連字號前置詞，均可使用所有運算子。 優先順序不符合您的需求時，才需要括號。
-例如︰
+以下範例是正確建構的成員資格規則 (具有單一運算式)：
 
 ```
-   user.department –eq "Marketing" –and user.country –eq "US"
+user.department -eq "Sales"
 ```
 
-相當於：
-
-```
-   (user.department –eq "Marketing") –and (user.country –eq "US")
-```
-
-## <a name="using-the--in-and--notin-operators"></a>使用 -In 和 -notIn 運算子
-
-如果您想要針對許多不同的值比較使用者屬性的值，您可以使用 -In 或 -notIn 運算子。 使用 -In 運算子的範例如下︰
-```
-   user.department -In ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
-```
-請注意值清單的開頭和結尾有使用 "[" 和 "]"。 當 user.department 的值等於清單中的其中一個值時，這個條件會評估為 True。
-
-
-## <a name="query-error-remediation"></a>查詢錯誤補救
-
-下表列出一般的錯誤及其更正方式
-
-| 查詢剖析錯誤 | 錯誤的使用方式 | 更正的使用方式 |
-| --- | --- | --- |
-| 錯誤：不支援屬性。 |(user.invalidProperty -eq "Value") |(user.department -eq "value")<br/><br/>請確定此屬性位於[支援的屬性清單](#supported-properties)中。 |
-| 錯誤：屬性不支援運算子。 |(user.accountEnabled -contains true) |(user.accountEnabled -eq true)<br/><br/>屬性類型不支援使用的運算子 (在此範例中，-contains 不能在布林類型上使用)。 屬為屬性類型使用正確的運算子。 |
-| 錯誤：查詢編譯錯誤。 |1. (user.department -eq "Sales") (user.department -eq "Marketing")<br/><br/>2. (user.userPrincipalName -match "*@domain.ext") |1.缺少運算子。 使用這兩個 -and 或 -or 聯結述詞<br/><br/>(user.department -eq "Sales") -or (user.department -eq "Marketing")<br/><br/>2. 使用 -match 的規則運算式發生錯誤<br/><br/>(user.userPrincipalName -match ".*@domain.ext")，此外：(user.userPrincipalName -match "\@domain.ext$")|
+單一運算式的括號是選擇性的。 成員資格規則本文的總長度不得超過 2048 個字元。
 
 ## <a name="supported-properties"></a>支援的屬性
 
-以下是您可以在進階規則中使用的所有使用者屬性：
+有三種類型的屬性可用來建構成員資格規則。
+
+* BOOLEAN
+* 字串
+* 字串集合
+
+以下是您可用來建立單一運算式的使用者屬性。
 
 ### <a name="properties-of-type-boolean"></a>布林型別的屬性
-
-允許的運算子
-
-* -eq
-* -ne
 
 | properties | 允許的值 | 使用量 |
 | --- | --- | --- |
@@ -178,19 +74,6 @@ ms.locfileid: "39248884"
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>字串類型的屬性
-
-允許的運算子
-
-* -eq
-* -ne
-* -notStartsWith
-* -startsWith
-* -contains
-* -notContains
-* -match
-* -notMatch
-* -in
-* -notIn
 
 | properties | 允許的值 | 使用量 |
 | --- | --- | --- |
@@ -223,42 +106,143 @@ ms.locfileid: "39248884"
 
 ### <a name="properties-of-type-string-collection"></a>字串集合類型的屬性
 
-允許的運算子
-
-* -contains
-* -notContains
-
 | properties | 允許的值 | 使用量 |
 | --- | --- | --- |
 | otherMails |任何字串值 |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
+如需裝置規則所使用的屬性，請參閱[裝置的規則](#rules-for-devices)。
+
+## <a name="supported-operators"></a>支援的運算子
+
+下表列出單一運算式支援的所有運算子及其語法。 不管有沒有連字號 (-) 前置詞，均可使用運算子。
+
+| 運算子 | 語法 |
+| --- | --- |
+| Not Equals |-ne |
+| Equals |-eq |
+| Not Starts With |-notStartsWith |
+| 開頭為 |-startsWith |
+| Not Contains |-notContains |
+| Contains |-contains |
+| Not Match |-notMatch |
+| Match |-match |
+| 在 | -in |
+| 不在 | -notIn |
+
+### <a name="using-the--in-and--notin-operators"></a>使用 -In 和 -notIn 運算子
+
+如果您想要針對許多不同的值比較使用者屬性的值，您可以使用 -In 或 -notIn 運算子。 使用方括號 "[" 和 "]" 作為值清單的開頭和結尾。
+
+ 在以下範例中，如果 user.department 的值等於清單中的任何一個值，此運算式會評估為 True：
+
+```
+   user.department -In ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
+```
+
+## <a name="supported-values"></a>支援的值
+
+運算式中使用的值可以包含數種類型，包括：
+
+* 字串
+* 布林值 – true、false
+* 數字
+* 陣列 – 數字陣列、字串陣列
+
+指定運算式中的值時，務必使用正確的語法，以避免發生錯誤。 一些語法秘訣如下：
+
+* 除非值為字串，否則雙引號是選擇性的。
+* 字串和 regex 運算都不區分大小寫。
+* 當字串值包含雙引號時，這兩個引號應該會使用 \` 字元逸出，例如 user.department -eq \`"Sales\`" 是值為 "Sales" 時的正確語法。
+* 您也可以使用 null 值來執行 Null 檢查，例如 `user.department -eq null`。
+
+### <a name="use-of-null-values"></a>使用 Null 值
+
+若要在規則中指定 null 值，您可以使用 *null* 值。 
+
+* 在比較運算式中的 *null* 值時，請使用 -eq 或 -ne。
+* 只有在想要將 *null* 一字解釋為常值字串值時，才在它的前後使用引號。
+* -not 運算子不能用來作為 null 的比較運算子。 如果使用它，則不論您使用 null 還是 $null 都會收到錯誤。
+
+參考 null 值的正確方法如下：
+
+```
+   user.mail –ne null
+```
+
+## <a name="rules-with-multiple-expressions"></a>具有多個運算式的規則
+
+群組成員資格規則可以包含多個以 -and、 -or 和 -not 邏輯運算子連接的運算式。 邏輯運算子也可以合併使用。 
+
+以下範例是正確建構的成員資格規則 (具有多個運算式)：
+
+```
+(user.department -eq "Sales") -or (user.department -eq "Marketing")
+(user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
+```
+
+### <a name="operator-precedence"></a>運算子優先順序
+
+所有運算子都會列在下面 (由高至低排定優先順序)。 同一行上運算子的優先順序相等：
+
+```
+-eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
+-not
+-and
+-or
+-any -all
+```
+
+以下是運算子優先順序範例，其中有兩個運算式會針對使用者而評估：
+
+```
+   user.department –eq "Marketing" –and user.country –eq "US"
+```
+
+優先順序不符合您的需求時，才需要括號。 例如，如果您想要先評估部門，以下顯示如何使用括號來決定順序：
+
+```
+   user.country –eq "US" –and (user.department –eq "Marketing" –or user.department –eq "Sales")
+```
+
+## <a name="rules-with-complex-expressions"></a>具有複雜運算式的規則
+
+成員資格規則可由複雜的運算式所組成，其中的屬性、運算子和值是在更複雜的表單上取得。 當下列任一項成立時，即可視為複雜運算式：
+
+* 屬性由值集合所組成；具體來說，就是多重值的屬性
+* 運算式會使用 -any 和 -all 運算子
+* 運算式的值本身可以是一或多個運算式
+
 ## <a name="multi-value-properties"></a>多重值屬性
 
-允許的運算子
+多重值屬性是相同類型之物件的集合。 它們可以用來建立使用 -any 和 -all 邏輯運算子的成員資格規則。
+
+| properties | 值 | 使用量 |
+| --- | --- | --- |
+| assignedPlans | 集合中的每個物件都會公開下列字串屬性：capabilityStatus、service、servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
+| proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |
+
+### <a name="using-the--any-and--all-operators"></a>使用 -any 和 -all 運算子
+
+您可以使用 -any 和 -all 運算子，分別將條件套用至集合中的一個或所有項目。
 
 * -any (集合中至少有一個項目符合條件時滿足)
 * -all (集合中的所有項目符合條件時滿足)
 
-| properties | 值 | 使用量 |
-| --- | --- | --- |
-| assignedPlans |集合中的每個物件都會公開下列字串屬性：capabilityStatus、service、servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
-| proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |
+#### <a name="example-1"></a>範例 1
 
-多重值屬性是相同類型之物件的集合。 您可以使用 -any 和 -all 運算子，分別將條件套用至集合中的一個或所有項目。 例如︰
-
-assignedPlans 是多重值屬性，可列出所有指派給使用者的服務方案。 下列運算式將會選取擁有 Exchange Online (方案 2) 服務方案 (也處於 [已啟用] 狀態) 的使用者：
+assignedPlans 是多重值屬性，可列出所有指派給使用者的服務方案。 下列運算式會選取擁有 Exchange Online (方案 2) 服務方案 (作為 GUID 值) 的使用者 (該方案也處於 [已啟用] 狀態)：
 
 ```
 user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-(GUID 識別碼可識別 Exchange Online (方案 2) 服務方案。)
+這類規則可用來將所有已啟用 Office 365 (或其他 Microsoft 線上服務) 功能的使用者分組。 您可以接著將一組原則套用到群組。
 
-> [!NOTE]
-> 如果您想要識別已啟用 Office 365 (或其他 Microsoft Online 服務) 功能的所有使用者，例如以一組特定原則鎖定他們，此屬性非常有用。
+#### <a name="example-2"></a>範例 2
 
 下列運算式會選取有任何服務方案與 Intune 服務 (透過服務名稱 "SCO" 來識別) 相關聯的所有使用者：
+
 ```
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
@@ -273,55 +257,75 @@ user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabi
 (user.proxyAddresses -any (_ -contains "contoso"))
 ```
 
-## <a name="use-of-null-values"></a>使用 Null 值
+## <a name="other-properties-and-common-rules"></a>其他屬性和通用規則
 
-若要在規則中指定 null 值，您可以使用 *null* 值。 注意，請不要在 *null* 文字前後使用引號，這麼做會使系統將它解釋為常值字串值。 -not 運算子不能用來作為 null 的比較運算子。 如果使用它，則不論您使用 null 還是 $null 都會收到錯誤。 請改用 -eq 或 -ne。 參考 null 值的正確方法如下：
+### <a name="create-a-direct-reports-rule"></a>建立「直屬員工」規則
+
+您可以建立一個群組，其中包含某位經理的所有直屬員工。 當經理的直屬員工在未來變更時，系統便會自動調整群組的成員資格。
+
+使用下列語法來建構直屬員工規則：
+
 ```
-   user.mail –ne $null
+Direct Reports for "{objectID_of_manager}"
 ```
 
-## <a name="extension-attributes-and-custom-attributes"></a>擴充屬性和自訂屬性
-動態成員資格規則支援擴充屬性和自訂屬性。
+以下是有效的規則範例，其中 “62e19b97-8b3d-4d4a-a106-4ce66896a863” 為管理員的 objectID：
 
-擴充屬性會從內部部署 Windows Server AD 進行同步處理，並採用 "ExtensionAttributeX" 格式，其中 X 等於 1-15。
-以下是使用擴充屬性的規則範例：
+```
+Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
+```
+
+下列秘訣可協助您正確使用此規則。
+
+* [經理識別碼]是經理的物件識別碼。 在經理的**設定檔**可找到它。
+* 若要讓規則得以運作，請確定已對您租用戶中的使用者正確設定 [經理] 屬性。 您可以在使用者的 [設定檔] 中檢查目前值。
+* 此規則僅支援經理的直屬員工。 換句話說，您建立的群組無法「同時」包含經理的直屬員工及其員工。
+* 此規則無法與任何其他成員資格規則結合。
+
+### <a name="create-an-all-users-rule"></a>建立「所有使用者」規則
+
+您建立的群組可以包含使用成員資格規則的租用戶內的所有使用者。 未來在租用戶中新增或移除使用者時，系統會自動調整群組的成員資格。
+
+使用採用 -ne 運算子與 null 值的單一運算式來建構「所有使用者」規則。 此規則會將 B2B 來賓使用者，以及成員使用者新增到群組。
+
+```
+user.objectid -ne null
+```
+
+### <a name="create-an-all-devices-rule"></a>建立「所有裝置」規則
+
+您建立的群組可以包含使用成員資格規則的租用戶內的所有裝置。 未來在租用戶中新增或移除裝置時，系統會自動調整群組的成員資格。
+
+使用採用 -ne 運算子與 null 值的單一運算式來建構「所有裝置」規則：
+
+```
+device.objectid -ne null
+```
+
+### <a name="extension-properties-and-custom-extension-properties"></a>擴充屬性和自訂擴充屬性
+
+支援以擴充屬性和自訂屬性作為動態成員資格規則中的字串屬性。 擴充屬性會從內部部署 Windows Server AD 進行同步處理，並採用 "ExtensionAttributeX" 格式，其中 X 等於 1-15。 以下是使用擴充屬性 (attribute) 作為屬性 (property) 的規則範例：
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-自訂屬性會從內部部署 Windows Server AD 或從連線的 SaaS 應用程式進行同步處理，並採用 "user.extension_[GUID]\__[Attribute]" 格式，其中 [GUID] 是 AAD 中的唯一識別碼 (適用於在 Azure AD 中建立屬性的應用程式)，而 [Attribute] 是其建立的屬性名稱。 以下是使用自訂屬性的規則範例：
+自訂擴充屬性會從內部部署 Windows Server AD 或從連線的 SaaS 應用程式進行同步處理，而且格式為 `user.extension_[GUID]__[Attribute]`，其中：
+
+* 對於在 Azure AD 中建立屬性的應用程式而言，[GUID] 是其在 Azure AD 中的唯一識別碼
+* [Attribute] 是屬性建立時的名稱
+
+以下是使用自訂擴充屬性的規則範例：
 
 ```
-user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
+user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
 ```
 
 使用 [Graph 總管] 查詢使用者的屬性並搜尋屬性名稱，即可在目錄中找到自訂屬性名稱。
 
-## <a name="direct-reports-rule"></a>「直屬員工」規則
-您可以建立一個群組，其中包含某位經理的所有直屬員工。 當經理的直屬員工在未來變更時，系統將會自動調整群組的成員資格。
+## <a name="rules-for-devices"></a>裝置的規則
 
-> [!NOTE]
-> 1. 若要讓規則得以運作，請確定已對您租用戶中的使用者正確設定 [經理識別碼] 屬性。 您可以在其 **[設定檔] 索引標籤**上檢查使用者的目前值。
-> 2. 此規則只支援**直屬**員工。 目前無法為巢狀階層建立群組；例如包含直屬員工及其員工的群組。
-> 3. 此規則無法與任何其他進階規則結合。
-
-**設定群組**
-
-1. 依照[建立進階規則](#to-create-the-advanced-rule)一節中的步驟 1-5 操作，然後在 [成員資格類型] 中選取 [動態使用者]。
-2. 在 [動態成員資格規則]  刀鋒視窗上，使用下列語法來輸入規則：
-
-    *"{objectID_of_manager}" 的直屬員工*
-
-    有效規則的範例：
-```
-                    Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
-```
-    where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is the objectID of the manager. The object ID can be found on manager's **Profile tab**.
-3. 儲存規則之後，即會將具有指定經理識別碼值的所有使用者新增至群組。
-
-## <a name="using-attributes-to-create-rules-for-device-objects"></a>使用屬性來建立裝置物件的規則
-您也可以建立規則以在群組中選取成員資格的裝置物件。 可以使用下列裝置屬性。
+您也可以建立規則以在群組中選取成員資格的裝置物件。 您不能同時讓使用者和裝置成為群組成員。 可以使用下列裝置屬性。
 
  裝置屬性  | 值 | 範例
  ----- | ----- | ----------------
@@ -341,100 +345,8 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
  deviceId | 有效的 Azure AD 裝置識別碼 | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | 有效的 Azure AD 物件識別碼 |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
 
-
-
-## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>將動態成員資格變更為靜態，反之亦然
-您可以變更在群組中管理成員資格的方式。 當您想要在系統中保留相同的群組名稱和識別碼，讓任何現有的群組參考仍然有效時，這非常實用；建立新的群組需要更新這些參考。
-
-我們已更新 Azure AD 系統管理中心，以新增這項功能的支援。 現在，客戶可以透過 Azure AD 系統管理中心或 PowerShell Cmdlet，將現有的群組從動態成員資格轉換為指派的成員資格，反之亦然，如下所示。
-
-> [!WARNING]
-> 將現有的靜態群組變更為動態群組時，系統將從群組中移除所有現有的成員，然後再處理成員資格規則，以加入新的成員。 如果群組用來控制對應用程式或資源的存取，則在完全處理成員資格規則之前，原始成員可能會失去存取權。
->
-> 建議您先測試新的成員資格規則，以確保群組中的新成員資格如預期般運作。
-
-### <a name="using-azure-ad-admin-center-to-change-membership-management-on-a-group"></a>使用 Azure AD 系統管理中心來變更群組上的成員資格管理 
-
-1. 使用具備您租用戶中全域管理員或使用者帳戶管理員身分的帳戶來登入 [Azure AD 系統管理中心](https://aad.portal.azure.com)。
-2. 選取 [群組]。
-3. 從 [所有群組] 清單中，開啟您想要變更的群組。
-4. 選取 [屬性] 。
-5. 在群組的 [屬性] 頁面上，依據您所需的成員資格類型，選取 [已指派] (靜態)、[動態使用者] 或 [動態裝置] 作為 [成員資格類型]。 針對動態成員資格，您可以使用規則建立器來選取簡單規則的選項，或自行撰寫進階規則。 
-
-下列步驟是針對某個使用者群組將群組從靜態變更為動態成員資格的範例。 
-
-1. 在所選群組的 [屬性] 上，選取 [動態使用者] 作為 [成員資格類型]，然後在說明群組成員資格變更的對話方塊上，選取 [是] 以繼續。 
-  
-   ![選取動態使用者作為成員資格類型](./media/groups-dynamic-membership/select-group-to-convert.png)
-  
-2. 選取 [新增動態查詢]，然後提供規則。
-  
-   ![輸入規則](./media/groups-dynamic-membership/enter-rule.png)
-  
-3. 建立規則之後，在頁面底部選取 [新增查詢]。
-4. 在群組的 [屬性] 頁面上，選取 [儲存] 以儲存變更。 群組的 [成員資格類型] 會立即在群組清單中更新。
-
-> [!TIP]
-> 如果您輸入的進階規則不正確，群組轉換可能會失敗。 入口網站右上角將會顯示通知，當中包含系統為什麼無法接受該規則的解釋。 請仔細閱讀，以了解您可以如何調整規則來讓規則變成有效。
-
-### <a name="using-powershell-to-change-membership-management-on-a-group"></a>使用 PowerShell 來變更群組上的成員資格管理
-
-> [!NOTE]
-> 若要變更動態群組屬性，您必須使用**預覽版本** [Azure AD PowerShell 第 2 版](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)中的 Cmdlet。 您可以從 [PowerShell 資源庫](https://www.powershellgallery.com/packages/AzureADPreview)安裝預覽版。
-
-以下是在現有群組上切換成員資格管理的函式範例。 在此範例中，需小心以正確操作 GroupTypes 屬性，並保留任何與動態成員資格無關的值。
-
-```
-#The moniker for dynamic groups as used in the GroupTypes property of a group object
-$dynamicGroupTypeString = "DynamicMembership"
-
-function ConvertDynamicGroupToStatic
-{
-    Param([string]$groupId)
-
-    #existing group types
-    [System.Collections.ArrayList]$groupTypes = (Get-AzureAdMsGroup -Id $groupId).GroupTypes
-
-    if($groupTypes -eq $null -or !$groupTypes.Contains($dynamicGroupTypeString))
-    {
-        throw "This group is already a static group. Aborting conversion.";
-    }
-
-
-    #remove the type for dynamic groups, but keep the other type values
-    $groupTypes.Remove($dynamicGroupTypeString)
-
-    #modify the group properties to make it a static group: i) change GroupTypes to remove the dynamic type, ii) pause execution of the current rule
-    Set-AzureAdMsGroup -Id $groupId -GroupTypes $groupTypes.ToArray() -MembershipRuleProcessingState "Paused"
-}
-
-function ConvertStaticGroupToDynamic
-{
-    Param([string]$groupId, [string]$dynamicMembershipRule)
-
-    #existing group types
-    [System.Collections.ArrayList]$groupTypes = (Get-AzureAdMsGroup -Id $groupId).GroupTypes
-
-    if($groupTypes -ne $null -and $groupTypes.Contains($dynamicGroupTypeString))
-    {
-        throw "This group is already a dynamic group. Aborting conversion.";
-    }
-    #add the dynamic group type to existing types
-    $groupTypes.Add($dynamicGroupTypeString)
-
-    #modify the group properties to make it a static group: i) change GroupTypes to add the dynamic type, ii) start execution of the rule, iii) set the rule
-    Set-AzureAdMsGroup -Id $groupId -GroupTypes $groupTypes.ToArray() -MembershipRuleProcessingState "On" -MembershipRule $dynamicMembershipRule
-}
-```
-若要讓群組變成靜態的：
-```
-ConvertDynamicGroupToStatic "a58913b2-eee4-44f9-beb2-e381c375058f"
-```
-若要讓群組變成動態的：
-```
-ConvertStaticGroupToDynamic "a58913b2-eee4-44f9-beb2-e381c375058f" "user.displayName -startsWith ""Peter"""
-```
 ## <a name="next-steps"></a>後續步驟
+
 這些文章提供有關 Azure Active Directory 中群組的其他資訊。
 
 * [查看現有的群組](../fundamentals/active-directory-groups-view-azure-portal.md)

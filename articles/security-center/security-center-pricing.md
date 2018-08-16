@@ -3,7 +3,7 @@ title: 升級為 Azure 資訊安全中心標準層以增強安全性 | Microsoft
 description: 這篇文章提供 Azure 資訊安全中心的價格資訊。
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
-ms.author: terrylan
-ms.openlocfilehash: 0a8fb526602692db6737842c24649b686bea5dad
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.date: 08/06/2018
+ms.author: rkarlin
+ms.openlocfilehash: 824362c5dab9f226aff84e75b6620221d3a9147f
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2017
-ms.locfileid: "23473929"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528472"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>升級為 Azure 資訊安全中心標準層以增強安全性
 Azure 資訊安全中心提供統一的安全性管理和進階的威脅防護，保護 Azure、內部部署和其他雲端中執行的工作負載。 其提供了針對混合式雲端工作負載的可見性和控制能力、可降低威脅曝露度的主動防禦措施、還有智慧型偵測可幫助您跟上網路攻擊快速發展的腳步。
@@ -35,7 +35,7 @@ Azure 資訊安全中心提供統一的安全性管理和進階的威脅防護�
 ## <a name="try-standard-free-for-60-days"></a>免費試用「標準」60 天
 標準層的前 60 天免費。 在 60 天結束時，如果您選擇繼續使用服務，我們將自動開始針對使用量計費。
 
-您可以將整個 Azure 訂用帳戶升級至標準層，該層會繼承訂用帳戶中的所有資源，或者您也可以定義專屬策略，僅升級特定的資源群組。
+您可以將整個 Azure 訂用帳戶升級至標準層，該層會繼承訂用帳戶中的所有資源。
 
 若要取得標準層：
 
@@ -57,7 +57,7 @@ Azure 資訊安全中心提供統一的安全性管理和進階的威脅防護�
 
 - **混合式安全性** – 取得您所有內部部署和雲端工作負載中安全性的統一檢視。 套用安全性原則，並持續評估您混合式雲端工作負載的安全性，以確保符合安全性標準。 從各種來源 (包括防火牆和其他合作夥伴解決方案) 收集、搜尋及分析安全性資料。
 - **進階威脅偵測** - 利用進階分析和 Microsoft Intelligent Security Graph 勝過不斷進化的網路攻擊。  有效率的調控內建行為分析和機器學習服務，以發現攻擊和零時差惡意探索。 監視網路、機器和雲端服務中是否有傳入攻擊和侵入後活動。 使用互動式工具和內容相關威脅情報來簡化調查。
-- **存取與應用程式控制** - 藉由套用依特定工作負載調整並由機器學習服務提供的允許清單建議，來封鎖惡意程式碼和其他不想要的應用程式。 利用即時控制存取減少網路攻擊面，以管理 Azure VM 上的連接埠，大幅減少暴力密碼破解攻擊和其他網路攻擊。
+- **存取與應用程式控制** - 藉由套用依特定工作負載調整並由機器學習服務提供的白名單建議，來封鎖惡意程式碼和其他不想要的應用程式。 利用即時控制存取減少網路攻擊面，以管理 Azure VM 上的連接埠，大幅減少暴力密碼破解攻擊和其他網路攻擊。
 
 
 ## <a name="next-steps"></a>後續步驟

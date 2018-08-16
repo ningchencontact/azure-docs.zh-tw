@@ -1,21 +1,21 @@
 ---
-title: 從儲存體應用程式中使用 Azure AD 進行驗證 (預覽) | Microsoft Docs
-description: 從 Azure 儲存體應用程式中使用 Azure AD 進行驗證 (預覽)。
+title: 使用 Azure Active Directory 進行驗證，以從您的應用程式 (預覽版) 存取 Blob 和佇列資料 |Microsoft Docs
+description: 從應用程式內使用 Azure Active Directory 進行驗證，然後授權給 Azure 儲存體資源 (預覽版) 的要求。
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 06/12/2018
 ms.author: tamram
-ms.openlocfilehash: 1bf4a8bba3b93c16f67d46f65292709ef2a1bba2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: common
+ms.openlocfilehash: d065dd6db361c5c348713c6e1ceabe3a4c42c312
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659219"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577699"
 ---
-# <a name="authenticate-with-azure-ad-from-an-azure-storage-application-preview"></a>從 Azure 儲存體應用程式中使用 Azure AD 進行驗證 (預覽)
+# <a name="authenticate-with-azure-active-directory-from-an-azure-storage-application-preview"></a>從 Azure 儲存體應用程式中使用 Azure Active Directory 進行驗證 (預覽版)
 
 搭配使用 Azure Active Directory (Azure AD) 與 Azure 儲存體的主要優點是，您的認證不再需要儲存在程式碼中。 相反地，您可以從 Azure AD 要求 OAuth 2.0 存取權杖。 Azure AD 會針對執行應用程式的安全性主體 (使用者、群組或服務主體) 處理驗證作業。 如果驗證成功，Azure AD 會將存取權杖傳回給應用程式，然後應用程式就可以使用存取權杖來授權存取 Azure 儲存體的要求。
 
@@ -23,7 +23,7 @@ ms.locfileid: "34659219"
 
 您必須先設定安全性主體的角色型存取控制 (RBAC)，才能從 Azure 儲存體應用程式中驗證該安全性主體。 Azure 儲存體會定義包容器和佇列權限的 RBAC 角色。 當 RBAC 角色指派給安全性主體時，此安全性主體會獲得存取該資源的權限。 如需詳細資訊，請參閱[使用 RBAC 來管理儲存體資料的存取權限 (預覽)](storage-auth-aad-rbac.md)。
 
-如需 OAuth 2.0 程式碼授與流程的概觀，請參閱[使用 OAuth 2.0 授權碼授與流程，授權存取 Azure Active Directory Web 應用程式](../../active-directory/develop/active-directory-protocols-oauth-code.md)。
+如需 OAuth 2.0 程式碼授與流程的概觀，請參閱[使用 OAuth 2.0 授權碼授與流程，授權存取 Azure Active Directory Web 應用程式](../../active-directory/develop/v1-protocols-oauth-code.md)。
 
 > [!IMPORTANT]
 > 此預覽僅適用於非生產環境。 Azure 儲存體的 Azure AD 整合宣告上市之前，無法使用生產服務等級協定 (SLA)。 如果您的案例尚未支援 Azure AD 整合，請繼續在應用程式中使用您的共用金鑰授權或 SAS 權杖。 如需預覽的詳細資訊，請參閱[使用 Azure Active Directory 來驗證 Azure 儲存體的存取權 (預覽)](storage-auth-aad.md)。
@@ -34,9 +34,9 @@ ms.locfileid: "34659219"
 
 使用 Azure AD 授與儲存體資源存取權的第一個步驟是在 Azure AD 租用戶中註冊您的應用程式。 註冊您的應用程式，可讓您從程式碼中呼叫 [Azure Active Directory Authentication Library](../../active-directory/active-directory-authentication-libraries.md) (ADAL)。 ADAL 提供 API，從您的應用程式使用 Azure AD 進行驗證。 註冊您的應用程式也可讓您使用存取權杖，對該應用程式到 Azure 儲存體 API 的呼叫進行授權。
 
-當您註冊應用程式時，會向 Azure AD 提供應用程式的相關資訊。 Azure AD 接著會提供您在執行階段用來將應用程式與 Azure AD 產生關聯的用戶端識別碼 (也稱為「應用程式識別碼」)。 若要深入了解用戶端識別碼，請參閱 [Azure Active Directory 中的應用程式和服務主體物件](../../active-directory/develop/active-directory-application-objects.md)。
+當您註冊應用程式時，會向 Azure AD 提供應用程式的相關資訊。 Azure AD 接著會提供您在執行階段用來將應用程式與 Azure AD 產生關聯的用戶端識別碼 (也稱為「應用程式識別碼」)。 若要深入了解用戶端識別碼，請參閱 [Azure Active Directory 中的應用程式和服務主體物件](../../active-directory/develop/app-objects-and-service-principals.md)。
 
-若要註冊 Azure 儲存體應用程式，請遵循[整合應用程式與 Azure Active Directory](../../active-directory/develop/active-directory-integrating-applications.md#adding-an-application) 中[新增應用程式](../../active-directory/active-directory-integrating-applications.md)一節的步驟。 如果您將應用程式註冊為原生應用程式，就能為**重新導向 URI** 指定任何有效的 URI。 此值不需要是實際的端點。
+若要註冊 Azure 儲存體應用程式，請遵循[整合應用程式與 Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md#adding-an-application) 中[新增應用程式](../../active-directory/active-directory-integrating-applications.md)一節的步驟。 如果您將應用程式註冊為原生應用程式，就能為**重新導向 URI** 指定任何有效的 URI。 此值不需要是實際的端點。
 
 ![顯示如何使用 Azure AD 註冊您儲存體應用程式的螢幕擷取畫面](./media/storage-auth-aad-app/app-registration.png)
 
@@ -44,7 +44,7 @@ ms.locfileid: "34659219"
 
 ![顯示用戶端識別碼的螢幕擷取畫面](./media/storage-auth-aad-app/app-registration-client-id.png)
 
-如需有關向 Azure AD 註冊應用程式的詳細資訊，請參閱[整合應用程式與 Azure Active Directory](../../active-directory/develop/active-directory-integrating-applications.md)。 
+如需有關向 Azure AD 註冊應用程式的詳細資訊，請參閱[整合應用程式與 Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)。 
 
 ## <a name="grant-your-registered-app-permissions-to-azure-storage"></a>將 Azure 儲存體的權限授與已註冊的應用程式
 
@@ -104,15 +104,22 @@ ms.locfileid: "34659219"
 
 ### <a name="add-references-and-using-statements"></a>新增參考並使用陳述式  
 
-在 Visual Studio 中，安裝 Azure 儲存體用戶端程式庫的預覽版本。 在 [工具] 功能表中，依序選取 [Nuget 套件管理員] 及 [套件管理員主控台]。 將下列命令輸入到主控台：
+在 Visual Studio 中，安裝 Azure 儲存體用戶端程式庫的預覽版本。 在 [工具] 功能表中，依序選取 [Nuget 套件管理員] 及 [套件管理員主控台]。 在主控台中輸入下列命令，以安裝適用於 .NET 的最新版用戶端程式庫：
 
 ```
-Install-Package https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0  
+Install-Package WindowsAzure.Storage
+```
+
+同時也請安裝最新版的 ADAL：
+
+```
+Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 ```
 
 接下來，將下列 using 陳述式新增至您的程式碼：
 
 ```dotnet
+using System.Globalization;
 using Microsoft.IdentityModel.Clients.ActiveDirectory; //ADAL client library for getting the access token
 using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage.Blob;
@@ -120,13 +127,17 @@ using Microsoft.WindowsAzure.Storage.Blob;
 
 ### <a name="get-an-oauth-token-from-azure-ad"></a>從 Azure AD 取得 OAuth 權杖
 
-接下來，新增從 Azure AD 要求權杖的方法。 若要要求權杖，請呼叫 [AuthenticationContext.AcquireTokenAsync](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory.authenticationcontext.acquiretokenasync) 方法。
+接下來，新增從 Azure AD 要求權杖的方法。 若要要求權杖，請呼叫 [AuthenticationContext.AcquireTokenAsync](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory.authenticationcontext.acquiretokenasync) 方法。 請確定您已從先前執行的步驟中取得下列值：
+
+- 租用戶 (目錄) 識別碼
+- 用戶端 (應用程式) 識別碼
+- 用戶端重新導向 URI
 
 ```dotnet
 static string GetUserOAuthToken()
 {
-    const string ResourceId = "https://storage.azure.com/"; // Storage resource endpoint
-    const string AuthEndpoint = "https://login.microsoftonline.com/{0}/oauth2/token"; // Azure AD OAuth endpoint
+    const string ResourceId = "https://storage.azure.com/";
+    const string AuthEndpoint = "https://login.microsoftonline.com/{0}/oauth2/token";
     const string TenantId = "<tenant-id>"; // Tenant or directory ID
 
     // Construct the authority string from the Azure AD OAuth endpoint and the tenant ID. 

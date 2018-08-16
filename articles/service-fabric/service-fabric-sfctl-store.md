@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: 39ecf568c5c41c0007b358670af755be1dd5d99e
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 2f2da5b38ab39e3636ff0ac09ac2c5515e02b0c1
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763233"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492330"
 ---
 # <a name="sfctl-store"></a>sfctl store
 在叢集映像存放區上執行基本檔案層級作業。
@@ -35,14 +35,14 @@ ms.locfileid: "34763233"
 ## <a name="sfctl-store-delete"></a>sfctl store delete
 刪除現有映像存放區內容。
 
-刪除在指定映像存放區相對路徑內找到的現有映像存放區內容。 此命令可以用來刪除已上傳且佈建的應用程式套件。
+刪除在指定映像存放區相對路徑內找到的現有映像存放區內容。 這可用來刪除已上傳且佈建的應用程式套件。
 
 ### <a name="arguments"></a>引數
 
 |引數|說明|
 | --- | --- |
 | --content-path [必要] | 映像存放區中檔案或資料夾與其根的相對路徑。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值：60。 |
+| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -50,7 +50,7 @@ ms.locfileid: "34763233"
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
-| --output -o | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。 |
+| --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
 
@@ -63,7 +63,7 @@ ms.locfileid: "34763233"
 
 |引數|說明|
 | --- | --- |
-| --timeout -t | 伺服器逾時 (秒)。  預設值：60。 |
+| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -71,7 +71,7 @@ ms.locfileid: "34763233"
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
-| --output -o | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。 |
+| --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
 
@@ -85,7 +85,7 @@ ms.locfileid: "34763233"
 |引數|說明|
 | --- | --- |
 | --content-path [必要] | 映像存放區中檔案或資料夾與其根的相對路徑。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值：60。 |
+| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -93,9 +93,10 @@ ms.locfileid: "34763233"
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
-| --output -o | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。 |
+| --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+
 
 ## <a name="next-steps"></a>後續步驟
 - [設定](service-fabric-cli.md) Service Fabric CLI。

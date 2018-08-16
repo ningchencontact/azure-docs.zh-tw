@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: f1271a6afba91cf75820f2e4b973b7cd42782449
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: d3d2375b0b633beb56232e518202b09777f60cc8
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824331"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524503"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的資源函式
 
 資源管理員提供下列函式以取得資源值：
 
+* [listAccountSas](#list)
 * [listKeys](#listkeys)
 * [listSecrets](#list)
 * [list*](#list)
@@ -39,7 +40,9 @@ ms.locfileid: "34824331"
 <a id="listkeys" />
 <a id="list" />
 
-## <a name="listkeys-listsecrets-and-list"></a>listKeys、listSecrets 及 list*
+## <a name="listaccountsas-listkeys-listsecrets-and-list"></a>listAccountSas、listKeys、listSecrets 和 list*
+`listAccountSas(resourceName or resourceIdentifier, apiVersion, functionValues)`
+
 `listKeys(resourceName or resourceIdentifier, apiVersion)`
 
 `listSecrets(resourceName or resourceIdentifier, apiVersion)`
@@ -52,8 +55,9 @@ ms.locfileid: "34824331"
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| resourceName 或 resourceIdentifier |yes |字串 |資源的唯一識別碼。 |
-| apiVersion |yes |字串 |資源執行階段狀態的 API 版本。 一般而言，格式為 **yyyy-mm-dd**。 |
+| resourceName 或 resourceIdentifier |是 |字串 |資源的唯一識別碼。 |
+| apiVersion |是 |字串 |資源執行階段狀態的 API 版本。 一般而言，格式為 **yyyy-mm-dd**。 |
+| functionValues |否 |物件 | 具有函式值的物件。 只針對以下函式提供此物件：可支援在儲存體帳戶上接收具有參數值的物件，例如 **listAccountSas**。 | 
 
 ### <a name="return-value"></a>傳回值
 
@@ -80,7 +84,7 @@ ms.locfileid: "34824331"
 
 ### <a name="remarks"></a>備註
 
-開頭為 **list** 的任何作業都可在您的範本中用為函式。 可用作業不只包含 listKeys，還包含像 `list`、`listAdminKeys` 和 `listStatus` 等作業。 不過若 **list** 作業需要要求本文中的值，則無法使用。 舉例來說，[List Account SAS](/rest/api/storagerp/storageaccounts#StorageAccounts_ListAccountSAS) 作業需要要求本文之參數，例如 *signedExpiry*，所以您無法在範本中使用此作業。
+開頭為 **list** 的任何作業都可在您的範本中用為函式。 可用作業不只包含 listKeys，還包含像 `list`、`listAdminKeys` 和 `listStatus` 等作業。 [List Account SAS](/rest/api/storagerp/storageaccounts#StorageAccounts_ListAccountSAS) 作業需要要求本文參數，例如 *signedExpiry*。 若要在範本中使用此函式，請提供具有本文參數值的物件。
 
 為判斷哪一個資源類型具有 list 作業，您可以使用下列選項：
 
@@ -100,37 +104,67 @@ ms.locfileid: "34824331"
 
 ### <a name="example"></a>範例
 
-下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json)顯示如何在 outputs 區段中從儲存體帳戶傳回主要和次要金鑰。
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json)顯示如何在 outputs 區段中從儲存體帳戶傳回主要和次要金鑰。 它也會傳回儲存體帳戶的 SAS 權杖。 為了取得該權杖，它會將物件傳遞至 listAccountSas 函式。 此範例的用意是要示範如何使用清單函式。 一般而言，您會在資源值中使用 SAS 權杖，而非將它傳回作為輸出值。 輸出值會儲存於部署歷程記錄，並不安全。 您必須指定未來的到期時間，部署才能成功。
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-      "storageAccountName": { 
-          "type": "string"
-      }
-  },
-  "resources": [
-    {
-      "name": "[parameters('storageAccountName')]",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-12-01",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "location": "[resourceGroup().location]",
-      "tags": {},
-      "properties": {
-      }
-    }
-  ],
-  "outputs": {
-      "referenceOutput": {
-          "type": "object",
-          "value": "[listKeys(parameters('storageAccountName'), '2016-12-01')]"
-      }
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storagename": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "southcentralus"
+        },
+        "requestContent": {
+            "type": "object",
+            "defaultValue": {
+                "signedServices": "b",
+                "signedResourceType": "c",
+                "signedPermission": "r",
+                "signedExpiry": "2018-08-20T11:00:00Z",
+                "signedResourceTypes": "s"
+            }
+    },
+    "resources": [
+        {
+            "apiVersion": "2018-02-01",
+            "name": "[parameters('storagename')]",
+            "location": "[parameters('location')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "StorageV2",
+            "properties": {
+                "supportsHttpsTrafficOnly": false,
+                "accessTier": "Hot",
+                "encryption": {
+                    "services": {
+                        "blob": {
+                            "enabled": true
+                        },
+                        "file": {
+                            "enabled": true
+                        }
+                    },
+                    "keySource": "Microsoft.Storage"
+                }
+            },
+            "dependsOn": []
+        }
+    ],
+    "outputs": {
+        "keys": {
+            "type": "object",
+            "value": "[listKeys(parameters('storagename'), '2018-02-01')]"
+        },
+        "accountSAS": {
+            "type": "object",
+            "value": "[listAccountSas(parameters('storagename'), '2018-02-01', parameters('requestContent'))]"
+        }
     }
 }
 ``` 
@@ -138,13 +172,13 @@ ms.locfileid: "34824331"
 若要使用 Azure CLI 部署此範例範本，請使用：
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json --parameters storageAccountName=<your-storage-account>
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json --parameters storagename=<your-storage-account>
 ```
 
 若要使用 PowerShell 部署此範例範本，請使用：
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json -storageAccountName <your-storage-account>
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json -storagename <your-storage-account>
 ```
 
 <a id="providers" />
@@ -158,7 +192,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |yes |字串 |提供者的命名空間 |
+| providerNamespace |是 |字串 |提供者的命名空間 |
 | resourceType |否 |字串 |所指定命名空間內的資源類型。 |
 
 ### <a name="return-value"></a>傳回值
@@ -246,7 +280,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| resourceName 或 resourceIdentifier |yes |字串 |資源的名稱或唯一識別碼。 |
+| resourceName 或 resourceIdentifier |是 |字串 |資源的名稱或唯一識別碼。 |
 | apiVersion |否 |字串 |指定的資源的 API 版本。 如果在相同的範本內未供應資源，則請包含此參數。 一般而言，格式為 **yyyy-mm-dd**。 |
 | 'Full' |否 |字串 |值，指定是否要傳回完整資源物件。 如果您未指定 `'Full'`，則只會傳回資源的屬性物件。 完整物件包括例如資源識別碼和位置的值。 |
 
@@ -540,8 +574,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 |:--- |:--- |:--- |:--- |
 | subscriptionId |否 |字串 (GUID 格式) |預設值為目前的訂用帳戶。 需要擷取另一個訂用帳戶中的資源群組時，請指定此值。 |
 | resourceGroupName |否 |字串 |預設值為目前資源群組。 需要擷取另一個訂用帳戶中的資源群組時，請指定此值。 |
-| resourceType |yes |字串 |資源的類型 (包括資源提供者命名空間)。 |
-| resourceName1 |yes |字串 |資源的名稱。 |
+| resourceType |是 |字串 |資源的類型 (包括資源提供者命名空間)。 |
+| resourceName1 |是 |字串 |資源的名稱。 |
 | resourceName2 |否 |字串 |如果是巢狀資源，則為下一個資源名稱區段。 |
 
 ### <a name="return-value"></a>傳回值

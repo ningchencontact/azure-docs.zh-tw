@@ -1,24 +1,20 @@
 ---
-title: 使用共用存取簽章限制存取 - Azure HDInsight | Microsoft Docs
+title: 使用共用存取簽章限制存取 - Azure HDInsight
 description: 深入了解使用共用存取簽章限制 HDInsight 對儲存在 Azure 儲存體 blob 中的資料的存取。
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-ms.assetid: 7bcad2dd-edea-467c-9130-44cffc005ff3
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: larryfr
-ms.openlocfilehash: 328f052e1ccad3ac26cce62c858e050253192ae8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: jasonh
+ms.openlocfilehash: c20bb5230ada24cf2363138a8678668abac89863
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179976"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595754"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>使用 Azure 儲存體共用存取簽章來限制 HDInsight 對資料的存取
 

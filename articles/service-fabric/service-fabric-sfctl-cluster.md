@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: 60f3f74778f0fb32677c3b87b3140131ccd37bea
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 4b0491d59e4ac495750a338ad743aab69ff47a4e
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763624"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494238"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 選取、管理和操作 Service Fabric 叢集。
@@ -33,11 +33,12 @@ ms.locfileid: "34763624"
 | health | 取得 Service Fabric 叢集的健康情況。 |
 | manifest | 取得 Service Fabric 叢集資訊清單。 |
 | operation-cancel | 取消使用者引起的錯誤作業。 |
-| operation-list | 取得依所提供的輸入篩選之使用者引發的錯誤作業清單。 |
+| operation-list | 取得依提供的輸入所篩選之使用者引起的錯誤作業清單。 |
 | provision | 佈建 Service Fabric 叢集的程式碼或組態封裝。 |
 | recover-system | 指示 Service Fabric 叢集應該嘗試復原目前停留在仲裁遺失狀態的系統服務。 |
 | report-health | 傳送 Service Fabric 叢集的健康情況報告。 |
 | 選取 | 連線到 Service Fabric 叢集端點。 |
+| show-connection | 顯示這個 sfctl 執行個體連線到哪個 Service Fabric 叢集。 |
 | unprovision | 解除佈建 Service Fabric 叢集的程式碼或組態封裝。 |
 | 升級 | 開始升級 Service Fabric 叢集的程式碼或組態版本。 |
 | upgrade-resume | 將叢集升級移至下一個升級網域。 |
@@ -92,14 +93,14 @@ ms.locfileid: "34763624"
 ## <a name="sfctl-cluster-health"></a>sfctl cluster health
 取得 Service Fabric 叢集的健康情況。
 
-取得 Service Fabric 叢集的健康情況。 使用 EventsHealthStateFilter 可根據健康情況狀態，篩選針對叢集所報告的健康情況事件集合。 同樣地，使用 NodesHealthStateFilter 和 ApplicationsHealthStateFilter 可根據彙總的健康情況狀態，篩選傳回的節點和應用程式集合。
+使用 EventsHealthStateFilter 可根據健康情況狀態，篩選針對叢集所報告的健康情況事件集合。 同樣地，使用 NodesHealthStateFilter 和 ApplicationsHealthStateFilter 可根據彙總的健康情況狀態，篩選傳回的節點和應用程式集合。
 
 ### <a name="arguments"></a>引數
 
 |引數|說明|
 | --- | --- |
 | --applications-health-state-filter | 允許根據健康情況狀態，篩選叢集健康情況查詢結果中所傳回的應用程式健康情況狀態物件。 此參數的可能值包括從 HealthStateFilter 列舉成員或對這些成員的位元運算取得的整數值。 只會傳回符合篩選條件的應用程式。 所有應用程式都會用來評估彙總的健康情況狀態。 如果未指定，則會傳回所有項目。 狀態值是以旗標為基礎的列舉，因此值可以是使用位元 'OR' 運算子取得的這些值的組合。 例如，如果提供的值為 6，則會傳回 HealthState 值為 OK (2) 和 Warning (4) 的應用程式健康情況狀態。  <br> - Default - 預設值。 符合任何 HealthState。 值為零。  <br> - None - 不符合任何 HealthState 值的篩選條件。 用來在指定狀態集合沒有任何結果時傳回。 值為 1。  <br> - Ok - 符合輸入含 HealthState 值 Ok 的篩選條件。 值為 2。  <br> - Warning - 符合輸入含 HealthState 值 Warning 的篩選條件。 值為 4。  <br> - Error - 符合輸入含 HealthState 值 Error 的篩選條件。 值為 8。  <br> - All - 符合輸入含任何 HealthState 值的篩選條件。 值為 65535。 |
-| --events-health-state-filter | 可根據健康情況狀態來篩選所傳回的 HealthEvent 物件集合。 此參數的可能值包括下列其中一個健康情況狀態的整數值。 只會傳回符合篩選條件的事件。 所有事件都會用來評估彙總的健康情況狀態。 如果未指定，則會傳回所有項目。 狀態值是以旗標為基礎的列舉，因此值可以是使用位元 'OR' 運算子取得的這些值的組合。 例如，如果提供的值為 6，則會傳回 HealthState 值為 OK (2) 和 Warning (4) 的所有事件。  <br> - Default - 預設值。 符合任何 HealthState。 值為零。  <br> - None - 不符合任何 HealthState 值的篩選條件。 用來在指定狀態集合沒有任何結果時傳回。 值為 1。  <br> - Ok - 符合輸入含 HealthState 值 Ok 的篩選條件。 值為 2。  <br> - Warning - 符合輸入含 HealthState 值 Warning 的篩選條件。 值為 4。  <br> - Error - 符合輸入含 HealthState 值 Error 的篩選條件。 值為 8。  <br> - All - 符合輸入含任何 HealthState 值的篩選條件。 值為 65535。 |
+| --events-health-state-filter | 可根據健康情況狀態來篩選所傳回的 HealthEvent 物件集合。 此參數的可能值包括下列其中一個健康情況狀態的整數值。 只會傳回符合篩選條件的事件。 所有事件都會用來評估彙總的健康情況狀態。 如果未指定，則會傳回所有項目。 狀態值是以旗標為基礎的列舉，因而此值可以是使用位元 'OR' 運算子所取得這些值的組合。 例如，如果提供的值為 6，則會傳回 HealthState 值為 OK (2) 和 Warning (4) 的所有事件。  <br> - Default - 預設值。 符合任何 HealthState。 值為零。  <br> - None - 不符合任何 HealthState 值的篩選條件。 用來在指定狀態集合沒有任何結果時傳回。 值為 1。  <br> - Ok - 符合輸入含 HealthState 值 Ok 的篩選條件。 值為 2。  <br> - Warning - 符合輸入含 HealthState 值 Warning 的篩選條件。 值為 4。  <br> - Error - 符合輸入含 HealthState 值 Error 的篩選條件。 值為 8。  <br> - All - 符合輸入含任何 HealthState 值的篩選條件。 值為 65535。 |
 | --exclude-health-statistics | 指出是否應該在查詢結果中一併傳回健康情況統計資料。 預設為 False。 統計資料會顯示健康情況狀態為 Ok、Warning 及 Error 的子實體數目。 |
 | --include-system-application-health-statistics | 指出健康情況統計資料是否應該包含 fabric\:/System 應用程式健康情況統計資料。 預設為 False。 如果將 IncludeSystemApplicationHealthStatistics 設定為 true，健康情況統計資料就會包含屬於 fabric\:/System 應用程式的實體。 否則，查詢結果只會包含使用者應用程式的健康情況統計資料。 健康情況統計資料必須包含在查詢結果中，才能套用此參數。 |
 | --nodes-health-state-filter | 允許根據健康情況狀態，篩選叢集健康情況查詢結果中所傳回的節點健康情況狀態物件。 此參數的可能值包括下列其中一個健康情況狀態的整數值。 只會傳回符合篩選條件的節點。 所有節點都會用來評估彙總的健康情況狀態。 如果未指定，則會傳回所有項目。 狀態值是以旗標為基礎的列舉，因此值可以是使用位元 'OR' 運算子取得的這些值的組合。 例如，如果提供的值為 6，則會傳回 HealthState 值為 OK (2) 和 Warning (4) 的節點健康情況狀態。  <br> - Default - 預設值。 符合任何 HealthState。 值為零。  <br> - None - 不符合任何 HealthState 值的篩選條件。 用來在指定狀態集合沒有任何結果時傳回。 值為 1。  <br> - Ok - 符合輸入含 HealthState 值 Ok 的篩選條件。 值為 2。  <br> - Warning - 符合輸入含 HealthState 值 Warning 的篩選條件。 值為 4。  <br> - Error - 符合輸入含 HealthState 值 Error 的篩選條件。 值為 8。  <br> - All - 符合輸入含任何 HealthState 值的篩選條件。 值為 65535。 |
@@ -141,7 +142,7 @@ ms.locfileid: "34763624"
 
 下列 API 啟動的錯誤作業可藉由使用 CancelOperation 來取消：StartDataLoss、StartQuorumLoss、StartPartitionRestart、StartNodeTransition。 如果 force 為 false，將會以正常方式停止並清除指定的使用者引發作業。  如果 force 為 true，則會中止命令，而可能遺留某些內部狀態。  將 force 指定為 true 應該謹慎使用。 必須已經在相同的測試命令上先搭配將 force 設定為 false 來呼叫此 API，或除非測試命令的 OperationState 已經是 OperationState.RollingBack，才允許搭配將 force 設定為 true 來呼叫此 API。 
 
-說明：OperationState.RollingBack 表示系統將會/正在清除執行命令所造成的內部系統狀態。 如果測試命令是用來引發資料遺失，則它將不會還原資料。  例如，如果您呼叫 StartDataLoss，然後呼叫此 API，系統將只會清除從執行命令產生的內部狀態。 如果命令已進展到足以造成資料遺失的地步，則它將不會還原目標分割區的資料。 
+ 說明：OperationState.RollingBack 表示系統將會/正在清除執行命令所造成的內部系統狀態。 如果測試命令是用來引發資料遺失，則它將不會還原資料。  例如，如果您呼叫 StartDataLoss，然後呼叫此 API，系統將只會清除從執行命令產生的內部狀態。 如果命令已進展到足以造成資料遺失的地步，則它將不會還原目標分割區的資料。 
 
 > [!NOTE]
 > 如果搭配 force==true 來叫用此 API，可能會遺留內部狀態。
@@ -165,7 +166,7 @@ ms.locfileid: "34763624"
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
 
 ## <a name="sfctl-cluster-operation-list"></a>sfctl cluster operation-list
-取得依所提供的輸入篩選之使用者引發的錯誤作業清單。
+取得依提供的輸入所篩選之使用者引起的錯誤作業清單。
 
 依所提供的輸入篩選之後，取得使用者引發的錯誤作業清單。
 
@@ -263,7 +264,7 @@ ms.locfileid: "34763624"
 ## <a name="sfctl-cluster-select"></a>sfctl cluster select
 連線到 Service Fabric 叢集端點。
 
-如果連線到安全的叢集，請指定憑證 (.crt) 和金鑰檔案 (.key) 的絕對路徑，或包含兩者之單一檔案 (.pem) 的絕對路徑。 請勿同時指定兩者。 您也可以在連線到安全的叢集時，視需要一併指定 CA 組合檔案的絕對路徑，或是受信任 CA 憑證目錄的絕對路徑。
+如果連線到安全的叢集，請指定憑證 (.crt) 和金鑰檔案 (.key) 的絕對路徑，或包含兩者之單一檔案 (.pem) 的絕對路徑。 請勿指定兩者。 您也可以在連線到安全的叢集時，視需要一併指定 CA 組合檔案的絕對路徑，或是受信任 CA 憑證目錄的絕對路徑。
 
 ### <a name="arguments"></a>引數
 
@@ -287,10 +288,23 @@ ms.locfileid: "34763624"
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
 
+## <a name="sfctl-cluster-show-connection"></a>sfctl 叢集 show-connection
+顯示這個 sfctl 執行個體連線到哪個 Service Fabric 叢集。
+
+### <a name="global-arguments"></a>全域引數
+
+|引數|說明|
+| --- | --- |
+| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --help -h | 顯示此說明訊息並結束。 |
+| --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
+| --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
+| --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+
 ## <a name="sfctl-cluster-unprovision"></a>sfctl cluster unprovision
 解除佈建 Service Fabric 叢集的程式碼或組態封裝。
 
-解除佈建 Service Fabric 叢集的程式碼或組態封裝。 支援將程式碼和設定個別解除佈建。
+支援將程式碼和設定個別解除佈建。
 
 ### <a name="arguments"></a>引數
 
@@ -450,8 +464,6 @@ ms.locfileid: "34763624"
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
-
-
 
 ## <a name="next-steps"></a>後續步驟
 - [設定](service-fabric-cli.md) Service Fabric CLI。

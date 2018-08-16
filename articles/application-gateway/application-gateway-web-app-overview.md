@@ -1,28 +1,25 @@
 ---
-title: 採用 Azure 應用程式閘道的多租用戶後端概觀 | Microsoft Docs
+title: 採用 Azure 應用程式閘道的多租用戶後端概觀
 description: 本頁面提供多租用戶後端的應用程式閘道支援概觀。
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: ''
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/26/2017
+ms.topic: article
+ms.date: 8/1/2018
 ms.author: victorh
-ms.openlocfilehash: 7c00369737d05f414f9ac23d9d3e8918b908fc80
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: c0084580a2e4860f24aecd37232f38da2e55ccc8
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33200989"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578427"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends"></a>多租用戶後端的應用程式閘道支援
 
 Azure 應用程式閘道支援以虛擬機器擴展集、網路介面、公用/私人 IP 或完整的網域名稱 (FQDN) 作為其後端集區的一部分。 根據預設，應用程式閘道不會變更來自用戶端的連入 HTTP 主機標頭，而會將標頭原封不動地傳送回後端。 有許多服務 (像是 [Azure Web Apps](../app-service/app-service-web-overview.md)) 本質上為多租用戶，且依賴特定主機標頭或 SNI 擴充功能來解析為正確的端點。 應用程式閘道現在支援使用者根據後端 HTTP 設定覆寫傳入 HTTP 主機標頭的能力。 這項功能可支援多租用戶後端進行 Azure Web 應用程式和 API 管理。 這項功能同時適用於標準和 WAF SKU。 多租用戶後端支援也適用於 SSL 終止和端對端 SSL 案例。
+
+> [!NOTE]
+> 受信任的 Azure 服務 (例如 Azure Web Apps) 不需進行驗證憑證設定。
 
 ![Web 應用程式案例](./media/application-gateway-web-app-overview/scenario.png)
 

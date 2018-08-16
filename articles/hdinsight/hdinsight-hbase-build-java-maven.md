@@ -1,25 +1,20 @@
 ---
-title: 建置 Windows 型 Azure HDInsight 的 Java HBase 應用程式 | Microsoft Docs
+title: 建置 Windows 型 Azure HDInsight 的 Java HBase 應用程式
 description: 了解如何使用 Apache Maven 建置以 Java 為基礎的 Apache HBase 應用程式，然後部署至以 Windows 為基礎的 Azure HDInsight 叢集。
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 7f4a4e02-45ab-40dd-842b-3ec034f256c9
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2017
-ms.author: larryfr
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: f5a8c33f2bd3c89b1049435f15d7bf2020248afa
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 20056590d5841f9d17081b9456a491ba128e4f90
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37019305"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592868"
 ---
 # <a name="use-maven-to-build-java-applications-that-use-hbase-with-windows-based-hdinsight-hadoop"></a>使用 Maven 建置搭配使用 HBase 和以 Window 為基礎的 HDInsight (Hadoop) 的 Java 應用程式
 了解如何使用 Apache Maven 以 Java 建立和建置 [Apache HBase](http://hbase.apache.org/) 應用程式。 然後在 Azure HDInsight (Hadoop) 中使用此應用程式。
@@ -58,7 +53,7 @@ ms.locfileid: "37019305"
           <version>1.1.2</version>
         </dependency>
 
-    此區段會告知 Maven，表示專案需要 **hbase-client** 版本 **1.1.2**。 編譯時，將會從預設 Maven 存放庫下載此相依性。 您可以使用 [Maven 中央存放庫搜尋](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) ，進一步了解此相依性的詳細資訊。
+    此區段會告知 Maven，表示專案需要 **hbase-client** 版本 **1.1.2**。 編譯時，將會從預設 Maven 儲存機制下載此相依性。 您可以使用 [Maven 中央儲存機制搜尋](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) ，進一步了解此相依性的詳細資訊。
 
    > [!IMPORTANT]
    > 版本號碼必須符合隨附於 HDInsight 叢集的 HBase 版本。 您可以使用下表來尋找正確的版本號碼。

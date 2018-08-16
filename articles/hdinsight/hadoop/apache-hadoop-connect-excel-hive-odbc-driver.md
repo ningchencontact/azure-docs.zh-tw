@@ -1,26 +1,21 @@
 ---
-title: 使用 Hive ODBC 驅動程式將 Excel 連線到 Hadoop - Azure HDInsight | Microsoft Docs
+title: 使用 Hive ODBC 驅動程式將 Excel 連線到 Hadoop - Azure HDInsight
 description: 了解如何設定和使用 Excel 的 Microsoft Hive ODBC 驅動程式，從 Microsoft Excel 查詢 HDInsight 叢集中的資料。
 keywords: hadoop excel, hive excel, hive odbc
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-tags: azure-portal
-editor: cgronlun
-ms.assetid: a7665a14-0211-4521-b3e7-3b26e8029cc0
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jgao
-ms.openlocfilehash: 26234ca17d833fef01ad5a6465824c99d84cc556
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: 4153504e7d0fb6dff4b8a675b301f54fb3588e46
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200498"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590862"
 ---
 # <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>使用 Microsoft Hive ODBC 驅動程式將 Excel 連線到 Azure HDInsight 中的 Hadoop
 

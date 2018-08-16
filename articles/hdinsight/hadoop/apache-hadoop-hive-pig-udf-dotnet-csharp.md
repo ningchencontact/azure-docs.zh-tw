@@ -1,25 +1,20 @@
 ---
-title: 搭配使用 C# 與 HDInsight 的 Hadoop 上的 Hive 和 Pig - Azure | Microsoft Docs
+title: 搭配使用 C# 與 HDInsight 的 Hadoop 上的 Hive 和 Pig - Azure
 description: 了解如何搭配使用 C# 使用者定義函數 (UDF) 與 Azure HDInsight 中的 Hive 和 Pig 串流處理。
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: d83def76-12ad-4538-bb8e-3ba3542b7211
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
-ms.openlocfilehash: b776b214b9d46293a3ab97ad226dffd3107f3430
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: a2a5581f62a4aa2d9af8302907a144573fd8d3b8
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31404030"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39596774"
 ---
 # <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>搭配使用 C# 使用者定義函數與 HDInsight 的 Hadoop 上的 Hive 和 Pig 串流處理。
 
@@ -30,7 +25,7 @@ ms.locfileid: "31404030"
 
 Hive 和 Pig 都可以將資料傳遞至外部應用程式進行處理。 這個程序稱為_串流處理_。 使用 .NET 應用程式時，資料會在 STDIN 上傳遞至應用程式，而應用程式會在 STDOUT 上傳回結果。 為了在 STDIN 和 STDOUT 讀取和寫入，您可以從主控台應用程式使用 `Console.ReadLine()` 和 `Console.WriteLine()`。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 熟悉如何撰寫和建置以 .NET Framework 4.5 為目標的 C# 程式碼。
 

@@ -2,19 +2,18 @@
 title: 使用 Azure AD DS 來設定已加入網域的 HDInsight 叢集
 description: 了解如何使用 Azure Active Directory Domain Services 來設定已加入網域的 HDInsight 叢集
 services: hdinsight
+ms.service: hdinsight
 author: omidm1
 ms.author: omidm
-manager: jhubbard
-editor: cgronlun
-ms.service: hdinsight
+editor: jasonwhowell
 ms.topic: conceptual
 ms.date: 07/17/2018
-ms.openlocfilehash: 45cb9590e6dd0d8260f6e63b80caeca894f0fd44
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 0d44812c92fd14bf87aac9a942241f8de55f2eec
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126029"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590575"
 ---
 # <a name="configure-a-domain-joined-hdinsight-cluster-by-using-azure-active-directory-domain-services"></a>使用 Azure Active Directory Domain Services 來設定已加入網域的 HDInsight 叢集
 
@@ -31,7 +30,7 @@ ms.locfileid: "39126029"
 
 在您佈建 Azure AD DS 執行個體後，請在 Azure Active Directory (Azure AD) 中建立具有適當權限的服務帳戶。 如果此服務帳戶已經存在，請重設其密碼，並等候其同步至 Azure AD DS。 此重設會導致建立 Kerberos 密碼雜湊，並可能需要 30 分鐘的時間同步處理到 Azure AD DS。 
 
-此服務帳戶應該具有下列權限：
+此服務帳戶需要下列權限：
 
 - 將機器加入網域，並將機器主體放入您在建立叢集期間指定的 OU 中。
 - 在叢集建立期間，於您指定的 OU 中建立服務主體。
@@ -52,9 +51,12 @@ ms.locfileid: "39126029"
 建立已加入網域的 HDInsight 叢集時，必須提供下列參數：
 
 - **網域名稱**：與 Azure AD DS 相關聯的網域名稱。 例如 contoso.onmicrosoft.com。
+
 - **網域使用者名稱**：上一節在 Azure AD DS DC 受控網域中建立的服務帳戶。 例如 hdiadmin@contoso.onmicrosoft.com。 此網域使用者將是這個 HDInsight 叢集的系統管理員。
+
 - **網域密碼**：服務帳戶的密碼。
-- **組織單位**︰HDInsight 叢集要搭配使用的組織單位 (OU) 的辨別名稱。 例如 OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com。 如果這個 OU 不存在，HDInsight 叢集會嘗試使用服務帳戶具有的權限建立 OU。 例如，如果服務帳戶位在 Azure AD DS 的 Administrators 群組當中，就會具有適當的權限來建立 OU。 否則，您可能需要先建立 OU，然後提供服務帳戶該 OU 的完整控制權限。 如需詳細資訊，請參閱[在 Azure AD DS 受控網域上建立 OU](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md)。
+
+- **組織單位**︰HDInsight 叢集要搭配使用的組織單位 (OU) 的辨別名稱。 例如 OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com。 如果這個 OU 不存在，HDInsight 叢集會嘗試使用服務帳戶具有的權限建立 OU。 例如，如果服務帳戶位在 Azure AD DS 的 Administrators 群組當中，就會具有適當的權限來建立 OU。 否則，您必須先建立 OU，然後提供服務帳戶該 OU 的完整控制權限。 如需詳細資訊，請參閱[在 Azure AD DS 受控網域上建立 OU](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md)。
 
     > [!IMPORTANT]
     > 在 OU 後面包含以逗號分隔的所有 DC (例如 OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com)。
@@ -64,11 +66,11 @@ ms.locfileid: "39126029"
     > [!IMPORTANT]
     > 輸入完整的 URL，包括 "ldaps://" 和連接埠號碼 (:636)。
 
-- **存取使用者群組**︰您要將其使用者同步至叢集的安全性群組。 例如，HiveUsers。 如果要指定多個使用者群組，請以分號 (;) 來分隔。
- 
+- **存取使用者群組**︰您要將其使用者同步至叢集的安全性群組。 例如，HiveUsers。 如果要指定多個使用者群組，請以分號 (;) 來分隔。 群組必須在佈建之前存在於目錄中。 如需詳細資訊，請參閱[在 Azure Active Directory 中建立群組和新增使用者](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)。 如果群組不存在，就會發生錯誤：「在 Active Directory 中找不到群組 HiveUsers。」
+
 以下螢幕擷取畫面顯示 Azure 入口網站上中的設定：
 
-![已加入 Azure HDInsight 網域的 Active Directory Domain Services 的設定](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png).
+   ![已加入 Azure HDInsight 網域的 Active Directory Domain Services 的設定](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png).
 
 
 ## <a name="next-steps"></a>後續步驟

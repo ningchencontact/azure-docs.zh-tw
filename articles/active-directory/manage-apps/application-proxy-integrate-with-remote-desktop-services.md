@@ -15,12 +15,12 @@ ms.date: 06/27/2018
 ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 61ac0d823322b919952b7ea426c447e070a09fc1
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 5d8af50e3007342a5cd46e4862623f2cf7145172
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363191"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480416"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 發佈遠端桌面
 
@@ -64,14 +64,14 @@ ms.locfileid: "39363191"
 ### <a name="publish-the-rd-host-endpoint"></a>發佈 RD 主機端點
 
 1. 使用下列值[發佈新的應用程式 Proxy 應用程式](application-proxy-publish-azure-portal.md)︰
-   - 內部 URL：https://\<rdhost\>.com/，其中 \<rdhost\> 是 RD Web 和 RD 閘道共用的共同根。
+   - 內部 URL：`https://\<rdhost\>.com/`，其中 `\<rdhost\>` 是 RD Web 和 RD 閘道共用的一般根。
    - 外部 URL︰會根據應用程式名稱自動填入這個欄位，但您可以修改它。 您的使用者在存取 RDS 時，將會移到此 URL。
    - 預先驗證方法︰Azure Active Directory
    - 轉譯 URL 標頭：否
 2. 將使用者指派給已發佈 RD 應用程式。 並請確定它們都可存取 RDS。
 3. 保留應用程式的單一登入方法，因為 **Azure AD 單一登入已停用**。 系統會要求您的使用者分別驗證一次 Azure AD 及 RD Web，但可單一登入 RD 閘道。
 4. 移至 [Azure Active Directory] > [應用程式註冊] > [您的應用程式] > [設定]。
-5. 選取 [內容] 並更新 [首頁 URL] 欄位，以指向 RD Web 端點 (例如 https://\<rdhost\>.com/RDWeb)。
+5. 選取 [內容] 並更新 [首頁 URL] 欄位，以指向 RD Web 端點 (例如 `https://\<rdhost\>.com/RDWeb`)。
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>將 RDS 資料流導向應用程式 Proxy
 
@@ -126,8 +126,8 @@ ms.locfileid: "39363191"
 預先驗證流程的安全性優點多於通道流程。 使用預先驗證，您可以使用內部部署資源的 Azure AD 驗證功能，例如單一登入、條件式存取和雙步驟驗證。 您也可以確定只有驗證過的流量到達您的網路。
 
 若要使用通道驗證，只需要對本文中所列的步驟進行兩項修改：
-1. 在 [Publish the RD host endpoint] (發佈 RD 主機端點)[](#publish-the-rd-host-endpoint) 步驟 1 中，請將預先驗證方法設為 [通道]。
-2. 在 [Direct RDS traffic to Application Proxy] (將 RDS 流量導向應用程式 Proxy)[](#direct-rds-traffic-to-application-proxy) 中，完全略過步驟 8。
+1. 在 [[Publish the RD host endpoint] \(發佈 RD 主機端點)](#publish-the-rd-host-endpoint) 步驟 1 中，請將預先驗證方法設為 [通道]。
+2. 在 [[Direct RDS traffic to Application Proxy] \(將 RDS 流量導向應用程式 Proxy)](#direct-rds-traffic-to-application-proxy) 中，完全略過步驟 8。
 
 ## <a name="next-steps"></a>後續步驟
 

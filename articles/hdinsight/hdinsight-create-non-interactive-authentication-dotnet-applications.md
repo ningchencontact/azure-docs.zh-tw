@@ -1,25 +1,20 @@
 ---
-title: 在 Azure HDInsight 中建立非互動式驗證 .NET 應用程式 | Microsoft Docs
+title: 在 Azure HDInsight 中建立非互動式驗證 .NET 應用程式
 description: 了解如何在 Azure HDInsight 中建立非互動式驗證 Microsoft .NET 應用程式。
-editor: cgronlun
-manager: jhubbard
+editor: jasonwhowell
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-ms.assetid: 8e32430f-6404-498a-9fcd-f20338d964af
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 497c67132b6d5ebc1301f56fde72031ca3e7b976
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: f5f1aae62d8f2959f26a361f3c1187037cafcca5
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199695"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591514"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>建立非互動式驗證 .NET HDInsight 應用程式
 您可以使用應用程式本身的身分識別 (非互動式) 或使用應用程式的登入使用者的身分識別 (互動式)，執行 Microsoft .NET Azure HDInsight 應用程式。 本文將說明如何建立非互動式驗證 .NET 應用程式，來連線到 Azure 及管理 HDInsight。 如需互動式應用程式的範例，請參閱[連線至 Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight)。 
@@ -30,7 +25,7 @@ ms.locfileid: "34199695"
 * Azure Active Directory (Azure AD) 應用程式用戶端識別碼。 請參閱[建立 Azure Active Directory 應用程式](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)以及[取得應用程式識別碼](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)。
 * Azure AD 應用程式秘密金鑰。 請參閱[取得應用程式驗證金鑰](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * HDInsight 叢集。 請參閱[入門教學課程](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster)。
 
 ## <a name="assign-a-role-to-the-azure-ad-application"></a>將角色新增至 Azure AD 應用程式

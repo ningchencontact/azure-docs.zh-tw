@@ -1,25 +1,21 @@
 ---
-title: 透過 Kafka 串流的 Apache Spark - Azure HDInsight | Microsoft Docs
+title: 透過 Kafka 串流的 Apache Spark - Azure HDInsight
 description: 了解如何使用 DStreams 以 Spark Apache Spark 串流方式將資料送入或送出 Apache Kafka。 在此範例中，您使用 HDInsight 上之 Spark 的 Jupyter Notebook 來串流資料。
 keywords: kafka 範例,kafka zookeeper,spark 串流 kafka,spark 串流 kafka 範例
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: dd8f53c1-bdee-4921-b683-3be4c46c2039
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/23/2018
-ms.author: larryfr
-ms.openlocfilehash: a9463b5983b5f41683a5cfe416ca125bf2810062
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: 607ad43f5cae3915b964caf816bd5fb5e3302ddf
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31402374"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592970"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-kafka-on-hdinsight"></a>在 HDInsight 上使用 Kafka 的 Apache Spark 串流 (DStream) 範例
 

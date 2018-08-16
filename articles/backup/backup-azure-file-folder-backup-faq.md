@@ -7,19 +7,17 @@ manager: shreeshd
 keywords: 備份和災害復原; 備份服務
 ms.service: backup
 ms.topic: conceptual
-ms.date: 6/25/2018
-ms.author: trinadhk
-ms.openlocfilehash: ac6d2a8a152f3c6e22be962b867ef58421eda47b
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.date: 8/6/2018
+ms.author: saurse;trinadhk
+ms.openlocfilehash: 177e44bce7d8f159892d78c7003945ba55ef4b84
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37016481"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577876"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>關於 Azure 備份代理程式的問題
 本文包含常見問題的解答，可協助您快速了解 Azure 備份代理程式元件。 在某些答案中，有具有完整資訊的文章連結。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。
-
-[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="configure-backup"></a>設定備份
 ### <a name="where-can-i-download-the-latest-azure-backup-agent-br"></a>哪裡可以下載最新的 Azure 備份代理程式？ <br/>
@@ -66,6 +64,10 @@ ms.locfileid: "37016481"
 ### <a name="does-the-azure-backup-agent-work-on-a-server-that-uses-windows-server-2012-deduplication-br"></a>Azure 備份代理程式是否在使用 Windows Server 2012 重複資料刪除的伺服器上運作？ <br/>
 是。 當代理程式服務準備備份作業時，會將重複資料刪除的資料轉換成一般資料。 它接著會最佳化資料以備份，加密資料，然後將加密的資料傳送至線上備份服務。
 
+## <a name="prerequisites-and-dependencies"></a>先決條件和相依性
+### <a name="what-features-of-microsoft-azure-recovery-services-mars-agent-require-net-framework-452-and-higher"></a>Microsoft Azure 復原服務 (MARS) 代理程式的哪些功能需要 .NET Framework 4.5.2 和更新版本？
+可讓個別檔案和資料夾從*復原資料*精靈還原的[立即還原](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine)功能，需要 .NET Framework 4.5.2 或更高版本。
+
 ## <a name="backup"></a>Backup 
 ### <a name="how-do-i-change-the-cache-location-specified-for-the-azure-backup-agentbr"></a>如何變更為 Azure 備份代理程式指定的快取位置？<br/>
 使用下列清單來變更快取位置。
@@ -92,8 +94,8 @@ ms.locfileid: "37016481"
 ### <a name="where-can-i-put-the-cache-folder-for-the-azure-backup-agent-to-work-as-expectedbr"></a>我可以把快取資料夾放在何處，以讓 Azure 備份代理程式如預期般運作？<br/>
 快取資料夾不建議使用下列位置︰
 
-* 網路共用或卸除式媒體︰快取資料夾必須是在需要使用線上備份進行備份之伺服器的本機位置。 不支援網路位置或卸除式媒體，例如 USB 磁碟機。
-* 離線磁碟區︰快取資料夾必須在線上才能使用 Azure 備份代理程式進行預期的備份。
+* 網路共用或卸除式媒體︰快取資料夾必須是在需要使用線上備份進行備份之伺服器的本機位置。 不支援網路位置或卸除式媒體，例如 USB 磁碟機
+* 離線磁碟區︰快取資料夾必須在線上才能使用 Azure 備份代理程式進行預期的備份
 
 ### <a name="are-there-any-attributes-of-the-cache-folder-that-are-not-supportedbr"></a>快取資料夾是否有任何不受支援的屬性？<br/>
 快取資料夾不支援下列屬性或其組合︰
@@ -111,8 +113,7 @@ ms.locfileid: "37016481"
 
 ## <a name="manage-backups"></a>管理備份
 ### <a name="what-happens-if-i-rename-a-windows-server-that-is-backing-up-data-to-azurebr"></a>若重新命名正在將資料備份至 Azure 的 Windows 伺服器，則會發生什麼情況？<br/>
-當您重新命名伺服器時，所有目前設定的備份都會停止。
-向備份保存庫註冊伺服器的新名稱。 當您向保存庫註冊新名稱時，第一個備份作業是*完整*備份。 如果您需要復原已備份到採用舊伺服器名稱之保存庫的資料，請使用 [復原資料] 精靈中的 [[其他伺服器](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)] 選項。
+當您重新命名伺服器時，所有目前設定的備份都會停止。 向備份保存庫註冊伺服器的新名稱。 當您向保存庫註冊新名稱時，第一個備份作業是*完整*備份。 如果您需要復原已備份到採用舊伺服器名稱之保存庫的資料，請使用 [復原資料] 精靈中的 [[其他伺服器](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)] 選項。
 
 ### <a name="what-is-the-maximum-file-path-length-that-can-be-specified-in-backup-policy-using-azure-backup-agent-br"></a>使用 Azure 備份代理程式時，最多可在備份代理程式中指定多長的檔案路徑？ <br/>
 Azure 備份代理程式依存於 NTFS。 [檔案路徑長度規格受限於 Windows API](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths)。 如果您要保護之檔案的檔案路徑長度超過 Windows API 所允許的長度，請備份父資料夾或磁碟機。  

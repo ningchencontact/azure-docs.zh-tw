@@ -14,14 +14,18 @@ ms.topic: conceptual
 ms.date: 07/27/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 1a8ccc818cafac4867cb533c83f297af61a21836
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: b9fb32f4f014f8e0fb67b558a2806d74edaac56c
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39309097"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576010"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS 入口網站移至 Azure
+
+> [!NOTE]
+> 本文適用於 Azure 公用雲端和政府雲端，除非另有指示。
+
 我們不斷收到 Log Analytics 客戶的意見反應，要求以單一使用者體驗來監控和管理內部部署和 Azure 的工作負載。 Azure 入口網站為所有 Azure 服務的中樞，提供豐富的管理體驗，例如建立資源關聯的儀表板、 尋找資源的智慧型搜尋，以及資源管理的標記等功能。 為了整合及簡化監控和管理工作流程，我們已陸續將 OMS 入口網站的功能加入 Azure 入口網站。 我們很高興在此宣佈，現在 OMS 入口網站的功能大多已納入 Azure 入口網站。 事實上，流量分析等一些新功能僅能在 Azure 入口網站中使用。 目前只剩下一些差距，還有一些解決方案仍在移至 Azure 入口網站的程序中。 如果您並未使用這些功能，那麼，您將能夠在 Azure 入口網站中完成您在 OMS 入口網站中所執行的動作以及其他更多項目。 如果您尚未這麼做，我們建議您立即開始使用 Azure 入口網站 ！ 
 
 我們預計在 2018 年 8 月前解決這兩個入口網站之間的差距。 我們會根據客戶的意見反應，來溝通終止 OMS 入口網站的時間表。 我們很高興移至 Azure 入口網站，並預期此次轉換將會很簡單。 但我們了解任何變更均有其難度，而且可能會對您造成困擾。 如有任何問題、意見反應或考量，請傳送至 **LAUpgradeFeedback@microsoft.com**。 本文其餘部分將介紹關鍵案例、 目前的差距以及此次轉換的藍圖。 
@@ -60,7 +64,11 @@ ms.locfileid: "39309097"
 
 
 ## <a name="what-should-i-do-now"></a>我現在該怎麼辦？  
-如需有關如何轉換到 Azure 入口網站的資訊，請參閱 [Log Analytics 使用者從 OMS 入口網站轉換至 Azure 入口網站的常見問題](../log-analytics/log-analytics-oms-portal-faq.md)。 如果[上述的差距](#current-known-gaps)不適用於您的環境，那麼您應該考慮開始使用 Azure 入口網站作為您的主要體驗。 如有任何意見反應、問題或疑慮，請傳送至LAUpgradeFeedback@microsoft.com。
+如需有關如何轉換到 Azure 入口網站的資訊，請參閱 [Log Analytics 使用者從 OMS 入口網站轉換至 Azure 入口網站的常見問題](../log-analytics/log-analytics-oms-portal-faq.md)。 如果[上述的差距](#current-known-gaps)不適用於您的環境，那麼您應該考慮開始使用 Azure 入口網站作為您的主要體驗。 如有任何意見反應、問題或疑慮，請傳送至 **LAUpgradeFeedback@microsoft.com**。
+
+大部分的功能都可繼續運作，而無須執行任何移轉。 例外狀況如下。
+
+- 如需轉移更新管理解決方案的詳細資訊，請參閱[將您的 OMS 更新部署移轉至 Azure](../automation/migrate-oms-update-deployments.md)。 
 
 ## <a name="new-workspaces"></a>新工作區
 自 7 月 29 日起，您將無法再使用 OMS 入口網站來建立新的工作區。 若要在 Azure 入口網站中建立新工作區，請遵循[在 Azure 入口網站中建立 Log Analytics 工作區](log-analytics-quick-create-workspace.md)的指引。
@@ -70,7 +78,7 @@ ms.locfileid: "39309097"
 ### <a name="alert-extension"></a>警示擴充功能  
 
 > [!NOTE]
-> 警示功能現在已完全擴充至 Azure 入口網站。 您可以在 OMS 入口網站中檢視現有的警示規則，但只能在 Azure 入口網站中管理這些警示規則。
+> 公用雲端的警示功能現在已完全擴充至 Azure 入口網站。 您可以在 OMS 入口網站中檢視現有的警示規則，但只能在 Azure 入口網站中管理這些警示規則。 警示將在 2018 年 10 月從 Azure 政府雲端開始擴充至 Azure 入口網站中。
 
 警示正在[延伸至 Azure 入口網站](../monitoring-and-diagnostics/monitoring-alerts-extend.md)的程序中。 一旦完成後，警示的管理動作將只能在 Azure 入口網站中使用。 現有警示會繼續列在 OMS 入口網站中。 若您藉由使用 Log Analytics 警示 REST API 或 Log Analytics 警示資源範本以程式設計的方式存取警示，則必須使用動作群組，而非您 API 呼叫、Azure Resource Manager 範本及 PowerShell 命令中的動作。
 

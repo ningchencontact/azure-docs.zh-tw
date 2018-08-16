@@ -3,7 +3,7 @@ title: Azure 資訊安全中心中的 Just-In-Time 虛擬機器存取 | Microsof
 description: 本文件示範 Azure 資訊安全中心的 Just-In-Time VM 存取如何協助您控制 Azure 虛擬機器的存取。
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
-ms.openlocfilehash: 288524e58efd64670df098f249f3ad0b1cca464c
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.date: 08/05/2018
+ms.author: rkarlin
+ms.openlocfilehash: 18c05444c151a87048db71b039845e26796126b8
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990573"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525938"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>使用 Just-In-Time 管理虛擬機器存取
 
@@ -168,10 +168,9 @@ Just-In-Time 虛擬機器 (VM) 存取可用於鎖定 Azure VM 的輸入流量、
 
 修改篩選條件，並選取 [套用] 以建立搜尋和記錄。
 
-## <a name="using-just-in-time-vm-access-via-powershell"></a>透過 PowerShell 使用 Just-In-Time VM 存取
+## <a name="using-just-in-time-vm-access-via-rest-apis"></a>透過 REST API 使用 Just-In-Time VM 存取
 
-若要透過 PowerShell 使用 Just-In-Time 解決方案，請確定您擁有 Azure PowerShell 的[最新](/powershell/azure/install-azurerm-ps)版本。
-若確定有最新版本，則需要從 PowerShell 資源庫安裝[最新](https://aka.ms/asc-psgallery)的 Azure 資訊安全中心。
+Just-In-Time VM 存取功能可透過 Azure 資訊安全中心 API 使用。 您可以透過此 API 取得已設定 VM 的相關資訊、新增 VM、要求存取 VM，以及更多作業。 請參閱 [Jit 網路存取原則](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies)，以深入了解 Just-In-Time REST API。
 
 ### <a name="configuring-a-just-in-time-policy-for-a-vm"></a>為 VM 設定 Just-In-Time 原則
 

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6e791051fb82197a770bff05f636159c638e3b9a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9700a76284e2ee2a652ae0dbcbaa2885ab515f79
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627846"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39596550"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>自訂遠端監視解決方案加速器
 
@@ -34,6 +34,8 @@ ms.locfileid: "34627846"
     ```sh
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
+
+    您只應該在測試和開發期間啟用 SSH 存取。 如果您啟用 SSH，[您應儘速再次加以停用](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-azure-virtual-machines)。
 
 1. 使用 Azure 入口網站或 [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 來尋找虛擬機器的名稱和公用 IP 位址。 例如︰
 
@@ -461,5 +463,5 @@ See the [Connect an external visualization tool](https://github.com/Azure/azure-
 
 如需關於遠端監視解決方案加速器的詳細概念資訊，請參閱[遠端監視架構](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
-如需關於自訂遠端監視解決方案的詳細資訊，請參閱[自訂和重新部署微服務](iot-accelerators-microservices-example.md)。
+如需關於自訂遠端監視解決方案的詳細資訊，請參閱[自訂和重新部署微服務](iot-accelerators-microservices-example.md)
 <!-- Next tutorials in the sequence -->

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/30/2018
+ms.date: 08/06/2018
 ms.author: magoedte
-ms.openlocfilehash: f84452af9c2c731d69d5805961266c46351a7687
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 2ae61d672083508d49e72afd5a015191082c23e9
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366091"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521926"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>監視 Azure Kubernetes Service (AKS) 容器健康情況 (預覽)
 
@@ -47,7 +47,7 @@ ms.locfileid: "39366091"
 您監視效能的能力需依賴容器化適用於 Linux 的 OMS 代理程式，它會收集叢集中所有節點的效能與事件資料。 在您啟用容器監視之後，會自動部署並向指定的記錄分析工作區註冊此代理程式。 
 
 >[!NOTE] 
->如果您已部署 AKS 叢集，則可以使用 Azure CLI 或提供的 Azure Resource Manager 範本來啟用監視，如此文章稍後所示。 您無法使用 `kubectl` 來升級、刪除、重新部署或部署此代理程式。 
+>如果您已部署 AKS 叢集，則可以使用 Azure CLI 或提供的 Azure Resource Manager 範本來啟用監視，如此文章稍後所示。 您無法使用 `kubectl` 來生集、刪除、重新部署或部署此代理程式。 
 >
 
 ## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
@@ -356,7 +356,13 @@ az aks show -g <resoourceGroupofAKSCluster> -n <nameofAksCluster>
 - **節點計數**：Kubernetes 中的節點計數和狀態。 所表示的叢集節點狀態為 [所有]、[就緒] 和 [尚未就緒]，且可以在圖表上方的選取器中進行個別篩選或結合。 
 - **活動 Pod 計數**：Kubernetes 中的 Pod 計數和狀態。 所表示的叢集節點狀態為 [所有]、[擱置]、[執行中] 和 [未知]，且可以在圖表上方的選取器中進行個別篩選或結合。 
 
-若您切換至 [節點] 索引標籤，資料列階層會依循 Kubernetes 物件模型，從您叢集中的節點開始。 展開節點後，您便可以檢視一或多個在節點上執行的 Pod。 若有超過一個容器被分組至 Pod，它們會以最後一個資料列的形式顯示於階層中。 當主機有處理器或記憶體的壓力時，您也可檢視主機上有多少非 Pod 相關的工作負載正在執行。
+當您切換至 [節點]、[控制站] 和 [容器] 索引標籤時，頁面右邊會自動顯示屬性窗格。  它會顯示所選項目的屬性，包括您為了組織 Kubernetes 物件而定義的標籤。  按一下窗格中的 **>>** 連結，以檢視\隱藏此窗格。  
+
+![範例 Kubernetes 觀點屬性窗格](./media/monitoring-container-health/perspectives-preview-pane-01.png)
+
+當您展開階層中的物件時，屬性窗格會根據所選的物件更新。 在此窗格中，您也可以按一下窗格頂端的 [檢視 Kubernetes 事件記錄] 連結，以檢視已預先定義記錄搜尋的 Kubernetes 事件。 如需有關檢視 Kubernetes 記錄資料的詳細資訊，請參閱[搜尋記錄來分析資料](#search-logs-to-analyze-data)。
+
+切換至 [節點] 索引標籤，而資料列階層會依循 Kubernetes 物件模型，從您叢集中的節點開始。 展開節點後，您便可以檢視一或多個在節點上執行的 Pod。 若有超過一個容器被分組至 Pod，它們會以最後一個資料列的形式顯示於階層中。 當主機有處理器或記憶體的壓力時，您也可檢視主機上有多少非 Pod 相關的工作負載正在執行。
 
 ![效能檢視中的範例 Kubernetes 節點階層](./media/monitoring-container-health/container-health-nodes-view.png)
 
@@ -481,9 +487,9 @@ az aks show -g <resoourceGroupofAKSCluster> -n <nameofAksCluster>
 ## <a name="search-logs-to-analyze-data"></a>搜尋記錄來分析資料
 Log Analytics 可協助您找出趨勢、診斷瓶頸、預測或讓將資料相互關聯，協助您判斷目前叢集設定是否以最佳方式運作。 已為您提供可立即開始使用，或自訂以您想要的方式傳回資訊的預先定義記錄搜尋。 
 
-您在展開控制器或容器時，可以選取位在最右邊的 [檢視記錄] 選項，來在工作區中對資料執行互動式分析。 [記錄搜尋] 頁面會出現在您所在之 Azure 入口網站頁面的上方。
+您可以在預覽窗格中選取 [檢視 Kubernetes 事件記錄] 或 [檢視容器記錄] 選項，以在工作區中對資料執行互動式分析。 [記錄搜尋] 頁面會出現在您所在 Azure 入口網站頁面的右邊。
 
-![在 Log Analytics 中分析資料](./media/monitoring-container-health/container-health-view-logs.png)   
+![在 Log Analytics 中分析資料](./media/monitoring-container-health/container-health-log-search-example.png)   
 
 轉送至 Log Analytics 的容器記錄輸出為 STDOUT 與 STDERR。 因為容器健康情況會監視 Azure 受控 Kubernetes (AKS)，所以基於大量已產生資料的原因，今天將不會收集 Kube-system。 
 

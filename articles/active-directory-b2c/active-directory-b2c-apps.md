@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f4b45c743c0efa1c9df665018b28a8b4ffb76f73
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: e42bc63b0c2b6edf4dc0de204bbac5fe90071a67
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238398"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480507"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>可以在 Active Directory B2C 中使用的應用程式類型
 
@@ -60,7 +60,13 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 
 在 Web 應用程式中，每次執行[原則](active-directory-b2c-reference-policies.md)時均會採用下列高階步驟：
 
-![Web 應用程式泳道映像](./media/active-directory-b2c-apps/webapp.png)
+1. 使用者瀏覽至 web 應用程式。
+2. Web 應用程式將使用者重新導向至 Azure AD B2C，以指出要執行的原則。
+3. 使用者完成原則。
+4. Azure AD B2C 會將 `id_token` 傳回給瀏覽器。
+5. `id_token` 會張貼至重新導向 URI。
+6. `id_token` 已經過驗證並已設定工作階段 cookie。
+7. 系統會將安全的頁面傳回給使用者。
 
 使用接收自 Azure AD 的公開簽署金鑰來驗證 `id_token` ，就足以驗證使用者的身分識別。 這也會設定工作階段 Cookie，在後續頁面要求上可用來識別使用者。
 
@@ -89,7 +95,15 @@ Accept: application/json
 
 Web API 接收的權杖可以來自許多類型的用戶端，包括 Web 應用程式、桌面和行動應用程式、單一頁面應用程式、伺服器端精靈，以及其他 Web API。 以下是 Web 應用程式呼叫 Web API 的完整流程範例：
 
-![Web 應用程式 Web API 泳道映像](./media/active-directory-b2c-apps/webapi.png)
+1. Web 應用程式會執行原則，而且使用者完成了使用者體驗。
+2. Azure AD B2C 會將 `access_token` 和授權碼傳回給瀏覽器。
+3. 瀏覽器會將 `access_token` 和授權碼張貼到重新導向 URI。
+4. Web 伺服器會驗證 `access token` 並設定工作階段 cookie。
+5. 系統會將 `access_token` 提供給 Azure AD B2C，其中包含授權碼、應用程式用戶端識別碼和認證。
+6. 系統會將 `access_token` 和 `refresh_token` 傳回給 Web 伺服器。
+7. 使用授權標頭中的 `access_token` 可呼叫 Web API。
+8. Web API 會驗證此權杖。
+9. 系統會將安全的資料傳回給 Web 伺服器。
 
 若要深入了解授權碼、重新整理權杖和取得權杖的步驟，請參閱 [OAuth 2.0 通訊協定](active-directory-b2c-reference-oauth-code.md)。
 
@@ -105,8 +119,6 @@ Web API 接收的權杖可以來自許多類型的用戶端，包括 Web 應用�
 > Azure AD B2C 目前僅支援用來存取應用程式本身後端 Web 服務的權杖。 例如，您的完整應用程式可能包括 iOS 應用程式、Android 應用程式和後端 Web API。 完全支援這種架構。 目前不支援允許 iOS 應用程式使用 OAuth 2.0 存取權杖來存取夥伴 Web API。 完整應用程式的所有元件都必須共用單一應用程式識別碼。
 >
 >
-
-![原生應用程式泳道映像](./media/active-directory-b2c-apps/native.png)
 
 ## <a name="current-limitations"></a>目前的限制
 

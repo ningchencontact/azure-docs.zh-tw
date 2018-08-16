@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 08/03/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1b5640b790b07050336a990a06b66e5f89fcf768
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 5a93a21c3884d742479bdd30417a846942cb1ed1
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308604"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524085"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory 傳遞驗證：快速入門
 
@@ -62,6 +62,7 @@ Azure Active Directory (Azure AD) 傳遞驗證可讓您的使用者以相同密�
     | --- | --- |
     | **80** | 驗證 SSL 憑證時下載憑證撤銷清單 (CRL) |
     | **443** | 處理所有與服務之間的輸出通訊 |
+    | **8080** (選擇性) | 如果無法使用連接埠 443，則驗證代理程式會透過連接埠 8080 每隔十分鐘報告其狀態。 此狀態會顯示在 Azure 入口網站上。 連接埠 8080 「不」會用於使用者登入。 |
    
     如果您的防火牆會根據原始使用者強制執行規則，請開啟這些連接埠，讓來自以網路服務形式執行之 Windows 服務的流量得以通行。
    - 如果您的防火牆或 Proxy 允許建立 DNS 允許清單，便可將對 **\*.msappproxy.net** 與 **\*.servicebus.windows.net** 的連線加入允許清單。 如果不允許建立，請允許存取每週更新的 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。
@@ -141,7 +142,7 @@ Azure Active Directory (Azure AD) 傳遞驗證可讓您的使用者以相同密�
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 
 ## <a name="next-steps"></a>後續步驟
-- [從 AD FS 遷移到傳遞驗證](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) \(英文\)：從 AD FS (或其他同盟技術) 遷移到傳遞驗證的詳細指南。
+- [從 AD FS 遷移到傳遞驗證](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) \(英文\) - 從 AD FS (或其他同盟技術) 遷移到傳遞驗證的詳細指南。
 - [智慧鎖定](../authentication/howto-password-smart-lockout.md)：了解如何在租用戶中設定智慧鎖定功能以保護使用者帳戶。
 - [目前的限制](active-directory-aadconnect-pass-through-authentication-current-limitations.md)：了解傳遞驗證支援的情節和不支援的情節。
 - [技術深入探討](active-directory-aadconnect-pass-through-authentication-how-it-works.md)：了解傳遞驗證功能的運作方式。

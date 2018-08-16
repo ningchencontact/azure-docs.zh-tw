@@ -4,25 +4,23 @@ description: 使用 Azure 入口網站和 Azure Resource Manager 來部署資源
 services: azure-resource-manager,azure-portal
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/08/2017
+ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 79bc42394513efc2ac03ea9d7170f035d71edb4f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c16d584f17aa2c209c9c0ec94d35f6fe78ba1907
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603718"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494071"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>使用 Resource Manager 範本與 Azure 入口網站來部署資源
 
-本主題示範如何使用 [Azure 入口網站](https://portal.azure.com)搭配 [Azure Resource Manager](resource-group-overview.md) 來部署您的 Azure 資源。 若要了解如何管理您的資源，請參閱 [透過入口網站管理 Azure 資源](resource-group-portal.md)。
+本文示範如何使用 [Azure 入口網站](https://portal.azure.com)搭配 [Azure Resource Manager](resource-group-overview.md) 來部署您的 Azure 資源。 若要了解如何管理您的資源，請參閱 [透過入口網站管理 Azure 資源](resource-group-portal.md)。
 
 ## <a name="create-resource-group"></a>建立資源群組
 
@@ -79,6 +77,9 @@ ms.locfileid: "34603718"
 ## <a name="deploy-resources-from-custom-template"></a>從自訂範本部署資源
 
 如果您想要執行部署，但不使用 Marketplace 中的任何範本，您可建立自訂範本以定義您的解決方案的基礎結構。 若要了解如何建立範本，請參閱[了解 Azure Resource Manager 範本的結構和語法](resource-group-authoring-templates.md)。
+
+> [!NOTE]
+> 入口網站介面不支援參考 [Key Vault 中的祕密](resource-manager-keyvault-parameter.md)。 請改用 [PowerShell](resource-group-template-deploy.md) 或 [Azure CLI](resource-group-template-deploy-cli.md)，在本機或從外部 URI 部署您的範本。
 
 1. 若要透過入口網站來部署自訂的範本，請選取 [建立資源]，並搜尋 [範本部署]，直到您可以從選項中選取它為止。
 

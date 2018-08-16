@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: a9455683c5fad7fad4dda62fd967da617d8a8496
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 93478e5d13ef649b86ebc047f4e53f1486e2ff68
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763641"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493948"
 ---
 # <a name="sfctl-partition"></a>sfctl partition
 查詢和管理任何服務的資料分割。
@@ -58,8 +58,8 @@ ms.locfileid: "34763641"
 | --data-loss-mode [必要] | 此列舉會傳遞給 StartDataLoss API 以指出要引發哪一種類型的資料遺失。 |
 | --operation-id   [必要] | 識別此 API 呼叫的 GUID。  這會傳遞至對應的 GetProgress API。 |
 | --partition-id   [必要] | 分割區的識別。 |
-| --service-id     [必要] | 服務的身分識別。 這通常是不含 'fabric\:' URI 配置的完整服務名稱。 從 6.0 版開始，階層的名稱會以 "\~" 字元分隔。 例如，如果服務名稱是 "fabric\:/myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp\~app1\~svc1"，而在舊版中會是 "myapp/app1/svc1"。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值：60。 |
+| --service-id     [必要] | 服務的身分識別。 此識別碼通常是不含 'fabric\:' URI 配置的服務完整名稱。 從 6.0 版開始，階層的名稱會以 "\~" 字元分隔。 例如，如果服務名稱是 "fabric\:/myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp\~app1\~svc1"，而在舊版中會是 "myapp/app1/svc1"。 |
+| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -67,7 +67,7 @@ ms.locfileid: "34763641"
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
-| --output -o | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。 |
+| --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
 
@@ -82,8 +82,8 @@ ms.locfileid: "34763641"
 | --- | --- |
 | --operation-id [必要] | 識別此 API 呼叫的 GUID。  這會傳遞至對應的 GetProgress API。 |
 | --partition-id [必要] | 分割區的識別。 |
-| --service-id   [必要] | 服務的身分識別。 這通常是不含 'fabric\:' URI 配置的完整服務名稱。 從 6.0 版開始，階層的名稱會以 "\~" 字元分隔。 例如，如果服務名稱是 "fabric\:/myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp\~app1\~svc1"，而在舊版中會是 "myapp/app1/svc1"。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值：60。 |
+| --service-id   [必要] | 服務的身分識別。 此識別碼通常是不含 'fabric\:' URI 配置的服務完整名稱。 從 6.0 版開始，階層的名稱會以 "\~" 字元分隔。 例如，如果服務名稱是 "fabric\:/myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp\~app1\~svc1"，而在舊版中會是 "myapp/app1/svc1"。 |
+| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -91,24 +91,24 @@ ms.locfileid: "34763641"
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
-| --output -o | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。 |
+| --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
 
 ## <a name="sfctl-partition-health"></a>sfctl partition health
 取得指定 Service Fabric 分割區的健康情況。
 
-取得指定分割區的健康情況資訊。 使用 EventsHealthStateFilter 可根據健康情況狀態，篩選針對服務所報告的健康情況事件集合。 使用 ReplicasHealthStateFilter 可篩選分割區上 ReplicaHealthState 物件的集合。 如果您指定的分割區不在健康狀態資料存放區中，此要求就會傳回錯誤。
+使用 EventsHealthStateFilter 可根據健康情況狀態，篩選針對服務所報告的健康情況事件集合。 使用 ReplicasHealthStateFilter 可篩選分割區上 ReplicaHealthState 物件的集合。 如果您指定的分割區不在健康狀態資料存放區中，此要求就會傳回錯誤。
 
 ### <a name="arguments"></a>引數
 
 |引數|說明|
 | --- | --- |
 | --partition-id [必要] | 分割區的識別。 |
-| --events-health-state-filter | 可根據健康情況狀態來篩選所傳回的 HealthEvent 物件集合。 此參數的可能值包括下列其中一個健康情況狀態的整數值。 只會傳回符合篩選條件的事件。 所有事件都會用來評估彙總的健康情況狀態。 如果未指定，則會傳回所有項目。 狀態值是以旗標為基礎的列舉，因此值可以是使用位元 'OR' 運算子取得的這些值的組合。 例如，如果提供的值為 6，則會傳回 HealthState 值為 OK (2) 和 Warning (4) 的所有事件。  <br> - Default - 預設值。 符合任何 HealthState。 值為零。  <br> - None - 不符合任何 HealthState 值的篩選條件。 用來在指定狀態集合沒有任何結果時傳回。 值為 1。  <br> - Ok - 符合輸入含 HealthState 值 Ok 的篩選條件。 值為 2。  <br> - Warning - 符合輸入含 HealthState 值 Warning 的篩選條件。 值為 4。  <br> - Error - 符合輸入含 HealthState 值 Error 的篩選條件。 值為 8。  <br> - All - 符合輸入含任何 HealthState 值的篩選條件。 值為 65535。 |
+| --events-health-state-filter | 可根據健康情況狀態來篩選所傳回的 HealthEvent 物件集合。 此參數的可能值包括下列其中一個健康情況狀態的整數值。 只會傳回符合篩選條件的事件。 所有事件都會用來評估彙總的健康情況狀態。 如果未指定，則會傳回所有項目。 狀態值是以旗標為基礎的列舉，因而此值可以是使用位元 'OR' 運算子所取得這些值的組合。 例如，如果提供的值為 6，則會傳回 HealthState 值為 OK (2) 和 Warning (4) 的所有事件。  <br> - Default - 預設值。 符合任何 HealthState。 值為零。  <br> - None - 不符合任何 HealthState 值的篩選條件。 用來在指定狀態集合沒有任何結果時傳回。 值為 1。  <br> - Ok - 符合輸入含 HealthState 值 Ok 的篩選條件。 值為 2。  <br> - Warning - 符合輸入含 HealthState 值 Warning 的篩選條件。 值為 4。  <br> - Error - 符合輸入含 HealthState 值 Error 的篩選條件。 值為 8。  <br> - All - 符合輸入含任何 HealthState 值的篩選條件。 值為 65535。 |
 | --exclude-health-statistics | 指出是否應該在查詢結果中一併傳回健康情況統計資料。 預設為 False。 統計資料會顯示健康情況狀態為 Ok、Warning 及 Error 的子實體數目。 |
-| --replicas-health-state-filter | 允許篩選分割區上的 ReplicaHealthState 物件集合。 可以從 HealthStateFilter 成員或對這些成員的位元運算取得值。 只會傳回符合篩選條件的複本。 所有複本都會用來評估彙總的健康情況狀態。 如果未指定，則會傳回所有項目。 狀態值是以旗標為基礎的列舉，因此值可以是使用位元 'OR' 運算子取得的這些值的組合。 例如，如果提供的值為 6，則會傳回 HealthState 值為 OK (2) 和 Warning (4) 的所有事件。 此參數的可能值包括下列其中一個健康情況狀態的整數值。  <br> - Default - 預設值。 符合任何 HealthState。 值為零。  <br> - None - 不符合任何 HealthState 值的篩選條件。 用來在指定狀態集合沒有任何結果時傳回。 值為 1。  <br> - Ok - 符合輸入含 HealthState 值 Ok 的篩選條件。 值為 2。  <br> - Warning - 符合輸入含 HealthState 值 Warning 的篩選條件。 值為 4。  <br> - Error - 符合輸入含 HealthState 值 Error 的篩選條件。 值為 8。  <br> - All - 符合輸入含任何 HealthState 值的篩選條件。 值為 65535。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值：60。 |
+| --replicas-health-state-filter | 允許篩選分割區上的 ReplicaHealthState 物件集合。 可以從 HealthStateFilter 成員或對這些成員的位元運算取得值。 只會傳回符合篩選條件的複本。 所有複本都會用來評估彙總的健康情況狀態。 若未指定，則會傳回所有項目。狀態值是以旗標為基礎的列舉，因此值可以是使用位元 'OR' 運算子取得的這些值的組合。 例如，如果提供的值為 6，則會傳回 HealthState 值為 OK (2) 和 Warning (4) 的所有事件。 此參數的可能值包括下列其中一個健康情況狀態的整數值。  <br> - Default - 預設值。 符合任何 HealthState。 值為零。  <br> - None - 不符合任何 HealthState 值的篩選條件。 用來在指定狀態集合沒有任何結果時傳回。 值為 1。  <br> - Ok - 符合輸入含 HealthState 值 Ok 的篩選條件。 值為 2。  <br> - Warning - 符合輸入含 HealthState 值 Warning 的篩選條件。 值為 4。  <br> - Error - 符合輸入含 HealthState 值 Error 的篩選條件。 值為 8。  <br> - All - 符合輸入含任何 HealthState 值的篩選條件。 值為 65535。 |
+| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -116,7 +116,7 @@ ms.locfileid: "34763641"
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
-| --output -o | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。 |
+| --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
 
@@ -130,7 +130,7 @@ ms.locfileid: "34763641"
 |引數|說明|
 | --- | --- |
 | --partition-id [必要] | 分割區的識別。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值：60。 |
+| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -138,22 +138,22 @@ ms.locfileid: "34763641"
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
-| --output -o | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。 |
+| --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
 
 ## <a name="sfctl-partition-list"></a>sfctl partition list
 取得 Service Fabric 服務的分割區清單。
 
-取得 Service Fabric 服務的分割區清單。 回應包括分割區識別碼、資料分割配置資訊、分割區支援的索引鍵、狀態、健康情況，以及與分割區有關的其他詳細資料。
+回應包括分割區識別碼、資料分割配置資訊、分割區支援的索引鍵、狀態、健康情況，以及與分割區有關的其他詳細資料。
 
 ### <a name="arguments"></a>引數
 
 |引數|說明|
 | --- | --- |
-| --service-id [必要] | 服務的身分識別。 這通常是不含 'fabric\:' URI 配置的完整服務名稱。 從 6.0 版開始，階層的名稱會以 "\~" 字元分隔。 例如，如果服務名稱是 "fabric\:/myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp\~app1\~svc1"，而在舊版中會是 "myapp/app1/svc1"。 |
+| --service-id [必要] | 服務的身分識別。 此識別碼通常是不含 'fabric\:' URI 配置的服務完整名稱。 從 6.0 版開始，階層的名稱會以 "\~" 字元分隔。 例如，如果服務名稱是 "fabric\:/myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp\~app1\~svc1"，而在舊版中會是 "myapp/app1/svc1"。 |
 | --continuation-token | 接續權杖參數可用來取得下一組結果。 當來自系統的結果無法放入單一回應中時，API 的回應中會包含具有非空白值的接續權杖。 當此值傳遞至下一個 API 呼叫時，API 會傳回下一組結果。 如果沒有任何進一步的結果，接續權杖就不會包含值。 此參數的值不能經過 URL 編碼。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值：60。 |
+| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -161,7 +161,7 @@ ms.locfileid: "34763641"
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
-| --output -o | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。 |
+| --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
 
@@ -175,7 +175,7 @@ ms.locfileid: "34763641"
 |引數|說明|
 | --- | --- |
 | --partition-id [必要] | 分割區的識別。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值：60。 |
+| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -183,7 +183,7 @@ ms.locfileid: "34763641"
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
-| --output -o | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。 |
+| --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
 
@@ -197,7 +197,7 @@ ms.locfileid: "34763641"
 |引數|說明|
 | --- | --- |
 | --partition-id [必要] | 分割區的識別。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值：60。 |
+| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -205,14 +205,14 @@ ms.locfileid: "34763641"
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
-| --output -o | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。 |
+| --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
 
 ## <a name="sfctl-partition-quorum-loss"></a>sfctl partition quorum-loss
 導致指定具狀態服務分割區的仲裁遺失。
 
-導致指定具狀態服務分割區的仲裁遺失。  此 API 對於您服務上的暫時性仲裁遺失情況來說，相當有用。 您可以使用相同的 OperationId 來呼叫 GetQuorumLossProgress API，以傳回使用此 API 所啟動作業的相關資訊。 只能在具狀態持續性 (HasPersistedState==true) 服務上呼叫此 API。  請勿在無狀態服務或僅限記憶體內的具狀態服務上使用此 API。
+此 API 對於您服務上的暫時性仲裁遺失情況來說，相當有用。 您可以使用相同的 OperationId 來呼叫 GetQuorumLossProgress API，以傳回使用此 API 所啟動作業的相關資訊。 只能在具狀態持續性 (HasPersistedState==true) 服務上呼叫此 API。  請勿在無狀態服務或僅限記憶體內的具狀態服務上使用此 API。
 
 ### <a name="arguments"></a>引數
 
@@ -222,8 +222,8 @@ ms.locfileid: "34763641"
 | --partition-id         [必要] | 分割區的識別。 |
 | --quorum-loss-duration [必要] | 分割區將維持在仲裁遺失狀態的時間長度。  必須以秒為單位來指定此值。 |
 | --quorum-loss-mode     [必要] | 此列舉會傳遞給 StartQuorumLoss API 以指出要引發哪一種類型的仲裁遺失。 |
-| --service-id           [必要] | 服務的身分識別。 這通常是不含 'fabric\:' URI 配置的完整服務名稱。 從 6.0 版開始，階層的名稱會以 "\~" 字元分隔。 例如，如果服務名稱是 "fabric\:/myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp\~app1\~svc1"，而在舊版中會是 "myapp/app1/svc1"。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值：60。 |
+| --service-id           [必要] | 服務的身分識別。 此識別碼通常是不含 'fabric\:' URI 配置的服務完整名稱。 從 6.0 版開始，階層的名稱會以 "\~" 字元分隔。 例如，如果服務名稱是 "fabric\:/myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp\~app1\~svc1"，而在舊版中會是 "myapp/app1/svc1"。 |
+| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -231,7 +231,7 @@ ms.locfileid: "34763641"
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
-| --output -o | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。 |
+| --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
 
@@ -246,8 +246,8 @@ ms.locfileid: "34763641"
 | --- | --- |
 | --operation-id [必要] | 識別此 API 呼叫的 GUID。  這會傳遞至對應的 GetProgress API。 |
 | --partition-id [必要] | 分割區的識別。 |
-| --service-id   [必要] | 服務的身分識別。 這通常是不含 'fabric\:' URI 配置的完整服務名稱。 從 6.0 版開始，階層的名稱會以 "\~" 字元分隔。 例如，如果服務名稱是 "fabric\:/myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp\~app1\~svc1"，而在舊版中會是 "myapp/app1/svc1"。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值：60。 |
+| --service-id   [必要] | 服務的身分識別。 此識別碼通常是不含 'fabric\:' URI 配置的服務完整名稱。 從 6.0 版開始，階層的名稱會以 "\~" 字元分隔。 例如，如果服務名稱是 "fabric\:/myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp\~app1\~svc1"，而在舊版中會是 "myapp/app1/svc1"。 |
+| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -255,21 +255,21 @@ ms.locfileid: "34763641"
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
-| --output -o | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。 |
+| --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
 
 ## <a name="sfctl-partition-recover"></a>sfctl partition recover
 表示 Service Fabric 叢集應該嘗試復原目前停留在仲裁遺失的特定分割區。
 
-表示 Service Fabric 叢集應該嘗試復原目前停留在仲裁遺失的特定分割區。 只有當已知無法復原已關閉的複本時，才能執行這項作業。 不正確使用這個 API，可能會造成資料遺失。
+只有當已知無法復原已關閉的複本時，才能執行這項作業。 不正確使用這個 API，可能會造成資料遺失。
 
 ### <a name="arguments"></a>引數
 
 |引數|說明|
 | --- | --- |
 | --partition-id [必要] | 分割區的識別。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值：60。 |
+| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -277,20 +277,20 @@ ms.locfileid: "34763641"
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
-| --output -o | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。 |
+| --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
 
 ## <a name="sfctl-partition-recover-all"></a>sfctl partition recover-all
 指示 Service Fabric 叢集應該嘗試復原目前停留在仲裁遺失狀態的所有服務 (包括系統服務)。
 
-指示 Service Fabric 叢集應該嘗試復原目前停留在仲裁遺失狀態的所有服務 (包括系統服務)。 只有當已知無法復原已關閉的複本時，才能執行這項作業。 不正確使用這個 API，可能會造成資料遺失。
+只有當已知無法復原已關閉的複本時，才能執行這項作業。 不正確使用這個 API，可能會造成資料遺失。
 
 ### <a name="arguments"></a>引數
 
 |引數|說明|
 | --- | --- |
-| --timeout -t | 伺服器逾時 (秒)。  預設值：60。 |
+| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -298,7 +298,7 @@ ms.locfileid: "34763641"
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
-| --output -o | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。 |
+| --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
 
@@ -319,7 +319,7 @@ ms.locfileid: "34763641"
 | --immediate | 指出是否應該立即傳送報告的旗標。 <br><br> 健康情況報告會傳送給 Service Fabric 閘道應用程式，再由其轉送給健康狀態資料存放區。 如果將 Immediate 設定為 true，則不論「HTTP 閘道應用程式」使用什麼網狀架構用戶端設定，都會從「HTTP 閘道」立即將報告傳送給健康狀態資料存放區。 這對於應該儘快傳送的重要報告來說，相當有用。 視時機和其他條件而定，傳送報告時仍可能失敗，例如在「HTTP 閘道」關閉或訊息未觸達閘道的情況下。 如果將 Immediate 設定為 false，就會根據來自「HTTP 閘道」的健康情況用戶端設定來傳送報告。 因此，會根據 HealthReportSendInterval 設定進行批次處理。 這是建議的設定，因為這除了可讓健康情況用戶端將健康情況報告處理最佳化之外，也可將傳送給健康狀態資料存放區的健康情況報告訊息最佳化。 預設不會立即傳送報告。 |
 | --remove-when-expired | 指出是否要在報告到期時將報告自健康狀態資料存放區中移除的值。 <br><br> 如果設定為 true，就會在報告到期後，將報告自健康狀態資料存放區中移除。 如果設定為 false，則會在報告到期後，將報告視為錯誤。 此屬性的值預設為 false。 當用戶端會定期回報時，應該將 RemoveWhenExpired 設定為 false (預設值)。 如此一來，如果報告程式發生問題 (例如死結) 而無法回報，在健康情況報告到期時，系統就會將實體評估為錯誤。 這會將實體標幟為處於「錯誤」健康情況狀態。 |
 | --sequence-number | 此健康情況報告的序號 (以數值字串表示)。 <br><br> 健康狀態資料存放區會使用報告序號來偵測過時的報告。 如果未指定，就會在新增報告時，由健康情況用戶端自動產生序號。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值：60。 |
+| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 | --ttl | 此健康情況報告的有效持續時間。 此欄位使用 ISO8601 格式來指定持續時間。 <br><br> 當用戶端會定期回報時，其傳送報告的頻率應該高於存留時間。 如果用戶端會針對轉換進行回報，則可以將存留時間設定為無限。 如果 RemoveWhenExpired 為 true，當存留時間到期時，系統會將包含健康情況資訊的健康情況事件自健康狀態資料存放區中移除，如果 RemoveWhenExpired 為 false，則會將該事件評估為錯誤。 如果未指定，存留時間會預設為 infinite 值。 |
 
 ### <a name="global-arguments"></a>全域引數
@@ -328,7 +328,7 @@ ms.locfileid: "34763641"
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
-| --output -o | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。 |
+| --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
 
@@ -344,8 +344,8 @@ ms.locfileid: "34763641"
 | --operation-id [必要] | 識別此 API 呼叫的 GUID。  這會傳遞至對應的 GetProgress API。 |
 | --partition-id [必要] | 分割區的識別。 |
 | --restart-partition-mode [必要] | 描述要重新啟動哪個分割區。 |
-| --service-id [必要] | 服務的身分識別。 這通常是不含 'fabric\:' URI 配置的完整服務名稱。 從 6.0 版開始，階層的名稱會以 "\~" 字元分隔。 例如，如果服務名稱是 "fabric\:/myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp\~app1\~svc1"，而在舊版中會是 "myapp/app1/svc1"。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值：60。 |
+| --service-id [必要] | 服務的身分識別。 此識別碼通常是不含 'fabric\:' URI 配置的服務完整名稱。 從 6.0 版開始，階層的名稱會以 "\~" 字元分隔。 例如，如果服務名稱是 "fabric\:/myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp\~app1\~svc1"，而在舊版中會是 "myapp/app1/svc1"。 |
+| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -353,7 +353,7 @@ ms.locfileid: "34763641"
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
-| --output -o | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。 |
+| --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
 
@@ -368,8 +368,8 @@ ms.locfileid: "34763641"
 | --- | --- |
 | --operation-id [必要] | 識別此 API 呼叫的 GUID。  這會傳遞至對應的 GetProgress API。 |
 | --partition-id [必要] | 分割區的識別。 |
-| --service-id   [必要] | 服務的身分識別。 這通常是不含 'fabric\:' URI 配置的完整服務名稱。 從 6.0 版開始，階層的名稱會以 "\~" 字元分隔。 例如，如果服務名稱是 "fabric\:/myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp\~app1\~svc1"，而在舊版中會是 "myapp/app1/svc1"。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值：60。 |
+| --service-id   [必要] | 服務的身分識別。 此識別碼通常是不含 'fabric\:' URI 配置的服務完整名稱。 從 6.0 版開始，階層的名稱會以 "\~" 字元分隔。 例如，如果服務名稱是 "fabric\:/myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp\~app1\~svc1"，而在舊版中會是 "myapp/app1/svc1"。 |
+| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -377,7 +377,7 @@ ms.locfileid: "34763641"
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
-| --output -o | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。 |
+| --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
 
@@ -391,7 +391,7 @@ ms.locfileid: "34763641"
 |引數|說明|
 | --- | --- |
 | --partition-id [必要] | 分割區的識別。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值：60。 |
+| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -399,9 +399,10 @@ ms.locfileid: "34763641"
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
-| --output -o | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。 |
+| --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+
 
 ## <a name="next-steps"></a>後續步驟
 - [設定](service-fabric-cli.md) Service Fabric CLI。

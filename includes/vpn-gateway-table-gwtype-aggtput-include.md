@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 08/02/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fad9b990b6ff1021efdaf8aadeb1e19d8a55871d
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 4cbbb64489acf23c1248e35269e1441dd2a6878e
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39138120"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39513912"
 ---
 |**SKU**   | **S2S/VNet-to-VNet<br>通道** | **P2S<br>連線** | **彙總<br>輸送量基準測試** |
 |---       | ---                             | ---                    | ---                         |
@@ -24,7 +24,7 @@ ms.locfileid: "39138120"
 
 * (*) 如果您需要超過 30 個 S2S VPN 通道，請使用[虛擬 WAN](../articles/virtual-wan/virtual-wan-about.md)。
 
-* (\*\*) 如果需要額外連線，請連絡支援人員
+* (\*\*) 如果需要額外連線，請連絡支援人員。 這僅適用於 IKEv2，SSTP 的連線數目無法增加。
 
 * 「彙總輸送量基準測試」是以透過單一閘道彙總之多個通道的量值為基礎。 由於網際網路流量條件和您的應用程式行為，這不是保證的輸送量。
 

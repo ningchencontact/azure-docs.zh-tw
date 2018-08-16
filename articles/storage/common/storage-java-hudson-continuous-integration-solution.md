@@ -2,24 +2,19 @@
 title: 如何使用 Hudson 與 Blob 儲存體 | Microsoft Docs
 description: 說明如何使用 Hudson 與 Azure Blob 儲存體作為組建成品的存放庫。
 services: storage
-documentationcenter: java
 author: seguler
-manager: jahogg
-editor: tysonn
-ms.assetid: 119becdd-72c4-4ade-a439-070233c1e1ac
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
-ms.openlocfilehash: e54bedff5f744004288e132efbed8c3e7981f8a6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: c076ae96f8aba648196dc5222db3da3da68673ff
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23060123"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528386"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>使用 Azure 儲存體與 Hudson 連續整合解決方案
 ## <a name="overview"></a>概觀
@@ -40,7 +35,7 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
 * 在您的客戶和合作夥伴下載組建成品時提供良好的效能。
 * 提供使用者存取原則控制，可以選擇匿名存取、期限型共用存取簽章存取、私用存取等。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 您將需要下列項目來使用 Blob 服務與 Hudson CI 解決方案：
 
 * Hudson 連續整合解決方案。

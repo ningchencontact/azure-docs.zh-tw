@@ -8,22 +8,27 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: 2f8cbb5b436930f89ece1a18d4e1e54a88b02650
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: e24008a2208d8dcfbb7f86c66bb7de39f3c75790
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39286167"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528182"
 ---
 # <a name="support-and-help-options"></a>支援和協助選項
 
 您剛開始探索語音服務的功能嗎？ 您的應用程式是否要實作新功能？ 開發人員可遵循以下建議來取得協助。
 
 > [!div class="checklist"]
+> * 掌握 *Microsoft 認知服務*的最新發展，或尋找與*語音服務*相關的最新消息。
 > * 進行搜尋，以查看社群是否尚未回答您的問題，或您嘗試實作的功能是否已有現存文件。
 > * 如果您找不到所需的解答，就可以在「Stack Overflow」上發問。
 > * 如果您發現 GitHub 上的其中一個範例有問題，您可以提出 GitHub 問題。
 > * 在「使用者心聲論壇」中搜尋解決方案。
+
+## <a name="stay-informed"></a>掌握最新資訊
+
+Microsoft 認知服務的相關消息會收集在[認知服務部落格](https://azure.microsoft.com/en-us/blog/topics/cognitive-services/)中。 如需有關語音服務的最新資訊，請追蹤[語音服務部落格](https://azure.microsoft.com/en-us/blog/tag/speech-service/)。
 
 ## <a name="search"></a>Search
 

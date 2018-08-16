@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 587ae9f6452f85dee867047e47ccc272ee508b81
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 8b257a6f4c32b4013ac0478d82dc1f7f32675b9b
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325185"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578155"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-framework-on-windows-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 Windows 上根據 .NET Framework 以 C# 辨識語音
 
@@ -48,7 +48,7 @@ ms.locfileid: "39325185"
 
     ![安裝 Microsoft.CognitiveServices.Speech NuGet 封裝](media/sdk/qs-csharp-dotnet-windows-03-nuget-install-0.5.0.png "安裝 Nuget 封裝")
 
-1. 在出現的對話方塊中接受授權。
+1. 接受顯示的授權。
 
     ![接受授權](media/sdk/qs-csharp-dotnet-windows-04-nuget-license.png "接受授權")
 
@@ -76,11 +76,11 @@ ms.locfileid: "39325185"
 
 ## <a name="add-the-sample-code"></a>新增範例程式碼
 
-1. 開啟 Visual Studio 專案中的 `Program.cs`，然後以下列程式碼取代此檔案中的所有程式碼。
+1. 開啟 `Program.cs` 並將其中的所有程式碼取代為下列程式碼。
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnet-windows/helloworld/Program.cs#code)]
 
-1. 以您的訂用帳戶金鑰取代 `YourSubscriptionKey` 字串。
+1. 將字串 `YourSubscriptionKey` 取代為您的訂用帳戶金鑰。
 
 1. 以與您的訂用帳戶 (例如，免費試用訂用帳戶的 `westus`) 相關聯的[區域](regions.md)取代 `YourServiceRegion` 字串。
 

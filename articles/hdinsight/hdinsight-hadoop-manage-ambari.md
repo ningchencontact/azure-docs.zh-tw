@@ -1,25 +1,20 @@
 ---
-title: 使用 Ambari Web UI 監視和管理 Azure HDInsight | Microsoft Docs
+title: 使用 Ambari Web UI 監視和管理 Azure HDInsight
 description: 了解如何使用 Ambari 來監視和管理以 Linux 為基礎的 HDInsight 叢集。 在本文件中，您會學習如何使用 HDInsight 叢集隨附的 Ambari Web UI。
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 4787f3cc-a650-4dc3-9d96-a19a67aad046
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/23/2018
-ms.author: larryfr
-ms.openlocfilehash: 8c58607e191d58d1cb6706569b909a4d709b14b3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: e0efab2caa4f214d407cf8c4f09bfa5f4f619e8d
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31405261"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591832"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>使用 Ambari Web UI 管理 HDInsight 叢集
 
@@ -146,7 +141,7 @@ Ambari Web UI 位在 HDInsight 叢集的 HTTPS://CLUSTERNAME.azurehdinsight.net�
 > [!NOTE]
 > 對服務選取 [快速連結] 項目可能會傳回「找不到伺服器」的錯誤。 如果您遇到這個錯誤，在對此服務使用 [快速連結] 項目時，您必須使用 SSH 通道。 如需相關資訊，請參閱[搭配 HDInsight 使用 SSH 通道](hdinsight-linux-ambari-ssh-tunnel.md)。
 
-## <a name="management"></a>管理
+## <a name="management"></a>管理性
 
 ### <a name="ambari-users-groups-and-permissions"></a>Ambari 使用者、群組和權限
 
@@ -233,7 +228,6 @@ Ambari Web UI 位在 HDInsight 叢集的 HTTPS://CLUSTERNAME.azurehdinsight.net�
 
 Ambari 檢視可讓開發人員使用 [Ambari 檢視架構](https://cwiki.apache.org/confluence/display/AMBARI/Views)將 UI 元素插入 Ambari Web UI 中。 HDInsight 提供下列具有 Hadoop 叢集類型的檢視：
 
-* Yarn 佇列管理員：佇列管理員提供簡單的 UI 以用於檢視及修改 YARN 佇列。
 
 * Hive 檢視：Hive 檢視可讓您直接從網頁瀏覽器執行 Hive 查詢。 您可以儲存查詢、檢視結果、將結果儲存至叢集存放區，或將結果下載到您本機系統。 如需有關使用 Hive 檢視的詳細資訊，請參閱 [在 HDInsight 上使用 Hive 檢視](hadoop/apache-hadoop-use-hive-ambari-view.md)。
 

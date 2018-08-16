@@ -6,14 +6,14 @@ author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/25/2018
+ms.date: 8/6/2018
 ms.author: saurse
-ms.openlocfilehash: a1c9df57ddebbb1cf471f705acfbd6651c151d7b
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: ddde297de49edb5f6543d03dfdb972771533301b
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247273"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576180"
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>使用 Resource Manager 部署模型將檔案還原到 Windows Server 或 Windows 用戶端電腦
 
@@ -51,6 +51,8 @@ ms.locfileid: "39247273"
 4. 在 [選取復原模式] 窗格上，選擇 [個別檔案與資料夾]，然後按一下 [下一步]。
 
     ![瀏覽檔案](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
+> [!IMPORTANT]
+> 若要執行還原*個別檔案與資料夾*的選項，必須具備 .NET Framework 4.5.2 或更高版本。 如果您未看見 [個別檔案與資料夾] 選項，您必須先將 .NET Framework 升級至 4.5.2 版到或更高版本，再重新嘗試。
 
 5. 在 [選取磁碟區和日期] 窗格上，選取包含您要還原之檔案和/或資料夾的磁碟區。
 
@@ -67,7 +69,7 @@ ms.locfileid: "39247273"
     ![修復選項](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
 
 
-8. 在 [Windows 檔案總管] 中，複製要還原的檔案和/或資料夾，並將它們貼上至伺服器或電腦的任意本機位置。 您可以直接從復原磁碟區開啟或串流檔案，並確認是否復原正確的版本。
+8. 在 [Windows 檔案總管] 中，複製要還原的檔案和/或資料夾，並將它們貼上至伺服器或電腦的任意本機位置。 您可以直接從復原磁碟區開啟或串流檔案，並確認您是否復原正確的版本。
 
     ![複製掛接磁碟區的檔案和資料夾，並貼上至本機位置](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
 

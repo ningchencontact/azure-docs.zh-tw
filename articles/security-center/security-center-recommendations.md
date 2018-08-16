@@ -3,7 +3,7 @@ title: 管理 Azure 資訊安全中心的安全性建議 | Microsoft Docs
 description: 本文件將逐步引導您了解「Azure 資訊安全中心」的建議如何協助您保護 Azure 資源及遵守安全性原則。
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2018
-ms.author: terrylan
-ms.openlocfilehash: caeef52ed8eb456bbec015f1766a95aa5ceb49f8
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.date: 08/05/2018
+ms.author: rkarlin
+ms.openlocfilehash: 0581ddc4289f604533bae3650618fada15e02bef
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39367101"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522232"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>管理 Azure 資訊安全中心的安全性建議
 本文件將逐步引導您了解如何使用「Azure 資訊安全中心」的建議來協助您保護 Azure 資源。
@@ -50,6 +50,8 @@ ms.locfileid: "39367101"
 若要查看每個建議的詳細資訊，請選取 [概觀] 下方的 [建議] 圖格。 [建議] 隨即開啟。
 
 ![篩選建議][2]
+
+您可以篩選建議。 若要篩選建議，請選取 [建議] 刀鋒視窗上的 [篩選]。 即會開啟 [篩選]  刀鋒視窗，您可以選取想要查看的嚴重性和狀態值。
 
 系統會以表格格式顯示建議，其中每一行代表一個特定的建議。 這個表格的資料行包括：
 
@@ -124,13 +126,6 @@ ms.locfileid: "39367101"
 | 移除您訂用帳戶中具有擁有者權限的外部帳戶 | 建議您移除訂用帳戶中具有擁有者權限的外部帳戶，以避免出現未受監視的存取。 |
 | 移除訂用帳戶中已淘汰的帳戶 | 建議您移除訂用帳戶中已淘汰的帳戶。 |
 | 從訂用帳戶中移除具有擁有者權限的已淘汰帳戶 | 建議您移除訂用帳戶中具有擁有者權限的已淘汰帳戶。 |
-您可以篩選並關閉建議。
-
-1. 選取 [建議] 刀鋒視窗上的 [篩選]。 即會開啟 [篩選]  刀鋒視窗，您可以選取想要查看的嚴重性和狀態值。
-
-2. 如果您判斷建議不適用，您可解除該建議，然後將它從您的檢視中篩除。 解除建議的方式有兩種。 有一種方式是在項目上按一下滑鼠右鍵，然後選取 [解除] 。 另一種方式是將滑鼠游標暫留在項目上、按一下出現在右邊的三個點，然後選取 [解除] 。 您可以按一下 [篩選]，然後選取 [已解除]，以檢視已解除的建議。
-
-    ![解除建議][3]
 
 ### <a name="apply-recommendations"></a>套用建議
 檢視所有建議之後，請決定應該先套用哪一個建議。 建議您使用嚴重性分級做為主要參數，以評估應該先套用哪些建議。
@@ -150,4 +145,3 @@ ms.locfileid: "39367101"
 <!--Image references-->
 [1]: ./media/security-center-recommendations/recommendations-tile.png
 [2]: ./media/security-center-recommendations/filter-recommendations.png
-[3]: ./media/security-center-recommendations/dismiss-recommendations.png

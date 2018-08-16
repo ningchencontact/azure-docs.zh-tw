@@ -12,17 +12,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/6/2018
+ms.date: 8/3/2018
 ms.author: raiye
-ms.openlocfilehash: 440f988744a99d4857c6b9fa58f52e0f1eef1a3f
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: aa7ee049177fccbcca7d648ca749eb9fb35a0f53
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902158"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522300"
 ---
 # <a name="azure-guest-os"></a>Azure 客體作業系統
 下表為適用於 Azure 客體作業系統的 Microsoft Security Response Center (MSRC) 更新。 請搜尋本文章以判斷特定更新是否適用於您使用的客體作業系統。 已引進更新的特定[系列][family-explain]會持續推出更新。
+
+
+## <a name="july-guest-os"></a>7 月客體作業系統
+| 產品類別 | 上層知識庫文章 | 弱點說明 | 客體作業系統 | 首次引進日期 |
+| --- | --- | --- | --- | --- |
+| Rel 18-07 | [4338814] |Windows 10 安全性 |5.21 |2018 年 7 月 10 日 |
+| Rel 18-07 | [4338823] |只有 Windows 安全性 |2.76 |2018 年 7 月 10 日 |
+| Rel 18-07 | [4338820] |只有 Windows 安全性 |3.63 |2018 年 7 月 10 日 |
+| Rel 18-07 | [4338824] |只有 Windows 安全性 |4.56 |2018 年 7 月 10 日 |
+| Rel 18-07 | [4345459] |安全性彙總重新整理 |2.76 |2018 年 7 月 10 日 |
+| Rel 18-07 | [4345425] |安全性彙總重新整理 |3.63 |2018 年 7 月 10 日 |
+| Rel 18-07 | [4345424] |安全性彙總重新整理 |4.56 |2018 年 7 月 10 日 |
+| Rel 18-07 | [4345418] |安全性彙總重新整理 |5.21 |2018 年 7 月 10 日 |
+| Rel 18-07 | [4338612]、[4338602] |.NET 3.5、4.x 安全性 |2.76 |2018 年 7 月 10 日 |
+| Rel 18-07 | [4338601]、[4338604] |.NET 3.5、4.x、4.5x 安全性 |3.63 |2018 年 7 月 10 日 |
+| Rel 18-07 | [4338613]、[4338600]、[4338605] |.NET 3.5、4.x、4.5x 安全性 |4.56|2018 年 7 月 10 日 |
+| Rel 18-07 | [4338832] |閃爍 |3.63、4.76、5.21 |2018 年 7 月 10 日 |
+| Rel 18-07 | [4339093] |Internet Explorer |2.76、3.63、4.76 |2018 年 7 月 10 日 |
+| N/A | [4284826] |六月份非安全性彙總套件 |2.76 |2018 年 6 月 12 日 |
+| N/A | [4284855] |六月份非安全性彙總套件 |3.63 |2018 年 6 月 12 日 |
+| N/A | [4284815] |六月份非安全性彙總套件 |4.56 |2018 年 6 月 12 日 |
 
 ## <a name="june-guest-os"></a>Azure 客體 OS
 | 產品類別 | 上層知識庫文章 | 弱點說明 | 客體作業系統 | 首次引進日期 |
@@ -674,6 +695,28 @@ ms.locfileid: "37902158"
 | N/A |[2999802] |在 Windows 中列印虛線時會變成實線 |4.15、3.22,、2.34 |2015 年 1 月 13 日 |
 | N/A |[2896881] |在 Windows 中於登入程序期間使用 AddPrinterConnection VBScript 命令對應使用者印表機時，登入時間過長 |4.15、3.22,、2.34 |2015 年 1 月 13 日 |
 
+
+
+[4338814]: http://support.microsoft.com/kb/4338814
+[4338823]: http://support.microsoft.com/kb/4338823
+[4338820]: http://support.microsoft.com/kb/4338820
+[4338824]: http://support.microsoft.com/kb/4338824
+[4345459]: http://support.microsoft.com/kb/4345459
+[4345425]: http://support.microsoft.com/kb/4345425
+[4345424]: http://support.microsoft.com/kb/4345424
+[4345418]: http://support.microsoft.com/kb/4345418
+[4338612]: http://support.microsoft.com/kb/4338612
+[4338602]: http://support.microsoft.com/kb/4338602
+[4338601]: http://support.microsoft.com/kb/4338601
+[4338604]: http://support.microsoft.com/kb/4338604
+[4338613]: http://support.microsoft.com/kb/4338613
+[4338600]: http://support.microsoft.com/kb/4338600
+[4338605]: http://support.microsoft.com/kb/4338605
+[4338832]: http://support.microsoft.com/kb/4338832
+[4284826]: http://support.microsoft.com/kb/4284826
+[4284855]: http://support.microsoft.com/kb/4284855
+[4284815]: http://support.microsoft.com/kb/4284815
+[4339093]: http://support.microsoft.com/kb/4339093
 
 [4284880]: http://support.microsoft.com/kb/4284880
 [4284867]: http://support.microsoft.com/kb/4284867

@@ -4,7 +4,7 @@ description: 了解如何在 Azure Functions 中使用 Azure 事件中樞繫結�
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: azure functions, 函數, 事件處理, 動態運算, 無伺服器架構
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: cd5c3316fd41bbd10d4469a6551ae7bd76a881c8
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 961126f62c3e8fbb947b9d1b34ac157bf37a8cba
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345433"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480932"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Functions 的 Azure 事件中樞繫結
 
@@ -337,8 +337,8 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 |**type** | n/a | 必須設為 `eventHubTrigger`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。|
 |**direction** | n/a | 必須設為 `in`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。 |
 |**name** | n/a | 代表函式程式碼中事件項目的變數名稱。 | 
-|**路徑** |**EventHubName** | 僅限 Functions 1.x。 事件中樞的名稱。  | 
-|**eventHubName** |**EventHubName** | 僅限 Functions 2.x。 事件中樞的名稱。  |
+|**路徑** |**EventHubName** | 僅限 Functions 1.x。 事件中樞的名稱。 當事件中樞名稱也呈現於連接字串時，該值會在執行階段覆寫這個屬性。 | 
+|**eventHubName** |**EventHubName** | 僅限 Functions 2.x。 事件中樞的名稱。 當事件中樞名稱也呈現於連接字串時，該值會在執行階段覆寫這個屬性。 |
 |**consumerGroup** |**ConsumerGroup** | 選擇性屬性，可設定用來訂閱中樞內事件的[取用者群組](../event-hubs/event-hubs-features.md#event-consumers)。 如果省略，則會使用 `$Default` 取用者群組。 | 
 |**基數** | n/a | 適用於 JavaScript。 設定為 `many` 才能啟用批次處理。  如果省略或設訂為 `one`，會傳遞單一訊息至函數。 | 
 |**連接** |**連接** | 應用程式設定的名稱，其中包含事件中樞命名空間的連接字串。 按一下[命名空間](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace)的 [連接資訊] 按鈕 (而不是事件中樞本身)，來複製此連接字串。 此連接字串至少必須具備讀取權限，才能啟動觸發程序。|
@@ -557,8 +557,8 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 |**type** | n/a | 必須設定為 "eventHub"。 |
 |**direction** | n/a | 必須設定為 "out"。 當您在 Azure 入口網站中建立繫結時，會自動設定此參數。 |
 |**name** | n/a | 函式程式碼中所使用的變數名稱，代表事件。 | 
-|**路徑** |**EventHubName** | 僅限 Functions 1.x。 事件中樞的名稱。  | 
-|**eventHubName** |**EventHubName** | 僅限 Functions 2.x。 事件中樞的名稱。  |
+|**路徑** |**EventHubName** | 僅限 Functions 1.x。 事件中樞的名稱。 當事件中樞名稱也呈現於連接字串時，該值會在執行階段覆寫這個屬性。 | 
+|**eventHubName** |**EventHubName** | 僅限 Functions 2.x。 事件中樞的名稱。 當事件中樞名稱也呈現於連接字串時，該值會在執行階段覆寫這個屬性。 |
 |**連接** |**連接** | 應用程式設定的名稱，其中包含事件中樞命名空間的連接字串。 按一下*命名空間*的 [連接資訊] 按鈕 (而不是事件中樞本身)，來複製此連接字串。 此連接字串必須具有傳送權限，才能將訊息傳送至事件資料流。|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

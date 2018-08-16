@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: cd09fe906f77bb06f0ac7afaa6c6cce326dbfa5c
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 6c16cd95fce7d3f367f0ded73c3635d8cefea7a0
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763573"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493982"
 ---
 # <a name="sfctl-replica"></a>sfctl replica
 管理屬於服務分割區的複本。
@@ -49,7 +49,7 @@ ms.locfileid: "34763573"
 | --node-name [必要] | 節點的名稱。 |
 | --partition-id [必要] | 分割區的識別。 |
 | --replica-id [必要] | 複本的識別碼。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值：60。 |
+| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -57,7 +57,7 @@ ms.locfileid: "34763573"
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
-| --output -o | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。 |
+| --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
 
@@ -74,7 +74,7 @@ ms.locfileid: "34763573"
 | --node-name      [必要] | 節點的名稱。 |
 | --partition-id | 分割區的識別。 |
 | --service-manifest-name | 在 Service Fabric 叢集中，註冊為應用程式類型中一部分的服務資訊清單名稱。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值：60。 |
+| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -82,7 +82,7 @@ ms.locfileid: "34763573"
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
-| --output -o | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。 |
+| --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
 
@@ -97,8 +97,8 @@ ms.locfileid: "34763573"
 | --- | --- |
 | --partition-id [必要] | 分割區的識別。 |
 | --replica-id [必要] | 複本的識別碼。 |
-| --events-health-state-filter | 可根據健康情況狀態來篩選所傳回的 HealthEvent 物件集合。 此參數的可能值包括下列其中一個健康情況狀態的整數值。 只會傳回符合篩選條件的事件。 所有事件都會用來評估彙總的健康情況狀態。 如果未指定，則會傳回所有項目。 狀態值是以旗標為基礎的列舉，因此值可以是使用位元 'OR' 運算子取得的這些值的組合。 例如，如果提供的值為 6，則會傳回 HealthState 值為 OK (2) 和 Warning (4) 的所有事件。  <br> - Default - 預設值。 符合任何 HealthState。 值為零。  <br> - None - 不符合任何 HealthState 值的篩選條件。 用來在指定狀態集合沒有任何結果時傳回。 值為 1。  <br> - Ok - 符合輸入含 HealthState 值 Ok 的篩選條件。 值為 2。  <br> - Warning - 符合輸入含 HealthState 值 Warning 的篩選條件。 值為 4。  <br> - Error - 符合輸入含 HealthState 值 Error 的篩選條件。 值為 8。  <br> - All - 符合輸入含任何 HealthState 值的篩選條件。 值為 65535。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值：60。 |
+| --events-health-state-filter | 可根據健康情況狀態來篩選所傳回的 HealthEvent 物件集合。 此參數的可能值包括下列其中一個健康情況狀態的整數值。 只會傳回符合篩選條件的事件。 所有事件都會用來評估彙總的健康情況狀態。 如果未指定，則會傳回所有項目。 狀態值是以旗標為基礎的列舉，因而此值可以是使用位元 'OR' 運算子所取得這些值的組合。 例如，如果提供的值為 6，則會傳回 HealthState 值為 OK (2) 和 Warning (4) 的所有事件。  <br> - Default - 預設值。 符合任何 HealthState。 值為零。  <br> - None - 不符合任何 HealthState 值的篩選條件。 用來在指定狀態集合沒有任何結果時傳回。 值為 1。  <br> - Ok - 符合輸入含 HealthState 值 Ok 的篩選條件。 值為 2。  <br> - Warning - 符合輸入含 HealthState 值 Warning 的篩選條件。 值為 4。  <br> - Error - 符合輸入含 HealthState 值 Error 的篩選條件。 值為 8。  <br> - All - 符合輸入含任何 HealthState 值的篩選條件。 值為 65535。 |
+| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -106,7 +106,7 @@ ms.locfileid: "34763573"
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
-| --output -o | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。 |
+| --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
 
@@ -121,7 +121,7 @@ ms.locfileid: "34763573"
 | --- | --- |
 | --partition-id [必要] | 分割區的識別。 |
 | --replica-id [必要] | 複本的識別碼。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值：60。 |
+| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -129,7 +129,7 @@ ms.locfileid: "34763573"
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
-| --output -o | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。 |
+| --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
 
@@ -144,7 +144,7 @@ GetReplicas 端點會傳回指定分割區複本的相關資訊。 回應會包�
 | --- | --- |
 | --partition-id [必要] | 分割區的識別。 |
 | --continuation-token | 接續權杖參數可用來取得下一組結果。 當來自系統的結果無法放入單一回應中時，API 的回應中會包含具有非空白值的接續權杖。 當此值傳遞至下一個 API 呼叫時，API 會傳回下一組結果。 如果沒有任何進一步的結果，接續權杖就不會包含值。 此參數的值不能經過 URL 編碼。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值：60。 |
+| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -152,7 +152,7 @@ GetReplicas 端點會傳回指定分割區複本的相關資訊。 回應會包�
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
-| --output -o | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。 |
+| --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
 
@@ -169,7 +169,7 @@ GetReplicas 端點會傳回指定分割區複本的相關資訊。 回應會包�
 | --partition-id [必要] | 分割區的識別。 |
 | --replica-id [必要] | 複本的識別碼。 |
 | --force-remove | 強制移除 Service Fabric 應用程式或服務，而不經過正常關機順序。 當因服務程式碼中有導致無法正常關閉複本的問題，而使得應用程式或服務的刪除逾時時，可使用此參數來強制刪除應用程式或服務。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值：60。 |
+| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -177,7 +177,7 @@ GetReplicas 端點會傳回指定分割區複本的相關資訊。 回應會包�
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
-| --output -o | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。 |
+| --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
 
@@ -200,7 +200,7 @@ GetReplicas 端點會傳回指定分割區複本的相關資訊。 回應會包�
 | --remove-when-expired | 指出是否要在報告到期時將報告自健康狀態資料存放區中移除的值。 <br><br> 如果設定為 true，就會在報告到期後，將報告自健康狀態資料存放區中移除。 如果設定為 false，則會在報告到期後，將報告視為錯誤。 此屬性的值預設為 false。 當用戶端會定期回報時，應該將 RemoveWhenExpired 設定為 false (預設值)。 如此一來，如果報告程式發生問題 (例如死結) 而無法回報，在健康情況報告到期時，系統就會將實體評估為錯誤。 這會將實體標幟為處於「錯誤」健康情況狀態。 |
 | --sequence-number | 此健康情況報告的序號 (以數值字串表示)。 <br><br> 健康狀態資料存放區會使用報告序號來偵測過時的報告。 如果未指定，就會在新增報告時，由健康情況用戶端自動產生序號。 |
 | --service-kind | 正在回報健康情況的服務複本類型 (無狀態或具狀態)。 以下是可能的值：'Stateless'、'Stateful'。  預設值：Stateful。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值：60。 |
+| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 | --ttl | 此健康情況報告的有效持續時間。 此欄位使用 ISO8601 格式來指定持續時間。 <br><br> 當用戶端會定期回報時，其傳送報告的頻率應該高於存留時間。 如果用戶端會針對轉換進行回報，則可以將存留時間設定為無限。 如果 RemoveWhenExpired 為 true，當存留時間到期時，系統會將包含健康情況資訊的健康情況事件自健康狀態資料存放區中移除，如果 RemoveWhenExpired 為 false，則會將該事件評估為錯誤。 如果未指定，存留時間會預設為 infinite 值。 |
 
 ### <a name="global-arguments"></a>全域引數
@@ -209,7 +209,7 @@ GetReplicas 端點會傳回指定分割區複本的相關資訊。 回應會包�
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
-| --output -o | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。 |
+| --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
 
@@ -225,7 +225,7 @@ GetReplicas 端點會傳回指定分割區複本的相關資訊。 回應會包�
 | --node-name [必要] | 節點的名稱。 |
 | --partition-id [必要] | 分割區的識別。 |
 | --replica-id [必要] | 複本的識別碼。 |
-| --timeout -t | 伺服器逾時 (秒)。  預設值：60。 |
+| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -233,9 +233,10 @@ GetReplicas 端點會傳回指定分割區複本的相關資訊。 回應會包�
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
-| --output -o | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。 |
+| --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+
 
 ## <a name="next-steps"></a>後續步驟
 - [設定](service-fabric-cli.md) Service Fabric CLI。

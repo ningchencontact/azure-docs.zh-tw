@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: e9d1e348ccdccfc72a8e60d70dda1c939c2393af
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f2a95ac879dd2d6b1af3d50e1be53efac26331c4
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004766"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525547"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>參考 - IoT 中樞配額和節流
 
@@ -43,7 +43,7 @@ ms.locfileid: "39004766"
 | 對應項 (裝置與模組) 讀取<sup>1</sup> | 10/秒 | 10/秒或 1/秒/單位較高者 | 50/秒/單位 |
 | 對應項更新 (裝置與模組)<sup>1</sup> | 10/秒 | 10/秒或 1/秒/單位較高者 | 50/秒/單位 |
 | 作業操作<sup>1</sup> <br/> (建立、更新、列出、刪除) | 1.67/秒/單位 (100/分鐘/單位) | 1.67/秒/單位 (100/分鐘/單位) | 83.33/秒/單位 (5000/分鐘/單位) |
-| 作業的每一裝置操作輸送量<sup>1</sup> | 10/秒 | 10/秒或 1/秒/單位較高者 | 50/秒/單位 |
+| 作業裝置操作<sup>1</sup> <br/> (更新對應項，叫用直接方法) | 10/秒 | 10/秒或 1/秒/單位較高者 | 50/秒/單位 |
 | 設定與 Edge 部署<sup>1</sup> <br/> (建立、更新、列出、刪除) | 0.33/秒/單位 (20/分鐘/單位) | 0.33/秒/單位 (20/分鐘/單位) | 0.33/秒/單位 (20/分鐘/單位) |
 
 

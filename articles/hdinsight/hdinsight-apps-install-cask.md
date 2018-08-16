@@ -1,25 +1,20 @@
 ---
-title: 安裝已發佈的應用程式 - Datameer - Azure HDInsight | Microsoft Docs
+title: 安裝已發佈的應用程式 - Datameer - Azure HDInsight
 description: 安裝及使用 Datameer 第三方 Hadoop 應用程式。
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 9eef1760b7cee3bbdf33122514669b38b0b4d9db
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a8961da0a62815ce60a6ee694d57f3172b81718b
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31400838"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592171"
 ---
 # <a name="install-published-application---cask-data-application-platform-cdap"></a>安裝已發佈的應用程式 - Cask 資料應用程式平台 (CDAP)
 
@@ -53,7 +48,7 @@ CDAP 也會提供名為 [Cask Tracker](http://cask.co/products/tracker/) 的延�
 
 ![CDAP Tracker](./media/hdinsight-apps-install-cask/tracker.png)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要在新的 HDInsight 叢集或現有叢集上安裝此應用程式，您必須具有下列設定：
 

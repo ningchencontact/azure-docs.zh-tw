@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 89c1daf1d5d257e02a8253a82d543605ff4cacb0
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: c300782432350c1997e25313b4301d94c29e2ed6
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126339"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480987"
 ---
 > [!div class="op_single_selector"]
 > * [非同步 Java](performance-tips-async-java.md)
@@ -30,7 +30,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
 
 如果您詢問「如何改善我的資料庫效能？ 」，請考慮下列選項：
 
-## <a name="networking"></a>網路功能
+## <a name="networking"></a>網路
 <a id="direct-connection"></a>
 
 1. **原則︰使用直接連接模式**
@@ -132,9 +132,10 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
     如果您是以高輸送量層級 (> 50,000 RU/秒) 進行測試，用戶端應用程式可能會成為瓶頸，因為電腦對 CPU 或網路的使用率將達到上限。 如果到了這一刻，您可以將用戶端應用程式向外延展至多部伺服器，以繼續將 Azure Cosmos DB 帳戶再往前推進一步。
 8. **快取較低讀取延遲的文件 URI**
 
-    盡可能快取文件 URI 以達到最佳讀取效能。
+    盡可能快取文件 URI 以達到最佳讀取效能。 您必須在建立資源時，定義快取 resourceid 的邏輯。 以 Resourceid 為基礎的查閱比以名稱為基礎的查閱更快，因此快取這些值可改善效能。 
+
    <a id="tune-page-size"></a>
-9. **調整查詢/讀取摘要的頁面大小以獲得更好的效能**
+1. **調整查詢/讀取摘要的頁面大小以獲得更好的效能**
 
     使用讀取摘要功能 (例如 ReadDocumentFeedAsync) 執行大量文件讀取時，或發出 SQL 查詢時，如果結果集太大，則會以分段方式傳回結果。 根據預設，會以 100 個項目或 1 MB 的區塊傳回結果 (以先達到的限制為準)。
 

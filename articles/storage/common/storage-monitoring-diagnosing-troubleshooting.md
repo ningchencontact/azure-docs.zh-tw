@@ -2,24 +2,18 @@
 title: 針對 Azure 儲存體進行監視、診斷及疑難排解 | Microsoft Docs
 description: 使用儲存體分析、用戶端記錄及其他協力廠商工具之類的功能，針對 Azure 儲存體的相關問題進行識別、診斷及疑難排解。
 services: storage
-documentationcenter: ''
 author: fhryo-msft
-manager: jahogg
-editor: tysonn
-ms.assetid: d1e87d98-c763-4caa-ba20-2cf85f853303
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
-ms.openlocfilehash: b89071048594e1e11efb321da3d0b48005824b46
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.component: common
+ms.openlocfilehash: e560eb9e0bbce09c541bfc66ea760ea3e636f841
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "29740658"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528709"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>監視、診斷與疑難排解 Microsoft Azure 儲存體
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -131,7 +125,8 @@ ms.locfileid: "29740658"
 [Azure 入口網站](https://portal.azure.com)也可以針對會影響各種 Azure 服務的事件提供通知。
 注意：此項資訊之前會隨著歷程資料一起顯示在 [Azure 服務儀表板](http://status.azure.com)上。
 
-雖然 [Azure 入口網站](https://portal.azure.com)會從 Azure 資料中心內收集健康情況資訊 (從內到外的監視)，但是您也可以考慮採用從外到內的監視方式，從多個位置定期存取 Azure 裝載的 Web 應用程式，來產生綜合性的處理。 [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) 與 Application Insights for Visual Studio Team Services 所提供的各項服務，都是此監視方式的範例。 如需 Application Insights for Visual Studio Team Services 的詳細資訊，請參閱[附錄 5：使用 Application Insights for Visual Studio Team Services 監視](#appendix-5)。
+雖然 [Azure 入口網站](https://portal.azure.com)會從 Azure 資料中心內收集健康情況資訊 (從內到外的監視)，但是您也可以考慮採用從外到內的監視方式，從多個位置定期存取 Azure 裝載的 Web 應用程式，來產生綜合性的處理。 
+  [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) 與 Application Insights for Visual Studio Team Services 所提供的各項服務，都是此監視方式的範例。 如需 Application Insights for Visual Studio Team Services 的詳細資訊，請參閱[附錄 5：使用 Application Insights for Visual Studio Team Services 監視](#appendix-5)。
 
 ### <a name="monitoring-capacity"></a>監視容量
 儲存體度量只會儲存 Blob 服務的容量度量，這是因為 Blob 通常佔已儲存的資料最大宗 (寫入期間無法使用儲存體度量來監視資料表與佇列的容量)。 如果您為 Blob 服務啟用監視功能的話，可以在 **$MetricsCapacityBlob** 資料表中找到這項資料。 儲存體度量每天會記錄這項資料一次，而您可以使用 **RowKey** 的值來判斷資料列是否包含與使用者資料 (值 **data**) 或分析資料 (值 **analytics**) 相關聯的實體。 每一個儲存的實體都含有使用的儲存體容量相關資訊 (以位元組數測量的 **Capacity**)，以及儲存體帳戶中使用的目前容器編號 (**ContainerCount**) 及 Blob (**ObjectCount**)。 如需 **$MetricsCapacityBlob** 資料表中儲存的容量度量詳細資訊，請參閱 [儲存體分析度量資料表結構描述](http://msdn.microsoft.com/library/azure/hh343264.aspx)。

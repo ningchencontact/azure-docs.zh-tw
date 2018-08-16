@@ -1,26 +1,21 @@
 ---
-title: Hadoop、Spark、Kafka、HBase 或 ML 服務的叢集設定 - Azure HDInsight | Microsoft Docs
+title: Hadoop、Spark、Kafka、HBase 或 ML 服務的叢集設定 - Azure HDInsight
 description: 從瀏覽器、Azure CLI、Azure PowerShell、REST 或 SDK 設定 HDInsight 的 Hadoop、Kafka、Spark、HBase、ML 服務或 Storm 叢集。
 keywords: hadoop 叢集設定、kafka 叢集設定、spark 叢集設定、什麼是 hadoop 中的叢集
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 23a01938-3fe5-4e2e-8e8b-3368e1bbe2ca
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: eddbd3f171cee9df9ff306368df47501ff9dcfca
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.author: jasonh
+ms.openlocfilehash: 0cb3840c0ce40e062b4de0b7bbd5c9e324d6081f
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051588"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595836"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>使用 Hadoop、Spark 及 Kafka 等在 HDInsight 中設定叢集
 

@@ -1,6 +1,6 @@
 ---
-title: Azure AD SSPR 和 MFA 的聚合式註冊
-description: Azure AD Multi-Factor Authenticaiton 和自助密碼重設註冊
+title: Azure AD SSPR 和 MFA 的聚合式註冊 (公開預覽)
+description: Azure AD Multi-Factor Authenticaiton 和自助密碼重設註冊 (公開預覽)
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: cdd100d113c3fbeda8ac840d479b065d648ac3ff
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: d6915ce659d96021d4185be3818919fcfb9d4371
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415651"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492887"
 ---
-# <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication"></a>自助密碼重設和 Azure Multi-Factor Authentication 的聚合式註冊
+# <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>自助密碼重設和 Azure Multi-Factor Authentication 的聚合式註冊 (公開預覽)
 
 直到目前為止，使用者都必須在兩個不同的入口網站中註冊 Azure Multi-Factor Authentication (MFA) 和自助密碼重設 (SSPR) 的驗證方法。 由於 Azure MFA 和 SSPR 兩者使用的方法相似，許多使用者因此被混淆，而並未在兩個入口網站中註冊。 此差異會導致某些使用者在需要時卻無法使用 Azure MFA 或 SSPR，結果必須致電服務台，而可能讓使用者感到挫折。 現在，使用者只需註冊一次便可取得 Azure MFA 和 SSPR 的優點，不再需要為這些功能註冊兩次驗證方法。  
 
@@ -71,10 +71,12 @@ ms.locfileid: "39415651"
 ## <a name="known-issues"></a>已知問題
 
 **使用者使用簡訊註冊手機時，預設的 MFA 方法會設為撥打電話**
-   * 有些使用者可能會發現，當他們使用簡訊註冊電話號碼之後，他們的預設 MFA 方法會設為撥打電話。 使用者可以依照下列指示變更預設方法，以解決此問題。 
+
+   * 有些使用者可能會發現，當他們使用簡訊註冊電話號碼之後，他們的預設 MFA 方法會設為撥打電話。 使用者可以依照[管理安全性資訊 (預覽)](../user-help/security-info-manage-settings.md#change-your-info) 一文中的指示變更預設方法，以解決此問題。
 
 **系統管理員停用預設方法後，使用者無法存取新的註冊體驗**
-   * 如果有些使用者先前註冊的預設 MFA 方法已被系統管理員停用，則他們就無法存取新的註冊體驗。 以下是範例案例： 
+
+   * 如果有些使用者先前註冊的預設 MFA 方法已被系統管理員停用，則他們就無法存取新的註冊體驗。 以下是範例案例：
       1. 使用者先前已註冊電話號碼，並將預設方法設定為撥打電話。
       2. 系統管理員停用了以撥打電話作為租用戶的 MFA 方法。
       3. 使用者在登入時會收到提示，因為他們需要註冊其他方法才能滿足租用戶的 SSPR 原則。
