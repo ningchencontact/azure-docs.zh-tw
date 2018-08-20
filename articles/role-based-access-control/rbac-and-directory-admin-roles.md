@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/02/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 68127a38e28524b5f093cf0aafb0d0b7bb9ae1b6
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 8c00476078d4e16b649296be42795b92ebbfd9c4
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445444"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714089"
 ---
 # <a name="classic-subscription-administrator-roles-vs-azure-rbac-roles-vs-azure-ad-administrator-roles"></a>傳統訂用帳戶管理員角色 vs.Azure RBAC 角色 vs.Azure AD 管理員角色
 
@@ -63,7 +63,7 @@ Azure 訂用帳戶可協助您組織 Azure 資源的存取權。 它們也可協
 帳戶和訂用帳戶都是在 [Azure 帳戶中心](https://account.azure.com/Subscriptions)中管理。
 ## <a name="azure-rbac-roles"></a>Azure RBAC 角色
 
-Azure RBAC 是建置於 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 上的授權系統，可提供更細緻的 Azure 資源存取管理，例如計算和儲存體。 Azure RBAC 包含超過 60 個內建角色。 基本 RBAC 角色有四個。 前三個適用於所有資源類型：
+Azure RBAC 是建置於 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 上的授權系統，可提供更細緻的 Azure 資源存取管理，例如計算和儲存體。 Azure RBAC 包含超過 70 個內建角色。 基本 RBAC 角色有四個。 前三個適用於所有資源類型：
 
 | Azure RBAC 角色 | 權限 | 注意 |
 | --- | --- | --- |

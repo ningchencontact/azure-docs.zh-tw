@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: heidist
-ms.openlocfilehash: 0c7f9807605236a8250d75623d0885730c9945a0
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 83e34f926ec3133f89ccb90979fc3e6708613a80
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950666"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39713922"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>在入口網站中建立 Azure 搜尋服務
 
@@ -61,7 +61,7 @@ ms.locfileid: "37950666"
 
   [Azure 搜尋服務目前提供多個定價層](https://azure.microsoft.com/pricing/details/search/)︰免費、基本或標準。 每一層都有自己的[容量和限制](search-limits-quotas-capacity.md)。 請參閱[選擇定價層或 SKU](search-sku-tier.md) 以取得指導方針。
 
-在此逐步解說中，我們已為服務選擇標準層。
+一般對於生產工作負載通常會選擇標準服務，但大部分的客戶一開始都會使用免費服務。
 
 服務建立之後便無法變更定價層。 如果您稍後需要高或較低的定價層，必須重新建立服務。
 

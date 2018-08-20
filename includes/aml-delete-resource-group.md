@@ -8,24 +8,28 @@ ms.author: jmartens
 manager: cgronlund
 ms.custom: include file
 ms.topic: include
-ms.date: 02/28/2018
-ms.openlocfilehash: c47c0a90535a4749ae3fd467b86102aa668285b8
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.date: 07/27/2018
+ms.openlocfilehash: 2ce7e083444eb6c4e02f04f36eb0810ea37d8ae7
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
-ms.locfileid: "29574958"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39513905"
 ---
-如果您將不繼續使用此應用程式，請使用下列步驟來刪除本快速入門所建立的全部資源，這樣才不會產生任何費用：
+>[!IMPORTANT]
+>您所建立的資源可用來作為其他 Azure Machine Learning 教學課程和操作說明文章的先決條件。 
 
->[!NOTE]
->若現在遵循其他 Microsoft Azure Machine Learning 服務教學課程，這些資源都很有用。
+
+如果您不再使用在此處建立的資源，請刪除您剛剛為本快速入門建立的資源，以免產生任何費用。
 
 1. 在 Azure 入口網站中，選取最左邊的 [資源群組]。  
  
    ![在 Azure 入口網站中刪除](./media/aml-delete-resource-group/delete-resources.png)
 
-2. 從資源群組的清單中，選取您所建立的資源群組，然後按一下 [刪除資源群組]。
+1. 在清單中，選取您所建立的資源群組。
 
-3. 輸入要刪除之資源群組的名稱，然後按一下 [刪除]。
+1. 選取 [刪除資源群組]。
 
+1. 輸入資源群組名稱，然後選取 [刪除]。
+
+   如果出現「必須先刪除巢狀資源，才能刪除資源」錯誤，則必須先刪除任何巢狀資源。 如需詳細資訊，[請參閱此疑難排解小節](../articles/machine-learning/service/known-issues-and-troubleshooting-guide.md#cant-delete-experimentation-account)。 

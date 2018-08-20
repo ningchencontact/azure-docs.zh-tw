@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/30/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a2e0bf35f73a355197f821f7cce12294f7b35576
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: d0d140a1656719b406567fee431d8e48a51852c5
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344744"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714446"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>什麼是角色型存取控制 (RBAC)？
 
@@ -79,16 +79,15 @@ Azure 引進了可讓您授與物件內資料存取權的資料作業 (目前處
 
 「範圍」是存取權的適用界限。 當您指派角色時，可以藉由定義範圍來進一步限制動作。 如果您想要讓某位使用者成為[網站參與者](built-in-roles.md#website-contributor)，但僅限於某個資源群組，這會很實用。
 
-在 Azure 中，您可以在多個層級指定範圍：訂用帳戶、資源群組或資源。 範圍的結構為父子式關聯性，其中每一個子系只會有一個父代。
+在 Azure 中，您可以在多個層級指定範圍：[管理群組](../azure-resource-manager/management-groups-overview.md)、訂用帳戶、資源群組或資源。 範圍的結構為父子式關聯性。
 
 ![角色指派的範圍](./media/overview/rbac-scope.png)
 
-在父代範圍指派的存取權會在子系範圍繼承。 例如︰
+當您在父範圍授與存取權時，子範圍將會繼承這些權限。 例如︰
 
+- 如果您在管理群組範圍將[擁有者](built-in-roles.md#owner)角色指派給使用者，該使用者將可對管理群組中所有訂用帳戶的所有項目進行管理。
 - 如果您將[讀者](built-in-roles.md#reader)角色指派給訂用帳戶範圍的群組，則該群組的成員可以檢視訂用帳戶中的每個資源群組和資源。
 - 如果您將[參與者](built-in-roles.md#contributor)角色指派給資源群組範圍的應用程式，則該應用程式可以管理該資源群組中所有類型的資源，但是無法管理訂用帳戶中的其他資源群組。
-
-Azure 也包含訂用帳戶之上的範圍，其名稱為[管理群組](../azure-resource-manager/management-groups-overview.md)並處於預覽狀態。 管理群組可管理多個訂用帳戶。 當您指定 RBAC 的範圍時，您可以指定管理群組或指定訂用帳戶、資源群組或資源階層。
 
 ### <a name="role-assignment"></a>角色指派
 
