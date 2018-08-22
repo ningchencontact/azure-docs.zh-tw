@@ -121,7 +121,7 @@ U-SQL 指令碼測試專案建置於 C# 單元測試架構之上。 建置專案
 
 ### <a name="run-u-sql-test-cases-in-visual-studio-team-service"></a>在 Visual Studio Team Services 中執行 U-SQL 測試案例
 
-若要進行 U-SQL 測試，請確定您已在組建電腦上載入 `CPPSDK`，然後將 `CPPSDK` 路徑傳至 USqlScriptTestRunner(cppSdkFolderFullPath: @"")。
+若要進行 U-SQL 測試，請確定您已在組建電腦上載入 `CPPSDK`，然後將 `CPPSDK` 路徑傳至 USqlScriptTestRunner(cppSdkFolderFullPath: \@"")。
 
 **什麼是 CPPSDK？**
 

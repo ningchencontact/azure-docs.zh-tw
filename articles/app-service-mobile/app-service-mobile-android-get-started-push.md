@@ -80,4 +80,4 @@ ms.locfileid: "38547170"
 
 <!-- URLs -->
 [Android 快速入門]: app-service-mobile-android-get-started.md
-[將 Firebase 新增至 Android 專案]:https://firebase.google.com/docs/android/setup \(英文\)
+[將 Firebase 新增至 Android 專案]:https://firebase.google.com/docs/android/setup

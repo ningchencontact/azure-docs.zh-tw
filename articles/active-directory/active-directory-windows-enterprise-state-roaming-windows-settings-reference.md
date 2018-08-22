@@ -100,8 +100,7 @@ ms.locfileid: "39223662"
 | **Edge 瀏覽器**：顯示 [首頁] 按鈕 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
 | **Edge 瀏覽器**：封鎖快顯 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
 | **Edge 瀏覽器**：詢問我要如何處理每個下載的項目 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
-| 
-  **Edge 瀏覽器**：提供儲存密碼 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
+| **Edge 瀏覽器**：提供儲存密碼 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
 | **Edge 瀏覽器**：傳送「不要追蹤」要求 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
 | **Edge 瀏覽器**：儲存表單項目 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
 | **Edge 瀏覽器**：在我輸入的同時顯示搜尋與網站建議 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |

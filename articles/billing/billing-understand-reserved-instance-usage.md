@@ -1,6 +1,6 @@
 ---
-title: 了解預付型方案訂用帳戶的 Azure 保留使用量 | Microsoft Docs
-description: 學習如何看懂使用量，以了解預付型方案訂用帳戶的 Azure 保留套用情形。
+title: 了解隨用隨付型方案訂用帳戶的 Azure 保留使用量 | Microsoft Docs
+description: 學習如何看懂使用量，以了解隨用隨付型方案訂用帳戶的 Azure 保留套用情形。
 services: billing
 documentationcenter: ''
 author: manish-shukla01
@@ -21,7 +21,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 08/08/2018
 ms.locfileid: "39627878"
 ---
-# <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>了解預付型方案訂用帳戶的 Azure 保留使用量
+# <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>了解隨用隨付型方案訂用帳戶的 Azure 保留使用量
 
 使用[保留頁面](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade)的 ReservationId 和 [Azure 帳戶入口網站](https://account.azure.com)的使用量檔案，來評估保留使用量。
 
