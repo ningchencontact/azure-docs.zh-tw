@@ -6,14 +6,14 @@ keywords: ansible, azure, devops, bash, cloudshell, 動態清查
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
-ms.date: 01/14/2018
+ms.date: 08/09/2018
 ms.topic: article
-ms.openlocfilehash: 35033f7a6a0340be4dff5fa0051fd3c5ddb3c0eb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5f4793759bfba68c8a01d682b6b13de5cb96a8f6
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449412"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038010"
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>使用 Ansible 來管理 Azure 動態清查
 您可以使用 Ansible 從各種來源 (包括如 Azure 等雲端來源) 將清查資訊提取至動態清查。 在本文中，您使用 [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) 來設定 Ansible Azure 動態清查，並在其中建立兩部虛擬機器、標記其中一部虛擬機器，然後在已標記的虛擬機器上安裝 Nginx。
@@ -31,6 +31,9 @@ ms.locfileid: "39449412"
 1. 開啟 [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)。
 
 1. 建立 Azure 資源群組來保存此教學課程中的虛擬機器。
+
+    > [!IMPORTANT]  
+    > 您在此步驟中建立的 Azure 資源群組必須使用全部都是小寫的名稱。 否則將無法產生動態清查。
 
     ```azurecli-interactive
     az group create --resource-group ansible-inventory-test-rg --location eastus
@@ -183,7 +186,7 @@ ansible-inventory-test-vm1 | SUCCESS => {
     --query [0].virtualMachine.network.publicIpAddresses[0].ipAddress -o tsv`
     ```
 
-1. [nginx -v](https://nginx.org/en/docs/switches.html) 命令通常用來列印 Nginx 版本。 不過，它也可用來判斷是否已安裝 Nginx。 請在連線到 `ansible-inventory-test-vm1` 虛擬機器時輸入。
+1. 在連線至 `ansible-inventory-test-vm1` 虛擬機器後，執行 [nginx-v](https://nginx.org/en/docs/switches.html) 命令以確認 Nginx 是否已安裝。
 
     ```azurecli-interactive
     nginx -v

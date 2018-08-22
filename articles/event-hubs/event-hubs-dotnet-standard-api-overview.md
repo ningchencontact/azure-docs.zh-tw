@@ -3,27 +3,22 @@ title: Azure 事件中樞 .NET Standard API 概觀 | Microsoft Docs
 description: .NET Standard API 概觀
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
-editor: ''
-ms.assetid: a173f8e4-556c-42b8-b856-838189f7e636
 ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/19/2017
-ms.author: sethm
-ms.openlocfilehash: 855f6e7f401621d7f923d68215ca880c05d38629
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.date: 06/13/2018
+ms.author: shvija
+ms.openlocfilehash: d44cdf9204ac041a12cecce995efef71272204e6
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26782994"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40007103"
 ---
 # <a name="event-hubs-net-standard-api-overview"></a>事件中樞 .NET Standard API 概觀
 
-本文將摘要列出一些主要事件中樞 .NET Standard 用戶端 API。 目前有兩個 .NET Standard 用戶端程式庫︰
+本文將摘要列出一些主要 Azure 事件中樞 [.NET Standard 用戶端 API](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/)。 事件中樞目前有兩個 .NET Standard 用戶端程式庫︰
 
 * [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs)：提供所有基本執行階段作業。
 * [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor)：新增可讓您記錄處理過之事件的額外功能，並且是從事件中樞讀取的最簡單方式。
@@ -37,13 +32,13 @@ ms.locfileid: "26782994"
 [EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) 物件是從連接字串建立。 具現化新用戶端的最簡單方式，如下列範例所示︰
 
 ```csharp
-var eventHubClient = EventHubClient.CreateFromConnectionString("{Event Hubs connection string}");
+var eventHubClient = EventHubClient.CreateFromConnectionString("Event Hubs connection string");
 ```
 
 若要以程式設計方式編輯連接字串，您可以使用 [EventHubsConnectionStringBuilder](/dotnet/api/microsoft.azure.eventhubs.eventhubsconnectionstringbuilder) 類別，並將連接字串做為參數傳遞到 [EventHubClient.CreateFromConnectionString](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_CreateFromConnectionString_System_String_)。
 
 ```csharp
-var connectionStringBuilder = new EventHubsConnectionStringBuilder("{Event Hubs connection string}")
+var connectionStringBuilder = new EventHubsConnectionStringBuilder("Event Hubs connection string")
 {
     EntityPath = EhEntityPath
 };
@@ -124,7 +119,7 @@ if (ehEvents != null)
 
 ## <a name="event-processor-host-apis"></a>Event Processor Host API
 
-這些 API 會透過在可用的背景工作之間散佈資料分割，提供恢復功能給可能會變成無法使用的背景工作角色處理序。
+這些 API 會透過在可用的背景工作之間散佈資料分割，以便提供恢復功能給可能會變成無法使用的背景工作角色處理序：
 
 ```csharp
 // Checkpointing is done within the SimpleEventProcessor and on a per-consumerGroup per-partition basis, workers resume from where they last left off.
@@ -149,7 +144,7 @@ await eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>();
 await eventProcessorHost.UnregisterEventProcessorAsync();
 ```
 
-以下是 [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) 的範例實作。
+以下是 [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) 介面的範例實作：
 
 ```csharp
 public class SimpleEventProcessor : IEventProcessor
@@ -186,6 +181,7 @@ public class SimpleEventProcessor : IEventProcessor
 ```
 
 ## <a name="next-steps"></a>後續步驟
+
 若要深入了解事件中樞案例，請造訪下列連結：
 
 * [Azure 事件中樞是什麼？](event-hubs-what-is-event-hubs.md)

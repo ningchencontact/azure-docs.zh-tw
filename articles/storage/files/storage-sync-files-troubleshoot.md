@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 1475e1955a282581c66235c13d4dbe7153735a35
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e0c9708107139ec899cd5902a68ff90b57b741f7
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526737"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005914"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>針對 Azure 檔案同步進行移難排解
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -674,6 +674,12 @@ if ($fileShare -eq $null) {
 2. 確認 [混合式檔案同步服務] 連同 [讀取者及資料存取] 角色出現在清單中。 
 
     ![此螢幕擷取畫面顯示儲存體帳戶的存取控制索引標籤所包含的「混合式檔案同步服務」服務主體](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
+
+    如果清單中未顯示 [混合式檔案同步服務]，請執行下列步驟：
+
+    - 按一下 [新增] 。
+    - 在 [角色] 欄位中，選取 [讀取者及資料存取]。
+    - 在 [選取] 欄位中，輸入 [混合式檔案同步服務]，選取角色並按一下 [儲存]。
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 ```PowerShell    

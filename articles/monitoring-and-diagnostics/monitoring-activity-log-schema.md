@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
 ms.component: activitylog
-ms.openlocfilehash: 123ae27310d70812918f3c81ac3b9a71959a6c2c
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 9c1f4699f067ece3108813d28ff834c68f44316d
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917222"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003826"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 活動記錄事件結構描述
 透過「Azure 活動記錄」，您可深入了解 Azure 中發生的任何訂用帳戶層級事件。 本文說明每個資料類別的事件結構描述。 資料的結構描述取決於您是在入口網站、PowerShell、CLI，或直接透過 REST API 讀取資料，還是[使用記錄設定檔，將資料串流處理至儲存體或事件中樞](./monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)。 下列範例顯示透過入口網站、PowerShell、CLI 和 REST API 提供的結構描述。 本文結尾會提供這些屬性與 [Azure 診斷記錄結構描述](./monitoring-diagnostic-logs-schema.md)的對應。
@@ -120,7 +120,7 @@ ms.locfileid: "37917222"
 | 說明 |事件的靜態文字描述。 |
 | eventDataId |事件的唯一識別碼。 |
 | httpRequest |描述 HTTP 要求的 blob。 通常包括 “clientRequestId”、“clientIpAddress”和 “method” (HTTP 方法。 例如，PUT)。 |
-| 層級 |事件的層級。 下列其中一個值：重大、錯誤、警告、資訊和詳細資訊 |
+| 層級 |事件的層級。 下列其中一個值：“Critical”、“Error”、“Warning” 和 “Informational” |
 | resourceGroupName |受影響資源的資源群組的名稱。 |
 | resourceProviderName |受影響資源的資源提供者的名稱。 |
 | ResourceId |受影響資源的資源識別碼。 |
@@ -266,7 +266,7 @@ ms.locfileid: "37917222"
 | correlationId | 字串格式的 GUID。 |
 | 說明 |警示事件的靜態文字描述。 |
 | eventDataId |警示事件的唯一識別碼。 |
-| 層級 |事件的層級。 下列其中一個值：重大、錯誤、警告、資訊和詳細資訊 |
+| 層級 |事件的層級。 下列其中一個值：“Critical”、“Error”、“Warning” 和 “Informational” |
 | resourceGroupName |如果為計量警示，這是受影響資源的資源群組名稱。 針對其他警示類型，這是包含警示本身的資源群組名稱。 |
 | resourceProviderName |如果為計量警示，這是受影響資源的資源提供者名稱。 針對其他警示類型，這是警示本身的資源提供者名稱。 |
 | ResourceId | 如果為計量警示，這是受影響資源的資源識別碼名稱。 針對其他警示類型，這是警示資源本身的資源識別碼。 |
@@ -375,7 +375,7 @@ ms.locfileid: "37917222"
 | correlationId | 字串格式的 GUID。 |
 | 說明 |自動調整事件的靜態文字描述。 |
 | eventDataId |自動調整事件的唯一識別碼。 |
-| 層級 |事件的層級。 下列其中一個值：重大、錯誤、警告、資訊和詳細資訊 |
+| 層級 |事件的層級。 下列其中一個值：“Critical”、“Error”、“Warning” 和 “Informational” |
 | resourceGroupName |自動調整設定的資源群組名稱。 |
 | resourceProviderName |自動調整設定的資源提供者名稱。 |
 | ResourceId |自動調整設定的資源識別碼。 |
@@ -465,7 +465,7 @@ ms.locfileid: "37917222"
 | eventDataId |安全性事件的唯一識別碼。 |
 | eventName |安全性事件的易記名稱。 |
 | id |安全性事件的唯一資源識別碼。 |
-| 層級 |事件的層級。 下列其中一個值：“Critical”、“Error”、“Warning”、“Informational” 或 “Verbose” |
+| 層級 |事件的層級。 下列其中一個值：“Critical”、“Error”、“Warning” 和 “Informational” |
 | resourceGroupName |資源的資源群組名稱。 |
 | resourceProviderName |「Azure 資訊安全中心」的資源提供者名稱。 一律為 "Microsoft.Security"。 |
 | resourceType |產生安全性事件的資源類型，例如˙ "Microsoft.Security/locations/alerts" |
@@ -545,7 +545,7 @@ ms.locfileid: "37917222"
 | eventDataId | 建議事件的唯一識別碼。 |
 | category | 一律為 "Recommendation" |
 | id |建議事件的唯一資源識別碼。 |
-| 層級 |事件的層級。 下列其中一個值：“Critical”、“Error”、“Warning”、“Informational” 或 “Verbose” |
+| 層級 |事件的層級。 下列其中一個值：“Critical”、“Error”、“Warning” 和 “Informational” |
 | operationName |作業名稱。  一律為 "Microsoft.Advisor/generateRecommendations/action"|
 | resourceGroupName |資源的資源群組名稱。 |
 | resourceProviderName |此建議適用之資源的資源提供者名稱，例如 "MICROSOFT.COMPUTE" |

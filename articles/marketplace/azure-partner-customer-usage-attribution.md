@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: ellacroi
-ms.openlocfilehash: ce862758d97737d16ef26ca7172cad39f8d8336a
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 46cd5dbc044cbd0b7e38e5f0d0c8aa1916387a2d
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39359510"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037997"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 合作夥伴客戶使用狀況屬性
 
@@ -55,23 +55,8 @@ Microsoft 正在建立的新方法，可協助合作夥伴更有效追蹤客戶�
 
 ## <a name="sample-template-code"></a>範例範本程式碼
 
-```
+![](https://raw.githubusercontent.com/ellacroi/azure-docs-pr/lu-images-again-dangit-all/articles/marketplace/media/marketplace-publishers-guide/tracking-sample-code-for-lu-1.PNG?token=Ak8ZDB0JzsBdUGlKEIeHNJRS7b0BWn4Gks5bbMwwwA%3D%3D)
 
-{ // add this resource to the mainTemplate.json (do not add the entire file)
-      "apiVersion": "2018-02-01",
-      "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your GUID here
-      "type": "Microsoft.Resources/deployments",
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "resources": []
-        }
-      }
-    } // remove all comments from the file when done
-
-```
 
 ## <a name="method-2-azure-resource-manager-apis"></a>方法 2：Azure Resource Manager API
 
@@ -81,6 +66,8 @@ Microsoft 正在建立的新方法，可協助合作夥伴更有效追蹤客戶�
 
 **如何使用 Azure Resource Manager API 來標記部署：** 對於此方法，當設計 API 呼叫時，要在要求的使用者代理程式標頭中包含 GUID。 每個供應項目或 SKU 都應加上 GUID。  此字串所需的格式為使用前置詞 pid-，然後包含合作夥伴產生的 GUID。   
 
+![](https://raw.githubusercontent.com/ellacroi/azure-docs-pr/lu-images-again-dangit-all/articles/marketplace/media/marketplace-publishers-guide/tracking-sample-guid-for-lu-2.PNG?token=Ak8ZDDiokRcj4PJj0aMkZmfF8BdOuOTzks5bbM35wA%3D%3D)
+
 >[!Note] 
 >用以插入使用者代理程式的 GUID 格式：pid-eb7927c8-dd66-43e1-b0cf-c346a422063     // 在 "pid-" 之後輸入您的 GUID
 
@@ -88,13 +75,7 @@ Microsoft 正在建立的新方法，可協助合作夥伴更有效追蹤客戶�
 
 **使用 Python SDK 的範例：** 對於 Python，您必須使用 "config" 屬性。 您只能新增到 UserAgent。 下列是一個範例：
 
-```python
-
-client = azure.mgmt.servicebus.ServiceBusManagementClient(**parameters)
-        client.config.add_user_agent("pid-eb7927c8-dd66-43e1-b0cf-c346a422063")
-
-
-```
+![](https://raw.githubusercontent.com/ellacroi/azure-docs-pr/lu-images-again-dangit-all/articles/marketplace/media/marketplace-publishers-guide/python-for-lu.PNG?token=Ak8ZDK5Um4J6oY-7x25tuBpa168BEiYMks5bbMuUwA%3D%3D)
 
 >由於沒有全域的靜態設定，所以要為每個用戶端個別完成。您可以選擇執行用戶端中心，以確保每個用戶端都會執行。 
 >[其他參考資訊](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79)
@@ -123,13 +104,38 @@ GUID 必須註冊後，才能包含在追蹤中。
 
 範本 GUID 的所有註冊都會透過 Azure Marketplace 雲端合作夥伴入口網站 (CPP) 來完成。 
 
-適用於現今的 [Azure Marketplace](http://aka.ms/listonazuremarketplace)，並可取得 Cloud Partner 入口網站的存取權。
+1. 適用於現今的 [Azure Marketplace](http://aka.ms/listonazuremarketplace)，並可取得 Cloud Partner 入口網站的存取權。
 
-*   合作夥伴必須先在 [CPP 中有一個設定檔](https://docs.microsoft.com/azure/marketplace/become-publisher)，並建議在 Azure Marketplace 或 AppSource 中列出供應項目 
-*   合作夥伴可以註冊多個 GUID 
-*   合作夥伴也可以為非 Marketplace 解決方案範本/供應項目註冊 GUID
+ *  合作夥伴必須先在 [CPP 中有一個設定檔](https://docs.microsoft.com/azure/marketplace/become-publisher)，並建議在 Azure Marketplace 或 AppSource 中列出供應項目 
+ *  合作夥伴可以註冊多個 GUID 
+ *  合作夥伴也可以為非 Marketplace 解決方案範本/供應項目註冊 GUID
+ 
+2. 登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)
+3. 在入口網站的右上角按一下您的帳戶圖示，然後按一下 [發行者設定檔]
 
-在您將 GUID 加入至範本或使用者代理程式中，並在 CPP 中註冊該 GUID 之後，便會追蹤所有的部署。 
+![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-image-for-lu.png)
+
+4. 在 [設定檔] 頁面上，按一下 [新增追蹤 GUID]。
+
+![](https://github.com/ellacroi/azure-docs-pr/blob/last-lu-images-i-hope/articles/marketplace/media/marketplace-publishers-guide/guid-how-to-add-tracking.png)
+
+5. 在展開的欄位中，在 [追蹤 GUID] 欄位中輸入您的追蹤 GUID (僅限 GUID，不含 "pid-" 前置詞)，然後在 [自訂描述] 欄位中輸入您的供應項目名稱或描述。
+
+![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-login.png)
+
+![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-example.png)
+
+6. 若要註冊多個 GUID，請再按一下 [新增追蹤 GUID]。 這會開啟另一個展開的欄位。 
+
+![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-example-add.png)
+
+![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-example-description.png)
+
+7. 完成編輯後，請按一下 [儲存] 以儲存變更。 
+
+![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-save.png)
+
+
 
 ## <a name="verification-of-guid-deployment"></a>驗證 GUID 部署 
 
@@ -191,7 +197,7 @@ GUID (唯一識別碼) 是有 32 個十六進位數字的唯一參考號碼。 �
 
 合作夥伴應提供訊息，通知其客戶包含 Azure Resource Manager GUID 追蹤的部署，允許 Microsoft 向合作夥伴回報與這些部署相關聯的 Azure 使用量。  以下是一些範例語言。 在指出「合作夥伴」的位置，您應該填入您自己的公司名稱。 此外，合作夥伴應確保語言符合他們自己的資料隱私權和收集原則，包括讓客戶從追蹤排除的選項： 
 
-**針對 Azure Resource Manager 範本部署**
+**對於 Azure Resource Manager 範本部署**
 
 當部署此範本時，Microsoft 可識別合作夥伴軟體安裝以及部署的 Azure 資源。  Microsoft 可讓用來支援軟體的 Azure 資源相互關聯。  Microsoft 會收集這項資訊，以透過其產品提供最佳體驗以及經營業務。 這項資料會遭到收集，並由 Microsoft 隱私權原則控管，網址為 https://www.microsoft.com/trustcenter。 
 
@@ -204,15 +210,18 @@ GUID (唯一識別碼) 是有 32 個十六進位數字的唯一參考號碼。 �
 如需協助，請遵循下列步驟：
  1. 請瀏覽支援網頁：[go.microsoft.com/fwlink/?linkid=844975](https://go.microsoft.com/fwlink/?linkid=844975)
  2. 對於與使用量關聯的問題 - 選取 [問題類型]：[Marketplace 上架] 與 [類別]：[其他]，然後按一下 [提出要求]。 
->[!Note]
->對於存取 Azure Marketplace Cloud Partner 入口網站的問題 - 選取 [問題類型]：[Marketplace 上架] 與 [類別]：[存取問題]，然後按一下 [提出要求]。
- 3. 在下一個頁面上，填寫必要的欄位，然後按一下 [繼續]。
- 4. 在下一個頁面上，完成任意格式的文字欄位。  
+
+對於存取 Azure Marketplace Cloud Partner 入口網站的問題 - 選取 [問題類型]：[Marketplace 上架] 與 [類別]：[存取問題]，然後按一下 [提出要求]。
+
+ ![](https://github.com/ellacroi/azure-docs-pr/blob/last-lu-images-i-hope/articles/marketplace/media/marketplace-publishers-guide/lu-article-incident.png)
  
 
+ 3. 在下一個頁面上，填寫必要的欄位，然後按一下 [繼續]。
+ 4. 在下一個頁面上，完成任意格式的文字欄位。 **重要事項**：以 **“ISV Usage Tracking”** 填寫事件標題，隨後在任意格式的大型文字欄位中，詳細描述您的問題。  完成表單的其餘部分，然後按一下 [提交]。 
  
->[!Important] 
->以 **“ISV Usage Tracking”** 填寫事件標題，隨後在任意格式的大型文字欄位中，詳細描述您的問題。  完成表單的其餘部分，然後按一下 [提交]。
+  ![](https://github.com/qianw211/azure-docs-pr/blob/MyImgAdded-2/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-help.png)
+
+ 
 
 ## <a name="faqs"></a>常見問題集
 
@@ -220,7 +229,7 @@ GUID (唯一識別碼) 是有 32 個十六進位數字的唯一參考號碼。 �
 
 Microsoft 會提供合作夥伴一個客戶部署範本和深入解析受影響使用量的檢視。  Microsoft 與合作夥伴都可以使用此資訊來加強與銷售團隊之間的合作關係。 Microsoft 與合作夥伴也都可以使用它來取得個別合作夥伴對 Azure 之成長的更一致檢視。 
 
-**誰可以將 GUID 加入至範本？**
+**何人能將 GUID 加入至範本？**
 
 追蹤資源的主要目的是將合作夥伴的解決方案連結到客戶的 Azure 使用量。  使用量資料會繫結至合作夥伴的 Microsoft 合作夥伴網路身分識別 (MPN 識別碼)，而且合作夥伴可在 Cloud Partner 入口網站 (CPP) 中使用報告功能。  
 

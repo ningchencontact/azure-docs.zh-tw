@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/20/2018
+ms.date: 08/08/2018
 ms.author: kumud
-ms.openlocfilehash: f8779af725346a456efe8e718cfc8ff3a91c72fc
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: dad76ab9f2a1a621fb513a4d411792fe2f88a557
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325246"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005870"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Azure Load Balancer Standard 概觀
 
@@ -64,7 +64,15 @@ Load Balancer 資源是一種物件，而您可以在其中表示 Azure 應如�
 
 在考量如何設計您的後端集區時，您可以將最少量的個別後端集區資源作為設計原則，以進一步最佳化執行管理作業所需的時間。  在資料平面的效能或規模方面沒有任何差異。
 
-## <a name="az"></a>可用性區域
+### <a name="probes"></a>健康情況探查
+  
+Standard Load Balancer 會新增對 [HTTPS 健康情況探查](load-balancer-custom-probe-overview.md#httpprobe) (使用傳輸層安全性 (TLS) 包裝函式的 HTTP 探查) 的支援，以便精確地監視 HTTPS 應用程式。  
+
+此外，當整個後端集區[向下探查](load-balancer-custom-probe-overview.md#probedown)時，Standard Load Balancer 允許所有已建立的 TCP 連線繼續。 (Basic Load Balancer 會終止對所有執行個體的現有 TCP 連線)。
+
+檢閱[負載平衡器健康情況探查](load-balancer-custom-probe-overview.md)中的詳細資料。
+
+### <a name="az"></a>可用性區域
 
 標準 Load Balancer 在可使用「可用性區域」的區域中可支援較多功能。  這些功能會累加於所有標準 Standard Load Balancer 所提供的功能之上。  公用和內部標準 Load Balancer 皆可進行可用性區域設定。
 
@@ -167,7 +175,7 @@ SKU 是不可變動的。 請依照本節中的步驟從一個資源 SKU 移到�
 
 ### <a name="migrate-from-basic-to-standard-sku"></a>從 Basic 移轉到 Standard SKU
 
-1. 視需要針對 Load Balancer 和「公用 IP」建立一個新的 Standard 資源。 重新建立您的規則和探查定義。
+1. 視需要針對 Load Balancer 和「公用 IP」建立一個新的 Standard 資源。 重新建立您的規則和探查定義。  如果您先前使用對 443/tcp 的 TCP 探查，請考慮將此探查通訊協定變更為 HTTPS 探查並新增路徑。
 
 2. 在 NIC 或子網路上建立新的或更新現有的 NSG，以將已負載平衡的流量、探查及任何其他您想要允許的流量列入允許清單。
 
@@ -177,7 +185,7 @@ SKU 是不可變動的。 請依照本節中的步驟從一個資源 SKU 移到�
 
 ### <a name="migrate-from-standard-to-basic-sku"></a>從 Standard 移轉到 Basic SKU
 
-1. 視需要針對 Load Balancer 和「公用 IP」建立一個新的 Basic 資源。 重新建立您的規則和探查定義。 
+1. 視需要針對 Load Balancer 和「公用 IP」建立一個新的 Basic 資源。 重新建立您的規則和探查定義。  將 HTTPS 探查變更為對 443/tcp 的 TCP 探查。 
 
 2. 從所有 VM 執行個體中移除 Standard SKU 資源 (看 Load Balancer 和「公用 IP」哪一個適用)。 請務必也移除可用性設定組的所有 VM 執行個體。
 
@@ -218,15 +226,16 @@ Load Balancer Standard 目前已在所有公用雲端地區推出。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 了解如何使用[標準 Load Balancer 和可用性區域](load-balancer-standard-availability-zones.md)
+- 了解如何使用[標準 Load Balancer 和可用性區域](load-balancer-standard-availability-zones.md)。
+- 深入了解[健康情況探查](load-balancer-custom-probe-overview.md)。
 - 深入了解[可用性區域](../availability-zones/az-overview.md)。
 - 了解[標準 Load Balancer 診斷](load-balancer-standard-diagnostics.md)。
 - 參閱[支援的多維度計量](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers)，以了解 [Azure 監視器](../monitoring-and-diagnostics/monitoring-overview.md)中的診斷。
-- 了解如何使用[輸出連線的 Load Balancer](load-balancer-outbound-connections.md)
-- 了解[具有 HA 連接埠負載平衡規則的標準 Load Balancer](load-balancer-ha-ports-overview.md)
-- 了解如何使用[多個前端的 Load Balancer](load-balancer-multivip-overview.md)
+- 了解如何使用 [Load Balancer 來進行輸出連線](load-balancer-outbound-connections.md)。
+- 了解[具有 HA 連接埠負載平衡規則的標準 Load Balancer](load-balancer-ha-ports-overview.md)。
+- 了解如何搭配使用 [Load Balancer 與多個前端](load-balancer-multivip-overview.md)。
 - 了解[虛擬網路](../virtual-network/virtual-networks-overview.md)。
 - 深入了解[網路安全性群組](../virtual-network/security-overview.md)。
-- 了解 [VNET 服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)
+- 了解 [VNET 服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)。
 - 了解 Azure 中的一些其他重要[網路功能](../networking/networking-overview.md)。
 - 深入了解 [Load Balancer](load-balancer-overview.md)。

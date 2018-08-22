@@ -11,12 +11,12 @@ ms.topic: article
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
 manager: douge
-ms.openlocfilehash: b2ef450a429b26843cf770a6243c6f4de932de43
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 61bc081ca3221c0d588b7b7a2d9482d2fc70c0d5
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247312"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038061"
 ---
 # <a name="troubleshooting-guide"></a>疑難排解指南
 
@@ -63,6 +63,26 @@ azds remove -g <resource group name> -n <cluster name>
 2. 將 **MSBuild 專案建置輸出詳細資訊**的設定變更為 [詳細] 或 [診斷]。
 
     ![工具選項對話方塊的螢幕擷取畫面](media/common/VerbositySetting.PNG)
+    
+## <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>與 Dev Spaces 服務相關聯的公用 URL 進行 DNS 名稱解析失敗
+
+發生這種情況時，當您嘗試連線至與 Dev Spaces 服務相關聯的公用 URL 時，網頁瀏覽器中可能會出現「無法顯示頁面」或「無法存取此網站」錯誤。
+
+### <a name="try"></a>請嘗試︰
+
+您可以使用下列命令列出所有與 Dev Spaces 服務相關聯的 URL：
+
+```cmd
+azds list-uris
+```
+
+如果 URL 處於「擱置」狀態，表示 Dev Spaces 仍在等候 DNS 註冊完成。 此作業有時需要數分鐘才能完成。 Dev Spaces 也會為每個服務開啟一個 localhost 通道，您在等候 DNS 登錄完成時可以使用此通道。
+
+如果 URL 處於「擱置」狀態超過 5 分鐘，即表示負責取得公用端點的 nginx 輸入控制器可能有問題。 您可以使用下列命令刪除執行 nginx 控制器的 Pod。 它將會自動重新建立。
+
+```cmd
+kubectl delete pod -n kube-system -l app=addon-http-application-routing-nginx-ingress
+```
 
 ## <a name="error-required-tools-and-configurations-are-missing"></a>錯誤：「遺失必要的工具和組態」
 

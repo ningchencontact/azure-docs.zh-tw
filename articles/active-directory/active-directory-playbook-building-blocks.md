@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: fa399e3644e1050a4f264890583a388f7abd84ed
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 3ae2e883e3e27adc167b7e831ca53d3cd1572257
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049464"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038348"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 概念證明腳本：構成要素
 
@@ -41,7 +41,7 @@ ms.locfileid: "39049464"
 
 | 必要條件 | 資源 |
 | --- | --- |
-| 已定義有效 Azure 訂用帳戶的 Azure AD 租用戶 | [如何取得 Azure Active Directory 租用戶](active-directory-howto-tenant.md)<br/>**注意：** 如果您已經有具備 Azure AD Premium 授權的環境，您可以瀏覽至 https://aka.ms/accessaad 來取得沒有上限的訂用帳戶 <br/>深入了解：https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ 和 https://technet.microsoft.com/library/dn832618.aspx |
+| 已定義有效 Azure 訂用帳戶的 Azure AD 租用戶 | [如何取得 Azure Active Directory 租用戶](develop/quickstart-create-new-tenant.md)<br/>**注意：** 如果您已經有具備 Azure AD Premium 授權的環境，您可以瀏覽至 https://aka.ms/accessaad 來取得沒有上限的訂用帳戶 <br/>深入了解： https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ 和 https://technet.microsoft.com/library/dn832618.aspx |
 | 已定義並確認的網域 | [將自訂網域名稱新增到 Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**注意：** 有些工作負載 (例如 Power BI) 可能已在幕後佈建 Azure AD 租用戶。 若要檢查指定網域是否與租用戶相關聯，請瀏覽至 https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration。 如果您獲得成功的回應，即表示網域已指派給租用戶，而可能需要接管。 如果是這種情況，請連絡 Microsoft 以獲得進一步的指導。 深入了解接管選項：[什麼是 Azure 的自助式註冊？](users-groups-roles/directory-self-service-signup.md) |
 | 已啟用 Azure AD Premium 或 EMS 試用版 | [Azure Active Directory Premium 可免費使用一個月](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | 您已將 Azure AD Premium 或 EMS 授權指派給 PoC 使用者 | [在 Azure Active Directory 中進行自身和使用者的授權](active-directory-licensing-get-started-azure-portal.md) |
@@ -159,7 +159,7 @@ ms.locfileid: "39049464"
 | 等候幾分鐘讓佈建完成。  此時，您可以查看佈建報告 |  |
 | 以擁有存取權限的測試使用者身分登入 https://myapps.microsoft.com/ | [何謂存取面板？](user-help/active-directory-saas-access-panel-introduction.md) |
 | 按一下剛建立之應用程式的圖格。 確認存取 |  |
-| 您可以視需要查看應用程式使用情況報告。 請注意，會有一些延遲，因此您需要等候一些時間，才能在報告中看到流量。 | [Azure Active Directory 入口網站中的登入活動報告：受控應用程式的使用情況](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory 報告保留原則](active-directory-reporting-retention.md) |
+| 您可以視需要查看應用程式使用情況報告。 請注意，會有一些延遲，因此您需要等候一些時間，才能在報告中看到流量。 | [Azure Active Directory 入口網站中的登入活動報告：受控應用程式的使用情況](reports-monitoring/concept-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory 報告保留原則](reports-monitoring/reference-reports-data-retention.md) |
 
 ### <a name="considerations"></a>考量
 
@@ -185,13 +185,13 @@ ms.locfileid: "39049464"
 | --- | --- |
 | 安裝瀏覽器擴充功能 | [適用於 IE 的存取面板擴充功能](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[適用於 Chrome 的存取面板擴充功能](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[適用於 Firefox 的存取面板擴充功能](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | 從資源庫設定應用程式 | [Azure Active Directory 中企業應用程式管理的新功能：全新和改進的應用程式資源庫](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| 設定密碼 SSO | [在新的 Azure 入口網站中管理企業應用程式的單一登入：密碼型登入](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| 設定密碼 SSO | [在新的 Azure 入口網站中管理企業應用程式的單一登入：密碼型登入](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work)。|
 | 將應用程式指派給「必要條件」中所識別的群組 | [在 Azure Active Directory 中將使用者或群組指派給企業應用程式](manage-apps/assign-user-or-group-access-portal.md) |
 | 以擁有存取權限的測試使用者身分登入 https://myapps.microsoft.com/ |  |
 | 按一下剛建立之應用程式的圖格。 | [何謂存取面板？：不含身分識別佈建的密碼型 SSO](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | 提供應用程式認證 | [何謂存取面板？：不含身分識別佈建的密碼型 SSO](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | 關閉瀏覽器並重新執行登錄。 這次使用者應該會看到順暢的應用程式存取。 |  |
-| 您可以視需要查看應用程式使用情況報告。 請注意，會有一些延遲，因此您需要等候一些時間，才能在報告中看到流量。 | [Azure Active Directory 入口網站中的登入活動報告：受控應用程式的使用情況](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory 報告保留原則](active-directory-reporting-retention.md) |
+| 您可以視需要查看應用程式使用情況報告。 請注意，會有一些延遲，因此您需要等候一些時間，才能在報告中看到流量。 | [Azure Active Directory 入口網站中的登入活動報告：受控應用程式的使用情況](reports-monitoring/concept-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory 報告保留原則](reports-monitoring/reference-reports-data-retention.md) |
 
 ### <a name="considerations"></a>考量
 
@@ -220,10 +220,10 @@ ms.locfileid: "39049464"
 | --- | --- |
 | 安裝瀏覽器擴充功能 | [適用於 IE 的存取面板擴充功能](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[適用於 Chrome 的存取面板擴充功能](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[適用於 Firefox 的存取面板擴充功能](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | 從資源庫設定應用程式 | [Azure Active Directory 中企業應用程式管理的新功能：全新和改進的應用程式資源庫](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| 設定密碼 SSO | [在新的 Azure 入口網站中管理企業應用程式的單一登入：密碼型登入](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| 設定密碼 SSO | [在新的 Azure 入口網站中管理企業應用程式的單一登入：密碼型登入](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work)。|
 | 為「必要條件」中所識別的群組指派認證時，將應用程式指派給他們 | [在 Azure Active Directory 中將使用者或群組指派給企業應用程式](manage-apps/assign-user-or-group-access-portal.md) |
 | 以不同的使用者身分登入來以「相同共用帳戶」身分存取應用程式  |  |
-| 您可以視需要查看應用程式使用情況報告。 請注意，會有一些延遲，因此您需要等候一些時間，才能在報告中看到流量。 | [Azure Active Directory 入口網站中的登入活動報告：受控應用程式的使用情況](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory 報告保留原則](active-directory-reporting-retention.md) |
+| 您可以視需要查看應用程式使用情況報告。 請注意，會有一些延遲，因此您需要等候一些時間，才能在報告中看到流量。 | [Azure Active Directory 入口網站中的登入活動報告：受控應用程式的使用情況](reports-monitoring/concept-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory 報告保留原則](reports-monitoring/reference-reports-data-retention.md) |
 
 
 ### <a name="considerations"></a>考量
@@ -421,7 +421,7 @@ ms.locfileid: "39049464"
 | --- | --- |
 | 移至「Azure AD 管理入口網站」中的 [使用者和群組] 刀鋒視窗 | [Azure AD 管理入口網站：使用者和群組](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/Overview/menuId/) |
 | 關閉 [所有使用者] 刀鋒視窗 |  |
-| 在頂端列中，選擇 [Multi-Factor Authentication] 按鈕 | Azure MFA 入口網站的直接 URL：https://aka.ms/mfaportal |
+| 在頂端列中，選擇 [Multi-Factor Authentication] 按鈕 | Azure MFA 入口網站的直接 URL： https://aka.ms/mfaportal |
 | 在 [使用者] 設定中，選取 PoC 使用者並啟用他們來進行 MFA | [Azure Multi-Factor Authentication 中的使用者狀態](authentication/howto-mfa-userstates.md) |
 | 以 PoC 使用者身分登入，然後逐步執行提出證明的程序  |  |
 
@@ -444,7 +444,7 @@ ms.locfileid: "39049464"
 | 已將 PoC 使用者指派給應用程式 |  |
 | 有 POC 使用者的認證可用 |  |
 | 已為 MFA 註冊 POC 使用者。 使用收訊良好的手機 | https://aka.ms/ssprsetup |
-| 內部網路中的裝置。 在內部位址範圍內設定的 IP 位址 | 尋找您的 IP 位址：https://www.bing.com/search?q=what%27s+my+ip |
+| 內部網路中的裝置。 在內部位址範圍內設定的 IP 位址 | 尋找您的 IP 位址： https://www.bing.com/search?q=what%27s+my+ip |
 | 外部網路中的裝置 (可以是使用電訊廠商行動網路的手機) |  |
 
 ### <a name="steps"></a>步驟
@@ -452,9 +452,9 @@ ms.locfileid: "39049464"
 | 步驟 | 資源 |
 | --- | --- |
 | 移至「Azure AD 管理入口網站」的 [條件式存取] 刀鋒視窗 | [Azure AD 管理入口網站：條件式存取](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) |
-| 建立「條件式存取」原則：<br/>- 以 [使用者和群組] 底下的「PoC 使用者」為目標<br/>- 以 [雲端應用程式] 底下的「PoC 應用程式」為目標<br/>- 以所有位置為目標，但 [條件] -> [位置] 底下的受信任位置除外 **注意：** 受信任的 IP 是在 [MFA 入口網站](https://account.activedirectory.windowsazure.com/UserManagement/MfaSettings.aspx)中設定<br/>- 在 [授權] 底下要求多重要素驗證 | [開始使用 Azure Active Directory 中的條件式存取：原則設定步驟](active-directory-conditional-access-azure-portal-get-started.md#policy-configuration-steps) |
-| 從公司網路內部存取應用程式 | [開始使用 Azure Active Directory 中的條件式存取 - 測試原則](active-directory-conditional-access-azure-portal-get-started.md#testing-the-policy) |
-| 從公用網路存取應用程式 | [開始使用 Azure Active Directory 中的條件式存取 - 測試原則](active-directory-conditional-access-azure-portal-get-started.md#testing-the-policy) |
+| 建立「條件式存取」原則：<br/>- 以 [使用者和群組] 底下的「PoC 使用者」為目標<br/>- 以 [雲端應用程式] 底下的「PoC 應用程式」為目標<br/>- 以所有位置為目標，但 [條件] -> [位置] 底下的受信任位置除外 **注意：** 受信任的 IP 是在 [MFA 入口網站](https://account.activedirectory.windowsazure.com/UserManagement/MfaSettings.aspx)中設定<br/>- 在 [授權] 底下要求多重要素驗證 | [建立條件式存取原則](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-mfa#create-your-conditional-access-policy) \(英文\) |
+| 從公司網路內部存取應用程式 | [測試條件式存取原則](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-mfa#test-your-conditional-access-policy) \(英文\) |
+| 從公用網路存取應用程式 | [測試條件式存取原則](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-mfa#test-your-conditional-access-policy) \(英文\) |
 
 ### <a name="considerations"></a>考量
 
@@ -500,17 +500,17 @@ ms.locfileid: "39049464"
 | 必要條件 | 資源 |
 | --- | --- |
 | 已下載並安裝 Tor 瀏覽器的裝置 | [下載 Tor 瀏覽器](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
-| 對 POC 使用者的存取權以執行登入 | [Azure Active Directory Identity Protection 腳本](active-directory-identityprotection-playbook.md) |
+| 對 POC 使用者的存取權以執行登入 | [Azure Active Directory Identity Protection 腳本](identity-protection/playbook.md) |
 
 ### <a name="steps"></a>步驟
 
 | 步驟 | 資源 |
 | --- | --- |
 | 開啟 Tor 瀏覽器 | [下載 Tor 瀏覽器](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
-| 以 POC 使用者帳戶登入 https://myapps.microsoft.com | [Azure Active Directory Identity Protection 腳本：模擬風險事件](active-directory-identityprotection-playbook.md#simulating-risk-events) |
+| 以 POC 使用者帳戶登入 https://myapps.microsoft.com | [Azure Active Directory Identity Protection 腳本：模擬風險事件](identity-protection/playbook.md#simulating-risk-events) |
 | 等候 5-7 分鐘 |  |
 | 以全域管理員身分登入 https://portal.azure.com，然後開啟 [Identity Protection] 刀鋒視窗 | https://aka.ms/aadipgetstarted |
-| 開啟 [風險事件] 刀鋒視窗。 您應該會在 [從匿名 IP 位址登入] 底下看到一個項目  | [Azure Active Directory Identity Protection 腳本：模擬風險事件](active-directory-identityprotection-playbook.md#simulating-risk-events) |
+| 開啟 [風險事件] 刀鋒視窗。 您應該會在 [從匿名 IP 位址登入] 底下看到一個項目  | [Azure Active Directory Identity Protection 腳本：模擬風險事件](identity-protection/playbook.md#simulating-risk-events) |
 
 ### <a name="considerations"></a>考量
 
@@ -534,14 +534,14 @@ ms.locfileid: "39049464"
 | 步驟 | 資源 |
 | --- | --- |
 | 以全域管理員身分登入 https://portal.azure.com，然後開啟 [Identity Protection] 刀鋒視窗 | https://aka.ms/aadipgetstarted |
-| 依下列方式啟用登入風險原則：<br/>- 指派至：POC 使用者<br/>- 條件：中度或更高的登入風險 (從匿名位置登入是視為中度風險層級)<br/>- 控制項：需要 MFA | [Azure Active Directory Identity Protection 腳本：登入風險](active-directory-identityprotection-playbook.md) |
+| 依下列方式啟用登入風險原則：<br/>- 指派至：POC 使用者<br/>- 條件：中度或更高的登入風險 (從匿名位置登入是視為中度風險層級)<br/>- 控制項：需要 MFA | [Azure Active Directory Identity Protection 腳本：登入風險](identity-protection/playbook.md) |
 | 開啟 Tor 瀏覽器 | [下載 Tor 瀏覽器](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
 | 以 PoC 使用者帳戶登入 https://myapps.microsoft.com |  |
-| 注意 MFA 挑戰 | [使用 Azure AD Identity Protection 時的登入體驗：有風險的登入復原](active-directory-identityprotection-flows.md#risky-sign-in-recovery)
+| 注意 MFA 挑戰 | [使用 Azure AD Identity Protection 時的登入體驗：有風險的登入復原](identity-protection/flows.md#risky-sign-in-recovery)
 
 ### <a name="considerations"></a>考量
 
-此功能是 Azure AD Premium P2 和/或 EMS E5 的一部分。 若要深入了解風險事件，請瀏覽：[Azure Active Directory 風險事件](active-directory-reporting-risk-events.md)
+此功能是 Azure AD Premium P2 和/或 EMS E5 的一部分。 若要深入了解風險事件，請瀏覽：[Azure Active Directory 風險事件](reports-monitoring/concept-risk-events.md)
 
 ## <a name="configuring-certificate-based-authentication"></a>設定憑證式驗證
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: e4144ca0d87abda3d9f8de47e56af59d0e4af312
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: a499f609e517d880b3a942ac6dc3eb0dc10b69e7
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938361"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038017"
 ---
 # <a name="azure-logging-and-auditing"></a>Azure 記錄與稽核
 
@@ -60,7 +60,7 @@ Azure 記錄可歸類為下列類型：
 
 ![活動記錄圖表](./media/azure-log-audit/azure-log-audit-fig1.png)
 
-您可以使用 Azure 入口網站、[Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli)、PowerShell Cmdlet 和 [Azure 監視器 REST API](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough)，從活動記錄中擷取事件。 活動記錄的資料保留期限為 19 天。
+您可以使用 Azure 入口網站、[Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli)、PowerShell Cmdlet 和 [Azure 監視器 REST API](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough)，從活動記錄中擷取事件。 活動記錄的資料保留期間為 90 天。
 
 活動記錄事件的整合案例：
 
@@ -361,10 +361,10 @@ Log Analytics 的中心是裝載在 Azure 的 Log Analytics 工作區。 Log Ana
 
 | 記錄類型 | 支援 JSON (Splunk、ArcSight 和 IBM QRadar) 的 Log Analytics |
 | :------- | :-------------------------------------------------------- |
-|Azure AD 稽核記錄|   yes|
-|活動記錄| yes|
-|資訊安全中心警示 |yes|
-|診斷記錄 (資源記錄)|  yes|
+|Azure AD 稽核記錄|   是|
+|活動記錄| 是|
+|資訊安全中心警示 |是|
+|診斷記錄 (資源記錄)|  是|
 |VM 記錄|   是，透過轉送的事件，而非透過 JSON|
 
 [開始使用 Azure 記錄整合](https://docs.microsoft.com/azure/security/security-azure-log-integration-get-started)：本教學課程將逐步引導您安裝 Azure 記錄整合，以及整合來自 Azure 儲存體、Azure 活動記錄、Azure 資訊安全中心警示以及 Azure AD 稽核記錄的記錄。

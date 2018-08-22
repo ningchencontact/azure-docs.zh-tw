@@ -3,7 +3,7 @@ title: Azure 事件中樞功能概觀 | Microsoft Docs
 description: Azure 事件中樞功能的概觀和詳細資料
 services: event-hubs
 documentationcenter: .net
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.devlang: na
@@ -11,19 +11,22 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/08/2018
-ms.author: sethm
-ms.openlocfilehash: f16f8aa73ecfa3e0a47ce2373a2e28a7a9968ff5
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.author: shvija
+ms.openlocfilehash: abc85c322f7b8ee63c06639ae8845a5f07266b50
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248736"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40007106"
 ---
 # <a name="event-hubs-features-overview"></a>事件中樞功能概觀
 
 事件中樞是可調整的事件處理服務，它會擷取和處理大量的事件和資料，具有低延遲和高可靠性。 如需高階概觀，請參閱[何謂事件中樞？](event-hubs-what-is-event-hubs.md)
 
 這篇文章是根據[概觀](event-hubs-what-is-event-hubs.md)中的資訊建置，並且提供有關事件中樞元件和功能的技術和實作詳細資料。
+
+## <a name="namespace"></a>命名空間
+事件中樞命名空間提供唯一的範圍容器 (依其[完整網域名稱](https://en.wikipedia.org/wiki/Fully_qualified_domain_name)來參考)，您可以在其中建立一或多個事件中樞或 Kafka 主題。 
 
 ## <a name="event-publishers"></a>事件發佈者
 
@@ -145,14 +148,14 @@ ms.locfileid: "35248736"
 
 事件中樞的輸送量容量受「輸送量單位」所控制。 輸送量單位是預先購買的容量單位。 單一輸送量單位包括下列容量：
 
-* 輸入：每秒最多 1 MB 或 1000 個事件 (以先達到者為準)
-* 輸出：每秒最多 2 MB。
+* 輸入：每秒最多 1 MB 或 1000 個事件 (以先達到者為準)。
+* 輸出：最高每秒 2 MB 或每秒 4096 個事件。
 
 超出所購買輸送量單位的容量時，輸入就開始節流，並傳回 [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception)。 輸出不會產生節流例外狀況，但仍受限於所購買輸送量單位的容量。 如果您收到發佈速率例外狀況，或輸出速率低於預期，請務必檢查您為命名空間所購買的輸送量單位數目。 在 [Azure 入口網站](https://portal.azure.com)中，您可以在命名空間的 [調整規模] 刀鋒視窗管理輸送量單位。 您也可以使用[事件中樞 API](event-hubs-api-overview.md) 以程式設計方式管理輸送量單位。
 
 輸送量單位是預先購買制且以每小時計費。 一經購買，您至少必須支付一個小時的輸送量單位費用。 最多可以為一個事件中樞命名空間購買 20 個輸送量單位，讓該命名空間中的所有事件中樞共用。
 
-您可以連絡 Azure 支援中心，以 20 個為一組購買更多輸送量單位，最多 100 個輸送量單位。 之後，您還可以購買以 100 個輸送量為單位的區塊。
+您可以連絡 Azure 支援中心，以 20 個為一組購買更多輸送量單位，最多 100 個輸送量單位。 超出該限制，您可以購買以 100 個輸送量為單位的區塊。
 
 建議您保持輸送量單位和資料分割之間的平衡，以達到最佳規模。 每個資料分割有一個輸送量單位的規模上限。 輸送量單位的數目應該要小於或等於事件中樞內的資料分割數目。
 

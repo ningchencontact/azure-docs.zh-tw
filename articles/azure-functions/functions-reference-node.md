@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/04/2018
 ms.author: glenga
-ms.openlocfilehash: b0e078e3e7f18e3370ff1bcd90935e7fece265f0
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 1a4b970b07514619b2d81a0483546ac64d07927f
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391175"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005470"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 開發人員指南
 
@@ -94,7 +94,9 @@ context.bindings.myOutput = {
 context.done([err],[propertyBag])
 ```
 
-通知執行階段，您的程式碼已完成。 您必須呼叫 `context.done`，否則執行階段不會知道您的函式已完成，而且執行會逾時。 
+通知執行階段，您的程式碼已完成。 如果您的函式使用 `async function` 宣告 (可使用節點 8 取得 + 在 Functions 2.x 版)，您不需要使用 `context.done()`。 隱含地呼叫 `context.done` 回呼。
+
+如果您的函式不是非同步函式，**您必須呼叫 `context.done`** 來通知執行階段您的函式已完成。 如果遺漏，則執行會逾時。
 
 `context.done` 方法可讓您執行下列兩個動作：將使用者定義的錯誤傳回執行階段，以及傳回會覆寫 `context.bindings` 物件上屬性之屬性的屬性包。
 

@@ -1,6 +1,6 @@
 ---
 title: 在 Azure Logic Apps 中編碼或解碼一般檔案 | Microsoft Docs
-description: 如何在您的邏輯應用程式中使用企業整合套件內的一般檔案編碼器或解碼器
+description: 如何在您的邏輯應用程式中使用企業整合套件內的檔案編碼器或解碼器
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: divyaswarnkar
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; divswa
-ms.openlocfilehash: 4c8ac7aa3ccafaf14c0399860f3576430dd6ba1a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b13e8da04c984456027f152f5af63cfa6604ddc4
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429993"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037972"
 ---
 # <a name="overview-of-enterprise-integration-with-flat-files"></a>企業與一般檔案整合概觀
 

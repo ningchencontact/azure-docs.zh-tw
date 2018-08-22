@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 6/20/2018
+ms.date: 8/10/2018
 ms.author: victorh
-ms.openlocfilehash: b8b5b1da902a854dacea7e3019e3fa1116f04212
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 858427bfd2a9b4c40ddf7054e09d98bcf5c1a992
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399136"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038090"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>應用程式閘道的常見問題集
 
@@ -122,6 +122,12 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 * 無法封鎖輸出網際網路連線。
 
 * 必須允許來自 AzureLoadBalancer 標籤的流量。
+
+**問：應用程式閘道子網路是否支援使用者定義路由？**
+
+使用者定義路由 (UDR) 只要未改變端對端要求/回應通訊，即可在應用程式閘道子網路上受到支援。
+
+例如，您可以在應用程式閘道子網路中設定 UDR，使其指向防火牆設備以進行封包檢查，但您必須確定封包在經過檢查後可送達預定目的地。 若未這麼做，可能會導致不正確的健康情況探查或流量路由行為。 這包括學習到的路由，或是 ExpressRoute 或 VPN 閘道在虛擬網路中傳播的預設 0.0.0.0/0 路由。
 
 **問：應用程式閘道的限制為何？是否可以增加這些限制？**
 

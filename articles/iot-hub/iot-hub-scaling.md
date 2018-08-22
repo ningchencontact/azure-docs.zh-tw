@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: 446fe139e3d1abe79b877d663842f7c7c6168f19
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 01aeaee03a4cfabbda3a29cddd17febdc8a16e45
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126689"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003527"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>選擇適合您解決方案的 IoT 中樞層
 
@@ -31,7 +31,7 @@ Azure IoT 中樞提供基本和標準兩個層級，兩者所支援的功能數�
 
 標準層的 IoT 中樞可啟用所有功能，想要使用雙向通訊功能的 IoT 解決方案都必須使用此層級。 基本層則可啟用一小部分功能，可供只需要從裝置到雲端進行單向通訊的 IoT 解決方案使用。 這兩個層級均提供相同的安全性和驗證功能。
 
-在建立 IoT 中樞後，您不需要中斷現有作業就可以從基本層升級到標準層。 如需詳細資訊，請參閱[如何升級 IoT 中樞](iot-hub-upgrade.md)。 請注意，基本層 IoT 中樞的分割區限制為 8 個。 當您從基本層移轉到標準層時，這項限制保持不變。
+在建立 IoT 中樞後，您不需要中斷現有作業就可以從基本層升級到標準層。 如需詳細資訊，請參閱[如何升級 IoT 中樞](iot-hub-upgrade.md)。 請注意，基本層 IoT 中樞的分割區上限為 8，標準層的上限為 32。 大部分的 IoT 中樞只需要 4 個分割區。 分割區限制會在建立 IoT 中樞時選擇，就是裝置到雲端訊息數對同時閱讀這些訊息的人員數比例。 當您從基本層遷移到標準層時，這個值保持不變。 也請注意，每個 IoT 中樞只能選擇層次內的一個[版本](https://azure.microsoft.com/pricing/details/iot-hub/)類型。 例如，您建立的 IoT 中樞可以具有多個 S1 單位，但不能具有來自不同版本 (例如 S1 和 B3 或 S1 和 S2) 的混合單位。
 
 | 功能 | 基本層 | 標準層 |
 | ---------- | ---------- | ------------- |
@@ -106,6 +106,9 @@ IoT 中樞的基本和標準層之間的支援功能差異，代表某些 API �
 大部分的 IoT 中樞識別登錄作業都與裝置佈建有關，應該都不是執行階段作業。
 
 對於明顯暴增的效能數據，請參閱 [IoT 中樞配額和節流][IoT Hub quotas and throttles]。
+
+## <a name="auto-scale"></a>自動調整規模
+如果您即將達到 IoT 中樞上允許的訊息限制，可以使用這些[步驟來自動調整](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/)，以增加相同 IoT 中樞層的 IoT 中樞單位。
 
 ## <a name="sharding"></a>分區化
 雖然單一 IoT 中樞可以擴充到數百萬個裝置，但有時候您的解決方案需要單一 IoT 中樞無法保證的特定效能特性。 在此情況下，您可以將裝置分割到多個 IoT 中樞。 多個 IoT 中心可減緩資料傳輸量暴增，並取得所需的輸送量或作業速率。

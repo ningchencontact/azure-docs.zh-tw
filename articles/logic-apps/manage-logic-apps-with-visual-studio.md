@@ -1,26 +1,22 @@
 ---
 title: 使用 Visual Studio 管理邏輯應用程式 - Azure Logic Apps | Microsoft Docs
 description: 使用 Visual Studio Cloud Explorer 管理邏輯應用程式和其他 Azure 資產
-author: ecfan
-manager: jeconnoc
-editor: ''
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.topic: article
 ms.custom: mvc
 ms.date: 03/15/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: b4d7f557923a67ae0c9fc513cd2b4fe7555241be
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: d4de75238e48b8eb955095b5a3823f2fed799fae
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301111"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038033"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>使用 Visual Studio 管理邏輯應用程式
 
@@ -31,7 +27,7 @@ ms.locfileid: "35301111"
 
 <a name="requirements"></a>
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。
 
@@ -161,6 +157,9 @@ ms.locfileid: "35301111"
 
 ![停用邏輯應用程式](./media/manage-logic-apps-with-visual-studio/disable-logic-app.png)
 
+> [!NOTE]
+> 當您停用邏輯應用程式後，就不會具現化新的執行。 所有進行中和擱置的執行將會繼續直到完成，這可能需要一些時間。 
+
 當您準備好讓邏輯應用程式繼續作業時，可以重新啟動邏輯應用程式。 在 Cloud Explorer 中，開啟邏輯應用程式的捷徑功能表，然後選取 [啟用]。
 
 ![啟用邏輯應用程式](./media/manage-logic-apps-with-visual-studio/enable-logic-app.png)
@@ -170,6 +169,9 @@ ms.locfileid: "35301111"
 若要從 Azure 入口網站刪除您的邏輯應用程式，請在 Cloud Explorer 中開啟邏輯應用程式的捷徑功能表，然後選取 [刪除]。
 
 ![刪除邏輯應用程式](./media/manage-logic-apps-with-visual-studio/delete-logic-app.png)
+
+> [!NOTE]
+> 當您刪除邏輯應用程式後，就不會具現化新的執行。 所有進行中和擱置的執行都會取消。 如果您有數千個執行，加以取消可能需要很長的時間。 
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -7,20 +7,20 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 08/03/2018
 ms.author: carlrab
-ms.openlocfilehash: effb09cfc68961065ad0b4e4be52255bcd1fe4e0
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: fae9f0aaa001c233a6687dda5cd5b7c0128ff8b0
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414162"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037975"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>使用以 DTU 為基礎的購買模型的單一資料庫資源限制 
 
-本文使用以 DTU 為基礎的購買模型，來提供 Azure SQL Database 彈性集區的詳細資源限制。
+本文使用以 DTU 為基礎的購買模型，提供 Azure SQL Database 單一資料庫的詳細資源限制。
 
-如需適用於彈性集區的「以 DTU 為基礎的購買模型資源限制」，請參閱[以 DTU 為基礎的資源限制 - 彈性集區](sql-database-vcore-resource-limits-elastic-pools.md)。 如需 vCore 型資源限制，請參閱 [vCore 型資源限制 - 單一資料庫](sql-database-vcore-resource-limits-single-databases.md)和 [vCore 型資源限制 - 彈性集區](sql-database-vcore-resource-limits-elastic-pools.md)。
+如需適用於彈性集區的「以 DTU 為基礎的購買模型資源限制」，請參閱[以 DTU 為基礎的資源限制 - 彈性集區](sql-database-vcore-resource-limits-elastic-pools.md)。 如需以虛擬核心為基礎的資源限制，請參閱[以虛擬核心為基礎的資源限制 - 單一資料庫](sql-database-vcore-resource-limits-single-databases.md)和[以虛擬核心為基礎的資源限制 - 彈性集區](sql-database-vcore-resource-limits-elastic-pools.md)。
 
 > [!IMPORTANT]
 > 在某些情況下，您可能需要壓縮資料庫來回收未使用的空間。 如需詳細資訊，請參閱[管理 Azure SQL Database 中的檔案空間](sql-database-file-space-management.md)。

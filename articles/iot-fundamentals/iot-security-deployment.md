@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: b90d916514e7b5ce566d4823b44d4b4ef575224d
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: 00acb08f567dbd50522d0e8a0b7b9a18a6658000
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35766792"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038057"
 ---
 [!INCLUDE [iot-secure-your-deployment](../../includes/iot-secure-your-deployment.md)]
 
@@ -37,6 +37,4 @@ IoT 解決方案加速器會依照此順序支援下列加密套件。
 
 ## <a name="see-also"></a>另請參閱
 
-請到 IoT 中樞開發人員指南中，參閱[控制 IoT 中樞的存取權][lnk-devguide-security]所介紹的 IoT 中樞安全性。
-
-[lnk-devguide-security]: /azure/iot-hub/iot-hub-devguide-security.md
+請到 IoT 中樞開發人員指南中，參閱[控制 IoT 中樞的存取權](../iot-hub/iot-hub-devguide-security.md)所介紹的 IoT 中樞安全性。 

@@ -2,28 +2,23 @@
 title: Azure 事件中樞管理程式庫 | Microsoft Docs
 description: 從 .NET 管理事件中樞命名空間和實體
 services: event-hubs
-cloud: na
-documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
-ms.assetid: ''
 ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/19/2017
-ms.author: sethm
-ms.openlocfilehash: 2ae2f8f2006507284338fb4fa62e4942476cf2bc
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.date: 06/13/2018
+ms.author: shvija
+ms.openlocfilehash: 1b158fd3ac3f36b71a76c149e8b6815f576be1c5
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26780968"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40007109"
 ---
 # <a name="event-hubs-management-libraries"></a>事件中樞管理程式庫
 
-事件中樞管理程式庫可以動態佈建事件中樞命名空間和實體。 這個動態本質適合複雜的部署和傳訊案例，可讓您以程式設計方式決定要佈建的實體。 這些程式庫目前適用於 .NET。
+您可以使用 Azure 事件中樞管理程式庫來動態佈建事件中樞命名空間和實體。 這個動態本質適合複雜的部署和傳訊案例，可讓您以程式設計方式決定要佈建的實體。 這些程式庫目前適用於 .NET。
 
 ## <a name="supported-functionality"></a>支援的功能
 
@@ -31,7 +26,7 @@ ms.locfileid: "26780968"
 * 建立、更新、刪除事件中樞
 * 建立、更新、刪除取用者群組
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要開始使用事件中樞管理程式庫，您必須使用 Azure Active Directory (AAD) 來驗證。 AAD 會要求您以提供 Azure 資源存取權的服務主體來進行驗證。 如需建立服務主體的詳細資訊，請參閱以下其中一篇文章：  
 

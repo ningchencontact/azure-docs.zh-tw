@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 07/25/2018
+ms.date: 08/09/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 07c17d248d78313f1c5f6f1025ae06a623b75944
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 77f95ef6fb04673d79b01694d1d6f84d2c694e96
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259342"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038003"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>概觀：主動式異地複寫和自動容錯移轉群組
 作用中異地複寫是設計為商務持續性解決方案，可在資料中心擴展中斷時，允許應用程式執行快速的災害復原。 如果已啟用異地複寫，則應用程式可以在不同的 Azure 區域中起始容錯移轉至次要資料庫。 在相同或不同的區域中，最多可支援四個次要資料庫，次要資料庫也可以用於唯讀存取查詢。 容錯移轉必須由應用程式或使用者手動起始。 容錯移轉之後，新的主要資料庫會有不同的連接端點。 
@@ -75,7 +75,7 @@ ms.locfileid: "39259342"
 >
 
 * **支援彈性集區資料庫**：每個複本可以分別參與彈性集區，或完全不在任何彈性集區中。 每個複本的集區選擇都不同，而且不相依於任何其他複本 (不論是主要還是次要) 的設定。 每個彈性集區都包含在單一區域內，因此相同拓撲中的多個複本永遠不會共用彈性集區。
-* **次要資料庫的可設定效能層級**：主要和次要資料庫皆必須有相同的服務層。 可以使用比主要資料庫低的效能層級 (DTU) 建立次要資料庫。 對於具有高資料庫寫入活動的應用程式不建議使用這個選項，因為增加的複寫延遲會提高容錯移轉後遺失重要資料的風險。 此外，在容錯移轉之後應用程式的效能會受到影響，直到新的主要資料庫升級至較高的效能層級。 在 Azure 入口網站上的記錄 IO 百分比圖表，提供預估次要資料庫承受複寫負載所需的最少效能層級的好方法。 例如，如果您的主要資料庫是 P6 (1000 DTU) 和其記錄 IO 百分比為 50%，則次要資料庫必須至少是 P4 (500 DTU)。 您也可以使用 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 或 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 資料庫檢視來擷取記錄 IO 資料。  如需 SQL Database 效能層級的詳細資訊，請參閱 [SQL Database 服務層是什麼](sql-database-service-tiers.md)。 
+* **次要資料庫的可設定效能層級**：主要和次要資料庫皆必須有相同的服務層。 此外也強烈建議您使用與主要資料庫相同的效能等級 (DTU 或虛擬核心) 來建立次要資料庫。 效能等級較低的次要資料庫可能會有複寫延遲增加和無法使用的風險，進而導致在容錯移轉之後遺失重要資料的風險。 因此，將無法保證已發佈的 RPO = 5 秒。 另一項風險是，在容錯移轉之後，應用程式的效能會因為新主要資料庫的計算容量不足而受到影響，除非該資料庫升級至較高的效能等級。 升級所需時間視資料庫大小而定。 如果您決定以較低的效能等級建立次要資料庫，您可以利用 Azure 入口網站上的記錄 IO 百分比圖表，來預估次要資料庫承受複寫負載所需的最低效能等級。 例如，如果您的主要資料庫是 P6 (1000 DTU) 和其記錄 IO 百分比為 50%，則次要資料庫必須至少是 P4 (500 DTU)。 您也可以使用 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 或 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 資料庫檢視來擷取記錄 IO 資料。  如需 SQL Database 效能層級的詳細資訊，請參閱 [SQL Database 服務層是什麼](sql-database-service-tiers.md)。 
 * **使用者控制的容錯移轉和容錯回復**：應用程式或使用者可以隨時明確也將次要資料庫切換到主要角色。 在實際的中斷期間，應該使用「非計劃性」選項，這樣會立即將次要升級為主要。 當失敗的主要資料庫復原，並且可再次使用時，系統會自動將復原的主要資料庫標示為次要資料庫，並讓它與新的主要資料庫保持更新。 由於複寫的非同步本質，如果主要資料庫在將最新的變更複寫至次要資料庫之前失敗，則非計劃的容錯移轉期間會有少量的資料遺失。 當具有多個次要資料庫的主要資料庫容錯移轉時，系統會自動重新設定複寫關聯性，並且將剩餘的次要資料庫連結至新升級的主要資料庫，而不需要任何使用者介入。 解決造成容錯移轉的中斷之後，可能想要讓應用程式返回主要區域。 若要這麼做，應該使用「計劃」選項叫用容錯移轉命令。 
 * **保持認證和防火牆規則同步**︰我們建議針對異地複寫資料庫使用 [資料庫防火牆規則](sql-database-firewall-configure.md) ，這樣一來，這些規則可以使用資料庫複寫，以確保所有次要資料庫具有與主要資料庫相同的防火牆規則。 此方法不需要客戶手動設定及維護同時裝載主要和次要資料庫之伺服器上的防火牆規則。 同樣地，針對資料存取使用 [自主資料庫使用者](sql-database-manage-logins.md) ，確保主要與次要資料庫永遠具有相同的使用者認證，在容錯移轉時不會因為登入和密碼不相符而有任何中斷。 使用額外的 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)，客戶可以管理主要和次要資料庫的使用者存取，並且排除在資料庫中管理認證的需求。
 
@@ -123,7 +123,7 @@ ms.locfileid: "39259342"
 
 ### <a name="using-failover-groups-and-virtual-network-rules"></a>使用容錯移轉群組和虛擬網路規則
 
-如果您使用[虛擬網路服務端點和規則](sql-database-vnet-service-endpoint-rule-overview.md)來限制存取您的 SQL 資料庫，請留意，每個虛擬網路服務端點只適用於一個 Azure 區域。 端點無法讓其他區域接受來自子網路的通訊。 因為容錯移轉會導致 SQL 用戶端工作階段重新路由至不同 (次要) 區域中的伺服器，所以如果這些工作階段是來自該區域外的用戶端，就會失敗。 基於這個理由，如果參與的伺服器包含在虛擬網路規則中，則無法啟用自動容錯移轉原則。 若要支援手動容錯移轉，請遵循下列步驟：
+如果您使用[虛擬網路服務端點和規則](sql-database-vnet-service-endpoint-rule-overview.md)來限制存取您的 SQL 資料庫，請留意，每個虛擬網路服務端點只適用於一個 Azure 區域。 端點無法讓其他區域接受來自子網路的通訊。 因此，只有部署到相同區域中的用戶端應用程式可以連線到主要資料庫。 因為容錯移轉會導致 SQL 用戶端工作階段重新路由至不同 (次要) 區域中的伺服器，所以如果這些工作階段是來自該區域外的用戶端，就會失敗。 基於這個理由，如果參與的伺服器包含在虛擬網路規則中，則無法啟用自動容錯移轉原則。 若要支援手動容錯移轉，請遵循下列步驟：
 
 1.  在次要地區中佈建您應用程式 (Web 服務、虛擬機器等) 前端元件的備援副本
 2.  分別設定主要和次要伺服器的[虛擬網路規則](sql-database-vnet-service-endpoint-rule-overview.md)

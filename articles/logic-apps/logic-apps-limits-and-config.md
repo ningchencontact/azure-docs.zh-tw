@@ -7,15 +7,15 @@ author: ecfan
 ms.author: estfan
 manager: jeconnoc
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 08/10/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 644d382b87b0cc7c60cc8917edbaeff34b222718
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: b60b25e1692e065276d731d6cad8700373f1c456
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390733"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038085"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps 的限制和設定資訊
 
@@ -70,13 +70,21 @@ ms.locfileid: "39390733"
 
 3. 以輸入或拖曳滑桿的方式選擇所要的天數。
 
+<a name="disable-delete"></a>
+
+## <a name="disabling-or-deleting-logic-apps"></a>停用或刪除邏輯應用程式
+
+當您停用邏輯應用程式後，就不會具現化新的執行。 所有進行中和擱置的執行將會繼續直到完成，這可能需要一些時間。
+
+當您刪除邏輯應用程式後，就不會具現化新的執行。 所有進行中和擱置的執行都會取消。 如果您有數千個執行，加以取消可能需要很長的時間。
+
 <a name="looping-debatching-limits"></a>
 
 ## <a name="concurrency-looping-and-debatching-limits"></a>並行、迴圈與解除批次處理限制
 
 以下是單一邏輯應用程式執行的限制：
 
-| 名稱 | 限制 | 注意事項 | 
+| Name | 限制 | 注意 | 
 | ---- | ----- | ----- | 
 | 觸發程序並行 | 50 | 預設限制是 20 個。 此限制描述可以同時 (或稱「平行」) 執行的邏輯應用程式執行個體數目上限。 <p><p>若要將預設限制變更為介於 1 到 50 個之間 (含 1 與 50)，請參閱[變更觸發程序並行](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency)或[循序觸發執行個體](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger)。 | 
 | 最大等候執行數 | 100 | 預設限制是 10 個。 此限制描述當您的邏輯應用程式準備執行並行執行個體數目上限時，可以等候執行的邏輯應用程式執行個體數目上限。 <p><p>若要將預設限制變更為介於 0 到 100 之間的值 (包含 0 與 100)，請參閱[變更等候執行限制](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs)。 | 

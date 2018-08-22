@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/02/2018
+ms.date: 08/09/2018
 ms.author: jroth
-ms.openlocfilehash: e9033724f62b383ce70488b98a3a8919e3cb198a
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: a748532de7e8b8e910e335b67a693c4470861bf1
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345272"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003554"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure VM 的定價指導方針
 
@@ -90,9 +90,12 @@ ms.locfileid: "37345272"
 >
 >不包含其他 SQL Server 的 Web、Standard 和 Enterprise 版本的授權成本。 若要取得最精確的定價估計，請在 [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) 或 [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) 適用的定價頁面上，選取您的作業系統和 SQL Server 版本。
 
-## <a name="bring-your-own-license-byol"></a>自備授權 (BYOL)
+## <a id="byol"></a> 自備授權 (BYOL)
 
 **透過「授權行動性」自備 SQL Server 授權** (也稱為 **BYOL**) 意謂著在 Azure VM 中使用現有的「SQL Server 大量授權」搭配「軟體保證」。 使用 BYOL 的 SQL Server VM 只會收取執行 VM 的費用，不會收取 SQL Server 授權費用，但前提是您已經透過「大量授權」方案取得授權和「軟體保證」。
+
+> [!IMPORTANT]
+> BYOL 映像需要具有軟體保證的 Enterprise 合約。 Azure 雲端解決方案合作夥伴 (CSP) 目前不會提供這類映像。
 
 > [!NOTE]
 > BYOL 映像目前只適用於 Windows 虛擬機器。 不過，您可以在僅有 Linux 的 VM 上手動安裝 SQL Server。 請參閱 [Linux SQL VM 常見問題集](../../linux/sql/sql-server-linux-faq.md)中的指導方針。

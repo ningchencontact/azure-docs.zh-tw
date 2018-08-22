@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: f654aaa6d44011a089008558849d37bf6cdfa6f6
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 6dfa1f247a079bf801f28d1083c86d36a74117c5
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39037222"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004193"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>在 Azure 入口網站中新增 Azure Active Directory B2B 共同作業使用者
 
@@ -40,6 +40,9 @@ ms.locfileid: "39037222"
 5. 在 [使用者名稱] 下，輸入外部使用者的電子郵件地址。 您也可以選擇納入歡迎訊息。 例如︰
 
    ![顯示 [新增來賓使用者] 在 UI 中的位置](./media/add-users-administrator/InviteGuest.png) 
+
+    > [!NOTE]
+    > 有些電子郵件提供者允許使用者將加號 (+) 和額外文字新增到其電子郵件地址，以協助收件匣篩選等事項。 不過，Azure AD 目前不支援電子郵件地址中有加號。 若要避免傳遞問題，請省略 @ 符號之前的加號及其後任何字元。
 
 6. 選取 [邀請] 即可自動對來賓使用者傳送邀請。 
  

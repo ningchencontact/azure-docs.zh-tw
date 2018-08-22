@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 7fc4fc42893ec839f3ffbe667e9fcfad944115f5
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 06535cd86e32d9e5d083bfde5f1c40e345a88640
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053552"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004614"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 SQL Server 及從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -38,7 +38,7 @@ ms.locfileid: "37053552"
 - 作為來源時，使用 SQL 查詢或預存程序來擷取資料。
 - 在複製期間作為接收器時，使用自訂邏輯將資料附加到目的地資料表或叫用預存程序。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要從不可公開存取的 SQL Server 資料庫複製資料，您必須設定一個「自我裝載 Integration Runtime」。 如需詳細資料，請參閱[自我裝載 Integration Runtime](create-self-hosted-integration-runtime.md) 一文。 Integration Runtime 提供內建的 SQL Server 資料庫驅動程式，因此從 SQL Server 資料庫複製資料或將資料複製到該處時，您不需要手動安裝任何驅動程式。
 
@@ -54,8 +54,8 @@ ms.locfileid: "37053552"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**SqlServer** | yes |
-| connectionString |指定使用 SQL 驗證或 Windows 驗證來連線至 SQL Server 資料庫時所需的 connectionString 資訊。 請參閱下列範例，您要新增擴充來包含更多屬性，例如 Always On。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |yes |
+| type | 類型屬性必須設定為：**SqlServer** | 是 |
+| connectionString |指定使用 SQL 驗證或 Windows 驗證來連線至 SQL Server 資料庫時所需的 connectionString 資訊。 請參考下列範例。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |是 |
 | userName |如果您使用「Windows 驗證」，請指定使用者名稱。 範例︰**domainname\\username**。 |否 |
 | password |指定您為 userName 指定之使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |否 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用「自我裝載 Integration Runtime」或 Azure Integration Runtime (如果您的資料存放區是可公開存取的)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
@@ -115,8 +115,8 @@ ms.locfileid: "37053552"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**SqlServerTable** | yes |
-| tableName |SQL Server 資料庫執行個體中已連結的服務所參考的資料表或檢視名稱。 | yes |
+| type | 資料集的類型屬性必須設定為：**SqlServerTable** | 是 |
+| tableName |SQL Server 資料庫執行個體中已連結的服務所參考的資料表或檢視名稱。 | 是 |
 
 **範例：**
 
@@ -147,7 +147,7 @@ ms.locfileid: "37053552"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**SqlSource** | yes |
+| type | 複製活動來源的類型屬性必須設定為：**SqlSource** | 是 |
 | SqlReaderQuery |使用自訂 SQL 查詢來讀取資料。 範例： `select * from MyTable`. |否 |
 | sqlReaderStoredProcedureName |從來源資料表讀取資料的預存程序名稱。 最後一個 SQL 陳述式必須是預存程序中的 SELECT 陳述式。 |否 |
 | storedProcedureParameters |預存程序的參數。<br/>允許的值為：名稱/值組。 參數的名稱和大小寫必須符合預存程序參數的名稱和大小寫。 |否 |
@@ -251,7 +251,7 @@ GO
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動接收器的 type 屬性必須設定為：**SqlSink** | yes |
+| type | 複製活動接收器的 type 屬性必須設定為：**SqlSink** | 是 |
 | writeBatchSize |當緩衝區大小達到 writeBatchSize 時，將資料插入 SQL 資料表中<br/>允許的值為：整數 (資料列數目)。 |否 (預設值：10000) |
 | writeBatchTimeout |在逾時前等待批次插入作業完成的時間。<br/>允許的值為：時間範圍。 範例：“00:30:00” (30 分鐘)。 |否 |
 | preCopyScript |指定一個供「複製活動」在將資料寫入到 SQL Server 前執行的 SQL 查詢。 每一複製回合只會叫用此查詢一次。 您可以使用此屬性來清除預先載入的資料。 |否 |
@@ -444,7 +444,7 @@ create table dbo.TargetTbl
 }
 ```
 
-在資料庫中，使用與 SqlWriterStoredProcedureName 相同的名稱定義預存程序。 它會處理來自指定來源的輸入資料，並合併至輸出資料表。 請注意，預存程序的參數名稱應該與資料集中定義的 "tableName" 相同。
+在資料庫中，使用與 SqlWriterStoredProcedureName 相同的名稱定義預存程序。 它會處理來自指定來源的輸入資料，並合併至輸出資料表。 預存程序中資料表類型的參數名稱應該與資料集中定義的 "tableName" 相同。
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
@@ -529,7 +529,7 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 3. 在相同的視窗中，按兩下 [TCP/IP] 來啟動 [TCP/IP 屬性] 視窗。
 4. 切換到 [IP 位址] 索引標籤。向下捲動到 [IPAll] 區段。 記下 **TCP 通訊埠** (預設值是 **1433**)。
 5. 在電腦上建立 **Windows 防火牆規則** ，來允許透過此連接埠的連入流量。  
-6. **確認連線**：若要使用完整名稱來連線到 SQL Server，請使用來自不同機器的 SQL Server Management Studio。 例如：`"<machine>.<domain>.corp.<company>.com,1433"`。
+6. **確認連線**：若要使用完整名稱來連線到 SQL Server，請使用來自不同機器的 SQL Server Management Studio。 例如： `"<machine>.<domain>.corp.<company>.com,1433"` 。
 
 
 ## <a name="next-steps"></a>後續步驟
