@@ -1,5 +1,5 @@
 ---
-title: Azure 保留執行個體的 Windows 軟體成本 | Microsoft Docs
+title: Azure 保留的 Windows 軟體成本 | Microsoft Docs
 description: 了解哪些 Windows 軟體計量不包含在 Azure 保留的 VM 執行個體成本中。
 services: billing
 documentationcenter: ''
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: manshuk
-ms.openlocfilehash: 6602424e2b2e4a4c2c3c51b5cb4bb1024a39d2e0
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 8ff2d126fd491ddc40f6223b6d4ec1fc4505b8fb
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064248"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630106"
 ---
-# <a name="windows-software-costs-not-included-with-azure-reserved-instances"></a>Windows 軟體的成本不包括在 Azure 保留執行個體內
+# <a name="windows-software-costs-not-included-with-azure-reservations"></a>Windows 軟體的成本不包括在 Azure 保留內
 
-如果您的保留執行個體虛擬機器上沒有 Azure Hybrid Use Benefit，則必須為下列區段所列的 Windows 軟體計量支付費用。
+如果保留的虛擬機器執行個體上沒有 Azure Hybrid Use Benefit，則必須為下列區段所列的 Windows 軟體計量支付費用。
 
-## <a name="windows-software-meters-not-included-in-reserved-instance-cost"></a>Windows 軟體計量不包括在保留執行個體成本中
+## <a name="windows-software-meters-not-included-in-reservation-cost"></a>Windows 軟體計量不包括在保留成本中
 
 | 計量識別碼 | 使用量檔案中的計量名稱 | 適用的虛擬機器 |
 | ------- | ------------------------| --- |
@@ -53,14 +53,14 @@ ms.locfileid: "37064248"
 您可以透過 Azure RateCard API 來取得這些計量中每一個的成本。 如需如何取得 Azure 計量表費率的資訊，請參閱[取得 Azure 訂用帳戶中所使用資源的價格和中繼資料資訊](https://msdn.microsoft.com/library/azure/mt219004)。
 
 ## <a name="next-steps"></a>後續步驟
-若要深入了解 Azure 保留執行個體，請參閱下列文章：
+若要深入了解 Azure 保留項目，請參閱下列文章：
 
-- [什麼是 Azure 保留的 VM 執行個體？](billing-save-compute-costs-reservations.md)
+- [什麼是 Azure 保留項目？](billing-save-compute-costs-reservations.md)
 - [預付具有 Azure 保留 VM 執行個體的虛擬機器](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [管理 Azure 中的保留執行個體](billing-manage-reserved-vm-instance.md)
-- [了解如何套用保留執行個體折扣](billing-understand-vm-reservation-charges.md)
-- [了解預付型方案訂用帳戶的保留執行個體使用量](billing-understand-reserved-instance-usage.md)
-- [了解 Enterprise 註冊保留執行個體的使用方式](billing-understand-reserved-instance-usage-ea.md)
+- [管理 Azure 中的保留項目](billing-manage-reserved-vm-instance.md)
+- [了解保留項目折扣的套用方式](billing-understand-vm-reservation-charges.md)
+- [了解預付型方案訂用帳戶的保留項目使用量](billing-understand-reserved-instance-usage.md)
+- [了解 Enterprise 註冊的保留項目使用量](billing-understand-reserved-instance-usage-ea.md)
 
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員
 

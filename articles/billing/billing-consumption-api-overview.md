@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/07/2018
 ms.author: erikre
-ms.openlocfilehash: 69e148089f48ebe04faceff87b08eb3f7127f8a3
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: c37ff7e2f81b3dbca42193777287dae873768e24
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248362"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630495"
 ---
 # <a name="azure-consumption-api-overview"></a>Azure 使用量 API 概觀 
 
@@ -103,7 +103,7 @@ Azure 使用量 API 可存取：
 
 ## <a name="reservation-recommendations-api"></a>保留建議 API
 
-使用此 API 來取得購買 VM 保留之執行個體的建議。 建議的設計目的是為了讓客戶分析預期節省的成本和購買數量。 
+使用此 API 來取得購買保留的 VM 執行個體建議。 建議的設計目的是為了讓客戶分析預期節省的成本和購買數量。 
 
 此 API 包含︰
 

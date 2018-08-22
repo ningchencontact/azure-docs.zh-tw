@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2018
 ms.author: amberb
-ms.openlocfilehash: 344d4032b59a920630a18f026aa3765fbc69d6d5
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 7c4152140d291270386203e121da169b2a8deff5
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077733"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630801"
 ---
 # <a name="view-all-your-billing-accounts-in-azure-portal"></a>在 Azure 入口網站檢視您所有的帳單帳戶  
 
@@ -27,7 +27,7 @@ ms.locfileid: "34077733"
 
 目前只能檢視您個人的帳單帳戶和 Enterprise 合約的帳單帳戶。 預設情況下， [成本管理 + 帳單](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingMenuBlade/Overview)頁面會顯示您的個人帳單帳戶。 不過，您可以前往 [帳單帳戶] 進行變更。
 
-您可以在 [Azure 入口網站](https://portal.azure.com)管理和檢視個人帳單帳戶的所有費用。 不過，在 Enterprise 合約帳戶的部分，只能檢視保留執行個體購買項目、餘額和月初至今的費用。 這些 Enterprise 合約功能為預覽狀態，除非您具有 Enterprise 系統管理員的角色，否則無法使用上述功能。
+您可以在 [Azure 入口網站](https://portal.azure.com)管理和檢視個人帳單帳戶的所有費用。 不過，在 Enterprise 合約帳戶的部分，只能檢視 Azure 保留購買項目、餘額和月初至今的費用。 這些 Enterprise 合約功能為預覽狀態，除非您具有 Enterprise 系統管理員的角色，否則無法使用上述功能。
 
 ## <a name="change-billing-account-view"></a>變更檢視的帳單帳戶 
 

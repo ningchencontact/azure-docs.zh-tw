@@ -13,19 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b8fec9a263eee6bf1e8bf347a9b6dd256840738f
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: ba47223f86005809189214f26a63b75b21449e3a
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39392605"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630614"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>教學課程：手動設定混合式 Azure Active Directory 已加入裝置 
 
-使用 Azure Active Directory (Azure AD) 中的裝置管理，您可以確保使用者會從符合安全性與合規性之標準的裝置來存取您的資源。 如需詳細資訊，請參閱 [Azure Active Directory 中的裝置管理簡介](../device-management-introduction.md)。
+使用 Azure Active Directory (Azure AD) 中的裝置管理，您可以確保使用者會從符合安全性與合規性之標準的裝置來存取您的資源。 如需詳細資料，請參閱 [Azure Active Directory 中的裝置管理簡介](overview.md)。
 
 如果您有內部部署 Active Directory 環境，而且您想要將加入網域的裝置加入 Azure AD，您可以藉由設定混合式 Azure AD 已加入裝置來完成。 本文為您提供相關步驟。 
 
@@ -35,40 +35,18 @@ ms.locfileid: "39392605"
 > 如果使用 Azure AD Connect 是您可使用的選項，請參閱[選取您的案例](hybrid-azuread-join-plan.md#select-your-scenario)。 使用 Azure AD Connect，您可以大幅簡化混合式 Azure AD Join 的設定。
 
 
-## <a name="before-you-begin"></a>開始之前
-
-開始在您的環境中設定混合式 Azure AD 已加入裝置之前，您應該先熟悉支援的案例和條件約束。  
-
-如果您使用的是[系統準備工具 (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10))，請確定您用來建立映像的 Windows 安裝版本尚未註冊 Azure AD。
-
-一旦以下所述的組態步驟完成，所有已加入網域且執行 Windows 10 年度更新版和 Windows Server 2016 的裝置會在裝置重新啟動或使用者登入時自動向 Azure AD 註冊。 **如果不喜歡這個自動註冊行為或想要控制導入**，請先依照下面＜步驟 4：控制部署與導入＞一節中的指示，選擇性地啟用或停用自動導入，再依照其他設定步驟進行操作。  
-
-為了改善說明的可讀性，本文使用下列詞彙︰ 
-
-- **現行 Windows 裝置** - 這個詞彙是指執行 Windows 10 或 Windows Server 2016 之已加入網域的裝置。
-- **舊版 Windows 裝置** - 這個詞彙是指並非執行 Windows 10 或 Windows Server 2016 之所有**支援的**已加入網域 Windows 裝置。  
-
-### <a name="windows-current-devices"></a>現行 Windows 裝置
-
-- 對於執行 Windows 桌面作業系統的裝置，支援的版本為 Windows 10 年度更新版 (版本 1607) 或更新版本。 
-- 非同盟的環境**支援**現行 Windows 裝置註冊，例如密碼雜湊同步處理組態。  
-
-
-### <a name="windows-down-level-devices"></a>舊版 Windows 裝置
-
-- 以下是支援的舊版 Windows Server 裝置：
-    - Windows 8.1
-    - Windows 7
-    - Windows Server 2012 R2
-    - Windows Server 2012
-    - Windows Server 2008 R2
-- 在非同盟環境中，**支援**透過無縫單一登入 [Azure Active Directory 無縫單一登入](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start)來註冊舊版 Windows 裝置。 
-- 使用沒有無縫單一登入的 Azure AD 傳遞驗證時，**不**支援舊版 Windows 裝置的註冊。
-- 對於使用漫遊設定檔的裝置，**不支援**註冊舊版 Windows 裝置。 如果您倚賴設定檔或設定的漫遊，請使用 Windows 10。
-
 
 
 ## <a name="prerequisites"></a>必要條件
+
+本教學課程假設您已熟悉：
+    
+-  [Azure Active Directory 中的裝置管理簡介](../device-management-introduction.md)
+    
+-  [如何規劃混合式 Azure Active Directory Join 實作](hybrid-azuread-join-plan.md)
+
+-  [如何控制裝置的混合式 Azure AD Join](hybrid-azuread-join-control.md)
+
 
 開始在組織中啟用混合式 Azure AD 已加入裝置之前，您必須先確定：
 
@@ -114,15 +92,14 @@ Azure AD Connect：
 
 | 步驟                                      | 現行 Windows 和密碼雜湊同步處理 | 現行 Windows 和同盟 | 舊版 Windows |
 | :--                                        | :-:                                    | :-:                            | :-:                |
-| 步驟 1︰設定服務連接點 | ![勾選][1]                            | ![勾選][1]                    | ![勾選][1]        |
-| 步驟 2︰設定宣告的發行           |                                        | ![勾選][1]                    | ![勾選][1]        |
-| 步驟 3︰啟用非 Windows 10 裝置      |                                        |                                | ![勾選][1]        |
-| 步驟 4︰控制部署與導入     | ![勾選][1]                            | ![勾選][1]                    | ![勾選][1]        |
-| 步驟 5：確認加入的裝置          | ![勾選][1]                            | ![勾選][1]                    | ![勾選][1]        |
+| 設定服務連接點 | ![勾選][1]                            | ![勾選][1]                    | ![勾選][1]        |
+| 設定宣告的發行           |                                        | ![勾選][1]                    | ![勾選][1]        |
+| 啟用非 Windows 10 裝置      |                                        |                                | ![勾選][1]        |
+| 確認加入的裝置          | ![勾選][1]                            | ![勾選][1]                    | ![勾選][1]        |
 
 
 
-## <a name="step-1-configure-service-connection-point"></a>步驟 1︰設定服務連接點
+## <a name="configure-service-connection-point"></a>設定服務連接點
 
 您的裝置會在註冊期間使用服務連接點 (SCP) 物件來探索 Azure AD 租用戶資訊。 在內部部署 Active Directory (AD) 中，用於混合式 Azure AD 已加入裝置的 SCP 物件必須存在於電腦樹系的組態命名內容資料分割中。 每個樹系只有一個組態命名內容。 在多樹系 Active Directory 組態中，服務連接點必須存在於包含已加入網域電腦的所有樹系中。
 
@@ -200,7 +177,7 @@ Azure AD Connect：
 
 ![Get-AzureADDomain](./media/hybrid-azuread-join-manual-steps/01.png)
 
-## <a name="step-2-setup-issuance-of-claims"></a>步驟 2︰設定宣告的發行
+## <a name="setup-issuance-of-claims"></a>設定宣告的發行
 
 在同盟 Azure AD 組態中，裝置倚賴 Active Directory Federation Services (AD FS) 或協力廠商內部部署同盟伺服器向 Azure AD 進行驗證。 裝置會進行驗證以取得向 Azure Active Directory 裝置註冊服務 (Azure ADS) 註冊的存取權杖。
 
@@ -504,7 +481,7 @@ Azure AD Connect：
 
 - 如果您已對使用者帳戶發出 **ImmutableID** 宣告，請將指令碼中 **$immutableIDAlreadyIssuedforUsers** 的值設定為 **$true**。
 
-## <a name="step-3-enable-windows-down-level-devices"></a>步驟 3：啟用舊版 Windows 裝置
+## <a name="enable-windows-down-level-devices"></a>啟用舊版 Windows 裝置
 
 如果有些已加入網域的裝置是舊版 Windows 裝置，您需要︰
 
@@ -562,64 +539,25 @@ Azure AD Connect：
 
 `https://device.login.microsoftonline.com`
 
-## <a name="step-4-control-deployment-and-rollout"></a>步驟 4︰控制部署與導入
 
-當您完成所需的步驟時，已加入網域的裝置即可自動加入 Azure AD：
-
-- 所有已加入網域且執行 Windows 10 年度更新版和 Windows Server 2016 的裝置會在裝置重新啟動或使用者登入時自動向 Azure AD 註冊。 
-
-- 在完成加入網域作業之後，新裝置會在重新啟動時向 Azure AD 註冊。
-
-- 先前 Azure AD 註冊的裝置 (例如 Intune) 會轉換成「已加入網域，AAD 已註冊」。不過，由於網域和使用者活動的一般流程，在所有裝置上完成此程序需要一些時間。
-
-### <a name="remarks"></a>備註
-
-- 您可以使用「群組原則」物件或 System Center Configuration Manager 用戶端設定來控制已加入網域之 Windows 10 和 Windows Server 2016 電腦的自動註冊導入。 **如果您不想要自動向 Azure AD 註冊這些裝置，或想要控制註冊**，則必須先推出群組原則以停止所有這些裝置的自動註冊；或者，如果您使用 Configuration Manager，則必須先在 [雲端服務] 下設定用戶端設定 -> 向 Azure Active Directory 自動註冊新 Windows 10 加入網域裝置設定為 [否]，再開始進行任何設定步驟。 在完成設定之後，並已為測試做好準備時，您必須僅在測試裝置上導入啟用自動註冊的群組原則，然後在於您選擇的所有其他裝置上導入該原則。
-
-- 若要導入舊版 Windows 電腦，您可以將 [Windows Installer 封裝](#windows-installer-packages-for-non-windows-10-computers)部署到您所選的電腦。
-
-- 如果您將群組原則物件推送到已加入網域的 Windows 8.1 裝置，將會嘗試加入。不過，建議您使用 [Windows Installer 套件](#windows-installer-packages-for-non-windows-10-computers)來加入所有舊版 Windows 裝置。 
-
-### <a name="create-a-group-policy-object"></a>建立群組原則物件 
-
-若要控制現行 Windows 電腦的導入，您應將 [將已加入網域的電腦註冊為裝置] 群組原則物件部署到您要註冊的裝置。 例如，您可以將此原則部署到組織單位或安全性群組。
-
-**若要設定原則︰**
-
-1. 開啟 [伺服器管理員]，然後移至 `Tools > Group Policy Management`。
-2. 移至您要啟用自動註冊現行 Windows 電腦的網域所對應的網域節點。
-3. 在 [群組原則物件] 上按一下滑鼠右鍵，然後選取 [新增]。
-4. 輸入群組原則物件的名稱。 例如，*混合式 Azure AD Join。 
-5. 按一下 [確定]。
-6. 以滑鼠右鍵按一下新的群組原則物件，然後選取 [編輯]。
-7. 移至 [電腦設定]  >  [原則]  >  [系統管理範本]  >  [Windows 元件]  >  [裝置註冊]。 
-8. 以滑鼠右鍵按一下 [將已加入網域的電腦註冊為裝置]，然後選取 [編輯]。
-   
-   > [!NOTE]
-   > 此「群組原則」範本已從舊版 [群組原則管理] 主控台重新命名。 如果您使用舊版的主控台，請移至 `Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers`。 
-
-7. 選取 [已啟用]，然後按一下 [套用]。 如果您想要讓原則阻止此群組原則所控制的裝置自動向 Azure AD 註冊，您必須選取 [停用]。
-
-8. 按一下 [確定]。
-9. 將群組原則物件連結到您選擇的位置。 例如，您可以將它連結到特定組織單位。 也可以將它連結到會自動加入 Azure AD 的特定電腦安全性群組。 若要為貴組織中所有已加入網域的 Windows 10 和 Windows Server 2016 電腦設定此原則，請將「群組原則」物件連結至網域。
-
-### <a name="windows-installer-packages-for-non-windows-10-computers"></a>非 Windows 10 電腦的 Windows Installer 套件
-
-若要在同盟環境中加入已加入網域的舊版 Windows 電腦，您可以從下載中心的 [適用於非 Windows 10 電腦的 Microsoft Workplace Join](https://www.microsoft.com/en-us/download/details.aspx?id=53554) 頁面下載並安裝下列 Windows Installer 封裝 (.msi)。
-
-您可以使用軟體發佈系統 (例如 System Center Configuration Manager) 來部署此套件。 此套件使用 quiet 參數來支援標準的無訊息安裝選項。 System Center Configuration Manager Current Branch 提供額外的舊版好處，例如能夠追蹤已完成的註冊。 如需詳細資訊，請參閱 [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager)。
-
-安裝程式會在系統上建立排定的工作，此工作是在使用者的內容中執行。 此工作會在使用者登入 Windows 時觸發。 此工作會在使用整合式 Windows 驗證進行驗證之後，使用使用者認證以無訊息方式將裝置加入 Azure AD。 若要查看裝置中排定的工作，請移至 [Microsoft] > [Workplace Join]，然後移至工作排程器程式庫。
-
-## <a name="step-5-verify-joined-devices"></a>步驟 5：確認加入的裝置
+## <a name="verify-joined-devices"></a>確認加入的裝置
 
 您可以在 [Azure Active Directory PowerShell 模組](/powershell/azure/install-msonlinev1?view=azureadps-2.0) 中使用 [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) Cmdlet，以查看您組織中已加入成功的裝置。
 
 此 Cmdlet 的輸出會顯示已註冊和已加入 Azure AD 的裝置。 若要取得所有裝置，請使用 **-All** 參數，然後使用 **deviceTrustType** 屬性進行篩選。 已加入網域的裝置具有**已加入網域**這個值。
 
+
+
+## <a name="troubleshoot-your-implementation"></a>對您的實作進行疑難排解
+
+如果您為已加入網域的 Windows 裝置執行混合式 Azure AD Join 時遇到問題，請參閱：
+
+- [對現行 Windows 裝置的混合式 Azure AD Join 進行疑難排解](troubleshoot-hybrid-join-windows-current.md)
+- [對舊版 Windows 裝置的混合式 Azure AD Join 進行疑難排解](troubleshoot-hybrid-join-windows-legacy.md)
+
 ## <a name="next-steps"></a>後續步驟
 
-* [Azure Active Directory 中的裝置管理簡介](../device-management-introduction.md)
+* [Azure Active Directory 中的裝置管理簡介](overview.md)
 
 
 

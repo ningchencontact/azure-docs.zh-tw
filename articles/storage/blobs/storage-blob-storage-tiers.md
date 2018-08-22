@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/11/2017
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 5d12b9f04dc1cc5017ab4c9ff1bde9b84ac24cfe
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: b3279006d1ff947b76dd8fbba1438972e5f3ad8b
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39400101"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630957"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob 儲存體︰經常性存取、非經常性存取和封存儲存層
 
@@ -71,6 +71,9 @@ Blob 層級的階層處理可讓您使用稱為[設定 Blob 層](/rest/api/stora
 
 > [!NOTE]
 > 封存儲存體與 Blob 層級階層處理只支援區塊 blob。 您也無法變更具有快照集之區塊 blob 的存取層。
+
+### <a name="blob-lifecycle-management"></a>Blob 生命週期管理
+Blob 儲存體生命週期管理 (預覽) 提供豐富、以規則為基礎的原則，可讓您用來將資料轉換到最佳存取層，並在其生命週期結束時使資料過期。 若要深入了解，請參閱[管理 Azure Blob 儲存體生命週期](https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts)。  
 
 ### <a name="blob-level-tiering-billing"></a>Blob 層級的階層處理計費
 
@@ -187,6 +190,8 @@ Azure 入口網站、PowerShell 和 CLI 工具，以及 .NET、Java、Python 和
 ### <a name="evaluate-hot-cool-and-archive-in-gpv2-blob-storage-accounts"></a>在 GPv2 Blob 儲存體帳戶中評估經常性存取、非經常性存取和封存
 
 [依照區域檢查經常性存取、非經常性存取和封存的可用性](https://azure.microsoft.com/regions/#services)
+
+[管理 Azure Blob 儲存體生命週期](https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts)
 
 [啟用 Azure 儲存體計量以評估您目前的儲存體帳戶使用量](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
