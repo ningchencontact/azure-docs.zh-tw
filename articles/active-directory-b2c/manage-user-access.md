@@ -7,17 +7,17 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 07/24/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: adf2f555e907976f8b8efa863f255aa283098be9
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6709fb8ae328f749b367c58f95b8a9ef8da9bc65
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448824"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146181"
 ---
-# <a name="manage-user-access-in-azure-ad-b2c"></a>在 Azure AD B2C 中管理使用者存取
+# <a name="manage-user-access-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中管理使用者存取
 
 本文討論如何使用 Azure Active Directory (Azure AD) B2C 管理使用者對您應用程式的存取。 應用程式的存取管理包括：
 
@@ -27,9 +27,6 @@ ms.locfileid: "37448824"
 - 擷取使用規定協議並管制存取。
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
-
->[!Note] 
->本文提供可用來支援您的 GDPR 相關義務的資訊。 如果您想要尋找有關 GDPR 的一般資訊，請參閱 [Service Trust 入口網站的 GDPR 區段](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted)。
 
 ## <a name="control-minor-access"></a>控制未成年人的存取
 
@@ -49,7 +46,7 @@ ms.locfileid: "37448824"
 
 以下是收集家長同意的使用者流程範例：
 
-1. [Azure Active Directory 圖形 API](https://msdn.microsoft.com/en-us/library/azure/ad/graph/api/api-catalog) 作業將使用者識別為未成年人，並以未簽署的 JSON 權杖形式將使用者資料傳回至應用程式。
+1. [Azure Active Directory 圖形 API](https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog) 作業將使用者識別為未成年人，並以未簽署的 JSON 權杖形式將使用者資料傳回至應用程式。
 
 2. 應用程式在處理 JSON 權杖後對未成年人顯示相關畫面，告知必須提供家長同意，並要求家長於線上出具同意。 
 
@@ -59,7 +56,7 @@ ms.locfileid: "37448824"
 
 5. 當未成年人或成人撤銷同意時，可以使用 Azure AD 圖形 API 將 **consetProvidedForMinor** 變更為**拒絕**。 或者，應用程式可以選擇刪除同意已撤銷的未成年人。 使用者流程可以選擇性地自訂，讓已驗證的未成年人 (或使用未成年人帳戶的成人) 據以撤銷同意。 Azure AD B2C 會將 **consentProvidedForMinor** 記錄為**拒絕**。
 
-如需 **legalAgeGroupClassification**、**consentProvidedForMinor** 和 **ageGroup** 的詳細資訊，請參閱[使用者資源類型](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/user)。 如需自訂屬性的詳細資訊，請參閱[使用自訂屬性收集取用者的相關資訊](active-directory-b2c-reference-custom-attr.md)。 在使用 Azure AD 圖形 API 來處理擴充屬性時，您必須使用屬性的完整版本，例如 *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*。
+如需 **legalAgeGroupClassification**、**consentProvidedForMinor** 和 **ageGroup** 的詳細資訊，請參閱[使用者資源類型](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user)。 如需自訂屬性的詳細資訊，請參閱[使用自訂屬性收集取用者的相關資訊](active-directory-b2c-reference-custom-attr.md)。 在使用 Azure AD 圖形 API 來處理擴充屬性時，您必須使用屬性的完整版本，例如 *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*。
 
 ## <a name="gather-date-of-birth-and-country-data"></a>收集出生日期和國家/地區資料
 
@@ -109,7 +106,7 @@ ms.locfileid: "37448824"
 您可以在下列情況下擷取使用規定接受確認：
 
 - 新的使用者註冊時。 此時會顯示使用規定，並儲存接受結果。
-- 先前已接受最新或作用中協議條款的使用者進行登入。 此時不會顯示使用規定。
+- 先前已接受最新或作用中使用規定的使用者進行登入。 此時不會顯示使用規定。
 - 尚未接受最新或作用中使用規定的使用者進行登入。 此時會顯示使用規定，並儲存接受結果。
 - 進行登入的使用者已接受舊版使用規定，但該使用規定現已更新為最新版本。 此時會顯示使用規定，並儲存接受結果。
 

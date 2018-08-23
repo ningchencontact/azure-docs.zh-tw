@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: 8afd743f6010822709bf3d49f7a3bbcd51b19edf
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: c8e14091d7a3fb5b925735824b1dd3ce26f034e8
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346482"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42144034"
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>開始使用 Microsoft 驗證器應用程式
 
-Microsoft Authenticator 應用程式可藉由為您的公司或學校帳戶 (例如 alain@contoso.com) 或是個人 Microsoft 帳戶 (例如 alain@outlook.com) 提供一層額外的安全性，協助防止未經授權存取帳戶，以及停止詐騙交易。 您可以使用它作為第二個驗證方法，或在使用手機登入時取代您的密碼。 如需如何設定和使用無密碼手機登入的詳細資訊，請參閱[使用您的電話而不是您的密碼登入](microsoft-authenticator-app-phone-signin-faq.md)。
+Microsoft Authenticator 應用程式可藉由為您的公司或學校帳戶 (例如 alain@contoso.com) 或是個人 Microsoft 帳戶 (例如 alain@outlook.com) 提供一層額外的安全性，協助防止未經授權存取帳戶，以及停止詐騙交易。
 
 使用應用程式進行雙步驟驗證時，它可以下列兩種方式之一來運作：
 
@@ -110,8 +110,6 @@ Microsoft Authenticator 應用程式適用於 [Android](https://go.microsoft.com
 ## <a name="next-steps"></a>後續步驟
 
 - 如果您有更多關於應用程式的一般問題，請參閱 [Microsoft Authenticator 常見問題集](microsoft-authenticator-app-faq.md)
-
-- 如果您有關於如何使用手機登入的問題，請參閱[使用您的電話而不是您的密碼登入](microsoft-authenticator-app-phone-signin-faq.md)
 
 - 如果您需要雙步驟驗證的詳細資訊，請參閱[對我的帳戶進行雙步驟驗證設定](multi-factor-authentication-end-user-first-time.md)
 

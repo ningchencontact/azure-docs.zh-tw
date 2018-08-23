@@ -8,12 +8,12 @@ ms.author: tomfitz
 ms.date: 07/05/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 4fef565dbd78cf3559cd47ed6c59800c8e6f9c9d
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: ec85a866279412232aa23fad8f975d1642525772
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869138"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42023128"
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>使用 Azure 入口網站和事件格線建立和路由傳送自訂事件
 
@@ -41,7 +41,7 @@ Event Grid 主題會提供使用者定義的端點，作為您發佈事件的目
 
    ![啟動步驟](./media/custom-event-quickstart-portal/select-create.png)
 
-1. 提供自訂主題的唯一名稱。 主題名稱必須是唯一的，因為它由 DNS 項目表示。 請勿使用圖片中顯示的名稱。 相反地，請建立您自己的名稱。 選取其中一個[支援區域](overview.md)。 提供資源群組的名稱。 選取 [建立] 。
+1. 提供自訂主題的唯一名稱。 主題名稱必須是唯一的，因為它由 DNS 項目表示。 請勿使用圖片中顯示的名稱。 相反地，請建立您自己的名稱。 提供資源群組的名稱。 選取 [建立] 。
 
    ![提供事件格線主題值](./media/custom-event-quickstart-portal/create-custom-topic.png)
 

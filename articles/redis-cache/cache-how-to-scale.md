@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: d88fcea4a41d8402cc25a1623727284afb0e9088
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 885258379e71ea945e41c4b43c34b35b16dd4a7a
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36959377"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42145080"
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>如何調整 Azure Redis 快取
 Azure Redis 快取都有不同的快取供應項目，以提供選擇快取大小和功能的彈性。 建立快取之後，如果您應用程式的需求改變，您可以調整快取的大小和定價層。 本文說明如何使用 Azure 入口網站和 Azure PowerShell 與 Azure CLI 之類的工具來調整快取。
@@ -69,7 +69,7 @@ Azure Redis 快取都有不同的快取供應項目，以提供選擇快取大�
 * [使用 MAML 進行調整](#scale-using-maml)
 
 ### <a name="scale-using-powershell"></a>使用 PowerShell 進行調整
-修改 `Size`、`Sku`，或 `ShardCount` 屬性時，您可以使用 [Set-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634518.aspx) Cmdlet 搭配 PowerShell 來調整您的 Azure Redis 快取執行個體。 下列範例示範如何將名為 `myCache` 的快取調整為 2.5 GB 快取。 
+修改 `Size`、`Sku`，或 `ShardCount` 屬性時，您可以使用 [Set-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/set-azurermrediscache?view=azurermps-6.6.0) Cmdlet 搭配 PowerShell 來調整您的 Azure Redis 快取執行個體。 下列範例示範如何將名為 `myCache` 的快取調整為 2.5 GB 快取。 
 
     Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 

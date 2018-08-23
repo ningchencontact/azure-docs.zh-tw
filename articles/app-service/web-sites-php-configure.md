@@ -13,12 +13,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: 6e7de0a7b580c0028982895487117ab98d0cd612
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 028a8f35b6ffc4b429725e91045e70112f2bdabd
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503446"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42140249"
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>在 Azure App Service Web Apps 中設定 PHP
 
@@ -189,7 +189,7 @@ App Service 預設不會對 composer.json (如果您 PHP 專案中有的話) 執
 
 ## <a name="next-steps"></a>後續步驟
 
-如需詳細資訊，請參閱 [PHP 開發人員中心](/develop/php/)。
+如需詳細資訊，請參閱 [PHP 開發人員中心](https://azure.microsoft.com/develop/php/)。
 
 > [!NOTE]
 > 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至 [試用 App Service](https://azure.microsoft.com/try/app-service/)，即可在 App Service 中立即建立短期入門 Web 應用程式。 不需要信用卡；無需承諾。

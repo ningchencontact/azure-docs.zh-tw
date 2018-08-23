@@ -14,13 +14,13 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
-ms.custom: mvc, devcenter
-ms.openlocfilehash: eeaac4f694c3e7197a5f798d7462b39d42e14e03
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.custom: mvc, devcenter, vs-azure
+ms.openlocfilehash: b438ac221483fec7ea90847ec27a105a3f21ab78
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505826"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42117358"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>教學課程：在 Azure 中搭配 SQL Database 來建置 ASP.NET 應用程式
 

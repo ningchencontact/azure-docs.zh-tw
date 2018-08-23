@@ -14,12 +14,12 @@ ms.component: fundamentals
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 797c35bad03c063203e3616740af633b71835a9c
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 327cecd129befb56c33d7fcf2d59ee5b58a18549
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39640167"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42023567"
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Azure 身分識別管理的基本概念
 
@@ -27,7 +27,7 @@ ms.locfileid: "39640167"
 
 十多年來，Microsoft 一直保護雲端架構身分識別的安全，而現在透過 [Azure Active Directory (AD)](active-directory-whatis.md) 持續為您提供相同的保護系統。 使用 Azure AD，企業系統管理員可透過前所未有的更佳安全性和監管，輕易地確保使用者和系統管理員負有責任。
 
-Azure AD Premium 是雲端架構身分識別和存取管理解決方案，其具備可對所有應用程式啟用一個安全身分識別的進階保護功能、身分識別保護 (由 [Microsoft 智慧安全性圖表](https://www.microsoft.com/en-us/security/intelligence)增強)，以及 Privileged Identity Management。 Azure AD Premium 不只是另一個監視或報告工具，還可即時保護使用者的身分識別，並可讓您建立以風險為基礎的調適性存取原則來保護您組織的資料。
+Azure AD Premium 是雲端架構身分識別和存取管理解決方案，其具備可對所有應用程式啟用一個安全身分識別的進階保護功能、身分識別保護 (由 [Microsoft 智慧安全性圖表](https://www.microsoft.com/security/intelligence)增強)，以及 Privileged Identity Management。 Azure AD Premium 不只是另一個監視或報告工具，還可即時保護使用者的身分識別，並可讓您建立以風險為基礎的調適性存取原則來保護您組織的資料。
 
 觀看以下短片，快速概覽 Azure AD 身分識別管理和保護功能︰
 >[!VIDEO https://www.youtube.com/embed/9LGIJ2-FKIM]

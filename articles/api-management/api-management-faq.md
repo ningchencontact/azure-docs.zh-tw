@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 243f0b8206166e3e054dfc423259bd3444d8a2db
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7082edf43e53766d32bd967d0b894f6439eaa492
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31589827"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42144803"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API 管理常見問題集
 得到 Azure API 管理常見問題、模式和最佳作法的答案。
@@ -78,7 +78,7 @@ ms.locfileid: "31589827"
 
 * [API 管理 REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx)。
 * [Microsoft Azure ApiManagement 服務管理資源庫 SDK](http://aka.ms/apimsdk)。
-* [服務部署](https://msdn.microsoft.com/library/mt619282.aspx)和[服務管理](https://msdn.microsoft.com/library/mt613507.aspx) PowerShell Cmdlet。
+* [服務部署](https://docs.microsoft.com/powershell/module/wds)和[服務管理](https://docs.microsoft.com/powershell/azure/servicemanagement/overview) PowerShell Cmdlet。
 
 ### <a name="how-do-i-add-a-user-to-the-administrators-group"></a>如何將使用者新增至 Administrators 群組？
 將使用者新增至 Administrators 群組的步驟如下：
@@ -87,7 +87,7 @@ ms.locfileid: "31589827"
 2. 移至包含您要更新之 API 管理執行個體的資源群組。
 3. 在 API 管理中，將 [Api 管理參與者] 角色指派給使用者。
 
-新增的參與者現在即可使用 Azure PowerShell [Cmdlet](https://msdn.microsoft.com/library/mt613507.aspx)。 以系統管理員身分登入的步驟如下︰
+新增的參與者現在即可使用 Azure PowerShell [Cmdlet](https://docs.microsoft.com/powershell/azure/overview)。 以系統管理員身分登入的步驟如下︰
 
 1. 使用 `Connect-AzureRmAccount` Cmdlet 進行登入。
 2. 使用 `Set-AzureRmContext -SubscriptionID <subscriptionGUID>` 將內容設定為具有服務的訂用帳戶。

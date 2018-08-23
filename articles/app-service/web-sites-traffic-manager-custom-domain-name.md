@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
-ms.openlocfilehash: c78fb7883559e46ebaa1d8dab59a15c55fb76fdf
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a83b5dada8afff455375ae1606ecaac4c9ebe8e7
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38317385"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42144221"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>在使用流量管理員的 Azure App Service 中設定 Web 應用程式的自訂網域名稱
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
@@ -69,7 +69,7 @@ ms.locfileid: "38317385"
 [!INCLUDE [modes](../../includes/custom-dns-web-site-enable-on-traffic-manager.md)]
 
 ## <a name="next-steps"></a>後續步驟
-如需詳細資訊，請參閱 [Node.js 開發人員中心](/develop/nodejs/)。
+如需詳細資訊，請參閱 [Node.js 開發人員中心](http://azure.microsoft.com/develop/nodejs/)。
 
 [!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 

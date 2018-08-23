@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 05/22/2017
 ms.author: rafats
-ms.openlocfilehash: 8aeab32597d396273cae16bf2c6d98b73828f6f8
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 4b469d306c4cd642e375e4eb15b0d26df828b308
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796837"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42023866"
 ---
 # <a name="introduction-to-azure-cosmos-db-sql-api"></a>Azure Cosmos DB 簡介：SQL API
 
@@ -68,10 +68,10 @@ Azure Cosmos DB 公開資源的方式是透過 REST API，此 API 可供任何�
 | 下載 | 文件 |
 | --- | --- |
 | [.NET SDK](http://go.microsoft.com/fwlink/?LinkID=402989) |[.NET 程式庫](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) |
-| [Node.js SDK](http://go.microsoft.com/fwlink/?LinkID=402990) |[Node.js 程式庫](http://azure.github.io/azure-documentdb-node/) |
+| [Node.js SDK](http://go.microsoft.com/fwlink/?LinkID=402990) |[Node.js 程式庫](https://github.com/Azure/azure-cosmosdb-node) |
 | [Java SDK](http://go.microsoft.com/fwlink/?LinkID=402380) |[Java 程式庫](/java/api/com.microsoft.azure.documentdb) |
-| [JavaScript SDK](http://go.microsoft.com/fwlink/?LinkID=402991) |[JavaScript 程式庫](http://azure.github.io/azure-documentdb-js/) |
-| n/a |[伺服器端 JavaScript SDK](http://azure.github.io/azure-documentdb-js-server/) |
+| [JavaScript SDK](https://github.com/Azure/azure-cosmos-js) |[JavaScript 程式庫](https://github.com/Azure/azure-cosmos-js) |
+| n/a |[伺服器端 JavaScript SDK](https://github.com/Azure/azure-cosmosdb-js-server) |
 | [Python SDK](https://pypi.python.org/pypi/pydocumentdb) |[Python 程式庫](http://azure.github.io/azure-documentdb-python/) |
 | n/a | [適用於 MongoDB 的 API](mongodb-introduction.md)
 

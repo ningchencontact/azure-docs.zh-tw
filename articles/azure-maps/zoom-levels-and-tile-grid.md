@@ -1,24 +1,24 @@
 ---
 title: Azure 地圖服務中的縮放層級和圖格格線 | Microsoft Docs
 description: 了解 Azure 地圖服務中的縮放層級和圖格格線
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 55441cda7a6fc65ac8103d19510823a7c84a9cbf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c6d38dbb7ee292172fe081c2b77a49db61856d5c
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34599920"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42144199"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>縮放層級和圖格格線
 Azure 地圖服務使用麥卡托圓球投影座標系統 (EPSG：3857)。
 
-將世界分為正方形圖格。 圖像呈現方式 (光柵) 有 19 個縮放層級，編號 0 到 18。 圖像呈現方式 (向量) 有 21 個縮放層級，編號 0 到 20。 在縮放層級 0，整個世界剛好放進單一圖格裡：
+將世界分為正方形圖格。 圖像呈現方式 (光柵) 有 21 個縮放層級，編號 0 到 20。 圖像呈現方式 (向量) 有 23 個縮放層級，編號 0 到 22。 在縮放層級 0，整個世界剛好放進單一圖格裡：
 
 ![世界圖格](./media/zoom-levels-and-tile-grid/world0.png)
 
@@ -29,7 +29,7 @@ Azure 地圖服務使用麥卡托圓球投影座標系統 (EPSG：3857)。
 ![世界圖格左下](./media/zoom-levels-and-tile-grid/world1b.png)     ![世界圖格右下](./media/zoom-levels-and-tile-grid/world1d.png) 
 
 
-每個後續的縮放層級再將前一層級的圖格一分為四，建立 2<sup>縮放</sup> x 2<sup>縮放</sup> 的格線。 縮放層級 20 是 2<sup>20</sup> x 2<sup>20</sup> 的格線，等於 1,048,576 x 1,048,576 個圖格 (總計 109,951,162,778 個圖格)。
+每個後續的縮放層級再將前一層級的圖格一分為四，建立 2<sup>縮放</sup> x 2<sup>縮放</sup> 的格線。 縮放層級 22 是 格線 2<sup>22</sup> x 2<sup>22</sup>，或 4,194,304 x 4,194,304 個圖格 (總計 17,592,186,044,416 個圖格)。
 
 下表提供完整的縮放層級清單值：
 
@@ -56,6 +56,8 @@ Azure 地圖服務使用麥卡托圓球投影座標系統 (EPSG：3857)。
 |18|0.6|152.8|
 |19|0.3|76.4|
 |20|0.15|38.2|
+|21|0.075|19.1|
+|22|0.0375|9.55|
 
 圖格是由縮放層級來召集，其 x 和 y 座標對應至圖格在該縮放層級格線上的位置。
 

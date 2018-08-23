@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: jroth
-ms.openlocfilehash: 252e4f9fe5ed6b4ff9997fc41c691636e6d002b3
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: bb9e30489aa8870fe1c71c8c9a8bd557a2dcf2b1
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413533"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42146345"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>在虛擬機器上搭配使用 Azure 進階儲存體和 SQL Server
 ## <a name="overview"></a>概觀
@@ -645,7 +645,7 @@ ms.locfileid: "39413533"
 
 在後續的移轉步驟中，您需要使用參考負載平衡器的更新 IP 位址來更新 Always On 接聽程式，這涉及 IP 位址資源的移除與新增。 更新 IP 之後，您需要確定新的 IP 位址已在 DNS 區域中更新，而且用戶端正在更新它們的本機 DNS 快取。
 
-如果您的用戶端位於不同的網路區段並參考不同的 DNS 伺服器，您就需要考量在移轉期間「DNS 區域傳輸」會發生什麼情況，因為應用程式重新連線時間至少會受到任何新接聽程式 IP 位址的「區域傳輸時間」限制。 如果您受到此處所討論的時間所限制，就應該與您的 Windows 小組討論並測試強制執行增量區域傳輸，同時降低 DNS 主機記錄的存留時間，讓用戶端能夠更新。 如需詳細資訊，請參閱[增量區域傳輸](https://technet.microsoft.com/library/cc958973.aspx)和 [Start-DnsServerZoneTransfer](https://technet.microsoft.com/library/jj649917.aspx)。
+如果您的用戶端位於不同的網路區段並參考不同的 DNS 伺服器，您就需要考量在移轉期間「DNS 區域傳輸」會發生什麼情況，因為應用程式重新連線時間至少會受到任何新接聽程式 IP 位址的「區域傳輸時間」限制。 如果您受到此處所討論的時間所限制，就應該與您的 Windows 小組討論並測試強制執行增量區域傳輸，同時降低 DNS 主機記錄的存留時間，讓用戶端能夠更新。 如需詳細資訊，請參閱[增量區域傳輸](https://technet.microsoft.com/library/cc958973.aspx)和 [Start-DnsServerZoneTransfer](https://docs.microsoft.com/powershell/module/dnsserver/start-dnsserverzonetransfer)。
 
 針對 Azure 中與 Always On 上接聽程式相關聯的 DNS 記錄，其適用的 TTL 預設是 1200 秒。 如果您在移轉期間受到時間限制，可能希望降低這個時間，以確保用戶端可以使用適用於接聽程式的更新 IP 位址來更新他們的 DNS。 您可以藉由傾印出 VNN 設定來查看並修改設定：
 

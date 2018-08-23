@@ -9,12 +9,12 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: priyar
-ms.openlocfilehash: 4b633cefa37c11511a8171d5a7f61b03dfaa4466
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6236bf1c4d9ac7ba672939543c16b8d02a79892e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368599"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42093860"
 ---
 # <a name="bing-text-to-speech-api"></a>Bing 文字轉換語音 API
 
@@ -56,7 +56,7 @@ Ocp-Apim-Subscription-Key | ASCII | 您的訂用帳戶金鑰
 
 下表顯示用於語音合成要求的 HTTP 標頭。
 
-標頭 |值 |註解
+頁首 |值 |註解
 ----|----|----
 Content-Type | application/ssml+xml | 輸入內容類型。
 X-Microsoft-OutputFormat | **1.** ssml-16khz-16bit-mono-tts <br> **2.** raw-16khz-16bit-mono-pcm <br>**3.** audio-16khz-16kbps-mono-siren <br> **4.** riff-16khz-16kbps-mono-siren <br> **5.** riff-16khz-16bit-mono-pcm <br> **6.** audio-16khz-128kbitrate-mono-mp3 <br> **7.** audio-16khz-64kbitrate-mono-mp3 <br> **8.** audio-16khz-32kbitrate-mono-mp3 | 輸出音訊格式。
@@ -118,7 +118,7 @@ Content-Length: 0
 
 ### <a name="ErrorResponse"></a>錯誤回應
 
-錯誤 | 說明
+Error | 說明
 ----|----
 HTTP/400 不正確的要求 | 必要參數遺漏、空白或 Null，或傳遞至必要或選用參數的值無效。 取得「無效」回應的其中一個原因是傳遞超過允許長度的字串值。 其中包含有問題的參數的簡短描述。
 HTTP 401 未經授權 | 此要求未經授權。
@@ -211,9 +211,9 @@ en-IE | 男性 | "Microsoft Server Speech Text to Speech Voice (en-IE, Sean)"
 en-IN | 女性 | "Microsoft Server Speech Text to Speech Voice (en-IN, Heera, Apollo)"
 en-IN | 女性 | "Microsoft Server Speech Text to Speech Voice (en-IN, PriyaRUS)"
 en-IN | 男性 | "Microsoft Server Speech Text to Speech Voice (en-IN, Ravi, Apollo)"
-en-US | 女性 | "Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)"
-en-US | 女性 | "Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)"
-en-US | 男性 | "Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)"
+zh-TW | 女性 | "Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)"
+zh-TW | 女性 | "Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)"
+zh-TW | 男性 | "Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)"
 es-ES | 女性 | "Microsoft Server Speech Text to Speech Voice (es-ES, Laura, Apollo)"
 es-ES | 女性 | "Microsoft Server Speech Text to Speech Voice (es-ES, HelenaRUS)"
 es-ES | 男性 | "Microsoft Server Speech Text to Speech Voice (es-ES, Pablo, Apollo)"
@@ -234,11 +234,10 @@ hr-HR | 男性 | "Microsoft Server Speech Text to Speech Voice (hr-HR, Matej)"
 hu-HU | 男性 | "Microsoft Server Speech Text to Speech Voice (hu-HU, Szabolcs)"
 id-ID | 男性 | "Microsoft Server Speech Text to Speech Voice (id-ID, Andika)"
 it-IT | 男性 | "Microsoft Server Speech Text to Speech Voice (it-IT, Cosimo, Apollo)"
+it-IT | 女性 | "Microsoft Server Speech Text to Speech Voice (it-IT, LuciaRUS)"
 ja-JP | 女性 | "Microsoft Server Speech Text to Speech Voice (ja-JP, Ayumi, Apollo)"
 ja-JP | 男性 | "Microsoft Server Speech Text to Speech Voice (ja-JP, Ichiro, Apollo)"
 ja-JP | 女性 | "Microsoft Server Speech Text to Speech Voice (ja-JP, HarukaRUS)"
-ja-JP | 女性 | "Microsoft Server Speech Text to Speech Voice (ja-JP, LuciaRUS)"
-ja-JP | 男性 | "Microsoft Server Speech Text to Speech Voice (ja-JP, EkaterinaRUS)"
 ko-KR | 女性 | "Microsoft Server Speech Text to Speech Voice (ko-KR, HeamiRUS)"
 ms-MY | 男性 | "Microsoft Server Speech Text to Speech Voice (ms-MY, Rizwan)"
 nb-NO | 女性 | "Microsoft Server Speech Text to Speech Voice (nb-NO, HuldaRUS)"
@@ -250,6 +249,7 @@ pt-PT | 女性 | "Microsoft Server Speech Text to Speech Voice (pt-PT, HeliaRUS)
 ro-RO | 男性 | "Microsoft Server Speech Text to Speech Voice (ro-RO, Andrei)"
 ru-RU | 女性 | "Microsoft Server Speech Text to Speech Voice (ru-RU, Irina, Apollo)"
 ru-RU | 男性 | "Microsoft Server Speech Text to Speech Voice (ru-RU, Pavel, Apollo)"
+ru-RU | 女性 | "Microsoft Server Speech Text to Speech Voice (ru-RU, EkaterinaRUS)"
 sk-SK | 男性 | "Microsoft Server Speech Text to Speech Voice (sk-SK, Filip)"
 sl-SI | 男性 | "Microsoft Server Speech Text to Speech Voice (sl-SI, Lado)"
 sv-SE | 女性 | "Microsoft Server Speech Text to Speech Voice (sv-SE, HedvigRUS)"

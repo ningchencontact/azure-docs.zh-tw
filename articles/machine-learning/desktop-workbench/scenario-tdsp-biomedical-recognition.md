@@ -3,25 +3,25 @@ title: 生物醫學實體辨識 - Team Data Science Process - Azure Machine Lear
 description: 在 Azure Machine Learning Workbench 中使用生物醫學實體辨識深度學習的 Team Data Science Process 專案快速入門。
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
+ms.author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
-ms.author: bradsev
-ms.openlocfilehash: ae8c8ed9d397df0c82b74f051ff14729c0f41623
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: f6ce43c2d290bacee10e102cc6c382981db9917f
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837271"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42145562"
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>使用 Team Data Science Process (TDSP) 範本的生物醫學實體辨識
 
@@ -92,7 +92,7 @@ ms.locfileid: "34837271"
 [https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction)
 
 
-## <a name="prerequisites"></a>先決條件 
+## <a name="prerequisites"></a>必要條件 
 
 * Azure [訂用帳戶](https://azure.microsoft.com/free/)
 * Azure Machine Learning Workbench. 請參閱[安裝指南](../service/quickstart-installation.md)。 Azure Machine Learning Workbench 目前只能安裝在下列作業系統上： 

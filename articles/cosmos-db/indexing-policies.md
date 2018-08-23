@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 79585195cf95e2074a1c455c82faa500af20218a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: d7cbeebff42bddd93cac35a0205d031a90bb4715
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618762"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42144250"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB 如何為資料編製索引？
 
@@ -36,6 +36,22 @@ ms.locfileid: "39618762"
 * 如何設定編製索引來執行 Order By 或範圍查詢？
 * 如何變更集合的索引編製原則？
 * 如何比較不同索引編製原則的儲存空間和效能？
+
+## <a id="Indexing"></a> Cosmos DB 索引編製
+
+資料庫索引的目的是要在使用最少資源 (例如 CPU、輸入/輸出) 的情況下，以各種方式提供查詢，同時兼顧良好的輸送量和低延遲。 通常，選擇適用於資料庫查詢的正確索引需要經過相當的規劃和實驗。 此方式對資料不符合嚴謹結構描述的無結構描述資料庫而言是種挑戰，而且發展十分迅速。 
+
+因此，我們在設計 Cosmos DB 索引子系統時，設定了下列目標：
+
+* 在不需要結構描述的情況下，對文件編製索引：索引子系統不需要任何結構描述資訊，或提出任何文件結構描述的相關假設。  
+
+* 支援有效率、豐富階層式及關聯式查詢：索引可有效率地支援 Cosmos DB 查詢語言，包括支援階層式和關聯式投射。  
+
+* 支援在面對持續大量寫入時進行一致查詢：在面對持續大量寫入時，針對具有一致查詢的高寫入輸送量工作負載，會以累加、有效率及線上方式更新索引。 一致的索引更新對於提供一致性層級的查詢十分重要，在此層級中是由使用者設定文件服務。  
+
+* 支援多重租用：由於是使用保留型模型進行跨租用戶的資源控管，因此會在為每一複本配置的系統資源 (CPU、記憶體，以及每秒的輸入/輸出作業) 預算內執行索引更新。  
+
+* 儲存體效率：基於成本效益，索引的磁碟儲存體額外負荷有所限制且可預測。 這十分重要，因為 Cosmos DB 允許開發人員在索引額外負荷與查詢效能之間做出成本取捨。  
 
 ## 自訂集合的編製索引原則<a id="CustomizingIndexingPolicy"></a>   
 您可以透過覆寫 Azure Cosmos DB 集合上的預設編製索引原則，來自訂在儲存空間、寫入/查詢效能及查詢一致性之間的取捨。 您可以設定下列層面：

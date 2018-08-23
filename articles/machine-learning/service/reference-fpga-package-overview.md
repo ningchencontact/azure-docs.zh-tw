@@ -2,18 +2,18 @@
 title: 適用於 Azure Machine Learning 硬體加速的 FPGA 套件
 description: 了解適用於 Azure Machine Learning 使用者的 Python 套件。
 ms.service: machine-learning
-ms.component: studio
+ms.component: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-ms.author: routlaw
-author: rloutlaw
+ms.author: tedway
+author: tedway
 ms.date: 05/07/2018
-ms.openlocfilehash: e680ef34be1d5dae2942c432de5e81fe620bbdc4
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: a81f5f811058f3c7940da79419b9801225716e6b
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832973"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42144046"
 ---
 # <a name="azure-machine-learning-hardware-acceleration-package"></a>Azure Machine Learning 硬體加速套件
 
@@ -25,7 +25,7 @@ Azure Machine Learning 硬體加速套件是適用於 Azure Machine Learning 的
 
 + 將模型部署至 Azure 上的[現場可程式化閘陣列 (FPGA)](concept-accelerate-with-fpgas.md)，以達到超低延遲推斷
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 1. 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -40,18 +40,18 @@ Azure Machine Learning 硬體加速套件是適用於 Azure Machine Learning 的
 
 2. 安裝 [Anaconda (Python 3.6)](https://conda.io/miniconda.html)
 
-3. 若要下載預先設定的 Anaconda 環境，請從 Git 提示字元使用下列命令：
+   若要下載預先設定的 Anaconda 環境，請從 Git 提示字元使用下列命令：
 
     ```
     git clone https://aka.ms/aml-real-time-ai
     ```
-5. 若要建立環境，請開啟 **Anaconda 提示字元**，並使用下列命令：
+1. 若要建立環境，請開啟 **Anaconda 提示字元**，並使用下列命令：
 
     ```
     conda env create -f aml-real-time-ai/environment.yml
     ```
 
-6. 若要啟用環境，請使用下列命令：
+1. 若要啟用環境，請使用下列命令：
 
     ```
     conda activate amlrealtimeai

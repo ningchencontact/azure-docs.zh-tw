@@ -8,12 +8,12 @@ ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ms.component: blobs
-ms.openlocfilehash: 6f3afa22a50728070c42cd6e2eff0cc148815fbc
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: d38ab71ed2d2ebff04004f02589cfccca4199318
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39262679"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42144245"
 ---
 # <a name="reacting-to-blob-storage-events"></a>回應 Blob 儲存體事件
 
@@ -21,7 +21,7 @@ Azure 儲存體事件可讓應用程式使用新式無伺服器架構來回應 B
 
 常見的 Blob 儲存體事件案例包括映像或影片處理、搜尋索引，或任何檔案導向的工作流程。  非同步檔案上傳非常適合事件。  在變更不常見但情況需要立即回應的情況下，以事件為基礎的架構可能特別有效。
 
-儲存體事件的可用性會繫結至事件格線[可用性](../../event-grid/overview.md)，並且將在其他區域中變成可用狀態，就像事件格線所做的一樣。 如需快速範例，請參閱[將 Blob 儲存體事件路由至自訂的 Web 端點 - CLI](storage-blob-event-quickstart.md) 或[將 Blob 儲存體事件路由至自訂的 Web 端點 - PowerShell](storage-blob-event-quickstart-powershell.md)。 
+如需快速範例，請參閱[將 Blob 儲存體事件路由至自訂的 Web 端點 - CLI](storage-blob-event-quickstart.md) 或[將 Blob 儲存體事件路由至自訂的 Web 端點 - PowerShell](storage-blob-event-quickstart-powershell.md)。 
 
 ![Event Grid 模型](./media/storage-blob-event-overview/event-grid-functional-model.png)
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e9503759b776bb045c4dc0357b1ab88be1294013
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 8d95790dc09f6d26c6ae749ed0cd386053c5cb35
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038030"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42144216"
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 Tunable 資料一致性層級
 Azure Cosmos DB 是針對每個資料模型考量到全球發佈的全新設計。 它的設計目的是提供可預測的低延遲保證，以及多個定義完善且寬鬆的一致性層級模型。 Azure Cosmos DB 目前提供五種一致性層級：強式、限定過期、工作階段、一致的前置和最終。 限定過期、工作階段、一致前置詞、最終，統稱為「寬鬆的一致性模型」，因為它們提供的一致性比強式更小，後者是最高一致性的模型。 
@@ -132,7 +132,7 @@ Azure Cosmos DB 目前實作 MongoDB 3.4 版，有強式與最終這兩種一致
 * [Doug Terry 透過棒球來解說複寫的資料一致性 (影片)](https://www.youtube.com/watch?v=gluIh8zd26I)
 * [Doug Terry 透過棒球來解說複寫的資料一致性 (白皮書)](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
 * [弱式一致複寫資料的工作階段保證](http://dl.acm.org/citation.cfm?id=383631)
-* [現代分散式資料庫系統設計的一致性取捨：CAP 是整個過程中的唯一解決方案](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
+* [現代分散式資料庫系統設計的一致性取捨：CAP 是整個過程中的唯一解決方案](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
 * [實際部分仲裁的隨機限定過期 (PBS) (英文)](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 * [再論最終一致](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 * [仲裁系統的負載、容量及可用性，SIAM 計算期刊](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)

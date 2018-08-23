@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 0a61918108a48f4a9fa3d1c07cc8d41525f1f2a0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a61b7b08d883c1b5a7fde93c249fc8de1473d15d
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28928156"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42146359"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>預先擷取 Azure 服務匯流排訊息
 
@@ -40,9 +40,9 @@ ms.locfileid: "28928156"
 
 預先擷取加速訊息流程的方式是，在應用程式要求某個訊息時和之前，先將訊息備妥以供本機擷取。 這個輸送量提升是應用程式作者必須明確進行取捨的結果：
 
-利用 [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode.receiveanddelete) 接收模式，所有擷取到預先擷取緩衝區的訊息便無法再於佇列中使用，而且只會位於記憶體中的預先擷取緩衝區，直到應用程式透過 **Receive**/**ReceiveAsync** 或 **OnMessage**/**OnMessageAsync** API 接收到它們為止。 如果應用程式在接收到訊息之前終止，則那些訊息將會永久遺失。
+利用 [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) 接收模式，所有擷取到預先擷取緩衝區的訊息便無法再於佇列中使用，而且只會位於記憶體中的預先擷取緩衝區，直到應用程式透過 **Receive**/**ReceiveAsync** 或 **OnMessage**/**OnMessageAsync** API 接收到它們為止。 如果應用程式在接收到訊息之前終止，則那些訊息將會永久遺失。
 
-在 [PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode.peeklock) 接收模式中，會以鎖定狀態來將擷取到預先擷取緩衝區的訊息擷取到緩衝區，並且會有具鎖定期限的逾時時鐘。 如果預先擷取緩衝區夠大，而且會花這麼長的時間來處理位於預先擷取緩衝區的訊息鎖定到期，甚至是當應用程式正在處理訊息時的訊息鎖定到期，則可能會有一些複雜難懂的事件需要應用程式處理。
+在 [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock) 接收模式中，會以鎖定狀態來將擷取到預先擷取緩衝區的訊息擷取到緩衝區，並且會有具鎖定期限的逾時時鐘。 如果預先擷取緩衝區夠大，而且會花這麼長的時間來處理位於預先擷取緩衝區的訊息鎖定到期，甚至是當應用程式正在處理訊息時的訊息鎖定到期，則可能會有一些複雜難懂的事件需要應用程式處理。
 
 應用程式所取得的訊息可能含有過期或即將到期的鎖定。 若是如此，應用程式可能會處理該訊息，但接著為發現它因為鎖定到期而無法完成。 應用程式可以檢查 [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.lockeduntilutc#Microsoft_Azure_ServiceBus_Core_MessageReceiver_LockedUntilUtc) 屬性 (受限於訊息代理程式和本機電腦時鐘之間的時鐘誤差)。 如果訊息鎖定已過期，應用程式就必須忽略該訊息；不應對訊息進行任何 API 呼叫。 如果訊息尚未到期但即將到期，則可呼叫 [message.RenewLock()](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_) 來更新鎖定，並以另一個預設鎖定期間來延長鎖定。
 

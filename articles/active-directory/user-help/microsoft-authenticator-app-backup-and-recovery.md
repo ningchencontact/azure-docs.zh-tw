@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: 29226f0645a772ffe02e378c9b4df0a87909731a
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 39ec7c979294860967deb3307f5d87112b762257
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358115"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42144247"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>使用 Microsoft Authenticator 應用程式保來備份和復原帳戶認證
 
@@ -101,8 +101,6 @@ Microsoft Authenticator 應用程式會將您的帳戶認證和相關應用程�
 
 ## <a name="related-topics"></a>相關主題
 - [開始使用 Microsoft Authenticator 應用程式](microsoft-authenticator-app-how-to.md)  
-
-- [使用您的電話登入](microsoft-authenticator-app-phone-signin-faq.md)
 
 - [Microsoft Authenticator 應用程式常見問題集](microsoft-authenticator-app-faq.md)
 

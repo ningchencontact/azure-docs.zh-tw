@@ -9,18 +9,18 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: be4cc79d16b9a22124f16878b11ca04a916f98ae
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 87970e1c5e8487f9afca2acc680bdfeb610dc89f
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368826"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42099877"
 ---
 # <a name="call-bing-custom-search-endpoint-c"></a>呼叫 Bing 自訂搜尋端點 (C#)
 
 本快速入門說明如何使用 C# 呼叫 Bing 自訂搜尋端點，以從您的自訂搜尋執行個體要求搜尋結果。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 -  已經可以使用的自訂搜尋執行個體。 請參閱[建立您的第一個 Bing 自訂搜尋執行個體](quick-start.md)。
 -  已安裝 [.Net Core](https://www.microsoft.com/net/download/core)。
@@ -34,7 +34,7 @@ ms.locfileid: "35368826"
 若要執行此範例，請遵循下列步驟：
 
 1. 建立程式碼的資料夾。
-2. 從命令提示字元或終端機，瀏覽至您剛剛建立的資料夾。
+2. 從命令提示字元或終端機，巡覽至您剛剛建立的資料夾。
 3. 執行下列命令：
     ```
     dotnet new console -o BingCustomSearch
@@ -119,10 +119,12 @@ ms.locfileid: "35368826"
     }
     ```
 6. 使用下列命令建置應用程式。 記下命令輸出所參考的 dll 路徑。
+
     <pre>
     dotnet build 
     </pre>
 7. 使用下列命令，將 **PATH TO OUTPUT** 取代為建置步驟所參考的路徑，執行應用程式。
+
     <pre>    
     dotnet **PATH TO OUTPUT**
     </pre>
@@ -130,4 +132,4 @@ ms.locfileid: "35368826"
 ## <a name="next-steps"></a>後續步驟
 - [設定託管的 UI 體驗](./hosted-ui.md)
 - [使用裝飾標記醒目提示文字](./hit-highlighting.md)
-- [將網頁分頁](./page-webpages.md)
+- [頁面網頁](./page-webpages.md)

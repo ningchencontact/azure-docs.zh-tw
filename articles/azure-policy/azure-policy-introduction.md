@@ -9,12 +9,12 @@ ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: e00af59c39219cf6efd14a1c6b2d831fc8addf5a
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 405f69ae1c37e478758d984ddf7dc0e267910fef
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364423"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42023796"
 ---
 # <a name="what-is-azure-policy"></a>什麼是 Azure 原則？
 
@@ -119,19 +119,7 @@ Azure 原則用權限代表兩個不同資源提供者中的作業：
 
 ## <a name="maximum-count-of-policy-objects"></a>原則物件的最大計數
 
-Azure 原則的每個物件類型都有最大計數。 _範圍_的項目表示訂用帳戶或管理群組。
-
-| Where | 何事 | 最大計數 |
-|---|---|---|
-| 影響範圍 | 原則定義 | 250 |
-| 影響範圍 | 計畫定義 | 100 |
-| 租用戶 | 計畫定義 | 1000 |
-| 影響範圍 | 原則/方案指派 | 100 |
-| 原則定義 | 參數 | 20 |
-| 計畫定義 | 原則 | 100 |
-| 計畫定義 | 參數 | 100 |
-| 原則/方案指派 | 排除項目 (notScopes) | 100 |
-| 原則規則 | 巢狀的條件 | 512 |
+[!INCLUDE [policy-limits](../../includes/azure-policy-limits.md)]
 
 ## <a name="recommendations-for-managing-policies"></a>管理原則的建議
 

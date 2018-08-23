@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 05/09/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: bbc6a5083aebba40885700cab6c67128c9d9f916
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 778da6d244561d87e7070ab244fd92dba043488e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643425"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42146371"
 ---
 # <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>建立、更新 Azure SQL 資料倉儲中資料表的查詢最佳化統計資料
 建立和更新 Azure SQL 資料倉儲中資料表的查詢最佳化統計資料。
@@ -65,7 +65,10 @@ DBCC SHOW_STATISTICS (<tablename>, <targetname>)
 
 以下為更新統計資料的相關建議：
 
-| **統計資料更新頻率**  | 保守：每日 <br></br> 載入或轉換資料後 | | **取樣** |  小於 10 億個資料列，使用預設取樣 (20%) <br></br> 超過 10 億個資料列，2% 範圍的統計資料是理想狀況 |
+|||
+|-|-|
+| **統計資料更新的頻率**  | 保守：每日 <br></br> 載入或轉換資料之後 |
+| **取樣** |  小於 10 億個資料列，使用預設取樣 (20%) <br></br> 超過 10 億個資料列，2% 範圍的統計資料是理想狀況 |
 
 為查詢疑難排解時，首先要詢問的問題之一就是「統計資料是最新的嗎？」
 

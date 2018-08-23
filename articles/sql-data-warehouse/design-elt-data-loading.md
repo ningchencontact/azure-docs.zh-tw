@@ -10,12 +10,12 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 5ceb8cfd8efea66dbf17b8c522316b9a010e437d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 33e4a405547fcdd797ddfdf6aba6c6c1c126b742
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31799442"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42144792"
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>設計 Azure SQL 資料倉儲的擷取、載入及轉換 (ELT)
 
@@ -101,7 +101,7 @@ PolyBase 會從 UTF-8 和 UTF-16 編碼分隔符號文字檔載入資料。 除�
 ## <a name="load-to-a-staging-table"></a>載入至暫存表格
 若要將資料載入資料倉儲，先將資料載入暫存表格相當合適。 藉由使用暫存表格，您可以處理錯誤而不會干擾生產資料表，而且可以避免在生產資料表上執行復原作業。 暫存表格也可讓您使用 SQL 資料倉儲，在將資料插入生產資料表之前先執行轉換。
 
-若要使用 T-SQL 載入，請執行 [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) T-SQL 陳述式。 此命令會將 select 陳述式的結果插入新的資料表。 當陳述式從外部資料表選取時，它會匯入外部資料。 
+若要使用 T-SQL 載入，請執行 [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL 陳述式。 此命令會將 select 陳述式的結果插入新的資料表。 當陳述式從外部資料表選取時，它會匯入外部資料。 
 
 在下列範例中，ext.Date 是外部資料表。 所有資料列會匯入名為 dbo.Date 的新資料表。
 

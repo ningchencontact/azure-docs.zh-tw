@@ -9,12 +9,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 7c93f9f450cc2d244a0d716401171cde02abf70b
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 59c70d33d537742a5918dc1ba55ab8ac1f84e12c
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39324566"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42093804"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-desktop-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 Windows 桌面上以 C++ 辨識語音
 
@@ -55,7 +55,7 @@ ms.locfileid: "39324566"
 從 [瀏覽] 索引標籤中，搜尋 "Microsoft.CognitiveServices.Speech" 套件，選取該套件並且核取右側的 [專案] 和 [helloworld] 方塊，然後選取 [安裝] 以將其安裝到 helloworld 專案中。
 
 > [!NOTE]
-> 認知服務語音 SDK 目前的版本為 `0.5.0`。
+> 認知服務語音 SDK 目前的版本為 `0.6.0`。
 
 ![安裝 Microsoft.CognitiveServices.Speech NuGet 套件](media/sdk/qs-cpp-windows-04-nuget-install-0.5.0.png)
 

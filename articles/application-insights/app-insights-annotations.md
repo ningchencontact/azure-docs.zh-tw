@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/16/2016
 ms.author: mbullwin
-ms.openlocfilehash: 056716e243980f0a8aadc1ff7e9b8776809ad88e
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 660080a629e00884dd61a49bc0950ebe25b6a0c5
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036392"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42145531"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Application Insights 中度量圖表上的註解
 [計量瀏覽器](app-insights-metrics-explorer.md)圖表上的註解會顯示您在哪裡部署了新的組建，或是其他重要事件。 註解可讓您輕鬆查看變更是否對應用程式的效能有任何影響。 [Visual Studio Team Services 建置系統](https://docs.microsoft.com/vsts/pipelines/tasks/)可以自動建立這些註解。 您也可以[從 PowerShell 建立註解](#create-annotations-from-powershell)來標幟您想要的任何事件。
@@ -34,7 +34,7 @@ ms.locfileid: "39036392"
 ### <a name="install-the-annotations-extension-one-time"></a>安裝註解擴充功能 (一次)
 若要能夠建立發行註解，必須安裝 Visual Studio Marketplace 中許多可用 Team Service 擴充功能的其中一個。
 
-1. 登入您的 [Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/setup/sign-up-for-visual-studio-online) 專案。
+1. 登入您的 [Visual Studio Team Services](https://visualstudio.microsoft.com/vso/) 專案。
 2. 在 Visual Studio Marketplace 中， [取得發行註解擴充功能](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations)，並將其加入至 Team Services 帳戶。
 
 ![在 Team Services 網頁右上角開啟 Marketplace。 選取 [Visual Team Services]，然後在 [組建和發行] 下選擇 [查看更多]。](./media/app-insights-annotations/10.png)

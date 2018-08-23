@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: df6224208e93f4a332247440933b3a4d11c1bb43
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 65ff0e47cf7a53d519bfd0c50ea4c3ebd09a5766
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283026"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42093837"
 ---
 # <a name="shipping-an-application"></a>寄送應用程式
 
@@ -31,13 +31,13 @@ ms.locfileid: "39283026"
 - [Win32](https://aka.ms/vs/15/release/vc_redist.x86.exe)
 - [x64](https://aka.ms/vs/15/release/vc_redist.x64.exe)
 
-如果您的應用程式使用受控程式碼，則目標電腦上需要 `.Net Framework 4.6.1` 或更新版本。
+如果您的應用程式使用受控程式碼，則目標電腦上需要 `.NET Framework 4.6.1` 或更新版本。
 
 對於麥克風輸入，必須安裝媒體基礎程式庫。 這些程式庫是 Windows 10 和 Windows Server 2016 的一部分。 沒有這些程式庫也可能使用語音 SDK，只要麥克風並未作為音訊輸入裝置即可。
 
 在與您的應用程式相同的目錄中，可以部署必要的語音 SDK 檔案。 如此一來，您的應用程式就可以直接存取程式庫。 確定您選取與您的應用程式相符的正確版本 (Win32/x64)。
 
-| Name | 函式
+| 名稱 | 函式
 |:-----|:----|
 | `Microsoft.CognitiveServices.Speech.core.dll` | 核心 SDK (原生和受控部署所需)
 | `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` | 受控部署所需

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/11/18
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: a5b96279993c35aad4cc49c52950576f12dd15ce
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: f69830deb4d2c74b5fe1c85ad8c9452097dd2a1e
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345938"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42140275"
 ---
 # <a name="what-is-the-access-panel"></a>什麼是存取面板？
 
@@ -79,7 +79,7 @@ ms.locfileid: "39345938"
 - 您可以使用應用程式的 [登入 URL] 來直接登入應用程式。 當您使用應用程式的 URL 時，擴充功能會偵測動作，並讓您選擇從擴充功能登入。
 - 您可以從存取面板使用擴充功能的 [快速搜尋] 功能，來啟動其任何應用程式。 
 - 擴充功能會顯示您在 [最近使用過] 區段中啟動的最後三個應用程式。
-- 您可以在遠端透過[應用程式 Proxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-get-started) 時使用公司內部 URL
+- 您可以在遠端透過[應用程式 Proxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started) 時使用公司內部 URL
 
 > [!NOTE]
 > 其他功能僅適用於 Edge、Chrome 和 Firefox。
@@ -97,8 +97,8 @@ ms.locfileid: "39345938"
 5. 選取 [登入以開始使用]。
 
 若要在遠端使用延伸模組時使用公司內部 URL，請執行下列作業：
-1. 在您的租用戶上[設定應用程式 Proxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable)。
-2. 透過應用程式 Proxy [發佈應用程式](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal)和 URL。
+1. 在您的租用戶上[設定應用程式 Proxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable)。
+2. 透過應用程式 Proxy [發佈應用程式](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal)和 URL。
 3. 安裝延伸模組，然後藉由選取 [登入以開始使用] 來登入該延伸模組。
 4. 即使在遠端，您還是可以立即瀏覽至公司內部 URL。
 

@@ -2,24 +2,22 @@
 title: 監視 Azure 應用程式和資源 | Microsoft Docs
 description: 構成 Azure 服務和應用程式之完整監視策略的各種 Microsoft 服務和功能的概觀。
 author: bwren
-manager: carmonm
 editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
+services: azure-monitor
 ms.assetid: 1b962c74-8d36-4778-b816-a893f738f92d
-ms.service: monitoring-and-diagnostics
+ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
-ms.author: robb,bwren
-ms.openlocfilehash: 00ec9364a900510aeadcb68b19b57be528fb9c50
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.date: 08/10/2018
+ms.author: bwren
+ms.openlocfilehash: 878765a1f84e0825e86def2b59310732b22aaacc
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30266924"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42144229"
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>監視 Azure 應用程式和資源
 
@@ -63,7 +61,7 @@ Azure 包含多項服務，能在監視空間內個別執行特定的角色或�
 
 您也可以將這些計量和記錄傳送給 Azure Log Analytics 以了解趨勢和進行詳細分析，或是建立其他警示規則，根據該分析的結果主動向您通知重大問題。  
 
-### <a name="azure-advisor"></a>Azure 建議程式
+### <a name="azure-advisor"></a>Azure Advisor
 [Azure Advisor](../advisor/advisor-overview.md) 會持續監視您的資源組態和使用量遙測。 接著，它會根據最佳做法，為您提供個人化建議。 依照這些建議操作將可協助您提升支援應用程式之資源的效能、安全性及可用性。
 
 ### <a name="service-health"></a>服務健康情況

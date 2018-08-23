@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 6374fcf1477d56b9803b63476f3fef38fc12def1
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 6296eb423f24762ed32a21ef40852dc1a9dd8f36
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618891"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42140297"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB 伺服器端程式設計：預存程序、資料庫觸發程序和 UDF
 
@@ -98,7 +98,7 @@ client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/helloWorld'
     });
 ```
 
-內容物件提供可對 Cosmos DB 儲存體執行之所有作業的存取權，以及要求和回應物件的存取權。 在此案例中，您會使用回應物件來設定傳回給用戶端的回應本文。 如需詳細資料，請參閱 [Azure Cosmos DB JavaScript 伺服器 SDK 文件](http://azure.github.io/azure-documentdb-js-server/) \(英文\)。  
+內容物件提供可對 Cosmos DB 儲存體執行之所有作業的存取權，以及要求和回應物件的存取權。 在此案例中，您會使用回應物件來設定傳回給用戶端的回應本文。 如需詳細資料，請參閱 [Azure Cosmos DB JavaScript 伺服器 SDK 文件](https://azure.github.io/azure-cosmosdb-js-server/) \(英文\)。  
 
 我們將以這個範例為基礎進行擴充，將更多資料庫相關功能新增到預存程序中。 預存程序可以建立、更新、讀取、查詢及刪除集合內的文件和附件。    
 
@@ -591,7 +591,7 @@ client.createUserDefinedFunctionAsync('dbs/testdb/colls/testColl', taxUdf)
 * 控制流程 (例如 if、for、while)
 * 函式呼叫
 
-如需詳細資訊，請參閱 [伺服器端 JSDocs](http://azure.github.io/azure-documentdb-js-server/) \(英文\)。
+如需詳細資訊，請參閱 [伺服器端 JSDocs](https://azure.github.io/azure-cosmosdb-js-server/) \(英文\)。
 
 ### <a name="example-write-a-stored-procedure-using-the-javascript-query-api"></a>範例：使用 JavaScript 查詢 API 撰寫預存程序
 下列程式碼範例示範 JavaScript 查詢 API 如何運用於預存程序的背景下。 預存程序會依照指定的輸入參數插入文件，然後使用 `__.filter()` 方法根據輸入文件的大小屬性，以 minSize、maxSize 和 totalSize 來更新中繼資料文件。
@@ -674,7 +674,7 @@ function insertDocumentAndUpdateMetadata(doc) {
 
 
 ## <a name="runtime-support"></a>執行階段支援
-Azure Cosmos DB [JavaScript 伺服器端 API](http://azure.github.io/azure-documentdb-js-server/) 支援以 [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 作為標準的大部分主流 JavaScript 語言功能。
+Azure Cosmos DB [JavaScript 伺服器端 API](https://azure.github.io/azure-cosmosdb-js-server/) 支援以 [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 作為標準的大部分主流 JavaScript 語言功能。
 
 ### <a name="security"></a>安全性
 JavaScript 預存程序和觸發程序是在沙箱中執行，除非通過資料庫層級的快照交易隔離機制，否則某個指令碼的效果不會傳遞到另一個指令碼。 每次執行之後，都會對執行階段環境進行集區化處理，但會清除內容。 因此，環境與環境彼此之間絕對不會有任何未預期的副作用。
@@ -683,7 +683,7 @@ JavaScript 預存程序和觸發程序是在沙箱中執行，除非通過資料
 預存程序、觸發程序和 UDF 會隱含地預先編譯成位元組程式碼格式，以避免在每次叫用指令碼時產生編譯成本。 預先編譯可確保能夠快速叫用預存程序，且只需耗費少量資源。
 
 ## <a name="client-sdk-support"></a>用戶端 SDK 支援
-除了 Azure Cosmos DB [Node.js](sql-api-sdk-node.md) API 之外，Azure Cosmos DB 也具有適用於 SQL API 的 [.NET](sql-api-sdk-dotnet.md)、[.NET Core](sql-api-sdk-dotnet-core.md)、[Java](sql-api-sdk-java.md)、[JavaScript](http://azure.github.io/azure-documentdb-js/) 和 [Python SDK](sql-api-sdk-python.md)。 您也可以使用上述任何 SDK 來建立和執行預存程序、觸發程序和 UDF。 下列範例說明如何使用 .NET 用戶端建立和執行預存程序。 請注意 .NET 類型是如何在預存程序中以 JSON 形式傳入及讀回。
+除了 Azure Cosmos DB [Node.js](sql-api-sdk-node.md) API 之外，Azure Cosmos DB 也具有適用於 SQL API 的 [.NET](sql-api-sdk-dotnet.md)、[.NET Core](sql-api-sdk-dotnet-core.md)、[Java](sql-api-sdk-java.md)、[JavaScript](sql-api-sdk-node.md) 和 [Python SDK](sql-api-sdk-python.md)。 您也可以使用上述任何 SDK 來建立和執行預存程序、觸發程序和 UDF。 下列範例說明如何使用 .NET 用戶端建立和執行預存程序。 請注意 .NET 類型是如何在預存程序中以 JSON 形式傳入及讀回。
 
 ```javascript
 var markAntiquesSproc = new StoredProcedure
@@ -828,7 +828,7 @@ foreach (Book book in client.CreateDocumentQuery(UriFactory.CreateDocumentCollec
 在這裏，要與要求搭配執行的預先觸發程序指定於 x-ms-documentdb-pre-trigger-include 標頭中。 相對應地，後續觸發程序則是指定於 x-ms-documentdb-post-trigger-include 標頭中。 您可以為指定的要求指定預先和後續觸發程序。
 
 ## <a name="sample-code"></a>範例程式碼
-您可以在 [GitHub 存放庫](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples)中找到更多的伺服器端程式碼範例 (包括 [bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) 和 [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js))。
+您可以在 [GitHub 存放庫](https://github.com/Azure/azure-cosmosdb-js-server/tree/master/samples)中找到更多的伺服器端程式碼範例 (包括 [bulk-delete](https://github.com/Azure/azure-cosmosdb-js-server/blob/master/samples/stored-procedures/bulkDelete.js) 和 [update](https://github.com/Azure/azure-cosmosdb-js-server/blob/master/samples/stored-procedures/update.js))。
 
 要共用您絕佳的預存程序嗎？請參與存放庫的製作，並建立提取要求！ 
 

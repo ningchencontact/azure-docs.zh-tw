@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b0517af9f8066d2d5849b0ffe3d4a0d00afdad44
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: afc1ec8e171bc602f2698b4a36f249bc454cbed9
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437870"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42144228"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Azure 自動化中的圖形化編寫
 
@@ -324,7 +324,7 @@ Runbook 可能需要來自使用者的輸入內容 (透過 Azure 入口網站啟
 
 | 屬性 | 說明 |
 |:--- |:--- |
-| Name |參數的唯一名稱。 這只能包含數字字元，而且不能包含空格。 |
+| 名稱 |參數的唯一名稱。 這只能包含數字字元，而且不能包含空格。 |
 | 說明 |輸入參數的選擇性描述。 |
 | 類型 |對參數值預期的資料型別。 提示您輸入時，Azure 入口網站會對每個參數提供適當的資料類型控制項。 |
 | 強制 |指定是否必須提供參數的值。 如果您未對未定義預設值的每個強制參數提供值，則無法啟動 Runbook。 |
@@ -332,7 +332,7 @@ Runbook 可能需要來自使用者的輸入內容 (透過 Azure 入口網站啟
 
 ### <a name="runbook-output"></a>Runbook 輸出
 
-沒有傳出連結的任何活動所建立的資料會加入 [Runbook 的輸出](http://msdn.microsoft.com/library/azure/dn879148.aspx)。 輸出會隨著 Runbook 工作儲存，並且在 Runbook 用作子項時提供給父 Runbook 使用。
+沒有傳出連結的任何活動所建立的資料會加入 [Runbook 的輸出](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages)。 輸出會隨著 Runbook 工作儲存，並且在 Runbook 用作子項時提供給父 Runbook 使用。
 
 ## <a name="powershell-expressions"></a>PowerShell 運算式
 

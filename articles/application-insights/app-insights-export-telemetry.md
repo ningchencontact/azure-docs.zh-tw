@@ -10,19 +10,18 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 02/23/2017
+ms.topic: conceptual
+ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 942cc355c186b73e0b8802bfbf79ef8b4b39191a
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a960ace141d5d71559c39c627f96746a25bf5207
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42142333"
 ---
 # <a name="export-telemetry-from-application-insights"></a>從 Application Insights 匯出遙測
 想要讓遙測保留比標準保留期限還久的時間？ 或以某些特殊方式處理它？ 連續匯出很適合此用途。 在 Application Insights 入口網站中看見的事件，可以使用 JSON 格式匯出到 Microsoft Azure 中的儲存體。 從那裡，您可以下載資料並編寫處理所需的任何程式碼。  
-
-使用連續匯出，可能會產生額外的費用。 請檢查您的[定價模式](https://azure.microsoft.com/pricing/details/application-insights/)。
 
 在設定連續匯出之前，您可能要考慮某些替代作法︰
 
@@ -177,7 +176,7 @@ Where
     否，抱歉。 我們的匯出引擎目前僅適用於 Azure 儲存體。  
 * *放置在我的儲存區中的資料量有任何限制？*
 
-    編號 我們將持續送入資料，直到刪除匯出為止。 如果我們到達 Blob 儲存體的外部限制，將會停止，但那個限制很大。 您可以自行控制使用的儲存體數量。  
+    否。 我們將持續送入資料，直到刪除匯出為止。 如果我們到達 Blob 儲存體的外部限制，將會停止，但那個限制很大。 您可以自行控制使用的儲存體數量。  
 * *應該在儲存體中看到多少 Blob？*
 
   * 針對您選取要匯出的每個資料類型，會每分鐘建立一個新的 Blob (如果有可用的資料)。

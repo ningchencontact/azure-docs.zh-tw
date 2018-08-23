@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: ccc0836a296bb392e60dd0c973516a7087ff6ea5
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c2c1ef83ade7040e16f54b87f63f6eb27714bf2a
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429321"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42023795"
 ---
 # <a name="deploy-a-dcos-cluster"></a>部署 DC/OS 叢集
 
@@ -78,7 +78,7 @@ sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
 
 ## <a name="install-dcos-cli"></a>安裝 DC/OS CLI
 
-DC/OS 命令列介面可用來從命令列管理 DC/OS 叢集。 使用 [az acs dcos install-cli](/azure/acs/dcos#install-cli) 命令來安裝 DC/OS CLI。 如果您是使用 Azure CloudShell，就已安裝 DC/OS CLI。 
+DC/OS 命令列介面可用來從命令列管理 DC/OS 叢集。 使用 [az acs dcos install-cli](/cli/azure/acs/dcos#az-acs-dcos-install-cli) 命令來安裝 DC/OS CLI。 如果您是使用 Azure CloudShell，就已安裝 DC/OS CLI。 
 
 如果您是在 Mac OS 或 Lunix 上執行 Azure CLI，可能需要搭配 sudo 來執行命令。
 

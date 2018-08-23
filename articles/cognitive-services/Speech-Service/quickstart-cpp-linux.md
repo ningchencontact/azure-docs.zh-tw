@@ -9,12 +9,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 8f794f1d29b5fde9acd43fa4a018ccb39a8ccd25
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: b8bc24123fe75e876f607b07e37423ae68d92ee4
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39324773"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42093880"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 Linux 上以 C++ 辨識語音
 
@@ -37,7 +37,7 @@ ms.locfileid: "39324773"
 
 [!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-認知服務語音 SDK 目前的版本為 `0.5.0`。
+認知服務語音 SDK 目前的版本為 `0.6.0`。
 
 適用於 Linux 的認知服務語音 SDK 可用於建置 64 位元和 32 位元的應用程式。
 必要的檔案可從 https://aka.ms/csspeech/linuxbinary 下載為 tar 檔案的格式。

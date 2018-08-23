@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: jeedes
-ms.openlocfilehash: c3a91509238534bed37cfd169c66f37732546bfb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 06cccaeaea3ff43bd5a4100ef0d4628e8cc77254
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425114"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42145726"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envoy"></a>教學課程：Azure Active Directory 與 Envoy 整合
 
@@ -110,7 +110,7 @@ Envoy 與 Azure AD 整合提供下列優點：
 
     ![Envoy 網域與 URL 單一登入資訊](./media/envoy-tutorial/tutorial_envoy_url.png)
 
-    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<tenant-name>.Envoy.com`
+    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://app.envoy.com/a/saml/auth/<company-ID-from-Envoy>`
     
     > [!NOTE] 
     > 這不是真實的值。 請使用實際的登入 URL 來更新此值。 請連絡 [Envoy 用戶端支援小組](https://envoy.com/contact/)以取得此值。

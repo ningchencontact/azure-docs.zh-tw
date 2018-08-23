@@ -3,19 +3,19 @@ title: 建立已啟用 Apache Kafka 的 Azure 事件中樞 | Microsoft Docs
 description: 使用 Azure 入口網站來建立「已啟用 Kafka 的 Azure 事件中樞」命名空間
 services: event-hubs
 documentationcenter: .net
-author: ShubhaVijayasarathy
+author: basilhariri
 manager: timlt
 ms.service: event-hubs
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: shvija
-ms.openlocfilehash: 79b6b879bd2332c044ce871e2c9a938c6b9c900c
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.date: 08/16/2018
+ms.author: bahariri
+ms.openlocfilehash: 7ce12f9dcaa15ade95274419f99c13d5915dbaaa
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285072"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42145552"
 ---
 # <a name="create-apache-kafka-enabled-event-hubs"></a>建立已啟用 Apache kafka 的事件中樞
 

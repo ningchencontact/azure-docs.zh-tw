@@ -9,12 +9,12 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: zhouwang
-ms.openlocfilehash: 63c767483fa56f1b716ef61a18fa93c6947a1d3b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 20ffba69d9f0f5b6648b19967c086e23e1dcb923
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368371"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42093828"
 ---
 # <a name="microsoft-speech-client-samples"></a>Microsoft Speech 用戶端範例
 
@@ -32,4 +32,4 @@ ms.locfileid: "35368371"
 
 - [適用於 iOS 的 ObjectiveC 範例](https://github.com/Azure-Samples/Cognitive-Speech-STT-iOS) \(英文\)
 
-所有「Microsoft 認知服務 SDK」和範例都是透過 MIT 授權來獲得授權的。 如需詳細資訊，請參閱[授權](https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript/blob/master/LICENSE.md) \(英文\)。
+所有「Microsoft 認知服務 SDK」和範例都是透過 MIT 授權來獲得授權的。 如需詳細資訊，請參閱[授權](https://github.com/Azure-Samples/SpeechToText-REST/blob/master/LICENSE) \(英文\)。

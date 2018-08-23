@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: maheshu
-ms.openlocfilehash: 63244a8f767f71d0f9be80aad09f06f14c4d3acf
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 8d87312591f44bac5fd9a4ff63eccc19333a870c
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503966"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42145732"
 ---
 # <a name="azure-active-directory-ad-domain-services-for-azure-cloud-solution-providers-csp"></a>Azure 雲端方案提供者 (CSP) 的 Azure Active Directory (AD) Domain Services
 本文章說明如何使用 Azure CSP 訂用帳戶中的 Azure Active Directory Domain Services。
@@ -87,7 +87,7 @@ Azure AD Domain Services 現在支援 Azure CSP 訂用帳戶。 您現在可以�
 
 
 ## <a name="next-steps"></a>後續步驟
-* [註冊參加 Azure CSP 計畫](https://partnercenter.microsoft.com/partner/programs)，然後開始透過 Azure CSP 建立企業。
+* [註冊參加 Azure CSP 計畫](https://docs.microsoft.com/partner-center/enrolling-in-the-csp-program)，然後開始透過 Azure CSP 建立企業。
 * 檢閱 [Azure CSP 中可用的 Azure 服務](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services)清單。
 * [使用 PowerShell 啟用 Azure AD Domain Services](active-directory-ds-enable-using-powershell.md)
 * [開始使用 Azure AD Domain Services](active-directory-ds-getting-started.md)

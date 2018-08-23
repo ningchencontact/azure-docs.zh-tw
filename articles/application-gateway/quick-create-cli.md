@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 282f6d965ea85b25f1eada1a63897734c6c7b298
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 23ab97918d7def744f9ac3427faa3743b15124eb
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435259"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42023934"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>快速入門：使用 Azure 應用程式閘道引導網路流量 - Azure CLI
 
@@ -46,7 +46,7 @@ az group create --name myResourceGroupAG --location eastus
 
 您必須為應用程式閘道建立虛擬網路，應用程式閘道才能與其他資源通訊。 您建立應用程式閘道時，可以同時建立虛擬網路。 這個範例中會建立兩個子網路：一個用於應用程式閘道，另一個用於虛擬機器。 
 
-使用 [az network vnet create](/cli/azure/vnet#az-vnet-create) 建立虛擬網路和子網路。 使用 [az network public-ip create](/cli/azure/public-ip#az-public-ip-create) 建立公用 IP 位址。
+使用 [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) 建立虛擬網路和子網路。 使用 [az network public-ip create](/cli/azure/network/public-ip#az-public-ip-create) 建立公用 IP 位址。
 
 ```azurecli-interactive
 az network vnet create \
@@ -140,7 +140,7 @@ done
 
 ## <a name="create-the-application-gateway"></a>建立應用程式閘道
 
-使用 [az network application-gateway create](/cli/azure/application-gateway#az-application-gateway-create) 建立應用程式閘道。 當您使用 Azure CLI 建立應用程式閘道時，需要指定設定資訊，例如容量、SKU 和 HTTP 設定。 系統會新增網路介面的私人 IP 位址，作為應用程式閘道後端集區中的伺服器。
+使用 [az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create) 建立應用程式閘道。 當您使用 Azure CLI 建立應用程式閘道時，需要指定設定資訊，例如容量、SKU 和 HTTP 設定。 系統會新增網路介面的私人 IP 位址，作為應用程式閘道後端集區中的伺服器。
 
 ```azurecli-interactive
 address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')
