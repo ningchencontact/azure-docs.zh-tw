@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8024033c8eb059fd0c7cc8d226a630f2bc47f01b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d5ee37b8ab79e29efcb4d12f36e927b2ed9e9e71
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38618320"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41917665"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli-20"></a>教學課程：使用 Azure CLI 2.0 建立及使用虛擬機器擴展集的自訂映像
 當您建立擴展集時，您會指定部署 VM 執行個體時所要使用的映像。 若要減少部署 VM 執行個體後的工作數量，您可以使用自訂的 VM 映像。 此自訂 VM 映像包括任何必要的應用程式安裝或組態。 在擴展集中建立的任何 VM 執行個體都會使用自訂 VM 映像，並已可以處理您的應用程式流量。 在本教學課程中，您將了解如何：
@@ -107,7 +107,7 @@ az image create \
 
 
 ## <a name="create-a-scale-set-from-the-custom-vm-image"></a>從自訂 VM 映像建立擴展集
-使用 [az vmss create](/cli/az/vmss#az_vmss_create) 建立擴展集。 請勿使用 UbuntuLTS 或 CentOS 這類平台映像，而是指定自訂 VM 映像的名稱。 下列範例會建立名為 myScaleSet 的擴展集，其使用前一步驟中名為 myImage 的自訂映像：
+使用 [az vmss create](/cli/azure/vmss#az-vmss-create) 建立擴展集。 請勿使用 UbuntuLTS 或 CentOS 這類平台映像，而是指定自訂 VM 映像的名稱。 下列範例會建立名為 myScaleSet 的擴展集，其使用前一步驟中名為 myImage 的自訂映像：
 
 ```azurecli-interactive
 az vmss create \

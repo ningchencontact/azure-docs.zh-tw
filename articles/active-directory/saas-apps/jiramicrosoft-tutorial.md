@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 92b505e698f2d56a2678ac53f42bb49dbaf22463
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: cc87985404ef8c9ee625f32b359e6ac1a29e73ae
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046765"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42140900"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft"></a>教學課程：Azure Active Directory 與 JIRA SAML SSO by Microsoft 整合
 
@@ -148,7 +148,7 @@ JIRA SAML SSO by Microsoft 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/jiramicrosoft-tutorial/addon1.png)
 
-8. 從 [Microsoft 下載中心](https://www.microsoft.com/en-us/download/details.aspx?id=56506)下載外掛程式。 使用 [上傳附加元件] 功能表來手動上傳 Microsoft 所提供的外掛程式。 外掛程式下載受到 [Microsoft 服務合約](https://www.microsoft.com/en-us/servicesagreement/)的規範。
+8. 從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=56506)下載外掛程式。 使用 [上傳附加元件] 功能表來手動上傳 Microsoft 所提供的外掛程式。 外掛程式下載受到 [Microsoft 服務合約](https://www.microsoft.com/servicesagreement/)的規範。
 
     ![設定單一登入](./media/jiramicrosoft-tutorial/addon12.png)
 

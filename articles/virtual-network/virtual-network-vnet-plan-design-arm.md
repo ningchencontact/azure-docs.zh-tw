@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: jdial
-ms.openlocfilehash: fd290420c2c755e07f6949750e3a88bcb64682f3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1ec60300d179edf69e32dc07653b6c69c7cc8e52
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656902"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42140872"
 ---
 # <a name="plan-virtual-networks"></a>規劃虛擬網路
 
@@ -77,7 +77,7 @@ ms.locfileid: "34656902"
 - 如果子網路內不同的 VM 需要套用不同的安全性規則，您可以將 VM 中的網路介面與一或多個應用程式安全性群組建立關聯。 安全性規則可以在其來源、目的地，或是上述兩者中指定應用程式安全性群組。 該規則接著只會套用到身為該應用程式安全性群組成員的網路介面。 深入了解[網路安全性群組](security-overview.md)和[應用程式安全性群組](security-overview.md#application-security-groups)。
 - Azure 會在每個網路安全性群組內建立數個預設的安全性規則。 其中一個預設規則會允許流量流經虛擬網路中所有資源。 若要覆寫這個行為，請使用網路安全性群組、透過自訂路由將流量路由傳送到 NVA，或是上述兩者。 建議您熟悉 Azure 的所有[預設安全性規則](security-overview.md#default-security-rules)，並了解網路安全性群組規則套用到資源的方法。
 
-您可以檢視使用 [NVA](/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) 或[網路安全性群組](virtual-networks-dmz-nsg.md)來在 Azure 和網際網路之間實作 DMZ 的範例設計。
+您可以檢視使用 [NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) 或[網路安全性群組](virtual-networks-dmz-nsg.md)來在 Azure 和網際網路之間實作 DMZ 的範例設計。
 
 ### <a name="traffic-routing"></a>流量路由
 
@@ -99,7 +99,7 @@ Azure 會針對來自子網路的輸出流量建立數個預設路由。 您可�
 
 您可以使用 Azure [VPN 閘道](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)，利用[站對站 VPN](../vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json)或搭配 Azure [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 的專用連線，將虛擬網路連線到您的內部部署網路。
 
-您可以結合對等互連和 VPN 閘道來建立[中樞和輪輻網路](/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)，其中輪輻虛擬網路會連線到中樞虛擬網路，而中樞則會連線到內部部署網路。
+您可以結合對等互連和 VPN 閘道來建立[中樞和輪輻網路](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)，其中輪輻虛擬網路會連線到中樞虛擬網路，而中樞則會連線到內部部署網路。
 
 ### <a name="name-resolution"></a>名稱解析
 

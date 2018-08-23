@@ -2,20 +2,20 @@
 title: Azure Machine Learning 預覽功能的教學課程文章 - 命令列介面  | Microsoft Docs
 description: 此教學課程逐步解說從命令列介面完成 Iris 分類端對端所需的所有步驟。
 services: machine-learning
-author: ahgyger
-ms.author: ahgyger
-manager: haining
-ms.reviewer: garyericson, jasonwhowell, mldocs
+author: jpe316
+ms.author: jordane
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 10/15/2017
-ms.openlocfilehash: 05238c27a5654ae24c619b52d769abbf90b940e7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 10fe861682da6c1d1ac701a565cef11f9b44cd1e
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41919501"
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>教學課程：使用命令列介面分類 Iris
 Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學以及進階分析解決方案，可供專業資料科學家用來以雲端規模準備資料、開發測試以及部署模型。
@@ -28,7 +28,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
 > * 升級並註冊定型模型
 > * 部署 Web 服務以評分新資料
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要完成本教學課程，您需要：
 - 存取 Azure 訂用帳戶與權限，以建立該訂用帳戶中的資源。 
   
@@ -91,7 +91,7 @@ $ az account set -s <subscription id or name>
 在此步驟中，您會建立一個新的測試帳戶和一個新的工作區。 如需測試帳戶與工作區的詳細資料，請參閱 [Azure Machine Learning 概念](overview-general-concepts.md)。
 
 > [!NOTE]
-> 測試帳戶需要儲存體帳戶，用來儲存實驗執行的輸出。 儲存體帳戶名稱在 Azure 中必須為全域唯一，因為沒有與其相關聯的 URL。 如果您未指定現有的儲存體帳戶，您的測試帳戶名稱會用來建立新的儲存體帳戶。 請務必使用唯一的名稱，否則您會收到錯誤，例如_「已使用名稱為 \<storage_account_name> 的儲存體帳戶。」_ 或者，您可以使用 `--storage` 引數，以提供現有的儲存體帳戶。
+> 測試帳戶需要儲存體帳戶，用來儲存實驗執行的輸出。 儲存體帳戶名稱在 Azure 中必須為全域唯一，因為沒有與其相關聯的 URL。 如果您未指定現有的儲存體帳戶，您的測試帳戶名稱會用來建立新的儲存體帳戶。 請務必使用唯一的名稱，否則您會收到錯誤，例如 _「已使用名稱為 \<storage_account_name> 的儲存體帳戶。」_ 或者，您可以使用 `--storage` 引數，以提供現有的儲存體帳戶。
 
 ```azure-cli
 # create a resource group 
@@ -252,7 +252,7 @@ $ az ml service create realtime -m asset_download/model.pkl -f score_iris.py -r 
 使用來自上一步驟之輸出的 Web 服務識別碼，呼叫 Web 服務並進行測試。 
 
 ```azure-cli
-# Get web service usage infomration
+# Get web service usage information 
 $ az ml service usage realtime -i <web service id>
 
 # Call the web service with the run command:

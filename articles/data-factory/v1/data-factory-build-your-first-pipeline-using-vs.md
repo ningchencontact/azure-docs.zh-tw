@@ -8,18 +8,19 @@ manager: craigg
 ms.assetid: 7398c0c9-7a03-4628-94b3-f2aaef4a72c5
 ms.service: data-factory
 ms.workload: data-services
+ms.custom: vs-azure
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 02c9d3715d8c4632bf19512cd9ffee64e4a22e8a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 41ffd50f791cd380cd66a6eb5cb3c013da9bc43a
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047015"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42282308"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>教學課程：使用 Visual Studio 建立資料處理站
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -32,7 +33,7 @@ ms.locfileid: "37047015"
 
 
 > [!NOTE]
-> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[快速入門：使用 Azure Data Factory 來建立資料處理站](../quickstart-create-data-factory-dot-net.md)。
+> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[快速入門：使用 Azure Data Factory 來建立資料處理站](../quickstart-create-data-factory-dot-net.md)。
 
 本教學課程示範如何使用 Visual Studio 建立 Azure Data Factory。 您可使用 Data Factory 專案範本建立 Visual Studio 專案，以 JSON 格式定義 Data Factory 實體 (連結服務、資料集和管線)，然後將這些實體發佈/部署至雲端。 
 
@@ -59,7 +60,7 @@ ms.locfileid: "37047015"
 4. 建立名為 **DataFactoryUsingVS** 的資料處理站。 部署 Data Factory 和所有 Data Factory 實體 (連結的服務、資料表和管線)。
 5. 發佈之後，您可使用 Azure 入口網站刀鋒視窗和「監視及管理應用程式」來監視管線。 
   
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 1. 詳讀 [教學課程概觀](data-factory-build-your-first-pipeline.md) 一文並完成 **必要** 步驟。 您也可以選取頂端下拉式清單中的 [概觀和必要條件] 選項來切換文章。 完成必要條件之後，選取下拉式清單中的 [Visual Studio] 選項，以切換回這篇文章。
 2. 若要建立 Data Factory 執行個體，您必須是訂用帳戶/資源群組層級的 [Data Factory 參與者](../../role-based-access-control/built-in-roles.md#data-factory-contributor) 角色成員。  
 3. 您必須已在電腦上安裝下列項目：

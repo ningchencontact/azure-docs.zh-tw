@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 5/4/18
 ms.author: barbkess
 ms.reviewer: japere,asteen
-ms.openlocfilehash: 00dade0926f9f2601757ac637e21737027f24c45
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 642f07be0eb58e4d10630bc4482d26bd00e08a94
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36332604"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42141090"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>安裝存取面板的瀏覽器擴充功能
 
@@ -87,8 +87,8 @@ ms.locfileid: "36332604"
        您所使用的最後三個應用程式會顯示在 [最近使用的] 捷徑清單中。
        
 * 若要遠端使用公司內部 URL，請執行下列作業：
-    1. 在您的租用戶上[設定應用程式 Proxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) \(英文\)
-    2. 透過應用程式 Proxy [發佈應用程式](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) \(英文\) 和 URL
+    1. 在您的租用戶上[設定應用程式 Proxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable) \(英文\)
+    2. 透過應用程式 Proxy [發佈應用程式](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal) \(英文\) 和 URL
     3. 安裝延伸模組，然後藉由選取 [登入以開始使用] 來登入該延伸模組
     4. 即使在遠端，您還是可以立即瀏覽至公司內部 URL
 

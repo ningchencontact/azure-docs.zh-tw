@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 446eac2bf6eed10f919d6c64de1d7b9dbba1f35d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a14aeb55d9e5756660708e9e63a867a66a54a7b6
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420342"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42443947"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fieldglass"></a>教學課程：Azure Active Directory 與 Fieldglass 整合
 
@@ -121,7 +121,7 @@ Fieldglass 與 Azure AD 整合提供下列優點：
     | `https://<company name>.fgvms.com/<company name>`|
 
     > [!NOTE] 
-    > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [Fieldglass 支援小組](http://www.fieldglass.com/solutions/support)以取得這些值。
+    > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [Fieldglass 支援小組](https://www.fieldglass.com/customer-support)以取得這些值。
  
 1. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
@@ -135,7 +135,7 @@ Fieldglass 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/fieldglass-tutorial/tutorial_fieldglass_configure.png) 
 
-1. 若要在 **Fieldglass** 端設定單一登入，您需要將已下載的 [憑證 (Base64)/]和 [登出 URL]、[SAML 實體識別碼] 傳送給 [Fieldglass 支援小組](http://www.fieldglass.com/solutions/support)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+1. 若要在 **Fieldglass** 端設定單一登入，您需要將已下載的 [憑證 (Base64)/]和 [登出 URL]、[SAML 實體識別碼] 傳送給 [Fieldglass 支援小組](https://www.fieldglass.com/customer-support)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -173,7 +173,7 @@ Fieldglass 與 Azure AD 整合提供下列優點：
  
 ### <a name="creating-a-fieldglass-test-user"></a>建立 Fieldglass 測試使用者
 
-本節的目標是在 FieldGlass 中建立名為 Britta Simon 的使用者。 請與 [Fieldglass 支援小組合作](http://www.fieldglass.com/solutions/support)，在 Fieldglass 帳戶中新增使用者。
+本節的目標是在 FieldGlass 中建立名為 Britta Simon 的使用者。 請與 [Fieldglass 支援小組合作](https://www.fieldglass.com/customer-support)，在 Fieldglass 帳戶中新增使用者。
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 

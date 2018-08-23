@@ -15,12 +15,12 @@ ms.workload: signalr
 ms.date: 04/20/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 6ac1646da4c952c78bfb787b0d6ab30f4876f36a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0532cb81c766c2d039b978ab4ba79c812915bbc0
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33766388"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41918173"
 ---
 # <a name="create-a-signalr-service-with-an-app-service"></a>使用 App Service 建立 SignalR 服務
 
@@ -53,8 +53,8 @@ az extension add -n signalr
 | 命令 | 注意 |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | 建立用來存放所有資源的資源群組。 |
-| [az signalr create](/cli/azure/signalr#az-signalr-create) | 建立 Azure SignalR 服務資源。 |
-| [az signalr key list](/cli/azure/signalr/key#az-signalr-key-list) | 列出應用程式在使用 SignalR 推送即時內容更新時，所會使用的金鑰。 |
+| [az signalr create](/cli/azure/ext/signalr/signalr#ext-signalr-az-signalr-create) | 建立 Azure SignalR 服務資源。 |
+| [az signalr key list](/cli/azure/ext/signalr/signalr/key#ext-signalr-az-signalr-key-list) | 列出應用程式在使用 SignalR 推送即時內容更新時，所會使用的金鑰。 |
 | [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) | 建立用來裝載 Web 應用程式的 Azure App Service 方案。 |
 | [az webapp create](/cli/azure/webapp#az-webapp-create) | 使用 App Service 主控方案建立 Azure Web 應用程式。 |
 | [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) | 新增 Web 應用程式的應用程式設定。 此應用程式設定會用來儲存 SignalR 連接字串。 |

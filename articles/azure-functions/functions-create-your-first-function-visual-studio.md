@@ -13,16 +13,16 @@ ms.service: functions
 ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.workload: azure-vs
 ms.date: 05/22/2018
 ms.author: glenga
-ms.custom: mvc, devcenter, 23113853-34f2-4f
-ms.openlocfilehash: c5d09e03eb79d89604cba6d9533051bb9b50ce90
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.custom: mvc, devcenter, , vs-azure, 23113853-34f2-4f
+ms.openlocfilehash: 48e4d809177c07005b142c25f1a8adef39776100
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38467853"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42394147"
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>使用 Visual Studio 建立第一個函式
 
@@ -32,7 +32,7 @@ Azure Functions 可讓您在[無伺服器](https://azure.microsoft.com/overview/
 
 本主題包含一個可示範相同基本步驟的[影片](#watch-the-video)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程：
 

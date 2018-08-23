@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 5b9ef9691d3d9b9aaced3ad2aaa54e6cfc03fa14
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 254c68c45a06022588ade6ab6f005989205ff405
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857441"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42141276"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>安全框架︰組態管理 | 緩和措施 
 | 產品/服務 | 文章 |
@@ -606,7 +606,7 @@ public void ConfigureServices(IServiceCollection services)
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | .NET Framework 3 |
 | **屬性**              | N/A  |
-| **參考**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx)、[Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **參考**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx)、[Fortify Kingdom](https://vulncat.fortify.com) |
 | **步驟** | <p>未設定系統資源的使用限制，可能會導致資源耗盡，而最後導致拒絕服務。</p><ul><li>
   **說明︰** Windows Communication Foundation (WCF) 提供服務要求節流的功能。 允許太多的用戶端要求可能會淹沒系統及耗盡其資源。 另一方面，只允許服務有少數要求可防止合法使用者使用此服務。 每項服務應個別調整並設定為允許適當的資源數量。</li><li>**建議** 啟用 WCF 的服務節流功能以及為應用程式設定適當的限制。</li></ul>|
 
@@ -630,7 +630,7 @@ public void ConfigureServices(IServiceCollection services)
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | .NET Framework 3 |
 | **屬性**              | N/A  |
-| **參考**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx)、[Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **參考**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx)、[Fortify Kingdom](https://vulncat.fortify.com) |
 | **步驟** | 中繼資料可協助攻擊者了解系統及規劃攻擊形式。 可以將 WCF 服務設定為公開中繼資料。 中繼資料可提供詳細的服務描述資訊，且不得在生產環境中廣播。 ServiceMetaData 類別的 `HttpGetEnabled` / `HttpsGetEnabled` 屬性會定義服務是否會公開中繼資料 | 
 
 ### <a name="example"></a>範例

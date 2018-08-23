@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 517e7ae3871a1ed816ea407ad47c9033a1bb5a0e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0e78b00e49b2ef468e693abfdcde8a138313ba63
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776884"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41918312"
 ---
 # <a name="tutorial-push-localized-notifications-to-windows-apps-by-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將當地語系化的通知推送至 Windows 應用程式
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ ms.locfileid: "33776884"
 > * 更新後端應用程式以傳送當地語系化的通知
 > * 測試應用程式
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 完成[教學課程：將通知傳送至特定裝置 (通用 Windows 平台)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)。 
 
 在[教學課程：將通知傳送至特定裝置 (通用 Windows 平台)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) 中，您建置了使用**標記**來訂閱不同新聞**類別**之通知的應用程式。 在本教學課程中，您會使用通知中樞的**範本**功能，輕鬆地傳遞**當地語系化的**即時新聞通知。
@@ -274,9 +274,9 @@ private static async void SendTemplateNotificationAsync()
 
 <!-- URLs. -->
 [Mobile Service]: /develop/mobile/tutorials/get-started
-[Notify users with Notification Hubs: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
-[Notify users with Notification Hubs: Mobile Services]: /manage/services/notification-hubs/notify-users
-[Use Notification Hubs to send breaking news]: /notification-hubs/notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns
+[Notify users with Notification Hubs: ASP.NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+[Notify users with Notification Hubs: Mobile Services]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Use Notification Hubs to send breaking news]: notification-hubs/notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039

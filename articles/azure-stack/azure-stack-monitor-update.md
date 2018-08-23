@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 08/17/2018
 ms.author: mabrigg
-ms.openlocfilehash: 96eebf340f13f2f5e9e922fee8032d04fce1d130
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 8f384a79811c9a9b104acb98c8f6b6e162946ab8
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/06/2018
-ms.locfileid: "27621856"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41947933"
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>使用具有特殊權限的端點來監視 Azure Stack 中的更新
 
@@ -32,12 +32,11 @@ ms.locfileid: "27621856"
 | Cmdlet  | 說明  |
 |---------|---------|
 | `Get-AzureStackUpdateStatus` | 傳回目前正在執行、已完成或失敗之更新的狀態。 提供更新作業的高階狀態，以及說明目前步驟和對應狀態的 XML 文件。 |
-| `Get-AzureStackUpdateVerboseLog` | 傳回更新所產生的詳細資訊記錄。 |
 | `Resume-AzureStackUpdate` | 從更新失敗的地方繼續執行失敗的更新。 在某些情況下，您可能必須先完成風險降低步驟，然後才能繼續執行更新。         |
 | | |
 
 ## <a name="verify-the-cmdlets-are-available"></a>確認 Cmdlet 可供使用
-因為 Cmdlet 是適用於 Azure Stack 之 1710 更新程式封裝中的新功能，所以 1710 更新程序需要先到達某個點，才能使用監視功能。 一般而言，如果系統管理員入口網站中的狀態表示 1710 更新位於**重新啟動儲存體主機**步驟中，則可使用 Cmdlet。 具體來說，Cmdlet 更新會在**步驟：正在執行步驟 2.6 - 更新 PrivilegedEndpoint 允許清單**期間發生。
+因為 Cmdlet 是適用於 Azure Stack 之 1710 更新程式封裝中的新功能，所以 1710 更新程序需要先到達某個點，才能使用監視功能。 一般而言，如果系統管理員入口網站中的狀態表示 1710 更新位於**重新啟動儲存體主機**步驟中，則可使用 Cmdlet。 具體來說，Cmdlet 更新會在**步驟：正在執行步驟 2.6 - 更新 PrivilegedEndpoint 白名單**期間發生。
 
 您也可以藉由從具有特殊權限的端點查詢命令清單，來判斷 Cmdlet 是否可以程式設計方式使用。 若要這樣做，請從硬體生命週期主機或特殊權限存取工作站執行下列命令。 此外，確定具有特殊權限的端點是信任的主機。 如需詳細資訊，請參閱[存取具有特殊權限的端點](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)的步驟 1。 
 
@@ -78,7 +77,6 @@ ms.locfileid: "27621856"
    CommandType     Name                                               Version    Source                                                  PSComputerName
     -----------     ----                                               -------    ------                                                  --------------
    Function        Get-AzureStackUpdateStatus                         0.0        Microsoft.Azurestack.UpdateManagement                   Contoso-ercs01
-   Function        Get-AzureStackUpdateVerboseLog                     0.0        Microsoft.Azurestack.UpdateManagement                   Contoso-ercs01
    Function        Resume-AzureStackUpdate                            0.0        Microsoft.Azurestack.UpdateManagement                   Contoso-ercs01
    ``` 
 
@@ -159,29 +157,6 @@ $updateStatus.SelectNodes("//Step[@Status='InProgress']")
     Status        : InProgress
     Task          : Task
 ```
-
-### <a name="get-the-verbose-progress-log"></a>取得詳細進度記錄
-
-您可以將記錄寫入檔案，以供檢查之用。 這可協助您診斷更新失敗。
-
-```powershell
-$log = Invoke-Command -Session $pepSession -ScriptBlock { Get-AzureStackUpdateVerboseLog }
-
-$log > ".\UpdateVerboseLog.txt" 
-```
-
-### <a name="actively-view-the-verbose-logging"></a>主動檢視詳細資訊記錄
-
-若要在更新執行期間主動檢視詳細資訊記錄，並跳至最新項目，請執行下列命令，以互動模式進入工作階段，並顯示記錄：
-
-```powershell
-Enter-PSSession -Session $pepSession 
-
-Get-AzureStackUpdateVerboseLog -Wait 
-```
-記錄每隔 60 秒就會更新，而且會將新的內容 (如果有的話) 寫入主控台。 
-
-在長時間執行的背景處理程序期間，可能有某段時間不會將主控台輸出寫入主控台。 若要取消互動式輸出，請按 Ctrl+C。 
 
 ### <a name="resume-a-failed-update-operation"></a>繼續執行失敗的更新作業
 

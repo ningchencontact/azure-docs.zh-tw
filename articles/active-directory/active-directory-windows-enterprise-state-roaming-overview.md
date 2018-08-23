@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: markvi
-ms.openlocfilehash: c2c94f488da6399965c59f761ff9f0539cf4de2f
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: c1332679af57a4994f4337e241845a87bf16b341
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39227740"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42141091"
 ---
 # <a name="enterprise-state-roaming-overview"></a>企業狀態漫遊概觀
-使用 Windows 10， [Azure Active Directory (Azure AD)](fundamentals/active-directory-whatis.md) 使用者能夠安全地將其使用者設定和應用程式設定資料同步處理至雲端。 企業狀態漫遊提供使用者跨 Windows 裝置的一致體驗，並且減少設定新的裝置所需的時間。 企業狀態漫遊的運作類似於首先在 Windows 8 中引進的標準 [取用者設定同步處理](http://windows.microsoft.com/en-US/windows-8/sync-settings-pcs) 。 此外，企業狀態漫遊提供：
+使用 Windows 10， [Azure Active Directory (Azure AD)](fundamentals/active-directory-whatis.md) 使用者能夠安全地將其使用者設定和應用程式設定資料同步處理至雲端。 企業狀態漫遊提供使用者跨 Windows 裝置的一致體驗，並且減少設定新的裝置所需的時間。 企業狀態漫遊的運作類似於首先在 Windows 8 中引進的標準 [取用者設定同步處理](http://windows.microsoft.com/windows-8/sync-settings-pcs) 。 此外，企業狀態漫遊提供：
 
 * **分隔公司和取用者資料** – 組織可以控制他們的資料，取用者雲端帳戶中不會混合公司資料，企業雲端帳戶中也不會混合取用者資料。
 * **增強式安全性** – 資料會在離開使用者的 Windows 10 裝置之前自動加密，方法是使用 Azure Rights Management (Azure RMS)，資料在雲端中待用時會保持加密。 所有內容在雲端中待用時會保持加密，除了命名空間，例如設定名稱和 Windows 應用程式名稱。  

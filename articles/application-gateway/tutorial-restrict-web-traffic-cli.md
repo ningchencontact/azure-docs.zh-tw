@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: be6032d8c0ce7c20a080037fad216c4b540c90cb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 20a15f5062780e0a9fb687b5f35bb214d16119f0
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435592"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "41918439"
 ---
 # <a name="tutorial-enable-web-application-firewall-using-the-azure-cli"></a>教學課程：使用 Azure CLI 啟用 Web 應用程式防火牆
 
@@ -73,7 +73,7 @@ az network public-ip create \
 
 ## <a name="create-an-application-gateway-with-a-waf"></a>建立包含 WAF 的應用程式閘道
 
-您可以使用 [az network application-gateway create](/cli/azure/application-gateway#az-application-gateway-create) 來建立名為 myAppGateway 的應用程式閘道。 當您使用 Azure CLI 建立應用程式閘道時，需要指定設定資訊，例如容量、SKU 和 HTTP 設定。 應用程式閘道會指派給您先前建立的 myAGSubnet 和 myPublicIPSddress。
+您可以使用 [az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create) 來建立名為 myAppGateway 的應用程式閘道。 當您使用 Azure CLI 建立應用程式閘道時，需要指定設定資訊，例如容量、SKU 和 HTTP 設定。 應用程式閘道會指派給您先前建立的 myAGSubnet 和 myPublicIPSddress。
 
 ```azurecli-interactive
 az network application-gateway create \

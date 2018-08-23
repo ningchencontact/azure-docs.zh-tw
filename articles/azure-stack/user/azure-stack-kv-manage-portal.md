@@ -3,7 +3,7 @@ title: 使用入口網站管理 Azure Stack 中的 Key Vault | Microsoft Docs
 description: 了解如何使用入口網站管理 Azure Stack 中的 Key Vault
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: D4300668-461F-45F6-BF3B-33B502C39D17
@@ -13,19 +13,19 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: mabrigg
-ms.openlocfilehash: e387e365b2de3412c23c995939f75400a03eeb80
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: sethm
+ms.openlocfilehash: 91035f84d02810d838127ecf6a2f6424ef5df6cf
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070459"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41946585"
 ---
 # <a name="manage-key-vault-in-azure-stack-by-using-the-portal"></a>使用入口網站管理 Azure Stack 中的 Key Vault
 
 您可以使用 Azure Stack 入口網站管理 Azure Stack 中的金鑰保存庫。 此文章可協助您開始建立和管理 Azure Stack 中的金鑰保存庫。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您必須訂閱包含 Azure Key Vault 服務的供應項目。
 

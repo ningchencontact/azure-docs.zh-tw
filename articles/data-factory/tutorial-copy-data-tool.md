@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: hero-article
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: f7dd560a40eda2439e88d66771e2e22c90442bfd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6e63973f2545abefc030edc4c6bb6b35c28729f7
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421510"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41918739"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>使用複製資料工具將資料從 Azure Blob 儲存體複製到 SQL 資料庫
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -38,7 +38,7 @@ ms.locfileid: "39421510"
 ## <a name="prerequisites"></a>必要條件
 
 * **Azure 訂用帳戶**：如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
-* **Azure 儲存體帳戶**：使用 Blob 儲存體作為「來源」資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)中的指示。
+* **Azure 儲存體帳戶**：使用 Blob 儲存體作為「來源」資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)中的指示。
 * **Azure SQL Database**：使用 Azure SQL 資料庫作為「接收」資料存放區。 如果您沒有 SQL 資料庫，請參閱[建立 SQL 資料庫](../sql-database/sql-database-get-started-portal.md)中的指示。
 
 ### <a name="create-a-blob-and-a-sql-table"></a>建立 Blob 和 SQL 資料表

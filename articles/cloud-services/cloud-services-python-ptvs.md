@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 10ade991b77b90f31309dbe6a105744dbc02df40
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: d9871b399ff06fb08d817c0d892b667b4ef0242d
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003637"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41918732"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>採用 Python Tools for Visual Studio 的 Python Web 和背景工作角色
 
@@ -42,7 +42,7 @@ Azure 提供三種運算模型來執行應用程式：[Azure App Service 中的 
 
 > [!NOTE]
 > *尋求建置簡單的網站？*
-> 如果您的案例只需要簡單的網站前端，請考慮使用 Azure App Service 中的輕量型 Web Apps 功能。 隨著網站擴大，以及需求改變，您可以很輕易地升級到雲端服務。 請參閱 <a href="/develop/python/">Python 開發人員中心</a>，尋找 Azure App Service 中的 Web Apps 功能開發的相關文章。
+> 如果您的案例只需要簡單的網站前端，請考慮使用 Azure App Service 中的輕量型 Web Apps 功能。 隨著網站擴大，以及需求改變，您可以很輕易地升級到雲端服務。 請參閱 [Python 開發人員中心](https://azure.microsoft.com/develop/python/)，尋找 Azure App Service 中的 Web Apps 功能開發的相關文章。
 > <br />
 > 
 > 

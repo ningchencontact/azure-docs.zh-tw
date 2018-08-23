@@ -3,7 +3,7 @@ title: 在 .NET 中開始使用 Azure 轉送混合式連線 HTTP 要求 | Micros
 description: 在 .NET 中為 Azure 轉送混合式連線 HTTP 要求撰寫 C# 主控台應用程式。
 services: service-bus-relay
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: d1386900-b942-4abf-acfc-38d2ef826253
@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 12/15/2017
-ms.author: sethm
-ms.openlocfilehash: 743e5c5a44f2ed9e6f6d2df9388ef3f01c501bff
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 08/16/2018
+ms.author: spelluru
+ms.openlocfilehash: 4f7aa0b0c5142237f3b6fc66bb8593302c95f5af
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38611091"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41918315"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>在 .NET 中開始使用轉送混合式連線 HTTP 要求
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -34,7 +34,7 @@ ms.locfileid: "38611091"
 3. 撰寫伺服器 (接聽端) 主控台應用程式來接收要求。
 4. 撰寫用戶端 (傳送端) 主控台應用程式來傳送要求。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，您需要下列必要條件：
 

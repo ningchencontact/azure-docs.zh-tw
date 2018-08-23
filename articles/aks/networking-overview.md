@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 08/08/2018
 ms.author: marsma
-ms.openlocfilehash: cfe034d6dcac48d7c9e4b2ce17e4926a81a27886
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 051402a319e1dc26145b5a1602a4caeffa7fba19
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216099"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42445502"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 中的網路組態
 
@@ -98,15 +98,14 @@ AKS 叢集中每個節點預設的最大 Pod 數目，會根據基本和進階�
 
 **子網路**：VNet 內要用來部署叢集的子網路。 如果您要為叢集建立新的 VNet 子網路，請選取 [新建] 並遵循＜建立子網路＞一節中的步驟。
 
-**Kubernetes 服務位址範圍**：「Kubernetes 服務位址範圍」是要將其中的位址指派給叢集中 Kubernetes 服務的 IP 範圍 (如需有關 Kubernetes 服務的詳細資訊，請參閱 Kubernetes 文件中的[服務][ services])。
-
-Kubernetes 服務 IP 位址範圍：
+**Kubernetes 服務位址範圍**：這是 Kubernetes 指派給您叢集中[服務][services]的一組虛擬 IP。 您可以使用任何符合下列需求的私人位址範圍：
 
 * 不得位於叢集的 VNet IP 位址範圍內
 * 不得與叢集 VNet 對等的任何其他 VNet 重疊
 * 不得與任何內部部署 IP 重疊
+* 不得在 `169.254.0.0/16``172.30.0.0/16` 或 `172.31.0.0/16` 範圍內
 
-如果使用重疊的 IP 範圍，就會造成無法預期的行為。 例如，如果某個 Pod 嘗試存取叢集以外的 IP，而該 IP 也會成為服務 IP，則您可能會看見無法預期的行為和失敗。
+雖然技術上有可能指定與您叢集相同 VNet 內的服務位址範圍，但不建議這麼做。 如果使用重疊的 IP 範圍，就會造成無法預期的行為。 如需詳細資訊，請參閱本文的[常見問題集](#frequently-asked-questions)一節。 如需有關 Kubernetes 服務的詳細資訊，請參閱 Kubernetes 文件中的[服務][services]。
 
 **Kubernetes DNS 服務 IP 位址**：叢集 DNS 服務的 IP 位址。 此位址必須位於 Kubernetes 服務位址範圍內。
 
@@ -156,6 +155,10 @@ az aks create --resource-group myAKSCluster --name myAKSCluster --network-plugin
 
   在 AKS 叢集建立期間所建立的 VNet 和子網路屬性完整清單，均可在 Azure 入口網站的標準 VNet 組態頁面中進行設定。
 
+* *可以使用叢集 VNet 內的不同子網路作為* **Kubernetes 服務位址範圍**嗎？
+
+  不建議，但此組態是可行的。 服務位址範圍是 Kubernetes 指派給您叢集中服務的一組虛擬 IP (VIP)。 Azure 網路功能無法查看 Kubernetes 叢集的服務 IP 範圍。 因為無法查看叢集的服務位址範圍，所以稍後有可能在與服務位址範圍重疊的叢集 VNet 中建立新的子網路。 如果發生這類重疊，Kubernetes 可能會將子網路中另一項資源已經使用的 IP 指派給服務，因而造成無法預期的行為或失敗。 您可藉由確保您使用叢集 VNet 外部的位址範圍，避免此重疊風險。
+
 ## <a name="next-steps"></a>後續步驟
 
 ### <a name="networking-in-aks"></a>AKS 中的網路
@@ -187,5 +190,5 @@ az aks create --resource-group myAKSCluster --name myAKSCluster --network-plugin
 
 <!-- LINKS - Internal -->
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
-[aks-ssh]: aks-ssh.md
+[aks-ssh]: ssh.md
 [ManagedClusterAgentPoolProfile]: /azure/templates/microsoft.containerservice/managedclusters#managedclusteragentpoolprofile-object

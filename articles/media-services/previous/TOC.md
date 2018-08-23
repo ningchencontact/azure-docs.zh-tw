@@ -26,7 +26,6 @@
 ### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 
 # 作法
-
 ## 管理
 ### 實體
 #### [.NET](media-services-dotnet-manage-entities.md)
@@ -231,7 +230,7 @@
 # 參考
 ## [程式碼範例](https://azure.microsoft.com/resources/samples/?service=media-services)
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.media)
-## [Azure PowerShell (服務管理)](/powershell/module/azure/?view=azuresmps-3.7.0)
+## [Azure PowerShell (服務管理)](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
 ## [REST](/rest/api/media/mediaservice)
 ## 規格

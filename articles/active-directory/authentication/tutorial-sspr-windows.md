@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: eefb07136215d79b7c351dd4498bfeb79b6833de
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 27f271a20af2bb9910f1cf7d63e6033d78e67b83
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413725"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41917535"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>教學課程：從登入畫面重設 Azure AD 密碼
 
@@ -86,8 +86,6 @@ ms.locfileid: "39413725"
 您現在已建立並指派裝置設定原則，以使用 Intune 在登入畫面上啟用 [重設密碼] 連結。
 
 ## <a name="configure-reset-password-link-using-the-registry"></a>使用登錄來設定重設密碼連結
-
-我們建議僅使用此方法來測試設定變更。
 
 1. 使用系統管理認證登入 Windows PC
 2. 以系統管理員身分執行 **regedit**

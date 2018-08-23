@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: maheshu
-ms.openlocfilehash: 41a06846e914eb79e15aa47c7203b17166731ae0
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: fa4d40786fdc61183c119a17b6e36bd853a6fd64
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502323"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42140895"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD 網域服務 - 疑難排解指南
 這篇文章提供設定或管理 Azure Active Directory (AD) 網域服務時，可能會遇到的問題之疑難排解提示。
@@ -139,7 +139,7 @@ if ($sp -ne $null)
 * **外部帳戶** 確定受影響的使用者帳戶不是 Azure AD 租用戶中的外部帳戶。 外部帳戶的範例包括 Microsoft 帳戶 (例如 joe@live.com) 或來自外部 Azure AD 目錄的使用者帳戶。 因為 Azure Active Directory Domain Services 沒有這類使用者帳戶的認證，這些使用者會無法登入受控網域。
 * **同步處理的帳戶：** 如果受影響的使用者帳戶會從內部部署目錄同步處理，請確認：
 
-  * 您已部署或更新為 [Azure AD Connect 的最新版本](https://www.microsoft.com/en-us/download/details.aspx?id=47594)。
+  * 您已部署或更新為 [Azure AD Connect 的最新版本](https://www.microsoft.com/download/details.aspx?id=47594)。
   * 您已設定 Azure AD Connect 以 [執行完整同步處理](active-directory-ds-getting-started-password-sync.md)。
   * 根據您的目錄大小，可能需要一些時間，使用者帳戶和認證雜湊才可在 Azure AD 網域服務中提供使用。 請確定您已等候足夠的時間後，再重試驗證。
   * 如果在您驗證上述步驟之後問題仍持續發生，請嘗試重新啟動 Microsoft Azure AD 同步服務。 在您的同步電腦上，啟動命令提示字元，然後執行下列命令：

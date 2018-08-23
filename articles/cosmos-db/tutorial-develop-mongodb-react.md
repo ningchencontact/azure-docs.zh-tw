@@ -2,7 +2,7 @@
 title: 適用於 Azure 的 MongoDB、React 及 Node.js 教學課程 | Microsoft Docs
 description: 了解如何透過此影片式教學課程系列，使用您用於 MongoDB 的完全相同 API，以 Azure Cosmos DB 上的 React 和 Node.js 建立 MongoDB 應用程式。
 services: cosmos-db
-author: SnehaGunda
+author: johnpapa
 manager: kfile
 editor: ''
 ms.service: cosmos-db
@@ -10,14 +10,14 @@ ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
-ms.author: sngun
+ms.author: jopapa
 ms.custom: mvc
-ms.openlocfilehash: cfd6138d02038d812b3857202ef8d8232e861a72
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: eac537c5b068b795fee7fb845eb7a98fb11316d3
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763488"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41919118"
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>使用 React 和 Azure Cosmos DB 建立 MongoDB 應用程式  
 
@@ -37,7 +37,7 @@ ms.locfileid: "34763488"
 
 您想要以 Angular 建置此範例應用程式嗎？ 請參閱 [Angular 教學課程影片系列](tutorial-develop-mongodb-nodejs.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * [Node.js](https://www.nodejs.org)
 
 ### <a name="finished-project"></a>已完成的專案

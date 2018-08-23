@@ -3,7 +3,7 @@ title: 為 Azure Stack 建立服務主體 | Microsoft Docs
 description: 描述如何建立可以與 Azure Resource Manager 中的角色型存取控制搭配使用來管理資源存取權的新服務主體。
 services: azure-resource-manager
 documentationcenter: na
-author: mattbriggs
+author: sethmanheim
 manager: femila
 ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
 ms.service: azure-resource-manager
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/21/2018
-ms.author: mabrigg
-ms.openlocfilehash: 0db3f19c99b786d7f32f126ad7bd70efc999a751
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.date: 08/22/2018
+ms.author: sethm
+ms.openlocfilehash: f7233d6a27b9ec3d58f33f7032bbec7a646d24f7
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444260"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42366114"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>為 Azure Stack 提供應用程式存取
 
@@ -86,7 +86,7 @@ ms.locfileid: "37444260"
 
 |參數|說明|範例|
 |---------|---------|---------|
-|Name|SPN 的帳戶名稱|MyAPP|
+|名稱|SPN 的帳戶名稱|MyAPP|
 |ClientCertificates|憑證物件的陣列|X509 憑證|
 |ClientRedirectUris<br>(選用)|應用程式重新導向 URI|         |
 
@@ -136,6 +136,10 @@ ms.locfileid: "37444260"
     -CertificateThumbprint $ServicePrincipal.Thumbprint `
     -ApplicationId $ServicePrincipal.ClientId `
     -TenantId $TenantID
+
+    # Output the SPN details
+    $ServicePrincipal
+
    ```
 
 2. 自動化完成之後，它會顯示使用 SPN 的必要詳細資料。 

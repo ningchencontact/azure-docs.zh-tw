@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 7/10/2018
-ms.openlocfilehash: 303c1cfaf2b91712f706c5b78e027bb02739c770
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: d4f1e188a1a145ba3be5fb45d2b0ea4d0bfd57a7
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39074139"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41918186"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-vsts"></a>教學課程：使用 VSTS 部署具有 CI/CD 的 Azure 串流分析作業
 本教學課程說明如何使用 Visual Studio Team Services (VSTS) 設定 Azure 串流分析作業的持續整合和部署。 
@@ -32,8 +32,8 @@ ms.locfileid: "39074139"
 
 * 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 * 安裝 [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) 和 **Azure 開發**或**資料儲存和處理**工作負載。
-* 建立 [Visual Studio 中的串流分析專案](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-quick-create-vs)。
-* 建立 [Visual Studio Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services) 帳戶。
+* 建立 [Visual Studio 中的串流分析專案](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-vs)。
+* 建立 [Visual Studio Team Services](https://visualstudio.microsoft.com/team-services/) 帳戶。
 
 ## <a name="configure-nuget-package-dependency"></a>設定 NuGet 套件相依性
 若要在任意電腦上自動建置和自動部署，您必須使用 NuGet 套件 `Microsoft.Azure.StreamAnalytics.CICD`。 它提供的本機執行與部署工具 MSBuild，可針對串流分析 Visual Studio 專案，支援連續整合及部署程序。 如需詳細資訊，請參閱[串流分析 CI/CD 工具](stream-analytics-tools-for-visual-studio-cicd.md)。

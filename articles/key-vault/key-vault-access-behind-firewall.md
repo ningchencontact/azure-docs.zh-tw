@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.openlocfilehash: d017c0d9940288cb5eeaa45694b324f93b9bb144
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 6bb757fe072f0fc3ecbda5ae125aa2bf928479fb
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736243"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41919106"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>在防火牆後存取 Azure 金鑰保存庫
 ### <a name="q-my-key-vault-client-application-needs-to-be-behind-a-firewall-what-ports-hosts-or-ip-addresses-should-i-open-to-enable-access-to-a-key-vault"></a>問︰我的金鑰保存庫用戶端應用程式必須位於防火牆後。 我應該開啟哪些連接埠、主機或 IP 位址以啟用金鑰保存庫的存取權？
@@ -43,7 +43,7 @@ ms.locfileid: "34736243"
 | 搭配使用公司帳戶或學校帳戶與 Azure AD 的使用者或服務主體 (例如，user@contoso.com) |**全域：**<br> login.microsoftonline.com:443<br><br> **Azure 中國︰**<br> login.chinacloudapi.cn:443<br><br>**Azure 美國政府︰**<br> login.microsoftonline.us:443<br><br>**Azure 德國︰**<br> login.microsoftonline.de:443 |
 | 使用公司帳戶或學校帳戶加上 Active Directory 同盟服務 (AD FS) 或其他同盟端點的使用者或服務主體 (例如，user@contoso.com) |公司帳戶或學校帳戶的所有端點，加上 AD FS 或其他同盟端點 |
 
-還有其他可能的複雜案例。 如需其他資訊，請參閱 [Azure Active Directory 驗證流程](/documentation/articles/active-directory-authentication-scenarios/)、[整合應用程式與 Azure Active Directory](/documentation/articles/active-directory-integrating-applications/) 及 [Active Directory 驗證通訊協定](https://msdn.microsoft.com/library/azure/dn151124.aspx)。  
+還有其他可能的複雜案例。 如需其他資訊，請參閱 [Azure Active Directory 驗證流程](../active-directory/develop/authentication-scenarios.md)、[整合應用程式與 Azure Active Directory](../active-directory/develop/active-directory-how-to-integrate.md) 及 [Active Directory 驗證通訊協定](https://msdn.microsoft.com/library/azure/dn151124.aspx)。  
 
 ## <a name="key-vault-management"></a>金鑰保存庫管理
 對於金鑰保存庫管理 (CRUD 和設定存取原則)，金鑰保存庫用戶端應用程式需要存取 Azure Resource Manager 端點。  

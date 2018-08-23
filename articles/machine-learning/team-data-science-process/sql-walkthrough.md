@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: deguhath
-ms.openlocfilehash: dae8549cb951a463688869454e2f4c71103c1363
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 6e58429567e447002b1c9191bb8e50a4351649a9
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226388"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246566"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Team Data Science Process 實務：使用 SQL Server
 在這個教學課程中，您將遵循逐步解說，使用 SQL Server 和可公開取得的資料集 ([NYC Taxi Trips (NYC 計程車車程)](http://www.andresmh.com/nyctaxitrips/) 資料集)，完成建置和部署機器學習服務模型的程序。 程序會遵循標準的資料科學工作流程︰包括擷取和瀏覽資料，以及設計功能以加快學習，接著建置和部署模型。
@@ -70,7 +70,7 @@ ms.locfileid: "39226388"
 
 設定您的 Azure 資料科學環境：
 
-1. [建立儲存體帳戶](../../storage/common/storage-create-storage-account.md)
+1. [建立儲存體帳戶](../../storage/common/storage-quickstart-create-account.md)
 2. [建立 Azure Machine Learning 工作區](../studio/create-workspace.md)
 3. [佈建資料科學虛擬機器](../data-science-virtual-machine/setup-sql-server-virtual-machine.md)，這樣會提供 SQL Server 和 IPython Notebook 伺服器。
    

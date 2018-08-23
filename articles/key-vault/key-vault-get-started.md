@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: 2d959eb9c4f55624d0d0915dd5dea4c62ba1f8e5
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: fcf3c7d47e43adc94d2de933430f16d64ec987a2
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505708"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "41919365"
 ---
 # <a name="get-started-with-azure-key-vault"></a>開始使用 Azure 金鑰保存庫
 本文可協助您使用 PowerShell 來開始使用 Azure Key Vault，並引導您完成下列活動：
@@ -28,9 +28,6 @@ ms.locfileid: "39505708"
 - 應用程式可以如何使用該金鑰或密碼。
 
 大部分地區均提供 Azure 金鑰保存庫。 如需詳細資訊，請參閱 [金鑰保存庫價格頁面](https://azure.microsoft.com/pricing/details/key-vault/)。
-
-> [!NOTE]
-> 本文不包含如何撰寫 Azure 應用程式的指示。 您可以使用這些步驟的 [Azure Key Vault 的範例應用程式](https://www.microsoft.com/download/details.aspx?id=45343)。
 
 如需跨平台命令列介面的指示，請參閱 [這個對等的教學課程](key-vault-manage-with-cli2.md)。
 
@@ -269,7 +266,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalNa
 ## <a id="HSM"></a>使用硬體安全模組 (HSM)
 為了加強保證，您可以在硬體安全模組 (HSM) 中匯入或產生無需離開 HSM 界限的金鑰。 HSM 已通過 FIPS 140-2 Level 2 驗證。 如果此需求對您不適用，請略過本節並移至 [刪除金鑰保存庫及相關聯的金鑰和密碼](#delete)。
 
-若要建立這些受 HSM 保護的金鑰，您必須使用 [Azure 金鑰保存庫高階服務層以支援受 HSM 保護的金鑰](https://azure.microsoft.com/pricing/free-trial/)。 此外，請注意此功能不適用於 Azure China。
+若要建立這些受 HSM 保護的金鑰，您必須使用 [Azure 金鑰保存庫高階服務層以支援受 HSM 保護的金鑰](https://azure.microsoft.com/pricing/details/key-vault/)。 此外，請注意此功能不適用於 Azure China。
 
 建立金鑰保存庫時，請新增 **-SKU** 參數：
 

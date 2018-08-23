@@ -3,7 +3,7 @@ title: 使用 Azure Stack 原則模組 | Microsoft Docs
 description: 瞭解如何將 Azure 訂用帳戶的行為限制為與 Azure Stack 訂用帳戶類似
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: 937ef34f-14d4-4ea9-960b-362ba986f000
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
-ms.author: mabrigg
-ms.openlocfilehash: 105991296629e04addab33a0611736b379b11688
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.date: 08/15/2018
+ms.author: sethm
+ms.openlocfilehash: 273b1065d51552dd7b92d4a10fc856294a23a4e7
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281859"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41946425"
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>使用 Azure Stack 原則模組管理 Azure 原則
 

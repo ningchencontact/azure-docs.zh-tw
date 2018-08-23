@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 42e7ef8699ee5f481c6a1c45832dfa3428e3baa8
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 4e9d1742401e30d451282ea8dc22a56c0347dbf9
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798197"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41918593"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>以 Python 開始使用 Azure 表格儲存體和 Azure Cosmos DB 資料表 API
 
@@ -34,13 +34,13 @@ Azure 表格儲存體和 Azure Cosmos DB 是可將結構化的 NoSQL 資料儲�
 
 在進行此範例中的案例時，您可以參閱 [Azure Cosmos DB SDK for Python API 參考資料](https://azure.github.io/azure-cosmosdb-python/) \(英文\)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您需要下列項目才能成功完成此範例︰
 
 - [Python](https://www.python.org/downloads/) 2.7、3.3、3.4、3.5 或 3.6
 - [適用於 Python 的 Azure Cosmos DB 資料表 SDK ](https://pypi.python.org/pypi/azure-cosmosdb-table/)。 此 SDK 與 Azure 表格儲存體和 Azure Cosmos DB 資料表 API 連線。
-- [Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account)或 [Azure Cosmos DB 帳戶](https://azure.microsoft.com/try/cosmosdb/)
+- [Azure 儲存體帳戶](../storage/common/storage-quickstart-create-account.md)或 [Azure Cosmos DB 帳戶](https://azure.microsoft.com/try/cosmosdb/)
 
 ## <a name="create-an-azure-service-account"></a>建立 Azure 服務帳戶
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]

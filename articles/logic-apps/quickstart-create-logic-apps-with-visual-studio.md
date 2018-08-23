@@ -3,20 +3,21 @@ title: 建立可透過 Visual Studio 自動執行工作流程的邏輯應用程�
 description: 說明如何在 Visual Studio 中使用 Azure Logic Apps 自動執行工作、程序和工作流程的快速入門
 services: logic-apps
 ms.service: logic-apps
+ms.workload: azure-vs
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
-ms.date: 07/31/2018
 ms.topic: quickstart
 ms.custom: mvc
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 92f4fb57e3bd1f3ee61625256d661980d6a11275
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.date: 07/31/2018
+ms.openlocfilehash: b8961edebd80d5f36d844734e3c93a4bd3b1f0cf
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39367125"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42162128"
 ---
 # <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>快速入門：使用 Azure Logic Apps 建立和自動執行工作、程序和工作流程 - Visual Studio
 

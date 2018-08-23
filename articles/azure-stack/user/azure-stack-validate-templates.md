@@ -3,7 +3,7 @@ title: 使用範本驗證工具來檢查 Azure Stack 的範本 | Microsoft Docs
 description: 檢查要部署到 Azure Stack 的範本
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: d9e6aee1-4cba-4df5-b5a3-6f38da9627a3
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
-ms.author: brenduns
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: 61c893848176a89b4b6ed8d7a46f27bdeff5cec1
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 73a0766baee8da782f0192fbc17fb2898a8360ac
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294472"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41946409"
 ---
 # <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>使用範本驗證工具來檢查 Azure Stack 的範本
 
@@ -85,9 +85,9 @@ AzureRM.TemplateValidator.psm1 使用雲端功能 JSON 檔案來測試將在 Azu
 
 | 參數 | 說明 | 必要 |
 | ----- | -----| ----- |
-| TemplatePath | 指定要在其中遞迴尋找 Azure Resource Manager 範本的路徑 | yes | 
+| TemplatePath | 指定要在其中遞迴尋找 Azure Resource Manager 範本的路徑 | 是 | 
 | TemplatePattern | 指定要比對的範本檔案名稱。 | 否 |
-| CapabilitiesPath | 指定雲端功能 JSON 檔案的路徑 | yes | 
+| CapabilitiesPath | 指定雲端功能 JSON 檔案的路徑 | 是 | 
 | IncludeComputeCapabilities | 包括 IaaS 資源 (例如 VM 大小與 VM 擴充功能) 的評估 | 否 |
 | IncludeStorageCapabilities | 包括儲存體資源 (例如 SKU 類型) 的評估 | 否 |
 | 報告 | 指定所產生之 HTML 報告的名稱 | 否 |

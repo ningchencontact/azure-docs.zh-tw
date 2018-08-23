@@ -78,7 +78,7 @@
 ### [如何搭配 Linux 使用 Azure 檔案儲存體](../../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [開始使用 Azure 表格儲存體](../../cosmos-db/table-storage-how-to-use-dotnet.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [開始使用 Azure 佇列儲存體](../../storage/queues/storage-dotnet-how-to-use-queues.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [建立儲存體帳戶](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
+### [建立儲存體帳戶](../../storage/common/storage-quickstart-create-account.md)
 ### [搭配使用 Azure PowerShell 與 Azure 儲存體](../../storage/common/storage-powershell-guide-full.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [使用 Azure CLI 搭配 Azure 儲存體](../../storage/common/storage-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure 儲存體用戶端工具](../../storage/common/storage-explorers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
