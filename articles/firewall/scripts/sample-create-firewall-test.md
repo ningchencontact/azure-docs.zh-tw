@@ -6,14 +6,14 @@ author: vhorne
 ms.service: firewall
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 7/11/2018
+ms.date: 8/13/2018
 ms.author: victorh
-ms.openlocfilehash: daf847ea9a6b6310afbc8eca7f662065fe75ade6
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: b65a5dec63bdc625dda64e101620f56cd6dd7308
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397177"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41920017"
 ---
 # <a name="create-an-azure-firewall-test-environment"></a>建立 Azure 防火牆測試環境
 
@@ -80,10 +80,10 @@ Remove-AzureRmResourceGroup -Name AzfwSampleScriptEastUS -Force
 | [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) | 建立 VM 組態。 此組態包括 VM 名稱、作業系統和系統管理認證等資訊。 建立 VM 時會使用此組態。 |
 | [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | 建立虛擬機器。 |
 |[Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | 移除資源群組及其內含的所有資源。 |
-|New-AzureRmFirewall| 建立新的 Azure 防火牆。|
-|Get-AzureRmFirewall|取得 Azure 防火牆物件。|
-|New-AzureRmFirewallApplicationRule|建立新的 Azure 防火牆應用程式規則。|
-|Set-AzureRmFirewall|認可 Azure 防火牆物件變更。|
+|[New-AzureRmFirewall](https://github.com/Azure/azure-powershell/blob/Networking-AzureFirewall/src/ResourceManager/Network/Commands.Network/help/New-AzureRmFirewall.md)| 建立新的 Azure 防火牆。|
+|[Get-AzureRmFirewall](https://github.com/Azure/azure-powershell/blob/Networking-AzureFirewall/src/ResourceManager/Network/Commands.Network/help/Get-AzureRmFirewall.md)|取得 Azure 防火牆物件。|
+|[New-AzureRmFirewallApplicationRule](https://github.com/Azure/azure-powershell/blob/Networking-AzureFirewall/src/ResourceManager/Network/Commands.Network/help/New-AzureRmFirewallApplicationRule.md)|建立新的 Azure 防火牆應用程式規則。|
+|[Set-AzureRmFirewall](https://github.com/Azure/azure-powershell/blob/Networking-AzureFirewall/src/ResourceManager/Network/Commands.Network/help/Set-AzureRmFirewall.md)|認可 Azure 防火牆物件變更。|
 
 
 ## <a name="next-steps"></a>後續步驟

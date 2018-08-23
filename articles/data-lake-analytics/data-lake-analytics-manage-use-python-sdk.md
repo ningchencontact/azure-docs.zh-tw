@@ -10,12 +10,12 @@ editor: jasonwhowell
 ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: 2f3912069b54b3ad761493f02336d8d58866f53a
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: c6f97f7bad6eada962623e7efc5d7ed010dc9ebe
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261455"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42141477"
 ---
 # <a name="manage-azure-data-lake-analytics-using-python"></a>使用 Python 來管理 Azure Data Lake Analytics
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "35261455"
 
 * 使用 64 位元版 Python。
 * 您可以使用在 **[Python.org 下載](https://www.python.org/downloads/)** \(英文\) 找到的標準 Python 散發套件。 
-* 許多開發人員發現使用 **[Anaconda Python 散發套件](https://www.continuum.io/downloads)** \(英文\) 相當便利。  
+* 許多開發人員發現使用 **[Anaconda Python 散發套件](https://www.anaconda.com/download/)** \(英文\) 相當便利。  
 * 本文是使用來自標準 Python 散發套件的 Python 3.6 版來撰寫的
 
 ## <a name="install-azure-python-sdk"></a>安裝 Azure Python SDK

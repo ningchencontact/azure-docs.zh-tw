@@ -18,11 +18,11 @@ ms.date: 04/30/2018
 ms.author: jdial
 ms.custom: mvc
 ms.openlocfilehash: f010bebcf1130b3061c60987ffbd4e706a030773
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32776545"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41919119"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站記錄往返虛擬機器的網路流量
 
@@ -45,7 +45,7 @@ ms.locfileid: "32776545"
 
     |設定|值|
     |---|---|
-    |Name|myVm|
+    |名稱|myVm|
     |使用者名稱| 輸入您選擇的使用者名稱。|
     |密碼| 輸入您選擇的密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
     |訂用帳戶| 選取您的訂用帳戶。|
@@ -62,8 +62,8 @@ ms.locfileid: "32776545"
 
 如果您已經在美國東部區域中啟用網路監看員，請跳至[註冊 Insights 提供者](#register-insights-provider)。
 
-1. 在入口網站中，選取 [所有服務]。 在 [篩選] 方塊中，輸入*網路監看員*。 當結果中出現**網路監看員**時，請加以選取。
-2. 選取 [區域]、展開它，然後選取 [美國東部] 右邊的 [...]，如下圖所示：
+1. 在入口網站中，選取 [所有服務]。 在 [篩選條件] 方塊中，輸入*網路監看員*。 當結果中出現**網路監看員**時，請加以選取。
+2. 選取 [地區]、展開它，然後選取 [美國東部] 右邊的 [...]，如下圖所示：
 
     ![啟用網路監看員](./media/network-watcher-nsg-flow-logging-portal/enable-network-watcher.png)
 
@@ -88,7 +88,7 @@ NSG 流量記錄需要 **Microsoft.Insights** 提供者。 若要註冊提供者
 
     | 設定        | 值                                                        |
     | ---            | ---   |
-    | Name           | 3-24 個字元長，只能包含小寫英文字母和數字，並且必須是所有 Azure 儲存體帳戶中唯一的名稱。                                                               |
+    | 名稱           | 3-24 個字元長，只能包含小寫英文字母和數字，並且必須是所有 Azure 儲存體帳戶中唯一的名稱。                                                               |
     | 位置       | 選取 [美國東部]                                           |
     | 資源群組 | 選取 [使用現有的]，然後選取 [myResourceGroup] |
 

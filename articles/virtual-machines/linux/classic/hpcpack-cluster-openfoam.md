@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 07/22/2016
 ms.author: danlep
-ms.openlocfilehash: 73ad78fc73a7605f8feaf114ebdfac5023cc91b6
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 9032a0b68c4c8789010b0304b64a63d4924521fb
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342416"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42141889"
 ---
 # <a name="run-openfoam-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>在 Azure 中的 Linux RDMA 叢集以 Microsoft HPC Pack 執行 OpenFoam
 本文說明一個在 Azure 虛擬機器中執行 OpenFoam 的方式。 在這裡，您將在 Azure 上部署一個具有 Linux 計算節點的 Microsoft HPC Pack 叢集，並使用 Intel MPI 來執行 [OpenFoam](http://openfoam.com/) 作業。 您可以使用支援 RDMA 的 Azure VM 作為計算節點，讓計算節點能夠透過 Azure RDMA 網路進行通訊。 其他在 Azure 中執行 OpenFoam 的選項還包括 Marketplace 中所提供已完整設定的市售映像 (例如 UberCloud 的 [OpenFoam 2.3 on CentOS 6](https://azuremarketplace.microsoft.com/marketplace/apps/cfd-direct.cfd-direct-from-the-cloud))，以及藉由在 [Azure Batch](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/) 上執行。 
@@ -36,7 +36,7 @@ Microsoft HPC Pack 提供可在 Microsoft Azure 虛擬機器叢集上執行大�
 > 
 > 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * **具有支援 RDMA 之 Linux 計算節點的 HPC Pack 叢集** - 使用 [Azure Resource Manager 範本](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/)或 [Azure PowerShell 指令碼](hpcpack-cluster-powershell-script.md)，部署具有 A8、A9、H16r 或 H16rm 大小之 Linux 計算節點的 HPC Pack 叢集。 如需了解任一選項的必要條件與步驟，請參閱 [開始使用 Azure 中 HPC Pack 叢集內的 Linux 計算節點](hpcpack-cluster.md) 。 如果您選擇 PowerShell 指令碼部署選項，請參閱本文結尾範例檔案中的範例組態檔。 您可以使用此組態來部署 Azure 型 HPC Pack 叢集，其中包含一個 A8 大小的 Windows Server 2012 R2 前端節點，以及兩個 A8 大小的 SUSE Linux Enterprise Server 12 計算節點。 請將您的訂用帳戶和服務名稱取代為適當的值。 
   
   **其他應該知道的事項**
@@ -46,7 +46,7 @@ Microsoft HPC Pack 提供可在 Microsoft Azure 虛擬機器叢集上執行大�
   * 部署 Linux 節點之後，請透過 SSH 進行連線來執行任何額外的系統管理工作。 您可以在 Azure 入口網站中找到每個 Linux VM 的 SSH 連線詳細資料。  
 * **Intel MPI** - 若要在 Azure 中的 SLES 12 HPC 計算節點上執行 OpenFOAM，您必須從 [Intel.com 網站](https://software.intel.com/en-us/intel-mpi-library/)安裝 Intel MPI Library 5 執行階段。 (Intel MPI 5 已預先安裝在 CentOS 型 HPC 映像上)。在稍後的步驟中，請視需要在 Linux 計算節點上安裝 Intel MPI。 若要為此步驟做準備，請在向 Intel 註冊之後，依循確認電子郵件中的連結前往相關的網頁。 然後，複製適當 Intel MPI 版本之 .tgz 檔案的下載連結。 這篇文章根據 Intel MPI 5.0.3.048 版。
 * **OpenFOAM Source Pack** - 從 [OpenFOAM Foundation 網站](http://openfoam.org/download/2-3-1-source/)下載適用於 Linux 的OpenFOAM Source Pack 軟體。 本文是依據 Source Pack 2.3.1 版 (可透過 OpenFOAM-2.3.1.tgz 的形式下載) 而撰寫的。 請依照本文稍後的指示，在 Linux 計算節點上解壓縮並編譯 OpenFOAM。
-* **EnSight** (選擇性) - 若要查看 OpenFOAM 模擬的結果，請下載並安裝 [EnSight](https://www.ceisoftware.com/download/) 視覺效果與分析程式。 授權和下載資訊請見 EnSight 網站。
+* **EnSight** (選擇性) - 若要查看 OpenFOAM 模擬的結果，請下載並安裝 [EnSight](https://ensighttransfe.wpengine.com/direct-access-downloads/) 視覺效果與分析程式。 授權和下載資訊請見 EnSight 網站。
 
 ## <a name="set-up-mutual-trust-between-compute-nodes"></a>設定運算節點之間的相互信任
 在多個 Linux 節點上執行跨節點作業，需要節點相互信任 (藉由 **rsh** 或 **ssh**)。 當您使用 Microsoft HPC Pack IaaS 部署指令碼建立 HPC Pack 叢集時，指令碼會自動為您指定的系統管理員帳戶設定永久相互信任。 針對您在叢集的網域中建立的非系統管理員使用者，您必須在將工作配置給他們時，設定節點間的暫時相互信任，並且在工作完成之後終結關聯性。 若要為每位使用者建立信任，請將 HPC Pack 用於信任關係的 RSA 金鑰組提供給叢集。
@@ -362,7 +362,7 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
 10. 工作完成時，請 C:\OpenFoam\sloshingTank3D 下的資料夾中找出工作結果，記錄檔則位於 C:\OpenFoam 上。
 
 ## <a name="view-results-in-ensight"></a>在 EnSight 中檢視結果
-您可以選擇性地使用 [EnSight](https://www.ceisoftware.com/) 來視覺化和分析 OpenFOAM 工作的結果。 如需 EnSight 中的視覺效果和動畫的詳細資訊，請參閱此 [視訊指南](http://www.ceisoftware.com/wp-content/uploads/screencasts/vof_visualization/vof_visualization.html)。
+您可以選擇性地使用 [EnSight](http://www.ensight.com/) 來視覺化和分析 OpenFOAM 工作的結果。 如需 EnSight 中的視覺效果和動畫的詳細資訊，請參閱此 [視訊指南](http://www.ensight.com/ensight.com/envideo/)。
 
 1. 在前端節點上安裝 EnSight 之後，請加以啟動。
 2. 開啟 C:\OpenFoam\sloshingTank3D\EnSight\sloshingTank3D.case。

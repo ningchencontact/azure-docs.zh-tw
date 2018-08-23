@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 366b89d3db0db634e239ac2d99188c7ea0444c13
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: accc2e994e7ea361315d5dfb33b257e58410490c
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365187"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42141300"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>在 Azure Active Directory 中自訂 SaaS 應用程式的使用者佈建屬性對應
 Microsoft Azure AD 支援使用者佈建到例如 Salesforce、Google Apps 等等的協力廠商 SaaS 應用程式。 如果您啟用了第三方 SaaS 應用程式的使用者佈建，Azure 入口網站會以「屬性對應」的形式控制其屬性值。
@@ -121,7 +121,7 @@ Microsoft Azure AD 支援使用者佈建到例如 Salesforce、Google Apps 等�
 * **是多重值嗎？** - 屬性是否支援多個值。
 * **大小寫完全相符嗎？** - 是否以區分大小寫的方式評估屬性值。
 * **API 運算式** - 不使用，除非特定佈建連接器 (例如 Workday) 的文件另有指示。
-* **參考的物件屬性** - 如果這是參考類型屬性，則此功能表可讓您在目標應用程式中選取包含屬性相關值的資料表和屬性。 例如，如果您有名為 "Department" 的屬性，且其儲存值參考了個別 "Departments" 資料表中的物件，則您會選取 "Departments.Name"。 請注意，支援指定應用程式的參考資料表和主要識別碼欄位都是預先設定的，且目前無法使用 Azure 入口網站加以編輯，但可以使用[圖形 API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes) 來編輯。
+* **參考的物件屬性** - 如果這是參考類型屬性，則此功能表可讓您在目標應用程式中選取包含屬性相關值的資料表和屬性。 例如，如果您有名為 "Department" 的屬性，且其儲存值參考了個別 "Departments" 資料表中的物件，則您會選取 "Departments.Name"。 請注意，支援指定應用程式的參考資料表和主要識別碼欄位都是預先設定的，且目前無法使用 Azure 入口網站加以編輯，但可以使用[圖形 API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes) 來編輯。
 
 若要新增新的屬性，請捲動至支援的屬性清單結尾處，使用提供的輸入填入上方的欄位，然後選取 [新增屬性]。 新增屬性完成後，請選取 [儲存]。 接著，您必須重新載入 [佈建] 索引標籤，使新屬性成為屬性對應編輯器中的可用屬性。
 

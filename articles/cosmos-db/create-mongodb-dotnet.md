@@ -2,7 +2,7 @@
 title: Azure CosmosDB︰使用 .NET 和 MongoDB API 建置 Web 應用程式 | Microsoft Docs
 description: 提供 .NET 程式碼範例，您可用來連線及查詢 Azure Cosmos DB MongoDB API
 services: cosmos-db
-author: SnehaGunda
+author: slyons
 manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
@@ -10,13 +10,13 @@ ms.custom: quick start connect, mvc
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/22/2018
-ms.author: sngun
-ms.openlocfilehash: 2e0de0f15612b21345bd8df6f9808222ec328c3d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: sclyon
+ms.openlocfilehash: a87b4c50beea21f9d7721b60ae691eeafaedfc05
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38542616"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42022518"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-web-app-with-net-and-the-azure-portal"></a>Azure CosmosDB︰使用 .NET 和 Azure 入口網站建置 MongoDB API Web 應用程式
 

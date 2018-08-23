@@ -9,12 +9,12 @@ ms.date: 07/12/2018
 ms.topic: quickstart
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 5359920ab32fab65df0466474aec2d305bcf633c
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: a740672ea948bd86efce92c534e0f95f65563438
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091045"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42022738"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>快速入門：將 Hello World 部署至 Service Fabric Mesh
 
@@ -50,14 +50,14 @@ az group create --name myResourceGroup --location eastus
 ```azurecli-interactive
 az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}}" 
 ```
-上述命令會使用 [mesh_rp.linux.json 範本](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json)部署 Linux。 如果您想要部署 Windows 應用程式，請使用 [mesh_rp.windows.json 範本](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.windows.json)。 Windows 容器映像比 Linux 容器映像大，因此部署時可能需要較多時間。
+上述命令會使用 [mesh_rp.linux.json 範本](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json)來部署 Linux 應用程式。 如果您想要部署 Windows 應用程式，請使用 [mesh_rp.windows.json 範本](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.windows.json)。 Windows 容器映像比 Linux 容器映像大，因此部署時可能需要較多時間。
 
 此命令會在幾分鐘內傳回：
 
 `helloWorldApp has been deployed successfully on helloWorldNetwork with public ip address <IP Address>` 
 
 ## <a name="open-the-application"></a>開啟應用程式
-在應用程式成功部署後，請從 CLI 輸出中複製服務端點的公用 IP 位址。  請在網頁瀏覽器中開啟該 IP 位址。 此時會顯示含有 Azure Service Fabric Mesh 標誌的網頁。
+在應用程式成功部署後，請從 CLI 輸出中複製服務端點的公用 IP 位址。 請在網頁瀏覽器中開啟該 IP 位址。 此時會顯示含有 Azure Service Fabric Mesh 標誌的網頁。
 
 ## <a name="check-the-application-details"></a>查看應用程式詳細資料
 您可以使用 `az mesh app show` 命令來查看應用程式的狀態。 此命令會提供您可以追蹤的實用資訊。

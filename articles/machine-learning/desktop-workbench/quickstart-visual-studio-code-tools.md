@@ -2,22 +2,20 @@
 title: Azure 上適用於 Machine Learning 的 Visual Studio Code Tools 的快速入門文章 | Microsoft Docs
 description: 本文說明如何使用適用於 Machine Learning 的 Visual Studio Code Tools，從建立測試、定型模型以及運用 Web 服務開始。
 services: machine-learning
-author: ahgyger
-ms.author: ahgyger
-manager: haining
-ms.reviewer: garyericson, jasonwhowell, mldocs
+author: chris-lauren
+ms.author: chris.lauren
 ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/15/2017
-ms.openlocfilehash: 16379b94a751ccd61a76ce1d3dda6a3ff1515751
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a215c562ad15b69dcec20c1951fe8bc3fe80c6ff
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38767063"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42022322"
 ---
 # <a name="visual-studio-code-tools-for-ai"></a>適用於 AI 的 Visual Studio Code Tools
 適用於 AI 的 Visual Studio Code Tools 是開發延伸模組，可建置、測試及部署深入學習和 AI 解決方案。 它的特色在於與 Azure Machine Learning 的緊密整合、值得注意的執行歷程記錄檢視、詳細說明先前的定型與自訂度量的效能。 它提供範例總管檢視，可供使用 [Microsoft 辨識工具組 (先前稱為 CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit)、[Google TensorFlow](https://www.tensorflow.org) 與其他深入學習架構瀏覽並啟動新專案。 最後，提供用於計算目標的總管，它可讓您在使用 GPU 的 Azure 虛擬機器或 Linux 伺服器之類的遠端環境上，將作業提交至定型模型。 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: 6d63a443da0fd331d02039ed3a3715dbc59f273b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: f1803dd051b380743b56f4f026ee5c5fb684ce69
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051462"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41920684"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>以累加方式將資料從 Azure SQL Database 載入到 Azure Blob 儲存體
 在本教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從 Azure SQL Database 中的資料表載入到 Azure Blob 儲存體。 
@@ -61,11 +61,11 @@ ms.locfileid: "37051462"
     * 建立 StoredProcedure 活動，以更新下次執行之管線的水位線值。 
 
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * **Azure SQL Database**。 您需要使用資料庫作為來源資料存放區。 如果您沒有 SQL 資料庫，請參閱[建立 Azure SQL Database](../sql-database/sql-database-get-started-portal.md)，按照步驟來建立 SQL 資料庫。
-* **Azure 儲存體**。 您需要使用 Blob 儲存體作為接收資料存放區。 如果您沒有儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)，按照步驟來建立儲存體帳戶。 建立名為 adftutorial 的容器。 
+* **Azure 儲存體**。 您需要使用 Blob 儲存體作為接收資料存放區。 如果您沒有儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)，按照步驟來建立儲存體帳戶。 建立名為 adftutorial 的容器。 
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>在 SQL 資料庫中建立資料來源資料表
 1. 開啟 SQL Server Management Studio。 在 [伺服器總管] 中，以滑鼠右鍵按一下資料庫，然後選擇 [新增查詢]。
@@ -306,7 +306,7 @@ END
     1. 針對 [預存程序名稱]，選取 **sp_write_watermark**。 
     2. 若要指定預存程序參數的值，請按一下 [匯入參數]，然後輸入參數的下列值： 
 
-        | Name | 類型 | 值 | 
+        | 名稱 | 類型 | 值 | 
         | ---- | ---- | ----- | 
         | LastModifiedtime | Datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | 字串 | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |

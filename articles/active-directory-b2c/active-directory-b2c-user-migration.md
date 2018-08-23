@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 3416802aea12e84cf827070ff3a50d73725d5ee3
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 7805b238d42201b791e038964985f784fcf8d4ce
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390481"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42140684"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C：使用者移轉
 當您將識別提供者移轉到 Azure Active Directory B2C (Azure AD B2C) 時，可能也需要移轉使用者帳戶。 本文說明如何將任何識別提供者的現有使用者帳戶移轉至 Azure AD B2C。 本文章並非是為了做出規定，而是要說明數個案例。 每種方法是否適合則屬開發人員的責任。
@@ -273,7 +273,7 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
 ### <a name="step-43-add-a-technical-profile-and-technical-profile-validation-to-your-policy"></a>步驟 4.3：新增技術設定檔和技術設定檔驗證到您的原則中
 1. 在 [方案總管] 中，展開 [方案項目]，並開啟 *TrustFrameworkExtensions.xml* 原則檔。
 2. 從 `yourtenant.onmicrosoft.com` 將 `TenantId`、`PublicPolicyUri` 和 `<TenantId>` 欄位變更成您的租用戶名稱。
-3. 在 `<TechnicalProfile Id="login-NonInteractive">` 項目之下`ProxyIdentityExperienceFrameworkAppId`，`IdentityExperienceFrameworkAppId` 使用在 [開始使用自訂原則][B2C-GetStartedCustom] 中設定的應用程式識別碼取代  和  的所有執行個體。
+3. 在 `<TechnicalProfile Id="login-NonInteractive">` 項目之下，使用在 [開始使用自訂原則][B2C-GetStartedCustom] 中設定的應用程式識別碼取代 `ProxyIdentityExperienceFrameworkAppId` 和 `IdentityExperienceFrameworkAppId` 的所有執行個體。
 4. 在 `<ClaimsProviders>` 節點下，尋找下列 XML 程式碼片段。 變更 `ServiceUrl` 的值，使其指向您的 Azure App Service URL。
 
     ```XML
@@ -363,7 +363,7 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
 在完成[開始使用自訂原則][B2C-GetStartedCustom]逐步解說之後，建議您使用自己的自訂原則檔案來建置您的情節。 我們已提供[範例原則檔案][UserMigrationSample]，供您參考。
 
 [AD-PasswordPolicies]: https://docs.microsoft.com/azure/active-directory/active-directory-passwords-policy
-[AD-Powershell]: https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2
+[AD-Powershell]: https://docs.microsoft.com/powershell/azure/active-directory/install-adv2
 [AppService-Deploy]: https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vs
 [B2C-AppRegister]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-app-registration
 [B2C-GetStarted]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started

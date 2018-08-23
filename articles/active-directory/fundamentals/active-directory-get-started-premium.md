@@ -13,12 +13,12 @@ ms.date: 09/07/2017
 ms.author: lizross
 ms.reviewer: piotrci
 ms.custom: it-pro;
-ms.openlocfilehash: c15cbb632410eb0b6867677d7802960033dfdd44
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: a5ede142b7f3dd314d1a6b3eb8f100ec55a4ea4e
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268377"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42022523"
 ---
 # <a name="quickstart-sign-up-for-azure-active-directory-premium"></a>快速入門：註冊 Azure Active Directory Premium
 若要開始使用 Azure Active Directory (Azure AD) Premium，您可以購買授權並將其與您的 Azure 訂用帳戶建立關聯。 如果您建立新的 Azure 訂用帳戶，您也需要啟用您的授權方案及 Azure AD 服務存取，如下列各節所述。 
@@ -46,7 +46,7 @@ Enterprise Mobility + Security (EMS) 是一個符合成本效益的方式，可�
 ### <a name="microsoft-volume-licensing"></a>Microsoft 大量授權
 Azure Active Directory Premium 可透過 [Microsoft Enterprise 合約](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) (250 個以上的授權) 或 [Open 大量授權](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) (5-250 個授權) 方案來取得。
 
-您可以在[如何透過大量授權購買](https://www.microsoft.com/en-us/Licensing/how-to-buy/how-to-buy.aspx)頁面深入了解大量授權購買選項。
+您可以在[如何透過大量授權購買](https://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx)頁面深入了解大量授權購買選項。
 
 > [!NOTE]
 > Azure Active Directory Premium 和 Basic 版本適用於使用全球 Azure Active Directory 執行個體的中國客戶。 由 21Vianet 在中國提供的 Microsoft Azure 服務目前不支援 Azure Active Directory Premium 和 Basic 版本。 如需詳細資訊，請透過 [Azure Active Directory 論壇](https://feedback.azure.com/forums/169401-azure-active-directory/)與我們連絡。

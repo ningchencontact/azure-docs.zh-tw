@@ -3,9 +3,8 @@ title: Azure App Service、虛擬機器、Service Fabric 及雲端服務的比�
 description: 了解如何在 Azure App Service、虛擬機器、Service Fabric 及雲端服務之間做選擇以供裝載 Web 應用程式。
 services: app-service\web, virtual-machines, cloud-services
 documentationcenter: ''
-author: ggailey777
-manager: erikre
-editor: jimbe
+author: cephalin
+manager: jeconnoc
 ms.assetid: 7d346a23-532a-42a9-98a8-23b7286d32a8
 ms.service: app-service-web
 ms.workload: web
@@ -13,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 07/07/2016
-ms.author: glenga
+ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 016427e6cfbb8bbb4910e5deffb3ab68d423fb90
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 3b1fb14fbb21876d0b3f7d98327353d54bb1cfb2
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224950"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42022671"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Azure App Service、虛擬機器、Service Fabric 及雲端服務的比較
-## <a name="overview"></a>概觀
+
 Azure 提供數種託管網站的方式：[Azure App Service][Azure App Service]、[虛擬機器][Virtual Machines]、[Service Fabric][Service Fabric] 及[雲端服務][Cloud Services]。 本文協助您了解這些選項，為您的 Web 應用程式做出正確的選擇。
 
 Azure App Service 是大多數 Web 應用程式的最佳選擇。 部署和管理都已整合到平台，網站可以迅速調整規模以因應過高的流量負載，而內建的負載平衡和流量管理員提供高可用性。 您可以使用[線上移轉工具][migrate-tool]輕鬆地將現有網站移至 Azure App Service、使用 Web 應用程式庫中的開放原始碼應用程式，或使用您選擇的架構和工具來建立新網站。 [WebJobs][WebJobs] 功能可讓您輕鬆地將背景作業處理新增至 App Service Web 應用程式。

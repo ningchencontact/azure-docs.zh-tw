@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 07/06/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: 1d8db471a3f8ebf9dbcce77b101a2688f2570fd6
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 5dd8b1f662f1ae6d6502743c6d976db4b58e962f
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37949879"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41919872"
 ---
 # <a name="restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>將資料庫備份還原至 Azure SQL Database 受控執行個體
 
@@ -27,9 +27,9 @@ ms.locfileid: "37949879"
 > * 建立 Azure 儲存體帳戶及上傳備份檔案
 > * 從備份檔案還原 Wide World Importers 資料庫
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-本教學課程可作為本教學課程中建立的資源起點：[建立 Azure SQL Database 受控執行個體](sql-database-managed-instance-create-tutorial-portal.md)。
+本教學課程可作為本教學課程中建立的資源起點：[建立 Azure SQL Database 受控執行個體](sql-database-managed-instance-get-started.md)。
 
 ## <a name="download-the-wide-world-importers---standard-backup-file"></a>下載 Wide World Importers - 標準備份檔案
 

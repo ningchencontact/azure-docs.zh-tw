@@ -4,7 +4,7 @@ description: 此文件詳盡說明要完成加入混合式 Azure AD 所需的後
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: samueld
+manager: mtillman
 editor: billmath
 ms.assetid: ''
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9949275b18206ca66f38bab036337a00fdde6ee5
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 05cb6d10a7e4269cbe5f9c97ef70cd9eb5a4d68e
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916542"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146180"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>加入混合式 Azure AD 的後置設定工作
 
@@ -62,7 +62,7 @@ ms.locfileid: "37916542"
 
 ## <a name="6-enable-azure-ad-seamless-sso-for-windows-down-level-devices"></a>6.為舊版的 Windows 裝置啟用 Azure AD 無縫式 SSO
 
-如果您的組織使用密碼雜湊同步處理或傳遞驗證來登入 Azure AD，請啟用該登入方法的 Azure AD 無縫式 SSO，以驗證舊版的 Windows 裝置：https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso。 
+如果您的組織使用密碼雜湊同步處理或傳遞驗證來登入 Azure AD，請啟用該登入方法的 Azure AD 無縫式 SSO，以驗證舊版的 Windows 裝置：https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso。 
 
 ## <a name="7-set-azure-ad-policy-for-windows-down-level-devices"></a>7.為舊版的 Windows 裝置設定 Azure AD 原則
 
@@ -81,7 +81,7 @@ ms.locfileid: "37916542"
 
 ## <a name="9-install-microsoft-workplace-join-on-windows-down-level-devices"></a>9.在舊版的 Windows 裝置上安裝 Microsoft Workplace Join
 
-此安裝程式會在裝置系統上建立執行於使用者內容中的排程工作。 此工作會在使用者登入 Windows 時觸發。 此工作會在使用整合式 Windows 驗證進行驗證之後，使用使用者認證以無訊息方式將裝置加入 Azure AD。 下載中心位於 https://www.microsoft.com/en-us/download/details.aspx?id=53554。 
+此安裝程式會在裝置系統上建立執行於使用者內容中的排程工作。 此工作會在使用者登入 Windows 時觸發。 此工作會在使用整合式 Windows 驗證進行驗證之後，使用使用者認證以無訊息方式將裝置加入 Azure AD。 下載中心位於 https://www.microsoft.com/download/details.aspx?id=53554。 
 
 ## <a name="10-configure-group-policy-to-allow-device-registration"></a>10.設定允許裝置註冊的群組原則
 

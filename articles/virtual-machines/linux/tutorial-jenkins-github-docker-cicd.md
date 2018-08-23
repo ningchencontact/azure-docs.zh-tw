@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b19d02e7d2bcbd696a7256c06b067f976fd36161
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 05ec147e705da4951735616881ad19ad265b403d
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931723"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41920270"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>教學課程：在 Azure 中的 Linux VM 上以 Jenkins、GitHub 及 Docker 建立開發基礎結構
 
@@ -151,7 +151,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 - 在 [一般] 區段下，選取 [GitHub 專案]，然後輸入您的分支存放庫 URL，例如 *https://github.com/cynthn/nodejs-docs-hello-world*
 - 在 [原始碼管理] 區段中，選取 [Git]，輸入您的分支存放庫 *.git* URL，例如 *https://github.com/cynthn/nodejs-docs-hello-world.git*
 - 在 [組建觸發程序] 下，選取 [GITScm 輪詢的 GitHub 勾點觸發程序]。
-- 在 [組建] 區段中，選擇 [新增組建步驟]。 選取 [執行殼層]，然後在命令視窗中輸入 `echo "Testing"`。
+- 在 [組建] 區段中，選擇 [新增組建步驟]。 選取 [執行殼層]，然後在命令視窗中輸入 `echo "Test"`。
 - 選取作業視窗底部的 [儲存]。
 
 

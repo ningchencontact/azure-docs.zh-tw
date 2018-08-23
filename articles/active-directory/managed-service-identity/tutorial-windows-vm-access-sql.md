@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: ace7f11eeea081077855a409824272b4b55f3c33
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: ca920a93d754254390a5c5c5a066be3144b47fc7
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247222"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41917908"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-sql"></a>教學課程：使用 Windows VM 受控服務識別來存取 Azure SQL
 
@@ -55,13 +55,13 @@ ms.locfileid: "39247222"
 
     ![替代映像文字](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-managed-service-identity-on-your-vm"></a>在您的 VM 上啟用受控服務識別 
+## <a name="enable-managed-service-identity-on-your-vm"></a>在 VM 上啟用受控服務識別 
 
 VM 受控服務識別可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您的程式碼。 啟用受控服務識別會告訴 Azure 為您的 VM 建立受控識別。 實際上，啟用受控服務識別可執行兩項工作：在 Azure Active Directory 註冊您的 VM 以建立其受控識別，它就會在 VM 上設定身分識別。
 
-1.  選取您想要在上面啟用受控服務識別的 [虛擬機器]。  
+1.  選取您想要在其上啟用受控服務識別的 [虛擬機器]。  
 2.  在左側的導覽列上，按一下 [設定]。 
-3.  您會看到**受控服務識別**。 若要註冊並啟用受控服務識別，請選取 [是]，如果您想要將它停用，則請選擇 [否]。 
+3.  您會看到**受控服務識別**。 若要註冊並啟用受控服務識別，請選取 [是]，如果您想要將停用，則請選擇 [否]。 
 4.  按一下 [儲存] 確認儲存設定。  
     ![替代映像文字](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
@@ -147,8 +147,8 @@ b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTes
 
 在這一個步驟中，您需要 [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)。 在開始之前，先閱讀以下文章了解 Azure AD 整合的背景會很有幫助：
 
-- [SQL Database 和 SQL 資料倉儲的通用驗證 (MFA 的 SSMS 支援)](/azure/sql-database/sql-database-ssms-mfa-authentication.md)
-- [使用 SQL Database 或 SQL 資料倉儲設定和管理 Azure Active Directory 驗證](/azure/sql-database/sql-database-aad-authentication-configure.md)
+- [SQL Database 和 SQL 資料倉儲的通用驗證 (MFA 的 SSMS 支援)](/azure/sql-database/sql-database-ssms-mfa-authentication)
+- [使用 SQL Database 或 SQL 資料倉儲設定和管理 Azure Active Directory 驗證](/azure/sql-database/sql-database-aad-authentication-configure)
 
 1.  啟動 SQL Server Management Studio。
 2.  在 [連線到伺服器] 對話方塊中，在 [伺服器名稱] 欄位中輸入您的 SQL 伺服器名稱。

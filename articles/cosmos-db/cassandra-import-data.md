@@ -2,7 +2,7 @@
 title: 將 Cassandra 資料匯入到 Azure Cosmos DB | Microsoft Docs
 description: 了解如何使用 CQL Copy 命令將 Cassandra 資料複製到 Azure Cosmos DB。
 services: cosmos-db
-author: govindk
+author: kanshiG
 manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: govindk
 ms.custom: mvc
-ms.openlocfilehash: 73c9f1fc26f5cb36cc475a66b67705c6177bebf8
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: b53328875f2242faba369dea0df655bc78117009
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37095667"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41919868"
 ---
 # <a name="azure-cosmos-db-import-cassandra-data"></a>Azure Cosmos DB：匯入 Cassandra 資料
 
@@ -29,7 +29,7 @@ ms.locfileid: "37095667"
 > * 使用 cqlsh COPY 命令匯入資料
 > * 使用 Spark 連接器匯入 
 
-# <a name="prerequisites"></a>先決條件
+# <a name="prerequisites"></a>必要條件
 
 * 安裝 [Apache Cassandra](http://cassandra.apache.org/download/)，並特別確認 *cqlsh* 已存在。
 * 增加輸送量︰資料移轉的時間長短取決於您為資料表佈建的輸送量。 針對較大資料移轉，請務必增加輸送量。 完成移轉之後，再降低輸送量以節省成本。 如需在 [Azure 入口網站](https://portal.azure.com)增加輸送量的詳細資訊，請參閱[設定 Azure Cosmos DB 容器的輸送量](set-throughput.md)。

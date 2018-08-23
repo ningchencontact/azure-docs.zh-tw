@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 0f64bcecadf5979e9983028354c41457771020bd
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: aeb4ff26b05a5542fd77ac32589c8f8efb622798
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "40129211"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "40166027"
 ---
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>建立已針對 Azure Dev Spaces 啟用的 Kubernetes 叢集
 
@@ -28,7 +28,7 @@ ms.locfileid: "40129211"
     - **叢集詳細資料**：輸入 AKS 叢集的名稱、地區 (目前，您必須選擇 EastUS、美國中部、WestEurope、WestUS2、CanadaCentral 或 CanadaEast)、版本及 DNS 名稱前置詞。
     - **級別**：選取 AKS 代理程式節點的 VM 大小和節點數目。 如果您開始使用 Azure Dev Spaces，一個節點就足以瀏覽所有功能。 節點計數可以輕易在叢集部署後隨時調整。 請注意，VM 大小無法在 AKS 叢集建立後變更。 不過，部署 AKS 叢集後，您就可以輕鬆地建立具有較大 VM 的新 AKS 叢集，而如果您需要相應增加，請使用 Dev Spaces 重新部署到該較大叢集。
 
-   務必選擇 Kubernetes 1.10.3 版或更新版本。
+   務必選擇 Kubernetes 1.9.6 版或更新版本。
 
    ![Kubernetes 組態設定](../media/common/Kubernetes-Create-Cluster-2.PNG)
 

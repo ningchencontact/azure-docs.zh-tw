@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 1b7ce6078fcaedee3d9ed4151063816df937ac0f
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1bb7a73213589b09d591e1c8297d9deaec7e075a
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055132"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41920026"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>在 Data Factory 管道中將活動分支和鏈結
 在本教學課程中，您會建立 Data Factory 管道來展示部分的控制流程功能。 這個管道只是簡單地從 Azure Blob 儲存體中的一個容器複製到相同儲存體帳戶中的另一個容器。 如果複製活動成功，管線會在成功電子郵件中傳送成功複製作業的詳細資料 (例如寫入的資料量)。 如果複製活動失敗，管線會在失敗電子郵件中傳送複製失敗的詳細資料 (例如錯誤訊息)。 在整個教學課程中，您會看到如何傳遞參數。
@@ -39,10 +39,10 @@ ms.locfileid: "37055132"
 
 本教學課程使用 Azure 入口網站。 您可以使用其他機制來與 Azure Data Factory 互動，請參閱目錄中的「快速入門」。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-* **Azure 訂用帳戶**。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
-* **Azure 儲存體帳戶**。 您會使用 Blob 儲存體作為**來源**資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)一文，按照步驟來建立帳戶。
+* **Azure 訂用帳戶**。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
+* **Azure 儲存體帳戶**。 您會使用 Blob 儲存體作為**來源**資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)一文，按照步驟來建立帳戶。
 * **Azure SQL Database**。 您會使用資料庫作為**接收**資料存放區。 如果您沒有 Azure SQL Database，請參閱[建立 Azure SQL 資料庫](../sql-database/sql-database-get-started-portal.md)一文，按照步驟建立資料庫。
 
 ### <a name="create-blob-table"></a>建立 Blob 資料表

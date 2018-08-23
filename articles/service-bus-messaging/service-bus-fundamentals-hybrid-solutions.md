@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: get-started-article
 ms.date: 05/23/2018
 ms.author: sethm
-ms.openlocfilehash: 994510b415e21288fd38a116f7e77a59ba79af59
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bef88f09f182b1bb450ee0e045985ed59d5b5648
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641317"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41917913"
 ---
 # <a name="azure-service-bus"></a>Azure 服務匯流排
 
@@ -36,7 +36,12 @@ ms.locfileid: "34641317"
 * 「主題」提供使用「訂用帳戶」的單向通訊。 單一主題可以有多個訂用帳戶。 就像佇列一樣，主題也扮演訊息代理程式的角色，但每個訂用帳戶可選擇性地使用篩選條件，以便只接收符合特定準則的訊息。
 * 轉送，提供雙向通訊。 與佇列和主題不同，轉送不是訊息代理程式，不會儲存途中訊息。 只是單純地將訊息傳遞至目的地應用程式。
 
-您在建立佇列、主題或轉送時會提供名稱。 此名稱結合命名空間的名稱，就形成物件的唯一識別碼。 應用程式可以提供此名稱給服務匯流排，然後利用該佇列、主題或轉送，即可相互通訊。 
+您在建立佇列、主題或轉送時會提供名稱。 此名稱結合命名空間的名稱，就形成物件的唯一識別碼。 應用程式可以提供此名稱給服務匯流排，然後利用該佇列、主題或轉送，即可相互通訊。
+
+ >**範例：**   
+     *https://&lt;servicebus-namespace-name&gt;.servicebus.windows.net/&lt;queue-name&gt;*  
+     *https://&lt;servicebus-namespace-name&gt;.servicebus.windows.net/&lt;topic-name&gt;*  
+     *https://&lt;servicebus-namespace-name&gt;.servicebus.windows.net/&lt;relay-name&gt;*  
 
 若要在轉送案例中使用上述任何物件，Windows 應用程式可以使用 Windows Communication Foundation (WCF)。 此服務也稱為 [WCF 轉送](../service-bus-relay/relay-what-is-it.md)。 對於佇列和主題，Windows 應用程式可以使用服務匯流排定義的訊息 API。 為了讓您更輕鬆地從非 Windows 應用程式使用這些物件，Microsoft 提供了 Java、Node.js 和其他語言的 SDK。 您也可以透過 HTTP 使用 [REST API](/rest/api/servicebus/)，存取佇列和主題。 
 

@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
 manager: douge
-ms.openlocfilehash: e186676b9c912d5c8453d9882e61b90c57a6362c
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 6b97baac6bb27166581c1dc6312e112a156ed6c3
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37933420"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41920678"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>使用 Azure Dev Spaces 進行小組開發
 

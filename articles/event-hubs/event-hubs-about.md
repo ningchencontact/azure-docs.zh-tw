@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 08/01/2018
 ms.author: shvija
-ms.openlocfilehash: c5cec92094a2e76d02487adff43abf040aedfe0e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8437b1c10facc28c5fd71b70dd7acf01b7d39e8e
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425804"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42022965"
 ---
 # <a name="what-is-azure-event-hubs"></a>Azure 事件中樞是什麼？
 
@@ -81,7 +81,8 @@ Azure 事件中樞也整合了 [Azure Functions](/azure/azure-functions/) 來達
 
 若要開始使用事件中樞，請參閱下列文章：
 
-* [內嵌至事件中樞](event-hubs-quickstart-powershell.md)
+* [內嵌至事件中樞](event-hubs-quickstart-portal.md)
 * [事件中樞功能概觀](event-hubs-features.md)
+* [常見問題集](event-hubs-faq.md)
 
 

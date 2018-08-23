@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: c43c15131afb5fbf346b0137dac566f5331c65a2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f89c97f1220c0e949912a3002021eca20f91441d
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776367"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42146360"
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>使用 ASP.NET 來註冊目前使用者以取得推播通知
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "33776367"
 > 
 
 ## <a name="overview"></a>概觀
-本主題將說明以 ASP.NET Web API 執行註冊時，應如何向 Azure 通知中心要求推播通知註冊。 這是 [使用通知中樞來通知使用者]教學課程的延伸主題。 您必須已完成該教學課程中的必要步驟，才能建立已驗證的行動服務。 如需通知使用者案例的詳細資訊，請參閱 [使用通知中樞來通知使用者]。
+本主題將說明以 ASP.NET Web API 執行註冊時，應如何向 Azure 通知中心要求推播通知註冊。 這是 [使用通知中心來通知使用者]教學課程的延伸主題。 您必須已完成該教學課程中的必要步驟，才能建立已驗證的行動服務。 如需通知使用者案例的詳細資訊，請參閱 [使用通知中心來通知使用者]。
 
 ## <a name="update-your-app"></a>更新應用程式
 1. 在您的 MainStoryboard_iPhone.storyboard 中，從物件程式庫新增下列元件：
@@ -107,7 +107,7 @@ ms.locfileid: "33776367"
     這會設定要求的裝置權杖。
    
    > [!NOTE]
-   > 此時，此方法中不應有任何其他程式碼。 如果您已呼叫您在完成 **開始使用通知中樞** 教學課程時所新增的 [registerNativeWithDeviceToken](/manage/services/notification-hubs/get-started-notification-hubs-ios/) 方法，您必須註解化或移除該呼叫。
+   > 此時，此方法中不應有任何其他程式碼。 如果您已呼叫您在完成 **開始使用通知中樞** 教學課程時所新增的 [registerNativeWithDeviceToken](notification-hubs-ios-apple-push-notification-apns-get-started.md) 方法，您必須註解化或移除該呼叫。
    > 
    > 
 8. 在 PushToUserAppDelegate.m 檔案中，新增下列處理常式方法：
@@ -207,9 +207,9 @@ ms.locfileid: "33776367"
                 }
             }];
     
-    This method gets both an installation ID and channel for push notifications and sends it, along with the device type, to the authenticated Web API method that creates a registration in Notification Hubs. 此 Web API 定義於[使用通知中樞來通知使用者]中。
+    This method gets both an installation ID and channel for push notifications and sends it, along with the device type, to the authenticated Web API method that creates a registration in Notification Hubs. 此 Web API 定義於[使用通知中心來通知使用者]中。
 
-現在，用戶端應用程式已更新，請回到 [使用通知中樞來通知使用者] ，並更新行動服務，以使用通知中心傳送通知。
+現在，用戶端應用程式已更新，請回到 [使用通知中心來通知使用者] ，並更新行動服務，以使用通知中心傳送通知。
 
 <!-- Anchors. -->
 
@@ -218,6 +218,6 @@ ms.locfileid: "33776367"
 [1]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios2.png
 
 <!-- URLs. -->
-[使用通知中樞來通知使用者]: /manage/services/notification-hubs/notify-users-aspnet
+[使用通知中心來通知使用者]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 
-[開始使用通知中心]: /manage/services/notification-hubs/get-started-notification-hubs-ios
+[開始使用通知中心]: notification-hubs-ios-apple-push-notification-apns-get-started.md

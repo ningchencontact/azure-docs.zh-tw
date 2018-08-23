@@ -11,17 +11,17 @@ ms.component: user-help
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: e61c96d754c240df89607db0cf84dca0e0ccd17e
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: de5c9810b234a93643321d1ba299a66a3ae965a3
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39347256"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42022460"
 ---
 # <a name="two-step-verification-overview"></a>雙步驟驗證概觀
 
 >[!Important]
->本內容適用於使用者。 I如果您是系統管理員，可以在 [Azure Active Directory 文件](https://docs.microsoft.com/en-us/azure/active-directory)中找到更多關於如何設定和管理 Azure Active Directory (Azure AD) 環境的資訊。
+>本內容適用於使用者。 I如果您是系統管理員，可以在 [Azure Active Directory 文件](https://docs.microsoft.com/azure/active-directory)中找到更多關於如何設定和管理 Azure Active Directory (Azure AD) 環境的資訊。
 
 您收到來自 IT 人員或老闆的一封電子郵件，表示組織已對您的帳戶新增額外的安全性驗證。 所以這是什麼意思？ 這表示您的組織採取額外的步驟，以確保您在登入時就是您所表明的人員。 這個額外驗證 (也稱為雙步驟驗證) 是透過您的使用者名稱、密碼及行動裝置或電話的組合進行。
 

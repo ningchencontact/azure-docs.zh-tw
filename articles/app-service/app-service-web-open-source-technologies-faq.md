@@ -15,31 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 747ee61d2620e7f79353207c0e44bcea36df30ee
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: d65a33dc13d0b91a9ace04dab0be6c37bcd2188f
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617619"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Azure 中的 Web Apps 相關開放原始碼技術常見問題集
 
 針對 [Azure App Service 的 Web Apps 功能](https://azure.microsoft.com/services/app-service/web/)之中的開放原始碼技術相關問題，本文提供常見問題集的解答。
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
-
-## <a name="my-cleardb-database-is-down-how-do-i-resolve-this"></a>我的 ClearDB 資料庫已關閉。 如何解決這個問題？
-
-如有資料庫相關的問題，請連絡 [ClearDB 支援](https://www.cleardb.com/developers/help/support) (英文)。 
-
-關於 ClearDB 常見問題的解答，請參閱 [ClearDB 常見問題集](https://docs.microsoft.com/azure/store-cleardb-faq/)。
-
-## <a name="why-wasnt-my-cleardb-database-migrated-during-my-subscription-migration"></a>為什麼我的 ClearDB 資料庫在我的訂用帳戶移轉期間未移轉？
-
-當跨訂用帳戶執行資源移轉時，適用某些限制。 ClearDB MySQL 資料庫是第三方服務，因此在 Azure 訂用帳戶移轉期間是不會移轉的。
-
-如果您在移轉 Azure 資源之前，沒有管理本身 MySQL 資料庫的移轉作業，則可能無法使用您的 ClearDB MySQL 資料庫。 若要避免發生此情況，請先手動移轉 ClearDB 資料庫，然後再移轉 Web 應用程式的 Azure 訂用帳戶。
-
-如需詳細資訊，請參閱 [ClearDB MySQL 資料庫搭配 Azure App Service 的常見問題集](https://docs.microsoft.com/azure/store-cleardb-faq/)。
 
 ## <a name="how-do-i-turn-on-php-logging-to-troubleshoot-php-issues"></a>如何開啟 PHP 記錄進行 PHP 問題的疑難排解？
 
@@ -65,16 +52,7 @@ ms.lasthandoff: 05/11/2018
 如需詳細資訊，請參閱[啟用 WordPress 錯誤記錄檔](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/) (英文)。
 
 ## <a name="how-do-i-log-python-application-errors-in-apps-that-are-hosted-in-app-service"></a>如何在 App Service 內裝載的應用程式中記錄 Python 應用程式錯誤？
-
-若要擷取 Python 應用程式錯誤：
-
-1. 在 Azure 入口網站的 Web 應用程式中，選取 [設定]。
-2. 在 [設定] 索引標籤中，選取 [應用程式設定]。
-3. 在 [應用程式設定] 下，輸入下列索引鍵/值組：
-    * 索引鍵：WSGI_LOG
-    * 值：D:\home\site\wwwroot\logs.txt (輸入您選擇的檔案名稱)
-
-您現在應該會看到 wwwroot 資料夾的 logs.txt 檔案中出現錯誤。
+[!INCLUDE [web-sites-python-troubleshooting-wsgi-error-log](../../includes/web-sites-python-troubleshooting-wsgi-error-log.md)]
 
 ## <a name="how-do-i-change-the-version-of-the-nodejs-application-that-is-hosted-in-app-service"></a>如何變更 App Service 裝載的 Node.js 應用程式版本？
 

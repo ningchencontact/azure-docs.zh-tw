@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: jlian
-ms.openlocfilehash: 91e435c60a342768093b3bc869a78fa61df8782f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5bd66e3cb3902665aab9245a524a2bec6f57dc8c
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446559"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42141880"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>使用 Azure IoT 中樞偵測連線中斷並進行疑難排解
 
@@ -77,7 +77,7 @@ IoT 裝置的連線問題可能因為有許多可能的失敗點而難以排解�
     | 404104 DeviceConnectionClosedRemotely | 裝置已關閉連線，但 IoT 中樞不知道原因為何。 常見原因包括 MQTT/AMQP 逾時和網際網路連線中斷。 | 藉由[測試連線](tutorial-connectivity.md)，確定裝置可以連線到 IoT 中樞。 如果連線正常，但裝置連線會間歇性中斷，請務必針對您所選的通訊協定 (MQTT/AMPQ)，實作適當的保持運作裝置邏輯。 |
     | 401003 IoTHubUnauthorized | IoT 中樞無法驗證連線。 | 請確定 SAS 或您使用的其他安全性權杖並未過期。 不需特殊設定，[Azure IoT SDK](iot-hub-devguide-sdks.md) 就會自動產生權杖。 |
     | 409002 LinkCreationConflict | 相同的裝置有一個以上的連線。 裝置出現新的連線要求時，IoT 中樞會關閉有此錯誤的前一個連線。 | 在最常見的情況下，裝置會偵測到中斷連線並嘗試重新建立連線，但 IoT 中樞尚未將它視為已中斷連線，因此會關閉先前的連線並記錄此錯誤。 此錯誤通常會顯現為不同暫時性問題的副作用，所以請尋找記錄檔中的其他錯誤，進一步進行疑難排解。 否則，務必只在連線捨棄時，才發出新的連線要求。 |
-    | 500001 ServerError | IoT 中樞發生伺服器端問題。 最有可能是暫時性問題。 在 IoT 中樞小組努力維護 [SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/) 的同時，小部分的 IoT 中樞節點可能會偶爾遇到暫時性錯誤。 當您的裝置嘗試連線到有問題的節點時，您會收到這個錯誤。 | 若要解決暫時性失敗，請從裝置發出重試。 若要[自動管理重試](iot-hub-reliability-features-in-sdks.md#connection-and-retry)，請確定您使用最新版的 [Azure IoT SDK](iot-hub-devguide-sdks.md)。<br><br>如需暫時性錯誤處理和重試的最佳做法，請參閱[暫時性錯誤處理](/azure/architecture/best-practices/transient-faults.md)。  <br><br>如果在重試後仍有問題，請檢查[資源健康情況](iot-hub-monitor-resource-health.md#use-azure-resource-health)和 [Azure 狀態](https://azure.microsoft.com/status/history/)，了解 IoT 中樞是否有已知的問題。 如果沒有任何已知問題且問題持續發生，請[連絡支援人員](https://azure.microsoft.com/support/options/)以便進一步調查。 |
+    | 500001 ServerError | IoT 中樞發生伺服器端問題。 最有可能是暫時性問題。 在 IoT 中樞小組努力維護 [SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/) 的同時，小部分的 IoT 中樞節點可能會偶爾遇到暫時性錯誤。 當您的裝置嘗試連線到有問題的節點時，您會收到這個錯誤。 | 若要解決暫時性失敗，請從裝置發出重試。 若要[自動管理重試](iot-hub-reliability-features-in-sdks.md#connection-and-retry)，請確定您使用最新版的 [Azure IoT SDK](iot-hub-devguide-sdks.md)。<br><br>如需暫時性錯誤處理和重試的最佳做法，請參閱[暫時性錯誤處理](/azure/architecture/best-practices/transient-faults)。  <br><br>如果在重試後仍有問題，請檢查[資源健康情況](iot-hub-monitor-resource-health.md#use-azure-resource-health)和 [Azure 狀態](https://azure.microsoft.com/status/history/)，了解 IoT 中樞是否有已知的問題。 如果沒有任何已知問題且問題持續發生，請[連絡支援人員](https://azure.microsoft.com/support/options/)以便進一步調查。 |
     | 500008 GenericTimeout | IoT 中樞無法在逾時前完成連線要求。如同 500001 ServerError，此錯誤可能是暫時性錯誤。 | 請遵循 500001 ServerError 的疑難排解步驟，以找出根本原因並解決此錯誤。|
 
 ## <a name="other-steps-to-try"></a>其他要嘗試的步驟
@@ -92,7 +92,7 @@ IoT 裝置的連線問題可能因為有許多可能的失敗點而難以排解�
 
 ## <a name="next-steps"></a>後續步驟
 
-* 若要深入了解如何解決暫時性問題，請參閱[暫時性錯誤處理](/azure/architecture/best-practices/transient-faults.md)。
+* 若要深入了解如何解決暫時性問題，請參閱[暫時性錯誤處理](/azure/architecture/best-practices/transient-faults)。
 * 若要深入了解 Azure IoT SDK 以及如何管理重試，請參閱[如何使用 Azure IoT 中樞裝置 SDK 來管理連線能力和可靠傳訊](iot-hub-reliability-features-in-sdks.md#connection-and-retry)。
 
 <!-- Images -->

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2018
 ms.author: kumud
-ms.openlocfilehash: b3a9bbe8b88df4ac7dcb96903341e92261a2649b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: c969dbc347f0463f6f675a11f69776948d45a9e2
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531938"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42022885"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application"></a>快速入門：建立流量管理員設定檔以獲得高可用性的 Web 應用程式
 
@@ -41,7 +41,7 @@ ms.locfileid: "39531938"
 
      | 設定         | 值     |
      | ---              | ---  |
-     | Name           | 輸入 Web 應用程式的唯一名稱  |
+     | 名稱           | 輸入 Web 應用程式的唯一名稱  |
      | 資源群組          | 選取 [新增]，然後輸入「myResourceGroupTM1」 |
      | App Service 方案/位置         | 選取 [ **新增**]。  在 App Service 方案中，輸入「myAppServicePlanEastUS」，然後選取 [確定]。 
      |      位置  |   美國東部        |
@@ -53,7 +53,7 @@ ms.locfileid: "39531938"
 
      | 設定         | 值     |
      | ---              | ---  |
-     | Name           | 輸入 Web 應用程式的唯一名稱  |
+     | 名稱           | 輸入 Web 應用程式的唯一名稱  |
      | 資源群組          | 選取 [新增]，然後輸入「myResourceGroupTM2」 |
      | App Service 方案/位置         | 選取 [ **新增**]。  在 App Service 方案中，輸入「myAppServicePlanWestEurope」，然後選取 [確定]。 
      |      位置  |   西歐      |
@@ -68,7 +68,7 @@ ms.locfileid: "39531938"
     
     | 設定                 | 值                                              |
     | ---                     | ---                                                |
-    | Name                   | 此名稱在 trafficmanager.net 區域內必須是唯一的，而且會產生 DNS 名稱 **trafficmanager.net**，用以存取您的流量管理員設定檔。|
+    | 名稱                   | 此名稱在 trafficmanager.net 區域內必須是唯一的，而且會產生 DNS 名稱 **trafficmanager.net**，用以存取您的流量管理員設定檔。|
     | 路由方法          | 選取 [優先順序] 路由方法。|
     | 訂用帳戶            | 選取您的訂用帳戶。|
     | 資源群組          | 選取 [現有]，然後選取 [myResourceGroupTM1]。|
@@ -90,7 +90,7 @@ ms.locfileid: "39531938"
     | 設定                 | 值                                              |
     | ---                     | ---                                                |
     | 類型                    | Azure 端點                                   |
-    | Name           | myPrimaryEndpoint                                        |
+    | 名稱           | myPrimaryEndpoint                                        |
     | 目標資源類型           | App Service 方案                          |
     | 目標資源          | **選擇應用程式服務**，以顯示相同訂用帳戶下的 Web Apps 清單。 在 [資源] 中，挑選您想要新增為第一個端點的應用程式服務。 |
     | 優先順序               | 選取 [1]。 這會使得所有流量傳送至此端點 (如果狀況良好)。    |
@@ -128,7 +128,7 @@ ms.locfileid: "39531938"
 在本快速入門中，您已建立流量管理員設定檔，以便能夠將使用者流量導向來獲得高可用性的 Web 應用程式。 若要深入了解如何路由傳送流量，請繼續進行流量管理員的教學課程。
 
 > [!div class="nextstepaction"]
-> [流量管理員教學課程](traffic-manager-configure-performance-routing-method.md)
+> [流量管理員教學課程](tutorial-traffic-manager-improve-website-response.md)
 
 
 

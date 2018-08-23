@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: a9e01039f1fbf46739ff8dbafea411aad2c3f4f2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 512dd7c3318022106b721d8f215bff17de51e51d
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308048"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42142086"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>使用 Azure CLI 2.0 管理虛擬機器擴展集
 在虛擬機器擴展集生命週期期間，您可能需要執行一或多個管理工作。 此外，您可以建立指令碼來自動化各種生命週期工作。 本文詳述一些可讓您執行這些工作的一般 Azure CLI 2.0 命令。
@@ -92,7 +92,7 @@ az vmss scale \
 
 
 ## <a name="stop-and-start-vms-in-a-scale-set"></a>停止和啟動擴展集中的 VM
-若要停止擴展集中的一或多個 VM，請使用 [az vmss stop](/cli/azure/vmss/stop)。 `--instance-ids` 參數可讓您指定停止一或多個 VM。 如果您未指定執行個體識別碼，則會停止擴展集中的所有 VM。 若要停止多個 VM，請以空格分隔每個執行個體識別碼。
+若要停止擴展集中的一或多個 VM，請使用 [az vmss stop](/cli/azure/vmss#az-vmss-stop)。 `--instance-ids` 參數可讓您指定停止一或多個 VM。 如果您未指定執行個體識別碼，則會停止擴展集中的所有 VM。 若要停止多個 VM，請以空格分隔每個執行個體識別碼。
 
 下列範例停止 myScaleSet 擴展集和 myResourceGroup 資源群組中的執行個體 *0*。 提供您自己的值，如下所示︰
 

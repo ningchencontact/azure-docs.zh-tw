@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 4774efda6748ac640d87ce83e2d5c4ee68310546
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 0f38aabf008f0335a6f9e21717aa38aefdd21615
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125734"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42024020"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>快速入門：使用 Azure Logic Apps 建立第一個自動化工作流程 - Azure 入口網站
 
@@ -171,6 +171,9 @@ ms.locfileid: "39125734"
 2. 輸入資源群組名稱作為確認，然後選擇 [刪除]。
 
    ![確認刪除](./media/quickstart-create-first-logic-app-workflow/delete-resource-group-2.png)
+
+> [!NOTE]
+> 當您刪除邏輯應用程式後，就不會具現化新的執行。 所有進行中和擱置的執行都會取消。 如果您有數千個執行，加以取消可能需要很長的時間。
 
 ## <a name="get-support"></a>取得支援
 

@@ -2,7 +2,7 @@
 title: Azure Cosmos DB︰使用 Xamarin 建置待辦事項應用程式 | Microsoft Docs
 description: 提供可用來連線及查詢 Azure Cosmos DB 的 Xamarin 程式碼範例
 services: cosmos-db
-author: SnehaGunda
+author: codemillmatt
 manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
@@ -10,13 +10,13 @@ ms.custom: quick start connect, mvc
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
-ms.author: sngun
-ms.openlocfilehash: b224a40f1ed5e778da6429d44a449d3f9ffdf16d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: masoucou
+ms.openlocfilehash: 2be4ab0b65827c3d6a906b31e063d8618e12ca0c
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38543895"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42022376"
 ---
 # <a name="azure-cosmos-db-build-a-todo-app-with-xamarin"></a>Azure Cosmos DB︰使用 Xamarin 建置待辦事項應用程式
 
@@ -29,7 +29,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ![在 iOS 上執行的 Xamarin 待辦事項應用程式](./media/create-sql-api-xamarin-dotnet/ios-todo-screen.png)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 如果您以 Windows 進行開發，且尚未安裝 Visual Studio 2017，您可以下載並使用**免費的** [Visual Studio 2017 Community 版本](https://www.visualstudio.com/downloads/)。 請務必在 Visual Studio 設定期間啟用 **Azure 開發**和**使用 .NET 的行動開發**工作負載。
 

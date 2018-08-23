@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/05/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: dc6fba89571515d0d2d7ed3ecc35c3065405056b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 44faad125053f9292f97f8794b14eb8f842c6b4b
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696798"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41920264"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli-20"></a>教學課程：使用 Azure CLI 2.0 建立及部署高可用性的虛擬機器
 
@@ -94,7 +94,7 @@ done
 
 ## <a name="check-for-available-vm-sizes"></a>檢查可用的 VM 大小
 
-稍後可以將其他 VM 新增至可用性設定組，其中的 VM 大小可用於硬體上。 針對可用性設定組，使用 [az vm availability-set list-sizes](/cli/azure/availability-set#az_availability_set_list_sizes) 列出硬體叢集上所有可用的大小。
+稍後可以將其他 VM 新增至可用性設定組，其中的 VM 大小可用於硬體上。 針對可用性設定組，使用 [az vm availability-set list-sizes](/cli/azure/vm/availability-set#az-vm-availability-set-list-sizes) 列出硬體叢集上所有可用的大小。
 
 ```azurecli-interactive
 az vm availability-set list-sizes \

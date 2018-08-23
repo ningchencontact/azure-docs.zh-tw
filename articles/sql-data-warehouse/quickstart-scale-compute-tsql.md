@@ -10,22 +10,22 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 7d7d3f6a773fad0b0d4ba0593230af5ff5a1e443
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 01ff741cd47e26000e971fd4a417d5ac1f11284e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792448"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42022810"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>快速入門：使用 T-SQL 調整 Azure SQL 資料倉儲中的計算
 
 使用 T-SQL 和 SQL Server Management Studio (SSMS) 調整 Azure SQL 資料倉儲中的計算。 [相應放大計算](sql-data-warehouse-manage-compute-overview.md)以提升效能，或將計算調整回來以節省成本。 
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="before-you-begin"></a>開始之前
 
-下載並安裝最新版的 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS)。
+下載並安裝最新版的 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)。
  
 ## <a name="create-a-data-warehouse"></a>建立資料倉儲
 
@@ -33,7 +33,7 @@ ms.locfileid: "31792448"
 
 ## <a name="connect-to-the-server-as-server-admin"></a>以伺服器系統管理員身分連線到伺服器
 
-本節使用 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) 建立對 Azure SQL Server 的連線。
+本節使用 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) 建立對 Azure SQL Server 的連線。
 
 1. 開啟 SQL Server Management Studio。
 

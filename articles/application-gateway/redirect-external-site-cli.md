@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: victorh
-ms.openlocfilehash: b19f3f52340501076d896d1f9f7cc6cb755bdc69
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ea4fd94a00e1d22021417373da0b3fcffea4d120
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432662"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42141467"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>使用 Azure CLI 建立具有外部重新導向的應用程式閘道
 
@@ -48,7 +48,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>建立網路資源 
 
-使用 [az network vnet create](/cli/azure/network/vnet#az-net) 建立名為 myVNet 的虛擬網路，以及名為 myAGSubnet 的子網路。 使用 [az network public-ip create](/cli/azure/public-ip#az-network_public_ip_create) 建立名為 myAGPublicIPAddress 的公用 IP 位址。 這些資源可用來為應用程式閘道及其相關聯的資源提供網路連線。
+使用 [az network vnet create](/cli/azure/network/vnet#az-net) 建立名為 myVNet 的虛擬網路，以及名為 myAGSubnet 的子網路。 使用 [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create) 建立名為 myAGPublicIPAddress 的公用 IP 位址。 這些資源可用來為應用程式閘道及其相關聯的資源提供網路連線。
 
 ```azurecli-interactive
 az network vnet create \
@@ -65,7 +65,7 @@ az network public-ip create \
 
 ## <a name="create-an-application-gateway"></a>建立應用程式閘道
 
-您可以使用 [az network application-gateway create](/cli/azure/application-gateway#create) 來建立名為 myAppGateway 的應用程式閘道。 當您使用 Azure CLI 建立應用程式閘道時，需要指定設定資訊，例如容量、SKU 和 HTTP 設定。 應用程式閘道會指派給您先前建立的 myAGSubnet 和 myPublicIPSddress。 
+您可以使用 [az network application-gateway create](/cli/azure/network/application-gateway#create) 來建立名為 myAppGateway 的應用程式閘道。 當您使用 Azure CLI 建立應用程式閘道時，需要指定設定資訊，例如容量、SKU 和 HTTP 設定。 應用程式閘道會指派給您先前建立的 myAGSubnet 和 myPublicIPSddress。 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -106,7 +106,7 @@ az network application-gateway redirect-config create \
 
 ### <a name="add-a-listener-and-routing-rule"></a>新增接聽程式和路由規則
 
-需要接聽程式才能讓應用程式閘道適當地路由傳送流量。 使用 [az network application-gateway http-listener create](/cli/azure/application-gateway#az-network_application_gateway_http_listener_create) 建立接聽程式，並讓其具有使用 [az network application-gateway frontend-port create](/cli/azure/application-gateway#az-network_application_gateway_frontend_port_create) 所建立的前端連接埠。 接聽程式需要規則才能知道要將傳入流量傳送到何處。 使用 [az network application-gateway rule create](/cli/azure/application-gateway#az-network_application_gateway_rule_create) 建立名為 *redirectRule* 的基本規則。
+需要接聽程式才能讓應用程式閘道適當地路由傳送流量。 使用 [az network application-gateway http-listener create](/cli/azure/network/application-gateway#az-network_application_gateway_http_listener_create) 建立接聽程式，並讓其具有使用 [az network application-gateway frontend-port create](/cli/azure/network/application-gateway#az-network_application_gateway_frontend_port_create) 所建立的前端連接埠。 接聽程式需要規則才能知道要將傳入流量傳送到何處。 使用 [az network application-gateway rule create](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create) 建立名為 *redirectRule* 的基本規則。
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \

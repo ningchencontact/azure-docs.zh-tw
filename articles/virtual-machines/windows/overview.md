@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c1122ab403eb7192d7acbd493c46d478d0382a6b
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e12b8153494eaefb1f7e2d27fc667ef0070c68d0
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932180"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41918877"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure 中的 Windows 虛擬機器概觀
 
@@ -84,7 +84,7 @@ Azure 提供許多 [Marketplace 映像](https://azure.microsoft.com/marketplace/
 | 方法 | 說明 |
 | --- | --- |
 | Azure 入口網站 |當您選取要使用的影像時，會自動為您指定值。 |
-| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -Location "location"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -Location "location" -Publisher "publisherName"<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "location" -Publisher "publisherName" -Offer "offerName" |
+| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimagepublisher) -Location "location"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimageoffer) -Location "location" -Publisher "publisherName"<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "location" -Publisher "publisherName" -Offer "offerName" |
 | REST API |[列出映像發行者](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[列出映像供應項目](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[列出映像 SKU](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
 | Azure CLI |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_publishers) --location "location"<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_offers) --location "location" --publisher "publisherName"<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list_skus) --location "location" --publisher "publisherName" --offer "offerName"|
 
@@ -104,11 +104,11 @@ VM [擴充](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ft
 
 | 資源 | 必要 | 說明 |
 | --- | --- | --- |
-| [資源群組](../../azure-resource-manager/resource-group-overview.md) |yes |VM 必須包含在資源群組中。 |
-| [儲存體帳戶](../../storage/common/storage-create-storage-account.md) |yes |VM 需要儲存體帳戶儲存其虛擬硬碟。 |
-| [虛擬網路](../../virtual-network/virtual-networks-overview.md) |yes |VM 必須是虛擬網路的成員。 |
+| [資源群組](../../azure-resource-manager/resource-group-overview.md) |是 |VM 必須包含在資源群組中。 |
+| [儲存體帳戶](../../storage/common/storage-create-storage-account.md) |是 |VM 需要儲存體帳戶儲存其虛擬硬碟。 |
+| [虛擬網路](../../virtual-network/virtual-networks-overview.md) |是 |VM 必須是虛擬網路的成員。 |
 | [公用 IP 位址](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |否 |可以有公用 IP 位址指派給 VM，以從遠端存取它。 |
-| [網路介面](../../virtual-network/virtual-network-network-interface.md) |yes |VM 需要網路介面以在網路中進行通訊。 |
+| [網路介面](../../virtual-network/virtual-network-network-interface.md) |是 |VM 需要網路介面以在網路中進行通訊。 |
 | [資料磁碟](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |否 |VM 可以包含資料磁碟來擴充儲存體功能。 |
 
 ## <a name="how-do-i-create-my-first-vm"></a>如何建立第一個 VM？

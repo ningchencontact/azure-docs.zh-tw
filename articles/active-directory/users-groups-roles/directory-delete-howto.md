@@ -13,12 +13,12 @@ ms.date: 06/13/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 44781c976afa94ebe3c8df8c7fd70c3e16956916
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: b1d3439412e324c71687c43aa9e47c520cb72262
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37870240"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42141305"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>刪除 Azure Active Directory 租用戶
 刪除租用戶時，也會一併刪除租用戶中包含的所有資源。 在刪除之前，您必須盡可能縮減租用戶的相關資源，使其就緒。 只有 Azure Active Directory (Azure AD) 全域管理員可從入口網站刪除 Azure AD 租用戶。
@@ -63,7 +63,7 @@ ms.locfileid: "37870240"
 
 您可以使用商務用 Microsoft Store 系統管理中心讓訂用帳戶進入**取消佈建**狀態，以在 3 天內刪除。 這項功能即將在 Office 365 系統管理中心推出。
 
-1. 使用在租用戶中身分為全域管理員的帳戶登入[商務用 Microsoft Store 系統管理中心](https://businessstore.microsoft.com/en-us/manage/)。 若您嘗試刪除初始預設網域為 contoso.onmicrosoft.com 的 “Contoso” 租用戶，請使用 admin@contoso.onmicrosoft.com這樣的 UPN 登入。
+1. 使用在租用戶中身分為全域管理員的帳戶登入[商務用 Microsoft Store 系統管理中心](https://businessstore.microsoft.com/manage/)。 若您嘗試刪除初始預設網域為 contoso.onmicrosoft.com 的 “Contoso” 租用戶，請使用 admin@contoso.onmicrosoft.com這樣的 UPN 登入。
 
 2. 前往 [管理] 索引標籤，選取 [產品與服務]，然後選擇您要取消的訂用帳戶。 在按一下 [取消] 後，重新整理頁面。
   

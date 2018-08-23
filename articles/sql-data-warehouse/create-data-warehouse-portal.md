@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 08/01/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6602dc52675344b2e68fefd9eb97d3edcbd1745b
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 6ca3128cd265b614dc1a1e4f21074018eacbed89
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413250"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42141489"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>快速入門：如何在 Azure 入口網站中建立及查詢 Azure SQL 資料倉儲
 
@@ -135,7 +135,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
 ## <a name="connect-to-the-server-as-server-admin"></a>以伺服器系統管理員身分連線到伺服器
 
-本節使用 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) 建立對 Azure SQL Server 的連線。
+本節使用 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) 建立對 Azure SQL Server 的連線。
 
 1. 開啟 SQL Server Management Studio。
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/28/2018
 ms.author: liydu
-ms.openlocfilehash: acfff95afacfa1e5c75a799ba84d64cfa0579f66
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: cd67e612dd020ba600e33ac8baf77bc094d8afd3
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592086"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42141519"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-functions-and-cognitive-services-to-make-a-language-translator"></a>使用 IoT DevKit AZ3166 搭配 Azure Functions 和認知服務製作語言翻譯工具
 
@@ -122,10 +122,6 @@ DevKit 會重新開機，然後開始執行程式碼。
 ![mini-solution-voice-to-tweet-diagram](media/iot-hub-arduino-iot-devkit-az3166-translator/diagram.png)
 
 Arduino 草稿碼會記錄您的語音，然後發佈 HTTP 要求以觸發 Azure Function。 Azure Function 會呼叫認知服務語音翻譯工具 API 來進行翻譯。 在 Azure Function 取得翻譯文字之後，它會將 C2D (雲端到裝置) 訊息傳送到裝置。 然後翻譯會顯示在畫面上。
-
-## <a name="change-device-id"></a>變更裝置識別碼
-
-在「Azure IoT 中樞」中註冊的預設裝置識別碼是 **AZ3166**。 若要修改裝置識別碼，請參閱如何[自訂 DevKit 的 IoT 裝置識別碼](https://microsoft.github.io/azure-iot-developer-kit/docs/customize-device-id/)。
 
 ## <a name="problems-and-feedback"></a>問題與意見反應
 

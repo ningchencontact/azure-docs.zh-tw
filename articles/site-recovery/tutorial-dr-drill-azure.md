@@ -4,14 +4,14 @@ description: 深入了解如何使用 Azure Site Recovery 為內部部署電腦�
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 08/13/2018
 ms.author: raynew
-ms.openlocfilehash: af8062fc0134975542c8a5ec420c790f33996154
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 33cbe29771573bd234548f549ed6027fb5801945
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920166"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41918046"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>執行 Azure 的災害復原演練
 
@@ -32,7 +32,7 @@ ms.locfileid: "37920166"
 > * 準備在容錯移轉後連線到 Azure VM
 > * 執行單一機器測試容錯移轉
 
-本教學課程
+
 
 ## <a name="verify-vm-properties"></a>驗證 VM 屬性
 

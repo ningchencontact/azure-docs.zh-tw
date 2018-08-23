@@ -10,12 +10,12 @@ ms.topic: tutorial
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
 manager: douge
-ms.openlocfilehash: 93440b8a1c9fd1b386931e5998c70133071a079e
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 14b51cc2ad2e8e0f294e5e73e542001e30d21c9d
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823039"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41919873"
 ---
 # <a name="azure-dev-spaces"></a>Azure 開發人員空間
 Azure Dev Spaces 可為小組提供快速、疊代的 Kubernetes 開發經驗。 只需最基本的開發人員機器設定，您即可直接在 Azure Kubernetes Service (AKS) 中反覆執行和偵錯容器。 在 Windows、Mac 或 Linux 上使用熟悉的工具 (例如 Visual Studio、Visual Studio Code 或命令列) 進行開發。

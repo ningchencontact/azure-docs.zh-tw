@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 95793aac3c25563e3af39f3c47cebdd06e25e35f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c9d1874fb611b349403736593fdc9eccc45d2d4d
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777948"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42141479"
 ---
 # <a name="send-cross-platform-notifications-to-users-with-notification-hubs"></a>使用通知中心向使用者傳送跨平台通知
 在之前的[使用通知中心來通知使用者]教學課程中，您已了解如何將通知推播至所有由特定經驗證使用者所註冊的裝置。 在該教學課程中，需要用多個要求來傳送通知給每個支援的用戶端平台。 Azure 通知中心可支援範本，讓您指定特定裝置接收通知的方式。 此方法使得傳送跨平台通知變得更簡單。 
@@ -105,8 +105,8 @@ ms.locfileid: "33777948"
 
 
 <!-- URLs. -->
-[Push to users ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
-[Push to users Mobile Services]: /manage/services/notification-hubs/notify-users/
+[Push to users ASP.NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+[Push to users Mobile Services]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Visual Studio 2012 Express for Windows 8]: http://go.microsoft.com/fwlink/?LinkId=257546
 
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md

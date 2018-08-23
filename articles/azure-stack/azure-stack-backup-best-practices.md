@@ -3,7 +3,7 @@ title: Azure Stack 基礎結構備份服務的最佳做法 | Microsoft Docs
 description: 您在資料中心內部署和管理 Azure Stack 時，可以遵照一套最佳做法，以利發生重大失敗時減少資料遺失。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: 221FDE40-3EF8-4F54-A075-0C4D66EECE1A
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/20/2017
-ms.author: mabrigg
+ms.date: 08/01/2018
+ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 4a0166856cf4d3f91c6cadf3e71f93000fbf158d
-ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
+ms.openlocfilehash: 08d8822410545fb0ae3a2a99de00b38566c9834c
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39242966"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41946512"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>基礎結構備份服務的最佳做法
 
@@ -34,7 +34,7 @@ ms.locfileid: "39242966"
 
 ### <a name="deployment"></a>部署
 
-在部署每個 Azure Stack 雲端後，啟用基礎結構備份。 您可以使用 Azure Stack 工具，從任何可存取操作員管理 API 端點的用戶端/伺服器來排程備份。
+在部署每個 Azure Stack 雲端後，啟用基礎結構備份。 您可以使用 Azure Stack PowerShell，從任何可存取操作員管理 API 端點的用戶端/伺服器來排程備份。
 
 ### <a name="networking"></a>網路功能
 

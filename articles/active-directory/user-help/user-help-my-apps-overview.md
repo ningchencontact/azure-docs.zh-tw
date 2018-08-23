@@ -11,17 +11,17 @@ ms.component: user-help
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: dc3a34698daf9e74c73522895faa174f3fec0bad
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: b3c5a81fe6572498ab2d4502225af24702a60cba
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39347240"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42022380"
 ---
 # <a name="my-apps-portal-overview"></a>我的應用程式入口網站概觀
 
 >[!Important]
->本內容適用於使用者。 I如果您是系統管理員，可以在 [Azure Active Directory 文件](https://docs.microsoft.com/en-us/azure/active-directory)中找到更多關於如何設定和管理 Azure Active Directory (Azure AD) 環境的資訊。
+>本內容適用於使用者。 I如果您是系統管理員，可以在 [Azure Active Directory 文件](https://docs.microsoft.com/azure/active-directory)中找到更多關於如何設定和管理 Azure Active Directory (Azure AD) 環境的資訊。
 
 如果您有公司或學校帳戶，且系統管理員已授與您存取權，即可使用「我的應用程式」入口網站來檢視和啟動雲端式應用程式。
 

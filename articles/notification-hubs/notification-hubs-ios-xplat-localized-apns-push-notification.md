@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: b3d74086ee233da50138aff00d8da78aa0243a75
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9301291381450d20b387db42fbfc715988b6a149
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776493"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42140463"
 ---
 # <a name="tutorial-push-localized-notifications-to-ios-devices-using-azure-notification-hubs"></a>教學課程：了解如何使用 Azure 通知中樞將當地語系化通知推送至 iOS 裝置 
 > [!div class="op_single_selector"]
@@ -67,7 +67,7 @@ ms.locfileid: "33776493"
 
 如需範本的詳細資訊，請參閱[範本](notification-hubs-templates-cross-platform-push-messages.md)一文。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 完成[將通知推送至特定的 iOS 裝置](notification-hubs-ios-xplat-segmented-apns-push-notification.md)教學課程並具備該教學課程中的程式碼，因為本教學課程是以該程式碼為基礎。
 - (選擇性) 需要 Visual Studio 2012 或更新版本。
@@ -252,7 +252,7 @@ ms.locfileid: "33776493"
 在本教學課程中，您已將當地語系化通知傳送至 iOS 裝置。 若要了解如何將通知推送至 iOS 應用程式的特定使用者，請繼續進行下列教學課程： 
 
 > [!div class="nextstepaction"]
->[將通知推送至特定使用者](notification-hubs-aspnet-backend-ios-apple-apns-notification.md)
+>[將通知推送給特定使用者](notification-hubs-aspnet-backend-ios-apple-apns-notification.md)
 
 <!-- Images. -->
 
@@ -266,10 +266,10 @@ ms.locfileid: "33776493"
 
 <!-- URLs. -->
 [How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
-[使用通知中樞傳送即時新聞]: /manage/services/notification-hubs/breaking-news-ios
+[使用通知中樞傳送即時新聞]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started
-[Notify users with Notification Hubs: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
-[Notify users with Notification Hubs: Mobile Services]: /manage/services/notification-hubs/notify-users
+[Notify users with Notification Hubs: ASP.NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+[Notify users with Notification Hubs: Mobile Services]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253

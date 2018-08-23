@@ -13,19 +13,19 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: c8c0f4c3f99aa413531f54c1807883fcd73f039a
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: b52a447bf643510528e1bd8c6d473bf5d77731fe
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627928"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42141905"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>在 Azure AD 中保護混合式部署和雲端部署的特殊權限存取
 
 在現今的組織中，大部分甚或所有企業資產的安全性都取決於負責管理 IT 系統的特殊權限帳戶是否完整。 包括網路攻擊者在內的惡意人士通常會以管理帳戶和特殊權限存取的其他元素為目標，嘗試使用認證竊取攻擊快速取得敏感性資料和系統的存取權。 就雲端服務而言，預防和回應是雲端服務提供者和客戶的共同責任。 若想進一步了解端點和雲端有哪些最新威脅，請參閱 [Microsoft Security Intelligence Report](https://www.microsoft.com/security/sir/default.aspx)。 本文可協助您擬定適當計劃，以期消弭您目前的計劃與此處所述的指導方針之間的落差。
 
 > [!NOTE] 
-> Microsoft 致力於達到最高水準的信任、透明度、標準一致性和法規遵循性。 請經由 [Microsoft 信任中心 - 安全性](https://www.microsoft.com/en-us/trustcenter/security)深入了解 Microsoft 全球事件回應小組如何降低對雲端服務的攻擊所造成的影響，所及 Microsoft 商業產品和雲端服務內建的安全性，並經由 [Microsoft 信任中心 - 合規性](https://www.microsoft.com/en-us/trustcenter/compliance)了解 Microsoft 的合規性目標。
+> Microsoft 致力於達到最高水準的信任、透明度、標準一致性和法規遵循性。 請經由 [Microsoft 信任中心 - 安全性](https://www.microsoft.com/trustcenter/security)深入了解 Microsoft 全球事件回應小組如何降低對雲端服務的攻擊所造成的影響，所及 Microsoft 商業產品和雲端服務內建的安全性，並經由 [Microsoft 信任中心 - 合規性](https://www.microsoft.com/trustcenter/compliance)了解 Microsoft 的合規性目標。
 
 <!--## Risk management, incident response, and recovery preparation
 
@@ -337,7 +337,7 @@ Cloud App Security SIEM 代理程式可整合 Cloud App Security 與您的 SIEM 
 * 在必要時才授與特殊權限存取權，且不再需要時即應移除 (Just-In-Time)。
 * 保留並檢閱與特殊權限帳戶有關的稽核活動。
 
-如需關於如何建置完整安全性計劃的詳細資訊，請參閱 [Microsoft 雲端 IT 架構資源](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources)。 若想進一步了解如何預約 Microsoft 服務以取得前述任一主題的相關協助，請連絡您的 Microsoft 代表，或參閱[建置重要網路防禦機制以保護您的企業](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx)。
+如需關於如何建置完整安全性計劃的詳細資訊，請參閱 [Microsoft 雲端 IT 架構資源](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources)。 若想進一步了解如何預約 Microsoft 服務以取得前述任一主題的相關協助，請連絡您的 Microsoft 代表，或參閱[建置重要網路防禦機制以保護您的企業](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx)。
 
 「受保護的特殊權限存取」計劃的這個最後階段包含下列要項。
 
@@ -440,16 +440,16 @@ Cloud App Security SIEM 代理程式可整合 Cloud App Security 與您的 SIEM 
 
 ## <a name="next-steps"></a>後續步驟
 
-* [Microsoft 信任中心 (產品安全性)](https://www.microsoft.com/en-us/trustcenter/security) – Microsoft 雲端產品和服務的安全性功能
+* [Microsoft 信任中心 (產品安全性)](https://www.microsoft.com/trustcenter/security) – Microsoft 雲端產品和服務的安全性功能
 
-* [Microsoft 信任中心 - 合規性](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) – Microsoft 針對雲端服務提供的一組完整的合規性供應項目
+* [Microsoft 信任中心 - 合規性](https://www.microsoft.com/trustcenter/compliance/complianceofferings) – Microsoft 針對雲端服務提供的一組完整的合規性供應項目
 
-* [如何執行風險評定的指引](https://www.microsoft.com/en-us/trustcenter/guidance/risk-assessment) - 管理 Microsoft 雲端服務的安全性與合規性需求
+* [如何執行風險評定的指引](https://www.microsoft.com/trustcenter/guidance/risk-assessment) - 管理 Microsoft 雲端服務的安全性與合規性需求
 
 ### <a name="other-ms-online-services"></a>其他 MS Online Services 
 
-* [Microsoft Intune 安全性](https://www.microsoft.com/en-us/trustcenter/security/intune-security) – Intune 可從雲端提供行動裝置管理、行動應用程式管理，和電腦管理能力。
+* [Microsoft Intune 安全性](https://www.microsoft.com/trustcenter/security/intune-security) – Intune 可從雲端提供行動裝置管理、行動應用程式管理，和電腦管理能力。
 
-* [Microsoft Dynamics 365 安全性](https://www.microsoft.com/en-us/trustcenter/security/dynamics365-security) – Dynamics 365 是 Microsoft 雲端式解決方案，可統合客戶關係管理 (CRM) 與企業資源規劃 (ERP) 功能。
+* [Microsoft Dynamics 365 安全性](https://www.microsoft.com/trustcenter/security/dynamics365-security) – Dynamics 365 是 Microsoft 雲端式解決方案，可統合客戶關係管理 (CRM) 與企業資源規劃 (ERP) 功能。
 
  

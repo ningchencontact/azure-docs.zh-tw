@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/14/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 101686149c0e3faaf442c58f4002cbbfe0e72eaa
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: da1619c5dc536ee143a8cc5ed17e995bc2d1eab7
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "35629956"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41946532"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>建立及發行 Marketplace 項目
 
@@ -102,7 +102,7 @@ ms.locfileid: "35629956"
 
 6. 使用 **Remove-AzureRMGalleryItem** Cmdlet 可移除 Marketplace 項目。 範例：
    
-        Remove-AzureRMGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
+        Remove-AzsGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
    
    > [!NOTE]
    > 移除項目之後，Marketplace UI 可能會顯示錯誤。 若要修正錯誤，請按一下入口網站中的 [設定]。 然後，在 [入口網站自訂] 之下，選取 [捨棄修改]。
@@ -111,14 +111,14 @@ ms.locfileid: "35629956"
 
 ## <a name="reference-marketplace-item-manifestjson"></a>參考：Marketplace 項目 manifest.json
 ### <a name="identity-information"></a>身分識別資訊
-| Name | 必要 | 類型 | 條件約束 | 說明 |
+| 名稱 | 必要 | 類型 | 條件約束 | 說明 |
 | --- | --- | --- | --- | --- |
-| Name |X |字串 |[A-a-za-z0-9] + | |
+| 名稱 |X |字串 |[A-a-za-z0-9] + | |
 | 發行者 |X |字串 |[A-a-za-z0-9] + | |
 | 版本 |X |字串 |[SemVer v2](http://semver.org/) | |
 
 ### <a name="metadata"></a>中繼資料
-| Name | 必要 | 類型 | 條件約束 | 說明 |
+| 名稱 | 必要 | 類型 | 條件約束 | 說明 |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |字串 |建議 80 個字元 |如果超過 80 個字元，入口網站可能無法正常顯示項目名稱。 |
 | PublisherDisplayName |X |字串 |建議 30 個字元 |如果超過 30 個字元，入口網站可能無法正常顯示發行者名稱。 |
@@ -130,7 +130,7 @@ ms.locfileid: "35629956"
 ### <a name="images"></a>映像
 Marketplace 會使用下列圖示：
 
-| Name | 寬度 | 高度 | 注意 |
+| 名稱 | 寬度 | 高度 | 注意 |
 | --- | --- | --- | --- |
 | 寬 |255 像素 |115 像素 |一律需要 |
 | 大型 |115 像素 |115 像素 |一律需要 |
@@ -144,7 +144,7 @@ Marketplace 會使用下列圖示：
 ### <a name="links"></a>連結
 每個 Marketplace 項目可以包含各種其他內容的連結。 連結已指定為名稱與 URI 的清單。
 
-| Name | 必要 | 類型 | 條件約束 | 說明 |
+| 名稱 | 必要 | 類型 | 條件約束 | 說明 |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |字串 |上限 64 個字元 | |
 | Uri |X |URI | | |
@@ -152,7 +152,7 @@ Marketplace 會使用下列圖示：
 ### <a name="additional-properties"></a>其他屬性
 除了前述中繼資料，Marketplace 作者可以下列形式提供自訂的成對索引鍵/值資料：
 
-| Name | 必要 | 類型 | 條件約束 | 說明 |
+| 名稱 | 必要 | 類型 | 條件約束 | 說明 |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |字串 |上限 25 個字元 | |
 | 值 |X |字串 |上限 30 個字元 | |

@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: be4ac20f578dc670a3d9c83124504c37e57ee9bf
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 952550225f2bdd8559d72a9d283993451ae7f60b
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37108768"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616338"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>教學課程：使用 Yeoman 封裝和部署容器作為 Service Fabric 應用程式
 
@@ -35,7 +35,7 @@ ms.locfileid: "37108768"
 > * 部署和執行應用程式
 > * 清除應用程式
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 使用推送到在本教學課程系列的[第 1 部分](service-fabric-tutorial-create-container-images.md)中建立之 Azure Container Registry 的容器映像。
 * 已[設定](service-fabric-tutorial-create-container-images.md) Linux 開發環境。
@@ -47,18 +47,18 @@ Service Fabric 提供 Scaffolding 工具，可協助您使用 Yeoman 範本產�
 1. 在電腦上安裝 nodejs 和 NPM。 請注意，Mac OSX 使用者將需使用封裝管理員 Homebrew
 
     ```bash
-    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
-    sudo apt-get install -y nodejs 
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+    nvm install node 
     ```
 2. 從 NPM 在您的電腦上安裝 Yeoman 範本產生器
 
     ```bash
-    sudo npm install -g yo
+    npm install -g yo
     ```
 3. 安裝 Service Fabric Yeoman 容器產生器
 
-    ```bash
-    sudo npm install -g generator-azuresfcontainer
+    ```bash 
+    npm install -g generator-azuresfcontainer
     ```
 
 ## <a name="package-a-docker-image-container-with-yeoman"></a>使用 Yeoman 封裝 Docker 映像容器

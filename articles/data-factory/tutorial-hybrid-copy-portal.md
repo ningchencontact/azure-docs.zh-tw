@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: e007fd5e616b24b3a802b7ded0cd879bb0d7f34b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 994df42557ebd99d159e531f11ffa892be2e9870
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436003"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41918322"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體
 在本教學課程中，您會使用 Azure Data Factory 使用者介面 (UI) 來建立資料處理站管線，以將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體。 您要建立及使用自我裝載的整合執行階段，其會在內部部署與雲端資料存放區之間移動資料。
@@ -75,7 +75,7 @@ ms.locfileid: "39436003"
 1. 在樹狀檢視中，以滑鼠右鍵按一下您建立的資料庫，然後選取 [新增查詢]。
 
 ### <a name="azure-storage-account"></a>Azure 儲存體帳戶
-在本教學課程中，您可以使用一般用途的 Azure 儲存體帳戶 (特別是 Blob 儲存體) 作為目的地/接收資料存放區。 如果您沒有一般用途的 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)戶。 您在本教學課程中建立於 Data Factory 的管線會將資料從內部部署 SQL Server 資料庫 (來源) 複製到 Blob 儲存體 (接收)。 
+在本教學課程中，您可以使用一般用途的 Azure 儲存體帳戶 (特別是 Blob 儲存體) 作為目的地/接收資料存放區。 如果您沒有一般用途的 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)戶。 您在本教學課程中建立於 Data Factory 的管線會將資料從內部部署 SQL Server 資料庫 (來源) 複製到 Blob 儲存體 (接收)。 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>取得儲存體帳戶名稱和帳戶金鑰
 您會在此教學課程中使用儲存體帳戶的名稱和金鑰。 採取下列步驟，以取得儲存體帳戶的名稱和金鑰： 
@@ -269,15 +269,15 @@ ms.locfileid: "39436003"
 
 1. 您應該會回到視窗，且此時接收資料集是開啟狀態。 在 [連線] 索引標籤上，採取下列步驟： 
 
-       a. In **Linked service**, confirm that **AzureStorageLinkedService** is selected.
+    a. 在 [連結服務] 中確認已選取 [AzureStorageLinkedService]。
 
-       b. For the **folder**/ **Directory** part of **File path**, enter **adftutorial/fromonprem**. If the output folder doesn't exist in the adftutorial container, Data Factory automatically creates the output folder.
+    b. 針對 [檔案路徑] 的**資料夾**/ **目錄**部分，輸入 **adftutorial/fromonprem**。 如果在 adftutorial 容器中輸出資料夾不存在，Data Factory 會自動建立該輸出資料夾。
 
-       c. For the **file name** part of **File path**, select **Add dynamic content**.   
+    c. 針對 [檔案路徑] 的**檔案名稱**部分，選取 [新增動態內容]。   
 
     ![動態檔案名稱值](./media/tutorial-hybrid-copy-portal/file-name.png)
 
-       d. Add `@CONCAT(pipeline().RunId, '.txt')`, select **Finish**. This will rename the file with PipelineRunID.txt. 
+    d. 新增 `@CONCAT(pipeline().RunId, '.txt')`，然後選取 [完成]。 這會將檔案重新命名為 PipelineRunID.txt。 
 
     ![解析檔案名稱的動態運算式](./media/tutorial-hybrid-copy-portal/add-dynamic-file-name.png)
 

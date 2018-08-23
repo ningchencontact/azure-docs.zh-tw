@@ -9,20 +9,20 @@ ms.component: bing-visual-search
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: rosh
-ms.openlocfilehash: 578fa90f504920030b488d2b8fa3a2d0232cccce
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 8f6e7f7e88ae78fe7e8a9be4adefd689dd26d0f9
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753581"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42093822"
 ---
 # <a name="tutorial-bing-visual-search-sdk-imageinsightstoken-and-results"></a>教學課程：Bing 圖像式搜尋 SDK ImageInsightsToken 和結果
 圖像式搜尋 SDK 有選項可供從先前傳回 `ImageInsightsToken` 的搜尋中，線上尋找影像。  此範例可取得 `ImageInsightsToken`，並在後續搜尋中使用權杖。  程式碼會將 `ImageInsightsToken` 傳送到 Bing 並傳回結果，結果中包含 Bing 搜尋 URL 和線上所找到類似影像的 URL。
 
-## <a name="prerequisites"></a>先決條件
-Visual Studio 2017。 如有需要，可從以下位置下載免費的社群版本：https://www.visualstudio.com/vs/community/。
+## <a name="prerequisites"></a>必要條件
+Visual Studio 2017。 如有需要，您可從下列位置下載免費的社群版本：https://www.visualstudio.com/vs/community/。
 必須要有認知服務 API 金鑰才能驗證 SDK 呼叫。 申請免費試用金鑰。 試用金鑰可讓您以每秒 1 個呼叫的頻率使用 7 天。 針對生產案例，請購買存取金鑰。 另請參閱定價資訊。
-要能夠執行 .NET Core SDK，也就是 .NET Core 1.1 應用程式。 您可以從以下位置取得 CORE、架構和執行階段：https://www.microsoft.com/net/download/。
+要能夠執行 .NET Core SDK，也就是 .NET Core 1.1 應用程式。 您可以從下列位置取得 CORE、架構和執行階段：https://www.microsoft.com/net/download/。
 
 ##<a name="application-dependencies"></a>應用程式相依性
 若要使用 Bing Web 搜尋 SDK 來設定主控台應用程式，請在 Visual Studio 中瀏覽至 [方案總管] 的 [管理 NuGet 套件] 選項。 新增：
@@ -283,4 +283,4 @@ namespace VisualSearchFeatures
 
 ```
 ## <a name="next-steps"></a>後續步驟
-[圖像式搜尋回應](https://review.docs.microsoft.com/en-us/azure/cognitive-services/bing-visual-search/overview?branch=pr-en-us-44614#the-response) \(英文\)
+[圖像式搜尋回應](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview#the-response) \(英文\)

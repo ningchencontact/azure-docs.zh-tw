@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 70d5c777f98a1e09125c7ef42ba597009bde084b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c13da6ff7c864ffa365dbad33d6eb0cf2e35fa42
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194328"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42141887"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Azure 自動化中的憑證資產
 
@@ -83,7 +83,7 @@ New-AzureRmAutomationCertificate -AutomationAccountName "MyAutomationAccount" -N
 
 ## <a name="using-a-certificate"></a>使用憑證
 
-若要使用憑證，請使用 **Get-AutomationCertificate** 活動。 您不能使用 [Get-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603765.aspx) Cmdlet，因為它會傳回憑證資產的相關資訊，而不是憑證本身。
+若要使用憑證，請使用 **Get-AutomationCertificate** 活動。 您不能使用 [Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate?view=azurermps-6.6.0) Cmdlet，因為它會傳回憑證資產的相關資訊，而不是憑證本身。
 
 ### <a name="textual-runbook-sample"></a>文字式 Runbook 範例
 

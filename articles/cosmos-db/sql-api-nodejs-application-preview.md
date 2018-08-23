@@ -11,12 +11,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 07/31/2018
 ms.author: sngun
-ms.openlocfilehash: 9f7744c7743107b3587bd63a6e7681a6f1e42c00
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 43c5b8beef523684a405f1396ad0a9d862c123e8
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39608965"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41918740"
 ---
 # <a name="_Toc395783175"></a>使用 Azure Cosmos DB 和 Node.js SDK 來建置 Node.js Web 應用程式 (預覽)
 > [!div class="op_single_selector"]
@@ -413,13 +413,13 @@ ms.locfileid: "39608965"
                     input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
           button.btn.btn-primary(type="submit") Update tasks
         hr
-       form.well(action="/addtask", method="post")
-        label Item Name:
-        input(name="name", type="textbox")
-        label Item Category:
-        input(name="category", type="textbox")
-        br
-        button.btn(type="submit") Add item
+        form.well(action="/addtask", method="post")
+          label Item Name:
+          input(name="name", type="textbox")
+          label Item Category:
+          input(name="category", type="textbox")
+          br
+          button.btn(type="submit") Add item
    ```
 
 這個程式碼會擴充配置，並為我們在前面的 **layout.jade** 檔案中看到的 **content** 預留位置提供內容。

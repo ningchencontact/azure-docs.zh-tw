@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: c61a6efaa4a56636400acfe5a212cddad47f4f0c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fb408765a1185ac64a664cee458432bfce061c91
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38652740"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41920523"
 ---
 # <a name="tutorial-push-notifications-to-specific-windows-phone-devices-by-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知推送至特定 Windows Phone 裝置
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -40,7 +40,7 @@ ms.locfileid: "38652740"
 > * 傳送加註標記的通知
 > * 測試應用程式
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 完成[教學課程：使用 Azure 通知中樞將通知推送至 Windows Phone 應用程式](notification-hubs-windows-mobile-push-notifications-mpns.md)。 在本教學課程中，您會更新行動應用程式，以便能夠註冊您所感興趣的即時新聞類別，並僅接收這些類別的推播通知。 
 
 ## <a name="add-category-selection-to-the-mobile-app"></a>在行動應用程式中新增類別選項
@@ -321,9 +321,9 @@ ms.locfileid: "38652740"
 
 
 <!-- URLs.-->
-[開始使用通知中樞]: /manage/services/notification-hubs/get-started-notification-hubs-wp8/
-[Use Notification Hubs to broadcast localized breaking news]: ../breakingnews-localized-wp8.md
-[Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users/
+[開始使用通知中樞]: notification-hubs-windows-mobile-push-notifications-mpns.md
+[Use Notification Hubs to broadcast localized breaking news]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
+[Notify users with Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Windows Phone]: ??

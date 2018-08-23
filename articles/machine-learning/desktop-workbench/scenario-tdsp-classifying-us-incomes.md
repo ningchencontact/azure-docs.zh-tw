@@ -3,25 +3,25 @@ title: 所得分類 - Team Data Science Process - Azure Machine Learning | Micro
 description: 如何使用 Team Data Science Process 範本，在 Azure Machine Learning 中建立可將美國所得分類的專案。
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
+ms.author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
-ms.author: bradsev
-ms.openlocfilehash: 3b1d2be46b2f142adff966991997891e44e850ec
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: edc3fc5e2a625a14bcb48b03f32cd99069a0ad53
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832674"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42142335"
 ---
 # <a name="income-classification-with-team-data-science-process-tdsp-project"></a>使用 Team Data Science Process (TDSP) 專案進行所得分類
 
@@ -50,7 +50,7 @@ ms.locfileid: "34832674"
 
 ![](./media/scenario-tdsp-classifying-us-incomes/tdsp-lifecycle.jpg)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 ### <a name="required-subscription-hardware-software"></a>必要：訂用帳戶、硬體、軟體
 1. Azure [訂用帳戶](https://azure.microsoft.com)。 您也可取得[免費訂用帳戶](https://azure.microsoft.com/free/?v=17.16&WT.srch=1&WT.mc_id=AID559320_SEM_cZGgGOIg)來執行這個範例。
 2. [Azure 資料科學虛擬機器 (DSVM) Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm)、(VM 大小：[DS3_V2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)具有 4 個虛擬 CPU 和 14 Gb 的 RAM)。 雖然是在 Azure DSVM 上測試，但有可能在任何 Windows 10 電腦上運作。

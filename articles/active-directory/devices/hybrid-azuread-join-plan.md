@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 4e6600d81fedd884cf415d055aedd29d163b3365
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: fbc40d0768a7cf1cb83a3e78dd524fac26254bea
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629645"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42141901"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>如何規劃混合式 Azure Active Directory Join 實作
 
@@ -97,7 +97,7 @@ ms.locfileid: "39629645"
 
 對於已針對使用者設定檔漫遊或認證漫遊設定的裝置，不支援註冊舊版 Windows 裝置。 如果您倚賴設定檔或設定的漫遊，請使用 Windows 10。
 
-- 在非同盟環境中，**支援**透過無縫單一登入 [Azure Active Directory 無縫單一登入](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start)來註冊舊版 Windows 裝置。 
+- 在非同盟環境中，**支援**透過無縫單一登入 [Azure Active Directory 無縫單一登入](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start)來註冊舊版 Windows 裝置。 
  
 - 使用沒有無縫單一登入的 Azure AD 傳遞驗證時，**不**支援舊版 Windows 裝置的註冊。
 
