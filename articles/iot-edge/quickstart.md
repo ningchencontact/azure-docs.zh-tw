@@ -58,10 +58,10 @@ ms.locfileid: "39626377"
 
 IoT Edge 裝置： 
 
-* 一部 Windows 電腦或虛擬機器，可當作您的 IoT Edge 裝置。 使用不支援的 Windows 版本：
+* 您可以使用 Windows 電腦或虛擬機器，當作您的 IoT Edge 裝置。支援的 Windows 版本：
    * Windows 10 或更新版本
    * Windows Server 2016 或更新版本
-* 如果這是虛擬機器，請啟用[巢狀虛擬化][lnk-nested]並配置至少 2GB 的記憶體。 
+* 如果使用虛擬機器，請啟用[巢狀虛擬化][lnk-nested]並配置至少 2GB 的記憶體。 
 * 安裝[適用於 Windows 的 Docker][lnk-docker] 並確定它正在執行。
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
@@ -95,7 +95,7 @@ IoT Edge 裝置：
    az iot hub device-identity create --device-id myEdgeDevice --hub-name {hub_name} --edge-enabled
    ```
 
-1. 擷取裝置的連接字串，此字串會讓實體裝置及其在 IoT 中樞內的身分識別相連結。 
+1. 擷取裝置的連接字串，此字串將作為連結實體裝置與其在 IoT 中樞內的身分識別。 
 
    ```azurecli-interactive
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
@@ -154,7 +154,7 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 它有三個元件
     format-table -autosize -wrap
    ```
 
-3. 檢視所有在 IoT Edge 裝置上執行的模組。 由於服務只是第一次啟動，您應該只會看到 **edgeAgent** 模組正在執行。 EdgeAgent 模組依預設會執行，且有助於安裝及啟動您部署至裝置的任何其他模組。 
+3. 檢視所有在 IoT Edge 裝置上執行的模組。 由於服務只是第一次啟動，您應該只會看到 **edgeAgent** 模組正在執行。 EdgeAgent 模組預設會執行，且有助於安裝及啟動您部署至裝置的任何其他模組。 
 
    ```powershell
    iotedge list
@@ -162,7 +162,7 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 它有三個元件
 
    ![檢視裝置上的一個模組](./media/quickstart/iotedge-list-1.png)
 
-IoT Edge 裝置現已設定完成。 其已準備好執行雲端部署的模組。 
+IoT Edge 裝置現已設定完成，並已準備好執行雲端部署的模組。 
 
 ## <a name="deploy-a-module"></a>部署模組
 
@@ -209,13 +209,13 @@ iotedge logs tempSensor -f
 
 ### <a name="remove-the-iot-edge-runtime"></a>移除 IoT Edge 執行階段
 
-如果您預計要在未來的測試中使用 IoT Edge 裝置，但想要在未使用時停止讓 tempSensor 模組傳送資料至 IoT 中樞，請使用下列命令停止 IoT Edge 服務。 
+如果您預計要在未來的測試中繼續使用 IoT Edge 裝置，但想要在未使用時停止 tempSensor 模組傳送資料至 IoT 中樞，請使用下列命令停止 IoT Edge 服務。 
 
    ```powershell
    Stop-Service iotedge -NoWait
    ```
 
-當您準備好再次開始測試時，便可重新啟動服務
+當您準備好再次開始測試時，請使用下列命令重新啟動服務。
 
    ```powershell
    Start-Service iotedge
