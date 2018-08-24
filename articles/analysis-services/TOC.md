@@ -34,6 +34,7 @@
 ### [設定伺服器名稱別名](analysis-services-server-alias.md)
 ### [設定擴充](analysis-services-scale-out.md)
 ### [安裝及設定內部部署資料閘道](analysis-services-gateway-install.md)
+### [使用 Azure 虛擬網路上的資料來源閘道](analysis-services-vnet-gateway.md)
 ### [管理伺服器](analysis-services-manage.md)
 ### [監視伺服器計量](analysis-services-monitor.md)
 ### [設定診斷記錄](analysis-services-logging.md)

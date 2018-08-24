@@ -6,12 +6,12 @@ description: 了解如何使用 Microsoft Azure 雲端服務建置和管理功�
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 79b7301f2a9ef56956e6968f322b420a7622b172
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 8aff1d1c499ff9b53ca2adf47553b07c7ae71c45
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627418"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41927606"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1646,7 +1646,7 @@ Azure DevOps Project </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/ddd/">
+                                            <a href="/azure/app-service-mobile">
                                                 <img src="https://docs.microsoft.com/media/common/i_mobile-app-developement.svg" alt="" />
                                                 <p>Azure 行動應用程式</p>
                                             </a>
@@ -2358,6 +2358,25 @@ Azure DevOps Project </a>
                                                 <div class="cardText">
                                                     <h3>檔案儲存體</h3>
                                                     <p>檔案共用，使用標準 SMB 3.0 通訊協定</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/en-us/azure/databox/" data-linktype="absolute-path">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img alt="" src="media/index/service-icon-small.png" data-linktype="relative-path">
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>資料箱</h3>
+                                                    <p>受限於網路可用性時大量資料的低成本、安全傳輸</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5814,22 +5833,23 @@ Java 工具 </h3>
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="https://docs.microsoft.com/media/common/i_tools.svg" alt="" />
+                                                    <img src="media/index/azure-resource-manager.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-SQL 工具 </h3>
+Azure Resource Manager </h3>
                                                 <p>
-                                                    <a href="/sql/sql-operations-studio/download">SQL 作業 Studio <sup>預覽</sup></a>
+                                                    <a href="https://docs.microsoft.com/azure/azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy">Visual Studio</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/sql/ssms/download-sql-server-management-studio-ssms">SQL Server Management Studio (SSMS)</a>
-                                                </p>                                            <p>
-                                                    <a href="/sql/ssdt/download-sql-server-data-tools-ssdt">SQL Server Data Tools (SSDT)</a>
+                                                    <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code">Visual Studio Code</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/sql/tools/overview-sql-tools">查看所有 SQL 工具</a>
+                                                    <a href="https://azure.microsoft.com/resources/templates/">範例範本</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/azure/templates/">參考</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -5901,20 +5921,22 @@ Service Fabric SDK 和工具 </h3>
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/database-migration.svg" alt="" />
+                                                    <img src="https://docs.microsoft.com/media/common/i_tools.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-資料庫移轉工具 </h3>
+SQL 工具 </h3>
                                                 <p>
-                                                    <a href="https://aka.ms/dma">Data Migration Assistant (DMA)</a>
+                                                    <a href="/sql/sql-operations-studio/download">SQL 作業 Studio <sup>預覽</sup></a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://aka.ms/ssma">SQL Server 移轉小幫手 (SSMA)</a>
+                                                    <a href="/sql/ssms/download-sql-server-management-studio-ssms">SQL Server Management Studio (SSMS)</a>
+                                                </p>                                            <p>
+                                                    <a href="/sql/ssdt/download-sql-server-data-tools-ssdt">SQL Server Data Tools (SSDT)</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://aka.ms/dea-tool">資料庫測試助理 (DEA)</a>
+                                                    <a href="/sql/tools/overview-sql-tools">查看所有 SQL 工具</a>
                                                 </p>
                                             </div>
                                         </div>

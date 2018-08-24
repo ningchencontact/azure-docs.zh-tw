@@ -1,30 +1,34 @@
-# 開始使用 Azure
-## [雲端計算概觀](azure-operations-guide.md#cloud-computing-overview)
-### [Azure 區域](https://azure.microsoft.com/regions/)
-## [服務](azure-operations-guide.md#azure-services)
-### [Azure App Service 文件](https://docs.microsoft.com/azure)
-## [重要概念](azure-operations-guide.md#azure-key-concepts)
-### [Microsoft Azure 入口網站概觀](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) 
-### [透過入口網站管理 Azure 資源](https://docs.microsoft.com/azure/azure-portal/resource-group-portal)
-### [如何安裝和設定 Azure PowerShell](/powershell/azure/install-azurerm-ps)
-### [安裝 Azure CLI](/cli/azure/install-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Azure REST SDK 參考](https://docs.microsoft.com/rest/api/index)
+# 適用於 IT 運算子的 Azure
+## [開始使用 Azure](azure-operations-guide.md) 
+## 快速入門
+### 虛擬機器
+#### [Windows 虛擬機器](../../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Linux 虛擬機器](../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
+### 虛擬網路
+#### [使用 Azure 入口網站建立虛擬網路](../../virtual-network/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [儲存體](https://docs.microsoft.com/azure/storage/)
+### 安全性
+#### [使用角色指派來管理資源](../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
-## [訂用帳戶](azure-operations-guide.md#azure-subscriptions)
+## 教學課程
+### 虛擬機器
+#### [建立與管理 Windows VM](../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [建立與管理 Linux VM](../../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Jenkins CI/CD 管線](../../virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [負載平衡的 VM](../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [編寫 Azure 資源管理員範本](../../resource-group-authoring-templates.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
+## 使用說明指南
 ### [如何下載您的 Azure 帳單發票和每日使用量資料](../../billing/billing-download-azure-invoice-daily-usage-date.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [深入了解您的資源消耗](../../billing/billing-usage-rate-card-overview.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [線上價格計算機](http://azure.microsoft.com/pricing/calculator)
-### [設定帳務警示](../../billing/billing-set-up-alerts.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Azure Resource Manager](azure-operations-guide.md#azure-resource-manager)
 
 ### [編寫 Azure 資源管理員範本](../../resource-group-authoring-templates.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-###[使用 Azure 入口網站部署範本](../../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-###[使用 Azure PowerShell 部署範本](../../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-###[使用 Azure CLI部署範本](../../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [使用 Azure 入口網站部署範本](../../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [使用 Azure PowerShell 部署範本](../../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [使用 Azure CLI部署範本](../../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [安全性 (RBAC)](azure-operations-guide.md#security-of-azure-resource)
-###[使用角色指派來管理資源](../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [使用角色指派來管理資源](../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [虛擬機器](azure-operations-guide.md#azure-virtual-machines)
 ### [適用於 Windows 的 VM 大小](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
@@ -38,7 +42,7 @@
 ### Windows 虛擬機器教學課程
 #### [建立/管理 VM](../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [建立/管理磁碟](../../virtual-machines/windows/tutorial-manage-data-disk.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Automate configuration](../../virtual-machines/windows/tutorial-automate-vm-deployment.md
+#### [自動化組態](../../virtual-machines/windows/tutorial-automate-vm-deployment.md)
 #### [建立 VM 映像](../../virtual-machines/windows/tutorial-custom-images.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [高可用性 VM](../../virtual-machines/windows/tutorial-availability-sets.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [建立 VM 擴展集](../../virtual-machines/windows/tutorial-create-vmss.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)

@@ -15,7 +15,6 @@
 
 # 作法
 
-
 ## 計劃與設計
 ### [Azure Mobile Apps 中的驗證與授權](app-service-mobile-auth.md)
 ### [Azure Mobile Apps 中的離線資料同步處理](app-service-mobile-offline-data-sync.md)
@@ -75,9 +74,9 @@
 #### [用戶端及伺服器版本設定](app-service-mobile-client-and-server-versioning.md)
 
 ### App Service 環境
-#### [在 App Service 環境中建立 Web 應用程式](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [如何使用 Azure Resource Manager 範本建立 ILB ASE](../app-service/environment/app-service-app-service-environment-create-ilb-ase-resourcemanager.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [使用內部負載平衡器](../app-service/environment/app-service-environment-with-internal-load-balancer.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [在 App Service 環境中建立 Web 應用程式](../app-service/environment/intro.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [建立及使用內部負載平衡器](../app-service/environment/create-ilb-ase.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [使用範本建立 ASE](../app-service/environment/create-from-template.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## 部署
 ### [雲端同步部署](../app-service/app-service-deploy-content-sync.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -136,7 +135,7 @@
 #### [實作多層的安全性架構](../app-service/environment/app-service-app-service-environment-layered-security.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [安全地連接到後端資源](../app-service/environment/app-service-app-service-environment-securely-connecting-to-backend-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-## 備份
+## Backup 
 ### [在 Azure 中備份應用程式](../app-service/web-sites-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [在 Azure 中還原應用程式](../app-service/web-sites-restore.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 

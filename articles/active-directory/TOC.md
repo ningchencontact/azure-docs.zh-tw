@@ -82,34 +82,9 @@
 #### [取得 B2B 支援](b2b/get-support.md)
 
 ## [管理群組和成員](fundamentals/active-directory-manage-groups.md)
-### 管理群組
-#### [Azure 入口網站](fundamentals/active-directory-groups-create-azure-portal.md)
-#### [Azure AD PowerShell for Graph (v2)](users-groups-roles/groups-settings-v2-cmdlets.md)
-#### [Azure AD PowerShell MSOnline](users-groups-roles/groups-settings-cmdlets.md)
-### [管理群組成員](fundamentals/active-directory-groups-members-azure-portal.md)
-### [管理群組擁有者](fundamentals/active-directory-accessmanagement-managing-group-owners.md)
-### [管理群組成員資格](fundamentals/active-directory-groups-membership-azure-portal.md)
-### [使用群組指派授權](fundamentals/active-directory-licensing-whatis-azure-portal.md)
-#### [將授權指派給群組](users-groups-roles/licensing-groups-assign.md)
-#### [識別並解決群組的授權問題](users-groups-roles/licensing-groups-resolve-problems.md)
-#### [將個別授權使用者移轉至群組型的授權](users-groups-roles/licensing-groups-migrate-users.md)
-#### [在產品授權間移轉使用者](users-groups-roles/licensing-groups-change-licenses.md)
-#### [群組型授權的其他案例](users-groups-roles/licensing-group-advanced.md)
-#### [群組型授權的 Azure PowerShell 範例](users-groups-roles/licensing-ps-examples.md)
-#### [Azure AD 中的產品與服務方案的參考](users-groups-roles/licensing-service-plan-reference.md)
-### [設定 Office 365 群組到期時間](users-groups-roles/groups-lifecycle.md)
-### [為群組強制執行命名原則](users-groups-roles/groups-naming-policy.md)
-### [檢視全部群組](fundamentals/active-directory-groups-view-azure-portal.md)
-### [新增 SaaS 應用程式的群組存取權](users-groups-roles/groups-saasapps.md)
+### [管理群組](fundamentals/active-directory-groups-create-azure-portal.md)
 ### [還原已刪除的 Office 365 群組](fundamentals/active-directory-groups-restore-azure-portal.md)
 ### [管理群組設定](fundamentals/active-directory-groups-settings-azure-portal.md)
-### [設定自助式群組](users-groups-roles/groups-self-service-management.md)
-### 動態群組
-#### [建立動態群組](users-groups-roles/groups-create-rule.md)
-#### [規則語法和屬性](users-groups-roles/groups-dynamic-membership.md)
-#### [變更群組成員資格](users-groups-roles/groups-change-type.md)
-#### [疑難排解](users-groups-roles/groups-troubleshooting.md)
-
 ## [管理報告](reports-monitoring/overview-reports.md)
 ### [登入活動](reports-monitoring/concept-sign-ins.md)
 ### [稽核活動](reports-monitoring/concept-audit-logs.md)
@@ -137,15 +112,13 @@
 #### [解譯 Azure 監視器中的登入記錄結構描述](reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md)
 
 ### 疑難排解
-#### [缺少稽核資料](reports-monitoring/troubleshoot-missing-audit-data.md)
+#### [在 Azure AD 活動記錄中遺漏資料](reports-monitoring/troubleshoot-missing-audit-data.md)
 #### [下載中缺少的資料](reports-monitoring/troubleshoot-missing-data-download.md)
 #### [Azure AD 活動記錄內容套件錯誤](reports-monitoring/troubleshoot-content-pack.md)
 #### [Azure AD 報告 API 中的錯誤](reports-monitoring/troubleshoot-graph-api.md)
 
 ### [程式設計存取](reports-monitoring/concept-reporting-api.md)
 #### [先決條件](reports-monitoring/howto-configure-prerequisites-for-reporting-api.md)
-#### [稽核範例](reports-monitoring/sample-audit-api.md)
-#### [登入範例](reports-monitoring/sample-sign-in-api.md)
 #### [使用憑證](reports-monitoring/tutorial-access-api-with-certificates.md)
 
 ## [管理密碼](authentication/concept-sspr-howitworks.md)
@@ -235,13 +208,14 @@
 ### 管理企業應用程式
 #### [新增應用程式](manage-apps/add-application-portal.md)
 #### [檢視租用戶應用程式](manage-apps/view-applications-portal.md)
+#### [設定單一登入](manage-apps/configure-single-sign-on-portal.md)
 #### [指派使用者](manage-apps/assign-user-or-group-access-portal.md)
 #### [自訂商標](manage-apps/change-name-or-logo-portal.md)
 #### [停用使用者登入](manage-apps/disable-user-sign-in-portal.md)
 #### [移除使用者](manage-apps/remove-user-or-group-access-portal.md)
 
 #### [管理使用者帳戶佈建](manage-apps/configure-automatic-user-provisioning-portal.md)
-#### [管理企業應用程式的單一登入](manage-apps/configure-single-sign-on-portal.md)
+
 #### [適用於 SAML 應用程式的進階憑證](manage-apps/certificate-signing-options.md)
 #### [將應用程式排除在使用者體驗之外](manage-apps/hide-application-from-user-portal.md)
 ### [使用 HRD 原則設定登入時自動加速](manage-apps/configure-authentication-for-federated-users-portal.md)
@@ -363,12 +337,7 @@
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### 自訂網域名稱
 #### [快速入門](fundamentals/add-custom-domain.md)
-#### [新增自訂網域名稱](users-groups-roles/domains-manage.md)
 ### [管理目錄](fundamentals/active-directory-administer.md)
-### [刪除目錄](users-groups-roles/directory-delete-howto.md)
-### [多個目錄](users-groups-roles/licensing-directory-independence.md)
-### [自助式註冊](users-groups-roles/directory-self-service-signup.md)
-### [接管非受控目錄](users-groups-roles/domains-admin-takeover.md)
 ### [企業狀態漫遊](active-directory-windows-enterprise-state-roaming-overview.md)
 #### [啟用](active-directory-windows-enterprise-state-roaming-enable.md)
 #### [群組原則設定](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
@@ -379,14 +348,6 @@
 
 ### [使用 Azure AD Connect 整合內部部署身分識別](./connect/active-directory-aadconnect.md)
 
-## 委派資源存取
-### [管理員角色](users-groups-roles/directory-assign-admin-roles.md)
-#### [檢視管理員角色成員](users-groups-roles//directory-manage-roles-portal.md)
-#### [將管理員角色指派給使用者](fundamentals/active-directory-users-assign-role-azure-portal.md)
-#### [比較成員和來賓使用者的權限](fundamentals/users-default-permissions.md)
-### [管理員角色安全性](users-groups-roles/directory-admin-roles-secure.md)  
-#### [建立緊急存取管理帳戶](users-groups-roles/directory-emergency-access.md)
-### [管理單位](users-groups-roles/directory-administrative-units.md)
 ### [設定權杖存留期](active-directory-configurable-token-lifetimes.md)
 
 ## 存取權檢閱
@@ -401,35 +362,6 @@
 ### [取出存取權檢閱結果](active-directory-azure-ad-controls-retrieve-access-review.md)
 
 ## 保護您的身分識別
-### 條件式存取
-#### [概觀](conditional-access/overview.md)
-#### 快速入門
-##### [特定應用程式需要 MFA](conditional-access/app-based-mfa.md)
-##### [接受的使用條款](conditional-access/require-tou.md)
-##### [偵測到工作階段風險時封鎖存取](conditional-access/app-sign-in-risk.md)
-#### 教學課程
-##### [移轉傳統 MFA 原則](conditional-access/policy-migration-mfa.md)
-#### 概念
-##### [基準保護](conditional-access/baseline-protection.md)
-##### [條件](conditional-access/conditions.md)
-##### [位置條件](conditional-access/location-condition.md)
-##### [控制項](conditional-access/controls.md)
-##### [假設工具](conditional-access/what-if-tool.md)
-##### [了解 Office 365 服務的裝置原則](active-directory-conditional-access-device-policies.md)
-#### 使用說明指南
-##### [最佳做法](conditional-access/best-practices.md)
-##### [需要 MFA 以便嘗試從不受信任的網路存取](conditional-access/untrusted-networks.md)
-##### [需要受控裝置](conditional-access/require-managed-devices.md)
-##### [需要已經核准的用戶端應用程式](conditional-access/app-based-conditional-access.md)
-##### [需要為使用者和應用程式提供使用規定](active-directory-tou.md)
-##### [移轉傳統原則](conditional-access/policy-migration.md)
-##### [設定 VPN 連線能力](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
-##### [設定 SharePoint 和 Exchange Online](active-directory-conditional-access-no-modern-authentication.md)
-##### [補救](active-directory-conditional-access-device-remediation.md)
-#### [參考](conditional-access/technical-reference.md)
-##### [技術參考](conditional-access/technical-reference.md)
-#### [常見問題集](conditional-access/faqs.md)
-
 ### 憑證式驗證
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
@@ -449,9 +381,6 @@
 #### [Microsoft Graph](identity-protection/graph-get-started.md)
 ### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
-## 將其他服務與 Azure AD 整合 
-### [將 linkedIn 與 Azure AD 整合](users-groups-roles/linkedin-integration.md)
-
 ## [在 Azure 中部署 AD FS](active-directory-aadconnect-azure-adfs.md)
 ### [高可用性](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [變更簽章雜湊演算法](active-directory-federation-sha256-guidance.md)
@@ -464,13 +393,11 @@
 ### [PoC 腳本：實作](active-directory-playbook-implementation.md)
 ### [PoC 腳本：建置區塊](active-directory-playbook-building-blocks.md)
 
-
 # 參考
 ## [程式碼範例](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Azure PowerShell Cmdlet](/powershell/azure/overview)
 ## [Java API 參考](/java/api)
 ## [.NET API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
-## [服務限制](users-groups-roles/directory-service-limits-restrictions.md)
 
 # 相關參考
 ## [Multi-Factor Authentication](/azure/multi-factor-authentication/)

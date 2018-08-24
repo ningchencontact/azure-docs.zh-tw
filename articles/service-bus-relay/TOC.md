@@ -5,24 +5,23 @@
 ## [常見問題集](relay-faq.md)
 
 # 快速入門
-## [建立命名空間](relay-create-namespace-portal.md)
 ## [建立混合式內部部署/雲端應用程式](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 ## 混合式連線
 ### [.NET WebSocket](relay-hybrid-connections-dotnet-get-started.md)
 ### [.NET HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md)
 ### [Node WebSocket](relay-hybrid-connections-node-get-started.md)
 ### [節點 HTTP](relay-hybrid-connections-http-requests-node-get-started.md)
-## [WCF 轉送](relay-wcf-dotnet-get-started.md)
 ## [WCF 轉送教學課程](service-bus-relay-tutorial.md)
 ## [WCF 轉送的 REST 教學課程](service-bus-relay-rest-tutorial.md)
 
 # 作法
-
 ## 規劃和設計
 ### [驗證和安全性](relay-authentication-and-authorization.md)
 #### [從 ACS 移轉至 SAS](relay-migrate-acs-sas.md)
 ### [混合式連線通訊協定](relay-hybrid-connections-protocol.md)
 ## 開發
+### [建立命名空間](relay-create-namespace-portal.md)
+### [使用 WCF 轉送對外部用戶端公開 WCF 服務](relay-wcf-dotnet-get-started.md)
 ### [可用的 API](relay-api-overview.md)
 #### [.NET](relay-hybrid-connections-dotnet-api-overview.md)
 #### [Node](relay-hybrid-connections-node-ws-api-overview.md)

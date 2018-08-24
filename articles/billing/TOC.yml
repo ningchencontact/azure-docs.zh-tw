@@ -26,6 +26,8 @@ items:
     href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
   - name: 了解消費限制
     href: billing-spending-limit.md
+  - name: 分析成本
+    href: billing-cost-analysis.md
   - name: Azure 保留項目為您節省成本
     items:
     - name: 什麼是 Azure 保留項目？
@@ -44,7 +46,7 @@ items:
         href: billing-understand-reservation-charges.md
     - name: 並未包含軟體成本
       href: billing-reserved-instance-windows-software-costs.md
-    - name: 隨用隨付型方案使用量
+    - name: 預付型方案使用量
       href: billing-understand-reserved-instance-usage.md
     - name: Enterprise 使用量
       href: billing-understand-reserved-instance-usage-ea.md
@@ -128,6 +130,8 @@ items:
       href: billing-review-enterprise-billing.md
     - name: 檢閱訂用帳戶用途
       href: billing-review-subscription-billing.md
+    - name: 檢閱資源使用量
+      href: billing-review-service-usage-api.md
   - name: .NET 範例
     items:
     - name: 發票 API 程式碼範例
@@ -164,9 +168,9 @@ items:
     items:
     - name: Enterprise 報表 REST API
       href: https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary
-ms.openlocfilehash: 60006c34b42b3916a775bebc85e1ef1ba4093d13
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 5d7d56325201cbf3c851a843ea4d4393dea4bb40
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628200"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41929041"
