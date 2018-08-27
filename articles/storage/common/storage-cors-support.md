@@ -82,7 +82,7 @@ Azure 儲存體服務支援為 **AllowedHeaders** 和 **ExposedHeaders** 元素�
 * 允許的標頭、公開的標頭或允許的原始網域的長度不可超過 256 個字元。
 * 允許的標頭和公開的標頭可以是：
   * 常值標頭，此標頭是確切的標頭名稱，例如 **x-ms-meta-processed**。 最多可在要求上指定 64 個常值標頭。
-  * 有前置詞的標頭，當中包含標頭的前置詞，例如 **x-ms-meta-data***。 以這種方式指定前置詞，可允許或公開以指定前置詞開頭的任何標頭。 最多可在要求上指定兩個有前置詞的標頭。
+  * 有前置詞的標頭，當中包含標頭的前置詞，例如 **x-ms-meta-data**\*。 以這種方式指定前置詞，可允許或公開以指定前置詞開頭的任何標頭。 最多可在要求上指定兩個有前置詞的標頭。
 * 在 **AllowedMethods** 元素中指定的方法 (或 HTTP 動詞命令) 必須符合 Azure 儲存體服務 API 所支援的方法。 支援的方法為 DELETE、GET、HEAD、MERGE、POST、OPTIONS 及 PUT。
 
 ## <a name="understanding-cors-rule-evaluation-logic"></a>了解 CORS 規則評估邏輯
