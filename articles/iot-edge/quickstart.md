@@ -58,7 +58,7 @@ ms.locfileid: "39626377"
 
 IoT Edge 裝置： 
 
-* 可當作您 IoT Edge 裝置的 Windows 電腦或虛擬機器。使用支援的 Windows 版本：
+* 可當作您 IoT Edge 裝置的 Windows 電腦或虛擬機器。 使用支援的 Windows 版本：
    * Windows 10 或更新版本
    * Windows Server 2016 或更新版本
 * 如果使用虛擬機器，請啟用[巢狀虛擬化][lnk-nested]並配置至少 2GB 的記憶體。 
@@ -154,7 +154,7 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 它有三個元件
     format-table -autosize -wrap
    ```
 
-3. 檢視在 IoT Edge 裝置上執行的所有模組。由於服務只有第一次會啟動，您應該只會看到 **edgeAgent** 模組正在執行。EdgeAgent 模組預設會執行，且有助於安裝及啟動您部署至裝置的任何其他模組。
+3. 檢視在 IoT Edge 裝置上執行的所有模組。 由於服務只有第一次會啟動，您應該只會看到 **edgeAgent** 模組正在執行。 EdgeAgent 模組預設會執行，且有助於安裝及啟動您部署至裝置的任何其他模組。 
 
    ```powershell
    iotedge list
@@ -162,7 +162,7 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 它有三個元件
 
    ![檢視裝置上的一個模組](./media/quickstart/iotedge-list-1.png)
 
-IoT Edge 裝置現已設定完成，並已準備好執行雲端部署的模組。 
+IoT Edge 裝置現已設定完成。 並已準備好執行雲端部署的模組。 
 
 ## <a name="deploy-a-module"></a>部署模組
 
@@ -209,7 +209,7 @@ iotedge logs tempSensor -f
 
 ### <a name="remove-the-iot-edge-runtime"></a>移除 IoT Edge 執行階段
 
-如果您預計要在未來的測試中繼續使用 IoT Edge 裝置，但想要在未使用時停止 tempSensor 模組傳送資料至 IoT 中樞，請使用下列命令停止 IoT Edge 服務。 
+如果您預計要在未來的測試中繼續使用 IoT Edge 裝置，但想要在未使用時停止 tempSensor 模組傳送資料至 IoT 中樞，請使用下列命令停止 IoT Edge 服務。  
 
    ```powershell
    Stop-Service iotedge -NoWait
