@@ -12,16 +12,19 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/24/2018
 ms.author: cwatson
-ms.openlocfilehash: b04cb7ca3e8e7b292efaed66096c206b268a034a
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: db2c6f9995356abc233e971a2fae5a1ee6233ed1
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626177"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42915691"
 ---
 # <a name="azure-billing-and-cost-management-documentation"></a>Azure 計費與成本管理文件
 
 學習如何了解 Azure 計費方式、如何監視使用量和成本，以及管理帳戶和訂用帳戶。
+
+> [!div class="nextstepaction"]
+> [協助改善 Azure 計費文件](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 <ul class="panelContent cardsF">
     <li>
@@ -101,7 +104,7 @@ ms.locfileid: "39626177"
                         <p>
                         <a href="/azure/billing/billing-manage-access">授與帳單存取權</a><br/>
                         <a href="/azure/billing/billing-how-to-pay-by-invoice">按發票付款</a><br/>
-                        <a href="/azure/billing/billing-manage-reserved-vm-instance">管理 Azure 保留項目</a><br/>
+                        <a href="/azure/billing/billing-manage-reserved-vm-instance">管理 Azure 保留</a><br/>
                         <a href="/azure/billing/billing-understand-reserved-instance-usage-ea">Azure 保留項目使用量</a>
                         </p>
                     </div>
