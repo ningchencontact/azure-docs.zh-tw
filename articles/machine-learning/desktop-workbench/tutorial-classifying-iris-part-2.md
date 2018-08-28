@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/15/2018
-ms.openlocfilehash: 77dcad0f3e49b601110f8700245aaf479bde1c4e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4f9b14762332bd11fd69a855d8fabdb206e34919
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38722774"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41919747"
 ---
 # <a name="tutorial-2-classify-iris---build-a-model"></a>教學課程 2：分類鳶尾花：建立模型
 Azure Machine Learning 服務 (預覽) 是一套整合式資料科學及進階分析解決方案，可供專業資料科學家用來以雲端規模準備資料、開發測試以及部署模型。
@@ -35,13 +35,13 @@ Azure Machine Learning 服務 (預覽) 是一套整合式資料科學及進階�
 
 本教學課程使用不受時間影響的[鳶尾花資料集](https://en.wikipedia.org/wiki/Iris_flower_data_set)。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，您需要：
 - Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
 - 如本[快速入門](../service/quickstart-installation.md)所述安裝的測試帳戶和 Azure Machine Learning Workbench。
 - [教學課程第 1 部分](tutorial-classifying-iris-part-1.md)中的專案和備妥鳶尾花資料
-- 在本機安裝並執行的 Docker 引擎。 Docker 的 Community 版本就足夠了。 了解如何在此安裝 Docker：https://docs.docker.com/engine/installation/。
+- 在本機安裝並執行的 Docker 引擎。 Docker 的 Community 版本就足夠了。 了解如何在此安裝 Docker： https://docs.docker.com/engine/installation/。
 
 ## <a name="review-irissklearnpy-and-the-configuration-files"></a>檢閱 iris_sklearn.py 和組態檔
 
@@ -442,7 +442,7 @@ Azure Machine Learning 服務 (預覽) 是一套整合式資料科學及進階�
    >IP 位址也可以是可公開定址的完整網域名稱 (FQDN)，例如 `vm-name.southcentralus.cloudapp.azure.com`。 絕佳的做法是將 FQDN 新增到您的 DSVM，並使用它來代替 IP 位址。 這種做法是個不錯的主意，因為您可能會在某個時間點關閉 VM 來節省成本。 此外，下次您啟動 VM 時，IP 位址可能已變更。
 
    >[!NOTE]
-   >除了使用者名稱和密碼驗證，您可以使用 `--private-key-file` 及 (選擇性) `--private-key-passphrase` 選項來指定私密金鑰和對應的複雜密碼 (如果有的話)。
+   >除了使用者名稱和密碼驗證，您可以使用 `--private-key-file` 及 (選擇性) `--private-key-passphrase` 選項來指定私密金鑰和對應的複雜密碼 (如果有的話)。 如果您想要使用在建立 DSVM 時使用的私密金鑰，您應指定 `--use-azureml-ssh-key` 選項。
 
    接下來，執行以下命令來準備 **myvm** 計算目標。
    

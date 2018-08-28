@@ -1,24 +1,21 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 3d9fad10a11d3df29f81524eec0e4a03eb72c02f
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: c2530ef0570459f0be955e4eaaa1943b10c6b107
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264227"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43039795"
 documentType: LandingData
 title: Azure HDInsight 文件
 metadata:
   title: Azure HDInsight 文件 - 教學課程和 API 參考 | Microsoft Docs
   description: 了解 Hadoop on HDInsight。 文件會示範如何使用 Hadoop、Spark、Kafka、HBase 等來處理、分析及深入解析巨量資料。
   services: hdinsight
-  author: nitinme
-  manager: cgronlun
+  author: jasonwhowell
+  ms.author: jasonh
   ms.service: hdinsight
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 05/07/2018
-  ms.author: nitinme
 abstract:
   description: 了解如何使用 Azure HDInsight 來分析串流或歷史資料。 教學課程和其他文件會示範如何建立叢集、處理和分析巨量資料，以及如何使用 Hadoop、Spark、Hive、LLAP、Kafka、Storm 和 Microsoft Machine Learning Server 等熱門的開放原始碼架構來開發解決方案。<p>Azure HDInsight 是供企業使用的完全受控、全方位的開放原始碼分析服務。 HDInsight 是一種雲端服務，可輕鬆快速地處理大量資料，同時節省成本。 HDInsight 也支援各種案例，例如擷取、轉換和載入 (ETL)；資料倉儲、機器學習和 IoT。</p>
   aside:

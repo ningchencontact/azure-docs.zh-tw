@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 6fe314125440096d21a1276defd082c4e1997b8e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 50ece1d1f74ace494e6bebb84f9f121c1fad7a6c
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642677"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41917668"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>教學課程：將 Windows 容器中的 .NET 應用程式部署到 Azure Service Fabric
 
@@ -33,7 +33,7 @@ ms.locfileid: "34642677"
 > * 建立 Azure 容器登錄
 > * 將 Service Fabric 應用程式部署至 Azure
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 1. 如果您沒有 Azure 訂用帳戶，請[建立免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 2. 安裝 [Docker CE for Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description)，以便在 Windows 10 上執行容器。
@@ -223,6 +223,9 @@ $vnetRuleObject1 = New-AzureRmSqlServerVirtualNetworkRule `
 輸出視窗會顯示部署進度。  部署應用程式後，開啟瀏覽器並鍵入叢集位址和應用程式連接埠。 例如： http://http://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/。
 
 ![Fabrikam Web 範例][fabrikam-web-page-deployed]
+
+## <a name="set-up-continuous-integration-and-deployment-cicd-with-a-service-fabric-cluster"></a>設定 Service Fabric 叢集的持續整合和部署 (CI/CD)
+若要了解如何使用 VSTS 設定對 Service Fabric 叢集的 CI/CD 應用程式部署，請參閱[教學課程：透過 CI/CD 將應用程式部署至 Service Fabric 叢集](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)。 該教學課程中說明的程序與此 (FabrikamFiber) 專案的相同，只要略過下載投票範例的步驟，並將 FabrikamFiber 取代為存放庫名稱 (而不是「投票」) 即可。
 
 ## <a name="clean-up-resources"></a>清除資源
 完成時，請務必移除您建立的所有資源。  最簡單的方式是移除資源群組，包括 Service Fabric 叢集、Azure SQL 資料庫、Azure 容器登錄。
