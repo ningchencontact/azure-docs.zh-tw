@@ -61,8 +61,7 @@ ms.locfileid: "37859569"
   |---------|---------|
   |**映像類型**|Marketplace (Linux/Windows)|
   |**發行者**     |MicrosoftWindowsServer|
-  |
-  **供應項目**     |WindowsServer|
+  |**供應項目**     |WindowsServer|
   |**Sku**     |2012-R2-Datacenter-smalldisk|
 
   ![選取集區作業系統][pool_os] 
