@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 9c73ce159ae7cf5778210e0fb587135f37c73f57
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: a8ba667e6af316620d7a8530f29a6640edada13d
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40024613"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42142309"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>如何輪替 X.509 裝置憑證
 
@@ -46,7 +46,7 @@ ms.locfileid: "40024613"
 
 ## <a name="roll-the-certificate-in-the-iot-hub"></a>在 IoT 中樞輪替憑證
 
-您可將裝置憑證手動新增至 IoT 中樞。 使用裝置佈建服務執行個體也可以自動處理憑證。 在本文中，我們假設佈建服務執行個體用來支援自動佈建。
+您可將裝置憑證手動新增至 IoT 中樞。 使用裝置佈建服務執行個體也可以自動處理憑證。 在本文中，我們假設會使用裝置佈建服務執行個體來支援自動佈建。
 
 當裝置一開始透過自動佈建進行佈建時，它會啟動並連絡佈建服務。 佈建服務的回應方式如下：使用裝置的分葉憑證作為認證，在 IoT 中樞建立裝置身分識別之前，先執行身分識別檢查。 佈建服務會接著告知裝置獲派的 IoT 中樞，然後裝置會使用其分葉憑證進行驗證及連線到 IoT 中樞。 
 
@@ -104,7 +104,7 @@ ms.locfileid: "40024613"
 
 #### <a name="update-compromised-root-ca-certificates"></a>更新遭到入侵的根 CA 憑證
 
-1. 按一下您佈建服務執行個體的 [憑證] 索引標籤。
+1. 按一下您裝置佈建服務執行個體的 [憑證] 索引標籤。
 
 2. 按一下清單中遭入侵的憑證，然後按一下 [刪除] 按鈕。 輸入憑證名稱來確認刪除，然後按一下 [確定]。 請針對所有遭入侵的憑證重複此程序。
 
@@ -112,7 +112,7 @@ ms.locfileid: "40024613"
 
 3. 請遵循[設定已驗證的 CA 憑證](how-to-verify-certificates.md)中所述的步驟來新增並驗證新的根 CA 憑證。
 
-4. 按一下您佈建服務執行個體的 [管理註冊] 索引標籤，然後按一下 [註冊群組] 清單。 按一下清單中您的註冊群組名稱。
+4. 按一下您裝置佈建服務執行個體的 [管理註冊] 索引標籤，然後按一下 [註冊群組] 清單。 按一下清單中您的註冊群組名稱。
 
 5. 按一下 [CA 憑證]，然後選取新的根 CA 憑證。 然後按一下 [儲存] 。 
 
@@ -149,13 +149,13 @@ ms.locfileid: "40024613"
 
 1. 請遵循[設定已驗證的 CA 憑證](how-to-verify-certificates.md)中所述的步驟來新增並驗證新的根 CA 憑證。
 
-2. 按一下您佈建服務執行個體的 [管理註冊] 索引標籤，然後按一下 [註冊群組] 清單。 按一下清單中您的註冊群組名稱。
+2. 按一下您裝置佈建服務執行個體的 [管理註冊] 索引標籤，然後按一下 [註冊群組] 清單。 按一下清單中您的註冊群組名稱。
 
 3. 按一下 [CA 憑證]，然後在 [次要憑證] 組態之下選取新的根 CA 憑證。 然後按一下 [儲存] 。 
 
     ![選取新的根 CA 憑證](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
 
-4. 稍後當主要憑證到期時，按一下您佈建服務執行個體的 [憑證] 索引標籤。 按一下清單中已到期的憑證，然後按一下 [刪除] 按鈕。 輸入憑證名稱來確認刪除，然後按一下 [確定]。
+4. 稍後當主要憑證到期時，按一下您裝置佈建服務執行個體的 [憑證] 索引標籤。 按一下清單中已到期的憑證，然後按一下 [刪除] 按鈕。 輸入憑證名稱來確認刪除，然後按一下 [確定]。
 
     ![刪除根 CA 憑證](./media/how-to-roll-certificates/delete-root-cert.png)
 
@@ -177,7 +177,7 @@ ms.locfileid: "40024613"
 
 ## <a name="reprovision-the-device"></a>重新佈建裝置
 
-裝置和裝置佈建服務上的憑證都已輪替後，裝置即可連絡裝置佈建服務來自行重新佈建。 
+在裝置和裝置佈建服務上輪替憑證之後，裝置即可連絡裝置佈建服務來自行重新佈建。 
 
 如果裝置在嘗試連線到 IoT 中樞時收到「未經授權」的錯誤，將裝置設計為連絡佈建服務以進行佈建流程，即可輕鬆地設計要重新佈建的裝置。
 

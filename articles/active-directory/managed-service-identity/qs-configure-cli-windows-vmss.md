@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: daveba
-ms.openlocfilehash: 6474b34abeceb58c2eff9e7a2d2237ec47e61933
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 225fd7800f05514e989ec0153b5de22e63b62bde
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447518"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42141697"
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-azure-cli"></a>使用 Azure CLI 設定虛擬機器擴展集的受控服務身分識別 (MSI)
 
@@ -43,7 +43,10 @@ ms.locfileid: "39447518"
 - 若要執行 CLI 指令碼範例，您有三個選項：
     - 從 Azure 入口網站使用 [Azure Cloud Shell](../../cloud-shell/overview.md) (請參閱下一節)。
     - 請透過每個程式碼區塊右上角的 [立即試用] 按鈕，使用內嵌的 Azure Cloud Shell。
-    - 如果您想要使用本機的 CLI 主控台，請[安裝最新版的 CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 或更新版本)。 
+    - 如果您偏好使用本機 CLI 主控台，請[安裝最新版的 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
+      
+      > [!NOTE]
+      > 命令已更新，以反映最新版的 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -116,7 +119,7 @@ az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGrou
 
 在本節中，您將了解如何使用 Azure CLI 啟用和移除使用者指派的身分識別。
 
-### <a name="assign-a-user-assigned-identity-during-the-creation-of-an-azure-vmss"></a>在建立 Azure VMSS 時，指派使用者指派的身分識別
+### <a name="assign-a-user-assigned-identity-during-the-creation-of-a-virtual-machine-scale-set"></a>在虛擬機器擴展集建立期間指派使用者指派的識別
 
 本節會逐步引導您建立虛擬機器，並將使用者指派的身分識別指派給 VMSS。 如果您已經有想要使用的 VMSS，請略過本節並繼續進行下一節。
 
@@ -150,13 +153,13 @@ az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGrou
    }
    ```
 
-3. 使用 [az vmss create](/cli/azure/vmss/#az-vmss-create) 建立 VMSS。 下列範例會依 `--assign-identity` 參數的指定內容，建立與新的使用者指派身分識別建立關聯的 VMSS。 別忘了以您自己的值取代 `<RESOURCE GROUP>`、`<VMSS NAME>`、`<USER NAME>`、`<PASSWORD>`、`<USER ASSIGNED IDENTITY ID>` 參數的值。 針對 `<USER ASSIGNED IDENTITY ID>`，請使用使用者指派身分識別的資源 `id` 屬性 (於上個步驟中建立)： 
+3. 使用 [az vmss create](/cli/azure/vmss/#az-vmss-create) 建立 VMSS。 下列範例會依 `--assign-identity` 參數的指定內容，建立與新的使用者指派身分識別建立關聯的 VMSS。 別忘了以您自己的值取代 `<RESOURCE GROUP>`、`<VMSS NAME>`、`<USER NAME>`、`<PASSWORD>`、`<USER ASSIGNED IDENTITY>` 參數的值。 
 
    ```azurecli-interactive 
-   az vmss create --resource-group <RESOURCE GROUP> --name <VMSS NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY ID>
+   az vmss create --resource-group <RESOURCE GROUP> --name <VMSS NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY>
    ```
 
-### <a name="assign-a-user-assigned-identity-to-an-existing-azure-vm"></a>將使用者指派的身分識別指派至現有 Azure VM
+### <a name="assign-a-user-assigned-identity-to-an-existing-virtual-machine-scale-set"></a>將使用者指派的識別指派給現有的虛擬機器擴展集
 
 1. 使用 [az identity create](/cli/azure/identity#az-identity-create)，建立使用者指派的身分識別。  `-g` 參數會指定要在其中建立使用者指派身分識別的資源群組，而 `-n` 參數會指定其名稱。 請務必以您自己的值取代 `<RESOURCE GROUP>` 和 `<USER ASSIGNED IDENTITY NAME>` 參數的值：
 
@@ -166,7 +169,7 @@ az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGrou
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
     ```
-回應類似下列，其中包括已建立的使用者指派身分識別詳細資料。 下列步驟會使用指派給使用者指派身分識別的資源 `id` 值。
+回應類似下列，其中包括已建立的使用者指派身分識別詳細資料。
 
    ```json
    {
@@ -183,18 +186,18 @@ az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGrou
    }
    ```
 
-2. 使用 [az vmss identity assign](/cli/azure/vmss/identity#az-vm-assign-identity)，將使用者指派的身分識別指派給您的 VMSS。 請務必以您自己的值取代 `<RESOURCE GROUP>` 和 `<VMSS NAME>` 參數的值。 `<USER ASSIGNED IDENTITY ID>` 是使用者指派身分識別的資源 `id` 屬性 (於上個步驟中建立)：
+2. 使用 [az vmss identity assign](/cli/azure/vmss/identity#az-vm-assign-identity)，將使用者指派的身分識別指派給您的 VMSS。 請務必以您自己的值取代 `<RESOURCE GROUP>` 和 `<VMSS NAME>` 參數的值。 `<USER ASSIGNED IDENTITY>` 是使用者指派之身分識別的資源 `name` 屬性 (在上一個步驟中建立)：
 
     ```azurecli-interactive
-    az vmss identity assign -g <RESOURCE GROUP> -n <VMSS NAME> --identities <USER ASSIGNED IDENTITY ID>
+    az vmss identity assign -g <RESOURCE GROUP> -n <VMSS NAME> --identities <USER ASSIGNED IDENTITY>
     ```
 
 ### <a name="remove-a-user-assigned-identity-from-an-azure-virtual-machine-scale-set"></a>從 Azure 虛擬機器擴展集移除使用者指派的身分識別
 
-若要從虛擬機器擴展集移除使用者指派的身分識別，請使用 [az vmss identity remove](/cli/azure/vmss/identity#az-vmss-identity-remove)。 請務必以您自己的值取代 `<RESOURCE GROUP>` 和 `<VMSS NAME>` 參數的值。 `<MSI NAME>` 是使用者指派身分識別的 `name` 屬性，您可以使用 `az vmss identity show` 在 VM 的身分識別區段中找到此項目：
+若要從虛擬機器擴展集移除使用者指派的身分識別，請使用 [az vmss identity remove](/cli/azure/vmss/identity#az-vmss-identity-remove)。 如果這是指派給虛擬機器擴展集的唯一使用者指派的身分識別，將會從識別類型值中移除 `UserAssigned`。  請務必以您自己的值取代 `<RESOURCE GROUP>` 和 `<VMSS NAME>` 參數的值。 `<USER ASSIGNED IDENTITY>` 將會是使用者指派之身分識別的 `name` 屬性，您可以使用 `az vmss identity show`，在虛擬機器擴展集的識別區段中找到它：
 
 ```azurecli-interactive
-az vmss identity remove -g <RESOURCE GROUP> -n <VMSS NAME> --identities <MSI NAME>
+az vmss identity remove -g <RESOURCE GROUP> -n <VMSS NAME> --identities <USER ASSIGNED IDENTITY>
 ```
 
 如果您的虛擬機器擴展集沒有系統指派的身分識別，而您想要從其中移除所有使用者指派的身分識別，請使用下列命令：
@@ -203,13 +206,13 @@ az vmss identity remove -g <RESOURCE GROUP> -n <VMSS NAME> --identities <MSI NAM
 > 值 `none` 會區分大小寫。 它必須是小寫字母。
 
 ```azurecli-interactive
-az vmss update -n myVMSS -g myResourceGroup --set identity.type="none" identity.identityIds=null
+az vmss update -n myVMSS -g myResourceGroup --set identity.type="none" identity.userAssignedIdentities=null
 ```
 
 如果您的虛擬機器擴展集同時具有系統指派和使用者指派的身分識別，您可以藉由切換為僅使用系統指派的身分識別，來移除所有使用者指派的身分識別。 使用下列命令：
 
 ```azurecli-interactive
-az vmss update -n myVMSS -g myResourceGroup --set identity.type='SystemAssigned' identity.identityIds=null 
+az vmss update -n myVMSS -g myResourceGroup --set identity.type='SystemAssigned' identity.userAssignedIdentities=null 
 ```
 
 ## <a name="next-steps"></a>後續步驟

@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 08/20/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: f4b57241085381f4b975c07038b41133b8a4319b
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 008fac84eedfd58cbcfe563504a50bc19d519382
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436186"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246560"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>使用 Azure 媒體服務執行即時串流，以建立多位元速率串流
 
@@ -228,7 +228,8 @@ ms.locfileid: "37436186"
 | 200 |340 |192 |30 |基準 |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>輸出音訊串流
-音訊編碼為 64 kbps 的立體聲 AAC-LC，取樣率為 44.1 kHz。
+
+音訊編碼為 128 kbps 的立體聲 AAC-LC，取樣率為 48 kHz。
 
 ## <a name="signaling-advertisements"></a>發出信號的廣告
 當您的通道啟用即時編碼時，您會在處理視訊的管線中具有元件，並可加以操作。 您可以發出信號給通道以將 Slate 及/或廣告插入連出的自動調整位元速率串流。 Slate 是靜止映像，您可以用來在某些情況下遮蓋輸入的即時摘要 (例如廣告插播期間)。 廣告信號是您嵌入連外串流的時間同步處理信號，告知視訊播放器採取特殊動作 – 例如在適當時機切換到廣告。 如需此用途的 SCTE 35 信號發送機制的概觀，請參閱此 [部落格](https://codesequoia.wordpress.com/2014/02/24/understanding-scte-35/) 。 以下是您可以在即時事件中實作的典型案例。
@@ -314,7 +315,7 @@ slate 的持續時間，以秒為單位。 必須為非零的正整數值才能�
 | 通道狀態 | 入口網站 UI 指標 | 是否計費？ |
 | --- | --- | --- |
 | 啟動中 |啟動中 |無 (暫時性狀態) |
-| 執行中 |就緒 (沒有執行中的程式)<br/>或<br/>串流 (至少一個執行中的程式) |yes |
+| 執行中 |就緒 (沒有執行中的程式)<br/>或<br/>串流 (至少一個執行中的程式) |是 |
 | 停止中 |停止中 |無 (暫時性狀態) |
 | 已停止 |已停止 |否 |
 

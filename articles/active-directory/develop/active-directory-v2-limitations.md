@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 08/14/2018
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: edf0b52e5889fe8fa875de65fcaa8c2a22df1a7f
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 9245e85781482a3aa1e45333d8e8a748983675b6
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39590744"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246421"
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>我應該使用 v2.0 端點嗎？
 
@@ -87,7 +87,7 @@ v2.0 端點目前不支援下列類型的應用程式。 如需所支援應用�
 `https://login-east.contoso.com`  
 `https://login-west.contoso.com`  
 
-您可以新增後面兩個，因為它們是第一個重新導向 URI (contoso.com) 的子網域。 即將推出的版本將會移除這項限制。
+您可以新增後面兩個，因為它們是第一個重新導向 URI (contoso.com) 的子網域。 即將推出的版本將會移除此限制。
 
 也請注意，一個特定應用程式只可以有 20 個回覆 URL。
 
@@ -101,6 +101,7 @@ v2.0 端點目前不支援下列類型的應用程式。 如需所支援應用�
 * 如果您正在建置傳統型或行動應用程式，可以使用其中一個預覽 Microsoft Authentication Library (MSAL)。 這些程式庫處於支援生產環境的預覽階段，因此可以在生產應用程式中安全地使用。 您可以在[驗證程式庫參考](reference-v2-libraries.md)中，閱讀更多和預覽條款與可用程式庫相關的詳細資訊。
 * 針對 Microsoft 程式庫未包含的其他平台，您可以透過直接在應用程式程式碼中傳送和接收通訊協定訊息，來與 v2.0 端點整合。 v2.0 OpenID Connect 和 OAuth 通訊協定[有明確的文件記載](active-directory-v2-protocols.md)，可協助您執行這種整合。
 * 最後，您可以使用開放原始碼 OpenID Connect 和 OAuth 程式庫來與 v2.0 端點整合。 v2.0 通訊協定應該不需進行重大變更，即可與許多開放原始碼通訊協定程式庫相容。 這類的程式庫的可用性會依語言和平台而有所不同。 [Open ID Connect](http://openid.net/connect/) 和 [OAuth 2.0](http://oauth.net/2/) 網站保有一份常用的實作清單。 如需詳細資訊，以及已用 v2.0 端點測試的開放原始碼用戶端程式庫和範例的清單，請參閱 [Azure Active Directory v2.0 和驗證程式庫](reference-v2-libraries.md)。
+  * 基於參考目的，適用於 v2.0 常見端點的 `.well-known` 端點是 `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`。  使用您的租用戶識別碼來取代 `common`，以取得您租用戶特有的資料。  
 
 ## <a name="restrictions-on-protocols"></a>通訊協定的限制
 
@@ -109,7 +110,6 @@ v2.0 端點不支援 SAML 或 WS-同盟，只支援 Open ID Connect 和 OAuth 2.
 v2.0 端點中目前「並未提供」下列通訊協定功能與特性：
 
 * 目前，只有在已設定選擇性宣告，以及範圍是要求中指定的 scope=email 時，才會傳回 `email` 宣告。 不過，當 v2.0 端點更新為進一步遵循 Open ID Connect 和 OAuth2.0 標準時，此行為也會變更。
-* v2.0 端點上未實作 OpenID Connect UserInfo 端點。 不過，所有您可能會在此端點收到的使用者設定檔資料都可從 Microsoft Graph `/me` 端點取得。
 * v2.0 端點不支援在識別碼權杖中發出角色或群組宣告。
 * v2.0 端點不支援 [OAuth 2.0 資源擁有者密碼認證授與 (英文)](https://tools.ietf.org/html/rfc6749#section-4.3)。
 

@@ -14,17 +14,17 @@ ms.devlang: php
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 32953bacb8fdb135d5f3e0e9324218d2a71b0818
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 339029f14c4fd9a0158f2b7a4fb80bf03bd83cf3
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777013"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42142300"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>如何透過 Python 使用通知中樞
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-您可以使用通知中樞 REST 介面，透過 Java/PHP/Python/Ruby 後端來存取所有通知中樞功能，如 MSDN 主題 [通知中樞 REST API](http://msdn.microsoft.com/library/dn223264.aspx)所述。
+您可以使用通知中樞 REST 介面，透過 Java/PHP/Python/Ruby 後端來存取所有通知中樞功能，如 MSDN 文章[通知中樞 REST API](http://msdn.microsoft.com/library/dn223264.aspx)所述。
 
 > [!NOTE]
 > 這是在 Python 實作通知傳送的範例參考實作，並非正式支援的通知中樞 Python SDK。
@@ -33,7 +33,7 @@ ms.locfileid: "33777013"
 > 
 > 
 
-此文章說明如何：
+本文將說明如何：
 
 * 在 Python 中建置通知中樞功能的 REST 用戶端。
 * 使用 Python 介面傳送通知到通知中樞 REST API。 
@@ -261,7 +261,7 @@ ms.locfileid: "33777013"
 這些方法會傳送 HTTP POST 要求至通知中樞的 /messages 端點，並使用正確的主體和標頭來傳送通知。
 
 ### <a name="using-debug-property-to-enable-detailed-logging"></a>使用偵錯屬性啟用詳細的記錄
-在初始化通知中樞時啟用偵錯屬性會寫出關於 HTTP 要求和回應傾印的詳細記錄資訊，以及詳細的通知訊息傳送結果。 [通知中樞 TestSend 屬性](http://msdn.microsoft.com/library/microsoft.servicebus.notifications.notificationhubclient.enabletestsend.aspx) \(英文\) 會傳回關於通知傳送結果的詳細資訊。 若要使用它，請使用下列程式碼來初始化：
+在初始化通知中樞時啟用偵錯屬性會寫出關於 HTTP 要求和回應傾印的詳細記錄資訊，以及詳細的通知訊息傳送結果。 [通知中樞 TestSend 屬性](https://docs.microsoft.com/en-us/previous-versions/azure/reference/dn495827(v=azure.100)) \(英文\) 會傳回關於通知傳送結果的詳細資訊。 若要使用它，請使用下列程式碼來初始化：
 
     hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
 

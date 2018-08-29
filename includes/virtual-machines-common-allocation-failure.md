@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/14/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: 24d89b617c347bc9443b437c92cb034acb3e05cb
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 2eb7fb82b358d4ec8628bfa546b572ee3cbe47fa
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33901324"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "40210093"
 ---
 建立虛擬機器 (VM)、重新啟動已停止 (已解除配置) 的 VM 或調整 VM 大小時，Microsoft Azure 會配置計算資源給您的訂用帳戶。 我們正持續投資額外的基礎結構和功能，以確保始終擁有所有 VM 類型可供支援客戶需求。 不過，您可能偶爾會遇到因特定區域中對 Azure 服務的空前需求成長，而導致資源配置失敗的情況。 當您嘗試在 VM 顯示下列錯誤碼和訊息的區域中建立或啟動 VM，便可能發生此問題：
 
@@ -81,8 +81,9 @@ ms.locfileid: "33901324"
 |----------------------|----------------------------|--------------------|
 |Av1 系列|[Av2 系列](../articles/virtual-machines/windows/sizes-general.md#av2-series)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
 |Dv1 或 DSv1 系列 (D1 到 D5)|[Dv3 或 DSv3 系列](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-sup1sup)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
-|Dv1 或 DSv1 系列 (D11 到 D14)|[Ev3 或 ESv3 系列](../articles/virtual-machines/windows/sizes-memory.md#ev3-series)|
-|D15v2 或 DS15v2|如果您使用 Resource Manager 部署模型來利用較大的 VM 大小，請考慮移轉至 D16v3/DS16v3 或 D32v3/DS32v3。 這些 VM 是專為在最新一代硬體上執行而設計。 如果您使用 Resource Manager 部署模型來確保 VM 執行個體與單一客戶專用的硬體隔離，請考慮移轉至新的隔離式 VM 大小 (E64i_v3 或 E64is_v3)，這些 VM 是專為在最新一代硬體上執行而設計。 |https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/
+|Dv1 或 DSv1 系列 (D11 到 D14)|[Ev3 或 ESv3 系列](../articles/virtual-machines/windows/sizes-memory.md#esv3-series)|
+|D15v2 或 DS15v2|如果您使用 Resource Manager 部署模型來利用較大的 VM 大小，請考慮移轉至 E16v3/E16sv3 或 E32v3/E32sv3。 這些 VM 是專為在最新一代硬體上執行而設計。 如果您使用 Resource Manager 部署模型來確保 VM 執行個體與單一客戶專用的硬體隔離，請考慮移轉至新的隔離式 VM 大小 (E64i_v3 或 E64is_v3)，這些 VM 是專為在最新一代硬體上執行而設計。 |https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/
+
 
 ## <a name="allocation-failures-for-large-deployments-more-than-500-cores"></a>大型部署 (超過 500 個核心) 的配置失敗
 

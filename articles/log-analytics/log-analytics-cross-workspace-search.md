@@ -15,18 +15,18 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: e7ca3bcb3c3322c0eba12d7f9eb2ee2bc7b7600c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 75116e0ba50c3f195d528d33822af0c446acd5fe
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049842"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42141719"
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>在 Log Analytics 中執行跨資源記錄搜尋  
 
-先前使用 Azure Log Analytics 時，您只能分析來自目前工作區內的資料，這項限制讓您無法跨訂用帳戶中定義的多個工作區執行查詢。  此外，您只能搜尋在 Application Insights 中或從 Visual Studio 直接使用 Application Insights 從 Web 應用程式收集的遙測項目。  如此一來，也難以將作業和應用程式資料一起以原生方式分析。   
+先前使用 Azure Log Analytics 時，您只能分析來自目前工作區內的資料，此限制讓您無法跨訂用帳戶中定義的多個工作區執行查詢。  此外，您只能搜尋在 Application Insights 中或從 Visual Studio 直接使用 Application Insights 從 Web 應用程式收集的遙測項目。  如此一來，也難以將作業和應用程式資料一起以原生方式分析。   
 
-現在您不僅可以跨多個 Log Analytics 工作區查詢，也可以查詢來自相同資源群組、另一個資源群組或其他訂用帳戶中特定 Application Insights 應用程式中的資料。 這讓您對資料能有全系統的檢視。  您只能在[進階入口網站](log-analytics-log-search-portals.md#advanced-analytics-portal) (無法在 Azure 入口網站) 中執行這些類型的查詢。 單一查詢中可納入的資源 (Log Analytics 工作區和 Application Insights 應用程式) 數目上限為 100 個。 
+現在您不僅可以跨多個 Log Analytics 工作區查詢，也可以查詢來自相同資源群組、另一個資源群組或其他訂用帳戶中特定 Application Insights 應用程式中的資料。 這讓您對資料能有全系統的檢視。  您只能在 [Log Analytics 頁面 (預覽)](log-analytics-log-search-portals.md#log-analytics-page-preview) 中執行這些類型的查詢，無法在 Azure 入口網站中執行。 單一查詢中可納入的資源 (Log Analytics 工作區和 Application Insights 應用程式) 數目上限為 100 個。 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>跨 Log Analytics 工作區和從 Application Insights 查詢
 若要在查詢中參考另一個工作區，請使用 [*workspace*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()) 識別項，而若要查詢來自 Application Insights 的應用程式，請使用 [*app*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app()) 識別項。  

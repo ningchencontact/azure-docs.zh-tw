@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/02/2018
+ms.date: 08/17/2018
 ms.author: terrylan
-ms.openlocfilehash: 7533f9db25da8e69d3fcfa76a61a06af2f1bc78c
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: ec8e4b1edfe815670664de83edf98a9e478101d2
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345952"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42141913"
 ---
 # <a name="azure-network-security-overview"></a>Azure 網路安全性概觀
 
@@ -57,6 +57,9 @@ Azure 支援數種類型的網路存取控制，例如：
 ### <a name="network-layer-control"></a>網路層控制
 
 任何安全部署都需要某種程度的網路存取控制。 網路存取控制的目標是限制虛擬機器只能與必要的系統通訊。 其他通訊嘗試都會被封鎖。
+
+>[!NOTE]
+[Azure 儲存體安全性概觀](security-storage-overview.md)一文說明儲存體防火牆
 
 #### <a name="network-security-rules-nsgs"></a>網路安全性規則 (NSG)
 
@@ -323,7 +326,6 @@ Azure 資訊安全中心可協助您預防、偵測和回應威脅，並加強�
 深入了解：
 
 * [網路安全性群組 (NSG) 的 Log Analytics](../virtual-network/virtual-network-nsg-manage-log.md)
-
 
 ## <a name="azure-ddos-protection"></a>Azure DDoS 保護
 

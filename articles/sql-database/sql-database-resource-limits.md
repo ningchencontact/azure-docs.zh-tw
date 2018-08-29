@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 6f6fa1ebc086530f138d32ee5a9c799b5bfbbdeb
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 3b05f553e591de2660e9842f316de0cb6f80c852
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412105"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42141718"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Azure SQL Database 資源限制概觀 
 
@@ -22,15 +22,15 @@ ms.locfileid: "39412105"
 
 ## <a name="what-is-the-maximum-number-of-servers-and-databases"></a>伺服器和資料庫的最大數量是多少？
 
-| 最大值 | 值 |
-| :--- | :--- |
-| 每一伺服器的資料庫 | 5000 |
-| 任何區域中每個訂用帳戶的伺服器預設數目 | 20 |
-| 任何區域中每個訂用帳戶的伺服器最大數目 | 200 |
-| 每一伺服器的 DTU/eDTU 配額 | 54,000 |
-| 每一伺服器的 vCore 配額 | 540 |
-| 每一伺服器的集區數目上限 | 受限於 DTU 或 vCore 數目 |
-|||
+| 最大值 | 邏輯伺服器 | 受控執行個體 |
+| :--- | :--- | :--- |
+| 每一伺服器/執行個體的資料庫 | 5000 | 100 |
+| 任何區域中每個訂用帳戶的伺服器預設數目 | 20 | N/A |
+| 任何區域中每個訂用帳戶的伺服器最大數目 | 200 | N/A | 
+| 每一伺服器的 DTU/eDTU 配額 | 54,000 | N/A |  
+| 每一伺服器/執行個體的 vCore 配額 | 540 | 80 |
+| 每一伺服器的集區數目上限 | 受限於 DTU 或 vCore 數目 | N/A |
+||||
 
 > [!NOTE]
 > 若要獲得大於預設數量的 DTU/eDTU 配額、vCore 配額或伺服器，可以在 Azure 入口網站中，針對訂用帳戶使用問題類型「配額」提交新的支援要求。 每一伺服器的 DTU/eDTU 配額和資料庫限制會限制每一部伺服器的彈性集區數目。 
@@ -42,9 +42,9 @@ ms.locfileid: "39412105"
 
 ## <a name="what-happens-when-database-resource-limits-are-reached"></a>達到資料庫資源限制時，會發生什麼事？
 
-### <a name="compute-dtus-and-edtus--vcores"></a>計算 (DTU 和 eDTU / vCore)
+### <a name="compute-dtus-and-edtus--vcores"></a>計算 (DTU 和 eDTU / 虛擬核心)
 
-當資料庫計算使用率 (根據 DTU 和 eDTU 或 vCore 測量) 變高時，查詢延遲會增加，甚至可能逾時。在下列情況下，查詢可能會透過服務排入佇列，並在資源變成可用時，提供資源以供執行。
+當資料庫計算使用率 (根據 DTU 和 eDTU 或虛擬核心測量) 變高時，查詢延遲會增加，甚至可能逾時。在下列情況下，查詢可能會透過服務排入佇列，並在資源變成可用時，提供資源以供執行。
 遇到高計算使用率時，緩和選項包括：
 
 - 提高資料庫或彈性集區的效能等級，以提供更多計算資源給資料庫。 請參閱[調整單一資料庫資源](sql-database-single-database-scale.md)和[調整彈性集區資源](sql-database-elastic-pool-scale.md)。

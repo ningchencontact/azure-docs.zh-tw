@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: ff2071a703b0b5e94cd68122a878b51e9d97669a
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 95cfc7e6d9515274aa7a3c5fde382244f3b33fab
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112746"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142127"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure 串流分析輸出至 Azure Cosmos DB  
 「串流分析」可以將 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) 設定為 JSON 輸出的目標，讓您能夠針對非結構化的 JSON 資料進行資料封存和低延遲查詢。 本文件涵蓋實作這種組態的一些最佳作法。
@@ -40,6 +40,8 @@ ms.locfileid: "37112746"
 
 ## <a name="data-partitioning-in-cosmos-db"></a>Cosmos DB 中的資料分割
 Azure Cosmos DB [無限制](../cosmos-db/partition-data.md)是建議的資料分割方法，因為 Azure Cosmos DB 會根據您的工作負載自動調整資料分割。 當寫入無限制的容器時，串流分析會使用與先前查詢步驟或輸入資料分割配置同樣數目的平行寫入器。
+> [!Note]
+> 目前，「Azure 串流分析」只支援分割區索引鍵位於頂層的無限制集合。 例如，支援 `/region`。 不支援巢狀分割區索引鍵 (例如 `/region/name`)。 
 
 針對固定 Azure Cosmos DB 集合，在空間已滿時，串流分析不允許以任何方式相應增加或相應放大。 集合有 10GB 和 10000 RU/秒的輸送量上限。  若要將資料從固定容器移轉到無限制的容器 (例如，輸送量至少為 1000 RU/s，且具有分割區索引鍵的容器)，您必須使用[資料移轉工具](../cosmos-db/import-data.md)或[變更摘要庫](../cosmos-db/change-feed.md)。
 

@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 07/27/2018
+ms.date: 08/21/2018
 ms.author: carlrab
-ms.openlocfilehash: 6c43a52309a6f41d73ead19fc5f5b7df2f06d6f6
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 03e24679ea01dabb78a0d7028d49b624b2e3bf64
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308808"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246554"
 ---
 # <a name="sql-database-faq"></a>SQL Database 常見問題集
 
@@ -31,8 +31,8 @@ ms.locfileid: "39308808"
 ## <a name="what-is-a-vcore"></a>什麼是 vCore？ 
 虛擬核心代表可以選擇使用的邏輯 CPU，可在各硬體世代間進行選擇。 第 4 代邏輯 CPU 以 E5-2673 v3 (Haswell) 2.4 GHz 處理器為基礎，而第 5 代邏輯 CPU 則以 Intel E5-2673 v4 (Broadwell) 2.3 GHz 處理器為基礎。
 
-## <a name="is-moving-to-the-vcore-based-model-required"></a>一定要改用以 vCore 為基礎的模型嗎？
-不一定。在彈性集區和單一資料庫部署選項中加入以 vCore 為基礎的模型，反映了我們對客戶選擇和彈性的承諾。 如果客戶想要繼續使用 DTU 架構的模型，他們可以忽略此公告，其使用和計費方式都會和原來一樣。 
+## <a name="is-moving-to-the-vcore-based-model-required"></a>是否一定要改用以 vCore 為基礎的模型？
+否，在彈性集區和單一資料庫部署選項中加入以 vCore 為基礎的模型，反映了我們對客戶選擇和彈性的承諾。 如果客戶想要繼續使用 DTU 架構的模型，他們可以忽略此公告，其使用和計費方式都會和原來一樣。 
 
 在許多情況下，應用程式都可基於預先設定的資源組合所具備的簡易性而獲益。 因此，我們會繼續為客戶提供並支援這些以 DTU 為基礎的選項。 如果您正在使用此類模型，而它也符合您的業務需求，您就應該繼續使用。
 
@@ -46,7 +46,6 @@ ms.locfileid: "39308808"
 
 ## <a name="are-there-dual-use-rights-with-azure-hybrid-benefit-for-sql-server"></a>適用於 SQL Server 的 Azure Hybrid Benefit 是否有雙重使用權？
 對於此授權，您具有 180 天的雙重使用權，以確保移轉能順暢地執行。 180 天的期間結束後，SQL Server 授權就只能用於雲端的 SQL Database 中，且在內部部署和雲端中都沒有雙重使用權。
-
 
 ## <a name="how-does-azure-hybrid-benefit-for-sql-server-differ-from-license-mobility"></a>適用於 SQL Server 的 Azure Hybrid Benefit 與授權行動性有何不同？
 我們現在為 SQL Server 客戶提供的軟體保證授權行動性權益，允許客戶將其授權重新指派給第三方共用伺服器。 此權益可用於 Azure IaaS 和 AWS EC2。
@@ -168,7 +167,10 @@ SQL Database 會根據[購買模型](sql-database-service-tiers-dtu.md)以可預
 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [SQL Server]、從清單中選取伺服器，然後按一下 [重設密碼]。
 
 ## <a name="how-do-i-manage-databases-and-logins"></a>如何管理資料庫與登入？
-請參閱[管理資料庫與登入](sql-database-manage-logins.md)。
+請參閱[管理資料庫與登入](sql-database-manage-logins.md)。 
+
+> [!NOTE]
+> 當伺服器系統管理員帳戶建立之後，即無法變更。
 
 ## <a name="how-do-i-make-sure-only-authorized-ip-addresses-are-allowed-to-access-a-server"></a>如何確保只有授權的 IP 位址可以存取伺服器？
 請參閱 [如何：在 SQL Database 上進行防火牆設定](sql-database-configure-firewall-settings.md)。

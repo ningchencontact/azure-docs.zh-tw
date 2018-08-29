@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: d3b2f8860f5b8ddd2cc53d8805b7eace788e73a7
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ff22ad4f8abae019591150dd9a8ea2cd4ca4e5d9
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230534"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42141699"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>教學課程︰設定 GitHub 來自動佈建使用者
 
 
 本教學課程旨在說明您需要在 GitHub 和 Azure AD 中執行的步驟，以將使用者帳戶從 Azure AD 自動佈建和取消佈建至 GitHub。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本教學課程中說明的案例假設您已經具有下列項目：
 
@@ -80,13 +80,13 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
     ![授權對話方塊](./media/github-provisioning-tutorial/GitHub2.png)
 
-7. 在 Azure 入口網站中，輸入 [租用戶 URL]，然後按一下 [測試連線]，以確保 Azure AD 可以連線至您的 GitHub 應用程式。 如果連線失敗，請確定您的 GitHub 帳戶具有管理員權限，且已正確輸入 [租用戶 URl]，然後再試一次「授權」步驟 (您可以依照下列規則來組成**租用戶 URL**："https://api.github.com/scim/v2/organizations/ + <Organizations_name>"，並可在您的 GitHub 帳戶下找到您的組織：[Settings] \(設定\) > [Organizations] \(組織\))。
+7. 在 Azure 入口網站中，輸入 [租用戶 URL]，然後按一下 [測試連線]，以確保 Azure AD 可以連線至您的 GitHub 應用程式。 如果連線失敗，請確定您的 GitHub 帳戶具有系統管理員權限，並且已正確輸入**租用戶 URl**，然後再試一次「授權」步驟 (您可以依照下列規則來組成**租用戶 URL**：`https://api.github.com/scim/v2/<Organizations_name>`，您可以在 GitHub 帳戶下找到您的組織：[Settings] \(設定\) > [Organizations] \(組織\))。
 
     ![授權對話方塊](./media/github-provisioning-tutorial/GitHub3.png)
 
 8. 在 [通知電子郵件] 欄位中，輸入應收到佈建錯誤通知的個人或群組之電子郵件地址，然後勾選 [發生失敗時傳送電子郵件通知] 核取方塊。
 
-9. 按一下 [檔案] 。 
+9. 按一下 [檔案]。 
 
 10. 在 [對應] 區段下，選取 [同步處理 Azure Active Directory 使用者至 GitHub]。
 

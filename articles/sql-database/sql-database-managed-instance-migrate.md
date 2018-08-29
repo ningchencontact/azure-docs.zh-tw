@@ -1,6 +1,6 @@
 ---
-title: 將 SQL Server 執行個體遷移至 Azure SQL Database 受控執行個體 | Microsoft Docs
-description: 了解如何將 SQL Server 執行個體遷移至 Azure SQL Database 受控執行個體。
+title: 將 SQL Server 執行個體移轉到 Azure SQL Database 受控執行個體 | Microsoft Docs
+description: 了解如何將 SQL Server 執行個體移轉到 Azure SQL Database 受控執行個體。
 keywords: database migration,sql server database migration,database migration tools,migrate database,migrate sql database,資料庫移轉,sql server 資料庫移轉,資料庫移轉工具,移轉資料庫,移轉 sql database
 services: sql-database
 author: bonova
@@ -11,20 +11,18 @@ ms.custom: managed instance
 ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: bonova
-ms.openlocfilehash: a9a02f9007c174024028305746682f9ac07dab22
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: e152fa4bb439f1881dc9974bfdf1b3e8c77c434a
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247205"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42142098"
 ---
-# <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>將 SQL Server 遷移至 Azure SQL Database 受控執行個體
+# <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>將 SQL Server 移轉到 Azure SQL Database 受控執行個體
 
-在本文中，您將了解用來將 SQL Server 2005 或更新版本執行個體遷移到 Azure SQL Database 受控執行個體 (預覽) 的方法。 
+在此文章中，您將了解用來將 SQL Server 2005 或更新版本執行個體移轉到 [Azure SQL Database 受控執行個體](sql-database-managed-instance.md) \(預覽\) 的方法。
 
-SQL Database 受控執行個體是現有 SQL Data 服務的擴充項目，提供單一資料庫與彈性集區以外的第三種部署選項。  其設計用來讓資料庫可隨即轉移至完全受控的 PaaS，而不必重新設計應用程式。 SQL Database 受控執行個體對內部部署 SQL Server 程式設計模型提供極高的相容性，並為大多數的 SQL Server 功能，提供立即可用的支援，同時隨附工具與服務。
-
-概括而言，應用程式移轉程序看起來像這樣：
+概括而言，資料庫移轉程序看起來像這樣：
 
 ![移轉程序](./media/sql-database-managed-instance-migration/migration-process.png)
 
@@ -35,15 +33,15 @@ SQL Database 受控執行個體是現有 SQL Data 服務的擴充項目，提供
 - [監視應用程式](sql-database-managed-instance-migrate.md#monitor-applications)
 
 > [!NOTE]
-> 若要將單一資料庫遷移至單一資料庫或彈性集區，請參閱[將 SQL Server 資料庫遷移至 Azure SQL Database](sql-database-cloud-migrate.md)。
+> 若要將單一資料庫移轉到單一資料庫或彈性集區，請參閱[將 SQL Server 資料庫移轉到 Azure SQL Database](sql-database-cloud-migrate.md)。
 
 ## <a name="assess-managed-instance-compatibility"></a>評估受控執行個體的相容性
 
 首先，判斷受控執行個體是否與您應用程式的資料庫需求相容。 受控執行個體旨在為大部分內部部署或虛擬機器上使用 SQL Server 的現有應用程式，提供簡單的隨即轉移。 不過，有時候您可能需要尚不支援的功能，而且實作因應措施的成本非常高。 
 
-使用[資料移轉小幫手 (DMA)](https://docs.microsoft.com/sql/dma/dma-overview)，可偵測影響 Azure SQL Database 資料庫功能的潛在相容性問題。 DMA 尚不支援將受控執行個體作為移轉目的地，但建議您針對 Azure SQL Database 執行評估，並針對產品文件，仔細檢閱提報的功能同位和相容性問題清單。 大部分導致無法移轉至 Azure SQL Database 的執行問題，已透過受控執行個體加以解決。 例如跨資料庫查詢、相同執行個體內的跨資料庫交易、其他 SQL 來源的連結伺服器、CLR、全域暫存資料表、執行個體層級檢視、Service Broker 等功能皆可在受控執行個體中使用。 
+使用[資料移轉小幫手 (DMA)](https://docs.microsoft.com/sql/dma/dma-overview)，可偵測影響 Azure SQL Database 資料庫功能的潛在相容性問題。 DMA 尚不支援將受控執行個體作為移轉目的地，但建議您針對 Azure SQL Database 執行評估，並針對產品文件，仔細檢閱提報的功能同位和相容性問題清單。 請參閱 [Azure SQL Database 單一資料庫與受控執行個體之間的差異](sql-database-features.md)以檢查是否有一些回報的執行問題不是受控執行個體中造成作業無法繼續執行個問題，因為造成無法無移轉到 Azure SQL Database 的大部分問題在受控執行個體中都已移除。 例如跨資料庫查詢、相同執行個體內的跨資料庫交易、其他 SQL 來源的連結伺服器、CLR、全域暫存資料表、執行個體層級檢視、Service Broker 等功能皆可在受控執行個體中使用。 
 
-不過，有些狀況下，您須考慮替代選項，例如 Azure 中的[「虛擬機器上的 SQL Server」](https://azure.microsoft.com/services/virtual-machines/sql-server/)。 這裡有一些範例：
+若有一些回報的執行問題在 Azure SQL 受控制執行個體中並未移除，您可能需要考慮替代選項，例如 [Azure 中虛擬機器上的 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)。 這裡有一些範例：
 
 - 如果您需要直接存取作業系統或檔案系統，例如在具有 SQL Server 的相同虛擬機器上安裝第三方或自訂代理程式。
 - 如果您的執行個體與尚不支援的功能有緊密相依性，例如 FileStream / FileTable、PolyBase 及跨執行個體交易等功能。
@@ -52,18 +50,18 @@ SQL Database 受控執行個體是現有 SQL Data 服務的擴充項目，提供
 
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>部署到最佳大小的受控執行個體
 
-受控執行個體專為打算移至雲端的內部工作負載量身訂做。 其引進新的採購模型，提供更大的彈性來選取適合您工作負載的正確資源層級。 在內部部署的環境中，您可能習慣使用實體核心數目來調整這些工作負載大小。 受控執行個體的新採購模型是以虛擬核心 (VCore) 為基礎，再個別加上額外儲存體與可用 IO。 相對於目前使用的內部部署方案，VCore 模型可讓您較簡單地了解雲端中的計算需求。 這個新模型可讓您在雲端中具有正確大小的目的地環境。
+受控執行個體專為打算移至雲端的內部工作負載量身訂做。 它引進[新的採購模型](sql-database-service-tiers-vcore.md)，提供更大的彈性來選取適合您工作負載的正確資源層級。 在內部部署的環境中，您可能習慣使用實體核心數目與 IO 頻寬來調整這些工作負載大小。 受控執行個體的新採購模型是以虛擬核心 (VCore) 為基礎，再個別加上額外儲存體與可用 IO。 相對於目前使用的內部部署方案，VCore 模型可讓您較簡單地了解雲端中的計算需求。 這個新模型可讓您在雲端中具有正確大小的目的地環境。
 
-您可以在部署期間選取計算和儲存體資源，並在之後進行變更，而這不會導致應用程式產生停機時間。
+您可以在部署期間選取計算和儲存體資源，並在之後使用 [Azure 入口網站](sql-database-scale-resources.md)進行變更，而這不會導致應用程式產生停機時間。
 
 ![受控執行個體大小](./media/sql-database-managed-instance-migration/managed-instance-sizing.png)
 
-若要了解如何建立 VNet 基礎結構和受控執行個體，請參閱[建立受控執行個體](sql-database-managed-instance-create-tutorial-portal.md)。
+若要了解如何建立 VNet 基礎結構和受控執行個體，請參閱[建立受控執行個體](sql-database-managed-instance-get-started.md)。
 
 > [!IMPORTANT]
 > 請務必讓您目的地 VNet 和子網路永遠符合[受控執行個體的 VNET 需求](sql-database-managed-instance-vnet-configuration.md#requirements)。 任何相容性問題都可能會讓您無法建立新的執行個體，或使用已經建立的執行個體。
 
-## <a name="select-migration-method-and-migrate"></a>選取移轉方法並進行遷移
+## <a name="select-migration-method-and-migrate"></a>選取移轉方法並進行移轉
 
 受控執行個體鎖定的是需要將大量資料庫從內部部署或 IaaS 資料庫實作移轉的使用者案例。 如果您需要隨即轉移定期使用執行個體層級和/或跨資料庫功能的應用程式後端，那麼這是最佳選擇。 如果這是您的情況，您可以將整個執行個體移動至 Azure 中對應的環境，而不需要重新建構您的應用程式。 
 
@@ -72,12 +70,12 @@ SQL Database 受控執行個體是現有 SQL Data 服務的擴充項目，提供
 -   移轉必須共置的所有資料庫 (在相同執行個體上執行)
 -   移轉您應用程式依賴的執行個體層級物件，包括登入、認證、SQL Agent 作業和運算子，以及伺服器層級觸發程序。 
 
-受控執行個體是完全受控的服務，可讓您將一些固定的 DBA 活動委派至平台，因為這些活動已內建。 因此，某些執行個體層級的資料就不需要遷移，例如，定期備份的維護作業或 Alwayson 組態，因為已內建[高可用性](sql-database-high-availability.md)。
+受控執行個體是完全受控的服務，可讓您將一些固定的 DBA 活動委派至平台，因為這些活動已內建。 因此，某些執行個體層級的資料就不需要移轉，例如，定期備份的維護作業或 Alwayson 組態，因為已內建[高可用性](sql-database-high-availability.md)。
 
 受控執行個體支援下列資料庫移轉選項 (這些是目前唯一支援的移轉方法)：
 
-- Azure 資料庫移轉服務 - 幾乎零停機時間的移轉
-- 從 URL 原生還原 - 從 SQL Server 使用原生備份且需要一些停機時間
+- Azure 資料庫移轉服務 - 幾乎零停機時間的移轉。
+- 原生`RESTORE DATABASE FROM URL` - 從 SQL Server 使用原生備份且需要一些停機時間。
 
 ### <a name="azure-database-migration-service"></a>Azure 資料庫移轉服務
 
@@ -85,7 +83,7 @@ SQL Database 受控執行個體是現有 SQL Data 服務的擴充項目，提供
 
 如果您在內部部署 SQL Server 上使用 SQL Server Integration Services (SSIS)，DMS 尚未支援移轉 SSIS 目錄 (SSISDB)，該目錄儲存 SSIS 套件，但是您可以在 Azure Data Factory (ADF) 中佈建 Azure-SSIS Integration Runtime (IR)，這樣會在 Azure SQL Database/受控執行個體中建立新的 SSISDB，然後您可以將套件重新部署至其中，請參閱[在 ADF 中建立 Azure-SSIS IR](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime)。
 
-若要深入了解 DMS 的此案例和組態步驟，請參閱[使用 DMS 將內部部署資料庫遷移至受控執行個體](../dms/tutorial-sql-server-to-managed-instance.md)。  
+若要深入了解 DMS 的此案例和組態步驟，請參閱[使用 DMS 將內部部署資料庫移轉到受控執行個體](../dms/tutorial-sql-server-to-managed-instance.md)。  
 
 ### <a name="native-restore-from-url"></a>從 URL 原生還原
 
@@ -105,7 +103,7 @@ SQL Database 受控執行個體是現有 SQL Data 服務的擴充項目，提供
 |從 Azure 儲存體還原至受控執行個體|[使用 SAS 認證從 URL 還原](sql-database-managed-instance-restore-from-backup-tutorial.md)|
 
 > [!IMPORTANT]
-> - 使用原生還原選項將受到[透明資料加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption)保護的資料庫遷移到 Azure SQL 受控執行個體時，來自內部部署或 IaaS SQL Server 的對應憑證必須在資料庫還原之前進行遷移。 如需詳細步驟，請參閱[將 TDE 憑證遷移至受控執行個體](sql-database-managed-instance-migrate-tde-certificate.md)
+> - 使用原生還原選項將受到[透明資料加密](transparent-data-encryption-azure-sql.md)保護的資料庫移轉到 Azure SQL 受控執行個體時，來自內部部署或 IaaS SQL Server 的對應憑證必須在資料庫還原之前進行移轉。 如需詳細步驟，請參閱[將 TDE 憑證移轉到受控執行個體](sql-database-managed-instance-migrate-tde-certificate.md)
 > - 不支援系統資料庫還原。 若要移轉執行個體層級物件 (儲存在 master 或 msdb 資料庫中)，我們建議透過指令碼來找出這些物件，並在目的地執行個體上執行 T-SQL 指令碼。
 
 如需包含使用 SAS 認證將資料庫備份還原至受控執行個體的完整教學課程，請參閱[從備份還原至受控執行個體](sql-database-managed-instance-restore-from-backup-tutorial.md)。
@@ -121,11 +119,10 @@ SQL Database 受控執行個體是現有 SQL Data 服務的擴充項目，提供
 
 若要加強安全性，請考量使用一些可用功能：
 - 資料庫層級的 Azure Active Directory 驗證
-- 監視活動所用的稽核與威脅偵測
-- 控制對於敏感和特殊權限資料 ([資料列層級安全性](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)和[動態資料遮罩](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)) 的存取權。
+- 使用[進階安全性功能](sql-database-security-overview.md) (例如[稽核](sql-database-managed-instance-auditing.md)、[威脅偵測](sql-advanced-threat-protection.md)、[資料列層級安全性](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)與[動態資料遮罩](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)) 來保護您的執行個體。
 
 ## <a name="next-steps"></a>後續步驟
 
 - 如需受控執行個體的詳細資訊，請參閱[受控執行個體是什麼？](sql-database-managed-instance.md)
-- 如需包含從備份進行還原的教學課程，請參閱[建立受控執行個體](sql-database-managed-instance-create-tutorial-portal.md)。
-- 如需示範使用 DMS 進行移轉的教學課程，請參閱[使用 DMS 將內部部署資料庫遷移到受控執行個體](../dms/tutorial-sql-server-to-managed-instance.md)。  
+- 如需包含從備份進行還原的教學課程，請參閱[建立受控執行個體](sql-database-managed-instance-get-started.md)。
+- 如需示範使用 DMS 進行移轉的教學課程，請參閱[使用 DMS 將內部部署資料庫移轉到受控執行個體](../dms/tutorial-sql-server-to-managed-instance.md)。  

@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 08/07/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: c22831ae781239f2474720ee9cd1b58f6e14fe41
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 9bbe55e08d7a005d38c5608df39f9285d79eb203
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412860"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41947954"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 資料中心整合 - 身分識別
 您可以使用 Azure Active Directory (Azure AD) 或 Active Directory Federation Services (AD FS) 作為識別提供者來部署 Azure Stack。 請先選擇識別提供者，才能部署 Azure Stack。 使用 AD FS 的部署也稱為在中斷連線模式中部署 Azure Stack。
@@ -151,7 +151,7 @@ Azure Stack 中的 Graph 服務會使用下列通訊協定和連接埠來與目�
 
 ## <a name="setting-up-ad-fs-integration-by-providing-federation-metadata-file"></a>藉由提供同盟中繼資料檔案設定 AD FS 整合
 
-如果下列任一個條件成立，請使用這個方法：
+從 1807 版開始，如果下列任一個條件成立，便請使用此方法：
 
 - 相較於 Azure Stack 中的其他所有端點，憑證鏈結對 AD FS 而言不同。
 - 從 Azure Stack 的 AD FS 執行個體到現有 AD FS 伺服器沒有網路連線。
@@ -163,6 +163,8 @@ Azure Stack 中的 Graph 服務會使用下列通訊協定和連接埠來與目�
 |---------|---------|---------|
 |CustomAdfsName|宣告提供者的名稱。 在 AD FS 登陸頁面上的顯示方式。|Contoso|
 |CustomADFSFederationMetadataFileContent|中繼資料內容|$using:federationMetadataFileContent|
+
+
 
 ### <a name="create-federation-metadata-file"></a>建立同盟中繼資料檔案
 

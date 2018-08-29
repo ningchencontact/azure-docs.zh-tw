@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: d900a778aa003357fb85d3e8ec8e40dee64f0f9c
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 77c7d9a549b10a56faaf6226062d0e6212ce19c0
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131849"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42141921"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>在 Log Analytics 中使用檢視設計工具來建立自訂檢視
 藉由使用 [Azure Log Analytics](log-analytics-overview.md) 中的檢視設計工具，您可以在 Azure 入口網站中建立能協助您將 Log Analytics 工作區中的資料視覺化的各種自訂檢視。 本文提供檢視設計工具的概觀以及建立和編輯自訂檢視的程序。
@@ -55,7 +55,7 @@ ms.locfileid: "37131849"
 | 選項 | 說明 |
 |:--|:--|
 | 重新整理   | 使用最新資料重新整理檢視。 | 
-| 分析 | 開啟 [進階分析入口網站](log-analytics-log-search-portals.md#advanced-analytics-portal) 來分析記錄搜尋的資料。 |
+| 分析 | 開啟[進階分析入口網站](log-analytics-log-search-portals.md)來分析記錄查詢的資料。 |
 | Edit       | 在檢視表設計工具中開啟檢視以編輯其內容和設定。  |
 | 複製      | 建立新的檢視並且在檢視表設計工具中開啟。 新檢視的名稱與原始檢視的名稱相同，只是再附加*複製*字樣。 |
 | 日期範圍 | 為檢視中包含的資料設定日期和時間範圍篩選條件。 |

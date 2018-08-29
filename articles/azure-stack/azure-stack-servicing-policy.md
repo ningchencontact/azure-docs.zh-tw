@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 08/07/2018
 ms.author: brenduns
 ms.reviewer: harik
-ms.openlocfilehash: b1e162b9ae151ee947559d40f02909aea4010e5b
-ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
+ms.openlocfilehash: a76cf1394dc2c4900b370b52f3479dc03d1d8afe
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39242915"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41946526"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack 服務原則
 本文說明 Azure Stack 整合系統的服務原則，以及必須如何做才能將狀態保持在支援的狀態。 
@@ -38,6 +38,7 @@ ms.locfileid: "39242915"
 Microsoft 預期每月發行軟體更新封裝。 不過，可能一個月內發行多個更新或沒有任何更新。 OEM 硬體廠商會視需要發行更新。 
 
 在[管理更新概觀](azure-stack-updates.md)文件中可找到如何規劃和管理更新，以及如何判斷您目前的版本。 如需特定更新的詳細資訊，包括如何下載更新，請參閱該更新的版本資訊： 
+- [Azure Stack 1807 更新](azure-stack-update-1807.md)
 - [Azure Stack 1805 更新](azure-stack-update-1805.md)
 - [Azure Stack 1804 更新](azure-stack-update-1804.md)
 

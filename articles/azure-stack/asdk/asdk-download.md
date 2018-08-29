@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 08/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: b55bc7f6aab522a6313498b6fdccc88870796224
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: a6ccfa439b58d36ee44d5f8441c2058622965653
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213022"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41946527"
 ---
 # <a name="download-and-extract-the-azure-stack-development-kit-asdk"></a>下載 Azure Stack 開發套件 (ASDK) 並解壓縮
 確認您的開發套件主機電腦符合安裝 ASDK 的基本需求後，下一個步驟是下載 ASDK 部署套件並解壓縮以取得 Cloudbuilder.vhdx。
@@ -43,7 +43,7 @@ ms.locfileid: "39213022"
 2. 檢閱並接受自我解壓縮程式精靈的 [授權合約] 頁面上顯示的授權合約，然後按 [下一步]。
 3. 檢閱自我解壓縮程式精靈的 [重要聲明] 頁面上顯示的隱私權聲明資訊，然後按 [下一步]。
 4. 在自我解壓縮程式精靈的 [選取目的地位置] 頁面上，選取 Azure Stack 安裝程式檔案要解壓縮至的位置，然後按 [下一步]。 預設位置是「目前資料夾」\Azure Stack 開發套件。 
-5. 檢閱自我解壓縮程式精靈的 [準備解壓縮] 頁面上的目的地位置摘要，然後按一下 [解壓縮] 來解壓縮 CloudBuilder.vhdx (大約 25GB) 和 ThirdPartyLicenses.rtf 檔案。 這個程序需要一些時間才能完成。
+5. 檢閱「自我解壓縮程式精靈」之 [準備解壓縮] 頁面上的目的地位置摘要，然後按一下 [解壓縮]以將 CloudBuilder.vhdx (大約 28GB) 和 ThirdPartyLicenses.rtf 檔案解壓縮。 這個程序需要一些時間才能完成。
 6. 將 CloudBuilder.vhdx 檔案複製或移動至 ASDK 主機電腦上的 C:\ 磁碟機根目錄 (C:\CloudBuilder.vhdx)。
 
 > [!NOTE]

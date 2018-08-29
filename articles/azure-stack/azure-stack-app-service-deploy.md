@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2018
+ms.date: 08/15/2018
 ms.author: anwestg
-ms.openlocfilehash: 22593fc470325fbfb74cfb432207abeea7d96ac2
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 9173dfcbb5f73c2292bce7d28c2dae5dbece79cd
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37343102"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41946568"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>將 App Service 資源提供者新增到 Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "37343102"
 使用本文中的指引在 Azure Stack 中部署 App Service。
 
 >[!IMPORTANT]  
->在部署 Azure App Service 1.2 之前，請先將 1804 更新套用到您的 Azure Stack 整合式系統，或部署最新的 Azure Stack 開發套件 (ASDK)。
+>在部署 Azure App Service 1.3 之前，請先將 1807 更新套用到您的 Azure Stack 整合式系統，或部署最新的「Azure Stack 開發套件」(ASDK)。
 
 您可以讓使用者具有建立 Web 和 API 應用程式的能力。 若要讓使用者能夠建立這些應用程式，您需要：
 
@@ -131,6 +131,18 @@ ms.locfileid: "37343102"
 
     > [!NOTE]
     > 在繼續進行之前，安裝程式會先嘗試測試是否能夠與 SQL Server 連線。 不過，如果您要部署到現有的虛擬網路，可能會提出此連線能力測試。 您會收到警告和繼續的提示。 如果 SQL Server 資訊正確，請繼續部署。
+    >
+    > 從 Azure App Service on Azure Stack 1.3 開始，安裝程式將會檢查 SQL Server 是否已在 SQL Server 層級啟用資料庫的內含項目。  如果未啟用，系統將會以下列例外狀況提示您：
+    > ```sql
+    >    Enable contained database authentication for SQL server by running below command on SQL server (Ctrl+C to copy)
+    >    ***********************************************************
+    >    sp_configure 'contained database authentication', 1;  
+    >    GO  
+    >    RECONFIGURE;  
+    >    GO
+    >    ***********************************************************
+    > ```
+    > 如需更多詳細資料，請參閱 [Azure App Service on Azure Stack 1.3 的版本資訊](azure-stack-app-service-release-notes-update-three.md)。
 
     ![App Service 安裝程式][11]
 

@@ -9,12 +9,12 @@ ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: sashan
-ms.openlocfilehash: 7ca033be8a27802db55aec827509b46fed8e471e
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 2fe27f93bb48e0581902fd380813c878a4883a5c
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090059"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142329"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>使用唯讀複本對唯讀查詢工作負載進行負載平衡 (預覽)
 
@@ -22,7 +22,11 @@ ms.locfileid: "39090059"
 
 ## <a name="overview-of-read-scale-out"></a>讀取相應放大概觀
 
-進階層 ([ DTU 型購買模型](sql-database-service-tiers-dtu.md)) 或業務關鍵層 ([vCore 型購買模型](sql-database-service-tiers-vcore.md)) 中的每個資料庫，都會自動佈建數個 AlwaysOn 複本，以支援可用性 SLA。 這些複本會使用與一般資料庫連線所使用的讀寫複本相同的效能等級進行佈建。 **讀取相應放大**功能可讓您使用其中一個唯讀複本功能對 SQL Database 的唯讀工作負載進行負載平衡，而不共用讀寫複本。 這種方式的唯讀工作負載將會與主要讀寫工作負載隔離，而且不會影響其效能。 此功能適用於包含邏輯上分隔唯讀工作負載 (例如分析) 的應用程式，因此可在不需額外費用的情況下使用這個額外容量獲得效能優勢。
+進階層 ([ DTU 型購買模型](sql-database-service-tiers-dtu.md)) 或業務關鍵層 ([vCore 型購買模型](sql-database-service-tiers-vcore.md)) 中的每個資料庫，都會自動佈建數個 AlwaysOn 複本，以支援可用性 SLA。
+
+![唯讀複本](media/sql-database-managed-instance/business-critical-service-tier.png)
+
+這些複本會使用與一般資料庫連線所使用的讀寫複本相同的效能等級進行佈建。 **讀取相應放大**功能可讓您使用其中一個唯讀複本功能對 SQL Database 的唯讀工作負載進行負載平衡，而不共用讀寫複本。 這種方式的唯讀工作負載將會與主要讀寫工作負載隔離，而且不會影響其效能。 此功能適用於包含邏輯上分隔唯讀工作負載 (例如分析) 的應用程式，因此可在不需額外費用的情況下使用這個額外容量獲得效能優勢。
 
 若要對特定資料庫使用讀取相應放大功能，您必須在建立資料庫時或者以後明確地啟用它，方法是藉由使用 PowerShell 叫用 [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) 或 [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) Cmdlet，或者透過 Azure Resource Manager REST API 使用[資料庫 - 建立或更新](/rest/api/sql/databases/createorupdate)方法來改變它的組態。 
 

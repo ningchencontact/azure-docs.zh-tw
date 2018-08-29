@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 9199c9fc9a46e6b09eb066be5125c74420ad6cd6
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: bf2ba6d31c170715a52b84439276c45665293c35
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715330"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246573"
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>建立 Azure Marketplace 的虛擬機器映像的指南
 本文的 **步驟 2**會逐步引導您準備您將部署到 Azure Marketplace 的虛擬硬碟 (VHD)。 您的 VHD 是 SKU 的基礎。 這個程序會因為您是否提供以 Linux 或 Windows 為基礎的 SKU 而有所不同。 本文將探討這兩種狀況。 這個程序可與[帳戶建立和註冊][link-acct-creation]同步執行。
@@ -70,8 +70,8 @@ VM 映像的作業系統 VHD 必須以獲得 Azure 核准的基底映像為基�
 若要開始，請從下列其中一個映像建立 VM，位於 [Microsoft Azure 入口網站][link-azure-portal]：
 
 * Windows Server ([2012 R2 Datacenter][link-datactr-2012-r2]、[2012 Datacenter][link-datactr-2012]、[2008 R2 SP1][link-datactr-2008-r2])
-* SQL Server 2014 ([Enterprise][link-sql-2014-ent]、[Standard][link-sql-2014-std]、[Web][link-sql-2014-web])
-* SQL Server 2012 SP2 ([Enterprise][link-sql-2012-ent]、[Standard][link-sql-2012-std]、[Web][link-sql-2012-web])
+* SQL Server 2014 
+* SQL Server 2012 SP2 
 
 這些連結也可以在 SKU 頁面下的發佈入口網站中找到。
 
@@ -515,11 +515,11 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。 也就�
 
 |問題|失敗訊息|修正|文件連結|
 |---|---|---|---|
-|複製映像失敗 - 在 SAS url 中找不到 "?"|失敗︰複製映像。 無法使用提供的 SAS Uri 下載 blob。|使用建議的工具更新 SAS Url|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|映像複製失敗 - SAS url 中未設定 “st” 和 “se” 參數|失敗︰複製映像。 無法使用提供的 SAS Uri 下載 blob。|更新 SAS Url，必須包含開始和結束日期|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|複製映像失敗 - SAS url 中沒有 “sp=rl”|失敗︰複製映像。 無法使用提供的 SAS Uri 下載 blob|更新 SAS Url，將權限設定為「讀取」和「列出」|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|複製映像失敗 - SAS url 中的 vhd 名稱含有空格|失敗︰複製映像。 無法使用提供的 SAS Uri 下載 blob。|更新 SAS Url，不能含有空格|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|複製映像失敗 – SAS Url 授權錯誤的|失敗︰複製映像。 因為發生授權錯誤，無法下載 blob|重新產生 SAS Url|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|複製映像失敗 - 在 SAS url 中找不到 "?"|失敗︰複製映像。 無法使用提供的 SAS Uri 下載 blob。|使用建議的工具更新 SAS Url|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|映像複製失敗 - SAS url 中未設定 “st” 和 “se” 參數|失敗︰複製映像。 無法使用提供的 SAS Uri 下載 blob。|更新 SAS Url，必須包含開始和結束日期|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|複製映像失敗 - SAS url 中沒有 “sp=rl”|失敗︰複製映像。 無法使用提供的 SAS Uri 下載 blob|更新 SAS Url，將權限設定為「讀取」和「列出」|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|複製映像失敗 - SAS url 中的 vhd 名稱含有空格|失敗︰複製映像。 無法使用提供的 SAS Uri 下載 blob。|更新 SAS Url，不能含有空格|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|複製映像失敗 – SAS Url 授權錯誤的|失敗︰複製映像。 因為發生授權錯誤，無法下載 blob|重新產生 SAS Url|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |複製映像失敗 – SAS Url "st" 和 "se" 參數沒有完整的日期時間規格|失敗︰複製映像。 因為 SAS Url 不正確，無法下載 blob |SAS Url 的開始和結束日期參數 ("st"、"se") 必須有完整的日期時間規格，例如 11-02-2017T00:00:00Z，而不能只有日期或縮短的時間版本。 使用 Azure CLI 2.0 (az 命令) 可能會遇到此狀況。 請務必提供完整的日期時間規格，並重新產生 SAS Url。|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## <a name="next-step"></a>後續步驟
@@ -557,15 +557,6 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。 也就�
 [link-technet-2]:https://msdn.microsoft.com/library/dn495261.aspx
 [link-azure-portal]:https://portal.azure.com
 [link-pubportal]:https://publish.windowsazure.com
-[link-sql-2014-ent]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014enterprisewindowsserver2012r2/
-[link-sql-2014-std]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014standardwindowsserver2012r2/
-[link-sql-2014-web]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014webwindowsserver2012r2/
-[link-sql-2012-ent]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2enterprisewindowsserver2012/
-[link-sql-2012-std]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2standardwindowsserver2012/
-[link-sql-2012-web]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2webwindowsserver2012/
-[link-datactr-2012-r2]:http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012r2datacenter/
-[link-datactr-2012]:http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012datacenter/
-[link-datactr-2008-r2]:http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2008r2sp1/
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
 [link-technet-1]:https://technet.microsoft.com/library/hh848454.aspx
 [link-azure-vm-2]:./virtual-machines-linux-agent-user-guide/

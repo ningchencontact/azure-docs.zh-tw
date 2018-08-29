@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 336e6e163178cd6d244460dbf9bee2a5bc9d714e
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e8005da056c08b21bf0b91dc71b3dafac281de1f
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37935774"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "40238183"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>關於 Azure IaaS VM 磁碟及受控和非受控進階磁碟的常見問題集
 
@@ -67,7 +67,7 @@ ms.locfileid: "37935774"
 
 **受控磁碟是否為 Azure 入口網站中的預設選項？**
 
-是。 
+是。
 
 **我是否可以建立空的受控磁碟？**
 
@@ -101,7 +101,6 @@ ms.locfileid: "37935774"
 
 是，受控磁碟和非受控磁碟都受到支援。 我們建議您使用受控磁碟來處理新的工作負載，並將您目前的工作負載移轉至受控磁碟。
 
-
 **如果我建立大小為 128 GB 的磁碟，然後將大小增加至 130 GB，我是否必須支付下一個磁碟大小 (256 GB) 的費用？**
 
 是。
@@ -130,23 +129,24 @@ Azure 受控磁碟目前只支援本地備援儲存體受控磁碟。
 
 否。
 
+**從 Blob 建立磁碟時，與該來源 Blob 是否有任何繼續存在的關係？**
+
+否，建立新磁碟時，新磁碟會是該時間該 Blob 的完整獨立複本，兩者之間沒有關係。 您可以視需要在建立磁碟之後刪除來源 Blob，而不會對新建立的磁碟有任何影響。
+
+**在建立受控或非受控磁碟之後，是否可以將其重新命名？**
+
+就受控磁碟而言，您無法將其重新命名。 不過，針對非受控磁碟，只要該磁碟目前未連接至 VHD 或 VM，您便可以將其重新命名。
+
 ## <a name="standard-ssd-disks-preview"></a>標準 SSD 磁碟 (預覽)
 
 **Azure 標準 SSD 磁碟是什麼？**
 標準 SSD 磁碟是受固態媒體支援的標準磁碟，針對在較低 IOPS 層級中需要一致效能的工作負載，最佳化為符合成本效益的儲存體。 在預覽中，它們僅適用於有限的區域，具有有限的管理性 (可透過 Resource Manager 範本取得)。
 
-<a id="standard-ssds-azure-regions"></a>**目前支援標準 SSD 磁碟 (預覽) 的區域有哪些？**
-* 北歐
-* 法國中部
-* 美國東部 2
-* 美國中部
-* 加拿大中部
-* 東亞
-* 南韓南部
-* 澳洲東部
+<a id="standard-ssds-azure-regions"></a>**目前支援標準 SSD 磁碟的區域有哪些？**
+所有 Azure 區域現在都支援「標準 SSD」磁碟。
 
 **如何建立標準 SSD 磁碟？**
-目前，您可以使用 Azure Resource Manager 範本建立標準 SSD 磁碟。 以下是在 Resource Manager 範本中建立標準 SSD 磁碟所需的參數：
+您可以使用 Azure Resource Manager 範本、SDK、PowerShell 或 CLI 來建立「標準 SSD」磁碟。 以下是在 Resource Manager 範本中建立標準 SSD 磁碟所需的參數：
 
 * Microsoft.Compute 的 apiVersion 必須設定為 `2018-04-01` (或更新版本)
 * 將 managedDisk.storageAccountType 指定為 `StandardSSD_LRS`
@@ -171,17 +171,20 @@ Azure 受控磁碟目前只支援本地備援儲存體受控磁碟。
 是，您可以這麼做。 如需轉換受控磁碟的一般指導方針，請參閱[將 Azure 受控磁碟儲存體從標準轉換至進階，反之亦然](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/convert-disk-storage)。 此外，使用下列值，將磁碟類型更新為標準 SSD。
 -AccountType StandardSSD_LRS
 
+**使用標準 SSD 磁碟而不使用 HDD 有何優點？**
+與 HDD 磁碟相比，「標準 SSD」磁碟提供更佳的延遲、一致性、可用性及可靠性。 因此，應用程式工作負載在「標準 SSD」上執行起來更加順暢。 請注意，針對大多數 IO 密集型生產環境工作負載，建議的解決方案是「進階 SSD」磁碟。 
+
 **可以使用標準 SSD 作為非受控磁碟嗎？**
 否，標準 SSD 磁碟僅適用於受控磁碟。
 
 **標準 SSD 是否支援「單一執行個體虛擬機器 SLA」？**
 否，標準 SSD 沒有單一執行個體虛擬機器 SLA。 請針對單一執行個體虛擬機器 SLA 使用進階 SSD 磁碟。
 
-## <a name="migrate-to-managed-disks"></a>移轉到受控磁碟 
+## <a name="migrate-to-managed-disks"></a>移轉到受控磁碟
 
 **在移轉至受控磁碟前/後，預先存在的 Azure 備份服務設定需要哪些變更？**
 
-不需要任何變更。 
+不需要任何變更。
 
 **在移轉繼續運作之前，是否會透過 Azure 備份服務建立我的 VM 備份？**
 
@@ -189,15 +192,15 @@ Azure 受控磁碟目前只支援本地備援儲存體受控磁碟。
 
 **在移轉至受控磁碟前/後，預先存在的 Azure 磁碟加密設定需要哪些變更？**
 
-不需要任何變更。 
+不需要任何變更。
 
 **是否支援將現有虛擬機器擴展集從非受控磁碟自動移轉至受控磁碟？**
 
-否。 您可以使用舊擴展集中的映像搭配非受控磁碟，建立包含受控磁碟的新擴展集。 
+否。 您可以使用舊擴展集中的映像搭配非受控磁碟，建立包含受控磁碟的新擴展集。
 
 **在移轉至受控磁碟之前，是否可以從頁面 blob 快照集建立受控磁碟？**
 
-否。 您可以匯出分頁 Blob 快照集作為分頁 Blob，然後再從匯出的分頁 Blob 建立受控磁碟。 
+否。 您可以匯出分頁 Blob 快照集作為分頁 Blob，然後再從匯出的分頁 Blob 建立受控磁碟。
 
 **是否可以將受 Azure Site Recovery 保護的內部部署機器容錯移轉至具有受控磁碟的 VM？**
 
@@ -209,9 +212,9 @@ Azure 受控磁碟目前只支援本地備援儲存體受控磁碟。
 
 **我是否可以將具有非受控磁碟 (位於之前已加密的儲存體帳戶上) 的 VM 移轉至受控磁碟？**
 
-yes
+是
 
-## <a name="managed-disks-and-storage-service-encryption"></a>受控磁碟和儲存體服務加密 
+## <a name="managed-disks-and-storage-service-encryption"></a>受控磁碟和儲存體服務加密
 
 **當我建立受控磁碟時，依預設是否啟用 Azure 儲存體服務加密？**
 
@@ -246,7 +249,7 @@ Microsoft 負責管理加密金鑰。
 
 **我是否可以將具有非受控磁碟 (位於之前已加密的儲存體帳戶上) 的 VM 轉換為受控磁碟？**
 
-yes
+是
 
 **從受控磁碟或快照集匯出的 VHD 是否也會加密？**
 

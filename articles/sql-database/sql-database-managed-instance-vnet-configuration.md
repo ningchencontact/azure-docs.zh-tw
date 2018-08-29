@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 08/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 0fea91fb067a6d78ef25cb0ff8014b65a8b6a916
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: f634167f24c221e702696174ea86a212c535695b
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258094"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246530"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>設定 Azure SQL Database 受控執行個體的 VNet
 
@@ -29,7 +29,7 @@ Azure SQL Database 受控執行個體 (預覽) 必須部署在 Azure [虛擬網�
 使用您對於以下問題的答案，規劃要如何在虛擬網路中部署受控執行個體： 
 - 您計劃部署單一或多個受控執行個體？ 
 
-  受控執行個體的數目會決定要為受控執行個體配置的子網路大小下限。 如需詳細資訊，請參閱[決定受控執行個體的子網路大小](#create-a-new-virtual-network-for-managed-instances)。 
+  受控執行個體的數目會決定要為受控執行個體配置的子網路大小下限。 如需詳細資訊，請參閱[決定受控執行個體的子網路大小](#determine-the-size-of-subnet-for-managed-instances)。 
 - 您是否需要將受控執行個體部署到現有虛擬網路，或者您要建立新的網路？ 
 
    如果您打算使用現有的虛擬網路，您需要修改該網路組態以順應您的受控執行個體。 如需詳細資訊，請參閱[針對受控執行個體修改現有的虛擬網路](#modify-an-existing-virtual-network-for-managed-instances)。 
@@ -63,7 +63,28 @@ Azure SQL Database 受控執行個體 (預覽) 必須部署在 Azure [虛擬網�
 
 **範例**：您計劃要有三個一般用途和兩個業務關鍵受控執行個體。 這表示您需要 5 + 3 * 2 + 2 * 4 = 19 個 IP 位址。 因為 IP 範圍是以 2 的乘冪定義，所以您需要 32 (2^5) 個 IP 位址的 IP 範圍。 因此，您需要保留子網路遮罩為 /27 的子網路。 
 
-## <a name="create-a-new-virtual-network-for-managed-instances"></a>為受控執行個體建立新的虛擬網路 
+## <a name="create-a-new-virtual-network-for-managed-instance-using-azure-resource-manager-deployment"></a>使用 Azure Resource Manager 部署為受控執行個體建立新的虛擬網路
+
+建立並設定虛擬網路最簡單的方式是使用 Azure Resource Manager 部署範本。
+
+1. 登入 Azure 入口網站。
+
+2. 使用 [部署至 Azure] 按鈕以在 Azure 雲端中部署虛擬網路：
+
+  <a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener" data-linktype="external"> <img src="http://azuredeploy.net/deploybutton.png" data-linktype="external"> </a>
+
+  此按鈕將會開啟一個表單，讓您用來設定可在其中部署受控執行個體的網路環境。
+
+  > [!Note]
+  > 此 Azure Resource Manager 範本將會部署具有兩個子網路的虛擬網路。 稱為 **ManagedInstances** 的子網路是針對受控執行個體所保留而且有預先設定的路由表，而另一個名為**預設**的子網路是用於應該存取受控執行個體 (例如 Azure 虛擬機器) 的其他資源。 若您不需要**預設**子網路，您可以將它移除。
+
+3. 設定網路環境。 在下一張表單上，您可以設定網路環境的參數：
+
+![設定 Azure 網路](./media/sql-database-managed-instance-get-started/create-mi-network-arm.png)
+
+您可以變更 VNet 與子網路的名稱，以及調整與您的網路資源關聯的 IP 位址。 一旦按下 [購買] 按鈕，此表單就會建立並設定您的環境。 若您不需要兩個子網路，您可以刪除預設子網路。 
+
+## <a name="create-a-new-virtual-network-for-managed-instances-using-portal"></a>使用入口網站為受控執行個體建立新的虛擬網路
 
 建立 Azure 虛擬網路是建立受控執行個體的必要條件。 您可以使用 Azure 入口網站、[PowerShell](../virtual-network/quick-create-powershell.md) 或 [Azure CLI](../virtual-network/quick-create-cli.md)。 下一節說明使用 Azure 入口網站的步驟。 這裡討論的詳細資料適用於每一種方法。
 
@@ -92,7 +113,7 @@ Azure SQL Database 受控執行個體 (預覽) 必須部署在 Azure [虛擬網�
 
    ![虛擬網路建立表單](./media/sql-database-managed-instance-tutorial/service-endpoint-disabled.png)
 
-## <a name="create-the-required-route-table-and-associate-it"></a>建立必要的路由表並產生關聯
+### <a name="create-the-required-route-table-and-associate-it"></a>建立必要的路由表並產生關聯
 
 1. 登入 Azure 入口網站  
 2. 尋找而後按一下 [路由表]，然後在 [路由表] 頁面上按一下 [建立]。

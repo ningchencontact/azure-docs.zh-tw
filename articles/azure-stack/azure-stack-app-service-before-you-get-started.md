@@ -1,6 +1,6 @@
 ---
-title: 部署 Azure Stack 上的 App Service 之前 | Microsoft Docs
-description: 部署 Azure Stack 上的 App Service 之前必須完成的步驟
+title: 在 Azure Stack 上部署 App Service 之前 | Microsoft Docs
+description: 在 Azure Stack 上部署 App Service 之前必須完成的步驟
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2018
+ms.date: 08/20/2018
 ms.author: anwestg
-ms.openlocfilehash: 22901374988f6654bc1fb282315db81bb17c815f
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e5fc6b5d396a45d15548cfdd8f445158147ad12f
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857860"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41947915"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>開始使用 Azure Stack 上的 App Service 之前
 
@@ -28,12 +28,12 @@ ms.locfileid: "37857860"
 在部署 Azure Stack 上的 Azure App Service 之前，您必須完成本文中的先決條件步驟。
 
 > [!IMPORTANT]
-> 在部署 Azure App Service 1.2 之前，請先將 1804 更新套用到您的 Azure Stack 整合式系統，或部署最新的 Azure Stack 開發套件 (ASDK)。
+> 在部署 Azure App Service 1.3 之前，請先將 1807 更新套用到您的 Azure Stack 整合式系統，或部署最新的「Azure Stack 開發套件」(ASDK)。
 
 ## <a name="download-the-installer-and-helper-scripts"></a>下載安裝程式與協助程式指令碼
 
 1. 下載 [Azure Stack 上的 App Service 部署協助程式指令碼](https://aka.ms/appsvconmashelpers)。
-2. 下載 [Azure Stack 上的 Azure App Service 安裝程式](https://aka.ms/appsvconmasinstaller)。
+2. 下載 [Azure App Service on Azure Stack 安裝程式](https://aka.ms/appsvconmasinstaller)。
 3. 從協助程式指令碼 .zip 檔案解壓縮檔案。 系統會解壓縮下列檔案和資料夾：
 
    - Common.ps1
@@ -141,7 +141,7 @@ API 憑證位於管理角色中。 資源提供者會使用它來協助保護 AP
 身分識別應用程式的憑證可讓：
 
 - Azure Active Directory (Azure AD) 或 Active Directory 同盟服務 (AD FS) 目錄、Azure Stack 和 App Service 之間整合，以支援與計算資源提供者的整合。
-- Azure Stack 上的 Azure App Service 中進階開發人員工具的單一登入案例。
+- Azure App Service on Azure Stack 中進階開發人員工具的單一登入案例。
 
 身分識別的憑證必須包含符合下列格式的主體。
 
@@ -241,27 +241,6 @@ net share %WEBSITES_SHARE% /delete
 net share %WEBSITES_SHARE%=%WEBSITES_FOLDER% /grant:Everyone,full
 ```
 
-### <a name="add-the-fileshareowners-group-to-the-local-administrators-group"></a>將 FileShareOwners 群組新增至本機 Administrators 群組
-
-為了讓 Windows 遠端管理正常運作，您必須將 FileShareOwners 群組新增至本機 Administrators 群組。
-
-#### <a name="active-directory"></a>Active Directory
-
-在檔案伺服器上或作用為容錯移轉叢集節點的每個檔案伺服器业的提高權限命令提示字元中，執行下列命令。 您要使用的網域名稱取代 `<DOMAIN>` 的值。
-
-```DOS
-set DOMAIN=<DOMAIN>
-net localgroup Administrators %DOMAIN%\FileShareOwners /add
-```
-
-#### <a name="workgroup"></a>工作群組
-
-在檔案伺服器上的提高權限命令提示字元中，執行下列命令：
-
-```DOS
-net localgroup Administrators FileShareOwners /add
-```
-
 ### <a name="configure-access-control-to-the-shares"></a>設定共用的存取控制
 
 在檔案伺服器上或容錯移轉叢集節點 (目前的叢集資源擁有者) 的提高權限命令提示字元中，執行下列命令。 以環境特有的值取代斜體的值。
@@ -332,13 +311,13 @@ Azure Stack 上的 Azure App Service 的 SQL Server 執行個體必須能夠從�
 4. 執行 **Create-AADIdentityApp.ps1** 指令碼。 當系統提示時，請輸入您部署 Azure Stack 時使用的 Azure AD 租用戶識別碼。 例如，輸入 **myazurestack.onmicrosoft.com**。
 5. 在 [認證] 視窗中，輸入您的 Azure AD 服務管理帳戶和密碼。 選取 [確定] 。
 6. 輸入[稍早建立的憑證](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack)的憑證檔案路徑和憑證密碼。 根據預設值，針對此步驟建立的憑證是 **sso.appservice.local.azurestack.external.pfx**。
-7. 此指令碼會在租用戶 Azure AD 執行個體中建立新的應用程式。 請記下 PowerShell 輸出中傳回的應用程式識別碼。 安裝期間會需要此資訊。
+7. 此指令碼會在租用戶 Azure AD 執行個體中建立新的應用程式。 請記下 PowerShell 輸出中傳回的應用程式識別碼。 安裝期間會需要這項資訊。
 8. 開啟新的瀏覽器視窗，並以 [Azure Active Directory 服務管理員](https://portal.azure.com)身分登入 Azure 入口網站。
 9. 開啟 Azure AD 資源提供者。
 10. 選取 [應用程式註冊]。
 11. 搜尋步驟 7 傳回的應用程式識別碼。 隨即列出 App Service 應用程式。
 12. 選取清單中的 [應用程式]。
-13. 選取 [設定]。
+13. 選取 [Settings] \(設定) 。
 14. 選取 [必要權限] > [授與權限] > [是]。
 
 ```PowerShell
@@ -353,6 +332,7 @@ Azure Stack 上的 Azure App Service 的 SQL Server 執行個體必須能夠從�
 | AzureStackAdminCredential | 必要 | Null | Azure AD Service 管理員的認證。 |
 | CertificateFilePath | 必要 | Null | 稍早產生之身分識別應用程式憑證檔案的**完整路徑**。 |
 | CertificatePassword | 必要 | Null | 協助保護憑證私密金鑰的密碼。 |
+| 環境 | 選用 | AzureCloud | 所支援雲端環境的名稱，此雲端環境提供了目標「Azure Active Directory Graph 服務」。  允許的值為：'AzureCloud'、'AzureChinaCloud'、'AzureUSGovernment'、'AzureGermanCloud'.|
 
 ## <a name="create-an-active-directory-federation-services-application"></a>建立 Active Directory 同盟服務應用程式
 

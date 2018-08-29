@@ -8,14 +8,14 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 08/16/2018
 ms.author: byvinyal
-ms.openlocfilehash: 570eee6cc849c474cfeacf5a9ba1798f64f27183
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 6b6e713c0da11a3d2c8cfbf388b84940a4542e95
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188065"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42141702"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 訂用帳戶和服務限制、配額與限制
 本文件列出一些最常見的 Microsoft Azure 限制，有時也稱為配額。 本文件目前未涵蓋所有 Azure 服務。 清單將隨著時間擴展並更新以涵蓋更多平台。
@@ -35,7 +35,8 @@ ms.locfileid: "39188065"
 
 > [!NOTE]
 > 請務必強調 Azure 資源群組中資源的配額是基於您的訂閱可以存取的每一區域，而不是每一訂閱 (服務管理配額則是)。 讓我們以 vCPU 配額為例。 如果您需要要求增加配額以支援 vCPU，您必須決定您想要在哪些區域中使用多少個 vCPU，然後提出 Azure 資源群組 vCPU 配額的特定要求，以取得您想要的數量和區域。 因此，如果您需要在西歐使用 30 個 vCPU 以在該處執行應用程式，您應該在西歐特別要求 30 個 vCPU。 但是您在任何其他區域中的 vCPU 配額將不會增加 -- 僅西歐會有 30 個 vCPU 配額。
-> <!-- --> 因此，您可能會發現，考慮決定任一區域中您工作負載所需的「Azure 資源群組」配額，並在所考慮部署的每個區域中要求配置該數量的配額，會相當有用。 請參閱 [移難排解部署問題](resource-manager-common-deployment-errors.md) ，以取得探索您特定區域目前的配額的其他說明。
+> <!-- -->
+> 因此，考慮決定每個區域中您的工作負載所需的 Azure 資源群組配額，並在要考慮部署的每個區域中要求該數量可能會有所幫助。 請參閱 [移難排解部署問題](resource-manager-common-deployment-errors.md) ，以取得探索您特定區域目前的配額的其他說明。
 >
 >
 
@@ -51,6 +52,7 @@ ms.locfileid: "39188065"
 * [適用於 PostgreSQL 的 Azure 資料庫](#azure-database-for-postgresql)
 * [事件格線](#azure-event-grid-limits)
 * [Azure 地圖服務](#azure-maps-limits)
+* [Azure 原則](#azure-policy-limits)
 * [Azure Redis 快取](#azure-redis-cache-limits)
 * [備份](#backup-limits)
 * [批次](#batch-limits)
@@ -293,6 +295,9 @@ Azure Cosmos DB 是一個全域調整資料庫，可以調整輸送量和儲存�
 
 ### <a name="azure-maps-limits"></a>Azure 地圖服務限制
 [!INCLUDE [maps-limits](../includes/maps-limits.md)]
+
+### <a name="azure-policy-limits"></a>Azure 原則限制
+[!INCLUDE [policy-limits](../includes/azure-policy-limits.md)]
 
 ### <a name="storsimple-system-limits"></a>StorSimple 系統限制
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]

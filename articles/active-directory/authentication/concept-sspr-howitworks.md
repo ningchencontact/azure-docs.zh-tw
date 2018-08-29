@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 8c0810c4a1b92f14e510d005eaf1b6945a058dd7
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 54e6b4f5804e7390b7574aa60b4d3a76df15da11
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413098"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42142288"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>運作方式：Azure AD 自助式密碼重設
 
@@ -42,9 +42,9 @@ ms.locfileid: "39413098"
    * 根據瀏覽器的地區設定，此體驗會以適當的語言呈現。 密碼重設體驗會當地語系化為 Office 365 支援的相同語言。
    * 若要檢視不同當地語系化語言中的密碼重設入口網站，請將 "?mkt=" 附加至密碼重設 URL 的結尾；後續範例中是當地語系化為西班牙文 [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us)。
 2. 使用者輸入使用者識別碼並通過文字驗證。
-3. Azure AD 執行下列檢查，驗證使用者是否能夠使用這項功能：
-   * 檢查使用者是否已啟用這項功能，並已獲得 Azure AD 授權。
-     * 如果使用者未啟用這項功能或未獲得授權，便會要求使用者連絡其管理員來重設其密碼。
+3. Azure AD 執行下列檢查，驗證使用者是否能夠使用此功能：
+   * 檢查使用者是否已啟用此功能，並已獲得 Azure AD 授權。
+     * 如果使用者未啟用此功能或未獲得授權，便會要求使用者連絡其管理員來重設其密碼。
    * 檢查使用者是否已按照系統管理員原則，在其帳戶上定義正確的驗證方法。
      * 如果原則只需要一項方法，則表示使用者必定已針對管理員原則所啟用、至少一項驗證方法定義適當的資料。
        * 如果未設定驗證方法，便會建議使用者連絡其管理員來重設其密碼。
@@ -94,6 +94,9 @@ ms.locfileid: "39413098"
 | 可用的行動應用程式功能 | 代碼 | 程式碼或通知 |
 
 使用者在從 [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) 註冊自助式密碼重設時，不可選擇註冊其行動應用程式。 使用者可以在 [https://aka.ms/mfasetup](https://aka.ms/mfasetup) 上，或在 [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo) 上新的安全性資訊註冊預覽中，註冊其行動應用程式。
+
+> [!WARNING]
+> 您必須先啟用[自助密碼重設和 Azure Multi-Factor Authentication 的聚合式註冊 (公開預覽)](concept-registration-mfa-sspr-converged.md)，然後使用者才能在 [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo) 上存取新體驗。
 
 ### <a name="change-authentication-methods"></a>變更驗證方法
 

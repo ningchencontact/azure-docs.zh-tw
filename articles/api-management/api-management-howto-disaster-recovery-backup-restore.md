@@ -3,7 +3,7 @@ title: 在 Azure API 管理中使用備份和還原實作災害復原 | Microsof
 description: 了解如何在 Azure API 管理中使用備份和還原來執行災難復原。
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: erikre
 editor: ''
 ms.service: api-management
@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 4135bd66e839037d7db694cb3c6df8f3905222e6
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: ce3208fed119452ef9383fcb5b5eefb1aac6e224
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283085"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142323"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>如何在 Azure API 管理中使用服務備份和還原實作災害復原
 
@@ -39,8 +39,6 @@ ms.locfileid: "39283085"
 
 > [!IMPORTANT]
 > 備份和還原的 REST API 會使用 Azure 資源管理員，並有不同的驗證機制的 REST API 來管理您的 API 管理實體。 本節中的步驟描述如何驗證 Azure 資源管理員的要求。 如需詳細資訊，請參閱 [驗證 Azure Resource Manager 要求](http://msdn.microsoft.com/library/azure/dn790557.aspx)。
->
->
 
 所有您使用 Azure Resource Manager 對資源執行的工作，都必須使用下列步驟向 Azure Active Directory 進行驗證：
 
@@ -209,15 +207,16 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 > 您也可以分別使用 Powershell 的 Backup-AzureRmApiManagement 和 Restore-AzureRmApiManagement 命令來執行備份和還原作業。
 
 ## <a name="next-steps"></a>後續步驟
-請參閱下列 Microsoft 部落格中，兩個不同的備份/還原程序逐步解說。
+
+請參閱下列資源，以取得不同的備份/還原程序逐步解說。
 
 * [複寫 Azure API 管理帳戶 (英文)](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
-* [Azure API 管理：備份和還原組態 (英文)](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
-  * Stuart 詳細說明的方法與正式指南不同，但相當有意思。
+* [使用 Logic Apps 將 API 管理備份與還原自動化](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps) \(英文\)
+* [Azure API 管理：備份與還原設定](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx) \(英文\)
+  Stuart 詳細說明的方法與正式指南不同，但相當有意思。
 
 [Backup an API Management service]: #step1
 [Restore an API Management service]: #step2
-
 
 [Azure API Management REST API]: http://msdn.microsoft.com/library/azure/dn781421.aspx
 

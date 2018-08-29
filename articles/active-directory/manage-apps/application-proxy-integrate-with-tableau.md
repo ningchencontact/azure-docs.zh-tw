@@ -1,26 +1,23 @@
 ---
 title: Azure Active Directory 應用程式 Proxy 與 Tableau | Microsoft Docs
-description: 了解如何使用 Azure Active Directory (Azure AD) 應用程式 Proxy 提供對 Tableau 部署的遠端存取。  .
+description: 了解如何使用 Azure Active Directory (Azure AD) 應用程式 Proxy 提供對 Tableau 部署的遠端存取。
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 08/20/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 7cace1af527c1c7c80bf0e23f7a88aa9ac9f9d03
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: a68b0465acdb416cd953e22d7f024eb399c94493
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365017"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246400"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Azure Active Directory 應用程式 Proxy 與 Tableau 
 
@@ -35,19 +32,10 @@ Azure Active Directory 應用程式 Proxy 和 Tableau 已互相合作，可確�
 - 安裝[應用程式 Proxy 連接器](application-proxy-enable.md)。 
 
  
-
 ## <a name="enabling-application-proxy-for-tableau"></a>為 Tableau 啟用應用程式 Proxy 
 
-如果想要在 Tableau 上使用應用程式 Proxy，必須傳送電子郵件至 [aadapfeedback@microsoft.com](mailto:aadapfeedback@microsoft.com)，將此情節啟用。
-電子郵件內容：
+應用程式 Proxy 支援 OAuth 2.0 授與流程，Tableau 需要有此項目才能正常運作。 這表示，啟用這個應用程式不再需要有任何特殊的步驟，只需遵循下列發佈步驟進行設定即可。
 
--   主旨為「為 Tableau 啟用應用程式 Proxy」
--   在內文中提供您的租用戶識別碼    
-
-您可以開始使用應用程式時，會收到確認通知。 您在等待期間可以先完成設定。
-
-
- 
 
 ## <a name="publish-your-applications-in-azure"></a>在 Azure 中發佈應用程式 
 

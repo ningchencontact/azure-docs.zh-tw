@@ -2,25 +2,22 @@
 title: 使用 Azure AD 應用程式 Proxy 發佈應用程式 | Microsoft Docs
 description: 在 Azure 入口網站中使用 Azure AD 應用程式 Proxy 將內部部署應用程式發佈至雲端。
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 08/20/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 1224642bb7e6fc0c51b3f839a78449132db5b4bb
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 973a6201a227e6c2e295e6e5ea2f40c302572504
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364252"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42141725"
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 發佈應用程式
 
@@ -72,6 +69,7 @@ Azure Active Directory (AD) 應用程式 Proxy 可藉由發佈要透過網際網
    ![設定您的應用程式](./media/application-proxy-publish-azure-portal/configure-app.png)
 5. 如有必要，請設定其他設定。 對於大部分的應用程式，您應該在其預設狀態中保留這些設定。 
    - **後端應用程式逾時**：只有當您的應用程式太慢而無法驗證和連線時，才將此值設定為 [長]。 
+   - **使用僅限 HTTP Cookie**：將此值設定為 [是]，讓應用程式 Proxy Cookie 在 HTTP 回應標頭中包含 HTTPOnly 旗標。
    - **轉譯標頭中的 URL**：除非您的應用程式需要驗證要求中的原始主機標頭，否則請將此值保留為 [是]。
    - **轉譯應用程式主體中的 URL**：除非您有其他內部部署應用程式的硬式編碼 HTML 連結，且未使用自訂網域，否則請將此值保留為 [否]。 如需詳細資訊，請參閱[使用應用程式 Proxy 連結轉譯](application-proxy-configure-hard-coded-link-translation.md)。
    

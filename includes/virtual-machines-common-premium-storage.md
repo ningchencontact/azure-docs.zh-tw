@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 4c14bfbad58849acefdc8c3a5513f681aba84ab8
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: e6a2493b0bc9e2b4c9695e29ae0c175dac9814fe
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37909932"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "40236845"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>VM 高效能進階儲存體與受控磁碟
 針對輸入/輸出 (I/O) 工作負載大的虛擬機器 (VM)，Azure 進階儲存體可提供高效能、低延遲的磁碟支援。 使用進階儲存體的 VM 磁碟會將資料儲存在固態硬碟 (SSD) 上。 您可以將現有 VM 磁碟移轉到進階儲存體，以利用進階儲存體磁碟的速度和效能。
@@ -52,7 +52,7 @@ Azure 提供兩種建立 VM 進階儲存體磁碟的方法：
 
 * **進階儲存體磁碟**
 
-    進階儲存體支援可連結至特定大小系列 VM 的 VM 磁碟。 進階儲存體支援各種不同的 Azure VM。 您可以選擇七種磁碟大小：P4 (32 GB)、P6 64 GB、P10 (128 GB)、P20 (512 GB)、P30 (1024 GB)、P40 (2048 GB)、P50 (4095 GB)。 受控磁碟至今僅支援 P4 和 P6 磁碟大小。 每個磁碟大小都有自己的效能規格。 端視您的應用程式需求而定，您可以將一或多個磁碟連結至您的 VM。 在[進階儲存體延展性和效能目標 ](#scalability-and-performance-targets)中，我們會更詳細地說明規格。
+    進階儲存體支援可連結至特定大小系列 VM 的 VM 磁碟。 進階儲存體支援各種不同的 Azure VM。 您可以選擇七種磁碟大小：P4 (32 GB)、P6 (64 GB)、P10 (128 GB)、P15 (256GB)、P20 (512 GB)、P30 (1024 GB)、P40 (2048 GB)、P50 (4095 GB)。 受控磁碟至今僅支援 P4 和 P6 磁碟大小。 每個磁碟大小都有自己的效能規格。 端視您的應用程式需求而定，您可以將一或多個磁碟連結至您的 VM。 在[進階儲存體延展性和效能目標 ](#scalability-and-performance-targets)中，我們會更詳細地說明規格。
 
 * **進階分頁 Blob**
 
@@ -132,7 +132,7 @@ Azure 提供兩種建立 VM 進階儲存體磁碟的方法：
 
     如需進階儲存體磁碟和其 IOPS 與輸送量限制的詳細資訊，請參閱下一節中的資料表。
 
-## <a name="scalability-and-performance-targets"></a>擴充和效能目標
+## <a name="scalability-and-performance-targets"></a>延展性和效能目標
 在這一節中，我們會說明使用進階儲存體時要考慮的延展性和效能目標。
 
 進階儲存體帳戶有下列延展性目標：
@@ -150,7 +150,7 @@ Azure 提供兩種建立 VM 進階儲存體磁碟的方法：
 如果您針對非受控磁碟使用進階儲存體帳戶，而您的應用程式超過單一儲存體帳戶的延展性目標，您可能會想要移轉至受控磁碟。 如果您不想要移轉至受控磁碟，請將應用程式建置為使用多個儲存體帳戶。 然後將資料分散到那些儲存體帳戶。 例如，如果您想要將 51 TB 的磁碟連結至多個 VM，可將其分散到兩個儲存體帳戶。 單一進階儲存體帳戶的限制是 35 TB。 請務必確認單一進階儲存體帳戶的佈建磁碟決不超過 35 TB。
 
 ### <a name="premium-storage-disk-limits"></a>進階儲存體磁碟限制
-當您佈建進階儲存體磁碟時，磁碟的大小決定 IOPS 和輸送量 (頻寬) 上限。 Azure 提供七種類型的進階儲存體磁碟：P4 (僅限受控磁碟)、P6 (僅限受控磁碟)、P10、P20、P30、P40 和 P50。 每個進階儲存體磁碟類型都有特定的 IOPS 和輸送量限制。 磁碟類型的限制如下表說明︰
+當您佈建進階儲存體磁碟時，磁碟的大小決定 IOPS 和輸送量 (頻寬) 上限。 Azure 提供八種類型的進階儲存體磁碟：P4 (僅限受控磁碟)、P6 (僅限受控磁碟)、P10、P15、P20、P30、P40 和 P50。 每個進階儲存體磁碟類型都有特定的 IOPS 和輸送量限制。 磁碟類型的限制如下表說明︰
 
 | 進階磁碟類型  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|

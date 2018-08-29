@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 06/20/2018
+ms.date: 08/16/2018
 ms.author: sngun
-ms.openlocfilehash: 97c7051252ecc8a29cf487f74a68055cd2b3e163
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 9852edfca26e78ad1b373418970dfe9c7ab477d8
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990271"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142321"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK for SQL API：版本資訊與資源
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ SQL API Async Java SDK 與 SQL API Java SDK 的不同之處在於會提供非同
 
 <tr><td>**SDK 下載**</td><td>[Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)</td></tr>
 
-<tr><td>**API 文件**</td><td>[Java API 參考文件](https://docs.microsoft.com/java/api/cosmosdb/client/async?view=azure-java-stable)</td></tr>
+<tr><td>**API 文件**</td><td>[Java API 參考文件](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client?view=azure-java-stable)</td></tr>
 
 <tr><td>**參與 SDK**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-java)</td></tr>
 
@@ -52,6 +52,10 @@ SQL API Async Java SDK 與 SQL API Java SDK 的不同之處在於會提供非同
 </table></br>
 
 ## <a name="release-notes"></a>版本資訊
+
+### <a name="a-name201201"></a><a name="2.0.1"/>2.0.1
+* 已修正非英文地區設定的錯誤 (bug) ([github #51](https://github.com/Azure/azure-cosmosdb-java/issues/51))。
+* 已在衝突資源中新增協助程式方法。
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
 * 因為效能理由及授權 ([github #29](https://github.com/Azure/azure-cosmosdb-java/issues/29))，以 jackson 取代 org.json 相依性。
@@ -99,6 +103,7 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [2.0.1](#2.0.1) |2018 年 8 月 16 日|--- |
 | [2.0.0](#2.0.0) |2018 年 6 月 20 日|--- |
 | [1.0.2](#1.0.2) |2018 年 5 月 18 日|--- |
 | [1.0.1](#1.0.1) |2018 年 4 月 20 日|--- |

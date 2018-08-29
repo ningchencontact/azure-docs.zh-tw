@@ -2,18 +2,18 @@
 title: Azure SQL 資料同步最佳做法 | Microsoft Docs
 description: 了解設定及執行 Azure SQL 資料同步的最佳做法。
 services: sql-database
-ms.date: 07/03/2018
+ms.date: 08/20/2018
 ms.topic: conceptual
 ms.service: sql-database
 author: allenwux
 ms.author: xiwu
 manager: craigg
-ms.openlocfilehash: 2b23f9f2edbec468ecbd1395bd138e1be801c6e5
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 96fff35b95a63e4f806258eff59d08afb2db0ffd
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620795"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42141922"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>SQL 資料同步最佳做法 
 
@@ -75,17 +75,16 @@ SQL 資料同步提供基本資料庫自動佈建。
 
 #### <a name="autoprovisioning-limitations"></a>自動佈建限制
 
-SQL 資料同步的自動佈建限制如下：
+「SQL 資料同步」的自動佈建限制如下：
 
--   只選取會在目的地資料表中建立的資料行。  
-    所有不屬於同步群組的資料行，都不會佈建在目的地資料表中。
--   只會針對所選資料行建立索引。  
-    如果來源資料表索引具有不是同步群組一部分的資料行，那些索引便不會佈建在目的地資料表中。  
+-   只選取會在目的地資料表中建立的資料行。 所有不屬於同步群組的資料行，都不會佈建在目的地資料表中。
+-   只會針對所選資料行建立索引。 如果來源資料表索引具有不是同步群組一部分的資料行，那些索引便不會佈建在目的地資料表中。  
 -   不會佈建 XML 型別資料行的索引。  
 -   不會佈建 CHECK 條件約束。  
 -   不會佈建來源資料表上的現有觸發程序。  
 -   不會在目的地資料庫上建立檢視和預存程序。
 -   目的地資料表中不會針對外部索引鍵限制式重新建立 ON UPDATE CASCADE 和 ON DELETE CASCADE 動作。
+-   若您有精確度大於 28 的十進位或數值資料行，「SQL 資料同步」在同步處理期間可能會遇到轉換溢位問題。建議您將十進位或數值的精確度限制為 28 以下 (含 28)。
 
 #### <a name="recommendations"></a>建議
 

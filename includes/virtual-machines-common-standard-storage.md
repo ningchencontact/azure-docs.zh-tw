@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: 4e62342a32456787863da775ea98df178ab1d559
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 70f80b880fadaeb4d5859524b3ba3b55ececbdda
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34806293"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40260141"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>符合成本效益的標準儲存體及非受控和受控 Azure VM 磁碟
 
@@ -42,7 +42,7 @@ ms.locfileid: "34806293"
 
 讓我們看看標準儲存體的一些功能。 如需詳細資訊，請參閱 [Azure 儲存體簡介](../articles/storage/common/storage-introduction.md)。
 
-**標準儲存體**：Azure 標準儲存體支援 Azure 磁碟、Azure Blob、Azure 檔案、Azure 資料表和 Azure 佇列。 若要使用標準儲存體服務，首先請[建立 Azure 儲存體帳戶](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)。
+**標準儲存體**：Azure 標準儲存體支援 Azure 磁碟、Azure Blob、Azure 檔案、Azure 資料表和 Azure 佇列。 若要使用標準儲存體服務，首先請[建立 Azure 儲存體帳戶](../articles/storage/common/storage-quickstart-create-account.md)。
 
 **標準 SSD 磁碟：** 相較於標準 HDD 磁碟，標準 SSD 磁碟能提供更可靠的效能，且目前可供預覽。 如需提供標準 SSD 磁碟服務的區域相關資訊，請參閱[標準 SSD 磁碟的區域可用性 (預覽)](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions)。
 
@@ -52,7 +52,7 @@ ms.locfileid: "34806293"
 
 **儲存體複寫︰** 在大部分區域，標準儲存體帳戶中的資料可以在本地複寫，或跨多個資料中心進行異地複寫。 可用的四種複寫包括本地備援儲存體 (LRS)、區域備援儲存體 (ZRS)、異地備援儲存體 (GRS) 和讀取權限異地備援儲存體 (RA-GRS)。 標準儲存體中的受控磁碟目前只支援本地備援儲存體 (LRS)。 如需詳細資訊，請參閱[儲存體複寫](../articles/storage/common/storage-redundancy.md)。
 
-## <a name="scalability-and-performance-targets"></a>擴充和效能目標
+## <a name="scalability-and-performance-targets"></a>延展性和效能目標
 
 在本節中，我們說明使用標準儲存體時需要考慮的延展性和效能目標。
 
@@ -119,7 +119,12 @@ ms.locfileid: "34806293"
 
 **非受控儲存體資料和磁碟大小︰** 對於非受控磁碟和其他資料 (blob、資料表、佇列和檔案)，您只需支付您使用的空間量。 例如，如果 VM 的分頁 Blob 佈建為 127 GB，但 VM 實際上只使用 10 GB 的空間，則會向您收取 10 GB 空間的費用。 我們支援最大 8191 GB 的標準儲存體，以及最大 4095 GB 的標準非受控磁碟。 
 
-**受控磁碟︰** 受控磁碟依據佈建大小計費。 如果磁碟佈建為 10 GB 的磁碟，但您只使用 5 GB，則仍然會向您收取佈建大小 10 GB 的費用。
+**受控磁碟**：標準受控磁碟的計費取決於磁碟的佈建大小。 Azure 會將佈建大小對應 (無條件進位) 至下表中指定的最接近受控磁碟選項。 每一個受控磁碟對應至其中一個支援的佈建大小，並據此計費。 例如，如果您建立標準受控磁碟，並指定 200 GiB 的佈建大小，就會依據 S15 磁碟類型的定價向您收費。
+
+| **標準 HDD 受控<br>磁碟類型** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** |
+|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------| 
+| 磁碟大小        | 32 GiB  | 64 GiB  | 128 GB | 256 GiB | 512 GB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
+
 
 **快照集**：標準儲存體的快照集會因為使用的額外容量而產生費用。 如需有關快照的資訊，請參閱[建立 Blob 的快照](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)。
 

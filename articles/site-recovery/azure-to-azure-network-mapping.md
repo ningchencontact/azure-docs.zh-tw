@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/06/2018
 ms.author: manayar
-ms.openlocfilehash: 7b7f9c079a1fc9d74fed4cc4d94d37f336ca5dc7
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: aed804a257376308c668ce0c2f3e8ce652ee9b3f
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916735"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42142042"
 ---
 # <a name="map-virtual-networks-in-different-azure-regions"></a>對應不同 Azure 區域中的虛擬網路
 
 
 本文說明如何彼此對應位於不同 Azure 區域之 Azure 虛擬網路的兩個執行個體。 網路對應可確保在目標 Azure 區域中建立複寫的虛擬機器時，也會在與來源虛擬機器之虛擬網路對應的虛擬網路上建立虛擬機器。  
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 對應網路之前，請確定您已在來源區域和目標 Azure 區域中建立 [Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)。
 
 ## <a name="map-virtual-networks"></a>對應虛擬網路
@@ -88,16 +88,36 @@ ms.locfileid: "37916735"
 ### <a name="static-ip-address"></a>靜態 IP 位址
 如果來源虛擬機器的網路介面使用靜態 IP 位址，也會將目標虛擬機器的網路介面設定為使用靜態 IP 位址。 下列各節說明如何設定靜態 IP 位址。
 
-#### <a name="same-address-space"></a>相同的位址空間
+### <a name="ip-assignment-behavior-during-failover"></a>容錯移轉期間的 IP 指派行為
+#### <a name="1-same-address-space"></a>1.相同的位址空間
 
 如果來源子網路和目標子網路具有相同的位址空間，會將來源虛擬機器之網路介面的 IP 位址設定為目標 IP 位址。 如果無法使用相同的 IP 位址，則會設定下一個可用的 IP 位址作為目標 IP 位址。
 
-#### <a name="different-address-spaces"></a>不同的位址空間
+#### <a name="2-different-address-spaces"></a>2.不同的位址空間
 
 如果來源子網路和目標子網路具有不同的位址空間，會將目標子網路的下一個可用 IP 位址設定為目標 IP 位址。
 
-若要修改各個網路介面上的目標 IP，請移至虛擬機器的 [計算與網路] 設定。
 
+### <a name="ip-assignment-behavior-during-test-failover"></a>測試容錯移轉期間的 IP 指派行為
+#### <a name="1-if-the-target-network-chosen-is-the-production-vnet"></a>1.若選擇的目標網路是生產 vNet
+- 復原 IP (目標 IP) 將會靜態 IPM，但它**將不會與針對容錯移轉保留的 IP 位址相同**。
+- 指派的 IP 位址將會是從子網路位址範圍結尾開始的下一個可用 IP。
+- 例如，若來源 VM 靜態 IP 是設定為 10.0.0.19 且測試容錯移轉已使用設定的生產網路 ***dr-PROD-nw*** (子網路範圍為 10.0.0.0/24) 嘗試。 </br>
+已容錯移轉的 VM 將會被指派從子網路位址範圍結尾開始的下一個可用 IP，亦即 10.0.0.254。 </br>
+
+**注意：** 術語**生產 vNet** 指的是災害復原設定期間對應的「目標網路」。
+####<a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2.若選擇的目標網路不是生產 vNet 但有與生產網路相同的子網路範圍 
+
+- 復原 IP (目標 IP) 將具有與針對容錯移轉保留之 **IP 位址** 相同的 IP 位址 (例如，已設定的靜態 IP 位址)。 假設相同的 IP 位址可用。
+- 若設定的靜態 IP 已指派給其他 VM/裝置，則復原 IP 將會是從子網路位址範圍結尾開始的下一個可用 IP。
+- 例如，若來源 VM 靜態 IP 是設定為 10.0.0.19 且測試容錯移轉已使用測試網路 ***dr-NON-PROD-nw*** (具有與生產網路相同的子網路範圍，亦即 10.0.0.0/24) 嘗試。 </br>
+  已容錯移轉的 VM 將會被指派下列靜態 IP </br>
+    - 已設定的 IP：10.0.0.19，若此 IP 可用。
+    - 下一個可用的 IP：10.0.0.254，若 IP 位址 10.0.0.19 已在使用中。
+
+
+若要修改每個網路介面上的目標 IP，請移至虛擬機器的 [計算與網路] 設定。</br>
+最佳做法是一律選擇測試網路以執行測試容錯移轉。
 ## <a name="next-steps"></a>後續步驟
 
 * 檢閱[複寫 Azure 虛擬機器的網路指引](site-recovery-azure-to-azure-networking-guidance.md)。

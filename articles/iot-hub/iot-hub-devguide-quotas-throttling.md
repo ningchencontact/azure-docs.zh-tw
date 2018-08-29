@@ -8,19 +8,19 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: f2a95ac879dd2d6b1af3d50e1be53efac26331c4
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 11cec9621ad72cfeaee45e4cd466430e64b9b836
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525547"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42141879"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>參考 - IoT 中樞配額和節流
 
 ## <a name="quotas-and-throttling"></a>配額和節流
 每個 Azure 訂用帳戶最多可以有 50 個 IoT 中樞，以及最多 1 個可用中樞。
 
-佈建每個 IoT 中樞時，都會為其佈建特定層級中的特定單位數。 如需詳細資訊，請參閱 [Azure IoT 中樞價格][lnk-pricing]。 層級和單位數會決定您每天可傳送的訊息配額上限。
+佈建每個 IoT 中樞時，都會為其佈建特定層級中的特定單位數。 層級和單位數會決定您每天可傳送的訊息配額上限。 對於免費層中樞，用來計算每日配額的訊息大小為 0.5 KB，而對於所有其他層的訊息大小則為 4 KB。 如需詳細資訊，請參閱 [Azure IoT 中樞價格][lnk-pricing]。
 
 層級也會決定「IoT 中樞」在所有作業上強制執行的節流限制。
 

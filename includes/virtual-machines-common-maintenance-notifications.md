@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: 782c855ff6d28f2cd96a87893ebf74023472badc
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: efedb2f48748264fb936fe82a1dbb3cf4403cc5e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38943548"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "40167009"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>在入口網站中檢視排定維護的 VM
 
@@ -38,6 +38,8 @@ ms.locfileid: "38943548"
       | 已更新 | 已更新您的 VM，此時不需要採取任何進一步的動作。 | 
       | 稍後重試 | 您已啟動維護，但是沒有成功。 您可以在稍後使用自助式維護選項。 | 
       | 立即重試 | 您可以重試先前失敗的自行啟動維護。 | 
+      | - | 您的虛擬機器不在計劃性維護波段中。 |
+      
 
    **維護 - 自助服務期間**：顯示您可以在 VM 上自行開始維護的時間範圍。
    
