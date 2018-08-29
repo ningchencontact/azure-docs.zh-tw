@@ -80,8 +80,6 @@ items:
         href: physical-azure-architecture.md
       - name: 將 VMware 複寫至 Azure 的多租用戶支援
         href: vmware-azure-multi-tenant-overview.md
-      - name: 關於行動服務
-        href: vmware-azure-install-mobility-service.md
       - name: 容錯回復位置選項
         href: concepts-types-of-failback.md
     - name: 複寫至次要網站
@@ -190,26 +188,26 @@ items:
       items:
       - name: 使用 PowerShell 將 VMWare 虛擬機器複寫至 Azure
         href: vmware-azure-disaster-recovery-powershell.md
-      - name: Azure 實體伺服器的災害復原
-        href: physical-azure-disaster-recovery.md
       - name: 設定 VMware 虛擬機器的來源環境
         href: vmware-azure-set-up-source.md
-      - name: 設定適用於實體伺服器的來源環境
-        href: physical-azure-set-up-source.md
       - name: 部署組態伺服器以複寫 VMware
         href: vmware-azure-deploy-configuration-server.md
       - name: 設定 VMware 虛擬機器的目標環境
         href: vmware-azure-set-up-target.md
-      - name: 設定實體伺服器的目標環境
-        href: physical-azure-set-up-target.md
       - name: 設定複寫設定
         href: vmware-azure-set-up-replication.md
-      - name: 從複寫排除磁碟
-        href: vmware-azure-exclude-disk.md
       - name: 啟用 VMware 虛擬機器複寫
         href: vmware-azure-enable-replication.md
+      - name: 從複寫排除磁碟
+        href: vmware-azure-exclude-disk.md
       - name: 具有 VMWare 虛擬機器的 CSP 的多租用戶
         href: vmware-azure-multi-tenant-csp-disaster-recovery.md
+      - name: 設定適用於實體伺服器的來源環境
+        href: physical-azure-set-up-source.md
+      - name: 設定實體伺服器的目標環境
+        href: physical-azure-set-up-target.md
+      - name: Azure 實體伺服器的災害復原
+        href: physical-azure-disaster-recovery.md
     - name: 部署行動服務
       items:
       - name: 行動服務概觀
@@ -218,24 +216,24 @@ items:
         href: vmware-azure-mobility-install-configuration-mgr.md
     - name: 容錯移轉和容錯回復
       items:
-      - name: 執行 Azure 的災害復原演練
-        href: site-recovery-test-failover-to-azure.md
       - name: 設定復原計畫
         href: site-recovery-create-recovery-plans.md
       - name: 將 Runbook 新增至復原方案
         href: site-recovery-runbook-automation.md
+      - name: 執行 Azure 的災害復原演練
+        href: site-recovery-test-failover-to-azure.md
+      - name: 執行容錯移轉到 Azure
+        href: site-recovery-failover.md
+      - name: 從 Azure 移至內部部署 VMware 來重新保護
+        href: vmware-azure-reprotect.md
+      - name: 從 Azure 容錯回復至 VMware
+        href: vmware-azure-failback.md
       - name: 設定和管理 Azure 中的容錯回復處理序伺服器
         href: vmware-azure-set-up-process-server-azure.md
       - name: 將 Linux VM 設定為容錯回復的主要目標伺服器
         href: vmware-azure-install-linux-master-target.md
-      - name: 執行容錯移轉到 Azure
-        href: site-recovery-failover.md
       - name: 執行實體伺服器的容錯移轉和容錯回復
         href: physical-to-azure-failover-failback.md
-      - name: 從 Azure 容錯回復至 VMware
-        href: vmware-azure-failback.md
-      - name: 從 Azure 移至內部部署 VMware 來重新保護
-        href: vmware-azure-reprotect.md
     - name: 管理
       items:
       - name: 管理組態伺服器以複寫 VMware
@@ -390,9 +388,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: 服務更新
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: cdc1990f71a38e7e0740456ccc8fb82e8ed1b5f9
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: f0469d554b25565411bb8c484f3d3937bb9a87f6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42914913"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126065"

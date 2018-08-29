@@ -607,8 +607,7 @@ public void ConfigureServices(IServiceCollection services)
 | **適用的技術** | .NET Framework 3 |
 | **屬性**              | N/A  |
 | **參考**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx)、[Fortify Kingdom](https://vulncat.fortify.com) |
-| **步驟** | <p>未設定系統資源的使用限制，可能會導致資源耗盡，而最後導致拒絕服務。</p><ul><li>
-  **說明︰** Windows Communication Foundation (WCF) 提供服務要求節流的功能。 允許太多的用戶端要求可能會淹沒系統及耗盡其資源。 另一方面，只允許服務有少數要求可防止合法使用者使用此服務。 每項服務應個別調整並設定為允許適當的資源數量。</li><li>**建議** 啟用 WCF 的服務節流功能以及為應用程式設定適當的限制。</li></ul>|
+| **步驟** | <p>未設定系統資源的使用限制，可能會導致資源耗盡，而最後導致拒絕服務。</p><ul><li>**說明︰** Windows Communication Foundation (WCF) 提供服務要求節流的功能。 允許太多的用戶端要求可能會淹沒系統及耗盡其資源。 另一方面，只允許服務有少數要求可防止合法使用者使用此服務。 每項服務應個別調整並設定為允許適當的資源數量。</li><li>**建議** 啟用 WCF 的服務節流功能以及為應用程式設定適當的限制。</li></ul>|
 
 ### <a name="example"></a>範例
 下列是已啟用節流的範例組態︰

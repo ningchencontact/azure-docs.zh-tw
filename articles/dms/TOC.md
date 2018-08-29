@@ -7,8 +7,8 @@
 # 教學課程
 ## [將 SQL Server 遷移至離線 Azure SQL DB](tutorial-sql-server-to-azure-sql.md)
 ## [將 SQL Server 遷移至連線 Azure SQL DB](tutorial-sql-server-azure-sql-online.md)
-## [將 SQL Server 移轉至 Azure SQL DB 受控執行個體](tutorial-sql-server-to-managed-instance.md)
-## [將 MySQL 遷移至適用於 MySQL 的 Azure DB](tutorial-mysql-azure-mysql-online.md)
+## [將 SQL Server 遷移至離線 Azure SQL DB 受控執行個體](tutorial-sql-server-to-managed-instance.md)
+## [將 MySQL 遷移至適用於線上 MySQL 的 Azure DB](tutorial-mysql-azure-mysql-online.md)
 
 # 使用說明指南
 ## [使用 PowerShell 將 SQL Server 遷移至 Azure SQL DB](howto-sql-server-to-azure-sql-powershell.md)

@@ -54,6 +54,7 @@
 #### [管理員新增 B2B 使用者](b2b/add-users-administrator.md)
 #### [資訊背景工作新增 B2B 使用者](b2b/add-users-information-worker.md)
 #### [API 與自訂](b2b/customize-invitation-api.md)
+#### [Google 同盟](b2b/google-federation.md)
 #### [程式碼和 Azure PowerShell 範例](b2b/code-samples.md)
 #### [自助入口網站註冊範例](b2b/self-service-portal.md)
 #### [邀請電子郵件](b2b/invitation-email-elements.md)
@@ -126,31 +127,6 @@
 #### [重設或變更您的密碼](user-help/active-directory-passwords-update-your-own-password.md)
 #### [註冊自助式密碼重設](user-help/active-directory-passwords-reset-register.md)
 
-
-## 管理裝置
-### [概觀](devices/overview.md)
-
-### 快速入門
-#### [設定 10 部已註冊 Azure AD 的 Windows 10 裝置](user-help/device-management-azuread-registered-devices-windows10-setup.md)
-#### [設定 Azure AD 已加入裝置](user-help/device-management-azuread-joined-devices-setup.md)
-
-### 教學課程
-#### [設定適用於受控網域的混合式 Azure AD 聯結](devices/hybrid-azuread-join-managed-domains.md)
-#### [設定適用於同盟網域的混合式 Azure AD 聯結](devices/hybrid-azuread-join-federated-domains.md)
-#### [手動設定混合式 Azure AD 聯結](devices/hybrid-azuread-join-manual-steps.md)
-#### [在前十次執行 Windows 10 體驗時設定 Azure AD 聯結](devices/azuread-joined-devices-frx.md)
-
-### 使用指南
-#### [規劃 Azure AD 聯結](devices/azureadjoin-plan.md)
-#### [規劃混合式 Azure AD 聯結實作](devices/hybrid-azuread-join-plan.md)
-#### [控制裝置的混合式 Azure AD 聯結](devices/hybrid-azuread-join-control.md)
-#### [將本機系統管理員指派給已加入 Azure AD 的裝置](devices/assign-local-admin.md)
-#### [針對目前與混合式 Azure AD 聯結的 Windows 裝置進行疑難排解](devices/troubleshoot-hybrid-join-windows-current.md)
-#### [針對已與混合式 Azure AD 聯結的舊版 Windows 裝置進行疑難排解](devices/troubleshoot-hybrid-join-windows-legacy.md)
-
-### 概念
-#### [使用 Azure 入口網站管理裝置](devices/device-management-azure-portal.md)
-#### [常見問題集](devices/faq.md)
 
 ## 管理應用程式
 ### [概觀](manage-apps/what-is-application-management.md)

@@ -33,7 +33,7 @@ ms.locfileid: "39577319"
 ### <a name="storefront-offer-details"></a>店面供應項目詳細資料
 | 店面設定 | 最佳做法 |
 |:--- |:--- |  
-| 供應項目名稱 | 提供有力標題：<br>您的應用程式名稱應該傳達客戶收到的核心價值。 在您的應用程式標題中包含搜尋關鍵字，有助於您的應用程式在搜尋引擎結果中獲得更高的順位。<br><br>針對諮詢服務清單依照已設定的標題格式：<br>[供應項目名稱]: [期間] [供應項目類型] \(例如 *Contoso: 2-Week Implementation*)<br><br>遵守品牌指導方針：<br>提及 Microsoft 商標與 Microsoft 軟體、產品和服務的名稱時，請遵循 [Microsoft 商標和品牌指導方針](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx)以及其他相關的特定產品指導方針。 |
+| 供應項目名稱 | 提供有力標題：<br>您的應用程式名稱應該傳達客戶收到的核心價值。 在您的應用程式標題中包含搜尋關鍵字，有助於您的應用程式在搜尋引擎結果中獲得更高的順位。<br><br>針對諮詢服務清單依照已設定的標題格式：<br>[供應項目名稱] : [期間] [供應項目類型] (例如 *Contoso: 2-Week Implementation*)<br><br>遵守品牌指導方針：<br>提及 Microsoft 商標與 Microsoft 軟體、產品和服務的名稱時，請遵循 [Microsoft 商標和品牌指導方針](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx)以及其他相關的特定產品指導方針。 |
 | 供應項目描述 | 提供清楚的供應項目描述：<br>在您的描述中的前幾個句子清楚描述您供應項目的價值主張。 請記住，前幾個句子可能會顯示在搜尋引擎結果中。 請勿依賴特色與功能來銷售您的產品。 反之，要鎖定在您所提供的價值。 請盡可能使用業界特定詞彙或凸顯優點的字眼。<br><br>您的價值主張核心部分應該包含下列資訊：<ul><li>產品的描述</li><li>可從產品獲益的使用者類型</li><li>客戶需求或產品可解決的問題</li></ul> |
 
 ### <a name="storefront-listing-details"></a>店面清單詳細資料

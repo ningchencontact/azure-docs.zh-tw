@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 08/16/2018
 ms.author: mtillman
-ms.openlocfilehash: 9496896e3d841e4857ea17987fb230adb4f0edb1
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: a28db1d9c7f14e03e124537b60a3384a4baafe1c
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41927245"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126727"
 ---
 # <a name="azure-active-directory-documentation"></a>Azure Active Directory 文件
 
@@ -115,9 +115,9 @@ Azure Active Directory (Azure AD) 是多租用戶雲端式目錄和身分識別�
                     <div class="cardText">
                         <h3>裝置</h3>
                         <p>
-                        <a href="/azure/active-directory/device-management-introduction">裝置管理</a><br/>
-                        <a href="/azure/active-directory/device-management-azuread-registered-devices-windows10-setup">Windows 10 裝置</a><br/>
-                        <a href="/azure/active-directory/device-management-azuread-joined-devices-setup">加入的裝置</a>
+                        <a href="/azure/active-directory/devices/index">裝置管理</a><br/>
+                        <a href="/azure/active-directory/user-help/device-management-azuread-registered-devices-windows10-setup">Windows 10 裝置</a><br/>
+                        <a href="/azure/active-directory/user-help/device-management-azuread-joined-devices-setup">加入的裝置</a>
                         </p>
                     </div>
                 </div>
