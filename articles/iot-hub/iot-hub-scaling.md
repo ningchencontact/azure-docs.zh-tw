@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: 01aeaee03a4cfabbda3a29cddd17febdc8a16e45
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 6ae0217ed4b8833eb42a4719a1f2525461f9dcdd
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003527"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143643"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>選擇適合您解決方案的 IoT 中樞層
 
@@ -43,7 +43,7 @@ Azure IoT 中樞提供基本和標準兩個層級，兩者所支援的功能數�
 | [監視和診斷](iot-hub-monitor-resource-health.md) | 是 | 是 |
 | [雲端到裝置傳訊](iot-hub-devguide-c2d-guidance.md) |   | 是 |
 | [裝置對應項](iot-hub-devguide-device-twins.md)、[模組對應項](iot-hub-devguide-module-twins.md)和[裝置管理](iot-hub-device-management-overview.md) |   | 是 |
-| [Azure IoT Edge](../iot-edge/how-iot-edge-works.md) |   | 是 |
+| [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | 是 |
 
 IoT 中樞也會提供免費層供您測試和評估。 其具有標準層的所有功能，但允許的傳訊量有限。 您無法從免費層升級至基本或標準層。 
 

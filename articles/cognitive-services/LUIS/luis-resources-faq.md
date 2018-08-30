@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: 93ced2d0c79d80a631ad90aa3f5d2dc9f8c79c7e
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: a266055c7685dca87d985775584a9ea7a4bda883
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390189"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128515"
 ---
 # <a name="language-understanding-faq"></a>Language Understanding 常見問題集
 
@@ -151,7 +151,7 @@ LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳�
 
 否。 LUIS 不會使用 LUIS 應用程式的資料模型來改善作為平台的 LUIS，也不會以任何方式讓 Microsoft 使用。 每個應用程式資料皆各自獨立，而且只有使用者及共同作業者可擁有。 
 
-深入了解[使用者隱私權](luis-reference-gdpr.md)、[其他安全性規範](luis-concept-security.md#security-compliance)及[資料儲存體](luis-concept-data-storage.md)。
+深入了解[使用者隱私權](luis-user-privacy.md)、[其他安全性規範](luis-concept-security.md#security-compliance)及[資料儲存體](luis-concept-data-storage.md)。
 
 ## <a name="language-and-translation-support"></a>語言和翻譯支援 
 
@@ -186,7 +186,7 @@ LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳�
 
 組建 2018 會議已發行下列功能：
 
-|Name|內容|
+|名稱|內容|
 |--|--|
 |增強功能|[規則運算式](luis-concept-data-extraction.md##regular-expression-entity-data)實體和[關鍵片語](luis-concept-data-extraction.md#key-phrase-extraction-entity-data)實體
 |模式|模式[概念](luis-concept-patterns.md)、[教學課程](luis-tutorial-pattern.md)、[做法](luis-how-to-model-intent-pattern.md)<br>[Patterns.Any](luis-concept-entity-types.md) 實體概念 (包括例外狀況[明確清單](luis-concept-patterns.md#explicit-lists))<br>[角色](luis-concept-roles.md)概念|

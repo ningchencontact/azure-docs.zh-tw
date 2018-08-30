@@ -3,18 +3,18 @@ title: 在 HDInsight 中使用 Hadoop 分析 Twitter 資料 - Azure
 description: 了解如何在 HDInsight 中的 Hadoop 上使用 Hive 來分析 Twitter 資料，以找出特定單字的使用頻率。
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8ac97c14b4abaa1c07e8f982edb53e0acac3692f
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: abf9cd311af141a646c56f452ded77a914bc1d2f
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597615"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43093293"
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>在 HDInsight 中使用 Hive 分析 Twitter 資料
 社群網站是驅使採用巨量資料的其中一個主要動力。 像 Twitter 之類的網站所提供的公開 API，是分析和了解流行趨勢的一項實用的資料來源。
@@ -78,7 +78,7 @@ Twitter 會使用 OAuth 提供對其 API 的授權存取。 OAuth 是一項驗�
 
    | 欄位 | 值 |
    | --- | --- |
-   |  Name |MyHDInsightApp |
+   |  名稱 |MyHDInsightApp |
    |  說明 |MyHDInsightApp |
    |  網站 |http://www.myhdinsightapp.com |
 4. 核取 [是，我同意] 然後按一下 [建立 Twitter 應用程式]。
@@ -548,8 +548,8 @@ Write-Host "==================================" -ForegroundColor Green
 
 [apache-hive-tutorial]: https://cwiki.apache.org/confluence/display/Hive/Tutorial
 
-[twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
-[twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
+[twitter-streaming-api]: https://developer.twitter.com/en/docs/api-reference-index
+[twitter-statuses-filter]: https://developer.twitter.com/en/docs/tweets/filter-realtime/api-reference/post-statuses-filter
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: /powershell/azureps-cmdlets-docs

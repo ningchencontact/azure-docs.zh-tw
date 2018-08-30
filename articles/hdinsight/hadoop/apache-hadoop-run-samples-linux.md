@@ -4,18 +4,18 @@ description: 開始使用 HDInsight 中隨附的 jar 檔案中的 MapReduce 範�
 keywords: hadoop 範例 jar、Hadoop 範例 jar、hadoop mapreduce 範例、mapreduce 範例
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: jasonh
-ms.openlocfilehash: b29fb56f6ce244811aef924bb947a8b8ee8e4da4
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: b0a4088a4473a731f9dec2d5f1e495b2eb9e937c
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597298"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047775"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>執行包含在 HDInsight 中的 MapReduce 範例
 

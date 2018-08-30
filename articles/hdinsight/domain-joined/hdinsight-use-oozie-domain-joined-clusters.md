@@ -5,16 +5,16 @@ services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.openlocfilehash: a7f17aafd7798c1bada9fef01a6c8f1022d291f4
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 69bf885ad5d6244997c7ce9cf61bdee9e05c1826
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39616845"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048969"
 ---
 # <a name="run-apache-oozie-in-domain-joined-hdinsight-hadoop-clusters"></a>在已加入網域的 HDInsight Hadoop 叢集中執行 Apache Oozie
 Oozie 是可管理 Hadoop 作業的工作流程和協調系統。 Oozie 已與 Hadoop 堆疊整合，並支援下列作業：

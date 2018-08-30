@@ -1,20 +1,18 @@
 ---
 title: 使用 Azure Data Lake Analytics 查詢 Avro 資料 | Microsoft Docs
 description: 使用訊息本文屬性將裝置遙測資料路由至 Blob 儲存體，並查詢寫入至 Blob 儲存體的 Avro 格式資料。
-services: iot-hub
-documentationcenter: ''
-author: ksaye
-manager: obloch
+author: ash2017
 ms.service: iot-hub
-ms.topic: article
+services: iot-hub
+ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: Kevin.Saye
-ms.openlocfilehash: c56b567498047ee996018675134c252ec1de7e0c
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.author: asrastog
+ms.openlocfilehash: a17df39c55b5c02c83e3f0b74a91d7109ddb4d3d
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081363"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188939"
 ---
 # <a name="query-avro-data-by-using-azure-data-lake-analytics"></a>使用 Azure Data Lake Analytics 查詢 Avro 資料
 

@@ -4,18 +4,18 @@ description: 了解如何利用單一 Data Lake Store 帳戶來使用多個 HDIn
 keywords: hdinsight 儲存體,hdfs,結構化資料,非結構化資料, data lake store
 services: hdinsight,storage
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: jasonh
-ms.openlocfilehash: 3f928ea7de4346e1860ca05ca0e5a9a8ac1052ce
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 0e74406d79484483053ca7d4b89b096c3f70e298
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597098"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43095119"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-store-account"></a>利用一個 Azure Data Lake Store 帳戶使用多個 HDInsight 叢集
 

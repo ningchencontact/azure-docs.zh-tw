@@ -3,18 +3,18 @@ title: 在事件中樞內使用 Storm 來處理事件 - Azure HDInsight
 description: 了解如何利用在 Visual Studio 中使用 HDInsight Tools for Visual Studio 所建立之 C# Storm 拓撲來處理 Azure 事件中樞的資料。
 services: hdinsight,notification hubs
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 24bcc33570a5e62769223c5827556bab1967ae5a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 7c37abe709559fc0628b94ba50634673c08af375
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620377"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43051562"
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>利用 Storm on HDInsight 處理 Azure 事件中樞的事件 (C#)
 
@@ -136,7 +136,7 @@ topologyBuilder.SetJavaBolt(
 
 1. 在建立事件中樞之後，檢視 Azure 入口網站中的 [事件中樞] 設定，然後選取 [共用存取原則]。 選取 [+ 新增] 連結來新增下列原則︰
 
-   | Name | 權限 |
+   | 名稱 | 權限 |
    | --- | --- |
    | 寫入器 |傳送 |
    | 讀取器 |接聽 |

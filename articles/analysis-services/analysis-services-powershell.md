@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 06/25/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5c347a024af385e04bfdf3631ddcbaec89df4f40
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 6c648a9cb6b8d8dbfb60f1a5a6ebc386c57460b0
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937359"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887241"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>使用 PowerShell 管理 Azure Analysis Services
 
@@ -48,7 +48,7 @@ ms.locfileid: "36937359"
 |Cmdlet|說明| 
 |------------|-----------------| 
 |[Add-AzureAnalysisServicesAccount](/powershell/module/azure.analysisservices/add-azureanalysisservicesaccount)|新增已驗證的帳戶以用於 Azure Analysis Services 伺服器 Cmdlet 要求。| 
-|[Export-AzureAnalysisServicesInstance]()|從目前登入環境中之 Analysis Services 伺服器的執行個體匯出記錄，如 Add-AzureAnalysisServicesAccount 命令所指定|  
+|[Export-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/export-azureanalysisservicesinstancelog)|從目前登入環境中之 Analysis Services 伺服器的執行個體匯出記錄，如 Add-AzureAnalysisServicesAccount 命令所指定|  
 |[Restart-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|在目前登入的環境中重新啟動 Analysis Services 伺服器的執行個體；在 Add-AzureAnalysisServicesAccount 命令中指定。|  
 |[Sync-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|將 Analysis Services 伺服器之指定執行個體上的指定資料庫，同步處理到目前登入環境中的所有查詢向外延展執行個體，如 Add-AzureAnalysisServicesAccount 命令所指定|  
 

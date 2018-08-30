@@ -9,12 +9,12 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: 5542c1c0eee5e4c7c85c566908dc8999b118f06e
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: f5b916ba3b6b044f12b84958b2eb69f44e2f8136
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37032431"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888136"
 ---
 # <a name="supported-languages-in-the-microsoft-translator-text-api"></a>Microsoft Translator 文字 API 支援的語言
 
@@ -125,7 +125,7 @@ Microsoft Translator 文字 API 支援以下語言的文字轉文字翻譯。 �
 | 南非荷蘭文      | `af`          |
 | 阿拉伯文       | `ar`          |
 | 孟加拉文      | `bn`          |
-| 波士尼亞文 (拉丁)      | `bs`          |
+| 波士尼亞文 (拉丁文)      | `bs`          |
 | 保加利亞文      | `bg`          |
 | 卡達隆尼亞文      | `ca`          |
 | 簡體中文      | `zh-Hans`          | 
@@ -138,7 +138,7 @@ Microsoft Translator 文字 API 支援以下語言的文字轉文字翻譯。 �
 | 法文      | `fr`          |
 | 德文      | `de`          |
 | 希臘文      | `el`          |
-| 海地克里奧爾文      | `ht`          |
+| 海地克裏奧爾文      | `ht`          |
 | 希伯來文      | `he`          |
 | 北印度文      | `hi`          |
 | 白苗文      | `mww`          |
@@ -187,8 +187,8 @@ Microsoft Translator 文字 API 支援以下語言的文字轉文字翻譯。 �
 | 保加利亞文 |
 | 卡達隆尼亞文 |
 | 中文 |
-| 簡體中文 |
-| 繁體中文 |
+| 中文 (簡體) |
+| 中文 (繁體) |
 | 克羅埃西亞文 |
 | 捷克文 |
 | 丹麥文 |
@@ -201,7 +201,7 @@ Microsoft Translator 文字 API 支援以下語言的文字轉文字翻譯。 �
 | 加利西亞文 |
 | 德文 |
 | 希臘文 |
-| 海地克里奧爾文 |
+| 海地克裏奧爾文 |
 | 希伯來文 |
 | 北印度文 |
 | 匈牙利文 |
@@ -211,8 +211,8 @@ Microsoft Translator 文字 API 支援以下語言的文字轉文字翻譯。 �
 | 義大利文 |
 | 日文 |
 | 韓文 |
-| 庫德文_阿拉伯 |
-| 庫德文_拉丁 |
+| 庫德文 (阿拉伯文) |
+| 庫德文 (拉丁) |
 | 拉丁文 |
 | 拉脫維亞文 |
 | 立陶宛文 |
@@ -220,15 +220,15 @@ Microsoft Translator 文字 API 支援以下語言的文字轉文字翻譯。 �
 | 馬來文 |
 | 馬爾他文 |
 | 挪威文 |
-| 挪威文_耐諾斯克 |
+| 挪威文 (耐諾斯克) |
 | 普什圖文 |
 | 波斯文 |
 | 波蘭文 |
 | 葡萄牙文 |
 | 羅馬尼亞文 |
 | 俄文 |
-| 塞爾維亞文_斯拉夫 |
-| 塞爾維亞文_拉丁 |
+| 塞爾維亞文 (斯拉夫) |
+| 塞爾維亞文 (拉丁) |
 | 斯洛伐克文 |
 | 斯洛維尼亞文 |
 | 索馬利文 |
@@ -240,8 +240,8 @@ Microsoft Translator 文字 API 支援以下語言的文字轉文字翻譯。 �
 | 土耳其文 |
 | 烏克蘭文 |
 | 烏都文 |
-| 烏茲別克文_斯拉夫 |
-| 烏茲別克文_拉丁 |
+| 烏茲別克文 (斯拉夫) |
+| 烏茲別克文 (拉丁) |
 | 越南文 |
 | 威爾斯文 |
 | 意第緒文 |

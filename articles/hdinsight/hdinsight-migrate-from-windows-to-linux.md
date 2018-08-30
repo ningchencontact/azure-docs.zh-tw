@@ -3,18 +3,18 @@ title: 從以 Windows 為基礎的 HDInsight 移轉至以 Linux 為基礎的 HDI
 description: 了解如何從以 Windows 為基礎的 HDInsight 叢集移轉至以 Linux 為基礎的 HDInsight 叢集。
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: jasonh
-ms.openlocfilehash: f77ffd576c1470c3e5ade0fd6718e1bf3c3074fe
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: cb2ca9ac3be0034f5a90add58249a2c2043975d0
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39598876"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43094079"
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>從以 Windows 為基礎的 HDInsight 叢集移轉至以 Linux 為基礎的叢集
 
@@ -143,7 +143,7 @@ ms.locfileid: "39598876"
 
 ## <a name="management-and-monitoring"></a>管理與監視
 
-有許多您可能曾搭配以 Windows 為基礎之 HDInsight 使用的 Web UI (例如工作歷程記錄或 Yarn UI)，皆可透過 Ambari 使用。 此外，Ambari Hive 檢視能提供使用您的網頁瀏覽器執行 Hive 查詢的方法。 Ambari Web UI 可以在以 Linux 為基礎的叢集上使用，位於：https://CLUSTERNAME.azurehdinsight.net。
+有許多您可能曾搭配以 Windows 為基礎之 HDInsight 使用的 Web UI (例如工作歷程記錄或 Yarn UI)，皆可透過 Ambari 使用。 此外，Ambari Hive 檢視能提供使用您的網頁瀏覽器執行 Hive 查詢的方法。 Ambari Web UI 可以在以 Linux 為基礎的叢集上使用，位於： https://CLUSTERNAME.azurehdinsight.net。
 
 如需使用 Ambari 的詳細資訊，請參閱下列文件：
 

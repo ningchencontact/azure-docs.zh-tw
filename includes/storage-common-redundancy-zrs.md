@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 86c301748b58e7642df9a738c70b4fe70be3310b
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 5f7477671e7be4e6e8fd736ab94fa7e7b1e99a6e
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39400003"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43184445"
 ---
 區域備援儲存體 (ZRS) 會以同步方式，將您的資料複寫到單一區域中的三個儲存體叢集。 每個儲存體叢集實際上都與其他叢集分隔並位在自己的可用性區域 (AZ) 中。 每個可用性區域與其中的 ZRS 叢集都是自發性的，具有不同的公用程式與網路功能。
 
@@ -28,6 +28,7 @@ ZRS 目前支援標準的[一般用途 v2 (GPv2)](../articles/storage/common/sto
 
 ZRS 一般會在以下地區推出：
 
+- 美國東部
 - 美國東部 2
 - 美國西部 2
 - 美國中部
@@ -66,16 +67,16 @@ Microsoft 會持續在其他 Azure 區域啟用 ZRS。 如需新區域的詳細�
 
 請透過 Azure 支援入口網站要求即時移轉。 您可以從入口網站選取想要轉換成 ZRS 的儲存體帳戶。
 1. 按一下 [新增支援要求]
-2. 確認 [基本]。 按一下 [下一步]。 
+2. 確認 [基本]。 按 [下一步] 。 
 3. 在 [問題] 區段上， 
     - 將 [嚴重性] 維持不變。
     - 問題類型 = **資料移轉**
     - 類別 = **移轉至區域內的 ZRS**
     - 標題 = **ZRS 帳戶移轉** (或描述性項目)
     - 詳細資料 = 我想要從 ___ 區域中的 [LRS、GRS] 移轉至 ZRS。 
-4. 按一下 [下一步]。
+4. 按 [下一步] 。
 5. 確認 [連絡人資訊] 刀鋒視窗上的連絡人資訊是正確的。
-6. 按一下 [提交]。
+6. 按一下 [提交] 。
 
 支援人員隨後會與您連絡。 該人員會提供您可能需要的任何協助。 
 

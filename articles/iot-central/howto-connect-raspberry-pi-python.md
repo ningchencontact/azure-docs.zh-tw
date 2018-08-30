@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: a3d6ad9f2f442481908bc02252fcc8ab1a74419e
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: aa2d8f50d8fb4ba356af20a290976b8b32601ebf
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205583"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188786"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>將 Raspberry Pi 連線到 Azure IoT Central 應用程式 (Python)
 
@@ -53,9 +53,9 @@ ms.locfileid: "39205583"
 * 回應在 Azure IoT Central 中所做的設定變更。
 
 > [!NOTE]
-> 如需 Raspberry Pi Python 範例的詳細資訊，請參閱 GitHub 上的[讀我檔案](https://github.com/Microsoft/microsoft-iot-central-firmware/blob/master/RaspberryPi/README.md)。
+> 如需 Raspberry Pi Python 範例的詳細資訊，請參閱 GitHub 上的[讀我檔案](https://github.com/Azure/iot-central-firmware/blob/master/RaspberryPi/README.md)。
 
-1. 在 Raspberry Pi 桌面中使用網頁瀏覽器，瀏覽至 [Azure IoT Central 韌體版次](https://github.com/Microsoft/microsoft-iot-central-firmware/releases)頁面。
+1. 在 Raspberry Pi 桌面中使用網頁瀏覽器，瀏覽至 [Azure IoT Central 韌體版次](https://github.com/Azure/iot-central-firmware/releases)頁面。
 
 1. 下載包含最新韌體的 ZIP 檔案至 Raspberry Pi 上的主資料夾。 檔案名稱會像 `RaspberryPi-IoTCentral-X.X.X.zip`。
 

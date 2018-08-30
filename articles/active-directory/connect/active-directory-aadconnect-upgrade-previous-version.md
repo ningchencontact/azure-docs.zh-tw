@@ -15,12 +15,12 @@ ms.workload: Identity
 ms.date: 07/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 20c43669b9da24cea4b0b552a86ec7d5a77dc5a7
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: b730f80faa031b1866d3c11d8a2c885ec67f965e
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264506"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144315"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect：從舊版升級到最新版本
 本主題說明各種可用於將 Azure Active Directory (Azure AD) Connect 安裝升級到最新版本的方法。 我們建議您讓自己的 Azure AD Connect 保持在最新版本。 當您進行大幅組態變更時，也會使用[變換移轉](#swing-migration)一節中的步驟。
@@ -67,7 +67,7 @@ ms.locfileid: "39264506"
 
 ### <a name="use-a-swing-migration-to-upgrade"></a>使用變換移轉進行升級
 1. 如果兩部伺服器都使用 Azure AD Connect，而您打算只進行一項組態變更，請確定作用中伺服器和預備伺服器均使用相同的版本。 這樣一來，您稍後更容易比較出差異。 如果您從 Azure AD 同步進行升級，這些伺服器會有不同的版本。 如果您從舊版 Azure AD Connect 進行升級，最好從使用相同版本的兩部伺服器著手，但並非必要。
-2. 如果您已建立自訂組態，但預備伺服器並沒有此組態，請遵循[將自訂組態從作用中伺服器移到預備伺服器](#move-custom-configuration-from-active-to-staging-server)之下的步驟進行。
+2. 如果您已建立自訂組態，但預備伺服器並沒有此組態，請遵循[將自訂組態從作用中伺服器移到預備伺服器](#move-a-custom-configuration-from-the-active-server-to-the-staging-server)之下的步驟進行。
 3. 如果您要從舊版的 Azure AD Connect 升級，請將預備伺服器升級到最新版本。 如果您要從 Azure AD 同步進行移動，請在預備伺服器上安裝 Azure AD Connect。
 4. 讓同步處理引擎在預備伺服器上執行完整匯入及完整同步處理的作業。
 5. 請使用[驗證伺服器的組態](active-directory-aadconnectsync-operations.md#verify-the-configuration-of-a-server)中「驗證」之下的步驟，以確認新的組態並未造成任何非預期的變更。 如果發現預期以外的變更，請遵循相關步驟，加以修正、執行匯入及同步處理作業，然後驗證資料，直到資料看起來沒問題為止。

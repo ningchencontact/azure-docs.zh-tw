@@ -2,19 +2,19 @@
 title: Azure HDInsight 的版本資訊
 description: Azure HDInsight 的最新版本資訊。 取得 Hadoop、Spark、R Server、Hive 等的開發秘訣和詳細資料。
 services: hdinsight
-editor: jasonwhowell
+ms.reviewer: jasonh
 author: jasonwhowell
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jasonh
-ms.openlocfilehash: c6c320786611e9e2646000fb2272ced8fa90d194
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 5078ee68e559959390d439ed1ef9f8e199d2f083
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39596030"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43090145"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Azure HDInsight 的版本資訊
 
@@ -1376,7 +1376,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
     
     - **選項\#1：透過 Ranger Rest API 建立/更新原則**
         
-        REST URL：http://&lt;host&gt;:6080/service/plugins/policies
+        REST URL： http://&lt;host&gt;:6080/service/plugins/policies
         
         **建立具有原則條件的原則：**
         
@@ -1390,7 +1390,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
         
         下列範例會將具有標記的原則更新為 \`tags-test\`，並將其指派給 \`public\` 群組 (原則條件為 astags.attr\['type'\]=='abc')，方法是選取所有hive 元件權限，像是選取、更新、建立、卸除、改變、編製索引、鎖定、所有。
         
-        REST URL：http://&lt;host-name&gt;:6080/service/plugins/policies/&lt;policy-id&gt;
+        REST URL： http://&lt;host-name&gt;:6080/service/plugins/policies/&lt;policy-id&gt;
         
         **範例：**
         

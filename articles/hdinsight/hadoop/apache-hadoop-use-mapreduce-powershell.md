@@ -3,18 +3,18 @@ title: 搭配使用 MapReduce 和 PowerShell 與 Hadoop - Azure HDInsight
 description: 了解如何使用 PowerShell 從遠端搭配執行 MapReduce 工作與 HDInsight 上的 Hadoop。
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: jasonh
-ms.openlocfilehash: cab6fc652fa11db7dd1e9e9ae7f0a1a634dca3b0
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 5f2b6f11a611446ca13dff074b36a4040fb27d62
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591815"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049041"
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-powershell"></a>使用 PowerShell 搭配執行 MapReduce 工作與 HDInsight 上的 Hadoop
 

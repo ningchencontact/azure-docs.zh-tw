@@ -3,18 +3,18 @@ title: 針對 Azure HDInsight 中的 Apache Spark 叢集問題進行疑難排解
 description: 了解 Azure HDInsight 中的 Apache Spark 叢集相關問題，以及如何解決這些問題。
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: jasonh
-ms.openlocfilehash: a2cb862102462d00822686de7a273c013a164bde
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 92baa28393100abe3d7694920e5ee327966db927
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39616950"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048303"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>HDInsight 上的 Apache Spark 叢集已知問題
 

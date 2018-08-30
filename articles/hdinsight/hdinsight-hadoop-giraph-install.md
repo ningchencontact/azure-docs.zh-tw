@@ -3,18 +3,18 @@ title: 在 HDInsight 的 Hadoop 叢集上安裝和使用 Giraph - Azure
 description: 了解如何使用 Giraph 自訂 HDInsight 叢集，以及如何使用 Giraph。
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 18469b5e2294a689df166f04b99bf83be122ff2f
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 0cf866ee472717c6021922927713ef0bf8817271
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39594282"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43093239"
 ---
 # <a name="install-and-use-giraph-on-windows-based-hdinsight-clusters"></a>在 Windows 型 HDInsight 叢集上安裝和使用 Giraph
 
@@ -48,7 +48,7 @@ ms.locfileid: "39594282"
 
     <table border='1'>
         <tr><th>屬性</th><th>值</th></tr>
-        <tr><td>Name</td>
+        <tr><td>名稱</td>
             <td>指定指令碼動作的名稱。 例如，<b>安裝 Giraph</b>。</td></tr>
         <tr><td>指令碼 URI</td>
             <td>指定為自訂叢集叫用的指令碼統一資源識別項 (URI)。 例如，<i>https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1</i></td></tr>

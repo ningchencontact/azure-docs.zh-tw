@@ -2,16 +2,17 @@
 title: 使用 SQL Server 和 Azure Site Recovery 複寫應用程式 | Microsoft Docs
 description: 本文說明如何使用適用於 SQL Server 災害復原功能的 Azure Site Recovery 來複寫 SQL Server。
 services: site-recovery
+author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/22/2018
 ms.author: raynew
-ms.openlocfilehash: fecf7366417a8a592578a425d8b028249c2681d7
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: a734999f0fa473b5f1ee8ed55c4b73950566490d
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216354"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188768"
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>使用 SQL Server 災害復原和 Azure Site Recovery 保護 SQL Server
 
@@ -82,7 +83,6 @@ Site Recovery 可以與資料表中摘要說明的原生 SQL Server BCDR 技術�
 
 * 執行支援的 SQL Server 版本的內部部署 SQL Server 部署。 通常，您的 SQL Server 也需要 Active Directory。
 * 您要部署之案例的需求。 深入了解[複寫至 Azure](site-recovery-support-matrix-to-azure.md) 和[內部部署](site-recovery-support-matrix.md)的支援需求，以及[部署必要條件](site-recovery-prereq.md)。
-* 如果要在 Azure 中設定復原，請在您的 SQL Server 虛擬機器上執行 [Azure 虛擬機器整備評估](http://www.microsoft.com/download/details.aspx?id=40898)工具，以確定它們與 Azure 和 Site Recovery 相容。
 
 ## <a name="set-up-active-directory"></a>設定 Active Directory
 

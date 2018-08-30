@@ -8,18 +8,18 @@ ms.technology: project-answer-search
 ms.topic: article
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: b05b7745bdb5020a4a0912635e040256415b2626
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c8e2a6a7fc3609932a7a1139d7b34553e5f9c291
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369550"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888318"
 ---
 # <a name="project-answer-search-query-in-c"></a>C# 中的專案答案搜尋查詢
 
 下列 C# 範例會建立並傳送微積分第三規則相關資訊的查詢。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您將需要 [Visual Studio 2017](https://www.visualstudio.com/downloads/) 以在 Windows 上執行此程式碼。 (可使用免費的 Community Edition)。
 
@@ -30,10 +30,10 @@ ms.locfileid: "35369550"
 下列 C# 程式碼會建立並傳送查詢。 
 
 實際進行步驟如下：
-1. 宣告變數來指定端點和查詢 URL 進行預覽。  
+1. 宣告變數以指定用於預覽的端點和查詢 URL。  
 2. 建立要求。
 3. 新增 *Ocp-Apim-Subscription-Key* 標題。 
-4. 以非同步方式執行網路要求。 
+4. 以非同步方式執行 Web 要求。 
 5. 讀取回應。
 6. 將標頭和 JSON 結果列印到主控台。
 
@@ -53,7 +53,7 @@ namespace Answers_csharp
         // Replace the accessKey string value with your valid access key.
         const string accessKey = "YOUR-SUBSCRIPTION-KEY";
 
-        const string uriBase = "https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search "; 
+        const string uriBase = "https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search"; 
 
         const string searchTerm = "third law of calculus"; 
 
@@ -188,9 +188,9 @@ namespace Answers_csharp
 若要執行應用程式：
 
 1. 在 Visual Studio 中建立新的主控台解決方案。
-2. 以提供的程式碼取代 `Program.cs`。
-3. 以您訂用帳戶有效的存取金鑰取代 `YOUR-ACCESS-KEY` 值。
+2. 將 `Program.cs` 取代為提供的程式碼。
+3. 將 `YOUR-ACCESS-KEY` 值取代為您訂用帳戶的有效存取金鑰。
 4. 執行程式。
 
 ## <a name="next-steps"></a>後續步驟
-[Java 快速入門](java-quickstart.md)
+[JAVA 快速入門](java-quickstart.md)
