@@ -8,13 +8,13 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 5/29/2018
-ms.openlocfilehash: 652657c8891f2320c026251ffa32e4787028ee18
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 08/20/2018
+ms.openlocfilehash: f18f52fc409df769d164607a128caaf02ead5e4b
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659128"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42145352"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>針對適用於 MySQL 的 Azure 資料庫使用虛擬網路服務端點和規則
 
@@ -25,7 +25,7 @@ ms.locfileid: "34659128"
 ![VNet 服務端點的運作方式範例](media/concepts-data-access-and-security-vnet/vnet-concept.png)
 
 > [!NOTE]
-> 針對適用於 MySQL 的 Azure 資料庫，這個功能已於已部署適用於 MySQL 的 Azure 資料庫的所有 Azure 公用雲端區域中，以公開預覽的形式提供。
+> 如果適用於 MySQL 的 Azure 資料庫是針對「一般用途」和「記憶體最佳化」伺服器來部署的，則此功能可在所有 Azure 區域中使用。
 
 <a name="anch-terminology-and-description-82f" />
 
@@ -69,7 +69,7 @@ ms.locfileid: "34659128"
 
 如果 **Microsoft.Sql** 伺服器是虛擬網路中某個子網路上的節點，則該虛擬網路內的所有節點都可以與適用於 MySQL 的 Azure 資料庫伺服器通訊。 在此情況下，您的 VM 可在不需要任何虛擬網路規則或 IP 規則的情況下，與適用於 MySQL 的 Azure 資料庫通訊。
 
-不過，截至 2018 年 5 月，適用於 MySQL 的 Azure 資料庫服務還不是可直接指派給子網路的服務。
+不過，截至 2018 年 8 月，適用於 MySQL 的 Azure 資料庫服務還不是可直接指派給子網路的服務。
 
 <a name="anch-details-about-vnet-rules-38q" />
 
@@ -117,9 +117,7 @@ RBAC 替代方案：
 
 - 使用 **Microsoft.Sql** 服務標籤對適用於 MySQL 的 Azure 資料庫開啟虛擬網路服務端點，也會對所有 Azure 資料庫服務啟用端點：適用於 MySQL 的 Azure 資料庫、適用於 PostgreSQL 的 Azure 資料庫、Azure SQL Database，以及 Azure SQL 資料倉儲。
 
-- 在公開預覽期間，不支援 VNet 移動作業。 若要移動虛擬網路規則，請先捨棄然後再重新建立該規則。
-
-- 對於 VNet 服務端點的支援僅適用於一般用途和記憶體最佳化的伺服器。
+- VNet 服務端點的支援僅適用於一般用途伺服器和記憶體最佳化伺服器。
 
 - 在防火牆上，IP 位址範圍會套用到下列網路項目，但虛擬網路規則不這麼做：
     - [站對站 (S2S) 虛擬私人網路 (VPN)][vpn-gateway-indexmd-608y]
@@ -130,6 +128,12 @@ RBAC 替代方案：
 如果您的網路使用 [ExpressRoute][expressroute-indexmd-744v] 連線至 Azure 網路，則每個線路在 Microsoft Edge 會設定兩個公用 IP 位址。 兩個 IP 位址可使用 Azure 公用對等互連來連線至 Microsoft 服務，例如 Azure 儲存體。
 
 若要允許從您的線路針對適用於 MySQL 的 Azure 資料庫進行通訊，您必須為線路的公用 IP 位址建立 IP 網路規則。 若要尋找您 ExpressRoute 線路的公用 IP 位址，請使用 Azure 入口網站開啟具有 ExpressRoute 的支援票證。
+
+## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>在不開啟 VNET 服務端點的情況下將 VNET 防火牆規則新增至伺服器
+
+只是設定防火牆規則不能協助伺服器防禦 VNet。 您也必須**開啟** VNet 服務端點，安全性才會生效。 當您**開啟**服務端點時，您的 VNet 子網路會停機，直到完成**關閉**到**開啟**的轉換。 特別是大型的 VNet，這會更明顯。 您可以使用 **IgnoreMissingServiceEndpoint** 旗標來減少或排除在轉換期間的停機時間。
+
+您可以使用 Azure CLI 或入口網站設定 **IgnoreMissingServiceEndpoint** 旗標。
 
 ## <a name="related-articles"></a>相關文章
 - [Azure 虛擬網路][vm-virtual-network-overview]

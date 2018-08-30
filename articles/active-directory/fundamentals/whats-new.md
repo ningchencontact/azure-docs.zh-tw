@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d39d98a39fb8692d696adfbedc9bb1a34f8be4d6
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: d4bbf26f6535f50b15068125d911df6a1ca20a72
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358829"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42144826"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory 的新增功能？
 
-> 訂閱 [![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [摘要](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us)，以取得何時重新瀏覽此頁面更新的通知。
+>藉由將此 [URL](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) 新增至您的 ![RSS 圖示](./media/whats-new/feed-icon-16x16.png) 摘要讀取程式，即可獲知何時要造訪此頁面來進行更新。
 
 Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發訊息，本文提供下列相關資訊：
 
@@ -38,6 +38,24 @@ Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發�
 ---
 
 ## <a name="july-2018"></a>2018 年 7 月
+
+### <a name="changes-to-azure-active-directory-ip-address-ranges"></a>Azure Active Directory IP 位址範圍的變更
+
+**類型：** 方案變更  
+**服務類別：** 其他  
+**產品功能：** 平台
+
+我們正在將更大的 IP 範圍引入 Azure AD 中，這表示如果您已為您的防火牆、路由器或網路安全性群組設定 Azure AD IP 位址範圍，則必須進行更新。 我們會完成此更新，因此您不需要在 Azure AD 新增端點時，再次變更防火牆、路由器或網路安全群組的 IP 範圍組態。 
+
+接下來的兩個月，網路流量會移至這些新的範圍。 若要繼續使用不中斷的服務，您必須在 2018 年 9 月 10 日之前，將這些更新值新增至您的 IP 位址：
+
+- 20.190.128.0/18 
+
+- 40.126.0.0/18 
+
+我們強烈建議您，在所有網路流量都移至新的範圍之前，不要移除舊的 IP 位址範圍。 若要了解有關移動的更新及可移除舊範圍的時機，請參閱 [Office 365 URL 與 IP 位址範圍](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)。
+
+---
 
 ### <a name="improvements-to-azure-active-directory-email-notifications"></a>Azure Active Directory 電子郵件通知的改進功能
 
@@ -795,7 +813,7 @@ Criterion HCM、[FiscalNote](https://docs.microsoft.com/azure/active-directory/a
 
 如需詳細資訊，請參閱
 
-- [設定應用程式型條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+- [設定應用程式型條件式存取](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 - [設定 Managed Browser 原則](https://aka.ms/managedbrowser)  
 
@@ -1155,7 +1173,7 @@ Azure AD Connect 是在 Azure AD 與內部部署資料來源 (包括 Windows Ser
 如需詳細資訊，請參閱
 
 - [已核准的用戶端應用程式需求](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Azure AD 應用程式型條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+- [Azure AD 應用程式型條件式存取](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
 
@@ -1447,13 +1465,13 @@ Azure Active Directory 存取控制 (也稱為「存取控制」服務) 將於 2
 
 下列應用程式已列入[已核准的用戶端應用程式](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)清單：
 
-- [Microsoft Kaizala](https://microsoft.com/garage/profiles/kaizala/) \(英文\)
+- [Microsoft Kaizala](https://www.microsoft.com/garage/profiles/kaizala/) \(英文\)
 - [Microsoft StaffHub](https://staffhub.office.com/what-it-is)
 
 如需詳細資訊，請參閱
 
 - [已核准的用戶端應用程式需求](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Azure AD 應用程式型條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+- [Azure AD 應用程式型條件式存取](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
 
@@ -1491,9 +1509,9 @@ Azure Active Directory 存取控制 (也稱為「存取控制」服務) 將於 2
 **服務類別：** Azure AD  
 **產品功能：** 身分識別安全性與保護
 
-您現在可以藉由使用 [Azure AD 應用程式型條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)，限制只有支援 Intune 應用程式防護原則的[已核准用戶端應用程式](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)，才能存取 Office 365 和其他已連線至 Azure AD 的雲端應用程式。 系統會使用 Intune 應用程式防護原則，來設定及保護這些用戶端應用程式上的公司資料。
+您現在可以藉由使用 [Azure AD 應用程式型條件式存取](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)，限制只有支援 Intune 應用程式防護原則的[已核准用戶端應用程式](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)，才能存取 Office 365 和其他已連線至 Azure AD 的雲端應用程式。 系統會使用 Intune 應用程式防護原則，來設定及保護這些用戶端應用程式上的公司資料。
 
-透過結合[應用程式型](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)和[裝置型](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications)的條件式存取原則，您將能彈性地保護個人及公司裝置上的資料。
+透過結合[應用程式型](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)和[裝置型](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications)的條件式存取原則，您將能彈性地保護個人及公司裝置上的資料。
 
 下列條件及控制項現已能搭配應用程式型條件式存取使用：
 
@@ -1510,7 +1528,7 @@ Azure Active Directory 存取控制 (也稱為「存取控制」服務) 將於 2
 
 - 需要已核准的用戶端應用程式
 
-如需詳細資訊，請參閱 [Azure AD 應用程式型條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)。
+如需詳細資訊，請參閱 [Azure AD 應用程式型條件式存取](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)。
  
 ---
 
@@ -1607,7 +1625,7 @@ Azure Active Directory 存取控制 (也稱為「存取控制」服務) 將於 2
 如需詳細資訊，請參閱
 
 - [已核准的用戶端應用程式需求](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Azure AD 應用程式型條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+- [Azure AD 應用程式型條件式存取](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 
 ---

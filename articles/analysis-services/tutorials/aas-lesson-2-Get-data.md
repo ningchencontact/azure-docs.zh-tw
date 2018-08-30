@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e10f6cdb60a2c03bfb42e46f179546b623d625dd
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 5803bf2c71b2cf3fe7bb145b4d3d664c60642294
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443761"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42145334"
 ---
 # <a name="get-data"></a>取得資料
 
@@ -26,7 +26,7 @@ ms.locfileid: "37443761"
   
 這堂課的預估完成時間：**10 分鐘**  
   
-## <a name="prerequisites"></a>先決條件  
+## <a name="prerequisites"></a>必要條件  
 本主題是表格式模型教學課程的一部分，請依序完成。 在這堂課中執行工作之前，您必須已完成上一堂課︰[第 1 課︰建立新的表格式模型專案](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)。  
   
 ## <a name="create-a-connection"></a>建立連線  
@@ -52,11 +52,11 @@ ms.locfileid: "37443761"
   
 5.  在 [導覽器] 中，選取 [AdventureWorksDW2014] 資料庫，然後按一下 [確定]。這會建立資料庫的連線。 
   
-6.  在 [導覽器] 中，選取下列資料表的核取方塊︰**DimCustomer**、**DimDate**、**DimGeography**、**DimProduct**、**DimProductCategory**、**DimProductSubcategory** 和 **FactInternetSales**。  
+6.  在 [導覽器] 中，選取下列資料表的核取方塊︰**DimCustomer**、**DimDate**、**DimGeography**、**DimProduct**、**DimProductCategory**、**DimProductSubcategory** 和 **FactInternetSales**，然後按一下 [編輯]。
 
     ![aas-lesson2-select-tables](../tutorials/media/aas-lesson2-select-tables.png)
   
-按一下 [確定] 之後，[查詢編輯器] 隨即開啟。 在下一個區段中，您只要選取想要匯入的資料。
+    查詢編輯器隨即開啟。 在下一個區段中，您只要選取想要匯入的資料。
 
   
 ## <a name="filter-the-table-data"></a>篩選資料表資料  

@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 08/20/2018
 ms.author: danlep
-ms.openlocfilehash: d0762f80267fa927681344a3e0de78b0800c8306
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fc245d38af90e0c395389e24b14d061fcfe0c10c
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630206"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42145363"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>如何在 Azure 上搭配 Windows 使用 SSH 金鑰
 
@@ -33,9 +33,9 @@ ms.locfileid: "38630206"
 ## <a name="windows-packages-and-ssh-clients"></a>Windows 套件和 SSH 用戶端
 您可使用 *SSH 用戶端*來連線及管理 Azure 中的 Linux VM。 執行 Linux 或 macOS 的電腦通常有一組 SSH 命令，可用來產生和管理 SSH 金鑰以及建立 SSH 連線。 
 
-Windows 電腦不一定會安裝類似的 SSH 命令。 包含 [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/about) 的 Windows 10 版本，可讓您在 Bash 殼層內以原生方式執行和存取公用程式 (例如 SSH 用戶端)。 
+Windows 電腦不一定會安裝類似的 SSH 命令。 最新版本的 Windows 10 提供 [OpenSSH 用戶端命令](https://blogs.msdn.microsoft.com/commandline/2018/03/07/windows10v1803/)，可用來建立並管理 SSH 金鑰，也可從命令提示字元進行 SSH 連線。 最的 Windows 10 新版本也包含 [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/about)，可在 Bash 殼層內以原生方式執行和存取公用程式 (例如 SSH 用戶端)。 
 
-如果您想要使用 Bash for Windows 以外的產品，以下套件包含一般您可以在本機安裝的 Windows SSH 用戶端︰
+如果您想要使用其他適用於 Windows 的 SSH 工具，以下套件包含一般您可以在本機安裝的 Windows SSH 用戶端︰
 
 * [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
 * [Git For Windows](https://git-for-windows.github.io/)
@@ -52,7 +52,7 @@ Windows 電腦不一定會安裝類似的 SSH 命令。 包含 [Windows Subsyste
 
 ### <a name="create-ssh-keys-with-ssh-keygen"></a>利用 ssh-keygen 建立 SSH 金鑰
 
-如果您可以執行 Bash for Windows 或 GitBash (或者 Azure Cloud Shell 中的 Bash) 此類的命令殼層，請使用 `ssh-keygen` 建立 SSH 金鑰組。 輸入下列命令並回答提示。 如果有 SSH 金鑰組存在於目前的位置，系統將會覆寫這些檔案。 
+如果您在支援 SSH 用戶端工具的 Windows 上執行命令殼層 (或使用 Azure Cloud Shell)，可使用 `ssh-keygen` 命令來建立 SSH 金鑰組。 輸入下列命令並回答提示。 如果有 SSH 金鑰組存在於目前的位置，系統將會覆寫這些檔案。 
 
 ```bash
 ssh-keygen -t rsa -b 2048
