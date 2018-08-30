@@ -9,12 +9,12 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: zhouwang
-ms.openlocfilehash: ee328145419aaf8962c08bca2fb9cf1a42daae0c
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: d58642b95a60d4f1c83dfd969d0c76511dca4653
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42093823"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43097390"
 ---
 # <a name="microsoft-bing-speech-api-overview"></a>Microsoft Bing 語音 API 概觀
 
@@ -24,7 +24,7 @@ ms.locfileid: "42093823"
 - **文字轉換語音** API 會將文字轉換成可向應用程式使用者播放的音訊資料流。
 
 > [!NOTE] 
-> 在 2018 年 5 月，我們發行了新的[語音服務](/speech-service/overview.md) (公開預覽狀態)。 我們鼓勵您[免費試用](/speech-service/get-started.md)。
+> 在 2018 年 5 月，我們發行了新的[語音服務](../speech-service/overview.md) (公開預覽狀態)。 我們鼓勵您[免費試用](../speech-service/get-started.md)。
 
 ## <a name="speech-to-text-speech-recognition"></a>語音轉換文字 (語音辨識)
 

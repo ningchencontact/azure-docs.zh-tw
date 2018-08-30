@@ -4,33 +4,28 @@ description: 了解如何使用 Ansible 在 Azure 中建立並管理 Azure Kuber
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, 劇本, aks, 容器, Kubernetes
 author: tomarcher
-manager: jpconnock
-editor: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.date: 07/11/2018
+manager: jeconnoc
 ms.author: tarcher
-ms.openlocfilehash: 6d7c5f961256e0ae1831bd76353cadd761f4b8ac
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.topic: tutorial
+ms.date: 08/23/2018
+ms.openlocfilehash: f7dbc124781992ada9c3538cf415b836d8764064
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011986"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42810815"
 ---
 # <a name="create-and-configure-azure-kubernetes-service-clusters-in-azure-using-ansible"></a>使用 Ansible 在 Azure 中建立並設定 Azure Kubernetes Service 叢集
 Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使用 Ansible 來管理 Azure Kubernetes Service (AKS)。 本文說明如何使用 Ansible 建立並設定 Azure Kubernetes Service 叢集。
 
 ## <a name="prerequisites"></a>必要條件
 - **Azure 訂用帳戶** - 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
-- **設定 Ansible** - [建立 Azure 認證和設定 Ansible](../virtual-machines/linux/ansible-install-configure.md#create-azure-credentials)
-- **Ansible 和 Azure Python SDK 模組** 
-  - [CentOS 7.4](../virtual-machines/linux/ansible-install-configure.md#centos-74)
-  - [Ubuntu 16.04 LTS](../virtual-machines/linux/ansible-install-configure.md#ubuntu-1604-lts)
-  - [SLES 12 SP2](../virtual-machines/linux/ansible-install-configure.md#sles-12-sp2)
 - **Azure 服務主體** - 在[建立服務主體](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal)時，請記下下列值：**appId**、**displayName**、**password** 和 **tenant**。
 
+- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
+
 > [!Note]
-> 必須有 Ansible 2.6 才能執行本教學課程中的下列劇本範例。 
+> 必須使用 Ansible 2.6，才能執行本教學課程中的下列範例腳本。 
 
 ## <a name="create-a-managed-aks-cluster"></a>建立受控 AKS 叢集
 下列 Ansible 劇本範例會建立一個資源群組，以及一個位於資源群組中的 AKS 叢集：
@@ -157,7 +152,44 @@ Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使�
   PLAY RECAP ******************************************************************************
   localhost                  : ok=2    changed=1    unreachable=0    failed=0
   ```
+## <a name="delete-a-managed-aks-cluster"></a>刪除受控 AKS 叢集
 
+下列範例 Ansible 腳本區段會示範如何刪除 AKS 叢集：
+
+  ```yaml
+  - name: Delete a managed Azure Container Services (AKS) cluster
+    hosts: localhost
+    connection: local
+    vars:
+      resource_group: myResourceGroup
+      aks_name: myAKSCluster
+    tasks:
+    - name: 
+      azure_rm_aks:
+        name: "{{ aks_name }}"
+        resource_group: "{{ resource_group }}"
+        state: absent
+   ```
+
+若要使用 Ansible 刪除 Azure Kubernetes Service 叢集，請將上述腳本儲存為 *azure_delete_aks.yml*，並依照下列方式執行腳本：
+
+  ```bash
+  ansible-playbook azure_delete_aks.yml
+  ```
+
+下列輸出顯示您已成功刪除 AKS 叢集：
+  ```bash
+PLAY [Delete a managed Azure Container Services (AKS) cluster] ****************************
+
+TASK [Gathering Facts] ********************************************************************
+ok: [localhost]
+
+TASK [azure_rm_aks] *********************************************************************
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=1    unreachable=0    failed=0
+  ```
+  
 ## <a name="next-steps"></a>後續步驟
 > [!div class="nextstepaction"] 
-> [教學課程：調整 Azure Kubernetes Service (AKS) 中的應用程式](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-scale)
+> [教學課程：調整 Azure Kubernetes Service (AKS) 中的應用程式](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale)

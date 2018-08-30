@@ -9,16 +9,16 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: fmegen
-ms.openlocfilehash: bbf10d9bd0912dab22c81e2bb850ede52a3bd9e3
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 9f761fed46f0730a64a984111da1bae1229cc93d
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42093839"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127066"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 Android 上以 Java 辨識語音
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 在本文中，您將了解如何使用認知服務語音 SDK 將語音轉譯成文字，建立適用於 Android 的 Java 應用程式。
 應用程式以 Microsoft 認知服務語音 SDK Maven 套件 0.6.0 版和 Android Studio 3.1 為基礎。
@@ -61,7 +61,7 @@ ms.locfileid: "42093839"
 
 ## <a name="configure-your-project-for-the-speech-sdk"></a>設定適用於語音 SDK 的專案
 
-[!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 認知服務語音 SDK 目前的版本為 `0.6.0`。
 
@@ -154,7 +154,7 @@ UI 的文字和圖形化版本現在看起來應該像下面這樣：
 
 此螢幕擷取畫面總結 Android 快速入門。 完整的專案範例程式碼可以從範例存放庫下載。
 
-[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 在 `quickstart/java-android` 資料夾中尋找此範例。
 
 ## <a name="next-steps"></a>後續步驟

@@ -10,12 +10,12 @@ ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: cephalin
-ms.openlocfilehash: 5e17638e030ae2827b0de7dc82ecf75062504112
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: dfc0a13c1804d8ea74c78a61bfa85e9f5bdd1685
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39575925"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42819065"
 ---
 # <a name="how-to-prepare-for-an-outbound-ip-address-change"></a>如何為輸出 IP 位址變更進行準備
 
@@ -39,7 +39,7 @@ ms.locfileid: "39575925"
 
 3.  從清單中選取 App Service 應用程式。
 
-4.  若該應用程式為函式應用程式，請參閱[函式應用程式輸出 IP 位址](../azure-functions/ip-addresses.md#function-app-outbound-ip-addresses)。
+4.  若該應用程式為函式應用程式，請參閱[函式應用程式輸出 IP 位址](../azure-functions/ip-addresses.md#find-outbound-ip-addresses)。
 
 4.  在 [設定] 標題底下，按一下左側導覽中的 [屬性]，並找到標示為 [輸出 IP 位址] 的區段。
 

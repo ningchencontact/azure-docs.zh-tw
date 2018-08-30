@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: sajagtap
-ms.openlocfilehash: 4570b514bef33c8dfa6d220ee4cd88ad068ba4d0
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 66caea65c21bb1f8bb6efa9b50c917599bb71e2f
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42093819"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43093972"
 ---
 # <a name="facebook-content-moderation-with-content-moderator"></a>使用 Content Moderator 進行 Facebook 內容仲裁
 
@@ -67,7 +67,7 @@ ms.locfileid: "42093819"
 | 應用程式設定 | 說明   | 
 | -------------------- |-------------|
 | cm:TeamId   | 您的 Content Moderator TeamId  | 
-| cm:SubscriptionKey | 您的 Content Moderator 訂用帳戶金鑰 - 請參閱 [Credentials](/review-tool-user-guide/credentials.md) | 
+| cm:SubscriptionKey | 您的 Content Moderator 訂用帳戶金鑰 - 請參閱 [Credentials](review-tool-user-guide/credentials.md) | 
 | cm:Region | 您的 Content Moderator 區域名稱 (不含空格)。 請參閱上面的注意事項。 |
 | cm:ImageWorkflow | 要在「影像」上執行之工作流程的名稱 |
 | cm:TextWorkflow | 要在「文字」上執行之工作流程的名稱 |

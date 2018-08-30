@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 14bf68355550d756bd3f4da1a367133d83ddbf07
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 110bdcacf7433c1e0ab0cb31e1a04734137f9596
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42145133"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885234"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>使用適用於 SysRq 和 NMI 呼叫的序列主控台
 
@@ -84,18 +84,22 @@ echo "1" >/proc/sys/kernel/sysrq
 
 ### <a name="distribution-specific-documentation"></a>散發版本特有的文件 ###
 如需散發版本特有的 SysRq 相關文件，以及在 Linux 收到 SysRq 的「損毀」命令時，可建立損毀傾印的設定步驟，請參閱下列連結：
+
 #### <a name="ubuntu"></a>Ubuntu ####
  - [核心損毀傾印](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)
+
 #### <a name="red-hat"></a>Red Hat ####
 - [什麼是 SysRq 設施？該如何使用？](https://access.redhat.com/articles/231663)
 - [如何使用 SysRq 設施從 RHEL 伺服器收集資訊](https://access.redhat.com/solutions/2023)
+
 #### <a name="suse"></a>SUSE ####
 - [設定核心的核心傾印擷取](https://www.suse.com/support/kb/doc/?id=3374462)
+
 #### <a name="coreos"></a>CoreOS ####
 - [收集損毀記錄](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
 ## <a name="non-maskable-interrupt-nmi"></a>非遮罩式插斷 (NMI) 
-非遮罩式插斷 (NMI) 旨在建立虛擬機器上軟體不會忽略的訊號。 在過去，NMI 已用來監視系統上的硬體問題，而這需要特定的回應時間。  現在，程式設計人員和系統管理員通常會使用 NMI 機制來對停止的系統進行偵錯和疑難排解。
+非遮罩式插斷 (NMI) 旨在建立虛擬機器上軟體不會忽略的訊號。 在過去，NMI 已用來監視系統上需要特定回應時間的硬體問題。  現在，程式設計人員和系統管理員通常會使用 NMI 作為對無回應系統進行偵錯和疑難排解的機制。
 
 使用命令列中的鍵盤圖示，即可使用序列主控台將 NMI 傳送至 Azure 虛擬機器，如下所示。 NMI 序列傳遞出去後，虛擬機器組態將會控制系統的回應方式。  Linux 作業系統可以設定為損毀，並在作業系統收到 NMI 時，建立記憶體傾印。
 
@@ -109,16 +113,17 @@ echo "1" >/proc/sys/kernel/sysrq
 
 如需有關 Linux 核心組態的資訊 (包括 `unknown_nmi_panic`、`panic_on_io_nmi` 和 `panic_on_unrecovered_nmi`)，請參閱：[/proc/sys/kernel/* 的文件](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt)。 如需散發版本特有的 NMI 相關文件，以及在 Linux 收到 NMI 時，可建立損毀傾印的設定步驟，請參閱下列連結：
  
- ### <a name="ubuntu"></a>Ubuntu 
+### <a name="ubuntu"></a>Ubuntu 
  - [核心損毀傾印](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)
 
- ### <a name="red-hat"></a>Red Hat 
+### <a name="red-hat"></a>Red Hat 
  - [什麼是 NMI？該如何使用？](https://access.redhat.com/solutions/4127)
  - [如何在推送 NMI 參數時，將我的系統設定為損毀？](https://access.redhat.com/solutions/125103)
  - [損毀傾印的系統管理指南](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/pdf/kernel_crash_dump_guide/kernel-crash-dump-guide.pdf)
 
 ### <a name="suse"></a>SUSE 
 - [設定核心的核心傾印擷取](https://www.suse.com/support/kb/doc/?id=3374462)
+
 ### <a name="coreos"></a>CoreOS 
 - [收集損毀記錄](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 

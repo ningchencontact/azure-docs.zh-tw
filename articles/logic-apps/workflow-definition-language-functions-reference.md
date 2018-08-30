@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 6292ea4ccd3780e1da86252b7ec9c09c2eea3982
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 78e991fcac87d59ed7b84180192899ddbdf330f2
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42141102"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43105634"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps 中工作流程定義語言的函式參考
 
@@ -3536,6 +3536,8 @@ triggerFormDataValue('feedUrl')
 並傳回此字串作為範例結果：`"http://feeds.reuters.com/reuters/topNews"` 
 
 <a name="triggerMultipartBody"></a>
+
+### <a name="triggermultipartbody"></a>triggerMultipartBody
 
 從具有多個部分的觸發程序輸出中，傳回特定部分的內容。 
 

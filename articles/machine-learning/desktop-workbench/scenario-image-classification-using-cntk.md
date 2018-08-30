@@ -13,10 +13,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
 ms.openlocfilehash: 48c21638fe5756e6527288ed0fdc73dd9e331afd
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/04/2018
+ms.lasthandoff: 08/28/2018
 ms.locfileid: "35633288"
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>使用 Azure Machine Learning Workbench 進行影像分類
@@ -46,7 +46,7 @@ DNN 不僅在影像分類的領域上有重大的改善，在物件偵測和影�
 雖然不需要使用機器學習和 CNTK 的先前經驗，但其有助於了解基本準則。 教學課程中報告的精確數字、訓練時間等僅供參考，執行程式碼時的實際值幾乎不一樣。
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 要執行此範例所需符合的必要條件如下：
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 6ff7a0270509c244fc97bd04d8ba648fd262dc58
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2499822db587dbf47dccedf6039d0fb5823c58b5
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34600114"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746073"
 ---
 # <a name="show-traffic-on-the-map"></a>在地圖上顯示路況
 
@@ -27,13 +27,13 @@ ms.locfileid: "34600114"
 
 在上述程式碼中，程式碼的第一個區塊會建構對應物件。 如需相關指示，您可以查看[建立對應](map-create.md)。
 
-程式碼的第二個區塊會使用地圖類別的 [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#settraffic) 函式，來轉譯地圖上的交通流量和事件。
+程式碼的第二個區塊會使用地圖類別的 [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#settraffic) 函式，來轉譯地圖上的交通流量和事件。
 
 ## <a name="next-steps"></a>後續步驟
 
 深入了解本文使用的類別和方法： 
-* [Map](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
-    * [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#settraffic)
+* [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+    * [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#settraffic)
 
 如需更多可新增至地圖的程式碼範例，請參閱下列文章： 
 * [與地圖互動 – 滑鼠事件](./map-events.md)

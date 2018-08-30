@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: d0ec146d276f72abf4cbbe3da4d11c0d5539df6d
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 803e82a294b64452ffd788880097b9d86ac1065b
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144188"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745285"
 ---
 # <a name="what-is-azure-maps"></a>什麼是 Azure 地圖服務？
 Azure 地圖服務是地理空間服務的集合，以最新的地圖資料作為後盾，因此您可以為 Web 和行動裝置應用程式提供準確的地理內容。 此服務包含 REST API 來轉譯地圖、搜尋景點、規劃景點路線、交通狀況、時區及位置服務的 IP。 您可以搭配熟悉的工具使用這些 API，快速開發和調整解決方案，進而將位置資訊整合到 Azure 解決方案中。 此服務與 REST API 搭配運作時，會提供 Web 式 JavaScript 控制項，讓開發作業更加輕鬆、有彈性且可在多個媒介中轉移。 
@@ -98,7 +98,7 @@ Azure 地圖服務是由下列六個服務組成，可以為 Azure 應用程式�
 
 Azure 地圖服務是針對行動性而建置，可以為跨平台的應用程式提供服務。 它使用與語言無關的程式設計模型，並且透過 [REST API](https://docs.microsoft.com/rest/api/maps/) 支援 JSON 輸出。 
 
-此外，Azure 地圖服務使用簡單的程式設計模型提供方便的 [JavaScript 地圖控制項](https://docs.microsoft.com/javascript/api/azure-maps-javascript/?view=azure-iot-typescript-latest)，以便快速輕鬆開發 Web 和行動裝置應用程式。 
+此外，Azure 地圖服務使用簡單的程式設計模型提供方便的 [JavaScript 地圖控制項](https://docs.microsoft.com/javascript/api/azure-maps-control/models?view=azure-iot-typescript-latest)，以便快速輕鬆開發 Web 和行動裝置應用程式。 
 
 
 ## <a name="usage"></a>使用量

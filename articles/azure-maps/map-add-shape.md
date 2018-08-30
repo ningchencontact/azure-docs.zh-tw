@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: dec9b7289927365faa9c58522df2571db99f0494
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b1fe17adc80fc7f93f1511d577b1dc363e36e2e3
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34599366"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745996"
 ---
 # <a name="add-a-shape-to-a-map"></a>在地圖中新增圖形
 
@@ -29,9 +29,9 @@ ms.locfileid: "34599366"
 
 在上述程式碼中，程式碼的第一個區塊會建構對應物件。 如需相關指示，您可以查看[建立對應](./map-create.md)。
 
-在程式碼的第二個區塊中，會建立一條線。 線條是 LineString 的一項[功能](https://docs.microsoft.com/javascript/api/azure-maps-javascript/feature?view=azure-iot-typescript-latest)，會以 LineStringProperties 作為其功能屬性。 使用 `new atlas.data.Feature(new atlas.data.LineString())` 建立線條，並定義其屬性。 
+在程式碼的第二個區塊中，會建立一條線。 線條是 LineString 的一項[功能](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.atlas.data.feature?view=azure-iot-typescript-latest)，會以 LineStringProperties 作為其功能屬性。 使用 `new atlas.data.Feature(new atlas.data.LineString())` 建立線條，並定義其屬性。 
 
-線條圖層是線條的陣列。 最後一個程式碼區塊會使用地圖類別的 [addLineStrings](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addlinestrings) 函式，在地圖中新增線條圖層並定義線條圖層的屬性。 請在 [LinestringLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-javascript/linestringlayeroptions?view=azure-iot-typescript-latest) 查看線條圖層的屬性。
+線條圖層是線條的陣列。 最後一個程式碼區塊會使用地圖類別的 [addLineStrings](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addlinestrings) 函式，在地圖中新增線條圖層並定義線條圖層的屬性。 請在 [LinestringLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.linestringlayeroptions?view=azure-iot-typescript-latest) 查看線條圖層的屬性。
 
 <a id="addACircle"></a>
 
@@ -42,9 +42,9 @@ ms.locfileid: "34599366"
 
 在上述程式碼中，程式碼的第一個區塊會建構對應物件。 如需相關指示，您可以查看[建立對應](./map-create.md)。
 
-在程式碼的第二個區塊中，會建立一個圓形。 圓形是 [Point](https://docs.microsoft.com/javascript/api/azure-maps-javascript/point?view=azure-iot-typescript-latest) 的一項[功能](https://docs.microsoft.com/javascript/api/azure-maps-javascript/feature?view=azure-iot-typescript-latest)，會以 [CircleProperties](https://docs.microsoft.com/javascript/api/azure-maps-javascript/circleproperties?view=azure-iot-typescript-latest) 作為其功能屬性。 使用 `new atlas.data.Feature(new atlas.data.Point())` 建立圓形，並定義其屬性。
+在程式碼的第二個區塊中，會建立一個圓形。 圓形是 [Point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.atlas.data.point?view=azure-iot-typescript-latest) 的一項[功能](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.atlas.data.feature?view=azure-iot-typescript-latest)，會以 [CircleProperties](https://docs.microsoft.com/javascript/api/azure-maps-control/modelscircleproperties?view=azure-iot-typescript-latest) 作為其功能屬性。 使用 `new atlas.data.Feature(new atlas.data.Point())` 建立圓形，並定義其屬性。
 
-圓形圖層是圓形的陣列。 最後一個程式碼區塊會使用地圖類別的 [addCircle](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addcircles) 函式，在地圖中新增圓形圖層並定義圓形圖層的屬性。 請在 [CircleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-javascript/circlelayeroptions?view=azure-iot-typescript-latest) 查看圓形圖層的屬性。
+圓形圖層是圓形的陣列。 最後一個程式碼區塊會使用地圖類別的 [addCircle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcircles) 函式，在地圖中新增圓形圖層並定義圓形圖層的屬性。 請在 [CircleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.circlelayeroptions?view=azure-iot-typescript-latest) 查看圓形圖層的屬性。
 
 <a id="addAPolygon"></a>
 
@@ -54,9 +54,9 @@ ms.locfileid: "34599366"
 
 在上述程式碼中，程式碼的第一個區塊會建構對應物件。 如需相關指示，您可以查看[建立對應](./map-create.md)。
 
-在程式碼的第二個區塊中，會建立一個多邊形。 多邊形是 [Polygon](https://docs.microsoft.com/javascript/api/azure-maps-javascript/polygon?view=azure-iot-typescript-latest) 的一項[功能](https://docs.microsoft.com/javascript/api/azure-maps-javascript/feature?view=azure-iot-typescript-latest)，會以 [PolygonProperties](https://docs.microsoft.com/javascript/api/azure-maps-javascript/polygonproperties?view=azure-iot-typescript-latest) 作為其功能屬性。 使用 `new atlas.data.Feature(new atlas.data.Polygon())` 建立多邊形，並定義其屬性。 在多邊形建構函式中提供多邊形路徑的已排序座標。
+在程式碼的第二個區塊中，會建立一個多邊形。 多邊形是 [Polygon](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.atlas.data.polygon?view=azure-iot-typescript-latest) 的一項[功能](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.atlas.data.feature?view=azure-iot-typescript-latest)，會以 [PolygonProperties](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.atlas.data.polygonproperties?view=azure-iot-typescript-latest) 作為其功能屬性。 使用 `new atlas.data.Feature(new atlas.data.Polygon())` 建立多邊形，並定義其屬性。 在多邊形建構函式中提供多邊形路徑的已排序座標。
 
-多邊形圖層是多邊形的陣列。 最後一個程式碼區塊會使用地圖類別的 [addPolygons](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addpolygons) 函式，在地圖中新增多邊形圖層並定義其屬性。 請在 [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-javascript/polygonlayeroptions?view=azure-iot-typescript-latest) 查看多邊形圖層的屬性。 
+多邊形圖層是多邊形的陣列。 最後一個程式碼區塊會使用地圖類別的 [addPolygons](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpolygons) 函式，在地圖中新增多邊形圖層並定義其屬性。 請在 [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.polygonlayeroptions?view=azure-iot-typescript-latest) 查看多邊形圖層的屬性。 
 
 ## <a name="next-steps"></a>後續步驟
 如需更多可新增至地圖的程式碼範例，請參閱下列文章：

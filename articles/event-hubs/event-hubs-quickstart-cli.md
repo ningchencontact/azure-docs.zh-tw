@@ -1,6 +1,6 @@
 ---
-title: Azure 快速入門 - 使用 Azure CLI 處理事件串流 | Microsoft Docs
-description: 在本快速入門中，您將了解如何使用 Azure CLI 處理事件串流。
+title: Azure 快速入門 - 使用 Azure CLI 建立事件中樞 | Microsoft Docs
+description: 本快速入門說明如何使用 Azure CLI 建立事件中樞，然後使用 Java 傳送和接收事件。
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
@@ -8,16 +8,16 @@ ms.service: event-hubs
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 06/26/2018
+ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 7a15b252727589194da90af729a74e1baad7094f
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: dfaed2222d16564cd1f573b4e9038b7019780944
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004559"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42744159"
 ---
-# <a name="quickstart-process-event-streams-using-azure-cli-and-java"></a>快速入門：使用 Azure CLI 和 Java 處理事件串流
+# <a name="quickstart-create-an-event-hub-using-azure-cli"></a>快速入門：使用 Azure CLI 建立事件中樞
 
 Azure 事件中樞是可高度調整的資料串流平台和擷取服務，每秒可接收和處理數百萬個事件。 本快速入門會示範如何使用 Azure CLI 建立事件中樞資源，然後使用 Java 程式碼傳送及接收來自事件中樞的事件串流。
 

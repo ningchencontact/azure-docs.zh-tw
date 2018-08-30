@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 07/06/2018
 ms.author: ramamill
 ms.openlocfilehash: 6aff17908d220557720776a2d7884adc28b5deee
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
+ms.lasthandoff: 08/28/2018
 ms.locfileid: "37917164"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>使用 System Center Configuration Manager 自動進行行動服務安裝
@@ -26,7 +26,7 @@ ms.locfileid: "37917164"
 
 或者，您可以使用 [Azure Automation DSC](vmware-azure-mobility-deploy-automation-dsc.md) 自動進行行動服務安裝。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 1. 環境中已部署的軟體部署工具，例如 Configuration Manager。
 2. 您應該建立兩個[裝置集合](https://technet.microsoft.com/library/gg682169.aspx)，一個用於所有 **Windows 伺服器**，另一個用於所有 **Linux 伺服器** (都是您想要使用 Site Recovery 保護的伺服器)。
@@ -172,7 +172,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
   | **參數名稱** | **值** |
   |--|--|
-  | Name | 安裝 Microsoft Azure 行動服務 (Windows) |
+  | 名稱 | 安裝 Microsoft Azure 行動服務 (Windows) |
   | 命令列 | install.bat |
   | 程式可以執行 | 使用者是否登入 |
 
@@ -397,7 +397,7 @@ cd /tmp
 
     | **參數名稱** | **值** |
   |--|--|
-  | Name | 安裝 Microsoft Azure 行動服務 (Linux) |
+  | 名稱 | 安裝 Microsoft Azure 行動服務 (Linux) |
   | 命令列 | ./install_linux.sh |
   | 程式可以執行 | 使用者是否登入 |
 

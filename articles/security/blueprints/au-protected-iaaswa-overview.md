@@ -6,19 +6,18 @@ author: meladie
 ms.assetid: f53a25c4-1c75-42d6-a0e7-a91661673891
 ms.service: security
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: 2179398cdd79db99540ce219b8f4eae24f0eca39
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: b269a145c78aaf025ef05a4562cf55124c17e2ee
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246227"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818000"
 ---
 # <a name="azure-security-and-compliance-blueprint---iaas-web-application-for-australia-protected"></a>Azure 安全性與合規性藍圖 - 適用於 Australia Protected 的 IaaS Web 應用程式
 
 ## <a name="overview"></a>概觀
-
 此 Azure 安全性與合規性藍圖提供基礎結構即服務 (IaaS) 環境部署的指導方針，以用於收集、儲存及擷取符合澳洲政府資訊安全性手冊 (ISM) 規範 (由澳洲國防情報局 (ASD) 所編纂) 的 AU-PROTECTED 政府資料。 此藍圖顯示一般參考架構，並有助於示範如何在安全且符合規範的多層環境中處理敏感性政府資料。
 
 此參考架構、實作指南與威脅模型提供一個基礎，讓客戶進行其自己的規劃與系統認證程序，協助客戶以符合 ASD 規範的方式將工作負載部署到 Azure。 客戶可能會選擇實作 Azure VPN 閘道或 ExpressRoute 以使用同盟服務，並將內部部署資源與 Azure 資源整合。 客戶必須考慮使用內部部署資源的安全性意涵。 必須進行額外設定才能符合所有需求，因為它們可能會根據每個客戶的實作特性而不同。
@@ -71,7 +70,6 @@ ms.locfileid: "40246227"
 此藍圖包含尚未通過澳洲網路安全中心 (ACSC) 受保護分類認證而可使用的 Azure 服務。 此參考架構中包括的所有服務都已由 ACSC 在傳播限制標記 (DLM) 層級認證。 Microsoft 建議客戶檢閱與這些 Azure 服務相關的已發行安全性與稽核報告，並使用其風險管理架構來判斷 Azure 服務是否適合其內部認證並在受保護分類使用。
 
 ## <a name="deployment-architecture"></a>部署架構
-
 下一節會詳細說明部署和實作元素。
 
 **防禦主機**：防禦主機是單一進入點，可讓使用者存取此環境中已部署的資源。 防禦主機為已部署的資源提供安全連線，其允許的遠端流量僅限來自安全清單上的公用 IP 位址。 若要允許遠端桌面 (RDP) 流量，必須在網路安全性群組中定義該流量的來源。
@@ -84,7 +82,6 @@ ms.locfileid: "40246227"
 -   [Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard) 已啟用，因此認證和其他祕密都會在受保護的環境中執行，且該環境會與正在執行的作業系統隔離
 
 ### <a name="virtual-network"></a>虛擬網路
-
 此架構會定義位址空間為 10.200.0.0/16 的私人虛擬網路。
 
 **網路安全性群組**：此解決方案在虛擬網路內，將資源部署在具有個別的 Web 子網路、資料庫子網路、Active Directory 子網路及管理子網路的架構中。 套用至個別子網路的網路安全性群組規則以邏輯方式區隔了子網路，將子網路之間的流量限制為系統和管理功能所需的流量。
@@ -97,7 +94,7 @@ ms.locfileid: "40246227"
 - 1 個網路安全性群組用於 SQL Server 及雲端見證 (SQLNSG)
 - 1 個網路安全性群組用於 Web 層 (WEBNSG)
 
-### <a name="data-in-transit"></a>傳輸中資料
+### <a name="data-in-transit"></a>資料傳輸中
 Azure 預設會加密與 Azure 資料中心的所有通訊。 
 
 針對客戶自有網路中的傳輸中受保護資料，架構會使用網際網路或 ExpressRoute 搭配已使用 IPSEC 設定的 VPN 閘道。
@@ -105,7 +102,6 @@ Azure 預設會加密與 Azure 資料中心的所有通訊。
 此外，透過 Azure 管理入口網站與 Azure 進行的所有交易都會透過 HTTPS 使用 TLS 1.2 發生。
 
 ### <a name="data-at-rest"></a>待用資料
-
 架構會透過加密、資料庫稽核及其他量值來保護待用資料。
 
 **Azure 儲存體**：為符合加密的待用資料需求，所有 [Azure 儲存體](https://azure.microsoft.com/services/storage/)都會使用[儲存體服務加密](https://docs.microsoft.com/azure/storage/storage-service-encryption)。 這有助於保護與防衛資料，以支援組織的安全性承諾及澳洲政府所定義的合規性需求。
@@ -113,7 +109,6 @@ Azure 預設會加密與 Azure 資料中心的所有通訊。
 **Azure 磁碟加密**：[Azure 磁碟加密](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)會利用 Windows 的 BitLocker 功能來提供資料磁碟的磁碟區加密。 此解決方案與 Azure Key Vault 整合，以協助控制和管理磁碟加密金鑰。
 
 **SQL Server**：SQL Server 執行個體會使用下列資料庫安全性量值：
-
 -   [SQL Server 稽核](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine?view=sql-server-2017)會追蹤資料庫事件並將事件寫入稽核記錄。
 -   [透明資料加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017)會執行資料庫、相關聯的備份及交易記錄檔的即時加密和解密，以保護待用資訊。 透明資料加密能保證已儲存的資料不會遭到未經授權的存取。
 -   [防火牆規則](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)可在授與適當權限之前，防止所有對資料庫伺服器的存取。 此防火牆會根據每一個要求的來源 IP 位址來授與資料庫存取權。
@@ -121,7 +116,6 @@ Azure 預設會加密與 Azure 資料中心的所有通訊。
 - [動態資料遮罩](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking?view=sql-server-2017)可藉由遮避資料，使不具權限的使用者或應用程式無法看見敏感性資料。 動態資料遮罩可以自動探索潛在的敏感性資料，並建議套用適當的遮罩。 這有助於減少存取，敏感性資料就不會經由未經授權的存取而離開資料庫。 **客戶須負責調整動態資料遮罩設定，以符合其資料庫結構描述。**
 
 ### <a name="identity-management"></a>身分識別管理
-
 客戶可能會使用內部部署 Active Directory 同盟服務來與 [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) 這個 Microsoft 的多租用戶雲端型目錄及身分識別管理服務建立同盟。 [Azure Active Directory Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect) 會將內部部署目錄與 Azure Active Directory 整合。 此解決方案中的所有使用者都需要 Azure Active Directory 帳戶。 使用同盟登入時，使用者可以使用內部部署認證登入 Azure Active Directory 並向 Azure 資源驗證。
 
 此外，下列 Azure Active Directory 功能有助於管理對 Azure 環境中資料的存取：
@@ -133,7 +127,6 @@ Azure 預設會加密與 Azure 資料中心的所有通訊。
 **Azure Multi-Factor Authentication**：為保護身分識別，應該實作多重要素驗證。 [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/) 是一個容易使用、可調整且可靠的解決方案，可提供第二種驗證方法來保護使用者。 Azure Multi-Factor Authentication 採用雲端技術且與您內部部署的 Active Directory 和自訂應用程式整合。 此保護功能可以延伸到高任務關鍵性的案例。
 
 ### <a name="security"></a>安全性
-
 **祕密管理**：解決方案會使用 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 來管理金鑰和祕密。 Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和密碼。 下列 Azure Key Vault 功能可協助客戶保護資料及存取這類資料：
 
 - 進階存取原則是視需要設定的。
@@ -169,7 +162,6 @@ Azure 資訊安全中心提供依優先順序排列的安全性警示和事件�
 - [Azure 資訊安全中心](https://azure.microsoft.com/services/security-center)和 [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations) 會提供額外的保護和通知。 Azure 資訊安全中心也會提供評價系統。
 
 ### <a name="business-continuity"></a>業務持續性
-
 **高可用性**：解決方案會將所有虛擬機器部署在[可用性設定組](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets)中。 可用性設定組可確保虛擬機器會分散到多個各自獨立的硬體叢集中，以提高可用性。 在進行計劃性或非計劃性的維護事件期間，至少有一部虛擬機器可使用，進而符合 99.95% 的 Azure SLA。
 
 **復原服務保存庫**：[復原服務保存庫](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview)可裝載備份資料，並保護此架構中所有 Azure 虛擬機器的組態。 客戶可以使用復原服務保存庫，從 IaaS 虛擬機器還原檔案和資料夾，而非還原整個虛擬機器，這樣可加速還原時間。
@@ -177,7 +169,6 @@ Azure 資訊安全中心提供依優先順序排列的安全性警示和事件�
 **雲端見證**：[雲端見證](https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering#BKMK_CloudWitness)是 Windows Server 2016 中容錯移轉叢集仲裁見證的一種類型，其運用 Azure 作為仲裁點。 如同其他任何仲裁見證，雲端見證會進行投票，而且可以參與仲裁計算，但它使用公開提供的標準 Azure Blob 儲存體。 這可消除裝載在公用雲端中虛擬機器的額外維修負荷。
 
 ### <a name="logging-and-auditing"></a>記錄與稽核
-
 Azure 服務會廣泛記錄系統、使用者活動及系統健康情況：
 - **活動記錄**：[活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)能讓您深入了解在訂用帳戶資源上執行的作業。 活動記錄可協助判斷作業的啟動器、出現時間和狀態。
 - **診斷記錄**：[診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)包含每個資源發出的所有記錄。 這些記錄包含 Windows 事件系統記錄、Azure 儲存體記錄、Key Vault 稽核記錄，以及應用程式閘道存取和防火牆記錄。 所有診斷記錄都會寫入到集中且加密的 Azure 儲存體帳戶進行封存。 保留期是由使用者自訂，視組織特定的保留期需求，最長可達 730 天。
@@ -197,23 +188,19 @@ Azure 服務會廣泛記錄系統、使用者活動及系統健康情況：
 [Azure 網路監看員](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)：Azure 網路監看員提供了相關工具，可對 Azure 虛擬網路中的資源進行監視、診斷、檢視計量，以及啟用或停用記錄。  實體應該跟對 NSG 與虛擬機器實作網路監看員流量記錄。 這些記錄應該存放在只用來存放安全性記錄的專屬儲存體帳戶中，而且必須使用角色行存取控制來保護對該儲存體帳戶的存取。
 
 ## <a name="threat-model"></a>威脅模型
-
 此參考架構的資料流程圖可供[下載](https://aka.ms/au-protected-iaaswa-tm)，或可以在以下位置找到。 此模型可協助客戶在進行修改時，了解系統基礎結構中的潛在風險要點。
 
 ![適用於 AU-PROTECTED 的 IaaS Web 應用程式威脅模型](images/au-protected-iaaswa-threat-model.png?raw=true "適用於 AU-PROTECTED 的 IaaS Web 應用程式威脅模型圖表")
 
 ## <a name="compliance-documentation"></a>合規性文件
-
 此合規性文件是由 Microsoft 根據 Microsoft 所提供的平台與服務所建立。 由於客戶部署的廣泛性，此文件只針對 Azure 環境中裝載的解決方案提供一般方法。 客戶可以根據自己的作業環境與商業結果來尋找並使用替代產品與服務。 選擇使用內部部署資源的客戶必須解決那些內部部署資源的安全性與作業問題。 客戶可以自訂已記錄的解決方案以滿足其特定內部部署與安全性需求。
 
-[Azure 安全性與合規性藍圖 – AU-PROTECTED 客戶責任對照表](https://aka.ms/au-protected-crm)列出 AU-PROTECTED 所需的所有安全性控制措施。 此對照表詳細說明每個控制措施的實作是由 Microsoft、客戶還是兩者共同負責。
+[Azure 安全性與合規性藍圖 – AU-PROTECTED 客戶責任對照表](https://aka.ms/au-protected-crm)列出 AU-PROTECTED 所需的所有安全性控制措施。 此對照表詳細說明每個控制項的實作是由 Microsoft、客戶還是兩者共同負責。
 
 [Azure 安全性與合規性藍圖 - AU-PROTECTED IaaS Web 應用程式實作對照表](https://aka.ms/au-protected-iaaswa-cim)提供 IaaS Web 應用程式架構處理了哪些 AU-PROTECTED 控制措施的相關資訊，包括詳細說明此實作如何滿足每個涵蓋控制措施的需求。
 
-## <a name="guidance-and-recommendations"></a>指導方針與建議
-
+## <a name="guidance-and-recommendations"></a>指引與建議
 ### <a name="vpn-and-expressroute"></a>VPN 和 ExpressRoute
-
 針對分類資訊，您需要設定安全的 IPSec VPN 通道，以安全地連線到部署為此 IaaS Web 應用程式參考架構一部分的資源。 透過適當地設定 IPSec VPN，客戶可以在傳輸過程中加上資料保護層。
 
 透過實作與 Azure 的安全 IPSec VPN 通道，即可建立內部部署網路與 Azure 虛擬網路之間的虛擬私人連線。 此連線可以透過網際網路進行，可讓客戶在客戶的網路與 Azure 之間的加密連結內安全地「輸送」資訊。 站對站 VPN 是安全成熟的技術，各種規模的企業已部署數十年。 
@@ -244,7 +231,6 @@ Azure 服務會廣泛記錄系統、使用者活動及系統健康情況：
 - 將[防止意外刪除](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-prevent-accidental-deletes)與[自動升級](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-feature-automatic-upgrade)維持為預設設定
 
 ## <a name="disclaimer"></a>免責聲明
-
 - 此文件僅供參考之用。 Microsoft 對本文件中的資訊不做任何明示、暗示或成文之擔保。 這份文件係依「現狀」提供。 本文件中說明的資訊與畫面 (包括 URL 及其他網際網路網站參考資料) 如有變更，恕不另行通知。 閱讀這份文件的客戶須自行承擔使用風險。
 - 本文件未提供給客戶任何 Microsoft 產品或解決方案中任何智慧財產的任何法定權利。
 - 客戶可以複製並使用這份文件，供內部參考之用。

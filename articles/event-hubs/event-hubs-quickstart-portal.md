@@ -1,6 +1,6 @@
 ---
-title: Azure 快速入門 - 使用 Azure 入口網站處理事件串流 | Microsoft Docs
-description: 在本快速入門中，您將了解如何使用 Azure 入口網站處理事件串流。
+title: Azure 快速入門 - 使用 Azure 入口網站建立事件中樞 | Microsoft Docs
+description: 在本快速入門中，您將了解如何使用 Azure 入口網站建立 Azure 事件中樞，然後使用 .NET Standard SDK 傳送和接收事件。
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -8,16 +8,16 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 06/26/2018
+ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 1938f7a8400587f8f0405cb576bfbdfe8bf1dddd
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 5c59d22c7b1e9e993d2686bfc4c2e389a17d9161
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004305"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42744204"
 ---
-# <a name="quickstart-process-event-streams-using-the-azure-portal-and-net"></a>快速入門：使用 Azure 入口網站和 .NET 處理事件串流
+# <a name="quickstart-create-an-event-hub-using-azure-portal"></a>快速入門：使用 Azure 入口網站建立事件中樞
 
 Azure 事件中樞是可高度調整的資料串流平台和擷取服務，每秒可接收和處理數百萬個事件。 本快速入門將示範如何使用 [Azure 入口網站](https://portal.azure.com)建立事件中樞，然後使用 .NET Standard SDK 在事件中樞中進行傳送和接收。
 

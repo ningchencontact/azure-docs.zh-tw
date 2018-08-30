@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: 9f37a7665521b69634329078258b00cb9f53c407
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 644089cea4dccc79e67b9117187b553eb4616d9f
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358713"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818209"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>您想要了解 Service Fabric 嗎？
 Azure Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署及管理可調整和可信賴的微服務。  Service Fabric 有相當大的介面區，不過，要了解的方面很多。  本文提供 Service Fabric 的概述，並描述核心概念、程式設計模型、應用程式生命週期、測試、叢集及健康情況監視。 如需相關簡介及了解如何使用 Service Fabric 來建立微服務，請參閱[概觀](service-fabric-overview.md)和[什麼是微服務？](service-fabric-overview-microservices.md)。 本文並未包含完整的內容清單，但有連結到 Service Fabric 每個領域的概觀與入門文章。 
@@ -146,7 +146,7 @@ Linux 上的 Service Fabric 可讓您如同在 Windows 上一樣，在 Linux 上
 ### <a name="standalone-clusters"></a>獨立叢集
 Service Fabric 提供安裝套件，可讓您在內部部署環境或任何雲端提供者上建立獨立 Service Fabric 叢集。 獨立叢集可讓您在任何想要的位置自由裝載叢集。 若您的資料受限於合規性或法規限制，或是您想要將資料保留在本機，則可以自行裝載叢集和應用程式。 Service Fabric 應用程式無須進行任何變更，即可在多個主控環境中執行，因此您的應用程式建置知識可以運用在不同的主控環境。 
 
-[建立您的第一個 Service Fabric 獨立叢集](service-fabric-get-started-standalone-cluster.md)
+[建立您的第一個 Service Fabric 獨立叢集](service-fabric-cluster-creation-for-windows-server.md)
 
 尚不支援 Linux 獨立叢集。
 
